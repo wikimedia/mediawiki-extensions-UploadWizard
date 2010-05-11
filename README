@@ -1,0 +1,10 @@
+UploadWizard is dependent on js2 / mwEmbed, you must include JS2Support extension prior to UploadWizard.php
+
+# To enable add the following to localSettings.php 
+
+# JS2 / mwEmbed Support
+require_once( "$IP/extensions/JS2Support/JS2Support.php" );
+
+# Upload Wizard
+require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
+
