@@ -13,15 +13,16 @@
 	mw.addClassFilePaths( {
 		"mw.LanguageUpWiz"			: "mw.LanguageUpWiz.js",
 		"mw.UploadWizard"		: "mw.UploadWizard.js",
-		"mw.style.uploadWizard" : "css/uploadWizard.css",
+		"mw.style.uploadWizard" 	: "css/uploadWizard.css",
 		
 		"mw.UploadApiProcessor"		: "mw.UploadApiProcessor.js",
 		"mw.IframeTransport"		: "mw.IframeTransport.js",
 		"mw.ApiUploadHandler"		: "mw.ApiUploadHandler.js",
 		"mw.DestinationChecker"		: "mw.DestinationChecker.js",
 
-		"mw.MockUploadHandler"		: "mw.MockUploadHandler.js"			
-		
+		"mw.MockUploadHandler"		: "mw.MockUploadHandler.js",		
+		"$j.fn.tipsy"			: "jquery/plugins/jquery.tipsy.js",
+		"mw.style.tipsy"		: "css/jquery.tipsy.css"
 	});	
 	
 	//Set a variable for the base upload interface for easy inclution
