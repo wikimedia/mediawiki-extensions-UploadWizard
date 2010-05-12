@@ -1,17 +1,16 @@
 <?php
-/*
+/**
  * Internationalisation for UploadWizard
  *
  * @file
  * @ingroup Extensions
  */
 
-
 $messages = array();
 
 $messages['en'] = array(
-	'mwe-code-unknown' => 'Unknown language',
-	'mwe-loading-upwiz' => 'Loading upload wizard',
+	'mwe-upwiz-code-unknown' => 'Unknown language',
+	'mwe-upwiz-loading-upwiz' => 'Loading upload wizard',
 	'mwe-upwiz-tab-file' => '1. Upload your files',
 	'mwe-upwiz-tab-details' => '2. Add licenses and descriptions',
 	'mwe-upwiz-tab-thanks' => '3. Use your files',
@@ -66,9 +65,9 @@ $messages['en'] = array(
 	'mwe-upwiz-source' => 'Source',
 	'mwe-upwiz-macro-edit-intro' => 'Please add some descriptions and other information to your uploads.',
 	'mwe-upwiz-macro-edit' => 'Update descriptions',
-	'mwe-upwiz-thanks-intro' => 'Thanks for uploading your works! You can now use your files on a Wikipedia article or link to them from elsewhere on the web.',
+	'mwe-upwiz-thanks-intro' => 'Thanks for uploading your works! You can now use your files on page or link to them from elsewhere on the web.',
 	'mwe-upwiz-thanks-link' => 'This file is now available at <b><tt>$1</tt></b>.',
-	'mwe-upwiz-thanks-wikitext' => 'To use it in a Wikipedia article, copy this text into an article: ',
+	'mwe-upwiz-thanks-wikitext' => 'To use the file, copy this text into a page:',
 	'mwe-upwiz-thanks-url' => 'To link to it in HTML, copy this HTML code: ',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'This wiki does not accept filenames with the extension "$1".',
 	'mwe-upwiz-upload-error-duplicate' => 'This file was previously uploaded to this wiki.',
@@ -76,107 +75,108 @@ $messages['en'] = array(
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Cancel',
 	'mwe-upwiz-change' => '(change)',
-	'mwe-fileexists' => 'A file with this name exists already. Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
-	'mwe-thumbnail-more' => 'Enlarge',
+	'mwe-upwiz-fileexists' => 'A file with this name exists already. Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
+	'mwe-upwiz-thumbnail-more' => 'Enlarge',
 	'mwe-upwiz-overwrite' => 'Replace the file',
 );
 
 $messages['be-tarask'] = array(
-	'mwe-fileexists' => 'Файл з такой назвай ужо існуе. Калі ласка, праверце <b><tt>$1</tt></b>, калі Вы ня ўпэўненыя, што жадаеце яго замяніць.',
+	'mwe-upwiz-fileexists' => 'Файл з такой назвай ужо існуе. Калі ласка, праверце <b><tt>$1</tt></b>, калі Вы ня ўпэўненыя, што жадаеце яго замяніць.',
 );
 
 $messages['cs'] = array(
-	'mwe-fileexists' => 'Soubor s tímto jménem již existuje, prosím podívejte se na <b><tt>$1</tt></b>, pokud nevíte jistě, zda chcete tento soubor nahradit.',
+	'mwe-upwiz-fileexists' => 'Soubor s tímto jménem již existuje, prosím podívejte se na <b><tt>$1</tt></b>, pokud nevíte jistě, zda chcete tento soubor nahradit.',
 );
 
 $messages['de'] = array(
-	'mwe-fileexists' => 'Eine Datei mit diesem Namen existiert bereits. Bitte prüfe <b><tt>$1</tt></b>, wenn du dir bei der Änderung nicht sicher bist.',
+	'mwe-upwiz-fileexists' => 'Eine Datei mit diesem Namen existiert bereits. Bitte prüfe <b><tt>$1</tt></b>, wenn du dir bei der Änderung nicht sicher bist.',
 );
 
 $messages['diq'] = array(
-	'mwe-fileexists' => 'no name de ca ra yew dosya esta. eke şıma emin niê bıvurni, kerem kerê <b><tt>$1</tt></b> kontrol bıkerê.',
+	'mwe-upwiz-fileexists' => 'no name de ca ra yew dosya esta. eke şıma emin niê bıvurni, kerem kerê <b><tt>$1</tt></b> kontrol bıkerê.',
 );
 
 $messages['dsb'] = array(
-	'mwe-fileexists' => 'Dataja z toś tym mjenim južo eksistěrujo. Pšosym skontrolěruj <b><tt>$1</tt></b>, jolic njejsy wěsty, lěc coš ju změniś.',
+	'mwe-upwiz-fileexists' => 'Dataja z toś tym mjenim južo eksistěrujo. Pšosym skontrolěruj <b><tt>$1</tt></b>, jolic njejsy wěsty, lěc coš ju změniś.',
 );
 
 $messages['es'] = array(
-	'mwe-fileexists' => 'Un archivo con este nombre ya existe. Por favor verifica <b><tt>$1</tt></b> si no est.ás seguro si deseas cambiarlo.',
+	'mwe-upwiz-fileexists' => 'Un archivo con este nombre ya existe. Por favor verifica <b><tt>$1</tt></b> si no est.ás seguro si deseas cambiarlo.',
 );
 
 $messages['fr'] = array(
-	'mwe-fileexists' => 'Un fichier existe déjà sous ce nom. Veuillez vérifier <b><tt>$1</tt></b> si vous n\'êtes pas sûr de vouloir le changer.',
+	'mwe-upwiz-fileexists' => 'Un fichier existe déjà sous ce nom. Veuillez vérifier <b><tt>$1</tt></b> si vous n\'êtes pas sûr de vouloir le changer.',
 );
 
 $messages['gl'] = array(
-	'mwe-fileexists' => 'Xa existe un ficheiro con ese nome. Por favor, verifique <b><tt>$1</tt></b> se non está seguro de que quere cambialo.',
+	'mwe-upwiz-fileexists' => 'Xa existe un ficheiro con ese nome. Por favor, verifique <b><tt>$1</tt></b> se non está seguro de que quere cambialo.',
 );
 
 $messages['gsw'] = array(
-	'mwe-fileexists' => 'S het scho ne Datei mit däm Name. Bitte prief <b><tt>$1</tt></b>, wänn du nit sicher bisch, eb Du dr Name witt ändere.',
+	'mwe-upwiz-fileexists' => 'S het scho ne Datei mit däm Name. Bitte prief <b><tt>$1</tt></b>, wänn du nit sicher bisch, eb Du dr Name witt ändere.',
 );
 
 $messages['hsb'] = array(
-	'mwe-fileexists' => 'Dataja z tutym mjenom hižo eksistuje. Prošu skontroluj <b><tt>$1</tt></b>, jeli njesy sej wěsty, hač chceš ju změnić.',
+	'mwe-upwiz-fileexists' => 'Dataja z tutym mjenom hižo eksistuje. Prošu skontroluj <b><tt>$1</tt></b>, jeli njesy sej wěsty, hač chceš ju změnić.',
 );
 
 $messages['hu'] = array(
-	'mwe-fileexists' => 'Már létezik ilyen nevű fájl. Ellenőrizd a(z) <b><tt>$1</tt></b> fájlt, ha nem vagy biztos benne, hogy le szeretnéd cserélni.',
+	'mwe-upwiz-fileexists' => 'Már létezik ilyen nevű fájl. Ellenőrizd a(z) <b><tt>$1</tt></b> fájlt, ha nem vagy biztos benne, hogy le szeretnéd cserélni.',
 );
 
 $messages['ia'] = array(
-	'mwe-fileexists' => 'Un file con iste nomine ja existe. Per favor verifica <b><tt>$1</tt></b> si tu non es secur de voler cambiar lo.',
+	'mwe-upwiz-fileexists' => 'Un file con iste nomine ja existe. Per favor verifica <b><tt>$1</tt></b> si tu non es secur de voler cambiar lo.',
 );
 
 $messages['id'] = array(
-	'mwe-fileexists' => 'Suatu berkas dengan nama tersebut telah ada. Tolong cek <b><tt>$1</tt></b> jika Anda tidak yakin untuk mengubahnya.',
+	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada. Tolong cek <b><tt>$1</tt></b> jika Anda tidak yakin untuk mengubahnya.',
 );
 
 $messages['ja'] = array(
-	'mwe-fileexists' => '同名のファイルが既に存在しています。上書きしてよいかわからない場合は <b><tt>$1</tt></b> を確認してください。',
+	'mwe-upwiz-fileexists' => '同名のファイルが既に存在しています。上書きしてよいかわからない場合は <b><tt>$1</tt></b> を確認してください。',
 );
 
 $messages['ksh'] = array(
-	'mwe-fileexists' => 'En Dattei met dämm Name jidd_et ald. Beß esu joot un donn <b><tt>$1</tt></b> prööfe, wann De Der nit sescher beß, of De jät ändere wells.',
+	'mwe-upwiz-fileexists' => 'En Dattei met dämm Name jidd_et ald. Beß esu joot un donn <b><tt>$1</tt></b> prööfe, wann De Der nit sescher beß, of De jät ändere wells.',
 );
 
 $messages['lb'] = array(
-	'mwe-fileexists' => 'E Fichier mat dësem Numm gëtt et schonn. Kuckt w.e.g. op <b><tt>$1</tt></b> no wann Dir net sécher sidd ob Dir en ännere wëllt.',
+	'mwe-upwiz-fileexists' => 'E Fichier mat dësem Numm gëtt et schonn. Kuckt w.e.g. op <b><tt>$1</tt></b> no wann Dir net sécher sidd ob Dir en ännere wëllt.',
 );
 
 $messages['ml'] = array(
-	'mwe-fileexists' => 'ഇതേ പേരിൽ ഒരു പ്രമാണം നിലവിലുണ്ട്. അതിൽ മാറ്റം വരുത്തണോ എന്നു താങ്കൾക്ക് ഉറപ്പില്ലങ്കിൽ ദയവായി <b><tt>$1</tt></b> കാണുക.',
+	'mwe-upwiz-fileexists' => 'ഇതേ പേരിൽ ഒരു പ്രമാണം നിലവിലുണ്ട്. അതിൽ മാറ്റം വരുത്തണോ എന്നു താങ്കൾക്ക് ഉറപ്പില്ലങ്കിൽ ദയവായി <b><tt>$1</tt></b> കാണുക.',
 );
 
 $messages['nl'] = array(
-	'mwe-fileexists' => 'Er bestaat al een bestand met deze naam. Controleer <b><tt>$1</tt></b> als u niet zeker weet of u het huidige bestand wilt overschrijven.',
+	'mwe-upwiz-fileexists' => 'Er bestaat al een bestand met deze naam. Controleer <b><tt>$1</tt></b> als u niet zeker weet of u het huidige bestand wilt overschrijven.',
 );
 
 $messages['oc'] = array(
-	'mwe-fileexists' => 'Un fichièr amb aqueste nom existís ja. Mercé de verificar <b><tt>$1</tt></b> se sètz pas segur que lo volètz cambiar.',
+	'mwe-upwiz-fileexists' => 'Un fichièr amb aqueste nom existís ja. Mercé de verificar <b><tt>$1</tt></b> se sètz pas segur que lo volètz cambiar.',
 );
 
 $messages['pl'] = array(
-	'mwe-fileexists' => 'Plik o tej nazwie już istnieje. Sprawdź <b><tt>$1</tt></b> jeśli nie jesteś pewien czy chcesz go zastąpić.',
+	'mwe-upwiz-fileexists' => 'Plik o tej nazwie już istnieje. Sprawdź <b><tt>$1</tt></b> jeśli nie jesteś pewien czy chcesz go zastąpić.',
 );
 
 $messages['pt'] = array(
-	'mwe-fileexists' => 'Já existe um ficheiro com este nome. Por favor, verifique <b><tt>$1</tt></b> se não tem a certeza de que deseja alterá-lo.',
+	'mwe-upwiz-fileexists' => 'Já existe um ficheiro com este nome. Por favor, verifique <b><tt>$1</tt></b> se não tem a certeza de que deseja alterá-lo.',
 );
 
 $messages['ru'] = array(
-	'mwe-fileexists' => 'Файл с этим именем уже существует. Пожалуйста, проверьте <b><tt>$1</tt></b>, если вы не уверены, что хотите заменить его.',
+	'mwe-upwiz-fileexists' => 'Файл с этим именем уже существует. Пожалуйста, проверьте <b><tt>$1</tt></b>, если вы не уверены, что хотите заменить его.',
 );
 
 $messages['sk'] = array(
-	'mwe-fileexists' => 'Súbor s týmto názvom už existuje. Prosím, skontrolujte <b><tt>$1</tt></b> ak si nie ste istý, či ho chcete zmeniť.',
+	'mwe-upwiz-fileexists' => 'Súbor s týmto názvom už existuje. Prosím, skontrolujte <b><tt>$1</tt></b> ak si nie ste istý, či ho chcete zmeniť.',
 );
 
 $messages['tr'] = array(
-	'mwe-fileexists' => 'Bu isimde bir dosya zaten mevcut. Değiştirmek istediğinize emin değilseniz lütfen <b><tt>$1</tt></b> kontrol edin.',
+	'mwe-upwiz-fileexists' => 'Bu isimde bir dosya zaten mevcut. Değiştirmek istediğinize emin değilseniz lütfen <b><tt>$1</tt></b> kontrol edin.',
 );
 
 $messages['vi'] = array(
-	'mwe-fileexists' => 'Một tập tin với tên này đã tồn tại, xin hãy kiểm tra lại <b><tt>$1</tt></b> nếu bạn không chắc bạn có muốn thay đổi nó hay không.',
+	'mwe-upwiz-fileexists' => 'Một tập tin với tên này đã tồn tại, xin hãy kiểm tra lại <b><tt>$1</tt></b> nếu bạn không chắc bạn có muốn thay đổi nó hay không.',
 );
+

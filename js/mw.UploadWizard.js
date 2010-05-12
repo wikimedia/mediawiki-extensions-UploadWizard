@@ -73,8 +73,8 @@ mw.addMessages( {
 	"mwe-upwiz-cancel": "Cancel",
 	"mwe-upwiz-change": "(change)",
 
-	"mwe-fileexists" : "A file with this name exists already. Please check <b><tt>$1<\/tt><\/b> if you are not sure if you want to replace it.",
-	"mwe-thumbnail-more" : "Enlarge",
+	"mwe-upwiz-fileexists" : "A file with this name exists already. Please check <b><tt>$1<\/tt><\/b> if you are not sure if you want to replace it.",
+	"mwe-upwiz-thumbnail-more" : "Enlarge",
 	"mwe-upwiz-overwrite" : "Replace the file",
 
 	"mwe-copyright-macro": "As above",
@@ -1234,7 +1234,7 @@ mw.UploadWizardDetails.prototype = {
 	
 		var $fileAlreadyExists = $j('<div />')
 			.append(				
-				gM( 'mwe-fileexists', 
+				gM( 'mwe-upwiz-fileexists', 
 					$j('<a />')
 					.attr( { target: '_new', href: href } )
 					.text( title )
@@ -1268,7 +1268,7 @@ mw.UploadWizardDetails.prototype = {
 					$j('<a />' )
 					.addClass( 'internal' )
 					.attr( {
-						'title' : gM('mwe-thumbnail-more'),
+						'title' : gM('mwe-upwiz-thumbnail-more'),
 						'href' : href
 					} ),
 					
