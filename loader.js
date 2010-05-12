@@ -11,18 +11,18 @@
 	
 	// Add class file paths ( From ROOT )
 	mw.addClassFilePaths( {
-		"mw.LanguageUpWiz"			: "mw.LanguageUpWiz.js",
-		"mw.UploadWizard"		: "mw.UploadWizard.js",
-		"mw.style.uploadWizard" 	: "css/uploadWizard.css",
+		"mw.LanguageUpWiz"		: "js/mw.LanguageUpWiz.js",
+		"mw.UploadWizard"		: "js/mw.UploadWizard.js",
+		"mw.style.uploadWizard" 	: "styles/uploadWizard.css",
 		
-		"mw.UploadApiProcessor"		: "mw.UploadApiProcessor.js",
-		"mw.IframeTransport"		: "mw.IframeTransport.js",
-		"mw.ApiUploadHandler"		: "mw.ApiUploadHandler.js",
-		"mw.DestinationChecker"		: "mw.DestinationChecker.js",
+		"mw.UploadApiProcessor"		: "js/mw.UploadApiProcessor.js",
+		"mw.IframeTransport"		: "js/mw.IframeTransport.js",
+		"mw.ApiUploadHandler"		: "js/mw.ApiUploadHandler.js",
+		"mw.DestinationChecker"		: "js/mw.DestinationChecker.js",
 
-		"mw.MockUploadHandler"		: "mw.MockUploadHandler.js",		
-		"$j.fn.tipsy"			: "jquery/plugins/jquery.tipsy.js",
-		"mw.style.tipsy"		: "css/jquery.tipsy.css"
+		"mw.MockUploadHandler"		: "js/mw.MockUploadHandler.js",		
+		"$j.fn.tipsy"			: "js/jquery/plugins/jquery.tipsy.js",
+		"mw.style.tipsy"		: "styles/jquery.tipsy.css"
 	});	
 	
 	//Set a variable for the base upload interface for easy inclution

@@ -60,11 +60,11 @@ form.mwe-upwiz-form {
 	left: 21px;
 	padding-right: 12px;
 	z-index: 2;
-	background: url('../images/grey-angle.gif') no-repeat right center;
+	background: url('grey-angle.gif') no-repeat right center;
 }
 
 #mwe-upwiz-steparrows ul li.mwe-upwiz-step-highlight span.mwe-arrow {
-	background: url('../images/black-angle.gif') no-repeat right center;
+	background: url('black-angle.gif') no-repeat right center;
 }
 
 #mwe-upwiz-steparrows ul li.mwe-upwiz-step-highlight span.mwe-arrow-text {
