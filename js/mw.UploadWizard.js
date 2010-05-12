@@ -1083,7 +1083,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			_this.deedDiv
 		);
 	
-	_this.moreDetailsDiv = $j('<div class="mwe-more-details"></div>').maskSafeHide();
+	_this.moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
 
 	_this.moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 
@@ -2667,7 +2667,6 @@ mw.UploadWizardDeedChooser.prototype = {
 				var toggleDiv = $j('<div />');
 
 				var customDiv = $j('<div/>')
-					.maskSafeHide()
 					.append( 
 						$j( '<input />') 
 							.attr( { type: 'checkbox' } )
@@ -2927,6 +2926,8 @@ mw.UploadWizardUtil = {
 				.click( toggle )
 				.data( 'open', false )
 				.append( icon, text ) );
+
+		$j( moreDiv ).maskSafeHide();
 	
 	},
 
@@ -3104,15 +3105,28 @@ jQuery.fn.unmask = function( options ) {
  * Rather than use display: none, this collapses the divs to zero height
  * This is good because then the elements in the divs still have layout and we can do things like mask and unmask (above)
  * XXX may be obsolete as we are not really doing this any more
+ * disable form fields so we do not tab through them when hidden
+ * XXX for some reason the disabling doesn't work with the date field.
  */ 
 
 jQuery.fn.maskSafeHide = function( options ) {
+	$j.each( this.find( ':enabled' ), function(i, input) {
+		$j( input ).data( 'wasEnabled', true )
+			   .attr( 'disabled', 'disabled' );
+	} );
 	return this.css( { 'height' : '0px', 'overflow' : 'hidden' } );
 };
 
 // XXX check overflow properties, is auto/auto not the right thing?
 // may be causing scrollbar to appear when div changes size
+// re-enable form fields (disabled so we did not tab through them when hidden)
 jQuery.fn.maskSafeShow = function( options ) {
+	$j.each( this.find( ':disabled' ), function (i, input) {
+		if ($j( input ).data( 'wasEnabled' )) {
+			$j( input ).removeAttr( 'disabled' )
+				   .removeData( 'wasEnabled' ); 
+		}
+	} );
 	return this.css( { 'height' : 'auto', 'overflow' : 'visible' } );
 };
 
