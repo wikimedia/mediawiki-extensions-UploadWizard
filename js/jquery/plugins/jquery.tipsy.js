@@ -23,10 +23,11 @@
             var title = this.getTitle();
             if (title && this.enabled) {
                 var $tip = this.tip();
-                
                 $tip.find('.tipsy-inner')[this.options.html ? 'html' : 'text'](title);
                 $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
-                $tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
+		// the remove strips events
+                //$tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
+                $tip.css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
                 
                 var pos = $.extend({}, this.$element.offset(), {
                     width: this.$element[0].offsetWidth,
@@ -71,12 +72,14 @@
                 }
             }
         },
-        
+       
         hide: function() {
-            if (this.options.fade) {
-                this.tip().stop().fadeOut(function() { $(this).remove(); });
-            } else {
-                this.tip().remove();
+	    if (!this.sticky) {
+                if (this.options.fade) {
+                    this.tip().stop().fadeOut(function() { $(this).hide(); });
+                } else {
+                    this.tip().hide();
+                }
             }
         },
         
@@ -86,10 +89,10 @@
             var title, o = this.options;
             if (typeof o.title == 'string') {
                 title = $e.attr(o.title == 'title' ? 'original-title' : o.title);
+            	title = ('' + title).replace(/(^\s*|\s*$)/, "");
             } else if (typeof o.title == 'function') {
                 title = o.title.call($e[0]);
             }
-            title = ('' + title).replace(/(^\s*|\s*$)/, "");
             return title || o.fallback;
         },
         
@@ -137,7 +140,7 @@
                 setTimeout(function() { if (tipsy.hoverState == 'in') tipsy.show(); }, options.delayIn);
             }
         };
-        
+       
         function leave() {
             var tipsy = get(this);
             tipsy.hoverState = 'out';

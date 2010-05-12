@@ -94,7 +94,9 @@ mw.addMessages( {
 	"mwe-upwiz-tooltip-sign": "You can use your wiki User name or your real name. In both cases, this will be linked to your wiki User page",
 	"mwe-upwiz-tooltip-title": "A short title for the image. You may use plain language with spaces, but no line breaks. This title must be unlike all other titles in this wiki.",
 	"mwe-upwiz-tooltip-description": "Briefly describe everything notable about the work. For a photo, mention the main things that are depicted, the occasion or the place.",
-	"mwe-upwiz-tooltip-other": "Any other information you want to include about this work. You may use wikitext code."
+	"mwe-upwiz-tooltip-other": "Any other information you want to include about this work. You may use wikitext code.",
+
+	"mwe-upwiz-tooltip-more-info": "Learn more."
 	
 } );
 
@@ -978,8 +980,8 @@ mw.UploadWizardDescription = function( languageCode ) {
 	$j(_this.languageMenu).addClass('mwe-upwiz-desc-lang-select');
 	_this.description = $j('<textarea name="desc" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>')
 				.attr( 'title', gM( 'mwe-upwiz-tooltip-description' ) )
-				.tipsy( { gravity: 'w', trigger: 'focus' } )
-				.growTextArea();
+				.growTextArea()
+				.tipsyPlus( { plus: 'even more stuff' } );
 	_this.div = $j('<div class="mwe-upwiz-desc-lang-container"></div>')
 		       .append( _this.languageMenu )
 	               .append( _this.description );
@@ -3116,6 +3118,46 @@ jQuery.fn.maskSafeShow = function( options ) {
 
 
 ( function( $j ) {
+
+	$j.fn.tipsyPlus = function( options ) {
+		var titleOption = 'title';
+		var htmlOption = false;
+		var el = this;
+
+		if (options.plus) {
+			htmlOption = true;
+			titleOption = function() {
+				return $j( '<span />' ).append(
+					$j( this ).attr( 'original-title' ),
+					$j( '<a class="mwe-upwiz-tooltip-link"/>' )
+						.attr( 'href', '#' )
+						.append( gM( 'mwe-upwiz-tooltip-more-info' ) )
+						.mouseenter( function() {
+							el.data('tipsy').sticky = true;
+						} )
+						.mouseleave( function() {
+							el.data('tipsy').sticky = false;
+						} )
+						.click( function() {
+							// show the wiki page with more
+							alert( options.plus );
+							// pass this in as a closure to be called on dismiss
+							el.focus();
+							el.data('tipsy').sticky = false;
+						} )
+				);
+			};
+		}
+
+		return this.tipsy( { 
+			gravity: 'w', 
+			trigger: 'focus',
+			title: titleOption,
+			html: htmlOption
+		} );
+
+	}
+
 
 	/**
 	 * Prevent the closing of a window with a confirm message (the onbeforeunload event seems to 
