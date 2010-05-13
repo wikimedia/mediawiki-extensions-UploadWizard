@@ -207,6 +207,3 @@ $messages['tr'] = array(
 $messages['vi'] = array(
 	'mwe-upwiz-fileexists' => 'Một tập tin với tên này đã tồn tại, xin hãy kiểm tra lại <b><tt>$1</tt></b> nếu bạn không chắc bạn có muốn thay đổi nó hay không.',
 );
-
-
-
