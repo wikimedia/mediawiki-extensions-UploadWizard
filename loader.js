@@ -2,7 +2,7 @@
 * Loader for UploadWizard module:
 */
 
-// Scope everythign in "mw"  ( keeps the global namespace clean ) 
+// Scope everything in "mw"  ( keeps the global namespace clean ) 
 ( function( mw ) {
 
 	mw.addMessages( {
