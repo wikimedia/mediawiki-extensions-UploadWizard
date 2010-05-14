@@ -4,8 +4,7 @@
  */
 
 mw.ready( function() {
-	mw.load( 'UploadWizard.UploadWizard', function () {
-		
+	mw.load( 'UploadWizard.UploadWizard', function () {		
 		mw.setConfig( 'debug', true ); 
 
 		mw.setDefaultConfig( 'uploadHandlerClass', null );

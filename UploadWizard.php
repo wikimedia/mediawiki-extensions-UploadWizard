@@ -48,6 +48,6 @@ $wgSpecialPageGroups['UploadWizard'] = 'media';
 
 $wgScriptLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/UploadWizardPage.js';
 
-// Set up the javascript loader for the jsModule
-$wgExtensionJavascriptLoader[] = 'extensions/UploadWizard/loader.js';
+// Set up the javascript path for the loader and localization file.
+$wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 
