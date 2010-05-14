@@ -137,6 +137,10 @@ form.mwe-upwiz-form {
 	text-align: center;
 }
 
+.mwe-upwiz-count {
+	height: 60px;
+}
+
 .mwe-upwiz-add-files-n {
 	float: left;
 	margin-top: 5px;
@@ -496,3 +500,7 @@ legend.mwe-legend {
 	text-align: right;  /* works for now, only one 'next' button */
 }
 
+a.mwe-upwiz-tooltip-link {
+	cursor: pointer;
+	color: red;
+}

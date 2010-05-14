@@ -139,33 +139,45 @@ mw.UploadWizardDeed.prototype = {
 
 };
 
+
 mw.ProgressBar = function( selector, text ) {
 	var _this = this;
 	// XXX need to figure out a way to put text inside bar
 
-	_this.progressBarDiv = $j('<div></div>')
-				.addClass("mwe-upwiz-progress-bar")
-				.progressbar( { value: 0 } );
-
-	_this.timeRemainingDiv = $j('<div></div>').addClass("mwe-upwiz-etr");
-
-	_this.countDiv = $j('<div></div>').addClass("mwe-upwiz-count");
-
-	_this.beginTime = undefined;
-	
-	$j( selector ).html( 
-		$j('<div />').addClass( 'mwe-upwiz-progress' )
-			.append( $j( '<div></div>' )
-				.addClass( 'mwe-upwiz-progress-bar-etr' )
-				.append( _this.progressBarDiv )
-				.append( _this.timeRemainingDiv ) )
-			.append( $j( _this.countDiv ) )
+	_this.$selector = $j( selector );
+	_this.$selector.html( 
+		'<div class="mwe-upwiz-progress">'
+		+   '<div class="mwe-upwiz-progress-bar-etr" style="display: none">'
+		+     '<div class="mwe-upwiz-progress-bar"></div>'
+		+     '<div class="mwe-upwiz-etr"></div>'
+		+   '</div>'
+		+   '<div class="mwe-upwiz-count"></div>'
+		+ '</div>'
 	);
+
+	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
+	
+	_this.beginTime = undefined;
 			
 };
 
 mw.ProgressBar.prototype = {
 
+	/**
+	 * Show the progress bar with a slideout motion
+         */
+	showBar: function() {
+		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).slideDown( 500 );
+	},
+
+	
+	/**
+	 * Hide the progress bar with a slideup motion
+	 */
+	hideBar: function() {
+		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).slideUp( 500 );
+	},
+	
 	/**
 	 * sets the beginning time (useful for figuring out estimated time remaining)
 	 * if time parameter omitted, will set beginning time to now
@@ -173,8 +185,7 @@ mw.ProgressBar.prototype = {
 	 * @param time  optional; the time this bar is presumed to have started (epoch milliseconds)
 	 */ 
 	setBeginTime: function( time ) {
-		var _this = this;
-		_this.beginTime = time ? time : ( new Date() ).getTime();
+		this.beginTime = time ? time : ( new Date() ).getTime();
 	},
 
 	/**
@@ -182,8 +193,7 @@ mw.ProgressBar.prototype = {
 	 * @param total an integer, for display e.g. uploaded 1 of 5, this is the 5
 	 */ 
 	setTotal: function(total) {
-		var _this = this;
-		_this.total = total;
+		this.total = total;
 	},	
 
 	/**
@@ -196,7 +206,7 @@ mw.ProgressBar.prototype = {
 	showProgress: function( fraction ) {
 		var _this = this;
 
-		_this.progressBarDiv.progressbar( 'value', parseInt( fraction * 100, 10 ) );
+		_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
 
 		var remainingTime;
 		if (_this.beginTime === null) {
@@ -206,8 +216,9 @@ mw.ProgressBar.prototype = {
 		}
 
 		if ( remainingTime !== null ) {
-			_this.timeRemainingDiv
-				.html( gM( 'mwe-upwiz-remaining', mw.seconds2npt(parseInt(remainingTime / 1000), 10) ) );
+			_this.$selector
+				.find( '.mwe-upwiz-etr' )
+				.html( gM( 'mwe-upwiz-remaining', mw.seconds2npt( parseInt( remainingTime / 1000 ), 10 ) ) );
 		}
 	},
 
@@ -236,7 +247,9 @@ mw.ProgressBar.prototype = {
 	 */
 	showCount: function( count ) {
 		var _this = this;
-		_this.countDiv.html( gM( 'mwe-upwiz-upload-count', [ count, _this.total ] ) );
+		_this.$selector
+			.find( '.mwe-upwiz-count' )
+			.html( gM( 'mwe-upwiz-upload-count', [ count, _this.total ] ) );
 	}
 
 
@@ -2216,7 +2229,13 @@ mw.UploadWizard.prototype = {
 		var totalCount = wizard.uploads.length;
 
 		var progressBar = new mw.ProgressBar( progressBarSelector, progressBarText );
+		progressBar.showBar();
 		progressBar.setTotal( totalCount );
+
+		var end = function() {
+			progressBar.hideBar();
+			endCallback();
+		};
 
 		transitioner = function() {
 			var fraction = 0.0;
@@ -2240,8 +2259,9 @@ mw.UploadWizard.prototype = {
 			progressBar.showProgress( fraction );
 			progressBar.showCount( endStateCount );
 	
-			// build in a little delay even for the end state, so user can see progress bar in a complete state.	
-			var nextAction = (endStateCount == totalCount) ? endCallback : transitioner;
+			// build in a little delay even for the end state, so user can see progress bar in a complete state.
+			var nextAction = (endStateCount == totalCount) ? end : transitioner;
+	
 			setTimeout( nextAction, wizard.transitionerDelay );
 		};
 
