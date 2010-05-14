@@ -4,7 +4,8 @@ mw.addMessages( {
 	"mwe-upwiz-step-details": "3. Add descriptions",
 	"mwe-upwiz-step-thanks": "4. Use your files",
 	"mwe-upwiz-intro": "Welcome to Wikimedia Commons, a repository of images, sounds, and movies that anyone can freely download and use. Add to humanity's knowledge by uploading files that could be used for an educational purpose.",
-	
+
+	// XXX maybe use mediawiki PLURAL here 
 	"mwe-upwiz-add-file-n": "Add another file",
 	"mwe-upwiz-add-file-0": "Click here to add a file for upload",
 	"mwe-upwiz-browse": "Browse...",
@@ -15,12 +16,17 @@ mw.addMessages( {
 	"mwe-upwiz-remove-upload": "Remove this file from the list of files to upload",
 	"mwe-upwiz-remove-description": "Remove this description",
 	"mwe-upwiz-upload": "Upload",
-	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|file|files}} of $2 {{PLURAL:$2|file|files}} uploaded",
+	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|file|files}} of $2 uploaded",
 	"mwe-upwiz-progressbar-uploading": "uploading",
-	"mwe-upwiz-remaining": "$1 {{PLURAL:$1|file|files}} remaining",
+	"mwe-upwiz-hrs-mins-secs-remaining": "$1 {{PLURAL:$1|hour|hours}}, $2 {{PLURAL:$2|minute|minutes}}, $3 {{PLURAL:$3|second|seconds}} remaining",
+	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minute|minutes}}, $2 {{PLURAL:$2|second|seconds}} remaining",
+	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|second|seconds}} remaining",
+	// XXX use mediawiki plurals
 	"mwe-upwiz-deeds-intro": "Thank you! Now we need to set a license for these files, so everyone can legally view or modify them. First, we'll have to know where you got them.",
+	// XXX use mediawiki plurals
 	"mwe-upwiz-details-intro": "Now we need some basic information about the files.",
 	"mwe-upwiz-source-ownwork": "This file is my own work.",
+	// XXX use mediawiki plurals
 	"mwe-upwiz-source-ownwork-plural": "These files are my own work.",
 	"mwe-upwiz-source-ownwork-assert": "I, $1, the copyright holder of this work, hereby grant anyone the right to use this work for any purpose, as long as they credit me and share derivative work under the same terms.",
 	"mwe-upwiz-source-ownwork-assert-plural": "I, $1, the copyright holder of these works, hereby grant anyone the right to use these works for any purpose, as long as they credit me and share derivative work under the same terms.",
@@ -29,16 +35,19 @@ mw.addMessages( {
 	"mwe-upwiz-source-ownwork-assert-note": "This means you release your work under a double Creative Commons Attribution ShareAlike and GFDL license.",
 	"mwe-upwiz-source-permission": "Their author gave you explicit permission to upload them",
 	"mwe-upwiz-source-thirdparty": "This file is not my own work.",
+	// XXX use mediawiki plurals
 	"mwe-upwiz-source-thirdparty-plural": "These files are not my own work.",
 	"mwe-upwiz-source-thirdparty-intro" : "Please enter the address where you found each file.",
 	"mwe-upwiz-source-thirdparty-custom-plural-intro" : "If all files have the same source, author, and copyright status, you may enter them only once for all of them.",
 	"mwe-upwiz-source-thirdparty-license" : "The copyright holder of this work published it under the following license(s):",
+	// XXX use mediawiki plurals
 	"mwe-upwiz-source-thirdparty-license-plural" : "The copyright holder of these works published them under the following license(s):",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Did you know? You can <a href=\"$1\">customize</a> the default options you see here.",
 	"mwe-upwiz-more-options": "more options...",
 	"mwe-upwiz-fewer-options": "fewer options...",
 	"mwe-upwiz-desc": "Description in",
+	// XXX use mediawiki PLURAL
 	"mwe-upwiz-desc-add-n": "add a description in another language",
 	"mwe-upwiz-desc-add-0": "add a description",
 	"mwe-upwiz-title": "Title",
@@ -216,9 +225,21 @@ mw.ProgressBar.prototype = {
 		}
 
 		if ( remainingTime !== null ) {
-			_this.$selector
-				.find( '.mwe-upwiz-etr' )
-				.html( gM( 'mwe-upwiz-remaining', mw.seconds2npt( parseInt( remainingTime / 1000 ), 10 ) ) );
+			var tm = mw.seconds2tm( parseInt( remainingTime / 1000, 10 ) );
+			var seconds = tm[0];
+			var minutes = tm[1];
+			var hours = tm[2];
+			var timeString;
+			if (hours == 0) {
+				if (minutes == 0) {
+					timeString = gM( 'mwe-upwiz-secs-remaining', seconds )
+				} else {
+					timeString = gM( 'mwe-upwiz-mins-secs-remaining', minutes, seconds )
+				}
+			} else {
+				timeString = gM( 'mwe-upwiz-hrs-mins-secs-remaining', hours, minutes, seconds );
+			}
+			_this.$selector.find( '.mwe-upwiz-etr' ).html( timeString )
 		}
 	},
 
