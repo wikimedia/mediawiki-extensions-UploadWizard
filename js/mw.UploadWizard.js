@@ -32,7 +32,7 @@ mw.addMessages( {
 	"mwe-upwiz-source-thirdparty-plural": "These files are not my own work.",
 	"mwe-upwiz-source-thirdparty-intro" : "Please enter the address where you found each file.",
 	"mwe-upwiz-source-thirdparty-custom-plural-intro" : "If all files have the same source, author, and copyright status, you may enter them only once for all of them.",
-	"mwe-upwiz-source-thirdparty-license" : "The copyright holder of this work published them under the following license(s):",
+	"mwe-upwiz-source-thirdparty-license" : "The copyright holder of this work published it under the following license(s):",
 	"mwe-upwiz-source-thirdparty-license-plural" : "The copyright holder of these works published them under the following license(s):",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Did you know? You can <a href=\"$1\">customize</a> the default options you see here.",
@@ -61,9 +61,9 @@ mw.addMessages( {
 	"mwe-upwiz-source": "Source",
 	"mwe-upwiz-macro-edit-intro": "Choose a license first above, then you can add some descriptions and other information to your uploads.",
 	"mwe-upwiz-macro-edit": "Update descriptions",
-	"mwe-upwiz-thanks-intro": "Thanks for uploading your works! You can now use your files on a Wikipedia article or link to them from elsewhere on the web.",
+	"mwe-upwiz-thanks-intro": "Thanks for uploading your works! You can now use your files on pages or link to them from elsewhere on the web.",
 	"mwe-upwiz-thanks-link": "This file is now available at <b><tt>$1</tt></b>.",
-	"mwe-upwiz-thanks-wikitext": "<b>To use it in a Wikipedia article</b>, copy this text into an article: ",
+	"mwe-upwiz-thanks-wikitext": "<b>To use the file</b>, copy this text into a page:",
 	"mwe-upwiz-thanks-url": "<b>To link to it in HTML</b>, copy this HTML code: ",
 
 	"mwe-upwiz-upload-error-bad-filename-extension": "This wiki does not accept filenames with the extension \"$1\".",
@@ -81,7 +81,7 @@ mw.addMessages( {
 	"mwe-copyright-custom": "Custom",
 
 	"mwe-upwiz-next": "Next",
-	"mwe-upwiz-home": "Go to Wiki home page",
+	"mwe-upwiz-home": "Go to wiki home page",
 	"mwe-upwiz-upload-another": "Upload more files",
 
 	"mwe-prevent-close": "Your files are still uploading. Are you sure you want to navigate away from this page?",
