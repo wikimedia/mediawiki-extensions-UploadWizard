@@ -52,7 +52,7 @@
 			'$j.ui.dialog',
 			'$j.ui.draggable',			
 			'$j.ui.datepicker',
-			'$j.effects.core',
+			'$j.effects',
 			'$j.effects.slide',
 			//'$j.effects.pulsate',
 			'$j.fn.autocomplete',
