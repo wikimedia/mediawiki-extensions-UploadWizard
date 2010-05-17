@@ -94,7 +94,7 @@ class SpecialUploadWizard extends SpecialPage {
 	public function addJS() {
 		global $wgUser, $wgOut;
 		global $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI;
-		global $wgEnableFirefogg, $wgFileExtensions;
+		global $wgEnableFirefogg, $wgFileExtensions, $wgCanonicalNamespaceNames;
 
 		$wgOut->addScript( Skin::makeVariablesScript( array(
 			// uncertain if this is relevant. Can we do license preview with API?
@@ -106,7 +106,13 @@ class SpecialUploadWizard extends SpecialPage {
 			'wgFileExtensions' => $wgFileExtensions,
 
 			// our edit token
-			'wgEditToken' => $wgUser->editToken()
+			'wgEditToken' => $wgUser->editToken(),
+
+			// URL prefixes in this MediaWiki, e.g. images under Image:
+			'wgCanonicalNamespaceNames' => $wgCanonicalNamespaceNames 
+
+			// 'wgFilenamePrefixBlacklist' => UploadBase::getFilenamePrefixBlacklist();
+
 
 			// in the future, we ought to be telling JS land other things,
 			// like: requirements for publication, acceptable licenses, etc.
