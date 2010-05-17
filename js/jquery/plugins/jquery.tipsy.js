@@ -24,7 +24,7 @@
             if (title && this.enabled) {
                 var $tip = this.tip();
                 $tip.find('.tipsy-inner')[this.options.html ? 'html' : 'text'](title);
-                $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
+                // $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
 		// the remove strips events
                 //$tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
                 $tip.css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
@@ -97,8 +97,11 @@
         },
         
         tip: function() {
+            var type = 'tipsy-' + this.options.type;
+            var shadow = this.options.shadow ? 'shadow' : '';
             if (!this.$tip) {
-                this.$tip = $('<div class="tipsy"></div>').html('<div class="tipsy-arrow"></div><div class="tipsy-inner"/></div>');
+                this.$tip = $('<div class="tipsy ' + type + '"></div>')
+    		    .html('<div class="tipsy-arrow"></div><div class="tipsy-inner ' + shadow + '"/></div>');
             }
             return this.$tip;
         },
@@ -173,9 +176,10 @@
         html: false,
         live: false,
         offset: 0,
-        opacity: 0.8,
+        opacity: 1.0,
         title: 'title',
-        trigger: 'hover'
+        trigger: 'hover',
+	type: 'help',
     };
     
     // Overwrite this method to provide options on a per-element basis.

@@ -1,4 +1,3 @@
-
 /**
  * Include all the uploadWizard msgs
  */
@@ -48,7 +47,6 @@ mw.UploadWizardDeed.prototype = {
 mw.ProgressBar = function( selector, text ) {
 	var _this = this;
 	// XXX need to figure out a way to put text inside bar
-
 	_this.$selector = $j( selector );
 	_this.$selector.html( 
 		'<div class="mwe-upwiz-progress">'
@@ -369,6 +367,7 @@ mw.UploadWizardUpload.prototype = {
 		_this.transportProgress = 1;
 		$j( _this ).trigger( 'transportedEvent' );
 
+		debugger;
 		if ( result.upload && result.upload.imageinfo && result.upload.imageinfo.descriptionurl ) {
 			// success
 			_this.extractUploadInfo( result );	
@@ -383,7 +382,8 @@ mw.UploadWizardUpload.prototype = {
 			}
 
 			// and other errors that result in a stash
-		} else if ( 0 /* actual failure */ ) {
+		} else {
+			alert("failure!");
 			// we may want to tag or otherwise queue it as an upload to retry
 		}
 		
@@ -967,7 +967,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	// descriptions
 	_this.descriptionsDiv = $j( '<div class="mwe-upwiz-details-descriptions mwe-upwiz-details-input"></div>' );
 	
-
+	// XXX use plurals
 	_this.descriptionAdder = $j( '<a class="mwe-upwiz-desc-add"/>' )
 					.attr( 'href', '#' )
 					.html( gM( 'mwe-upwiz-desc-add-0' ) )
@@ -985,7 +985,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	//    XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 	_this.titleInput = $j( '<textarea type="text" rows="1" class="mwe-title mwe-long-textarea"></textarea>' )
 		.attr( 'title', gM( 'mwe-upwiz-tooltip-title' ) )
-		.tipsy( { gravity: 'w', trigger: 'focus' } )
+		.tipsyPlus()
 		.keyup( function() { 
 			_this.setFilenameFromTitle();
 		} )
@@ -1055,7 +1055,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.otherInformationInput = $j( '<textarea class="mwe-upwiz-other-textarea"></textarea>' )
 		.growTextArea()
 		.attr( 'title', gM( 'mwe-upwiz-tooltip-other' ) )
-		.tipsy( { gravity: 'w', trigger: 'focus' } );
+		.tipsyPlus();
 
 	var otherInformationDiv = $j('<div></div>')	
 		.append( $j( '<div class="mwe-upwiz-details-more-label">' ).append( gM( 'mwe-upwiz-other' ) ) ) 
@@ -1243,6 +1243,7 @@ mw.UploadWizardDetails.prototype = {
 	recountDescriptions: function() {
 		var _this = this;
 		// if there is some maximum number of descriptions, deal with that here
+		// XXX use mediawiki PLURAL, not -0 -n
 		$j( _this.descriptionAdder ).html( gM( 'mwe-upwiz-desc-add-' + ( _this.descriptions.length == 0 ? '0' : 'n' )  )  );
 	},
 
@@ -1827,7 +1828,7 @@ mw.UploadWizard.prototype = {
 		       +     '<div id="mwe-upwiz-macro">'
 		       +       '<div id="mwe-upwiz-macro-progress" class="ui-helper-clearfix"></div>'
 		       +       '<div id="mwe-upwiz-macro-choice">' 
-		       +  	 '<div>' + gM( 'mwe-upwiz-details-intro' ) + '</div>'
+		       +  	 '<div>' + gM( 'mwe-upwiz-details-intro' ) + '</div>'  // XXX PLURAL
 		       +       '</div>'
 		       +       '<div id="mwe-upwiz-macro-files"></div>'
 		       +     '</div>'
@@ -1909,6 +1910,7 @@ mw.UploadWizard.prototype = {
 			}
 		} );
 
+		// XXX mediawiki PLURAL
 		$j( '#mwe-upwiz-deeds-intro' ).html( gM( 'mwe-upwiz-deeds-intro' ) );
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next').click( function() {
@@ -2245,12 +2247,14 @@ mw.UploadWizard.prototype = {
 		if ( _this.uploads.length ) {
 			$j( '#mwe-upwiz-upload-ctrl' ).removeAttr( 'disabled' ); 
 			$j( '#proceed' ).show();
+			// XXX should use PLURAL 
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-n' ) );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-n');
 		} else {
 			$j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
 			$j( '#proceed' ).hide();
+			// XXX should use PLURAL 
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-0' ) );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');
@@ -2467,6 +2471,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	},
 
 	// modify various interface strings depending on singular, multiple deeds
+	// XXX use PLURAL when possible
 	setQuantity: function() {
 		var _this = this;
 		mw.log( "setting quantity of deed to " + _this.count );
@@ -2678,7 +2683,7 @@ mw.UploadWizardDeedChooser.prototype = {
 						title: gM( 'mwe-upwiz-tooltip-sign' ), 
 						value: mw.getConfig( 'userName' ) 
 					} )
-					.tipsy( { trigger: 'focus', gravity: 'w' } )
+					.tipsyPlus()
 					.keyup( function() { 
 						var thisInput = this;
 						var thisVal = $j( thisInput ).val();
@@ -2710,11 +2715,11 @@ mw.UploadWizardDeedChooser.prototype = {
 	 	var sourceInput = $j('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
 					.growTextArea()
 					.attr( 'title', gM( 'mwe-upwiz-tooltip-source' ) )
-					.tipsy( { trigger: 'focus', gravity: 'w' } );
+					.tipsyPlus();
 		var authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
 					.growTextArea()
 					.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) )
-					.tipsy( { trigger: 'focus', gravity: 'w' } );
+					.tipsyPlus();
 		licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 		licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
 		licenseInput.setDefaultValues();
@@ -3071,8 +3076,15 @@ jQuery.fn.maskSafeShow = function( options ) {
 ( function( $j ) {
 
 	$j.fn.tipsyPlus = function( options ) {
+		// use extend!
 		var titleOption = 'title';
 		var htmlOption = false;
+
+		var options = $j.extend( 
+			{ type: 'help', shadow: true },
+			options
+		);
+
 		var el = this;
 
 		if (options.plus) {
@@ -3104,7 +3116,9 @@ jQuery.fn.maskSafeShow = function( options ) {
 			gravity: 'w', 
 			trigger: 'focus',
 			title: titleOption,
-			html: htmlOption
+			html: htmlOption,
+			type: options.type,
+			shadow: options.shadow
 		} );
 
 	}
