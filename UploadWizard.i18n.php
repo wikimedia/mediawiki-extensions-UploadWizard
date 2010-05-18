@@ -105,6 +105,9 @@ $messages['en'] = array(
 	'mwe-upwiz-tooltip-description' => 'Briefly describe everything notable about the work. For a photo, mention the main things that are depicted, the occasion or the place.',
 	'mwe-upwiz-tooltip-other' => 'Any other information you want to include about this work. You may use wikitext code.',
 	'mwe-upwiz-tooltip-more-info' => 'Learn more.',
+	'mwe-upwiz-file-need-file' => 'Please add an upload first.',
+	'mwe-upwiz-file-need-start' => 'Please press this button to start your uploads.',
+	'mwe-upwiz-file-need-complete' => 'Please wait until all files have finished uploading.',
 );
 
 /** Message documentation (Message documentation)

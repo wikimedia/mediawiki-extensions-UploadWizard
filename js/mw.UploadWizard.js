@@ -6,7 +6,7 @@ mw.includeAllModuleMessages();
 
 
 /**
- * 
+ * Sort of an abstract class for deeds
  */
 mw.UploadWizardDeed = function() {
 	var _this = this;
@@ -367,7 +367,6 @@ mw.UploadWizardUpload.prototype = {
 		_this.transportProgress = 1;
 		$j( _this ).trigger( 'transportedEvent' );
 
-		debugger;
 		if ( result.upload && result.upload.imageinfo && result.upload.imageinfo.descriptionurl ) {
 			// success
 			_this.extractUploadInfo( result );	
@@ -1868,7 +1867,28 @@ mw.UploadWizard.prototype = {
 		} );
 
 		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-button-next').click( function() {
-			_this.moveToStep( 'deeds' );
+			if ( _this.uploads.length === 0 ) {
+				alert( gM( 'mwe-upwiz-file-need-file' ) );
+				return;
+			}
+			var overallState = 'new';
+			$j.each( _this.uploads, function( i, upload ) {
+				if ( upload.state == 'transporting' ) {
+					overallState = 'transporting';
+				} else if ( upload.state == 'transported' && overallState != 'transporting' ) {
+					overallState = 'transported';
+				}
+			} );
+			if ( overallState == 'new' ) {
+				alert( gM( 'mwe-upwiz-file-need-start' ) );
+			} else if ( overallState == 'transporting' ) {
+				alert( gM( 'mwe-upwiz-file-need-complete' ) );
+			} else if ( overallState == 'transported' ) {
+				_this.moveToStep( 'deeds' );
+			} else {
+				alert( "error: could not recognize state of uploads: " + overallState );
+			}
+			
 		} );
 
 		// DEEDS div
@@ -2349,7 +2369,7 @@ mw.UploadWizard.prototype = {
 						 	$j( '<textarea class="mwe-long-textarea" rows="1"/>' )
 								.growTextArea()
 								.append( thumbWikiText ) 
-								.resizeIfNeeded()
+								.trigger('change')
 						),
 						$j('<p/>').append( 
 							gM( 'mwe-upwiz-thanks-url' ),
@@ -2357,7 +2377,7 @@ mw.UploadWizard.prototype = {
 						 	$j( '<textarea class="mwe-long-textarea" rows="1"/>' )
 								.growTextArea()
 								.append( upload.imageinfo.descriptionurl ) 
-								.resizeIfNeeded()
+								.trigger('change')
 						)
 					)
 			);
@@ -2962,7 +2982,7 @@ jQuery.fn.growTextArea = function( options ) {
 		} );
 	}
 
-	this.resizeIfNeeded = function() {
+	var resizeIfNeeded = function() {
 		// this is the dom element
 		while (this.scrollHeight > this.offsetHeight) {
 			this.rows++;
@@ -2972,8 +2992,8 @@ jQuery.fn.growTextArea = function( options ) {
 
 	this.addClass( 'mwe-grow-textarea' );
 	
-	this.change(this.resizeIfNeeded);
-	this.keyup(this.resizeIfNeeded);
+	this.keyup( resizeIfNeeded );
+	this.change( resizeIfNeeded );
 
 
 	return this;
