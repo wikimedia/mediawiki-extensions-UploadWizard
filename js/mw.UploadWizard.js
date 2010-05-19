@@ -966,7 +966,6 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	// descriptions
 	_this.descriptionsDiv = $j( '<div class="mwe-upwiz-details-descriptions mwe-upwiz-details-input"></div>' );
 	
-	// XXX use plurals
 	_this.descriptionAdder = $j( '<a class="mwe-upwiz-desc-add"/>' )
 					.attr( 'href', '#' )
 					.html( gM( 'mwe-upwiz-desc-add-0' ) )
@@ -1896,17 +1895,16 @@ mw.UploadWizard.prototype = {
 
 		var customDeed = $j.extend( new mw.UploadWizardDeed(), {
 			isReady: function() { return true; },
-			setQuantity: function( n ) { return; }
+			setQuantity: function() { return; }
 		} );
 
 		$j( '#mwe-upwiz-deeds-custom' ).append( 
-			$j( '<div id="mwe-upwiz-deeds-later" />' )
+			$j( '<div id="mwe-upwiz-deeds-later-div" />' )
 				.hide()
 				.append( $j( '<label>' )
 					.append( 
-						$j( '<input />')
-							.attr( { type: 'checkbox', value: 'deeds-later' } )
-							.addClass( 'mwe-accept-deed' )
+						$j( '<input id="mwe-upwiz-deeds-later" '
+						    + 'type="checkbox" value="deeds-later" class="mwe-accept-deed" />')
 							.click( function() {
 								if ( $j( this ).is( ':checked' ) ) {
 									_this.deedChooser.showDeedChoice();
@@ -1924,9 +1922,9 @@ mw.UploadWizard.prototype = {
 		$j( _this.deedChooser ).bind( 'setQuantityEvent', function() {
 			mw.log( "checking this deedchooser count " + _this.deedChooser.count );
 			if ( _this.deedChooser.count > 1 ) {
-				$j( '#mwe-upwiz-deeds-later' ).show();
+				$j( '#mwe-upwiz-deeds-later-div' ).show();
 			} else {
-				$j( '#mwe-upwiz-deeds-later' ).hide();
+				$j( '#mwe-upwiz-deeds-later-div' ).hide();
 			}
 		} );
 
@@ -1934,7 +1932,13 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-deeds-intro' ).html( gM( 'mwe-upwiz-deeds-intro' ) );
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next').click( function() {
-			_this.moveToStep('details');
+			if ( $j( '#mwe-upwiz-deeds-later-checkbox' ).is( ':checked' )
+				||
+			     _this.deedChooser.isReady() ) {
+				_this.moveToStep('details');
+			} else {
+				_this.deedChooser.deed.showValidationTips();
+			}	
 		} );
 
 		// XXX perhaps we should defer this until we click next
@@ -2419,8 +2423,11 @@ mw.UploadWizardDeedPreview.prototype = {
 mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
 	isReady: function() { return false; },
 
-	setQuantity: function( n ) { return; }
-	
+	setQuantity: function() { return; },
+
+	showValidationTips: function() {	
+		alert( gM( 'mwe-upwiz-deeds-need-deed', _this.uploads.length ) );
+	}
 } );
 
 
@@ -2476,6 +2483,10 @@ mw.UploadWizardDeedChooser = function( selector ) {
 
 mw.UploadWizardDeedChooser.prototype = {
 
+	isReady: function() {
+		return ( typeof this.deed !== 'undefined' && this.deed.isReady() );
+	},
+
 	count: 0,
 
 	attach: function( upload ) {
@@ -2495,15 +2506,13 @@ mw.UploadWizardDeedChooser.prototype = {
 	setQuantity: function() {
 		var _this = this;
 		mw.log( "setting quantity of deed to " + _this.count );
-		var isPlural = _this.count > 1;
 		$j.each( [ 'ownwork', 'thirdparty' ], function (i, key) {
 			
 			// fix the deed title that opens and closes
-			gMkey = isPlural ? key + '-plural' : key;
 			$j( _this.selector )
 				.find( '.mwe-upwiz-macro-deed-' + key)
 				.find( '.mwe-upwiz-deed-name' )
-				.html( gM( 'mwe-upwiz-source-' + gMkey ) );
+				.html( gM( 'mwe-upwiz-source-' + key, _this.count ) );
 
 			// any other internal strings in the deed
 			if ( _this.deeds[key] ) {
@@ -2669,25 +2678,26 @@ mw.UploadWizardDeedChooser.prototype = {
 					}
 				} );
 
-				_this.setQuantity( 1 );
+				_this.count = 1;
+				_this.setQuantity();
 
 
 			},
 
 
-			setQuantity: function( n ) {
+			setQuantity: function() {
 				var _this = this;
-				var plural = n > 1 ? '-plural' : '';
 				$j( _this.deedChooser.selector )
 					.find( 'p.mwe-upwiz-source-ownwork-assert' )
-					.html( gM( 'mwe-upwiz-source-ownwork-assert' + plural, 
-						$j( '<input />' )
-							.attr( { name: 'author' } )
-							.addClass( 'mwe-upwiz-sign' ) ) );
+					.html( gM( 'mwe-upwiz-source-ownwork-assert',
+						   _this.count,
+						   '<input name="author" class="mwe-upwiz-sign" />' )
+ 					);
 				
 				$j( _this.deedChooser.selector )
 					.find( 'p.mwe-upwiz-source-ownwork-assert-custom' )
-					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom' + plural, 
+					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
+						_this.count,
 						'<span class="mwe-custom-author-input"></span>' ) );
 
 				// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
@@ -2762,34 +2772,36 @@ mw.UploadWizardDeedChooser.prototype = {
 				$j( deedChooser.selector ).find( '.mwe-upwiz-macro-deed-thirdparty .mwe-upwiz-deed-form' ).append( 
 					$j( '<div class="mwe-upwiz-deed-form-internal"/>' )
 						.append( 
-							$j( '<div class="mwe-upwiz-source-thirdparty-custom-plural-intro" />' ), 
-							$j( '<div />' )
-								.addClass( "mwe-upwiz-thirdparty-fields" )
-								.append( $j( '<label />' )
-										.attr( { 'for' : 'source' } )
-										.text( gM( 'mwe-upwiz-source' ) ) )
-								.append( sourceInput ),
-							$j( '<div />' )
-								.addClass( "mwe-upwiz-thirdparty-fields" )
-								.append( $j( '<label />' )
-										.attr( { 'for' : 'author' } )
-										.text( gM( 'mwe-upwiz-author' ) ) )
-								.append( authorInput ),
-							$j( '<div />' ).addClass( 'mwe-upwiz-thirdparty-license' )
-								       .text( gM( 'mwe-upwiz-source-thirdparty-license' ) ),
+							$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
+							$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
+								.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
+									 sourceInput ),
+							$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
+								.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
+									 authorInput ),
+							$j( '<div class="mwe-upwiz-thirdparty-license" />' ),
 							licenseInputDiv
 						)
 				);
 		
-				thirdPartyDeed.setQuantity( 1 );	
+				_this.count = 1;	
+				_this.setQuantity();	
+		
 			},
 
-
-			setQuantity: function( n ) {
+			setQuantity: function() {
 				var _this = this;
 				$j( _this.deedChooser.selector )
-					.find( 'div.mwe-upwiz-source-thirdparty-custom-plural-intro' )
- 					.html( n > 1 ? gM( 'mwe-upwiz-source-thirdparty-custom-plural-intro' ) : '' );
+					.find( 'div.mwe-upwiz-source-thirdparty-custom-multiple-intro' )
+ 					.html( _this.count > 1 ? gM( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) : '' );
+
+				$j( _this.deedChooser.selector )
+					.find( 'div.mwe-upwiz-thirdparty-license' )
+				        .text( gM( 'mwe-upwiz-source-thirdparty-license', _this.count ) );
+			},
+
+			showValidationTips: function() {
+				// TBD
 			}
 
 				
