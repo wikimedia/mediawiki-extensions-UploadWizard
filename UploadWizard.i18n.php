@@ -33,8 +33,12 @@ $messages['en'] = array(
 	'mwe-upwiz-upload' => 'Upload',
 	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|file|files}} of $2 {{PLURAL:$2|file|files}} uploaded',
 	'mwe-upwiz-progressbar-uploading' => 'uploading',
-	'mwe-upwiz-remaining' => '$1 {{PLURAL:$1|file|files}} remaining',
-	'mwe-upwiz-deeds-intro' => "Thank you! Now we need to set a license for these files, so everyone can legally view or modify them. First, we will have to know where you got them.",
+	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|second|seconds}} remaining',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minutes}} $2 {{PLURAL:$2|second|seconds}} remaining',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hour|hours}} $2 {{PLURAL:$2|minute|minutes}} $3 {{PLURAL:$3|second|seconds}} remaining',
+	'mwe-upwiz-deeds-intro' => "This site requires you to set a license for uploaded files, so everyone can legally reuse them for any purpose.",
+	'mwe-upwiz-deeds-macro-prompt' => "Set a license for {{PLURAL:$1|the above file|all the above files}}:",
+	'mwe-upwiz-deeds-custom-prompt' => "Or:",
 	'mwe-upwiz-details-intro' => 'Now we need some basic information about the files.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|This file is|These files are}} my own work.',
 	'mwe-upwiz-source-ownwork-assert' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby grant anyone the right to use {{PLURAL:$1|this work|these works}} for any purpose, as long as they credit me and share derivative work under the same terms.',
@@ -46,7 +50,7 @@ $messages['en'] = array(
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'If all files have the same source, author, and copyright status, you may enter them only once for all of them.',
 	'mwe-upwiz-source-thirdparty-license' => 'The copyright holder of {{PLURAL:$1|this work|these works}} published {{PLURAL:$1|it|them}} under the following license(s):',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
-	'mwe-upwiz-source-custom' => 'Did you know? You can <a href="$1">customize</a> the default options you see here.',
+	'mwe-upwiz-source-custom' => 'Choose licenses for each file individually on the next page.',
 	'mwe-upwiz-more-options' => 'more options...',
 	'mwe-upwiz-fewer-options' => 'fewer options...',
 	'mwe-upwiz-desc' => 'Description in',
@@ -92,7 +96,6 @@ $messages['en'] = array(
 	'mwe-upwiz-upload-another' => 'Upload more files',
 	'mwe-prevent-close' => 'Your files are still uploading. Are you sure you want to navigate away from this page?',
 	'mwe-upwiz-files-complete' => 'Your files finished uploading!',
-	'mwe-upwiz-deeds-later' => 'Set deeds and licenses for each file individually on the next page',
 	'mwe-upwiz-tooltip-author' => 'The name of the person who took the photo, or painted the picture, drew the drawing, etc.',
 	'mwe-upwiz-tooltip-source' => 'Where this digital file came from -- could be a URL, or a book or publication',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name. In both cases, this will be linked to your wiki user page',
@@ -104,6 +107,7 @@ $messages['en'] = array(
 	'mwe-upwiz-file-need-start' => 'Please press this button to start your uploads.',
 	'mwe-upwiz-file-need-complete' => 'Please wait until all files have finished uploading.',
 	'mwe-upwiz-deeds-need-deed' => 'Please explain where you got {{PLURAL:$1|this file|these files}} and how this site can use {{PLURAL:$1|it|them}}, by selecting one of the options.',
+	'mwe-upwiz-deeds-need-license' => 'Please select a license.'
 );
 
 /** Message documentation (Message documentation)
