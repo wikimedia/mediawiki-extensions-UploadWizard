@@ -1,4 +1,6 @@
-UploadWizard is dependent on js2 / mwEmbed, you must include JS2Support extension prior to UploadWizard.php
+UploadWizard is alpha software, not intended for use live Wikimedia sites yet (or anyone else's). 
+
+UploadWizard dependent on js2 / mwEmbed, you must include JS2Support extension prior to UploadWizard.php
 
 # To enable add the following to localSettings.php 
 
