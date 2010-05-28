@@ -22,6 +22,7 @@
 
 		"mw.MockUploadHandler"		: "js/mw.MockUploadHandler.js",		
 		"$j.fn.tipsy"			: "js/jquery/plugins/jquery.tipsy.js",
+		"$j.fn.morphCrossfade"		: "js/jquery/plugins/jquery.morphCrossfade.js",
 		"mw.style.tipsy"		: "styles/jquery.tipsy.css"
 	});	
 	
@@ -57,6 +58,7 @@
 			//'$j.effects.pulsate',
 			'$j.fn.autocomplete',
 			'$j.fn.tipsy',
+			'$j.fn.morphCrossfade',
 			'mw.style.tipsy',
 			'mw.style.autocomplete'
 		],

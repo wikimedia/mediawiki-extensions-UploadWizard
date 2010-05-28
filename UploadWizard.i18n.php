@@ -107,7 +107,11 @@ $messages['en'] = array(
 	'mwe-upwiz-file-need-start' => 'Please press this button to start your uploads.',
 	'mwe-upwiz-file-need-complete' => 'Please wait until all files have finished uploading.',
 	'mwe-upwiz-deeds-need-deed' => 'Please explain where you got {{PLURAL:$1|this file|these files}} and how this site can use {{PLURAL:$1|it|them}}, by selecting one of the options.',
-	'mwe-upwiz-deeds-need-license' => 'Please select a license.'
+	'mwe-upwiz-deeds-need-license' => 'Please select a license.',
+	'mwe-upwiz-license-incompatible-pd' => 'Public domain licenses are incompatible with any other kind of license.',
+	'mwe-upwiz-license-incompatible-cc' => 'You can only choose one kind of Creative Commons license.',
+	'mwe-upwiz-license-show-all' => 'Use a different license',
+	'mwe-upwiz-license-show-recommended' => 'Use the recommended license'
 );
 
 /** Message documentation (Message documentation)

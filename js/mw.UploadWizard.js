@@ -11,14 +11,16 @@ mw.includeAllModuleMessages();
 mw.UploadWizardDeed = function() {
 	var _this = this;
 	// prevent from instantiating directly?
+	return false;
 };
 
-/* sort of an abstract class */
 mw.UploadWizardDeed.prototype = {
-	isReady: function() {
+	validate: function() {
 		return false;
 	},
 
+	setFormFields: function() { },
+	
 	getSourceWikiText: function() {
 		return $j( this.sourceInput ).val();
 	},
@@ -50,9 +52,11 @@ mw.ProgressBar = function( selector, text ) {
 	_this.$selector = $j( selector );
 	_this.$selector.html( 
 		'<div class="mwe-upwiz-progress">'
-		+   '<div class="mwe-upwiz-progress-bar-etr" style="display: none">'
-		+     '<div class="mwe-upwiz-progress-bar"></div>'
-		+     '<div class="mwe-upwiz-etr"></div>'
+		+   '<div class="mwe-upwiz-progress-bar-etr-container">'
+		+     '<div class="mwe-upwiz-progress-bar-etr" style="display: none">'
+		+       '<div class="mwe-upwiz-progress-bar"></div>'
+		+       '<div class="mwe-upwiz-etr"></div>'
+		+     '</div>'
 		+   '</div>'
 		+   '<div class="mwe-upwiz-count"></div>'
 		+ '</div>'
@@ -200,6 +204,10 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 		gfdl:	     { template: 'gfdl', text: 'GFDL (GNU Free Documentation License)' }
 	};
 
+	// incompatibility check of this license versus others
+	// upon validation, all other checked license names are passed through this function. Return null if everything is okay.
+	// return message key to show as error if there is a problem.
+
 	_this.inputs = [];
 
 	_this.$selector = $j( selector );
@@ -280,21 +288,27 @@ mw.UploadWizardLicenseInput.prototype = {
 
 	/**
 	 * Check if a valid value is set, 
-	 * Side effect: add notes to the interface if no valid value
+	 * Side effect: if no valid value, add notes to the interface. Add listeners to interface, to revalidate and remove notes.
 	 * @return boolean; true if a value set, false otherwise
 	 */
 	validate: function() {
-		var isValid = this.isSet();
-		if (!isValid) {
-			var $errorEl = this.$selector.find( '.mwe-error' )
-			$errorEl.html( gM( 'mwe-upwiz-deeds-need-license' ) ).show();
-			var $inputs = _this.$selector.find( 'input[type=checkbox]' )
-			$inputs.bind( 'click.hideError', function() {
-				$errorEl.hide();
-				$inputs.unbind( 'click.hideError' );
-			} )	
+		var isValid = true;
+		if ( ! this.isSet() ) {
+			isValid = false;
+			errorHtml = gM( 'mwe-upwiz-deeds-need-license' );
 		}
-		return isValid;
+
+		var $errorEl = this.$selector.find( '.mwe-error' )
+		if (isValid) {
+			var $inputs = _this.$selector.find( 'input[type=checkbox]' )
+			$inputs.bind( 'click.revalidate', function() {
+				$inputs.unbind( 'click.revalidate' );
+				_this.validate();
+			} );	
+			errorHtml = $errorEl.html( gM( 'mwe-upwiz-deeds-need-license' ) ).show();
+		} else {
+			$errorEl.fadeOut();
+		}
 	},
 
 
@@ -1502,8 +1516,8 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		
 		// XXX validate!
-		if ( ! _this.isReady() ) {
-			alert( "ZOMG THIS DEED IS NOT READY" );
+		if ( ! _this.validate() ) {
+			alert( "THIS DEED IS NOT READY" );
 			return null;
 		}
 
@@ -1573,9 +1587,9 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Check if we are ready to post wikitext
 	 */
-	isReady: function() {
+	validate: function() {
 		var _this = this;
-		return _this.upload.deedChooser.deed.isReady();
+		return _this.upload.deedChooser.deed.validate();
 
 		// somehow, all the various issues discovered with this upload should be present in a single place
 		// where we can then check on
@@ -1741,7 +1755,7 @@ mw.UploadWizard = function() {
 };
 
 
-mw.UploadWizard.userAgent = "UploadWizard (alpha) on " + $j.browser.name + " " + $j.browser.version;
+mw.UploadWizard.userAgent = "UploadWizard (alpha)";
 
 
 mw.UploadWizard.prototype = {
@@ -1928,7 +1942,6 @@ mw.UploadWizard.prototype = {
 				if ( _this.uploads.length > 1 ) {
 					var customDeed = $j.extend( new mw.UploadWizardDeed(), {
 						validate: function() { return true; },
-						$formFields: null,
 						name: 'custom',
 					} );
 					deeds.push( customDeed );
@@ -1939,7 +1952,7 @@ mw.UploadWizard.prototype = {
 					deeds,
 					_this.uploads.length );
 			
-				$j( '<div>' ).html( gM( 'mwe-upwiz-deeds-macro-prompt' ) )
+				$j( '<div>' ).html( gM( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length ) )
 					.insertBefore ( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) );
 
 				if ( _this.uploads.length > 1 ) {
@@ -1963,6 +1976,9 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-deeds-intro' ).html( gM( 'mwe-upwiz-deeds-intro' ) );
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next').click( function() {
+
+			// validate has the side effect of notifying the user of problems, or removing existing notifications.
+			// if returns false, you can assume there are notifications in the interface.
 			if ( _this.deedChooser.validate() ) {
 
 				var isCustom = ( _this.deedChooser.deed.name == 'later' );
@@ -2227,7 +2243,7 @@ mw.UploadWizard.prototype = {
 	startUploads: function( finishedCallback ) {
 		var _this = this;
 		// remove the upload button, and the add file button
-		$j( '#mwe-upwiz-upload-ctrl' ).hide();
+		$j( '#mwe-upwiz-upload-ctrls' ).hide();
 		$j( '#mwe-upwiz-add-file' ).hide();
 
 		var allowCloseWindow = $j().preventCloseWindow( { 
@@ -2425,7 +2441,6 @@ mw.UploadWizardDeedPreview.prototype = {
 
 mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
 	validate: function() {
-		alert( gM( 'mwe-upwiz-deeds-need-deed', _this.uploads.length ) );
 		return false;
 	} 
 } );
@@ -2433,6 +2448,7 @@ mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
 	
 /**
  * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
+ * XXX these deeds are starting to turn into jquery fns
  */
 mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 	uploadCount = uploadCount ? uploadCount : 1;
@@ -2447,86 +2463,6 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
 	_this.licenseInput.setDefaultValues();
 
-	var $standardCheckbox, $customCheckbox;
-		
-	$standardCheckbox = $j( '<input type="checkbox" class="mwe-accept-deed mwe-checkbox-hang-indent" />' ).click( function() {
-		if ( $j( this ).is( ':checked' ) ) {
-			$customCheckbox.attr( 'checked', false );
-			_this.licenseInput.setDefaultValues();
-		}
-	} );
-
-	$customCheckbox = $j( '<input type="checkbox" class="mwe-accept-deed mwe-checkbox-hang-indent" />' ).click( function() { 
-		if ( $j( this ).is( ':checked' ) ) {
-			$standardCheckbox.attr( 'checked', false );
-		}
-	} );
-
-	var $standardDiv = $j( '<div />' ).append(
-		$standardCheckbox,
-		
-		$j( '<p class="mwe-checkbox-hang-indent-text"/>' )
-			.html( gM( 'mwe-upwiz-source-ownwork-assert',
-				   uploadCount,
-				   '<input name="author" class="mwe-upwiz-sign" />' )
-			),
-
-		$j( '<p class="mwe-checkbox-hang-indent-text mwe-small-print" />' ).html( 
-			gM ( 'mwe-upwiz-source-ownwork-assert-note' ) 
-		)
-	);
-	
-	var $toggleDiv = $j('<div />');
-
-	var $customDiv = $j('<div/>').append( 
-		$customCheckbox,
-		
-		$j( '<p class="mwe-checkbox-hang-indent-text" />' )
-			.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
-				uploadCount,
-				'<span class="mwe-custom-author-input"></span>' ) ),
-
-		licenseInputDiv 
-	);
-
-	_this.$formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' ).append( 
-		$standardDiv, $toggleDiv, $customDiv 
-	);
-	
-	mw.UploadWizardUtil.makeFadingToggler( $standardDiv, $toggleDiv, $customDiv );
-
-	// if they select 'fewer options', and they have selected the deed in there, we should unselect it
-	$toggleDiv.bind( 'close', function(e) {
-		e.stopPropagation();
-		if ( $customCheckbox.is( ':checked' ) ) {
-			$customCheckbox.attr( 'checked', false );
-		}
-	} );
-	
-	// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
-	_this.$formFields.find( '.mwe-custom-author-input' ).append( _this.authorInput );
-
-	// synchronize both username signatures
-	// set initial value to configured username
-	// if one changes all the others change (keyup event)
-	//
-	// also set tooltips ( the title, tipsy() )
-	_this.$formFields.find( '.mwe-upwiz-sign' )
-		.attr( {
-			title: gM( 'mwe-upwiz-tooltip-sign' ), 
-			value: mw.getConfig( 'userName' ) 
-		} )
-		.tipsyPlus()
-		.keyup( function() { 
-			var thisInput = this;
-			var thisVal = $j( thisInput ).val();
-			$j.each( $j( '.mwe-upwiz-sign' ), function( i, input ) {
-				if (thisInput !== input) {
-					$j( input ).val( thisVal );
-				}
-			} );
-		} );
-
 	return $j.extend( _this, { 
 
 		name: 'ownwork',
@@ -2536,11 +2472,12 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		 * @return boolean true if valid, false if not
 		 */
 		validate: function() {
-			return ( 
-				( $j( _this.selector ).find( '.mwe-accept-deed' ).is( ':checked' ) !== 0 )
-					&&
-				licenseInput.isSet()
-			);
+			// we don't need to validate source because it's set by default
+			// authorInput should be non-blank
+			if ( _this.authorInput.val() ) 
+
+			// licenseInput should have at least one value
+			_this.licenseInput.validate()
 		},
 
 		getSourceWikiText: function() {
@@ -2559,18 +2496,85 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			} );
 			wikiText += '}}';
 			return wikiText;
+		},
+
+		setFormFields: function( $selector ) {
+			var $standardDiv, $customDiv;
+
+			var $standardDiv = $j( '<div />' ).append(
+				$j( '<p>' )
+					.html( gM( 'mwe-upwiz-source-ownwork-assert',
+						   uploadCount,
+						   '<input name="author" class="mwe-upwiz-sign" />' )
+					),
+				$j( '<p class="mwe-small-print" />' ).append( gM( 'mwe-upwiz-source-ownwork-assert-note' ) ) 
+			);
+			
+			var $customDiv = $j('<div/>').append( 
+				$j( '<p>' )
+					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
+						uploadCount,
+						'<span class="mwe-custom-author-input"></span>' ) ),
+				licenseInputDiv
+			);
+
+			var $crossfader = $j( '<div>' ).append( $standardDiv, $customDiv );
+			var $toggler = $j( '<p class="mwe-more-options" style="text-align: right" />' )
+				.append( $j( '<a />' )
+					.append( gM( 'mwe-upwiz-license-show-all' ) )
+					.click( function() {
+						if ( $crossfader.data( 'crossfadeDisplay' ) === $customDiv ) {
+							_this.licenseInput.setDefaultValues();
+							$crossfader.morphCrossfade( $standardDiv );
+							$j( this ).html( gM( 'mwe-upwiz-license-show-all' ) )
+						} else {
+							$crossfader.morphCrossfade( $customDiv );
+							$j( this ).html( gM( 'mwe-upwiz-license-show-recommended' ) )
+						}
+					} ) );
+
+			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' ).append( $crossfader, $toggler );
+			
+			// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
+			$formFields.find( '.mwe-custom-author-input' ).append( _this.authorInput );
+
+			// synchronize both username signatures
+			// set initial value to configured username
+			// if one changes all the others change (keyup event)
+			//
+			// also set tooltips ( the title, tipsy() )
+			$formFields.find( '.mwe-upwiz-sign' )
+				.attr( {
+					title: gM( 'mwe-upwiz-tooltip-sign' ), 
+					value: mw.getConfig( 'userName' ) 
+				} )
+				.tipsyPlus()
+				.keyup( function() { 
+					var thisInput = this;
+					var thisVal = $j( thisInput ).val();
+					$j.each( $formFields.find( '.mwe-upwiz-sign' ), function( i, input ) {
+						if (thisInput !== input) {
+							$j( input ).val( thisVal );
+						}
+					} );
+				} );
+
+			$selector.append( $formFields );
+
+			// done after append so there are true heights
+			$crossfader.morphCrossfader();
 		}
+
 
 	} );
 
 };
 
-
+// XXX these deeds are starting to turn into jquery fns
 mw.UploadWizardDeedThirdParty = function( uploadCount ) {
-	uploadCount = uploadCount ? uploadCount : 1;
-
 	var _this = new mw.UploadWizardDeed();
 
+	_this.uploadCount = uploadCount ? uploadCount : 1;
 	_this.sourceInput = $j('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
 				.growTextArea()
 				.attr( 'title', gM( 'mwe-upwiz-tooltip-source' ) )
@@ -2583,27 +2587,32 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
 	_this.licenseInput.setDefaultValues();
 
-	_this.$formFields = $j( '<div class="mwe-upwiz-deed-form-internal"/>' );
-
-	if ( uploadCount > 1 ) { 
-		_this.$formFields.append( $j( '<div />' ).append( gM( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) ) );
-	}
-
-	_this.$formFields.append (
-		$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-		$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-			.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
-				 _this.sourceInput ),
-		$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-			.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
-				 _this.authorInput ),
-		$j( '<div class="mwe-upwiz-thirdparty-license" />' )
-			.append( gM( 'mwe-upwiz-source-thirdparty-license', uploadCount ) ),
-		licenseInputDiv
-	);
 
 	return $j.extend( _this, mw.UploadWizardDeed.prototype, {
 		name: 'thirdparty',
+
+		setFormFields: function( $selector ) {
+			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal"/>' );
+
+			if ( uploadCount > 1 ) { 
+				$formFields.append( $j( '<div />' ).append( gM( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) ) );
+			}
+
+			$formFields.append (
+				$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
+				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
+					.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
+						 _this.sourceInput ),
+				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
+					.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
+						 _this.authorInput ),
+				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
+					.append( gM( 'mwe-upwiz-source-thirdparty-license', uploadCount ) ),
+				licenseInputDiv
+			);
+
+			$selector.append( $formFields );
+		},
 
 		validate: function() {
 			return     (! mw.isEmpty( $j( this.sourceInput  ).val() ) ) 
@@ -2626,7 +2635,8 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 	_this.uploadCount = uploadCount ? uploadCount : 1;
 	
 
-	_this.$selector.append( '<div class="mwe-error"></div>' );
+	_this.$errorEl = $j( '<div class="mwe-error"></div>' );
+	_this.$selector.append( _this.$errorEl );
 
 	// name for radio button set
 	_this.name = 'deedChooser' + (mw.UploadWizardDeedChooser.prototype.widgetCount++).toString();
@@ -2652,7 +2662,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 
 		var $deedSelector = _this.$selector.append( $deedInterface );
 
-		$deedInterface.find( '.mwe-upwiz-deed-form' ).append( deed.$formFields );
+		deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
 
 		$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
 			if ( $j( this ).is(':checked' )  ) {
@@ -2689,14 +2699,32 @@ mw.UploadWizardDeedChooser.prototype = {
 	 * @return boolean; true if valid, false if not
 	 */
 	validate: function() {
-		var valid = (typeof this.deed === 'undefined') || this.deed.validate();
-		if (!valid) {
-			if ( ( typeof this.deed === 'undefined' ) || this.deed === mw.UploadWizardNullDeed ) {				/* highlight the main choices  */
-				/* this.selector.find( 'input[type=checkbox].    .mwe-/* add general select-a-deed message */
-				alert( "no deed selected" );
+		var _this = this;
+		// we assume there is always a deed available, even if it's just the null deed.
+		var valid = _this.deed.validate();
+		// the only time we need to set an error message is if the null deed is selected.
+		// otherwise, we can assume that the widgets have already added error messages.
+		if (valid) {
+			_this.hideError();
+		} else {
+			if ( _this.deed === mw.UploadWizardNullDeed ) {			
+				_this.showError( gM( 'mwe-upwiz-deeds-need-deed', _this.uploadCount ) );
+				$j( _this ).bind( 'chooseDeed', function() {
+					_this.hideError();
+				} );
 			}
 		}
 		return valid;
+	},
+
+	showError: function( error ) {
+		this.$errorEl.html( error );
+		this.$errorEl.fadeIn();
+	},
+
+	hideError: function() {
+		this.$errorEl.fadeOut();	
+		this.$errorEl.empty();
 	},
 
 	/** 
@@ -2705,6 +2733,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	uploadCount: 0,
 
 	
+	// XXX it's impossible to choose the null deed if we stick with radio buttons, so that may be useless later
 	choose: function( deed ) {
 		var _this = this;
 		_this.deed = deed;
@@ -3136,7 +3165,6 @@ jQuery.fn.maskSafeShow = function( options ) {
 	$j.fn.disableNextButton = function() {
 		this.find( '.mwe-upwiz-button-next' )
 			.attr( 'disabled', true );
-	}
-	
+	};
 
 } )( jQuery );
