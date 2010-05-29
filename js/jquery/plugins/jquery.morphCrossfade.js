@@ -47,14 +47,17 @@
 		// the elements that are immediate children are the crossfadables
 		// they must all be "on top" of each other, so position them relative
 		this.css( { 
-			'position' : 'relative', 
-			'overflow' : 'hidden'  
+			position : 'relative', 
+			overflow : 'hidden',
+			scroll: 'none'
 		} );
 		this.children().css( { 
-			'opacity': 0,
-			'position': 'absolute', 
+			position: 'absolute', 
 			'top': '0px', 
-		    	'left' : '0px'
+		    	left : '0px',
+			scroll: 'none',
+			opacity: 0,
+			visibility: 'hidden'
 		} );
 
 		// should achieve the same result as crossfade( this.children().first() ) but without
@@ -66,24 +69,42 @@
 
 	/** 
 	 * Initialize crossfading of the children of an element 
-	 * @param selector should be an immediate child of the crossfader element
+	 * @param selector of new thing to show; should be an immediate child of the crossfader element
 	 * @param speed (optional) how fast to crossfade, in milliseconds
  	 */
-	$.fn.morphCrossfade = function( selector, speed ) {
+	$.fn.morphCrossfade = function( newPanelSelector, speed ) {
+		var container = this;
 		if ( typeof speed === 'undefined' ) {
 			speed = 400;
 		}
 
-		if ( this.data( 'crossfadeDisplay' ) ) {
+		container.css( { 'overflow' : 'hidden' } );
+
+		$oldPanel = $( container.data( 'crossfadeDisplay' ) );
+		if ( $oldPanel ) {
+			// remove auto setting of height from container, and 
+			// make doubly sure that the container height is equal to oldPanel
+			container.css( { height: $oldPanel.outerHeight() } );
+			// take it out of the flow
+			$oldPanel.css( { position: 'absolute' } );
 			// fade WITHOUT hiding when opacity = 0
-			$( this.data( 'crossfadeDisplay' ) ).animate( { opacity: 0 }, speed );
+			$oldPanel.animate( { opacity: 0 }, speed, 'linear', function() { 
+				$oldPanel.css( { visibility: 'hidden'} ) 
+			} );
 		}
-		this.data( 'crossfadeDisplay', selector );
+		container.data( 'crossfadeDisplay', newPanelSelector );
 
-		this.animate( { height: $( selector ).outerHeight() }, speed );
-		$( selector ).animate( { opacity: 1 }, speed );
+		var $newPanel = $( newPanelSelector );
+		$newPanel.css( { visibility: 'visible' } );
+		container.animate( { height: $newPanel.outerHeight() }, speed, 'linear', function() {
+			// we place it back into the flow, in case its size changes.
+			$newPanel.css( { position: 'relative' } );
+			// and allow the container to grow with it.
+			container.css( { height : 'auto' } );
+		} );
+		$newPanel.animate( { opacity: 1 }, speed );
 
-		return this;
+		return container;
 	};
 
 } )( jQuery );
