@@ -2487,55 +2487,12 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			return authorValid & licenseValid;
 		},
 
-/*
-		validateAuthor: function() {
-			debugger;
-			debugger;
-			var _this = this;
-			var signature = _this.authorInput.val().trim();
-			
-			var authorErrorMsg = null;
-			var maxAuthorLength = 50; // config?
-			var minAuthorLength = 2;  // config?
-			if ( signature.length === 0 ) {
-				authorErrorMsg = gM( 'mwe-upwiz-error-author-blank' );
-			} else if ( signature.length < minAuthorLength ) {
-				debugger;
-				authorErrorMsg = gM( 'mwe-upwiz-error-author-too-short', minAuthorLength );
-			} else if ( signature.length > maxAuthorLength ) {
-				authorErrorMsg = gM( 'mwe-upwiz-error-author-too-long', maxAuthorLength );
-			} else if ( signature.match(/[{}\[\]\(\)%$]/) ) {
-				// XXX SECURITY we need to do a better job here
-				authorErrorMsg = gM( 'mwe-upwiz-error-author-bad-chars' );
-			}
-
-			if (authorErrorMsg) {
-				_this.$selector
-					.find( '.mwe-upwiz-author-error' )
-					.html( authorErrorMsg ) 
-					.show();
-				_this.$selector
-					.find( '.mwe-upwiz-sign' )
-					.addClass( '.mwe-field-error' )
-					.bind( 'keyup.revalidate', function() { 
-						$j( this ).unbind( 'keyup.revalidate' );
-						_this.validateAuthor();
-					} );
-				
-			} else {
-				_this.authorInput.removeClass( '.mwe-field-error' );
-				_this.$selector.find( '.mwe-upwiz-author-error' ).fadeOut().empty();
-			}
-
-			return (authorErrorMsg !== null)
-					
-		},
-
-*/
 		getSourceWikiText: function() {
 			return '{{own}}';
 		},
 
+		// XXX do we need to escape authorInput, or is wikitext a feature here?
+		// what about scripts?
 		getAuthorWikiText: function() {
 			return "[[User:" + mw.getConfig('userName') + '|' + $j( authorInput ).val() + ']]';
 		},
@@ -2557,7 +2514,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			var $standardDiv, $customDiv;
 
 			var $standardDiv = $j( '<div />' ).append(
-				$j( '<label for="blarg" generated="true" class="mwe-error" style="display:block;"/>' ),
+				$j( '<label for="author2" generated="true" class="mwe-error" style="display:block;"/>' ),
 				$j( '<p>' )
 					.html( gM( 'mwe-upwiz-source-ownwork-assert',
 						   uploadCount,
@@ -2565,7 +2522,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 					),
 				$j( '<p class="mwe-small-print" />' ).append( gM( 'mwe-upwiz-source-ownwork-assert-note' ) )
 			); 
-			$standardDiv.find( '.mwe-standard-author-input' ).append( $j( '<input name="blarg" type="text" class="mwe-upwiz-sign" />' ) );
+			$standardDiv.find( '.mwe-standard-author-input' ).append( $j( '<input name="author2" type="text" class="mwe-upwiz-sign" />' ) );
 			
 			var $customDiv = $j('<div/>').append( 
 				$j( '<label for="author" generated="true" class="mwe-error" style="display:block;"/>' ),
@@ -2632,7 +2589,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 				debug: true,
 				errorClass: 'mwe-error', // add to general config?
 				rules: {
-					blarg: {
+					author2: {
 						required: function( element ) {
 							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
 						},
@@ -2648,7 +2605,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 					}
 				},
 				messages: {
-					blarg: {
+					author2: {
 						required: gM( 'mwe-upwiz-error-author-blank' ),
 						minlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'minAuthorLength' ) ),
 						maxlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'maxAuthorLength' ) )
