@@ -196,7 +196,7 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 
 	_this.change = function() {};
 
-	var c = mw.UploadWizardLicenseInput.prototype.count++;
+	var widgetCount = mw.UploadWizardLicenseInput.prototype.count++;
 
 	// XXX get these for real
 	_this.licenses = {
@@ -216,9 +216,10 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 	_this.$selector = $j( selector );
 	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
 	$j.each( _this.licenses, function( key, data ) {
-		var id = 'license_' + key + '_' + c;
+		var name = 'license_' + key;
+		var id = 'licenseInput' + widgetCount + '_' + name;
 		var input = $j( '<input />' ) 
-			.attr( { id: id, type: 'checkbox', value: key } )
+			.attr( { id: id, name: name, type: 'checkbox', value: key } )
 			// we use the selector because events can't be unbound unless they're in the DOM.
 			.click( function() { _this.$selector.trigger( 'changeLicenses' ) } );
 		data.input = input.get(0);
@@ -318,6 +319,8 @@ mw.UploadWizardLicenseInput.prototype = {
 			} );	
 			$errorEl.html( errorHtml ).show();
 		}
+
+		return isValid;
 	},
 
 
@@ -2494,13 +2497,13 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		// XXX do we need to escape authorInput, or is wikitext a feature here?
 		// what about scripts?
 		getAuthorWikiText: function() {
-			return "[[User:" + mw.getConfig('userName') + '|' + $j( authorInput ).val() + ']]';
+			return "[[User:" + mw.getConfig('userName') + '|' + $j( _this.authorInput ).val() + ']]';
 		},
 
 
 		getLicenseWikiText: function() {
 			var wikiText = '{{self';
-			$j.each( licenseInput.getTemplates(), function( i, template ) {
+			$j.each( _this.licenseInput.getTemplates(), function( i, template ) {
 				wikiText += '|' + template;
 			} );
 			wikiText += '}}';
