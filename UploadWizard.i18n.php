@@ -22,7 +22,7 @@ $messages['en'] = array(
 	'mwe-upwiz-step-thanks' => '4. Use your files',
 	'mwe-upwiz-intro' => "Welcome to Wikimedia Commons, a repository of images, sounds, and movies that anyone can freely download and use. Add to humanity's knowledge by uploading files that could be used for an educational purpose.",
 	'mwe-upwiz-add-file-n' => 'Add another file',
-	'mwe-upwiz-add-file-0' => 'Click here to add a file for upload',
+	'mwe-upwiz-add-file-0' => 'Click here to upload a file',
 	'mwe-upwiz-browse' => 'Browse...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-click-here' => 'Click here to select a file',
@@ -111,7 +111,12 @@ $messages['en'] = array(
 	'mwe-upwiz-license-incompatible-pd' => 'Public domain licenses are incompatible with any other kind of license.',
 	'mwe-upwiz-license-incompatible-cc' => 'You can only choose one kind of Creative Commons license.',
 	'mwe-upwiz-license-show-all' => 'Use a different license',
-	'mwe-upwiz-license-show-recommended' => 'Use the recommended license'
+	'mwe-upwiz-license-show-recommended' => 'Use the recommended license',
+	'mwe-upwiz-error-author-blank' => 'You must sign the field below with your username or real name.',
+	'mwe-upwiz-error-author-too-long' => 'Your signature is too long. Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
+	'mwe-upwiz-error-author-too-short' => 'Your signature is too short. Make it longer than $1 {{PLURAL:$1|character|characters}}.',
+	'mwe-upwiz-error-author-bad-chars' => 'Your signature contains symbols that aren\'t allowed. Please don\'t use wikitext or HTML here, just your username or real name.',
+
 );
 
 /** Message documentation (Message documentation)

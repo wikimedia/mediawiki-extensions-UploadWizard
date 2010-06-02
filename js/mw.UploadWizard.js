@@ -4,6 +4,12 @@
 
 mw.includeAllModuleMessages();
 
+/**
+ * General configuration for the validator
+ */
+$j.validator.setDefaults( {
+	debug: true
+} );
 
 /**
  * Sort of an abstract class for deeds
@@ -123,19 +129,16 @@ mw.ProgressBar.prototype = {
 		}
 
 		if ( remainingTime !== null ) {
-			var tm = mw.seconds2tm( parseInt( remainingTime / 1000, 10 ) );
-			var seconds = tm[0];
-			var minutes = tm[1];
-			var hours = tm[2];
+			var t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
 			var timeString;
-			if (hours == 0) {
-				if (minutes == 0) {
-					timeString = gM( 'mwe-upwiz-secs-remaining', seconds )
+			if (t.hours == 0) {
+				if (t.minutes == 0) {
+					timeString = gM( 'mwe-upwiz-secs-remaining', t.seconds )
 				} else {
-					timeString = gM( 'mwe-upwiz-mins-secs-remaining', minutes, seconds )
+					timeString = gM( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds )
 				}
 			} else {
-				timeString = gM( 'mwe-upwiz-hrs-mins-secs-remaining', hours, minutes, seconds );
+				timeString = gM( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds );
 			}
 			_this.$selector.find( '.mwe-upwiz-etr' ).html( timeString )
 		}
@@ -216,7 +219,8 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 		var id = 'license_' + key + '_' + c;
 		var input = $j( '<input />' ) 
 			.attr( { id: id, type: 'checkbox', value: key } )
-			.click( function() { _this.change() } );
+			// we use the selector because events can't be unbound unless they're in the DOM.
+			.click( function() { _this.$selector.trigger( 'changeLicenses' ) } );
 		data.input = input.get(0);
 		_this.$selector.append( 
 			data.input,
@@ -243,7 +247,8 @@ mw.UploadWizardLicenseInput.prototype = {
 			var checked = ~~!!licenseValues[key];
 			$j( _this.licenses[key].input ).attr( { 'checked' : checked } );
 		} );
-		_this.change();
+		// we use the selector because events can't be unbound unless they're in the DOM.
+		_this.$selector.trigger( 'changeLicenses' );
 	},
 
 	/**
@@ -252,14 +257,14 @@ mw.UploadWizardLicenseInput.prototype = {
 	setDefaultValues: function() {
 		var _this = this;
 		var values = {};
-		$j.each( mw.getConfig('defaultLicenses'), function( i, license ) {
+		$j.each( mw.getConfig( 'defaultLicenses' ), function( i, license ) {
 			values[license] = true;
 		} );
 		_this.setValues( values );
 	},
 
 	/**
-	 * Gets which values are set to true
+	 * Gets which values are set to true. 
 	 * @return object of object of license-key to boolean values, e.g. { cc_by_sa_30: true, gfdl: true }
 	 */ 
 	getValues: function() {
@@ -287,27 +292,31 @@ mw.UploadWizardLicenseInput.prototype = {
 	},
 
 	/**
-	 * Check if a valid value is set, 
+	 * Check if a valid value is set, also look for incompatible choices. 
 	 * Side effect: if no valid value, add notes to the interface. Add listeners to interface, to revalidate and remove notes.
 	 * @return boolean; true if a value set, false otherwise
 	 */
 	validate: function() {
+		var _this = this;
 		var isValid = true;
-		if ( ! this.isSet() ) {
+
+		if ( ! _this.isSet() ) {
 			isValid = false;
 			errorHtml = gM( 'mwe-upwiz-deeds-need-license' );
 		}
 
-		var $errorEl = this.$selector.find( '.mwe-error' )
+		// XXX something goes here for licenses incompatible with each other
+
+		var $errorEl = this.$selector.find( '.mwe-error' );
 		if (isValid) {
-			var $inputs = _this.$selector.find( 'input[type=checkbox]' )
-			$inputs.bind( 'click.revalidate', function() {
-				$inputs.unbind( 'click.revalidate' );
+			$errorEl.fadeOut();
+		} else {
+			// we bind to $selector because unbind() doesn't work on non-DOM objects
+			_this.$selector.bind( 'changeLicenses.validate', function() {
+				_this.$selector.unbind( 'changeLicenses.validate' );
 				_this.validate();
 			} );	
-			errorHtml = $errorEl.html( gM( 'mwe-upwiz-deeds-need-license' ) ).show();
-		} else {
-			$errorEl.fadeOut();
+			$errorEl.html( errorHtml ).show();
 		}
 	},
 
@@ -317,8 +326,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return boolean
 	 */
 	isSet: function() {
-		var _this = this;
-		return ( _this.getValues().length !== 0 );
+		return this.getTemplates().length > 0;
 	}
 
 };
@@ -2456,12 +2464,13 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 	var _this = new mw.UploadWizardDeed();
 
 	_this.authorInput = $j( '<input />')
-		.attr( { name: "author" } )
+		.attr( { name: "author", type: "text" } )
 		.addClass( 'mwe-upwiz-sign' );
 
 	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
 	_this.licenseInput.setDefaultValues();
+
 
 	return $j.extend( _this, { 
 
@@ -2473,13 +2482,56 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		 */
 		validate: function() {
 			// we don't need to validate source because it's set by default
-			// authorInput should be non-blank
-			if ( _this.authorInput.val() ) 
-
-			// licenseInput should have at least one value
-			_this.licenseInput.validate()
+			var authorValid = _this.$form.valid();
+			var licenseValid = _this.licenseInput.validate();
+			return authorValid & licenseValid;
 		},
 
+/*
+		validateAuthor: function() {
+			debugger;
+			debugger;
+			var _this = this;
+			var signature = _this.authorInput.val().trim();
+			
+			var authorErrorMsg = null;
+			var maxAuthorLength = 50; // config?
+			var minAuthorLength = 2;  // config?
+			if ( signature.length === 0 ) {
+				authorErrorMsg = gM( 'mwe-upwiz-error-author-blank' );
+			} else if ( signature.length < minAuthorLength ) {
+				debugger;
+				authorErrorMsg = gM( 'mwe-upwiz-error-author-too-short', minAuthorLength );
+			} else if ( signature.length > maxAuthorLength ) {
+				authorErrorMsg = gM( 'mwe-upwiz-error-author-too-long', maxAuthorLength );
+			} else if ( signature.match(/[{}\[\]\(\)%$]/) ) {
+				// XXX SECURITY we need to do a better job here
+				authorErrorMsg = gM( 'mwe-upwiz-error-author-bad-chars' );
+			}
+
+			if (authorErrorMsg) {
+				_this.$selector
+					.find( '.mwe-upwiz-author-error' )
+					.html( authorErrorMsg ) 
+					.show();
+				_this.$selector
+					.find( '.mwe-upwiz-sign' )
+					.addClass( '.mwe-field-error' )
+					.bind( 'keyup.revalidate', function() { 
+						$j( this ).unbind( 'keyup.revalidate' );
+						_this.validateAuthor();
+					} );
+				
+			} else {
+				_this.authorInput.removeClass( '.mwe-field-error' );
+				_this.$selector.find( '.mwe-upwiz-author-error' ).fadeOut().empty();
+			}
+
+			return (authorErrorMsg !== null)
+					
+		},
+
+*/
 		getSourceWikiText: function() {
 			return '{{own}}';
 		},
@@ -2499,30 +2551,40 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		},
 
 		setFormFields: function( $selector ) {
+			_this.$selector = $selector;
+
+			_this.$form = $j( '<form/>' );
 			var $standardDiv, $customDiv;
 
 			var $standardDiv = $j( '<div />' ).append(
+				$j( '<label for="blarg" generated="true" class="mwe-error" style="display:block;"/>' ),
 				$j( '<p>' )
 					.html( gM( 'mwe-upwiz-source-ownwork-assert',
 						   uploadCount,
-						   '<input name="author" class="mwe-upwiz-sign" />' )
+						   '<span class="mwe-standard-author-input"></span>' )
 					),
-				$j( '<p class="mwe-small-print" />' ).append( gM( 'mwe-upwiz-source-ownwork-assert-note' ) ) 
-			);
+				$j( '<p class="mwe-small-print" />' ).append( gM( 'mwe-upwiz-source-ownwork-assert-note' ) )
+			); 
+			$standardDiv.find( '.mwe-standard-author-input' ).append( $j( '<input name="blarg" type="text" class="mwe-upwiz-sign" />' ) );
 			
 			var $customDiv = $j('<div/>').append( 
+				$j( '<label for="author" generated="true" class="mwe-error" style="display:block;"/>' ),
 				$j( '<p>' )
 					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
 						uploadCount,
 						'<span class="mwe-custom-author-input"></span>' ) ),
 				licenseInputDiv
 			);
+			// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
+			$customDiv.find( '.mwe-custom-author-input' ).append( _this.authorInput );
+
 
 			var $crossfader = $j( '<div>' ).append( $standardDiv, $customDiv );
 			var $toggler = $j( '<p class="mwe-more-options" style="text-align: right" />' )
 				.append( $j( '<a />' )
 					.append( gM( 'mwe-upwiz-license-show-all' ) )
 					.click( function() {
+						_this.formValidator.resetForm();
 						if ( $crossfader.data( 'crossfadeDisplay' ) === $customDiv ) {
 							_this.licenseInput.setDefaultValues();
 							$crossfader.morphCrossfade( $standardDiv );
@@ -2533,10 +2595,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 						}
 					} ) );
 
-			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' ).append( $crossfader, $toggler );
+			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' )
+				.append( $crossfader, $toggler );
 			
-			// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
-			$formFields.find( '.mwe-custom-author-input' ).append( _this.authorInput );
 
 			// synchronize both username signatures
 			// set initial value to configured username
@@ -2559,10 +2620,46 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 					} );
 				} );
 
-			$selector.append( $formFields );
-
-			// done after append so there are true heights
+			_this.$form.append( $formFields );
+			$selector.append( _this.$form );
+			
+			// done after added to the DOM, so there are true heights
 			$crossfader.morphCrossfader();
+
+
+			// and finally, validation
+			_this.formValidator = _this.$form.validate( {
+				debug: true,
+				errorClass: 'mwe-error', // add to general config?
+				rules: {
+					blarg: {
+						required: function( element ) {
+							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
+						},
+						minlength: mw.getConfig( 'minAuthorLength' ),
+						maxlength: mw.getConfig( 'maxAuthorLength' )
+					},
+					author: {
+						required: function( element ) {
+							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
+						},
+						minlength: mw.getConfig( 'minAuthorLength' ),
+						maxlength: mw.getConfig( 'maxAuthorLength' )
+					}
+				},
+				messages: {
+					blarg: {
+						required: gM( 'mwe-upwiz-error-author-blank' ),
+						minlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'minAuthorLength' ) ),
+						maxlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'maxAuthorLength' ) )
+					},
+					author: {
+						required: gM( 'mwe-upwiz-error-author-blank' ),
+						minlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'minAuthorLength' ) ),
+						maxlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'maxAuthorLength' ) )
+					}
+				}
+			} );
 		}
 
 

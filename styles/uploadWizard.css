@@ -523,5 +523,9 @@ a.mwe-upwiz-tooltip-link {
 
 .mwe-error {
 	color: #ff0000;
-	display: none;
+}
+
+input[type='text'].mwe-error {
+	color: black;
+	border: 1px solid #ff0000;
 }
