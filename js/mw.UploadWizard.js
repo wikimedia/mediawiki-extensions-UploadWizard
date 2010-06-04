@@ -11,6 +11,7 @@ $j.validator.setDefaults( {
 	debug: true
 } );
 
+
 /**
  * Sort of an abstract class for deeds
  */
@@ -21,7 +22,7 @@ mw.UploadWizardDeed = function() {
 };
 
 mw.UploadWizardDeed.prototype = {
-	validate: function() {
+	valid: function() {
 		return false;
 	},
 
@@ -297,7 +298,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * Side effect: if no valid value, add notes to the interface. Add listeners to interface, to revalidate and remove notes.
 	 * @return boolean; true if a value set, false otherwise
 	 */
-	validate: function() {
+	valid: function() {
 		var _this = this;
 		var isValid = true;
 
@@ -313,9 +314,9 @@ mw.UploadWizardLicenseInput.prototype = {
 			$errorEl.fadeOut();
 		} else {
 			// we bind to $selector because unbind() doesn't work on non-DOM objects
-			_this.$selector.bind( 'changeLicenses.validate', function() {
-				_this.$selector.unbind( 'changeLicenses.validate' );
-				_this.validate();
+			_this.$selector.bind( 'changeLicenses.valid', function() {
+				_this.$selector.unbind( 'changeLicenses.valid' );
+				_this.valid();
 			} );	
 			$errorEl.html( errorHtml ).show();
 		}
@@ -1527,7 +1528,7 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		
 		// XXX validate!
-		if ( ! _this.validate() ) {
+		if ( ! _this.valid() ) {
 			alert( "THIS DEED IS NOT READY" );
 			return null;
 		}
@@ -1598,9 +1599,9 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Check if we are ready to post wikitext
 	 */
-	validate: function() {
+	valid: function() {
 		var _this = this;
-		return _this.upload.deedChooser.deed.validate();
+		return _this.upload.deedChooser.deed.valid();
 
 		// somehow, all the various issues discovered with this upload should be present in a single place
 		// where we can then check on
@@ -1952,7 +1953,7 @@ mw.UploadWizard.prototype = {
 				// licenses individually
 				if ( _this.uploads.length > 1 ) {
 					var customDeed = $j.extend( new mw.UploadWizardDeed(), {
-						validate: function() { return true; },
+						valid: function() { return true; },
 						name: 'custom',
 					} );
 					deeds.push( customDeed );
@@ -1990,7 +1991,7 @@ mw.UploadWizard.prototype = {
 
 			// validate has the side effect of notifying the user of problems, or removing existing notifications.
 			// if returns false, you can assume there are notifications in the interface.
-			if ( _this.deedChooser.validate() ) {
+			if ( _this.deedChooser.valid() ) {
 
 				var isCustom = ( _this.deedChooser.deed.name == 'later' );
 				
@@ -2451,7 +2452,7 @@ mw.UploadWizardDeedPreview.prototype = {
 };
 
 mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
-	validate: function() {
+	valid: function() {
 		return false;
 	} 
 } );
@@ -2483,10 +2484,10 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		 * Is this correctly set, with side effects of causing errors to show in interface. 
 		 * @return boolean true if valid, false if not
 		 */
-		validate: function() {
+		valid: function() {
 			// we don't need to validate source because it's set by default
 			var authorValid = _this.$form.valid();
-			var licenseValid = _this.licenseInput.validate();
+			var licenseValid = _this.licenseInput.valid();
 			return authorValid & licenseValid;
 		},
 
@@ -2587,7 +2588,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			$crossfader.morphCrossfader();
 
 
-			// and finally, validation
+			// and finally, make it validatable
 			_this.formValidator = _this.$form.validate( {
 				debug: true,
 				errorClass: 'mwe-error', // add to general config?
@@ -2671,7 +2672,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 			$selector.append( $formFields );
 		},
 
-		validate: function() {
+		valid: function() {
 			return     (! mw.isEmpty( $j( this.sourceInput  ).val() ) ) 
 				&& (! mw.isEmpty( $j( this.authorInput  ).val() ) )
 				&& this.licenseInput.isSet()
@@ -2755,10 +2756,10 @@ mw.UploadWizardDeedChooser.prototype = {
 	 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
 	 * @return boolean; true if valid, false if not
 	 */
-	validate: function() {
+	valid: function() {
 		var _this = this;
 		// we assume there is always a deed available, even if it's just the null deed.
-		var valid = _this.deed.validate();
+		var valid = _this.deed.valid();
 		// the only time we need to set an error message is if the null deed is selected.
 		// otherwise, we can assume that the widgets have already added error messages.
 		if (valid) {
