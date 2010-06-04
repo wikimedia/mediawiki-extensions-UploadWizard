@@ -1286,7 +1286,6 @@ mw.UploadWizardDetails.prototype = {
 	recountDescriptions: function() {
 		var _this = this;
 		// if there is some maximum number of descriptions, deal with that here
-		// XXX use mediawiki PLURAL, not -0 -n
 		$j( _this.descriptionAdder ).html( gM( 'mwe-upwiz-desc-add-' + ( _this.descriptions.length == 0 ? '0' : 'n' )  )  );
 	},
 
@@ -1993,11 +1992,9 @@ mw.UploadWizard.prototype = {
 			// validate has the side effect of notifying the user of problems, or removing existing notifications.
 			// if returns false, you can assume there are notifications in the interface.
 			if ( _this.deedChooser.valid() ) {
-
-				var isCustom = ( _this.deedChooser.deed.name == 'later' );
 				
 				$j.each( _this.uploads, function( i, upload ) {
-					if ( isCustom ) {
+					if ( _this.deedChooser.deed.name == 'custom' ) {
 						upload.details.useCustomDeedChooser();
 					} else {
 						upload.deedChooser = _this.deedChooser;
