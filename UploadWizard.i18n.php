@@ -112,11 +112,14 @@ $messages['en'] = array(
 	'mwe-upwiz-license-incompatible-cc' => 'You can only choose one kind of Creative Commons license.',
 	'mwe-upwiz-license-show-all' => 'Use a different license',
 	'mwe-upwiz-license-show-recommended' => 'Use the recommended license',
-	'mwe-upwiz-error-author-blank' => 'You must sign the field below with your username or real name.',
-	'mwe-upwiz-error-author-too-long' => 'Your signature is too long. Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
-	'mwe-upwiz-error-author-too-short' => 'Your signature is too short. Make it longer than $1 {{PLURAL:$1|character|characters}}.',
-	'mwe-upwiz-error-author-bad-chars' => 'Your signature contains symbols that aren\'t allowed. Please don\'t use wikitext or HTML here, just your username or real name.',
-
+	'mwe-upwiz-error-signature-blank' => 'You must sign the field below with your username or real name.',
+	'mwe-upwiz-error-signature-too-long' => 'Your signature is too long. Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
+	'mwe-upwiz-error-signature-too-short' => 'Your signature is too short. Make it longer than $1 {{PLURAL:$1|character|characters}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Your signature contains symbols that aren\'t allowed. Please don\'t use wikitext or HTML here, just your username or real name.',
+	'mwe-upwiz-error-blank' => 'This field is required.',
+	'mwe-upwiz-error-too-long' => 'This field is too long. Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
+	'mwe-upwiz-error-too-short' => 'This field is too short. Make it longer than $1 {{PLURAL:$1|character|characters}}.',
+	'mwe-upwiz-error-bad-chars' => 'This field contains symbols that aren\'t allowed. Please don\'t use wikitext or HTML here, just your username or real name.'
 );
 
 /** Message documentation (Message documentation)

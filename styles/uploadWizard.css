@@ -469,13 +469,18 @@ legend.mwe-legend {
 	visibility: hidden !important;
 }
 
+.mwe-upwiz-thirdparty-fields {
+	margin-bottom: 5px;
+}
+
 .mwe-upwiz-thirdparty-fields label {
 	width: 100px;
 	display: inline-block;
+	padding-bottom: 5px;
 }
 
 .mwe-upwiz-thirdparty-fields textarea {
-	margin: 5px 0px -3px 5px;
+	margin: 0px
 }
 
 .mwe-upwiz-thirdparty-license {
@@ -525,7 +530,11 @@ a.mwe-upwiz-tooltip-link {
 	color: #ff0000;
 }
 
-input[type='text'].mwe-error {
+.mwe-upwiz-deed-form-internal label.mwe-error {
+	margin-left: 100px;
+}
+
+input[type='text'].mwe-error, textarea.mwe-error {
 	color: black;
 	border: 1px solid #ff0000;
 }

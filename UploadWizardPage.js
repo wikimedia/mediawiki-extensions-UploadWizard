@@ -24,6 +24,8 @@ mw.ready( function() {
 			smallThumbnailWidth:  60,  
 			maxAuthorLength: 50,
 			minAuthorLength: 2,
+			maxSourceLength: 200,
+			minSourceLength: 5,
 
 			// not for use with all wikis. 
 			// The ISO 639 code for the language tagalog is "tl".

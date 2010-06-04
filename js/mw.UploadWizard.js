@@ -8,7 +8,8 @@ mw.includeAllModuleMessages();
  * General configuration for the validator
  */
 $j.validator.setDefaults( {
-	debug: true
+	debug: true,
+	errorClass: 'mwe-error'
 } );
 
 
@@ -2485,10 +2486,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		 * @return boolean true if valid, false if not
 		 */
 		valid: function() {
-			// we don't need to validate source because it's set by default
-			var authorValid = _this.$form.valid();
-			var licenseValid = _this.licenseInput.valid();
-			return authorValid & licenseValid;
+			return _this.$form.valid() && _this.licenseInput.valid();
 		},
 
 		getSourceWikiText: function() {
@@ -2590,8 +2588,6 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 			// and finally, make it validatable
 			_this.formValidator = _this.$form.validate( {
-				debug: true,
-				errorClass: 'mwe-error', // add to general config?
 				rules: {
 					author2: {
 						required: function( element ) {
@@ -2610,14 +2606,14 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 				},
 				messages: {
 					author2: {
-						required: gM( 'mwe-upwiz-error-author-blank' ),
-						minlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'minAuthorLength' ) ),
-						maxlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'maxAuthorLength' ) )
+						required: gM( 'mwe-upwiz-error-signature-blank' ),
+						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.getConfig( 'minAuthorLength' ) ),
+						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.getConfig( 'maxAuthorLength' ) )
 					},
 					author: {
-						required: gM( 'mwe-upwiz-error-author-blank' ),
-						minlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'minAuthorLength' ) ),
-						maxlength: gM( 'mwe-upwiz-error-author-too-long', mw.getConfig( 'maxAuthorLength' ) )
+						required: gM( 'mwe-upwiz-error-signature-blank' ),
+						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.getConfig( 'minAuthorLength' ) ),
+						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.getConfig( 'maxAuthorLength' ) )
 					}
 				}
 			} );
@@ -2650,6 +2646,9 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 		name: 'thirdparty',
 
 		setFormFields: function( $selector ) {
+			var _this = this;
+			_this.$form = $j( '<form/>' );
+
 			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal"/>' );
 
 			if ( uploadCount > 1 ) { 
@@ -2658,9 +2657,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 
 			$formFields.append (
 				$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
+				$j( '<label for="source" generated="true" class="mwe-error" style="display:block;"/>' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
 					.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
 						 _this.sourceInput ),
+				$j( '<label for="author" generated="true" class="mwe-error" style="display:block;"/>' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
 					.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
 						 _this.authorInput ),
@@ -2669,13 +2670,36 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 				licenseInputDiv
 			);
 
-			$selector.append( $formFields );
+			_this.$form.validate( {
+				rules: {
+					source: { required: true, 
+						  minlength: mw.getConfig( 'minSourceLength' ),
+						  maxlength: mw.getConfig( 'maxSourceLength' ) },
+					author: { required: true,
+						  minlength: mw.getConfig( 'minAuthorLength' ),
+						  maxlength: mw.getConfig( 'maxAuthorLength' ) },
+				},
+				messages: {
+					source: {
+						required: gM( 'mwe-upwiz-error-blank' ),
+						minlength: gM( 'mwe-upwiz-error-too-short', mw.getConfig( 'minSourceLength' ) ),
+						maxlength: gM( 'mwe-upwiz-error-too-long', mw.getConfig( 'maxSourceLength' ) )
+					},
+					author: {
+						required: gM( 'mwe-upwiz-error-blank' ),
+						minlength: gM( 'mwe-upwiz-error-too-short', mw.getConfig( 'minAuthorLength' ) ),
+						maxlength: gM( 'mwe-upwiz-error-too-long', mw.getConfig( 'maxAuthorLength' ) )
+					}
+				}
+			} );
+
+			_this.$form.append( $formFields );			
+
+			$selector.append( _this.$form );
 		},
 
 		valid: function() {
-			return     (! mw.isEmpty( $j( this.sourceInput  ).val() ) ) 
-				&& (! mw.isEmpty( $j( this.authorInput  ).val() ) )
-				&& this.licenseInput.isSet()
+			return  this.$form.valid() & this.licenseInput.valid();
 		}
 	} );
 }
