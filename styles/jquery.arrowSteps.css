@@ -1,0 +1,31 @@
+.arrowSteps {
+	list-style-type: none;
+	list-style-image: none;
+	border: 1px solid #666666;
+}
+
+.arrowSteps li {
+	float: left;
+	border: 0 none;
+	text-align: center;
+}
+
+.arrowSteps li.arrow {
+	background: url(inactive-arrow-divider.png) no-repeat right center;
+}
+
+/* applied to the element preceding the highlighted step */
+.arrowSteps li.arrow.tail {
+	background: url(arrow-tail.png) no-repeat right center;
+}
+
+/* this applies to all highlighted, including the last */
+.arrowSteps li.head {
+	background: url(arrow-head.png) no-repeat left center;
+	font-weight: bold;
+}
+
+/* this applies to all highlighted arrows except the last */
+.arrowSteps li.arrow.head {
+	background: url(arrow-head.png) no-repeat right center;
+}

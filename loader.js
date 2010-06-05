@@ -21,10 +21,16 @@
 		"mw.DestinationChecker"		: "js/mw.DestinationChecker.js",
 
 		"mw.MockUploadHandler"		: "js/mw.MockUploadHandler.js",		
+
 		"$j.fn.tipsy"			: "js/jquery/plugins/jquery.tipsy.js",
+		"mw.style.tipsy"		: "styles/jquery.tipsy.css",
+
 		"$j.fn.morphCrossfade"		: "js/jquery/plugins/jquery.morphCrossfade.js",
+
 		"$j.fn.validate"		: "js/jquery/plugins/jquery.validate.js",
-		"mw.style.tipsy"		: "styles/jquery.tipsy.css"
+
+		"$j.fn.arrowSteps"		: "js/jquery/plugins/jquery.arrowSteps.js",
+		"mw.style.arrowSteps"		: "styles/jquery.arrowSteps.css"
 	});	
 	
 	//Set a variable for the base upload interface for easy inclution
@@ -59,9 +65,11 @@
 			//'$j.effects.pulsate',
 			'$j.fn.autocomplete',
 			'$j.fn.tipsy',
+			'mw.style.tipsy',
 			'$j.fn.morphCrossfade',
 			'$j.fn.validate',
-			'mw.style.tipsy',
+			'$j.fn.arrowSteps',
+			'mw.style.arrowSteps',
 			'mw.style.autocomplete'
 		],
 		[

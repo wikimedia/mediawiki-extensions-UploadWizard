@@ -15,68 +15,12 @@ form.mwe-upwiz-form {
 }
 */
 
-#mwe-upwiz-steparrows {
-}
-
-#mwe-upwiz-content {
-}
 
 .mwe-upwiz-clearing {
 	clear: left;
 	width: 100%;
 }
 
-#mwe-upwiz-steparrows ul {
-	list-style-type: none;
-	list-style-image: none;
-	padding: 0px;
-	margin: 0px;
-	position: relative;
-}
-
-#mwe-upwiz-steparrows ul li {
-	color: #999999;
-	float: left;
-	padding: 0px;
-	margin: 0px;
-}
-
-#mwe-upwiz-steparrows ul li span {
-	padding-top: 2px;
-	padding-bottom: 4px;
-}
-
-#mwe-upwiz-steparrows ul li span.mwe-arrow-text {
-	border-color: #e0e0e0;
-	border-style: solid;
-	border-width: 1px 0px 1px 0px;
-	padding-right: 10px;
-	padding-left: 24px;
-	z-index: 1;
-}
-
-#mwe-upwiz-steparrows ul li span.mwe-arrow {
-	position: relative;
-	left: 21px;
-	padding-right: 12px;
-	z-index: 2;
-	background: url('grey-angle.gif') no-repeat right center;
-}
-
-#mwe-upwiz-steparrows ul li.mwe-upwiz-step-highlight span.mwe-arrow {
-	background: url('black-angle.gif') no-repeat right center;
-}
-
-#mwe-upwiz-steparrows ul li.mwe-upwiz-step-highlight span.mwe-arrow-text {
-	border-color: #000000;
-}
-
-#mwe-upwiz-steparrows ul li.mwe-upwiz-step-highlight span.mwe-arrow-text {
-	padding-left: 12px;
-	font-weight: bold;
-	color: black;
-	border-left: 1px solid;
-}
 
 #mwe-upwiz-content {
 	padding: 1em;

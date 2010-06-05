@@ -1825,15 +1825,12 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 		var div = $j( selector ).get(0);
 		div.innerHTML = 
-	
-		         '<div id="mwe-upwiz-steparrows" class="ui-helper-clearfix">'
-		       +   '<ul>'
-		       +     '<li id="mwe-upwiz-step-file"><span class="mwe-arrow-text">'     + gM('mwe-upwiz-step-file')     + '<span class="mwe-arrow"/></span></span></li>'
-		       +     '<li id="mwe-upwiz-step-deeds"><span class="mwe-arrow-text">'  + gM('mwe-upwiz-step-deeds')  + '<span class="mwe-arrow"/></span></span></li>'
-		       +     '<li id="mwe-upwiz-step-details"><span class="mwe-arrow-text">'  + gM('mwe-upwiz-step-details')  + '<span class="mwe-arrow"/></span></span></li>'
-		       +     '<li id="mwe-upwiz-step-thanks"><span class="mwe-arrow-text">'   + gM('mwe-upwiz-step-thanks')   + '<span class="mwe-arrow"/></span></span></li>'
-		       +   '</ul>'	
-		       + '</div>'
+		         '<ul id="mwe-upwiz-steps" style="width: 600px">'
+		       +   '<li id="mwe-upwiz-step-file">' + gM('mwe-upwiz-step-file') + '</li>'
+		       +   '<li id="mwe-upwiz-step-deeds">'  + gM('mwe-upwiz-step-deeds')  + '</li>'
+		       +   '<li id="mwe-upwiz-step-details">'  + gM('mwe-upwiz-step-details')  + '</li>'
+		       +   '<li id="mwe-upwiz-step-thanks">'   + gM('mwe-upwiz-step-thanks')  +  '</li>'
+		       + '</ul>'
 
 		       + '<div id="mwe-upwiz-content">'
 
@@ -1892,6 +1889,8 @@ mw.UploadWizard.prototype = {
 		       + '<div class="mwe-upwiz-clearing"></div>';
 		
 
+		$j( '#mwe-upwiz-steps' ).arrowSteps();
+ 
 		$j( '.mwe-upwiz-button-home' )
 			.append( gM( 'mwe-upwiz-home' ) )
 			.click( function() { window.location.href = '/' } );
@@ -2054,19 +2053,20 @@ mw.UploadWizard.prototype = {
 			var stepDiv = $j( '#mwe-upwiz-stepdiv-' + stepName );
 
 			if ( _this.currentStepName == stepName ) {
+				stepDiv.hide();
 				// we hide the old stepDivs because we are afraid of some z-index elements that may interfere with later tabs
 				// this will break if we ever allow people to page back and forth.
-				step.hide( 1000 );
-				stepDiv.hide();
-			} else if ( selectedStepName == stepName ) {
-				stepDiv.maskSafeShow();
-				step.addClass( 'mwe-upwiz-step-highlight' );
 			} else {
-				// it's neither the formerly active nor the newly active one, so don't show it
-				// we don't use hide() because we want to manipulate elements within future tabs, and calculate their dimensions.
-				// stepDiv.maskSafeHide();
+				if ( selectedStepName == stepName ) {
+					stepDiv.maskSafeShow();
+				} else {
+					stepDiv.maskSafeHide( 1000 );
+				}
 			}
+			
 		} );
+			
+		$j( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
 		_this.currentStepName = selectedStepName;
 
