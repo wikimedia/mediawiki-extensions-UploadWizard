@@ -73,7 +73,6 @@
 	
 	$j.fn.arrowStepsHighlight = function( selector ) {
 		var $steps = this.data( 'arrowSteps' );
-		var lastIndex = $steps.length - 1;
 		var $previous;
 		$j.each( $steps, function( i, step ) {
 			var $step = $j( step );
