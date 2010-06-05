@@ -48,12 +48,12 @@
 					     - ( basePadding + basePadding ) 
                                            ) / $steps.length, 10 );
 		var lastStepIndex = $steps.length - 1;
-		$steps.css( { 
-			'margin': '0px', 
-			'width': baseWidth + 'px' 
-		} );
 		$j.each( $steps, function( i, step ) {
 			var $step = $j( step );
+			$step.css( { 
+				'margin': '0px', 
+				'width': baseWidth + 'px' 
+			} );
 			if ( i == lastStepIndex ) {
 				$step.css( { 
 					'padding': basePadding + 'px',
