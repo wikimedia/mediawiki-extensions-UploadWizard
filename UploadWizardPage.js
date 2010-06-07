@@ -1,9 +1,22 @@
+
 /*
  * This script is run on [[Special:UploadWizard]].
  * Creates an interface for uploading files in multiple steps, hence "wizard"
  */
 
+
+
+// create UploadWizard
 mw.ready( function() {
+	// add the discussion link, using standard DOM (sigh) since jquery not guaranteed available
+	var discussListItem = addPortletLink( 'p-namespaces', 
+					      'http://usability.wikimedia.org/wiki/Multimedia_talk:Upload_wizard',
+					      'Discussion',
+					      'usability_upload_wizard_discussion',
+					      'Discuss this experimental extension at the Usability wiki');
+	var discussLink = discussListItem.getElementsByTagName( 'a' )[0];
+	discussLink.setAttribute( 'target', 'usability_discussion' );
+
 
 	// The namespace for media files. We use this to look up what the URL prefix is on this MediaWiki, usually
 	// 'Image:' or something like that. Defined in defines.php
