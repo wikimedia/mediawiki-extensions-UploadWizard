@@ -8,30 +8,38 @@
  * Derivative works and later versions of the code must be free software 
  * licensed under the same or a compatible license.
  *
- * Sometimes we want to show the user their progress through steps. One typical
- * way to show this is with a row of text blocks connected by arrows, with the 
- * current step highlighted.
  *
- * Create a list in HTML -- ordered or unordered. It works better if it has a fixed width. 
+ * DESCRIPTION
  *
- *  <ul id="robin-hood-daffy" style="width:600px">
- *    <li id="guard">Guard!</li>
- *    <li id="turn"/>Turn!</li>
- *    <li id="parry"/>Parry!</li>
- *    <li id="dodge"/>Dodge!</li>
- *    <li id="spin"/>Spin!</li>
- *    <li id="ha"/>Ha!</li>
- *    <li id="thrust"/>Thrust!</li>
- *  </ul>
+ * Show users their progress through a series of steps, via a row of items that fit 
+ * together like arrows. One item can be highlighted at a time.
  *
- * Initialize:
  *
+ * SYNOPSIS 
+ *
+ * <ul id="robin-hood-daffy" style="width:600px">
+ *   <li id="guard">Guard!</li>
+ *   <li id="turn"/>Turn!</li>
+ *   <li id="parry"/>Parry!</li>
+ *   <li id="dodge"/>Dodge!</li>
+ *   <li id="spin"/>Spin!</li>
+ *   <li id="ha"/>Ha!</li>
+ *   <li id="thrust"/>Thrust!</li>
+ * </ul>
+ *
+ * <script language="javascript"><!-- 
  *   $( '#robin-hood-daffy' ).arrowSteps();
- * 
- * And then use:
- *  
- *   $( '#robin-hood-daffy' ).arrowStepsHighlight( '#guard' );
  *
+ *   $( '#robin-hood-daffy' ).arrowStepsHighlight( '#guard' );
+ *   // 'Guard!' is highlighted.
+ *
+ *   // ... user completes the 'guard' step ...
+ * 
+ *   $( '#robin-hood-daffy' ).arrowStepsHighlight( '#turn' );
+ *   // 'Turn!' is highlighted.
+ *
+ *   //-->
+ * </script>
  *
  */
 
