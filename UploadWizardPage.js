@@ -49,12 +49,12 @@ mw.ready( function() {
 			// names of all license templates, in order. Case sensitive!
 			// n.b. in the future, the licenses for a wiki will probably be defined in PHP or even LocalSettings.
 			licenses: [
-				{ template: 'Cc-by-sa-3.0',	messageKey: 'license-cc-by-sa-3.0', 	'default': true },
-				{ template: 'Cc-by-3.0', 	messageKey: 'license-cc-by-3.0', 	'default': false },
-				{ template: 'Cc-zero', 		messageKey: 'license-cc-zero', 		'default': false },
+				{ template: 'Cc-by-sa-3.0',	messageKey: 'mwe-upwiz-license-cc-by-sa-3.0', 	'default': true },
+				{ template: 'Cc-by-3.0', 	messageKey: 'mwe-upwiz-license-cc-by-3.0', 	'default': false },
+				{ template: 'Cc-zero', 		messageKey: 'mwe-upwiz-license-cc-zero', 	'default': false },
 				// n.b. the PD-US is only for testing purposes, obviously we need some geographical discrimination here... 
-				{ template: 'PD-US', 		messageKey: 'license-pd-us', 		'default': false },
-				{ template: 'GFDL', 		messageKey: 'license-gfdl', 		'default': false }
+				{ template: 'PD-US', 		messageKey: 'mwe-upwiz-license-pd-us', 		'default': false },
+				{ template: 'GFDL', 		messageKey: 'mwe-upwiz-license-gfdl', 		'default': false }
 			 ],
 
 			// usually, but not always, File: 
