@@ -188,53 +188,47 @@ mw.ProgressBar.prototype = {
 // but, MediaWiki has no real concept of a License as a first class object -- there are templates and then specially - parsed 
 // texts to create menus -- hack on top of hacks -- a bit too much to deal with ATM
 /**
- * Create a group of checkboxes for licenses
+ * Create a group of checkboxes for licenses. N.b. the licenses are named after the templates they invoke.
  * @param div 
  * @param values  (optional) array of license key names to activate by default
- * @param change  (optional) function to execute when any value changes
  */
 mw.UploadWizardLicenseInput = function( selector, values ) {
 	var _this = this;
 
-	_this.change = function() {};
-
 	var widgetCount = mw.UploadWizardLicenseInput.prototype.count++;
-
-	// XXX get these for real
-	_this.licenses = {
-		pd:          { template: 'pd', text: 'Public Domain' },
-		cc0:         { template: 'cc0', text: 'Creative Commons Zero waiver' },
-		cc_by_30:    { template: 'cc-by-30', text: 'Creative Commons Attribution 3.0' },
-		cc_by_sa_30: { template: 'cc-by-sa-30', text: 'Creative Commons Attribution ShareAlike 3.0' },
-		gfdl:	     { template: 'gfdl', text: 'GFDL (GNU Free Documentation License)' }
-	};
-
-	// incompatibility check of this license versus others
-	// upon validation, all other checked license names are passed through this function. Return null if everything is okay.
-	// return message key to show as error if there is a problem.
-
+	
 	_this.inputs = [];
+
+	// TODO incompatibility check of this license versus others
 
 	_this.$selector = $j( selector );
 	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
-	$j.each( _this.licenses, function( key, data ) {
-		var name = 'license_' + key;
+
+	$j.each( mw.getConfig( 'licenses' ), function( i, licenseConfig ) {
+		var template = licenseConfig.template;
+		var messageKey = licenseConfig.messageKey;
+		
+		var name = 'license_' + template;
 		var id = 'licenseInput' + widgetCount + '_' + name;
-		var input = $j( '<input />' ) 
-			.attr( { id: id, name: name, type: 'checkbox', value: key } )
+		var $input = $j( '<input />' ) 
+			.attr( { id: id, name: name, type: 'checkbox', value: template  } )
 			// we use the selector because events can't be unbound unless they're in the DOM.
-			.click( function() { _this.$selector.trigger( 'changeLicenses' ) } );
-		data.input = input.get(0);
+			.click( function() { _this.$selector.trigger( 'changeLicenses' ) } )
+		_this.inputs.push( $input );
 		_this.$selector.append( 
-			data.input,
-			$j( '<label />' ).attr( { 'for': id } ).html( data.text ),
+			$input,
+			$j( '<label />' ).attr( { 'for': id } ).html( gM( messageKey ) ),
 			$j( '<br/>' )
 		);
 	} );
 
 	if ( values ) {
 		_this.setValues( values );
+	} else {
+		_this.setDefaultValues();
 	}
+
+	return _this;
 };
 
 mw.UploadWizardLicenseInput.prototype = {
@@ -246,52 +240,34 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	setValues: function( licenseValues ) {
 		var _this = this;
-		$j.each( _this.licenses, function( key, data ) {
-			var checked = ~~!!licenseValues[key];
-			$j( _this.licenses[key].input ).attr( { 'checked' : checked } );
+		$j.each( _this.inputs, function( i, $input ) {
+			var template = $input.val();
+			$input.attr( 'checked', ~~!!licenseValues[template] );
 		} );
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
 	},
 
 	/**
-	 * Set the default configured licenses - should change per wiki
+	 * Set the default configured licenses
 	 */
 	setDefaultValues: function() {
 		var _this = this;
 		var values = {};
-		$j.each( mw.getConfig( 'defaultLicenses' ), function( i, license ) {
-			values[license] = true;
+		$j.each( mw.getConfig( 'licenses' ), function( i, licenseConfig ) {
+			values[ licenseConfig.template ] = licenseConfig['default'];
 		} );
 		_this.setValues( values );
 	},
 
 	/**
-	 * Gets which values are set to true. 
-	 * @return object of object of license-key to boolean values, e.g. { cc_by_sa_30: true, gfdl: true }
-	 */ 
-	getValues: function() {
-		var _this = this;
-		var values = {};
-		$j.each( _this.licenses, function( key, data ) {
-			if ( $j( _this.licenses[key].input ).is( ':checked' ) ) {
-				values[key] = data;
-			} 
-		} );
-		return values;
-	},
-
-	/**
-	 * Gets the templates associated with values set to true
-	 * @return templates of licenses selected
+	 * Gets the templates associated with checked inputs 
+	 * @return array of template names
   	 */
 	getTemplates: function() {
-		var _this = this;
-		var templates = [];
-		$j.each( _this.getValues(), function( key, data ) {
-			templates.push( data.template );
-		} );
-		return templates;
+		return $j( this.inputs )
+			.filter( function() { return this.is( ':checked' ) } )
+			.map( function() { return this.val() } );
 	},
 
 	/**
@@ -2471,7 +2447,6 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
-	_this.licenseInput.setDefaultValues();
 
 
 	return $j.extend( _this, { 
@@ -2636,7 +2611,6 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 				.tipsyPlus();
 	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
-	_this.licenseInput.setDefaultValues();
 
 
 	return $j.extend( _this, mw.UploadWizardDeed.prototype, {

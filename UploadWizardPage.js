@@ -45,7 +45,17 @@ mw.ready( function() {
 			// Commons already had a template called 'tl:  though.
 			// so, this workaround will cause tagalog descriptions to be saved with this template instead.
 			languageTemplateFixups:  { tl: 'tgl' }, 
-			defaultLicenses:  [ 'cc_by_sa_30' ], 
+
+			// names of all license templates, in order. Case sensitive!
+			// n.b. in the future, the licenses for a wiki will probably be defined in PHP or even LocalSettings.
+			licenses: [
+				{ template: 'Cc-by-sa-3.0',	messageKey: 'license-cc-by-sa-3.0', 	'default': true },
+				{ template: 'Cc-by-3.0', 	messageKey: 'license-cc-by-3.0', 	'default': false },
+				{ template: 'Cc-zero', 		messageKey: 'license-cc-zero', 		'default': false },
+				// n.b. the PD-US is only for testing purposes, obviously we need some geographical discrimination here... 
+				{ template: 'PD-US', 		messageKey: 'license-pd-us', 		'default': false },
+				{ template: 'GFDL', 		messageKey: 'license-gfdl', 		'default': false }
+			 ],
 
 			// usually, but not always, File: 
 			fileNamespace: wgCanonicalNamespaceNames[NS_FILE],

@@ -133,7 +133,16 @@ Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-too-short' => 'This field is too short.
 Make it longer than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-bad-chars' => 'This field contains symbols that are not allowed.
-Please do not use wikitext or HTML here, just your username or real name.' // FIXME (?) Does not appear to related to username. Bad copy-paste?
+Please do not use wikitext or HTML here.',
+
+	/* LICENSES */
+	/* surprisingly we don't seem to have strings for these yet */
+	'license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
+	'license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
+	'license-cc-zero' => 'Creative Commons CC0 Waiver',
+	'license-gfdl' => 'GNU Free Documentation License',
+	/* this is just for testing, we are not going to privilege the US and A */
+	'license-pd-us' => 'Public Domain (US)'
 );
 
 /** Message documentation (Message documentation)
