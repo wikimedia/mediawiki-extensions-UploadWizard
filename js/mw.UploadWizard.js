@@ -1784,12 +1784,12 @@ mw.UploadWizard.prototype = {
 	},
 	*/
 
+	/**
+	 * Reset the entire interface so we can upload more stuff
+	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
+	 */
 	reset: function() {
-		var _this = this;
-		$j.each( _this.uploads, function( i, upload ) {
-			_this.removeUpload( upload );
-		} );
-		_this.uploads = [];
+		window.location.reload();
 	},
 
 	
@@ -1873,7 +1873,7 @@ mw.UploadWizard.prototype = {
 		
 		$j( '.mwe-upwiz-button-begin' )
 			.append( gM( 'mwe-upwiz-upload-another' ) )
-			.click( _this.reset() );
+			.click( function() { _this.reset() } );
 		
 		$j( '.mwe-upwiz-button-next' )
 			.append( gM( 'mwe-upwiz-next' ) )
