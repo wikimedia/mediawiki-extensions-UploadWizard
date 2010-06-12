@@ -54,8 +54,12 @@ mw.UploadWizardDeed.prototype = {
 };
 
 
-mw.ProgressBar = function( selector, text ) {
+/**
+ * this is a progress bar for monitoring multiple objects, giving summary view
+ */
+mw.GroupProgressBar = function( selector, text, uploads, endState, progressProperty, weightProperty ) {
 	var _this = this;
+
 	// XXX need to figure out a way to put text inside bar
 	_this.$selector = $j( selector );
 	_this.$selector.html( 
@@ -71,26 +75,81 @@ mw.ProgressBar = function( selector, text ) {
 	);
 
 	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
-	
+
+	_this.uploads = uploads;
+	_this.endState = endState;
+	_this.progressProperty = progressProperty;
+	_this.weightProperty = weightProperty;
 	_this.beginTime = undefined;
-			
+
 };
 
-mw.ProgressBar.prototype = {
+mw.GroupProgressBar.prototype = {
 
 	/**
 	 * Show the progress bar with a slideout motion
          */
 	showBar: function() {
-		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).slideDown( 500 );
+		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
 	},
 
-	
+	/** 
+	 * loop around the uploads, summing certain properties for a weighted total fraction
+	 */
+	start: function() {
+		var _this = this;
+
+		var totalWeight = 0.0;
+		$j.each( _this.uploads, function( i, upload ) {
+			totalWeight += upload[_this.weightProperty];
+		} );
+
+		_this.setBeginTime();
+		var shown = false;
+
+		var displayer = function() {	
+			var fraction = 0.0;
+			var endStateCount = 0;
+			var hasData = false;
+			$j.each( _this.uploads, function( i, upload ) {
+				if ( upload.state == _this.endState ) {
+					endStateCount++;
+				}
+				if (upload[_this.progressProperty] !== undefined) {
+					fraction += upload[_this.progressProperty] * ( upload[_this.weightProperty] / totalWeight );
+					if (upload[_this.progressProperty] > 0 ) {
+						hasData = true;
+					}
+				}
+			} );
+			mw.log( 'hasdata:' + hasData + ' endstatecount:' + endStateCount );
+			// sometimes, the first data we have just tells us that it's over. So only show the bar
+			// if we have good data AND the fraction is less than 1.
+			if ( hasData && fraction < 1.0 ) {
+				if ( ! shown ) {
+					_this.showBar();
+					shown = true;
+				}
+				_this.showProgress( fraction );
+			}
+			_this.showCount( endStateCount );
+
+			if ( endStateCount < _this.uploads.length ) {
+				setTimeout( displayer, 200 );
+			} else {
+				_this.showProgress( 1.0 );
+				setTimeout( function() { _this.hideBar(); }, 500 );
+			}
+		};
+		displayer();
+	},
+
+
 	/**
 	 * Hide the progress bar with a slideup motion
 	 */
 	hideBar: function() {
-		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).slideUp( 500 );
+		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeOut( 200 );
 	},
 	
 	/**
@@ -103,13 +162,6 @@ mw.ProgressBar.prototype = {
 		this.beginTime = time ? time : ( new Date() ).getTime();
 	},
 
-	/**
-	 * sets the total number of things we are tracking
-	 * @param total an integer, for display e.g. uploaded 1 of 5, this is the 5
-	 */ 
-	setTotal: function(total) {
-		this.total = total;
-	},	
 
 	/**
 	 * Show overall progress for the entire UploadWizard
@@ -123,19 +175,18 @@ mw.ProgressBar.prototype = {
 
 		_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
 
-		var remainingTime;
-		if (_this.beginTime === null) {
-			remainingTime = 0;
-		} else {	
-			remainingTime = _this.getRemainingTime( fraction );
-		}
-
+		var remainingTime = _this.getRemainingTime( fraction );
+		
 		if ( remainingTime !== null ) {
 			var t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
 			var timeString;
 			if (t.hours == 0) {
 				if (t.minutes == 0) {
-					timeString = gM( 'mwe-upwiz-secs-remaining', t.seconds )
+					if (t.seconds == 0) { 
+						timeString = gM( 'mwe-upwiz-finished' );
+					} else {
+						timeString = gM( 'mwe-upwiz-secs-remaining', t.seconds );
+					}
 				} else {
 					timeString = gM( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds )
 				}
@@ -173,7 +224,7 @@ mw.ProgressBar.prototype = {
 		var _this = this;
 		_this.$selector
 			.find( '.mwe-upwiz-count' )
-			.html( gM( 'mwe-upwiz-upload-count', [ count, _this.total ] ) );
+			.html( gM( 'mwe-upwiz-upload-count', [ count, _this.uploads.length ] ) );
 	}
 
 
@@ -372,6 +423,7 @@ mw.UploadWizardUpload.prototype = {
 
 	/**
 	 * Wear our current progress, for observing processes to see
+	 * XXX this is kind of a misnomer; this event is not firing except for the very first time.
  	 * @param fraction
 	 */
 	setTransportProgress: function ( fraction ) {
@@ -650,8 +702,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	// _this.progressBar = ( no progress bar for individual uploads yet )
 	// add a details thing to details
 	// this should bind only to the FIRST transportProgress
-	$j( upload ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); e.stopPropagation(); } );
-	$j( upload ).bind( 'transportedEvent', function(e) { _this.showTransported(); e.stopPropagation(); } );
+	$j( upload ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); } );
+	$j( upload ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
 
 };
 
@@ -665,19 +717,15 @@ mw.UploadWizardUploadInterface.prototype = {
 		$j( _this.removeCtrl ).hide();
 	},
 
-	/**
-	 * Make this interface look "busy" (i.e. spinner) without indicating a particular percentage of file uploaded.
-	 * Will be useful for encoding phase of Firefogg, for example.
-	 */
 	busy: function() {
 		var _this = this;
 		// for now we implement this as looking like "100% progress"
 		// e.g. an animated bar that takes up all the space
-		_this.showTransportProgress( 1.0 );
+		// _this.showTransportProgress();
 	},
 
 	/**
-	 * Show progress by a fraction
+	 * Put the visual state of an individual upload ito "progress"
 	 * @param fraction	The fraction of progress. Float between 0 and 1
 	 */
 	showTransportProgress: function() {
@@ -685,14 +733,6 @@ mw.UploadWizardUploadInterface.prototype = {
 		$j( _this.progressMessage ).addClass('mwe-upwiz-status-progress')
 		    			   .html(gM( 'mwe-upwiz-uploading' ))
 					   .show();
-		// since, in this iteration of the interface, we never need to know 
-		// about progress again, let's unbind
-/*
-		// unbind is broken in jquery 1.4.1 -- raises exception but it still works
-		try { 
-			$j( _this.upload ).unbind( 'transportProgressEvent' );
-		} catch (ex) { }
-*/		
 		// update individual progress bar with fraction?
 	},
 
@@ -1589,7 +1629,7 @@ mw.UploadWizardDetails.prototype = {
 	 * XXX This should be split up -- one part should get wikitext from the interface here, and the ajax call
 	 * should be be part of upload
 	 */
-	submit: function() {
+	submit: function( endCallback ) {
 		var _this = this;
 
 
@@ -1600,18 +1640,14 @@ mw.UploadWizardDetails.prototype = {
 		var desiredFilename = _this.filename;
 		shouldRename = ( desiredFilename != _this.upload.title );
 
-		// if ok to go			
-		// XXX lock down the interface, spinnerify
-		// else
-		// point out problems
-
-
 		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
 		var wikiText = _this.getWikiText();
 		mw.log( wikiText );
 	
 		var params = {
 			action: 'edit',
+			// XXX this is problematic, if the upload wizard is idle for a long time the token expires.
+			// should obtain token just before uploading
 			token: mw.getConfig( 'token' ),
 			title: _this.upload.title,
 			// section: 0, ?? causing issues?
@@ -1622,7 +1658,10 @@ mw.UploadWizardDetails.prototype = {
 			nocreate: 1
 		};
 
-		var endCallback = function() { _this.completeDetailsSubmission(); }	
+		var finalCallback = function() { 
+			endCallback();
+			_this.completeDetailsSubmission(); 
+		};	
 
 		mw.log( "editing!" );
 		mw.log( params );
@@ -1630,14 +1669,13 @@ mw.UploadWizardDetails.prototype = {
 			mw.log( result );
 			mw.log( "successful edit" );
 			if ( shouldRename ) {
-				_this.rename( desiredFilename, endCallback );	
+				_this.rename( desiredFilename, finalCallback );	
 			} else {
-				endCallback();
+				finalCallback();
 			}
 		};
 
 		_this.upload.state = 'submitting-details';
-		_this.showProgress();
 		mw.getJSON( params, callback );
 	},
 
@@ -1677,7 +1715,7 @@ mw.UploadWizardDetails.prototype = {
 			// then call the uploadwizard with our progress
 
 			// success is
-			// { move = { from : ..., reason : ..., redirectcreated : ..., to : .... }
+			//  move =  from : ..., reason : ..., redirectcreated : ..., to : .... 
 			if (data !== undefined && data.move !== undefined && data.move.to !== undefined) {
 				_this.upload.title = data.move.to;
 				_this.refreshImageInfo( _this.upload, _this.upload.title, endCallback );
@@ -1716,18 +1754,11 @@ mw.UploadWizardDetails.prototype = {
 		} );
 	},
 
-	showProgress: function() {
-		var _this = this;
-		_this.div.mask();
-		// XXX spinnerize
-		_this.upload.detailsProgress = 1.0;
-	},
-
 	completeDetailsSubmission: function() {
 		var _this = this;
 		_this.upload.state = 'complete';
-		// XXX de-spinnerize
-		_this.div.unmask();
+		// de-spinnerize
+		_this.upload.detailsProgress = 1.0;
 	}
 		
 };
@@ -1740,6 +1771,10 @@ mw.UploadWizard = function() {
 
 	this.uploads = [];
 
+	// XXX need a robust way of defining default config 
+	this.maxUploads = mw.getConfig( 'maxUploads' ) || 10;
+	this.maxSimultaneousConnections = mw.getConfig( 'maxSimultaneousConnections' ) || 2;
+
 };
 
 
@@ -1747,8 +1782,6 @@ mw.UploadWizard.userAgent = "UploadWizard (alpha)";
 
 
 mw.UploadWizard.prototype = {
-	maxUploads: 10,  // XXX get this from config 
-	maxSimultaneousUploads: 2,   //  XXX get this from config
 	stepNames: [ 'file', 'deeds', 'details', 'thanks' ],
 	currentStepName: undefined,
 
@@ -2144,52 +2177,21 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
- 	 * Shows progress bar with estimated time remaining.
-	 *
-	 * There are too many args here. How to fix?
-	 * This is starting to feel like an object.
 	 *
 	 * @param beginState   what state the upload should be in before starting.
 	 * @param progressState  the state to set the upload to while it's doing whatever 
 	 * @param endState   the state to set the upload to after it's done whatever 
-	 * @param progressProperty  the property on the upload showing current progress of whatever
-	 * @param weightProperty    the property on the upload giving how heavy to weight this item in total progress calculation
-	 * @param  starter	 function, taking single argument (upload) which starts the process we're interested in 
-	 * @param progressBarSelector where to put the progress bar
+	 * @param starter	 function, taking single argument (upload) which starts the process we're interested in 
 	 * @param endCallback    function to call when all uploads are in the end state.
 	 */
-	makeTransitioner: function( beginState, 
-				    progressState, 
-				    endState, 
-				    progressProperty, 
-				    weightProperty, 
-				    progressBarSelector,
-				    progressBarText,	
-				    starter, 
-				    endCallback ) {
+	makeTransitioner: function( beginState, progressState, endState, starter, endCallback ) {
 		
-		var wizard = this;
+		var _this = this;
 
-		var totalWeight = 0.0;
-		$j.each( wizard.uploads, function( i, upload ) {
-			totalWeight += upload[weightProperty];
-		} );
-		var totalCount = wizard.uploads.length;
-
-		var progressBar = new mw.ProgressBar( progressBarSelector, progressBarText );
-		progressBar.showBar();
-		progressBar.setTotal( totalCount );
-
-		var end = function() {
-			progressBar.hideBar();
-			endCallback();
-		};
-
-		transitioner = function() {
-			var fraction = 0.0;
-			var uploadsToStart = wizard.maxSimultaneousUploads;
+		var transitioner = function() {
+			var uploadsToStart = _this.maxSimultaneousConnections;
 			var endStateCount = 0;
-			$j.each( wizard.uploads, function(i, upload) {
+			$j.each( _this.uploads, function(i, upload) {
 				if ( upload.state == endState ) {
 					endStateCount++;
 				} else if ( upload.state == progressState ) {
@@ -2198,35 +2200,26 @@ mw.UploadWizard.prototype = {
 					starter( upload );
 					uploadsToStart--;
 				}
-				if (upload[progressProperty] !== undefined) {
-					fraction += upload[progressProperty] * ( upload[weightProperty] / totalWeight );
-				}
 			} );
 
-			// perhaps this could be collected into a single progressbar obj
-			progressBar.showProgress( fraction );
-			progressBar.showCount( endStateCount );
-	
 			// build in a little delay even for the end state, so user can see progress bar in a complete state.
-			var nextAction = (endStateCount == totalCount) ? end : transitioner;
+			var nextAction = ( endStateCount == _this.uploads.length ) ? endCallback : transitioner;
 	
-			setTimeout( nextAction, wizard.transitionerDelay );
+			setTimeout( nextAction, _this.transitionerDelay );
 		};
 
-		progressBar.setBeginTime();
 		transitioner();
 	},
 
-	transitionerDelay: 300,  // milliseconds
+	transitionerDelay: 200,  // milliseconds
 
-		
 
 	/**
 	 * Kick off the upload processes.
 	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue, 
 	 * and kicks off a thread which will take from the queue.
 	 */
-	startUploads: function( finishedCallback ) {
+	startUploads: function() {
 		var _this = this;
 		// remove the upload button, and the add file button
 		$j( '#mwe-upwiz-upload-ctrls' ).hide();
@@ -2236,25 +2229,30 @@ mw.UploadWizard.prototype = {
 			message: gM( 'mwe-prevent-close')
 		} );
 
-			
+
+		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress', 
+						           gM( 'mwe-upwiz-uploading' ), 
+						           _this.uploads, 
+						           'transported',  
+							   'transportProgress', 
+							   'transportWeight' );
+		progressBar.start();
+		
+
 		// remove ability to change files
 		// ideally also hide the "button"... but then we require styleable file input CSS trickery
 		// although, we COULD do this just for files already in progress...
 
 		// it might be interesting to just make this creational -- attach it to the dom element representing 
 		// the progress bar and elapsed time	
-		_this.makeTransitioner(
+		_this.makeTransitioner( 
 			'new', 
 			'transporting', 
 			'transported', 
-			'transportProgress', 
-			'transportWeight', 
-			'#mwe-upwiz-progress',
-			gM( 'mwe-upwiz-uploading' ),
 			function( upload ) {
 				upload.start();
 			},
-		        function() { 
+		        function() {
 				allowCloseWindow();
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
 				$j( '#mwe-upwiz-stepdiv-file' ).enableNextButton();
@@ -2310,27 +2308,24 @@ mw.UploadWizard.prototype = {
 		// some details blocks cannot be submitted (for instance, identical file hash)
 		_this.removeBlockedDetails();
 
-		// check that it's even possible to submit all
-		
-		// remove all controls
-		//$j( '#mwe-upwiz-upload-ctrl' ).hide();
-		//$j( '#mwe-upwiz-add-file' ).hide();
-		
+		// XXX validate all 
+
 		// remove ability to edit details
-		// maybe add some sort of greyish semi-opaque thing
-		
+		$j.each( _this.uploads, function( i, upload ) {
+			upload.details.div.mask();
+			upload.details.div.data( 'mask' ).loadingSpinner();
+		} );
+
 		// add the upload progress bar, with ETA
 		// add in the upload count 
 		_this.makeTransitioner(
 			'details', 
 			'submitting-details', 
 			'complete', 
-			'detailsProgress', 
-			'detailsWeight', 
-			'#mwe-upwiz-macro-progress',
-			gM( 'mwe-upwiz-editing' ),
 			function( upload ) {
-				upload.details.submit();
+				upload.details.submit( function() { 
+					upload.details.div.data( 'mask' ).html() 
+				} );
 			},
 			endCallback
 		);
@@ -2340,7 +2335,7 @@ mw.UploadWizard.prototype = {
 	 * Removes(?) details that we can't edit for whatever reason -- might just advance them to a different state?
 	 */
 	removeBlockedDetails: function() {
-		
+		// TODO	
 	},
 
 

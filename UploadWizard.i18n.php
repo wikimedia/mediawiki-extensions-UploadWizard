@@ -34,6 +34,7 @@ Add to humanity's knowledge by uploading files that could be used for an educati
 	'mwe-upwiz-upload' => 'Upload',
 	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|file|files}} of $2 {{PLURAL:$2|file|files}} uploaded',
 	'mwe-upwiz-progressbar-uploading' => 'uploading',
+	'mwe-upwiz-finished' => 'Finished!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|second|seconds}} remaining',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minutes}} $2 {{PLURAL:$2|second|seconds}} remaining',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hour|hours}} $2 {{PLURAL:$2|minute|minutes}} $3 {{PLURAL:$3|second|seconds}} remaining',

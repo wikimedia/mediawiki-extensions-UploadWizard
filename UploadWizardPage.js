@@ -31,13 +31,19 @@ mw.ready( function() {
 			userName:  wgUserName,  
 			userLanguage:  wgUserLanguage, 
 			fileExtensions:  wgFileExtensions, 
+
+			// XXX this is problematic, if the upload wizard is idle for a long time the token expires
+			// should get token just before uploading
 			token:  wgEditToken, 
+			
 			thumbnailWidth:  120,  
 			smallThumbnailWidth:  60,  
 			maxAuthorLength: 50,
 			minAuthorLength: 2,
 			maxSourceLength: 200,
 			minSourceLength: 5,
+			maxSimultaneousConnections: 2,
+			maxUploads: 10,
 
 			// not for use with all wikis. 
 			// The ISO 639 code for the language tagalog is "tl".
@@ -63,6 +69,8 @@ mw.ready( function() {
 
 			// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 			// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config
+			// or actually, in an ideal world, we'd have some way to reliably detect gibberish, rather than trying to 
+			// figure out what is bad via individual regexes, we'd detect badness. Might not be too hard.
 			//
 			// we can export these to JS if we so want.
 			// filenamePrefixBlacklist: wgFilenamePrefixBlacklist,

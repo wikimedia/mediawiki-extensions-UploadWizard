@@ -51,13 +51,13 @@ mw.IframeTransport.prototype = {
 		// XXX this is lame .. there should be a generic way to indicate busy status...
 		$jForm.submit( function() { 
 			mw.log( "submitting to iframe..." );
-			_this.progressCb( 1.0 );
 			return true;
 		} );
 
 		// Set up the completion callback
 		$j( '#' + _this.iframeId ).load( function() {
 			mw.log( "received result in iframe" );
+			_this.progressCb( 1.0 );
 			_this.processIframeResult( $j( this ).get( 0 ) );
 		} );			
 	},
