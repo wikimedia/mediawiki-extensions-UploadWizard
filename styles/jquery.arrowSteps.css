@@ -2,30 +2,39 @@
 	list-style-type: none;
 	list-style-image: none;
 	border: 1px solid #666666;
+	position: relative;
 }
 
 .arrowSteps li {
 	float: left;
+	padding: 0px;
+	margin: 0px;
 	border: 0 none;
-	text-align: center;
 }
 
-.arrowSteps li.arrow {
+.arrowSteps li div {
+	padding: 0.5em;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.arrowSteps li.arrow div {
 	background: url(inactive-arrow-divider.png) no-repeat right center;
 }
 
 /* applied to the element preceding the highlighted step */
-.arrowSteps li.arrow.tail {
+.arrowSteps li.arrow.tail div {
 	background: url(arrow-tail.png) no-repeat right center;
 }
 
 /* this applies to all highlighted, including the last */
-.arrowSteps li.head {
+.arrowSteps li.head div {
 	background: url(arrow-head.png) no-repeat left center;
 	font-weight: bold;
 }
 
 /* this applies to all highlighted arrows except the last */
-.arrowSteps li.arrow.head {
+.arrowSteps li.arrow.head div {
 	background: url(arrow-head.png) no-repeat right center;
 }

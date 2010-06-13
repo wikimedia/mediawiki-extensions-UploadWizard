@@ -46,35 +46,17 @@
 ( function( $j ) { 
 	$j.fn.arrowSteps = function() {
 		this.addClass( 'arrowSteps ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' );
-		$steps = this.find( 'li' );
+		var $steps = this.find( 'li' );
+
+		var width = parseInt( 100 / $steps.length, 10 );
+		$steps.css( 'width', width + '%' );
+
+		// every step except the last one has an arrow at the right hand side. Also add in the padding 
+		// for the calculated arrow width.
 		var arrowWidth = parseInt( this.outerHeight(), 10 );
-		var basePadding = Math.max( 5, parseInt( this.outerHeight() / 5, 10 ) );
-		// every LI element except for the last has an arrow portion
-		// li1> li2> li3 
-		var baseWidth = parseInt(  ( this.width() 
-					     - ( basePadding + basePadding + arrowWidth ) * ( $steps.length - 1 )
-					     - ( basePadding + basePadding ) 
-                                           ) / $steps.length, 10 );
-		var lastStepIndex = $steps.length - 1;
-		$j.each( $steps, function( i, step ) {
-			var $step = $j( step );
-			$step.css( { 
-				'margin': '0px', 
-				'width': baseWidth + 'px' 
-			} );
-			if ( i == lastStepIndex ) {
-				$step.css( { 
-					'padding': basePadding + 'px',
-				} );
-			} else {
-				$step.addClass( 'arrow' ).css( {
-					'padding-top': basePadding + 'px',
-					'padding-right': ( basePadding + arrowWidth ).toString() + 'px',
-					'padding-bottom': basePadding + 'px',
-					'padding-left': basePadding + 'px'
-				} );
-			}
-		} );
+		$steps.filter( ':not(:last-child)' ).addClass( 'arrow' )
+		      .find( 'div' ).css( 'padding-right', arrowWidth.toString() + 'px' );
+
 		this.data( 'arrowSteps', $steps );
 		return this;
 	};

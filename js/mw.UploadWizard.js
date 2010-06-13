@@ -1834,11 +1834,11 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 		var div = $j( selector ).get(0);
 		div.innerHTML = 
-		         '<ul id="mwe-upwiz-steps" style="width: 600px">'
-		       +   '<li id="mwe-upwiz-step-file">' + gM('mwe-upwiz-step-file') + '</li>'
-		       +   '<li id="mwe-upwiz-step-deeds">'  + gM('mwe-upwiz-step-deeds')  + '</li>'
-		       +   '<li id="mwe-upwiz-step-details">'  + gM('mwe-upwiz-step-details')  + '</li>'
-		       +   '<li id="mwe-upwiz-step-thanks">'   + gM('mwe-upwiz-step-thanks')  +  '</li>'
+		         '<ul id="mwe-upwiz-steps">'
+		       +   '<li id="mwe-upwiz-step-file"><div>' + gM('mwe-upwiz-step-file') + '</div></li>'
+		       +   '<li id="mwe-upwiz-step-deeds"><div>'  + gM('mwe-upwiz-step-deeds')  + '</div></li>'
+		       +   '<li id="mwe-upwiz-step-details"><div>'  + gM('mwe-upwiz-step-details')  + '</div></li>'
+		       +   '<li id="mwe-upwiz-step-thanks"><div>'   + gM('mwe-upwiz-step-thanks')  +  '</div></li>'
 		       + '</ul>'
 
 		       + '<div id="mwe-upwiz-content">'
