@@ -410,16 +410,22 @@ mw.UploadWizardUpload.prototype = {
 		_this.ui.start();
 	},
 
-
 	/**
-	 * remove
+	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from 
 	 */
 	remove: function() {
-		var _this = this;
-		$j( _this.ui.div ).remove();
-		$j( _this.details.div ).remove();
-		$j( _this ).trigger( 'removeUpload' );
+		if ( this.details && this.details.div ) {
+			this.details.div.remove();
+		}
+		if ( this.thanksDiv ) {
+			this.thanksDiv.remove();
+		}
+		// we signal to the wizard to update itself, which has to delete the final vestige of 
+		// this upload (the ui.div). We have to do this silly dance because we 
+		// trigger through the div. Triggering through objects doesn't always work.
+		$j( this.ui.div ).trigger( 'removeUploadEvent' );
 	},
+
 
 	/**
 	 * Wear our current progress, for observing processes to see
@@ -430,7 +436,7 @@ mw.UploadWizardUpload.prototype = {
 		var _this = this;
 		_this.state = 'transporting';
 		_this.transportProgress = fraction;
-		$j( _this ).trigger( 'transportProgressEvent' );
+		$j( _this.ui.div ).trigger( 'transportProgressEvent' );
 	},
 
 	/**
@@ -441,7 +447,7 @@ mw.UploadWizardUpload.prototype = {
 		var _this = this;
 		_this.state = 'transported';
 		_this.transportProgress = 1;
-		$j( _this ).trigger( 'transportedEvent' );
+		$j( _this.ui.div ).trigger( 'transportedEvent' );
 
 		if ( result.upload && result.upload.imageinfo && result.upload.imageinfo.descriptionurl ) {
 			// success
@@ -685,7 +691,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	_this.removeCtrl = $j( '<div class="mwe-upwiz-file-indicator"><a title="' 
 					+ gM( 'mwe-upwiz-remove-upload' ) 
 					+ '" href="#" class="mwe-upwiz-remove">x</a></div>' )
-				.click( function() { _this.upload.remove(); } )
+				.click( function() { _this.upload.remove() } )
 				.hide()
 				.get( 0 );
 
@@ -700,10 +706,9 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	$j( _this.div ).insertBefore( '#mwe-upwiz-upload-ctrls' ); // append( _this.div );
 
 	// _this.progressBar = ( no progress bar for individual uploads yet )
-	// add a details thing to details
-	// this should bind only to the FIRST transportProgress
-	$j( upload ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); } );
-	$j( upload ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
+	// we bind to the ui div since unbind doesn't work for non-DOM objects
+	$j( _this.div ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); } );
+	$j( _this.div ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
 
 };
 
@@ -864,9 +869,9 @@ mw.UploadWizardUploadInterface.prototype = {
 				'height': '24px'
 			} );
 			_this.moveFileInputToCover( _this.visibleFilename );
-			$j( _this.upload ).trigger( 'filled' );
+			$j( _this.div ).trigger( 'filled' );
 		} else {	
-			$j( _this.upload ).trigger( 'filenameAccepted' );
+			$j( _this.div ).trigger( 'filenameAccepted' );
 		}
 	},
 
@@ -1852,12 +1857,11 @@ mw.UploadWizard.prototype = {
 		       +            '<a id="mwe-upwiz-add-file">' + gM("mwe-upwiz-add-file-0") + '</a>'
 		       +	  '</div>'
 		       +          '<div id="proceed" class="mwe-upwiz-file-indicator" style="display: none;">'
-		       +            '<button id="mwe-upwiz-upload-ctrl" disabled="disabled">' + gM("mwe-upwiz-upload") + '</button>'
 		       +          '</div>'
 		       +       '</div>'
 		       +       '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
 		       +     '</div>'
-		       +     '<div class="mwe-upwiz-buttons"/>'
+		       +     '<div class="mwe-upwiz-buttons" style="display: none"/>'
 		       +        '<button class="mwe-upwiz-button-next" />'
 		       +     '</div>'
 		       +   '</div>'
@@ -1908,45 +1912,21 @@ mw.UploadWizard.prototype = {
 			.append( gM( 'mwe-upwiz-upload-another' ) )
 			.click( function() { _this.reset() } );
 		
-		$j( '.mwe-upwiz-button-next' )
-			.append( gM( 'mwe-upwiz-next' ) )
-
-		// within FILE step div
-		$j('#mwe-upwiz-upload-ctrl').click( function() { 
-			_this.removeEmptyUploads();
-			_this.startUploads(); 
-		} );
 
 
 		// handler for next button
-		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-button-next').click( function() {
+		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-button-next')
+			.append( gM( 'mwe-upwiz-next-file' ) )
+			.click( function() {
 			// check if there is an upload at all
 			if ( _this.uploads.length === 0 ) {
 				alert( gM( 'mwe-upwiz-file-need-file' ) );
 				return;
 			}
 
-	
-			// check if all uploads are finished. The upload with the most advanced state 
-			// will be copied to 'overallState'
-			var overallState = 'new';
-			$j.each( _this.uploads, function( i, upload ) {
-				if ( upload.state == 'transporting' ) {
-					overallState = 'transporting';
-				} else if ( upload.state == 'transported' && overallState != 'transporting' ) {
-					overallState = 'transported';
-				}
-			} );
-
-			// if uploads aren't initiated or finished uploading, throw up errors, otherwise, let's
-			// go to the next step.
-			if ( overallState == 'new' ) {
-				alert( gM( 'mwe-upwiz-file-need-start' ) );
-			} else if ( overallState == 'transporting' ) {
-				alert( gM( 'mwe-upwiz-file-need-complete' ) );
-			} else if ( overallState == 'transported' ) {
-
-
+			_this.removeEmptyUploads();
+			_this.startUploads( function() {  
+			
 				// okay all uploads are done, we're ready to go to the next step
 
 				// do some last minute prep before advancing to the DEEDS page
@@ -1982,12 +1962,7 @@ mw.UploadWizard.prototype = {
 
 				_this.moveToStep( 'deeds' );
 
-			} else {
-				// should never happen, since all the state names are well known
-				// compare with the 'makeTransitioner' call for the upload page
-				alert( "error: could not recognize state of uploads: " + overallState );
-			}
-			
+			} );		
 		} );
 
 
@@ -1995,33 +1970,36 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-deeds-intro' ).html( gM( 'mwe-upwiz-deeds-intro' ) );
 
-		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next').click( function() {
+		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
+			.append( gM( 'mwe-upwiz-next-deeds' ) )
+			.click( function() {
+				// validate has the side effect of notifying the user of problems, or removing existing notifications.
+				// if returns false, you can assume there are notifications in the interface.
+				if ( _this.deedChooser.valid() ) {
+					
+					$j.each( _this.uploads, function( i, upload ) {
+						if ( _this.deedChooser.deed.name == 'custom' ) {
+							upload.details.useCustomDeedChooser();
+						} else {
+							upload.deedChooser = _this.deedChooser;
+						}
+					} );
 
-			// validate has the side effect of notifying the user of problems, or removing existing notifications.
-			// if returns false, you can assume there are notifications in the interface.
-			if ( _this.deedChooser.valid() ) {
-				
-				$j.each( _this.uploads, function( i, upload ) {
-					if ( _this.deedChooser.deed.name == 'custom' ) {
-						upload.details.useCustomDeedChooser();
-					} else {
-						upload.deedChooser = _this.deedChooser;
-					}
-				} );
-
-				_this.moveToStep('details');
-			}
-		} );
+					_this.moveToStep('details');
+				}
+			} );
 
 
 		// DETAILS div
 
-		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' ).click( function() {
-			_this.detailsSubmit( function() { 
-				_this.prefillThanksPage();
-				_this.moveToStep('thanks');
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
+			.append( gM( 'mwe-upwiz-next-details' ) )
+			.click( function() {
+				_this.detailsSubmit( function() { 
+					_this.prefillThanksPage();
+					_this.moveToStep('thanks');
+				} );
 			} );
-		} );
 
 
 	
@@ -2105,9 +2083,10 @@ mw.UploadWizard.prototype = {
 		_this.uploadToAdd = upload;
 
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
-		$j( upload ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
-		$j( upload ).bind( 'removeUpload', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
-		$j( upload ).bind( 'filled', function(e) { 
+		// we bind to the ui div since unbind doesn't work for non-DOM objects
+		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
+		$j( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
+		$j( upload.ui.div ).bind( 'filled', function(e) { 
 			_this.newUpload(); 
 			_this.setUploadFilled(upload);
 			e.stopPropagation(); 
@@ -2148,10 +2127,11 @@ mw.UploadWizard.prototype = {
 	 */
 	removeUpload: function( upload ) {
 		var _this = this;
-		$j( upload ).unbind(); // everything
-		upload.details.div.remove();
-		upload.thanksDiv.remove();
+		// remove the div that passed along the trigger
+		$j( upload.ui.div ).unbind(); // everything
+		$j( upload.ui.div ).remove();
 
+		// and do what we in the wizard need to do after an upload is removed
 		mw.UploadWizardUtil.removeItem( _this.uploads, upload );
 		_this.updateFileCounts();
 	},
@@ -2218,8 +2198,9 @@ mw.UploadWizard.prototype = {
 	 * Kick off the upload processes.
 	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue, 
 	 * and kicks off a thread which will take from the queue.
+	 * @param endCallback   - to execute when uploads are completed
 	 */
-	startUploads: function() {
+	startUploads: function( endCallback ) {
 		var _this = this;
 		// remove the upload button, and the add file button
 		$j( '#mwe-upwiz-upload-ctrls' ).hide();
@@ -2255,7 +2236,7 @@ mw.UploadWizard.prototype = {
 		        function() {
 				allowCloseWindow();
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
-				$j( '#mwe-upwiz-stepdiv-file' ).enableNextButton();
+				endCallback();
 		  	} 
 		);
 	},
@@ -2274,14 +2255,14 @@ mw.UploadWizard.prototype = {
 		if ( _this.uploads.length ) {
 			$j( '#mwe-upwiz-upload-ctrl' ).removeAttr( 'disabled' ); 
 			$j( '#proceed' ).show();
-			// XXX should use PLURAL 
+			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-n' ) );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-n');
 		} else {
 			$j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
 			$j( '#proceed' ).hide();
-			// XXX should use PLURAL 
+			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-0' ) );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');

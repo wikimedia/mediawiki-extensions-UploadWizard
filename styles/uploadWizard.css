@@ -75,10 +75,11 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
+	padding-left: 20px;
 	float: left;
 	width: 92px;
 	margin-left: 8px;
-	text-align: center;
+	text-align: left;
 }
 
 .mwe-upwiz-progress-bar-etr-container {
@@ -98,7 +99,7 @@ form.mwe-upwiz-form {
 }
 
 #mwe-upwiz-add-file-container.mwe-upwiz-add-files-n, .mwe-upwiz-visible-file, .mwe-upwiz-progress-bar-etr {
-	width: 300px;
+	width: 320px;
 	height: 18px;
 	padding-left: 5px;
 }
@@ -143,12 +144,10 @@ form.mwe-upwiz-form {
 
 
 #mwe-upwiz-files {
-	margin-left: 50px;
 	margin-top: 20px;
 }
 
 .mwe-upwiz-file {
-	width: 410px;
 }
 
 #mwe-upwiz-upload-ctrls {
@@ -194,12 +193,13 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-status-progress {
+	background: url(spinner-orange.gif) no-repeat left center;
 	font-weight: bold;
 	color: #ff9900;
 }
 
-/* XXX add background of checkmark, with left-padding offset */
 .mwe-upwiz-status-completed {
+	background: url(checkmark.gif) no-repeat left center;
 	font-weight: bold;
 	color: #009900;
 }
@@ -258,9 +258,6 @@ a[disabled=true]:hover {
 	overflow: hidden;
 }
 
-#mwe-upwiz-stepdiv-file {
-	width: 550px;
-}
 
 
 /* XXX this has to be 'centered' beneath the 'x's -- this is about right for english but we need a more 
