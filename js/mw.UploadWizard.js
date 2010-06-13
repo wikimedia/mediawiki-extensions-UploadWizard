@@ -1902,7 +1902,9 @@ mw.UploadWizard.prototype = {
 		       + '<div class="mwe-upwiz-clearing"></div>';
 		
 
-		$j( '#mwe-upwiz-steps' ).arrowSteps();
+		$j( '#mwe-upwiz-steps' )
+			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
+			.arrowSteps();
  
 		$j( '.mwe-upwiz-button-home' )
 			.append( gM( 'mwe-upwiz-home' ) )

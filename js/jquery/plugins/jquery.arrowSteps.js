@@ -17,14 +17,14 @@
  *
  * SYNOPSIS 
  *
- * <ul id="robin-hood-daffy" style="width:600px">
- *   <li id="guard">Guard!</li>
- *   <li id="turn"/>Turn!</li>
- *   <li id="parry"/>Parry!</li>
- *   <li id="dodge"/>Dodge!</li>
- *   <li id="spin"/>Spin!</li>
- *   <li id="ha"/>Ha!</li>
- *   <li id="thrust"/>Thrust!</li>
+ * <ul id="robin-hood-daffy">
+ *   <li id="guard"><div>Guard!</div></li>
+ *   <li id="turn"><div>Turn!</div></li>
+ *   <li id="parry"><div>Parry!</div></li>
+ *   <li id="dodge"><div>Dodge!</div></li>
+ *   <li id="spin"><div>Spin!</div></li>
+ *   <li id="ha"><div>Ha!</div></li>
+ *   <li id="thrust"><div>Thrust!</div></li>
  * </ul>
  *
  * <script language="javascript"><!-- 
@@ -45,7 +45,7 @@
 
 ( function( $j ) { 
 	$j.fn.arrowSteps = function() {
-		this.addClass( 'arrowSteps ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' );
+		this.addClass( 'arrowSteps' );
 		var $steps = this.find( 'li' );
 
 		var width = parseInt( 100 / $steps.length, 10 );
