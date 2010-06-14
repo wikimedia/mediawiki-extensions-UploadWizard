@@ -2353,18 +2353,18 @@ mw.UploadWizard.prototype = {
 						$j('<p/>').append( 
 							gM( 'mwe-upwiz-thanks-wikitext' ),
 							$j( '<br />' ),
-						 	$j( '<textarea class="mwe-long-textarea" rows="1"/>' )
+						 	$j( '<textarea class="mwe-long-textarea" rows="2"/>' )
 								.growTextArea()
 								.append( thumbWikiText ) 
-								.trigger('change')
+								.trigger('resizeEvent')
 						),
 						$j('<p/>').append( 
 							gM( 'mwe-upwiz-thanks-url' ),
 							$j( '<br />' ),
-						 	$j( '<textarea class="mwe-long-textarea" rows="1"/>' )
+						 	$j( '<textarea class="mwe-long-textarea" rows="2"/>' )
 								.growTextArea()
 								.append( upload.imageinfo.descriptionurl ) 
-								.trigger('change')
+								.trigger('resizeEvent')
 						)
 					)
 			);
@@ -2990,13 +2990,19 @@ jQuery.fn.growTextArea = function( options ) {
 
 	var resizeIfNeeded = function() {
 		// this is the dom element
-		while (this.scrollHeight > this.offsetHeight) {
+		// is there a better way to do this?
+		if (this.scrollHeight >= this.offsetHeight) {
 			this.rows++;
+			while (this.scrollHeight > this.offsetHeight) {
+				this.rows++;	
+			}
 		}
 		return this;
 	};
 
 	this.addClass( 'mwe-grow-textarea' );
+
+	this.bind( 'resizeEvent', resizeIfNeeded );
 	
 	this.keyup( resizeIfNeeded );
 	this.change( resizeIfNeeded );
