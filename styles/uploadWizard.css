@@ -76,7 +76,7 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
 	padding-left: 20px;
-	float: left;
+	float: right;
 	width: 92px;
 	margin-left: 8px;
 	text-align: left;
@@ -144,6 +144,8 @@ form.mwe-upwiz-form {
 
 
 #mwe-upwiz-files {
+	margin-right: 100px;
+	margin-left: 100px;
 	margin-top: 20px;
 }
 
