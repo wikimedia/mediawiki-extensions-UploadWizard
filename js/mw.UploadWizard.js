@@ -1839,13 +1839,31 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 		var div = $j( selector ).get(0);
 		div.innerHTML = 
-		         '<ul id="mwe-upwiz-steps">'
+			// begin css jello mold -- this allows layout to flex in size between a minimum and maximum
+			// http://www.positioniseverything.net/articles/jello-expo.html
+			 '<style>'
+		       + '#mwe-upwiz-jellobody { padding: 0 16em 0 16em; margin: 0; text-align: left; }'
+		       + '#mwe-upwiz-jellosizer { margin: 0; padding: 0; width: 100%; max-width: 29em; }'
+		       + '#mwe-upwiz-jelloexpander { margin: 0 -16em 0 -16em; min-width: 32em; position: relative; }'
+		       + '#mwe-upwiz-jellofixer { width: 100%; margin: 0; padding: 0; }'
+		       + '</style>'
+		       + '<!--[if IE]>'
+		       + '<style type="text/css">'
+		       + '.mwe-upwiz-jellosizer { width:expression(document.body.clientWidth > 1004 ? "29em" : "100%" ); }'
+		       + '</style>'
+		       + '<![endif]-->'
+		       + '<div id="mwe-upwiz-jellobody"><div id="mwe-upwiz-jellosizer"><div id="mwe-upwiz-jelloexpander"><div id="mwe-upwiz-jellofixer">'
+			// end of CSS jello mold preamble
+
+			// the arrow steps
+		       + '<ul id="mwe-upwiz-steps">'
 		       +   '<li id="mwe-upwiz-step-file"><div>' + gM('mwe-upwiz-step-file') + '</div></li>'
 		       +   '<li id="mwe-upwiz-step-deeds"><div>'  + gM('mwe-upwiz-step-deeds')  + '</div></li>'
 		       +   '<li id="mwe-upwiz-step-details"><div>'  + gM('mwe-upwiz-step-details')  + '</div></li>'
 		       +   '<li id="mwe-upwiz-step-thanks"><div>'   + gM('mwe-upwiz-step-thanks')  +  '</div></li>'
 		       + '</ul>'
 
+			// the individual steps, all at once
 		       + '<div id="mwe-upwiz-content">'
 
 		       +   '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file">'
@@ -1900,7 +1918,9 @@ mw.UploadWizard.prototype = {
 		       + '</div>'
 
 		       + '<div class="mwe-upwiz-clearing"></div>';
-		
+	
+		       // end jellomold	
+		       + '</div></div></div></div>'
 
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
