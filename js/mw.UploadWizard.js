@@ -1898,7 +1898,7 @@ mw.UploadWizard.prototype = {
 		       +     '<div id="mwe-upwiz-macro">'
 		       +       '<div id="mwe-upwiz-macro-progress" class="ui-helper-clearfix"></div>'
 		       +       '<div id="mwe-upwiz-macro-choice">' 
-		       +  	 '<div>' + gM( 'mwe-upwiz-details-intro' ) + '</div>'  // XXX PLURAL
+		       +  	 '<div>' + gM( 'mwe-upwiz-details-intro' ) + '</div>' 
 		       +       '</div>'
 		       +       '<div id="mwe-upwiz-macro-files"></div>'
 		       +     '</div>'
@@ -1921,6 +1921,11 @@ mw.UploadWizard.prototype = {
 	
 		       // end jellomold	
 		       + '</div></div></div></div>'
+
+		// preload images -- XXX shouldn't be necessary if we sprite
+		document.createElement('img').src = 'spinner-orange.gif';		
+		document.createElement('img').src = 'checkmark.gif';		
+		
 
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
