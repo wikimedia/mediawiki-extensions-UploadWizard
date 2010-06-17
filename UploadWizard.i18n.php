@@ -45,7 +45,7 @@ Add to humanity's knowledge by uploading files that could be used for an educati
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|This file is|These files are}} my own work.',
 	'mwe-upwiz-source-ownwork-assert' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby grant anyone the right to use {{PLURAL:$1|this work|these works}} for any purpose, as long as they credit me and share derivative work under the same terms.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby publish {{PLURAL:$1|this work|these works}} under the following license(s):',
-	'mwe-upwiz-source-ownwork-assert-note' => 'This means you release your work under a double Creative Commons Attribution ShareAlike and GFDL license.',
+	'mwe-upwiz-source-ownwork-assert-note' => 'This means you release your work under a Creative Commons Attribution ShareAlike license.',
 	'mwe-upwiz-source-permission' => 'Their author gave you explicit permission to upload them',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|This file is|These files are}} not my own work.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Please enter the address where you found each file.',
