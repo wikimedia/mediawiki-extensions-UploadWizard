@@ -10,7 +10,7 @@
 	});
 	
 	// Add class file paths ( From ROOT )
-	mw.addClassFilePaths( {
+	mw.addResourcePaths( {
 		"mw.LanguageUpWiz"		: "js/mw.LanguageUpWiz.js",
 		"mw.UploadWizard"		: "js/mw.UploadWizard.js",
 		"mw.style.uploadWizard" 	: "styles/uploadWizard.css",
