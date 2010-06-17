@@ -262,7 +262,7 @@ a[disabled=true]:hover {
 
 /* XXX add spinner gif instead, maybe */
 .busy {
-	background: yellow;
+	/* background: yellow; */
 }
 
 .mwe-upwiz-stepdiv {
