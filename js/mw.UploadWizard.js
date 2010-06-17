@@ -686,21 +686,18 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 
 	_this.errorDiv = $j('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
 
-	var removeCtrlDiv = $j( '<div class="mwe-upwiz-file-indicator">' ); 
-
-	_this.removeCtrl = $j( '<button class="ui-state-default ui-corner-all" style="width:1em; height:1em"/>' )
-				.append( '<span class="ui-icon ui-icon-close" />' )
-				.attr( 'title', gM( 'mwe-upwiz-remove-upload' ) ) 
+	_this.removeCtrl = $j( '<div class="mwe-upwiz-file-indicator"><a title="' 
+					+ gM( 'mwe-upwiz-remove-upload' ) 
+					+ '" href="#" class="mwe-upwiz-remove">x</a></div>' )
 				.click( function() { _this.upload.remove() } )
 				.hide()
 				.get( 0 );
-	removeCtrlDiv.append( _this.removeCtrl );
 
 
 	$j( _this.div ).append( _this.form )
 		    .append( _this.progressMessage )
 		    .append( _this.errorDiv )
-		    .append( removeCtrlDiv );
+		    .append( _this.removeCtrl );
 
 	// XXX evil hardcoded
 	// we don't really need filesdiv if we do it this way?
@@ -1036,12 +1033,13 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	// descriptions
 	_this.descriptionsDiv = $j( '<div class="mwe-upwiz-details-descriptions mwe-upwiz-details-input"></div>' );
 	
-	_this.descriptionAdder = $j( '<a class="mwe-upwiz-more-options"/>' )
+	_this.descriptionAdder = $j( '<a class="mwe-upwiz-desc-add"/>' )
+					.attr( 'href', '#' )
 					.html( gM( 'mwe-upwiz-desc-add-0' ) )
 					.click( function( ) { _this.addDescription(); } );
 	
 	_this.descriptionsContainerDiv = 
-		$j( '<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
+		$j( '<div class="mwe-upwiz-details-descriptions-container"></div>' )
 			.append( $j( '<div class="mwe-upwiz-details-label">' + gM( 'mwe-upwiz-desc' ) + '</div>' ) )
 			.append( _this.descriptionsDiv )
 			.append( $j( '<div class="mwe-upwiz-details-descriptions-add"></div>' )
@@ -1066,7 +1064,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.titleErrorDiv = $j('<div></div>');
 
-	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-label-input ui-helper-clearfix"></div>')
+	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-label-input></div>')
 		.append( $j( '<div class="mwe-upwiz-details-label"></div>' ).append( gM( 'mwe-upwiz-title' ) ) )
 		.append( $j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) )
 		.append( _this.titleErrorDiv );
@@ -1095,10 +1093,30 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		buttonImageOnly: false  // XXX determine what this does, docs are confusing
 	} );
 
-	var dateInputDiv = $j( '<div class="mwe-upwiz-details-label-input ui-helper-clearfix"></div>' )
-		.append( $j( '<div class="mwe-upwiz-details-label"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ) )
-		.append( $j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput ) ) ;
+	_this.locationInput = $j( '<input type="text" class="mwe-location" size="20"/>' );
 
+	var aboutThisWorkFieldset = $j('<fieldset class="mwe-fieldset"></fieldset>')
+		.append( $j( '<legend class="mwe-legend">' ).append( gM( 'mwe-upwiz-about-this-work' ) ) )
+		.append( $j( '<div class="mwe-upwiz-details-more-subdiv">' )
+			.append( $j( '<div class="mwe-upwiz-details-label-input"></div>' )
+				.append( $j( '<div class="mwe-upwiz-details-more-label"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ) )
+				.append( $j( '<div class="mwe-upwiz-details-more-input"></div>' ).append( _this.dateInput ) ) 
+			)
+			.append( $j ( '<div style="display: none;"></div>' ) // see prefillLocation
+				.append( $j( '<div class="mwe-upwiz-details-more-label"></div>' ).append( gM( 'mwe-upwiz-location' ) ) )
+				.append( $j( '<div class="mwe-upwiz-details-more-input"></div>' ).append( _this.locationInput ) ) 
+			)
+		);
+
+
+
+	var aboutFileFieldset = $j('<fieldset class="mwe-fieldset"></fieldset>')
+		.append( $j( '<legend class="mwe-legend">' ).append( gM( 'mwe-upwiz-about-format' ) ) ) 
+		.append( $j( '<div class="mwe-upwiz-details-more-subdiv">' )
+			.append( $j( '<div></div>' )
+				.append( $j( '<div class="mwe-upwiz-details-more-label"></div>' ).append( gM( 'mwe-upwiz-filename-tag' ) ) )
+				.append( $j( '<div class="mwe-upwiz-details-filename mwe-upwiz-details-more-input"></div>' ) ) ) );
+	
 	_this.otherInformationInput = $j( '<textarea class="mwe-upwiz-other-textarea"></textarea>' )
 		.growTextArea()
 		.attr( 'title', gM( 'mwe-upwiz-tooltip-other' ) )
@@ -1119,13 +1137,13 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			.append( _this.copyrightInfoFieldset )
 			.append( _this.moreDetailsCtrlDiv )
 			.append( $j( _this.moreDetailsDiv ) 
-				.append( dateInputDiv )
-				// location goes here
+				.append( aboutThisWorkFieldset )
+				//.append( aboutFileFieldset )
 				.append( otherInformationDiv )
 			)
 		);
 
-	mw.UploadWizardUtil.makeToggler( _this.moreDetailsCtrlDiv, _this.moreDetailsDiv );	
+	mw.UploadWizardUtil.makeMoreToggler( _this.moreDetailsCtrlDiv, _this.moreDetailsDiv );	
 
 	_this.addDescription();
 	$j( containerDiv ).append( _this.div );
@@ -1299,7 +1317,7 @@ mw.UploadWizardDetails.prototype = {
 		var languageCode = _this.descriptions.length ? mw.LanguageUpWiz.UNKNOWN : mw.getConfig('userLanguage' );
 		var description = new mw.UploadWizardDescription( languageCode  );
 
-		description.removeCtrl = $j('<a title="' + gM( 'mwe-upwiz-remove-description' ) + '">x</a>' )
+		description.removeCtrl = $j('<a title="' + gM( 'mwe-upwiz-remove-description' ) + '" href="#">x</a>' )
 					.addClass('mwe-upwiz-remove' )
 					.addClass('mwe-upwiz-remove-desc' )
 					.click( function() { _this.removeDescription( description  ) }  )
@@ -1818,7 +1836,6 @@ mw.UploadWizard.prototype = {
 	createInterface: function( selector ) {
 		var _this = this;
 		var div = $j( selector ).get(0);
-		// XXX move this to PHP
 		div.innerHTML = 
 			// begin css jello mold -- this allows layout to flex in size between a minimum and maximum
 			// http://www.positioniseverything.net/articles/jello-expo.html
@@ -1979,20 +1996,12 @@ mw.UploadWizard.prototype = {
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
 				if ( _this.deedChooser.valid() ) {
-
-					var lastUploadIndex = _this.uploads.length - 1; 
-
+					
 					$j.each( _this.uploads, function( i, upload ) {
-
 						if ( _this.deedChooser.deed.name == 'custom' ) {
 							upload.details.useCustomDeedChooser();
 						} else {
 							upload.deedChooser = _this.deedChooser;
-						}
-
-						/* put a border below every details div except the last */
-						if ( i < lastUploadIndex ) {
-							upload.details.div.css( 'border-bottom', '1px solid #e0e0e0' );
 						}
 					} );
 
@@ -2831,41 +2840,80 @@ mw.UploadWizardDeedChooser.prototype = {
 mw.UploadWizardUtil = {
 
 	/**
-	 * Simple 'more options' toggle that opens more of a form.
+	 * make a "more" options toggle which makes the standard div fade when 'more' is open
+	 * @param standardDiv the div representing the standard options
+	 * @param toggleDiv the div which has the control to open and shut custom options
+	 * @param customDiv the div containing the custom options
+	 */
+	makeFadingToggler: function( standardDiv, toggleDiv, moreDiv ) {
+		return mw.UploadWizardUtil._makeToggler( standardDiv, toggleDiv, moreDiv, true );
+	},
+
+
+	/**
+  	 * make a standard toggler that just opens up a new panel
+	 * @param toggle div -- where to put the 'more/fewer options' button
+	 * @param moreDiv -- the div to hide or show
+	 */
+	makeMoreToggler: function( toggleDiv, moreDiv ) {
+		return mw.UploadWizardUtil._makeToggler( null, toggleDiv, moreDiv, false );
+	},
+
+
+	/**
+	 * There is a common pattern of having standard options, and then a "more options" panel which 
+	 * disables the standard options panel. 
 	 *
+	 * We do not do anything to disable the inputs on either panel. So far, we've implemented these 
+	 * in a way that the 'custom' panel is always controlling everything, but the standard panel just
+	 * enters values into the custom one behind the scenes.
+	 *
+	 * @param standardDiv the div representing the standard options
 	 * @param toggleDiv the div which has the control to open and shut custom options
 	 * @param moreDiv the div containing the custom options
+	 * @param fade whether to fade standardDiv when moreDiv is open
 	 */
-	makeToggler: function ( toggleDiv, moreDiv ) {
-		var $toggleLink = $j( '<a>' )
-		   	.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
-			.append( gM( 'mwe-upwiz-more-options' ) );
-		$j( toggleDiv ).append( $toggleLink );
+	_makeToggler: function ( standardDiv, toggleDiv, moreDiv, fade ) {
+		if (fade === undefined) { 
+			fade = false;
+		}
 
-
-		var toggle = function( open ) {
-			if ( typeof open === 'undefined' ) {
-				open = ! ( $j( this ).data( 'open' ) ) ;
-			}
+		var icon = $j( '<div class="ui-icon ui-icon-triangle-1-e" style="display: inline-block; margin-top: 3px;">' );
+		var text = $j( '<span>' ).append( gM( 'mwe-upwiz-more-options' ) ); 
+		var toggle = function() { 
+			var open = ! ( $j( this ).data( 'open' ) ) ;
 			$j( this ).data( 'open', open );
+			// on toggle:
 			if ( open ) {
+				// set out class to show the "close" message
+				text.text( gM( 'mwe-upwiz-fewer-options' ) );
+				icon.removeClass( "ui-icon-triangle-1-e" )
+				    .addClass( "ui-icon-triangle-1-s" );
 				moreDiv.maskSafeShow();
-				/* when open, show control to close */
-				$toggleLink.html( gM( 'mwe-upwiz-fewer-options' ) );
-				$toggleLink.addClass( "mwe-upwiz-toggler-open" );
+				if (fade) { 
+					standardDiv.mask();
+				}
 			} else {
+				text.text( gM( 'mwe-upwiz-more-options' ) );
+				icon.removeClass( "ui-icon-triangle-1-s" )
+				    .addClass( "ui-icon-triangle-1-e" )
 				moreDiv.maskSafeHide();
-				/* when closed, show control to open */
-				$toggleLink.html( gM( 'mwe-upwiz-more-options' ) );
-				$toggleLink.removeClass( "mwe-upwiz-toggler-open" );
+				if (fade) {
+					standardDiv.unmask();
+				}
+				$j( this ).trigger( 'close' );
 			}
 		};
 
-		toggle(false);
+		$j( toggleDiv )
+			.addClass( 'mwe-more-options' )
+			.append( $j( '<a />' )
+				.click( toggle )
+				.data( 'open', false )
+				.append( icon, text ) );
 
-		$toggleLink.click( function( e ) { e.stopPropagation(); toggle(); } );
-		
-		$j( moreDiv ).addClass( 'mwe-upwiz-toggled' );
+		$j( moreDiv ).maskSafeHide();
+	
 	},
 
 	/**
@@ -3172,17 +3220,6 @@ jQuery.fn.maskSafeShow = function( options ) {
 	$j.fn.disableNextButton = function() {
 		this.find( '.mwe-upwiz-button-next' )
 			.attr( 'disabled', true );
-	};
-
-	var imageCache = [];
-	$j.preloadImages = function() {
-		return;
-		// XXX doesn't work; we need to find the correct URL 
-		for (var i = arguments.length; i--;) {
-			var image = document.createElement('img');
-			image.src = arguments[i];
-			imageCache.push(image);
-		}
 	};
 
 } )( jQuery );
