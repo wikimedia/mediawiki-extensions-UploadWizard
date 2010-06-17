@@ -52,6 +52,7 @@ form.mwe-upwiz-form {
 
 /* perhaps a general class for links that are actually "buttons" */
 #mwe-upwiz-add-file, .mwe-upwiz-remove, .mwe-upwiz-more-options {
+	outline: none;
 	cursor: pointer;
 }
 
@@ -312,18 +313,13 @@ a[disabled=true]:hover {
 	font-weight: bold;
 }
 
-.mwe-more-options, .mwe-fewer-options, .mwe-upwiz-macro-deeds-return, .mwe-upwiz-deed-header-link {
+.mwe-more-options, .mwe-upwiz-macro-deeds-return, .mwe-upwiz-deed-header-link {
 	cursor: pointer;
 }
 
-.mwe-more-options, .mwe-fewer-options {
+.mwe-more-options {
 	padding-bottom: 4px;
 }
-
-.mwe-more-options a:hover, .mwe-fewer-options a:hover {
-	text-decoration: none;
-}
-
 
 .mwe-upwiz-deed-license {
 	margin-left: 24px;
@@ -338,7 +334,6 @@ a[disabled=true]:hover {
 	margin-top: 12px;
 }
 .mwe-upwiz-info-file {
-	border-bottom: 1px solid #e0e0e0;
 	margin-bottom: 12px;
 	padding-bottom: 12px;
 	width: 660px;
@@ -389,12 +384,13 @@ fieldset .mwe-long-textarea {
 
 
 .mwe-upwiz-details-label {
-	width: 100px;
+	width: 9em;
+	padding-top:  0.5em;
 	float: left;
 }
 
 .mwe-upwiz-details-label-input {
-
+	margin-bottom: 1em;
 }
 
 .mwe-upwiz-details-filename. {
@@ -490,4 +486,19 @@ a.mwe-upwiz-tooltip-link {
 input[type='text'].mwe-error, textarea.mwe-error {
 	color: black;
 	border: 1px solid #ff0000;
+}
+
+
+.mwe-upwiz-toggler {
+	margin-bottom: 0;
+	padding: 4px 0 3px 18px;
+	background: url('toggle.png') no-repeat left center;
+}
+
+.mwe-upwiz-toggler-open {
+	background: url('toggle-open.png') no-repeat left center;
+}
+
+.mwe-upwiz-toggled {
+	margin-top: 1em;
 }
