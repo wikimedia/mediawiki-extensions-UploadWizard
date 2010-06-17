@@ -275,8 +275,6 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 
 	if ( values ) {
 		_this.setValues( values );
-	} else {
-		_this.setDefaultValues();
 	}
 
 	return _this;
@@ -1922,11 +1920,6 @@ mw.UploadWizard.prototype = {
 		       // end jellomold	
 		       + '</div></div></div></div>'
 
-		// preload images -- XXX shouldn't be necessary if we sprite
-		document.createElement('img').src = 'spinner-orange.gif';		
-		document.createElement('img').src = 'checkmark.gif';		
-		
-
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
 			.arrowSteps();
@@ -2450,7 +2443,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
-
+	_this.licenseInput.setDefaultValues();
 
 	return $j.extend( _this, { 
 
