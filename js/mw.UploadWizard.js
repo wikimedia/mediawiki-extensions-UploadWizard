@@ -599,17 +599,13 @@ mw.UploadWizardUpload.prototype = {
 	 * @param selector
 	 * @param width
 	 */
-	setThumbnail: function( selector, width, imgClass ) {
+	setThumbnail: function( selector, width ) {
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
 			width = mw.getConfig( 'thumbnailWidth' );
 		}
 		width = parseInt( width, 10 );
-
-		if ( typeof imgClass === 'undefined' || imgClass === null ) {
-			imgClass = 'mwe-upwiz-thumbnail';
-		}
-		
+				
 		var callback = function( thumbnail ) {
 			// side effect: will replace thumbnail's loadingSpinner
 			$j( selector ).html(
@@ -618,7 +614,6 @@ mw.UploadWizardUpload.prototype = {
 						 'target' : '_new' } )
 					.append(
 						$j( '<img/>' )
-							.addClass( imgClass )
 							.attr( 'width',  thumbnail.width )
 							.attr( 'height', thumbnail.height )
 							.attr( 'src',    thumbnail.url ) ) );
@@ -1024,7 +1019,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.div = $j( '<div class="mwe-upwiz-info-file"></div>' );
 
-	_this.thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail"></div>' );
+	_this.thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
 	
 	_this.errorDiv = $j( '<div class="mwe-upwiz-details-error"></div>' );
 
@@ -2343,36 +2338,36 @@ mw.UploadWizard.prototype = {
 	prefillThanksPage: function() {
 		var _this = this;
 		
-		$j( '#mwe-upwiz-thanks' ).append( $j( '<p>' ).append( gM( 'mwe-upwiz-thanks-intro' ) ) );
-		var width = mw.getConfig( 'thumbnailWidth' );
-
+		$j( '#mwe-upwiz-thanks' )
+			.append( $j( '<h3>' ).append( gM( 'mwe-upwiz-thanks-intro' ) ),
+				 $j( '<p>' ).append( gM( 'mwe-upwiz-thanks-explain' ) ) );
+		
 		$j.each( _this.uploads, function(i, upload) {
 			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix" />' );
 			_this.thanksDiv = thanksDiv;
 			
-			var thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
-			thanksDiv.append( thumbnailDiv );
+			var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' )
 			upload.setThumbnail( thumbnailDiv );
+			thumbnailDiv.append( $j('<p/>').append( 
+						$j( '<a />' )
+							.attr( { target: '_new', 
+								 href: upload.imageinfo.descriptionurl } )
+							.text( upload.title ) 
+					) );
 
-			//var thumbTitle = upload.title.replace(/^File/, 'Image'); // XXX is this really necessary?
+			thanksDiv.append( thumbnailDiv );
+
 			var thumbWikiText = "[[" + upload.title + "|thumb]]";
 
 			thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )
 					.append( 
 						$j('<p/>').append( 
-							gM( 'mwe-upwiz-thanks-link',
-								$j( '<a />' )
-									.attr( { target: '_new', 
-										 href: upload.imageinfo.descriptionurl } )
-									.text( upload.title ) 
-							) 
-						), 
-						$j('<p/>').append( 
 							gM( 'mwe-upwiz-thanks-wikitext' ),
 							$j( '<br />' ),
 						 	$j( '<textarea class="mwe-long-textarea" rows="2"/>' )
 								.growTextArea()
+								.readonly()
 								.append( thumbWikiText ) 
 								.trigger('resizeEvent')
 						),
@@ -2381,6 +2376,7 @@ mw.UploadWizard.prototype = {
 							$j( '<br />' ),
 						 	$j( '<textarea class="mwe-long-textarea" rows="2"/>' )
 								.growTextArea()
+								.readonly()
 								.append( upload.imageinfo.descriptionurl ) 
 								.trigger('resizeEvent')
 						)
@@ -2415,9 +2411,9 @@ mw.UploadWizardDeedPreview.prototype = {
 	setup: function() {
 		var _this = this;
 		// add a preview on the deeds page
-		var thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
+		var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail-small"></div>' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
-		_this.upload.setThumbnail( thumbnailDiv, mw.getConfig( 'smallThumbnailWidth' ), 'mwe-upwiz-smallthumbnail' );
+		_this.upload.setThumbnail( thumbnailDiv, mw.getConfig( 'smallThumbnailWidth' ) );
 	}
 };
 
@@ -3212,14 +3208,18 @@ jQuery.fn.maskSafeShow = function( options ) {
 	};
 
 	$j.fn.enableNextButton = function() {
-		this.find( '.mwe-upwiz-button-next' )
+		return this.find( '.mwe-upwiz-button-next' )
 			.removeAttr( 'disabled' );
 		//	.effect( 'pulsate', { times: 3 }, 1000 );
 	};
 
 	$j.fn.disableNextButton = function() {
-		this.find( '.mwe-upwiz-button-next' )
+		return this.find( '.mwe-upwiz-button-next' )
 			.attr( 'disabled', true );
+	};
+
+	$j.fn.readonly = function() {
+		return this.css( 'background', '#ffffff' ).attr( 'readonly', 'readonly' );
 	};
 
 } )( jQuery );

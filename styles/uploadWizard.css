@@ -238,21 +238,38 @@ a[disabled=true]:hover {
 	background: #ffffe0;
 }
 
+.mwe-upwiz-thumbnail, .mwe-upwiz-thumbnail-small {
+	border: 1px solid #cccccc;
+	text-align: center;
+	background: #ffffff;
+}
+
 .mwe-upwiz-thumbnail {
-	width: 120px;  /* XXX should be same as configured thumbnail width in uploadWizard.js */
+	padding: 0.5em;
+	width: 120px;
+}
+
+.mwe-upwiz-thumbnail-side {
 	float: left;
-	margin-bottom: 12px;
-	margin-right: 12px;
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
+.mwe-upwiz-thumbnail-small {
+	padding: 0.25em;
+	width: 60px;
 }
 
 #mwe-upwiz-deeds-thumbnails {
 	text-align: center;
-	vertical-align: middle;
+	margin: 1em 0;
+	background: #f0f0f0;
 }
 
-.mwe-upwiz-smallthumbnail {
-	width: 60px;  /* XXX should be same as configured small thumbnail width in uploadWizard.js */
-	margin: 6px;
+#mwe-upwiz-deeds-thumbnails .mwe-upwiz-thumbnail-small {
+	display: inline-block;
+	margin: 1em;
+	vertical-align: middle;
 }
 
 .mwe-upwiz-data {
