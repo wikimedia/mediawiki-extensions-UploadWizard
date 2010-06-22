@@ -1079,15 +1079,16 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
 			preprocess: function( name ) { return _this.getFilenameFromTitle(); }, // XXX this is no longer a pre-process
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
-		} )
-		;
+		} );
 
-	_this.titleErrorDiv = $j('<div></div>');
+	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input mwe-error"></div>');
 
 	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-label-input ui-helper-clearfix"></div>')
-		.append( $j( '<div class="mwe-upwiz-details-label"></div>' ).append( gM( 'mwe-upwiz-title' ) ) )
-		.append( $j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) )
-		.append( _this.titleErrorDiv );
+		.append(
+			_this.titleErrorDiv, 
+			$j( '<div class="mwe-upwiz-details-label"></div>' ).append( gM( 'mwe-upwiz-title' ) ),
+			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) 
+		) 
 
 	_this.deedDiv = $j( '<div class="mwe-upwiz-custom-deed" />' );
 
@@ -1154,6 +1155,38 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 mw.UploadWizardDetails.prototype = {
 
 	/**
+	 * check entire form for validity
+	 */ 
+	// return boolean if we are ready to go.
+        // side effect: add error text to the page for fields in an incorrect state.
+        valid: function() {
+		var _this = this;
+                // at least one description -- never mind, we are disallowing removal of first description
+                // all the descriptions -- check min & max length
+
+                // the title
+		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
+		if ( typeof titleInputValid == 'undefined' ) {
+			alert( "please wait, still checking the title for uniqueness..." );
+			return false;
+		}
+
+		return titleInputValid;	
+				
+                // length restrictions
+                // not already taken
+
+                // the license, if any
+
+                // pop open the 'more-options' if the date is bad
+                // the date
+                // other information
+                // no validation required
+        },
+
+
+
+	/**
 	 * toggles whether we use the 'macro' deed or our own
 	 */
 	useCustomDeedChooser: function() {
@@ -1196,6 +1229,7 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		if (busy) {
 			_this.titleInput.addClass( "busy" );
+			$j( _this.titleInput ).data( 'valid', undefined );
 		} else {
 			_this.titleInput.removeClass( "busy" );
 		}
@@ -1212,18 +1246,24 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 
 		if ( result.isUnique ) {
+			$j( _this.titleInput ).data( 'valid', true );
 			_this.titleErrorDiv.hide().empty();
 			_this.ignoreWarningsInput = undefined;
 			return;
 		}
+
+		$j( _this.titleInput ).data( 'valid', false );
 
 		// result is NOT unique
 		var title = result.title;
 		var img = result.img;
 		var href = result.href;
 	
+		_this.titleErrorDiv.html( gM( 'mwe-upwiz-fileexists-replace', result.title ) ).show();
+
+		/* temporarily commenting out the full thumbnail etc. thing. For now, we just want the user to change
+                   to a different name 	
 		_this.ignoreWarningsInput = $j("<input />").attr( { type: 'checkbox', name: 'ignorewarnings' } ); 
-	
 		var $fileAlreadyExists = $j('<div />')
 			.append(				
 				gM( 'mwe-upwiz-fileexists', 
@@ -1296,6 +1336,8 @@ mw.UploadWizardDetails.prototype = {
 						)
 				)
 		).show();
+		*/
+
 
 	}, 
 
@@ -1617,8 +1659,7 @@ mw.UploadWizardDetails.prototype = {
 
 	/**
 	 * Check if we are ready to post wikitext
-	 */
-	valid: function() {
+	deedValid: function() {
 		var _this = this;
 		return _this.upload.deedChooser.deed.valid();
 
@@ -1626,6 +1667,7 @@ mw.UploadWizardDetails.prototype = {
 		// where we can then check on
 		// perhaps as simple as _this.issues or _this.agenda
 	},
+	 */
 
 	/**
 	 * Post wikitext as edited here, to the file
@@ -2014,9 +2056,11 @@ mw.UploadWizard.prototype = {
 						if ( i < lastUploadIndex ) {
 							upload.details.div.css( 'border-bottom', '1px solid #e0e0e0' );
 						}
+
+						upload.details.titleInput.checkUnique();
 					} );
 
-					_this.moveToStep('details');
+					_this.moveToStep( 'details' );
 				}
 			} );
 
@@ -2026,10 +2070,12 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
 			.append( gM( 'mwe-upwiz-next-details' ) )
 			.click( function() {
-				_this.detailsSubmit( function() { 
-					_this.prefillThanksPage();
-					_this.moveToStep('thanks');
-				} );
+				if ( _this.detailsValid() ) { 
+					_this.detailsSubmit( function() { 
+						_this.prefillThanksPage();
+						_this.moveToStep( 'thanks' );
+					} );
+				}
 			} );
 
 
@@ -2314,6 +2360,20 @@ mw.UploadWizard.prototype = {
 		}
 
 
+	},
+
+
+	/**
+	 * are all the details valid?
+	 * @return boolean
+	 */ 
+	detailsValid: function() {
+		var _this = this;
+		var valid = true;
+		$j.each( _this.uploads, function(i, upload) { 
+			valid &= upload.details.valid();
+		} );
+		return valid;
 	},
 
 	/**
@@ -2917,7 +2977,7 @@ mw.UploadWizardUtil = {
 	 * @return typical title as would appear on MediaWiki
 	 */
 	pathToTitle: function ( filename ) {
-		return mw.ucfirst( filename.replace(/ /g, '_' ) );
+		return mw.ucfirst( $j.trim( filename ).replace(/ /g, '_' ) );
 	},
 
 	/** 
@@ -2926,7 +2986,7 @@ mw.UploadWizardUtil = {
 	 * @return plausible local filename, with spaces changed to underscores.
 	 */
 	titleToPath: function ( title ) {
-		return mw.ucfirst( title.replace(/_/g, ' ' ) );
+		return mw.ucfirst( $j.trim( title ).replace(/_/g, ' ' ) );
 	},
 
 	/** 

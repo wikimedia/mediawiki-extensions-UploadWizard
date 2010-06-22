@@ -89,6 +89,7 @@ Add to humanity's knowledge by uploading files that could be used for an educati
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Cancel',
 	'mwe-upwiz-change' => '(change)',
+	'mwe-upwiz-fileexists-replace' => 'A file with the title "$1" exists already. Please change your title to something unique.',
 	'mwe-upwiz-fileexists' => 'A file with this name exists already.
 Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
 	'mwe-upwiz-thumbnail-more' => 'Enlarge',

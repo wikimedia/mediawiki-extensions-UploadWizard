@@ -188,6 +188,7 @@ mw.DestinationChecker.prototype = {
 				_this.cachedResult[name] = result;
 				_this.processResult( result );
 			}
+
 		} );
 	}
 
@@ -201,7 +202,9 @@ mw.DestinationChecker.prototype = {
 	$.fn.destinationChecked = function( options ) {
 		var _this = this;
 		options.selector = _this;
-		new mw.DestinationChecker( options );
+		var checker = new mw.DestinationChecker( options );
+		// this should really be done with triggers
+		_this.checkUnique = function() { checker.checkUnique(); }; 
 		return _this;
 	}; 
 } )( jQuery );

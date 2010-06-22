@@ -279,7 +279,7 @@ a[disabled=true]:hover {
 
 /* XXX add spinner gif instead, maybe */
 .busy {
-	background: yellow;
+	/* background: yellow; */
 }
 
 .mwe-upwiz-stepdiv {
@@ -359,6 +359,11 @@ a[disabled=true]:hover {
 .mwe-upwiz-details-input {
 	width: 400px;
 	float: left;
+}
+
+.mwe-upwiz-details-input.mwe-error {
+	float: none;
+	margin-left: 9em;
 }
 
 .mwe-upwiz-desc-lang-select {
