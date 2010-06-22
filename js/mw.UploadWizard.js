@@ -2339,8 +2339,9 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 		
 		$j( '#mwe-upwiz-thanks' )
-			.append( $j( '<h3>' ).append( gM( 'mwe-upwiz-thanks-intro' ) ),
-				 $j( '<p>' ).append( gM( 'mwe-upwiz-thanks-explain' ) ) );
+			.append( $j( '<h3 style="text-align: center;">' ).append( gM( 'mwe-upwiz-thanks-intro' ) ),
+				 $j( '<p style="margin-bottom: 2em; text-align: center;">' )
+					.append( gM( 'mwe-upwiz-thanks-explain', _this.uploads.length ) ) );
 		
 		$j.each( _this.uploads, function(i, upload) {
 			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix" />' );

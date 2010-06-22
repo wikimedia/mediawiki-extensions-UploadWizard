@@ -508,3 +508,7 @@ input[type='text'].mwe-error, textarea.mwe-error {
 	color: black;
 	border: 1px solid #ff0000;
 }
+
+.mwe-upwiz-thanks {
+	margin-bottom: 2em;
+}
