@@ -82,7 +82,7 @@ Add to humanity's knowledge by uploading files that could be used for an educati
 	'mwe-upwiz-thanks-explain' => 'You can now use {{PLURAL:$1|this file|these files}} on sites like Wikipedia, or link to {{PLURAL:$1|it|them}} on the web.',
 	'mwe-upwiz-thanks-link' => 'This file is now available at <b><tt>$1</tt></b>.',
 	'mwe-upwiz-thanks-wikitext' => '<b>To use the file on Wikipedia</b>, copy this text into a page:',
-	'mwe-upwiz-thanks-url' => '<b>To link to it in HTML</b>, copy this HTML code:',
+	'mwe-upwiz-thanks-url' => '<b>To link to it in HTML</b>, copy this URL address:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'This wiki does not accept filenames with the extension "$1".',
 	'mwe-upwiz-upload-error-duplicate' => 'This file was previously uploaded to this wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Upload anyway?',

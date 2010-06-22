@@ -2379,7 +2379,7 @@ mw.UploadWizard.prototype = {
 
 			thanksDiv.append( thumbnailDiv );
 
-			var thumbWikiText = "[[" + upload.title + "|thumb]]";
+			var thumbWikiText = "[[" + upload.title + "|thumb|Add caption here]]";
 
 			thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )
