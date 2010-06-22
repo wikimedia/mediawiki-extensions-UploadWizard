@@ -350,9 +350,9 @@ a[disabled=true]:hover {
 	margin-top: 12px;
 }
 .mwe-upwiz-info-file {
-	margin-bottom: 12px;
-	padding-bottom: 12px;
-	width: 660px;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	width: 60em;
 }
 
 
@@ -361,13 +361,19 @@ a[disabled=true]:hover {
 	float: left;
 }
 
+
+.mwe-upwiz-details-label {
+	width: 10em;
+	padding-top:  0.5em;
+	float: left;
+}
+
 .mwe-upwiz-details-input.mwe-error {
 	float: none;
-	margin-left: 9em;
 }
 
 .mwe-upwiz-desc-lang-select {
-	width: 130px;
+	width: 11em;
 	font-family: sans-serif;
 	font-size: small;
 }
@@ -383,9 +389,12 @@ a[disabled=true]:hover {
 	font-size: small;
 }
 
+.mwe-upwiz-details-descriptions-add, .mwe-upwiz-details-input.mwe-error {
+	margin-left: 10em; /* width of mwe-upwiz-details-label */
+}
+
 .mwe-upwiz-details-descriptions-add {
-	margin-bottom: 12px;
-	margin-left: 100px;
+	margin-bottom: 1em;
 }
 
 .mwe-grow-textarea, .mwe-long-textarea {
@@ -395,20 +404,14 @@ a[disabled=true]:hover {
 }
 
 .mwe-long-textarea {
-	width: 370px;
+	width: 21em;
 }
 
 fieldset .mwe-long-textarea {
-	width: 280px;
+	width: 17em;
 }
 
 
-
-.mwe-upwiz-details-label {
-	width: 9em;
-	padding-top:  0.5em;
-	float: left;
-}
 
 .mwe-upwiz-details-label-input {
 	margin-bottom: 1em;
@@ -525,4 +528,8 @@ input[type='text'].mwe-error, textarea.mwe-error {
 
 .mwe-upwiz-thanks {
 	margin-bottom: 2em;
+}
+
+.mwe-upwiz-required-field {
+	/* font-weight: bold; */
 }

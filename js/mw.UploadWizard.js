@@ -1060,7 +1060,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	
 	_this.descriptionsContainerDiv = 
 		$j( '<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
-			.append( $j( '<div class="mwe-upwiz-details-label">' + gM( 'mwe-upwiz-desc' ) + '</div>' ) )
+			.append( $j( '<div class="mwe-upwiz-details-label">' + gM( 'mwe-upwiz-desc' ) + '</div>' ).requiredFieldLabel() )
 			.append( _this.descriptionsDiv )
 			.append( $j( '<div class="mwe-upwiz-details-descriptions-add"></div>' )
 					.append( _this.descriptionAdder ) );
@@ -1086,7 +1086,9 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-label-input ui-helper-clearfix"></div>')
 		.append(
 			_this.titleErrorDiv, 
-			$j( '<div class="mwe-upwiz-details-label"></div>' ).append( gM( 'mwe-upwiz-title' ) ),
+			$j( '<div class="mwe-upwiz-details-label"></div>' )
+				.requiredFieldLabel()
+				.append( gM( 'mwe-upwiz-title' ) ),
 			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) 
 		) 
 
@@ -1364,7 +1366,7 @@ mw.UploadWizardDetails.prototype = {
 			$j( description.div  ).append( 
 				 $j.fn.removeCtrl( 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ) } )
 			);
-		}
+		} 
 
 		$j( _this.descriptionsDiv ).append( description.div  );
 		_this.descriptions.push( description  );
@@ -3274,6 +3276,10 @@ jQuery.fn.maskSafeShow = function( options ) {
 
 	$j.fn.readonly = function() {
 		return this.css( 'background', '#ffffff' ).attr( 'readonly', 'readonly' );
+	};
+
+	$j.fn.requiredFieldLabel = function() {
+		return this.addClass( 'mwe-upwiz-required-field' ).prepend(' * ');
 	};
 
 } )( jQuery );
