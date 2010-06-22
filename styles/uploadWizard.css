@@ -36,8 +36,12 @@ form.mwe-upwiz-form {
 	padding: 1em;
 }
 
+.mwe-upwiz-add-files-0, #mwe-upwiz-files {
+	margin-top: 1.6em;
+	margin-bottom: 3em;
+}
+
 .mwe-upwiz-add-files-0 {
-	margin-top: 20px;
 	text-align: center;
 	font-size: large;
 }
@@ -51,7 +55,8 @@ form.mwe-upwiz-form {
 }
 
 /* perhaps a general class for links that are actually "buttons" */
-#mwe-upwiz-add-file, .mwe-upwiz-remove, .mwe-upwiz-more-options {
+#mwe-upwiz-add-file, .mwe-upwiz-remove-ctrl, .mwe-upwiz-more-options {
+	outline: none;
 	cursor: pointer;
 }
 
@@ -75,32 +80,60 @@ form.mwe-upwiz-form {
 	z-index: 2; 
 }
 
-.mwe-upwiz-file.filled, #mwe-upwiz-upload-ctrls {
-	padding: 4px;
+.mwe-upwiz-file.filled {
+	position: relative;
 }
 
-.mwe-upwiz-file.filled {
-	height: 24px;
-	border-bottom: 1px solid #e0e0e0;
+.mwe-upwiz-file.odd .mwe-upwiz-visible-file {
+	background: #f5f5f5;
+}
+
+
+
+.mwe-upwiz-remove-ctrl {
+}
+
+/* XXX this is highly specific to our installation 
+.mwe-upwiz-remove-ctrl.hover { 
+.ui-icon { background-image: url(/w/extensions/UsabilityInitiative/css/vector/images/ui-icons_cd0a0a_256x240.png) }
+}
+*/
+
+.mwe-upwiz-visible-file .mwe-upwiz-remove-ctrl {
+	float: right;
+	visibility: hidden;
+	margin: 0.25em;
+	padding: 0.25em;
 }
 
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
-	padding-left: 20px;
 	float: right;
-	width: 92px;
-	margin-left: 8px;
-	text-align: left;
+	margin-left: 0.5em;
+	padding: 0.5em 0.5em 0.5em 20px;  /* 20px for the icon */
+}
+
+.mwe-upwiz-visible-file .mwe-upwiz-file-indicator {
+	visibility: hidden;
+}
+
+.mwe-upwiz-visible-file {
+	display: none;
+}
+
+.mwe-upwiz-file.filled .mwe-upwiz-visible-file {
+	display: block;
+}
+
+.mwe-upwiz-visible-file-filename {
+	padding: 0.5em;
+	margin-right: 40px;
+	overflow: hidden;
 }
 
 .mwe-upwiz-progress-bar-etr-container {
-	float: left;
-	width: 320px;
-	height: 24px;
+	/* needed ? */
 }
 	
-.mwe-upwiz-count {
-	height: 60px;
-}
 
 .mwe-upwiz-add-files-n {
 	float: left;
@@ -108,41 +141,28 @@ form.mwe-upwiz-form {
 	margin-left: 4px;
 }
 
-#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n, .mwe-upwiz-visible-file, .mwe-upwiz-progress-bar-etr {
-	width: 320px;
-	height: 18px;
+#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n, .mwe-upwiz-progress-bar-etr {
+	width: 300px;
 	padding-left: 5px;
 }
 
-.mwe-upwiz-progress-bar-etr {
-	float: left;
-}
 
-
-
-
-#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n, .mwe-upwiz-visible-file {
+#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n {
 	float: left;
 }
 
 .mwe-upwiz-visible-file {
+	width: 100%; /* of containing mwe-upwiz-file */
 	white-space: nowrap;
 	overflow: hidden;
-
-	background: white;
-
-	border-style: solid;
-	border-top-width: 2px;
-	border-left-width: 2px;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-color: white;
-	/* border: 1px solid blue;  XXX just to make it visible for now */
 }
 
-.mwe-upwiz-visible-file.hover {
-	background: white;
-	border-color: #0645ad;
+.mwe-upwiz-file.hover .mwe-upwiz-visible-file {
+	background: #e0f0ff !important;
+}
+
+.mwe-upwiz-file.hover .mwe-upwiz-remove-ctrl {
+	visibility: visible;
 }
 
 /* XXX we probably have a standard for this */
@@ -154,44 +174,24 @@ form.mwe-upwiz-form {
 
 
 #mwe-upwiz-files {
-	margin-right: 100px;
-	margin-left: 100px;
-	margin-top: 20px;
+	margin-right: 8em;
+	margin-left: 8em;
 }
 
 .mwe-upwiz-file {
 }
 
 #mwe-upwiz-upload-ctrls {
-	margin-top: 15px;
-	
+	margin-top: 1em;
 }
 
 #mwe-upwiz-add-file-container {
 	/* empty; this changes a lot */	
 }
 
-.mwe-upwiz-remove {
-	padding: 5px;
-	cursor: pointer;
-	text-align: center;
-}
-
-a.mwe-upwiz-remove:link, 
-a.mwe-upwiz-remove:active,
-a.mwe-upwiz-remove:visited {
-	color: #999999;	
-	text-decoration: none;
-}
-
-a.mwe-upwiz-remove:hover {
-	color: #ff0000;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.mwe-upwiz-remove-desc {
+.mwe-upwiz-details-descriptions .mwe-upwiz-remove-ctrl {
 	vertical-align: top;
+	display: inline-block;
 }
 
 a[disabled=true] {
@@ -279,7 +279,7 @@ a[disabled=true]:hover {
 
 /* XXX add spinner gif instead, maybe */
 .busy {
-	/* background: yellow; */
+	background: yellow;
 }
 
 .mwe-upwiz-stepdiv {
@@ -329,18 +329,13 @@ a[disabled=true]:hover {
 	font-weight: bold;
 }
 
-.mwe-more-options, .mwe-fewer-options, .mwe-upwiz-macro-deeds-return, .mwe-upwiz-deed-header-link {
+.mwe-more-options, .mwe-upwiz-macro-deeds-return, .mwe-upwiz-deed-header-link {
 	cursor: pointer;
 }
 
-.mwe-more-options, .mwe-fewer-options {
+.mwe-more-options {
 	padding-bottom: 4px;
 }
-
-.mwe-more-options a:hover, .mwe-fewer-options a:hover {
-	text-decoration: none;
-}
-
 
 .mwe-upwiz-deed-license {
 	margin-left: 24px;
@@ -355,7 +350,6 @@ a[disabled=true]:hover {
 	margin-top: 12px;
 }
 .mwe-upwiz-info-file {
-	border-bottom: 1px solid #e0e0e0;
 	margin-bottom: 12px;
 	padding-bottom: 12px;
 	width: 660px;
@@ -406,12 +400,13 @@ fieldset .mwe-long-textarea {
 
 
 .mwe-upwiz-details-label {
-	width: 100px;
+	width: 9em;
+	padding-top:  0.5em;
 	float: left;
 }
 
 .mwe-upwiz-details-label-input {
-
+	margin-bottom: 1em;
 }
 
 .mwe-upwiz-details-filename. {
@@ -486,7 +481,7 @@ legend.mwe-legend {
 }
 
 .mwe-upwiz-buttons {
-	margin-top: 10px;
+	margin-top: 1em;
 	padding-top: 10px;
 	border-top: 1px solid #e0e0e0;
 	text-align: right;  /* works for now, only one 'next' button */
@@ -507,6 +502,20 @@ a.mwe-upwiz-tooltip-link {
 input[type='text'].mwe-error, textarea.mwe-error {
 	color: black;
 	border: 1px solid #ff0000;
+}
+
+.mwe-upwiz-toggler {
+	margin-bottom: 0;
+	padding: 4px 0 3px 18px;
+	background: url('toggle.png') no-repeat left center;
+}
+
+.mwe-upwiz-toggler-open {
+	background: url('toggle-open.png') no-repeat left center;
+}
+
+.mwe-upwiz-toggled {
+	margin-top: 1em;
 }
 
 .mwe-upwiz-thanks {
