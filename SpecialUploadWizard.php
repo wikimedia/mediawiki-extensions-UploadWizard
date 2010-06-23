@@ -127,7 +127,7 @@ class SpecialUploadWizard extends SpecialPage {
 //		$wgOut->addScript( Html::inlineScript( $initScript ) );
 		// not sure why -- can we even load libraries with an included script, or does that cause things to be out of order?
 		global $wgScriptPath;
-		$wgOut->addScriptClass( 'UploadWizardPage', 'page');
+		$wgOut->addNamedResource( 'UploadWizardPage', 'page');
 
 
 		// XXX unlike other vars this is specific to the file being uploaded -- re-upload context, for instance
