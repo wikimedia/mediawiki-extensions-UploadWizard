@@ -517,6 +517,12 @@ Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Deine Unterschrift enthält unzulässige Zeichen.
 Verwende hier bitte kein Wikitext oder HTML sondern einfach deinen Benutzernamen oder deinen bürgerlichen Namen.',
 	'mwe-upwiz-error-blank' => 'Dies ist ein Pflichtfeld.',
+	'mwe-upwiz-error-too-long' => 'Diese Angabe ist zu lang.
+Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+	'mwe-upwiz-error-too-short' => 'Diese Angabe ist zu kurz.
+Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+	'mwe-upwiz-error-bad-chars' => 'Diese Angabe enthält unzulässige Zeichen.
+Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0“',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons „Namensnennung 3.0“',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“',
@@ -1234,6 +1240,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-click-here' => 'Klickt hei fir e Fichier erauszesichen',
 	'mwe-upwiz-uploading' => 'eroplueden...',
+	'mwe-upwiz-editing' => 'gëtt geännert...',
 	'mwe-upwiz-remove-upload' => 'Dëse Fichier vun der Lëscht vun de Fichieren, déi eropgeluede solle ginn, erofhuelen',
 	'mwe-upwiz-remove-description' => 'Dës Beschreiwung ewechhuelen',
 	'mwe-upwiz-upload' => 'Eroplueden',
@@ -1258,6 +1265,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-categories-another' => 'Aner Kategorien derbäisetzen',
 	'mwe-upwiz-about-this-work' => 'Iwwer dëst Wierk',
 	'mwe-upwiz-copyright-info' => 'Rechter vun der Publikatioun',
+	'mwe-upwiz-author' => 'Auteur(en)',
 	'mwe-upwiz-license' => 'Rechter vun der Publikatioun',
 	'mwe-upwiz-about-format' => 'Iwwer de Fichier',
 	'mwe-upwiz-filename-tag' => 'Numm vum Fichier:',
@@ -1266,6 +1274,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-source' => 'Quell',
 	'mwe-upwiz-macro-edit' => 'Beschreiwungen aktualiséieren',
 	'mwe-upwiz-thanks-intro' => "Merci fir d'Eroplueden!",
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Trotzdem eroplueden?',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Annulléieren',
 	'mwe-upwiz-change' => '(Ännerung)',
@@ -1274,13 +1283,19 @@ $messages['lb'] = array(
 	'mwe-upwiz-overwrite' => 'De Fichier ersetzen',
 	'mwe-copyright-macro' => 'Esou wéi uewendriwwer',
 	'mwe-upwiz-next' => 'Nächst',
+	'mwe-upwiz-next-file' => 'Fichieren eroplueden a weidermaachen',
 	'mwe-upwiz-next-deeds' => 'Nächst',
 	'mwe-upwiz-next-details' => 'Nächst',
 	'mwe-upwiz-upload-another' => 'Méi Fichieren eroplueden',
 	'mwe-upwiz-files-complete' => "D'Eropluede vun Äre Fichieren ass fäerdeg!",
 	'mwe-upwiz-tooltip-more-info' => 'Fir méi ze wëssen',
+	'mwe-upwiz-file-need-file' => "Setzt w.e.g. d'éischt e Fichier fir eropzelueden derbäi.",
 	'mwe-upwiz-license-show-all' => 'Benotzt eng aner Lizenz',
 	'mwe-upwiz-license-show-recommended' => 'Benotzt déi recommandéiert Lizenz',
+	'mwe-upwiz-error-signature-too-short' => 'Är Ënnerschrëft ass ze kuerz.
+Maacht se méi laang wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
+	'mwe-upwiz-error-blank' => 'Dëst Feld ass obligateresch.',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 );
 
 /** Macedonian (Македонски)
