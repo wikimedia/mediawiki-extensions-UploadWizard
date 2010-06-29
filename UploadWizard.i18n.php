@@ -399,7 +399,20 @@ Kemerit perzh e gouiziegezh an denelezh en ur kargañ restroù hag a c'hellfe be
 	'mwe-upwiz-upload-another' => "Enporzhiañ muioc'h a restroù",
 	'mwe-prevent-close' => "Emañ o restroù o kargañ c'hoazh. Ha sur oc'h hoc'h eus c'hoant da guitaat ar bajenn-mañ ?",
 	'mwe-upwiz-files-complete' => 'Echuet eo enporzhiadur ho restroù !',
+	'mwe-upwiz-tooltip-author' => 'Anv an den en deus tapet ar skeudenn, livet an daolenn, treset an dresadenn, h.a.',
+	'mwe-upwiz-tooltip-source' => "Al lec'h m'emañ o tont ar restr niverel a c'hell bezañ un URl, ul levr, pe un embannadur",
 	'mwe-upwiz-tooltip-more-info' => "Gouzout hiroc'h.",
+	'mwe-upwiz-file-need-file' => 'Mar plij ouzhpennit ur restr da enporzhiañ da gentañ.',
+	'mwe-upwiz-file-need-start' => 'Mar plij klikit war ar bouton-mañ evit kregiñ gant ho enporzhiadurioù.',
+	'mwe-upwiz-file-need-complete' => "Mar plij gortozit betek ma 'vefe echuet enporzhiadur an holl restroù.",
+	'mwe-upwiz-deeds-need-deed' => "Mar plij displegit eus pelec'h 'mañ o tont ar restr{{PLURAL:$1||où}}-mañ ha penaos e c'hell al lec'hienn-mañ implijout anezh{{PLURAL:$1|añ|o}}, en ur ziuzañ unan eus an dibarzhioù.",
+	'mwe-upwiz-deeds-need-license' => 'Mar-plij dibabit un aotre-implijout.',
+	'mwe-upwiz-license-incompatible-cc' => "Ne c'hellit dibab nemet un doare aotre-implijout Creative Commons.",
+	'mwe-upwiz-license-show-all' => 'Implijout un aotre-implijout disheñvel.',
+	'mwe-upwiz-license-show-recommended' => 'Implijout an aotre-implijout erbedet',
+	'mwe-upwiz-error-signature-blank' => 'Rankout a rit sinañ er vaezienn da-heul gant ho anv implijer pe gant ho anv gwir.',
+	'mwe-upwiz-error-signature-too-long' => "re hir eo ho sinadur.
+Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
 );
 
@@ -1340,6 +1353,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-deeds-custom-prompt' => 'Oder:',
 	'mwe-upwiz-details-intro' => "Elo brauche mir e puer elementar Informatiounen iwwert d'Fichieren.",
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere si}} mäin eegent Wierk.',
+	'mwe-upwiz-source-permission' => 'Hiren Auteur huet Iech déi ausdrécklech Erlaabnis gi fir se eropzelueden',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere sinn}} net mäin eegent Wierk.',
 	'mwe-upwiz-source-thirdparty-intro' => "Gitt w.e.g. d'Adress un wou Dir all eenzelne Fichier fonnt hutt.",
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
@@ -1363,10 +1377,12 @@ $messages['lb'] = array(
 	'mwe-upwiz-autoconverted' => 'Dëse Fichier gouf automatesch an de(n) $1-Format ëmgewandelt',
 	'mwe-upwiz-filename-tag' => 'Numm vum Fichier:',
 	'mwe-upwiz-other' => 'Aner Informatioun',
+	'mwe-upwiz-other-prefill' => 'Fräit Wikitext-Feld',
 	'mwe-upwiz-showall' => 'all weisen',
 	'mwe-upwiz-source' => 'Quell',
 	'mwe-upwiz-macro-edit' => 'Beschreiwungen aktualiséieren',
 	'mwe-upwiz-thanks-intro' => "Merci fir d'Eroplueden!",
+	'mwe-upwiz-thanks-link' => 'Dëse Fichier ass elo op <b><tt>$1</tt></b> disponibel.',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun "$1".',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Trotzdem eroplueden?',
 	'mwe-upwiz-ok' => 'OK',
@@ -1394,6 +1410,8 @@ $messages['lb'] = array(
 	'mwe-upwiz-error-signature-blank' => "Dir musst d'Feld hei drënner mat Ärem Benotzernumm oder Ärem richtegen Numm ënnerschreiwen.",
 	'mwe-upwiz-error-signature-too-short' => 'Är Ënnerschrëft ass ze kuerz.
 Maacht se méi laang wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'An Ärer Ënnerschrëft si Symboler déi net erlaabt sinn.
+Benotzt w.e.g. kee Wikitext oder HTML hei, just Äre Benotzernumm oder Äre richtegen Numm.',
 	'mwe-upwiz-error-blank' => 'Dëst Feld ass obligateresch.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 );
