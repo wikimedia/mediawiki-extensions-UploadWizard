@@ -1316,6 +1316,10 @@ $messages['ja'] = array(
 このタイトルは、このウィキにある他の全てと違うタイトルである必要があります。',
 	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのか、について述べてください。',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'クリエイティブ・コモンズ 表示-継承 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'クリエイティブ・コモンズ 表示 3.0',
+	'mwe-upwiz-license-cc-zero' => 'クリエイティブ・コモンズ CC0 権利放棄',
+	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 );
 
 $messages['ksh'] = array(
