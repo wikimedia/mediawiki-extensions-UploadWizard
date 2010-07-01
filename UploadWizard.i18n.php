@@ -595,7 +595,7 @@ $messages['es'] = array(
 	'mwe-loading-upwiz' => 'Cargando asistente de cargas',
 	'mwe-upwiz-code-unknown' => 'Idioma desconocido',
 	'mwe-upwiz-step-file' => 'Subir',
-	'mwe-upwiz-step-deeds' => '2. Agregar licencias',
+	'mwe-upwiz-step-deeds' => 'Liberar derechos',
 	'mwe-upwiz-step-details' => 'Describir',
 	'mwe-upwiz-step-thanks' => 'Usar',
 	'mwe-upwiz-intro' => 'Bienvenido a Wikimedia Commons, un repositorio de imágenes, sonidos, y películas que cualquiera puede librmente descargar y usar. Contribuye al conocimiento humano subiendo archivos que podrían ser usados para un propósito educativo.',
@@ -616,6 +616,7 @@ $messages['es'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} restantes',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hora|horas}} $2 {{PLURAL:$2|minuto|minutos}} $3 {{PLURAL:$3|segundo|segundos}} restantes',
 	'mwe-upwiz-deeds-intro' => 'Este sitio te requiere que definas una licencia para archivos subidos, para que todos puedan legalmente reusarlos para cualquier propósito.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Establecer una licencia para {{PLURAL:$1|el archivo anterior|todos los archivos anteriores}}:',
 	'mwe-upwiz-deeds-custom-prompt' => 'O:',
 	'mwe-upwiz-details-intro' => 'Ahora necesitamos cierta información básica acerca de los archivos.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este archivo es|Estos archivos son}} mi propio trabajo.',
@@ -641,9 +642,9 @@ $messages['es'] = array(
 	'mwe-upwiz-media-type' => 'Tipo de medios',
 	'mwe-upwiz-date-created' => 'Fecha de creado',
 	'mwe-upwiz-location' => 'Ubicación',
-	'mwe-upwiz-copyright-info' => 'Información de copyright',
+	'mwe-upwiz-copyright-info' => 'Liberar derechos',
 	'mwe-upwiz-author' => 'Autor(es)',
-	'mwe-upwiz-license' => 'Licencia',
+	'mwe-upwiz-license' => 'Liberar derechos',
 	'mwe-upwiz-about-format' => 'Acerca de este archivo',
 	'mwe-upwiz-autoconverted' => 'Este archivo fue automáticamente convertido al formato $1',
 	'mwe-upwiz-filename-tag' => 'Nombre de archivo:',
@@ -654,12 +655,13 @@ $messages['es'] = array(
 	'mwe-upwiz-macro-edit-intro' => 'Escoger una licencia primero de arriba, luego puedes agregar algunas descripciones y otra información a tus cargas.',
 	'mwe-upwiz-macro-edit' => 'Actualizar descripciones',
 	'mwe-upwiz-thanks-intro' => 'Gracias por subir!',
+	'mwe-upwiz-thanks-explain' => 'Puedes ahora usar {{PLURAL:$1|este archivo|estos archivos}} en sitios como Wikipedia, o enlazar a {{PLURAL:$1|él|ellos}} en la web.',
 	'mwe-upwiz-thanks-link' => 'Este archivo está ahora disponible en <b><tt>$1</tt></b>.',
-	'mwe-upwiz-thanks-wikitext' => '<b>Para usar el archivo</b>, copiar este texto dentro de una página:',
-	'mwe-upwiz-thanks-url' => '<b>Para vincular a él en HTML</b>, copiar este código HTML:',
+	'mwe-upwiz-thanks-wikitext' => '<b>Para usar el archivo en un wiki</b>, copiar este texto dentro de una página:',
+	'mwe-upwiz-thanks-url' => '<b>Para vincular a él en HTML</b>, copiar esta dirección URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Este wiki no acepta nombres de archivo con la extensión "$1".',
 	'mwe-upwiz-upload-error-duplicate' => 'Este archivo fue previamente subido a este wiki.',
-	'mwe-upwiz-upload-error-stashed-anyway' => 'Postear de todos modos?',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Subir de todos modos?',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Cancelar',
 	'mwe-upwiz-change' => '(cambiar)',
@@ -1214,6 +1216,14 @@ Per favor non usa wikitexto o HTML hic.',
 
 $messages['id'] = array(
 	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada. Tolong cek <b><tt>$1</tt></b> jika Anda tidak yakin untuk mengubahnya.',
+);
+
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'mwe-upwiz-ok' => 'O.K.',
+	'mwe-upwiz-tooltip-more-info' => 'Lernez pluse.',
 );
 
 /** Japanese (日本語)
@@ -1867,6 +1877,64 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Atribuição-Partilha nos Termos da Mesma Licença 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Atribuição 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renúncia',
+	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Luckas Blade
+ */
+$messages['pt-br'] = array(
+	'mwe-upwiz-code-unknown' => 'Língua desconhecida',
+	'mwe-upwiz-step-file' => 'Carregar',
+	'mwe-upwiz-step-details' => 'Descrever',
+	'mwe-upwiz-step-thanks' => 'Usar',
+	'mwe-upwiz-add-file-n' => 'Adicionar outro arquivo',
+	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-click-here' => 'Clique aqui para selecionar um arquivo',
+	'mwe-upwiz-uploading' => 'carregando...',
+	'mwe-upwiz-editing' => 'editando...',
+	'mwe-upwiz-remove-description' => 'Remover esta descrição',
+	'mwe-upwiz-upload' => 'Carregar',
+	'mwe-upwiz-progressbar-uploading' => 'carregando',
+	'mwe-upwiz-finished' => 'Terminado!',
+	'mwe-upwiz-deeds-custom-prompt' => 'Ou:',
+	'mwe-upwiz-details-intro' => 'Agora precisamos de algumas informações básicas sobre os arquivos.',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-more-options' => 'mais opções...',
+	'mwe-upwiz-fewer-options' => 'menos opções...',
+	'mwe-upwiz-desc-add-n' => 'adicionar uma descrição em outra língua',
+	'mwe-upwiz-desc-add-0' => 'adicionar uma descrição',
+	'mwe-upwiz-title' => 'Título',
+	'mwe-upwiz-categories-another' => 'Adicionar outras categorias',
+	'mwe-upwiz-about-this-work' => 'Sobre esta obra',
+	'mwe-upwiz-date-created' => 'Data de criação',
+	'mwe-upwiz-author' => 'Autor(es)',
+	'mwe-upwiz-about-format' => 'Sobre o arquivo',
+	'mwe-upwiz-autoconverted' => 'Este arquivo foi convertido automaticamente para o formato $1',
+	'mwe-upwiz-filename-tag' => 'Nome do arquivo:',
+	'mwe-upwiz-other' => 'Outras informações',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Carregar assim mesmo?',
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => 'Cancelar',
+	'mwe-upwiz-overwrite' => 'Substituir o arquivo',
+	'mwe-upwiz-next-file' => 'Carregar arquivos e continuar',
+	'mwe-upwiz-upload-another' => 'Carregar mais ficheiros',
+	'mwe-upwiz-files-complete' => 'Seus arquivos foram carregados!',
+	'mwe-upwiz-tooltip-more-info' => 'Saiba mais.',
+	'mwe-upwiz-file-need-start' => 'Por favor, clique neste botão para começar os carregamentos.',
+	'mwe-upwiz-file-need-complete' => 'Por favor, espere até que todos os arquivos tenham sido carregados.',
+	'mwe-upwiz-deeds-need-license' => 'Por favor, escolha uma licença.',
+	'mwe-upwiz-license-incompatible-cc' => 'Você só pode escolher um tipo de licença Creative Commons.',
+	'mwe-upwiz-license-show-all' => 'Usar uma licença diferente',
+	'mwe-upwiz-license-show-recommended' => 'Usar a licença recomendada',
+	'mwe-upwiz-error-signature-blank' => 'Você precisa assinar o campo abaixo com seu nome de usuário ou nome real.',
+	'mwe-upwiz-error-signature-too-long' => 'Sua assinatura é muito longa.
+Use no máximo $1 {{PLURAL:$1|caractere|caracteres}}.',
+	'mwe-upwiz-error-signature-too-short' => 'Sua assinatura é muito curta.
+Use no mínimo $1 {{PLURAL:$1|caractere|caracteres}}.',
+	'mwe-upwiz-error-blank' => 'Este campo é obrigatório.',
+	'mwe-upwiz-error-bad-chars' => 'Este campo contém caracteres que não são permitidos.
+Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 );
 
