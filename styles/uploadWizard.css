@@ -349,25 +349,29 @@ a[disabled=true]:hover {
 #mwe-upwiz-macro-files {
 	margin-top: 12px;
 }
+
 .mwe-upwiz-info-file {
 	margin-bottom: 1em;
 	padding-bottom: 1em;
 	width: 60em;
 }
 
-
 .mwe-upwiz-details-input {
-	width: 400px;
+	width: 33em;
 	float: left;
 }
 
-
-.mwe-upwiz-details-label {
+.mwe-upwiz-details-fieldname {
 	width: 10em;
 	padding-top:  0.5em;
 	float: left;
 }
 
+.mwe-upwiz-details-input-error {
+	padding-left: 10em;
+}
+
+/* ??? */
 .mwe-upwiz-details-input.mwe-error {
 	float: none;
 }
@@ -378,19 +382,15 @@ a[disabled=true]:hover {
 	font-size: small;
 }
 
-.mwe-upwiz-desc-lang-container {
-	float: left;
-}
-
 .mwe-upwiz-desc-lang-text {
-	width: 240px;
+	width: 20em;
 	overflow: hidden;
 	font-family: sans-serif; /* XXX is this right? */
 	font-size: small;
 }
 
 .mwe-upwiz-details-descriptions-add, .mwe-upwiz-details-input.mwe-error {
-	margin-left: 10em; /* width of mwe-upwiz-details-label */
+	margin-left: 10em; /* width of mwe-upwiz-details-fieldname */
 }
 
 .mwe-upwiz-details-descriptions-add {
@@ -404,7 +404,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-long-textarea {
-	width: 21em;
+	width: 31em;
 }
 
 fieldset .mwe-long-textarea {
@@ -412,9 +412,8 @@ fieldset .mwe-long-textarea {
 }
 
 
-
-.mwe-upwiz-details-label-input {
-	margin-bottom: 1em;
+.mwe-upwiz-details-fieldname-input {
+	margin-bottom: 1em; 
 }
 
 .mwe-upwiz-details-filename. {

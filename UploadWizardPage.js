@@ -42,6 +42,11 @@ mw.ready( function() {
 			minAuthorLength: 2,
 			maxSourceLength: 200,
 			minSourceLength: 5,
+ 			maxTitleLength: 200,
+ 			minTitleLength: 5,
+ 			maxDescriptionLength: 4096,
+ 			minDescriptionLength: 5,
+ 			maxOtherInformationLength: 4096,
 			maxSimultaneousConnections: 2,
 			maxUploads: 10,
 

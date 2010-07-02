@@ -140,7 +140,7 @@ Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
 Make it longer than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-bad-chars' => 'This field contains symbols that are not allowed.
 Please do not use wikitext or HTML here.',
-
+	'mwe-upwiz-error-date' => 'Please enter a valid date in YYYY-MM-DD format, or pick a date from the popup calendar.',
 	/* LICENSES */
 	/* surprisingly we don't seem to have strings for these yet */
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
