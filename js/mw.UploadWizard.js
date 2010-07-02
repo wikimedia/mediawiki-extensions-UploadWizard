@@ -9,7 +9,7 @@ mw.includeAllModuleMessages();
  */
 $j.validator.setDefaults( {
 	debug: true,
-	errorClass: 'mwe-error'
+	errorClass: 'mwe-validator-error'
 } );
 
 
@@ -990,7 +990,7 @@ mw.UploadWizardDescription = function( languageCode, required ) {
 
 	// XXX for some reason this display:block is not making it into HTML
 	var errorLabelDiv = $j(   '<div class="mwe-upwiz-details-input-error">'
-				+   '<label generated="true" class="mwe-error" for="' + _this.id + '" />'
+				+   '<label generated="true" class="mwe-validator-error" for="' + _this.id + '" />'
 				+ '</div>' );
 
 	var fieldnameDiv = $j( '<div class="mwe-upwiz-details-fieldname" />' );
@@ -1125,7 +1125,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
 		} );
 
-	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + _this.titleId + '" generated="true"/></div>');
+	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + _this.titleId + '" generated="true"/></div>');
 
 	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
@@ -1151,7 +1151,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
 	
-	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + dateInputId + '" generated="true"/></div>');
+	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 	
 	_this.dateInput = 
 		$j( '<input id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' )
@@ -2668,7 +2668,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			_this.$form = $j( '<form/>' );
 
 			var $standardDiv = $j( '<div />' ).append(
-				$j( '<label for="author2" generated="true" class="mwe-error" style="display:block;"/>' ),
+				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
 				$j( '<p>' )
 					.html( gM( 'mwe-upwiz-source-ownwork-assert',
 						   uploadCount,
@@ -2679,7 +2679,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			$standardDiv.find( '.mwe-standard-author-input' ).append( $j( '<input name="author2" type="text" class="mwe-upwiz-sign" />' ) );
 			
 			var $customDiv = $j('<div/>').append( 
-				$j( '<label for="author" generated="true" class="mwe-error" style="display:block;"/>' ),
+				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
 				$j( '<p>' )
 					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
 						uploadCount,
@@ -2808,11 +2808,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 
 			$formFields.append (
 				$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-				$j( '<label for="source" generated="true" class="mwe-error" style="display:block;"/>' ),
+				$j( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
 					.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
 						 _this.sourceInput ),
-				$j( '<label for="author" generated="true" class="mwe-error" style="display:block;"/>' ),
+				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
 					.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
 						 _this.authorInput ),

@@ -372,6 +372,7 @@ a[disabled=true]:hover {
 	position: relative;
 }
 
+.mwe-upwiz-details-input-error label.mwe-validator-error,
 .mwe-upwiz-details-input-error label.mwe-error {
 	position: absolute;
 	bottom: 0px;
@@ -390,7 +391,7 @@ a[disabled=true]:hover {
 	font-size: small;
 }
 
-.mwe-upwiz-details-descriptions-add, .mwe-upwiz-details-input.mwe-error {
+.mwe-upwiz-details-descriptions-add {
 	margin-left: 10em; /* width of mwe-upwiz-details-fieldname */
 }
 
@@ -443,17 +444,17 @@ legend.mwe-legend {
 }
 
 .mwe-upwiz-thirdparty-fields {
-	margin-bottom: 5px;
+	margin-bottom: .5em;
 }
 
 .mwe-upwiz-thirdparty-fields label {
-	width: 100px;
+	width: 9em;
 	display: inline-block;
-	padding-bottom: 5px;
+	padding-bottom: .5em;
 }
 
 .mwe-upwiz-thirdparty-fields textarea {
-	margin: 0px
+	margin: 0
 }
 
 .mwe-upwiz-thirdparty-license {
@@ -461,7 +462,7 @@ legend.mwe-legend {
 }
 
 .mwe-upwiz-deed-form-internal {
-	padding: 5px 0px 20px 40px;
+	padding: 0.5em 0 1.5em 3em;
 }
 
 
@@ -499,16 +500,18 @@ a.mwe-upwiz-tooltip-link {
 	cursor: pointer;
 }
 
-.mwe-error {
+.mwe-error, .mwe-validator-error {
 	color: #ff0000;
 }
 
-
-.mwe-upwiz-deed-form-internal label.mwe-error {
-	margin-left: 100px;
+.mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-error,
+.mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-validator-error {
+	margin-left: 9em;
 }
 
-input[type='text'].mwe-error, textarea.mwe-error {
+/* XXX fix this later -- we get non-rounded corners somehow */
+input[type='text'].mwe-error, textarea.mwe-error,
+input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 	color: black;
 	border-color: #ff0000;
 }
@@ -531,7 +534,7 @@ input[type='text'].mwe-error, textarea.mwe-error {
 	margin-bottom: 2em;
 }
 
-/* will change in RTL */
+/* may change in RTL */
 .mwe-upwiz-required-field {
 	/* font-weight: bold; */
 }
