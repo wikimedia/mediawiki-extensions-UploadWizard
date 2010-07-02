@@ -2100,6 +2100,47 @@ $messages['sk'] = array(
 	'mwe-upwiz-fileexists' => 'Súbor s týmto názvom už existuje. Prosím, skontrolujte <b><tt>$1</tt></b> ak si nie ste istý, či ho chcete zmeniť.',
 );
 
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'uploadwizard' => 'Чаробњак за слање',
+	'mwe-upwiz-step-file' => 'Слање',
+	'mwe-upwiz-step-details' => 'Опиши',
+	'mwe-upwiz-step-thanks' => 'Користи',
+	'mwe-upwiz-add-file-n' => 'Додај други фајл',
+	'mwe-upwiz-add-file-0' => 'Кликни овде да пошаљеш фајл',
+	'mwe-upwiz-transported' => 'Да',
+	'mwe-upwiz-click-here' => 'Кликни овде за избор фајла',
+	'mwe-upwiz-uploading' => 'шаље се...',
+	'mwe-upwiz-editing' => 'мења се...',
+	'mwe-upwiz-upload' => 'Пошаљи',
+	'mwe-upwiz-progressbar-uploading' => 'шаље се',
+	'mwe-upwiz-finished' => 'Завршено!',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Овај фајл није мој сопствени рад|Ови фајлови нису моји сопствени радови}}.',
+	'mwe-upwiz-source-thirdparty-accept' => 'Да',
+	'mwe-upwiz-more-options' => 'више опција...',
+	'mwe-upwiz-fewer-options' => 'мање опција...',
+	'mwe-upwiz-desc-add-0' => 'додај опис',
+	'mwe-upwiz-title' => 'Наслов',
+	'mwe-upwiz-about-this-work' => 'О овом раду',
+	'mwe-upwiz-media-type' => 'Врста медија',
+	'mwe-upwiz-location' => 'Место',
+	'mwe-upwiz-author' => 'Аутор(и)',
+	'mwe-upwiz-about-format' => 'О фајлу',
+	'mwe-upwiz-filename-tag' => 'Име фајла:',
+	'mwe-upwiz-showall' => 'прикажи све',
+	'mwe-upwiz-ok' => 'Да',
+	'mwe-upwiz-cancel' => 'Поништи',
+	'mwe-upwiz-change' => '(промени)',
+	'mwe-upwiz-thumbnail-more' => 'Увећај',
+	'mwe-upwiz-overwrite' => 'Замени фајл',
+	'mwe-copyright-macro' => 'Као горе',
+	'mwe-upwiz-next' => 'Следеће',
+	'mwe-upwiz-next-deeds' => 'Следеће',
+	'mwe-upwiz-next-details' => 'Следеће',
+);
+
 /** Swedish (Svenska)
  * @author Dafer45
  * @author Sertion
