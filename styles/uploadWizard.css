@@ -274,6 +274,7 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-data {
 	float: left;
+	width: 44em;
 }
 
 
@@ -352,8 +353,6 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-info-file {
 	margin-bottom: 1em;
-	padding-bottom: 1em;
-	width: 60em;
 }
 
 .mwe-upwiz-details-input {
@@ -369,11 +368,13 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-details-input-error {
 	padding-left: 10em;
+	min-height: 3em;
+	position: relative;
 }
 
-/* ??? */
-.mwe-upwiz-details-input.mwe-error {
-	float: none;
+.mwe-upwiz-details-input-error label.mwe-error {
+	position: absolute;
+	bottom: 0px;
 }
 
 .mwe-upwiz-desc-lang-select {
@@ -422,7 +423,7 @@ fieldset .mwe-long-textarea {
 }
 
 .mwe-upwiz-other-textarea {
-	width: 468px;
+	/* width: 40.3em; */
 } 
 
 fieldset.mwe-fieldset {
@@ -502,13 +503,14 @@ a.mwe-upwiz-tooltip-link {
 	color: #ff0000;
 }
 
+
 .mwe-upwiz-deed-form-internal label.mwe-error {
 	margin-left: 100px;
 }
 
 input[type='text'].mwe-error, textarea.mwe-error {
 	color: black;
-	border: 1px solid #ff0000;
+	border-color: #ff0000;
 }
 
 .mwe-upwiz-toggler {
@@ -529,6 +531,11 @@ input[type='text'].mwe-error, textarea.mwe-error {
 	margin-bottom: 2em;
 }
 
+/* will change in RTL */
 .mwe-upwiz-required-field {
 	/* font-weight: bold; */
+}
+
+.mwe-upwiz-required-marker {
+	color: #0099cc;
 }

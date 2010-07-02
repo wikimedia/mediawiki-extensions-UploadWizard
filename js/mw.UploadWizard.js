@@ -1087,13 +1087,10 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.descriptions = [];
 
-	_this.div = $j( '<div class="mwe-upwiz-info-file"></div>' ).addClass( 'ui-helper-clearfix' );
-
+	_this.div = $j( '<div class="mwe-upwiz-info-file ui-helper-clearfix"></div>' );
 
 	_this.thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
 	
-	_this.errorDiv = $j( '<div class="mwe-upwiz-details-error"></div>' );
-
 	_this.dataDiv = $j( '<div class="mwe-upwiz-data"></div>' );
 
 	// descriptions
@@ -1114,7 +1111,8 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	//    http://commons.wikimedia.org/wiki/Commons:File_naming
 	//    http://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
 	//    XXX make sure they can't use ctrl characters or returns or any other bad stuff.
-	_this.titleInput = $j( '<textarea type="text" rows="1" class="mwe-title mwe-long-textarea"></textarea>' )
+	_this.titleId = "title" + _this.upload.index;
+	_this.titleInput = $j( '<textarea type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" rows="1" class="mwe-title mwe-long-textarea"></textarea>' )
 		.attr( 'title', gM( 'mwe-upwiz-tooltip-title' ) )
 		.tipsyPlus()
 		.keyup( function() { 
@@ -1127,7 +1125,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
 		} );
 
-	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input mwe-error"></div>');
+	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + _this.titleId + '" generated="true"/></div>');
 
 	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
@@ -1151,24 +1149,27 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 
-
+	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
+	
+	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + dateInputId + '" generated="true"/></div>');
+	
 	_this.dateInput = 
-		$j( '<input name="dateInput" type="text" class="mwe-date" size="20"/>' )
+		$j( '<input id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' )
 			.datepicker( { 	
 				dateFormat: 'yy-mm-dd', // oddly, this means yyyy-mm-dd
 				buttonImage: mw.getMwEmbedPath() + 'skins/common/images/calendar.gif',
 				buttonImageOnly: false  // XXX determine what this does, docs are confusing
 			} );
 			
-	_this.dateErrorDiv = $j('<div class="mwe-upwiz-details-input mwe-error"></div>');
 
 	var dateInputDiv = $j( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append(
-			_this.dateErrorDiv, 
+			dateErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ), 
 			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput ) );
 
-	_this.otherInformationInput = $j( '<textarea class="mwe-upwiz-other-textarea"></textarea>' )
+	var otherInformationId = "otherInformation" + _this.upload.index;
+	_this.otherInformationInput = $j( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
 		.growTextArea()
 		.attr( 'title', gM( 'mwe-upwiz-tooltip-other' ) )
 		.tipsyPlus();
@@ -1202,14 +1203,15 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		_this.dataDiv
 	);
 
-	_this.$form.validate( { 
-		rules: { 
-			dateInput: { "dateISO": true }
-		},
+	_this.$form.validate();
+	_this.$form.find( '.mwe-date' ).rules( "add", {
+		dateISO: true,
 		messages: {
 			dateISO: gM( 'mwe-upwiz-error-date' )
 		}
 	} );
+	_this.$form.find( '.mwe-date' ).bind( 'change', function() { $j( this ).valid() } );
+
 	/* if the date is not valid, we need to pop open the "more options". How? 
 	   guess we'll revalidate it with element */
 
@@ -1315,7 +1317,7 @@ mw.UploadWizardDetails.prototype = {
 
 		if ( result.isUnique ) {
 			$j( _this.titleInput ).data( 'valid', true );
-			_this.titleErrorDiv.hide().empty();
+			_this.$form.find( 'label[for=' + _this.titleId + ']' ).hide().empty();
 			_this.ignoreWarningsInput = undefined;
 			return;
 		}
@@ -1327,7 +1329,9 @@ mw.UploadWizardDetails.prototype = {
 		/* var img = result.img;
 		var href = result.href; */
 	
-		_this.titleErrorDiv.html( gM( 'mwe-upwiz-fileexists-replace', title ) ).show();
+		_this.$form.find( 'label[for=' + _this.titleId + ']' )
+			.html( gM( 'mwe-upwiz-fileexists-replace', title ) )
+			.show();
 
 		/* temporarily commenting out the full thumbnail etc. thing. For now, we just want the user to change
                    to a different name 	
@@ -1889,7 +1893,10 @@ mw.UploadWizardDetails.prototype = {
 		_this.upload.state = 'complete';
 		// de-spinnerize
 		_this.upload.detailsProgress = 1.0;
-	}
+	},
+
+	dateInputCount: 0
+
 		
 };
 
@@ -2274,6 +2281,11 @@ mw.UploadWizard.prototype = {
 		
 		// XXX check if it has a file? 
 		_this.uploads.push( upload );
+		
+		/* useful for making ids unique and so on */
+		_this.uploadsSeen++;
+		upload.index = _this.uploadsSeen;
+
 		_this.updateFileCounts();
 		
 		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );	
@@ -2282,6 +2294,8 @@ mw.UploadWizard.prototype = {
 		upload.details = new mw.UploadWizardDetails( upload, $j( '#mwe-upwiz-macro-files' ) );
 	},
 
+	/* increments with every upload */
+	uploadsSeen: 0,
 
 	/**
 	 * Remove an upload from our array of uploads, and the HTML UI 
@@ -3400,8 +3414,10 @@ jQuery.fn.maskSafeShow = function( options ) {
 		return this.css( 'background', '#ffffff' ).attr( 'readonly', 'readonly' );
 	};
 
+	/* will change in RTL, but I can't think of an easy way to do this with only CSS */
 	$j.fn.requiredFieldLabel = function() {
-		return this.addClass( 'mwe-upwiz-required-field' ).prepend(' * ');
+		this.addClass( 'mwe-upwiz-required-field' );
+		return this.prepend( $j( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
 	};
 
 } )( jQuery );
