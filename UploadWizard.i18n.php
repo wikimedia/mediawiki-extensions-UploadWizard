@@ -569,6 +569,7 @@ Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 	'mwe-upwiz-error-bad-chars' => 'Diese Angabe enthält unzulässige Zeichen.
 Bitte verwende hier kein Wikitext oder HTML.',
+	'mwe-upwiz-error-date' => 'Bitte ein gültiges Datum im Format JJJJ-MM-TT eingeben oder ein Datum aus dem Popup-Kalender wählen.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0“',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons „Namensnennung 3.0“',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“',
@@ -810,6 +811,7 @@ Il ne doit pas dépasser $1 {{PLURAL:$1|caractère|caractères}}.',
 Il doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.',
 	'mwe-upwiz-error-bad-chars' => 'Ce champ contient des symboles qui ne sont pas autorisés.
 Veuillez ne pas utiliser de code wiki ni de HTML ici.',
+	'mwe-upwiz-error-date' => 'Veuillez saisir une date valide au format YYYY-MM-DD, ou en sélectionner une dans la fenêtre de calendrier.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons paternité-partage des conditions initiales à l’identique 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons paternité 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renoncement',
@@ -1208,6 +1210,7 @@ Rende lo plus curte que $1 {{PLURAL:$1|character|characteres}}.',
 Rende lo plus longe que $1 {{PLURAL:$1|character|characteres}}.',
 	'mwe-upwiz-error-bad-chars' => 'Iste campo contine symbolos que non es permittite.
 Per favor non usa wikitexto o HTML hic.',
+	'mwe-upwiz-error-date' => 'Per favor entra un data valide in formato AAAA-MM-DD, o selige un data del calendario pop-up.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
@@ -1237,7 +1240,10 @@ $messages['ja'] = array(
 	'mwe-upwiz-code-unknown' => '不明な言語',
 	'mwe-upwiz-step-file' => 'アップロード',
 	'mwe-upwiz-step-deeds' => '公開権限',
+	'mwe-upwiz-step-details' => '説明',
 	'mwe-upwiz-step-thanks' => '使用する',
+	'mwe-upwiz-intro' => 'ウィキメディア・コモンズへようこそ。ここは、誰でも自由にダウンロードし利用できる画像、音声、動画のレポジトリです。
+教育目的で利用可能なファイルをアップロードし、人類の知識を追加しましょう。',
 	'mwe-upwiz-add-file-n' => '他のファイルを追加',
 	'mwe-upwiz-add-file-0' => 'ファイルをアップロードするには、ここをクリック',
 	'mwe-upwiz-transported' => 'OK',
@@ -1247,6 +1253,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-remove-upload' => 'アップロードするファイルの一覧から、このファイルを除去する',
 	'mwe-upwiz-remove-description' => 'この説明を除去',
 	'mwe-upwiz-upload' => 'アップロード',
+	'mwe-upwiz-upload-count' => '$2{{PLURAL:$2|ファイル}}の$1をアップロード完了',
 	'mwe-upwiz-progressbar-uploading' => 'アップロード中',
 	'mwe-upwiz-finished' => '完了！',
 	'mwe-upwiz-secs-remaining' => '残り$1秒',
@@ -1326,6 +1333,33 @@ $messages['ja'] = array(
 このタイトルは、このウィキにある他の全てと違うタイトルである必要があります。',
 	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのか、について述べてください。',
+	'mwe-upwiz-tooltip-other' => 'この作品に含めたいその他の情報。
+ここではウィキ構文が利用できます。',
+	'mwe-upwiz-tooltip-more-info' => '詳しく。',
+	'mwe-upwiz-file-need-file' => '最初のアップロードを追加してください。',
+	'mwe-upwiz-file-need-start' => 'アップロードを開始するにはこのボタンを押してください。',
+	'mwe-upwiz-file-need-complete' => '全てのファイルのアップロードが完了するまでお待ちください。',
+	'mwe-upwiz-deeds-need-deed' => 'どこで{{PLURAL:$1|このファイル|これらのファイル}}を手に入れたのか、その場所がどのように{{PLURAL:$1|それ|それら}}を利用できるか、選択肢から選んで説明してください。',
+	'mwe-upwiz-deeds-need-license' => 'ライセンスを選択してください。',
+	'mwe-upwiz-license-incompatible-pd' => 'パブリックドメインのライセンスは、他のいかなる種類のライセンスとも互換性はありません。',
+	'mwe-upwiz-license-incompatible-cc' => 'クリエイティブ・コモンズのライセンスから1つ選択できます。',
+	'mwe-upwiz-license-show-all' => '違うライセンスを使用',
+	'mwe-upwiz-license-show-recommended' => '推奨されるライセンスを使用',
+	'mwe-upwiz-error-signature-blank' => '以下の項目にあなたの利用者名や本名を署名する必要があります。',
+	'mwe-upwiz-error-signature-too-long' => '署名が長すぎます。
+$1文字より短くしてください。',
+	'mwe-upwiz-error-signature-too-short' => '署名が短すぎます。
+$1文字より長くしてください。',
+	'mwe-upwiz-error-signature-bad-chars' => '署名に、利用できない文字が含まれています。
+署名の中では、ウィキ文やHTMLを利用せず、利用者名または本名のみを入力してください。',
+	'mwe-upwiz-error-blank' => 'この項目は必須です。',
+	'mwe-upwiz-error-too-long' => 'この項目が長すぎます。
+$1文字より短くしてください。',
+	'mwe-upwiz-error-too-short' => 'この項目が短すぎます。
+$1文字より長くしてください。',
+	'mwe-upwiz-error-bad-chars' => 'この項目が、利用できない文字を含んでいます。
+ウィキ文やHTMLを使用しないでください。',
+	'mwe-upwiz-error-date' => '有効な日付を、YYYY-MM-DD形式で入力するか、ポップアップのカレンダーから日付を選択してください。',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'クリエイティブ・コモンズ 表示-継承 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'クリエイティブ・コモンズ 表示 3.0',
 	'mwe-upwiz-license-cc-zero' => 'クリエイティブ・コモンズ CC0 権利放棄',
@@ -1554,6 +1588,7 @@ $messages['mk'] = array(
 Мора да е подолго од $1 {{PLURAL:$1|знак|знаци}}.',
 	'mwe-upwiz-error-bad-chars' => 'Ова поле користи знаци што не се дозволени.
 Тука не користете викитекст или HTML.',
+	'mwe-upwiz-error-date' => 'Внесете важечки датум во форматот ГГГГ-ММ-ДД, или пак одберете датум од скокачкиот календар.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Наведи извор-Сподели под исти услови 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Наведи извор 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Откажување',
@@ -1874,6 +1909,7 @@ Use no máximo $1 {{PLURAL:$1|carácter|caracteres}}.',
 Use no mínimo $1 {{PLURAL:$1|carácter|caracteres}}.',
 	'mwe-upwiz-error-bad-chars' => 'Este campo contém caracteres que não são permitidos.
 Não utilize texto wiki ou HTML aqui, por favor.',
+	'mwe-upwiz-error-date' => 'Introduza uma data válida no formato AAAA-MM-DD, ou escolha uma do calendário.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Atribuição-Partilha nos Termos da Mesma Licença 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Atribuição 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renúncia',
