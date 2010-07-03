@@ -1534,10 +1534,12 @@ mw.UploadWizardDetails.prototype = {
 		var metadata = _this.upload.imageinfo.metadata;
 		$j.each([metadata.datetimeoriginal, metadata.datetimedigitized, metadata.datetime, metadata['date']], 
 			function( i, imageinfoDate ) {
-				if ( imageinfoDate !== undefined ) {
-					var d = imageinfoDate.trim();
-					if ( d.match( yyyyMmDdRegex ) ) { 
-						dateObj = new Date( parseInt( $1, 10 ), parseInt( $2, 10 ), parseInt( $3, 10 ) );
+				if ( ! mw.isEmpty( imageinfoDate ) ) {
+					var matches = imageinfoDate.trim().match( yyyyMmDdRegex );   
+					if ( ! mw.isEmpty( matches ) ) {
+						dateObj = new Date( parseInt( matches[1], 10 ), 
+								    parseInt( matches[2], 10 ) - 1, 
+								    parseInt( matches[3], 10 ) );
 						return false; // break from $j.each
 					}
 				}
