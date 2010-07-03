@@ -557,4 +557,6 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 	background: #ffffff url('calendar.gif') no-repeat right center;
 }
 
-
+.ui-datepicker-current-day a.ui-state-active {
+	background: #ffff99;
+}
