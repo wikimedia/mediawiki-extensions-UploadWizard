@@ -3434,7 +3434,7 @@ jQuery.fn.maskSafeShow = function( options ) {
 	};
 
 	$j.fn.readonly = function() {
-		return this.css( 'background', '#ffffff' ).attr( 'readonly', 'readonly' );
+		return this.attr( 'readonly', 'readonly' ).addClass( 'mwe-readonly' );
 	};
 
 	/* will change in RTL, but I can't think of an easy way to do this with only CSS */
