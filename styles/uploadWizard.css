@@ -368,15 +368,20 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-details-input-error {
 	padding-left: 10em;
-	min-height: 3em;
-	position: relative;
+	/* XXX the following rules pop it open at a fixed width so layout doesn't change :( */
+	/* min-height: 3em;
+	position: relative; */
 }
 
+/* XXX the following rule keeps errors on the details page at the bottom of a fixed-height space, see above */
+/*
 .mwe-upwiz-details-input-error label.mwe-validator-error,
 .mwe-upwiz-details-input-error label.mwe-error {
 	position: absolute;
 	bottom: 0px;
 }
+*/
+
 
 .mwe-upwiz-desc-lang-select {
 	width: 11em;

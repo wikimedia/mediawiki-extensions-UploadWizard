@@ -1125,7 +1125,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
 		} );
 
-	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + _this.titleId + '" generated="true"/></div>');
+	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + _this.titleId + '" generated="true"/></div>');
 
 	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
@@ -1150,23 +1150,24 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
+	var dateDisplayInputId = "dateDisplayInput" + ( _this.upload.index ).toString();
 	
 	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
-	
+
+	/* XXX must localize this by loading jquery.ui.datepicker-XX.js where XX is a language code */
+	/* jQuery.ui.datepicker also modifies first-day-of-week according to language, which is somewhat wrong. */
+	/* $.datepicker.setDefaults() for other settings */	
 	_this.dateInput = 
-		$j( '<input id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' )
-			.datepicker( { 	
-				dateFormat: 'yy-mm-dd', // oddly, this means yyyy-mm-dd
-				buttonImage: mw.getMwEmbedPath() + 'skins/common/images/calendar.gif',
-				buttonImageOnly: false  // XXX determine what this does, docs are confusing
-			} );
-			
+		$j( '<input type="text" id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' );
+	_this.dateDisplayInput = 
+		$j( '<input type="text" id="' + dateDisplayInputId + '" name="' + dateDisplayInputId + '" type="text" class="mwe-date-display" size="20"/>' );
+	
 
 	var dateInputDiv = $j( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append(
 			dateErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ), 
-			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput ) );
+			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput, _this.dateDisplayInput ) );
 
 	var otherInformationId = "otherInformation" + _this.upload.index;
 	_this.otherInformationInput = $j( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
@@ -1210,8 +1211,27 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			dateISO: gM( 'mwe-upwiz-error-date' )
 		}
 	} );
-	_this.$form.find( '.mwe-date' ).bind( 'change', function() { $j( this ).valid() } );
 
+	// we hide the "real" ISO date, and create another "display" date
+	_this.$form.find( '.mwe-date-display' )
+		.datepicker( { 	
+			dateFormat: 'DD, MM d, yy', 
+			//buttonImage: mw.getMwEmbedPath() + 'skins/common/images/calendar.gif',
+			showOn: 'focus',
+			/* buttonImage: '???', 
+			buttonImageOnly: true,  */
+			changeMonth: true, 
+			changeYear: true, 
+			showAnim: 'slideDown',
+			altField: '#' + dateInputId,
+			altFormat: 'yy-mm-dd' } )
+		.click( function() { $j( this ).datepicker( 'show' ) } )
+		.readonly();
+
+	_this.$form.find( '.mwe-date' )	
+		.bind( 'change', function() { $j( this ).valid() } )
+		.hide();
+	
 	/* if the date is not valid, we need to pop open the "more options". How? 
 	   guess we'll revalidate it with element */
 
@@ -1503,35 +1523,38 @@ mw.UploadWizardDetails.prototype = {
 	 * (which we should actually be using, such as time and timezone)
 	 */
 	prefillDate: function() {
+		// XXX surely we have this function somewhere already
+		function pad( n ) { 
+			return n < 10 ? "0" + n : n;
+		}
+
 		var _this = this;
 		var yyyyMmDdRegex = /^(\d\d\d\d)[:\/-](\d\d)[:\/-](\d\d)\D.*/;
-		var dateStr;
+		var dateObj;
 		var metadata = _this.upload.imageinfo.metadata;
 		$j.each([metadata.datetimeoriginal, metadata.datetimedigitized, metadata.datetime, metadata['date']], 
 			function( i, imageinfoDate ) {
 				if ( imageinfoDate !== undefined ) {
 					var d = imageinfoDate.trim();
 					if ( d.match( yyyyMmDdRegex ) ) { 
-						dateStr = d.replace( yyyyMmDdRegex, "$1-$2-$3" );
+						dateObj = new Date( parseInt( $1, 10 ), parseInt( $2, 10 ), parseInt( $3, 10 ) );
 						return false; // break from $j.each
 					}
 				}
 			}
 		);
+
 		// if we don't have EXIF or other metadata, let's use "now"
 		// XXX if we have FileAPI, it might be clever to look at file attrs, saved 
 		// in the upload object for use here later, perhaps
-		function pad( n ) { 
-			return n < 10 ? "0" + n : n;
+		if (typeof dateObj === 'undefined') {
+			dateObj = new Date();
 		}
+		dateStr = dateObj.getUTCFullYear() + '-' + pad( dateObj.getUTCMonth() ) + '-' + pad( dateObj.getUTCDate() );
 
-		if (dateStr === undefined) {
-			d = new Date();
-			dateStr = d.getUTCFullYear() + '-' + pad(d.getUTCMonth()) + '-' + pad(d.getUTCDate());
-		}
-
-		// ok by now we should definitely have a date string formatted in YYYY-MM-DD
+		// ok by now we should definitely have a dateObj and a date string
 		$j( _this.dateInput ).val( dateStr );
+		$j( _this.dateDisplayInput ).datepicker( "setDate", dateObj );
 	},
 
 	/**
