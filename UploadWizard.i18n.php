@@ -301,6 +301,7 @@ $messages['be-tarask'] = array(
 Зрабіце яго даўжэй за $1 {{PLURAL:$1|сымбаль|сымбалі|сымбаляў}}.',
 	'mwe-upwiz-error-bad-chars' => 'Гэтае поле зьмяшчае недапушчальныя сымбалі.
 Не выкарыстоўвайце ў ім вікі-фарматаваньне ці HTML.',
+	'mwe-upwiz-error-date' => 'Калі ласка, пазначце дату ў фармаце ГГГГ-ММ-ДД, ці выберыце з выкіднога календара.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution-Share Alike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
@@ -672,6 +673,8 @@ $messages['es'] = array(
 	'mwe-copyright-macro' => 'Como arriba',
 	'mwe-copyright-custom' => 'Personalizar',
 	'mwe-upwiz-next' => 'Siguiente',
+	'mwe-upwiz-next-deeds' => 'Siguiente',
+	'mwe-upwiz-next-details' => 'Siguiente',
 	'mwe-upwiz-home' => 'Ir a la página principal del wiki',
 	'mwe-upwiz-upload-another' => 'Subir más archivos',
 	'mwe-prevent-close' => 'Tus archivos están aún subiendo. Estás seguro de abandonar esta página?',
@@ -681,6 +684,16 @@ $messages['es'] = array(
 	'mwe-upwiz-tooltip-sign' => 'Puedes usar tu nombre de usuario de wiki o tu nombre real. En ambos casos, esto será vinculado a tu página de usuario del wiki',
 	'mwe-upwiz-tooltip-title' => 'Un título corto para el archivo. Puedes usar lenguaje simple con espacios, pero no con líneas. Este título no debe ser similar a todos los demás títulos de este wiki.',
 	'mwe-upwiz-tooltip-more-info' => 'Aprender más',
+);
+
+/** Finnish (Suomi)
+ * @author Silvonen
+ */
+$messages['fi'] = array(
+	'mwe-upwiz-code-unknown' => 'Tuntematon kieli',
+	'mwe-upwiz-remove-description' => 'Poista tämä kuvaus',
+	'mwe-upwiz-overwrite' => 'Korvaa tiedosto',
+	'mwe-upwiz-error-blank' => 'Tämä kenttä on pakollinen.',
 );
 
 /** French (Français)
@@ -1472,7 +1485,7 @@ $messages['mk'] = array(
 	'uploadwizard-desc' => 'Помошник за подигање, создаден со средства доделени за Употребливост на мултимедија',
 	'mwe-loading-upwiz' => 'Го вчитувам помошникот за подигање',
 	'mwe-upwiz-code-unknown' => 'Непознат јазик',
-	'mwe-upwiz-step-file' => 'Подигни',
+	'mwe-upwiz-step-file' => 'Подигање',
 	'mwe-upwiz-step-deeds' => 'Предавање на права',
 	'mwe-upwiz-step-details' => 'Опис',
 	'mwe-upwiz-step-thanks' => 'Употреба',
@@ -1498,9 +1511,9 @@ $messages['mk'] = array(
 	'mwe-upwiz-deeds-custom-prompt' => 'Или:',
 	'mwe-upwiz-details-intro' => 'Сега ќе ни требаат некои основни информации за податотеките.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Оваа податотека е|Овие податотеки се}} мое сопствено дело.',
-	'mwe-upwiz-source-ownwork-assert' => 'Јас, $2, имателот на авторските права на {{PLURAL:$1|ова дело|овие дела}}, со ова неотповикливо му дозволувам секому да {{PLURAL:$1|го користи ова дело|ги користи овие дела}} за било каква цел, под услов да не наведат и да го споделат изведеното дело под исти услови.',
+	'mwe-upwiz-source-ownwork-assert' => 'Јас, $2, имателот на авторските права на {{PLURAL:$1|ова дело|овие дела}}, со ова неотповикливо му дозволувам секому да {{PLURAL:$1|го користи ова дело|ги користи овие дела}} за било каква цел, под услов да ме наведат и да го споделат изведеното дело под исти услови.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Јас, $2, имателот на авторските права на {{PLURAL:$1|ова дело|овие дела}}, со ова {{PLURAL:$1|го издавам делото|ги издавам делата}} под следнава/иве лиценца/ци:',
-	'mwe-upwiz-source-ownwork-assert-note' => 'Ова значи дека вашето дело го објавувате под лиценцата Криејтив Комос Наведи извор-Сподели под исти услови.',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Ова значи дека вашето дело го објавувате под лиценцата Creative Commons Наведи извор-Сподели под исти услови.',
 	'mwe-upwiz-source-permission' => 'Нивниот автор ви дал јасна дозвола да ги подигате',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Оваа податотека не е|Овие податотеки не се}} мое сопствено дело.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Внесете ги адресите кадешто ги најдовте податотеките.',
@@ -1723,6 +1736,7 @@ Maak het korter dan $1 {{PLURAL:$1|teken|tekens}}.',
 Maak het langer dan {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-bad-chars' => 'Dit veld bevat symbolen die niet zijn toegestaan.
 Gebruik hier geen wikitekst of HTML.',
+	'mwe-upwiz-error-date' => 'Voer een geldige datum als JJJJ-MM-DD of kies een datum in de popupkalender.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Naamsvermelding-Gelijk delen 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Naamsvermelding 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Geen auteursrecht',
@@ -1771,7 +1785,13 @@ $messages['oc'] = array(
 	'mwe-upwiz-fileexists' => 'Un fichièr amb aqueste nom existís ja. Mercé de verificar <b><tt>$1</tt></b> se sètz pas segur que lo volètz cambiar.',
 );
 
+/** Polish (Polski)
+ * @author Marcin Łukasz Kiejzik
+ * @author Sp5uhe
+ */
 $messages['pl'] = array(
+	'uploadwizard' => 'Kreator przesyłania',
+	'uploadwizard-desc' => 'Kreator dodawania, opracowany dla dotowanego projektu użyteczności multimediów',
 	'mwe-upwiz-fileexists' => 'Plik o tej nazwie już istnieje. Sprawdź <b><tt>$1</tt></b> jeśli nie jesteś pewien czy chcesz go zastąpić.',
 );
 
@@ -2100,6 +2120,7 @@ $messages['ru'] = array(
 Его длина должна быть больше $1 {{PLURAL:$1|символа|символов|символов}}.',
 	'mwe-upwiz-error-bad-chars' => 'Это поле содержит недопустимые символы.
 Пожалуйста, не используйте викитекст или HTML.',
+	'mwe-upwiz-error-date' => 'Пожалуйста, введите корректную дату в формате ГГГГ-ММ-ДД, либо выберите дату из появляющегося календаря.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
@@ -2302,5 +2323,10 @@ $messages['tr'] = array(
 
 $messages['vi'] = array(
 	'mwe-upwiz-fileexists' => 'Một tập tin với tên này đã tồn tại, xin hãy kiểm tra lại <b><tt>$1</tt></b> nếu bạn không chắc bạn có muốn thay đổi nó hay không.',
+);
+
+/** Wu (吴语) */
+$messages['wuu'] = array(
+	'mwe-upwiz-cancel' => '取消',
 );
 
