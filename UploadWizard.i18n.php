@@ -414,6 +414,13 @@ Kemerit perzh e gouiziegezh an denelezh en ur kargañ restroù hag a c'hellfe be
 	'mwe-upwiz-error-signature-blank' => 'Rankout a rit sinañ er vaezienn da-heul gant ho anv implijer pe gant ho anv gwir.',
 	'mwe-upwiz-error-signature-too-long' => "re hir eo ho sinadur.
 Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
+	'mwe-upwiz-error-signature-too-short' => "Re verr eo ho sinadur.
+Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
+	'mwe-upwiz-error-blank' => 'Ar maezienn-mañ a zo ret.',
+	'mwe-upwiz-error-too-long' => "Re hir eo ar maezienn.
+Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
+	'mwe-upwiz-error-too-short' => "Re verr eo ar maezienn.
+Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
 );
 
@@ -691,8 +698,20 @@ $messages['es'] = array(
  */
 $messages['fi'] = array(
 	'mwe-upwiz-code-unknown' => 'Tuntematon kieli',
+	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-remove-description' => 'Poista tämä kuvaus',
+	'mwe-upwiz-finished' => 'Päättynyt!',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-title' => 'Otsikko',
+	'mwe-upwiz-location' => 'Sijainti',
+	'mwe-upwiz-filename-tag' => 'Tiedostonimi:',
+	'mwe-upwiz-showall' => 'näytä kaikki',
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-thumbnail-more' => 'Suurenna',
 	'mwe-upwiz-overwrite' => 'Korvaa tiedosto',
+	'mwe-upwiz-next' => 'Seuraava',
+	'mwe-upwiz-next-deeds' => 'Seuraava',
+	'mwe-upwiz-next-details' => 'Seuraava',
 	'mwe-upwiz-error-blank' => 'Tämä kenttä on pakollinen.',
 );
 
@@ -1786,12 +1805,31 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Fizykaa
  * @author Marcin Łukasz Kiejzik
  * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'uploadwizard' => 'Kreator przesyłania',
 	'uploadwizard-desc' => 'Kreator dodawania, opracowany dla dotowanego projektu użyteczności multimediów',
+	'mwe-upwiz-code-unknown' => 'Nierozpoznawany język.',
+	'mwe-upwiz-step-file' => 'Prześlij',
+	'mwe-upwiz-step-deeds' => 'Odbierz uprawnienia',
+	'mwe-upwiz-step-thanks' => 'Użyj',
+	'mwe-upwiz-add-file-n' => 'Prześlij inny plik',
+	'mwe-upwiz-add-file-0' => 'Kliknij tutaj, by przesłać plik',
+	'mwe-upwiz-browse' => 'Przeglądaj...',
+	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-click-here' => 'Kliknij tutaj, by wybrać plik',
+	'mwe-upwiz-uploading' => 'Trwa przesyłanie...',
+	'mwe-upwiz-editing' => 'edycja...',
+	'mwe-upwiz-remove-upload' => 'Usuń ten plik z listy plików do przesłania',
+	'mwe-upwiz-remove-description' => 'Usuń ten opis',
+	'mwe-upwiz-upload' => 'Prześlij',
+	'mwe-upwiz-upload-count' => 'Przesłano $1 z $2 plik{{PLURAL:$2|u|ów}}.',
+	'mwe-upwiz-progressbar-uploading' => 'Trwa przesyłanie...',
+	'mwe-upwiz-finished' => 'Gotowe!',
+	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Pozostała 1 sekunda|Pozostały $1 sekundy|Pozostało $1 sekund}}...',
 	'mwe-upwiz-fileexists' => 'Plik o tej nazwie już istnieje. Sprawdź <b><tt>$1</tt></b> jeśli nie jesteś pewien czy chcesz go zastąpić.',
 );
 
