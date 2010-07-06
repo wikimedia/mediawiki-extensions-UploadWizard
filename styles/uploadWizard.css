@@ -272,9 +272,10 @@ a[disabled=true]:hover {
 	vertical-align: middle;
 }
 
+/* I don't like that this has to have width, to ensure that all the floats work out correctly.*/
 .mwe-upwiz-data {
 	float: left;
-	width: 44em;
+	width: 46em;
 }
 
 

@@ -1127,7 +1127,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + _this.titleId + '" generated="true"/></div>');
 
-	_this.titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
+	var titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
 			_this.titleErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' )
@@ -1145,9 +1145,9 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			_this.deedDiv
 		);
 	
-	_this.moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
+	moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
 
-	_this.moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
+	moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
 	var dateDisplayInputId = "dateDisplayInput" + ( _this.upload.index ).toString();
@@ -1180,7 +1180,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		.append( _this.otherInformationInput );
 	
 
-	$j( _this.moreDetailsDiv ).append( 
+	$j( moreDetailsDiv ).append( 
 		dateInputDiv, 
 		// location goes here
 		otherInformationDiv
@@ -1189,10 +1189,11 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.$form = $j( '<form></form>' );
 	_this.$form.append( 
 		_this.descriptionsDiv, 
-		_this.titleContainerDiv,
+		descriptionAdderDiv,
+		titleContainerDiv,
 		_this.copyrightInfoFieldset,
-		_this.moreDetailsCtrlDiv,
-		_this.moreDetailsDiv
+		moreDetailsCtrlDiv,
+		moreDetailsDiv
 	);
 
 	$j( _this.dataDiv ).append( 
@@ -1235,7 +1236,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	/* if the date is not valid, we need to pop open the "more options". How? 
 	   guess we'll revalidate it with element */
 
-	mw.UploadWizardUtil.makeToggler( _this.moreDetailsCtrlDiv, _this.moreDetailsDiv );	
+	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
 	_this.addDescription( true, mw.getConfig('userLanguage') );
 	$j( containerDiv ).append( _this.div );
@@ -1262,7 +1263,8 @@ mw.UploadWizardDetails.prototype = {
 			alert( "please wait, still checking the title for uniqueness..." );
 			return false;
 		}
-		
+	
+		// all other fields validated with validator js	
 		var formValid = _this.$form.valid();
 		return titleInputValid && formValid;
 				
@@ -2033,8 +2035,6 @@ mw.UploadWizard.prototype = {
 		       +          '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
 		       +            '<a id="mwe-upwiz-add-file">' + gM("mwe-upwiz-add-file-0") + '</a>'
 		       +	  '</div>'
-		       +          '<div id="proceed" class="mwe-upwiz-file-indicator">'
-		       +          '</div>'
 		       +       '</div>'
 		       +       '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
 		       +     '</div>'
@@ -2462,7 +2462,6 @@ mw.UploadWizard.prototype = {
 
 		if ( _this.uploads.length ) {
 			$j( '#mwe-upwiz-upload-ctrl' ).removeAttr( 'disabled' ); 
-			$j( '#proceed' ).show();
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-n' ) );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
@@ -2471,7 +2470,6 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-files .mwe-upwiz-file:filled:even' ).removeClass( 'odd' );
 		} else {
 			$j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
-			$j( '#proceed' ).hide();
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-0' ) );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
