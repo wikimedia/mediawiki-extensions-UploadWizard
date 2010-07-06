@@ -291,13 +291,6 @@ a[disabled=true]:hover {
 
 
 
-/* XXX this has to be 'centered' beneath the 'x's -- this is about right for english but we need a more 
-   robust layout strategy for i18n */
-.proceed {
-	text-align: right; 	
-	width: 410px;
-}
-
 .shim {
 	float:right;
 	width: 1px;
