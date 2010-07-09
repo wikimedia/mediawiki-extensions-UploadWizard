@@ -1144,10 +1144,22 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			$j( '<legend class="mwe-legend">' ).append( gM( 'mwe-upwiz-copyright-info' ) ), 
 			_this.deedDiv
 		);
-	
-	moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
 
-	moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
+	var $categoriesDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix">' 
+				+ '<div class="mwe-upwiz-details-fieldname"></div>' 
+				+ '<div class="mwe-upwiz-details-input"></div>'
+				+ '</div>' );
+	$categoriesDiv.find( '.mwe-upwiz-details-fieldname' ).append( gM( 'mwe-upwiz-categories' ) );
+	var categoriesId = 'categories' + _this.upload.index;
+	$categoriesDiv.find( '.mwe-upwiz-details-input' )
+		.append( $j( '<input/>' ).attr( { id: categoriesId,
+						  name: categoriesId,
+						  type: 'text' } )
+		);
+	
+	var moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
+
+	var moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
 	var dateDisplayInputId = "dateDisplayInput" + ( _this.upload.index ).toString();
@@ -1192,6 +1204,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		descriptionAdderDiv,
 		titleContainerDiv,
 		_this.copyrightInfoFieldset,
+		$categoriesDiv,
 		moreDetailsCtrlDiv,
 		moreDetailsDiv
 	);
@@ -1241,6 +1254,8 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.addDescription( true, mw.getConfig('userLanguage') );
 	$j( containerDiv ).append( _this.div );
 
+
+	$categoriesDiv.find( '.mwe-upwiz-details-input' ).find( 'input' ).tags();
 
 };
 
@@ -2315,6 +2330,8 @@ mw.UploadWizard.prototype = {
 		
 		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );	
 
+		// XXX do we really need to do this now? some things will even change after step 2.
+		// legacy.
 		// set up details
 		upload.details = new mw.UploadWizardDetails( upload, $j( '#mwe-upwiz-macro-files' ) );
 	},

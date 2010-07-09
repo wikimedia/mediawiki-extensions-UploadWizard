@@ -20,6 +20,7 @@
 		"mw.ApiUploadHandler"		: "js/mw.ApiUploadHandler.js",
 		"mw.DestinationChecker"		: "js/mw.DestinationChecker.js",
 
+
 		"mw.MockUploadHandler"		: "js/mw.MockUploadHandler.js",		
 
 		"$j.fn.tipsy"			: "js/jquery/plugins/jquery.tipsy.js",
@@ -30,7 +31,11 @@
 		"$j.fn.validate"		: "js/jquery/plugins/jquery.validate.js",
 
 		"$j.fn.arrowSteps"		: "js/jquery/plugins/jquery.arrowSteps.js",
-		"mw.style.arrowSteps"		: "styles/jquery.arrowSteps.css"
+
+		"$j.fn.tags"			: "js/jquery/plugins/jquery.tags.js",
+
+		"mw.style.arrowSteps"		: "styles/jquery.arrowSteps.css",
+		"mw.style.tags"			: "styles/jquery.tags.css"
 	});	
 	
 	//Set a variable for the base upload interface for easy inclution
@@ -69,8 +74,10 @@
 			'$j.fn.morphCrossfade',
 			'$j.fn.validate',
 			'$j.fn.arrowSteps',
+			'$j.fn.tags',
 			'mw.style.arrowSteps',
-			'mw.style.autocomplete'
+			'mw.style.autocomplete',
+			'mw.style.tags'
 		],
 		[
 			'mw.LanguageUpWiz',

@@ -148,7 +148,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	/* this is just for testing, we are not going to privilege the US and A */
-	'mwe-upwiz-license-pd-us' => 'Public Domain (US)'
+	'mwe-upwiz-license-pd-us' => 'Public Domain (US)',
+	'mwe-upwiz-categories' => 'Categories'
 );
 
 /** Message documentation (Message documentation)
