@@ -32,10 +32,10 @@
 
 		"$j.fn.arrowSteps"		: "js/jquery/plugins/jquery.arrowSteps.js",
 
-		"$j.fn.tags"			: "js/jquery/plugins/jquery.tags.js",
+		"$j.fn.mwCoolCats"			: "js/jquery/plugins/jquery.mwCoolCats.js",
 
 		"mw.style.arrowSteps"		: "styles/jquery.arrowSteps.css",
-		"mw.style.tags"			: "styles/jquery.tags.css"
+		"mw.style.mwCoolCats"			: "styles/jquery.mwCoolCats.css"
 	});	
 	
 	//Set a variable for the base upload interface for easy inclution
@@ -74,10 +74,10 @@
 			'$j.fn.morphCrossfade',
 			'$j.fn.validate',
 			'$j.fn.arrowSteps',
-			'$j.fn.tags',
+			'$j.fn.mwCoolCats',
 			'mw.style.arrowSteps',
 			'mw.style.autocomplete',
-			'mw.style.tags'
+			'mw.style.mwCoolCats'
 		],
 		[
 			'mw.LanguageUpWiz',
