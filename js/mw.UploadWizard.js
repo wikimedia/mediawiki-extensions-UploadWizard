@@ -1254,8 +1254,8 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.addDescription( true, mw.getConfig('userLanguage') );
 	$j( containerDiv ).append( _this.div );
 
-
-	$categoriesDiv.find( '.mwe-upwiz-details-input' ).find( 'input' ).tags();
+	// make this a cool category picker
+	$categoriesDiv.find( '.mwe-upwiz-details-input' ).find( 'input' ).mwCoolCats();
 
 };
 

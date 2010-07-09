@@ -32,10 +32,10 @@
 
 		"$j.fn.arrowSteps"		: "js/jquery/plugins/jquery.arrowSteps.js",
 
-		"$j.fn.mwCoolCats"			: "js/jquery/plugins/jquery.mwCoolCats.js",
+		"$j.fn.mwCoolCats"		: "js/jquery/plugins/jquery.mwCoolCats.js",
 
 		"mw.style.arrowSteps"		: "styles/jquery.arrowSteps.css",
-		"mw.style.mwCoolCats"			: "styles/jquery.mwCoolCats.css"
+		"mw.style.mwCoolCats"		: "styles/jquery.mwCoolCats.css"
 	});	
 	
 	//Set a variable for the base upload interface for easy inclution
