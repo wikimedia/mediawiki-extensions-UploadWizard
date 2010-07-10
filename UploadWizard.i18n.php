@@ -174,6 +174,7 @@ $messages['qqq'] = array(
 	'mwe-upwiz-next' => '{{Identical|Next}}',
 	'mwe-upwiz-next-deeds' => '{{Identical|Next}}',
 	'mwe-upwiz-next-details' => '{{Identical|Next}}',
+	'mwe-upwiz-categories' => '{{Identical|Categories}}',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
@@ -307,6 +308,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-categories' => 'Катэгорыі',
 );
 
 /** Breton (Brezhoneg)
@@ -583,6 +585,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons „Namensnennung 3.0“',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“',
 	'mwe-upwiz-license-gfdl' => 'GNU-Lizenz für freie Dokumentation',
+	'mwe-upwiz-categories' => 'Kategorien',
 );
 
 $messages['diq'] = array(
@@ -1331,6 +1334,7 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'Licentia GNU pro Documentation Libere',
+	'mwe-upwiz-categories' => 'Categorias',
 );
 
 $messages['id'] = array(
@@ -1713,6 +1717,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Наведи извор 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Откажување',
 	'mwe-upwiz-license-gfdl' => 'ГНУ-ова лиценца за слободна документација',
+	'mwe-upwiz-categories' => 'Категории',
 );
 
 $messages['ml'] = array(
