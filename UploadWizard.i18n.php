@@ -177,6 +177,34 @@ $messages['qqq'] = array(
 	'mwe-upwiz-categories' => '{{Identical|Categories}}',
 );
 
+/** Arabic (العربية)
+ * @author ;Hiba;1
+ */
+$messages['ar'] = array(
+	'mwe-upwiz-step-thanks' => 'استخدام',
+	'mwe-upwiz-add-file-n' => 'إضافة ملف آخر',
+	'mwe-upwiz-add-file-0' => 'اضغط هنا لتحميل ملف',
+	'mwe-upwiz-browse' => 'تصفح...',
+	'mwe-upwiz-transported' => 'موافق',
+	'mwe-upwiz-click-here' => 'انقر هنا لاختيار ملف',
+	'mwe-upwiz-uploading' => 'جاري التحميل...',
+	'mwe-upwiz-editing' => 'جاري  التحرير...',
+	'mwe-upwiz-remove-upload' => 'إزالة هذا الملف من قائمة الملفات التي ستحمَل',
+	'mwe-upwiz-remove-description' => 'إزالة هذا الوصف',
+	'mwe-upwiz-upload' => 'تحميل',
+	'mwe-upwiz-finished' => 'تم!',
+	'mwe-upwiz-deeds-custom-prompt' => 'أو :',
+	'mwe-upwiz-details-intro' => 'نحتاج الآن لبعض المعلومات الأساسية حول الملفات.',
+	'mwe-upwiz-more-options' => 'خيارات أكثر...',
+	'mwe-upwiz-fewer-options' => 'خيارات أقل...',
+	'mwe-upwiz-categories-intro' => 'ساعد الناس على إيجاد اعمالك عبر إضافة تصنيفات أو فئات',
+	'mwe-upwiz-categories-another' => 'إضافة فئات أخرى',
+	'mwe-upwiz-about-this-work' => 'حول هذا العمل',
+	'mwe-upwiz-date-created' => 'تاريخ الانشاء',
+	'mwe-upwiz-author' => 'المؤلف(ون)',
+	'mwe-upwiz-license' => 'حقوق الإصدار',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -852,6 +880,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons paternité 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renoncement',
 	'mwe-upwiz-license-gfdl' => 'Licence de documentation libre GNU',
+	'mwe-upwiz-categories' => 'Catégories',
 );
 
 /** Galician (Galego)
@@ -991,6 +1020,7 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons recoñecemento 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons renuncia CC0',
 	'mwe-upwiz-license-gfdl' => 'Licenza de documentación libre de GNU',
+	'mwe-upwiz-categories' => 'Categorías',
 );
 
 $messages['gsw'] = array(
@@ -1032,6 +1062,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-source-permission' => 'Jich awtor je ći wuraznu dowolnosć dał, je nahrać',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Tuta dataja njeje|Tutej dataji njestej|Tute dataje njejsu|Tute dataje njejsu}} moje swójske dźěło.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Prošu zapodajće adresu, hdźež sy kóždu z datajow namakał.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Jeli wšě dataje maja samsne žórło, samsneho awtora a samsny status awtorskeho prawa, móžeš je za wšě naraz zapodać.',
 	'mwe-upwiz-source-thirdparty-accept' => 'W porjadku',
 	'mwe-upwiz-source-custom' => 'Licency za kóždu dataju jednotliwje na přichodnej stronje wubrać.',
 	'mwe-upwiz-more-options' => 'dalše opcije...',
@@ -1069,6 +1100,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-ok' => 'W porjadku',
 	'mwe-upwiz-cancel' => 'Přetorhnyć',
 	'mwe-upwiz-change' => '(změnić)',
+	'mwe-upwiz-fileexists-replace' => 'Dataja z titulom "$1" hižo eksistuje. Prošu změń swój titul do njeeksistowaceho.',
 	'mwe-upwiz-fileexists' => 'Dataja z tutym mjenom hižo eksistuje. Prošu skontroluj <b><tt>$1</tt></b>, jeli njesy sej wěsty, hač chceš ju změnić.',
 	'mwe-upwiz-thumbnail-more' => 'Powjetšić',
 	'mwe-upwiz-overwrite' => 'Dataju narunać',
@@ -1091,13 +1123,19 @@ We woběmaj padomaj budźe so to k twojej wužiwarskej stronje wotkazować.',
 	'mwe-upwiz-file-need-start' => 'Prošu klikń na tłóčatko, zo by swoje nahraća startował.',
 	'mwe-upwiz-file-need-complete' => 'Prošu čakaj, doniž nahraće wšěch datajow njeje dokónčene.',
 	'mwe-upwiz-deeds-need-license' => 'Prošu wubjer licencu.',
+	'mwe-upwiz-license-incompatible-cc' => 'Móžeš jenož jednu z licencow Creative Commons wubrać.',
 	'mwe-upwiz-license-show-all' => 'Wužij druhu licencu.',
 	'mwe-upwiz-license-show-recommended' => 'Doporučenu licencu wužiwać',
+	'mwe-upwiz-error-signature-blank' => 'Dyrbiš slědowace polo ze swojim wužiwarskim mjenom abo woprawdźitym mjenom podpisać.',
 	'mwe-upwiz-error-blank' => 'Tute polo je trěbne.',
+	'mwe-upwiz-error-bad-chars' => 'Polo wobsahuje symbole, kotrež njejsu dowolene.
+Prošu njewužij tu wikitekst abo HTML.',
+	'mwe-upwiz-error-date' => 'Prošu zapodajće płaćiwy datum w formaće YYYY-MM-DD abo wubjer datum z wuskakowaceje protyki.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-categories' => 'Kategorije',
 );
 
 /** Hungarian (Magyar)
@@ -1593,7 +1631,7 @@ Benotzt w.e.g. kee Wikitext oder HTML hei, just Äre Benotzernumm oder Äre rich
  */
 $messages['mk'] = array(
 	'uploadwizard' => 'Помошник за подигање',
-	'uploadwizard-desc' => 'Помошник за подигање, создаден со средства доделени за Употребливост на мултимедија',
+	'uploadwizard-desc' => 'Помошник за подигање, создаден со средства доделени за Употребливост на мултимедијални содржини',
 	'mwe-loading-upwiz' => 'Го вчитувам помошникот за подигање',
 	'mwe-upwiz-code-unknown' => 'Непознат јазик',
 	'mwe-upwiz-step-file' => 'Подигање',
@@ -1853,6 +1891,7 @@ Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Naamsvermelding 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Geen auteursrecht',
 	'mwe-upwiz-license-gfdl' => 'GNU-licentie voor vrije documentatie',
+	'mwe-upwiz-categories' => 'Categorieën',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -1942,7 +1981,25 @@ $messages['pl'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'mwe-upwiz-code-unknown' => 'ناڅرګنده ژبه',
+	'mwe-upwiz-step-file' => 'پورته کول',
+	'mwe-upwiz-step-thanks' => 'کارول',
+	'mwe-upwiz-browse' => 'سپړل...',
+	'mwe-upwiz-transported' => 'ښه',
+	'mwe-upwiz-upload' => 'پورته کول',
+	'mwe-upwiz-deeds-custom-prompt' => 'يا:',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|دا دوتنه زما شخصي اثر دی|دا دوتنې زما شخصي اثرونه دي}}.',
+	'mwe-upwiz-source-thirdparty-accept' => 'ښه',
+	'mwe-upwiz-title' => 'سرليک',
+	'mwe-upwiz-categories-another' => 'نورې وېشنيزې ورګډول',
+	'mwe-upwiz-about-this-work' => 'د دې اثر په اړه',
+	'mwe-upwiz-media-type' => 'د رسنۍ ډول',
+	'mwe-upwiz-date-created' => 'د جوړېدو نېټه',
+	'mwe-upwiz-location' => 'ځای',
+	'mwe-upwiz-filename-tag' => 'د دوتنې نوم:',
+	'mwe-upwiz-other' => 'نور مالومات',
 	'mwe-upwiz-showall' => 'ټول ښکاره کول',
+	'mwe-upwiz-source' => 'سرچينه',
 	'mwe-upwiz-ok' => 'ښه',
 	'mwe-upwiz-change' => '(بدلول)',
 );
@@ -2077,6 +2134,7 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Atribuição 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renúncia',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-categories' => 'Categorias',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -2291,6 +2349,7 @@ $messages['si'] = array(
 	'mwe-upwiz-title' => 'මාතෘකාව',
 	'mwe-upwiz-location' => 'ස්ථානය',
 	'mwe-upwiz-author' => 'කතෘන්',
+	'mwe-upwiz-about-format' => 'ගොනුව පිළිබඳව',
 	'mwe-upwiz-filename-tag' => 'ගොනු-නාමය:',
 	'mwe-upwiz-showall' => 'සියල්ල පෙන්වන්න',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'කොයි හැටි වුවත් උඩුගත කරන්නද?',
