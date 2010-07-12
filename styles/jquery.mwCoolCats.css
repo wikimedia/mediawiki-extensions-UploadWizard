@@ -1,25 +1,26 @@
-.tag-widget {
+.cat-widget {
   clear: both;
   position: relative;
 }
-.tag-widget ul {
+.cat-widget ul {
   list-style: none;
   padding-left: 0;
   margin-top: 0;
+  margin-left: 0;
 }
-.tag-widget li {
+.cat-widget li {
   float: left;
   margin-right: 10px;
   padding: 3px;
 }
-.tag-widget li a {
+.cat-widget li a {
   text-decoration: none;
 }
-.tag-widget li:hover a {
+.cat-widget li:hover a {
   text-decoration: none;
   color: white;
 }
-.tag-widget li {
+.cat-widget li {
   background-color: #fff;
   border-radius: 4px;
   -moz-border-radius: 4px;
@@ -30,7 +31,7 @@
   font-size: 12px;
 
 }
-.tag-widget li:hover {
+.cat-widget li:hover {
   background-color: #444;
   border-radius: 4px;
   -moz-border-radius: 4px;
@@ -38,6 +39,10 @@
   border-top: 1px solid #111;
   border: 1px solid #222;
   color:white;
+}
+
+.cat-widget li div.mwe-upwiz-remove-ctrl {
+	display: inline-block;
 }
 
 
