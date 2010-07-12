@@ -3143,7 +3143,7 @@ mw.UploadWizardUtil = {
 	/** 
 	 * Capitalise first letter and replace underscores by spaces
 	 * @param title typical title as would appear on MediaWiki
-	 * @return plausible local filename, with spaces changed to underscores.
+	 * @return plausible local filename
 	 */
 	titleToPath: function ( title ) {
 		return mw.ucfirst( $j.trim( title ).replace(/_/g, ' ' ) );
