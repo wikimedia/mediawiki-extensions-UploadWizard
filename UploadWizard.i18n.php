@@ -149,7 +149,9 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	/* this is just for testing, we are not going to privilege the US and A */
 	'mwe-upwiz-license-pd-us' => 'Public Domain (US)',
-	'mwe-upwiz-categories' => 'Categories'
+	'mwe-upwiz-categories' => 'Categories',
+	'mwe-upwiz-categories-add' => 'Add',
+	'mwe-upwiz-category-remove' => 'Remove this category'
 );
 
 /** Message documentation (Message documentation)

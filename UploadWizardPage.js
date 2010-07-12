@@ -17,10 +17,6 @@ mw.ready( function() {
 	var discussLink = discussListItem.getElementsByTagName( 'a' )[0];
 	discussLink.setAttribute( 'target', 'usability_discussion' );
 
-	// The namespace for media files. We use this to look up what the URL prefix is on this MediaWiki, usually
-	// 'Image:' or something like that. Defined in defines.php
-	var NS_FILE = 6; 
-
 	mw.load( 'UploadWizard.UploadWizard', function () {		
 		mw.setConfig( 'debug', true ); 
 
@@ -67,10 +63,6 @@ mw.ready( function() {
 				{ template: 'PD-US', 		messageKey: 'mwe-upwiz-license-pd-us', 		'default': false },
 				{ template: 'GFDL', 		messageKey: 'mwe-upwiz-license-gfdl', 		'default': false }
 			 ],
-
-			// usually, but not always, File: 
-			fileNamespace: wgCanonicalNamespaceNames[NS_FILE],
-
 
 			// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 			// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config

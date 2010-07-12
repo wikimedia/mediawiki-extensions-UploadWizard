@@ -494,7 +494,7 @@ mw.UploadWizardUpload.prototype = {
 		var _this = this;
 
 		_this.filename = result.upload.filename;
-		_this.title = mw.getConfig( 'fileNamespace' ) + ':' + _this.filename;
+		_this.title = wgFormattedNamespaces[wgNamespaceIds['file']] + ':' + _this.filename;
 
 		_this.extractImageInfo( result.upload.imageinfo );
 
@@ -1239,11 +1239,11 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			showAnim: 'slideDown',
 			altField: '#' + dateInputId,
 			altFormat: 'yy-mm-dd' } )
-		.click( function() { $j( this ).datepicker( 'show' ) } )
+		.click( function() { $j( this ).datepicker( 'show' ); } )
 		.readonly();
 
 	_this.$form.find( '.mwe-date' )	
-		.bind( 'change', function() { $j( this ).valid() } )
+		.bind( 'change', function() { $j( this ).valid(); } )
 		.hide();
 	
 	/* if the date is not valid, we need to pop open the "more options". How? 
@@ -1254,8 +1254,10 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.addDescription( true, mw.getConfig('userLanguage') );
 	$j( containerDiv ).append( _this.div );
 
-	// make this a cool category picker
-	$categoriesDiv.find( '.mwe-upwiz-details-input' ).find( 'input' ).mwCoolCats();
+	// make this a category picker
+	$categoriesDiv.find( '.mwe-upwiz-details-input' )
+			.find( 'input' )
+			.mwCoolCats( { buttontext: gM( 'mwe-upwiz-categories-add' ) } );
 
 };
 
@@ -1312,7 +1314,8 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	setFilenameFromTitle: function() {
 		var _this = this;
-		_this.filename = mw.getConfig( 'fileNamespace' ) + ':' + _this.getFilenameFromTitle();
+
+		_this.filename = wgFormattedNamespaces[wgNamespaceIds['file']] + ':' + _this.getFilenameFromTitle();
 		$j( '#mwe-upwiz-details-filename' ).text( _this.filename );		
 			
 	},
@@ -2901,7 +2904,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 			var formValid = _this.$form.valid();
 			var licenseInputValid = _this.licenseInput.valid();
 			return formValid && licenseInputValid; 
-		},
+		}
 	} );
 };
 
@@ -3159,7 +3162,7 @@ mw.UploadWizardUtil = {
 			title = title.substr( 0, title.length - extension.length - 1 );
 		}
 		// usually File:
-		var namespace = mw.getConfig( 'fileNamespace' );
+		var namespace = wgFormattedNamespaces[wgNamespaceIds['file']];
 		if ( title.indexOf( namespace + ':' ) === 0 ) {
 			title = title.substr( namespace.length + 1 );
 		}
