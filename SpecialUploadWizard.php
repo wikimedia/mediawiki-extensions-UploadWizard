@@ -94,7 +94,7 @@ class SpecialUploadWizard extends SpecialPage {
 	public function addJS() {
 		global $wgUser, $wgOut;
 		global $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI;
-		global $wgEnableFirefogg, $wgFileExtensions
+		global $wgEnableFirefogg, $wgFileExtensions;
 
 		$wgOut->addScript( Skin::makeVariablesScript( array(
 			// uncertain if this is relevant. Can we do license preview with API?
