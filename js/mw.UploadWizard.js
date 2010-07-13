@@ -1284,7 +1284,9 @@ mw.UploadWizardDetails.prototype = {
 		// all other fields validated with validator js	
 		var formValid = _this.$form.valid();
 		return titleInputValid && formValid;
-				
+
+		// categories are assumed valid
+	
                 // the license, if any
 
                 // pop open the 'more-options' if the date is bad
@@ -1720,13 +1722,11 @@ mw.UploadWizardDetails.prototype = {
 	getWikiText: function() {
 		var _this = this;
 		
-		// XXX validate!
+		// if invalid, should produce side effects in the form
+		// instructing user to fix.
 		if ( ! _this.valid() ) {
-			alert( "THIS DEED IS NOT READY" );
 			return null;
 		}
-
-
 
 		wikiText = '';
 	
@@ -1773,12 +1773,7 @@ mw.UploadWizardDetails.prototype = {
 
 		wikiText += '{{Information\n' + info + '}}\n';
 
-	
-		wikiText += "=={{int:license-header}}==\n";
-		
-		wikiText += deed.getLicenseWikiText();
-
-		// add a location template
+		// add a location template if possible
 
 		// add an "anything else" template if needed
 		var otherInfoWikiText = $j( _this.otherInformationInput ).val().trim();
@@ -1786,6 +1781,13 @@ mw.UploadWizardDetails.prototype = {
 			wikiText += "=={{int:otherinfo}}==\n";
 			wikiText += otherInfoWikiText;
 		}
+		
+		wikiText += "=={{int:license-header}}==\n";
+		
+		// in the other implementations, category text follows immediately after license text. This helps 
+		// group categories together, maybe?
+		wikiText += deed.getLicenseWikiText() + _this.div.find( '.categoryInput' ).get(0).getWikiText();
+		
 
 		return wikiText;	
 	},

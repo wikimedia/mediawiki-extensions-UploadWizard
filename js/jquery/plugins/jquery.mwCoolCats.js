@@ -1,26 +1,18 @@
-RegExp.escape = (function() {
-  var specials = [
-	'/', '.', '*', '+', '?', '|',
-	'(', ')', '[', ']', '{', '}', '\\'
-  ];
+( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
 
-  sRE = new RegExp(
-	'(\\' + specials.join('|\\') + ')', 'g'
-  );
-  
-  return function(text) {
-	return text.replace(sRE, '\\$1');
-  }
-})();
-(function($){
-	$.fn.mwCoolCats = function(options) {
 	var defaults = {
 		buttontext: 'Add'
 	};
-	var settings = $.extend( {}, defaults, options);
+
+	var settings = $j.extend( {}, defaults, options);
+
+	// usually Category:Foo
+	var categoryNamespace = wgFormattedNamespaces[wgNamespaceIds['category']];
+
 	var $container;
 	return this.each( function() {
 		var _this = $j( this );
+		_this.addClass( 'categoryInput' );
 
 		_this.suggestions( {
 			'fetch': _fetchSuggestions,
@@ -57,7 +49,6 @@ RegExp.escape = (function() {
 			} 
 		});
 
-		var categoryNamespace = mw.getConfig( 'categoryNamespace' );
 		this.getWikiText = function() {
 			return _getCats().map( function() { return '[[' + categoryNamespace + ':' + this + ']]'; } )
 				 .toArray()
@@ -86,9 +77,9 @@ RegExp.escape = (function() {
 
 	function _catLink( cat ) {
 		var catLink = 
-			encodeURIComponent( wgFormattedNamespaces[wgNamespaceIds['category']] )
+			encodeURIComponent( categoryNamespace ) 
 			+ ':'
-			+ encodeURIComponent( mw.ucfirst( $j.trim( cat ).replace(/ /g, '_' ) ) );
+			+ encodeURIComponent( mw.ucfirst( cat.replace(/ /g, '_' ) ) );
 
 		// wgServer typically like 'http://commons.prototype.wikimedia.org'	
 		// wgArticlePath typically like '/wiki/$1'
@@ -100,7 +91,7 @@ RegExp.escape = (function() {
 	}
 
 	function _getCats() {
-		return $container.find('ul li a.cat').map( function() { return this.text; } );
+		return $container.find('ul li a.cat').map( function() { return $j.trim( this.text ); } );
 	}
 
 	function _containsCat( cat ) {
@@ -136,5 +127,4 @@ RegExp.escape = (function() {
 		$j( _this ).data( 'request', request );
 	}
 
-
-	}})(jQuery);
+}})(jQuery);
