@@ -455,6 +455,7 @@ Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-error-too-short' => "Re verr eo ar maezienn.
 Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
+	'mwe-upwiz-categories' => 'Rummadoù',
 );
 
 /** Bosnian (Bosanski)
@@ -1041,6 +1042,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-step-deeds' => 'Přepodawanske prawa',
 	'mwe-upwiz-step-details' => 'Wopisać',
 	'mwe-upwiz-step-thanks' => 'Wužiwać',
+	'mwe-upwiz-intro' => 'Witaj do Wikimedia Commons, chowarnja za wobrazy, zynkowe dataje a wideja, kotrež koždy móže darmo sćahnyć a wužiwać. Přinošuj přez sćehnjenje datajow, kotrež hodźa so za kubłanski zaměr wužiwać,  k wedźe čłowjestwa,',
 	'mwe-upwiz-add-file-n' => 'Druhu dataju přidać',
 	'mwe-upwiz-add-file-0' => 'Klikń tu, zo by dataju nahrał',
 	'mwe-upwiz-browse' => 'Přepytać...',
@@ -1057,14 +1059,17 @@ $messages['hsb'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekunda|sekundźe|sekundy|sekundow}} wyše',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|mjeńšina|mjeńšinje|mjeńšiny|mjeńšin}} $2 {{PLURAL:$2|sekunda|sekundźe|sekundy|sekundow}} wyše',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}} $2 {{PLURAL:$2|mjeńšina|mjeńšinje|mjeńšiny|mjeńšin}} $3 {{PLURAL:$3|sekunda|sekundźe|sekundy|sekundow}} wyše',
+	'mwe-upwiz-deeds-intro' => 'Sydło sej wot tebje žada, zo stajiš licencu za nahrate dataje, zo by kóždy móhł je za někajkižkuli zaměr wužiwać.',
 	'mwe-upwiz-deeds-macro-prompt' => 'Nastaj licencu za horjeka {{PLURAL:$1|mjenowanu dataju|mjenowanej dataji|mjenowane dataje|mjenowanych datajow}}:',
 	'mwe-upwiz-deeds-custom-prompt' => 'Abo:',
 	'mwe-upwiz-details-intro' => 'Nětko trjebamy někotre zakładne informacije wo datajach.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Tuta dataja je|Tutej dataji stej|Tute dataje su|Tute dataje su}} moje swójske dźěło.',
+	'mwe-upwiz-source-ownwork-assert-note' => 'To woznamjenja, zo přepodaš swoje dźěło pod licencu Creative Commons Attribution ShareAlike.',
 	'mwe-upwiz-source-permission' => 'Jich awtor je ći wuraznu dowolnosć dał, je nahrać',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Tuta dataja njeje|Tutej dataji njestej|Tute dataje njejsu|Tute dataje njejsu}} moje swójske dźěło.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Prošu zapodajće adresu, hdźež sy kóždu z datajow namakał.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Jeli wšě dataje maja samsne žórło, samsneho awtora a samsny status awtorskeho prawa, móžeš je za wšě naraz zapodać.',
+	'mwe-upwiz-source-thirdparty-license' => 'Mějićel awtorskeho prawa {{PLURAL:$1|tutoho dźěła|tuteju dźěle|tutych dźěłow|tutych dźěłow}} je {{PLURAL:$1|jo|jej|je|je}} pod {{PLURAL:$1|slědowacej licencu|slědowacymaj licencomaj|slědowacymi licencami|slědowacymi licencami}} publikował.',
 	'mwe-upwiz-source-thirdparty-accept' => 'W porjadku',
 	'mwe-upwiz-source-custom' => 'Licency za kóždu dataju jednotliwje na přichodnej stronje wubrać.',
 	'mwe-upwiz-more-options' => 'dalše opcije...',
@@ -1093,6 +1098,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-macro-edit-intro' => 'Wubjer najprjedy horjeka licencu, potom móžeš někotre wopisanje a druhe informacije swojim nahraćam přidać.',
 	'mwe-upwiz-macro-edit' => 'Wopisanja aktualizować',
 	'mwe-upwiz-thanks-intro' => 'Dźakujemy so za nahraće!',
+	'mwe-upwiz-thanks-explain' => 'Móžeš nětko {{PLURAL:$1|tutu dataju|tutej dataji|tute dataje|tute dataje}} na sydłach kaž wikipedija wužiwać abo na {{PLURAL:$1|ju|jej|je|je}} we webje wotkazać.',
 	'mwe-upwiz-thanks-link' => 'Tuta dataja steji nětko na <b><tt>$1</tt></b> k dispoziciji.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Zo by dataju we wikijuwužiwał</b>, kopěruj tutón tekst do strony:',
 	'mwe-upwiz-thanks-url' => '<b>Zo by na nju w HTML wotkazował</b>, kopěruj tutu URL-adresu:',
@@ -1117,6 +1123,7 @@ $messages['hsb'] = array(
 	'mwe-prevent-close' => 'Tute dataje so hišće nahrawaja. Chceš woprawdźe tutu stronu wopušćić?',
 	'mwe-upwiz-files-complete' => 'Twoje dataje su nahrate!',
 	'mwe-upwiz-tooltip-author' => 'Mjeno wosoby, kotraž je sfotografowała, wobraz molowała abo rysowanku zhotowiła atd.',
+	'mwe-upwiz-tooltip-source' => 'Zwotkelž tuta dataja pochadaš - móže to URL, kniha abo publikacija być.',
 	'mwe-upwiz-tooltip-sign' => 'Móžeš swoje wužiwarske mjeno abo swoje woprawdźite mjeno wužiwać.
 We woběmaj padomaj budźe so to k twojej wužiwarskej stronje wotkazować.',
 	'mwe-upwiz-tooltip-other' => 'Druhe informacije wo tutym dźěle, kotrež chceš zapřijeć. Móžeš wikitekstowy kod wužiwać.',
@@ -1979,6 +1986,20 @@ $messages['pl'] = array(
 	'mwe-upwiz-fileexists' => 'Plik o tej nazwie już istnieje. Sprawdź <b><tt>$1</tt></b> jeśli nie jesteś pewien czy chcesz go zastąpić.',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Borichèt
+ */
+$messages['pms'] = array(
+	'uploadwizard' => "Assistent d'amportassion",
+	'uploadwizard-desc' => "Assistent d'amportassion, dësvlupà për ël programa d'Usabilità Multimojen",
+	'mwe-loading-upwiz' => "An camin ch'a caria l'assistent për telecarié",
+	'mwe-upwiz-code-unknown' => 'Lenga sconossùa',
+	'mwe-upwiz-step-file' => 'Carié',
+	'mwe-upwiz-step-deeds' => 'Smon-e dij drit',
+	'mwe-upwiz-step-details' => 'Descrive',
+	'mwe-upwiz-step-thanks' => 'Usagi',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
@@ -1998,12 +2019,16 @@ $messages['ps'] = array(
 	'mwe-upwiz-media-type' => 'د رسنۍ ډول',
 	'mwe-upwiz-date-created' => 'د جوړېدو نېټه',
 	'mwe-upwiz-location' => 'ځای',
+	'mwe-upwiz-about-format' => 'د دې دوتنې په اړه',
 	'mwe-upwiz-filename-tag' => 'د دوتنې نوم:',
 	'mwe-upwiz-other' => 'نور مالومات',
 	'mwe-upwiz-showall' => 'ټول ښکاره کول',
 	'mwe-upwiz-source' => 'سرچينه',
 	'mwe-upwiz-ok' => 'ښه',
+	'mwe-upwiz-cancel' => 'ناګارل',
 	'mwe-upwiz-change' => '(بدلول)',
+	'mwe-upwiz-thumbnail-more' => 'لويول',
+	'mwe-upwiz-categories' => 'وېشنيزې',
 );
 
 /** Portuguese (Português)
@@ -2328,6 +2353,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-categories' => 'Категории',
 );
 
 /** Sinhala (සිංහල)
@@ -2349,6 +2375,8 @@ $messages['si'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'හරි',
 	'mwe-upwiz-desc-add-0' => 'විස්තරයක් එක් කරන්න',
 	'mwe-upwiz-title' => 'මාතෘකාව',
+	'mwe-upwiz-media-type' => 'මාධ්‍ය වර්ගය',
+	'mwe-upwiz-date-created' => 'නිමවූ දවස',
 	'mwe-upwiz-location' => 'ස්ථානය',
 	'mwe-upwiz-author' => 'කතෘන්',
 	'mwe-upwiz-about-format' => 'ගොනුව පිළිබඳව',
