@@ -617,6 +617,8 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“',
 	'mwe-upwiz-license-gfdl' => 'GNU-Lizenz für freie Dokumentation',
 	'mwe-upwiz-categories' => 'Kategorien',
+	'mwe-upwiz-categories-add' => 'Hinzufügen',
+	'mwe-upwiz-category-remove' => 'Diese Kategorie entfernen',
 );
 
 $messages['diq'] = array(
@@ -726,6 +728,10 @@ $messages['es'] = array(
 	'mwe-upwiz-tooltip-sign' => 'Puedes usar tu nombre de usuario de wiki o tu nombre real. En ambos casos, esto será vinculado a tu página de usuario del wiki',
 	'mwe-upwiz-tooltip-title' => 'Un título corto para el archivo. Puedes usar lenguaje simple con espacios, pero no con líneas. Este título no debe ser similar a todos los demás títulos de este wiki.',
 	'mwe-upwiz-tooltip-more-info' => 'Aprender más',
+	'mwe-upwiz-file-need-file' => 'Por favor agregar una carga primerp',
+	'mwe-upwiz-file-need-start' => 'Por favor presionar este botón para comenzar tus cargas.',
+	'mwe-upwiz-file-need-complete' => 'Por favor esperar hasta que todos los archivos hayan terminado de subir.',
+	'mwe-upwiz-deeds-need-license' => 'Por favor seleccionar una licencia.',
 );
 
 /** Finnish (Suomi)
@@ -1765,6 +1771,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Откажување',
 	'mwe-upwiz-license-gfdl' => 'ГНУ-ова лиценца за слободна документација',
 	'mwe-upwiz-categories' => 'Категории',
+	'mwe-upwiz-categories-add' => 'Додај',
+	'mwe-upwiz-category-remove' => 'Отстрани ја категоријава',
 );
 
 $messages['ml'] = array(
@@ -2162,6 +2170,8 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renúncia',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-categories' => 'Categorias',
+	'mwe-upwiz-categories-add' => 'Adicionar',
+	'mwe-upwiz-category-remove' => 'Remover esta categoria',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
