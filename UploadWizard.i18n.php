@@ -339,10 +339,13 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-categories' => 'Катэгорыі',
+	'mwe-upwiz-categories-add' => 'Дадаць',
+	'mwe-upwiz-category-remove' => 'Выдаліць гэтую катэгорыю',
 );
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Gwendal
  * @author Y-M D
  */
 $messages['br'] = array(
@@ -455,7 +458,10 @@ Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-error-too-short' => "Re verr eo ar maezienn.
 Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
+	'mwe-upwiz-license-gfdl' => 'Aotre-implijout teuliaouiñ frank GNU',
 	'mwe-upwiz-categories' => 'Rummadoù',
+	'mwe-upwiz-categories-add' => 'Ouzhpennañ',
+	'mwe-upwiz-category-remove' => 'Dilemel ar rummad-mañ',
 );
 
 /** Bosnian (Bosanski)
@@ -890,6 +896,8 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Renoncement',
 	'mwe-upwiz-license-gfdl' => 'Licence de documentation libre GNU',
 	'mwe-upwiz-categories' => 'Catégories',
+	'mwe-upwiz-categories-add' => 'Ajouter',
+	'mwe-upwiz-category-remove' => 'Enlever cette catégorie',
 );
 
 /** Galician (Galego)
@@ -1030,6 +1038,8 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons renuncia CC0',
 	'mwe-upwiz-license-gfdl' => 'Licenza de documentación libre de GNU',
 	'mwe-upwiz-categories' => 'Categorías',
+	'mwe-upwiz-categories-add' => 'Engadir',
+	'mwe-upwiz-category-remove' => 'Eliminar esta categoría',
 );
 
 $messages['gsw'] = array(
@@ -1388,6 +1398,8 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'Licentia GNU pro Documentation Libere',
 	'mwe-upwiz-categories' => 'Categorias',
+	'mwe-upwiz-categories-add' => 'Adder',
+	'mwe-upwiz-category-remove' => 'Remover iste categoria',
 );
 
 $messages['id'] = array(
@@ -1781,6 +1793,7 @@ $messages['ml'] = array(
 
 /** Dutch (Nederlands)
  * @author Siebrand
+ * @author Tvdm
  */
 $messages['nl'] = array(
 	'uploadwizard' => 'Wizard uploaden',
@@ -1909,6 +1922,8 @@ Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Geen auteursrecht',
 	'mwe-upwiz-license-gfdl' => 'GNU-licentie voor vrije documentatie',
 	'mwe-upwiz-categories' => 'Categorieën',
+	'mwe-upwiz-categories-add' => 'Toevoegen',
+	'mwe-upwiz-category-remove' => 'Deze categorie verwijderen',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -1916,6 +1931,7 @@ Gebruik hier geen wikitekst of HTML.',
  */
 $messages['no'] = array(
 	'mwe-upwiz-code-unknown' => 'Ukjent språk',
+	'mwe-upwiz-step-thanks' => 'Bruk',
 	'mwe-upwiz-add-file-n' => 'Legg til enda en fil',
 	'mwe-upwiz-browse' => 'Bla igjennom...',
 	'mwe-upwiz-transported' => 'OK',
@@ -1933,6 +1949,16 @@ $messages['no'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-more-options' => 'flere valg...',
 	'mwe-upwiz-fewer-options' => 'færre valg...',
+	'mwe-upwiz-desc' => 'Beskrivelse i',
+	'mwe-upwiz-desc-add-n' => 'legg til en beskrivelse på et annet språk',
+	'mwe-upwiz-desc-add-0' => 'legg til en beskrivelse',
+	'mwe-upwiz-title' => 'Tittel',
+	'mwe-upwiz-categories-intro' => 'Hjelp andre å finne arbeidet ditt ved å legge til kategorier',
+	'mwe-upwiz-categories-another' => 'Legg til andre kategorier',
+	'mwe-upwiz-previously-uploaded' => 'Denne filen ble tidligere lastet opp til $1 og er allerede tilgjengelig <a href="$2">her</a>.',
+	'mwe-upwiz-about-this-work' => 'Om dette arbeidet',
+	'mwe-upwiz-media-type' => 'Mediatype',
+	'mwe-upwiz-date-created' => 'Dato opprettet',
 	'mwe-upwiz-author' => 'Forfatter(e)',
 	'mwe-upwiz-license' => 'Lisens',
 	'mwe-upwiz-about-format' => 'Om filen',
@@ -1959,6 +1985,23 @@ $messages['no'] = array(
 	'mwe-upwiz-next-deeds' => 'Neste',
 	'mwe-upwiz-next-details' => 'Neste',
 	'mwe-upwiz-tooltip-more-info' => 'Lær mer.',
+	'mwe-upwiz-error-signature-blank' => 'Du må signere i feltet under med brukernavnet ditt eller ditt virkelige navn.',
+	'mwe-upwiz-error-signature-too-long' => 'Signaturen din er for lang.
+Gjør den kortere enn $1 {{PLURAL:$1|tegn|tegn}}.',
+	'mwe-upwiz-error-signature-too-short' => 'Signaturen din er for kort.
+Gjør den lengre enn $1 {{PLURAL:$1|tegn|tegn}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Signaturen din inneholder symboler som ikke er tillatt.
+Ikke bruk wikitekst eller HTML her, bare bruk brukernavnet ditt eller ditt virkelige navn.',
+	'mwe-upwiz-error-blank' => 'Dette feltet er obligatorisk.',
+	'mwe-upwiz-error-too-long' => 'Dette feltet er for langt.
+Gjør det kortere enn $1 {{PLURAL:$1|tegn|tegn}}.',
+	'mwe-upwiz-error-too-short' => 'Dette feltet er for kort.
+Gjør det lengre enn $1 {{PLURAL:$1|tegn|tegn}}.',
+	'mwe-upwiz-error-bad-chars' => 'Dette feltet inneholder symboler som ikke er tillatt.
+Ikke bruk wikitekst eller HTML her.',
+	'mwe-upwiz-categories' => 'Kategorier',
+	'mwe-upwiz-categories-add' => 'Legg til',
+	'mwe-upwiz-category-remove' => 'Fjern denne kategorien',
 );
 
 $messages['oc'] = array(
@@ -2364,6 +2407,8 @@ $messages['ru'] = array(
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-categories' => 'Категории',
+	'mwe-upwiz-categories-add' => 'Добавить',
+	'mwe-upwiz-category-remove' => 'Убрать эту категорию',
 );
 
 /** Sinhala (සිංහල)
