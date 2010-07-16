@@ -177,6 +177,7 @@ $messages['qqq'] = array(
 	'mwe-upwiz-next-deeds' => '{{Identical|Next}}',
 	'mwe-upwiz-next-details' => '{{Identical|Next}}',
 	'mwe-upwiz-categories' => '{{Identical|Categories}}',
+	'mwe-upwiz-categories-add' => '{{Identical|Add}}',
 );
 
 /** Arabic (العربية)
@@ -534,7 +535,7 @@ $messages['de'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Diese Datei ist|Diese Dateien sind}} nicht meine eigene Arbeit.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Bitte gebe die Internet-Adresse an, unter der du jede der Dateien gefunden hast.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Sofern alle Dateien aus der selben Quelle und vom selben Autor stammen sowie den selben urheberrechtlichen Status haben, kannst du die Eingaben für alle auf einmal vornehmen.',
-	'mwe-upwiz-source-thirdparty-license' => 'Der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}} hat {{PLURAL:$1|es|sie}} gemäß folgender Lizenz(en) veröffentlicht:',
+	'mwe-upwiz-source-thirdparty-license' => 'Der Rechteinhaber {{PLURAL:$1|dieses Werks hat es|dieser Werke hat sie}} gemäß folgender Lizenz(en) veröffentlicht:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Wähle auf der nächsten Seite die Lizenzen für jede Datei einzeln.',
 	'mwe-upwiz-more-options' => 'weitere Optionen …',
@@ -738,6 +739,8 @@ $messages['es'] = array(
 	'mwe-upwiz-file-need-start' => 'Por favor presionar este botón para comenzar tus cargas.',
 	'mwe-upwiz-file-need-complete' => 'Por favor esperar hasta que todos los archivos hayan terminado de subir.',
 	'mwe-upwiz-deeds-need-license' => 'Por favor seleccionar una licencia.',
+	'mwe-upwiz-license-show-all' => 'Usar una licencia diferente',
+	'mwe-upwiz-license-show-recommended' => 'Usar la licencia recomendada',
 );
 
 /** Finnish (Suomi)
