@@ -741,6 +741,10 @@ $messages['es'] = array(
 	'mwe-upwiz-deeds-need-license' => 'Por favor seleccionar una licencia.',
 	'mwe-upwiz-license-show-all' => 'Usar una licencia diferente',
 	'mwe-upwiz-license-show-recommended' => 'Usar la licencia recomendada',
+	'mwe-upwiz-error-blank' => 'Este campo es requerido.',
+	'mwe-upwiz-categories' => 'Categorías',
+	'mwe-upwiz-categories-add' => 'Agregar',
+	'mwe-upwiz-category-remove' => 'Remover esta categoría',
 );
 
 /** Finnish (Suomi)
@@ -1602,6 +1606,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-title' => 'Titel',
 	'mwe-upwiz-categories-intro' => 'Hëlleft de Leit Är Wierker erëmzefannen andeem Dir Kategorien derbäisetzt',
 	'mwe-upwiz-categories-another' => 'Aner Kategorien derbäisetzen',
+	'mwe-upwiz-previously-uploaded' => 'Dëse Fichier gouf virdru schonn emol op $1 eropgelueden an en ass schonn <a href="$2">hei</a> disponibel.',
 	'mwe-upwiz-about-this-work' => 'Iwwer dëst Wierk',
 	'mwe-upwiz-media-type' => 'Medientyp',
 	'mwe-upwiz-date-created' => 'Datum vun der Creatioun',
@@ -1636,6 +1641,8 @@ $messages['lb'] = array(
 	'mwe-upwiz-next-details' => 'Nächst',
 	'mwe-upwiz-home' => "Op d'Wiki-Homepage goen",
 	'mwe-upwiz-upload-another' => 'Méi Fichieren eroplueden',
+	'mwe-prevent-close' => 'Är Fichiere ginn elo eropgelueden.
+Sidd Dir sécher datt Dir elo eng aner Säit opruffe wëllt?',
 	'mwe-upwiz-files-complete' => "D'Eropluede vun Äre Fichieren ass fäerdeg!",
 	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier.
 Dir kënnt dobäi Espacen a Sazzeeche benotzen awer keen Zeilenëmbroch.
@@ -1648,6 +1655,8 @@ Dësen Titel muss anescht siwéi alldéi aner op dëser Wiki.',
 	'mwe-upwiz-license-show-all' => 'Benotzt eng aner Lizenz',
 	'mwe-upwiz-license-show-recommended' => 'Benotzt déi recommandéiert Lizenz',
 	'mwe-upwiz-error-signature-blank' => "Dir musst d'Feld hei drënner mat Ärem Benotzernumm oder Ärem richtegen Numm ënnerschreiwen.",
+	'mwe-upwiz-error-signature-too-long' => 'Är Ënnerschrëft ass ze laang.
+Maacht se méi kuerz wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Är Ënnerschrëft ass ze kuerz.
 Maacht se méi laang wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'An Ärer Ënnerschrëft si Symboler déi net erlaabt sinn.
@@ -1933,14 +1942,25 @@ Gebruik hier geen wikitekst of HTML.',
  * @author Nghtwlkr
  */
 $messages['no'] = array(
+	'uploadwizard' => 'Opplastingsveiviser',
+	'uploadwizard-desc' => 'Opplastingsveiviser, utviklet for Multimedia Usability-stipendet',
+	'mwe-loading-upwiz' => 'Laster opplastingsveiviser',
 	'mwe-upwiz-code-unknown' => 'Ukjent språk',
+	'mwe-upwiz-step-file' => 'Last opp',
+	'mwe-upwiz-step-deeds' => 'Utgivelsesrettigheter',
+	'mwe-upwiz-step-details' => 'Beskriv',
 	'mwe-upwiz-step-thanks' => 'Bruk',
+	'mwe-upwiz-intro' => 'Velkommen til Wikimedia Commons, et arkiv av bilder, lyder og videoer som hvem som helst fritt kan laste ned og bruke.
+Utvid menneskehetens kunnskap ved å laste opp filer som kan brukes i forbindelse med utdannelse.',
 	'mwe-upwiz-add-file-n' => 'Legg til enda en fil',
+	'mwe-upwiz-add-file-0' => 'Klikk her for å laste opp en fil',
 	'mwe-upwiz-browse' => 'Bla igjennom...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-click-here' => 'Klikk her for å velge en fil',
 	'mwe-upwiz-uploading' => 'laster opp...',
 	'mwe-upwiz-editing' => 'endrer...',
+	'mwe-upwiz-remove-upload' => 'Fjern denne filen fra listen over filer å laste opp',
+	'mwe-upwiz-remove-description' => 'Fjern denne beskrivelsen',
 	'mwe-upwiz-upload' => 'Last opp',
 	'mwe-upwiz-upload-count' => '$1 av $2 {{PLURAL:$2|fil|filer}} lastet opp',
 	'mwe-upwiz-progressbar-uploading' => 'laster opp',
@@ -1948,8 +1968,21 @@ $messages['no'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekund|sekunder}} igjen',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minutt|minutter}} og $2 {{PLURAL:$2|sekund|sekunder}} igjen',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|time|timer}}, $2 {{PLURAL:$2|minutt|minutter}} og $3 {{PLURAL:$3|sekund|sekunder}} igjen',
+	'mwe-upwiz-deeds-intro' => 'Dette nettstedet krever at du setter en lisens på de opplastede filene slik at alle lovlig kan bruke dem for et hvilket som helst formål.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Sett en lisens for {{PLURAL:$1|filen ovenfor|alle filene ovenfor}}:',
 	'mwe-upwiz-deeds-custom-prompt' => 'Eller:',
+	'mwe-upwiz-details-intro' => 'Nå trenger vi litt grunnleggende informasjon om filene.',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Denne filen|Disse filene}} er mitt eget arbeide.',
+	'mwe-upwiz-source-ownwork-assert' => 'Jeg, $2, rettighetshaveren av {{PLURAL:$1|dette arbeidet|disse arbeidene}}, gir herved ugjenkallelig enhver rett til å bruke {{PLURAL:$1|dette arbeidet|disse arbeidene}} for ethvert formål, så lenge de henviser til meg som opphavsmann og deler avledende arbeider under samme vilkår.',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Jeg, $2, rettighetshaveren av {{PLURAL:$1|dette arbeidet|disse arbeidene}}, publiserer herved {{PLURAL:$1|dette arbeidet|disse arbeidene}} under følgende lisens(er):',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Dette betyr at du gir ut arbeidet ditt under en Creative Commons Navngivelse-DelPåSammeVilkår lisens.',
+	'mwe-upwiz-source-permission' => 'Deres opphavsmann ga deg eksplisitt tillatelse til å laste dem opp',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Denne filen|Disse filene}} er ikke mitt eget arbeide.',
+	'mwe-upwiz-source-thirdparty-intro' => 'Skriv inn adressen der du fant hver fil.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Dersom alle filene har samme kilde, opphavsmann og opphavsrettsstatus kan du skrive dem inn én gang for dem alle.',
+	'mwe-upwiz-source-thirdparty-license' => 'Opphavsrettshaveren av {{PLURAL:$1|dette arbeidet|disse arbeidene}} publiserte {{PLURAL:$1|den|dem}} under følgende lisens(er):',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-source-custom' => 'Velg lisenser for hver fil individuelt på neste side.',
 	'mwe-upwiz-more-options' => 'flere valg...',
 	'mwe-upwiz-fewer-options' => 'færre valg...',
 	'mwe-upwiz-desc' => 'Beskrivelse i',
@@ -1962,13 +1995,21 @@ $messages['no'] = array(
 	'mwe-upwiz-about-this-work' => 'Om dette arbeidet',
 	'mwe-upwiz-media-type' => 'Mediatype',
 	'mwe-upwiz-date-created' => 'Dato opprettet',
+	'mwe-upwiz-location' => 'Plassering',
+	'mwe-upwiz-copyright-info' => 'Utgivelsesrettigheter',
 	'mwe-upwiz-author' => 'Forfatter(e)',
-	'mwe-upwiz-license' => 'Lisens',
+	'mwe-upwiz-license' => 'Utgivelsesrettigheter',
 	'mwe-upwiz-about-format' => 'Om filen',
+	'mwe-upwiz-autoconverted' => 'Denne filen ble automatisk konvertert til formatet $1',
 	'mwe-upwiz-filename-tag' => 'Filnavn:',
 	'mwe-upwiz-other' => 'Annen informasjon',
+	'mwe-upwiz-other-prefill' => 'Fritt wikitekstfelt',
 	'mwe-upwiz-showall' => 'vis alle',
 	'mwe-upwiz-source' => 'Kilde',
+	'mwe-upwiz-macro-edit-intro' => 'Velg en lisens ovenfor først og så kan du legge til en beskrivelse og annen informasjon til opplastingen din.',
+	'mwe-upwiz-macro-edit' => 'Oppdater beskrivelser',
+	'mwe-upwiz-thanks-intro' => 'Takk for opplastingen!',
+	'mwe-upwiz-thanks-explain' => 'Du kan nå bruke {{PLURAL:$1|denne filen|disse filene}} på nettsteder som Wikipedia eller lenke til {{PLURAL:$1|den|dem}} på nettet.',
 	'mwe-upwiz-thanks-link' => 'Denne filen er nå tilgjengelig på <b><tt>$1</tt></b>.',
 	'mwe-upwiz-thanks-wikitext' => '<b>For å bruke filen i en wiki</b>, kopier denne teksten inn i en side:',
 	'mwe-upwiz-thanks-url' => '<b>For å lenke til den i HTML</b>, kopier denne URL-adressen:',
@@ -1978,6 +2019,7 @@ $messages['no'] = array(
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Avbryt',
 	'mwe-upwiz-change' => '(endre)',
+	'mwe-upwiz-fileexists-replace' => 'En fil med tittelen «$1» finnes allerede. Endre tittelen din til noe unikt.',
 	'mwe-upwiz-fileexists' => 'En fil med det navnet finnes allerede. Sjekk <b><tt>$1</tt></b> hvis du er usikker på om du vil erstatte den.',
 	'mwe-upwiz-thumbnail-more' => 'Forstørr',
 	'mwe-upwiz-overwrite' => 'Erstatt filen',
@@ -1987,7 +2029,32 @@ $messages['no'] = array(
 	'mwe-upwiz-next-file' => 'Last opp filer og fortsett',
 	'mwe-upwiz-next-deeds' => 'Neste',
 	'mwe-upwiz-next-details' => 'Neste',
+	'mwe-upwiz-home' => 'Gå til wikihjemmeside',
+	'mwe-upwiz-upload-another' => 'Last opp flere filer',
+	'mwe-prevent-close' => 'Filene dine lastes fortsatt opp.
+Er du sikker på at du vil navigere bort fra denne siden?',
+	'mwe-upwiz-files-complete' => 'Filene dine ble lastet opp.',
+	'mwe-upwiz-tooltip-author' => 'Navnet på personen som tok bildet, eller malte bildet, eller tegnet tegningen, etc.',
+	'mwe-upwiz-tooltip-source' => 'Hvor denne digitale filen kom fra -- kan være en URL eller en bok eller en publikasjon',
+	'mwe-upwiz-tooltip-sign' => 'Du kan bruke wikibrukernavnet ditt eller ditt virkelige navn.
+I begge tilfeller vil dette lenkes til wikibrukersiden din.',
+	'mwe-upwiz-tooltip-title' => 'En kort tittel for filen.
+Du kan bruke vanlig språk med mellomrom, men ingen linjeskift.
+Denne tittelen må være ulik alle andre titler på denne wikien.',
+	'mwe-upwiz-tooltip-description' => 'Beskriv kortfattet alt notabelt om arbeidet.
+For et bilde, nevn hovedtingene som er avbildet, anledningen eller stedet.',
+	'mwe-upwiz-tooltip-other' => 'Ytterligere informasjon du vil inkludere om dette arbeidet.
+Du kan bruke wikitekstkode.',
 	'mwe-upwiz-tooltip-more-info' => 'Lær mer.',
+	'mwe-upwiz-file-need-file' => 'Legg til en opplasting først.',
+	'mwe-upwiz-file-need-start' => 'Trykk på denne knappen for å starte opplastingene dine.',
+	'mwe-upwiz-file-need-complete' => 'Vent til alle filene er ferdig opplastet.',
+	'mwe-upwiz-deeds-need-deed' => 'Forklar hvor du fikk {{PLURAL:$1|denne filen|disse filene}} og hvordan dette nettstedet kan bruke {{PLURAL:$1|den|dem}} ved å velge ett av alternativene.',
+	'mwe-upwiz-deeds-need-license' => 'Velg en lisens.',
+	'mwe-upwiz-license-incompatible-pd' => 'Offentlig domene-lisenser er ikke kompatible med andre former for lisenser.',
+	'mwe-upwiz-license-incompatible-cc' => 'Du kan bare velge én type Creative Commons-lisens.',
+	'mwe-upwiz-license-show-all' => 'Bruk en annen lisens',
+	'mwe-upwiz-license-show-recommended' => 'Bruk den anbefalte lisensen',
 	'mwe-upwiz-error-signature-blank' => 'Du må signere i feltet under med brukernavnet ditt eller ditt virkelige navn.',
 	'mwe-upwiz-error-signature-too-long' => 'Signaturen din er for lang.
 Gjør den kortere enn $1 {{PLURAL:$1|tegn|tegn}}.',
@@ -2002,6 +2069,11 @@ Gjør det kortere enn $1 {{PLURAL:$1|tegn|tegn}}.',
 Gjør det lengre enn $1 {{PLURAL:$1|tegn|tegn}}.',
 	'mwe-upwiz-error-bad-chars' => 'Dette feltet inneholder symboler som ikke er tillatt.
 Ikke bruk wikitekst eller HTML her.',
+	'mwe-upwiz-error-date' => 'Skriv inn en gyldig dato i formatet ÅÅÅ-MM-DD eller velg en dato fra sprettopp-kalenderen.',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Navngivelse-DelPåLikeVilkår 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Navngivelse 3.0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
+	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-categories' => 'Kategorier',
 	'mwe-upwiz-categories-add' => 'Legg til',
 	'mwe-upwiz-category-remove' => 'Fjern denne kategorien',
@@ -2414,6 +2486,39 @@ $messages['ru'] = array(
 	'mwe-upwiz-category-remove' => 'Убрать эту категорию',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'mwe-upwiz-code-unknown' => 'Незнамый язык',
+	'mwe-upwiz-step-file' => 'Награти',
+	'mwe-upwiz-step-details' => 'Попиште',
+	'mwe-upwiz-add-file-n' => 'Придати далшый файл',
+	'mwe-upwiz-add-file-0' => 'Кликните гев, жебы сьте награли файл',
+	'mwe-upwiz-transported' => 'ОК',
+	'mwe-upwiz-click-here' => 'Кликните гев, жебы сьте выбрали файл',
+	'mwe-upwiz-uploading' => 'награваня...',
+	'mwe-upwiz-editing' => 'едітованя...',
+	'mwe-upwiz-upload' => 'Награти',
+	'mwe-upwiz-about-format' => 'О файлі',
+	'mwe-upwiz-filename-tag' => 'Назва файлу:',
+	'mwe-upwiz-other' => 'Іншы інформації',
+	'mwe-upwiz-showall' => 'вказати вшытко',
+	'mwe-upwiz-source' => 'Джерело',
+	'mwe-upwiz-ok' => 'ОК',
+	'mwe-upwiz-cancel' => 'Сторно',
+	'mwe-upwiz-change' => '(змінити)',
+	'mwe-upwiz-next' => 'Далшы',
+	'mwe-upwiz-next-deeds' => 'Далшы',
+	'mwe-upwiz-next-details' => 'Далшы',
+	'mwe-upwiz-home' => 'Іти на вікі домашню сторінку',
+	'mwe-upwiz-upload-another' => 'Награти веце файлів',
+	'mwe-upwiz-tooltip-more-info' => 'Науч ся веце.',
+	'mwe-upwiz-categories' => 'Катеґорії',
+	'mwe-upwiz-categories-add' => 'Придати',
+	'mwe-upwiz-category-remove' => 'Одстранити тоту катеґорію',
+);
+
 /** Sinhala (සිංහල)
  * @author බිඟුවා
  */
@@ -2535,6 +2640,7 @@ $messages['sr-el'] = array(
 
 /** Swedish (Svenska)
  * @author Dafer45
+ * @author Nghtwlkr
  * @author Sertion
  */
 $messages['sv'] = array(
@@ -2608,9 +2714,11 @@ $messages['sv'] = array(
 	'mwe-upwiz-next' => 'Nästa',
 	'mwe-upwiz-home' => 'Gå till Wiki hemsida',
 	'mwe-upwiz-upload-another' => 'Ladda upp fler filer',
-	'mwe-prevent-close' => 'Dina filer laddas fortfarande upp. Är du säker på att du vill navigera bort från den här sidan?',
+	'mwe-prevent-close' => 'Dina filer laddas fortfarande upp.
+Är du säker på att du vill navigera bort från den här sidan?',
 	'mwe-upwiz-files-complete' => 'Dina filer har lagts upp!',
-	'mwe-upwiz-tooltip-sign' => 'Du kan använda ditt wiki användarnamn eller ditt riktiga namn. I båda fallen kommer detta att kopplas till din wiki användarsida',
+	'mwe-upwiz-tooltip-sign' => 'Du kan använda ditt wiki användarnamn eller ditt riktiga namn.
+I båda fallen kommer detta att kopplas till din wiki användarsida',
 	'mwe-upwiz-tooltip-title' => 'En kort titel för filen. Du kan använda ett enkelt språk med mellanslag, men inga radbrytningar. Denna titel måste skilja sig från alla andra titlar på denna wiki.',
 	'mwe-upwiz-tooltip-description' => 'Beskriv kortfattat allt anmärkningsvärt om verket. För ett foto, nämna de viktigaste saker som är avbildade, tillfälle och plats.',
 	'mwe-upwiz-tooltip-other' => 'Ytterligare information du vill ha med om detta verk. Du kan använda wikitext-kod.',
