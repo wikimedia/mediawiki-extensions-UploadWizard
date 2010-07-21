@@ -180,6 +180,51 @@ $messages['qqq'] = array(
 	'mwe-upwiz-categories-add' => '{{Identical|Add}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'mwe-upwiz-code-unknown' => 'Onbekende taal',
+	'mwe-upwiz-step-file' => 'Laai op',
+	'mwe-upwiz-step-deeds' => 'Vrystellingsregte',
+	'mwe-upwiz-step-details' => 'Beskryf',
+	'mwe-upwiz-step-thanks' => 'Gebruik',
+	'mwe-upwiz-add-file-n' => "Voeg nog 'n lêer by",
+	'mwe-upwiz-add-file-0' => "Klik hier om 'n lêer op te laai",
+	'mwe-upwiz-browse' => 'Blaai...',
+	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-click-here' => "Klik hier om 'n lêer te kies",
+	'mwe-upwiz-uploading' => 'besig om op te laai...',
+	'mwe-upwiz-editing' => 'besig met wysiging...',
+	'mwe-upwiz-finished' => 'Voltooi!',
+	'mwe-upwiz-deeds-custom-prompt' => 'Of:',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-media-type' => 'Mediatipe',
+	'mwe-upwiz-location' => 'Ligging',
+	'mwe-upwiz-author' => 'Outeur(s)',
+	'mwe-upwiz-filename-tag' => 'Lêernaam:',
+	'mwe-upwiz-other' => 'Ander inligting',
+	'mwe-upwiz-showall' => 'wys alles',
+	'mwe-upwiz-source' => 'Bron',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Laai in elk geval?',
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => 'Kanselleer',
+	'mwe-upwiz-thumbnail-more' => 'Vergroot',
+	'mwe-upwiz-overwrite' => 'Vervang die lêer',
+	'mwe-copyright-macro' => 'Soos hierbo',
+	'mwe-copyright-custom' => 'Pasgemaak',
+	'mwe-upwiz-next' => 'Volgende',
+	'mwe-upwiz-next-deeds' => 'Volgende',
+	'mwe-upwiz-next-details' => 'Volgende',
+	'mwe-upwiz-tooltip-more-info' => 'Leer meer.',
+	'mwe-upwiz-license-show-all' => "Gebruik 'n ander lisensie",
+	'mwe-upwiz-license-show-recommended' => 'Gebruik die aanbevole lisensie',
+	'mwe-upwiz-error-blank' => 'Die veld is verpligtend.',
+	'mwe-upwiz-categories' => 'Kategorieë',
+	'mwe-upwiz-categories-add' => 'Voeg by',
+	'mwe-upwiz-category-remove' => 'Verwyder hierdie kategorie',
+);
+
 /** Arabic (العربية)
  * @author ;Hiba;1
  */
