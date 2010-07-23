@@ -1742,6 +1742,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-source' => 'Quell',
 	'mwe-upwiz-macro-edit' => 'Beschreiwungen aktualiséieren',
 	'mwe-upwiz-thanks-intro' => "Merci fir d'Eroplueden!",
+	'mwe-upwiz-thanks-explain' => 'Dir kënnt {{PLURAL:$1|dëse Fichier|dës Fichieren}} elo op Site wéi Wikipedia benotzen, oder {{PLURAL:$1|en|se}} um Internet verlinken.',
 	'mwe-upwiz-thanks-link' => 'Dëse Fichier ass elo op <b><tt>$1</tt></b> disponibel.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Fir de Fichier an enger Wiki ze benotzen</b>, kopéiert dësen Text an eng Säit:',
 	'mwe-upwiz-thanks-url' => '<b>Fir een HTML-Link op dëse Fichier ze maachen</b>, kopéiert dës URL-Adress :',
