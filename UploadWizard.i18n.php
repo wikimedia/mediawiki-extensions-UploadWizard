@@ -1692,6 +1692,8 @@ $messages['lb'] = array(
 	'mwe-upwiz-step-deeds' => 'Rechter vun der Publikatioun',
 	'mwe-upwiz-step-details' => 'Beschreiwen',
 	'mwe-upwiz-step-thanks' => 'Benotzen',
+	'mwe-upwiz-intro' => 'Wëllkomm op Wikimedia Commons, enger Sammlung vu Biller, Téin a Filmer déi jiddereen fräi eroflueden a benotze kann.
+Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir pedagogesch Zwecker genotzt kënne ginn.',
 	'mwe-upwiz-add-file-n' => 'En anere Fichier derbäisetzen',
 	'mwe-upwiz-add-file-0' => 'Klickt hei fir e Fichier eropzelueden',
 	'mwe-upwiz-browse' => 'Duerchsichen...',
@@ -1715,6 +1717,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-source-permission' => 'Hiren Auteur huet Iech déi ausdrécklech Erlaabnes gi fir se eropzelueden',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere sinn}} net mäin eegent Wierk.',
 	'mwe-upwiz-source-thirdparty-intro' => "Gitt w.e.g. d'Adress un wou Dir all eenzelne Fichier fonnt hutt.",
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Wann all Fichieren déi selwecht Quell, Auteur a Copyright-Status hunn, da kënnt Dir se fir all Fichieren an enger Kéier aginn.',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => "Sicht d'Lizenze fir all Fichier individuell op der nächster Säit eraus.",
 	'mwe-upwiz-more-options' => 'méi Optiounen...',
