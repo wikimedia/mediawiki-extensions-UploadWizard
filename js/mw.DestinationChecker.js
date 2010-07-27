@@ -47,7 +47,7 @@ mw.DestinationChecker = function( options ) {
 		$j( _this.selector )[eventName]( check );
 	} );
 
-}
+};
 
 mw.DestinationChecker.prototype = {
 
@@ -73,7 +73,7 @@ mw.DestinationChecker.prototype = {
 	 * @param something
 	 * @return that same thing
 	 */
-	preprocess: function(x) { return x },
+	preprocess: function(x) { return x; },
 
 	/**
 	 * fire when the input changes value or keypress
@@ -94,7 +94,7 @@ mw.DestinationChecker.prototype = {
 				function() { checker.checkUnique(); },
 				checker.delay 
 			);
-		}
+		};
 	},
 
 	/**
@@ -165,10 +165,11 @@ mw.DestinationChecker.prototype = {
 					// Conflict found, this filename is NOT unique
 					mw.log( " conflict! " );
 
+					var ntitle;
 					if ( data.query.normalized ) {
-						var ntitle = data.query.normalized[0].to;
+						ntitle = data.query.normalized[0].to;
 					} else {
-						var ntitle = data.query.pages[ page_id ].title
+						ntitle = data.query.pages[ page_id ].title;
 					}
 
 					var img = data.query.pages[ page_id ].imageinfo[0];

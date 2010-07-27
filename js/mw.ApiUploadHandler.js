@@ -20,8 +20,8 @@ mw.ApiUploadHandler = function( upload ) {
 	// can also use Xhr Binary depending on config
 	_this.transport = new mw.IframeTransport(
 		_this.upload.ui.form, 
-		function( fraction ){ _this.upload.setTransportProgress( fraction ) },
-		function( result ) { _this.upload.setTransported( result ) }
+		function( fraction ){ _this.upload.setTransportProgress( fraction ); },
+		function( result ) { _this.upload.setTransported( result ); }
 	);
 
 };
@@ -72,7 +72,7 @@ mw.ApiUploadHandler.prototype = {
 	addFormInputIfMissing: function( name, value ) {
 		var _this = this;
 		var $jForm = $j( _this.upload.ui.form );
-		if ( $jForm.find( "[name='" + name + "']" ).length == 0 ) {
+		if ( $jForm.find( "[name='" + name + "']" ).length === 0 ) {
 			$jForm.append( 
 				$j( '<input />' )
 				.attr( { 
@@ -93,7 +93,7 @@ mw.ApiUploadHandler.prototype = {
 		_this.beginTime = ( new Date() ).getTime();
 		_this.upload.ui.busy();
 		$j( this.upload.ui.form ).submit();
-	},
+	}
 };
 
 

@@ -29,7 +29,7 @@ mw.IframeTransport = function( form, progressCb, transportedCb ) {
 		.attr( { 'src'   : 'javascript:false;', 
 		         'id'    : _this.iframeId,
 		         'name'  : _this.iframeId } )
-		.load( function() { _this.configureForm() } )
+		.load( function() { _this.configureForm(); } )
 		.css( 'display', 'none' );
 
 	$j( "body" ).append( iframe ); 
@@ -90,7 +90,7 @@ mw.IframeTransport.prototype = {
 			// Get the json string
 			// XXX wait... why are we grepping it out of an HTML doc? We requested jsonfm, why?
 			json = $j( doc.body ).find( 'pre' ).text();
-			mw.log( 'iframe:json::' + json )
+			mw.log( 'iframe:json::' + json );
 			if ( json ) {
 				response = window["eval"]( "( " + json + " )" );
 			} else {

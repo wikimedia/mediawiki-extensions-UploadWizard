@@ -28,9 +28,9 @@ mw.MockUploadHandler.prototype = {
 		if (1.0 - _this.progress < delta) {
 			_this.upload.setTransported();
 		} else {
-			setTimeout( function() { _this.nextState() }, 200 );
+			setTimeout( function() { _this.nextState(); }, 200 );
 		}
-	},
+	}
  
 };
 

@@ -26,8 +26,8 @@ mw.LanguageUpWiz = {
 		{ code: "ace",           text: "Ac\u00e8h" },
 		{ code: "af",            text: "Afrikaans" },
 		{ code: "ak",            text: "Akan" },
-		{ code: "als",           text: "Alemannisch" },   // } XXX someone fix this please
-		{ code: "gsw",           text: "Alemannisch" },   // } 
+		{ code: "als",           text: "Alemannisch" },   //  XXX someone fix this please
+		{ code: "gsw",           text: "Alemannisch" },   //  
 		{ code: "ang",           text: "Anglo-Saxon" },
 		{ code: "an",            text: "Aragon\u00e9s" },
 		{ code: "roa-rup",       text: "Arm\u00e3neashce" },
@@ -76,8 +76,8 @@ mw.LanguageUpWiz = {
 		{ code: "ext",           text: "Estreme\u00f1u" },
 		{ code: "eu",            text: "Euskara" },
 		{ code: "ee",            text: "E\u028begbe" },
-		{ code: "hif",           text: "Fiji Hindi" },   // } XXX fix this
-		{ code: "hif-latn",      text: "Fiji Hindi" },   // }
+		{ code: "hif",           text: "Fiji Hindi" },   //  XXX fix this
+		{ code: "hif-latn",      text: "Fiji Hindi" },   // 
 		{ code: "fr",            text: "Fran\u00e7ais" },
 		{ code: "frc",           text: "Fran\u00e7ais canadien" },
 		{ code: "fy",            text: "Frysk" },
@@ -378,7 +378,7 @@ mw.LanguageUpWiz = {
 		{ code: "ii",            text: "\ua187\ua259" },
 		{ code: "ko",            text: "\ud55c\uad6d\uc5b4" },
 		{ code: "ko-kp",         text: "\ud55c\uad6d\uc5b4 (\uc870\uc120)" },
-		{ code: "got",           text: "\ud800\udf32\ud800\udf3f\ud800\udf44\ud800\udf39\ud800\udf43\ud800\udf3a" },
+		{ code: "got",           text: "\ud800\udf32\ud800\udf3f\ud800\udf44\ud800\udf39\ud800\udf43\ud800\udf3a" }
 	],
 
 	/**
@@ -449,7 +449,7 @@ mw.LanguageUpWiz = {
 			return code;					
 		} 
 		return mw.LanguageUpWiz.getClosest( code.substring( 0, code.indexOf( '-' )) );
-	},
+	}
 
 
 	// enhance a simple text input to be an autocompleting language menu
@@ -489,4 +489,4 @@ mw.LanguageUpWiz = {
 	// although other info such as Information boxes was recorded correctly.	
 	// This is presumed not to apply to the shiny new world of JS2, where i18n is handled in other ways.
 
-}
+};

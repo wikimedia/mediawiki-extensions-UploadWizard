@@ -179,7 +179,7 @@
         opacity: 1.0,
         title: 'title',
         trigger: 'hover',
-	type: 'help',
+	type: 'help'
     };
     
     // Overwrite this method to provide options on a per-element basis.
