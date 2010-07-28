@@ -1526,6 +1526,15 @@ Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapa
 	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada. Tolong cek <b><tt>$1</tt></b> jika Anda tidak yakin untuk mengubahnya.',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'mwe-upwiz-categories' => 'Ébéanọr',
+	'mwe-upwiz-categories-add' => 'Tinyé',
+	'mwe-upwiz-category-remove' => 'Wéfù ébéanọr nká',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */
@@ -1581,6 +1590,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => '次のページで、各ファイルに対するライセンスを、個別に選択してください。',
 	'mwe-upwiz-more-options' => 'さらなるオプション・・・',
+	'mwe-upwiz-fewer-options' => 'オプションを減らす・・・',
 	'mwe-upwiz-desc' => '説明',
 	'mwe-upwiz-desc-add-n' => '他の言語での説明を追加',
 	'mwe-upwiz-desc-add-0' => '説明を追加',
@@ -1710,6 +1720,7 @@ Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir 
 	'mwe-upwiz-secs-remaining' => 'nach $1 {{PLURAL:$1|Sekonn|Sekonnen}}',
 	'mwe-upwiz-mins-secs-remaining' => 'nach $1 {{PLURAL:$1|Minutt|Minutten}} $2 {{PLURAL:$2|Sekonn|Sekonnen}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'nach $1 {{PLURAL:$1|Stonn|Stonnen}} $2 {{PLURAL:$2|Minutt|Minutten}} $3 {{PLURAL:$3|Sekonn|Sekonen}}',
+	'mwe-upwiz-deeds-intro' => 'Dësen Internetsite verlaangt datt Dir eng Lizenz fir eropgeluede Fichieren festsetzt, so datt jiddwereen se legal fir all Zwecker weiderbenotze kann.',
 	'mwe-upwiz-deeds-custom-prompt' => 'Oder:',
 	'mwe-upwiz-details-intro' => "Elo brauche mir e puer elementar Informatiounen iwwert d'Fichieren.",
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere si}} mäin eegent Wierk.',
@@ -1780,6 +1791,7 @@ Dësen Titel muss anescht siwéi alldéi aner op dëser Wiki.',
 	'mwe-upwiz-file-need-start' => 'Dréckt w.e.g. dëse Knäppche fir mam Eroplueden unzefänken.',
 	'mwe-upwiz-file-need-complete' => "Waart w.e.g. bis d'Fichieren alleguer eropgeluede sinn.",
 	'mwe-upwiz-deeds-need-license' => 'Sicht w.e.g. eng Lizenz eraus.',
+	'mwe-upwiz-license-incompatible-cc' => 'Dir kënnt nëmmen een Typ vu Creative Commons Lizenz eraussichen.',
 	'mwe-upwiz-license-show-all' => 'Benotzt eng aner Lizenz',
 	'mwe-upwiz-license-show-recommended' => 'Benotzt déi recommandéiert Lizenz',
 	'mwe-upwiz-error-signature-blank' => "Dir musst d'Feld hei drënner mat Ärem Benotzernumm oder Ärem richtegen Numm ënnerschreiwen.",
@@ -2268,6 +2280,9 @@ $messages['pms'] = array(
 Contribuì a la conossensa dl'umanità an cariand dj'archivi ch'a podrìo esse dovrà con un but educativ.",
 	'mwe-upwiz-add-file-n' => "Gionté n'àutr archivi",
 	'mwe-upwiz-add-file-0' => "Sgnaché sì për carié n'archivi",
+	'mwe-upwiz-browse' => 'Score...',
+	'mwe-upwiz-transported' => 'Va bin',
+	'mwe-upwiz-click-here' => "Sgnaché ambelessì për selessioné n'archivi",
 );
 
 /** Pashto (پښتو)
@@ -2998,5 +3013,147 @@ $messages['vi'] = array(
 /** Wu (吴语) */
 $messages['wuu'] = array(
 	'mwe-upwiz-cancel' => '取消',
+);
+
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
+ */
+$messages['zh-hant'] = array(
+	'uploadwizard' => '上傳精靈',
+	'uploadwizard-desc' => '上傳精靈的開發是供多媒體可用性發展',
+	'mwe-loading-upwiz' => '上傳精靈載入中...',
+	'mwe-upwiz-code-unknown' => '未知的語言',
+	'mwe-upwiz-step-file' => '上載',
+	'mwe-upwiz-step-deeds' => '發佈權',
+	'mwe-upwiz-step-details' => '描述',
+	'mwe-upwiz-step-thanks' => '使用',
+	'mwe-upwiz-intro' => '歡迎到維基共享資源，一個自由的圖像、聲音和電影庫，任何人都可以自由下載和使用。 
+添加檔案到人類的知識庫可以通過上傳文件，且可以用於教育目的。',
+	'mwe-upwiz-add-file-n' => '添加另一個文件',
+	'mwe-upwiz-add-file-0' => '點擊這裡上載文件',
+	'mwe-upwiz-browse' => '瀏覽 ...',
+	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-click-here' => '點擊這裡選擇一個文件',
+	'mwe-upwiz-uploading' => '上傳中 ...',
+	'mwe-upwiz-editing' => '編輯中 ...',
+	'mwe-upwiz-remove-upload' => '從上傳的文件列表中刪除此文件',
+	'mwe-upwiz-remove-description' => '刪除此說明',
+	'mwe-upwiz-upload' => '上載',
+	'mwe-upwiz-upload-count' => '在$2{{PLURAL:$2|個|個}}檔案之中，$1個檔案已上傳',
+	'mwe-upwiz-progressbar-uploading' => '上傳中',
+	'mwe-upwiz-finished' => '完成！',
+	'mwe-upwiz-secs-remaining' => '剩餘$1 {{PLURAL:$1|秒|秒}}',
+	'mwe-upwiz-mins-secs-remaining' => '剩餘$1 {{PLURAL:$1|分鐘|分鐘}} $2 {{PLURAL:$2|秒|秒}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '剩餘$1 {{PLURAL:$1|小時|小時}} $2 {{PLURAL:$2|分鐘|分鐘}} $3 {{PLURAL:$3|秒|秒}}',
+	'mwe-upwiz-deeds-intro' => '此站要求你選擇一個條款，所以每個人都可以在任何目的下合法使用這些檔案。',
+	'mwe-upwiz-deeds-macro-prompt' => '選擇一個條款供{{PLURAL:$1|以上檔案|全部以上的檔案}}：',
+	'mwe-upwiz-deeds-custom-prompt' => '或：',
+	'mwe-upwiz-details-intro' => '現在，我們需要關於這些文件的一些基本信息。',
+	'mwe-upwiz-source-ownwork' => '這{{PLURAL:$1|個|些}}檔案是我自己的創作。',
+	'mwe-upwiz-source-ownwork-assert' => '我，$2，這{{PLURAL:$1|個|些}}檔案的版權持有者，在此不可撤銷地授予任何人在任何目的下都有權使用這{{PLURAL:$1|個|些}}檔案，只要他們標示我的名字及將其使用同樣條款發佈。',
+	'mwe-upwiz-source-ownwork-assert-custom' => '我，$2，這{{PLURAL:$1|個|些}}檔案的版權持有者現將這{{PLURAL:$1|個|些}}檔案在以下條款發佈:',
+	'mwe-upwiz-source-ownwork-assert-note' => '這意味著你將你的作品發布在創作共用署名 相同方式分享的條款上。',
+	'mwe-upwiz-source-permission' => '其作者明確許可給你上傳這個檔案的',
+	'mwe-upwiz-source-thirdparty' => '這{{PLURAL:$1|個|些}}檔案不是我自己的創作。',
+	'mwe-upwiz-source-thirdparty-intro' => '請輸入這些檔案的來源。',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => '如果所有文件具有相同的來源，作者和版權狀態，您可以一次過輸入全部。',
+	'mwe-upwiz-source-thirdparty-license' => '這{{PLURAL:$1|個|些}}檔案的版權持有人發佈這{{PLURAL:$1|個|些}}檔案在以下條款上：',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-source-custom' => '在下一頁為每個檔案選擇獨立的條款。',
+	'mwe-upwiz-more-options' => '更多的選擇 ...',
+	'mwe-upwiz-fewer-options' => '較少的選擇 ...',
+	'mwe-upwiz-desc' => '說明',
+	'mwe-upwiz-desc-add-n' => '添加另一種語言的描述',
+	'mwe-upwiz-desc-add-0' => '補充說明',
+	'mwe-upwiz-title' => '標題',
+	'mwe-upwiz-categories-intro' => '加一個類別以便他人找到你的作品',
+	'mwe-upwiz-categories-another' => '添加其他類別',
+	'mwe-upwiz-previously-uploaded' => '這個檔案是以前上傳到$1及已經可在<a href"$2">這裡</a>找到。',
+	'mwe-upwiz-about-this-work' => '關於這個檔案',
+	'mwe-upwiz-media-type' => '媒體類型',
+	'mwe-upwiz-date-created' => '創建日期',
+	'mwe-upwiz-location' => '位置',
+	'mwe-upwiz-copyright-info' => '發佈權',
+	'mwe-upwiz-author' => '作者',
+	'mwe-upwiz-license' => '發佈權',
+	'mwe-upwiz-about-format' => '關於此文件',
+	'mwe-upwiz-autoconverted' => '此文件被自動轉換為$1格式',
+	'mwe-upwiz-filename-tag' => '文件名：',
+	'mwe-upwiz-other' => '其他資料',
+	'mwe-upwiz-other-prefill' => '可輸入維基文字的框',
+	'mwe-upwiz-showall' => '顯示所有',
+	'mwe-upwiz-source' => '來源',
+	'mwe-upwiz-macro-edit-intro' => '首先選擇一個以上其中一個的條款，那麼你就可以添加一些說明和其他信息到您的檔案。',
+	'mwe-upwiz-macro-edit' => '更動描述',
+	'mwe-upwiz-thanks-intro' => '感謝上傳！',
+	'mwe-upwiz-thanks-explain' => '現在，你可以使用這{{PLURAL:$1|個|些}}檔案在維基百科或其他維基媒體計劃上，或是在網絡上將它們連結。',
+	'mwe-upwiz-thanks-link' => '該文件現已在<tt><b>$1</b></tt>可查閱。',
+	'mwe-upwiz-thanks-wikitext' => '<b>要在維基上使用此文件</b>，複製並貼上以下文字：',
+	'mwe-upwiz-thanks-url' => '<b>要鏈接它到的網頁 (HTML)上</b>，複製這個網址：',
+	'mwe-upwiz-upload-error-bad-filename-extension' => '本站不接受副檔名為"$1"的檔案。',
+	'mwe-upwiz-upload-error-duplicate' => '這個文件是在以前上傳到這個 wiki。',
+	'mwe-upwiz-upload-error-stashed-anyway' => '無論如何均要上傳？',
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => '取消',
+	'mwe-upwiz-change' => '（更改）',
+	'mwe-upwiz-fileexists-replace' => '以"$1"為標題的檔案已經存在，請更改這個名稱以使其為一個獨特的名字。',
+	'mwe-upwiz-fileexists' => '與此名稱的文件已經存在。 
+請檢查<tt><b>$1</b></tt>如果你不知道你要不要取代它。',
+	'mwe-upwiz-thumbnail-more' => '放大',
+	'mwe-upwiz-overwrite' => '替換文件',
+	'mwe-copyright-macro' => '如上',
+	'mwe-copyright-custom' => '自訂',
+	'mwe-upwiz-next' => '下一步',
+	'mwe-upwiz-next-file' => '上傳文件並繼續',
+	'mwe-upwiz-next-deeds' => '下一步',
+	'mwe-upwiz-next-details' => '下一步',
+	'mwe-upwiz-home' => '前往維基主頁',
+	'mwe-upwiz-upload-another' => '上傳多個文件',
+	'mwe-prevent-close' => '您的文件仍在上傳。 
+你確定要離開這個網頁瀏覽？',
+	'mwe-upwiz-files-complete' => '您的文件上傳完畢！',
+	'mwe-upwiz-tooltip-author' => '誰拍這張照片，或描繪的景象，畫圖紙，等等的人。',
+	'mwe-upwiz-tooltip-source' => '這個數碼檔從何來？可以是一個URL、一本書或一個出版物',
+	'mwe-upwiz-tooltip-sign' => '你可以使用你的維基用戶名稱或您的真實姓名。 
+在這兩種情況下，這將連結到你在維基的用戶頁',
+	'mwe-upwiz-tooltip-title' => '一個此檔案的短標題。
+你可以使用自己的語言，但不可分行。
+這個標題一定要和其他在此站上的標題不同。',
+	'mwe-upwiz-tooltip-description' => '一切有關此作品的簡要描述。 
+對於照片，提到的主要事情是描繪的場合或場所。',
+	'mwe-upwiz-tooltip-other' => '任何其他你想要提交的信息。 
+你可以使用維基文本代碼。',
+	'mwe-upwiz-tooltip-more-info' => '了解更多信息。',
+	'mwe-upwiz-file-need-file' => '請先加入一個上傳榴案',
+	'mwe-upwiz-file-need-start' => '請按這個按鈕來啟動上傳。',
+	'mwe-upwiz-file-need-complete' => '請等待，直到所有的文件完成上傳為止。',
+	'mwe-upwiz-deeds-need-deed' => '請描述你在那裡取得這{{PLURAL:$1|個|些}}檔案，以及在本站中你會如何使用{{PLURAL:$1|這檔案|它們}}。',
+	'mwe-upwiz-deeds-need-license' => '請選擇一個條款',
+	'mwe-upwiz-license-incompatible-pd' => '公有領域與其他條款不相容',
+	'mwe-upwiz-license-incompatible-cc' => '你只可以選擇一種共享創意的條款。',
+	'mwe-upwiz-license-show-all' => '使用不同條款',
+	'mwe-upwiz-license-show-recommended' => '使用推薦的牌照',
+	'mwe-upwiz-error-signature-blank' => '你必須在下面的輸入框書寫您的用戶名或真實姓名。',
+	'mwe-upwiz-error-signature-too-long' => '您的簽名太長。 
+請讓它少於$1{{PLURAL:$1|個字|個字}}。',
+	'mwe-upwiz-error-signature-too-short' => '你的簽名太短了。
+令它長過$1 {{PLURAL:$1|字|字}}。',
+	'mwe-upwiz-error-signature-bad-chars' => '你的簽名包含不能使用的符號。
+請勿使用維基文字或HTML文本，只有你的用戶名或真名。',
+	'mwe-upwiz-error-blank' => '此項是必需的。',
+	'mwe-upwiz-error-too-long' => '此項太長。 
+請讓它少於$1{{PLURAL:$1|個字|個字}}。',
+	'mwe-upwiz-error-too-short' => '此項太短。
+令它長過$1 {{PLURAL:$1|字|字}}。',
+	'mwe-upwiz-error-bad-chars' => '此項包含禁用的符號。
+請勿使用維基文字或HTML。',
+	'mwe-upwiz-error-date' => '請在YYYY-MM-DD的格式上輸入日期，或是在彈出的日曆中選擇日期。',
+	'mwe-upwiz-license-cc-by-sa-3.0' => '共享創意署名相同方式分享3.0',
+	'mwe-upwiz-license-cc-by-3.0' => '共享創意署名3.0',
+	'mwe-upwiz-license-cc-zero' => '共享創意CC0豁免',
+	'mwe-upwiz-license-gfdl' => 'GNU自由文檔許可證',
+	'mwe-upwiz-categories' => '分類',
+	'mwe-upwiz-categories-add' => '新增',
+	'mwe-upwiz-category-remove' => '刪除這個類別',
 );
 
