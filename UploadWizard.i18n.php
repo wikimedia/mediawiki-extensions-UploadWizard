@@ -1126,6 +1126,13 @@ $messages['gsw'] = array(
 	'mwe-upwiz-fileexists' => 'S het scho ne Datei mit däm Name. Bitte prief <b><tt>$1</tt></b>, wänn du nit sicher bisch, eb Du dr Name witt ändere.',
 );
 
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'mwe-upwiz-deeds-custom-prompt' => 'או:',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
