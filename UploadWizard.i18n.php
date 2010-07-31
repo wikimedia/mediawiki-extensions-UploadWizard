@@ -1761,6 +1761,7 @@ Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir 
 	'mwe-upwiz-other-prefill' => 'Fräit Wikitext-Feld',
 	'mwe-upwiz-showall' => 'all weisen',
 	'mwe-upwiz-source' => 'Quell',
+	'mwe-upwiz-macro-edit-intro' => "Sicht d'éischt eng Lizenz hei driwwer eraus, duerno kënnt Dir eng Beschreiwung an aner Informatiounen bäi Ären eropgeluedene Fichier derbäisetzen.",
 	'mwe-upwiz-macro-edit' => 'Beschreiwungen aktualiséieren',
 	'mwe-upwiz-thanks-intro' => "Merci fir d'Eroplueden!",
 	'mwe-upwiz-thanks-explain' => 'Dir kënnt {{PLURAL:$1|dëse Fichier|dës Fichieren}} elo op Site wéi Wikipedia benotzen, oder {{PLURAL:$1|en|se}} um Internet verlinken.',
@@ -1788,11 +1789,15 @@ Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir 
 	'mwe-prevent-close' => 'Är Fichiere ginn elo eropgelueden.
 Sidd Dir sécher datt Dir elo eng aner Säit opruffe wëllt?',
 	'mwe-upwiz-files-complete' => "D'Eropluede vun Äre Fichieren ass fäerdeg!",
+	'mwe-upwiz-tooltip-author' => "Den Numm vun der Persoun déi d'Photo gemaach huet, oder d'Bild gemoolt huet, d'Zeechnung gezeechent huet, asw.",
+	'mwe-upwiz-tooltip-source' => 'Wou dëse Fichier hierkënnt -- dëst kann eng URL, oder e Buch oder eng aner Publikatioun sinn',
 	'mwe-upwiz-tooltip-sign' => 'Dir kënnt Äre Wiki-Benotzernumm oder Äre richtegen Numm benotzen.
 An deene zwee Fäll, gëtt et mat Ärer Wiki-Benotzersäit verlinkt.',
 	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier.
 Dir kënnt dobäi Espacen a Sazzeeche benotzen awer keen Zeilenëmbroch.
 Dësen Titel muss anescht siwéi alldéi aner op dëser Wiki.',
+	'mwe-upwiz-tooltip-other' => 'All aner Informatioun déi Dir bäi Äert Wierk derbäisetze wëllt.
+Dir kënnt Wikicode benotzen.',
 	'mwe-upwiz-tooltip-more-info' => 'Fir méi ze wëssen',
 	'mwe-upwiz-file-need-file' => "Setzt w.e.g. d'éischt e Fichier fir eropzelueden derbäi.",
 	'mwe-upwiz-file-need-start' => 'Dréckt w.e.g. dëse Knäppche fir mam Eroplueden unzefänken.',
