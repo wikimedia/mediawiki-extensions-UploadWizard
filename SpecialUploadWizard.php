@@ -39,7 +39,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo. 
 	 */
 	public function execute( $subPage ) {
-		global $wgUser, $wgOut, $wgMessageCache;
+		global $wgUser, $wgOut;
 
 		# Check uploading enabled
 		if( !UploadBase::isEnabled() ) {
@@ -72,8 +72,6 @@ class SpecialUploadWizard extends SpecialPage {
 			return;
 		}
 
-
-		$wgMessageCache->loadAllMessages();
 
 		$this->setHeaders();
 		$this->outputHeader();
