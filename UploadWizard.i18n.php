@@ -681,6 +681,32 @@ $messages['dsb'] = array(
 	'mwe-upwiz-fileexists' => 'Dataja z toś tym mjenim južo eksistěrujo. Pšosym skontrolěruj <b><tt>$1</tt></b>, jolic njejsy wěsty, lěc coš ju změniś.',
 );
 
+/** Esperanto (Esperanto)
+ * @author Airon90
+ */
+$messages['eo'] = array(
+	'mwe-upwiz-code-unknown' => 'Nekonata lingvo',
+	'mwe-upwiz-step-file' => 'Alŝuti',
+	'mwe-upwiz-step-deeds' => 'Eldonaj rajtoj',
+	'mwe-upwiz-step-details' => 'Priskribi',
+	'mwe-upwiz-step-thanks' => 'Uzo',
+	'mwe-upwiz-add-file-n' => 'Aldoni alian dosieron',
+	'mwe-upwiz-add-file-0' => 'Alklaki ĉi tie por alŝuti dosieron',
+	'mwe-upwiz-browse' => 'Foliumi...',
+	'mwe-upwiz-transported' => 'Ek!',
+	'mwe-upwiz-click-here' => 'Alklaki ĉi tie por elekti dosieron',
+	'mwe-upwiz-uploading' => 'Ŝarĝanta...',
+	'mwe-upwiz-editing' => 'Redaktanta...',
+	'mwe-upwiz-remove-upload' => 'Forigi ĉi tiun dosieron el la listo de alŝutendaj dosieroj',
+	'mwe-upwiz-remove-description' => 'Forigi ĉi tiun priskribon',
+	'mwe-upwiz-upload' => 'Alŝuti',
+	'mwe-upwiz-upload-count' => '$1 el $2 {{PLURAL:$2|dosiero|dosieroj}} {{PLURAL:$2|alŝutita|alŝutitaj}}',
+	'mwe-upwiz-progressbar-uploading' => 'alŝutanta',
+	'mwe-upwiz-finished' => 'Finita!',
+	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekundo|sekundoj}} {{PLURAL:$1|plurestanta|plurestantaj}}',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutoj}} $2 {{PLURAL:$2|sekundo|sekundoj}} {{#ifexpr:$1 + $2|1|restanta|restantaj}}',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Locos epraix
@@ -1630,6 +1656,17 @@ Harap tidak menggunakan teks wiki atau HTML di sini.',
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'mwe-upwiz-date-created' => 'Úbọchì okìkè',
+	'mwe-upwiz-location' => 'Ébéà',
+	'mwe-upwiz-filename-tag' => 'Áhà ákwúkwó orunotu:',
+	'mwe-upwiz-showall' => 'zi haníle',
+	'mwe-upwiz-source' => 'Mkpọlógwù',
+	'mwe-upwiz-ok' => 'Ngwanu',
+	'mwe-upwiz-thumbnail-more' => 'Me ko bu ibù',
+	'mwe-upwiz-next' => 'Na nke ozor',
+	'mwe-upwiz-next-deeds' => 'Na nke ozor',
+	'mwe-upwiz-next-details' => 'Na nke ozor',
+	'mwe-upwiz-home' => 'Gá na ihü mbu nke wiki',
 	'mwe-upwiz-categories' => 'Ébéanọr',
 	'mwe-upwiz-categories-add' => 'Tinyé',
 	'mwe-upwiz-category-remove' => 'Wéfù ébéanọr nká',
