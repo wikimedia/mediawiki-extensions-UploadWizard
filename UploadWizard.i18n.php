@@ -703,8 +703,8 @@ $messages['eo'] = array(
 	'mwe-upwiz-upload-count' => '$1 el $2 {{PLURAL:$2|dosiero|dosieroj}} {{PLURAL:$2|alŝutita|alŝutitaj}}',
 	'mwe-upwiz-progressbar-uploading' => 'alŝutanta',
 	'mwe-upwiz-finished' => 'Finita!',
-	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekundo|sekundoj}} {{PLURAL:$1|plurestanta|plurestantaj}}',
-	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutoj}} $2 {{PLURAL:$2|sekundo|sekundoj}} {{#ifexpr:$1 + $2|1|restanta|restantaj}}',
+	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekundo plurestanta|sekundoj plurestantaj}}',
+	'mwe-upwiz-mins-secs-remaining' => ' $1 {{PLURAL:$1|minuto|minutoj}} $2 {{PLURAL:$2|sekundo|sekundoj}} {{#ifexpr:$1 + $2|1|restanta|restantaj}}',
 );
 
 /** Spanish (Español)
