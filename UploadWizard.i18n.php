@@ -3159,7 +3159,9 @@ $messages['wuu'] = array(
 	'mwe-upwiz-cancel' => '取消',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Wmr89502270
+ */
 $messages['zh-hans'] = array(
 	'uploadwizard' => '上传精灵',
 	'uploadwizard-desc' => '上传精灵的开发是供多媒体可用性发展',
@@ -3174,7 +3176,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-add-file-n' => '添加另一个文件',
 	'mwe-upwiz-add-file-0' => '点击这里上载文件',
 	'mwe-upwiz-browse' => '浏览 ...',
-	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-transported' => '确定',
 	'mwe-upwiz-click-here' => '点击这里选择一个文件',
 	'mwe-upwiz-uploading' => '上传中 ...',
 	'mwe-upwiz-editing' => '编辑中 ...',
@@ -3200,7 +3202,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-source-thirdparty-intro' => '请输入这些档案的来源。',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => '如果所有文件具有相同的来源，作者和版权状态，您可以一次过输入全部。',
 	'mwe-upwiz-source-thirdparty-license' => '这{{PLURAL:$1|个|些}}档案的版权持有人发布这{{PLURAL:$1|个|些}}档案在以下条款上：',
-	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-source-thirdparty-accept' => '确定',
 	'mwe-upwiz-source-custom' => '在下一页为每个档案选择独立的条款。',
 	'mwe-upwiz-more-options' => '更多的选择 ...',
 	'mwe-upwiz-fewer-options' => '较少的选择 ...',
@@ -3235,7 +3237,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-upload-error-bad-filename-extension' => '本站不接受副档名为"$1"的档案。',
 	'mwe-upwiz-upload-error-duplicate' => '这个文件是在以前上传到这个 wiki。',
 	'mwe-upwiz-upload-error-stashed-anyway' => '无论如何均要上传？',
-	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-ok' => '确定',
 	'mwe-upwiz-cancel' => '取消',
 	'mwe-upwiz-change' => '（更改）',
 	'mwe-upwiz-fileexists-replace' => '以"$1"为标题的档案已经存在，请更改这个名称以使其为一个独特的名字。',
