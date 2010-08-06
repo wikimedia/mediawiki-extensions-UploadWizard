@@ -681,6 +681,14 @@ $messages['dsb'] = array(
 	'mwe-upwiz-fileexists' => 'Dataja z toś tym mjenim južo eksistěrujo. Pšosym skontrolěruj <b><tt>$1</tt></b>, jolic njejsy wěsty, lěc coš ju změniś.',
 );
 
+/** Greek (Ελληνικά)
+ * @author Crazymadlover
+ */
+$messages['el'] = array(
+	'mwe-upwiz-transported' => 'Εντάξει',
+	'mwe-upwiz-deeds-custom-prompt' => 'Ή:',
+);
+
 /** Esperanto (Esperanto)
  * @author Airon90
  */
@@ -1150,6 +1158,11 @@ Non utilice texto wiki ou HTML aquí.',
 
 $messages['gsw'] = array(
 	'mwe-upwiz-fileexists' => 'S het scho ne Datei mit däm Name. Bitte prief <b><tt>$1</tt></b>, wänn du nit sicher bisch, eb Du dr Name witt ändere.',
+);
+
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'mwe-upwiz-cancel' => 'Soke',
 );
 
 /** Hebrew (עברית)
@@ -1858,6 +1871,7 @@ Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir 
 	'mwe-upwiz-mins-secs-remaining' => 'nach $1 {{PLURAL:$1|Minutt|Minutten}} $2 {{PLURAL:$2|Sekonn|Sekonnen}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'nach $1 {{PLURAL:$1|Stonn|Stonnen}} $2 {{PLURAL:$2|Minutt|Minutten}} $3 {{PLURAL:$3|Sekonn|Sekonen}}',
 	'mwe-upwiz-deeds-intro' => 'Dësen Internetsite verlaangt datt Dir eng Lizenz fir eropgeluede Fichieren festsetzt, so datt jiddwereen se legal fir all Zwecker weiderbenotze kann.',
+	'mwe-upwiz-deeds-macro-prompt' => "Eng Lizenz festleeë fir {{PLURAL:$1|de Fichier|d'Fichieren}} hei driwwer:",
 	'mwe-upwiz-deeds-custom-prompt' => 'Oder:',
 	'mwe-upwiz-details-intro' => "Elo brauche mir e puer elementar Informatiounen iwwert d'Fichieren.",
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere si}} mäin eegent Wierk.',
@@ -1933,6 +1947,7 @@ Dir kënnt Wikicode benotzen.',
 	'mwe-upwiz-file-need-start' => 'Dréckt w.e.g. dëse Knäppche fir mam Eroplueden unzefänken.',
 	'mwe-upwiz-file-need-complete' => "Waart w.e.g. bis d'Fichieren alleguer eropgeluede sinn.",
 	'mwe-upwiz-deeds-need-license' => 'Sicht w.e.g. eng Lizenz eraus.',
+	'mwe-upwiz-license-incompatible-pd' => 'Public domain Lizenze si mat aneren Zorte vu Lizenzen net kompatibel',
 	'mwe-upwiz-license-incompatible-cc' => 'Dir kënnt nëmmen een Typ vu Creative Commons Lizenz eraussichen.',
 	'mwe-upwiz-license-show-all' => 'Benotzt eng aner Lizenz',
 	'mwe-upwiz-license-show-recommended' => 'Benotzt déi recommandéiert Lizenz',
@@ -2377,6 +2392,15 @@ $messages['oc'] = array(
 	'mwe-upwiz-fileexists' => 'Un fichièr amb aqueste nom existís ja. Mercé de verificar <b><tt>$1</tt></b> se sètz pas segur que lo volètz cambiar.',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'mwe-upwiz-title' => 'Titel',
+	'mwe-upwiz-change' => '(ennere)',
+	'mwe-upwiz-next' => 'Neegscht',
+);
+
 /** Polish (Polski)
  * @author Fizykaa
  * @author Marcin Łukasz Kiejzik
@@ -2437,6 +2461,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-add-file-n' => 'يوه بله دوتنه ورګډول',
 	'mwe-upwiz-browse' => 'سپړل...',
 	'mwe-upwiz-transported' => 'ښه',
+	'mwe-upwiz-editing' => 'د سمولو په حال کې ...',
 	'mwe-upwiz-upload' => 'پورته کول',
 	'mwe-upwiz-deeds-custom-prompt' => 'يا:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|دا دوتنه زما شخصي اثر دی|دا دوتنې زما شخصي اثرونه دي}}.',
@@ -2456,6 +2481,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-cancel' => 'ناګارل',
 	'mwe-upwiz-change' => '(بدلول)',
 	'mwe-upwiz-thumbnail-more' => 'لويول',
+	'mwe-upwiz-home' => 'د ويکي کور مخ ته ورتلل',
 	'mwe-upwiz-categories' => 'وېشنيزې',
 	'mwe-upwiz-categories-add' => 'ورګډول',
 );
@@ -3109,6 +3135,15 @@ I båda fallen kommer detta att kopplas till din wiki användarsida',
 	'mwe-upwiz-tooltip-description' => 'Beskriv kortfattat allt anmärkningsvärt om verket. För ett foto, nämna de viktigaste saker som är avbildade, tillfälle och plats.',
 	'mwe-upwiz-tooltip-other' => 'Ytterligare information du vill ha med om detta verk. Du kan använda wikitext-kod.',
 	'mwe-upwiz-tooltip-more-info' => 'Läs mer.',
+);
+
+/** Tamil (தமிழ்)
+ * @author Mahir78
+ */
+$messages['ta'] = array(
+	'mwe-copyright-macro' => 'மேலே உள்ளபடி',
+	'mwe-upwiz-next-file' => 'கோப்புகளை பதிவேற்றி தொடரவும்',
+	'mwe-upwiz-next-deeds' => 'அடுத்து',
 );
 
 /** Telugu (తెలుగు)
