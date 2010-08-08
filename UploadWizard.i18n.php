@@ -156,10 +156,12 @@ Please do not use wikitext or HTML here.',
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Kghbln
  * @author McDutchie
  */
 $messages['qqq'] = array(
 	'mwe-upwiz-step-file' => '{{Identical|Upload}}',
+	'mwe-upwiz-step-thanks' => 'Use the verb for this message',
 	'mwe-upwiz-transported' => '{{Identical|OK}}',
 	'mwe-upwiz-upload' => '{{Identical|Upload}}',
 	'mwe-upwiz-source-thirdparty-accept' => '{{Identical|OK}}',
@@ -550,7 +552,7 @@ $messages['de'] = array(
 	'mwe-upwiz-step-file' => 'Hochladen',
 	'mwe-upwiz-step-deeds' => 'Rechte an der Veröffentlichung',
 	'mwe-upwiz-step-details' => 'Beschreiben',
-	'mwe-upwiz-step-thanks' => 'Nutzung',
+	'mwe-upwiz-step-thanks' => 'Nutzen',
 	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitere das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
 	'mwe-upwiz-add-file-n' => 'Füge eine weitere Datei hinzu',
 	'mwe-upwiz-add-file-0' => 'Klicke hier, um eine Datei hochzuladen',
@@ -1946,6 +1948,7 @@ Dir kënnt Wikicode benotzen.',
 	'mwe-upwiz-file-need-file' => "Setzt w.e.g. d'éischt e Fichier fir eropzelueden derbäi.",
 	'mwe-upwiz-file-need-start' => 'Dréckt w.e.g. dëse Knäppche fir mam Eroplueden unzefänken.',
 	'mwe-upwiz-file-need-complete' => "Waart w.e.g. bis d'Fichieren alleguer eropgeluede sinn.",
+	'mwe-upwiz-deeds-need-deed' => 'Erklärt w.e.g. wou Dir {{PLURAL:$1|dëse Fichier|dës Fichieren}} hier hutt a wéi dëse Site {{PLURAL:$1|en|se}} benotze kann, andeem Dir eng vun den Optiounen eraussicht.',
 	'mwe-upwiz-deeds-need-license' => 'Sicht w.e.g. eng Lizenz eraus.',
 	'mwe-upwiz-license-incompatible-pd' => 'Public domain Lizenze si mat aneren Zorte vu Lizenzen net kompatibel',
 	'mwe-upwiz-license-incompatible-cc' => 'Dir kënnt nëmmen een Typ vu Creative Commons Lizenz eraussichen.',
@@ -1967,6 +1970,8 @@ Maacht et méi laang wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
 Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-error-date' => 'Gitt w.e.g. e valabelen Datum am Format: JJJJ-MM-DD, oder sicht en Datum Popup-Kalenner eraus.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attributioun 3.0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“',
 	'mwe-upwiz-license-gfdl' => 'GNU Fräi Dokumentatiouns Lizenz',
 	'mwe-upwiz-categories' => 'Kategorien',
 	'mwe-upwiz-categories-add' => 'Derbäisetzen',
@@ -3183,6 +3188,11 @@ $messages['te'] = array(
 
 $messages['tr'] = array(
 	'mwe-upwiz-fileexists' => 'Bu isimde bir dosya zaten mevcut. Değiştirmek istediğinize emin değilseniz lütfen <b><tt>$1</tt></b> kontrol edin.',
+);
+
+/** Urdu (اردو) */
+$messages['ur'] = array(
+	'mwe-upwiz-cancel' => 'منسوخ',
 );
 
 $messages['vi'] = array(
