@@ -506,6 +506,7 @@ Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-error-too-short' => "Re verr eo ar maezienn.
 Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
+	'mwe-upwiz-license-cc-zero' => "Nac'hidigezh Creative Commons CC0",
 	'mwe-upwiz-license-gfdl' => 'Aotre-implijout teuliaouiñ frank GNU',
 	'mwe-upwiz-categories' => 'Rummadoù',
 	'mwe-upwiz-categories-add' => 'Ouzhpennañ',
@@ -659,11 +660,11 @@ Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Deine Unterschrift enthält unzulässige Zeichen.
 Verwende hier bitte kein Wikitext oder HTML sondern einfach deinen Benutzernamen oder deinen bürgerlichen Namen.',
 	'mwe-upwiz-error-blank' => 'Dies ist ein Pflichtfeld.',
-	'mwe-upwiz-error-too-long' => 'Diese Angabe ist zu lang.
+	'mwe-upwiz-error-too-long' => 'Diese Eingabe ist zu lang.
 Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
-	'mwe-upwiz-error-too-short' => 'Diese Angabe ist zu kurz.
+	'mwe-upwiz-error-too-short' => 'Diese Eingabe ist zu kurz.
 Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
-	'mwe-upwiz-error-bad-chars' => 'Diese Angabe enthält unzulässige Zeichen.
+	'mwe-upwiz-error-bad-chars' => 'Diese Eingabe enthält unzulässige Zeichen.
 Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-error-date' => 'Bitte ein gültiges Datum im Format JJJJ-MM-TT eingeben oder ein Datum aus dem Popup-Kalender wählen.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0“',
@@ -1711,7 +1712,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-intro' => 'ウィキメディア・コモンズへようこそ。ここは、誰でも自由にダウンロードし利用できる画像、音声、動画のレポジトリです。
 教育目的で利用可能なファイルをアップロードし、人類の知識を追加しましょう。',
 	'mwe-upwiz-add-file-n' => '他のファイルを追加',
-	'mwe-upwiz-add-file-0' => 'ファイルをアップロードするには、ここをクリック',
+	'mwe-upwiz-add-file-0' => 'クリックして、ファイルのアップロードを開始',
 	'mwe-upwiz-browse' => '参照...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-click-here' => 'ファイルを選択するには、ここをクリック',
@@ -1720,7 +1721,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-remove-upload' => 'アップロードするファイルの一覧から、このファイルを除去する',
 	'mwe-upwiz-remove-description' => 'この説明を除去',
 	'mwe-upwiz-upload' => 'アップロード',
-	'mwe-upwiz-upload-count' => '$2{{PLURAL:$2|ファイル}}の$1をアップロード完了',
+	'mwe-upwiz-upload-count' => '$2{{PLURAL:$2|ファイル}}のうちの、$1つのアップロードが完了',
 	'mwe-upwiz-progressbar-uploading' => 'アップロード中',
 	'mwe-upwiz-finished' => '完了！',
 	'mwe-upwiz-secs-remaining' => '残り$1秒',
@@ -1741,8 +1742,8 @@ $messages['ja'] = array(
 	'mwe-upwiz-source-thirdparty-license' => '{{PLURAL:$1|この作品|これらの作品}}の著作権者は、{{PLURAL:$1|これ|これら}}を、以下のライセンスで公開しました：',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => '次のページで、各ファイルに対するライセンスを、個別に選択してください。',
-	'mwe-upwiz-more-options' => 'さらなるオプション・・・',
-	'mwe-upwiz-fewer-options' => 'オプションを減らす・・・',
+	'mwe-upwiz-more-options' => '詳細な設定・・・',
+	'mwe-upwiz-fewer-options' => '簡単な設定・・・',
 	'mwe-upwiz-desc' => '説明',
 	'mwe-upwiz-desc-add-n' => '他の言語での説明を追加',
 	'mwe-upwiz-desc-add-0' => '説明を追加',
@@ -1803,7 +1804,7 @@ $messages['ja'] = array(
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのか、について述べてください。',
 	'mwe-upwiz-tooltip-other' => 'この作品に含めたいその他の情報。
 ここではウィキ構文が利用できます。',
-	'mwe-upwiz-tooltip-more-info' => '詳しく。',
+	'mwe-upwiz-tooltip-more-info' => '詳細。',
 	'mwe-upwiz-file-need-file' => '最初のアップロードを追加してください。',
 	'mwe-upwiz-file-need-start' => 'アップロードを開始するにはこのボタンを押してください。',
 	'mwe-upwiz-file-need-complete' => '全てのファイルのアップロードが完了するまでお待ちください。',
@@ -1831,7 +1832,7 @@ $1文字より長くしてください。',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'クリエイティブ・コモンズ 表示-継承 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'クリエイティブ・コモンズ 表示 3.0',
 	'mwe-upwiz-license-cc-zero' => 'クリエイティブ・コモンズ CC0 権利放棄',
-	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-license-gfdl' => 'GNUフリー文書利用許諾契約書(GNU Free Documentation License)',
 	'mwe-upwiz-categories' => 'カテゴリ',
 	'mwe-upwiz-categories-add' => '追加',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
@@ -1942,6 +1943,8 @@ An deene zwee Fäll, gëtt et mat Ärer Wiki-Benotzersäit verlinkt.',
 	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier.
 Dir kënnt dobäi Espacen a Sazzeeche benotzen awer keen Zeilenëmbroch.
 Dësen Titel muss anescht siwéi alldéi aner op dëser Wiki.',
+	'mwe-upwiz-tooltip-description' => "Beschreift w.e.g. kuerz dat Wichtegst vun dësem Wierk.
+fir eng Photo, ernimmt déi Haaptsaachen déi drop sinn, d'Geleeënheet oder d'Plaz",
 	'mwe-upwiz-tooltip-other' => 'All aner Informatioun déi Dir bäi Äert Wierk derbäisetze wëllt.
 Dir kënnt Wikicode benotzen.',
 	'mwe-upwiz-tooltip-more-info' => 'Fir méi ze wëssen',
