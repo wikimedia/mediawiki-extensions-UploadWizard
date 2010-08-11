@@ -363,7 +363,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-file-need-complete' => 'Калі ласка, пачакайце, пакуль загрузяцца ўсе файлы.',
 	'mwe-upwiz-deeds-need-deed' => 'Калі ласка, растлумачце, адкуль {{PLURAL:$1|паходзіць файл|паходзяць файлы}} і як гэты сайт можа выкарыстоўваць {{PLURAL:$1|яго|іх}}, выбраўшы адзін з наступных пунктаў.',
 	'mwe-upwiz-deeds-need-license' => 'Калі ласка, выберыце ліцэнзію.',
-	'mwe-upwiz-license-incompatible-pd' => 'Ліцэнзіі грамадзкай уласнасьці несумяшчальныя зь ніводнай іншай ліцэнзіяй.',
+	'mwe-upwiz-license-incompatible-pd' => 'Ліцэнзіі грамадзкага набытку не сумяшчальныя ні з воднай іншай ліцэнзіяй.',
 	'mwe-upwiz-license-incompatible-cc' => 'Вы можаце выбраць толькі адну з ліцэнзіяў Creative Commons.',
 	'mwe-upwiz-license-show-all' => 'Выбраць іншую ліцэнзію',
 	'mwe-upwiz-license-show-recommended' => 'Выбраць прапанаваную ліцэнзію',
@@ -505,6 +505,8 @@ Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-error-too-short' => "Re verr eo ar maezienn.
 Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
+	'mwe-upwiz-error-date' => 'Trugarez da reiñ ur deiziad reizh dindan ar stumm YYYY-MM-DD, pe ober un dibab eus unan a zo er prenestr deiziataer.',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
 	'mwe-upwiz-license-cc-zero' => "Nac'hidigezh Creative Commons CC0",
 	'mwe-upwiz-license-gfdl' => 'Aotre-implijout teuliaouiñ frank GNU',
@@ -694,6 +696,7 @@ $messages['el'] = array(
 
 /** Esperanto (Esperanto)
  * @author Airon90
+ * @author Michawiki
  */
 $messages['eo'] = array(
 	'mwe-upwiz-code-unknown' => 'Nekonata lingvo',
@@ -715,7 +718,7 @@ $messages['eo'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'alŝutanta',
 	'mwe-upwiz-finished' => 'Finita!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekundo plurestanta|sekundoj plurestantaj}}',
-	'mwe-upwiz-mins-secs-remaining' => ' $1 {{PLURAL:$1|minuto|minutoj}} $2 {{PLURAL:$2|sekundo|sekundoj}} {{#ifexpr:$1 + $2|1|restanta|restantaj}}',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutoj}} $2 {{PLURAL:$2|sekundo|sekundoj}} {{#ifexpr:$1 + $2|1|restanta|restantaj}}',
 );
 
 /** Spanish (Español)
