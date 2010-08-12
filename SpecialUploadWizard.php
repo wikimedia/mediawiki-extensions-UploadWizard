@@ -62,8 +62,17 @@ class SpecialUploadWizard extends SpecialPage {
 			"resources/jquery.ui/ui/ui.core.js",	
 	 		"resources/jquery.ui/ui/ui.progressbar.js",
 			"resources/jquery.ui/ui/ui.datepicker.js",
-			"resources/jquery.autocomplete.js",
-			
+	
+			// interface helping stuff
+			"resources/jquery/jquery.tipsy.js",
+			"resources/jquery/jquery.morphCrossfade.js",
+			"resources/jquery/jquery.validate.js",
+			"resources/jquery/jquery.arrowSteps.js",
+			"resources/jquery/jquery.mwCoolCats.js",
+			"resources/jquery/jquery.autocomplete.js",
+
+			// our application...
+		
 			// miscellaneous utilities	
 			"resources/mw.Utilities.js",
 			"resources/mw.UtilitiesTime.js",
@@ -80,14 +89,6 @@ class SpecialUploadWizard extends SpecialPage {
 			"resources/mw.IframeTransport.js",
 			"resources/mw.ApiUploadHandler.js",
 			"resources/mw.DestinationChecker.js",
-
-			// interface helping stuff
-			"resources/jquery.tipsy.js",
-			"resources/jquery.morphCrossfade.js",
-			"resources/jquery.validate.js",
-			"resources/jquery.arrowSteps.js",
-			"resources/jquery.mwCoolCats.js",
-
 			// the thing that does most of it
 			"resources/mw.UploadWizard.js",
 
@@ -108,10 +109,10 @@ class SpecialUploadWizard extends SpecialPage {
 		$wgOut->addInlineScript( UploadWizardMessages::getMessagesJs( 'UploadWizard', $wgLang ) );
 
 		$styles = array(
-			"resources/jquery.tipsy.css",
+			"resources/jquery/jquery.tipsy.css",
 			"resources/uploadWizard.css",
-			"resources/jquery.arrowSteps.css",
-			"resources/jquery.mwCoolCats.css"
+			"resources/jquery/jquery.arrowSteps.css",
+			"resources/jquery/jquery.mwCoolCats.css"
 		);
 
 		// TODO RTL

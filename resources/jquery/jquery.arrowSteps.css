@@ -20,21 +20,21 @@
 }
 
 .arrowSteps li.arrow div {
-	background: url(inactive-arrow-divider.png) no-repeat right center;
+	background: url(jquery.arrowSteps.divider.png) no-repeat right center;
 }
 
 /* applied to the element preceding the highlighted step */
 .arrowSteps li.arrow.tail div {
-	background: url(arrow-tail.png) no-repeat right center;
+	background: url(jquery.arrowSteps.tail.png) no-repeat right center;
 }
 
 /* this applies to all highlighted, including the last */
 .arrowSteps li.head div {
-	background: url(arrow-head.png) no-repeat left center;
+	background: url(jquery.arrowSteps.head.png) no-repeat left center;
 	font-weight: bold;
 }
 
 /* this applies to all highlighted arrows except the last */
 .arrowSteps li.arrow.head div {
-	background: url(arrow-head.png) no-repeat right center;
+	background: url(jquery.arrowSteps.head.png) no-repeat right center;
 }
