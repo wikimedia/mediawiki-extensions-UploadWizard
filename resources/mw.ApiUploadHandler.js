@@ -33,8 +33,8 @@ mw.ApiUploadHandler.prototype = {
 	 * @param callback
 	 */
 	configureForm: function() {
-		var apiUrl = mw.getLocalApiUrl(); // XXX or? throw new Error( "configuration", "no API url" );
-		if ( ! ( mw.getConfig( 'token' ) ) ) {
+		var apiUrl = mw.UploadWizard.config[ 'apiUrl' ]; // XXX or? throw new Error( "configuration", "no API url" );
+		if ( ! ( mw.UploadWizard.config[ 'token' ] ) ) {
 			throw new Error( "configuration", "no edit token" );	
 		}
 
@@ -54,12 +54,12 @@ mw.ApiUploadHandler.prototype = {
 			// from the outset?
 		}
 		
-		_this.addFormInputIfMissing( 'token', mw.getConfig( 'token' ));
+		_this.addFormInputIfMissing( 'token', mw.UploadWizard.config[  'token'  ]);
 		_this.addFormInputIfMissing( 'action', 'upload' );
 		_this.addFormInputIfMissing( 'format', 'jsonfm' );
 		
 		// XXX only for testing, so it stops complaining about dupes
-		if ( mw.getConfig( 'debug' )) {
+		if ( mw.UploadWizard.config[  'debug'  ]) {
 			_this.addFormInputIfMissing( 'ignorewarnings', '1' );
 		}
 	},

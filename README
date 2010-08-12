@@ -1,11 +1,10 @@
-UploadWizard is alpha software, not intended for use live Wikimedia sites yet (or anyone else's). 
+Developers should not modify the contents of mwEmbed.i18n.php directly. 
 
-UploadWizard dependent on js2 / mwEmbed, you must include JS2Support extension prior to UploadWizard.php
+mwEmbed.i18n.php is updated by maintenance scripts. 
 
-# To enable add the following to localSettings.php 
+Two scripts write to this file:
+* mwEmbed/includes/maintenance/mergeJavascriptMsg.php
+Copies English messages from  every mwEmbed javascript module
 
-# JS2 / mwEmbed Support
-require_once( "$IP/extensions/JS2Support/JS2Support.php" );
-
-# Upload Wizard
-require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
+* Translate wiki script
+Copies the translate wiki localised msgs into the file. 

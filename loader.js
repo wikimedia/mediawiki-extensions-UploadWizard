@@ -60,36 +60,71 @@
 
 	var libraries = [ 
 		[
-			'$j.ui',
-			'$j.ui.progressbar',
-			'$j.ui.dialog',
-			'$j.ui.draggable',			
-			'$j.ui.datepicker',
-			'$j.effects',
-			'$j.effects.slide',
-			//'$j.effects.pulsate',
-			'$j.fn.autocomplete',
-			'$j.fn.tipsy',
-			'mw.style.tipsy',
-			'$j.fn.morphCrossfade',
-			'$j.fn.validate',
-			'$j.fn.arrowSteps',
-			'$j.fn.mwCoolCats',
-			'mw.style.arrowSteps',
-			'mw.style.autocomplete',
+			'$j.ui'
+		],
+		[
+			'$j.ui.progressbar'
+		],
+		[
+			'$j.ui.datepicker'
+		],
+		[
+			'$j.effects'
+		],
+		[
+			'$j.effects.slide'
+		],
+		[
+			'mw.style.autocomplete'
+		],
+		[
+			'$j.fn.autocomplete'
+		],
+		[
+			'mw.style.tipsy'
+		],
+		[
+			'$j.fn.tipsy'
+		],
+		[
+			'$j.fn.morphCrossfade'
+		],
+		[
+			'$j.fn.validate'
+		],
+		[	
+			'mw.style.arrowSteps'
+		],
+		[
+			'$j.fn.arrowSteps'
+		],
+		[
 			'mw.style.mwCoolCats'
 		],
 		[
-			'mw.LanguageUpWiz',
-			'mw.IframeTransport',
-			'mw.ApiUploadHandler',
-			'mw.DestinationChecker',
-			'mw.UploadWizard',
+			'$j.fn.mwCoolCats'
+		],
+		[
+			'mw.LanguageUpWiz'
+		],
+		[
+			'mw.IframeTransport'
+		],
+		[
+			'mw.ApiUploadHandler'
+		],
+		[
+			'mw.DestinationChecker'
+		],
+		[
 			'mw.style.uploadWizard'
 		],
+		[
+			'mw.UploadWizard'
+		]
 	];
 
-	var testLibraries = libraries.slice( 0 )
+	var testLibraries = libraries.slice( 0 );
 	testLibraries.push( [ 'mw.MockUploadHandler' ] );
  
 	/**

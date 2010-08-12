@@ -29,7 +29,7 @@ mw.DestinationChecker = function( options ) {
 	if (options.apiUrl) {
 		_this.apiUrl = options.apiUrl;
 	} else {
-		_this.apiUrl = mw.getLocalApiUrl();
+		_this.apiUrl = mw.UploadWizard.config[ 'apiUrl' ];
 	}
 
 	$j.each( ['preprocess', 'delay', 'events'], function( i, option ) {

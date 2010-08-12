@@ -6,7 +6,6 @@
  * @ingroup Extensions
  *
  * This file contains the include file for UploadWizard
- * This is dependent on JS2Support.
  *
  * Usage: Include the following line in your LocalSettings.php
  * require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
@@ -29,22 +28,21 @@ $wgExtensionCredits['jsModule'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
 
-// Check for JS2 support
-if( ! isset( $wgEnableJS2system ) ){
-	throw new MWException( 'UploadWizard requires JS2 Support. Please include the JS2Support extension.');
-}
-
 
 $dir = dirname(__FILE__) . '/';
 
 $wgExtensionMessagesFiles['UploadWizard'] = $dir . 'UploadWizard.i18n.php';
 $wgExtensionAliasesFiles['UploadWizard'] = $dir . 'UploadWizard.alias.php';
 
-# Add the special page
+# Require modules, includeing the special page
 $wgAutoloadLocalClasses[ 'SpecialUploadWizard' ] = $dir . 'SpecialUploadWizard.php';
+$wgAutoloadLocalClasses[ 'UploadWizardMessages' ] = $dir . 'UploadWizardMessages.php';
+
+# Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
 
+// JS2?
 $wgResourceLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/UploadWizardPage.js';
 
 // Set up the javascript path for the loader and localization file.

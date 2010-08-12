@@ -1,19 +1,4 @@
 /**
- * Include all the uploadWizard msgs
- */
-
-mw.includeAllModuleMessages();
-
-/**
- * General configuration for the validator
- */
-$j.validator.setDefaults( {
-	debug: true,
-	errorClass: 'mwe-validator-error'
-} );
-
-
-/**
  * Sort of an abstract class for deeds
  */
 mw.UploadWizardDeed = function() {
@@ -256,7 +241,7 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 	_this.$selector = $j( selector );
 	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
 
-	$j.each( mw.getConfig( 'licenses' ), function( i, licenseConfig ) {
+	$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
 		var template = licenseConfig.template;
 		var messageKey = licenseConfig.messageKey;
 		
@@ -304,7 +289,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	setDefaultValues: function() {
 		var _this = this;
 		var values = {};
-		$j.each( mw.getConfig( 'licenses' ), function( i, licenseConfig ) {
+		$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
 			values[ licenseConfig.template ] = licenseConfig['default'];
 		} );
 		_this.setValues( values );
@@ -387,7 +372,7 @@ mw.UploadWizardUpload = function( filesDiv ) {
 	_this.ui = new mw.UploadWizardUploadInterface( _this, filesDiv );
 
 	// handler -- usually ApiUploadHandler
-	// _this.handler = new ( mw.getConfig( 'uploadHandlerClass' ) )( _this );
+	// _this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( _this );
 	// _this.handler = new mw.MockUploadHandler( _this );
 	_this.handler = new mw.ApiUploadHandler( _this );
 };
@@ -552,7 +537,7 @@ mw.UploadWizardUpload.prototype = {
 			return;
 		}
 
-		var apiUrl = mw.getLocalApiUrl();
+		var apiUrl = mw.UploadWizard.config.apiUrl;
 
 		var params = {
                         'titles': _this.title,
@@ -604,7 +589,7 @@ mw.UploadWizardUpload.prototype = {
 	setThumbnail: function( selector, width ) {
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
-			width = mw.getConfig( 'thumbnailWidth' );
+			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
 		}
 		width = parseInt( width, 10 );
 				
@@ -853,7 +838,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		var filename = _this.convertPathToFilename( path );
 		_this.upload.originalFilename = filename;
 		// this is a hack to get a filename guaranteed unique.
-		uniqueFilename = mw.getConfig( 'userName' ) + "_" + ( new Date() ).getTime() + "_" + filename;
+		uniqueFilename = mw.UploadWizard.config[  'userName'  ] + "_" + ( new Date() ).getTime() + "_" + filename;
 		$j( _this.filenameCtrl ).attr( 'value', uniqueFilename );
 
 		if ( ! _this.isFilled ) {
@@ -965,7 +950,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	isGoodExtension: function( ext ) {
 		var _this = this;
 		var found = false;
-		var extensions = mw.getConfig('fileExtensions');
+		var extensions = mw.UploadWizard.config[ 'fileExtensions' ];
 		if ( extensions ) {
 			for ( var i = 0; i < extensions.length; i++ ) {
 				if ( extensions[i].toLowerCase() == ext ) {
@@ -1040,7 +1025,7 @@ mw.UploadWizardDescription.prototype = {
 			return '';
 		}
 		var language = $j( _this.languageMenu ).val().trim();
-		var fix = mw.getConfig("languageTemplateFixups");
+		var fix = mw.UploadWizard.config[ "languageTemplateFixups" ];
 		if (fix[language]) {
 			language = fix[language];
 		}
@@ -1054,13 +1039,13 @@ mw.UploadWizardDescription.prototype = {
 	addValidationRules: function( required ) {
 		// validator must find a form, so we add rules here
 		return this.input.rules( "add", {
-			minlength: mw.getConfig( 'minDescriptionLength' ),
-			maxlength: mw.getConfig( 'maxDescriptionLength' ),
+			minlength: mw.UploadWizard.config[  'minDescriptionLength'  ],
+			maxlength: mw.UploadWizard.config[  'maxDescriptionLength'  ],
 			required: required,
 			messages: { 
 				required: gM( 'mwe-upwiz-error-blank' ),
-				minlength: gM( 'mwe-upwiz-error-too-short', mw.getConfig( 'minDescriptionLength' ) ),
-				maxlength: gM( 'mwe-upwiz-error-too-long', mw.getConfig( 'maxDescriptionLength' ) )
+				minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minDescriptionLength'  ] ),
+				maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxDescriptionLength'  ] )
 			}		
 		} );
 	}	
@@ -1251,7 +1236,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	_this.addDescription( true, mw.getConfig('userLanguage') );
+	_this.addDescription( true, mw.UploadWizard.config[ 'userLanguage' ] );
 	$j( containerDiv ).append( _this.div );
 
 	// make this a category picker
@@ -1423,7 +1408,7 @@ mw.UploadWizardDetails.prototype = {
 						'border' : 0,
 						'width' : 15,
 						'height' : 11,
-						'src' : mw.getConfig( 'images_path' ) + 'magnify-clip.png'
+						'src' : mw.UploadWizard.config[  'images_path'  ] + 'magnify-clip.png'
 					} ), 
 					
 					$j('<span />')
@@ -1828,7 +1813,7 @@ mw.UploadWizardDetails.prototype = {
 			action: 'edit',
 			// XXX this is problematic, if the upload wizard is idle for a long time the token expires.
 			// should obtain token just before uploading
-			token: mw.getConfig( 'token' ),
+			token: mw.UploadWizard.config[  'token'  ],
 			title: _this.upload.title,
 			// section: 0, ?? causing issues?
 			text: wikiText,
@@ -1881,7 +1866,7 @@ mw.UploadWizardDetails.prototype = {
 			reason: "User edited page with " + mw.UploadWizard.userAgent,
 			movetalk: '',
 			noredirect: '', // presume it's too new 
-			token: mw.getConfig('token')
+			token: mw.UploadWizard.config[ 'token' ]
 		};
 		mw.log(params);
 		// despite the name, getJSON magically changes this into a POST request (it has a list of methods and what they require).
@@ -1951,13 +1936,17 @@ mw.UploadWizardDetails.prototype = {
 /**
  * Object that reperesents the entire multi-step Upload Wizard
  */
-mw.UploadWizard = function() {
+mw.UploadWizard = function( config ) {
 
 	this.uploads = [];
 
+	// making a sort of global for now, should be done by passing in config or fragments of config when needed
+	// elsewhere
+	mw.UploadWizard.config = config;
+
 	// XXX need a robust way of defining default config 
-	this.maxUploads = mw.getConfig( 'maxUploads' ) || 10;
-	this.maxSimultaneousConnections = mw.getConfig( 'maxSimultaneousConnections' ) || 2;
+	this.maxUploads = mw.UploadWizard.config[  'maxUploads'  ] || 10;
+	this.maxSimultaneousConnections = mw.UploadWizard.config[  'maxSimultaneousConnections'  ] || 2;
 
 };
 
@@ -2621,7 +2610,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		// add a preview on the deeds page
 		var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail-small"></div>' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
-		_this.upload.setThumbnail( thumbnailDiv, mw.getConfig( 'smallThumbnailWidth' ) );
+		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'smallThumbnailWidth'  ] );
 	}
 };
 
@@ -2672,7 +2661,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		// XXX do we need to escape authorInput, or is wikitext a feature here?
 		// what about scripts?
 		getAuthorWikiText: function() {
-			return "[[User:" + mw.getConfig('userName') + '|' + $j( _this.authorInput ).val() + ']]';
+			return "[[User:" + mw.UploadWizard.config[ 'userName' ] + '|' + $j( _this.authorInput ).val() + ']]';
 		},
 
 
@@ -2741,7 +2730,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			$formFields.find( '.mwe-upwiz-sign' )
 				.attr( {
 					title: gM( 'mwe-upwiz-tooltip-sign' ), 
-					value: mw.getConfig( 'userName' ) 
+					value: mw.UploadWizard.config[  'userName'  ] 
 				} )
 				.tipsyPlus()
 				.keyup( function() { 
@@ -2768,27 +2757,27 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 						required: function( element ) {
 							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
 						},
-						minlength: mw.getConfig( 'minAuthorLength' ),
-						maxlength: mw.getConfig( 'maxAuthorLength' )
+						minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
+						maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
 					},
 					author: {
 						required: function( element ) {
 							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
 						},
-						minlength: mw.getConfig( 'minAuthorLength' ),
-						maxlength: mw.getConfig( 'maxAuthorLength' )
+						minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
+						maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
 					}
 				},
 				messages: {
 					author2: {
 						required: gM( 'mwe-upwiz-error-signature-blank' ),
-						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.getConfig( 'minAuthorLength' ) ),
-						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.getConfig( 'maxAuthorLength' ) )
+						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
 					},
 					author: {
 						required: gM( 'mwe-upwiz-error-signature-blank' ),
-						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.getConfig( 'minAuthorLength' ) ),
-						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.getConfig( 'maxAuthorLength' ) )
+						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
 					}
 				}
 			} );
@@ -2847,22 +2836,22 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 			_this.$form.validate( {
 				rules: {
 					source: { required: true, 
-						  minlength: mw.getConfig( 'minSourceLength' ),
-						  maxlength: mw.getConfig( 'maxSourceLength' ) },
+						  minlength: mw.UploadWizard.config[  'minSourceLength'  ],
+						  maxlength: mw.UploadWizard.config[  'maxSourceLength'  ] },
 					author: { required: true,
-						  minlength: mw.getConfig( 'minAuthorLength' ),
-						  maxlength: mw.getConfig( 'maxAuthorLength' ) }
+						  minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
+						  maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ] }
 				},
 				messages: {
 					source: {
 						required: gM( 'mwe-upwiz-error-blank' ),
-						minlength: gM( 'mwe-upwiz-error-too-short', mw.getConfig( 'minSourceLength' ) ),
-						maxlength: gM( 'mwe-upwiz-error-too-long', mw.getConfig( 'maxSourceLength' ) )
+						minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minSourceLength'  ] ),
+						maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxSourceLength'  ] )
 					},
 					author: {
 						required: gM( 'mwe-upwiz-error-blank' ),
-						minlength: gM( 'mwe-upwiz-error-too-short', mw.getConfig( 'minAuthorLength' ) ),
-						maxlength: gM( 'mwe-upwiz-error-too-long', mw.getConfig( 'maxAuthorLength' ) )
+						minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+						maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
 					}
 				}
 			} );
@@ -3177,151 +3166,6 @@ mw.UploadWizardUtil = {
 
 };
 
-/**
- * Upper-case the first letter of a string. XXX move to common library
- * @param string
- * @return string with first letter uppercased.
- */
-mw.ucfirst = function( s ) {
-	return s.substring(0,1).toUpperCase() + s.substr(1);
-};
-
-
-
-/**
- * jQuery extension. Makes a textarea automatically grow if you enter overflow
- * (This feature was in the old Commons interface with a confusing arrow icon; it's nicer to make it automatic.)
- */
-jQuery.fn.growTextArea = function( options ) {
-
-	// this is a jquery-style object
-
-	// in MSIE, this makes it possible to know what scrollheight is 
-	// Technically this means text could now dangle over the edge, 
-	// but it shouldn't because it will always grow to accomodate very quickly.
-
-	if ($j.msie) {
-		this.each( function(i, textArea) {
-			textArea.style.overflow = 'visible';
-		} );
-	}
-
-	var resizeIfNeeded = function() {
-		// this is the dom element
-		// is there a better way to do this?
-		if (this.scrollHeight >= this.offsetHeight) {
-			this.rows++;
-			while (this.scrollHeight > this.offsetHeight) {
-				this.rows++;	
-			}
-		}
-		return this;
-	};
-
-	this.addClass( 'mwe-grow-textarea' );
-
-	this.bind( 'resizeEvent', resizeIfNeeded );
-	
-	this.keyup( resizeIfNeeded );
-	this.change( resizeIfNeeded );
-
-
-	return this;
-};
-
-jQuery.fn.mask = function( options ) {
-
-	// intercept clicks... 
-	// Note: the size of the div must be obtainable. Hence, this cannot be a div without layout (e.g. display:none).
-	// some of this is borrowed from http://code.google.com/p/jquery-loadmask/ , but simplified
-	$j.each( this, function( i, el ) {
-		
-		if ( ! $j( el ).data( 'mask' ) ) {
-			
-
-			//fix for z-index bug with selects in IE6
-			if ( $j.browser.msie && $j.browser.version.substring(0,1) === '6' ){
-				el.find( "select" ).addClass( "masked-hidden" );
-			}
-
-			var mask = $j( '<div />' )
-					.css( { 'position' : 'absolute',
-						'top'      : '0px', 
-						'left'     : '0px',
-						'width'	   : el.offsetWidth + 'px',
-						'height'   : el.offsetHeight + 'px',
-						'z-index'  : 100 } )
-					.click( function( e ) { e.stopPropagation(); } );
-
-			$j( el ).css( { 'position' : 'relative' } )	
-				.fadeTo( 'fast', 0.5 )
-				.append( mask )
-				.data( 'mask', mask );
-
-			//auto height fix for IE -- not sure about this, i think offsetWidth + Height is a better solution. Test!
-			/*
-			if( $j.browser.msie ) {
-				mask.height(el.height() + parseInt(el.css("padding-top")) + parseInt(el.css("padding-bottom")));
-				mask.width(el.width() + parseInt(el.css("padding-left")) + parseInt(el.css("padding-right")));
-			}
-			*/
-
-		} 
-
-		// XXX bind to a custom event in case the div size changes : ?
-
-	} );
-
-	return this;
-
-};
-
-jQuery.fn.unmask = function( options ) {
-
-	$j.each( this, function( i, el ) {
-		if ( $j( el ).data( 'mask' ) ) {
-			var mask = $j( el ).data( 'mask' );
-			$j( el ).removeData( 'mask' ); // from the data
-			mask.remove(); // from the DOM
-			$j( el ).fadeTo( 'fast', 1.0 );
-		}
-	} );
-
-	
-	return this;
-};
-
-
-/** 
- * Safe hide and show
- * Rather than use display: none, this collapses the divs to zero height
- * This is good because then the elements in the divs still have layout and we can do things like mask and unmask (above)
- * XXX may be obsolete as we are not really doing this any more
- * disable form fields so we do not tab through them when hidden
- * XXX for some reason the disabling doesn't work with the date field.
- */ 
-
-jQuery.fn.maskSafeHide = function( options ) {
-	$j.each( this.find( ':enabled' ), function(i, input) {
-		$j( input ).data( 'wasEnabled', true )
-			   .attr( 'disabled', 'disabled' );
-	} );
-	return this.css( { 'height' : '0px', 'overflow' : 'hidden' } );
-};
-
-// may be causing scrollbar to appear when div changes size
-// re-enable form fields (disabled so we did not tab through them when hidden)
-jQuery.fn.maskSafeShow = function( options ) {
-	$j.each( this.find( ':disabled' ), function (i, input) {
-		if ($j( input ).data( 'wasEnabled' )) {
-			$j( input ).removeAttr( 'disabled' )
-				   .removeData( 'wasEnabled' ); 
-		}
-	} );
-	return this.css( { 'height' : 'auto', 'overflow' : 'visible' } );
-};
-
-
 ( function( $j ) {
 
 	$j.fn.tipsyPlus = function( optionsArg ) {
@@ -3442,5 +3286,154 @@ jQuery.fn.maskSafeShow = function( options ) {
 		this.addClass( 'mwe-upwiz-required-field' );
 		return this.prepend( $j( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
 	};
+
+	/**
+	 * Upper-case the first letter of a string. XXX move to common library
+	 * @param string
+	 * @return string with first letter uppercased.
+	 */
+	mw.ucfirst = function( s ) {
+		return s.substring(0,1).toUpperCase() + s.substr(1);
+	};
+
+
+
+	/**
+	 * jQuery extension. Makes a textarea automatically grow if you enter overflow
+	 * (This feature was in the old Commons interface with a confusing arrow icon; it's nicer to make it automatic.)
+	 */
+	jQuery.fn.growTextArea = function( options ) {
+
+		// this is a jquery-style object
+
+		// in MSIE, this makes it possible to know what scrollheight is 
+		// Technically this means text could now dangle over the edge, 
+		// but it shouldn't because it will always grow to accomodate very quickly.
+
+		if ($j.msie) {
+			this.each( function(i, textArea) {
+				textArea.style.overflow = 'visible';
+			} );
+		}
+
+		var resizeIfNeeded = function() {
+			// this is the dom element
+			// is there a better way to do this?
+			if (this.scrollHeight >= this.offsetHeight) {
+				this.rows++;
+				while (this.scrollHeight > this.offsetHeight) {
+					this.rows++;	
+				}
+			}
+			return this;
+		};
+
+		this.addClass( 'mwe-grow-textarea' );
+
+		this.bind( 'resizeEvent', resizeIfNeeded );
+		
+		this.keyup( resizeIfNeeded );
+		this.change( resizeIfNeeded );
+
+
+		return this;
+	};
+
+	jQuery.fn.mask = function( options ) {
+
+		// intercept clicks... 
+		// Note: the size of the div must be obtainable. Hence, this cannot be a div without layout (e.g. display:none).
+		// some of this is borrowed from http://code.google.com/p/jquery-loadmask/ , but simplified
+		$j.each( this, function( i, el ) {
+			
+			if ( ! $j( el ).data( 'mask' ) ) {
+				
+
+				//fix for z-index bug with selects in IE6
+				if ( $j.browser.msie && $j.browser.version.substring(0,1) === '6' ){
+					el.find( "select" ).addClass( "masked-hidden" );
+				}
+
+				var mask = $j( '<div />' )
+						.css( { 'position' : 'absolute',
+							'top'      : '0px', 
+							'left'     : '0px',
+							'width'	   : el.offsetWidth + 'px',
+							'height'   : el.offsetHeight + 'px',
+							'z-index'  : 100 } )
+						.click( function( e ) { e.stopPropagation(); } );
+
+				$j( el ).css( { 'position' : 'relative' } )	
+					.fadeTo( 'fast', 0.5 )
+					.append( mask )
+					.data( 'mask', mask );
+
+				//auto height fix for IE -- not sure about this, i think offsetWidth + Height is a better solution. Test!
+				/*
+				if( $j.browser.msie ) {
+					mask.height(el.height() + parseInt(el.css("padding-top")) + parseInt(el.css("padding-bottom")));
+					mask.width(el.width() + parseInt(el.css("padding-left")) + parseInt(el.css("padding-right")));
+				}
+				*/
+
+			} 
+
+			// XXX bind to a custom event in case the div size changes : ?
+
+		} );
+
+		return this;
+
+	};
+
+	jQuery.fn.unmask = function( options ) {
+
+		$j.each( this, function( i, el ) {
+			if ( $j( el ).data( 'mask' ) ) {
+				var mask = $j( el ).data( 'mask' );
+				$j( el ).removeData( 'mask' ); // from the data
+				mask.remove(); // from the DOM
+				$j( el ).fadeTo( 'fast', 1.0 );
+			}
+		} );
+
+		
+		return this;
+	};
+
+
+	/** 
+	 * Safe hide and show
+	 * Rather than use display: none, this collapses the divs to zero height
+	 * This is good because then the elements in the divs still have layout and we can do things like mask and unmask (above)
+	 * XXX may be obsolete as we are not really doing this any more
+	 * disable form fields so we do not tab through them when hidden
+	 * XXX for some reason the disabling doesn't work with the date field.
+	 */ 
+
+	jQuery.fn.maskSafeHide = function( options ) {
+		$j.each( this.find( ':enabled' ), function(i, input) {
+			$j( input ).data( 'wasEnabled', true )
+				   .attr( 'disabled', 'disabled' );
+		} );
+		return this.css( { 'height' : '0px', 'overflow' : 'hidden' } );
+	};
+
+	// may be causing scrollbar to appear when div changes size
+	// re-enable form fields (disabled so we did not tab through them when hidden)
+	jQuery.fn.maskSafeShow = function( options ) {
+		$j.each( this.find( ':disabled' ), function (i, input) {
+			if ($j( input ).data( 'wasEnabled' )) {
+				$j( input ).removeAttr( 'disabled' )
+					   .removeData( 'wasEnabled' ); 
+			}
+		} );
+		return this.css( { 'height' : 'auto', 'overflow' : 'visible' } );
+	};
+
+	$j.validator.setDefaults( {
+		debug: true,
+		errorClass: 'mwe-validator-error'
+	} );
 
 } )( jQuery );

@@ -12,6 +12,15 @@ $messages = array();
  * @author Neil Kandalgaonkar
  */
 $messages['en'] = array(
+	'linktest' => '[$1 this is a link]',
+	'pluraltest' => 'This is {{PLURAL:$1|one|many}} things',
+	'magictest' => 'From {{SITENAME}}',
+	'namespacedtest' => '{{ns:project}}:Copyrights',
+	'extremelycomplextest'  => 'There is currently no text in this page.
+You can [[Special:Search/{{PAGENAME}}|search for this page title]] in other pages,
+<span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} search the related logs],
+or [{{fullurl:{{FULLPAGENAME}}|action=edit}} edit this page]</span>.',
+	'internallinktest' => '[[Special:SpecialPages|{{int:specialpages}}]]',
 	'uploadwizard' => 'Upload wizard',
 	'uploadwizard-desc' => 'Upload wizard, developed for the Multimedia Usability grant',
 	'mwe-loading-upwiz' => 'Loading upload wizard',
@@ -3493,4 +3502,3 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-categories-add' => '新增',
 	'mwe-upwiz-category-remove' => '刪除這個類別',
 );
-
