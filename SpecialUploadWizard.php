@@ -35,7 +35,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo. 
 	 */
 	public function execute( $subPage ) {
-		global $wgMessageCache, $wgScriptPath, $wgLang, $wgUser, $wgOut;
+		global $wgScriptPath, $wgLang, $wgUser, $wgOut;
 
 		// canUpload and canUserUpload have side effects; 
 		// if we can't upload, will print error page to wgOut 
@@ -45,9 +45,6 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		$langCode = $wgLang->getCode();
-		
-		// XXX what does this really do??
-		$wgMessageCache->loadAllMessages();
 
 		$this->setHeaders();
 		$this->outputHeader();
