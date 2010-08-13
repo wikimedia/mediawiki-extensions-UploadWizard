@@ -547,6 +547,14 @@ Jeste li sigurni da želite otići sa ove stranice?',
 	'mwe-upwiz-error-blank' => 'Ovo polje je neophodno.',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'uploadwizard' => 'Assistent de càrrega',
+);
+
+/** Czech (Česky) */
 $messages['cs'] = array(
 	'mwe-upwiz-fileexists' => 'Soubor s tímto jménem již existuje, prosím podívejte se na <b><tt>$1</tt></b>, pokud nevíte jistě, zda chcete tento soubor nahradit.',
 );
@@ -687,11 +695,72 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-category-remove' => 'Diese Kategorie entfernen',
 );
 
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Kghbln
+ */
+$messages['de-formal'] = array(
+	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitern Sie das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
+	'mwe-upwiz-add-file-n' => 'Fügen Sie eine weitere Datei hinzu',
+	'mwe-upwiz-add-file-0' => 'Klicken Sie hier, um eine Datei hochzuladen',
+	'mwe-upwiz-click-here' => 'Klicken Sie hier, um eine Datei auszuwählen',
+	'mwe-upwiz-remove-upload' => 'Entfernen Sie diese Datei aus der Liste der hochzuladenden Dateien',
+	'mwe-upwiz-remove-description' => 'Entfernen Sie diese Beschreibung',
+	'mwe-upwiz-deeds-intro' => 'Auf dieser Website ist es notwendig, dass Sie die hochgeladenen Dateien mit einer Lizenz für freie Inhalte versehen, damit sie jeder legal für jedwede Zwecke weiternutzen kann.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Versehen Sie {{PLURAL:$1|die obige Datei|die obigen Dateien}} mit einer Lizenz:',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Dies bedeutet, dass Sie Ihr Werk gemäß der Lizenz „Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen“ veröffentlichen.',
+	'mwe-upwiz-source-permission' => 'Deren Urheber haben Ihnen die ausdrückliche Erlaubnis gegeben, sie hochzuladen',
+	'mwe-upwiz-source-thirdparty-intro' => 'Bitte geben Sie die Internet-Adresse an, unter der Sie jede der Dateien gefunden haben.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Sofern alle Dateien aus der selben Quelle und vom selben Autor stammen sowie den selben urheberrechtlichen Status haben, können Sie die Eingaben für alle auf einmal vornehmen.',
+	'mwe-upwiz-source-custom' => 'Wählen Sie auf der nächsten Seite die Lizenzen für jede Datei einzeln.',
+	'mwe-upwiz-desc-add-n' => 'Fügen Sie eine Beschreibung in einer anderen Sprache hinzu',
+	'mwe-upwiz-categories-intro' => 'Helfen Sie anderen Menschen Ihre Werke zu finden, indem Sie ihnen Kategorien hinzufügen',
+	'mwe-upwiz-macro-edit-intro' => 'Wählen Sie zunächst eine Lizenz. Hernach können Sie Ihren hochgeladenen Dateien Beschreibungen und weitere Informationen hinzufügen.',
+	'mwe-upwiz-thanks-explain' => 'Sie können diese {{PLURAL:$1|Datei|Dateien}} auf Websites wie Wikipedia nutzen oder im Internet auf sie verlinken.',
+	'mwe-upwiz-thanks-wikitext' => '<b>Um diese Datei in einem Wiki nutzen zu können</b>, kopieren Sie folgenden Text in eine Seite:',
+	'mwe-upwiz-thanks-url' => '<b>Um in HTML auf die Datei zu verlinken</b>, kopieren Sie folgende URL in den Code:',
+	'mwe-upwiz-fileexists-replace' => 'Eine Datei mit dem Titel „$1“ existiert bereits. Bitte ändern Sie ihn zu einem bislang nicht vorhandenen Titel.',
+	'mwe-upwiz-fileexists' => 'Eine Datei dieses Namens ist bereits vorhanden. Bitte prüfen Sie <b><tt>$1</tt></b>, sofern Sie sich nicht sicher sind, ob Sie sie ersetzen möchten.',
+	'mwe-prevent-close' => 'Ihre Dateien werden gerade hochgeladen. Sind Sie sicher, dass Sie eine andere Seite aufrufen möchten?',
+	'mwe-upwiz-files-complete' => 'Ihre Dateien wurden nunmehr vollständig hochgeladen!',
+	'mwe-upwiz-tooltip-sign' => 'Sie können Ihren Benutzernamen auf diesem Wiki oder Ihren bürgerlichen Namen verwenden. In beiden Fällen wird er mit Ihrer Benutzerseite verknüpft.',
+	'mwe-upwiz-tooltip-title' => 'Ein kurzer Titel für die Datei. Sie können hierbei Leerzeichen, aber keine Zeilenumbrüche verwenden. Der Titel muss sich dabei von bereits vorhandenen Titeln auf diesem Wiki unterscheiden.',
+	'mwe-upwiz-tooltip-description' => 'Beschreiben Sie kurz alles Wichtige zu diesem Werk. Bei einem Foto beispielsweise die wichtigsten abgebildeten Bestandteile, den Anlass der Aufnahme und/ oder den Standort.',
+	'mwe-upwiz-tooltip-other' => 'Alle weiteren Informationen, die Sie im Zusammenhang mit diesem Werk angeben möchten. Verwenden Sie hierzu Wikitext.',
+	'mwe-upwiz-tooltip-more-info' => 'Erfahren Sie mehr.',
+	'mwe-upwiz-file-need-file' => 'Fügen Sie zuerst eine Datei zum Hochladen hinzu.',
+	'mwe-upwiz-file-need-start' => 'Bitte klicken Sie auf diese Schaltfläche, um das Hochladen zu starten.',
+	'mwe-upwiz-file-need-complete' => 'Bitte warten Sie, bis alle Dateien hochgeladen wurden.',
+	'mwe-upwiz-deeds-need-deed' => 'Erläutern Sie bitten woher die {{PLURAL:$1|Datei|Dateien}} stammen und wie sie auf dieser Website genutzt werden können, indem Sie eine der Optionen auswählen.',
+	'mwe-upwiz-deeds-need-license' => 'Bitte wählen Sie eine Lizenz aus.',
+	'mwe-upwiz-license-incompatible-cc' => 'Sie können nur eine der Creative-Commons-Lizenzen auswählen.',
+	'mwe-upwiz-license-show-all' => 'Verwenden Sie eine andere Lizenz',
+	'mwe-upwiz-license-show-recommended' => 'Verwenden Sie die empfohlene Lizenz',
+	'mwe-upwiz-error-signature-blank' => 'Sie müssen das Feld unten mit Ihrem Benutzernamen oder Ihrem bürgerlichen Namen unterzeichnen.',
+	'mwe-upwiz-error-signature-too-long' => 'Ihre Signatur ist zu lang.
+Kürzen Sie sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+	'mwe-upwiz-error-signature-too-short' => 'Ihre Signatur ist zu kurz.
+Verlängern Sie sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Ihre Unterschrift enthält unzulässige Zeichen.
+Verwenden Sie hier bitte kein Wikitext oder HTML sondern einfach Ihren Benutzernamen oder Ihren bürgerlichen Namen.',
+	'mwe-upwiz-error-too-long' => 'Diese Angabe ist zu lang.
+Kürzen Sie sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+	'mwe-upwiz-error-too-short' => 'Diese Angabe ist zu kurz.
+Verlängern Sie sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+	'mwe-upwiz-error-bad-chars' => 'Diese Angabe enthält unzulässige Zeichen.
+Bitte verwenden Sie hier kein Wikitext oder HTML.',
+);
+
+/** Zazaki (Zazaki) */
 $messages['diq'] = array(
 	'mwe-upwiz-fileexists' => 'no name de ca ra yew dosya esta. eke şıma emin niê bıvurni, kerem kerê <b><tt>$1</tt></b> kontrol bıkerê.',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
 $messages['dsb'] = array(
+	'uploadwizard' => 'Asistent za nagraśa',
+	'uploadwizard-desc' => 'Aistent za nagraśa, uwity za spěchowanje wužywajobnosći multimedijow',
 	'mwe-upwiz-fileexists' => 'Dataja z toś tym mjenim južo eksistěrujo. Pšosym skontrolěruj <b><tt>$1</tt></b>, jolic njejsy wěsty, lěc coš ju změniś.',
 );
 
@@ -1171,7 +1240,12 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-category-remove' => 'Eliminar esta categoría',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
 $messages['gsw'] = array(
+	'uploadwizard' => 'Assischtänt zum Uffelade',
+	'uploadwizard-desc' => 'Assischtänt zum Uffelade. Entwicklig dur Ferdergälder vu dr Verbesserig vu dr Benutzerfrejndligkeit (Multimedia Usability Project).',
 	'mwe-upwiz-fileexists' => 'S het scho ne Datei mit däm Name. Bitte prief <b><tt>$1</tt></b>, wänn du nit sicher bisch, eb Du dr Name witt ändere.',
 );
 
@@ -1850,6 +1924,7 @@ $1文字より長くしてください。',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
 );
 
+/** Colognian (Ripoarisch) */
 $messages['ksh'] = array(
 	'mwe-upwiz-fileexists' => 'En Dattei met dämm Name jidd_et ald. Beß esu joot un donn <b><tt>$1</tt></b> prööfe, wann De Der nit sescher beß, of De jät ändere wells.',
 );
@@ -2127,6 +2202,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-category-remove' => 'Отстрани ја категоријава',
 );
 
+/** Malayalam (മലയാളം) */
 $messages['ml'] = array(
 	'mwe-upwiz-fileexists' => 'ഇതേ പേരിൽ ഒരു പ്രമാണം നിലവിലുണ്ട്. അതിൽ മാറ്റം വരുത്തണോ എന്നു താങ്കൾക്ക് ഉറപ്പില്ലങ്കിൽ ദയവായി <b><tt>$1</tt></b> കാണുക.',
 );
@@ -2408,7 +2484,12 @@ Ikke bruk wikitekst eller HTML her.',
 	'mwe-upwiz-category-remove' => 'Fjern denne kategorien',
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
 $messages['oc'] = array(
+	'uploadwizard' => "Assistent d'impòrt",
+	'uploadwizard-desc' => "Assistent d'impòrt, desvolopat per la subvencion Multimedia Usability",
 	'mwe-upwiz-fileexists' => 'Un fichièr amb aqueste nom existís ja. Mercé de verificar <b><tt>$1</tt></b> se sètz pas segur que lo volètz cambiar.',
 );
 
@@ -2986,6 +3067,7 @@ $messages['si'] = array(
 	'mwe-upwiz-next-details' => 'ඊලඟ',
 );
 
+/** Slovak (Slovenčina) */
 $messages['sk'] = array(
 	'mwe-upwiz-fileexists' => 'Súbor s týmto názvom už existuje. Prosím, skontrolujte <b><tt>$1</tt></b> ak si nie ste istý, či ho chcete zmeniť.',
 );
@@ -3201,6 +3283,7 @@ $messages['te'] = array(
 	'mwe-upwiz-change' => '(మార్చు)',
 );
 
+/** Turkish (Türkçe) */
 $messages['tr'] = array(
 	'mwe-upwiz-fileexists' => 'Bu isimde bir dosya zaten mevcut. Değiştirmek istediğinize emin değilseniz lütfen <b><tt>$1</tt></b> kontrol edin.',
 );
@@ -3210,6 +3293,7 @@ $messages['ur'] = array(
 	'mwe-upwiz-cancel' => 'منسوخ',
 );
 
+/** Vietnamese (Tiếng Việt) */
 $messages['vi'] = array(
 	'mwe-upwiz-fileexists' => 'Một tập tin với tên này đã tồn tại, xin hãy kiểm tra lại <b><tt>$1</tt></b> nếu bạn không chắc bạn có muốn thay đổi nó hay không.',
 );
@@ -3502,3 +3586,4 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-categories-add' => '新增',
 	'mwe-upwiz-category-remove' => '刪除這個類別',
 );
+
