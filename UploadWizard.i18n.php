@@ -1676,6 +1676,9 @@ Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapa
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Berkas ini|Berkas-berkas ini}} bukan karya saya.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Silakan masukkan alamat tempat Anda menemukan setiap berkas.',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-source-custom' => 'Pilih lisensi untuk setiap berkas secara manual di halaman berikutnya.',
+	'mwe-upwiz-more-options' => 'lebih banyak pilihan...',
+	'mwe-upwiz-fewer-options' => 'lebih sedikit pilihan...',
 	'mwe-upwiz-desc' => 'Deskripsi di',
 	'mwe-upwiz-desc-add-n' => 'tambahkan deskripsi dalam bahasa lain',
 	'mwe-upwiz-desc-add-0' => 'tambahkan deskripsi',
@@ -1725,6 +1728,9 @@ Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapa
 Anda yakin ingin keluar dari halaman ini?',
 	'mwe-upwiz-files-complete' => 'Berkas Anda selesai diunggah!',
 	'mwe-upwiz-tooltip-more-info' => 'Pelajari lebih lanjut.',
+	'mwe-upwiz-file-need-file' => 'Silakan tambahkan berkas unduhan terlebih dahulu.',
+	'mwe-upwiz-file-need-start' => 'Silakan tekan tombol ini untuk memulai pengunggahan Anda.',
+	'mwe-upwiz-file-need-complete' => 'Silakan menunggu hingga semua berkas selesai diunduh.',
 	'mwe-upwiz-deeds-need-license' => 'Silakan pilih lisensi.',
 	'mwe-upwiz-license-incompatible-pd' => 'Lisensi domain umum tidak cocok dengan jenis lisensi lain.',
 	'mwe-upwiz-license-incompatible-cc' => 'Anda hanya dapat memilih satu jenis lisensi Creative Commons.',
@@ -2510,10 +2516,13 @@ $messages['pdc'] = array(
 $messages['pl'] = array(
 	'uploadwizard' => 'Kreator przesyłania',
 	'uploadwizard-desc' => 'Kreator dodawania, opracowany dla dotowanego projektu użyteczności multimediów',
+	'mwe-loading-upwiz' => 'Ładowanie czarodzieja przesyłania plików',
 	'mwe-upwiz-code-unknown' => 'Nierozpoznany język.',
 	'mwe-upwiz-step-file' => 'Prześlij',
 	'mwe-upwiz-step-deeds' => 'Uwolnij prawa do dzieła',
 	'mwe-upwiz-step-thanks' => 'Użyj',
+	'mwe-upwiz-intro' => 'Witaj w Wikimedia Commons, repozytorium obrazów, dźwięków i filmów, które każdy może bezpłatnie pobrać i używać. 
+Powiększ wiedzę ludzkości, przesyłając pliki, które mogłyby być użyte w celach edukacyjnych.',
 	'mwe-upwiz-add-file-n' => 'Dodaj inny plik',
 	'mwe-upwiz-add-file-0' => 'Kliknij tutaj, aby przesłać plik',
 	'mwe-upwiz-browse' => 'Przeglądaj...',
@@ -2528,6 +2537,46 @@ $messages['pl'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'przesyłanie',
 	'mwe-upwiz-finished' => 'Gotowe!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Pozostała 1 sekunda|Pozostały $1 sekundy|Pozostało $1 sekund}}',
+	'mwe-upwiz-mins-secs-remaining' => 'Pozostało $1 {{PLURAL:$1|minuta|minuty|minut}} i $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Pozostała|Pozostały|Pozostało}} $1 {{PLURAL:$1|godzina|godziny|godzin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} i $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
+	'mwe-upwiz-deeds-intro' => 'Ten serwis wymaga, byś podał dla przesyłanego pliku licencję taką, by każdy mógł legalnie wykorzystać go w dowolnym celu.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Podaj licencję dla {{PLURAL:$1|powyższego pliku|wszystkich powyższych plików}}:',
+	'mwe-upwiz-details-intro' => 'Teraz potrzebujemy kilku podstawowych informacji o tych plikach.',
+	'mwe-upwiz-source-ownwork' => 'Jestem autorem {{PLURAL:$1|tego utworu|tych utworów}}.',
+	'mwe-upwiz-source-ownwork-assert' => 'Ja, $2, właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}}, niniejszym udzielam każdemu nieodwołalnej zgody na {{PLURAL:$1|jego|ich}} wykorzystanie w dowolnym celu pod warunkiem podania informacji o moim autorstwie i publikowania prac pochodnych na tej samej licencji.',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Ja, $2, właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}}, niniejszym publikuję {{PLURAL:$1|go|je}} na poniższej licencji (poniższych licencjach):',
+	'mwe-upwiz-source-ownwork-assert-note' => 'To oznacza, że publikujesz swoje dzieło na licencji reative Commons Attribution ShareAlike.',
+	'mwe-upwiz-source-permission' => 'Autor dał ci wyraźne pozwolenie na ich przesłanie',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ten utwór nie jest|Te utwory nie są}} mojego autorstwa.',
+	'mwe-upwiz-source-thirdparty-intro' => 'Wpisz adres, pod którym znalazłeś każdy z tych plików.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Jeśli wszystkie te utwory pochodzą z tego samego źródła, mają tego samego autora i licencję, możesz podać te informacje dla wszystkich plików naraz.',
+	'mwe-upwiz-source-thirdparty-license' => 'Właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}} opublikował je na następującej licencji (następujących licencjach):',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-source-custom' => 'Licencję dla każdego pliku oddzielnie wybierz na następnej stronie.',
+	'mwe-upwiz-more-options' => 'więcej opcji ...',
+	'mwe-upwiz-fewer-options' => 'mniej opcji ...',
+	'mwe-upwiz-desc' => 'Opis w',
+	'mwe-upwiz-desc-add-n' => 'Dodaj opis w innym języku',
+	'mwe-upwiz-desc-add-0' => 'Dodaj opis',
+	'mwe-upwiz-title' => 'Tytuł',
+	'mwe-upwiz-categories-intro' => 'Pomóż innym znaleźć twoje prace poprzez dodanie kategorii',
+	'mwe-upwiz-categories-another' => 'Dodaj kategorie',
+	'mwe-upwiz-previously-uploaded' => 'Ten plik został wcześniej wysłany do $1 i jest już dostępny <a href="$2">tutaj</a>.',
+	'mwe-upwiz-about-this-work' => 'O tym utworze',
+	'mwe-upwiz-media-type' => 'Typ pliku',
+	'mwe-upwiz-date-created' => 'Data utworzenia',
+	'mwe-upwiz-location' => 'Położenie',
+	'mwe-upwiz-copyright-info' => 'Uwolnij prawa do dzieła',
+	'mwe-upwiz-author' => 'Autor(‐rzy)',
+	'mwe-upwiz-license' => 'Uwolnij prawa do dzieła',
+	'mwe-upwiz-about-format' => 'Informacje o pliku',
+	'mwe-upwiz-autoconverted' => 'Ten plik został automatycznie skonwertowany na format $1',
+	'mwe-upwiz-filename-tag' => 'Nazwa pliku',
+	'mwe-upwiz-other' => 'Inne informacje',
+	'mwe-upwiz-showall' => 'Pokaż wszystkie',
+	'mwe-upwiz-macro-edit-intro' => 'Najpierw wybierz licencję powyżej, następnie możesz dodać opis i inne informacje do przesyłanych plików.',
+	'mwe-upwiz-thanks-intro' => 'Dziękujemy za przesłanie plików!',
+	'mwe-upwiz-thanks-explain' => 'Teraz możesz korzystać z {{PLURAL:$1|tego pliku|tych plików}} na stronach takich, jak Wikipedia lub linkować do {{PLURAL:$1|niego|nich}} w sieci.',
 	'mwe-upwiz-fileexists' => 'Plik o tej nazwie już istnieje. Sprawdź <b><tt>$1</tt></b> jeśli nie jesteś pewien czy chcesz go zastąpić.',
 );
 
@@ -3286,6 +3335,13 @@ $messages['te'] = array(
 /** Turkish (Türkçe) */
 $messages['tr'] = array(
 	'mwe-upwiz-fileexists' => 'Bu isimde bir dosya zaten mevcut. Değiştirmek istediğinize emin değilseniz lütfen <b><tt>$1</tt></b> kontrol edin.',
+);
+
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+ * @author Ильнар
+ */
+$messages['tt-cyrl'] = array(
+	'uploadwizard' => 'Йөкләү җиһазы',
 );
 
 /** Urdu (اردو) */
