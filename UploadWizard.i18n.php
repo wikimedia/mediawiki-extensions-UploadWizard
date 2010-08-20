@@ -236,6 +236,13 @@ $messages['af'] = array(
 	'mwe-upwiz-category-remove' => 'Verwyder hierdie kategorie',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'mwe-upwiz-cancel' => 'Cancelar',
+);
+
 /** Arabic (العربية)
  * @author ;Hiba;1
  */
