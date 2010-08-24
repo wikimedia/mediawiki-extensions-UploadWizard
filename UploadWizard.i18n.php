@@ -2762,6 +2762,8 @@ Contribuì a la conossensa dl'umanità an cariand dj'archivi ch'a podrìo esse d
 	'mwe-upwiz-browse' => 'Score...',
 	'mwe-upwiz-transported' => 'Va bin',
 	'mwe-upwiz-click-here' => "Sgnaché ambelessì për selessioné n'archivi",
+	'mwe-upwiz-uploading' => "antramentr ch'as caria...",
+	'mwe-upwiz-editing' => 'an modìfica...',
 );
 
 /** Pashto (پښتو)
