@@ -2767,12 +2767,13 @@ $messages['pdc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'uploadwizard' => 'Kreator przesyłania',
-	'uploadwizard-desc' => 'Kreator dodawania, opracowany dla dotowanego projektu użyteczności multimediów',
-	'mwe-loading-upwiz' => 'Ładowanie czarodzieja przesyłania plików',
-	'mwe-upwiz-code-unknown' => 'Nierozpoznany język.',
+	'uploadwizard' => 'Kreator przesyłania plików',
+	'uploadwizard-desc' => 'Kreator przesyłania plików, opracowany dla projektu użyteczności multimediów',
+	'mwe-loading-upwiz' => 'Ładowanie kreatora przesyłania plików',
+	'mwe-upwiz-code-unknown' => 'Nierozpoznany język',
 	'mwe-upwiz-step-file' => 'Prześlij',
 	'mwe-upwiz-step-deeds' => 'Uwolnij prawa do dzieła',
+	'mwe-upwiz-step-details' => 'Opisz',
 	'mwe-upwiz-step-thanks' => 'Użyj',
 	'mwe-upwiz-intro' => 'Witaj w Wikimedia Commons, repozytorium obrazów, dźwięków i filmów, które każdy może bezpłatnie pobrać i używać. 
 Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać użyte w celach edukacyjnych.',
@@ -2786,19 +2787,20 @@ Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać u�
 	'mwe-upwiz-remove-upload' => 'Usuń ten plik z listy plików do przesłania',
 	'mwe-upwiz-remove-description' => 'Usuń ten opis',
 	'mwe-upwiz-upload' => 'Prześlij',
-	'mwe-upwiz-upload-count' => 'Przesłano $1 z $2 {{PLURAL:$2|pliku|plików}}.',
+	'mwe-upwiz-upload-count' => 'Przesłano $1 z $2 {{PLURAL:$2|pliku|plików}}',
 	'mwe-upwiz-progressbar-uploading' => 'przesyłanie',
 	'mwe-upwiz-finished' => 'Gotowe!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Pozostała 1 sekunda|Pozostały $1 sekundy|Pozostało $1 sekund}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Pozostała|Pozostały|Pozostało}} $1 {{PLURAL:$1|minuta|minuty|minut}} i $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
-	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Pozostała|Pozostały|Pozostało}} $1 {{PLURAL:$1|godzina|godziny|godzin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} i $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Pozostała $1 minuta|Pozostały $1 minuty|Pozostało $1 minut}} i $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Pozostała $1 godzina|Pozostały $1 godziny|Pozostało $1 godzin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} i $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-deeds-intro' => 'Ten serwis wymaga, abyś wybrał dla przesyłanego pliku taką licencję, by każdy mógł legalnie wykorzystać go w dowolnym celu.',
 	'mwe-upwiz-deeds-macro-prompt' => 'Określ licencję dla {{PLURAL:$1|powyższego pliku|wszystkich powyższych plików}}',
+	'mwe-upwiz-deeds-custom-prompt' => 'Lub',
 	'mwe-upwiz-details-intro' => 'Uzupełnij kilka podstawowych informacji o tych plikach.',
 	'mwe-upwiz-source-ownwork' => 'Jestem autorem {{PLURAL:$1|tego utworu|tych utworów}}.',
 	'mwe-upwiz-source-ownwork-assert' => 'Ja $2 – właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}}, niniejszym udzielam każdemu nieodwołalnej zgody na {{PLURAL:$1|jego|ich}} wykorzystanie w dowolnym celu pod warunkiem podania informacji o moim autorstwie oraz publikowania prac pochodnych na tej samej licencji.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Ja $2 – właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}}, niniejszym publikuję je na poniższej licencji (poniższych licencjach):',
-	'mwe-upwiz-source-ownwork-assert-note' => 'To oznacza, że publikujesz swoje dzieło na licencji Creative Commons Attribution ShareAlike.',
+	'mwe-upwiz-source-ownwork-assert-note' => 'To oznacza, że publikujesz swoje dzieło na licencji Creative Commons Za wskazaniem autora Na tych samych warunkach.',
 	'mwe-upwiz-source-permission' => 'Autor wyraźnie zezwolił Ci na ich przesłanie',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ten utwór nie jest|Te utwory nie są}} mojego autorstwa.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Wpisz adres, pod którym znalazłeś każdy z tych plików.',
@@ -2826,12 +2828,16 @@ Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać u�
 	'mwe-upwiz-autoconverted' => 'Plik został automatycznie skonwertowany do formatu $1',
 	'mwe-upwiz-filename-tag' => 'Nazwa pliku',
 	'mwe-upwiz-other' => 'Inna informacja',
+	'mwe-upwiz-other-prefill' => 'Dowolny tekst wiki',
 	'mwe-upwiz-showall' => 'pokaż wszystkie',
 	'mwe-upwiz-source' => 'Źródło',
 	'mwe-upwiz-macro-edit-intro' => 'Najpierw powyżej wybierz licencję, następnie możesz dodać opis i inne informacje do przesyłanych plików.',
+	'mwe-upwiz-macro-edit' => 'Aktualizuj opis',
 	'mwe-upwiz-thanks-intro' => 'Dziękujemy za przesłanie plików!',
 	'mwe-upwiz-thanks-explain' => 'Teraz możesz korzystać z {{PLURAL:$1|tego pliku|tych plików}} na stronach takich, jak Wikipedia lub linkować do {{PLURAL:$1|niego|nich}} w sieci.',
+	'mwe-upwiz-thanks-link' => 'Ten plik jest już dostępny na <b><tt>$1</tt></b>.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Aby skorzystać z pliku w wiki</b>, skopiuj ten tekst na stronę:',
+	'mwe-upwiz-thanks-url' => '<b>Aby dodać link do niego w HTML,</b> skopiuj ten adres URL',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ta wiki nie przyjmuje nazw plików z rozszerzeniem „$1”.',
 	'mwe-upwiz-upload-error-duplicate' => 'Ten plik został wcześniej przesłany do tej wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Przesłać mimo to?',
@@ -2862,18 +2868,40 @@ Możesz użyć prostego języka i spacji, ale niedopuszczalne jest łamanie lini
 Tytuł musi być różny od tytułu każdej strony w tej wiki.',
 	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko, co istotnie dotyczy pracy. 
 W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejsce.',
+	'mwe-upwiz-tooltip-other' => 'Wszelkie inne informacje, które chcesz dołączyć do tej pracy.
+Możesz użyć tekstowego wiki kodu.',
+	'mwe-upwiz-tooltip-more-info' => 'Więcej informacji.',
+	'mwe-upwiz-file-need-file' => 'Najpierw dodaj plik do przesłania.',
+	'mwe-upwiz-file-need-start' => 'Naciśnij ten przycisk, aby uruchomić przesyłanie.',
+	'mwe-upwiz-file-need-complete' => 'Poczekaj, aż wszystkie pliki zostaną przesłane.',
+	'mwe-upwiz-deeds-need-deed' => 'Proszę wskazać skąd {{PLURAL:$1|pochodzi ten plik|pochodzą te pliki}} i jak ta witryna może z {{PLURAL:$1|niego|nich}} skorzystać, poprzez wybranie odpowiedniej opcji.',
+	'mwe-upwiz-deeds-need-license' => 'Wybierz licencję.',
+	'mwe-upwiz-license-incompatible-pd' => 'Licencja domeny publicznej nie jest kompatybilna z innymi licencjami.',
+	'mwe-upwiz-license-incompatible-cc' => 'Możesz wybrać tylko jeden rodzaj licencji Creative Commons.',
+	'mwe-upwiz-license-show-all' => 'Użyj innej licencji',
+	'mwe-upwiz-license-show-recommended' => 'Użyj zalecanej licencji',
+	'mwe-upwiz-error-signature-blank' => 'Musisz podpisać się w poniższym polu swoją nazwą użytkownika lub prawdziwym imieniem i nazwiskiem.',
 	'mwe-upwiz-error-signature-too-long' => 'Twój podpis jest zbyt długi.
 Skróć go do nie więcej niż $1 {{PLURAL:$1|znaku|znaków}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Twój podpis jest za krótki. 
 Wydłuż go do co najmniej $1 {{PLURAL:$1|znaku|znaków}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Podpis zawiera niedozwolone znaki.
+Nie wolno korzystać z formatowania wiki lub HTML. Należy wpisać swoją nazwę użytkownika lub imię i nazwisko.',
+	'mwe-upwiz-error-blank' => 'Wypełnienie tego pola jest wymagane.',
 	'mwe-upwiz-error-too-long' => 'To pole jest zbyt długie.
 Skróć je do nie więcej niż $1 {{PLURAL:$1|znaku|znaków}}.',
 	'mwe-upwiz-error-too-short' => 'To pole jest za krótkie. 
 Wydłuż je do co najmniej $1 {{PLURAL:$1|znaku|znaków}}.',
+	'mwe-upwiz-error-bad-chars' => 'Pole zawiera niedozwolone symbole.
+Proszę tutaj nie korzystać z formatowania wiki lub HTML.',
+	'mwe-upwiz-error-date' => 'Należy wpisać poprawną datę w formacie RRRR-MM-DD lub wybrać datę z kalendarza.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Uznanie autorstwa Na tych samych warunkach 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Za podaniem autora 3.0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Zrzeczenie się praw',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-categories' => 'Kategorie',
 	'mwe-upwiz-categories-add' => 'Dodaj',
+	'mwe-upwiz-category-remove' => 'Usuń z tej kategorii',
 );
 
 /** Piedmontese (Piemontèis)
@@ -3389,6 +3417,7 @@ $messages['rue'] = array(
  * @author බිඟුවා
  */
 $messages['si'] = array(
+	'uploadwizard' => 'උඩුගත කිරීමේ මායා අඳුන',
 	'mwe-upwiz-code-unknown' => 'නොදන්නා භාෂාව',
 	'mwe-upwiz-step-file' => 'උඩුගත කරන්න',
 	'mwe-upwiz-step-details' => 'විස්තර කිරීම',
@@ -3432,6 +3461,7 @@ $messages['si'] = array(
 	'mwe-upwiz-ok' => 'හරි',
 	'mwe-upwiz-cancel' => ' අත් හරින්න',
 	'mwe-upwiz-change' => '(වෙනස)',
+	'mwe-copyright-macro' => 'ඉහත පරිදි',
 	'mwe-upwiz-next' => 'ඊලඟ',
 	'mwe-upwiz-next-deeds' => 'ඊලඟ',
 	'mwe-upwiz-next-details' => 'ඊලඟ',
