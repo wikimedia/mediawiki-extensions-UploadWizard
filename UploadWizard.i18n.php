@@ -1815,13 +1815,19 @@ Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapa
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|detik|detik}} tersisa',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|menit|menit}} $2 {{PLURAL:$2|detik|detik}} tersisa',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|jam|jam}} $2 {{PLURAL:$2|menit|menit}} $3 {{PLURAL:$3|detik|detik}} tersisa',
+	'mwe-upwiz-deeds-intro' => 'Situs ini mengharuskan Anda untuk menetapkan lisensi untuk berkas unggahan, sehingga semua orang dapat menggunakan kembali berkas tersebut secara sah untuk tujuan apa pun.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Tetapkan lisensi untuk {{PLURAL:$1|berkas di atas|semua berkas di atas}}:',
 	'mwe-upwiz-deeds-custom-prompt' => 'Atau:',
 	'mwe-upwiz-details-intro' => 'Sekarang kami membutuhkan sejumlah informasi dasar mengenai berkas ini.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Berkas ini|Berkas-berkas ini}} adalah karya saya.',
+	'mwe-upwiz-source-ownwork-assert' => 'Saya, $2, pemegang hak cipta dari {{PLURAL:$1|karya ini|karya-karya ini}}, dengan resmi memberikan siapa pun hak untuk menggunakannya untuk tujuan apa pun, selama mereka menyebutkan nama saya dan menyebarkan karya turunannya dengan persyaratan yang sama.',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Saya, $2, pemegang hak cipta {{PLURAL:$1|karya ini|karya-karya ini}}, dengan ini menerbitkannya di bawah lisensi berikut:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Ini berarti Anda melepaskan karya Anda di bawah lisensi Creative Commons Atribusi BerbagiSerupa.',
 	'mwe-upwiz-source-permission' => 'Pemilik berkas memberikan Anda izin untuk mengunggahnya',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Berkas ini|Berkas-berkas ini}} bukan karya saya.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Silakan masukkan alamat tempat Anda menemukan setiap berkas.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Bila semua berkas memiliki sumber, pemilik, dan status hak cipta yang sama, Anda dapat memasukan semuanya sekali saja.',
+	'mwe-upwiz-source-thirdparty-license' => 'Pemegang hak cipta {{PLURAL:$1|karya ini|karya-karya ini}} menerbitkannya di bawah lisensi berikut:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Pilih lisensi untuk setiap berkas secara manual di halaman berikutnya.',
 	'mwe-upwiz-more-options' => 'lebih banyak pilihan...',
@@ -1860,6 +1866,7 @@ Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapa
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Batalkan',
 	'mwe-upwiz-change' => '(ubah)',
+	'mwe-upwiz-fileexists-replace' => 'Sebuah berkas dengan judul "$1" sudah ada. Silakan ubah judul Anda menjadi judul yang unik.',
 	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada. Tolong cek <b><tt>$1</tt></b> jika Anda tidak yakin untuk mengubahnya.',
 	'mwe-upwiz-thumbnail-more' => 'Perbesar',
 	'mwe-upwiz-overwrite' => 'Ganti berkas',
@@ -1874,9 +1881,15 @@ Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapa
 	'mwe-prevent-close' => 'Berkas Anda sedang diunggah.
 Anda yakin ingin keluar dari halaman ini?',
 	'mwe-upwiz-files-complete' => 'Berkas Anda selesai diunggah!',
+	'mwe-upwiz-tooltip-author' => 'Nama orang yang mengambil foto, atau melukis luksian, menggambar gambar, dll.',
+	'mwe-upwiz-tooltip-source' => 'Tempat asal berkas digital ini -- bisa berupa URL, buku atau terbitan',
+	'mwe-upwiz-tooltip-sign' => 'Anda dapat menggunakan nama pengguna wiki atau nama asli Anda.
+Untuk kedua nama akan dihubungkan ke halaman pengguna wiki Anda.',
 	'mwe-upwiz-tooltip-title' => 'Judul pendek untuk berkas ini.
 Anda boleh menggunakan teks biasa dengan spasi, tanpa jeda baris.
 Judul ini harus berbeda dengan judul lain di wiki ini.',
+	'mwe-upwiz-tooltip-description' => 'Jelaskan dengan singkat hal-hal penting tentang karya ini.
+Untuk foto, sebutkan hal-hal utama yang ditampilkan, kesempatan atau tempat yang ditampilkan di foto.',
 	'mwe-upwiz-tooltip-other' => 'Informasi lain yang ingin Anda sertakan mengenai karya ini.
 Anda boleh menggunakan kode teks wiki.',
 	'mwe-upwiz-tooltip-more-info' => 'Pelajari lebih lanjut.',
@@ -2229,6 +2242,7 @@ Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir 
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere sinn}} net mäin eegent Wierk.',
 	'mwe-upwiz-source-thirdparty-intro' => "Gitt w.e.g. d'Adress un wou Dir all eenzelne Fichier fonnt hutt.",
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Wann all Fichieren déi selwecht Quell, Auteur a Copyright-Status hunn, da kënnt Dir se fir all Fichieren an enger Kéier aginn.',
+	'mwe-upwiz-source-thirdparty-license' => 'Den Titulaire vum Copyright vun {{PLURAL:$1|dësem Wierk|dëse Wierker}} verëffentlecht {{PLURAL:$1|et|se}} ënnert dëser/dëse Lizenz/Lizenzen:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => "Sicht d'Lizenze fir all Fichier individuell op der nächster Säit eraus.",
 	'mwe-upwiz-more-options' => 'méi Optiounen...',
@@ -2803,9 +2817,9 @@ Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać u�
 	'mwe-upwiz-source-ownwork-assert-note' => 'To oznacza, że publikujesz swoje dzieło na licencji Creative Commons Za wskazaniem autora Na tych samych warunkach.',
 	'mwe-upwiz-source-permission' => 'Autor wyraźnie zezwolił Ci na ich przesłanie',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ten utwór nie jest|Te utwory nie są}} mojego autorstwa.',
-	'mwe-upwiz-source-thirdparty-intro' => 'Wpisz adres, pod którym znalazłeś każdy z tych plików.',
+	'mwe-upwiz-source-thirdparty-intro' => 'Wpisz adresy, pod którymi znalazłeś każdy z tych plików.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Jeśli wszystkie te utwory pochodzą z tego samego źródła, mają tego samego autora i licencję, możesz podać te informacje dla wszystkich plików naraz.',
-	'mwe-upwiz-source-thirdparty-license' => 'Właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}} opublikował je na następującej licencji (następujących licencjach):',
+	'mwe-upwiz-source-thirdparty-license' => 'Właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}} opublikował je na licencji {{PLURAL:$1||(licencjach):}}',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Wybierz na następnej stronie licencję oddzielnie dla każdego pliku.',
 	'mwe-upwiz-more-options' => 'więcej opcji...',
@@ -2827,8 +2841,8 @@ Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać u�
 	'mwe-upwiz-about-format' => 'Informacje o pliku',
 	'mwe-upwiz-autoconverted' => 'Plik został automatycznie skonwertowany do formatu $1',
 	'mwe-upwiz-filename-tag' => 'Nazwa pliku',
-	'mwe-upwiz-other' => 'Inna informacja',
-	'mwe-upwiz-other-prefill' => 'Dowolny tekst wiki',
+	'mwe-upwiz-other' => 'Inne informacje',
+	'mwe-upwiz-other-prefill' => 'Dowolny tekst z formatowaniem wiki',
 	'mwe-upwiz-showall' => 'pokaż wszystkie',
 	'mwe-upwiz-source' => 'Źródło',
 	'mwe-upwiz-macro-edit-intro' => 'Najpierw powyżej wybierz licencję, następnie możesz dodać opis i inne informacje do przesyłanych plików.',
@@ -2836,9 +2850,9 @@ Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać u�
 	'mwe-upwiz-thanks-intro' => 'Dziękujemy za przesłanie plików!',
 	'mwe-upwiz-thanks-explain' => 'Teraz możesz korzystać z {{PLURAL:$1|tego pliku|tych plików}} na stronach takich, jak Wikipedia lub linkować do {{PLURAL:$1|niego|nich}} w sieci.',
 	'mwe-upwiz-thanks-link' => 'Ten plik jest już dostępny na <b><tt>$1</tt></b>.',
-	'mwe-upwiz-thanks-wikitext' => '<b>Aby skorzystać z pliku w wiki</b>, skopiuj ten tekst na stronę:',
+	'mwe-upwiz-thanks-wikitext' => '<b>Aby skorzystać z pliku w wiki</b>, skopiuj ten tekst na stronę',
 	'mwe-upwiz-thanks-url' => '<b>Aby dodać link do niego w HTML,</b> skopiuj ten adres URL',
-	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ta wiki nie przyjmuje nazw plików z rozszerzeniem „$1”.',
+	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ta wiki nie akceptuje plików o nazwach z rozszerzeniem „$1”.',
 	'mwe-upwiz-upload-error-duplicate' => 'Ten plik został wcześniej przesłany do tej wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Przesłać mimo to?',
 	'mwe-upwiz-ok' => 'OK',
@@ -2856,27 +2870,27 @@ Poszerz wiedzę ludzkości, przesyłając pliki, które będą mogły zostać u�
 	'mwe-upwiz-next-details' => 'Dalej',
 	'mwe-upwiz-home' => 'Przejdź do strony głównej wiki',
 	'mwe-upwiz-upload-another' => 'Prześlij więcej plików',
-	'mwe-prevent-close' => 'Pliki są w trakcie przesłania. 
+	'mwe-prevent-close' => 'Pliki są nadal przesłane. 
 Czy na pewno chcesz opuścić tę stronę?',
 	'mwe-upwiz-files-complete' => 'Zakończono przesyłanie plików!',
 	'mwe-upwiz-tooltip-author' => 'Imię i nazwisko osoby, która zrobiła zdjęcie, namalowała obraz, narysowała rysunek itp.',
-	'mwe-upwiz-tooltip-source' => 'Skąd pochodzi ten plik – adres URL, książka lub publikacja',
+	'mwe-upwiz-tooltip-source' => 'Skąd pochodzi ten plik: adres URL, książka lub publikacja',
 	'mwe-upwiz-tooltip-sign' => 'Możesz użyć swojej nazwy użytkownika lub prawdziwego nazwiska.
 W obu przypadkach link będzie prowadził do Twojej strony użytkownika.',
 	'mwe-upwiz-tooltip-title' => 'Krótki tytuł pliku.
 Możesz użyć prostego języka i spacji, ale niedopuszczalne jest łamanie linii.
 Tytuł musi być różny od tytułu każdej strony w tej wiki.',
-	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko, co istotnie dotyczy pracy. 
+	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko istotne, co dotyczy tej pracy. 
 W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejsce.',
 	'mwe-upwiz-tooltip-other' => 'Wszelkie inne informacje, które chcesz dołączyć do tej pracy.
-Możesz użyć tekstowego wiki kodu.',
+Możesz użyć formatowania wiki.',
 	'mwe-upwiz-tooltip-more-info' => 'Więcej informacji.',
 	'mwe-upwiz-file-need-file' => 'Najpierw dodaj plik do przesłania.',
 	'mwe-upwiz-file-need-start' => 'Naciśnij ten przycisk, aby uruchomić przesyłanie.',
 	'mwe-upwiz-file-need-complete' => 'Poczekaj, aż wszystkie pliki zostaną przesłane.',
-	'mwe-upwiz-deeds-need-deed' => 'Proszę wskazać skąd {{PLURAL:$1|pochodzi ten plik|pochodzą te pliki}} i jak ta witryna może z {{PLURAL:$1|niego|nich}} skorzystać, poprzez wybranie odpowiedniej opcji.',
+	'mwe-upwiz-deeds-need-deed' => 'Proszę wskazać skąd {{PLURAL:$1|pochodzi ten plik|pochodzą te pliki}} i jak nasza witryna może z {{PLURAL:$1|niego|nich}} skorzystać, poprzez wybranie odpowiedniej opcji.',
 	'mwe-upwiz-deeds-need-license' => 'Wybierz licencję.',
-	'mwe-upwiz-license-incompatible-pd' => 'Licencja domeny publicznej nie jest kompatybilna z innymi licencjami.',
+	'mwe-upwiz-license-incompatible-pd' => 'Licencja domeny publicznej nie jest kompatybilna z innymi rodzajami licencji.',
 	'mwe-upwiz-license-incompatible-cc' => 'Możesz wybrać tylko jeden rodzaj licencji Creative Commons.',
 	'mwe-upwiz-license-show-all' => 'Użyj innej licencji',
 	'mwe-upwiz-license-show-recommended' => 'Użyj zalecanej licencji',
@@ -2887,12 +2901,12 @@ Skróć go do nie więcej niż $1 {{PLURAL:$1|znaku|znaków}}.',
 Wydłuż go do co najmniej $1 {{PLURAL:$1|znaku|znaków}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Podpis zawiera niedozwolone znaki.
 Nie wolno korzystać z formatowania wiki lub HTML. Należy wpisać swoją nazwę użytkownika lub imię i nazwisko.',
-	'mwe-upwiz-error-blank' => 'Wypełnienie tego pola jest wymagane.',
+	'mwe-upwiz-error-blank' => 'Wypełnienie tego pola jest obowiązkowe.',
 	'mwe-upwiz-error-too-long' => 'To pole jest zbyt długie.
 Skróć je do nie więcej niż $1 {{PLURAL:$1|znaku|znaków}}.',
 	'mwe-upwiz-error-too-short' => 'To pole jest za krótkie. 
 Wydłuż je do co najmniej $1 {{PLURAL:$1|znaku|znaków}}.',
-	'mwe-upwiz-error-bad-chars' => 'Pole zawiera niedozwolone symbole.
+	'mwe-upwiz-error-bad-chars' => 'Pole zawiera niedozwolone znaki.
 Proszę tutaj nie korzystać z formatowania wiki lub HTML.',
 	'mwe-upwiz-error-date' => 'Należy wpisać poprawną datę w formacie RRRR-MM-DD lub wybrać datę z kalendarza.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Uznanie autorstwa Na tych samych warunkach 3.0',
