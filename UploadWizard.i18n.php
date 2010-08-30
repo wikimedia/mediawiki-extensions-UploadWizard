@@ -2943,7 +2943,10 @@ Contribuì a la conossensa dl'umanità an cariand dj'archivi ch'a podrìo esse d
 	'mwe-upwiz-remove-upload' => "Gavé s'archivi da la lista dj'archivi da carié",
 	'mwe-upwiz-remove-description' => 'Scancelé costa descrission',
 	'mwe-upwiz-upload' => 'Carié',
+	'mwe-upwiz-upload-count' => 'Carià $1 {{PLURAL:$2|archivi|archivi}} ëd $2',
+	'mwe-upwiz-progressbar-uploading' => 'cariament',
 	'mwe-upwiz-finished' => 'Finì!',
+	'mwe-upwiz-secs-remaining' => 'Ancor $1 {{PLURAL:$1|second|second}}',
 );
 
 /** Pashto (پښتو)
