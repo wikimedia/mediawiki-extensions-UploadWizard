@@ -2947,6 +2947,9 @@ Contribuì a la conossensa dl'umanità an cariand dj'archivi ch'a podrìo esse d
 	'mwe-upwiz-progressbar-uploading' => 'cariament',
 	'mwe-upwiz-finished' => 'Finì!',
 	'mwe-upwiz-secs-remaining' => 'Ancor $1 {{PLURAL:$1|second|second}}',
+	'mwe-upwiz-mins-secs-remaining' => 'A manco $1 {{PLURAL:$1|minuta|minute}} $2 {{PLURAL:$2|second|second}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => 'A manco $1 {{PLURAL:$1|ora|ora}} $2 {{PLURAL:$2|minuta|minute}} $3 {{PLURAL:$3|second|second}}',
+	'mwe-upwiz-deeds-intro' => "Ës sit a ciama che chiel a definissa na licensa për j'archivi carià, parèj chicassìa a peul dovreje ëdcò chiel an manera legal për qualsëssìa but.",
 );
 
 /** Pashto (پښتو)
