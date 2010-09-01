@@ -1119,7 +1119,7 @@ $messages['frp'] = array(
 	'mwe-upwiz-step-thanks' => 'Usâjo',
 	'mwe-upwiz-add-file-n' => 'Apondre un ôtro fichiér',
 	'mwe-upwiz-add-file-0' => 'Clicâd ique por tèlèchargiér un fichiér',
-	'mwe-upwiz-browse' => 'Parcorir...',
+	'mwe-upwiz-browse' => 'Navegar...',
 	'mwe-upwiz-transported' => 'D’acôrd',
 	'mwe-upwiz-click-here' => 'Clicâd ique por chouèsir un fichiér',
 	'mwe-upwiz-uploading' => 'tèlèchargement...',
@@ -2950,6 +2950,9 @@ Contribuì a la conossensa dl'umanità an cariand dj'archivi ch'a podrìo esse d
 	'mwe-upwiz-mins-secs-remaining' => 'A manco $1 {{PLURAL:$1|minuta|minute}} $2 {{PLURAL:$2|second|second}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'A manco $1 {{PLURAL:$1|ora|ora}} $2 {{PLURAL:$2|minuta|minute}} $3 {{PLURAL:$3|second|second}}',
 	'mwe-upwiz-deeds-intro' => "Ës sit a ciama che chiel a definissa na licensa për j'archivi carià, parèj chicassìa a peul dovreje ëdcò chiel an manera legal për qualsëssìa but.",
+	'mwe-upwiz-deeds-macro-prompt' => "Serne na licensa për {{PLURAL:$1|l'archivi|tuti j'archivi}} sì-dzora:",
+	'mwe-upwiz-deeds-custom-prompt' => 'O:',
+	'mwe-upwiz-details-intro' => "Adess i l'oma da manca ëd chèiche anformassion ëd base an sj'archivi.",
 );
 
 /** Pashto (پښتو)
