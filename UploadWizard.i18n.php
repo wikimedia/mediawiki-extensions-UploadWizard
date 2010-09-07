@@ -684,7 +684,7 @@ $messages['de'] = array(
 Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Deine Signatur ist zu kurz.
 Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
-	'mwe-upwiz-error-signature-bad-chars' => 'Deine Unterschrift enthält unzulässige Zeichen.
+	'mwe-upwiz-error-signature-bad-chars' => 'Deine Signatur enthält unzulässige Zeichen.
 Verwende hier bitte kein Wikitext oder HTML sondern einfach deinen Benutzernamen oder deinen bürgerlichen Namen.',
 	'mwe-upwiz-error-blank' => 'Dies ist ein Pflichtfeld.',
 	'mwe-upwiz-error-too-long' => 'Diese Eingabe ist zu lang.
