@@ -564,7 +564,23 @@ $messages['ca'] = array(
 
 /** Czech (Česky) */
 $messages['cs'] = array(
+	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-upload' => 'Nahrávání souborů',
+	'mwe-upwiz-finished' => 'Ukončená!',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-title' => 'Název',
+	'mwe-upwiz-filename-tag' => 'Jméno souboru:',
+	'mwe-upwiz-other' => 'Další informace',
+	'mwe-upwiz-showall' => 'zobrazit vše',
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => 'Storno',
 	'mwe-upwiz-fileexists' => 'Soubor s tímto jménem již existuje, prosím podívejte se na <b><tt>$1</tt></b>, pokud nevíte jistě, zda chcete tento soubor nahradit.',
+	'mwe-upwiz-thumbnail-more' => 'Zvětšit',
+	'mwe-upwiz-next' => 'Další',
+	'mwe-upwiz-next-deeds' => 'Další',
+	'mwe-upwiz-next-details' => 'Další',
+	'mwe-upwiz-categories' => 'Kategorie',
+	'mwe-upwiz-categories-add' => 'Přidat',
 );
 
 /** German (Deutsch)
