@@ -1575,7 +1575,7 @@ $messages['hu'] = array(
 	'mwe-upwiz-step-file' => 'Feltöltés',
 	'mwe-upwiz-step-deeds' => '2. Add meg a licenceket',
 	'mwe-upwiz-step-details' => '3. Add meg a képleírásokat',
-	'mwe-upwiz-step-thanks' => '4. Használd a fájlokat',
+	'mwe-upwiz-step-thanks' => 'Használat',
 	'mwe-upwiz-intro' => 'Üdvözlünk a Wikimédia Commonson, a mindenki által szabadon használható és letölthető képek, hangok és filmek gyűjteményében.
 Bővítsd az emberiség tudását, tölts föl ismeretterjesztési célokra használható fájlokat!',
 	'mwe-upwiz-add-file-n' => 'Másik fájl hozzáadása',
@@ -1666,6 +1666,8 @@ Használhatsz egyszerű nyelvezetet szóközökkel, de nem lehetnek benne sortö
 Ennek a címnek egyedinek kell lennie ezen a wikin.',
 	'mwe-upwiz-tooltip-description' => 'Röviden írj le minden említésre méltót a műről.
 Egy fénykép esetén említsd meg a főbb látható dolgokat, a készítés alkalmát vagy helyszínét.',
+	'mwe-upwiz-categories' => 'Kategóriák',
+	'mwe-upwiz-categories-add' => 'Hozzáadás',
 );
 
 /** Interlingua (Interlingua)
