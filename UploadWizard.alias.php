@@ -4,8 +4,6 @@
  * The page title can be customized into another language
 */
 
-$specialPageAliases = array();
-
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'UploadWizard' => array( 'UploadWizard' ),
