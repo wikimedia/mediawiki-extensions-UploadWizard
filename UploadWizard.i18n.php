@@ -723,6 +723,8 @@ Bitte verwende hier kein Wikitext oder HTML.',
  * @author Kghbln
  */
 $messages['de-formal'] = array(
+	'mwe-upwiz-step-file' => 'Hochladen',
+	'mwe-upwiz-step-thanks' => 'Nutzung',
 	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitern Sie das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
 	'mwe-upwiz-add-file-n' => 'Fügen Sie eine weitere Datei hinzu',
 	'mwe-upwiz-add-file-0' => 'Klicken Sie hier, um eine Datei hochzuladen',
@@ -764,7 +766,7 @@ $messages['de-formal'] = array(
 Kürzen Sie sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Ihre Signatur ist zu kurz.
 Verlängern Sie sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
-	'mwe-upwiz-error-signature-bad-chars' => 'Ihre Unterschrift enthält unzulässige Zeichen.
+	'mwe-upwiz-error-signature-bad-chars' => 'Ihre Signatur enthält unzulässige Zeichen.
 Verwenden Sie hier bitte kein Wikitext oder HTML sondern einfach Ihren Benutzernamen oder Ihren bürgerlichen Namen.',
 	'mwe-upwiz-error-too-long' => 'Diese Angabe ist zu lang.
 Kürzen Sie sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
@@ -3527,7 +3529,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-category-remove' => 'Убрать эту категорию',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
