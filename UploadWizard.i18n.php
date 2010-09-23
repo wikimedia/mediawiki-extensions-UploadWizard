@@ -586,6 +586,7 @@ $messages['cs'] = array(
 /** German (Deutsch)
  * @author Kghbln
  * @author McDutchie
+ * @author Purodha
  * @author The Evil IP address
  */
 $messages['de'] = array(
@@ -594,7 +595,7 @@ $messages['de'] = array(
 	'mwe-loading-upwiz' => 'Assistent zum Hochladen von Dateien wird geladen',
 	'mwe-upwiz-code-unknown' => 'Unbekannte Sprache',
 	'mwe-upwiz-step-file' => 'Hochladen',
-	'mwe-upwiz-step-deeds' => 'Rechte an der Veröffentlichung',
+	'mwe-upwiz-step-deeds' => 'Unter neuer Lizenz veröffentlichen',
 	'mwe-upwiz-step-details' => 'Beschreiben',
 	'mwe-upwiz-step-thanks' => 'Nutzen',
 	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitere das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
@@ -2217,8 +2218,11 @@ $1文字より長くしてください。',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
 );
 
-/** Colognian (Ripoarisch) */
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
 $messages['ksh'] = array(
+	'mwe-upwiz-step-deeds' => 'Rääschte verjävve',
 	'mwe-upwiz-fileexists' => 'En Dattei met dämm Name jidd_et ald. Beß esu joot un donn <b><tt>$1</tt></b> prööfe, wann De Der nit sescher beß, of De jät ändere wells.',
 );
 
@@ -3819,11 +3823,44 @@ I båda fallen kommer detta att kopplas till din wiki användarsida',
 
 /** Tamil (தமிழ்)
  * @author Mahir78
+ * @author TRYPPN
  */
 $messages['ta'] = array(
+	'mwe-upwiz-code-unknown' => 'தெரியாத மொழி',
+	'mwe-upwiz-step-file' => 'பதிவேற்று',
+	'mwe-upwiz-step-details' => 'விளக்கு',
+	'mwe-upwiz-step-thanks' => 'பயன்படுத்து',
+	'mwe-upwiz-add-file-n' => 'மற்றொரு கோப்பை சேர்க்கவும்',
+	'mwe-upwiz-browse' => 'உலாவு...',
+	'mwe-upwiz-transported' => 'ஆம்',
+	'mwe-upwiz-click-here' => 'ஒரு கோப்பைத் தேர்ந்தெடுக்க இங்கே அமுக்கவும்',
+	'mwe-upwiz-uploading' => 'பதிவேற்றப்படுகிறது...',
+	'mwe-upwiz-editing' => 'தொகுக்கப்படுகிறது...',
+	'mwe-upwiz-upload' => 'பதிவேற்று',
+	'mwe-upwiz-progressbar-uploading' => 'பதிவேற்றப்படுகிறது',
+	'mwe-upwiz-finished' => 'முடிந்தது!',
+	'mwe-upwiz-deeds-custom-prompt' => 'அல்லது:',
+	'mwe-upwiz-source-thirdparty-accept' => 'ஆம்',
+	'mwe-upwiz-more-options' => 'அதிகப்படியான விருப்பத்தேர்வுகள்...',
+	'mwe-upwiz-fewer-options' => 'குறைவான விருப்பத்தேர்வுகள்...',
+	'mwe-upwiz-desc' => 'இதன் விளக்கம்',
+	'mwe-upwiz-desc-add-n' => 'மற்றொரு மொழியில் இதன் விளக்கத்தை கொடுக்கவும்',
+	'mwe-upwiz-desc-add-0' => 'விளக்கத்தை கொடுக்கவும்',
+	'mwe-upwiz-title' => 'தலைப்பு',
+	'mwe-upwiz-categories-another' => 'மற்ற பகுப்புக்களைக் கொடுக்கவும்',
+	'mwe-upwiz-date-created' => 'உருவாக்கப்பட்டத் தேதி',
+	'mwe-upwiz-location' => 'இடம்',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'எப்படியாவது பதிவேற்ற வேண்டுமா ?',
+	'mwe-upwiz-ok' => 'ஆம்',
+	'mwe-upwiz-cancel' => 'விட்டுவிடு',
+	'mwe-upwiz-change' => '(மாற்று)',
+	'mwe-upwiz-thumbnail-more' => 'பெரிதாக்கு',
 	'mwe-copyright-macro' => 'மேலே உள்ளபடி',
+	'mwe-upwiz-next' => 'அடுத்தது',
 	'mwe-upwiz-next-file' => 'கோப்புகளை பதிவேற்றி தொடரவும்',
 	'mwe-upwiz-next-deeds' => 'அடுத்து',
+	'mwe-upwiz-next-details' => 'அடுத்தது',
+	'mwe-upwiz-tooltip-more-info' => 'மேலும் அறிந்துகொள்ள.',
 );
 
 /** Telugu (తెలుగు)
