@@ -526,7 +526,7 @@ Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
 	'mwe-upwiz-license-cc-zero' => "Nac'hidigezh Creative Commons CC0",
-	'mwe-upwiz-license-gfdl' => 'Aotre-implijout teuliaouiñ frank GNU',
+	'mwe-upwiz-license-gfdl' => 'Aotre implijout teuliaouiñ frank GNU',
 	'mwe-upwiz-categories' => 'Rummadoù',
 	'mwe-upwiz-categories-add' => 'Ouzhpennañ',
 	'mwe-upwiz-category-remove' => 'Dilemel ar rummad-mañ',
@@ -679,6 +679,36 @@ $messages['cy'] = array(
 	'mwe-upwiz-files-complete' => 'Uwchlwythwyd eich ffeiliau!',
 	'mwe-upwiz-tooltip-author' => "Enw'r person a dynnodd y llun, neu baentiodd y llun, tynnodd y darlun, ac ati.",
 	'mwe-upwiz-tooltip-source' => 'O le daeth y ffeil digidol hwn -- efallai o URL, neu lyfr neu gyhoeddiad',
+	'mwe-upwiz-tooltip-sign' => 'Gallwch ddefnyddio eich enw defnyddiwr wici neu eich enw go iawn. Yn y ddau achos, cysylltir hyn i dudalen eich defnyddiwr wici',
+	'mwe-upwiz-tooltip-title' => "Teitl byr ar gyfer y ffeil. Gallwch ddefnyddio defnyddio iaith blaen gyda bylchau, ond dim toriadau llinell. Mae'n rhaid i'r teitl fod yn wahanol i bob un teitl arall yn y wici.",
+	'mwe-upwiz-tooltip-description' => "Disgrifiwch yn gryno bopeth sy'n nodedig am y gwaith.  Ar gyfer lluniau, sôn am y prif bethau a ddarlunier, yr achlysur neu'r lle.",
+	'mwe-upwiz-tooltip-other' => 'Unrhyw wybodaeth arall yr ydych am ei gynnwys am y gwaith hwn. Gallwch ddefnyddio cod wicidestun.',
+	'mwe-upwiz-tooltip-more-info' => 'Dysgwch fwy.',
+	'mwe-upwiz-file-need-file' => 'Ychwanegwch uwchlwythiad yn gyntaf.',
+	'mwe-upwiz-file-need-start' => 'Pwyswch y botwm hwn i ddechrau eich uwchlwythiadau.',
+	'mwe-upwiz-file-need-complete' => 'Arhoswch nes bod yr holl ffeiliau wedi gorffen uwchlwytho.',
+	'mwe-upwiz-deeds-need-deed' => "Esboniwch ymhle ddaethoch o hyd i'r {{PLURAL:$1|ffeil hwn|ffeiliau hyn}} a sut y gall y safle hwn {{PLURAL:$1|ei ddefnyddio|eu defnyddio}}, drwy ddewis un o'r opsiynau.",
+	'mwe-upwiz-deeds-need-license' => 'Dewiswch drwydded.',
+	'mwe-upwiz-license-incompatible-pd' => "Nid yw trwyddedau'r parth cyhoeddus cydnaws ag unrhyw fath arall o drwydded.",
+	'mwe-upwiz-license-incompatible-cc' => 'Gallwch ddewis un math o drwydded Creative Commons yn unig.',
+	'mwe-upwiz-license-show-all' => 'Defnyddiwch wahanol drwydded',
+	'mwe-upwiz-license-show-recommended' => 'Defnyddiwch y drwydded a argymhellir',
+	'mwe-upwiz-error-signature-blank' => "Mae'n rhaid ichi lofnodi'r maes isod gyda'ch enw defnyddiwr neu enw go iawn.",
+	'mwe-upwiz-error-signature-too-long' => "Mae'ch llofnod yn rhy hir. Gwnewch hi'n llai na $1 {{PLURAL:$1|llythyren|lythyren|lythyren|llythyren|llythyren|llythyren}}.",
+	'mwe-upwiz-error-signature-too-short' => "Mae'ch llofnod yn rhy hir. Gwnewch hi'n llai na $1 {{PLURAL:$1|llythyren|lythyren|lythyren|llythyren|llythyren|llythyren}}.",
+	'mwe-upwiz-error-signature-bad-chars' => "Mae'ch llofnod yn cynnwys symbolau ni chaniateir. Peidiwch â defnyddio wicidestun neu HTML, dim ond eich enw defnyddiwr neu enw go iawn.",
+	'mwe-upwiz-error-blank' => "Mae'r maes hwn yn ofynnol.",
+	'mwe-upwiz-error-too-long' => "Mae'r maes hwn yn rhy hir. Gwnewch hi'n llai na $1 {{PLURAL:$1|cymeriad|gymeriad|gymeriad|cymeriad|cymeriad|cymeriad}}.",
+	'mwe-upwiz-error-too-short' => "Mae'ch llofnod yn rhy fyr. Gwnewch hi'n llai na $1 {{PLURAL:$1|cymeriad|gymeriad|gymeriad|cymeriad|cymeriad|cymeriad}}.",
+	'mwe-upwiz-error-bad-chars' => "Mae'r maes hwn yn cynnwys symbolau na chaniateir. Peidiwch â defnyddio wicidestun neu HTML yma.",
+	'mwe-upwiz-error-date' => 'Rhowch ddyddiad dilys ar ffurf BBBB-MM-DD, neu dewiswch ddyddiad y calendr bryslen.',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
+	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-categories' => 'Categorïau',
+	'mwe-upwiz-categories-add' => 'Ychwanegu',
+	'mwe-upwiz-category-remove' => "Tynnu'r categori hwn",
 );
 
 /** German (Deutsch)
@@ -1666,6 +1696,7 @@ Prošu njewužij tu wikitekst abo HTML.',
 
 /** Hungarian (Magyar)
  * @author Bdamokos
+ * @author BáthoryPéter
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
@@ -1674,13 +1705,13 @@ $messages['hu'] = array(
 	'mwe-loading-upwiz' => 'Feltöltés varázsló betöltése',
 	'mwe-upwiz-code-unknown' => 'Ismeretlen nyelv',
 	'mwe-upwiz-step-file' => 'Feltöltés',
-	'mwe-upwiz-step-deeds' => '2. Add meg a licenceket',
-	'mwe-upwiz-step-details' => '3. Add meg a képleírásokat',
+	'mwe-upwiz-step-deeds' => 'Felhasználási jogok',
+	'mwe-upwiz-step-details' => 'Leírás',
 	'mwe-upwiz-step-thanks' => 'Használat',
 	'mwe-upwiz-intro' => 'Üdvözlünk a Wikimédia Commonson, a mindenki által szabadon használható és letölthető képek, hangok és filmek gyűjteményében.
 Bővítsd az emberiség tudását, tölts föl ismeretterjesztési célokra használható fájlokat!',
 	'mwe-upwiz-add-file-n' => 'Másik fájl hozzáadása',
-	'mwe-upwiz-add-file-0' => 'Kattints ide egy fájl hozzáadásához feltöltésre',
+	'mwe-upwiz-add-file-0' => 'Fájl feltöltéséhez kattints ide',
 	'mwe-upwiz-browse' => 'Tallózás…',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-click-here' => 'Kattints ide egy fájl kiválasztásához',
@@ -1689,6 +1720,7 @@ Bővítsd az emberiség tudását, tölts föl ismeretterjesztési célokra hasz
 	'mwe-upwiz-remove-upload' => 'Fájl eltávolítása a feltöltésre váró fájlok listájából',
 	'mwe-upwiz-remove-description' => 'Leírás eltávolítása',
 	'mwe-upwiz-upload' => 'Feltöltés',
+	'mwe-upwiz-upload-count' => '$1 / $2 fájl feltöltve',
 	'mwe-upwiz-progressbar-uploading' => 'feltöltés',
 	'mwe-upwiz-finished' => 'Kész!',
 	'mwe-upwiz-secs-remaining' => '$1 másodperc van hátra',
@@ -1718,6 +1750,7 @@ Bővítsd az emberiség tudását, tölts föl ismeretterjesztési célokra hasz
 	'mwe-upwiz-categories-intro' => 'Segítsd a műveid megtalálását kategóriák hozzáadásával.',
 	'mwe-upwiz-categories-another' => 'További kategóriák hozzáadása',
 	'mwe-upwiz-previously-uploaded' => 'Ezt a fájlt már korábban feltöltötték a $1ra és már <a href="$2">itt</a> elérhető .',
+	'mwe-upwiz-media-type' => 'Média típusa',
 	'mwe-upwiz-date-created' => 'Készítés dátuma',
 	'mwe-upwiz-location' => 'Helyszín',
 	'mwe-upwiz-copyright-info' => 'Felhasználási jogok',
@@ -1767,8 +1800,39 @@ Használhatsz egyszerű nyelvezetet szóközökkel, de nem lehetnek benne sortö
 Ennek a címnek egyedinek kell lennie ezen a wikin.',
 	'mwe-upwiz-tooltip-description' => 'Röviden írj le minden említésre méltót a műről.
 Egy fénykép esetén említsd meg a főbb látható dolgokat, a készítés alkalmát vagy helyszínét.',
+	'mwe-upwiz-tooltip-other' => 'Bármi más információ, amit meg szeretnél adni erről a műről.
+Használhatsz wikikódot.',
+	'mwe-upwiz-tooltip-more-info' => 'Tudj meg többet.',
+	'mwe-upwiz-file-need-start' => 'Nyomd meg ezt a gombot, hogy elindítsd a feltöltéseidet.',
+	'mwe-upwiz-file-need-complete' => 'Kérlek várj, amíg az összes fájl feltöltődik.',
+	'mwe-upwiz-deeds-need-deed' => 'Kérlek, az egyik opció kiválasztásával magyarázd el, honnan {{PLURAL:$1|származik a fájl|származnak a fájlok}} és ez a webszájt hogyan használhatja{{PLURAL:$1||&nbsp;őket}}.',
+	'mwe-upwiz-deeds-need-license' => 'Kérlek válassz licencet.',
+	'mwe-upwiz-license-incompatible-pd' => 'A közkincs licencek nem kompatibilisek a többi licenccel.',
+	'mwe-upwiz-license-incompatible-cc' => 'Egyszerre csak egyféle Creative Commons licencet választhatsz.',
+	'mwe-upwiz-license-show-all' => 'Más licenc használata',
+	'mwe-upwiz-license-show-recommended' => 'Ajánlott licenc használata',
+	'mwe-upwiz-error-signature-blank' => 'Alá kell írnod az alábbi mezőt a felhasználóneveddel vagy valódi neveddel.',
+	'mwe-upwiz-error-signature-too-long' => 'Az aláírásod túl hosszú.
+Legfeljebb $1 karaktert írj bele.',
+	'mwe-upwiz-error-signature-too-short' => 'Az aláírásod túl rövid.
+Legalább $1 karakteres legyen.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Az aláírásod nem megengedett szimbólumokat tartalmaz.
+Kérlek itt ne használj wikikódot vagy HTML-t, csak a felhasználóneved vagy a valódi neved.',
+	'mwe-upwiz-error-blank' => 'A mező kitöltése kötelező.',
+	'mwe-upwiz-error-too-long' => 'Ez a mező túl hosszú.
+Legfeljebb $1 karaktert írj bele.',
+	'mwe-upwiz-error-too-short' => 'Ez a mező túl rövid.
+Írj bele legalább $1 karaktert.',
+	'mwe-upwiz-error-bad-chars' => 'Ez a mező nem megengedett szimbólumokat tartalmaz.
+Kérlek itt ne használj wikikódot vagy HTML-t.',
+	'mwe-upwiz-error-date' => 'Kérlek adj meg egy érvényes dátumot ÉÉÉÉ-HH-NN formában, vagy válassz dátumot a naptárból.',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Nevezd meg! – Így add tovább! 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Nevezd meg! 3.0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Universal',
+	'mwe-upwiz-license-gfdl' => 'GNU Szabad Dokumentációs Licenc',
 	'mwe-upwiz-categories' => 'Kategóriák',
 	'mwe-upwiz-categories-add' => 'Hozzáadás',
+	'mwe-upwiz-category-remove' => 'Kategória eltávolítása',
 );
 
 /** Interlingua (Interlingua)
@@ -3966,10 +4030,17 @@ $messages['ta'] = array(
  */
 $messages['te'] = array(
 	'mwe-upwiz-code-unknown' => 'తెలియని భాష',
+	'mwe-upwiz-step-deeds' => 'విడుదల హక్కులు',
 	'mwe-upwiz-add-file-n' => 'మరొక దస్త్రాన్ని చేర్చండి',
 	'mwe-upwiz-transported' => 'సరే',
 	'mwe-upwiz-remove-upload' => 'ఎక్కించాల్సిన దస్త్రాల జాబితా నుండి ఈ దస్త్రాన్ని తొలగించు',
 	'mwe-upwiz-remove-description' => 'ఈ వివరణని తొలగించు',
+	'mwe-upwiz-progressbar-uploading' => 'ఎక్కిస్తున్నాం',
+	'mwe-upwiz-finished' => 'పూర్తయ్యింది!',
+	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|క్షణం మిగిలివుంది|క్షణాలు మిగిలివున్నాయి}}',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|నిమిషం|నిమిషాల}} $2 {{PLURAL:$2|క్షణం మిగిలివుంది|క్షణాలు మిగిలివున్నాయి}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|గంట|గంటల}} $2 {{PLURAL:$2|నిమిషం|నిమిషాల}} $3 {{PLURAL:$3|క్షణం మిగిలివుంది|క్షణాలు మిగిలివున్నాయి}}',
+	'mwe-upwiz-deeds-custom-prompt' => 'లేదా:',
 	'mwe-upwiz-source-ownwork' => 'ఈ {{PLURAL:$1|దస్త్రం నా స్వంత కృతి|దస్త్రాలు నా స్వంత కృతులు}}.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'నేను, $2, ఈ {{PLURAL:$1|కృతి|కృతుల}} యొక్క కాపీహక్కుదారున్ని, ఈ {{PLURAL:$1|కృతిని|కృతులను}} ఇందుమూలముగా ఈ క్రింది లైసెన్సు(ల) ప్రకారం ప్రచురిస్తున్నాను:',
 	'mwe-upwiz-source-thirdparty' => 'ఈ {{PLURAL:$1|దస్త్రం నా స్వంత కృతి కాదు|దస్త్రాలు నా స్వంత కృతులు కావు}}.',
@@ -3985,15 +4056,27 @@ $messages['te'] = array(
 	'mwe-upwiz-location' => 'ప్రాంతం',
 	'mwe-upwiz-copyright-info' => 'విడుదల హక్కులు',
 	'mwe-upwiz-author' => 'రచయిత(లు)',
+	'mwe-upwiz-license' => 'విడుదల హక్కులు',
 	'mwe-upwiz-about-format' => 'ఈ దస్త్రం గురించి',
 	'mwe-upwiz-filename-tag' => 'దస్త్రపు పేరు:',
 	'mwe-upwiz-other' => 'ఇతర సమాచారం',
 	'mwe-upwiz-showall' => 'అన్నీ చూపించు',
 	'mwe-upwiz-source' => 'మూలం',
+	'mwe-upwiz-thanks-intro' => 'ఎక్కించినందుకు ధన్యవాదాలు!',
 	'mwe-upwiz-upload-error-duplicate' => 'ఈ దస్త్రాన్ని గతంలో ఈ వికీకి ఎక్కించారు.',
 	'mwe-upwiz-ok' => 'సరే',
 	'mwe-upwiz-cancel' => 'రద్దుచేయి',
 	'mwe-upwiz-change' => '(మార్చు)',
+	'mwe-upwiz-next' => 'తదుపరి',
+	'mwe-upwiz-next-file' => 'దస్త్రాలను ఎక్కించి కొనసాగండి',
+	'mwe-upwiz-next-deeds' => 'తదుపరి',
+	'mwe-upwiz-next-details' => 'తదుపరి',
+	'mwe-upwiz-upload-another' => 'మరిన్ని దస్త్రాలను ఎక్కించండి',
+	'mwe-upwiz-files-complete' => 'మీ దస్త్రాల ఎక్కింపు పూర్తయ్యింది!',
+	'mwe-upwiz-tooltip-more-info' => 'మరింత తెలుసుకోండి.',
+	'mwe-upwiz-categories' => 'వర్గాలు',
+	'mwe-upwiz-categories-add' => 'చేర్చు',
+	'mwe-upwiz-category-remove' => 'ఈ వర్గాన్ని తొలగించు',
 );
 
 /** Turkish (Türkçe) */
