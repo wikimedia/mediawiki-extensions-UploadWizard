@@ -4020,7 +4020,7 @@ $messages['ta'] = array(
 	'mwe-copyright-macro' => 'மேலே உள்ளபடி',
 	'mwe-upwiz-next' => 'அடுத்தது',
 	'mwe-upwiz-next-file' => 'கோப்புகளை பதிவேற்றி தொடரவும்',
-	'mwe-upwiz-next-deeds' => 'அடுத்து',
+	'mwe-upwiz-next-deeds' => 'அடுத்தது',
 	'mwe-upwiz-next-details' => 'அடுத்தது',
 	'mwe-upwiz-tooltip-more-info' => 'மேலும் அறிந்துகொள்ள.',
 );
