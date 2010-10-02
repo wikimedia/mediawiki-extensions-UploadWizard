@@ -1799,7 +1799,7 @@ Mindkét esetben linkelni fog a wikis szerkesztői lapodra.',
 Használhatsz egyszerű nyelvezetet szóközökkel, de nem lehetnek benne sortörések.
 Ennek a címnek egyedinek kell lennie ezen a wikin.',
 	'mwe-upwiz-tooltip-description' => 'Röviden írj le minden említésre méltót a műről.
-Egy fénykép esetén említsd meg a főbb látható dolgokat, a készítés alkalmát vagy helyszínét.',
+Fénykép esetén említsd meg a főbb látható dolgokat, a készítés alkalmát vagy helyszínét.',
 	'mwe-upwiz-tooltip-other' => 'Bármi más információ, amit meg szeretnél adni erről a műről.
 Használhatsz wikikódot.',
 	'mwe-upwiz-tooltip-more-info' => 'Tudj meg többet.',
