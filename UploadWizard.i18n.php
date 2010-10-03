@@ -444,7 +444,7 @@ Kemerit perzh e gouiziegezh an denelezh en ur kargañ restroù hag a c'hellfe be
 	'mwe-upwiz-deeds-custom-prompt' => 'Pe :',
 	'mwe-upwiz-details-intro' => 'Ezhomm hon eus bremañ un nebeut titouroù diazez diwar-benn ar restr.',
 	'mwe-upwiz-source-ownwork' => 'Ar {{PLURAL:$1|restr|restroù}}-mañ a zo frouezh ma labour.',
-	'mwe-upwiz-source-ownwork-assert' => "Me, $2, perc'henn war gwirioù an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}}, a ro ar gwir didorrus da neb da implij {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}} evit n'eus forzh peseurt amkan, gant ma veneg ac'hanon ha gant ma rann al labourioù deveret dindan ar memes termenoù.",
+	'mwe-upwiz-source-ownwork-assert' => "Me, $2, perc'henn war gwirioù an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}}, a ro da viken ar gwir d'an holl da implijout an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}} evit ober ne vern petra, gant ma vo meneget ac'hanon ha gant ma vo rannet al labourioù deveret hervez an hevelep termenoù.",
 	'mwe-upwiz-source-thirdparty' => "Ar {{PLURAL:$1|restr-mañ n'eo|restroù-mañ n'int}} ket frouezh ma labour.",
 	'mwe-upwiz-source-thirdparty-intro' => "Mar plij roit ar chomlec'h e lec'h m'hoc'h eus kavet pep restr.",
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => "M'o deus an holl restroù ar memes mammenn, oberour hag aotre-implijout, e c'hellit krouiñ un enmont hepken evit an hollad.",
