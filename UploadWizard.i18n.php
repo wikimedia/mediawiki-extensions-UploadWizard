@@ -2511,7 +2511,7 @@ Maacht se méi kuerz wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
 Maacht se méi laang wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'An Ärer Ënnerschrëft si Symboler déi net erlaabt sinn.
 Benotzt w.e.g. kee Wikitext oder HTML hei, just Äre Benotzernumm oder Äre richtegen Numm.',
-	'mwe-upwiz-error-blank' => 'Dëst Feld ass obligateresch.',
+	'mwe-upwiz-error-blank' => 'Dëst Feld ass obligatoresch.',
 	'mwe-upwiz-error-too-long' => 'Dëst Feld ass ze laang.
 Maacht et méi kuerz wéi $1 {{PLURAL:$1|Zeechen|Zeechen}}.',
 	'mwe-upwiz-error-too-short' => 'Dëst Feld ass ze kuerz.
