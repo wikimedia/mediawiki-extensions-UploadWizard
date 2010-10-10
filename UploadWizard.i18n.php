@@ -3895,12 +3895,14 @@ $messages['sr-el'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Ainali
  * @author Dafer45
  * @author Nghtwlkr
  * @author Sertion
  */
 $messages['sv'] = array(
 	'uploadwizard' => 'Guide för uppladdning',
+	'uploadwizard-desc' => 'Uppladdningsguiden, som har utvecklats med Multimedia användbarhets stipendium',
 	'mwe-loading-upwiz' => 'Laddar guide för uppladdning',
 	'mwe-upwiz-code-unknown' => 'Okänt språk',
 	'mwe-upwiz-step-file' => 'Ladda upp',
@@ -3914,10 +3916,11 @@ $messages['sv'] = array(
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-click-here' => 'Klicka här för att välja en fil',
 	'mwe-upwiz-uploading' => 'laddar upp...',
+	'mwe-upwiz-editing' => 'redigerar...',
 	'mwe-upwiz-remove-upload' => 'Ta bort denna fil från listan med filer att ladda upp',
 	'mwe-upwiz-remove-description' => 'Ta bort denna beskrivning',
 	'mwe-upwiz-upload' => 'Ladda upp',
-	'mwe-upwiz-upload-count' => '$1 av $2 filer uppladdade',
+	'mwe-upwiz-upload-count' => '$1 av $2 {{PLURAL:$2|fil|filer}} uppladdade',
 	'mwe-upwiz-progressbar-uploading' => 'Laddar upp',
 	'mwe-upwiz-finished' => 'Klar!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekund|sekunder}} kvar',
@@ -3928,7 +3931,7 @@ $messages['sv'] = array(
 	'mwe-upwiz-deeds-custom-prompt' => 'Eller:',
 	'mwe-upwiz-details-intro' => 'Nu behöver vi lite grundläggande information om filerna.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Den här filen är|De här filerna är}} skapade av mig.',
-	'mwe-upwiz-source-ownwork-assert' => 'Jag, $1, upphovsrättsinnehavaren till detta arbete beviljar härmed vem som helst rätten att använda detta verk för valfritt ändamål, så länge de hänvisar till mig som upphovsman och delar material som bygger på detta under samma villkor.',
+	'mwe-upwiz-source-ownwork-assert' => 'Jag, $2, upphovsrättshavaren till {{PLURAL:$1|detta verk|dessa verk}}, ger härmed oåterkalleligen envar rätten att använda {{PLURAL:$1| detta verk|dessa verk}} för alla ändamål, så länge de attribuerar mig och delar härledda verk på samma villkor.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Jag, $1, upphovsrättsmannen till detta verk publicerar härmed detta verk under följande licens(er):',
 	'mwe-upwiz-source-permission' => 'Deras upphovsmän gav dig uttryckligt tillstånd att ladda upp dem',
 	'mwe-upwiz-source-thirdparty' => 'Denna fil är inte mitt eget verk.',
