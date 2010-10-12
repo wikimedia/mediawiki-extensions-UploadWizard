@@ -167,6 +167,7 @@ Please do not use wikitext or HTML here.',
  * @author EugeneZelenko
  * @author Kghbln
  * @author McDutchie
+ * @author Naudefj
  */
 $messages['qqq'] = array(
 	'mwe-upwiz-step-file' => '{{Identical|Upload}}',
@@ -187,6 +188,7 @@ $messages['qqq'] = array(
 	'mwe-upwiz-next' => '{{Identical|Next}}',
 	'mwe-upwiz-next-deeds' => '{{Identical|Next}}',
 	'mwe-upwiz-next-details' => '{{Identical|Next}}',
+	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
 	'mwe-upwiz-categories' => '{{Identical|Categories}}',
 	'mwe-upwiz-categories-add' => '{{Identical|Add}}',
 );
