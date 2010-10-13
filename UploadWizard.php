@@ -5,7 +5,7 @@
  * @file
  * @ingroup Extensions
  *
- * This file contains the include file for UploadWizard
+ * This file contains the include file for UploadWizard!
  *
  * Usage: Include the following line in your LocalSettings.php
  * require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
