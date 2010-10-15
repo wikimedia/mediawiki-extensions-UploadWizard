@@ -725,7 +725,7 @@ $messages['de'] = array(
 	'mwe-loading-upwiz' => 'Assistent zum Hochladen von Dateien wird geladen',
 	'mwe-upwiz-code-unknown' => 'Unbekannte Sprache',
 	'mwe-upwiz-step-file' => 'Hochladen',
-	'mwe-upwiz-step-deeds' => 'Unter neuer Lizenz veröffentlichen',
+	'mwe-upwiz-step-deeds' => 'Lizenz wählen',
 	'mwe-upwiz-step-details' => 'Beschreiben',
 	'mwe-upwiz-step-thanks' => 'Nutzen',
 	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitere das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
@@ -739,7 +739,7 @@ $messages['de'] = array(
 	'mwe-upwiz-remove-upload' => 'Entferne diese Datei aus der Liste der hochzuladenden Dateien',
 	'mwe-upwiz-remove-description' => 'Entferne diese Beschreibung',
 	'mwe-upwiz-upload' => 'Hochladen',
-	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|Datei|Dateien}} von $2 {{PLURAL:$2|Datei|Dateien}} hochgeladen',
+	'mwe-upwiz-upload-count' => '$1 von $2 {{PLURAL:$2|Datei|Dateien}} hochgeladen',
 	'mwe-upwiz-progressbar-uploading' => 'Am Hochladen',
 	'mwe-upwiz-finished' => 'Fertig!',
 	'mwe-upwiz-secs-remaining' => 'Noch $1 {{PLURAL:$1|Sekunde|Sekunden}}',
@@ -748,7 +748,7 @@ $messages['de'] = array(
 	'mwe-upwiz-deeds-intro' => 'Auf dieser Website ist es notwendig, dass du die hochgeladenen Dateien mit einer Lizenz für freie Inhalte versiehst, damit sie jeder legal für jedwede Zwecke weiternutzen kann.',
 	'mwe-upwiz-deeds-macro-prompt' => 'Versehe {{PLURAL:$1|die obige Datei|die obigen Dateien}} mit einer Lizenz:',
 	'mwe-upwiz-deeds-custom-prompt' => 'Oder:',
-	'mwe-upwiz-details-intro' => 'Nun benötigen wir ein paar Basisinformationen zu diesen Dateien.',
+	'mwe-upwiz-details-intro' => 'Nun benötigen wir einige Basisinformationen zu diesen Dateien.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Diese Datei ist|Diese Dateien sind}} meine eigene Arbeit.',
 	'mwe-upwiz-source-ownwork-assert' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}}, räume hiermit jedem das Recht ein, {{PLURAL:$1|es|sie}} für jedweden Zweck nutzen zu können. Voraussetzung ist, dass ich als Rechteinhaber genannt werde und abgeleitete Werke gemäß den gleichen Lizenzbedingungen weitergegeben werden können.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}}, veröffentliche {{PLURAL:$1|es|sie}} gemäß den folgenden Lizenz(en):',
@@ -4084,8 +4084,13 @@ $messages['te'] = array(
 	'mwe-upwiz-category-remove' => 'ఈ వర్గాన్ని తొలగించు',
 );
 
-/** Turkish (Türkçe) */
+/** Turkish (Türkçe)
+ * @author Karduelis
+ */
 $messages['tr'] = array(
+	'mwe-upwiz-upload' => 'Yükle',
+	'mwe-upwiz-title' => 'Başlık',
+	'mwe-upwiz-filename-tag' => 'Dosya adı:',
 	'mwe-upwiz-fileexists' => 'Bu isimde bir dosya zaten mevcut. Değiştirmek istediğinize emin değilseniz lütfen <b><tt>$1</tt></b> kontrol edin.',
 );
 
