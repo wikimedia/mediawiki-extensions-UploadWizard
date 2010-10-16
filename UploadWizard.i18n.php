@@ -2382,6 +2382,13 @@ $1文字より長くしてください。',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'mwe-upwiz-cancel' => 'ರದ್ದು ಮಾಡು',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
@@ -2667,6 +2674,13 @@ $messages['mk'] = array(
 /** Malayalam (മലയാളം) */
 $messages['ml'] = array(
 	'mwe-upwiz-fileexists' => 'ഇതേ പേരിൽ ഒരു പ്രമാണം നിലവിലുണ്ട്. അതിൽ മാറ്റം വരുത്തണോ എന്നു താങ്കൾക്ക് ഉറപ്പില്ലങ്കിൽ ദയവായി <b><tt>$1</tt></b> കാണുക.',
+);
+
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
+$messages['mn'] = array(
+	'mwe-upwiz-cancel' => 'Цуцлах',
 );
 
 /** Dutch (Nederlands)
