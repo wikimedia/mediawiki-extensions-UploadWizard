@@ -447,6 +447,9 @@ Kemerit perzh e gouiziegezh an denelezh en ur kargañ restroù hag a c'hellfe be
 	'mwe-upwiz-details-intro' => 'Ezhomm hon eus bremañ un nebeut titouroù diazez diwar-benn ar restr.',
 	'mwe-upwiz-source-ownwork' => 'Ar {{PLURAL:$1|restr|restroù}}-mañ a zo frouezh ma labour.',
 	'mwe-upwiz-source-ownwork-assert' => "Me, $2, perc'henn war gwirioù an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}}, a ro da viken ar gwir d'an holl da implijout an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}} evit ober ne vern petra, gant ma vo meneget ac'hanon ha gant ma vo rannet al labourioù deveret hervez an hevelep termenoù.",
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Me, $2, Piaouer gwirioù aozer {{PLURAL:$1||al labour|al labourioù}}-mañ, a embann dre an anzavadenn-mañ al {{PLURAL:$1|labour|labourioù}}-mañ dindan an aotre(où)-implijout da-heul :',
+	'mwe-upwiz-source-ownwork-assert-note' => "Talvezout a ra ec'h embannit ho labour dindan un aotre Kenrannañ Heñvel Creative Commons.",
+	'mwe-upwiz-source-permission' => "Roet eo bet deoc'h sklaer gant an aozer an aotre d'o enporzhiañ",
 	'mwe-upwiz-source-thirdparty' => "Ar {{PLURAL:$1|restr-mañ n'eo|restroù-mañ n'int}} ket frouezh ma labour.",
 	'mwe-upwiz-source-thirdparty-intro' => "Mar plij roit ar chomlec'h e lec'h m'hoc'h eus kavet pep restr.",
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => "M'o deus an holl restroù ar memes mammenn, oberour hag aotre-implijout, e c'hellit krouiñ un enmont hepken evit an hollad.",
@@ -505,12 +508,21 @@ Kemerit perzh e gouiziegezh an denelezh en ur kargañ restroù hag a c'hellfe be
 	'mwe-upwiz-files-complete' => 'Echuet eo enporzhiadur ho restroù !',
 	'mwe-upwiz-tooltip-author' => 'Anv an den en deus tapet ar skeudenn, livet an daolenn, treset an dresadenn, h.a.',
 	'mwe-upwiz-tooltip-source' => "Al lec'h m'emañ o tont ar restr niverel a c'hell bezañ un URl, ul levr, pe un embannadur",
+	'mwe-upwiz-tooltip-sign' => "Gallout a rit implijout hoc'h anv wiki pe hoc'h anv gwir. 
+En daou zegouezh e vo liammet ouzh ho pajenn implijer wiki",
+	'mwe-upwiz-tooltip-title' => "Un anv berr evit ar restr.
+Gallout a rit implijout ur yezh plaen gant esaouennoù, gant ma n'ez eot ket d'al linenn. Disheñvel e ranko an titl bezañ eus an holl ditloù all zo war ar wiki-mañ.",
+	'mwe-upwiz-tooltip-description' => "Grit un tamm diverrañ eus perzhioù heverkañ al labour. 
+Evit ur skeudenn, merkit ar pep pouezusañ eus ar pezh a weler, an degouezh pe al lec'h.",
+	'mwe-upwiz-tooltip-other' => "Nep titour all a fell deoc'h emrkañ diwar-benn al labour-mañ.
+Gallout a rit implijout kodoù wiki evit skrivañ.",
 	'mwe-upwiz-tooltip-more-info' => "Gouzout hiroc'h.",
 	'mwe-upwiz-file-need-file' => 'Mar plij ouzhpennit ur restr da enporzhiañ da gentañ.',
 	'mwe-upwiz-file-need-start' => 'Mar plij klikit war ar bouton-mañ evit kregiñ gant ho enporzhiadurioù.',
 	'mwe-upwiz-file-need-complete' => "Mar plij gortozit betek ma 'vefe echuet enporzhiadur an holl restroù.",
 	'mwe-upwiz-deeds-need-deed' => "Mar plij displegit eus pelec'h 'mañ o tont ar restr{{PLURAL:$1||où}}-mañ ha penaos e c'hell al lec'hienn-mañ implijout anezh{{PLURAL:$1|añ|o}}, en ur ziuzañ unan eus an dibarzhioù.",
 	'mwe-upwiz-deeds-need-license' => 'Mar-plij dibabit un aotre-implijout.',
+	'mwe-upwiz-license-incompatible-pd' => "N'eo ket kenglotus an aotreoù Domani foran gant aotre all ebet.",
 	'mwe-upwiz-license-incompatible-cc' => "Ne c'hellit dibab nemet un doare aotre-implijout Creative Commons.",
 	'mwe-upwiz-license-show-all' => 'Implijout un aotre-implijout disheñvel.',
 	'mwe-upwiz-license-show-recommended' => 'Implijout an aotre-implijout erbedet',
@@ -519,11 +531,15 @@ Kemerit perzh e gouiziegezh an denelezh en ur kargañ restroù hag a c'hellfe be
 Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-error-signature-too-short' => "Re verr eo ho sinadur.
 Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
-	'mwe-upwiz-error-blank' => 'Ar maezienn-mañ a zo ret.',
+	'mwe-upwiz-error-signature-bad-chars' => "Arouezennoù diaotreet zo en ho sinadur.
+Arabat ober gant kod wiki pe HTML amañ, merkit hoc'h anv implijer pe hoc'h anv gwirion traken.",
+	'mwe-upwiz-error-blank' => 'Rekis eo leuniañ ar vaezienn-mañ.',
 	'mwe-upwiz-error-too-long' => "Re hir eo ar maezienn.
 Arabat eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
 	'mwe-upwiz-error-too-short' => "Re verr eo ar maezienn.
 Ret eo e vefe hiroc'h eget $1 {{PLURAL:$1|arouezenn|arouezenn}}.",
+	'mwe-upwiz-error-bad-chars' => 'Arouezennoù diaotreet zo er vaezienn-mañ.
+Arabat ober gant kod wiki pe HTML amañ.',
 	'mwe-upwiz-error-date' => 'Trugarez da reiñ ur deiziad reizh dindan ar stumm YYYY-MM-DD, pe dibab unan e-touez ar re kinniget e prenestr an deiziataer.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Deroadenn 3.0',
@@ -2387,6 +2403,7 @@ $1文字より長くしてください。',
  */
 $messages['kn'] = array(
 	'mwe-upwiz-cancel' => 'ರದ್ದು ಮಾಡು',
+	'mwe-upwiz-categories-add' => 'ಸೇರಿಸು',
 );
 
 /** Colognian (Ripoarisch)
