@@ -1569,9 +1569,44 @@ $messages['ha'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author YaronSh
  */
 $messages['he'] = array(
+	'mwe-upwiz-code-unknown' => 'שפה בלתי מוכרת',
+	'mwe-upwiz-step-file' => 'העלאה',
+	'mwe-upwiz-step-details' => 'תיאור',
+	'mwe-upwiz-step-thanks' => 'שימוש',
+	'mwe-upwiz-add-file-n' => 'הוספת קובץ נוסף',
+	'mwe-upwiz-add-file-0' => 'יש ללחוץ כאן כדי להעלות קובץ',
+	'mwe-upwiz-browse' => 'עיון...',
+	'mwe-upwiz-transported' => 'אישור',
+	'mwe-upwiz-click-here' => 'יש ללחוץ כאן כדי לבחור קובץ',
 	'mwe-upwiz-deeds-custom-prompt' => 'או:',
+	'mwe-upwiz-source-thirdparty-accept' => 'אישור',
+	'mwe-upwiz-more-options' => 'עוד אפשרויות...',
+	'mwe-upwiz-fewer-options' => 'פחות אפשרויות...',
+	'mwe-upwiz-desc-add-0' => 'הוספת תיאור',
+	'mwe-upwiz-title' => 'כותרת',
+	'mwe-upwiz-categories-intro' => 'באפשרותך לסייע לאנשים למצוא את יצירותיך על ידי הוספת קטגוריות',
+	'mwe-upwiz-categories-another' => 'הוספת קטגוריות אחרות',
+	'mwe-upwiz-about-this-work' => 'על אודות יצירה זו',
+	'mwe-upwiz-date-created' => 'תאריך היצירה',
+	'mwe-upwiz-location' => 'מיקום',
+	'mwe-upwiz-about-format' => 'על אודות הקובץ',
+	'mwe-upwiz-filename-tag' => 'שם הקובץ:',
+	'mwe-upwiz-other' => 'פרטים אחרים',
+	'mwe-upwiz-showall' => 'הצגת הכול',
+	'mwe-upwiz-source' => 'מקור',
+	'mwe-upwiz-macro-edit' => 'עדכון התיאורים',
+	'mwe-upwiz-thanks-link' => 'קובץ זה זמין כעת תחת <b><tt>$1</tt></b>.',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'האם להעלות בכול זאת?',
+	'mwe-upwiz-cancel' => 'ביטול',
+	'mwe-upwiz-thumbnail-more' => 'הגדלה',
+	'mwe-upwiz-overwrite' => 'החלפת הקובץ',
+	'mwe-copyright-custom' => 'התאמה אישית',
+	'mwe-upwiz-categories' => 'קטגוריות',
+	'mwe-upwiz-categories-add' => 'הוספה',
+	'mwe-upwiz-category-remove' => 'הסרת קטגוריה זו',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
