@@ -2733,6 +2733,7 @@ $messages['ml'] = array(
  */
 $messages['mn'] = array(
 	'mwe-upwiz-cancel' => 'Цуцлах',
+	'mwe-upwiz-categories-add' => 'Нэмэх',
 );
 
 /** Dutch (Nederlands)
@@ -3625,6 +3626,32 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-categories' => 'Categorias',
 	'mwe-upwiz-categories-add' => 'Adicionar',
 	'mwe-upwiz-category-remove' => 'Remover esta categoria',
+);
+
+/** Romanian (Română)
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'mwe-upwiz-code-unknown' => 'Limbă necunoscută',
+	'mwe-upwiz-step-details' => 'Descrie',
+	'mwe-upwiz-step-thanks' => 'Foloseşte',
+	'mwe-upwiz-add-file-n' => 'Adaugă un alt fişier',
+	'mwe-upwiz-browse' => 'Răsfoire...',
+	'mwe-upwiz-click-here' => 'Clic aici pentru a selecta un fişier',
+	'mwe-upwiz-remove-description' => 'Elimină această descriere',
+	'mwe-upwiz-upload' => 'Upload',
+	'mwe-upwiz-deeds-custom-prompt' => 'Sau:',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
+	'mwe-upwiz-title' => 'Titlu',
+	'mwe-upwiz-source' => 'Sursă',
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => 'Renunţă',
+	'mwe-upwiz-change' => '(modifică)',
+	'mwe-upwiz-home' => 'Mergi la pagina de pornire wiki',
+	'mwe-upwiz-tooltip-more-info' => 'Învaţă mai multe.',
+	'mwe-upwiz-deeds-need-license' => 'Vă rugăm alegeţi o licenţă.',
+	'mwe-upwiz-error-blank' => 'Acest câmp este obligatoriu.',
+	'mwe-upwiz-categories' => 'Categorii',
 );
 
 /** Russian (Русский)
