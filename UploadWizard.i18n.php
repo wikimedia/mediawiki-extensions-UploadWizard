@@ -273,6 +273,13 @@ $messages['ar'] = array(
 	'mwe-upwiz-license' => 'حقوق الإصدار',
 );
 
+/** Belarusian (Беларуская)
+ * @author Тест
+ */
+$messages['be'] = array(
+	'mwe-upwiz-categories' => 'Катэгорыі',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
