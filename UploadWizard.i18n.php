@@ -4142,7 +4142,9 @@ $messages['ta'] = array(
  */
 $messages['te'] = array(
 	'mwe-upwiz-code-unknown' => 'తెలియని భాష',
+	'mwe-upwiz-step-file' => 'ఎక్కింపు',
 	'mwe-upwiz-step-deeds' => 'విడుదల హక్కులు',
+	'mwe-upwiz-step-details' => 'వివరించండి',
 	'mwe-upwiz-add-file-n' => 'మరొక దస్త్రాన్ని చేర్చండి',
 	'mwe-upwiz-transported' => 'సరే',
 	'mwe-upwiz-remove-upload' => 'ఎక్కించాల్సిన దస్త్రాల జాబితా నుండి ఈ దస్త్రాన్ని తొలగించు',
