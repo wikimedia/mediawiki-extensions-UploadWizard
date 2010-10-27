@@ -558,9 +558,19 @@ Arabat ober gant kod wiki pe HTML amañ.',
 );
 
 /** Bosnian (Bosanski)
+ * @author CERminator
  * @author Palapa
  */
 $messages['bs'] = array(
+	'uploadwizard' => 'Čarobnjak za postavljanje',
+	'uploadwizard-desc' => 'Čarobnjak za postavljanje, razvijen pomoću sredstava za multimedijsku upotrebljivost',
+	'mwe-upwiz-code-unknown' => 'Nepoznati jezik',
+	'mwe-upwiz-step-file' => 'Postavi',
+	'mwe-upwiz-step-deeds' => 'Prava izdavanja',
+	'mwe-upwiz-step-details' => 'Opiši',
+	'mwe-upwiz-step-thanks' => 'Koristi',
+	'mwe-upwiz-add-file-n' => 'Dodaj drugu datoteku',
+	'mwe-upwiz-add-file-0' => 'Kliknite ovdje da postavite datoteku',
 	'mwe-upwiz-remove-description' => 'Ukloni ovaj opis',
 	'mwe-upwiz-upload' => 'Slanje datoteke',
 	'mwe-upwiz-thumbnail-more' => 'Uvećajte',
