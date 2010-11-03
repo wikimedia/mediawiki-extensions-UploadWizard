@@ -21,16 +21,12 @@ mw.UploadWizardPage = function() {
 	}
 
 	var config = { 
-		debug:  true,  
+		debug:  wgUploadWizardDebug,  
 		userName:  wgUserName,  
 		userLanguage:  wgUserLanguage, 
 		fileExtensions:  wgFileExtensions, 
 		apiUrl: apiUrl,
-
-		// XXX this is problematic, if the upload wizard is idle for a long time the token expires
-		// should get token just before uploading
-		token:  wgEditToken, 
-		
+	
 		thumbnailWidth:  120,  
 		smallThumbnailWidth:  60,  
 		maxAuthorLength: 50,
@@ -77,11 +73,19 @@ mw.UploadWizardPage = function() {
 		// ]
 	};
 
+	if ( !config.debug ) {
+		mw.log.level = mw.log.NONE;
+	}
+
 	var uploadWizard = new mw.UploadWizard( config );
 	uploadWizard.createInterface( '#upload-wizard' );
 
 }
 
-$j( document ).ready( function() {
+jQuery( document ).ready( function() {
+	// sets up plural and so on. Seems like a bad design to have to do this, though.
+	mw.Language.magicSetup();
+	
+	// show page. 
 	mw.UploadWizardPage();
 } );

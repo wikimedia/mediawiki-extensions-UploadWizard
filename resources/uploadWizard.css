@@ -218,6 +218,12 @@ a[disabled=true]:hover {
 	color: #009900;
 }
 
+.mwe-upwiz-status-failed {
+	background: url(16px-Gnome-process-stop.svg.png) no-repeat left center;
+	font-weight: bold;
+	color: #CC0000;
+}
+
 .mwe-upwiz-progress {
 	margin-top: 15px;
 }

@@ -1,380 +1,38 @@
-/**
- * Sort of an abstract class for deeds
- */
-mw.UploadWizardDeed = function() {
-	var _this = this;
-	// prevent from instantiating directly?
-	return false;
-};
-
-mw.UploadWizardDeed.prototype = {
-	valid: function() {
-		return false;
-	},
-
-	setFormFields: function() { },
-	
-	getSourceWikiText: function() {
-		return $j( this.sourceInput ).val();
-	},
-
-	getAuthorWikiText: function() {
-		return $j( this.authorInput ).val(); 
-	},
-
-	/**
-	 * Get wikitext representing the licenses selected in the license object
-	 * @return wikitext of all applicable license templates.
-	 */
-	getLicenseWikiText: function() {
-		var _this = this;
-		var wikiText = ''; 
-		$j.each ( _this.licenseInput.getTemplates(), function( i, template ) {
-			wikiText += "{{" + template + "}}\n";
-		} );
-	
-		return wikiText;
-	}
-
-};
-
-
-/**
- * this is a progress bar for monitoring multiple objects, giving summary view
- */
-mw.GroupProgressBar = function( selector, text, uploads, endState, progressProperty, weightProperty ) {
-	var _this = this;
-
-	// XXX need to figure out a way to put text inside bar
-	_this.$selector = $j( selector );
-	_this.$selector.html( 
-		'<div class="mwe-upwiz-progress">'
-		+   '<div class="mwe-upwiz-progress-bar-etr-container">'
-		+     '<div class="mwe-upwiz-progress-bar-etr" style="display: none">'
-		+       '<div class="mwe-upwiz-progress-bar"></div>'
-		+       '<div class="mwe-upwiz-etr"></div>'
-		+     '</div>'
-		+   '</div>'
-		+   '<div class="mwe-upwiz-count"></div>'
-		+ '</div>'
-	);
-
-	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
-
-	_this.uploads = uploads;
-	_this.endState = endState;
-	_this.progressProperty = progressProperty;
-	_this.weightProperty = weightProperty;
-	_this.beginTime = undefined;
-
-};
-
-mw.GroupProgressBar.prototype = {
-
-	/**
-	 * Show the progress bar with a slideout motion
-         */
-	showBar: function() {
-		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
-	},
-
-	/** 
-	 * loop around the uploads, summing certain properties for a weighted total fraction
-	 */
-	start: function() {
-		var _this = this;
-
-		var totalWeight = 0.0;
-		$j.each( _this.uploads, function( i, upload ) {
-			totalWeight += upload[_this.weightProperty];
-		} );
-
-		_this.setBeginTime();
-		var shown = false;
-
-		var displayer = function() {	
-			var fraction = 0.0;
-			var endStateCount = 0;
-			var hasData = false;
-			$j.each( _this.uploads, function( i, upload ) {
-				if ( upload.state == _this.endState ) {
-					endStateCount++;
-				}
-				if (upload[_this.progressProperty] !== undefined) {
-					fraction += upload[_this.progressProperty] * ( upload[_this.weightProperty] / totalWeight );
-					if (upload[_this.progressProperty] > 0 ) {
-						hasData = true;
-					}
-				}
-			} );
-			mw.log( 'hasdata:' + hasData + ' endstatecount:' + endStateCount );
-			// sometimes, the first data we have just tells us that it's over. So only show the bar
-			// if we have good data AND the fraction is less than 1.
-			if ( hasData && fraction < 1.0 ) {
-				if ( ! shown ) {
-					_this.showBar();
-					shown = true;
-				}
-				_this.showProgress( fraction );
-			}
-			_this.showCount( endStateCount );
-
-			if ( endStateCount < _this.uploads.length ) {
-				setTimeout( displayer, 200 );
-			} else {
-				_this.showProgress( 1.0 );
-				// not necessary to hide bar since we're going to the next step.
-				/* setTimeout( function() { _this.hideBar(); }, 500 ); */
-			}
-		};
-		displayer();
-	},
-
-
-	/**
-	 * Hide the progress bar with a slideup motion
-	 */
-	hideBar: function() {
-		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeOut( 200 );
-	},
-	
-	/**
-	 * sets the beginning time (useful for figuring out estimated time remaining)
-	 * if time parameter omitted, will set beginning time to now
-	 *
-	 * @param time  optional; the time this bar is presumed to have started (epoch milliseconds)
-	 */ 
-	setBeginTime: function( time ) {
-		this.beginTime = time ? time : ( new Date() ).getTime();
-	},
-
-
-	/**
-	 * Show overall progress for the entire UploadWizard
-	 * The current design doesn't have individual progress bars, just one giant one.
-	 * We did some tricky calculations in startUploads to try to weight each individual file's progress against 
-	 * the overall progress.
-	 * @param fraction the amount of whatever it is that's done whatever it's done
-	 */
-	showProgress: function( fraction ) {
-		var _this = this;
-
-		_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
-
-		var remainingTime = _this.getRemainingTime( fraction );
+// XXX
+// this is sure starting to look like we should compose of UI, handler.
 		
-		if ( remainingTime !== null ) {
-			var t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
-			var timeString;
-			if (t.hours === 0) {
-				if (t.minutes === 0) {
-					if (t.seconds === 0) { 
-						timeString = gM( 'mwe-upwiz-finished' );
-					} else {
-						timeString = gM( 'mwe-upwiz-secs-remaining', t.seconds );
-					}
-				} else {
-					timeString = gM( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds );
-				}
-			} else {
-				timeString = gM( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds );
-			}
-			_this.$selector.find( '.mwe-upwiz-etr' ).html( timeString );
-		}
-	},
-
-	/**
-	 * Calculate remaining time for all uploads to complete.
-	 * 
-	 * @param fraction	fraction of progress to show
-	 * @return 		estimated time remaining (in milliseconds)
-	 */
-	getRemainingTime: function ( fraction ) {
-		var _this = this;
-		if ( _this.beginTime ) {
-			var elapsedTime = ( new Date() ).getTime() - _this.beginTime;
-			if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
-				var rate = fraction / elapsedTime;
-				return parseInt( ( 1.0 - fraction ) / rate, 10 ); 
-			}
-		}
-		return null;
-	},
-
-
-	/**
-	 * Show the overall count as we upload
-	 * @param count  -- the number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
-	 */
-	showCount: function( count ) {
-		var _this = this;
-		_this.$selector
-			.find( '.mwe-upwiz-count' )
-			.html( gM( 'mwe-upwiz-upload-count', [ count, _this.uploads.length ] ) );
-	}
-
-
-};
-
-
-
-//mw.setConfig('uploadHandlerClass', mw.MockUploadHandler); // ApiUploadHandler?
-
-// available licenses should be a configuration of the MediaWiki instance,
-// not hardcoded here.
-// but, MediaWiki has no real concept of a License as a first class object -- there are templates and then specially - parsed 
-// texts to create menus -- hack on top of hacks -- a bit too much to deal with ATM
-/**
- * Create a group of checkboxes for licenses. N.b. the licenses are named after the templates they invoke.
- * @param div 
- * @param values  (optional) array of license key names to activate by default
- */
-mw.UploadWizardLicenseInput = function( selector, values ) {
-	var _this = this;
-
-	var widgetCount = mw.UploadWizardLicenseInput.prototype.count++;
-	
-	_this.inputs = [];
-
-	// TODO incompatibility check of this license versus others
-
-	_this.$selector = $j( selector );
-	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
-
-	$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
-		var template = licenseConfig.template;
-		var messageKey = licenseConfig.messageKey;
-		
-		var name = 'license_' + template;
-		var id = 'licenseInput' + widgetCount + '_' + name;
-		var $input = $j( '<input />' ) 
-			.attr( { id: id, name: name, type: 'checkbox', value: template  } )
-			// we use the selector because events can't be unbound unless they're in the DOM.
-			.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
-		_this.inputs.push( $input );
-		_this.$selector.append( 
-			$input,
-			$j( '<label />' ).attr( { 'for': id } ).html( gM( messageKey ) ),
-			$j( '<br/>' )
-		);
-	} );
-
-	if ( values ) {
-		_this.setValues( values );
-	}
-
-	return _this;
-};
-
-mw.UploadWizardLicenseInput.prototype = {
-	count: 0,
-
-	/**
-	 * Sets the value(s) of a license input.
-	 * @param object of license-key to boolean values, e.g. { cc_by_sa_30: true, gfdl: true }
-	 */
-	setValues: function( licenseValues ) {
-		var _this = this;
-		$j.each( _this.inputs, function( i, $input ) {
-			var template = $input.val();
-			$input.attr( 'checked', ~~!!licenseValues[template] );
-		} );
-		// we use the selector because events can't be unbound unless they're in the DOM.
-		_this.$selector.trigger( 'changeLicenses' );
-	},
-
-	/**
-	 * Set the default configured licenses
-	 */
-	setDefaultValues: function() {
-		var _this = this;
-		var values = {};
-		$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
-			values[ licenseConfig.template ] = licenseConfig['default'];
-		} );
-		_this.setValues( values );
-	},
-
-	/**
-	 * Gets the templates associated with checked inputs 
-	 * @return array of template names
-  	 */
-	getTemplates: function() {
-		return $j( this.inputs )
-			.filter( function() { return this.is( ':checked' ); } )
-			.map( function() { return this.val(); } );
-	},
-
-	/**
-	 * Check if a valid value is set, also look for incompatible choices. 
-	 * Side effect: if no valid value, add notes to the interface. Add listeners to interface, to revalidate and remove notes.
-	 * @return boolean; true if a value set, false otherwise
-	 */
-	valid: function() {
-		var _this = this;
-		var isValid = true;
-
-		if ( ! _this.isSet() ) {
-			isValid = false;
-			errorHtml = gM( 'mwe-upwiz-deeds-need-license' );
-		}
-
-		// XXX something goes here for licenses incompatible with each other
-
-		var $errorEl = this.$selector.find( '.mwe-error' );
-		if (isValid) {
-			$errorEl.fadeOut();
-		} else {
-			// we bind to $selector because unbind() doesn't work on non-DOM objects
-			_this.$selector.bind( 'changeLicenses.valid', function() {
-				_this.$selector.unbind( 'changeLicenses.valid' );
-				_this.valid();
-			} );	
-			$errorEl.html( errorHtml ).show();
-		}
-
-		return isValid;
-	},
-
-
-	/**
-  	 * Returns true if any license is set
-	 * @return boolean
-	 */
-	isSet: function() {
-		return this.getTemplates().length > 0;
-	}
-
-};
-
 
 /**
  * Represents the upload -- in its local and remote state. (Possibly those could be separate objects too...)
  * This is our 'model' object if we are thinking MVC. Needs to be better factored, lots of feature envy with the UploadWizard
  * states:
- *   'new' 'transporting' 'transported' 'details' 'submitting-details' 'complete'  
+ *   'new' 'transporting' 'transported' 'details' 'submitting-details' 'complete' 'failed' 
  * should fork this into two -- local and remote, e.g. filename
  */
-mw.UploadWizardUpload = function( filesDiv ) {
-	var _this = this;
-	_this.state = 'new';
-	_this.transportWeight = 1;  // default
-	_this.detailsWeight = 1; // default
-	_this._thumbnails = {};
-	_this.imageinfo = {};
-	_this.title = undefined;
-	_this.filename = undefined;
-	_this.originalFilename = undefined;
-	_this.mimetype = undefined;
-	_this.extension = undefined;
-		
+( function( $j ) {
+
+mw.UploadWizardUpload = function( api, filesDiv ) {
+	this.api = api;
+	this.state = 'new';
+	this.thumbnails = {};
+	this.imageinfo = {};
+	this.title = undefined;
+	this.mimetype = undefined;
+	this.extension = undefined;
+
+	this.sessionKey = undefined;
+	
+	// this should be moved to the interface, if we even keep this	
+	this.transportWeight = 1;  // default
+	this.detailsWeight = 1; // default
+
 	// details 		
-	_this.ui = new mw.UploadWizardUploadInterface( _this, filesDiv );
+	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv );
 
 	// handler -- usually ApiUploadHandler
-	// _this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( _this );
-	// _this.handler = new mw.MockUploadHandler( _this );
-	_this.handler = new mw.ApiUploadHandler( _this );
+	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
+	// this.handler = new mw.MockUploadHandler( this );
+	this.handler = new mw.ApiUploadHandler( this, api );
 };
 
 mw.UploadWizardUpload.prototype = {
@@ -390,7 +48,7 @@ mw.UploadWizardUpload.prototype = {
 	start: function() {
 		var _this = this;
 		_this.setTransportProgress(0.0);
-		_this.ui.start();
+		//_this.ui.start();
 		_this.handler.start();	
 	},
 
@@ -407,6 +65,7 @@ mw.UploadWizardUpload.prototype = {
 		// we signal to the wizard to update itself, which has to delete the final vestige of 
 		// this upload (the ui.div). We have to do this silly dance because we 
 		// trigger through the div. Triggering through objects doesn't always work.
+		// TODO fix -- this now works in jquery 1.4.2
 		$j( this.ui.div ).trigger( 'removeUploadEvent' );
 	},
 
@@ -424,8 +83,19 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Stop the upload -- we have failed for some reason 
+	 */
+	setFailed: function( code ) { 
+		/* stop the upload progress */
+		this.state = 'failed';
+		this.transportProgress = 0;
+		this.ui.showFailed( code );
+	},
+
+	/**
 	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details 
 	 * @param result	the API result in parsed JSON form
+	 * XXX needs refactor --- new api needs error handler instead
 	 */
 	setTransported: function( result ) {
 		var _this = this;
@@ -433,7 +103,7 @@ mw.UploadWizardUpload.prototype = {
 		_this.transportProgress = 1;
 		$j( _this.ui.div ).trigger( 'transportedEvent' );
 
-		if ( result.upload && result.upload.imageinfo && result.upload.imageinfo.descriptionurl ) {
+		if ( result.upload && result.upload.imageinfo ) {
 			// success
 			_this.extractUploadInfo( result );	
 			_this.deedPreview.setup();
@@ -448,27 +118,29 @@ mw.UploadWizardUpload.prototype = {
 
 			// and other errors that result in a stash
 		} else {
-			alert("failure!");
-			// we may want to tag or otherwise queue it as an upload to retry
+			// XXX handle errors better
+			if ( result.error ) {
+				alert( "error : " + result.error.code + " : " + result.error.info );
+			} 
+			this.ui.showFailed();
+			alert("huh?");
+			// TODO now we should tag the upload as failed
+			// if can recover, should maybe allow re-uploading.
 		}
-		
 	
 	},
 
 
 	/**
-	 * call when the file is entered into the file input
-	 * get as much data as possible -- maybe exif, even thumbnail maybe
+	 * Called when the file is entered into the file input
+	 * Get as much data as possible -- maybe exif, even thumbnail maybe
 	 */
 	extractLocalFileInfo: function( localFilename ) {
-		var _this = this;
-		if (false) {  // FileAPI, one day
-			_this.transportWeight = getFileSize();
+		if ( false ) {  // FileAPI, one day
+			this.transportWeight = getFileSize();
 		}
-		_this.extension = mw.UploadWizardUtil.getExtension( localFilename );
-		// XXX add filename, original filename, extension, whatever else is interesting.
+		this.title = new mw.Title( mw.UploadWizardUtil.getBasename( localFilename ), 'file' );
 	},
-
 
 	/** 
  	 * Accept the result from a successful API upload transport, and fill our own info 
@@ -476,13 +148,8 @@ mw.UploadWizardUpload.prototype = {
 	 * @param result The JSON object from a successful API upload result.
 	 */
 	extractUploadInfo: function( result ) {
-		var _this = this;
-
-		_this.filename = result.upload.filename;
-		_this.title = wgFormattedNamespaces[wgNamespaceIds['file']] + ':' + _this.filename;
-
-		_this.extractImageInfo( result.upload.imageinfo );
-
+		this.sessionKey = result.upload.sessionkey;
+		this.extractImageInfo( result.upload.imageinfo );
 	},
 
 	/**
@@ -507,9 +174,11 @@ mw.UploadWizardUpload.prototype = {
 				_this.imageinfo[key] = imageinfo[key];
 			}
 		}
-		
-		// we should already have an extension, but if we don't... 
-		if ( _this.extension === undefined ) {
+	
+		// TODO this needs to be rethought.	
+		// we should already have an extension, but if we don't...  ??
+		if ( _this.title.getExtension() === null ) {
+			/* 
 			var extension = mw.UploadWizardUtil.getExtension( _this.imageinfo.url );
 			if ( !extension ) {
 				if ( _this.imageinfo.mimetype ) {
@@ -518,68 +187,51 @@ mw.UploadWizardUpload.prototype = {
 					} 
 				}
 			}
+			*/
 		}
 	},
 
 	/**
-	 * Supply information to create a thumbnail for this Upload. Runs async, with a callback. 
+	 * Fetch a thumbnail for this upload of the desired width. 
 	 * It is assumed you don't call this until it's been transported.
  	 *
-	 * XXX should check if we really need this second API call or if we can get MediaWiki to make us a thumbnail URL upon upload
-	 *
 	 * @param width - desired width of thumbnail (height will scale to match)
-	 * @param callback - callback to execute once thumbnail has been obtained -- must accept object with properties of width, height, and url.
+	 * @param callback - callback to execute once thumbnail has been obtained -- must accept Image object
 	 */
 	getThumbnail: function( width, callback ) {
 		var _this = this;
-		if ( _this._thumbnails[ "width" + width ] !== undefined ) {
-			callback( _this._thumbnails[ "width" + width ] );
-			return;
-		}
+		var key = "width" + width;
+		if ( mw.isDefined( _this.thumbnails[key] ) ) {
+			callback( _this.thumbnails[key] );
+		} else {
+			var params = {
+				'prop':	'stashimageinfo',
+				'siisessionkey': _this.sessionKey,
+				'siiurlwidth': width, 
+				'siiprop': 'url'
+			};
 
-		var apiUrl = mw.UploadWizard.config.apiUrl;
-
-		var params = {
-                        'titles': _this.title,
-                        'prop':  'imageinfo',
-                        'iiurlwidth': width, 
-                        'iiprop': 'url'
-                };
-
-		mw.getJSON( apiUrl, params, function( data ) {
-			if ( !data || !data.query || !data.query.pages ) {
-				mw.log(" No data? ");
-				// XXX do something about the thumbnail spinner, maybe call the callback with a broken image.
-				return;
-			}
-
-			if ( data.query.pages[-1] ) {
-				// XXX do something about the thumbnail spinner, maybe call the callback with a broken image.
-				return;
-			}
-			for ( var page_id in data.query.pages ) {
-				var page = data.query.pages[ page_id ];
-				if ( ! page.imageinfo ) {
-					alert("imageinfo missing");
-					// not found? error
-				} else {
-					var imageInfo = page.imageinfo[0];
-					var thumbnail = {
-						width: 	imageInfo.thumbwidth,
-						height: imageInfo.thumbheight,
-						url: 	imageInfo.thumburl
-					};
-					_this._thumbnails[ "width" + width ] = thumbnail; 
-					callback( thumbnail );
+			this.api.get( params, function( data ) {
+				if ( !data || !data.query || !data.query.stashimageinfo ) {
+					mw.log(" No data? ");
+					// XXX do something about the thumbnail spinner, maybe call the callback with a broken image.
+					return;
 				}
-			}
-		} );
-
+				var thumbnails = data.query.stashimageinfo;
+				for ( var i = 0; i < thumbnails.length; i++ ) {
+					_this.thumbnails[key] = {
+						src: thumbnails[i].thumburl,
+						width: thumbnails[i].thumbwidth,
+						height: thumbnails[i].thumbheight
+					};
+					callback( _this.thumbnails[key] );
+				}
+			} );
+		}
 	},
 
-
 	/**
-	 *  look up thumbnail info and set it in HTML, with loading spinner
+	 * Look up thumbnail info and set it in HTML, with loading spinner
 	 * it might be interesting to make this more of a publish/subscribe thing, since we have to do this 3x
 	 * the callbacks may pile up, getting unnecessary info
 	 *
@@ -597,20 +249,18 @@ mw.UploadWizardUpload.prototype = {
 			// side effect: will replace thumbnail's loadingSpinner
 			$j( selector ).html(
 				$j('<a/>')
-					.attr( { 'href': _this.imageinfo.descriptionurl,
+					.attr( { 'href': _this.imageinfo.url,
 						 'target' : '_new' } )
 					.append(
 						$j( '<img/>' )
 							.attr( 'width',  thumbnail.width )
 							.attr( 'height', thumbnail.height )
-							.attr( 'src',    thumbnail.url ) ) );
+							.attr( 'src',    thumbnail.src ) ) );
 		};
 
 		$j( selector ).loadingSpinner();
 		_this.getThumbnail( width, callback );
 	}
-
-
 	
 };
 
@@ -662,6 +312,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 					.bind( 'mouseleave', function(e) { _this.removeFileCtrlHover(e); } );
 */
 
+
 	// the css trickery (along with css) 
 	// here creates a giant size file input control which is contained within a div and then
 	// clipped for overflow. The effect is that we have a div (ctrl-container) we can position anywhere
@@ -673,7 +324,9 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 			.append( _this.fileCtrlContainer
 				.append( _this.fileInputCtrl ) 
 			)
-			.append( _this.filenameCtrl ).get( 0 );
+			.append( _this.filenameCtrl )
+			.append( _this.thumbnailParam )
+			.get( 0 );
 
 
 	$j( _this.div ).append( _this.form );
@@ -717,16 +370,16 @@ mw.UploadWizardUploadInterface.prototype = {
 	/**
  	 *
 	 */ 
-	showIndicatorMessage: function( classToRemove, classToAdd, msgKey ) {
+	showIndicatorMessage: function( statusClass, msgKey ) {
 		var _this = this;
 		var $indicator = $j( _this.div ).find( '.mwe-upwiz-file-indicator' );
-		if ( classToRemove ) {
-			$indicator.removeClass( classToRemove );
-		}
-		if ( classToAdd ) {
-			$indicator.addClass( classToAdd );
-		}
-		$indicator.html( gM( msgKey ) );
+		$j.each( $indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
+			if ( className.match( /^mwe-upwiz-status/ ) ) {
+				$indicator.removeClass( className );
+			}
+		} );
+		$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
+			  .html( gM( msgKey ) );
 		$j( _this.div ).find( '.mwe-upwiz-visible-file-filename' )
 				.css( 'margin-right', ( $indicator.outerWidth() + 24 ).toString() + 'px' );
 		$indicator.css( 'visibility', 'visible' ); 
@@ -737,15 +390,23 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * @param fraction	The fraction of progress. Float between 0 and 1
 	 */
 	showTransportProgress: function() {
-		this.showIndicatorMessage( null, 'mwe-upwiz-status-progress', 'mwe-upwiz-uploading' );
+		this.showIndicatorMessage( 'progress', 'mwe-upwiz-uploading' );
 		// update individual progress bar with fraction?
 	},
 
 	/**
-	 * Execute when this upload is transported; cleans up interface. 
+	 * Show that upload is transported
 	 */
 	showTransported: function() {
-		this.showIndicatorMessage( 'mwe-upwiz-status-progress', 'mwe-upwiz-status-completed', 'mwe-upwiz-transported' );
+		this.showIndicatorMessage( 'completed', 'mwe-upwiz-transported' );
+	},
+
+	/** 
+	 * Show that transport has failed
+	 */
+	showFailed: function( code ) {
+		this.showIndicatorMessage( 'failed', 'mwe-upwiz-failed' );
+		//add a "retry" button, too?
 	},
 
 	/**
@@ -756,7 +417,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		var _this = this;
 		_this.clearErrors();
 		_this.upload.extractLocalFileInfo( $j( _this.fileInputCtrl ).val() );
-		if ( _this.isGoodExtension( _this.upload.extension ) ) {
+		if ( _this.isGoodExtension( _this.upload.title.getExtension() ) ) {
 			_this.updateFilename();
 		} else {       
 			//_this.error( 'bad-filename-extension', ext );
@@ -820,32 +481,23 @@ mw.UploadWizardUploadInterface.prototype = {
 	 *   1 ) since the file input has been hidden with some clever CSS ( to avoid x-browser styling issues ), 
 	 *      update the visible filename
 	 *
-	 *   2 ) update the filename desired when added to MediaWiki. This should be RELATED to the filename on the filesystem,
-	 *      but it should be silently fixed so that it does not trigger uniqueness conflicts. i.e. if server has cat.jpg we change ours to cat_2.jpg.
-	 *      This is hard to do in a scalable fashion on the client; we don't want to do 12 api calls to get cat_12.jpg. 
-	 *      Ideally we should ask the SERVER for a decently unique filename related to our own. 
-	 *	So, at the moment, this is hacked with a guaranteed - unique filename instead.  
+	 *   2 ) update the underlying "title" which we are targeting to add to mediawiki. 
+	 *      TODO silently fix to have unique filename? unnecessary at this point...
 	 */
 	updateFilename: function() {
 		var _this = this;
-		var path = $j(_this.fileInputCtrl).attr('value');
+		var path = _this.fileInputCtrl.value;
 		
-	
-		// visible filename	
+		// visible filenam.
 		$j( _this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).html( path );
 
-		// desired filename 
-		var filename = _this.convertPathToFilename( path );
-		_this.upload.originalFilename = filename;
-		// this is a hack to get a filename guaranteed unique.
-		uniqueFilename = mw.UploadWizard.config[  'userName'  ] + "_" + ( new Date() ).getTime() + "_" + filename;
-		$j( _this.filenameCtrl ).attr( 'value', uniqueFilename );
+		_this.upload.title = new mw.Title( mw.UploadWizardUtil.getBasename( path ), 'file' );
+		$j( _this.filenameCtrl ).val( _this.upload.title.getMain() );
 
 		if ( ! _this.isFilled ) {
 			var $div = $j( _this.div );
 			_this.isFilled = true;
 			$div.addClass( 'filled' );
-		
 				
  			// cover the div with the file input.
 			// we use the visible-file div because it has the same offsetParent as the file input
@@ -904,61 +556,12 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
-	 * Get the extension of the path in fileInputCtrl
-	 * @return extension as string 
-	 */
-	getExtension: function() {
-		var _this = this;
-		var path = $j(_this.fileInputCtrl).attr('value');
-		return mw.UploadWizardUtil.getExtension(path);
-	},
-
-	/**
-	 * XXX this is common utility code
-	 * used when converting contents of a file input and coming up with a suitable "filename" for mediawiki
-	 * test: what if path is length 0 
-	 * what if path is all separators
-	 * what if path ends with a separator character
-	 * what if it ends with multiple separator characters
-	 *
-	 * @param path
-	 * @return filename suitable for mediawiki as string
-	 */
-	convertPathToFilename: function( path ) {
-		if (path === undefined || path === '') {
-			return '';
-		}
-		
- 		var lastFileSeparatorIdx = Math.max(path.lastIndexOf( '/' ), path.lastIndexOf( '\\' ));
-	 	// lastFileSeparatorIdx is now -1 if no separator found, or some index in the string.
-		// so, +1, that is either 0 ( beginning of string ) or the character after last separator.
-		// caution! could go past end of string... need to be more careful
-		var filename = path.substr( lastFileSeparatorIdx + 1 );
-		return mw.UploadWizardUtil.pathToTitle( filename );
-
-
-	
- 	},
-
-	/**
-	 * XXX this is common utility code
-	 * copied because we'll probably need it... stripped from old doDestinationFill
-	 * this is used when checking for "bad" extensions in a filename. 
+	 * This is used when checking for "bad" extensions in a filename. 
 	 * @param ext
 	 * @return boolean if extension was acceptable
 	 */
 	isGoodExtension: function( ext ) {
-		var _this = this;
-		var found = false;
-		var extensions = mw.UploadWizard.config[ 'fileExtensions' ];
-		if ( extensions ) {
-			for ( var i = 0; i < extensions.length; i++ ) {
-				if ( extensions[i].toLowerCase() == ext ) {
-					found = true;
-				}
-			}
-		}
-		return found;
+		return $j.inArray( ext.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
 	}
 
 };	
@@ -1101,12 +704,17 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		.attr( 'title', gM( 'mwe-upwiz-tooltip-title' ) )
 		.tipsyPlus()
 		.keyup( function() { 
-			_this.setFilenameFromTitle();
+			_this.upload.title.setNameText( _this.titleInput.value );
+			// TODO update a display of filename 
 		} )
 		.growTextArea()
 		.destinationChecked( {
+			api: _this.upload.api,
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
-			preprocess: function( name ) { return _this.getFilenameFromTitle(); }, // XXX this is no longer a pre-process
+			preprocess: function( name ) { 
+				// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
+				return _this.upload.title.setNameText( name ).toString();
+			}, 
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
 		} );
 
@@ -1297,28 +905,6 @@ mw.UploadWizardDetails.prototype = {
 	},
 
 	/**
-	 * Sets the filename from the title plus this upload's extension.
-	 */
-	setFilenameFromTitle: function() {
-		var _this = this;
-
-		_this.filename = wgFormattedNamespaces[wgNamespaceIds['file']] + ':' + _this.getFilenameFromTitle();
-		$j( '#mwe-upwiz-details-filename' ).text( _this.filename );		
-			
-	},
-
-	/**
-	 * Gets a filename from the human readable title, using upload's extension.
-	 * @return Filename
-	 */ 
-	getFilenameFromTitle: function() {
-		var _this = this;
-		var name = $j( _this.titleInput ).val();
-		return mw.UploadWizardUtil.pathToTitle( name ) + '.' + _this.upload.extension;
-	},
-
-
-	/**
 	 * show file destination field as "busy" while checking 
 	 * @param busy boolean true = show busy-ness, false = remove
 	 */
@@ -1352,7 +938,7 @@ mw.UploadWizardDetails.prototype = {
 		$j( _this.titleInput ).data( 'valid', false );
 
 		// result is NOT unique
-		var title = mw.UploadWizardUtil.fileTitleToHumanTitle( result.title );
+		var title = new mw.Title( result.title ).setNamespace( 'file' ).getNameText();
 		/* var img = result.img;
 		var href = result.href; */
 	
@@ -1519,7 +1105,6 @@ mw.UploadWizardDetails.prototype = {
 		_this.prefillSource();
 		_this.prefillAuthor(); 
 		_this.prefillTitle();
-		_this.prefillFilename();
 		_this.prefillLocation(); 
 	},
 
@@ -1571,19 +1156,7 @@ mw.UploadWizardDetails.prototype = {
 	 * Note: the interface's notion of "filename" versus "title" is the opposite of MediaWiki
 	 */
 	prefillTitle: function() {
-		var _this = this;
-		var titleExt = mw.UploadWizardUtil.titleToPath( _this.upload.originalFilename );
-		var title = titleExt.replace( /\.\w+$/, '' );
-		$j( _this.titleInput ).val( title );
-	},
-
-	/**
-	 * Set the title of the thing we just uploaded, visibly
-	 * Note: the interface's notion of "filename" versus "title" is the opposite of MediaWiki
-	 */
-	prefillFilename: function() {
-		var _this = this;
-		_this.setFilenameFromTitle();
+		$j( this.titleInput ).val( this.upload.title.getNameText() );
 	},
 
 	/**
@@ -1685,19 +1258,9 @@ mw.UploadWizardDetails.prototype = {
 				$j( _this.licenseInput ).val( copyright );
 			}
 		}
-		// if we still haven't set a copyright use the user's preferences
+		// if we still haven't set a copyright use the user's preferences?
 	},
 
-
-	/**
-	 * 
-	showErrors: function() {
-		var _this = this;
-		$j.each( _this.errors, function() {
-
-		} );
-	},
-	 */
 	
 	/**
 	 * Convert entire details for this file into wikiText, which will then be posted to the file 
@@ -1778,18 +1341,6 @@ mw.UploadWizardDetails.prototype = {
 	},
 
 	/**
-	 * Check if we are ready to post wikitext
-	deedValid: function() {
-		var _this = this;
-		return _this.upload.deedChooser.deed.valid();
-
-		// somehow, all the various issues discovered with this upload should be present in a single place
-		// where we can then check on
-		// perhaps as simple as _this.issues or _this.agenda
-	},
-	 */
-
-	/**
 	 * Post wikitext as edited here, to the file
 	 * XXX This should be split up -- one part should get wikitext from the interface here, and the ajax call
 	 * should be be part of upload
@@ -1797,30 +1348,16 @@ mw.UploadWizardDetails.prototype = {
 	submit: function( endCallback ) {
 		var _this = this;
 
-
-		// are we okay to submit?
-		// all necessary fields are ready
-		// check descriptions
-		// the filename is in a sane state
-		var desiredFilename = _this.filename;
-		shouldRename = ( desiredFilename != _this.upload.title );
-
 		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
 		var wikiText = _this.getWikiText();
 		mw.log( wikiText );
-	
+
 		var params = {
-			action: 'edit',
-			// XXX this is problematic, if the upload wizard is idle for a long time the token expires.
-			// should obtain token just before uploading
-			token: mw.UploadWizard.config[  'token'  ],
-			title: _this.upload.title,
-			// section: 0, ?? causing issues?
+			action: 'upload',
+			sessionkey: _this.upload.sessionKey,
+			filename: _this.upload.title.getMain(),
 			text: wikiText,
-			summary: "User edited page with " + mw.UploadWizard.userAgent,
-			// notminor: 1,
-			// basetimestamp: _this.upload.imageinfo.timestamp,  ( conflicts? )
-			nocreate: 1
+			summary: "User created page with " + mw.UploadWizard.userAgent
 		};
 
 		var finalCallback = function() { 
@@ -1828,81 +1365,37 @@ mw.UploadWizardDetails.prototype = {
 			_this.completeDetailsSubmission(); 
 		};	
 
-		mw.log( "editing!" );
+		mw.log( "uploading!" );
 		mw.log( params );
 		var callback = function( result ) {
 			mw.log( result );
-			mw.log( "successful edit" );
-			if ( shouldRename ) {
-				_this.rename( desiredFilename, finalCallback );	
-			} else {
-				finalCallback();
-			}
+			mw.log( "successful upload" );
+			finalCallback();
 		};
 
 		_this.upload.state = 'submitting-details';
-		mw.getJSON( params, callback );
+		// XXX this can still fail with bad filename, or other 'warnings' -- capture these
+		_this.upload.api.postWithEditToken( params, callback );
 	},
 
-	/**
-	 * Rename the file
-         *
-	 *  THIS MAY NOT WORK ON ALL WIKIS. for instance, on Commons, it may be that only admins can move pages. This is another example of how
-	 *  we need an "incomplete" upload status
-	 *  we are presuming this File page is brand new, so let's not bother with the whole redirection deal. ('noredirect')
-	 *
-	 * use _this.ignoreWarningsInput (if it exists) to check if we can blithely move the file or if we have a problem if there
-	 * is a file by that name already there
-	 *
-	 * @param filename to rename this file to
- 	 */
-	rename: function( title, endCallback ) {
-		var _this = this;
-		mw.log("renaming!");
-		params = {
-			action: 'move',
-			from: _this.upload.title,
-			to: title,
-			reason: "User edited page with " + mw.UploadWizard.userAgent,
-			movetalk: '',
-			noredirect: '', // presume it's too new 
-			token: mw.UploadWizard.config[ 'token' ]
-		};
-		mw.log(params);
-		// despite the name, getJSON magically changes this into a POST request (it has a list of methods and what they require).
-		mw.getJSON( params, function( data ) {
-			// handle errors later
-			// possible error data: { code = 'missingtitle' } -- orig filename not there
-			// and many more
-	
-			// which should match our request.
-			// we should update the current upload filename
-			// then call the uploadwizard with our progress
-
-			// success is
-			//  move =  from : ..., reason : ..., redirectcreated : ..., to : .... 
-			if (data !== undefined && data.move !== undefined && data.move.to !== undefined) {
-				_this.upload.title = data.move.to;
-				_this.refreshImageInfo( _this.upload, _this.upload.title, endCallback );
-			}
-		} );
-	},
 
 	/** 
-	 * Get new image info, for instance, after we renamed an image
+	 * Get new image info, for instance, after we renamed... or? published? an image
+	 * XXX deprecated?
+	 * XXX move to mw.API
 	 *
 	 * @param upload an UploadWizardUpload object
 	 * @param title  title to look up remotely
 	 * @param endCallback  execute upon completion
 	 */
-	refreshImageInfo: function( upload, title, endCallback ) {
+	getImageInfo: function( upload, callback ) {
 		var params = {
-                        'titles': title,
+                        'titles': upload.title.toString(),
                         'prop':  'imageinfo',
                         'iiprop': 'timestamp|url|user|size|sha1|mime|metadata'
                 };
 		// XXX timeout callback?
-		mw.getJSON( params, function( data ) {
+		this.api.get( params, function( data ) {
 			if ( data && data.query && data.query.pages ) {
 				if ( ! data.query.pages[-1] ) {
 					for ( var page_id in data.query.pages ) {
@@ -1916,7 +1409,7 @@ mw.UploadWizardDetails.prototype = {
 					}
 				}	
 			}
-			endCallback();
+			callback();
 		} );
 	},
 
@@ -1939,6 +1432,7 @@ mw.UploadWizardDetails.prototype = {
 mw.UploadWizard = function( config ) {
 
 	this.uploads = [];
+	this.api = new mw.Api( { url: config.apiUrl } );
 
 	// making a sort of global for now, should be done by passing in config or fragments of config when needed
 	// elsewhere
@@ -1950,6 +1444,7 @@ mw.UploadWizard = function( config ) {
 
 };
 
+mw.UploadWizard.DEBUG = true;
 
 mw.UploadWizard.userAgent = "UploadWizard (alpha)";
 
@@ -2161,6 +1656,7 @@ mw.UploadWizard.prototype = {
 							upload.details.div.css( 'border-bottom', '1px solid #e0e0e0' );
 						}
 
+						// only necessary if (somehow) they have beaten the check-as-you-type
 						upload.details.titleInput.checkUnique();
 					} );
 
@@ -2260,7 +1756,7 @@ mw.UploadWizard.prototype = {
 			return false;
 		}
 
-		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-files' );
+		var upload = new mw.UploadWizardUpload( _this.api, '#mwe-upwiz-files' );
 		_this.uploadToAdd = upload;
 
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
@@ -2613,609 +2109,6 @@ mw.UploadWizardDeedPreview.prototype = {
 		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'smallThumbnailWidth'  ] );
 	}
 };
-
-mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
-	valid: function() {
-		return false;
-	} 
-} );
-
-	
-/**
- * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
- * XXX these deeds are starting to turn into jquery fns
- */
-mw.UploadWizardDeedOwnWork = function( uploadCount ) {
-	uploadCount = uploadCount ? uploadCount : 1;
-
-	var _this = new mw.UploadWizardDeed();
-
-	_this.authorInput = $j( '<input />')
-		.attr( { name: "author", type: "text" } )
-		.addClass( 'mwe-upwiz-sign' );
-
-	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
-	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
-	_this.licenseInput.setDefaultValues();
-
-	return $j.extend( _this, { 
-
-		name: 'ownwork',
-
-		/**
-		 * Is this correctly set, with side effects of causing errors to show in interface. 
-		 * @return boolean true if valid, false if not
-		 */
-		valid: function() {
-			// n.b. valid() has side effects and both should be called every time the function is called.
-			// do not short-circuit.
-			var formValid = _this.$form.valid();
-			var licenseInputValid = _this.licenseInput.valid();
-			return formValid && licenseInputValid; 
-		},
-
-		getSourceWikiText: function() {
-			return '{{own}}';
-		},
-
-		// XXX do we need to escape authorInput, or is wikitext a feature here?
-		// what about scripts?
-		getAuthorWikiText: function() {
-			return "[[User:" + mw.UploadWizard.config[ 'userName' ] + '|' + $j( _this.authorInput ).val() + ']]';
-		},
-
-
-		getLicenseWikiText: function() {
-			var wikiText = '{{self';
-			$j.each( _this.licenseInput.getTemplates(), function( i, template ) {
-				wikiText += '|' + template;
-			} );
-			wikiText += '}}';
-			return wikiText;
-		},
-
-		setFormFields: function( $selector ) {
-			_this.$selector = $selector;
-
-			_this.$form = $j( '<form/>' );
-
-			var $standardDiv = $j( '<div />' ).append(
-				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
-				$j( '<p>' )
-					.html( gM( 'mwe-upwiz-source-ownwork-assert',
-						   uploadCount,
-						   '<span class="mwe-standard-author-input"></span>' )
-					),
-				$j( '<p class="mwe-small-print" />' ).append( gM( 'mwe-upwiz-source-ownwork-assert-note' ) )
-			); 
-			$standardDiv.find( '.mwe-standard-author-input' ).append( $j( '<input name="author2" type="text" class="mwe-upwiz-sign" />' ) );
-			
-			var $customDiv = $j('<div/>').append( 
-				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
-				$j( '<p>' )
-					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
-						uploadCount,
-						'<span class="mwe-custom-author-input"></span>' ) ),
-				licenseInputDiv
-			);
-			// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
-			$customDiv.find( '.mwe-custom-author-input' ).append( _this.authorInput );
-
-
-			var $crossfader = $j( '<div>' ).append( $standardDiv, $customDiv );
-			var $toggler = $j( '<p class="mwe-more-options" style="text-align: right" />' )
-				.append( $j( '<a />' )
-					.append( gM( 'mwe-upwiz-license-show-all' ) )
-					.click( function() {
-						_this.formValidator.resetForm();
-						if ( $crossfader.data( 'crossfadeDisplay' ) === $customDiv ) {
-							_this.licenseInput.setDefaultValues();
-							$crossfader.morphCrossfade( $standardDiv );
-							$j( this ).html( gM( 'mwe-upwiz-license-show-all' ) );
-						} else {
-							$crossfader.morphCrossfade( $customDiv );
-							$j( this ).html( gM( 'mwe-upwiz-license-show-recommended' ) );
-						}
-					} ) );
-
-			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' )
-				.append( $crossfader, $toggler );
-			
-
-			// synchronize both username signatures
-			// set initial value to configured username
-			// if one changes all the others change (keyup event)
-			//
-			// also set tooltips ( the title, tipsy() )
-			$formFields.find( '.mwe-upwiz-sign' )
-				.attr( {
-					title: gM( 'mwe-upwiz-tooltip-sign' ), 
-					value: mw.UploadWizard.config[  'userName'  ] 
-				} )
-				.tipsyPlus()
-				.keyup( function() { 
-					var thisInput = this;
-					var thisVal = $j( thisInput ).val();
-					$j.each( $formFields.find( '.mwe-upwiz-sign' ), function( i, input ) {
-						if (thisInput !== input) {
-							$j( input ).val( thisVal );
-						}
-					} );
-				} );
-
-			_this.$form.append( $formFields );
-			$selector.append( _this.$form );
-			
-			// done after added to the DOM, so there are true heights
-			$crossfader.morphCrossfader();
-
-
-			// and finally, make it validatable
-			_this.formValidator = _this.$form.validate( {
-				rules: {
-					author2: {
-						required: function( element ) {
-							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
-						},
-						minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
-					},
-					author: {
-						required: function( element ) {
-							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
-						},
-						minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
-					}
-				},
-				messages: {
-					author2: {
-						required: gM( 'mwe-upwiz-error-signature-blank' ),
-						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
-					},
-					author: {
-						required: gM( 'mwe-upwiz-error-signature-blank' ),
-						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
-					}
-				}
-			} );
-		}
-
-
-	} );
-
-};
-
-// XXX these deeds are starting to turn into jquery fns
-mw.UploadWizardDeedThirdParty = function( uploadCount ) {
-	var _this = new mw.UploadWizardDeed();
-
-	_this.uploadCount = uploadCount ? uploadCount : 1;
-	_this.sourceInput = $j('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
-				.growTextArea()
-				.attr( 'title', gM( 'mwe-upwiz-tooltip-source' ) )
-				.tipsyPlus();
-	_this.authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
-				.growTextArea()
-				.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) )
-				.tipsyPlus();
-	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
-	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
-
-
-	return $j.extend( _this, mw.UploadWizardDeed.prototype, {
-		name: 'thirdparty',
-
-		setFormFields: function( $selector ) {
-			var _this = this;
-			_this.$form = $j( '<form/>' );
-
-			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal"/>' );
-
-			if ( uploadCount > 1 ) { 
-				$formFields.append( $j( '<div />' ).append( gM( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) ) );
-			}
-
-			$formFields.append (
-				$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-				$j( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
-				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
-						 _this.sourceInput ),
-				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
-				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
-						 _this.authorInput ),
-				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
-					.append( gM( 'mwe-upwiz-source-thirdparty-license', uploadCount ) ),
-				licenseInputDiv
-			);
-
-			_this.$form.validate( {
-				rules: {
-					source: { required: true, 
-						  minlength: mw.UploadWizard.config[  'minSourceLength'  ],
-						  maxlength: mw.UploadWizard.config[  'maxSourceLength'  ] },
-					author: { required: true,
-						  minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						  maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ] }
-				},
-				messages: {
-					source: {
-						required: gM( 'mwe-upwiz-error-blank' ),
-						minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minSourceLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxSourceLength'  ] )
-					},
-					author: {
-						required: gM( 'mwe-upwiz-error-blank' ),
-						minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
-					}
-				}
-			} );
-
-			_this.$form.append( $formFields );			
-
-			$selector.append( _this.$form );
-		},
-
-		/**
-		 * Is this correctly set, with side effects of causing errors to show in interface. 
-		 * this is exactly the same as the ownwork valid() function... hopefully we can reduce these to nothing if we make 
-		 * all validators work the same.
-		 * @return boolean true if valid, false if not
-		 */
-		valid: function() {
-			// n.b. valid() has side effects and both should be called every time the function is called.
-			// do not short-circuit.
-			var formValid = _this.$form.valid();
-			var licenseInputValid = _this.licenseInput.valid();
-			return formValid && licenseInputValid; 
-		}
-	} );
-};
-
-
-
-
-/**
- * @param selector where to put this deed chooser
- * @param isPlural whether this chooser applies to multiple files (changes messaging mostly)
- */ 
-mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
-	var _this = this;
-	_this.$selector = $j( selector );
-	_this.uploadCount = uploadCount ? uploadCount : 1;
-	
-
-	_this.$errorEl = $j( '<div class="mwe-error"></div>' );
-	_this.$selector.append( _this.$errorEl );
-
-	// name for radio button set
-	mw.UploadWizardDeedChooser.prototype.widgetCount++;
-	_this.name = 'deedChooser' + mw.UploadWizardDeedChooser.prototype.widgetCount.toString();
-
-	$j.each( deeds, function (i, deed) {
-		var id = _this.name + '-' + deed.name;
- 
-		var $deedInterface = $j( 
-			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">'
-		       +   '<div class="mwe-upwiz-deed-option-title">'
-		       +     '<span class="mwe-upwiz-deed-header">'
-		       +        '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + '">'
-		       +	  '<label for="' + id + '" class="mwe-upwiz-deed-name">'
-		       +            gM( 'mwe-upwiz-source-' + deed.name, _this.uploadCount )
-		       +          '</label>'
-		       +        '</input>'
-		       +     '</span>'
-		       // +     ' <a class="mwe-upwiz-macro-deeds-return">' + gM( 'mwe-upwiz-change' ) + '</a>'
-		       +   '</div>'
-		       +   '<div class="mwe-upwiz-deed-form">'
-		       + '</div>'
-		);
-
-		var $deedSelector = _this.$selector.append( $deedInterface );
-
-		deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
-
-		$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
-			if ( $j( this ).is(':checked' )  ) {
-				_this.choose( deed );
-				_this.showDeed( $deedInterface );
-			}
-		} );
-
-	} );
-
-	/*
-	$j( '.mwe-upwiz-macro-deeds-return' ).click( function() { 
-		_this.choose( mw.UploadWizardNullDeed );
-		_this.showDeedChoice(); 
-	} );
-	*/
-
-	_this.choose( mw.UploadWizardNullDeed );
-	_this.showDeedChoice();		
-	
-
-};
-
-
-mw.UploadWizardDeedChooser.prototype = {
-
-	/** 
-	 * How many deed choosers there are (important for creating unique ids, element names)
-	 */
-	widgetCount: 0,
-
-	/** 
-	 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
-	 * @return boolean; true if valid, false if not
-	 */
-	valid: function() {
-		var _this = this;
-		// we assume there is always a deed available, even if it's just the null deed.
-		var valid = _this.deed.valid();
-		// the only time we need to set an error message is if the null deed is selected.
-		// otherwise, we can assume that the widgets have already added error messages.
-		if (valid) {
-			_this.hideError();
-		} else {
-			if ( _this.deed === mw.UploadWizardNullDeed ) {			
-				_this.showError( gM( 'mwe-upwiz-deeds-need-deed', _this.uploadCount ) );
-				$j( _this ).bind( 'chooseDeed', function() {
-					_this.hideError();
-				} );
-			}
-		}
-		return valid;
-	},
-
-	showError: function( error ) {
-		this.$errorEl.html( error );
-		this.$errorEl.fadeIn();
-	},
-
-	hideError: function() {
-		this.$errorEl.fadeOut();	
-		this.$errorEl.empty();
-	},
-
-	/** 
- 	 * How many uploads this deed controls
-	 */
-	uploadCount: 0,
-
-	
-	// XXX it's impossible to choose the null deed if we stick with radio buttons, so that may be useless later
-	choose: function( deed ) {
-		var _this = this;
-		_this.deed = deed;
-		if ( deed === mw.UploadWizardNullDeed ) {
-			$j( _this ).trigger( 'chooseNullDeed' );
-			//_this.trigger( 'isNotReady' );
-			_this.$selector
-				.find( 'input.mwe-accept-deed' )
-				.attr( 'checked', false );
-		} else {
-			$j( _this ).trigger( 'chooseDeed' );
-		}
-	},
-
-	/**
-	 * Go back to original source choice. 
-	 */
-	showDeedChoice: function() {
-		var $allDeeds = this.$selector.find( '.mwe-upwiz-deed' );
-		this.deselectDeed( $allDeeds );
-		// $allDeeds.fadeTo( 'fast', 1.0 );   //maskSafeShow();
-	},
-
-	/** 
-	 * From the deed choices, make a choice fade to the background a bit, hide the extended form
-	 */
-	deselectDeed: function( $deedSelector ) {
-		$deedSelector.removeClass( 'selected' );
-		// $deedSelector.find( 'a.mwe-upwiz-macro-deeds-return' ).hide();
-		$deedSelector.find( '.mwe-upwiz-deed-form' ).slideUp( 500 );   //.maskSafeHide();
-	},
-
-	/**
-	 * From the deed choice page, show a particular deed
-	 */
-	showDeed: function( $deedSelector ) {
-		var $otherDeeds = $deedSelector.siblings().filter( '.mwe-upwiz-deed' );
-		this.deselectDeed( $otherDeeds );
-		// $siblings.fadeTo( 'fast', 0.5 ) // maskSafeHide();
-
-		$deedSelector
-			.addClass('selected')
-			.fadeTo( 'fast', 1.0 )
-			.find( '.mwe-upwiz-deed-form' ).slideDown( 500 ); // maskSafeShow(); 
-		// $deedSelector.find( 'a.mwe-upwiz-macro-deeds-return' ).show();
-	}
-
-};
-
-
-
-/**
- * Miscellaneous utilities
- */
-mw.UploadWizardUtil = {
-
-	/**
-	 * Simple 'more options' toggle that opens more of a form.
-	 *
-	 * @param toggleDiv the div which has the control to open and shut custom options
-	 * @param moreDiv the div containing the custom options
-	 */
-	makeToggler: function ( toggleDiv, moreDiv ) {
-		var $toggleLink = $j( '<a>' )
-		   	.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
-			.append( gM( 'mwe-upwiz-more-options' ) );
-		$j( toggleDiv ).append( $toggleLink );
-
-
-		var toggle = function( open ) {
-			if ( typeof open === 'undefined' ) {
-				open = ! ( $j( this ).data( 'open' ) ) ;
-			}
-			$j( this ).data( 'open', open );
-			if ( open ) {
-				moreDiv.maskSafeShow();
-				/* when open, show control to close */
-				$toggleLink.html( gM( 'mwe-upwiz-fewer-options' ) );
-				$toggleLink.addClass( "mwe-upwiz-toggler-open" );
-			} else {
-				moreDiv.maskSafeHide();
-				/* when closed, show control to open */
-				$toggleLink.html( gM( 'mwe-upwiz-more-options' ) );
-				$toggleLink.removeClass( "mwe-upwiz-toggler-open" );
-			}
-		};
-
-		toggle(false);
-
-		$toggleLink.click( function( e ) { e.stopPropagation(); toggle(); } );
-		
-		$j( moreDiv ).addClass( 'mwe-upwiz-toggled' );
-	},
-
-	/**
-	 * remove an item from an array. Tests for === identity to remove the item
-	 *  XXX the entire rationale for this file may be wrong. 
-	 *  XXX The jQuery way would be to query the DOM for objects, not to keep a separate array hanging around
-	 * @param items  the array where we want to remove an item
-	 * @param item	 the item to remove
-	 */
-	removeItem: function( items, item ) {
-		for ( var i = 0; i < items.length; i++ ) {
-			if ( items[i] === item ) {
-				items.splice( i, 1 );
-				break;
-			}
-		}
-	},
-
-	/** 
-	 * Capitalise first letter and replace spaces by underscores
-	 * @param filename (basename, without directories)
-	 * @return typical title as would appear on MediaWiki
-	 */
-	pathToTitle: function ( filename ) {
-		return mw.ucfirst( $j.trim( filename ).replace(/ /g, '_' ) );
-	},
-
-	/** 
-	 * Capitalise first letter and replace underscores by spaces
-	 * @param title typical title as would appear on MediaWiki
-	 * @return plausible local filename
-	 */
-	titleToPath: function ( title ) {
-		return mw.ucfirst( $j.trim( title ).replace(/_/g, ' ' ) );
-	},
-
-
-	/**
-	 * Transform "File:title_with_spaces.jpg" into "title with spaces"
-	 * @param   typical title that would appear on mediawiki, with File: and extension, may include underscores
-	 * @return  human readable title
-	 */
-	fileTitleToHumanTitle: function( title ) {
-		var extension = mw.UploadWizardUtil.getExtension( title );
-		if ( typeof extension !== 'undefined' ) {
-			// the -1 is to get the '.'
-			title = title.substr( 0, title.length - extension.length - 1 );
-		}
-		// usually File:
-		var namespace = wgFormattedNamespaces[wgNamespaceIds['file']];
-		if ( title.indexOf( namespace + ':' ) === 0 ) {
-			title = title.substr( namespace.length + 1 );
-		}
-		return mw.UploadWizardUtil.titleToPath( title );
-	},
-
-
-	/** 
- 	 * Slice extension off a path
-	 * We assume that extensions are 1-4 characters in length
-	 * @param path to file, like "foo/bar/baz.jpg"
-	 * @return extension, like ".jpg" or undefined if it doesn't look lke an extension.
-	 */
-	getExtension: function( path ) {
-		var extension = undefined;
-		var idx = path.lastIndexOf( '.' );
-		if (idx > 0 && ( idx > ( path.length - 5 ) ) && ( idx < ( path.length - 1 ) )  ) {
-			extension = path.substr( idx + 1 ).toLowerCase();
-		}
-		return extension;
-	},
-
-	/**
-	 * Last resort to guess a proper extension
-	 */
-	mimetypeToExtension: {
-		'image/jpeg': 'jpg',
-		'image/gif': 'gif'
-		// fill as needed
-	}
-
-
-};
-
-( function( $j ) {
-
-	$j.fn.tipsyPlus = function( optionsArg ) {
-		// use extend!
-		var titleOption = 'title';
-		var htmlOption = false;
-
-		var options = $j.extend( 
-			{ type: 'help', shadow: true },
-			optionsArg
-		);
-
-		var el = this;
-
-		if (options.plus) {
-			htmlOption = true;
-			titleOption = function() {
-				return $j( '<span />' ).append(
-					$j( this ).attr( 'original-title' ),
-					$j( '<a class="mwe-upwiz-tooltip-link"/>' )
-						.attr( 'href', '#' )
-						.append( gM( 'mwe-upwiz-tooltip-more-info' ) )
-						.mouseenter( function() {
-							el.data('tipsy').sticky = true;
-						} )
-						.mouseleave( function() {
-							el.data('tipsy').sticky = false;
-						} )
-						.click( function() {
-							// show the wiki page with more
-							alert( options.plus );
-							// pass this in as a closure to be called on dismiss
-							el.focus();
-							el.data('tipsy').sticky = false;
-						} )
-				);
-			};
-		}
-
-		return this.tipsy( { 
-			gravity: 'w', 
-			trigger: 'focus',
-			title: titleOption,
-			html: htmlOption,
-			type: options.type,
-			shadow: options.shadow
-		} );
-
-	};
-
 	/**
 	 * Create 'remove' control, an X which highlights in some standardized way.
 	 */
@@ -3286,16 +2179,6 @@ mw.UploadWizardUtil = {
 		this.addClass( 'mwe-upwiz-required-field' );
 		return this.prepend( $j( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
 	};
-
-	/**
-	 * Upper-case the first letter of a string. XXX move to common library
-	 * @param string
-	 * @return string with first letter uppercased.
-	 */
-	mw.ucfirst = function( s ) {
-		return s.substring(0,1).toUpperCase() + s.substr(1);
-	};
-
 
 
 	/**
@@ -3377,9 +2260,7 @@ mw.UploadWizardUtil = {
 				*/
 
 			} 
-
-			// XXX bind to a custom event in case the div size changes : ?
-
+			// XXX bind to a custom event in case the div size changes 
 		} );
 
 		return this;

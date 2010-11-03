@@ -1,26 +1,62 @@
-/**
-* Check if an object is empty or if its an empty string. 
-*
-* @param {Object} object Object to be checked
-*/
-mw.isEmpty = function( object ) {
-	if( typeof object == 'string' ) {
-		if( object == '' ) return true;
-		// Non empty string: 
-		return false;
-	}
+// dependencies: mw 
 
-	// If an array check length:
-	if( Object.prototype.toString.call( object ) === "[object Array]"
-		&& object.length == 0 ) {
+( function( mw ) {
+
+	/**
+	* Check if an object is empty or if its an empty string. 
+	*
+	* @param {Object} object Object to be checked
+	* @return {Boolean}
+	*/
+	mw.isEmpty = function( obj ) {
+		if( typeof obj == 'string' ) {
+			if( obj == '' ) return true;
+			// Non empty string: 
+			return false;
+		}
+
+		// If an array check length:
+		if( Object.prototype.toString.call( obj ) === "[object Array]"
+			&& obj.length == 0 ) {
+			return true;
+		}
+
+		// Else check as an obj: 
+		for( var i in obj ) { return false; }
+
+		// Else obj is empty:
 		return true;
-	}
+	};
 
-	// Else check as an object: 
-	for( var i in object ) { return false; }
+	/**
+	* Opposite of mw.isEmpty
+	*
+	* @param {Object} object Object to be checked
+	* @return {Boolean}
+	*/
+	mw.isFull = function( obj ) {
+		return ! mw.isEmpty( obj );
+	};
 
-	// Else object is empty:
-	return true;
-}
+	/**
+	 * Check if something is defined
+	 * (inlineable?)
+	 * @param {Object}
+	 * @return boolean
+	 */
+	mw.isDefined = function( obj ) {
+		return typeof obj !== 'undefined'; 
+	};
 
 
+	/**
+	 * Upper-case the first letter of a string.
+	 * @param string
+	 * @return string with first letter uppercased.
+	 */
+	mw.ucfirst = function( s ) {
+		return s.substring(0,1).toUpperCase() + s.substr(1);
+	};
+
+
+} )( window.mw );

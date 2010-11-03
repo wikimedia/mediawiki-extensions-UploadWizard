@@ -23,6 +23,7 @@ or [{{fullurl:{{FULLPAGENAME}}|action=edit}} edit this page]</span>.',
 	'internallinktest' => '[[Special:SpecialPages|{{int:specialpages}}]]',
 	'uploadwizard' => 'Upload wizard',
 	'uploadwizard-desc' => 'Upload wizard, developed for the Multimedia Usability grant',
+	'mwe-upwiz-js-off' => 'UploadWizard uses Javascript for an improved interface. Your browser either does not support Javascript or has Javascript turned off, so we are showing you a simple upload form.',
 	'mwe-loading-upwiz' => 'Loading upload wizard',
 	'mwe-upwiz-code-unknown' => 'Unknown language',
 	'mwe-upwiz-step-file' => 'Upload',
@@ -1968,6 +1969,36 @@ Használhatsz egyszerű nyelvezetet szóközökkel, de nem lehetnek benne sortö
 Ennek a címnek egyedinek kell lennie ezen a wikin.',
 	'mwe-upwiz-tooltip-description' => 'Röviden írj le minden említésre méltót a műről.
 Fénykép esetén említsd meg a főbb látható dolgokat, a készítés alkalmát vagy helyszínét.',
+	'mwe-upwiz-tooltip-other' => 'Bármi más információ, amit meg szeretnél adni erről a műről.
+Használhatsz wikikódot.',
+	'mwe-upwiz-tooltip-more-info' => 'Tudj meg többet.',
+	'mwe-upwiz-file-need-start' => 'Nyomd meg ezt a gombot, hogy elindítsd a feltöltéseidet.',
+	'mwe-upwiz-file-need-complete' => 'Kérlek várj, amíg az összes fájl feltöltődik.',
+	'mwe-upwiz-deeds-need-deed' => 'Kérlek, az egyik opció kiválasztásával magyarázd el, honnan {{PLURAL:$1|származik a fájl|származnak a fájlok}} és ez a webszájt hogyan használhatja{{PLURAL:$1||&nbsp;őket}}.',
+	'mwe-upwiz-deeds-need-license' => 'Kérlek válassz licencet.',
+	'mwe-upwiz-license-incompatible-pd' => 'A közkincs licencek nem kompatibilisek a többi licenccel.',
+	'mwe-upwiz-license-incompatible-cc' => 'Egyszerre csak egyféle Creative Commons licencet választhatsz.',
+	'mwe-upwiz-license-show-all' => 'Más licenc használata',
+	'mwe-upwiz-license-show-recommended' => 'Ajánlott licenc használata',
+	'mwe-upwiz-error-signature-blank' => 'Alá kell írnod az alábbi mezőt a felhasználóneveddel vagy valódi neveddel.',
+	'mwe-upwiz-error-signature-too-long' => 'Az aláírásod túl hosszú.
+Legfeljebb $1 karaktert írj bele.',
+	'mwe-upwiz-error-signature-too-short' => 'Az aláírásod túl rövid.
+Legalább $1 karakteres legyen.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Az aláírásod nem megengedett szimbólumokat tartalmaz.
+Kérlek itt ne használj wikikódot vagy HTML-t, csak a felhasználóneved vagy a valódi neved.',
+	'mwe-upwiz-error-blank' => 'A mező kitöltése kötelező.',
+	'mwe-upwiz-error-too-long' => 'Ez a mező túl hosszú.
+Legfeljebb $1 karaktert írj bele.',
+	'mwe-upwiz-error-too-short' => 'Ez a mező túl rövid.
+Írj bele legalább $1 karaktert.',
+	'mwe-upwiz-error-bad-chars' => 'Ez a mező nem megengedett szimbólumokat tartalmaz.
+Kérlek itt ne használj wikikódot vagy HTML-t.',
+	'mwe-upwiz-error-date' => 'Kérlek adj meg egy érvényes dátumot ÉÉÉÉ-HH-NN formában, vagy válassz dátumot a naptárból.',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Nevezd meg! – Így add tovább! 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Nevezd meg! 3.0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Universal',
+	'mwe-upwiz-license-gfdl' => 'GNU Szabad Dokumentációs Licenc',
 	'mwe-upwiz-tooltip-other' => 'Bármi más információ, amit meg szeretnél adni erről a műről.
 Használhatsz wikikódot.',
 	'mwe-upwiz-tooltip-more-info' => 'Tudj meg többet.',

@@ -1,3 +1,8 @@
+/** 
+ * Simple predictive typing category adder for Mediawiki.
+ * Relies on globals: wgScriptPath, wgNamespaceIds, wgFormattedNamespaces
+ * Add to the page and then use getWikiText() to get wiki text representing the categories.
+ */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
 
 	var defaults = {

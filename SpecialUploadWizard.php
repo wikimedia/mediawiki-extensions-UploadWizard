@@ -11,22 +11,24 @@
 
 class SpecialUploadWizard extends SpecialPage {
 
+	private $simpleForm;
+
 	// $request is the request (usually wgRequest)
 	// $par is everything in the URL after Special:UploadWizard. Not sure what we can use it for
 	public function __construct( $request=null, $par=null ) {
-		global $wgEnableAPI, $wgRequest;
-
-		if (! $wgEnableAPI) {
-			// XXX complain
-		}
-
+		global $wgRequest;
 		// here we would configure ourselves based on stuff in $request and $wgRequest, but so far, we
 		// don't have such things
 
 		parent::__construct( 'UploadWizard', 'upload' );
 
+		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
+		// at some point, if we completely subsume its functionality, change that to point here again,
+	 	// but then we'll need to process non-JS uploads in the same way Special:Upload does.
 		$this->simpleForm = new UploadWizardSimpleForm();
-		$this->simpleForm->setTitle( $this->getTitle() );
+		$this->simpleForm->setTitle( 
+			SpecialPage::getPage( 'Upload' )->getTitle() 
+		);
 	}
 
 	/**
@@ -37,102 +39,65 @@ class SpecialUploadWizard extends SpecialPage {
 	public function execute( $subPage ) {
 		global $wgScriptPath, $wgLang, $wgUser, $wgOut;
 
-		// canUpload and canUserUpload have side effects; 
-		// if we can't upload, will print error page to wgOut 
+		// side effects: if we can't upload, will print error page to wgOut 
 		// and return false
 		if (! ( $this->isUploadAllowed() && $this->isUserUploadAllowed( $wgUser ) ) ) {
 			return;
 		}
 
-		$langCode = $wgLang->getCode();
-
 		$this->setHeaders();
 		$this->outputHeader();
-
-		/* Doing resource loading the old-fashioned way for now until there's some kind of script-loading
-		   strategy that everyone agrees on, or is available generally */
-		$scripts = array( 
-			// jquery is already loaded by vector.
-			// "resources/jquery-1.4.2.js",
-
-			// jquery standard stuff
-			"resources/jquery.ui/ui/ui.core.js",	
-	 		"resources/jquery.ui/ui/ui.progressbar.js",
-			"resources/jquery.ui/ui/ui.datepicker.js",
-	
-			// interface helping stuff
-			"resources/jquery/jquery.tipsy.js",
-			"resources/jquery/jquery.morphCrossfade.js",
-			"resources/jquery/jquery.validate.js",
-			"resources/jquery/jquery.arrowSteps.js",
-			"resources/jquery/jquery.mwCoolCats.js",
-			"resources/jquery/jquery.autocomplete.js",
-
-			// our application...
-		
-			// miscellaneous utilities	
-			"resources/mw.Utilities.js",
-			"resources/mw.UtilitiesTime.js",
-			"resources/mw.Log.js",
-			// "resources/mw.MockUploadHandler.js",
 			
-			// message parsing and such
-			"resources/language/mw.Language.js",
-			"resources/language/mw.Parser.js",
-			"resources/mw.LanguageUpWiz.js",
-
-			// workhorse libraries
-			// "resources/mw.UploadApiProcessor.js",
-			"resources/mw.IframeTransport.js",
-			"resources/mw.ApiUploadHandler.js",
-			"resources/mw.DestinationChecker.js",
-			// the thing that does most of it
-			"resources/mw.UploadWizard.js",
-
-			// finally the thing that launches it all
-			"UploadWizardPage.js"
-		);
-
-		if ($langCode !== 'en' ) {
-			$scripts[] = "js/language/classes/Language" . ucfirst( $langCode ) . ".js"; 
-		}
-	
-		$extensionPath = $wgScriptPath . "/extensions/UploadWizard";
-	
-		foreach ( $scripts as $script ) {
-			$wgOut->addScriptFile( $extensionPath . "/" . $script );
-		}
-		// after scripts, get the i18n.php stuff
-		$wgOut->addInlineScript( UploadWizardMessages::getMessagesJs( 'UploadWizard', $wgLang ) );
-
-		$styles = array(
-			"resources/jquery/jquery.tipsy.css",
-			"resources/uploadWizard.css",
-			"resources/jquery/jquery.arrowSteps.css",
-			"resources/jquery/jquery.mwCoolCats.css"
-		);
-
-		// TODO RTL
-		foreach ( $styles as $style ) {
-			$wgOut->addStyle( $extensionPath . "/" . $style, '', '', 'ltr' );
-		}
-		
-		$this->addJsVars( $subPage );
-		
-	
-		// where the uploadwizard will go
-		// TODO import more from UploadWizard itself.
-		$wgOut->addHTML(
-			'<div id="upload-licensing" class="upload-section" style="display: none;">Licensing tutorial</div>'
-			. '<div id="upload-wizard" class="upload-section"><div class="loadingSpinner"></div></div>'
-		);
-		
 
 		// fallback for non-JS
 		$wgOut->addHTML('<noscript>');
+		$wgOut->addHTML( '<p class="errorbox">' . wfMsg( 'mwe-upwiz-js-off' ) . '</p>' );
 		$this->simpleForm->show();
 		$wgOut->addHTML('</noscript>');
 	
+			
+		$this->addJsVars( $subPage );
+		if ( $wgResourceLoader ) {
+			$wgOut->addModules( 'ext.uploadWizard' );
+		} else {
+			/* Doing resource loading the old-fashioned way for now until Resource Loader or something becomes the standard.
+			   We anticipate that Resource Loader will be available sometime in late 2010 or early 2011, 
+			   so we define scripts in the hooks that Resource Loader will expect, over in UploadWizardHooks.php.
+			*/
+			$module = UploadWizardHooks::$modules['ext.uploadWizard'];
+
+			// in ResourceLoader, these will probably have names rather than explicit script paths, or be automatically loaded
+			$dependencies = array(
+				"extensions/UploadWizard/resources/jquery.ui/ui/ui.core.js",	
+				'extensions/UploadWizard/resources/jquery.ui/ui/ui.datepicker.js',
+				'extensions/UploadWizard/resources/jquery.ui/ui/ui.progressbar.js'
+			);
+
+			$scripts = array_merge( $dependencies, $module['scripts'] );
+			if ( $wgLanguageCode !== 'en' && isset( $module['languageScripts'][$wgLanguageCode] ) ) {
+				$scripts[] = $module['languageScripts'][$wgLanguageCode];
+			}
+			wfDebug( print_r( $scripts, 1 ) );
+			foreach ( $scripts as $script ) {
+				$wgOut->addScriptFile( $wgScriptPath . "/" . $script );
+			}
+
+			// after scripts, get the i18n.php stuff
+			$wgOut->addInlineScript( UploadWizardMessages::getMessagesJs( 'UploadWizard', $wgLang ) );
+	
+			// TODO RTL
+			foreach ( $module['styles'] as $style ) {
+				$wgOut->addStyle( "/" . $style, '', '', 'ltr' );
+			}
+	
+		}
+		
+		// where the uploadwizard will go
+		// TODO import more from UploadWizard's createInterface call.
+		$wgOut->addHTML(
+			'<div id="upload-wizard" class="upload-section"><div class="loadingSpinner"></div></div>'
+		);
+
 	}
 
 	/**
@@ -143,8 +108,11 @@ class SpecialUploadWizard extends SpecialPage {
 		global $wgUser, $wgOut;
 		global $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI;
 		global $wgEnableFirefogg, $wgFileExtensions;
+		global $wgUploadWizardDebug;
 
 		$wgOut->addScript( Skin::makeVariablesScript( array(
+			'wgUploadWizardDebug' => (bool)$wgUploadWizardDebug,
+
 			// uncertain if this is relevant. Can we do license preview with API?
 			'wgAjaxLicensePreview' => $wgUseAjax && $wgAjaxLicensePreview,
 
@@ -153,10 +121,6 @@ class SpecialUploadWizard extends SpecialPage {
 			// what is acceptable in this wiki
 			'wgFileExtensions' => $wgFileExtensions,
 
-			// XXX page should fetch its own edit token
-			// our edit token
-			'wgEditToken' => $wgUser->editToken(),
-		
 			'wgSubPage' => $subPage
 
 			// XXX need to have a better function for testing viability of a filename
@@ -172,13 +136,15 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return boolean -- true if can upload
 	 */
 	private function isUploadAllowed() {
-		global $wgOut;
+		global $wgOut, $wgEnableAPI;
 
 		// Check uploading enabled
 		if( !UploadBase::isEnabled() ) {
 			$wgOut->showErrorPage( 'uploaddisabled', 'uploaddisabledtext' );
 			return false;
 		}
+
+		// XXX does wgEnableAPI affect all uploads too?
 
 		// Check whether we actually want to allow changing stuff
 		if( wfReadOnly() ) {
@@ -224,23 +190,17 @@ class SpecialUploadWizard extends SpecialPage {
 
 
 /**
- * This is a hack on UploadForm.
- * Normally, UploadForm adds its own Javascript.
- * We wish to prevent this, because we want to control the case where we have Javascript.
- * So, we subclass UploadForm, and make the addUploadJS a no-op.
+ * This is a hack on UploadForm, to make one that works from UploadWizard when JS is not available.
  */
 class UploadWizardSimpleForm extends UploadForm {
+
+	/*
+ 	 * Normally, UploadForm adds its own Javascript.
+ 	 * We wish to prevent this, because we want to control the case where we have Javascript.
+ 	 * So, we make the addUploadJS a no-op.
+	 */
 	protected function addUploadJS( ) { }
 
 }
 
-/*
-// XXX UploadWizard extension, do this in the normal SpecialPage way once JS2 issue resolved
-function wfSpecialUploadWizard( $par ) {
-	global $wgRequest;
-	// can we obtain $request from here?
-	// $this->loadRequest( is_null( $request ) ? $wgRequest : $request );
-	$o = new SpecialUploadWizard( $wgRequest, $par );
-	$o->execute();
-}
-*/
+

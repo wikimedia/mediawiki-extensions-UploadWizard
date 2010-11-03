@@ -10,16 +10,17 @@
  * Represents an object which configures a form to upload its files via an iframe talking to the MediaWiki API.
  * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
  */
-mw.ApiUploadHandler = function( upload ) {
+mw.ApiUploadHandler = function( upload, api ) {
+	this.upload = upload;
+	this.api = api;
+	this.$form = $j( this.upload.ui.form );
+	this.configureForm();
+
+	// the Iframe transport is hardcoded for now because it works everywhere
+	// can also use Xhr Binary depending on browser
 	var _this = this;
-	_this.upload = upload;
-
-	_this.configureForm();
-
-	// hardcoded for now
-	// can also use Xhr Binary depending on config
-	_this.transport = new mw.IframeTransport(
-		_this.upload.ui.form, 
+	this.transport = new mw.IframeTransport(
+		this.$form,
 		function( fraction ){ _this.upload.setTransportProgress( fraction ); },
 		function( result ) { _this.upload.setTransported( result ); }
 	);
@@ -33,35 +34,56 @@ mw.ApiUploadHandler.prototype = {
 	 * @param callback
 	 */
 	configureForm: function() {
-		var apiUrl = mw.UploadWizard.config[ 'apiUrl' ]; // XXX or? throw new Error( "configuration", "no API url" );
-		if ( ! ( mw.UploadWizard.config[ 'token' ] ) ) {
-			throw new Error( "configuration", "no edit token" );	
-		}
-
 		var _this = this;
 		mw.log( "configuring form for Upload API" );
 
 		// Set the form action
 		try {
-			$j( _this.upload.ui.form ) 	
-				.attr( 'action', apiUrl )
-				.attr( 'method', 'POST' )
-				.attr( 'enctype', 'multipart/form-data' );
+			this.$form.attr( { 
+				action: _this.api.url,
+				method: 'POST',
+				enctype: 'multipart/form-data' 
+			} );
 		} catch ( e ) {
 			alert( "oops, form modification didn't work in ApiUploadHandler" );
 			mw.log( "IE for some reason error's out when you change the action" );
 			// well, if IE fucks this up perhaps we should do something to make sure it writes correctly
 			// from the outset?
 		}
-		
-		_this.addFormInputIfMissing( 'token', mw.UploadWizard.config[  'token'  ]);
+
 		_this.addFormInputIfMissing( 'action', 'upload' );
+
+		// force stash
+		_this.addFormInputIfMissing( 'stash', 1 );
+
+		// XXX TODO - remove; if we are uploading to stash only, a comment should not be required - yet.
+		_this.addFormInputIfMissing( 'comment', 'DUMMY TEXT' );
+		
+		// we use JSON in HTML because according to mdale, some browsers cannot handle just JSON
 		_this.addFormInputIfMissing( 'format', 'jsonfm' );
 		
 		// XXX only for testing, so it stops complaining about dupes
-		if ( mw.UploadWizard.config[  'debug'  ]) {
+		/*
+		if ( mw.UploadWizard.DEBUG ) {
 			_this.addFormInputIfMissing( 'ignorewarnings', '1' );
 		}
+		*/
+	},
+
+	/** 
+	 * Modify our form to have a fresh edit token.
+	 * If successful, return true to a callback.
+	 * @param callback to return true on success
+	 */
+	configureEditToken: function( callerOk, err ) {
+		var _this = this;
+
+		var ok = function( token ) { 
+			_this.addFormInputIfMissing( 'token', token );
+			callerOk();
+		};
+
+		_this.api.getEditToken( ok, err );
 	},
 
 	/**
@@ -70,18 +92,9 @@ mw.ApiUploadHandler.prototype = {
 	 * @param value the value of the input
 	 */
 	addFormInputIfMissing: function( name, value ) {
-		var _this = this;
-		var $jForm = $j( _this.upload.ui.form );
-		if ( $jForm.find( "[name='" + name + "']" ).length === 0 ) {
-			$jForm.append( 
-				$j( '<input />' )
-				.attr( { 
-					'type': "hidden",
-					'name' : name, 
-					'value' : value 
-				} )
-			);
-		}
+		if ( this.$form.find( "[name='" + name + "']" ).length === 0 ) {
+			this.$form.append( $j( '<input />' ) .attr( { 'type': "hidden", 'name': name, 'value': value } ));
+		}		
 	},
 
 	/**
@@ -89,10 +102,16 @@ mw.ApiUploadHandler.prototype = {
 	 */
 	start: function() {
 		var _this = this;
-		mw.log( "api: upload start!" );
-		_this.beginTime = ( new Date() ).getTime();
-		_this.upload.ui.busy();
-		$j( this.upload.ui.form ).submit();
+		var ok = function() {
+			mw.log( "api: upload start!" );
+			_this.beginTime = ( new Date() ).getTime();
+			_this.upload.ui.busy();
+			_this.$form.submit();
+		};
+		var err = function( code, info ) {
+			_this.upload.setFailed( code, info );
+		}; 
+		this.configureEditToken( ok, err );
 	}
 };
 

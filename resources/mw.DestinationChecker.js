@@ -23,14 +23,7 @@ mw.DestinationChecker = function( options ) {
 	_this.selector = options.selector;		
 	_this.spinner = options.spinner;
 	_this.processResult = options.processResult;
-	
-	// optional overrides
-
-	if (options.apiUrl) {
-		_this.apiUrl = options.apiUrl;
-	} else {
-		_this.apiUrl = mw.UploadWizard.config[ 'apiUrl' ];
-	}
+	_this.api = options.api;
 
 	$j.each( ['preprocess', 'delay', 'events'], function( i, option ) {
 		if ( options[option] ) {
@@ -101,9 +94,8 @@ mw.DestinationChecker.prototype = {
   	 * Get the current value of the input, with optional preprocessing
 	 * @return the current input value, with optional processing
 	 */
-	getName: function() {
-		var _this = this;
-		return _this.preprocess( $j( _this.selector ).val() );
+	getTitle: function() {
+		return this.preprocess( $j( this.selector ).val() );
 	},
 
 	/**
@@ -114,7 +106,8 @@ mw.DestinationChecker.prototype = {
 		var _this = this;
 
 		var found = false;
-		var name = _this.getName();
+		// XXX if input is empty don't bother? but preprocess gives us File:.png...
+		var title = _this.getTitle();
 		
 		if ( _this.cachedResult[name] !== undefined ) {
 			_this.processResult( _this.cachedResult[name] );
@@ -125,20 +118,21 @@ mw.DestinationChecker.prototype = {
 		_this.spinner( true );
 		
 		// Setup the request -- will return thumbnail data if it finds one
-		var request = {
-			'titles': 'File:' + name,
+		// XXX do not use iiurlwidth as it will create a thumbnail
+		var params = {
+			'titles': title,
 			'prop':  'imageinfo',
 			'iiprop': 'url|mime|size',
 			'iiurlwidth': 150
 		};
 
-		// Do the destination check 
-		mw.getJSON( _this.apiUrl, request, function( data ) {			
+		// Do the destination check  
+		_this.api.get( params, function( data ) {			
 			// Remove spinner
 			_this.spinner( false );
 	
 			// if the name's changed in the meantime, our result is useless
-			if ( name != _this.getName() ) {
+			if ( title != _this.getTitle() ) {
 				return;
 			}
 			
@@ -186,7 +180,7 @@ mw.DestinationChecker.prototype = {
 			}
 
 			if ( result !== undefined ) {
-				_this.cachedResult[name] = result;
+				_this.cachedResult[title] = result;
 				_this.processResult( result );
 			}
 
