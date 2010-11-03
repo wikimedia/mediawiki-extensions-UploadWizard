@@ -87,7 +87,7 @@ class SpecialUploadWizard extends SpecialPage {
 	
 			// TODO RTL
 			foreach ( $module['styles'] as $style ) {
-				$wgOut->addStyle( "/" . $style, '', '', 'ltr' );
+				$wgOut->addStyle( $wgScriptPath . "/" . $style, '', '', 'ltr' );
 			}
 	
 		}
