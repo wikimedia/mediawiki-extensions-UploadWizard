@@ -757,6 +757,7 @@ $messages['cy'] = array(
 $messages['de'] = array(
 	'uploadwizard' => 'Assistent zum Hochladen von Dateien',
 	'uploadwizard-desc' => 'Assistent zum Hochladen von Dateien. Dessen Entwicklung wurde durch Fördergelder zur Verbesserung der Benutzerfreundlichkeit ermöglicht (Multimedia Usability Project).',
+	'mwe-upwiz-js-off' => 'Der Assistent zum Hochladen von Dateien nutzt JavaSkript zur Verbesserung der Handhabung durch den Benutzer. Dein Browser unterstützt entweder kein JavaScript oder JavaScript wurde deaktiviert. Es wird daher das einfache Formular zum Hochladen von Dateien verwendet.',
 	'mwe-loading-upwiz' => 'Assistent zum Hochladen von Dateien wird geladen',
 	'mwe-upwiz-code-unknown' => 'Unbekannte Sprache',
 	'mwe-upwiz-step-file' => 'Hochladen',
@@ -2040,6 +2041,7 @@ Kérlek itt ne használj wikikódot vagy HTML-t.',
 $messages['ia'] = array(
 	'uploadwizard' => 'Assistente de incargamento',
 	'uploadwizard-desc' => 'Assistente de incargamento, disveloppate pro le bursa Initiativa de Usabilitate',
+	'mwe-upwiz-js-off' => 'Le assistente de incargamento usa JavaScript pro effectuar un melior interfacie. Tu navigator non supporta JavaScript o lo ha disactivate, dunque nos te monstra un formulario de incargamento simple.',
 	'mwe-loading-upwiz' => 'Cargante le assistente de incargamento',
 	'mwe-upwiz-code-unknown' => 'Lingua incognite',
 	'mwe-upwiz-step-file' => 'Incargar',
