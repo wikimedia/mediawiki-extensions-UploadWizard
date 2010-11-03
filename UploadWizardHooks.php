@@ -112,7 +112,8 @@ class UploadWizardHooks {
 				'extensions/UploadWizard/resources/jquery/jquery.tipsy.css',
 				'extensions/UploadWizard/resources/uploadWizard.css',
 				'extensions/UploadWizard/resources/jquery/jquery.arrowSteps.css',
-				'extensions/UploadWizard/resources/jquery/jquery.mwCoolCats.css'
+				'extensions/UploadWizard/resources/jquery/jquery.mwCoolCats.css',
+				'extensions/UploadWizard/resources/jquery.ui/themes/redmond/jquery-ui-1.7.1.custom.css'
 			),
 			'messages' => array( 
 				// see UploadWizard.i18n.php
