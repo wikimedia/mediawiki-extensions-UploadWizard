@@ -11,7 +11,7 @@
 	* @param {String} string String to output to console
 	*/
 	mw.log = function( s, level ) {
-		
+	
 		if ( typeof level === 'undefined' ) {
 			level = 30;
 		}
@@ -58,11 +58,11 @@
 		}
 	};
 
-	mw.log.NONE = 0;
+	mw.log.level = mw.log.NONE = 0;
 	mw.log.FATAL = 10;
 	mw.log.WARN = 20;
 	mw.log.INFO = 30;	
-	mw.log.level = mw.log.ALL = 100;
+	mw.log.ALL = 100;
 
 	mw.log.fatal = function( s ) {
 		mw.log( s, mw.log.FATAL );
