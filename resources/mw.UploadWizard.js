@@ -433,44 +433,20 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * even to pass events like hover
 	 * @param selector jquery-compatible selector, for a single element
 	 */
-	moveFileInputToCover: function( selector, offset ) {
-
-		//mw.log( "moving to cover " + selector );
-		var _this = this;
+	moveFileInputToCover: function( selector ) {
 		var $covered = $j( selector ); 
 
-		var topOffset, rightOffset, bottomOffset, leftOffset;
-		topOffset = rightOffset = bottomOffset = leftOffset = 0;
-		if (typeof offset != 'undefined' ) {
-			topOffset = offset[0];
-			rightOffset = offset[1];
-			bottomOffset = offset[2];
-			leftOffset = offset[3];
-		}
-		var widthOffset = rightOffset - leftOffset;
-		var heightOffset = bottomOffset - topOffset;
-		//mw.log( "position: " );
-		//mw.log( $covered.position() );
-		var position = $covered.position();
-		_this.fileCtrlContainer
+		this.fileCtrlContainer
 			.css( $covered.position() )
 			.width( $covered.outerWidth() )
 			.height( $covered.outerHeight() ); 
-			/*
-			{ 
-				'top': (position['top'] + topOffset).toString() + 'px', 
-				'left': (position['left'] + leftOffset).toString() + 'px'  
-			} )
-			.width( ($covered.outerWidth() + widthOffset).toString() + 'px' )
-			.height( ($covered.outerHeight() + heightOffset).toString() + 'px' );
-			*/
-		
+
 		// shift the file input over with negative margins, 
 		// internal to the overflow-containing div, so the div shows all button
 		// and none of the textfield-like input
-		$j( _this.fileInputCtrl ).css( {
-			'margin-left': '-' + ~~( $j( _this.fileInputCtrl).width() - $covered.outerWidth() - 10 ) + 'px',
-			'margin-top' : '-' + ~~( $j( _this.fileInputCtrl).height() - $covered.outerHeight() - 10 ) + 'px'
+		$j( this.fileInputCtrl ).css( {
+			'margin-left': '-' + ~~( $j( this.fileInputCtrl ).width() - $covered.outerWidth() - 10 ) + 'px',
+			'margin-top' : '-' + ~~( $j( this.fileInputCtrl ).height() - $covered.outerHeight() - 10 ) + 'px'
 		} );
 
 
@@ -1450,7 +1426,7 @@ mw.UploadWizard.userAgent = "UploadWizard (alpha)";
 
 
 mw.UploadWizard.prototype = {
-	stepNames: [ 'file', 'deeds', 'details', 'thanks' ],
+	stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
 	currentStepName: undefined,
 
 	/*
@@ -1501,9 +1477,11 @@ mw.UploadWizard.prototype = {
 	createInterface: function( selector ) {
 		var _this = this;
 		var div = $j( selector ).get(0);
+		
 		div.innerHTML = 
 			// the arrow steps
 		         '<ul id="mwe-upwiz-steps">'
+		       +   '<li id="mwe-upwiz-step-tutorial"><div>' + gM('mwe-upwiz-step-tutorial') + '</div></li>'
 		       +   '<li id="mwe-upwiz-step-file"><div>' + gM('mwe-upwiz-step-file') + '</div></li>'
 		       +   '<li id="mwe-upwiz-step-deeds"><div>'  + gM('mwe-upwiz-step-deeds')  + '</div></li>'
 		       +   '<li id="mwe-upwiz-step-details"><div>'  + gM('mwe-upwiz-step-details')  + '</div></li>'
@@ -1512,6 +1490,14 @@ mw.UploadWizard.prototype = {
 
 			// the individual steps, all at once
 		       + '<div id="mwe-upwiz-content">'
+
+		       +   '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
+		       +     '<div id="mwe-upwiz-tutorial">'  // this is hardcoded badness
+		       +     '</div>'
+		       +     '<div class="mwe-upwiz-buttons">'
+		       +        '<button class="mwe-upwiz-button-next" />'
+		       +     '</div>'		
+                       +   '</div>'
 
 		       +   '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file">'
 		       +     '<div id="mwe-upwiz-intro">' + gM('mwe-upwiz-intro') + '</div>'
@@ -1563,6 +1549,7 @@ mw.UploadWizard.prototype = {
 
 		       + '<div class="mwe-upwiz-clearing"></div>';
 
+		this.setTutorialImage( $j( '#mwe-upwiz-tutorial' ) );
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
 			.arrowSteps();
@@ -1575,14 +1562,27 @@ mw.UploadWizard.prototype = {
 			.append( gM( 'mwe-upwiz-upload-another' ) )
 			.click( function() { _this.reset(); } );
 		
-
-
 		// handler for next button
+		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next') 
+			.append( gM( 'mwe-upwiz-next' ) )
+			.click( function() {
+				_this.moveToStep( 'file', function() { 
+					// we explicitly move the file input at this point 
+					// because it was probably jumping around due to other "steps" on this page during file construction.
+					// XXX using a timeout is lame, are there other options?
+					// XXX Trevor suggests that using addClass() may queue stuff unnecessarily; use 'concrete' HTML
+					setTimeout( function() {	
+						upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+					}, 300 );
+				} );
+			} );
+
 		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-button-next')
 			.append( gM( 'mwe-upwiz-next-file' ) )
 			.click( function() {
 			// check if there is an upload at all
 			if ( _this.uploads.length === 0 ) {
+				// XXX use standard error message
 				alert( gM( 'mwe-upwiz-file-need-file' ) );
 				return;
 			}
@@ -1683,20 +1683,63 @@ mw.UploadWizard.prototype = {
 		// WIZARD 
 	
 		// add one upload field to start (this is the big one that asks you to upload something)
-		var upload = _this.newUpload( '#mwe-upwiz-add-file' );
+		var upload = _this.newUpload();
 
 		// "select" the first step - highlight, make it visible, hide all others
-		_this.moveToStep( 'file', function() { 
-			// XXX moving the file input doesn't seem to work at this point; we get its old position before
-			// CSS is applied. Hence, using a timeout.
-			// XXX using a timeout is lame, are there other options?
-			// XXX Trevor suggests that using addClass() may queue stuff unnecessarily; use 'concrete' HTML
-			setTimeout( function() {	
-				upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
-			}, 300 );
-		} );
-
+		_this.moveToStep( 'tutorial' );
+	
 	},
+
+	/**
+	 * Using the API, fetch the appropriate HTML for the licensing tutorial, and append it to $element
+	 * @param {jQuery} jQuery instance initialized with selector
+	 */
+	setTutorialImage: function( $el ) {
+		var title = new mw.Title( 'WikimediaCommonsUploadTutorial-' + mw.UploadWizard.config.userLanguage + '.png', 'file' );
+		var params = {	
+			'prop': 'imageinfo',
+			'titles': title.toString(),
+			'iiurlwidth': '722', // determined to be the correct size for the tutorial, such that body text is the similar in size to our normal HTML text
+			'iiprop': 'url|size'
+		};
+		var tutorialError = function( code, result ) {
+			$el.append( 
+				$j( '<p/>' ).append( gM( 'mwe-upwiz-tutorial-error' ) ),
+				/* make it hidden or grey or small something... */
+				$j( '<p/>' ).append( gM( 'mwe-upwiz-api-error-code', code ) )
+			);
+		};
+		var tutorialOk = function( data ) {
+			if ( !data || !data.query || !data.query.pages ) {
+				return;
+			}
+			var thumbnail; 
+			$j.each( data.query.pages, function( id, page ) {
+				if ( page.imageinfo && page.imageinfo.length ) {
+					var imageinfo = page.imageinfo[0];
+					if ( imageinfo.thumburl && imageinfo.thumbwidth && imageinfo.thumbheight ) {
+						thumbnail = page.imageinfo[0];
+						return false;
+					}
+				}
+			} );
+			if ( ! mw.isDefined( thumbnail ) ) { 
+				tutorialError( data );
+			} else {
+				$el.append( 
+					$j( '<img/>' ).attr( { 
+						'src': thumbnail.thumburl, 
+						'width': thumbnail.thumbwidth, 
+						'height': thumbnail.thumbheight  
+					} )
+				);
+			}
+		};
+		
+		//var commonsApi = new mw.Api( { 'url': 'http://commons.wikimedia.org/w/api.php' } );
+		this.api.get( params, { ok: tutorialOk, err: tutorialError } );
+	},
+
 
 	/**
 	 * Advance one "step" in the wizard interface.
@@ -1708,6 +1751,10 @@ mw.UploadWizard.prototype = {
 	 */
 	moveToStep: function( selectedStepName, callback ) {
 		var _this = this;
+
+		// scroll to the top of the page (the current step might have been very long, vertically)
+		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
+
 		$j.each( _this.stepNames, function(i, stepName) {
 			
 			// the step indicator	
@@ -1716,12 +1763,12 @@ mw.UploadWizard.prototype = {
 			// the step's contents
 			var stepDiv = $j( '#mwe-upwiz-stepdiv-' + stepName );
 
-			if ( _this.currentStepName == stepName ) {
+			if ( _this.currentStepName === stepName ) {
 				stepDiv.hide();
 				// we hide the old stepDivs because we are afraid of some z-index elements that may interfere with later tabs
 				// this will break if we ever allow people to page back and forth.
 			} else {
-				if ( selectedStepName == stepName ) {
+				if ( selectedStepName === stepName ) {
 					stepDiv.maskSafeShow();
 				} else {
 					stepDiv.maskSafeHide( 1000 );

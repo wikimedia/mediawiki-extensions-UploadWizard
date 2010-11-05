@@ -14,8 +14,8 @@ form.mwe-upwiz-form {
 
 #upload-wizard {
 	margin-top: 18px;
-	min-width: 32em;
-	max-width: 64em;
+	min-width: 750px; /* width of tutorial.png plus padding */
+	max-width: 900px; /* wild guess */ 
 }
 
 /*
