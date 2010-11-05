@@ -27,14 +27,6 @@
 
 		this.url = options.url;
 
-		// deal with cases where we need an API proxy 
-		var apiUri = new mw.Uri( this.url );
-		var scriptUri = new mw.Uri( window.location );	
-		if ( apiUri.host !== scriptUri.host ) {
-			/* Ask mdale, his proxy was not being developed on wikimedia svn... somewhere on Kaltura servers */ 
-			throw new Error( "unimplemented -- API proxy required.");
-		}
-
 		var _this = this;
 	
 		/* We allow people to omit these default parameters from API requests */
@@ -137,10 +129,13 @@
 				ajaxOptions.err( 'http-' + textStatus, { xhr: xhr, exception: exception } );
 			};
 
-			/* success just means 200 OK; also check for API errors */
+			/* success just means 200 OK; also check for output and API errors */
 			ajaxOptions.success = function( result ) {
-				if ( result.error ) {
-					ajaxOptions.err( result.error.code, result );
+				if ( mw.isEmpty( result ) ) {
+					ajaxOptions.err( "empty", "OK response but empty result (check HTTP headers?)" );
+				} else if ( result.error ) {
+					var code = mw.isDefined( result.error.code ) ? result.error.code : "unknown";
+					ajaxOptions.err( code, result );
 				} else { 
 					ajaxOptions.ok( result );
 				}
