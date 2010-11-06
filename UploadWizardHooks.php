@@ -118,9 +118,11 @@ class UploadWizardHooks {
 			'messages' => array( 
 				// see UploadWizard.i18n.php
 			),
+			// in ResourceLoader, these will probably have names rather than explicit script paths, or be automatically loaded
 			'dependencies' => array(
-				// see SpecialUploadWizard.php
-				// see SpecialUploadWizard.php
+				'extensions/UploadWizard/resources/jquery.ui/ui/ui.core.js',	
+				'extensions/UploadWizard/resources/jquery.ui/ui/ui.datepicker.js',
+				'extensions/UploadWizard/resources/jquery.ui/ui/ui.progressbar.js'
 			),
 			'group' => 'ext.uploadWizard'
 		),

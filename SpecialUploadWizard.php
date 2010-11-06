@@ -37,7 +37,8 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo. 
 	 */
 	public function execute( $subPage ) {
-		global $wgScriptPath, $wgLang, $wgUser, $wgOut;
+		global $wgScriptPath, $wgLang, $wgUser, $wgOut, $wgLanguageCode, 
+		       $wgUploadWizardDebug, $wgUploadWizardDisableResourceLoader;
 
 		// side effects: if we can't upload, will print error page to wgOut 
 		// and return false
@@ -54,42 +55,22 @@ class SpecialUploadWizard extends SpecialPage {
 		$wgOut->addHTML( '<p class="errorbox">' . wfMsg( 'mwe-upwiz-js-off' ) . '</p>' );
 		$this->simpleForm->show();
 		$wgOut->addHTML('</noscript>');
-	
-			
+
+		// global javascript variables	
 		$this->addJsVars( $subPage );
-		if ( $wgResourceLoader ) {
+		
+		// dependencies (css, js)	
+		if ( (! $wgUploadWizardDisableResourceLoader) && class_exists( 'ResourceLoader' ) ) {
 			$wgOut->addModules( 'ext.uploadWizard' );
 		} else {
-			/* Doing resource loading the old-fashioned way for now until Resource Loader or something becomes the standard.
-			   We anticipate that Resource Loader will be available sometime in late 2010 or early 2011, 
-			   so we define scripts in the hooks that Resource Loader will expect, over in UploadWizardHooks.php.
-			*/
-			$module = UploadWizardHooks::$modules['ext.uploadWizard'];
-
-			// in ResourceLoader, these will probably have names rather than explicit script paths, or be automatically loaded
-			$dependencies = array(
-				"extensions/UploadWizard/resources/jquery.ui/ui/ui.core.js",	
-				'extensions/UploadWizard/resources/jquery.ui/ui/ui.datepicker.js',
-				'extensions/UploadWizard/resources/jquery.ui/ui/ui.progressbar.js'
-			);
-
-			$scripts = array_merge( $dependencies, $module['scripts'] );
-			if ( $wgLanguageCode !== 'en' && isset( $module['languageScripts'][$wgLanguageCode] ) ) {
-				$scripts[] = $module['languageScripts'][$wgLanguageCode];
+			$dependencyLoader = new UploadWizardDependencyLoader( $wgLanguageCode );
+			if ( $wgUploadWizardDebug ) {
+				// each file as an individual script or style
+				$dependencyLoader->outputHtmlDebug( $wgOut, $wgScriptPath );
+			} else {
+				// combined & minified
+				$dependencyLoader->outputHtml( $wgOut, $wgScriptPath );
 			}
-			wfDebug( print_r( $scripts, 1 ) );
-			foreach ( $scripts as $script ) {
-				$wgOut->addScriptFile( $wgScriptPath . "/" . $script );
-			}
-
-			// after scripts, get the i18n.php stuff
-			$wgOut->addInlineScript( UploadWizardMessages::getMessagesJs( 'UploadWizard', $wgLang ) );
-	
-			// TODO RTL
-			foreach ( $module['styles'] as $style ) {
-				$wgOut->addStyle( $wgScriptPath . "/" . $style, '', '', 'ltr' );
-			}
-	
 		}
 		
 		// where the uploadwizard will go
