@@ -1172,6 +1172,8 @@ $messages['fr'] = array(
 	'mwe-upwiz-step-deeds' => 'Accorder certains droits',
 	'mwe-upwiz-step-details' => 'Décrire',
 	'mwe-upwiz-step-thanks' => 'Utilisation',
+	'mwe-upwiz-api-error-code' => 'Code d’erreur API : $1',
+	'mwe-upwiz-tutorial-error' => 'Un tutoriel portant sur les images que vous pouvez verser sur ce wiki devrait apparaître ici. Veuillez contacter l’administrateur système.',
 	'mwe-upwiz-intro' => "Bienvenue sur Wikimedia Commons, un dépôt d'images, de sons, et des films que n'importe qui peut librement télécharger et utiliser. Ajoutez à la connaissance de l'humanité par le téléversement de fichiers qui pourraient être utilisés dans un but éducatif.",
 	'mwe-upwiz-add-file-n' => 'Ajouter un autre fichier',
 	'mwe-upwiz-add-file-0' => 'Cliquez ici pour téléverser un fichier',
@@ -2445,11 +2447,13 @@ Non utilizzare codice HTML o wikitext qui, solo il nome utente o il nome reale.'
 
 /** Japanese (日本語)
  * @author Hosiryuhosi
+ * @author Iwai.masaharu
  * @author 青子守歌
  */
 $messages['ja'] = array(
 	'uploadwizard' => 'アップロード・ウィザード',
 	'uploadwizard-desc' => 'アップロード・ウィザード（マルチメディア・ユーザビリティで開発された機能）',
+	'mwe-upwiz-js-off' => 'アップロード・ウィザードはインターフェイス改善のために JavaScript を使用しています。あなたがお使いのブラウザは JavaScript に未対応か、JavaScript を無効にしています。そのため、単純なアップロードフォームを表示しています。',
 	'mwe-loading-upwiz' => 'アップロード・ウィザードを読み込み中',
 	'mwe-upwiz-code-unknown' => '不明な言語',
 	'mwe-upwiz-step-file' => 'アップロード',
