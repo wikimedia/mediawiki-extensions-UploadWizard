@@ -19,8 +19,6 @@ class UploadWizardMessages {
 	 * @param String $langCode Name of scriptText module ( that hosts messages )
 	 * @return string
 	 */
-
-
 	public static function getMessagesJs( $moduleName, $language ) {
 		global $wgOut;
 

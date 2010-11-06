@@ -5531,7 +5531,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 
 	/**
 	* mw.addMessages function
-	* Loads a set of json messages into the messegeCache object.
+	* Loads a set of json messages into the messageCache object.
 	*
 	* @param {JSON} msgSet The set of msgs to be loaded
 	*/
@@ -5558,8 +5558,14 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	mw.getMsg = function( messageKey , args ) {		
 
 		// Check for missing message key
-		if ( ! messageCache[ messageKey ] ){
-			return '[' + messageKey + ']';
+		if ( ! messageCache[ messageKey ] ) {
+			// Try the ResourceLoader's message store
+			// FIXME: The two message stores should be unified in the future
+			var rlMsg = mediaWiki.msg( messageKey );
+			if ( rlMsg == ( '<' + messageKey + '>' ) ) {
+				return '[' + messageKey + ']';
+			}
+			messageCache[ messageKey ] = rlMsg;
 		}				
 		// Check if we need to do args replacements: 
 		if( typeof args != 'undefined' ) {

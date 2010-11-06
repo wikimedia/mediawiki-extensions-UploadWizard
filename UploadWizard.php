@@ -58,6 +58,4 @@ $wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 $wgUploadWizardDisableResourceLoader = true;
 
 // for ResourceLoader
-if ( !$wgUploadWizardDisableResourceLoader && class_exists( 'ResourceLoader' ) ) {
-	$wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
-}
+$wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';

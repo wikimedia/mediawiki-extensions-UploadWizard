@@ -36,7 +36,7 @@ class UploadWizardDependencyLoader {
 	public function __construct( $langCode = null ) {
 		$module = UploadWizardHooks::$modules['ext.uploadWizard'];
 
-		$this->scripts = array_merge( $module['dependencies'], $module['scripts'] );
+		$this->scripts = $module['scripts'];
 
 		$this->inlineScripts = array();
 		if ( $langCode !== null ) {
