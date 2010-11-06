@@ -37,7 +37,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo. 
 	 */
 	public function execute( $subPage ) {
-		global $wgScriptPath, $wgLang, $wgUser, $wgOut, $wgLanguageCode, 
+		global $wgLang, $wgUser, $wgOut, $wgLanguageCode, $wgExtensionAssetsPath,
 		       $wgUploadWizardDebug, $wgUploadWizardDisableResourceLoader;
 
 		// side effects: if we can't upload, will print error page to wgOut 
@@ -60,16 +60,17 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->addJsVars( $subPage );
 		
 		// dependencies (css, js)	
-		if ( (! $wgUploadWizardDisableResourceLoader) && class_exists( 'ResourceLoader' ) ) {
+		if ( !$wgUploadWizardDisableResourceLoader && class_exists( 'ResourceLoader' ) ) {
 			$wgOut->addModules( 'ext.uploadWizard' );
 		} else {
+			$basepath = "$wgExtensionAssetsPath/UploadWizard";
 			$dependencyLoader = new UploadWizardDependencyLoader( $wgLanguageCode );
 			if ( $wgUploadWizardDebug ) {
 				// each file as an individual script or style
-				$dependencyLoader->outputHtmlDebug( $wgOut, $wgScriptPath );
+				$dependencyLoader->outputHtmlDebug( $wgOut, $basepath );
 			} else {
 				// combined & minified
-				$dependencyLoader->outputHtml( $wgOut, $wgScriptPath );
+				$dependencyLoader->outputHtml( $wgOut, $basepath );
 			}
 		}
 		

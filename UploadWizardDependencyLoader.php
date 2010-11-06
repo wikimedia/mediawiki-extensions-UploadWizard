@@ -15,8 +15,6 @@
  * PHP and the Makefile). I started to write a PHP file that then would write a Makefile and realized
  * this was getting a bit insane.
  *
- * n.b. depends on $IP/includes/libs/JSMin.php
- *
  * @author Neil Kandalgaonkar <neilk@wikimedia.org>
  */
 
@@ -88,9 +86,8 @@ class UploadWizardDependencyLoader {
 			$scriptsFile = self::SCRIPTS_COMBINED;
 			$stylesFile = self::STYLES_COMBINED;
 		}
-		// hardcoded but this seems reasonable
-		$scriptsFile = "extensions/UploadWizard/resources/$scriptsFile";
-		$stylesFile = "extensions/UploadWizard/resources/$stylesFile";
+		$scriptsFile = "resources/$scriptsFile";
+		$stylesFile = "resources/$stylesFile";
 
 		$out->addScriptFile( $baseUrl . "/" . $scriptsFile );
 		// XXX RTL!?
@@ -108,9 +105,7 @@ class UploadWizardDependencyLoader {
 	 * Not intended to be called in production or from the web.
 	 * Intended to be invoked from the same directory as UploadWizard.
 	 */
-	public function writeOptimizedFiles( $installPath ) {
-		chdir( $installPath );
-
+	public function writeOptimizedFiles() {
 		$extensionDir = dirname( __FILE__ );
 		$resourceDir = "$extensionDir/resources";
 
@@ -128,11 +123,11 @@ class UploadWizardDependencyLoader {
 		foreach ( $dirStylesMap as $dir => $styles ) {
 			$combined = "$dir/dir." . self::STYLES_COMBINED;
 			$this->concatenateFiles( $styles, $combined );
-			$dirStyleCombinedUrls[] = preg_replace( '/^extensions\/UploadWizard\/resources\//', '', $combined );
+			$dirStyleCombinedUrls[] = preg_replace( '/^resources\//', '', $combined );
 
 			$minified = "$dir/dir." . self::STYLES_MINIFIED;
 			$this->writeMinifiedCss( $combined, $minified );
-			$dirStyleMinifiedUrls[] = preg_replace( '/^extensions\/UploadWizard\/resources\//', '', $minified );
+			$dirStyleMinifiedUrls[] = preg_replace( '/^resources\//', '', $minified );
 		}
 		$this->writeStyleImporter( $dirStyleCombinedUrls, $resourceDir . '/' . self::STYLES_COMBINED );
 		$this->writeStyleImporter( $dirStyleMinifiedUrls, $resourceDir . '/' . self::STYLES_MINIFIED );
@@ -154,7 +149,7 @@ class UploadWizardDependencyLoader {
 	function writeStyleImporter( $urls, $outputFile ) {
 		$fp = fopen( $outputFile, 'w' );
 		if ( ! $fp ) {
-			print "couldn't open $outputFile for writing"; 
+			print "couldn't open $outputFile for writing\n"; 
 			exit;
 		}
 		foreach ( $urls as $url ) { 

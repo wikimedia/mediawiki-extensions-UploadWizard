@@ -16,119 +16,119 @@ class UploadWizardHooks {
 			'scripts' => array(
 
 				// jquery interface helpers
-				'extensions/UploadWizard/resources/jquery/jquery.tipsy.js',
-				'extensions/UploadWizard/resources/jquery/jquery.tipsyPlus.js',
-				'extensions/UploadWizard/resources/jquery/jquery.morphCrossfade.js',
-				'extensions/UploadWizard/resources/jquery/jquery.validate.js',
-				'extensions/UploadWizard/resources/jquery/jquery.arrowSteps.js',
-				'extensions/UploadWizard/resources/jquery/jquery.autocomplete.js',
-				'extensions/UploadWizard/resources/jquery/jquery.spinner.js',
+				'resources/jquery/jquery.tipsy.js',
+				'resources/jquery/jquery.tipsyPlus.js',
+				'resources/jquery/jquery.morphCrossfade.js',
+				'resources/jquery/jquery.validate.js',
+				'resources/jquery/jquery.arrowSteps.js',
+				'resources/jquery/jquery.autocomplete.js',
+				'resources/jquery/jquery.spinner.js',
 
 				// mediawiki-specific interface helper (relies on mediawiki globals)
-				'extensions/UploadWizard/resources/jquery/jquery.mwCoolCats.js',
+				'resources/jquery/jquery.mwCoolCats.js',
 
 				// common utilities
-				'extensions/UploadWizard/resources/mw.js',  // <-- obsolete?
-				'extensions/UploadWizard/resources/mw.Log.js',
-				'extensions/UploadWizard/resources/mw.Utilities.js',
-				'extensions/UploadWizard/resources/mw.UtilitiesTime.js',
-				'extensions/UploadWizard/resources/mw.Uri.js',
-				'extensions/UploadWizard/resources/mw.Api.js',
-				'extensions/UploadWizard/resources/mw.Api.edit.js',
-				'extensions/UploadWizard/resources/mw.Title.js',
+				'resources/mw.js',  // <-- obsolete?
+				'resources/mw.Log.js',
+				'resources/mw.Utilities.js',
+				'resources/mw.UtilitiesTime.js',
+				'resources/mw.Uri.js',
+				'resources/mw.Api.js',
+				'resources/mw.Api.edit.js',
+				'resources/mw.Title.js',
 
 				// message parsing
-				'extensions/UploadWizard/resources/language/mw.Language.js',
-				'extensions/UploadWizard/resources/language/mw.Parser.js',
-				'extensions/UploadWizard/resources/mw.LanguageUpWiz.js',
+				'resources/language/mw.Language.js',
+				'resources/language/mw.Parser.js',
+				'resources/mw.LanguageUpWiz.js',
 
 				// workhorse libraries
-				'extensions/UploadWizard/resources/mw.IframeTransport.js',
-				'extensions/UploadWizard/resources/mw.ApiUploadHandler.js',
-				'extensions/UploadWizard/resources/mw.DestinationChecker.js',
-				'extensions/UploadWizard/resources/mw.UploadWizardUtil.js',
+				'resources/mw.IframeTransport.js',
+				'resources/mw.ApiUploadHandler.js',
+				'resources/mw.DestinationChecker.js',
+				'resources/mw.UploadWizardUtil.js',
 
 				// interface libraries
-				'extensions/UploadWizard/resources/mw.GroupProgressBar.js', 
+				'resources/mw.GroupProgressBar.js', 
 
 				// UploadWizard specific abstractions
-				'extensions/UploadWizard/resources/mw.UploadWizardDeed.js',
-				'extensions/UploadWizard/resources/mw.UploadWizardLicenseInput.js',
+				'resources/mw.UploadWizardDeed.js',
+				'resources/mw.UploadWizardLicenseInput.js',
 
 				// main library			
-				'extensions/UploadWizard/resources/mw.UploadWizard.js',
+				'resources/mw.UploadWizard.js',
 	
 				// launcher
-				'extensions/UploadWizard/UploadWizardPage.js'
+				'UploadWizardPage.js'
 			),
 			'languageScripts' => array(
-				'am' => 'extensions/UploadWizard/resources/languages/classes/LanguageAm.js',
-				'ar' => 'extensions/UploadWizard/resources/languages/classes/LanguageAr.js',
-				'bat-smg' => 'extensions/UploadWizard/resources/languages/classes/LanguageBat_smg.js',
-				'be' => 'extensions/UploadWizard/resources/languages/classes/LanguageBe.js',
-				'be-tarask' => 'extensions/UploadWizard/resources/languages/classes/LanguageBe_tarask.js',
-				'bh' => 'extensions/UploadWizard/resources/languages/classes/LanguageBh.js',
-				'bs' => 'extensions/UploadWizard/resources/languages/classes/LanguageBs.js',
-				'cs' => 'extensions/UploadWizard/resources/languages/classes/LanguageCs.js',
-				'cu' => 'extensions/UploadWizard/resources/languages/classes/LanguageCu.js',
-				'cy' => 'extensions/UploadWizard/resources/languages/classes/LanguageCy.js',
-				'dsb' => 'extensions/UploadWizard/resources/languages/classes/LanguageDsb.js',
-				'fr' => 'extensions/UploadWizard/resources/languages/classes/LanguageFr.js',
-				'ga' => 'extensions/UploadWizard/resources/languages/classes/LanguageGa.js',
-				'gd' => 'extensions/UploadWizard/resources/languages/classes/LanguageGd.js',
-				'gv' => 'extensions/UploadWizard/resources/languages/classes/LanguageGv.js',
-				'he' => 'extensions/UploadWizard/resources/languages/classes/LanguageHe.js',
-				'hi' => 'extensions/UploadWizard/resources/languages/classes/LanguageHi.js',
-				'hr' => 'extensions/UploadWizard/resources/languages/classes/LanguageHr.js',
-				'hsb' => 'extensions/UploadWizard/resources/languages/classes/LanguageHsb.js',
-				'hy' => 'extensions/UploadWizard/resources/languages/classes/LanguageHy.js',
-				'ksh' => 'extensions/UploadWizard/resources/languages/classes/LanguageKsh.js',
-				'ln' => 'extensions/UploadWizard/resources/languages/classes/LanguageLn.js',
-				'lt' => 'extensions/UploadWizard/resources/languages/classes/LanguageLt.js',
-				'lv' => 'extensions/UploadWizard/resources/languages/classes/LanguageLv.js',
-				'mg' => 'extensions/UploadWizard/resources/languages/classes/LanguageMg.js',
-				'mk' => 'extensions/UploadWizard/resources/languages/classes/LanguageMk.js',
-				'mo' => 'extensions/UploadWizard/resources/languages/classes/LanguageMo.js',
-				'mt' => 'extensions/UploadWizard/resources/languages/classes/LanguageMt.js',
-				'nso' => 'extensions/UploadWizard/resources/languages/classes/LanguageNso.js',
-				'pl' => 'extensions/UploadWizard/resources/languages/classes/LanguagePl.js',
-				'pt-br' => 'extensions/UploadWizard/resources/languages/classes/LanguagePt_br.js',
-				'ro' => 'extensions/UploadWizard/resources/languages/classes/LanguageRo.js',
-				'ru' => 'extensions/UploadWizard/resources/languages/classes/LanguageRu.js',
-				'se' => 'extensions/UploadWizard/resources/languages/classes/LanguageSe.js',
-				'sh' => 'extensions/UploadWizard/resources/languages/classes/LanguageSh.js',
-				'sk' => 'extensions/UploadWizard/resources/languages/classes/LanguageSk.js',
-				'sl' => 'extensions/UploadWizard/resources/languages/classes/LanguageSl.js',
-				'sma' => 'extensions/UploadWizard/resources/languages/classes/LanguageSma.js',
-				'sr' => 'extensions/UploadWizard/resources/languages/classes/LanguageSr.js',
-				'sr-ec' => 'extensions/UploadWizard/resources/languages/classes/LanguageSr_ec.js',
-				'sr-el' => 'extensions/UploadWizard/resources/languages/classes/LanguageSr_el.js',
-				'ti' => 'extensions/UploadWizard/resources/languages/classes/LanguageTi.js',
-				'tl' => 'extensions/UploadWizard/resources/languages/classes/LanguageTl.js',
-				'uk' => 'extensions/UploadWizard/resources/languages/classes/LanguageUk.js',
-				'wa' => 'extensions/UploadWizard/resources/languages/classes/LanguageWa.js'
+				'am' => 'resources/languages/classes/LanguageAm.js',
+				'ar' => 'resources/languages/classes/LanguageAr.js',
+				'bat-smg' => 'resources/languages/classes/LanguageBat_smg.js',
+				'be' => 'resources/languages/classes/LanguageBe.js',
+				'be-tarask' => 'resources/languages/classes/LanguageBe_tarask.js',
+				'bh' => 'resources/languages/classes/LanguageBh.js',
+				'bs' => 'resources/languages/classes/LanguageBs.js',
+				'cs' => 'resources/languages/classes/LanguageCs.js',
+				'cu' => 'resources/languages/classes/LanguageCu.js',
+				'cy' => 'resources/languages/classes/LanguageCy.js',
+				'dsb' => 'resources/languages/classes/LanguageDsb.js',
+				'fr' => 'resources/languages/classes/LanguageFr.js',
+				'ga' => 'resources/languages/classes/LanguageGa.js',
+				'gd' => 'resources/languages/classes/LanguageGd.js',
+				'gv' => 'resources/languages/classes/LanguageGv.js',
+				'he' => 'resources/languages/classes/LanguageHe.js',
+				'hi' => 'resources/languages/classes/LanguageHi.js',
+				'hr' => 'resources/languages/classes/LanguageHr.js',
+				'hsb' => 'resources/languages/classes/LanguageHsb.js',
+				'hy' => 'resources/languages/classes/LanguageHy.js',
+				'ksh' => 'resources/languages/classes/LanguageKsh.js',
+				'ln' => 'resources/languages/classes/LanguageLn.js',
+				'lt' => 'resources/languages/classes/LanguageLt.js',
+				'lv' => 'resources/languages/classes/LanguageLv.js',
+				'mg' => 'resources/languages/classes/LanguageMg.js',
+				'mk' => 'resources/languages/classes/LanguageMk.js',
+				'mo' => 'resources/languages/classes/LanguageMo.js',
+				'mt' => 'resources/languages/classes/LanguageMt.js',
+				'nso' => 'resources/languages/classes/LanguageNso.js',
+				'pl' => 'resources/languages/classes/LanguagePl.js',
+				'pt-br' => 'resources/languages/classes/LanguagePt_br.js',
+				'ro' => 'resources/languages/classes/LanguageRo.js',
+				'ru' => 'resources/languages/classes/LanguageRu.js',
+				'se' => 'resources/languages/classes/LanguageSe.js',
+				'sh' => 'resources/languages/classes/LanguageSh.js',
+				'sk' => 'resources/languages/classes/LanguageSk.js',
+				'sl' => 'resources/languages/classes/LanguageSl.js',
+				'sma' => 'resources/languages/classes/LanguageSma.js',
+				'sr' => 'resources/languages/classes/LanguageSr.js',
+				'sr-ec' => 'resources/languages/classes/LanguageSr_ec.js',
+				'sr-el' => 'resources/languages/classes/LanguageSr_el.js',
+				'ti' => 'resources/languages/classes/LanguageTi.js',
+				'tl' => 'resources/languages/classes/LanguageTl.js',
+				'uk' => 'resources/languages/classes/LanguageUk.js',
+				'wa' => 'resources/languages/classes/LanguageWa.js'
 			),
 			'styles' => array(
-				'extensions/UploadWizard/resources/jquery/jquery.tipsy.css',
-				'extensions/UploadWizard/resources/uploadWizard.css',
-				'extensions/UploadWizard/resources/jquery/jquery.arrowSteps.css',
-				'extensions/UploadWizard/resources/jquery/jquery.mwCoolCats.css',
-				'extensions/UploadWizard/resources/jquery.ui/themes/redmond/jquery-ui-1.7.1.custom.css'
+				'resources/jquery/jquery.tipsy.css',
+				'resources/uploadWizard.css',
+				'resources/jquery/jquery.arrowSteps.css',
+				'resources/jquery/jquery.mwCoolCats.css',
+				'resources/jquery.ui/themes/redmond/jquery-ui-1.7.1.custom.css'
 			),
 			'messages' => array( 
 				// see UploadWizard.i18n.php
 			),
 			// in ResourceLoader, these will probably have names rather than explicit script paths, or be automatically loaded
 			'dependencies' => array(
-				'extensions/UploadWizard/resources/jquery.ui/ui/ui.core.js',	
-				'extensions/UploadWizard/resources/jquery.ui/ui/ui.datepicker.js',
-				'extensions/UploadWizard/resources/jquery.ui/ui/ui.progressbar.js'
+				'resources/jquery.ui/ui/ui.core.js',
+				'resources/jquery.ui/ui/ui.datepicker.js',
+				'resources/jquery.ui/ui/ui.progressbar.js'
 			),
 			'group' => 'ext.uploadWizard'
 		),
 		'ext.uploadWizard.tests' => array(
 			'scripts' => array(
-				'extensions/UploadWizard/resources/mw.MockUploadHandler.js'
+				'resources/mw.MockUploadHandler.js'
 			),
 		),
 	);
@@ -139,8 +139,11 @@ class UploadWizardHooks {
 	 * Adds modules to ResourceLoader
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
+		global $wgExtensionAssetsPath;
+		$localpath = dirname( __FILE__ );
+		$remotepath = "$wgExtensionAssetsPath/UploadWizard";
 		foreach ( self::$modules as $name => $resources ) {
-			$resourceLoader->register( $name, new ResourceLoaderFileModule( $resources ) );
+			$resourceLoader->register( $name, new ResourceLoaderFileModule( $resources, $localpath, $remotepath ) );
 		}
 		return true;
 	}

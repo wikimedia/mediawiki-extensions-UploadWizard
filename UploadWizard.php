@@ -54,7 +54,10 @@ $wgResourceLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/Upl
 // Set up the javascript path for the loader and localization file.
 $wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 
+// Disable ResourceLoader support by default, it's currently broken
+$wgUploadWizardDisableResourceLoader = true;
+
 // for ResourceLoader
-if ( class_exists( 'ResourceLoader' ) ) {
+if ( !$wgUploadWizardDisableResourceLoader && class_exists( 'ResourceLoader' ) ) {
 	$wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 }

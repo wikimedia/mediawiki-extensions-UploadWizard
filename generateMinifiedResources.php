@@ -1,29 +1,23 @@
 <?php
+$path = getenv( 'MW_INSTALL_PATH' );
+if ( strval( $path ) === '' ) {
+	$path = dirname( __FILE__ ) . '/../..';
+}
+require_once( "$path/maintenance/Maintenance.php" );
 
-/* Invokes UploadWizardDependencyLoader to write combined & minified scripts */
-
-$dir = dirname( __FILE__ );
-require_once( "$dir/UploadWizardDependencyLoader.php" );
-require_once( "$dir/UploadWizardMessages.php" );
-require_once( "$dir/UploadWizardHooks.php" );
-
-$installPath = null;
-
-while ( $dir !== '/' ) { 
-	if ( file_exists( "$dir/LocalSettings.php" ) ) {
-		$installPath = $dir;
-		break;
+/**
+ * Maintenance script to generate combined and minified JS and CSS for UploadWizard
+ */
+class UploadWizardGenerateMinifiedResources extends Maintenance {
+	public function __construct() {
+		parent::__construct();
+		$this->mDescription = 'Generate combined and minified JS and CSS for UploadWizard';
 	}
-	$dir = dirname( $dir );
+	
+	public function execute() {
+		$dependencyLoader = new UploadWizardDependencyLoader();
+		$dependencyLoader->writeOptimizedFiles();
+	}
 }
-if ( !$installPath ) {
-	print "no installpath, can't write optimized files...\n";
-	exit;
-}
-
-require_once( "$installPath/includes/libs/JSMin.php" ); 
-
-
-$dependencyLoader = new UploadWizardDependencyLoader();
-$dependencyLoader->writeOptimizedFiles( $installPath );
-
+$maintClass = 'UploadWizardGenerateMinifiedResources';
+require_once( DO_MAINTENANCE );
