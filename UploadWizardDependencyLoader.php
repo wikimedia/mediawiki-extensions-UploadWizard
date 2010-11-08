@@ -20,7 +20,6 @@
 
 class UploadWizardDependencyLoader {
 
-	// must be the same as those defined in Makefile	
 	const STYLES_COMBINED = 'combined.css';
 	const SCRIPTS_COMBINED = 'combined.js';
 	const STYLES_MINIFIED = 'combined.min.css';
