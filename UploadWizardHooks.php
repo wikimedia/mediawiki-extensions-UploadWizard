@@ -28,6 +28,8 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.arrowSteps.js',
 				'resources/jquery/jquery.autocomplete.js',
 				'resources/jquery/jquery.spinner.js',
+				'resources/jquery/jquery.autoEllipsis.js',
+				'resources/jquery/jquery.suggestions.js',
 
 				// mediawiki-specific interface helper (relies on mediawiki globals)
 				'resources/jquery/jquery.mwCoolCats.js',
@@ -115,6 +117,7 @@ class UploadWizardHooks {
 			),
 			'styles' => array(
 				'resources/jquery/jquery.tipsy.css',
+				'resources/jquery/jquery.suggestions.css',
 				'resources/uploadWizard.css',
 				'resources/jquery/jquery.arrowSteps.css',
 				'resources/jquery/jquery.mwCoolCats.css',

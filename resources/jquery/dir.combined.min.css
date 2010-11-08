@@ -15,7 +15,16 @@
 -webkit-box-shadow:5px 5px 5px rgba(0,0,0,0.2);-moz-box-shadow:5px 5px 5px rgba(0,0,0,0.2);box-shadow:5px 5px 5px rgba(0,0,0,0.2);
 filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=5,OffY=5,Color='gray');
 -ms-filter:"progid:DXImageTransform.Microsoft.dropshadow(OffX=5,OffY=5,Color='gray')";}
-.arrowSteps{list-style-type:none;list-style-image:none;border:1px solid #666666;position:relative;}.arrowSteps li{float:left;padding:0px;margin:0px;border:0 none;}.arrowSteps li div{padding:0.5em;text-align:center;white-space:nowrap;overflow:hidden;}.arrowSteps li.arrow div{background:url(jquery.arrowSteps.divider.png) no-repeat right center;}
+.suggestions{overflow:hidden;position:absolute;top:0px;left:0px;width:0px;border:none;z-index:99;padding:0;margin:-1px 0 0 0;}
+.suggestions-special{position:relative;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em;}
+.suggestions-results{background-color:white;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;}
+.suggestions-result{color:black;color:WindowText;margin:0;line-height:1.5em;padding:0.01em 0.25em;}
+.suggestions-result-current{background-color:#4C59A6;background-color:Highlight;color:white;color:HighlightText;}
+.suggestions-special .special-label{font-size:0.8em;color:gray;}
+.suggestions-special .special-query{color:black;font-style:italic;}
+.suggestions-special .special-hover{background-color:silver;}
+.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white;color:HighlightText;}
+.autoellipsis-matched,.highlight{font-weight:bold;}.arrowSteps{list-style-type:none;list-style-image:none;border:1px solid #666666;position:relative;}.arrowSteps li{float:left;padding:0px;margin:0px;border:0 none;}.arrowSteps li div{padding:0.5em;text-align:center;white-space:nowrap;overflow:hidden;}.arrowSteps li.arrow div{background:url(jquery.arrowSteps.divider.png) no-repeat right center;}
 .arrowSteps li.arrow.tail div{background:url(jquery.arrowSteps.tail.png) no-repeat right center;}
 .arrowSteps li.head div{background:url(jquery.arrowSteps.head.png) no-repeat left center;font-weight:bold;}
 .arrowSteps li.arrow.head div{background:url(jquery.arrowSteps.head.png) no-repeat right center;}
