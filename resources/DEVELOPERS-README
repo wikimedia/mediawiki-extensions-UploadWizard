@@ -1,0 +1,8 @@
+As of late 2010, this extension maintains its own minified versions of CSS and Javascript.
+
+If you edit a CSS or JS file, make sure to run the 'generateMinifiedResources.php' script from the extension root before committing
+your changes to the repository.
+
+If ResourceLoader becomes a possibility later, of course that functionality will no longer be necessary and should be removed.
+
+-- Neil Kandalgaonkar <neilk@wikimedia.org>
