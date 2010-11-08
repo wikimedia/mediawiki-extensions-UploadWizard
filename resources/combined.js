@@ -10696,15 +10696,6 @@ mw.UploadWizardDeedPreview.prototype = {
 
 // create UploadWizard
 mw.UploadWizardPage = function() {
-	// add the discussion link
-        var discussListItem = addPortletLink( 'p-namespaces',
-                                              'http://usability.wikimedia.org/wiki/Multimedia:Upload_wizard/Questions_%26_Answers',
-                                              'Q & A',
-                                              'usability_upload_wizard_qa',
-                                              'Questions & answers about this experimental extension at the Usability wiki');
-	var discussLink = discussListItem.getElementsByTagName( 'a' )[0];
-	discussLink.setAttribute( 'target', 'usability_discussion' );
-
 	
 	var apiUrl = false; 
 	if ( typeof wgServer != 'undefined' && typeof wgScriptPath  != 'undefined' ) {
