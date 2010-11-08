@@ -1476,80 +1476,7 @@ mw.UploadWizard.prototype = {
 	 */
 	createInterface: function( selector ) {
 		var _this = this;
-		var div = $j( selector ).get(0);
-		
-		div.innerHTML = 
-			// the arrow steps
-		         '<ul id="mwe-upwiz-steps">'
-		       +   '<li id="mwe-upwiz-step-tutorial"><div>' + gM('mwe-upwiz-step-tutorial') + '</div></li>'
-		       +   '<li id="mwe-upwiz-step-file"><div>' + gM('mwe-upwiz-step-file') + '</div></li>'
-		       +   '<li id="mwe-upwiz-step-deeds"><div>'  + gM('mwe-upwiz-step-deeds')  + '</div></li>'
-		       +   '<li id="mwe-upwiz-step-details"><div>'  + gM('mwe-upwiz-step-details')  + '</div></li>'
-		       +   '<li id="mwe-upwiz-step-thanks"><div>'   + gM('mwe-upwiz-step-thanks')  +  '</div></li>'
-		       + '</ul>'
 
-			// the individual steps, all at once
-		       + '<div id="mwe-upwiz-content">'
-
-		       +   '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
-		       +     '<div id="mwe-upwiz-tutorial">'  // this is hardcoded badness
-		       +     '</div>'
-		       +     '<div class="mwe-upwiz-buttons">'
-		       +        '<button class="mwe-upwiz-button-next" />'
-		       +     '</div>'		
-                       +   '</div>'
-
-		       +   '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file">'
-		       +     '<div id="mwe-upwiz-intro">' + gM('mwe-upwiz-intro') + '</div>'
-		       +     '<div id="mwe-upwiz-files">'
-		       +       '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file">'
-		       +          '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
-		       +            '<a id="mwe-upwiz-add-file">' + gM("mwe-upwiz-add-file-0") + '</a>'
-		       +	  '</div>'
-		       +       '</div>'
-		       +       '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
-		       +     '</div>'
-		       +     '<div class="mwe-upwiz-buttons" style="display: none"/>'
-		       +        '<button class="mwe-upwiz-button-next" />'
-		       +     '</div>'
-		       +   '</div>'
-
-		       +   '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds">'
-		       +     '<div id="mwe-upwiz-deeds-intro"></div>'
-		       +     '<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>'
-		       +     '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
-		       +     '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
-		       +     '<div class="mwe-upwiz-buttons"/>'
-		       +        '<button class="mwe-upwiz-button-next" />'
-		       +     '</div>'
-                       +   '</div>'
-
-		       +   '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details">'
-		       +     '<div id="mwe-upwiz-macro">'
-		       +       '<div id="mwe-upwiz-macro-progress" class="ui-helper-clearfix"></div>'
-		       +       '<div id="mwe-upwiz-macro-choice">' 
-		       +  	 '<div>' + gM( 'mwe-upwiz-details-intro' ) + '</div>' 
-		       +       '</div>'
-		       +       '<div id="mwe-upwiz-macro-files"></div>'
-		       +     '</div>'
-		       +     '<div class="mwe-upwiz-buttons"/>'
-		       +        '<button class="mwe-upwiz-button-next" />'
-		       +     '</div>'
-		       +   '</div>'
-
-		       +   '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks">'
-		       +     '<div id="mwe-upwiz-thanks"></div>'
-		       +     '<div class="mwe-upwiz-buttons"/>'
-		       +        '<button class="mwe-upwiz-button-begin"></button>'
-		       +        '<br/><button class="mwe-upwiz-button-home"></button>'
-		       +     '</div>'		
-                       +   '</div>'
-
-		       + '</div>'
-
-		       + '<div class="mwe-upwiz-clearing"></div>';
-
-		this.setTutorialImage( $j( '#mwe-upwiz-tutorial' ) );
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
 			.arrowSteps();
@@ -1689,57 +1616,6 @@ mw.UploadWizard.prototype = {
 		_this.moveToStep( 'tutorial' );
 	
 	},
-
-	/**
-	 * Using the API, fetch the appropriate HTML for the licensing tutorial, and append it to $element
-	 * @param {jQuery} jQuery instance initialized with selector
-	 */
-	setTutorialImage: function( $el ) {
-		var title = new mw.Title( 'WikimediaCommonsUploadTutorial-' + mw.UploadWizard.config.userLanguage + '.png', 'file' );
-		var params = {	
-			'prop': 'imageinfo',
-			'titles': title.toString(),
-			'iiurlwidth': '722', // determined to be the correct size for the tutorial, such that body text is the similar in size to our normal HTML text
-			'iiprop': 'url|size'
-		};
-		var tutorialError = function( code, result ) {
-			$el.append( 
-				$j( '<p/>' ).append( gM( 'mwe-upwiz-tutorial-error' ) ),
-				/* make it hidden or grey or small something... */
-				$j( '<p/>' ).append( gM( 'mwe-upwiz-api-error-code', code ) )
-			);
-		};
-		var tutorialOk = function( data ) {
-			if ( !data || !data.query || !data.query.pages ) {
-				return;
-			}
-			var thumbnail; 
-			$j.each( data.query.pages, function( id, page ) {
-				if ( page.imageinfo && page.imageinfo.length ) {
-					var imageinfo = page.imageinfo[0];
-					if ( imageinfo.thumburl && imageinfo.thumbwidth && imageinfo.thumbheight ) {
-						thumbnail = page.imageinfo[0];
-						return false;
-					}
-				}
-			} );
-			if ( ! mw.isDefined( thumbnail ) ) { 
-				tutorialError( data );
-			} else {
-				$el.append( 
-					$j( '<img/>' ).attr( { 
-						'src': thumbnail.thumburl, 
-						'width': thumbnail.thumbwidth, 
-						'height': thumbnail.thumbheight  
-					} )
-				);
-			}
-		};
-		
-		//var commonsApi = new mw.Api( { 'url': 'http://commons.wikimedia.org/w/api.php' } );
-		this.api.get( params, { ok: tutorialOk, err: tutorialError } );
-	},
-
 
 	/**
 	 * Advance one "step" in the wizard interface.
