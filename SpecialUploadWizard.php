@@ -53,7 +53,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo. 
 	 */
 	public function execute( $subPage ) {
-		global $wgLang, $wgUser, $wgOut, $wgLanguageCode, $wgExtensionAssetsPath,
+		global $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
 		       $wgUploadWizardDebug, $wgUploadWizardDisableResourceLoader;
 
 		// side effects: if we can't upload, will print error page to wgOut 
@@ -81,7 +81,7 @@ class SpecialUploadWizard extends SpecialPage {
 			$wgOut->addModules( 'ext.uploadWizard' );
 		} else {
 			$basepath = "$wgExtensionAssetsPath/UploadWizard";
-			$dependencyLoader = new UploadWizardDependencyLoader( $wgLanguageCode );
+			$dependencyLoader = new UploadWizardDependencyLoader( $wgLang->getCode() );
 			if ( $wgUploadWizardDebug ) {
 				// each file as an individual script or style
 				$dependencyLoader->outputHtmlDebug( $wgOut, $basepath );
@@ -191,22 +191,35 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return {String} html that will display the tutorial.
 	 */
 	function getTutorialHtml() {
-		global $wgLanguageCode;
+		global $wgLang;
 
-		// assume failure (this will be replaced if we're successful)
-		$tutorialHtml = '<p class="errorbox">' . wfMsg( 'mwe-upwiz-tutorial-error' ) . '</p>';
+		$error = null;
+		$errorHtml = '';
+		$tutorialHtml = '';
 
 		// get a valid language code, even if the global is wrong
-		$langCode = $wgLanguageCode;
+		if ( $wgLang ) {
+			$langCode = $wgLang->getCode();
+		}
 		if ( !isset( $langCode) or $langCode === '' ) { 	
 			$langCode = 'en';
 		}
 	
- 		$tutorialName = str_replace( '$1', $langCode, self::TUTORIAL_NAME_TEMPLATE );
- 		$tutorialTitle = Title::newFromText( $tutorialName, NS_FILE ); 
+		$tutorialFile = false;
+		// getTutorialFile returns false if it can't find the right file 
+		if ( ! $tutorialFile = self::getTutorialFile( $langCode ) ) { 
+			$error = 'localized-file-missing';
+			if ( $langCode !== 'en' ) {
+				$tutorialFile = self::getTutorialFile( 'en' );
+			}
+		}
 
- 		// wfFindFile() returns a File object, or false
-		if ( $tutorialFile = wfFindFile( $tutorialTitle ) ) { 
+		// at this point, we have one of the following situations:
+		// $errors is empty, and tutorialFile is the right one for this language
+		// $errors notes we couldn't find the tutorialFile for your language, and $tutorialFile is the english one
+		// $errors notes we couldn't find the tutorialFile for your language, and $tutorialFile is still false		
+
+		if ( $tutorialFile ) {
 			// XXX TODO if the client can handle SVG, we could also just send it the unscaled thumb, client-scaled into a DIV or something.
 			// if ( client can handle SVG ) { 
 			//   $tutorialThumbnailImage->getUnscaledThumb();	
@@ -214,32 +227,60 @@ class SpecialUploadWizard extends SpecialPage {
 			// put it into a div of appropriate dimensions.
 
 			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
- 			if ( $tutorialThumbnailImage = $tutorialFile->transform( array( 'width' => self::TUTORIAL_WIDTH_PX ) ) ) {
-				// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
-				// we could do more special effects with hovers and images and such, not to mention SVG scripting, 
-				// but we aren't sure what we want yet...
-				$img = Html::element( 'img', array(
-					'src' => $tutorialThumbnailImage->getUrl(),
-					'width' => $tutorialThumbnailImage->getWidth(),
-					'height' => $tutorialThumbnailImage->getHeight(),
-					'usemap' => '#' . self::TUTORIAL_IMAGEMAP_ID
-				) );
-				$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
-				$area = Html::element( 'area', array( 
-					'shape' => 'rect',
-					'coords' => self::TUTORIAL_HELPDESK_BUTTON_COORDS,
-					'href' => self::TUTORIAL_HELPDESK_URL,
-					'alt' => $areaAltText,
-					'title' => $areaAltText
-				) );
-				$map = Html::rawElement( 'map', array( 'id' => self::TUTORIAL_IMAGEMAP_ID, 'name' => self::TUTORIAL_IMAGEMAP_ID ), $area );
-				$tutorialHtml  = $map . $img;
+ 			if ( $thumbnailImage = $tutorialFile->transform( array( 'width' => self::TUTORIAL_WIDTH_PX ) ) ) {
+				$tutorialHtml = self::getTutorialImageHtml( $thumbnailImage );
+			} else {
+				$errors = 'cannot-transform';
 			}
+		} else {
+			$error = 'file-missing';	
 		}
-	
-		return $tutorialHtml;
+
+		if ( isset( $error ) ) {
+			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), wfMsg( 'mwe-upwiz-tutorial-error-' . $error ) );
+		}
+
+		return $errorHtml . $tutorialHtml;
 	
 	} 
+
+	/**
+	 * Get tutorial file for a particular language, or false if not available.
+	 * @param {String} $langCode: language Code
+	 * @return {File|false} 
+	 */
+	function getTutorialFile( $langCode ) {
+ 		$tutorialName = str_replace( '$1', $langCode, self::TUTORIAL_NAME_TEMPLATE );
+ 		$tutorialTitle = Title::newFromText( $tutorialName, NS_FILE ); 
+		return wfFindFile( $tutorialTitle );
+	}
+
+	/**
+	 * Constructs HTML for the tutorial (laboriously), including an imagemap for the clickable "Help desk" button.
+	 * @param {ThumbnailImage} $thumb
+	 * @return {String} HTML representing the image, with clickable helpdesk button
+	 */
+	function getTutorialImageHtml( $thumb ) {
+		// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
+		// we could do more special effects with hovers and images and such, not to mention SVG scripting, 
+		// but we aren't sure what we want yet...
+		$img = Html::element( 'img', array(
+			'src' => $thumb->getUrl(),
+			'width' => $thumb->getWidth(),
+			'height' => $thumb->getHeight(),
+			'usemap' => '#' . self::TUTORIAL_IMAGEMAP_ID
+		) );
+		$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
+		$area = Html::element( 'area', array( 
+			'shape' => 'rect',
+			'coords' => self::TUTORIAL_HELPDESK_BUTTON_COORDS,
+			'href' => self::TUTORIAL_HELPDESK_URL,
+			'alt' => $areaAltText,
+			'title' => $areaAltText
+		) );
+		$map = Html::rawElement( 'map', array( 'id' => self::TUTORIAL_IMAGEMAP_ID, 'name' => self::TUTORIAL_IMAGEMAP_ID ), $area );
+		return $map . $img;
+	}
 
 	/**
 	 * Return the basic HTML structure for the entire page 
