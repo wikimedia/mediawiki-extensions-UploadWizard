@@ -224,7 +224,7 @@ class SpecialUploadWizard extends SpecialPage {
 					'height' => $tutorialThumbnailImage->getHeight(),
 					'usemap' => '#' . self::TUTORIAL_IMAGEMAP_ID
 				) );
-				$areaAltText = wfMsg( 'mwe-upwiz-helpdesk' );
+				$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
 				$area = Html::element( 'area', array( 
 					'shape' => 'rect',
 					'coords' => self::TUTORIAL_HELPDESK_BUTTON_COORDS,
