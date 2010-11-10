@@ -11,8 +11,22 @@
 
 class SpecialUploadWizard extends SpecialPage {
 
+	// name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired
 	const TUTORIAL_NAME_TEMPLATE = 'Licensing_tutorial_$1.svg';
 
+	// the width we want to scale the tutorial to, for our interface
+	const TUTORIAL_WIDTH_PX = 720;
+
+	// the size of the "helpdesk" button at the bottom, which is supposed to be clickable.
+	const TUTORIAL_HELPDESK_BUTTON_COORDS = "27, 1319, 691, 1384";
+
+	// link to help desk within commons tutorial
+	const TUTORIAL_HELPDESK_URL = 'http://commons.wikimedia.org/wiki/Help_desk';
+
+	// id of imagemap used in tutorial
+	const TUTORIAL_IMAGEMAP_ID = 'tutorialMap';
+
+	// the HTML form without javascript
 	private $simpleForm;
 
 	// $request is the request (usually wgRequest)
@@ -200,12 +214,31 @@ class SpecialUploadWizard extends SpecialPage {
 			// put it into a div of appropriate dimensions.
 
 			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
- 			if ( $tutorialThumbnailImage = $tutorialFile->transform( array( 'width' => '720' ) ) ) {
-				$tutorialHtml = $tutorialThumbnailImage->toHtml();
+ 			if ( $tutorialThumbnailImage = $tutorialFile->transform( array( 'width' => self::TUTORIAL_WIDTH_PX ) ) ) {
+				// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
+				// we could do more special effects with hovers and images and such, not to mention SVG scripting, 
+				// but we aren't sure what we want yet...
+				$img = Html::element( 'img', array(
+					'src' => $tutorialThumbnailImage->getUrl(),
+					'width' => $tutorialThumbnailImage->getWidth(),
+					'height' => $tutorialThumbnailImage->getHeight(),
+					'usemap' => '#' . self::TUTORIAL_IMAGEMAP_ID
+				) );
+				$areaAltText = wfMsg( 'mwe-upwiz-helpdesk' );
+				$area = Html::element( 'area', array( 
+					'shape' => 'rect',
+					'coords' => self::TUTORIAL_HELPDESK_BUTTON_COORDS,
+					'href' => self::TUTORIAL_HELPDESK_URL,
+					'alt' => $areaAltText,
+					'title' => $areaAltText
+				) );
+				$map = Html::rawElement( 'map', array( 'id' => self::TUTORIAL_IMAGEMAP_ID, 'name' => self::TUTORIAL_IMAGEMAP_ID ), $area );
+				$tutorialHtml  = $map . $img;
 			}
 		}
-
+	
 		return $tutorialHtml;
+	
 	} 
 
 	/**
@@ -290,7 +323,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.   '<div class="mwe-upwiz-clearing"></div>'
 
 		. '</div>';
-			}
+	}
  
 }
 

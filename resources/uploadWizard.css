@@ -290,6 +290,10 @@ a[disabled=true]:hover {
 }
 
 
+#mwe-upwiz-tutorial {
+	text-align: center;
+}
+
 
 .shim {
 	float:right;

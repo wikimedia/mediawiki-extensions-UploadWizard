@@ -33,6 +33,7 @@ or [{{fullurl:{{FULLPAGENAME}}|action=edit}} edit this page]</span>.',
 	'mwe-upwiz-step-thanks' => 'Use',
 	'mwe-upwiz-api-error-code' => 'API error code: $1',
 	'mwe-upwiz-tutorial-error' => 'A tutorial about what images you can upload to this wiki should appear here. Please contact the system administrator.',
+	'mwe-upwiz-help-desk' => 'Help Desk',
 	'mwe-upwiz-intro' => "Welcome to Wikimedia Commons, a repository of images, sounds and movies that anyone can freely download and use.
 Add to humanity's knowledge by uploading files that could be used for an educational purpose.",
 	'mwe-upwiz-add-file-n' => 'Add another file',
