@@ -40,6 +40,7 @@ foreach ( array( 'SpecialUploadWizard',
 		 'UploadWizardMessages', 
 		 'ApiQueryStashImageInfo',
 		 'UploadWizardHooks',
+		 'UploadWizardTutorial',
 		 'UploadWizardDependencyLoader' ) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $dir . "/" . $module . ".php";
 }

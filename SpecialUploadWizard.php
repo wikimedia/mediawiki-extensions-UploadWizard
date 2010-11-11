@@ -10,22 +10,6 @@
  */
 
 class SpecialUploadWizard extends SpecialPage {
-
-	// name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired
-	const TUTORIAL_NAME_TEMPLATE = 'Licensing_tutorial_$1.svg';
-
-	// the width we want to scale the tutorial to, for our interface
-	const TUTORIAL_WIDTH_PX = 720;
-
-	// the size of the "helpdesk" button at the bottom, which is supposed to be clickable.
-	const TUTORIAL_HELPDESK_BUTTON_COORDS = "27, 1319, 691, 1384";
-
-	// link to help desk within commons tutorial
-	const TUTORIAL_HELPDESK_URL = 'http://commons.wikimedia.org/wiki/Help_desk';
-
-	// id of imagemap used in tutorial
-	const TUTORIAL_IMAGEMAP_ID = 'tutorialMap';
-
 	// the HTML form without javascript
 	private $simpleForm;
 
@@ -184,105 +168,6 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 
 	/**
-	 * Fetches appropriate HTML for the tutorial portion of the wizard. 
-	 * Looks up an image on the current wiki. This will work as is on Commons, and will also work 
-	 * on test wikis that enable instantCommons.
-	 * @param {String} $langCode language code as used by MediaWiki, similar but not identical to ISO 639-1.
-	 * @return {String} html that will display the tutorial.
-	 */
-	function getTutorialHtml() {
-		global $wgLang;
-
-		$error = null;
-		$errorHtml = '';
-		$tutorialHtml = '';
-
-		// get a valid language code, even if the global is wrong
-		if ( $wgLang ) {
-			$langCode = $wgLang->getCode();
-		}
-		if ( !isset( $langCode) or $langCode === '' ) { 	
-			$langCode = 'en';
-		}
-	
-		$tutorialFile = false;
-		// getTutorialFile returns false if it can't find the right file 
-		if ( ! $tutorialFile = self::getTutorialFile( $langCode ) ) { 
-			$error = 'localized-file-missing';
-			if ( $langCode !== 'en' ) {
-				$tutorialFile = self::getTutorialFile( 'en' );
-			}
-		}
-
-		// at this point, we have one of the following situations:
-		// $errors is empty, and tutorialFile is the right one for this language
-		// $errors notes we couldn't find the tutorialFile for your language, and $tutorialFile is the english one
-		// $errors notes we couldn't find the tutorialFile for your language, and $tutorialFile is still false		
-
-		if ( $tutorialFile ) {
-			// XXX TODO if the client can handle SVG, we could also just send it the unscaled thumb, client-scaled into a DIV or something.
-			// if ( client can handle SVG ) { 
-			//   $tutorialThumbnailImage->getUnscaledThumb();	
-			// }
-			// put it into a div of appropriate dimensions.
-
-			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
- 			if ( $thumbnailImage = $tutorialFile->transform( array( 'width' => self::TUTORIAL_WIDTH_PX ) ) ) {
-				$tutorialHtml = self::getTutorialImageHtml( $thumbnailImage );
-			} else {
-				$errors = 'cannot-transform';
-			}
-		} else {
-			$error = 'file-missing';	
-		}
-
-		if ( isset( $error ) ) {
-			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), wfMsg( 'mwe-upwiz-tutorial-error-' . $error ) );
-		}
-
-		return $errorHtml . $tutorialHtml;
-	
-	} 
-
-	/**
-	 * Get tutorial file for a particular language, or false if not available.
-	 * @param {String} $langCode: language Code
-	 * @return {File|false} 
-	 */
-	function getTutorialFile( $langCode ) {
- 		$tutorialName = str_replace( '$1', $langCode, self::TUTORIAL_NAME_TEMPLATE );
- 		$tutorialTitle = Title::newFromText( $tutorialName, NS_FILE ); 
-		return wfFindFile( $tutorialTitle );
-	}
-
-	/**
-	 * Constructs HTML for the tutorial (laboriously), including an imagemap for the clickable "Help desk" button.
-	 * @param {ThumbnailImage} $thumb
-	 * @return {String} HTML representing the image, with clickable helpdesk button
-	 */
-	function getTutorialImageHtml( $thumb ) {
-		// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
-		// we could do more special effects with hovers and images and such, not to mention SVG scripting, 
-		// but we aren't sure what we want yet...
-		$img = Html::element( 'img', array(
-			'src' => $thumb->getUrl(),
-			'width' => $thumb->getWidth(),
-			'height' => $thumb->getHeight(),
-			'usemap' => '#' . self::TUTORIAL_IMAGEMAP_ID
-		) );
-		$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
-		$area = Html::element( 'area', array( 
-			'shape' => 'rect',
-			'coords' => self::TUTORIAL_HELPDESK_BUTTON_COORDS,
-			'href' => self::TUTORIAL_HELPDESK_URL,
-			'alt' => $areaAltText,
-			'title' => $areaAltText
-		) );
-		$map = Html::rawElement( 'map', array( 'id' => self::TUTORIAL_IMAGEMAP_ID, 'name' => self::TUTORIAL_IMAGEMAP_ID ), $area );
-		return $map . $img;
-	}
-
-	/**
 	 * Return the basic HTML structure for the entire page 
 	 * Will be enhanced by the javascript to actually do stuff
 	 * @return {String} html
@@ -306,7 +191,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
 		.       '<div id="mwe-upwiz-tutorial">' 
-		.  	   self::getTutorialHtml()
+		.  	   UploadWizardTutorial::getHtml()
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.          '<button class="mwe-upwiz-button-next" />'
