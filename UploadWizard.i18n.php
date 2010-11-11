@@ -670,6 +670,7 @@ Přispějte ke znalostem lidstva tím, že načtete soubory užitečné ke vzdě
 	'mwe-upwiz-next-deeds' => 'Další',
 	'mwe-upwiz-next-details' => 'Další',
 	'mwe-upwiz-files-complete' => 'Načítání vašich souborů bylo dokončeno!',
+	'mwe-upwiz-tooltip-author' => 'Jméno osoby, která pořídila fotografii, namalovala obraz, vytvořila kresbu atp.',
 	'mwe-upwiz-tooltip-source' => 'Odkud tento soubor pochází – může to být URL nebo kniha či publikace',
 	'mwe-upwiz-tooltip-sign' => 'Můžete použít své uživatelské jméno na wiki nebo své skutečné jméno.
 V obou případech odtud povede odkaz na vaši stránku na wiki.',
@@ -678,6 +679,9 @@ Můžete použít běžný jazyk i s mezerami, ale vše na jednom řádku.
 Název se musí lišit od všech ostatních názvů na této wiki.',
 	'mwe-upwiz-tooltip-description' => 'Stručně popište všechny důležité informace o díle.
 U fotografií zmiňte hlavní zobrazené objekty, příležitost, při které fotografie vznikla, nebo místo.',
+	'mwe-upwiz-tooltip-other' => 'Libovolné další informace, které k tomuto dílu chcete přidat.
+Můžete používat wikiformátování.',
+	'mwe-upwiz-tooltip-more-info' => 'Další informace.',
 	'mwe-upwiz-license-show-all' => 'Použít jinou licenci',
 	'mwe-upwiz-license-show-recommended' => 'Použít doporučenou licenci',
 	'mwe-upwiz-error-signature-blank' => 'Do políčka se musíte podepsat svým uživatelským nebo skutečným jménem.',
