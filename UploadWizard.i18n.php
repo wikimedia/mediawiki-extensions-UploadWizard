@@ -173,10 +173,12 @@ Please do not use wikitext or HTML here.',
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
  * @author Kghbln
+ * @author Lloffiwr
  * @author McDutchie
  * @author Naudefj
  */
 $messages['qqq'] = array(
+	'uploadwizard-desc' => 'Description of extension. It refers to [http://blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
 	'mwe-upwiz-step-file' => '{{Identical|Upload}}',
 	'mwe-upwiz-step-thanks' => 'Use the verb for this message',
 	'mwe-upwiz-transported' => '{{Identical|OK}}',
@@ -730,6 +732,9 @@ $messages['cy'] = array(
 	'mwe-upwiz-step-details' => 'Disgrifio',
 	'mwe-upwiz-step-thanks' => 'Defnyddio',
 	'mwe-upwiz-api-error-code' => 'Cod y gwall API: $1',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => "Mae'n ddrwg gennym, ni chafwyd hyd i diwtorial yn eich iaith. Dangoswn felly yr un Saesneg.",
+	'mwe-upwiz-tutorial-error-file-missing' => "Mae'n ddrwg gennym, nid oeddem yn gallu dod o hyd i unrhyw ffeiliau ar gyfer y tiwtorial sydd i fod i fynd fan hyn. Cysylltwch â gweinyddwyr y system.",
+	'mwe-upwiz-tutorial-error-cannot-transform' => "Mae'n ddrwg gennym, ni allem gael delwedd raddedig o'r tiwtorial i ffitio'r sgrin hon. Gall hyn fod yn broblem dros dro â Chomin Wikimedia; ceisiwch eto yn nes ymlaen.",
 	'mwe-upwiz-help-desk' => 'Desg Gymorth',
 	'mwe-upwiz-intro' => "Croeso i Gomin Wikimedia, ystorfa delweddau, synau, a ffilmiau y gellir eu lawrlwytho a'u defnyddio'n ddirwystr ac am ddim gan unrhyw un. 
 Ychwanegwch at wybodaeth y ddynoliaeth trwy uwchlwytho ffeiliau y gellir eu defnyddio ar gyfer addysgu.",
@@ -2765,6 +2770,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-step-deeds' => 'Rechter vun der Publikatioun',
 	'mwe-upwiz-step-details' => 'Beschreiwen',
 	'mwe-upwiz-step-thanks' => 'Benotzen',
+	'mwe-upwiz-api-error-code' => 'API-Feelercode: $1',
 	'mwe-upwiz-help-desk' => 'Helpdesk',
 	'mwe-upwiz-intro' => 'Wëllkomm op Wikimedia Commons, enger Sammlung vu Biller, Téin a Filmer déi jiddereen fräi eroflueden a benotze kann.
 Drot zum Wësse vun der Mënschheet bäi andeem Dir Fichieren eroplued déi fir pedagogesch Zwecker genotzt kënne ginn.',
