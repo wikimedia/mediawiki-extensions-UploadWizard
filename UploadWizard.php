@@ -38,13 +38,12 @@ $wgExtensionAliasesFiles['UploadWizard'] = $dir . '/UploadWizard.alias.php';
 # Require modules, includeing the special page
 foreach ( array( 'SpecialUploadWizard', 
 		 'UploadWizardMessages', 
-		 'ApiQueryStashImageInfo',
 		 'UploadWizardHooks',
 		 'UploadWizardTutorial',
 		 'UploadWizardDependencyLoader' ) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $dir . "/" . $module . ".php";
 }
-$wgAPIPropModules['stashimageinfo'] = 'ApiQueryStashImageInfo';
+		 
 
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
