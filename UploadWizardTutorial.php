@@ -36,13 +36,7 @@ class UploadWizardTutorial {
 		$errorHtml = '';
 		$tutorialHtml = '';
 
-		// get a valid language code, even if the global is wrong
-		if ( $wgLang ) {
-			$langCode = $wgLang->getCode();
-		}
-		if ( !isset( $langCode) or $langCode === '' ) { 	
-			$langCode = 'en';
-		}
+		$langCode = $wgLang->getCode();
 	
 		$tutorialFile = false;
 		// getFile returns false if it can't find the right file 
@@ -54,7 +48,7 @@ class UploadWizardTutorial {
 		}
 
 		// at this point, we have one of the following situations:
-		// $error is empty, and tutorialFile is the right one for this language
+		// $error is null, and tutorialFile is the right one for this language
 		// $error notes we couldn't find the tutorialFile for your language, and $tutorialFile is the english one
 		// $error notes we couldn't find the tutorialFile for your language, and $tutorialFile is still false (major file failure)
 
@@ -75,7 +69,7 @@ class UploadWizardTutorial {
 			$error = 'file-missing';	
 		}
 
-		if ( isset( $error ) ) {
+		if ( $error !== null ) {
 			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), wfMsg( 'mwe-upwiz-tutorial-error-' . $error ) );
 		}
 
