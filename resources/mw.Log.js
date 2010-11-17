@@ -5,9 +5,6 @@
 	/**
 	* Log a string msg to the console
 	* 
-	* all mw.log statements will be removed on minification so
-	* lots of mw.log calls will not impact performance in non debug mode
-	*
 	* @param {String} string String to output to console
 	*/
 	mw.log = function( s, level ) {
