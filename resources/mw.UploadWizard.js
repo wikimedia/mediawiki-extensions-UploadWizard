@@ -99,12 +99,12 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	setTransported: function( result ) {
 		var _this = this;
-		_this.state = 'transported';
-		_this.transportProgress = 1;
-		$j( _this.ui.div ).trigger( 'transportedEvent' );
 
 		if ( result.upload && result.upload.imageinfo ) {
 			// success
+			_this.state = 'transported';
+			_this.transportProgress = 1;
+			_this.ui.showTransported();
 			_this.extractUploadInfo( result );	
 			_this.deedPreview.setup();
 			_this.details.populate();
@@ -119,11 +119,11 @@ mw.UploadWizardUpload.prototype = {
 			// and other errors that result in a stash
 		} else {
 			// XXX handle errors better
+			_this.state = 'error';
+			_this.ui.showFailed();
 			if ( result.error ) {
 				alert( "error : " + result.error.code + " : " + result.error.info );
 			} 
-			this.ui.showFailed();
-			alert("huh?");
 			// TODO now we should tag the upload as failed
 			// if can recover, should maybe allow re-uploading.
 		}
@@ -338,7 +338,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	// _this.progressBar = ( no progress bar for individual uploads yet )
 	// we bind to the ui div since unbind doesn't work for non-DOM objects
 	$j( _this.div ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); } );
-	$j( _this.div ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
+	// $j( _this.div ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
 
 };
 
