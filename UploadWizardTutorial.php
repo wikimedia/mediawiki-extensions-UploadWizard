@@ -29,7 +29,7 @@ class UploadWizardTutorial {
 	 * @param {String} $langCode language code as used by MediaWiki, similar but not identical to ISO 639-1.
 	 * @return {String} html that will display the tutorial.
 	 */
-	function getHtml() {
+	public static function getHtml() {
 		global $wgLang;
 
 		$error = null;
@@ -82,7 +82,7 @@ class UploadWizardTutorial {
 	 * @param {String} $langCode: language Code
 	 * @return {File|false} 
 	 */
-	function getFile( $langCode ) {
+	public static function getFile( $langCode ) {
  		$tutorialName = str_replace( '$1', $langCode, self::NAME_TEMPLATE );
  		$tutorialTitle = Title::newFromText( $tutorialName, NS_FILE ); 
 		return wfFindFile( $tutorialTitle );
@@ -93,7 +93,7 @@ class UploadWizardTutorial {
 	 * @param {ThumbnailImage} $thumb
 	 * @return {String} HTML representing the image, with clickable helpdesk button
 	 */
-	function getImageHtml( $thumb ) {
+	public static function getImageHtml( $thumb ) {
 		// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
 		// we could do more special effects with hovers and images and such, not to mention SVG scripting, 
 		// but we aren't sure what we want yet...
