@@ -194,7 +194,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.  	   UploadWizardTutorial::getHtml()
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
-		.          '<button class="mwe-upwiz-button-next" />'
+		.          '<button class="mwe-upwiz-button-next"></button>'
 		.       '</div>'		
 		.     '</div>'
 
@@ -210,7 +210,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.         '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons" style="display: none"/>'
-		.          '<button class="mwe-upwiz-button-next" />'
+		.          '<button class="mwe-upwiz-button-next"></button>'
 		.       '</div>'
 		.     '</div>'
 
@@ -220,7 +220,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
 		.       '<div class="mwe-upwiz-buttons"/>'
-		.          '<button class="mwe-upwiz-button-next" />'
+		.          '<button class="mwe-upwiz-button-next"></button>'
 		.       '</div>'
 		.     '</div>'
 
@@ -233,7 +233,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.         '<div id="mwe-upwiz-macro-files"></div>'
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons"/>'
-		.          '<button class="mwe-upwiz-button-next" />'
+		.          '<button class="mwe-upwiz-button-next"></button>'
 		.       '</div>'
 		.     '</div>'
 
@@ -242,7 +242,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '<div class="mwe-upwiz-buttons"/>'
 		.          '<button class="mwe-upwiz-button-begin"></button>'
 		.          '<br/><button class="mwe-upwiz-button-home"></button>'
-		.       '</div>'		
+		.       '</div>'
 		.     '</div>'
 
 		.   '</div>'
