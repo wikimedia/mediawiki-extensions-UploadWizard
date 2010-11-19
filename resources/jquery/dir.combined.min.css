@@ -40,3 +40,5 @@ filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=5,OffY=5,Color='gray');
 
 * html .pkg,* html #content-inner{height:1%;}
 .pkg,#content-inner{display:block;}
+
+.mwe-upwiz-remove-ctrl{outline:none;cursor:pointer;}.mwe-upwiz-remove-ctrl.hover .mwe-upwiz-remove-ctrl-msg{text-decoration:underline;}.mwe-upwiz-remove-ctrl div{color:#0645ad;font-variant:bold;float:left;}

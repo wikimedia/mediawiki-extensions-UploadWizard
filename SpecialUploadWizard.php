@@ -201,6 +201,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file">'
 		.       '<div id="mwe-upwiz-intro">' . wfMsg('mwe-upwiz-intro') . '</div>'
 		.       '<div id="mwe-upwiz-files">'
+		.	  '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
 		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file">'
 		.            '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
 		.              '<a id="mwe-upwiz-add-file">' . wfMsg("mwe-upwiz-add-file-0") . '</a>'

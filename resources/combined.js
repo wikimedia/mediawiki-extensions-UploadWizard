@@ -5064,6 +5064,20 @@ $.fn.suggestions = function() {
 };
 
 } )( jQuery );
+/**
+ * Create 'remove' control, an X which highlights in some standardized way, with optional tooltips
+ */
+( function ( $j ) { 
+	$j.fn.removeCtrl = function( msgKey, tooltipMsgKey, callback ) {
+		var msg = (msgKey === null) ? '' : gM( msgKey );
+		return $j( '<div class="mwe-upwiz-remove-ctrl ui-corner-all" />' )
+			.attr( 'title', gM( tooltipMsgKey ) )
+			.click( callback )
+			.hover( function() { $j( this ).addClass( 'hover' ); },
+				function() { $j( this ).removeClass( 'hover' ); } )
+			.append( $j( '<div class="ui-icon ui-icon-close" /><div class="mwe-upwiz-remove-ctrl-msg">' + msg + '</div>' ) );
+	};
+} )( jQuery );
 /** 
  * Simple predictive typing category adder for Mediawiki.
  * Relies on globals: wgScriptPath, wgNamespaceIds, wgFormattedNamespaces
@@ -5143,7 +5157,7 @@ $.fn.suggestions = function() {
 		var $li = $j( '<li class="cat"></li>' );
 		$container.find( 'ul' ).append( $li );
 		$li.append( '<a class="cat" target="_new" href="' + href + '">' + cat +' </a>' );
-		$li.append( $j.fn.removeCtrl( 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
+		$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
 	}
 
 	function _catLink( cat ) {
@@ -5211,9 +5225,6 @@ if ( typeof window.mw === 'undefined' ) {
 	/**
 	* Log a string msg to the console
 	* 
-	* all mw.log statements will be removed on minification so
-	* lots of mw.log calls will not impact performance in non debug mode
-	*
 	* @param {String} string String to output to console
 	*/
 	mw.log = function( s, level ) {
@@ -7902,7 +7913,9 @@ mw.ApiUploadHandler = function( upload, api ) {
 	this.transport = new mw.IframeTransport(
 		this.$form,
 		function( fraction ){ _this.upload.setTransportProgress( fraction ); },
-		function( result ) { _this.upload.setTransported( result ); }
+		function( result ) { 	
+			_this.upload.setTransported( result ); 
+		}
 	);
 
 };
@@ -9098,10 +9111,6 @@ mw.UploadWizardLicenseInput.prototype = {
 };
 
 } )( jQuery );
-// XXX
-// this is sure starting to look like we should compose of UI, handler.
-		
-
 /**
  * Represents the upload -- in its local and remote state. (Possibly those could be separate objects too...)
  * This is our 'model' object if we are thinking MVC. Needs to be better factored, lots of feature envy with the UploadWizard
@@ -9195,16 +9204,15 @@ mw.UploadWizardUpload.prototype = {
 	/**
 	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details 
 	 * @param result	the API result in parsed JSON form
-	 * XXX needs refactor --- new api needs error handler instead
 	 */
 	setTransported: function( result ) {
 		var _this = this;
-		_this.state = 'transported';
-		_this.transportProgress = 1;
-		$j( _this.ui.div ).trigger( 'transportedEvent' );
 
 		if ( result.upload && result.upload.imageinfo ) {
 			// success
+			_this.state = 'transported';
+			_this.transportProgress = 1;
+			_this.ui.showTransported();
 			_this.extractUploadInfo( result );	
 			_this.deedPreview.setup();
 			_this.details.populate();
@@ -9219,11 +9227,11 @@ mw.UploadWizardUpload.prototype = {
 			// and other errors that result in a stash
 		} else {
 			// XXX handle errors better
+			_this.state = 'error';
+			_this.ui.showFailed();
 			if ( result.error ) {
 				alert( "error : " + result.error.code + " : " + result.error.info );
 			} 
-			this.ui.showFailed();
-			alert("huh?");
 			// TODO now we should tag the upload as failed
 			// if can recover, should maybe allow re-uploading.
 		}
@@ -9386,18 +9394,25 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 
 
 	visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
-		.append( 
-			 $j.fn.removeCtrl( 'mwe-upwiz-remove-upload', function() { _this.upload.remove(); } ),
-	
-			 $j( '<div class="mwe-upwiz-file-indicator"></div>' ),
-
-			 $j( '<div class="mwe-upwiz-visible-file-filename">' )
-				.append( 
-					 $j( '<span class="ui-icon ui-icon-document" style="display: inline-block;" />' ),
-					 $j( '<span class="mwe-upwiz-visible-file-filename-text"/>' )
-				)
-
+		.append(   '<div class="mwe-upwiz-file-indicator"></div>' 
+			 + '<div class="mwe-upwiz-visible-file-filename">'
+			   + '<div class="mwe-upwiz-file-preview"/>'
+			   + '<div class="mwe-upwiz-file-texts">'
+			   +   '<div class="mwe-upwiz-visible-file-filename-text"/>' 
+			   +   '<div class="mwe-upwiz-file-status-line">'
+			   +	 '<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>'
+			   +   '</div>'
+			   + '</div>'
+			 + '</div>'
 		);
+	visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' ).append( 
+		$j.fn.removeCtrl( 
+			'mwe-upwiz-remove', 
+			'mwe-upwiz-remove-upload', 
+			function() { _this.upload.remove(); } 
+		).addClass( "mwe-upwiz-file-status-line-item" )
+	);
+
 
 	//_this.errorDiv = $j('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
 
@@ -9433,12 +9448,12 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 
 	// XXX evil hardcoded
 	// we don't really need filesdiv if we do it this way?
-	$j( _this.div ).insertBefore( '#mwe-upwiz-upload-ctrls' ); // append( _this.div );
+	$j( filesDiv ).append( _this.div );
 
 	// _this.progressBar = ( no progress bar for individual uploads yet )
 	// we bind to the ui div since unbind doesn't work for non-DOM objects
 	$j( _this.div ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); } );
-	$j( _this.div ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
+	// $j( _this.div ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
 
 };
 
@@ -9468,7 +9483,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
- 	 *
+ 	 * change the indicator at the far right
 	 */ 
 	showIndicatorMessage: function( statusClass, msgKey ) {
 		var _this = this;
@@ -9483,13 +9498,31 @@ mw.UploadWizardUploadInterface.prototype = {
 		$j( _this.div ).find( '.mwe-upwiz-visible-file-filename' )
 				.css( 'margin-right', ( $indicator.outerWidth() + 24 ).toString() + 'px' );
 		$indicator.css( 'visibility', 'visible' ); 
+
+		_this.setStatus( msgKey );
+	},
+
+	// too abstract?
+	setStatus: function( msgKey, args ) {
+		if ( !mw.isDefined( args ) ) {
+			args = [];
+		}
+		this.setStatusStr( gM( msgKey, args ) );
+	},
+
+	setStatusStr: function( str ) {	
+		$j( this.div ).find( '.mwe-upwiz-file-status' ).html( str ).show();
+	},
+
+	clearStatus: function() {
+		$j( this.div ).find( '.mwe-upwiz-file-status' ).hide();
 	},
 
 	/**
 	 * Put the visual state of an individual upload ito "progress"
 	 * @param fraction	The fraction of progress. Float between 0 and 1
 	 */
-	showTransportProgress: function() {
+	showTransportProgress: function( fraction ) {
 		this.showIndicatorMessage( 'progress', 'mwe-upwiz-uploading' );
 		// update individual progress bar with fraction?
 	},
@@ -9523,6 +9556,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			//_this.error( 'bad-filename-extension', ext );
 			alert("bad extension");
 		}
+		this.clearStatus();
 	},
 
 	/**
@@ -9562,6 +9596,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	 */
 	updateFilename: function() {
 		var _this = this;
+		// TODO get basename of file; Chrome does this C:\fakepath\something which is highly irritating
 		var path = _this.fileInputCtrl.value;
 		
 		// visible filenam.
@@ -9579,7 +9614,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			// we use the visible-file div because it has the same offsetParent as the file input
 			// the second argument offsets the fileinput to the right so there's room for the close icon to get mouse events
 			_this.moveFileInputToCover( 	
-				$div.find( '.mwe-upwiz-visible-file-filename' )
+				$div.find( '.mwe-upwiz-visible-file-filename-text' )
 			);
 
 			// Highlight the file on mouseover (and also show controls like the remove control).
@@ -9594,7 +9629,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			// Consequently we have to bind to "mouseover" and "mouseout" as well even though that's not as efficient.
 			$div.bind( 'mouseenter mouseover', function() { 
 				$div.addClass( 'hover' ); 
-				$j( '#mwe-upwiz-files' )
+				$j( '#mwe-upwiz-filelist' )
 					.children()
 					.filter( function() { return this !== _this.div; } )
 					.removeClass('hover');
@@ -10129,7 +10164,7 @@ mw.UploadWizardDetails.prototype = {
 
 		if ( ! required ) {
 			$j( description.div  ).append( 
-				 $j.fn.removeCtrl( 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
+				 $j.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
 			);
 		} 
 
@@ -10779,7 +10814,7 @@ mw.UploadWizard.prototype = {
 			return false;
 		}
 
-		var upload = new mw.UploadWizardUpload( _this.api, '#mwe-upwiz-files' );
+		var upload = new mw.UploadWizardUpload( _this.api, '#mwe-upwiz-filelist' );
 		_this.uploadToAdd = upload;
 
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
@@ -10969,21 +11004,43 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 
 		if ( _this.uploads.length ) {
+			// we have uploads ready to go, so allow us to proceed
 			$j( '#mwe-upwiz-upload-ctrl' ).removeAttr( 'disabled' ); 
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
+
+			// changes the "click here to add files" to "add another file"
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-n' ) );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-n');
-			$j( '#mwe-upwiz-files .mwe-upwiz-file.filled:odd' ).addClass( 'odd' );
-			$j( '#mwe-upwiz-files .mwe-upwiz-file:filled:even' ).removeClass( 'odd' );
+
+			// add the styling to the filelist, so it has rounded corners and is visible and all.
+			$j( '#mwe-upwiz-filelist' ).addClass( 'mwe-upwiz-filled-filelist' );
+
+			// fix the rounded corners on file elements.
+			// we want them to be rounded only when their edge touched the top or bottom of the filelist.
+			$j( '#mwe-upwiz-filelist .filled .mwe-upwiz-visible-file' ).removeClass( 'ui-corner-top' ).removeClass( 'ui-corner-bottom' );
+			$j( '#mwe-upwiz-filelist .filled .mwe-upwiz-visible-file:first' ).addClass( 'ui-corner-top' );
+			$j( '#mwe-upwiz-filelist .filled .mwe-upwiz-visible-file:last' ).addClass( 'ui-corner-bottom' );
+			$j( '#mwe-upwiz-filelist .filled:odd' ).addClass( 'odd' );
+			$j( '#mwe-upwiz-filelist .filled:even' ).removeClass( 'odd' );
 		} else {
+			// no uploads, so don't allow us to proceed
 			$j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
+
+			// remove the border from the filelist. We can't hide it or make it invisible since it contains the displaced
+			// file input element that becomes the "click here to add"
+			$j( '#mwe-upwiz-filelist' ).removeClass( 'mwe-upwiz-filled-filelist' );
+
+			// we can't continue
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
+
+			// change "add another file" into "click here to add a file"
 			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-0' ) );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');
 		}
 
+		// allow an "add another upload" button only if we aren't at max
 		if ( _this.uploads.length < _this.maxUploads ) {
 			$j( '#mwe-upwiz-add-file' ).removeAttr( 'disabled' );
 			$j( _this.uploadToAdd.ui.div ).show();
@@ -11135,13 +11192,14 @@ mw.UploadWizardDeedPreview.prototype = {
 	/**
 	 * Create 'remove' control, an X which highlights in some standardized way.
 	 */
-	$j.fn.removeCtrl = function( tooltipMsgKey, callback ) {
+	$j.fn.removeCtrl = function( msgKey, tooltipMsgKey, callback ) {
+		var msg = (msgKey === null) ? '' : gM( msgKey );
 		return $j( '<div class="mwe-upwiz-remove-ctrl ui-corner-all" />' )
 			.attr( 'title', gM( tooltipMsgKey ) )
 			.click( callback )
 			.hover( function() { $j( this ).addClass( 'hover' ); },
 				function() { $j( this ).removeClass( 'hover' ); } )
-			.append( $j( '<span class="ui-icon ui-icon-close" />' ) );
+			.append( $j( '<div class="ui-icon ui-icon-close" /><div class="mwe-upwiz-remove-ctrl-msg">' + msg + '</div>' ) );
 	};
 
 	/**

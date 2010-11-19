@@ -77,7 +77,7 @@
 		var $li = $j( '<li class="cat"></li>' );
 		$container.find( 'ul' ).append( $li );
 		$li.append( '<a class="cat" target="_new" href="' + href + '">' + cat +' </a>' );
-		$li.append( $j.fn.removeCtrl( 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
+		$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
 	}
 
 	function _catLink( cat ) {

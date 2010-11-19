@@ -49,7 +49,7 @@ form.mwe-upwiz-form {
 }
 
 /* perhaps a general class for links that are actually "buttons" */
-#mwe-upwiz-add-file, .mwe-upwiz-remove-ctrl, .mwe-upwiz-more-options {
+#mwe-upwiz-add-file, .mwe-upwiz-more-options {
 	outline: none;
 	cursor: pointer;
 }
@@ -82,22 +82,14 @@ form.mwe-upwiz-form {
 	background: #f5f5f5;
 }
 
-
-
-.mwe-upwiz-remove-ctrl {
+.mwe-upwiz-file-status-line-item {
+	display: inline-block;
+	float: left;
+	margin-right: .5em;
 }
-
-/* XXX this is highly specific to our installation 
-.mwe-upwiz-remove-ctrl.hover { 
-.ui-icon { background-image: url(/w/extensions/UsabilityInitiative/css/vector/images/ui-icons_cd0a0a_256x240.png) }
-}
-*/
 
 .mwe-upwiz-visible-file .mwe-upwiz-remove-ctrl {
-	float: right;
 	visibility: hidden;
-	margin: 0.25em;
-	padding: 0.25em;
 }
 
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
@@ -124,10 +116,34 @@ form.mwe-upwiz-form {
 	overflow: hidden;
 }
 
+.mwe-upwiz-icon {
+	float: left;
+}
+
+.mwe-upwiz-filled-filelist {
+	border: 1px solid #d8d8d8;
+}
+
+.mwe-upwiz-file-texts {
+	margin-left: 46px;
+}
+
+.mwe-upwiz-file-status {
+	display: none;
+	color: #797979;
+}
+
 .mwe-upwiz-progress-bar-etr-container {
 	/* needed ? */
 }
 	
+.mwe-upwiz-file-preview {
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-right: 6px;
+	background: url(32px-Blank-document.svg.png) no-repeat center top;
+}
 
 .mwe-upwiz-add-files-n {
 	float: left;
@@ -172,7 +188,8 @@ form.mwe-upwiz-form {
 	margin-left: 8em;
 }
 
-.mwe-upwiz-file {
+.filled + .filled {
+	border-top: 1px solid #d8d8d8;
 }
 
 #mwe-upwiz-upload-ctrls {

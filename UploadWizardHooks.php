@@ -30,6 +30,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.spinner.js',
 				'resources/jquery/jquery.autoEllipsis.js',
 				'resources/jquery/jquery.suggestions.js',
+				'resources/jquery/jquery.removeCtrl.js',
 
 				// mediawiki-specific interface helper (relies on mediawiki globals)
 				'resources/jquery/jquery.mwCoolCats.js',
@@ -121,6 +122,7 @@ class UploadWizardHooks {
 				'resources/uploadWizard.css',
 				'resources/jquery/jquery.arrowSteps.css',
 				'resources/jquery/jquery.mwCoolCats.css',
+				'resources/jquery/jquery.removeCtrl.css',
 				'resources/jquery.ui/themes/redmond/jquery-ui-1.7.1.custom.css'
 			),
 			'messages' => array( 
