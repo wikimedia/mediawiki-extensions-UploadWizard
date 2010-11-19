@@ -56,6 +56,7 @@ mw.IframeTransport.prototype = {
 		// Set up the completion callback
 		var _this = this;
 		$j( '#' + this.iframeId ).load( function() {
+			debugger;
 			mw.log( "received result in iframe" );
 			_this.progressCb( 1.0 );
 			_this.processIframeResult( $j( this ).get( 0 ) );

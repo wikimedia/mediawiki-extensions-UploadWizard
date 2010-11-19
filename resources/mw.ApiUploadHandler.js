@@ -21,8 +21,12 @@ mw.ApiUploadHandler = function( upload, api ) {
 	var _this = this;
 	this.transport = new mw.IframeTransport(
 		this.$form,
-		function( fraction ){ _this.upload.setTransportProgress( fraction ); },
+		function( fraction ) { 
+			debugger;
+			_this.upload.setTransportProgress( fraction ); 
+		},
 		function( result ) { 	
+			debugger;
 			_this.upload.setTransported( result ); 
 		}
 	);
@@ -107,7 +111,8 @@ mw.ApiUploadHandler.prototype = {
 		var ok = function() {
 			mw.log( "api: upload start!" );
 			_this.beginTime = ( new Date() ).getTime();
-			_this.upload.ui.busy();
+			_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
+			_this.upload.ui.showTransportProgress();
 			_this.$form.submit();
 		};
 		var err = function( code, info ) {

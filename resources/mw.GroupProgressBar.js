@@ -1,7 +1,7 @@
 /**
  * this is a progress bar for monitoring multiple objects, giving summary view
  */
-mw.GroupProgressBar = function( selector, text, uploads, endState, progressProperty, weightProperty ) {
+mw.GroupProgressBar = function( selector, text, uploads, endStates, progressProperty, weightProperty ) {
 	var _this = this;
 
 	// XXX need to figure out a way to put text inside bar
@@ -21,7 +21,7 @@ mw.GroupProgressBar = function( selector, text, uploads, endState, progressPrope
 	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
 
 	_this.uploads = uploads;
-	_this.endState = endState;
+	_this.endStates = endStates;
 	_this.progressProperty = progressProperty;
 	_this.weightProperty = weightProperty;
 	_this.beginTime = undefined;
@@ -56,7 +56,7 @@ mw.GroupProgressBar.prototype = {
 			var endStateCount = 0;
 			var hasData = false;
 			$j.each( _this.uploads, function( i, upload ) {
-				if ( upload.state == _this.endState ) {
+				if ( $j.inArray( upload.state, _this.endStates ) !== -1 ) {
 					endStateCount++;
 				}
 				if (upload[_this.progressProperty] !== undefined) {

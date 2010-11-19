@@ -222,13 +222,13 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-status-completed {
-	background: url(checkmark.gif) no-repeat left center;
+	background: url(32px-Dialog-apply.svg.png) no-repeat left center;
 	font-weight: bold;
 	color: #009900;
 }
 
-.mwe-upwiz-status-failed {
-	background: url(16px-Gnome-process-stop.svg.png) no-repeat left center;
+.mwe-upwiz-status-error {
+	background: url(32px-Nuvola_apps_important_orange.svg.png) no-repeat left center;
 	font-weight: bold;
 	color: #CC0000;
 }
