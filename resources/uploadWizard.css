@@ -20,7 +20,9 @@ form.mwe-upwiz-form {
 */
 
 #mwe-upwiz-steps {
-	background-image: url(jquery/jquery.arrowSteps.base.png);
+	background-color: white;
+	background-image: none;
+	border: solid 1px #a7d7f9;
 }
 
 #mwe-upwiz-steps li {
@@ -28,7 +30,7 @@ form.mwe-upwiz-form {
 }
 
 #mwe-upwiz-steps li.head {
-	color: #0066CC;
+	color: #000000;
 }
 
 .mwe-upwiz-clearing {
