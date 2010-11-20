@@ -1289,11 +1289,12 @@ $messages['fi'] = array(
  * @author IAlex
  * @author Jean-Frédéric
  * @author Peter17
+ * @author Verdy p
  * @author Y-M D
  */
 $messages['fr'] = array(
 	'uploadwizard' => "Assistant d'import",
-	'uploadwizard-desc' => "Assistant d'import, développé pour la subvention Multimedia Usability",
+	'uploadwizard-desc' => "Assistant de téléversement, développé pour la subvention ''Multimedia Usability''",
 	'mwe-upwiz-js-off' => 'UploadWizard utilise JavaScript pour une interface améliorée. Soit votre navigateur ne supporte pas JavaScript, soit JavaScript y a été désactivé. Nous sommes donc contraints de vous montrer un simple formulaire de téléchargement.',
 	'mwe-loading-upwiz' => "Chargement de l'assistant de téléversement",
 	'mwe-upwiz-code-unknown' => 'Langue inconnue',
@@ -2337,16 +2338,24 @@ Per favor non usa wikitexto o HTML hic.',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Farras
+ * @author IvanLanin
  */
 $messages['id'] = array(
 	'uploadwizard' => 'Wisaya pengunggahan',
 	'uploadwizard-desc' => 'Wisaya pengunggahan, dikembangkan untuk Kebergunaan Multimedia',
+	'mwe-upwiz-js-off' => 'UploadWizard menggunakan JavaScript untuk memperbaiki antarmuka. Peramban Anda tidak mendukung JavaScript atau menonaktfikan JavaScript, maka kami hanya memberikan Anda formulir pengunggahan sederhana.',
 	'mwe-loading-upwiz' => 'Memuat wisaya pengunggahan',
 	'mwe-upwiz-code-unknown' => 'Bahasa tidak dikenal',
+	'mwe-upwiz-step-tutorial' => 'Pelajari',
 	'mwe-upwiz-step-file' => 'Unggah',
 	'mwe-upwiz-step-deeds' => 'Hak melepaskan',
 	'mwe-upwiz-step-details' => 'Penjelasan',
 	'mwe-upwiz-step-thanks' => 'Penggunaan',
+	'mwe-upwiz-api-error-code' => 'Kode kesalahan API: $1',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Maaf, kami tidak dapat menemukan tutorial dalam bahasa Anda sehingga menampilkan versi bahasa Inggris.',
+	'mwe-upwiz-tutorial-error-file-missing' => 'Maaf, kami tidak dapat menemukan berkas tutorial yang seharusnya ditampilkan. Silakan hubungi administrator sistem.',
+	'mwe-upwiz-tutorial-error-cannot-transform' => 'Maaf, kami tidak dapat mendapatkan gambar berskala untuk tutorial yang pas dengan layar ini. Bisa jadi ini hanya masalah sementara dengan Wikimedia Commons; coba lagi nanti.',
+	'mwe-upwiz-help-desk' => 'Meja Bantuan',
 	'mwe-upwiz-intro' => 'Selamat datang di Wikimedia Commons, sebuah tempat penyimpanan gambar, suara dan film yang dapat diunduh dan digunakan siapa pun secara bebas.
 Menyumbanglah kepada ilmu pengetahuan manusia dengan mengunggah berkas yang dapat digunakan untuk keperluan pendidikan.',
 	'mwe-upwiz-add-file-n' => 'Tambahkan berkas lain',
