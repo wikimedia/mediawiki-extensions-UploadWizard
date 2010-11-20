@@ -19,12 +19,22 @@ form.mwe-upwiz-form {
 }
 */
 
+#mwe-upwiz-steps {
+	background-image: url(jquery/jquery.arrowSteps.base.png);
+}
+
+#mwe-upwiz-steps li {
+	color: #666666;
+}
+
+#mwe-upwiz-steps li.head {
+	color: #0066CC;
+}
 
 .mwe-upwiz-clearing {
 	clear: left;
 	width: 100%;
 }
-
 
 #mwe-upwiz-content {
 	padding: 1em;
