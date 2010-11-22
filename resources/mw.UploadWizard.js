@@ -101,18 +101,15 @@ mw.UploadWizardUpload.prototype = {
 			_this.transportProgress = 1;
 			_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 			_this.extractUploadInfo( result );
-			var setupDeedsAndShowComplete = function() {
-				_this.ui.setPreview( $img );	
-				_this.deedPreview.setup();
-				_this.details.populate();
-				_this.state = 'stashed';
-				_this.ui.showStashed();
-			};
-			var $img = $j( '<img/>' ).load( setupDeedsAndShowComplete );
-			// blocking preload for thumbnail
+			
+			// use blocking preload for thumbnail, no loading spinner.
 			_this.getThumbnail( 
-				function( thumbnailAttrs ) {
-					$img.attr( thumbnailAttrs );
+				function( image ) {
+					_this.ui.setPreview( image );	
+					_this.deedPreview.setup();
+					_this.details.populate();
+					_this.state = 'stashed';
+					_this.ui.showStashed();
 				},
 				mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
 				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
@@ -233,12 +230,15 @@ mw.UploadWizardUpload.prototype = {
 				}
 				var thumbnails = data.query.stashimageinfo;
 				for ( var i = 0; i < thumbnails.length; i++ ) {
-					_this.thumbnails[key] = {
-						src: thumbnails[i].thumburl,
-						width: thumbnails[i].thumbwidth,
-						height: thumbnails[i].thumbheight
-					};
-					callback( _this.thumbnails[key] );
+					var thumb = thumbnails[i];
+					var image = document.createElement( 'img' );
+					$j( image ).load( function() {
+						callback( image );
+					} );
+					image.width = thumb.thumbwidth;
+					image.height = thumb.thumbheight;
+					image.src = thumb.thumburl;
+					_this.thumbnails[key] = image;
 				}
 			} );
 		}
@@ -246,14 +246,15 @@ mw.UploadWizardUpload.prototype = {
 
 	/**
 	 * Look up thumbnail info and set it in HTML, with loading spinner
-	 * it might be interesting to make this more of a publish/subscribe thing, since we have to do this 3x
-	 * the callbacks may pile up, getting unnecessary info
 	 *
 	 * @param selector
 	 * @param width
 	 * @param height (optional) 
 	 */
 	setThumbnail: function( selector, width, height ) {
+		// set the thumbnail on the page to have a loading spinner	
+		$j( selector ).loadingSpinner();
+
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
 			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
@@ -263,18 +264,20 @@ mw.UploadWizardUpload.prototype = {
 		if ( !mw.isEmpty( height ) ) {
 			height = parseInt( height, 10 );
 		}
-				
-		var callback = function( thumbnail ) {
+			
+		var callback = function( image ) {
 			// side effect: will replace thumbnail's loadingSpinner
 			$j( selector ).html(
-				$j('<a/>')
+				$j( '<a/>' )
 					.attr( { 'href': _this.imageinfo.url,
 						 'target' : '_new' } )
 					.append(
 						$j( '<img/>' )
-							.attr( 'width',  thumbnail.width )
-							.attr( 'height', thumbnail.height )
-							.attr( 'src',    thumbnail.src ) ) );
+							.attr( { 'width':  image.width, 
+							         'height': image.height,
+								 'src':    image.src } ) 
+					)
+			);
 		};
 
 		$j( selector ).loadingSpinner();
@@ -387,29 +390,36 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
- 	 * change the indicator at the far right
+ 	 * change the graphic indicator at the far end of the row for this file
+	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */ 
 	showIndicator: function( statusClass ) {
-		var _this = this;
-		var $indicator = $j( _this.div ).find( '.mwe-upwiz-file-indicator' );
+		var $indicator = $j( this.div ).find( '.mwe-upwiz-file-indicator' );
+		// remove any other such classes
 		$j.each( $indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
 			if ( className.match( /^mwe-upwiz-status/ ) ) {
 				$indicator.removeClass( className );
 			}
 		} );
-		$indicator.addClass( 'mwe-upwiz-status-' + statusClass );
-		// is this causing dancing when we switch from spinner to checkmark?
-		$j( _this.div ).find( '.mwe-upwiz-visible-file-filename' )
-				.css( 'margin-right', ( $indicator.outerWidth() + 24 ).toString() + 'px' );
-		$indicator.css( 'visibility', 'visible' ); 
+		// add the desired class and make it visible, if it wasn't already.
+		$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
+			  .css( 'visibility', 'visible' ); 
 	},
 
-	setPreview: function( $img ) {
+	/**
+	 * Set the preview image on the file page for this upload.
+	 * @param HTMLImageElement 
+	 */
+	setPreview: function( image ) {
 		// encoding for url here?
-		$j( this.div ).find( '.mwe-upwiz-file-preview' ).css( 'background-image', 'url(' + $img.attr( 'src' ) + ')' );
+		$j( this.div ).find( '.mwe-upwiz-file-preview' ).css( 'background-image', 'url(' + image.src + ')' );
 	},
 
-	// too abstract?
+	/**
+	 * Set the status line for this upload with an internationalized message string.
+	 * @param String msgKey: key for the message
+	 * @param Array args: array of values, in case any need to be fed to the image.
+	 */
 	setStatus: function( msgKey, args ) {
 		if ( !mw.isDefined( args ) ) {
 			args = [];
@@ -417,10 +427,17 @@ mw.UploadWizardUploadInterface.prototype = {
 		this.setStatusStr( gM( msgKey, args ) );
 	},
 
+	/**
+	 * Set the status line for this upload 
+	 * @param String str: the string to use
+	 */
 	setStatusStr: function( str ) {	
 		$j( this.div ).find( '.mwe-upwiz-file-status' ).html( str ).show();
 	},
 
+	/**
+	 * Clear the status line for this upload (hide it, in case there are paddings and such which offset other things.)
+	 */
 	clearStatus: function() {
 		$j( this.div ).find( '.mwe-upwiz-file-status' ).hide();
 	},
