@@ -8,7 +8,7 @@
 	* @param {String} string String to output to console
 	*/
 	mw.log = function( s, level ) {
-	
+		
 		if ( typeof level === 'undefined' ) {
 			level = 30;
 		}
@@ -22,60 +22,56 @@
 			s = mw.log.preAppendLog + s;
 		}
 
-		if ( window.console ) {
+		if ( typeof window.console !== 'undefined' && typeof window.console.log === 'function' ) {
 			window.console.log( s );
 		} else {
-
-			/**
-			 * Old IE and non-Firebug debug
-			 */
-			var log_elm = document.getElementById('mv_js_log');
-
-			if ( ! log_elm ) {
-				var body = document.getElementsByTagName("body")[0];
-				if (body) {
-					body.innerHTML = document.getElementsByTagName("body")[0].innerHTML +
-						'<div style="position:absolute;z-index:500;bottom:0px;left:0px;right:0px;height:100px;">'+
-						'<textarea id="mv_js_log" cols="120" rows="4"></textarea>'+
-						'</div>';
-					log_elm = document.getElementById('mv_js_log');
-				} else {
-					mw.logBuffered += s + "\n";
-				}
+			// Show a log box for console-less browsers
+			var $log = $( '#mw-log-console' );
+			if ( !$log.length ) {
+				$log = $( '<div id="mw-log-console"></div>' )
+					.css( {
+						'position': 'absolute',
+						'overflow': 'auto',
+						'z-index': 500,
+						'bottom': '0px',
+						'left': '0px',
+						'right': '0px',
+						'height': '100px',
+						'width': '100%',
+						'background-color': 'white',
+						'border-top': 'solid 2px #ADADAD'
+					} )
+					.appendTo( 'body' );
 			}
-
-			if ( log_elm ) {
-				if (mw.logBuffered.length) {
-					log_elm.value += mw.logBuffered;
-					mw.logBuffered = "";
-				}
-				log_elm.value += s + "\n";
-			}
-
+			$log.append(
+				$( '<div></div>' )
+					.css( {
+						'border-bottom': 'solid 1px #DDDDDD',
+						'font-size': 'small',
+						'font-family': 'monospace',
+						'padding': '0.125em 0.25em'
+					} )
+					.text( s )
+			);
 		}
 	};
-
+	
 	mw.log.level = mw.log.NONE = 0;
 	mw.log.FATAL = 10;
 	mw.log.WARN = 20;
 	mw.log.INFO = 30;	
 	mw.log.ALL = 100;
-
+	
 	mw.log.fatal = function( s ) {
 		mw.log( s, mw.log.FATAL );
 	};
-
 	mw.log.warn = function( s ) {
 		mw.log( s, mw.log.WARN );
 	};
-
 	mw.log.info = function( s ) {
 		mw.log( s, mw.log.INFO );
 	};
-
 	mw.log.level = mw.log.ALL;
 
-	mw.logBuffered = "";
-
-} )( window.mw );
+} )( window.mediaWiki, jQuery );
 
