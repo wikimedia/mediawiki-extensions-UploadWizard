@@ -2,7 +2,7 @@
  * Represents the upload -- in its local and remote state. (Possibly those could be separate objects too...)
  * This is our 'model' object if we are thinking MVC. Needs to be better factored, lots of feature envy with the UploadWizard
  * states:
- *   'new' 'transporting' 'transported' 'metadata' 'thumbnailed' 'details' 'submitting-details' 'complete' 'error'
+ *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
 ( function( $j ) {
@@ -99,10 +99,24 @@ mw.UploadWizardUpload.prototype = {
 			// success
 			_this.state = 'transported';
 			_this.transportProgress = 1;
-			_this.ui.showTransported();
-			_this.extractUploadInfo( result );	
-			_this.deedPreview.setup();
-			_this.details.populate();
+			_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
+			_this.extractUploadInfo( result );
+			var setupDeedsAndShowComplete = function() {
+				_this.ui.setPreview( $img );	
+				_this.deedPreview.setup();
+				_this.details.populate();
+				_this.state = 'stashed';
+				_this.ui.showStashed();
+			};
+			var $img = $j( '<img/>' ).load( setupDeedsAndShowComplete );
+			// blocking preload for thumbnail
+			_this.getThumbnail( 
+				function( thumbnailAttrs ) {
+					$img.attr( thumbnailAttrs );
+				},
+				mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
+				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
+			);
 		
 		} else if ( result.upload && result.upload.sessionkey ) {
 			// there was a warning - type error which prevented it from adding the result to the db 
@@ -187,15 +201,19 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Fetch a thumbnail for this upload of the desired width. 
+	 * Fetch a thumbnail for a stashed upload of the desired width. 
 	 * It is assumed you don't call this until it's been transported.
  	 *
-	 * @param width - desired width of thumbnail (height will scale to match)
 	 * @param callback - callback to execute once thumbnail has been obtained -- must accept Image object
+	 * @param width - desired width of thumbnail (height will scale to match)
+	 * @param height - (optional) maximum height of thumbnail
 	 */
-	getThumbnail: function( width, callback ) {
+	getThumbnail: function( callback, width, height ) {
 		var _this = this;
-		var key = "width" + width;
+		if ( mw.isEmpty( height ) ) {
+			height = -1;
+		}
+		var key = "width" + width + ',height' + height;
 		if ( mw.isDefined( _this.thumbnails[key] ) ) {
 			callback( _this.thumbnails[key] );
 		} else {
@@ -203,6 +221,7 @@ mw.UploadWizardUpload.prototype = {
 				'prop':	'stashimageinfo',
 				'siisessionkey': _this.sessionKey,
 				'siiurlwidth': width, 
+				'siiurlheight': height,
 				'siiprop': 'url'
 			};
 
@@ -232,13 +251,18 @@ mw.UploadWizardUpload.prototype = {
 	 *
 	 * @param selector
 	 * @param width
+	 * @param height (optional) 
 	 */
-	setThumbnail: function( selector, width ) {
+	setThumbnail: function( selector, width, height ) {
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
 			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
 		}
 		width = parseInt( width, 10 );
+		height = null;
+		if ( !mw.isEmpty( height ) ) {
+			height = parseInt( height, 10 );
+		}
 				
 		var callback = function( thumbnail ) {
 			// side effect: will replace thumbnail's loadingSpinner
@@ -254,7 +278,7 @@ mw.UploadWizardUpload.prototype = {
 		};
 
 		$j( selector ).loadingSpinner();
-		_this.getThumbnail( width, callback );
+		_this.getThumbnail( callback, width, height );
 	}
 	
 };
@@ -291,15 +315,15 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 			   + '</div>'
 			 + '</div>'
 		);
+
 	_this.$removeCtrl = $j.fn.removeCtrl( 
 		'mwe-upwiz-remove', 
 		'mwe-upwiz-remove-upload', 
 		function() { _this.upload.remove(); } 
-	);
-	visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
-		.append( _this.$removeCtrl )
-		.addClass( "mwe-upwiz-file-status-line-item" );
+	).addClass( "mwe-upwiz-file-status-line-item" );
 
+	visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+		.append( _this.$removeCtrl );
 
 	//_this.errorDiv = $j('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
 
@@ -340,7 +364,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	// _this.progressBar = ( no progress bar for individual uploads yet )
 	// we bind to the ui div since unbind doesn't work for non-DOM objects
 	$j( _this.div ).bind( 'transportProgressEvent', function(e) { _this.showTransportProgress(); } );
-	// $j( _this.div ).bind( 'transportedEvent', function(e) { _this.showTransported(); } );
+	// $j( _this.div ).bind( 'transportedEvent', function(e) { _this.showStashed(); } );
 
 };
 
@@ -365,8 +389,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	/**
  	 * change the indicator at the far right
 	 */ 
-	showIndicatorMessage: function( statusClass, msgKey ) {
-		debugger;
+	showIndicator: function( statusClass ) {
 		var _this = this;
 		var $indicator = $j( _this.div ).find( '.mwe-upwiz-file-indicator' );
 		$j.each( $indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
@@ -374,13 +397,16 @@ mw.UploadWizardUploadInterface.prototype = {
 				$indicator.removeClass( className );
 			}
 		} );
-		$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
-			  .html( gM( msgKey ) );
+		$indicator.addClass( 'mwe-upwiz-status-' + statusClass );
+		// is this causing dancing when we switch from spinner to checkmark?
 		$j( _this.div ).find( '.mwe-upwiz-visible-file-filename' )
 				.css( 'margin-right', ( $indicator.outerWidth() + 24 ).toString() + 'px' );
 		$indicator.css( 'visibility', 'visible' ); 
+	},
 
-		_this.setStatus( msgKey );
+	setPreview: function( $img ) {
+		// encoding for url here?
+		$j( this.div ).find( '.mwe-upwiz-file-preview' ).css( 'background-image', 'url(' + $img.attr( 'src' ) + ')' );
 	},
 
 	// too abstract?
@@ -405,17 +431,18 @@ mw.UploadWizardUploadInterface.prototype = {
 	 */
 	showTransportProgress: function( fraction ) {
 		// if fraction available, update individual progress bar / estimates, etc.
-		this.showIndicatorMessage( 'progress' );
+		this.showIndicator( 'progress' );
 		this.setStatus( 'mwe-upwiz-uploading' );
 	},
 
 	/**
 	 * Show that upload is transported
 	 */
-	showTransported: function() {
+	showStashed: function() {
 		this.$removeCtrl.detach();
 		this.$fileInputCtrl.detach();
-		this.showIndicatorMessage( 'completed', 'mwe-upwiz-transported' );
+		this.showIndicator( 'stashed' );
+		this.setStatus( 'mwe-upwiz-stashed-upload' ); // this is just "OK", say something more.
 	},
 
 	/** 
@@ -423,8 +450,8 @@ mw.UploadWizardUploadInterface.prototype = {
 	 */
 	showError: function( code, info ) {
 		// XXX TODO use code
-		this.showIndicatorMessage( 'error', 'mwe-upwiz-error' );
-		//add a "retry" button, too?
+		this.showIndicator( 'error' );
+		// create a status message for the error
 	},
 
 	/**
@@ -1096,7 +1123,7 @@ mw.UploadWizardDetails.prototype = {
 	populate: function() {
 		var _this = this;
 		mw.log( "populating details from upload" );
-		_this.upload.setThumbnail( _this.thumbnailDiv );
+		_this.upload.setThumbnail( _this.thumbnailDiv, mw.UploadWizard.config['thumbnailWidth'], mw.UploadWizard.config['thumbnailMaxHeight'] );
 		_this.prefillDate();
 		_this.prefillSource();
 		_this.prefillAuthor(); 
@@ -1852,7 +1879,7 @@ mw.UploadWizard.prototype = {
 		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress', 
 						           gM( 'mwe-upwiz-uploading' ), 
 						           _this.uploads, 
-						           [ 'error', 'thumbnailed' ],
+						           [ 'stashed' ],
 							   'transportProgress', 
 							   'transportWeight' );
 		progressBar.start();
@@ -1867,7 +1894,7 @@ mw.UploadWizard.prototype = {
 		_this.makeTransitioner( 
 			'new', 
 			[ 'transporting', 'transported', 'metadata' ],
-			[ 'error', 'thumbnailed' ], 
+			[ 'error', 'verified' ], 
 			function( upload ) {
 				upload.start();
 			},
@@ -2073,7 +2100,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		// add a preview on the deeds page
 		var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail-small"></div>' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
-		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'smallThumbnailWidth'  ] );
+		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'smallThumbnailWidth'  ], mw.UploadWizard.config[ 'smallThumbnailMaxHeight' ] );
 	}
 };
 

@@ -75,7 +75,6 @@ mw.UploadApiProcessor.prototype = {
 		var _this = this;
 		mw.log( 'processResult::' );
 			
-		// debugger;	
 		
 		var parsedResult = _this.parseResult(result);
 

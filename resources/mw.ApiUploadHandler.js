@@ -22,11 +22,9 @@ mw.ApiUploadHandler = function( upload, api ) {
 	this.transport = new mw.IframeTransport(
 		this.$form,
 		function( fraction ) { 
-			debugger;
 			_this.upload.setTransportProgress( fraction ); 
 		},
 		function( result ) { 	
-			debugger;
 			_this.upload.setTransported( result ); 
 		}
 	);

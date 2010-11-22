@@ -107,7 +107,7 @@ form.mwe-upwiz-form {
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
 	float: right;
 	margin-left: 0.5em;
-	padding: 0.5em 0.5em 0.5em 20px;  /* 20px for the icon */
+	padding: 0.5em;
 }
 
 .mwe-upwiz-visible-file .mwe-upwiz-file-indicator {
@@ -227,16 +227,17 @@ a[disabled=true]:hover {
 	text-decoration: none;
 }
 
-.mwe-upwiz-status-progress {
-	background: url(spinner-orange.gif) no-repeat left center;
-	font-weight: bold;
-	color: #ff9900;
+.mwe-upwiz-file-indicator {
+	height: 40px;
+	width: 40px;
 }
 
-.mwe-upwiz-status-completed {
-	background: url(32px-Dialog-apply.svg.png) no-repeat left center;
-	font-weight: bold;
-	color: #009900;
+.mwe-upwiz-status-progress {
+	background: url(24px-spinner-0645ad.gif) no-repeat center center;
+}
+
+.mwe-upwiz-status-stashed {
+	background: url(32px-Dialog-apply-009900.svg.png) no-repeat center center;
 }
 
 .mwe-upwiz-status-error {

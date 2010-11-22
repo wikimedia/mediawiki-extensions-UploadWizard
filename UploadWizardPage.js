@@ -19,7 +19,11 @@ mw.UploadWizardPage = function() {
 		apiUrl: apiUrl,
 	
 		thumbnailWidth:  120,  
+		thumbnailMaxHeight:  200,  
 		smallThumbnailWidth:  60,  
+		smallThumbnailMaxHeight: 100,
+		iconThumbnailWidth: 32,
+		iconThumbnailMaxHeight: 32,
 		maxAuthorLength: 50,
 		minAuthorLength: 2,
 		maxSourceLength: 200,

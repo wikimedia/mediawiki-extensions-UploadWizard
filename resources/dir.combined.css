@@ -19,12 +19,24 @@ form.mwe-upwiz-form {
 }
 */
 
+#mwe-upwiz-steps {
+	background-color: white;
+	background-image: none;
+	border: solid 1px #a7d7f9;
+}
+
+#mwe-upwiz-steps li {
+	color: #666666;
+}
+
+#mwe-upwiz-steps li.head {
+	color: #000000;
+}
 
 .mwe-upwiz-clearing {
 	clear: left;
 	width: 100%;
 }
-
 
 #mwe-upwiz-content {
 	padding: 1em;
@@ -95,7 +107,7 @@ form.mwe-upwiz-form {
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
 	float: right;
 	margin-left: 0.5em;
-	padding: 0.5em 0.5em 0.5em 20px;  /* 20px for the icon */
+	padding: 0.5em;
 }
 
 .mwe-upwiz-visible-file .mwe-upwiz-file-indicator {
@@ -215,20 +227,21 @@ a[disabled=true]:hover {
 	text-decoration: none;
 }
 
+.mwe-upwiz-file-indicator {
+	height: 40px;
+	width: 40px;
+}
+
 .mwe-upwiz-status-progress {
-	background: url(spinner-orange.gif) no-repeat left center;
-	font-weight: bold;
-	color: #ff9900;
+	background: url(24px-spinner-0645ad.gif) no-repeat center center;
 }
 
-.mwe-upwiz-status-completed {
-	background: url(checkmark.gif) no-repeat left center;
-	font-weight: bold;
-	color: #009900;
+.mwe-upwiz-status-stashed {
+	background: url(32px-Dialog-apply-009900.svg.png) no-repeat center center;
 }
 
-.mwe-upwiz-status-failed {
-	background: url(16px-Gnome-process-stop.svg.png) no-repeat left center;
+.mwe-upwiz-status-error {
+	background: url(32px-Nuvola_apps_important_orange.svg.png) no-repeat left center;
 	font-weight: bold;
 	color: #CC0000;
 }
