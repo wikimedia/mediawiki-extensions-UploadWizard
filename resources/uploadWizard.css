@@ -241,7 +241,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-status-error {
-	background: url(32px-Nuvola_apps_important_orange.svg.png) no-repeat left center;
+	background: url(32px-Nuvola_apps_important_orange.svg.png) no-repeat center center;
 	font-weight: bold;
 	color: #CC0000;
 }
