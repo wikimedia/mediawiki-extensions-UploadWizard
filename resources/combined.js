@@ -5837,13 +5837,13 @@ if ( typeof window.mw === 'undefined' ) {
 			ajaxOptions.data = parameters;
 		
 			ajaxOptions.error = function( xhr, textStatus, exception ) {
-				ajaxOptions.err( 'http-' + textStatus, { xhr: xhr, exception: exception } );
+				ajaxOptions.err( 'http', { xhr: xhr, textStatus: textStatus, exception: exception } );
 			};
 
 			/* success just means 200 OK; also check for output and API errors */
 			ajaxOptions.success = function( result ) {
 				if ( mw.isEmpty( result ) ) {
-					ajaxOptions.err( "empty", "OK response but empty result (check HTTP headers?)" );
+					ajaxOptions.err( "ok-but-empty", "OK response but empty result (check HTTP headers?)" );
 				} else if ( result.error ) {
 					var code = mw.isDefined( result.error.code ) ? result.error.code : "unknown";
 					ajaxOptions.err( code, result );
@@ -5856,7 +5856,49 @@ if ( typeof window.mw === 'undefined' ) {
 
 		}
 
-	}
+	};
+
+	/**
+	 * This is a list of errors we might receive from the API.
+	 * For now, this just documents our expectation that there should be similar messages
+	 * available.
+	 */
+	mw.Api.errors = [
+		'uploaddisabled',
+		'nomodule',
+		'mustbeposted',
+		'badaccess-groups',
+		'stashfailed',
+		'missingresult',
+		'missingparam',
+		'invalid-session-key',
+		'copyuploaddisabled',
+		'mustbeloggedin',
+		'empty-file',
+		'file-too-large',
+		'filetype-missing',
+		'filetype-banned',
+		'filename-tooshort',
+		'illegal-filename',
+		'verification-error',
+		'hookaborted',
+		'unknown-error',
+		'internal-error',
+		'overwrite',
+		'badtoken',
+		'fetchfileerror'
+	];
+
+	/**
+	 * This is a list of warnings we might receive from the API.
+	 * For now, this just documents our expectation that there should be similar messages
+	 * available.
+	 */
+
+	mw.Api.warnings = [
+		'duplicate',
+		'exists'
+	];
 
 }) ( window.mw, jQuery );
 // library to assist with edits
@@ -8005,7 +8047,7 @@ mw.ApiUploadHandler.prototype = {
 			_this.$form.submit();
 		};
 		var err = function( code, info ) {
-			_this.upload.setFailed( code, info );
+			_this.upload.setError( code, info );
 		}; 
 		this.configureEditToken( ok, err );
 	}
@@ -9202,7 +9244,6 @@ mw.UploadWizardUpload.prototype = {
 	 * Stop the upload -- we have failed for some reason 
 	 */
 	setError: function( code, info ) { 
-		/* stop the upload progress */
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, info );
@@ -9584,11 +9625,21 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	/** 
 	 * Show that transport has failed
+	 * @param String code: error code from API
+	 * @param {String|Object} info: extra info
 	 */
 	showError: function( code, info ) {
-		// XXX TODO use code
 		this.showIndicator( 'error' );
-		// create a status message for the error
+		// is this an error that we expect to have a message for?
+		var msgKey = 'mwe-upwiz-api-error-unknown-code'
+		var args = [ code ];
+		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
+			var msgKey = 'mwe-upwiz-api-error-' + code;
+			// args may change base on particular error messages. 
+			// for instance, we are throwing away the extra info right now. Might be nice to surface that in a debug mode
+			args = [];
+		}
+		this.setStatus( msgKey, args );
 	},
 
 	/**

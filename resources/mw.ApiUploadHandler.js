@@ -114,7 +114,7 @@ mw.ApiUploadHandler.prototype = {
 			_this.$form.submit();
 		};
 		var err = function( code, info ) {
-			_this.upload.setFailed( code, info );
+			_this.upload.setError( code, info );
 		}; 
 		this.configureEditToken( ok, err );
 	}

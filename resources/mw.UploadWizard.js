@@ -82,7 +82,6 @@ mw.UploadWizardUpload.prototype = {
 	 * Stop the upload -- we have failed for some reason 
 	 */
 	setError: function( code, info ) { 
-		/* stop the upload progress */
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, info );
@@ -464,11 +463,21 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	/** 
 	 * Show that transport has failed
+	 * @param String code: error code from API
+	 * @param {String|Object} info: extra info
 	 */
 	showError: function( code, info ) {
-		// XXX TODO use code
 		this.showIndicator( 'error' );
-		// create a status message for the error
+		// is this an error that we expect to have a message for?
+		var msgKey = 'mwe-upwiz-api-error-unknown-code'
+		var args = [ code ];
+		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
+			var msgKey = 'mwe-upwiz-api-error-' + code;
+			// args may change base on particular error messages. 
+			// for instance, we are throwing away the extra info right now. Might be nice to surface that in a debug mode
+			args = [];
+		}
+		this.setStatus( msgKey, args );
 	},
 
 	/**
