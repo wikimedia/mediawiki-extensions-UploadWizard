@@ -8352,7 +8352,7 @@ mw.UploadWizardUtil = {
 /**
  * this is a progress bar for monitoring multiple objects, giving summary view
  */
-mw.GroupProgressBar = function( selector, text, uploads, endStates, progressProperty, weightProperty ) {
+mw.GroupProgressBar = function( selector, text, uploads, successStates, errorStates, progressProperty, weightProperty ) {
 	var _this = this;
 
 	// XXX need to figure out a way to put text inside bar
@@ -8372,7 +8372,8 @@ mw.GroupProgressBar = function( selector, text, uploads, endStates, progressProp
 	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
 
 	_this.uploads = uploads;
-	_this.endStates = endStates;
+	_this.successStates = successStates;
+	_this.errorStates = errorStates;
 	_this.progressProperty = progressProperty;
 	_this.weightProperty = weightProperty;
 	_this.beginTime = undefined;
@@ -8404,11 +8405,15 @@ mw.GroupProgressBar.prototype = {
 
 		var displayer = function() {	
 			var fraction = 0.0;
-			var endStateCount = 0;
+			var successStateCount = 0;
+			var errorStateCount = 0;
 			var hasData = false;
 			$j.each( _this.uploads, function( i, upload ) {
-				if ( $j.inArray( upload.state, _this.endStates ) !== -1 ) {
-					endStateCount++;
+				if ( $j.inArray( upload.state, _this.successStates ) !== -1 ) {
+					successStateCount++;
+				}
+				if ( $j.inArray( upload.state, _this.errorStates ) !== -1 ) {
+					errorStateCount++;
 				}
 				if (upload[_this.progressProperty] !== undefined) {
 					fraction += upload[_this.progressProperty] * ( upload[_this.weightProperty] / totalWeight );
@@ -8417,7 +8422,7 @@ mw.GroupProgressBar.prototype = {
 					}
 				}
 			} );
-			//mw.log( 'hasdata:' + hasData + ' endstatecount:' + endStateCount );
+
 			// sometimes, the first data we have just tells us that it's over. So only show the bar
 			// if we have good data AND the fraction is less than 1.
 			if ( hasData && fraction < 1.0 ) {
@@ -8427,14 +8432,13 @@ mw.GroupProgressBar.prototype = {
 				}
 				_this.showProgress( fraction );
 			}
-			_this.showCount( endStateCount );
+			_this.showCount( successStateCount );
 
-			if ( endStateCount < _this.uploads.length ) {
+			if ( successStateCount + errorStateCount < _this.uploads.length ) {
 				setTimeout( displayer, 200 );
 			} else {
 				_this.showProgress( 1.0 );
-				// not necessary to hide bar since we're going to the next step.
-				/* setTimeout( function() { _this.hideBar(); }, 500 ); */
+				setTimeout( function() { _this.hideBar(); }, 500 ); 
 			}
 		};
 		displayer();
@@ -10994,8 +10998,9 @@ mw.UploadWizard.prototype = {
 
 		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress', 
 						           gM( 'mwe-upwiz-uploading' ), 
-						           _this.uploads, 
-						           [ 'stashed' ],
+						           _this.uploads,
+							   [ 'stashed' ],
+						           [ 'error' ],
 							   'transportProgress', 
 							   'transportWeight' );
 		progressBar.start();

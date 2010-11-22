@@ -1878,8 +1878,9 @@ mw.UploadWizard.prototype = {
 
 		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress', 
 						           gM( 'mwe-upwiz-uploading' ), 
-						           _this.uploads, 
-						           [ 'stashed' ],
+						           _this.uploads,
+							   [ 'stashed' ],
+						           [ 'error' ],
 							   'transportProgress', 
 							   'transportWeight' );
 		progressBar.start();
