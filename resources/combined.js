@@ -11278,7 +11278,9 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			changeYear: true, 
 			showAnim: 'slideDown',
 			altField: '#' + dateInputId,
-			altFormat: 'yy-mm-dd' } )
+			altFormat: 'yy-mm-dd',
+			minDate: new Date( 1800, 0, 1 ),
+		} )
 		.click( function() { $j( this ).datepicker( 'show' ); } )
 		.readonly();
 
