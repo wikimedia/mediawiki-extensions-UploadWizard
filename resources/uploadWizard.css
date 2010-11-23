@@ -27,6 +27,7 @@ form.mwe-upwiz-form {
 
 #mwe-upwiz-steps li {
 	color: #666666;
+	margin-right: -1px;
 }
 
 #mwe-upwiz-steps li.head {
