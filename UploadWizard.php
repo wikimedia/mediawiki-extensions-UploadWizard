@@ -19,7 +19,7 @@
 
 
 // Credits
-$wgExtensionCredits['jsModule'][] = array(
+$wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
 	'author' => 'Neil Kandalgaonkar',
