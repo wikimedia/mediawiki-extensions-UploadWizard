@@ -11807,8 +11807,8 @@ mw.UploadWizardDetails.prototype = {
 			summary: "User created page with " + mw.UploadWizard.userAgent
 		};
 
-		var finalCallback = function() { 
-			endCallback();
+		var finalCallback = function( result ) { 
+			endCallback( result );
 			_this.completeDetailsSubmission(); 
 		};	
 
@@ -11817,7 +11817,7 @@ mw.UploadWizardDetails.prototype = {
 		var callback = function( result ) {
 			mw.log( result );
 			mw.log( "successful upload" );
-			finalCallback();
+			finalCallback( result );
 		};
 
 		_this.upload.state = 'submitting-details';
@@ -12527,7 +12527,13 @@ mw.UploadWizard.prototype = {
 			[ 'submitting-details' ],  
 			[ 'complete' ], 
 			function( upload ) {
-				upload.details.submit( function() { 
+				upload.details.submit( function( result ) { 
+					if ( result && result.upload && result.upload.imageinfo ) {
+						upload.extractImageInfo( result.upload.imageinfo );
+					} else {
+						// XXX alert the user, maybe don't proceed to step 4.
+						mw.log( "error -- final API call did not return image info" );
+					}
 					upload.details.div.data( 'mask' ).html();
 				} );
 			},
