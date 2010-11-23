@@ -792,7 +792,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		return addSeparatorsNF( num, '.', ',' );
 	}
 	
-}) ( window.mw );
+}) ( window.mediaWiki );
 
 // Set global gM shortcut:
 window[ 'gM' ] = mw.getMsg;

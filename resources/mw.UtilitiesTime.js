@@ -93,4 +93,4 @@
 		return parseInt( hour * 3600 ) + parseInt( min * 60 ) + parseFloat( sec );
 	}	
 
-} )( window.mw );
+} )( window.mediaWiki );

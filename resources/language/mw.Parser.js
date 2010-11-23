@@ -320,4 +320,4 @@ var LINK_SWAP_STRING = 'ZreplaceZ';
 		}
 	};
 	
-}) ( window.mw );
+}) ( window.mediaWiki );

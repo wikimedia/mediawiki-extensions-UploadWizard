@@ -1,5 +1,5 @@
 // dependencies: []
 
-if ( typeof window.mw === 'undefined' ) {
-	window.mw = {};
+if ( typeof window.mediaWiki === 'undefined' ) {
+	window.mediaWiki = {};
 }

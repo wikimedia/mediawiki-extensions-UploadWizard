@@ -98,4 +98,4 @@
 		
 	} );
 
-}) ( window.mw, jQuery );
+}) ( window.mediaWiki, jQuery );

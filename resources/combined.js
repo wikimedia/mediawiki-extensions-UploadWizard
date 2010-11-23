@@ -6432,8 +6432,8 @@ $.fn.suggestions = function() {
 }})(jQuery);
 // dependencies: []
 
-if ( typeof window.mw === 'undefined' ) {
-	window.mw = {};
+if ( typeof window.mediaWiki === 'undefined' ) {
+	window.mediaWiki = {};
 }
 // dependencies: [ mw ] 
 
@@ -6573,7 +6573,7 @@ if ( typeof window.mw === 'undefined' ) {
 	};
 
 
-} )( window.mw );
+} )( window.mediaWiki );
 /**
  * dependencies: [ mw ]
  */
@@ -6669,7 +6669,7 @@ if ( typeof window.mw === 'undefined' ) {
 		return parseInt( hour * 3600 ) + parseInt( min * 60 ) + parseFloat( sec );
 	}	
 
-} )( window.mw );
+} )( window.mediaWiki );
 /**
  * Library for simple URI parsing and manipulation.  Requires jQuery.
  *
@@ -6921,7 +6921,7 @@ if ( typeof window.mw === 'undefined' ) {
 		}
 	};
 
-} )( window.mw, jQuery );
+} )( window.mediaWiki, jQuery );
 /* mw.Api objects represent the API of a particular MediaWiki server. */	
 
 // dependencies: [ mw ]
@@ -7113,7 +7113,7 @@ if ( typeof window.mw === 'undefined' ) {
 		'exists'
 	];
 
-}) ( window.mw, jQuery );
+}) ( window.mediaWiki, jQuery );
 // library to assist with edits
 
 // dependencies: [ mw.Api, jQuery ]
@@ -7214,7 +7214,7 @@ if ( typeof window.mw === 'undefined' ) {
 		
 	} );
 
-}) ( window.mw, jQuery );
+}) ( window.mediaWiki, jQuery );
 /**
  * Represents a "title", or some piece of content, tracked by MediaWiki.
  * There are numerous ways of representing the title, so this bundles them all together so you
@@ -8216,7 +8216,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		return addSeparatorsNF( num, '.', ',' );
 	}
 	
-}) ( window.mw );
+}) ( window.mediaWiki );
 
 // Set global gM shortcut:
 window[ 'gM' ] = mw.getMsg;
@@ -8543,7 +8543,7 @@ var LINK_SWAP_STRING = 'ZreplaceZ';
 		}
 	};
 	
-}) ( window.mw );
+}) ( window.mediaWiki );
 mw.addMessages({
 	"mwe-upwiz-code-unknown": "Unknown language"
 });
