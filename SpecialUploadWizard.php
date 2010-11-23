@@ -27,14 +27,14 @@ class SpecialUploadWizard extends SpecialPage {
 	 	// but then we'll need to process non-JS uploads in the same way Special:Upload does.
 		$this->simpleForm = new UploadWizardSimpleForm();
 		$this->simpleForm->setTitle( 
-			SpecialPage::getPage( 'Upload' )->getTitle() 
+			SpecialPage::getTitleFor( 'Upload' )
 		);
 	}
 
 	/**
 	 * Replaces default execute method
 	 * Checks whether uploading enabled, user permissions okay, 
-	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo. 
+	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo. 
 	 */
 	public function execute( $subPage ) {
 		global $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
@@ -42,19 +42,18 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// side effects: if we can't upload, will print error page to wgOut 
 		// and return false
-		if (! ( $this->isUploadAllowed() && $this->isUserUploadAllowed( $wgUser ) ) ) {
+		if ( !( $this->isUploadAllowed() && $this->isUserUploadAllowed( $wgUser ) ) ) {
 			return;
 		}
 
 		$this->setHeaders();
 		$this->outputHeader();
-			
 
 		// fallback for non-JS
-		$wgOut->addHTML('<noscript>');
+		$wgOut->addHTML( '<noscript>' );
 		$wgOut->addHTML( '<p class="errorbox">' . wfMsg( 'mwe-upwiz-js-off' ) . '</p>' );
 		$this->simpleForm->show();
-		$wgOut->addHTML('</noscript>');
+		$wgOut->addHTML( '</noscript>' );
 
 
 		// global javascript variables	
