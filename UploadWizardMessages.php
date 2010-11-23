@@ -39,7 +39,7 @@ class UploadWizardMessages {
 		}
 
 		$messagesJson = FormatJson::encode( $messagesForJs );
-		return 'mw.addMessages(' . $messagesJson . ');';
+		return 'window.mediaWiki.addMessages(' . $messagesJson . ');';
 	}
 
 

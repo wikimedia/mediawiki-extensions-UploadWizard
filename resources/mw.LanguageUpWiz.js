@@ -1,3 +1,5 @@
+( function( mw ) {
+
 mw.addMessages({
 	"mwe-upwiz-code-unknown": "Unknown language"
 });
@@ -488,3 +490,7 @@ mw.LanguageUpWiz = {
 	// This is presumed not to apply to the shiny new world of JS2, where i18n is handled in other ways.
 
 };
+
+
+} )( window.mediaWiki );
+

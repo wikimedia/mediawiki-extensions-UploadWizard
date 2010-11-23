@@ -6434,6 +6434,8 @@ $.fn.suggestions = function() {
 
 if ( typeof window.mediaWiki === 'undefined' ) {
 	window.mediaWiki = {};
+	window.mw = window.mediaWiki;
+	mw = window.mediaWiki;
 }
 // dependencies: [ mw ] 
 
@@ -8544,6 +8546,8 @@ var LINK_SWAP_STRING = 'ZreplaceZ';
 	};
 	
 }) ( window.mediaWiki );
+( function( mw ) {
+
 mw.addMessages({
 	"mwe-upwiz-code-unknown": "Unknown language"
 });
@@ -9034,6 +9038,10 @@ mw.LanguageUpWiz = {
 	// This is presumed not to apply to the shiny new world of JS2, where i18n is handled in other ways.
 
 };
+
+
+} )( window.mediaWiki );
+
 /**
  * Represents a "transport" for files to upload; in this case an iframe.
  * XXX dubious whether this is really separated from "ApiUploadHandler", which does a lot of form config.
