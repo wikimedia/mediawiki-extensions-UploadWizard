@@ -4,14 +4,14 @@
  * What's that you say? ANOTHER way to load dependencies? Everyone's doing it.
  *
  * Doing resource loading the old-fashioned way for now until Resource Loader or something becomes the standard.
- * We anticipate that Resource Loader will be available sometime in late 2010 or early 2011, 
+ * We anticipate that Resource Loader will be available sometime in late 2010 or early 2011,
  * so we define scripts in the hooks that Resource Loader will expect, over in UploadWizardHooks.php.
  *
  * Since the resources are defined in PHP, it was convenient to write the minifier routines here too.
- * We do not expect to minify on the fly in MediaWiki; those rotutines will be called by  
+ * We do not expect to minify on the fly in MediaWiki; those rotutines will be called by
  * developer scripts to write minified files before committing to the source code repository.
  *
- * (Previously the usability projects had used Makefiles, but then had to keep dependencies in sync in 
+ * (Previously the usability projects had used Makefiles, but then had to keep dependencies in sync in
  * PHP and the Makefile). I started to write a PHP file that then would write a Makefile and realized
  * this was getting a bit insane.
  *
@@ -24,7 +24,7 @@ class UploadWizardDependencyLoader {
 	const SCRIPTS_COMBINED = 'combined.js';
 	const STYLES_MINIFIED = 'combined.min.css';
 	const SCRIPTS_MINIFIED = 'combined.min.js';
-	
+
 	protected $scripts;
 	protected $inlineScripts;
 	protected $styles;
@@ -112,7 +112,7 @@ class UploadWizardDependencyLoader {
 		$dirStyleCombinedUrls = array();
 		$dirStyleMinifiedUrls = array();
 		$dirStylesMap = array();
-		foreach( $this->styles as $style ) {
+		foreach ( $this->styles as $style ) {
 			$dir = dirname( $style );
 			if ( !isset( $dirStylesMap[$dir] ) ) {
 				$dirStylesMap[$dir] = array();
@@ -132,14 +132,14 @@ class UploadWizardDependencyLoader {
 		$this->writeStyleImporter( $dirStyleMinifiedUrls, $resourceDir . '/' . self::STYLES_MINIFIED );
 
 		// scripts are easy, they don't (or shouldn't) refer to other resources with relative paths
-		$scriptsCombinedFile = $resourceDir . '/'. self::SCRIPTS_COMBINED;
+		$scriptsCombinedFile = $resourceDir . '/' . self::SCRIPTS_COMBINED;
 		$this->concatenateFiles( $this->scripts, $scriptsCombinedFile );
 		$this->writeMinifiedJs( $scriptsCombinedFile, $resourceDir . '/' . self::SCRIPTS_MINIFIED );
 	}
 
 	/**
-	 * Since I couldn't figure out how to solve the CSS minification issue and how 
-	 * it broke relative paths for images, we'll minify one file per directory. 
+	 * Since I couldn't figure out how to solve the CSS minification issue and how
+	 * it broke relative paths for images, we'll minify one file per directory.
 	 * This means we'll need a "master" file to import them all. We can use CSS @import,
 	 * It's supported by browsers later than NS 4.0 or IE 4.0.
 	 * @param {Array} $urls : list of urls
@@ -148,27 +148,27 @@ class UploadWizardDependencyLoader {
 	function writeStyleImporter( $urls, $outputFile ) {
 		$fp = fopen( $outputFile, 'w' );
 		if ( ! $fp ) {
-			print "couldn't open $outputFile for writing\n"; 
+			print "couldn't open $outputFile for writing\n";
 			exit;
 		}
-		foreach ( $urls as $url ) { 
+		foreach ( $urls as $url ) {
 			fwrite( $fp, "@import \"$url\";\n" );
 		}
 		fclose( $fp );
 	}
-	
+
 	/**
 	 * Concatenates several files on the filesystem into one.
-	 * @param {Array} filenames 
-	 * @param {String} filename to concatenate all files into. Will replace existing contents 
+	 * @param {Array} filenames
+	 * @param {String} filename to concatenate all files into. Will replace existing contents
 	 */
-	private function concatenateFiles( $files, $outputFile ) {	
+	private function concatenateFiles( $files, $outputFile ) {
 		$fp = fopen( $outputFile, 'w' );
 		if ( ! $fp ) {
-			print "couldn't open $outputFile for writing"; 
+			print "couldn't open $outputFile for writing";
 			exit;
 		}
-		foreach ( $files as $file ) { 
+		foreach ( $files as $file ) {
 			fwrite( $fp, file_get_contents( $file ) );
 		}
 		fclose( $fp );
@@ -182,7 +182,7 @@ class UploadWizardDependencyLoader {
 	private function writeMinifiedJs( $inputFile, $outputFile ) {
 		$fp = fopen( $outputFile, 'w' );
 		if ( ! $fp ) {
-			print "couldn't open $outputFile for writing"; 
+			print "couldn't open $outputFile for writing";
 			exit;
 		}
 		fwrite( $fp, JSMin::minify( file_get_contents( $inputFile ) ) );
@@ -207,15 +207,15 @@ class UploadWizardDependencyLoader {
 
 		// remove whitespace immediately before an open-curly
 		$contents = preg_replace( '/\s*\{/', '{', $contents );
-		
+
 		// remove /* ... */ comments, potentially on multiple lines
-		// CAUTION: gets edge cases wrong, like nested or quoted comments. 
+		// CAUTION: gets edge cases wrong, like nested or quoted comments.
 		// Not for use with nuclear reactors.
 		$contents = preg_replace( '/\/\*.*?\*\//s', '', $contents );
 
 		$fp = fopen( $outputFile, 'w' );
 		if ( ! $fp ) {
-			print "couldn't open $outputFile for writing"; 
+			print "couldn't open $outputFile for writing";
 			exit;
 		}
 		fwrite( $fp, $contents );

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class to encapsulate all the html generation associated with the UploadWizard tutorial. 
+ * Class to encapsulate all the html generation associated with the UploadWizard tutorial.
  * Might be a start for a subclass of UploadWizard, if we ever free it of its WMF-oriented features
  * So that non-WMF'ers can use it
  */
@@ -23,8 +23,8 @@ class UploadWizardTutorial {
 	const IMAGEMAP_ID = 'tutorialMap';
 
 	/**
-	 * Fetches appropriate HTML for the tutorial portion of the wizard. 
-	 * Looks up an image on the current wiki. This will work as is on Commons, and will also work 
+	 * Fetches appropriate HTML for the tutorial portion of the wizard.
+	 * Looks up an image on the current wiki. This will work as is on Commons, and will also work
 	 * on test wikis that enable instantCommons.
 	 * @param {String} $langCode language code as used by MediaWiki, similar but not identical to ISO 639-1.
 	 * @return {String} html that will display the tutorial.
@@ -37,10 +37,10 @@ class UploadWizardTutorial {
 		$tutorialHtml = '';
 
 		$langCode = $wgLang->getCode();
-	
+
 		$tutorialFile = false;
-		// getFile returns false if it can't find the right file 
-		if ( ! $tutorialFile = self::getFile( $langCode ) ) { 
+		// getFile returns false if it can't find the right file
+		if ( ! $tutorialFile = self::getFile( $langCode ) ) {
 			$error = 'localized-file-missing';
 			if ( $langCode !== 'en' ) {
 				$tutorialFile = self::getFile( 'en' );
@@ -54,8 +54,8 @@ class UploadWizardTutorial {
 
 		if ( $tutorialFile ) {
 			// XXX TODO if the client can handle SVG, we could also just send it the unscaled thumb, client-scaled into a DIV or something.
-			// if ( client can handle SVG ) { 
-			//   $tutorialThumbnailImage->getUnscaledThumb();	
+			// if ( client can handle SVG ) {
+			//   $tutorialThumbnailImage->getUnscaledThumb();
 			// }
 			// put it into a div of appropriate dimensions.
 
@@ -66,7 +66,7 @@ class UploadWizardTutorial {
 				$error = 'cannot-transform';
 			}
 		} else {
-			$error = 'file-missing';	
+			$error = 'file-missing';
 		}
 
 		if ( $error !== null ) {
@@ -74,17 +74,17 @@ class UploadWizardTutorial {
 		}
 
 		return $errorHtml . $tutorialHtml;
-	
-	} 
+
+	}
 
 	/**
 	 * Get tutorial file for a particular language, or false if not available.
 	 * @param {String} $langCode: language Code
-	 * @return {File|false} 
+	 * @return {File|false}
 	 */
 	public static function getFile( $langCode ) {
  		$tutorialName = str_replace( '$1', $langCode, self::NAME_TEMPLATE );
- 		$tutorialTitle = Title::newFromText( $tutorialName, NS_FILE ); 
+ 		$tutorialTitle = Title::newFromText( $tutorialName, NS_FILE );
 		return wfFindFile( $tutorialTitle );
 	}
 
@@ -95,7 +95,7 @@ class UploadWizardTutorial {
 	 */
 	public static function getImageHtml( $thumb ) {
 		// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
-		// we could do more special effects with hovers and images and such, not to mention SVG scripting, 
+		// we could do more special effects with hovers and images and such, not to mention SVG scripting,
 		// but we aren't sure what we want yet...
 		$img = Html::element( 'img', array(
 			'src' => $thumb->getUrl(),
@@ -104,7 +104,7 @@ class UploadWizardTutorial {
 			'usemap' => '#' . self::IMAGEMAP_ID
 		) );
 		$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
-		$area = Html::element( 'area', array( 
+		$area = Html::element( 'area', array(
 			'shape' => 'rect',
 			'coords' => self::HELPDESK_BUTTON_COORDS,
 			'href' => self::HELPDESK_URL,

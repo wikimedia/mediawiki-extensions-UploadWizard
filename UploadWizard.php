@@ -30,20 +30,20 @@ $wgExtensionCredits['jsModule'][] = array(
 
 
 
-$dir = dirname(__FILE__);
+$dir = dirname( __FILE__ );
 
 $wgExtensionMessagesFiles['UploadWizard'] = $dir . '/UploadWizard.i18n.php';
 $wgExtensionAliasesFiles['UploadWizard'] = $dir . '/UploadWizard.alias.php';
 
 # Require modules, includeing the special page
-foreach ( array( 'SpecialUploadWizard', 
-		 'UploadWizardMessages', 
+foreach ( array( 'SpecialUploadWizard',
+		 'UploadWizardMessages',
 		 'UploadWizardHooks',
 		 'UploadWizardTutorial',
 		 'UploadWizardDependencyLoader' ) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $dir . "/" . $module . ".php";
 }
-		 
+
 
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';

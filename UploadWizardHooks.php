@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 /**
  * Contains list of related resources and hooks which anticipate the use of Resource Loader, whenever that is released
  */
 class UploadWizardHooks {
-	
+
 	/* We define scripts here for Resource Loader, but in the meantime we are going to load these the old-fashioned way
 	   (see SpecialUploadWizard.php).
 
-	   So this list of scripts has to be topologically-sorted by hand. That is, the depended-upon stuff comes first. 
+	   So this list of scripts has to be topologically-sorted by hand. That is, the depended-upon stuff comes first.
 	   There can be no circular dependencies. */
 
 	public static $modules = array(
@@ -60,15 +60,15 @@ class UploadWizardHooks {
 				'resources/mw.UploadWizardUtil.js',
 
 				// interface libraries
-				'resources/mw.GroupProgressBar.js', 
+				'resources/mw.GroupProgressBar.js',
 
 				// UploadWizard specific abstractions
 				'resources/mw.UploadWizardDeed.js',
 				'resources/mw.UploadWizardLicenseInput.js',
 
-				// main library			
+				// main library
 				'resources/mw.UploadWizard.js',
-	
+
 				// launcher
 				'UploadWizardPage.js'
 			),
@@ -133,7 +133,7 @@ class UploadWizardHooks {
 				'resources/jquery.ui/themes/vector/jquery.ui.datepicker.css',
 				'resources/jquery.ui/themes/vector/jquery.ui.progressbar.css',
 			),
-			'messages' => array( 
+			'messages' => array(
 				'linktest',
 				'pluraltest',
 				'magictest',
@@ -276,10 +276,10 @@ class UploadWizardHooks {
 			),
 		),
 	);
-	
+
 	/*
 	 * ResourceLoaderRegisterModules hook
-	 * 
+	 *
 	 * Adds modules to ResourceLoader
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
@@ -287,7 +287,7 @@ class UploadWizardHooks {
 		if ( $wgUploadWizardDisableResourceLoader ) {
 			return true;
 		}
-		
+
 		$localpath = dirname( __FILE__ );
 		$remotepath = "$wgExtensionAssetsPath/UploadWizard";
 		foreach ( self::$modules as $name => $resources ) {

@@ -13,7 +13,7 @@ class UploadWizardGenerateMinifiedResources extends Maintenance {
 		parent::__construct();
 		$this->mDescription = 'Generate combined and minified JS and CSS for UploadWizard';
 	}
-	
+
 	public function execute() {
 		$dependencyLoader = new UploadWizardDependencyLoader();
 		$dependencyLoader->writeOptimizedFiles();

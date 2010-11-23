@@ -15,7 +15,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 	// $request is the request (usually wgRequest)
 	// $par is everything in the URL after Special:UploadWizard. Not sure what we can use it for
-	public function __construct( $request=null, $par=null ) {
+	public function __construct( $request = null, $par = null ) {
 		global $wgRequest;
 		// here we would configure ourselves based on stuff in $request and $wgRequest, but so far, we
 		// don't have such things
@@ -26,21 +26,21 @@ class SpecialUploadWizard extends SpecialPage {
 		// at some point, if we completely subsume its functionality, change that to point here again,
 	 	// but then we'll need to process non-JS uploads in the same way Special:Upload does.
 		$this->simpleForm = new UploadWizardSimpleForm();
-		$this->simpleForm->setTitle( 
+		$this->simpleForm->setTitle(
 			SpecialPage::getTitleFor( 'Upload' )
 		);
 	}
 
 	/**
 	 * Replaces default execute method
-	 * Checks whether uploading enabled, user permissions okay, 
-	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo. 
+	 * Checks whether uploading enabled, user permissions okay,
+	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
 		global $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
 		       $wgUploadWizardDebug, $wgUploadWizardDisableResourceLoader;
 
-		// side effects: if we can't upload, will print error page to wgOut 
+		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
 		if ( !( $this->isUploadAllowed() && $this->isUserUploadAllowed( $wgUser ) ) ) {
 			return;
@@ -56,10 +56,10 @@ class SpecialUploadWizard extends SpecialPage {
 		$wgOut->addHTML( '</noscript>' );
 
 
-		// global javascript variables	
+		// global javascript variables
 		$this->addJsVars( $subPage );
-		
-		// dependencies (css, js)	
+
+		// dependencies (css, js)
 		if ( !$wgUploadWizardDisableResourceLoader && class_exists( 'ResourceLoader' ) ) {
 			$wgOut->addModules( 'ext.uploadWizard' );
 		} else {
@@ -73,11 +73,11 @@ class SpecialUploadWizard extends SpecialPage {
 				$dependencyLoader->outputHtml( $wgOut, $basepath );
 			}
 		}
-		
+
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
 		$wgOut->addHTML( self::getWizardHtml() );
- 	
+
 	}
 
 	/**
@@ -119,7 +119,7 @@ class SpecialUploadWizard extends SpecialPage {
 		global $wgOut, $wgEnableAPI;
 
 		// Check uploading enabled
-		if( !UploadBase::isEnabled() ) {
+		if ( !UploadBase::isEnabled() ) {
 			$wgOut->showErrorPage( 'uploaddisabled', 'uploaddisabledtext' );
 			return false;
 		}
@@ -127,17 +127,17 @@ class SpecialUploadWizard extends SpecialPage {
 		// XXX does wgEnableAPI affect all uploads too?
 
 		// Check whether we actually want to allow changing stuff
-		if( wfReadOnly() ) {
+		if ( wfReadOnly() ) {
 			$wgOut->readOnlyPage();
 			return false;
-		}	
+		}
 
 		// we got all the way here, so it must be okay to upload
 		return true;
 	}
 
 	/**
-	 * Check if the user can upload 
+	 * Check if the user can upload
 	 * Side effect: will print error page to wgOut if cannot upload.
 	 * @param User
 	 * @return boolean -- true if can upload
@@ -145,8 +145,8 @@ class SpecialUploadWizard extends SpecialPage {
 	private function isUserUploadAllowed( $user ) {
 		global $wgOut, $wgGroupPermissions;
 
-		if( !$user->isAllowed( 'upload' ) ) {
-			if( !$user->isLoggedIn() && ( $wgGroupPermissions['user']['upload']
+		if ( !$user->isAllowed( 'upload' ) ) {
+			if ( !$user->isLoggedIn() && ( $wgGroupPermissions['user']['upload']
 				|| $wgGroupPermissions['autoconfirmed']['upload'] ) ) {
 				// Custom message if logged-in users without any special rights can upload
 				$wgOut->showErrorPage( 'uploadnologin', 'uploadnologintext' );
@@ -157,7 +157,7 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		// Check blocks
-		if( $user->isBlocked() ) {
+		if ( $user->isBlocked() ) {
 			$wgOut->blockedPage();
 			return false;
 		}
@@ -167,7 +167,7 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 
 	/**
-	 * Return the basic HTML structure for the entire page 
+	 * Return the basic HTML structure for the entire page
 	 * Will be enhanced by the javascript to actually do stuff
 	 * @return {String} html
 	 */
@@ -178,23 +178,23 @@ class SpecialUploadWizard extends SpecialPage {
 
 		    // the arrow steps
 		.   '<ul id="mwe-upwiz-steps">'
-		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMsg('mwe-upwiz-step-tutorial') . '</div></li>'
-		.     '<li id="mwe-upwiz-step-file"><div>' . wfMsg('mwe-upwiz-step-file') . '</div></li>'
-		.     '<li id="mwe-upwiz-step-deeds"><div>'  . wfMsg('mwe-upwiz-step-deeds')  . '</div></li>'
-		.     '<li id="mwe-upwiz-step-details"><div>'  . wfMsg('mwe-upwiz-step-details')  . '</div></li>'
-		.     '<li id="mwe-upwiz-step-thanks"><div>'   . wfMsg('mwe-upwiz-step-thanks')  .  '</div></li>'
+		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMsg( 'mwe-upwiz-step-tutorial' ) . '</div></li>'
+		.     '<li id="mwe-upwiz-step-file"><div>' . wfMsg( 'mwe-upwiz-step-file' ) . '</div></li>'
+		.     '<li id="mwe-upwiz-step-deeds"><div>'  . wfMsg( 'mwe-upwiz-step-deeds' )  . '</div></li>'
+		.     '<li id="mwe-upwiz-step-details"><div>'  . wfMsg( 'mwe-upwiz-step-details' )  . '</div></li>'
+		.     '<li id="mwe-upwiz-step-thanks"><div>'   . wfMsg( 'mwe-upwiz-step-thanks' )  .  '</div></li>'
 		.   '</ul>'
 
 		    // the individual steps, all at once
 		.   '<div id="mwe-upwiz-content">'
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
-		.       '<div id="mwe-upwiz-tutorial">' 
+		.       '<div id="mwe-upwiz-tutorial">'
 		.  	   UploadWizardTutorial::getHtml()
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.          '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next" )  . '</button>'
-		.       '</div>'		
+		.       '</div>'
 		.     '</div>'
 
 		.     '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file">'
@@ -202,7 +202,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.	  '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
 		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">'
 		.            '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
-		.              '<button id="mwe-upwiz-add-file">' . wfMsg("mwe-upwiz-add-file-0") . '</button>'
+		.              '<button id="mwe-upwiz-add-file">' . wfMsg( "mwe-upwiz-add-file-0" ) . '</button>'
 		.  	     '</div>'
 		.	     '<div id="mwe-upwiz-upload-ctrl-container">'
 		.		'<button id="mwe-upwiz-upload-ctrl">' . wfMsg( "mwe-upwiz-upload" ) . '</button>'
@@ -212,17 +212,17 @@ class SpecialUploadWizard extends SpecialPage {
 		.         '<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>'
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
-		.	   '<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">' 
-		.             wfMsg( "mwe-upwiz-file-all-ok" )   
+		.	   '<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">'
+		.             wfMsg( "mwe-upwiz-file-all-ok" )
 		.             '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-file" )  . '</button>'
 		.          '</div>'
-		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">' 
-		.             wfMsg( "mwe-upwiz-file-some-failed" )   
+		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
+		.             wfMsg( "mwe-upwiz-file-some-failed" )
 		.             '<button class="mwe-upwiz-button-retry">' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
 		.             '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-file-despite-failures" )  . '</button>'
 		.          '</div>'
-		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">' 
-		.             wfMsg( "mwe-upwiz-file-all-failed" )   
+		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
+		.             wfMsg( "mwe-upwiz-file-all-failed" )
 		.             '<button class="mwe-upwiz-button-retry"> ' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
 		.          '</div>'
 		.       '</div>'
@@ -241,8 +241,8 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details">'
 		.       '<div id="mwe-upwiz-macro">'
 		.         '<div id="mwe-upwiz-macro-progress" class="ui-helper-clearfix"></div>'
-		.         '<div id="mwe-upwiz-macro-choice">' 
-		.    	 '<div>' . wfMsg( 'mwe-upwiz-details-intro' ) . '</div>' 
+		.         '<div id="mwe-upwiz-macro-choice">'
+		.    	 '<div>' . wfMsg( 'mwe-upwiz-details-intro' ) . '</div>'
 		.         '</div>'
 		.         '<div id="mwe-upwiz-macro-files"></div>'
 		.       '</div>'
@@ -265,7 +265,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		. '</div>';
 	}
- 
+
 }
 
 
