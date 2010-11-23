@@ -93,7 +93,9 @@ mw.IframeTransport.prototype = {
 			// because IE does not load JSON properly in an iframe
 			json = $j( doc.body ).find( 'pre' ).text();
 			mw.log( 'iframe:json::' + json );
-			if ( json ) {
+			// check that the JSON is not an XML error message 
+			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
+			if ( json && json.substring(0, 5) !== '<?xml' ) {
 				response = window["eval"]( "( " + json + " )" );
 			} else {
 				response = {};

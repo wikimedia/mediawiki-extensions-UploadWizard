@@ -27,6 +27,7 @@ form.mwe-upwiz-form {
 
 #mwe-upwiz-steps li {
 	color: #666666;
+	font-size: 1.2em;
 	margin-right: -1px;
 }
 
@@ -50,10 +51,11 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-add-files-0 {
 	text-align: center;
-	font-size: large;
 }
 
-#mwe-upwiz-add-file {
+.mwe-upwiz-add-files-0 #mwe-upwiz-add-file {
+	font-size: large;
+	padding: 1em;
 }
 
 /* NOT a pseudoclass */
@@ -62,7 +64,7 @@ form.mwe-upwiz-form {
 }
 
 /* perhaps a general class for links that are actually "buttons" */
-#mwe-upwiz-add-file, .mwe-upwiz-more-options {
+#mwe-upwiz-add-file, .mwe-upwiz-more-options, #mwe-upwiz-upload-ctrl {
 	outline: none;
 	cursor: pointer;
 }
@@ -160,16 +162,20 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-add-files-n {
 	float: left;
-	margin-top: 5px;
-	margin-left: 4px;
 }
 
 #mwe-upwiz-add-file-container.mwe-upwiz-add-files-n, .mwe-upwiz-progress-bar-etr {
 	width: 300px;
-	padding-left: 5px;
 }
 
+#mwe-upwiz-upload-ctrl-container {
+	float: right;
+	display: none;
+}
 
+#mwe-upwiz-upload-ctrl:hover {
+	text-decoration: none;
+}
 #mwe-upwiz-add-file-container.mwe-upwiz-add-files-n {
 	float: left;
 }
@@ -208,6 +214,22 @@ form.mwe-upwiz-form {
 #mwe-upwiz-upload-ctrls {
 	margin-top: 1em;
 }
+
+#mwe-upwiz-upload-ctrls button, .mwe-upwiz-buttons button {
+	padding: 0.25em 0.75em;
+	font-size: 1em;
+}
+
+#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons {
+	display: none;
+}
+
+#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice {
+	display: none;
+}
+
+
+
 
 #mwe-upwiz-add-file-container {
 	/* empty; this changes a lot */	
@@ -589,3 +611,13 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 .ui-datepicker-current-day a.ui-state-active {
 	background: #ffff99;
 }
+
+#upload-wizard .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; }
+#upload-wizard .ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; }
+#upload-wizard .ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; }
+#upload-wizard .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+#upload-wizard .ui-corner-top { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; }
+#upload-wizard .ui-corner-bottom { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+#upload-wizard .ui-corner-right {  -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+#upload-wizard .ui-corner-left { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; }
+#upload-wizard .ui-corner-all { -moz-border-radius: 4px; -webkit-border-radius: 4px; }

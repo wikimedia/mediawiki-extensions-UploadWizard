@@ -52,6 +52,7 @@ mw.UploadWizardUpload.prototype = {
 	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from 
 	 */
 	remove: function() {
+		this.state = 'aborted';
 		if ( this.details && this.details.div ) {
 			this.details.div.remove(); 
 		}
@@ -93,6 +94,9 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	setTransported: function( result ) {
 		var _this = this;
+		if ( _this.state == 'aborted' ) {
+			return;
+		}
 
 		if ( result.upload && result.upload.imageinfo ) {
 			// success
@@ -304,10 +308,11 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>')
 				.change( function() { _this.fileChanged(); } );
 
+	_this.$indicator = $j( '<div class="mwe-upwiz-file-indicator"></div>' );
 
 	visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
-		.append(   '<div class="mwe-upwiz-file-indicator"></div>' 
-			 + '<div class="mwe-upwiz-visible-file-filename">'
+		.append( _this.$indicator )
+		.append( '<div class="mwe-upwiz-visible-file-filename">'
 			   + '<div class="mwe-upwiz-file-preview"/>'
 			   + '<div class="mwe-upwiz-file-texts">'
 			   +   '<div class="mwe-upwiz-visible-file-filename-text"/>' 
@@ -393,16 +398,22 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */ 
 	showIndicator: function( statusClass ) {
-		var $indicator = $j( this.div ).find( '.mwe-upwiz-file-indicator' );
-		// remove any other such classes
-		$j.each( $indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
+		this.clearIndicator();
+		// add the desired class and make it visible, if it wasn't already.
+		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
+			       .css( 'visibility', 'visible' ); 
+	},
+
+	/**
+	 * Reset the graphic indicator 
+	 */
+	clearIndicator: function() { 
+		var _this = this;
+		$j.each( _this.$indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
 			if ( className.match( /^mwe-upwiz-status/ ) ) {
-				$indicator.removeClass( className );
+				_this.$indicator.removeClass( className );
 			}
 		} );
-		// add the desired class and make it visible, if it wasn't already.
-		$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
-			  .css( 'visibility', 'visible' ); 
 	},
 
 	/**
@@ -513,12 +524,14 @@ mw.UploadWizardUploadInterface.prototype = {
 			.width( $covered.outerWidth() )
 			.height( $covered.outerHeight() ); 
 
+		this.fileCtrlContainer.css( { 'z-index': 1 } );
+
 		// shift the file input over with negative margins, 
 		// internal to the overflow-containing div, so the div shows all button
 		// and none of the textfield-like input
 		this.$fileInputCtrl.css( {
 			'margin-left': '-' + ~~( this.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
-			'margin-top' : '-' + ~~( this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
+			'margin-top' : '-' + ~~( this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px',
 		} );
 
 
@@ -1550,35 +1563,41 @@ mw.UploadWizard.prototype = {
 	createInterface: function( selector ) {
 		var _this = this;
 
+		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
 			.arrowSteps();
- 
-		$j( '.mwe-upwiz-button-home' )
-			.append( gM( 'mwe-upwiz-home' ) )
-			.click( function() { window.location.href = '/'; } );
-		
+
+		// make all stepdiv proceed buttons into jquery buttons
+		$j( '.mwe-upwiz-stepdiv .mwe-upwiz-buttons button' )
+			.button()
+			.css( { 'margin-left': '1em' } );
+
+	
 		$j( '.mwe-upwiz-button-begin' )
-			.append( gM( 'mwe-upwiz-upload-another' ) )
 			.click( function() { _this.reset(); } );
-		
+	
+		$j( '.mwe-upwiz-button-home' )
+			.click( function() { window.location.href = '/'; } );
+	
 		// handler for next button
 		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next') 
-			.append( gM( 'mwe-upwiz-next' ) )
 			.click( function() {
 				_this.moveToStep( 'file', function() { 
 					// we explicitly move the file input at this point 
 					// because it was probably jumping around due to other "steps" on this page during file construction.
 					// XXX using a timeout is lame, are there other options?
 					// XXX Trevor suggests that using addClass() may queue stuff unnecessarily; use 'concrete' HTML
-					setTimeout( function() {	
+					setTimeout( function() {
 						upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
 					}, 300 );
 				} );
 			} );
 
-		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-button-next')
-			.append( gM( 'mwe-upwiz-next-file' ) )
+		$j( '#mwe-upwiz-add-file' ).button();
+
+		$j( '#mwe-upwiz-upload-ctrl' )
+			.button()
 			.click( function() {
 				// check if there is an upload at all (should never happen)
 				if ( _this.uploads.length === 0 ) {
@@ -1588,19 +1607,24 @@ mw.UploadWizard.prototype = {
 				}
 
 				_this.removeEmptyUploads();
-				_this.startUploads( function() {  
-					// okay all uploads are done, we may be ready to go to the next step
-					alert( "hey, uploads are done");	
-
-				} );
+				_this.startUploads();
 			} );
+
+		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-next' ).click( function() {
+			_this.removeErrorUploads();
+			_this.prepareAndMoveToDeeds();
+		} ); 
+		$j ( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
+			_this.hideFileEndButtons();	
+			_this.startUploads();
+		} );
+
 
 		// DEEDS div
 
 		$j( '#mwe-upwiz-deeds-intro' ).html( gM( 'mwe-upwiz-deeds-intro' ) );
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
-			.append( gM( 'mwe-upwiz-next-deeds' ) )
 			.click( function() {
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
@@ -1633,7 +1657,6 @@ mw.UploadWizard.prototype = {
 		// DETAILS div
 
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
-			.append( gM( 'mwe-upwiz-next-details' ) )
 			.click( function() {
 				if ( _this.detailsValid() ) { 
 					_this.detailsSubmit( function() { 
@@ -1658,6 +1681,7 @@ mw.UploadWizard.prototype = {
 
 	// do some last minute prep before advancing to the DEEDS page
 	prepareAndMoveToDeeds: function() {
+		var _this = this;
 
 		// these deeds are standard
 		var deeds = [
@@ -1827,24 +1851,55 @@ mw.UploadWizard.prototype = {
 		});
 	},
 
+
+	/** 
+	 * Hide the button choices at the end of the file step.
+	 */
+	hideFileEndButtons: function() {
+		$j( '#mwe-upwiz-stepdiv .mwe-upwiz-buttons' ).hide();
+		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
+	},
+
 	/**
 	 * This is useful to clean out unused upload file inputs if the user hits GO.
 	 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
 	 */
 	removeEmptyUploads: function() {
-		var _this = this;
+		this.removeMatchingUploads( function( upload ) {
+			return mw.isEmpty( upload.ui.$fileInputCtrl.val() );
+		} );
+	},
+
+	/**
+	 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
+	 */
+	removeErrorUploads: function() {
+		this.removeMatchingUploads( function( upload ) {
+			return upload.state === 'error';
+		} );
+	},
+
+
+	/**
+	 * This is useful to clean out file inputs that we don't want for some reason (error, empty...)
+	 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
+	 * @param Function criterion: function to test the upload, returns boolean; true if should be removed
+	 */
+	removeMatchingUploads: function( criterion ) {
 		var toRemove = [];
 
-		for ( var i = 0; i < _this.uploads.length; i++ ) {
-			if ( mw.isEmpty( _this.uploads[i].ui.$fileInputCtrl.val() ) ) {
-				toRemove.push( _this.uploads[i] );
+		$j.each( this.uploads, function( i, upload ) { 
+			if ( criterion( upload ) ) {
+				toRemove.push( upload );
 			}
-		}
+		} );
 
-		for ( var j = 0; j < toRemove.length; j++ ) {
-			toRemove[j].remove();
-		}
+		$j.each( toRemove, function( i, upload ) {
+			upload.remove();
+		} )
 	},
+
+
 
 	/**
 	 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
@@ -1870,7 +1925,7 @@ mw.UploadWizard.prototype = {
 				} else if ( ( upload.state == beginState ) && ( uploadsToStart > 0 ) ) {
 					starter( upload );
 					uploadsToStart--;
-				}
+				} 
 			} );
 
 			// build in a little delay even for the end state, so user can see progress bar in a complete state.
@@ -1891,17 +1946,28 @@ mw.UploadWizard.prototype = {
 	 * and kicks off a thread which will take from the queue.
 	 * @param endCallback   - to execute when uploads are completed
 	 */
-	startUploads: function( endCallback ) {
+	startUploads: function() {
 		var _this = this;
+
 		// remove the upload button, and the add file button
 		$j( '#mwe-upwiz-upload-ctrls' ).hide();
+		_this.hideFileEndButtons();
 		$j( '#mwe-upwiz-add-file' ).hide();
+
+		// reset any uploads in error state back to be shiny & new
+		$j.each( _this.uploads, function( i, upload ) { 
+			if ( upload.state === 'error' ) {
+				upload.state = 'new';
+				upload.ui.clearIndicator();
+				upload.ui.clearStatus();
+			}
+		} );
 
 		var allowCloseWindow = $j().preventCloseWindow( { 
 			message: gM( 'mwe-prevent-close')
 		} );
 
-
+		$j( '#mwe-upwiz-progress' ).show();
 		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress', 
 						           gM( 'mwe-upwiz-uploading' ), 
 						           _this.uploads,
@@ -1911,46 +1977,89 @@ mw.UploadWizard.prototype = {
 							   'transportWeight' );
 		progressBar.start();
 		
-
 		// remove ability to change files
 		// ideally also hide the "button"... but then we require styleable file input CSS trickery
 		// although, we COULD do this just for files already in progress...
 
 		// it might be interesting to just make this creational -- attach it to the dom element representing 
 		// the progress bar and elapsed time	
+
 		_this.makeTransitioner( 
 			'new', 
 			[ 'transporting', 'transported', 'metadata' ],
-			[ 'error', 'verified' ], 
+			[ 'error', 'stashed' ], 
 			function( upload ) {
 				upload.start();
 			},
 		        function() {
 				allowCloseWindow();
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
-				endCallback();
+				_this.showFileNext();
 		  	} 
 		);
 	},
 
-	
+	/**	
+ 	 * Figure out what to do and what options to show after the uploads have stopped.
+	 * Uploading has stopped for one of the following reasons:
+	 * 1) The user removed all uploads before they completed, in which case we are at upload.length === 0. We should start over and allow them to add new ones
+	 * 2) All succeeded - show link to next step
+	 * 3) Some failed, some succeeded - offer them the chance to retry the failed ones or go on to the next step 
+	 * 4) All failed -- have to retry, no other option
+	 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but 
+	 * we trust that this hasn't happened.
+	 */
+	showFileNext: function() {
+		if ( this.uploads.length === 0 ) {
+			this.updateFileCounts();
+			$j( '#mwe-upwiz-progress' ).hide();
+			$j( '#mwe-upwiz-upload-ctrls' ).show();
+			$j( '#mwe-upwiz-add-file' ).show();
+			return;
+		}
+		var errorCount = 0;
+		var stashedCount = 0;
+		$j.each( this.uploads, function( i, upload ) {
+			if ( upload.state === 'error' ) {
+				errorCount++;
+			} else if ( upload.state === 'stashed' ) {
+				stashedCount++;	
+			} else {
+				mw.log( "upload " + i + " not in appropriate state for filenext: " + upload.state );
+			}
+		} );
+		var selector = null;
+		if ( stashedCount === this.uploads.length ) {
+			selector = '.mwe-upwiz-file-next-all-ok';
+		} else if ( errorCount === this.uploads.length ) {
+			selector = '.mwe-upwiz-file-next-all-failed';
+		} else {
+			selector = '.mwe-upwiz-file-next-some-failed';
+		}
+
+		// perhaps the button should slide down?
+		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show().find( selector ).show();
+
+	},	
 	
 	/**
 	 * Occurs whenever we need to update the interface based on how many files there are 
 	 * Thhere is an uncounted upload, waiting to be used, which has a fileInput which covers the
 	 * "add an upload" button. This is absolutely positioned, so it needs to be moved if another upload was removed.
 	 * The uncounted upload is also styled differently between the zero and n files cases
+	 *
+	 * TODO in the case of aborting the only upload, we get kicked back here, but the file input over the add file
+	 * button has been removed. How to get it back into "virginal" state?
 	 */
 	updateFileCounts: function() {
 		var _this = this;
 
 		if ( _this.uploads.length ) {
 			// we have uploads ready to go, so allow us to proceed
-			$j( '#mwe-upwiz-upload-ctrl' ).removeAttr( 'disabled' ); 
-			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
+			$j( '#mwe-upwiz-upload-ctrl-container' ).show();
 
 			// changes the "click here to add files" to "add another file"
-			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-n' ) );
+			$j( '#mwe-upwiz-add-file span' ).html( gM( 'mwe-upwiz-add-file-n' ) );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-n');
 
@@ -1966,7 +2075,8 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-filelist .filled:even' ).removeClass( 'odd' );
 		} else {
 			// no uploads, so don't allow us to proceed
-			$j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
+			// $j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
+			$j( '#mwe-upwiz-upload-ctrl-container' ).hide();
 
 			// remove the border from the filelist. We can't hide it or make it invisible since it contains the displaced
 			// file input element that becomes the "click here to add"
