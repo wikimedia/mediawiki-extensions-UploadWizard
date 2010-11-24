@@ -12009,8 +12009,6 @@ mw.UploadWizard.prototype = {
 
 		// DEEDS div
 
-		$j( '#mwe-upwiz-deeds-intro' ).html( gM( 'mwe-upwiz-deeds-intro' ) );
-
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
 			.click( function() {
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
