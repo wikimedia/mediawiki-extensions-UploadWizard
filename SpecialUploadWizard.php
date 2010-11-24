@@ -229,7 +229,6 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '</div>'
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds">'
-		.       '<div id="mwe-upwiz-deeds-intro"></div>'
 		.       '<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
@@ -242,7 +241,6 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '<div id="mwe-upwiz-macro">'
 		.         '<div id="mwe-upwiz-macro-progress" class="ui-helper-clearfix"></div>'
 		.         '<div id="mwe-upwiz-macro-choice">'
-		.    	 '<div>' . wfMsg( 'mwe-upwiz-details-intro' ) . '</div>'
 		.         '</div>'
 		.         '<div id="mwe-upwiz-macro-files"></div>'
 		.       '</div>'
