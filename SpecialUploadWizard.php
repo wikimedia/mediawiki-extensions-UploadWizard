@@ -85,10 +85,8 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgUser, $wgOut;
-		global $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI;
-		global $wgEnableFirefogg, $wgFileExtensions;
-		global $wgUploadWizardDebug;
+		global $wgUser, $wgOut, $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI,
+		       $wgEnableFirefogg, $wgFileExtensions,$wgUploadWizardDebug, $wgSitename;
 
 		$wgOut->addScript( Skin::makeVariablesScript( array(
 			'wgUploadWizardDebug' => (bool)$wgUploadWizardDebug,
@@ -101,10 +99,12 @@ class SpecialUploadWizard extends SpecialPage {
 			// what is acceptable in this wiki
 			'wgFileExtensions' => $wgFileExtensions,
 
-			'wgSubPage' => $subPage
+			'wgSubPage' => $subPage,
 
 			// XXX need to have a better function for testing viability of a filename
 			// 'wgFilenamePrefixBlacklist' => UploadBase::getFilenamePrefixBlacklist()
+
+			'wgSitename' => $wgSitename
 
 		) ) );
 

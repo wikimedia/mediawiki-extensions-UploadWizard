@@ -1,6 +1,9 @@
 /*
  * This script is run on [[Special:UploadWizard]].
- * Creates an interface for uploading files in multiple steps, hence "wizard"
+ * Configures and creates an interface for uploading files in multiple steps, hence "wizard".
+ *
+ * Tries to transform Javascript globals dumped on us by the SpecialUploadWizard.php into a more 
+ * compact configuration, owned by the UploadWizard created.
  */
 
 // create UploadWizard
@@ -78,7 +81,10 @@ mw.UploadWizardPage = function() {
 }
 
 jQuery( document ).ready( function() {
-	// sets up plural and so on. Seems like a bad design to have to do this, though.
+	// add "magic" to Language template parser for keywords
+	mw.addTemplateTransform( { 'SITENAME' : function() { return wgSitename; } } );
+	
+	// sets up plural "magic" and so on. Seems like a bad design to have to do this, though.
 	mw.Language.magicSetup();
 	
 	// show page. 
