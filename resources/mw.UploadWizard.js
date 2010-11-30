@@ -234,6 +234,10 @@ mw.UploadWizardUpload.prototype = {
 				var thumbnails = data.query.stashimageinfo;
 				for ( var i = 0; i < thumbnails.length; i++ ) {
 					var thumb = thumbnails[i];
+					if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
+						mw.log( "thumbnail missing information" );
+						// XXX error
+					}
 					var image = document.createElement( 'img' );
 					$j( image ).load( function() {
 						callback( image );
