@@ -920,6 +920,9 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			.find( 'input' )
 			.mwCoolCats( { buttontext: gM( 'mwe-upwiz-categories-add' ) } );
 
+	// add hidden category for stats purposes
+	$categoriesDiv.find( 'ul.cat-list' ).append( $j( '<li style="display: none;"><a class="cat">Uploaded with UploadWizard</a></li>' ) );
+
 };
 
 mw.UploadWizardDetails.prototype = {
