@@ -7478,7 +7478,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	mw.getMsg = function( messageKey , args ) {		
 
 		// Check for missing message key
-		if ( ! messageCache[ messageKey ] ) {
+		if ( ! messageCache[ messageKey ] && 'msg' in mediaWiki ) {
 			// Try the ResourceLoader's message store
 			// FIXME: The two message stores should be unified in the future
 			var rlMsg = mediaWiki.msg( messageKey );
