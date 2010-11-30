@@ -36,7 +36,7 @@ mw.UploadWizardPage = function() {
 		maxDescriptionLength: 4096,
 		minDescriptionLength: 5,
 		maxOtherInformationLength: 4096,
-		maxSimultaneousConnections: 2,
+		maxSimultaneousConnections: 1,
 		maxUploads: 10,
 
 		// not for use with all wikis. 
