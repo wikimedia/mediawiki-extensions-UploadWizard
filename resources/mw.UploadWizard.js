@@ -1390,7 +1390,7 @@ mw.UploadWizardDetails.prototype = {
 
 		wikiText += "=={{int:filedesc}}==\n";
 
-		wikiText += '{{Information\n' + info + '}}\n';
+		wikiText += '{{Information\n' + info + '}}\n\n';
 
 		// add a location template if possible
 
@@ -1398,14 +1398,14 @@ mw.UploadWizardDetails.prototype = {
 		var otherInfoWikiText = $j( _this.otherInformationInput ).val().trim();
 		if ( ! mw.isEmpty( otherInfoWikiText ) ) {
 			wikiText += "=={{int:otherinfo}}==\n";
-			wikiText += otherInfoWikiText;
+			wikiText += otherInfoWikiText + "\n\n";
 		}
 		
 		wikiText += "=={{int:license-header}}==\n";
 		
 		// in the other implementations, category text follows immediately after license text. This helps 
 		// group categories together, maybe?
-		wikiText += deed.getLicenseWikiText() + _this.div.find( '.categoryInput' ).get(0).getWikiText();
+		wikiText += deed.getLicenseWikiText() + _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
 		
 
 		return wikiText;	
