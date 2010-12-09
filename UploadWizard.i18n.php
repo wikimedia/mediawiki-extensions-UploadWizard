@@ -1671,11 +1671,15 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Silvonen
+ * @author Tofu II
  */
 $messages['fi'] = array(
 	'mwe-upwiz-code-unknown' => 'Tuntematon kieli',
+	'mwe-upwiz-add-file-n' => 'Lisää toinen tiedosto',
+	'mwe-upwiz-transport-started' => 'Aloitetaan...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'OK',
+	'mwe-upwiz-editing' => 'Muokataan...',
 	'mwe-upwiz-remove-description' => 'Poista tämä kuvaus',
 	'mwe-upwiz-finished' => 'Päättynyt!',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
@@ -1684,12 +1688,16 @@ $messages['fi'] = array(
 	'mwe-upwiz-filename-tag' => 'Tiedostonimi:',
 	'mwe-upwiz-showall' => 'näytä kaikki',
 	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => 'Peruuta',
 	'mwe-upwiz-thumbnail-more' => 'Suurenna',
 	'mwe-upwiz-overwrite' => 'Korvaa tiedosto',
 	'mwe-upwiz-next' => 'Seuraava',
 	'mwe-upwiz-next-deeds' => 'Seuraava',
 	'mwe-upwiz-next-details' => 'Seuraava',
+	'mwe-upwiz-license-show-all-any-license' => 'Lisää vaihtoehtoja',
+	'mwe-upwiz-license-show-all' => 'Käytä eri lisenssiä',
 	'mwe-upwiz-error-blank' => 'Tämä kenttä on pakollinen.',
+	'mwe-upwiz-categories' => 'Kategoriat',
 );
 
 /** French (Français)
