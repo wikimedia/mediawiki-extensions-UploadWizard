@@ -208,6 +208,7 @@ Please do not use wikitext or HTML here.',
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Guillom
  * @author Kghbln
  * @author Lloffiwr
  * @author McDutchie
@@ -223,7 +224,7 @@ $messages['qqq'] = array(
 	'mwe-upwiz-remove' => '{{Identical|Remove}}',
 	'mwe-upwiz-upload' => '{{Identical|Upload}}',
 	'mwe-upwiz-source-thirdparty-accept' => '{{Identical|OK}}',
-	'mwe-upwiz-desc' => 'Apparently this is followed by a language name (or language selector)',
+	'mwe-upwiz-desc' => 'This is followed by a language name in a drop-down language selector.',
 	'mwe-upwiz-title' => '{{Identical|Title}}',
 	'mwe-upwiz-location' => '{{Identical|Location}}',
 	'mwe-upwiz-license' => '',
@@ -6197,6 +6198,7 @@ $messages['wuu'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Hydra
  * @author Wmr89502270
  */
 $messages['zh-hans'] = array(
@@ -6204,6 +6206,7 @@ $messages['zh-hans'] = array(
 	'uploadwizard-desc' => '上传精灵的开发是供多媒体可用性发展',
 	'mwe-loading-upwiz' => '上传精灵载入中...',
 	'mwe-upwiz-code-unknown' => '未知的语言',
+	'mwe-upwiz-step-tutorial' => '学',
 	'mwe-upwiz-step-file' => '上载',
 	'mwe-upwiz-step-deeds' => '发布权',
 	'mwe-upwiz-step-details' => '描述',
@@ -6211,14 +6214,21 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-add-file-n' => '添加另一个文件',
 	'mwe-upwiz-add-file-0' => '点击这里上载文件',
 	'mwe-upwiz-browse' => '浏览 ...',
+	'mwe-upwiz-transport-started' => '正在开始',
 	'mwe-upwiz-uploading' => '上传中 ...',
 	'mwe-upwiz-transported' => '确定',
 	'mwe-upwiz-stashed-upload' => '确定',
+	'mwe-upwiz-failed' => '失败',
 	'mwe-upwiz-click-here' => '点击这里选择一个文件',
 	'mwe-upwiz-editing' => '编辑中 ...',
+	'mwe-upwiz-remove' => '拿掉',
 	'mwe-upwiz-remove-upload' => '从上传的文件列表中删除此文件',
 	'mwe-upwiz-remove-description' => '删除此说明',
 	'mwe-upwiz-upload' => '上载',
+	'mwe-upwiz-file-all-ok' => '所有上载都成功！',
+	'mwe-upwiz-file-some-failed' => '一些上载失败。',
+	'mwe-upwiz-file-retry' => '重试失败的上载',
+	'mwe-upwiz-file-all-failed' => '没有一个上载成功。',
 	'mwe-upwiz-upload-count' => '在$2{{PLURAL:$2|个|个}}档案之中，$1个档案已上传',
 	'mwe-upwiz-progressbar-uploading' => '上传中',
 	'mwe-upwiz-finished' => '完成！',
