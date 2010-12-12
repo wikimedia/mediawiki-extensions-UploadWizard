@@ -3498,6 +3498,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-api-error-unknown-error' => 'Beim Versuch fir Äre Fichier eropzelueden ass eppes schif gaang',
 	'mwe-upwiz-api-error-overwrite' => "D'Iwwerschreiwe vun engem Fichier ass net erlaabt.",
 	'mwe-upwiz-api-error-fetchfileerror' => 'Beim Opruffe vum Fichier huet eppes net fonctionnéiert.',
+	'mwe-upwiz-api-warning-duplicate' => 'Et gëtt schonn en anere Fichier op dem selwechten Inhalt op der Wiki',
 	'mwe-upwiz-api-warning-exists' => 'Et gëtt op der Wiki schonn e Fichier mat dem selwechten Numm',
 	'mwe-upwiz-help-desk' => 'Helpdesk',
 	'mwe-upwiz-add-file-n' => 'En anere Fichier derbäisetzen',
