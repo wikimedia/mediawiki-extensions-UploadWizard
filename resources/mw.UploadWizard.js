@@ -1397,7 +1397,6 @@ mw.UploadWizardDetails.prototype = {
 		// add an "anything else" template if needed
 		var otherInfoWikiText = $j( _this.otherInformationInput ).val().trim();
 		if ( ! mw.isEmpty( otherInfoWikiText ) ) {
-			wikiText += "=={{int:otherinfo}}==\n";
 			wikiText += otherInfoWikiText + "\n\n";
 		}
 		
