@@ -3506,6 +3506,14 @@ $messages['kn'] = array(
 	'mwe-upwiz-categories-add' => 'ಸೇರಿಸು',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'uploadwizard' => '파일 올리기 마법사',
+	'mwe-upwiz-step-tutorial' => '알아보기',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
