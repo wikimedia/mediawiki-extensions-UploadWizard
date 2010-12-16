@@ -63,9 +63,9 @@
 		_processInput();
 	});
 	
-	function _processInput() {
+	function _processInput() {	
 		var $input = $container.find( 'input' );
-		_insertCat( $input.val().trim() );
+		_insertCat( $j.trim( $input.val() ) );
 		$input.val("");
 	}
 

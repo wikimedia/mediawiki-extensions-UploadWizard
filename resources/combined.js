@@ -6360,9 +6360,9 @@ $.fn.suggestions = function() {
 		_processInput();
 	});
 	
-	function _processInput() {
+	function _processInput() {	
 		var $input = $container.find( 'input' );
-		_insertCat( $input.val().trim() );
+		_insertCat( $j.trim( $input.val() ) );
 		$input.val("");
 	}
 
@@ -11072,13 +11072,13 @@ mw.UploadWizardDescription.prototype = {
 	 */
 	getWikiText: function() {
 		var _this = this;
-		var description = $j( _this.input ).val().trim();
+		var description = $j.trim( $j( _this.input ).val() );
 		// we assume that form validation has caught this problem if this is a required field
 		// if not, assume the user is trying to blank a description in another language
 		if ( description.length === 0 ) {	
 			return '';
 		}
-		var language = $j( _this.languageMenu ).val().trim();
+		var language = $j.trim( $j( _this.languageMenu ).val() );
 		var fix = mw.UploadWizard.config[ "languageTemplateFixups" ];
 		if (fix[language]) {
 			language = fix[language];
@@ -11583,7 +11583,7 @@ mw.UploadWizardDetails.prototype = {
 		$j.each([metadata.datetimeoriginal, metadata.datetimedigitized, metadata.datetime, metadata['date']], 
 			function( i, imageinfoDate ) {
 				if ( ! mw.isEmpty( imageinfoDate ) ) {
-					var matches = imageinfoDate.trim().match( yyyyMmDdRegex );   
+					var matches = $j.trim( imageinfoDate ).match( yyyyMmDdRegex );   
 					if ( ! mw.isEmpty( matches ) ) {
 						dateObj = new Date( parseInt( matches[1], 10 ), 
 								    parseInt( matches[2], 10 ) - 1, 
@@ -11760,7 +11760,7 @@ mw.UploadWizardDetails.prototype = {
 		} );	
 
 		// XXX add a sanity check here for good date
-		information['date'] = $j( _this.dateInput ).val().trim();
+		information['date'] = $j.trim( $j( _this.dateInput ).val() );
 
 		var deed = _this.upload.deedChooser.deed;
 
@@ -11780,7 +11780,7 @@ mw.UploadWizardDetails.prototype = {
 		// add a location template if possible
 
 		// add an "anything else" template if needed
-		var otherInfoWikiText = $j( _this.otherInformationInput ).val().trim();
+		var otherInfoWikiText = $j.trim( $j( _this.otherInformationInput ).val() );
 		if ( ! mw.isEmpty( otherInfoWikiText ) ) {
 			wikiText += otherInfoWikiText + "\n\n";
 		}
