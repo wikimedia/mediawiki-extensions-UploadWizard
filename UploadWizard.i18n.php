@@ -1716,6 +1716,7 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Crt
  * @author Silvonen
  * @author Tofu II
  */
@@ -1745,7 +1746,7 @@ $messages['fi'] = array(
 	'mwe-upwiz-license-show-all-any-license' => 'Lisää vaihtoehtoja',
 	'mwe-upwiz-license-show-all' => 'Käytä eri lisenssiä',
 	'mwe-upwiz-error-blank' => 'Tämä kenttä on pakollinen.',
-	'mwe-upwiz-categories' => 'Kategoriat',
+	'mwe-upwiz-categories' => 'Luokat',
 );
 
 /** French (Français)
@@ -2379,15 +2380,47 @@ $messages['ha'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
+	'uploadwizard' => 'אשף ההעלאה',
+	'uploadwizard-desc' => 'אשף ההעלאה, פותח במסגרת מלגת השמישות',
+	'mwe-upwiz-js-off' => "אשף ההעלאה משתמש בג'אווה סקריפט לשם שיפור הממשק. הדפדפן שלכם אינו תומך בג'אווה סקריפט או שהרצת הג'אווה סקריפט בו כובתה, ולכן אנחנו מראים לכם טופס העלאה פשוט.",
+	'mwe-loading-upwiz' => 'טעינת אשף ההעלאה',
 	'mwe-upwiz-code-unknown' => 'שפה בלתי מוכרת',
 	'mwe-upwiz-step-tutorial' => 'הסברים',
 	'mwe-upwiz-step-file' => 'העלאה',
+	'mwe-upwiz-step-deeds' => 'שחרור זכויות',
 	'mwe-upwiz-step-details' => 'תיאור',
 	'mwe-upwiz-step-thanks' => 'שימוש',
 	'mwe-upwiz-api-error-http' => 'אירעה שגיאה בהתחברות לשירות',
+	'mwe-upwiz-api-error-ok-but-empty' => 'השרת לא החזיר שום מידע על ההעלאה.',
+	'mwe-upwiz-api-error-unknown-code' => 'השרת החזיר שגיאה שלא הבנּו: "$1"',
+	'mwe-upwiz-api-error-uploaddisabled' => 'ההעלאה מושבתת בוויקי הזה.',
+	'mwe-upwiz-api-error-nomodule' => 'הוויקי הזה לא ידע איך להתמודד עם ההעלאה הזאת.',
+	'mwe-upwiz-api-error-mustbeposted' => 'יש באג בתוכנה הזאת; היא אינה משתמשת בשיטה נכונה של HTTP.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'אינכם מורשים להכלות קבצים לוויקי הזה. בדקו לאילו קבוצות אתם משויכים.',
 	'mwe-upwiz-api-error-stashfailed' => 'אתר הוויקי לא יכול לאחסן את הקובץ.',
+	'mwe-upwiz-api-error-missingresult' => 'לא יכולנו לקבוע אם ההעתקה הצליחה.',
+	'mwe-upwiz-api-error-missingparam' => 'להעלאה לא היה המידע הדרוש (זה כנראה באג בכלי ההעלאה הזה).',
+	'mwe-upwiz-api-error-invalid-session-key' => 'השרת לא מצא את הקובץ בקבצים שהעליתם.',
+	'mwe-upwiz-api-error-copyuploaddisabled' => 'העלאות ידי העתקה מושבתות.',
+	'mwe-upwiz-api-error-mustbeloggedin' => 'אינך מחוברים כראוי.',
+	'mwe-upwiz-api-error-empty-file' => 'קובץ ששלחתם היה ריק.',
+	'mwe-upwiz-api-error-file-too-large' => 'הקובץ ששלחתם גדול מדי.',
+	'mwe-upwiz-api-error-filetype-missing' => 'חסרה סיומת לשם הקובץ.',
 	'mwe-upwiz-api-error-filetype-banned' => 'סוג קובץ זה חסום.',
 	'mwe-upwiz-api-error-filename-tooshort' => 'שם הקובץ קצר מדי.',
+	'mwe-upwiz-api-error-illegal-filename' => 'שם הקובץ הזה אינו מורשה.',
+	'mwe-upwiz-api-error-verification-error' => 'קובץ זה עשוי להיות פגום או בעל סיומת שגויה.',
+	'mwe-upwiz-api-error-hookaborted' => 'השינוי שניסיתם לעשות בוטל על ידי תוסף.',
+	'mwe-upwiz-api-error-unknown-error' => 'משהו השתבש בעת ניסיון להעלות את הקובץ שלכם.',
+	'mwe-upwiz-api-error-internal-error' => 'משהו השתבש בעת עיבוד ההעלאה שלך בוויקי.',
+	'mwe-upwiz-api-error-overwrite' => 'לא מותרת החלפת קובץ קיים.',
+	'mwe-upwiz-api-error-badtoken' => 'ה"אסימון" שאנו משתמשים בו לזהות אתכם בפני השרת היה רע.',
+	'mwe-upwiz-api-error-fetchfileerror' => 'משהו השתבש בזמן אחזור הקובץ.',
+	'mwe-upwiz-api-warning-duplicate' => 'בוויקי כבר יש קובץ בעל אותו תוכן',
+	'mwe-upwiz-api-warning-exists' => 'בוויקי כבר יש קובץ בעל אותו שם',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'מצטערים, לא מצאנו מדריך בשפתכם. במקומו מוצג המדריך באנגלית.',
+	'mwe-upwiz-tutorial-error-file-missing' => 'מצטערים, לא הצלחנו למצוא את כל הקבצים של המדריך שאמור להיות כאן. אנא צרו קשר עם מנהלי המערכת.',
+	'mwe-upwiz-tutorial-error-cannot-transform' => 'מצטערים, לא יכולנו לקבל תמונה מותאמת של המדריך שתתאים למסך הזה. זו עלולה להיות בעיה זמנית עם ויקישיתוף: נסו שוב מאוחר יותר.',
 	'mwe-upwiz-help-desk' => 'שירות סיוע',
 	'mwe-upwiz-add-file-n' => 'הוספת קובץ נוסף',
 	'mwe-upwiz-add-file-0' => 'נא לבחור בקובץ מדיה להעלאה',
@@ -2397,6 +2430,7 @@ $messages['he'] = array(
 	'mwe-upwiz-uploading' => 'בהליכי העלאה...',
 	'mwe-upwiz-transported' => 'אישור',
 	'mwe-upwiz-stashed-upload' => 'אישור',
+	'mwe-upwiz-getting-metadata' => 'קבלת מידע על הקובץ ותצוגה מקדימה...',
 	'mwe-upwiz-failed' => 'אירע כשל.',
 	'mwe-upwiz-click-here' => 'יש ללחוץ כאן כדי לבחור קובץ',
 	'mwe-upwiz-editing' => 'בעריכה...',
@@ -2414,6 +2448,8 @@ $messages['he'] = array(
 	'mwe-upwiz-finished' => 'התהליך הסתיים!',
 	'mwe-upwiz-secs-remaining' => 'נותר{{PLURAL:$1|ה שנייה אחת|ו $1 שניות}}',
 	'mwe-upwiz-deeds-custom-prompt' => 'או:',
+	'mwe-upwiz-source-permission' => 'היוצר נתן לכם רשות מפורשת להעלות אותם',
+	'mwe-upwiz-source-thirdparty-intro' => 'נא להזין את כתובת שבו מצאתם כל קובץ.',
 	'mwe-upwiz-source-thirdparty-accept' => 'אישור',
 	'mwe-upwiz-more-options' => 'עוד אפשרויות...',
 	'mwe-upwiz-fewer-options' => 'פחות אפשרויות...',
@@ -2427,7 +2463,9 @@ $messages['he'] = array(
 	'mwe-upwiz-media-type' => 'סוג המדיה',
 	'mwe-upwiz-date-created' => 'תאריך היצירה',
 	'mwe-upwiz-location' => 'מיקום',
+	'mwe-upwiz-copyright-info' => 'שחרור זכויות',
 	'mwe-upwiz-author' => 'כותב/ים',
+	'mwe-upwiz-license' => 'שחרור זכויות',
 	'mwe-upwiz-about-format' => 'על אודות הקובץ',
 	'mwe-upwiz-autoconverted' => 'קובץ זה הומר אוטומטית למבנה $1',
 	'mwe-upwiz-filename-tag' => 'שם הקובץ:',
@@ -2438,11 +2476,16 @@ $messages['he'] = array(
 	'mwe-upwiz-macro-edit' => 'עדכון התיאורים',
 	'mwe-upwiz-thanks-intro' => 'תודה על ההעלאה!',
 	'mwe-upwiz-thanks-link' => 'קובץ זה זמין כעת תחת <b><tt>$1</tt></b>.',
+	'mwe-upwiz-upload-error-bad-filename-extension' => 'ויקי זה אינו מקבל קבצים עם הסיומת "$1".',
+	'mwe-upwiz-upload-error-duplicate' => 'הקובץ הזה הועלה בעבר לוויקי הזה.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'האם להעלות בכול זאת?',
 	'mwe-upwiz-ok' => 'אישור',
 	'mwe-upwiz-cancel' => 'ביטול',
+	'mwe-upwiz-change' => '(שינוי)',
+	'mwe-upwiz-fileexists-replace' => 'הקובץ עם הכותרת "$1" כבר קיים. אנא שנו את הכותרת למשהו ייחודי.',
 	'mwe-upwiz-thumbnail-more' => 'הגדלה',
 	'mwe-upwiz-overwrite' => 'החלפת הקובץ',
+	'mwe-copyright-macro' => 'כאמור לעיל',
 	'mwe-copyright-custom' => 'התאמה אישית',
 	'mwe-upwiz-next' => 'הבא',
 	'mwe-upwiz-next-file' => 'להמשיך',
@@ -2452,15 +2495,38 @@ $messages['he'] = array(
 	'mwe-upwiz-upload-another' => 'העלאת קבצים נוספים',
 	'mwe-prevent-close' => 'הקבצים שלך עדיין בתהליכי העלאה.
 האם אכן ברצונך לנווט אל מחוץ לדף זה?',
+	'mwe-upwiz-files-complete' => 'העלאת הקבצים שלכם הסתיימה!',
+	'mwe-upwiz-tooltip-author' => "השם של מי שיצר את התצלום, או צייר את התמונה, שרטט את התרשים, וכו'.",
+	'mwe-upwiz-tooltip-description' => 'תארו בקצרה את כל הדברים החשובים על היצירה.
+עבור תמונה, הזכירו את הדברים העיקריים שמוצגים בה, את האירוע או את המקום.',
 	'mwe-upwiz-tooltip-more-info' => 'מידע נוסף.',
 	'mwe-upwiz-file-need-file' => 'נא להוסיף העלאה תחילה.',
+	'mwe-upwiz-file-need-start' => 'אנא לחצו על הכפתור הזה כדי להתחיל את ההעלאות שלכם.',
 	'mwe-upwiz-deeds-need-license' => 'נא לבחור רישיון.',
+	'mwe-upwiz-license-incompatible-cc' => 'ניתן לבחור רק סוג אחד של רישיון Creative Commons.',
+	'mwe-upwiz-license-show-all-any-license' => 'אפשרויות נוספות',
 	'mwe-upwiz-license-show-all' => 'שימוש ברישיון אחר',
 	'mwe-upwiz-license-show-recommended' => 'שימוש ברישיון המומלץ',
 	'mwe-upwiz-error-blank' => 'שדה זה נחוץ',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons ייחוס ושיתוף זהה 3.0',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons ייחוס 3.0',
+	'mwe-upwiz-license-gfdl' => 'הרישיון לשימוש חופשי במסמכים של גנו',
 	'mwe-upwiz-categories' => 'קטגוריות',
 	'mwe-upwiz-categories-add' => 'הוספה',
 	'mwe-upwiz-category-remove' => 'הסרת קטגוריה זו',
+);
+
+/** Croatian (Hrvatski)
+ * @author SpeedyGonsales
+ */
+$messages['hr'] = array(
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Ipak snimi?',
+	'mwe-upwiz-ok' => 'Da',
+	'mwe-upwiz-cancel' => 'Odustani',
+	'mwe-upwiz-change' => '(promjena)',
+	'mwe-upwiz-categories' => 'Kategorije',
+	'mwe-upwiz-categories-add' => 'Dodaj',
+	'mwe-upwiz-category-remove' => 'Ukloni ovu kategoriju',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -3512,6 +3578,11 @@ $messages['kn'] = array(
 $messages['ko'] = array(
 	'uploadwizard' => '파일 올리기 마법사',
 	'mwe-upwiz-step-tutorial' => '알아보기',
+	'mwe-upwiz-step-file' => '올리기',
+	'mwe-upwiz-step-deeds' => '이용 허락',
+	'mwe-upwiz-step-details' => '설명하기',
+	'mwe-upwiz-step-thanks' => '이용하기',
+	'mwe-upwiz-api-error-http' => '서비스에 연결하는 동안 문제가 발생했습니다.',
 );
 
 /** Colognian (Ripoarisch)
@@ -3875,6 +3946,7 @@ $messages['mk'] = array(
 
 /** Malayalam (മലയാളം)
  * @author Praveenp
+ * @author Vssun
  */
 $messages['ml'] = array(
 	'uploadwizard' => 'അപ്‌ലോഡ് സഹായി',
@@ -3940,7 +4012,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-file-retry' => 'പരാജയപ്പെട്ട അപ്‌ലോഡുകൾ വീണ്ടും ശ്രമിക്കുക',
 	'mwe-upwiz-next-file-despite-failures' => 'എന്തായാലും തുടരുക',
 	'mwe-upwiz-file-all-failed' => 'എല്ലാ അപ്‌ലോഡും പരാജയപ്പെട്ടു.',
-	'mwe-upwiz-upload-count' => '{{PLURAL:$2|ഒരു പ്രമാണത്തിൽ|$2 പ്രമാണത്തിൽ}} {{PLURAL:$1|ഒരെണ്ണം|$1 എണ്ണം}} അപ്‌ലോഡ് ചെയ്തിരിക്കുന്നു',
+	'mwe-upwiz-upload-count' => '{{PLURAL:$2|ഒരു പ്രമാണത്തിൽ|ആകെയുള്ള $2 പ്രമാണങ്ങളിൽ}} {{PLURAL:$1|ഒരെണ്ണം|$1 എണ്ണം}} അപ്‌ലോഡ് ചെയ്തിരിക്കുന്നു',
 	'mwe-upwiz-progressbar-uploading' => 'അപ്‌ലോഡ് ചെയ്യുന്നു',
 	'mwe-upwiz-finished' => 'പൂർത്തിയായി!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|ഒരു സെക്കന്റ്|$1 സെക്കന്റ്}} അവശേഷിക്കുന്നു',
@@ -6268,13 +6340,27 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-step-deeds' => '发布权',
 	'mwe-upwiz-step-details' => '描述',
 	'mwe-upwiz-step-thanks' => '使用',
+	'mwe-upwiz-api-error-uploaddisabled' => '这个维基不接受上载。',
+	'mwe-upwiz-api-error-nomodule' => '这个维基不知道如何处理此上载。',
+	'mwe-upwiz-api-error-stashfailed' => '这个维基无法存储该文件。',
+	'mwe-upwiz-api-error-missingresult' => '我们不能确定是否复制成功。',
+	'mwe-upwiz-api-error-copyuploaddisabled' => '上载的复制将被禁用。',
+	'mwe-upwiz-api-error-empty-file' => '您提交的文件是空的。',
+	'mwe-upwiz-api-error-file-too-large' => '您提交的文件太大了。',
+	'mwe-upwiz-api-error-filetype-missing' => '该文件没有扩展名。',
+	'mwe-upwiz-api-error-filetype-banned' => '这种类型的文件是被禁止的。',
+	'mwe-upwiz-api-error-filename-tooshort' => '文件名太短了。',
+	'mwe-upwiz-api-error-illegal-filename' => '文件名不允许用的。',
+	'mwe-upwiz-help-desk' => '帮助台',
 	'mwe-upwiz-add-file-n' => '添加另一个文件',
 	'mwe-upwiz-add-file-0' => '点击这里上载文件',
+	'mwe-upwiz-add-file-0-free' => '选择要捐出的媒体文件',
 	'mwe-upwiz-browse' => '浏览 ...',
 	'mwe-upwiz-transport-started' => '正在开始',
 	'mwe-upwiz-uploading' => '上传中 ...',
 	'mwe-upwiz-transported' => '确定',
 	'mwe-upwiz-stashed-upload' => '确定',
+	'mwe-upwiz-getting-metadata' => '正在获取文件信息和预览...',
 	'mwe-upwiz-failed' => '失败',
 	'mwe-upwiz-click-here' => '点击这里选择一个文件',
 	'mwe-upwiz-editing' => '编辑中 ...',
@@ -6285,6 +6371,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-file-all-ok' => '所有上载都成功！',
 	'mwe-upwiz-file-some-failed' => '一些上载失败。',
 	'mwe-upwiz-file-retry' => '重试失败的上载',
+	'mwe-upwiz-next-file-despite-failures' => '继续',
 	'mwe-upwiz-file-all-failed' => '没有一个上载成功。',
 	'mwe-upwiz-upload-count' => '在$2{{PLURAL:$2|个|个}}档案之中，$1个档案已上传',
 	'mwe-upwiz-progressbar-uploading' => '上传中',
