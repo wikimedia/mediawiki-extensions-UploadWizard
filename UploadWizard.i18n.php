@@ -1717,6 +1717,7 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Nike
  * @author Silvonen
  * @author Tofu II
  */
@@ -1726,7 +1727,7 @@ $messages['fi'] = array(
 	'mwe-upwiz-transport-started' => 'Aloitetaan...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'OK',
-	'mwe-upwiz-editing' => 'Muokataan...',
+	'mwe-upwiz-editing' => 'muokataan...',
 	'mwe-upwiz-remove-description' => 'Poista tämä kuvaus',
 	'mwe-upwiz-finished' => 'Päättynyt!',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
@@ -1742,7 +1743,7 @@ $messages['fi'] = array(
 	'mwe-upwiz-next' => 'Seuraava',
 	'mwe-upwiz-next-deeds' => 'Seuraava',
 	'mwe-upwiz-next-details' => 'Seuraava',
-	'mwe-upwiz-home' => 'Mene wikin kotisivulle',
+	'mwe-upwiz-home' => 'Siirry wikin etusivulle',
 	'mwe-upwiz-license-show-all-any-license' => 'Lisää vaihtoehtoja',
 	'mwe-upwiz-license-show-all' => 'Käytä eri lisenssiä',
 	'mwe-upwiz-error-blank' => 'Tämä kenttä on pakollinen.',
@@ -2447,10 +2448,22 @@ $messages['he'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'בהעלאה',
 	'mwe-upwiz-finished' => 'התהליך הסתיים!',
 	'mwe-upwiz-secs-remaining' => 'נותר{{PLURAL:$1|ה שנייה אחת|ו $1 שניות}}',
+	'mwe-upwiz-mins-secs-remaining' => 'הזמן שנותר: {{PLURAL:$1|דקה אחת|$1 דקות}} ו{{PLURAL:$2|שנייה אחת|־$2 שניות}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => 'הזמן שנותר: {{PLURAL:$1|שעה אחת|$1 שעות}}, {{PLURAL:$2|דקה אחת|$2 דקות}} ו{{PLURAL:$3|שנייה אחת|־$3 שניות}}',
+	'mwe-upwiz-deeds-macro-prompt' => 'באתר {{SITENAME}} יש לספק מידע על זכויות יוצרים עבור {{PLURAL:$1|היצירה הזאת|היצירות האלו}}, כדי לוודא שכולם יכולים להשתמש {{PLURAL:$1|בה|בהן}} באופן חוקי.',
 	'mwe-upwiz-deeds-custom-prompt' => 'או:',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|הקובץ הזה הוא|הקבצים האלה הם}} פרי עבודתי.',
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'אני, $2, בעל זכויות היוצרים ביציר{{PLURAL:$1|ה הזאת|ות האלה}}, מעניק בזאת, באופן בלתי חוזר, לכל אחד את הזכות להשתמש בה{{PLURAL:$1||ן}}, וכן לשנות ולהפיץ אות{{PLURAL:$1|ה|ן}} לכל מטרה, ולכן אני מפרסם אות{{PLURAL:$1|ה|ן}} לפי התנאים הבאים:',
+	'mwe-upwiz-source-ownwork-assert' => 'אני, $2, בעל זכויות היוצרים ביציר{{PLURAL:$1|ה הזאת|ות האלה}}, מעניק בזאת, באופן בלתי חוזר, לכל אחד את הזכות להשתמש בה{{PLURAL:$1||ן}} לכל מטרה, בתנאי שהמשתמשים ייתנו לי קרדיט וישתפו את היצירות הנגזרות לפי אותם התנאים.',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'אני, $2, בעל זכויות היוצרים ביציר{{PLURAL:$1|ה הזאת|ות האלה}}, מפרסם אות{{PLURAL:$1|ה|ן}} לפי תנאי הרישיון הבא:',
+	'mwe-upwiz-source-ownwork-assert-note' => 'זה אומר שאתם משחררים את יצירתכם ברישיון Creative Commons ייחוס ושיתוף זהה.',
 	'mwe-upwiz-source-permission' => 'היוצר נתן לכם רשות מפורשת להעלות אותם',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|הקובץ הזה אינו|הקבצים האלה אינם}} פרי עבודתי.',
 	'mwe-upwiz-source-thirdparty-intro' => 'נא להזין את כתובת שבו מצאתם כל קובץ.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'אם כל הקבצים מגיעים מאותו המקור ומאותו היוצר, ויש להם אותו מצב זכויות יוצרים, אתם יכולים להזין אותם פעם אחת עבור כולם.',
+	'mwe-upwiz-source-thirdparty-license' => 'בעל זכויות היוצרים ב{{PLURAL:$1|יצירה הזאת|יצירות האלה}} פרסם {{PLURAL:$1|אותה|אותן}} לפי תנאי הרישיון הבא:',
 	'mwe-upwiz-source-thirdparty-accept' => 'אישור',
+	'mwe-upwiz-source-custom' => 'הזינו מידע על זכויות יוצרים עבור כל קובץ בנפרד בדף הבא.',
 	'mwe-upwiz-more-options' => 'עוד אפשרויות...',
 	'mwe-upwiz-fewer-options' => 'פחות אפשרויות...',
 	'mwe-upwiz-desc' => 'תיאור בשפה',
@@ -2459,6 +2472,7 @@ $messages['he'] = array(
 	'mwe-upwiz-title' => 'כותרת',
 	'mwe-upwiz-categories-intro' => 'באפשרותך לסייע לאנשים למצוא את יצירותיך על ידי הוספת קטגוריות',
 	'mwe-upwiz-categories-another' => 'הוספת קטגוריות אחרות',
+	'mwe-upwiz-previously-uploaded' => 'קובץ זה הועלה בעבר ל־$1 והוא כבר זמין <a href="$2">כאן</a>.',
 	'mwe-upwiz-about-this-work' => 'על אודות יצירה זו',
 	'mwe-upwiz-media-type' => 'סוג המדיה',
 	'mwe-upwiz-date-created' => 'תאריך היצירה',
@@ -2473,9 +2487,13 @@ $messages['he'] = array(
 	'mwe-upwiz-other-prefill' => 'שדה ויקיטקסט חופשי',
 	'mwe-upwiz-showall' => 'הצגת הכול',
 	'mwe-upwiz-source' => 'מקור',
+	'mwe-upwiz-macro-edit-intro' => 'תחילה בחרו רישיון למעלה, ולאחר מכן תוכלו להוסיף כמה תיאורים ומידע אחר להעלאות שלכם.',
 	'mwe-upwiz-macro-edit' => 'עדכון התיאורים',
 	'mwe-upwiz-thanks-intro' => 'תודה על ההעלאה!',
+	'mwe-upwiz-thanks-explain' => 'כעת תוכלו להשתמש ה{{PLURAL:$1|קובץ הזה|קבצים האלה}} באתרים כמו ויקיפדיה, או לקשר אל{{PLURAL:$1|יו|יהם}} מאתרי אינטרנט.',
 	'mwe-upwiz-thanks-link' => 'קובץ זה זמין כעת תחת <b><tt>$1</tt></b>.',
+	'mwe-upwiz-thanks-wikitext' => '<b>כדי להשתמש בקובץ הזה בוויקי</b>, העתיקן טקסט זה לתוך הדף:',
+	'mwe-upwiz-thanks-url' => '<b>כדי לקשר אליו ב־HTML,</b> העתיקו את הכתובת הזאת:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'ויקי זה אינו מקבל קבצים עם הסיומת "$1".',
 	'mwe-upwiz-upload-error-duplicate' => 'הקובץ הזה הועלה בעבר לוויקי הזה.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'האם להעלות בכול זאת?',
@@ -2483,6 +2501,8 @@ $messages['he'] = array(
 	'mwe-upwiz-cancel' => 'ביטול',
 	'mwe-upwiz-change' => '(שינוי)',
 	'mwe-upwiz-fileexists-replace' => 'הקובץ עם הכותרת "$1" כבר קיים. אנא שנו את הכותרת למשהו ייחודי.',
+	'mwe-upwiz-fileexists' => 'קובץ בשם הזה כבר קיים. 
+אנא בדקו את <tt><b>$1</b></tt> אם אינכם בטוחים שאתם רוצים להחליף אותו.',
 	'mwe-upwiz-thumbnail-more' => 'הגדלה',
 	'mwe-upwiz-overwrite' => 'החלפת הקובץ',
 	'mwe-copyright-macro' => 'כאמור לעיל',
@@ -2497,19 +2517,45 @@ $messages['he'] = array(
 האם אכן ברצונך לנווט אל מחוץ לדף זה?',
 	'mwe-upwiz-files-complete' => 'העלאת הקבצים שלכם הסתיימה!',
 	'mwe-upwiz-tooltip-author' => "השם של מי שיצר את התצלום, או צייר את התמונה, שרטט את התרשים, וכו'.",
+	'mwe-upwiz-tooltip-source' => 'מאין הגיע הקובץ הזה – כתובת URL, ספר או פרסום',
+	'mwe-upwiz-tooltip-sign' => 'אפשר להשתמש בשם המשתמש שלכם בוויקי או בשמכם האמתי.
+בשני המקרים, זה יקושר לדף המשתמש שלך בוויקי',
+	'mwe-upwiz-tooltip-title' => 'כותרת קצרה עבור הקובץ.
+אפשר להשתמש בשפה פשוטה עם רווחים, אך לא במעברי שורה.
+כותרת זו צריכה להיות שונה מכל כותרות אחרת בוויקי זה.',
 	'mwe-upwiz-tooltip-description' => 'תארו בקצרה את כל הדברים החשובים על היצירה.
 עבור תמונה, הזכירו את הדברים העיקריים שמוצגים בה, את האירוע או את המקום.',
+	'mwe-upwiz-tooltip-other' => 'כל מידע אחר על היצירה שברצונכם להוסיף.
+אפשר להשתמש בקוד ויקי.',
 	'mwe-upwiz-tooltip-more-info' => 'מידע נוסף.',
 	'mwe-upwiz-file-need-file' => 'נא להוסיף העלאה תחילה.',
 	'mwe-upwiz-file-need-start' => 'אנא לחצו על הכפתור הזה כדי להתחיל את ההעלאות שלכם.',
+	'mwe-upwiz-file-need-complete' => 'נא להמתין עד שתסתיים העלאת כל הקבצים.',
+	'mwe-upwiz-deeds-need-deed' => 'נא להסביר איפה קיבלתם את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}} ואיך האתר הזה יכול להשתמש {{PLURAL:$1|בו|בהם}}, על ידי בחירה באחת האפשרויות.',
 	'mwe-upwiz-deeds-need-license' => 'נא לבחור רישיון.',
+	'mwe-upwiz-license-incompatible-pd' => 'נחלת הכלל אינה תואמת לשום רישיון.',
 	'mwe-upwiz-license-incompatible-cc' => 'ניתן לבחור רק סוג אחד של רישיון Creative Commons.',
 	'mwe-upwiz-license-show-all-any-license' => 'אפשרויות נוספות',
 	'mwe-upwiz-license-show-all' => 'שימוש ברישיון אחר',
 	'mwe-upwiz-license-show-recommended' => 'שימוש ברישיון המומלץ',
+	'mwe-upwiz-error-signature-blank' => 'יש לחתום בשדה למטה בשם המשתמש שלכם או בשמכם האמתי.',
+	'mwe-upwiz-error-signature-too-long' => 'חתימתכם ארוכה מדי.
+היא חייבת להיות קצרה מ{{PLURAL:$1|תו אחד|־$1 תווים}}.',
+	'mwe-upwiz-error-signature-too-short' => 'חתימתכם קצרה מדי.
+היא חייבת להיות ארוכה מ{{PLURAL:$1|תו אחד|־$1 תווים}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'החתימה שלך מכילה סמלים אסורים.
+נא לא להשתמש כאן בקוד ויקי או ב־HTML, אלא רק בשם המשתמש שלכם או בשמכם האמתי.',
 	'mwe-upwiz-error-blank' => 'שדה זה נחוץ',
+	'mwe-upwiz-error-too-long' => 'השדה הזה ארוך מדי.
+הוא חייב להיות קצר מ{{PLURAL:$1|תו אחד|־$1 תווים}}.',
+	'mwe-upwiz-error-too-short' => 'השדה הזה קצר מדי.
+הוא חייב להיות ארוך מ{{PLURAL:$1|תו אחד|־$1 תווים}}.',
+	'mwe-upwiz-error-bad-chars' => 'שדה זה מכיל סימנים אסורים.
+נא לא להשתמש כאן בקוד ויקי או ב־HTML.',
+	'mwe-upwiz-error-date' => 'נא להזין תאריך בצורת YYYY-MM-DD&rlm; (YYYY – שנה, MM – חודש, DD – יום), או בחרו בתאריך מתוך לוח השנה המוקפץ.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons ייחוס ושיתוף זהה 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons ייחוס 3.0',
+	'mwe-upwiz-license-cc-zero' => 'ויתור על זכויות לפי Creative Commons CC0',
 	'mwe-upwiz-license-gfdl' => 'הרישיון לשימוש חופשי במסמכים של גנו',
 	'mwe-upwiz-categories' => 'קטגוריות',
 	'mwe-upwiz-categories-add' => 'הוספה',
@@ -3964,7 +4010,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-api-error-unknown-code' => 'ഞങ്ങൾക്ക് മനസ്സിലാകാത്ത ഒരു പിഴവാണ് സെർവർ നൽകിയത്: "$1"',
 	'mwe-upwiz-api-error-uploaddisabled' => 'ഈ വിക്കിയിൽ അപ്‌ലോഡിങ് പ്രവർത്തനരഹിതമാക്കിയിരിക്കുകയാണ്.',
 	'mwe-upwiz-api-error-nomodule' => 'അപ്‌ലോഡ് ചെയ്യപ്പെട്ട ഈ പ്രമാണം എങ്ങനെ കൈകാര്യം ചെയ്യണമെന്ന് വിക്കിയ്ക്കറിയില്ല.',
-	'mwe-upwiz-api-error-mustbeposted' => 'ഈ സോഫ്റ്റ്‌വേറിൽ ബഗ് ഉണ്ട്; അത് ഉപയോഗിക്കുന്നത് ശരിയായ എച്ച്.റ്റി.റ്റി.പി. രീതിയല്ല.',
+	'mwe-upwiz-api-error-mustbeposted' => 'ഈ സോഫ്റ്റ്‌വേറിൽ ബഗ് ഉണ്ട്; ഉപയോഗിക്കുന്നത് ശരിയായ എച്ച്.റ്റി.റ്റി.പി. രീതിയല്ല.',
 	'mwe-upwiz-api-error-badaccess-groups' => 'ഈ വിക്കിയിൽ പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ താങ്കൾക്കനുവാദമില്ല. താങ്കൾക്ക് ഏതൊക്കെ ഉപയോക്തൃസംഘങ്ങളിൽ അംഗത്വമുണ്ടെന്ന് പരിശോധിക്കുക.',
 	'mwe-upwiz-api-error-stashfailed' => 'ഈ വിക്കിയിൽ പ്രമാണം സൂക്ഷിക്കാനാവില്ല.',
 	'mwe-upwiz-api-error-missingresult' => 'പകർത്തൽ വിജയകരമായിരുന്നോ എന്ന് നിർണ്ണയിക്കാനാവുന്നില്ല.',
@@ -3978,7 +4024,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => 'ഈ തരത്തിലുള്ള പ്രമാണങ്ങൾ നിരോധിച്ചിരിക്കുന്നു.',
 	'mwe-upwiz-api-error-filename-tooshort' => 'പ്രമാണത്തിന്റെ പേര് വളരെച്ചെറുതാണ്.',
 	'mwe-upwiz-api-error-illegal-filename' => 'പ്രമാണത്തിന്റെ പേര് അനുവദനീയമല്ല.',
-	'mwe-upwiz-api-error-verification-error' => 'ഈ പ്രമാണത്തിൽ പിഴവുണ്ട്, അല്ലെങ്കിൽ അതിന് തെറ്റായ എക്സ്‌റ്റെൻഷനാണുള്ളത്.',
+	'mwe-upwiz-api-error-verification-error' => 'ഈ പ്രമാണത്തിൽ പിഴവുണ്ട്, അല്ലെങ്കിൽ തെറ്റായ എക്സ്‌റ്റെൻഷനാണുള്ളത്.',
 	'mwe-upwiz-api-error-hookaborted' => 'താങ്കൾ വരുത്താൻ ശ്രമിച്ച മാറ്റം ഒരു അനുബന്ധത്തിന്റെ കൊളുത്തിനാൽ റദ്ദാക്കപ്പെട്ടു.',
 	'mwe-upwiz-api-error-unknown-error' => 'താങ്കളുടെ പ്രമാണം അപ്‌ലോഡ് ചെയ്യാൻ ശ്രമിക്കുമ്പോൾ എന്തോ (എന്താണെന്ന് മനസ്സിലായിട്ടില്ല) പിഴവുണ്ടായി.',
 	'mwe-upwiz-api-error-internal-error' => 'താങ്കളുടെ അപ്‌ലോഡ് കൈകാര്യം ചെയ്തപ്പോൾ എന്തോ പിഴവുണ്ടായി.',
@@ -3987,7 +4033,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-api-error-fetchfileerror' => 'പ്രമാണം ശേഖരിച്ചുകൊണ്ടിരുന്നപ്പോൾ എന്തോ പിഴവുണ്ടായിരിക്കുന്നു.',
 	'mwe-upwiz-api-warning-duplicate' => 'വിക്കിയിൽ ഇതേ ഉള്ളടക്കമുള്ള മറ്റൊരു പ്രമാണമുണ്ട്.',
 	'mwe-upwiz-api-warning-exists' => 'വിക്കിയിൽ ഇതേ പേരിൽ മറ്റൊരു പ്രമാണമുണ്ട്.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ക്ഷമിക്കുക, പരിശീലനക്കുറിപ്പ് താങ്കളുടെ ഭാഷയിൽ കണ്ടെത്താനായില്ല. പകരം ഇംഗ്ലീഷിലുള്ളത് പ്രദർശിപ്പിക്കുന്നു.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ക്ഷമിക്കുക, താങ്കളുടെ ഭാഷയിലുള്ള പരിശീലനക്കുറിപ്പ് കണ്ടെത്താനായില്ല. പകരം ഇംഗ്ലീഷിലുള്ളത് പ്രദർശിപ്പിക്കുന്നു.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'ക്ഷമിക്കുക, ഇവിടെ വരേണ്ട ഏതെങ്കിലും പരിശീലനക്കുറിപ്പോ പ്രമാണങ്ങളോ കണ്ടെത്താനായില്ല. ദയവായി സിസ്റ്റം കാര്യനിർവാഹകരെ സമീപിക്കുക.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'ക്ഷമിക്കുക, ഈ സ്ക്രീനിന് അനുയോജ്യമായ വിധത്തിൽ വലിപ്പവ്യത്യാസം വരുത്താവുന്ന പരിശീലനക്കുറിപ്പ് ലഭ്യമാക്കാനായില്ല. ഇത് വിക്കിമീഡിയ കോമൺസുമായി ബന്ധപ്പെട്ട താത്കാലിക പ്രശ്നമായിരിക്കാം; ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.',
 	'mwe-upwiz-help-desk' => 'സഹായമേശ',
@@ -4018,7 +4064,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|ഒരു സെക്കന്റ്|$1 സെക്കന്റ്}} അവശേഷിക്കുന്നു',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|ഒരു മിനിറ്റ്|$1 മിനിറ്റ്}} {{PLURAL:$2|ഒരു സെക്കന്റ്|$2 സെക്കന്റ്}} അവശേഷിക്കുന്നു',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|ഒരു|$1}} മണിക്കൂർ {{PLURAL:$2|ഒരു|$1}} മിനിറ്റ് {{PLURAL:$3|ഒരു|$3}} സെക്കന്റ് കൂടി അവശേഷിക്കുന്നു',
-	'mwe-upwiz-deeds-macro-prompt' => 'എല്ലാവർക്കും നിയമപ്രകാരം തന്നെ പുനരുപയോഗിക്കാനായി {{SITENAME}} സംരംഭത്തിൽ, താങ്കൾ {{PLURAL:$1|ഈ കൃതിയ്ക്ക്|ഈ കൃതികൾക്ക്}} പകർപ്പവകാശ വിവരങ്ങൾ നൽകേണ്ടതുണ്ട്.',
+	'mwe-upwiz-deeds-macro-prompt' => 'എല്ലാവർക്കും നിയമാനുസൃതം പുനരുപയോഗിക്കാനായി {{SITENAME}} സംരംഭത്തിൽ, താങ്കൾ {{PLURAL:$1|ഈ കൃതിയ്ക്ക്|ഈ കൃതികൾക്ക്}} പകർപ്പവകാശ വിവരങ്ങൾ നൽകേണ്ടതുണ്ട്.',
 	'mwe-upwiz-deeds-custom-prompt' => 'അഥവാ:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|ഈ പ്രമാണം|ഈ പ്രമാണങ്ങൾ}} എന്റെ സ്വന്തം സൃഷ്ടിയാണ്.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'ഈ {{PLURAL:$1|കൃതിയുടെ|കൃതികളുടെ}} പകർപ്പവകാശ ഉടമയായ $2 എന്ന ഞാൻ, ഏതൊരാവശ്യത്തിനും {{PLURAL:$1|ഈ കൃതി|ഇവ}} ഏതൊരാൾക്കും ഉപയോഗിക്കാനും മാറ്റം വരുത്തുവാനും പുനർവിതരണം ചെയ്യാനുമുള്ള അനുവദം നൽകുന്നു, അതിനാൽ ഞാൻ {{PLURAL:$1|ഇത്|ഇവ}} താഴെ പറയുന്ന വ്യവസ്ഥകളിൽ പ്രസിദ്ധീകരിക്കുന്നു:',
@@ -4126,7 +4172,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-license-gfdl' => 'ഗ്നൂ സ്വതന്ത്ര പ്രസിദ്ധീകരണാനുമതി',
 	'mwe-upwiz-categories' => 'വർഗ്ഗങ്ങൾ',
 	'mwe-upwiz-categories-add' => 'കൂട്ടിച്ചേർക്കുക',
-	'mwe-upwiz-category-remove' => 'ഈ വർഗ്ഗം നീക്കുക',
+	'mwe-upwiz-category-remove' => 'ഈ വർഗ്ഗം നീക്കം ചെയ്യുക',
 );
 
 /** Mongolian (Монгол)
@@ -5580,6 +5626,8 @@ $messages['sl'] = array(
 	'mwe-upwiz-api-error-filename-tooshort' => 'Ime datoteke je prekratko.',
 	'mwe-upwiz-api-error-illegal-filename' => 'Ime datoteke ni dovoljeno.',
 	'mwe-upwiz-api-error-verification-error' => 'Ta datoteka je morda poškodovana ali ima napačno končnico.',
+	'mwe-upwiz-api-error-overwrite' => 'Prepisovanje obstoječe datoteke ni dovoljeno.',
+	'mwe-upwiz-help-desk' => 'Plošča pomoči',
 	'mwe-upwiz-add-file-n' => 'Dodaj še eno datoteko',
 	'mwe-upwiz-browse' => 'Prebrskaj ...',
 	'mwe-upwiz-transport-started' => 'Začenjanje ...',
