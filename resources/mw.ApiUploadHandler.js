@@ -46,7 +46,7 @@ mw.ApiUploadHandler.prototype = {
 			this.$form.attr( { 
 				action: _this.api.url,
 				method: 'POST',
-				enctype: 'multipart/form-data' 
+				encType: 'multipart/form-data' 
 			} );
 		} catch ( e ) {
 			alert( "oops, form modification didn't work in ApiUploadHandler" );
