@@ -1518,7 +1518,7 @@ Date.fullYearStart = '20';
 	// utility method
 	var _zeroPad = function(num) {
 		var s = '0'+num;
-		return s.substring(s.length-2)
+		return s.substring(s.length-2);
 		//return ('0'+num).substring(-2); // doesn't work on IE :(
 	};
 

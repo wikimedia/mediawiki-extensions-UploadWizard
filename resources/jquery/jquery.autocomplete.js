@@ -411,7 +411,7 @@ jQuery.autocomplete = function(input, options) {
 			findValueCallback(q, data);
 		} else if( (typeof options.url == "string") && (options.url.length > 0) ){
 			$.get(makeUrl(q), function(data) {
-				data = parseData(data)
+				data = parseData(data);
 				addToCache(q, data);
 				findValueCallback(q, data);
 			});
@@ -419,7 +419,7 @@ jQuery.autocomplete = function(input, options) {
 			// no matches
 			findValueCallback(q, null);
 		}
-	}
+	};
 
 	function findValueCallback(q, data){
 		if (data) $input.removeClass(options.loadingClass);
@@ -468,8 +468,8 @@ jQuery.autocomplete = function(input, options) {
 		var curleft = obj.offsetLeft || 0;
 		var curtop = obj.offsetTop || 0;
 		while (obj = obj.offsetParent) {
-			curleft += obj.offsetLeft
-			curtop += obj.offsetTop
+			curleft += obj.offsetLeft;
+			curtop += obj.offsetTop;
 		}
 		return {x:curleft,y:curtop};
 	}
@@ -514,11 +514,11 @@ jQuery.fn.autocomplete = function(url, options, data) {
 
 	// Don't break the chain
 	return this;
-}
+};
 
 jQuery.fn.autocompleteArray = function(data, options) {
 	return this.autocomplete(null, options, data);
-}
+};
 
 jQuery.fn.indexOf = function(e){
 	for( var i=0; i<this.length; i++ ){
