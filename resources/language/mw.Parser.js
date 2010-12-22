@@ -114,7 +114,7 @@ var LINK_SWAP_STRING = 'ZreplaceZ';
 					for ( var pInx = 0; pInx < paramSet.length; pInx++ ) {
 						var paramString = paramSet[ pInx ];
 						// check for empty param
-						if ( paramString == '' ) {
+						if ( paramString === '' ) {
 							templateObject.param[ pInx ] = '';
 							continue;
 						}
@@ -166,13 +166,13 @@ var LINK_SWAP_STRING = 'ZreplaceZ';
 				text = text.replace( re , LINK_SWAP_STRING );				
 				
 				for( var i=0; i < matchSet.length; i++ ) {
-				    // Strip the leading [ and trailing ]
-				    var matchParts = matchSet[i].substr(1, matchSet[i].length-2);
-																   				   
-				    // Check for special jQuery type swap and replace inner JQUERY_SWAP_STRING not value 
+					// Strip the leading [ and trailing ]
+					var matchParts = matchSet[i].substr(1, matchSet[i].length-2);
+
+					// Check for special jQuery type swap and replace inner JQUERY_SWAP_STRING not value 
 					if( matchParts.indexOf( JQUERY_SWAP_STRING ) !== -1 ) {				
 						// parse the link as html						
-						var  $matchParts = $j('<span>' +  matchParts + '</span>' );						
+						var $matchParts = $j('<span>' +  matchParts + '</span>' );						
 						
 						$jQuerySpan = $matchParts.find('#' +JQUERY_SWAP_STRING + i );
 						
@@ -182,14 +182,14 @@ var LINK_SWAP_STRING = 'ZreplaceZ';
 																	
 						text = text.replace( LINK_SWAP_STRING, $j('<span />' ).append( $jQuerySpan ).html() );
 					} else { 				  
-				    	// do text string replace
-				    	matchParts = matchParts.split(/ /);				    
-				    	var link = matchParts[0];				    				      				      
-				    	matchParts.shift();
-				    	var linkText = matchParts.join(' ');
-				    	
-				    	text = text.replace( LINK_SWAP_STRING, '<a href="' + link + '">' + linkText + '</a>' );
-				    }
+						// do text string replace
+						matchParts = matchParts.split(/ /);				    
+						var link = matchParts[0];				    				      				      
+						matchParts.shift();
+						var linkText = matchParts.join(' ');
+						
+						text = text.replace( LINK_SWAP_STRING, '<a href="' + link + '">' + linkText + '</a>' );
+					}
 				}
 				return text;
 			}
