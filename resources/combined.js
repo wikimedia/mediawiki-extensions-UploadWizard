@@ -6618,7 +6618,7 @@ if ( typeof window.mediaWiki === 'undefined' ) {
 			hoursStr = tm.hours + ":"; 
 		}
 		return hoursStr + tm.minutes + ":" + tm.seconds;
-	}
+	};
 
 	/**
 	 * Given seconds return array with 'days', 'hours', 'min', 'seconds'
@@ -6628,12 +6628,12 @@ if ( typeof window.mediaWiki === 'undefined' ) {
 	 */
 	mw.seconds2Measurements = function ( sec ){
 		var tm = {};
-		tm.days = Math.floor( sec / ( 3600 * 24 ) )
+		tm.days = Math.floor( sec / ( 3600 * 24 ) );
 		tm.hours = Math.floor( sec / 3600 );
 		tm.minutes = Math.floor( ( sec / 60 ) % 60 );
 		tm.seconds = sec % 60;
 		return tm;
-	}
+	};
 
 	/**
 	 * Take hh:mm:ss,ms or hh:mm:ss.ms input, return the number of seconds
@@ -7340,7 +7340,7 @@ if ( typeof window.mediaWiki === 'undefined' ) {
 	this.setNameText = function( s ) { 
 		name = mw.ucfirst( $j.trim( clean ( s ) ) ).replace( / /g, '_' );
 		return this;
-	}
+	};
 
 	/**
 	 * Set namespace by canonical namespace id (integer)
@@ -7405,7 +7405,7 @@ if ( typeof window.mediaWiki === 'undefined' ) {
 	 */
 	this.getExtension = function() {
 		return ext;
-	}
+	};
 
 
 	// initialization
@@ -7459,7 +7459,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		for ( var i in msgSet ) {
 			messageCache[ i ] = msgSet[i];
 		}
-	}
+	};
 	
 	/**
 	 * Returns a transformed msg string
@@ -7517,7 +7517,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		
 		// Return the jQuery object or message string		
 		return messageSwap.getMsg();					
-	}
+	};
 	
 	/**
 	* A message Swap Object 
@@ -7529,7 +7529,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	
 	mw.Language.messageSwapObject = function( message, arguments ){
 		this.init( message, arguments );
-	}	
+	};
 	
 	mw.Language.messageSwapObject.prototype= {		
 		/* constructor */
@@ -7652,7 +7652,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 			// Return the jQuery object ( if no jQuery substitution occurred we return false )
 			return $jQueryMessage;
 		}
-	}
+	};
 	
 	/**
 	* Get msg content without transformation
@@ -7661,11 +7661,11 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	*/
 	mw.Language.msgNoTrans = function( key ) {
 		if ( messageCache[ key ] )
-			return messageCache[ key ]
+			return messageCache[ key ];
 
 		// Missing key placeholder
 		return '&lt;' + key + '&gt;';
-	}
+	};
 	
 	/**
 	* Add Supported Magic Words to parser
@@ -7677,12 +7677,12 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 			mw.addTemplateTransform ( {
 				'PLURAL' : mw.Language.procPLURAL,
 				'GENDER' : mw.Language.procGENDER
-			} )
+			} );
 
 			mw.Language.doneSetup = true;
 		}
 
-	}
+	};
 	
 	/**
 	 * List of all languages mediaWiki supports ( Avoid an api call to get this same info )
@@ -8114,7 +8114,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	// NOTE:: add gender support here 
 	mw.Language.procGENDER = function( templateObject ){
 		return 'gender-not-supported-in-js-yet';
-	}
+	};
 	/*
 	* Base convertPlural function:
 	*/
@@ -8177,7 +8177,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 			}
 		}
 		return ( typeInt )? parseInt( convertedNumber) : convertedNumber;
-	}
+	};
 	
 	/**
 	 * Checks if a language key is valid ( is part of languageCodeList )
@@ -8186,7 +8186,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	 */
 	mw.isValidLang = function( langKey ) {
 		return ( mw.Language.names[ langKey ] )? true : false;
-	}
+	};
 
 	/**
 	 * Format a number
@@ -10869,7 +10869,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	showError: function( code, info ) {
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
-		var msgKey = 'mwe-upwiz-api-error-unknown-code'
+		var msgKey = 'mwe-upwiz-api-error-unknown-code';
 		var args = [ code ];
 		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
 			var msgKey = 'mwe-upwiz-api-error-' + code;
@@ -12918,7 +12918,7 @@ mw.UploadWizardPage = function() {
 	var uploadWizard = new mw.UploadWizard( config );
 	uploadWizard.createInterface( '#upload-wizard' );
 
-}
+};
 
 jQuery( document ).ready( function() {
 	// add "magic" to Language template parser for keywords
