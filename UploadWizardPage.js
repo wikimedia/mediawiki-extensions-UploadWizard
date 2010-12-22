@@ -78,7 +78,7 @@ mw.UploadWizardPage = function() {
 	var uploadWizard = new mw.UploadWizard( config );
 	uploadWizard.createInterface( '#upload-wizard' );
 
-}
+};
 
 jQuery( document ).ready( function() {
 	// add "magic" to Language template parser for keywords
