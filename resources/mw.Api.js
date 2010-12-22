@@ -23,7 +23,7 @@
 		// make sure we at least have a URL endpoint for the API
 		if ( ! mw.isDefined( options.url ) ) {
 			throw new Error( 'Configuration error - needs url property' );
-		};
+		}
 
 		this.url = options.url;
 
