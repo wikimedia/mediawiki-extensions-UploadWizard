@@ -535,7 +535,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		// and none of the textfield-like input
 		this.$fileInputCtrl.css( {
 			'margin-left': '-' + ~~( this.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
-			'margin-top' : '-' + ~~( this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px',
+			'margin-top' : '-' + ~~( this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
 		} );
 
 
@@ -898,7 +898,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			showAnim: 'slideDown',
 			altField: '#' + dateInputId,
 			altFormat: 'yy-mm-dd',
-			minDate: new Date( 1800, 0, 1 ),
+			minDate: new Date( 1800, 0, 1 )
 		} )
 		.click( function() { $j( this ).datepicker( 'show' ); } )
 		.readonly();
