@@ -121,7 +121,7 @@
 	this.setNameText = function( s ) { 
 		name = mw.ucfirst( $j.trim( clean ( s ) ) ).replace( / /g, '_' );
 		return this;
-	}
+	};
 
 	/**
 	 * Set namespace by canonical namespace id (integer)
@@ -186,7 +186,7 @@
 	 */
 	this.getExtension = function() {
 		return ext;
-	}
+	};
 
 
 	// initialization
