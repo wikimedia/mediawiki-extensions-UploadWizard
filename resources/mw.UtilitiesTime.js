@@ -19,7 +19,7 @@
 			return '0:00:00';
 		}
 		
-		var tm = mw.seconds2Measurements( sec )
+		var tm = mw.seconds2Measurements( sec );
 				
 		// Round the number of seconds to the required number of significant
 		// digits
@@ -31,8 +31,8 @@
 		if ( tm.seconds < 10 ){
 			tm.seconds = '0' +	tm.seconds;
 		}
-		if( tm.hours == 0 ){
-			hoursStr = ''
+		if( tm.hours === 0 ){
+			hoursStr = '';
 		} else {
 			if ( tm.minutes < 10 )
 				tm.minutes = '0' + tm.minutes;
@@ -40,7 +40,7 @@
 			hoursStr = tm.hours + ":"; 
 		}
 		return hoursStr + tm.minutes + ":" + tm.seconds;
-	}
+	};
 
 	/**
 	 * Given seconds return array with 'days', 'hours', 'min', 'seconds'
@@ -48,14 +48,14 @@
 	 * @param {float}
 	 *            sec Seconds to be converted into time measurements
 	 */
-	mw.seconds2Measurements = function ( sec ){
+	mw.seconds2Measurements = function ( sec ) {
 		var tm = {};
-		tm.days = Math.floor( sec / ( 3600 * 24 ) )
+		tm.days = Math.floor( sec / ( 3600 * 24 ) );
 		tm.hours = Math.floor( sec / 3600 );
 		tm.minutes = Math.floor( ( sec / 60 ) % 60 );
 		tm.seconds = sec % 60;
 		return tm;
-	}
+	};
 
 	/**
 	 * Take hh:mm:ss,ms or hh:mm:ss.ms input, return the number of seconds
@@ -90,7 +90,7 @@
 		// Sometimes a comma is used instead of period for ms
 		sec = sec.replace( /,\s?/, '.' );
 		// Return seconds float
-		return parseInt( hour * 3600 ) + parseInt( min * 60 ) + parseFloat( sec );
-	}	
+		return parseInt( hour * 3600, 10 ) + parseInt( min * 60, 10 ) + parseFloat( sec );
+	};	
 
 } )( window.mediaWiki );
