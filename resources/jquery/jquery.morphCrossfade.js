@@ -89,7 +89,7 @@
 			$oldPanel.css( { position: 'absolute' } );
 			// fade WITHOUT hiding when opacity = 0
 			$oldPanel.animate( { opacity: 0 }, speed, 'linear', function() { 
-				$oldPanel.css( { visibility: 'hidden'} ) 
+				$oldPanel.css( { visibility: 'hidden'} );
 			} );
 		}
 		container.data( 'crossfadeDisplay', newPanelSelector );
