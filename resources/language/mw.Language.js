@@ -33,7 +33,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		for ( var i in msgSet ) {
 			messageCache[ i ] = msgSet[i];
 		}
-	}
+	};
 	
 	/**
 	 * Returns a transformed msg string
@@ -79,7 +79,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 			}
 		}
 		// Fast check message text return  ( no arguments and no parsing needed )
-		if( ( !args || args.length == 0 ) 
+		if( ( !args || args.length === 0 ) 
 			&& messageCache[ messageKey ].indexOf( '{{' ) === -1 
 			&& messageCache[ messageKey ].indexOf( '[' ) === -1 
 		) {
@@ -91,7 +91,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		
 		// Return the jQuery object or message string		
 		return messageSwap.getMsg();					
-	}
+	};
 	
 	/**
 	* A message Swap Object 
@@ -103,16 +103,14 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	
 	mw.Language.messageSwapObject = function( message, arguments ){
 		this.init( message, arguments );
-	}	
+	};	
 	
 	mw.Language.messageSwapObject.prototype= {		
 		/* constructor */
 		init: function( message, arguments ){
 			this.message = message;
 			this.arguments = arguments; 
-			
-			// Set the includesjQueryArgs flag to false
-			includesjQueryArgs: false;
+			this.includesjQueryArgs = false;
 		},
 		
 		// Return the transformed message text or jQuery object
@@ -126,7 +124,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 				&& ! this.includesjQueryArgs  )
 			{
 				// replaceStringArgs is all we need, return the msg 
-				return this.message	
+				return this.message;
 			}
 						
 			// Else Send the messageText through the parser
@@ -165,12 +163,12 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 				var replaceValue =  this.arguments[ v ];
 				
 				// Convert number if applicable
-				if( parseInt( replaceValue ) == replaceValue ) {
+				if( parseInt( replaceValue, 10 ) == replaceValue ) {
 					replaceValue = mw.Language.convertNumber( replaceValue );
 				}
 				
 				// Message test replace arguments start at 1 instead of zero:
-				var argumentRegExp = new RegExp( '\\$' + ( parseInt( v ) + 1 ), 'g' );
+				var argumentRegExp = new RegExp( '\\$' + ( parseInt( v, 10 ) + 1 ), 'g' );
 												
 				// Check if we got passed in a jQuery object:			
 				if( replaceValue instanceof jQuery) {
@@ -215,7 +213,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 						continue;
 					} 
 					
-					if( $swapTarget.html() != '' ) {
+					if( $swapTarget.html() !== '' ) {
 						$replaceValue.html( $swapTarget.html() );
 					}
 										
@@ -226,7 +224,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 			// Return the jQuery object ( if no jQuery substitution occurred we return false )
 			return $jQueryMessage;
 		}
-	}
+	};
 	
 	/**
 	* Get msg content without transformation
@@ -234,12 +232,12 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	* @returns string The msg key without transforming it
 	*/
 	mw.Language.msgNoTrans = function( key ) {
-		if ( messageCache[ key ] )
-			return messageCache[ key ]
-
+		if ( messageCache[ key ] ) {
+			return messageCache[ key ];
+		}
 		// Missing key placeholder
 		return '&lt;' + key + '&gt;';
-	}
+	};
 	
 	/**
 	* Add Supported Magic Words to parser
@@ -251,12 +249,12 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 			mw.addTemplateTransform ( {
 				'PLURAL' : mw.Language.procPLURAL,
 				'GENDER' : mw.Language.procGENDER
-			} )
+			} );
 
 			mw.Language.doneSetup = true;
 		}
 
-	}
+	};
 	
 	/**
 	 * List of all languages mediaWiki supports ( Avoid an api call to get this same info )
@@ -668,14 +666,14 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		
 		if( templateObject.arg && templateObject.param && mw.Language.convertPlural) {
 			// Check if we have forms to replace
-			if ( templateObject.param.length == 0 ) { 
+			if ( templateObject.param.length === 0 ) { 
 				return '';
 			}
 			// Restore the count into a Number ( if it got converted earlier )
 			var count = mw.Language.convertNumber( templateObject.arg, true );
 			
 			// Do convertPlural call 					
-			return mw.Language.convertPlural( parseInt( count ), templateObject.param );
+			return mw.Language.convertPlural( parseInt( count, 10 ), templateObject.param );
 			
 		}
 		// Could not process plural return first form or nothing
@@ -688,15 +686,15 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	// NOTE:: add gender support here 
 	mw.Language.procGENDER = function( templateObject ){
 		return 'gender-not-supported-in-js-yet';
-	}
+	};
 	/*
 	* Base convertPlural function:
 	*/
 	mw.Language.convertPlural = function( count, forms ){	
-		if ( !forms || forms.length == 0 ) { 
+		if ( !forms || forms.length === 0 ) { 
 			return ''; 
 		}	
-		return ( parseInt( count ) == 1 ) ? forms[0] : forms[1];
+		return ( parseInt( count, 10 ) === 1 ) ? forms[0] : forms[1];
 	};
 	/**
 	 * Checks that convertPlural was given an array and pads it to requested
@@ -732,7 +730,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		
 		// Check if the "restore" to latin number flag is set: 
 		if( typeInt ) {			
-			if( parseInt( number ) == number )	
+			if( parseInt( number, 10 ) === number )	
 				return number;
 			var tmp = [];
 			for( var i in transformTable ) {
@@ -743,15 +741,15 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		
 		var numberString =  '' + number;
 		var convertedNumber = '';
-		for( var i =0; i < numberString.length; i++) {
+		for( var i = 0; i < numberString.length; i++) {
 			if( transformTable[ numberString[i] ] ) {
 				convertedNumber += transformTable[ numberString[i] ];
-			}else{
+			} else {
 				convertedNumber += numberString[i];
 			}
 		}
-		return ( typeInt )? parseInt( convertedNumber) : convertedNumber;
-	}
+		return ( typeInt ) ? parseInt( convertedNumber, 10 ) : convertedNumber;
+	};
 	
 	/**
 	 * Checks if a language key is valid ( is part of languageCodeList )
@@ -760,7 +758,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 	 */
 	mw.isValidLang = function( langKey ) {
 		return ( mw.Language.names[ langKey ] )? true : false;
-	}
+	};
 
 	/**
 	 * Format a number
@@ -790,7 +788,7 @@ var JQUERY_SWAP_STRING = 'ZjQuerySwapZ';
 		}
 		// @@todo read language code and give periods or comas: 
 		return addSeparatorsNF( num, '.', ',' );
-	}
+	};
 	
 }) ( window.mediaWiki );
 
