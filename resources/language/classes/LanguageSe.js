@@ -18,4 +18,4 @@
 			return ''		
 		}
 		return forms[ index ];
-	}
+	};

@@ -181,5 +181,5 @@
 		}
 		// By default return the base 'en' class
 		return 'en';
-	}
+	};
 	

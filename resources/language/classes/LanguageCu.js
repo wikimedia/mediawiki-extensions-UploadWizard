@@ -16,5 +16,5 @@ mw.Language.convertPlural = function( count, forms ) {
 		case 4:  return forms[2];
 		default: return forms[3];
 	}
-}
+};
 

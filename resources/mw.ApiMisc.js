@@ -70,7 +70,7 @@
 			var parameters = {
 				'action':'query',
 				'meta':'userinfo'
-			}
+			};
 			
 			// Do request 
 			this.get( request, function( data ) {
@@ -159,6 +159,6 @@
 				return true;
 			}
 			return false;
-		}
+		};
 		
 

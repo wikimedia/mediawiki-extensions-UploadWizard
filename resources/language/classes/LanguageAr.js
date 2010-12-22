@@ -21,7 +21,7 @@ mw.Language.convertPlural = function( count, forms ){
 	}
 		
 	return forms[ index ];
-}
+};
 
 // Update the digitTransformTable for ar language key
 mw.Language.digitTransformTable = {

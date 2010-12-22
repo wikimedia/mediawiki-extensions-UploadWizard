@@ -5,7 +5,7 @@
 $j.mockjaxSettings = {
 	responseTime: 0,  // as fast as possible, for tests
 	dataType: 'json'
-}
+};
 
 describe( "mw.Api", function() {
 

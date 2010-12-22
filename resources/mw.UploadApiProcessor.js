@@ -172,7 +172,7 @@ mw.UploadApiProcessor.prototype = {
 				return false;
 			}
 
-			mw.log( 'get key: ' + _this.error_msg_key[ error_code ] )
+			mw.log( 'get key: ' + _this.error_msg_key[ error_code ] );
 			mw.getRemoteMsg( _this.error_msg_key[ error_code ], function() {
 				_this.ui.setPrompt(
 					gM( 'mwe-uploaderror' ),

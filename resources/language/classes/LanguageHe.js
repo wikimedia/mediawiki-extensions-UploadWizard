@@ -31,4 +31,4 @@
 		} else {
 			return forms[1];
 		}
-	}
+	};

@@ -21,5 +21,5 @@
 				default: return forms[3];
 			}
 		}
-	}
+	};
 

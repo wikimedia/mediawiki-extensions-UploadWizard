@@ -21,4 +21,4 @@
 			index = 3;
 		}
 		return forms[index];
-	}
+	};

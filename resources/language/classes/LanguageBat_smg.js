@@ -19,4 +19,4 @@ mw.Language.convertPlural = function( count, forms ) {
 	} else {
 		return forms[3];
 	}
-}
+};

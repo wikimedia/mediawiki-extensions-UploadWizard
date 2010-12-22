@@ -17,4 +17,4 @@
 			case 4:  return forms[2]; // plural
 			default: return forms[3]; // pluralgen
 		}
-	}
+	};

@@ -19,4 +19,4 @@
 			$index = 2;
 		}
 		return forms[$index];
-	}
+	};

@@ -19,4 +19,4 @@
 		} else {
 			return forms[5];
 		}
-	}
+	};

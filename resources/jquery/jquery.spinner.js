@@ -10,7 +10,7 @@
 			);
 		}
 		return this;
-	}
+	};
 	/**
 	 * Add an absolute overlay spinner useful for cases where the
 	 * element does not display child elements, ( images, video )

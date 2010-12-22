@@ -19,4 +19,4 @@
 			default:
 				return forms[2];   // plural genitive
 		}
-	}
+	};

@@ -198,9 +198,9 @@ describe( "mw.Uri", function() {
 			uri.query.foo = 'bar';
 			expect( uri.toString() ).toEqual( 'http://en.wiki.local/w/api.php?foo=bar' );
 			uri.extend( { foo: 'quux', pif: 'paf' } );
-			expect( uri.toString() ).toContain( 'foo=quux' )
-			expect( uri.toString() ).not.toContain( 'foo=bar' )
-			expect( uri.toString() ).toContain( 'pif=paf' )
+			expect( uri.toString() ).toContain( 'foo=quux' );
+			expect( uri.toString() ).not.toContain( 'foo=bar' );
+			expect( uri.toString() ).toContain( 'pif=paf' );
 		} );
 
 		it ( "can remove query arguments", function() {

@@ -27,4 +27,4 @@
 			return forms[1];
 			
 		return forms[2];
-	}
+	};

@@ -21,4 +21,4 @@
 			$index = 4;
 		}
 		return forms[$index];
-	}
+	};
