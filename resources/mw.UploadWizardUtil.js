@@ -57,46 +57,6 @@ mw.UploadWizardUtil = {
 		}
 	},
 
-/*
-	/** 
-	 * Capitalise first letter and replace spaces by underscores
-	 * @param filename (basename, without directories)
-	 * @return typical title as would appear on MediaWiki
-	 /
-	pathToTitle: function ( filename ) {
-		return mw.ucfirst( $j.trim( filename ).replace(/ /g, '_' ) );
-	},
-
-	/** 
-	 * Capitalise first letter and replace underscores by spaces
-	 * @param title typical title as would appear on MediaWiki
-	 * @return plausible local filename
-	 /
-	titleToPath: function ( title ) {
-		return mw.ucfirst( $j.trim( title ).replace(/_/g, ' ' ) );
-	},
-
-
-	/**
-	 * Transform "File:title_with_spaces.jpg" into "title with spaces"
-	 * @param   typical title that would appear on mediawiki, with File: and extension, may include underscores
-	 * @return  human readable title
-	 /
-	fileTitleToHumanTitle: function( title ) {
-		var extension = mw.UploadWizardUtil.getExtension( title );
-		if ( typeof extension !== 'undefined' ) {
-			// the -1 is to get the '.'
-			title = title.substr( 0, title.length - extension.length - 1 );
-		}
-		// usually File:
-		var namespace = wgFormattedNamespaces[wgNamespaceIds['file']];
-		if ( title.indexOf( namespace + ':' ) === 0 ) {
-			title = title.substr( namespace.length + 1 );
-		}
-		return mw.UploadWizardUtil.titleToPath( title );
-	},
-
-*/
 	/**
 	 * Get the basename of a path.
 	 * For error conditions, returns the empty string.
