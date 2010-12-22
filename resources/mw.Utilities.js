@@ -9,15 +9,15 @@
 	* @return {Boolean}
 	*/
 	mw.isEmpty = function( obj ) {
-		if( typeof obj == 'string' ) {
-			if( obj == '' ) return true;
+		if( typeof obj === 'string' ) {
+			if( obj === '' ) return true;
 			// Non empty string: 
 			return false;
 		}
 
 		// If an array check length:
 		if( Object.prototype.toString.call( obj ) === "[object Array]"
-			&& obj.length == 0 ) {
+			&& obj.length === 0 ) {
 			return true;
 		}
 
