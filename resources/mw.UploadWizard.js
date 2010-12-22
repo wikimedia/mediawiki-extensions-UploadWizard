@@ -484,10 +484,10 @@ mw.UploadWizardUploadInterface.prototype = {
 	showError: function( code, info ) {
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
-		var msgKey = 'mwe-upwiz-api-error-unknown-code'
+		var msgKey = 'mwe-upwiz-api-error-unknown-code';
 		var args = [ code ];
 		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
-			var msgKey = 'mwe-upwiz-api-error-' + code;
+			msgKey = 'mwe-upwiz-api-error-' + code;
 			// args may change base on particular error messages. 
 			// for instance, we are throwing away the extra info right now. Might be nice to surface that in a debug mode
 			args = [];
@@ -1902,7 +1902,7 @@ mw.UploadWizard.prototype = {
 
 		$j.each( toRemove, function( i, upload ) {
 			upload.remove();
-		} )
+		} );
 	},
 
 
