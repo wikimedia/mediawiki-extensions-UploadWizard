@@ -73,51 +73,51 @@ class UploadWizardHooks {
 				'UploadWizardPage.js'
 			),
 			'languageScripts' => array(
-				'am' => 'resources/languages/classes/LanguageAm.js',
-				'ar' => 'resources/languages/classes/LanguageAr.js',
-				'bat-smg' => 'resources/languages/classes/LanguageBat_smg.js',
-				'be' => 'resources/languages/classes/LanguageBe.js',
-				'be-tarask' => 'resources/languages/classes/LanguageBe_tarask.js',
-				'bh' => 'resources/languages/classes/LanguageBh.js',
-				'bs' => 'resources/languages/classes/LanguageBs.js',
-				'cs' => 'resources/languages/classes/LanguageCs.js',
-				'cu' => 'resources/languages/classes/LanguageCu.js',
-				'cy' => 'resources/languages/classes/LanguageCy.js',
-				'dsb' => 'resources/languages/classes/LanguageDsb.js',
-				'fr' => 'resources/languages/classes/LanguageFr.js',
-				'ga' => 'resources/languages/classes/LanguageGa.js',
-				'gd' => 'resources/languages/classes/LanguageGd.js',
-				'gv' => 'resources/languages/classes/LanguageGv.js',
-				'he' => 'resources/languages/classes/LanguageHe.js',
-				'hi' => 'resources/languages/classes/LanguageHi.js',
-				'hr' => 'resources/languages/classes/LanguageHr.js',
-				'hsb' => 'resources/languages/classes/LanguageHsb.js',
-				'hy' => 'resources/languages/classes/LanguageHy.js',
-				'ksh' => 'resources/languages/classes/LanguageKsh.js',
-				'ln' => 'resources/languages/classes/LanguageLn.js',
-				'lt' => 'resources/languages/classes/LanguageLt.js',
-				'lv' => 'resources/languages/classes/LanguageLv.js',
-				'mg' => 'resources/languages/classes/LanguageMg.js',
-				'mk' => 'resources/languages/classes/LanguageMk.js',
-				'mo' => 'resources/languages/classes/LanguageMo.js',
-				'mt' => 'resources/languages/classes/LanguageMt.js',
-				'nso' => 'resources/languages/classes/LanguageNso.js',
-				'pl' => 'resources/languages/classes/LanguagePl.js',
-				'pt-br' => 'resources/languages/classes/LanguagePt_br.js',
-				'ro' => 'resources/languages/classes/LanguageRo.js',
-				'ru' => 'resources/languages/classes/LanguageRu.js',
-				'se' => 'resources/languages/classes/LanguageSe.js',
-				'sh' => 'resources/languages/classes/LanguageSh.js',
-				'sk' => 'resources/languages/classes/LanguageSk.js',
-				'sl' => 'resources/languages/classes/LanguageSl.js',
-				'sma' => 'resources/languages/classes/LanguageSma.js',
-				'sr' => 'resources/languages/classes/LanguageSr.js',
-				'sr-ec' => 'resources/languages/classes/LanguageSr_ec.js',
-				'sr-el' => 'resources/languages/classes/LanguageSr_el.js',
-				'ti' => 'resources/languages/classes/LanguageTi.js',
-				'tl' => 'resources/languages/classes/LanguageTl.js',
-				'uk' => 'resources/languages/classes/LanguageUk.js',
-				'wa' => 'resources/languages/classes/LanguageWa.js'
+				'am' => 'resources/language/classes/LanguageAm.js',
+				'ar' => 'resources/language/classes/LanguageAr.js',
+				'bat-smg' => 'resources/language/classes/LanguageBat_smg.js',
+				'be' => 'resources/language/classes/LanguageBe.js',
+				'be-tarask' => 'resources/language/classes/LanguageBe_tarask.js',
+				'bh' => 'resources/language/classes/LanguageBh.js',
+				'bs' => 'resources/language/classes/LanguageBs.js',
+				'cs' => 'resources/language/classes/LanguageCs.js',
+				'cu' => 'resources/language/classes/LanguageCu.js',
+				'cy' => 'resources/language/classes/LanguageCy.js',
+				'dsb' => 'resources/language/classes/LanguageDsb.js',
+				'fr' => 'resources/language/classes/LanguageFr.js',
+				'ga' => 'resources/language/classes/LanguageGa.js',
+				'gd' => 'resources/language/classes/LanguageGd.js',
+				'gv' => 'resources/language/classes/LanguageGv.js',
+				'he' => 'resources/language/classes/LanguageHe.js',
+				'hi' => 'resources/language/classes/LanguageHi.js',
+				'hr' => 'resources/language/classes/LanguageHr.js',
+				'hsb' => 'resources/language/classes/LanguageHsb.js',
+				'hy' => 'resources/language/classes/LanguageHy.js',
+				'ksh' => 'resources/language/classes/LanguageKsh.js',
+				'ln' => 'resources/language/classes/LanguageLn.js',
+				'lt' => 'resources/language/classes/LanguageLt.js',
+				'lv' => 'resources/language/classes/LanguageLv.js',
+				'mg' => 'resources/language/classes/LanguageMg.js',
+				'mk' => 'resources/language/classes/LanguageMk.js',
+				'mo' => 'resources/language/classes/LanguageMo.js',
+				'mt' => 'resources/language/classes/LanguageMt.js',
+				'nso' => 'resources/language/classes/LanguageNso.js',
+				'pl' => 'resources/language/classes/LanguagePl.js',
+				'pt-br' => 'resources/language/classes/LanguagePt_br.js',
+				'ro' => 'resources/language/classes/LanguageRo.js',
+				'ru' => 'resources/language/classes/LanguageRu.js',
+				'se' => 'resources/language/classes/LanguageSe.js',
+				'sh' => 'resources/language/classes/LanguageSh.js',
+				'sk' => 'resources/language/classes/LanguageSk.js',
+				'sl' => 'resources/language/classes/LanguageSl.js',
+				'sma' => 'resources/language/classes/LanguageSma.js',
+				'sr' => 'resources/language/classes/LanguageSr.js',
+				'sr-ec' => 'resources/language/classes/LanguageSr_ec.js',
+				'sr-el' => 'resources/language/classes/LanguageSr_el.js',
+				'ti' => 'resources/language/classes/LanguageTi.js',
+				'tl' => 'resources/language/classes/LanguageTl.js',
+				'uk' => 'resources/language/classes/LanguageUk.js',
+				'wa' => 'resources/language/classes/LanguageWa.js'
 			),
 			'styles' => array(
 				'resources/jquery/jquery.tipsy.css',
@@ -292,6 +292,20 @@ class UploadWizardHooks {
 		$remotepath = "$wgExtensionAssetsPath/UploadWizard";
 		foreach ( self::$modules as $name => $resources ) {
 			$resourceLoader->register( $name, new ResourceLoaderFileModule( $resources, $localpath, $remotepath ) );
+		}
+		return true;
+	}
+
+	public static function CanonicalNamespaces( array $namespaces ) {
+		global $wgNamespaceAliases;
+		// add proper aliases for NS_FILE, otherwise an error is being thrown
+		// in combined.min.js when the content language code is not 'en':
+		// "unrecognized namespace=File" due to undefiled 'File' key in wgNamespaceIds
+		if ( !isset( $wgNamespaceAliases['File'] ) ) {
+			$wgNamespaceAliases['File'] = NS_FILE;
+		}
+		if ( !isset( $wgNamespaceAliases['File_talk'] ) ) {
+			$wgNamespaceAliases['File_talk'] = NS_FILE_TALK;
 		}
 		return true;
 	}

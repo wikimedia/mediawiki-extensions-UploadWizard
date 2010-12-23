@@ -59,3 +59,4 @@ $wgUploadWizardDisableResourceLoader = true;
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
+$wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';

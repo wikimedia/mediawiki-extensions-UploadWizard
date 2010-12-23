@@ -40,7 +40,7 @@ class UploadWizardDependencyLoader {
 		$this->inlineScripts = array();
 		if ( $langCode !== null ) {
 			if ( $langCode !== 'en' && isset( $module['languageScripts'][$langCode] ) ) {
-				$this->inlineScripts[] = $module['languageScripts'][$langCode];
+				$this->scripts[] = $module['languageScripts'][$langCode];
 			}
 			$this->inlineScripts[] = UploadWizardMessages::getMessagesJs( 'UploadWizard', $langCode );
 		}
