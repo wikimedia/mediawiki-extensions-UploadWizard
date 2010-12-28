@@ -25,6 +25,7 @@
 		if ( typeof window.console !== 'undefined' && typeof window.console.log === 'function' ) {
 			window.console.log( s );
 		} else {
+/*
 			// Show a log box for console-less browsers
 			var $log = $( '#mw-log-console' );
 			if ( !$log.length ) {
@@ -53,6 +54,7 @@
 					} )
 					.text( s )
 			);
+*/
 		}
 	};
 	

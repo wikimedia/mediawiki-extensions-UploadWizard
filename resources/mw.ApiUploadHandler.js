@@ -41,20 +41,6 @@ mw.ApiUploadHandler.prototype = {
 		var _this = this;
 		mw.log( "configuring form for Upload API" );
 
-		// Set the form action
-		try {
-			this.$form.attr( { 
-				action: _this.api.url,
-				method: 'POST',
-				encType: 'multipart/form-data' 
-			} );
-		} catch ( e ) {
-			alert( "oops, form modification didn't work in ApiUploadHandler" );
-			mw.log( "IE for some reason error's out when you change the action" );
-			// well, if IE fucks this up perhaps we should do something to make sure it writes correctly
-			// from the outset?
-		}
-
 		_this.addFormInputIfMissing( 'action', 'upload' );
 
 		// force stash
