@@ -2370,7 +2370,7 @@ mw.UploadWizardDeedPreview.prototype = {
 
 				//fix for z-index bug with selects in IE6
 				if ( $j.browser.msie && $j.browser.version.substring(0,1) === '6' ){
-					el.find( "select" ).addClass( "masked-hidden" );
+					$j( el ).find( "select" ).addClass( "masked-hidden" );
 				}
 
 				var mask = $j( '<div />' )
@@ -2387,14 +2387,7 @@ mw.UploadWizardDeedPreview.prototype = {
 					.append( mask )
 					.data( 'mask', mask );
 
-				//auto height fix for IE -- not sure about this, i think offsetWidth + Height is a better solution. Test!
-				/*
-				if( $j.browser.msie ) {
-					mask.height(el.height() + parseInt(el.css("padding-top")) + parseInt(el.css("padding-bottom")));
-					mask.width(el.width() + parseInt(el.css("padding-left")) + parseInt(el.css("padding-right")));
-				}
-				*/
-
+				
 			} 
 			// XXX bind to a custom event in case the div size changes 
 		} );
