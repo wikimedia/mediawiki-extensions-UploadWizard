@@ -23,9 +23,10 @@
 			'fetch': _fetchSuggestions,
 			'cancel': function() {
 				var req = $j( this ).data( 'request' );
-				if ( req.abort ) {
+				// XMLHttpRequest.abort is unimplemented in IE6, also returns nonstandard value of "unknown" for typeof
+				if ( req && ( typeof req.abort !== 'unknown' ) && ( typeof req.abort !== 'undefined' ) && req.abort ) {
 					req.abort();
-					}
+				}
 			}
 		} );
 		_this.suggestions();
