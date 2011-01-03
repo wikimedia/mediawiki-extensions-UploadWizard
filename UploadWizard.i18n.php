@@ -1162,6 +1162,7 @@ $messages['cy'] = array(
 	'mwe-upwiz-api-error-filetype-missing' => 'Mae estyniad yn eisiau ar y ffeil.',
 	'mwe-upwiz-api-error-filetype-banned' => "Mae'r math hwn o ffeil wedi ei wahardd.",
 	'mwe-upwiz-api-error-filename-tooshort' => "Mae enw'r ffeil yn rhy fyr.",
+	'mwe-upwiz-api-error-illegal-filename' => "Nid yw'r enw ffeil hwn yn cael ei ganiatáu.",
 	'mwe-upwiz-tutorial-error-localized-file-missing' => "Mae'n ddrwg gennym, ni chafwyd hyd i diwtorial yn eich iaith. Dangoswn felly yr un Saesneg.",
 	'mwe-upwiz-tutorial-error-file-missing' => "Mae'n ddrwg gennym, nid oeddem yn gallu dod o hyd i unrhyw ffeiliau ar gyfer y tiwtorial sydd i fod i fynd fan hyn. Cysylltwch â gweinyddwyr y system.",
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Mae'n ddrwg gennym, ni allem gael delwedd raddedig o'r tiwtorial i ffitio'r sgrin hon. Gall hyn fod yn broblem dros dro â Chomin Wikimedia; ceisiwch eto yn nes ymlaen.",
@@ -1180,7 +1181,9 @@ $messages['cy'] = array(
 	'mwe-upwiz-remove-upload' => "Tynnu'r ffeil hon oddi ar restr y ffeiliau i'w huwchlwytho",
 	'mwe-upwiz-remove-description' => "Tynnu'r disgrifiad hwn",
 	'mwe-upwiz-upload' => 'Uwchlwytho',
+	'mwe-upwiz-file-all-ok' => 'Llwyddodd yr holl uwchlwytho!',
 	'mwe-upwiz-file-some-failed' => "Methodd rhai o'r uwchlwythiadau.",
+	'mwe-upwiz-file-retry' => "Ceisio eilwaith i lwytho'r ffeiliau y methwyd eu huwchlwytho",
 	'mwe-upwiz-upload-count' => "Uwchlwythwyd $1 {{PLURAL:$2|ffeil}} o'r cyfanswm o $2",
 	'mwe-upwiz-progressbar-uploading' => "wrthi'n uwchlwytho...",
 	'mwe-upwiz-finished' => 'Cwblhawyd!',
@@ -1478,16 +1481,13 @@ Bitte verwende hier kein Wikitext oder HTML.',
  * @author Kghbln
  */
 $messages['de-formal'] = array(
-	'mwe-upwiz-step-file' => 'Hochladen',
 	'mwe-upwiz-step-thanks' => 'Nutzung',
 	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitern Sie das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
 	'mwe-upwiz-add-file-n' => 'Fügen Sie eine weitere Datei hinzu',
-	'mwe-upwiz-add-file-0' => 'Klicken Sie hier, um eine Datei hochzuladen',
 	'mwe-upwiz-click-here' => 'Klicken Sie hier, um eine Datei auszuwählen',
 	'mwe-upwiz-remove-upload' => 'Entfernen Sie diese Datei aus der Liste der hochzuladenden Dateien',
 	'mwe-upwiz-remove-description' => 'Entfernen Sie diese Beschreibung',
 	'mwe-upwiz-deeds-intro' => 'Auf dieser Website ist es notwendig, dass Sie die hochgeladenen Dateien mit einer Lizenz für freie Inhalte versehen, damit sie jeder legal für jedwede Zwecke weiternutzen kann.',
-	'mwe-upwiz-deeds-macro-prompt' => 'Versehen Sie {{PLURAL:$1|die obige Datei|die obigen Dateien}} mit einer Lizenz:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Dies bedeutet, dass Sie Ihr Werk gemäß der Lizenz „Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen“ veröffentlichen.',
 	'mwe-upwiz-source-permission' => 'Deren Urheber haben Ihnen die ausdrückliche Erlaubnis gegeben, sie hochzuladen',
 	'mwe-upwiz-source-thirdparty-intro' => 'Bitte geben Sie die Internet-Adresse an, unter der Sie jede der Dateien gefunden haben.',
@@ -3928,6 +3928,25 @@ $1文字より長くしてください。',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'mwe-upwiz-api-error-filetype-banned' => 'ფაილის ეს ტიპი აკრძალულია',
+	'mwe-upwiz-add-file-n' => 'სხვა ფაილის დამატება',
+	'mwe-upwiz-stashed-upload' => 'კარგი',
+	'mwe-upwiz-remove' => 'წაშლა',
+	'mwe-upwiz-upload' => 'ატვირთვა',
+	'mwe-upwiz-finished' => 'დამთავრებულია!',
+	'mwe-upwiz-source' => 'წყარო',
+	'mwe-upwiz-next' => 'შემდეგი',
+	'mwe-upwiz-next-deeds' => 'შემდეგი',
+	'mwe-upwiz-next-details' => 'შემდეგი',
+	'mwe-upwiz-categories' => 'კატეგორიები',
+	'mwe-upwiz-categories-add' => 'დამატება',
+	'mwe-upwiz-category-remove' => 'ამ კატეგორიის წაშლა',
+);
+
 /** Kannada (ಕನ್ನಡ)
  * @author Nayvik
  */
@@ -6124,6 +6143,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -6134,7 +6154,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-add-file-n' => 'Додај други фајл',
 	'mwe-upwiz-add-file-0' => 'Кликни овде да пошаљеш фајл',
 	'mwe-upwiz-uploading' => 'шаље се...',
-	'mwe-upwiz-transported' => 'Да',
+	'mwe-upwiz-transported' => 'Отпремање...',
 	'mwe-upwiz-stashed-upload' => 'Да',
 	'mwe-upwiz-click-here' => 'Кликни овде за избор фајла',
 	'mwe-upwiz-editing' => 'мења се...',
@@ -6142,7 +6162,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'шаље се',
 	'mwe-upwiz-finished' => 'Завршено!',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Овај фајл није мој сопствени рад|Ови фајлови нису моји сопствени радови}}.',
-	'mwe-upwiz-source-thirdparty-accept' => 'Да',
+	'mwe-upwiz-source-thirdparty-accept' => 'У реду',
 	'mwe-upwiz-more-options' => 'више опција...',
 	'mwe-upwiz-fewer-options' => 'мање опција...',
 	'mwe-upwiz-desc-add-0' => 'додај опис',
@@ -6152,9 +6172,9 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-location' => 'Место',
 	'mwe-upwiz-author' => 'Аутор(и)',
 	'mwe-upwiz-about-format' => 'О фајлу',
-	'mwe-upwiz-filename-tag' => 'Име фајла:',
+	'mwe-upwiz-filename-tag' => 'Назив датотеке:',
 	'mwe-upwiz-showall' => 'прикажи све',
-	'mwe-upwiz-ok' => 'Да',
+	'mwe-upwiz-ok' => 'У реду',
 	'mwe-upwiz-cancel' => 'Поништи',
 	'mwe-upwiz-change' => '(промени)',
 	'mwe-upwiz-thumbnail-more' => 'Увећај',
