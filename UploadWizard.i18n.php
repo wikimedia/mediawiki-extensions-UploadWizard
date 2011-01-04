@@ -1163,6 +1163,7 @@ $messages['cy'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => "Mae'r math hwn o ffeil wedi ei wahardd.",
 	'mwe-upwiz-api-error-filename-tooshort' => "Mae enw'r ffeil yn rhy fyr.",
 	'mwe-upwiz-api-error-illegal-filename' => "Nid yw'r enw ffeil hwn yn cael ei ganiatáu.",
+	'mwe-upwiz-api-error-unknown-error' => "Aeth rhywbeth o'i le wrth geisio llwytho eich ffeil.",
 	'mwe-upwiz-tutorial-error-localized-file-missing' => "Mae'n ddrwg gennym, ni chafwyd hyd i diwtorial yn eich iaith. Dangoswn felly yr un Saesneg.",
 	'mwe-upwiz-tutorial-error-file-missing' => "Mae'n ddrwg gennym, nid oeddem yn gallu dod o hyd i unrhyw ffeiliau ar gyfer y tiwtorial sydd i fod i fynd fan hyn. Cysylltwch â gweinyddwyr y system.",
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Mae'n ddrwg gennym, ni allem gael delwedd raddedig o'r tiwtorial i ffitio'r sgrin hon. Gall hyn fod yn broblem dros dro â Chomin Wikimedia; ceisiwch eto yn nes ymlaen.",
@@ -1193,7 +1194,7 @@ $messages['cy'] = array(
 	'mwe-upwiz-deeds-macro-prompt' => "Mae {{SITENAME}} yn gofyn i chi ddarparu gwybodaeth ar hawlfraint {{PLURAL:$1||y ffeil hon|y ffeiliau hyn|y ffeiliau hyn|y ffeiliau hyn|y ffeiliau hyn}}, er mwyn sicrhau y gall pawb {{PLURAL:$1||ei defnyddio|eu defnyddio|eu defnyddio|eu defnyddio|eu defnyddio}}'n gyfreithlon.",
 	'mwe-upwiz-deeds-custom-prompt' => 'Neu:',
 	'mwe-upwiz-source-ownwork' => "Fy ngwaith fy hun yw'r {{PLURAL:$1||ffeil hon|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn}}.",
-	'mwe-upwiz-source-ownwork-assert-any-license' => "Yr wyf fi, $2, deiliad hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}}, yn cynnig yn ddi-alw-nôl i unrhyw un yr hawl i ddefnyddio'r {{PLURAL:$1||gwaith hwn, ac i'w addasu a'i ailddosbarthu|gweithiau hyn, neu eu|gweithiau hyn, neu eu|gweithiau hyn, neu eu|gweithiau hyn, neu eu}}  at unrhyw ddiben",
+	'mwe-upwiz-source-ownwork-assert-any-license' => "Yr wyf fi, $2, deiliad hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}}, yn cynnig i unrhyw un, a hynny'n ddi-alw-nôl, yr hawl i ddefnyddio'r {{PLURAL:$1||gwaith hwn, ac i'w addasu a'i ailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu}}, at unrhyw ddiben, ac yr wyf yn {{PLURAL:$1||ei gyhoeddi|eu cyhoeddi|eu cyhoeddi|eu cyhoeddi|eu cyhoeddi}} yn ôl y telerau sy'n dilyn:",
 	'mwe-upwiz-source-ownwork-assert' => "Rwyf i, $2, deiliad hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}}, drwy hyn yn caniatáu'n ddiwrthdro i unrhyw un ddefnyddio'r {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}} at unrhyw bwrpas, cyn belled ag y maent yn fy nghydnabod ac yn rhannu gwaith deilliadol ar yr un telerau.",
 	'mwe-upwiz-source-ownwork-assert-custom' => "Rwyf i, $2, deiliad hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}}, drwy hyn yn cyhoeddi'r {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}} yn ôl termau'r drwydded(au) sy'n dilyn:",
 	'mwe-upwiz-source-ownwork-assert-note' => 'Mae hyn yn golygu eich bod yn rhyddhau eich gwaith o dan drwydded Creative Commons Attribution ShareAlike.',
@@ -6594,6 +6595,9 @@ $messages['ur'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'linktest' => '[$ 1 đây là một liên kết]',
+	'magictest' => 'Từ {{SITENAME}}',
+	'namespacedtest' => '{{ns:project}}:Bản quyền',
 	'uploadwizard' => 'Trình thuật sĩ tải lên',
 	'uploadwizard-desc' => 'Trình thuật sĩ tải lên được phát triển với tiền trợ cấp Khả dụng Đa phương tiện',
 	'mwe-upwiz-js-off' => 'Giao diện nâng cao của Trình thuật sĩ tải lên cần JavaScript. Dưới đây là biểu mẫu tải lên đơn giản vì trình duyệt của bạn không hỗ trợ JavaScript hoặc JavaScript đã bị tắt.',
