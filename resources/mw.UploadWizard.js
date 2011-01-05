@@ -1751,9 +1751,9 @@ mw.UploadWizard.prototype = {
 				// this will break if we ever allow people to page back and forth.
 			} else {
 				if ( selectedStepName === stepName ) {
-					stepDiv.maskSafeShow();
+					stepDiv.hide();
 				} else {
-					stepDiv.maskSafeHide( 1000 );
+					stepDiv.show( 1000 );
 				}
 			}
 			
@@ -2396,6 +2396,7 @@ mw.UploadWizardDeedPreview.prototype = {
 
 	};
 
+	// n.b. this is not called currently -- all uses of mask() are permanent
 	jQuery.fn.unmask = function( options ) {
 
 		$j.each( this, function( i, el ) {
@@ -2411,35 +2412,6 @@ mw.UploadWizardDeedPreview.prototype = {
 		return this;
 	};
 
-
-	/** 
-	 * Safe hide and show
-	 * Rather than use display: none, this collapses the divs to zero height
-	 * This is good because then the elements in the divs still have layout and we can do things like mask and unmask (above)
-	 * XXX may be obsolete as we are not really doing this any more
-	 * disable form fields so we do not tab through them when hidden
-	 * XXX for some reason the disabling doesn't work with the date field.
-	 */ 
-
-	jQuery.fn.maskSafeHide = function( options ) {
-		$j.each( this.find( ':enabled' ), function(i, input) {
-			$j( input ).data( 'wasEnabled', true )
-				   .attr( 'disabled', 'disabled' );
-		} );
-		return this.css( { 'height' : '0px', 'overflow' : 'hidden' } );
-	};
-
-	// may be causing scrollbar to appear when div changes size
-	// re-enable form fields (disabled so we did not tab through them when hidden)
-	jQuery.fn.maskSafeShow = function( options ) {
-		$j.each( this.find( ':disabled' ), function (i, input) {
-			if ($j( input ).data( 'wasEnabled' )) {
-				$j( input ).removeAttr( 'disabled' )
-					   .removeData( 'wasEnabled' ); 
-			}
-		} );
-		return this.css( { 'height' : 'auto', 'overflow' : 'visible' } );
-	};
 
 	$j.validator.setDefaults( {
 		debug: true,

@@ -348,8 +348,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-stepdiv {
-	height: 0px;
-	overflow: hidden;
+	position: relative; 
 }
 
 
