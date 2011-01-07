@@ -3934,7 +3934,10 @@ $1文字より長くしてください。',
  */
 $messages['ka'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => 'ფაილის ეს ტიპი აკრძალულია',
+	'mwe-upwiz-api-error-filename-tooshort' => 'ფაილის სახელი ზედმეტად მოკლეა',
 	'mwe-upwiz-add-file-n' => 'სხვა ფაილის დამატება',
+	'mwe-upwiz-transport-started' => 'იწყება...',
+	'mwe-upwiz-uploading' => 'იტვირთება...',
 	'mwe-upwiz-stashed-upload' => 'კარგი',
 	'mwe-upwiz-remove' => 'წაშლა',
 	'mwe-upwiz-upload' => 'ატვირთვა',
@@ -6149,7 +6152,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
  */
 $messages['sr-ec'] = array(
 	'uploadwizard' => 'Чаробњак за слање',
-	'mwe-upwiz-step-file' => 'Слање',
+	'mwe-upwiz-step-file' => 'Отпремање',
 	'mwe-upwiz-step-details' => 'Опиши',
 	'mwe-upwiz-step-thanks' => 'Користи',
 	'mwe-upwiz-add-file-n' => 'Додај други фајл',
@@ -6159,7 +6162,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-stashed-upload' => 'Да',
 	'mwe-upwiz-click-here' => 'Кликни овде за избор фајла',
 	'mwe-upwiz-editing' => 'мења се...',
-	'mwe-upwiz-upload' => 'Пошаљи',
+	'mwe-upwiz-upload' => 'Отпреми',
 	'mwe-upwiz-progressbar-uploading' => 'шаље се',
 	'mwe-upwiz-finished' => 'Завршено!',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Овај фајл није мој сопствени рад|Ови фајлови нису моји сопствени радови}}.',
@@ -6186,7 +6189,9 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-next-details' => 'Следеће',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica)) */
+/** Serbian Latin ekavian (Srpski (latinica))
+ * @author Rancher
+ */
 $messages['sr-el'] = array(
 	'uploadwizard' => 'Čarobnjak za slanje',
 	'mwe-upwiz-step-file' => 'Slanje',
@@ -6199,7 +6204,7 @@ $messages['sr-el'] = array(
 	'mwe-upwiz-stashed-upload' => 'Da',
 	'mwe-upwiz-click-here' => 'Klikni ovde za izbor fajla',
 	'mwe-upwiz-editing' => 'menja se...',
-	'mwe-upwiz-upload' => 'Pošalji',
+	'mwe-upwiz-upload' => 'Otpremi',
 	'mwe-upwiz-progressbar-uploading' => 'šalje se',
 	'mwe-upwiz-finished' => 'Završeno!',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ovaj fajl nije moj sopstveni rad|Ovi fajlovi nisu moji sopstveni radovi}}.',
