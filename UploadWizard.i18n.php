@@ -1163,7 +1163,9 @@ $messages['cy'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => "Mae'r math hwn o ffeil wedi ei wahardd.",
 	'mwe-upwiz-api-error-filename-tooshort' => "Mae enw'r ffeil yn rhy fyr.",
 	'mwe-upwiz-api-error-illegal-filename' => "Nid yw'r enw ffeil hwn yn cael ei ganiatáu.",
+	'mwe-upwiz-api-error-verification-error' => "Gallai'r ffeil hon fod wedi ei llygru, neu gall fod estyniad anghywir iddi.",
 	'mwe-upwiz-api-error-unknown-error' => "Aeth rhywbeth o'i le wrth geisio llwytho eich ffeil.",
+	'mwe-upwiz-api-warning-duplicate' => "Mae ffeil arall gyda'r un cynnwys eisoes ar y wici hwn",
 	'mwe-upwiz-tutorial-error-localized-file-missing' => "Mae'n ddrwg gennym, ni chafwyd hyd i diwtorial yn eich iaith. Dangoswn felly yr un Saesneg.",
 	'mwe-upwiz-tutorial-error-file-missing' => "Mae'n ddrwg gennym, nid oeddem yn gallu dod o hyd i unrhyw ffeiliau ar gyfer y tiwtorial sydd i fod i fynd fan hyn. Cysylltwch â gweinyddwyr y system.",
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Mae'n ddrwg gennym, ni allem gael delwedd raddedig o'r tiwtorial i ffitio'r sgrin hon. Gall hyn fod yn broblem dros dro â Chomin Wikimedia; ceisiwch eto yn nes ymlaen.",
@@ -3931,6 +3933,7 @@ $1文字より長くしてください。',
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author Dawid Deutschland
  */
 $messages['ka'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => 'ფაილის ეს ტიპი აკრძალულია',
@@ -3946,6 +3949,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-next' => 'შემდეგი',
 	'mwe-upwiz-next-deeds' => 'შემდეგი',
 	'mwe-upwiz-next-details' => 'შემდეგი',
+	'mwe-upwiz-license-gfdl' => 'GNU-ლიცენზია თავისუფალი დოკუმენტაციისათვის',
 	'mwe-upwiz-categories' => 'კატეგორიები',
 	'mwe-upwiz-categories-add' => 'დამატება',
 	'mwe-upwiz-category-remove' => 'ამ კატეგორიის წაშლა',
@@ -5872,6 +5876,20 @@ $messages['rue'] = array(
 	'mwe-upwiz-categories' => 'Катеґорії',
 	'mwe-upwiz-categories-add' => 'Придати',
 	'mwe-upwiz-category-remove' => 'Одстранити тоту катеґорію',
+);
+
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'mwe-upwiz-more-options' => 'өссө туруоруулар...',
+	'mwe-upwiz-fewer-options' => 'туруорууларын аҕыйат...',
+	'mwe-upwiz-desc' => 'Быһаарыыта',
+	'mwe-upwiz-desc-add-n' => 'бу туһунан атын тылынан',
+	'mwe-upwiz-desc-add-0' => 'эбии бу туһунан',
+	'mwe-upwiz-title' => 'Баһа',
+	'mwe-upwiz-categories-intro' => 'Категориятын эптэххинэ атын дьон булан ылалларыгар судургу буолуо',
+	'mwe-upwiz-categories-another' => 'Атын категориялары эбэргэ',
 );
 
 /** Sinhala (සිංහල)
