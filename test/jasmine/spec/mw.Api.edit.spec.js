@@ -9,7 +9,7 @@ $j.mockjaxSettings = {
 
 describe( "mw.Api", function() {
 
-	var API_DELAY = 250; // ms
+	var MAX_DELAY = 1000; // ms
 
 	// typical globals made available
 	// TODO this only works for me (NeilK)
@@ -35,36 +35,44 @@ describe( "mw.Api", function() {
 */
 		it( "should fetch a token with simple callback", function() { 
 			var api = new mw.Api( { url: apiUrl } );
+			var token = undefined;
+			var completion = false;
 			runs( function() {
-				this.token = undefined;
-				var _this = this;
 				api.getEditToken( 
 					function( t ) {
-						_this.token = t;
-					} 	
+						token = t;
+						completion = true;
+					},
+					function() {
+						completion = true;
+					}
 				);
 			} );
-			waits( API_DELAY );
+			waitsFor( function() { return completion; }, "AJAX call completion", MAX_DELAY );
 			runs( function() { 
-				expect( this.token ).toBeDefined();
-				expect( this.token ).toContain( '+\\' );
+				expect( token ).toBeDefined();
+				expect( token ).toContain( '+\\' );
 			} );
 		} );
 
 
 		it( "should deal with network timeout", function() {
+			var _this = this;
+
 			runs( function() { 
-				this.token = undefined;
-				var _this = this;
+				_this.token = undefined;
+
 				var api = new mw.Api( { url: apiUrl } ); 
 
 				var ok = function( t ) {
 					_this.token = t;
+					_this.done = true;
 				};
 
 				var err = function( code, info ) { 
 					if ( code == 'http-timeout' ) {
 						_this.timedOut = true;
+						_this.done = true;
 					}
 				};
 
@@ -79,7 +87,7 @@ describe( "mw.Api", function() {
 			} );
 
 			// the mock should time out instantly, but in practice, some delay seems necessary ?
-			waits( 100 );
+			waitsFor( function() { return _this.done; }, "mockjax call completion", MAX_DELAY );
 
 			runs( function() {
 				expect( this.timedOut ).toBe( true );
