@@ -25,14 +25,12 @@ describe( "mw.Api", function() {
 
 	describe( "edit token", function() { 
 
-/*
 		var deleteToken;
 		var deleteTokenGetter = function( t ) {
 			deleteToken = t;
 		};
 
 
-*/
 		it( "should fetch a token with simple callback", function() { 
 			var api = new mw.Api( { url: apiUrl } );
 			var token = undefined;
@@ -56,80 +54,94 @@ describe( "mw.Api", function() {
 		} );
 
 
+
 		it( "should deal with network timeout", function() {
-			var _this = this;
+			var token = undefined;
+			var completion = false;
+			var timedOut = false;
 
 			runs( function() { 
-				_this.token = undefined;
-
-				var api = new mw.Api( { url: apiUrl } ); 
+				console.log( "network timeout test" );
 
 				var ok = function( t ) {
-					_this.token = t;
-					_this.done = true;
+					console.log( "network timeout test ok" );
+					token = t;
+					completion = true;
 				};
 
 				var err = function( code, info ) { 
-					if ( code == 'http-timeout' ) {
-						_this.timedOut = true;
-						_this.done = true;
+					completion = true;
+					if ( code == 'http' && info.textStatus == 'timeout' ) {
+						timedOut = true;
+					} else {
+						console.log( "unexpected error that wasn't a timeout" );
 					}
 				};
 
 				this.mock = $j.mockjax( { 
 					// match every url 
-					url: '*',
+					url: '*', 
 					// with a timeout
 					isTimeout: true
 				} );
-
+				
+				var api = new mw.Api( { url: apiUrl } ); 
 				api.getEditToken( ok, err );
 			} );
 
-			// the mock should time out instantly, but in practice, some delay seems necessary ?
-			waitsFor( function() { return _this.done; }, "mockjax call completion", MAX_DELAY );
+			waitsFor( function() { return completion || timedOut; }, "mockjax call completion or timeout", MAX_DELAY );
 
 			runs( function() {
-				expect( this.timedOut ).toBe( true );
+				expect( timedOut ).toBe( true );
 				$j.mockjaxClear( this.mock );
 			} );
 
 		} );
 	
-		it( "should deal with server error", function() { 
+
+		it( "should deal with server error", function() {
+			var token = undefined;
+			var completion = false;
+			var serverError = false;
+
 			runs( function() { 
-				this.token = undefined;
-				var _this = this;
-				var api = new mw.Api( { url: apiUrl } );
+				console.log( "network timeout test" );
 
 				var ok = function( t ) {
-					_this.token = t;
+					console.log( "network timeout test ok" );
+					token = t;
+					completion = true;
 				};
 
-				var err = function( code, info ) {
-					if ( code == 'http-error' && info && info.xhr && info.xhr.status == '500' ) {
-						_this.error500 = true;
+				var err = function( code, info ) { 
+					completion = true;
+					if ( code == 'http' && info && info.xhr && info.xhr.status == '500' ) {
+						serverError = true;
+					} else {
+						console.log( "unexpected error that wasn't a server error" );
 					}
 				};
 
 				this.mock = $j.mockjax( { 
 					// match every url 
-					url: '*',
+					url: '*', 
 					// with a server error
-					'status': 500
+					status: '500'
 				} );
-
+				
+				var api = new mw.Api( { url: apiUrl } ); 
 				api.getEditToken( ok, err );
 			} );
 
-			waits( 100 );
+			// the mock should time out instantly, but in practice, some delay seems necessary ?
+			waitsFor( function() { return completion; }, "mockjax call completion", MAX_DELAY );
 
 			runs( function() {
-				expect( this.error500 ).toBe( true );
+				expect( serverError ).toBe( true );
 				$j.mockjaxClear( this.mock );
 			} );
-		} );	
 
+		} );
 
 /*
 		it ( "should be able to create a page with an edit token", function() {
