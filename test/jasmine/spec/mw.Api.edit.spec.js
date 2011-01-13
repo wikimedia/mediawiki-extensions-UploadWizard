@@ -61,10 +61,8 @@ describe( "mw.Api", function() {
 			var timedOut = false;
 
 			runs( function() { 
-				console.log( "network timeout test" );
 
 				var ok = function( t ) {
-					console.log( "network timeout test ok" );
 					token = t;
 					completion = true;
 				};
@@ -105,10 +103,8 @@ describe( "mw.Api", function() {
 			var serverError = false;
 
 			runs( function() { 
-				console.log( "network timeout test" );
 
 				var ok = function( t ) {
-					console.log( "network timeout test ok" );
 					token = t;
 					completion = true;
 				};
