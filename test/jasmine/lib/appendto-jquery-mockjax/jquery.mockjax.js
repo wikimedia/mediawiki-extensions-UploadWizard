@@ -1,12 +1,13 @@
 /*!
- * MockJax - Mock for Ajax requests
+ * MockJax - jQuery Plugin to Mock Ajax requests
  *
- * Version: 1.3.1
- * Released: 2010-08-11
- * Source: http://github.com/appendto/jquery-mockjax
- * Plugin: mockjax
- * Author: Jonathan Sharp (http://jdsharp.com)
- * License: MIT,GPL
+ * Version:  1.3.3
+ * Released: 2010-11-05
+ * Source:   http://github.com/appendto/jquery-mockjax
+ * Docs:     http://enterprisejquery.com/2010/07/mock-your-ajax-requests-with-mockjax-for-rapid-development
+ * Plugin:   mockjax
+ * Author:   Jonathan Sharp (http://jdsharp.com)
+ * License:  MIT,GPL
  * 
  * Copyright (c) 2010 appendTo LLC.
  * Dual licensed under the MIT or GPL licenses.
@@ -55,6 +56,12 @@
 							var identical = false;
 							// Deep inspect the identity of the objects
 							(function ident(mock, live) {
+								// Test for situations where the data is a querystring (not an object)
+								if (typeof live === 'string') {
+									// Querystring may be a regex
+									identical = $.isFunction( mock.test ) ? mock.test(live) : mock == live;
+									return identical;
+								}
 								$.each(mock, function(k, v) {
 									if ( live[k] === undefined ) {
 										identical = false;
@@ -88,14 +95,14 @@
 				}
 				if ( m ) {
 					if ( typeof console !== 'undefined' && console.log ) {
-						console.log('MOCK GET: ' + s.url);
+						console.log('MOCK ' + s.type + ': ' + s.url);
 					}
 					mock = true;
 					
 					// Handle JSONP Parameter Callbacks, we need to replicate some of the jQuery core here
 					// because there isn't an easy hook for the cross domain script tag of jsonp
 					if ( s.dataType === "jsonp" ) {
-						if ( type === "GET" ) {
+						if ( s.type.toUpperCase() === "GET" ) {
 							if ( !jsre.test( s.url ) ) {
 								s.url += (rquery.test( s.url ) ? "&" : "?") + (s.jsonp || "callback") + "=?";
 							}
@@ -144,7 +151,7 @@
 						remote = parts && (parts[1] && parts[1] !== location.protocol || parts[2] !== location.host);
 					
 					// Test if we are going to create a script tag (if so, intercept & mock)
-					if ( s.dataType === "script" && s.type === "GET" && remote ) {
+					if ( s.dataType === "script" && s.type.toUpperCase() === "GET" && remote ) {
 						// Synthesize the mock request for adding a script tag
 						var callbackContext = origSettings && origSettings.context || s;
 						
@@ -181,16 +188,16 @@
 							(s.context ? jQuery(s.context) : jQuery.event).trigger(type, args);
 						}
 						
-						//if ( m.response && $.isFunction(m.response) ) {
-						//	m.response();
-						//} else {
+						if ( m.response && $.isFunction(m.response) ) {
+							m.response(origSettings);
+						} else {
 							$.globalEval(m.responseText);
-						//}
+						}
 						success();
 						complete();
 						return false;
 					}
-					_ajax.call($, $.extend(true, {}, origSettings, {
+					mock = _ajax.call($, $.extend(true, {}, origSettings, {
 						// Mock the XHR object
 						xhr: function() {
 							// Extend with our default mockjax settings
@@ -209,7 +216,7 @@
 										// We have an executable function, call it to give 
 										// the mock a chance to update it's data
 										if ( $.isFunction(m.response) ) {
-											m.response();
+											m.response(origSettings);
 										}
 										// Copy over our mock to our xhr object before passing control back to 
 										// jQuery's onreadystatechange callback
@@ -239,7 +246,7 @@
 											complete: function(xhr, txt) {
 												m.responseXML = xhr.responseXML;
 												m.responseText = xhr.responseText;
-												process();
+												this.responseTimer = setTimeout(process, m.responseTime || 0);
 											}
 										});
 									} else {
@@ -278,21 +285,23 @@
 			// We don't have a mock request, trigger a normal request
 			if ( !mock ) {
 				return _ajax.apply($, arguments);
+			} else {
+				return mock;
 			}
 		}
 	});
 
 	$.mockjaxSettings = {
-		//url: 			null,
-		//type: 			'GET',
-		status: 		200,
-		responseTime: 	500,
-		isTimeout:		false,
-		contentType: 	'text/plain',
-		response: 		'', 
-		responseText:	'',
-		responseXML:	'',
-		proxy:			'',
+		//url:        null,
+		//type:       'GET',
+		status:       200,
+		responseTime: 500,
+		isTimeout:    false,
+		contentType:  'text/plain',
+		response:     '', 
+		responseText: '',
+		responseXML:  '',
+		proxy:        '',
 		
 		lastModified:	null,
 		etag: 			'',
