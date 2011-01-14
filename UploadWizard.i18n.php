@@ -6319,6 +6319,7 @@ $messages['sr-el'] = array(
  * @author Dafer45
  * @author Nghtwlkr
  * @author Sertion
+ * @author Tobulos1
  */
 $messages['sv'] = array(
 	'uploadwizard' => 'Guide för uppladdning',
@@ -6356,7 +6357,7 @@ $messages['sv'] = array(
 	'mwe-upwiz-source-thirdparty-intro' => 'Ange för varje fil den adress där du hittade den.',
 	'mwe-upwiz-source-thirdparty-license' => 'Upphovsrättsinnehavaren av detta verk publicerade dem under följande licens(er):',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
-	'mwe-upwiz-source-custom' => 'Visste du att du kan <a href="$1">anpassa</a> det förvalda alternativ du ser här?',
+	'mwe-upwiz-source-custom' => 'Ge copyrightinformation för varje fil på nästa sida.',
 	'mwe-upwiz-more-options' => 'fler alternativ ...',
 	'mwe-upwiz-fewer-options' => 'färre alternativ ...',
 	'mwe-upwiz-desc-add-n' => 'lägga till en beskrivning på ett annat språk',
@@ -6402,6 +6403,25 @@ I båda fallen kommer detta att kopplas till din wiki användarsida',
 	'mwe-upwiz-tooltip-description' => 'Beskriv kortfattat allt anmärkningsvärt om verket. För ett foto, nämna de viktigaste saker som är avbildade, tillfälle och plats.',
 	'mwe-upwiz-tooltip-other' => 'Ytterligare information du vill ha med om detta verk. Du kan använda wikitext-kod.',
 	'mwe-upwiz-tooltip-more-info' => 'Läs mer.',
+	'mwe-upwiz-license-incompatible-cc' => 'Du kan endast välja en typ av Creative Commons licens.',
+	'mwe-upwiz-license-show-all-any-license' => 'Fler valmöjligheter',
+	'mwe-upwiz-license-show-all' => 'Använd en annan licens',
+	'mwe-upwiz-license-show-recommended' => 'Använd den rekommenderande licensen',
+	'mwe-upwiz-error-signature-blank' => 'Du måste underteckna fältet nedan med ditt användarnamn eller riktiga namn.',
+	'mwe-upwiz-error-signature-too-long' => 'Din signatur är för lång.
+Gör den kortare än $1 {{PLURAL:$1|tecken|tecken}}.',
+	'mwe-upwiz-error-signature-too-short' => 'Din signatur är för kort.
+Gör den längre än $1 {{PLURAL:$1|tecken|tecken}}.',
+	'mwe-upwiz-error-signature-bad-chars' => 'Din signatur innehåller symboler som inte är tillåtna.
+Använd inte wikitext eller HTML här, utan bara ditt användarnamn eller ditt riktiga namn.',
+	'mwe-upwiz-error-blank' => 'Detta fält är obligatoriskt.',
+	'mwe-upwiz-error-too-long' => 'Detta fält är för långt.
+Gör den kortare än $1 {{PLURAL:$1|tecken|tecken}}.',
+	'mwe-upwiz-error-too-short' => 'Detta fält är för kort.
+Gör den längre än $1 {{PLURAL:$1|tecken|tecken}}.',
+	'mwe-upwiz-error-bad-chars' => 'Detta fält innehåller symboler som inte är tillåtna.
+Använd inte wikitext eller HTML här.',
+	'mwe-upwiz-categories-add' => 'Lägg till',
 );
 
 /** Swahili (Kiswahili)
