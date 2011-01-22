@@ -336,7 +336,7 @@ $messages['be'] = array(
 	'mwe-upwiz-categories' => 'Катэгорыі',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -1480,22 +1480,27 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-category-remove' => 'Diese Kategorie entfernen',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Kghbln
+ * @author Umherirrender
  */
 $messages['de-formal'] = array(
 	'mwe-upwiz-step-thanks' => 'Nutzung',
-	'mwe-upwiz-intro' => 'Willkommen bei Wikimedia Commons, einer Sammlung von Bildern, Klängen und Filmen, die jeder frei herunterladen und verwenden kann. Erweitern Sie das Wissen der Menschheit durch das Hochladen von Dateien, die für pädagogische Zwecke genutzt werden könnten.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'Sie haben nicht die Berechtigung Dateien in dieses Wiki hochzuladen. Prüfen Sie Ihre Gruppenzugehörigkeit.',
+	'mwe-upwiz-api-error-mustbeloggedin' => 'Sie sind nicht angemeldet.',
+	'mwe-upwiz-api-error-hookaborted' => 'Die von Ihnen vorgesehene Anpassung kann nicht durchgeführt werden (Unterbrechung durch eine Programmschnittstelle).',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Leider ist kein Lernprogramm in Ihrer Sprache verfügbar. Es wird daher das englischsprachige angezeigt.',
+	'mwe-upwiz-tutorial-error-file-missing' => 'Es konnten leider keine Dateien für das Lernprogramm gefunden werden, die eigentlich hier vorhanden sein sollten. Bitte wenden Sie sich an den Systemadministrator.',
+	'mwe-upwiz-tutorial-error-cannot-transform' => 'Es konnte leider kein Bild des Lernprogramms aufgerufen werden, das sich der Bildschirmgröße anpasst. Dies könnte ein vorübergehende Problem vom Wikimedia Commons sein. Versuchen Sie es später noch einmal.',
 	'mwe-upwiz-add-file-n' => 'Fügen Sie eine weitere Datei hinzu',
 	'mwe-upwiz-click-here' => 'Klicken Sie hier, um eine Datei auszuwählen',
 	'mwe-upwiz-remove-upload' => 'Entfernen Sie diese Datei aus der Liste der hochzuladenden Dateien',
 	'mwe-upwiz-remove-description' => 'Entfernen Sie diese Beschreibung',
-	'mwe-upwiz-deeds-intro' => 'Auf dieser Website ist es notwendig, dass Sie die hochgeladenen Dateien mit einer Lizenz für freie Inhalte versehen, damit sie jeder legal für jedwede Zwecke weiternutzen kann.',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Dies bedeutet, dass Sie Ihr Werk gemäß der Lizenz „Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen“ veröffentlichen.',
 	'mwe-upwiz-source-permission' => 'Deren Urheber haben Ihnen die ausdrückliche Erlaubnis gegeben, sie hochzuladen',
 	'mwe-upwiz-source-thirdparty-intro' => 'Bitte geben Sie die Internet-Adresse an, unter der Sie jede der Dateien gefunden haben.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Sofern alle Dateien aus der selben Quelle und vom selben Autor stammen sowie den selben urheberrechtlichen Status haben, können Sie die Eingaben für alle auf einmal vornehmen.',
-	'mwe-upwiz-source-custom' => 'Wählen Sie auf der nächsten Seite die Lizenzen für jede Datei einzeln.',
+	'mwe-upwiz-source-custom' => 'Geben Sie auf der nächsten Seite die Urheberrechtsinformation für jede einzelne Datei an.',
 	'mwe-upwiz-desc-add-n' => 'Fügen Sie eine Beschreibung in einer anderen Sprache hinzu',
 	'mwe-upwiz-categories-intro' => 'Helfen Sie anderen Menschen Ihre Werke zu finden, indem Sie ihnen Kategorien hinzufügen',
 	'mwe-upwiz-macro-edit-intro' => 'Wählen Sie zunächst eine Lizenz. Hernach können Sie Ihren hochgeladenen Dateien Beschreibungen und weitere Informationen hinzufügen.',
@@ -4984,7 +4989,7 @@ $messages['pdc'] = array(
 	'mwe-upwiz-next-details' => 'Neegschte',
 );
 
-/** Pfälzisch (Pfälzisch)
+/** Pälzisch (Pälzisch)
  * @author Xqt
  */
 $messages['pfl'] = array(
@@ -6251,7 +6256,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-category-remove' => 'Odstrani kategorijo',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Rancher
  * @author Михајло Анђелковић
  */
