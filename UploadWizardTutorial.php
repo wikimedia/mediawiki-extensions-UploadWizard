@@ -60,7 +60,8 @@ class UploadWizardTutorial {
 			// put it into a div of appropriate dimensions.
 
 			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
- 			if ( $thumbnailImage = $tutorialFile->transform( array( 'width' => self::WIDTH_PX ) ) ) {
+			$thumbnailImage = $tutorialFile->transform( array( 'width' => self::WIDTH_PX ) );
+ 			if ( $thumbnailImage ) {
 				$tutorialHtml = self::getImageHtml( $thumbnailImage );
 			} else {
 				$error = 'cannot-transform';
