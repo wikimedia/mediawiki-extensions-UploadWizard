@@ -303,8 +303,16 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author ;Hiba;1
+ * @author Meno25
  */
 $messages['ar'] = array(
+	'pluraltest' => '{{PLURAL:$1|هذا شيء واحد|هذه أشياء كثيرة}}',
+	'magictest' => 'من {{SITENAME}}',
+	'namespacedtest' => '{{ns:project}}:حقوق النسخ',
+	'extremelycomplextest' => 'لا يوجد حاليا نص في هذه الصفحة.
+يمكنك [[Special:Search/{{PAGENAME}}|البحث عن عنوان هذه الصفحة]] في الصفحات الأخرى,
+<span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} البحث في السجلات المتعلقة],
+أو [{{fullurl:{{FULLPAGENAME}}|action=edit}} تعديل هذه الصفحة]</span>.',
 	'mwe-upwiz-step-thanks' => 'استخدام',
 	'mwe-upwiz-add-file-n' => 'إضافة ملف آخر',
 	'mwe-upwiz-add-file-0' => 'اضغط هنا لتحميل ملف',
@@ -340,6 +348,7 @@ $messages['be'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
+ * @author Zedlik
  */
 $messages['be-tarask'] = array(
 	'uploadwizard' => 'Майстар загрузкі',
@@ -425,8 +434,8 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-source-thirdparty-license' => 'Уладальнік аўтарскіх правоў на {{PLURAL:$1|гэтую працу|гэтыя працы}} апублікаваў {{PLURAL:$1|яе|іх}} на ўмовах наступнай(ых) ліцэнзіі(яў):',
 	'mwe-upwiz-source-thirdparty-accept' => 'Добра',
 	'mwe-upwiz-source-custom' => 'Падайце інфармацыю пра аўтарскія правы асобна для кожнага файла на наступнай старонцы.',
-	'mwe-upwiz-more-options' => 'болей установак…',
-	'mwe-upwiz-fewer-options' => 'меней установак…',
+	'mwe-upwiz-more-options' => 'болей наладаў…',
+	'mwe-upwiz-fewer-options' => 'меней наладаў…',
 	'mwe-upwiz-desc' => 'Апісаньне ў',
 	'mwe-upwiz-desc-add-n' => 'дадаць апісаньне на іншай мове',
 	'mwe-upwiz-desc-add-0' => 'дадаць апісаньне',
@@ -4020,6 +4029,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-showall' => 'მაჩვენე ყველა',
 	'mwe-upwiz-source' => 'წყარო',
 	'mwe-upwiz-thanks-intro' => 'გმადლობთ ატვირთვისათვის!',
+	'mwe-upwiz-thanks-link' => 'ამ ფაილის ნახვა შეგიძლიათ <b><tt>$1</tt></b>-ზე.',
 	'mwe-upwiz-thanks-wikitext' => '<b>ამ ფაილის ერთ-ერთ ვიკიში გამოსაყენებლად</b> გადააკოპირე შემდეგი ტექსტი შესაბამის გვერდზე:',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'მაინც ავტვირთო?',
 	'mwe-upwiz-ok' => 'კარგი',
@@ -4581,10 +4591,10 @@ $messages['ml'] = array(
 	'mwe-upwiz-overwrite' => 'പ്രമാണം മാറ്റിച്ചേർക്കുക',
 	'mwe-copyright-macro' => 'മുകളിൽ കൊടുത്തിരിക്കുന്ന പോലെ',
 	'mwe-copyright-custom' => 'ഇച്ഛാനുസൃതം',
-	'mwe-upwiz-next' => 'മുന്നോട്ട്',
+	'mwe-upwiz-next' => 'തുടരുക',
 	'mwe-upwiz-next-file' => 'തുടരുക',
-	'mwe-upwiz-next-deeds' => 'മുന്നോട്ട്',
-	'mwe-upwiz-next-details' => 'മുന്നോട്ട്',
+	'mwe-upwiz-next-deeds' => 'തുടരുക',
+	'mwe-upwiz-next-details' => 'തുടരുക',
 	'mwe-upwiz-home' => 'വിക്കിയുടെ പ്രധാന താളിലേയ്ക്ക് പോവുക',
 	'mwe-upwiz-upload-another' => 'കൂടുതൽ പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക',
 	'mwe-prevent-close' => 'താങ്കളുടെ പ്രമാണങ്ങൾ ഇപ്പോഴും അപ്‌ലോഡ് ചെയ്തുകൊണ്ടിരിക്കുന്നു.
