@@ -53,7 +53,7 @@
 	/** 
  	 * Constructs URI object. Throws error if arguments are illegal/impossible, or otherwise don't parse.
 	 * @constructor
-	 * @param {!Object|Location|String} URI string, or a Location object (obtained from window.location in some browsers) or an Object with appropriate properties (especially another URI object to clone). Object must have non-blank 'protocol', 'host', and 'path' properties.
+	 * @param {!Object|String} URI string, or an Object with appropriate properties (especially another URI object to clone). Object must have non-blank 'protocol', 'host', and 'path' properties.
 	 * @param {Boolean} strict mode (when parsing a string)
 	 */ 
 	mw.Uri = function( uri, strictMode ) {
@@ -61,8 +61,6 @@
 		if ( mw.isFull( uri ) ) { 
 			if ( typeof uri === 'string' ) { 
 				this._parse( uri, strictMode );
-			} else if ( uri instanceof Location ) {
-				this._parse( uri.href, strictMode ); 
 			} else if ( typeof uri === 'object' ) {
 				var _this = this;
 				$.each( this._properties, function( i, property ) {
