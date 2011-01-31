@@ -236,19 +236,19 @@ describe( "mw.Language", function() {
 		 */
 		mw.Language.resetForLang = function( lang, fn ) {
 			mw.Language.digitTransformTable = null;
-			// Load the current language js file if it has a langKey		
+			// Load the current language js file if it has a langKey
 			var lang = mw.Language.getLangTransformKey( lang );
 			if( cachedConvertPlural[lang] ) {
 				mw.Language.convertPlural = cachedConvertPlural[lang];
 				fn();
-			} else { 
+			} else {
 				mw.log( lang + " load msg transform" );
 				$j.getScript( wgScriptPath + '/resources/mediawiki.language/languages/' + lang.toLowerCase() + '.js' , function(){
 					cachedConvertPlural[lang] = mw.Language.convertPlural;
 					fn();
-				});			
+				});
 			}
-		}
+		};
 
 
 		$j.each( jasmineMsgSpec, function( i, test ) { 

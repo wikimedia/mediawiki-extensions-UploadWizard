@@ -185,7 +185,7 @@ mw.UploadApiProcessor.prototype = {
 
 
 	}
-	*/
+	* /;
 
 /*
 		// this doesn't seem to do anything
