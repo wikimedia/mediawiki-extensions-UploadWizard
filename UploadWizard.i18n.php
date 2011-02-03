@@ -5793,6 +5793,15 @@ $messages['ro'] = array(
 	'mwe-upwiz-categories' => 'Categorii',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'mwe-upwiz-title' => 'Titele',
+	'mwe-upwiz-categories' => 'Categorije',
+	'mwe-upwiz-categories-add' => 'Aggiunge',
+);
+
 /** Russian (Русский)
  * @author Ast
  * @author Eleferen
@@ -6841,8 +6850,12 @@ $messages['ur'] = array(
  */
 $messages['vi'] = array(
 	'linktest' => '[$ 1 đây là một liên kết]',
+	'pluraltest' => 'Đây là {{PLURAL:$1|một|nhiều}} thứ',
 	'magictest' => 'Từ {{SITENAME}}',
 	'namespacedtest' => '{{ns:project}}:Bản quyền',
+	'extremelycomplextest' => 'Trang này hiện chưa có nội dung.
+Bạn có thể [[Special:Search/{{PAGENAME}}|tìm kiếm tựa trang này]] trong các trang khác, <span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} tìm trong các nhật trình liên quan],
+hoặc [{{fullurl:{{FULLPAGENAME}}|action=edit}} sửa đổi trang này]</span>.',
 	'uploadwizard' => 'Trình thuật sĩ tải lên',
 	'uploadwizard-desc' => 'Trình thuật sĩ tải lên được phát triển với tiền trợ cấp Khả dụng Đa phương tiện',
 	'mwe-upwiz-js-off' => 'Giao diện nâng cao của Trình thuật sĩ tải lên cần JavaScript. Dưới đây là biểu mẫu tải lên đơn giản vì trình duyệt của bạn không hỗ trợ JavaScript hoặc JavaScript đã bị tắt.',
