@@ -16,6 +16,7 @@ mw.UploadWizardPage = function() {
 
 	var config = { 
 		debug:  wgUploadWizardDebug,  
+		autoCategory: wgUploadWizardAutoCategory,
 		userName:  wgUserName,  
 		userLanguage:  wgUserLanguage, 
 		fileExtensions:  wgFileExtensions, 

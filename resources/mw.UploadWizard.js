@@ -917,12 +917,16 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	$j( containerDiv ).append( _this.div );
 
 	// make this a category picker
+	var hiddenCats = [];
+	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) ) {
+		hiddenCats.push( mw.UploadWizard.config.autoCategory );
+	}
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 			.find( 'input' )
-			.mwCoolCats( { buttontext: gM( 'mwe-upwiz-categories-add' ) } );
-
-	// add hidden category for stats purposes
-	$categoriesDiv.find( 'ul.cat-list' ).append( $j( '<li style="display: none;"><a class="cat">Uploaded with UploadWizard</a></li>' ) );
+			.mwCoolCats( { 
+				hiddenCats: hiddenCats,
+				buttontext: gM( 'mwe-upwiz-categories-add' )  
+			} );
 
 };
 

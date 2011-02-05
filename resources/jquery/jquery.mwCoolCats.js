@@ -5,11 +5,14 @@
  */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
 
+	debugger;
 	var defaults = {
-		buttontext: 'Add'
+		buttontext: 'Add',
+		hiddenCats: [],
+		cats: []
 	};
 
-	var settings = $j.extend( {}, defaults, options);
+	var settings = $j.extend( {}, defaults, options );
 
 	// usually Category:Foo
 	var categoryNamespace = wgFormattedNamespaces[wgNamespaceIds['category']];
@@ -61,8 +64,12 @@
 				 .join( "\n" );
 		};
 
+		// initialize with some categories, if so configured
+		$j.each( settings.cats, function( i, cat ) { _insertCat( cat ); } );
+		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( cat, true ); } );
+
 		_processInput();
-	});
+	} );
 	
 	function _processInput() {	
 		var $input = $container.find( 'input' );
@@ -70,15 +77,20 @@
 		$input.val("");
 	}
 
-	function _insertCat( cat ) {
+	function _insertCat( cat, isHidden ) {
 		if ( mw.isEmpty( cat ) || _containsCat( cat ) ) { 
 			return; 
 		}
-		var href = _catLink( cat );
-		var $li = $j( '<li class="cat"></li>' );
+		var $li = $j( '<li/>' ).addClass( 'cat' );
+		var $anchor = $j( '<a/>' ).addClass( 'cat' ).append( cat );
+		$li.append( $anchor );		
+		if ( isHidden ) {
+			$li.hide();
+		} else {
+			$anchor.attr( { target: "_new", href: _catLink( cat ) } );
+			$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
+		}
 		$container.find( 'ul' ).append( $li );
-		$li.append( '<a class="cat" target="_new" href="' + href + '">' + cat +' </a>' );
-		$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
 	}
 
 	function _catLink( cat ) {
@@ -133,4 +145,4 @@
 		$j( _this ).data( 'request', request );
 	}
 
-}})(jQuery);
+}; } )( jQuery );

@@ -86,10 +86,13 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	public function addJsVars( $subPage ) {
 		global $wgUser, $wgOut, $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI,
-		       $wgEnableFirefogg, $wgFileExtensions,$wgUploadWizardDebug, $wgSitename;
+		       $wgEnableFirefogg, $wgFileExtensions,$wgUploadWizardDebug, $wgSitename,
+		       $wgUploadWizardAutoCategory;
 
 		$wgOut->addScript( Skin::makeVariablesScript( array(
 			'wgUploadWizardDebug' => (bool)$wgUploadWizardDebug,
+			
+			'wgUploadWizardAutoCategory' => $wgUploadWizardAutoCategory,
 
 			// uncertain if this is relevant. Can we do license preview with API?
 			'wgAjaxLicensePreview' => $wgUseAjax && $wgAjaxLicensePreview,
