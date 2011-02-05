@@ -5,7 +5,6 @@
  */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
 
-	debugger;
 	var defaults = {
 		buttontext: 'Add',
 		hiddenCats: [],
