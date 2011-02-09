@@ -1715,12 +1715,14 @@ mw.UploadWizard.prototype = {
 			deeds,
 			_this.uploads.length );
 	
-		$j( '<div>' ).html( gM( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length ) )
-			.insertBefore ( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) );
+		$j( '<div>' )
+			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
+			.html( gM( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length ) );
 
 		if ( _this.uploads.length > 1 ) {
-			$j( '<div style="margin-top: 1em">' ).html( gM( 'mwe-upwiz-deeds-custom-prompt' ) ) 
-				.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-custom' ) );
+			$j( '<div style="margin-top: 1em">' )
+				.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-custom' ) )
+				.html( gM( 'mwe-upwiz-deeds-custom-prompt' ) );
 		}
 		
 		_this.moveToStep( 'deeds' ); 
