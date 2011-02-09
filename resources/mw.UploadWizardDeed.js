@@ -308,8 +308,10 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 
 
 /**
+ * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
  * @param selector where to put this deed chooser
- * @param isPlural whether this chooser applies to multiple files (changes messaging mostly)
+ * @param deeds Array of UploadWizardDeed
+ * @param uploadCount whether this chooser applies to multiple files (changes messaging mostly)
  */ 
 mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 	var _this = this;
@@ -326,16 +328,14 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 
 	$j.each( deeds, function (i, deed) {
 		var id = _this.name + '-' + deed.name;
- 
 		var $deedInterface = $j( 
 			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">'
 		       +   '<div class="mwe-upwiz-deed-option-title">'
 		       +     '<span class="mwe-upwiz-deed-header">'
-		       +        '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + '">'
-		       +	  '<label for="' + id + '" class="mwe-upwiz-deed-name">'
-		       +            gM( 'mwe-upwiz-source-' + deed.name, _this.uploadCount )
-		       +          '</label>'
-		       +        '</input>'
+		       +        '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">'
+		       +	'<label for="' + id + '" class="mwe-upwiz-deed-name">'
+		       +          gM( 'mwe-upwiz-source-' + deed.name, _this.uploadCount )
+		       +        '</label>'
 		       +     '</span>'
 		       +   '</div>'
 		       +   '<div class="mwe-upwiz-deed-form">'
@@ -347,17 +347,19 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 		deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
 
 		$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
-			if ( $j( this ).is(':checked' )  ) {
+			if ( $j( this ).is( ':checked' )  ) {
 				_this.choose( deed );
-				_this.showDeed( $deedInterface );
+				_this.selectDeedInterface( $deedInterface );
 			}
 		} );
 
 	} );
 
+	// deselect all deeds 
+	_this.deselectDeedInterface( this.$selector.find( '.mwe-upwiz-deed' ) );
+
+	// set the "value" to be the null deed; which will cause an error if the data is submitted.
 	_this.choose( mw.UploadWizardNullDeed );
-	_this.showDeedChoice();		
-	
 
 };
 
@@ -423,37 +425,36 @@ mw.UploadWizardDeedChooser.prototype = {
 		}
 	},
 
-	/**
-	 * Go back to original source choice. 
-	 */
-	showDeedChoice: function() {
-		var $allDeeds = this.$selector.find( '.mwe-upwiz-deed' );
-		this.deselectDeed( $allDeeds );
-		// $allDeeds.fadeTo( 'fast', 1.0 );   //maskSafeShow();
-	},
-
 	/** 
 	 * From the deed choices, make a choice fade to the background a bit, hide the extended form
 	 */
-	deselectDeed: function( $deedSelector ) {
+	deselectDeedInterface: function( $deedSelector ) {
 		$deedSelector.removeClass( 'selected' );
-		// $deedSelector.find( 'a.mwe-upwiz-macro-deeds-return' ).hide();
-		$deedSelector.find( '.mwe-upwiz-deed-form' ).slideUp( 500 );   //.maskSafeHide();
+		$j.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
+			var $form = $j( form );
+			if ( $form.parents().is( ':hidden' ) ) {
+				$form.hide();
+			} else {
+				$form.slideUp( 500 );
+			}
+		} );
 	},
 
 	/**
 	 * From the deed choice page, show a particular deed
 	 */
-	showDeed: function( $deedSelector ) {
+	selectDeedInterface: function( $deedSelector ) {
 		var $otherDeeds = $deedSelector.siblings().filter( '.mwe-upwiz-deed' );
-		this.deselectDeed( $otherDeeds );
-		// $siblings.fadeTo( 'fast', 0.5 ) // maskSafeHide();
-
-		$deedSelector
-			.addClass('selected')
-			.fadeTo( 'fast', 1.0 )
-			.find( '.mwe-upwiz-deed-form' ).slideDown( 500 ); // maskSafeShow(); 
-		// $deedSelector.find( 'a.mwe-upwiz-macro-deeds-return' ).show();
+		this.deselectDeedInterface( $otherDeeds );
+		$deedSelector.addClass( 'selected' ).fadeTo( 'fast', 1.0 );
+		$j.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
+			var $form = $j( form );
+			if ( $form.is( ':hidden' ) ) {
+				// if the form was hidden, set things up so a slide-down works
+				$form.show().slideUp( 0 );
+			}
+			$form.slideDown( 500 );
+		} );
 	}
 
 };
