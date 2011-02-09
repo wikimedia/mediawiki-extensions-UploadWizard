@@ -22,12 +22,12 @@ mw.UploadWizardUtil = {
 			}
 			$j( this ).data( 'open', open );
 			if ( open ) {
-				moreDiv.maskSafeShow();
+				moreDiv.show(); // maskSafeShow();
 				/* when open, show control to close */
 				$toggleLink.html( gM( 'mwe-upwiz-fewer-options' ) );
 				$toggleLink.addClass( "mwe-upwiz-toggler-open" );
 			} else {
-				moreDiv.maskSafeHide();
+				moreDiv.hide(); // maskSafeHide();
 				/* when closed, show control to open */
 				$toggleLink.html( gM( 'mwe-upwiz-more-options' ) );
 				$toggleLink.removeClass( "mwe-upwiz-toggler-open" );
