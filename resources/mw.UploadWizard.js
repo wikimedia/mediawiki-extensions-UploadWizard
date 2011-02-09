@@ -1749,18 +1749,12 @@ mw.UploadWizard.prototype = {
 			// the step's contents
 			var stepDiv = $j( '#mwe-upwiz-stepdiv-' + stepName );
 
-			if ( _this.currentStepName === stepName ) {
-				stepDiv.hide();
-				// we hide the old stepDivs because we are afraid of some z-index elements that may interfere with later tabs
-				// this will break if we ever allow people to page back and forth.
+			if ( selectedStepName === stepName ) {
+				stepDiv.show();
 			} else {
-				if ( selectedStepName === stepName ) {
-					stepDiv.hide();
-				} else {
-					stepDiv.show( 1000 );
-				}
+				stepDiv.hide();
 			}
-			
+		
 		} );
 			
 		$j( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
