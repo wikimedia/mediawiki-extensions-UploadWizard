@@ -1596,6 +1596,10 @@ mw.UploadWizard.prototype = {
 		// handler for next button
 		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next') 
 			.click( function() {
+				// if the skip checkbox is checked, set the skip cookie
+				if ( $j('#mwe-upwiz-skip').is(':checked') ) {
+					_this.setSkipTutorialCookie( 1 );
+				}
 				_this.moveToStep( 'file', function() { 
 					// we explicitly move the file input at this point 
 					// because it was probably jumping around due to other "steps" on this page during file construction.
@@ -2222,6 +2226,16 @@ mw.UploadWizard.prototype = {
 
 			$j( '#mwe-upwiz-thanks' ).append( thanksDiv );
 		} ); 
+	},
+	
+	/**
+	 * Set a cookie which lets the user skip the tutorial step in the future
+	 */
+	setSkipTutorialCookie: function( state ) {
+		var e = new Date();
+		e.setTime( e.getTime() + (365*24*60*60*1000) ); // one year
+		var cookieString='skiptutorial='+state+'; expires=' + e.toGMTString() + '; path=/';
+		document.cookie = cookieString;
 	},
 
 	/**

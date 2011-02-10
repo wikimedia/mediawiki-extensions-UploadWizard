@@ -196,6 +196,8 @@ class SpecialUploadWizard extends SpecialPage {
 		.  	   UploadWizardTutorial::getHtml()
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
+		.          '<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">'
+		.          '<label for="mwe-upwiz-skip">Skip this step in the future</label>'
 		.          '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next" )  . '</button>'
 		.       '</div>'
 		.     '</div>'
