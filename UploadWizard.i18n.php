@@ -4685,6 +4685,14 @@ $messages['mn'] = array(
 	'mwe-upwiz-categories-add' => 'Нэмэх',
 );
 
+/** Burmese (မြန်မာဘာသာ)
+ * @author Erikoo
+ */
+$messages['my'] = array(
+	'mwe-upwiz-code-unknown' => 'အမည်မသိ ဘာသာစကား',
+	'mwe-upwiz-step-file' => 'Upload တင်ရန်',
+);
+
 /** Dutch (Nederlands)
  * @author McDutchie
  * @author Siebrand
@@ -5601,9 +5609,9 @@ $messages['pt-br'] = array(
 	'mwe-upwiz-step-deeds' => 'Licenciar',
 	'mwe-upwiz-step-details' => 'Descrever',
 	'mwe-upwiz-step-thanks' => 'Usar',
-	'mwe-upwiz-api-error-http' => 'Ocorreu um problema na conexão com o serviço.',
-	'mwe-upwiz-api-error-ok-but-empty' => 'O servidor não retornou nenhuma informação sobre o carregamento.',
-	'mwe-upwiz-api-error-unknown-code' => 'O servidor retornou um erro que não é compreendido: "$1"',
+	'mwe-upwiz-api-error-http' => 'Erro interno: não foi possível conectar ao servidor.',
+	'mwe-upwiz-api-error-ok-but-empty' => 'Erro interno: não há resposta do servidor.',
+	'mwe-upwiz-api-error-unknown-code' => 'Erro desconhecido: "$1"',
 	'mwe-upwiz-api-error-uploaddisabled' => 'Não são permitidos carregamentos nesta wiki.',
 	'mwe-upwiz-api-error-nomodule' => 'A wiki não sabe como lidar com este carregamento.',
 	'mwe-upwiz-api-error-mustbeposted' => 'Este software tem um problema; não está usando o método HTTP correto.',
