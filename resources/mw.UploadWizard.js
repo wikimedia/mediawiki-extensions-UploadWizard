@@ -1598,7 +1598,7 @@ mw.UploadWizard.prototype = {
 			.click( function() {
 				// if the skip checkbox is checked, set the skip cookie
 				if ( $j('#mwe-upwiz-skip').is(':checked') ) {
-					_this.setSkipTutorialCookie( 1 );
+					_this.setSkipTutorialCookie();
 				}
 				_this.moveToStep( 'file', function() { 
 					// we explicitly move the file input at this point 
@@ -1688,8 +1688,18 @@ mw.UploadWizard.prototype = {
 		// add one upload field to start (this is the big one that asks you to upload something)
 		var upload = _this.newUpload();
 
-		// "select" the first step - highlight, make it visible, hide all others
-		_this.moveToStep( 'tutorial' );
+		// check to see if the the skip tutorial cookie is set
+		if ( $j.cookie("skiptutorial") == '1' ) {
+			// "select" the second step - highlight, make it visible, hide all others
+			_this.moveToStep( 'file', function() {
+				setTimeout( function() {
+					upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+				}, 300 );
+			} );
+		} else {
+			// "select" the first step - highlight, make it visible, hide all others
+			_this.moveToStep( 'tutorial' );
+		}
 	
 	},
 
@@ -2231,10 +2241,10 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Set a cookie which lets the user skip the tutorial step in the future
 	 */
-	setSkipTutorialCookie: function( state ) {
+	setSkipTutorialCookie: function() {
 		var e = new Date();
 		e.setTime( e.getTime() + (365*24*60*60*1000) ); // one year
-		var cookieString='skiptutorial='+state+'; expires=' + e.toGMTString() + '; path=/';
+		var cookieString='skiptutorial=1; expires=' + e.toGMTString() + '; path=/';
 		document.cookie = cookieString;
 	},
 

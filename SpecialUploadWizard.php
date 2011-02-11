@@ -175,6 +175,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return {String} html
 	 */
 	function getWizardHtml() {
+		$tutorialHtml = '';
+		// only load the tutorial HTML if we aren't skipping the first step
+		if ( !isset( $_COOKIE['skiptutorial'] ) ) {
+			$tutorialHtml = UploadWizardTutorial::getHtml();
+		}
 		// TODO loading spinner, hide these by default till enhanced?
 		return
 		  '<div id="upload-wizard" class="upload-section">'
@@ -193,7 +198,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
 		.       '<div id="mwe-upwiz-tutorial">'
-		.  	   UploadWizardTutorial::getHtml()
+		.         $tutorialHtml
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.          '<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">'
