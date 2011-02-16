@@ -858,11 +858,12 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		otherInformationDiv
 	);
 
+	/* Build the form for the file upload */
 	_this.$form = $j( '<form></form>' );
 	_this.$form.append( 
+		titleContainerDiv,
 		_this.descriptionsDiv, 
 		descriptionAdderDiv,
-		titleContainerDiv,
 		_this.copyrightInfoFieldset,
 		$categoriesDiv,
 		moreDetailsCtrlDiv,
