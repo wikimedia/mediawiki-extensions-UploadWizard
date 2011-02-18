@@ -1690,7 +1690,7 @@ mw.UploadWizard.prototype = {
 		var upload = _this.newUpload();
 
 		// check to see if the the skip tutorial cookie is set
-		if ( $j.cookie("skiptutorial") == '1' ) {
+		if ( document.cookie.indexOf('skiptutorial=1') != -1 ) {
 			// "select" the second step - highlight, make it visible, hide all others
 			_this.moveToStep( 'file', function() {
 				setTimeout( function() {
