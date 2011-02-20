@@ -4191,6 +4191,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-api-error-unknown-error' => 'Interne Feeler: beim Versuch fir Äre Fichier eropzelueden ass eppes schif gaang',
 	'mwe-upwiz-api-error-internal-error' => 'Interne Feeler: Et ass eppes schif gaang beim Verschaffe vum eropgeluedene Fichier op der Wiki.',
 	'mwe-upwiz-api-error-overwrite' => "D'Iwwerschreiwe vun engem Fichier ass net erlaabt.",
+	'mwe-upwiz-api-error-badtoken' => 'Interne Feeler: falschen Token.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Interne Feeler: beim Opruffe vum Fichier huet eppes net fonctionnéiert.',
 	'mwe-upwiz-api-warning-duplicate' => 'Et gëtt schonn en anere Fichier op dem selwechten Inhalt op der Wiki',
 	'mwe-upwiz-api-warning-exists' => 'Et gëtt op der Wiki schonn e Fichier mat dem selwechten Numm',
