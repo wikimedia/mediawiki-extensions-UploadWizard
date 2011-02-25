@@ -13,15 +13,12 @@ class UploadWizardHooks {
 
 	public static $modules = array(
 		'ext.uploadWizard' => array(
+			'dependencies' => array( 
+				'jquery.ui.dialog',
+				'jquery.ui.datepicker',
+				'jquery.ui.progressbar'
+			),
 			'scripts' => array(
-				// jquery ui
-				// FIXME: These can be replaced with dependencies when pre-RL compat is dropped
-				'resources/jquery.ui/jquery.ui.core.js',
-				'resources/jquery.ui/jquery.ui.widget.js',
-				'resources/jquery.ui/jquery.ui.button.js',
-				'resources/jquery.ui/jquery.ui.dialog.js',
-				'resources/jquery.ui/jquery.ui.datepicker.js',
-				'resources/jquery.ui/jquery.ui.progressbar.js',
 
 				// jquery interface helpers
 				'resources/jquery/jquery.tipsy.js',
@@ -126,12 +123,6 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.arrowSteps.css',
 				'resources/jquery/jquery.mwCoolCats.css',
 				'resources/jquery/jquery.removeCtrl.css',
-				'resources/jquery.ui/themes/vector/jquery.ui.core.css',
-				'resources/jquery.ui/themes/vector/jquery.ui.theme.css',
-				'resources/jquery.ui/themes/vector/jquery.ui.button.css',
-				'resources/jquery.ui/themes/vector/jquery.ui.dialog.css',
-				'resources/jquery.ui/themes/vector/jquery.ui.datepicker.css',
-				'resources/jquery.ui/themes/vector/jquery.ui.progressbar.css',
 			),
 			'messages' => array(
 				'linktest',

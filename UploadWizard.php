@@ -55,7 +55,7 @@ $wgResourceLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/Upl
 $wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 
 // Disable ResourceLoader support by default, it's currently broken
-$wgUploadWizardDisableResourceLoader = true;
+// $wgUploadWizardDisableResourceLoader = true;
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
