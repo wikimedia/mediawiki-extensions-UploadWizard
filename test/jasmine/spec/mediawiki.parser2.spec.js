@@ -373,13 +373,29 @@ describe( "mediaWiki.language.parser", function() {
 		it ( "should handle a simple link", function() {
 			var parser = new mediaWiki.language.parser();
 			var parsed = parser.parse( 'en_link' );
-			expect( parsed.html() ).toEqual( 'Simple <a href="http://example.com">link to example</a>.' );
+			var contents = parsed.contents();
+			expect( contents.length ).toEqual( 3 );
+			expect( contents[0].nodeName ).toEqual( '#text' );
+			expect( contents[0].nodeValue ).toEqual( 'Simple ' );
+			expect( contents[1].nodeName ).toEqual( 'A' );
+			expect( contents[1].getAttribute( 'href' ) ).toEqual( 'http://example.com' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'link to example' );
+			expect( contents[2].nodeName ).toEqual( '#text' );
+			expect( contents[2].nodeValue ).toEqual( '.' );
 		} );
 
 		it ( "should replace a URL into a link", function() {
 			var parser = new mediaWiki.language.parser();
 			var parsed = parser.parse( 'en_link_replace', [ 'http://example.com/foo', 'linking' ] );
-			expect( parsed.html() ).toEqual( 'Complex <a href="http://example.com/foo">linking</a> behaviour.' );
+			var contents = parsed.contents();
+			expect( contents.length ).toEqual( 3 );
+			expect( contents[0].nodeName ).toEqual( '#text' );
+			expect( contents[0].nodeValue ).toEqual( 'Complex ' );
+			expect( contents[1].nodeName ).toEqual( 'A' );
+			expect( contents[1].getAttribute( 'href' ) ).toEqual( 'http://example.com/foo' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'linking' );
+			expect( contents[2].nodeName ).toEqual( '#text' );
+			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
 		} );
 
 		it ( "should bind a click handler into a link", function() {
@@ -390,12 +406,12 @@ describe( "mediaWiki.language.parser", function() {
 			var contents = parsed.contents();
 			expect( contents.length ).toEqual( 3 );
 			expect( contents[0].nodeName ).toEqual( '#text' );
-			expect( contents[0].textContent ).toEqual( 'Complex ' );
+			expect( contents[0].nodeValue ).toEqual( 'Complex ' );
 			expect( contents[1].nodeName ).toEqual( 'A' );
 			expect( contents[1].getAttribute( 'href' ) ).toEqual( '#' );
-			expect( contents[1].textContent ).toEqual( 'linking' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'linking' );
 			expect( contents[2].nodeName ).toEqual( '#text' );
-			expect( contents[2].textContent ).toEqual( ' behaviour.' );
+			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
 			// determining bindings is hard in IE
 			var anchor = parsed.find( 'a' );
 			if ( ( $j.browser.mozilla || $j.browser.webkit ) && anchor.click ) {
@@ -414,11 +430,11 @@ describe( "mediaWiki.language.parser", function() {
 			var contents = parsed.contents();
 			expect( contents.length ).toEqual( 3 );
 			expect( contents[0].nodeName ).toEqual( '#text' );
-			expect( contents[0].textContent ).toEqual( 'Complex ' );
+			expect( contents[0].nodeValue ).toEqual( 'Complex ' );
 			expect( contents[1].nodeName ).toEqual( 'BUTTON' );
-			expect( contents[1].textContent ).toEqual( 'buttoning' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'buttoning' );
 			expect( contents[2].nodeName ).toEqual( '#text' );
-			expect( contents[2].textContent ).toEqual( ' behaviour.' );
+			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
 			// determining bindings is hard in IE
 			if ( ( $j.browser.mozilla || $j.browser.webkit ) && button.click ) {
 				expect( clicked ).toEqual( false );
@@ -474,9 +490,12 @@ describe( "mediaWiki.language.parser", function() {
 	describe( "easy message interface functions", function() {
 		it( "should allow a global that returns strings", function() {
 			var gM = mediaWiki.language.parser.getMessageFunction();
+			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+			// a surrounding <SPAN> is needed for html() to work right
+			var expectedHtml = $j( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
 			var result = gM( 'en_link_replace', 'http://example.com/foo', 'linking' );
 			expect( typeof result ).toEqual( 'string' );
-			expect( result ).toEqual( 'Complex <a href="http://example.com/foo">linking</a> behaviour.' );
+			expect( result ).toEqual( expectedHtml );
 		} );
 
 		it( "should allow a jQuery plugin that appends to nodes", function() {
@@ -485,11 +504,18 @@ describe( "mediaWiki.language.parser", function() {
 			var clicked = false;
 			var $button = $j( '<button>' ).click( function() { clicked = true; } );
 			$div.find( '.foo' ).msg( 'en_link_replace', $button, 'buttoning' );
-			expect( $div.find( '.foo' ).html() ).toEqual( 'Complex <button>buttoning</button> behaviour.' );
+			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+			// a surrounding <SPAN> is needed for html() to work right
+			var expectedHtml = $j( '<span>Complex <button>buttoning</button> behaviour.</span>' ).html();
+			var createdHtml = $div.find( '.foo' ).html();
+			// it is hard to test for clicks with IE; also it inserts or removes spaces around nodes when creating HTML tags, depending on their type.
+			// so need to check the strings stripped of spaces.
 			if ( ( $j.browser.mozilla || $j.browser.webkit ) && $button.click ) {
-				expect( clicked ).toEqual( false );
+				expect( createdHtml ).toEqual( expectedHtml );
 				$div.find( 'button ').click();
 				expect( clicked ).toEqual( true );
+			} else if ( $j.browser.ie ) {
+				expect( createdHtml.replace( /\s/, '' ) ).toEqual( expectedHtml.replace( /\s/, '' ) );
 			}
 			delete $j.fn.msg;
 		} );

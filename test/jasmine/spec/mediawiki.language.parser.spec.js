@@ -2,29 +2,30 @@
 
 // boilerplate crap, can we eliminate this?
 
+/*
 jQuery( document ).ready( function() {
 	// add "magic" to Language template parser for keywords
-	mw.addTemplateTransform( { 'SITENAME' : function() { return wgSitename; } } );
+	// mediaWiki.language.parser.templateProcessors.SITENAME = function() { return wgSitename; };
 	
 	// sets up plural "magic" and so on. Seems like a bad design to have to do this, though.
-	mw.Language.magicSetup();
+	// mediaWiki.language.magicSetup();
 	
 } );
-
+*/
 
 /**
  * Tests
  */
-describe( "mw.Language", function() {
+describe( "mediaWiki.language.parser", function() {
 	
 
 	describe( "basic message functionality", function() {
-		mw.addMessages( {
+		mediaWiki.messages.set( {
 			'simple-message': 'simple message'
 		} );
 
 		it( "should return identity for simple string", function() {
-			expect( gM( 'simple-message' ) ).toEqual( 'simple message' );
+			expect( mediaWiki.msg( 'simple-message' ) ).toEqual( 'simple message' );
 		} );
 
 	} );
@@ -34,16 +35,17 @@ describe( "mw.Language", function() {
 		/**
 		* Get a language transform key
 		* returns default "en" fallback if none found
+	 	* @FIXME the resource loader should do this anyway, should not be necessary to know this client side
 		* @param String langKey The language key to be checked	
 		*/
-		mw.Language.getLangTransformKey = function( langKey ) {		
-			if( mw.Language.fallbackTransformMap[ langKey ] ) {
-				langKey = mw.Language.fallbackTransformMap[ langKey ];
+		mediaWiki.language.getLangTransformKey = function( langKey ) {		
+			if( mediaWiki.language.fallbackTransformMap[ langKey ] ) {
+				langKey = mediaWiki.language.fallbackTransformMap[ langKey ];
 			}
 			// Make sure the langKey has a transformClass: 
-			for( var i = 0; i < mw.Language.transformClass.length ; i++ ) {
-				if( langKey == mw.Language.transformClass[i] ){
-					return langKey
+			for( var i = 0; i < mediaWiki.language.transformClass.length ; i++ ) {
+				if( langKey == mediaWiki.language.transformClass[i] ){
+					return langKey;
 				}
 			}
 			// By default return the base 'en' class
@@ -55,7 +57,7 @@ describe( "mw.Language", function() {
 		 * 	so it keeps up-to-date with php maping. 
 		 * 	( not explicitly listed here ) 
 		 */
-		mw.Language.fallbackTransformMap = {
+		mediaWiki.language.fallbackTransformMap = {
 				'mwl' : 'pt', 
 				'ace' : 'id', 
 				'hsb' : 'de', 
@@ -215,7 +217,7 @@ describe( "mw.Language", function() {
 		 * @@FIXME again not needed if the resource loader manages this mapping and gives 
 		 * 	us the "right" transform class regardless of what language key we request. 
 		 */
-		mw.Language.transformClass = ['am', 'ar', 'bat_smg', 'be_tarak', 'be', 'bh',
+		mediaWiki.language.transformClass = ['am', 'ar', 'bat_smg', 'be_tarak', 'be', 'bh',
 				'bs', 'cs', 'cu', 'cy', 'dsb', 'fr', 'ga', 'gd', 'gv', 'he', 'hi',
 				'hr', 'hsb', 'hy', 'ksh', 'ln', 'lt', 'lv', 'mg', 'mk', 'mo', 'mt',
 				'nso', 'pl', 'pt_br', 'ro', 'ru', 'se', 'sh', 'sk', 'sl', 'sma',
@@ -224,7 +226,7 @@ describe( "mw.Language", function() {
 		// wgLang??
 		var wgLanguageCode = 'en';
 		// Set-up base convert plural and gender (to restore for non-transform languages ) 
-		var cachedConvertPlural = { 'en' : mw.Language.convertPlural };
+		var cachedConvertPlural = { 'en' : mediaWiki.language.convertPlural };
 		 
 		// XXX THIS ONLY WORKS FOR NEIL
 		var wgScriptPath = 'http://wiki.ivy.local/w';	
@@ -234,17 +236,17 @@ describe( "mw.Language", function() {
 		 * @param {String} languageCode
 		 * @param {Function} to be executed when related scripts have loaded
 		 */
-		mw.Language.resetForLang = function( lang, fn ) {
-			mw.Language.digitTransformTable = null;
+		mediaWiki.language.resetForLang = function( lang, fn ) {
+			mediaWiki.language.digitTransformTable = null;
 			// Load the current language js file if it has a langKey
-			var lang = mw.Language.getLangTransformKey( lang );
+			var lang = mediaWiki.language.getLangTransformKey( lang );
 			if( cachedConvertPlural[lang] ) {
-				mw.Language.convertPlural = cachedConvertPlural[lang];
+				mediaWiki.language.convertPlural = cachedConvertPlural[lang];
 				fn();
 			} else {
 				mw.log( lang + " load msg transform" );
-				$j.getScript( wgScriptPath + '/resources/mediawiki.language/languages/' + lang.toLowerCase() + '.js' , function(){
-					cachedConvertPlural[lang] = mw.Language.convertPlural;
+				$j.getScript( wgScriptPath + '/resources/mediaWiki.language/languages/' + lang.toLowerCase() + '.js' , function(){
+					cachedConvertPlural[lang] = mediaWiki.language.convertPlural;
 					fn();
 				});
 			}
@@ -253,12 +255,10 @@ describe( "mw.Language", function() {
 
 		$j.each( jasmineMsgSpec, function( i, test ) { 
 			it( "should parse " + test.name, function() { 
-				mw.Language.resetForLang( test.lang, function() {
+				mediaWiki.language.resetForLang( test.lang, function() {
 					var argArray = [ test.key ].concat( test.args );
-					result = gM.apply( this, argArray );
-					//if ( test.name == 'jp undelete_short 0' ) {
-					//	debugger;
-					//}
+					var parsedText = mediaWiki.language.parser.apply( this, argArray );
+					result = parsedText.getHTML();
 					expect( result ).toEqual( test.result );
 				} );
 			} );
