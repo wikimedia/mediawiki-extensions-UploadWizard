@@ -18,7 +18,7 @@
 					$j( this ).attr( 'original-title' ),
 					$j( '<a class="mwe-upwiz-tooltip-link"/>' )
 						.attr( 'href', '#' )
-						.append( gM( 'mwe-upwiz-tooltip-more-info' ) )
+						.append( ' ' + gM( 'mwe-upwiz-tooltip-more-info' ) )
 						.mouseenter( function() {
 							el.data('tipsy').sticky = true;
 						} )

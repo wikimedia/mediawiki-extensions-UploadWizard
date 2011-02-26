@@ -650,7 +650,7 @@ mw.UploadWizardDescription = function( languageCode, required ) {
 
 	var fieldnameDiv = $j( '<div class="mwe-upwiz-details-fieldname" />' );
 	if ( required ) {
-		fieldnameDiv.append( gM( 'mwe-upwiz-desc' ) ).requiredFieldLabel();
+		fieldnameDiv.requiredFieldLabel().append( gM( 'mwe-upwiz-desc' ) ).addHint( 'description' );
 	}
 	
 
@@ -668,8 +668,7 @@ mw.UploadWizardDescription = function( languageCode, required ) {
 
 	_this.input = $j( '<textarea name="' + _this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
 				.attr( 'title', gM( 'mwe-upwiz-tooltip-description' ) )
-				.growTextArea()
-				.tipsyPlus( { plus: 'even more stuff' } );
+				.growTextArea();
 
 	// descriptions
 	_this.div = $j('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
@@ -768,13 +767,10 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	//    XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 	_this.titleId = "title" + _this.upload.index;
 	_this.titleInput = $j( '<textarea type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" rows="1" class="mwe-title mwe-long-textarea"></textarea>' )
-		.attr( 'title', gM( 'mwe-upwiz-tooltip-title' ) )
-		.tipsyPlus()
 		.keyup( function() { 
 			_this.upload.title.setNameText( _this.titleInput.value );
 			// TODO update a display of filename 
 		} )
-		.growTextArea()
 		.destinationChecked( {
 			api: _this.upload.api,
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
@@ -792,7 +788,9 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			_this.titleErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' )
 				.requiredFieldLabel()
-				.append( gM( 'mwe-upwiz-title' ) ),
+				.append( gM( 'mwe-upwiz-title' ) )
+				.addHint( 'title' ),
+				 
 			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) 
 		); 
 
@@ -809,7 +807,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 				+ '<div class="mwe-upwiz-details-fieldname"></div>' 
 				+ '<div class="mwe-upwiz-details-input"></div>'
 				+ '</div>' );
-	$categoriesDiv.find( '.mwe-upwiz-details-fieldname' ).append( gM( 'mwe-upwiz-categories' ) );
+	$categoriesDiv.find( '.mwe-upwiz-details-fieldname' ).append( gM( 'mwe-upwiz-categories' ) ).addHint( 'categories' );
 	var categoriesId = 'categories' + _this.upload.index;
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 		.append( $j( '<input/>' ).attr( { id: categoriesId,
@@ -843,21 +841,31 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	var otherInformationId = "otherInformation" + _this.upload.index;
 	_this.otherInformationInput = $j( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
-		.growTextArea()
-		.attr( 'title', gM( 'mwe-upwiz-tooltip-other' ) )
-		.tipsyPlus();
+		.growTextArea();
 
 	var otherInformationDiv = $j('<div></div>')	
-		.append( $j( '<div class="mwe-upwiz-details-more-label">' ).append( gM( 'mwe-upwiz-other' ) ) ) 
+		.append( $j( '<div class="mwe-upwiz-details-more-label">' ).append( gM( 'mwe-upwiz-other' ) ).addHint( 'other' ) )
 		.append( _this.otherInformationInput );
-	
 
 	$j( moreDetailsDiv ).append( 
 		dateInputDiv, 
 		// location goes here
 		otherInformationDiv
 	);
-
+	
+	$titleDialog = $('<div>')
+		.html( gM( 'mwe-upwiz-dialog-title' ) )
+		.dialog({
+			width: 500,
+			zIndex: 200000,
+			autoOpen: false,
+			title: 'Help: Title',
+			modal: true
+		})
+		.bind( "dialogclose", function(event, ui) { 
+			$("#mwe-upwiz-title-hint").tipsy("hide");
+		});
+	
 	/* Build the form for the file upload */
 	_this.$form = $j( '<form></form>' );
 	_this.$form.append( 
@@ -1611,7 +1619,7 @@ mw.UploadWizard.prototype = {
 					}, 300 );
 				} );
 			} );
-
+	
 		$j( '#mwe-upwiz-add-file' ).button();
 
 		$j( '#mwe-upwiz-upload-ctrl' )
@@ -2340,7 +2348,16 @@ mw.UploadWizardDeedPreview.prototype = {
 		this.addClass( 'mwe-upwiz-required-field' );
 		return this.prepend( $j( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
 	};
-
+	
+	/**
+	 * Adds a tipsy pop-up icon to the field.
+	 * @param name   The short name of the field, for example, 'title'. This should correspond with a
+	 *               message key of the form 'mwe-upwiz-tooltip-<name>'.
+	 */
+	$j.fn.addHint = function( name ) {
+		return this.append( $j( '<span class="mwe-upwiz-hint" id="mwe-upwiz-'+name+'-hint" onclick=\"$(this).tipsy(\'toggle\');return false;\">' )
+			.attr( 'title', gM( 'mwe-upwiz-tooltip-'+name ) ).tipsy( {html: true, opacity: 0.9, gravity: 'sw', trigger: 'manual'} ) );
+	};
 
 	/**
 	 * jQuery extension. Makes a textarea automatically grow if you enter overflow

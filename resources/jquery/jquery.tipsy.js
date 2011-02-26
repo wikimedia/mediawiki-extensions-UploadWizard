@@ -1,21 +1,16 @@
 // tipsy, facebook style tooltips for jquery
-// version 1.0.0a
+// version 1.0.0a+
 // (c) 2008-2010 jason frame [jason@onehackoranother.com]
-// releated under the MIT license
+// released under the MIT license
 
 (function($) {
-    
-    function fixTitle($ele) {
-        if ($ele.attr('title') || typeof($ele.attr('original-title')) != 'string') {
-            $ele.attr('original-title', $ele.attr('title') || '').removeAttr('title');
-        }
-    }
     
     function Tipsy(element, options) {
         this.$element = $(element);
         this.options = options;
         this.enabled = true;
-        fixTitle(this.$element);
+        this.displayed = false;
+        this.fixTitle();
     }
     
     Tipsy.prototype = {
@@ -23,11 +18,10 @@
             var title = this.getTitle();
             if (title && this.enabled) {
                 var $tip = this.tip();
+                
                 $tip.find('.tipsy-inner')[this.options.html ? 'html' : 'text'](title);
-                // $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
-		// the remove strips events
-                //$tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
-                $tip.css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
+                $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
+                $tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).appendTo(document.body);
                 
                 var pos = $.extend({}, this.$element.offset(), {
                     width: this.$element[0].offsetWidth,
@@ -70,44 +64,61 @@
                 } else {
                     $tip.css({visibility: 'visible', opacity: this.options.opacity});
                 }
+                
+                this.displayed = true;
             }
         },
-       
+        
         hide: function() {
-	    if (!this.sticky) {
-                if (this.options.fade) {
-                    this.tip().stop().fadeOut(function() { $(this).hide(); });
-                } else {
-                    this.tip().hide();
-                }
+            if (this.options.fade) {
+                this.tip().stop().fadeOut(function() { $(this).remove(); });
+            } else {
+                this.tip().remove();
+            }
+            this.displayed = false;
+        },
+        
+        toggle: function() {
+        	if ( this.displayed ) {
+    			this.hide();
+    		} else {
+    			this.show();
+    		}
+    	},
+        
+        fixTitle: function() {
+            var $e = this.$element;
+            if ($e.attr('title') || typeof($e.attr('original-title')) != 'string') {
+                $e.attr('original-title', $e.attr('title') || '').removeAttr('title');
             }
         },
         
         getTitle: function() {
             var title, $e = this.$element, o = this.options;
-            fixTitle($e);
+            this.fixTitle();
             var title, o = this.options;
             if (typeof o.title == 'string') {
                 title = $e.attr(o.title == 'title' ? 'original-title' : o.title);
-            	title = ('' + title).replace(/(^\s*|\s*$)/, "");
             } else if (typeof o.title == 'function') {
                 title = o.title.call($e[0]);
             }
+            title = ('' + title).replace(/(^\s*|\s*$)/, "");
             return title || o.fallback;
         },
         
         tip: function() {
-            var type = 'tipsy-' + this.options.type;
-            var shadow = this.options.shadow ? 'shadow' : '';
             if (!this.$tip) {
-                this.$tip = $('<div class="tipsy ' + type + '"></div>')
-    		    .html('<div class="tipsy-arrow"></div><div class="tipsy-inner ' + shadow + '"/></div>');
+                this.$tip = $('<div class="tipsy"></div>').html('<div class="tipsy-arrow"></div><div class="tipsy-inner"></div>');
             }
             return this.$tip;
         },
         
         validate: function() {
-            if (!this.$element[0].parentNode) this.hide();
+            if (!this.$element[0].parentNode) {
+                this.hide();
+                this.$element = null;
+                this.options = null;
+            }
         },
         
         enable: function() { this.enabled = true; },
@@ -120,7 +131,9 @@
         if (options === true) {
             return this.data('tipsy');
         } else if (typeof options == 'string') {
-            return this.data('tipsy')[options]();
+            var tipsy = this.data('tipsy');
+            if (tipsy) tipsy[options]();
+            return this;
         }
         
         options = $.extend({}, $.fn.tipsy.defaults, options);
@@ -140,10 +153,11 @@
             if (options.delayIn == 0) {
                 tipsy.show();
             } else {
+                tipsy.fixTitle();
                 setTimeout(function() { if (tipsy.hoverState == 'in') tipsy.show(); }, options.delayIn);
             }
         };
-       
+        
         function leave() {
             var tipsy = get(this);
             tipsy.hoverState = 'out';
@@ -176,10 +190,9 @@
         html: false,
         live: false,
         offset: 0,
-        opacity: 1.0,
+        opacity: 0.8,
         title: 'title',
-        trigger: 'hover',
-	type: 'help'
+        trigger: 'hover'
     };
     
     // Overwrite this method to provide options on a per-element basis.

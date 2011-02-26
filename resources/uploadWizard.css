@@ -415,15 +415,8 @@ a[disabled=true]:hover {
 	margin-bottom: 1em;
 }
 
-.mwe-upwiz-details-input {
-	width: 33em;
-	float: left;
-}
-
 .mwe-upwiz-details-fieldname {
-	width: 10em;
 	padding-top:  0.3em;
-	float: left;
 }
 
 .mwe-upwiz-details-input-error {
@@ -444,13 +437,13 @@ a[disabled=true]:hover {
 
 
 .mwe-upwiz-desc-lang-select {
-	width: 11em;
+	width: 11.5em;
 	font-family: sans-serif;
 	font-size: small;
 }
 
 .mwe-upwiz-desc-lang-text {
-	width: 20em;
+	width: 33em;
 	overflow: hidden;
 	font-family: sans-serif; /* XXX is this right? */
 	font-size: small;
@@ -468,10 +461,6 @@ a[disabled=true]:hover {
 	overflow: hidden;
 	font-family: sans-serif; /* XXX is this right? */
 	font-size: small;
-}
-
-.mwe-long-textarea {
-	width: 31em;
 }
 
 fieldset .mwe-long-textarea {
@@ -605,7 +594,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 }
 
 .mwe-upwiz-required-marker {
-	color: #0099cc;
+	color: #ff0000;
 }
 
 .mwe-readonly {
@@ -619,6 +608,17 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 
 .ui-datepicker-current-day a.ui-state-active {
 	background: #ffff99;
+}
+
+.mwe-upwiz-hint {
+    background: url('question.png') no-repeat;
+    display: inline-block;
+    height: 11px;
+    width: 11px;
+    margin-left: 4px;
+}
+.mwe-upwiz-hint:hover {
+    background: url('question-hover.png') no-repeat;
 }
 
 #upload-wizard .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; }
