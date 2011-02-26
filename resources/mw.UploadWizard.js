@@ -2350,7 +2350,7 @@ mw.UploadWizardDeedPreview.prototype = {
 	};
 	
 	/**
-	 * Adds a tipsy pop-up icon to the field.
+	 * Adds a tipsy pop-up help button to the field.
 	 * @param name   The short name of the field, for example, 'title'. This should correspond with a
 	 *               message key of the form 'mwe-upwiz-tooltip-<name>'.
 	 */
