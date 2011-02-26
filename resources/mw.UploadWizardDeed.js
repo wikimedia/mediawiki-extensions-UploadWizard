@@ -249,11 +249,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 				$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
 				$j( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ), 
+					.append( $j( '<label for="source"/>' ).text( gM( 'mwe-upwiz-source' ) ).addHint( 'source' ), 
 						 _this.sourceInput ),
 				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ),
+					.append( $j( '<label for="author"/>' ).text( gM( 'mwe-upwiz-author' ) ).addHint( 'author' ),
 						 _this.authorInput ),
 				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
 					.append( gM( 'mwe-upwiz-source-thirdparty-license', uploadCount ) ),
