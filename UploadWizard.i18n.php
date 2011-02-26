@@ -223,7 +223,8 @@ $messages['qqq'] = array(
 	'mwe-upwiz-remove' => '{{Identical|Remove}}',
 	'mwe-upwiz-upload' => '{{Identical|Upload}}',
 	'mwe-upwiz-source-thirdparty-accept' => '{{Identical|OK}}',
-	'mwe-upwiz-desc' => 'This is followed by a language name in a drop-down language selector.',
+	'mwe-upwiz-desc' => 'This is followed by a language name in a drop-down language selector.
+{{Identical|Description}}',
 	'mwe-upwiz-title' => '{{Identical|Title}}',
 	'mwe-upwiz-location' => '{{Identical|Location}}',
 	'mwe-upwiz-license' => '',
@@ -348,6 +349,7 @@ $messages['be'] = array(
  * @author Jim-by
  * @author Wizardist
  * @author Zedlik
+ * @author Александр Сигачёв
  */
 $messages['be-tarask'] = array(
 	'uploadwizard' => 'Майстар загрузкі',
@@ -435,7 +437,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-source-custom' => 'Падайце інфармацыю пра аўтарскія правы асобна для кожнага файла на наступнай старонцы.',
 	'mwe-upwiz-more-options' => 'болей наладаў…',
 	'mwe-upwiz-fewer-options' => 'меней наладаў…',
-	'mwe-upwiz-desc' => 'Апісаньне ў',
+	'mwe-upwiz-desc' => 'Апісаньне',
 	'mwe-upwiz-desc-add-n' => 'дадаць апісаньне на іншай мове',
 	'mwe-upwiz-desc-add-0' => 'дадаць апісаньне',
 	'mwe-upwiz-title' => 'Назва',
@@ -486,9 +488,11 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-tooltip-author' => 'Імя асобы, якая зрабіла фота, ці намалявала малюнак, начарціла чарцёж і г. д.',
 	'mwe-upwiz-tooltip-source' => 'Адкуль зьявіўся гэты лічбавы файл — можа быць URL-адрас, кніга, ці публікацыя',
 	'mwe-upwiz-tooltip-sign' => 'Вы можаце выкарыстоўваць назву Вашага рахунку ў {{GRAMMAR:месны|{{SITENAME}}}} альбо Вашае сапраўднае імя. У любым выпадку будзе спасылка на Вашую старонку вікі-удзельніка',
-	'mwe-upwiz-tooltip-title' => 'Кароткая назва для файла. Вы можаце выкарыстоўваць звычайную мову, але у адзін радок. Гэтая назва павінна адрозьнівацца ад іншых назваў у {{GRAMMAR:месны|{{SITENAME}}}}.',
+	'mwe-upwiz-tooltip-title' => 'Кароткая ўнікальная назва файла. Вы можаце выкарыстоўваць звычайны тэкст з прагаламі. Не пазначайце пашырэньне. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Падрабязьней</a>.',
+	'mwe-upwiz-dialog-title' => 'Файлы могуць быць загружаныя з назвамі на любой мове любым альфабэтам (у кадаваньні UTF-8). Варта, каб па назвах файлаў быў зразумелы іх зьмест.',
 	'mwe-upwiz-tooltip-description' => "Коратка апішыце ўсё значнае пра гэты файл. Для фота, узгадайце пра асноўны аб'ект, выпадак ці месца.",
-	'mwe-upwiz-tooltip-other' => 'Любая іншая інфармацыя, якую Вы жадаеце дадаць пра гэтую працу. Вы можаце выкарыстоўваць вікі-код.',
+	'mwe-upwiz-tooltip-categories' => 'Дадайце <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">катэгорыі</a> да файла, каб яго можна было лягчэй знайсьці.',
+	'mwe-upwiz-tooltip-other' => 'Любая іншая інфармацыя, якую Вы жадаеце дадаць пра гэтую працу. Тут можна дадаць <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">геаграфічнае месцазнаходжаньне</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Даведацца болей.',
 	'mwe-upwiz-file-need-file' => 'Калі ласка, спачатку дадайце файлы.',
 	'mwe-upwiz-file-need-start' => 'Націсьніце гэтую кнопку, каб пачаць загрузку.',
@@ -724,7 +728,7 @@ $messages['br'] = array(
 	'mwe-upwiz-source-custom' => "Pourchas titouroù war ar gwirioù aozer evit pep restr, hini ha hini, er bajenn war-lerc'h.",
 	'mwe-upwiz-more-options' => "muioc'h a zibarzhioù...",
 	'mwe-upwiz-fewer-options' => "nebeutoc'h a zibarzhioù...",
-	'mwe-upwiz-desc' => 'Deskrivadur e',
+	'mwe-upwiz-desc' => 'Deskrivadur',
 	'mwe-upwiz-desc-add-n' => 'ouzhpennañ un deskrivadur en ur yezh all',
 	'mwe-upwiz-desc-add-0' => 'ouzhpennañ un deskrivadur',
 	'mwe-upwiz-title' => 'Titl',
@@ -1399,7 +1403,7 @@ $messages['de'] = array(
 	'mwe-upwiz-source-custom' => 'Gib auf der nächsten Seite die Urheberrechtsinformation für jede einzelne Datei an.',
 	'mwe-upwiz-more-options' => 'weitere Optionen …',
 	'mwe-upwiz-fewer-options' => 'weniger Optionen …',
-	'mwe-upwiz-desc' => 'Beschreibung auf',
+	'mwe-upwiz-desc' => 'Beschreibung',
 	'mwe-upwiz-desc-add-n' => 'Füge eine Beschreibung in einer anderen Sprache hinzu',
 	'mwe-upwiz-desc-add-0' => 'eine Beschreibung hinzufügen',
 	'mwe-upwiz-title' => 'Titel',
@@ -1450,9 +1454,11 @@ $messages['de'] = array(
 	'mwe-upwiz-tooltip-author' => 'Der Name der Person, die entweder das Foto gemacht, das Bild gemalt, die Zeichnung angefertigt, etc. hat',
 	'mwe-upwiz-tooltip-source' => 'Woher diese Datei stammt - dies kann eine URL, ein Buch oder eine Publikation, etc. sein.',
 	'mwe-upwiz-tooltip-sign' => 'Du kannst deinen Benutzernamen auf diesem Wiki oder deinen bürgerlichen Namen verwenden. In beiden Fällen wird er mit deiner Benutzerseite verknüpft.',
-	'mwe-upwiz-tooltip-title' => 'Ein kurzer Titel für die Datei. Du kannst hierbei Leerzeichen, aber keine Zeilenumbrüche verwenden. Der Titel muss sich dabei von bereits vorhandenen Titeln auf diesem Wiki unterscheiden.',
+	'mwe-upwiz-tooltip-title' => 'Ein kurzer Titel für die Datei. Normaler Text einschließlich Leerzeichen ist dabei möglich. Die Dateierweiterung darf aber nicht angegeben werden. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Mehr erfahren</a>.',
+	'mwe-upwiz-dialog-title' => 'Dateien können mit Namen in jeder beliebigen Sprache und jeder Schriftart (kodiert als UTF-8) hochgeladen werden. Mediendateien sollten über einen auf den Inhalt schließen lassenden Namen verfügen.',
 	'mwe-upwiz-tooltip-description' => 'Beschreibe kurz alles Wichtige zu diesem Werk. Bei einem Foto beispielsweise die wichtigsten abgebildeten Bestandteile, den Anlass der Aufnahme und/oder den Standort.',
-	'mwe-upwiz-tooltip-other' => 'Alle weiteren Informationen, die du im Zusammenhang mit diesem Werk angeben möchtest. Verwende hierzu Wikitext.',
+	'mwe-upwiz-tooltip-categories' => 'Füge der Datei <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Kategorien">Kategorien</a> hinzu, damit sie leichter auffindbar wird.',
+	'mwe-upwiz-tooltip-other' => 'Alle weiteren Informationen, die du im Zusammenhang mit diesem Werk angeben möchtest. Vorlagen zur <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Georeferenzierung>Georeferenzierung</a> werden hier angegeben.',
 	'mwe-upwiz-tooltip-more-info' => 'Erfahre mehr.',
 	'mwe-upwiz-file-need-file' => 'Füge zuerst eine Datei zum Hochladen hinzu.',
 	'mwe-upwiz-file-need-start' => 'Bitte klicke auf diese Schaltfläche, um das Hochladen zu starten.',
@@ -2477,7 +2483,7 @@ $messages['gsw'] = array(
 	'mwe-upwiz-source-custom' => 'Gib uf dr negschte Syte d Urheberrächtsinformation fir jedi einzelni Datei aa.',
 	'mwe-upwiz-more-options' => 'wyteri Optione …',
 	'mwe-upwiz-fewer-options' => 'weniger Optione …',
-	'mwe-upwiz-desc' => 'Bschryybig in',
+	'mwe-upwiz-desc' => 'Bschryybig',
 	'mwe-upwiz-desc-add-n' => 'e Bschryybig in ere andere Sproch zuefiege',
 	'mwe-upwiz-desc-add-0' => 'e Bschryybig zuefiege',
 	'mwe-upwiz-title' => 'Titel',
@@ -2529,13 +2535,12 @@ Bisch sicher, ass Du e anderi Syte witt ufruefe?',
 	'mwe-upwiz-tooltip-author' => 'Dr Name vu dr Person, wu entwäder s Foto gmacht het, s Bild gmolt, d Zeichnig aagfertigt, usw. het',
 	'mwe-upwiz-tooltip-source' => 'Wu die Datei här stammt - des cha ne URL, e Buech oder e Publikation, usw. syy.',
 	'mwe-upwiz-tooltip-sign' => 'Du chasch Dyy Benutzername uf däm Wiki oder Dyy burgerlige Name bruche. In beede Fäll wird er mit Dyyre Benutzersyte verchnipft.',
-	'mwe-upwiz-tooltip-title' => 'E churze Titel fir d Datei.
-Du chasch doderby Läärzeiche, aber kei Zyylenumbrich verwände.
-Dr Titel mueß sich doderbyy vu Titel unterscheide, wu s scho git in däm Wiki.',
+	'mwe-upwiz-tooltip-title' => 'E churze Titel fir d Datei. Du chasch doderby normale Text un au Läärzeiche verwände. D Dateierwyterig derf aber nit aagee wäre. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Meh Informatione</a>.',
+	'mwe-upwiz-dialog-title' => 'Dateie chenne mit Näme in e jedere beliebige Sproch un jedere Schriftart (kodiert as UTF-8) uffeglade wäre. Mediedateie sotte ne Name haa, wu uf dr Inhalt cha gschlosse wäre.',
 	'mwe-upwiz-tooltip-description' => 'Bschryyb churz alles Wichtig zue däm Wärch.
 Bin eme Foto zem Byschpel di wichtigschte abbildete Bstandteil, dr Aalass vu dr Ufnahm un/oder dr Standort.',
-	'mwe-upwiz-tooltip-other' => 'Alli wytere Informatione, wu Du im Zämmehang mit däm Wärch witt aageee.
-Du chasch doderzue Wikitext verwände.',
+	'mwe-upwiz-tooltip-categories' => 'Fieg zue dr Datei <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">Kategorie</a> zue, ass mer si lychter findet.',
+	'mwe-upwiz-tooltip-other' => 'Alli wytere Informatione, wu Du im Zämmehang mit däm Wärch witt aageee. Vorlage zue dr <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Georeferenzierung>Georeferenzierig</a> wäre do aagee.',
 	'mwe-upwiz-tooltip-more-info' => 'Meh läse.',
 	'mwe-upwiz-file-need-file' => 'Fieg bitte zerscht e Datei zum Uffelade zue.',
 	'mwe-upwiz-file-need-start' => 'Bitte klick uf die Schaltflechi go aafange mit em Uffelade.',
@@ -2666,7 +2671,7 @@ $messages['he'] = array(
 	'mwe-upwiz-source-custom' => 'הזינו מידע על זכויות יוצרים עבור כל קובץ בנפרד בדף הבא.',
 	'mwe-upwiz-more-options' => 'עוד אפשרויות...',
 	'mwe-upwiz-fewer-options' => 'פחות אפשרויות...',
-	'mwe-upwiz-desc' => 'תיאור בשפה',
+	'mwe-upwiz-desc' => 'תיאור',
 	'mwe-upwiz-desc-add-n' => 'הוספת תיאור בשפה אחרת',
 	'mwe-upwiz-desc-add-0' => 'הוספת תיאור',
 	'mwe-upwiz-title' => 'כותרת',
@@ -3037,7 +3042,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-source-custom' => 'Podaj informacije wo awtorskim prawje za kóždu dataju po jednym na přichodnej stronje .',
 	'mwe-upwiz-more-options' => 'dalše opcije...',
 	'mwe-upwiz-fewer-options' => 'mjenje opcijow...',
-	'mwe-upwiz-desc' => 'Wopisanje w',
+	'mwe-upwiz-desc' => 'Wopisanje',
 	'mwe-upwiz-desc-add-n' => 'wopisanje w druhej rěči přidać',
 	'mwe-upwiz-desc-add-0' => 'wopisanje přidać',
 	'mwe-upwiz-title' => 'Titul',
@@ -3089,12 +3094,12 @@ $messages['hsb'] = array(
 	'mwe-upwiz-tooltip-source' => 'Zwotkelž tuta dataja pochadaš - móže to URL, kniha abo publikacija być.',
 	'mwe-upwiz-tooltip-sign' => 'Móžeš swoje wužiwarske mjeno abo swoje woprawdźite mjeno wužiwać.
 We woběmaj padomaj budźe so to k twojej wužiwarskej stronje wotkazować.',
-	'mwe-upwiz-tooltip-title' => 'Krótki titul za dataju.
-Móžeš połnu rěč z mjezerami, ale bjez łamanjow wužiwać.
-Tutón titul dyrbi so wot wšěch druhich titulow  w tutym wikiju rozeznać.',
+	'mwe-upwiz-tooltip-title' => 'Krótki jónkróćny titul za dataju. Móžeš połnu rěč z mjezerami wužiwać. Njezapřijimaj datajowy sufiks. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Dalše informacije</a>.',
+	'mwe-upwiz-dialog-title' => 'Dataje dadźa so z mjenami w kóždejžkuli rěči a w kóždymžkuli pismje nahrać (jako UTF.8 kodowane). Titule medijowych datajow měli we wubranej rěči wuprajiwe a pomocliwe być.',
 	'mwe-upwiz-tooltip-description' => 'Wopisaj krótko wšitko wažne wo dźěle.
 Za foto naspomni hłowne wěcy, kotrež su zwobraznjene, składnosć abo městno.',
-	'mwe-upwiz-tooltip-other' => 'Druhe informacije wo tutym dźěle, kotrež chceš zapřijeć. Móžeš wikitekstowy kod wužiwać.',
+	'mwe-upwiz-tooltip-categories' => 'Přidaj <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">kategorije</a> twojej dataji, zo by so wona lóšo namakała.',
+	'mwe-upwiz-tooltip-other' => 'Druhe informacije wo tutym dźěle, kotrež chceš zapřijeć. Podaj tu <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geokodowanske</a> předłohi.',
 	'mwe-upwiz-tooltip-more-info' => 'Dalše informacije.',
 	'mwe-upwiz-file-need-file' => 'Prošu přidaj najprjedy nahraće.',
 	'mwe-upwiz-file-need-start' => 'Prošu klikń na tłóčatko, zo by swoje nahraća startował.',
@@ -3393,7 +3398,7 @@ $messages['ia'] = array(
 	'mwe-upwiz-source-custom' => 'Forni informationes de copyright pro cata file individualmente in le pagina sequente.',
 	'mwe-upwiz-more-options' => 'plus optiones…',
 	'mwe-upwiz-fewer-options' => 'minus optiones…',
-	'mwe-upwiz-desc' => 'Description in',
+	'mwe-upwiz-desc' => 'Description',
 	'mwe-upwiz-desc-add-n' => 'adder un description in un altere lingua',
 	'mwe-upwiz-desc-add-0' => 'adder un description',
 	'mwe-upwiz-title' => 'Titulo',
@@ -3444,9 +3449,11 @@ $messages['ia'] = array(
 	'mwe-upwiz-tooltip-author' => 'Le nomine del persona qui prendeva le photo, o pingeva le pictura, designava le designo, etc.',
 	'mwe-upwiz-tooltip-source' => 'De ubi veniva iste file digital: pote esser un URL, o un libro o publication',
 	'mwe-upwiz-tooltip-sign' => 'Tu pote usar tu nomine de usator wiki o tu nomine real. In ambe casos, isto essera ligate a tu pagina de usator wiki',
-	'mwe-upwiz-tooltip-title' => 'Un curte titulo pro le file. Tu pote usar linguage simple con spatios, ma sin saltos de linea. Iste titulo debe esser differente de tote le altere titulos in iste wiki.',
+	'mwe-upwiz-tooltip-title' => 'Un titulo curte e unic pro le file. Tu pote usar linguage simple con spatios. Non includer le extension del nomine del file. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Leger plus</a>.',
+	'mwe-upwiz-dialog-title' => 'Files pote esser incargate con nomines in omne lingua in omne alphabeto (codificate in UTF-8). Titulos de files multimedia debe esser significative e informative in le lingua seligite.',
 	'mwe-upwiz-tooltip-description' => 'Describe brevemente tote le aspectos notabile de iste obra. Pro un photo, mentiona le cosas principal que es representate, le occasion o le loco.',
-	'mwe-upwiz-tooltip-other' => 'Omne altere information que tu vole includer a proposito de iste obra. Tu pote usar codice wikitexto.',
+	'mwe-upwiz-tooltip-categories' => 'Adde <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorias</a> a tu file pro render lo plus facile a trovar.',
+	'mwe-upwiz-tooltip-other' => 'Omne altere information que tu vole includer a proposito de iste obra. Placia patronos de <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geocodification</a> hic.',
 	'mwe-upwiz-tooltip-more-info' => 'Lege plus.',
 	'mwe-upwiz-file-need-file' => 'Per favor adde primo un file a incargar.',
 	'mwe-upwiz-file-need-start' => 'Per favor preme iste button pro comenciar tu incargamentos.',
@@ -4236,7 +4243,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-source-custom' => "Gitt d'Copyright-Informatioune fir all Fichier individuell op der nächster Säit un.",
 	'mwe-upwiz-more-options' => 'méi Optiounen...',
 	'mwe-upwiz-fewer-options' => 'manner Optiounen...',
-	'mwe-upwiz-desc' => 'Beschreiwung an',
+	'mwe-upwiz-desc' => 'Beschreiwung',
 	'mwe-upwiz-desc-add-n' => 'eng Beschreiwung an enger anerer Sprooch derbäisetzen',
 	'mwe-upwiz-desc-add-0' => 'eng Beschreiwung derbäisetzen',
 	'mwe-upwiz-title' => 'Titel',
@@ -4289,13 +4296,11 @@ Sidd Dir sécher datt Dir elo eng aner Säit opruffe wëllt?',
 	'mwe-upwiz-tooltip-source' => 'Wou dëse Fichier hierkënnt -- dëst kann eng URL, oder e Buch oder eng aner Publikatioun sinn',
 	'mwe-upwiz-tooltip-sign' => 'Dir kënnt Äre Wiki-Benotzernumm oder Äre richtegen Numm benotzen.
 An deene zwee Fäll, gëtt et mat Ärer Wiki-Benotzersäit verlinkt.',
-	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier.
-Dir kënnt dobäi Espacen a Sazzeeche benotzen awer keen Zeilenëmbroch.
-Dësen Titel muss anescht siwéi alldéi aner op dëser Wiki.',
+	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier, deen anescht ass wéi all déi aner op dëser Wiki. Dir kënnt dobäi Text mat Espace benotzen. D\'Erweiderung vum Fichier soll net ugi ginn. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Fir méi ze wëssen</a>.',
 	'mwe-upwiz-tooltip-description' => "Beschreift w.e.g. kuerz dat Wichtegst vun dësem Wierk.
 fir eng Photo, ernimmt déi Haaptsaachen déi drop sinn, d'Geleeënheet oder d'Plaz",
 	'mwe-upwiz-tooltip-other' => 'All aner Informatioun déi Dir bäi Äert Wierk derbäisetze wëllt.
-Dir kënnt Wikicode benotzen.',
+Setzt<a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">Geocoding</a>-Schablounen heihinn.',
 	'mwe-upwiz-tooltip-more-info' => 'Fir méi ze wëssen',
 	'mwe-upwiz-file-need-file' => "Setzt w.e.g. d'éischt e Fichier fir eropzelueden derbäi.",
 	'mwe-upwiz-file-need-start' => 'Dréckt w.e.g. dëse Knäppche fir mam Eroplueden unzefänken.',
@@ -4428,7 +4433,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-source-custom' => 'На следната страница наведете информации за авторските права на секоја податотека засебно.',
 	'mwe-upwiz-more-options' => 'повеќе можности...',
 	'mwe-upwiz-fewer-options' => 'помалку можности...',
-	'mwe-upwiz-desc' => 'Опис на',
+	'mwe-upwiz-desc' => 'Опис',
 	'mwe-upwiz-desc-add-n' => 'додај опис на друг јазик',
 	'mwe-upwiz-desc-add-0' => 'додај опис',
 	'mwe-upwiz-title' => 'Наслов',
@@ -4479,9 +4484,11 @@ $messages['mk'] = array(
 	'mwe-upwiz-tooltip-author' => 'Име на лицето што ја направило фотографијата, ја насликало сликата, го нацтрало цртежот и тн.',
 	'mwe-upwiz-tooltip-source' => 'Од каде е оваа дигитална податотека -- може да е URL, или пак книга или друга публијација',
 	'mwe-upwiz-tooltip-sign' => 'Можете да го употребите вашето корисничко име на викито, или пак вашето вистинско име. Во обата случаја ова ќе води до вашата корисничка страница',
-	'mwe-upwiz-tooltip-title' => 'Краток наслов на податотеката. Можете да користите прост јазик со меѓупростор, но не користете нови редови. Овој наслов мора да се разликува од сите други наслови на ова вики.',
+	'mwe-upwiz-tooltip-title' => 'Краток и единствен наслов на податотеката. Можете да користите прост јазик со меѓупростор, но не пишувајте ја податотечната наставка. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Дознајте повеќе</a>.',
+	'mwe-upwiz-dialog-title' => 'Податотеките можат да се подигаат со имиња на секој јазик, со секое писмо (кодирано како UTF-8). Насловите на снимките треба да се описни и корисни на избраниот јазик.',
 	'mwe-upwiz-tooltip-description' => 'Накратко опишете го сето она што е значајно за делото. Ако е фотографија, споменете ги главните нешта што се прикажани на неа, настанот или местото.',
-	'mwe-upwiz-tooltip-other' => 'Некои други информации што би сакале да ги споменете за делото. Може да користите и викитест код.',
+	'mwe-upwiz-tooltip-categories' => 'Додајте ѝ <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">категории</a> на податотеката за да може полесно да се најде.',
+	'mwe-upwiz-tooltip-other' => 'Некои други информации што би сакале да ги споменете за делото. Тука стевете шаблони за <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">геокодирање</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Дознајте повеќе.',
 	'mwe-upwiz-file-need-file' => 'Прво назначете податотека за подигање.',
 	'mwe-upwiz-file-need-start' => 'Притиснете го копчето за да го започнете подигањето.',
@@ -4814,7 +4821,7 @@ Probeer het later opnieuw.',
 	'mwe-upwiz-source-custom' => 'Lever op de volgende pagina voor ieder bestand apart auteursrechteninformatie.',
 	'mwe-upwiz-more-options' => 'meer instellingen...',
 	'mwe-upwiz-fewer-options' => 'minder instellingen...',
-	'mwe-upwiz-desc' => 'Beschrijving in het',
+	'mwe-upwiz-desc' => 'Beschrijving',
 	'mwe-upwiz-desc-add-n' => 'beschrijving in een andere taal toevoegen',
 	'mwe-upwiz-desc-add-0' => 'beschrijving toevoegen',
 	'mwe-upwiz-title' => 'Naam',
@@ -4865,9 +4872,11 @@ Probeer het later opnieuw.',
 	'mwe-upwiz-tooltip-author' => 'De naam van de persoon die de foto heeft genomen, het schilderij of de tekening heeft gemaakt, enzovoort.',
 	'mwe-upwiz-tooltip-source' => 'Waar komt het digitale bestand vandaan? Dit kan een URL, een boek of publicatie zijn.',
 	'mwe-upwiz-tooltip-sign' => 'U kunt uw wikigebruikersnaam of uw echte naam gebruiken. In beide gevallen wordt deze gekoppeld aan uw gebruikerspagina in de wiki',
-	'mwe-upwiz-tooltip-title' => 'Een korte naam voor het bestand. U kunt platte tekst met spaties gebruiken. Deze naam mag niet gelijk zijn aan bestaande paginanamen in de wiki.',
+	'mwe-upwiz-tooltip-title' => 'Een korte naam voor het bestand. U kunt platte tekst met spaties gebruiken. Neem de bestandsextensie niet op. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Meer informatie</a>.',
+	'mwe-upwiz-dialog-title' => 'Bestanden kunnen geüpload worden met een naam in een willekeurige taak in een willekeurig schrift (gecodeerd als UTF-8). Namen van mediabestanden horen betekenisvol te zijn in de gekozen taal.',
 	'mwe-upwiz-tooltip-description' => 'Beschrijf het werk. Vermeld voor een foto bijvoorbeeld wat er te zien is, wanneer de foto is genomen, bij welke gelegenheid, enzovoort.',
-	'mwe-upwiz-tooltip-other' => 'Overige informatie die u wilt opnemen over dit werk. U kunt wikitext gebruiken.',
+	'mwe-upwiz-tooltip-categories' => 'Voeg <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorieën</a> toe aan uw bestand om het makkelijker vindbaar te maken.',
+	'mwe-upwiz-tooltip-other' => 'Overige informatie die u wilt opnemen over dit werk. Hier kunt u <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geocodedringssjablonen</a> plaatsen.',
 	'mwe-upwiz-tooltip-more-info' => 'Meer lezen.',
 	'mwe-upwiz-file-need-file' => 'Voeg eerst een upload toe.',
 	'mwe-upwiz-file-need-start' => 'Klik op deze knop om uw uploads te starten.',
@@ -5163,7 +5172,7 @@ $messages['pl'] = array(
 	'mwe-upwiz-source-custom' => 'Podaj na następnej stronie informacje o prawach autorskich dla każdego pliku z osobna.',
 	'mwe-upwiz-more-options' => 'więcej opcji...',
 	'mwe-upwiz-fewer-options' => 'mniej opcji...',
-	'mwe-upwiz-desc' => 'Opis w',
+	'mwe-upwiz-desc' => 'Opis',
 	'mwe-upwiz-desc-add-n' => 'dodaj opis w innym języku',
 	'mwe-upwiz-desc-add-0' => 'dodaj opis',
 	'mwe-upwiz-title' => 'Tytuł',
@@ -5216,13 +5225,12 @@ Czy na pewno chcesz opuścić tę stronę?',
 	'mwe-upwiz-tooltip-source' => 'Skąd pochodzi ten plik: adres URL, książka lub publikacja',
 	'mwe-upwiz-tooltip-sign' => 'Możesz użyć swojej nazwy użytkownika lub prawdziwego nazwiska.
 W obu przypadkach link będzie prowadził do Twojej strony użytkownika.',
-	'mwe-upwiz-tooltip-title' => 'Krótki tytuł pliku.
-Możesz użyć prostego języka i spacji, ale niedopuszczalne jest łamanie linii.
-Tytuł musi być różny od tytułu każdej strony w tej wiki.',
+	'mwe-upwiz-tooltip-title' => 'Krótka unikalna nazwa pliku. Możesz użyć prostego języka i spacji. Nie dodawaj rozszerzenia pliku. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Więcej informacji</a>.',
+	'mwe-upwiz-dialog-title' => 'Przesyłane pliki mogą mieć nazwy w dowolnym języku i zapisie (kodowanie UTF-8). Nazwy plików powinny zrozumiale opisywać zawartość w wybranym języku.',
 	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko istotne, co dotyczy tej pracy. 
 W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejsce.',
-	'mwe-upwiz-tooltip-other' => 'Wszelkie inne informacje, które chcesz dołączyć do tej pracy.
-Możesz użyć formatowania wiki.',
+	'mwe-upwiz-tooltip-categories' => 'Dodaj do pliku <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">kategorie</a>, aby ułatwić jego odnalezienie.',
+	'mwe-upwiz-tooltip-other' => 'Wszelkie inne informacje, które chcesz dołączyć do tej pracy. Dodaj tutaj szablon <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geokodowania</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Więcej informacji.',
 	'mwe-upwiz-file-need-file' => 'Najpierw dodaj plik do przesłania.',
 	'mwe-upwiz-file-need-start' => 'Naciśnij ten przycisk, aby uruchomić przesyłanie.',
@@ -5931,7 +5939,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-source-custom' => 'Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.',
 	'mwe-upwiz-more-options' => 'больше настроек…',
 	'mwe-upwiz-fewer-options' => 'меньше настроек…',
-	'mwe-upwiz-desc' => 'Описание на',
+	'mwe-upwiz-desc' => 'Описание',
 	'mwe-upwiz-desc-add-n' => 'добавить описание на другом языке',
 	'mwe-upwiz-desc-add-0' => 'добавить описание',
 	'mwe-upwiz-title' => 'Заголовок',
@@ -5982,9 +5990,11 @@ $messages['ru'] = array(
 	'mwe-upwiz-tooltip-author' => 'Имя человека, который сделал фотографию, нарисовал картину или рисунок и т. д.',
 	'mwe-upwiz-tooltip-source' => 'Откуда получен этот цифровой файл, это может быть URL, название книги или публикации',
 	'mwe-upwiz-tooltip-sign' => 'Вы можете использовать своё имя участника вики или настоящее имя. В обоих случаях с него будет ссылка на вашу страницу участника в вики',
-	'mwe-upwiz-tooltip-title' => 'Краткое название файла. Вы можете использовать простой текст с пробелами, но без переводов строк. Это название должно отличаться от всех других названий в этой вики.',
+	'mwe-upwiz-tooltip-title' => 'Краткое уникальное название файла. Вы можете использовать простой текст с пробелами. Не указывайте расширение. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Подробнее</a>.',
+	'mwe-upwiz-dialog-title' => 'Файлы могут быть загружены с названиями на любом языке, в любой системе письма (кодируемой в UTF-8). Названия медиа-файлов должны быть описательными, полезными для понимания содержания файла.',
 	'mwe-upwiz-tooltip-description' => 'Кратко опишите всё самое важное об этом произведении. Для фото, укажите что изображено, где сделана фотография, при каких обстоятельствах.',
-	'mwe-upwiz-tooltip-other' => 'Любая другие сведения о произведении, которые вы хотите указать. Вы можете использовать викитекст.',
+	'mwe-upwiz-tooltip-categories' => 'Укажите <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">категории</a> для файла, чтобы его можно было проще найти.',
+	'mwe-upwiz-tooltip-other' => 'Любые другие сведения о произведении, которые вы хотите указать. Здесь можно разместить <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">геокод</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Узнать больше.',
 	'mwe-upwiz-file-need-file' => 'Пожалуйста, добавьте сначала загрузку.',
 	'mwe-upwiz-file-need-start' => 'Пожалуйста, нажмите эту кнопку, чтобы начать загрузку.',
@@ -6244,7 +6254,7 @@ $messages['sl'] = array(
 	'mwe-upwiz-source-custom' => 'Na naslednji strani navedite podatke o avtorskih pravicah za vsako datoteko posebej.',
 	'mwe-upwiz-more-options' => 'več možnosti ...',
 	'mwe-upwiz-fewer-options' => 'manj možnosti ...',
-	'mwe-upwiz-desc' => 'Opis v jeziku',
+	'mwe-upwiz-desc' => 'Opis',
 	'mwe-upwiz-desc-add-n' => 'dodaj opis v drugem jeziku',
 	'mwe-upwiz-desc-add-0' => 'dodaj opis',
 	'mwe-upwiz-title' => 'Naslov',
@@ -6298,13 +6308,12 @@ Ali ste prepričani, da želite vseeno oditi s te strani?',
 	'mwe-upwiz-tooltip-source' => 'Od koder je prišla ta digitalna datoteka – lahko je URL, knjiga ali objava',
 	'mwe-upwiz-tooltip-sign' => 'Uporabite lahko vaše uporabniško ime na wikiju ali vaše pravo ime.
 V obeh primerih bo vpisano ime povezano na vašo uporabniško stran na wikiju.',
-	'mwe-upwiz-tooltip-title' => 'Kratek naslov datoteke.
-Uporabljate lahko navaden jezik s presledki, vendar ne prelomi vrstic.
-Naslov mora biti drugačen od vseh ostalih naslovov na tem wikiju.',
+	'mwe-upwiz-tooltip-title' => 'Kratek edinstven naslov datoteke. Uporabljate lahko navaden jezik s presledki. Ne vključujte datotečne končnice. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Več informacij</a>.',
+	'mwe-upwiz-dialog-title' => 'Datoteke je mogoče naložiti z imeni v katerem koli jeziku in v kateri koli pisavi (kodirano kot UTF-8). Naslovi predstavnostnih datotek naj bodo smiselni in koristni v izbranem jeziku.',
 	'mwe-upwiz-tooltip-description' => 'Na kratko opišite vse opaznejše o delu.
 Pri fotografiji omenite glavne stvari, ki so upodobljene, priložnost ali kraj.',
-	'mwe-upwiz-tooltip-other' => 'Vse druge informacije o tem delu, ki jih želite vključiti.
-Uporabljate lahko kodo wikibesedila.',
+	'mwe-upwiz-tooltip-categories' => 'Svoji datoteki dodajte <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">kategorije</a>, da jo bo lažje najti.',
+	'mwe-upwiz-tooltip-other' => 'Vse druge informacije o tem delu, ki jih želite vključiti. Tukaj je tudi mesto za predlogo <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geokodiranja</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Več o tem.',
 	'mwe-upwiz-file-need-file' => 'Prosimo, najprej dodajte datoteke za nalaganje.',
 	'mwe-upwiz-file-need-start' => 'Prosimo, pritisnite ta gumb za pričetek nalaganja.',
@@ -6742,6 +6751,7 @@ $messages['tt-cyrl'] = array(
 /** Ukrainian (Українська)
  * @author Ahonc
  * @author Alex Khimich
+ * @author Александр Сигачёв
  * @author Тест
  */
 $messages['uk'] = array(
@@ -6789,7 +6799,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-source-custom' => 'Надайте інформацію про авторські права для кожного файлу окремо на наступній сторінці.',
 	'mwe-upwiz-more-options' => 'більше налаштувань...',
 	'mwe-upwiz-fewer-options' => 'меньше налаштувань...',
-	'mwe-upwiz-desc' => 'Опис на',
+	'mwe-upwiz-desc' => 'Опис',
 	'mwe-upwiz-desc-add-n' => 'додати опис іншою мовою',
 	'mwe-upwiz-desc-add-0' => 'додати опис',
 	'mwe-upwiz-title' => 'Назва',
@@ -7090,6 +7100,7 @@ $messages['wuu'] = array(
  * @author Mark85296341
  * @author PhiLiP
  * @author Wmr89502270
+ * @author 阿pp
  */
 $messages['zh-hans'] = array(
 	'uploadwizard' => '上传精灵',
@@ -7231,13 +7242,14 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-tooltip-source' => '这个数码档从何来？可以是一个URL、一本书或一个出版物',
 	'mwe-upwiz-tooltip-sign' => '你可以使用你的维基用户名称或您的真实姓名。 
 在这两种情况下，这将连结到你在维基的用户页',
-	'mwe-upwiz-tooltip-title' => '一个此档案的短标题。
-你可以使用自己的语言，但不可分行。
+	'mwe-upwiz-tooltip-title' => '一个此档案的短标题。你可以使用简单文字说明，可以使用空格。不需要添加扩展名。<a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">详细了解</a>。
+
 这个标题一定要和其他在此站上的标题不同。',
+	'mwe-upwiz-dialog-title' => '可以将文件上载与任何脚本（以 UTF-8 编码）中任何一种语言中的名称。媒体文件的标题应该是有意义和有益的选择的语言。',
 	'mwe-upwiz-tooltip-description' => '一切有关此作品的简要描述。 
 对于照片，提到的主要事情是描绘的场合或场所。',
-	'mwe-upwiz-tooltip-other' => '任何其他你想要提交的信息。 
-你可以使用维基文本代码。',
+	'mwe-upwiz-tooltip-categories' => '将 <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">类别</a> 添加到您的文件，使其易于查找。',
+	'mwe-upwiz-tooltip-other' => '任何其他你想要提交的信息。 把<a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">地理编码</a>模板放置于此。',
 	'mwe-upwiz-tooltip-more-info' => '了解更多信息。',
 	'mwe-upwiz-file-need-file' => '请先加入一个上传榴案',
 	'mwe-upwiz-file-need-start' => '请按这个按钮来启动上传。',
