@@ -1812,7 +1812,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'تأیید',
 	'mwe-upwiz-more-options' => 'گزینه‌های بیشتر...',
 	'mwe-upwiz-fewer-options' => 'گزینه‌های کمتر...',
-	'mwe-upwiz-desc' => 'توضیحات در',
+	'mwe-upwiz-desc' => 'توضیحاتْ',
 	'mwe-upwiz-desc-add-n' => 'افزودن توضیحات به زبان دیگر',
 	'mwe-upwiz-desc-add-0' => 'افزودن توضیحات',
 	'mwe-upwiz-title' => 'عنوان',
@@ -4158,7 +4158,14 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'mwe-upwiz-step-tutorial' => 'Liehre',
+	'mwe-upwiz-step-file' => 'Huhlaade',
 	'mwe-upwiz-step-deeds' => 'Rääschte verjävve',
+	'mwe-upwiz-step-details' => 'Beschrieve',
+	'mwe-upwiz-step-thanks' => 'Bruche',
+	'mwe-upwiz-api-error-filetype-banned' => 'Di Zoot Dattei es nit zohjelohße.',
+	'mwe-upwiz-api-error-filename-tooshort' => 'Der Name för di Dattei es ze koot.',
+	'mwe-upwiz-api-error-illegal-filename' => 'Der Name för di Dattei es verbodde.',
 	'mwe-upwiz-fileexists' => 'En Dattei met dämm Name jidd_et ald. Beß esu joot un donn <b><tt>$1</tt></b> prööfe, wann De Der nit sescher beß, of De jät ändere wells.',
 );
 
@@ -4614,7 +4621,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-source-custom' => 'ഓരോ പ്രമാണത്തിനുമുള്ള പകർപ്പവകാശ അനുമതികളോരോന്നും അടുത്ത താളിൽ പ്രത്യേകം തിരഞ്ഞെടുക്കുക.',
 	'mwe-upwiz-more-options' => 'കൂടുതൽ ഐച്ഛികങ്ങൾ...',
 	'mwe-upwiz-fewer-options' => 'കുറവ് ഐച്ഛികങ്ങൾ...',
-	'mwe-upwiz-desc' => 'വിവരണം (ഭാഷ തിരഞ്ഞെടുക്കുക)',
+	'mwe-upwiz-desc' => 'വിവരണം',
 	'mwe-upwiz-desc-add-n' => 'മറ്റൊരു ഭാഷയിൽ വിവരണം ചേർക്കുക',
 	'mwe-upwiz-desc-add-0' => 'ഒരു വിവരണം ചേർക്കുക',
 	'mwe-upwiz-title' => 'ശീർഷകം',
@@ -4667,13 +4674,13 @@ $messages['ml'] = array(
 	'mwe-upwiz-tooltip-source' => 'എവിടെ നിന്നാണീ ഡിജിറ്റൽ പ്രമാണം ലഭിച്ചത് -- ഒരു യൂ.ആർ.എൽ. അല്ലെങ്കിൽ പുസ്തകം അല്ലെങ്കിൽ പ്രസിദ്ധീകരണം ആകാം',
 	'mwe-upwiz-tooltip-sign' => 'താങ്കൾക്ക് താങ്കളുടെ വിക്കി ഉപയോക്തൃനാമമോ താങ്കളുടെ യഥാർത്ഥ പേരോ ഉപയോഗിക്കാവുന്നതാണ്.
 ഇരു അവസരങ്ങളിലും, താങ്കളുടെ വിക്കി ഉപയോക്തൃതാളിലേയ്ക്ക് കണ്ണി ചേർക്കപ്പെടുന്നതാണ്.',
-	'mwe-upwiz-tooltip-title' => 'താങ്കളുടെ പ്രമാണത്തിന്റെ തലക്കെട്ട്.
-വാക്കുകൾക്കിടയിൽ ഇടവിട്ടുള്ള ലളിത ഭാഷ ഉപയോഗിക്കം, പക്ഷേ ഒന്നിലധികം വരികൾ ഉപയോഗിക്കരുത്.
-വിക്കിയിലെ മറ്റ് തലക്കെട്ടുകളിൽ നിന്ന് ഈ തലക്കെട്ട് വ്യത്യസ്തമായിരിക്കണം.',
+	'mwe-upwiz-tooltip-title' => 'പ്രമാണത്തിനുള്ള ചെറിയ അനന്യമായ തലക്കെട്ട്. വാക്കുകൾക്കിടയിൽ ഇടവിട്ടുള്ള ലളിതഭാഷ ഉപയോഗിക്കാം. പ്രമാണത്തിന്റെ എക്സ്റ്റെൻഷൻ ഉൾപ്പെടുത്തരുത്. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">കൂടുത അറിയുക</a>.',
+	'mwe-upwiz-dialog-title' => 'ഏതൊരു ഭാഷയുടേയും ഏതൊരു ലിപിയിലും (UTF-8) പേരു നൽകി പ്രമാണം അപ്‌ലോഡ് ചെയ്യാം. ഉപയോഗിക്കുന്ന ഭാഷയിൽ അർത്ഥമുള്ളതും സഹായകവുമായ തലക്കെട്ടുകൾ ആയിരിക്കണം മീഡിയ പ്രമാണങ്ങളിൽ നൽകേണ്ടത്.',
 	'mwe-upwiz-tooltip-description' => 'ഈ കൃതിയെക്കുറിച്ചുള്ള ശ്രദ്ധേയമായ എല്ലാം ചുരുക്കി ചേർക്കുക.
 ഒരു ഫോട്ടോയിൽ, പതിഞ്ഞിരിക്കുന്ന പ്രധാന കാര്യം, വേള, സ്ഥലം തുടങ്ങിയ വിവരങ്ങൾ ഉൾപ്പെടുത്താം.',
+	'mwe-upwiz-tooltip-categories' => 'താങ്കളുടെ പ്രമാണം കണ്ടെത്തുന്നത് എളുപ്പമാക്കാൻ <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">വർഗ്ഗങ്ങൾ</a> കൂട്ടിച്ചേർക്കുക.',
 	'mwe-upwiz-tooltip-other' => 'ഈ കൃതിയെക്കുറിച്ച് ഉൾപ്പെടുത്തണം എന്ന് താങ്കൾ ആഗ്രഹിക്കുന്ന മറ്റ് വിവരങ്ങൾ.
-വിക്കി എഴുത്ത് രീതി താങ്കൾക്കുപയോഗിക്കാവുന്നതാണ്.',
+<a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">ഭൗമസൂചക</a> ഫലകങ്ങൾ ഇവിടെച്ചേർക്കുക.',
 	'mwe-upwiz-tooltip-more-info' => 'കൂടുതൽ അറിയുക.',
 	'mwe-upwiz-file-need-file' => 'ദയവായി ആദ്യം ഒരു അപ്‌ലോഡ് ചേർക്കുക.',
 	'mwe-upwiz-file-need-start' => 'അപ്‌ലോഡുകൾ തുടങ്ങാൻ ഈ ബട്ടൺ ദയവായി അമർത്തുക.',
