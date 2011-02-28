@@ -205,7 +205,6 @@
 		 * @return {Array} array of jQuery|string
 		 */
 		parse: function( key, replacements ) {
-			console.log( "key = " + key );
 			return this.compile( this.getAst( key ), replacements );
 		},
 
