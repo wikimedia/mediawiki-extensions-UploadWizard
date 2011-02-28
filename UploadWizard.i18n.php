@@ -7002,7 +7002,7 @@ hoặc [{{fullurl:{{FULLPAGENAME}}|action=edit}} sửa đổi trang này]</span>
 	'mwe-upwiz-source-custom' => 'Hãy cung cấp thông tin bản quyền về mỗi tập tin riêng tại trang tiếp theo.',
 	'mwe-upwiz-more-options' => 'thêm tùy chọn…',
 	'mwe-upwiz-fewer-options' => 'ít tùy chọn…',
-	'mwe-upwiz-desc' => 'Miêu tả trong',
+	'mwe-upwiz-desc' => 'Miêu tả',
 	'mwe-upwiz-desc-add-n' => 'thêm miêu tả trong ngôn ngữ khác',
 	'mwe-upwiz-desc-add-0' => 'thêm miêu tả',
 	'mwe-upwiz-title' => 'Tên',
@@ -7055,13 +7055,12 @@ Bạn có chắc muốn rời khỏi trang này?',
 	'mwe-upwiz-tooltip-source' => 'Nơi mà tập tin số này được tìm thấy, thí dụ địa chỉ URL hay cuốn sách',
 	'mwe-upwiz-tooltip-sign' => 'Có thể sử dụng tên đăng nhập trên wiki hoặc tên thật của bạn.
 Dù sao, tên này sẽ được liên kết đến trang cá nhân của bạn trên wiki.',
-	'mwe-upwiz-tooltip-title' => 'Tên ngắn của tập tin.
-Có thể dùng thuật ngữ bình thường với khoảng cách, nhưng đừng xuống dòng.
-Tên này phải khác với tất cả mọi tên tập tin đã có sẵn trên wiki này.',
+	'mwe-upwiz-tooltip-title' => 'Tên ngắn và duy nhất cho tập tin. Có thể dùng thuật ngữ bình thường với khoảng cách. Đừng bao gồm phần mở rộng tập tin. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Tìm hiểu thêm</a>.',
+	'mwe-upwiz-dialog-title' => 'Có thể đặt tên tập tin trong bất kỳ ngôn ngữ và hệ thống viết (cần bảng mã UTF-8). Bất chấp ngôn ngữ, nên chọn tên tập tin dễ đọc và miêu tả đầy đủ.',
 	'mwe-upwiz-tooltip-description' => 'Miêu tả một cách ngắn gọn mỗi điều đáng kể về tác phẩm này.
 Nếu là hình chụp, hãy nói đến những vật thể chính, cũng như tình hình, sự kiện, hay địa điểm của hình chụp.',
-	'mwe-upwiz-tooltip-other' => 'Bổ sung thông tin khác về tác phẩm này.
-Có thể sử dụng mã wiki.',
+	'mwe-upwiz-tooltip-categories' => 'Xếp tập tin vào các <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories?uselang=vi" hreflang="vi">thể loại</a> để cho nó dễ kiếm hơn.',
+	'mwe-upwiz-tooltip-other' => 'Bổ sung thông tin khác về tác phẩm này. Có thể gắn các bản mẫu <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding?uselang=vi" hreflang="vi">mã hóa địa lý</a> vào đây.',
 	'mwe-upwiz-tooltip-more-info' => 'Tìm hiểu thêm.',
 	'mwe-upwiz-file-need-file' => 'Trước tiên, xin hãy thêm một tập tin để tải lên.',
 	'mwe-upwiz-file-need-start' => 'Xin hãy bấm nút này để bắt đầu tải lên.',
