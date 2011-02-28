@@ -188,7 +188,7 @@
 			plural: function( nodes ) { 
 				var count = parseInt( mw.language.convertNumber( nodes[0], true ), 10 );
 				var forms = nodes.slice(1);
-				return forms.length ? mw.language.convertPlural( count, forms ) : '';		
+				return forms.length ? mw.language.convertPlural( count, forms ) : '';
 			}
 			
 		},
@@ -205,6 +205,7 @@
 		 * @return {Array} array of jQuery|string
 		 */
 		parse: function( key, replacements ) {
+			console.log( "key = " + key );
 			return this.compile( this.getAst( key ), replacements );
 		},
 
@@ -220,6 +221,7 @@
 			}
 			return this.astCache[ key ];	
 		},
+
 
 		/**
 		 * walk entire node structure, applying replacements and template functions when appropriate
@@ -245,6 +247,12 @@
 						return _this.compile( element, replacements );
 					} );
 					ret = operation( subnodes, replacements );
+					break;
+				case 'undefined':
+					// Parsing the empty string (as an entire expression, or as a paramExpression in a template) results in undefined
+					// Perhaps a more clever parser can detect this, and return the empty string? Or is that useful information?
+					// The logical thing is probably to return the empty string here when we encounter undefined.
+					ret = '';
 					break;
 				default:
 					throw new Error( 'unexpected type in AST: ' + typeof node );

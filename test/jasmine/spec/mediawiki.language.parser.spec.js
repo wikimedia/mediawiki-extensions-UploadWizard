@@ -1,36 +1,223 @@
 /* spec for language & message behaviour in MediaWiki */
 
-// boilerplate crap, can we eliminate this?
 
-/*
-jQuery( document ).ready( function() {
-	// add "magic" to Language template parser for keywords
-	// mediaWiki.language.parser.templateProcessors.SITENAME = function() { return wgSitename; };
-	
-	// sets up plural "magic" and so on. Seems like a bad design to have to do this, though.
-	// mediaWiki.language.magicSetup();
-	
+mediaWiki.messages.set( {
+	"en_empty": "",
+	"en_simple": "Simple message",
+	"en_replace": "Simple $1 replacement",
+	"en_link": "Simple [http://example.com link to example].",
+	"en_link_replace": "Complex [$1 $2] behaviour.",
+	"en_simple_magic": "Simple {{ALOHOMORA}} message",
+	"en_undelete_short": "Undelete {{PLURAL:$1|one edit|$1 edits}}",
+	"en_undelete_empty_param": "Undelete{{PLURAL:$1|| multiple edits}}",
+	"en_category-subcat-count": "{{PLURAL:$2|This category has only the following subcategory.|This category has the following {{PLURAL:$1|subcategory|$1 subcategories}}, out of $2 total.}}",
+	"en_escape0": "Escape \\to fantasy island",
+	"en_escape1": "I had \\$2.50 in my pocket",
+	"en_escape2": "I had {{PLURAL:$1|the absolute \\|$1\\| which came out to \\$3.00 in my C:\\\\drive| some stuff}}",
+	"en_fail": "This should fail to {{parse"
 } );
-*/
 
 /**
  * Tests
  */
 describe( "mediaWiki.language.parser", function() {
 	
-
 	describe( "basic message functionality", function() {
-		mediaWiki.messages.set( {
-			'simple-message': 'simple message'
+
+		it( "should return identity for empty string", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_empty' ).html() ).toEqual( '' );
 		} );
 
+
 		it( "should return identity for simple string", function() {
-			expect( mediaWiki.msg( 'simple-message' ) ).toEqual( 'simple message' );
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_simple' ).html() ).toEqual( 'Simple message' );
 		} );
 
 	} );
 
-	describe( "test for matching functionality with PHP", function() {
+	describe( "escaping", function() {
+
+		it ( "should handle simple escaping", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_escape0' ).html() ).toEqual( 'Escape to fantasy island' );
+		} );
+
+		it ( "should escape dollar signs found in ordinary text when backslashed", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_escape1' ).html() ).toEqual( 'I had $2.50 in my pocket' );
+		} );
+
+		it ( "should handle a complicated escaping case, including escaped pipe chars in template args", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_escape2', [ 1 ] ).html() ).toEqual( 'I had the absolute |1| which came out to $3.00 in my C:\\drive' );
+		} );
+
+	} );
+
+	describe( "replacing", function() {
+
+		it ( "should handle simple replacing", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_replace', [ 'foo' ] ).html() ).toEqual( 'Simple foo replacement' );
+		} );
+
+	} );
+
+	describe( "linking", function() {
+
+		it ( "should handle a simple link", function() {
+			var parser = new mediaWiki.language.parser();
+			var parsed = parser.parse( 'en_link' );
+			var contents = parsed.contents();
+			expect( contents.length ).toEqual( 3 );
+			expect( contents[0].nodeName ).toEqual( '#text' );
+			expect( contents[0].nodeValue ).toEqual( 'Simple ' );
+			expect( contents[1].nodeName ).toEqual( 'A' );
+			expect( contents[1].getAttribute( 'href' ) ).toEqual( 'http://example.com' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'link to example' );
+			expect( contents[2].nodeName ).toEqual( '#text' );
+			expect( contents[2].nodeValue ).toEqual( '.' );
+		} );
+
+		it ( "should replace a URL into a link", function() {
+			var parser = new mediaWiki.language.parser();
+			var parsed = parser.parse( 'en_link_replace', [ 'http://example.com/foo', 'linking' ] );
+			var contents = parsed.contents();
+			expect( contents.length ).toEqual( 3 );
+			expect( contents[0].nodeName ).toEqual( '#text' );
+			expect( contents[0].nodeValue ).toEqual( 'Complex ' );
+			expect( contents[1].nodeName ).toEqual( 'A' );
+			expect( contents[1].getAttribute( 'href' ) ).toEqual( 'http://example.com/foo' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'linking' );
+			expect( contents[2].nodeName ).toEqual( '#text' );
+			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
+		} );
+
+		it ( "should bind a click handler into a link", function() {
+			var parser = new mediaWiki.language.parser();
+			var clicked = false;
+			var click = function() { clicked = true; };
+			var parsed = parser.parse( 'en_link_replace', [ click, 'linking' ] );
+			var contents = parsed.contents();
+			expect( contents.length ).toEqual( 3 );
+			expect( contents[0].nodeName ).toEqual( '#text' );
+			expect( contents[0].nodeValue ).toEqual( 'Complex ' );
+			expect( contents[1].nodeName ).toEqual( 'A' );
+			expect( contents[1].getAttribute( 'href' ) ).toEqual( '#' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'linking' );
+			expect( contents[2].nodeName ).toEqual( '#text' );
+			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
+			// determining bindings is hard in IE
+			var anchor = parsed.find( 'a' );
+			if ( ( $j.browser.mozilla || $j.browser.webkit ) && anchor.click ) {
+				expect( clicked ).toEqual( false );
+				anchor.click(); 
+				expect( clicked ).toEqual( true );
+			}
+		} );
+
+		it ( "should wrap a jquery arg around link contents -- even another element", function() {
+			var parser = new mediaWiki.language.parser();
+			var clicked = false;
+			var click = function() { clicked = true; };
+			var button = $j( '<button>' ).click( click );
+			var parsed = parser.parse( 'en_link_replace', [ button, 'buttoning' ] );
+			var contents = parsed.contents();
+			expect( contents.length ).toEqual( 3 );
+			expect( contents[0].nodeName ).toEqual( '#text' );
+			expect( contents[0].nodeValue ).toEqual( 'Complex ' );
+			expect( contents[1].nodeName ).toEqual( 'BUTTON' );
+			expect( contents[1].childNodes[0].nodeValue ).toEqual( 'buttoning' );
+			expect( contents[2].nodeName ).toEqual( '#text' );
+			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
+			// determining bindings is hard in IE
+			if ( ( $j.browser.mozilla || $j.browser.webkit ) && button.click ) {
+				expect( clicked ).toEqual( false );
+				parsed.find( 'button' ).click();
+				expect( clicked ).toEqual( true );
+			}
+		} );
+
+
+	} );
+
+
+	describe( "magic keywords", function() {
+		it( "should substitute magic keywords", function() {
+			var options = {
+				magic: { 
+					'alohomora' : 'open'
+			        }
+			};
+			var parser = new mediaWiki.language.parser( options );
+			expect( parser.parse( 'en_simple_magic' ).html() ).toEqual( 'Simple open message' );
+		} );
+	} );
+	
+	describe( "error conditions", function() {
+		it( "should return non-existent key in angle brackets", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_does_not_exist' ).html() ).toEqual( '&lt;en_does_not_exist&gt;' );
+		} );
+
+
+		it( "should fail to parse", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( function() { parser.parse( 'en_fail' ); } ).toThrow( 
+				'Parse error at position 20 in input: This should fail to {{parse'
+			);
+		} );
+	} );
+
+	describe( "empty parameters", function() {
+		it( "should deal with empty parameters", function() {
+			var parser = new mediaWiki.language.parser();
+			var ast = parser.getAst( 'en_undelete_empty_param' );
+			expect( parser.parse( 'en_undelete_empty_param', [ 1 ] ).html() ).toEqual( 'Undelete' );
+			expect( parser.parse( 'en_undelete_empty_param', [ 3 ] ).html() ).toEqual( 'Undelete multiple edits' );
+
+		} )
+	} )
+
+	describe( "easy message interface functions", function() {
+		it( "should allow a global that returns strings", function() {
+			var gM = mediaWiki.language.parser.getMessageFunction();
+			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+			// a surrounding <SPAN> is needed for html() to work right
+			var expectedHtml = $j( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
+			var result = gM( 'en_link_replace', 'http://example.com/foo', 'linking' );
+			expect( typeof result ).toEqual( 'string' );
+			expect( result ).toEqual( expectedHtml );
+		} );
+
+		it( "should allow a jQuery plugin that appends to nodes", function() {
+			$j.fn.msg = mediaWiki.language.parser.getJqueryPlugin();
+			var $div = $j( '<div>' ).append( $j( '<p>' ).addClass( 'foo' ) );
+			var clicked = false;
+			var $button = $j( '<button>' ).click( function() { clicked = true; } );
+			$div.find( '.foo' ).msg( 'en_link_replace', $button, 'buttoning' );
+			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+			// a surrounding <SPAN> is needed for html() to work right
+			var expectedHtml = $j( '<span>Complex <button>buttoning</button> behaviour.</span>' ).html();
+			var createdHtml = $div.find( '.foo' ).html();
+			// it is hard to test for clicks with IE; also it inserts or removes spaces around nodes when creating HTML tags, depending on their type.
+			// so need to check the strings stripped of spaces.
+			if ( ( $j.browser.mozilla || $j.browser.webkit ) && $button.click ) {
+				expect( createdHtml ).toEqual( expectedHtml );
+				$div.find( 'button ').click();
+				expect( clicked ).toEqual( true );
+			} else if ( $j.browser.ie ) {
+				expect( createdHtml.replace( /\s/, '' ) ).toEqual( expectedHtml.replace( /\s/, '' ) );
+			}
+			delete $j.fn.msg;
+		} );
+
+
+	} );
+
+	describe( "test plurals and other language-specific functions", function() {
 
 		/**
 		* Get a language transform key
@@ -236,10 +423,10 @@ describe( "mediaWiki.language.parser", function() {
 		 * @param {String} languageCode
 		 * @param {Function} to be executed when related scripts have loaded
 		 */
-		mediaWiki.language.resetForLang = function( lang, fn ) {
+		mediaWiki.language.resetForLang = function( langRequested, fn ) {
 			mediaWiki.language.digitTransformTable = null;
 			// Load the current language js file if it has a langKey
-			var lang = mediaWiki.language.getLangTransformKey( lang );
+			var lang = mediaWiki.language.getLangTransformKey( langRequested );
 			if( cachedConvertPlural[lang] ) {
 				mediaWiki.language.convertPlural = cachedConvertPlural[lang];
 				fn();
@@ -254,15 +441,15 @@ describe( "mediaWiki.language.parser", function() {
 
 
 		$j.each( jasmineMsgSpec, function( i, test ) { 
+			var parser = new mediaWiki.language.parser();
 			it( "should parse " + test.name, function() { 
 				mediaWiki.language.resetForLang( test.lang, function() {
-					var argArray = [ test.key ].concat( test.args );
-					var parsedText = mediaWiki.language.parser.apply( this, argArray );
-					result = parsedText.getHTML();
-					expect( result ).toEqual( test.result );
+					var parsedHtml = parser.parse( test.key, test.args ).html();
+					expect( parsedHtml ).toEqual( test.result );
 				} );
 			} );
 		} );
+
 	} );
 
 } );
