@@ -1500,8 +1500,8 @@ Bitte verwende hier kein Wikitext oder HTML.',
  */
 $messages['de-formal'] = array(
 	'mwe-upwiz-step-thanks' => 'Nutzung',
-	'mwe-upwiz-api-error-badaccess-groups' => 'Sie haben nicht die Berechtigung Dateien in dieses Wiki hochzuladen. Prüfen Sie Ihre Gruppenzugehörigkeit.',
-	'mwe-upwiz-api-error-mustbeloggedin' => 'Sie sind nicht angemeldet.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'Sie haben nicht die Berechtigung Dateien in dieses Wiki hochzuladen.',
+	'mwe-upwiz-api-error-mustbeloggedin' => 'Um Dateien hochladen zu können, müssen Sie angemeldet sein.',
 	'mwe-upwiz-api-error-hookaborted' => 'Die von Ihnen vorgesehene Anpassung kann nicht durchgeführt werden (Unterbrechung durch eine Programmschnittstelle).',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Leider ist kein Lernprogramm in Ihrer Sprache verfügbar. Es wird daher das englischsprachige angezeigt.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Es konnten leider keine Dateien für das Lernprogramm gefunden werden, die eigentlich hier vorhanden sein sollten. Bitte wenden Sie sich an den Systemadministrator.',
@@ -1528,6 +1528,7 @@ $messages['de-formal'] = array(
 	'mwe-upwiz-tooltip-sign' => 'Sie können Ihren Benutzernamen auf diesem Wiki oder Ihren bürgerlichen Namen verwenden. In beiden Fällen wird er mit Ihrer Benutzerseite verknüpft.',
 	'mwe-upwiz-tooltip-title' => 'Ein kurzer Titel für die Datei. Sie können hierbei Leerzeichen, aber keine Zeilenumbrüche verwenden. Der Titel muss sich dabei von bereits vorhandenen Titeln auf diesem Wiki unterscheiden.',
 	'mwe-upwiz-tooltip-description' => 'Beschreiben Sie kurz alles Wichtige zu diesem Werk. Bei einem Foto beispielsweise die wichtigsten abgebildeten Bestandteile, den Anlass der Aufnahme und/ oder den Standort.',
+	'mwe-upwiz-tooltip-categories' => 'Fügen Sie der Datei <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Kategorien">Kategorien</a> hinzu, damit sie leichter auffindbar wird.',
 	'mwe-upwiz-tooltip-other' => 'Alle weiteren Informationen, die Sie im Zusammenhang mit diesem Werk angeben möchten. Verwenden Sie hierzu Wikitext.',
 	'mwe-upwiz-tooltip-more-info' => 'Erfahren Sie mehr.',
 	'mwe-upwiz-file-need-file' => 'Fügen Sie zuerst eine Datei zum Hochladen hinzu.',
