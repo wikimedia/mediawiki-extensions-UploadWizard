@@ -2726,13 +2726,12 @@ $messages['he'] = array(
 	'mwe-upwiz-tooltip-source' => 'מאין הגיע הקובץ הזה – כתובת URL, ספר או פרסום',
 	'mwe-upwiz-tooltip-sign' => 'אפשר להשתמש בשם המשתמש שלכם בוויקי או בשמכם האמתי.
 בשני המקרים, זה יקושר לדף המשתמש שלך בוויקי',
-	'mwe-upwiz-tooltip-title' => 'כותרת קצרה עבור הקובץ.
-אפשר להשתמש בשפה פשוטה עם רווחים, אך לא במעברי שורה.
-כותרת זו צריכה להיות שונה מכל כותרות אחרת בוויקי זה.',
+	'mwe-upwiz-tooltip-title' => 'כותרת קצרה וייחודית עבור הקובץ. אפשר להשתמש בשפה פשוטה עם רווחים. אין לכלול סיומת קובץ. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">למידע נוסף</a>.',
+	'mwe-upwiz-dialog-title' => 'אפשר להעלות קבצים עם שמות בכל שפה ובכל שיטת כתב (בקידוד UTF-8). כותרות של קובצי מדיה צריכות להיות משמעותיות ומועילות באותה שפה.',
 	'mwe-upwiz-tooltip-description' => 'תארו בקצרה את כל הדברים החשובים על היצירה.
 עבור תמונה, הזכירו את הדברים העיקריים שמוצגים בה, את האירוע או את המקום.',
-	'mwe-upwiz-tooltip-other' => 'כל מידע אחר על היצירה שברצונכם להוסיף.
-אפשר להשתמש בקוד ויקי.',
+	'mwe-upwiz-tooltip-categories' => 'הוסיפו <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">קטגוריות</a> לקובץ שלכם, כדי שיהיה קל יותר למצוא אותו.',
+	'mwe-upwiz-tooltip-other' => 'כל מידע אחר על היצירה שברצונכם להוסיף. אפשר להוסיף תבניות <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">קידוד גאוגרפי</a> לכאן.',
 	'mwe-upwiz-tooltip-more-info' => 'מידע נוסף.',
 	'mwe-upwiz-file-need-file' => 'נא להוסיף העלאה תחילה.',
 	'mwe-upwiz-file-need-start' => 'אנא לחצו על הכפתור הזה כדי להתחיל את ההעלאות שלכם.',
