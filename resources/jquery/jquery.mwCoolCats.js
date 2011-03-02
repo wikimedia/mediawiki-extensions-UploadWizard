@@ -35,7 +35,7 @@
 
 		_this.wrap('<div class="cat-widget"></div>');
 		$container = _this.parent(); // set to the cat-widget class we just wrapped
-		$container.append( $j( '<button type="button">'+settings.buttontext+'</button>' ) 
+		$container.append( $j( '<button type="button" name="catbutton">'+settings.buttontext+'</button>' ) 
 				.click( function(e) {
 				e.stopPropagation(); 
 				e.preventDefault(); 
