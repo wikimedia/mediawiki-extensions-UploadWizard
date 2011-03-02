@@ -2300,7 +2300,7 @@ $messages['gl'] = array(
 	'mwe-upwiz-source-custom' => 'Proporciona información de dereitos de autor para cada ficheiro na seguinte páxina.',
 	'mwe-upwiz-more-options' => 'máis opcións...',
 	'mwe-upwiz-fewer-options' => 'reducir as opcións...',
-	'mwe-upwiz-desc' => 'Descrición en',
+	'mwe-upwiz-desc' => 'Descrición',
 	'mwe-upwiz-desc-add-n' => 'engadir unha descrición noutra lingua',
 	'mwe-upwiz-desc-add-0' => 'engadir unha descrición',
 	'mwe-upwiz-title' => 'Título',
@@ -2353,13 +2353,12 @@ Está certo de querer saír desta páxina?',
 	'mwe-upwiz-tooltip-source' => 'O lugar de procedencia deste ficheiro dixital; pode ser un URL, un libro ou unha publicación',
 	'mwe-upwiz-tooltip-sign' => 'Pode empregar o nome de usuario que ten no wiki ou o seu nome real.
 En calquera caso, haberá unha ligazón cara a súa páxina de usuario do wiki.',
-	'mwe-upwiz-tooltip-title' => 'Un título curto para o ficheiro.
-Pode utilizar lingua sinxela con espazos, pero non saltos de liña.
-O título do ficheiro debe ser diferente de calquera outro que haxa no wiki.',
+	'mwe-upwiz-tooltip-title' => 'Un título curto e único para o ficheiro. Sería bo utilizar unha lingua sinxela con espazos. Non inclúa a extensión do ficheiro. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Máis información</a>.',
+	'mwe-upwiz-dialog-title' => 'Os ficheiros pódense cargar con nomes en calquera lingua e alfabeto (codificado como UTF-8). Os títulos dos ficheiros multimedia deben ser significativos e útiles na lingua elixida.',
 	'mwe-upwiz-tooltip-description' => 'Describa brevemente calquera cousa salientable da obra.
 Para unha foto, mencione as principais cousas que están representadas, a ocasión ou o lugar.',
-	'mwe-upwiz-tooltip-other' => 'Calquera outra información que desexe incluír sobre a obra.
-Pode empregar código wiki.',
+	'mwe-upwiz-tooltip-categories' => 'Engada <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorías</a> ao seu ficheiro para facelo máis doado de atopar.',
+	'mwe-upwiz-tooltip-other' => 'Calquera outra información que desexe incluír sobre a obra. Inclúa aquí os modelos de <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">xeocodificación</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Máis información.',
 	'mwe-upwiz-file-need-file' => 'Engada unha subida primeiro.',
 	'mwe-upwiz-file-need-start' => 'Prema este botón para comezar a subir.',
@@ -3807,6 +3806,7 @@ Non utilizzare codice HTML o wikitext qui, solo il nome utente o il nome reale.'
  * @author Hosiryuhosi
  * @author Iwai.masaharu
  * @author Miya
+ * @author Ohgi
  * @author Whym
  * @author 青子守歌
  */
@@ -3949,13 +3949,10 @@ $messages['ja'] = array(
 	'mwe-upwiz-tooltip-source' => 'このデジタルファイルの出どころ（URL、本や出版物など）',
 	'mwe-upwiz-tooltip-sign' => 'あなたのウィキでの名前や、本名を使うことができます。
 どちらの場合でも、ウィキの利用者ページへリンクされます。',
-	'mwe-upwiz-tooltip-title' => 'ファイルのための短いタイトル。
-改行を含まない、平易な言葉を使用してください。
-このタイトルは、このウィキにある他の全てと違うタイトルである必要があります。',
+	'mwe-upwiz-tooltip-title' => 'ファイル固有の短いタイトル。拡張子は含めないで、平易な言葉を使用してください。<a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">詳細はこちら</a>。',
 	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのかについて述べてください。',
-	'mwe-upwiz-tooltip-other' => 'この作品に含めたいその他の情報。
-ここではウィキ構文が利用できます。',
+	'mwe-upwiz-tooltip-other' => 'その他にこの作品に含めたい情報。<a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">位置情報</a>テンプレートはここに配置します。',
 	'mwe-upwiz-tooltip-more-info' => '詳細。',
 	'mwe-upwiz-file-need-file' => '最初にアップロードを追加してください。',
 	'mwe-upwiz-file-need-start' => 'アップロードを開始するにはこのボタンを押してください。',
@@ -5459,6 +5456,7 @@ $messages['ps'] = array(
  * @author Alchimista
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'uploadwizard' => 'Assistente de uploads',
@@ -5546,7 +5544,7 @@ $messages['pt'] = array(
 	'mwe-upwiz-source-custom' => 'Forneça na próxima página a informação dos direitos de autor de cada ficheiro em separado.',
 	'mwe-upwiz-more-options' => 'mais opções...',
 	'mwe-upwiz-fewer-options' => 'menos opções...',
-	'mwe-upwiz-desc' => 'Descrição em',
+	'mwe-upwiz-desc' => 'Descrição',
 	'mwe-upwiz-desc-add-n' => 'adicione uma descrição noutra língua',
 	'mwe-upwiz-desc-add-0' => 'adicione uma descrição',
 	'mwe-upwiz-title' => 'Título',
@@ -5597,9 +5595,11 @@ $messages['pt'] = array(
 	'mwe-upwiz-tooltip-author' => 'O nome da pessoa que tirou a fotografia, pintou o quadro, fez o desenho, etc.',
 	'mwe-upwiz-tooltip-source' => 'De onde veio este ficheiro digital; pode ser uma URL, ou um livro ou publicação',
 	'mwe-upwiz-tooltip-sign' => 'Pode usar o seu nome de utilizador na wiki ou o seu nome verdadeiro. Em ambos os casos, isto ficará ligado à sua página de utilizador da wiki',
-	'mwe-upwiz-tooltip-title' => 'Um título breve para o ficheiro. Pode usar termos normais sem espaços, mas não pode fazer quebras de linha. Este título tem de ser diferente de todos os outros nesta wiki.',
+	'mwe-upwiz-tooltip-title' => 'Um título curto e único para o ficheiro. Pode usar linguagem simples com espaços. Não inclua a extensão do ficheiro. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Ler mais</a>.',
+	'mwe-upwiz-dialog-title' => 'Podem ser carregados ficheiros com nomes em qualquer língua e em qualquer alfabeto (codificado como UTF-8). Os títulos dos ficheiros multimédia devem ter um significado e ser úteis na língua escolhida.',
 	'mwe-upwiz-tooltip-description' => 'Descreva de forma breve todos os elementos de nota sobre a obra. Para uma fotografia, mencione as principais coisas que estão fotografadas, a ocasião e o sítio.',
-	'mwe-upwiz-tooltip-other' => 'Qualquer informação adicional sobre a obra, que pretenda incluir. Pode usar texto wiki.',
+	'mwe-upwiz-tooltip-categories' => 'Adicione <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorias</a> ao seu ficheiro para torná-lo mais fácil de encontrar.',
+	'mwe-upwiz-tooltip-other' => 'Qualquer informação adicional sobre a obra, que pretenda incluir. Coloque predefinições de <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geocodificação</a> aqui.',
 	'mwe-upwiz-tooltip-more-info' => 'Saiba mais.',
 	'mwe-upwiz-file-need-file' => 'Primeiro adicione um upload, por favor.',
 	'mwe-upwiz-file-need-start' => 'Clique este botão para iniciar os uploads, por favor.',
