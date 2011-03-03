@@ -2210,14 +2210,8 @@ mw.UploadWizard.prototype = {
 			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix" />' );
 			_this.thanksDiv = thanksDiv;
 			
-			var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
+			var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side" id="thanks-thumbnail"></div>' );
 			upload.setThumbnail( thumbnailDiv );
-			thumbnailDiv.append( $j('<p/>').append( 
-						$j( '<a />' )
-							.attr( { target: '_new', 
-								 href: upload.imageinfo.descriptionurl } )
-							.text( upload.title ) 
-					) );
 
 			thanksDiv.append( thumbnailDiv );
 
@@ -2248,6 +2242,8 @@ mw.UploadWizard.prototype = {
 			);
 
 			$j( '#mwe-upwiz-thanks' ).append( thanksDiv );
+			// Switch the thumbnail link so that it points to the image description page
+			$j( '#thanks-thumbnail a' ).attr( 'href', upload.imageinfo.descriptionurl );
 		} ); 
 	},
 	
