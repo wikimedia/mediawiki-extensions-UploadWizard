@@ -2215,7 +2215,8 @@ mw.UploadWizard.prototype = {
 
 			thanksDiv.append( thumbnailDiv );
 
-			var thumbWikiText = "[[" + upload.title + "|thumb|Add caption here]]";
+			var thumbTitle = String(upload.title);
+			var thumbWikiText = "[[" + thumbTitle.replace('_', ' ') + "|thumb|" + gM( 'mwe-upwiz-thanks-caption' ) + "]]";
 
 			thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )

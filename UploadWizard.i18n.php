@@ -202,7 +202,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-pd-us' => 'Public Domain (US)',
 	'mwe-upwiz-categories' => 'Categories',
 	'mwe-upwiz-categories-add' => 'Add',
-	'mwe-upwiz-category-remove' => 'Remove this category'
+	'mwe-upwiz-category-remove' => 'Remove this category',
+	'mwe-upwiz-thanks-caption' => 'Add caption here'
 );
 
 /** Message documentation (Message documentation)
