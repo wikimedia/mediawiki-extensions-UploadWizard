@@ -1588,7 +1588,8 @@ mw.UploadWizard.prototype = {
 		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
-			.arrowSteps();
+			.arrowSteps()
+			.show();
 
 		// make all stepdiv proceed buttons into jquery buttons
 		$j( '.mwe-upwiz-stepdiv .mwe-upwiz-buttons button' )
@@ -1709,6 +1710,9 @@ mw.UploadWizard.prototype = {
 			// "select" the first step - highlight, make it visible, hide all others
 			_this.moveToStep( 'tutorial' );
 		}
+		
+		// Unveil the interface to the user
+		$j( '#mwe-upwiz-content' ).show();
 	
 	},
 

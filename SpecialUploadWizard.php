@@ -184,8 +184,8 @@ class SpecialUploadWizard extends SpecialPage {
 		return
 		  '<div id="upload-wizard" class="upload-section">'
 
-		    // the arrow steps
-		.   '<ul id="mwe-upwiz-steps">'
+		    // the arrow steps - hide until styled
+		.   '<ul id="mwe-upwiz-steps" style="display:none;">'
 		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMsg( 'mwe-upwiz-step-tutorial' ) . '</div></li>'
 		.     '<li id="mwe-upwiz-step-file"><div>' . wfMsg( 'mwe-upwiz-step-file' ) . '</div></li>'
 		.     '<li id="mwe-upwiz-step-deeds"><div>'  . wfMsg( 'mwe-upwiz-step-deeds' )  . '</div></li>'
@@ -193,8 +193,8 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<li id="mwe-upwiz-step-thanks"><div>'   . wfMsg( 'mwe-upwiz-step-thanks' )  .  '</div></li>'
 		.   '</ul>'
 
-		    // the individual steps, all at once
-		.   '<div id="mwe-upwiz-content">'
+		    // the individual steps, all at once - hide until styled
+		.   '<div id="mwe-upwiz-content" style="display:none;">'
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
 		.       '<div id="mwe-upwiz-tutorial">'
