@@ -3487,6 +3487,7 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-categories' => 'Categorias',
 	'mwe-upwiz-categories-add' => 'Adder',
 	'mwe-upwiz-category-remove' => 'Remover iste categoria',
+	'mwe-upwiz-thanks-caption' => 'Adde legenda hic',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -4915,6 +4916,7 @@ Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-categories' => 'Categorieën',
 	'mwe-upwiz-categories-add' => 'Toevoegen',
 	'mwe-upwiz-category-remove' => 'Deze categorie verwijderen',
+	'mwe-upwiz-thanks-caption' => 'Voer hier een bijschrift toe',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
