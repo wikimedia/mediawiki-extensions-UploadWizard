@@ -526,6 +526,10 @@ mw.UploadWizardUploadInterface.prototype = {
 
 		this.fileCtrlContainer
 			.css( $covered.position() )
+			.css( 'marginTop', $covered.css( 'marginTop' ) )
+			.css( 'marginRight', $covered.css( 'marginRight' ) )
+			.css( 'marginBottom', $covered.css( 'marginBottom' ) )
+			.css( 'marginLeft', $covered.css( 'marginLeft' ) )
 			.width( $covered.outerWidth() )
 			.height( $covered.outerHeight() ); 
 
