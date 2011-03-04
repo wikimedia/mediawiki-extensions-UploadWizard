@@ -5,6 +5,7 @@ mediaWiki.messages.set( {
 	"en_empty": "",
 	"en_simple": "Simple message",
 	"en_replace": "Simple $1 replacement",
+	"en_replace2": "Simple $1 $2 replacements",
 	"en_link": "Simple [http://example.com link to example].",
 	"en_link_replace": "Complex [$1 $2] behaviour.",
 	"en_simple_magic": "Simple {{ALOHOMORA}} message",
@@ -61,6 +62,12 @@ describe( "mediaWiki.language.parser", function() {
 		it ( "should handle simple replacing", function() {
 			var parser = new mediaWiki.language.parser();
 			expect( parser.parse( 'en_replace', [ 'foo' ] ).html() ).toEqual( 'Simple foo replacement' );
+		} );
+
+		it ( "should return $n if replacement not there", function() {
+			var parser = new mediaWiki.language.parser();
+			expect( parser.parse( 'en_replace', [] ).html() ).toEqual( 'Simple $1 replacement' );
+			expect( parser.parse( 'en_replace2', [ 'bar' ] ).html() ).toEqual( 'Simple bar $2 replacements' );
 		} );
 
 	} );
@@ -157,9 +164,9 @@ describe( "mediaWiki.language.parser", function() {
 	} );
 	
 	describe( "error conditions", function() {
-		it( "should return non-existent key in angle brackets", function() {
+		it( "should return non-existent key in square brackets", function() {
 			var parser = new mediaWiki.language.parser();
-			expect( parser.parse( 'en_does_not_exist' ).html() ).toEqual( '&lt;en_does_not_exist&gt;' );
+			expect( parser.parse( 'en_does_not_exist' ).html() ).toEqual( '[en_does_not_exist]' );
 		} );
 
 

@@ -11,7 +11,7 @@
 	 *
 	 * @param {Integer} first offset where one finds the variadic args
 	 * @param {Array} all arguments from caller
-	 * @param {Array} array of arguments desired, whether were variadic or not
+	 * @return {Array} array of arguments desired, whether were variadic or not
 	 */ 
 	function getVariadicArgs( args, offset ) {
 		return $j.isArray( args[offset] ) ? args[offset] : $j.makeArray( args ).slice( offset ); 
@@ -82,7 +82,7 @@
 		var parser = new mw.language.parser( options ); 
 		/** 
 		 * Note replacements are gleaned from 2nd parameter, or variadic args starting with 2nd parameter.
-		 * There is no return; we append to 'this', which in a jQuery plugin context will be the selected elements.
+		 * We append to 'this', which in a jQuery plugin context will be the selected elements.
 		 * @param {String} message key
 		 * @param {Array} optional replacements (can also specify variadically)
 		 * @return {jQuery} this
@@ -211,11 +211,14 @@
 		/**
 	 	 * Fetch the message string associated with a key, return parsed structure. Memoized.
 	 	 * @param {String} key
-		 * @return {Mixed} abstract syntax tree (array of arrays...)
+		 * @return {String|Array} simple string if message is simple, array of arrays if needs parsing
 		 */
 		getAst: function( key ) {
 			if ( typeof this.astCache[ key ] === 'undefined' ) { 
 				var wikiText = this.settings.messages.get( key );
+				if ( wikiText === null ) {
+					wikiText = "\\[" + key + "\\]";
+				}
 				this.astCache[ key ] = this.wikiTextToAst( wikiText );
 			}
 			return this.astCache[ key ];	
