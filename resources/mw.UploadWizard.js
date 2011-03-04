@@ -1772,14 +1772,9 @@ mw.UploadWizard.prototype = {
 
 		_this.currentStepName = selectedStepName;
 		
-		if ( selectedStepName == 'file' ) {
+		if ( selectedStepName == 'file' && _this.uploads.length === 0 ) {
 			// add one upload field to start (this is the big one that asks you to upload something) 
 			var upload = _this.newUpload();
-			// XXX using a timeout is lame, are there other options?
-			// XXX Trevor suggests that using addClass() may queue stuff unnecessarily; use 'concrete' HTML
-			setTimeout( function() {
-				upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
-			}, 300 );
 		}
 		
 		$j.each( _this.uploads, function(i, upload) {
@@ -1807,6 +1802,9 @@ mw.UploadWizard.prototype = {
 		var upload = new mw.UploadWizardUpload( _this.api, '#mwe-upwiz-filelist' );
 		_this.uploadToAdd = upload;
 
+		// we explicitly move the file input to cover the upload button
+		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+		
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );

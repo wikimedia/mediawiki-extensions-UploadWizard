@@ -193,7 +193,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<li id="mwe-upwiz-step-thanks"><div>'   . wfMsg( 'mwe-upwiz-step-thanks' )  .  '</div></li>'
 		.   '</ul>'
 
-		    // the individual steps, all at once - hide until styled
+		    // the individual steps, all at once - hide until needed
 		.   '<div id="mwe-upwiz-content">'
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial" style="display:none;">'
