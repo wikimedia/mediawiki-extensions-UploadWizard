@@ -555,7 +555,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		// TODO get basename of file; Chrome does this C:\fakepath\something which is highly irritating
 		var path = _this.$fileInputCtrl.val();
 		
-		// visible filenam.
+		// visible filename
 		$j( _this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).html( path );
 
 		_this.upload.title = new mw.Title( mw.UploadWizardUtil.getBasename( path ), 'file' );
@@ -1599,10 +1599,10 @@ mw.UploadWizard.prototype = {
 	
 		$j( '.mwe-upwiz-button-begin' )
 			.click( function() { _this.reset(); } );
-	
+
 		$j( '.mwe-upwiz-button-home' )
 			.click( function() { window.location.href = '/'; } );
-	
+
 		// handler for next button
 		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next') 
 			.click( function() {
@@ -1610,15 +1610,7 @@ mw.UploadWizard.prototype = {
 				if ( $j('#mwe-upwiz-skip').is(':checked') ) {
 					_this.setSkipTutorialCookie();
 				}
-				_this.moveToStep( 'file', function() { 
-					// we explicitly move the file input at this point 
-					// because it was probably jumping around due to other "steps" on this page during file construction.
-					// XXX using a timeout is lame, are there other options?
-					// XXX Trevor suggests that using addClass() may queue stuff unnecessarily; use 'concrete' HTML
-					setTimeout( function() {
-						upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
-					}, 300 );
-				} );
+				_this.moveToStep( 'file' );
 			} );
 	
 		$j( '#mwe-upwiz-add-file' ).button();
@@ -1692,27 +1684,17 @@ mw.UploadWizard.prototype = {
 			} );
 
 
-	
-		// WIZARD 
-	
-		// add one upload field to start (this is the big one that asks you to upload something)
-		var upload = _this.newUpload();
 
+		// WIZARD 
+		
 		// check to see if the the skip tutorial cookie is set
 		if ( document.cookie.indexOf('skiptutorial=1') != -1 ) {
 			// "select" the second step - highlight, make it visible, hide all others
-			_this.moveToStep( 'file', function() {
-				setTimeout( function() {
-					upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
-				}, 300 );
-			} );
+			_this.moveToStep( 'file' );
 		} else {
 			// "select" the first step - highlight, make it visible, hide all others
 			_this.moveToStep( 'tutorial' );
 		}
-		
-		// Unveil the interface to the user
-		$j( '#mwe-upwiz-content' ).show();
 	
 	},
 
@@ -1789,7 +1771,17 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
 		_this.currentStepName = selectedStepName;
-
+		
+		if ( selectedStepName == 'file' ) {
+			// add one upload field to start (this is the big one that asks you to upload something) 
+			var upload = _this.newUpload();
+			// XXX using a timeout is lame, are there other options?
+			// XXX Trevor suggests that using addClass() may queue stuff unnecessarily; use 'concrete' HTML
+			setTimeout( function() {
+				upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+			}, 300 );
+		}
+		
 		$j.each( _this.uploads, function(i, upload) {
 			upload.state = selectedStepName;
 		} );
@@ -1815,7 +1807,6 @@ mw.UploadWizard.prototype = {
 		var upload = new mw.UploadWizardUpload( _this.api, '#mwe-upwiz-filelist' );
 		_this.uploadToAdd = upload;
 
-		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );

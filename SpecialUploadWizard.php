@@ -194,9 +194,9 @@ class SpecialUploadWizard extends SpecialPage {
 		.   '</ul>'
 
 		    // the individual steps, all at once - hide until styled
-		.   '<div id="mwe-upwiz-content" style="display:none;">'
+		.   '<div id="mwe-upwiz-content">'
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial">'
+		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial" style="display:none;">'
 		.       '<div id="mwe-upwiz-tutorial">'
 		.         $tutorialHtml
 		.       '</div>'
@@ -207,7 +207,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.     '</div>'
 
-		.     '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file">'
+		.     '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">'
 		.       '<div id="mwe-upwiz-files">'
 		.	  '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
 		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">'
@@ -238,7 +238,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.     '</div>'
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds">'
+		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds" style="display:none;">'
 		.       '<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
@@ -247,7 +247,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.     '</div>'
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details">'
+		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">'
 		.       '<div id="mwe-upwiz-macro">'
 		.         '<div id="mwe-upwiz-macro-progress" class="ui-helper-clearfix"></div>'
 		.         '<div id="mwe-upwiz-macro-choice">'
@@ -259,7 +259,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.     '</div>'
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks">'
+		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks" style="display:none;">'
 		.       '<div id="mwe-upwiz-thanks"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.          '<button class="mwe-upwiz-button-home">' . wfMsg( "mwe-upwiz-home" ) . '</button>'
