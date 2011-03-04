@@ -558,6 +558,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		var _this = this;
 		// TODO get basename of file; Chrome does this C:\fakepath\something which is highly irritating
 		var path = _this.$fileInputCtrl.val();
+		path = path.replace(/\w:.*\\(.*)$/,'$1');
 		
 		// visible filename
 		$j( _this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).html( path );
