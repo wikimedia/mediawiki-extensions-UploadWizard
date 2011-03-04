@@ -1383,7 +1383,7 @@ $messages['de'] = array(
 	'mwe-upwiz-next-file-despite-failures' => 'Trotzdem fortfahren',
 	'mwe-upwiz-file-all-failed' => 'Das Hochladen aller Dateien ist fehlgeschlagen.',
 	'mwe-upwiz-upload-count' => '$1 von $2 {{PLURAL:$2|Datei|Dateien}} hochgeladen',
-	'mwe-upwiz-progressbar-uploading' => 'Am Hochladen',
+	'mwe-upwiz-progressbar-uploading' => 'Beim Hochladen',
 	'mwe-upwiz-finished' => 'Fertig!',
 	'mwe-upwiz-secs-remaining' => 'Noch $1 {{PLURAL:$1|Sekunde|Sekunden}}',
 	'mwe-upwiz-mins-secs-remaining' => 'Noch $1 {{PLURAL:$1|Minute|Minuten}} und $2 {{PLURAL:$2|Sekunde|Sekunden}}',
@@ -1493,6 +1493,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-categories' => 'Kategorien',
 	'mwe-upwiz-categories-add' => 'Hinzufügen',
 	'mwe-upwiz-category-remove' => 'Diese Kategorie entfernen',
+	'mwe-upwiz-thanks-caption' => 'Bildbeschriftung hier hinzufügen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -2765,6 +2766,7 @@ $messages['he'] = array(
 	'mwe-upwiz-categories' => 'קטגוריות',
 	'mwe-upwiz-categories-add' => 'הוספה',
 	'mwe-upwiz-category-remove' => 'הסרת קטגוריה זו',
+	'mwe-upwiz-thanks-caption' => 'הוסיפו כיתוב כאן',
 );
 
 /** Croatian (Hrvatski)
@@ -3952,8 +3954,10 @@ $messages['ja'] = array(
 	'mwe-upwiz-tooltip-sign' => 'あなたのウィキでの名前や、本名を使うことができます。
 どちらの場合でも、ウィキの利用者ページへリンクされます。',
 	'mwe-upwiz-tooltip-title' => 'ファイル固有の短いタイトル。拡張子は含めないで、平易な言葉を使用してください。<a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">詳細はこちら</a>。',
+	'mwe-upwiz-dialog-title' => 'ファイル名は、（文字コードがUTF-8の）どの言語によるものであってもアップロードすることが可能です。ファイル名は、選択した言語で有用かつ意味のあるものでなくてはなりません。',
 	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのかについて述べてください。',
+	'mwe-upwiz-tooltip-categories' => 'ファイルへたどりつくことが容易になるように、<a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">カテゴリ</a>をつけてください。',
 	'mwe-upwiz-tooltip-other' => 'その他にこの作品に含めたい情報。<a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">位置情報</a>テンプレートはここに配置します。',
 	'mwe-upwiz-tooltip-more-info' => '詳細。',
 	'mwe-upwiz-file-need-file' => '最初にアップロードを追加してください。',
@@ -3988,6 +3992,7 @@ $1文字より長くしてください。',
 	'mwe-upwiz-categories' => 'カテゴリ',
 	'mwe-upwiz-categories-add' => '追加',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
+	'mwe-upwiz-thanks-caption' => 'ここに説明文をつける',
 );
 
 /** Georgian (ქართული)
@@ -4165,6 +4170,9 @@ $messages['ksh'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => 'Di Zoot Dattei es nit zohjelohße.',
 	'mwe-upwiz-api-error-filename-tooshort' => 'Der Name för di Dattei es ze koot.',
 	'mwe-upwiz-api-error-illegal-filename' => 'Der Name för di Dattei es verbodde.',
+	'mwe-upwiz-progressbar-uploading' => 'Aam Huhlaade',
+	'mwe-upwiz-title' => 'Tėttel',
+	'mwe-upwiz-cancel' => 'Ophüre',
 	'mwe-upwiz-fileexists' => 'En Dattei met dämm Name jidd_et ald. Beß esu joot un donn <b><tt>$1</tt></b> prööfe, wann De Der nit sescher beß, of De jät ändere wells.',
 );
 
@@ -4528,6 +4536,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-categories' => 'Категории',
 	'mwe-upwiz-categories-add' => 'Додај',
 	'mwe-upwiz-category-remove' => 'Отстрани ја категоријава',
+	'mwe-upwiz-thanks-caption' => 'Тука внесете опис',
 );
 
 /** Malayalam (മലയാളം)
@@ -4713,6 +4722,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-categories' => 'വർഗ്ഗങ്ങൾ',
 	'mwe-upwiz-categories-add' => 'കൂട്ടിച്ചേർക്കുക',
 	'mwe-upwiz-category-remove' => 'ഈ വർഗ്ഗം നീക്കം ചെയ്യുക',
+	'mwe-upwiz-thanks-caption' => 'ഇവിടെ തലക്കുറി ചേർക്കുക',
 );
 
 /** Mongolian (Монгол)
@@ -5636,6 +5646,7 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-categories' => 'Categorias',
 	'mwe-upwiz-categories-add' => 'Adicionar',
 	'mwe-upwiz-category-remove' => 'Remover esta categoria',
+	'mwe-upwiz-thanks-caption' => 'Adicionar legenda aqui',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -6038,6 +6049,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-categories' => 'Категории',
 	'mwe-upwiz-categories-add' => 'Добавить',
 	'mwe-upwiz-category-remove' => 'Убрать эту категорию',
+	'mwe-upwiz-thanks-caption' => 'Добавьте сюда заголовок',
 );
 
 /** Rusyn (Русиньскый)
@@ -6357,6 +6369,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-remove' => 'Odstrani kategorijo',
+	'mwe-upwiz-thanks-caption' => 'Tukaj dodaj napis',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
@@ -7097,6 +7110,7 @@ Xin đừng nhập mã wiki hoặc HTML vào đây.',
 	'mwe-upwiz-categories' => 'Thể loại',
 	'mwe-upwiz-categories-add' => 'Thêm',
 	'mwe-upwiz-category-remove' => 'Gỡ thể loại này',
+	'mwe-upwiz-thanks-caption' => 'Ghi chú ở đây',
 );
 
 /** Wu (吴语) */
@@ -7292,6 +7306,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-categories' => '分类',
 	'mwe-upwiz-categories-add' => '新增',
 	'mwe-upwiz-category-remove' => '删除这个类别',
+	'mwe-upwiz-thanks-caption' => '添加标题',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
