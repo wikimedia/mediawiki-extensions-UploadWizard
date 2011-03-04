@@ -420,7 +420,6 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-details-input-error {
-	padding-left: 10em;
 	/* XXX the following rules pop it open at a fixed width so layout doesn't change :( */
 	/* min-height: 3em;
 	position: relative; */
@@ -450,7 +449,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-details-descriptions-add {
-	margin-left: 10em; /* width of mwe-upwiz-details-fieldname */
+	margin-left: 0;
 }
 
 .mwe-upwiz-details-descriptions-add {
@@ -508,7 +507,7 @@ legend.mwe-legend {
 }
 
 .mwe-upwiz-thirdparty-fields textarea {
-	margin: 0
+	margin: 0;
 }
 
 .mwe-upwiz-thirdparty-license {
@@ -560,7 +559,7 @@ a.mwe-upwiz-tooltip-link {
 
 .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-error,
 .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-validator-error {
-	margin-left: 9em;
+	margin-left: 0;
 }
 
 /* XXX fix this later -- we get non-rounded corners somehow */
