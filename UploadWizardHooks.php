@@ -5,18 +5,16 @@
  */
 class UploadWizardHooks {
 
-	/* We define scripts here for Resource Loader, but in the meantime we are going to load these the old-fashioned way
-	   (see SpecialUploadWizard.php).
-
-	   So this list of scripts has to be topologically-sorted by hand. That is, the depended-upon stuff comes first.
-	   There can be no circular dependencies. */
+	/* We define scripts here for Resource Loader */
 
 	public static $modules = array(
 		'ext.uploadWizard' => array(
 			'dependencies' => array( 
+				'jquery.ui.core',
 				'jquery.ui.dialog',
 				'jquery.ui.datepicker',
-				'jquery.ui.progressbar'
+				'jquery.ui.progressbar',
+				'jquery.ui.widget'
 			),
 			'scripts' => array(
 
