@@ -2394,6 +2394,7 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Engadir',
 	'mwe-upwiz-category-remove' => 'Eliminar esta categoría',
+	'mwe-upwiz-thanks-caption' => 'Engadir aquí os subtítulos',
 );
 
 /** Swiss German (Alemannisch)
@@ -3135,6 +3136,7 @@ Prošu njewužij tu wikitekst abo HTML.',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Přidać',
 	'mwe-upwiz-category-remove' => 'Tutu kategoriju wotstronić',
+	'mwe-upwiz-thanks-caption' => 'Wobrazowy nadpis přidać',
 );
 
 /** Hungarian (Magyar)
