@@ -76,32 +76,43 @@
 		}
 	};
 
+	/** 
+	 * Standard encodeURIComponent, with extra stuff to make all browsers work similarly and more compliant with RFC 3986
+	 * Similar to rawurlencode from PHP and our JS library mw.util.rawurlencode, but we also replace space with a +
+	 * @param {String} string
+	 * @return {String} encoded for URI
+	 */
+	mw.Uri.encode = function( s ) {
+		return encodeURIComponent( s )
+			.replace( /!/g, '%21').replace( /'/g, '%27').replace( /\(/g, '%28')
+			.replace( /\)/g, '%29').replace( /\*/g, '%2A')
+			.replace( /%20/g, '+' );
+	};
+
+	/** 
+	 * Standard decodeURIComponent, with '+' to space
+	 * @param {String} string encoded for URI
+	 * @return {String} decoded string
+	 */ 
+	mw.Uri.decode = function( s ) { 
+		return decodeURIComponent( s ).replace( /\+/g, ' ' );
+	};
+
+	/**
+	 * Function that's useful when constructing the URI string -- we frequently encounter the pattern of 
+	 * having to add something to the URI as we go, but only if it's present, and to include a character before or after if so.
+	 * @param {String} to prepend, if value not empty
+	 * @param {String} value to include, if not empty
+	 * @param {String} to append, if value not empty
+	 * @param {Boolean} raw -- if true, do not URI encode
+	 * @return {String}
+	 */
+	function _cat( pre, val, post, raw ) {
+		return mw.isEmpty( val ) ? '' : pre + ( raw ? val : mw.Uri.encode( val ) ) + post;
+	}
+
 	mw.Uri.prototype = {
-
-		/** 
-		 * Standard encodeURIComponent, with extra stuff to make all browsers work similarly and more compliant with RFC 3986
-		 * @param {String} string
-		 * @return {String} encoded for URI
-		 */
-		encode: function( component ) {
-			return encodeURIComponent( component )
-				.replace( /!/g, '%21')
-				.replace( /'/g, '%27')
-				.replace( /\(/g, '%28')
-				.replace( /\)/g, '%29')
-				.replace( /\*/g, '%2A')
-				.replace( /%20/g, '+' );
-		},
-
-		/** 
-		 * Standard decodeURIComponent, with '+' to space
-		 * @param {String} string encoded for URI
-		 * @return {String} decoded string
-		 */ 
-		decode: function( component ) { 
-			return decodeURIComponent( component ).replace( /\+/g, ' ' );
-		},
-
+	
 		// regular expressions to parse many common URIs.
 		// @private
 		_parser: {
@@ -145,7 +156,7 @@
 			if ( uri.query ) { 
 				uri.query.replace( /(?:^|&)([^&=]*)=?([^&]*)/g, function ($0, $1, $2) {
 					if ( $1 ) { 
-						query[ uri.decode( $1 ) ] = uri.decode( $2 );
+						query[ mw.Uri.decode( $1 ) ] = mw.Uri.decode( $2 );
 					}
 				} );
 			}
@@ -157,14 +168,7 @@
 		 * @return {String} 
 		 */
 		getUserInfo: function() {
-			var userInfo = '';
-			if ( !mw.isEmpty( this.user ) ) { 
-				userInfo += this.encode( this.user );
-				if ( !mw.isEmpty( this.password ) ) {
-					userInfo += ':' + this.encode( this.password ); 
-				}
-			}
-			return userInfo;
+			return _cat( '', this.user, _cat( ':', this.password, '' ) );
 		},
 
 		/**
@@ -172,10 +176,7 @@
 		 * @return {String}
 		 */
 		getHostPort: function() {
-			return   this.host
-			       + ( !mw.isEmpty( this.port ) ? ':' + this.port 
-							    : '' 
-				 );
+			return this.host + _cat( ':', this.port, '' );
 		},
 
 		/**
@@ -184,11 +185,7 @@
 		 * @return {String}
 		 */
 		getAuthority: function() {
-			var userInfo = this.getUserInfo();
-			return   ( !mw.isEmpty( userInfo ) ? userInfo + '@' 
-						           : '' 			
-				 )
-			       + this.getHostPort();
+			return _cat( '', this.getUserInfo(), '@' ) + this.getHostPort();
 		},
 
 		/**
@@ -200,7 +197,7 @@
 			var pairs = [];
 			var _this = this;
 			$.each( this.query, function( key, value ) {
-				pairs.push( _this.encode( key ) + '=' + _this.encode( value )  );
+				pairs.push( mw.Uri.encode( key ) + '=' + mw.Uri.encode( value )  );
 			} );
 			return pairs.join( '&' );
 		},
@@ -210,14 +207,7 @@
 		 * @return {String}
 		 */
 		getRelativePath: function() {
-			var queryString = this.getQueryString();
-			return this.path
-			       + ( !mw.isEmpty( queryString ) ? '?' + queryString 
-			  				      : '' 			
-				 ) 
-			       + ( !mw.isEmpty( this.fragment ) ? '#' + this.encode( this.fragment )
-							        : '' 			
-				 );
+			return this.path + _cat( '?', this.getQueryString(), '', true ) + _cat( '#', this.fragment, '' ); 
 		},
 
 		/** 
