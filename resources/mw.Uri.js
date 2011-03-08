@@ -58,7 +58,7 @@
 	 */ 
 	mw.Uri = function( uri, strictMode ) {
 		strictMode = !!strictMode;
-		if ( mw.isFull( uri ) ) { 
+		if ( !mw.isEmpty( uri ) ) { 
 			if ( typeof uri === 'string' ) { 
 				this._parse( uri, strictMode );
 			} else if ( typeof uri === 'object' ) {
@@ -158,9 +158,9 @@
 		 */
 		getUserInfo: function() {
 			var userInfo = '';
-			if ( mw.isFull( this.user ) ) { 
+			if ( !mw.isEmpty( this.user ) ) { 
 				userInfo += this.encode( this.user );
-				if ( mw.isFull( this.password ) ) {
+				if ( !mw.isEmpty( this.password ) ) {
 					userInfo += ':' + this.encode( this.password ); 
 				}
 			}
@@ -173,8 +173,8 @@
 		 */
 		getHostPort: function() {
 			return   this.host
-			       + ( mw.isFull( this.port ) ? ':' + this.port 
-							  : '' 
+			       + ( !mw.isEmpty( this.port ) ? ':' + this.port 
+							    : '' 
 				 );
 		},
 
@@ -185,8 +185,8 @@
 		 */
 		getAuthority: function() {
 			var userInfo = this.getUserInfo();
-			return   ( mw.isFull( userInfo ) ? userInfo + '@' 
-						       : '' 			
+			return   ( !mw.isEmpty( userInfo ) ? userInfo + '@' 
+						           : '' 			
 				 )
 			       + this.getHostPort();
 		},
@@ -212,11 +212,11 @@
 		getRelativePath: function() {
 			var queryString = this.getQueryString();
 			return this.path
-			       + ( mw.isFull( queryString ) ? '?' + queryString 
-							    : '' 			
+			       + ( !mw.isEmpty( queryString ) ? '?' + queryString 
+			  				      : '' 			
 				 ) 
-			       + ( mw.isFull( this.fragment ) ? '#' + this.encode( this.fragment )
-							      : '' 			
+			       + ( !mw.isEmpty( this.fragment ) ? '#' + this.encode( this.fragment )
+							        : '' 			
 				 );
 		},
 

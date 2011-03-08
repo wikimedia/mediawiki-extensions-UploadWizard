@@ -3,39 +3,13 @@
 ( function( mw ) {
 
 	/**
-	* Check if an object is empty or if its an empty string. 
+	* Check if a value is null, undefined, or the empty string. 
 	*
 	* @param {Object} object Object to be checked
 	* @return {Boolean}
 	*/
-	mw.isEmpty = function( obj ) {
-		if( typeof obj === 'string' ) {
-			if( obj === '' ) return true;
-			// Non empty string: 
-			return false;
-		}
-
-		// If an array check length:
-		if( Object.prototype.toString.call( obj ) === "[object Array]"
-			&& obj.length === 0 ) {
-			return true;
-		}
-
-		// Else check as an obj: 
-		for( var i in obj ) { return false; }
-
-		// Else obj is empty:
-		return true;
-	};
-
-	/**
-	* Opposite of mw.isEmpty
-	*
-	* @param {Object} object Object to be checked
-	* @return {Boolean}
-	*/
-	mw.isFull = function( obj ) {
-		return ! mw.isEmpty( obj );
+	mw.isEmpty = function( o ) {
+		return ! mw.isDefined( o ) || o === null || ( typeof o === 'string' && o === '' ); 
 	};
 
 	/**
