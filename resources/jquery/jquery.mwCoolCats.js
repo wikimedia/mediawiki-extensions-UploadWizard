@@ -108,7 +108,7 @@
 	}
 
 	function _getCats() {
-		return $container.find('ul li a.cat').map( function() { return $j.trim( this.text ); } );
+		return $container.find('ul li a.cat').map( function() { return $j.trim( $j( this ).text() ); } );
 	}
 
 	function _containsCat( cat ) {
