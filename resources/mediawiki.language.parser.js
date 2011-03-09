@@ -17,29 +17,6 @@
 		return $j.isArray( args[offset] ) ? args[offset] : $j.makeArray( args ).slice( offset ); 
 	}
 
-
-	/**
-	 * The parser itself.
-	 * Describes an object, whose primary duty is to .parse() message keys.
-	 * TODO encapsulate language rather than picking it up from globals
-	 * @param {Array} options
-	 */
-	mw.language.parser = function( options ) {
-		var defaults = { 
-			'magic' : {},
-			'messages' : mw.messages
-		};
-		
-		this.settings = $j.extend( {}, defaults, options );
-		
-		var _this = this;
-		$j.each( this.settings.magic, function( key, val ) { 
-			_this.op[ key.toLowerCase() ] = function() { return val; };
-		} );
-
-	};
-
-
 	/**
 	 * Class method. 
 	 * Returns a function suitable for use as a global, to construct strings from the message key (and optional replacements).
@@ -97,101 +74,24 @@
 	};
 		
 
+
+	var parserDefaults = { 
+		'magic' : {},
+		'messages' : mw.messages,
+		'language' : mw.language
+	};
+
+	/**
+	 * The parser itself.
+	 * Describes an object, whose primary duty is to .parse() message keys.
+	 * @param {Array} options
+	 */
+	mw.language.parser = function( options ) {
+		this.settings = $j.extend( {}, parserDefaults, options );
+		this.emitter = new mw.language.parser.htmlEmitter( settings.language, settings.magic );
+	};
+
 	mw.language.parser.prototype = {
-
-		// Parser functions -- for everything in input that follows double-open-curly braces, there should be an equivalent parser
-		// function. For instance {{PLURAL ... }} will be processed by 'plural'. 
-		// If you have 'magic words' then configure the parser to have them upon creation.
-		//
-		// A parse function takes the parent node, the array of subnodes and the array of replacements (the values that $1, $2... should translate to).
-		// Note: all such functions must be totally pure. Their output depends entirely on input and on no other thing, not even 'this'.
-		op: {
-
-			/**
-			 * Parsing has been applied depth-first we can assume that all nodes here are single nodes
-			 * Must return a single node to parents -- a jQuery with synthetic span
-			 * However, unwrap any other synthetic spans in our children and pass them upwards
-			 * @param {Array} nodes - mixed, some single nodes, some arrays of nodes
-			 * @return {jQuery}
-			 */
-			concat: function( nodes ) {
-				var span = $j( '<span>' ).addClass( 'mediaWiki_parser' );
-				$j.each( nodes, function( i, node ) { 
-					if ( node instanceof jQuery && node.hasClass( 'mediaWiki_parser' ) ) {
-						$j.each( node.contents(), function( j, childNode ) {
-							span.append( childNode );
-						} );
-					} else {
-						// strings, integers, anything else
-						span.append( node );
-					}
-				} );
-				return span;
-			},
-
-			/**
-			 * Return replacement of correct index, or string if unavailable.
-			 * Note that we expect the parsed parameter to be zero-based. i.e. $1 should have become [ 0 ].
-			 * if the specified parameter is not found return the same string
-			 * (e.g. "$99" -> parameter 98 -> not found -> return "$99" )
-			 * TODO throw error if nodes.length > 1 ?
-			 * @param {Array} of one element, integer, n >= 0
-			 * @return {String} replacement
-			 */
-			replace: function( nodes, replacements ) {
-				var index = parseInt( nodes[0], 10 );
-				return index < replacements.length ? replacements[index] : '$' + ( index + 1 ); 
-			},
-
-			/** 
-			 * Transform wiki-link
-			 * TODO unimplemented 
-			 */
-			wlink: function( nodes ) {
-				return "unimplemented"
-			},
-
-			/**
-	 		 * Transform parsed structure into external link
-			 * If the href is a jQuery object, treat it as "enclosing" the link text.
-			 *              ... function, treat it as the click handler
-	 		 *		... string, treat it as a URI
-			 * TODO: throw an error if nodes.length > 2 ? 
-			 * @param {Array} of two elements, {jQuery|Function|String} and {String}
-			 * @return {jQuery}
-			 */
-			link: function( nodes ) {
-				var arg = nodes[0];
-				var contents = nodes[1];
-				var $el; 
-				if ( arg instanceof jQuery ) {
-					$el = arg;
-				} else {
-					$el = $j( '<a>' );
-					if ( typeof arg === 'function' ) {
-						$el.click( arg ).attr( 'href', '#' );
-					} else {
-						$el.attr( 'href', arg.toString() );
-					}
-				}
-				$el.append( contents );	
-				return $el;
-			},
-
-			/**
-			 * Transform parsed structure into pluralization
-			 * n.b. The first node may be a non-integer (for instance, a string representing an Arabic number).
-			 * So convert it back with the current language's convertNumber.
-			 * @param {Array} of nodes, [ {String|Number}, {String}, {String} ... ] 
-			 * @return {String} selected pluralized form according to current language
-			 */
-			plural: function( nodes ) { 
-				var count = parseInt( mw.language.convertNumber( nodes[0], true ), 10 );
-				var forms = nodes.slice(1);
-				return forms.length ? mw.language.convertPlural( count, forms ) : '';
-			}
-			
-		},
 
 		// cache, map of mediaWiki message key to the AST of the message. In most cases, the message is a string so this is identical.
 		// (This is why we would like to move this functionality server-side).
@@ -199,19 +99,20 @@
 
 		/**
 		 * Where the magic happens.
-		 * Parses a message from the key, and swaps in replacements as necessary
+		 * Parses a message from the key, and swaps in replacements as necessary, wraps in jQuery
 		 * @param {String} message key
 		 * @param {Array} replacements for $1, $2... $n
-		 * @return {Array} array of jQuery|string
+		 * @return {jQuery}
 		 */
 		parse: function( key, replacements ) {
-			return this.compile( this.getAst( key ), replacements );
+			return this.emitter.emit( this.getAst( key ), replacements );
 		},
 
 		/**
 	 	 * Fetch the message string associated with a key, return parsed structure. Memoized.
+		 * Note that we pass '[' + key + ']' back for a missing message here. 
 	 	 * @param {String} key
-		 * @return {String|Array} simple string if message is simple, array of arrays if needs parsing
+		 * @return {String|Array} string of '[key]' if message missing, simple string if possible, array of arrays if needs parsing
 		 */
 		getAst: function( key ) {
 			if ( typeof this.astCache[ key ] === 'undefined' ) { 
@@ -222,44 +123,6 @@
 				this.astCache[ key ] = this.wikiTextToAst( wikiText );
 			}
 			return this.astCache[ key ];	
-		},
-
-
-		/**
-		 * walk entire node structure, applying replacements and template functions when appropriate
-		 * @param {Mixed} abstract syntax tree (top node or subnode)
-		 * @param {Array} replacements for $1, $2, ... $n
-		 * @return {Mixed} single-string node or array of nodes suitable for jQuery appending
-		 */
-		compile: function( node, replacements ) {
-			var ret = null;
-			var _this = this;
-			switch( typeof node ) {
-				case 'string':
-				case 'number':
-					ret = node;
-					break;
-				case 'object':
-					var opKey = node[0].toLowerCase();
-					var operation = _this.op[ opKey ];
-					if ( typeof operation !== 'function' ) {
-						throw new Error( 'AST is malformed or operations not configured: no function for ' + opKey );
-					}
-					var subnodes = $j.map( node.slice( 1 ), function( element ) { 
-						return _this.compile( element, replacements );
-					} );
-					ret = operation( subnodes, replacements );
-					break;
-				case 'undefined':
-					// Parsing the empty string (as an entire expression, or as a paramExpression in a template) results in undefined
-					// Perhaps a more clever parser can detect this, and return the empty string? Or is that useful information?
-					// The logical thing is probably to return the empty string here when we encounter undefined.
-					ret = '';
-					break;
-				default:
-					throw new Error( 'unexpected type in AST: ' + typeof node );
-			}
-			return ret;
 		},
 
 		/*
@@ -631,5 +494,147 @@
 		}
 			
 	};
+
+	/**
+	 * htmlEmitter - object which primarily exists to emit HTML from parser ASTs
+	 */
+	mw.language.parser.htmlEmitter = function( language, magic ) {
+		this.language = language;
+		var _this = this;
+
+		$j.each( magic, function( key, val ) { 
+			_this[ key.toLowerCase() ] = function() { return val; };
+		} );
+
+		/**
+		 * (We put this method definition here, and not in prototype, to make sure it's not overwritten by any magic.)
+		 * Walk entire node structure, applying replacements and template functions when appropriate
+		 * @param {Mixed} abstract syntax tree (top node or subnode)
+		 * @param {Array} replacements for $1, $2, ... $n
+		 * @return {Mixed} single-string node or array of nodes suitable for jQuery appending
+		 */
+		this.emit = function( node, replacements ) {
+			var ret = null;
+			var _this = this;
+			switch( typeof node ) {
+				case 'string':
+				case 'number':
+					ret = node;
+					break;
+				case 'object': // node is an array of nodes
+					var subnodes = $j.map( node.slice( 1 ), function( n ) { 
+						return _this.emit( n, replacements );
+					} );
+					var operation = node[0].toLowerCase();
+					ret = _this[ operation ]( subnodes, replacements );
+					break;
+				case 'undefined':
+					// Parsing the empty string (as an entire expression, or as a paramExpression in a template) results in undefined
+					// Perhaps a more clever parser can detect this, and return the empty string? Or is that useful information?
+					// The logical thing is probably to return the empty string here when we encounter undefined.
+					ret = '';
+					break;
+				default:
+					throw new Error( 'unexpected type in AST: ' + typeof node );
+			}
+			return ret;
+		};
+
+	};
+
+	// For everything in input that follows double-open-curly braces, there should be an equivalent parser
+	// function. For instance {{PLURAL ... }} will be processed by 'plural'. 
+	// If you have 'magic words' then configure the parser to have them upon creation.
+	//
+	// An emitter method takes the parent node, the array of subnodes and the array of replacements (the values that $1, $2... should translate to).
+	// Note: all such functions must be pure, with the exception of referring to other pure functions via this.language (convertPlural and so on)
+	mw.language.parser.htmlEmitter.prototype = {
+
+		/**
+		 * Parsing has been applied depth-first we can assume that all nodes here are single nodes
+		 * Must return a single node to parents -- a jQuery with synthetic span
+		 * However, unwrap any other synthetic spans in our children and pass them upwards
+		 * @param {Array} nodes - mixed, some single nodes, some arrays of nodes
+		 * @return {jQuery}
+		 */
+		concat: function( nodes ) {
+			var span = $j( '<span>' ).addClass( 'mediaWiki_htmlEmitter' );
+			$j.each( nodes, function( i, node ) { 
+				if ( node instanceof jQuery && node.hasClass( 'mediaWiki_htmlEmitter' ) ) {
+					$j.each( node.contents(), function( j, childNode ) {
+						span.append( childNode );
+					} );
+				} else {
+					// strings, integers, anything else
+					span.append( node );
+				}
+			} );
+			return span;
+		},
+
+		/**
+		 * Return replacement of correct index, or string if unavailable.
+		 * Note that we expect the parsed parameter to be zero-based. i.e. $1 should have become [ 0 ].
+		 * if the specified parameter is not found return the same string
+		 * (e.g. "$99" -> parameter 98 -> not found -> return "$99" )
+		 * TODO throw error if nodes.length > 1 ?
+		 * @param {Array} of one element, integer, n >= 0
+		 * @return {String} replacement
+		 */
+		replace: function( nodes, replacements ) {
+			var index = parseInt( nodes[0], 10 );
+			return index < replacements.length ? replacements[index] : '$' + ( index + 1 ); 
+		},
+
+		/** 
+		 * Transform wiki-link
+		 * TODO unimplemented 
+		 */
+		wlink: function( nodes ) {
+			return "unimplemented";
+		},
+
+		/**
+		 * Transform parsed structure into external link
+		 * If the href is a jQuery object, treat it as "enclosing" the link text.
+		 *              ... function, treat it as the click handler
+		 *		... string, treat it as a URI
+		 * TODO: throw an error if nodes.length > 2 ? 
+		 * @param {Array} of two elements, {jQuery|Function|String} and {String}
+		 * @return {jQuery}
+		 */
+		link: function( nodes ) {
+			var arg = nodes[0];
+			var contents = nodes[1];
+			var $el; 
+			if ( arg instanceof jQuery ) {
+				$el = arg;
+			} else {
+				$el = $j( '<a>' );
+				if ( typeof arg === 'function' ) {
+					$el.click( arg ).attr( 'href', '#' );
+				} else {
+					$el.attr( 'href', arg.toString() );
+				}
+			}
+			$el.append( contents );	
+			return $el;
+		},
+
+		/**
+		 * Transform parsed structure into pluralization
+		 * n.b. The first node may be a non-integer (for instance, a string representing an Arabic number).
+		 * So convert it back with the current language's convertNumber.
+		 * @param {Array} of nodes, [ {String|Number}, {String}, {String} ... ] 
+		 * @return {String} selected pluralized form according to current language
+		 */
+		plural: function( nodes ) { 
+			var count = parseInt( this.language.convertNumber( nodes[0], true ), 10 );
+			var forms = nodes.slice(1);
+			return forms.length ? this.language.convertPlural( count, forms ) : '';
+		}
+		
+	};
+
 
 } )( mediaWiki, jQuery );
