@@ -442,7 +442,8 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-desc-lang-text {
-	width: 33em;
+	width: 31.5em;
+	margin-left: 0.5em;
 	overflow: hidden;
 	font-family: sans-serif; /* XXX is this right? */
 	font-size: small;
