@@ -152,14 +152,11 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			// synchronize both username signatures
 			// set initial value to configured username
 			// if one changes all the others change (keyup event)
-			//
-			// also set tooltips ( the title, tipsy() )
 			$formFields.find( '.mwe-upwiz-sign' )
 				.attr( {
 					title: gM( 'mwe-upwiz-tooltip-sign' ), 
 					value: mw.UploadWizard.config[  'userName'  ] 
 				} )
-				.tipsyPlus()
 				.keyup( function() { 
 					var thisInput = this;
 					var thisVal = $j( thisInput ).val();
@@ -222,12 +219,10 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 	_this.uploadCount = uploadCount ? uploadCount : 1;
 	_this.sourceInput = $j('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
 				.growTextArea()
-				.attr( 'title', gM( 'mwe-upwiz-tooltip-source' ) )
-				.tipsyPlus();
+				.attr( 'title', gM( 'mwe-upwiz-tooltip-source' ) );
 	_this.authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
 				.growTextArea()
-				.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) )
-				.tipsyPlus();
+				.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) );
 	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
 
