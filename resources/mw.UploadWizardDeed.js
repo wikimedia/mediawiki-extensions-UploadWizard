@@ -433,6 +433,9 @@ mw.UploadWizardDeedChooser.prototype = {
 				$form.slideUp( 500 );
 			}
 		} );
+		// Hide tipsy balloons
+		$("#mwe-upwiz-source-hint").tipsy("hide");
+		$("#mwe-upwiz-author-hint").tipsy("hide");
 	},
 
 	/**
