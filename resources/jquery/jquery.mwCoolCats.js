@@ -35,13 +35,16 @@
 
 		_this.wrap('<div class="cat-widget"></div>');
 		$container = _this.parent(); // set to the cat-widget class we just wrapped
-		$container.append( $j( '<button type="button" name="catbutton">'+settings.buttontext+'</button>' ) 
-				.click( function(e) {
+		$container.append( $j( '<button type="button" name="catbutton">'+settings.buttontext+'</button>' )
+			.button()
+			.click( function(e) {
 				e.stopPropagation(); 
 				e.preventDefault(); 
 				_processInput();
 				return false;
-				}) );
+			})
+		);
+
 		$container.prepend('<ul class="cat-list pkg"></ul>');
 
 		//XXX ensure this isn't blocking other stuff needed.
