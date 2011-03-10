@@ -1,3 +1,7 @@
+/**
+ * n.b. if this is ever moved to be mediawiki.language.parser, then mediawiki.language.procPLURAL will be obsolete
+ */
+
 ( function( mw, $j ) {
 
 	/** 
@@ -30,7 +34,7 @@
 	 * @param {Array} parser options
 	 * @return {Function} function suitable for assigning to window.gM
 	 */
-	mw.language.parser.getMessageFunction = function( options ) { 
+	mw.language.getMessageFunction = function( options ) { 
 		var parser = new mw.language.parser( options ); 
 		/** 
 		 * Note replacements are gleaned from 2nd parameter, or variadic args starting with 2nd parameter.
@@ -55,7 +59,7 @@
 	 * @param {Array} parser options
 	 * @return {Function} function suitable for assigning to jQuery plugin, such as $j.fn.msg
 	 */
-	mw.language.parser.getJqueryPlugin = function( options ) {
+	mw.language.getJqueryMessagePlugin = function( options ) {
 		var parser = new mw.language.parser( options ); 
 		/** 
 		 * Note replacements are gleaned from 2nd parameter, or variadic args starting with 2nd parameter.
@@ -88,7 +92,7 @@
 	 */
 	mw.language.parser = function( options ) {
 		this.settings = $j.extend( {}, parserDefaults, options );
-		this.emitter = new mw.language.parser.htmlEmitter( settings.language, settings.magic );
+		this.emitter = new mw.language.htmlEmitter( this.settings.language, this.settings.magic );
 	};
 
 	mw.language.parser.prototype = {
@@ -498,7 +502,7 @@
 	/**
 	 * htmlEmitter - object which primarily exists to emit HTML from parser ASTs
 	 */
-	mw.language.parser.htmlEmitter = function( language, magic ) {
+	mw.language.htmlEmitter = function( language, magic ) {
 		this.language = language;
 		var _this = this;
 
@@ -548,7 +552,7 @@
 	//
 	// An emitter method takes the parent node, the array of subnodes and the array of replacements (the values that $1, $2... should translate to).
 	// Note: all such functions must be pure, with the exception of referring to other pure functions via this.language (convertPlural and so on)
-	mw.language.parser.htmlEmitter.prototype = {
+	mw.language.htmlEmitter.prototype = {
 
 		/**
 		 * Parsing has been applied depth-first we can assume that all nodes here are single nodes
