@@ -185,12 +185,12 @@ describe( "mediaWiki.language.parser", function() {
 			expect( parser.parse( 'en_undelete_empty_param', [ 1 ] ).html() ).toEqual( 'Undelete' );
 			expect( parser.parse( 'en_undelete_empty_param', [ 3 ] ).html() ).toEqual( 'Undelete multiple edits' );
 
-		} )
-	} )
+		} );
+	} );
 
 	describe( "easy message interface functions", function() {
 		it( "should allow a global that returns strings", function() {
-			var gM = mediaWiki.language.parser.getMessageFunction();
+			var gM = mediaWiki.language.getMessageFunction();
 			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
 			// a surrounding <SPAN> is needed for html() to work right
 			var expectedHtml = $j( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
@@ -200,7 +200,7 @@ describe( "mediaWiki.language.parser", function() {
 		} );
 
 		it( "should allow a jQuery plugin that appends to nodes", function() {
-			$j.fn.msg = mediaWiki.language.parser.getJqueryPlugin();
+			$j.fn.msg = mediaWiki.language.getJqueryMessagePlugin();
 			var $div = $j( '<div>' ).append( $j( '<p>' ).addClass( 'foo' ) );
 			var clicked = false;
 			var $button = $j( '<button>' ).click( function() { clicked = true; } );
@@ -221,239 +221,83 @@ describe( "mediaWiki.language.parser", function() {
 			delete $j.fn.msg;
 		} );
 
-
 	} );
 
 	describe( "test plurals and other language-specific functions", function() {
+		/* copying some language definitions in here -- it's hard to make this test fast and reliable 
+		   otherwise, and we don't want to have to know the mediawiki URL from this kind of test either.
+		   We also can't preload the langs for the test since they clobber the same namespace.
+		   In principle Roan said it was okay to change how languages worked so that didn't happen... maybe 
+		   someday. We'd have to the same kind of importing of the default rules for most rules, or maybe 
+	           come up with some kind of subclassing scheme for languages */
+		var languageClasses = {
+			ar: {
+				/**
+				 * Arabic (العربية) language functions
+				 */
 
-		/**
-		* Get a language transform key
-		* returns default "en" fallback if none found
-	 	* @FIXME the resource loader should do this anyway, should not be necessary to know this client side
-		* @param String langKey The language key to be checked	
-		*/
-		mediaWiki.language.getLangTransformKey = function( langKey ) {		
-			if( mediaWiki.language.fallbackTransformMap[ langKey ] ) {
-				langKey = mediaWiki.language.fallbackTransformMap[ langKey ];
-			}
-			// Make sure the langKey has a transformClass: 
-			for( var i = 0; i < mediaWiki.language.transformClass.length ; i++ ) {
-				if( langKey == mediaWiki.language.transformClass[i] ){
-					return langKey;
+				convertPlural: function( count, forms ) {
+					forms = mediaWiki.language.preConvertPlural( forms, 6 );
+					if ( count === 0 ) {
+						return forms[0];
+					}
+					if ( count == 1 ) {
+						return forms[1];
+					}
+					if ( count == 2 ) {
+						return forms[2];
+					}
+					if ( count % 100 >= 3 && count % 100 <= 10 ) {
+						return forms[3];
+					}
+					if ( count % 100 >= 11 && count % 100 <= 99 ) {
+						return forms[4];
+					}
+					return forms[5];
+				},
+
+				digitTransformTable: {
+				    '0': '٠', // &#x0660;
+				    '1': '١', // &#x0661;
+				    '2': '٢', // &#x0662;
+				    '3': '٣', // &#x0663;
+				    '4': '٤', // &#x0664;
+				    '5': '٥', // &#x0665;
+				    '6': '٦', // &#x0666;
+				    '7': '٧', // &#x0667;
+				    '8': '٨', // &#x0668;
+				    '9': '٩', // &#x0669;
+				    '.': '٫', // &#x066b; wrong table ?
+				    ',': '٬' // &#x066c;
 				}
-			}
-			// By default return the base 'en' class
-			return 'en';
+
+			},
+			en: { },
+			fr: {
+				convertPlural: function( count, forms ) {
+					forms = mediaWiki.language.preConvertPlural( forms, 2 );
+					return ( count <= 1 ) ? forms[0] : forms[1];
+				}
+			},
+			jp: { },
+			zh: { }
 		};
 
-		/**
-		 * @@FIXME this should be handled dynamically handled in the resource loader 
-		 * 	so it keeps up-to-date with php maping. 
-		 * 	( not explicitly listed here ) 
-		 */
-		mediaWiki.language.fallbackTransformMap = {
-				'mwl' : 'pt', 
-				'ace' : 'id', 
-				'hsb' : 'de', 
-				'frr' : 'de', 
-				'pms' : 'it', 
-				'dsb' : 'de', 
-				'gan' : 'gan-hant', 
-				'lzz' : 'tr', 
-				'ksh' : 'de', 
-				'kl' : 'da', 
-				'fur' : 'it', 
-				'zh-hk' : 'zh-hant', 
-				'kk' : 'kk-cyrl', 
-				'zh-my' : 'zh-sg', 
-				'nah' : 'es', 
-				'sr' : 'sr-ec', 
-				'ckb-latn' : 'ckb-arab', 
-				'mo' : 'ro', 
-				'ay' : 'es', 
-				'gl' : 'pt', 
-				'gag' : 'tr', 
-				'mzn' : 'fa', 
-				'ruq-cyrl' : 'mk', 
-				'kk-arab' : 'kk-cyrl', 
-				'pfl' : 'de', 
-				'zh-yue' : 'yue', 
-				'ug' : 'ug-latn', 
-				'ltg' : 'lv', 
-				'nds' : 'de', 
-				'sli' : 'de', 
-				'mhr' : 'ru', 
-				'sah' : 'ru', 
-				'ff' : 'fr', 
-				'ab' : 'ru', 
-				'ko-kp' : 'ko', 
-				'sg' : 'fr', 
-				'zh-tw' : 'zh-hant', 
-				'map-bms' : 'jv', 
-				'av' : 'ru', 
-				'nds-nl' : 'nl', 
-				'pt-br' : 'pt', 
-				'ce' : 'ru', 
-				'vep' : 'et', 
-				'wuu' : 'zh-hans', 
-				'pdt' : 'de', 
-				'krc' : 'ru', 
-				'gan-hant' : 'zh-hant', 
-				'bqi' : 'fa', 
-				'as' : 'bn', 
-				'bm' : 'fr', 
-				'gn' : 'es', 
-				'tt' : 'ru', 
-				'zh-hant' : 'zh-hans', 
-				'hif' : 'hif-latn', 
-				'zh' : 'zh-hans', 
-				'kaa' : 'kk-latn', 
-				'lij' : 'it', 
-				'vot' : 'fi', 
-				'ii' : 'zh-cn', 
-				'ku-arab' : 'ckb-arab', 
-				'xmf' : 'ka', 
-				'vmf' : 'de', 
-				'zh-min-nan' : 'nan', 
-				'bcc' : 'fa', 
-				'an' : 'es', 
-				'rgn' : 'it', 
-				'qu' : 'es', 
-				'nb' : 'no', 
-				'bar' : 'de', 
-				'lbe' : 'ru', 
-				'su' : 'id', 
-				'pcd' : 'fr', 
-				'glk' : 'fa', 
-				'lb' : 'de', 
-				'kk-kz' : 'kk-cyrl', 
-				'kk-tr' : 'kk-latn', 
-				'inh' : 'ru', 
-				'mai' : 'hi', 
-				'tp' : 'tokipona', 
-				'kk-latn' : 'kk-cyrl', 
-				'ba' : 'ru', 
-				'nap' : 'it', 
-				'ruq' : 'ruq-latn', 
-				'tt-cyrl' : 'ru', 
-				'lad' : 'es', 
-				'dk' : 'da', 
-				'de-ch' : 'de', 
-				'be-x-old' : 'be-tarask', 
-				'za' : 'zh-hans', 
-				'kk-cn' : 'kk-arab', 
-				'shi' : 'ar', 
-				'crh' : 'crh-latn', 
-				'yi' : 'he', 
-				'pdc' : 'de', 
-				'eml' : 'it', 
-				'uk' : 'ru', 
-				'kv' : 'ru', 
-				'koi' : 'ru', 
-				'cv' : 'ru', 
-				'zh-cn' : 'zh-hans', 
-				'de-at' : 'de', 
-				'jut' : 'da', 
-				'vec' : 'it', 
-				'zh-mo' : 'zh-hk', 
-				'fiu-vro' : 'vro', 
-				'frp' : 'fr', 
-				'mg' : 'fr', 
-				'ruq-latn' : 'ro', 
-				'sa' : 'hi', 
-				'lmo' : 'it', 
-				'kiu' : 'tr', 
-				'tcy' : 'kn', 
-				'srn' : 'nl', 
-				'jv' : 'id', 
-				'vls' : 'nl', 
-				'zea' : 'nl', 
-				'ty' : 'fr', 
-				'szl' : 'pl', 
-				'rmy' : 'ro', 
-				'wo' : 'fr', 
-				'vro' : 'et', 
-				'udm' : 'ru', 
-				'bpy' : 'bn', 
-				'mrj' : 'ru', 
-				'ckb' : 'ckb-arab', 
-				'xal' : 'ru', 
-				'de-formal' : 'de', 
-				'myv' : 'ru', 
-				'ku' : 'ku-latn', 
-				'crh-cyrl' : 'ru', 
-				'gsw' : 'de', 
-				'rue' : 'uk', 
-				'iu' : 'ike-cans', 
-				'stq' : 'de', 
-				'gan-hans' : 'zh-hans', 
-				'scn' : 'it', 
-				'arn' : 'es', 
-				'ht' : 'fr', 
-				'zh-sg' : 'zh-hans', 
-				'bat-smg' : 'lt', 
-				'aln' : 'sq', 
-				'tg' : 'tg-cyrl', 
-				'li' : 'nl', 
-				'simple' : 'en', 
-				'os' : 'ru', 
-				'ln' : 'fr', 
-				'als' : 'gsw', 
-				'zh-classical' : 'lzh', 
-				'arz' : 'ar', 
-				'wa' : 'fr'
-			};	
-
-		/**
-		 * Language classes ( which have a file in /languages/classes/Language{code}.js )
-		 * ( for languages that override default transforms ) 
-		 * 
-		 * @@FIXME again not needed if the resource loader manages this mapping and gives 
-		 * 	us the "right" transform class regardless of what language key we request. 
-		 */
-		mediaWiki.language.transformClass = ['am', 'ar', 'bat_smg', 'be_tarak', 'be', 'bh',
-				'bs', 'cs', 'cu', 'cy', 'dsb', 'fr', 'ga', 'gd', 'gv', 'he', 'hi',
-				'hr', 'hsb', 'hy', 'ksh', 'ln', 'lt', 'lv', 'mg', 'mk', 'mo', 'mt',
-				'nso', 'pl', 'pt_br', 'ro', 'ru', 'se', 'sh', 'sk', 'sl', 'sma',
-				'sr_ec', 'sr_el', 'sr', 'ti', 'tl', 'uk', 'wa' ];
-
-		// wgLang??
-		var wgLanguageCode = 'en';
-		// Set-up base convert plural and gender (to restore for non-transform languages ) 
-		var cachedConvertPlural = { 'en' : mediaWiki.language.convertPlural };
-		 
-		// XXX THIS ONLY WORKS FOR NEIL
-		var wgScriptPath = 'http://wiki.ivy.local/w';	
-		/**
-		 * Clear out digit transform table, load new pluralization rules, for a new language.
-		 * Typically we don't need to do this in MediaWiki, it's one interface language per page.
-		 * @param {String} languageCode
-		 * @param {Function} to be executed when related scripts have loaded
-		 */
-		mediaWiki.language.resetForLang = function( langRequested, fn ) {
-			mediaWiki.language.digitTransformTable = null;
-			// Load the current language js file if it has a langKey
-			var lang = mediaWiki.language.getLangTransformKey( langRequested );
-			if( cachedConvertPlural[lang] ) {
-				mediaWiki.language.convertPlural = cachedConvertPlural[lang];
-				fn();
-			} else {
-				mw.log( lang + " load msg transform" );
-				$j.getScript( wgScriptPath + '/resources/mediaWiki.language/languages/' + lang.toLowerCase() + '.js' , function(){
-					cachedConvertPlural[lang] = mediaWiki.language.convertPlural;
-					fn();
-				});
-			}
-		};
-
+		/* simulate how the language classes override, or don't, the standard functions in mediaWiki.language */
+		$j.each( languageClasses, function( langCode, rules ) { 
+			$j.each( [ 'convertPlural', 'convertNumber' ], function( i, propertyName ) { 
+				if ( typeof rules[ propertyName ] === 'undefined' ) {
+					rules[ propertyName ] = mediaWiki.language[ propertyName ];
+				}
+			} );
+		} );
 
 		$j.each( jasmineMsgSpec, function( i, test ) { 
-			var parser = new mediaWiki.language.parser();
 			it( "should parse " + test.name, function() { 
-				mediaWiki.language.resetForLang( test.lang, function() {
-					var parsedHtml = parser.parse( test.key, test.args ).html();
-					expect( parsedHtml ).toEqual( test.result );
-				} );
+				// using language override so we don't have to muck with global namespace
+				var parser = new mediaWiki.language.parser( { language: languageClasses[ test.lang ] } );
+				var parsedHtml = parser.parse( test.key, test.args ).html();
+				expect( parsedHtml ).toEqual( test.result );
 			} );
 		} );
 
