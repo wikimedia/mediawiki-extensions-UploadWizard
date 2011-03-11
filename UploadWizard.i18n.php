@@ -530,6 +530,20 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-thanks-caption' => 'Дадайце сюды загаловак',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'mwe-upwiz-uploading' => 'Качване...',
+	'mwe-upwiz-upload' => 'Качване',
+	'mwe-upwiz-desc' => 'Описание',
+	'mwe-upwiz-showall' => 'показване на всички',
+	'mwe-upwiz-source' => 'Източник',
+	'mwe-upwiz-license-gfdl' => 'Лиценз за свободна документация на GNU',
+	'mwe-upwiz-categories' => 'Категории',
+	'mwe-upwiz-categories-add' => 'Добавяне',
+);
+
 /** Bengali (বাংলা)
  * @author Bellayet
  * @author Sm faysal
@@ -913,7 +927,7 @@ $messages['bs'] = array(
 	'mwe-upwiz-source-custom' => 'Navedite podatke o autorskim pravima pojedinačno za svaku datoteku na slijedećoj stranici.',
 	'mwe-upwiz-more-options' => 'više opcija...',
 	'mwe-upwiz-fewer-options' => 'manje opcija...',
-	'mwe-upwiz-desc' => 'Opis na',
+	'mwe-upwiz-desc' => 'Opis',
 	'mwe-upwiz-desc-add-n' => 'dodaj opis na drugom jeziku',
 	'mwe-upwiz-desc-add-0' => 'dodaj opis',
 	'mwe-upwiz-title' => 'Naslov',
@@ -2578,6 +2592,7 @@ Bruch do bitte kei Wikitext oder HTML.',
 	'mwe-upwiz-categories' => 'Kategorie',
 	'mwe-upwiz-categories-add' => 'Zuefiege',
 	'mwe-upwiz-category-remove' => 'Die Kategori uuseneh',
+	'mwe-upwiz-thanks-caption' => 'Bildbschriftig do zuefiege',
 );
 
 /** Hausa (هَوُسَ) */
@@ -6095,6 +6110,19 @@ $messages['rue'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'mwe-upwiz-code-unknown' => 'Биллибэт омук тыла',
+	'mwe-upwiz-step-tutorial' => 'Бил',
+	'mwe-upwiz-step-file' => 'Киллэрии',
+	'mwe-upwiz-step-deeds' => 'Быраабын ыйыы',
+	'mwe-upwiz-step-details' => 'Быһаарыы',
+	'mwe-upwiz-step-thanks' => 'Туттуу',
+	'mwe-upwiz-api-error-ok-but-empty' => 'Ис алҕас: сиэрбэртэн хоруй кэлбэтэ.',
+	'mwe-upwiz-api-error-unknown-code' => 'Биллибэт алҕас: «$1»',
+	'mwe-upwiz-api-error-uploaddisabled' => 'Бу биикигэ хачайдыыр араарыллыбыт эбит.',
+	'mwe-upwiz-api-error-nomodule' => 'Ис алҕас: хачайдыыр муодул туруоруута суох.',
+	'mwe-upwiz-api-error-mustbeposted' => 'Ис алҕас: HTTP POST алҕастаах.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'Эн бу биикигэ билэ киллэрэриҥ хааччахтаммыт.',
+	'mwe-upwiz-api-error-stashfailed' => 'Ис алҕас: сиэрбэр быстах кэмҥэ оҥоһуллубут билэни кыайан бигэргэппэтэх.',
 	'mwe-upwiz-more-options' => 'өссө туруоруулар...',
 	'mwe-upwiz-fewer-options' => 'туруорууларын аҕыйат...',
 	'mwe-upwiz-desc' => 'Быһаарыыта',
