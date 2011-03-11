@@ -160,7 +160,7 @@ Are you sure you want to navigate away from this page?',
 	'mwe-upwiz-tooltip-source' => 'Where this digital file came from -- could be a URL, or a book or publication',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name.
 In both cases, this will be linked to your wiki user page',
-	'mwe-upwiz-tooltip-title' => 'A short unique title for the file. You may use plain language with spaces. Do not include the file extension. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Learn more</a>.',
+	'mwe-upwiz-tooltip-title' => 'A short unique title for the file. You may use plain language with spaces. Do not include the file extension. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Learn more</a>.',
 	'mwe-upwiz-dialog-title' => 'Files can be uploaded with names in any language in any script (coded as UTF-8). Titles of media files should be meaningful and helpful in the language chosen.',
 	'mwe-upwiz-tooltip-description' => 'Briefly describe everything notable about the work.
 For a photo, mention the main things that are depicted, the occasion, or the place.',
