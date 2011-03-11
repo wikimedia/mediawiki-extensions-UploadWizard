@@ -8,13 +8,22 @@ class UploadWizardHooks {
 	/* We define scripts here for Resource Loader */
 
 	public static $modules = array(
+		// n.b. we tend not to use mediawiki.language functions, they are better implemented in mediawiki.language.parser.
+		// however, loading mediawiki.language will a) create the namespace b) load the language files with convertPlural for the current language and all. 
+		'ext.uploadwizard.mediawiki.language.parser' => array(
+			'dependencies' => array( 'mediawiki.language', 'mediawiki.util' ),
+			'scripts' => 'resources/mediawiki.language.parser.js'
+		),
 		'ext.uploadWizard' => array(
 			'dependencies' => array( 
 				'jquery.ui.core',
 				'jquery.ui.dialog',
 				'jquery.ui.datepicker',
 				'jquery.ui.progressbar',
-				'jquery.ui.widget'
+				'jquery.ui.widget',
+				'mediawiki.language',
+				'mediawiki.util',
+				'ext.uploadwizard.mediawiki.language.parser'
 			),
 			'scripts' => array(
 
@@ -34,7 +43,6 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.mwCoolCats.js',
 
 				// common utilities
-				'resources/mw.js',  // <-- obsolete?
 				'resources/mw.Log.js',
 				'resources/mw.Utilities.js',
 				'resources/mw.UtilitiesTime.js',
@@ -43,9 +51,7 @@ class UploadWizardHooks {
 				'resources/mw.Api.edit.js',
 				'resources/mw.Title.js',
 
-				// message parsing
-				'resources/language/mw.Language.js',
-				'resources/language/mw.Parser.js',
+				// language menus
 				'resources/mw.LanguageUpWiz.js',
 
 				// workhorse libraries
@@ -66,53 +72,6 @@ class UploadWizardHooks {
 
 				// launcher
 				'UploadWizardPage.js'
-			),
-			'languageScripts' => array(
-				'am' => 'resources/language/classes/LanguageAm.js',
-				'ar' => 'resources/language/classes/LanguageAr.js',
-				'bat-smg' => 'resources/language/classes/LanguageBat_smg.js',
-				'be' => 'resources/language/classes/LanguageBe.js',
-				'be-tarask' => 'resources/language/classes/LanguageBe_tarask.js',
-				'bh' => 'resources/language/classes/LanguageBh.js',
-				'bs' => 'resources/language/classes/LanguageBs.js',
-				'cs' => 'resources/language/classes/LanguageCs.js',
-				'cu' => 'resources/language/classes/LanguageCu.js',
-				'cy' => 'resources/language/classes/LanguageCy.js',
-				'dsb' => 'resources/language/classes/LanguageDsb.js',
-				'fr' => 'resources/language/classes/LanguageFr.js',
-				'ga' => 'resources/language/classes/LanguageGa.js',
-				'gd' => 'resources/language/classes/LanguageGd.js',
-				'gv' => 'resources/language/classes/LanguageGv.js',
-				'he' => 'resources/language/classes/LanguageHe.js',
-				'hi' => 'resources/language/classes/LanguageHi.js',
-				'hr' => 'resources/language/classes/LanguageHr.js',
-				'hsb' => 'resources/language/classes/LanguageHsb.js',
-				'hy' => 'resources/language/classes/LanguageHy.js',
-				'ksh' => 'resources/language/classes/LanguageKsh.js',
-				'ln' => 'resources/language/classes/LanguageLn.js',
-				'lt' => 'resources/language/classes/LanguageLt.js',
-				'lv' => 'resources/language/classes/LanguageLv.js',
-				'mg' => 'resources/language/classes/LanguageMg.js',
-				'mk' => 'resources/language/classes/LanguageMk.js',
-				'mo' => 'resources/language/classes/LanguageMo.js',
-				'mt' => 'resources/language/classes/LanguageMt.js',
-				'nso' => 'resources/language/classes/LanguageNso.js',
-				'pl' => 'resources/language/classes/LanguagePl.js',
-				'pt-br' => 'resources/language/classes/LanguagePt_br.js',
-				'ro' => 'resources/language/classes/LanguageRo.js',
-				'ru' => 'resources/language/classes/LanguageRu.js',
-				'se' => 'resources/language/classes/LanguageSe.js',
-				'sh' => 'resources/language/classes/LanguageSh.js',
-				'sk' => 'resources/language/classes/LanguageSk.js',
-				'sl' => 'resources/language/classes/LanguageSl.js',
-				'sma' => 'resources/language/classes/LanguageSma.js',
-				'sr' => 'resources/language/classes/LanguageSr.js',
-				'sr-ec' => 'resources/language/classes/LanguageSr_ec.js',
-				'sr-el' => 'resources/language/classes/LanguageSr_el.js',
-				'ti' => 'resources/language/classes/LanguageTi.js',
-				'tl' => 'resources/language/classes/LanguageTl.js',
-				'uk' => 'resources/language/classes/LanguageUk.js',
-				'wa' => 'resources/language/classes/LanguageWa.js'
 			),
 			'styles' => array(
 				'resources/jquery/jquery.tipsy.css',
