@@ -1,8 +1,7 @@
 ( function( mw ) {
-
-mw.addMessages({
+mediaWiki.messages.set( {
 	"mwe-upwiz-code-unknown": "Unknown language"
-});
+} );
 
 /**
  * Utility class which knows about languages, and how to construct HTML to select them
