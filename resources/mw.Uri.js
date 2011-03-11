@@ -28,7 +28,7 @@
  * Parsing here is regex based, so may not work on all URIs, but is good enough for most.
  *
  * Given a URI like
- * 'http://usr:pwd@www.test.com:81/dir/dir.2/index.htm?q1=0&&test1&test2=value+%28escaped%29#top':
+ * 'http://usr:pwd@www.test.com:81/dir/dir.2/index.htm?q1=0&&test1&test2=&test3=value+%28escaped%29&r=1&r=2#top':
  * The returned object will have the following properties:
  *    
  *    protocol          'http'
@@ -37,7 +37,13 @@
  *    host        	'www.test.com'
  *    port        	'81'
  *    path        	'/dir/dir.2/index.htm'
- *    query        	{ q1: 0, test1: '', test2: 'value (escaped)' }
+ *    query        	{ 
+ *				q1: 0, 
+ *				test1: null, 
+ *				test2: '', 
+ *		        	test3: 'value (escaped)'
+ *				r: [1, 2]
+ *			}
  *    fragment          'top'
  *    
  * n.b. 'password' is not technically allowed for HTTP URIs, but it is possible with other sorts of URIs.
@@ -66,7 +72,7 @@
 				$.each( this._properties, function( i, property ) {
 					_this[property] = uri[property];
 				} );
-				if ( ! mw.isDefined( this.query ) ) {
+				if ( !mw.isDefined( this.query ) ) {
 					this.query = {};
 				}
 			}
@@ -149,18 +155,25 @@
 			// uri.query starts out as the query string; we will parse it into key-val pairs then make
 			// that object the "query" property.
 			// we overwrite query in uri way to make cloning easier, it can use the same list of properties.	
-			var query = {};
+			q = {};
 			// using replace to iterate over a string
-			// JS 1.3 - function as parameter to replace 
-			// Note: uri does not work with repeated parameter names (e.g. foo=1&foo=2 )
 			if ( uri.query ) { 
-				uri.query.replace( /(?:^|&)([^&=]*)=?([^&]*)/g, function ($0, $1, $2) {
-					if ( $1 ) { 
-						query[ mw.Uri.decode( $1 ) ] = mw.Uri.decode( $2 );
+				uri.query.replace( /(?:^|&)([^&=]*)(?:=([^&]*))?/g, function ($0, $1, $2) {
+					if ( $1 ) {
+						var k = mw.Uri.decode( $1 );
+						var v = mw.isDefined( $2 ) ? mw.Uri.decode( $2 ) : null;
+						if ( typeof q[ k ] === 'string' ) {
+							q[ k ] = [ q[ k ] ];
+						}
+						if ( typeof q[ k ] === 'object' ) {
+							q[ k ].push( v );
+						} else {
+							q[ k ] = v;
+						}
 					}
 				} );
-			}
-			this.query = query;
+			}		
+			this.query = q;
 		},
 
 		/**
@@ -194,12 +207,14 @@
 		 * @return {String}
 		 */
 		getQueryString: function() {
-			var pairs = [];
+			var args = [];
 			var _this = this;
-			$.each( this.query, function( key, value ) {
-				pairs.push( mw.Uri.encode( key ) + '=' + mw.Uri.encode( value )  );
+			$.each( this.query, function( key, val ) {
+				$.each( $.makeArray( val ), function( i, v ) {
+					args.push( mw.Uri.encode( key ) + ( v === null ? '' : '=' + mw.Uri.encode( v ) ) );
+				} );
 			} );
-			return pairs.join( '&' );
+			return args.join( '&' );
 		},
 
 		/**
