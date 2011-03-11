@@ -83,11 +83,12 @@ mw.UploadWizardPage = function() {
 
 jQuery( document ).ready( function() {
 	// add "magic" to Language template parser for keywords
-	mw.addTemplateTransform( { 'SITENAME' : function() { return wgSitename; } } );
 	
-	// sets up plural "magic" and so on. Seems like a bad design to have to do this, though.
-	mw.Language.magicSetup();
+	var options = { magic: { 'SITENAME' : wgSitename } };
 	
+	window.gM = mediaWiki.language.getMessageFunction( options );
+	$j.fn.msg = mediaWiki.language.getJqueryMessagePlugin( options );
+		
 	// show page. 
 	mw.UploadWizardPage();
 } );
