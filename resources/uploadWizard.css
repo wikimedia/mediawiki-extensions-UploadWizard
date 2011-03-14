@@ -265,11 +265,17 @@ a[disabled=true]:hover {
 	width: 40px;
 }
 
+.mwe-upwiz-mask, .mwe-upwiz-status {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
 .mwe-upwiz-status-progress {
 	background: url(24px-spinner-0645ad.gif) no-repeat center center;
 }
 
-.mwe-upwiz-status-stashed {
+.mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
 	background: url(32px-Dialog-apply-009900.svg.png) no-repeat center center;
 }
 
@@ -339,6 +345,7 @@ a[disabled=true]:hover {
 .mwe-upwiz-data {
 	float: left;
 	width: 46em;
+	margin-bottom: 1em;
 }
 
 

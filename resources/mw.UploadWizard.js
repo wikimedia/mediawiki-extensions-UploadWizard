@@ -259,9 +259,7 @@ mw.UploadWizardUpload.prototype = {
 	 * @param height (optional) 
 	 */
 	setThumbnail: function( selector, width, height ) {
-		// set the thumbnail on the page to have a loading spinner	
-		$j( selector ).loadingSpinner();
-
+		
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
 			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
@@ -273,7 +271,6 @@ mw.UploadWizardUpload.prototype = {
 		}
 			
 		var callback = function( image ) {
-			// side effect: will replace thumbnail's loadingSpinner
 			$j( selector ).html(
 				$j( '<a/>' )
 					.attr( { 'href': _this.imageinfo.url,
@@ -286,8 +283,7 @@ mw.UploadWizardUpload.prototype = {
 					)
 			);
 		};
-
-		$j( selector ).loadingSpinner();
+		
 		_this.getThumbnail( callback, width, height );
 	}
 	
@@ -2159,7 +2155,6 @@ mw.UploadWizard.prototype = {
 		// remove ability to edit details
 		$j.each( _this.uploads, function( i, upload ) {
 			upload.details.div.mask();
-			upload.details.div.data( 'mask' ).loadingSpinner();
 		} );
 
 		// add the upload progress bar, with ETA
@@ -2169,14 +2164,21 @@ mw.UploadWizard.prototype = {
 			[ 'submitting-details' ],  
 			[ 'complete' ], 
 			function( upload ) {
+				// activate spinner
+				upload.details.div.data( 'status' ).addClass( 'mwe-upwiz-status-progress' );
 				upload.details.submit( function( result ) { 
 					if ( result && result.upload && result.upload.imageinfo ) {
 						upload.extractImageInfo( result.upload.imageinfo );
+						// change spinner to checkmark
+						upload.details.div.data( 'status' ).removeClass( 'mwe-upwiz-status-progress' );
+						upload.details.div.data( 'status' ).addClass( 'mwe-upwiz-status-uploaded' );
 					} else {
 						// XXX alert the user, maybe don't proceed to step 4.
 						mw.log( "error -- final API call did not return image info" );
+						// change spinner to error icon
+						upload.details.div.data( 'status' ).removeClass( 'mwe-upwiz-status-progress' );
+						upload.details.div.data( 'status' ).addClass( 'mwe-upwiz-status-error' );
 					}
-					upload.details.div.data( 'mask' ).html();
 				} );
 			},
 			endCallback
@@ -2409,19 +2411,26 @@ mw.UploadWizardDeedPreview.prototype = {
 					$j( el ).find( "select" ).addClass( "masked-hidden" );
 				}
 
-				var mask = $j( '<div />' )
-						.css( { 'position' : 'absolute',
-							'top'      : '0px', 
-							'left'     : '0px',
+				var mask = $j( '<div class="mwe-upwiz-mask"/>' )
+						.css( {
+							'backgroundColor' : 'white',
 							'width'	   : el.offsetWidth + 'px',
 							'height'   : el.offsetHeight + 'px',
-							'z-index'  : 100 } )
+							'z-index'  : 90
+						} );
+						
+				var status = $j( '<div class="mwe-upwiz-status"/>' )
+						.css( {
+							'width'	   : el.offsetWidth + 'px',
+							'height'   : el.offsetHeight + 'px',
+							'z-index'  : 91
+						} )
 						.click( function( e ) { e.stopPropagation(); } );
 
 				$j( el ).css( { 'position' : 'relative' } )	
-					.fadeTo( 'fast', 0.5 )
-					.append( mask )
-					.data( 'mask', mask );
+					.append( mask.fadeTo( 'fast', 0.6 ) )
+					.append( status )
+					.data( 'status', status );
 
 				
 			} 
