@@ -177,10 +177,12 @@ class SpecialUploadWizard extends SpecialPage {
 	function getWizardHtml() {
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
+		// TODO should use user preference not a cookie ( so the user does not have to skip it for every browser )
 		if ( !isset( $_COOKIE['skiptutorial'] ) ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml();
 		}
-		// TODO loading spinner, hide these by default till enhanced?
+		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
+		// can be dynamically included ( for example the add media wizard ) 
 		return
 		  '<div id="upload-wizard" class="upload-section">'
 
@@ -202,7 +204,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.          '<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">'
-		.          '<label for="mwe-upwiz-skip">Skip this step in the future</label>'
+		.          '<label for="mwe-upwiz-skip">' . wfMsg('mwe-upwiz-skip-tutorial-future') . '</label>'
 		.          '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next" )  . '</button>'
 		.       '</div>'
 		.     '</div>'
