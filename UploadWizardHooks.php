@@ -55,10 +55,12 @@ class UploadWizardHooks {
 				'resources/mw.LanguageUpWiz.js',
 
 				// workhorse libraries
-				'resources/mw.IframeTransport.js',
+				'resources/mw.IframeTransport.js',			
 				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
 				'resources/mw.UploadWizardUtil.js',
+			
+				'resources/mw.FirefoggHandler.js',			
 
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
@@ -108,6 +110,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-click-here',
 				'mwe-upwiz-uploading',
 				'mwe-upwiz-editing',
+				'mwe-upwiz-remove',
 				'mwe-upwiz-remove-upload',
 				'mwe-upwiz-remove-description',
 				'mwe-upwiz-upload',
