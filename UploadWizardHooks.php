@@ -215,6 +215,10 @@ class UploadWizardHooks {
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-remove',
+				'mwe-upwiz-getting-metadata',
+				'mwe-upwiz-stashed-upload',
+				'mwe-upwiz-dialog-title',
+				'mwe-upwiz-tooltip-categories'
 			),
 			'group' => 'ext.uploadWizard'
 		),
