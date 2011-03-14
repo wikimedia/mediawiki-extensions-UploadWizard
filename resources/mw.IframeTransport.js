@@ -90,7 +90,7 @@ mw.IframeTransport.prototype = {
 			// Get the json string
 			// We're actually searching through an HTML doc here -- 
 			// according to mdale we need to do this
-			// because IE does not load JSON properly in an iframe
+			// because IE does not load JSON properly in an iframe			
 			json = $j( doc.body ).find( 'pre' ).text();
 			mw.log( "mw.IframeTransport::processIframeResult> iframe:json::" + json );
 			// check that the JSON is not an XML error message 

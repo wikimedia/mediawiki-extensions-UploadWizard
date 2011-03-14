@@ -167,7 +167,7 @@ form.mwe-upwiz-form {
 	height: 40px;
 	width: 40px;
 	margin-right: 6px;
-	background: url(32px-Blank-document.svg.png) no-repeat center top;
+	background: url('images/32px-Blank-document.svg.png') no-repeat center top;
 }
 
 .mwe-upwiz-add-files-n {
@@ -272,15 +272,15 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-status-progress {
-	background: url(24px-spinner-0645ad.gif) no-repeat center center;
+	background: url('images/24px-spinner-0645ad.gif') no-repeat center center;
 }
 
 .mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
-	background: url(32px-Dialog-apply-009900.svg.png) no-repeat center center;
+	background: url('images/32px-Dialog-apply-009900.svg.png') no-repeat center center;
 }
 
 .mwe-upwiz-status-error {
-	background: url(32px-Nuvola_apps_important_orange.svg.png) no-repeat center center;
+	background: url('images/32px-Nuvola_apps_important_orange.svg.png') no-repeat center center;
 	font-weight: bold;
 	color: #CC0000;
 }
@@ -580,11 +580,11 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 .mwe-upwiz-toggler {
 	margin-bottom: 0;
 	padding: 4px 0 3px 18px;
-	background: url('toggle.png') no-repeat left center;
+	background: url('images/toggle.png') no-repeat left center;
 }
 
 .mwe-upwiz-toggler-open {
-	background: url('toggle-open.png') no-repeat left center;
+	background: url('images/toggle-open.png') no-repeat left center;
 }
 
 .mwe-upwiz-toggled {
@@ -610,7 +610,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 
 .mwe-date-display {
 	width: 100%;
-	background: #ffffff url('calendar.gif') no-repeat right center;
+	background: #ffffff url('images/calendar.gif') no-repeat right center;
 }
 
 .ui-datepicker-current-day a.ui-state-active {
@@ -618,14 +618,14 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 }
 
 .mwe-upwiz-hint {
-    background: url('question.png') no-repeat;
+    background: url('images/question.png') no-repeat;
     display: inline-block;
     height: 11px;
     width: 11px;
     margin-left: 4px;
 }
 .mwe-upwiz-hint:hover {
-    background: url('question-hover.png') no-repeat;
+    background: url('images/question-hover.png') no-repeat;
 }
 
 #upload-wizard .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; }
