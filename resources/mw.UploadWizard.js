@@ -227,7 +227,7 @@ mw.UploadWizardUpload.prototype = {
 
 			this.api.get( params, function( data ) {
 				if ( !data || !data.query || !data.query.stashimageinfo ) {
-					mw.log(" No data? ");
+					mw.log("mw.UploadWizardUpload::getThumbnail> No data? ");
 					// XXX do something about the thumbnail spinner, maybe call the callback with a broken image.
 					return;
 				}
@@ -235,7 +235,7 @@ mw.UploadWizardUpload.prototype = {
 				for ( var i = 0; i < thumbnails.length; i++ ) {
 					var thumb = thumbnails[i];
 					if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
-						mw.log( "thumbnail missing information" );
+						mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail missing information" );
 						// XXX error
 					}
 					var image = document.createElement( 'img' );
@@ -927,7 +927,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	_this.addDescription( true, mw.UploadWizard.config[ 'userLanguage' ] );
+	_this.addDescription( true, mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
 	// make this a category picker
@@ -1189,7 +1189,7 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	populate: function() {
 		var _this = this;
-		mw.log( "populating details from upload" );
+		mw.log( "mw.UploadWizardUpload::populate> populating details from upload" );
 		_this.upload.setThumbnail( _this.thumbnailDiv, mw.UploadWizard.config['thumbnailWidth'], mw.UploadWizard.config['thumbnailMaxHeight'] );
 		_this.prefillDate();
 		_this.prefillSource();
@@ -1439,7 +1439,7 @@ mw.UploadWizardDetails.prototype = {
 
 		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
 		var wikiText = _this.getWikiText();
-		mw.log( wikiText );
+		mw.log( "mw.UploadWizardUpload::submit> submiting wikiText:\n" + wikiText );
 
 		var params = {
 			action: 'upload',
@@ -1454,11 +1454,10 @@ mw.UploadWizardDetails.prototype = {
 			_this.completeDetailsSubmission(); 
 		};	
 
-		mw.log( "uploading!" );
-		mw.log( params );
+		mw.log( "mw.UploadWizardUpload::submit> uploading: \n" + params );
 		var callback = function( result ) {
-			mw.log( result );
-			mw.log( "successful upload" );
+			mw.log( "mw.UploadWizardUpload::submit> result:\n" + result );
+			mw.log( "mw.UploadWizardUpload::submit> successful upload" );
 			finalCallback( result );
 		};
 
@@ -1815,13 +1814,13 @@ mw.UploadWizard.prototype = {
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'filled', function(e) { 
-			mw.log( "filled! received!" );
+			mw.log( "mw.UploadWizardUpload::newUpload> filled! received!" );
 			_this.newUpload(); 
-			mw.log( "filled! new upload!" );
+			mw.log( "mw.UploadWizardUpload::newUpload> filled! new upload!" );
 			_this.setUploadFilled(upload);
-			mw.log( "filled! set upload filled!" );
+			mw.log( "mw.UploadWizardUpload::newUpload> filled! set upload filled!" );
 			e.stopPropagation(); 
-			mw.log( "filled! stop propagation!" ); 
+			mw.log( "mw.UploadWizardUpload::newUpload> filled! stop propagation!" ); 
 		} );
 		// XXX bind to some error state
 
@@ -2019,7 +2018,7 @@ mw.UploadWizard.prototype = {
 			function( upload ) {
 				upload.start();
 			},
-		        function() {
+	        function() {
 				allowCloseWindow();
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
 				_this.showFileNext();
@@ -2053,7 +2052,7 @@ mw.UploadWizard.prototype = {
 			} else if ( upload.state === 'stashed' ) {
 				stashedCount++;	
 			} else {
-				mw.log( "upload " + i + " not in appropriate state for filenext: " + upload.state );
+				mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
 			}
 		} );
 		var selector = null;

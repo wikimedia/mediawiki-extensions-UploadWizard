@@ -30,18 +30,18 @@ $wgExtensionCredits['other'][] = array(
 
 
 
-$dir = dirname( __FILE__ );
+$wgUpwizDir = dirname( __FILE__ );
 
-$wgExtensionMessagesFiles['UploadWizard'] = $dir . '/UploadWizard.i18n.php';
-$wgExtensionAliasesFiles['UploadWizard'] = $dir . '/UploadWizard.alias.php';
+$wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
+$wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.php';
 
-# Require modules, includeing the special page
+# Require modules, including the special page
 foreach ( array( 'SpecialUploadWizard',
 		 'UploadWizardMessages',
 		 'UploadWizardHooks',
 		 'UploadWizardTutorial',
 		 'UploadWizardDependencyLoader' ) as $module ) {
-	$wgAutoloadLocalClasses[$module] = $dir . "/" . $module . ".php";
+	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . "/" . $module . ".php";
 }
 
 
@@ -60,3 +60,8 @@ $wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';
+
+// Init the upload wizard config array 
+// UploadWizard.config.php includes default configuration
+// any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
+$wgUploadWizardConfig = array();

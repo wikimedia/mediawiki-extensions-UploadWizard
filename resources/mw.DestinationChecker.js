@@ -138,7 +138,7 @@ mw.DestinationChecker.prototype = {
 			
 			if ( !data || !data.query || !data.query.pages ) {
 				// Ignore a null result
-				mw.log(" No data in checkUnique result");
+				mw.log("mw.DestinationChecker::checkUnique> No data in checkUnique result");
 				return;
 			}
 
@@ -146,7 +146,7 @@ mw.DestinationChecker.prototype = {
 
 			if ( data.query.pages[-1] ) {
 				// No conflict found; this file name is unique
-				mw.log(" No pages in checkUnique result");
+				mw.log("mw.DestinationChecker::checkUnique> No pages in checkUnique result");
 				result = { isUnique: true };
 
 			} else {
@@ -157,7 +157,7 @@ mw.DestinationChecker.prototype = {
 					}
 
 					// Conflict found, this filename is NOT unique
-					mw.log( " conflict! " );
+					mw.log( "mw.DestinationChecker::checkUnique> conflict! " );
 
 					var ntitle;
 					if ( data.query.normalized ) {

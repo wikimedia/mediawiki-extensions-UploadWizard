@@ -38,7 +38,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	public function execute( $subPage ) {
 		global $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
-		       $wgUploadWizardDebug, $wgUploadWizardDisableResourceLoader;
+		       $wgUploadWizardDisableResourceLoader;
 
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
@@ -65,7 +65,7 @@ class SpecialUploadWizard extends SpecialPage {
 		} else {
 			$basepath = "$wgExtensionAssetsPath/UploadWizard";
 			$dependencyLoader = new UploadWizardDependencyLoader( $wgLang->getCode() );
-			if ( $wgUploadWizardDebug ) {
+			if ( $wgUploadWizardConfig['debug'] ) {
 				// each file as an individual script or style
 				$dependencyLoader->outputHtmlDebug( $wgOut, $basepath );
 			} else {
@@ -82,34 +82,33 @@ class SpecialUploadWizard extends SpecialPage {
 
 	/**
 	 * Adds some global variables for our use, as well as initializes the UploadWizard
+	 * 
+	 * TODO once bug https://bugzilla.wikimedia.org/show_bug.cgi?id=26901
+	 * is fixed we should package configuration with the upload wizard instead of
+	 * in uploadWizard output page. 
+	 * 
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgUser, $wgOut, $wgUseAjax, $wgAjaxLicensePreview, $wgEnableAPI,
-		       $wgEnableFirefogg, $wgFileExtensions,$wgUploadWizardDebug, $wgSitename,
-		       $wgUploadWizardAutoCategory;
+		global $wgOut, $wgUpwizDir, $wgUploadWizardConfig, $wgSitename;
 
-		$wgOut->addScript( Skin::makeVariablesScript( array(
-			'wgUploadWizardDebug' => (bool)$wgUploadWizardDebug,
-			
-			'wgUploadWizardAutoCategory' => $wgUploadWizardAutoCategory,
-
-			// uncertain if this is relevant. Can we do license preview with API?
-			'wgAjaxLicensePreview' => $wgUseAjax && $wgAjaxLicensePreview,
-
-			'wgEnableFirefogg' => (bool)$wgEnableFirefogg,
-
-			// what is acceptable in this wiki
-			'wgFileExtensions' => $wgFileExtensions,
-
-			'wgSubPage' => $subPage,
-
-			// XXX need to have a better function for testing viability of a filename
-			// 'wgFilenamePrefixBlacklist' => UploadBase::getFilenamePrefixBlacklist()
-
-			'wgSitename' => $wgSitename
-
-		) ) );
+		// Merge the default configuration with the local settings $wgUploadWizardConfig configuration
+		$configPath =  $wgUpwizDir . '/UploadWizard.config.php';
+		if( is_file( $configPath ) ){
+			$wgUploadWizardConfig = array_merge( include( $configPath ), $wgUploadWizardConfig );
+		}
+		 
+		$wgOut->addScript( 
+			Skin::makeVariablesScript( 
+				array(
+					'UploadWizardConfig' => $wgUploadWizardConfig 
+				) +
+				// Site name is a true global not specific to Upload Wizard
+				array( 
+					'wgSiteName' => $wgSitename
+				)
+			)
+		);
 
 	}
 

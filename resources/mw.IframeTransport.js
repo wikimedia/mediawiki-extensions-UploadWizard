@@ -42,21 +42,21 @@ mw.IframeTransport.prototype = {
 	 * Ensure callback on completion of upload
 	 */
 	configureForm: function() {
-		mw.log( "configuring form for iframe transport" );
+		mw.log( "mw.IframeTransport::configureForm> configuring form for iframe transport" );
 		// Set the form target to the iframe
 		this.$form.attr( 'target', this.iframeId );
 
 		// attach an additional handler to the form, so, when submitted, it starts showing the progress
 		// XXX this is lame .. there should be a generic way to indicate busy status...
 		this.$form.submit( function() { 
-			mw.log( "submitting to iframe..." );
+			mw.log( "mw.IframeTransport::configureForm> submitting to iframe..." );
 			return true;
 		} );
 
 		// Set up the completion callback
 		var _this = this;
 		$j( '#' + this.iframeId ).load( function() {
-			mw.log( "received result in iframe" );
+			mw.log( "mw.IframeTransport::configureForm> received result in iframe" );
 			_this.progressCb( 1.0 );
 			_this.processIframeResult( $j( this ).get( 0 ) );
 		} );			
@@ -73,13 +73,13 @@ mw.IframeTransport.prototype = {
 		var doc = iframe.contentDocument ? iframe.contentDocument : frames[iframe.id].document;
 		// Fix for Opera 9.26
 		if ( doc.readyState && doc.readyState != 'complete' ) {
-			mw.log( "not complete" );
+			mw.log( "mw.IframeTransport::processIframeResult>  not complete" );
 			return;
 		}
 			
 		// Fix for Opera 9.64
 		if ( doc.body && doc.body.innerHTML == "false" ) {
-			mw.log( "no innerhtml" );
+			mw.log( "mw.IframeTransport::processIframeResult> innerhtml" );
 			return;
 		}
 		var response;
@@ -92,7 +92,7 @@ mw.IframeTransport.prototype = {
 			// according to mdale we need to do this
 			// because IE does not load JSON properly in an iframe
 			json = $j( doc.body ).find( 'pre' ).text();
-			mw.log( 'iframe:json::' + json );
+			mw.log( "mw.IframeTransport::processIframeResult> iframe:json::" + json );
 			// check that the JSON is not an XML error message 
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
 			if ( json && json.substring(0, 5) !== '<?xml' ) {

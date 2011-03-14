@@ -48,7 +48,7 @@
 				// caller can supply handlers for http transport error or api errors
 				err: function( code, result ) {
 					var errorMsg = "mw.Api error: " + code;
-					mw.log( errorMsg );
+					mw.log( _method + errorMsg );
 				},
 
 				timeout: 30000, /* 30 seconds */

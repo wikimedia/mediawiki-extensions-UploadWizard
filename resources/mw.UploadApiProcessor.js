@@ -73,13 +73,13 @@ mw.UploadApiProcessor.prototype = {
 	 */
 	processResult: function( result ) {
 		var _this = this;
-		mw.log( 'processResult::' );
+		mw.log( 'mw.UploadApiProcessor::processResult> ' );
 			
 		
 		var parsedResult = _this.parseResult(result);
 
 		if ( _this.doneCb && typeof _this.doneCb == 'function' ) {
-			mw.log( "call doneCb" );
+			mw.log( "mw.UploadApiProcessor::processResult> call doneCb" );
 			_this.doneCb( parsedResult );
 			
 		}
@@ -130,7 +130,7 @@ mw.UploadApiProcessor.prototype = {
 
 			if ( !error_code || error_code == 'unknown-error' ) {
 				if ( typeof JSON != 'undefined' ) {
-					mw.log( 'Error: result: ' + JSON.stringify( result ) );
+					mw.log( 'mw.UploadApiProcessor::parseResult> Error: result: ' + JSON.stringify( result ) );
 				}
 				if ( result.upload.error == 'internal-error' ) {
 					// Do a remote message load
@@ -172,14 +172,14 @@ mw.UploadApiProcessor.prototype = {
 				return false;
 			}
 
-			mw.log( 'get key: ' + _this.error_msg_key[ error_code ] );
+			mw.log( 'mw.UploadApiProcessor::parseResult> get key: ' + _this.error_msg_key[ error_code ] );
 			mw.getRemoteMsg( _this.error_msg_key[ error_code ], function() {
 				_this.ui.setPrompt(
 					gM( 'mwe-uploaderror' ),
 					gM( _this.error_msg_key[ error_code ], errorReplaceArg ),
 					buttons );
 			});
-			mw.log( "api.error" );
+			mw.log( "mw.UploadApiProcessor::parseResult> api.error" );
 			return false;
 		}
 

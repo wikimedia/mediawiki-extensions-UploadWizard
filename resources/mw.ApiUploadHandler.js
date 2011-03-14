@@ -39,7 +39,7 @@ mw.ApiUploadHandler.prototype = {
 	 */
 	configureForm: function() {
 		var _this = this;
-		mw.log( "configuring form for Upload API" );
+		mw.log( "mw.ApiUploadHandler::configureForm> configuring form for Upload API" );
 
 		_this.addFormInputIfMissing( 'action', 'upload' );
 
@@ -93,7 +93,7 @@ mw.ApiUploadHandler.prototype = {
 	start: function() {
 		var _this = this;
 		var ok = function() {
-			mw.log( "api: upload start!" );
+			mw.log( "mw.ApiUploadHandler::start> upload start!" );
 			_this.beginTime = ( new Date() ).getTime();
 			_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 			_this.upload.ui.showTransportProgress();

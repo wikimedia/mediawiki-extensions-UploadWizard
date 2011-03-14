@@ -88,7 +88,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		// XXX do we need to escape authorInput, or is wikitext a feature here?
 		// what about scripts?
 		getAuthorWikiText: function() {
-			return "[[User:" + mw.UploadWizard.config[ 'userName' ] + '|' + $j( _this.authorInput ).val() + ']]';
+			return "[[User:" + mw.config.get( 'wgUserName' ) + '|' + $j( _this.authorInput ).val() + ']]';
 		},
 
 
@@ -155,7 +155,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			$formFields.find( '.mwe-upwiz-sign' )
 				.attr( {
 					title: gM( 'mwe-upwiz-tooltip-sign' ), 
-					value: mw.UploadWizard.config[  'userName'  ] 
+					value: mw.config.get(  'wgUserName' ) 
 				} )
 				.keyup( function() { 
 					var thisInput = this;
