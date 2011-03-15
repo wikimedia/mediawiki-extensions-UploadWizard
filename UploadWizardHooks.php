@@ -58,9 +58,7 @@ class UploadWizardHooks {
 				'resources/mw.IframeTransport.js',			
 				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
-				'resources/mw.UploadWizardUtil.js',
-			
-				'resources/mw.FirefoggHandler.js',			
+				'resources/mw.UploadWizardUtil.js',			
 
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
