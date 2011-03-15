@@ -490,7 +490,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-tooltip-author' => 'Імя асобы, якая зрабіла фота, ці намалявала малюнак, начарціла чарцёж і г. д.',
 	'mwe-upwiz-tooltip-source' => 'Адкуль зьявіўся гэты лічбавы файл — можа быць URL-адрас, кніга, ці публікацыя',
 	'mwe-upwiz-tooltip-sign' => 'Вы можаце выкарыстоўваць назву Вашага рахунку ў {{GRAMMAR:месны|{{SITENAME}}}} альбо Вашае сапраўднае імя. У любым выпадку будзе спасылка на Вашую старонку вікі-удзельніка',
-	'mwe-upwiz-tooltip-title' => 'Кароткая ўнікальная назва файла. Вы можаце выкарыстоўваць звычайны тэкст з прагаламі. Не пазначайце пашырэньне. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Падрабязьней</a>.',
+	'mwe-upwiz-tooltip-title' => 'Кароткая ўнікальная назва файла. Вы можаце выкарыстоўваць звычайны тэкст з прагаламі. Не пазначайце пашырэньне. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Падрабязьней</a>.',
 	'mwe-upwiz-dialog-title' => 'Файлы могуць быць загружаныя з назвамі на любой мове любым альфабэтам (у кадаваньні UTF-8). Варта, каб па назвах файлаў быў зразумелы іх зьмест.',
 	'mwe-upwiz-tooltip-description' => "Коратка апішыце ўсё значнае пра гэты файл. Для фота, узгадайце пра асноўны аб'ект, выпадак ці месца.",
 	'mwe-upwiz-tooltip-categories' => 'Дадайце <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">катэгорыі</a> да файла, каб яго можна было лягчэй знайсьці.',
@@ -1397,6 +1397,7 @@ $messages['de'] = array(
 	'mwe-upwiz-file-some-failed' => 'Das Hochladen einiger Dateien ist fehlgeschlagen.',
 	'mwe-upwiz-file-retry' => 'Das Hochladen der nicht hochgeladenen Dateien erneute versuchen.',
 	'mwe-upwiz-next-file-despite-failures' => 'Trotzdem fortfahren',
+	'mwe-upwiz-skip-tutorial-future' => 'Diesen Schritt zukünftig überspringen',
 	'mwe-upwiz-file-all-failed' => 'Das Hochladen aller Dateien ist fehlgeschlagen.',
 	'mwe-upwiz-upload-count' => '$1 von $2 {{PLURAL:$2|Datei|Dateien}} hochgeladen',
 	'mwe-upwiz-progressbar-uploading' => 'Beim Hochladen',
@@ -1471,7 +1472,7 @@ $messages['de'] = array(
 	'mwe-upwiz-tooltip-author' => 'Der Name der Person, die entweder das Foto gemacht, das Bild gemalt, die Zeichnung angefertigt, etc. hat',
 	'mwe-upwiz-tooltip-source' => 'Woher diese Datei stammt - dies kann eine URL, ein Buch oder eine Publikation, etc. sein.',
 	'mwe-upwiz-tooltip-sign' => 'Du kannst deinen Benutzernamen auf diesem Wiki oder deinen bürgerlichen Namen verwenden. In beiden Fällen wird er mit deiner Benutzerseite verknüpft.',
-	'mwe-upwiz-tooltip-title' => 'Ein kurzer Titel für die Datei. Normaler Text einschließlich Leerzeichen ist dabei möglich. Die Dateierweiterung darf aber nicht angegeben werden. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Mehr erfahren</a>.',
+	'mwe-upwiz-tooltip-title' => 'Ein kurzer Titel für die Datei. Normaler Text einschließlich Leerzeichen ist dabei möglich. Die Dateierweiterung darf aber nicht angegeben werden. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Mehr erfahren</a>.',
 	'mwe-upwiz-dialog-title' => 'Dateien können mit Namen in jeder beliebigen Sprache und jeder Schriftart (kodiert als UTF-8) hochgeladen werden. Mediendateien sollten über einen auf den Inhalt schließen lassenden Namen verfügen.',
 	'mwe-upwiz-tooltip-description' => 'Beschreibe kurz alles Wichtige zu diesem Werk. Bei einem Foto beispielsweise die wichtigsten abgebildeten Bestandteile, den Anlass der Aufnahme und/oder den Standort.',
 	'mwe-upwiz-tooltip-categories' => 'Füge der Datei <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Kategorien">Kategorien</a> hinzu, damit sie leichter auffindbar wird.',
@@ -2007,6 +2008,7 @@ $messages['fr'] = array(
 	'mwe-upwiz-file-some-failed' => 'Certains imports ont échoué.',
 	'mwe-upwiz-file-retry' => 'Réessayer les imports qui ont échoué',
 	'mwe-upwiz-next-file-despite-failures' => 'Continuer malgré tout',
+	'mwe-upwiz-skip-tutorial-future' => "Sautez cette étape à l'avenir",
 	'mwe-upwiz-file-all-failed' => 'Aucun des imports n’a réussi.',
 	'mwe-upwiz-upload-count' => '$1 fichier{{PLURAL:$1||s}} sur $2 téléversé{{PLURAL:$1||s}}',
 	'mwe-upwiz-progressbar-uploading' => 'téléversement',
@@ -2083,9 +2085,11 @@ Veuillez vérifier <b><tt>$1</tt></b> si vous n’êtes pas sûr de vouloir le r
 	'mwe-upwiz-tooltip-author' => 'Le nom de la personne qui a pris la photo, peint le tableau, dessiné le dessin, etc.',
 	'mwe-upwiz-tooltip-source' => "L'endroit d'où vient le fichier numérique, peut être une URL, un livre ou une publication",
 	'mwe-upwiz-tooltip-sign' => "Vous pouvez utiliser votre nom d'utilisateur du wiki ou votre vrai nom. Dans les deux cas, ce sera lié à votre page utilisateur du wiki",
-	'mwe-upwiz-tooltip-title' => 'Un court titre pour le fichier. Vous pouvez utiliser un langage simple avec des espaces, mais sans sauts de ligne. Ce titre doit être différent de tous autres titres sur ce wiki.',
+	'mwe-upwiz-tooltip-title' => 'Un court et unique titre pour le fichier. Utilisez un langage simple avec des espaces. N\'inscrivez pas l\'extension du fichier. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Pour en savoir plus</a>.',
+	'mwe-upwiz-dialog-title' => "Les fichiers peuvent être téléchargés avec un nom dans n'importe quelle langue dans n'importe quel script (codé en UTF-8). Les titres des fichiers médias devraient être significatifs et utiles dans la langue choisie.",
 	'mwe-upwiz-tooltip-description' => "Décrivez brièvement tout ce qui est notable sur le travail. Pour une photo, parler des choses importantes qui sont représentés, l'occasion ou l'endroit.",
-	'mwe-upwiz-tooltip-other' => 'Toute autre information que vous souhaitez inclure à propos de ce travail. Vous pouvez utiliser du code wiki.',
+	'mwe-upwiz-tooltip-categories' => 'Ajoutez des <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">catégories</a> à votre fichier pour le rendre plus facile à trouver.',
+	'mwe-upwiz-tooltip-other' => 'Toute autre information que vous souhaitez inclure à propos de ce travail. Inscrivez les modèles de <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Géolocalisation">géolocalisation</a> ici.',
 	'mwe-upwiz-tooltip-more-info' => 'En savoir plus.',
 	'mwe-upwiz-file-need-file' => 'Veuillez ajouter d’abord un fichier à importer.',
 	'mwe-upwiz-file-need-start' => 'Veuillez cliquer sur ce bouton pour commencer vos imports.',
@@ -2119,6 +2123,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-categories' => 'Catégories',
 	'mwe-upwiz-categories-add' => 'Ajouter',
 	'mwe-upwiz-category-remove' => 'Enlever cette catégorie',
+	'mwe-upwiz-thanks-caption' => 'Ajouter une légende ici',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2295,6 +2300,7 @@ $messages['gl'] = array(
 	'mwe-upwiz-file-some-failed' => 'Algunhas cargas fallaron.',
 	'mwe-upwiz-file-retry' => 'Repetir as cargas erróneas',
 	'mwe-upwiz-next-file-despite-failures' => 'Continuar de calquera xeito',
+	'mwe-upwiz-skip-tutorial-future' => 'Saltar este paso no futuro',
 	'mwe-upwiz-file-all-failed' => 'Non se completou ningunha das cargas.',
 	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|ficheiro|ficheiros}} de $2 {{PLURAL:$1|subido|subidos}}',
 	'mwe-upwiz-progressbar-uploading' => 'subindo',
@@ -2371,7 +2377,7 @@ Está certo de querer saír desta páxina?',
 	'mwe-upwiz-tooltip-source' => 'O lugar de procedencia deste ficheiro dixital; pode ser un URL, un libro ou unha publicación',
 	'mwe-upwiz-tooltip-sign' => 'Pode empregar o nome de usuario que ten no wiki ou o seu nome real.
 En calquera caso, haberá unha ligazón cara a súa páxina de usuario do wiki.',
-	'mwe-upwiz-tooltip-title' => 'Un título curto e único para o ficheiro. Sería bo utilizar unha lingua sinxela con espazos. Non inclúa a extensión do ficheiro. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Máis información</a>.',
+	'mwe-upwiz-tooltip-title' => 'Un título curto e único para o ficheiro. Sería bo utilizar unha lingua sinxela con espazos. Non inclúa a extensión do ficheiro. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Máis información</a>.',
 	'mwe-upwiz-dialog-title' => 'Os ficheiros pódense cargar con nomes en calquera lingua e alfabeto (codificado como UTF-8). Os títulos dos ficheiros multimedia deben ser significativos e útiles na lingua elixida.',
 	'mwe-upwiz-tooltip-description' => 'Describa brevemente calquera cousa salientable da obra.
 Para unha foto, mencione as principais cousas que están representadas, a ocasión ou o lugar.',
@@ -2554,7 +2560,7 @@ Bisch sicher, ass Du e anderi Syte witt ufruefe?',
 	'mwe-upwiz-tooltip-author' => 'Dr Name vu dr Person, wu entwäder s Foto gmacht het, s Bild gmolt, d Zeichnig aagfertigt, usw. het',
 	'mwe-upwiz-tooltip-source' => 'Wu die Datei här stammt - des cha ne URL, e Buech oder e Publikation, usw. syy.',
 	'mwe-upwiz-tooltip-sign' => 'Du chasch Dyy Benutzername uf däm Wiki oder Dyy burgerlige Name bruche. In beede Fäll wird er mit Dyyre Benutzersyte verchnipft.',
-	'mwe-upwiz-tooltip-title' => 'E churze Titel fir d Datei. Du chasch doderby normale Text un au Läärzeiche verwände. D Dateierwyterig derf aber nit aagee wäre. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Meh Informatione</a>.',
+	'mwe-upwiz-tooltip-title' => 'E churze Titel fir d Datei. Du chasch doderby normale Text un au Läärzeiche verwände. D Dateierwyterig derf aber nit aagee wäre. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Meh Informatione</a>.',
 	'mwe-upwiz-dialog-title' => 'Dateie chenne mit Näme in e jedere beliebige Sproch un jedere Schriftart (kodiert as UTF-8) uffeglade wäre. Mediedateie sotte ne Name haa, wu uf dr Inhalt cha gschlosse wäre.',
 	'mwe-upwiz-tooltip-description' => 'Bschryyb churz alles Wichtig zue däm Wärch.
 Bin eme Foto zem Byschpel di wichtigschte abbildete Bstandteil, dr Aalass vu dr Ufnahm un/oder dr Standort.',
@@ -2745,7 +2751,7 @@ $messages['he'] = array(
 	'mwe-upwiz-tooltip-source' => 'מאין הגיע הקובץ הזה – כתובת URL, ספר או פרסום',
 	'mwe-upwiz-tooltip-sign' => 'אפשר להשתמש בשם המשתמש שלכם בוויקי או בשמכם האמתי.
 בשני המקרים, זה יקושר לדף המשתמש שלך בוויקי',
-	'mwe-upwiz-tooltip-title' => 'כותרת קצרה וייחודית עבור הקובץ. אפשר להשתמש בשפה פשוטה עם רווחים. אין לכלול סיומת קובץ. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">למידע נוסף</a>.',
+	'mwe-upwiz-tooltip-title' => 'כותרת קצרה וייחודית לקובץ. אפשר להשתמש בשפה פשוטה עם רווחים. אין לכלול סיומת קובץ. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">למידע נוסף</a>.',
 	'mwe-upwiz-dialog-title' => 'אפשר להעלות קבצים עם שמות בכל שפה ובכל שיטת כתב (בקידוד UTF-8). כותרות של קובצי מדיה צריכות להיות משמעותיות ומועילות באותה שפה.',
 	'mwe-upwiz-tooltip-description' => 'תארו בקצרה את כל הדברים החשובים על היצירה.
 עבור תמונה, הזכירו את הדברים העיקריים שמוצגים בה, את האירוע או את המקום.',
@@ -3114,7 +3120,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-tooltip-source' => 'Zwotkelž tuta dataja pochadaš - móže to URL, kniha abo publikacija być.',
 	'mwe-upwiz-tooltip-sign' => 'Móžeš swoje wužiwarske mjeno abo swoje woprawdźite mjeno wužiwać.
 We woběmaj padomaj budźe so to k twojej wužiwarskej stronje wotkazować.',
-	'mwe-upwiz-tooltip-title' => 'Krótki jónkróćny titul za dataju. Móžeš połnu rěč z mjezerami wužiwać. Njezapřijimaj datajowy sufiks. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Dalše informacije</a>.',
+	'mwe-upwiz-tooltip-title' => 'Krótki jónkróćny titul za dataju. Móžeš połnu rěč z mjezerami wužiwać. Njezapřijimaj datajowy sufiks. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Dalše informacije</a>.',
 	'mwe-upwiz-dialog-title' => 'Dataje dadźa so z mjenami w kóždejžkuli rěči a w kóždymžkuli pismje nahrać (jako UTF.8 kodowane). Titule medijowych datajow měli we wubranej rěči wuprajiwe a pomocliwe być.',
 	'mwe-upwiz-tooltip-description' => 'Wopisaj krótko wšitko wažne wo dźěle.
 Za foto naspomni hłowne wěcy, kotrež su zwobraznjene, składnosć abo městno.',
@@ -3396,6 +3402,7 @@ $messages['ia'] = array(
 	'mwe-upwiz-file-some-failed' => 'Alcun incargamentos ha fallite.',
 	'mwe-upwiz-file-retry' => 'Reprobar le incargamentos fallite',
 	'mwe-upwiz-next-file-despite-failures' => 'Continuar totevia',
+	'mwe-upwiz-skip-tutorial-future' => 'Saltar iste passo in le futuro',
 	'mwe-upwiz-file-all-failed' => 'Nulle del incargamentos ha succedite.',
 	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|file|files}} de $2 {{PLURAL:$2|file|files}} incargate',
 	'mwe-upwiz-progressbar-uploading' => 'incargamento',
@@ -3470,7 +3477,7 @@ $messages['ia'] = array(
 	'mwe-upwiz-tooltip-author' => 'Le nomine del persona qui prendeva le photo, o pingeva le pictura, designava le designo, etc.',
 	'mwe-upwiz-tooltip-source' => 'De ubi veniva iste file digital: pote esser un URL, o un libro o publication',
 	'mwe-upwiz-tooltip-sign' => 'Tu pote usar tu nomine de usator wiki o tu nomine real. In ambe casos, isto essera ligate a tu pagina de usator wiki',
-	'mwe-upwiz-tooltip-title' => 'Un titulo curte e unic pro le file. Tu pote usar linguage simple con spatios. Non includer le extension del nomine del file. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Leger plus</a>.',
+	'mwe-upwiz-tooltip-title' => 'Un titulo curte e unic pro le file. Tu pote usar linguage simple con spatios. Non includer le extension del nomine del file. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Leger plus</a>.',
 	'mwe-upwiz-dialog-title' => 'Files pote esser incargate con nomines in omne lingua in omne alphabeto (codificate in UTF-8). Titulos de files multimedia debe esser significative e informative in le lingua seligite.',
 	'mwe-upwiz-tooltip-description' => 'Describe brevemente tote le aspectos notabile de iste obra. Pro un photo, mentiona le cosas principal que es representate, le occasion o le loco.',
 	'mwe-upwiz-tooltip-categories' => 'Adde <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorias</a> a tu file pro render lo plus facile a trovar.',
@@ -3654,7 +3661,7 @@ Anda yakin ingin keluar dari halaman ini?',
 	'mwe-upwiz-tooltip-source' => 'Tempat asal berkas digital ini -- bisa berupa URL, buku atau terbitan',
 	'mwe-upwiz-tooltip-sign' => 'Anda dapat menggunakan nama pengguna wiki atau nama asli Anda.
 Untuk kedua nama akan dihubungkan ke halaman pengguna wiki Anda.',
-	'mwe-upwiz-tooltip-title' => 'Judul singkat yang unik untuk berkas. Anda dapat menggunakan bahasa sederhana dengan spasi. Jangan menyertakan ekstensi berkas. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Pelajari lebih lanjut</a> .',
+	'mwe-upwiz-tooltip-title' => 'Judul singkat yang unik untuk berkas. Anda dapat menggunakan bahasa sederhana dengan spasi. Jangan menyertakan ekstensi berkas. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Pelajari lebih lanjut</a> .',
 	'mwe-upwiz-dialog-title' => 'Berkas dapat diunggah dengan nama dalam bahasa apa pun dan dalam skrip apa pun (dikodekan sebagai UTF-8). Judul berkas media harus bermakna dan membantu dalam bahasa yang dipilih.',
 	'mwe-upwiz-tooltip-description' => 'Jelaskan dengan singkat hal-hal penting tentang karya ini.
 Untuk foto, sebutkan hal-hal utama yang ditampilkan, kesempatan atau tempat yang ditampilkan di foto.',
@@ -4026,7 +4033,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-tooltip-source' => 'このデジタルファイルの出どころ（URL、本や出版物など）',
 	'mwe-upwiz-tooltip-sign' => 'あなたのウィキでの名前や、本名を使うことができます。
 どちらの場合でも、ウィキの利用者ページへリンクされます。',
-	'mwe-upwiz-tooltip-title' => 'ファイル固有の短いタイトル。拡張子は含めないで、平易な言葉を使用してください。<a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">詳細はこちら</a>。',
+	'mwe-upwiz-tooltip-title' => 'ファイル固有の短いタイトル。拡張子は含めないで、平易な言葉を使用してください。<a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">詳細はこちら</a>。',
 	'mwe-upwiz-dialog-title' => 'ファイル名は、（文字コードがUTF-8の）どの言語によるものであってもアップロードすることが可能です。ファイル名は、選択した言語で有用かつ意味のあるものでなくてはなりません。',
 	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのかについて述べてください。',
@@ -4384,7 +4391,7 @@ Sidd Dir sécher datt Dir elo eng aner Säit opruffe wëllt?',
 	'mwe-upwiz-tooltip-source' => 'Wou dëse Fichier hierkënnt -- dëst kann eng URL, oder e Buch oder eng aner Publikatioun sinn',
 	'mwe-upwiz-tooltip-sign' => 'Dir kënnt Äre Wiki-Benotzernumm oder Äre richtegen Numm benotzen.
 An deene zwee Fäll, gëtt et mat Ärer Wiki-Benotzersäit verlinkt.',
-	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier, deen anescht ass wéi all déi aner op dëser Wiki. Dir kënnt dobäi Text mat Espace benotzen. D\'Erweiderung vum Fichier soll net ugi ginn. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Fir méi ze wëssen</a>.',
+	'mwe-upwiz-tooltip-title' => 'E kuerzen Titel fir de Fichier, deen anescht ass wéi all déi aner op dëser Wiki. Dir kënnt dobäi Text mat Espace benotzen. D\'Erweiderung vum Fichier soll net ugi ginn. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Fir méi ze wëssen</a>.',
 	'mwe-upwiz-tooltip-description' => "Beschreift w.e.g. kuerz dat Wichtegst vun dësem Wierk.
 fir eng Photo, ernimmt déi Haaptsaachen déi drop sinn, d'Geleeënheet oder d'Plaz",
 	'mwe-upwiz-tooltip-other' => 'All aner Informatioun déi Dir bäi Äert Wierk derbäisetze wëllt.
@@ -4498,6 +4505,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-file-some-failed' => 'Некои податотеки не успејаа да се подигнат.',
 	'mwe-upwiz-file-retry' => 'Повтори го подигањето на неуспешните',
 	'mwe-upwiz-next-file-despite-failures' => 'Сепак продолжи',
+	'mwe-upwiz-skip-tutorial-future' => 'Во иднина прескокнувај го овој чекор',
 	'mwe-upwiz-file-all-failed' => 'Не успеав да подигнам ниту една податотека',
 	'mwe-upwiz-upload-count' => '{{PLURAL:$1|Подигната е $1|Подигнати се $1}} од {{PLURAL:$2|$2 податотека|$2 податотеки}}',
 	'mwe-upwiz-progressbar-uploading' => 'подигам',
@@ -4572,7 +4580,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-tooltip-author' => 'Име на лицето што ја направило фотографијата, ја насликало сликата, го нацтрало цртежот и тн.',
 	'mwe-upwiz-tooltip-source' => 'Од каде е оваа дигитална податотека -- може да е URL, или пак книга или друга публијација',
 	'mwe-upwiz-tooltip-sign' => 'Можете да го употребите вашето корисничко име на викито, или пак вашето вистинско име. Во обата случаја ова ќе води до вашата корисничка страница',
-	'mwe-upwiz-tooltip-title' => 'Краток и единствен наслов на податотеката. Можете да користите прост јазик со меѓупростор, но не пишувајте ја податотечната наставка. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Дознајте повеќе</a>.',
+	'mwe-upwiz-tooltip-title' => 'Краток и единствен наслов на податотеката. Можете да користите прост јазик со меѓупростор, но не пишувајте ја податотечната наставка. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Дознајте повеќе</a>.',
 	'mwe-upwiz-dialog-title' => 'Податотеките можат да се подигаат со имиња на секој јазик, со секое писмо (кодирано како UTF-8). Насловите на снимките треба да се описни и корисни на избраниот јазик.',
 	'mwe-upwiz-tooltip-description' => 'Накратко опишете го сето она што е значајно за делото. Ако е фотографија, споменете ги главните нешта што се прикажани на неа, настанот или местото.',
 	'mwe-upwiz-tooltip-categories' => 'Додајте ѝ <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">категории</a> на податотеката за да може полесно да се најде.',
@@ -4680,6 +4688,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-file-some-failed' => 'ചില അപ്‌ലോഡുകൾ പരാജയപ്പെട്ടു.',
 	'mwe-upwiz-file-retry' => 'പരാജയപ്പെട്ട അപ്‌ലോഡുകൾ വീണ്ടും ശ്രമിക്കുക',
 	'mwe-upwiz-next-file-despite-failures' => 'എന്തായാലും തുടരുക',
+	'mwe-upwiz-skip-tutorial-future' => 'ഭാവിയിൽ ഈ ഘട്ടം ഒഴിവാക്കുക',
 	'mwe-upwiz-file-all-failed' => 'എല്ലാ അപ്‌ലോഡും പരാജയപ്പെട്ടു.',
 	'mwe-upwiz-upload-count' => '{{PLURAL:$2|ഒരു പ്രമാണത്തിൽ|ആകെയുള്ള $2 പ്രമാണങ്ങളിൽ}} {{PLURAL:$1|ഒരെണ്ണം|$1 എണ്ണം}} അപ്‌ലോഡ് ചെയ്തിരിക്കുന്നു',
 	'mwe-upwiz-progressbar-uploading' => 'അപ്‌ലോഡ് ചെയ്യുന്നു',
@@ -4756,7 +4765,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-tooltip-source' => 'എവിടെ നിന്നാണീ ഡിജിറ്റൽ പ്രമാണം ലഭിച്ചത് -- ഒരു യൂ.ആർ.എൽ. അല്ലെങ്കിൽ പുസ്തകം അല്ലെങ്കിൽ പ്രസിദ്ധീകരണം ആകാം',
 	'mwe-upwiz-tooltip-sign' => 'താങ്കൾക്ക് താങ്കളുടെ വിക്കി ഉപയോക്തൃനാമമോ താങ്കളുടെ യഥാർത്ഥ പേരോ ഉപയോഗിക്കാവുന്നതാണ്.
 ഇരു അവസരങ്ങളിലും, താങ്കളുടെ വിക്കി ഉപയോക്തൃതാളിലേയ്ക്ക് കണ്ണി ചേർക്കപ്പെടുന്നതാണ്.',
-	'mwe-upwiz-tooltip-title' => 'പ്രമാണത്തിനുള്ള ചെറിയ അനന്യമായ തലക്കെട്ട്. വാക്കുകൾക്കിടയിൽ ഇടവിട്ടുള്ള ലളിതഭാഷ ഉപയോഗിക്കാം. പ്രമാണത്തിന്റെ എക്സ്റ്റെൻഷൻ ഉൾപ്പെടുത്തരുത്. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">കൂടുത അറിയുക</a>.',
+	'mwe-upwiz-tooltip-title' => 'പ്രമാണത്തിനുള്ള ചെറിയ അനന്യമായ തലക്കെട്ട്. വാക്കുകൾക്കിടയിൽ ഇടവിട്ടുള്ള ലളിതഭാഷ ഉപയോഗിക്കാം. പ്രമാണത്തിന്റെ എക്സ്റ്റെൻഷൻ ഉൾപ്പെടുത്തരുത്. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">കൂടുത അറിയുക</a>.',
 	'mwe-upwiz-dialog-title' => 'ഏതൊരു ഭാഷയുടേയും ഏതൊരു ലിപിയിലും (UTF-8) പേരു നൽകി പ്രമാണം അപ്‌ലോഡ് ചെയ്യാം. ഉപയോഗിക്കുന്ന ഭാഷയിൽ അർത്ഥമുള്ളതും സഹായകവുമായ തലക്കെട്ടുകൾ ആയിരിക്കണം മീഡിയ പ്രമാണങ്ങളിൽ നൽകേണ്ടത്.',
 	'mwe-upwiz-tooltip-description' => 'ഈ കൃതിയെക്കുറിച്ചുള്ള ശ്രദ്ധേയമായ എല്ലാം ചുരുക്കി ചേർക്കുക.
 ഒരു ഫോട്ടോയിൽ, പതിഞ്ഞിരിക്കുന്ന പ്രധാന കാര്യം, വേള, സ്ഥലം തുടങ്ങിയ വിവരങ്ങൾ ഉൾപ്പെടുത്താം.',
@@ -4814,6 +4823,13 @@ $messages['mn'] = array(
 $messages['my'] = array(
 	'mwe-upwiz-code-unknown' => 'အမည်မသိ ဘာသာစကား',
 	'mwe-upwiz-step-file' => 'Upload တင်ရန်',
+);
+
+/** Mazanderani (مازِرونی)
+ * @author محک
+ */
+$messages['mzn'] = array(
+	'mwe-upwiz-categories' => 'رج‌ئون',
 );
 
 /** Dutch (Nederlands)
@@ -4962,7 +4978,7 @@ Probeer het later opnieuw.',
 	'mwe-upwiz-tooltip-author' => 'De naam van de persoon die de foto heeft genomen, het schilderij of de tekening heeft gemaakt, enzovoort.',
 	'mwe-upwiz-tooltip-source' => 'Waar komt het digitale bestand vandaan? Dit kan een URL, een boek of publicatie zijn.',
 	'mwe-upwiz-tooltip-sign' => 'U kunt uw wikigebruikersnaam of uw echte naam gebruiken. In beide gevallen wordt deze gekoppeld aan uw gebruikerspagina in de wiki',
-	'mwe-upwiz-tooltip-title' => 'Een korte naam voor het bestand. U kunt platte tekst met spaties gebruiken. Neem de bestandsextensie niet op. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Meer informatie</a>.',
+	'mwe-upwiz-tooltip-title' => 'Een korte naam voor het bestand. U kunt platte tekst met spaties gebruiken. Neem de bestandsextensie niet op. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Meer informatie</a>.',
 	'mwe-upwiz-dialog-title' => 'Bestanden kunnen geüpload worden met een naam in een willekeurige taak in een willekeurig schrift (gecodeerd als UTF-8). Namen van mediabestanden horen betekenisvol te zijn in de gekozen taal.',
 	'mwe-upwiz-tooltip-description' => 'Beschrijf het werk. Vermeld voor een foto bijvoorbeeld wat er te zien is, wanneer de foto is genomen, bij welke gelegenheid, enzovoort.',
 	'mwe-upwiz-tooltip-categories' => 'Voeg <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorieën</a> toe aan uw bestand om het makkelijker vindbaar te maken.',
@@ -5316,7 +5332,7 @@ Czy na pewno chcesz opuścić tę stronę?',
 	'mwe-upwiz-tooltip-source' => 'Skąd pochodzi ten plik: adres URL, książka lub publikacja',
 	'mwe-upwiz-tooltip-sign' => 'Możesz użyć swojej nazwy użytkownika lub prawdziwego nazwiska.
 W obu przypadkach link będzie prowadził do Twojej strony użytkownika.',
-	'mwe-upwiz-tooltip-title' => 'Krótka unikalna nazwa pliku. Możesz użyć prostego języka i spacji. Nie dodawaj rozszerzenia pliku. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Więcej informacji</a>.',
+	'mwe-upwiz-tooltip-title' => 'Krótka unikalna nazwa pliku. Możesz użyć prostego języka i spacji. Nie dodawaj rozszerzenia pliku. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Więcej informacji</a>.',
 	'mwe-upwiz-dialog-title' => 'Przesyłane pliki mogą mieć nazwy w dowolnym języku i zapisie (kodowanie UTF-8). Nazwy plików powinny zrozumiale opisywać zawartość w wybranym języku.',
 	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko istotne, co dotyczy tej pracy. 
 W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejsce.',
@@ -5683,7 +5699,7 @@ $messages['pt'] = array(
 	'mwe-upwiz-tooltip-author' => 'O nome da pessoa que tirou a fotografia, pintou o quadro, fez o desenho, etc.',
 	'mwe-upwiz-tooltip-source' => 'De onde veio este ficheiro digital; pode ser uma URL, ou um livro ou publicação',
 	'mwe-upwiz-tooltip-sign' => 'Pode usar o seu nome de utilizador na wiki ou o seu nome verdadeiro. Em ambos os casos, isto ficará ligado à sua página de utilizador da wiki',
-	'mwe-upwiz-tooltip-title' => 'Um título curto e único para o ficheiro. Pode usar linguagem simples com espaços. Não inclua a extensão do ficheiro. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Ler mais</a>.',
+	'mwe-upwiz-tooltip-title' => 'Um título curto e único para o ficheiro. Pode usar linguagem simples com espaços. Não inclua a extensão do ficheiro. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Ler mais</a>.',
 	'mwe-upwiz-dialog-title' => 'Podem ser carregados ficheiros com nomes em qualquer língua e em qualquer alfabeto (codificado como UTF-8). Os títulos dos ficheiros multimédia devem ter um significado e ser úteis na língua escolhida.',
 	'mwe-upwiz-tooltip-description' => 'Descreva de forma breve todos os elementos de nota sobre a obra. Para uma fotografia, mencione as principais coisas que estão fotografadas, a ocasião e o sítio.',
 	'mwe-upwiz-tooltip-categories' => 'Adicione <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categorias</a> ao seu ficheiro para torná-lo mais fácil de encontrar.',
@@ -6012,6 +6028,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-file-some-failed' => 'Некоторые загрузки не состоялись.',
 	'mwe-upwiz-file-retry' => 'Повторить неудавшиеся загрузки',
 	'mwe-upwiz-next-file-despite-failures' => 'Все равно продолжить',
+	'mwe-upwiz-skip-tutorial-future' => 'Пропустить этот шаг в будущем',
 	'mwe-upwiz-file-all-failed' => 'Ни одна из загрузок не удалась.',
 	'mwe-upwiz-upload-count' => '{{PLURAL:$1|Передан $1 файл|Передано $1 файла|Передано $1 файлов}} из $2 {{PLURAL:$2|файла|файла|файлов}}',
 	'mwe-upwiz-progressbar-uploading' => 'загрузка на сервер',
@@ -6086,7 +6103,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-tooltip-author' => 'Имя человека, который сделал фотографию, нарисовал картину или рисунок и т. д.',
 	'mwe-upwiz-tooltip-source' => 'Откуда получен этот цифровой файл, это может быть URL, название книги или публикации',
 	'mwe-upwiz-tooltip-sign' => 'Вы можете использовать своё имя участника вики или настоящее имя. В обоих случаях с него будет ссылка на вашу страницу участника в вики',
-	'mwe-upwiz-tooltip-title' => 'Краткое уникальное название файла. Вы можете использовать простой текст с пробелами. Не указывайте расширение. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Подробнее</a>.',
+	'mwe-upwiz-tooltip-title' => 'Краткое уникальное название файла. Вы можете использовать простой текст с пробелами. Не указывайте расширение. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Подробнее</a>.',
 	'mwe-upwiz-dialog-title' => 'Файлы могут быть загружены с названиями на любом языке, в любой системе письма (кодируемой в UTF-8). Названия медиа-файлов должны быть описательными, полезными для понимания содержания файла.',
 	'mwe-upwiz-tooltip-description' => 'Кратко опишите всё самое важное об этом произведении. Для фото, укажите что изображено, где сделана фотография, при каких обстоятельствах.',
 	'mwe-upwiz-tooltip-categories' => 'Укажите <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">категории</a> для файла, чтобы его можно было проще найти.',
@@ -6341,6 +6358,7 @@ $messages['sl'] = array(
 	'mwe-upwiz-file-some-failed' => 'Nalaganje nekaterih datotek je spodletelo.',
 	'mwe-upwiz-file-retry' => 'Znova naloži spodletele datoteke',
 	'mwe-upwiz-next-file-despite-failures' => 'Vseeno nadaljuj',
+	'mwe-upwiz-skip-tutorial-future' => 'V prihodnje preskoči ta korek',
 	'mwe-upwiz-file-all-failed' => 'Nobena od datotek ni bila uspešno naložena.',
 	'mwe-upwiz-upload-count' => 'naložena $1 od $2 {{PLURAL:$2|datoteke|datotek}}',
 	'mwe-upwiz-progressbar-uploading' => 'nalaganje',
@@ -6418,7 +6436,7 @@ Ali ste prepričani, da želite vseeno oditi s te strani?',
 	'mwe-upwiz-tooltip-source' => 'Od koder je prišla ta digitalna datoteka – lahko je URL, knjiga ali objava',
 	'mwe-upwiz-tooltip-sign' => 'Uporabite lahko vaše uporabniško ime na wikiju ali vaše pravo ime.
 V obeh primerih bo vpisano ime povezano na vašo uporabniško stran na wikiju.',
-	'mwe-upwiz-tooltip-title' => 'Kratek edinstven naslov datoteke. Uporabljate lahko navaden jezik s presledki. Ne vključujte datotečne končnice. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Več informacij</a>.',
+	'mwe-upwiz-tooltip-title' => 'Kratek edinstven naslov datoteke. Uporabljate lahko navaden jezik s presledki. Ne vključujte datotečne končnice. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Več informacij</a>.',
 	'mwe-upwiz-dialog-title' => 'Datoteke je mogoče naložiti z imeni v katerem koli jeziku in v kateri koli pisavi (kodirano kot UTF-8). Naslovi predstavnostnih datotek naj bodo smiselni in koristni v izbranem jeziku.',
 	'mwe-upwiz-tooltip-description' => 'Na kratko opišite vse opaznejše o delu.
 Pri fotografiji omenite glavne stvari, ki so upodobljene, priložnost ali kraj.',
@@ -6985,7 +7003,7 @@ Nakatitiyak ka bang nais mong lumibot na palayo mula sa pahinang ito?',
 	'mwe-upwiz-tooltip-source' => 'Kung saan nakuha ang talaksang dihital -- maaaring isang URL, o isang aklat o lathalain',
 	'mwe-upwiz-tooltip-sign' => 'Maaari mong gamitin ang iyong pangalan ng tagagamit sa wiki o tunay mong pangalan.
 Sa parehong pagkakataon, ikakawing ito sa iyong pahina ng tagagamit sa wiki.',
-	'mwe-upwiz-tooltip-title' => 'Isang maliit na natatanging pamagat para sa talaksan.  Maaari kang gumamit ng payak na wika na may mga patlang.  Huwag isama ang dugtong ng talaksan. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Dagdagan pa ang nalalaman</a>.',
+	'mwe-upwiz-tooltip-title' => 'Isang maliit na natatanging pamagat para sa talaksan.  Maaari kang gumamit ng payak na wika na may mga patlang.  Huwag isama ang dugtong ng talaksan. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Dagdagan pa ang nalalaman</a>.',
 	'mwe-upwiz-dialog-title' => 'Maikakarga ang mga talaksan na may mga pangalan sa anumang wika sa anumang panitik (naikodigo bilang UTF-8).  Ang mga pamagat ng mga talaksan ng midya ay dapat na makahulugan at makakatulong sa napiling wika.',
 	'mwe-upwiz-tooltip-description' => 'Maiksing ilarawan ang lahat ng mga katangi-tangi hinggil sa akda.
 Para sa isang larawan, banggitin ang pangunahing mga bagay na nilalarawan, ang okasyon, o ang lugar.',
@@ -7344,7 +7362,7 @@ Bạn có chắc muốn rời khỏi trang này?',
 	'mwe-upwiz-tooltip-source' => 'Nơi mà tập tin số này được tìm thấy, thí dụ địa chỉ URL hay cuốn sách',
 	'mwe-upwiz-tooltip-sign' => 'Có thể sử dụng tên đăng nhập trên wiki hoặc tên thật của bạn.
 Dù sao, tên này sẽ được liên kết đến trang cá nhân của bạn trên wiki.',
-	'mwe-upwiz-tooltip-title' => 'Tên ngắn và duy nhất cho tập tin. Có thể dùng thuật ngữ bình thường với khoảng cách. Đừng bao gồm phần mở rộng tập tin. <a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">Tìm hiểu thêm</a>.',
+	'mwe-upwiz-tooltip-title' => 'Tên ngắn và duy nhất cho tập tin. Có thể dùng thuật ngữ bình thường với khoảng cách. Đừng bao gồm phần mở rộng tập tin. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Tìm hiểu thêm</a>.',
 	'mwe-upwiz-dialog-title' => 'Có thể đặt tên tập tin trong bất kỳ ngôn ngữ và hệ thống viết (cần bảng mã UTF-8). Bất chấp ngôn ngữ, nên chọn tên tập tin dễ đọc và miêu tả đầy đủ.',
 	'mwe-upwiz-tooltip-description' => 'Miêu tả một cách ngắn gọn mỗi điều đáng kể về tác phẩm này.
 Nếu là hình chụp, hãy nói đến những vật thể chính, cũng như tình hình, sự kiện, hay địa điểm của hình chụp.',
@@ -7461,6 +7479,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-file-some-failed' => '一些上载失败。',
 	'mwe-upwiz-file-retry' => '重试失败的上载',
 	'mwe-upwiz-next-file-despite-failures' => '继续',
+	'mwe-upwiz-skip-tutorial-future' => '不再显示此步骤',
 	'mwe-upwiz-file-all-failed' => '没有一个上载成功。',
 	'mwe-upwiz-upload-count' => '在$2{{PLURAL:$2|个|个}}档案之中，$1个档案已上传',
 	'mwe-upwiz-progressbar-uploading' => '上传中',
@@ -7538,7 +7557,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-tooltip-source' => '这个数码档从何来？可以是一个URL、一本书或一个出版物',
 	'mwe-upwiz-tooltip-sign' => '你可以使用你的维基用户名称或您的真实姓名。 
 在这两种情况下，这将连结到你在维基的用户页',
-	'mwe-upwiz-tooltip-title' => '一个此档案的短标题。你可以使用简单文字说明，可以使用空格。不需要添加扩展名。<a target="_blank" onclick="$titleDialog.dialog(\'open\');return false;" href="#">详细了解</a>。
+	'mwe-upwiz-tooltip-title' => '一个此档案的短标题。你可以使用简单文字说明，可以使用空格。不需要添加扩展名。<a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">详细了解</a>。
 
 这个标题一定要和其他在此站上的标题不同。',
 	'mwe-upwiz-dialog-title' => '可以将文件上载与任何脚本（以 UTF-8 编码）中任何一种语言中的名称。媒体文件的标题应该是有意义和有益的选择的语言。',
