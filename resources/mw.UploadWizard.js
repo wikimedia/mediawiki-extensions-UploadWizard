@@ -425,6 +425,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
 			.click( function() {
+				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide') } ); // close tipsy help balloons
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
 				if ( _this.deedChooser.valid() ) {
@@ -457,6 +458,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
 			.click( function() {
+				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide') } ); // close tipsy help balloons
 				if ( _this.detailsValid() ) { 
 					_this.detailsSubmit( function() { 
 						_this.prefillThanksPage();
