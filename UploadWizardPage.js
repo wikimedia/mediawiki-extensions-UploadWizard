@@ -6,7 +6,7 @@
  * compact configuration, owned by the UploadWizard created.
  */
 
-// create UploadWizard
+// Create UploadWizard
 mw.UploadWizardPage = function() {
 	
 	var config = mw.config.get( 'UploadWizardConfig' );

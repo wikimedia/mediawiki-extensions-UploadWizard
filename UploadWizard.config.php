@@ -4,7 +4,7 @@
  * Do not modify this file, instead use localsettings.php and set: 
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath;
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules;
 return array(
 	// Upload wizard has an internal debug flag	
 	'debug' => false,
@@ -14,6 +14,12 @@ return array(
 
 	// File extensions acceptable in this wiki
 	'fileExtensions' =>  $wgFileExtensions, 
+
+	// Check if we want to enable firefogg ( for transcoding ) 
+	'enableFirefogg' => true, 
+
+	// Check if we have the firefogg upload api module enabled: 
+	'enableFirefoggChunkUpload' => isset( $wgAPIModules['firefoggupload'] )? true : false,
 
 	// The default api url is for the current wiki ( can override at run time )
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',

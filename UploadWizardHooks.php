@@ -71,6 +71,13 @@ class UploadWizardHooks {
 
 				// main library
 				'resources/mw.UploadWizard.js',
+			
+				// main library components: 
+				'resources/mw.UploadWizardDeed.js',
+				'resources/mw.UploadWizardDescription.js',
+				'resources/mw.UploadWizardDetails.js',
+				'resources/mw.UploadWizardUploadInterface.js',
+				
 
 				// launcher
 				'UploadWizardPage.js'
