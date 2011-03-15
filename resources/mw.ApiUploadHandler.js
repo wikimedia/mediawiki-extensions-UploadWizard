@@ -10,10 +10,25 @@
  * Represents an object which configures a form to upload its files via an iframe talking to the MediaWiki API.
  * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
  */
-mw.ApiUploadHandler = function( upload ) {
+mw.ApiUploadHandler = function( upload, api ) {
 	this.upload = upload;
-	// setup up local pointer to api: 
-	this.api = upload.api;		
+	this.api = api;
+	this.$form = $j( this.upload.ui.form );
+	this.configureForm();
+
+	// the Iframe transport is hardcoded for now because it works everywhere
+	// can also use Xhr Binary depending on browser
+	var _this = this;
+	this.transport = new mw.IframeTransport(
+		this.$form,
+		function( fraction ) { 
+			_this.upload.setTransportProgress( fraction ); 
+		},
+		function( result ) { 	
+			_this.upload.setTransported( result ); 
+		}
+	);
+
 };
 
 mw.ApiUploadHandler.prototype = {
@@ -44,40 +59,7 @@ mw.ApiUploadHandler.prototype = {
 		}
 		*/
 	},
-	getTransport: function(){
-		if( this.transport ){
-			return this.transport;
-		}
-		this.transport = new mw.IframeTransport(
-				this.getForm(),
-				function( fraction ) { 
-					_this.upload.setTransportProgress( fraction ); 
-				},
-				function( result ) { 	
-					_this.upload.setTransported( result ); 
-				}
-			);
-		return this.transport ;
-	},
-	getForm: function(){
-		if( this.upload && this.upload.ui && this.upload.ui.form ){
-			this.configureForm();
-			return $j( this.upload.ui.form );
-		}
-		mw.log("Error:: could not get form")
-		return false;
-	},
-	/**
-	 * Get a pointer to the "file" input control 
-	 */
-	getInputControl: function(){
-		var _this = this;
-		return $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>')
-				.change( function() { 
-					_this.upload.ui.fileChanged(); 
-				} );
-	},
-	
+
 	/** 
 	 * Modify our form to have a fresh edit token.
 	 * If successful, return true to a callback.
@@ -100,8 +82,8 @@ mw.ApiUploadHandler.prototype = {
 	 * @param value the value of the input
 	 */
 	addFormInputIfMissing: function( name, value ) {
-		if ( this.getForm().find( "[name='" + name + "']" ).length === 0 ) {
-			this.getForm().append( $j( '<input />' ) .attr( { 'type': "hidden", 'name': name, 'value': value } ));
+		if ( this.$form.find( "[name='" + name + "']" ).length === 0 ) {
+			this.$form.append( $j( '<input />' ) .attr( { 'type': "hidden", 'name': name, 'value': value } ));
 		}		
 	},
 
@@ -115,7 +97,7 @@ mw.ApiUploadHandler.prototype = {
 			_this.beginTime = ( new Date() ).getTime();
 			_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 			_this.upload.ui.showTransportProgress();
-			_this.getForm().submit();
+			_this.$form.submit();
 		};
 		var err = function( code, info ) {
 			_this.upload.setError( code, info );

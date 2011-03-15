@@ -14,7 +14,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	_this.div = $j('<div class="mwe-upwiz-file"></div>').get(0);
 	_this.isFilled = false;
 
-	_this.$fileInputCtrl = _this.upload.getUploadHandler().getInputControl(); 
+	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>')
+				.change( function() { _this.fileChanged(); } );
 
 	_this.$indicator = $j( '<div class="mwe-upwiz-file-indicator"></div>' );
 
@@ -337,10 +338,6 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * @return boolean if extension was acceptable
 	 */
 	isGoodExtension: function( ext ) {
-		// ugly but we don't have a base "uploadHandler" class
-		if( this.upload.getUploadHandler().isGoodExtension ){
-			return this.upload.getUploadHandler().isGoodExtension( ext );
-		}
 		return $j.inArray( ext.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
 	}
 

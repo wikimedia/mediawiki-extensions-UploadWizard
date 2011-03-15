@@ -22,17 +22,17 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	this.transportWeight = 1;  // default
 	this.detailsWeight = 1; // default
 
-	// details
+	// details 		
 	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv );
 
 	// handler -- usually ApiUploadHandler
-	this.handler = this.getUploadHandler();
+	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
+	// this.handler = new mw.MockUploadHandler( this );
+	this.handler = new mw.ApiUploadHandler( this, api );
 };
 
 mw.UploadWizardUpload.prototype = {
-	// Upload handler for the UploadWizardUpload
-	uploadHandler: null, // lazy init
-	
+
 	acceptDeed: function( deed ) {
 		var _this = this;
 		_this.deed.applyDeed( _this );
@@ -49,7 +49,7 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Remove this upload. n.b. we trigger a removeUpload this is usually triggered from 
+	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from 
 	 */
 	remove: function() {
 		this.state = 'aborted';
@@ -199,27 +199,7 @@ mw.UploadWizardUpload.prototype = {
 			*/
 		}
 	},
-	/**
-	 * Set the upload handler per browser capabilities 
-	 */
-	getUploadHandler: function( api ){
-		if( this.uploadHandler ){
-			return this.uploadHandler ;	
-		}
-		if( typeof( Firefogg ) != 'undefined'
-				&&
-			mw.UploadWizard.config[ 'enableFirefogg' ]
-		) {
-			mw.log("mw.UploadWizard::getUploadHandler> FirefoggHandler");
-			this.uploadHandler = new mw.FirefoggHandler( this );
-			return this.uploadHandler 
-		} 		
-		// By default use the apiUploadHandler
-		mw.log("mw.UploadWizard::getUploadHandler> ApiUploadHandler");
-		this.uploadHandler = new mw.ApiUploadHandler( this );
-		return this.uploadHandler;
-	},
-	
+
 	/**
 	 * Fetch a thumbnail for a stashed upload of the desired width. 
 	 * It is assumed you don't call this until it's been transported.
@@ -282,7 +262,7 @@ mw.UploadWizardUpload.prototype = {
 		
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
-			width = mw.UploadWizard.config[ 'thumbnailWidth' ];
+			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
 		}
 		width = parseInt( width, 10 );
 		height = null;
@@ -338,6 +318,38 @@ mw.UploadWizard.userAgent = "UploadWizard (alpha)";
 mw.UploadWizard.prototype = {
 	stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
 	currentStepName: undefined,
+
+	/*
+	// list possible upload handlers in order of preference
+	// these should all be in the mw.* namespace
+	// hardcoded for now. maybe some registry system might work later, like, all
+	// things which subclass off of UploadHandler
+	uploadHandlers: [
+		'FirefoggUploadHandler',
+		'XhrUploadHandler',
+		'ApiIframeUploadHandler',
+		'SimpleUploadHandler',
+		'NullUploadHandler'
+	],
+
+	 * We can use various UploadHandlers based on the browser's capabilities. Let's pick one.
+	 * For example, the ApiUploadHandler should work just about everywhere, but XhrUploadHandler
+	 *   allows for more fine-grained upload progress
+	 * @return valid JS upload handler class constructor function
+	getUploadHandlerClass: function() {
+		// return mw.MockUploadHandler;
+		return mw.ApiUploadHandler;
+		var _this = this;
+		for ( var i = 0; i < uploadHandlers.length; i++ ) {
+			var klass = mw[uploadHandlers[i]];
+			if ( klass != undefined && klass.canRun( this.config )) {
+				return klass;
+			}
+		}
+		// this should never happen; NullUploadHandler should always work
+		return null;
+	},
+	*/
 
 	/**
 	 * Reset the entire interface so we can upload more stuff

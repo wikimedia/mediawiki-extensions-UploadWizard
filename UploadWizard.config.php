@@ -4,8 +4,7 @@
  * Do not modify this file, instead use localsettings.php and set: 
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, 
-$wgTimedMediaHandlerFileExtensions, $wgAutoloadClasses;
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules;
 return array(
 	// Upload wizard has an internal debug flag	
 	'debug' => false,
@@ -21,20 +20,6 @@ return array(
 
 	// Check if we have the firefogg upload api module enabled: 
 	'enableFirefoggChunkUpload' => isset( $wgAPIModules['firefoggupload'] )? true : false,
-
-	// Firefogg encode settings ( if timed media handler extension is installed use HD webm, else mid-rage ogg )
-	'firefoggEncodeSettings' => ( class_exists( 'WebVideoTranscode' ) )?
-		WebVideoTranscode::$derivativeSettings[ WebVideoTranscode::ENC_WEBM_HQ_VBR ] : 
-		array(
-			'maxSize'			=> '480',
-			'videoBitrate'		=> '512',
-			'audioBitrate'		=> '96',
-			'noUpscaling'		=> 'true',
-			'twopass'			=> 'true',
-			'keyframeInterval'	=> '128',
-			'bufDelay'			=> '256',
-			'codec' 			=> 'theora',
-		),		
 
 	// The default api url is for the current wiki ( can override at run time )
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
