@@ -57,6 +57,11 @@ class UploadWizardHooks {
 				// workhorse libraries
 				'resources/mw.IframeTransport.js',			
 				'resources/mw.ApiUploadHandler.js',
+				
+				// firefogg support
+				'resources/mw.FirefoggHandler.js',
+				'resources/mw.FirefoggTransport.js',
+			
 				'resources/mw.DestinationChecker.js',
 				'resources/mw.UploadWizardUtil.js',			
 
@@ -64,9 +69,8 @@ class UploadWizardHooks {
 				'resources/mw.GroupProgressBar.js',
 
 				// UploadWizard specific abstractions
-				'resources/mw.UploadWizardDeed.js',
 				'resources/mw.UploadWizardLicenseInput.js',
-
+					
 				// main library
 				'resources/mw.UploadWizard.js',
 			
