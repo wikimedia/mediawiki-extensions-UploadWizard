@@ -169,6 +169,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-macro-edit',
 				'mwe-upwiz-thanks-intro',
 				'mwe-upwiz-thanks-explain',
+				'mwe-upwiz-thanks-caption',
 				'mwe-upwiz-thanks-link',
 				'mwe-upwiz-thanks-wikitext',
 				'mwe-upwiz-thanks-url',
