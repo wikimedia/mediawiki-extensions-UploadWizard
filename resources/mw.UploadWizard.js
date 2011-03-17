@@ -1144,7 +1144,7 @@ mw.UploadWizardDeedPreview.prototype = {
 			contentSource = 'title';
 		} 
 		return this.append( 
-			$j( '<span>' )
+			$j( '<span/>' )
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
 				.click( function() { $( this ).tipsy( 'toggle' ); return false; } )
