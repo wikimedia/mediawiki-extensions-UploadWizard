@@ -39,7 +39,6 @@ mw.ApiUploadHandler.prototype = {
 	 */
 	configureForm: function() {
 		var _this = this;
-		mw.log( "mw.ApiUploadHandler::configureForm> configuring form for Upload API" );
 
 		_this.addFormInputIfMissing( 'action', 'upload' );
 
@@ -51,13 +50,6 @@ mw.ApiUploadHandler.prototype = {
 		
 		// we use JSON in HTML because according to mdale, some browsers cannot handle just JSON
 		_this.addFormInputIfMissing( 'format', 'jsonfm' );
-		
-		// XXX only for testing, so it stops complaining about dupes
-		/*
-		if ( mw.UploadWizard.DEBUG ) {
-			_this.addFormInputIfMissing( 'ignorewarnings', '1' );
-		}
-		*/
 	},
 
 	/** 
@@ -93,7 +85,6 @@ mw.ApiUploadHandler.prototype = {
 	start: function() {
 		var _this = this;
 		var ok = function() {
-			mw.log( "mw.ApiUploadHandler::start> upload start!" );
 			_this.beginTime = ( new Date() ).getTime();
 			_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 			_this.upload.ui.showTransportProgress();

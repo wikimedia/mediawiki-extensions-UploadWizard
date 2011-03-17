@@ -146,7 +146,6 @@ mw.DestinationChecker.prototype = {
 
 			if ( data.query.pages[-1] ) {
 				// No conflict found; this file name is unique
-				mw.log("mw.DestinationChecker::checkUnique> No pages in checkUnique result");
 				result = { isUnique: true };
 
 			} else {
@@ -157,8 +156,6 @@ mw.DestinationChecker.prototype = {
 					}
 
 					// Conflict found, this filename is NOT unique
-					mw.log( "mw.DestinationChecker::checkUnique> conflict! " );
-
 					var ntitle;
 					if ( data.query.normalized ) {
 						ntitle = data.query.normalized[0].to;
