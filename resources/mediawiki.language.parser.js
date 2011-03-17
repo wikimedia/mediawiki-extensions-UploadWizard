@@ -1,5 +1,8 @@
 /**
- * n.b. if this is ever moved to be mediawiki.language.parser, then mediawiki.language.procPLURAL will be obsolete
+ * Experimental advanced wikitext parser-emitter. 
+ * See: http://www.mediawiki.org/wiki/Extension:UploadWizard/MessageParser for docs
+ * 
+ * @author neilk@wikimedia.org
  */
 
 ( function( mw, $j ) {
@@ -69,7 +72,7 @@
 		 * @return {jQuery} this
 		 */
 		return function( key /* , replacements */ ) {
-			var $target = this;
+			var $target = this.empty();
 			$j.each( parser.parse( key, getVariadicArgs( arguments, 1 ) ).contents(), function( i, node ) {
 				$target.append( node );
 			} );
@@ -132,40 +135,8 @@
 		/*
 		 * Parses the input wikiText into an abstract syntax tree, essentially an s-expression.
 		 *
-		 * Why you would want to do this: ASTs make some complex stuff easy.
-		 * 	- this allows the parser to be stateless -- all parsing state is in the AST, which is cached, or is just there temporarily as 
-		 *          replacement parameters are swapped in
-		 *	- it's MUCH simpler to do complex replacements, such as swapping in jQuery objects into wikitext like "[$1 my link]". No string hackery required
-		 *	- decouples target format from parsing -- you can output a string of HTML, or jQuery-compatible array of nodes, or whatever you like.
-		 *
-		 * However, these are also all arguments for doing this on the server. Stay tuned... we can reduce the code on the client by half 
-		 * by porting everything below this function to PHP.
-		 *
-		 * Examples:
-		 *   "A simple input string" => "A simple input string"
-		 *   "Simple {{TEMPLATE}} message" => [ 'CONCAT', 'Simple ', [ 'TEMPLATE' ], ' message' ];
-		 *   "Undelete {{PLURAL:$1|one edit|$1 edits}}", =>
-		 *	  [ 'CONCAT', 
-		 *          'Undelete ', 
-		 *          [ 'PLURAL', 
-		 *            [ 'REPLACE', 0 ],  // zero-based index. $1 is argument 0
-		 *	      'one edit', 
-		 *	      [ 'CONCAT', 
-		 *		[ 'REPLACE', 0 ]
-		 *		' edits'
-		 *	      ]
-		 *	    ]
-		 *	  ]
-		 *
-		 * The following code is a highly hand-hacked and optimized 
-		 * parser based on a generated PEG parser using the grammar in the file mediawiki.parser.peg
-		 *
-		 * CAVEAT: This does not parse all wikitext, and it makes a lot of assumptions that may not reflect
-		 * how the actual parser works. It works for pretty much all cases where we will want to pass translation
-		 * strings to the frontend, however.
-		 * 
-		 * More caveats: there are a lot of things here which could be more efficient, but it's already pretty
-		 * efficient already and we may not use this client side for very long until we move it server side.
+		 * CAVEAT: This does not parse all wikitext. It could be more efficient, but it's pretty good already.
+		 * n.b. We want to move this functionality to the server. Nothing here is required to be on the client.
 		 * 
 		 * @param {String} message string wikitext
 		 * @throws Error
