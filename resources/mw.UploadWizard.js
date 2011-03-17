@@ -425,7 +425,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
 			.click( function() {
-				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide') } ); // close tipsy help balloons
+				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide'); } ); // close tipsy help balloons
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
 				if ( _this.deedChooser.valid() ) {
@@ -458,7 +458,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
 			.click( function() {
-				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide') } ); // close tipsy help balloons
+				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide'); } ); // close tipsy help balloons
 				if ( _this.detailsValid() ) { 
 					_this.detailsSubmit( function() { 
 						_this.prefillThanksPage();
@@ -594,13 +594,9 @@ mw.UploadWizard.prototype = {
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'filled', function(e) { 
-			mw.log( "mw.UploadWizardUpload::newUpload> filled! received!" );
 			_this.newUpload(); 
-			mw.log( "mw.UploadWizardUpload::newUpload> filled! new upload!" );
 			_this.setUploadFilled(upload);
-			mw.log( "mw.UploadWizardUpload::newUpload> filled! set upload filled!" );
 			e.stopPropagation(); 
-			mw.log( "mw.UploadWizardUpload::newUpload> filled! stop propagation!" ); 
 		} );
 		// XXX bind to some error state
 
@@ -1130,13 +1126,30 @@ mw.UploadWizardDeedPreview.prototype = {
 	};
 	
 	/**
-	 * Adds a tipsy pop-up help button to the field.
-	 * @param name   The short name of the field, for example, 'title'. This should correspond with a
-	 *               message key of the form 'mwe-upwiz-tooltip-<name>'.
+	 * Adds a tipsy pop-up help button to the field. Can be called in two ways -- with simple string id, which identifies
+	 * the string as 'mwe-upwiz-tooltip-' plus that id, and creates the hint with a similar id
+	 * or with function and id -- function will be called to generate the hint every time
+	 * XXX split into two plugins?
+	 * @param key {string}  -- will base the tooltip on a message found with this key
+	 * @param fn {function} optional -- call this function every time tip is created to generate message. If present HTML element gets an id of the exact key specified
 	 */
-	$j.fn.addHint = function( name ) {
-		return this.append( $j( '<span class="mwe-upwiz-hint" id="mwe-upwiz-'+name+'-hint" onclick=\"$(this).tipsy(\'toggle\');return false;\">' )
-			.attr( 'title', gM( 'mwe-upwiz-tooltip-'+name ) ).tipsy( {html: true, opacity: 0.9, gravity: 'sw', trigger: 'manual'} ) );
+	$j.fn.addHint = function( key, fn ) {
+		var attrs, contentSource, html = false;
+		if ( typeof fn === 'function' ) {
+			attrs = { id: key };
+			contentSource = fn;
+			html = true;
+		} else {	
+			attrs = { 'title': gM( 'mwe-upwiz-tooltip-' + key ) };
+			contentSource = 'title';
+		} 
+		return this.append( 
+			$j( '<span>' )
+				.addClass( 'mwe-upwiz-hint' )
+				.attr( attrs )
+				.click( function() { $( this ).tipsy( 'toggle' ); return false; } )
+				.tipsy( { title: contentSource, html: html, opacity: 0.9, gravity: 'sw', trigger: 'manual'} ) 
+		);
 	};
 
 	/**

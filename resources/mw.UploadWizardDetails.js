@@ -62,14 +62,37 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + _this.titleId + '" generated="true"/></div>');
 
+	var titleHintId = 'mwe-upwiz-title-hint-' + _this.upload.index;
+	var $titleDialog = $('<div>')
+		.html( gM( 'mwe-upwiz-dialog-title' ) )
+		.dialog({
+			width: 500,
+			zIndex: 200000,
+			autoOpen: false,
+			title: gM( 'mwe-upwiz-help-popup' ) + ': ' + gM( 'mwe-upwiz-help-popup-title' ),
+			modal: true
+		})
+		.bind( "dialogclose", function( event, ui ) { 
+			$j( '#' + titleHintId ).tipsy( "hide" );
+		});
+
+	// tipsy hides tips by removing them from the DOM. This causes all bindings to be lost.
+	// so we send a function to recreate everything, every time!
+	// (is it really necessary for tipsy to remove elements?)
+	var titleHinter = function() { 
+		return $j( '<span>' ).msg( 'mwe-upwiz-tooltip-title', function() { 
+			$titleDialog.dialog( 'open' ); 
+			// TODO scroll to the dialog, or otherwise ensure it's in the middle of the page no matter what
+		} );
+	};
+
 	var titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
 			_this.titleErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' )
 				.requiredFieldLabel()
-				.append( gM( 'mwe-upwiz-title' ) )
-				.addHint( 'title' ),
-				 
+				.msg( 'mwe-upwiz-title' )
+				.addHint( titleHintId, titleHinter ), 
 			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) 
 		); 
 
@@ -86,7 +109,13 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 				+ '<div class="mwe-upwiz-details-fieldname"></div>' 
 				+ '<div class="mwe-upwiz-details-input"></div>'
 				+ '</div>' );
-	$categoriesDiv.find( '.mwe-upwiz-details-fieldname' ).append( gM( 'mwe-upwiz-categories' ) ).addHint( 'categories' );
+	var commonsCategoriesLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': 'http://commons.wikimedia.org/wiki/Commons:Categories' } );
+	var categoriesHint = $j( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink );
+	var categoriesHinter = function() { return categoriesHint; };
+	$categoriesDiv
+		.find( '.mwe-upwiz-details-fieldname' )
+		.append( gM( 'mwe-upwiz-categories' ) )
+		.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 	var categoriesId = 'categories' + _this.upload.index;
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 		.append( $j( '<input/>' ).attr( { id: categoriesId,
@@ -132,19 +161,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		otherInformationDiv
 	);
 	
-	$titleDialog = $('<div>')
-		.html( gM( 'mwe-upwiz-dialog-title' ) )
-		.dialog({
-			width: 500,
-			zIndex: 200000,
-			autoOpen: false,
-			title: 'Help: Title',
-			modal: true
-		})
-		.bind( "dialogclose", function(event, ui) { 
-			$("#mwe-upwiz-title-hint").tipsy("hide");
-		});
-	
+		
 	/* Build the form for the file upload */
 	_this.$form = $j( '<form></form>' );
 	_this.$form.append( 
@@ -463,7 +480,6 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	populate: function() {
 		var _this = this;
-		mw.log( "mw.UploadWizardUpload::populate> populating details from upload" );
 		_this.upload.setThumbnail( _this.thumbnailDiv, mw.UploadWizard.config['thumbnailWidth'], mw.UploadWizard.config['thumbnailMaxHeight'] );
 		_this.prefillDate();
 		_this.prefillSource();
@@ -713,7 +729,6 @@ mw.UploadWizardDetails.prototype = {
 
 		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
 		var wikiText = _this.getWikiText();
-		mw.log( "mw.UploadWizardUpload::submit> submiting wikiText:\n" + wikiText );
 
 		var params = {
 			action: 'upload',
@@ -728,51 +743,13 @@ mw.UploadWizardDetails.prototype = {
 			_this.completeDetailsSubmission(); 
 		};	
 
-		mw.log( "mw.UploadWizardUpload::submit> uploading: \n" + params );
 		var callback = function( result ) {
-			mw.log( "mw.UploadWizardUpload::submit> result:\n" + result );
-			mw.log( "mw.UploadWizardUpload::submit> successful upload" );
 			finalCallback( result );
 		};
 
 		_this.upload.state = 'submitting-details';
 		// XXX this can still fail with bad filename, or other 'warnings' -- capture these
 		_this.upload.api.postWithEditToken( params, callback );
-	},
-
-
-	/** 
-	 * Get new image info, for instance, after we renamed... or? published? an image
-	 * XXX deprecated?
-	 * XXX move to mw.API
-	 *
-	 * @param upload an UploadWizardUpload object
-	 * @param title  title to look up remotely
-	 * @param endCallback  execute upon completion
-	 */
-	getImageInfo: function( upload, callback ) {
-		var params = {
-                        'titles': upload.title.toString(),
-                        'prop':  'imageinfo',
-                        'iiprop': 'timestamp|url|user|size|sha1|mime|metadata'
-                };
-		// XXX timeout callback?
-		this.api.get( params, function( data ) {
-			if ( data && data.query && data.query.pages ) {
-				if ( ! data.query.pages[-1] ) {
-					for ( var page_id in data.query.pages ) {
-						var page = data.query.pages[ page_id ];
-						if ( ! page.imageinfo ) {
-							alert("unimplemented error check, missing imageinfo");
-							// XXX not found? error
-						} else {
-							upload.extractImageInfo( page.imageinfo[0] );
-						}
-					}
-				}	
-			}
-			callback();
-		} );
 	},
 
 	completeDetailsSubmission: function() {

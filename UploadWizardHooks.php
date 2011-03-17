@@ -227,7 +227,9 @@ class UploadWizardHooks {
 				'mwe-upwiz-getting-metadata',
 				'mwe-upwiz-stashed-upload',
 				'mwe-upwiz-dialog-title',
-				'mwe-upwiz-tooltip-categories'
+				'mwe-upwiz-tooltip-categories',
+				'mwe-upwiz-help-popup',
+				'mwe-upwiz-help-popup-title'
 			),
 			'group' => 'ext.uploadWizard'
 		),

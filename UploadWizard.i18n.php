@@ -161,11 +161,11 @@ Are you sure you want to navigate away from this page?',
 	'mwe-upwiz-tooltip-source' => 'Where this digital file came from -- could be a URL, or a book or publication',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name.
 In both cases, this will be linked to your wiki user page',
-	'mwe-upwiz-tooltip-title' => 'A short unique title for the file. You may use plain language with spaces. Do not include the file extension. <a target="_blank" onclick="\\$titleDialog.dialog(\'open\');return false;" href="#">Learn more</a>.',
+	'mwe-upwiz-tooltip-title' => 'A short unique title for the file. You may use plain language with spaces. Do not include the file extension. [$1 Learn more].', 
 	'mwe-upwiz-dialog-title' => 'Files can be uploaded with names in any language in any script (coded as UTF-8). Titles of media files should be meaningful and helpful in the language chosen.',
 	'mwe-upwiz-tooltip-description' => 'Briefly describe everything notable about the work.
 For a photo, mention the main things that are depicted, the occasion, or the place.',
-	'mwe-upwiz-tooltip-categories' => 'Add <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Categories">categories</a> to your file to make it easier to find.',
+	'mwe-upwiz-tooltip-categories' => 'Add [$1 categories] to your file to make it easier to find.',
 	'mwe-upwiz-tooltip-other' => 'Any other information you want to include about this work. Place <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geocoding</a> templates here.',
 	'mwe-upwiz-tooltip-more-info' => 'Learn more.',
 	'mwe-upwiz-file-need-file' => 'Please add an upload first.',
@@ -204,7 +204,11 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-categories' => 'Categories',
 	'mwe-upwiz-categories-add' => 'Add',
 	'mwe-upwiz-category-remove' => 'Remove this category',
-	'mwe-upwiz-thanks-caption' => 'Add caption here'
+	'mwe-upwiz-thanks-caption' => 'Add caption here',
+	'mwe-upwiz-help-popup' => 'Help',
+	'mwe-upwiz-help-popup-title' => 'Title'
+
+	
 );
 
 /** Message documentation (Message documentation)
