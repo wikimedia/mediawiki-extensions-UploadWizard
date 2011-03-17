@@ -106,42 +106,36 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 			_this.$form = $j( '<form/>' );
 
+			var $authorInput2 = $j( '<input>' ).attr( { name: "author2", type: "text" } ).addClass( 'mwe-upwiz-sign' );
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
-				$j( '<p>' )
-					.html( gM( 'mwe-upwiz-source-ownwork-assert',
-						   uploadCount,
-						   '<span class="mwe-standard-author-input"></span>' )
-					),
-				$j( '<p class="mwe-small-print" />' ).append( gM( 'mwe-upwiz-source-ownwork-assert-note' ) )
+				$j( '<p>' ).msg( 'mwe-upwiz-source-ownwork-assert',
+						 uploadCount,
+						 $authorInput2 ),
+				$j( '<p class="mwe-small-print" />' ).msg( 'mwe-upwiz-source-ownwork-assert-note' ) 
 			); 
-			$standardDiv.find( '.mwe-standard-author-input' ).append( $j( '<input name="author2" type="text" class="mwe-upwiz-sign" />' ) );
 			
 			var $customDiv = $j('<div/>').append( 
 				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;"/>' ),
-				$j( '<p>' )
-					.html( gM( 'mwe-upwiz-source-ownwork-assert-custom', 
-						uploadCount,
-						'<span class="mwe-custom-author-input"></span>' ) ),
+				$j( '<p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom', 
+						 uploadCount,
+						 _this.authorInput ),
 				licenseInputDiv
 			);
-			// have to add the author input this way -- gM() will flatten it to a string and we'll lose it as a dom object
-			$customDiv.find( '.mwe-custom-author-input' ).append( _this.authorInput );
-
 
 			var $crossfader = $j( '<div>' ).append( $standardDiv, $customDiv );
 			var $toggler = $j( '<p class="mwe-more-options" style="text-align: right" />' )
 				.append( $j( '<a />' )
-					.append( gM( 'mwe-upwiz-license-show-all' ) )
+					.msg( 'mwe-upwiz-license-show-all' ) 
 					.click( function() {
 						_this.formValidator.resetForm();
 						if ( $crossfader.data( 'crossfadeDisplay' ) === $customDiv ) {
 							_this.licenseInput.setDefaultValues();
 							$crossfader.morphCrossfade( $standardDiv );
-							$j( this ).html( gM( 'mwe-upwiz-license-show-all' ) );
+							$j( this ).msg( 'mwe-upwiz-license-show-all' );
 						} else {
 							$crossfader.morphCrossfade( $customDiv );
-							$j( this ).html( gM( 'mwe-upwiz-license-show-recommended' ) );
+							$j( this ).msg( 'mwe-upwiz-license-show-recommended' );
 						}
 					} ) );
 
@@ -237,7 +231,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal"/>' );
 
 			if ( uploadCount > 1 ) { 
-				$formFields.append( $j( '<div />' ).append( gM( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) ) );
+				$formFields.append( $j( '<div />' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
 			}
 
 			$formFields.append (

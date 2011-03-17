@@ -510,12 +510,12 @@ mw.UploadWizard.prototype = {
 	
 		$j( '<div>' )
 			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
-			.html( gM( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length ) );
+			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length );
 
 		if ( _this.uploads.length > 1 ) {
 			$j( '<div style="margin-top: 1em">' )
 				.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-custom' ) )
-				.html( gM( 'mwe-upwiz-deeds-custom-prompt' ) );
+				.msg( 'mwe-upwiz-deeds-custom-prompt' );
 		}
 		
 		_this.moveToStep( 'deeds' ); 
@@ -862,7 +862,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-upload-ctrl-container' ).show();
 
 			// changes the "click here to add files" to "add another file"
-			$j( '#mwe-upwiz-add-file span' ).html( gM( 'mwe-upwiz-add-file-n' ) );
+			$j( '#mwe-upwiz-add-file span' ).msg( 'mwe-upwiz-add-file-n' );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-n');
 
@@ -889,7 +889,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
 
 			// change "add another file" into "click here to add a file"
-			$j( '#mwe-upwiz-add-file' ).html( gM( 'mwe-upwiz-add-file-0' ) );
+			$j( '#mwe-upwiz-add-file' ).msg( 'mwe-upwiz-add-file-0' );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');
 		}
@@ -977,9 +977,9 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 		
 		$j( '#mwe-upwiz-thanks' )
-			.append( $j( '<h3 style="text-align: center;">' ).append( gM( 'mwe-upwiz-thanks-intro' ) ),
+			.append( $j( '<h3 style="text-align: center;">' ).msg( 'mwe-upwiz-thanks-intro' ),
 				 $j( '<p style="margin-bottom: 2em; text-align: center;">' )
-					.append( gM( 'mwe-upwiz-thanks-explain', _this.uploads.length ) ) );
+					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length ) );
 		
 		$j.each( _this.uploads, function(i, upload) {
 			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix" />' );
