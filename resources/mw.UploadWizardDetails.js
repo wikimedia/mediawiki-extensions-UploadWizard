@@ -241,14 +241,14 @@ mw.UploadWizardDetails.prototype = {
 	 * check entire form for validity
 	 */ 
 	// return boolean if we are ready to go.
-        // side effect: add error text to the page for fields in an incorrect state.
+	// side effect: add error text to the page for fields in an incorrect state.
 	// we must call EVERY valid() function due to side effects; do not short-circuit.
-        valid: function() {
+	valid: function() {
 		var _this = this;
-                // at least one description -- never mind, we are disallowing removal of first description
-                // all the descriptions -- check min & max length
+		// at least one description -- never mind, we are disallowing removal of first description
+		// all the descriptions -- check min & max length
 
-                // the title
+		// the title
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
 		if ( typeof titleInputValid == 'undefined' ) {
 			alert( "please wait, still checking the title for uniqueness..." );
@@ -257,7 +257,8 @@ mw.UploadWizardDetails.prototype = {
 	
 		// all other fields validated with validator js	
 		var formValid = _this.$form.valid();
-		return titleInputValid && formValid;
+		var deedValid = _this.upload.deedChooser.valid();
+		return titleInputValid && formValid && deedValid;
 
 		// categories are assumed valid
 	
@@ -267,7 +268,7 @@ mw.UploadWizardDetails.prototype = {
                 // the date
 
 		// location?
-        },
+	},
 
 
 
@@ -281,7 +282,7 @@ mw.UploadWizardDetails.prototype = {
 		_this.upload.deedChooser = new mw.UploadWizardDeedChooser( 
 			_this.deedDiv,
 			[ new mw.UploadWizardDeedOwnWork(), 
-			  new mw.UploadWizardDeedThirdParty() ]
+			  new mw.UploadWizardDeedThirdParty()]
 		);
 	},
 
