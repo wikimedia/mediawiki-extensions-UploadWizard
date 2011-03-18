@@ -278,7 +278,7 @@ mw.UploadWizardDetails.prototype = {
 		_this.upload.deedChooser = new mw.UploadWizardDeedChooser( 
 			_this.deedDiv,
 			[ new mw.UploadWizardDeedOwnWork(), 
-			  new mw.UploadWizardDeedThirdParty()]
+			  new mw.UploadWizardDeedThirdParty() ]
 		);
 	},
 
