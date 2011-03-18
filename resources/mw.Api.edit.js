@@ -33,7 +33,7 @@
 				var getTokenIfBad = function( code, result ) {
 					if ( code === 'badtoken' )  {
 						cachedToken = null; // force a new token
-						api.postWidthEditToken( params, ok, err );
+						api.postWithEditToken( params, ok, err );
 					} else {
 						err( code, result );
 					}
