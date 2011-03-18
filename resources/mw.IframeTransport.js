@@ -48,14 +48,14 @@ mw.IframeTransport.prototype = {
 		// attach an additional handler to the form, so, when submitted, it starts showing the progress
 		// XXX this is lame .. there should be a generic way to indicate busy status...
 		this.$form.submit( function() { 
-			//mw.log( "mw.IframeTransport::configureForm> submitting to iframe..." );
+			// mw.log( "mw.IframeTransport::configureForm> submitting to iframe...", "debug" );
 			return true;
 		} );
 
 		// Set up the completion callback
 		var _this = this;
 		$j( '#' + this.iframeId ).load( function() {
-			//mw.log( "mw.IframeTransport::configureForm> received result in iframe" );
+			// mw.log( "mw.IframeTransport::configureForm> received result in iframe", "debug" );
 			_this.progressCb( 1.0 );
 			_this.processIframeResult( $j( this ).get( 0 ) );
 		} );			
