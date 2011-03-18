@@ -207,7 +207,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-category-remove' => 'Remove this category',
 	'mwe-upwiz-thanks-caption' => 'Add caption here',
 	'mwe-upwiz-help-popup' => 'Help',
-	'mwe-upwiz-help-popup-title' => 'Title'
+	'mwe-upwiz-help-popup-title' => 'Title',
+	'mwe-upwiz-thumbnail-failed' => 'The upload succeeded, but the server could not get a preview thumbnail'
 
 	
 );

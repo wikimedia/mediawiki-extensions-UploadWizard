@@ -170,6 +170,12 @@ form.mwe-upwiz-form {
 	background: url('images/32px-Blank-document.svg.png') no-repeat center top;
 }
 
+.mwe-upwiz-file-preview-broken {
+	height: 40px !important;
+	width: 40px !important;
+	background: url('images/32px-Blank-document-broken.svg.png') no-repeat center top !important;
+}
+
 .mwe-upwiz-add-files-n {
 	float: left;
 }

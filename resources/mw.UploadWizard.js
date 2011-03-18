@@ -210,7 +210,7 @@ mw.UploadWizardUpload.prototype = {
 	 * Fetch a thumbnail for a stashed upload of the desired width. 
 	 * It is assumed you don't call this until it's been transported.
  	 *
-	 * @param callback - callback to execute once thumbnail has been obtained -- must accept Image object
+	 * @param callback - callback to execute once thumbnail has been obtained -- must accept Image object for success, null for error
 	 * @param width - desired width of thumbnail (height will scale to match)
 	 * @param height - (optional) maximum height of thumbnail
 	 */
@@ -234,15 +234,14 @@ mw.UploadWizardUpload.prototype = {
 			this.api.get( params, function( data ) {
 				if ( !data || !data.query || !data.query.stashimageinfo ) {
 					mw.log("mw.UploadWizardUpload::getThumbnail> No data? ");
-					// XXX do something about the thumbnail spinner, maybe call the callback with a broken image.
-					return;
+					callback( null );
 				}
 				var thumbnails = data.query.stashimageinfo;
 				for ( var i = 0; i < thumbnails.length; i++ ) {
 					var thumb = thumbnails[i];
 					if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
 						mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail missing information" );
-						// XXX error
+						callback( null );
 					}
 					var image = document.createElement( 'img' );
 					$j( image ).load( function() {
@@ -265,7 +264,6 @@ mw.UploadWizardUpload.prototype = {
 	 * @param height (optional) 
 	 */
 	setThumbnail: function( selector, width, height ) {
-		
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
 			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
@@ -277,17 +275,22 @@ mw.UploadWizardUpload.prototype = {
 		}
 			
 		var callback = function( image ) {
-			$j( selector ).html(
-				$j( '<a/>' )
-					.attr( { 'href': _this.imageinfo.url,
-						 'target' : '_new' } )
-					.append(
-						$j( '<img/>' )
-							.attr( { 'width':  image.width, 
-							         'height': image.height,
-								 'src':    image.src } ) 
-					)
-			);
+			if ( image == null ) {
+				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
+				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
+			} else {
+				$j( selector ).html(
+					$j( '<a/>' )
+						.attr( { 'href': _this.imageinfo.url,
+							 'target' : '_new' } )
+						.append(
+							$j( '<img/>' )
+								.attr( { 'width':  image.width, 
+									 'height': image.height,
+									 'src':    image.src } ) 
+						)
+				);
+			}
 		};
 		
 		_this.getThumbnail( callback, width, height );

@@ -131,8 +131,13 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * @param HTMLImageElement 
 	 */
 	setPreview: function( image ) {
-		// encoding for url here?
-		$j( this.div ).find( '.mwe-upwiz-file-preview' ).css( 'background-image', 'url(' + image.src + ')' );
+		var $preview = $j( this.div ).find( '.mwe-upwiz-file-preview' );
+		if ( image === null ) {
+			$preview.addClass( 'mwe-upwiz-file-preview-broken' );
+		} else {
+			// encoding for url here?
+			$preview.css( 'background-image', 'url(' + image.src + ')' );
+		}
 	},
 
 	/**

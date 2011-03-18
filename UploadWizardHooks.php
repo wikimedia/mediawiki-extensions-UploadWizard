@@ -262,7 +262,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-category-remove',
 				'mwe-upwiz-thanks-caption',
 				'mwe-upwiz-help-popup',
-				'mwe-upwiz-help-popup-title'
+				'mwe-upwiz-help-popup-title',
+				'mwe-upwiz-thumbnail-failed'
 			),
 			'group' => 'ext.uploadWizard'
 		),
