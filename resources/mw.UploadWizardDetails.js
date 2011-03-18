@@ -247,29 +247,25 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		// at least one description -- never mind, we are disallowing removal of first description
 		// all the descriptions -- check min & max length
+		// categories are assumed valid
+		// pop open the 'more-options' if the date is bad
+		// location?
 
-		// the title
+		// make sure title is valid
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
 		if ( typeof titleInputValid == 'undefined' ) {
 			alert( "please wait, still checking the title for uniqueness..." );
 			return false;
 		}
-	
+
+		// make sure licenses are valid (needed for multi-file deed selection)
+		var deedValid = _this.upload.deedChooser.valid();
+		
 		// all other fields validated with validator js	
 		var formValid = _this.$form.valid();
-		var deedValid = _this.upload.deedChooser.valid();
-		return titleInputValid && formValid && deedValid;
 
-		// categories are assumed valid
-	
-                // the license, if any
-
-                // pop open the 'more-options' if the date is bad
-                // the date
-
-		// location?
+		return titleInputValid && deedValid && formValid;
 	},
-
 
 
 	/**
