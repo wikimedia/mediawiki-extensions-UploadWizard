@@ -90,8 +90,8 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		.append(
 			_this.titleErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' )
-				.requiredFieldLabel()
 				.msg( 'mwe-upwiz-title' )
+				.requiredFieldLabel()
 				.addHint( titleHintId, titleHinter ), 
 			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput ) 
 		); 
