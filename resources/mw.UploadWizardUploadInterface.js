@@ -191,6 +191,11 @@ mw.UploadWizardUploadInterface.prototype = {
 		// is this an error that we expect to have a message for?
 		var msgKey = 'mwe-upwiz-api-error-unknown-code';
 		var args = [ code ];
+
+		if ( code === 'http' && info.textStatus === 'timeout' ) {
+			code = 'timeout';
+		}
+
 		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
 			msgKey = 'mwe-upwiz-api-error-' + code;
 			args = $j.makeArray( info );

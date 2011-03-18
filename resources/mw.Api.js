@@ -156,6 +156,9 @@
 		/* occurs when POST aborted - jQuery 1.4 can't distinguish abort or lost connection from 200 OK + empty result */
 		'ok-but-empty',
 
+		// timeout
+		'timeout',
+
 		/* really a warning, but we treat it like an error */
 		'duplicate',
 
