@@ -139,20 +139,13 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * Set the status line for this upload with an internationalized message string.
 	 * @param String msgKey: key for the message
 	 * @param Array args: array of values, in case any need to be fed to the image.
+	 * @param Boolean error: if true, show an error
 	 */
 	setStatus: function( msgKey, args ) {
 		if ( !mw.isDefined( args ) ) {
 			args = [];
 		}
-		this.setStatusStr( gM( msgKey, args ) );
-	},
-
-	/**
-	 * Set the status line for this upload 
-	 * @param String str: the string to use
-	 */
-	setStatusStr: function( str ) {	
-		$j( this.div ).find( '.mwe-upwiz-file-status' ).html( str ).show();
+		$j( this.div ).find( '.mwe-upwiz-file-status' ).html( gM( msgKey, args ) ).show();
 	},
 
 	/**

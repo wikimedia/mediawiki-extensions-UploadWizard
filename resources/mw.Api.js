@@ -153,6 +153,10 @@
 	 * available.
 	 */
 	mw.Api.errors = [
+		/* occurs when POST aborted - jQuery 1.4 can't distinguish abort or lost connection from 200 OK + empty result */
+		'ok-but-empty',
+
+		/* remote errors, defined in API */
 		'uploaddisabled',
 		'nomodule',
 		'mustbeposted',
