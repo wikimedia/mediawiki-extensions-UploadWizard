@@ -56,7 +56,7 @@
 		// don't show log message if lower priority than mw.log.level
 		if ( priority[ mw.log.level ] > priority[ level ] ) {
 			return;
-		}	
+		}
 
 		if ( typeof window.console !== 'undefined' && typeof window.console.log === 'function' ) {
 			window.console.log( s );
@@ -89,7 +89,7 @@
 						'font-family': 'monospace',
 						'padding': '0.125em 0.25em'
 					} )
-					.text( string )
+					.text( s )
 					.append( '<span style="float:right">[' + time + ']</span>' )
 			);
 		}
