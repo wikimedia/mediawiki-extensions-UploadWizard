@@ -98,7 +98,13 @@ mw.UploadWizardUpload.prototype = {
 			return;
 		}
 
-		if ( result.upload && result.upload.imageinfo ) {
+		if ( result.upload && result.upload.warnings && result.upload.warnings.exists ) {
+			var fileTitle = new mw.Title( result.upload.warnings.exists, 'file' ).toString();
+			var fileUri = new mw.Uri( document.URL );
+			fileUri.path = wgScript;
+			fileUri.query = { title: fileTitle, action: 'view' };  
+			_this.setError( 'duplicate', fileUri.toString() );
+		} else if ( result.upload && result.upload.imageinfo ) {
 			// success
 			_this.state = 'transported';
 			_this.transportProgress = 1;
@@ -133,7 +139,7 @@ mw.UploadWizardUpload.prototype = {
 			if ( result.error ) {
 				code = result.error.code;
 				info = result.error.info;
-			} 
+			}
 			_this.setError( code, info );
 		}
 	

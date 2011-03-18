@@ -145,7 +145,13 @@ mw.UploadWizardUploadInterface.prototype = {
 		if ( !mw.isDefined( args ) ) {
 			args = [];
 		}
-		$j( this.div ).find( '.mwe-upwiz-file-status' ).html( gM( msgKey, args ) ).show();
+		// get the status line for our upload
+		$statusDiv = $j( this.div ).find( '.mwe-upwiz-file-status' );
+
+		// apply the message and args, but if any anchors were created make sure they link to new windows.
+		$statusDiv.msg( msgKey, args ).find( 'a' ).attr( 'target', '_blank' );
+
+		$statusDiv.show();
 	},
 
 	/**
@@ -187,9 +193,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		var args = [ code ];
 		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
 			msgKey = 'mwe-upwiz-api-error-' + code;
-			// args may change base on particular error messages. 
-			// for instance, we are throwing away the extra info right now. Might be nice to surface that in a debug mode
-			args = [];
+			args = $j.makeArray( info );
 		}
 		this.setStatus( msgKey, args );
 	},
