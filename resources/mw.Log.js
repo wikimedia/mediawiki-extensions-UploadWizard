@@ -31,7 +31,7 @@
 		fatal: 10,
 		warn: 20,
 		info: 30,
-		debug: 100,
+		debug: 100
 	};
 
 	/**
@@ -54,7 +54,7 @@
 		}
 
 		// don't show log message if lower priority than mw.log.level
-		if ( priority[ mw.log.level ] > priority[ level ] ) {
+		if ( priority[ mw.log.level ] <= priority[ level ] ) {
 			return;
 		}
 
