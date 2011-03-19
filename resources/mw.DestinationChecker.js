@@ -126,8 +126,8 @@ mw.DestinationChecker.prototype = {
 			'iiurlwidth': 150
 		};
 
-		// Do the destination check  
-		_this.api.get( params, function( data ) {			
+
+		var ok = function( data ) {			
 			// Remove spinner
 			_this.spinner( false );
 	
@@ -138,7 +138,7 @@ mw.DestinationChecker.prototype = {
 			
 			if ( !data || !data.query || !data.query.pages ) {
 				// Ignore a null result
-				mw.log("mw.DestinationChecker::checkUnique> No data in checkUnique result");
+				mw.log("mw.DestinationChecker::checkUnique> No data in checkUnique result", 'debug');
 				return;
 			}
 
@@ -181,7 +181,16 @@ mw.DestinationChecker.prototype = {
 				_this.processResult( result );
 			}
 
-		} );
+		};
+
+		var err = function( code, result ) { 
+			_this.spinner( false );
+			mw.log("mw.DestinationChecker::checkUnique> error in checkUnique result: " + code, 'debug');
+			return;
+		};
+	
+		// Do the destination check  
+		_this.api.get( params, { ok: ok, err: err } );
 	}
 
 };
