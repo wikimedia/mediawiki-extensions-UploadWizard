@@ -127,6 +127,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-api-error-fetchfileerror',
 				'mwe-upwiz-api-error-duplicate',
 				'mwe-upwiz-api-error-timeout',
+				'mwe-upwiz-api-error-noimageinfo',
 				'mwe-upwiz-api-warning-exists',
 				'mwe-upwiz-tutorial-error-localized-file-missing',
 				'mwe-upwiz-tutorial-error-file-missing',

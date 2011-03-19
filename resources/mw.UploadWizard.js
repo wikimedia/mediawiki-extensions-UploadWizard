@@ -104,41 +104,39 @@ mw.UploadWizardUpload.prototype = {
 			fileUri.path = wgScript;
 			fileUri.query = { title: fileTitle, action: 'view' };  
 			_this.setError( 'duplicate', fileUri.toString() );
-		} else if ( result.upload && result.upload.imageinfo ) {
-			// success
-			_this.state = 'transported';
-			_this.transportProgress = 1;
-			_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
-			_this.extractUploadInfo( result );
-			
-			// use blocking preload for thumbnail, no loading spinner.
-			_this.getThumbnail( 
-				function( image ) {
-					_this.ui.setPreview( image );	
-					_this.deedPreview.setup();
-					_this.details.populate();
-					_this.state = 'stashed';
-					_this.ui.showStashed();
-				},
-				mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
-				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
-			);
-		
-		} else if ( result.upload && result.upload.sessionkey ) {
-			// there was a warning - type error which prevented it from adding the result to the db 
-			if ( result.upload.warnings.duplicate ) {
-				var duplicates = result.upload.warnings.duplicate;
-				_this.details.errorDuplicate( result.upload.sessionkey, duplicates );
+		} else if ( result.upload && result.upload.result === 'Success' ) {
+			if ( result.upload.imageinfo ) {
+				// success
+				_this.state = 'transported';
+				_this.transportProgress = 1;
+				_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
+				_this.extractUploadInfo( result );
+				
+				// use blocking preload for thumbnail, no loading spinner.
+				_this.getThumbnail( 
+					function( image ) {
+						_this.ui.setPreview( image );	
+						_this.deedPreview.setup();
+						_this.details.populate();
+						_this.state = 'stashed';
+						_this.ui.showStashed();
+					},
+					mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
+					mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
+				);
+			} else { 
+				_this.setError( 'noimageinfo' );
 			}
-
-			// and other errors that result in a stash
 		} else {
-			// XXX handle errors better -- get code and pass to showError
 			var code = 'unknown'; 
 			var info = 'unknown';
 			if ( result.error ) {
-				code = result.error.code;
-				info = result.error.info;
+				if ( result.error.code ) {
+					code = result.error.code;
+				}
+				if ( result.error.info ) {
+					info = result.error.info;
+				}
 			}
 			_this.setError( code, info );
 		}
