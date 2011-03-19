@@ -47,8 +47,7 @@
 
 				// caller can supply handlers for http transport error or api errors
 				err: function( code, result ) {
-					var errorMsg = "mw.Api error: " + code;
-					mw.log( _method + errorMsg );
+					mw.log( "mw.Api error: " + code, 'debug' );
 				},
 
 				timeout: 30000, /* 30 seconds */
@@ -129,6 +128,7 @@
 				ajaxOptions.err( 'http', { xhr: xhr, textStatus: textStatus, exception: exception } );
 			};
 
+			
 			/* success just means 200 OK; also check for output and API errors */
 			ajaxOptions.success = function( result ) {
 				if ( mw.isEmpty( result ) ) {
