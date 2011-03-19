@@ -62,14 +62,13 @@ mw.UploadWizardUpload.prototype = {
 		// we signal to the wizard to update itself, which has to delete the final vestige of 
 		// this upload (the ui.div). We have to do this silly dance because we 
 		// trigger through the div. Triggering through objects doesn't always work.
-		// TODO fix -- this now works in jquery 1.4.2
+		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
 		$j( this.ui.div ).trigger( 'removeUploadEvent' );
 	},
 
 
 	/**
 	 * Wear our current progress, for observing processes to see
-	 * XXX this is kind of a misnomer; this event is not firing except for the very first time.
  	 * @param fraction
 	 */
 	setTransportProgress: function ( fraction ) {
@@ -188,9 +187,9 @@ mw.UploadWizardUpload.prototype = {
 			}
 		}
 	
-		// TODO this needs to be rethought.	
-		// we should already have an extension, but if we don't...  ??
 		if ( _this.title.getExtension() === null ) {
+			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
+			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
 			/* 
 			var extension = mw.UploadWizardUtil.getExtension( _this.imageinfo.url );
 			if ( !extension ) {
@@ -409,8 +408,14 @@ mw.UploadWizard.prototype = {
 			.click( function() {
 				// check if there is an upload at all (should never happen)
 				if ( _this.uploads.length === 0 ) {
-					// XXX use standard error message
-					alert( gM( 'mwe-upwiz-file-need-file' ) );
+					$( '<div>' )
+						.html( gM( 'mwe-upwiz-file-need-file' ) )
+						.dialog({
+							width: 500,
+							zIndex: 200000,
+							autoOpen: true,
+							modal: true
+						});
 					return;
 				}
 
@@ -619,7 +624,6 @@ mw.UploadWizard.prototype = {
 	setUploadFilled: function( upload ) {
 		var _this = this;
 		
-		// XXX check if it has a file? 
 		_this.uploads.push( upload );
 		
 		/* useful for making ids unique and so on */
@@ -630,9 +634,7 @@ mw.UploadWizard.prototype = {
 		
 		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );	
 
-		// XXX do we really need to do this now? some things will even change after step 2.
-		// legacy.
-		// set up details
+		// TODO v1.1 consider if we really have to set up details now
 		upload.details = new mw.UploadWizardDetails( upload, $j( '#mwe-upwiz-macro-files' ) );
 	},
 
@@ -937,8 +939,6 @@ mw.UploadWizard.prototype = {
 		// some details blocks cannot be submitted (for instance, identical file hash)
 		_this.removeBlockedDetails();
 
-		// XXX validate all 
-
 		// remove ability to edit details
 		$j.each( _this.uploads, function( i, upload ) {
 			upload.details.div.mask();
@@ -1136,7 +1136,7 @@ mw.UploadWizardDeedPreview.prototype = {
 	 * Adds a tipsy pop-up help button to the field. Can be called in two ways -- with simple string id, which identifies
 	 * the string as 'mwe-upwiz-tooltip-' plus that id, and creates the hint with a similar id
 	 * or with function and id -- function will be called to generate the hint every time
-	 * XXX split into two plugins?
+	 * TODO v1.1 split into two plugins?
 	 * @param key {string}  -- will base the tooltip on a message found with this key
 	 * @param fn {function} optional -- call this function every time tip is created to generate message. If present HTML element gets an id of the exact key specified
 	 */

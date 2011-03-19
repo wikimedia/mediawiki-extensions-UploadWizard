@@ -216,11 +216,26 @@ mw.UploadWizardUploadInterface.prototype = {
 		var _this = this;
 		_this.clearErrors();
 		_this.upload.extractLocalFileInfo( _this.$fileInputCtrl.val() );
-		if ( _this.isGoodExtension( _this.upload.title.getExtension() ) ) {
+		var extension = _this.upload.title.getExtension();
+		var isGoodExtension = $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
+		if ( isGoodExtension ) {
 			_this.updateFilename();
 		} else {       
-			//_this.error( 'bad-filename-extension', ext );
-			alert("bad extension");
+			$( '<div>' )
+				.append( 
+					$j( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension ),
+					$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
+					$j( '<blockquote>' ).append( $j( '<tt>' ).append(  
+						mw.UploadWizard.config[ 'fileExtensions' ].join( " " )
+					) )
+				)
+				.dialog({
+					width: 500,
+					zIndex: 200000,
+					autoOpen: true,
+					title: gM( 'mwe-upwiz-help-popup' ) + ': ' + gM( 'mwe-upwiz-help-allowed-filename-extensions' ),
+					modal: true
+				});
 		}
 		this.clearStatus();
 	},
@@ -337,15 +352,6 @@ mw.UploadWizardUploadInterface.prototype = {
 		// apply a error style to entire did
 		$j( _this.div ).addClass( 'mwe-upwiz-upload-error' );
 		$j( _this.errorDiv ).show();
-	},
-
-	/**
-	 * This is used when checking for "bad" extensions in a filename. 
-	 * @param ext
-	 * @return boolean if extension was acceptable
-	 */
-	isGoodExtension: function( ext ) {
-		return $j.inArray( ext.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
 	}
 
 };	
