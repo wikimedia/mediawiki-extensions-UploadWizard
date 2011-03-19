@@ -54,7 +54,7 @@
 		}
 
 		// don't show log message if lower priority than mw.log.level
-		if ( priority[ mw.log.level ] <= priority[ level ] ) {
+		if ( priority[ mw.log.level ] < priority[ level ] ) {
 			return;
 		}
 
