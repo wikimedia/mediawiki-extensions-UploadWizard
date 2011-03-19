@@ -290,7 +290,22 @@ mw.UploadWizardUploadInterface.prototype = {
 		// visible filename
 		$j( _this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).html( path );
 
-		_this.upload.title = new mw.Title( mw.UploadWizardUtil.getBasename( path ), 'file' );
+		var filename = mw.UploadWizardUtil.getBasename( path );
+		try {
+			_this.upload.title = new mw.Title( filename, 'file' );
+		} catch ( e ) {
+			$( '<div>' )
+				.msg( 'mwe-upwiz-unparseable-filename', filename )
+				.dialog({
+					width: 500,
+					zIndex: 200000,
+					autoOpen: true,
+					modal: true
+				});
+			_this.$fileInputCtrl.val();
+			return;
+		}
+
 		$j( _this.filenameCtrl ).val( _this.upload.title.getMain() );
 
 		if ( ! _this.isFilled ) {

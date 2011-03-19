@@ -211,8 +211,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-thanks-caption' => 'Add caption here',
 	'mwe-upwiz-help-popup' => 'Help',
 	'mwe-upwiz-help-popup-title' => 'Title',
-	'mwe-upwiz-thumbnail-failed' => 'The upload succeeded, but the server could not get a preview thumbnail'
-
+	'mwe-upwiz-thumbnail-failed' => 'The upload succeeded, but the server could not get a preview thumbnail',
+	'mwe-upwiz-unparseable-filename' => 'Could not understand the file name "$1"'
 	
 );
 

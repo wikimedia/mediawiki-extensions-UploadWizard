@@ -97,12 +97,24 @@ mw.UploadWizardUpload.prototype = {
 			return;
 		}
 
+		// default error state
+		var code = 'unknown';
+		var info = 'unknown';
+
 		if ( result.upload && result.upload.warnings && result.upload.warnings.exists ) {
-			var fileTitle = new mw.Title( result.upload.warnings.exists, 'file' ).toString();
-			var fileUri = new mw.Uri( document.URL );
-			fileUri.path = wgScript;
-			fileUri.query = { title: fileTitle, action: 'view' };  
-			_this.setError( 'duplicate', fileUri.toString() );
+			var duplicateName = result.upload.warnings.exists;
+			try {
+				var fileTitle = new mw.Title( duplicateName, 'file' ).toString();
+				var fileUri = new mw.Uri( document.URL );
+				fileUri.path = wgScript;
+				fileUri.query = { title: fileTitle, action: 'view' }; 
+				code = 'duplicate';
+				info = fileUri.toString();
+			} catch ( e ) {
+				code = 'unknown';
+				info = 'Warned about duplicate but filename is unparseable: "' + duplicateName + "'"; 
+			}
+			_this.setError( code, info );
 		} else if ( result.upload && result.upload.result === 'Success' ) {
 			if ( result.upload.imageinfo ) {
 				// success
@@ -127,8 +139,6 @@ mw.UploadWizardUpload.prototype = {
 				_this.setError( 'noimageinfo' );
 			}
 		} else {
-			var code = 'unknown'; 
-			var info = 'unknown';
 			if ( result.error ) {
 				if ( result.error.code ) {
 					code = result.error.code;
@@ -147,11 +157,16 @@ mw.UploadWizardUpload.prototype = {
 	 * Called when the file is entered into the file input
 	 * Get as much data as possible -- maybe exif, even thumbnail maybe
 	 */
-	extractLocalFileInfo: function( localFilename ) {
+	extractLocalFileInfo: function( filename ) {
 		if ( false ) {  // FileAPI, one day
 			this.transportWeight = getFileSize();
 		}
-		this.title = new mw.Title( mw.UploadWizardUtil.getBasename( localFilename ), 'file' );
+		// XXX sanitize filename
+		try { 
+			this.title = new mw.Title( mw.UploadWizardUtil.getBasename( filename ).replace( /:/g, '_' ), 'file' );
+		} catch ( e ) {
+			this.setError( 'mwe-upwiz-unparseable-filename', filename );
+		}
 	},
 
 	/** 
@@ -188,6 +203,7 @@ mw.UploadWizardUpload.prototype = {
 		}
 	
 		if ( _this.title.getExtension() === null ) {
+			1;
 			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
 			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
 			/* 

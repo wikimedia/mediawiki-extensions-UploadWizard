@@ -266,7 +266,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-thanks-caption',
 				'mwe-upwiz-help-popup',
 				'mwe-upwiz-help-popup-title',
-				'mwe-upwiz-thumbnail-failed'
+				'mwe-upwiz-thumbnail-failed',
+				'mwe-upwiz-unparseable-filename'
 			),
 			'group' => 'ext.uploadWizard'
 		),

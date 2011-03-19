@@ -316,7 +316,14 @@ mw.UploadWizardDetails.prototype = {
 		$j( _this.titleInput ).data( 'valid', false );
 
 		// result is NOT unique
-		var title = new mw.Title( result.title ).setNamespace( 'file' ).getNameText();
+		var title;
+		try { 
+			title = new mw.Title( result.title ).setNamespace( 'file' ).getNameText();
+		} catch ( e ) {
+			// unparseable result from unique test? 
+			title = '[unparseable name]';
+		}
+			
 		/* var img = result.img;
 		var href = result.href; */
 	
