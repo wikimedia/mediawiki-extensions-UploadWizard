@@ -228,10 +228,12 @@ mw.UploadWizardUpload.prototype = {
 				'siiprop': 'url'
 			};
 
-			this.api.get( params, function( data ) {
+
+			var ok = function( data ) {
 				if ( !data || !data.query || !data.query.stashimageinfo ) {
 					mw.log("mw.UploadWizardUpload::getThumbnail> No data? ");
 					callback( null );
+					return;
 				}
 				var thumbnails = data.query.stashimageinfo;
 				for ( var i = 0; i < thumbnails.length; i++ ) {
@@ -239,6 +241,7 @@ mw.UploadWizardUpload.prototype = {
 					if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
 						mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail missing information" );
 						callback( null );
+						return;
 					}
 					var image = document.createElement( 'img' );
 					$j( image ).load( function() {
@@ -249,7 +252,14 @@ mw.UploadWizardUpload.prototype = {
 					image.src = thumb.thumburl;
 					_this.thumbnails[key] = image;
 				}
-			} );
+			};
+			
+			var err = function( code, result ) {
+				mw.log( 'mw.UploadWizardUpload::getThumbnail> error: ' + code, 'debug' );
+				callback( null );
+			};
+
+			this.api.get( params, { ok: ok, err: err } );
 		}
 	},
 
@@ -272,7 +282,7 @@ mw.UploadWizardUpload.prototype = {
 		}
 			
 		var callback = function( image ) {
-			if ( image == null ) {
+			if ( image === null ) {
 				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
 				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 			} else {
