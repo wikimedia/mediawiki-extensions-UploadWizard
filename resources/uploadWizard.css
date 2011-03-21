@@ -472,7 +472,7 @@ a[disabled=true]:hover {
 
 .mwe-grow-textarea, .mwe-long-textarea {
 	overflow: hidden;
-	font-family: sans-serif; /* XXX is this right? */
+	font-family: sans-serif;
 	font-size: small;
 }
 
@@ -480,6 +480,11 @@ fieldset .mwe-long-textarea {
 	width: 17em;
 }
 
+.mwe-title {
+	font-family: sans-serif;
+	font-size: small;
+	width: 100%;
+}
 
 .mwe-upwiz-details-fieldname-input {
 	margin-bottom: 1em; 
