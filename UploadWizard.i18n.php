@@ -888,7 +888,9 @@ $messages['bs'] = array(
 	'mwe-upwiz-api-error-overwrite' => 'Pisanje preko postojeće datoteke nije dopušteno.',
 	'mwe-upwiz-api-error-badtoken' => 'Unutrašnja greška: token nije ispravan.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Unutrašnja greška: pojavio se neki problem pri dobijanju podataka o datoteci.',
-	'mwe-upwiz-api-error-duplicate' => 'Već postoji jedna datoteka na ovoj wiki sa istim sadržajem',
+	'mwe-upwiz-api-error-duplicate' => 'Već postoji [$1 druga datoteka] na ovoj wiki sa istim sadržajem',
+	'mwe-upwiz-api-error-timeout' => 'Server nije odgovorio unutar očekivanog vremena.',
+	'mwe-upwiz-api-error-noimageinfo' => 'Postavljanje je uspjelo, ali server nam nije dao nikakvu informaciju o datoteci.',
 	'mwe-upwiz-api-warning-exists' => 'Već postoji jedna datoteka na ovoj wiki sa istim imenom',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Žao nam je, nismo mogli naći uputstvo na vašem jeziku. Može se prikazati samo engleska verzija.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Žao nam je, nismo mogli naći nijednu datoteku za pomoć koji bi trebala biti ovdje. Molimo kontaktirajte vašeg administratora sistema.',
@@ -914,6 +916,7 @@ $messages['bs'] = array(
 	'mwe-upwiz-file-some-failed' => 'Postavljanje nekih datoteka nije uspjelo.',
 	'mwe-upwiz-file-retry' => 'Pokušaj ponovno postavljanje nepostavljenih datoteka',
 	'mwe-upwiz-next-file-despite-failures' => 'Ipak nastavi',
+	'mwe-upwiz-skip-tutorial-future' => 'Preskoči ovaj korak ubuduće',
 	'mwe-upwiz-file-all-failed' => 'Nijedno postavljanje nije bilo uspješno.',
 	'mwe-upwiz-upload-count' => '$1 od $2 {{PLURAL:$2|datoteka postavljena|datoteke postavljene|datoteka postavljeno}}',
 	'mwe-upwiz-progressbar-uploading' => 'postavljam',
@@ -966,6 +969,8 @@ $messages['bs'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Da biste koristili datoteku u wikiju</b>, kopirajte ovaj tekst na stranicu:',
 	'mwe-upwiz-thanks-url' => '<b>Da biste je povezali u HTML</b>, kopirajte ovu URL adresu:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ova wiki ne prihvata imena datoteka sa nastavkom "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'Dopušteni nastavci su:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Dopušteni nastavci datoteke',
 	'mwe-upwiz-upload-error-duplicate' => 'Ova datoteka je ranije bila postavljena na ovu wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Ipak postavi?',
 	'mwe-upwiz-ok' => 'U redu',
@@ -991,13 +996,12 @@ Jeste li sigurni da želite otići sa ove stranice?',
 	'mwe-upwiz-tooltip-source' => 'Odakle je došla ova digitalna datoteka -- može biti URL, knjiga ili publikacija',
 	'mwe-upwiz-tooltip-sign' => 'Možete koristiti vaše wiki korisničko ime ili vaše stvarno ime.
 U oba slučaja, ono će biti povezano na vašu wiki korisničku stranicu',
-	'mwe-upwiz-tooltip-title' => 'Kratki naslov za ovu datoteku.
-Možete koristiti obični jezik sa razmacima ali bez preloma reda.
-Ovaj naslov ne smije biti isti sa drugim naslovima na ovoj wiki.',
+	'mwe-upwiz-tooltip-title' => 'Kratki jedinstveni naslov za ovu datoteku. Možete koristiti obični jezik sa razmacima. Ne uključujte nastavak datoteke. [$1 Pročitajte više].',
+	'mwe-upwiz-dialog-title' => 'Datoteke se mogu postaviti sa imenima na bilo kojem jeziku na bilo kojem pismu (kodirana sa UTF-8). Naslovi medijski datoteka trebaju biti smislena i korisna na jeziku koji je odabran.',
 	'mwe-upwiz-tooltip-description' => 'Kratko opišite sve što je važno o ovom radu.
 Za slike, navedite osnovne stvari koje ona prikazuje, prilike ili mjesto slikanja.',
-	'mwe-upwiz-tooltip-other' => 'Svi ostali podaci koje želite uključiti sa ovim radom.
-Možete koristiti i kod wikiteksta.',
+	'mwe-upwiz-tooltip-categories' => 'Dodajte [$1 kategorije] u vašu datoteku kako bi bilo lakše da je nađete.',
+	'mwe-upwiz-tooltip-other' => 'Svi ostali podaci koje želite uključiti sa ovim radom. Postavite ovdje <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">šablone za geokodiranje</a>.',
 	'mwe-upwiz-tooltip-more-info' => 'Pročitajte više.',
 	'mwe-upwiz-file-need-file' => 'Molimo prvo dodajte datoteku.',
 	'mwe-upwiz-file-need-start' => 'Molimo pritisnite ovo dugme za početak vaših postavljanja.',
@@ -1031,6 +1035,11 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-remove' => 'Ukloni ovu kategoriju',
+	'mwe-upwiz-thanks-caption' => 'Dodaj opis ovdje',
+	'mwe-upwiz-help-popup' => 'Pomoć',
+	'mwe-upwiz-help-popup-title' => 'Naslov',
+	'mwe-upwiz-thumbnail-failed' => 'Postavljanje je uspjelo, ali server nije mogao da pronađe pretpregled',
+	'mwe-upwiz-unparseable-filename' => 'Nisam mogao razumjeti ime datoteke "$1"',
 );
 
 /** Catalan (Català)
@@ -1955,6 +1964,7 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Crochet.david
+ * @author Hashar
  * @author IAlex
  * @author Jean-Frédéric
  * @author Peter17
@@ -2000,6 +2010,7 @@ $messages['fr'] = array(
 	'mwe-upwiz-api-error-badtoken' => 'Erreur interne : mauvais « jeton ».',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Erreur interne : Quelque chose s’est mal passé lors de la récupération du fichier.',
 	'mwe-upwiz-api-error-duplicate' => 'Il y a déjà un autre fichier sur le wiki avec le même contenu',
+	'mwe-upwiz-api-error-timeout' => "Le serveur n'a pas répondu dans le délai imparti.",
 	'mwe-upwiz-api-warning-exists' => 'Il y a déjà un autre fichier sur le wiki avec le même nom de fichier',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Désolé, nous n’avons pas pu trouver de tutoriel dans votre langue. La version anglaise est affichée à la place.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Désolé, nous n’avons pu trouver aucun des fichiers du tutoriel qui devrait s’afficher ici. Veuillez contacter les administrateurs du système.',
@@ -2078,6 +2089,8 @@ $messages['fr'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Afin d’utiliser le fichier sur un wiki</b>, vous pouvez copier ce texte dans une page :',
 	'mwe-upwiz-thanks-url' => '<b>Pour créer un lien en HTML</b>, copier cette URL :',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ce wiki n’accepte pas les noms de fichiers avec l’extension « $1 ».',
+	'mwe-upwiz-allowed-filename-extensions' => 'Les extensions autorisées sont :',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensions de nom de fichier autorisées',
 	'mwe-upwiz-upload-error-duplicate' => 'Ce fichier a déjà été téléversé sur ce wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Téléverser malgré tout ?',
 	'mwe-upwiz-ok' => 'OK',
@@ -2141,6 +2154,10 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-categories-add' => 'Ajouter',
 	'mwe-upwiz-category-remove' => 'Enlever cette catégorie',
 	'mwe-upwiz-thanks-caption' => 'Ajouter une légende ici',
+	'mwe-upwiz-help-popup' => 'Aide',
+	'mwe-upwiz-help-popup-title' => 'Titre',
+	'mwe-upwiz-thumbnail-failed' => "Le téléchargement a réussi, mais le serveur n'a pas pu obtenir un aperçu",
+	'mwe-upwiz-unparseable-filename' => "Impossible d'interpréter le nom du fichier « $1 »",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -3406,6 +3423,7 @@ $messages['ia'] = array(
 	'mwe-upwiz-api-error-fetchfileerror' => 'Error interne: qualcosa errava durante le obtention del file.',
 	'mwe-upwiz-api-error-duplicate' => 'Existe jam [$1 un altere file] in le wiki con le mesme contento.',
 	'mwe-upwiz-api-error-timeout' => 'Le servitor non ha respondite intra le tempore expectate.',
+	'mwe-upwiz-api-error-noimageinfo' => 'Le incargamento succedeva, ma le servitor non forniva alcun information super le file.',
 	'mwe-upwiz-api-warning-exists' => 'Existe jam un altere file in le wiki con le mesme nomine.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Nos regretta que un tutorial in interlingua non es disponibile. Es monstrate le tutorial in anglese.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Le files del tutorial non ha essite trovate. Per favor contacta le administratores del systema.',
@@ -3484,6 +3502,8 @@ $messages['ia'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Pro usar le file in un wiki</b>, copia iste texto in un pagina:',
 	'mwe-upwiz-thanks-url' => '<b>Pro ligar a illo in HTML</b>, copia iste adresse URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Iste wiki non accepta nomines de file con le extension "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'Le extensiones permittite es:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensiones de nomine de file permittite',
 	'mwe-upwiz-upload-error-duplicate' => 'Iste file esseva previemente incargate in iste wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Incargar totevia?',
 	'mwe-upwiz-ok' => 'OK',
@@ -3547,6 +3567,8 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-thanks-caption' => 'Adde legenda hic',
 	'mwe-upwiz-help-popup' => 'Adjuta',
 	'mwe-upwiz-help-popup-title' => 'Titulo',
+	'mwe-upwiz-thumbnail-failed' => 'Le incargamento succedeva, ma le servitor non poteva obtener un miniatura de previsualisation.',
+	'mwe-upwiz-unparseable-filename' => 'Le nomine de file "$1" non esseva comprendite.',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -3790,6 +3812,7 @@ $messages['it'] = array(
 	'mwe-upwiz-api-error-filename-tooshort' => 'Il nome del file è troppo breve.',
 	'mwe-upwiz-api-error-illegal-filename' => 'Il nome del file non è ammesso.',
 	'mwe-upwiz-api-error-verification-error' => "Questo file potrebbe essere danneggiato, o avere l'estensione sbagliata.",
+	'mwe-upwiz-api-error-internal-error' => "Errore interno: qualcosa è andato storto con l'elaborazione del tuo caricamento sulla wiki.",
 	'mwe-upwiz-api-error-overwrite' => 'Sovrascrivere un file esistente non è consentito.',
 	'mwe-upwiz-api-error-duplicate' => "Sulla wiki c'è già [$1 un altro file] con lo stesso contenuto",
 	'mwe-upwiz-api-warning-exists' => "Nella wiki c'è già un altro file con lo stesso nome",
@@ -3799,6 +3822,7 @@ $messages['it'] = array(
 	'mwe-upwiz-add-file-n' => 'Aggiungi un altro file',
 	'mwe-upwiz-add-file-0' => 'Seleziona un file multimediale da caricare',
 	'mwe-upwiz-browse' => 'Sfoglia...',
+	'mwe-upwiz-transport-started' => 'Inizializzazione...',
 	'mwe-upwiz-uploading' => 'Caricamento in corso…',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'OK',
@@ -3823,6 +3847,8 @@ $messages['it'] = array(
 	'mwe-upwiz-deeds-macro-prompt' => "{{SITENAME}} ti richiede di fornire informazioni sul copyright su {{PLURAL:$1|quest'opera|queste opere}}, per assicurare che tutti possano riutilizzar{{PLURAL:$1|la|le}} legalmente.",
 	'mwe-upwiz-deeds-custom-prompt' => 'Oppure:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Questo file è|Questi files sono}} opera mia.',
+	'mwe-upwiz-source-ownwork-assert-any-license' => "Io, $2, detentore del copyright su {{PLURAL:$1|quest'opera|queste opere}}, concedo irrevocabilmente a chiunque il diritto di utilizzare, modificare e ridistribuire {{PLURAL:$1|quest'opera|queste opere}} per qualsiasi scopo, e dunque {{PLURAL:$1|la|le}} pubblico sotto i seguenti termini:",
+	'mwe-upwiz-source-ownwork-assert-custom' => "Io, $2, detentore del copyright su {{PLURAL:$1|quest'opera|queste opere}}, dichiaro di pubblicar{{PLURAL:$1|la|le}} con le seguenti licenze:",
 	'mwe-upwiz-source-permission' => 'Il loro autore ti ha dato il permesso esplicito di caricarle',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Questo file non è|Questi files non sono}} opera mia.',
 	'mwe-upwiz-source-thirdparty-intro' => "Inserisci l'indirizzo a cui hai trovato ciascun file.",
@@ -3849,6 +3875,7 @@ $messages['it'] = array(
 	'mwe-upwiz-autoconverted' => 'Questo file è stato automaticamente convertito nel formato $1',
 	'mwe-upwiz-filename-tag' => 'Nome del file:',
 	'mwe-upwiz-other' => 'Altre informazioni',
+	'mwe-upwiz-other-prefill' => 'Campo di wikitesto libero',
 	'mwe-upwiz-showall' => 'mostra tutto',
 	'mwe-upwiz-source' => 'Fonte',
 	'mwe-upwiz-macro-edit-intro' => 'Scegli una prima licenza sopra, dopo puoi aggiungere qualche descrizione ed altre informazioni per i tuoi caricamenti.',
@@ -3909,6 +3936,12 @@ Allungala a non meno di $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'La tua firma contiene simboli che non sono ammessi. 
 Non utilizzare codice HTML o wikitext qui, solo il nome utente o il nome reale.',
 	'mwe-upwiz-error-blank' => 'Questo campo è obbligatorio.',
+	'mwe-upwiz-error-too-long' => 'Questo testo è troppo lungo.
+Deve essere più breve di $1 {{PLURAL:$1|carattere|caratteri}}.',
+	'mwe-upwiz-error-too-short' => 'Questo testo è troppo breve.
+Deve essere più lungo di $1 {{PLURAL:$1|carattere|caratteri}}.',
+	'mwe-upwiz-error-bad-chars' => 'Questo campo contiene simboli non consentiti.
+Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-error-date' => 'Inserisci una data valida nel formato AAAA-MM-GG, o scegli una data dal calendario.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribuzione-Condividi allo stesso modo 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribuzione 3.0',
@@ -3916,6 +3949,9 @@ Non utilizzare codice HTML o wikitext qui, solo il nome utente o il nome reale.'
 	'mwe-upwiz-categories-add' => 'Aggiungi',
 	'mwe-upwiz-category-remove' => 'Elimina questa categoria',
 	'mwe-upwiz-thanks-caption' => 'Aggiungi la didascalia qui',
+	'mwe-upwiz-help-popup' => 'Aiuto',
+	'mwe-upwiz-help-popup-title' => 'Titolo',
+	'mwe-upwiz-thumbnail-failed' => 'Il caricamento è riuscito, ma il server non ha potuto generare una miniatura di anteprima.',
 );
 
 /** Japanese (日本語)
@@ -3963,7 +3999,9 @@ $messages['ja'] = array(
 	'mwe-upwiz-api-error-overwrite' => '既存のファイルへ上書きすることは許可されていません。',
 	'mwe-upwiz-api-error-badtoken' => '内部エラー：トークンが不正です。',
 	'mwe-upwiz-api-error-fetchfileerror' => '内部エラー：ファイルの取得中に問題が発生しました。',
-	'mwe-upwiz-api-error-duplicate' => 'ウィキには、既に同じ内容の別ファイルが存在しています。',
+	'mwe-upwiz-api-error-duplicate' => '既に同じ内容の[$1 別ファイル]が存在しています。',
+	'mwe-upwiz-api-error-timeout' => 'サーバーが決められた時間内に応答しませんでした。',
+	'mwe-upwiz-api-error-noimageinfo' => 'アップロードには成功しましたが、サーバーはファイルに関する情報を返しませんでした。',
 	'mwe-upwiz-api-warning-exists' => 'ウィキには、既に同じファイル名の別ファイルが存在しています。',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '申し訳ありません。使用中の言語でのチュートリアルを見つけられませんでした。代わりに英語で表示されています。',
 	'mwe-upwiz-tutorial-error-file-missing' => '申し訳ありません。ここで使用できるチュートリアルのファイルが見つかりませんでした。システム管理者に問い合わせてください。',
@@ -3989,6 +4027,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-file-some-failed' => 'いくつかのアップロードが失敗しました。',
 	'mwe-upwiz-file-retry' => '失敗したアップロードを再試行',
 	'mwe-upwiz-next-file-despite-failures' => '続行',
+	'mwe-upwiz-skip-tutorial-future' => 'いつもこの手順をとばす',
 	'mwe-upwiz-file-all-failed' => 'アップロードに1つも成功しませんでした。',
 	'mwe-upwiz-upload-count' => '$2{{PLURAL:$2|ファイル}}のうちの、$1ファイルのアップロードが完了',
 	'mwe-upwiz-progressbar-uploading' => 'アップロード中',
@@ -4041,6 +4080,8 @@ $messages['ja'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>このファイルをウィキで利用するには</b>、このテキストを、そのページにコピーしてください：',
 	'mwe-upwiz-thanks-url' => '<b>HTMLでリンクするには</b>、このURLアドレスをコピーしてださい：',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'このウィキは、「$1」という拡張子を持つファイル名を受け入れていません。',
+	'mwe-upwiz-allowed-filename-extensions' => '許可された拡張子:',
+	'mwe-upwiz-help-allowed-filename-extensions' => '許可されたファイル名の拡張子',
 	'mwe-upwiz-upload-error-duplicate' => 'このファイルは既にこのウィキにアップロードされています。',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'どうしてもアップロードしますか？',
 	'mwe-upwiz-ok' => 'OK',
@@ -4105,6 +4146,10 @@ $1文字より長くしてください。',
 	'mwe-upwiz-categories-add' => '追加',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
 	'mwe-upwiz-thanks-caption' => 'ここに説明文をつける',
+	'mwe-upwiz-help-popup' => 'ヘルプ',
+	'mwe-upwiz-help-popup-title' => 'タイトル',
+	'mwe-upwiz-thumbnail-failed' => 'アップロードには成功しましたが、サーバーがプレビューのサムネイルを取得できませんでした。',
+	'mwe-upwiz-unparseable-filename' => 'ファイル名「$1」を認識できません',
 );
 
 /** Georgian (ქართული)
@@ -4515,6 +4560,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-api-error-fetchfileerror' => 'Внатрешна грешка: нешто тргна наопаку при добивањето на податотеката.',
 	'mwe-upwiz-api-error-duplicate' => 'На викито веќе постои [$1 друга податотека] со истата содржина.',
 	'mwe-upwiz-api-error-timeout' => 'Опслужувачот не одговори во очекуваното време.',
+	'mwe-upwiz-api-error-noimageinfo' => 'Погидањето успеа, но опслужувачот не понуди никакви информации за податотеката.',
 	'mwe-upwiz-api-warning-exists' => 'На викито веќе постои друга податотека со исто такво име.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Нажалост, не можевме да најдеме напатствие на вашиот јазик. Затоа ви ја прикажуваме англиската верзија.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Нажалост, не можевме да најдеме податотеки за напатствието што треба да оди тука. Обратете се кај администраторите.',
@@ -4593,6 +4639,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>За да ја користите податотекава на вики</b>, ископирајте го следниов текст во страница:',
 	'mwe-upwiz-thanks-url' => '<b>За да поставите врска до неа во HTML</b>, ископирајте ја следнава HTML-адреса:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ова вики не прифаќа податотеки со наставка „$1“.',
+	'mwe-upwiz-allowed-filename-extensions' => 'Допуштени наставки:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Допуштени податотечни наставки',
 	'mwe-upwiz-upload-error-duplicate' => 'Оваа податотека била претходно подигната на ова вики.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Сепак да подигнам?',
 	'mwe-upwiz-ok' => 'ОК',
@@ -4656,6 +4704,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-thanks-caption' => 'Тука внесете опис',
 	'mwe-upwiz-help-popup' => 'Помош',
 	'mwe-upwiz-help-popup-title' => 'Наслов',
+	'mwe-upwiz-thumbnail-failed' => 'Подигањето успеа, но опслужувачот не можеше да понуди минијатура за преглед',
+	'mwe-upwiz-unparseable-filename' => 'Не го разбрав податотечното име „$1“',
 );
 
 /** Malayalam (മലയാളം)
@@ -4701,6 +4751,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-api-error-fetchfileerror' => 'ആന്തരിക പിഴവ്: പ്രമാണം ശേഖരിച്ചുകൊണ്ടിരുന്നപ്പോൾ എന്തോ പിഴവുണ്ടായി.',
 	'mwe-upwiz-api-error-duplicate' => 'വിക്കിയിൽ ഇതേ ഉള്ളടക്കമുള്ള [$1 മറ്റൊരു പ്രമാണം] മുമ്പേയുണ്ട്.',
 	'mwe-upwiz-api-error-timeout' => 'പ്രതീക്ഷിക്കപ്പെട്ട കാലാവധിക്കുള്ളിൽ സെർവർ പ്രതികരിച്ചില്ല.',
+	'mwe-upwiz-api-error-noimageinfo' => 'അപ്‌ലോഡ് വിജയകരമായിരുന്നു, പക്ഷേ സെർവർ പ്രമാണത്തെക്കുറിച്ച് യാതൊരു വിവരവും ഇവിടെ തന്നിട്ടില്ല.',
 	'mwe-upwiz-api-warning-exists' => 'വിക്കിയിൽ ഇതേ പേരിൽ മറ്റൊരു പ്രമാണമുണ്ട്.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ക്ഷമിക്കുക, താങ്കളുടെ ഭാഷയിലുള്ള പരിശീലനക്കുറിപ്പ് കണ്ടെത്താനായില്ല. പകരം ഇംഗ്ലീഷിലുള്ളത് പ്രദർശിപ്പിക്കുന്നു.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'ക്ഷമിക്കുക, ഇവിടെ വരേണ്ട ഏതെങ്കിലും പരിശീലനക്കുറിപ്പോ പ്രമാണങ്ങളോ കണ്ടെത്താനായില്ല. ദയവായി സിസ്റ്റം കാര്യനിർവാഹകരെ സമീപിക്കുക.',
@@ -4779,6 +4830,8 @@ $messages['ml'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>ഈ പ്രമാണം ഒരു വിക്കിയിൽ ഉപയോഗിക്കാൻ</b>, ഇത് താളിലേയ്ക്ക് പകർത്തുക:',
 	'mwe-upwiz-thanks-url' => '<b>എച്ച്.റ്റി.എം.എൽ. ഉപയോഗിച്ച് കണ്ണി ചേർക്കാൻ</b>, ഈ യൂ.ആർ.എൽ. വിലാസം പകർത്തുക:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'ഈ വിക്കിയിൽ "$1" എന്ന എക്സ്റ്റെൻഷനുള്ള പേരുള്ള പ്രമാണങ്ങൾ അനുവദിക്കുന്നില്ല.',
+	'mwe-upwiz-allowed-filename-extensions' => 'അനുവദിച്ചിട്ടുള്ള എക്സ്റ്റെൻഷനുകൾ:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'പ്രമാണനാമത്തിൽ അനുവദിച്ചിട്ടുള്ള എക്സ്റ്റെൻഷനുകൾ',
 	'mwe-upwiz-upload-error-duplicate' => 'ഈ പ്രമാണം ഈ വിക്കിയിൽ മുമ്പ് അപ്‌ലോഡ് ചെയ്യപ്പെട്ടിട്ടുണ്ട്.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'എന്തായാലും അപ്‌ലോഡ് ചെയ്യണോ?',
 	'mwe-upwiz-ok' => 'ശരി',
@@ -4846,6 +4899,8 @@ $messages['ml'] = array(
 	'mwe-upwiz-thanks-caption' => 'ഇവിടെ തലക്കുറി ചേർക്കുക',
 	'mwe-upwiz-help-popup' => 'സഹായം',
 	'mwe-upwiz-help-popup-title' => 'തലക്കെട്ട്',
+	'mwe-upwiz-thumbnail-failed' => 'അപ്‌ലോഡ് വിജയകരമായിരുന്നു, പക്ഷേ എങ്ങനെയുണ്ടെന്ന് കാണാനുള്ള ലഘുചിത്രം സെർവർ ലഭ്യമാക്കിയിട്ടില്ല',
+	'mwe-upwiz-unparseable-filename' => '"$1" എന്ന പ്രമാണനാമം മനസ്സിലാക്കിയെടുക്കാൻ കഴിഞ്ഞില്ല',
 );
 
 /** Mongolian (Монгол)
@@ -5280,6 +5335,8 @@ $messages['pl'] = array(
 	'mwe-upwiz-api-error-badtoken' => 'Błąd wewnętrzny – żeton wykorzystywany do identyfikacji użytkownika jest nieprawidłowy.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Błąd wewnętrzny – wystąpił błąd w trakcie pobierania pliku.',
 	'mwe-upwiz-api-error-duplicate' => 'Jest już [$1 inny plik] w tej wiki o tej samej zawartości',
+	'mwe-upwiz-api-error-timeout' => 'Serwer nie odpowiedział w oczekiwanym czasie.',
+	'mwe-upwiz-api-error-noimageinfo' => 'Plik przesłano, ale serwer nie zwrócił informacji na jego temat.',
 	'mwe-upwiz-api-warning-exists' => 'Na wiki jest już plik o takiej samej nazwie',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Niestety w Twoim języku brak jest samouczka. Anglojęzyczny został wyświetlony poniżej.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Niestety nie odnaleziono żadnych plików samouczka przydatnych w tym momencie. Skontaktuj się z administratorem systemu.',
@@ -5305,6 +5362,7 @@ $messages['pl'] = array(
 	'mwe-upwiz-file-some-failed' => 'Niektórych plików nie przesłano.',
 	'mwe-upwiz-file-retry' => 'Prześlij ponownie nieudane',
 	'mwe-upwiz-next-file-despite-failures' => 'Kontynuuj mimo wszystko',
+	'mwe-upwiz-skip-tutorial-future' => 'Pomiń ten krok w przyszłości',
 	'mwe-upwiz-file-all-failed' => 'Nie udało się przesłać żadnego pliku.',
 	'mwe-upwiz-upload-count' => 'Przesłano $1 z $2 {{PLURAL:$2|pliku|plików}}',
 	'mwe-upwiz-progressbar-uploading' => 'przesyłanie',
@@ -5357,6 +5415,8 @@ $messages['pl'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Aby skorzystać z pliku w wiki</b>, skopiuj ten tekst na stronę',
 	'mwe-upwiz-thanks-url' => '<b>Aby dodać link do niego w HTML,</b> skopiuj ten adres URL',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ta wiki nie akceptuje plików o nazwach z rozszerzeniem „$1”.',
+	'mwe-upwiz-allowed-filename-extensions' => 'Dopuszczalne są rozszerzenia:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Dozwolone rozszerzenia nazw plików',
 	'mwe-upwiz-upload-error-duplicate' => 'Ten plik został wcześniej przesłany do tej wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Przesłać mimo to?',
 	'mwe-upwiz-ok' => 'OK',
@@ -5421,6 +5481,10 @@ Proszę tutaj nie korzystać z formatowania wiki lub HTML.',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-remove' => 'Usuń z tej kategorii',
 	'mwe-upwiz-thanks-caption' => 'Dodaj tutaj opis',
+	'mwe-upwiz-help-popup' => 'Pomoc',
+	'mwe-upwiz-help-popup-title' => 'Tytuł',
+	'mwe-upwiz-thumbnail-failed' => 'Plik przesłano, ale serwer nie zwrócił miniaturki',
+	'mwe-upwiz-unparseable-filename' => 'Niezrozumiała nazwa pliku „$1”',
 );
 
 /** Piedmontese (Piemontèis)
@@ -5614,7 +5678,7 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'uploadwizard' => 'Assistente de uploads',
 	'uploadwizard-desc' => 'Assistente de uploads, desenvolvido para a subvenção Usabilidade Multimédia',
-	'mwe-upwiz-js-off' => 'O Assistente de uploads usa o JavaScript para melhorar a interface. Ou o seu browser não suporta JavaScript ou o JavaScript foi desligado, por isso será apresentado um formulário de upload simplificado.',
+	'mwe-upwiz-js-off' => 'O Assistente de uploads usa JavaScript para melhorar a interface. Ou o seu browser não suporta JavaScript ou o JavaScript foi desligado, por isso será apresentado um formulário de upload simplificado.',
 	'mwe-loading-upwiz' => 'A carregar o assistente de uploads',
 	'mwe-upwiz-code-unknown' => 'Língua desconhecida',
 	'mwe-upwiz-step-tutorial' => 'Aprender',
@@ -5647,8 +5711,10 @@ $messages['pt'] = array(
 	'mwe-upwiz-api-error-internal-error' => 'Erro interno: ocorreu um erro indeterminado na wiki ao processar o ficheiro que enviou.',
 	'mwe-upwiz-api-error-overwrite' => 'Não é permitido sobrescrever um ficheiro existente.',
 	'mwe-upwiz-api-error-badtoken' => 'Erro interno: chave incorrecta.',
-	'mwe-upwiz-api-error-fetchfileerror' => 'Erro interno: Ocorreu um problema indeterminado ao aceder ao ficheiro.',
-	'mwe-upwiz-api-error-duplicate' => 'Já existe outro ficheiro na wiki com o mesmo conteúdo',
+	'mwe-upwiz-api-error-fetchfileerror' => 'Erro interno: ocorreu um problema indeterminado ao aceder ao ficheiro.',
+	'mwe-upwiz-api-error-duplicate' => 'Já existe [$1 outro ficheiro] na wiki com o mesmo conteúdo',
+	'mwe-upwiz-api-error-timeout' => 'O servidor não respondeu no prazo esperado.',
+	'mwe-upwiz-api-error-noimageinfo' => 'O upload correu bem, mas o servidor não forneceu informação sobre o ficheiro.',
 	'mwe-upwiz-api-warning-exists' => 'Já existe outro ficheiro na wiki com o mesmo nome',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Não foi encontrado um guia na sua língua. Será usado o de língua inglesa.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Não foram encontrados os ficheiros do guia que devia ser apresentado aqui. Contacte os administradores do sistema, por favor.',
@@ -5674,6 +5740,7 @@ $messages['pt'] = array(
 	'mwe-upwiz-file-some-failed' => 'Alguns dos uploads falharam.',
 	'mwe-upwiz-file-retry' => 'Repetir os uploads que falharam',
 	'mwe-upwiz-next-file-despite-failures' => 'Continuar mesmo assim',
+	'mwe-upwiz-skip-tutorial-future' => 'Saltar este passo no futuro',
 	'mwe-upwiz-file-all-failed' => 'Todos os uploads falharam.',
 	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|ficheiro|ficheiros}} de $2 {{PLURAL:$1|ficheiro carregado|ficheiros carregados}}',
 	'mwe-upwiz-progressbar-uploading' => 'a carregar',
@@ -5726,6 +5793,8 @@ $messages['pt'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Para usar o ficheiro numa wiki</b>, copie este texto para uma página:',
 	'mwe-upwiz-thanks-url' => '<b>Para criar um link para o ficheiro em HTML</b>, copie este endereço URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Esta wiki não aceita nomes de ficheiros com a extensão "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'As extensões permitidas são:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensões permitidas no nome do ficheiro',
 	'mwe-upwiz-upload-error-duplicate' => 'Este ficheiro já foi carregado nesta wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Enviar à mesma?',
 	'mwe-upwiz-ok' => 'OK',
@@ -5787,6 +5856,10 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-categories-add' => 'Adicionar',
 	'mwe-upwiz-category-remove' => 'Remover esta categoria',
 	'mwe-upwiz-thanks-caption' => 'Adicionar legenda aqui',
+	'mwe-upwiz-help-popup' => 'Ajuda',
+	'mwe-upwiz-help-popup-title' => 'Título',
+	'mwe-upwiz-thumbnail-failed' => 'O upload correu bem, mas o servidor não conseguiu obter uma miniatura de antevisão',
+	'mwe-upwiz-unparseable-filename' => 'O nome de ficheiro "$1" não foi compreendido',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -6012,6 +6085,7 @@ $messages['roa-tara'] = array(
 /** Russian (Русский)
  * @author Ast
  * @author Eleferen
+ * @author Haffman
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -6131,6 +6205,8 @@ $messages['ru'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Чтобы использовать файл в вики</b>, скопируйте этот текст на страницу:',
 	'mwe-upwiz-thanks-url' => '<b>Чтобы добавить ссылку в HTML</b>, скопируйте следующий адрес URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Данная вики не принимает имена файлов с расширением «$1».',
+	'mwe-upwiz-allowed-filename-extensions' => 'Допустимые расширения:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Допустимые расширения файлов',
 	'mwe-upwiz-upload-error-duplicate' => 'Этот файл был ранее загружен в эту вики.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Всё равно загрузить?',
 	'mwe-upwiz-ok' => 'OK',
@@ -6194,6 +6270,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-thanks-caption' => 'Добавьте сюда заголовок',
 	'mwe-upwiz-help-popup' => 'Справка',
 	'mwe-upwiz-help-popup-title' => 'Заголовок',
+	'mwe-upwiz-unparseable-filename' => 'Невозможно понять имя файла "$1"',
 );
 
 /** Rusyn (Русиньскый)
@@ -6240,6 +6317,7 @@ $messages['sah'] = array(
 	'mwe-upwiz-step-deeds' => 'Быраабын ыйыы',
 	'mwe-upwiz-step-details' => 'Быһаарыы',
 	'mwe-upwiz-step-thanks' => 'Туттуу',
+	'mwe-upwiz-api-error-http' => 'Ис алҕас: Сиэрбэргэ холбонор табыллыбата.',
 	'mwe-upwiz-api-error-ok-but-empty' => 'Ис алҕас: сиэрбэртэн хоруй кэлбэтэ.',
 	'mwe-upwiz-api-error-unknown-code' => 'Биллибэт алҕас: «$1»',
 	'mwe-upwiz-api-error-uploaddisabled' => 'Бу биикигэ хачайдыыр араарыллыбыт эбит.',
@@ -6247,6 +6325,17 @@ $messages['sah'] = array(
 	'mwe-upwiz-api-error-mustbeposted' => 'Ис алҕас: HTTP POST алҕастаах.',
 	'mwe-upwiz-api-error-badaccess-groups' => 'Эн бу биикигэ билэ киллэрэриҥ хааччахтаммыт.',
 	'mwe-upwiz-api-error-stashfailed' => 'Ис алҕас: сиэрбэр быстах кэмҥэ оҥоһуллубут билэни кыайан бигэргэппэтэх.',
+	'mwe-upwiz-api-error-missingresult' => 'Ис алҕас: Хатылааһын сатаммыта-сатамматаҕа биллибэтэ.',
+	'mwe-upwiz-api-error-missingparam' => 'Ис алҕас: Көрдөбүл туруоруулара суохтар эбит.',
+	'mwe-upwiz-api-error-invalid-session-key' => 'Ис алҕас: Быстах уурар сиргэ билэ көстүбэтэ.',
+	'mwe-upwiz-api-error-copyuploaddisabled' => 'URL көмөтүнэн киллэрии бу сиэрбэргэ араарыллыбыт.',
+	'mwe-upwiz-api-error-mustbeloggedin' => 'Билэни киллэрэргэ бастаан ааккын этиэхтээххин.',
+	'mwe-upwiz-api-error-empty-file' => 'Ыыппыт билэҥ кураанах.',
+	'mwe-upwiz-api-error-file-too-large' => 'Ыыппыт билэҥ наһаа улахан эбит.',
+	'mwe-upwiz-api-error-filetype-missing' => 'Бу билэ тэнитиитэ (расширение) суох эбит.',
+	'mwe-upwiz-api-error-filetype-banned' => 'Маннык көрүҥнээх билэлэр бобуулаахтар.',
+	'mwe-upwiz-api-error-filename-tooshort' => 'Билэҥ аата наһаа кылгас.',
+	'mwe-upwiz-api-error-illegal-filename' => 'Билэ маннык ааттанара сатаммат.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Бука диэн баалама, Эн тылгынан ыйыыны-кэрдиини булбатыбыт. Ааҥыллыы барыл көрдөрүллэр.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Бука диэн баалама, манна баар буолуохтаах учебник билэлэрэ көстүбэтилэр. Дьаһабылы бул.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Маннык экрааҥҥа аналлаах ойуу суох эбит. Баҕар, Биики ыскылаатын быстах кэмҥэ алҕаһа буолуо. Сотору кэминэн өссө боруобалаан көрөөр.',
@@ -6267,6 +6356,19 @@ $messages['sah'] = array(
 	'mwe-upwiz-remove-upload' => 'Бу билэни хачайданар билэлэр тиһиктэриттэн сот',
 	'mwe-upwiz-remove-description' => 'Бу быһаарыыны сот',
 	'mwe-upwiz-upload' => 'Киллэрии',
+	'mwe-upwiz-file-all-ok' => 'Туох баар хачайдааһыннар сатаннылар!',
+	'mwe-upwiz-file-some-failed' => 'Сорҕото сатаммата.',
+	'mwe-upwiz-file-retry' => 'Сатамматаҕы хат ыытарга',
+	'mwe-upwiz-next-file-despite-failures' => 'Син биир салҕаа',
+	'mwe-upwiz-skip-tutorial-future' => 'Бу хаамыыны кэлиҥҥи өттүгэр көтүт',
+	'mwe-upwiz-file-all-failed' => 'Биир да киллэрии сатаммата.',
+	'mwe-upwiz-upload-count' => 'Бачча билэттэн $1 баччата $2 киллэрилиннэ',
+	'mwe-upwiz-progressbar-uploading' => 'сиэрбэргэ киллэрии',
+	'mwe-upwiz-finished' => 'Түмүктэннэ!',
+	'mwe-upwiz-secs-remaining' => '$1 сөкүүндэ хаалла',
+	'mwe-upwiz-mins-secs-remaining' => '$1 мүнүүтэ $2 сөкүүндэ хаалла',
+	'mwe-upwiz-deeds-custom-prompt' => 'Эбэтэр:',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Бу билэ мин бэйэм айымньым.|Бу билэлэр мин бэйэм айымньыларым.}}',
 	'mwe-upwiz-more-options' => 'өссө туруоруулар...',
 	'mwe-upwiz-fewer-options' => 'туруорууларын аҕыйат...',
 	'mwe-upwiz-desc' => 'Быһаарыыта',
@@ -6980,7 +7082,9 @@ $messages['tl'] = array(
 	'mwe-upwiz-api-error-overwrite' => 'Hindi pinapayagan ang pagsusulat sa ibabaw ng isang umiiral na talaksan.',
 	'mwe-upwiz-api-error-badtoken' => 'Panloob na kamalian: masamang kahalip.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Panloob na kamalian: may naganap na pagkakamali habang kinukuha ang talaksan.',
-	'mwe-upwiz-api-error-duplicate' => 'May ibang talaksang nasa wiki na na may katulad na nilalaman',
+	'mwe-upwiz-api-error-duplicate' => 'May [$1 ibang talaksang] nasa wiki na na may katulad na nilalaman',
+	'mwe-upwiz-api-error-timeout' => 'Hindi tumugon ang tagapaghain sa loob ng inaasahang panahon.',
+	'mwe-upwiz-api-error-noimageinfo' => 'Nagtagumpay ang pagkakarga, subalit hindi nakapagbigay ng anumang kabatiran ang tagapaghain hinggil sa talaksan.',
 	'mwe-upwiz-api-warning-exists' => 'May ibang talaksang nasa wiki na na may katulad na pangalan ng talaksan',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Paumahin, hindi namin mahanap ang isang tagapagturo na nasa wika mo.  Ipinapakita sa halip ang nasa Ingles.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Paumanhin, hindi namin mahanap ang anumang talaksan para sa pagtuturo na dapat na mapunta rito.  Mangyaring makipag-ugnayan sa mga tagapangasiwa ng sistema.',
@@ -7059,6 +7163,8 @@ $messages['tl'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Upang magamit ang talaksan sa isang wiki</b>, kopyahin ang tekstong ito papunta sa isang pahina:',
 	'mwe-upwiz-thanks-url' => '<b>Upang maikawing ito sa HTML</b>, kopyahin ang tirahang ito ng URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ang wiking ito ay hindi tumatanggap ng mga pangalan ng talaksan may dugtong na "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'Ang pinapayagang mga dugtong ay:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Pinapayagang mga dugtong ng pangalan ng talaksan',
 	'mwe-upwiz-upload-error-duplicate' => 'Ang talaksang ito ay dati nang naikarga sa wiking ito.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Ikarga pa rin?',
 	'mwe-upwiz-ok' => 'Sige',
@@ -7126,6 +7232,8 @@ Mangyaring huwag gumamit ng wikiteksto o HTML dito.',
 	'mwe-upwiz-thanks-caption' => 'Magdagdag ng kapsyon dito',
 	'mwe-upwiz-help-popup' => 'Tulong',
 	'mwe-upwiz-help-popup-title' => 'Pamagat',
+	'mwe-upwiz-thumbnail-failed' => 'Nagtagumpay ang pagkakarga, subalit hindi makakuha ng paunang patanaw na kagyat ang tagapaghain',
+	'mwe-upwiz-unparseable-filename' => 'Hindi maunawaan ang pangalan ng talaksan na "$1"',
 );
 
 /** Turkish (Türkçe)
