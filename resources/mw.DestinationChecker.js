@@ -104,10 +104,11 @@ mw.DestinationChecker.prototype = {
 	 */
 	checkUnique: function() {
 		var _this = this;
-
 		var found = false;
-		// XXX if input is empty don't bother? but preprocess gives us File:.png...
 		var title = _this.getTitle();
+
+		// if input is empty don't bother.
+		if ( title == '' ) return;
 		
 		if ( _this.cachedResult[name] !== undefined ) {
 			_this.processResult( _this.cachedResult[name] );

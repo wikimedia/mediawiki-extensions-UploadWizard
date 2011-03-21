@@ -54,13 +54,17 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			api: _this.upload.api,
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
 			preprocess: function( name ) { 
-				// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
-				return _this.upload.title.setNameText( name ).toString();
+				if ( name != '' ) {
+					// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
+					return _this.upload.title.setNameText( name ).toString();
+				} else {
+					return name;
+				}
 			}, 
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
 		} );
 
-	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-error" for="' + _this.titleId + '" generated="true"/></div>');
+	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + _this.titleId + '" generated="true"/></div>');
 
 	var titleHintId = 'mwe-upwiz-title-hint-' + _this.upload.index;
 	var $titleDialog = $('<div>')
@@ -221,6 +225,15 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.addDescription( true, mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
+	// make the title field required
+	_this.$form.find( '.mwe-title' )
+		.rules( "add", {
+			required: true,
+			messages: { 
+				required: gM( 'mwe-upwiz-error-blank' )
+			}
+		} );
+	
 	// make this a category picker
 	var hiddenCats = [];
 	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) ) {
@@ -305,7 +318,6 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	processDestinationCheck: function( result ) {
 		var _this = this;
-
 		if ( result.isUnique ) {
 			$j( _this.titleInput ).data( 'valid', true );
 			_this.$form.find( 'label[for=' + _this.titleId + ']' ).hide().empty();
