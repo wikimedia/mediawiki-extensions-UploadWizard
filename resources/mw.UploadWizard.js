@@ -434,7 +434,7 @@ mw.UploadWizard.prototype = {
 			.click( function() {
 				// check if there is an upload at all (should never happen)
 				if ( _this.uploads.length === 0 ) {
-					$( '<div>' )
+					$j( '<div></div>' )
 						.html( gM( 'mwe-upwiz-file-need-file' ) )
 						.dialog({
 							width: 500,
@@ -546,12 +546,12 @@ mw.UploadWizard.prototype = {
 			deeds,
 			_this.uploads.length );
 	
-		$j( '<div>' )
+		$j( '<div></div>' )
 			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
 			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length );
 
 		if ( _this.uploads.length > 1 ) {
-			$j( '<div style="margin-top: 1em">' )
+			$j( '<div style="margin-top: 1em"></div>' )
 				.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-custom' ) )
 				.msg( 'mwe-upwiz-deeds-custom-prompt' );
 		}
@@ -1010,12 +1010,12 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 		
 		$j( '#mwe-upwiz-thanks' )
-			.append( $j( '<h3 style="text-align: center;">' ).msg( 'mwe-upwiz-thanks-intro' ),
+			.append( $j( '<h3 style="text-align: center;"></h3>' ).msg( 'mwe-upwiz-thanks-intro' ),
 				 $j( '<p style="margin-bottom: 2em; text-align: center;">' )
 					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length ) );
 		
 		$j.each( _this.uploads, function(i, upload) {
-			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix" />' );
+			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix"></div>' );
 			_this.thanksDiv = thanksDiv;
 			
 			var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side" id="thanks-thumbnail"></div>' );
@@ -1241,7 +1241,7 @@ mw.UploadWizardDeedPreview.prototype = {
 					$j( el ).find( "select" ).addClass( "masked-hidden" );
 				}
 
-				var mask = $j( '<div class="mwe-upwiz-mask"/>' )
+				var mask = $j( '<div class="mwe-upwiz-mask"></div>' )
 						.css( {
 							'backgroundColor' : 'white',
 							'width'	   : el.offsetWidth + 'px',
@@ -1249,7 +1249,7 @@ mw.UploadWizardDeedPreview.prototype = {
 							'z-index'  : 90
 						} );
 						
-				var status = $j( '<div class="mwe-upwiz-status"/>' )
+				var status = $j( '<div class="mwe-upwiz-status"></div>' )
 						.css( {
 							'width'	   : el.offsetWidth + 'px',
 							'height'   : el.offsetHeight + 'px',
