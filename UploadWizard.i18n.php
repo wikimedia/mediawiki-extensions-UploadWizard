@@ -1415,7 +1415,7 @@ $messages['de'] = array(
 	'mwe-upwiz-upload' => 'Hochladen',
 	'mwe-upwiz-file-all-ok' => 'Das Hochladen aller Dateien war erfolgreich!',
 	'mwe-upwiz-file-some-failed' => 'Das Hochladen einiger Dateien ist fehlgeschlagen.',
-	'mwe-upwiz-file-retry' => 'Das Hochladen der nicht hochgeladenen Dateien erneute versuchen.',
+	'mwe-upwiz-file-retry' => 'Das Hochladen der nicht hochgeladenen Dateien erneut versuchen.',
 	'mwe-upwiz-next-file-despite-failures' => 'Trotzdem fortfahren',
 	'mwe-upwiz-skip-tutorial-future' => 'Diesen Schritt zukünftig überspringen',
 	'mwe-upwiz-file-all-failed' => 'Das Hochladen aller Dateien ist fehlgeschlagen.',
@@ -2689,7 +2689,7 @@ $messages['he'] = array(
 	'mwe-upwiz-api-error-overwrite' => 'לא מותרת החלפת קובץ קיים.',
 	'mwe-upwiz-api-error-badtoken' => 'שגיאה פנימית: אסימון רע.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'שגיאה פנימית: משהו השתבש בזמן אחזור הקובץ.',
-	'mwe-upwiz-api-error-duplicate' => 'בוויקי כבר יש קובץ בעל אותו תוכן',
+	'mwe-upwiz-api-error-duplicate' => 'כבר יש בוויקי [$1 קובץ אחר] בעל אותו תוכן',
 	'mwe-upwiz-api-warning-exists' => 'בוויקי כבר יש קובץ בעל אותו שם',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'מצטערים, לא מצאנו מדריך בשפתכם. במקומו מוצג המדריך באנגלית.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'מצטערים, לא הצלחנו למצוא את כל הקבצים של המדריך שאמור להיות כאן. אנא צרו קשר עם מנהלי המערכת.',
@@ -2832,6 +2832,10 @@ $messages['he'] = array(
 	'mwe-upwiz-categories-add' => 'הוספה',
 	'mwe-upwiz-category-remove' => 'הסרת קטגוריה זו',
 	'mwe-upwiz-thanks-caption' => 'הוסיפו כיתוב כאן',
+	'mwe-upwiz-help-popup' => 'עזרה',
+	'mwe-upwiz-help-popup-title' => 'כותרת',
+	'mwe-upwiz-thumbnail-failed' => 'ההעלאה הצליחה, אבל השרת לא הצליח לקבל תצוגה מקדימה ממוזערת',
+	'mwe-upwiz-unparseable-filename' => 'לא ניתן היה להבין את שם הקובץ "$1"',
 );
 
 /** Croatian (Hrvatski)
@@ -3062,6 +3066,7 @@ $messages['hsb'] = array(
 	'mwe-upwiz-api-error-fetchfileerror' => 'Nutřkowny zmylk: při wobstarowanju dataje je so něšto nimokuliło.',
 	'mwe-upwiz-api-error-duplicate' => 'Je hižo [$1 druha dataja] ze samsnym wobsahom na wikiju',
 	'mwe-upwiz-api-error-timeout' => 'Serwer njeje znutřka wočakowaneho časa wotmołwił.',
+	'mwe-upwiz-api-error-noimageinfo' => 'Nahraće je so poradźiło, ale serwer njeje nam žane informacije wo dataji dał.',
 	'mwe-upwiz-api-warning-exists' => 'Je hižo druha dataja ze samsnym datajowym mjenom na wikiju',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Bohužel njenamakamy nawod w twojej rěči. Město toho so jendźelški pokazuje.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Bohužel njenamakamy dataje za nawod, kotryž měł tu być. Prošu staj so ze systemowymi administratorami do zwiska.',
@@ -3140,6 +3145,8 @@ $messages['hsb'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Zo by dataju we wikijuwužiwał</b>, kopěruj tutón tekst do strony:',
 	'mwe-upwiz-thanks-url' => '<b>Zo by na nju w HTML wotkazował</b>, kopěruj tutu URL-adresu:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Tutón wiki njeakceptuje datajowe mjena ze sufiksom "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'Dowolene sufiksy su:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Dowolene sufiksy datajowych mjenow',
 	'mwe-upwiz-upload-error-duplicate' => 'Tuta dataja je so prjedy do tutoho wikija nahrała.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Najebać toho nahrać?',
 	'mwe-upwiz-ok' => 'W porjadku',
@@ -3205,6 +3212,8 @@ Prošu njewužij tu wikitekst abo HTML.',
 	'mwe-upwiz-thanks-caption' => 'Wobrazowy nadpis přidać',
 	'mwe-upwiz-help-popup' => 'Pomoc',
 	'mwe-upwiz-help-popup-title' => 'Titul',
+	'mwe-upwiz-thumbnail-failed' => 'Nahraće je so poradźiło, ale serwer njemóžeše žadyn přehladowy wobrazk dóstać',
+	'mwe-upwiz-unparseable-filename' => 'Datajowe mjeno "$1" njeje so zrozumiło',
 );
 
 /** Hungarian (Magyar)
@@ -4372,6 +4381,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-api-error-badtoken' => 'Interne Feeler: falschen Token.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Interne Feeler: beim Opruffe vum Fichier huet eppes net fonctionnéiert.',
 	'mwe-upwiz-api-error-duplicate' => 'Et gëtt schonn [$1 en anere Fichier] mat dem selwechten Inhalt op der Wiki',
+	'mwe-upwiz-api-error-timeout' => 'De Server huet net bannen där Zäit geäntwert déi virgesinn ass.',
 	'mwe-upwiz-api-warning-exists' => 'Et gëtt op der Wiki schonn e Fichier mat dem selwechten Numm',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Pardon, mir konnte keng Uleedung an Ärer Sprooch fannen. Déi Englesch Versioun gëtt amplaz gewisen.',
 	'mwe-upwiz-help-desk' => 'Helpdesk',
@@ -4395,6 +4405,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-file-some-failed' => "D'Eropluede vun e puer Fichieren huet net fonctionnéiert!",
 	'mwe-upwiz-file-retry' => 'Déi Fichieren déi net eropgeluede goufen nach emol probéieren',
 	'mwe-upwiz-next-file-despite-failures' => 'Trotzdem weiderfueren',
+	'mwe-upwiz-skip-tutorial-future' => 'Dës Etapp an Zukunft iwwersprangen',
 	'mwe-upwiz-file-all-failed' => "D'Eropluede vun alle Fichieren huet net fonctionnéiert",
 	'mwe-upwiz-upload-count' => '$1 {{PLURAL:$1|Fichier|Fichiere}} vu(n) $2 {{PLURAL:$2|Fichier|Fichieren}} eropgelueden',
 	'mwe-upwiz-progressbar-uploading' => 'eroplueden',
@@ -4444,6 +4455,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Fir de Fichier an enger Wiki ze benotzen</b>, kopéiert dësen Text an eng Säit:',
 	'mwe-upwiz-thanks-url' => '<b>Fir een HTML-Link op dëse Fichier ze maachen</b>, kopéiert dës URL-Adress :',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'Déi erlaabten Erweiderunge sinn:',
 	'mwe-upwiz-upload-error-duplicate' => 'Dëse Fichier gouf scho virdrun op dës Wiki eropgelueden.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Trotzdem eroplueden?',
 	'mwe-upwiz-ok' => 'OK',
@@ -4506,6 +4518,7 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-categories' => 'Kategorien',
 	'mwe-upwiz-categories-add' => 'Derbäisetzen',
 	'mwe-upwiz-category-remove' => 'Dës Kategorie ewechhuelen',
+	'mwe-upwiz-thanks-caption' => 'Beschreiwung hei derbäisetzen',
 	'mwe-upwiz-help-popup' => 'Hëllef',
 	'mwe-upwiz-help-popup-title' => 'Titel',
 );
@@ -6077,9 +6090,28 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'mwe-upwiz-step-tutorial' => "'Mbare",
+	'mwe-upwiz-step-file' => 'Careche',
+	'mwe-upwiz-step-details' => 'Descrive',
+	'mwe-upwiz-step-thanks' => 'Ause',
+	'mwe-upwiz-stashed-upload' => 'OK',
+	'mwe-upwiz-failed' => 'Fallite.',
+	'mwe-upwiz-remove' => 'Live',
+	'mwe-upwiz-finished' => 'Spicciate!',
+	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|seconde|seconde}} ca rumanene',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minute}} $2 {{PLURAL:$2|seconde|seconde}} ca rumanene',
+	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-title' => 'Titele',
+	'mwe-upwiz-filename-tag' => "Nome d'u file:",
+	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-cancel' => 'Annulle',
+	'mwe-upwiz-change' => '(cange)',
+	'mwe-upwiz-next-file' => 'Condinue',
 	'mwe-upwiz-categories' => 'Categorije',
 	'mwe-upwiz-categories-add' => 'Aggiunge',
+	'mwe-upwiz-thanks-caption' => "Mitte 'a 'ndestazione aqquà",
+	'mwe-upwiz-help-popup' => 'Aijute',
+	'mwe-upwiz-help-popup-title' => 'Titele',
 );
 
 /** Russian (Русский)
@@ -6397,6 +6429,8 @@ $messages['sah'] = array(
 	'mwe-upwiz-other-prefill' => 'Ханнык баҕарар биики тиэкиһи суруйар сир',
 	'mwe-upwiz-showall' => 'барытын көрдөр',
 	'mwe-upwiz-source' => 'Хантан ылыллыбыта',
+	'mwe-upwiz-macro-edit' => 'Саҥардарга',
+	'mwe-upwiz-thanks-intro' => 'Киллэрбиккэр махтал!',
 );
 
 /** Sinhala (සිංහල)
