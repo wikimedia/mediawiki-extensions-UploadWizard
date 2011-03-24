@@ -660,7 +660,6 @@ mw.UploadWizardDetails.prototype = {
 	
 	/**
 	 * Convert entire details for this file into wikiText, which will then be posted to the file 
-	 * XXX there is a WikiText sanitizer in use on UploadForm -- use that here, or port it 
 	 * @return wikitext representing all details
 	 */
 	getWikiText: function() {
@@ -731,6 +730,10 @@ mw.UploadWizardDetails.prototype = {
 		// group categories together, maybe?
 		wikiText += deed.getLicenseWikiText() + _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
 		
+		// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
+		if ( typeof TextCleaner != 'undefined' && typeof TextCleaner.sanitizeWikiText == 'function' ) {
+			wikiText = TextCleaner.sanitizeWikiText( wikiText, true );
+		}
 
 		return wikiText;	
 	},
