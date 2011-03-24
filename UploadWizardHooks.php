@@ -29,7 +29,6 @@ class UploadWizardHooks {
 
 				// jquery interface helpers
 				'resources/jquery/jquery.tipsy.js',
-				'resources/jquery/jquery.tipsyPlus.js',
 				'resources/jquery/jquery.morphCrossfade.js',
 				'resources/jquery/jquery.validate.js',
 				'resources/jquery/jquery.arrowSteps.js',
