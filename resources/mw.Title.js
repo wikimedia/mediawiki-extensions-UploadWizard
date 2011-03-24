@@ -42,13 +42,13 @@
 		var ext = null;
 
 		/** 
-		 * strip every illegal char we can think of
+		 * strip every illegal char we can think of: control chars, colon, less than, greater than, whitespace
 		 * yes, I know this leaves other insanity intact, like unicode bidi chars, but let's start someplace
 		 * @return {String}
 		 */
 		function clean( s ) {
 			if ( mw.isDefined( s ) ) {
-				return s.replace( /[\x00-\x1f\s]+/g, '_' );
+				return s.replace( /[\x00-\x1f\x3a\x3c\x3e\x7f\s]+/g, '_' );
 			}
 		}
 
