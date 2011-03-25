@@ -35,7 +35,7 @@ return array(
 			'messageKey' => 'mwe-upwiz-license-cc-zero', 		
 			'default' => false 
 		)
-	)
+	),
 
 	// Default thumbnail width
 	'thumbnailWidth' => 120, 
