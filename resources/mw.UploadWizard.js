@@ -128,7 +128,6 @@ mw.UploadWizardUpload.prototype = {
 				_this.extractUploadInfo( result.upload );
 				var success = function( imageinfo ) { 
 					if ( imageinfo === null ) {
-						debugger;
 						_this.setError( 'noimageinfo' );
 					} else {
 						result.upload.stashimageinfo = imageinfo;
@@ -172,7 +171,6 @@ mw.UploadWizardUpload.prototype = {
 			if ( result.upload.imageinfo ) {
 				_this.setSuccess( result );
 			} else { 
-				debugger;
 				_this.setError( 'noimageinfo' );
 			}
 		} else {
@@ -204,20 +202,19 @@ mw.UploadWizardUpload.prototype = {
 		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 		if ( result.upload ) {
 			_this.extractUploadInfo( result.upload );
-			// use blocking preload for thumbnail, no loading spinner.
 			_this.getThumbnail( 
 				function( image ) {
-					_this.ui.setPreview( image );	
-					_this.deedPreview.setup();
-					_this.details.populate();
-					_this.state = 'stashed';
-					_this.ui.showStashed();
+					// n.b. if server returns a URL, which is a 404, we do NOT get broken image
+					_this.ui.setPreview( image );
 				},
 				mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
 				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
 			);
+			_this.deedPreview.setup();
+			_this.details.populate();
+			_this.state = 'stashed';
+			_this.ui.showStashed();
 		} else {
-			debugger;
 			_this.setError( 'noimageinfo' );
 		}
 		
@@ -247,9 +244,7 @@ mw.UploadWizardUpload.prototype = {
 	extractUploadInfo: function( resultUpload ) {
 		if ( resultUpload.sessionkey ) {
 			this.sessionKey = resultUpload.sessionkey;
-		} else {
-			debugger;
-		}
+		} 
 		if ( resultUpload.imageinfo ) {
 			this.extractImageInfo( resultUpload.imageinfo );
 		} else if ( resultUpload.stashimageinfo ) {
@@ -372,8 +367,8 @@ mw.UploadWizardUpload.prototype = {
 				} else {
 					for ( var i = 0; i < thumbnails.length; i++ ) {
 						var thumb = thumbnails[i];
-						if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
-							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail missing information" );
+						if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
+							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail error or missing information" );
 							callback( null );
 							return;
 						}
