@@ -25,7 +25,7 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 	
 		var id = name + template;
 		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded	
-		var $input = $j( '<input id="' + id + '" name="' + name + '" type="radio" value="' + template + '"/>' );
+		var $input = $j( '<input id="' + id + '" name="' + name + '" type="radio" value="' + template + '" />' );
 		$input.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
 		_this.inputs.push( $input );
 		_this.$selector.append( 
@@ -53,7 +53,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		var _this = this;
 		$j.each( _this.inputs, function( i, $input ) {
 			var template = $input.val();
-			$input.attr( 'checked', ~~!!licenseValues[template] );
+			$input.attr( 'checked', !!licenseValues[template] );
 		} );
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
