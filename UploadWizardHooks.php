@@ -125,6 +125,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-api-error-badtoken',
 				'mwe-upwiz-api-error-fetchfileerror',
 				'mwe-upwiz-api-error-duplicate',
+				'mwe-upwiz-api-error-duplicate-popup-title',
 				'mwe-upwiz-api-error-timeout',
 				'mwe-upwiz-api-error-noimageinfo',
 				'mwe-upwiz-api-warning-exists',

@@ -519,10 +519,11 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		var yyyyMmDdRegex = /^(\d\d\d\d)[:\/-](\d\d)[:\/-](\d\d)\D.*/;
 		var dateObj;
-		var metadata = _this.upload.imageinfo.metadata;
-		$j.each([metadata.datetimeoriginal, metadata.datetimedigitized, metadata.datetime, metadata['date']], 
-			function( i, imageinfoDate ) {
-				if ( ! mw.isEmpty( imageinfoDate ) ) {
+		if ( _this.upload.imageinfo.metadata ) {
+			var metadata = _this.upload.imageinfo.metadata;
+			$j.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function( i, propName ) {
+				var dateInfo = metadata[propName];
+				if ( ! mw.isEmpty( dateInfo ) ) {
 					var matches = $j.trim( imageinfoDate ).match( yyyyMmDdRegex );   
 					if ( ! mw.isEmpty( matches ) ) {
 						dateObj = new Date( parseInt( matches[1], 10 ), 
@@ -531,13 +532,13 @@ mw.UploadWizardDetails.prototype = {
 						return false; // break from $j.each
 					}
 				}
-			}
-		);
+			} );
+		}
 
 		// if we don't have EXIF or other metadata, let's use "now"
 		// XXX if we have FileAPI, it might be clever to look at file attrs, saved 
 		// in the upload object for use here later, perhaps
-		if (typeof dateObj === 'undefined') {
+		if ( !mw.isDefined( dateObj ) ) {
 			dateObj = new Date();
 		}
 		dateStr = dateObj.getUTCFullYear() + '-' + pad( dateObj.getUTCMonth() ) + '-' + pad( dateObj.getUTCDate() );
@@ -583,13 +584,7 @@ mw.UploadWizardDetails.prototype = {
 	 *	"122/1"             -- 122 m  (altitude)
 	 */
 	prefillLocation: function() {
-		var _this = this;
-		var metadata = _this.upload.imageinfo.metadata;
-		if (metadata === undefined) {
-			return;
-		}
-		
-
+		/* unimplemented -- awaiting bawolff's GSoC 2010 project to be committedd... */ return;
 	},
 
 	/**
@@ -626,7 +621,7 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	prefillAuthor: function() {
 		var _this = this;
-		if (_this.upload.imageinfo.metadata.author !== undefined) {
+		if ( _this.upload.imageinfo.metadata && _this.upload.imageinfo.metadata.author ) {
 			$j( _this.authorInput ).val( _this.upload.imageinfo.metadata.author );
 		}
 	
@@ -638,20 +633,22 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	prefillLicense: function() {
 		var _this = this;
-		var copyright = _this.upload.imageinfo.metadata.copyright;
-		if (copyright !== undefined) {
-			if (copyright.match(/\bcc-by-sa\b/i)) {
-				alert("unimplemented cc-by-sa in prefillLicense"); 
-				// XXX set license to be that CC-BY-SA
-			} else if (copyright.match(/\bcc-by\b/i)) {
-				alert("unimplemented cc-by in prefillLicense"); 
-				// XXX set license to be that
-			} else if (copyright.match(/\bcc-zero\b/i)) {
-				alert("unimplemented cc-zero in prefillLicense"); 
-				// XXX set license to be that
-				// XXX any other licenses we could guess from copyright statement
-			} else {
-				$j( _this.licenseInput ).val( copyright );
+		if ( _this.upload.imageinfo.metadata ) {
+			var copyright = _this.upload.imageinfo.metadata.copyright;
+			if (copyright !== undefined) {
+				if (copyright.match(/\bcc-by-sa\b/i)) {
+					alert("unimplemented cc-by-sa in prefillLicense"); 
+					// XXX set license to be that CC-BY-SA
+				} else if (copyright.match(/\bcc-by\b/i)) {
+					alert("unimplemented cc-by in prefillLicense"); 
+					// XXX set license to be that
+				} else if (copyright.match(/\bcc-zero\b/i)) {
+					alert("unimplemented cc-zero in prefillLicense"); 
+					// XXX set license to be that
+					// XXX any other licenses we could guess from copyright statement
+				} else {
+					$j( _this.licenseInput ).val( copyright );
+				}
 			}
 		}
 		// if we still haven't set a copyright use the user's preferences?

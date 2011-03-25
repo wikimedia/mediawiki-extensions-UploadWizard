@@ -79,6 +79,16 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Queue some warnings for possible later consumption
+	 */
+	addWarning: function( code, info ) {
+		if ( !mw.isDefined( this.warnings ) ) {
+			this.warnings = [];
+		}
+		this.warnings.push( [ code, info ] );
+	},
+
+	/**
 	 * Stop the upload -- we have failed for some reason 
 	 */
 	setError: function( code, info ) { 
@@ -101,41 +111,68 @@ mw.UploadWizardUpload.prototype = {
 		var code = 'unknown';
 		var info = 'unknown';
 
-		if ( result.upload && result.upload.warnings && result.upload.warnings.exists ) {
-			var duplicateName = result.upload.warnings.exists;
-			try {
-				var fileTitle = new mw.Title( duplicateName, 'file' ).toString();
-				var fileUri = new mw.Uri( document.URL );
-				fileUri.path = wgScript;
-				fileUri.query = { title: fileTitle, action: 'view' }; 
-				code = 'duplicate';
-				info = fileUri.toString();
-			} catch ( e ) {
-				code = 'unknown';
-				info = 'Warned about duplicate but filename is unparseable: "' + duplicateName + "'"; 
+		if ( result.upload && result.upload.warnings ) {
+			if ( result.upload.warnings.exists ) {
+				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
+				// potentially we could indicate to the upload that it should set the Title field to error state now, but we'll let them deal with that later.
+				// however, we don't get imageinfo, so let's try to get it and pretend that we did
+				var existsFileName = result.upload.warnings.exists;
+				try {
+					code = 'exists';
+					info = _this.filenameToUrl( existsFileName ).toString();
+				} catch ( e ) {
+					code = 'unknown';
+					info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'"; 
+				}
+				_this.addWarning( code, info );
+				_this.extractUploadInfo( result.upload );
+				var success = function( imageinfo ) { 
+					if ( imageinfo === null ) {
+						debugger;
+						_this.setError( 'noimageinfo' );
+					} else {
+						result.upload.stashimageinfo = imageinfo;
+						_this.setSuccess( result );
+					}
+				};
+				_this.getStashImageInfo( success, [ 'timestamp', 'url', 'size', 'dimensions', 'sha1', 'mime', 'metadata', 'bitdepth' ] );
+			} else if ( result.upload.warnings.duplicate ) {
+				if ( typeof result.upload.warnings.duplicate == 'object' ) { 
+					var duplicates = result.upload.warnings.duplicate;
+					var $ul = $j( '<ul></ul>' );
+					$j.each( duplicates, function( i, filename ) { 
+						var $a = $j( '<a/>' ).append( filename );
+						var href;
+						try {
+							href = _this.filenameToUrl( filename );
+							$a.attr( { 'href': href, 'target': '_blank' } );
+						} catch ( e ) {
+							$a.click( function() { alert('could not parse filename=' + filename ); } );
+							$a.attr( 'href', '#' );
+						}
+						$ul.append( $j( '<li></li>' ).append( $a ) );
+					} );
+					var dialogFn = function() {
+						$j( '<div></div>' )
+							.html( $ul )
+							.dialog( {
+								width: 500,
+								zIndex: 200000,
+								autoOpen: true,
+								title: gM( 'mwe-upwiz-api-error-duplicate-popup-title', duplicates.length ),
+								modal: true
+							} );
+					};
+					code = 'duplicate';
+					info = [ duplicates.length, dialogFn ];
+				}
+				_this.setError( code, info );	
 			}
-			_this.setError( code, info );
 		} else if ( result.upload && result.upload.result === 'Success' ) {
 			if ( result.upload.imageinfo ) {
-				// success
-				_this.state = 'transported';
-				_this.transportProgress = 1;
-				_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
-				_this.extractUploadInfo( result );
-				
-				// use blocking preload for thumbnail, no loading spinner.
-				_this.getThumbnail( 
-					function( image ) {
-						_this.ui.setPreview( image );	
-						_this.deedPreview.setup();
-						_this.details.populate();
-						_this.state = 'stashed';
-						_this.ui.showStashed();
-					},
-					mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
-					mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
-				);
+				_this.setSuccess( result );
 			} else { 
+				debugger;
 				_this.setError( 'noimageinfo' );
 			}
 		} else {
@@ -149,10 +186,43 @@ mw.UploadWizardUpload.prototype = {
 			}
 			_this.setError( code, info );
 		}
-	
+
+
 	},
 
 
+	/**
+	 * Called from any upload success condition
+	 * @param {Mixed} result -- result of AJAX call
+	 */
+	setSuccess: function( result ) {
+		var _this = this; // was a triumph
+		_this.state = 'transported';
+		_this.transportProgress = 1;
+		
+		// I'm making a note here
+		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
+		if ( result.upload ) {
+			_this.extractUploadInfo( result.upload );
+			// use blocking preload for thumbnail, no loading spinner.
+			_this.getThumbnail( 
+				function( image ) {
+					_this.ui.setPreview( image );	
+					_this.deedPreview.setup();
+					_this.details.populate();
+					_this.state = 'stashed';
+					_this.ui.showStashed();
+				},
+				mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
+				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
+			);
+		} else {
+			debugger;
+			_this.setError( 'noimageinfo' );
+		}
+		
+	},
+		
 	/**
 	 * Called when the file is entered into the file input
 	 * Get as much data as possible -- maybe exif, even thumbnail maybe
@@ -174,9 +244,19 @@ mw.UploadWizardUpload.prototype = {
 	 *
 	 * @param result The JSON object from a successful API upload result.
 	 */
-	extractUploadInfo: function( result ) {
-		this.sessionKey = result.upload.sessionkey;
-		this.extractImageInfo( result.upload.imageinfo );
+	extractUploadInfo: function( resultUpload ) {
+		if ( resultUpload.sessionkey ) {
+			this.sessionKey = resultUpload.sessionkey;
+		} else {
+			debugger;
+		}
+		if ( resultUpload.imageinfo ) {
+			this.extractImageInfo( resultUpload.imageinfo );
+		} else if ( resultUpload.stashimageinfo ) {
+			this.extractImageInfo( resultUpload.stashimageinfo );
+		}
+
+
 	},
 
 	/**
@@ -220,6 +300,56 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Get information about stashed images
+	 * See API documentation for prop=stashimageinfo for what 'props' can contain
+	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
+	 * @param {Array} properties to extract
+	 * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
+	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
+	 */
+	getStashImageInfo: function( callback, props, width, height ) {
+		var _this = this;
+
+		if (!mw.isDefined( props ) ) {
+			props = [];
+		} 
+
+		var params = {
+			'prop':	'stashimageinfo',
+			'siisessionkey': _this.sessionKey,
+			'siiprop': props.join( '|' )
+		};
+
+		if ( mw.isDefined( width ) || mw.isDefined( height ) ) {
+			if ( ! $j.inArray( 'url', props ) ) {
+				props.push( 'url' );
+			}
+			if ( mw.isDefined( width ) ) {
+				params['siiurlwidth'] = width; 
+			}
+			if ( mw.isDefined( height ) ) {
+				params['siiurlheight'] = height;
+			}
+		}
+
+		var ok = function( data ) {
+			if ( !data || !data.query || !data.query.stashimageinfo ) {
+				mw.log("mw.UploadWizardUpload::getStashImageInfo> No data? ");
+				callback( null );
+				return;
+			}
+			callback( data.query.stashimageinfo );
+		};
+		
+		var err = function( code, result ) {
+			mw.log( 'mw.UploadWizardUpload::getStashImageInfo> error: ' + code, 'debug' );
+			callback( null );
+		};
+
+		this.api.get( params, { ok: ok, err: err } );
+	},
+
+	/**
 	 * Fetch a thumbnail for a stashed upload of the desired width. 
 	 * It is assumed you don't call this until it's been transported.
  	 *
@@ -236,46 +366,29 @@ mw.UploadWizardUpload.prototype = {
 		if ( mw.isDefined( _this.thumbnails[key] ) ) {
 			callback( _this.thumbnails[key] );
 		} else {
-			var params = {
-				'prop':	'stashimageinfo',
-				'siisessionkey': _this.sessionKey,
-				'siiurlwidth': width, 
-				'siiurlheight': height,
-				'siiprop': 'url'
-			};
-
-
-			var ok = function( data ) {
-				if ( !data || !data.query || !data.query.stashimageinfo ) {
-					mw.log("mw.UploadWizardUpload::getThumbnail> No data? ");
+			var apiCallback = function( thumbnails ) { 	
+				if ( thumbnails === null ) {
 					callback( null );
-					return;
-				}
-				var thumbnails = data.query.stashimageinfo;
-				for ( var i = 0; i < thumbnails.length; i++ ) {
-					var thumb = thumbnails[i];
-					if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
-						mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail missing information" );
-						callback( null );
-						return;
+				} else {
+					for ( var i = 0; i < thumbnails.length; i++ ) {
+						var thumb = thumbnails[i];
+						if ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) {
+							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail missing information" );
+							callback( null );
+							return;
+						}
+						var image = document.createElement( 'img' );
+						$j( image ).load( function() {
+							callback( image );
+						} );
+						image.width = thumb.thumbwidth;
+						image.height = thumb.thumbheight;
+						image.src = thumb.thumburl;
+						_this.thumbnails[key] = image;
 					}
-					var image = document.createElement( 'img' );
-					$j( image ).load( function() {
-						callback( image );
-					} );
-					image.width = thumb.thumbwidth;
-					image.height = thumb.thumbheight;
-					image.src = thumb.thumburl;
-					_this.thumbnails[key] = image;
 				}
 			};
-			
-			var err = function( code, result ) {
-				mw.log( 'mw.UploadWizardUpload::getThumbnail> error: ' + code, 'debug' );
-				callback( null );
-			};
-
-			this.api.get( params, { ok: ok, err: err } );
+			_this.getStashImageInfo( apiCallback, [ 'url' ], width, height );
 		}
 	},
 
@@ -317,7 +430,21 @@ mw.UploadWizardUpload.prototype = {
 		};
 		
 		_this.getThumbnail( callback, width, height );
+	},
+
+	/**
+	 * Given a filename like "Foo.jpg", get the URL to that filename, assuming the browser is on the same wiki.
+	 * Candidate for a utility function...
+	 * @param {String} filename
+	 */
+	filenameToUrl: function( filename ) {
+		var fileUrl = new mw.Uri( document.URL );
+		fileUrl.path = wgScript;
+		var fileTitle = new mw.Title( filename, 'file' );
+		fileUrl.query = { title: fileTitle, action: 'view' }; 
+		return fileUrl;
 	}
+
 	
 };
 
@@ -1079,6 +1206,7 @@ mw.UploadWizard.prototype = {
 	stop: function() {
 
 	}
+
 };
 
 

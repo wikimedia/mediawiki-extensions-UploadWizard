@@ -151,12 +151,8 @@ mw.UploadWizardUploadInterface.prototype = {
 			args = [];
 		}
 		// get the status line for our upload
-		$statusDiv = $j( this.div ).find( '.mwe-upwiz-file-status' );
-
-		// apply the message and args, but if any anchors were created make sure they link to new windows.
-		$statusDiv.msg( msgKey, args ).find( 'a' ).attr( 'target', '_blank' );
-
-		$statusDiv.show();
+		var $s = $j( this.div ).find( '.mwe-upwiz-file-status' );
+		$s.msg( msgKey, args ).show();
 	},
 
 	/**
