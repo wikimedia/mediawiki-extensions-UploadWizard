@@ -404,7 +404,16 @@ mw.UploadWizardUpload.prototype = {
 		if ( !mw.isEmpty( height ) ) {
 			height = parseInt( height, 10 );
 		}
-			
+
+		var href = '#';		
+		$j.each( [ 'descriptionurl', 'url' ], function( i, propName ) {
+			var prop = _this.imageinfo[ propName ];
+			if ( prop ) {
+				href = prop;
+				return false;
+			}
+		} );
+ 
 		var callback = function( image ) {
 			if ( image === null ) {
 				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
@@ -412,7 +421,7 @@ mw.UploadWizardUpload.prototype = {
 			} else {
 				$j( selector ).html(
 					$j( '<a/>' )
-						.attr( { 'href': _this.imageinfo.url,
+						.attr( { 'href': href,
 							 'target' : '_new' } )
 						.append(
 							$j( '<img/>' )
@@ -1137,18 +1146,22 @@ mw.UploadWizard.prototype = {
 					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length ) );
 		
 		$j.each( _this.uploads, function(i, upload) {
-			var thanksDiv = $j( '<div class="mwe-upwiz-thanks ui-helper-clearfix"></div>' );
-			_this.thanksDiv = thanksDiv;
+			var id = 'thanksDiv' + i;
+			var $thanksDiv = $j( '<div></div>' ).attr( 'id', id ).addClass( "mwe-upwiz-thanks ui-helper-clearfix" );
+			_this.thanksDiv = $thanksDiv;
 			
-			var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side" id="thanks-thumbnail"></div>' );
-			upload.setThumbnail( thumbnailDiv );
+			var $thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
+			$thanksDiv.append( $thumbnailDiv );
+			upload.setThumbnail( $thumbnailDiv );
+			//upload.setThumbnail( '#' + id + ' .mwe-upwiz-thumbnail' );
 
-			thanksDiv.append( thumbnailDiv );
+			// Switch the thumbnail link so that it points to the image description page
+			$thumbnailDiv.find( 'a' ).attr( 'href', upload.imageinfo.descriptionurl );
 
 			var thumbTitle = String(upload.title);
 			var thumbWikiText = "[[" + thumbTitle.replace('_', ' ') + "|thumb|" + gM( 'mwe-upwiz-thanks-caption' ) + "]]";
 
-			thanksDiv.append(
+			$thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )
 					.append( 
 						$j('<p/>').append( 
@@ -1172,9 +1185,7 @@ mw.UploadWizard.prototype = {
 					)
 			);
 
-			$j( '#mwe-upwiz-thanks' ).append( thanksDiv );
-			// Switch the thumbnail link so that it points to the image description page
-			$j( '#thanks-thumbnail a' ).attr( 'href', upload.imageinfo.descriptionurl );
+			$j( '#mwe-upwiz-thanks' ).append( $thanksDiv );
 		} ); 
 	},
 	
