@@ -9,21 +9,34 @@ return array(
 	// Upload wizard has an internal debug flag	
 	'debug' => false,
 
-	// If the uploaded file should be auto categorized
-	'autoCategory' => true,
-
 	// File extensions acceptable in this wiki
 	'fileExtensions' =>  $wgFileExtensions, 
-
-	// Check if we want to enable firefogg ( for transcoding ) 
-	'enableFirefogg' => true, 
-
-	// Check if we have the firefogg upload api module enabled: 
-	'enableFirefoggChunkUpload' => isset( $wgAPIModules['firefoggupload'] )? true : false,
 
 	// The default api url is for the current wiki ( can override at run time )
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 	
+	// If the uploaded file should be auto categorized
+	'autoCategory' => false,
+
+	// These templates must be installed for this to work
+	'licenses' => array(
+		array( 
+			'template' => 'Cc-by-sa-3.0',
+			'messageKey' => 'mwe-upwiz-license-cc-by-sa-3.0', 
+			'default' => true 
+		),
+		array( 
+			'template' => 'Cc-by-3.0', 	
+			'messageKey' => 'mwe-upwiz-license-cc-by-3.0', 		
+			'default' => false 
+		),
+		array( 
+			'template' => 'Cc-zero', 	
+			'messageKey' => 'mwe-upwiz-license-cc-zero', 		
+			'default' => false 
+		)
+	)
+
 	// Default thumbnail width
 	'thumbnailWidth' => 120, 
  
@@ -82,17 +95,6 @@ return array(
 	// so, this workaround will cause tagalog descriptions to be saved with this template instead.
 	'languageTemplateFixups' =>  array( 'tl' => 'tgl' ), 
 
-	// names of all license templates, in order. Case sensitive!
-	// n.b. in the future, the licenses for a wiki will probably be defined in PHP or even LocalSettings.
-	'licenses' => array(
-		array( 'template' => 'Cc-by-sa-3.0','messageKey' => 'mwe-upwiz-license-cc-by-sa-3.0', 	'default' => true ),
-		array( 'template' => 'Cc-by-3.0', 	'messageKey' => 'mwe-upwiz-license-cc-by-3.0', 		'default' => false ),
-		array( 'template' => 'Cc-zero', 	'messageKey' => 'mwe-upwiz-license-cc-zero', 		'default' => false ),
-		// n.b. the PD-US is only for testing purposes, obviously we need some geographical discrimination here... 
-		array( 'template' => 'PD-US', 		'messageKey' => 'mwe-upwiz-license-pd-us', 			'default' => false ),
-		array( 'template' => 'GFDL', 		'messageKey' => 'mwe-upwiz-license-gfdl', 			'default' => false )
-	)
-
 		// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 		// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config
 		// or actually, in an ideal world, we'd have some way to reliably detect gibberish, rather than trying to 
@@ -105,4 +107,11 @@ return array(
 		//	/^(test|image|img|bild|example?[\s_-]*)$/,  // test stuff
 		//	/^(\d{10}[\s_-][0-9a-f]{10}[\s_-][a-z])$/   // flickr
 		// ]	
+
+	// Check if we want to enable firefogg ( for transcoding ) 
+	'enableFirefogg' => false, 
+
+	// Check if we have the firefogg upload api module enabled: 
+	'enableFirefoggChunkUpload' => isset( $wgAPIModules['firefoggupload'] )? true : false,
+
 );
