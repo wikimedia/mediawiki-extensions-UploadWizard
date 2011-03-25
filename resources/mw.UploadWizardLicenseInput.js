@@ -1,5 +1,5 @@
 /**
- * Create a group of checkboxes for licenses. N.b. the licenses are named after the templates they invoke.
+ * Create a group of radio buttons for licenses. N.b. the licenses are named after the templates they invoke.
  * @param div 
  * @param values  (optional) array of license key names to activate by default
  */
@@ -17,16 +17,16 @@ mw.UploadWizardLicenseInput = function( selector, values ) {
 	_this.$selector = $j( selector );
 	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
 
+	var name = 'license' + widgetCount;
+
 	$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
 		var template = licenseConfig.template;
 		var messageKey = licenseConfig.messageKey;
-		
-		var name = 'license_' + template;
-		var id = 'licenseInput' + widgetCount + '_' + name;
-		var $input = $j( '<input />' ) 
-			.attr( { id: id, name: name, type: 'checkbox', value: template  } )
-			// we use the selector because events can't be unbound unless they're in the DOM.
-			.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
+	
+		var id = name + template;
+		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded	
+		var $input = $j( '<input id="' + id + '" name="' + name + '" type="radio" value="' + template + '"/>' );
+		$input.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
 		_this.inputs.push( $input );
 		_this.$selector.append( 
 			$input,
