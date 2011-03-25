@@ -213,13 +213,18 @@ mw.UploadWizardUploadInterface.prototype = {
 		_this.clearErrors();
 		_this.upload.extractLocalFileInfo( _this.$fileInputCtrl.val() );
 		var extension = _this.upload.title.getExtension();
-		var isGoodExtension = $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
-		if ( isGoodExtension ) {
+		var hasExtension = ! mw.isEmpty( extension );
+		var isGoodExtension = false;
+		if ( hasExtension ) {
+			isGoodExtension = $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
+		}
+		if ( hasExtension && isGoodExtension ) {
 			_this.updateFilename();
 		} else {       
+			var errorMessage = hasExtension ? 'mwe-upwiz-upload-error-bad-filename-extension' : 'mwe-upwiz-upload-error-bad-filename-no-extension';
 			$( '<div>' )
 				.append( 
-					$j( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension ),
+					$j( '<p>' ).msg( errorMessage, extension ),
 					$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
 					$j( '<blockquote>' ).append( $j( '<tt>' ).append(  
 						mw.UploadWizard.config[ 'fileExtensions' ].join( " " )

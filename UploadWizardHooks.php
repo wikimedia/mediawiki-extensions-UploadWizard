@@ -206,6 +206,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-thanks-wikitext',
 				'mwe-upwiz-thanks-url',
 				'mwe-upwiz-upload-error-bad-filename-extension',
+				'mwe-upwiz-upload-error-bad-filename-no-extension',
 				'mwe-upwiz-allowed-filename-extensions',
 				'mwe-upwiz-help-allowed-filename-extensions',
 				'mwe-upwiz-upload-error-duplicate',
