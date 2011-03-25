@@ -80,6 +80,8 @@
 	}
 
 	function _insertCat( cat, isHidden ) {
+		// strip out bad characters
+		cat = cat.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' );
 		if ( mw.isEmpty( cat ) || _containsCat( cat ) ) { 
 			return; 
 		}
@@ -120,13 +122,15 @@
 
 	function _fetchSuggestions( query ) {
 		var _this = this;
+		// ignore bad characters, they will be stripped out
+		var catName = $j( this ).val().replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' );
 		var request = $j.ajax( {
 			url: wgScriptPath + '/api.php',
 			data: {
 				'action': 'query',
 				'list': 'allpages',
 				'apnamespace': wgNamespaceIds['category'],
-				'apprefix': $j( this ).val(),
+				'apprefix': catName,
 				'format': 'json'
 			},
 			dataType: 'json',
