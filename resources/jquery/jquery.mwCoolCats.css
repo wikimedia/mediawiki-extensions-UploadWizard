@@ -1,7 +1,3 @@
-.cat-widget {
-  clear: both;
-  position: relative;
-}
 .cat-widget ul {
   list-style: none;
   padding-left: 0;
@@ -43,6 +39,16 @@
 
 .cat-widget li .mwe-upwiz-remove-ctrl {
 	display: inline-block;
+}
+
+/* Fix for IE6 */
+.cat-widget .ui-button {
+	position: static;
+}
+
+/* Make category add button smaller */
+.cat-widget .ui-button-text {
+	padding: 0;
 }
 
 

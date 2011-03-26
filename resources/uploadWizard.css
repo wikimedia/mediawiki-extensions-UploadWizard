@@ -639,11 +639,6 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
     background: url('images/question-hover.png') no-repeat;
 }
 
-/* Make category add button smaller */
-.cat-widget .ui-button-text {
-	padding: 0;
-}
-
 /* Hack for Explorer 6 and 7 - line up buttons with other content */
 .mwe-upwiz-buttons .ui-button, .cat-widget .ui-button {
 	*vertical-align: middle;
