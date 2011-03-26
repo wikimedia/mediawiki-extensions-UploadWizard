@@ -524,7 +524,7 @@ mw.UploadWizardDetails.prototype = {
 			$j.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function( i, propName ) {
 				var dateInfo = metadata[propName];
 				if ( ! mw.isEmpty( dateInfo ) ) {
-					var matches = $j.trim( imageinfoDate ).match( yyyyMmDdRegex );   
+					var matches = $j.trim( dateInfo ).match( yyyyMmDdRegex );   
 					if ( ! mw.isEmpty( matches ) ) {
 						dateObj = new Date( parseInt( matches[1], 10 ), 
 								    parseInt( matches[2], 10 ) - 1, 
