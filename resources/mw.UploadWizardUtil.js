@@ -16,23 +16,22 @@ mw.UploadWizardUtil = {
 		$j( toggleDiv ).append( $toggleLink );
 
 
-		var toggle = function( open ) {
-			if ( typeof open === 'undefined' ) {
-				open = ! ( $j( this ).data( 'open' ) ) ;
-			}
-			$j( this ).data( 'open', open );
-			if ( open ) {
-				moreDiv.show(); // maskSafeShow();
-				/* when open, show control to close */
-				$toggleLink.msg( 'mwe-upwiz-fewer-options' ).addClass( "mwe-upwiz-toggler-open" );
-			} else {
+		var toggle = function() {
+			var isOpen = $toggleLink.hasClass( "mwe-upwiz-toggler-open" );
+			if ( isOpen ) {
+				// hide the extra options
 				moreDiv.hide(); // maskSafeHide();
 				/* when closed, show control to open */
 				$toggleLink.msg( 'mwe-upwiz-more-options' ).removeClass( "mwe-upwiz-toggler-open" );
+			} else {
+				// show the extra options
+				moreDiv.show(); // maskSafeShow();
+				/* when open, show control to close */
+				$toggleLink.msg( 'mwe-upwiz-fewer-options' ).addClass( "mwe-upwiz-toggler-open" );
 			}
 		};
-
-		toggle(false);
+		
+		moreDiv.hide();
 
 		$toggleLink.click( function( e ) { e.stopPropagation(); toggle(); } );
 		
