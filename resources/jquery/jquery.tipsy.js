@@ -82,6 +82,7 @@
         	if ( this.displayed ) {
     			this.hide();
     		} else {
+    			$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide'); } );
     			this.show();
     		}
     	},

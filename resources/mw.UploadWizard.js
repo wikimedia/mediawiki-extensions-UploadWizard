@@ -1315,7 +1315,7 @@ mw.UploadWizardDeedPreview.prototype = {
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
 				.click( function() { $( this ).tipsy( 'toggle' ); return false; } )
-				.tipsy( { title: contentSource, html: html, opacity: 0.9, gravity: 'sw', trigger: 'manual'} ) 
+				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual'} ) 
 		);
 	};
 
