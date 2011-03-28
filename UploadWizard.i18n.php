@@ -167,12 +167,12 @@ Are you sure you want to navigate away from this page?',
 	'mwe-upwiz-tooltip-source' => 'Where this digital file came from — could be a URL, or a book or publication',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name.
 In both cases, this will be linked to your wiki user page',
-	'mwe-upwiz-tooltip-title' => 'A short unique title for the file. You may use plain language with spaces. Do not include the file extension. [$1 Learn more].', 
+	'mwe-upwiz-tooltip-title' => 'A unique descriptive title for the file. You may use plain language with spaces. Do not include the file extension.', 
 	'mwe-upwiz-dialog-title' => 'Files can be uploaded with names in any language in any script (coded as UTF-8). Titles of media files should be meaningful and helpful in the language chosen.',
 	'mwe-upwiz-tooltip-description' => 'Briefly describe everything notable about the work.
 For a photo, mention the main things that are depicted, the occasion, or the place.',
 	'mwe-upwiz-tooltip-categories' => 'Add [$1 categories] to your file to make it easier to find.',
-	'mwe-upwiz-tooltip-other' => 'Any other information you want to include about this work. Place <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geocoding</a> templates here.',
+	'mwe-upwiz-tooltip-other' => 'Any other information you want to include about this work — geographic coordinates, links to other versions, etc.',
 	'mwe-upwiz-tooltip-more-info' => 'Learn more.',
 	'mwe-upwiz-file-need-file' => 'Please add an upload first.',
 	'mwe-upwiz-file-need-start' => 'Please press this button to start your uploads.',
@@ -203,7 +203,7 @@ Please do not use wikitext or HTML here.',
 	/* may be redundant with WikimediaLicenseTexts? */
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (public domain)',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	/* this is just for testing, we are not going to privilege the US and A */
 	'mwe-upwiz-license-pd-us' => 'Public Domain (US)',
