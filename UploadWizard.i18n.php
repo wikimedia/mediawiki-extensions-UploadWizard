@@ -409,8 +409,10 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-api-error-badtoken' => 'Унутраная памылка: няслушны ключ.',
 	'mwe-upwiz-api-error-fetchfileerror' => 'Унутраная памылка: падчас атрыманьня файла штосьці здарылася.',
 	'mwe-upwiz-api-error-duplicate' => 'Ужо {{PLURAL:$1|існуе [$2 іншы файл]|існуюць [$2 іншыя файлы]}} з такім жа зьместам',
+	'mwe-upwiz-api-error-duplicate-popup-title' => '{{PLURAL:$1|Ідэнтычны файл|Ідэнтычныя файлы}}',
 	'mwe-upwiz-api-error-timeout' => 'Сэрвэр не адказаў у чаканы тэрмін.',
-	'mwe-upwiz-api-warning-exists' => 'У {{GRAMMAR:месны|{{SITENAME}}}} ўжо існуе іншы файл з такой жа назвай',
+	'mwe-upwiz-api-error-noimageinfo' => 'Файл загружаны, але сэрвэр ня даў пра яго ніякай інфармацыі.',
+	'mwe-upwiz-api-warning-exists' => 'Ужо існуе [$1 іншы файл] з такой жа назвай',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Прабачце, даведка на Вашай мове ня знойдзеная. Будзе паказаная даведка на ангельскай мове.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Прабачце, файлы для даведкі ня знойдзеныя. Зьвярніцеся да сыстэмнага адміністратара.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Прабачце, немагчыма атрымаць маштабаваную выяву даведкі, каб умесьціць у экран. Прычынай можа быць часовая праблема ў ВікіСховішчы. Паспрабуйце зноў пазьней.',
@@ -488,6 +490,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Для выкарыстаньня файла ў вікі</b> скапіюйце гэты тэкст на старонку:',
 	'mwe-upwiz-thanks-url' => '<b>Для даданьня HTML-спасылкі</b> скапіюйце наступны URL-адрас:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => '{{SITENAME}} не прымае назвы файлаў з пашырэньнем «.$1».',
+	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Гэтая вікі патрабуе наяўнасьці пашырэньня ў назьве, напрыклад, «.JPG» на канцы.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Дазволеныя пашырэньні файлаў:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Дазволеныя пашырэньні файлаў',
 	'mwe-upwiz-upload-error-duplicate' => 'Гэты файл ужо быў загружаны ў {{GRAMMAR:вінавальны|{{SITENAME}}}}.',
@@ -516,7 +519,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-dialog-title' => 'Файлы могуць быць загружаныя з назвамі на любой мове любым альфабэтам (у кадаваньні UTF-8). Варта, каб па назвах файлаў быў зразумелы іх зьмест.',
 	'mwe-upwiz-tooltip-description' => "Коратка апішыце ўсё значнае пра гэты файл. Для фота, узгадайце пра асноўны аб'ект, выпадак ці месца.",
 	'mwe-upwiz-tooltip-categories' => 'Дадайце [$1 катэгорыі] да файла, каб яго можна было лягчэй знайсьці.',
-	'mwe-upwiz-tooltip-other' => 'Любая іншая інфармацыя, якую Вы жадаеце дадаць пра гэтую працу. Тут можна дадаць <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">геаграфічнае месцазнаходжаньне</a>.',
+	'mwe-upwiz-tooltip-other' => 'Любая іншая інфармацыя, якую Вы жадаеце дадаць пра гэтую працу: геаграфічныя каардынаты, спасылкі на іншыя вэрсіі і інш.',
 	'mwe-upwiz-tooltip-more-info' => 'Даведацца болей.',
 	'mwe-upwiz-file-need-file' => 'Калі ласка, спачатку дадайце файлы.',
 	'mwe-upwiz-file-need-start' => 'Націсьніце гэтую кнопку, каб пачаць загрузку.',
@@ -545,7 +548,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-error-date' => 'Калі ласка, пазначце дату ў фармаце ГГГГ-ММ-ДД, ці выберыце з выкіднога календара.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution-Share Alike 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (грамадзкі набытак)',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-categories' => 'Катэгорыі',
 	'mwe-upwiz-categories-add' => 'Дадаць',
@@ -553,6 +556,8 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-thanks-caption' => 'Дадайце сюды загаловак',
 	'mwe-upwiz-help-popup' => 'Дапамога',
 	'mwe-upwiz-help-popup-title' => 'Загаловак',
+	'mwe-upwiz-thumbnail-failed' => 'Файл загружаны, але сэрвэр ня змог здабыць мініятуру файла',
+	'mwe-upwiz-unparseable-filename' => 'Незразумелая назва файла «$1»',
 );
 
 /** Bulgarian (Български)
@@ -2455,7 +2460,7 @@ En calquera caso, haberá unha ligazón cara a súa páxina de usuario do wiki.'
 	'mwe-upwiz-tooltip-description' => 'Describa brevemente calquera cousa salientable da obra.
 Para unha foto, mencione as principais cousas que están representadas, a ocasión ou o lugar.',
 	'mwe-upwiz-tooltip-categories' => 'Engada [$1 categorías] ao seu ficheiro para facelo máis doado de atopar.',
-	'mwe-upwiz-tooltip-other' => 'Calquera outra información que desexe incluír sobre a obra. Inclúa aquí os modelos de <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">xeocodificación</a>.',
+	'mwe-upwiz-tooltip-other' => 'Calquera outra información que desexe incluír sobre a obra (coordenadas xeográficas, ligazóns a outras versións etc.)',
 	'mwe-upwiz-tooltip-more-info' => 'Máis información.',
 	'mwe-upwiz-file-need-file' => 'Engada unha subida primeiro.',
 	'mwe-upwiz-file-need-start' => 'Prema este botón para comezar a subir.',
@@ -2484,7 +2489,7 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-error-date' => 'Introduza unha data válida co formato AAA-MM-DD ou seleccione unha data no calendario emerxente.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons recoñecemento compartir igual 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons recoñecemento 3.0',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons renuncia CC0',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons renuncia CC0 (dominio público)',
 	'mwe-upwiz-license-gfdl' => 'Licenza de documentación libre de GNU',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Engadir',
@@ -3979,8 +3984,8 @@ Controlla <b><tt>$1</tt></b> e verifica scrupolosamente che davvero si debba sos
 	'mwe-prevent-close' => 'I tuoi file stanno ancora caricando. 
 Sei proprio sicuro di voler uscire da questa pagina?',
 	'mwe-upwiz-files-complete' => 'Il caricamento dei tuoi file è terminato!',
-	'mwe-upwiz-tooltip-author' => 'Il nome della persona che ha scattato la foto, dipinto il quadro, realizzato il disegno, etc.',
-	'mwe-upwiz-tooltip-source' => 'Da dove proviene questo file digitale - potrebbe essere una URL, un libro, una pubblicazione, etc.',
+	'mwe-upwiz-tooltip-author' => 'Il nome della persona che ha scattato la foto, dipinto il quadro, realizzato il disegno, ecc.',
+	'mwe-upwiz-tooltip-source' => 'Da dove proviene questo file digitale - potrebbe essere un URL, un libro, una pubblicazione, ecc.',
 	'mwe-upwiz-tooltip-sign' => 'Puoi utilizzare il tuo nome utente sulla wiki, oppure il tuo nome proprio. 
 In entrambi i casi, sarà collegato con un link alla tua pagina utente della wiki',
 	'mwe-upwiz-tooltip-title' => "Un titolo breve e distintivo per il file. Puoi usare un linguaggio semplice con spazi. Non includere l'estensione del file.",
@@ -3988,7 +3993,7 @@ In entrambi i casi, sarà collegato con un link alla tua pagina utente della wik
 	'mwe-upwiz-tooltip-description' => "Descrivi sinteticamente tutto quanto sia degno di nota a proposito di quest'opera. 
 Per le foto, indica le cose principali che vi sono rappresentate, l'occasione e/o il luogo in cui sono state scattate.",
 	'mwe-upwiz-tooltip-categories' => 'Aggiungi [$1 categorie] al tuo file per renderlo più semplice da trovare.',
-	'mwe-upwiz-tooltip-other' => 'Ogni altra informazione che desideri aggiungere a proposito di quest\'opera. Inserisci qui i template per il <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">geocoding</a>.',
+	'mwe-upwiz-tooltip-other' => "Ogni altra informazione che desideri aggiungere a proposito di quest'opera - coordinate geografiche, collegamenti ad altre versioni, ecc.",
 	'mwe-upwiz-tooltip-more-info' => 'Per saperne di più.',
 	'mwe-upwiz-file-need-file' => 'Per favore, prima carica qualcosa.',
 	'mwe-upwiz-file-need-start' => 'Premi questo pulsante per iniziare il tuo caricamento.',
@@ -4001,17 +4006,17 @@ Per le foto, indica le cose principali che vi sono rappresentate, l'occasione e/
 	'mwe-upwiz-license-show-all' => 'Usa una licenza diversa',
 	'mwe-upwiz-license-show-recommended' => 'Usa la licenza raccomandata',
 	'mwe-upwiz-error-signature-blank' => 'È necessario firmare il campo sottostante con il tuo nome utente o con il tuo nome reale.',
-	'mwe-upwiz-error-signature-too-long' => 'La tua firma purtroppo è troppo lunga. 
-Accorciala di $1 {{PLURAL:$1|carattere|caratteri}}.',
-	'mwe-upwiz-error-signature-too-short' => 'La tua firma purtroppo è troppo corta. 
-Allungala a non meno di $1 {{PLURAL:$1|carattere|caratteri}}.',
+	'mwe-upwiz-error-signature-too-long' => 'La tua firma è troppo lunga.
+Può essere lunga al massimo $1 {{PLURAL:$1|carattere|caratteri}}.',
+	'mwe-upwiz-error-signature-too-short' => 'La tua firma è troppo corta.
+Deve essere lunga almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'La tua firma contiene simboli che non sono ammessi. 
 Non utilizzare codice HTML o wikitext qui, solo il nome utente o il nome reale.',
 	'mwe-upwiz-error-blank' => 'Questo campo è obbligatorio.',
 	'mwe-upwiz-error-too-long' => 'Questo testo è troppo lungo.
-Deve essere più breve di $1 {{PLURAL:$1|carattere|caratteri}}.',
+Può essere lungo al massimo $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-too-short' => 'Questo testo è troppo breve.
-Deve essere più lungo di $1 {{PLURAL:$1|carattere|caratteri}}.',
+Deve essere lungo almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-bad-chars' => 'Questo campo contiene simboli non consentiti.
 Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-error-date' => 'Inserisci una data valida nel formato AAAA-MM-GG, o scegli una data dal calendario.',
@@ -6470,6 +6475,8 @@ $messages['rue'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'uploadwizard' => 'Киллэрии маастара',
+	'uploadwizard-desc' => 'Мультимедиа Юзабилити граан көмөтүнэн оҥоһуллубут киллэрии маастара',
 	'mwe-upwiz-code-unknown' => 'Биллибэт омук тыла',
 	'mwe-upwiz-step-tutorial' => 'Бил',
 	'mwe-upwiz-step-file' => 'Киллэрии',
@@ -6495,6 +6502,7 @@ $messages['sah'] = array(
 	'mwe-upwiz-api-error-filetype-banned' => 'Маннык көрүҥнээх билэлэр бобуулаахтар.',
 	'mwe-upwiz-api-error-filename-tooshort' => 'Билэҥ аата наһаа кылгас.',
 	'mwe-upwiz-api-error-illegal-filename' => 'Билэ маннык ааттанара сатаммат.',
+	'mwe-upwiz-api-warning-exists' => 'Маннык ааттаах [$1 атын билэ] баар эбит',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Бука диэн баалама, Эн тылгынан ыйыыны-кэрдиини булбатыбыт. Ааҥыллыы барыл көрдөрүллэр.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Бука диэн баалама, манна баар буолуохтаах учебник билэлэрэ көстүбэтилэр. Дьаһабылы бул.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Маннык экрааҥҥа аналлаах ойуу суох эбит. Баҕар, Биики ыскылаатын быстах кэмҥэ алҕаһа буолуо. Сотору кэминэн өссө боруобалаан көрөөр.',
@@ -6526,6 +6534,7 @@ $messages['sah'] = array(
 	'mwe-upwiz-finished' => 'Түмүктэннэ!',
 	'mwe-upwiz-secs-remaining' => '$1 сөкүүндэ хаалла',
 	'mwe-upwiz-mins-secs-remaining' => '$1 мүнүүтэ $2 сөкүүндэ хаалла',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 чаас $2 мүнүүтэ $3 сөкүүндэ хаалбыт',
 	'mwe-upwiz-deeds-custom-prompt' => 'Эбэтэр:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Бу билэ мин бэйэм айымньым.|Бу билэлэр мин бэйэм айымньыларым.}}',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Ол аата үлэҕин Creative Commons Attribution ShareAlike лиссиэнсийэнэн таһаараҕын.',
