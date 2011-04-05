@@ -529,6 +529,8 @@ mw.UploadWizard.prototype = {
 	 */
 	createInterface: function( selector ) {
 		var _this = this;
+		
+		$j( '#mwe-first-spinner' ).hide();
 
 		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )

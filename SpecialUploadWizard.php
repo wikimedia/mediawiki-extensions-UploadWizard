@@ -192,6 +192,9 @@ class SpecialUploadWizard extends SpecialPage {
 		return
 		  '<div id="upload-wizard" class="upload-section">'
 
+			// display spinner until interface is styled and unhidden
+		.	'<div class="mwe-upwiz-status-progress" id="mwe-first-spinner" style="height:200px;"></div>'
+		
 		    // the arrow steps - hide until styled
 		.   '<ul id="mwe-upwiz-steps" style="display:none;">'
 		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMsg( 'mwe-upwiz-step-tutorial' ) . '</div></li>'
