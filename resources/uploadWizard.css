@@ -281,6 +281,10 @@ a[disabled=true]:hover {
 	background: url('images/24px-spinner-0645ad.gif') no-repeat center center;
 }
 
+.mwe-upwiz-file.hover .mwe-upwiz-status-progress {
+	background: url('images/24px-spinner-0645ad-e0f0ff.gif') no-repeat center center;
+}
+
 .mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
 	background: url('images/32px-Dialog-apply-009900.svg.png') no-repeat center center;
 }
