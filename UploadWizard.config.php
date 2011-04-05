@@ -113,5 +113,8 @@ return array(
 
 	// Check if we have the firefogg upload api module enabled: 
 	'enableFirefoggChunkUpload' => isset( $wgAPIModules['firefoggupload'] )? true : false,
+	
+	// Set skipTutorial to true to always skip tutorial step
+	'skipTutorial' => false,
 
 );

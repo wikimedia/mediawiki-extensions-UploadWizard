@@ -37,8 +37,8 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
-		       $wgUploadWizardDisableResourceLoader;
+		global $wgRequest, $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
+		       $wgUploadWizardDisableResourceLoader, $wgUploadWizardConfig;
 
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
@@ -48,6 +48,11 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$this->setHeaders();
 		$this->outputHeader();
+		
+		// if query string includes 'skiptutorial=true' set config variable to true
+		if ( $wgRequest->getText( 'skiptutorial' ) ) {
+			$wgUploadWizardConfig['skipTutorial'] = true;
+		}
 
 		// fallback for non-JS
 		$wgOut->addHTML( '<noscript>' );
@@ -174,10 +179,12 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return {String} html
 	 */
 	function getWizardHtml() {
+		global $wgUploadWizardConfig;
+		
 		$tutorialHtml = '';		
 		// only load the tutorial HTML if we aren't skipping the first step
 		// TODO should use user preference not a cookie ( so the user does not have to skip it for every browser )
-		if ( !isset( $_COOKIE['skiptutorial'] ) ) {
+		if ( !isset( $_COOKIE['skiptutorial'] ) && !$wgUploadWizardConfig['skipTutorial'] ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml();
 		}
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard

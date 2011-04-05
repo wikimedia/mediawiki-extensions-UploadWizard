@@ -519,7 +519,7 @@ mw.UploadWizard.prototype = {
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
 	reset: function() {
-		window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard' );
+		window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard?skiptutorial=true' );
 	},
 
 	
@@ -641,7 +641,7 @@ mw.UploadWizard.prototype = {
 		// WIZARD 
 		
 		// check to see if the the skip tutorial cookie is set
-		if ( document.cookie.indexOf('skiptutorial=1') != -1 ) {
+		if ( document.cookie.indexOf('skiptutorial=1') != -1 || UploadWizardConfig['skipTutorial'] ) {
 			// "select" the second step - highlight, make it visible, hide all others
 			_this.moveToStep( 'file' );
 		} else {
