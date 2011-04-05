@@ -519,9 +519,7 @@ mw.UploadWizard.prototype = {
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
 	reset: function() {
-		// Get number of times we've reloaded UploadWizard (for Firefox 3 bug - 27424)
-		var reloadNumber = parseInt(UploadWizardReload) + 1;
-		window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard?reload='+reloadNumber );
+		window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard' );
 	},
 
 	

@@ -37,7 +37,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgRequest, $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
+		global $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
 		       $wgUploadWizardDisableResourceLoader;
 
 		// side effects: if we can't upload, will print error page to wgOut
@@ -48,9 +48,6 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$this->setHeaders();
 		$this->outputHeader();
-		
-		// Get number of times we've reloaded UploadWizard (for Firefox 3 bug - 27424)
-		$reload = $wgRequest->getText( 'reload', '0' );
 
 		// fallback for non-JS
 		$wgOut->addHTML( '<noscript>' );
@@ -60,7 +57,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 
 		// global javascript variables
-		$this->addJsVars( $subPage, $reload );
+		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
 		if ( !$wgUploadWizardDisableResourceLoader && class_exists( 'ResourceLoader' ) ) {
@@ -92,7 +89,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * 
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
-	public function addJsVars( $subPage, $reload ) {
+	public function addJsVars( $subPage ) {
 		global $wgOut, $wgUpwizDir, $wgUploadWizardConfig, $wgSitename;
 
 		// Merge the default configuration with the local settings $wgUploadWizardConfig configuration
@@ -109,9 +106,6 @@ class SpecialUploadWizard extends SpecialPage {
 				// Site name is a true global not specific to Upload Wizard
 				array( 
 					'wgSiteName' => $wgSitename
-				) +
-				array(
-					'UploadWizardReload' => $reload
 				)
 			)
 		);
