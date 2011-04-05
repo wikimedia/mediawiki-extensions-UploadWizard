@@ -1055,7 +1055,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
 
 			// change "add another file" into "click here to add a file"
-			$j( '#mwe-upwiz-add-file' ).msg( 'mwe-upwiz-add-file-0' );
+			$j( '#mwe-upwiz-add-file span' ).msg( 'mwe-upwiz-add-file-0' );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');
 		}
