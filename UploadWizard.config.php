@@ -252,7 +252,5 @@ return array(
 	'skipTutorial' => false,
 	
 	'feedbackPage' => 'Commons:Prototype upload wizard feedback',
-	
-	'feedbackPageUrl' => 'http://commons.wikimedia.org/wiki/Commons:Prototype_upload_wizard_feedback',
 
 );
