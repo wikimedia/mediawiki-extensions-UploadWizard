@@ -179,7 +179,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return {String} html
 	 */
 	function getWizardHtml() {
-		global $wgUploadWizardConfig;
+		global $wgUploadWizardConfig, $wgExtensionAssetsPath;
 		
 		$tutorialHtml = '';		
 		// only load the tutorial HTML if we aren't skipping the first step
@@ -192,21 +192,17 @@ class SpecialUploadWizard extends SpecialPage {
 		return
 		  '<div id="upload-wizard" class="upload-section">'
 
-			// if loading takes > 2 seconds display throbber until interface is ready
-			// window.upwizInterval is cleared in mw.UploadWizard.createInterface();
-			// we can't actually use an image, because we have no clue what the path to the images are
-			// and any CSS-loaded image is coming in with ResourceLoader's package, later.
-		.	'<div id="mwe-preload-throbber" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;"></div>'
-		.	'<script language="javaScript">window.setTimeout(function() {'
-		.		'window.upwizLoading = document.getElementById("mwe-preload-throbber");'
-		.		'window.upwizLoadingDateOffset = +new Date();'
-		.		'window.upwizBlinker = function(){'
-		.			'var c=Math.floor((-1*Math.cos((+new Date()-window.upwizLoadingDateOffset)/500)+1)*8).toString(16);'
-		.			'window.upwizLoading.style.color="#"+c+c+c;'
-		.			'window.upwizLoading.innerHTML = "' . wfMsgHtml( 'mwe-loading-upwiz' ) . '";'
-		.		'};'
-		.		'window.upwizInterval = window.setInterval(window.upwizBlinker,100);'
-		.	'},2000)</script>'
+			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
+			// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
+			// the min-width & max-width is copied from the #uploadWizard properties, so in nice browsers the spinner is right where the button will go.
+		.	'<div id="mwe-first-spinner" style="visibility:hidden; min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">&nbsp;</div>'
+		.	'<script language="JavaScript">'
+		.		'window.setTimeout( function() {'
+		.			'var s = document.getElementById( "mwe-first-spinner" );'
+		.			's.style.visibility = "visible";'
+		.			's.innerHTML = "&nbsp;<img src=\\"' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif\\" width=\\"24\\" height=\\"24\\" />&nbsp;";'
+		.		'}, 2000)'
+		.	'</script>'
 		
 		    // the arrow steps - hide until styled
 		.   '<ul id="mwe-upwiz-steps" style="display:none;">'

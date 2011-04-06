@@ -528,7 +528,10 @@ mw.UploadWizard.prototype = {
 	 */
 	createInterface: function( selector ) {
 		var _this = this;
-		
+	
+		// remove first spinner	
+		$j( '#mwe-first-spinner' ).remove();
+
 		// feedback request
 		$j( '#contentSub' ).html('<i>Please <a id="mwe-upwiz-feedback" href="#">let us know</a> what you think of Upload Wizard!</i>');
 		$j( '#mwe-upwiz-feedback') 
@@ -537,10 +540,6 @@ mw.UploadWizard.prototype = {
 				return false;
 			} );
 		
-		// get rid of throbber
-		$j( '#mwe-preload-throbber' ).hide();
-		window.clearInterval( window.upwizInterval );
-
 		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
