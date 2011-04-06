@@ -606,7 +606,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
 			.click( function() {
-				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide'); } ); // close tipsy help balloons
+				$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
 				if ( _this.deedChooser.valid() ) {
@@ -639,7 +639,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
 			.click( function() {
-				$('.mwe-upwiz-hint').each( function(i) { $(this).tipsy('hide'); } ); // close tipsy help balloons
+				$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 				if ( _this.detailsValid() ) { 
 					_this.detailsSubmit( function() { 
 						_this.prefillThanksPage();
@@ -1208,26 +1208,26 @@ mw.UploadWizard.prototype = {
 		_this = this;
 		
 		var displayError = function( message ) {
-			$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-			$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( message ) );
+			$j( '#mwe-upwiz-feedback-form div' ).hide(); // remove everything else from the dialog box
+			$j( '#mwe-upwiz-feedback-form' ).append ( $j( '<div style="color:#990000;margin-top:0.4em;"></div>' ).msg( message ) );
 		}
 		
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 		var cancelButton = gM( 'mwe-upwiz-feedback-cancel' );
 		var submitButton = gM( 'mwe-upwiz-feedback-submit' );
 		var buttonSettings = {};
-		buttonSettings[cancelButton] = function() { $(this).dialog("close"); };
+		buttonSettings[cancelButton] = function() { $j( this ).dialog( 'close' ); };
 		buttonSettings[submitButton] = function() { 
 			$feedbackForm.dialog({buttons:{}});
-			$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-			$('#mwe-upwiz-feedback-form').append ( $('<div style="text-align:center;margin:3em 0;"></div>').append( gM( 'mwe-upwiz-feedback-adding' ), $( '<br/>' ), $('<img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) ) );
-			var subject = $('#mwe-upwiz-feedback-subject').val();
-			var message = $('#mwe-upwiz-feedback-message').val();
-			if ( message.indexOf('~~~') == -1 ) {
+			$j( '#mwe-upwiz-feedback-form div' ).hide(); // remove everything else from the dialog box
+			$j( '#mwe-upwiz-feedback-form' ).append ( $j( '<div style="text-align:center;margin:3em 0;"></div>' ).append( gM( 'mwe-upwiz-feedback-adding' ), $j( '<br/>' ), $j( '<img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) ) );
+			var subject = $j( '#mwe-upwiz-feedback-subject' ).val();
+			var message = $j( '#mwe-upwiz-feedback-message' ).val();
+			if ( message.indexOf( '~~~' ) == -1 ) {
 				message = message+' ~~~~';
 			}
 			var useTokenToPostFeedback = function( token ) {
-				$.ajax({
+				$j.ajax({
 					url: wgScriptPath + '/api.php',
 					data: $.param({
 						action: 'edit',
@@ -1242,8 +1242,8 @@ mw.UploadWizard.prototype = {
 					type: 'POST',
 					success: function( data ) {
 						if ( typeof data.edit != 'undefined' ) {
-							if ( data.edit.result == "Success" ) {
-								$feedbackForm.dialog("close"); // edit complete, close dialog box
+							if ( data.edit.result == 'Success' ) {
+								$feedbackForm.dialog( 'close' ); // edit complete, close dialog box
 							} else {
 								displayError( 'mwe-upwiz-feedback-error1' ); // unknown API result
 							}
@@ -1261,10 +1261,10 @@ mw.UploadWizard.prototype = {
 		
 		// Construct the feedback form
 		var feedbackLink = '<a href="'+wgArticlePath.replace( '$1', mw.UploadWizard.config['feedbackPage'].replace( /\s/g, '_' ) )+'" target="_blank">'+mw.UploadWizard.config['feedbackPage']+'</a>';
-		$feedbackForm = $('<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>')
-			.append( $('<div style="margin-top:0.4em;"></div>').append( $( '<small></small>' ).msg( 'mwe-upwiz-feedback-note', feedbackLink ) ) )
-			.append( $('<div style="margin-top:1em;"></div>').append( gM( 'mwe-upwiz-feedback-subject' ), $( '<br/>' ), $('<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>') ) )
-          	.append( $('<div style="margin-top:0.4em;"></div>').append( gM( 'mwe-upwiz-feedback-message' ), $( '<br/>' ), $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
+		$feedbackForm = $j( '<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>' )
+			.append( $j( '<div style="margin-top:0.4em;"></div>' ).append( $j( '<small></small>' ).msg( 'mwe-upwiz-feedback-note', feedbackLink ) ) )
+			.append( $j( '<div style="margin-top:1em;"></div>' ).append( gM( 'mwe-upwiz-feedback-subject' ), $j( '<br/>' ), $j( '<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>' ) ) )
+          	.append( $j( '<div style="margin-top:0.4em;"></div>' ).append( gM( 'mwe-upwiz-feedback-message' ), $j( '<br/>' ), $j( '<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>' ) ) )
 			.dialog({
 				width: 500,
 				autoOpen: false,
@@ -1273,7 +1273,7 @@ mw.UploadWizard.prototype = {
 				buttons: buttonSettings
 			}); // close dialog, end $feedbackForm definition
 			
-		$feedbackForm.dialog('open');
+		$feedbackForm.dialog( 'open' );
 		
 	}, // close launchFeedback function
 	
@@ -1402,7 +1402,7 @@ mw.UploadWizardDeedPreview.prototype = {
 			$j( '<span/>' )
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
-				.click( function() { $( this ).tipsy( 'toggle' ); return false; } )
+				.click( function() { $j( this ).tipsy( 'toggle' ); return false; } )
 				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual'} ) 
 		);
 	};
