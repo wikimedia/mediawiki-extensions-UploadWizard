@@ -1212,29 +1212,6 @@ mw.UploadWizard.prototype = {
 			$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( message ) );
 		}
 		
-		var useTokenToPostFeedback = function( token ) {
-			$.ajax({
-				url: wgScriptPath + '/api.php?',
-				data: 'action=edit&title='+encodeURIComponent(mw.UploadWizard.config['feedbackPage'])+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
-				dataType: 'json',
-				type: 'POST',
-				success: function( data ) {
-					if ( typeof data.edit != 'undefined' ) {
-						if ( data.edit.result == "Success" ) {
-							$feedbackForm.dialog("close"); // edit complete, close dialog box
-						} else {
-							displayError( 'mwe-upwiz-feedback-error1' ); // unknown API result
-						}
-					} else {
-						displayError( 'mwe-upwiz-feedback-error2' ); // edit failed
-					}
-				},
-				error: function( xhr ) {
-					displayError( 'mwe-upwiz-feedback-error3' ); // ajax request failed
-				}
-			}); // close Ajax request
-		}; // close useTokenToPost function
-		
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 		var cancelButton = gM( 'mwe-upwiz-feedback-cancel' );
 		var submitButton = gM( 'mwe-upwiz-feedback-submit' );
@@ -1246,9 +1223,39 @@ mw.UploadWizard.prototype = {
 			$('#mwe-upwiz-feedback-form').append ( $('<div style="text-align:center;margin:3em 0;"></div>').append( gM( 'mwe-upwiz-feedback-adding' ), $( '<br/>' ), $('<img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) ) );
 			var subject = $('#mwe-upwiz-feedback-subject').val();
 			var message = $('#mwe-upwiz-feedback-message').val();
-			if ( message.indexOf('~~~~') == -1 ) {
+			if ( message.indexOf('~~~') == -1 ) {
 				message = message+' ~~~~';
 			}
+			var useTokenToPostFeedback = function( token ) {
+				$.ajax({
+					url: wgScriptPath + '/api.php?',
+					data: $.param( {
+						action: 'edit',
+						title: mw.UploadWizard.config['feedbackPage'],
+						section: 'new',
+						summary: subject,
+						text: message,
+						format: 'json',
+						token: token
+					} ),
+					dataType: 'json',
+					type: 'POST',
+					success: function( data ) {
+						if ( typeof data.edit != 'undefined' ) {
+							if ( data.edit.result == "Success" ) {
+								$feedbackForm.dialog("close"); // edit complete, close dialog box
+							} else {
+								displayError( 'mwe-upwiz-feedback-error1' ); // unknown API result
+							}
+						} else {
+							displayError( 'mwe-upwiz-feedback-error2' ); // edit failed
+						}
+					},
+					error: function( xhr ) {
+						displayError( 'mwe-upwiz-feedback-error3' ); // ajax request failed
+					}
+				}); // close Ajax request
+			}; // close useTokenToPost function
 			_this.api.getEditToken( useTokenToPostFeedback );
 		}; // close submit button function
 		
