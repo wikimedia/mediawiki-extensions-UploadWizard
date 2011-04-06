@@ -79,9 +79,6 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 		}
 
-		// initial loading spinner
-		$wgOut->addHTML( '<div id="mwe-first-spinner" style="text-align:center;"><img src="'.$wgExtensionAssetsPath.'/UploadWizard/resources/images/24px-spinner-0645ad.gif" style="margin:100px 0;"/></div>' );
-		
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
 		$wgOut->addHTML( self::getWizardHtml() );
