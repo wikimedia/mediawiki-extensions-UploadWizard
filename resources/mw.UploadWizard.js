@@ -447,34 +447,6 @@ mw.UploadWizardUpload.prototype = {
 		var fileTitle = new mw.Title( filename, 'file' );
 		fileUrl.query = { title: fileTitle, action: 'view' }; 
 		return fileUrl;
-	},
-	
-	launchFeedback: function() {
-		$feedbackForm = $('<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>')
-			.append( $('<div style="margin-top:0.4em;"></div>').html( '<small>Your feedback will be posted to <a href="http://commons.wikimedia.org/wiki/Commons:Prototype_upload_wizard_feedback" target="_blank">Commons:Prototype upload wizard feedback</a>.</small>' ) )
-			.append( $('<div style="margin-top:1em;"></div>').html( 'Subject:<br/>' ).append( $('<input type="text" name="subject" maxlength="60" style="width:99%;"/>') ) )
-          	.append( $('<div style="margin-top:0.4em;"></div>').html( 'Message (without a signature):<br/>' ).append( $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
-			.dialog({
-				width: 500,
-				autoOpen: false,
-				title: 'Leave feedback on Upload Wizard',
-				modal: true,
-				buttons: {
-					"Cancel": function() { $(this).dialog("close"); },
-					"Submit Feedback": function() { 
-						$(this).dialog({buttons:{}});
-						if ( typeof this.editToken !== 'undefined' ) {
-							// Perform edit to page
-							this.displayProgress( 'mwe-upwiz-feedback-form', 'Adding feedback to page...' );
-							var message = $('#mwe-upwiz-feedback-message').val() +' ~~~~}}';
-							this.editPage( 'mwe-upwiz-feedback-form', 'User Feedback', message );
-						} else {
-							this.displayError( 'mwe-upwiz-feedback-form', 'Could not retrieve edit token.' );
-						}
-					}
-				}
-			});
-		$feedbackForm.dialog('open');
 	}
 	
 };
@@ -1226,6 +1198,34 @@ mw.UploadWizard.prototype = {
 
 			$j( '#mwe-upwiz-thanks' ).append( $thanksDiv );
 		} ); 
+	},
+	
+	launchFeedback: function() {
+		$feedbackForm = $('<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>')
+			.append( $('<div style="margin-top:0.4em;"></div>').html( '<small>Your feedback will be posted to <a href="http://commons.wikimedia.org/wiki/Commons:Prototype_upload_wizard_feedback" target="_blank">Commons:Prototype upload wizard feedback</a>.</small>' ) )
+			.append( $('<div style="margin-top:1em;"></div>').html( 'Subject:<br/>' ).append( $('<input type="text" name="subject" maxlength="60" style="width:99%;"/>') ) )
+          	.append( $('<div style="margin-top:0.4em;"></div>').html( 'Message (without a signature):<br/>' ).append( $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
+			.dialog({
+				width: 500,
+				autoOpen: false,
+				title: 'Leave feedback on Upload Wizard',
+				modal: true,
+				buttons: {
+					"Cancel": function() { $(this).dialog("close"); },
+					"Submit Feedback": function() { 
+						$(this).dialog({buttons:{}});
+						if ( typeof this.editToken !== 'undefined' ) {
+							// Perform edit to page
+							this.displayProgress( 'mwe-upwiz-feedback-form', 'Adding feedback to page...' );
+							var message = $('#mwe-upwiz-feedback-message').val() +' ~~~~}}';
+							this.editPage( 'mwe-upwiz-feedback-form', 'User Feedback', message );
+						} else {
+							this.displayError( 'mwe-upwiz-feedback-form', 'Could not retrieve edit token.' );
+						}
+					}
+				}
+			});
+		$feedbackForm.dialog('open');
 	},
 	
 	/**
