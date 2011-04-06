@@ -533,12 +533,14 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-first-spinner' ).remove();
 
 		// feedback request
-		$j( '#contentSub' ).html('<i>Please <a id="mwe-upwiz-feedback" href="#">let us know</a> what you think of Upload Wizard!</i>');
-		$j( '#mwe-upwiz-feedback') 
-			.click( function() {
-				_this.launchFeedback();
-				return false;
-			} );
+		if ( UploadWizardConfig['feedbackPage'] != '' ) {
+			$j( '#contentSub' ).html('<i>Please <a id="mwe-upwiz-feedback" href="#">let us know</a> what you think of Upload Wizard!</i>');
+			$j( '#mwe-upwiz-feedback') 
+				.click( function() {
+					_this.launchFeedback();
+					return false;
+				} );
+		}
 		
 		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )
@@ -1199,51 +1201,66 @@ mw.UploadWizard.prototype = {
 		} ); 
 	},
 	
+	/**
+	 * Build interface for collecting user feedback on Upload Wizard
+	 */
 	launchFeedback: function() {
 		_this = this;
+		
+		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
+		var cancelButton = gM( 'mwe-upwiz-feedback-cancel' );
+		var submitButton = gM( 'mwe-upwiz-feedback-submit' );
+		var buttonSettings = {};
+		buttonSettings[cancelButton] = function() { $(this).dialog("close"); };
+		buttonSettings[submitButton] = function() { 
+			$feedbackForm.dialog({buttons:{}});
+			$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
+			$('#mwe-upwiz-feedback-form').append ( $('<div style="text-align:center;margin:3em 0;"></div>').append( gM( 'mwe-upwiz-feedback-adding' ), $( '<br/>' ), $('<img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) ) );
+			var subject = $('#mwe-upwiz-feedback-subject').val();
+			var message = $('#mwe-upwiz-feedback-message').val();
+			if ( message.indexOf('~~~~') == -1 ) {
+				message = message+' ~~~~';
+			}
+			var useTokenToPost = function( token ) {
+				$.ajax({
+					url: wgScriptPath + '/api.php?',
+					data: 'action=edit&title='+encodeURIComponent(mw.UploadWizard.config['feedbackPage'])+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
+					dataType: 'json',
+					type: 'POST',
+					success: function( data ) {
+						if ( data.edit.result == "Success" ) {
+							$feedbackForm.dialog("close");
+						} else {
+							$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
+							$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( 'mwe-upwiz-feedback-error1' ) );
+						}
+					},
+					error: function( xhr ) {
+						$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
+						$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( 'mwe-upwiz-feedback-error2' ) );
+					}
+				}); // close Ajax request
+			}; // close useTokenToPost function
+			_this.api.getEditToken( useTokenToPost );
+		}; // close submit button function
+		
+		// Construct the feedback form
+		var feedbackLink = '<a href="'+wgArticlePath.replace( '$1', mw.UploadWizard.config['feedbackPage'].replace( /\s/g, '_' ) )+'" target="_blank">'+mw.UploadWizard.config['feedbackPage']+'</a>';
 		$feedbackForm = $('<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>')
-			.append( $('<div style="margin-top:0.4em;"></div>').html( '<small>Your feedback will be posted to <a href="'+wgArticlePath.replace( '$1', mw.UploadWizard.config['feedbackPage'].replace( /\s/g, '_' ) )+'" target="_blank">'+mw.UploadWizard.config['feedbackPage']+'</a>.</small>' ) )
-			.append( $('<div style="margin-top:1em;"></div>').html( 'Subject:<br/>' ).append( $('<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>') ) )
-          	.append( $('<div style="margin-top:0.4em;"></div>').html( 'Message (without a signature):<br/>' ).append( $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
+			.append( $('<div style="margin-top:0.4em;"></div>').append( $( '<small></small>' ).msg( 'mwe-upwiz-feedback-note', feedbackLink ) ) )
+			.append( $('<div style="margin-top:1em;"></div>').append( gM( 'mwe-upwiz-feedback-subject' ), $( '<br/>' ), $('<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>') ) )
+          	.append( $('<div style="margin-top:0.4em;"></div>').append( gM( 'mwe-upwiz-feedback-message' ), $( '<br/>' ), $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
 			.dialog({
 				width: 500,
 				autoOpen: false,
-				title: 'Leave feedback on Upload Wizard',
+				title: gM( 'mwe-upwiz-feedback-title' ),
 				modal: true,
-				buttons: {
-					"Cancel": function() { $(this).dialog("close"); },
-					"Submit Feedback": function() { 
-						$(this).dialog({buttons:{}});
-						$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-        				$('#mwe-upwiz-feedback-form').append ( $('<div style="text-align:center;margin:3em 0;"></div>').html( 'Adding feedback to page...<br/><img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) );
-     					var subject = $('#mwe-upwiz-feedback-subject').val();
-     					var message = $('#mwe-upwiz-feedback-message').val() +' ~~~~';
-     					var useTokenToPost = function( token ) { // form, summary, template 
-							$.ajax({
-								url: wgScriptPath + '/api.php?',
-								data: 'action=edit&title='+encodeURIComponent(mw.UploadWizard.config['feedbackPage'])+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
-								dataType: 'json',
-								type: 'POST',
-								success: function( data ) {
-									if ( data.edit.result == "Success" ) {
-										$feedbackForm.dialog("close");
-									} else {
-										$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-        								$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').html( 'Error: Unknown result from API' ) );
-									}
-								},
-								error: function( xhr ) {
-									$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-        							$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').html( 'Error: Edit failed' ) );
-								}
-							});
-						};
-						_this.api.getEditToken( useTokenToPost );
-					}
-				}
-			});
+				buttons: buttonSettings
+			}); // close dialog, end $feedbackForm definition
+			
 		$feedbackForm.dialog('open');
-	},
+		
+	}, // close launchFeedback function
 	
 	/**
 	 * Set a cookie which lets the user skip the tutorial step in the future

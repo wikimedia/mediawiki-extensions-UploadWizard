@@ -294,7 +294,16 @@ class UploadWizardHooks {
 				'mwe-upwiz-help-popup',
 				'mwe-upwiz-help-popup-title',
 				'mwe-upwiz-thumbnail-failed',
-				'mwe-upwiz-unparseable-filename'
+				'mwe-upwiz-unparseable-filename',
+				'mwe-upwiz-feedback-note',
+				'mwe-upwiz-feedback-subject',
+				'mwe-upwiz-feedback-message',
+				'mwe-upwiz-feedback-title',
+				'mwe-upwiz-feedback-cancel',
+				'mwe-upwiz-feedback-submit',
+				'mwe-upwiz-feedback-adding',
+				'mwe-upwiz-feedback-error1',
+				'mwe-upwiz-feedback-error2'
 			),
 			'group' => 'ext.uploadWizard'
 		),

@@ -241,6 +241,7 @@ return array(
 	// Set skipTutorial to true to always skip tutorial step
 	'skipTutorial' => false,
 	
-	'feedbackPage' => 'Commons:Prototype upload wizard feedback',
+	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
+	'feedbackPage' => '',
 
 );

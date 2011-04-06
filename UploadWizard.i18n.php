@@ -246,7 +246,18 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-help-popup' => 'Help',
 	'mwe-upwiz-help-popup-title' => 'Title',
 	'mwe-upwiz-thumbnail-failed' => 'The upload succeeded, but the server could not get a preview thumbnail',
-	'mwe-upwiz-unparseable-filename' => 'Could not understand the file name "$1"'
+	'mwe-upwiz-unparseable-filename' => 'Could not understand the file name "$1"',
+	
+	/* Feedback interface */
+	'mwe-upwiz-feedback-note' => 'Your feedback will be posted to $1.',
+	'mwe-upwiz-feedback-subject' => 'Subject:',
+	'mwe-upwiz-feedback-message' => 'Message (without a signature):',
+	'mwe-upwiz-feedback-title' => 'Leave feedback about Upload Wizard',
+	'mwe-upwiz-feedback-cancel' => 'Cancel',
+	'mwe-upwiz-feedback-submit' => 'Submit Feedback',
+	'mwe-upwiz-feedback-adding' => 'Adding feedback to page...',
+	'mwe-upwiz-feedback-error1' => 'Error: Unknown result from API',
+	'mwe-upwiz-feedback-error2' => 'Error: Edit failed'
 	
 );
 
@@ -294,6 +305,11 @@ The word "extension" refers to the part behind the last dot in a file name, that
 	'mwe-upwiz-categories-add' => '{{Identical|Add}}',
 	'mwe-upwiz-help-popup' => '{{Identical|Help}}',
 	'mwe-upwiz-help-popup-title' => '{{Identical|Title}}',
+	'mwe-upwiz-feedback-subject' => 'Label for a text input',
+	'mwe-upwiz-feedback-message' => 'Label for a textarea; signature referrs to a Wikitext signature.',
+	'mwe-upwiz-feedback-cancel' => 'Button label',
+	'mwe-upwiz-feedback-cancel' => 'Button label',
+	'mwe-upwiz-feedback-adding' => 'Progress notice'
 );
 
 /** Afrikaans (Afrikaans)
