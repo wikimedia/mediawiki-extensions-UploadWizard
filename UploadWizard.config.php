@@ -126,7 +126,8 @@ return array(
 	'licensesThirdParty' => array( 
 		'type' => 'and',
 		'licenseGroups' => array(
-			array( 
+			array(
+				// This should be a list of all CC licenses we can reasonably expect to find around the web
 				'head' => 'mwe-upwiz-license-cc-head',
 				'subhead' => 'mwe-upwiz-license-cc-subhead',
 				'licenses' => array(
@@ -138,6 +139,8 @@ return array(
 				)
 			),
 			array(
+				// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
+				// The White House also has an account there, hence the Public Domain US Government license
 				'head' => 'mwe-upwiz-license-flickr-head',
 				'subhead' => 'mwe-upwiz-license-flickr-subhead',
 				'prependTemplates' => array( 'flickrreview' ),
@@ -156,7 +159,8 @@ return array(
 					'pd-us', 
 				)
 			),
-			array( 
+			array(
+				// omitted navy because it is believed only MultiChil uses it heavily. Could add it back 
 				'head' => 'mwe-upwiz-license-usgov-head',
 				'licenses' => array( 	
 					'pd-usgov',
