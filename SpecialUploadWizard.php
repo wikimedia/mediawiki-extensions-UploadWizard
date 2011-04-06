@@ -192,8 +192,21 @@ class SpecialUploadWizard extends SpecialPage {
 		return
 		  '<div id="upload-wizard" class="upload-section">'
 
-			// display spinner until interface is styled and unhidden
-		.	'<div class="mwe-upwiz-status-progress" id="mwe-first-spinner" style="height:200px;"></div>'
+			// if loading takes > 2 seconds display throbber until interface is ready
+			// window.upwizInterval is cleared in mw.UploadWizard.createInterface();
+			// we can't actually use an image, because we have no clue what the path to the images are
+			// and any CSS-loaded image is coming in with ResourceLoader's package, later.
+		.	'<div id="mwe-preload-throbber" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;"></div>'
+		.	'<script language="javaScript">window.setTimeout(function() {'
+		.		'window.upwizLoading = document.getElementById("mwe-preload-throbber");'
+		.		'window.upwizLoadingDateOffset = +new Date();'
+		.		'window.upwizBlinker = function(){'
+		.			'var c=Math.floor((-1*Math.cos((+new Date()-window.upwizLoadingDateOffset)/500)+1)*8).toString(16);'
+		.			'window.upwizLoading.style.color="#"+c+c+c;'
+		.			'window.upwizLoading.innerHTML = "' . wfMsgHtml( 'mwe-loading-upwiz' ) . '";'
+		.		'};'
+		.		'window.upwizInterval = window.setInterval(window.upwizBlinker,100);'
+		.	'},2000)</script>'
 		
 		    // the arrow steps - hide until styled
 		.   '<ul id="mwe-upwiz-steps" style="display:none;">'
