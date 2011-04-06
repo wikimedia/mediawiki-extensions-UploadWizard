@@ -256,8 +256,9 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-feedback-cancel' => 'Cancel',
 	'mwe-upwiz-feedback-submit' => 'Submit Feedback',
 	'mwe-upwiz-feedback-adding' => 'Adding feedback to page...',
-	'mwe-upwiz-feedback-error1' => 'Error: Unknown result from API',
-	'mwe-upwiz-feedback-error2' => 'Error: Edit failed'
+	'mwe-upwiz-feedback-error1' => 'Error: Unrecognized result from API',
+	'mwe-upwiz-feedback-error2' => 'Error: Edit failed',
+	'mwe-upwiz-feedback-error3' => 'Error: No response from API'
 	
 );
 
@@ -308,7 +309,7 @@ The word "extension" refers to the part behind the last dot in a file name, that
 	'mwe-upwiz-feedback-subject' => 'Label for a text input',
 	'mwe-upwiz-feedback-message' => 'Label for a textarea; signature referrs to a Wikitext signature.',
 	'mwe-upwiz-feedback-cancel' => 'Button label',
-	'mwe-upwiz-feedback-cancel' => 'Button label',
+	'mwe-upwiz-feedback-submit' => 'Button label',
 	'mwe-upwiz-feedback-adding' => 'Progress notice'
 );
 

@@ -1228,21 +1228,28 @@ mw.UploadWizard.prototype = {
 					dataType: 'json',
 					type: 'POST',
 					success: function( data ) {
-						if ( data.edit.result == "Success" ) {
-							$feedbackForm.dialog("close");
+						if ( typeof data.edit != 'undefined' ) {
+							if ( data.edit.result == "Success" ) {
+								$feedbackForm.dialog("close");
+							} else {
+								displayError( 'mwe-upwiz-feedback-error1' );
+							}
 						} else {
-							$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-							$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( 'mwe-upwiz-feedback-error1' ) );
+							displayError( 'mwe-upwiz-feedback-error2' );
 						}
 					},
 					error: function( xhr ) {
-						$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-						$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( 'mwe-upwiz-feedback-error2' ) );
+						displayError( 'mwe-upwiz-feedback-error3' );
 					}
 				}); // close Ajax request
 			}; // close useTokenToPost function
 			_this.api.getEditToken( useTokenToPost );
 		}; // close submit button function
+		
+		var displayError = function( message ) {
+			$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
+			$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( message ) );
+		}
 		
 		// Construct the feedback form
 		var feedbackLink = '<a href="'+wgArticlePath.replace( '$1', mw.UploadWizard.config['feedbackPage'].replace( /\s/g, '_' ) )+'" target="_blank">'+mw.UploadWizard.config['feedbackPage']+'</a>';

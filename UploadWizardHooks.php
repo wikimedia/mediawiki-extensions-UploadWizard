@@ -303,7 +303,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-feedback-submit',
 				'mwe-upwiz-feedback-adding',
 				'mwe-upwiz-feedback-error1',
-				'mwe-upwiz-feedback-error2'
+				'mwe-upwiz-feedback-error2',
+				'mwe-upwiz-feedback-error3'
 			),
 			'group' => 'ext.uploadWizard'
 		),
