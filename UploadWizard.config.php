@@ -18,9 +18,12 @@ return array(
 	// If the uploaded file should be auto categorized
 	'autoCategory' => false,
 
-	// This is the set of licenses available
-	// under normal circumstances, the license name is the name of the wikitext template to insert
-	// for those that aren't, there is a wikitext property
+	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
+	// licensesOwnWork or licensesThirdParty.
+	// It just describes what licenses go with what wikitext, and how to display them in 
+	// a menu of license choices. There probably isn't any reason to delete any entry here.
+	// Under normal circumstances, the license name is the name of the wikitext template to insert.
+	// For those that aren't, there is a "templates" property.
 	'licenses' => array(
 		'cc-by-sa-3.0' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0',
