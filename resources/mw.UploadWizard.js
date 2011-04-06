@@ -1202,7 +1202,7 @@ mw.UploadWizard.prototype = {
 	launchFeedback: function() {
 		_this = this;
 		$feedbackForm = $('<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>')
-			.append( $('<div style="margin-top:0.4em;"></div>').html( '<small>Your feedback will be posted to <a href="http://commons.wikimedia.org/wiki/Commons:Prototype_upload_wizard_feedback" target="_blank">Commons:Prototype upload wizard feedback</a>.</small>' ) )
+			.append( $('<div style="margin-top:0.4em;"></div>').html( '<small>Your feedback will be posted to <a href="'+mw.UploadWizard.config['feedbackPageUrl']+'" target="_blank">'+mw.UploadWizard.config['feedbackPage']+'</a>.</small>' ) )
 			.append( $('<div style="margin-top:1em;"></div>').html( 'Subject:<br/>' ).append( $('<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>') ) )
           	.append( $('<div style="margin-top:0.4em;"></div>').html( 'Message (without a signature):<br/>' ).append( $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
 			.dialog({
@@ -1221,7 +1221,7 @@ mw.UploadWizard.prototype = {
      					var useTokenToPost = function( token ) { // form, summary, template 
 							$.ajax({
 								url: wgScriptPath + '/api.php?',
-								data: 'action=edit&title='+encodeURIComponent('Commons:Prototype upload wizard feedback')+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
+								data: 'action=edit&title='+encodeURIComponent(mw.UploadWizard.config['feedbackPage'])+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
 								dataType: 'json',
 								type: 'POST',
 								success: function( data ) {
