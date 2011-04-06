@@ -1202,7 +1202,7 @@ mw.UploadWizard.prototype = {
 	launchFeedback: function() {
 		$feedbackForm = $('<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>')
 			.append( $('<div style="margin-top:0.4em;"></div>').html( '<small>Your feedback will be posted to <a href="http://commons.wikimedia.org/wiki/Commons:Prototype_upload_wizard_feedback" target="_blank">Commons:Prototype upload wizard feedback</a>.</small>' ) )
-			.append( $('<div style="margin-top:1em;"></div>').html( 'Subject:<br/>' ).append( $('<input type="text" name="subject" maxlength="60" style="width:99%;"/>') ) )
+			.append( $('<div style="margin-top:1em;"></div>').html( 'Subject:<br/>' ).append( $('<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>') ) )
           	.append( $('<div style="margin-top:0.4em;"></div>').html( 'Message (without a signature):<br/>' ).append( $('<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>') ) )
 			.dialog({
 				width: 500,
@@ -1213,14 +1213,12 @@ mw.UploadWizard.prototype = {
 					"Cancel": function() { $(this).dialog("close"); },
 					"Submit Feedback": function() { 
 						$(this).dialog({buttons:{}});
-						if ( typeof this.editToken !== 'undefined' ) {
-							// Perform edit to page
-							this.displayProgress( 'mwe-upwiz-feedback-form', 'Adding feedback to page...' );
-							var message = $('#mwe-upwiz-feedback-message').val() +' ~~~~}}';
-							this.editPage( 'mwe-upwiz-feedback-form', 'User Feedback', message );
-						} else {
-							this.displayError( 'mwe-upwiz-feedback-form', 'Could not retrieve edit token.' );
-						}
+						$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
+        				$('#mwe-upwiz-feedback-form').append ( $('<div style="text-align:center;margin:3em 0;"></div>').html( 'Adding feedback to page...<br/><img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) );
+     					var subject = $('#mwe-upwiz-feedback-subject').val();
+     					var message = $('#mwe-upwiz-feedback-message').val() +' ~~~~}}';
+     					
+						//this.editPage( 'mwe-upwiz-feedback-form', subject, message );
 					}
 				}
 			});
