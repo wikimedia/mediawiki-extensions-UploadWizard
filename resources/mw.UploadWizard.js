@@ -1229,7 +1229,7 @@ mw.UploadWizard.prototype = {
 			var useTokenToPostFeedback = function( token ) {
 				$.ajax({
 					url: wgScriptPath + '/api.php?',
-					data: $.param( {
+					data: $.param({
 						action: 'edit',
 						title: mw.UploadWizard.config['feedbackPage'],
 						section: 'new',
@@ -1237,7 +1237,7 @@ mw.UploadWizard.prototype = {
 						text: message,
 						format: 'json',
 						token: token
-					} ),
+					}),
 					dataType: 'json',
 					type: 'POST',
 					success: function( data ) {
