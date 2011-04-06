@@ -1,4 +1,7 @@
-
+/* for feedback request message */
+#contentSub {
+	margin-left: 0;
+}
 
 form.mwe-upwiz-form {
 	display: inline;
