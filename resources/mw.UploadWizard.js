@@ -475,11 +475,6 @@ mw.UploadWizardUpload.prototype = {
 				}
 			});
 		$feedbackForm.dialog('open');
-		console.debug(this.api);
-		var params = {
-			'prop':	'stashimageinfo'
-		};
-		//this.api.get( params, { ok: ok, err: err } );
 	}
 	
 };
