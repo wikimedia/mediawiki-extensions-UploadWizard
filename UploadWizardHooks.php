@@ -260,6 +260,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-cc-zero',
 				'mwe-upwiz-license-gfdl',
 				'mwe-upwiz-license-pd-us',
+				'mwe-upwiz-license-cc-by-sa-2.5',
+				'mwe-upwiz-license-cc-by-2.5',
 				'mwe-upwiz-license-cc-by-sa-2.0',
 				'mwe-upwiz-license-cc-by-2.0',
 				'mwe-upwiz-license-fal',

@@ -49,6 +49,14 @@ return array(
 			'icons' => array( 'cc-zero' ),
 			'templates' => array( 'cc-zero' )
 		),
+		'cc-by-sa-2.5' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-sa-2.5',
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-2.5' => array( 
+			'msg' => 'mwe-upwiz-license-cc-by-2.5', 
+			'icons' => array( 'cc-by' )
+		),
 		'cc-by-sa-2.0' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.0',
 			'icons' => array( 'cc-by', 'cc-sa' )
@@ -120,7 +128,9 @@ return array(
 				'subhead' => 'mwe-upwiz-license-cc-subhead',
 				'licenses' => array(
 					'cc-by-sa-3.0', 
+					'cc-by-sa-2.5',
 					'cc-by-3.0', 
+					'cc-by-2.5',
 					'cc-zero'
 				)
 			),
@@ -129,8 +139,8 @@ return array(
 				'subhead' => 'mwe-upwiz-license-flickr-subhead',
 				'prependTemplates' => array( 'flickrreview' ),
 				'licenses' => array(
-					'cc-by-sa-2.0', // Can we also use 3.0 here?
-					'cc-by-2.0', // Can we also use 3.0 here?
+					'cc-by-sa-2.0',
+					'cc-by-2.0',
 					'pd-usgov',
 				)
 			),
