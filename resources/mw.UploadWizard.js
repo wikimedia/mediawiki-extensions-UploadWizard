@@ -1207,6 +1207,34 @@ mw.UploadWizard.prototype = {
 	launchFeedback: function() {
 		_this = this;
 		
+		var displayError = function( message ) {
+			$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
+			$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( message ) );
+		}
+		
+		var useTokenToPostFeedback = function( token ) {
+			$.ajax({
+				url: wgScriptPath + '/api.php?',
+				data: 'action=edit&title='+encodeURIComponent(mw.UploadWizard.config['feedbackPage'])+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
+				dataType: 'json',
+				type: 'POST',
+				success: function( data ) {
+					if ( typeof data.edit != 'undefined' ) {
+						if ( data.edit.result == "Success" ) {
+							$feedbackForm.dialog("close"); // edit complete, close dialog box
+						} else {
+							displayError( 'mwe-upwiz-feedback-error1' ); // unknown API result
+						}
+					} else {
+						displayError( 'mwe-upwiz-feedback-error2' ); // edit failed
+					}
+				},
+				error: function( xhr ) {
+					displayError( 'mwe-upwiz-feedback-error3' ); // ajax request failed
+				}
+			}); // close Ajax request
+		}; // close useTokenToPost function
+		
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 		var cancelButton = gM( 'mwe-upwiz-feedback-cancel' );
 		var submitButton = gM( 'mwe-upwiz-feedback-submit' );
@@ -1221,35 +1249,8 @@ mw.UploadWizard.prototype = {
 			if ( message.indexOf('~~~~') == -1 ) {
 				message = message+' ~~~~';
 			}
-			var useTokenToPost = function( token ) {
-				$.ajax({
-					url: wgScriptPath + '/api.php?',
-					data: 'action=edit&title='+encodeURIComponent(mw.UploadWizard.config['feedbackPage'])+'&section=new&summary='+encodeURIComponent(subject)+'&text='+encodeURIComponent(message)+'&format=json&token='+encodeURIComponent(token),
-					dataType: 'json',
-					type: 'POST',
-					success: function( data ) {
-						if ( typeof data.edit != 'undefined' ) {
-							if ( data.edit.result == "Success" ) {
-								$feedbackForm.dialog("close");
-							} else {
-								displayError( 'mwe-upwiz-feedback-error1' );
-							}
-						} else {
-							displayError( 'mwe-upwiz-feedback-error2' );
-						}
-					},
-					error: function( xhr ) {
-						displayError( 'mwe-upwiz-feedback-error3' );
-					}
-				}); // close Ajax request
-			}; // close useTokenToPost function
-			_this.api.getEditToken( useTokenToPost );
+			_this.api.getEditToken( useTokenToPostFeedback );
 		}; // close submit button function
-		
-		var displayError = function( message ) {
-			$('#mwe-upwiz-feedback-form div').hide(); // remove everything else from the dialog box
-			$('#mwe-upwiz-feedback-form').append ( $('<div style="color:#990000;margin-top:0.4em;"></div>').msg( message ) );
-		}
 		
 		// Construct the feedback form
 		var feedbackLink = '<a href="'+wgArticlePath.replace( '$1', mw.UploadWizard.config['feedbackPage'].replace( /\s/g, '_' ) )+'" target="_blank">'+mw.UploadWizard.config['feedbackPage']+'</a>';
