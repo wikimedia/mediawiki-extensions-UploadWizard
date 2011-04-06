@@ -199,8 +199,10 @@ class SpecialUploadWizard extends SpecialPage {
 		.	'<script language="JavaScript">'
 		.		'window.setTimeout( function() {'
 		.			'var s = document.getElementById( "mwe-first-spinner" );'
-		.			's.style.visibility = "visible";'
-		.			's.innerHTML = "&nbsp;<img src=\\"' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif\\" width=\\"24\\" height=\\"24\\" />&nbsp;";'
+		.			'if (s) {'
+		.				's.innerHTML = "&nbsp;<img src=\\"' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif\\" width=\\"24\\" height=\\"24\\" />&nbsp;";'
+		.				's.style.visibility = "visible";'
+		.			'}'
 		.		'}, 2000)'
 		.	'</script>'
 		
