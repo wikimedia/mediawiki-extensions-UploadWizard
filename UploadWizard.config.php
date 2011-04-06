@@ -18,24 +18,158 @@ return array(
 	// If the uploaded file should be auto categorized
 	'autoCategory' => false,
 
-	// These templates must be installed for this to work
+	// This is the set of licenses available
+	// under normal circumstances, the license name is the name of the wikitext template to insert
+	// for those that aren't, there is a wikitext property
 	'licenses' => array(
-		array( 
-			'template' => 'Cc-by-sa-3.0',
-			'messageKey' => 'mwe-upwiz-license-cc-by-sa-3.0', 
-			'default' => true 
+		'cc-by-sa-3.0' => array( 
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0',
+			'icons' => array( 'cc-by', 'cc-sa' )
 		),
-		array( 
-			'template' => 'Cc-by-3.0', 	
-			'messageKey' => 'mwe-upwiz-license-cc-by-3.0', 		
-			'default' => false 
+		'cc-by-sa-3.0-gfdl' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-gfdl',
+			'templates' => array( 'gfdl', 'cc-by-sa-3.0' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
 		),
-		array( 
-			'template' => 'Cc-zero', 	
-			'messageKey' => 'mwe-upwiz-license-cc-zero', 		
-			'default' => false 
+		'cc-by-3.0-gfdl' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-3.0-gfdl',
+			'templates' => array( 'gfdl', 'cc-by-3.0' ),
+			'icons' => array( 'cc-by' )
+		),
+		'cc-by-3.0' => array( 
+			'msg' => 'mwe-upwiz-license-cc-by-3.0',
+			'icons' => array( 'cc-by' )
+		),
+		'cc-zero' => array( 
+			'msg' => 'mwe-upwiz-license-cc-zero',
+			'icons' => array( 'cc-zero' )
+		),
+		'own-pd' => array( 
+			'msg' => 'mwe-upwiz-license-own-pd',
+			'icons' => array( 'cc-zero' ),
+			'templates' => array( 'cc-zero' )
+		),
+		'cc-by-sa-2.5' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-sa-2.5',
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-2.5' => array( 
+			'msg' => 'mwe-upwiz-license-cc-by-2.5', 
+			'icons' => array( 'cc-by' )
+		),
+		'cc-by-sa-2.0' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-sa-2.0',
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-2.0' => array( 
+			'msg' => 'mwe-upwiz-license-cc-by-2.0',
+			'icons' => array( 'cc-by' )
+		),
+		'fal' => array(
+			'msg' => 'mwe-upwiz-license-fal'
+		),
+		'pd-old-100' => array(
+			'msg' => 'mwe-upwiz-license-pd-old-100'
+		),
+		'pd-old' => array( 
+			'msg' => 'mwe-upwiz-license-pd-old'
+		),
+        	'pd-art' => array( 
+        		'msg' => 'mwe-upwiz-license-pd-art'
+		),
+        	'pd-us' => array( 
+			'msg' => 'mwe-upwiz-license-pd-us'
+		),
+		'pd-usgov' => array(
+			'msg' => 'mwe-upwiz-license-pd-usgov'
+		),
+		'pd-usgov-nasa' => array(
+			'msg' => 'mwe-upwiz-license-pd-usgov-nasa'
+		),
+		'pd-usgov-military-navy' => array( 
+			'msg' => 'mwe-upwiz-license-pd-usgov-military-navy'
+		),
+		'pd-ineligible' => array(
+			'msg' => 'mwe-upwiz-license-pd-ineligible'
+		),
+		'pd-textlogo' => array( 
+			'msg' => 'mwe-upwiz-license-pd-textlogo',
+			'templates' => array( 'trademarked', 'pd-textlogo' )
+		),
+		'copyrighted-free-use' => array( 
+			'msg' => 'mwe-upwiz-license-copyrighted-free-use'
+		),
+		'attribution' => array(
+			'msg' => 'mwe-upwiz-license-attribution'
+		),
+		'gfdl' => array( 
+			'msg' => 'mwe-upwiz-license-gfdl'
 		)
 	),
+
+	// radio button selection of some licenses
+	'licensesOwnWork' => array( 
+		'type' => 'or',
+		'filterTemplate' => 'self',
+		'licenses' => array(
+			'cc-by-sa-3.0',
+			'cc-by-3.0',
+			'own-pd'
+		),
+		'defaults' => array( 'cc-by-sa-3.0' )
+	),
+
+	// checkbox selection of all licenses
+	'licensesThirdParty' => array( 
+		'type' => 'and',
+		'licenseGroups' => array(
+			array( 
+				'head' => 'mwe-upwiz-license-cc-head',
+				'subhead' => 'mwe-upwiz-license-cc-subhead',
+				'licenses' => array(
+					'cc-by-sa-3.0', 
+					'cc-by-sa-2.5',
+					'cc-by-3.0', 
+					'cc-by-2.5',
+					'cc-zero'
+				)
+			),
+			array(
+				'head' => 'mwe-upwiz-license-flickr-head',
+				'subhead' => 'mwe-upwiz-license-flickr-subhead',
+				'prependTemplates' => array( 'flickrreview' ),
+				'licenses' => array(
+					'cc-by-sa-2.0',
+					'cc-by-2.0',
+					'pd-usgov',
+				)
+			),
+			array( 
+				'head' => 'mwe-upwiz-license-public-domain-head',
+				'licenses' => array( 
+					'pd-old-100',
+					'pd-old', 
+					'pd-art',
+					'pd-us', 
+				)
+			),
+			array( 
+				'head' => 'mwe-upwiz-license-usgov-head',
+				'licenses' => array( 	
+					'pd-usgov',
+					'pd-usgov-nasa'
+				)
+			),
+			array( 
+				'head' => 'mwe-upwiz-license-misc', 
+				'licenses' => array( 
+					'fal'
+				)
+			)
+		),
+		'defaults' => array(),
+	),
+
 
 	// Default thumbnail width
 	'thumbnailWidth' => 120, 

@@ -289,6 +289,26 @@ a[disabled=true]:hover {
 	background: url('images/32px-Dialog-apply-009900.svg.png') no-repeat center center;
 }
 
+
+.mwe-upwiz-license-icon {
+	height: 18px;
+	margin-left: 6px;
+	padding: 9px;
+	width: 18px;
+}
+
+.mwe-upwiz-cc-zero-icon {
+	background: url('images/18px-Cc-zero.svg.png') no-repeat center center;
+}
+
+.mwe-upwiz-cc-sa-icon {
+	background: url('images/18px-Share_Alike.svg.png') no-repeat center center;
+}
+
+.mwe-upwiz-cc-by-icon {
+	background: url('images/18px-Cc-by_new_white.svg.png') no-repeat center center;
+}
+
 .mwe-upwiz-status-error {
 	background: url('images/32px-Nuvola_apps_important_orange.svg.png') no-repeat center center;
 	font-weight: bold;
@@ -480,9 +500,6 @@ a[disabled=true]:hover {
 	font-size: small;
 }
 
-fieldset .mwe-long-textarea {
-	width: 17em;
-}
 
 .mwe-title {
 	font-family: sans-serif;
@@ -504,7 +521,6 @@ fieldset .mwe-long-textarea {
 } 
 
 fieldset.mwe-fieldset {
-	width: 450px;
 	border: 1px solid #cccccc;
 	padding-left: 12px;
 	padding-right: 12px;
@@ -657,3 +673,19 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 #upload-wizard .ui-corner-right {  -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
 #upload-wizard .ui-corner-left { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; }
 #upload-wizard .ui-corner-all { -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+
+.mwe-upwiz-deed-license-group {
+	margin-top: 1em;
+	margin-bottom: 1.5em;
+}
+
+.mwe-upwiz-deed-license-group-head {
+	font-weight: bold;
+	margin-bottom: 0em;
+}
+
+.mwe-upwiz-deed-license-group-subhead {
+	color: #797979;
+	margin-top: 0em;
+	margin-bottom: 0em;
+}

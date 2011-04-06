@@ -29,13 +29,7 @@ mw.UploadWizardDeed.prototype = {
 	 * @return wikitext of all applicable license templates.
 	 */
 	getLicenseWikiText: function() {
-		var _this = this;
-		var wikiText = ''; 
-		$j.each ( _this.licenseInput.getTemplates(), function( i, template ) {
-			wikiText += "{{" + template + "}}\n";
-		} );
-	
-		return wikiText;
+		return this.licenseInput.getWikiText();
 	}
 
 };
@@ -62,7 +56,10 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		.addClass( 'mwe-upwiz-sign' );
 
 	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
-	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
+	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
+							      undefined, 
+							      mw.UploadWizard.config.licensesOwnWork,
+							      _this.uploadCount );
 
 	return $j.extend( _this, { 
 
@@ -90,15 +87,6 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			return "[[User:" + mw.config.get( 'wgUserName' ) + '|' + $j( _this.authorInput ).val() + ']]';
 		},
 
-
-		getLicenseWikiText: function() {
-			var wikiText = '{{self';
-			$j.each( _this.licenseInput.getTemplates(), function( i, template ) {
-				wikiText += '|' + template;
-			} );
-			wikiText += '}}';
-			return wikiText;
-		},
 
 		setFormFields: function( $selector ) {
 			_this.$selector = $selector;
@@ -219,7 +207,10 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 				.growTextArea()
 				.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) );
 	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
-	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv );
+	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
+							      undefined, 
+							      mw.UploadWizard.config.licensesThirdParty,
+							      _this.uploadCount );
 
 
 	return $j.extend( _this, mw.UploadWizardDeed.prototype, {
@@ -231,7 +222,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 
 			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' );
 
-			if ( uploadCount > 1 ) { 
+			if ( _this.uploadCount > 1 ) { 
 				$formFields.append( $j( '<div />' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
 			}
 
@@ -246,7 +237,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 					.append( $j( '<label for="author" />' ).text( gM( 'mwe-upwiz-author' ) ).addHint( 'author' ),
 						 _this.authorInput ),
 				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
-					.append( gM( 'mwe-upwiz-source-thirdparty-license', uploadCount ) ),
+					.msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ),
 				licenseInputDiv
 			);
 

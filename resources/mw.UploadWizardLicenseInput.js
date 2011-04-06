@@ -1,39 +1,124 @@
 /**
  * Create a group of radio buttons for licenses. N.b. the licenses are named after the templates they invoke.
- * @param div 
- * @param values  (optional) array of license key names to activate by default
+ * @param {String|jQuery} selector to place license input 
+ * @param {Array} 	  license key name(s) to activate by default
+ * @param {Array}	  configuration of licenseInput. Must have following properties
+ *				'type' = ("and"|"or") -- whether inclusive or exclusive license allowed
+ *				'defaults' => array of template string names (can be empty array), 
+ *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
+ *				optional: 'licenseGroups' => groups of licenses, with more explanation
+ * @param {Numbe}	  count of the things we are licensing (it matters to some texts)
  */
 
 ( function( $j ) {
-mw.UploadWizardLicenseInput = function( selector, values ) {
+mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 	var _this = this;
+	_this.count = count;
 
-	var widgetCount = mw.UploadWizardLicenseInput.prototype.count++;
-	
-	_this.inputs = [];
-
-	// TODO incompatibility check of this license versus others
+	if ( ! ( mw.isDefined(config.type) 
+		 && mw.isDefined( config.defaults ) 
+		 && ( mw.isDefined( config.licenses ) || mw.isDefined( config.licenseGroups ) ) ) ) {
+		throw new Error( 'improper initialization' );
+	}
 
 	_this.$selector = $j( selector );
 	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
 
-	var name = 'license' + widgetCount;
+	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
-	$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
-		var template = licenseConfig.template;
-		var messageKey = licenseConfig.messageKey;
+	_this.defaults = config.defaults;
+
+	mw.UploadWizardLicenseInput.prototype.count++;
+	_this.name = 'license' + mw.UploadWizardLicenseInput.prototype.count;
+
 	
-		var id = name + template;
-		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded	
-		var $input = $j( '<input id="' + id + '" name="' + name + '" type="radio" value="' + template + '" />' );
-		$input.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
-		_this.inputs.push( $input );
-		_this.$selector.append( 
-			$input,
-			$j( '<label />' ).attr( { 'for': id } ).html( gM( messageKey ) ),
-			$j( '<br/>' )
-		);
-	} );
+	/**
+	 * Define the licenses this input will show:
+	 */
+	_this.licenses = [];
+	_this.inputs = [];
+	/**
+	 * append defined license inputs to element; also records licenses and inputs in _this
+	 * Abstracts out simple lists of licenses, more complex groups with layout
+	 * @param {jQuery} selector to add inputs to
+	 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
+	 * 			it may also have: 'prependTemplates' or 'filterTemplate', which alter the final wikitext value 
+	 *			'prependTemplates' will prepend Templates. If prependTemplates were [ 'pre', 'pended' ], then...
+	 *				[ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
+	 *			'filterTemplates' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
+	 *				[ 'fooLicense', 'barLicense' ] -> {{filter|fooLicense|barLicense}}
+	 *
+	 */
+	function appendLicenses( $el, config ) {
+		if ( !mw.isDefined( config['licenses'] && typeof config['licenses'] === 'object' ) ) {
+			throw new Error( "improper license config" );
+		}
+		$j.each( config['licenses'], function( i, name ) {
+			if ( mw.isDefined( mw.UploadWizard.config.licenses[name] ) ) {
+				var license = { name: name, props: mw.UploadWizard.config.licenses[name] };
+				_this.licenses.push( license );
+				var templates = mw.isDefined( license.props['templates'] ) ? license.props.templates : [ license.name ];
+				var origTemplateString = templates.join( '|' );
+				if ( mw.isDefined( config['prependTemplates'] ) ) {
+					$j.each( config['prependTemplates'], function( i, template ) {
+						templates.unshift( template );
+					} );
+				}
+				if ( mw.isDefined( config['filterTemplate'] ) ) {
+					templates.unshift( config['filterTemplate'] );
+					templates = [ templates.join( '|' ) ];
+				}
+				// using inputs length to ensure that you can have two options which deliver same result,
+				// but the label association still works
+				var id = _this.name + '_' + templates.join('_') + '_' + _this.inputs.length;
+
+				// the value is literal wikitext; turn template names (or template names + args) into wikitext templates
+				var value = ( $j.map( templates, function( t ) { return '{{' + t + '}}'; } ) ).join( '' );
+				// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded	
+				var $input = $j( '<input id="' + id + '" name="' + _this.name + '" type="' + _this.type + '" value="' + value + '" />' );
+				$input.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
+				// this is added so that setValues() can find one (or more) checkboxes to check - represent values without wikitext
+				$input.data( 'templateString', origTemplateString );
+				_this.inputs.push( $input );
+				
+				var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
+				var $icons = $j( '<span></span>' );
+				if ( mw.isDefined( license.props['icons'] ) ) {
+					$j.each( license.props.icons, function( i, icon ) { 
+						$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );		
+					} );
+				}
+				$el.append( 
+					$input,
+					$j( '<label />' ).attr( { 'for': id } ).msg( messageKey, _this.count ).append( $icons ),
+					$j( '<br/>' )
+					// XXX help?
+				);
+			}
+		} );
+	}
+
+	if ( mw.isDefined( config['licenseGroups'] ) ) {
+		$j.each( config['licenseGroups'], function( i, group ) { 
+			if ( !mw.isDefined( group['licenses'] ) ) {
+				throw new Error( 'improper config' );
+			}
+			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
+			if ( mw.isDefined( group['head'] ) ) {
+				$group.append( $j( '<p></p>' ).addClass( 'mwe-upwiz-deed-license-group-head' ).msg( group.head, _this.count ) );
+			}
+			if ( mw.isDefined( group['subhead'] ) ) {
+				$group.append( $j( '<p></p>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
+			}
+			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
+			appendLicenses( $licensesDiv, group );
+			$group.append( $licensesDiv );
+			_this.$selector.append( $group );
+		} );
+
+	} else {
+		appendLicenses( _this.$selector, config );
+	}
 
 	if ( values ) {
 		_this.setValues( values );
@@ -46,14 +131,16 @@ mw.UploadWizardLicenseInput.prototype = {
 	count: 0,
 
 	/**
-	 * Sets the value(s) of a license input.
-	 * @param object of license-key to boolean values, e.g. { cc_by_sa_30: true, gfdl: true }
+	 * Sets the value(s) of a license input. This is a little bit klugey because it relies on an inverted dict, and in some
+	 * cases we are now letting license inputs create multiple templates.
+	 * @param object of license-key to boolean values, e.g. { 'cc_by_sa_30': true, 'gfdl': true, 'flickrreview|cc_by_sa_30': false }
 	 */
-	setValues: function( licenseValues ) {
+	setValues: function( values ) {
 		var _this = this;
 		$j.each( _this.inputs, function( i, $input ) {
-			var template = $input.val();
-			$input.attr( 'checked', !!licenseValues[template] );
+			var templateString = $input.data( 'templateString' );
+			// !! to ensure boolean. ~~ to cast to 0 or 1. Similar to php's (int) (bool) val 
+			$input.attr( 'checked', ~~!!values[templateString] );
 		} );
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
@@ -65,21 +152,31 @@ mw.UploadWizardLicenseInput.prototype = {
 	setDefaultValues: function() {
 		var _this = this;
 		var values = {};
-		$j.each( mw.UploadWizard.config[  'licenses'  ], function( i, licenseConfig ) {
-			values[ licenseConfig.template ] = licenseConfig['default'];
+		$j.each( _this.defaults, function( i, lic ) {
+			values[lic] = true;
 		} );
 		_this.setValues( values );
 	},
 
 	/**
-	 * Gets the templates associated with checked inputs 
-	 * @return array of template names
+	 * Gets the wikitext associated with all checked inputs 
+	 * @return string of wikitext (empty string if no inputs set)
   	 */
-	getTemplates: function() {
-		return $j( this.inputs )
-			.filter( function() { return this.is( ':checked' ); } )
-			.map( function() { return this.val(); } );
+	getWikiText: function() {
+		// need to use makeArray because a jQuery-returned set of things won't have .join
+		return $j.makeArray( 
+				this.getCheckedInputs().map( function() { return this.val(); } ) 
+			).join( "" );
 	},
+
+	/**
+	 * Gets which inputs are checked
+	 * @return {jQuery Array} of inputs
+	 */
+	getCheckedInputs: function() {
+		return $j( this.inputs ).filter( function() { return this.is( ':checked' ); } );
+	},
+
 
 	/**
 	 * Check if a valid value is set, also look for incompatible choices. 
@@ -94,8 +191,6 @@ mw.UploadWizardLicenseInput.prototype = {
 			isValid = false;
 			errorHtml = gM( 'mwe-upwiz-deeds-need-license' );
 		}
-
-		// XXX something goes here for licenses incompatible with each other
 
 		var $errorEl = this.$selector.find( '.mwe-error' );
 		if (isValid) {
@@ -118,7 +213,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return boolean
 	 */
 	isSet: function() {
-		return this.getTemplates().length > 0;
+		return this.getCheckedInputs().length > 0;
 	}
 
 };

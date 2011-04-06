@@ -40,10 +40,14 @@ foreach ( array( 'SpecialUploadWizard',
 		 'UploadWizardMessages',
 		 'UploadWizardHooks',
 		 'UploadWizardTutorial',
-		 'UploadWizardDependencyLoader' ) as $module ) {
+		 'UploadWizardDependencyLoader'
+		//, 'ApiTitleCheck' 
+					) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . "/" . $module . ".php";
 }
 
+$wgAPIModules['titlecheck'] = 'ApiTitleCheck';
+$wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
 
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
