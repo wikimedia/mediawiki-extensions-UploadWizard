@@ -465,7 +465,7 @@ mw.UploadWizardUpload.prototype = {
 						$(this).dialog({buttons:{}});
 						if ( typeof this.editToken !== 'undefined' ) {
 							// Perform edit to page
-							this.displayProgress( 'barnstarForm', 'Adding barnstar to page...' );
+							this.displayProgress( 'mwe-upwiz-feedback-form', 'Adding feedback to page...' );
 							var message = $('#mwe-upwiz-feedback-message').val() +' ~~~~}}';
 							this.editPage( 'mwe-upwiz-feedback-form', 'User Feedback', message );
 						} else {
