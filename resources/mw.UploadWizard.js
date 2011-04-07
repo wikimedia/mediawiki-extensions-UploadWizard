@@ -202,13 +202,20 @@ mw.UploadWizardUpload.prototype = {
 		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 		if ( result.upload ) {
 			_this.extractUploadInfo( result.upload );
+			// create the small thumbnail used on the 'upload' step
 			_this.getThumbnail( 
 				function( image ) {
 					// n.b. if server returns a URL, which is a 404, we do NOT get broken image
-					_this.ui.setPreview( image );
+					_this.ui.setPreview( image ); // make the thumbnail the preview image
 				},
-				mw.UploadWizard.config[ 'iconThumbnailWidth'  ], 
+				mw.UploadWizard.config[ 'iconThumbnailWidth' ], 
 				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
+			);
+			// create the large thumbnail that the other thumbnails link to
+			_this.getThumbnail( 
+				function( image ) {},
+				mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
+				mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
 			);
 			_this.deedPreview.setup();
 			_this.details.populate();

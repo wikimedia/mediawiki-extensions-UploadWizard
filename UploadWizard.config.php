@@ -189,6 +189,12 @@ return array(
 
 	// Small thumbnail max height
 	'smallThumbnailMaxHeight' => 100,
+	
+	// Large thumbnail width
+	'largeThumbnailWidth' => 500,
+
+	// Large thumbnail max height
+	'largeThumbnailMaxHeight' => 500,
 
 	// Icon thumbnail width: 
 	'iconThumbnailWidth' =>  32,
