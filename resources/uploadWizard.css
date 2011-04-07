@@ -92,6 +92,10 @@ form.mwe-upwiz-form {
 	cursor: pointer;
 }
 
+#mwe-upwiz-stepdiv-file .mwe-upwiz-visible-file {
+	cursor: auto !important;
+}
+
 /* file inputs are freakishly large to overflow the containing div -- we get a div 
    that can act as a more styleable single-click file input */
 .mwe-upwiz-file-input, .disabler {
