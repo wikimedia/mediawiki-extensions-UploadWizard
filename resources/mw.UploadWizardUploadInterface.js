@@ -68,7 +68,6 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 				.append( _this.$fileInputCtrl ) 
 			)
 			.append( _this.filenameCtrl )
-			.append( _this.thumbnailParam )
 			.get( 0 );
 
 
