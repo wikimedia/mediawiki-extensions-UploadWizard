@@ -211,12 +211,6 @@ mw.UploadWizardUpload.prototype = {
 				mw.UploadWizard.config[ 'iconThumbnailWidth' ], 
 				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
 			);
-			// create the large thumbnail that the other thumbnails link to
-			_this.getThumbnail( 
-				function( image ) {},
-				mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
-				mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
-			);
 			_this.deedPreview.setup();
 			_this.details.populate();
 			_this.state = 'stashed';
@@ -412,23 +406,14 @@ mw.UploadWizardUpload.prototype = {
 			height = parseInt( height, 10 );
 		}
 
-		var href = '#';		
-		$j.each( [ 'descriptionurl', 'url' ], function( i, propName ) {
-			var prop = _this.imageinfo[ propName ];
-			if ( prop ) {
-				href = prop;
-				return false;
-			}
-		} );
- 
 		var callback = function( image ) {
 			if ( image === null ) {
 				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
 				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 			} else {
 				$j( selector ).html(
-					$j( '<a/>' )
-						.attr( { 'href': href,
+					$j( '<a class="mwe-upwiz-thumbnail-link"></a>' )
+						.attr( { 'href': '#',
 							 'target' : '_new' } )
 						.append(
 							$j( '<img/>' )
