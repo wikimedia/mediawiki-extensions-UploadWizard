@@ -417,21 +417,23 @@ mw.UploadWizardUpload.prototype = {
 				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
 				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 			} else {
-				$j( selector ).html(
-					$j( '<a class="mwe-upwiz-thumbnail-link"></a>' )
+				var $thumbnailLink = $j( '<a class="mwe-upwiz-thumbnail-link"></a>' );
+				if ( _this.state != 'complete' ) { // don't use lightbox for thank you page thumbnail
+					$thumbnailLink
 						.attr( {
 							'href': '#',
 							'target' : '_new'
 						} )
+						// set up lightbox behavior for thumbnail
 						.click( function() {
 							// get large preview image
 							_this.getThumbnail( 
 								// open large preview in modal dialog box
 								function( image ) {
-									if ( image.width > 250 ) {
+									if ( image.width > 200 ) {
 										var dialogWidth = image.width;
 									} else {
-										var dialogWidth = 250;
+										var dialogWidth = 200;
 									}
 									$( '<div class="mwe-upwiz-lightbox"></div>' )
 										.append( image )
@@ -448,17 +450,20 @@ mw.UploadWizardUpload.prototype = {
 							);
 							return false;
 						} ) // close thumbnail click function
-						// insert the thumbnail into the anchor
-						.append(
-							$j( '<img/>' )
-								.attr( {
-									'width':  image.width, 
-									'height': image.height,
-									'src':    image.src
-								} ) 
-						)
-				);
-			}
+				} // close if
+				
+				$j( selector ).html(
+					// insert the thumbnail into the anchor
+					$thumbnailLink.append(
+						$j( '<img/>' )
+							.attr( {
+								'width':  image.width, 
+								'height': image.height,
+								'src':    image.src
+							} ) 
+					) // close append
+				); // close html
+			} // close image !== null else condition
 		};
 		
 		_this.getThumbnail( callback, width, height );
@@ -1195,8 +1200,11 @@ mw.UploadWizard.prototype = {
 			upload.setThumbnail( $thumbnailDiv );
 			//upload.setThumbnail( '#' + id + ' .mwe-upwiz-thumbnail' );
 
-			// Switch the thumbnail link so that it points to the image description page
-			$thumbnailDiv.find( 'a' ).attr( 'href', upload.imageinfo.descriptionurl );
+			// Set the thumbnail link so that it points to the image description page
+			$thumbnailDiv.find( 'a' ).attr( {
+				'href': upload.imageinfo.descriptionurl,
+				'target' : '_new'
+			} );
 
 			var thumbTitle = String(upload.title);
 			var thumbWikiText = "[[" + thumbTitle.replace('_', ' ') + "|thumb|" + gM( 'mwe-upwiz-thanks-caption' ) + "]]";
