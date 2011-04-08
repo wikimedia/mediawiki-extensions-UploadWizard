@@ -306,7 +306,12 @@ mw.UploadWizardUploadInterface.prototype = {
 			return;
 		}
 
-		$j( _this.filenameCtrl ).val( _this.upload.title.getMain() );
+		// Set the filename we tell to the API to be the current timestamp + the filename
+		// This is because we don't actually care what the filename is at this point, we just want it to be unique for this session and have the
+		// proper file extension.
+		// Also, it avoids a problem -- the API only returns one error at a time and it thinks that the same-filename error is more important than same-content.
+		// But for UploadWizard, at this stage, it's the reverse. We want to stop same-content dead, but for now we ignore same-filename
+		$j( _this.filenameCtrl ).val( ( new Date() ).getTime().toString() +_this.upload.title.getMain() );
 
 		if ( ! _this.isFilled ) {
 			var $div = $j( _this.div );
