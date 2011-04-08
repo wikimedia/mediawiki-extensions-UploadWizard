@@ -297,6 +297,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-help-popup-title',
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
+				'mwe-upwiz-image-preview',
 				'mwe-upwiz-feedback-note',
 				'mwe-upwiz-feedback-subject',
 				'mwe-upwiz-feedback-message',

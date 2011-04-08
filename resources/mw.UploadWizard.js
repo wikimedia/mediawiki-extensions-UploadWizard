@@ -211,6 +211,12 @@ mw.UploadWizardUpload.prototype = {
 				mw.UploadWizard.config[ 'iconThumbnailWidth' ], 
 				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
 			);
+			// create the large thumbnail that the other thumbnails link to
+			_this.getThumbnail( 
+				function( image ) {},
+				mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
+				mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
+			);
 			_this.deedPreview.setup();
 			_this.details.populate();
 			_this.state = 'stashed';
@@ -413,13 +419,43 @@ mw.UploadWizardUpload.prototype = {
 			} else {
 				$j( selector ).html(
 					$j( '<a class="mwe-upwiz-thumbnail-link"></a>' )
-						.attr( { 'href': '#',
-							 'target' : '_new' } )
+						.attr( {
+							'href': '#',
+							'target' : '_new'
+						} )
+						.click( function() {
+							// get large preview image
+							_this.getThumbnail( 
+								// open large preview in modal dialog box
+								function( image ) {
+									if ( image.width > 250 ) {
+										var dialogWidth = image.width;
+									} else {
+										var dialogWidth = 250;
+									}
+									$( '<div class="mwe-upwiz-lightbox"></div>' )
+										.append( image )
+										.dialog( {
+											'width': dialogWidth,
+											'autoOpen': true,
+											'title': gM( 'mwe-upwiz-image-preview' ),
+											'modal': true,
+											'resizable': false
+										} )
+								},
+								mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
+								mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
+							);
+							return false;
+						} ) // close thumbnail click function
+						// insert the thumbnail into the anchor
 						.append(
 							$j( '<img/>' )
-								.attr( { 'width':  image.width, 
-									 'height': image.height,
-									 'src':    image.src } ) 
+								.attr( {
+									'width':  image.width, 
+									'height': image.height,
+									'src':    image.src
+								} ) 
 						)
 				);
 			}
