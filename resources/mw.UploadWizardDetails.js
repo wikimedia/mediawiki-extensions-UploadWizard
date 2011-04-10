@@ -721,11 +721,12 @@ mw.UploadWizardDetails.prototype = {
 			wikiText += otherInfoWikiText + "\n\n";
 		}
 		
+		// add licensing information
 		wikiText += "=={{int:license-header}}==\n";
+		wikiText += deed.getLicenseWikiText() + "\n\n";
 		
-		// in the other implementations, category text follows immediately after license text. This helps 
-		// group categories together, maybe?
-		wikiText += deed.getLicenseWikiText() + _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
+		// add categories
+		wikiText += _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
 		
 		// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
 		if ( typeof TextCleaner != 'undefined' && typeof TextCleaner.sanitizeWikiText == 'function' ) {
