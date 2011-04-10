@@ -103,9 +103,6 @@ return array(
 			'msg' => 'mwe-upwiz-license-pd-textlogo',
 			'templates' => array( 'trademarked', 'PD-textlogo' )
 		),
-		'copyrighted-free-use' => array( 
-			'msg' => 'mwe-upwiz-license-copyrighted-free-use'
-		),
 		'attribution' => array(
 			'msg' => 'mwe-upwiz-license-attribution'
 		),
