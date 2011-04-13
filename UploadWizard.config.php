@@ -80,11 +80,11 @@ return array(
 			'msg' => 'mwe-upwiz-license-pd-old',
 			'templates' => array( 'PD-old' )
 		),
-        'pd-art' => array( 
-        	'msg' => 'mwe-upwiz-license-pd-art',
-        	'templates' => array( 'PD-Art' )
+		'pd-art' => array( 
+			'msg' => 'mwe-upwiz-license-pd-art',
+			'templates' => array( 'PD-Art' )
 		),
-        'pd-us' => array( 
+		'pd-us' => array( 
 			'msg' => 'mwe-upwiz-license-pd-us',
 			'templates' => array( 'PD-US' )
 		),
