@@ -1196,20 +1196,25 @@ mw.UploadWizard.prototype = {
 			var $thanksDiv = $j( '<div></div>' ).attr( 'id', id ).addClass( "mwe-upwiz-thanks ui-helper-clearfix" );
 			_this.thanksDiv = $thanksDiv;
 			
-			var $thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
-			$thanksDiv.append( $thumbnailDiv );
-			upload.setThumbnail( $thumbnailDiv );
-			//upload.setThumbnail( '#' + id + ' .mwe-upwiz-thumbnail' );
 
-			// Set the thumbnail link so that it points to the image description page
-			$thumbnailDiv.find( 'a' ).attr( {
+			var $thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
+			var $thumbnailCaption = $j( '<div></div>' )
+				.css( { 'text-align': 'center', 'font-size': 'small' } )
+				.html( $j( '<a/>' ).html( upload.title.getMainText() ) );
+			var $thumbnailWrapDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
+			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
+			upload.setThumbnail( $thumbnailDiv );
+
+			// Set the thumbnail links so that they point to the image description page
+			$thumbnailWrapDiv.find( 'a' ).attr( {
 				'href': upload.imageinfo.descriptionurl,
 				'target' : '_new'
 			} );
+			$thanksDiv.append( $thumbnailWrapDiv );
 
 			var thumbTitle = String(upload.title);
 			var thumbWikiText = "[[" + thumbTitle.replace('_', ' ') + "|thumb|" + gM( 'mwe-upwiz-thanks-caption' ) + "]]";
-
+			
 			$thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )
 					.append( 

@@ -353,7 +353,7 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-thumbnail {
 	padding: 0.5em;
-	width: 120px;
+	width: auto; 
 }
 
 .mwe-upwiz-thumbnail-side {
