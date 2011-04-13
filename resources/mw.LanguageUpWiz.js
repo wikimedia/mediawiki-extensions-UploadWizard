@@ -17,6 +17,7 @@ mw.LanguageUpWiz = {
 
 	/**
 	 * List of default languages
+	 * Make sure you have language templates set up for each of these on your wiki, e.g. {{en}}
 	 */
 	languages: [
 		{ lang: "de",		text: "Deutsch" },
@@ -41,17 +42,20 @@ mw.LanguageUpWiz = {
 		if ( mw.LanguageUpWiz.initialized ) {
 			return;	
 		}
+		// if a language list is defined locally (MediaWiki:LanguageHandler.js), use that list instead
 		if ( typeof LanguageHandler != 'undefined' ) {
 			this.languages = LanguageHandler.languages;
 		}
 		mw.LanguageUpWiz._codes = {};
 		var select = $j( '<select/>' );
 		$j.each( mw.LanguageUpWiz.languages, function( i, language ) {
+			// add an option for each language
 			select.append(
 				$j( '<option>' )
 					.attr( 'value', language.lang )
 					.append( language.text )
 			);
+			// add each language into dictionary
 			mw.LanguageUpWiz._codes[language.lang] = language.text;
 		} );
 		mw.LanguageUpWiz.$_select = select;
