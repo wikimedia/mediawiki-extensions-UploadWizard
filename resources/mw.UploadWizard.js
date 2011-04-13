@@ -1550,6 +1550,31 @@ mw.UploadWizardDeedPreview.prototype = {
 		return this;
 	};
 
+	/**
+	 * jQuery plugin - collapse toggle
+	 * Given an element, makes contained elements of class mw-collapsible-toggle clickable to show/reveal
+	 * contained element(s) of class mw-collapsible-content.
+	 * 
+	 * Somewhat recapitulates mw.UploadWizardUtil.makeToggler,
+	 * toggle() in vector.collapsibleNav.js, not to mention jquery.collapsible
+	 * but none of those do what we want, or are inaccessible to us
+	 */
+	jQuery.fn.collapseToggle = function() {
+		var $el = this;
+		var $contents = $el.find( '.mwe-upwiz-toggler-content' ).hide();
+		var $toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
+		$toggle.click( function( e ) {
+			e.stopPropagation();
+			if ( $toggle.hasClass( 'mwe-upwiz-toggler-open' ) ) {
+				$contents.slideUp( 250 );
+				$toggle.removeClass( 'mwe-upwiz-toggler-open' );	
+			} else {
+				$contents.slideDown( 250 );
+				$toggle.addClass( 'mwe-upwiz-toggler-open' );
+			}
+		} );
+		return this;
+	};
 
 	$j.validator.setDefaults( {
 		debug: true,

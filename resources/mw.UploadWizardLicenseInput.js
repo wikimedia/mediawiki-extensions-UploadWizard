@@ -51,6 +51,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 	 */
 	function appendLicenses( $el, config ) {
 		if ( !mw.isDefined( config['licenses'] && typeof config['licenses'] === 'object' ) ) {
+			console.log( config );
 			throw new Error( "improper license config" );
 		}
 		$j.each( config['licenses'], function( i, name ) {
@@ -104,17 +105,27 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 				throw new Error( 'improper config' );
 			}
 			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
+			// if there is no header, just append licenses to the group div.
+			var $body = $group;
+			// if there is a header, make a toggle-to-expand div and append to that instead.
 			if ( mw.isDefined( group['head'] ) ) {
-				$group.append( $j( '<p></p>' ).addClass( 'mwe-upwiz-deed-license-group-head' ).msg( group.head, _this.count ) );
+				var $head = $j( '<div></div>' ).append( 
+					$j( '<a>' )
+						.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
+						.msg( group.head, _this.count )
+				);
+				$body = $j( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
+				$group.append( $head, $body ).collapseToggle();
 			}
 			if ( mw.isDefined( group['subhead'] ) ) {
-				$group.append( $j( '<p></p>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
+				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
 			}
 			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
 			appendLicenses( $licensesDiv, group );
-			$group.append( $licensesDiv );
+			$body.append( $licensesDiv );
 			_this.$selector.append( $group );
 		} );
+
 
 	} else {
 		appendLicenses( _this.$selector, config );

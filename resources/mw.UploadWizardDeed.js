@@ -206,7 +206,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 	_this.authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
 				.growTextArea()
 				.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) );
-	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
+	licenseInputDiv = $j( '<div></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
 							      undefined, 
 							      mw.UploadWizard.config.licensesThirdParty,
@@ -397,7 +397,6 @@ mw.UploadWizardDeedChooser.prototype = {
 		_this.deed = deed;
 		if ( deed === mw.UploadWizardNullDeed ) {
 			$j( _this ).trigger( 'chooseNullDeed' );
-			//_this.trigger( 'isNotReady' );
 			_this.$selector
 				.find( 'input.mwe-accept-deed' )
 				.attr( 'checked', false );
