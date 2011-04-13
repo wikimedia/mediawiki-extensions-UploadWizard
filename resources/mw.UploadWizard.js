@@ -561,6 +561,11 @@ mw.UploadWizard.prototype = {
 	 */
 	createInterface: function( selector ) {
 		var _this = this;
+		
+		// load list of languages so we'll have it ready when description interfaces are created
+		// XXX replace this code once any of the following bugs are fixed: 25845, 27535, 27561
+		var languageHandlerUrl = wgServer + wgScript + '?' + $.param( { 'title': 'MediaWiki:LanguageHandler.js', 'action': 'raw', 'ctype': 'text/javascript' } );
+		mw.loader.load( languageHandlerUrl );
 	
 		// remove first spinner	
 		$j( '#mwe-first-spinner' ).remove();
