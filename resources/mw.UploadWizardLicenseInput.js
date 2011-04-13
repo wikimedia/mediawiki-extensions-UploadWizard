@@ -51,7 +51,6 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 	 */
 	function appendLicenses( $el, config ) {
 		if ( !mw.isDefined( config['licenses'] && typeof config['licenses'] === 'object' ) ) {
-			console.log( config );
 			throw new Error( "improper license config" );
 		}
 		$j.each( config['licenses'], function( i, name ) {
