@@ -330,97 +330,22 @@ mw.UploadWizardDetails.prototype = {
 		// result is NOT unique
 		var title;
 		try { 
-			title = new mw.Title( result.title ).setNamespace( 'file' ).getNameText();
+			title = new mw.Title( result.title ).setNamespace( 'file' );
 		} catch ( e ) {
 			// unparseable result from unique test? 
 			title = '[unparseable name]';
 		}
-			
-		/* var img = result.img;
-		var href = result.href; */
-	
+
+		var errHtml;
+		if ( result.href ) {
+			errHtml = gM( 'mwe-upwiz-fileexists-replace-on-page', title.toString(), result.href );
+		} else {
+			errHtml = gM( 'mwe-upwiz-fileexists-replace-no-link', title.getNameText() );
+		}
+				
 		_this.$form.find( 'label[for=' + _this.titleId + ']' )
-			.html( gM( 'mwe-upwiz-fileexists-replace', title ) )
+			.html( errHtml )
 			.show();
-
-		/* temporarily commenting out the full thumbnail etc. thing. For now, we just want the user to change
-                   to a different name 	
-		_this.ignoreWarningsInput = $j("<input />").attr( { type: 'checkbox', name: 'ignorewarnings' } ); 
-		var $fileAlreadyExists = $j('<div />')
-			.append(				
-				gM( 'mwe-upwiz-fileexists', 
-					$j('<a />')
-					.attr( { target: '_new', href: href } )
-					.text( title )
-				),
-				$j('<br />'),
-				_this.ignoreWarningsInput,
-				gM('mwe-upwiz-overwrite')
-			);
-		
-		var $imageLink = $j('<a />')
-			.addClass( 'image' )
-			.attr( { target: '_new', href: href } )
-			.append( 
-				$j( '<img />')
-				.addClass( 'thumbimage' )
-				.attr( {
-					'width' : img.thumbwidth,
-					'height' : img.thumbheight,
-					'border' : 0,
-					'src' : img.thumburl,
-					'alt' : title
-				} )
-			);
-			
-		var $imageCaption = $j( '<div />' )
-			.addClass( 'thumbcaption' )
-			.append( 
-				$j('<div />')
-				.addClass( "magnify" )
-				.append(
-					$j('<a />' )
-					.addClass( 'internal' )
-					.attr( {
-						'title' : gM('mwe-upwiz-thumbnail-more'),
-						'href' : href
-					} ),
-					
-					$j( '<img />' )
-					.attr( {
-						'border' : 0,
-						'width' : 15,
-						'height' : 11,
-						'src' : mw.UploadWizard.config[  'images_path'  ] + 'magnify-clip.png'
-					} ), 
-					
-					$j('<span />')
-					.html( gM( 'mwe-fileexists-thumb' ) )
-				)													
-			);
-
-		$j( _this.titleErrorDiv ).html(
-			$j('<span />')  // dummy argument since .html() only takes one arg
-				.append(
-					$fileAlreadyExists,
-					$j( '<div />' )
-						.addClass( 'thumb tright' )
-						.append(
-							$j( '<div />' )
-							.addClass( 'thumbinner' )
-							.css({
-								'width' : ( parseInt( img.thumbwidth ) + 2 ) + 'px;'
-							})
-							.append( 
-								$imageLink, 
-								$imageCaption
-							)					
-						)
-				)
-		).show();
-		*/
-
-
 	}, 
 
 	/**

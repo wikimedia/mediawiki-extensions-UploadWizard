@@ -217,6 +217,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-change',
 				'mwe-upwiz-fileexists-replace',
 				'mwe-upwiz-fileexists',
+				'mwe-upwiz-fileexists-replace-on-page',
+				'mwe-upwiz-fileexists-replace-no-link',
 				'mwe-upwiz-thumbnail-more',
 				'mwe-upwiz-overwrite',
 				'mwe-copyright-macro',
