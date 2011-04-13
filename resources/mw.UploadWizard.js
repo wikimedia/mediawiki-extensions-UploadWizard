@@ -430,11 +430,7 @@ mw.UploadWizardUpload.prototype = {
 							_this.getThumbnail( 
 								// open large preview in modal dialog box
 								function( image ) {
-									if ( image.width > 200 ) {
-										var dialogWidth = image.width;
-									} else {
-										var dialogWidth = 200;
-									}
+									var dialogWidth = ( image.width > 200 ) ? image.width : 200;
 									$( '<div class="mwe-upwiz-lightbox"></div>' )
 										.append( image )
 										.dialog( {
@@ -443,13 +439,13 @@ mw.UploadWizardUpload.prototype = {
 											'title': gM( 'mwe-upwiz-image-preview' ),
 											'modal': true,
 											'resizable': false
-										} )
+										} );
 								},
 								mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
 								mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
 							);
 							return false;
-						} ) // close thumbnail click function
+						} ); // close thumbnail click function
 				} // close if
 				
 				$j( selector ).html(
@@ -571,7 +567,7 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-first-spinner' ).remove();
 
 		// feedback request
-		if ( UploadWizardConfig['feedbackPage'] != '' ) {
+		if ( UploadWizardConfig['feedbackPage'] !== '' ) {
 			$j( '#contentSub' ).html('<i>Please <a id="mwe-upwiz-feedback" href="#">let us know</a> what you think of Upload Wizard!</i>');
 			$j( '#mwe-upwiz-feedback') 
 				.click( function() {
@@ -1251,7 +1247,7 @@ mw.UploadWizard.prototype = {
 		var displayError = function( message ) {
 			$j( '#mwe-upwiz-feedback-form div' ).hide(); // remove everything else from the dialog box
 			$j( '#mwe-upwiz-feedback-form' ).append ( $j( '<div style="color:#990000;margin-top:0.4em;"></div>' ).msg( message ) );
-		}
+		};
 		
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 		var cancelButton = gM( 'mwe-upwiz-feedback-cancel' );

@@ -30,7 +30,7 @@ mw.LanguageUpWiz = {
 		{ lang: "pt",		text: "Português" },
 		{ lang: "ru",		text: "Русский" },
 		{ lang: "zh",		text: "中文" },
-		{ lang: "ja",		text: "日本語" },
+		{ lang: "ja",		text: "日本語" }
 	],
 
 	/**

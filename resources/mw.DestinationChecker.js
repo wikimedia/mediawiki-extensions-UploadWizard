@@ -108,7 +108,9 @@ mw.DestinationChecker.prototype = {
 		var title = _this.getTitle();
 
 		// if input is empty don't bother.
-		if ( title == '' ) return;
+		if ( title === '' ) { 
+			return;
+		}
 		
 		if ( _this.cachedResult[name] !== undefined ) {
 			_this.processResult( _this.cachedResult[name] );
