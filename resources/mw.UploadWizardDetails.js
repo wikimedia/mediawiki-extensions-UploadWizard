@@ -45,7 +45,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	//    http://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
 	//    XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 	_this.titleId = "title" + _this.upload.index;
-	_this.titleInput = $j( '<input type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" class="mwe-title"/>' )
+	_this.titleInput = $j( '<input type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" class="mwe-title" maxlength="250"/>' )
 		.keyup( function() { 
 			_this.upload.title.setNameText( _this.titleInput.value );
 			// TODO update a display of filename 
