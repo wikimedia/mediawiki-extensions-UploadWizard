@@ -54,7 +54,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			api: _this.upload.api,
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
 			preprocess: function( name ) { 
-				if ( name !== '' ) {
+				if ( name != '' ) {
 					// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
 					return _this.upload.title.setNameText( name ).toString();
 				} else {
@@ -760,16 +760,13 @@ mw.UploadWizardDetails.prototype = {
 			_this.completeDetailsSubmission(); 
 		};	
 
-		var ok = function( result ) {
+		var callback = function( result ) {
 			finalCallback( result );
-		};
-		var err = function( result ) {
-			alert( "there was an error!! OMG" );
 		};
 
 		_this.upload.state = 'submitting-details';
-
-		_this.upload.api.postWithEditToken( params, ok, err );
+		// XXX this can still fail with bad filename, or other 'warnings' -- capture these
+		_this.upload.api.postWithEditToken( params, callback );
 	},
 
 	completeDetailsSubmission: function() {
