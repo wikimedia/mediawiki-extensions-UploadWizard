@@ -328,19 +328,19 @@ mw.UploadWizardDetails.prototype = {
 		$j( _this.titleInput ).data( 'valid', false );
 
 		// result is NOT unique
-		var title;
+		var titleString;
 		try { 
-			title = new mw.Title( result.title ).setNamespace( 'file' );
+			titleString = new mw.Title( result.title ).setNamespace( 'file' ).toString();
 		} catch ( e ) {
 			// unparseable result from unique test? 
-			title = '[unparseable name]';
+			titleString = '[unparseable name]';
 		}
 
 		var errHtml;
 		if ( result.href ) {
-			errHtml = gM( 'mwe-upwiz-fileexists-replace-on-page', title.toString(), result.href );
+			errHtml = gM( 'mwe-upwiz-fileexists-replace-on-page', titleString, $j( '<a />' ).attr( { href: result.href, target: '_blank' } ) );
 		} else {
-			errHtml = gM( 'mwe-upwiz-fileexists-replace-no-link', title.getNameText() );
+			errHtml = gM( 'mwe-upwiz-fileexists-replace-no-link', titleString );
 		}
 				
 		_this.$form.find( 'label[for=' + _this.titleId + ']' )
