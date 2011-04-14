@@ -1006,7 +1006,7 @@ mw.UploadWizard.prototype = {
 			function( upload ) {
 				upload.start();
 			},
-	        function() {
+			function() {
 				allowCloseWindow();
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
 				_this.showFileNext();
@@ -1093,6 +1093,7 @@ mw.UploadWizard.prototype = {
 			// $j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
 			$j( '#mwe-upwiz-upload-ctrl-container' ).hide();
 
+
 			// remove the border from the filelist. We can't hide it or make it invisible since it contains the displaced
 			// file input element that becomes the "click here to add"
 			$j( '#mwe-upwiz-filelist' ).removeClass( 'mwe-upwiz-filled-filelist' );
@@ -1104,6 +1105,11 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-add-file span' ).msg( 'mwe-upwiz-add-file-0' );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');
+
+			// recovering from an earlier attempt to upload
+			$j( '#mwe-upwiz-upload-ctrls' ).show();
+			$j( '#mwe-upwiz-progress' ).hide();
+			$j( '#mwe-upwiz-add-file' ).show();
 		}
 
 		// allow an "add another upload" button only if we aren't at max
