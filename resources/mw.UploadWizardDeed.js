@@ -438,6 +438,10 @@ mw.UploadWizardDeedChooser.prototype = {
 			}
 			$form.slideDown( 500 );
 		} );
+	},
+
+	remove: function() {
+		this.$selector.html('');
 	}
 
 };

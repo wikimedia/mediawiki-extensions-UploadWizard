@@ -53,6 +53,9 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	remove: function() {
 		this.state = 'aborted';
+		if ( this.deedThumbnailDiv ) {
+			this.deedThumbnailDiv.remove();
+		}
 		if ( this.details && this.details.div ) {
 			this.details.div.remove(); 
 		}
@@ -547,7 +550,14 @@ mw.UploadWizard.prototype = {
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
 	reset: function() {
-		window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard?skiptutorial=true' );
+		// window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard?skiptutorial=true' );
+		var _this = this;
+		// deeds page
+		_this.deedChooser.remove();
+		_this.removeMatchingUploads( function() { return true; } );
+		// this could be slicker... need to reset the headline AND get rid of individual divs
+		$( '#mwe-upwiz-thanks' ).html( '' );
+		_this.moveToStep( 'file' );
 	},
 
 	
@@ -722,6 +732,7 @@ mw.UploadWizard.prototype = {
 			'#mwe-upwiz-deeds', 
 			deeds,
 			_this.uploads.length );
+
 	
 		$j( '<div></div>' )
 			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
@@ -1352,6 +1363,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail-small"></div>' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
 		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'smallThumbnailWidth'  ], mw.UploadWizard.config[ 'smallThumbnailMaxHeight' ] );
+		_this.upload.deedThumbnailDiv = thumbnailDiv;
 	}
 };
 
