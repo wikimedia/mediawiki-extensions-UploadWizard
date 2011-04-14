@@ -649,6 +649,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 
 .mwe-readonly {
 	background-color: #ffffff;
+	padding: 0.25em;
 }
 
 .mwe-date-display {

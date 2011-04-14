@@ -1207,20 +1207,12 @@ mw.UploadWizard.prototype = {
 						$j('<p/>').append( 
 							gM( 'mwe-upwiz-thanks-wikitext' ),
 							$j( '<br />' ),
-						 	$j( '<textarea class="mwe-long-textarea" rows="2"/>' )
-								.growTextArea()
-								.readonly()
-								.append( thumbWikiText ) 
-								.trigger('resizeEvent')
+							_this.makeReadOnlyInput( thumbWikiText )
 						),
 						$j('<p/>').append( 
 							gM( 'mwe-upwiz-thanks-url' ),
 							$j( '<br />' ),
-						 	$j( '<textarea class="mwe-long-textarea" rows="2"/>' )
-								.growTextArea()
-								.readonly()
-								.append( upload.imageinfo.descriptionurl ) 
-								.trigger('resizeEvent')
+							_this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
 						)
 					)
 			);
@@ -1229,6 +1221,17 @@ mw.UploadWizard.prototype = {
 		} ); 
 	},
 	
+	/**
+	 * make a read only text input, which self-selects on gaining focus
+	 * @param {String} text it will contain
+	 */
+	makeReadOnlyInput: function ( s ) {
+		return $j( '<input/>' ).addClass( 'mwe-title ui-corner-all' )
+			.readonly()
+			.val( s )
+			.focus( function() { this.select(); } );
+	},
+
 	/**
 	 * Build interface for collecting user feedback on Upload Wizard
 	 */
