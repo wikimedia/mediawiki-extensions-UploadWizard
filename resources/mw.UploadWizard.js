@@ -1584,6 +1584,8 @@ mw.UploadWizardDeedPreview.prototype = {
 	 * Somewhat recapitulates mw.UploadWizardUtil.makeToggler,
 	 * toggle() in vector.collapsibleNav.js, not to mention jquery.collapsible
 	 * but none of those do what we want, or are inaccessible to us
+	 *
+	 * TODO needs to iterate through elements, if we want to apply toggling behavior to many elements at once
 	 */
 	jQuery.fn.collapseToggle = function() {
 		var $el = this;
