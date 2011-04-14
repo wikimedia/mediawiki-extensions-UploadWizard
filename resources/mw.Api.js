@@ -189,7 +189,8 @@
 		'internal-error',
 		'overwrite',
 		'badtoken',
-		'fetchfileerror'
+		'fetchfileerror',
+		'fileexists-shared-forbidden'
 	];
 
 	/**

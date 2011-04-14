@@ -128,6 +128,9 @@ class UploadWizardHooks {
 				'mwe-upwiz-api-error-duplicate-popup-title',
 				'mwe-upwiz-api-error-timeout',
 				'mwe-upwiz-api-error-noimageinfo',
+
+				'mwe-upwiz-api-error-fileexists-shared-forbidden',
+
 				'mwe-upwiz-api-warning-exists',
 				'mwe-upwiz-tutorial-error-localized-file-missing',
 				'mwe-upwiz-tutorial-error-file-missing',

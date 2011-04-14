@@ -54,7 +54,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			api: _this.upload.api,
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
 			preprocess: function( name ) { 
-				if ( name != '' ) {
+				if ( name !== '' ) {
 					// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
 					return _this.upload.title.setNameText( name ).toString();
 				} else {
@@ -666,10 +666,14 @@ mw.UploadWizardDetails.prototype = {
 	 * XXX This should be split up -- one part should get wikitext from the interface here, and the ajax call
 	 * should be be part of upload
 	 */
-	submit: function( endCallback ) {
+	submit: function() {
 		var _this = this;
 
+		_this.upload.state = 'submitting-details';
+		_this.showIndicator( 'progress' );
+
 		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
+		// validation does MOST of this already
 		var wikiText = _this.getWikiText();
 
 		var params = {
@@ -680,25 +684,44 @@ mw.UploadWizardDetails.prototype = {
 			summary: "User created page with " + mw.UploadWizard.userAgent
 		};
 
-		var finalCallback = function( result ) { 
-			endCallback( result );
-			_this.completeDetailsSubmission(); 
-		};	
-
-		var callback = function( result ) {
-			finalCallback( result );
+		var err = function( code, info ) {
+			_this.showError( code, info );	
 		};
 
-		_this.upload.state = 'submitting-details';
-		// XXX this can still fail with bad filename, or other 'warnings' -- capture these
-		_this.upload.api.postWithEditToken( params, callback );
+		var ok = function( result ) {
+			if ( result && result.upload && result.upload.imageinfo ) {
+				_this.upload.extractImageInfo( result.upload.imageinfo );
+				_this.upload.detailsProgress = 1.0;
+				_this.upload.state = 'complete';
+				_this.showIndicator( 'uploaded' );
+			} else {
+				_this.showError( 'details-info-missing', result );
+			}
+		};
+
+		_this.upload.api.postWithEditToken( params, ok, err );
 	},
 
-	completeDetailsSubmission: function() {
-		var _this = this;
-		_this.upload.state = 'complete';
-		// de-spinnerize
-		_this.upload.detailsProgress = 1.0;
+	showError: function( code, result ) {
+		this.showIndicator( 'error' );
+		// types of errors we know about...
+		// recoverable by fixing title
+		// TODO unmask and fix the error on the title
+
+		// recoverable by trying again, or removing
+		// TODO removal / retry interface
+		this.setStatus( result.error.info );
+	},
+
+	setStatus: function( s ) { 
+		this.div.data( 'statusLine' ).html( s ).show();
+	},
+
+	showIndicator: function( statusStr ) { 
+		this.div.data( 'indicator' )
+			.show()
+			.removeClass( 'mwe-upwiz-status-progress mwe-upwiz-status-error mwe-upwiz-status-uploaded' )
+			.addClass( 'mwe-upwiz-status-' + statusStr );
 	},
 
 	dateInputCount: 0

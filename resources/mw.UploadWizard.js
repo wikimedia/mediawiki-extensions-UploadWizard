@@ -1136,6 +1136,7 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Submit all edited details and other metadata
 	 * Works just like startUploads -- parallel simultaneous submits with progress bar.
+	 * @param {Function} endCallback - called when all uploads complete. In our case is probably a move to the next step
 	 */
 	detailsSubmit: function( endCallback ) {
 		var _this = this;
@@ -1154,24 +1155,9 @@ mw.UploadWizard.prototype = {
 			[ 'submitting-details' ],  
 			[ 'complete' ], 
 			function( upload ) {
-				// activate spinner
-				upload.details.div.data( 'status' ).addClass( 'mwe-upwiz-status-progress' );
-				upload.details.submit( function( result ) { 
-					if ( result && result.upload && result.upload.imageinfo ) {
-						upload.extractImageInfo( result.upload.imageinfo );
-						// change spinner to checkmark
-						upload.details.div.data( 'status' ).removeClass( 'mwe-upwiz-status-progress' );
-						upload.details.div.data( 'status' ).addClass( 'mwe-upwiz-status-uploaded' );
-					} else {
-						// XXX alert the user, maybe don't proceed to step 4.
-						mw.log( "error -- final API call did not return image info" );
-						// change spinner to error icon
-						upload.details.div.data( 'status' ).removeClass( 'mwe-upwiz-status-progress' );
-						upload.details.div.data( 'status' ).addClass( 'mwe-upwiz-status-error' );
-					}
-				} );
+				upload.details.submit();
 			},
-			endCallback
+			endCallback /* called when all uploads are "complete" */
 		);
 	},
 
@@ -1490,6 +1476,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		return this;
 	};
 
+	// XXX this is highly specific to the "details" page now, not really jQuery function
 	jQuery.fn.mask = function( options ) {
 
 		// intercept clicks... 
@@ -1512,23 +1499,40 @@ mw.UploadWizardDeedPreview.prototype = {
 							'height'   : el.offsetHeight + 'px',
 							'z-index'  : 90
 						} );
-						
-				var status = $j( '<div class="mwe-upwiz-status"></div>' )
-						.css( {
-							'width'	   : el.offsetWidth + 'px',
-							'height'   : el.offsetHeight + 'px',
-							'z-index'  : 91
-						} )
-						.click( function( e ) { e.stopPropagation(); } );
+			
+				var $statusDiv = $j( '<div></div>' ).css( {
+					'width'	   : el.offsetWidth + 'px',
+					'height'   : el.offsetHeight + 'px',
+					'z-index'  : 91,
+					'text-align' : 'center',
+					'position' : 'absolute',
+					'top' : '0px',
+					'left' : '0px'
+				} );
+
+				var $indicatorDiv = $j( '<div class="mwe-upwiz-status"></div>' )
+					.css( { 
+						'width'	   : 32,
+						'height'   : 32, 
+						'z-index'  : 91,
+						'margin'   : '0 auto 0 auto'
+					} );
+				var $statusLineDiv = $j( '<div></div>' )
+					.css( { 
+						'z-index'  : 91
+					} );
+				var $statusIndicatorLineDiv = $j( '<div></div>' )
+					.css( { 'margin-top': '6em' } )
+					.append( $indicatorDiv, $statusLineDiv );
+			        $statusDiv.append( $statusIndicatorLineDiv );
 
 				$j( el ).css( { 'position' : 'relative' } )	
 					.append( mask.fadeTo( 'fast', 0.6 ) )
-					.append( status )
-					.data( 'status', status );
-
+					.append( $statusDiv )
+					.data( 'indicator', $indicatorDiv )
+					.data( 'statusLine', $statusLineDiv );
 				
 			} 
-			// XXX bind to a custom event in case the div size changes 
 		} );
 
 		return this;

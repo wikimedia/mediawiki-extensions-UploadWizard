@@ -61,6 +61,9 @@ or [{{fullurl:{{FULLPAGENAME}}|action=edit}} edit this page]</span>.',
 	'mwe-upwiz-api-error-duplicate-popup-title' => 'Duplicate {{PLURAL:$1|file|files}}',
 	'mwe-upwiz-api-error-timeout' => 'The server did not respond within the expected time.',
 	'mwe-upwiz-api-error-noimageinfo' => 'The upload succeeded, but the server did not give us any information about the file.',
+	'mwe-upwiz-api-error-fileexists-shared-forbidden' => 'This filename is reserved by a file on a remote shared repository. Choose another name.',
+ 
+
 	'mwe-upwiz-api-warning-exists' => 'There is [$1 another file] already on the wiki with the same filename',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The English one is shown instead.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Sorry, we could not find any files for the tutorial that is supposed to go here. Please contact the system administrators.',

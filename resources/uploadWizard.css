@@ -279,7 +279,7 @@ a[disabled=true]:hover {
 	width: 40px;
 }
 
-.mwe-upwiz-mask, .mwe-upwiz-status {
+.mwe-upwiz-mask {
 	position: absolute;
 	top: 0px;
 	left: 0px;
