@@ -166,8 +166,12 @@ form.mwe-upwiz-form {
 	color: #797979;
 }
 
-.mwe-upwiz-progress-bar-etr-container {
-	/* needed ? */
+.mwe-upwiz-progress-bar {
+	border: 1px solid #aed0ea;
+}
+
+.mwe-upwiz-progress-bar .ui-progressbar-value {
+	background: #dfeffa; /* matches the highlighted arrow */
 }
 	
 .mwe-upwiz-file-preview {
@@ -293,6 +297,9 @@ a[disabled=true]:hover {
 	background: url('images/24px-spinner-0645ad-e0f0ff.gif') no-repeat center center;
 }
 
+.mwe-upwiz-file.odd .mwe-upwiz-status-progress {
+	background: url('images/24px-spinner-0645ad-f5f5f5.gif') no-repeat center center;
+}
 .mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
 	background: url('images/32px-Dialog-apply-009900.svg.png') no-repeat center center;
 }
