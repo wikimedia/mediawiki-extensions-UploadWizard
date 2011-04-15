@@ -189,6 +189,15 @@
 			return ext;
 		};
 
+		
+		/**
+		 * Return the URL to this title 
+	 	 * returns null if there is no wgArticlePath
+		 * @return {String|null}
+		 */
+		this.getUrl = function() {
+			return wgArticlePath ? wgArticlePath.replace( '$1', this.toString() ) : null;
+		};
 
 		// initialization
 		var matches = title.match( /^(?:([^:]+):)?(.*?)(?:\.(\w{1,5}))?$/ );

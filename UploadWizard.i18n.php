@@ -255,9 +255,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-image-preview' => 'Image preview',
 	
 	/* Feedback interface */
-	'mwe-upwiz-feedback-note' => 'Your feedback will be posted to $1.',
+	'mwe-upwiz-feedback-prompt' => 'Please [$1 let us know] what you think of UploadWizard!',
+	'mwe-upwiz-feedback-note' => 'Your feedback will be posted publicly to the page "[$2 $1]", along with your user name, browser version and operating system.',
 	'mwe-upwiz-feedback-subject' => 'Subject:',
-	'mwe-upwiz-feedback-message' => 'Message (without a signature):',
+	'mwe-upwiz-feedback-message' => 'Message:',
 	'mwe-upwiz-feedback-title' => 'Leave feedback about Upload Wizard',
 	'mwe-upwiz-feedback-cancel' => 'Cancel',
 	'mwe-upwiz-feedback-submit' => 'Submit Feedback',

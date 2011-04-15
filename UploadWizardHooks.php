@@ -49,6 +49,7 @@ class UploadWizardHooks {
 				'resources/mw.Api.js',
 				'resources/mw.Api.edit.js',
 				'resources/mw.Title.js',
+				'resources/mw.Feedback.js',
 
 				// language menus
 				'resources/mw.LanguageUpWiz.js',
@@ -303,6 +304,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
 				'mwe-upwiz-image-preview',
+				'mwe-upwiz-feedback-prompt',
 				'mwe-upwiz-feedback-note',
 				'mwe-upwiz-feedback-subject',
 				'mwe-upwiz-feedback-message',
