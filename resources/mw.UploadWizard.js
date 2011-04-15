@@ -1270,9 +1270,10 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-feedback-form div' ).hide(); // remove everything else from the dialog box
 			$j( '#mwe-upwiz-feedback-form' ).append ( $j( '<div style="text-align:center;margin:3em 0;"></div>' ).append( gM( 'mwe-upwiz-feedback-adding' ), $j( '<br/>' ), $j( '<img src="http://upload.wikimedia.org/wikipedia/commons/4/42/Loading.gif" />' ) ) );
 			var subject = $j( '#mwe-upwiz-feedback-subject' ).val();
-			var message = $j( '#mwe-upwiz-feedback-message' ).val();
+			var message = "<!--User agent: "+navigator.userAgent+"-->\n";
+			message += $j( '#mwe-upwiz-feedback-message' ).val();
 			if ( message.indexOf( '~~~' ) == -1 ) {
-				message = message+' ~~~~';
+				message += ' ~~~~';
 			}
 			var useTokenToPostFeedback = function( token ) {
 				$j.ajax({
@@ -1312,7 +1313,7 @@ mw.UploadWizard.prototype = {
 		$feedbackForm = $j( '<div id="mwe-upwiz-feedback-form" style="position:relative;"></div>' )
 			.append( $j( '<div style="margin-top:0.4em;"></div>' ).append( $j( '<small></small>' ).msg( 'mwe-upwiz-feedback-note', feedbackLink ) ) )
 			.append( $j( '<div style="margin-top:1em;"></div>' ).append( gM( 'mwe-upwiz-feedback-subject' ), $j( '<br/>' ), $j( '<input type="text" id="mwe-upwiz-feedback-subject" name="subject" maxlength="60" style="width:99%;"/>' ) ) )
-          	.append( $j( '<div style="margin-top:0.4em;"></div>' ).append( gM( 'mwe-upwiz-feedback-message' ), $j( '<br/>' ), $j( '<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="4" cols="60"></textarea>' ) ) )
+          	.append( $j( '<div style="margin-top:0.4em;"></div>' ).append( gM( 'mwe-upwiz-feedback-message' ), $j( '<br/>' ), $j( '<textarea name="message" id="mwe-upwiz-feedback-message" style="width:99%;" rows="5" cols="60"></textarea>' ) ) )
 			.dialog({
 				width: 500,
 				autoOpen: false,
