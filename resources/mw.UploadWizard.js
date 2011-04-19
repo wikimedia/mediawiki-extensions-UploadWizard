@@ -577,7 +577,7 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-first-spinner' ).remove();
 
 		// feedback request
-		if ( mw.isDefined( mw.UploadWizard.config['feedbackPage'] ) ) {
+		if ( mw.isDefined( mw.UploadWizard.config['feedbackPage'] ) && mw.UploadWizard.config['feedbackPage'] != '' ) {
 			var feedback = new mw.Feedback( _this.api,
 							new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
 			$j( '#contentSub' )
