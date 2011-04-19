@@ -171,8 +171,8 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		_this.descriptionsDiv, 
 		descriptionAdderDiv,
 		_this.copyrightInfoFieldset,
-		$categoriesDiv,
 		dateInputDiv,
+		$categoriesDiv,
 		moreDetailsCtrlDiv,
 		moreDetailsDiv
 	);
