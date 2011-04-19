@@ -632,7 +632,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Вольная ліцэнзія, патрабуецца пазначэньне аўтара (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-cc-by-3.0-gfdl' => 'Патрабуецца пазначэньне аўтара (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-cc-head' => 'Уладальнік аўтарскіх правоў апублікаваў {{PLURAL:$1|гэтую працу|гэтыя працы}} на ўмовах ліцэнзіі Creative Commons',
-	'mwe-upwiz-license-cc-subhead' => 'Ня ўсе ліцэнзіі Creative Commons дапушчальныя ў {{GRAMMAR:месны|{{SITENAME}}}}. Пераканайцеся, што ўладальнік аўтарскіх правоў выбраў адну з гэтых ліцэнзіяў.',
+	'mwe-upwiz-license-cc-subhead' => 'Ня ўсе ліцэнзіі Creative Commons дапушчальныя ў праекце {{SITENAME}}. Пераканайцеся, што ўладальнік аўтарскіх правоў выбраў адну з гэтых ліцэнзіяў.',
 	'mwe-upwiz-license-flickr-head' => 'Уладальнік аўтарскіх правоў апублікаваў {{PLURAL:$1|гэтае фота ці відэа|гэтыя фота ці відэа}} на Flickr на ўмовах дапушчальнай ліцэнзіі',
 	'mwe-upwiz-license-public-domain-head' => 'Тэрмін аховы аўтарскіх правоў відавочна скончыўся',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Гэтая праца створаная|Гэтыя працы створаныя}} фэдэральным ўрадам ЗША',
@@ -1717,7 +1717,8 @@ $messages['de'] = array(
 	'mwe-upwiz-next-details' => 'Nächste',
 	'mwe-upwiz-home' => 'Zur Hauptseite des Wikis',
 	'mwe-upwiz-upload-another' => 'Weitere Dateien hochladen',
-	'mwe-prevent-close' => 'Deine Dateien werden gerade hochgeladen. Bist du sicher, dass du eine andere Seite aufrufen möchtest?',
+	'mwe-prevent-close' => 'Das Verlassen dieser Seite führt dazu, dass all deine Änderungen verloren gehen.',
+	'mwe-upwiz-prevent-close' => 'Das Hochladen und Veröffentlichen {{PLURAL:$1|dieser Datei|dieser Dateien}} ist noch nicht abgeschlossen.',
 	'mwe-upwiz-files-complete' => 'Deine Dateien wurden nunmehr vollständig hochgeladen!',
 	'mwe-upwiz-tooltip-author' => 'Der Name der Person, die entweder das Foto gemacht, das Bild gemalt, die Zeichnung angefertigt, etc. hat',
 	'mwe-upwiz-tooltip-source' => 'Woher diese Datei stammt - dies kann eine URL, ein Buch oder eine Publikation, etc. sein.',
@@ -2677,8 +2678,7 @@ $messages['gl'] = array(
 	'mwe-upwiz-next-details' => 'Seguinte',
 	'mwe-upwiz-home' => 'Ir á páxina de inicio do wiki',
 	'mwe-upwiz-upload-another' => 'Subir máis ficheiros',
-	'mwe-prevent-close' => 'A carga dos seus ficheiros aínda non finalizou.
-Está certo de querer saír desta páxina?',
+	'mwe-prevent-close' => 'Se deixa esta páxina perderá calquera cambio que fixese.',
 	'mwe-upwiz-files-complete' => 'Finalizou a subida dos seus ficheiros!',
 	'mwe-upwiz-tooltip-author' => 'O nome da persoa que tirou a foto, pintou o cadro, fixo o debuxo etc.',
 	'mwe-upwiz-tooltip-source' => 'O lugar de procedencia deste ficheiro dixital; pode ser un URL, un libro ou unha publicación',
@@ -3819,7 +3819,8 @@ $messages['ia'] = array(
 	'mwe-upwiz-next-details' => 'Sequente',
 	'mwe-upwiz-home' => 'Ir al pagina principal del wiki',
 	'mwe-upwiz-upload-another' => 'Incargar plus files',
-	'mwe-prevent-close' => 'Tu files es ancora in curso de incargamento. Es tu secur de voler abandonar iste pagina?',
+	'mwe-prevent-close' => 'Quitar iste pagina pote causar le perdita de tote le modificationes que tu ha facite.',
+	'mwe-upwiz-prevent-close' => 'Tu non ha ancora finite de incargar e publicar iste {{PLURAL:$1|file|files}}.',
 	'mwe-upwiz-files-complete' => 'Tu files ha finite de incargar!',
 	'mwe-upwiz-tooltip-author' => 'Le nomine del persona qui prendeva le photo, o pingeva le pictura, designava le designo, etc.',
 	'mwe-upwiz-tooltip-source' => 'De ubi veniva iste file digital: pote esser un URL, o un libro o publication',
@@ -5002,6 +5003,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-change' => '(Ännerung)',
 	'mwe-upwiz-fileexists-replace' => 'E Fichier mam Titel "$1" gëtt et schonn. Ännert Ären Titel op eppes wat et nach net gëtt.',
 	'mwe-upwiz-fileexists' => 'E Fichier mat dësem Numm gëtt et schonn. Kuckt w.e.g. op <b><tt>$1</tt></b> no wann Dir net sécher sidd ob Dir en ännere wëllt.',
+	'mwe-upwiz-fileexists-replace-on-page' => "Et gëtt schonn e Fichier mat deem Numm. Wann dir deen ersetze wëllt da gitt op d'Säit fir [$2 $1] an ersetzt en do.",
 	'mwe-upwiz-fileexists-replace-no-link' => 'Et gëtt schonn e Fichier mat deem Numm.',
 	'mwe-upwiz-thumbnail-more' => ' Vergréisseren',
 	'mwe-upwiz-overwrite' => 'De Fichier ersetzen',
@@ -5013,8 +5015,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-next-details' => 'Nächst',
 	'mwe-upwiz-home' => "Op d'Wiki-Homepage goen",
 	'mwe-upwiz-upload-another' => 'Méi Fichieren eroplueden',
-	'mwe-prevent-close' => 'Är Fichiere ginn elo eropgelueden.
-Sidd Dir sécher datt Dir elo eng aner Säit opruffe wëllt?',
+	'mwe-prevent-close' => 'Wann Dir dës Säit verloosst, da verléiert Dir all Ännerungen déi Dir gemaach hutt.',
 	'mwe-upwiz-files-complete' => "D'Eropluede vun Äre Fichieren ass fäerdeg!",
 	'mwe-upwiz-tooltip-author' => "Den Numm vun der Persoun déi d'Photo gemaach huet, oder d'Bild gemoolt huet, d'Zeechnung gezeechent huet, asw.",
 	'mwe-upwiz-tooltip-source' => 'Wou dëse Fichier hierkënnt -- dëst kann eng URL, oder e Buch oder eng aner Publikatioun sinn',
@@ -5226,7 +5227,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-next-details' => 'Следно',
 	'mwe-upwiz-home' => 'Оди на главната страница на Викито',
 	'mwe-upwiz-upload-another' => 'Подигни уште податотеки',
-	'mwe-prevent-close' => 'Подигањето на вашите податотеки е сè уште во тек. Дали сте сигурни дека сакате да се оттргнете од оваа страница?',
+	'mwe-prevent-close' => 'Ако ја напуштите страницава, ќе ги изгубите сите направени промени.',
+	'mwe-upwiz-prevent-close' => 'Сè уште не сте готови со подигање и објавување на {{PLURAL:$1|податотекава|податотекиве}}.',
 	'mwe-upwiz-files-complete' => 'Вашите податотеки сега се подигнати!',
 	'mwe-upwiz-tooltip-author' => 'Име на лицето што ја направило фотографијата, ја насликало сликата, го нацтрало цртежот и тн.',
 	'mwe-upwiz-tooltip-source' => 'Од каде е оваа дигитална податотека -- може да е URL, или пак книга или друга публијација',
@@ -5538,6 +5540,7 @@ $messages['mzn'] = array(
 
 /** Dutch (Nederlands)
  * @author McDutchie
+ * @author SPQRobin
  * @author Siebrand
  * @author Tvdm
  */
@@ -5688,7 +5691,8 @@ Probeer het later opnieuw.',
 	'mwe-upwiz-next-details' => 'Volgende',
 	'mwe-upwiz-home' => 'Ga naar de hoofdpagina van de wiki',
 	'mwe-upwiz-upload-another' => 'Meer bestanden uploaden',
-	'mwe-prevent-close' => 'De upload van uw bestanden loopt nog. Weet u zeker dat u deze pagina wilt verlaten?',
+	'mwe-prevent-close' => 'Als u deze pagina verlaat, kunnen de wijzigingen die u hebt gemaakt verloren gaan.',
+	'mwe-upwiz-prevent-close' => 'U bent nog niet klaar met het uploaden en publiceren van {{PLURAL:$1|dit bestand|deze bestanden}}.',
 	'mwe-upwiz-files-complete' => 'Het uploaden van uw bestanden is afgerond!',
 	'mwe-upwiz-tooltip-author' => 'De naam van de persoon die de foto heeft genomen, het schilderij of de tekening heeft gemaakt, enzovoort.',
 	'mwe-upwiz-tooltip-source' => 'Waar komt het digitale bestand vandaan? Dit kan een URL, een boek of publicatie zijn.',
@@ -7395,8 +7399,8 @@ Prosimo, preverite <b><tt>$1</tt></b>, če niste prepričani, da jo želite zame
 	'mwe-upwiz-next-details' => 'Naprej',
 	'mwe-upwiz-home' => 'Pojdi na domačo stran wikija',
 	'mwe-upwiz-upload-another' => 'Naloži več datotek',
-	'mwe-prevent-close' => 'Vaše datoteke se še vedno nalagajo.
-Ali ste prepričani, da želite vseeno oditi s te strani?',
+	'mwe-prevent-close' => 'Če zapustite to stran, boste izgubili vse narejene spremembe.',
+	'mwe-upwiz-prevent-close' => 'Niste še končali z nalaganjem in objavo {{PLURAL:$1|te datoteke|teh datotek}}.',
 	'mwe-upwiz-files-complete' => 'Nalaganje vaših datotek je končano!',
 	'mwe-upwiz-tooltip-author' => 'Ime osebe, ki je posnela fotografijo, naslikala sliko, narisala risbo itn.',
 	'mwe-upwiz-tooltip-source' => 'Od koder je prišla ta digitalna datoteka – lahko je URL, knjiga ali objava',
