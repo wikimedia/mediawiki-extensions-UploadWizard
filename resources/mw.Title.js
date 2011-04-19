@@ -61,7 +61,11 @@
 		}
 
 		function text( s ) {
-			return s.replace( /_/g, ' ' );
+			if ( s != null ) {
+				return s.replace( /_/g, ' ' );
+			} else {
+				return '';
+			}
 		}
 
 		/** 
