@@ -689,6 +689,9 @@ mw.UploadWizard.prototype = {
 				$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 				if ( _this.detailsValid() ) { 
 					_this.detailsSubmit( function() { 
+						if ( mw.isDefined( _this.allowCloseWindow ) ) {
+							_this.allowCloseWindow();
+						} 
 						_this.prefillThanksPage();
 						_this.moveToStep( 'thanks' );
 					} );
@@ -992,8 +995,9 @@ mw.UploadWizard.prototype = {
 			}
 		} );
 
-		var allowCloseWindow = $j().preventCloseWindow( { 
-			message: gM( 'mwe-prevent-close')
+		this.allowCloseWindow = mw.confirmCloseWindow( { 
+			message: function() { return gM( 'mwe-upwiz-prevent-close', _this.uploads.length ) },
+			test: function() { return _this.uploads.length > 0 }
 		} );
 
 		$j( '#mwe-upwiz-progress' ).show();
@@ -1021,7 +1025,6 @@ mw.UploadWizard.prototype = {
 				upload.start();
 			},
 			function() {
-				allowCloseWindow();
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
 				_this.showFileNext();
 		  	} 
@@ -1296,37 +1299,7 @@ mw.UploadWizardDeedPreview.prototype = {
 
 } )( jQuery );
 
-( function ( $j ) { 
-	/**
-	 * Prevent the closing of a window with a confirm message (the onbeforeunload event seems to 
-	 * work in most browsers 
-	 * e.g.
-	 *       var allowCloseWindow = jQuery().preventCloseWindow( { message: "Don't go away!" } );
-	 *       // ... do stuff that can't be interrupted ...
-	 *       allowCloseWindow();
-	 *
-	 * @param options 	object which should have a message string, already internationalized
-	 * @return closure	execute this when you want to allow the user to close the window
-	 */
-	$j.fn.preventCloseWindow = function( options ) {
-		if ( typeof options === 'undefined' ) {
-			options = {};
-		}
-
-		if ( typeof options.message === 'undefined' ) {
-			options.message = 'Are you sure you want to close this window?';
-		}
-		
-		$j( window ).unload( function() { 
-			return options.message;
-		} );
-		
-		return function() { 
-			$j( window ).removeAttr( 'unload' );
-		};
-				
-	};
-
+( function ( $j ) {
 
 	$j.fn.notify = function ( message ) {
 		// could do something here with Chrome's in-browser growl-like notifications.

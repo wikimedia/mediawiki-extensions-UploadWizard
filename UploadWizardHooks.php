@@ -50,6 +50,7 @@ class UploadWizardHooks {
 				'resources/mw.Api.edit.js',
 				'resources/mw.Title.js',
 				'resources/mw.Feedback.js',
+				'resources/mw.ConfirmCloseWindow.js',
 
 				// language menus
 				'resources/mw.LanguageUpWiz.js',
@@ -234,6 +235,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-home',
 				'mwe-upwiz-upload-another',
 				'mwe-prevent-close',
+				'mwe-upwiz-prevent-close',
 				'mwe-upwiz-files-complete',
 				'mwe-upwiz-tooltip-author',
 				'mwe-upwiz-tooltip-source',
