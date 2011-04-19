@@ -126,14 +126,10 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 						  name: categoriesId,
 						  type: 'text' } )
 		);
-	
-	var moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
-
-	var moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
 	var dateDisplayInputId = "dateDisplayInput" + ( _this.upload.index ).toString();
-	
+
 	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 
 	/* XXX must localize this by loading jquery.ui.datepicker-XX.js where XX is a language code */
@@ -143,13 +139,16 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		$j( '<input type="text" id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' );
 	_this.dateDisplayInput = 
 		$j( '<input type="text" id="' + dateDisplayInputId + '" name="' + dateDisplayInputId + '" type="text" class="mwe-date-display" size="20"/>' );
-	
 
 	var dateInputDiv = $j( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append(
 			dateErrorDiv, 
 			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ), 
 			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput, _this.dateDisplayInput ) );
+
+	var moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
+	
+	var moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
 
 	var otherInformationId = "otherInformation" + _this.upload.index;
 	_this.otherInformationInput = $j( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
@@ -160,7 +159,6 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		.append( _this.otherInformationInput );
 
 	$j( moreDetailsDiv ).append( 
-		dateInputDiv, 
 		// location goes here
 		otherInformationDiv
 	);
@@ -174,6 +172,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		descriptionAdderDiv,
 		_this.copyrightInfoFieldset,
 		$categoriesDiv,
+		dateInputDiv,
 		moreDetailsCtrlDiv,
 		moreDetailsDiv
 	);
