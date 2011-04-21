@@ -128,7 +128,6 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		);
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
-	var dateDisplayInputId = "dateDisplayInput" + ( _this.upload.index ).toString();
 
 	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 
@@ -137,14 +136,12 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	/* $.datepicker.setDefaults() for other settings */	
 	_this.dateInput = 
 		$j( '<input type="text" id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' );
-	_this.dateDisplayInput = 
-		$j( '<input type="text" id="' + dateDisplayInputId + '" name="' + dateDisplayInputId + '" type="text" class="mwe-date-display" size="20"/>' );
 
 	var dateInputDiv = $j( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append(
 			dateErrorDiv, 
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ), 
-			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput, _this.dateDisplayInput ) );
+			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( gM( 'mwe-upwiz-date-created' ) ).requiredFieldLabel(), 
+			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput ) );
 
 	var moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
 	
@@ -188,36 +185,28 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.$form.validate();
 	_this.$form.find( '.mwe-date' ).rules( "add", {
-		dateISO: true,
+		required: true,
+		/* dateISO: true, */
 		messages: {
-			dateISO: gM( 'mwe-upwiz-error-date' )
+			required: gM( 'mwe-upwiz-error-blank' )
+			/* dateISO: gM( 'mwe-upwiz-error-date' ) */
 		}
 	} );
 
-	// we hide the "real" ISO date, and create another "display" date
-	_this.$form.find( '.mwe-date-display' )
-		.datepicker( { 	
-			dateFormat: 'DD, MM d, yy', 
+	_this.$form.find( '.mwe-date' )
+		.datepicker( { 
+			dateFormat: 'yy-mm-dd',
+			constrainInput: false,
 			//buttonImage: mw.getMwEmbedPath() + 'skins/common/images/calendar.gif',
 			showOn: 'focus',
 			/* buttonImage: '???', 
 			buttonImageOnly: true,  */
-			changeMonth: true, 
-			changeYear: true, 
+			changeMonth: true,
+			changeYear: true,
 			showAnim: 'slideDown',
-			altField: '#' + dateInputId,
-			altFormat: 'yy-mm-dd',
-			minDate: new Date( 1800, 0, 1 )
+			showButtonPanel: true
 		} )
-		.click( function() { $j( this ).datepicker( 'show' ); } )
-		.readonly();
-
-	_this.$form.find( '.mwe-date' )	
-		.bind( 'change', function() { $j( this ).valid(); } )
-		.hide();
-	
-	/* if the date is not valid, we need to pop open the "more options". How? 
-	   guess we'll revalidate it with element */
+		.click( function() { $j( this ).datepicker( 'show' ); } );
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
@@ -469,7 +458,6 @@ mw.UploadWizardDetails.prototype = {
 
 		// ok by now we should definitely have a dateObj and a date string
 		$j( _this.dateInput ).val( dateStr );
-		$j( _this.dateDisplayInput ).datepicker( "setDate", dateObj );
 	},
 
 	/**
@@ -619,7 +607,6 @@ mw.UploadWizardDetails.prototype = {
 			information['description'] += desc.getWikiText();
 		} );	
 
-		// XXX add a sanity check here for good date
 		information['date'] = $j.trim( $j( _this.dateInput ).val() );
 
 		var deed = _this.upload.deedChooser.deed;

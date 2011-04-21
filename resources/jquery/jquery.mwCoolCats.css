@@ -41,6 +41,10 @@
 	display: inline-block;
 }
 
+.cat-widget .categoryInput {
+	width: 16em;
+}
+
 /* Fix for IE6 */
 .cat-widget .ui-button {
 	position: static;

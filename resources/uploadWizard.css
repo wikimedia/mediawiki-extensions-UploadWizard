@@ -660,8 +660,8 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 	padding: 0.25em;
 }
 
-.mwe-date-display {
-	width: 100%;
+.mwe-date {
+	width: 20em;
 	background: #ffffff url('images/calendar.gif') no-repeat right center;
 }
 
