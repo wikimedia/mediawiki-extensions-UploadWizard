@@ -455,7 +455,7 @@ mw.UploadWizardDetails.prototype = {
 		if ( !mw.isDefined( dateObj ) ) {
 			dateObj = new Date();
 		}
-		dateStr = dateObj.getUTCFullYear() + '-' + pad( dateObj.getUTCMonth() ) + '-' + pad( dateObj.getUTCDate() );
+		dateStr = dateObj.getUTCFullYear() + '-' + pad( dateObj.getUTCMonth() + 1 ) + '-' + pad( dateObj.getUTCDate() );
 
 		// ok by now we should definitely have a dateObj and a date string
 		$j( _this.dateInput ).val( dateStr );
