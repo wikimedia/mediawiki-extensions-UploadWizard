@@ -290,14 +290,14 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 
 /**
  * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
- * @param selector where to put this deed chooser
- * @param deeds Array of UploadWizardDeed
- * @param uploadCount whether this chooser applies to multiple files (changes messaging mostly)
+ * @param {String|jQuery} selector where to put this deed chooser
+ * @param {Array[UploadWizardDeed]} deeds 
+ * @param {Array[UploadWizardUpload]} uploads that this applies to (this is just to make deleting and plurals work)
  */ 
-mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
+mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 	var _this = this;
 	_this.$selector = $j( selector );
-	_this.uploadCount = uploadCount ? uploadCount : 1;
+	_this.uploads = mw.isDefined( uploads ) ? uploads : [];
 	
 
 	_this.$errorEl = $j( '<div class="mwe-error"></div>' );
@@ -315,7 +315,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 		   +    '<span class="mwe-upwiz-deed-header">'
 		   +      '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">'
 		   +      '<label for="' + id + '" class="mwe-upwiz-deed-name">'
-		   +        gM( 'mwe-upwiz-source-' + deed.name, _this.uploadCount )
+		   +        gM( 'mwe-upwiz-source-' + deed.name, _this.uploads.length )
 		   +      '</label>'
 		   +    '</span>'
 		   +  '</div>'
@@ -342,6 +342,10 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploadCount ) {
 	// set the "value" to be the null deed; which will cause an error if the data is submitted.
 	_this.choose( mw.UploadWizardNullDeed );
 
+	// set the "delete associated upload" option, if available
+	// this has a somewhat nasty & twisted dependency on the licenses config, since if you enable the 'special delete'
+	// option there, you have to remember to pass a deleter here
+	_this.bindDeleter();
 };
 
 
@@ -366,7 +370,7 @@ mw.UploadWizardDeedChooser.prototype = {
 			_this.hideError();
 		} else {
 			if ( _this.deed === mw.UploadWizardNullDeed ) {			
-				_this.showError( gM( 'mwe-upwiz-deeds-need-deed', _this.uploadCount ) );
+				_this.showError( gM( 'mwe-upwiz-deeds-need-deed', _this.uploads.length ) );
 				$j( _this ).bind( 'chooseDeed', function() {
 					_this.hideError();
 				} );
@@ -386,9 +390,9 @@ mw.UploadWizardDeedChooser.prototype = {
 	},
 
 	/** 
- 	 * How many uploads this deed controls
+ 	 * Uploads this deed controls
 	 */
-	uploadCount: 0,
+	uploads: [],
 
 	
 	// XXX it's impossible to choose the null deed if we stick with radio buttons, so that may be useless later
@@ -442,8 +446,35 @@ mw.UploadWizardDeedChooser.prototype = {
 
 	remove: function() {
 		this.$selector.html('');
-	}
+	},
 
+	/**
+	 * This is a bit of a hack -- originally deeds were not supposed to know what uploads they applied to,
+	 * the associated upload would just read that data when it needed to, or rebind itself on the fly. 
+	 * Unfortunately it's starting to become a bit messed up; to make deleting work, now the deeds know about the uploads,
+	 * and the uploads know about the deeds. Really ought to be that there is some channel of communication that the uploads
+	 * listen to, which could include a 'delete yourself' event.
+	 * So, what this does:
+	 * In the event that our license config includes the "special" item for i-don't-know-what-the-license-is, 
+	 * this will create a button there that deletes all the associated uploads.
+	 */
+	bindDeleter: function() {
+		var deedChooser = this;
+		$j( deedChooser.$selector.find( '.mwe-upwiz-license-special-delete' ) ).each( function() {
+			$j( this ).append( 
+				$j( '<button></button>' )
+					.attr( 'type', 'button' )
+					.msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
+					.button()
+					.addClass( 'ui-button-text ui-button-textonly' )
+					.click( function() { 
+						$j.each( deedChooser.uploads, function( i, upload ) { 
+							upload.remove();
+						} );
+					} )
+			);
+		} );
+	}
 };
 
 } )( jQuery );

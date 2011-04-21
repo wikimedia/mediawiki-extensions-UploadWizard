@@ -547,17 +547,11 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * Reset the entire interface so we can upload more stuff
+	 * (depends on updateFileCounts to reset the interface when uploads go down to 0)
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
 	reset: function() {
-		// window.location = wgArticlePath.replace( '$1', 'Special:UploadWizard?skiptutorial=true' );
-		var _this = this;
-		// deeds page
-		_this.deedChooser.remove();
-		_this.removeMatchingUploads( function() { return true; } );
-		// this could be slicker... need to reset the headline AND get rid of individual divs
-		$( '#mwe-upwiz-thanks' ).html( '' );
-		_this.moveToStep( 'file' );
+		this.removeMatchingUploads( function() { return true; } );
 	},
 
 	
@@ -577,7 +571,7 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-first-spinner' ).remove();
 
 		// feedback request
-		if ( mw.isDefined( mw.UploadWizard.config['feedbackPage'] ) && mw.UploadWizard.config['feedbackPage'] != '' ) {
+		if ( mw.isDefined( mw.UploadWizard.config['feedbackPage'] ) && mw.UploadWizard.config['feedbackPage'] !== '' ) {
 			var feedback = new mw.Feedback( _this.api,
 							new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
 			$j( '#contentSub' )
@@ -734,10 +728,12 @@ mw.UploadWizard.prototype = {
 			deeds.push( customDeed );
 		}
 
+		var uploadsClone = $j.map( _this.uploads, function( x ) { return x; } );
 		_this.deedChooser = new mw.UploadWizardDeedChooser( 
 			'#mwe-upwiz-deeds', 
 			deeds,
-			_this.uploads.length );
+			uploadsClone
+		 );
 
 	
 		$j( '<div></div>' )
@@ -749,7 +745,7 @@ mw.UploadWizard.prototype = {
 				.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-custom' ) )
 				.msg( 'mwe-upwiz-deeds-custom-prompt' );
 		}
-		
+
 		_this.moveToStep( 'deeds' ); 
 
 	},	
@@ -874,13 +870,13 @@ mw.UploadWizard.prototype = {
 		// remove the div that passed along the trigger
 		var $div = $j( upload.ui.div );
 		$div.unbind(); // everything
-		// sexily fade away
-		$div.fadeOut('fast', function() { 
+		// sexily fade away (TODO if we are looking at it)
+		//$div.fadeOut('fast', function() { 
 			$div.remove(); 
 			// and do what we in the wizard need to do after an upload is removed
 			mw.UploadWizardUtil.removeItem( _this.uploads, upload );
 			_this.updateFileCounts();
-		});
+		//} );
 	},
 
 
@@ -996,8 +992,8 @@ mw.UploadWizard.prototype = {
 		} );
 
 		this.allowCloseWindow = mw.confirmCloseWindow( { 
-			message: function() { return gM( 'mwe-upwiz-prevent-close', _this.uploads.length ) },
-			test: function() { return _this.uploads.length > 0 }
+			message: function() { return gM( 'mwe-upwiz-prevent-close', _this.uploads.length ); },
+			test: function() { return _this.uploads.length > 0; }
 		} );
 
 		$j( '#mwe-upwiz-progress' ).show();
@@ -1047,6 +1043,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-progress' ).hide();
 			$j( '#mwe-upwiz-upload-ctrls' ).show();
 			$j( '#mwe-upwiz-add-file' ).show();
+			this.moveToStep( 'file' );
 			return;
 		}
 		var errorCount = 0;
@@ -1127,6 +1124,21 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-upload-ctrls' ).show();
 			$j( '#mwe-upwiz-progress' ).hide();
 			$j( '#mwe-upwiz-add-file' ).show();
+
+			// fix various other pages that may have state
+			$j( '#mwe-upwiz-thanks' ).html( '' );
+
+			if ( mw.isDefined( _this.deedChooser ) ) { 
+				_this.deedChooser.remove();
+			}
+
+			// remove any blocks on closing the window
+			if ( mw.isDefined( _this.allowCloseWindow ) ) {
+				_this.allowCloseWindow();
+			}
+
+			// and move back to the file step
+			_this.moveToStep( 'file' );
 		}
 
 		// allow an "add another upload" button only if we aren't at max

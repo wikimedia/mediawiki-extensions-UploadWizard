@@ -174,6 +174,11 @@ return array(
 				'licenses' => array( 
 					'fal'
 				)
+			),
+			array(
+				'head' => 'mwe-upwiz-license-none-applicable-head',
+				'subhead' => 'mwe-upwiz-license-none-applicable-subhead',
+				'special' => 'delete'
 			)
 		),
 		'defaults' => array(),

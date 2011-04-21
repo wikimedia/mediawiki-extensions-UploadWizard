@@ -245,6 +245,15 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|This work was|These works were}} made by the United States government',
 	'mwe-upwiz-license-misc' => 'Miscellaneous reasons',
 
+	'mwe-upwiz-license-custom-head' => 'Experts only: enter the code for a license not shown here',
+	'mwe-upwiz-license-custom-subhead' => 'Enter wikitext that will add a license template to your uploads.',
+	
+	'mwe-upwiz-license-none-applicable-head' => 'I don\'t know if any of the above choices apply or not! Help!',
+	'mwe-upwiz-license-none-applicable-subhead' => 'If you aren\'t absolutely sure what the intentions of the original author were then please do not upload {{PLURAL:$1|this file|these files}} to {{SITENAME}}. Press the button below to abandon {{PLURAL:$1|this upload|these uploads}} -- don\'t worry, nothing\'s been published yet.',
+
+	'mwe-upwiz-license-none-applicable' => 'Abandon {{PLURAL:$1|this upload|these uploads}} without publishing',
+
+
 	'mwe-upwiz-categories' => 'Categories',
 	'mwe-upwiz-categories-add' => 'Add',
 	'mwe-upwiz-category-remove' => 'Remove this category',

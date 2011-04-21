@@ -7,6 +7,7 @@
  *				'defaults' => array of template string names (can be empty array), 
  *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
  *				optional: 'licenseGroups' => groups of licenses, with more explanation
+ *				optional: 'special' => String -- indicates, don't put licenses here, instead leave a placeholder div, with class based on this string.
  * @param {Numbe}	  count of the things we are licensing (it matters to some texts)
  */
 
@@ -97,12 +98,10 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 			}
 		} );
 	}
+	
 
 	if ( mw.isDefined( config['licenseGroups'] ) ) {
 		$j.each( config['licenseGroups'], function( i, group ) { 
-			if ( !mw.isDefined( group['licenses'] ) ) {
-				throw new Error( 'improper config' );
-			}
 			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
 			// if there is no header, just append licenses to the group div.
 			var $body = $group;
@@ -120,7 +119,12 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
 			}
 			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
-			appendLicenses( $licensesDiv, group );
+			if ( mw.isDefined( group['special'] ) ) {
+				// put a placeholder in our interface for our caller to place some special interface in
+				$licensesDiv.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-license-special-' + group.special ) );
+			} else {
+				appendLicenses( $licensesDiv, group );
+			}
 			$body.append( $licensesDiv );
 			_this.$selector.append( $group );
 		} );
