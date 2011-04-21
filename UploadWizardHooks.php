@@ -189,7 +189,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-title',
 				'mwe-upwiz-categories-intro',
 				'mwe-upwiz-categories-another',
-				'mwe-upwiz-previously-uploaded',
 				'mwe-upwiz-about-this-work',
 				'mwe-upwiz-media-type',
 				'mwe-upwiz-date-created',
