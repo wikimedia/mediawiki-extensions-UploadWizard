@@ -177,6 +177,7 @@ In both cases, this will be linked to your wiki user page',
 	'mwe-upwiz-dialog-title' => 'Files can be uploaded with names in any language in any script (coded as UTF-8). Titles of media files should be meaningful and helpful in the language chosen.',
 	'mwe-upwiz-tooltip-description' => 'Briefly describe everything notable about the work.
 For a photo, mention the main things that are depicted, the occasion, or the place.',
+	'mwe-upwiz-tooltip-date' => 'Date this work was created or first published ("yyyy-mm-dd" format).',
 	'mwe-upwiz-tooltip-categories' => 'Add [$1 categories] to your file to make it easier to find.',
 	'mwe-upwiz-tooltip-other' => 'Any other information you want to include about this work — geographic coordinates, links to other versions, etc.',
 	'mwe-upwiz-tooltip-more-info' => 'Learn more.',

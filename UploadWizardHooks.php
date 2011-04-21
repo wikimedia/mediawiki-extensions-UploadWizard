@@ -243,6 +243,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-tooltip-title',
 				'mwe-upwiz-dialog-title',
 				'mwe-upwiz-tooltip-description',
+				'mwe-upwiz-tooltip-date',
 				'mwe-upwiz-tooltip-categories',
 				'mwe-upwiz-tooltip-other',
 				'mwe-upwiz-tooltip-more-info',
