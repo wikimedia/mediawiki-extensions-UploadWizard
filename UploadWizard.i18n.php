@@ -251,6 +251,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-none-applicable-subhead' => 'If you aren\'t absolutely sure what the intentions of the original author were then please do not upload {{PLURAL:$1|this file|these files}} to {{SITENAME}}. Press the button below to abandon {{PLURAL:$1|this upload|these uploads}} -- don\'t worry, nothing\'s been published yet.',
 
 	'mwe-upwiz-license-none-applicable' => 'Abandon {{PLURAL:$1|this upload|these uploads}} without publishing',
+	'mwe-upwiz-license-confirm-remove' => 'Are you sure you want to remove {{PLURAL:$1|this upload|these uploads}}?',
+	'mwe-upwiz-license-confirm-remove-title' => 'Confirm remove',
 
 
 	'mwe-upwiz-categories' => 'Categories',

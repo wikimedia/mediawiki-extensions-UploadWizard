@@ -221,7 +221,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			_this.updateFilename();
 		} else {       
 			var errorMessage = hasExtension ? 'mwe-upwiz-upload-error-bad-filename-extension' : 'mwe-upwiz-upload-error-bad-filename-no-extension';
-			$( '<div>' )
+			$( '<div></div>' )
 				.append( 
 					$j( '<p>' ).msg( errorMessage, extension ),
 					$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),

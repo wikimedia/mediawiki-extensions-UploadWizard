@@ -302,6 +302,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-none-applicable-head',
 				'mwe-upwiz-license-none-applicable-subhead',
 				'mwe-upwiz-license-none-applicable',
+				'mwe-upwiz-license-confirm-remove',
+				'mwe-upwiz-license-confirm-remove-title',
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-remove',

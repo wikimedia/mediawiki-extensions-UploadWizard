@@ -460,21 +460,29 @@ mw.UploadWizardDeedChooser.prototype = {
 	 */
 	bindDeleter: function() {
 		var deedChooser = this;
+
+		if ( !mw.isDefined( deedChooser.deleteDialog ) ) {
+			deedChooser.deleteDialog = mw.UploadWizardDeleteDialog( 
+				deedChooser.uploads, 
+				gM( 'mwe-upwiz-license-confirm-remove-title' ),
+				gM( 'mwe-upwiz-license-confirm-remove', deedChooser.uploads.length )
+			);
+		}
+ 		
 		$j( deedChooser.$selector.find( '.mwe-upwiz-license-special-delete' ) ).each( function() {
 			$j( this ).append( 
-				$j( '<button></button>' )
-					.attr( 'type', 'button' )
-					.msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
-					.button()
-					.addClass( 'ui-button-text ui-button-textonly' )
-					.click( function() { 
-						$j.each( deedChooser.uploads, function( i, upload ) { 
-							upload.remove();
-						} );
-					} )
+                               $j( '<button></button>' )
+                                       .attr( 'type', 'button' )
+                                       .msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
+                                       .button()
+                                       .addClass( 'ui-button-text ui-button-textonly' )
+                                       .click( function() { 
+                                               deedChooser.deleteDialog.dialog( 'open' );
+                                       } )
 			);
 		} );
 	}
-};
+
+}; // end UploadWizardDeed.prototype
 
 } )( jQuery );
