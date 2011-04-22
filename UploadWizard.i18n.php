@@ -332,6 +332,7 @@ The word "extension" refers to the part behind the last dot in a file name, that
 {{Identical|Cancel}}',
 	'mwe-upwiz-feedback-submit' => 'Button label',
 	'mwe-upwiz-feedback-adding' => 'Progress notice',
+	'mwe-upwiz-license-confirm-remove-title' => 'Title for dialog box to confirm that you want to abandon an upload that you started'
 );
 
 /** Afrikaans (Afrikaans)
