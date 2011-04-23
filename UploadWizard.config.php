@@ -186,28 +186,16 @@ return array(
 
 
 	// Default thumbnail width
-	'thumbnailWidth' => 120, 
+	'thumbnailWidth' => 100, 
  
 	// Max thumbnail height:
-	'thumbnailMaxHeight' => 200,
+	'thumbnailMaxHeight' => 166,
 
-	// Min thumbnail width
-	'smallThumbnailWidth' => 60,  
-
-	// Small thumbnail max height
-	'smallThumbnailMaxHeight' => 100,
-	
 	// Large thumbnail width
 	'largeThumbnailWidth' => 500,
 
 	// Large thumbnail max height
 	'largeThumbnailMaxHeight' => 500,
-
-	// Icon thumbnail width: 
-	'iconThumbnailWidth' =>  32,
-
-	// Icon thumbnail height: 
-	'iconThumbnailMaxHeight' => 32,
 
 	// Max author string length
 	'maxAuthorLength' => 50,
