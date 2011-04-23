@@ -471,8 +471,7 @@ mw.UploadWizardDeedChooser.prototype = {
  		
 		$j( deedChooser.$selector.find( '.mwe-upwiz-license-special-delete' ) ).each( function() {
 			$j( this ).append( 
-                               $j( '<button></button>' )
-                                       .attr( 'type', 'button' )
+                               $j( '<button type="button"></button>' )
                                        .msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
                                        .button()
                                        .addClass( 'ui-button-text ui-button-textonly' )
