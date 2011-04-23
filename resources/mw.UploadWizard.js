@@ -205,14 +205,13 @@ mw.UploadWizardUpload.prototype = {
 		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 		if ( result.upload ) {
 			_this.extractUploadInfo( result.upload );
-			// create the small thumbnail used on the 'upload' step
 			_this.getThumbnail( 
 				function( image ) {
 					// n.b. if server returns a URL, which is a 404, we do NOT get broken image
 					_this.ui.setPreview( image ); // make the thumbnail the preview image
 				},
-				mw.UploadWizard.config[ 'iconThumbnailWidth' ], 
-				mw.UploadWizard.config[ 'iconThumbnailMaxHeight' ] 
+				mw.UploadWizard.config[ 'thumbnailWidth' ], 
+				mw.UploadWizard.config[ 'thumbnailMaxHeight' ] 
 			);
 			// create the large thumbnail that the other thumbnails link to
 			_this.getThumbnail( 
@@ -660,11 +659,6 @@ mw.UploadWizard.prototype = {
 							upload.details.useCustomDeedChooser();
 						} else {
 							upload.deedChooser = _this.deedChooser;
-						}
-
-						/* put a border below every details div except the last */
-						if ( i < lastUploadIndex ) {
-							upload.details.div.css( 'border-bottom', '1px solid #e0e0e0' );
 						}
 
 						// only necessary if (somehow) they have beaten the check-as-you-type
@@ -1343,9 +1337,9 @@ mw.UploadWizardDeedPreview.prototype = {
 	setup: function() {
 		var _this = this;
 		// add a preview on the deeds page
-		var thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail-small"></div>' );
+		var thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
-		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'smallThumbnailWidth'  ], mw.UploadWizard.config[ 'smallThumbnailMaxHeight' ] );
+		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'thumbnailWidth'  ], mw.UploadWizard.config[ 'thumbnailMaxHeight' ] );
 		_this.upload.deedThumbnailDiv = thumbnailDiv;
 	}
 };

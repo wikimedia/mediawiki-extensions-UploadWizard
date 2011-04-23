@@ -15,15 +15,6 @@ form.mwe-upwiz-form {
 	max-width: 900px; /* wild guess */ 
 }
 
-/*
-.upload-section {
-	padding: 1em;
-	margin-bottom: 0.5em;
-	margin-top: 0.5em;
-	border: 1px solid #e0e0e0;
-}
-*/
-
 #mwe-upwiz-steps {
 	background-color: white;
 	background-image: none;
@@ -177,16 +168,18 @@ form.mwe-upwiz-form {
 	
 .mwe-upwiz-file-preview {
 	float: left;
-	height: 40px;
-	width: 40px;
-	margin-right: 6px;
-	background: url('images/32px-Blank-document.svg.png') no-repeat center top;
+	height: 100px;
+	width: 100px;
+	padding: 0.5em;
+	border: 1px solid #e0e0e0;
+	margin-right: 1em;
+	background: url('images/32px-Blank-document.svg.png') no-repeat center center;
 }
 
 .mwe-upwiz-file-preview-broken {
-	height: 40px !important;
-	width: 40px !important;
-	background: url('images/32px-Blank-document-broken.svg.png') no-repeat center top !important;
+	height: 100px !important;
+	width: 100px !important;
+	background: url('images/32px-Blank-document-broken.svg.png') no-repeat center center !important;
 }
 
 .mwe-upwiz-add-files-n {
@@ -353,26 +346,19 @@ a[disabled=true]:hover {
 	background: #ffffe0;
 }
 
-.mwe-upwiz-thumbnail, .mwe-upwiz-thumbnail-small {
+.mwe-upwiz-thumbnail {
 	border: 1px solid #cccccc;
 	text-align: center;
 	background: #ffffff;
-}
-
-.mwe-upwiz-thumbnail {
-	padding: 0.5em;
-	width: auto; 
+	width: 100px;
+	padding: 8px;
 }
 
 .mwe-upwiz-thumbnail-side {
 	float: left;
 	margin-bottom: 1em;
 	margin-right: 1em;
-}
-
-.mwe-upwiz-thumbnail-small {
-	padding: 0.25em;
-	width: 60px;
+	width: 116px; /* see .mwe-upwiz-thumbnail, 100 + 8 + 8 */
 }
 
 #mwe-upwiz-deeds-thumbnails {
@@ -381,7 +367,7 @@ a[disabled=true]:hover {
 	background: #f0f0f0;
 }
 
-#mwe-upwiz-deeds-thumbnails .mwe-upwiz-thumbnail-small {
+#mwe-upwiz-deeds-thumbnails .mwe-upwiz-thumbnail {
 	display: inline-block;
 	margin: 1em;
 	vertical-align: middle;
@@ -461,11 +447,10 @@ a[disabled=true]:hover {
 }
 
 #mwe-upwiz-macro-files {
-	margin-top: 12px;
 }
 
 .mwe-upwiz-info-file {
-	margin-bottom: 1em;
+	padding: 1em;
 }
 
 .mwe-upwiz-details-fieldname {

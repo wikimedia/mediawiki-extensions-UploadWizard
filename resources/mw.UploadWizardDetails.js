@@ -20,7 +20,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	_this.descriptions = [];
 
-	_this.div = $j( '<div class="mwe-upwiz-info-file ui-helper-clearfix"></div>' );
+	_this.div = $j( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
 
 	_this.thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
 	
