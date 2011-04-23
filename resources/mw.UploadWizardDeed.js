@@ -51,8 +51,8 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 	var _this = new mw.UploadWizardDeed();
 
-	_this.authorInput = $j( '<input />')
-		.attr( { name: "author", type: "text" } )
+	_this.authorInput = $j( '<input type="text" />' )
+		.attr( { name: "author" } )
 		.addClass( 'mwe-upwiz-sign' );
 
 	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
@@ -93,7 +93,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 			_this.$form = $j( '<form />' );
 
-			var $authorInput2 = $j( '<input />' ).attr( { name: "author2", type: "text" } ).addClass( 'mwe-upwiz-sign' );
+			var $authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert',

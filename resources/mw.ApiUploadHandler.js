@@ -75,7 +75,7 @@ mw.ApiUploadHandler.prototype = {
 	 */
 	addFormInputIfMissing: function( name, value ) {
 		if ( this.$form.find( "[name='" + name + "']" ).length === 0 ) {
-			this.$form.append( $j( '<input />' ) .attr( { 'type': "hidden", 'name': name, 'value': value } ));
+			this.$form.append( $j( '<input type="hidden" />' ) .attr( { 'name': name, 'value': value } ));
 		}		
 	},
 
