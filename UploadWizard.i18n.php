@@ -1946,6 +1946,7 @@ $messages['eo'] = array(
 	'mwe-upwiz-step-thanks' => 'Uzo',
 	'mwe-upwiz-api-error-empty-file' => 'La dosiero kiun vi sendis estis malplena.',
 	'mwe-upwiz-api-error-filename-tooshort' => 'La dosiernomo estas tro mallonga.',
+	'mwe-upwiz-api-warning-exists' => 'Ekzistas [$1 alia dosiero] jam en la vikio kun la sama dosiernomo',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Bedaŭinde, ne eblis trovi iujn ajn dosierojn por la helpsistemo kiu estu ĉi tie. Bonvolu informigi la sistem-administrantojn.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Bedaŭrinde, ne povus skali bildon de la instruilo por adapti la ekranon. Tio ĉi povas esti intertempa problemo kun Wikimedia Komunejo; reprovu poste.',
 	'mwe-upwiz-add-file-n' => 'Aldoni alian dosieron',
@@ -1957,6 +1958,7 @@ $messages['eo'] = array(
 	'mwe-upwiz-failed' => 'Malsukcesis.',
 	'mwe-upwiz-click-here' => 'Alklaki ĉi tie por elekti dosieron',
 	'mwe-upwiz-editing' => 'Redaktanta...',
+	'mwe-upwiz-remove' => 'Forigi',
 	'mwe-upwiz-remove-upload' => 'Forigi ĉi tiun dosieron el la listo de alŝutendaj dosieroj',
 	'mwe-upwiz-remove-description' => 'Forigi ĉi tiun priskribon',
 	'mwe-upwiz-upload' => 'Alŝuti',
@@ -1966,9 +1968,12 @@ $messages['eo'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekundo plurestanta|sekundoj plurestantaj}}',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutoj}} $2 {{PLURAL:$2|sekundo|sekundoj}} {{#ifexpr:$1 + $2|1|restanta|restantaj}}',
 	'mwe-upwiz-deeds-custom-prompt' => 'Aŭ:',
+	'mwe-upwiz-desc' => 'Priskribo',
 	'mwe-upwiz-title' => 'Titolo',
 	'mwe-upwiz-filename-tag' => 'Dosiernomo:',
 	'mwe-upwiz-source' => 'Fonto',
+	'mwe-upwiz-categories' => 'Kategorioj',
+	'mwe-upwiz-help-popup-title' => 'Titolo',
 );
 
 /** Spanish (Español)
@@ -5632,6 +5637,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-license-gfdl' => 'ഗ്നൂ സ്വതന്ത്ര പ്രസിദ്ധീകരണാനുമതി',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'പകർപ്പവകാശരഹിതം, കടപ്പാട് ആവശ്യമാണ് (ജി.എഫ്.ഡി.എൽ., സി.സി.-ബൈ-എസ്.എ.-3.0)',
 	'mwe-upwiz-license-cc-by-3.0-gfdl' => 'കടപ്പാട് ആവശ്യമാണ് (ജി.എഫ്.ഡി.എൽ., സി.സി.-ബൈ-എസ്.എ.-3.0)',
+	'mwe-upwiz-license-confirm-remove-title' => 'നീക്കം ചെയ്യൽ സ്ഥിരീകരിക്കുക',
 	'mwe-upwiz-categories' => 'വർഗ്ഗങ്ങൾ',
 	'mwe-upwiz-categories-add' => 'കൂട്ടിച്ചേർക്കുക',
 	'mwe-upwiz-category-remove' => 'ഈ വർഗ്ഗം നീക്കം ചെയ്യുക',
@@ -5641,6 +5647,10 @@ $messages['ml'] = array(
 	'mwe-upwiz-thumbnail-failed' => 'അപ്‌ലോഡ് വിജയകരമായിരുന്നു, പക്ഷേ എങ്ങനെയുണ്ടെന്ന് കാണാനുള്ള ലഘുചിത്രം സെർവർ ലഭ്യമാക്കിയിട്ടില്ല',
 	'mwe-upwiz-unparseable-filename' => '"$1" എന്ന പ്രമാണനാമം മനസ്സിലാക്കിയെടുക്കാൻ കഴിഞ്ഞില്ല',
 	'mwe-upwiz-image-preview' => 'ചിത്രം എങ്ങനെയുണ്ടെന്ന് കാണൽ',
+	'mwe-upwiz-feedback-subject' => 'വിഷയം:',
+	'mwe-upwiz-feedback-message' => 'സന്ദേശം:',
+	'mwe-upwiz-feedback-cancel' => 'റദ്ദാക്കുക',
+	'mwe-upwiz-feedback-submit' => 'അഭിപ്രായം സമർപ്പിക്കുക',
 );
 
 /** Mongolian (Монгол)
@@ -5650,6 +5660,18 @@ $messages['mn'] = array(
 	'mwe-upwiz-cancel' => 'Цуцлах',
 	'mwe-upwiz-categories' => 'Ангиллууд',
 	'mwe-upwiz-categories-add' => 'Нэмэх',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'mwe-upwiz-title' => 'Tajuk',
+	'mwe-upwiz-source' => 'Sumber',
+	'mwe-upwiz-next' => 'Berikutnya',
+	'mwe-upwiz-next-deeds' => 'Berikutnya',
+	'mwe-upwiz-next-details' => 'Berikutnya',
+	'mwe-upwiz-help-popup-title' => 'Tajuk',
 );
 
 /** Burmese (မြန်မာဘာသာ)
@@ -7556,6 +7578,7 @@ V obeh primerih bo vpisano ime povezano na vašo uporabniško stran na wikiju.',
 	'mwe-upwiz-dialog-title' => 'Datoteke je mogoče naložiti z imeni v katerem koli jeziku in v kateri koli pisavi (kodirano kot UTF-8). Naslovi predstavnostnih datotek naj bodo smiselni in koristni v izbranem jeziku.',
 	'mwe-upwiz-tooltip-description' => 'Na kratko opišite vse opaznejše o delu.
 Pri fotografiji omenite glavne stvari, ki so upodobljene, priložnost ali kraj.',
+	'mwe-upwiz-tooltip-date' => 'Datum, ko je bilo to delo ustvarjeno ali prvič objavljeno (v obliki »llll-mm-dd«).',
 	'mwe-upwiz-tooltip-categories' => 'Svoji datoteki dodajte [$1 kategorije], da jo bo lažje najti.',
 	'mwe-upwiz-tooltip-other' => 'Vse druge informacije o tem delu, ki jih želite vključiti – geografske koordinate, povezave do drugih različic idr.',
 	'mwe-upwiz-tooltip-more-info' => 'Več o tem.',
@@ -7614,6 +7637,13 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-license-public-domain-head' => 'Avtorske pravice so zagotovo potekle',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|To delo|Ti deli|Ta dela}} je naredila vlada Združenih držav Amerike',
 	'mwe-upwiz-license-misc' => 'Razni razlogi',
+	'mwe-upwiz-license-custom-head' => 'Samo za napredne uporabnike: vnesite kodo dovoljenja, ki tukaj ni prikazano',
+	'mwe-upwiz-license-custom-subhead' => 'Vnesite wikibesedilo, ki bo dodalo predlogo dovoljenja k vašim naloženim datotekam.',
+	'mwe-upwiz-license-none-applicable-head' => 'Ne vem, ali katera od zgornjih možnosti ustreza ali ne! Na pomoč!',
+	'mwe-upwiz-license-none-applicable-subhead' => 'Če niste popolnoma prepričani, kakšni so bili nameni izvirnega avtorja, vam prosimo, da {{PLURAL:$1|te datoteke|teh datotek}} ne naložite na {{GRAMMAR:tožilnik|{{SITENAME}}}}. Pritisnite na spodnji gumb za opustitev nalaganja {{PLURAL:$1|datoteke|datotek}} – ne skrbite, nič še ni bilo objavljeno.',
+	'mwe-upwiz-license-none-applicable' => 'Opusti {{PLURAL:$1|to datoteko|ti datoteki|te datoteke}} brez objave',
+	'mwe-upwiz-license-confirm-remove' => 'Ste prepričani, da želite odstraniti {{PLURAL:$1|to datoteko|ti datoteki|te datoteke}}?',
+	'mwe-upwiz-license-confirm-remove-title' => 'Potrdite odstranitev',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-remove' => 'Odstrani kategorijo',
