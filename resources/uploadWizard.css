@@ -388,6 +388,7 @@ a[disabled=true]:hover {
 	float: left;
 	width: 46em;
 	margin-bottom: 1em;
+	padding-right: 1em; /* fix for 100% width textareas in mwe-upwiz-data */
 }
 
 
