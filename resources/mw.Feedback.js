@@ -95,7 +95,7 @@
 			// get the values to submit
 			var subject = this.subjectInput.value;
 
-			message = "<small>User agent: " + navigator.userAgent + "</small>\n\n"
+			var message = "<small>User agent: " + navigator.userAgent + "</small>\n\n"
 				 + this.messageInput.value;
 			if ( message.indexOf( '~~~' ) == -1 ) {
 				message += " ~~~~";
