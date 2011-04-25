@@ -128,6 +128,9 @@ class UploadWizardHooks {
 				'mwe-upwiz-api-error-fetchfileerror',
 				'mwe-upwiz-api-error-duplicate',
 				'mwe-upwiz-api-error-duplicate-popup-title',
+				'mwe-upwiz-api-error-duplicate-archive',
+				'mwe-upwiz-api-error-duplicate-archive-popup-title',
+				'mwe-upwiz-api-error-unknown-warning',
 				'mwe-upwiz-api-error-timeout',
 				'mwe-upwiz-api-error-noimageinfo',
 

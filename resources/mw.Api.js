@@ -161,6 +161,7 @@
 
 		/* really a warning, but we treat it like an error */
 		'duplicate',
+		'duplicate-archive',
 
 		/* upload succeeded, but no image info. 
 		   this is probably impossible, but might as well check for it */

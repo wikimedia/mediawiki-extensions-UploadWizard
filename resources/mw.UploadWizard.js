@@ -115,7 +115,7 @@ mw.UploadWizardUpload.prototype = {
 		var info = 'unknown';
 
 		if ( result.upload && result.upload.warnings ) {
-			if ( result.upload.warnings.exists ) {
+			if ( result.upload.warnings['exists'] ) {
 				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
 				// potentially we could indicate to the upload that it should set the Title field to error state now, but we'll let them deal with that later.
 				// however, we don't get imageinfo, so let's try to get it and pretend that we did
@@ -138,43 +138,27 @@ mw.UploadWizardUpload.prototype = {
 					}
 				};
 				_this.getStashImageInfo( success, [ 'timestamp', 'url', 'size', 'dimensions', 'sha1', 'mime', 'metadata', 'bitdepth' ] );
-			} else if ( result.upload.warnings.duplicate ) {
-				if ( typeof result.upload.warnings.duplicate == 'object' ) { 
-					var duplicates = result.upload.warnings.duplicate;
-					var $ul = $j( '<ul></ul>' );
-					$j.each( duplicates, function( i, filename ) { 
-						var $a = $j( '<a/>' ).append( filename );
-						var href;
-						try {
-							href = _this.filenameToUrl( filename );
-							$a.attr( { 'href': href, 'target': '_blank' } );
-						} catch ( e ) {
-							$a.click( function() { alert('could not parse filename=' + filename ); } );
-							$a.attr( 'href', '#' );
-						}
-						$ul.append( $j( '<li></li>' ).append( $a ) );
-					} );
-					var dialogFn = function() {
-						$j( '<div></div>' )
-							.html( $ul )
-							.dialog( {
-								width: 500,
-								zIndex: 200000,
-								autoOpen: true,
-								title: gM( 'mwe-upwiz-api-error-duplicate-popup-title', duplicates.length ),
-								modal: true
-							} );
-					};
-					code = 'duplicate';
-					info = [ duplicates.length, dialogFn ];
-				}
-				_this.setError( code, info );	
+			} else if ( result.upload.warnings['duplicate'] ) {
+				code = 'duplicate';
+				_this.setError( code, _this.duplicateErrorInfo( 'duplicate', result.upload.warnings['duplicate'] ) );
+			} else if ( result.upload.warnings['duplicate-archive'] ) {
+				code = 'duplicate-archive';
+				_this.setError( code, _this.duplicateErrorInfo( 'duplicate-archive', result.upload.warnings['duplicate-archive'] ) );
+			} else {
+				// we have an unknown warning. Assume fatal
+				code = 'unknown-warning';
+				var warningInfo = [];
+				$j.each( result.upload.warnings, function( k, v ) {
+					warningInfo.push( k + ': ' + v );
+				} );
+				info = warningInfo.join( ', ' ); 
+				_this.setError( code, [ info ] );	
 			}
 		} else if ( result.upload && result.upload.result === 'Success' ) {
 			if ( result.upload.imageinfo ) {
 				_this.setSuccess( result );
 			} else { 
-				_this.setError( 'noimageinfo' );
+				_this.setError( 'noimageinfo', info );
 			}
 		} else {
 			if ( result.error ) {
@@ -189,6 +173,46 @@ mw.UploadWizardUpload.prototype = {
 		}
 
 
+	},
+
+
+	/**
+	 * Helper function to generate duplicate errors with dialog box. Works with existing duplicates and deleted dupes.
+	 * @param {String} error code, should have matching strings in .i18n.php
+	 * @param {Object} portion of the API error result listing duplicates
+	 */
+	duplicateErrorInfo: function( code, resultDuplicate ) {
+		var _this = this;
+		var duplicates;
+		if ( typeof resultDuplicate === 'object' ) { 
+			duplicates = resultDuplicate;
+		} else if ( typeof resultDuplicate === 'string' ) {
+			duplicates = [ resultDuplicate ];
+		}
+		var $ul = $j( '<ul></ul>' );
+		$j.each( duplicates, function( i, filename ) { 
+			var $a = $j( '<a/>' ).append( filename );
+			try {
+				var href = _this.filenameToUrl( filename );
+				$a.attr( { 'href': href, 'target': '_blank' } );
+			} catch ( e ) {
+				$a.click( function() { alert('could not parse filename=' + filename ); } );
+				$a.attr( 'href', '#' );
+			}
+			$ul.append( $j( '<li></li>' ).append( $a ) );
+		} );
+		var dialogFn = function() {
+			$j( '<div></div>' )
+				.html( $ul )
+				.dialog( {
+					width: 500,
+					zIndex: 200000,
+					autoOpen: true,
+					title: gM( 'mwe-upwiz-api-error-' + code + '-popup-title', duplicates.length ),
+					modal: true
+				} );
+		};
+		return [ duplicates.length, dialogFn ];
 	},
 
 
