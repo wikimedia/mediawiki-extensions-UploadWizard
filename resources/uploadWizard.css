@@ -168,8 +168,8 @@ form.mwe-upwiz-form {
 	
 .mwe-upwiz-file-preview {
 	float: left;
-	height: 100px;
-	width: 100px;
+	height: 60px;
+	width: 60px;
 	padding: 0.5em;
 	border: 1px solid #e0e0e0;
 	margin-right: 1em;
@@ -177,8 +177,8 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-file-preview-broken {
-	height: 100px !important;
-	width: 100px !important;
+	height: 60px !important;
+	width: 60px !important;
 	background: url('images/32px-Blank-document-broken.svg.png') no-repeat center center !important;
 }
 
@@ -350,7 +350,7 @@ a[disabled=true]:hover {
 	border: 1px solid #cccccc;
 	text-align: center;
 	background: #ffffff;
-	width: 100px;
+	width: 60px;
 	padding: 8px;
 }
 
@@ -358,7 +358,7 @@ a[disabled=true]:hover {
 	float: left;
 	margin-bottom: 1em;
 	margin-right: 1em;
-	width: 116px; /* see .mwe-upwiz-thumbnail, 100 + 8 + 8 */
+	width: 76px; /* see .mwe-upwiz-thumbnail, 60 + 8 + 8 */
 }
 
 #mwe-upwiz-deeds-thumbnails {

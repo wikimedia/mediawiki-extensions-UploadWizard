@@ -186,10 +186,10 @@ return array(
 
 
 	// Default thumbnail width
-	'thumbnailWidth' => 100, 
+	'thumbnailWidth' => 60, 
  
 	// Max thumbnail height:
-	'thumbnailMaxHeight' => 166,
+	'thumbnailMaxHeight' => 100,
 
 	// Large thumbnail width
 	'largeThumbnailWidth' => 500,
