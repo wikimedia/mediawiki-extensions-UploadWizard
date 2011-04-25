@@ -1311,7 +1311,6 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 		{
 			text: gM( 'mwe-upwiz-cancel', uploads.length ),
 			click: function() {
-				debugger;
 				$j( this ).dialog( 'close' )
 			}
 		}
