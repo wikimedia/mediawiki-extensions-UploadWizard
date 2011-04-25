@@ -1339,23 +1339,17 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 	$j.each( uploads, function( i, upload ) { 
 		$filenameList.append( $j( '<li></li>' ).append( upload.title.getMain() ) );
 	} );
-	var buttons = [ 
-		{
-			text: gM( 'mwe-upwiz-remove', uploads.length ),
-			click: function() { 
-				$j.each( uploads, function( i, upload ) { 
-					upload.remove();
-				} );
-				$j( this ).dialog( 'close' );
-			}
-		},
-		{
-			text: gM( 'mwe-upwiz-cancel', uploads.length ),
-			click: function() {
-				$j( this ).dialog( 'close' );
-			}
-		}
-	];
+	var buttons = {};
+	buttons[ gM( 'mwe-upwiz-remove', uploads.length ) ] = function() { 
+		$j.each( uploads, function( i, upload ) { 
+			upload.remove();
+		} );
+		$j( this ).dialog( 'close' );
+	};
+	buttons[ gM( 'mwe-upwiz-cancel', uploads.length ) ] = function() {
+		$j( this ).dialog( 'close' );
+	};
+
 	return $j( '<div></div>' )
 		.append( $j( '<p></p>' ).append( dialogText ), $filenameList )
 		.dialog( { 
