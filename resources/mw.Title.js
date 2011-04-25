@@ -169,7 +169,7 @@
 				} 	
 			} );
 			if ( !found ) { 
-				throw new Error( "unrecognized prefix" );
+				throw new Error( "unrecognized namespace prefix" );
 			}
 			return this;
 		};
