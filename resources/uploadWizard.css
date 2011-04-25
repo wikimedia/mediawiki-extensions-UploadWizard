@@ -173,12 +173,14 @@ form.mwe-upwiz-form {
 	padding: 0.5em;
 	border: 1px solid #e0e0e0;
 	margin-right: 1em;
+	/* @embed */
 	background: url('images/32px-Blank-document.svg.png') no-repeat center center;
 }
 
 .mwe-upwiz-file-preview-broken {
 	height: 60px !important;
 	width: 60px !important;
+	/* @embed */
 	background: url('images/32px-Blank-document-broken.svg.png') no-repeat center center !important;
 }
 
@@ -284,17 +286,21 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-status-progress {
+	/* @embed */
 	background: url('images/24px-spinner-0645ad.gif') no-repeat center center;
 }
 
 .mwe-upwiz-file.hover .mwe-upwiz-status-progress {
+	/* @embed */
 	background: url('images/24px-spinner-0645ad-e0f0ff.gif') no-repeat center center;
 }
 
 .mwe-upwiz-file.odd .mwe-upwiz-status-progress {
+	/* @embed */
 	background: url('images/24px-spinner-0645ad-f5f5f5.gif') no-repeat center center;
 }
 .mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
+	/* @embed */
 	background: url('images/32px-Dialog-apply-009900.svg.png') no-repeat center center;
 }
 
@@ -307,18 +313,22 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-cc-zero-icon {
+	/* @embed */
 	background: url('images/18px-Cc-zero.svg.png') no-repeat center center;
 }
 
 .mwe-upwiz-cc-sa-icon {
+	/* @embed */
 	background: url('images/18px-Share_Alike.svg.png') no-repeat center center;
 }
 
 .mwe-upwiz-cc-by-icon {
+	/* @embed */
 	background: url('images/18px-Cc-by_new_white.svg.png') no-repeat center center;
 }
 
 .mwe-upwiz-status-error {
+	/* @embed */
 	background: url('images/32px-Nuvola_apps_important_orange.svg.png') no-repeat center center;
 	font-weight: bold;
 	color: #CC0000;
@@ -612,10 +622,12 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 .mwe-upwiz-toggler {
 	margin-bottom: 0;
 	padding: 4px 0 3px 18px;
+	/* @embed */
 	background: url('images/toggle.png') no-repeat left center;
 }
 
 .mwe-upwiz-toggler-open {
+	/* @embed */
 	background: url('images/toggle-open.png') no-repeat left center;
 }
 
@@ -647,6 +659,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 
 .mwe-date {
 	width: 20em;
+	/* @embed */
 	background: #ffffff url('images/calendar.gif') no-repeat right center;
 }
 
@@ -655,6 +668,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 }
 
 .mwe-upwiz-hint {
+    /* @embed */
     background: url('images/question.png') no-repeat;
     display: inline-block;
     height: 11px;
@@ -662,6 +676,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
     margin-left: 4px;
 }
 .mwe-upwiz-hint:hover {
+    /* @embed */
     background: url('images/question-hover.png') no-repeat;
 }
 
