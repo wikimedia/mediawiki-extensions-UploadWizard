@@ -198,7 +198,7 @@ return array(
 	'largeThumbnailMaxHeight' => 500,
 
 	// Max author string length
-	'maxAuthorLength' => 50,
+	'maxAuthorLength' => 100,
 
 	// Min author string length
 	'minAuthorLength' => 2,
