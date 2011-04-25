@@ -174,9 +174,19 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		moreDetailsDiv
 	);
 
+	_this.submittingDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-submitting' )
+		.append( 
+			$j( '<div></div>' ).addClass( 'mwe-upwiz-file-indicator' ),
+			$j( '<div></div>' ).addClass( 'mwe-upwiz-details-texts' ).append( 
+				$j( '<div></div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
+				$j( '<div></div>' ).addClass( 'mwe-upwiz-file-status-line' )
+			)
+		);
+
 	$j( _this.dataDiv ).append( 
-		_this.$form 
-	);
+		_this.$form,
+		_this.submittingDiv
+	).morphCrossfader();
 
 	$j( _this.div ).append( 
 		_this.thumbnailDiv, 
@@ -657,6 +667,7 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 
 		_this.upload.state = 'submitting-details';
+		_this.setStatus( gM( 'mwe-upwiz-submitting-details' ) ); 
 		_this.showIndicator( 'progress' );
 
 		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
@@ -672,6 +683,7 @@ mw.UploadWizardDetails.prototype = {
 		};
 
 		var err = function( code, info ) {
+			_this.upload.state = 'error';
 			_this.showError( code, info );	
 		};
 
@@ -682,7 +694,7 @@ mw.UploadWizardDetails.prototype = {
 				_this.upload.state = 'complete';
 				_this.showIndicator( 'uploaded' );
 			} else {
-				_this.showError( 'details-info-missing', result );
+				err( 'details-info-missing', result );
 			}
 		};
 
@@ -701,11 +713,11 @@ mw.UploadWizardDetails.prototype = {
 	},
 
 	setStatus: function( s ) { 
-		this.div.data( 'statusLine' ).html( s ).show();
+		this.div.find( '.mwe-upwiz-file-status-line' ).html( s ).show();
 	},
 
 	showIndicator: function( statusStr ) { 
-		this.div.data( 'indicator' )
+		this.div.find( '.mwe-upwiz-file-indicator' )
 			.show()
 			.removeClass( 'mwe-upwiz-status-progress mwe-upwiz-status-error mwe-upwiz-status-uploaded' )
 			.addClass( 'mwe-upwiz-status-' + statusStr );

@@ -265,7 +265,18 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">'
 		.       '<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
-		.          '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-details" )  . '</button>'
+		.	   '<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice">'
+		.            '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-details" )  . '</button>'
+		.          '</div>'
+		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
+		.             wfMsg( "mwe-upwiz-file-some-failed" )
+		.             '<button class="mwe-upwiz-button-retry">' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
+		.             '<button class="mwe-upwiz-button-next-despite-failures">' . wfMsg( "mwe-upwiz-next-file-despite-failures" )  . '</button>'
+		.          '</div>'
+		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
+		.             wfMsg( "mwe-upwiz-file-all-failed" )
+		.             '<button class="mwe-upwiz-button-retry"> ' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
+		.          '</div>'
 		.       '</div>'
 		.     '</div>'
 

@@ -633,8 +633,9 @@ mw.UploadWizard.prototype = {
 			} );
 
 		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-next' ).click( function() {
-			_this.removeErrorUploads();
-			_this.prepareAndMoveToDeeds();
+			_this.removeErrorUploads( function() { 
+				_this.prepareAndMoveToDeeds();
+			} );
 		} ); 
 		$j ( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
 			_this.hideFileEndButtons();	
@@ -671,21 +672,37 @@ mw.UploadWizard.prototype = {
 
 
 		// DETAILS div
+		var finalizeDetails = function() { 
+			if ( mw.isDefined( _this.allowCloseWindow ) ) {
+				_this.allowCloseWindow();
+			} 
+			_this.prefillThanksPage();
+			_this.moveToStep( 'thanks' );
+		};
 
-		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-button-next' )
+		var startDetails = function() {
+			$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+			if ( _this.detailsValid() ) { 
+				_this.hideDetailsEndButtons();	
+				_this.detailsSubmit( function() { 
+					_this.showNext( 'details', 'complete', finalizeDetails );
+				} );
+			}
+		};
+
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
+		
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next .mwe-upwiz-button-next' )
+			.click( startDetails );
+
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-next-despite-failures' )
 			.click( function() {
-				$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
-				if ( _this.detailsValid() ) { 
-					_this.detailsSubmit( function() { 
-						if ( mw.isDefined( _this.allowCloseWindow ) ) {
-							_this.allowCloseWindow();
-						} 
-						_this.prefillThanksPage();
-						_this.moveToStep( 'thanks' );
-					} );
-				}
+				_this.removeErrorUploads( finalizeDetails );
 			} );
-
+ 
+		$j ( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
+			.click( startDetails );
 
 
 		// WIZARD 
@@ -878,8 +895,11 @@ mw.UploadWizard.prototype = {
 	 * Hide the button choices at the end of the file step.
 	 */
 	hideFileEndButtons: function() {
-		$j( '#mwe-upwiz-stepdiv .mwe-upwiz-buttons' ).hide();
 		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
+	},
+
+	hideDetailsEndButtons: function() { 
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
 	},
 
 	/**
@@ -894,11 +914,13 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
+	 * @param {Function} to be called when done
 	 */
-	removeErrorUploads: function() {
+	removeErrorUploads: function( endCallback ) {
 		this.removeMatchingUploads( function( upload ) {
 			return upload.state === 'error';
 		} );
+		endCallback();	
 	},
 
 
@@ -1016,7 +1038,7 @@ mw.UploadWizard.prototype = {
 			},
 			function() {
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
-				_this.showFileNext();
+				_this.showNext( 'file', 'stashed' );
 		  	} 
 		);
 	},
@@ -1030,29 +1052,26 @@ mw.UploadWizard.prototype = {
 	 * 4) All failed -- have to retry, no other option
 	 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but 
 	 * we trust that this hasn't happened.
+	 *
+	 * @param {String} step that we are on
+	 * @param {String} desired state to proceed (other state is assumed to be 'error')
 	 */
-	showFileNext: function() {
-		if ( this.uploads.length === 0 ) {
-			this.updateFileCounts();
-			$j( '#mwe-upwiz-progress' ).hide();
-			$j( '#mwe-upwiz-upload-ctrls' ).show();
-			$j( '#mwe-upwiz-add-file' ).show();
-			this.moveToStep( 'file' );
-			return;
-		}
+	showNext: function( step, desiredState, allOkCallback ) {
 		var errorCount = 0;
-		var stashedCount = 0;
+		var okCount = 0;
 		$j.each( this.uploads, function( i, upload ) {
 			if ( upload.state === 'error' ) {
 				errorCount++;
-			} else if ( upload.state === 'stashed' ) {
-				stashedCount++;	
+			} else if ( upload.state === desiredState ) {
+				okCount++;	
 			} else {
 				mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
 			}
 		} );
 		var selector = null;
-		if ( stashedCount === this.uploads.length ) {
+		var allOk = false;
+		if ( okCount === this.uploads.length ) {
+			allOk = true;
 			selector = '.mwe-upwiz-file-next-all-ok';
 		} else if ( errorCount === this.uploads.length ) {
 			selector = '.mwe-upwiz-file-next-all-failed';
@@ -1060,9 +1079,11 @@ mw.UploadWizard.prototype = {
 			selector = '.mwe-upwiz-file-next-some-failed';
 		}
 
-		// perhaps the button should slide down?
-		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show().find( selector ).show();
-
+		if ( allOk && mw.isDefined( allOkCallback ) ) {
+			allOkCallback();
+		} else {
+			$j( '#mwe-upwiz-stepdiv-' + step + ' .mwe-upwiz-buttons' ).show().find( selector ).show();
+		}
 	},	
 	
 	/**
@@ -1169,34 +1190,30 @@ mw.UploadWizard.prototype = {
 	 */
 	detailsSubmit: function( endCallback ) {
 		var _this = this;
-		// some details blocks cannot be submitted (for instance, identical file hash)
-		_this.removeBlockedDetails();
+
+		$j.each( _this.uploads, function( i, upload ) { 
+			$j( upload.details.submittingDiv )
+				.find( '.mwe-upwiz-visible-file-filename-text' )
+				.html( upload.title.getMain() );
+		} );
 
 		// remove ability to edit details
-		$j.each( _this.uploads, function( i, upload ) {
-			upload.details.div.mask();
-		} );
+		$j( '#mwe-upwiz-stepdiv-details' )
+			.find( '.mwe-upwiz-data' )
+			.morphCrossfade( '.mwe-upwiz-submitting' );
 
 		// add the upload progress bar, with ETA
 		// add in the upload count 
 		_this.makeTransitioner(
 			'details', 
 			[ 'submitting-details' ],  
-			[ 'complete' ], 
+			[ 'error', 'complete' ], 
 			function( upload ) {
 				upload.details.submit();
 			},
-			endCallback /* called when all uploads are "complete" */
+			endCallback /* called when all uploads are in a valid end state */
 		);
 	},
-
-	/**
-	 * Removes(?) details that we can't edit for whatever reason -- might just advance them to a different state?
-	 */
-	removeBlockedDetails: function() {
-		// TODO	
-	},
-
 
 	prefillThanksPage: function() {
 		var _this = this;
@@ -1311,7 +1328,7 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 		{
 			text: gM( 'mwe-upwiz-cancel', uploads.length ),
 			click: function() {
-				$j( this ).dialog( 'close' )
+				$j( this ).dialog( 'close' );
 			}
 		}
 	];

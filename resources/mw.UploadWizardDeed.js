@@ -116,7 +116,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 					.msg( 'mwe-upwiz-license-show-all' ) 
 					.click( function() {
 						_this.formValidator.resetForm();
-						if ( $crossfader.data( 'crossfadeDisplay' ) === $customDiv ) {
+						if ( $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0) ) {
 							_this.licenseInput.setDefaultValues();
 							$crossfader.morphCrossfade( $standardDiv );
 							$j( this ).msg( 'mwe-upwiz-license-show-all' );

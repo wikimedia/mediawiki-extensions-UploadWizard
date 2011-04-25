@@ -704,3 +704,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 .ui-dialog .mwe-upwiz-lightbox {
 	padding: 0;
 }
+
+.mwe-upwiz-details-texts {
+	padding: 0.5em;
+}

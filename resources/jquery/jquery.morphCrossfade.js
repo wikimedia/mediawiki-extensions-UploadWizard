@@ -62,7 +62,10 @@
 
 		// should achieve the same result as crossfade( this.children().first() ) but without
 		// animation etc.
-		this.morphCrossfade( this.children().first(), 0 );
+		$j.each( this, function( i, container ) {
+			var $container = $j( container ); 
+			$container.morphCrossfade( $container.children().first(), 0 );
+		} );
 
 		return this;
 	};
@@ -73,38 +76,45 @@
 	 * @param speed (optional) how fast to crossfade, in milliseconds
  	 */
 	$.fn.morphCrossfade = function( newPanelSelector, speed ) {
-		var container = this;
+		var $containers = this;
 		if ( typeof speed === 'undefined' ) {
 			speed = 400;
 		}
 
-		container.css( { 'overflow' : 'hidden' } );
+		$containers.css( { 'overflow' : 'hidden' } );
 
-		$oldPanel = $( container.data( 'crossfadeDisplay' ) );
-		if ( $oldPanel ) {
-			// remove auto setting of height from container, and 
-			// make doubly sure that the container height is equal to oldPanel
-			container.css( { height: $oldPanel.outerHeight() } );
-			// take it out of the flow
-			$oldPanel.css( { position: 'absolute' } );
-			// fade WITHOUT hiding when opacity = 0
-			$oldPanel.animate( { opacity: 0 }, speed, 'linear', function() { 
-				$oldPanel.css( { visibility: 'hidden'} );
-			} );
-		}
-		container.data( 'crossfadeDisplay', newPanelSelector );
+		
+		$j.each( $containers, function( i, container ) { 
+			var $container = $j( container );
+			var $oldPanel = $( $container.data( 'crossfadeDisplay' ) );
+			var $newPanel = ( typeof newPanelSelector === 'string' ) ? $container.find( newPanelSelector ) : $j( newPanelSelector );
 
-		var $newPanel = $( newPanelSelector );
-		$newPanel.css( { visibility: 'visible' } );
-		container.animate( { height: $newPanel.outerHeight() }, speed, 'linear', function() {
-			// we place it back into the flow, in case its size changes.
-			$newPanel.css( { position: 'relative' } );
-			// and allow the container to grow with it.
-			container.css( { height : 'auto' } );
+			if ( $oldPanel.get(0) !== $newPanel.get(0) ) { 
+				if ( $oldPanel ) {
+					// remove auto setting of height from container, and 
+					// make doubly sure that the container height is equal to oldPanel
+					$container.css( { height: $oldPanel.outerHeight() } );
+					// take it out of the flow
+					$oldPanel.css( { position: 'absolute' } );
+					// fade WITHOUT hiding when opacity = 0
+					$oldPanel.animate( { opacity: 0 }, speed, 'linear', function() { 
+						$oldPanel.css( { visibility: 'hidden'} );
+					} );
+				}
+				$container.data( 'crossfadeDisplay', $newPanel );
+
+				$newPanel.css( { visibility: 'visible' } );
+				$container.animate( { height: $newPanel.outerHeight() }, speed, 'linear', function() {
+					// we place it back into the flow, in case its size changes.
+					$newPanel.css( { position: 'relative' } );
+					// and allow the container to grow with it.
+					$container.css( { height : 'auto' } );
+				} );
+				$newPanel.animate( { opacity: 1 }, speed );
+			}
 		} );
-		$newPanel.animate( { opacity: 1 }, speed );
 
-		return container;
+		return this;
 	};
 
 } )( jQuery );

@@ -147,6 +147,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-transported',
 				'mwe-upwiz-stashed-upload',
 				'mwe-upwiz-getting-metadata',
+				'mwe-upwiz-submitting-details',
+				'mwe-upwiz-published',
 				'mwe-upwiz-failed',
 				'mwe-upwiz-click-here',
 				'mwe-upwiz-editing',
