@@ -201,11 +201,9 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 
 	_this.uploadCount = uploadCount ? uploadCount : 1;
 	_this.sourceInput = $j('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
-				.growTextArea()
-				.attr( 'title', gM( 'mwe-upwiz-tooltip-source' ) );
+				.growTextArea();
 	_this.authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
-				.growTextArea()
-				.attr( 'title', gM( 'mwe-upwiz-tooltip-author' ) );
+				.growTextArea();
 	licenseInputDiv = $j( '<div></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
 							      undefined, 
