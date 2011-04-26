@@ -1164,6 +1164,11 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-progress' ).hide();
 			$j( '#mwe-upwiz-add-file' ).show();
 
+			// reset buttons on the details page
+			$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
+			$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
+			$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next' ).show();
+		
 			// fix various other pages that may have state
 			$j( '#mwe-upwiz-thanks' ).html( '' );
 
