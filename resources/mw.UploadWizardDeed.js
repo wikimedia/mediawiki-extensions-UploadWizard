@@ -204,7 +204,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 				.growTextArea();
 	_this.authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
 				.growTextArea();
-	licenseInputDiv = $j( '<div></div>' );
+	licenseInputDiv = $j( '<div id="mwe-upwiz-deed-license-groups"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
 							      undefined, 
 							      mw.UploadWizard.config.licensesThirdParty,
