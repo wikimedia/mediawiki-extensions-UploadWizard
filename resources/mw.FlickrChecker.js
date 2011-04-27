@@ -33,9 +33,9 @@ mw.FlickrChecker = {
  	 * @param upload - the upload object to set the deed for
 	 */
 	checkFlickr: function( url, $selector, upload ) {
-		photoIdMatches = url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
+		var photoIdMatches = url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
 		if ( photoIdMatches && photoIdMatches[1] > 0 ) {
-			photoId = photoIdMatches[1];
+			var photoId = photoIdMatches[1];
 			$.getJSON(this.apiUrl+'&method=flickr.photos.getInfo&api_key='+this.apiKey+'&photo_id='+photoId+'&format=json&jsoncallback=?',
 				function( data ) {
 					if ( typeof data.photo != 'undefined' ) {
