@@ -204,7 +204,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 				.growTextArea();
 	_this.authorInput = $j('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
 				.growTextArea();
-	licenseInputDiv = $j( '<div id="mwe-upwiz-deed-license-groups"></div>' );
+	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license-groups"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
 							      undefined, 
 							      mw.UploadWizard.config.licensesThirdParty,
@@ -235,8 +235,8 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 					.append( $j( '<label for="author" />' ).text( gM( 'mwe-upwiz-author' ) ).addHint( 'author' ),
 						 _this.authorInput ),
 				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
-					.msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ),
-				licenseInputDiv
+					.append( $j( '<div></div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ) )
+					.append( licenseInputDiv )
 			);
 
 			_this.$form.validate( {
