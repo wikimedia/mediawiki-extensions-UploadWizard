@@ -59,7 +59,8 @@ class UploadWizardHooks {
 				'resources/mw.IframeTransport.js',			
 				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
-				'resources/mw.UploadWizardUtil.js',			
+				'resources/mw.UploadWizardUtil.js',
+				'resources/mw.FlickrChecker.js',
 
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
@@ -309,6 +310,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-none-applicable',
 				'mwe-upwiz-license-confirm-remove',
 				'mwe-upwiz-license-confirm-remove-title',
+				'mwe-upwiz-license-external',
+				'mwe-upwiz-license-external-invalid',
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-remove',

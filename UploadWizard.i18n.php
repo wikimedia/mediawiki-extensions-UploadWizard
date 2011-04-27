@@ -258,6 +258,9 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-none-applicable' => 'Abandon {{PLURAL:$1|this upload|these uploads}} without publishing',
 	'mwe-upwiz-license-confirm-remove' => 'Are you sure you want to remove {{PLURAL:$1|this upload|these uploads}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirm remove',
+	
+	'mwe-upwiz-license-external' => 'This file is under the following license on $1: <b>$2</b>.',
+	'mwe-upwiz-license-external-invalid' => 'This file is under the following license on $1: <b>$2</b>. Unfortunately, this license is not appropriate for use on {{SITENAME}}.',
 
 
 	'mwe-upwiz-categories' => 'Categories',
