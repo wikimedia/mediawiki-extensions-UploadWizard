@@ -16,7 +16,7 @@ mw.FlickrChecker = {
 		'Attribution License': '{{flickrreview}}{{cc-by-2.0}}',
 		'Attribution-ShareAlike License': '{{flickrreview}}{{cc-by-sa-2.0}}',
 		'Attribution-NoDerivs License': 'invalid',
-		'No known copyright restrictions': '{{flickrreview}}{{PD-Old}}',
+		'No known copyright restrictions': '{{flickrreview}}{{Flickr-no known copyright restrictions}}',
 		'United States Government Work': '{{flickrreview}}{{PD-USGov}}'
 	},
 	
@@ -30,8 +30,8 @@ mw.FlickrChecker = {
  	 * @param upload - the upload object to set the deed for
 	 */
 	checkFlickr: function( url, $selector, upload ) {
-		if ( url.search(/http:\/\/(www.)?flickr.com\/photos\//) !== -1 ) {
-			photoIdMatches = url.match(/photos\/[^\/]+\/([0-9]+)/);
+		photoIdMatches = url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
+		if ( photoIdMatches && photoIdMatches[1] > 0 ) {
 			photoId = photoIdMatches[1];
 			$.getJSON(this.apiUrl+'&method=flickr.photos.getInfo&api_key='+this.apiKey+'&photo_id='+photoId+'&format=json&jsoncallback=?',
 				function( data ) {
@@ -55,8 +55,6 @@ mw.FlickrChecker = {
 					$.each( data.licenses.license, function(index, value) {
 						mw.FlickrChecker.licenseList[value.id] = value.name;
 					} );
-					console.debug(mw.FlickrChecker.licenseList);
-					console.debug(mw.FlickrChecker.licenseMaps);
 				}
 			}
 		);
