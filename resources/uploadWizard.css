@@ -107,12 +107,6 @@ form.mwe-upwiz-form {
 	background: #f5f5f5;
 }
 
-.mwe-upwiz-file-status-line-item {
-	display: inline-block;
-	float: left;
-	margin-right: .5em;
-}
-
 .mwe-upwiz-visible-file .mwe-upwiz-remove-ctrl {
 	visibility: hidden;
 }
@@ -149,8 +143,8 @@ form.mwe-upwiz-form {
 	border: 1px solid #d8d8d8;
 }
 
-.mwe-upwiz-file-texts {
-	margin-left: 46px;
+.mwe-upwiz-visible-file-filename-text {
+	white-space: nowrap;
 }
 
 .mwe-upwiz-file-status {
@@ -206,7 +200,6 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-visible-file {
 	width: 100%; /* of containing mwe-upwiz-file */
-	white-space: nowrap;
 	overflow: hidden;
 }
 
