@@ -41,13 +41,15 @@ mw.FlickrChecker = {
 					if ( typeof data.photo != 'undefined' ) {
 						// The returned data.photo.license is just an ID that we use to look up the license name
 						var licenseName = mw.FlickrChecker.licenseList[data.photo.license];
-						// Use the license name to retrieve the template values
-						var licenseValue = mw.FlickrChecker.licenseMaps[licenseName];
-						// Set the license message to show the user.
-						if ( licenseValue == 'invalid' ) {
-							var licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
-						} else {
-							var licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+						if ( typeof licenseName != 'undefined' ) {
+							// Use the license name to retrieve the template values
+							var licenseValue = mw.FlickrChecker.licenseMaps[licenseName];
+							// Set the license message to show the user.
+							if ( licenseValue == 'invalid' ) {
+								var licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
+							} else {
+								var licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+							}
 						}
 					}
 				}
