@@ -216,15 +216,13 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			showAnim: 'slideDown',
 			showButtonPanel: true
 		} )
-		.data( 'open', 1 )
+		.data( 'open', 0 )
 		.click( function() {
 			var $this = $j( this );
 			if ( $this.data( 'open' ) === 0 ) {
-				$this.data( 'open', 1 ); 
-				$this.datepicker( 'show' );
+				$this.data( 'open', 1 ).datepicker( 'show' );
 			} else { 
-				$this.data( 'open', 0 );
-				$this.datepicker( 'hide' );
+				$this.data( 'open', 0 ).datepicker( 'hide' );
 			} 
 		} );
 
