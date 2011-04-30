@@ -216,7 +216,17 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			showAnim: 'slideDown',
 			showButtonPanel: true
 		} )
-		.click( function() { $j( this ).datepicker( 'show' ); } );
+		.data( 'open', 1 )
+		.click( function() {
+			var $this = $j( this );
+			if ( $this.data( 'open' ) === 0 ) {
+				$this.data( 'open', 1 ); 
+				$this.datepicker( 'show' );
+			} else { 
+				$this.data( 'open', 0 );
+				$this.datepicker( 'hide' );
+			} 
+		} );
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
