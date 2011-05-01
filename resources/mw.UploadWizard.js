@@ -17,12 +17,12 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	this.extension = undefined;
 
 	this.sessionKey = undefined;
-	
-	// this should be moved to the interface, if we even keep this	
+
+	// this should be moved to the interface, if we even keep this
 	this.transportWeight = 1;  // default
 	this.detailsWeight = 1; // default
 
-	// details 		
+	// details
 	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv );
 
 	// handler -- usually ApiUploadHandler
@@ -45,11 +45,11 @@ mw.UploadWizardUpload.prototype = {
 		var _this = this;
 		_this.setTransportProgress(0.0);
 		//_this.ui.start();
-		_this.handler.start();	
+		_this.handler.start();
 	},
 
 	/**
-	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from 
+	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from
 	 */
 	remove: function() {
 		this.state = 'aborted';
@@ -57,13 +57,13 @@ mw.UploadWizardUpload.prototype = {
 			this.deedThumbnailDiv.remove();
 		}
 		if ( this.details && this.details.div ) {
-			this.details.div.remove(); 
+			this.details.div.remove();
 		}
 		if ( this.thanksDiv ) {
 			this.thanksDiv.remove();
 		}
-		// we signal to the wizard to update itself, which has to delete the final vestige of 
-		// this upload (the ui.div). We have to do this silly dance because we 
+		// we signal to the wizard to update itself, which has to delete the final vestige of
+		// this upload (the ui.div). We have to do this silly dance because we
 		// trigger through the div. Triggering through objects doesn't always work.
 		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
 		$j( this.ui.div ).trigger( 'removeUploadEvent' );
@@ -92,16 +92,16 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Stop the upload -- we have failed for some reason 
+	 * Stop the upload -- we have failed for some reason
 	 */
-	setError: function( code, info ) { 
+	setError: function( code, info ) {
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, info );
 	},
 
 	/**
-	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details 
+	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details
 	 * @param result	the API result in parsed JSON form
 	 */
 	setTransported: function( result ) {
@@ -125,11 +125,11 @@ mw.UploadWizardUpload.prototype = {
 					info = _this.filenameToUrl( existsFileName ).toString();
 				} catch ( e ) {
 					code = 'unknown';
-					info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'"; 
+					info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";
 				}
 				_this.addWarning( code, info );
 				_this.extractUploadInfo( result.upload );
-				var success = function( imageinfo ) { 
+				var success = function( imageinfo ) {
 					if ( imageinfo === null ) {
 						_this.setError( 'noimageinfo' );
 					} else {
@@ -151,13 +151,13 @@ mw.UploadWizardUpload.prototype = {
 				$j.each( result.upload.warnings, function( k, v ) {
 					warningInfo.push( k + ': ' + v );
 				} );
-				info = warningInfo.join( ', ' ); 
-				_this.setError( code, [ info ] );	
+				info = warningInfo.join( ', ' );
+				_this.setError( code, [ info ] );
 			}
 		} else if ( result.upload && result.upload.result === 'Success' ) {
 			if ( result.upload.imageinfo ) {
 				_this.setSuccess( result );
-			} else { 
+			} else {
 				_this.setError( 'noimageinfo', info );
 			}
 		} else {
@@ -184,13 +184,13 @@ mw.UploadWizardUpload.prototype = {
 	duplicateErrorInfo: function( code, resultDuplicate ) {
 		var _this = this;
 		var duplicates;
-		if ( typeof resultDuplicate === 'object' ) { 
+		if ( typeof resultDuplicate === 'object' ) {
 			duplicates = resultDuplicate;
 		} else if ( typeof resultDuplicate === 'string' ) {
 			duplicates = [ resultDuplicate ];
 		}
 		var $ul = $j( '<ul></ul>' );
-		$j.each( duplicates, function( i, filename ) { 
+		$j.each( duplicates, function( i, filename ) {
 			var $a = $j( '<a/>' ).append( filename );
 			try {
 				var href = _this.filenameToUrl( filename );
@@ -224,24 +224,24 @@ mw.UploadWizardUpload.prototype = {
 		var _this = this; // was a triumph
 		_this.state = 'transported';
 		_this.transportProgress = 1;
-		
+
 		// I'm making a note here
 		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 		if ( result.upload ) {
 			_this.extractUploadInfo( result.upload );
-			_this.getThumbnail( 
+			_this.getThumbnail(
 				function( image ) {
 					// n.b. if server returns a URL, which is a 404, we do NOT get broken image
 					_this.ui.setPreview( image ); // make the thumbnail the preview image
 				},
-				mw.UploadWizard.config[ 'thumbnailWidth' ], 
-				mw.UploadWizard.config[ 'thumbnailMaxHeight' ] 
+				mw.UploadWizard.config[ 'thumbnailWidth' ],
+				mw.UploadWizard.config[ 'thumbnailMaxHeight' ]
 			);
 			// create the large thumbnail that the other thumbnails link to
-			_this.getThumbnail( 
+			_this.getThumbnail(
 				function( image ) {},
-				mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
-				mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
+				mw.UploadWizard.config[ 'largeThumbnailWidth' ],
+				mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ]
 			);
 			_this.deedPreview.setup();
 			_this.details.populate();
@@ -250,9 +250,9 @@ mw.UploadWizardUpload.prototype = {
 		} else {
 			_this.setError( 'noimageinfo' );
 		}
-		
+
 	},
-		
+
 	/**
 	 * Called when the file is entered into the file input
 	 * Get as much data as possible -- maybe exif, even thumbnail maybe
@@ -262,22 +262,22 @@ mw.UploadWizardUpload.prototype = {
 			this.transportWeight = getFileSize();
 		}
 		// XXX sanitize filename
-		try { 
+		try {
 			this.title = new mw.Title( mw.UploadWizardUtil.getBasename( filename ).replace( /:/g, '_' ), 'file' );
 		} catch ( e ) {
 			this.setError( 'mwe-upwiz-unparseable-filename', filename );
 		}
 	},
 
-	/** 
- 	 * Accept the result from a successful API upload transport, and fill our own info 
+	/**
+ 	 * Accept the result from a successful API upload transport, and fill our own info
 	 *
 	 * @param result The JSON object from a successful API upload result.
 	 */
 	extractUploadInfo: function( resultUpload ) {
 		if ( resultUpload.sessionkey ) {
 			this.sessionKey = resultUpload.sessionkey;
-		} 
+		}
 		if ( resultUpload.imageinfo ) {
 			this.extractImageInfo( resultUpload.imageinfo );
 		} else if ( resultUpload.stashimageinfo ) {
@@ -288,7 +288,7 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Extract image info into our upload object 	
+	 * Extract image info into our upload object
 	 * Image info is obtained from various different API methods
 	 * @param imageinfo JSON object obtained from API result.
 	 */
@@ -309,18 +309,18 @@ mw.UploadWizardUpload.prototype = {
 				_this.imageinfo[key] = imageinfo[key];
 			}
 		}
-	
+
 		if ( _this.title.getExtension() === null ) {
 			1;
 			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
 			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
-			/* 
+			/*
 			var extension = mw.UploadWizardUtil.getExtension( _this.imageinfo.url );
 			if ( !extension ) {
 				if ( _this.imageinfo.mimetype ) {
 					if ( mw.UploadWizardUtil.mimetypeToExtension[ _this.imageinfo.mimetype ] ) {
-						extension = mw.UploadWizardUtil.mimetypeToExtension[ _this.imageinfo.mimetype ];			
-					} 
+						extension = mw.UploadWizardUtil.mimetypeToExtension[ _this.imageinfo.mimetype ];
+					}
 				}
 			}
 			*/
@@ -340,7 +340,7 @@ mw.UploadWizardUpload.prototype = {
 
 		if (!mw.isDefined( props ) ) {
 			props = [];
-		} 
+		}
 
 		var params = {
 			'prop':	'stashimageinfo',
@@ -353,7 +353,7 @@ mw.UploadWizardUpload.prototype = {
 				props.push( 'url' );
 			}
 			if ( mw.isDefined( width ) ) {
-				params['siiurlwidth'] = width; 
+				params['siiurlwidth'] = width;
 			}
 			if ( mw.isDefined( height ) ) {
 				params['siiurlheight'] = height;
@@ -368,7 +368,7 @@ mw.UploadWizardUpload.prototype = {
 			}
 			callback( data.query.stashimageinfo );
 		};
-		
+
 		var err = function( code, result ) {
 			mw.log( 'mw.UploadWizardUpload::getStashImageInfo> error: ' + code, 'debug' );
 			callback( null );
@@ -378,7 +378,7 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Fetch a thumbnail for a stashed upload of the desired width. 
+	 * Fetch a thumbnail for a stashed upload of the desired width.
 	 * It is assumed you don't call this until it's been transported.
  	 *
 	 * @param callback - callback to execute once thumbnail has been obtained -- must accept Image object for success, null for error
@@ -394,7 +394,7 @@ mw.UploadWizardUpload.prototype = {
 		if ( mw.isDefined( _this.thumbnails[key] ) ) {
 			callback( _this.thumbnails[key] );
 		} else {
-			var apiCallback = function( thumbnails ) { 	
+			var apiCallback = function( thumbnails ) {
 				if ( thumbnails === null ) {
 					callback( null );
 				} else {
@@ -425,11 +425,11 @@ mw.UploadWizardUpload.prototype = {
 	 *
 	 * @param selector
 	 * @param width
-	 * @param height (optional) 
+	 * @param height (optional)
 	 */
 	setThumbnail: function( selector, width, height ) {
 		var _this = this;
-		if ( typeof width === 'undefined' || width === null || width <= 0 )  {	
+		if ( typeof width === 'undefined' || width === null || width <= 0 )  {
 			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
 		}
 		width = parseInt( width, 10 );
@@ -453,7 +453,7 @@ mw.UploadWizardUpload.prototype = {
 						// set up lightbox behavior for thumbnail
 						.click( function() {
 							// get large preview image
-							_this.getThumbnail( 
+							_this.getThumbnail(
 								// open large preview in modal dialog box
 								function( image ) {
 									var dialogWidth = ( image.width > 200 ) ? image.width : 200;
@@ -467,27 +467,27 @@ mw.UploadWizardUpload.prototype = {
 											'resizable': false
 										} );
 								},
-								mw.UploadWizard.config[ 'largeThumbnailWidth' ], 
-								mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ] 
+								mw.UploadWizard.config[ 'largeThumbnailWidth' ],
+								mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ]
 							);
 							return false;
 						} ); // close thumbnail click function
 				} // close if
-				
+
 				$j( selector ).html(
 					// insert the thumbnail into the anchor
 					$thumbnailLink.append(
 						$j( '<img/>' )
 							.attr( {
-								'width':  image.width, 
+								'width':  image.width,
 								'height': image.height,
 								'src':    image.src
-							} ) 
+							} )
 					) // close append
 				); // close html
 			} // close image !== null else condition
 		};
-		
+
 		_this.getThumbnail( callback, width, height );
 	},
 
@@ -500,10 +500,10 @@ mw.UploadWizardUpload.prototype = {
 		var fileUrl = new mw.Uri( document.URL );
 		fileUrl.path = wgScript;
 		var fileTitle = new mw.Title( filename, 'file' );
-		fileUrl.query = { title: fileTitle, action: 'view' }; 
+		fileUrl.query = { title: fileTitle, action: 'view' };
 		return fileUrl;
 	}
-	
+
 };
 
 
@@ -521,7 +521,7 @@ mw.UploadWizard = function( config ) {
 	// elsewhere
 	mw.UploadWizard.config = config;
 
-	// XXX need a robust way of defining default config 
+	// XXX need a robust way of defining default config
 	this.maxUploads = mw.UploadWizard.config[ 'maxUploads' ] || 10;
 	this.maxSimultaneousConnections = mw.UploadWizard.config[  'maxSimultaneousConnections'  ] || 2;
 
@@ -577,20 +577,20 @@ mw.UploadWizard.prototype = {
 		this.removeMatchingUploads( function() { return true; } );
 	},
 
-	
+
 	/**
 	 * create the basic interface to make an upload in this div
 	 * @param div	The div in the DOM to put all of this into.
 	 */
 	createInterface: function( selector ) {
 		var _this = this;
-		
+
 		// load list of languages so we'll have it ready when description interfaces are created
 		// XXX replace this code once any of the following bugs are fixed: 25845, 27535, 27561
 		var languageHandlerUrl = wgServer + wgScript + '?' + $.param( { 'title': 'MediaWiki:LanguageHandler.js', 'action': 'raw', 'ctype': 'text/javascript' } );
 		mw.loader.load( languageHandlerUrl );
-	
-		// remove first spinner	
+
+		// remove first spinner
 		$j( '#mwe-first-spinner' ).remove();
 
 		// feedback request
@@ -598,14 +598,14 @@ mw.UploadWizard.prototype = {
 			var feedback = new mw.Feedback( _this.api,
 							new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
 			$j( '#contentSub' )
-				.msg( 'mwe-upwiz-feedback-prompt', 
+				.msg( 'mwe-upwiz-feedback-prompt',
 					function() {
 						feedback.launch();
 						return false;
 					}
 				);
 		}
-		
+
 		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
@@ -617,7 +617,7 @@ mw.UploadWizard.prototype = {
 			.button()
 			.css( { 'margin-left': '1em' } );
 
-	
+
 		$j( '.mwe-upwiz-button-begin' )
 			.click( function() { _this.reset(); } );
 
@@ -625,7 +625,7 @@ mw.UploadWizard.prototype = {
 			.click( function() { window.location.href = '/'; } );
 
 		// handler for next button
-		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next') 
+		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next')
 			.click( function() {
 				// if the skip checkbox is checked, set the skip cookie
 				if ( $j('#mwe-upwiz-skip').is(':checked') ) {
@@ -633,7 +633,7 @@ mw.UploadWizard.prototype = {
 				}
 				_this.moveToStep( 'file' );
 			} );
-	
+
 		$j( '#mwe-upwiz-add-file' ).button();
 
 		$j( '#mwe-upwiz-upload-ctrl' )
@@ -657,12 +657,12 @@ mw.UploadWizard.prototype = {
 			} );
 
 		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-next' ).click( function() {
-			_this.removeErrorUploads( function() { 
+			_this.removeErrorUploads( function() {
 				_this.prepareAndMoveToDeeds();
 			} );
-		} ); 
+		} );
 		$j ( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
-			_this.hideFileEndButtons();	
+			_this.hideFileEndButtons();
 			_this.startUploads();
 		} );
 
@@ -676,7 +676,7 @@ mw.UploadWizard.prototype = {
 				// if returns false, you can assume there are notifications in the interface.
 				if ( _this.deedChooser.valid() ) {
 
-					var lastUploadIndex = _this.uploads.length - 1; 
+					var lastUploadIndex = _this.uploads.length - 1;
 
 					$j.each( _this.uploads, function( i, upload ) {
 
@@ -696,19 +696,19 @@ mw.UploadWizard.prototype = {
 
 
 		// DETAILS div
-		var finalizeDetails = function() { 
+		var finalizeDetails = function() {
 			if ( mw.isDefined( _this.allowCloseWindow ) ) {
 				_this.allowCloseWindow();
-			} 
+			}
 			_this.prefillThanksPage();
 			_this.moveToStep( 'thanks' );
 		};
 
 		var startDetails = function() {
 			$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
-			if ( _this.detailsValid() ) { 
-				_this.hideDetailsEndButtons();	
-				_this.detailsSubmit( function() { 
+			if ( _this.detailsValid() ) {
+				_this.hideDetailsEndButtons();
+				_this.detailsSubmit( function() {
 					_this.showNext( 'details', 'complete', finalizeDetails );
 				} );
 			}
@@ -716,7 +716,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
-		
+
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next .mwe-upwiz-button-next' )
 			.click( startDetails );
 
@@ -724,13 +724,13 @@ mw.UploadWizard.prototype = {
 			.click( function() {
 				_this.removeErrorUploads( finalizeDetails );
 			} );
- 
+
 		$j ( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
 			.click( startDetails );
 
 
-		// WIZARD 
-		
+		// WIZARD
+
 		// check to see if the the skip tutorial cookie is set
 		if ( document.cookie.indexOf('skiptutorial=1') != -1 || UploadWizardConfig['skipTutorial'] ) {
 			// "select" the second step - highlight, make it visible, hide all others
@@ -739,7 +739,7 @@ mw.UploadWizard.prototype = {
 			// "select" the first step - highlight, make it visible, hide all others
 			_this.moveToStep( 'tutorial' );
 		}
-	
+
 	},
 
 
@@ -752,7 +752,7 @@ mw.UploadWizard.prototype = {
 			new mw.UploadWizardDeedOwnWork( _this.uploads.length ),
 			new mw.UploadWizardDeedThirdParty( _this.uploads.length )
 		];
-		
+
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
 		if ( _this.uploads.length > 1 ) {
@@ -764,13 +764,13 @@ mw.UploadWizard.prototype = {
 		}
 
 		var uploadsClone = $j.map( _this.uploads, function( x ) { return x; } );
-		_this.deedChooser = new mw.UploadWizardDeedChooser( 
-			'#mwe-upwiz-deeds', 
+		_this.deedChooser = new mw.UploadWizardDeedChooser(
+			'#mwe-upwiz-deeds',
 			deeds,
 			uploadsClone
 		 );
 
-	
+
 		$j( '<div></div>' )
 			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
 			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length );
@@ -781,14 +781,14 @@ mw.UploadWizard.prototype = {
 				.msg( 'mwe-upwiz-deeds-custom-prompt' );
 		}
 
-		_this.moveToStep( 'deeds' ); 
+		_this.moveToStep( 'deeds' );
 
-	},	
+	},
 
 	/**
 	 * Advance one "step" in the wizard interface.
 	 * It is assumed that the previous step to the current one was selected.
-	 * We do not hide the tabs because this messes up certain calculations we'd like to make about dimensions, while elements are not 
+	 * We do not hide the tabs because this messes up certain calculations we'd like to make about dimensions, while elements are not
 	 * on screen. So instead we make the tabs zero height and, in CSS, they are already overflow hidden
 	 * @param selectedStepName
 	 * @param callback to do after layout is ready?
@@ -800,10 +800,10 @@ mw.UploadWizard.prototype = {
 		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
 
 		$j.each( _this.stepNames, function(i, stepName) {
-			
-			// the step indicator	
+
+			// the step indicator
 			var step = $j( '#mwe-upwiz-step-' + stepName );
-			
+
 			// the step's contents
 			var stepDiv = $j( '#mwe-upwiz-stepdiv-' + stepName );
 
@@ -812,18 +812,18 @@ mw.UploadWizard.prototype = {
 			} else {
 				stepDiv.hide();
 			}
-		
+
 		} );
-			
+
 		$j( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
 		_this.currentStepName = selectedStepName;
-		
+
 		if ( selectedStepName == 'file' && _this.uploads.length === 0 ) {
-			// add one upload field to start (this is the big one that asks you to upload something) 
+			// add one upload field to start (this is the big one that asks you to upload something)
 			var upload = _this.newUpload();
 		}
-		
+
 		$j.each( _this.uploads, function(i, upload) {
 			upload.state = selectedStepName;
 		} );
@@ -838,7 +838,7 @@ mw.UploadWizard.prototype = {
 	 *   we create the upload interface, a handler to transport it to the server,
 	 *   and UI for the upload itself and the "details" at the second step of the wizard.
 	 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
-	 * @return the new upload 
+	 * @return the new upload
 	 */
 	newUpload: function() {
 		var _this = this;
@@ -851,19 +851,19 @@ mw.UploadWizard.prototype = {
 
 		// we explicitly move the file input to cover the upload button
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
-		
+
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
-		$j( upload.ui.div ).bind( 'filled', function(e) { 
-			_this.newUpload(); 
+		$j( upload.ui.div ).bind( 'filled', function(e) {
+			_this.newUpload();
 			_this.setUploadFilled(upload);
-			e.stopPropagation(); 
+			e.stopPropagation();
 		} );
 		// XXX bind to some error state
 
-	
+
 		return upload;
 	},
 
@@ -874,16 +874,16 @@ mw.UploadWizard.prototype = {
 	 */
 	setUploadFilled: function( upload ) {
 		var _this = this;
-		
+
 		_this.uploads.push( upload );
-		
+
 		/* useful for making ids unique and so on */
 		_this.uploadsSeen++;
 		upload.index = _this.uploadsSeen;
 
 		_this.updateFileCounts();
-		
-		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );	
+
+		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );
 
 		// TODO v1.1 consider if we really have to set up details now
 		upload.details = new mw.UploadWizardDetails( upload, $j( '#mwe-upwiz-macro-files' ) );
@@ -893,9 +893,9 @@ mw.UploadWizard.prototype = {
 	uploadsSeen: 0,
 
 	/**
-	 * Remove an upload from our array of uploads, and the HTML UI 
+	 * Remove an upload from our array of uploads, and the HTML UI
 	 * We can remove the HTML UI directly, as jquery will just get the parent.
-         * We need to grep through the array of uploads, since we don't know the current index. 
+         * We need to grep through the array of uploads, since we don't know the current index.
 	 * We need to update file counts for obvious reasons.
 	 *
 	 * @param upload
@@ -906,8 +906,8 @@ mw.UploadWizard.prototype = {
 		var $div = $j( upload.ui.div );
 		$div.unbind(); // everything
 		// sexily fade away (TODO if we are looking at it)
-		//$div.fadeOut('fast', function() { 
-			$div.remove(); 
+		//$div.fadeOut('fast', function() {
+			$div.remove();
 			// and do what we in the wizard need to do after an upload is removed
 			mw.UploadWizardUtil.removeItem( _this.uploads, upload );
 			_this.updateFileCounts();
@@ -915,14 +915,14 @@ mw.UploadWizard.prototype = {
 	},
 
 
-	/** 
+	/**
 	 * Hide the button choices at the end of the file step.
 	 */
 	hideFileEndButtons: function() {
 		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
 	},
 
-	hideDetailsEndButtons: function() { 
+	hideDetailsEndButtons: function() {
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
 	},
 
@@ -944,7 +944,7 @@ mw.UploadWizard.prototype = {
 		this.removeMatchingUploads( function( upload ) {
 			return upload.state === 'error';
 		} );
-		endCallback();	
+		endCallback();
 	},
 
 
@@ -956,7 +956,7 @@ mw.UploadWizard.prototype = {
 	removeMatchingUploads: function( criterion ) {
 		var toRemove = [];
 
-		$j.each( this.uploads, function( i, upload ) { 
+		$j.each( this.uploads, function( i, upload ) {
 			if ( criterion( upload ) ) {
 				toRemove.push( upload );
 			}
@@ -973,13 +973,13 @@ mw.UploadWizard.prototype = {
 	 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
 	 *
 	 * @param beginState   what state the upload should be in before starting.
-	 * @param progressState  the state to set the upload to while it's doing whatever 
+	 * @param progressState  the state to set the upload to while it's doing whatever
 	 * @param endState   the state (or array of states) that signify we're done with this process
-	 * @param starter	 function, taking single argument (upload) which starts the process we're interested in 
+	 * @param starter	 function, taking single argument (upload) which starts the process we're interested in
 	 * @param endCallback    function to call when all uploads are in the end state.
 	 */
 	makeTransitioner: function( beginState, progressStates, endStates, starter, endCallback ) {
-		
+
 		var _this = this;
 
 		var transitioner = function() {
@@ -993,12 +993,12 @@ mw.UploadWizard.prototype = {
 				} else if ( ( upload.state == beginState ) && ( uploadsToStart > 0 ) ) {
 					starter( upload );
 					uploadsToStart--;
-				} 
+				}
 			} );
 
 			// build in a little delay even for the end state, so user can see progress bar in a complete state.
 			var nextAction = ( endStateCount == _this.uploads.length ) ? endCallback : transitioner;
-	
+
 			setTimeout( nextAction, _this.transitionerDelay );
 		};
 
@@ -1010,7 +1010,7 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * Kick off the upload processes.
-	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue, 
+	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
 	 * and kicks off a thread which will take from the queue.
 	 * @param endCallback   - to execute when uploads are completed
 	 */
@@ -1023,7 +1023,7 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-add-file' ).hide();
 
 		// reset any uploads in error state back to be shiny & new
-		$j.each( _this.uploads, function( i, upload ) { 
+		$j.each( _this.uploads, function( i, upload ) {
 			if ( upload.state === 'error' ) {
 				upload.state = 'new';
 				upload.ui.clearIndicator();
@@ -1031,50 +1031,50 @@ mw.UploadWizard.prototype = {
 			}
 		} );
 
-		this.allowCloseWindow = mw.confirmCloseWindow( { 
+		this.allowCloseWindow = mw.confirmCloseWindow( {
 			message: function() { return gM( 'mwe-upwiz-prevent-close', _this.uploads.length ); },
 			test: function() { return _this.uploads.length > 0; }
 		} );
 
 		$j( '#mwe-upwiz-progress' ).show();
-		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress', 
-						           gM( 'mwe-upwiz-uploading' ), 
+		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
+						           gM( 'mwe-upwiz-uploading' ),
 						           _this.uploads,
 							   [ 'stashed' ],
 						           [ 'error' ],
-							   'transportProgress', 
+							   'transportProgress',
 							   'transportWeight' );
 		progressBar.start();
-		
+
 		// remove ability to change files
 		// ideally also hide the "button"... but then we require styleable file input CSS trickery
 		// although, we COULD do this just for files already in progress...
 
-		// it might be interesting to just make this creational -- attach it to the dom element representing 
-		// the progress bar and elapsed time	
+		// it might be interesting to just make this creational -- attach it to the dom element representing
+		// the progress bar and elapsed time
 
-		_this.makeTransitioner( 
-			'new', 
+		_this.makeTransitioner(
+			'new',
 			[ 'transporting', 'transported', 'metadata' ],
-			[ 'error', 'stashed' ], 
+			[ 'error', 'stashed' ],
 			function( upload ) {
 				upload.start();
 			},
 			function() {
 				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
 				_this.showNext( 'file', 'stashed' );
-		  	} 
+		  	}
 		);
 	},
 
-	/**	
+	/**
  	 * Figure out what to do and what options to show after the uploads have stopped.
 	 * Uploading has stopped for one of the following reasons:
 	 * 1) The user removed all uploads before they completed, in which case we are at upload.length === 0. We should start over and allow them to add new ones
 	 * 2) All succeeded - show link to next step
-	 * 3) Some failed, some succeeded - offer them the chance to retry the failed ones or go on to the next step 
+	 * 3) Some failed, some succeeded - offer them the chance to retry the failed ones or go on to the next step
 	 * 4) All failed -- have to retry, no other option
-	 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but 
+	 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but
 	 * we trust that this hasn't happened.
 	 *
 	 * @param {String} step that we are on
@@ -1087,7 +1087,7 @@ mw.UploadWizard.prototype = {
 			if ( upload.state === 'error' ) {
 				errorCount++;
 			} else if ( upload.state === desiredState ) {
-				okCount++;	
+				okCount++;
 			} else {
 				mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
 			}
@@ -1108,10 +1108,10 @@ mw.UploadWizard.prototype = {
 		} else {
 			$j( '#mwe-upwiz-stepdiv-' + step + ' .mwe-upwiz-buttons' ).show().find( selector ).show();
 		}
-	},	
-	
+	},
+
 	/**
-	 * Occurs whenever we need to update the interface based on how many files there are 
+	 * Occurs whenever we need to update the interface based on how many files there are
 	 * Thhere is an uncounted upload, waiting to be used, which has a fileInput which covers the
 	 * "add an upload" button. This is absolutely positioned, so it needs to be moved if another upload was removed.
 	 * The uncounted upload is also styled differently between the zero and n files cases
@@ -1143,7 +1143,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-filelist .filled:even' ).removeClass( 'odd' );
 		} else {
 			// no uploads, so don't allow us to proceed
-			// $j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' ); 
+			// $j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' );
 			$j( '#mwe-upwiz-upload-ctrl-container' ).hide();
 
 
@@ -1168,11 +1168,11 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
 			$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
 			$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next' ).show();
-		
+
 			// fix various other pages that may have state
 			$j( '#mwe-upwiz-thanks' ).html( '' );
 
-			if ( mw.isDefined( _this.deedChooser ) ) { 
+			if ( mw.isDefined( _this.deedChooser ) ) {
 				_this.deedChooser.remove();
 			}
 
@@ -1202,11 +1202,11 @@ mw.UploadWizard.prototype = {
 	/**
 	 * are all the details valid?
 	 * @return boolean
-	 */ 
+	 */
 	detailsValid: function() {
 		var _this = this;
 		var valid = true;
-		$j.each( _this.uploads, function(i, upload) { 
+		$j.each( _this.uploads, function(i, upload) {
 			valid &= upload.details.valid();
 		} );
 		return valid;
@@ -1220,7 +1220,7 @@ mw.UploadWizard.prototype = {
 	detailsSubmit: function( endCallback ) {
 		var _this = this;
 
-		$j.each( _this.uploads, function( i, upload ) { 
+		$j.each( _this.uploads, function( i, upload ) {
 			$j( upload.details.submittingDiv )
 				.find( '.mwe-upwiz-visible-file-filename-text' )
 				.html( upload.title.getMain() );
@@ -1232,11 +1232,11 @@ mw.UploadWizard.prototype = {
 			.morphCrossfade( '.mwe-upwiz-submitting' );
 
 		// add the upload progress bar, with ETA
-		// add in the upload count 
+		// add in the upload count
 		_this.makeTransitioner(
-			'details', 
-			[ 'submitting-details' ],  
-			[ 'error', 'complete' ], 
+			'details',
+			[ 'submitting-details' ],
+			[ 'error', 'complete' ],
 			function( upload ) {
 				upload.details.submit();
 			},
@@ -1246,17 +1246,17 @@ mw.UploadWizard.prototype = {
 
 	prefillThanksPage: function() {
 		var _this = this;
-		
+
 		$j( '#mwe-upwiz-thanks' )
 			.append( $j( '<h3 style="text-align: center;"></h3>' ).msg( 'mwe-upwiz-thanks-intro' ),
 				 $j( '<p style="margin-bottom: 2em; text-align: center;">' )
 					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length ) );
-		
+
 		$j.each( _this.uploads, function(i, upload) {
 			var id = 'thanksDiv' + i;
 			var $thanksDiv = $j( '<div></div>' ).attr( 'id', id ).addClass( "mwe-upwiz-thanks ui-helper-clearfix" );
 			_this.thanksDiv = $thanksDiv;
-			
+
 
 			var $thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 			var $thumbnailCaption = $j( '<div></div>' )
@@ -1275,16 +1275,16 @@ mw.UploadWizard.prototype = {
 
 			var thumbTitle = String(upload.title);
 			var thumbWikiText = "[[" + thumbTitle.replace(/_/g, ' ') + "|thumb|" + gM( 'mwe-upwiz-thanks-caption' ) + "]]";
-			
+
 			$thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )
-					.append( 
-						$j('<p/>').append( 
+					.append(
+						$j('<p/>').append(
 							gM( 'mwe-upwiz-thanks-wikitext' ),
 							$j( '<br />' ),
 							_this.makeReadOnlyInput( thumbWikiText )
 						),
-						$j('<p/>').append( 
+						$j('<p/>').append(
 							gM( 'mwe-upwiz-thanks-url' ),
 							$j( '<br />' ),
 							_this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
@@ -1293,9 +1293,9 @@ mw.UploadWizard.prototype = {
 			);
 
 			$j( '#mwe-upwiz-thanks' ).append( $thanksDiv );
-		} ); 
+		} );
 	},
-	
+
 	/**
 	 * make a read only text input, which self-selects on gaining focus
 	 * @param {String} text it will contain
@@ -1333,7 +1333,7 @@ mw.UploadWizard.prototype = {
 
 };
 
-/**	
+/**
  * Makes a modal dialog to confirm deletion of one or more uploads. Will have "Remove" and "Cancel" buttons
  * @param {Array} array of UploadWizardUpload objects
  * @param {String} message for dialog title
@@ -1341,12 +1341,12 @@ mw.UploadWizard.prototype = {
  */
 mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 	var $filenameList = $j( '<ul></ul>' );
-	$j.each( uploads, function( i, upload ) { 
+	$j.each( uploads, function( i, upload ) {
 		$filenameList.append( $j( '<li></li>' ).append( upload.title.getMain() ) );
 	} );
 	var buttons = {};
-	buttons[ gM( 'mwe-upwiz-remove', uploads.length ) ] = function() { 
-		$j.each( uploads, function( i, upload ) { 
+	buttons[ gM( 'mwe-upwiz-remove', uploads.length ) ] = function() {
+		$j.each( uploads, function( i, upload ) {
 			upload.remove();
 		} );
 		$j( this ).dialog( 'close' );
@@ -1357,7 +1357,7 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 
 	return $j( '<div></div>' )
 		.append( $j( '<p></p>' ).append( dialogText ), $filenameList )
-		.dialog( { 
+		.dialog( {
 			width: 500,
 			zIndex: 200000,
 			autoOpen: false,
@@ -1414,7 +1414,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		this.addClass( 'mwe-upwiz-required-field' );
 		return this.prepend( $j( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
 	};
-	
+
 	/**
 	 * Adds a tipsy pop-up help button to the field. Can be called in two ways -- with simple string id, which identifies
 	 * the string as 'mwe-upwiz-tooltip-' plus that id, and creates the hint with a similar id
@@ -1429,16 +1429,16 @@ mw.UploadWizardDeedPreview.prototype = {
 			attrs = { id: key };
 			contentSource = fn;
 			html = true;
-		} else {	
+		} else {
 			attrs = { 'title': gM( 'mwe-upwiz-tooltip-' + key ) };
 			contentSource = 'title';
-		} 
-		return this.append( 
+		}
+		return this.append(
 			$j( '<span/>' )
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
 				.click( function() { $j( this ).tipsy( 'toggle' ); return false; } )
-				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual'} ) 
+				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual'} )
 		);
 	};
 
@@ -1450,8 +1450,8 @@ mw.UploadWizardDeedPreview.prototype = {
 
 		// this is a jquery-style object
 
-		// in MSIE, this makes it possible to know what scrollheight is 
-		// Technically this means text could now dangle over the edge, 
+		// in MSIE, this makes it possible to know what scrollheight is
+		// Technically this means text could now dangle over the edge,
 		// but it shouldn't because it will always grow to accomodate very quickly.
 
 		if ($j.msie) {
@@ -1466,7 +1466,7 @@ mw.UploadWizardDeedPreview.prototype = {
 			if (this.scrollHeight >= this.offsetHeight) {
 				this.rows++;
 				while (this.scrollHeight > this.offsetHeight) {
-					this.rows++;	
+					this.rows++;
 				}
 			}
 			return this;
@@ -1475,7 +1475,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		this.addClass( 'mwe-grow-textarea' );
 
 		this.bind( 'resizeEvent', resizeIfNeeded );
-		
+
 		this.keyup( resizeIfNeeded );
 		this.change( resizeIfNeeded );
 
@@ -1486,13 +1486,13 @@ mw.UploadWizardDeedPreview.prototype = {
 	// XXX this is highly specific to the "details" page now, not really jQuery function
 	jQuery.fn.mask = function( options ) {
 
-		// intercept clicks... 
+		// intercept clicks...
 		// Note: the size of the div must be obtainable. Hence, this cannot be a div without layout (e.g. display:none).
 		// some of this is borrowed from http://code.google.com/p/jquery-loadmask/ , but simplified
 		$j.each( this, function( i, el ) {
-			
+
 			if ( ! $j( el ).data( 'mask' ) ) {
-				
+
 
 				//fix for z-index bug with selects in IE6
 				if ( $j.browser.msie && $j.browser.version.substring(0,1) === '6' ){
@@ -1506,7 +1506,7 @@ mw.UploadWizardDeedPreview.prototype = {
 							'height'   : el.offsetHeight + 'px',
 							'z-index'  : 90
 						} );
-			
+
 				var $statusDiv = $j( '<div></div>' ).css( {
 					'width'	   : el.offsetWidth + 'px',
 					'height'   : el.offsetHeight + 'px',
@@ -1518,14 +1518,14 @@ mw.UploadWizardDeedPreview.prototype = {
 				} );
 
 				var $indicatorDiv = $j( '<div class="mwe-upwiz-status"></div>' )
-					.css( { 
+					.css( {
 						'width'	   : 32,
-						'height'   : 32, 
+						'height'   : 32,
 						'z-index'  : 91,
 						'margin'   : '0 auto 0 auto'
 					} );
 				var $statusLineDiv = $j( '<div></div>' )
-					.css( { 
+					.css( {
 						'z-index'  : 91
 					} );
 				var $statusIndicatorLineDiv = $j( '<div></div>' )
@@ -1533,13 +1533,13 @@ mw.UploadWizardDeedPreview.prototype = {
 					.append( $indicatorDiv, $statusLineDiv );
 			        $statusDiv.append( $statusIndicatorLineDiv );
 
-				$j( el ).css( { 'position' : 'relative' } )	
+				$j( el ).css( { 'position' : 'relative' } )
 					.append( mask.fadeTo( 'fast', 0.6 ) )
 					.append( $statusDiv )
 					.data( 'indicator', $indicatorDiv )
 					.data( 'statusLine', $statusLineDiv );
-				
-			} 
+
+			}
 		} );
 
 		return this;
@@ -1558,7 +1558,7 @@ mw.UploadWizardDeedPreview.prototype = {
 			}
 		} );
 
-		
+
 		return this;
 	};
 
@@ -1566,7 +1566,7 @@ mw.UploadWizardDeedPreview.prototype = {
 	 * jQuery plugin - collapse toggle
 	 * Given an element, makes contained elements of class mw-collapsible-toggle clickable to show/reveal
 	 * contained element(s) of class mw-collapsible-content.
-	 * 
+	 *
 	 * Somewhat recapitulates mw.UploadWizardUtil.makeToggler,
 	 * toggle() in vector.collapsibleNav.js, not to mention jquery.collapsible
 	 * but none of those do what we want, or are inaccessible to us
@@ -1581,7 +1581,7 @@ mw.UploadWizardDeedPreview.prototype = {
 			e.stopPropagation();
 			if ( $toggle.hasClass( 'mwe-upwiz-toggler-open' ) ) {
 				$contents.slideUp( 250 );
-				$toggle.removeClass( 'mwe-upwiz-toggler-open' );	
+				$toggle.removeClass( 'mwe-upwiz-toggler-open' );
 			} else {
 				$contents.slideDown( 250 );
 				$toggle.addClass( 'mwe-upwiz-toggler-open' );
