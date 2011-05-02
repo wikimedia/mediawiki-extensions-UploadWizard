@@ -75,4 +75,4 @@ mw.FlickrChecker = {
 	
 };
 	
-} )( window.mediaWiki );
+} )( window.mediaWiki, jQuery );
