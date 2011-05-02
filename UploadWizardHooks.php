@@ -60,6 +60,7 @@ class UploadWizardHooks {
 				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
 				'resources/mw.UploadWizardUtil.js',
+				'resources/mw.FlickrChecker.js',
 
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
