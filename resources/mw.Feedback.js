@@ -24,7 +24,7 @@
 			var $feedbackPageLink = $j( '<a></a>' ).attr( { 'href': _this.feedbackTitle.getUrl(), 'target': '_blank' } );
 			this.$dialog = 
 				$( '<div style="position:relative;"></div>' ).append( 
-					$j( '<div class="mwe-upwiz-feedback-mode mwe-upwiz-feedback-form"></div>' ).append( 
+					$( '<div class="mwe-upwiz-feedback-mode mwe-upwiz-feedback-form"></div>' ).append( 
 						$( '<div style="margin-top:0.4em;"></div>' ).append( 
 							$( '<small></small>' ).msg( 'mwe-upwiz-feedback-note', 
 										    _this.feedbackTitle.getNameText(), 
