@@ -11,6 +11,7 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	this.api = api;
 	this.state = 'new';
 	this.thumbnails = {};
+	this.thumbnailPublishers = {};
 	this.imageinfo = {};
 	this.title = undefined;
 	this.mimetype = undefined;
@@ -29,9 +30,14 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
 	// this.handler = new mw.MockUploadHandler( this );
 	this.handler = new mw.ApiUploadHandler( this, api );
+	
+	this.index = mw.UploadWizardUpload.prototype.count++;
 };
 
 mw.UploadWizardUpload.prototype = {
+
+	// increments with each upload
+	count: 0,
 
 	acceptDeed: function( deed ) {
 		var _this = this;
@@ -390,34 +396,87 @@ mw.UploadWizardUpload.prototype = {
 		if ( mw.isEmpty( height ) ) {
 			height = -1;
 		}
-		var key = "width" + width + ',height' + height;
+		// this key is overspecified for this thumbnail ( we don't need to reiterate the index ) but 
+		// we can use this as key as an event now, that might fire much later
+		var key = 'thumbnail.' + _this.index + '.width' + width + ',height' + height;
 		if ( mw.isDefined( _this.thumbnails[key] ) ) {
 			callback( _this.thumbnails[key] );
-		} else {
-			var apiCallback = function( thumbnails ) {
+			return;
+		}
+
+		// subscribe to the event that this thumbnail is ready -- will give null or an Image to the callback
+		$j.subscribe( key, callback );
+
+		// if someone else already started a thumbnail fetch & publish, then don't bother, just wait for the event.
+		if ( ! mw.isDefined( _this.thumbnailPublishers[ key ] ) ) {
+			// The thumbnail publisher accepts the result of a stashImageInfo, and then tries to get the thumbnail, and eventually
+			// will trigger the event we just subscribed to.
+			_this.thumbnailPublishers[ key ] = _this.getThumbnailPublisher( key );
+			_this.getStashImageInfo( _this.thumbnailPublishers[ key ], [ 'url' ], width, height );
+		}
+	},
+
+	/**
+	 * Returns a callback that can be used with a stashImageInfo call to fetch images, and then fire off an event to
+	 * let everyone else know the image is loaded.
+	 *
+	 * Will retry the thumbnail URL several times, as thumbnails are known to be slow in production.
+	 * @param {String} name of event to publish when thumbnails received (or final failure)
+	 */
+	getThumbnailPublisher: function( key ) {
+		var _this = this;
+		return function( thumbnails ) { 
 				if ( thumbnails === null ) {
-					callback( null );
+				// the api call failed somehow, no thumbnail data.
+				$j.publish( key, null );
 				} else {
-					for ( var i = 0; i < thumbnails.length; i++ ) {
-						var thumb = thumbnails[i];
+				// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
+				// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
+				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
+				// the event with a null.
+				$j.each( thumbnails, function( i, thumb ) {
 						if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail error or missing information" );
-							callback( null );
+						$j.publish( key, null );
 							return;
 						}
+
+					// try to load this image with exponential backoff
+					// if the delay goes past 8 seconds, it gives up and publishes the event with null
+					var timeoutMs = 100;
+
 						var image = document.createElement( 'img' );
-						$j( image ).load( function() {
-							callback( image );
-						} );
 						image.width = thumb.thumbwidth;
 						image.height = thumb.thumbheight;
-						image.src = thumb.thumburl;
+					$j( image )
+						.load( function() {
+							// cache this thumbnail
 						_this.thumbnails[key] = image;
+							// publish the image to anyone who wanted it
+							$j.publish( key, image );
+						} )
+						.error( function() { 
+							// retry with exponential backoff
+							if ( timeoutMs < 8000 ) {
+								setTimeout( function() { 
+									timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) ); 
+									setSrc();
+								}, timeoutMs )	
+							} else {
+								$j.publish( key, null );
 					}
-				}
+						} );
+
+					// executing this should cause a .load() or .error() event on the image
+					function setSrc() { 
+						image.src = thumb.thumburl;
 			};
-			_this.getStashImageInfo( apiCallback, [ 'url' ], width, height );
+
+					// and, go!
+					setSrc();
+				} );
 		}
+		};
 	},
 
 	/**
@@ -877,10 +936,6 @@ mw.UploadWizard.prototype = {
 
 		_this.uploads.push( upload );
 
-		/* useful for making ids unique and so on */
-		_this.uploadsSeen++;
-		upload.index = _this.uploadsSeen;
-
 		_this.updateFileCounts();
 
 		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );
@@ -888,9 +943,6 @@ mw.UploadWizard.prototype = {
 		// TODO v1.1 consider if we really have to set up details now
 		upload.details = new mw.UploadWizardDetails( upload, $j( '#mwe-upwiz-macro-files' ) );
 	},
-
-	/* increments with every upload */
-	uploadsSeen: 0,
 
 	/**
 	 * Remove an upload from our array of uploads, and the HTML UI

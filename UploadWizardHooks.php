@@ -37,6 +37,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.autoEllipsis.js',
 				'resources/jquery/jquery.suggestions.js',
 				'resources/jquery/jquery.removeCtrl.js',
+				'resources/jquery/jquery.pubsub.js',
 
 				// mediawiki-specific interface helper (relies on mediawiki globals)
 				'resources/jquery/jquery.mwCoolCats.js',
