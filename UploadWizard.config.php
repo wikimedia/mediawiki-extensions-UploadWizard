@@ -263,7 +263,7 @@ return array(
 	'feedbackPage' => '',
 	
 	// Bugzilla page for UploadWizard bugs
-	'bugList' => 'http://bugzilla.wikimedia.org/buglist.cgi?cmdtype=runnamed&namedcmd=UploadWizard&list_id=4977',
+	'bugList' => 'http://bugzilla.wikimedia.org/buglist.cgi?query_format=advanced&component=UploadWizard&resolution=---&product=MediaWiki+extensions',
 	
 	// TranslateWiki page for help with translations
 	'translateHelp' => 'http://translatewiki.net/w/i.php?title=Special:Translate&group=ext-uploadwizard',
