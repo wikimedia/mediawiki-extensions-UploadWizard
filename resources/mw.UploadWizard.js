@@ -666,13 +666,13 @@ mw.UploadWizard.prototype = {
 			);
 			$j( '#contentSub' ).append( feedbackLink );
 		}
-		if ( mw.UploadWizard.config['bugList'] !== '' ) {
+		if ( mw.isDefined( mw.UploadWizard.config['bugList'] ) && mw.UploadWizard.config['bugList'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-bugs', mw.UploadWizard.config['bugList'] ) );
 		}
-		if ( mw.UploadWizard.config['translateHelp'] !== '' ) {
+		if ( mw.isDefined( mw.UploadWizard.config['translateHelp'] ) && mw.UploadWizard.config['translateHelp'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', mw.UploadWizard.config['translateHelp'] ) );
 		}
-		if ( mw.UploadWizard.config['altUploadForm'] !== '' ) {
+		if ( mw.isDefined( mw.UploadWizard.config['altUploadForm'] ) && mw.UploadWizard.config['altUploadForm'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', mw.UploadWizard.config['altUploadForm'] ) );
 		}
 		$j( '#contentSub .contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
