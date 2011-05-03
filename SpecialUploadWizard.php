@@ -227,7 +227,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.         '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
 		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">'
 		.            '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
-		.              '<button id="mwe-upwiz-add-file">' . wfMsg( "mwe-upwiz-add-file-0" ) . '</button>'
+		.              '<button id="mwe-upwiz-add-file">' . wfMsg( "mwe-upwiz-add-file-0-free" ) . '</button>'
 		.  	     '</div>'
 		.	     '<div id="mwe-upwiz-upload-ctrl-container">'
 		.		'<button id="mwe-upwiz-upload-ctrl">' . wfMsg( "mwe-upwiz-upload" ) . '</button>'
