@@ -651,19 +651,31 @@ mw.UploadWizard.prototype = {
 
 		// remove first spinner
 		$j( '#mwe-first-spinner' ).remove();
-
+		
+		// construct the message for the subheader
+		$j( '#contentSub' ).append( $j( '<span style="margin-right: 0.5em;"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
 		if ( mw.isDefined( mw.UploadWizard.config['feedbackPage'] ) && mw.UploadWizard.config['feedbackPage'] !== '' ) {
 			var feedback = new mw.Feedback( _this.api,
-							new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
-			$j( '#contentSub' )
-				.msg( 'mwe-upwiz-feedback-prompt',
-					function() {
-						feedback.launch();
-						return false;
-					}
-				);
+				new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
+			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
+				function() {
+					feedback.launch();
+					return false;
+				}
+			);
+			$j( '#contentSub' ).append( feedbackLink );
 		}
+		if ( mw.UploadWizard.config['bugList'] !== '' ) {
+			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-bugs', mw.UploadWizard.config['bugList'] ) );
+		}
+		if ( mw.UploadWizard.config['translateHelp'] !== '' ) {
+			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', mw.UploadWizard.config['translateHelp'] ) );
+		}
+		if ( mw.UploadWizard.config['altUploadForm'] !== '' ) {
+			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', mw.UploadWizard.config['altUploadForm'] ) );
+		}
+		$j( '#contentSub .contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
 
 		// construct the arrow steps from the UL in the HTML
 		$j( '#mwe-upwiz-steps' )

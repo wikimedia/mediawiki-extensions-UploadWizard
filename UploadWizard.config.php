@@ -261,5 +261,14 @@ return array(
 	
 	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',
+	
+	// Bugzilla page for UploadWizard bugs
+	'bugList' => 'http://bugzilla.wikimedia.org/buglist.cgi?cmdtype=runnamed&namedcmd=UploadWizard&list_id=4977',
+	
+	// TranslateWiki page for help with translations
+	'translateHelp' => 'http://translatewiki.net/w/i.php?title=Special:Translate&group=ext-uploadwizard',
+	
+	// URL for alternative uploading form
+	'altUploadForm' => '',
 
 );

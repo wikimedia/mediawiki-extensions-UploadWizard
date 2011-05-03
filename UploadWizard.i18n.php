@@ -237,8 +237,13 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-unparseable-filename' => 'Could not understand the file name "$1"',
 	'mwe-upwiz-image-preview' => 'Image preview',
 	
+	'mwe-upwiz-subhead-message' => 'Thanks for using our new upload tool!',
+	'mwe-upwiz-subhead-bugs' => '[$1 Known issues]',
+	'mwe-upwiz-subhead-translate' => '[$1 Help with translations]',
+	'mwe-upwiz-subhead-alt-upload' => '[$1 Back to the old form]',
+	
 	/* Feedback interface */
-	'mwe-upwiz-feedback-prompt' => 'Please [$1 let us know] what you think of UploadWizard!',
+	'mwe-upwiz-feedback-prompt' => '[$1 Leave feedback]',
 	'mwe-upwiz-feedback-note' => 'Your feedback will be posted publicly to the page "[$2 $1]", along with your user name, browser version and operating system.',
 	'mwe-upwiz-feedback-subject' => 'Subject:',
 	'mwe-upwiz-feedback-message' => 'Message:',
