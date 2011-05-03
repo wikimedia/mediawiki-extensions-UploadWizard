@@ -36,7 +36,7 @@ mw.FlickrChecker = {
 		var photoIdMatches = url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
 		if ( photoIdMatches && photoIdMatches[1] > 0 ) {
 			var photoId = photoIdMatches[1];
-			$.getJSON( this.apiUrl + '?jsoncallback=?', { 'method': 'flickr.photos.getInfo', 'api_key': this.apiKey, 'photo_id': photoId, 'format': 'json' },
+			$.getJSON( this.apiUrl + 'jsoncallback=?', { 'method': 'flickr.photos.getInfo', 'api_key': this.apiKey, 'photo_id': photoId, 'format': 'json' },
 				function( data ) {
 					if ( typeof data.photo != 'undefined' ) {
 						// The returned data.photo.license is just an ID that we use to look up the license name
@@ -62,7 +62,7 @@ mw.FlickrChecker = {
 	 * Retrieve the list of all current Flickr licenses and store it in an array (mw.FlickrChecker.licenseList)
 	 */
 	getLicenses: function() {
-		$.getJSON( this.apiUrl + '?jsoncallback=?', { 'method': 'flickr.photos.licenses.getInfo', 'api_key': this.apiKey, 'format': 'json' },
+		$.getJSON( this.apiUrl + 'jsoncallback=?', { 'method': 'flickr.photos.licenses.getInfo', 'api_key': this.apiKey, 'format': 'json' },
 			function( data ) {
 				if ( typeof data.licenses != 'undefined' ) {
 					$.each( data.licenses.license, function(index, value) {
