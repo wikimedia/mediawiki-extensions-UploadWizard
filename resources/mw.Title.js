@@ -17,6 +17,13 @@
  *      - NameText = "Foo bar"
  *      - Extension "jpg"
  *
+ * all of the above are implemented as 'get' functions, i.e
+ *    getPrefixedDb(), getPrefixedText(), etc.
+ *
+ * in addition:
+ *    .toString(), and therefore all string coercions, are the same as getPrefixedDb();
+ *    .toText() gives you the most common human-readable representation (getPrefixedText()).
+ *
  * n.b. this class does not handle URI-escaping
  *
  * n.b. this class relies on the existence of two globals:
