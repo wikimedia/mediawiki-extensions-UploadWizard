@@ -701,7 +701,7 @@ mw.UploadWizardDetails.prototype = {
 				_this.upload.detailsProgress = 1.0;
 				_this.upload.state = 'complete';
 				_this.showIndicator( 'uploaded' );
-				_this.setStatus( 'mwe-upwiz-published' );
+				_this.setStatus( gM( 'mwe-upwiz-published' ) );
 			} else {
 				err( 'details-info-missing', result );
 			}
