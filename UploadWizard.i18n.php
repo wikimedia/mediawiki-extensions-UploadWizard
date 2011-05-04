@@ -349,6 +349,8 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:UloadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
 	'mwe-upwiz-license-confirm-remove-title' => 'Title for dialog box to confirm that you want to abandon an upload that you started',
+	'mwe-upwiz-license-external' => '$1 is a name of a website. $2 is the name of a license.',
+	'mwe-upwiz-license-external-invalid' => '$1 is a name of a website. $2 is the name of a license.',
 	'mwe-upwiz-categories' => '{{Identical|Categories}}',
 	'mwe-upwiz-categories-add' => '{{Identical|Add}}',
 	'mwe-upwiz-help-popup' => '{{Identical|Help}}',
