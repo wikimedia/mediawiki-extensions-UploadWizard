@@ -8,8 +8,6 @@
  * on the page which we clone and slice up with selectors. Inputs can still be members of the object
  * but they'll be found by selectors, not by creating them as members and then adding them to a DOM structure.
  *
- * XXX this should have styles for what mode we're in 
- *
  * @param UploadWizardUpload
  * @param containerDiv	The div to put the interface into
  */
