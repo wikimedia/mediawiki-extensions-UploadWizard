@@ -741,14 +741,14 @@ mw.UploadWizardDetails.prototype = {
 
 	/** 
 	 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
-	 * @param {String} name of field
+	 * @param {String} id of input field -- presumed to be within this upload's details form.
 	 * @param {String} error message to show
 	 */
-	recoverFromError: function( fieldname, errorMessage ) {
+	recoverFromError: function( fieldId, errorMessage ) {
 		this.upload.state = 'error';
 		this.dataDiv.morphCrossfade( '.detailsForm' );
-		this.$form.find( '[name=' + fieldname + ']' ).addClass( 'mwe-error' );
-		this.$form.find( 'label[for=' + fieldname + '].errorRecovery' ).html( errorMessage ).show();
+		$j( '#' + fieldId ).addClass( 'mwe-error' );
+		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).html( errorMessage ).show();
 	},
 
 	/**
