@@ -136,9 +136,9 @@ class UploadWizardHooks {
 				'mwe-upwiz-api-error-unknown-warning',
 				'mwe-upwiz-api-error-timeout',
 				'mwe-upwiz-api-error-noimageinfo',
-
 				'mwe-upwiz-api-error-fileexists-shared-forbidden',
-
+				'mwe-upwiz-api-error-unclassified',
+				'mwe-upwiz-api-warning-was-deleted',
 				'mwe-upwiz-api-warning-exists',
 				'mwe-upwiz-tutorial-error-localized-file-missing',
 				'mwe-upwiz-tutorial-error-file-missing',
@@ -262,6 +262,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-title-senselessimagename',
 				'mwe-upwiz-error-title-hosting',
 				'mwe-upwiz-error-title-thumbnail',
+				'mwe-upwiz-error-title-fileexists-shared-forbidden',
+				'mwe-upwiz-error-title-double-apostrophe',
 				'mwe-upwiz-license-cc-by-sa-3.0',
 				'mwe-upwiz-license-cc-by-3.0',
 				'mwe-upwiz-license-cc-zero',

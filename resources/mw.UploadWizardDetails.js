@@ -62,8 +62,9 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		} );
 
 	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error">'
-					+ '<label class="mwe-validator-error" for="' + _this.titleId + '" generated="true"/>'
-					+ '<label class="errorTitleUnique" for="' + _this.titleId + '" generated="true"/>'
+					+ '<label class="mwe-error mwe-validator-error" for="' + _this.titleId + '" generated="true"/>'
+					+ '<label class="mwe-error errorTitleUnique" for="' + _this.titleId + '" generated="true"/>'
+					+ '<label class="mwe-error errorRecovery" for="' + _this.titleId + '" generated="true"/>'
 				+ '</div>');
 
 	var titleHintId = 'mwe-upwiz-title-hint-' + _this.upload.index;
@@ -162,7 +163,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	
 		
 	/* Build the form for the file upload */
-	_this.$form = $j( '<form></form>' );
+	_this.$form = $j( '<form></form>' ).addClass( 'detailsForm' );
 	_this.$form.append( 
 		titleContainerDiv,
 		_this.descriptionsDiv, 
@@ -702,8 +703,9 @@ mw.UploadWizardDetails.prototype = {
 
 		var err = function( code, info ) {
 			_this.upload.state = 'error';
-			_this.showError( code, info );	
+			_this.processError( code, info );	
 		};
+		
 
 		var ok = function( result ) {
 			if ( result && result.upload && result.upload.imageinfo ) {
@@ -712,6 +714,22 @@ mw.UploadWizardDetails.prototype = {
 				_this.upload.state = 'complete';
 				_this.showIndicator( 'uploaded' );
 				_this.setStatus( gM( 'mwe-upwiz-published' ) );
+			} else if ( result && result.upload.warnings ) {
+				var warnings = result.upload.warnings;
+				if ( warnings['was-deleted'] ) { 
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-was-deleted' ) );
+				} else if ( warnings['thumb'] ) { 
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-thumbnail' ) );
+				} else if ( warnings['bad-prefix'] ) { 
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-senselessimagename' ) );
+				} else {
+					var warningsKeys = [];
+					$j.each( warnings, function( key, val ) { 
+						warningsKeys.push( key );
+					} );
+					_this.upload.state = 'error';
+					_this.showError( 'unknown', gM( 'mwe-upwiz-api-error-unknown-warning', warningsKeys.join( ', ' ) ) );
+				}
 			} else {
 				err( 'details-info-missing', result );
 			}
@@ -720,15 +738,59 @@ mw.UploadWizardDetails.prototype = {
 		_this.upload.api.postWithEditToken( params, ok, err );
 	},
 
-	showError: function( code, result ) {
-		this.showIndicator( 'error' );
-		// types of errors we know about...
-		// recoverable by fixing title
-		// TODO unmask and fix the error on the title
 
-		// recoverable by trying again, or removing
-		// TODO removal / retry interface
-		this.setStatus( result.error.info );
+	/** 
+	 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
+	 * @param {String} name of field
+	 * @param {String} error message to show
+	 */
+	recoverFromError: function( fieldname, errorMessage ) {
+		this.upload.state = 'error';
+		this.dataDiv.morphCrossfade( '.detailsForm' );
+		this.$form.find( '[name=' + fieldname + ']' ).addClass( 'mwe-error' );
+		this.$form.find( 'label[for=' + fieldname + '].errorRecovery' ).html( errorMessage ).show();
+	},
+
+	/**
+	 * Show error state, possibly using a recoverable error form
+	 * @param {String} error code
+	 * @param {String} status line 
+	 */
+	showError: function( code, statusLine ) {
+		this.showIndicator( 'error' );
+		this.setStatus( statusLine );
+	},
+
+
+	/**
+	 * Decide how to treat various errors
+	 * @param {String} error code
+	 * @param {Mixed} result from ajax call
+	 */
+	processError: function( code, result ) {
+		var statusLine = gM( 'mwe-upwiz-unclassified' );
+		var titleErrorMap = {
+			'senselessimagename': 'senselessimagename',
+			'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
+		 	'titleblacklist-custom-filename': 'hosting',
+			'titleblacklist-custom-SVG-thumbnail': 'thumbnail',
+			'titleblacklist-custom-thumbnail': 'thumbnail',
+		 	'titleblacklist-custom-double-apostrophe': 'double-apostrophe'
+		};
+		if ( result && result.error && result.error.code ) {
+			if ( titleErrorMap[code] ) {
+				_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-' + titleErrorMap[code] ) );
+				return;
+			} else {
+				statusKey = 'mwe-upwiz-api-error-' + code;
+				if ( result.error.info ) {
+					statusLine = gM( statusKey, result.error.info );
+				} else {
+					statusLine = gM( statusKey, '[no error info]' );
+				}
+			}
+		}
+		this.showError( code, statusLine );
 	},
 
 	setStatus: function( s ) { 

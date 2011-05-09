@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'mwe-upwiz-step-thanks' => 'Use',
 	'mwe-upwiz-api-error-http' => 'Internal error: unable to connect to server.',
 	'mwe-upwiz-api-error-ok-but-empty' => 'Internal error: no response from server.',
+	'mwe-upwiz-api-error-unclassified' => 'An unknown error occurred',
 	'mwe-upwiz-api-error-unknown-code' => 'Unknown error: "$1"',
 	'mwe-upwiz-api-error-uploaddisabled' => 'Uploading is disabled on this wiki.',
 	'mwe-upwiz-api-error-nomodule' => 'Internal error: no upload module set.',
@@ -54,10 +55,10 @@ $messages['en'] = array(
 	'mwe-upwiz-api-error-unknown-warning' => 'Unknown warning: $1',
 	'mwe-upwiz-api-error-timeout' => 'The server did not respond within the expected time.',
 	'mwe-upwiz-api-error-noimageinfo' => 'The upload succeeded, but the server did not give us any information about the file.',
-	'mwe-upwiz-api-error-fileexists-shared-forbidden' => 'This filename is reserved by a file on a remote shared repository. Choose another name.',
  
 
 	'mwe-upwiz-api-warning-exists' => 'There is [$1 another file] already on the wiki with the same filename',
+	'mwe-upwiz-api-warning-was-deleted' => 'There was a file by this name, "$1", but it was deleted and you can not reupload the file. If your file is different, try renaming it.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The English one is shown instead.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Sorry, we could not find any files for the tutorial that is supposed to go here. Please contact the system administrators.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Sorry, we could not get a scaled image of the tutorial to fit this screen. This may be a temporary problem with Wikimedia Commons; try again later.',
@@ -182,6 +183,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-title-senselessimagename' => 'Please make this title more meaningful.',	
 	'mwe-upwiz-error-title-hosting' => 'This looks like a file you obtained from another imagehost. Please make the title more meaningful. Also, double check that you have the rights to publish it on {{SITENAME}}.',
 	'mwe-upwiz-error-title-thumbnail' => 'This looks like a thumbnail title. Please do not upload thumbnails back to the same wiki. Otherwise, please fix the filename so it is more meaningful, and does not have the thumbnail prefix.',
+	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'This title is reserved by a file on a remote shared repository. Choose another name.',
+	'mwe-upwiz-error-title-double-apostrophe' => 'This title contains a double apostrophe; please remove it.',
 	
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */

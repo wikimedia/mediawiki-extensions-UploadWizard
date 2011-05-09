@@ -597,12 +597,12 @@ a.mwe-upwiz-tooltip-link {
 	cursor: pointer;
 }
 
-.mwe-error, .mwe-validator-error, .errorTitleUnique {
+.mwe-error, .mwe-validator-error {
 	color: #ff0000;
 }
 
 .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-error,
-.mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-validator-error, label.errorTitleUnique {
+.mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-validator-error {
 	margin-left: 0;
 }
 
