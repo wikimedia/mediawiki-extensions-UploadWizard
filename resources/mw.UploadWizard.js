@@ -1331,11 +1331,7 @@ mw.UploadWizard.prototype = {
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
 	 */
 	detailsErrorCount: function() {
-		var errorCount = 
-			$( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-error' ).length
-			+ $( '#mwe-upwiz-stepdiv-details' ).find( 'textarea.mwe-error' ).length
-			+ $( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-validator-error' ).length
-			+ $( '#mwe-upwiz-stepdiv-details' ).find( 'textarea.mwe-validator-error' ).length;
+		var errorCount = $( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-error, textarea.mwe-error, input.mwe-validator-error, textarea.mwe-validator-error' ).length;
 		if ( errorCount > 0 ) {
 			$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
 		} else {
