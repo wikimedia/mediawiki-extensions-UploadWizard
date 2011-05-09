@@ -1,4 +1,3 @@
-
 /**
  * Object that represents the Details (step 2) portion of the UploadWizard
  * n.b. each upload gets its own details.
@@ -62,7 +61,10 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			processResult: function( result ) { _this.processDestinationCheck( result ); } 
 		} );
 
-	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + _this.titleId + '" generated="true"/></div>');
+	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error">'
+					+ '<label class="mwe-validator-error" for="' + _this.titleId + '" generated="true"/>'
+					+ '<label class="errorTitleUnique" for="' + _this.titleId + '" generated="true"/>'
+				+ '</div>');
 
 	var titleHintId = 'mwe-upwiz-title-hint-' + _this.upload.index;
 	var $titleDialog = $('<div>')
@@ -229,12 +231,22 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	_this.addDescription( true, mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
-	// make the title field required
+	// make the title field required, and non-blacklisted
 	_this.$form.find( '.mwe-title' )
 		.rules( "add", {
 			required: true,
+			titleBlacklist: true,
+			titleBadchars: true,
+			titleSenselessimagename: true,	
+			titleHosting: true,
+			titleThumbnail: true,
 			messages: { 
-				required: gM( 'mwe-upwiz-error-blank' )
+				required: gM( 'mwe-upwiz-error-blank' ),
+				titleBlacklist: gM( 'mwe-upwiz-error-title-blacklisted' ),
+				titleBadchars: gM( 'mwe-upwiz-error-title-badchars' ),
+				titleSenselessimagename: gM( 'mwe-upwiz-error-title-senselessimagename' ),	
+				titleHosting: gM( 'mwe-upwiz-error-title-hosting' ),
+				titleThumbnail: gM( 'mwe-upwiz-error-title-thumbnail' )
 			}
 		} );
 	
@@ -323,9 +335,11 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	processDestinationCheck: function( result ) {
 		var _this = this;
+		var $errorEl = _this.$form.find( 'label[for=' + _this.titleId + '].errorTitleUnique' );
+
 		if ( result.isUnique ) {
 			$j( _this.titleInput ).data( 'valid', true );
-			_this.$form.find( 'label[for=' + _this.titleId + ']' ).hide().empty();
+			$errorEl.hide().empty();
 			_this.ignoreWarningsInput = undefined;
 			return;
 		}
@@ -348,9 +362,7 @@ mw.UploadWizardDetails.prototype = {
 			errHtml = gM( 'mwe-upwiz-fileexists-replace-no-link', titleString );
 		}
 				
-		_this.$form.find( 'label[for=' + _this.titleId + ']' )
-			.html( errHtml )
-			.show();
+		$errorEl.html( errHtml ).show();
 	}, 
 
 	/**

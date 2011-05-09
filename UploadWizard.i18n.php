@@ -177,6 +177,11 @@ Make it longer than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-bad-chars' => 'This field contains symbols that are not allowed.
 Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-date' => 'Please enter a valid date in YYYY-MM-DD format, or pick a date from the popup calendar.',
+	'mwe-upwiz-error-title-blacklisted' => 'This title contains some undesirable text. Please revise it',
+	'mwe-upwiz-error-title-badchars' => 'This title contains some undesirable characters. Please remove them',
+	'mwe-upwiz-error-title-senselessimagename' => 'Please make this title more meaningful.',	
+	'mwe-upwiz-error-title-hosting' => 'This looks like a file you obtained from another imagehost. Please make the title more meaningful. Also, double check that you have the rights to publish it on {{SITENAME}}.',
+	'mwe-upwiz-error-title-thumbnail' => 'This looks like a thumbnail title. Please do not upload thumbnails back to the same wiki. Otherwise, please fix the filename so it is more meaningful, and does not have the thumbnail prefix.',
 	
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */

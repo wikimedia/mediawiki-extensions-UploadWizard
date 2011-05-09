@@ -42,6 +42,9 @@ class UploadWizardHooks {
 				// mediawiki-specific interface helper (relies on mediawiki globals)
 				'resources/jquery/jquery.mwCoolCats.js',
 
+				// wikimedia-comons specific title checker
+				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
+
 				// common utilities
 				'resources/mw.Log.js',
 				'resources/mw.Utilities.js',
@@ -254,6 +257,11 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-too-short',
 				'mwe-upwiz-error-bad-chars',
 				'mwe-upwiz-error-date',
+				'mwe-upwiz-error-title-blacklisted',
+				'mwe-upwiz-error-title-badchars',
+				'mwe-upwiz-error-title-senselessimagename',
+				'mwe-upwiz-error-title-hosting',
+				'mwe-upwiz-error-title-thumbnail',
 				'mwe-upwiz-license-cc-by-sa-3.0',
 				'mwe-upwiz-license-cc-by-3.0',
 				'mwe-upwiz-license-cc-zero',
