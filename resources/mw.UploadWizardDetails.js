@@ -768,7 +768,7 @@ mw.UploadWizardDetails.prototype = {
 	 * @param {Mixed} result from ajax call
 	 */
 	processError: function( code, result ) {
-		var statusLine = gM( 'mwe-upwiz-unclassified' );
+		var statusLine = gM( 'mwe-upwiz-api-error-unclassified' );
 		var titleErrorMap = {
 			'senselessimagename': 'senselessimagename',
 			'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
