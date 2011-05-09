@@ -1,24 +1,22 @@
-// dependencies: mw 
-
-( function( mw ) {
+( function() {
 
 	/**
 	 * Check if a value is null, undefined, or the empty string. 
 	 *
-	 * @param {object} object Object to be checked
+	 * @param {mixed} v Variable to be checked
 	 * @return {boolean}
 	 */
-	mw.isEmpty = function( o ) {
-		return ! mw.isDefined( o ) || o === null || ( typeof o === 'string' && o === '' ); 
+	mw.isEmpty = function( v ) {
+		return ! mw.isDefined( v ) || v === null || v === ''; 
 	};
 
 	/**
 	 * Check if something is defined
-	 * @param {object}
+	 * @param {mixed} v
 	 * @return {boolean}
 	 */
-	mw.isDefined = function( o ) {
-		return typeof o !== 'undefined'; 
+	mw.isDefined = function( v ) {
+		return typeof v !== 'undefined'; 
 	};
 
 
@@ -32,4 +30,4 @@
 	};
 
 
-} )( window.mediaWiki );
+} )();
