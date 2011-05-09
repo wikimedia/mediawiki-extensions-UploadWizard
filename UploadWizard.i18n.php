@@ -185,6 +185,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-title-thumbnail' => 'This looks like a thumbnail title. Please do not upload thumbnails back to the same wiki. Otherwise, please fix the filename so it is more meaningful, and does not have the thumbnail prefix.',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'This title is reserved by a file on a remote shared repository. Choose another name.',
 	'mwe-upwiz-error-title-double-apostrophe' => 'This title contains a double apostrophe; please remove it.',
+	'mwe-upwiz-error-title-extension' => 'You do not need to add a file extension. Just make a human readable title and the application will take care of the rest.',
+	'mwe-upwiz-details-error-count' => 'There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the errors, and try submitting again.',
 	
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */

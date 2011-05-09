@@ -265,6 +265,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">'
 		.       '<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
+		.	   '<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>'
 		.	   '<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice">'
 		.            '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-details" )  . '</button>'
 		.          '</div>'

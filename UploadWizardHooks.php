@@ -264,6 +264,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-title-thumbnail',
 				'mwe-upwiz-error-title-fileexists-shared-forbidden',
 				'mwe-upwiz-error-title-double-apostrophe',
+				'mwe-upwiz-error-title-extension',
+				'mwe-upwiz-details-error-count',
 				'mwe-upwiz-license-cc-by-sa-3.0',
 				'mwe-upwiz-license-cc-by-3.0',
 				'mwe-upwiz-license-cc-zero',

@@ -241,13 +241,15 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			titleSenselessimagename: true,	
 			titleHosting: true,
 			titleThumbnail: true,
+			titleExtension: true,
 			messages: { 
 				required: gM( 'mwe-upwiz-error-blank' ),
 				titleBlacklist: gM( 'mwe-upwiz-error-title-blacklisted' ),
 				titleBadchars: gM( 'mwe-upwiz-error-title-badchars' ),
 				titleSenselessimagename: gM( 'mwe-upwiz-error-title-senselessimagename' ),	
 				titleHosting: gM( 'mwe-upwiz-error-title-hosting' ),
-				titleThumbnail: gM( 'mwe-upwiz-error-title-thumbnail' )
+				titleThumbnail: gM( 'mwe-upwiz-error-title-thumbnail' ),
+				titleExtension: gM( 'mwe-upwiz-error-title-extension' )
 			}
 		} );
 	

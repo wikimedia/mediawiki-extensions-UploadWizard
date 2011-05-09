@@ -93,6 +93,10 @@
 
 		'titleThumbnail': [
 			/^\d+px-.*/
+		],
+
+		'titleExtension': [ 
+			/\.(jpe?g|png|gif|svg|ogg|ogv|oga)$/
 		]
 
 	};
