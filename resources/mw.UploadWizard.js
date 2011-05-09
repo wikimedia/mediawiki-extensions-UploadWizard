@@ -784,8 +784,11 @@ mw.UploadWizard.prototype = {
 			if ( _this.detailsValid() ) {
 				_this.hideDetailsEndButtons();
 				_this.detailsSubmit( function() {
+					_this.detailsErrorCount();
 					_this.showNext( 'details', 'complete', finalizeDetails );
 				} );
+			} else {
+				_this.detailsErrorCount();
 			}
 		};
 
@@ -1319,6 +1322,25 @@ mw.UploadWizard.prototype = {
 			},
 			endCallback /* called when all uploads are in a valid end state */
 		);
+	},
+
+	/** 
+	 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
+ 	 * right next to the submit button, so it should be obvious to the user they need to fix things. 
+	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
+	 * outside of that library. So we are going to just look for any visible inputs in an error state.
+	 */
+	detailsErrorCount: function() {
+		var errorCount = 
+			$( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-error' ).length
+			+ $( '#mwe-upwiz-stepdiv-details' ).find( 'textarea.mwe-error' ).length
+			+ $( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-validator-error' ).length
+			+ $( '#mwe-upwiz-stepdiv-details' ).find( 'textarea.mwe-validator-error' ).length;
+		if ( errorCount > 0 ) {
+			$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
+		} else {
+			$( '#mwe-upwiz-details-error-count' ).empty();
+		}
 	},
 
 	prefillThanksPage: function() {
