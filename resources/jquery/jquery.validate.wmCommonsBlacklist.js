@@ -56,22 +56,22 @@
 
 		// note lack of extension, since we test title without extension.
 		'titleSenselessimagename': [	
-			/^DCP[\d\s]+$/i, //  Kodak
-			/^DSC.[\d\s]+$/i, //  [[w:Design rule for Camera File system]] (Nikon, Fuji, Polaroid)
-			/^MVC-?[\d\s]+$/i, //  Sony Mavica
-			/^P[\dA-F][\d\s]+$/, //  Olympus, Kodak
-			/^I?MG[P_]?[\d\s]+$/, //  Canon, Pentax
-			/^1\d+-\d+(_IMG)?$/, //  Canon
-			/^(IM|EX)[\d\s]+$/, //  HP Photosmart
-			/^DC[\d\s]+[SML]$/, //  Kodak
-			/^PIC[T_]?[\d\s]+$/, //  Minolta
-			/^PANA[\d\s]+$/, //  Panasonic
-			/^DUW[\d\s]+$/, //  some mobile phones
-			/^CIMG[\d\s]+$/, //  Casio
-			/^JD[\d\s]+$/, //  Jenoptik
-			/^SDC[\d\s]+$/, //  Samsung
-			/^DVC[\d\s]+$/, //  DoCoMo
-			/^SANY[\d\s]+$/, //  Sanyo
+			/^DCP+/i, //  Kodak
+			/^DSC.+/i, //  [[w:Design rule for Camera File system]] (Nikon, Fuji, Polaroid)
+			/^MVC-?/i, //  Sony Mavica
+			/^P[\dA-F]/, //  Olympus, Kodak
+			/^I?MG[P_]?/, //  Canon, Pentax
+			/^1\d+-\d+(_IMG)?/, //  Canon
+			/^(IM|EX)/, //  HP Photosmart
+			/^DC[\d\s]+/, //  Kodak
+			/^PIC[T_]?/, //  Minolta
+			/^PANA/, //  Panasonic
+			/^DUW/, //  some mobile phones
+			/^CIMG/, //  Casio
+			/^JD[\d\s]+/, //  Jenoptik
+			/^SDC/, //  Samsung
+			/^DVC/, //  DoCoMo
+			/^SANY/, //  Sanyo
 		],
 
 		// filename from elsewhere
