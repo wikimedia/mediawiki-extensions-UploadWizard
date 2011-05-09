@@ -61,37 +61,39 @@
 		if ( typeof window.console !== 'undefined' && typeof window.console.log === 'function' ) {
 			window.console.log( s );
 		} else {
-			// Set timestamp
-			var d = new Date();
-			var time = ( pad( d.getHours(), 2 ) + ':' + pad( d.getMinutes(), 2 ) + pad( d.getSeconds(), 2 ) + pad( d.getMilliseconds(), 3 ) );
-			// Show a log box for console-less browsers
-			var $log = $( '#mw-log-console' );
-			if ( !$log.length ) {
-				$log = $( '<div id="mw-log-console"></div>' )
-					.css( {
-						'position': 'fixed',
-						'overflow': 'auto',
-						'z-index': 500,
-						'bottom': '0px',
-						'left': '0px',
-						'right': '0px',
-						'height': '150px',
-						'background-color': 'white',
-						'border-top': 'solid 2px #ADADAD'
-					} )
-					.appendTo( 'body' );
+			if ( typeof mw.log.makeConsole !== 'undefined' && mw.log.makeConsole ) {
+				// Set timestamp
+				var d = new Date();
+				var time = ( pad( d.getHours(), 2 ) + ':' + pad( d.getMinutes(), 2 ) + pad( d.getSeconds(), 2 ) + pad( d.getMilliseconds(), 3 ) );
+				// Show a log box for console-less browsers
+				var $log = $( '#mw-log-console' );
+				if ( !$log.length ) {
+					$log = $( '<div id="mw-log-console"></div>' )
+						.css( {
+							'position': 'fixed',
+							'overflow': 'auto',
+							'z-index': 500,
+							'bottom': '0px',
+							'left': '0px',
+							'right': '0px',
+							'height': '150px',
+							'background-color': 'white',
+							'border-top': 'solid 2px #ADADAD'
+						} )
+						.appendTo( 'body' );
+				}
+				$log.append(
+					$( '<div></div>' )
+						.css( {
+							'border-bottom': 'solid 1px #DDDDDD',
+							'font-size': 'small',
+							'font-family': 'monospace',
+							'padding': '0.125em 0.25em'
+						} )
+						.text( s )
+						.append( '<span style="float:right">[' + time + ']</span>' )
+				);
 			}
-			$log.append(
-				$( '<div></div>' )
-					.css( {
-						'border-bottom': 'solid 1px #DDDDDD',
-						'font-size': 'small',
-						'font-family': 'monospace',
-						'padding': '0.125em 0.25em'
-					} )
-					.text( s )
-					.append( '<span style="float:right">[' + time + ']</span>' )
-			);
 		}
 	};
 	
