@@ -31,7 +31,8 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	// this.handler = new mw.MockUploadHandler( this );
 	this.handler = new mw.ApiUploadHandler( this, api );
 	
-	this.index = mw.UploadWizardUpload.prototype.count++;
+	this.index = mw.UploadWizardUpload.prototype.count;
+	mw.UploadWizardUpload.prototype.count++;
 };
 
 mw.UploadWizardUpload.prototype = {
@@ -461,16 +462,16 @@ mw.UploadWizardUpload.prototype = {
 								setTimeout( function() { 
 									timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) ); 
 									setSrc();
-								}, timeoutMs )	
+								}, timeoutMs );
 							} else {
 								$j.publish( key, null );
-					}
+							}
 						} );
 
 					// executing this should cause a .load() or .error() event on the image
 					function setSrc() { 
 						image.src = thumb.thumburl;
-			};
+					}
 
 					// and, go!
 					setSrc();
@@ -1297,6 +1298,15 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-stepdiv-details' )
 			.find( '.mwe-upwiz-data' )
 			.morphCrossfade( '.mwe-upwiz-submitting' );
+
+		// hide errors ( assuming maybe this submission will fix it, if it hadn't blocked )
+		$j( '#mwe-upwiz-stepdiv-details' ) 
+			.find( 'label.mwe-error' )
+			.hide().empty();
+
+		$j( '#mwe-upwiz-stepdiv-details' ) 
+			.find( 'input.mwe-error' )
+			.removeClass( 'mwe-error' );
 
 		// add the upload progress bar, with ETA
 		// add in the upload count
