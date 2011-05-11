@@ -188,17 +188,20 @@ class SpecialUploadWizard extends SpecialPage {
 
 			$linkHtml = '';
 			$altUploadForm = Title::newFromText( $wgUploadWizardConfig[ 'altUploadForm' ] );
-			if ( get_class( $altUploadForm ) == 'Title' ) {
-				$linkHtml = '<p style="text-align: center;"><a href="' . $altUploadForm->getLocalURL() . '">' 
-						. $wgUploadWizardConfig['altUploadForm'] 
-						.'</a></p>';
+			if ( $altUploadForm instanceof Title ) {
+				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ), 
+					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ), 
+						$wgUploadWizardConfig['altUploadForm'] 
+					) 
+				);
 			}
 
 			return 	 
-				'<div id="upload-wizard" class="upload-section">'
-				. 	'<p style="text-align: center;">' . wfMsg( 'mwe-upwiz-extension-disabled' ) . '</p>'
-				.	$linkHtml
-				. '</div>';
+				Html::rawElement( 'div', array( 'id' => 'upload-wizard', 'class' => 'upload-section' ),
+					Html::rawElement( 'p', array( 'style' => 'text-align: center' ), wfMsg( 'mwe-upwiz-extension-disabled' ) ) 
+					. $linkHtml
+				);
+
 		}
 	
 		$tutorialHtml = '';		
