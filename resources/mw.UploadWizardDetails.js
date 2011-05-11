@@ -255,7 +255,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	
 	// make this a category picker
 	var hiddenCats = [];
-	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) ) {
+	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) && mw.UploadWizard.config.autoCategory !== '' ) {
 		hiddenCats.push( mw.UploadWizard.config.autoCategory );
 	}
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )

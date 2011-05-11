@@ -15,8 +15,8 @@ return array(
 	// The default api url is for the current wiki ( can override at run time )
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 	
-	// If the uploaded file should be auto categorized
-	'autoCategory' => false,
+	// Category to automatically add all uploaded images into. Leave empty for none.
+	'autoCategory' => '',
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
