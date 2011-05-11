@@ -15,6 +15,7 @@ $messages['en'] = array(
 	'uploadwizard' => 'Upload wizard',
 	'uploadwizard-desc' => 'Upload wizard, developed for the Multimedia Usability grant',
 	'mwe-upwiz-js-off' => 'UploadWizard uses JavaScript for an improved interface. Your browser either does not support JavaScript or has JavaScript turned off, so we are showing you a simple upload form.',
+	'mwe-upwiz-extension-disabled' => 'This page has been disabled due to temporary technical problems. In the meantime try the standard upload form.',
 	'mwe-upwiz-code-unknown' => 'Unknown language',
 	'mwe-upwiz-step-tutorial' => 'Learn',
 	'mwe-upwiz-step-file' => 'Upload',

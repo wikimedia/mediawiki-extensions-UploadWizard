@@ -180,7 +180,27 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	function getWizardHtml() {
 		global $wgUploadWizardConfig, $wgExtensionAssetsPath;
-		
+
+		if ( array_key_exists( 'fallbackToAltUploadForm', $wgUploadWizardConfig ) 
+			&& array_key_exists( 'altUploadForm', $wgUploadWizardConfig ) 
+			&& $wgUploadWizardConfig['altUploadForm'] != ''
+			&& $wgUploadWizardConfig[ 'fallbackToAltUploadForm' ] 			) {
+
+			$linkHtml = '';
+			$altUploadForm = Title::newFromText( $wgUploadWizardConfig[ 'altUploadForm' ] );
+			if ( get_class( $altUploadForm ) == 'Title' ) {
+				$linkHtml = '<p style="text-align: center;"><a href="' . $altUploadForm->getLocalURL() . '">' 
+						. $wgUploadWizardConfig['altUploadForm'] 
+						.'</a></p>';
+			}
+
+			return 	 
+				'<div id="upload-wizard" class="upload-section">'
+				. 	'<p style="text-align: center;">' . wfMsg( 'mwe-upwiz-extension-disabled' ) . '</p>'
+				.	$linkHtml
+				. '</div>';
+		}
+	
 		$tutorialHtml = '';		
 		// only load the tutorial HTML if we aren't skipping the first step
 		// TODO should use user preference not a cookie ( so the user does not have to skip it for every browser )
