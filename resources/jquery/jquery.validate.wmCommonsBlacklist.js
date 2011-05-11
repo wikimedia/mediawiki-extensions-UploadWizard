@@ -71,7 +71,7 @@
 			/^JD[\d\s]+$/, //  Jenoptik
 			/^SDC[\d\s]+$/, //  Samsung
 			/^DVC[\d\s]+$/, //  DoCoMo
-			/^SANY[\d\s]+$/, //  Sanyo
+			/^SANY[\d\s]+$/ //  Sanyo
 		],
 
 		// filename from elsewhere
@@ -88,7 +88,7 @@
 			/^[^A-Za-z]*(small|medium|large)\)?/,
 			/^(Untitled|No[-_]?name|Picture|Pict?|Image[mn]?|Img|Immagine|Photo|Foto|Bild|Scan|Panorama|Sin_t√≠tulo)[^A-Za-z]*/,
 			/^(January|Jan|February|Febr?|March|Mar|April|Apr|May|June?|July?|August|Aug|September|Sept?|October|Oct|November|Nov|December|Dec)[^A-Za-z]*/,
-			/^[0-9 ]*([A-Z][0-9 ]*){30,}/,
+			/^[0-9 ]*([A-Z][0-9 ]*){30,}/
 		],
 
 		'titleThumbnail': [
@@ -106,7 +106,8 @@
 			return function( value, element, params ) {
 				var ok = true;
 				$.each( regexes, function( i, regex ) {
-					if ( value.match( regex ) ) {
+					// if we make a mistake with commas in the above list, IE sometimes gives us an undefined regex, causes nastiness
+					if ( typeof regex !== undefined && value.match( regex ) ) {
 						ok = false;
 						return false;
 					}
