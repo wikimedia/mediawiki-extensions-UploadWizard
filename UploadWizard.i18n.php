@@ -8402,7 +8402,6 @@ $messages['roa-tara'] = array(
 	'mwe-upwiz-stashed-upload' => 'OK',
 	'mwe-upwiz-published' => 'Pubblecate!',
 	'mwe-upwiz-failed' => 'Fallite.',
-	'mwe-upwiz-click-here' => "Cazze aqquà pe scacchià 'nu file",
 	'mwe-upwiz-editing' => 'stoche a cange...',
 	'mwe-upwiz-remove' => 'Live',
 	'mwe-upwiz-upload' => 'Careche',

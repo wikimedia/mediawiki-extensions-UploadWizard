@@ -156,7 +156,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-submitting-details',
 				'mwe-upwiz-published',
 				'mwe-upwiz-failed',
-				'mwe-upwiz-click-here',
 				'mwe-upwiz-remove',
 				'mwe-upwiz-remove-upload',
 				'mwe-upwiz-remove-description',
