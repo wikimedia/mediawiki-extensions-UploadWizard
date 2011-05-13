@@ -173,9 +173,9 @@ Make it longer than $1 {{PLURAL:$1|character|characters}}.',
 Please do not use wikitext or HTML here, just your username or real name.',
 	'mwe-upwiz-error-blank' => 'This field is required.',
 	'mwe-upwiz-error-too-long' => 'This field is too long.
-Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
+Please make this entry shorter than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-too-short' => 'This field is too short.
-Make it longer than $1 {{PLURAL:$1|character|characters}}.',
+Please make this entry longer than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-bad-chars' => 'This field contains symbols that are not allowed.
 Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-date' => 'Please enter a valid date in YYYY-MM-DD format, or pick a date from the popup calendar.',
