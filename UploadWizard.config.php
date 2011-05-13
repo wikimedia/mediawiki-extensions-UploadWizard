@@ -34,11 +34,6 @@ return array(
 			'templates' => array( 'GFDL', 'cc-by-sa-3.0' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
-		'cc-by-3.0-gfdl' => array(
-			'msg' => 'mwe-upwiz-license-cc-by-3.0-gfdl',
-			'templates' => array( 'GFDL', 'cc-by-3.0' ),
-			'icons' => array( 'cc-by' )
-		),
 		'cc-by-3.0' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-3.0',
 			'icons' => array( 'cc-by' )

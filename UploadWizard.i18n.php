@@ -214,7 +214,6 @@ Please do not use wikitext or HTML here.',
         'mwe-upwiz-license-attribution' => 'May be used for any purpose, including commercially, if the copyright holder is properly attributed',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, attribution required (GFDL, CC-BY-SA-3.0)',
-	'mwe-upwiz-license-cc-by-3.0-gfdl' => 'Attribution required (GFDL, CC-BY-SA-3.0)',
 
 	'mwe-upwiz-license-cc-head' => 'The copyright holder published {{PLURAL:$1|this work|these works}} with the right Creative Commons license',
 	'mwe-upwiz-license-cc-subhead' => 'Not all Creative Commons licenses are good for {{SITENAME}} -- make sure the copyright holder used one of these licenses.',
