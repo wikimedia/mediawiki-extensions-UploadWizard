@@ -196,7 +196,7 @@ return array(
 	'maxAuthorLength' => 100,
 
 	// Min author string length
-	'minAuthorLength' => 2,
+	'minAuthorLength' => 1,
 
 	// Max source string length 
 	'maxSourceLength' => 200,
