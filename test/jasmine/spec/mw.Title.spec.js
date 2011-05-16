@@ -103,7 +103,7 @@
 				var title = new mw.Title( "flightless_yet_cute.jpg" );
 				expect( function() { 
 					title.setPrefix( "Entirely Unknown" );
-				} ).toThrow( "unrecognized prefix" );
+				} ).toThrow( "unrecognized namespace prefix" );
 			} );
 			
 		} );
