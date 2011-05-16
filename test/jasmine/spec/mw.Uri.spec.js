@@ -120,7 +120,7 @@
 				expect( uri.host ).toEqual( 'www.sample.com' );
 				expect( uri.port ).toEqual( '81' );
 				expect( uri.path ).toEqual( '/dir/dir.2/index.htm' );
-				expect( uri.query ).toEqual( { q1: '0', test1: '', test2: 'value (escaped)' } );
+				expect( uri.query ).toEqual( { q1: '0', test1: null, test2: 'value (escaped)' } );
 				expect( uri.fragment ).toEqual( 'top' );
 			} );
 
@@ -140,7 +140,8 @@
 				it( "should have query string which contains all components", function() { 
 					var queryString = uri.getQueryString();
 					expect( queryString ).toContain( 'q1=0' );
-					expect( queryString ).toContain( 'test1=' );
+					expect( queryString ).toContain( 'test1' );
+					expect( queryString ).not.toContain( 'test1=' );
 					expect( queryString ).toContain( 'test2=value+%28escaped%29' );
 				} );
 
