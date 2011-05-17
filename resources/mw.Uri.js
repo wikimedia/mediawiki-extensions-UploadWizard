@@ -158,10 +158,10 @@
 			q = {};
 			// using replace to iterate over a string
 			if ( uri.query ) { 
-				uri.query.replace( /(?:^|&)([^&=]*)(?:=([^&]*))?/g, function ($0, $1, $2) {
+				uri.query.replace( /(?:^|&)([^&=]*)(?:(=)([^&]*))?/g, function ($0, $1, $2, $3) {
 					if ( $1 ) {
 						var k = mw.Uri.decode( $1 );
-						var v = mw.isDefined( $2 ) ? mw.Uri.decode( $2 ) : null;
+						var v = ($2 == '') ? null : mw.Uri.decode( $3 );
 						if ( typeof q[ k ] === 'string' ) {
 							q[ k ] = [ q[ k ] ];
 						}
@@ -210,8 +210,10 @@
 			var args = [];
 			var _this = this;
 			$.each( this.query, function( key, val ) {
-				$.each( $.makeArray( val ), function( i, v ) {
-					args.push( mw.Uri.encode( key ) + ( v === null ? '' : '=' + mw.Uri.encode( v ) ) );
+				var k = mw.Uri.encode( key );
+				var vals = val === null ? [ null ] : $.makeArray( val );
+				$.each( vals, function( i, v ) {
+					args.push( k + ( v === null ? '' : '=' + mw.Uri.encode( v ) ) );
 				} );
 			} );
 			return args.join( '&' );
