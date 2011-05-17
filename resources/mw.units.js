@@ -1,24 +1,25 @@
 ( function( mw ) { 
 
-	var scales = [ 'bytes', 'kilobytes', 'megabytes', 'gigabytes', 'terabytes' ];
+	var scaleMsgKeys = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes', 'size-terabytes' ];
 
 	mw.units = {
 
 		/**
 		 * Format a size in bytes for output, using an appropriate
-		 * unit (B, KB, MB, GB, or TB) according to the magnitude in question
+		 * unit (bytes, K, MB, GB, or TB) according to the magnitude in question
+		 *
+		 * Units above K get 2 fixed decimal places.
 		 *
 		 * @param {Number} size, positive integer
 		 * @return {String} formatted size
 		 */
 		bytes: function ( size ) {
 			var i = 0;
-			// while the scale is less than terabytes, bit-shift size over by 1024
-			while ( size >= 1024 && i < scales.length ) {
+			while ( size >= 1024 && i < scaleMsgKeys.length ) {
 				size /= 1024.0;
 				i++;
 			}
-			return gM( 'size-' + scales[i], size.toFixed( i > 1 ? 2 : 0 ) );
+			return gM( scaleMsgKeys[i], size.toFixed( i > 1 ? 2 : 0 ) );
 		}
 	};
 
