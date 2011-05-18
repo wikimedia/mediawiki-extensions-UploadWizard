@@ -76,19 +76,19 @@
 
 		// filename from elsewhere
 		'titleHosting': [
-			/\d{9}[A-Z]{6}_[A-Z]{2}[^A-Za-z]*/, //  some image hosting site?
-			/\d{8,}_[\dA-F]{10}(_[A-Z])?[^A-Za-z]*/i, // http://www.flickr.com/services/api/misc.urls.html/i,
-			/([\dA-F]{8}-)?[\dA-F]{4}-[\dA-F]{4}-[\dA-F]{4}-?[\dA-F]{12}.*/, //  [[w:UUID]] (with some variations included)
-			/([SML]|\d+)_[\dA-F]{10,}(-\d+-|_?(\w\w?|full))?/, //  L_9173c67eae58edc35ba7f2df08a7d5c6.jpg, 2421601587_abaf4e3e81.jpg, 1_bf38bcd9c5512a5ab99ca2219a4b1e2f_full.gif, etc.
-			/AT[AEIMQUYcgkosw048]AAA[A-D][-_A-Za-z0-9]+/, //  see Commons:Village pump#File ATgAAA... (Jan 20, 2009, full link in edit comment)
-			/(\d+_){2,}[qtsn]/, //  Facebook: \d+_\d+_(\d+)_(\d+)_\d+_[qtsn]\.jpg -> photo.php?id=$1&pid=$2
-			/[qtsn]\d+(_\d+)+/, //  Facebook (older?): [qtsn](\d+)_(\d+)_\d+\.jpg -> photo.php?id=$1&pid=$2
-			/^Tumblr_[a-z\d]{19}_\d+\.w+/, //  Tumblr
+			/^\d{9}[A-Z]{6}_[A-Z]{2}[^A-Za-z]*$/, //  some image hosting site?
+			/^\d{8,}_[\dA-F]{10}(_[A-Z])?[^A-Za-z]*$/i, // http://www.flickr.com/services/api/misc.urls.html/i,
+			/^([\dA-F]{8}-)?[\dA-F]{4}-[\dA-F]{4}-[\dA-F]{4}-?[\dA-F]{12}.*$/, //  [[w:UUID]] (with some variations included)
+			/^([SML]|\d+)_[\dA-F]{10,}(-\d+-|_?(\w\w?|full))?$/, //  L_9173c67eae58edc35ba7f2df08a7d5c6.jpg, 2421601587_abaf4e3e81.jpg, 1_bf38bcd9c5512a5ab99ca2219a4b1e2f_full.gif, etc.
+			/^AT[AEIMQUYcgkosw048]AAA[A-D][-_A-Za-z0-9]+$/, //  see Commons:Village pump#File ATgAAA... (Jan 20, 2009, full link in edit comment)
+			/^(\d+_){2,}[qtsn]$/, //  Facebook: \d+_\d+_(\d+)_(\d+)_\d+_[qtsn]\.jpg -> photo.php?id=$1&pid=$2
+			/^[qtsn]\d+(_\d+)+$/, //  Facebook (older?): [qtsn](\d+)_(\d+)_\d+\.jpg -> photo.php?id=$1&pid=$2
+			/^Tumblr_[a-z\d]{19}_\d$/, //  Tumblr
 			/^File$/,
-			/^[^A-Za-z]*(small|medium|large)\)?/,
-			/^(Untitled|No[-_]?name|Picture|Pict?|Image[mn]?|Img|Immagine|Photo|Foto|Bild|Scan|Panorama|Sin_t√≠tulo)[^A-Za-z]*/,
-			/^(January|Jan|February|Febr?|March|Mar|April|Apr|May|June?|July?|August|Aug|September|Sept?|October|Oct|November|Nov|December|Dec)[^A-Za-z]*/,
-			/^[0-9 ]*([A-Z][0-9 ]*){30,}/
+			/^[^A-Za-z]*(small|medium|large)\)?$/,
+			/^(Untitled|No[-_]?name|Picture|Pict?|Image[mn]?|Img|Immagine|Photo|Foto|Bild|Scan|Panorama|Sin_t√≠tulo)[^A-Za-z]*$/,
+			/^(January|Jan|February|Febr?|March|Mar|April|Apr|May|June?|July?|August|Aug|September|Sept?|October|Oct|November|Nov|December|Dec)[^A-Za-z]*$/,
+			/^[0-9 ]*([A-Z][0-9 ]*){30,}$/
 		],
 
 		'titleThumbnail': [
@@ -109,6 +109,7 @@
 					// if we make a mistake with commas in the above list, IE sometimes gives us an undefined regex, causes nastiness
 					if ( typeof regex !== undefined && value.match( regex ) ) {
 						ok = false;
+						console.log( regex );
 						return false;
 					}
 				} );
