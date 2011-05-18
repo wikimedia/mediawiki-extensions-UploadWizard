@@ -109,7 +109,6 @@
 					// if we make a mistake with commas in the above list, IE sometimes gives us an undefined regex, causes nastiness
 					if ( typeof regex !== undefined && value.match( regex ) ) {
 						ok = false;
-						console.log( regex );
 						return false;
 					}
 				} );
