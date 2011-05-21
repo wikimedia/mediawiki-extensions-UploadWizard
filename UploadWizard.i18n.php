@@ -64,6 +64,7 @@ $messages['en'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Sorry, we could not find any files for the tutorial that is supposed to go here. Please contact the system administrators.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Sorry, we could not get a scaled image of the tutorial to fit this screen. This may be a temporary problem with Wikimedia Commons; try again later.',
 	'mwe-upwiz-help-desk' => 'Help Desk',
+	'mwe-upwiz-help-desk-url' => 'Help Desk',
 	'mwe-upwiz-add-file-n' => 'Add another file',
 	'mwe-upwiz-add-file-0-free' => 'Select a media file to donate',
 	'mwe-upwiz-transport-started' => 'Starting...',

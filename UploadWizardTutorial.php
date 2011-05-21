@@ -16,9 +16,6 @@ class UploadWizardTutorial {
 	// imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
 	const HELPDESK_BUTTON_COORDS = "27, 1319, 691, 1384";
 
-	// link to help desk within commons tutorial
-	const HELPDESK_URL = 'http://commons.wikimedia.org/wiki/Help_desk';
-
 	// id of imagemap used in tutorial
 	const IMAGEMAP_ID = 'tutorialMap';
 
@@ -95,6 +92,17 @@ class UploadWizardTutorial {
 	 * @return {String} HTML representing the image, with clickable helpdesk button
 	 */
 	public static function getImageHtml( $thumb ) {
+	        
+	        $helpDeskUrl = wfMsg( 'mwe-upwiz-help-desk-url' );
+
+                // Per convention, we may be either using an absolute URL or a wiki page title in this UI message                	        
+	        if( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $helpDeskUrl )) {
+	                $helpDeskHref = $helpDeskUrl;	                
+                } else {
+                        $helpDeskTitle = Title::newFromText( $helpDeskUrl );
+	                $helpDeskHref = $helpDeskTitle ? $helpDeskTitle->getLocalURL() : '#';
+                }
+
 		// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
 		// we could do more special effects with hovers and images and such, not to mention SVG scripting,
 		// but we aren't sure what we want yet...
@@ -108,7 +116,7 @@ class UploadWizardTutorial {
 		$area = Html::element( 'area', array(
 			'shape' => 'rect',
 			'coords' => self::HELPDESK_BUTTON_COORDS,
-			'href' => self::HELPDESK_URL,
+			'href' => $helpDeskHref,
 			'alt' => $areaAltText,
 			'title' => $areaAltText
 		) );
