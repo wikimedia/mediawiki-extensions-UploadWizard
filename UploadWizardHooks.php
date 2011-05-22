@@ -15,7 +15,8 @@ class UploadWizardHooks {
 			'scripts' => 'resources/mediawiki.language.parser.js'
 		),
 		'ext.uploadWizard' => array(
-			'dependencies' => array( 
+			'dependencies' => array(
+				'jquery.autoEllipsis',
 				'jquery.ui.core',
 				'jquery.ui.dialog',
 				'jquery.ui.datepicker',
@@ -35,7 +36,6 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.arrowSteps.js',
 				'resources/jquery/jquery.autocomplete.js',
 				'resources/jquery/jquery.spinner.js',
-				'resources/jquery/jquery.autoEllipsis.js',
 				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
 
