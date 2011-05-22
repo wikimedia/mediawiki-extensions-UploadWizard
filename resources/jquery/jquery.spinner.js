@@ -3,10 +3,9 @@
 	 * Set a given selector html to the loading spinner:
 	 */
 	$.fn.loadingSpinner = function( ) {
-		if ( this ) {
-			$j( this ).html(
-				$j( '<div />' )
-					.addClass( "loadingSpinner" )
+		if ( this.length ) {
+			this.html(
+				$j( '<div />' ).addClass( 'loadingSpinner' )
 			);
 		}
 		return this;
