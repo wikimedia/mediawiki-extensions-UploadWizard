@@ -5,7 +5,7 @@
 	$.fn.loadingSpinner = function( ) {
 		if ( this.length ) {
 			this.html(
-				$j( '<div />' ).addClass( 'loadingSpinner' )
+				$( '<div />' ).addClass( 'loadingSpinner' )
 			);
 		}
 		return this;
@@ -15,16 +15,16 @@
 	 * element does not display child elements, ( images, video )
 	 */
 	$.fn.getAbsoluteOverlaySpinner = function(){
-		var pos = $j( this ).offset();				
-		var posLeft = (  $j( this ).width() ) ? 
-			parseInt( pos.left + ( .4 * $j( this ).width() ) ) : 
+		var pos = $( this ).offset();				
+		var posLeft = (  $( this ).width() ) ? 
+			parseInt( pos.left + ( .4 * $( this ).width() ) ) : 
 			pos.left + 30;
 			
-		var posTop = (  $j( this ).height() ) ? 
-			parseInt( pos.top + ( .4 * $j( this ).height() ) ) : 
+		var posTop = (  $( this ).height() ) ? 
+			parseInt( pos.top + ( .4 * $( this ).height() ) ) : 
 			pos.top + 30;
 		
-		var $spinner = $j('<div />')
+		var $spinner = $('<div />')
 			.loadingSpinner()				
 			.css({
 				'width' : 32,
@@ -33,7 +33,7 @@
 				'top' : posTop + 'px',
 				'left' : posLeft + 'px'
 			});
-		$j('body').append( $spinner	);
+		$('body').append( $spinner	);
 		return $spinner;
 	}
 } )( jQuery );
