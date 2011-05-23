@@ -153,8 +153,8 @@ mw.UploadWizardLicenseInput.prototype = {
 		var _this = this;
 		$j.each( _this.inputs, function( i, $input ) {
 			var templateString = $input.data( 'templateString' );
-			// !! to ensure boolean. ~~ to cast to 0 or 1. Similar to php's (int) (bool) val 
-			$input.attr( 'checked', ~~!!values[templateString] );
+			// !! to ensure boolean.
+			$input.attr( 'checked', !!values[templateString] );
 		} );
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
