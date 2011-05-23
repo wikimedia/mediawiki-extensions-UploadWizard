@@ -80,7 +80,14 @@
 				}
 			};
 
-			var ajaxOptions = { 'ok': ok, 'err': err };
+			var ajaxOptions = {
+				'ok': ok,
+				'err': err,
+				// Due to the API assuming we're logged out if we pass the callback-parameter,
+				// we have to disable jQuery's callback system, and instead parse JSON string,
+				// by setting 'jsonp' to false.
+				'jsonp': false
+			};
 
 			api.get( parameters, ajaxOptions );
 		},
