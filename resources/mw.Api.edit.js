@@ -38,7 +38,7 @@
 						err( code, result );
 					}
 				};
-				api.post( params, ok, getTokenIfBad );
+				api.post( params, { 'ok' : ok, 'err' : getTokenIfBad });
 			}
 		},
 	

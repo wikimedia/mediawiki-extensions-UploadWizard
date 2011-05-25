@@ -125,6 +125,7 @@ $messages['en'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>To use the file in a wiki</b>, copy this text into a page:',
 	'mwe-upwiz-thanks-url' => '<b>To link to it in HTML</b>, copy this URL address:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'This wiki does not accept filenames that end in the extension ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'You have selected a video file for uploading thats not in a free format. You can [$1 install firefogg] to automatically convert it, or use other [$2 converting options].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'This wiki requires that files have an extension — like ".JPG" at the end of the filename.',
 	'mwe-upwiz-allowed-filename-extensions' => 'The allowed extensions are:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Allowed filename extensions',

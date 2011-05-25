@@ -29,14 +29,17 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	// handler -- usually ApiUploadHandler
 	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
 	// this.handler = new mw.MockUploadHandler( this );
-	this.handler = new mw.ApiUploadHandler( this, api );
+	this.handler = this.getUploadHandler();
+	
 	
 	this.index = mw.UploadWizardUpload.prototype.count;
 	mw.UploadWizardUpload.prototype.count++;
 };
 
 mw.UploadWizardUpload.prototype = {
-
+	// Upload handler 
+	uploadHandler: null,
+	
 	// increments with each upload
 	count: 0,
 
@@ -383,7 +386,25 @@ mw.UploadWizardUpload.prototype = {
 
 		this.api.get( params, { ok: ok, err: err } );
 	},
-
+	/**
+	 * Get the upload handler per browser capabilities 
+	 */
+	getUploadHandler: function(){
+		if( !this.uploadHandler ){
+			if( typeof( Firefogg ) != 'undefined'
+					&&
+				mw.UploadWizard.config[ 'enableFirefogg' ]
+			) {
+				mw.log("mw.UploadWizard::getUploadHandler> FirefoggHandler");
+				this.uploadHandler = new mw.FirefoggHandler( this, this.api );			
+			} else {
+				// By default use the apiUploadHandler
+				mw.log("mw.UploadWizard::getUploadHandler> ApiUploadHandler");
+				this.uploadHandler = new mw.ApiUploadHandler( this, this.api );
+			}
+		}		
+		return this.uploadHandler;
+	},
 	/**
 	 * Fetch a thumbnail for a stashed upload of the desired width.
 	 * It is assumed you don't call this until it's been transported.

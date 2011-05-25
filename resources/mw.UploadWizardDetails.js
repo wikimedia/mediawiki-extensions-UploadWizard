@@ -184,6 +184,17 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			)
 		);
 
+	// Add in remove control to submittingDiv
+	_this.$removeCtrl = $j.fn.removeCtrl( 
+			'mwe-upwiz-remove', 
+			'mwe-upwiz-remove-upload', 
+			function() { _this.upload.remove(); } 
+		).addClass( "mwe-upwiz-file-status-line-item" );
+
+	_this.submittingDiv.find( '.mwe-upwiz-file-status-line' )
+		.append( _this.$removeCtrl );
+	
+	
 	$j( _this.dataDiv ).append( 
 		_this.$form,
 		_this.submittingDiv
@@ -687,7 +698,7 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	submit: function() {
 		var _this = this;
-
+		
 		_this.upload.state = 'submitting-details';
 		_this.setStatus( gM( 'mwe-upwiz-submitting-details' ) ); 
 		_this.showIndicator( 'progress' );

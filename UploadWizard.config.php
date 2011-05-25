@@ -245,11 +245,31 @@ return array(
 		//	/^(\d{10}[\s_-][0-9a-f]{10}[\s_-][a-z])$/   // flickr
 		// ]	
 
-	// Check if we want to enable firefogg ( for transcoding ) 
-	'enableFirefogg' => false, 
-
-	// Check if we have the firefogg upload api module enabled: 
-	'enableFirefoggChunkUpload' => isset( $wgAPIModules['firefoggupload'] )? true : false,
+	// Check if we want to enable firefogg, will result in 
+	// 1) firefogg install recommendation when users try to upload media asset with an extension in the 
+	//		transcodeExtensionList
+	// 2) Once the user installs firefogg its used for all uploads because of the security model
+	// 		of the file select box, you can't pass off local file references to add ons. Firefogg
+	//		supports "passthrough" mode so that assets that don't need conversions behave very similar
+	//		to a normal XHR post. 
+	'enableFirefogg' => false,
+	
+	// Setup list of video extensions for recomending firefogg. 
+	'transcodeExtensionList' => array( 'avi','asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
+										'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg'),
+	
+	// Firefogg encode settings copied from TimedMediHandler high end ogg. Once Timed Media Handler
+	// is added, these videos will be transcoded by the server to lower resolutions for web playback. 
+	// Also we should switch uploadWizard to encode to high quality WebM once TMH is deployed since it 
+	// will provide a higher quality source upload file.
+	'firefoggEncodeSettings' => array(
+		'maxSize'			=> '1280', // 720P
+		'videoQuality'		=> 6,
+		'audioQuality'		=> 3,
+		'noUpscaling'		=> 'true',
+		'keyframeInterval'	=> '128',
+		'videoCodec' 		=> 'theora',
+	),
 	
 	// Set skipTutorial to true to always skip tutorial step
 	'skipTutorial' => false,

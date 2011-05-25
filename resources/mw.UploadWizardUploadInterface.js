@@ -162,7 +162,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
-	 * Put the visual state of an individual upload ito "progress"
+	 * Put the visual state of an individual upload into "progress"
 	 * @param fraction	The fraction of progress. Float between 0 and 1
 	 */
 	showTransportProgress: function( fraction ) {
@@ -220,10 +220,23 @@ mw.UploadWizardUploadInterface.prototype = {
 		if ( hasExtension && isGoodExtension ) {
 			_this.updateFilename();
 		} else {       
-			var errorMessage = hasExtension ? 'mwe-upwiz-upload-error-bad-filename-extension' : 'mwe-upwiz-upload-error-bad-filename-no-extension';
+			// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted) 
+			if( mw.UploadWizard.config['enableFirefogg']
+					&&
+				$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1 
+			){
+				var $errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
+						mw.Firefogg.getFirefoggInstallUrl(),
+						'http://commons.wikimedia.org/wiki/Help:Converting_video'
+					);
+				
+			} else {
+				var errorKey = hasExtension ? 'mwe-upwiz-upload-error-bad-filename-extension' : 'mwe-upwiz-upload-error-bad-filename-no-extension';
+				var $errorMessage = $j( '<p>' ).msg( errorKey, extension );
+			}
 			$( '<div></div>' )
 				.append( 
-					$j( '<p>' ).msg( errorMessage, extension ),
+					$errorMessage,
 					$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
 					$j( '<blockquote>' ).append( $j( '<tt>' ).append(  
 						mw.UploadWizard.config[ 'fileExtensions' ].join( " " )

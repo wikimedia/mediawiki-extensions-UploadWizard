@@ -64,7 +64,12 @@ class UploadWizardHooks {
 				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
 				'resources/mw.UploadWizardUtil.js',
-
+				
+				// firefogg support libraries
+				'resources/mw.Firefogg.js',
+				'resources/mw.FirefoggHandler.js',
+				'resources/mw.FirefoggTransport.js',
+			
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
 
@@ -207,6 +212,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-thanks-explain',
 				'mwe-upwiz-thanks-wikitext',
 				'mwe-upwiz-thanks-url',
+				'mwe-upwiz-upload-error-bad-extension-video-firefogg',
 				'mwe-upwiz-upload-error-bad-filename-extension',
 				'mwe-upwiz-upload-error-bad-filename-no-extension',
 				'mwe-upwiz-allowed-filename-extensions',
