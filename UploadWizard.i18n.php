@@ -500,6 +500,14 @@ $messages['an'] = array(
 	'mwe-upwiz-cancel' => 'Cancelar',
 );
 
+/** Angika (अङ्गिका)
+ * @author Vinitutpal
+ */
+$messages['anp'] = array(
+	'mwe-upwiz-step-tutorial' => 'सीखएँ',
+	'mwe-upwiz-step-file' => 'चढ़ाऊ',
+);
+
 /** Arabic (العربية)
  * @author ;Hiba;1
  * @author Meno25
@@ -2554,7 +2562,7 @@ $messages['de'] = array(
 	'mwe-upwiz-getting-metadata' => 'Abruf der Dateiinformationen und -vorschau …',
 	'mwe-upwiz-submitting-details' => 'Übertrage Details und veröffentliche …',
 	'mwe-upwiz-published' => 'Veröffentlicht!',
-	'mwe-upwiz-failed' => 'Fehlgeschlagen',
+	'mwe-upwiz-failed' => 'Gescheitert.',
 	'mwe-upwiz-remove' => 'Entfernen',
 	'mwe-upwiz-remove-upload' => 'Entferne diese Datei aus der Liste der hochzuladenden Dateien',
 	'mwe-upwiz-remove-description' => 'Entferne diese Beschreibung',
@@ -2605,6 +2613,8 @@ $messages['de'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Um diese Datei in einem Wiki nutzen zu können</b>, kopiere folgenden Text in eine Seite:',
 	'mwe-upwiz-thanks-url' => '<b>Um in HTML auf die Datei zu verlinken</b>, kopiere folgende URL in den Code:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Dieses Wiki lässt keine Dateien mit der Endung „.$1“ zu.',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Du möchtest eine Videodatei in einem Format hochladen, das lizenzrechtlich nicht frei verwendbar ist.
+Du kannst [$1 Firefogg installieren], der die Datei automatisch in ein frei verwendbares Format konvertiert oder andere [$2 Konvertierungsmöglichkeiten] nutzen.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Es ist erforderlich, dass hochgeladene Dateien über eine Dateiendung wie beispielsweise .JPG verfügen.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Die zulässigen Dateiendungen lauten:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Zulässige Dateiendungen',
@@ -2755,6 +2765,8 @@ $messages['de-formal'] = array(
 	'mwe-upwiz-thanks-explain' => 'Sie können diese {{PLURAL:$1|Datei|Dateien}} auf Websites wie Wikipedia nutzen oder im Internet auf sie verlinken.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Um diese Datei in einem Wiki nutzen zu können</b>, kopieren Sie folgenden Text in eine Seite:',
 	'mwe-upwiz-thanks-url' => '<b>Um in HTML auf die Datei zu verlinken</b>, kopieren Sie folgende URL in den Code:',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Sie möchten eine Videodatei in einem Format hochladen, das lizenzrechtlich nicht frei verwendbar ist.
+Sie können [$1 Firefogg installieren], der die Datei automatisch in ein frei verwendbares Format konvertiert oder andere [$2 Konvertierungsmöglichkeiten] nutzen.',
 	'mwe-upwiz-fileexists-replace' => 'Eine Datei mit dem Titel „$1“ existiert bereits. Bitte ändern Sie ihn zu einem bislang nicht vorhandenen Titel.',
 	'mwe-upwiz-fileexists' => 'Eine Datei dieses Namens ist bereits vorhanden. Bitte prüfen Sie <b><tt>$1</tt></b>, sofern Sie sich nicht sicher sind, ob Sie sie ersetzen möchten.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Eine Datei dieses Namens ist bereits vorhanden. Sofern Sie sie ersetzen möchten, gehen Sie zur Seite für [$2 $1] und erledigen dies dort.',
@@ -4067,6 +4079,8 @@ $messages['gl'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Para empregar o ficheiro nun wiki</b>, copie este texto na páxina:',
 	'mwe-upwiz-thanks-url' => '<b>Para ligar cara a el en HTML</b>, copie este enderezo URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Este wiki non acepta nomes de ficheiro coa extensión ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'O ficheiro de vídeo que seleccionou para cargar non está nun formato libre.
+Pode [$1 instalar o Firefogg] para convertelo automaticamente ou usar outras [$2 opcións de conversión].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Este wiki necesita que os ficheiros teñan unha extensión (como ".JPG") ao final do nome.',
 	'mwe-upwiz-allowed-filename-extensions' => 'As extensións permitidas son:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensións permitidas no nome do ficheiro',
@@ -5298,6 +5312,8 @@ $messages['ia'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Pro usar le file in un wiki</b>, copia iste texto in un pagina:',
 	'mwe-upwiz-thanks-url' => '<b>Pro ligar a illo in HTML</b>, copia iste adresse URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Iste wiki non accepta nomines de file con le extension ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Le file de video que tu seligeva pro incargamento non es in un formato libere.
+Tu pote [$1 installar Firefogg] pro converter lo automaticamente, o usar altere [$2 optiones de conversion].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Iste wiki require que le nomines del files ha un extension, p.ex. ".JPG", al fin de illos.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Le extensiones permittite es:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensiones de nomine de file permittite',
@@ -5753,6 +5769,7 @@ $messages['it'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Spiacenti, non abbiamo trovato alcun file per il tutorial che dovrebbe visualizzarsi. Si prega di contattare gli amministratori di sistema.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Spiacenti, non siamo riusciti ad ottenere un'immagine del tutorial dimensionata per il tuo schermo. Questo può essere un problema temporaneo con Wikimedia Commons; riprovare più tardi.",
 	'mwe-upwiz-help-desk' => 'Punto di assistenza',
+	'mwe-upwiz-help-desk-url' => 'Help Desk',
 	'mwe-upwiz-add-file-n' => 'Aggiungi un altro file',
 	'mwe-upwiz-add-file-0-free' => 'Seleziona un file multimediale da donare',
 	'mwe-upwiz-transport-started' => 'Inizializzazione...',
@@ -5813,6 +5830,8 @@ $messages['it'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Per utilizzare il file in un wiki,</b> copia questo testo in una pagina:',
 	'mwe-upwiz-thanks-url' => '<b>Per creare un collegamento in HTML,</b> copia questo indirizzo URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Questo wiki non accetta nomi di file con estensione ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Hai selezionato per il caricamento un file video che non è in un formato libero.
+Puoi [$1 installare Firefogg] per convertirlo automaticamente, o usare altre [$2 opzioni di conversione].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Questa wiki richiede che i file abbiano un\'estensione - ad esempio ".JPG" - alla fine del nome.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Le estensioni consentite sono:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Estensioni dei file consentite',
@@ -6756,9 +6775,48 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-feedback-error3' => 'Feeler: Keng Äntwert vum API',
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'mwe-upwiz-code-unknown' => 'Nežinoma kalba',
+	'mwe-upwiz-step-tutorial' => 'Sužinokite',
+	'mwe-upwiz-step-file' => 'Įkelti',
+	'mwe-upwiz-step-details' => 'Apibūdinti',
+	'mwe-upwiz-step-thanks' => 'Naudoti',
+	'mwe-upwiz-api-error-http' => 'Vidinė klaida: nepavyko prisijungti prie serverio.',
+	'mwe-upwiz-api-error-ok-but-empty' => 'Vidinė klaida: nėra atsakymo iš serverio.',
+	'mwe-upwiz-api-error-unclassified' => 'Įvyko nežinoma klaida',
+	'mwe-upwiz-api-error-unknown-code' => 'Nežinoma klaida: " $1 "',
+	'mwe-upwiz-api-error-uploaddisabled' => 'Įkėlimas išjungtas šioje wiki.',
+	'mwe-upwiz-api-error-mustbeposted' => 'Vidinė klaida: prašymas reikalauja HTTP POST.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'Jums neleidžiama įkelti failus į šią wiki.',
+	'mwe-upwiz-api-error-invalid-session-key' => 'Vidinė klaida: failas nerastas saugykloje.',
+	'mwe-upwiz-api-error-copyuploaddisabled' => 'Siuntimas pagal URL yra išjungtas šiame serveryje.',
+	'mwe-upwiz-api-error-mustbeloggedin' => 'Jūs turite būti prisijungęs kad galėtumėte įkelti failus.',
+	'mwe-upwiz-api-error-empty-file' => 'Pateikta failas buvo tuščias.',
+	'mwe-upwiz-api-error-file-too-large' => 'Failą, kurį pateikėte buvo per didelis.',
+	'mwe-upwiz-api-error-filetype-banned' => 'Šis failų tipas yra uždraustas.',
+	'mwe-upwiz-api-error-filename-tooshort' => 'Failo vardas yra per trumpas.',
+	'mwe-upwiz-api-error-illegal-filename' => 'Failo vardas neleidžiamas.',
+	'mwe-upwiz-api-error-unknown-error' => 'Vidinė klaida: kažkas nutiko bandant įkelti failą.',
+	'mwe-upwiz-api-error-overwrite' => 'Perrašymas esamą failą neleidžiamas.',
+	'mwe-upwiz-api-error-unknown-warning' => 'Nežinomas įspėjimas: $1',
+	'mwe-upwiz-transport-started' => 'Pradedama...',
+	'mwe-upwiz-uploading' => 'Įkeliama…',
+	'mwe-upwiz-transported' => 'Baigta įkelti ...',
+	'mwe-upwiz-stashed-upload' => 'OK',
+	'mwe-upwiz-failed' => 'Nepavyko.',
+	'mwe-upwiz-remove' => 'Pašalinti',
+	'mwe-upwiz-remove-upload' => 'Pašalinti šį failą iš failų sąrašo įkėlimui',
+	'mwe-upwiz-remove-description' => 'Pašalinti ši aprašymą',
+	'mwe-upwiz-upload' => 'Įkelti',
+);
+
 /** Maithili (मैथिली)
  * @author Ggajendra
  * @author Manojberma77
+ * @author Vinitutpal
  */
 $messages['mai'] = array(
 	'uploadwizard' => 'उपारोपण तंत्र',
@@ -6778,6 +6836,7 @@ $messages['mai'] = array(
 	'mwe-upwiz-api-error-uploaddisabled' => 'ऐ विकीपर उपारोपण अशक्त कएल गेल अछि।',
 	'mwe-upwiz-api-error-nomodule' => 'आन्तरिक भ्रम: कोनो उपारोपण तरीका निर्धारित नै अछि।',
 	'mwe-upwiz-api-error-mustbeposted' => 'आन्तरिक भ्रम: आग्रहक लेल परिपाठ्य संचार संविद पाठ चाही।',
+	'mwe-upwiz-api-error-badaccess-groups' => 'अहि विकी सें अहां कोनो प्रारूप लोड नहि क सकब.',
 	'mwe-upwiz-api-error-filetype-banned' => 'ऐ तरहक संचिका नाम प्रतिबंधित  अछि।',
 	'mwe-upwiz-api-error-filename-tooshort' => 'ई संचिका नाम बड छोट अछि |',
 	'mwe-upwiz-api-error-illegal-filename' => 'ऐ तरहक संचिका नाम अमान्य अछि।',
@@ -6914,6 +6973,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>За да ја користите податотекава на вики</b>, ископирајте го следниов текст во страница:',
 	'mwe-upwiz-thanks-url' => '<b>За да поставите врска до неа во HTML</b>, ископирајте ја следнава HTML-адреса:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ова вики не прифаќа податотеки со наставка „.$1“.',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Одбравте да подигнете видеоснимка што не е во слободен формат.
+Можете автоматски да ја претворите ако го [$1 инсталирате Firefogg], или да искористите една од другите [$2 можности за претворање].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Викито наложува дека податотеките мора да имаат наставка (на пр. „.JPG“) на крајот од името.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Допуштени наставки:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Допуштени податотечни наставки',
@@ -8805,6 +8866,8 @@ $messages['pt'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Para usar o ficheiro numa wiki</b>, copie este texto para uma página:',
 	'mwe-upwiz-thanks-url' => '<b>Para criar um link para o ficheiro em HTML</b>, copie esta URL do endereço:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Esta wiki não aceita nomes de ficheiros com a extensão ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'O ficheiro de vídeo que seleccionou para envio não está num formato livre.
+Pode [$1 instalar o Firefogg] para convertê-lo automaticamente, ou usar outras [$2 opções de conversão].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Esta wiki requer que os ficheiros tenham uma extensão - como ".JPG" no fim do nome.',
 	'mwe-upwiz-allowed-filename-extensions' => 'As extensões permitidas são:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensões permitidas no nome do ficheiro',
@@ -10021,6 +10084,8 @@ $messages['sl'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Za uporabo datoteke v wikiju</b> skopirajte v stran to besedilo:',
 	'mwe-upwiz-thanks-url' => '<b>Za povezavo v HTML</b> skopirajte ta naslov URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ta wiki ne sprejema imen datotek s končnico ».$1«.',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Za nalaganje ste izbrali videoposnetek, ki ni v prosti obliki.
+Za samodejno pretvorbo lahko [$1 namestite Firefogg] ali uporabite druge [$2 možnosti pretvorbe].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Ta wiki zahteva, da imajo datoteke končnico – kot je ».jpg« na koncu datoteke.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Dovoljene končnice so:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Dovoljene datotečne končnice',
@@ -11237,6 +11302,8 @@ $messages['vi'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Để sử dụng tập tin này trên một wiki</b>, hãy chép văn bản này vào trang wiki:',
 	'mwe-upwiz-thanks-url' => '<b>Để tạo liên kết đến nó trong HTML</b>, hãy chép địa chỉ URL này:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Wiki này không chấp nhận những tên tập tin có phần mở rộng “.$1”.',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Video được chọn không phải có định dạng mở.
+Bạn có thể [$1 cài đặt Firefogg] để tự động chuyển đổi nó hoặc sử dụng một [$2 công cụ chuyển đổi khác].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Wiki này bắt các tập tin phải có phần mở rộng – thí dụ như “.jpg” vào cuối tên.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Cho phép các phần mở rộng tập tin này:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Các phần mở rộng tập tin được cho phép',
@@ -11368,6 +11435,83 @@ Xin đừng nhập mã wiki hoặc HTML vào đây.',
 /** Wu (吴语) */
 $messages['wuu'] = array(
 	'mwe-upwiz-cancel' => '取消',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'uploadwizard' => 'ארויפֿלאָדן אַסיסטענט',
+	'mwe-upwiz-code-unknown' => 'אומבאַקאַנטע שפּראַך',
+	'mwe-upwiz-step-tutorial' => 'לערנען',
+	'mwe-upwiz-step-file' => 'אַרויפֿלאָדן',
+	'mwe-upwiz-step-deeds' => 'באַפֿרייען רעכטן',
+	'mwe-upwiz-step-details' => 'באַשרייַבן',
+	'mwe-upwiz-step-thanks' => 'ניצן',
+	'mwe-upwiz-api-error-http' => 'אינערלעכער גרײַז: נישט געקענט פֿאַרבינדן צום סערווירער.',
+	'mwe-upwiz-api-error-ok-but-empty' => 'אינערלעכער גרײַז: קיין ענטפֿער פֿון סערווירער.',
+	'mwe-upwiz-api-error-unclassified' => 'אַן אומבאַקאַנט טעות איז פֿארגעקומען.',
+	'mwe-upwiz-api-error-unknown-code' => 'אומבאַקאַנט טעות: " $1 "',
+	'mwe-upwiz-api-error-uploaddisabled' => 'ארויפֿלאָדן איז אומאַקטיווירט אויף דער וויקי',
+	'mwe-upwiz-api-error-nomodule' => 'אינערלעכער גרײַז: קיין ארויפֿלאָדן מאָדול נישט געשטעלט.',
+	'mwe-upwiz-api-error-mustbeposted' => 'אינערלעכער גרײַז: פֿאַרלאַנג פֿאדערט HTTP POST.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'איר האט נישט קיין רעכטן אַרויפֿלאָדן טעקעס אויף דער וויקי.',
+	'mwe-upwiz-api-error-stashfailed' => 'אינערלעכער גרײַז: סערווירער האט נישט געקענט אײַנשפייכלערן צייַטווייַליקע טעקע.',
+	'mwe-upwiz-api-error-missingresult' => 'אינערלעכער גרײַז: נישט געקענט פֿעסטשטעלן צי קאפירן איז געווען דערפֿאלגרייך.',
+	'mwe-upwiz-api-error-missingparam' => 'אינערלעכער גרײַז: פֿעלן פאראמעטערס אין פֿאַרלאַנג',
+	'mwe-upwiz-api-error-invalid-session-key' => 'אינערלעכער גרײַז: נישט געטראפֿן טעקע אין צײַטווײַליקן שפייכלער',
+	'mwe-upwiz-api-error-copyuploaddisabled' => 'אַרויפֿלאָדן דורך URL איז אומאַקטיווירט אויף דעם סערווירער.',
+	'mwe-upwiz-api-error-mustbeloggedin' => 'איר דארפֿט זײַן אַרײַנלאגירט אַרויפֿצולאָדן טעקעס.',
+	'mwe-upwiz-api-error-empty-file' => 'די טעקע וואָס איר האט אײַנגעגעבן איז ליידיג.',
+	'mwe-upwiz-api-error-file-too-large' => 'די טעקע וואָס איר האט אײַנגעגעבן איז צו גרויס.',
+	'mwe-upwiz-api-error-filetype-missing' => 'די טעקע פֿעלט אַן ענדונג.',
+	'mwe-upwiz-api-error-filetype-banned' => 'דער טיפ טעקע איז געאַסרט.',
+	'mwe-upwiz-api-error-filename-tooshort' => 'דער טעקע־נאָמען איז צו קורץ.',
+	'mwe-upwiz-api-error-illegal-filename' => 'דער טעקע־נאָמען איז נישט ערלויבט.',
+	'mwe-upwiz-api-error-verification-error' => 'די טעקע איז מעגלעך פֿארדארבן, אדער האט א פֿאַלשע ענדונג.',
+	'mwe-upwiz-api-error-unknown-error' => 'אינערלעכער גרײַז: עפעס איז קאַליע געווארן בײַם אַרויפֿלאָדן אײַער טעקע.',
+	'mwe-upwiz-api-error-internal-error' => 'אינערלעכער גרײַז: עפעס איז קאַליע געווארן בײַם פראצעסירן אײַער אַרופֿלאָד אויף דער וויקי.',
+	'mwe-upwiz-api-error-overwrite' => 'מען טאָר נישט איבערשרײַבן אַן עקזיסטירנדע טעקע.',
+	'mwe-upwiz-api-error-badtoken' => 'אינערלעכער גרײַז: סימן טויג נישט.',
+	'mwe-upwiz-api-error-fetchfileerror' => 'אינערלעכער גרײַז: עפעס איז קאַליע געווארן בײַם ברענגען די טעקע.',
+	'mwe-upwiz-api-error-duplicate' => 'שוין דאָ אין דער וויקי {{PLURAL:$1|[$2 ָאַן אַנדער טעקע]|[$2 אַנדערע טעקעס]}} מיטן זעלבן תוכן.',
+	'mwe-upwiz-api-error-duplicate-popup-title' => 'פֿאַרטאפלטע {{PLURAL:$1| טעקע | טעקעס}}',
+	'mwe-upwiz-api-error-duplicate-archive' => "ס'איז שוין געווען {{PLURAL:$1| [ $2 אַן אַנדער טעקע] | געווען [ $2 עטלעכע אַנדערע טעקעס]}} אויף דעם פּלאַץ מיט דעם זעלביקן תוכן, אָבער {{PLURAL:$1| עס איז | זיי זענען}}  געווארן אויסגעמעקט.",
+	'mwe-upwiz-api-error-duplicate-archive-popup-title' => 'פֿאַרטאפלטע {{PLURAL:$1| טעקע | טעקעס}} וואָס זענען שוין געווארן אויסגעמעקט',
+	'mwe-upwiz-api-error-unknown-warning' => 'אומבאַקאַנטע ווארענונג: $1',
+	'mwe-upwiz-api-error-timeout' => 'דער סערווירער האט ניט געענטפֿערט אינערהאַלב דער דערוואַרטעטער צייַט.',
+	'mwe-upwiz-api-error-noimageinfo' => 'דער אַרויפֿלאָד איז געווען דערפֿאלגרײַך, אָבער דער סערווירער האט נישט געגעבן אונדז קיין אינפֿאָרמאַציע וועגן דער טעקע.',
+	'mwe-upwiz-api-warning-exists' => 'שוין פֿאַראַן אויף דער וויקי [$1 אַן אַנדער טעקע] מיט דעם זעלביקן טעקע־נאָמען',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'אַנטשולדיגט, מיר האבן נישט געפֿונען אַ לערנפראגראַם אין אײַער שפּראַך. די ענגליש־שפראַכיגע ווערט געוויזן.',
+	'mwe-upwiz-help-desk' => 'הילף דינסט',
+	'mwe-upwiz-help-desk-url' => 'הילף דינסט',
+	'mwe-upwiz-add-file-n' => 'צולייגן נאך א טעקע',
+	'mwe-upwiz-add-file-0-free' => 'אויסקלויבן א מעדיע טעקע צו שענקען',
+	'mwe-upwiz-transport-started' => 'אָנהייבן ...',
+	'mwe-upwiz-uploading' => 'אַרופֿלאָדן...',
+	'mwe-upwiz-transported' => 'געענדיקט אַרויפֿלאָדן...',
+	'mwe-upwiz-stashed-upload' => 'OK',
+	'mwe-upwiz-submitting-details' => 'אײַנגעבן פרטים און פֿאַרעפֿנטלעכן ...',
+	'mwe-upwiz-published' => 'פֿאַרעפֿנטלעכט!',
+	'mwe-upwiz-failed' => 'דורכגעפֿאַלן.',
+	'mwe-upwiz-remove' => 'אַראָפּנעמען',
+	'mwe-upwiz-remove-upload' => 'אַראָפּנעמען די טעקע פון ​​דער רשימה פון טעקעס אַרויפֿצולאָדן',
+	'mwe-upwiz-remove-description' => 'אַראָפּנעמען די באַשרייַבונג',
+	'mwe-upwiz-upload' => 'אַרויפֿלאָדן',
+	'mwe-upwiz-file-all-ok' => 'אַלע אַרויפֿלאָדנס זענען געראָטן!',
+	'mwe-upwiz-file-some-failed' => 'טייל אַרויפֿלאָדנס זענען דורכגעפֿאַלן.',
+	'mwe-upwiz-file-retry' => 'ווידערפרובירן די דורכגעפֿאַלענע אַרויפֿלאָדנס',
+	'mwe-upwiz-next-file-despite-failures' => 'פאָרזעצן סייַ ווי סייַ',
+	'mwe-upwiz-file-all-failed' => 'קיין אָרויפֿלאָד איז נישט געראָטן.',
+	'mwe-upwiz-upload-count' => '$1 פֿון $2 {{PLURAL:$2| טעקע| טעקעס}} אַרויפֿגעלאָדן',
+	'mwe-upwiz-progressbar-uploading' => 'אַרויפֿלאָדן',
+	'mwe-upwiz-finished' => 'פֿאַרטיק!',
+	'mwe-upwiz-secs-remaining' => 'נאך $1 {{PLURAL:$1|סעקונדע|סעקונדעס}}',
+	'mwe-upwiz-mins-secs-remaining' => 'נאך $1 {{PLURAL:$1| מינוט | מינוט}} $2 {{PLURAL:$2| סעקונדע|סעקונדעס}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => "נאך $1 {{PLURAL:$1| שעה| שעה'ן}} $2 {{PLURAL:$2| מינוט | מינוט}} $3 {{PLURAL:$3| סעקונדע| סעקונדעס}}",
+	'mwe-upwiz-deeds-custom-prompt' => 'אָדער:',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1| די טעקע איז | די דאזיקע טעקעס זענען}} מיין אייגן אַרבעט.',
+	'mwe-upwiz-date-created' => 'טאָג געשאַפֿן',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
