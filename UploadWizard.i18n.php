@@ -8016,6 +8016,7 @@ $messages['ms'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Maaf, kami tidak dapat mencari sebarang fail untuk tutorial yang sepatutnya dibawa ke sini. Sila hubungan pihak pentadbiran sistem.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Maaf, kami tidak dapat mencari imej terskala tutorial untuk dimuatkan dalam skrin ini. Ini mungkin disebabkan kesulitan sementara di Wikimedia Commons; sila cuba lagi nanti.',
 	'mwe-upwiz-help-desk' => 'Meja Bantuan',
+	'mwe-upwiz-help-desk-url' => 'Meja Bantuan',
 	'mwe-upwiz-add-file-n' => 'Bubuh fail lain',
 	'mwe-upwiz-add-file-0-free' => 'Pilih fail media untuk didermakan',
 	'mwe-upwiz-transport-started' => 'Bermula...',
@@ -8076,6 +8077,8 @@ $messages['ms'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Untuk menggunakan fail ini dalam wiki</b>, salin teks ini ke dalam laman yang ingin anda letakkannya:',
 	'mwe-upwiz-thanks-url' => '<b>Untuk membuat pautan ke fail ini dalam HTML</b>, salin alamat URL ini:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Wiki ini tidak menerima nama fail yang berakhir dengan sambungan ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Anda telah memilih satu fail video yang tidak berformat bebas untuk dimuat naik.
+Anda boleh [$1 memasang Firefogg] untuk menukar formatnya secara automatik, atau memilih [$2 kaedah penukaran] yang lain.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Wiki ini mewajibkan supaya fail-failnya ada sambungan seperti ".JPG" di akhir nama failnya.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Sambungan-sambungan yang dibenarkan ialah:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Sambungan nama fail yang dibenarkan',
