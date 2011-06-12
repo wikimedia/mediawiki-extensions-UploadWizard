@@ -46,6 +46,8 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
 
 				// common utilities
+				'resources/mw.fileApi.js',
+				'resources/mw.units.js',
 				'resources/mw.Log.js',
 				'resources/mw.Utilities.js',
 				'resources/mw.UtilitiesTime.js',
@@ -333,7 +335,12 @@ class UploadWizardHooks {
 				'mwe-upwiz-feedback-adding',
 				'mwe-upwiz-feedback-error1',
 				'mwe-upwiz-feedback-error2',
-				'mwe-upwiz-feedback-error3'
+				'mwe-upwiz-feedback-error3',
+ 				'size-terabytes',
+ 				'size-gigabytes',
+ 				'size-megabytes',
+ 				'size-kilobytes',
+ 				'size-bytes'
 			),
 			'group' => 'ext.uploadWizard'
 		),

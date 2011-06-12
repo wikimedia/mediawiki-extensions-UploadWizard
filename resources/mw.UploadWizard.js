@@ -8,6 +8,10 @@
 ( function( $j ) {
 
 mw.UploadWizardUpload = function( api, filesDiv ) {
+
+	this.index = mw.UploadWizardUpload.prototype.count;
+	mw.UploadWizardUpload.prototype.count++;
+
 	this.api = api;
 	this.state = 'new';
 	this.thumbnails = {};
@@ -20,8 +24,8 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	this.sessionKey = undefined;
 
 	// this should be moved to the interface, if we even keep this
-	this.transportWeight = 1;  // default
-	this.detailsWeight = 1; // default
+	this.transportWeight = 1; // default all same
+	this.detailsWeight = 1; // default all same
 
 	// details
 	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv );
@@ -32,8 +36,6 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	this.handler = this.getUploadHandler();
 	
 	
-	this.index = mw.UploadWizardUpload.prototype.count;
-	mw.UploadWizardUpload.prototype.count++;
 };
 
 mw.UploadWizardUpload.prototype = {
@@ -231,32 +233,18 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Mixed} result -- result of AJAX call
 	 */
 	setSuccess: function( result ) {
-		var _this = this; // was a triumph
+		var _this = this; 
 		_this.state = 'transported';
 		_this.transportProgress = 1;
 
-		// I'm making a note here
 		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 		if ( result.upload ) {
 			_this.extractUploadInfo( result.upload );
-			_this.getThumbnail(
-				function( image ) {
-					// n.b. if server returns a URL, which is a 404, we do NOT get broken image
-					_this.ui.setPreview( image ); // make the thumbnail the preview image
-				},
-				mw.UploadWizard.config[ 'thumbnailWidth' ],
-				mw.UploadWizard.config[ 'thumbnailMaxHeight' ]
-			);
-			// create the large thumbnail that the other thumbnails link to
-			_this.getThumbnail(
-				function( image ) {},
-				mw.UploadWizard.config[ 'largeThumbnailWidth' ],
-				mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ]
-			);
 			_this.deedPreview.setup();
 			_this.details.populate();
 			_this.state = 'stashed';
 			_this.ui.showStashed();
+			$.publishReady( 'thumbnails.' + _this.index, 'api' );
 		} else {
 			_this.setError( 'noimageinfo' );
 		}
@@ -265,17 +253,45 @@ mw.UploadWizardUpload.prototype = {
 
 	/**
 	 * Called when the file is entered into the file input
-	 * Get as much data as possible -- maybe exif, even thumbnail maybe
+	 * Get as much data as possible with this browser, including thumbnail.
+	 * TODO exif
+	 * @param {HTMLFileInput} file input field
+	 * @param {Function} callback when ready
 	 */
-	extractLocalFileInfo: function( filename ) {
-		if ( false ) {  // FileAPI, one day
-			this.transportWeight = getFileSize();
-		}
-		// XXX sanitize filename
+	extractLocalFileInfo: function( fileInput, callback ) {
+		var _this = this;
+		if ( mw.fileApi.isAvailable() ) {
+			if ( fileInput.files && fileInput.files.length ) {
+				// TODO multiple files in an input
+				this.file = fileInput.files[0];
+			}
+			// TODO check max upload size, alert user if too big
+			this.transportWeight = this.file.size;
+
+			if ( mw.fileApi.isPreviewableFile( this.file ) ) {
+				// TODO all that other complicated file rotation / binary stuff from mediawiki.special.upload.js
+				var image = document.createElement( 'img' );
+				image.onload = function() {
+					$.publishReady( 'thumbnails.' + _this.index, image );
+				};
+				var reader = new FileReader();
+				reader.onload = function( progressEvent ) {
+					_this.thumbnails['*'] = reader.result;
+					image.src = reader.result;
+				};
+				reader.readAsDataURL( _this.file );
+			}
+
+		} 
+		// TODO sanitize filename
+		var filename = fileInput.value;
 		try {
 			this.title = new mw.Title( mw.UploadWizardUtil.getBasename( filename ).replace( /:/g, '_' ), 'file' );
 		} catch ( e ) {
 			this.setError( 'mwe-upwiz-unparseable-filename', filename );
+		}
+		if ( this.title ) {
+			callback();
 		}
 	},
 
@@ -285,15 +301,16 @@ mw.UploadWizardUpload.prototype = {
 	 * @param result The JSON object from a successful API upload result.
 	 */
 	extractUploadInfo: function( resultUpload ) {
+
 		if ( resultUpload.sessionkey ) {
 			this.sessionKey = resultUpload.sessionkey;
 		}
+
 		if ( resultUpload.imageinfo ) {
 			this.extractImageInfo( resultUpload.imageinfo );
 		} else if ( resultUpload.stashimageinfo ) {
 			this.extractImageInfo( resultUpload.stashimageinfo );
 		}
-
 
 	},
 
@@ -335,6 +352,10 @@ mw.UploadWizardUpload.prototype = {
 			}
 			*/
 		}
+
+
+
+
 	},
 
 	/**
@@ -386,6 +407,68 @@ mw.UploadWizardUpload.prototype = {
 
 		this.api.get( params, { ok: ok, err: err } );
 	},
+
+
+	/**
+	 * Get information about published images
+	 * (There is some overlap with getStashedImageInfo, but it's different at every stage so it's clearer to have separate functions)
+	 * See API documentation for prop=imageinfo for what 'props' can contain
+	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
+	 * @param {Array} properties to extract
+	 * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
+	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
+	 */
+	getImageInfo: function( callback, props, width, height ) { 
+		var _this = this;
+		if (!mw.isDefined( props ) ) {
+			props = [];
+		}
+		var requestedTitle = _this.title.getPrefixedText();
+		var params = {
+			'prop': 'imageinfo',
+			'titles': requestedTitle,
+			'iiprop': props.join( '|' )
+		};
+
+		if ( mw.isDefined( width ) || mw.isDefined( height ) ) {
+			if ( ! $j.inArray( 'url', props ) ) {
+				props.push( 'url' );
+			}
+			if ( mw.isDefined( width ) ) {
+				params['iiurlwidth'] = width;
+			}
+			if ( mw.isDefined( height ) ) {
+				params['iiurlheight'] = height;
+			}
+		}
+
+		var ok = function( data ) {
+			if ( data && data.query && data.query.pages ) {
+				var found = false;
+				$j.each( data.query.pages, function( pageId, page ) {
+					if ( page.title && page.title === requestedTitle && page.imageinfo ) {
+						found = true;
+						callback( page.imageinfo );
+						return false;
+					}
+				} );
+				if ( found ) {
+					return;
+				}
+			} 
+			mw.log("mw.UploadWizardUpload::getImageInfo> No data matching " + requestedTitle + " ? ");
+			callback( null );
+		};
+
+		var err = function( code, result ) {
+			mw.log( 'mw.UploadWizardUpload::getImageInfo> error: ' + code, 'debug' );
+			callback( null );
+		};
+
+		this.api.get( params, { ok: ok, err: err } );
+	},
+	
+
 	/**
 	 * Get the upload handler per browser capabilities 
 	 */
@@ -405,172 +488,166 @@ mw.UploadWizardUpload.prototype = {
 		}		
 		return this.uploadHandler;
 	},
+
 	/**
-	 * Fetch a thumbnail for a stashed upload of the desired width.
-	 * It is assumed you don't call this until it's been transported.
+	 * Explicitly fetch a thumbnail for a stashed upload of the desired width.
+	 * Publishes to any event listeners that might have wanted it.
  	 *
-	 * @param callback - callback to execute once thumbnail has been obtained -- must accept Image object for success, null for error
 	 * @param width - desired width of thumbnail (height will scale to match)
 	 * @param height - (optional) maximum height of thumbnail
 	 */
-	getThumbnail: function( callback, width, height ) {
+	getAndPublishApiThumbnail: function( key, width, height ) {
 		var _this = this;
+
 		if ( mw.isEmpty( height ) ) {
 			height = -1;
 		}
-		// this key is overspecified for this thumbnail ( we don't need to reiterate the index ) but 
-		// we can use this as key as an event now, that might fire much later
-		var key = 'thumbnail.' + _this.index + '.width' + width + ',height' + height;
-		if ( mw.isDefined( _this.thumbnails[key] ) ) {
-			callback( _this.thumbnails[key] );
-			return;
-		}
 
-		// subscribe to the event that this thumbnail is ready -- will give null or an Image to the callback
-		$j.subscribe( key, callback );
-
-		// if someone else already started a thumbnail fetch & publish, then don't bother, just wait for the event.
-		if ( ! mw.isDefined( _this.thumbnailPublishers[ key ] ) ) {
-			// The thumbnail publisher accepts the result of a stashImageInfo, and then tries to get the thumbnail, and eventually
-			// will trigger the event we just subscribed to.
-			_this.thumbnailPublishers[ key ] = _this.getThumbnailPublisher( key );
-			_this.getStashImageInfo( _this.thumbnailPublishers[ key ], [ 'url' ], width, height );
-		}
-	},
-
-	/**
-	 * Returns a callback that can be used with a stashImageInfo call to fetch images, and then fire off an event to
-	 * let everyone else know the image is loaded.
-	 *
-	 * Will retry the thumbnail URL several times, as thumbnails are known to be slow in production.
-	 * @param {String} name of event to publish when thumbnails received (or final failure)
-	 */
-	getThumbnailPublisher: function( key ) {
-		var _this = this;
-		return function( thumbnails ) { 
+		if ( !mw.isDefined( _this.thumbnailPublishers[key] ) ) {
+			var thumbnailPublisher = function( thumbnails ) { 
 				if ( thumbnails === null ) {
-				// the api call failed somehow, no thumbnail data.
-				$j.publish( key, null );
+					// the api call failed somehow, no thumbnail data.
+					$j.publishReady( key, null );
 				} else {
-				// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
-				// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
-				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
-				// the event with a null.
-				$j.each( thumbnails, function( i, thumb ) {
+					// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
+					// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
+					// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
+					// the event with a null.
+					$j.each( thumbnails, function( i, thumb ) {
 						if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail error or missing information" );
-						$j.publish( key, null );
+							$j.publishReady( key, null );
 							return;
 						}
 
-					// try to load this image with exponential backoff
-					// if the delay goes past 8 seconds, it gives up and publishes the event with null
-					var timeoutMs = 100;
-
+						// try to load this image with exponential backoff
+						// if the delay goes past 8 seconds, it gives up and publishes the event with null
+						var timeoutMs = 100;
 						var image = document.createElement( 'img' );
 						image.width = thumb.thumbwidth;
 						image.height = thumb.thumbheight;
-					$j( image )
-						.load( function() {
-							// cache this thumbnail
-						_this.thumbnails[key] = image;
-							// publish the image to anyone who wanted it
-							$j.publish( key, image );
-						} )
-						.error( function() { 
-							// retry with exponential backoff
-							if ( timeoutMs < 8000 ) {
-								setTimeout( function() { 
-									timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) ); 
-									setSrc();
-								}, timeoutMs );
-							} else {
-								$j.publish( key, null );
-							}
-						} );
+						$j( image )
+							.load( function() {
+								// cache this thumbnail
+								_this.thumbnails[key] = image;
+								// publish the image to anyone who wanted it
+								$j.publishReady( key, image );
+							} )
+							.error( function() { 
+								// retry with exponential backoff
+								if ( timeoutMs < 8000 ) {
+									setTimeout( function() { 
+										timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) ); 
+										setSrc();
+									}, timeoutMs );
+								} else {
+									$j.publishReady( key, null );
+								}
+							} );
 
-					// executing this should cause a .load() or .error() event on the image
-					function setSrc() { 
-						image.src = thumb.thumburl;
-					}
+						// executing this should cause a .load() or .error() event on the image
+						function setSrc() { 
+							image.src = thumb.thumburl;
+						}
 
-					// and, go!
-					setSrc();
-				} );
+						// and, go!
+						setSrc();
+					} );
+				}
+			};
+
+			_this.thumbnailPublishers[key] = thumbnailPublisher;
+			if ( _this.state !== 'complete' ) {
+				_this.getStashImageInfo( thumbnailPublisher, [ 'url' ], width, height );
+			} else {
+				_this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
+			}
+
 		}
-		};
 	},
 
 	/**
-	 * Look up thumbnail info and set it in HTML, with loading spinner
+	 * Given a jQuery selector, subscribe to the "ready" event that fills the thumbnail
+ 	 * This will trigger if the thumbnail is added in the future or if it already has been
 	 *
 	 * @param selector
-	 * @param width
-	 * @param height (optional)
+	 * @param width  Width constraint
+	 * @param height Height constraint (optional)
 	 */
 	setThumbnail: function( selector, width, height ) {
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {
-			width = mw.UploadWizard.config[  'thumbnailWidth'  ];
+			width = mw.UploadWizard.config['thumbnailWidth'];
 		}
-		width = parseInt( width, 10 );
-		height = null;
-		if ( !mw.isEmpty( height ) ) {
-			height = parseInt( height, 10 );
-		}
+		var constraints = { 
+			width: parseInt( width, 10 ),
+			height: ( mw.isDefined( height ) ? parseInt( height, 10 ) : null )
+		};
 
-		var callback = function( image ) {
+		/**
+		 * This callback will add an image to the selector, using in-browser scaling if necessary
+	 	 * @param {HTMLImageElement}
+	 	 */
+		var placed = false;
+		var placeImageCallback = function( image ) {
 			if ( image === null ) {
 				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
 				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
-			} else {
-				var $thumbnailLink = $j( '<a class="mwe-upwiz-thumbnail-link"></a>' );
-				if ( _this.state != 'complete' ) { // don't use lightbox for thank you page thumbnail
-					$thumbnailLink
-						.attr( {
-							'href': '#',
-							'target' : '_new'
-						} )
-						// set up lightbox behavior for thumbnail
-						.click( function() {
-							// get large preview image
-							_this.getThumbnail(
-								// open large preview in modal dialog box
-								function( image ) {
-									var dialogWidth = ( image.width > 200 ) ? image.width : 200;
-									$( '<div class="mwe-upwiz-lightbox"></div>' )
-										.append( image )
-										.dialog( {
-											'width': dialogWidth,
-											'autoOpen': true,
-											'title': gM( 'mwe-upwiz-image-preview' ),
-											'modal': true,
-											'resizable': false
-										} );
-								},
-								mw.UploadWizard.config[ 'largeThumbnailWidth' ],
-								mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ]
-							);
-							return false;
-						} ); // close thumbnail click function
-				} // close if
+				return;
+			} 
 
-				$j( selector ).html(
-					// insert the thumbnail into the anchor
-					$thumbnailLink.append(
-						$j( '<img/>' )
-							.attr( {
-								'width':  image.width,
-								'height': image.height,
-								'src':    image.src
-							} )
-					) // close append
-				); // close html
-			} // close image !== null else condition
+			// if this debugger isn't here, it's okay??
+			// figure out what scaling is needed, if any
+			var scaling = 1;
+			$j.each( [ 'width', 'height' ], function( i, dim ) { 
+				if ( constraints[dim] && image[dim] > constraints[dim] ) {
+					var s = constraints[dim] / image[dim];
+					if ( s < scaling ) { 
+						scaling = s;
+					}
+				}
+			} );
+
+			// add the image to the DOM, finally
+			$j( selector ).html(
+				$j( '<a class="mwe-upwiz-thumbnail-link"></a>' ).append(
+					$j( '<img/>' )
+						.attr( {
+							width:  parseInt( image.width * scaling, 10 ),
+							height: parseInt( image.height * scaling, 10 ),
+							src:    image.src
+						} )
+				) 
+			); 
+			placed = true;
 		};
 
-		_this.getThumbnail( callback, width, height );
+		// Listen for even which says some kind of thumbnail is available. 
+		// The argument is an either an ImageHtmlElement ( if we could get the thumbnail locally ) or the string 'api' indicating you 
+		// now need to get the scaled thumbnail via the API 
+		$.subscribeReady( 
+			'thumbnails.' + _this.index,
+			function ( x ) {
+				if ( !placed ) { 
+					if ( x === 'api' ) {
+						// get the thumbnail via API. This also works with an async pub/sub model; if this thumbnail was already
+						// fetched for some reason, we'll get it immediately
+						var key = 'apiThumbnail.' + _this.index + ',width=' + width + ',height=' + height;
+						$.subscribeReady( key, placeImageCallback );
+						_this.getAndPublishApiThumbnail( key, width, height );
+					} else if ( x instanceof HTMLImageElement ) {
+						placeImageCallback( x );
+					} else {
+						// something else went wrong, place broken image
+						mw.log( 'unexpected argument to thumbnails event: ' + x );
+						placeImageCallback( null );
+					}
+				}
+			}
+		);
+
 	},
+
 
 	/**
 	 * Given a filename like "Foo.jpg", get the URL to that filename, assuming the browser is on the same wiki.
