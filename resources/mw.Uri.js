@@ -161,7 +161,7 @@
 				uri.query.replace( /(?:^|&)([^&=]*)(?:(=)([^&]*))?/g, function ($0, $1, $2, $3) {
 					if ( $1 ) {
 						var k = mw.Uri.decode( $1 );
-						var v = ($2 == '') ? null : mw.Uri.decode( $3 );
+						var v = ( $2 === '' || typeof $2 === 'undefined' ) ? null : mw.Uri.decode( $3 );
 						if ( typeof q[ k ] === 'string' ) {
 							q[ k ] = [ q[ k ] ];
 						}
