@@ -268,8 +268,15 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-feedback-adding' => 'Adding feedback to page...',
 	'mwe-upwiz-feedback-error1' => 'Error: Unrecognized result from API',
 	'mwe-upwiz-feedback-error2' => 'Error: Edit failed',
-	'mwe-upwiz-feedback-error3' => 'Error: No response from API'
-	
+	'mwe-upwiz-feedback-error3' => 'Error: No response from API',
+
+	// similar to mediawiki.special.upload.js
+	'size-terabytes' => '$1 TB',
+	'size-gigabytes' => '$1 GB',
+	'size-megabytes' => '$1 MB',
+	'size-kilobytes' => '$1 K',
+	'size-bytes' => '$1 bytes'
+
 );
 
 /** Message documentation (Message documentation)
@@ -393,7 +400,7 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-feedback-cancel' => 'Button label
 {{Identical|Cancel}}',
 	'mwe-upwiz-feedback-submit' => 'Button label',
-	'mwe-upwiz-feedback-adding' => 'Progress notice',
+	'mwe-upwiz-feedback-adding' => 'Progress notice'
 );
 
 /** Afrikaans (Afrikaans)
