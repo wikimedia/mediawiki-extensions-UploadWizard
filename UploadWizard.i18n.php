@@ -1438,6 +1438,7 @@ $messages['bn'] = array(
 	'mwe-upwiz-api-error-noimageinfo' => 'আপলোড সফল হয়েছে, কিন্তু ফাইলটি সম্পর্কে সার্ভার কোন তথ্য প্রদান করে নি।',
 	'mwe-upwiz-api-warning-exists' => 'এই উইকিতে একই নামের [$1 অন্য ফাইল] রয়েছে',
 	'mwe-upwiz-help-desk' => 'সাহায্য কেন্দ্র',
+	'mwe-upwiz-help-desk-url' => 'হেল্প ডেস্ক',
 	'mwe-upwiz-add-file-n' => 'আরেকটি ফাইল যোগ',
 	'mwe-upwiz-add-file-0-free' => 'অনুদানের জন্য একটি মিডিয়া ফাইল নির্বাচন করুন',
 	'mwe-upwiz-transport-started' => 'শুরু হয়েছে...',
