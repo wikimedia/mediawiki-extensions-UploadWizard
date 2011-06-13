@@ -573,8 +573,9 @@ mw.UploadWizardUpload.prototype = {
 	 * @param selector
 	 * @param width  Width constraint
 	 * @param height Height constraint (optional)
+	 * @param boolean add lightbox large preview when ready
 	 */
-	setThumbnail: function( selector, width, height ) {
+	setThumbnail: function( selector, width, height, isLightBox ) {
 		var _this = this;
 		if ( typeof width === 'undefined' || width === null || width <= 0 )  {
 			width = mw.UploadWizard.config['thumbnailWidth'];
@@ -625,7 +626,7 @@ mw.UploadWizardUpload.prototype = {
 								'margin-top': ( parseInt( ( height - image.height * scaling ) / 2, 10 ) ).toString() + 'px' 
 							} )
 						) 
-				); 
+				);
 			placed = true;
 		};
 
@@ -635,6 +636,9 @@ mw.UploadWizardUpload.prototype = {
 		$.subscribeReady( 
 			'thumbnails.' + _this.index,
 			function ( x ) {
+				if ( isLightBox ) {
+					_this.setLightBox( selector );
+				} 
 				if ( !placed ) { 
 					if ( x === 'api' ) {
 						// get the thumbnail via API. This also works with an async pub/sub model; if this thumbnail was already
@@ -680,7 +684,8 @@ mw.UploadWizardUpload.prototype = {
 				_this.setThumbnail( 
 					$imgDiv, 
 					mw.UploadWizard.config[ 'largeThumbnailWidth' ],
-					mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ]
+					mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ],
+					false /* obviously the largeThumbnail doesn't have a lightbox itself! */
 				);
 				return false;
 			} ); // close thumbnail click function
@@ -1503,7 +1508,12 @@ mw.UploadWizard.prototype = {
 				.html( $j( '<a/>' ).html( upload.title.getMainText() ) );
 			var $thumbnailWrapDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
 			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
-			upload.setThumbnail( $thumbnailDiv, mw.UploadWizard.config[ 'thumbnailWidth' ], mw.UploadWizard.config[ 'thumbnailMaxHeight' ] );
+			upload.setThumbnail( 
+				$thumbnailDiv, 
+				mw.UploadWizard.config[ 'thumbnailWidth' ], 
+				mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
+				false
+			);
 
 			// Set the thumbnail links so that they point to the image description page
 			$thumbnailWrapDiv.find( 'a' ).attr( {
@@ -1616,8 +1626,12 @@ mw.UploadWizardDeedPreview.prototype = {
 		// add a preview on the deeds page
 		var thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
-		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'thumbnailWidth'  ], mw.UploadWizard.config[ 'thumbnailMaxHeight' ] );
-		_this.upload.setLightBox( thumbnailDiv );
+		_this.upload.setThumbnail( 
+			thumbnailDiv, 
+			mw.UploadWizard.config['thumbnailWidth'], 
+			mw.UploadWizard.config['thumbnailMaxHeight'],
+			true
+		);
 	}
 };
 
