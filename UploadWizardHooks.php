@@ -336,11 +336,10 @@ class UploadWizardHooks {
 				'mwe-upwiz-feedback-error1',
 				'mwe-upwiz-feedback-error2',
 				'mwe-upwiz-feedback-error3',
- 				'mwe-upwiz-size-terabytes',
- 				'mwe-upwiz-size-gigabytes',
- 				'mwe-upwiz-size-megabytes',
- 				'mwe-upwiz-size-kilobytes',
- 				'mwe-upwiz-size-bytes'
+ 				'size-gigabytes',
+ 				'size-megabytes',
+ 				'size-kilobytes',
+ 				'size-bytes'
 			),
 			'group' => 'ext.uploadWizard'
 		),

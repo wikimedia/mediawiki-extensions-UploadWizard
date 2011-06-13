@@ -1,12 +1,6 @@
 ( function( mw ) { 
 
-	var scaleMsgKeys = [ 
-		'mwe-upwiz-size-bytes', 
-		'mwe-upwiz-size-kilobytes', 
-		'mwe-upwiz-size-megabytes', 
-		'mwe-upwiz-size-gigabytes', 	
-		'mwe-upwiz-size-terabytes' 
-	];
+	var scaleMsgKeys = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes' ];
 
 	mw.units = {
 
@@ -21,7 +15,7 @@
 		 */
 		bytes: function ( size ) {
 			var i = 0;
-			while ( size >= 1024 && i < scaleMsgKeys.length ) {
+			while ( size >= 1024 && i < scaleMsgKeys.length - 1 ) {
 				size /= 1024.0;
 				i++;
 			}
