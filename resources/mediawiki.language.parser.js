@@ -124,7 +124,7 @@
 		getAst: function( key ) {
 			if ( typeof this.astCache[ key ] === 'undefined' ) { 
 				var wikiText = this.settings.messages.get( key );
-				if ( wikiText === null ) {
+				if ( typeof wikiText !== 'string' ) {
 					wikiText = "\\[" + key + "\\]";
 				}
 				this.astCache[ key ] = this.wikiTextToAst( wikiText );
