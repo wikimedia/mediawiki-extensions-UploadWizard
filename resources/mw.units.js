@@ -1,6 +1,12 @@
 ( function( mw ) { 
 
-	var scaleMsgKeys = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes', 'size-terabytes' ];
+	var scaleMsgKeys = [ 
+		'mwe-upwiz-size-bytes', 
+		'mwe-upwiz-size-kilobytes', 
+		'mwe-upwiz-size-megabytes', 
+		'mwe-upwiz-size-gigabytes', 	
+		'mwe-upwiz-size-terabytes' 
+	];
 
 	mw.units = {
 

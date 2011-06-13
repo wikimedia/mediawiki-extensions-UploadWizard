@@ -268,7 +268,15 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-feedback-adding' => 'Adding feedback to page...',
 	'mwe-upwiz-feedback-error1' => 'Error: Unrecognized result from API',
 	'mwe-upwiz-feedback-error2' => 'Error: Edit failed',
-	'mwe-upwiz-feedback-error3' => 'Error: No response from API'
+	'mwe-upwiz-feedback-error3' => 'Error: No response from API',
+
+	// similar to mediawiki.special.upload.js
+	'mwe-upwiz-size-terabytes' => '$1 TB',
+	'mwe-upwiz-size-gigabytes' => '$1 GB',
+	'mwe-upwiz-size-megabytes' => '$1 MB',
+	'mwe-upwiz-size-kilobytes' => '$1 K',
+	'mwe-upwiz-size-bytes' => '$1 bytes'
+
 	
 );
 
