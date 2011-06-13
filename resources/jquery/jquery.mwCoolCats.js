@@ -90,7 +90,7 @@
 		if ( isHidden ) {
 			$li.hide();
 		} else {
-			$anchor.attr( { target: "_new", href: _catLink( cat ) } );
+			$anchor.attr( { target: "_blank", href: _catLink( cat ) } );
 			$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
 		}
 		$container.find( 'ul' ).append( $li );

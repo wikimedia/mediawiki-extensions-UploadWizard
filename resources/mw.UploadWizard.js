@@ -1508,7 +1508,7 @@ mw.UploadWizard.prototype = {
 			// Set the thumbnail links so that they point to the image description page
 			$thumbnailWrapDiv.find( 'a' ).attr( {
 				'href': upload.imageinfo.descriptionurl,
-				'target' : '_new'
+				'target' : '_blank'
 			} );
 			$thanksDiv.append( $thumbnailWrapDiv );
 
