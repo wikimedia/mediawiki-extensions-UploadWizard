@@ -609,16 +609,26 @@ mw.UploadWizardUpload.prototype = {
 			} );
 
 			// add the image to the DOM, finally
-			$j( selector ).html(
-				$j( '<a class="mwe-upwiz-thumbnail-link"></a>' ).append(
-					$j( '<img/>' )
-						.attr( {
-							width:  parseInt( image.width * scaling, 10 ),
-							height: parseInt( image.height * scaling, 10 ),
-							src:    image.src
-						} )
-				) 
-			); 
+			$j( selector )
+				.css( { background: 'none' } )
+				.html( 
+					$j( '<a/></a>' )
+						.addClass( "mwe-upwiz-thumbnail-link" )
+						.append(
+							$j( '<img/>' )
+								.attr( {
+									width:  parseInt( image.width * scaling, 10 ),
+									height: parseInt( image.height * scaling, 10 ),
+									src:    image.src
+								} )
+							.css( { 
+								//'position': 'absolute', 
+								//'top': '50%', 
+								//'height': height.toString() + 'px',
+								'margin-top': ( parseInt( ( 100 - image.height * scaling ) / 2, 10 ) ).toString() + 'px' 
+							} )
+						) 
+				); 
 			placed = true;
 		};
 
@@ -1465,7 +1475,7 @@ mw.UploadWizard.prototype = {
 				.html( $j( '<a/>' ).html( upload.title.getMainText() ) );
 			var $thumbnailWrapDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
 			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
-			upload.setThumbnail( $thumbnailDiv );
+			upload.setThumbnail( $thumbnailDiv, mw.UploadWizard.config[ 'thumbnailWidth' ], mw.UploadWizard.config[ 'thumbnailMaxHeight' ] );
 
 			// Set the thumbnail links so that they point to the image description page
 			$thumbnailWrapDiv.find( 'a' ).attr( {

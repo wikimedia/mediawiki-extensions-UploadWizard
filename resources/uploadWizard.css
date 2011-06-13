@@ -162,11 +162,12 @@ form.mwe-upwiz-form {
 	
 .mwe-upwiz-file-preview {
 	float: left;
-	height: 60px;
-	width: 60px;
+	height: 100px;
+	width: 100px;
 	padding: 0.5em;
 	border: 1px solid #e0e0e0;
 	margin-right: 1em;
+	text-align: center;
 	/* @embed */
 	background: url('images/32px-Blank-document.svg.png') no-repeat center center;
 }
@@ -353,7 +354,8 @@ a[disabled=true]:hover {
 	border: 1px solid #cccccc;
 	text-align: center;
 	background: #ffffff;
-	width: 60px;
+	width: 100px;
+	height: 100px;
 	padding: 8px;
 }
 
@@ -361,7 +363,7 @@ a[disabled=true]:hover {
 	float: left;
 	margin-bottom: 1em;
 	margin-right: 1em;
-	width: 76px; /* see .mwe-upwiz-thumbnail, 60 + 8 + 8 */
+	width: 116px; /* see .mwe-upwiz-thumbnail, 100 + 8 + 8 */
 }
 
 #mwe-upwiz-deeds-thumbnails {
@@ -702,3 +704,4 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 .mwe-upwiz-details-texts {
 	padding: 0.5em;
 }
+
