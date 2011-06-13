@@ -21,7 +21,7 @@
 		 * @return boolean
 		 */
 		isPreviewableFile: function( file ) {
-			var	known = [ /* 'image/png' */, 'image/gif', 'image/jpeg', 'image/svg+xml'],
+			var	known = [ 'image/png', 'image/gif', 'image/jpeg', 'image/svg+xml'],
 				tooHuge = 10 * 1024 * 1024;
 			return ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
 		}
