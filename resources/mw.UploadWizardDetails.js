@@ -453,6 +453,7 @@ mw.UploadWizardDetails.prototype = {
 	populate: function() {
 		var _this = this;
 		_this.upload.setThumbnail( _this.thumbnailDiv, mw.UploadWizard.config['thumbnailWidth'], mw.UploadWizard.config['thumbnailMaxHeight'] );
+		_this.upload.setLightBox( _this.thumbnailDiv );
 		_this.prefillDate();
 		_this.prefillSource();
 		_this.prefillAuthor(); 

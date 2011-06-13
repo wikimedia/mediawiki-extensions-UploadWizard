@@ -95,6 +95,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 		mw.UploadWizard.config[ 'thumbnailWidth' ],
 		mw.UploadWizard.config[ 'thumbnailMaxHeight' ]
 	);
+	_this.upload.setLightBox( $preview );
 
 };
 

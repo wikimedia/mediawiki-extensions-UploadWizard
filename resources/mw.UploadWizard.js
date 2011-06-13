@@ -622,10 +622,7 @@ mw.UploadWizardUpload.prototype = {
 									src:    image.src
 								} )
 							.css( { 
-								//'position': 'absolute', 
-								//'top': '50%', 
-								//'height': height.toString() + 'px',
-								'margin-top': ( parseInt( ( 100 - image.height * scaling ) / 2, 10 ) ).toString() + 'px' 
+								'margin-top': ( parseInt( ( height - image.height * scaling ) / 2, 10 ) ).toString() + 'px' 
 							} )
 						) 
 				); 
@@ -658,6 +655,37 @@ mw.UploadWizardUpload.prototype = {
 
 	},
 
+	/**
+	 * set up lightbox behavior for non-complete thumbnails
+	 * TODO center this
+	 * @param selector
+	 */
+	setLightBox: function( selector ) {
+		var _this = this;
+		var $imgDiv = $j( '<div></div>' ).css( 'text-align', 'center' );
+		$j( selector )
+			.click( function() {
+				// get large preview image
+				// open large preview in modal dialog box
+				$j( '<div class="mwe-upwiz-lightbox"></div>' )
+					.append( $imgDiv )
+					.dialog( {
+						'width': mw.UploadWizard.config[ 'largeThumbnailWidth' ],
+						'height': mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ],
+						'autoOpen': true,
+						'title': gM( 'mwe-upwiz-image-preview' ),
+						'modal': true,
+						'resizable': false
+					} );
+				_this.setThumbnail( 
+					$imgDiv, 
+					mw.UploadWizard.config[ 'largeThumbnailWidth' ],
+					mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ]
+				);
+				return false;
+			} ); // close thumbnail click function
+	},
+
 
 	/**
 	 * Given a filename like "Foo.jpg", get the URL to that filename, assuming the browser is on the same wiki.
@@ -678,8 +706,8 @@ mw.UploadWizardUpload.prototype = {
 
 
 /**
- * Object that reperesents the entire multi-step Upload Wizard
- */
+* Object that reperesents the entire multi-step Upload Wizard
+*/
 mw.UploadWizard = function( config ) {
 
 	this.uploads = [];
@@ -1589,7 +1617,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		var thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
 		_this.upload.setThumbnail( thumbnailDiv, mw.UploadWizard.config[  'thumbnailWidth'  ], mw.UploadWizard.config[ 'thumbnailMaxHeight' ] );
-		_this.upload.deedThumbnailDiv = thumbnailDiv;
+		_this.upload.setLightBox( thumbnailDiv );
 	}
 };
 
