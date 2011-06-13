@@ -99,4 +99,19 @@
 		}
 		return success;
 	};
+
+	/** 
+	 * Prevent ready objects from hanging around forever
+	 */
+	$.purgeReadyEvents = function() {
+		ready = {};
+	};
+
+	/**
+	 * Remove all subscriptions from everything
+	 */
+	$.purgeSubscriptions = function() {
+		subs = {};
+	};
+
 } )( jQuery );

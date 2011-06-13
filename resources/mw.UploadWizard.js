@@ -775,6 +775,8 @@ mw.UploadWizard.prototype = {
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
 	reset: function() {
+		$.purgeReadyEvents();
+		$.purgeSubscriptions();
 		this.removeMatchingUploads( function() { return true; } );
 	},
 
