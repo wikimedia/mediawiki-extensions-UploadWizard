@@ -65,8 +65,8 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	remove: function() {
 		this.state = 'aborted';
-		if ( this.deedThumbnailDiv ) {
-			this.deedThumbnailDiv.remove();
+		if ( this.deedPreview ) {
+			this.deedPreview.remove();
 		}
 		if ( this.details && this.details.div ) {
 			this.details.div.remove();
@@ -1624,16 +1624,21 @@ mw.UploadWizardDeedPreview = function(upload) {
 
 mw.UploadWizardDeedPreview.prototype = {
 	setup: function() {
-		var _this = this;
 		// add a preview on the deeds page
-		var thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
-		$j( '#mwe-upwiz-deeds-thumbnails' ).append( thumbnailDiv );
-		_this.upload.setThumbnail( 
-			thumbnailDiv, 
+		this.$thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
+		$j( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
+		this.upload.setThumbnail( 
+			this.$thumbnailDiv, 
 			mw.UploadWizard.config['thumbnailWidth'], 
 			mw.UploadWizard.config['thumbnailMaxHeight'],
 			true
 		);
+	},
+
+	remove: function() { 
+		if ( this.$thumbnailDiv ) {
+			this.$thumbnailDiv.remove();
+		}
 	}
 };
 
