@@ -1681,6 +1681,8 @@ $messages['br'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Evit implijout ar restr war ur wiki</b>, kopiañ an destenn-mañ en ur bajenn :',
 	'mwe-upwiz-thanks-url' => "<b>Evit krouiñ ul liamm HTML</b>, kopiañ ar chomlec'h URL-mañ:",
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ne aotre ket ar wiki-mañ an anv restroù gant an astenn ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "Dibabet hoc'h eus enporzhiañ ur restr video n'emañ ket en ur furmad frank a wirioù.
+Gallout a rit [$1 staliañ Firefogg] d'he amdreiñ ent emgefre, pe ober gant [$2 doareoù amdreiñ all].",
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Goulenn a ra ar wiki-mañ e vefe un astenn — a seurt gant ".JPG" e dibenn an anvioù restroù.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Setu an astennoù aotreet :',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Astennoù anvioù restroù aotreet',
@@ -2145,6 +2147,7 @@ $messages['ca'] = array(
 	'mwe-upwiz-license-pd-textlogo' => 'Logotip només amb text simple (marca de paraula)',
 	'mwe-upwiz-license-copyrighted-free-use' => 'Amb copyright, però es pot fer servir per a qualsevol propòsit, incloent-hi el comercial.',
 	'mwe-upwiz-license-gfdl' => 'Llicència de Documentació Lliure de GNU',
+	'mwe-upwiz-license-misc' => 'Altres motius',
 	'mwe-upwiz-categories' => 'Categories',
 	'mwe-upwiz-categories-add' => 'Afegeix',
 	'mwe-upwiz-category-remove' => 'Suprimeix aquesta categoria',
@@ -2221,6 +2224,7 @@ $messages['cs'] = array(
 	'mwe-upwiz-api-error-timeout' => 'Server neodpověděl v očekávaném čase.',
 	'mwe-upwiz-api-error-noimageinfo' => 'Načtení bylo úspěšné, ale server neposkytl o souboru žádné informace.',
 	'mwe-upwiz-api-warning-exists' => 'Na této wiki je [$1 jiný soubor] se stejným názvem',
+	'mwe-upwiz-api-warning-was-deleted' => 'Soubor s tímto názvem, „$1“, již existoval, ale byl smazán, takže ho nemůžete znovu načíst. Pokud je váš soubor jiný, zkuste ho přejmenovat.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Je nám líto, ale není k dispozici průvodce ve vašem jazyce. Místo toho se zobrazuje verze v angličtině.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Je nám líto, ale nepodařilo se nám najít žádný soubor s průvodcem, který by se zde měl zobrazovat. Kontaktujte správce.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Je nám líto, ale nepodařilo se nám získat průvodce ve správné velikosti pro tuto obrazovku. Může se jednat o dočasný problém na Wikimedia Commons, zkuste to později.',
@@ -2375,6 +2379,9 @@ Nepoužívejte zde HTML ani wikitext.',
 	'mwe-upwiz-category-remove' => 'Odebrat tuto kategorii',
 	'mwe-upwiz-thanks-caption' => 'Sem vložte titulek',
 	'mwe-upwiz-help-popup' => 'Nápověda',
+	'mwe-upwiz-help-popup-title' => 'Název',
+	'mwe-upwiz-thumbnail-failed' => 'Načtení bylo úspěšné, ale server nedokázal získat náhled.',
+	'mwe-upwiz-unparseable-filename' => 'Název souboru „$1“ je nesrozumitelný',
 	'mwe-upwiz-image-preview' => 'Náhled obrázku',
 	'mwe-upwiz-subhead-message' => 'Děkujeme, že používáte náš nový nástroj pro načítání!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Známé problémy]',
@@ -9560,7 +9567,7 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-pd-old-100' => 'O autor faleceu há mais de 100 anos',
 	'mwe-upwiz-license-pd-old' => 'O autor faleceu há mais de 70 anos',
 	'mwe-upwiz-license-pd-art' => 'Reprodução de uma pintura que se encontra no domínio público devido à sua idade',
-	'mwe-upwiz-license-pd-us' => 'Primeira publicação nos Estados Unidos anterior a 1923',
+	'mwe-upwiz-license-pd-us' => 'Primeira publicação nos Estados Unidos e antes de 1923',
 	'mwe-upwiz-license-pd-usgov' => 'Obra original do Governo Federal dos EUA',
 	'mwe-upwiz-license-pd-usgov-nasa' => 'Obra original da NASA',
 	'mwe-upwiz-license-pd-usgov-military-navy' => 'Obra original da Armada dos EUA',
@@ -10045,6 +10052,7 @@ $messages['roa-tara'] = array(
  * @author Haffman
  * @author KorneySan
  * @author MaxSem
+ * @author Rubin
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -10273,7 +10281,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-subhead-message' => 'Спасибо за использование нашего нового инструмента загрузки!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Известные проблемы]',
 	'mwe-upwiz-subhead-translate' => '[$1 Помочь с переводом]',
-	'mwe-upwiz-subhead-alt-upload' => '[$1 Вернуться к старой формы]',
+	'mwe-upwiz-subhead-alt-upload' => '[$1 Вернуться к старой форме]',
 	'mwe-upwiz-feedback-prompt' => '[$1 Оставить отзыв]',
 	'mwe-upwiz-feedback-note' => 'Ваш отзыв будет размещён в проекте $1.',
 	'mwe-upwiz-feedback-subject' => 'Тема:',
