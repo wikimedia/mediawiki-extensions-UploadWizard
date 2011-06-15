@@ -269,19 +269,46 @@ mw.UploadWizardUpload.prototype = {
 			this.transportWeight = this.file.size;
 
 			if ( mw.fileApi.isPreviewableFile( this.file ) ) {
-				// TODO all that other complicated file rotation / binary stuff from mediawiki.special.upload.js
+				/*
+			 	 * The following part is a bit tricky, but not easy to untangle in code
+				 * First, we will read the file as binary
+				 *  in the binary reader's onload function
+				 *    we try to get metadata with jpegmeta library, and add it to the upload object
+				 *    we re-read the file as a data URL
+				 *      in that file reader's onload function
+				 *	  assign it to an image
+				 *        in that image's onload function
+				 *          publish the event, that this upload can now do thumbnails, with the image itself
+				 *            (listeners will then use that image to create thumbnails in the DOM, 
+				 *		with local scaling or canvas)
+				 */
+
 				var image = document.createElement( 'img' );
 				image.onload = function() {
 					$.publishReady( 'thumbnails.' + _this.index, image );
 				};
-				var reader = new FileReader();
-				reader.onload = function( progressEvent ) {
-					_this.thumbnails['*'] = reader.result;
-					image.src = reader.result;
-				};
-				reader.readAsDataURL( _this.file );
-			}
+					
+				var binReader = new FileReader();
+				binReader.onload = function() {
+					var meta;
+					try {
+						meta = mw.libs.jpegmeta( binReader.result, _this.file.fileName );
+						meta._binary_data = null;
+					} catch ( e ) {
+						meta = null;
+					}
+					_this.imageinfo = {};
+					_this.imageinfo.metadata = meta; // TODO this is not the same format as API imageinfo; reconcile
 
+					var dataUrlReader = new FileReader();
+					dataUrlReader.onload = function() { 
+						image.src = dataUrlReader.result;
+						_this.thumbnails['*'] = image;
+					};
+					dataUrlReader.readAsDataURL( _this.file );
+				};
+				binReader.readAsBinaryString( _this.file );
+			}
 		} 
 		// TODO sanitize filename
 		var filename = fileInput.value;
@@ -294,6 +321,7 @@ mw.UploadWizardUpload.prototype = {
 			callback();
 		}
 	},
+
 
 	/**
  	 * Accept the result from a successful API upload transport, and fill our own info
@@ -567,6 +595,167 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Return the orientation of the image. Relies on TIFF metadata that
+	 * may have been extracted at filereader stage, or returns 0.
+	 * @param {Object} metadata as yielded by getMetadata()
+	 * @return {Integer} rotation to be applied: 0, 90, 180 or 270
+	 */
+	getOrientation: function() {
+		var orientation = 0;
+		if ( this.imageinfo && this.imageinfo.metadata && 
+			this.imageinfo.metadata.tiff && this.imageinfo.metadata.tiff.Orientation ) {
+			switch ( this.imageinfo.metadata.tiff.Orientation.value ) { 
+				case 8:	
+					orientation = 90; 
+					break;			
+				case 3:
+					orientation = 180;
+					break;
+				case 6:
+					orientation = 270;
+					break;
+				default:
+					orientation = 0;
+					break;
+					
+			}
+		}
+		return orientation;
+	},
+
+	/**
+	 * Fit an image into width & height constraints with scaling factor
+	 * @param {HTMLImageElement}
+	 * @param {Object} with width & height properties
+	 * @return {Number}
+	 */
+	getScalingFromConstraints: function( image, constraints ) {
+		var scaling = 1;
+		$j.each( [ 'width', 'height' ], function( i, dim ) { 
+			if ( constraints[dim] && image[dim] > constraints[dim] ) {
+				var s = constraints[dim] / image[dim];
+				if ( s < scaling ) { 
+					scaling = s;
+				}
+			}
+		} );
+		return scaling;
+	},
+
+	/**
+	 * Given an image (already loaded), dimension constraints
+	 * return canvas object scaled & transformedi ( & rotated if metadata indicates it's needed )
+	 * @param {HTMLImageElement}
+	 * @param {Object} containing width & height constraints
+	 * @return {HTMLCanvasElement} 
+	 */
+	getTransformedCanvasElement: function( image, constraints ) {
+	
+		var rotation = 0;
+	
+		// if this wiki can rotate images to match their EXIF metadata, 
+		// we should do the same in our preview
+		if ( mw.config.get( 'wgFileCanRotate' ) ) { 
+			var orientation = this.getOrientation();
+			rotation = orientation ? 360 - orientation : 0;
+		}
+
+		// swap scaling constraints if needed by rotation...
+		var scaleConstraints;
+		if ( rotation === 90 || rotation === 270 ) {
+			scaleConstraints = {
+				width: constraints.height,
+				height: constraints.width
+			};
+		} else {
+			scaleConstraints = {
+				width: constraints.width,
+				height: constraints.height
+			};
+		}
+
+		var scaling = this.getScalingFromConstraints( image, constraints );
+
+		var width = image.width * scaling;
+		var height = image.height * scaling;
+
+		// Determine the offset required to center the image
+		var dx = (constraints.width - width) / 2;
+		var dy = (constraints.height - height) / 2;
+
+		switch ( rotation ) {
+			// If a rotation is applied, the direction of the axis
+			// changes as well. You can derive the values below by 
+			// drawing on paper an axis system, rotate it and see
+			// where the positive axis direction is
+			case 90:
+				x = dx;
+				y = dy - constraints.height;
+				break;
+			case 180:
+				x = dx - constraints.width;
+				y = dy - constraints.height;
+				break;
+			case 270:
+				x = dx - constraints.width;
+				y = dy;
+				break;
+			case 0:
+			default:
+				x = dx;
+				y = dy;
+				break;
+		}
+		
+		var $canvas = $j( '<canvas></canvas>' ).attr( constraints );
+		var ctx = $canvas[0].getContext( '2d' );	
+		ctx.clearRect( 0, 0, width, height );
+		ctx.rotate( rotation / 180 * Math.PI );
+		ctx.drawImage( image, x, y, width, height );
+
+		return $canvas;
+	},
+
+	/**
+	 * Return a browser-scaled image element, given an image and constraints.
+	 * @param {HTMLImageElement}
+	 * @param {Object} with width and height properties
+	 * @return {HTMLImageElement} with same src, but different attrs
+	 */
+	getBrowserScaledImageElement: function( image, constraints ) {
+		var scaling = this.getScalingFromConstraints( image, constraints );
+		return $j( '<img/>' )
+			.attr( {
+				width:  parseInt( image.width * scaling, 10 ),
+				height: parseInt( image.height * scaling, 10 ),
+				src:    image.src
+			} )
+			.css( { 
+				'margin-top': ( parseInt( ( constraints.height - image.height * scaling ) / 2, 10 ) ).toString() + 'px' 
+			} );
+	},
+
+	/** 
+	 * Return an element suitable for the preview of a certain size. Uses canvas when possible
+	 * @param {HTMLImageElement} 
+	 * @param {Integer} width
+	 * @param {Integer} height
+	 * @return {HTMLCanvasElement|HTMLImageElement}
+	 */
+	getScaledImageElement: function( image, width, height ) {
+		if ( typeof width === 'undefined' || width === null || width <= 0 )  {
+			width = mw.UploadWizard.config['thumbnailWidth'];
+		}
+		var constraints = { 
+			width: parseInt( width, 10 ),
+			height: ( mw.isDefined( height ) ? parseInt( height, 10 ) : null )
+		};
+
+		return mw.canvas.isAvailable() ? this.getTransformedCanvasElement( image, constraints )
+					       : this.getBrowserScaledImageElement( image, constraints );
+	},
+
+	/**
 	 * Given a jQuery selector, subscribe to the "ready" event that fills the thumbnail
  	 * This will trigger if the thumbnail is added in the future or if it already has been
 	 *
@@ -577,13 +766,6 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	setThumbnail: function( selector, width, height, isLightBox ) {
 		var _this = this;
-		if ( typeof width === 'undefined' || width === null || width <= 0 )  {
-			width = mw.UploadWizard.config['thumbnailWidth'];
-		}
-		var constraints = { 
-			width: parseInt( width, 10 ),
-			height: ( mw.isDefined( height ) ? parseInt( height, 10 ) : null )
-		};
 
 		/**
 		 * This callback will add an image to the selector, using in-browser scaling if necessary
@@ -596,36 +778,14 @@ mw.UploadWizardUpload.prototype = {
 				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 				return;
 			} 
-
-			// if this debugger isn't here, it's okay??
-			// figure out what scaling is needed, if any
-			var scaling = 1;
-			$j.each( [ 'width', 'height' ], function( i, dim ) { 
-				if ( constraints[dim] && image[dim] > constraints[dim] ) {
-					var s = constraints[dim] / image[dim];
-					if ( s < scaling ) { 
-						scaling = s;
-					}
-				}
-			} );
-
+			var elm = _this.getScaledImageElement( image, width, height );
 			// add the image to the DOM, finally
 			$j( selector )
 				.css( { background: 'none' } )
 				.html( 
 					$j( '<a/></a>' )
 						.addClass( "mwe-upwiz-thumbnail-link" )
-						.append(
-							$j( '<img/>' )
-								.attr( {
-									width:  parseInt( image.width * scaling, 10 ),
-									height: parseInt( image.height * scaling, 10 ),
-									src:    image.src
-								} )
-							.css( { 
-								'margin-top': ( parseInt( ( height - image.height * scaling ) / 2, 10 ) ).toString() + 'px' 
-							} )
-						) 
+						.append( elm )
 				);
 			placed = true;
 		};
@@ -656,7 +816,6 @@ mw.UploadWizardUpload.prototype = {
 				}
 			}
 		);
-
 	},
 
 	/**

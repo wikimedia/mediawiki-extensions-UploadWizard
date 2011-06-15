@@ -25,6 +25,7 @@ class UploadWizardHooks {
 				'jquery.ui.widget',
 				'mediawiki.language',
 				'mediawiki.util',
+				'mediawiki.libs.jpegmeta',
 				'ext.uploadwizard.mediawiki.language.parser',
 			),
 			'scripts' => array(
@@ -48,6 +49,7 @@ class UploadWizardHooks {
 				// common utilities
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
+				'resources/mw.canvas.js',
 				'resources/mw.Log.js',
 				'resources/mw.Utilities.js',
 				'resources/mw.UtilitiesTime.js',

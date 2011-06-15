@@ -26,6 +26,8 @@
 			return ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
 		}
 
+
+
 	};
 
 } )( jQuery, mediaWiki );
