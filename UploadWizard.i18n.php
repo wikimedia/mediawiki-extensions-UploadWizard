@@ -6295,6 +6295,7 @@ $messages['io'] = array(
  * @author Beta16
  * @author Gianfranco
  * @author Mpitt
+ * @author Nemo bis
  * @author Rippitippi
  * @author Trixt
  * @author Una giornata uggiosa '94
@@ -6352,7 +6353,7 @@ $messages['it'] = array(
 	'mwe-upwiz-help-desk' => 'Punto di assistenza',
 	'mwe-upwiz-help-desk-url' => 'Bar italiano',
 	'mwe-upwiz-add-file-n' => 'Aggiungi un altro file',
-	'mwe-upwiz-add-file-0-free' => 'Seleziona un file multimediale da donare',
+	'mwe-upwiz-add-file-0-free' => 'Seleziona un file multimediale da caricare',
 	'mwe-upwiz-transport-started' => 'Inizializzazione...',
 	'mwe-upwiz-uploading' => 'Caricamento in corso…',
 	'mwe-upwiz-transported' => 'OK',
@@ -12394,6 +12395,7 @@ $messages['yi'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
  * @author Chenzw
  * @author Happy
  * @author Hydra
@@ -12514,7 +12516,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-thanks-explain' => '现在，你可以于维基百科或其他维基媒体计划上使用这{{PLURAL:$1|个|些}}文件，或是在网络上将 {{PLURAL:$1|它|它们}}链接。',
 	'mwe-upwiz-thanks-wikitext' => '<b>要在维基上使用此文件</b>，复制并贴上以下文字：',
 	'mwe-upwiz-thanks-url' => '<b>要链接它到网页 (HTML)上</b>，复制这个地址：',
-	'mwe-upwiz-upload-error-bad-filename-extension' => '本维基不接受以扩展名为结束的文件名 ".$1" 。',
+	'mwe-upwiz-upload-error-bad-filename-extension' => '本维基不接受以“$1”扩展名结尾的文件名 。',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => '此维基需要文件具有扩展名 — 像".JPG"在文件名的末尾。',
 	'mwe-upwiz-allowed-filename-extensions' => '允许的扩展名：',
 	'mwe-upwiz-help-allowed-filename-extensions' => '允许的文件扩展名',
