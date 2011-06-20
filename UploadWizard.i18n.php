@@ -3527,21 +3527,21 @@ $messages['es'] = array(
 	'mwe-upwiz-tooltip-description' => 'Describe brevemente todo lo destacable acerca del trabajo.
 Para una foto, menciona las cosas principales que se representan, la ocasión o el lugar.',
 	'mwe-upwiz-tooltip-categories' => 'Añadir [$1 categorías] al archivo para facilitar la búsqueda.',
-	'mwe-upwiz-tooltip-other' => 'Alguna otra información que desees incluir acerca de este trabajo — coordenadas geográficas, enlaces a otras versiones, etc.',
-	'mwe-upwiz-tooltip-more-info' => 'Aprender más',
-	'mwe-upwiz-file-need-file' => 'Por favor agregar una carga primerp',
-	'mwe-upwiz-deeds-need-deed' => 'Por favor explica dónde conseguiste {{PLURAL:$1|este archivo|estos archivos}} y cómo este sitio puede {{PLURAL:$1|usarlo|usarlos}}, seleccionando una de las opciones.',
-	'mwe-upwiz-deeds-need-license' => 'Por favor seleccionar una licencia.',
+	'mwe-upwiz-tooltip-other' => 'Alguna otra información que desees incluir acerca de este trabajo, como coordenadas geográficas, enlaces a otras versiones, etc.',
+	'mwe-upwiz-tooltip-more-info' => 'Más información.',
+	'mwe-upwiz-file-need-file' => 'Añade una carga primero.',
+	'mwe-upwiz-deeds-need-deed' => 'Explica dónde conseguiste {{PLURAL:$1|este archivo|estos archivos}} y cómo este sitio puede {{PLURAL:$1|usarlo|usarlos}}, seleccionando una de las opciones.',
+	'mwe-upwiz-deeds-need-license' => 'Por favor selecciona una licencia.',
 	'mwe-upwiz-license-show-all' => 'Usar una licencia diferente',
 	'mwe-upwiz-license-show-recommended' => 'Usar la licencia recomendada',
 	'mwe-upwiz-error-signature-blank' => 'Debes firmar el campo de abajo con tu nombre de usuario o nombre real.',
 	'mwe-upwiz-error-signature-too-long' => 'Tu firma es demasiada larga.
-Hazlo más corto que 1 {{PLURAL:$1|caracter|caracteres}}.',
+Hazla más corta que $1 {{PLURAL:$1|caracter|caracteres}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Tu firma es demasiado corta.
-Hazlo más larga que 1 {{PLURAL:$1|caracter|caracteres}}.',
+Hazla más larga que $1 {{PLURAL:$1|caracter|caracteres}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Tu firma contiene símbolos que no están permitidos.
-Por favor no uses wikitexto o HTML aquí,sólo tu nombre de usuario o nombre real.',
-	'mwe-upwiz-error-blank' => 'Este campo es requerido.',
+Por favor no uses wikitexto o HTML aquí, solo tu nombre de usuario o nombre real.',
+	'mwe-upwiz-error-blank' => 'Este campo es obligatorio.',
 	'mwe-upwiz-error-too-long' => 'Este campo es demasiado largo.
 Hazlo más corto que $1 {{PLURAL:$1|caracter|caracteres}}.',
 	'mwe-upwiz-error-too-short' => 'Este campo es demasiado corto.
@@ -3555,7 +3555,17 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-license-pd-old-100' => 'El autor falleción hace más de 100 años',
 	'mwe-upwiz-license-pd-old' => 'El autor falleción hace más de 70 años',
 	'mwe-upwiz-license-pd-art' => 'Reproducción de una pintura que está en el dominio público debido a su antigüedad',
-	'mwe-upwiz-license-gfdl' => 'Licencia de documentación libre GNU',
+	'mwe-upwiz-license-pd-us' => 'Publicado por primera vez en los Estados Unidos antes de 1923',
+	'mwe-upwiz-license-pd-usgov' => 'Obra original del Gobierno Federal de los EE.UU.',
+	'mwe-upwiz-license-pd-usgov-nasa' => 'Obra original de la NASA',
+	'mwe-upwiz-license-pd-usgov-military-navy' => 'Obra original de la Marina Militar de EE.UU.',
+	'mwe-upwiz-license-pd-ineligible' => 'Demasiado simple para tener derechos de autor',
+	'mwe-upwiz-license-pd-ineligible-help' => 'Ten cuidado con esto. La imagen tiene que ser muy simple, como un círculo verde o un cuadrado rojo',
+	'mwe-upwiz-license-pd-textlogo' => 'Logotipo con texto simple solamente (marca)',
+	'mwe-upwiz-license-copyrighted-free-use' => 'Con copyright, pero puede usarse para cualquier propósito, incluyendo el comercial',
+	'mwe-upwiz-license-attribution' => 'Puede utilizarse para cualquier propósito, incluyendo el comercio, si se atribuye al titular del copyright apropiadamente',
+	'mwe-upwiz-license-gfdl' => 'Licencia de documentación libre de GNU',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, atribución necesaria (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Agregar',
 	'mwe-upwiz-category-remove' => 'Remover esta categoría',
@@ -6577,6 +6587,7 @@ Non utilizzare wikitesto o HTML qui.',
 );
 
 /** Japanese (日本語)
+ * @author Akaniji
  * @author Hosiryuhosi
  * @author Iwai.masaharu
  * @author Miya
@@ -6651,7 +6662,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-file-some-failed' => 'いくつかのアップロードが失敗しました。',
 	'mwe-upwiz-file-retry' => '失敗したアップロードを再試行',
 	'mwe-upwiz-next-file-despite-failures' => '続行',
-	'mwe-upwiz-skip-tutorial-future' => 'いつもこの手順をとばす',
+	'mwe-upwiz-skip-tutorial-future' => '以後この手順を省略',
 	'mwe-upwiz-file-all-failed' => 'アップロードに1つも成功しませんでした。',
 	'mwe-upwiz-upload-count' => '$2{{PLURAL:$2|ファイル}}のうちの、$1ファイルのアップロードが完了',
 	'mwe-upwiz-progressbar-uploading' => 'アップロード中',
@@ -10991,7 +11002,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-add-file-n' => 'Додај другу датотеку',
 	'mwe-upwiz-add-file-0-free' => 'Изаберите медијску датотеку коју поклањате',
 	'mwe-upwiz-transport-started' => 'Почињање…',
-	'mwe-upwiz-uploading' => 'шаље се...',
+	'mwe-upwiz-uploading' => 'Отпремам…',
 	'mwe-upwiz-transported' => 'Слање...',
 	'mwe-upwiz-stashed-upload' => 'У реду',
 	'mwe-upwiz-getting-metadata' => 'Добављање података о датотеци и прегледа…',
@@ -11049,7 +11060,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-thanks-url' => '<b>Да бисте је повезали у HTML</b>, умножите ову адресу:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Овај вики не прихвата називе датотека с екстензијом „.$1“.',
 	'mwe-upwiz-ok' => 'У реду',
-	'mwe-upwiz-cancel' => 'Поништи',
+	'mwe-upwiz-cancel' => 'Откажи',
 	'mwe-upwiz-thumbnail-more' => 'Увећај',
 	'mwe-upwiz-overwrite' => 'Замени фајл',
 	'mwe-upwiz-next' => 'Следеће',
