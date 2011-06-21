@@ -297,9 +297,8 @@ mw.UploadWizardUpload.prototype = {
 					} catch ( e ) {
 						meta = null;
 					}
-					_this.imageinfo = {};
-					_this.imageinfo.metadata = meta; // TODO this is not the same format as API imageinfo; reconcile
-
+					_this.extractMetadataFromJpegMeta( meta );
+					
 					var dataUrlReader = new FileReader();
 					dataUrlReader.onload = function() { 
 						image.src = dataUrlReader.result;
@@ -324,6 +323,30 @@ mw.UploadWizardUpload.prototype = {
 
 
 	/**
+	 * Map fields from jpegmeta's metadata return into our format (which is more like the imageinfo returned from the API
+	 * @param {Object} (as returned by jpegmeta)
+	 */
+	extractMetadataFromJpegMeta: function( meta ) {
+		if ( !mw.isDefined( this.imageinfo ) ) {
+			this.imageinfo = {};
+		}
+		if ( !mw.isDefined( this.imageinfo.metadata ) ) {
+			this.imageinfo.metadata = {};
+		}
+		if ( meta.tiff && meta.tiff.Orientation ) {
+			this.imageinfo.metadata.orientation = meta.tiff.Orientation.value; 
+		}
+		if ( meta.general ) {
+			if ( meta.general.pixelHeight ) {
+				this.imageinfo.height = meta.general.pixelHeight.value;
+			}
+			if ( meta.general.pixelWidth ) {
+				this.imageinfo.width = meta.general.pixelWidth.value;
+			}
+		}
+	},
+
+	/**
  	 * Accept the result from a successful API upload transport, and fill our own info
 	 *
 	 * @param result The JSON object from a successful API upload result.
@@ -345,6 +368,7 @@ mw.UploadWizardUpload.prototype = {
 	/**
 	 * Extract image info into our upload object
 	 * Image info is obtained from various different API methods
+	 * This may overwrite metadata obtained from FileReader.
 	 * @param imageinfo JSON object obtained from API result.
 	 */
 	extractImageInfo: function( imageinfo ) {
@@ -352,7 +376,9 @@ mw.UploadWizardUpload.prototype = {
 		for ( var key in imageinfo ) {
 			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
 			if ( key == 'metadata' ) {
-				_this.imageinfo.metadata = {};
+				if ( !mw.isDefined( _this.imageinfo.metadata ) ) {
+					_this.imageinfo.metadata = {};
+				}
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
 					$j.each( imageinfo.metadata, function( i, pair ) {
 						if ( pair !== undefined ) {
@@ -595,27 +621,26 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Return the orientation of the image. Relies on TIFF metadata that
-	 * may have been extracted at filereader stage, or returns 0.
-	 * @param {Object} metadata as yielded by getMetadata()
-	 * @return {Integer} rotation to be applied: 0, 90, 180 or 270
+	 * Return the orientation of the image in degrees. Relies on metadata that
+	 * may have been extracted at filereader stage, or after the upload when we fetch metadata. Default returns 0.
+	 * @return {Integer} orientation in degrees: 0, 90, 180 or 270
 	 */
-	getOrientation: function() {
+	getOrientationDegrees: function() {
 		var orientation = 0;
-		if ( this.imageinfo && this.imageinfo.metadata && 
-			this.imageinfo.metadata.tiff && this.imageinfo.metadata.tiff.Orientation ) {
-			switch ( this.imageinfo.metadata.tiff.Orientation.value ) { 
+		if ( this.imageinfo && this.imageinfo.metadata && this.imageinfo.metadata.orientation ) {
+			switch ( this.imageinfo.metadata.orientation ) { 
 				case 8:	
-					orientation = 90; 
+					orientation = 90;   // 'top left' -> 'left bottom'
 					break;			
 				case 3:
-					orientation = 180;
+					orientation = 180;   // 'top left' -> 'bottom right'
 					break;
 				case 6:
-					orientation = 270;
+					orientation = 270;   // 'top left' -> 'right top'
 					break;
+				case 1:
 				default:
-					orientation = 0;
+					orientation = 0;     // 'top left' -> 'top left'
 					break;
 					
 			}
@@ -656,8 +681,8 @@ mw.UploadWizardUpload.prototype = {
 		// if this wiki can rotate images to match their EXIF metadata, 
 		// we should do the same in our preview
 		if ( mw.config.get( 'wgFileCanRotate' ) ) { 
-			var orientation = this.getOrientation();
-			rotation = orientation ? 360 - orientation : 0;
+			var angle = this.getOrientationDegrees();
+			rotation = angle ? 360 - angle : 0;
 		}
 
 		// swap scaling constraints if needed by rotation...
