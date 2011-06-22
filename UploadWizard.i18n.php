@@ -4143,6 +4143,7 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
  * @author Nicolas Raoul
  * @author Peter17
  * @author Sherbrooke
+ * @author TouzaxA
  * @author Trizek
  * @author Verdy p
  * @author Y-M D
@@ -4200,9 +4201,9 @@ $messages['fr'] = array(
 	'mwe-upwiz-help-desk' => 'Bureau d’aide',
 	'mwe-upwiz-help-desk-url' => 'Bureau d’aide',
 	'mwe-upwiz-add-file-n' => 'Ajouter un autre fichier',
-	'mwe-upwiz-add-file-0-free' => 'Sélectionnez un fichier à offrir',
+	'mwe-upwiz-add-file-0-free' => 'Sélectionnez un fichier à téléverser.',
 	'mwe-upwiz-transport-started' => 'Démarrage...',
-	'mwe-upwiz-uploading' => 'Versement en cours...',
+	'mwe-upwiz-uploading' => 'Téléversement en cours...',
 	'mwe-upwiz-transported' => 'Versement terminé...',
 	'mwe-upwiz-stashed-upload' => 'OK',
 	'mwe-upwiz-getting-metadata' => 'Récupération des informations et des aperçus des fichiers…',
