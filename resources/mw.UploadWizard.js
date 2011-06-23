@@ -327,21 +327,23 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Object} (as returned by jpegmeta)
 	 */
 	extractMetadataFromJpegMeta: function( meta ) {
-		if ( !mw.isDefined( this.imageinfo ) ) {
-			this.imageinfo = {};
-		}
-		if ( !mw.isDefined( this.imageinfo.metadata ) ) {
-			this.imageinfo.metadata = {};
-		}
-		if ( meta.tiff && meta.tiff.Orientation ) {
-			this.imageinfo.metadata.orientation = meta.tiff.Orientation.value; 
-		}
-		if ( meta.general ) {
-			if ( meta.general.pixelHeight ) {
-				this.imageinfo.height = meta.general.pixelHeight.value;
+		if ( mw.isDefined( meta ) && meta !== null && typeof meta === 'object' ) { 
+			if ( !mw.isDefined( this.imageinfo ) ) {
+				this.imageinfo = {};
 			}
-			if ( meta.general.pixelWidth ) {
-				this.imageinfo.width = meta.general.pixelWidth.value;
+			if ( !mw.isDefined( this.imageinfo.metadata ) ) {
+				this.imageinfo.metadata = {};
+			}
+			if ( meta.tiff && meta.tiff.Orientation ) {
+				this.imageinfo.metadata.orientation = meta.tiff.Orientation.value; 
+			}
+			if ( meta.general ) {
+				if ( meta.general.pixelHeight ) {
+					this.imageinfo.height = meta.general.pixelHeight.value;
+				}
+				if ( meta.general.pixelWidth ) {
+					this.imageinfo.width = meta.general.pixelWidth.value;
+				}
 			}
 		}
 	},
