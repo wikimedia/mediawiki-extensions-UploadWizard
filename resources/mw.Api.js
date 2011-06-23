@@ -122,11 +122,7 @@
 		ajax: function( parameters, ajaxOptions ) {
 			parameters = $j.extend( {}, this.defaults.parameters, parameters );
 			ajaxOptions = $j.extend( {}, this.defaults.ajax, ajaxOptions );
-
-			// Some deployed MediaWiki >= 1.17 forbid periods in URLs, due to an IE XSS bug
-			// So let's escape them here. See bug #28235
-			// This works because jQuery accepts data as a query string or as an Object
-			ajaxOptions.data = $j.param( parameters ).replace( /\./g, '%2E' );
+			ajaxOptions.data = parameters;
 		
 			ajaxOptions.error = function( xhr, textStatus, exception ) {
 				ajaxOptions.err( 'http', { xhr: xhr, textStatus: textStatus, exception: exception } );

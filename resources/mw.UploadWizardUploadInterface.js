@@ -274,17 +274,10 @@ mw.UploadWizardUploadInterface.prototype = {
 				});
 		}
 
-		// TODO refactor -- the metadata is not extracted yet at fileChanged event
-		var statusItems = [];
-		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
-			statusItems.push( this.upload.imageinfo.width + '\u00d7' + this.upload.imageinfo.height );
-		}
-		if ( this.upload.file ) {
-			statusItems.push( mw.units.bytes( this.upload.file.size ) );
-		}
-		
 		this.clearStatus();
-		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
+		if ( this.upload.file ) {
+			this.setStatusString( mw.units.bytes( this.upload.file.size ) );	
+		}
 	},
 
 	/**

@@ -5,7 +5,7 @@
 		 * @return boolean
 		 */
 		isAvailable: function() {
-			return false; //return !! ( document.createElement('canvas')['getContext'] );
+			return !! ( document.createElement('canvas')['getContext'] );
 		}
 
 	}
