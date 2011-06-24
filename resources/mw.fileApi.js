@@ -2,11 +2,11 @@
 
 ( function( $, mw ) { 
 
-	/**
-	 * Is the FileAPI available with sufficient functionality?
-	 */
 	mw.fileApi = { 
 
+		/**
+		 * Is the FileAPI available with sufficient functionality?
+		 */
 		isAvailable: function() {
 			return typeof window.FileReader !== 'undefined';
 		},
