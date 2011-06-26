@@ -6972,6 +6972,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-submitting-details' => '파일 정보를 올리고 배포하는 중...',
 	'mwe-upwiz-file-retry' => '실패한 파일 올리기 다시 시도하기',
 	'mwe-upwiz-upload-count' => '파일 $2개 중 $1개가 업로드되었습니다',
+	'mwe-upwiz-finished' => '완료!',
 	'mwe-upwiz-secs-remaining' => '$1초 남았습니다',
 	'mwe-upwiz-mins-secs-remaining' => '$1분 $2초 남았습니다',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1시간 $2분 $3초 남았습니다',
@@ -6981,8 +6982,15 @@ $messages['ko'] = array(
 	'mwe-upwiz-next-details' => '다음',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => '크리에이티브 커먼즈 저작자표시 3.0',
+	'mwe-upwiz-license-cc-by-sa-2.5' => '크리에이티브 커먼즈 저작자표시-동일조건변경허락 2.5',
+	'mwe-upwiz-license-cc-by-2.5' => '크리에이티브 커먼즈 저작자표시 2.5',
+	'mwe-upwiz-license-cc-by-sa-2.0' => '크리에이티브 커먼즈 저작자표시-동일조건변경허락 2.0',
+	'mwe-upwiz-license-cc-by-2.0' => '크리에이티브 커먼즈 저작자표시 2.0',
 	'mwe-upwiz-license-cc-zero' => '크리에이티브 커먼즈 CC0 저작권 포기 (퍼블릭 도메인)',
+	'mwe-upwiz-license-fal' => '프리 아트 라이선스',
+	'mwe-upwiz-license-own-pd' => '퍼블릭 도메인 (크리에이티브 커먼즈 CC0에 따라 모든 권리 포기)',
 	'mwe-upwiz-license-gfdl' => 'GNU 자유 문서 사용 허가서',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => '카피레프트, 저작자표시 필요 (GFDL, CC-BY-SA 3.0 복합)',
 );
 
 /** Colognian (Ripoarisch)
