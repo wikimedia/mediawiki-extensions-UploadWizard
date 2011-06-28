@@ -2006,6 +2006,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 	'mwe-upwiz-license-public-domain-head' => 'Autorsko pravo je definitivno isteklo',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Ovaj rad je bio|Ovi radovi su bili}} napravljeni od strane Vlade Sjedinjenih Američkih Država',
 	'mwe-upwiz-license-misc' => 'Ostali razlozi',
+	'mwe-upwiz-license-confirm-remove-title' => 'Potvrdite uklanjanje',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-remove' => 'Ukloni ovu kategoriju',
@@ -6595,6 +6596,7 @@ Non utilizzare wikitesto o HTML qui.',
  * @author Akaniji
  * @author Hosiryuhosi
  * @author Iwai.masaharu
+ * @author Kanon und wikipedia
  * @author Miya
  * @author Nicolas Raoul
  * @author Ohgi
@@ -6643,6 +6645,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-api-error-duplicate-popup-title' => '重複ファイル{{PLURAL:$1|}}',
 	'mwe-upwiz-api-error-duplicate-archive' => '同じ内容で既に削除済みの{{PLURAL:$1|[$2 別のファイルが]|[$2 別のファイルがいくつか]}}サイト上にあります。',
 	'mwe-upwiz-api-error-duplicate-archive-popup-title' => 'すでに削除された重複{{PLURAL:$1|ファイル|ファイル}}',
+	'mwe-upwiz-api-error-unknown-warning' => '原因不明の警告',
 	'mwe-upwiz-api-error-timeout' => 'サーバーが決められた時間内に応答しませんでした。',
 	'mwe-upwiz-api-error-noimageinfo' => 'アップロードには成功しましたが、サーバーはファイルに関する情報を返しませんでした。',
 	'mwe-upwiz-api-warning-exists' => '既に同じファイル名の[$1 別ファイル]が存在しています。',
@@ -6651,6 +6654,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => '申し訳ありません。ここで使用できるチュートリアルのファイルが見つかりませんでした。システム管理者に問い合わせてください。',
 	'mwe-upwiz-tutorial-error-cannot-transform' => '申し訳ありません。この画面に合うように拡大縮小したチュートリアルの画像を取得出きませんでした。ウィキメディア・コモンズで一時的な問題が発生しているかも知れません、後ほどお試しください。',
 	'mwe-upwiz-help-desk' => 'ヘルプデスク',
+	'mwe-upwiz-help-desk-url' => 'ヘルプデスク',
 	'mwe-upwiz-add-file-n' => '他のファイルを追加',
 	'mwe-upwiz-add-file-0-free' => 'メディアファイルを選択して寄贈',
 	'mwe-upwiz-transport-started' => '開始しています…',
@@ -6964,18 +6968,31 @@ $messages['ko'] = array(
 	'mwe-upwiz-api-error-fetchfileerror' => '내부 오류: 파일을 불러오는 중 문제가 발생했습니다.',
 	'mwe-upwiz-api-error-duplicate' => '이 위키에 내용이 똑같은 {{PLURAL:$1|[$2 다른 파일]}}이 있습니다.',
 	'mwe-upwiz-api-error-duplicate-popup-title' => '중복된 {{PLURAL:$1|파일}}',
+	'mwe-upwiz-add-file-n' => '다른 파일 추가하기',
+	'mwe-upwiz-add-file-0-free' => '올릴 파일을 선택해주십시오.',
 	'mwe-upwiz-transport-started' => '시작하는 중...',
 	'mwe-upwiz-uploading' => '올리는 중...',
 	'mwe-upwiz-transported' => '올리기 완료',
 	'mwe-upwiz-stashed-upload' => '확인',
 	'mwe-upwiz-getting-metadata' => '파일 정보와 미리 보기를 가져오는 중...',
 	'mwe-upwiz-submitting-details' => '파일 정보를 올리고 배포하는 중...',
+	'mwe-upwiz-remove' => '제거',
+	'mwe-upwiz-upload' => '올리기',
 	'mwe-upwiz-file-retry' => '실패한 파일 올리기 다시 시도하기',
+	'mwe-upwiz-skip-tutorial-future' => '나중에는 이 과정을 생략하기',
 	'mwe-upwiz-upload-count' => '파일 $2개 중 $1개가 업로드되었습니다',
 	'mwe-upwiz-finished' => '완료!',
 	'mwe-upwiz-secs-remaining' => '$1초 남았습니다',
 	'mwe-upwiz-mins-secs-remaining' => '$1분 $2초 남았습니다',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1시간 $2분 $3초 남았습니다',
+	'mwe-upwiz-desc' => '설명',
+	'mwe-upwiz-desc-add-n' => '다른 언어로 설명 추가하기',
+	'mwe-upwiz-title' => '제목',
+	'mwe-upwiz-date-created' => '창작한 날짜',
+	'mwe-upwiz-location' => '장소',
+	'mwe-upwiz-author' => '저작자',
+	'mwe-upwiz-autoconverted' => '이 파일은 자동적으로 $1 포맷으로 변환되었습니다.',
+	'mwe-upwiz-other' => '추가 정보',
 	'mwe-upwiz-next' => '다음',
 	'mwe-upwiz-next-file' => '계속',
 	'mwe-upwiz-next-deeds' => '다음',
@@ -6991,6 +7008,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-license-own-pd' => '퍼블릭 도메인 (크리에이티브 커먼즈 CC0에 따라 모든 권리 포기)',
 	'mwe-upwiz-license-gfdl' => 'GNU 자유 문서 사용 허가서',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => '카피레프트, 저작자표시 필요 (GFDL, CC-BY-SA 3.0 복합)',
+	'mwe-upwiz-subhead-message' => '새로운 파일 올리기 도구를 이용해주셔서 감사합니다!',
 );
 
 /** Colognian (Ripoarisch)
