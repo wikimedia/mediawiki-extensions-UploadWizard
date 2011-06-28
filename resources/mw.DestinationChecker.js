@@ -147,8 +147,12 @@ mw.DestinationChecker.prototype = {
 
 			var result = undefined;
 
-			if ( data.query.pages[-1] ) {
-				// No conflict found; this file name is unique
+			// The API will check for files with that filename.
+			// If no file found: a page with a key of -1 and no imageinfo
+			// If file found on another repository, such as when the wiki is using InstantCommons: page with a key of -1, plus imageinfo
+			// If file found on this repository: page with some positive numeric key
+			if ( data.query.pages[-1] && !data.query.pages[-1].imageinfo ) {
+				// No conflict found on any repository this wiki uses
 				result = { isUnique: true };
 
 			} else {
