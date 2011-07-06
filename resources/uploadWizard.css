@@ -658,6 +658,9 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 	/* @embed */
 	background: #ffffff url('images/calendar.gif') no-repeat right center;
 }
+input.mwe-date {
+	direction: ltr;
+}
 
 .ui-datepicker-current-day a.ui-state-active {
 	background: #ffff99;
