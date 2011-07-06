@@ -379,6 +379,7 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
 	'mwe-upwiz-error-title-thumbnail' => 'Appears when thumbnail title is similar to "22px-Example.jpg" - the prefix is what MW adds when downloading pictures as thumbnails.',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
+	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Title for dialog box to confirm that you want to abandon an upload that you started',
 	'mwe-upwiz-license-external' => '$1 is a name of a website. $2 is the name of a license.',
 	'mwe-upwiz-license-external-invalid' => '$1 is a name of a website. $2 is the name of a license.',
@@ -7108,6 +7109,10 @@ $messages['ko'] = array(
 	'mwe-upwiz-next-file' => '계속',
 	'mwe-upwiz-next-deeds' => '다음',
 	'mwe-upwiz-next-details' => '다음',
+	'mwe-upwiz-error-signature-too-long' => '당신의 서명이 너무 깁니다.
+$1자보다 짧게 해 주십시오.',
+	'mwe-upwiz-error-signature-too-short' => '당신의 서명이 너무 짧습니다.
+$1자보다 길게 해 주십시오.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0',
 	'mwe-upwiz-license-cc-by-3.0' => '크리에이티브 커먼즈 저작자표시 3.0',
 	'mwe-upwiz-license-cc-by-sa-2.5' => '크리에이티브 커먼즈 저작자표시-동일조건변경허락 2.5',
@@ -7120,6 +7125,19 @@ $messages['ko'] = array(
 	'mwe-upwiz-license-gfdl' => 'GNU 자유 문서 사용 허가서',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => '카피레프트, 저작자표시 필요 (GFDL, CC-BY-SA 3.0 복합)',
 	'mwe-upwiz-subhead-message' => '새로운 파일 올리기 도구를 이용해주셔서 감사합니다!',
+	'mwe-upwiz-subhead-translate' => '[$1 번역 작업 돕기]',
+	'mwe-upwiz-subhead-alt-upload' => '[$1 이전의 양식으로 돌아가기]',
+	'mwe-upwiz-feedback-prompt' => '[$1 피드백 남기기]',
+	'mwe-upwiz-feedback-note' => '당신의 피드백은 당신의 계정 이름, 브라우저 버전과 운영체제 정보와 함께 "[$2 $1]"에 공개적으로 게시될 것입니다.',
+	'mwe-upwiz-feedback-subject' => '제목:',
+	'mwe-upwiz-feedback-message' => '내용:',
+	'mwe-upwiz-feedback-title' => '파일 올리기 마법사에 대해 피드백 남기기',
+	'mwe-upwiz-feedback-cancel' => '취소',
+	'mwe-upwiz-feedback-submit' => '피드백 제출',
+	'mwe-upwiz-feedback-adding' => '문서에 피드백을 올리는 중...',
+	'mwe-upwiz-feedback-error1' => '오류: API에서 알 수 없는 결과를 반환하였습니다.',
+	'mwe-upwiz-feedback-error2' => '오류: 편집 실패',
+	'mwe-upwiz-feedback-error3' => '오류: API에서 응답이 없습니다.',
 );
 
 /** Colognian (Ripoarisch)
@@ -7312,7 +7330,7 @@ Donn ene andere Tettel nämme.',
 	'mwe-upwiz-license-attribution' => 'Kann för alles jebruch wääde, och jeschäfflesch, wann dä Urhävverrääschsbesezer op en paßende Aat jenannd es',
 	'mwe-upwiz-license-gfdl' => 'De <i lang="en">GNU</i> ier Lizänz för frei Dokemäntazjuhne',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => '<i lang="en">Copyleft</i>, der Name moß jenannt wääde (GFDL, CC-BY-SA-3.0)',
-	'mwe-upwiz-license-cc-head' => 'Der Besezer vun Urhävverrääsch hät  {{PLURAL:$1|dat Wärk|di  Wärke|nix}}  onger der reschtejje vun de <i lang="en">Creative Commons</i> ier Lizänze en de Öffentleschkeit jebraat.',
+	'mwe-upwiz-license-cc-head' => 'Der Besezer vun Urhävverrääsch hät {{PLURAL:$1|dat Wärk|di Wärke|nix}} onger der reschtejje vun de <i lang="en">Creative Commons</i> ier Lizänze en de Öffentleschkeit jebraat.',
 	'mwe-upwiz-license-cc-subhead' => 'Nit all de <i lang="en">Creative Commons</i> ier Lizänze sin joot för {{GRAMMAR:Accusativ| {{SITENAME}}}} — donn övverprööve, dat der Urhävver ein vun dä Lizänze verhaftersh jebruch hät.',
 	'mwe-upwiz-license-public-domain-head' => 'Däm Urhävverrääsch sing Zigg es verhaftesch eröm',
 	'mwe-upwiz-license-usgov-head' => 'Heh {{PLURAL:$1|dat Wärk wohr|di Wärke wohre}} vun de Rejierong vun de Vereineshte Shtaate vun Amärrika jemaat woode',
@@ -8761,7 +8779,7 @@ Gebruik geen wikitext of HTML, alleen uw gebruikersnaam of echte naam.',
 	'mwe-upwiz-error-too-long' => 'Dit veld is te lang.
 Maak het korter dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-too-short' => 'Dit veld is te kort.
-Maak het langer dan {{PLURAL:$1|teken|tekens}}.',
+Maak het langer dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-bad-chars' => 'Dit veld bevat symbolen die niet zijn toegestaan.
 Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-error-date' => 'Voer een geldige datum als JJJJ-MM-DD of kies een datum in de popupkalender.',
