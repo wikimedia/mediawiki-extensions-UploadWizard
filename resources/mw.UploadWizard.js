@@ -7,12 +7,13 @@
  */
 ( function( $j ) {
 
-mw.UploadWizardUpload = function( api, filesDiv ) {
+mw.UploadWizardUpload = function( wizard, filesDiv ) {
 
 	this.index = mw.UploadWizardUpload.prototype.count;
 	mw.UploadWizardUpload.prototype.count++;
 
-	this.api = api;
+	this.wizard = wizard;
+	this.api = wizard.api;
 	this.state = 'new';
 	this.thumbnails = {};
 	this.thumbnailPublishers = {};
@@ -20,6 +21,7 @@ mw.UploadWizardUpload = function( api, filesDiv ) {
 	this.title = undefined;
 	this.mimetype = undefined;
 	this.extension = undefined;
+	this.filename = undefined;
 
 	this.sessionKey = undefined;
 
@@ -253,6 +255,7 @@ mw.UploadWizardUpload.prototype = {
 
 	/**
 	 * Called when the file is entered into the file input.
+	 * Checks for file validity, then extracts metadata.
 	 * Error out if filename or its contents are determined to be unacceptable
 	 * Proceed to thumbnail extraction and image info if acceptable
 	 * @param {HTMLFileInput} file input field
@@ -264,13 +267,28 @@ mw.UploadWizardUpload.prototype = {
 
 		var _this = this;
 		
-		// TODO check if filename has been used already in this wizard
-
 		// Check if filename is acceptable
 		// TODO sanitize filename
 		var filename = fileInput.value;
+		var basename = mw.UploadWizardUtil.getBasename( filename );
+
+
+		// check to see if the file has already been selected for upload.
+		var duplicate = false;
+		$j.each( this.wizard.uploads, function ( i, upload ) {
+			if ( _this !== upload && filename === upload.filename ) {
+				duplicate = true;
+				return false;
+			}
+		} );
+		
+		if( duplicate ) {
+			fileNameErr( 'dup', basename );
+			return false;
+		}
+		
 		try {
-			this.title = new mw.Title( mw.UploadWizardUtil.getBasename( filename ).replace( /:/g, '_' ), 'file' );
+			this.title = new mw.Title( basename.replace( /:/g, '_' ), 'file' );
 		} catch ( e ) {
 			fileNameErr( 'unparseable' );
 		}
@@ -306,11 +324,13 @@ mw.UploadWizardUpload.prototype = {
 							meta = null;
 						}
 						_this.extractMetadataFromJpegMeta( meta );
+						_this.filename = filename;
 						fileNameOk();
 					};	
 					binReader.readAsBinaryString( _this.file );
 				} else {
-					fileChangedOk();
+					this.filename = filename;
+					fileNameOk();
 				}
 		
 			}
@@ -1262,7 +1282,7 @@ mw.UploadWizard.prototype = {
 			return false;
 		}
 
-		var upload = new mw.UploadWizardUpload( _this.api, '#mwe-upwiz-filelist' );
+		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-filelist' );
 		_this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button

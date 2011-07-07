@@ -223,10 +223,10 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	initFileInputCtrl: function() {
 		var _this = this;
-		this.$fileInputCtrl.change( function() { 
+		_this.$fileInputCtrl.change( function() { 
 			_this.clearErrors();
 			_this.upload.checkFile( 
-				this, // the file input
+				this, // the file input, different from _this
 				function() { _this.fileChangedOk(); },
 				function( code, info ) { _this.fileChangedError( code, info ); } 
 			); 
@@ -272,7 +272,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	fileChangedError: function( code, info ) {
-		var filename = this.$fileInputCtrl.value;
+		var filename = this.$fileInputCtrl.get(0).value;
 
 		// ok we now have a fileInputCtrl with a "bad" file in it
 		// you cannot blank a file input ctrl in all browsers, so we 
@@ -287,7 +287,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		} else if ( code === 'noext' ) {
 			this.showMissingExtensionError( filename );
 		} else if ( code === 'dup' ) {
-			this.showDuplicateError( filename );
+			this.showDuplicateError( filename, info );
 		} else if ( code === 'unparseable' ) {
 			this.showUnparseableFilenameError( filename );
 		} else {
@@ -336,8 +336,8 @@ mw.UploadWizardUploadInterface.prototype = {
 		);
 	},
 
-	showDuplicateError: function() {
-		// to be implemented
+	showDuplicateError: function( filename, basename ) {
+		this.showFilenameError( $j( '<p>' ).msg( 'mwe-upwiz-upload-error-duplicate-filename-error', basename ) );
 	},
 
 	showFilenameError: function( $text ) {

@@ -218,6 +218,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-upload-error-bad-extension-video-firefogg',
 				'mwe-upwiz-upload-error-bad-filename-extension',
 				'mwe-upwiz-upload-error-bad-filename-no-extension',
+				'mwe-upwiz-upload-error-duplicate-filename-error',
 				'mwe-upwiz-allowed-filename-extensions',
 				'mwe-upwiz-help-allowed-filename-extensions',
 				'mwe-upwiz-upload-error-duplicate',

@@ -128,6 +128,7 @@ $messages['en'] = array(
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'You have selected a video file for uploading that is not in a free format.
 You can [$1 install Firefogg] to automatically convert it, or use other [$2 converting options].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'This wiki requires that files have an extension — like ".JPG" at the end of the filename.',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'You are already uploading the file "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'The allowed extensions are:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Allowed filename extensions',
 	'mwe-upwiz-upload-error-duplicate' => 'This file was previously uploaded to this wiki.',
