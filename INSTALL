@@ -3,7 +3,11 @@ UploadWizard Extension, v.1.1
 * download the latest available version and extract it to your wiki extension directory. 
 * add the following line to LocalSettings.php 
 
-    require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
+	$wgEnableUploads = true;
+	$wgUseImageMagick = true;
+	$wgImageMagickConvertCommand = <path to your convert command>;  # often /usr/bin/convert
+
+	require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
 
 * check out the Special:Version page to verify the installation 
 
