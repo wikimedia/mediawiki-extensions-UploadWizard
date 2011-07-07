@@ -14,14 +14,9 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 	_this.div = $j('<div class="mwe-upwiz-file"></div>').get(0);
 	_this.isFilled = false;
 
-	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>')
-				.change( function() { 
-					_this.clearErrors();
-					_this.upload.extractLocalFileInfo( 
-						this, // the file input
-						function() { _this.fileChanged(); } 
-					); 
-				} );
+	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>');
+
+	_this.initFileInputCtrl();
 
 	_this.$indicator = $j( '<div class="mwe-upwiz-file-indicator"></div>' );
 
@@ -225,60 +220,137 @@ mw.UploadWizardUploadInterface.prototype = {
 		this.setStatus( msgKey, args );
 	},
 
-	/**
-	 * Run this when the value of the file input has changed. Check the file for various forms of goodness.
-	 * If okay, then update the visible filename (due to CSS trickery the real file input is invisible)
-	 */
-	fileChanged: function() {
+
+	initFileInputCtrl: function() {
 		var _this = this;
-		var extension = _this.upload.title.getExtension();
-		var hasExtension = ! mw.isEmpty( extension );
-
-		/* this should not be in the interface */
-		var isGoodExtension = false;
-		if ( hasExtension ) {
-			isGoodExtension = $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1;
-		}
-		if ( hasExtension && isGoodExtension ) {
-			_this.updateFilename();
-		} else {       
-			var $errorMessage;
-			// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted) 
-			if( mw.UploadWizard.config['enableFirefogg']
-					&&
-				$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1 
-			){
-				$errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
-						mw.Firefogg.getFirefoggInstallUrl(),
-						'http://commons.wikimedia.org/wiki/Help:Converting_video'
-					);
-				
-			} else {
-				var errorKey = hasExtension ? 'mwe-upwiz-upload-error-bad-filename-extension' : 'mwe-upwiz-upload-error-bad-filename-no-extension';
-				$errorMessage = $j( '<p>' ).msg( errorKey, extension );
-			}
-			$( '<div></div>' )
-				.append( 
-					$errorMessage,
-					$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
-					$j( '<blockquote>' ).append( $j( '<tt>' ).append(  
-						mw.UploadWizard.config[ 'fileExtensions' ].join( " " )
-					) )
-				)
-				.dialog({
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					title: gM( 'mwe-upwiz-help-popup' ) + ': ' + gM( 'mwe-upwiz-help-allowed-filename-extensions' ),
-					modal: true
-				});
-		}
-
-		this.clearStatus();
-		if ( this.upload.file ) {
-			this.setStatusString( mw.units.bytes( this.upload.file.size ) );	
-		}
+		this.$fileInputCtrl.change( function() { 
+			_this.clearErrors();
+			_this.upload.checkFile( 
+				this, // the file input
+				function() { _this.fileChangedOk(); },
+				function( code, info ) { _this.fileChangedError( code, info ); } 
+			); 
+		} );
 	},
+
+
+	/**
+	 * Run this when the value of the file input has changed and we know it's acceptable -- this 
+	 * will update interface to show as much info as possible, including preview.
+	 * n.b. in older browsers we only will know the filename
+	 */
+	fileChangedOk: function() {
+		var _this = this;
+		_this.updateFilename();
+
+		// set the status string - e.g. "256 Kb, 100 x 200"
+		var statusItems = [];
+		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
+			statusItems.push( this.upload.imageinfo.width + '\u00d7' + this.upload.imageinfo.height );
+		}
+		if ( this.upload.file ) {
+			statusItems.push( mw.units.bytes( this.upload.file.size ) );
+		}
+		
+		this.clearStatus();
+		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
+
+		// do preview if we can
+		if ( mw.fileApi.isAvailable() && _this.upload.file && mw.fileApi.isPreviewableFile( _this.upload.file ) ) {
+			var dataUrlReader = new FileReader();
+			dataUrlReader.onload = function() { 
+				var image = document.createElement( 'img' );
+				image.onload = function() {
+					$.publishReady( 'thumbnails.' + _this.upload.index, image );
+				};
+				image.src = dataUrlReader.result;
+				_this.upload.thumbnails['*'] = image;
+			};
+			dataUrlReader.readAsDataURL( _this.upload.file );
+		}
+
+	},
+
+	fileChangedError: function( code, info ) {
+		var filename = this.$fileInputCtrl.value;
+
+		// ok we now have a fileInputCtrl with a "bad" file in it
+		// you cannot blank a file input ctrl in all browsers, so we 
+		// replace existing file input with empty clone
+		var $newFileInput = this.$fileInputCtrl.clone();
+		this.$fileInputCtrl.replaceWith( $newFileInput );
+		this.$fileInputCtrl = $newFileInput;
+		this.initFileInputCtrl();
+
+		if ( code === 'ext' ) {
+			this.showBadExtensionError( filename, info );
+		} else if ( code === 'noext' ) {
+			this.showMissingExtensionError( filename );
+		} else if ( code === 'dup' ) {
+			this.showDuplicateError( filename );
+		} else if ( code === 'unparseable' ) {
+			this.showUnparseableFilenameError( filename );
+		} else {
+			this.showUnknownError( code, filename );
+		}
+	},	
+
+	showUnparseableFilenameError: function( filename ) {
+		this.showFilenameError( gM( 'mwe-upwiz-unparseable-filename', filename ) );
+	},
+
+	showBadExtensionError: function( filename, extension ) {
+		var $errorMessage;
+		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted) 
+		if ( mw.UploadWizard.config['enableFirefogg']
+				&&
+			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1 
+		) {
+			$errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
+					mw.Firefogg.getFirefoggInstallUrl(),
+					'http://commons.wikimedia.org/wiki/Help:Converting_video'
+				);
+		} else {
+			$errorMessage = $j( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
+		}
+		this.showFilenameError( $errorMessage );
+	},
+
+	showMissingExtensionError: function( filename ) {
+		this.showExtensionError( $j( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) ); 
+	},
+
+	showUnknownFilenameError: function( filename ) { 
+		this.showFilenameError( $j( '<p>' ).msg( 'mwe-upwiz-upload-error-unknown-filename-error', filename ) );
+	},
+
+	showExtensionError: function( $errorMessage ) {       
+		this.showFilenameError( 
+			$( '<div></div>' ).append( 
+				$errorMessage,
+				$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
+				$j( '<blockquote>' ).append( $j( '<tt>' ).append(  
+					mw.UploadWizard.config[ 'fileExtensions' ].join( " " )
+				) )
+			)
+		);
+	},
+
+	showDuplicateError: function() {
+		// to be implemented
+	},
+
+	showFilenameError: function( $text ) {
+		$( '<div>' )
+			.append( $text )
+			.dialog({
+				width: 500,
+				zIndex: 200000,
+				autoOpen: true,
+				modal: true
+			});
+	},
+
 
 	/**
 	 * Move the file input to cover a certain element on the page. 
@@ -330,29 +402,12 @@ mw.UploadWizardUploadInterface.prototype = {
 		// visible filename
 		$j( _this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).html( path );
 
-		var filename = mw.UploadWizardUtil.getBasename( path );
-		try {
-			_this.upload.title = new mw.Title( filename, 'file' );
-		} catch ( e ) {
-			$( '<div>' )
-				.msg( 'mwe-upwiz-unparseable-filename', filename )
-				.dialog({
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					modal: true
-				});
-			_this.$fileInputCtrl.val();
-			return;
-		}
-
 		// Set the filename we tell to the API to be the current timestamp + the filename
 		// This is because we don't actually care what the filename is at this point, we just want it to be unique for this session and have the
 		// proper file extension.
 		// Also, it avoids a problem -- the API only returns one error at a time and it thinks that the same-filename error is more important than same-content.
 		// But for UploadWizard, at this stage, it's the reverse. We want to stop same-content dead, but for now we ignore same-filename
-		$j( _this.filenameCtrl ).val( ( new Date() ).getTime().toString() +_this.upload.title.getMain() );
-
+		$j( _this.filenameCtrl ).val( ( new Date() ).getTime().toString() + path );
 
 		// deal with styling the file inputs and making it react to mouse
 		if ( ! _this.isFilled ) {

@@ -252,74 +252,74 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Called when the file is entered into the file input
-	 * Get as much data as possible with this browser, including thumbnail.
-	 * TODO exif
+	 * Called when the file is entered into the file input.
+	 * Error out if filename or its contents are determined to be unacceptable
+	 * Proceed to thumbnail extraction and image info if acceptable
 	 * @param {HTMLFileInput} file input field
-	 * @param {Function} callback when ready
+	 * @param {Function()} callback when ok, and upload object is ready
+	 * @param {Function(String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
 	 */
-	extractLocalFileInfo: function( fileInput, callback ) {
+	checkFile: function( fileInput, fileNameOk, fileNameErr ) {
+		// check if local file is acceptable
+
 		var _this = this;
-		if ( mw.fileApi.isAvailable() ) {
-			if ( fileInput.files && fileInput.files.length ) {
-				// TODO multiple files in an input
-				this.file = fileInput.files[0];
-			}
-			// TODO check max upload size, alert user if too big
-			this.transportWeight = this.file.size;
+		
+		// TODO check if filename has been used already in this wizard
 
-			if ( mw.fileApi.isPreviewableFile( this.file ) ) {
-				/*
-			 	 * The following part is a bit tricky, but not easy to untangle in code
-				 * First, we will read the file as binary
-				 *  in the binary reader's onload function
-				 *    we try to get metadata with jpegmeta library, and add it to the upload object
-				 *    we re-read the file as a data URL
-				 *      in that file reader's onload function
-				 *	  assign it to an image
-				 *        in that image's onload function
-				 *          publish the event, that this upload can now do thumbnails, with the image itself
-				 *            (listeners will then use that image to create thumbnails in the DOM, 
-				 *		with local scaling or canvas)
-				 */
-
-				var image = document.createElement( 'img' );
-				image.onload = function() {
-					$.publishReady( 'thumbnails.' + _this.index, image );
-				};
-					
-				var binReader = new FileReader();
-				binReader.onload = function() {
-					var meta;
-					try {
-						meta = mw.libs.jpegmeta( binReader.result, _this.file.fileName );
-						meta._binary_data = null;
-					} catch ( e ) {
-						meta = null;
-					}
-					_this.extractMetadataFromJpegMeta( meta );
-					
-					var dataUrlReader = new FileReader();
-					dataUrlReader.onload = function() { 
-						image.src = dataUrlReader.result;
-						_this.thumbnails['*'] = image;
-					};
-					dataUrlReader.readAsDataURL( _this.file );
-				};
-				binReader.readAsBinaryString( _this.file );
-			}
-		} 
+		// Check if filename is acceptable
 		// TODO sanitize filename
 		var filename = fileInput.value;
 		try {
 			this.title = new mw.Title( mw.UploadWizardUtil.getBasename( filename ).replace( /:/g, '_' ), 'file' );
 		} catch ( e ) {
-			this.setError( 'mwe-upwiz-unparseable-filename', filename );
+			fileNameErr( 'unparseable' );
 		}
-		if ( this.title ) {
-			callback();
+
+		// Check if extension is acceptable
+		var extension = this.title.getExtension();
+		if ( mw.isEmpty( extension ) ) {
+			fileNameErr( 'noext' );
+		} else {
+			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) === -1 ) {
+				fileNameErr( 'ext', extension );
+			} else {
+
+				// extract more info via fileAPI
+				if ( mw.fileApi.isAvailable() ) {
+					if ( fileInput.files && fileInput.files.length ) {
+						// TODO multiple files in an input
+						this.file = fileInput.files[0];
+					}
+					// TODO check max upload size, alert user if too big
+					this.transportWeight = this.file.size;
+					if ( !mw.isDefined( this.imageinfo ) ) {
+						this.imageinfo = {};
+					}
+
+					var binReader = new FileReader();
+					binReader.onload = function() {
+						var meta;
+						try {
+							meta = mw.libs.jpegmeta( binReader.result, _this.file.fileName );
+							meta._binary_data = null;
+						} catch ( e ) {
+							meta = null;
+						}
+						_this.extractMetadataFromJpegMeta( meta );
+						fileNameOk();
+					};	
+					binReader.readAsBinaryString( _this.file );
+				} else {
+					fileChangedOk();
+				}
+		
+			}
+
 		}
+		
 	},
+
+			
 
 
 	/**
@@ -327,21 +327,23 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Object} (as returned by jpegmeta)
 	 */
 	extractMetadataFromJpegMeta: function( meta ) {
-		if ( !mw.isDefined( this.imageinfo ) ) {
-			this.imageinfo = {};
-		}
-		if ( !mw.isDefined( this.imageinfo.metadata ) ) {
-			this.imageinfo.metadata = {};
-		}
-		if ( meta.tiff && meta.tiff.Orientation ) {
-			this.imageinfo.metadata.orientation = meta.tiff.Orientation.value; 
-		}
-		if ( meta.general ) {
-			if ( meta.general.pixelHeight ) {
-				this.imageinfo.height = meta.general.pixelHeight.value;
+		if ( mw.isDefined( meta ) && meta !== null && typeof meta === 'object' ) { 
+			if ( !mw.isDefined( this.imageinfo ) ) {
+				this.imageinfo = {};
 			}
-			if ( meta.general.pixelWidth ) {
-				this.imageinfo.width = meta.general.pixelWidth.value;
+			if ( !mw.isDefined( this.imageinfo.metadata ) ) {
+				this.imageinfo.metadata = {};
+			}
+			if ( meta.tiff && meta.tiff.Orientation ) {
+				this.imageinfo.metadata.orientation = meta.tiff.Orientation.value; 
+			}
+			if ( meta.general ) {
+				if ( meta.general.pixelHeight ) {
+					this.imageinfo.height = meta.general.pixelHeight.value;
+				}
+				if ( meta.general.pixelWidth ) {
+					this.imageinfo.width = meta.general.pixelWidth.value;
+				}
 			}
 		}
 	},
@@ -888,6 +890,7 @@ mw.UploadWizardUpload.prototype = {
 		fileUrl.query = { title: fileTitle, action: 'view' };
 		return fileUrl;
 	}
+
 
 };
 

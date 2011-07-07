@@ -132,6 +132,7 @@ You can [$1 install Firefogg] to automatically convert it, or use other [$2 conv
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Allowed filename extensions',
 	'mwe-upwiz-upload-error-duplicate' => 'This file was previously uploaded to this wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Upload anyway?',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'We could not read or understand the filename "$1" for unknown reasons.',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Cancel',
 	'mwe-upwiz-fileexists-replace' => 'A file with the title "$1" exists already. Please change your title to something unique.',
