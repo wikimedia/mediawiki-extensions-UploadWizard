@@ -1,0 +1,10 @@
+UploadWizard Extension, v.1.1
+
+* download the latest available version and extract it to your wiki extension directory. 
+* add the following line to LocalSettings.php 
+
+    require_once( "$IP/extensions/UploadWizard/UploadWizard.php" );
+
+* check out the Special:Version page to verify the installation 
+
+See http://www.mediawiki.org/wiki/Extension:UploadWizard for further details.
