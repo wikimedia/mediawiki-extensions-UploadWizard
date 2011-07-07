@@ -12,7 +12,7 @@
  *
  * @author Neil Kandalgaonkar <neil@wikimedia.org>
  * @license GPL v2 or later
- * @version 0.1.1
+ * @version 1.1
  */
 
 /* Configuration */
@@ -23,7 +23,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
 	'author' => 'Neil Kandalgaonkar',
-	'version' => '0.1.1',
+	'version' => '1.1',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
@@ -39,10 +39,8 @@ $wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.ph
 foreach ( array( 'SpecialUploadWizard',
 		 'UploadWizardMessages',
 		 'UploadWizardHooks',
-		 'UploadWizardTutorial',
-		 'UploadWizardDependencyLoader'
-		//, 'ApiTitleCheck' 
-					) as $module ) {
+		 'UploadWizardTutorial'
+				) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . "/" . $module . ".php";
 }
 
