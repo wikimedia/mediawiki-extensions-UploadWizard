@@ -714,7 +714,7 @@ mw.UploadWizardDetails.prototype = {
 
 		var params = {
 			action: 'upload',
-			sessionkey: _this.upload.sessionKey,
+			filekey: _this.upload.fileKey,
 			filename: _this.upload.title.getMain(),
 			text: wikiText,
 			summary: "User created page with " + mw.UploadWizard.userAgent

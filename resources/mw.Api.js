@@ -179,7 +179,7 @@
 		'stashfailed',
 		'missingresult',
 		'missingparam',
-		'invalid-session-key',
+		'invalid-file-key',
 		'copyuploaddisabled',
 		'mustbeloggedin',
 		'empty-file',

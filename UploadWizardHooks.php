@@ -121,7 +121,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-api-error-stashfailed',
 				'mwe-upwiz-api-error-missingresult',
 				'mwe-upwiz-api-error-missingparam',
-				'mwe-upwiz-api-error-invalid-session-key',
+				'mwe-upwiz-api-error-invalid-file-key',
 				'mwe-upwiz-api-error-copyuploaddisabled',
 				'mwe-upwiz-api-error-mustbeloggedin',
 				'mwe-upwiz-api-error-empty-file',
