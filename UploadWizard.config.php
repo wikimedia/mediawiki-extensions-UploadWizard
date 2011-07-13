@@ -220,7 +220,7 @@ return array(
 	'maxOtherInformationLength' => 4096,
 
 	// Max number of simultaneous upload requests 
-	'maxSimultaneousConnections' => 1,
+	'maxSimultaneousConnections' => 3,
 
 	// Max number of uploads for a given form
 	'maxUploads' => 10,
