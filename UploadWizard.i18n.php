@@ -501,6 +501,8 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'mwe-upwiz-step-file' => 'Cargar',
+	'mwe-upwiz-upload' => 'Cargar',
 	'mwe-upwiz-cancel' => 'Cancelar',
 );
 
@@ -2201,6 +2203,10 @@ $messages['ca'] = array(
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Reconeixement 2.0',
 	'mwe-upwiz-license-pd-old-100' => 'Fa més de 100 anys que van morir els autors',
 	'mwe-upwiz-license-pd-old' => 'Fa més de 70 anys que van morir els autors',
+	'mwe-upwiz-license-pd-us' => 'Publicat per primera vegada als Estats Units abans de 1923',
+	'mwe-upwiz-license-pd-usgov' => 'Obra original del Govern Federal dels EUA',
+	'mwe-upwiz-license-pd-usgov-nasa' => 'Obra original de la NASA',
+	'mwe-upwiz-license-pd-usgov-military-navy' => 'Obra original de la Marina Militar dels EUA',
 	'mwe-upwiz-license-pd-ineligible' => "Massa simple per estar sotmès a drets d'autor",
 	'mwe-upwiz-license-pd-textlogo' => 'Logotip només amb text simple (marca de paraula)',
 	'mwe-upwiz-license-copyrighted-free-use' => 'Amb copyright, però es pot fer servir per a qualsevol propòsit, incloent-hi el comercial.',
@@ -7544,10 +7550,12 @@ $messages['lb'] = array(
 	'mwe-upwiz-thanks-url' => '<b>Fir een HTML-Link op dëse Fichier ze maachen</b>, kopéiert dës URL-Adress :',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun ".$1".',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Dës Wiki verlaangt datt d\'Fichieren eng Erweiderung  - wéi z. Bsp. ".JPG" um Ënn vum Fichiersnumm hunn.',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Dir hutt de Fichier "$1" schonn eropgelueden.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Déi erlaabten Erweiderunge sinn:',
 	'mwe-upwiz-help-allowed-filename-extensions' => "Zougeloossen Erweiderunge fir d'Nimm vu Fichieren",
 	'mwe-upwiz-upload-error-duplicate' => 'Dëse Fichier gouf scho virdrun op dës Wiki eropgelueden.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Trotzdem eroplueden?',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'Den Numm vum Fichier "$1" konnt aus onbekannte Grënn net gelies oder net verstan ginn.',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Annulléieren',
 	'mwe-upwiz-fileexists-replace' => 'E Fichier mam Titel "$1" gëtt et schonn. Ännert Ären Titel op eppes wat et nach net gëtt.',
@@ -10012,10 +10020,12 @@ $messages['pt-br'] = array(
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'O arquivo de vídeo que selecionou para envio não está num formato livre.
 Você pode [$1 instalar o Firefogg] para convertê-lo automaticamente, ou usar outras [$2 opções de conversão].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Esta wiki requer que os arquivos tenham uma extensão (como por exemplo ".JPG") no final dos nomes de arquivo.',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Você já está carregando o arquivo "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'As extensões permitidas são:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensões permitidas em nomes de arquivo',
 	'mwe-upwiz-upload-error-duplicate' => 'Este arquivo já foi enviado à esta wiki.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Enviar mesmo assim?',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'Por razões desconhecidas, não foi possível ler nem compreender o arquivo "$1".',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Cancelar',
 	'mwe-upwiz-fileexists-replace' => 'Já existe um arquivo com o título "$1". Altere o título para torná-lo único.',
@@ -11452,6 +11462,8 @@ $messages['sv'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>För att använda filen i en wiki,</b> kopiera denna text till en sida:',
 	'mwe-upwiz-thanks-url' => '<b>För att länka till den i HTML,</b> kopiera denna URL-adress:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Denna wiki accepterar inte filnamn med tillägget ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Du har valt en videofil för uppladdning som inte är i ett fritt format.
+Du kan [$1 installera Firefogg] för att konvertera den automatiskt, eller använd andra [$2 konverteringsalternativ].',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Denna wiki kräver att filer har en filändelse - som ".JPG" i slutet av filnamnet.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Du håller redan på att ladda upp filen "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'Tillåtna filändelser är:',
