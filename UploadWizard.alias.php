@@ -9,6 +9,7 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'UploadWizard' => array( 'UploadWizard' ),
+	'UploadCampaigns' => array( 'UploadCampaigns' ),
 );
 
 /** Arabic (العربية) */

@@ -36,12 +36,14 @@ $wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.ph
 $wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.php';
 
 # Require modules, including the special page
-foreach ( array( 'SpecialUploadWizard',
-		 'UploadWizardMessages',
-		 'UploadWizardHooks',
-		 'UploadWizardTutorial'
-				) as $module ) {
-	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . "/" . $module . ".php";
+foreach ( array(
+		'SpecialUploadWizard',
+		'SpecialUploadCampaigns',
+		'UploadWizardMessages',
+		'UploadWizardHooks',
+		'UploadWizardTutorial'
+		) as $module ) {
+	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . '/' . $module . '.php';
 }
 
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
@@ -50,6 +52,9 @@ foreach ( array( 'SpecialUploadWizard',
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
+
+$wgSpecialPages['UploadCampaigns'] = 'SpecialUploadCampaigns';
+$wgSpecialPageGroups['UploadCampaigns'] = 'media';
 
 $wgResourceLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/UploadWizardPage.js';
 
