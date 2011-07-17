@@ -67,6 +67,7 @@ $wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 
 // Init the upload wizard config array 
 // UploadWizard.config.php includes default configuration

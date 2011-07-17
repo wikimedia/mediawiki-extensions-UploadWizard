@@ -271,8 +271,19 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-feedback-adding' => 'Adding feedback to page...',
 	'mwe-upwiz-feedback-error1' => 'Error: Unrecognized result from API',
 	'mwe-upwiz-feedback-error2' => 'Error: Edit failed',
-	'mwe-upwiz-feedback-error3' => 'Error: No response from API'
+	'mwe-upwiz-feedback-error3' => 'Error: No response from API',
 	
+	// Special:UploadCampaigns
+	'mwe-upwiz-campaigns-name' => 'Campaign name',
+	'mwe-upwiz-campaigns-status' => 'Status',
+	'mwe-upwiz-campaigns-enabled' => 'Enabled',
+	'mwe-upwiz-campaigns-disabled' => 'Disabled',
+	'mwe-upwiz-campaigns-edit' => 'Edit',
+	'mwe-upwiz-campaigns-add' => 'Add',
+	'mwe-upwiz-campaigns-addnew' => 'Add a new campaign',
+	'mwe-upwiz-campaigns-newname' => 'Campaign name: ',
+	'mwe-upwiz-campaigns-namedoc' => 'The name of the campaign is the identifier used in URLs. ie "name" in ?campaign=name',
+	'mwe-upwiz-campaigns-existing' => 'Existing campaigns',
 );
 
 /** Message documentation (Message documentation)

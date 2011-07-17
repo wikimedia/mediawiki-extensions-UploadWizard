@@ -385,4 +385,52 @@ class UploadWizardHooks {
 		}
 		return true;
 	}
+	
+	/**
+	 * Schema update to set up the needed database tables.
+	 *
+	 * @since 1.2
+	 *
+	 * @param DatabaseUpdater $updater
+	 *
+	 * @return true
+	 */
+	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
+		$updater->addExtensionUpdate( array(
+			'addTable',
+			'uw_campaigns',
+			dirname( __FILE__ ) . '/UploadWizard.sql',
+			true
+		) );
+		$updater->addExtensionUpdate( array(
+			'addTable',
+			'uw_campaign_conf',
+			dirname( __FILE__ ) . '/UploadWizard.sql',
+			true
+		) );
+		$updater->addExtensionUpdate( array(
+			'addIndex',
+			'uw_campaigns',
+			'uw_campaigns_name',
+			dirname( __FILE__ ) . '/sql/UW_IndexCampaignsName.sql',
+			true
+		) );
+		$updater->addExtensionUpdate( array(
+			'addIndex',
+			'uw_campaign_conf',
+			'uw_cc_id_property',
+			dirname( __FILE__ ) . '/sql/UW_IndexConfIdProp.sql',
+			true
+		) );
+		$updater->addExtensionUpdate( array(
+			'addIndex',
+			'uw_campaign_conf',
+			'uw_cc_property',
+			dirname( __FILE__ ) . '/sql/UW_IndexConfProp.sql',
+			true
+		) );
+
+		return true;
+	}
+	
 }
