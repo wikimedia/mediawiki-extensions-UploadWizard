@@ -136,7 +136,7 @@ mw.UploadWizardUpload.prototype = {
 				var existsFileName = result.upload.warnings.exists;
 				try {
 					code = 'exists';
-					info = _this.filenameToUrl( existsFileName ).toString();
+					info = new mw.Title( existsFileName, 'file' ).getUrl();
 				} catch ( e ) {
 					code = 'unknown';
 					info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";
@@ -207,7 +207,7 @@ mw.UploadWizardUpload.prototype = {
 		$j.each( duplicates, function( i, filename ) {
 			var $a = $j( '<a/>' ).append( filename );
 			try {
-				var href = _this.filenameToUrl( filename );
+				var href = new mw.Title( filename, 'file' ).getUrl();
 				$a.attr( { 'href': href, 'target': '_blank' } );
 			} catch ( e ) {
 				$a.click( function() { alert('could not parse filename=' + filename ); } );
@@ -897,21 +897,6 @@ mw.UploadWizardUpload.prototype = {
 			} ); // close thumbnail click function
 	},
 
-
-	/**
-	 * Given a filename like "Foo.jpg", get the URL to that filename, assuming the browser is on the same wiki.
-	 * Candidate for a utility function...
-	 * @param {String} filename
-	 */
-	filenameToUrl: function( filename ) {
-		var fileUrl = new mw.Uri( document.URL );
-		fileUrl.path = wgScript;
-		var fileTitle = new mw.Title( filename, 'file' );
-		fileUrl.query = { title: fileTitle, action: 'view' };
-		return fileUrl;
-	}
-
-
 };
 
 
@@ -1094,7 +1079,7 @@ mw.UploadWizard.prototype = {
 				_this.prepareAndMoveToDeeds();
 			} );
 		} );
-		$j ( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
+		$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
 			_this.hideFileEndButtons();
 			_this.startUploads();
 		} );
@@ -1161,7 +1146,7 @@ mw.UploadWizard.prototype = {
 				_this.removeErrorUploads( finalizeDetails );
 			} );
 
-		$j ( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
+		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
 			.click( startDetails );
 
 
@@ -1650,6 +1635,12 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 
 		$j.each( _this.uploads, function( i, upload ) {
+			// clear out error states, so we don't end up in an infinite loop
+			if ( upload.state === 'error' ) {
+				upload.state = 'details';
+			}
+
+			// set the "minimized" view of the details to have the right title
 			$j( upload.details.submittingDiv )
 				.find( '.mwe-upwiz-visible-file-filename-text' )
 				.html( upload.title.getMain() );
