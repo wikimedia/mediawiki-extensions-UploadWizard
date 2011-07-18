@@ -736,11 +736,15 @@ mw.UploadWizardDetails.prototype = {
 			} else if ( result && result.upload.warnings ) {
 				var warnings = result.upload.warnings;
 				if ( warnings['was-deleted'] ) { 
-					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-was-deleted' ) );
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-was-deleted', _this.upload.title.toString() ) );
 				} else if ( warnings['thumb'] ) { 
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-thumbnail' ) );
 				} else if ( warnings['bad-prefix'] ) { 
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-senselessimagename' ) );
+				} else if ( warnings['exists'] ) { 
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ) );
+				} else if ( warnings['duplicate'] ) { 
+					_this.showError( 'duplicate', gM( 'mwe-upwiz-upload-error-duplicate' ) );
 				} else {
 					var warningsKeys = [];
 					$j.each( warnings, function( key, val ) { 
