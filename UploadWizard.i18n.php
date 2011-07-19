@@ -4606,7 +4606,7 @@ $messages['frp'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|seconda que réste|secondes que réstont}}',
 	'mwe-upwiz-mins-secs-remaining' => '$1 menut{{PLURAL:$1|a|es}} $2 second{{PLURAL:$2|a|es}} que réstont',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 hor{{PLURAL:$1|a|es}} $2 menut{{PLURAL:$2|a|es}} $3 second{{PLURAL:$3|a|es}} que réstont',
-	'mwe-upwiz-deeds-macro-prompt' => 'Chouèsir una licence por {{PLURAL:$1|lo fichiér|tôs los fichiérs}} ce-dessus :',
+	'mwe-upwiz-deeds-macro-prompt' => '{{SITENAME}} at fôta de balyér les enformacions de drêt d’ôtor por {{PLURAL:$1|cela ôvra|celes ôvres}}, por s’assurar que tot lo mondo {{PLURAL:$1|la|les}} pouesse reutilisar.',
 	'mwe-upwiz-deeds-custom-prompt' => 'Ou ben :',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Ceti fichiér est|Cetos fichiérs sont}} de ma prôpra ôvra.',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ceti fichiér est|Cetos fichiérs sont}} pas de ma prôpra ôvra.',
@@ -4701,6 +4701,14 @@ Volyéd pas utilisar de vouiquitèxto ni de HTML ique.',
 	'mwe-upwiz-feedback-error1' => 'Èrror : rèsultat de l’API pas recognu',
 	'mwe-upwiz-feedback-error2' => 'Èrror : lo changement at pas reussi',
 	'mwe-upwiz-feedback-error3' => 'Èrror : gins de rèponsa de l’API',
+	'mwe-upwiz-campaigns-name' => 'Nom de la propaganda',
+	'mwe-upwiz-campaigns-status' => 'Ètat',
+	'mwe-upwiz-campaigns-enabled' => 'Activâ',
+	'mwe-upwiz-campaigns-disabled' => 'Dèsactivâ',
+	'mwe-upwiz-campaigns-edit' => 'Changiér',
+	'mwe-upwiz-campaigns-add' => 'Apondre',
+	'mwe-upwiz-campaigns-addnew' => 'Apondre una propaganda novèla',
+	'mwe-upwiz-campaigns-newname' => 'Nom de la propaganda :',
 );
 
 /** Friulian (Furlan)
@@ -5408,6 +5416,11 @@ $messages['he'] = array(
 	'mwe-upwiz-feedback-error1' => 'שגיאה: תוצאה לא מזוהה מה־API',
 	'mwe-upwiz-feedback-error2' => 'שגיאה: העריכה נכשלה',
 	'mwe-upwiz-feedback-error3' => 'שגיאה: אין תשובה מה־API',
+	'mwe-upwiz-campaigns-status' => 'מצב',
+	'mwe-upwiz-campaigns-enabled' => 'מופעל',
+	'mwe-upwiz-campaigns-disabled' => 'כבוי',
+	'mwe-upwiz-campaigns-edit' => 'עריכה',
+	'mwe-upwiz-campaigns-add' => 'הוספה',
 );
 
 /** Hindi (हिन्दी)
@@ -7568,6 +7581,8 @@ Dröm donn esch {{PLURAL:$1|et|se|nix}} veröffentlesche onger dä Bedengonge:',
 	'mwe-upwiz-source-thirdparty' => 'Heh di {{PLURAL:$1|Datei|Dateije|nix}} han esh nit selfß jemaat.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Bes esu jood un jiv jeede Adräß aan, woh De ein vun dä Datteije jefonge häs.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Wann all di Datteije uß dersellvwe Quäll schtamme, dersellve Urhävver un desellve Lizänz han, regg_et, se eimohl för alle enzejävve.',
+	'mwe-upwiz-source-thirdparty-license' => 'Dä Enhavver vun dä entspräschende Rääschte aan {{PLURAL:$1|däm Wärk|dänne Wärke|keinem Wärk}} hät {{PLURAL:$1|et|se|nix}} onger {{PLURAL:$1|heh dä Lizänz|heh dä Lizänze|kein Lizänze}} öffentlesch jemaat:',
+	'mwe-upwiz-source-thirdparty-cases' => 'Un nu saach, woröm dat De sescher weiß, dat mer heh dat Rääsch han, {{PLURAL:$1|dat Wärk|di Wärke|kein Wärke}} öffentlesch ze maache:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Lohß Jonn!',
 	'mwe-upwiz-source-custom' => 'Jiv op de nächßte Sigg för jeede einzel Dattei jet övver et Urhävverrääsch aan.',
 	'mwe-upwiz-more-options' => 'mieh müjjelesche Ußwahle&nbsp;…',
@@ -7721,6 +7736,16 @@ Di Lizänz paß ävver {{GRAMMAR:en|{{SITENAME}}}} nit.',
 	'mwe-upwiz-feedback-error1' => 'Fähler: dat <i lang="en">API</i> säät jät, wat mer nit kenne',
 	'mwe-upwiz-feedback-error2' => 'Fähler: de Sigg ze ändere es donävve jejange',
 	'mwe-upwiz-feedback-error3' => 'Fähler: dat <i lang="en">API</i> joov kein Antwoot',
+	'mwe-upwiz-campaigns-name' => 'Dä Kampannje iere Name',
+	'mwe-upwiz-campaigns-status' => 'Stattus',
+	'mwe-upwiz-campaigns-enabled' => 'Enjeschalldt',
+	'mwe-upwiz-campaigns-disabled' => 'Ußjeschalldt',
+	'mwe-upwiz-campaigns-edit' => 'Ändere',
+	'mwe-upwiz-campaigns-add' => 'Dobei donn',
+	'mwe-upwiz-campaigns-addnew' => 'Donn en neu Kampannje dobei',
+	'mwe-upwiz-campaigns-newname' => 'Dä Kampannje iere Name:',
+	'mwe-upwiz-campaigns-namedoc' => 'Dä Name vun ener Kampanje weed en <i lang="en">URL</i>s jebruch, för e Beishpell en stöckelscher, wi „<code lang="en">?campaign=name</code>“',
+	'mwe-upwiz-campaigns-existing' => 'Kampannje',
 );
 
 /** Kurdish (Latin) (Kurdî (Latin))
@@ -8285,6 +8310,16 @@ $messages['mk'] = array(
 	'mwe-upwiz-feedback-error1' => 'Грешка: Непрепознаен резултат од прилогот (API)',
 	'mwe-upwiz-feedback-error2' => 'Грешка: Уредувањето не успеа',
 	'mwe-upwiz-feedback-error3' => 'Грешка: Прилогот (API) не одговара',
+	'mwe-upwiz-campaigns-name' => 'Име на кампањата',
+	'mwe-upwiz-campaigns-status' => 'Статус',
+	'mwe-upwiz-campaigns-enabled' => 'Овозможено',
+	'mwe-upwiz-campaigns-disabled' => 'Оневозможено',
+	'mwe-upwiz-campaigns-edit' => 'Уреди',
+	'mwe-upwiz-campaigns-add' => 'Додај',
+	'mwe-upwiz-campaigns-addnew' => 'Додај нова кампања',
+	'mwe-upwiz-campaigns-newname' => 'Име на кампањата:',
+	'mwe-upwiz-campaigns-namedoc' => 'Името на кампањата е назнаката што се користи во URL-адресите, т.е. „име“ во ?campaign=име',
+	'mwe-upwiz-campaigns-existing' => 'Постоечки кампањи',
 );
 
 /** Malayalam (മലയാളം)
@@ -8534,6 +8569,16 @@ $messages['ml'] = array(
 	'mwe-upwiz-feedback-error1' => 'പിഴവ്: എ.പി.ഐ.യിൽ നിന്നും തിരിച്ചറിയാനാകാത്ത ഫലം',
 	'mwe-upwiz-feedback-error2' => 'പിഴവ്: തിരുത്തൽ പരാജയപ്പെട്ടു',
 	'mwe-upwiz-feedback-error3' => 'പിഴവ്: എ.പി.ഐ.യിൽ നിന്നും യാതൊരു പ്രതികരണവുമില്ല',
+	'mwe-upwiz-campaigns-name' => 'മേളയുടെ പേര്',
+	'mwe-upwiz-campaigns-status' => 'സ്ഥിതി',
+	'mwe-upwiz-campaigns-enabled' => 'സജ്ജമാക്കിയിരിക്കുന്നു',
+	'mwe-upwiz-campaigns-disabled' => 'നിർജ്ജീവമാക്കപ്പെട്ടിരിക്കുന്നു',
+	'mwe-upwiz-campaigns-edit' => 'തിരുത്തുക',
+	'mwe-upwiz-campaigns-add' => 'കൂട്ടിച്ചേർക്കുക',
+	'mwe-upwiz-campaigns-addnew' => 'പുതിയൊരു മേള ചേർക്കുക',
+	'mwe-upwiz-campaigns-newname' => 'പ്രചരണമേളയുടെ പേര്:',
+	'mwe-upwiz-campaigns-namedoc' => 'മേളകളുടെ യൂ.ആർ.എല്ലുകളിൽ അതായത് , ?campaign=പേര്, എന്നതിൽ തിരിച്ചറിയാനുപയോഗിക്കേണ്ട പേര്.',
+	'mwe-upwiz-campaigns-existing' => 'നിലവിലുള്ള പ്രചരണമേളകൾ',
 );
 
 /** Mongolian (Монгол)
@@ -8792,6 +8837,16 @@ Tolong jangan gunakan teks wiki atau HTML di sini.',
 	'mwe-upwiz-feedback-error1' => 'Perhatian: Hasil dari API tidak dikenali',
 	'mwe-upwiz-feedback-error2' => 'Perhatian: Penyuntingan gagal',
 	'mwe-upwiz-feedback-error3' => 'Perhatian: Tiada gerak balas dari API',
+	'mwe-upwiz-campaigns-name' => 'Nama kempen',
+	'mwe-upwiz-campaigns-status' => 'Status',
+	'mwe-upwiz-campaigns-enabled' => 'Dihidupkan',
+	'mwe-upwiz-campaigns-disabled' => 'Dimatikan',
+	'mwe-upwiz-campaigns-edit' => 'Sunting',
+	'mwe-upwiz-campaigns-add' => 'Tambahkan',
+	'mwe-upwiz-campaigns-addnew' => 'Tambahkan kempen baru',
+	'mwe-upwiz-campaigns-newname' => 'Nama kempen:',
+	'mwe-upwiz-campaigns-namedoc' => 'Nama kempen merupakan pengenal pasti yang digunakan dalam URL, iaitu "nama" dalam ?campaign=nama',
+	'mwe-upwiz-campaigns-existing' => 'Kempen sedia ada',
 );
 
 /** Burmese (မြန်မာဘာသာ)
@@ -9227,6 +9282,10 @@ Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-feedback-error1' => 'Fout: onbekend resultaat uit de API',
 	'mwe-upwiz-feedback-error2' => 'Fout: de bewerking is mislukt',
 	'mwe-upwiz-feedback-error3' => 'Fout: geen reactie van de API',
+	'mwe-upwiz-campaigns-enabled' => 'Ingeschakeld',
+	'mwe-upwiz-campaigns-disabled' => 'Uitgeschakeld',
+	'mwe-upwiz-campaigns-edit' => 'Bewerken',
+	'mwe-upwiz-campaigns-add' => 'Toevoegen',
 );
 
 /** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
@@ -10203,6 +10262,16 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-feedback-error1' => 'Erro: O resultado da API não foi reconhecido',
 	'mwe-upwiz-feedback-error2' => 'Erro: A edição falhou',
 	'mwe-upwiz-feedback-error3' => 'Erro: A API não responde',
+	'mwe-upwiz-campaigns-name' => 'Nome da campanha',
+	'mwe-upwiz-campaigns-status' => 'Estado',
+	'mwe-upwiz-campaigns-enabled' => 'Activa',
+	'mwe-upwiz-campaigns-disabled' => 'Inactiva',
+	'mwe-upwiz-campaigns-edit' => 'Editar',
+	'mwe-upwiz-campaigns-add' => 'Adicionar',
+	'mwe-upwiz-campaigns-addnew' => 'Adicionar uma campanha nova',
+	'mwe-upwiz-campaigns-newname' => 'Nome da campanha:',
+	'mwe-upwiz-campaigns-namedoc' => 'O nome da campanha é o identificador usado na URL, isto é, "nome" em ?campaign=nome',
+	'mwe-upwiz-campaigns-existing' => 'Campanhas existentes',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -10645,6 +10714,7 @@ $messages['roa-tara'] = array(
 $messages['ru'] = array(
 	'uploadwizard' => 'Мастер загрузки',
 	'uploadwizard-desc' => 'Мастер загрузки, разработанный по гранту Юзабилити мультимедиа',
+	'uploadcampaigns' => 'Реклама загрузок',
 	'mwe-upwiz-js-off' => 'UploadWizard использует в своём интерфейсе JavaScript. Либо ваш браузер не поддерживает JavaScript, либо JavaScript отключён, поэтому мы показываем вам простую форму загрузки.',
 	'mwe-upwiz-extension-disabled' => 'Эта страница была отключена из-за временных технических проблем. Воспользуйтесь пока стандартной формой загрузки.',
 	'mwe-upwiz-code-unknown' => 'Неизвестный язык',
@@ -10882,6 +10952,16 @@ $messages['ru'] = array(
 	'mwe-upwiz-feedback-error1' => 'Ошибка. Неизвестный результат из API',
 	'mwe-upwiz-feedback-error2' => 'Ошибка. Сбой редактирования',
 	'mwe-upwiz-feedback-error3' => 'Ошибка. Нет ответа от API',
+	'mwe-upwiz-campaigns-name' => 'Название кампании',
+	'mwe-upwiz-campaigns-status' => 'Состояние',
+	'mwe-upwiz-campaigns-enabled' => 'Включена',
+	'mwe-upwiz-campaigns-disabled' => 'Отключена',
+	'mwe-upwiz-campaigns-edit' => 'Править',
+	'mwe-upwiz-campaigns-add' => 'Добавить',
+	'mwe-upwiz-campaigns-addnew' => 'Добавить новую кампанию',
+	'mwe-upwiz-campaigns-newname' => 'Название кампании:',
+	'mwe-upwiz-campaigns-namedoc' => 'Название кампании является идентификатором, используемым в URL, то есть «name»  в строке ?campaign=name',
+	'mwe-upwiz-campaigns-existing' => 'Существующие кампании',
 );
 
 /** Rusyn (Русиньскый)
