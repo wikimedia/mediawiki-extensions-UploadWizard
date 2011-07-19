@@ -295,7 +295,7 @@ Please do not use wikitext or HTML here.',
 	'uploadcampaign-text' => 'You are modifying an Upload Wizard campaign.',
 	'mwe-upwiz-campaign-name' => 'Campaign name',
 	'mwe-upwiz-campaign-enabled' => 'Campaign enabled',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Skip the licencing tutorial',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Skip the licensing tutorial',
 );
 
 /** Message documentation (Message documentation)
