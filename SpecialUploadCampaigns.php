@@ -25,6 +25,14 @@ class SpecialUploadCampaigns extends SpecialPage {
 	public function __construct( $request = null, $par = null ) {
 		parent::__construct( 'UploadCampaigns', 'upwizcampaigns' );
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see SpecialPage::getDescription()
+	 */
+	public function getDescription() {
+		return wfMsg( 'mwe-upwiz-' . strtolower( $this->mName ) );
+	}
 
 	/**
 	 * Main method.

@@ -28,6 +28,18 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		parent::__construct ( 'UploadCampaign', 'upwizcampaigns', false );
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see SpecialPage::getDescription()
+	 */
+	public function getDescription() {
+		return wfMsg( 'mwe-upwiz-' . strtolower( $this->mName ) );
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see FormSpecialPage::setParameter()
+	 */
 	protected function setParameter( $par ){
 		$this->subPage = $par;
 	}
