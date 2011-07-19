@@ -15,6 +15,8 @@ $messages['en'] = array(
 	'uploadwizard' => 'Upload wizard',
 	'uploadwizard-desc' => 'Upload wizard, developed for the Multimedia Usability grant',
 	'uploadcampaigns' => 'Upload campaigns',
+	'uploadcampaign' => 'Upload campaign configuration',
+	'right-upwizcampaigns' => 'Configure Upload Wizard campaigns',
 	'mwe-upwiz-js-off' => 'UploadWizard uses JavaScript for an improved interface. Your browser either does not support JavaScript or has JavaScript turned off, so we are showing you a simple upload form.',
 	'mwe-upwiz-extension-disabled' => 'This page has been disabled due to temporary technical problems. In the meantime try the standard upload form.',
 	'mwe-upwiz-code-unknown' => 'Unknown language',
@@ -284,6 +286,16 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaigns-newname' => 'Campaign name: ',
 	'mwe-upwiz-campaigns-namedoc' => 'The name of the campaign is the identifier used in URLs. ie "name" in ?campaign=name',
 	'mwe-upwiz-campaigns-existing' => 'Existing campaigns',
+	'mwe-upwiz-campaigns-editing' => 'Upload campaign configuration',
+	'mwe-upwiz-campaigns-delete' => 'Delete',
+	'mwe-upwiz-campaigns-confdel' => 'Are you sure you want to delete this campaign?',
+
+	// Special:UploadCampaign
+	'uploadcampaign-legend' => 'Upload campaign configuration',
+	'uploadcampaign-text' => 'You are modifying an Upload Wizard campaign.',
+	'mwe-upwiz-campaign-name' => 'Campaign name',
+	'mwe-upwiz-campaign-enabled' => 'Campaign enabled',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Skipp the licencing tutorial',
 );
 
 /** Message documentation (Message documentation)

@@ -39,9 +39,11 @@ $wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.ph
 foreach ( array(
 		'SpecialUploadWizard',
 		'SpecialUploadCampaigns',
+		'SpecialUploadCampaign',
 		'UploadWizardMessages',
 		'UploadWizardHooks',
-		'UploadWizardTutorial'
+		'UploadWizardTutorial',
+		'UWCampaign'
 		) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . '/' . $module . '.php';
 }
@@ -56,6 +58,9 @@ $wgSpecialPageGroups['UploadWizard'] = 'media';
 $wgSpecialPages['UploadCampaigns'] = 'SpecialUploadCampaigns';
 $wgSpecialPageGroups['UploadCampaigns'] = 'media';
 
+$wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
+$wgSpecialPageGroups['UploadCampaign'] = 'media';
+
 $wgResourceLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/UploadWizardPage.js';
 
 // Set up the javascript path for the loader and localization file.
@@ -68,6 +73,15 @@ $wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
+
+$wgAvailableRights[] = 'upwizcampaigns';
+
+# Users that can modify the upload campaigns (ie via Special:UploadCampaigns)
+$wgGroupPermissions['*'            ]['upwizcampaigns'] = false;
+$wgGroupPermissions['user'         ]['upwizcampaigns'] = false;
+$wgGroupPermissions['autoconfirmed']['upwizcampaigns'] = false;
+$wgGroupPermissions['bot'          ]['upwizcampaigns'] = false;
+$wgGroupPermissions['sysop'        ]['upwizcampaigns'] = true;
 
 // Init the upload wizard config array 
 // UploadWizard.config.php includes default configuration
