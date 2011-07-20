@@ -2702,7 +2702,7 @@ Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
 $messages['da'] = array(
 	'uploadwizard' => 'Vejviser til oplægning af filer',
 	'uploadwizard-desc' => 'Vejviser til oplægning af filer, udviklet for Multimedia Usability-stipendiet',
-	'uploadcampaigns' => 'Oplægningskampagner',
+	'mwe-upwiz-uploadcampaigns' => 'Oplægningskampagner',
 	'mwe-upwiz-js-off' => 'Vejviseren brugeren JavaScript for at kunne lave en forbedret brugerflade. Enten understøtter din browser ikke JavaScript eller den har JavaScript slået fra, så vi viser dig en mere primitiv formular til filoplægning istedet.',
 	'mwe-upwiz-extension-disabled' => 'Denne side er slået fra på grund af midlertidige tekniske problemer. Prøv at bruge standardformularen til filoplægning i mellemtiden.',
 	'mwe-upwiz-code-unknown' => 'Ukendt sprog',
@@ -2968,7 +2968,9 @@ Brug venligst ikke wikitekst eller HTML her.',
 $messages['de'] = array(
 	'uploadwizard' => 'Assistent zum Hochladen von Dateien',
 	'uploadwizard-desc' => 'Stellt ein Hilfsprogramm zum Hochladen von Dateien bereit. Dessen Entwicklung wurde durch Fördergelder zur Verbesserung der Benutzerfreundlichkeit von MediaWiki ermöglicht (Multimedia Usability Project)',
-	'uploadcampaigns' => 'Hochladekampagnen',
+	'mwe-upwiz-uploadcampaigns' => 'Kampagnen',
+	'mwe-upwiz-uploadcampaign' => 'Konfiguration der Kampagne',
+	'right-upwizcampaigns' => 'Konfigurieren von Kampagnen',
 	'mwe-upwiz-js-off' => 'Der Assistent zum Hochladen von Dateien nutzt JavaSkript zur Verbesserung der Handhabung durch den Benutzer. Dein Browser unterstützt entweder kein JavaScript oder JavaScript wurde deaktiviert. Es wird daher das einfache Formular zum Hochladen von Dateien verwendet.',
 	'mwe-upwiz-extension-disabled' => 'Diese Seite wurde aufgrund technischer Probleme vorübergehend deaktiviert. In der Zwischenzeit kann das Standardformular zum Hochladen genutzt werden.',
 	'mwe-upwiz-code-unknown' => 'Unbekannte Sprache',
@@ -3214,8 +3216,16 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-campaigns-add' => 'Hinzufügen',
 	'mwe-upwiz-campaigns-addnew' => 'Eine neue Kampagne hinzufügen',
 	'mwe-upwiz-campaigns-newname' => 'Name der Kampagne:',
-	'mwe-upwiz-campaigns-namedoc' => 'Der Name der Kampagne wird als Kennung bei den URLs verwendet, bspw. „name“ in ?campainn=name',
+	'mwe-upwiz-campaigns-namedoc' => 'Der Name der Kampagne wird als Kennung bei den URLs verwendet, bspw. „Name“ in ?campaign=Name',
 	'mwe-upwiz-campaigns-existing' => 'Vorhandene Kampagnen',
+	'mwe-upwiz-campaigns-editing' => 'Konfiguration der Kampagne',
+	'mwe-upwiz-campaigns-delete' => 'Löschen',
+	'mwe-upwiz-campaigns-confdel' => 'Soll diese Kampagne tatsächlich gelöscht werden?',
+	'uploadcampaign-legend' => 'Konfiguration der Kampagne',
+	'uploadcampaign-text' => 'Du modifizierst gerade eine Kampagne.',
+	'mwe-upwiz-campaign-name' => 'Name der Kampagne',
+	'mwe-upwiz-campaign-enabled' => 'Kampagne aktiviert',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Das Tutorium zur Lizenzierung überspringen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -5176,7 +5186,9 @@ $messages['ha'] = array(
 $messages['he'] = array(
 	'uploadwizard' => 'אשף ההעלאה',
 	'uploadwizard-desc' => 'אשף ההעלאה, פותח במסגרת מלגת השמישות',
-	'uploadcampaigns' => 'העלאת מבצעי פרסום',
+	'mwe-upwiz-uploadcampaigns' => 'העלאת מבצעי פרסום',
+	'mwe-upwiz-uploadcampaign' => 'הגדרות מבצע פרסום',
+	'right-upwizcampaigns' => 'הגדרות מבצעי 1פרסום של אשף ההעלאות',
 	'mwe-upwiz-js-off' => "אשף ההעלאה משתמש בג'אווה סקריפט לשם שיפור הממשק. הדפדפן שלכם אינו תומך בג'אווה סקריפט או שהרצת הג'אווה סקריפט בו כובתה, ולכן אנחנו מראים לכם טופס העלאה פשוט.",
 	'mwe-upwiz-extension-disabled' => 'דף זה אינו פעיל זמנית עקב בעיות טכניות. בינתיים נסו את דף ההעלאות הרגיל.',
 	'mwe-upwiz-code-unknown' => 'שפה בלתי מוכרת',
@@ -5417,11 +5429,24 @@ $messages['he'] = array(
 	'mwe-upwiz-feedback-error1' => 'שגיאה: תוצאה לא מזוהה מה־API',
 	'mwe-upwiz-feedback-error2' => 'שגיאה: העריכה נכשלה',
 	'mwe-upwiz-feedback-error3' => 'שגיאה: אין תשובה מה־API',
+	'mwe-upwiz-campaigns-name' => 'שם מבצע הפרסום',
 	'mwe-upwiz-campaigns-status' => 'מצב',
 	'mwe-upwiz-campaigns-enabled' => 'מופעל',
 	'mwe-upwiz-campaigns-disabled' => 'כבוי',
 	'mwe-upwiz-campaigns-edit' => 'עריכה',
 	'mwe-upwiz-campaigns-add' => 'הוספה',
+	'mwe-upwiz-campaigns-addnew' => 'הוספת מבצע פרסום חדש',
+	'mwe-upwiz-campaigns-newname' => 'שם מבצע הפרסום:',
+	'mwe-upwiz-campaigns-namedoc' => 'שם מבצע הפרסום הוא המזהה שישמש בכתובת, למשל המילה "name" ב־‎?campaign=name',
+	'mwe-upwiz-campaigns-existing' => 'מבצעי פרסום קיימים',
+	'mwe-upwiz-campaigns-editing' => 'העלאת הגדרות מבצע פרסום',
+	'mwe-upwiz-campaigns-delete' => 'מחיקה',
+	'mwe-upwiz-campaigns-confdel' => 'האם למחוק את מבצע הפרסום הזה?',
+	'uploadcampaign-legend' => 'העלאת הגדרות מבצע הפרסום',
+	'uploadcampaign-text' => 'אתם משנים מבצע פרסום של אשף ההעלאות.',
+	'mwe-upwiz-campaign-name' => 'שם מבצע הפרסום',
+	'mwe-upwiz-campaign-enabled' => 'מבצע הפרסום הופעל',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'לדלג על דף ההסברים על רישיונות',
 );
 
 /** Hindi (हिन्दी)
@@ -5431,7 +5456,7 @@ $messages['he'] = array(
 $messages['hi'] = array(
 	'uploadwizard' => 'अपलोड विज़ार्ड',
 	'uploadwizard-desc' => 'अपलोड विज़ार्ड, मल्टीमीडिया प्रयोज्य अनुदान के लिए विकसित',
-	'uploadcampaigns' => 'अपलोड अभियान',
+	'mwe-upwiz-uploadcampaigns' => 'अपलोड अभियान',
 	'mwe-upwiz-js-off' => 'UploadWizard एक बेहतर इंटरफ़ेस के लिए जावास्क्रिप्ट का उपयोग करता है. या तो आपका ब्राउज़र जावास्क्रिप्ट का समर्थन नहीं करता है या  जावास्क्रिप्ट बंद कर दिया, तो हम आपको एक सरल अपलोड फार्म दिखा रहे हैं',
 	'mwe-upwiz-extension-disabled' => 'यह पृष्ठ अस्थायी तकनीकी समस्याओं के कारण निष्क्रिय कर दिया गया. बीच में मानक अपलोड फार्म का प्रयास करें',
 	'mwe-upwiz-code-unknown' => 'अज्ञात भाषा',
@@ -6216,6 +6241,9 @@ Kérlek itt ne használj wikikódot vagy HTML-t.',
 $messages['ia'] = array(
 	'uploadwizard' => 'Assistente de incargamento',
 	'uploadwizard-desc' => 'Assistente de incargamento, disveloppate pro le bursa Initiativa de Usabilitate',
+	'mwe-upwiz-uploadcampaigns' => 'Campanias de incargamento',
+	'mwe-upwiz-uploadcampaign' => 'Configuration del campania de incargamento',
+	'right-upwizcampaigns' => 'Configurar campanias del assistente de incargamento',
 	'mwe-upwiz-js-off' => 'Le assistente de incargamento usa JavaScript pro effectuar un melior interfacie. Tu navigator non supporta JavaScript o lo ha disactivate, dunque nos te monstra un formulario de incargamento simple.',
 	'mwe-upwiz-extension-disabled' => 'Iste pagina ha essite disactivate a causa de problemas technic temporari. Interim, proba le formulario de incargamento standard.',
 	'mwe-upwiz-code-unknown' => 'Lingua incognite',
@@ -6453,6 +6481,24 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-feedback-error1' => 'Error: Resultato del API non recognoscite',
 	'mwe-upwiz-feedback-error2' => 'Error: Modification fallite',
 	'mwe-upwiz-feedback-error3' => 'Error: Nulle responsa del API',
+	'mwe-upwiz-campaigns-name' => 'Nomine del campania',
+	'mwe-upwiz-campaigns-status' => 'Stato',
+	'mwe-upwiz-campaigns-enabled' => 'Active',
+	'mwe-upwiz-campaigns-disabled' => 'Inactive',
+	'mwe-upwiz-campaigns-edit' => 'Modificar',
+	'mwe-upwiz-campaigns-add' => 'Adder',
+	'mwe-upwiz-campaigns-addnew' => 'Adder un nove campania',
+	'mwe-upwiz-campaigns-newname' => 'Nomine del campania:',
+	'mwe-upwiz-campaigns-namedoc' => 'Le nomine del campania es le identificator usate in URLs, i.e. "nomine" in ?campaign=nomine',
+	'mwe-upwiz-campaigns-existing' => 'Campanias existente',
+	'mwe-upwiz-campaigns-editing' => 'Configuration del campania de incargamento',
+	'mwe-upwiz-campaigns-delete' => 'Deler',
+	'mwe-upwiz-campaigns-confdel' => 'Es tu secur de voler deler iste campania?',
+	'uploadcampaign-legend' => 'Configuration del campania de incargamento',
+	'uploadcampaign-text' => 'Tu modifica ora un campania del Assistente de Incargamento.',
+	'mwe-upwiz-campaign-name' => 'Nomine del campania',
+	'mwe-upwiz-campaign-enabled' => 'Campania activate',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Saltar le tutorial de licentiamento',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -7495,7 +7541,7 @@ $1자보다 길게 해 주십시오.',
 $messages['ksh'] = array(
 	'uploadwizard' => 'Projramm för et Huhlaade',
 	'uploadwizard-desc' => 'Dat Projramm för et Datteije Huhlaade, wat met däm Spendejeld för de Bruchbaakeit met ville Meedije äntweckelt woode es.',
-	'uploadcampaigns' => 'Kampanje för et Huhlaade',
+	'mwe-upwiz-uploadcampaigns' => 'Kampanje för et Huhlaade',
 	'mwe-upwiz-js-off' => 'Projramm för et Datteije Huhlaade bruch JavaSkerp, öm et schööner för der Aanwender ze maache. Dinge Brauser kann entweeder kein JavaSkrep, udder et es affjeschaldt. Dröm kriß De en eijfaacher Fommulaa för et Huhlaade aanjezeijsch.',
 	'mwe-upwiz-extension-disabled' => 'Heh di Sigg es em Momang afjeschalldt. Mer han e täschnesch Problem. Donn esu lang dat jewöhnlejje Fommulaa zom Huhlaade nämme.',
 	'mwe-upwiz-code-unknown' => 'Di Shprooch es onbikannt.',
@@ -8073,7 +8119,9 @@ $messages['mai'] = array(
 $messages['mk'] = array(
 	'uploadwizard' => 'Помошник за подигање',
 	'uploadwizard-desc' => 'Помошник за подигање, создаден со средства доделени за Употребливост на мултимедијални содржини',
-	'uploadcampaigns' => 'Подигни кампањи',
+	'mwe-upwiz-uploadcampaigns' => 'Подигни кампањи',
+	'mwe-upwiz-uploadcampaign' => 'Подигни поставки за кампања',
+	'right-upwizcampaigns' => 'Поставки за кампањи на Помошникот за подигање',
 	'mwe-upwiz-js-off' => 'Помошникот за подигање користи JavaScript за подобар посредник. Вашиот прелистувач не поддржува JavaScript, или пак JavaScript е исклучен. Затоа ви покажуваме прост образец за подигање.',
 	'mwe-upwiz-extension-disabled' => 'Оваа страница е оневозможена поради привремени технички проблеми. Во меѓувреме послужете се со стандардниот образец за подигање.',
 	'mwe-upwiz-code-unknown' => 'Непознат јазик',
@@ -8321,6 +8369,14 @@ $messages['mk'] = array(
 	'mwe-upwiz-campaigns-newname' => 'Име на кампањата:',
 	'mwe-upwiz-campaigns-namedoc' => 'Името на кампањата е назнаката што се користи во URL-адресите, т.е. „име“ во ?campaign=име',
 	'mwe-upwiz-campaigns-existing' => 'Постоечки кампањи',
+	'mwe-upwiz-campaigns-editing' => 'Подигни поставки за кампања',
+	'mwe-upwiz-campaigns-delete' => 'Избриши',
+	'mwe-upwiz-campaigns-confdel' => 'Дали сте сигурни дека сакате да ја избришете оваа кампања?',
+	'uploadcampaign-legend' => 'Подигни поставки за кампања',
+	'uploadcampaign-text' => 'Менувате кампања на Помошникот за подигање.',
+	'mwe-upwiz-campaign-name' => 'Име на кампањата',
+	'mwe-upwiz-campaign-enabled' => 'Кампањата е овозможена',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Прескокни го објаснувањето за лиценцирање',
 );
 
 /** Malayalam (മലയാളം)
@@ -8330,7 +8386,9 @@ $messages['mk'] = array(
 $messages['ml'] = array(
 	'uploadwizard' => 'അപ്‌ലോഡ് സഹായി',
 	'uploadwizard-desc' => 'മൾട്ടിമീഡിയ യൂസബിലിറ്റി സഹായധനത്തിനായി വികസിപ്പിച്ച, അപ്‌ലോഡ് സഹായി',
-	'uploadcampaigns' => 'അപ്‌ലോഡ് പ്രചരണമേള',
+	'mwe-upwiz-uploadcampaigns' => 'അപ്‌ലോഡ് പ്രചരണമേള',
+	'mwe-upwiz-uploadcampaign' => 'അപ്‌ലോഡ് മേളയുടെ ക്രമീകരണം',
+	'right-upwizcampaigns' => 'അപ്‌ലോഡ് സഹായി മേളകൾ ക്രമീകരിക്കുക',
 	'mwe-upwiz-js-off' => 'അപ്‌ലോഡ് സഹായി സൗകര്യം മെച്ചപ്പെട്ട സമ്പർക്കമുഖത്തിനായി ജാവാസ്ക്രിപ്റ്റ് ഉപയോഗിക്കുന്നു. താങ്കളുടെ ബ്രൗസർ ജാവാസ്ക്രിപ്റ്റ് പിന്തുണയ്ക്കുന്നില്ലാത്തതിനാൽ, അല്ലെങ്കിൽ അത് പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നതിനാൽ, ലളിതമായ അപ്‌ലോഡ് ഫോം നൽകുന്നു.',
 	'mwe-upwiz-extension-disabled' => 'താത്കാലിക സാങ്കേതിക തകരാർ മൂലം ഈ താൾ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുകയാണ്. ഈ സമയം ആവശ്യമെങ്കിൽ സാധാരണ അപ്‌ലോഡ് ഫോം ഉപയോഗിക്കാവുന്നതാണ്.',
 	'mwe-upwiz-code-unknown' => 'അപരിചിതമായ ഭാഷ',
@@ -8577,9 +8635,17 @@ $messages['ml'] = array(
 	'mwe-upwiz-campaigns-edit' => 'തിരുത്തുക',
 	'mwe-upwiz-campaigns-add' => 'കൂട്ടിച്ചേർക്കുക',
 	'mwe-upwiz-campaigns-addnew' => 'പുതിയൊരു മേള ചേർക്കുക',
-	'mwe-upwiz-campaigns-newname' => 'പ്രചരണമേളയുടെ പേര്:',
+	'mwe-upwiz-campaigns-newname' => 'മേളയുടെ പേര്:',
 	'mwe-upwiz-campaigns-namedoc' => 'മേളകളുടെ യൂ.ആർ.എല്ലുകളിൽ അതായത് , ?campaign=പേര്, എന്നതിൽ തിരിച്ചറിയാനുപയോഗിക്കേണ്ട പേര്.',
-	'mwe-upwiz-campaigns-existing' => 'നിലവിലുള്ള പ്രചരണമേളകൾ',
+	'mwe-upwiz-campaigns-existing' => 'നിലവിലുള്ള മേളകൾ',
+	'mwe-upwiz-campaigns-editing' => 'അപ്‌ലോഡ് മേളയുടെ ക്രമീകരണം',
+	'mwe-upwiz-campaigns-delete' => 'മായ്ക്കുക',
+	'mwe-upwiz-campaigns-confdel' => 'ഈ മേള ഒഴിവാക്കണമെന്നു താങ്കൾക്ക് ഉറപ്പാണോ?',
+	'uploadcampaign-legend' => 'അപ്‌ലോഡ് മേളയുടെ ക്രമീകരണം',
+	'uploadcampaign-text' => 'താങ്കൾ അപ്‌ലോഡ് സഹായി മേള പുതുക്കിക്കൊണ്ടിരിക്കുകയാണ്.',
+	'mwe-upwiz-campaign-name' => 'മേളയുടെ പേര്',
+	'mwe-upwiz-campaign-enabled' => 'മേള സജ്ജമാക്കിയിരിക്കുന്നു',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'അനുമതി നൽകൽ പഠനസഹായി വേണ്ട',
 );
 
 /** Mongolian (Монгол)
@@ -8597,7 +8663,7 @@ $messages['mn'] = array(
 $messages['ms'] = array(
 	'uploadwizard' => 'Alat muat naik ajaib',
 	'uploadwizard-desc' => 'Alat muat naik ajaib, dibangunkan untuk geran Kebolehgunaan Multimedia',
-	'uploadcampaigns' => 'Muat naik kempen',
+	'mwe-upwiz-uploadcampaigns' => 'Muat naik kempen',
 	'mwe-upwiz-js-off' => 'Alat muat naik ajaib menggunakan JavaScript demi antara muka yang lebih baik. Pelayar anda tidak menyokong JavaScript ataupun JavaScript dibiarkan tertutup, maka kami terpaksa menunjukkan borang muat naik yang ringkas.',
 	'mwe-upwiz-extension-disabled' => 'Laman ini telah dimatikan akibat masalah teknikal yang sementara. Buat masa ini, cuba gunakan borang muat naik yang biasa.',
 	'mwe-upwiz-code-unknown' => 'Bahasa tidak diketahui',
@@ -10023,7 +10089,9 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'uploadwizard' => 'Assistente de envio de ficheiros',
 	'uploadwizard-desc' => 'Assistente de envio de ficheiros, desenvolvido para a subvenção Usabilidade Multimédia',
-	'uploadcampaigns' => 'Campanhas de uploads',
+	'mwe-upwiz-uploadcampaigns' => 'Campanhas de uploads',
+	'mwe-upwiz-uploadcampaign' => 'Configuração de campanha de envio de ficheiros',
+	'right-upwizcampaigns' => 'Configurar campanhas do Assistente de Envio de Ficheiros',
 	'mwe-upwiz-js-off' => 'O Assistente de Envio de Ficheiros usa o JavaScript para melhorar a interface. Ou o seu browser não tem suporte para JavaScript, ou o JavaScript foi desligado, por isso será apresentado um formulário de envio simplificado.',
 	'mwe-upwiz-extension-disabled' => 'Esta página foi desactivada devido a problemas técnicos temporários. Por agora, tente usar o formulário padrão para envios.',
 	'mwe-upwiz-code-unknown' => 'Língua desconhecida',
@@ -10273,6 +10341,14 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-campaigns-newname' => 'Nome da campanha:',
 	'mwe-upwiz-campaigns-namedoc' => 'O nome da campanha é o identificador usado na URL, isto é, "nome" em ?campaign=nome',
 	'mwe-upwiz-campaigns-existing' => 'Campanhas existentes',
+	'mwe-upwiz-campaigns-editing' => 'Configuração de campanha de envio de ficheiros',
+	'mwe-upwiz-campaigns-delete' => 'Eliminar',
+	'mwe-upwiz-campaigns-confdel' => 'Tem a certeza de que pretende eliminar esta campanha?',
+	'uploadcampaign-legend' => 'Configuração de campanha de envio de ficheiros',
+	'uploadcampaign-text' => 'Está a modificar uma campanha do Assistente de Envio de Ficheiros.',
+	'mwe-upwiz-campaign-name' => 'Nome da campanha',
+	'mwe-upwiz-campaign-enabled' => 'Campanha activada',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Saltar o guia prático de licenciamento',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -10709,13 +10785,14 @@ $messages['roa-tara'] = array(
  * @author Haffman
  * @author KorneySan
  * @author MaxSem
+ * @author McDutchie
  * @author Rubin
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'uploadwizard' => 'Мастер загрузки',
 	'uploadwizard-desc' => 'Мастер загрузки, разработанный по гранту Юзабилити мультимедиа',
-	'uploadcampaigns' => 'Реклама загрузок',
+	'mwe-upwiz-uploadcampaigns' => 'Реклама загрузок',
 	'mwe-upwiz-js-off' => 'UploadWizard использует в своём интерфейсе JavaScript. Либо ваш браузер не поддерживает JavaScript, либо JavaScript отключён, поэтому мы показываем вам простую форму загрузки.',
 	'mwe-upwiz-extension-disabled' => 'Эта страница была отключена из-за временных технических проблем. Воспользуйтесь пока стандартной формой загрузки.',
 	'mwe-upwiz-code-unknown' => 'Неизвестный язык',
@@ -10961,7 +11038,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-campaigns-add' => 'Добавить',
 	'mwe-upwiz-campaigns-addnew' => 'Добавить новую кампанию',
 	'mwe-upwiz-campaigns-newname' => 'Название кампании:',
-	'mwe-upwiz-campaigns-namedoc' => 'Название кампании является идентификатором, используемым в URL, то есть «name»  в строке ?campaign=name',
+	'mwe-upwiz-campaigns-namedoc' => 'Название кампании является идентификатором, используемым в URL, то есть «имя»  в строке ?campaign=имя',
 	'mwe-upwiz-campaigns-existing' => 'Существующие кампании',
 );
 
@@ -11274,7 +11351,7 @@ $messages['sk'] = array(
 $messages['sl'] = array(
 	'uploadwizard' => 'Čarovnik nalaganja',
 	'uploadwizard-desc' => 'Čarovnik za nalaganje, razvit s podporo za večpredstavnostno uporabnost',
-	'uploadcampaigns' => 'Naloži kampanje',
+	'mwe-upwiz-uploadcampaigns' => 'Naloži kampanje',
 	'mwe-upwiz-js-off' => 'ČarovnikNalaganja za izboljšan vmesnik uporablja JavaScript. Vaš brskalnik ali ne podpira JavaScripta ali pa je JavaScript izklopljen, zato vam prikazujemo preprost obrazec za nalaganje.',
 	'mwe-upwiz-extension-disabled' => 'Stran je bila onemogočena zaradi začasnih tehničnih težav. V tem času poskusite uporabiti standardni obrazec za nalaganje.',
 	'mwe-upwiz-code-unknown' => 'Neznan jezik',
@@ -11525,6 +11602,11 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-campaigns-newname' => 'Ime kampanje:',
 	'mwe-upwiz-campaigns-namedoc' => 'Ime kampanje je označevalnik, uporabljen v URL-jih, tj. »ime« v ?campaign=ime',
 	'mwe-upwiz-campaigns-existing' => 'Obstoječe kampanje',
+	'mwe-upwiz-campaigns-delete' => 'Izbriši',
+	'mwe-upwiz-campaigns-confdel' => 'Ste prepričani, da želite izbrisati kampanjo?',
+	'mwe-upwiz-campaign-name' => 'Ime kampanje',
+	'mwe-upwiz-campaign-enabled' => 'Kampanja je omogočena',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Preskoči vodnik po licenciranju',
 );
 
 /** Somali (Soomaaliga)
@@ -12751,7 +12833,7 @@ $messages['ur'] = array(
 $messages['vi'] = array(
 	'uploadwizard' => 'Trình thuật sĩ tải lên',
 	'uploadwizard-desc' => 'Trình thuật sĩ tải lên được phát triển với tiền trợ cấp Khả dụng Đa phương tiện',
-	'uploadcampaigns' => 'Tải lên vận động gây quỹ',
+	'mwe-upwiz-uploadcampaigns' => 'Tải lên thông báo chung',
 	'mwe-upwiz-js-off' => 'Giao diện nâng cao của Trình thuật sĩ tải lên cần JavaScript. Dưới đây là biểu mẫu tải lên đơn giản vì trình duyệt của bạn không hỗ trợ JavaScript hoặc JavaScript đã bị tắt.',
 	'mwe-upwiz-extension-disabled' => 'Trang này đã bị tắt tạm thời do trục trặc kỹ thuật. Trong khi chờ đợi, hãy thử biểu mẫu tải lên thường.',
 	'mwe-upwiz-code-unknown' => 'Ngôn ngữ không rõ',
@@ -12991,6 +13073,12 @@ Xin đừng nhập mã wiki hoặc HTML vào đây.',
 	'mwe-upwiz-feedback-error1' => 'Hủy bỏ',
 	'mwe-upwiz-feedback-error2' => 'Lỗi: Sửa đổi thất bại',
 	'mwe-upwiz-feedback-error3' => 'Lỗi: API không có phản ứng',
+	'mwe-upwiz-campaigns-edit' => 'Sửa đổi',
+	'mwe-upwiz-campaigns-add' => 'Thêm',
+	'mwe-upwiz-campaigns-addnew' => 'Thêm thông báo chung mới',
+	'mwe-upwiz-campaigns-newname' => 'Tên thông báo:',
+	'mwe-upwiz-campaigns-delete' => 'Xóa',
+	'mwe-upwiz-campaign-conf-skiptutorial' => 'Bỏ qua hướng dẫn giấy phép',
 );
 
 /** Wu (吴语) */
