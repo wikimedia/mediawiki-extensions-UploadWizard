@@ -88,7 +88,9 @@ mw.FirefoggHandler.prototype = {
 					.val( _this.getFogg().sourceFilename )			
 					//.trigger('change');
 					// note the change trigger does not work because we replace the target: 
-					_this.upload.ui.fileChanged();
+					var title = _this.getTransport().getFileName().replace( /:/g, '_' );
+					_this.upload.title = new mw.Title( title , 'file' );
+					_this.upload.ui.fileChangedOk();
 				}
 			} );
 	},

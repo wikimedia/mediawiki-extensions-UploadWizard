@@ -98,7 +98,8 @@ mw.FirefoggTransport.prototype = {
 				return this.fogg.sourceFilename.split('.').slice(0,-1).join('.') + '.oga';
 			}
 			if( this.isSourceVideo() ){
-				return this.fogg.sourceFilename.split('.').slice(0,-1).join('.') + '.webm';
+                var ext = this.getEncodeExt();
+				return this.fogg.sourceFilename.split('.').slice(0,-1).join('.') + '.' + ext;
 			}
 		}
 	},
