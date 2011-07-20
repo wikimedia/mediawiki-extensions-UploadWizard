@@ -313,7 +313,8 @@ Please do not use wikitext or HTML here.',
  */
 $messages['qqq'] = array(
 	'uploadwizard-desc' => 'Description of extension. It refers to [http://blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
-	'uploadcampaigns' => 'Can also be worded as "campaigns for the promotion of uploading".',
+	'mwe-upwiz-uploadcampaigns' => 'Special page title. Can also be worded as "campaigns for the promotion of uploading".',
+	'mwe-upwiz-uploadcampaign' => 'Special page title.',
 	'mwe-upwiz-step-tutorial' => '{| align="right"
 | [[file:commons-uw-L524.png|Initial "{{MediaWiki:mwe-upwiz-step-file/en}}" page|thumb|right]]
 | [[file:commons-uw-L521.png|Beginning of "{{MediaWiki:mwe-upwiz-step-tutorial/en}}" page|thumb|right]]
