@@ -40,16 +40,16 @@ class SpecialUploadCampaigns extends SpecialPage {
 	 * @param string $subPage, e.g. the "foo" in Special:UploadCampaigns/foo.
 	 */
 	public function execute( $subPage ) {
+		global $wgRequest, $wgUser;
+		
 		$this->setHeaders();
 		$this->outputHeader();
 		$subPage = explode( '/', $subPage, 2 );
 		
 		// If the user is authorized, display the page, if not, show an error.
-		if ( $this->userCanExecute( $GLOBALS['wgUser'] ) ) {
-			global $wgRequest;
-			
+		if ( $this->userCanExecute( $wgUser ) ) {
 			if ( $wgRequest->wasPosted()
-				&& $GLOBALS['wgUser']->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) )
+				&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) )
 				&& $wgRequest->getCheck( 'newcampaign' ) ) {
 					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $wgRequest->getVal( 'newcampaign' ) )->getLocalURL() );
 			}
@@ -122,7 +122,8 @@ class SpecialUploadCampaigns extends SpecialPage {
 			'submit'
 		) );
 		
-		$out->addHTML( Html::hidden( 'wpEditToken', $GLOBALS['wgUser']->editToken() ) );
+		global $wgUser;
+		$out->addHTML( Html::hidden( 'wpEditToken', $wgUser->editToken() ) );
 		
 		$out->addHTML( '</fieldset></form>' );
 	}
