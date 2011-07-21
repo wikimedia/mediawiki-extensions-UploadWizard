@@ -51,11 +51,11 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	protected function getFormFields() {
 		$dbr = wfGetDB( DB_SLAVE );
 		
-		$campaign = UWCampaign::newFromName( $this->subPage );
+		$campaign = UploadWizardCampaign::newFromName( $this->subPage );
 		
 		$id = $campaign ? $campaign->getId() : null;
 		$enabled = $campaign ? $campaign->getIsEnabled() : false; 
-		$configFields = $campaign ? $campaign->getAllConfig() : UWCampaign::getDefaultConfig();
+		$configFields = $campaign ? $campaign->getAllConfig() : UploadWizardCampaign::getDefaultConfig();
 		
 		$fields = array ();
 		
@@ -88,7 +88,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$enabled = $data['Campaignenabled'];
 		unset( $data['Campaignenabled'] );
 		
-		$campaign = new UWCampaign( $id, $name, $enabled, $data );
+		$campaign = new UploadWizardCampaign( $id, $name, $enabled, $data );
 		
 		$success = $campaign->writeToDB();
 		

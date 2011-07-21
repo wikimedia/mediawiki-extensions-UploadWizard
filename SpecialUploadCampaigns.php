@@ -54,7 +54,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $wgRequest->getVal( 'newcampaign' ) )->getLocalURL() );
 			}
 			elseif ( count( $subPage ) == 2 && $subPage[0] == 'del' ) {
-				$campaign = UWCampaign::newFromName( $subPage[1], false );
+				$campaign = UploadWizardCampaign::newFromName( $subPage[1], false );
 				$campaign->deleteFromDB();
 				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 			}

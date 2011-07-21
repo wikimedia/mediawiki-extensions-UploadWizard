@@ -43,7 +43,7 @@ foreach ( array(
 		'UploadWizardMessages',
 		'UploadWizardHooks',
 		'UploadWizardTutorial',
-		'UWCampaign'
+		'UploadWizardCampaign'
 		) as $module ) {
 	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . '/' . $module . '.php';
 }

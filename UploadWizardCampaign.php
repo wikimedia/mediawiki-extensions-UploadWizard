@@ -11,7 +11,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class UWCampaign {
+class UploadWizardCampaign {
 	
 	/**
 	 * If the ID of the campaign.
@@ -75,35 +75,35 @@ class UWCampaign {
 	}
 	
 	/**
-	 * Returns the UWCampaign with specified name, or false if there is no such campaign.
+	 * Returns the UploadWizardCampaign with specified name, or false if there is no such campaign.
 	 * 
 	 * @since 1.2
 	 * 
 	 * @param string $campaignName
 	 * @param boolean $loadConfig
 	 * 
-	 * @return UWCampaign or false
+	 * @return UploadWizardCampaign or false
 	 */
 	public static function newFromName( $campaignName, $loadConfig = true ) {
 		return self::newFromDB( array( 'campaign_name' => $campaignName ), $loadConfig );
 	}
 	
 	/**
-	 * Returns the UWCampaign with specified ID, or false if there is no such campaign.
+	 * Returns the UploadWizardCampaign with specified ID, or false if there is no such campaign.
 	 * 
 	 * @since 1.2
 	 * 
 	 * @param integer $campaignId
 	 * @param boolean $loadConfig
 	 * 
-	 * @return UWCampaign or false
+	 * @return UploadWizardCampaign or false
 	 */
 	public static function newFromId( $campaignId, $loadConfig = true ) {
 		return self::newFromDB( array( 'campaign_id' => $campaignId ), $loadConfig );
 	}
 	
 	/**
-	 * Returns a new instance of UWCampaign build from a database result
+	 * Returns a new instance of UploadWizardCampaign build from a database result
 	 * obtained by doing a select with the porvided conditions on the uw_campaigns table.
 	 * If no campaign matches the conditions, false will be returned.
 	 * 
@@ -112,7 +112,7 @@ class UWCampaign {
 	 * @param array $conditions
 	 * @param boolean $loadConfig
 	 * 
-	 * @return UWCampaign or false
+	 * @return UploadWizardCampaign or false
 	 */
 	protected static function newFromDB( array $conditions, $loadConfig = true ) {
 		$dbr = wfGetDB( DB_SLAVE );
