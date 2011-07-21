@@ -23,7 +23,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
 	'author' => 'Neil Kandalgaonkar',
-	'version' => '1.1',
+	'version' => '1.2 alpha',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
