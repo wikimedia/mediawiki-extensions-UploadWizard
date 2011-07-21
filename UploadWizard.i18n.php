@@ -315,6 +315,9 @@ $messages['qqq'] = array(
 	'uploadwizard-desc' => 'Description of extension. It refers to [http://blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
 	'mwe-upwiz-uploadcampaigns' => 'Special page title. Can also be worded as "campaigns for the promotion of uploading".',
 	'mwe-upwiz-uploadcampaign' => 'Special page title.',
+	'right-upwizcampaigns' => '{{doc-right}}
+
+"Upload campaign" can also be worded as "a campaign for the promotion of uploading".',
 	'mwe-upwiz-step-tutorial' => '{| align="right"
 | [[file:commons-uw-L524.png|Initial "{{MediaWiki:mwe-upwiz-step-file/en}}" page|thumb|right]]
 | [[file:commons-uw-L521.png|Beginning of "{{MediaWiki:mwe-upwiz-step-tutorial/en}}" page|thumb|right]]
@@ -5299,7 +5302,7 @@ $messages['he'] = array(
 	'mwe-upwiz-thanks-url' => '<b>כדי לקשר אליו ב־HTML,</b> העתיקו את הכתובת הזאת:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'ויקי זה אינו מקבל קבצים עם הסיומת ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'בחרתם להעלות קובץ וידאו מסוג שאינו חופשי.
-אפשר [$1 להתקין את Firefogg] כדי להמירו אוטומטית או להשתמש ב־[$2 אפשרויות המרה אחרות].',
+אפשר [$1 להתקין את Firefogg], הרחבת פיירפוקס שתמיר אוטומטית את הקובץ שלך. או להשתמש ב־[$2 אפשרויות המרה אחרות] כדי להמיר את הווידאו לסוג חופשי.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'הוויקי הזה דורש שלקבצים תהיה סיומת, כגון "&lrm;.JPG", בסוף שם הקוץ.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'הקובץ "$1" כבר מועלה.',
 	'mwe-upwiz-allowed-filename-extensions' => 'הסיומות המותרות הן:',
@@ -7542,6 +7545,8 @@ $messages['ksh'] = array(
 	'uploadwizard' => 'Projramm för et Huhlaade',
 	'uploadwizard-desc' => 'Dat Projramm för et Datteije Huhlaade, wat met däm Spendejeld för de Bruchbaakeit met ville Meedije äntweckelt woode es.',
 	'mwe-upwiz-uploadcampaigns' => 'Kampanje för et Huhlaade',
+	'mwe-upwiz-uploadcampaign' => 'Kampanje för et Huhlaade enreeschte',
+	'right-upwizcampaigns' => 'Kampanje för et Huhlaade enreeschte',
 	'mwe-upwiz-js-off' => 'Projramm för et Datteije Huhlaade bruch JavaSkerp, öm et schööner för der Aanwender ze maache. Dinge Brauser kann entweeder kein JavaSkrep, udder et es affjeschaldt. Dröm kriß De en eijfaacher Fommulaa för et Huhlaade aanjezeijsch.',
 	'mwe-upwiz-extension-disabled' => 'Heh di Sigg es em Momang afjeschalldt. Mer han e täschnesch Problem. Donn esu lang dat jewöhnlejje Fommulaa zom Huhlaade nämme.',
 	'mwe-upwiz-code-unknown' => 'Di Shprooch es onbikannt.',
@@ -8028,6 +8033,16 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-feedback-error1' => 'Feeler: Resultat vum API gouf net erkannt',
 	'mwe-upwiz-feedback-error2' => "Feeler: D'Ännerung gouf net gespäichert",
 	'mwe-upwiz-feedback-error3' => 'Feeler: Keng Äntwert vum API',
+	'mwe-upwiz-campaigns-name' => 'Numm vun der Matdeelung',
+	'mwe-upwiz-campaigns-enabled' => 'Aktivéiert',
+	'mwe-upwiz-campaigns-disabled' => 'Desaktivéiert',
+	'mwe-upwiz-campaigns-edit' => 'Änneren',
+	'mwe-upwiz-campaigns-add' => 'Derbäisetzen',
+	'mwe-upwiz-campaigns-addnew' => 'Eng nei Matdeelung derbäisetzen',
+	'mwe-upwiz-campaigns-newname' => 'Numm vun der Matdeelung:',
+	'mwe-upwiz-campaigns-delete' => 'Läschen',
+	'mwe-upwiz-campaigns-confdel' => 'Sidd Dir sécher datt Dir dës Matdeelung läsche wëllt?',
+	'mwe-upwiz-campaign-name' => 'Numm vun der Matdeelung',
 );
 
 /** Lithuanian (Lietuvių)
@@ -9577,6 +9592,9 @@ $messages['pfl'] = array(
 $messages['pl'] = array(
 	'uploadwizard' => 'Kreator przesyłania plików',
 	'uploadwizard-desc' => 'Kreator przesyłania plików opracowany dzięki grantowi przyznanemu na zwiększenie użyteczności obsługi multimediów.',
+	'mwe-upwiz-uploadcampaigns' => 'Kampania reklamowa przesyłania plików',
+	'mwe-upwiz-uploadcampaign' => 'Konfiguracja kampanii przesyłania plików',
+	'right-upwizcampaigns' => 'Konfigurowanie kampanii kreatora przesyłania plików',
 	'mwe-upwiz-js-off' => 'Kreator przesyłania plików do realizacji udoskonalonego interfejsu korzysta z JavaScript. Twoja przeglądarka nie obsługuje lub ma wyłączoną obsługę JavaScript i dlatego wyświetlany jest zwykły formularz przesyłania.',
 	'mwe-upwiz-extension-disabled' => 'Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.',
 	'mwe-upwiz-code-unknown' => 'Nierozpoznany język',
@@ -9816,6 +9834,14 @@ Proszę tutaj nie korzystać z formatowania wiki lub HTML.',
 	'mwe-upwiz-feedback-error1' => 'Błąd – nierozpoznana odpowiedź API',
 	'mwe-upwiz-feedback-error2' => 'Błąd – edycja nieudana',
 	'mwe-upwiz-feedback-error3' => 'Błąd – brak odpowiedzi API',
+	'mwe-upwiz-campaigns-name' => 'Nazwa kampanii',
+	'mwe-upwiz-campaigns-status' => 'Status',
+	'mwe-upwiz-campaigns-enabled' => 'włączona',
+	'mwe-upwiz-campaigns-disabled' => 'wyłączona',
+	'mwe-upwiz-campaigns-edit' => 'Edytuj',
+	'mwe-upwiz-campaigns-add' => 'Dodaj',
+	'mwe-upwiz-campaigns-addnew' => 'Dodaj nową kampanię',
+	'mwe-upwiz-campaigns-newname' => 'Nazwa kampanii',
 );
 
 /** Piedmontese (Piemontèis)
@@ -11352,6 +11378,8 @@ $messages['sl'] = array(
 	'uploadwizard' => 'Čarovnik nalaganja',
 	'uploadwizard-desc' => 'Čarovnik za nalaganje, razvit s podporo za večpredstavnostno uporabnost',
 	'mwe-upwiz-uploadcampaigns' => 'Naloži kampanje',
+	'mwe-upwiz-uploadcampaign' => 'Konfiguracija kampanje nalaganja',
+	'right-upwizcampaigns' => 'Konfiguriraj kampanje čarovnika nalaganja',
 	'mwe-upwiz-js-off' => 'ČarovnikNalaganja za izboljšan vmesnik uporablja JavaScript. Vaš brskalnik ali ne podpira JavaScripta ali pa je JavaScript izklopljen, zato vam prikazujemo preprost obrazec za nalaganje.',
 	'mwe-upwiz-extension-disabled' => 'Stran je bila onemogočena zaradi začasnih tehničnih težav. V tem času poskusite uporabiti standardni obrazec za nalaganje.',
 	'mwe-upwiz-code-unknown' => 'Neznan jezik',
@@ -11602,8 +11630,11 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-campaigns-newname' => 'Ime kampanje:',
 	'mwe-upwiz-campaigns-namedoc' => 'Ime kampanje je označevalnik, uporabljen v URL-jih, tj. »ime« v ?campaign=ime',
 	'mwe-upwiz-campaigns-existing' => 'Obstoječe kampanje',
+	'mwe-upwiz-campaigns-editing' => 'Konfiguracija kampanje nalaganja',
 	'mwe-upwiz-campaigns-delete' => 'Izbriši',
 	'mwe-upwiz-campaigns-confdel' => 'Ste prepričani, da želite izbrisati kampanjo?',
+	'uploadcampaign-legend' => 'Konfiguracija kampanje nalaganja',
+	'uploadcampaign-text' => 'Spreminjate kampanjo čarovnika nalaganja',
 	'mwe-upwiz-campaign-name' => 'Ime kampanje',
 	'mwe-upwiz-campaign-enabled' => 'Kampanja je omogočena',
 	'mwe-upwiz-campaign-conf-skiptutorial' => 'Preskoči vodnik po licenciranju',
@@ -11833,7 +11864,7 @@ $messages['sr-el'] = array(
 $messages['sv'] = array(
 	'uploadwizard' => 'Guide för uppladdning',
 	'uploadwizard-desc' => 'Uppladdningsguiden, som har utvecklats med Multimedia användbarhets stipendium',
-	'uploadcampaigns' => 'Uppladdningskampanjer',
+	'mwe-upwiz-uploadcampaigns' => 'Uppladdningskampanjer',
 	'mwe-upwiz-js-off' => 'UploadWizard använder JavaScript för ett bättre gränssnitt. Din webbläsare antingen stöder inte JavaScript eller har JavaScript avslagen, så vi visar dig ett enkelt uppladdningsformulär.',
 	'mwe-upwiz-extension-disabled' => 'Den här sidan har inaktiverats på grund av tillfälliga tekniska problem. Försök med standardformuläret för uppladdning under tiden.',
 	'mwe-upwiz-code-unknown' => 'Okänt språk',
