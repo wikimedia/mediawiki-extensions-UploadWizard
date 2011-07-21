@@ -61,11 +61,6 @@ $wgSpecialPageGroups['UploadCampaigns'] = 'media';
 $wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
 $wgSpecialPageGroups['UploadCampaign'] = 'media';
 
-$wgResourceLoaderNamedPaths[ 'UploadWizardPage' ] = 'extensions/UploadWizard/UploadWizardPage.js';
-
-// Set up the javascript path for the loader and localization file.
-$wgExtensionJavascriptModules[ 'UploadWizard' ] = 'extensions/UploadWizard';
-
 // Disable ResourceLoader support by default, it's currently broken
 // $wgUploadWizardDisableResourceLoader = true;
 
