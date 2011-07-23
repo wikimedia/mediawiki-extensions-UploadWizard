@@ -286,9 +286,4 @@ return array(
 	// URL for alternative uploading form
 	'altUploadForm' => '',
 	
-	'campaignDefaults' => array(
-		'skiptutorial' => false,
-		
-	),
-
 );

@@ -215,11 +215,12 @@ class UploadWizardCampaign {
 	 * @return array
 	 */
 	public function getAllConfig() {
-		$config = $this->getConfig();
+		$setConfig = $this->getConfig();
+		$config = array();
 		
 		foreach ( self::getDefaultConfig() as $name => $data ) {
-			if ( array_key_exists( $name, $config ) ) {
-				$data['default'] = $config[$name];
+			if ( array_key_exists( $name, $setConfig ) ) {
+				$data['default'] = $setConfig[$name];
 			}
 			
 			$config[$name] = $data;
@@ -236,8 +237,8 @@ class UploadWizardCampaign {
 	 * @return array
 	 */
 	public static function getDefaultConfig() {
-		return array (
-			'skiptutorial' => array ( 'type' => 'check', 'default' => true )
+		return array ( // TODO
+			'skipTutorial' => array ( 'type' => 'check', 'default' => true )
 		);
 	}
 	

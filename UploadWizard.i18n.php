@@ -295,7 +295,7 @@ Please do not use wikitext or HTML here.',
 	'uploadcampaign-text' => 'You are modifying an Upload Wizard campaign.',
 	'mwe-upwiz-campaign-name' => 'Campaign name',
 	'mwe-upwiz-campaign-enabled' => 'Campaign enabled',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Skip the licensing tutorial',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Skip the licensing tutorial',
 );
 
 /** Message documentation (Message documentation)
@@ -3228,7 +3228,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'uploadcampaign-text' => 'Du modifizierst gerade eine Kampagne.',
 	'mwe-upwiz-campaign-name' => 'Name der Kampagne',
 	'mwe-upwiz-campaign-enabled' => 'Kampagne aktiviert',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Das Tutorium zur Lizenzierung überspringen',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Das Tutorium zur Lizenzierung überspringen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -5449,7 +5449,7 @@ $messages['he'] = array(
 	'uploadcampaign-text' => 'אתם משנים מבצע פרסום של אשף ההעלאות.',
 	'mwe-upwiz-campaign-name' => 'שם מבצע הפרסום',
 	'mwe-upwiz-campaign-enabled' => 'מבצע הפרסום הופעל',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'לדלג על דף ההסברים על רישיונות',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'לדלג על דף ההסברים על רישיונות',
 );
 
 /** Hindi (हिन्दी)
@@ -6501,7 +6501,7 @@ Per favor non usa wikitexto o HTML hic.',
 	'uploadcampaign-text' => 'Tu modifica ora un campania del Assistente de Incargamento.',
 	'mwe-upwiz-campaign-name' => 'Nomine del campania',
 	'mwe-upwiz-campaign-enabled' => 'Campania activate',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Saltar le tutorial de licentiamento',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Saltar le tutorial de licentiamento',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -8391,7 +8391,7 @@ $messages['mk'] = array(
 	'uploadcampaign-text' => 'Менувате кампања на Помошникот за подигање.',
 	'mwe-upwiz-campaign-name' => 'Име на кампањата',
 	'mwe-upwiz-campaign-enabled' => 'Кампањата е овозможена',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Прескокни го објаснувањето за лиценцирање',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Прескокни го објаснувањето за лиценцирање',
 );
 
 /** Malayalam (മലയാളം)
@@ -8660,7 +8660,7 @@ $messages['ml'] = array(
 	'uploadcampaign-text' => 'താങ്കൾ അപ്‌ലോഡ് സഹായി മേള പുതുക്കിക്കൊണ്ടിരിക്കുകയാണ്.',
 	'mwe-upwiz-campaign-name' => 'മേളയുടെ പേര്',
 	'mwe-upwiz-campaign-enabled' => 'മേള സജ്ജമാക്കിയിരിക്കുന്നു',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'അനുമതി നൽകൽ പഠനസഹായി വേണ്ട',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'അനുമതി നൽകൽ പഠനസഹായി വേണ്ട',
 );
 
 /** Mongolian (Монгол)
@@ -8938,7 +8938,7 @@ Tolong jangan gunakan teks wiki atau HTML di sini.',
 	'uploadcampaign-text' => 'Anda sedang mengubah suai kempen Alat Muat Naik Ajaib.',
 	'mwe-upwiz-campaign-name' => 'Nama kempen',
 	'mwe-upwiz-campaign-enabled' => 'Kempen dihidupkan',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Langkau tutorial pelesenan',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Langkau tutorial pelesenan',
 );
 
 /** Burmese (မြန်မာဘာသာ)
@@ -10385,7 +10385,7 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'uploadcampaign-text' => 'Está a modificar uma campanha do Assistente de Envio de Ficheiros.',
 	'mwe-upwiz-campaign-name' => 'Nome da campanha',
 	'mwe-upwiz-campaign-enabled' => 'Campanha activada',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Saltar o guia prático de licenciamento',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Saltar o guia prático de licenciamento',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -11648,7 +11648,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'uploadcampaign-text' => 'Spreminjate kampanjo čarovnika nalaganja',
 	'mwe-upwiz-campaign-name' => 'Ime kampanje',
 	'mwe-upwiz-campaign-enabled' => 'Kampanja je omogočena',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Preskoči vodnik po licenciranju',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Preskoči vodnik po licenciranju',
 );
 
 /** Somali (Soomaaliga)
@@ -13134,7 +13134,7 @@ Xin đừng nhập mã wiki hoặc HTML vào đây.',
 	'uploadcampaign-text' => 'Bạn đang sửa đổi một thông báo chung cho Trình thuật sĩ tải lên.',
 	'mwe-upwiz-campaign-name' => 'Tên thông báo chung',
 	'mwe-upwiz-campaign-enabled' => 'Thông báo chung được kích hoạt',
-	'mwe-upwiz-campaign-conf-skiptutorial' => 'Bỏ qua hướng dẫn giấy phép',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Bỏ qua hướng dẫn giấy phép',
 );
 
 /** Wu (吴语) */
