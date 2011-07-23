@@ -37,16 +37,16 @@ $wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.ph
 
 # Require modules, including the special page
 foreach ( array(
-		'UploadWizardConfig',
-		'SpecialUploadWizard',
-		'SpecialUploadCampaigns',
-		'SpecialUploadCampaign',
-		'UploadWizardMessages',
-		'UploadWizardHooks',
-		'UploadWizardTutorial',
-		'UploadWizardCampaign'
-		) as $module ) {
-	$wgAutoloadLocalClasses[$module] = $wgUpwizDir . '/' . $module . '.php';
+		'UploadWizardMessages' => $wgUpwizDir,
+		'UploadWizardHooks' => $wgUpwizDir,
+		'UploadWizardConfig' => $wgUpwizDir . '/includes',
+		'UploadWizardTutorial' => $wgUpwizDir . '/includes',
+		'UploadWizardCampaign' => $wgUpwizDir . '/includes',
+		'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials',
+		'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials',
+		'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials',
+		) as $module => $dir ) {
+	$wgAutoloadLocalClasses[$module] = $dir . '/' . $module . '.php';
 }
 
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
