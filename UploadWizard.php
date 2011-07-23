@@ -37,6 +37,7 @@ $wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.ph
 
 # Require modules, including the special page
 foreach ( array(
+		'UploadWizardConfig',
 		'SpecialUploadWizard',
 		'SpecialUploadCampaigns',
 		'SpecialUploadCampaign',

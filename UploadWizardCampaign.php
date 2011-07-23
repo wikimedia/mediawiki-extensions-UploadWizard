@@ -142,6 +142,49 @@ class UploadWizardCampaign {
 	}
 	
 	/**
+	 * Returns the list of configuration settings that can be modified by campaigns,
+	 * and the HTMLForm input type that can be used to represent their value.
+	 * Property name => HTMLForm input type
+	 * 
+	 * @since 1.2
+	 * 
+	 * @return array
+	 */
+	public static function getConfigTypes() {
+		return array(
+			'skipTutorial' => 'check'
+		);
+	}
+	
+	/**
+	 * Returns the default configuration values.
+	 * Property name => array( 'default' => $value, 'type' => HTMLForm input type )
+	 * 
+	 * @since 1.2
+	 * 
+	 * @return array
+	 */
+	public static function getDefaultConfig() {
+		static $config = false;
+		
+		if ( $config === false ) {
+			$config = array();
+			$globalConf = UploadWizardConfig::getConfig();
+		
+			foreach ( self::getConfigTypes() as $setting => $type ) {
+				if ( array_key_exists( $setting, $globalConf ) ) {
+					$config[$setting] = array( 'type' => $type, 'default' => $globalConf[$setting] );
+				}
+				else {
+					wfWarn( "Nonexiting Upload Wizard configuration setting '$setting' will be ignored." );
+				}
+			}	
+		}
+		
+		return $config;
+	}
+	
+	/**
 	 * Returns the id of the campaign.
 	 * 
 	 * @since 1.2
@@ -227,19 +270,6 @@ class UploadWizardCampaign {
 		}
 		
 		return $config;
-	}
-	
-	/**
-	 * Returns the default configuration values.
-	 * 
-	 * @since 1.2
-	 * 
-	 * @return array
-	 */
-	public static function getDefaultConfig() {
-		return array ( // TODO
-			'skipTutorial' => array ( 'type' => 'check', 'default' => true )
-		);
 	}
 	
 	/**

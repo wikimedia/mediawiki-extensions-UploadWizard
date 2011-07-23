@@ -82,7 +82,6 @@ class SpecialUploadWizard extends SpecialPage {
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
 		$wgOut->addHTML( self::getWizardHtml() );
-
 	}
 
 	/**
@@ -95,29 +94,12 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgOut, $wgUpwizDir, $wgUploadWizardConfig, $wgSitename, $wgRequest;
-
-		$capmaignSettings = array();
-		$capaignName = $wgRequest->getVal( 'campaign' );
-		
-		if ( !is_null( $capaignName ) ) {
-			$capaign = UploadWizardCampaign::newFromName( $capaignName );
-			
-			if ( $capaign !== false ) {
-				$capmaignSettings = $capaign->getConfig();
-			}
-		}
-		
-		// Merge the default configuration with the local settings $wgUploadWizardConfig configuration
-		$configPath =  $wgUpwizDir . '/UploadWizard.config.php';
-		if( is_file( $configPath ) ){
-			$wgUploadWizardConfig = array_merge( include( $configPath ), $wgUploadWizardConfig, $capmaignSettings );
-		}
+		global $wgOut, $wgSitename, $wgRequest;
 		 
 		$wgOut->addScript( 
 			Skin::makeVariablesScript( 
 				array(
-					'UploadWizardConfig' => $wgUploadWizardConfig 
+					'UploadWizardConfig' => UploadWizardConfig::getConfig( $wgRequest->getVal( 'campaign' ) ) 
 				) +
 				// Site name is a true global not specific to Upload Wizard
 				array( 
