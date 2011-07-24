@@ -16,7 +16,7 @@ return array(
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 	
 	// Categories to automatically add all uploaded images into.
-	'autoCategories' => array( 'Locations', 'Examples' ),
+	'autoCategories' => array(),
 
 	// Deprecated: use autoCategories
 	'autoCategory' => '',
