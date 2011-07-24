@@ -14,6 +14,15 @@
 class UploadWizardConfig {
 	
 	/**
+	 * Holder for configuration specified via url arguments.
+	 * This will override other config when returned via getConfig.
+	 * 
+	 * @since 1.2
+	 * @var array
+	 */
+	protected static $urlConfig = array();
+	
+	/**
 	 * Returns the globally configuration, optionaly combined with campaign sepcific
 	 * configuration. 
 	 * 
@@ -29,13 +38,42 @@ class UploadWizardConfig {
 		
 		if ( !$mergedConfig ) {
 			$wgUploadWizardConfig = array_merge( self::getDefaultConfig(), $wgUploadWizardConfig );
+			$mergedConfig = true;
 		}
 		
 		if ( !is_null( $campaignName ) ) {
 			$wgUploadWizardConfig = array_merge( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
 		}
 		
-		return $wgUploadWizardConfig;
+		return array_merge( $wgUploadWizardConfig, self::$urlConfig );
+	}
+	
+	/**
+	 * Returns the value of a single configuration setting.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @param string $settingName
+	 * @param string|null $campaignName
+	 * 
+	 * @return mixed
+	 */
+	public static function getSetting( $settingName, $campaignName = null ) {
+		$config = self::getConfig();
+		return $config[$settingName];
+	}
+	
+	/**
+	 * Sets a configuration setting provided by URL.
+	 * This will override other config when returned via getConfig. 
+	 * 
+	 * @param string $name
+	 * @param mixed $value
+	 * 
+	 * @since 1.2
+	 */
+	public static function setUrlSetting( $name, $value ) {
+		self::$urlConfig[$name] = $value;
 	}
 	
 	/**

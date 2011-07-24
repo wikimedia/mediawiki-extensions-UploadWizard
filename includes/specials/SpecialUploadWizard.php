@@ -12,6 +12,14 @@
 class SpecialUploadWizard extends SpecialPage {
 	// the HTML form without javascript
 	private $simpleForm;
+	
+	/**
+	 * The name of the upload wizard campaign, or null when none is specified.
+	 * 
+	 * @since 1.2
+	 * @var string|null
+	 */
+	protected $campaign;
 
 	// $request is the request (usually wgRequest)
 	// $par is everything in the URL after Special:UploadWizard. Not sure what we can use it for
@@ -38,7 +46,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	public function execute( $subPage ) {
 		global $wgRequest, $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
-		       $wgUploadWizardDisableResourceLoader, $wgUploadWizardConfig;
+		       $wgUploadWizardDisableResourceLoader;
 
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
@@ -49,9 +57,12 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 		
+		$this->campaign = $wgRequest->getVal( 'campaign' );
+		
 		// if query string includes 'skiptutorial=true' set config variable to true
-		if ( $wgRequest->getText( 'skiptutorial' ) ) {
-			$wgUploadWizardConfig['skipTutorial'] = true;
+		if ( $wgRequest->getCheck( 'skiptutorial' ) ) {
+			$skip = in_array( $wgRequest->getText( 'skiptutorial' ), array( '1', 'true' ) );
+			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
 		}
 
 		// fallback for non-JS
@@ -70,7 +81,7 @@ class SpecialUploadWizard extends SpecialPage {
 		} else {
 			$basepath = "$wgExtensionAssetsPath/UploadWizard";
 			$dependencyLoader = new UploadWizardDependencyLoader( $wgLang->getCode() );
-			if ( $wgUploadWizardConfig['debug'] ) {
+			if ( UploadWizardConfig::getSetting( 'debug', $this->campaign ) ) {
 				// each file as an individual script or style
 				$dependencyLoader->outputHtmlDebug( $wgOut, $basepath );
 			} else {
@@ -94,12 +105,12 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgOut, $wgSitename, $wgRequest;
-		 
+		global $wgOut, $wgSitename;
+		
 		$wgOut->addScript( 
 			Skin::makeVariablesScript( 
 				array(
-					'UploadWizardConfig' => UploadWizardConfig::getConfig( $wgRequest->getVal( 'campaign' ) ) 
+					'UploadWizardConfig' => UploadWizardConfig::getConfig( $this->campaign ) 
 				) +
 				// Site name is a true global not specific to Upload Wizard
 				array( 
@@ -172,19 +183,21 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return {String} html
 	 */
 	function getWizardHtml() {
-		global $wgUploadWizardConfig, $wgExtensionAssetsPath;
-
-		if ( array_key_exists( 'fallbackToAltUploadForm', $wgUploadWizardConfig ) 
-			&& array_key_exists( 'altUploadForm', $wgUploadWizardConfig ) 
-			&& $wgUploadWizardConfig['altUploadForm'] != ''
-			&& $wgUploadWizardConfig[ 'fallbackToAltUploadForm' ] 			) {
+		global $wgExtensionAssetsPath;
+		
+		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
+		
+		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf ) 
+			&& array_key_exists( 'altUploadForm', $globalConf ) 
+			&& $globalConf['altUploadForm'] != ''
+			&& $globalConf[ 'fallbackToAltUploadForm' ] 			) {
 
 			$linkHtml = '';
-			$altUploadForm = Title::newFromText( $wgUploadWizardConfig[ 'altUploadForm' ] );
+			$altUploadForm = Title::newFromText( $globalConf[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
 				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ), 
 					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ), 
-						$wgUploadWizardConfig['altUploadForm'] 
+						$globalConf['altUploadForm'] 
 					) 
 				);
 			}
@@ -197,12 +210,13 @@ class SpecialUploadWizard extends SpecialPage {
 
 		}
 	
-		$tutorialHtml = '';		
+		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
 		// TODO should use user preference not a cookie ( so the user does not have to skip it for every browser )
-		if ( !isset( $_COOKIE['skiptutorial'] ) && !$wgUploadWizardConfig['skipTutorial'] ) {
+		if ( !isset( $_COOKIE['skiptutorial'] ) && !$globalConf['skipTutorial'] ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml();
 		}
+		
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard ) 
 		return
