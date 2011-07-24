@@ -62,8 +62,6 @@ class UploadWizardConfig {
 	 * @return array
 	 */
 	protected static function getCampaignConfig( $campaignName ) {
-		$capmaignSettings = array();
-		
 		$capaign = UploadWizardCampaign::newFromName( $campaignName );
 		
 		if ( $capaign !== false && $capaign->getIsEnabled() ) {
