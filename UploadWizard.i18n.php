@@ -296,6 +296,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-name' => 'Campaign name',
 	'mwe-upwiz-campaign-enabled' => 'Campaign enabled',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Skip the licensing tutorial',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Categories to add the images to automatically',
 );
 
 /** Message documentation (Message documentation)

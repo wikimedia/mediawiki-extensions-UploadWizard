@@ -265,10 +265,11 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		} );
 	
 	// make this a category picker
-	var hiddenCats = [];
+	var hiddenCats = mw.isDefined( mw.UploadWizard.config.autoCategories ) ? mw.UploadWizard.config.autoCategories : [];
 	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) && mw.UploadWizard.config.autoCategory !== '' ) {
 		hiddenCats.push( mw.UploadWizard.config.autoCategory );
 	}
+	
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 			.find( 'input' )
 			.mwCoolCats( { 

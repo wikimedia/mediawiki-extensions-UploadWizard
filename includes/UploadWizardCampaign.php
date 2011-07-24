@@ -69,9 +69,8 @@ class UploadWizardCampaign {
 		$this->id = $id;
 		$this->name = $name;
 		$this->isEnabled = $isEnabled;
-		$this->config = $config;
 		
-		$this->loadedConfig = count( $this->config ) > 0;
+		$this->setConfig( $config );
 	}
 	
 	/**
@@ -152,7 +151,8 @@ class UploadWizardCampaign {
 	 */
 	public static function getConfigTypes() {
 		return array(
-			'skipTutorial' => 'check'
+			'skipTutorial' => 'check',
+			'autoCategories' => 'text',
 		);
 	}
 	
@@ -225,8 +225,17 @@ class UploadWizardCampaign {
 	 * @param array $config
 	 */
 	public function setConfig( array $config ) {
+		$defaultConfig = self::getDefaultConfig();
+		
+		foreach ( $config as $settingName => &$settingValue ) {
+			if ( is_array( $defaultConfig[$settingName]['default'] ) && !is_array( $settingValue ) ) {
+				$settingValue = explode( ', ', $settingValue );
+			}
+		}
+		
 		$this->config = $config;
-		$this->loadedConfig = true;
+		
+		$this->loadedConfig = count( $this->config ) > 0;
 	}
 	
 	/**
@@ -365,7 +374,7 @@ class UploadWizardCampaign {
 				array(
 					'cc_campaign_id' => $this->id,
 					'cc_property' => $prop,
-					'cc_value' => $value
+					'cc_value' => is_array( $value ) ? implode( ', ', $value ) : $value
 				)
 			);
 		}

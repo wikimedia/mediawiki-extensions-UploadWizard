@@ -15,7 +15,10 @@ return array(
 	// The default api url is for the current wiki ( can override at run time )
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 	
-	// Category to automatically add all uploaded images into. Leave empty for none.
+	// Categories to automatically add all uploaded images into.
+	'autoCategories' => array( 'Locations', 'Examples' ),
+
+	// Deprecated: use autoCategories
 	'autoCategory' => '',
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 

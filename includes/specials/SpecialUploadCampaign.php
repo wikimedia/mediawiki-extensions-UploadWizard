@@ -57,7 +57,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$enabled = $campaign ? $campaign->getIsEnabled() : false; 
 		$configFields = $campaign ? $campaign->getAllConfig() : UploadWizardCampaign::getDefaultConfig();
 		
-		$fields = array ();
+		$fields = array();
 		
 		$fields['Campaignid'] = array ( 'type' => 'hidden', 'default' => $id );
 		$fields['Campaignname'] = array ( 'type' => 'text', 'default' => $this->subPage, 'label-message' => 'mwe-upwiz-campaign-name' );
@@ -65,7 +65,20 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		
 		foreach ( $configFields as $name => $data ) {
 			$data['label-message'] = 'mwe-upwiz-campaign-conf-' . $name;
-			$fields[$name] = $data;
+			
+			// Special handling for lists of values per input type.
+			if ( is_array( $data['default'] ) ) {
+				switch ( $data['type'] ) {
+					case 'text':
+						$data['default'] = implode( ', ', $data['default'] );
+						break;
+				}
+				
+				$fields[$name] = $data;
+			}
+			else {
+				$fields[$name] = $data;
+			}
 		}
 		
 		return $fields;
