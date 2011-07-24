@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaigns (
 
 -- Upload wizard campaign config
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaign_conf (
-  cc_campaign_id           SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  cc_campaign_id           SMALLINT unsigned   NOT NULL,
   cc_property              VARCHAR(255)        NULL,
   cc_value                 BLOB                NULL
 ) /*$wgDBTableOptions*/;
