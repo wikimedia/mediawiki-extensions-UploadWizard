@@ -73,11 +73,12 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgAvailableRights[] = 'upwizcampaigns';
 
 # Users that can modify the upload campaigns (ie via Special:UploadCampaigns)
-$wgGroupPermissions['*'            ]['upwizcampaigns'] = false;
-$wgGroupPermissions['user'         ]['upwizcampaigns'] = false;
-$wgGroupPermissions['autoconfirmed']['upwizcampaigns'] = false;
-$wgGroupPermissions['bot'          ]['upwizcampaigns'] = false;
-$wgGroupPermissions['sysop'        ]['upwizcampaigns'] = true;
+$wgGroupPermissions['*'               ]['upwizcampaigns'] = false;
+$wgGroupPermissions['user'            ]['upwizcampaigns'] = false;
+$wgGroupPermissions['autoconfirmed'   ]['upwizcampaigns'] = false;
+$wgGroupPermissions['bot'             ]['upwizcampaigns'] = false;
+$wgGroupPermissions['sysop'           ]['upwizcampaigns'] = true;
+$wgGroupPermissions['upwizcampeditors']['upwizcampaigns'] = true;
 
 // Init the upload wizard config array 
 // UploadWizard.config.php includes default configuration
