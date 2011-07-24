@@ -273,29 +273,6 @@ class UploadWizardCampaign {
 	}
 	
 	/**
-	 * Returns the value of the specified config property.
-	 * 
-	 * @since 1.2
-	 * 
-	 * @param string $property
-	 * 
-	 * @return mixed
-	 */
-	public function getProperty( $property ) {
-		global $wgUploadWizardConfig;
-		
-		if ( array_key_exists( $property, $this->config ) ) {
-			return $this->config[$property];
-		}
-		elseif ( array_key_exists( $property, $wgUploadWizardConfig['campaignDefaults'] ) ) {
-			return $wgUploadWizardConfig['campaignDefaults'][$property];
-		}
-		else {
-			return null;
-		}
-	}
-	
-	/**
 	 * Write the campaign to the DB.
 	 * If it's already there, it'll be updated, else it'll be inserted.
 	 * 
