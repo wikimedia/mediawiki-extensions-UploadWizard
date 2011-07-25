@@ -368,6 +368,8 @@ class UploadWizardCampaign {
 	protected function writePropsToDB( DatabaseBase $dbw ) {
 		$success = true;
 		
+		$dbw->begin();
+		
 		foreach ( $this->config as $prop => $value ) {
 			$success &= $dbw->insert(
 				'uw_campaign_conf',
@@ -378,6 +380,8 @@ class UploadWizardCampaign {
 				)
 			);
 		}
+		
+		$dbw->commit();
 		
 		return $success;
 	}
