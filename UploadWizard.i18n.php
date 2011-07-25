@@ -302,7 +302,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Categories to add the images to automatically',
 
 	// Coolcats
-	'mw-coolcats-confirm-new-title' => 'Confirm New category',
+	'mw-coolcats-confirm-new-title' => 'Confirm new category',
 	'mw-coolcats-confirm-new' => 'It looks like you are trying to add a new category, "$1". Be aware:<ul><li>Categories should usually be in English.</li><li>Most new categories should be a subcategory of an existing category.</li></ul>Generally, only experts should add a category.',
 	'mw-coolcats-confirm-new-ok' => 'Add this category anyway',
 	'mw-coolcats-confirm-new-cancel' => 'Never mind'
