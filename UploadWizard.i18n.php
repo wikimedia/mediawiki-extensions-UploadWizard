@@ -438,6 +438,9 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 {{Identical|Cancel}}',
 	'mwe-upwiz-feedback-submit' => 'Button label',
 	'mwe-upwiz-feedback-adding' => 'Progress notice',
+	'mwe-upwiz-campaigns-edit' => '{{Identical|Edit}}',
+	'mwe-upwiz-campaigns-add' => '{{Identical|Add}}',
+	'mwe-upwiz-campaigns-delete' => '{{Identical|Delete}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -1195,6 +1198,16 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-feedback-error1' => 'Памылка: невядомы вынік з API',
 	'mwe-upwiz-feedback-error2' => 'Памылка рэдагаваньня',
 	'mwe-upwiz-feedback-error3' => 'Памылка: няма адказу ад API',
+	'mwe-upwiz-campaigns-edit' => 'Рэдагаваць',
+	'mwe-upwiz-campaigns-add' => 'Дадаць',
+	'mwe-upwiz-campaigns-addnew' => 'Дадаць новую кампанію',
+	'mwe-upwiz-campaigns-newname' => 'Назва кампаніі:',
+	'mwe-upwiz-campaigns-namedoc' => 'Назва кампаніі зьяўляецца ідэнтыфікатарам, які выкарыстоўваецца ў URL-адрасах. Напрыклад, «назва» ў ?campaign=name',
+	'mwe-upwiz-campaigns-existing' => 'Існуючыя кампаніі',
+	'mwe-upwiz-campaigns-editing' => 'Загрузіць налады кампаніі',
+	'mwe-upwiz-campaigns-delete' => 'Выдаліць',
+	'mwe-upwiz-campaigns-confdel' => 'Вы ўпэўнены, што жадаеце выдаліць гэтую кампанію?',
+	'uploadcampaign-legend' => 'Загрузіць налады кампаніі',
 );
 
 /** Bulgarian (Български)
@@ -3018,6 +3031,9 @@ $messages['de'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'Kampagnen',
 	'mwe-upwiz-uploadcampaign' => 'Konfiguration der Kampagne',
 	'right-upwizcampaigns' => 'Konfigurieren von Kampagnen',
+	'group-upwizcampeditors' => 'Kampagnenbearbeiter (Upload Wizard)',
+	'group-upwizcampeditors-member' => 'Kampagnenbearbeiter (Upload Wizard)',
+	'grouppage-upwizcampeditors' => 'Project:Kampagnenbearbeiter (Upload Wizard)',
 	'mwe-upwiz-js-off' => 'Der Assistent zum Hochladen von Dateien nutzt JavaSkript zur Verbesserung der Handhabung durch den Benutzer. Dein Browser unterstützt entweder kein JavaScript oder JavaScript wurde deaktiviert. Es wird daher das einfache Formular zum Hochladen von Dateien verwendet.',
 	'mwe-upwiz-extension-disabled' => 'Diese Seite wurde aufgrund technischer Probleme vorübergehend deaktiviert. In der Zwischenzeit kann das Standardformular zum Hochladen genutzt werden.',
 	'mwe-upwiz-code-unknown' => 'Unbekannte Sprache',
@@ -3273,6 +3289,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-campaign-name' => 'Name der Kampagne',
 	'mwe-upwiz-campaign-enabled' => 'Kampagne aktiviert',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Das Tutorium zur Lizenzierung überspringen',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorien zu denen die Bilder automatisch hinzugefügt werden sollen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -3431,20 +3448,48 @@ $messages['el'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|δευτερόλεπτο απομένει|δευτερόλεπτα απομένουν}}',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|λεπτό|λεπτά}} $2 {{PLURAL:$2|δευτερόλεπτο απομένει|δευτερόλεπτα απομένουν}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Απομένουν $1 {{PLURAL:$1|ώρα|ώρες}} $2 {{PLURAL:$2|λεπτό|λεπτά}} $3 {{PLURAL:$3|δευτερόλεπτο|δευτερόλεπτα}}',
+	'mwe-upwiz-deeds-macro-prompt' => 'Η {{SITENAME}} απαιτεί  να παρέχετε πληροφορίες πνευματικών δικαιωμάτων για {{PLURAL:$1| αυτό το έργο | αυτά τα έργα}}, για να είναι βέβαιο ότι οποιοσδήποτε μπορεί νόμιμα να {{PLURAL:$1|το|τα}} επαναχρησιμοποιήσει.',
 	'mwe-upwiz-deeds-custom-prompt' => 'Ή:',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1| Αυτό το αρχείο είναι δικό μου έργο| Αυτά τα αρχεία είναι δικά μου έργα}}.',
+	'mwe-upwiz-source-ownwork-assert-any-license' => "Εγώ, $2, κάτοχος των πνευματικών δικαιωμάτων {{PLURAL:$1| αυτού του έργου | αυτών των έργων}}, δια του παρόντος χορηγώ αμετάκλητα σε οποιονδήποτε το δικαίωμα να χρησιμοποιήσει, να τροποποιήσει και να αναδιανείμει {{PLURAL:$1|το έργο αυτό|τα έργα αυτά}} για οποιοδήποτε σκοπό , και γι 'αυτό {{PLURAL:$1|το|τα}} δημοσιεύω υπό τους ακόλουθους όρους:",
+	'mwe-upwiz-source-ownwork-assert' => 'Εγώ, $2, κάτοχος των πνευματικών δικαιωμάτων {{PLURAL:$1| αυτού του έργου|αυτών των έργων}}, δια του παρόντος χορηγώ αμετάκλητα σε οποιονδήποτε το δικαίωμα να χρησιμοποιεί {{PLURAL:$1| το έργο αυτό|τα έργα αυτά}} για οποιοδήποτε σκοπό, εφόσον με αναφέρουν ως δημιουργό και μοιράζονται το παράγωγο έργο με τους ίδιους όρους.',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Εγώ, $2, κάτοχος των πνευματικών δικαιωμάτων {{PLURAL:$1|αυτού του έργου |αυτών των έργων}}, δια του παρόντος δημοσιεύω {{PLURAL:$1|το έργο αυτό|τα έργα αυτά}} υπό την παρακάτω άδεια:',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Αυτό σημαίνει ότι δημοσιεύετε το έργο σας υπό την άδεια Creative Commons Attribution ShareAlike.',
+	'mwe-upwiz-source-permission' => 'Ο δημιουργός τους σας έδωσε την ρητή άδεια να τα ανεβάσετε',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1| Αυτό το αρχείο δεν είναι δικό μου έργο.| Αυτά τα αρχεία δεν είναι δικά μου έργα.}}',
+	'mwe-upwiz-source-thirdparty-intro' => 'Παρακαλούμε εισάγετε τη διεύθυνση όπου βρήκατε κάθε αρχείο.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Εάν όλα τα αρχεία έχουν την ίδια πηγή, δημιουργό, και καθεστώς πνευματικών δικαιωμάτων, μπορείτε να τα εισάγετε μόνο μια φορά για όλα.',
+	'mwe-upwiz-source-thirdparty-license' => 'Ο κάτοχος των πνευματικών δικαιωμάτων {{PLURAL:$1|αυτού του έργου το| των έργων αυτών τα}} δημοσίευσε υπό την παρακάτω άδεια (-ες):',
+	'mwe-upwiz-source-thirdparty-cases' => 'Τώρα μας λέτε γιατί είστε βέβαιοι ότι η {{ΌΝΟΜΑ_ΤΟΠΟΘΕΣΊΑΣ}} έχει το δικαίωμα δημοσίευσης {{PLURAL:$1|αυτού του έργου|αυτών των έργων}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Εντάξει',
+	'mwe-upwiz-source-custom' => 'Δώστε πληροφορίες πνευματικών δικαιωμάτων για κάθε αρχείο ξεχωριστά στην επόμενη σελίδα.',
 	'mwe-upwiz-more-options' => 'περισσότερες επιλογές...',
 	'mwe-upwiz-fewer-options' => 'λιγότερες επιλογές...',
 	'mwe-upwiz-desc' => 'Περιγραφή',
+	'mwe-upwiz-desc-add-n' => 'προσθέσετε περιγραφή σε άλλη γλώσσα',
 	'mwe-upwiz-desc-add-0' => 'προσθέσετε μια περιγραφή',
 	'mwe-upwiz-title' => 'Τίτλος',
+	'mwe-upwiz-media-type' => 'Τύπος πολυμέσου',
 	'mwe-upwiz-date-created' => 'Ημερομηνία δημιουργίας',
 	'mwe-upwiz-location' => 'Τοποθεσία',
 	'mwe-upwiz-copyright-info' => 'Έκδοση δικαιωμάτων',
 	'mwe-upwiz-author' => 'Δημιουργός(οι)',
+	'mwe-upwiz-autoconverted' => 'Το αρχείο αυτό αυτόματα μετατράπηκε σε μορφή $1',
 	'mwe-upwiz-other' => 'Άλλες πληροφορίες',
 	'mwe-upwiz-source' => 'Πηγή',
 	'mwe-upwiz-thanks-intro' => 'Ευχαριστίες για την αποστολή!',
+	'mwe-upwiz-thanks-explain' => 'Τώρα μπορείτε να χρησιμοποιήσετε {{PLURAL:$1|αυτό το αρχείο|αυτά τα αρχεία}} σε ιστοσελίδες όπως η Βικιπαίδεια, ή να συνδέσετε σε {{PLURAL:$1|αυτό|αυτά}} στο διαδίκτυο.',
+	'mwe-upwiz-thanks-wikitext' => '<b>Για να χρησιμοποιήσετε το αρχείο σε ένα wiki,</b> αντιγράψτε αυτό το κείμενο σε μια σελίδα:',
+	'mwe-upwiz-thanks-url' => '<b>Για να το συνδέσετε σε HTML</b>, αντιγράψτε αυτήν τη διεύθυνση URL:',
+	'mwe-upwiz-upload-error-bad-filename-extension' => 'Αυτό το wiki δεν δέχεται ονόματα αρχείων που τελειώνουν σε επέκταση ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Έχετε επιλέξει για φόρτωμα ένα αρχείο βίντεο που δεν είναι σε ελεύθερη μορφή.
+Μπορείτε να εγκαταστήσετε το [$1 Firefogg], μια επέκταση του Firefox για να μετατρέψει αυτόματα το αρχείο σας. Ή να χρησιμοποιείτε άλλες [ $2 επιλογές μετατροπής] για να μετατρέψετε το βίντεο σε ελεύθερη μορφή.',
+	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Αυτό το wiki απαιτεί ότι τα αρχεία έχουν επέκταση — όπως ".JPG" στο τέλος του ονόματος αρχείου.',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Αποστέλλετε ήδη το αρχείο "$1".',
+	'mwe-upwiz-allowed-filename-extensions' => 'Οι επιτρεπόμενες επεκτάσεις είναι:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'Επιτρέπονται οι επεκτάσεις αρχείου',
+	'mwe-upwiz-upload-error-duplicate' => 'Αυτό το αρχείο φορτώθηκε προηγουμένως σε αυτό το wiki.',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Ανεβάστε ούτως ή άλλως;',
 	'mwe-upwiz-ok' => 'Εντάξει',
 	'mwe-upwiz-cancel' => 'Άκυρο',
 	'mwe-upwiz-fileexists' => 'Ένα αρχείο με αυτό το όνομα υπάρχει ήδη.
@@ -5261,6 +5306,9 @@ $messages['he'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'העלאת מבצעי פרסום',
 	'mwe-upwiz-uploadcampaign' => 'הגדרות מבצע פרסום',
 	'right-upwizcampaigns' => 'הגדרות מבצעי 1פרסום של אשף ההעלאות',
+	'group-upwizcampeditors' => 'עורכי מבצע הפרסום של Upload Wizard',
+	'group-upwizcampeditors-member' => 'עורך מבצע הפרסום של Upload Wizard',
+	'grouppage-upwizcampeditors' => 'עורכי מבצע הפרסום של Project:Upload Wizard',
 	'mwe-upwiz-js-off' => "אשף ההעלאה משתמש בג'אווה סקריפט לשם שיפור הממשק. הדפדפן שלכם אינו תומך בג'אווה סקריפט או שהרצת הג'אווה סקריפט בו כובתה, ולכן אנחנו מראים לכם טופס העלאה פשוט.",
 	'mwe-upwiz-extension-disabled' => 'דף זה אינו פעיל זמנית עקב בעיות טכניות. בינתיים נסו את דף ההעלאות הרגיל.',
 	'mwe-upwiz-code-unknown' => 'שפה בלתי מוכרת',
@@ -5519,6 +5567,7 @@ $messages['he'] = array(
 	'mwe-upwiz-campaign-name' => 'שם מבצע הפרסום',
 	'mwe-upwiz-campaign-enabled' => 'מבצע הפרסום הופעל',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'לדלג על דף ההסברים על רישיונות',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'לאילו קטגוריות להוסיף את התמונות באופן אוטומטית',
 );
 
 /** Hindi (हिन्दी)
@@ -8206,6 +8255,9 @@ $messages['mk'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'Подигни кампањи',
 	'mwe-upwiz-uploadcampaign' => 'Подигни поставки за кампања',
 	'right-upwizcampaigns' => 'Поставки за кампањи на Помошникот за подигање',
+	'group-upwizcampeditors' => 'Уредници на кампањи - Помошник за подигање',
+	'group-upwizcampeditors-member' => 'Уредник на кампањи - Помошник за подигање',
+	'grouppage-upwizcampeditors' => 'Уредници на кампањи на Помошникот за подигање',
 	'mwe-upwiz-js-off' => 'Помошникот за подигање користи JavaScript за подобар посредник. Вашиот прелистувач не поддржува JavaScript, или пак JavaScript е исклучен. Затоа ви покажуваме прост образец за подигање.',
 	'mwe-upwiz-extension-disabled' => 'Оваа страница е оневозможена поради привремени технички проблеми. Во меѓувреме послужете се со стандардниот образец за подигање.',
 	'mwe-upwiz-code-unknown' => 'Непознат јазик',
@@ -8461,6 +8513,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-campaign-name' => 'Име на кампањата',
 	'mwe-upwiz-campaign-enabled' => 'Кампањата е овозможена',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Прескокни го објаснувањето за лиценцирање',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Категории во кои автоматски ќе се ставаат слики',
 );
 
 /** Malayalam (മലയാളം)
@@ -8473,6 +8526,9 @@ $messages['ml'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'അപ്‌ലോഡ് പ്രചരണമേള',
 	'mwe-upwiz-uploadcampaign' => 'അപ്‌ലോഡ് മേളയുടെ ക്രമീകരണം',
 	'right-upwizcampaigns' => 'അപ്‌ലോഡ് സഹായി മേളകൾ ക്രമീകരിക്കുക',
+	'group-upwizcampeditors' => 'അപ്‌ലോഡ് സഹായി മേള തിരുത്തുന്നവർ',
+	'group-upwizcampeditors-member' => 'അപ്‌ലോഡ് സഹായി മേള തിരുത്തുന്നയാൾ',
+	'grouppage-upwizcampeditors' => 'Project:അപ്‌ലോഡ് സഹായി മേള തിരുത്തുന്നവർ',
 	'mwe-upwiz-js-off' => 'അപ്‌ലോഡ് സഹായി സൗകര്യം മെച്ചപ്പെട്ട സമ്പർക്കമുഖത്തിനായി ജാവാസ്ക്രിപ്റ്റ് ഉപയോഗിക്കുന്നു. താങ്കളുടെ ബ്രൗസർ ജാവാസ്ക്രിപ്റ്റ് പിന്തുണയ്ക്കുന്നില്ലാത്തതിനാൽ, അല്ലെങ്കിൽ അത് പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നതിനാൽ, ലളിതമായ അപ്‌ലോഡ് ഫോം നൽകുന്നു.',
 	'mwe-upwiz-extension-disabled' => 'താത്കാലിക സാങ്കേതിക തകരാർ മൂലം ഈ താൾ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുകയാണ്. ഈ സമയം ആവശ്യമെങ്കിൽ സാധാരണ അപ്‌ലോഡ് ഫോം ഉപയോഗിക്കാവുന്നതാണ്.',
 	'mwe-upwiz-code-unknown' => 'അപരിചിതമായ ഭാഷ',
@@ -8583,7 +8639,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-thanks-url' => '<b>എച്ച്.റ്റി.എം.എൽ. ഉപയോഗിച്ച് കണ്ണി ചേർക്കാൻ</b>, ഈ യൂ.ആർ.എൽ. വിലാസം പകർത്തുക:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'ഈ വിക്കിയിൽ ".$1" എന്ന എക്സ്റ്റെൻഷനുള്ള പേരുള്ള പ്രമാണങ്ങൾ അനുവദിക്കുന്നില്ല.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'അപ്‌ലോഡ് ചെയ്യാനായി താങ്കൾ തിരഞ്ഞെടുത്ത വീഡിയോ പ്രമാണം സ്വതന്ത്ര ഫോർമാറ്റിലല്ല ഉള്ളത്.
-അത് സ്വയം പരിവർത്തിപ്പിക്കാൻ [$1 ഫയർഫോഗ് ഇൻസ്റ്റോൾ ചെയ്യുകയോ], [$2 മറ്റു മാർഗ്ഗങ്ങൾ] സ്വീകരിക്കുകയോ ചെയ്യാം.',
+അത് സ്വയം പരിവർത്തിപ്പിക്കാൻ [$1 ഫയർഫോഗ്] ഇൻസ്റ്റോൾ ചെയ്യുക. അല്ലെങ്കിൽ സ്വതന്ത്ര ഫോർമാറ്റിലോട്ട് മാറ്റാനുള്ള [$2 മറ്റു മാർഗ്ഗങ്ങൾ] സ്വീകരിക്കുക.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'ഈ വിക്കിയിൽ പ്രമാണത്തിന്റെ പേരിനൊടുവിൽ - ".JPG" പോലെയുള്ള എക്സ്റ്റെൻഷൻ ആവശ്യമാണ്.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => '"$1" എന്ന പ്രമാണം താങ്കൾ ഇപ്പോൾ തന്നെ അപ്‌ലോഡ് ചെയ്തുകൊണ്ടിരിക്കുകയാണ്.',
 	'mwe-upwiz-allowed-filename-extensions' => 'അനുവദിച്ചിട്ടുള്ള എക്സ്റ്റെൻഷനുകൾ:',
@@ -8730,6 +8786,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-campaign-name' => 'മേളയുടെ പേര്',
 	'mwe-upwiz-campaign-enabled' => 'മേള സജ്ജമാക്കിയിരിക്കുന്നു',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'അനുമതി നൽകൽ പഠനസഹായി വേണ്ട',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'ചിത്രങ്ങളിലേക്ക് സ്വയം ചേർക്കേണ്ട വർഗ്ഗങ്ങൾ',
 );
 
 /** Mongolian (Монгол)
@@ -11485,6 +11542,9 @@ $messages['sl'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'Naloži kampanje',
 	'mwe-upwiz-uploadcampaign' => 'Konfiguracija kampanje nalaganja',
 	'right-upwizcampaigns' => 'Konfiguriraj kampanje čarovnika nalaganja',
+	'group-upwizcampeditors' => 'Uredniki kampanj čarovnika nalaganja',
+	'group-upwizcampeditors-member' => 'Urednik kampanj čarovnika nalaganja',
+	'grouppage-upwizcampeditors' => 'Project:Uredniki kampanj čarovnika nalaganja',
 	'mwe-upwiz-js-off' => 'ČarovnikNalaganja za izboljšan vmesnik uporablja JavaScript. Vaš brskalnik ali ne podpira JavaScripta ali pa je JavaScript izklopljen, zato vam prikazujemo preprost obrazec za nalaganje.',
 	'mwe-upwiz-extension-disabled' => 'Stran je bila onemogočena zaradi začasnih tehničnih težav. V tem času poskusite uporabiti standardni obrazec za nalaganje.',
 	'mwe-upwiz-code-unknown' => 'Neznan jezik',
@@ -11743,6 +11803,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-campaign-name' => 'Ime kampanje',
 	'mwe-upwiz-campaign-enabled' => 'Kampanja je omogočena',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Preskoči vodnik po licenciranju',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorije, h katerim samodejno dodaj slike',
 );
 
 /** Somali (Soomaaliga)
