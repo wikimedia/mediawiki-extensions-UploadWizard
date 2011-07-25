@@ -26,9 +26,9 @@
  *
  * n.b. this class does not handle URI-escaping
  *
- * n.b. this class relies on the existence of two globals:
+ * n.b. this class relies on the existence of the globals:
  *   wgFormattedNamespaces - array of id numbers (as strings) to localized namespace names
- *   wgNamespaceIds - abstract namespace names to integer ids
+ *   wgArticlePath 
  */
 
 /** 
@@ -68,7 +68,7 @@
 		}
 
 		function text( s ) {
-			if ( s != null ) {
+			if ( typeof s === 'string' ) {
 				return s.replace( /_/g, ' ' );
 			} else {
 				return '';
@@ -153,10 +153,10 @@
 		 * @return {mw.Title} this
 		 */	
 		this.setNamespace = function( s ) { 
-			if ( !mw.isDefined( wgNamespaceIds[ s ] ) ) { 
+			if ( !mw.isDefined( mw.Title.ns[s] ) ) { 
 				throw new Error( 'unrecognized namespace: ' + s );
 			}
-			return this.setNamespaceById( wgNamespaceIds[ s ] );
+			return this.setNamespaceById( mw.Title.ns[s] );
 		};
 
 		/**
@@ -225,5 +225,25 @@
 		}
 
 	}; 
+
+	// This is similar to the NS_* constants in MediaWiki.
+	mw.Title.ns = {
+		'main': 0,
+		'talk': 1,
+		'user': 2,
+		'user_talk': 3,
+		'project': 4,
+		'project_talk': 5,
+		'file': 6,
+		'file_talk': 7,
+		'mediawiki': 8,
+		'mediawiki_talk': 9,
+		'template': 10,
+		'template_talk': 11,
+		'help': 12,
+		'help_talk': 13,
+		'category': 14,
+		'category_talk': 15
+	};
 } )( jQuery, mediaWiki );
 
