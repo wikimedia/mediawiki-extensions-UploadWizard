@@ -1,9 +1,137 @@
 /** 
  * Simple predictive typing category adder for Mediawiki.
- * Relies on globals: wgScriptPath, wgNamespaceIds, wgFormattedNamespaces
+ * Relies on mw.Title, mw.api.category, $.fn.removeCtrl
  * Add to the page and then use getWikiText() to get wiki text representing the categories.
  */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
+
+	/**
+	 * Get content from our text field, and attempt to insert it as a category.
+	 * May require confirmation from user if they appear to be adding a new category.
+	 */
+	function _processInput() {	
+		var $input = $container.find( 'input' );
+		var text = _stripText( $input.val() );
+		if ( text === '' ) {
+			return;
+		}
+
+		var title = new mw.Title( text, 'category' );
+	
+		var insertIt = function() {
+			_insertCat( title );
+			$input.val("");
+		};
+
+		var confirmIt = function() {
+			var buttons = [
+				{
+					text: gM( 'mw-coolcats-confirm-new-cancel' ),
+					click: function() {
+						$( this ).dialog( "close" ); 
+					}
+				},
+				{ 
+					text: gM( 'mw-coolcats-confirm-new-ok' ),
+					click: function() { 
+						insertIt();
+						$( this ).dialog( "close" ); 
+					}
+				}
+			];
+			$j( '<div></div>' )
+				.msg( 'mw-coolcats-confirm-new', title.getMainText() )
+				.dialog( {
+					width: 500,
+					zIndex: 200000,
+					autoOpen: true,
+					title: gM( 'mw-coolcats-confirm-new-title' ),
+					modal: true,
+					buttons: buttons
+				} );
+		};
+		
+		if( seenTitleText[ title.getMainText() ] ) {
+			insertIt();
+		} else {
+ 			settings.api.isCategory( title, function( isCategory ) {
+				if ( isCategory ) {
+					insertIt();
+				} else {
+					confirmIt();
+				}
+			} );
+		}
+
+	}
+
+	/**
+	 * Add a new category to the page
+	 * @param {mw.Title} title of category -- should already be in category namespace
+	 * @param {boolean} whether this category is visible to the user
+	 */
+	function _insertCat( title, isHidden ) {
+		if ( _containsCat( title ) ) {
+			return;
+		}
+		var $li = $j( '<li/>' ).addClass( 'cat' );
+		var $anchor = $j( '<a/>' ).addClass( 'cat' ).append( title.getMainText() );
+		$li.append( $anchor );
+		$li.data( 'title', title );		
+		if ( isHidden ) {
+			$li.hide();
+		} else {
+			$anchor.attr( { target: "_blank", href: title.getUrl() } );
+			$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
+		}
+		$container.find( 'ul' ).append( $li );
+	}
+
+	/**
+	 * Get all the HTML elements representing categories on the page
+	 * @return {Array of mw.Title}
+	 */
+	function _getCats() {
+		return $container.find('ul li.cat').map( function() { return $j( this ).data( 'title' ); } );
+	}
+
+	/**
+	 * Check if we already have this category on the page
+	 * @param {mw.Title}
+	 * @return boolean, true if already on the page
+	 */
+	function _containsCat( title ) {
+		var s = title.toString();
+		return _getCats().filter( function() { return this.toString() == s; } ).length !== 0;
+	}
+
+	/**
+	 * Normalize text
+	 * @param {String}
+	 * @return string stripped of some characters, trimmed
+	 */
+	function _stripText( s ) {
+		 return $j.trim( s.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' ) );
+	}
+
+	/**
+	 * Fetch and display suggestions for categories, based on what the user has already typed
+	 * into the text field
+	 */
+	function _fetchSuggestions() {
+		var _input = this;
+		// ignore bad characters, they will be stripped out
+		var prefix = _stripText( $j( this ).val() );
+
+		var ok = function( catList ) {
+			$j( _input ).suggestions( 'suggestions', catList );
+			$j.each( catList, function( i, category ) {
+				seenTitleText[category] = 1;
+			} );
+		};
+
+ 		$j( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
+	}
 
 	var defaults = {
 		buttontext: 'Add',
@@ -12,13 +140,21 @@
 	};
 
 	var settings = $j.extend( {}, defaults, options );
+	if ( !settings.api ) { 
+		throw new Error( "jQuery.mwCoolCats needs an 'api' argument" );
+	}
 
-	// usually Category:Foo
-	var categoryNamespace = wgFormattedNamespaces[wgNamespaceIds['category']];
+	// a cache of suggestions we've seen, to check if the category they finally enter is already on the wiki or not.
+	var seenTitleText = {};
 
 	var $container;
+
+	/**
+	 * Initialize the text field(s) the widget was given to be category pickers.
+	 */
 	return this.each( function() {
 		var _this = $j( this );
+		
 		_this.addClass( 'categoryInput' );
 
 		_this.suggestions( {
@@ -60,94 +196,23 @@
 		});
 
 		this.getWikiText = function() {
-			return _getCats().map( function() { return '[[' + categoryNamespace + ':' + this + ']]'; } )
-				 .toArray()
-				 .join( "\n" );
+			debugger;
+			var wikiText = '{{subst:unc}}';
+			var $cats = _getCats();
+			if ( $cats.length ) {
+				wikiText = $cats.map( function() { return '[[' + this.toString() + ']]'; } )
+					 	.toArray()
+					 	.join( "\n" );
+			}
+			return wikiText;
 		};
 
 		// initialize with some categories, if so configured
-		$j.each( settings.cats, function( i, cat ) { _insertCat( cat ); } );
-		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( cat, true ); } );
+		$j.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, 'category' ) ); } );
+		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, 'category' ), true ); } );
 
 		_processInput();
 	} );
-	
-	function _processInput() {	
-		var $input = $container.find( 'input' );
-		_insertCat( $j.trim( $input.val() ) );
-		$input.val("");
-	}
 
-	function _insertCat( cat, isHidden ) {
-		// strip out bad characters
-		cat = cat.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' );
-		if ( mw.isEmpty( cat ) || _containsCat( cat ) ) { 
-			return; 
-		}
-		var $li = $j( '<li/>' ).addClass( 'cat' );
-		var $anchor = $j( '<a/>' ).addClass( 'cat' ).append( cat );
-		$li.append( $anchor );		
-		if ( isHidden ) {
-			$li.hide();
-		} else {
-			$anchor.attr( { target: "_blank", href: _catLink( cat ) } );
-			$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
-		}
-		$container.find( 'ul' ).append( $li );
-	}
-
-	function _catLink( cat ) {
-		var catLink = 
-			encodeURIComponent( categoryNamespace ) 
-			+ ':'
-			+ encodeURIComponent( mw.ucfirst( cat.replace(/ /g, '_' ) ) );
-
-		// wgServer typically like 'http://commons.prototype.wikimedia.org'	
-		// wgArticlePath typically like '/wiki/$1'
-		if ( ! ( mw.isEmpty( wgServer ) && mw.isEmpty( wgArticlePath ) ) ) {
-			catLink = wgServer + wgArticlePath.replace( /\$1/, catLink );
-		}
-
-		return catLink;
-	}
-
-	function _getCats() {
-		return $container.find('ul li a.cat').map( function() { return $j.trim( $j( this ).text() ); } );
-	}
-
-	function _containsCat( cat ) {
-		return _getCats().filter( function() { return this == cat; } ).length !== 0;
-	}
-
-	function _fetchSuggestions( query ) {
-		var _this = this;
-		// ignore bad characters, they will be stripped out
-		var catName = $j( this ).val().replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' );
-		var request = $j.ajax( {
-			url: wgScriptPath + '/api.php',
-			data: {
-				'action': 'query',
-				'list': 'allpages',
-				'apnamespace': wgNamespaceIds['category'],
-				'apprefix': catName,
-				'format': 'json'
-			},
-			dataType: 'json',
-			success: function( data ) {
-				// Process data.query.allpages into an array of titles
-				var pages = data.query.allpages;
-				var titleArr = [];
-
-				$j.each( pages, function( i, page ) {
-					var title = page.title.split( ':', 2 )[1];
-					titleArr.push( title );
-				} );
-
-				$j( _this ).suggestions( 'suggestions', titleArr );
-			}
-		} );
-
-		$j( _this ).data( 'request', request );
-	}
 
 }; } )( jQuery );

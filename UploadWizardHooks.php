@@ -40,12 +40,6 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
 
-				// mediawiki-specific interface helper (relies on mediawiki globals)
-				'resources/jquery/jquery.mwCoolCats.js',
-
-				// wikimedia-comons specific title checker
-				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
-
 				// common utilities
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
@@ -56,9 +50,16 @@ class UploadWizardHooks {
 				'resources/mw.Uri.js',
 				'resources/mw.Api.js',
 				'resources/mw.Api.edit.js',
+				'resources/mw.Api.category.js',
 				'resources/mw.Title.js',
 				'resources/mw.Feedback.js',
 				'resources/mw.ConfirmCloseWindow.js',
+
+				// mediawiki-specific interface helper (relies on mediawiki globals)
+				'resources/jquery/jquery.mwCoolCats.js',
+
+				// wikimedia-comons specific title checker
+				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
 
 				// language menus
 				'resources/mw.LanguageUpWiz.js',
@@ -342,7 +343,11 @@ class UploadWizardHooks {
  				'size-gigabytes',
  				'size-megabytes',
  				'size-kilobytes',
- 				'size-bytes'
+ 				'size-bytes',
+				'mw-coolcats-confirm-new-title',
+				'mw-coolcats-confirm-new',
+				'mw-coolcats-confirm-new-ok',
+				'mw-coolcats-confirm-new-cancel'
 			),
 			'group' => 'ext.uploadWizard'
 		),

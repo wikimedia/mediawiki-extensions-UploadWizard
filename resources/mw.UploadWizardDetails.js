@@ -158,6 +158,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 
 	$j( moreDetailsDiv ).append( 
 		// location goes here
+		$categoriesDiv,
 		otherInformationDiv
 	);
 	
@@ -170,7 +171,6 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		descriptionAdderDiv,
 		_this.copyrightInfoFieldset,
 		dateInputDiv,
-		$categoriesDiv,
 		moreDetailsCtrlDiv,
 		moreDetailsDiv
 	);
@@ -273,6 +273,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 			.find( 'input' )
 			.mwCoolCats( { 
+				api: _this.upload.api,
 				hiddenCats: hiddenCats,
 				buttontext: gM( 'mwe-upwiz-categories-add' )  
 			} );
