@@ -2421,9 +2421,9 @@ Pokud ho chcete automaticky převést, můžete si [$1 nainstalovat Firefogg], p
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Soubor "$1" již nahráváte.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Povolené přípony jsou:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Povolené přípony souborů',
-	'mwe-upwiz-upload-error-duplicate' => 'Tento soubor byl předtím nahrán na tuto wiki.',
+	'mwe-upwiz-upload-error-duplicate' => 'Tento soubor byl na tuto wiki už dříve načten.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Přesto načíst?',
-	'mwe-upwiz-upload-error-unknown-filename-error' => 'Z neznámých důvodů nedokážeme přečíst nebo rozpoznat jméno souboru "$1".',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'Z neznámých důvodů nedokážeme přečíst nebo zpracovat jméno souboru „$1“.',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Storno',
 	'mwe-upwiz-fileexists-replace' => 'Soubor s názvem „$1“ již existuje. Změňte zvolený název na jedinečnější.',
@@ -2454,7 +2454,7 @@ U fotografií zmiňte hlavní zobrazené objekty, příležitost, při které fo
 	'mwe-upwiz-tooltip-other' => 'Libovolné další informace, které k tomuto dílu chcete přidat – zeměpisné souřadnice, odkazy na jiné verze atd.',
 	'mwe-upwiz-tooltip-more-info' => 'Další informace.',
 	'mwe-upwiz-file-need-file' => 'Prosím přidejte nejprve nahrávání.',
-	'mwe-upwiz-deeds-need-deed' => 'Prosím uveďte, kde jste získal {{PLURAL:$1|tento soubor|tyto soubory}} a jak {{PLURAL:$1|jej|je}} tato stránka může používat, výběrem jedné z možností.',
+	'mwe-upwiz-deeds-need-deed' => 'Výběrem jedné z možností uveďte, kde jste {{PLURAL:$1|tento soubor|tyto soubory}} {{gender:|získal|získala|získali}} a jak {{PLURAL:$1|jej|je}} tato wiki může používat.',
 	'mwe-upwiz-deeds-need-license' => 'Vyberte licenci.',
 	'mwe-upwiz-license-show-all' => 'Použít jinou licenci',
 	'mwe-upwiz-license-show-recommended' => 'Použít doporučenou licenci',
@@ -3290,6 +3290,10 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-campaign-enabled' => 'Kampagne aktiviert',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Das Tutorium zur Lizenzierung überspringen',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorien zu denen die Bilder automatisch hinzugefügt werden sollen',
+	'mw-coolcats-confirm-new-title' => 'Neue Kategorie bestätigen',
+	'mw-coolcats-confirm-new' => 'Es scheint, dass du die neue Kategorie „$1“ anzulegen versuchst. Beachte dabei bitte:<ul><li>Kategorien sollten in der Regel auf Englisch sein.</li><li>Die meisten neuen Kategorien sollten eine Unterkategorie einer bereits bestehenden Kategorie sein.</li></ul>Im Allgemeinen sollten nur Experten eine neue Kategorie anlegen.',
+	'mw-coolcats-confirm-new-ok' => 'Diese Kategorie dennoch hinzufügen',
+	'mw-coolcats-confirm-new-cancel' => 'Doch nicht',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -3349,6 +3353,7 @@ Verlängern Sie sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 Bitte verwenden Sie hier kein Wikitext oder HTML.',
 	'mwe-upwiz-license-custom-subhead' => 'Den Wikitext eingeben, mit dem Ihren hochgeladenen Dateien eine Lizenzvorlage hinzugefügt wird.',
 	'mwe-upwiz-license-none-applicable-subhead' => 'Sofern Sie sich nicht bezüglich der Absichten sicher sind, die der ursprüngliche Autor hatte, {{PLURAL:$1|sollte diese Datei|sollten diese Dateien}} nicht bei {{SITENAME}} hochgeladen werden. Bitte die Schaltfläche unten anklicken, um das Hochladen dieser {{PLURAL:$1|Datei|Dateien}} abzubrechen. Machen Sie sich keine Sorgen, denn bislang wurde noch nichts veröffentlicht.',
+	'mw-coolcats-confirm-new' => 'Es scheint, dass Sie die neue Kategorie „$1“ anzulegen versuchen. Beachten Sie dabei bitte:<ul><li>Kategorien sollten in der Regel auf Englisch sein.</li><li>Die meisten neuen Kategorien sollten eine Unterkategorie einer bereits bestehenden Kategorie sein.</li></ul>Im Allgemeinen sollten nur Experten eine neue Kategorie anlegen.',
 );
 
 /** Zazaki (Zazaki) */
@@ -5568,6 +5573,10 @@ $messages['he'] = array(
 	'mwe-upwiz-campaign-enabled' => 'מבצע הפרסום הופעל',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'לדלג על דף ההסברים על רישיונות',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'לאילו קטגוריות להוסיף את התמונות באופן אוטומטית',
+	'mw-coolcats-confirm-new-title' => 'אישור קטגוריה חדשה',
+	'mw-coolcats-confirm-new' => 'נראה שאתם מוסיפים קטגוריה חדשה, "$1". שימו לב:<ul><li>קטגוריות בדרך כלל אמורות להיות באנגלית.</li><li>רוב הקטגוריות החדשות צריכות להיות תת־קטגוריות של קטגוריה קיימת..</li></ul>בדרך כלל רק מומחים אמורים להוסיף קטגוריה.',
+	'mw-coolcats-confirm-new-ok' => 'להוסיף את הקטגוריה הזאת בכל זאת',
+	'mw-coolcats-confirm-new-cancel' => 'לא חשוב',
 );
 
 /** Hindi (हिन्दी)
@@ -7148,6 +7157,8 @@ Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-feedback-error1' => 'Errore: Dalla API è arrivato un risultato non riconosciuto',
 	'mwe-upwiz-feedback-error2' => 'Errore: Non è stato possibile eseguire la modifica',
 	'mwe-upwiz-feedback-error3' => 'Errore: Nessuna risposta dalla API',
+	'mwe-upwiz-campaigns-edit' => 'Modifica',
+	'mwe-upwiz-campaigns-add' => 'Aggiungi',
 );
 
 /** Japanese (日本語)
@@ -8161,6 +8172,8 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-campaigns-delete' => 'Läschen',
 	'mwe-upwiz-campaigns-confdel' => 'Sidd Dir sécher datt Dir dës Matdeelung läsche wëllt?',
 	'mwe-upwiz-campaign-name' => 'Numm vun der Matdeelung',
+	'mw-coolcats-confirm-new-title' => 'Nei Kategorie confirméieren',
+	'mw-coolcats-confirm-new-ok' => 'Dëst Kategorie trotzdem derbäisetzen',
 );
 
 /** Lithuanian (Lietuvių)
@@ -8514,6 +8527,10 @@ $messages['mk'] = array(
 	'mwe-upwiz-campaign-enabled' => 'Кампањата е овозможена',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Прескокни го објаснувањето за лиценцирање',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Категории во кои автоматски ќе се ставаат слики',
+	'mw-coolcats-confirm-new-title' => 'Потврдете нова категорија',
+	'mw-coolcats-confirm-new' => 'Се чини дека сакате да додадете нова категорија насловена како „$1“. Имајте на ум:<ul><li>Категориите обично треба да се на англиски јазик.</li><li>Највеќето нови категории треба да бидат поткатегории на веќе постоечка категорија.</li></ul>Општо земено, категории треба да додаваат само стручни корисници.',
+	'mw-coolcats-confirm-new-ok' => 'Сепак додај ја',
+	'mw-coolcats-confirm-new-cancel' => 'Тогаш, ништо',
 );
 
 /** Malayalam (മലയാളം)
@@ -8787,6 +8804,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-campaign-enabled' => 'മേള സജ്ജമാക്കിയിരിക്കുന്നു',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'അനുമതി നൽകൽ പഠനസഹായി വേണ്ട',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'ചിത്രങ്ങളിലേക്ക് സ്വയം ചേർക്കേണ്ട വർഗ്ഗങ്ങൾ',
+	'mw-coolcats-confirm-new-cancel' => 'കാര്യമാക്കേണ്ട',
 );
 
 /** Mongolian (Монгол)
@@ -9520,6 +9538,10 @@ Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-campaign-name' => 'Campagnenaam',
 	'mwe-upwiz-campaign-enabled' => 'Campagne ingeschakeld',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'De licentie-tutorial overslaan',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Categorieën om de afbeeldingen automatisch aan toe te voegen',
+	'mw-coolcats-confirm-new-title' => 'Nieuwe categorie bevestigen',
+	'mw-coolcats-confirm-new-ok' => 'Toch deze categorie toevoegen',
+	'mw-coolcats-confirm-new-cancel' => 'Laat maar',
 );
 
 /** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
@@ -10280,6 +10302,9 @@ $messages['pt'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'Campanhas de uploads',
 	'mwe-upwiz-uploadcampaign' => 'Configuração de campanha de envio de ficheiros',
 	'right-upwizcampaigns' => 'Configurar campanhas do Assistente de Envio de Ficheiros',
+	'group-upwizcampeditors' => 'Editores de campanhas do Assistente de Envio de Ficheiros',
+	'group-upwizcampeditors-member' => 'Editor de campanhas do Assistente de Envio de Ficheiros',
+	'grouppage-upwizcampeditors' => 'Project:Editores_de_campanhas_do_Assistente_de_Envio_de_Ficheiros',
 	'mwe-upwiz-js-off' => 'O Assistente de Envio de Ficheiros usa o JavaScript para melhorar a interface. Ou o seu browser não tem suporte para JavaScript, ou o JavaScript foi desligado, por isso será apresentado um formulário de envio simplificado.',
 	'mwe-upwiz-extension-disabled' => 'Esta página foi desactivada devido a problemas técnicos temporários. Por agora, tente usar o formulário padrão para envios.',
 	'mwe-upwiz-code-unknown' => 'Língua desconhecida',
@@ -10537,6 +10562,11 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-campaign-name' => 'Nome da campanha',
 	'mwe-upwiz-campaign-enabled' => 'Campanha activada',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Saltar o guia prático de licenciamento',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Categorias às quais as imagens são adicionadas automaticamente',
+	'mw-coolcats-confirm-new-title' => 'Confirmar categoria nova',
+	'mw-coolcats-confirm-new' => 'Parece que está a tentar adicionar uma categoria nova, "$1". Atenção:<ul><li>Normalmente as categorias devem estar em inglês.</li><li>A maioria das categorias novas devem ser uma subcategoria de outra categoria existente.</li></ul>Em geral, só os peritos devem adicionar categorias.',
+	'mw-coolcats-confirm-new-ok' => 'Adicionar esta categoria mesmo assim',
+	'mw-coolcats-confirm-new-cancel' => 'Não adicionar',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -11804,6 +11834,10 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-campaign-enabled' => 'Kampanja je omogočena',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Preskoči vodnik po licenciranju',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorije, h katerim samodejno dodaj slike',
+	'mw-coolcats-confirm-new-title' => 'Potrdi novo kategorijo',
+	'mw-coolcats-confirm-new' => 'Zdi se, da poskušate dodati novo kategorijo, »$1«. Bodite pozorni:<ul><li>Kategorije naj bodo po navadi v angleščini.</li><li>Večina novih kategorij naj bo podkategorija obstoječe kategorije.</li></ul>Na splošno bi naj samo strokovnjaki dodajali kategorijo.',
+	'mw-coolcats-confirm-new-ok' => 'Vseeno dodaj kategorijo',
+	'mw-coolcats-confirm-new-cancel' => 'Pozabi',
 );
 
 /** Somali (Soomaaliga)
