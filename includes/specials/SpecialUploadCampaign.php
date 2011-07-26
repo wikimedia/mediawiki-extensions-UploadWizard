@@ -33,7 +33,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	 * @see SpecialPage::getDescription()
 	 */
 	public function getDescription() {
-		return wfMsg( 'mwe-upwiz-' . strtolower( $this->mName ) );
+		return wfMsg( 'mwe-upwiz-' . strtolower( $this->getName() ) );
 	}
 	
 	/**
