@@ -302,6 +302,11 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Categories to add the files to automatically and silently',
 	'mwe-upwiz-campaign-conf-defaultCategories' => 'Default categories to list in the describe tab',
 	'mwe-upwiz-campaign-conf-autoWikiText' => 'WikiText to automatically add to all uploaded images',
+	'mwe-upwiz-campaign-conf-ownWorkOption' => 'How to handle own-work or not own-work',
+	'mwe-upwiz-campaign-owner-choice' => 'Allow the user to choose between own work and non-own work',
+	'mwe-upwiz-campaign-owner-own' => 'Only allow for own work uploads',
+	'mwe-upwiz-campaign-owner-notown' => 'Only allow for non-own work uploads',
+	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'The licences that should be choosable for own-work',
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',

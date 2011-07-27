@@ -150,12 +150,44 @@ class UploadWizardCampaign {
 	 * @return array
 	 */
 	public static function getConfigTypes() {
-		return array(
-			'skipTutorial' => 'check',
-			'autoCategories' => 'text',
-			'defaultCategories' => 'text',
-			'autoWikiText' => 'textarea',
+		$config = array(
+			'skipTutorial' => array( 
+				'type' => 'check' 
+			),
+			'autoCategories' => array( 
+				'type' => 'text' 
+			),
+			'defaultCategories' => array( 
+				'type' => 'text' 
+			),
+			'autoWikiText' => array( 
+				'type' => 'textarea',
+				'rows' => 4
+			),
+			'ownWorkOption' => array( 
+				'type' => 'radio',
+				'options' => array( 
+					wfMsg( 'mwe-upwiz-campaign-owner-choice' ) => 'choice',
+					wfMsg( 'mwe-upwiz-campaign-owner-own' ) => 'own',
+					wfMsg( 'mwe-upwiz-campaign-owner-notown' ) => 'notown'
+				)
+			),
 		);
+		
+		$globalConfig = UploadWizardConfig::getConfig();
+		
+		$config['licensesOwnWork'] = array(
+			'type' => 'multiselect',
+			'options' => array(),
+			'default' => $globalConfig['licensesOwnWork']['licenses']
+		);
+		
+		foreach ( $globalConfig['licensesOwnWork']['licenses'] as $license ) {
+			$licenceMsg = wfMsg( $globalConfig['licenses'][$license]['msg'] );
+			$config['licensesOwnWork']['options'][$licenceMsg] = $license;
+		}
+		
+		return $config;
 	}
 	
 	/**
@@ -173,9 +205,9 @@ class UploadWizardCampaign {
 			$config = array();
 			$globalConf = UploadWizardConfig::getConfig();
 		
-			foreach ( self::getConfigTypes() as $setting => $type ) {
+			foreach ( self::getConfigTypes() as $setting => $data ) {
 				if ( array_key_exists( $setting, $globalConf ) ) {
-					$config[$setting] = array( 'type' => $type, 'default' => $globalConf[$setting] );
+					$config[$setting] = array_merge( array( 'default' => $globalConf[$setting] ), $data );
 				}
 				else {
 					wfWarn( "Nonexiting Upload Wizard configuration setting '$setting' will be ignored." );
@@ -267,6 +299,21 @@ class UploadWizardCampaign {
 		}
 		
 		return $this->config;
+	}
+	
+	public function getConfigForGlobalMerge() {
+		$config = $this->getConfig();
+		
+		foreach ( $config as $settingName => &$settingValue ) {
+			if ( $settingName == 'licensesOwnWork' ) {
+				$settingValue = array_merge(
+					UploadWizardConfig::getSetting( 'licensesOwnWork' ),
+					array( 'licenses' => $settingValue )
+				);
+			}			
+		}
+		
+		return $config;		
 	}
 	
 	/**

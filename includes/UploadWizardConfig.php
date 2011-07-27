@@ -103,7 +103,7 @@ class UploadWizardConfig {
 		$capaign = UploadWizardCampaign::newFromName( $campaignName );
 		
 		if ( $capaign !== false && $capaign->getIsEnabled() ) {
-			return $capaign->getConfig();
+			return $capaign->getConfigForGlobalMerge();
 		}
 		
 		return array();

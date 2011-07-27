@@ -27,6 +27,10 @@ return array(
 	// WikiText to automatically (and silently) add to all uploaded images.
 	'autoWikiText' => '',
 
+	// Should the own work option be shown, and if not, what option should be set?
+	// Possible values: choice, own, notown
+	'ownWorkOption' => 'choice',
+
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
 	// It just describes what licenses go with what wikitext, and how to display them in 

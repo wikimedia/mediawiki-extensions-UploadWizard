@@ -24,7 +24,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	 * @param $request is the request (usually wgRequest)
 	 * @param $par is everything in the URL after Special:UploadCampaign. Not sure what we can use it for
 	 */
-	public function __construct($request = null, $par = null) {
+	public function __construct( $request = null, $par = null ) {
 		parent::__construct ( 'UploadCampaign', 'upwizcampaigns', false );
 	}
 	
@@ -73,10 +73,6 @@ class SpecialUploadCampaign extends FormSpecialPage {
 						$data['default'] = implode( ', ', $data['default'] );
 						break;
 				}
-			}
-			
-			if ( $data['type'] == 'textarea' ) {
-				$data['rows'] = 4;
 			}
 			
 			$fields[$name] = $data;
