@@ -24,6 +24,9 @@ return array(
 	// Categories to list by default in the list of cats to add.
 	'defaultCategories' => array( 'Foobar', 'Locations' ),
 
+	// WikiText to automatically (and silently) add to all uploaded images.
+	'autoWikiText' => '',
+
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
 	// It just describes what licenses go with what wikitext, and how to display them in 

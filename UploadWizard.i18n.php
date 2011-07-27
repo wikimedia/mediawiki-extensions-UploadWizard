@@ -301,6 +301,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Skip the licensing tutorial',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Categories to add the files to automatically and silently',
 	'mwe-upwiz-campaign-conf-defaultCategories' => 'Default categories to list in the describe tab',
+	'mwe-upwiz-campaign-conf-autoWikiText' => 'WikiText to automatically add to all uploaded images',
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',

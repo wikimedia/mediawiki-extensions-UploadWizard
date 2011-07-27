@@ -154,6 +154,7 @@ class UploadWizardCampaign {
 			'skipTutorial' => 'check',
 			'autoCategories' => 'text',
 			'defaultCategories' => 'text',
+			'autoWikiText' => 'textarea',
 		);
 	}
 	

@@ -69,16 +69,17 @@ class SpecialUploadCampaign extends FormSpecialPage {
 			// Special handling for lists of values per input type.
 			if ( is_array( $data['default'] ) ) {
 				switch ( $data['type'] ) {
-					case 'text':
+					case 'text': case 'textarea':
 						$data['default'] = implode( ', ', $data['default'] );
 						break;
 				}
-				
-				$fields[$name] = $data;
 			}
-			else {
-				$fields[$name] = $data;
+			
+			if ( $data['type'] == 'textarea' ) {
+				$data['rows'] = 4;
 			}
+			
+			$fields[$name] = $data;
 		}
 		
 		return $fields;

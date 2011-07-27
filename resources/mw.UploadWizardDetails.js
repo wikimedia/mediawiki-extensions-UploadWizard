@@ -688,6 +688,10 @@ mw.UploadWizardDetails.prototype = {
 		wikiText += "=={{int:license-header}}==\n";
 		wikiText += deed.getLicenseWikiText() + "\n\n";
 		
+		if ( mw.isDefined( mw.UploadWizard.config.autoWikiText ) ) {
+			wikiText += mw.UploadWizard.config.autoWikiText;
+		}
+		
 		// add categories
 		wikiText += _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
 		
