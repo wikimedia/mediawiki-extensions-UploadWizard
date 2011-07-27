@@ -153,6 +153,7 @@ class UploadWizardCampaign {
 		return array(
 			'skipTutorial' => 'check',
 			'autoCategories' => 'text',
+			'defaultCategories' => 'text',
 		);
 	}
 	

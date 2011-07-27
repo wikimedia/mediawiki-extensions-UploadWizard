@@ -275,7 +275,8 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 			.mwCoolCats( { 
 				api: _this.upload.api,
 				hiddenCats: hiddenCats,
-				buttontext: gM( 'mwe-upwiz-categories-add' )  
+				buttontext: gM( 'mwe-upwiz-categories-add' )  ,
+				cats: mw.isDefined( mw.UploadWizard.config.defaultCategories ) ? mw.UploadWizard.config.defaultCategories : []
 			} );
 
 };

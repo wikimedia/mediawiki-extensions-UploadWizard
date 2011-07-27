@@ -299,7 +299,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-name' => 'Campaign name',
 	'mwe-upwiz-campaign-enabled' => 'Campaign enabled',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Skip the licensing tutorial',
-	'mwe-upwiz-campaign-conf-autoCategories' => 'Categories to add the images to automatically',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'Categories to add the files to automatically and silently',
+	'mwe-upwiz-campaign-conf-defaultCategories' => 'Default categories to list in the describe tab',
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',
