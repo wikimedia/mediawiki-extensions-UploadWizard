@@ -231,7 +231,16 @@ class UploadWizardCampaign {
 		
 		foreach ( $config as $settingName => &$settingValue ) {
 			if ( is_array( $defaultConfig[$settingName]['default'] ) && !is_array( $settingValue ) ) {
-				$settingValue = explode( ', ', $settingValue );
+				$parts = explode( ', ', $settingValue );
+				$settingValue = array();
+				
+				foreach ( $parts as $part ) {
+					$part = trim( $part );
+					
+					if ( $part != '' ) {
+						$settingValue[] = $part;
+					}
+				}
 			}
 		}
 		
