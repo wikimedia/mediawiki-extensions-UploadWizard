@@ -1167,12 +1167,21 @@ mw.UploadWizard.prototype = {
 	// do some last minute prep before advancing to the DEEDS page
 	prepareAndMoveToDeeds: function() {
 		var _this = this;
-
-		// these deeds are standard
-		var deeds = [
-			new mw.UploadWizardDeedOwnWork( _this.uploads.length ),
-			new mw.UploadWizardDeedThirdParty( _this.uploads.length )
-		];
+		var deeds = [];
+		
+		if ( mw.isDefined( mw.UploadWizard.config.ownWorkOption ) && mw.UploadWizard.config.ownWorkOption != 'choice' ) {
+			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
+				deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
+			}
+			else {
+				deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
+			}
+		}
+		else {
+			// these deeds are standard
+			deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
+			deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
+		}
 
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
@@ -1202,7 +1211,7 @@ mw.UploadWizard.prototype = {
 				.msg( 'mwe-upwiz-deeds-custom-prompt' );
 		}
 
-		_this.moveToStep( 'deeds' );
+		_this.moveToStep( 'deeds', function() { _this.deedChooser.onLayoutReady(); } );
 
 	},
 

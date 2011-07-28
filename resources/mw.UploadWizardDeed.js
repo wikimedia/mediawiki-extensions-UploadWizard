@@ -305,6 +305,8 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 	mw.UploadWizardDeedChooser.prototype.widgetCount++;
 	_this.name = 'deedChooser' + mw.UploadWizardDeedChooser.prototype.widgetCount.toString();
 
+	_this.onLayoutReady = function(){};
+	
 	$j.each( deeds, function (i, deed) {
 		var id = _this.name + '-' + deed.name;
 		var $deedInterface = $j( 
@@ -325,13 +327,21 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 
 		deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
 
-		$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
-			if ( $j( this ).is( ':checked' )  ) {
+		if ( deeds.length == 1 ) {
+			_this.onLayoutReady = function() {
 				_this.choose( deed );
 				_this.selectDeedInterface( $deedInterface );
+				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).attr( 'checked', true );
 			}
-		} );
-
+		}
+		else {
+			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
+				if ( $j( this ).is( ':checked' )  ) {
+					_this.choose( deed );
+					_this.selectDeedInterface( $deedInterface );
+				}
+			} );			
+		}
 	} );
 
 	// deselect all deeds 
@@ -353,7 +363,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	 * How many deed choosers there are (important for creating unique ids, element names)
 	 */
 	widgetCount: 0,
-
+	
 	/** 
 	 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
 	 * @return boolean; true if valid, false if not
