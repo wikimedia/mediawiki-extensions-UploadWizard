@@ -22,7 +22,7 @@ return array(
 	'autoCategory' => '',
 
 	// Categories to list by default in the list of cats to add.
-	'defaultCategories' => array( 'Foobar', 'Locations' ),
+	'defaultCategories' => array(),
 
 	// WikiText to automatically (and silently) add to all uploaded images.
 	'autoWikiText' => '',
@@ -30,6 +30,16 @@ return array(
 	// Should the own work option be shown, and if not, what option should be set?
 	// Possible values: choice, own, notown
 	'ownWorkOption' => 'choice',
+
+	// Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired.
+	'tutorialTemplate' => 'Licensing_tutorial_$1.svg',
+
+	// The width we want to scale the tutorial to, for our interface.
+	'tutorialWidth' => 720,
+
+	// Imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
+	// Empty string or false to not have an imagemap linked to the helpdesk.
+	'tutorialHelpdeskCoords' => '27, 1319, 691, 1384',
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
