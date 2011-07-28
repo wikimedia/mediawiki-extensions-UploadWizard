@@ -114,7 +114,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 		
 		$out->addHTML( Html::element( 'label', array( 'for' => 'newcampaign' ), wfMsg( 'mwe-upwiz-campaigns-newname' ) ) );
 		
-		$out->addHTML( Html::input( 'newcampaign' ) . '&#160;' );
+		$out->addHTML( '&#160;' . Html::input( 'newcampaign' ) . '&#160;' );
 		
 		$out->addHTML( Html::input(
 			'addnewcampaign',
