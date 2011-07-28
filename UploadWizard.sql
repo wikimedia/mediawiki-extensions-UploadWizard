@@ -1,5 +1,5 @@
 -- MySQL version of the database schema for the Upload Wizard extension.
--- Licence: GNU GPL v3+
+-- Licence: GNU GPL v2+
 -- Author: Jeroen De Dauw < jeroendedauw@gmail.com >
 
 -- Upload wizard campaigns
