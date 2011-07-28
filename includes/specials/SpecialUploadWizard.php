@@ -214,7 +214,7 @@ class SpecialUploadWizard extends SpecialPage {
 		// only load the tutorial HTML if we aren't skipping the first step
 		// TODO should use user preference not a cookie ( so the user does not have to skip it for every browser )
 		if ( !isset( $_COOKIE['skiptutorial'] ) && !$globalConf['skipTutorial'] ) {
-			$tutorialHtml = UploadWizardTutorial::getHtml();
+			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
 		
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
