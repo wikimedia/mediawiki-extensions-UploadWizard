@@ -150,19 +150,20 @@ class UploadWizardCampaign {
 	 * @return array
 	 */
 	public static function getConfigTypes() {
+		$globalConfig = UploadWizardConfig::getConfig();
+		
 		$config = array(
 			'skipTutorial' => array( 
 				'type' => 'check' 
 			),
-			'autoCategories' => array( 
-				'type' => 'text' 
+			'tutorialTemplate' => array(
+				'type' => 'text',
 			),
-			'defaultCategories' => array( 
-				'type' => 'text' 
+			'tutorialWidth' => array(
+				'type' => 'int',
 			),
-			'autoWikiText' => array( 
-				'type' => 'textarea',
-				'rows' => 4
+			'tutorialHelpdeskCoords' => array(
+				'type' => 'text',
 			),
 			'ownWorkOption' => array( 
 				'type' => 'radio',
@@ -172,14 +173,21 @@ class UploadWizardCampaign {
 					wfMsg( 'mwe-upwiz-campaign-owner-notown' ) => 'notown'
 				)
 			),
-		);
-		
-		$globalConfig = UploadWizardConfig::getConfig();
-		
-		$config['licensesOwnWork'] = array(
-			'type' => 'multiselect',
-			'options' => array(),
-			'default' => $globalConfig['licensesOwnWork']['licenses']
+			'licensesOwnWork' => array(
+				'type' => 'multiselect',
+				'options' => array(),
+				'default' => $globalConfig['licensesOwnWork']['licenses']		
+			),
+			'defaultCategories' => array( 
+				'type' => 'text'
+			),
+			'autoCategories' => array( 
+				'type' => 'text' 
+			),
+			'autoWikiText' => array( 
+				'type' => 'textarea',
+				'rows' => 4
+			),
 		);
 		
 		foreach ( $globalConfig['licensesOwnWork']['licenses'] as $license ) {

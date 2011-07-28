@@ -307,6 +307,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-owner-own' => 'Only allow for own work uploads',
 	'mwe-upwiz-campaign-owner-notown' => 'Only allow for non-own work uploads',
 	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'The licences that should be choosable for own-work',
+	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language',
+	'mwe-upwiz-campaign-conf-tutorialWidth' => 'The width to scale the tutorial to',
+	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'Imagemap coordinates of the tutorial "helpdesk" button',
+	
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',
