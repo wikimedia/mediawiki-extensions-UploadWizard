@@ -4649,6 +4649,7 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
  * @author Seb35
  * @author Sherbrooke
  * @author TouzaxA
+ * @author Tpt
  * @author Trizek
  * @author Verdy p
  * @author Y-M D
@@ -4916,6 +4917,10 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-campaign-name' => 'Nom de la campagne',
 	'mwe-upwiz-campaign-enabled' => 'Campagne activée',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Passer le tutorial sur les licences',
+	'mw-coolcats-confirm-new-title' => 'Confirmer la nouvelle catégorie',
+	'mw-coolcats-confirm-new' => "Il semble que vous essayez d'ajouter une nouvelle catégorie, « $1 ». Attention : <ul><li> Le nom des catégories doit être en anglais. </li><li> Les nouvelles catégories doivent être une sous-catégorie d'une catégorie existante. </li></ul> Généralement, seuls les contributeurs expérimentés créent de nouvelles catégories.",
+	'mw-coolcats-confirm-new-ok' => 'Ajouter cette catégorie toute façon',
+	'mw-coolcats-confirm-new-cancel' => "C'est pas grave",
 );
 
 /** Franco-Provençal (Arpetan)
