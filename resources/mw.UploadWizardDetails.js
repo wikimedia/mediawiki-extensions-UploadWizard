@@ -170,9 +170,22 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 		_this.descriptionsDiv, 
 		descriptionAdderDiv,
 		_this.copyrightInfoFieldset,
-		dateInputDiv,
+		dateInputDiv
+	);
+	
+	if ( mw.UploadWizard.config.idField != '' ) {
+		var idFieldId = "idField" + ( _this.upload.index ).toString();
+		_this.idFieldInput = $j( '<input type="text" id="' + idFieldId + '" name="' + idFieldId + '" class="mwe-idfield" maxlength="15"/>' );
+		
+		_this.$form.append(
+			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idFieldLabel ),
+			$j( '<div class="mwe-id-field"></div>' ).append( _this.idFieldInput )
+		);
+	}
+	
+	_this.$form.append( 
 		moreDetailsCtrlDiv,
-		moreDetailsDiv
+		moreDetailsDiv	
 	);
 
 	_this.submittingDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-submitting' )
@@ -690,6 +703,15 @@ mw.UploadWizardDetails.prototype = {
 		
 		if ( mw.isDefined( mw.UploadWizard.config.autoWikiText ) ) {
 			wikiText += mw.UploadWizard.config.autoWikiText;
+		}
+		
+		// Add id field if needed
+		if ( mw.UploadWizard.config.idField != '' ) {
+			var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
+			
+			if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
+				wikiText += mw.UploadWizard.config.idField.replace( '$1', idFieldValue ) + "\n\n";
+			}
 		}
 		
 		// add categories

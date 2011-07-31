@@ -165,6 +165,12 @@ class UploadWizardCampaign {
 			'tutorialHelpdeskCoords' => array(
 				'type' => 'text',
 			),
+			'idField' => array(
+				'type' => 'text',
+			),
+			'idFieldLabel' => array(
+				'type' => 'text',
+			),
 			'ownWorkOption' => array( 
 				'type' => 'radio',
 				'options' => array( 

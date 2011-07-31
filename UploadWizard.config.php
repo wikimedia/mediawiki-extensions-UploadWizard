@@ -41,6 +41,13 @@ return array(
 	// Empty string or false to not have an imagemap linked to the helpdesk.
 	'tutorialHelpdeskCoords' => '27, 1319, 691, 1384',
 
+	// Field via which an ID can be provided.
+	// When non empty, this field will be shown, and $1 will be replaced by it's value.
+	'idField' => '',
+
+	// Label text to display with the id field.
+	'idFieldLabel' => '',
+
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
 	// It just describes what licenses go with what wikitext, and how to display them in 
