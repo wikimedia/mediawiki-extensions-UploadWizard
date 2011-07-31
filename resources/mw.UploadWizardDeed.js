@@ -55,11 +55,19 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		.attr( { name: "author" } )
 		.addClass( 'mwe-upwiz-sign' );
 
-	var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
-	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
-							      undefined, 
-							      mw.UploadWizard.config.licensesOwnWork,
-							      _this.uploadCount );
+	var ownWork = mw.UploadWizard.config.licensesOwnWork;
+	_this.showCustomDiv = ownWork.licenses.length > 1 || ( ownWork.licenses.length == 1 && ownWork.licenses[0] != ownWork.defaults[0] );
+
+	if ( _this.showCustomDiv ) {
+		var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
+		
+		_this.licenseInput = new mw.UploadWizardLicenseInput(
+			licenseInputDiv, 
+			undefined, 
+			mw.UploadWizard.config.licensesOwnWork,
+			_this.uploadCount
+		);		
+	}
 
 	return $j.extend( _this, { 
 
@@ -73,7 +81,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			// n.b. valid() has side effects and both should be called every time the function is called.
 			// do not short-circuit.
 			var formValid = _this.$form.valid();
-			var licenseInputValid = _this.licenseInput.valid();
+			var licenseInputValid = !_this.showCustomDiv || _this.licenseInput.valid();
 			return formValid && licenseInputValid; 
 		},
 
@@ -101,19 +109,27 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 						 $authorInput2 ),
 				$j( '<p class="mwe-small-print"></p>' ).msg(
 					'mwe-upwiz-source-ownwork-assert-note',
-					gM( 'mwe-upwiz-license-' + mw.UploadWizard.config.licensesOwnWork.defaults[0] 
+					gM( 'mwe-upwiz-license-' + mw.UploadWizard.config.licensesOwnWork.defaults[0] )
 				) 
 			); 
-			//debugger;
-			var $customDiv = $j('<div />').append( 
-				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
-				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom', 
-						 uploadCount,
-						 _this.authorInput ),
-				licenseInputDiv
-			);
+			
+			var $crossfader = $j( '<div />' ).append( $standardDiv );
+			
+			if ( _this.showCustomDiv ) {
+				var $customDiv = $j('<div />').append( 
+					$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
+					$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom', 
+							 uploadCount,
+							 _this.authorInput ),
+					 licenseInputDiv
+				);
+				
+				$crossfader.append( $customDiv );
+			}
 
-			var $crossfader = $j( '<div />' ).append( $standardDiv, $customDiv );
+			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' )
+				.append( $crossfader );
+			
 			var $toggler = $j( '<p class="mwe-more-options" style="text-align: right"></p>' )
 				.append( $j( '<a />' )
 					.msg( 'mwe-upwiz-license-show-all' ) 
@@ -128,10 +144,10 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 							$j( this ).msg( 'mwe-upwiz-license-show-recommended' );
 						}
 					} ) );
-
-			var $formFields = $j( '<div class="mwe-upwiz-deed-form-internal" />' )
-				.append( $crossfader, $toggler );
 			
+			if ( _this.showCustomDiv ) {
+				$formFields.append( $toggler );
+			}
 
 			// synchronize both username signatures
 			// set initial value to configured username
@@ -157,39 +173,47 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			// done after added to the DOM, so there are true heights
 			$crossfader.morphCrossfader();
 			
-			// choose default licenses
-			_this.licenseInput.setDefaultValues();
-
+			var rules = {
+				author2: {
+					required: function( element ) {
+						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
+					},
+					minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
+					maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
+				}
+			};
+			
+			var messages = {
+				author2: {
+					required: gM( 'mwe-upwiz-error-signature-blank' ),
+					minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+					maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+				}
+			};
+			
+			if ( _this.showCustomDiv ) {
+				// choose default licenses
+				_this.licenseInput.setDefaultValues();			
+				
+				rules.author = {
+					required: function( element ) {
+						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
+					},
+					minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
+					maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
+				};
+				
+				messages.author = {
+					required: gM( 'mwe-upwiz-error-signature-blank' ),
+					minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+					maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+				};
+			}
+			
 			// and finally, make it validatable
 			_this.formValidator = _this.$form.validate( {
-				rules: {
-					author2: {
-						required: function( element ) {
-							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
-						},
-						minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
-					},
-					author: {
-						required: function( element ) {
-							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
-						},
-						minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
-					}
-				},
-				messages: {
-					author2: {
-						required: gM( 'mwe-upwiz-error-signature-blank' ),
-						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
-					},
-					author: {
-						required: gM( 'mwe-upwiz-error-signature-blank' ),
-						minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
-					}
-				}
+				rules: rules,
+				messages: messages
 			} );
 		}
 
