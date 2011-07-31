@@ -1168,8 +1168,14 @@ mw.UploadWizard.prototype = {
 	prepareAndMoveToDeeds: function() {
 		var _this = this;
 		var deeds = [];
+		var hasChoice = mw.UploadWizard.config.ownWorkOption == 'choice';
 		
-		if ( mw.isDefined( mw.UploadWizard.config.ownWorkOption ) && mw.UploadWizard.config.ownWorkOption != 'choice' ) {
+		if ( hasChoice ) {
+			// these deeds are standard
+			deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
+			deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
+		}
+		else {
 			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
 				deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
 			}
@@ -1177,15 +1183,22 @@ mw.UploadWizard.prototype = {
 				deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
 			}
 		}
-		else {
-			// these deeds are standard
-			deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
-			deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
-		}
 
+		this.shouldShowIndividualDeed = function() {
+			if ( hasChoice ) return true;
+			
+			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
+				var ownWork = mw.UploadWizard.config.licensesOwnWork;
+				return ownWork.licenses.length > 1 || ( ownWork.licenses.length == 1 && ownWork.licenses[0] != ownWork.defaults[0] );
+			}
+			else {
+				return true; // TODO: might want to have similar behaviour here
+			}
+		}
+		
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
-		if ( _this.uploads.length > 1 ) {
+		if ( _this.uploads.length > 1 && this.shouldShowIndividualDeed() ) {
 			var customDeed = $j.extend( new mw.UploadWizardDeed(), {
 				valid: function() { return true; },
 				name: 'custom'
