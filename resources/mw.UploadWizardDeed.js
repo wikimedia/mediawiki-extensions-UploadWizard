@@ -84,6 +84,16 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			var licenseInputValid = !_this.showCustomDiv || _this.licenseInput.valid();
 			return formValid && licenseInputValid; 
 		},
+		
+		getLicenseWikiText: function() {
+			if ( _this.showCustomDiv && this.licenseInput.getWikiText() != '' ) {
+				return this.licenseInput.getWikiText();
+			}
+			else {
+				return '{{' + mw.UploadWizard.config.licensesOwnWork.filterTemplate
+					+ '|' + mw.UploadWizard.config.licensesOwnWork.defaults[0] + '}}';
+			}
+		},
 
 		getSourceWikiText: function() {
 			return '{{own}}';
