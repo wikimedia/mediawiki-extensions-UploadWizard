@@ -178,6 +178,11 @@ class UploadWizardCampaign {
 				'options' => array(),
 				'default' => $globalConfig['licensesOwnWork']['licenses']		
 			),
+			'defaultOwnWorkLicence' => array(
+				'type' => 'radio',
+				'options' => array(),
+				'default' => $globalConfig['licensesOwnWork']['defaults'][0]
+			),
 			'defaultCategories' => array( 
 				'type' => 'text'
 			),
@@ -194,6 +199,8 @@ class UploadWizardCampaign {
 			$licenceMsg = wfMsg( $globalConfig['licenses'][$license]['msg'] );
 			$config['licensesOwnWork']['options'][$licenceMsg] = $license;
 		}
+		
+		$config['defaultOwnWorkLicence']['options'] = $config['licensesOwnWork']['options'];
 		
 		return $config;
 	}
@@ -216,6 +223,11 @@ class UploadWizardCampaign {
 			foreach ( self::getConfigTypes() as $setting => $data ) {
 				if ( array_key_exists( $setting, $globalConf ) ) {
 					$config[$setting] = array_merge( array( 'default' => $globalConf[$setting] ), $data );
+				}
+				else if ( in_array( $setting, array( 'defaultOwnWorkLicence' ) ) ) {
+					// There are some special cases where a setting does not have
+					// a direct equivalent in the global config, hence the in_array().
+					$config[$setting] = $data;
 				}
 				else {
 					wfWarn( "Nonexiting Upload Wizard configuration setting '$setting' will be ignored." );
@@ -313,13 +325,18 @@ class UploadWizardCampaign {
 		$config = $this->getConfig();
 		
 		foreach ( $config as $settingName => &$settingValue ) {
-			if ( $settingName == 'licensesOwnWork' ) {
-				$settingValue = array_merge(
-					UploadWizardConfig::getSetting( 'licensesOwnWork' ),
-					array( 'licenses' => $settingValue )
-				);
-			}			
+			switch ( $settingName ) {
+				case 'licensesOwnWork':
+					$settingValue = array_merge(
+						UploadWizardConfig::getSetting( 'licensesOwnWork' ),
+						array( 'licenses' => $settingValue )
+					);
+					break;
+			}
 		}
+		
+		$config['licensesOwnWork']['defaults'] = array( $config['defaultOwnWorkLicence'] );
+		unset( $config['defaultOwnWorkLicence'] );
 		
 		return $config;		
 	}

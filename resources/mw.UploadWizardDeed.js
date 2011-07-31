@@ -99,9 +99,12 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert',
 						 uploadCount,
 						 $authorInput2 ),
-				$j( '<p class="mwe-small-print"></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-note' ) 
+				$j( '<p class="mwe-small-print"></p>' ).msg(
+					'mwe-upwiz-source-ownwork-assert-note',
+					gM( 'mwe-upwiz-license-' + mw.UploadWizard.config.licensesOwnWork.defaults[0] 
+				) 
 			); 
-			
+			//debugger;
 			var $customDiv = $j('<div />').append( 
 				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom', 
