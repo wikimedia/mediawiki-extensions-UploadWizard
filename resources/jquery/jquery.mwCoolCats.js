@@ -196,7 +196,6 @@
 		});
 
 		this.getWikiText = function() {
-			debugger;
 			var wikiText = '{{subst:unc}}';
 			var $cats = _getCats();
 			if ( $cats.length ) {
