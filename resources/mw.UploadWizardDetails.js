@@ -8,12 +8,15 @@
  * but they'll be found by selectors, not by creating them as members and then adding them to a DOM structure.
  *
  * @param UploadWizardUpload
+ * @param API
  * @param containerDiv	The div to put the interface into
  */
-mw.UploadWizardDetails = function( upload, containerDiv ) {
+mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	var _this = this;
 	_this.upload = upload;
+	
+	_this.api = api;
 
 	_this.descriptions = [];
 
@@ -367,17 +370,19 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		var $errorEl = _this.$form.find( 'label[for=' + _this.titleId + '].errorTitleUnique' );
 
-		if ( result.isUnique ) {
+		if ( result.unique.isUnique && result.blacklist.notBlacklisted ) {
 			$j( _this.titleInput ).data( 'valid', true );
 			$errorEl.hide().empty();
 			_this.ignoreWarningsInput = undefined;
 			return;
 		}
 
+		// something is wrong with this title.
 		$j( _this.titleInput ).data( 'valid', false );
 
-		// result is NOT unique
 		var titleString;
+		var errHtml;
+		
 		try { 
 			titleString = new mw.Title( result.title ).setNamespace( 'file' ).toString();
 		} catch ( e ) {
@@ -385,14 +390,54 @@ mw.UploadWizardDetails.prototype = {
 			titleString = '[unparseable name]';
 		}
 
-		var errHtml;
-		if ( result.href ) {
-			errHtml = gM( 'mwe-upwiz-fileexists-replace-on-page', titleString, $j( '<a />' ).attr( { href: result.href, target: '_blank' } ) );
+		if ( ! result.unique.isUnique ) {
+			// result is NOT unique
+			if ( result.href ) {
+				errHtml = gM( 'mwe-upwiz-fileexists-replace-on-page', titleString, $j( '<a />' ).attr( { href: result.href, target: '_blank' } ) );
+			} else {
+				errHtml = gM( 'mwe-upwiz-fileexists-replace-no-link', titleString );
+			}
+
+			$errorEl.html( errHtml ).show();
 		} else {
-			errHtml = gM( 'mwe-upwiz-fileexists-replace-no-link', titleString );
-		}
+			errHtml = gM( 'mwe-upwiz-blacklisted', titleString );
+			
+			$errorEl.html( errHtml );
+
+			var completeErrorLink = $j( '<span class="contentSubLink"></span>' ).msg(
+				'mwe-upwiz-feedback-blacklist-info-prompt',
+				function() {
+					var errorDialog = new mw.ErrorDialog( result.blacklist.blacklistReason );
+					errorDialog.launch();
+					return false;
+				}				
+			);
+
+			$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( completeErrorLink );
+			
+			// feedback request for titleblacklist
+			if ( mw.isDefined( mw.UploadWizard.config['blacklistIssuesPage'] ) && mw.UploadWizard.config['blacklistIssuesPage'] !== '' ) {
+				var feedback = new mw.Feedback(
+					_this.api,
+					new mw.Title( mw.UploadWizard.config['blacklistIssuesPage'] )
+				);
 				
-		$errorEl.html( errHtml ).show();
+				var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg(
+					'mwe-upwiz-feedback-blacklist-report-prompt',
+					function() {
+						feedback.launch( {
+							message: gM( 'mwe-upwiz-feedback-blacklist-line-intro', result.blacklist.blacklistLine ),
+							subject: gM( 'mwe-upwiz-feedback-blacklist-subject', titleString )
+						} );
+						return false;
+					}
+				);
+				
+				$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( feedbackLink );
+			}
+						
+			$errorEl.show();
+		}
 	}, 
 
 	/**

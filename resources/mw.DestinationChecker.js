@@ -31,7 +31,6 @@ mw.DestinationChecker = function( options ) {
 		}
 	} );
 
-
 	// initialize!
 
 	var check = _this.getDelayedChecker();
@@ -53,8 +52,10 @@ mw.DestinationChecker.prototype = {
 	// what tracks the wait
 	timeoutId: null,
 
-	// cached results from api calls
+	// cached results from uniqueness api calls
 	cachedResult: {},
+	
+	cachedBlacklist: {},
 
 	/**
 	 * There is an option to preprocess the name (in order to perhaps convert it from
@@ -73,21 +74,56 @@ mw.DestinationChecker.prototype = {
 	 * will trigger a check of the name if the field has been idle for delay ms.
 	 */	
 	getDelayedChecker: function() {
-		var checker = this;
+		var _this = this;
 		return function() {
-			var el = this; // but we don't use it, since we already have it in _this.selector
-
 			// if we changed before the old timeout ran, clear that timeout.
-			if ( checker.timeoutId ) {
-				window.clearTimeout( checker.timeoutId );
+			if ( _this.timeoutId ) {
+				window.clearTimeout( _this.timeoutId );
 			}
 
-			// and start another, hoping this time we'll be idle for delay ms.	
-			checker.timeoutId = window.setTimeout( 
-				function() { checker.checkUnique(); },
-				checker.delay 
+			// and start another, hoping this time we'll be idle for delay ms.
+			_this.timeoutId = window.setTimeout( 
+				function() {
+					_this.spinner( true );
+					_this.checkTitle();
+				},
+				_this.delay 
 			);
 		};
+	},
+
+	/**
+	 * the backend of getDelayedChecker, and the title checker jQuery extension
+	 * dispatches title check requests in parallel, aggregates results
+	 */
+	checkTitle: function() {
+		var _this = this;
+		var title = _this.getTitle();
+		
+		var status = {
+			'unique': null, 
+			'blacklist': null
+		};
+		
+		var checkerStatus = function( result ) { 
+			if( result.unique ) {
+				status.unique = result.unique;
+			}
+			
+			if( result.blacklist ) {
+				status.blacklist = result.blacklist;
+			}
+			
+			//$j.extend( status, result );
+			if ( status.unique !== null && status.blacklist !== null ) {
+				status.title = title;
+				_this.processResult( status );
+			}
+			_this.spinner( status.unique === null || status.blacklist === null );				
+		};
+		
+		_this.checkUnique( checkerStatus );
+		_this.checkBlacklist( checkerStatus );		
 	},
 
 	/**
@@ -97,12 +133,49 @@ mw.DestinationChecker.prototype = {
 	getTitle: function() {
 		return this.preprocess( $j( this.selector ).val() );
 	},
+	
+	/**
+	 * Async check if a title is in the titleblacklist.
+	 * @param {Function} takes object, like { 'blacklist': result }
+	 */
+	checkBlacklist: function( callback ) {
+		var _this = this;
+		var title = _this.getTitle();
+		
+		if( title === '' ) {
+			return;
+		}
 
+		if ( _this.cachedBlacklist[title] !== undefined ) {
+			callback( { 'blacklist': _this.cachedBlacklist[title] } );
+			return;
+		}
+				
+		_this.api.isBlacklisted( title, function( blacklistResult ) {
+			var result;
+			
+			if( blacklistResult === false ) {
+				result = { 'notBlacklisted': true };
+			} else {
+				result = {
+					'notBlacklisted': false,
+					'blacklistReason': blacklistResult.reason,
+					'blacklistMessage': blacklistResult.message,
+					'blacklistLine': blacklistResult.line
+				};
+			}
+			
+			_this.cachedBlacklist[title] = result;
+			callback( { 'blacklist': result } );
+		} );
+	},
+	
 	/**
 	 * Async check if a filename is unique. Can be attached to a field's change() event
 	 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
+	 * @param {Function} takes object, like { 'unique': result }
 	 */
-	checkUnique: function() {
+	checkUnique: function( callback ) {
 		var _this = this;
 		var found = false;
 		var title = _this.getTitle();
@@ -112,8 +185,8 @@ mw.DestinationChecker.prototype = {
 			return;
 		}
 		
-		if ( _this.cachedResult[name] !== undefined ) {
-			_this.processResult( _this.cachedResult[name] );
+		if ( _this.cachedResult[title] !== undefined ) {
+			callback( { 'unique': _this.cachedResult[title] } );
 			return;
 		} 
 
@@ -185,7 +258,7 @@ mw.DestinationChecker.prototype = {
 
 			if ( result !== undefined ) {
 				_this.cachedResult[title] = result;
-				_this.processResult( result );
+				callback( { 'unique': result } );
 			}
 
 		};
@@ -212,7 +285,7 @@ mw.DestinationChecker.prototype = {
 		options.selector = _this;
 		var checker = new mw.DestinationChecker( options );
 		// this should really be done with triggers
-		_this.checkUnique = function() { checker.checkUnique(); }; 
+		_this.checkTitle = function() { checker.checkTitle(); }; 
 		return _this;
 	}; 
 } )( jQuery );

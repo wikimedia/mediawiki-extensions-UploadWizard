@@ -147,6 +147,7 @@ You can install [$1 Firefogg ] a Firefox extension to automatically convert your
 Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'A file with this name exists already. If you want to replace it, go to the page for [$2 $1] and replace it there.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'A file with this name exists already.',
+	'mwe-upwiz-blacklisted' => 'Titles like this one have been banned.',
 	'mwe-upwiz-thumbnail-more' => 'Enlarge',
 	'mwe-upwiz-overwrite' => 'Replace the file',
 	'mwe-upwiz-next' => 'Next',
@@ -277,6 +278,14 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-feedback-error1' => 'Error: Unrecognized result from API',
 	'mwe-upwiz-feedback-error2' => 'Error: Edit failed',
 	'mwe-upwiz-feedback-error3' => 'Error: No response from API',
+	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 Send Feedback]',
+	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 More Info]',
+	'mwe-upwiz-feedback-blacklist-line-intro' => "This is the title blacklist entry that matched it:\n\$1",
+	'mwe-upwiz-feedback-blacklist-subject' => 'My upload title, "$1" was prohibited.',
+	
+	// Error dialog
+	'mwe-upwiz-errordialog-title' => 'There was an error in your submission',
+	'mwe-upwiz-errordialog-ok' => 'OK',
 	
 	// Special:UploadCampaigns
 	'mwe-upwiz-campaigns-name' => 'Campaign name',

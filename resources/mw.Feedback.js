@@ -4,6 +4,7 @@
 	 * Thingy for collecting user feedback on a wiki page
 	 * @param {mw.Api}  api properly configured to talk to this wiki
 	 * @param {mw.Title} the title of the page where you collect feedback
+	 * @param {id} a string identifying this feedback form to separate it from others on the same page
 	 */
 	mw.Feedback = function( api, feedbackTitle ) {
 		var _this = this;
@@ -73,9 +74,10 @@
 			this.display( 'submitting' );
 		},
 
-		displayForm: function() {
-			this.subjectInput.value = '';
-			this.messageInput.value = '';
+		displayForm: function( contents ) {
+			this.subjectInput.value = (contents && contents.subject) ? contents.subject : '';
+			this.messageInput.value = (contents && contents.message) ? contents.message : '';
+						
 			this.display( 'form' );	
 			this.$dialog.dialog( { buttons: this.buttons } ); // put the buttons back
 		},
@@ -124,8 +126,8 @@
 		}, // close submit button function
 
 
-		launch: function() {
-			this.displayForm();
+		launch: function( contents ) {
+			this.displayForm( contents );
 			this.$dialog.dialog( 'open' );
 			this.subjectInput.focus();
 		}	

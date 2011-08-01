@@ -315,5 +315,8 @@ return array(
 	
 	// URL for alternative uploading form
 	'altUploadForm' => '',
-	
+
+	// Wiki page for reporting issues with the blacklist
+	'blacklistIssuesPage' => '',
+
 );

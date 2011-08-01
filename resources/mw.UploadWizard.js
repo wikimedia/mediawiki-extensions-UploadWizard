@@ -1103,9 +1103,10 @@ mw.UploadWizard.prototype = {
 						} else {
 							upload.deedChooser = _this.deedChooser;
 						}
-
-						// only necessary if (somehow) they have beaten the check-as-you-type
-						upload.details.titleInput.checkUnique();
+						
+						// the first check, happens even if the field isn't touched
+						// (ie. user accepts default title)
+						upload.details.titleInput.checkTitle();
 					} );
 
 					_this.moveToStep( 'details' );
@@ -1325,7 +1326,7 @@ mw.UploadWizard.prototype = {
 		upload.deedPreview = new mw.UploadWizardDeedPreview( upload );
 
 		// TODO v1.1 consider if we really have to set up details now
-		upload.details = new mw.UploadWizardDetails( upload, $j( '#mwe-upwiz-macro-files' ) );
+		upload.details = new mw.UploadWizardDetails( upload, _this.api, $j( '#mwe-upwiz-macro-files' ) );
 	},
 
 	/**
