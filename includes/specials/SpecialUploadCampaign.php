@@ -46,6 +46,24 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	
 	/**
 	 * (non-PHPdoc)
+	 * @see FormSpecialPage::getForm()
+	 */
+	protected function getForm() {
+		$form = parent::getForm();
+		$form->addButton(
+			'cancelEdit',
+			wfMsg( 'cancel' ),
+			'cancelEdit',
+			array(
+				'onclick' => 'window.location="' . SpecialPage::getTitleFor( 'UploadCampaigns' )->getFullURL() . '";return false;'
+			)
+		);
+		
+		return $form;
+	}
+	
+	/**
+	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getFormFields()
 	 */
 	protected function getFormFields() {
