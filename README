@@ -1,0 +1,13 @@
+UploadWizard is an extension for MediaWiki, which adds a more user-friendly wizard for uploading media files.
+
+Although developed with Wikimedia Commons in mind, it should be useful for other users of MediaWiki as well.
+
+UploadWizard is licensed under the same terms as MediaWiki itself.
+
+UploadWizard by: 
+@author Neil Kandalgaonkar <neilk@wikimedia.org> 
+@author Ryan Kaldari <rkaldari@wikimedia.org>
+@author Ian Baker <ibaker@wikimedia.org>
+
+UploadCampaigns by:
+@author Jeroen de Dauw <jereoendedauw@gmail.com> 
