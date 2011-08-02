@@ -39,7 +39,7 @@
 			},
 
 			ajax: {
-				// force toString if we got a mw.Uri object
+				// force toString if we got a mw.uri object
 				url: new String( this.url ),  
 
 				/* default function for success and no API error */

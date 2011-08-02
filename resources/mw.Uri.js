@@ -12,7 +12,7 @@
  *
  * Example:
  *
- *     var uri = new mw.Uri( 'http://foo.com/mysite/mypage.php?quux=2' );
+ *     var uri = new mw.uri( 'http://foo.com/mysite/mypage.php?quux=2' );
  *
  *     if ( uri.host == 'foo.com' ) {
  *	   uri.host = 'www.foo.com';
@@ -62,7 +62,7 @@
 	 * @param {!Object|String} URI string, or an Object with appropriate properties (especially another URI object to clone). Object must have non-blank 'protocol', 'host', and 'path' properties.
 	 * @param {Boolean} strict mode (when parsing a string)
 	 */ 
-	mw.Uri = function( uri, strictMode ) {
+	mw.uri = function( uri, strictMode ) {
 		strictMode = !!strictMode;
 		if ( !mw.isEmpty( uri ) ) { 
 			if ( typeof uri === 'string' ) { 
@@ -88,7 +88,7 @@
 	 * @param {String} string
 	 * @return {String} encoded for URI
 	 */
-	mw.Uri.encode = function( s ) {
+	mw.uri.encode = function( s ) {
 		return encodeURIComponent( s )
 			.replace( /!/g, '%21').replace( /'/g, '%27').replace( /\(/g, '%28')
 			.replace( /\)/g, '%29').replace( /\*/g, '%2A')
@@ -100,7 +100,7 @@
 	 * @param {String} string encoded for URI
 	 * @return {String} decoded string
 	 */ 
-	mw.Uri.decode = function( s ) { 
+	mw.uri.decode = function( s ) { 
 		return decodeURIComponent( s ).replace( /\+/g, ' ' );
 	};
 
@@ -114,10 +114,10 @@
 	 * @return {String}
 	 */
 	function _cat( pre, val, post, raw ) {
-		return mw.isEmpty( val ) ? '' : pre + ( raw ? val : mw.Uri.encode( val ) ) + post;
+		return mw.isEmpty( val ) ? '' : pre + ( raw ? val : mw.uri.encode( val ) ) + post;
 	}
 
-	mw.Uri.prototype = {
+	mw.uri.prototype = {
 	
 		// regular expressions to parse many common URIs.
 		// @private
@@ -160,8 +160,8 @@
 			if ( uri.query ) { 
 				uri.query.replace( /(?:^|&)([^&=]*)(?:(=)([^&]*))?/g, function ($0, $1, $2, $3) {
 					if ( $1 ) {
-						var k = mw.Uri.decode( $1 );
-						var v = ( $2 === '' || typeof $2 === 'undefined' ) ? null : mw.Uri.decode( $3 );
+						var k = mw.uri.decode( $1 );
+						var v = ( $2 === '' || typeof $2 === 'undefined' ) ? null : mw.uri.decode( $3 );
 						if ( typeof q[ k ] === 'string' ) {
 							q[ k ] = [ q[ k ] ];
 						}
@@ -210,10 +210,10 @@
 			var args = [];
 			var _this = this;
 			$.each( this.query, function( key, val ) {
-				var k = mw.Uri.encode( key );
+				var k = mw.uri.encode( key );
 				var vals = val === null ? [ null ] : $.makeArray( val );
 				$.each( vals, function( i, v ) {
-					args.push( k + ( v === null ? '' : '=' + mw.Uri.encode( v ) ) );
+					args.push( k + ( v === null ? '' : '=' + mw.uri.encode( v ) ) );
 				} );
 			} );
 			return args.join( '&' );
@@ -240,7 +240,7 @@
 		 * @return {Object} new URI object with same properties
 		 */
 		clone: function() {
-			return new mw.Uri( this );
+			return new mw.uri( this );
 		},
 
 		/**
