@@ -27,8 +27,6 @@
 
 		this.url = options.url;
 
-		var _this = this;
-	
 		/* We allow people to omit these default parameters from API requests */
 		// there is very customizable error handling here, on a per-call basis
 		// wondering, would it be simpler to make it easy to clone the api object, change error handling, and use that instead?
