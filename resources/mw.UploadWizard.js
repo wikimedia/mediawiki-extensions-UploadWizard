@@ -1040,7 +1040,7 @@ mw.UploadWizard.prototype = {
 			.click( function() { _this.reset(); } );
 
 		$j( '.mwe-upwiz-button-home' )
-			.click( function() { window.location.href = '/'; } );
+			.click( function() { window.location.href = mw.config.get('wgArticlePath').replace("$1", ""); } );
 
 		// handler for next button
 		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next')
