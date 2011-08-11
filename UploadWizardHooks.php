@@ -24,7 +24,7 @@ class UploadWizardHooks {
 				'jquery.suggestions',
 				'jquery.ui.widget',
 				'mediawiki.language',
-				'mediawiki.uri',
+				'mediawiki.Uri',
 				'mediawiki.util',
 				'mediawiki.libs.jpegmeta',
 				'ext.uploadwizard.mediawiki.language.parser',

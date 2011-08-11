@@ -17,9 +17,9 @@
 		// TODO this only works for me (NeilK)
 		var wgScriptPath = '/w';
 
-		var pageUri = new mw.uri( window.location );
+		var pageUri = new mw.Uri( window.location );
 
-		var apiUrl = new mw.uri( { 
+		var apiUrl = new mw.Uri( { 
 			protocol: pageUri.protocol, 
 			host: pageUri.host, 
 			path: wgScriptPath + '/api.php' 
