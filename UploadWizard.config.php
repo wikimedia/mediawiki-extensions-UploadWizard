@@ -48,6 +48,10 @@ return array(
 	// Label text to display with the id field.
 	'idFieldLabel' => '',
 
+	// Page on which the text to display with the id field is stored.
+	// Overrides idFieldLabel when set. $1 is replaced by the language code.
+	'idFieldLabelPage' => false,
+
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
 	// It just describes what licenses go with what wikitext, and how to display them in 

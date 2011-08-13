@@ -171,6 +171,9 @@ class UploadWizardCampaign {
 			'idFieldLabel' => array(
 				'type' => 'text',
 			),
+			'idFieldLabelPage' => array(
+				'type' => 'text',
+			),
 			'ownWorkOption' => array( 
 				'type' => 'radio',
 				'options' => array( 
@@ -327,6 +330,14 @@ class UploadWizardCampaign {
 		return $this->config;
 	}
 	
+	/**
+	 * Returns the configuration, ready for merging with the
+	 * global configuration.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @return arrayu
+	 */
 	public function getConfigForGlobalMerge() {
 		$config = $this->getConfig();
 		
@@ -341,8 +352,27 @@ class UploadWizardCampaign {
 			}
 		}
 		
+		foreach ( self::getDefaultConfig() as $name => $data ) {
+			if ( !array_key_exists( $name, $config ) ) {
+				$config[$name] = $data['default'];
+			}
+		}
+		
 		$config['licensesOwnWork']['defaults'] = array( $config['defaultOwnWorkLicence'] );
 		unset( $config['defaultOwnWorkLicence'] );
+		
+		$labelPage = $config['idFieldLabelPage'];
+		$config['idFieldLabelPage'] = false;
+		
+		if ( trim( $labelPage ) != '' ) {
+			global $wgLang;
+			$labelPage = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $labelPage ) );
+			
+			if ( !is_null( $labelPage ) && $labelPage->exists() ) {
+				$article = new Article( $labelPage );
+				$config['idFieldLabelPage'] = $article->getContent();
+			}
+		}
 		
 		return $config;		
 	}

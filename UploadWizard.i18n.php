@@ -322,6 +322,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'The default own work license',
 	'mwe-upwiz-campaign-conf-idField' => 'Id field wikitext. Example: <nowiki>{{Rijksmonument|$1}}</nowiki>. Blank to not display field',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'Id field label text',
+	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Page name with text for the id field label ($1 for lang code)',
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',
