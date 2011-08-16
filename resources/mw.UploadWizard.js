@@ -550,12 +550,18 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	getUploadHandler: function(){
 		if( !this.uploadHandler ){
-			if( typeof( Firefogg ) != 'undefined'
+			if( mw.UploadWizard.config[ 'enableFirefogg' ]
 					&&
-				mw.UploadWizard.config[ 'enableFirefogg' ]
+				typeof( Firefogg ) != 'undefined'
 			) {
 				mw.log("mw.UploadWizard::getUploadHandler> FirefoggHandler");
 				this.uploadHandler = new mw.FirefoggHandler( this, this.api );			
+			} else if( mw.UploadWizard.config[ 'enableFormData' ] &&
+						(($j.browser.mozilla && $j.browser.version >= '5.0') ||
+						 ($j.browser.webkit && $j.browser.version >= '534.28'))
+            ) {
+				mw.log("mw.UploadWizard::getUploadHandler> ApiUploadFormDataHandler");
+				this.uploadHandler = new mw.ApiUploadFormDataHandler( this, this.api );
 			} else {
 				// By default use the apiUploadHandler
 				mw.log("mw.UploadWizard::getUploadHandler> ApiUploadHandler");

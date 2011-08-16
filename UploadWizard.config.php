@@ -287,6 +287,9 @@ return array(
 	//		supports "passthrough" mode so that assets that don't need conversions behave very similar
 	//		to a normal XHR post. 
 	'enableFirefogg' => false,
+
+	// Check if we want to enable FormData upload
+	'enableFormData' => false,
 	
 	// Setup list of video extensions for recomending firefogg. 
 	'transcodeExtensionList' => array( 'avi','asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
