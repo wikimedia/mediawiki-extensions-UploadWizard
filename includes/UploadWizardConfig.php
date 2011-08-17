@@ -100,10 +100,10 @@ class UploadWizardConfig {
 	 * @return array
 	 */
 	protected static function getCampaignConfig( $campaignName ) {
-		$capaign = UploadWizardCampaign::newFromName( $campaignName );
+		$campaign = UploadWizardCampaign::newFromName( $campaignName );
 		
-		if ( $capaign !== false && $capaign->getIsEnabled() ) {
-			return $capaign->getConfigForGlobalMerge();
+		if ( $campaign !== false && $campaign->getIsEnabled() ) {
+			return $campaign->getConfigForGlobalMerge();
 		}
 		
 		return array();
