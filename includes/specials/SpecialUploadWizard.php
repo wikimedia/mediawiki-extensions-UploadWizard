@@ -45,8 +45,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgRequest, $wgLang, $wgUser, $wgOut, $wgExtensionAssetsPath,
-		       $wgUploadWizardDisableResourceLoader;
+		global $wgRequest, $wgLang, $wgUser, $wgOut;
 
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
@@ -76,19 +75,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
-		if ( !$wgUploadWizardDisableResourceLoader && class_exists( 'ResourceLoader' ) ) {
-			$wgOut->addModules( 'ext.uploadWizard' );
-		} else {
-			$basepath = "$wgExtensionAssetsPath/UploadWizard";
-			$dependencyLoader = new UploadWizardDependencyLoader( $wgLang->getCode() );
-			if ( UploadWizardConfig::getSetting( 'debug', $this->campaign ) ) {
-				// each file as an individual script or style
-				$dependencyLoader->outputHtmlDebug( $wgOut, $basepath );
-			} else {
-				// combined & minified
-				$dependencyLoader->outputHtml( $wgOut, $basepath );
-			}
-		}
+		$wgOut->addModules( 'ext.uploadWizard' );
 
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
