@@ -50,12 +50,6 @@
 	position: static;
 }
 
-/* Make category add button smaller */
-.cat-widget .ui-button-text {
-	padding: 0;
-}
-
-
 /* Utilities */
 .pkg:after, #content-inner:after {
     content: " ";
