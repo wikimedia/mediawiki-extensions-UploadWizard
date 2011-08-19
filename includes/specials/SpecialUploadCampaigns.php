@@ -157,7 +157,15 @@ class SpecialUploadCampaigns extends SpecialPage {
 		foreach ( $campaigns as $campaign ) {
 			$out->addHTML(
 				'<tr>' .
-					Html::element( 'td', array(), $campaign->campaign_name ) .
+					'<td>' .
+						Html::element( 
+							'a',
+							array(
+								'href' => SpecialPage::getTitleFor( 'UploadWizard' )->getLocalURL( array( 'campaign' => $campaign->campaign_name ) )
+							),
+							$campaign->campaign_name
+						) .
+					'</td>' .
 					Html::element( 'td', array(), wfMsg( 'mwe-upwiz-campaigns-' . ( $campaign->campaign_enabled ? 'enabled' : 'disabled' ) ) ) .
 					'<td>' .
 						Html::element( 
