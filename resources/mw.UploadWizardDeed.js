@@ -56,7 +56,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		.addClass( 'mwe-upwiz-sign' );
 
 	var ownWork = mw.UploadWizard.config.licensesOwnWork;
-	var licenseIsNotDefault = ( ownWork.licenses.length == 1 && ownWork.licenses[0] != ownWork.defaults[0] );
+	var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
 	_this.showCustomDiv = ownWork.licenses.length > 1 || licenseIsNotDefault;
 
 	if ( _this.showCustomDiv ) {

@@ -1196,7 +1196,7 @@ mw.UploadWizard.prototype = {
 			
 			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
 				var ownWork = mw.UploadWizard.config.licensesOwnWork;
-				var licenseIsNotDefault = ( ownWork.licenses.length == 1 && ownWork.licenses[0] != ownWork.defaults[0] );
+				var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
 				return ownWork.licenses.length > 1 || licenseIsNotDefault;
 			}
 			else {
