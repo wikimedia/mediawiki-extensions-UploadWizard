@@ -181,7 +181,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		_this.idFieldInput = $j( '<input type="text" id="' + idFieldId + '" name="' + idFieldId + '" class="mwe-idfield" maxlength="15"/>' );
 		
 		_this.$form.append(
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idFieldLabel ),
+			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + idFieldId + '" generated="true"/></div>' ),
+			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idFieldLabel ).requiredFieldLabel(),
 			$j( '<div class="mwe-id-field"></div>' ).append( _this.idFieldInput )
 		);
 	}
@@ -253,6 +254,15 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				$this.data( 'open', 0 ).datepicker( 'hide' );
 			} 
 		} );
+	
+	if ( mw.UploadWizard.config.idField != '' ) {
+		_this.idFieldInput.rules( "add", {
+			required: true,
+			messages: {
+				required: gM( 'mwe-upwiz-error-blank' )
+			}
+		} );
+	}
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
