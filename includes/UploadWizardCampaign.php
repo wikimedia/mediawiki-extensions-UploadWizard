@@ -153,6 +153,9 @@ class UploadWizardCampaign {
 		$globalConfig = UploadWizardConfig::getConfig();
 		
 		$config = array(
+			'headerLabelPage' => array(
+				'type' => 'text',
+			),
 			'skipTutorial' => array( 
 				'type' => 'check' 
 			),
@@ -361,20 +364,36 @@ class UploadWizardCampaign {
 		$config['licensesOwnWork']['defaults'] = array( $config['defaultOwnWorkLicence'] );
 		unset( $config['defaultOwnWorkLicence'] );
 		
-		$labelPage = $config['idFieldLabelPage'];
-		$config['idFieldLabelPage'] = false;
+		$config['idFieldLabelPage'] = $this->getPageContent( $config['idFieldLabelPage'] );
+		$config['headerLabelPage'] = $this->getPageContent( $config['headerLabelPage'] );
 		
-		if ( trim( $labelPage ) != '' ) {
+		return $config;
+	}
+	
+	/**
+	 * Gets content of the specified page, or false if there is no such page.
+	 * '$1' in $pageName is replaced by the code of the current language.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @param string $pageName
+	 * 
+	 * @return string|false
+	 */
+	protected function getPageContent( $pageName ) {
+		$content = false;
+		
+		if ( trim( $pageName ) != '' ) {
 			global $wgLang;
-			$labelPage = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $labelPage ) );
+			$page = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $pageName ) );
 			
-			if ( !is_null( $labelPage ) && $labelPage->exists() ) {
-				$article = new Article( $labelPage );
-				$config['idFieldLabelPage'] = $article->getContent();
+			if ( !is_null( $page ) && $page->exists() ) {
+				$article = new Article( $page );
+				$content = $article->getContent();
 			}
 		}
 		
-		return $config;		
+		return $content;
 	}
 	
 	/**

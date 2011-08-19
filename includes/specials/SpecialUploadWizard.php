@@ -19,15 +19,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @since 1.2
 	 * @var string|null
 	 */
-	protected $campaign;
+	protected $campaign = null;
 
 	// $request is the request (usually wgRequest)
 	// $par is everything in the URL after Special:UploadWizard. Not sure what we can use it for
 	public function __construct( $request = null, $par = null ) {
-		global $wgRequest;
-		// here we would configure ourselves based on stuff in $request and $wgRequest, but so far, we
-		// don't have such things
-
 		parent::__construct( 'UploadWizard', 'upload' );
 
 		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
@@ -56,13 +52,13 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 		
-		$this->campaign = $wgRequest->getVal( 'campaign' );
-		
 		// if query string includes 'skiptutorial=true' set config variable to true
 		if ( $wgRequest->getCheck( 'skiptutorial' ) ) {
 			$skip = in_array( $wgRequest->getText( 'skiptutorial' ), array( '1', 'true' ) );
 			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
 		}
+		
+		$this->handleCampaign();
 
 		// fallback for non-JS
 		$wgOut->addHTML( '<noscript>' );
@@ -82,6 +78,48 @@ class SpecialUploadWizard extends SpecialPage {
 		$wgOut->addHTML( self::getWizardHtml() );
 	}
 
+	/**
+	 * Handles the campaign parameter.
+	 * 
+	 * @since 1.2
+	 */
+	protected function handleCampaign() {
+		global $wgRequest;
+		$campaignName = $wgRequest->getVal( 'campaign' );
+		
+		if ( $campaignName != '' ) {
+			$campaign = UploadWizardCampaign::newFromName( $campaignName, false );
+			
+			if ( $campaign === false ) {
+				$this->displayError( wfMsgExt( 'mwe-upwiz-error-nosuchcampaign', 'parsemag', $campaignName ) );
+			}
+			else {
+				if ( $campaign->getIsEnabled() ) {
+					$this->campaign = $campaignName;
+				}
+				else {
+					$this->displayError( wfMsgExt( 'mwe-upwiz-error-campaigndisabled', 'parsemag', $campaignName ) );
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Display an error message.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @param string $message
+	 */
+	protected function displayError( $message ) {
+		global $wgOut;
+		$wgOut->addHTML( Html::element(
+			'span',
+			array( 'class' => 'errorbox' ),
+			$message
+		) . '<br /><br /><br />' );
+	}
+	
 	/**
 	 * Adds some global variables for our use, as well as initializes the UploadWizard
 	 * 
@@ -174,6 +212,11 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
 		
+		if ( $globalConf['headerLabelPage'] !== false ) {
+			global $wgOut;
+			$wgOut->addWikiText( $globalConf['headerLabelPage'] );
+		}
+		
 		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf ) 
 			&& array_key_exists( 'altUploadForm', $globalConf ) 
 			&& $globalConf['altUploadForm'] != ''
@@ -206,7 +249,7 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard ) 
-		return
+		return 
 		  '<div id="upload-wizard" class="upload-section">'
 
 			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.

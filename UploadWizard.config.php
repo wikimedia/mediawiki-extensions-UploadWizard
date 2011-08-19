@@ -27,6 +27,10 @@ return array(
 	// WikiText to automatically (and silently) add to all uploaded images.
 	'autoWikiText' => '',
 
+	// Page containing the (wiki)text to display above the UploadWizard UI.
+	// $1 is replaced by the language code.
+	'headerLabelPage' => '',
+
 	// Should the own work option be shown, and if not, what option should be set?
 	// Possible values: choice, own, notown
 	'ownWorkOption' => 'choice',
