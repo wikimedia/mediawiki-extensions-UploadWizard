@@ -360,7 +360,17 @@ class UploadWizardHooks {
 				'mw-coolcats-confirm-new-title',
 				'mw-coolcats-confirm-new',
 				'mw-coolcats-confirm-new-ok',
-				'mw-coolcats-confirm-new-cancel'
+				'mw-coolcats-confirm-new-cancel',
+				'wm-license-cc-by-sa-3.0-at-text',
+				'wm-license-cc-by-sa-3.0-de-text',
+				'wm-license-cc-by-sa-3.0-ee-text',
+				'wm-license-cc-by-sa-3.0-es-text',
+				'wm-license-cc-by-sa-3.0-hr-text',
+				'wm-license-cc-by-sa-3.0-lu-text',
+				'wm-license-cc-by-sa-3.0-nl-text',
+				'wm-license-cc-by-sa-3.0-no-text',
+				'wm-license-cc-by-sa-3.0-pl-text',
+				'wm-license-cc-by-sa-3.0-ro-text',
 			),
 			'group' => 'ext.uploadWizard'
 		),

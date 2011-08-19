@@ -72,6 +72,56 @@ return array(
 			'templates' => array( 'GFDL', 'cc-by-sa-3.0' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
+		'cc-by-sa-3.0-at' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-at-text',
+			'templates' => array( 'cc-by-sa-3.0-at' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-de' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-de-text',
+			'templates' => array( 'cc-by-sa-3.0-de' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-ee' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-ee-text',
+			'templates' => array( 'cc-by-sa-3.0-ee' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-es' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-es-text',
+			'templates' => array( 'cc-by-sa-3.0-es' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-hr' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-hr-text',
+			'templates' => array( 'cc-by-sa-3.0-hr' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-lu' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-lu-text',
+			'templates' => array( 'cc-by-sa-3.0-lu' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-nl' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-nl-text',
+			'templates' => array( 'cc-by-sa-3.0-nl' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-no' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-no-text',
+			'templates' => array( 'cc-by-sa-3.0-no' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-pl' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-pl-text',
+			'templates' => array( 'cc-by-sa-3.0-pl' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
+		'cc-by-sa-3.0-ro' => array(
+			'msg' => 'wm-license-cc-by-sa-3.0-ro-text',
+			'templates' => array( 'cc-by-sa-3.0-ro' ),
+			'icons' => array( 'cc-by', 'cc-sa' )
+		),
 		'cc-by-3.0' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-3.0',
 			'icons' => array( 'cc-by' )
