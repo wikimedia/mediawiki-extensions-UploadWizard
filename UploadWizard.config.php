@@ -54,7 +54,7 @@ return array(
 
 	// Page on which the text to display with the id field is stored.
 	// Overrides idFieldLabel when set. $1 is replaced by the language code.
-	'idFieldLabelPage' => false,
+	'idFieldLabelPage' => '',
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.

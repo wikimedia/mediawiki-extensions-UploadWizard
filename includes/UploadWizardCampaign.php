@@ -364,36 +364,7 @@ class UploadWizardCampaign {
 		$config['licensesOwnWork']['defaults'] = array( $config['defaultOwnWorkLicence'] );
 		unset( $config['defaultOwnWorkLicence'] );
 		
-		$config['idFieldLabelPage'] = $this->getPageContent( $config['idFieldLabelPage'] );
-		$config['headerLabelPage'] = $this->getPageContent( $config['headerLabelPage'] );
-		
 		return $config;
-	}
-	
-	/**
-	 * Gets content of the specified page, or false if there is no such page.
-	 * '$1' in $pageName is replaced by the code of the current language.
-	 * 
-	 * @since 1.2
-	 * 
-	 * @param string $pageName
-	 * 
-	 * @return string|false
-	 */
-	protected function getPageContent( $pageName ) {
-		$content = false;
-		
-		if ( trim( $pageName ) != '' ) {
-			global $wgLang;
-			$page = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $pageName ) );
-			
-			if ( !is_null( $page ) && $page->exists() ) {
-				$article = new Article( $page );
-				$content = $article->getContent();
-			}
-		}
-		
-		return $content;
 	}
 	
 	/**

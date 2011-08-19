@@ -132,10 +132,17 @@ class SpecialUploadWizard extends SpecialPage {
 	public function addJsVars( $subPage ) {
 		global $wgOut, $wgSitename;
 		
+		$config = UploadWizardConfig::getConfig( $this->campaign );
+		
+		$labelPageContent = $this->getPageContent( $config['idFieldLabelPage'] );
+		if ( $labelPageContent !== false ) {
+			$config['idFieldLabel'] = $labelPageContent;
+		}
+		
 		$wgOut->addScript( 
 			Skin::makeVariablesScript( 
 				array(
-					'UploadWizardConfig' => UploadWizardConfig::getConfig( $this->campaign ) 
+					'UploadWizardConfig' => $config
 				) +
 				// Site name is a true global not specific to Upload Wizard
 				array( 
@@ -143,7 +150,32 @@ class SpecialUploadWizard extends SpecialPage {
 				)
 			)
 		);
-
+	}
+	
+	/**
+	 * Gets content of the specified page, or false if there is no such page.
+	 * '$1' in $pageName is replaced by the code of the current language.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @param string $pageName
+	 * 
+	 * @return string|false
+	 */
+	protected function getPageContent( $pageName ) {
+		$content = false;
+		
+		if ( trim( $pageName ) != '' ) {
+			global $wgLang;
+			$page = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $pageName ) );
+			
+			if ( !is_null( $page ) && $page->exists() ) {
+				$article = new Article( $page );
+				$content = $article->getContent();
+			}
+		}
+		
+		return $content;
 	}
 
 	/**
@@ -212,9 +244,10 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
 		
-		if ( $globalConf['headerLabelPage'] !== false ) {
+		$headerContent = $this->getPageContent( $globalConf['headerLabelPage'] );
+		if ( $headerContent !== false ) {
 			global $wgOut;
-			$wgOut->addWikiText( $globalConf['headerLabelPage'] );
+			$wgOut->addWikiText( $headerContent );
 		}
 		
 		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf ) 

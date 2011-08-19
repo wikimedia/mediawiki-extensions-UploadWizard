@@ -180,15 +180,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		var idFieldId = "idField" + ( _this.upload.index ).toString();
 		_this.idFieldInput = $j( '<input type="text" id="' + idFieldId + '" name="' + idFieldId + '" class="mwe-idfield" maxlength="15"/>' );
 		
-		if ( mw.UploadWizard.config.idFieldLabelPage !== false ) {
-			var label = mw.UploadWizard.config.idFieldLabelPage;
-		}
-		else {
-			var label = mw.UploadWizard.config.idFieldLabel;
-		}
-		
 		_this.$form.append(
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( label ),
+			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idFieldLabel ),
 			$j( '<div class="mwe-id-field"></div>' ).append( _this.idFieldInput )
 		);
 	}
