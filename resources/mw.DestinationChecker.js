@@ -150,8 +150,12 @@ mw.DestinationChecker.prototype = {
 			callback( { 'blacklist': _this.cachedBlacklist[title] } );
 			return;
 		}
-				
-		_this.api.isBlacklisted( title, function( blacklistResult ) {
+		
+		/**
+		 * Processes result of a TitleBlacklist api call with callback()
+		 * @param mixed - false if not blacklisted, object if blacklisted
+		 */
+		var blacklistResultProcessor = function( blacklistResult ) {
 			var result;
 			
 			if( blacklistResult === false ) {
@@ -167,7 +171,14 @@ mw.DestinationChecker.prototype = {
 			
 			_this.cachedBlacklist[title] = result;
 			callback( { 'blacklist': result } );
-		} );
+		};
+
+		if ( UploadWizardConfig.useTitleBlacklistApi ) {
+			_this.api.isBlacklisted( title, blacklistResultProcessor );
+		} else {
+			// it's not blacklisted, because the API isn't even available 
+			blacklistResultProcessor( false );
+		}
 	},
 	
 	/**

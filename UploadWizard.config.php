@@ -377,6 +377,9 @@ return array(
 	// URL for alternative uploading form
 	'altUploadForm' => '',
 
+	// Is titleBlacklist API even available? 
+	'useTitleBlacklistApi' => array_key_exists( 'titleblacklist', $wgAPIModules ),
+
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
 
