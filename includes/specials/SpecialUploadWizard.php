@@ -170,7 +170,7 @@ class SpecialUploadWizard extends SpecialPage {
 			$page = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $pageName ) );
 			
 			if ( !is_null( $page ) && $page->exists() ) {
-				$article = new Article( $page );
+				$article = new Article( $page, 0 );
 				$content = $article->getContent();
 			}
 		}
