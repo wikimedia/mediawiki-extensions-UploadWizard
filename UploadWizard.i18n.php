@@ -147,7 +147,7 @@ You can install [$1 Firefogg ] a Firefox extension to automatically convert your
 Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'A file with this name exists already. If you want to replace it, go to the page for [$2 $1] and replace it there.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'A file with this name exists already.',
-	'mwe-upwiz-blacklisted' => 'Titles like this one have been banned.',
+	'mwe-upwiz-blacklisted' => 'Please choose a different, descriptive title.',
 	'mwe-upwiz-thumbnail-more' => 'Enlarge',
 	'mwe-upwiz-overwrite' => 'Replace the file',
 	'mwe-upwiz-next' => 'Next',
