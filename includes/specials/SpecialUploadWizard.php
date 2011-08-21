@@ -139,6 +139,8 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['idFieldLabel'] = $labelPageContent;
 		}
 		
+		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
+		
 		$wgOut->addScript( 
 			Skin::makeVariablesScript( 
 				array(
@@ -159,10 +161,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @since 1.2
 	 * 
 	 * @param string $pageName
+	 * @param boolean $parse
 	 * 
 	 * @return string|false
 	 */
-	protected function getPageContent( $pageName ) {
+	protected function getPageContent( $pageName, $parse = false ) {
 		$content = false;
 		
 		if ( trim( $pageName ) != '' ) {
@@ -172,6 +175,11 @@ class SpecialUploadWizard extends SpecialPage {
 			if ( !is_null( $page ) && $page->exists() ) {
 				$article = new Article( $page, 0 );
 				$content = $article->getContent();
+				
+				if ( $parse ) {
+					global $wgOut;
+					$content = $wgOut->parse( $content );
+				}
 			}
 		}
 		

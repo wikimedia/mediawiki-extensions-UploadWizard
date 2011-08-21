@@ -31,6 +31,11 @@ return array(
 	// $1 is replaced by the language code.
 	'headerLabelPage' => '',
 
+	// Page containing the (wiki)text to display on top of the "use" page.
+	// $1 is replaced by the language code.
+	// When not provided, the message mwe-upwiz-thanks-intro will be used.
+	'thanksLabelPage' => '',
+
 	// Should the own work option be shown, and if not, what option should be set?
 	// Possible values: choice, own, notown
 	'ownWorkOption' => 'choice',

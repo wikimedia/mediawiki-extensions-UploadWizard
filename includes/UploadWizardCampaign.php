@@ -199,11 +199,14 @@ class UploadWizardCampaign {
 				'type' => 'text'
 			),
 			'autoCategories' => array( 
-				'type' => 'text' 
+				'type' => 'text'
 			),
 			'autoWikiText' => array( 
 				'type' => 'textarea',
 				'rows' => 4
+			),
+			'thanksLabelPage' => array(
+				'type' => 'text'
 			),
 		);
 		

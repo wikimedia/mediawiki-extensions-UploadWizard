@@ -1721,10 +1721,21 @@ mw.UploadWizard.prototype = {
 	prefillThanksPage: function() {
 		var _this = this;
 
+		var thnxHeader = $j( '<h3 style="text-align: center;"></h3>' );
+		
+		if ( mw.UploadWizard.config.thanksLabel === false ) {
+			thnxHeader.msg( 'mwe-upwiz-thanks-intro' );
+		}
+		else {
+			thnxHeader.html( mw.UploadWizard.config.thanksLabel );
+		}
+		
 		$j( '#mwe-upwiz-thanks' )
-			.append( $j( '<h3 style="text-align: center;"></h3>' ).msg( 'mwe-upwiz-thanks-intro' ),
-				 $j( '<p style="margin-bottom: 2em; text-align: center;">' )
-					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length ) );
+			.append(
+				thnxHeader,
+				$j( '<p style="margin-bottom: 2em; text-align: center;">' )
+					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length )
+			);
 
 		$j.each( _this.uploads, function(i, upload) {
 			var id = 'thanksDiv' + i;
