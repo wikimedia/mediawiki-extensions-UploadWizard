@@ -78,52 +78,52 @@ return array(
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-at' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-at-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-at',
 			'templates' => array( 'cc-by-sa-3.0-at' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-de' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-de-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-de',
 			'templates' => array( 'cc-by-sa-3.0-de' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-ee' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-ee-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-ee',
 			'templates' => array( 'cc-by-sa-3.0-ee' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-es' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-es-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-es',
 			'templates' => array( 'cc-by-sa-3.0-es' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-hr' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-hr-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-hr',
 			'templates' => array( 'cc-by-sa-3.0-hr' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-lu' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-lu-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-lu',
 			'templates' => array( 'cc-by-sa-3.0-lu' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-nl' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-nl-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-nl',
 			'templates' => array( 'cc-by-sa-3.0-nl' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-no' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-no-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-no',
 			'templates' => array( 'cc-by-sa-3.0-no' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-pl' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-pl-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-pl',
 			'templates' => array( 'cc-by-sa-3.0-pl' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
 		'cc-by-sa-3.0-ro' => array(
-			'msg' => 'wm-license-cc-by-sa-3.0-ro-text',
+			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-ro',
 			'templates' => array( 'cc-by-sa-3.0-ro' ),
 			'icons' => array( 'cc-by', 'cc-sa' )
 		),
