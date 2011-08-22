@@ -273,18 +273,14 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.$form.find( '.mwe-title' )
 		.rules( "add", {
 			required: true,
-			titleBlacklist: true,
 			titleBadchars: true,
 			titleSenselessimagename: true,	
-			titleHosting: true,
 			titleThumbnail: true,
 			titleExtension: true,
 			messages: { 
 				required: gM( 'mwe-upwiz-error-blank' ),
-				titleBlacklist: gM( 'mwe-upwiz-error-title-blacklisted' ),
 				titleBadchars: gM( 'mwe-upwiz-error-title-badchars' ),
 				titleSenselessimagename: gM( 'mwe-upwiz-error-title-senselessimagename' ),	
-				titleHosting: gM( 'mwe-upwiz-error-title-hosting' ),
 				titleThumbnail: gM( 'mwe-upwiz-error-title-thumbnail' ),
 				titleExtension: gM( 'mwe-upwiz-error-title-extension' )
 			}
