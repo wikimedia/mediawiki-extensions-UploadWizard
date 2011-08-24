@@ -552,9 +552,8 @@ mw.UploadWizardDetails.prototype = {
 			$j.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function( i, propName ) {
 				var dateInfo = metadata[propName];
 				if ( ! mw.isEmpty( dateInfo ) ) {
-					var matches = $j.trim( dateInfo ).match( yyyyMmDdRegex );  
-					// EXIF was founded in 1995, so anything before that is very unlikely 
-					if ( ! mw.isEmpty( matches ) && parseInt( matches[1], 10 ) > 1994) {
+					var matches = $j.trim( dateInfo ).match( yyyyMmDdRegex );
+					if ( ! mw.isEmpty( matches ) ) {
 						dateObj = new Date( parseInt( matches[1], 10 ), 
 								    parseInt( matches[2], 10 ) - 1, 
 								    parseInt( matches[3], 10 ) );
