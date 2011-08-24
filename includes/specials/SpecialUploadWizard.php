@@ -36,12 +36,25 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 
 	/**
+	 * Get the OutputPage being used for this instance.
+	 * This overrides the getOutput method of Specialpage added in MediaWiki 1.18,
+	 * and returns $wgOut for older versions.
+	 *
+	 * @since 1.2
+	 *
+	 * @return OutputPage
+	 */
+	public function getOutput() {
+		return version_compare( $GLOBALS['wgVersion'], '1.18', '>=' ) ? parent::getOutput() : $GLOBALS['wgOut'];
+	}
+	
+	/**
 	 * Replaces default execute method
 	 * Checks whether uploading enabled, user permissions okay,
 	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgRequest, $wgLang, $wgUser, $wgOut;
+		global $wgRequest, $wgLang, $wgUser;
 
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
@@ -60,22 +73,24 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$this->handleCampaign();
 
+		$out = $this->getOutput();
+		
 		// fallback for non-JS
-		$wgOut->addHTML( '<noscript>' );
-		$wgOut->addHTML( '<p class="errorbox">' . htmlspecialchars( wfMsg( 'mwe-upwiz-js-off' ) ) . '</p>' );
+		$out->addHTML( '<noscript>' );
+		$out->addHTML( '<p class="errorbox">' . htmlspecialchars( wfMsg( 'mwe-upwiz-js-off' ) ) . '</p>' );
 		$this->simpleForm->show();
-		$wgOut->addHTML( '</noscript>' );
+		$out->addHTML( '</noscript>' );
 
 
 		// global javascript variables
 		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
-		$wgOut->addModules( 'ext.uploadWizard' );
+		$out->addModules( 'ext.uploadWizard' );
 
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
-		$wgOut->addHTML( self::getWizardHtml() );
+		$out->addHTML( self::getWizardHtml() );
 	}
 
 	/**
@@ -112,8 +127,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param string $message
 	 */
 	protected function displayError( $message ) {
-		global $wgOut;
-		$wgOut->addHTML( Html::element(
+		$this->getOutput()->addHTML( Html::element(
 			'span',
 			array( 'class' => 'errorbox' ),
 			$message
@@ -130,7 +144,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgOut, $wgSitename;
+		global $wgSitename;
 		
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 		
@@ -141,7 +155,7 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
 		
-		$wgOut->addScript( 
+		$this->getOutput()->addScript( 
 			Skin::makeVariablesScript( 
 				array(
 					'UploadWizardConfig' => $config
@@ -177,8 +191,7 @@ class SpecialUploadWizard extends SpecialPage {
 				$content = $article->getContent();
 				
 				if ( $parse ) {
-					global $wgOut;
-					$content = $wgOut->parse( $content );
+					$content = $this->getOutput()->parse( $content );
 				}
 			}
 		}
@@ -192,11 +205,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return boolean -- true if can upload
 	 */
 	private function isUploadAllowed() {
-		global $wgOut, $wgEnableAPI;
+		global $wgEnableAPI;
 
 		// Check uploading enabled
 		if ( !UploadBase::isEnabled() ) {
-			$wgOut->showErrorPage( 'uploaddisabled', 'uploaddisabledtext' );
+			$this->getOutput()->showErrorPage( 'uploaddisabled', 'uploaddisabledtext' );
 			return false;
 		}
 
@@ -204,7 +217,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// Check whether we actually want to allow changing stuff
 		if ( wfReadOnly() ) {
-			$wgOut->readOnlyPage();
+			$this->getOutput()->readOnlyPage();
 			return false;
 		}
 
@@ -219,22 +232,22 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return boolean -- true if can upload
 	 */
 	private function isUserUploadAllowed( $user ) {
-		global $wgOut, $wgGroupPermissions;
+		global $wgGroupPermissions;
 
 		if ( !$user->isAllowed( 'upload' ) ) {
 			if ( !$user->isLoggedIn() && ( $wgGroupPermissions['user']['upload']
 				|| $wgGroupPermissions['autoconfirmed']['upload'] ) ) {
 				// Custom message if logged-in users without any special rights can upload
-				$wgOut->showErrorPage( 'uploadnologin', 'uploadnologintext' );
+				$this->getOutput()->showErrorPage( 'uploadnologin', 'uploadnologintext' );
 			} else {
-				$wgOut->permissionRequired( 'upload' );
+				$this->getOutput()->permissionRequired( 'upload' );
 			}
 			return false;
 		}
 
 		// Check blocks
 		if ( $user->isBlocked() ) {
-			$wgOut->blockedPage();
+			$this->getOutput()->blockedPage();
 			return false;
 		}
 
@@ -254,8 +267,7 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$headerContent = $this->getPageContent( $globalConf['headerLabelPage'] );
 		if ( $headerContent !== false ) {
-			global $wgOut;
-			$wgOut->addWikiText( $headerContent );
+			$this->getOutput()->addWikiText( $headerContent );
 		}
 		
 		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf ) 

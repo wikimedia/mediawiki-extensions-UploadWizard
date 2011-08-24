@@ -27,6 +27,19 @@ class SpecialUploadCampaigns extends SpecialPage {
 	}
 	
 	/**
+	 * Get the OutputPage being used for this instance.
+	 * This overrides the getOutput method of Specialpage added in MediaWiki 1.18,
+	 * and returns $wgOut for older versions.
+	 *
+	 * @since 1.2
+	 *
+	 * @return OutputPage
+	 */
+	public function getOutput() {
+		return version_compare( $GLOBALS['wgVersion'], '1.18', '>=' ) ? parent::getOutput() : $GLOBALS['wgOut'];
+	}
+	
+	/**
 	 * (non-PHPdoc)
 	 * @see SpecialPage::getDescription()
 	 */
