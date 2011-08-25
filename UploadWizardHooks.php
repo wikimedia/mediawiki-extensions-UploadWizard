@@ -9,7 +9,7 @@ class UploadWizardHooks {
 
 	public static $modules = array(
 		// n.b. we tend not to use mediawiki.language functions, they are better implemented in mediawiki.language.parser.
-		// however, loading mediawiki.language will a) create the namespace b) load the language files with convertPlural for the current language and all. 
+		// however, loading mediawiki.language will a) create the namespace b) load the language files with convertPlural for the current language and all.
 		'ext.uploadwizard.mediawiki.language.parser' => array(
 			'dependencies' => array( 'mediawiki.language', 'mediawiki.util' ),
 			'scripts' => 'resources/mediawiki.language.parser.js'
@@ -67,11 +67,11 @@ class UploadWizardHooks {
 				'resources/mw.LanguageUpWiz.js',
 
 				// workhorse libraries
-				'resources/mw.IframeTransport.js',			
+				'resources/mw.IframeTransport.js',
 				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
 				'resources/mw.UploadWizardUtil.js',
-				
+
 				// firefogg support libraries
 				'resources/mw.Firefogg.js',
 				'resources/mw.FirefoggHandler.js',
@@ -80,7 +80,7 @@ class UploadWizardHooks {
 				//upload using FormData, large files in chunks
 				'resources/mw.FormDataTransport.js',
 				'resources/mw.ApiUploadFormDataHandler.js',
-	
+
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
 
@@ -90,13 +90,13 @@ class UploadWizardHooks {
 
 				// main library
 				'resources/mw.UploadWizard.js',
-			
-				// main library components: 
+
+				// main library components:
 				'resources/mw.UploadWizardDeed.js',
 				'resources/mw.UploadWizardDescription.js',
 				'resources/mw.UploadWizardDetails.js',
 				'resources/mw.UploadWizardUploadInterface.js',
-				
+
 
 				// launcher
 				'UploadWizardPage.js'
@@ -423,7 +423,7 @@ class UploadWizardHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Schema update to set up the needed database tables.
 	 *
@@ -434,18 +434,7 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
-		$updater->addExtensionUpdate( array(
-			'addTable',
-			'uw_campaigns',
-			dirname( __FILE__ ) . '/UploadWizard.sql',
-			true
-		) );
-		$updater->addExtensionUpdate( array(
-			'addTable',
-			'uw_campaign_conf',
-			dirname( __FILE__ ) . '/UploadWizard.sql',
-			true
-		) );
+		$updater->addExtensionTable( 'uw_campaigns', dirname( __FILE__ ) . '/UploadWizard.sql' );
 		$updater->addExtensionUpdate( array(
 			'addIndex',
 			'uw_campaigns',
@@ -470,5 +459,5 @@ class UploadWizardHooks {
 
 		return true;
 	}
-	
+
 }
