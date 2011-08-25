@@ -120,6 +120,8 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	 * @return Bool|Array
 	 */
 	public function onSubmit( array $data ) {
+		global $wgRequest;
+		
 		$id = $data['Campaignid'] == '' ? null : $data['Campaignid'];
 		unset( $data['Campaignid'] );
 		
@@ -129,15 +131,15 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$enabled = $data['Campaignenabled'];
 		unset( $data['Campaignenabled'] );
 		
-		if ( is_null( $id ) && array_key_exists( 'uploadcampaignid-' . $name, $_SESSION ) ) {
-			$id = $_SESSION['uploadcampaignid-' . $name];
+		if ( is_null( $id ) && !is_null( $wgRequest->getSessionData( 'uploadcampaignid-' . $name ) ) ) {
+			$id = $wgRequest->getSessionData( 'uploadcampaignid-' . $name );
 		}
 		
 		$campaign = new UploadWizardCampaign( $id, $name, $enabled, $data );
 		
 		$success = $campaign->writeToDB();
 		
-		$_SESSION['uploadcampaignid-' . $name] = $campaign->getId();
+		$wgRequest->setSessionData( 'uploadcampaignid-' . $name, $campaign->getId() );
 		
 		if ( $success ) {
 			return true;
