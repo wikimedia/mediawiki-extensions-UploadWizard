@@ -129,9 +129,15 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$enabled = $data['Campaignenabled'];
 		unset( $data['Campaignenabled'] );
 		
+		if ( is_null( $id ) && array_key_exists( 'uploadcampaignid-' . $name, $_SESSION ) ) {
+			$id = $_SESSION['uploadcampaignid-' . $name];
+		}
+		
 		$campaign = new UploadWizardCampaign( $id, $name, $enabled, $data );
 		
 		$success = $campaign->writeToDB();
+		
+		$_SESSION['uploadcampaignid-' . $name] = $campaign->getId();
 		
 		if ( $success ) {
 			return true;
