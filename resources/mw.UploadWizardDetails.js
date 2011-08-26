@@ -291,14 +291,21 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) && mw.UploadWizard.config.autoCategory !== '' ) {
 		hiddenCats.push( mw.UploadWizard.config.autoCategory );
 	}
+
+	var missingCatsWikiText = null;
+	if ( typeof mw.UploadWizard.config.missingCategoriesWikiText !== 'undefined' 
+			&& mw.UploadWizard.config.missingCategoriesWikiText !== '' ) {
+		missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
+	}
 	
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 			.find( 'input' )
 			.mwCoolCats( { 
 				api: _this.upload.api,
 				hiddenCats: hiddenCats,
-				buttontext: gM( 'mwe-upwiz-categories-add' )  ,
-				cats: mw.isDefined( mw.UploadWizard.config.defaultCategories ) ? mw.UploadWizard.config.defaultCategories : []
+				buttontext: gM( 'mwe-upwiz-categories-add' ),
+				cats: mw.isDefined( mw.UploadWizard.config.defaultCategories ) ? mw.UploadWizard.config.defaultCategories : [],
+				missingCatsWikiText: missingCatsWikiText
 			} );
 
 };

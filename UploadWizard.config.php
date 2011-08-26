@@ -24,6 +24,10 @@ return array(
 	// Categories to list by default in the list of cats to add.
 	'defaultCategories' => array(),
 
+	// If the user didn't add categories, or removed the default categories, add this wikitext.
+	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
+	'missingCategoriesWikiText' => '',	
+
 	// WikiText to automatically (and silently) add to all uploaded images.
 	'autoWikiText' => '',
 

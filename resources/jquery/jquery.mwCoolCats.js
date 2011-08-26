@@ -2,6 +2,13 @@
  * Simple predictive typing category adder for Mediawiki.
  * Relies on mw.Title, mw.api.category, $.fn.removeCtrl
  * Add to the page and then use getWikiText() to get wiki text representing the categories.
+ *
+ * N.B. Relies on the DOM to store the widget state.
+ * On user action, list items are created, which have Titles as data properties.
+ * To get the wikiText, we just select the list items again, get the Titles, convert to text, and return that.
+ * This gets a bit complex as there is a hack for hidden categories too, and then another hack for default text
+ * when the user hasn't entered any categories (not counting hidden categories!). 
+ * This should probably not be going through the DOM, could be more MVC.
  */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
 
@@ -77,9 +84,11 @@
 		var $li = $j( '<li/>' ).addClass( 'cat' );
 		var $anchor = $j( '<a/>' ).addClass( 'cat' ).append( title.getMainText() );
 		$li.append( $anchor );
-		$li.data( 'title', title );		
+		$li.data( 'title', title );
 		if ( isHidden ) {
-			$li.hide();
+			$li.hide().addClass( 'hidden' );
+			// extra 'hidden' class is necessary to distinguish deliberately hidden categories from those 
+			// which are hidden because the whole widget is closed
 		} else {
 			$anchor.attr( { target: "_blank", href: title.getUrl() } );
 			$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
@@ -88,11 +97,17 @@
 	}
 
 	/**
-	 * Get all the HTML elements representing categories on the page
+	 * Get all the categories on the page as mw.Titles, optionally filtered
+	 * @param selector {String} optional extra filter
 	 * @return {Array of mw.Title}
 	 */
-	function _getCats() {
-		return $container.find('ul li.cat').map( function() { return $j( this ).data( 'title' ); } );
+	function _getCats( selector ) {
+		if ( typeof selector === 'undefined' ) {
+			selector = '*'; // fetch _ALL_ the categories!
+		}
+		return $container.find( 'ul li.cat' )
+				.filter( selector )
+				.map( function() { return $j( this ).data( 'title' ); } );
 	}
 
 	/**
@@ -136,6 +151,7 @@
 	var defaults = {
 		buttontext: 'Add',
 		hiddenCats: [],
+		missingCatsWikiText: null,
 		cats: []
 	};
 
@@ -196,13 +212,15 @@
 		});
 
 		this.getWikiText = function() {
-			var wikiText = '{{subst:unc}}';
-			var $cats = _getCats();
-			if ( $cats.length ) {
-				wikiText = $cats.map( function() { return '[[' + this.toString() + ']]'; } )
-					 	.toArray()
-					 	.join( "\n" );
+			var wikiText = _getCats().map( function() { return '[[' + this.toString() + ']]'; } )
+							.toArray()
+							.join( "\n" );
+
+			// if so configured, and there are no user-visible categories, add warning
+			if ( settings.missingCatsWikiText !== null && ! ( _getCats( ':not(.hidden)' ).length ) ) {
+				wikiText += '\n\n' + settings.missingCatsWikiText;
 			}
+
 			return wikiText;
 		};
 
