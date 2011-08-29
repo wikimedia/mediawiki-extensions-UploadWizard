@@ -157,18 +157,20 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( Xml::openElement(
 			'table',
-			array( 'class' => 'wikitable', 'style' => 'width:400px' )
+			array( 'class' => 'wikitable sortable', 'style' => 'width:400px' )
 		) );
 
 		$out->addHTML(
-			'<tr>' .
+			'<thead><tr>' .
 				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-name' ) ) .
 				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-status' ) ) .
 				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-edit' ) ) .
 				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-delete' ) ) .
-			'</tr>'
+			'</tr></thead>'
 		);
 
+		$out->addHTML( '<tbody>' );
+		
 		foreach ( $campaigns as $campaign ) {
 			$out->addHTML(
 				'<tr>' .
@@ -205,6 +207,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 			);
 		}
 
+		$out->addHTML( '</tbody>' );
 		$out->addHTML( '</table>' );
 	}
 
