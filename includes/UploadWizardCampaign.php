@@ -483,6 +483,12 @@ class UploadWizardCampaign {
 	protected function writePropsToDB( DatabaseBase $dbw ) {
 		$success = true;
 
+		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config ) 
+			&& array_key_exists( 'licensesOwnWork', $this->config )
+			&& !in_array( $this->config['defaultOwnWorkLicence'], $this->config['licensesOwnWork'] ) ) {
+				$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
+		}
+		
 		$dbw->begin();
 
 		foreach ( $this->config as $prop => $value ) {
