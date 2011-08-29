@@ -80,6 +80,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 				$input.click( function() { _this.$selector.trigger( 'changeLicenses' ); } );
 				// this is added so that setValues() can find one (or more) checkboxes to check - represent values without wikitext
 				$input.data( 'templateString', origTemplateString );
+				$input.data( 'licenseName', name );
 				_this.inputs.push( $input );
 				
 				var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
@@ -152,9 +153,9 @@ mw.UploadWizardLicenseInput.prototype = {
 	setValues: function( values ) {
 		var _this = this;
 		$j.each( _this.inputs, function( i, $input ) {
-			var templateString = $input.data( 'templateString' );
+			var licenseName = $input.data( 'licenseName' );
 			// !! to ensure boolean.
-			$input.attr( 'checked', !!values[templateString] );
+			$input.attr( 'checked', !!values[licenseName] );
 		} );
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
