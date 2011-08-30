@@ -350,12 +350,14 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		_this.copyrightInfoFieldset.show();
 		_this.upload.wizardDeedChooser = _this.upload.deedChooser;
+		
 		_this.upload.deedChooser = new mw.UploadWizardDeedChooser( 
 			_this.deedDiv,
-			[ new mw.UploadWizardDeedOwnWork(), 
-			  new mw.UploadWizardDeedThirdParty() ],
+			mw.UploadWizard.prototype.getLicensingDeeds(),
 			[ _this.upload ]
 		);
+		
+		_this.upload.deedChooser.onLayoutReady();
 	},
 
 	/**

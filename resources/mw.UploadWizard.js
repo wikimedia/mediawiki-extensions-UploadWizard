@@ -1170,31 +1170,44 @@ mw.UploadWizard.prototype = {
 
 	},
 
+	
+	/**
+	 * Get the own work and third party licensing deeds if they are needed.
+	 * 
+	 * @since 1.2
+	 * @param {int|false} uploadsLength
+	 * @return {Array}
+	 */
+	getLicensingDeeds: function( uploadsLength ) {
+		var deeds = [];
+		
+		if ( mw.UploadWizard.config.ownWorkOption == 'choice' ) {
+			// these deeds are standard
+			deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength ) );
+			deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength ) );
+		}
+		else {
+			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
+				deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength ) );
+			}
+			else {
+				deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength ) );
+			}
+		}
+		
+		return deeds;
+	},
 
 	// do some last minute prep before advancing to the DEEDS page
 	prepareAndMoveToDeeds: function() {
 		var _this = this;
-		var deeds = [];
-		var hasChoice = mw.UploadWizard.config.ownWorkOption == 'choice';
-		
-		if ( hasChoice ) {
-			// these deeds are standard
-			deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
-			deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
-		}
-		else {
-			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
-				deeds.push( new mw.UploadWizardDeedOwnWork( _this.uploads.length ) );
-			}
-			else {
-				deeds.push( new mw.UploadWizardDeedThirdParty( _this.uploads.length ) );
-			}
-		}
+		var deeds = _this.getLicensingDeeds( _this.uploads.length );
 
 		this.shouldShowIndividualDeed = function() {
-			if ( hasChoice ) return true;
-			
-			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
+			if ( mw.UploadWizard.config.ownWorkOption == 'choice' ) {
+				return true;
+			}
+			else if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
 				var ownWork = mw.UploadWizard.config.licensesOwnWork;
 				var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
 				return ownWork.licenses.length > 1 || licenseIsNotDefault;
