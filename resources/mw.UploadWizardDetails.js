@@ -269,23 +269,33 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.addDescription( true, mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
-	// make the title field required, and non-blacklisted
-	_this.$form.find( '.mwe-title' )
-		.rules( "add", {
-			required: true,
-			titleBadchars: true,
-			titleSenselessimagename: true,	
-			titleThumbnail: true,
-			titleExtension: true,
-			messages: { 
-				required: gM( 'mwe-upwiz-error-blank' ),
-				titleBadchars: gM( 'mwe-upwiz-error-title-badchars' ),
-				titleSenselessimagename: gM( 'mwe-upwiz-error-title-senselessimagename' ),	
-				titleThumbnail: gM( 'mwe-upwiz-error-title-thumbnail' ),
-				titleExtension: gM( 'mwe-upwiz-error-title-extension' )
-			}
-		} );
-	
+	if( UploadWizardConfig.useTitleBlacklistApi ) {
+		// less strict checking, since TitleBlacklist checks should catch most errors.
+		_this.$form.find( '.mwe-title' )
+			.rules( "add", {
+				required: true,
+				messages: { 
+					required: gM( 'mwe-upwiz-error-blank' ),
+				}
+			} );
+	} else {
+		// make the title field required, and non-blacklisted
+		_this.$form.find( '.mwe-title' )
+			.rules( "add", {
+				required: true,
+				titleBadchars: true,
+				titleSenselessimagename: true,	
+				titleThumbnail: true,
+				titleExtension: true,
+				messages: { 
+					required: gM( 'mwe-upwiz-error-blank' ),
+					titleBadchars: gM( 'mwe-upwiz-error-title-badchars' ),
+					titleSenselessimagename: gM( 'mwe-upwiz-error-title-senselessimagename' ),	
+					titleThumbnail: gM( 'mwe-upwiz-error-title-thumbnail' ),
+					titleExtension: gM( 'mwe-upwiz-error-title-extension' )
+				}
+			} );		
+	}
 	// make this a category picker
 	var hiddenCats = mw.isDefined( mw.UploadWizard.config.autoCategories ) ? mw.UploadWizard.config.autoCategories : [];
 	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) && mw.UploadWizard.config.autoCategory !== '' ) {

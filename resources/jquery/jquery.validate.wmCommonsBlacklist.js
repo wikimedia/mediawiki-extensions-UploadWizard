@@ -1,6 +1,9 @@
 /** 
- * Does some local checking of a file. For more specific filenames (such as bad words, other blacklisted stuff) use 
- * the Blacklist API.
+ * Does some local checking of a filename.
+ * If you want more specific filename checks (such as bad words, other blacklisted stuff) use the TitleBlacklist API.
+ *
+ * These checks are ignored when the TitleBlacklist API is available, since presumably they should be configured there instead, where it's
+ * possible to update them easily and higher-quality error messages are available.
  *
  * This is an incomplete rendering of some of the meta.wikimedia.org and commons.wikimedia.org blacklist as they existed on 2011-05-05, and
  * ignores cases that are irrelevant to uploading new media images.
