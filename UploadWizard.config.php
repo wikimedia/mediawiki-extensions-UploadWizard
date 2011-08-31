@@ -142,7 +142,7 @@ return array(
 		'own-pd' => array( 
 			'msg' => 'mwe-upwiz-license-own-pd',
 			'icons' => array( 'cc-zero' ),
-			'templates' => array( 'own-pd' )
+			'templates' => array( 'cc-zero' )
 		),
 		'cc-by-sa-2.5' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.5',
