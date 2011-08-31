@@ -176,15 +176,20 @@ class SpecialUploadWizard extends SpecialPage {
 	 * 
 	 * @param string $pageName
 	 * @param boolean $parse
+	 * @param string $langCode
 	 * 
 	 * @return string|false
 	 */
-	protected function getPageContent( $pageName, $parse = false ) {
+	protected function getPageContent( $pageName, $parse = false, $langCode = null ) {
 		$content = false;
 		
 		if ( trim( $pageName ) != '' ) {
-			global $wgLang;
-			$page = Title::newFromText( str_replace( '$1', $wgLang->getCode(), $pageName ) );
+			if ( is_null( $langCode ) ) {
+				global $wgLang;
+				$langCode = $wgLang->getCode();
+			}
+			
+			$page = Title::newFromText( str_replace( '$1', $langCode, $pageName ) );
 			
 			if ( !is_null( $page ) && $page->exists() ) {
 				$article = new Article( $page, 0 );
@@ -194,6 +199,11 @@ class SpecialUploadWizard extends SpecialPage {
 					$content = $this->getOutput()->parse( $content );
 				}
 			}
+		}
+		
+		// If no page was found, and the lang is not en, then see if there in an en version.
+		if ( $content === false && $langCode != 'en' ) {
+			$content = $this->getPageContent( $pageName, $parse, 'en' );
 		}
 		
 		return $content;
