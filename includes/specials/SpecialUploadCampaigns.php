@@ -66,7 +66,8 @@ class SpecialUploadCampaigns extends SpecialPage {
 				&& $wgRequest->getCheck( 'newcampaign' ) ) {
 					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $wgRequest->getVal( 'newcampaign' ) )->getLocalURL() );
 			}
-			elseif ( count( $subPage ) == 2 && $subPage[0] == 'del' ) {
+			elseif ( count( $subPage ) == 2 && $subPage[0] == 'del'
+				&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) ) ) {
 				$campaign = UploadWizardCampaign::newFromName( $subPage[1], false );
 				$campaign->deleteFromDB();
 				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
@@ -171,6 +172,9 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( '<tbody>' );
 		
+		global $wgUser;
+		$editToken = array( 'wpEditToken' => $wgUser->editToken() );
+		
 		foreach ( $campaigns as $campaign ) {
 			$out->addHTML(
 				'<tr>' .
@@ -197,7 +201,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 						Html::element(
 							'a',
 							array(
-								'href' => SpecialPage::getTitleFor( 'UploadCampaigns', 'del/' . $campaign->campaign_name )->getLocalURL(),
+								'href' => SpecialPage::getTitleFor( 'UploadCampaigns', 'del/' . $campaign->campaign_name )->getLocalURL( $editToken ),
 								'onclick' => 'return confirm( "' . wfMsg( 'mwe-upwiz-campaigns-confdel' ) . '" )'
 							),
 							wfMsg( 'mwe-upwiz-campaigns-delete' )
