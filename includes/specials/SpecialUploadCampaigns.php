@@ -165,8 +165,8 @@ class SpecialUploadCampaigns extends SpecialPage {
 			'<thead><tr>' .
 				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-name' ) ) .
 				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-status' ) ) .
-				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-edit' ) ) .
-				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-delete' ) ) .
+				Html::element( 'th', array( 'class' => 'unsortable' ), wfMsg( 'mwe-upwiz-campaigns-edit' ) ) .
+				Html::element( 'th', array( 'class' => 'unsortable' ), wfMsg( 'mwe-upwiz-campaigns-delete' ) ) .
 			'</tr></thead>'
 		);
 
