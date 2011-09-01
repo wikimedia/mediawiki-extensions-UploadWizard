@@ -205,8 +205,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 						Html::element(
 							'a',
 							array(
-								'href' => SpecialPage::getTitleFor( 
-									'UploadCampaigns',
+								'href' => $this->getTitle(
 									implode( '/', array( 'del', $campaign->campaign_id, $campaign->campaign_name, $editToken ) )
 								)->getLocalURL(),
 								'onclick' => 'return confirm( "' . wfMsg( 'mwe-upwiz-campaigns-confdel' ) . '" )'
