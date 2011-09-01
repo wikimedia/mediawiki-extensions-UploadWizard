@@ -178,7 +178,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	
 	if ( mw.UploadWizard.config.idField != '' ) {
 		var idFieldId = "idField" + ( _this.upload.index ).toString();
-		_this.idFieldInput = $j( '<input type="text" id="' + idFieldId + '" name="' + idFieldId + '" class="mwe-idfield" maxlength="15"/>' );
+		_this.idFieldInput = $j( '<input type="text" id="' + idFieldId + '" name="' + idFieldId + '" class="mwe-idfield" maxlength="25"/>' );
 		
 		_this.$form.append(
 			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + idFieldId + '" generated="true"/></div>' ),
