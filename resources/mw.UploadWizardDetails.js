@@ -266,7 +266,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	_this.addDescription( true, mw.config.get( 'wgUserLanguage' ) );
+	_this.addDescription( mw.UploadWizard.config.idField == '', mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
 	if( UploadWizardConfig.useTitleBlacklistApi ) {
