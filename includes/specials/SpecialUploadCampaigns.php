@@ -57,7 +57,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$this->setHeaders();
 		$this->outputHeader();
-		$subPage = explode( '/', $subPage, 2 );
+		$subPage = explode( '/', $subPage, 4 );
 
 		// If the user is authorized, display the page, if not, show an error.
 		if ( $this->userCanExecute( $wgUser ) ) {
@@ -66,9 +66,9 @@ class SpecialUploadCampaigns extends SpecialPage {
 				&& $wgRequest->getCheck( 'newcampaign' ) ) {
 					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $wgRequest->getVal( 'newcampaign' ) )->getLocalURL() );
 			}
-			elseif ( count( $subPage ) == 2 && $subPage[0] == 'del'
-				&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) ) ) {
-				$campaign = UploadWizardCampaign::newFromName( $subPage[1], false );
+			elseif ( count( $subPage ) == 4 && $subPage[0] == 'del'
+				&& $wgUser->matchEditToken( $subPage[3], serialize( array( $subPage[1], $subPage[2] ) ) ) ) {
+				$campaign = UploadWizardCampaign::newFromId( $subPage[1], false );
 				$campaign->deleteFromDB();
 				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 			}
@@ -173,9 +173,13 @@ class SpecialUploadCampaigns extends SpecialPage {
 		$out->addHTML( '<tbody>' );
 		
 		global $wgUser;
-		$editToken = array( 'wpEditToken' => $wgUser->editToken() );
 		
 		foreach ( $campaigns as $campaign ) {
+			$editToken = $wgUser->editToken( serialize( array(
+				$campaign->campaign_id,
+				$campaign->campaign_name
+			) ) );
+			
 			$out->addHTML(
 				'<tr>' .
 					'<td>' .
@@ -201,7 +205,10 @@ class SpecialUploadCampaigns extends SpecialPage {
 						Html::element(
 							'a',
 							array(
-								'href' => SpecialPage::getTitleFor( 'UploadCampaigns', 'del/' . $campaign->campaign_name )->getLocalURL( $editToken ),
+								'href' => SpecialPage::getTitleFor( 
+									'UploadCampaigns',
+									implode( '/', array( 'del', $campaign->campaign_id, $campaign->campaign_name, $editToken ) )
+								)->getLocalURL(),
 								'onclick' => 'return confirm( "' . wfMsg( 'mwe-upwiz-campaigns-confdel' ) . '" )'
 							),
 							wfMsg( 'mwe-upwiz-campaigns-delete' )
