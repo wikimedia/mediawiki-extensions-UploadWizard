@@ -177,6 +177,9 @@ class UploadWizardCampaign {
 			'idFieldLabelPage' => array(
 				'type' => 'text',
 			),
+			'idFieldMaxLength' => array(
+				'type' => 'int',
+			),
 			'ownWorkOption' => array(
 				'type' => 'radio',
 				'options' => array(

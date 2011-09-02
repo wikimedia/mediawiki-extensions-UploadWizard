@@ -338,6 +338,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Page name with text for the ID field label. $1 is replaced with the language code:',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Page containing text to display above the UploadWizard interface. $1 is replaced with the language code:',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Page containing text to display on top of the "Use" page. $1 is replaced with the language code:',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Maximum length of the text in the ID field',
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',

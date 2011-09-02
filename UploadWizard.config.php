@@ -65,6 +65,9 @@ return array(
 	// Overrides idFieldLabel when set. $1 is replaced by the language code.
 	'idFieldLabelPage' => '',
 
+	// The maximum length of the id field.
+	'idFieldMaxLength' => 25,
+
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
 	// It just describes what licenses go with what wikitext, and how to display them in 
