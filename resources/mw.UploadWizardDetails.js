@@ -745,7 +745,16 @@ mw.UploadWizardDetails.prototype = {
 		}
 		$j.each( _this.descriptions, function( i, desc ) {
 			information['description'] += desc.getWikiText();
-		} );	
+		} );
+		
+		// Add id field if needed
+		if ( mw.UploadWizard.config.idField != '' ) {
+			var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
+			
+			if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
+				information['description'] += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
+			}
+		}
 
 		information['date'] = $j.trim( $j( _this.dateInput ).val() );
 
@@ -778,15 +787,6 @@ mw.UploadWizardDetails.prototype = {
 		
 		if ( mw.isDefined( mw.UploadWizard.config.autoWikiText ) ) {
 			wikiText += mw.UploadWizard.config.autoWikiText;
-		}
-		
-		// Add id field if needed
-		if ( mw.UploadWizard.config.idField != '' ) {
-			var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
-			
-			if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
-				wikiText += mw.UploadWizard.config.idField.replace( '$1', idFieldValue ) + "\n\n";
-			}
 		}
 		
 		// add categories
