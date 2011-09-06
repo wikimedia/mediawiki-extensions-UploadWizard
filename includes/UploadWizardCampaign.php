@@ -301,7 +301,7 @@ class UploadWizardCampaign {
 
 		foreach ( $config as $settingName => &$settingValue ) {
 			if ( is_array( $defaultConfig[$settingName]['default'] ) && !is_array( $settingValue ) ) {
-				$parts = explode( '| ', $settingValue );
+				$parts = explode( '|', $settingValue );
 				$settingValue = array();
 
 				foreach ( $parts as $part ) {
@@ -494,13 +494,15 @@ class UploadWizardCampaign {
 		
 		$dbw->begin();
 
+		// TODO: it'd be better to serialize() arrays
+		
 		foreach ( $this->config as $prop => $value ) {
 			$success &= $dbw->insert(
 				'uw_campaign_conf',
 				array(
 					'cc_campaign_id' => $this->id,
 					'cc_property' => $prop,
-					'cc_value' => is_array( $value ) ? implode( '| ', $value ) : $value
+					'cc_value' => is_array( $value ) ? implode( '|', $value ) : $value
 				),
 				__METHOD__
 			);
