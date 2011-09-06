@@ -212,7 +212,7 @@
 		});
 
 		this.getWikiText = function() {
-			var wikiText = _getCats().map( function() { return '[[' + this.toString() + ']]'; } )
+			var wikiText = _getCats().map( function() { return '[[' + this.getMainText() + ']]'; } )
 							.toArray()
 							.join( "\n" );
 
