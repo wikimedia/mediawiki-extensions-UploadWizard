@@ -28,8 +28,6 @@ $wgExtensionCredits['other'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
 
-
-
 $wgUpwizDir = dirname( __FILE__ );
 
 $wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
@@ -80,7 +78,7 @@ $wgGroupPermissions['bot'             ]['upwizcampaigns'] = false;
 $wgGroupPermissions['sysop'           ]['upwizcampaigns'] = true;
 $wgGroupPermissions['upwizcampeditors']['upwizcampaigns'] = true;
 
-// Init the upload wizard config array 
+// Init the upload wizard config array
 // UploadWizard.config.php includes default configuration
 // any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
 $wgUploadWizardConfig = array();
