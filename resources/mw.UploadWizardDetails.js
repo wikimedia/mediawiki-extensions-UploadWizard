@@ -281,7 +281,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			.rules( "add", {
 				required: true,
 				messages: { 
-					required: gM( 'mwe-upwiz-error-blank' ),
+					required: gM( 'mwe-upwiz-error-blank' )
 				}
 			} );
 	} else {

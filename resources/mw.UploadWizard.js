@@ -901,7 +901,7 @@ mw.UploadWizardUpload.prototype = {
 				);
 				return false;
 			} ); // close thumbnail click function
-	},
+	}
 
 };
 
