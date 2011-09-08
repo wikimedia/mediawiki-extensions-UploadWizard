@@ -125,8 +125,11 @@
 	 * @param {String}
 	 * @return string stripped of some characters, trimmed
 	 */
-	function _stripText( s ) {
-		 return $j.trim( s.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' ) );
+	function _stripText( s ) { 
+		if ( typeof s !== 'string' ) {
+			throw new Error( '_stripText() argument must be a string' );
+		}
+		return $j.trim( s.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' ) );
 	}
 
 	/**
