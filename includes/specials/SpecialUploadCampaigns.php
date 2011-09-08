@@ -57,7 +57,6 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$this->setHeaders();
 		$this->outputHeader();
-		$subPage = explode( '/', $subPage, 4 );
 
 		// If the user is authorized, display the page, if not, show an error.
 		if ( $this->userCanExecute( $wgUser ) ) {
@@ -65,12 +64,6 @@ class SpecialUploadCampaigns extends SpecialPage {
 				&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) )
 				&& $wgRequest->getCheck( 'newcampaign' ) ) {
 					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $wgRequest->getVal( 'newcampaign' ) )->getLocalURL() );
-			}
-			elseif ( count( $subPage ) == 4 && $subPage[0] == 'del'
-				&& $wgUser->matchEditToken( $subPage[3], serialize( array( $subPage[1], $subPage[2] ) ) ) ) {
-				$campaign = UploadWizardCampaign::newFromId( $subPage[1], false );
-				$campaign->deleteFromDB();
-				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 			}
 			else {
 				$this->displayUploadCamaigns();
@@ -175,11 +168,6 @@ class SpecialUploadCampaigns extends SpecialPage {
 		global $wgUser;
 		
 		foreach ( $campaigns as $campaign ) {
-			$editToken = $wgUser->editToken( serialize( array(
-				$campaign->campaign_id,
-				$campaign->campaign_name
-			) ) );
-			
 			$out->addHTML(
 				'<tr>' .
 					'<td>' .
@@ -205,10 +193,10 @@ class SpecialUploadCampaigns extends SpecialPage {
 						Html::element(
 							'a',
 							array(
-								'href' => $this->getTitle(
-									implode( '/', array( 'del', $campaign->campaign_id, $campaign->campaign_name, $editToken ) )
-								)->getLocalURL(),
-								'onclick' => 'return confirm( "' . wfMsg( 'mwe-upwiz-campaigns-confdel' ) . '" )'
+								'href' => '#',
+								'class' => 'campaign-delete',
+								'data-campaign-id' => $campaign->campaign_id,
+								'data-campaign-token' => $wgUser->editToken( 'deletecampaign' . $campaign->campaign_id )
 							),
 							wfMsg( 'mwe-upwiz-campaigns-delete' )
 						) .
@@ -219,6 +207,8 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( '</tbody>' );
 		$out->addHTML( '</table>' );
+		
+		$out->addModules( 'ext.uploadWizard.campaigns' );
 	}
 
 }

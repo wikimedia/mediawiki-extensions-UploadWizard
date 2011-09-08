@@ -65,7 +65,7 @@ class UploadWizardCampaign {
 	 * @param boolean $isEnabled
 	 * @param array $config
 	 */
-	public function __construct( $id, $name, $isEnabled, array $config ) {
+	public function __construct( $id, $name = '', $isEnabled = false, array $config = array() ) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->isEnabled = $isEnabled;

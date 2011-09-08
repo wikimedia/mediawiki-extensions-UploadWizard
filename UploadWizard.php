@@ -37,6 +37,7 @@ $wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.ph
 foreach ( array(
 		'UploadWizardMessages' => $wgUpwizDir,
 		'UploadWizardHooks' => $wgUpwizDir,
+		'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api',
 		'UploadWizardConfig' => $wgUpwizDir . '/includes',
 		'UploadWizardTutorial' => $wgUpwizDir . '/includes',
 		'UploadWizardCampaign' => $wgUpwizDir . '/includes',
@@ -59,6 +60,8 @@ $wgSpecialPageGroups['UploadCampaigns'] = 'media';
 
 $wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
 $wgSpecialPageGroups['UploadCampaign'] = 'media';
+
+$wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
 
 // Disable ResourceLoader support by default, it's currently broken
 // $wgUploadWizardDisableResourceLoader = true;

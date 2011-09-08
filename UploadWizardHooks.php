@@ -389,6 +389,15 @@ class UploadWizardHooks {
 				'resources/mw.MockUploadHandler.js'
 			),
 		),
+		'ext.uploadWizard.campaigns' => array(
+			'scripts' => array(
+				'resources/ext.upwiz.campaigns.js'
+			),
+			'messages' => array(
+				'mwe-upwiz-campaigns-delete-failed',
+				'mwe-upwiz-campaigns-confirm-delete',
+			),
+		),
 	);
 
 	/*

@@ -314,6 +314,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaigns-editing' => 'Upload campaign configuration',
 	'mwe-upwiz-campaigns-delete' => 'Delete',
 	'mwe-upwiz-campaigns-confdel' => 'Are you sure you want to delete this campaign?',
+	'mwe-upwiz-campaigns-delete-failed' => 'Could not delete the campaign.',
+	'mwe-upwiz-campaigns-confirm-delete' => 'Are you sure you want to delete this campaign?',
 
 	// Special:UploadCampaign
 	'uploadcampaign-legend' => 'Upload campaign configuration',
