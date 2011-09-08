@@ -164,7 +164,7 @@ Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name.
 In both cases, this will be linked to your wiki user page.',
 	'mwe-upwiz-tooltip-title' => 'A unique descriptive title for the file. You may use plain language with spaces. Do not include the file extension.',
-	'mwe-upwiz-dialog-title' => 'Files can be uploaded with names in any language in any script (coded as UTF-8). Titles of media files should be meaningful and helpful in the language chosen.',
+	'mwe-upwiz-dialog-title' => 'Files can be uploaded with names in any language in any script. Titles of media files should be meaningful and helpful in the language chosen.',
 	'mwe-upwiz-tooltip-description' => 'Briefly describe everything notable about the work.
 For a photo, mention the main things that are depicted, the occasion, or the place.',
 	'mwe-upwiz-tooltip-date' => 'Date this work was created or first published (YYYY-MM-DD format).',
