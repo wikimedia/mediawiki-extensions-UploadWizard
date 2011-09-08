@@ -529,8 +529,9 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-campaign-conf-tutorialTemplate' => '{{doc-important|$1 is a literal in this message, and it not replaced with anything.}}',
 	'mwe-upwiz-campaign-conf-idField' => '{{doc-important|$1 is not a parameter, but displayed as plain text.}}',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => '{{doc-important|$1 is not a parameter, but displayed as plain text.}}',
-	'mwe-upwiz-campaign-conf-thanksLabelPage' => '{{doc-important|"$1" is not a parameter, but a literal.}}
-
+	'mwe-upwiz-campaign-conf-thanksLabelPage' => '{{doc-important|"$1" is not a parameter, but a literal.}},
+	'mwe-upwiz-campaign-conf-autoCategories' => 'List of categories that get added in the background, without the user seeing this untill page upload is complete.',
+,
 "Use" is the message {{msg-mw|Mwe-upwiz-step-thanks}}.',
 );
 
