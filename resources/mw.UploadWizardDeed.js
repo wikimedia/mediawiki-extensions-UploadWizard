@@ -103,7 +103,13 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		// XXX do we need to escape authorInput, or is wikitext a feature here?
 		// what about scripts?
 		getAuthorWikiText: function() {
-			return "[[User:" + mw.config.get( 'wgUserName' ) + '|' + $j( _this.authorInput ).val() + ']]';
+			var author = $j( _this.authorInput ).val();
+			
+			if ( author === '' ) {
+				author = _this.$authorInput2.val();
+			}
+			
+			return "[[User:" + mw.config.get( 'wgUserName' ) + '|' + author + ']]';
 		},
 
 
@@ -112,12 +118,12 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 			_this.$form = $j( '<form />' );
 
-			var $authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
+			_this.$authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert',
 						 uploadCount,
-						 $authorInput2 ),
+						 _this.$authorInput2 ),
 				$j( '<p class="mwe-small-print"></p>' ).msg(
 					'mwe-upwiz-source-ownwork-assert-note',
 					gM( 'mwe-upwiz-license-' + mw.UploadWizard.config.licensesOwnWork.defaults[0] )
