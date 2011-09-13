@@ -83,16 +83,28 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 				$input.data( 'licenseName', name );
 				_this.inputs.push( $input );
 				
-				var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
 				var $icons = $j( '<span></span>' );
 				if ( mw.isDefined( license.props['icons'] ) ) {
 					$j.each( license.props.icons, function( i, icon ) { 
 						$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );		
 					} );
 				}
+				
+				var $label = $j( '<label />' ).attr( { 'for': id } ).append( $icons );
+				
+				if ( mw.isDefined( license.props['html'] ) ) {
+					$label.html( license.props['html'] );
+				}
+				else if ( mw.isDefined( license.props['msg'] ) ) {
+					$label.msg( license.props['msg'], _this.count );
+				}
+				else {
+					$label.text( '[missing msg for ' + license.name + ']' );
+				}
+				
 				$el.append( 
 					$input,
-					$j( '<label />' ).attr( { 'for': id } ).msg( messageKey, _this.count ).append( $icons ),
+					$label,
 					$j( '<br/>' )
 					// XXX help?
 				);

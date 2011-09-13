@@ -168,6 +168,15 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
 		
+		if ( in_array( 'wikitextLicense', $config['licensesOwnWork']['licenses'] ) ) {
+			$config['wikitextLicense'] = str_replace( '$1', $this->getLang()->getCode(), $config['wikitextLicense'] );
+			
+			$config['licenses']['wikitextLicense'] = array(
+				'html' => $this->getOutput()->parse( $config['wikitextLicense'], false ),
+				'templates' => $config['wikitextLicenseTemplates'],
+			);
+		}
+		
 		$this->getOutput()->addScript( 
 			Skin::makeVariablesScript( 
 				array(
