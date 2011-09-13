@@ -49,12 +49,25 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 	
 	/**
+	 * Shortcut to get user's language.
+	 * This overrides the getLang method of Specialpage added in MediaWiki 1.18,
+	 * and returns $wgLang for older versions.
+	 *
+	 * @since 0.1
+	 * 
+	 * @return Language
+	 */
+	public function getLang() {
+		return version_compare( $GLOBALS['wgVersion'], '1.18', '>=' ) ? parent::getLang() : $GLOBALS['wgLang'];
+	}
+	
+	/**
 	 * Replaces default execute method
 	 * Checks whether uploading enabled, user permissions okay,
 	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgRequest, $wgLang, $wgUser;
+		global $wgRequest, $wgUser;
 
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
@@ -185,8 +198,7 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		if ( trim( $pageName ) != '' ) {
 			if ( is_null( $langCode ) ) {
-				global $wgLang;
-				$langCode = $wgLang->getCode();
+				$langCode = $this->getLang()->getCode();
 			}
 			
 			$page = Title::newFromText( str_replace( '$1', $langCode, $pageName ) );
