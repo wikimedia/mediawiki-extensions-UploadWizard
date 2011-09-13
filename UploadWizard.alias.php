@@ -16,11 +16,27 @@ $specialPageAliases['en'] = array(
 /** Arabic (العربية) */
 $specialPageAliases['ar'] = array(
 	'UploadWizard' => array( 'ساحر_الرفع' ),
+	'UploadCampaigns' => array( 'حملات_الرفع' ),
+	'UploadCampaign' => array( 'حملة_الرفع' ),
+);
+
+/** Danish (Dansk) */
+$specialPageAliases['da'] = array(
+	'UploadWizard' => array( 'Vejviser_til_oplægning_af_filer' ),
+	'UploadCampaigns' => array( 'Oplægningskampagner' ),
+	'UploadCampaign' => array( 'Oplægningskampagne' ),
 );
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'UploadWizard' => array( 'Hochlade-Assistent' ),
+	'UploadWizard' => array( 'Hochladeassistent' ),
+	'UploadCampaigns' => array( 'Hochladekampagnen' ),
+	'UploadCampaign' => array( 'Hochladekampagne' ),
+);
+
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'UploadWizard' => array( 'جادوگر_بارگذاری' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */
@@ -51,6 +67,8 @@ $specialPageAliases['lb'] = array(
 /** Macedonian (Македонски) */
 $specialPageAliases['mk'] = array(
 	'UploadWizard' => array( 'ПомошникЗаПодигање' ),
+	'UploadCampaigns' => array( 'ПодигниКампањи' ),
+	'UploadCampaign' => array( 'ПодигниКампања' ),
 );
 
 /** Malayalam (മലയാളം) */
@@ -58,9 +76,18 @@ $specialPageAliases['ml'] = array(
 	'UploadWizard' => array( 'അപ്‌ലോഡ്_സഹായി' ),
 );
 
+/** Nedersaksisch (Nedersaksisch) */
+$specialPageAliases['nds-nl'] = array(
+	'UploadWizard' => array( 'Opstuurhulpe' ),
+	'UploadCampaigns' => array( 'Kampanjes_opsturen' ),
+	'UploadCampaign' => array( 'Kampanje_opsturen' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'UploadWizard' => array( 'WizardUploaden' ),
+	'UploadCampaigns' => array( 'Uploadcampagnes' ),
+	'UploadCampaign' => array( 'Uploadcampagne' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
@@ -83,9 +110,14 @@ $specialPageAliases['vi'] = array(
 	'UploadWizard' => array( 'Thuật_sĩ_tải_lên' ),
 );
 
+/** Cantonese (粵語) */
+$specialPageAliases['yue'] = array(
+	'UploadWizard' => array( '上載精靈' ),
+);
+
 /** Simplified Chinese (‪中文(简体)‬) */
 $specialPageAliases['zh-hans'] = array(
-	'UploadWizard' => array( '上载巫师' ),
+	'UploadWizard' => array( '上传向导', '上传精灵' ),
 );
 
 /**
