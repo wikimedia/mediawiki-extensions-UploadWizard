@@ -7,21 +7,30 @@
 
 ( function( mw, $j ) {
 
-	/** 
-	 * Helper for functions that want to accept variadic arguments after a certain argument offset, to have it 
-	 * be equivalent to an array. 
-	 *
-	 * In other words:
-	 *    somefunction(a, b, c, d) 
-         * is equivalent to 
-	 *    somefunction(a, [b, c, d])
-	 *
-	 * @param {Integer} first offset where one finds the variadic args
-	 * @param {Array} all arguments from caller
-	 * @return {Array} array of arguments desired, whether were variadic or not
-	 */ 
-	function getVariadicArgs( args, offset ) {
-		return $j.isArray( args[offset] ) ? args[offset] : $j.makeArray( args ).slice( offset ); 
+	/**
+	 * Given parser options, return a function that parses a key and replacements, returning jQuery object
+	 * @param {Object} parser options
+	 * @return {Function} accepting ( String message key, String replacement1, String replacement2 ... ) and returning {jQuery}
+	 */
+	function getFailableParserFn( options ) { 
+		var parser = new mw.language.parser( options ); 
+		/** 
+		 * Try to parse a key and optional replacements, returning a jQuery object that may be a tree of jQuery nodes.
+		 * If there was an error parsing, return the key and the error message (wrapped in jQuery). This should put the error right into
+		 * the interface, without causing the page to halt script execution, and it hopefully should be clearer how to fix it.
+		 *
+		 * @param {Array} first element is the key, replacements may be in array in 2nd element, or remaining elements.
+		 * @return {jQuery}
+		 */
+		return function( args ) {
+			var key = args[0];
+			var replacements = $j.isArray( args[1] ) ? args[1] : $j.makeArray( args ).slice( 1 ); 
+			try {
+				return parser.parse( key, replacements );
+			} catch ( e ) {
+				return $j( '<span></span>' ).append( key + ': ' + e.message );
+			}
+		};
 	}
 
 	/**
@@ -38,15 +47,19 @@
 	 * @return {Function} function suitable for assigning to window.gM
 	 */
 	mw.language.getMessageFunction = function( options ) { 
-		var parser = new mw.language.parser( options ); 
+		var failableParserFn = getFailableParserFn( options );
 		/** 
-		 * Note replacements are gleaned from 2nd parameter, or variadic args starting with 2nd parameter.
+		 * N.B. replacements are variadic arguments or an array in second parameter. In other words:
+		 *    somefunction(a, b, c, d) 
+		 * is equivalent to 
+		 *    somefunction(a, [b, c, d])
+		 *
 		 * @param {String} message key
 		 * @param {Array} optional replacements (can also specify variadically)
 		 * @return {String} rendered HTML as string
 		 */
-		return function( key /* , replacements */ ) {
-			return parser.parse( key, getVariadicArgs( arguments, 1 ) ).html();
+		return function( /* key, replacements */ ) {
+			return failableParserFn( arguments ).html();
 		};
 	};
 
@@ -63,24 +76,26 @@
 	 * @return {Function} function suitable for assigning to jQuery plugin, such as $j.fn.msg
 	 */
 	mw.language.getJqueryMessagePlugin = function( options ) {
-		var parser = new mw.language.parser( options ); 
+		var failableParserFn = getFailableParserFn( options );
 		/** 
-		 * Note replacements are gleaned from 2nd parameter, or variadic args starting with 2nd parameter.
+		 * N.B. replacements are variadic arguments or an array in second parameter. In other words:
+		 *    somefunction(a, b, c, d) 
+		 * is equivalent to 
+		 *    somefunction(a, [b, c, d])
+		 * 
 		 * We append to 'this', which in a jQuery plugin context will be the selected elements.
 		 * @param {String} message key
 		 * @param {Array} optional replacements (can also specify variadically)
 		 * @return {jQuery} this
 		 */
-		return function( key /* , replacements */ ) {
+		return function( /* key, replacements */ ) {
 			var $target = this.empty();
-			$j.each( parser.parse( key, getVariadicArgs( arguments, 1 ) ).contents(), function( i, node ) {
+			$j.each( failableParserFn( arguments ).contents(), function( i, node ) {
 				$target.append( node );
 			} );
 			return $target;
 		};
 	};
-		
-
 
 	var parserDefaults = { 
 		'magic' : {},
@@ -107,6 +122,7 @@
 		/**
 		 * Where the magic happens.
 		 * Parses a message from the key, and swaps in replacements as necessary, wraps in jQuery
+		 * If an error is thrown, returns original key, and logs the error
 		 * @param {String} message key
 		 * @param {Array} replacements for $1, $2... $n
 		 * @return {jQuery}
@@ -501,7 +517,11 @@
 						return _this.emit( n, replacements );
 					} );
 					var operation = node[0].toLowerCase();
-					ret = _this[ operation ]( subnodes, replacements );
+					if ( typeof _this[operation] === 'function' ) { 
+						ret = _this[ operation ]( subnodes, replacements );
+					} else {
+						throw new Error( 'unknown operation "' + operation + '"' );
+					}
 					break;
 				case 'undefined':
 					// Parsing the empty string (as an entire expression, or as a paramExpression in a template) results in undefined

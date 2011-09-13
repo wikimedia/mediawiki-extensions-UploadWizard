@@ -15,7 +15,8 @@ mediaWiki.messages.set( {
 	"en_escape0": "Escape \\to fantasy island",
 	"en_escape1": "I had \\$2.50 in my pocket",
 	"en_escape2": "I had {{PLURAL:$1|the absolute \\|$1\\| which came out to \\$3.00 in my C:\\\\drive| some stuff}}",
-	"en_fail": "This should fail to {{parse"
+	"en_fail": "This should fail to {{parse",
+	"en_fail_magic": "There is no such magic word as {{SIETNAME}}"
 } );
 
 /**
@@ -223,6 +224,47 @@ mediaWiki.messages.set( {
 			} );
 
 		} );
+
+		// The parser functions can throw errors, but let's not actually blow up for the user -- instead dump the error into the interface so we have
+		// a chance at fixing this
+		describe( "easy message interface functions with graceful failures", function() {
+			it( "should allow a global that returns strings, with graceful failure", function() {
+				var gM = mediaWiki.language.getMessageFunction();
+				// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+				// a surrounding <SPAN> is needed for html() to work right
+				var expectedHtml = $j( '<span>en_fail: Parse error at position 20 in input: This should fail to {{parse</span>' ).html();
+				var result = gM( 'en_fail' );
+				expect( typeof result ).toEqual( 'string' );
+				expect( result ).toEqual( expectedHtml );
+			} );
+
+			it( "should allow a global that returns strings, with graceful failure on missing magic words", function() {
+				var gM = mediaWiki.language.getMessageFunction();
+				// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+				// a surrounding <SPAN> is needed for html() to work right
+				var expectedHtml = $j( '<span>en_fail_magic: unknown operation "sietname"</span>' ).html();
+				var result = gM( 'en_fail_magic' );
+				expect( typeof result ).toEqual( 'string' );
+				expect( result ).toEqual( expectedHtml );
+			} );
+
+
+			it( "should allow a jQuery plugin, with graceful failure", function() {
+				$j.fn.msg = mediaWiki.language.getJqueryMessagePlugin();
+				var $div = $j( '<div>' ).append( $j( '<p>' ).addClass( 'foo' ) );
+				$div.find( '.foo' ).msg( 'en_fail' );
+				// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
+				// a surrounding <SPAN> is needed for html() to work right
+				var expectedHtml = $j( '<span>en_fail: Parse error at position 20 in input: This should fail to {{parse</span>' ).html();
+				var createdHtml = $div.find( '.foo' ).html();
+				expect( createdHtml ).toEqual( expectedHtml );
+				delete $j.fn.msg;
+			} );
+
+		} );
+
+
+
 
 		describe( "test plurals and other language-specific functions", function() {
 			/* copying some language definitions in here -- it's hard to make this test fast and reliable 
