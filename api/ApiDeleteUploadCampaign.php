@@ -74,7 +74,8 @@ class ApiDeleteUploadCampaign extends ApiBase {
 	
 	public function getDescription() {
 		return array(
-			'API module for deleting surveys.'
+			'API module for deleting Upload Campaigns, associated with UploadWizard. Do not rely on this, it is an API method ' 
+			. 'mostly for developer convenience. This does not mean an Upload Campaign editing API will ever be available.'
 		);
 	}
 	
