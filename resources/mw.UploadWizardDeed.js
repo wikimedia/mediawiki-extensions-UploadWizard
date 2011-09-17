@@ -55,14 +55,16 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		.attr( { name: "author" } )
 		.addClass( 'mwe-upwiz-sign' );
 
-	_this.showCustomDiv = mw.UploadWizard.config.licensesOwnWork.licenses.length > 1;
+	var ownWork = mw.UploadWizard.config.licensesOwnWork;
+	var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
+	_this.showCustomDiv = ownWork.licenses.length > 1 || licenseIsNotDefault;
 
 	if ( _this.showCustomDiv ) {
 		var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
 		
 		_this.licenseInput = new mw.UploadWizardLicenseInput(
 			licenseInputDiv, 
-			undefined,
+			undefined, 
 			mw.UploadWizard.config.licensesOwnWork,
 			_this.uploadCount
 		);		
@@ -89,9 +91,8 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 				return this.licenseInput.getWikiText();
 			}
 			else {
-				var defLicensename = mw.UploadWizard.config.licensesOwnWork.defaults[0];
 				return '{{' + mw.UploadWizard.config.licensesOwnWork.filterTemplate
-					+ '|' + mw.UploadWizard.config.licenses[defLicensename]['templates'].join( '' ) + '}}';
+					+ '|' + mw.UploadWizard.config.licensesOwnWork.defaults[0] + '}}';
 			}
 		},
 
@@ -118,29 +119,15 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			_this.$form = $j( '<form />' );
 
 			_this.$authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
-			
-			var $assertNote = $j( '<p class="mwe-small-print"></p>' );
-			
-			var defLicense = mw.UploadWizard.config.licensesOwnWork.defaults[0];
-			defLicense = mw.UploadWizard.config.licenses[defLicense];
-			
-			if ( mw.isDefined( defLicense.html ) ) {
-				$assertNote.text( gM( 'mwe-upwiz-source-ownwork-assert-note', '' ) )
-					.append( defLicense.html )
-			}
-			else {
-				$assertNote.msg(
-					'mwe-upwiz-source-ownwork-assert-note',
-					gM( defLicense.msg )
-				) 
-			}
-			
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert',
 						 uploadCount,
 						 _this.$authorInput2 ),
-				 $assertNote
+				$j( '<p class="mwe-small-print"></p>' ).msg(
+					'mwe-upwiz-source-ownwork-assert-note',
+					gM( 'mwe-upwiz-license-' + mw.UploadWizard.config.licensesOwnWork.defaults[0] )
+				) 
 			); 
 			
 			var $crossfader = $j( '<div />' ).append( $standardDiv );

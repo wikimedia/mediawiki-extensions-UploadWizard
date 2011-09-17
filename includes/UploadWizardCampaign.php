@@ -198,12 +198,6 @@ class UploadWizardCampaign {
 				'options' => array(),
 				'default' => $globalConfig['licensesOwnWork']['defaults'][0]
 			),
-			'wikitextLicense' => array(
-				'type' => 'text'
-			),
-			'wikitextLicenseTemplates' => array(
-				'type' => 'text'
-			),
 			'defaultCategories' => array(
 				'type' => 'text'
 			),
@@ -218,6 +212,13 @@ class UploadWizardCampaign {
 				'type' => 'text'
 			),
 		);
+
+		foreach ( $globalConfig['licensesOwnWork']['licenses'] as $license ) {
+			$licenceMsg = wfMsg( $globalConfig['licenses'][$license]['msg'] );
+			$config['licensesOwnWork']['options'][$licenceMsg] = $license;
+		}
+
+		$config['defaultOwnWorkLicence']['options'] = $config['licensesOwnWork']['options'];
 
 		return $config;
 	}

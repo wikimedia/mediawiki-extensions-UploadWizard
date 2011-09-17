@@ -94,12 +94,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 
 		// show _ALL_ the licenses!
 		$standardConfig = UploadWizardConfig::getConfig();
-		$licences = array_merge(
-			$standardConfig['licenses'],
-			array( 'wikitextLicense' => array( 'msg' => 'mwe-upwiz-campaign-customLicense' ) )
-		);
-		
-		foreach ( $licences as $key => $license ) {
+		foreach ( $standardConfig['licenses'] as $key => $license ) {
 			$configFields['licensesOwnWork']['options'][ wfMsg( $license['msg'] ) ] = $key;
 			$configFields['defaultOwnWorkLicence']['options'][ wfMsg( $license['msg'] ) ] = $key;
 		}
