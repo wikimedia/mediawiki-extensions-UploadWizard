@@ -47,8 +47,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.titleId = "title" + _this.upload.index;
 	_this.titleInput = $j( '<input type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" class="mwe-title" maxlength="250"/>' )
 		.keyup( function() { 
-			_this.upload.title.setNameText( _this.titleInput.value );
-			// TODO update a display of filename 
+			_this.setCleanTitle( $( _this.titleInput ).val() );
 		} )
 		.destinationChecked( {
 			api: _this.upload.api,
@@ -56,7 +55,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			preprocess: function( name ) { 
 				if ( name !== '' ) {
 					// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
-					return _this.upload.title.setNameText( name ).toString();
+					// side effect -- also sets this as our current title
+					return _this.setCleanTitle( name ).toString();
 				} else {
 					return name;
 				}
@@ -931,7 +931,18 @@ mw.UploadWizardDetails.prototype = {
 			.addClass( 'mwe-upwiz-status-' + statusStr );
 	},
 
-	dateInputCount: 0
+	dateInputCount: 0,
 
+	/**
+	 * Apply some special cleanups for titles before adding to model. These cleanups are not reflected in what the user sees in the title input field.
+	 * For example, we remove an extension in the title if it matches the extension we're going to add anyway. (bug #30676)
+	 * @param {String} title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
+	 * @return {String} cleaned title with prefix and extension, stringified.
+	 */
+	setCleanTitle: function( s ) {
+		var re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' );
+		var cleaned = $j.trim( s.replace( re, '' ) );
+		return this.upload.title.setNameText( cleaned ).toString();
+	}
 		
 };
