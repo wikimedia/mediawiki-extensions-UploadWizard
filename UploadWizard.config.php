@@ -293,19 +293,19 @@ return array(
 	'largeThumbnailMaxHeight' => 500,
 
 	// Max author string length
-	'maxAuthorLength' => 100,
+	'maxAuthorLength' => 500,
 
 	// Min author string length
 	'minAuthorLength' => 1,
 
 	// Max source string length 
-	'maxSourceLength' => 200,
+	'maxSourceLength' => 500,
 
 	// Min source string length
 	'minSourceLength' => 5,
 
 	// Max file title string length
-	'maxTitleLength' => 200,
+	'maxTitleLength' => 500,
 
 	// Min file title string length 
 	'minTitleLength' => 5,
