@@ -358,11 +358,20 @@ mw.UploadWizardUpload.prototype = {
 				this.imageinfo.metadata.orientation = meta.tiff.Orientation.value; 
 			}
 			if ( meta.general ) {
+				var pixelHeightDim = 'height';
+				var pixelWidthDim = 'width';
+				// this must be called after orientation is set above. If no orientation set, defaults to 0
+				var degrees = this.getOrientationDegrees();
+				// jpegmeta reports pixelHeight & width
+				if ( degrees == 90 || degrees == 270 ) {
+					pixelHeightDim = 'width';
+					pixelWidthDim = 'height';
+				}
 				if ( meta.general.pixelHeight ) {
-					this.imageinfo.height = meta.general.pixelHeight.value;
+					this.imageinfo[pixelHeightDim] = meta.general.pixelHeight.value;
 				}
 				if ( meta.general.pixelWidth ) {
-					this.imageinfo.width = meta.general.pixelWidth.value;
+					this.imageinfo[pixelWidthDim] = meta.general.pixelWidth.value;
 				}
 			}
 		}
