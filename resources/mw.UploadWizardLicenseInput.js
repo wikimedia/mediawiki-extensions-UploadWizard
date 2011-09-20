@@ -58,7 +58,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 			if ( mw.isDefined( mw.UploadWizard.config.licenses[name] ) ) {
 				var license = { name: name, props: mw.UploadWizard.config.licenses[name] };
 				_this.licenses.push( license );
-				var templates = mw.isDefined( license.props['templates'] ) ? license.props.templates : [ license.name ];
+				var templates = mw.isDefined( license.props['templates'] ) ? license.props.templates.slice(0) : [ license.name ];
 				var origTemplateString = templates.join( '|' );
 				if ( mw.isDefined( config['prependTemplates'] ) ) {
 					$j.each( config['prependTemplates'], function( i, template ) {
