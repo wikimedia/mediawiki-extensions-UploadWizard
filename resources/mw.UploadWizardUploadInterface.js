@@ -438,10 +438,10 @@ mw.UploadWizardUploadInterface.prototype = {
 					.children()
 					.filter( function() { return this !== _this.div; } )
 					.removeClass('hover');
-			}, false );
+			} );
 			$div.bind( 'mouseleave mouseout', function() { 
 				$div.removeClass( 'hover' ); 	
-			}, false );
+			} );
 			$j( _this.div ).trigger( 'filled' );
 		} else {	
 			$j( _this.div ).trigger( 'filenameAccepted' );
