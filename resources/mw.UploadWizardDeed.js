@@ -520,16 +520,16 @@ mw.UploadWizardDeedChooser.prototype = {
 				gM( 'mwe-upwiz-license-confirm-remove', deedChooser.uploads.length )
 			);
 		}
- 		
+		
 		$j( deedChooser.$selector.find( '.mwe-upwiz-license-special-delete' ) ).each( function() {
 			$j( this ).append( 
-                               $j( '<button type="button" name="abandon"></button>' )
-                                       .msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
-                                       .button()
-                                       .addClass( 'ui-button-text ui-button-textonly' )
-                                       .click( function() { 
-                                               deedChooser.deleteDialog.dialog( 'open' );
-                                       } )
+							   $j( '<button type="button" name="abandon"></button>' )
+									   .msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
+									   .button()
+									   .addClass( 'ui-button-text ui-button-textonly' )
+									   .click( function() { 
+											   deedChooser.deleteDialog.dialog( 'open' );
+									   } )
 			);
 		} );
 	}
