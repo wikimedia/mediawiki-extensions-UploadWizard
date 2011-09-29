@@ -83,24 +83,24 @@
 				title.setNamespace( 'file' );
 				expect( title.toString() ).toEqual( "File:Something.pdf" );
 
-				var title = new mw.Title( "NeilK" );
+				title = new mw.Title( "NeilK" );
 				title.setNamespace( 'user_talk' );
 				expect( title.toString() ).toEqual( "User_talk:NeilK" );
 				expect( title.toText() ).toEqual( "User talk:NeilK" );
 
-				var title = new mw.Title( "Frobisher" );
+				title = new mw.Title( "Frobisher" );
 				title.setNamespaceById( 99 );
 				expect( title.toString() ).toEqual( "Penguins:Frobisher" );
 
-				var title = new mw.Title( "flightless_yet_cute.jpg" );
+				title = new mw.Title( "flightless_yet_cute.jpg" );
 				title.setNamespace( "antarctic_waterfowl" );
 				expect( title.toString() ).toEqual( "Penguins:Flightless_yet_cute.jpg" );
 
-				var title = new mw.Title( "flightless_yet_cute.jpg" );
+				title = new mw.Title( "flightless_yet_cute.jpg" );
 				title.setPrefix( "Penguins" );
 				expect( title.toString() ).toEqual( "Penguins:Flightless_yet_cute.jpg" );
 
-				var title = new mw.Title( "flightless_yet_cute.jpg" );
+				title = new mw.Title( "flightless_yet_cute.jpg" );
 				expect( function() { 
 					title.setPrefix( "Entirely Unknown" );
 				} ).toThrow( "unrecognized namespace prefix" );
