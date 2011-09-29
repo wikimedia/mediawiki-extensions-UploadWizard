@@ -293,13 +293,13 @@ return array(
 	'largeThumbnailMaxHeight' => 500,
 
 	// Max author string length
-	'maxAuthorLength' => 500,
+	'maxAuthorLength' => 10000,
 
 	// Min author string length
 	'minAuthorLength' => 1,
 
 	// Max source string length 
-	'maxSourceLength' => 500,
+	'maxSourceLength' => 10000,
 
 	// Min source string length
 	'minSourceLength' => 5,
@@ -311,13 +311,13 @@ return array(
 	'minTitleLength' => 5,
 
 	// Max file description length
-	'maxDescriptionLength' => 4096,
+	'maxDescriptionLength' => 10000,
 
 	// Min file description length
 	'minDescriptionLength' => 5,
 
 	// Max length for other file information: 
-	'maxOtherInformationLength' => 4096,
+	'maxOtherInformationLength' => 10000,
 
 	// Max number of simultaneous upload requests 
 	'maxSimultaneousConnections' => 3,
