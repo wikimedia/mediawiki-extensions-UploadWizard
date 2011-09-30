@@ -676,8 +676,8 @@ mw.UploadWizard.prototype = {
 			// we have uploads ready to go, so allow us to proceed
 			$j( '#mwe-upwiz-upload-ctrl-container' ).show();
 
-			// changes the "click here to add files" to "add another file"
-			$j( '#mwe-upwiz-add-file span' ).msg( 'mwe-upwiz-add-file-n' );
+			// changes the initial centered invitation button to something like "add another file"
+			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', gM( 'mwe-upwiz-add-file-n' ) );
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-n');
 
@@ -693,9 +693,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-filelist .filled:even' ).removeClass( 'odd' );
 		} else {
 			// no uploads, so don't allow us to proceed
-			// $j( '#mwe-upwiz-upload-ctrl' ).attr( 'disabled', 'disabled' );
 			$j( '#mwe-upwiz-upload-ctrl-container' ).hide();
-
 
 			// remove the border from the filelist. We can't hide it or make it invisible since it contains the displaced
 			// file input element that becomes the "click here to add"
@@ -704,8 +702,8 @@ mw.UploadWizard.prototype = {
 			// we can't continue
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
 
-			// change "add another file" into "click here to add a file"
-			$j( '#mwe-upwiz-add-file span' ).msg( 'mwe-upwiz-add-file-0-free' );
+			// changes the button back from "add another file" to the initial centered invitation button
+			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', gM( 'mwe-upwiz-add-file-0-free' ) );
 			$j( '#mwe-upwiz-add-file-container' ).addClass('mwe-upwiz-add-files-0');
 			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-n');
 
@@ -737,11 +735,11 @@ mw.UploadWizard.prototype = {
 
 		// allow an "add another upload" button only if we aren't at max
 		if ( _this.uploads.length < _this.maxUploads ) {
-			$j( '#mwe-upwiz-add-file' ).removeAttr( 'disabled' );
+			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', false );
 			$j( _this.uploadToAdd.ui.div ).show();
 			_this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
 		} else {
-			$j( '#mwe-upwiz-add-file' ).attr( 'disabled', true );
+			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', true );
 			$j( _this.uploadToAdd.ui.div ).hide();
 		}
 
