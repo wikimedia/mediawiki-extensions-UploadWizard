@@ -323,7 +323,7 @@ return array(
 	'maxSimultaneousConnections' => 3,
 
 	// Max number of uploads for a given form
-	'maxUploads' => 10,
+	'maxUploads' => 50,
 
 	// not for use with all wikis. 
 	// The ISO 639 code for the language tagalog is "tl".
