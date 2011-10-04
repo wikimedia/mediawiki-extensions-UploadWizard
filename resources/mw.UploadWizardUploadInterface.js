@@ -243,22 +243,27 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
-	 * Get a list of the files, defaulting to the value from the input form
-	 * @return Array of file objects
+	 * Get a list of the files from this file input, defaulting to the value from the input form
+	 * @return {Array} of File objects
 	 */
 	getFiles: function() {
 		var files = [];
-		if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
-			 files[0] = this.providedFile;
-		} else {
-			$j.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
-				files.push( file );
-			} );
+		if ( mw.fileApi.isAvailable() ) {
+			if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+				files[0] = this.providedFile;
+			} else {
+				$j.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
+					files.push( file );
+				} );
+			}
 		}
 		return files;
 	},
 
-	// get just the filename.
+	/**
+	 * Get just the filename.
+	 * @return {String}
+	 */
 	getFilename: function() {
 		if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
 			return this.providedFile.fileName;
