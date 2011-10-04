@@ -8,13 +8,13 @@
  */
 
 
-mw.FormDataTransport = function( $form, formData, progressCb, transportedCb ) {
-    this.$form = $form;
+mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, transportedCb ) {
     this.formData = formData;
     this.progressCb = progressCb;
     this.transportedCb = transportedCb;
+	this.uploadObject = uploadObject;
 
-    this.postUrl = this.$form[0].action;
+    this.postUrl = postUrl;
     this.chunkSize = 1 * 1024 * 1024; //1Mb
     this.maxRetries = 2;
     this.retries = 0;
@@ -28,7 +28,9 @@ mw.FormDataTransport = function( $form, formData, progressCb, transportedCb ) {
 mw.FormDataTransport.prototype = {
     upload: function() {
         var _this = this,
-            file = this.$form.find('input[name=file]')[0].files[0];
+			file = this.uploadObject.file;
+		var bytesAvailable = file.size;
+		
         if(file.size > this.chunkSize) {
             this.uploadChunk(0);
         } else {
@@ -79,15 +81,16 @@ mw.FormDataTransport.prototype = {
             $j.each(this.formData, function(key, value) {
                 formData.append(key, value);
             });
-            formData.append('filename', file.name);
-            formData.append('file', file);
+			formData.append('filename', file.name);
+			formData.append('file', file);
+			
             this.xhr.open("POST", _this.postUrl, true);
             this.xhr.send(formData);
         }
     },
     uploadChunk: function(offset) {
         var _this = this,
-            file = this.$form.find('input[name=file]')[0].files[0],
+            file = this.uploadObject.file,
             bytesAvailable = file.size,
             chunk;
 

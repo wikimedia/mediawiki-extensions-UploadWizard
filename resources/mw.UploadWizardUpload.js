@@ -7,7 +7,7 @@
  */
 ( function( $j ) {
 
-mw.UploadWizardUpload = function( wizard, filesDiv ) {
+mw.UploadWizardUpload = function( wizard, filesDiv, providedFile ) {
 
 	this.index = mw.UploadWizardUpload.prototype.count;
 	mw.UploadWizardUpload.prototype.count++;
@@ -22,6 +22,8 @@ mw.UploadWizardUpload = function( wizard, filesDiv ) {
 	this.mimetype = undefined;
 	this.extension = undefined;
 	this.filename = undefined;
+	this.providedFile = providedFile;
+	this.file = undefined;
 
 	this.fileKey = undefined;
 
@@ -30,7 +32,7 @@ mw.UploadWizardUpload = function( wizard, filesDiv ) {
 	this.detailsWeight = 1; // default all same
 
 	// details
-	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv );
+	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv, providedFile );
 
 	// handler -- usually ApiUploadHandler
 	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
@@ -258,18 +260,18 @@ mw.UploadWizardUpload.prototype = {
 	 * Checks for file validity, then extracts metadata.
 	 * Error out if filename or its contents are determined to be unacceptable
 	 * Proceed to thumbnail extraction and image info if acceptable
-	 * @param {HTMLFileInput} file input field
+	 * @param {string} the filename
+	 * @param {Array} the list of files.  usually one, can be more for multi-file select.
 	 * @param {Function()} callback when ok, and upload object is ready
 	 * @param {Function(String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
 	 */
-	checkFile: function( fileInput, fileNameOk, fileNameErr ) {
+	checkFile: function( filename, files, fileNameOk, fileNameErr ) {
 		// check if local file is acceptable
 
 		var _this = this;
 		
 		// Check if filename is acceptable
 		// TODO sanitize filename
-		var filename = fileInput.value;
 		var basename = mw.UploadWizardUtil.getBasename( filename );
 
 
@@ -301,13 +303,23 @@ mw.UploadWizardUpload.prototype = {
 			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) === -1 ) {
 				fileNameErr( 'ext', extension );
 			} else {
-
 				// extract more info via fileAPI
 				if ( mw.fileApi.isAvailable() ) {
-					if ( fileInput.files && fileInput.files.length ) {
-						// TODO multiple files in an input
-						this.file = fileInput.files[0];
-					}
+
+					// An UploadWizardUpload object already exists (us) when we add a file. 
+					// So, when multiple files are provided (via select multiple), add the first file to this UploadWizardUpload
+					// and create new UploadWizardUpload objects and corresponding interfaces for the rest.
+					//
+					// don't process the very first file, since that's this instance's job.
+					$j.each( files.slice(1), function( i, file ) {
+						//_this.wizard.setUploadFilled( _this.wizard.newUpload( file ) );
+						_this.wizard.newUpload( file );
+					} );
+					_this.wizard.updateFileCounts();
+					
+					// this input will use the last one.
+					this.file = files[0];
+
 					// TODO check max upload size, alert user if too big
 					this.transportWeight = this.file.size;
 					if ( !mw.isDefined( this.imageinfo ) ) {
@@ -559,10 +571,7 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	getUploadHandler: function(){
 		if( !this.uploadHandler ){
-			if( mw.UploadWizard.config[ 'enableFirefogg' ]
-					&&
-				typeof( Firefogg ) != 'undefined'
-			) {
+			if( mw.UploadWizard.config[ 'enableFirefogg' ] && typeof( Firefogg ) != 'undefined' ) {
 				mw.log("mw.UploadWizard::getUploadHandler> FirefoggHandler");
 				this.uploadHandler = new mw.FirefoggHandler( this, this.api );			
 			} else if( mw.UploadWizard.config[ 'enableFormData' ] &&

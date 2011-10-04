@@ -6,6 +6,7 @@
 mw.ApiUploadFormDataHandler = function( upload, api ) {
     this.upload = upload;
     this.api = api;
+
     this.$form = $j( this.upload.ui.form );
     this.formData = {
         action: 'upload',
@@ -15,8 +16,9 @@ mw.ApiUploadFormDataHandler = function( upload, api ) {
 
     var _this = this;
     this.transport = new mw.FormDataTransport(
-        this.$form,
+        this.$form[0].action,
         this.formData,
+		this.upload,
         function( fraction ) { 
             _this.upload.setTransportProgress( fraction ); 
         },

@@ -397,13 +397,13 @@ mw.UploadWizard.prototype = {
 	 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
 	 * @return the new upload
 	 */
-	newUpload: function() {
+	newUpload: function( file ) {
 		var _this = this;
 		if ( _this.uploads.length == _this.maxUploads ) {
 			return false;
 		}
 
-		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-filelist' );
+		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-filelist', file );
 		_this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
@@ -419,8 +419,7 @@ mw.UploadWizard.prototype = {
 			e.stopPropagation();
 		} );
 		// XXX bind to some error state
-
-
+		
 		return upload;
 	},
 
@@ -482,7 +481,7 @@ mw.UploadWizard.prototype = {
 	 */
 	removeEmptyUploads: function() {
 		this.removeMatchingUploads( function( upload ) {
-			return mw.isEmpty( upload.ui.$fileInputCtrl.val() );
+			return mw.isEmpty( upload.filename );
 		} );
 	},
 

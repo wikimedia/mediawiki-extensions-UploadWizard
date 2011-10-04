@@ -2,25 +2,27 @@
  * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
  * @param upload
  * @param div to insert file interface
- * @param addInterface interface to add a new one (assumed that we start out there)
+ * @param providedFile a File object that this ui component should use (optional)
  */
-mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
+mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	var _this = this;
 
 	_this.upload = upload;
+
+	_this.providedFile = providedFile;
 
 	// may need to collaborate with the particular upload type sometimes
 	// for the interface, as well as the uploadwizard. OY.
 	_this.div = $j('<div class="mwe-upwiz-file"></div>').get(0);
 	_this.isFilled = false;
 
-	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>');
+	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file" multiple="1"/>');
 
 	_this.initFileInputCtrl();
 
 	_this.$indicator = $j( '<div class="mwe-upwiz-file-indicator"></div>' );
 
-	visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
+	var visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
 		.append( _this.$indicator )
 		.append( '<div class="mwe-upwiz-visible-file-filename">'
 			   + '<div class="mwe-upwiz-file-preview"/>'
@@ -91,6 +93,11 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv ) {
 		mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
 		true
 	);
+
+	if( providedFile ) {
+		// if a file is already present, trigger the change event immediately.
+		_this.$fileInputCtrl.change();
+	}
 
 };
 
@@ -225,14 +232,40 @@ mw.UploadWizardUploadInterface.prototype = {
 		var _this = this;
 		_this.$fileInputCtrl.change( function() { 
 			_this.clearErrors();
-			_this.upload.checkFile( 
-				this, // the file input, different from _this
+			
+			_this.upload.checkFile(
+				_this.getFilename(),
+				_this.getFiles(),
 				function() { _this.fileChangedOk(); },
 				function( code, info ) { _this.fileChangedError( code, info ); } 
 			); 
 		} );
 	},
 
+	/**
+	 * Get a list of the files, defaulting to the value from the input form
+	 * @return Array of file objects
+	 */
+	getFiles: function() {
+		var files = [];
+		if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+			 files[0] = this.providedFile;
+		} else {
+			$j.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
+				files.push( file );
+			} );
+		}
+		return files;
+	},
+
+	// get just the filename.
+	getFilename: function() {
+		if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+			return this.providedFile.fileName;
+		} else {
+			return this.$fileInputCtrl.get(0).value;
+		}	
+	},
 
 	/**
 	 * Run this when the value of the file input has changed and we know it's acceptable -- this 
@@ -272,7 +305,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	fileChangedError: function( code, info ) {
-		var filename = this.$fileInputCtrl.get(0).value;
+		var filename = this.getFilename();
 
 		// ok we now have a fileInputCtrl with a "bad" file in it
 		// you cannot blank a file input ctrl in all browsers, so we 
@@ -281,6 +314,10 @@ mw.UploadWizardUploadInterface.prototype = {
 		this.$fileInputCtrl.replaceWith( $newFileInput );
 		this.$fileInputCtrl = $newFileInput;
 		this.initFileInputCtrl();
+		
+		if( this.providedFile ) {
+			this.providedFile = null;
+		}
 
 		if ( code === 'ext' ) {
 			this.showBadExtensionError( filename, info );
@@ -395,7 +432,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	 */
 	updateFilename: function() {
 		var _this = this;
-		var path = _this.$fileInputCtrl.val();
+		var path = this.getFilename();
 		// get basename of file; some browsers do this C:\fakepath\something
 		path = path.replace(/\w:.*\\(.*)$/,'$1');
 		
