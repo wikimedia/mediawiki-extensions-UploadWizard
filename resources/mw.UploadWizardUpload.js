@@ -7,6 +7,23 @@
  */
 ( function( $j ) {
 
+/**
+ * Constructor for objects representing uploads. The workhorse of this entire extension.
+ * 
+ * The upload knows nothing of other uploads. It manages its own interface, and transporting its own data, to
+ * the server.
+ *
+ * Upload objects are usually created without a file, they are just associated with a form. 
+ * There is an "empty" fileInput which is invisibly floating above certain buttons in the interface, like "Add a file". When
+ * this fileInput gets a file, this upload becomes 'filled'.
+ * 
+ * On some browsers, the user may select multiple files. So upon such a 'filled' event, we add the first File to this Upload, and 
+ * then create other UploadWizardUpload objects from the individual Files, using the optional providedFile parameter.
+ * 
+ * @param {UploadWizard} wizard 
+ * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads 
+ * @param {File} providedFile - optional; only used on browsers which support FileAPI.
+ */
 mw.UploadWizardUpload = function( wizard, filesDiv, providedFile ) {
 
 	this.index = mw.UploadWizardUpload.prototype.count;
@@ -261,7 +278,7 @@ mw.UploadWizardUpload.prototype = {
 	 * Error out if filename or its contents are determined to be unacceptable
 	 * Proceed to thumbnail extraction and image info if acceptable
 	 * @param {string} the filename
-	 * @param {Array} the list of files.  usually one, can be more for multi-file select.
+	 * @param {Array} of Files.  usually one, can be more for multi-file select.
 	 * @param {Function()} callback when ok, and upload object is ready
 	 * @param {Function(String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
 	 */
@@ -286,7 +303,6 @@ mw.UploadWizardUpload.prototype = {
 		
 		if( duplicate ) {
 			fileNameErr( 'dup', basename );
-			return false;
 		}
 		
 		try {
@@ -312,7 +328,6 @@ mw.UploadWizardUpload.prototype = {
 					//
 					// don't process the very first file, since that's this instance's job.
 					$j.each( files.slice(1), function( i, file ) {
-						//_this.wizard.setUploadFilled( _this.wizard.newUpload( file ) );
 						_this.wizard.newUpload( file );
 					} );
 					_this.wizard.updateFileCounts();
