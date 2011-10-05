@@ -16281,6 +16281,9 @@ $messages['si'] = array(
 	'mwe-upwiz-uploading' => 'උඩුගත කෙරෙමින් පවතී...',
 	'mwe-upwiz-transported' => 'හරි',
 	'mwe-upwiz-stashed-upload' => 'හරි',
+	'mwe-upwiz-published' => 'ප්‍රකාශිත!',
+	'mwe-upwiz-failed' => 'අසමත් විය.',
+	'mwe-upwiz-remove' => 'ඉවත් කරන්න',
 	'mwe-upwiz-upload' => 'උඩුගත කරන්න',
 	'mwe-upwiz-progressbar-uploading' => 'උඩුගත කෙරෙමින් පවතී',
 	'mwe-upwiz-finished' => 'නිමි!',
@@ -16330,6 +16333,14 @@ $messages['si'] = array(
 එය  {{PLURAL:$1|එක් අක්ෂරයකට|අක්ෂරයන් $1 කට}} වඩා දිගු විය යුතුය.',
 	'mwe-upwiz-categories' => 'ප්‍රවර්ග',
 	'mwe-upwiz-categories-add' => 'එක් කරන්න',
+	'mwe-upwiz-help-popup' => 'උදවු',
+	'mwe-upwiz-help-popup-title' => 'ශීර්ෂය',
+	'mwe-upwiz-campaigns-enabled' => 'බලය දෙන ලදී',
+	'mwe-upwiz-campaigns-disabled' => 'අක්‍රිය කෙරිණි',
+	'mwe-upwiz-campaigns-edit' => 'සංස්කරණය කරන්න',
+	'mwe-upwiz-campaigns-add' => 'එකතු කරන්න',
+	'mwe-upwiz-campaigns-addnew' => 'නව ව්‍යාපාරයක් එකතු කරන්න',
+	'mwe-upwiz-campaigns-newname' => 'ව්‍යාපාරයේ නම',
 );
 
 /** Slovak (Slovenčina)
