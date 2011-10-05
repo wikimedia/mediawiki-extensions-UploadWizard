@@ -28,35 +28,18 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
 mw.FormDataTransport.prototype = {
     upload: function() {
         var _this = this,
-			file = this.uploadObject.file;
-		var bytesAvailable = file.size;
-		
+            file = this.uploadObject.file,
+            bytesAvailable = file.size;
+
         if(file.size > this.chunkSize) {
             this.uploadChunk(0);
         } else {
             this.xhr = new XMLHttpRequest();
             this.xhr.addEventListener("load", function (evt) {
-                var response;
-                try {
-                    response = JSON.parse(evt.target.responseText);
-                } catch(e) {
-                    response = {
-                        responseText: evt.target.responseText
-                    };
-                }
-                //upload finished and can be unstashed later
-                _this.transportedCb(response);
+                _this.parseResponse(evt, _this.transportedCb);
             }, false);
             this.xhr.addEventListener("error", function (evt) {
-                var response;
-                try {
-                    response = JSON.parse(evt.target.responseText);
-                } catch(e) {
-                    response = {
-                        responseText: evt.target.responseText
-                    };
-                }
-                _this.transportedCb(response);
+                _this.parseResponse(evt, _this.transportedCb);
             }, false);
             this.xhr.upload.addEventListener("progress", function (evt) {
                 if (evt.lengthComputable) {
@@ -65,15 +48,7 @@ mw.FormDataTransport.prototype = {
                 }
             }, false);
             this.xhr.addEventListener("abort", function (evt) {
-                var response;
-                try {
-                    response = JSON.parse(evt.target.responseText);
-                } catch(e) {
-                    response = {
-                        responseText: evt.target.responseText
-                    };
-                }
-                _this.transportedCb(response);
+                _this.parseResponse(evt, _this.transportedCb);
             }, false);
 
             var formData = new FormData();
@@ -106,53 +81,39 @@ mw.FormDataTransport.prototype = {
 
         this.xhr = new XMLHttpRequest();
         this.xhr.addEventListener("load", function (evt) {
-            var response;
             _this.responseText = evt.target.responseText;
-            try {
-                response = JSON.parse(evt.target.responseText);
-            } catch(e) {
-                response = {
-                    responseText: evt.target.responseText
-                };
-            }
-            if(response.upload && response.upload.filekey) {
-                _this.filekey = response.upload.filekey;
-            }
-            if (response.upload && response.upload.result == 'Success') {
-                //upload finished and can be unstashed later
-                _this.transportedCb(response);
-            }
-            else if (response.upload && response.upload.result == 'Continue') {
-                //reset retry counter
-                _this.retries = 0;
-                //start uploading next chunk
-                _this.uploadChunk(response.upload.offset);
-            } else {
-                //failed to upload, try again in 3 second
-                _this.retries++;
-                if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
-                    //upload failed, raise response
-                    _this.transportedCb(response);
-                } else {
-                    setTimeout(function() {
-                        _this.uploadChunk(offset);
-                    }, 3000);
+            _this.parseResponse(evt, function(response) {
+                if(response.upload && response.upload.filekey) {
+                    _this.filekey = response.upload.filekey;
                 }
-            }
+                if (response.upload && response.upload.result == 'Success') {
+                    //upload finished and can be unstashed later
+                    _this.transportedCb(response);
+                }
+                else if (response.upload && response.upload.result == 'Continue') {
+                    //reset retry counter
+                    _this.retries = 0;
+                    //start uploading next chunk
+                    _this.uploadChunk(response.upload.offset);
+                } else {
+                    //failed to upload, try again in 3 second
+                    _this.retries++;
+                    if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
+                        //upload failed, raise response
+                        _this.transportedCb(response);
+                    } else {
+                        setTimeout(function() {
+                            _this.uploadChunk(offset);
+                        }, 3000);
+                    }
+                }
+            });
         }, false);
         this.xhr.addEventListener("error", function (evt) {
-            var response;
             //failed to upload, try again in 3 second
             _this.retries++;
             if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
-                try {
-                    response = JSON.parse(evt.target.responseText);
-                } catch(e) {
-                    response = {
-                        responseText: evt.target.responseText
-                    };
-                }
-                _this.transportedCb(response);
+                _this.parseResponse(evt, _this.transportedCb);
             } else {
                 setTimeout(function() {
                         _this.uploadChunk(offset);
@@ -166,15 +127,7 @@ mw.FormDataTransport.prototype = {
             }
         }, false);
         this.xhr.addEventListener("abort", function (evt) {
-            var response;
-            try {
-                response = JSON.parse(evt.target.responseText);
-            } catch(e) {
-                response = {
-                    responseText: evt.target.responseText
-                };
-            }
-            _this.transportedCb(response);
+            _this.parseResponse(evt, _this.transportedCb);
         }, false);
 
         var formData;
@@ -205,12 +158,26 @@ mw.FormDataTransport.prototype = {
             this.xhr.send(formData);
         }
     },
+    parseResponse: function(evt, callback) {
+        var response;
+        try {
+            response = $j.parseJSON(evt.target.responseText);
+        } catch(e) {
+            response = {
+                error: {
+                    code: evt.target.code,
+                    info: evt.target.responseText
+                }
+            };
+        }
+        callback(response);
+    },
     geckoFormData: function() {
         var boundary = '------XX' + Math.random(),
             dashdash = '--',
             crlf = '\r\n',
             builder = '', // Build RFC2388 string.
-            wait = 0;
+            chunksRemaining = 0;
 
         builder += dashdash + boundary + crlf;
 
@@ -244,14 +211,14 @@ mw.FormDataTransport.prototype = {
                 builder += dashdash + boundary + crlf;
             },
             appendBlob: function(name, blob, filename) {
-                wait++;
+                chunksRemaining++;
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     formData.appendFile(name, e.target.result,
                                         blob.type, filename);
                     // Call onload after last Blob 
-                    wait--;
-                    if(!wait && formData.xhr) {
+                    chunksRemaining--;
+                    if(!chunksRemaining && formData.xhr) {
                         onload();
                     }
                 };
@@ -259,7 +226,7 @@ mw.FormDataTransport.prototype = {
             },
             send: function(xhr) {
                 formData.xhr = xhr;
-                if(!wait) {
+                if(!chunksRemaining) {
                     onload();
                 }
             }

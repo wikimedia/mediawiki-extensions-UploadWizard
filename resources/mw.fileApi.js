@@ -24,6 +24,15 @@
 			var	known = [ 'image/png', 'image/gif', 'image/jpeg', 'image/svg+xml'],
 				tooHuge = 10 * 1024 * 1024;
 			return ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
+		},
+
+		/**
+		 * Is the slice function of FileAPI available with sufficient functionality?
+		 * @todo is there a way to check this instead of hardcoding browsers and version?
+		 */
+		isSliceAvailable: function() {
+		    return ($j.browser.mozilla && $j.browser.version >= '5.0') ||
+				   ($j.browser.webkit && $j.browser.version >= '534.28');
 		}
 
 

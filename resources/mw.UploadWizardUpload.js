@@ -589,10 +589,7 @@ mw.UploadWizardUpload.prototype = {
 			if( mw.UploadWizard.config[ 'enableFirefogg' ] && typeof( Firefogg ) != 'undefined' ) {
 				mw.log("mw.UploadWizard::getUploadHandler> FirefoggHandler");
 				this.uploadHandler = new mw.FirefoggHandler( this, this.api );			
-			} else if( mw.UploadWizard.config[ 'enableFormData' ] &&
-						(($j.browser.mozilla && $j.browser.version >= '5.0') ||
-						 ($j.browser.webkit && $j.browser.version >= '534.28'))
-            ) {
+			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isSliceAvailable()) {
 				mw.log("mw.UploadWizard::getUploadHandler> ApiUploadFormDataHandler");
 				this.uploadHandler = new mw.ApiUploadFormDataHandler( this, this.api );
 			} else {
