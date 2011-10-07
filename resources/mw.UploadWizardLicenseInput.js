@@ -152,11 +152,51 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	setValues: function( values ) {
 		var _this = this;
-		$j.each( _this.inputs, function( i, $input ) {
-			var licenseName = $input.data( 'licenseName' );
-			// !! to ensure boolean.
-			$input.attr( 'checked', !!values[licenseName] );
-		} );
+		// ugly division between radio and checkbox, because in jquery 1.6.4 if you set any element of a radio input to false, every element
+		// is set to false! Unfortunately the incoming data structure is a key-val object so we have to make extra sure it makes sense for 
+		// a radio button input.
+
+		// this works fine for blanking all of a radio input, or for checking/unchecking individual checkboxes
+		function setInputsIndividually() { 
+			$j.each( _this.inputs, function( i, $input ) {
+				var licenseName = $input.data( 'licenseName' );
+				// !! to ensure boolean.
+				$input.attr( 'checked', !!values[licenseName] );
+			} );
+		}
+
+		if ( _this.type === 'radio' ) {
+
+			// check if how many license names are set to true in the values requested. Should be 0 or 1
+			var trueCount = 0;
+			var trueLicenseName = undefined;
+			$j.each( values, function( licenseName, val ) { 
+				if ( val === true ) { 
+					trueCount++;
+					trueLicenseName = licenseName;
+				}
+			} );
+
+			if ( trueCount === 0 ) {
+				setInputsIndividually();
+			} else if ( trueCount === 1 ) {
+				// set just one of the radio inputs and don't touch anything else
+				$j.each( _this.inputs, function( i, $input ) { 
+					var licenseName = $input.data( 'licenseName' );
+					// !! to ensure boolean.
+					if ( licenseName === trueLicenseName ) {
+						$input.attr( 'checked', true );
+					}
+				} );
+			} else {
+				mw.log( "too many true values for a radio button!");
+			}
+							
+		} else if ( _this.type === 'checkbox' ) {
+			setInputsIndividually();
+		} else {
+			mw.log( "impossible? UploadWizardLicenseInput type neither radio nor checkbox" );
+		}
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
 	},
