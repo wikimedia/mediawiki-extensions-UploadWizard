@@ -364,6 +364,7 @@ Please do not use wikitext or HTML here.',
  * @author Raymond
  * @author Siebrand
  * @author Strainu
+ * @author Umherirrender
  * @author Yekrats
  */
 $messages['qqq'] = array(
@@ -372,9 +373,12 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 	'uploadwizard-desc' => 'Description of extension. It refers to [http://blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
 	'mwe-upwiz-uploadcampaigns' => 'Special page title. Can also be worded as "campaigns for the promotion of uploading".',
 	'mwe-upwiz-uploadcampaign' => 'Special page title.',
-	'right-upwizcampaigns' => '{{doc-right}}
+	'right-upwizcampaigns' => '{{doc-right|upwizcampaigns}}
 
 "Upload campaign" can also be worded as "a campaign for the promotion of uploading".',
+	'group-upwizcampeditors' => '{{doc-group|upwizcampeditors}}',
+	'group-upwizcampeditors-member' => '{{doc-group|upwizcampeditors|member}}',
+	'grouppage-upwizcampeditors' => '{{doc-group|upwizcampeditors|page}}',
 	'mwe-upwiz-step-tutorial' => '{| align="right"
 | [[file:commons-uw-L524.png|Initial "{{MediaWiki:mwe-upwiz-step-file/en}}" page|thumb|right]]
 | [[file:commons-uw-L521.png|Beginning of "{{MediaWiki:mwe-upwiz-step-tutorial/en}}" page|thumb|right]]
@@ -5997,6 +6001,7 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
  * @author Dodoïste
  * @author Ebe123
  * @author Gomoko
+ * @author Grondin
  * @author Hashar
  * @author IAlex
  * @author Jean-Frédéric
@@ -6101,8 +6106,8 @@ $messages['fr'] = array(
 	'mwe-upwiz-deeds-macro-prompt' => 'Ce site vous demande de fournir les informations de droit d’auteur pour {{PLURAL:$1|cette œuvre|ces œuvres}}, pour s’assurer que tout le monde puisse {{PLURAL:$1|la réutiliser|les réutiliser}}.',
 	'mwe-upwiz-deeds-custom-prompt' => 'Ou :',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Ce fichier est|Ces fichiers sont}} de mon propre travail.',
-	'mwe-upwiz-source-ownwork-assert-any-license' => 'Moi, $2, le détenteur des droits d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, donne irrévocablement par la présente le droit à quiconque d’utiliser, modifier et redistribuer {{PLURAL:$1|cette œuvre|ces œuvres}} pour quelques fins que ce soit, et c’est pourquoi je {{PLURAL:$1|la|les}} publie sous les modalités suivantes :',
-	'mwe-upwiz-source-ownwork-assert' => "Moi, $2, titulaire du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à quiconque le droit d'utiliser {{PLURAL:$1|ce travail|ces travaux}} à n'importe quelle fin, aux conditions qu’ils me créditent et partagent les travaux dérivés selon les mêmes modalités.",
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'Moi, $2, le détenteur des droits d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, donne irrévocablement par la présente le droit à toute personne d’utiliser, modifier et redistribuer {{PLURAL:$1|cette œuvre|ces œuvres}} pour quelques fins que ce soit, et c’est pourquoi je {{PLURAL:$1|la|les}} publie sous les modalités suivantes :',
+	'mwe-upwiz-source-ownwork-assert' => "Moi, $2, titulaire du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d'utiliser {{PLURAL:$1|ce travail|ces travaux}} à n'importe quelle fin, aux conditions qu’ils me créditent et partagent les travaux dérivés selon les mêmes modalités.",
 	'mwe-upwiz-source-ownwork-assert-custom' => "Moi, $2, titulaire du droit d'auteur de {{PLURAL:$1|cette œuvre, la|ces œuvres, les}} publie par la présente sous la (les) licence(s) suivante(s) :",
 	'mwe-upwiz-source-ownwork-assert-note' => 'Cela signifie que vous publiez votre travail sous la licence suivante : $1',
 	'mwe-upwiz-source-permission' => "Leur auteur vous a donné l'autorisation explicite de les importer",
@@ -9338,7 +9343,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'では、なぜこのウェブサイトに{{PLURAL:$1|この作品|これらの作品}}を公開する権利があるのかをお教えください。',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => '次のページで、各ファイルに対する著作権情報を、個別に提供してください。',
-	'mwe-upwiz-more-options' => '付記を入力・・・',
+	'mwe-upwiz-more-options' => 'カテゴリやその他の情報を追加する...',
 	'mwe-upwiz-fewer-options' => '付記を畳む・・・',
 	'mwe-upwiz-desc' => '説明',
 	'mwe-upwiz-desc-add-n' => '他の言語での説明を追加',
@@ -9371,6 +9376,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-fileexists' => '同名のファイルが既に存在しています。上書きして良いか不明な場合は<b><tt>$1</tt></b>を確認してください。',
 	'mwe-upwiz-fileexists-replace-on-page' => 'この名前のファイルは既に存在します。置き換えたい場合は、[$2 $1]で置き換えてください。',
 	'mwe-upwiz-fileexists-replace-no-link' => '同じ名前のファイルが既に存在します。',
+	'mwe-upwiz-blacklisted' => '他の、説明的なタイトルをお選びください。',
 	'mwe-upwiz-thumbnail-more' => '拡大',
 	'mwe-upwiz-overwrite' => 'ファイルを置き換え',
 	'mwe-upwiz-next' => '次',
@@ -9387,7 +9393,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-tooltip-sign' => 'あなたのウィキでの名前や、本名を使うことができます。
 どちらの場合でも、ウィキの利用者ページへリンクされます。',
 	'mwe-upwiz-tooltip-title' => 'ファイル固有の短いタイトル。拡張子は含めないで、平易な言葉を使用してください。',
-	'mwe-upwiz-dialog-title' => 'ファイル名は、（文字コードがUTF-8の）どの言語によるものであってもアップロードすることが可能です。ファイル名は、選択した言語で有用かつ意味のあるものでなくてはなりません。',
+	'mwe-upwiz-dialog-title' => 'ファイル名は、あらゆる言語のあらゆる文字を使った名前でアップロードすることが可能です。メディアファイルの表題は、選択した言語において意味があり有用なものにしてください。',
 	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのかについて述べてください。',
 	'mwe-upwiz-tooltip-date' => 'この作品が作成された、または発行された日(YYYY-MM-DD 形式)',
@@ -9417,7 +9423,7 @@ $1文字より長くしてください。',
 	'mwe-upwiz-error-title-blacklisted' => 'このタイトルには望ましくないテキストが含まれます。修正してください。',
 	'mwe-upwiz-error-title-badchars' => 'このタイトルには望ましくない文字が含まれます。取り除いてください。',
 	'mwe-upwiz-error-title-senselessimagename' => 'このタイトルをもっと意味をもつものにしてください。',
-	'mwe-upwiz-error-title-hosting' => 'これは別の画像サイトから取得したファイルのように見えます。タイトルをもっと意味の通るものにしてください。また、あなたがこれを{{SITENAME}}で発行する権利があるかどうか、重ねてチェックしてください。',
+	'mwe-upwiz-error-title-hosting' => 'これは別の画像サイトから取得したファイルのように見えます。表題をもっと意味の通るものにしてください。また、あなたにこれを発行する権利があるかどうか、重ねて確かめてください。',
 	'mwe-upwiz-error-title-thumbnail' => 'これはサムネイルのタイトルのように見えます。同じウィキにサムネイルをアップロードしないでください。そうでなければ、ファイル名をもっと意味のあるもの、かつ、サムネイルの接頭辞を持っていないものに修正してください。',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'このタイトルは、リモートの共有リポジトリ上のファイルで予約されています。別の名前を選択してください。',
 	'mwe-upwiz-error-title-double-apostrophe' => "このファイルは二重アポストロフィー「''」を含んでいます。除去してください。",
@@ -9455,6 +9461,7 @@ $1文字より長くしてください。',
 	'mwe-upwiz-license-copyrighted-free-use' => '著作権で保護されていますが、商用利用を含むどのような目的のためにも使用可能です。',
 	'mwe-upwiz-license-attribution' => '著作権者が適切に表示されている場合、商用利用を含むどのような目的のためにも使用可能です',
 	'mwe-upwiz-license-gfdl' => 'GNUフリー文書利用許諾契約書(GNU Free Documentation License)',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'コピーレフト、帰属必須（GFDL、CC-BY-SA-3.0）',
 	'mwe-upwiz-license-cc-head' => '著作権者が、{{PLURAL:$1|この作品|これらの作品}}を適切なクリエイティブコモンズライセンスのもとで公開しました。',
 	'mwe-upwiz-license-cc-subhead' => 'すべてのクリエイティブ ・ コモンズ ・ ライセンスが{{SITENAME}}で適しているわけではありません--著作権者がこれらのライセンスを使用しているかどうか確認してください。',
 	'mwe-upwiz-license-flickr-head' => '著作権者は、Flickr上でその{{PLURAL:$1|写真やビデオ|ビデオや写真}}を適切なライセンスで公開しました。',
@@ -10103,6 +10110,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'Campagnen eroplueden',
 	'mwe-upwiz-uploadcampaign' => 'Astellung vun der Campagne eroplueden',
 	'right-upwizcampaigns' => "Konfiguréieren vum Assistent fir d'Eropluede vu Campagnen.",
+	'grouppage-upwizcampeditors' => 'Project:Campagnen-Editeur (Upload Wizard)',
 	'mwe-upwiz-js-off' => "Den Assistent fir d'Eropluede vu Fichiere benotzt JavaScript fir d'Benotzen duerch Benotzer ze vereinfachen. Äre Browser ënnerstëtzt entweder kee JavaScript oder JavaScript gouf ausgeschalt. Dofir gëtt den einfache Formulaire fir d'Eropluede vu Fichiere benotzt.",
 	'mwe-upwiz-extension-disabled' => 'Dës Säit gouf wéint temporären technesche Problemer ausgeschalt. Probéiert et an der Zwëschenzäit mam Standard-Formulaire fir eropzelueden.',
 	'mwe-upwiz-code-unknown' => 'Onbekannte Sprooch',
@@ -10207,6 +10215,8 @@ $messages['lb'] = array(
 	'mwe-upwiz-thanks-wikitext' => '<b>Fir de Fichier an enger Wiki ze benotzen</b>, kopéiert dësen Text an eng Säit:',
 	'mwe-upwiz-thanks-url' => '<b>Fir een HTML-Link op dëse Fichier ze maachen</b>, kopéiert dës URL-Adress :',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun ".$1".',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "Dir hutt e Videosfichier fir d'Eroplueden erausgesicht deen an engem net-fräie Format ass.
+Dir kënnt [$1 Firefogg] oder eng Firefox Erweiderung installéieren fir Äre Fichier automatesch ëmzewandelen. Oder benotzt aner [$2 Ëmwandlungsoptiounen] fir de Video an e fräie Format ëmzewandelen.",
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Dës Wiki verlaangt datt d\'Fichieren eng Erweiderung  - wéi z. Bsp. ".JPG" um Ënn vum Fichiersnumm hunn.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Dir hutt de Fichier "$1" schonn eropgelueden.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Déi erlaabten Erweiderunge sinn:',
@@ -16880,7 +16890,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-api-error-uploaddisabled' => 'Отпремање је онемогућено на овом викију.',
 	'mwe-upwiz-api-error-nomodule' => 'Унутрашња грешка: није постављен модул за отпремање.',
 	'mwe-upwiz-api-error-mustbeposted' => 'Унутрашња грешка: захтев захтева HTTP POST.',
-	'mwe-upwiz-api-error-badaccess-groups' => 'Немате овлашћења да отпремате датотеке на ову викију.',
+	'mwe-upwiz-api-error-badaccess-groups' => 'Немате овлашћења да отпремате датотеке на овај вики.',
 	'mwe-upwiz-api-error-stashfailed' => 'Унутрашња грешка: сервер не може да сачува привремену датотеку.',
 	'mwe-upwiz-api-error-missingresult' => 'Унутрашња грешка: не зна се да ли је умножавање успело.',
 	'mwe-upwiz-api-error-missingparam' => 'Унутрашња грешка: недостају параметри у захтеву.',
@@ -16916,9 +16926,9 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-help-desk-url' => 'Одсек за помоћ',
 	'mwe-upwiz-add-file-n' => 'Додај другу датотеку',
 	'mwe-upwiz-add-file-0-free' => 'Изаберите медијску датотеку коју поклањате',
-	'mwe-upwiz-transport-started' => 'Почињање…',
+	'mwe-upwiz-transport-started' => 'Почињем…',
 	'mwe-upwiz-uploading' => 'Отпремам…',
-	'mwe-upwiz-transported' => 'Слање...',
+	'mwe-upwiz-transported' => 'Завршавам отпремање…',
 	'mwe-upwiz-stashed-upload' => 'У реду',
 	'mwe-upwiz-getting-metadata' => 'Добављање података о датотеци и прегледа…',
 	'mwe-upwiz-submitting-details' => 'Слање детаља и објављивање…',
@@ -16948,15 +16958,15 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Ја, $2, власник ауторског права {{PLURAL:$1|овог дела|ових дела}}, објављујем {{PLURAL:$1|ово дело|ова дела}} под {{PLURAL:$1|следећом лиценцом|следећим лиценцама}}:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Ово значи да објављујете своје дело под лиценцом Кријејтив комонс Ауторство–Делити под истим условима.',
 	'mwe-upwiz-source-permission' => 'Њихов аутор дао је изричиту дозволу за отпремање',
-	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Овај фајл није мој сопствени рад|Ови фајлови нису моји сопствени радови}}.',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ова датотека није|Ове датотеке нису}} моје сопствено дело.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Унесите адресу где сте пронашли сваку од датотека.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Ако све датотеке имају исти извор, аутора и стање ауторских права, можете их унети само једном за све датотеке.',
 	'mwe-upwiz-source-thirdparty-license' => 'Власник ауторског права {{PLURAL:$1|овог дела|ових дела}} {{PLURAL:$1|га|их}} је објавио под {{PLURAL:$1|следећом лиценцом|следећим лиценцама}}:',
 	'mwe-upwiz-source-thirdparty-cases' => 'Сада нам реците зашто сте сигурни да {{SITENAME}} има право да објави {{PLURAL:$1|ово дело|ова дела}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'У реду',
 	'mwe-upwiz-source-custom' => 'Наведите податке о ауторским правима за сваку датотеку појединачно на следећој страници.',
-	'mwe-upwiz-more-options' => 'више опција...',
-	'mwe-upwiz-fewer-options' => 'мање поставки...',
+	'mwe-upwiz-more-options' => 'додајте категорије и више информација…',
+	'mwe-upwiz-fewer-options' => 'мање могућности…',
 	'mwe-upwiz-desc' => 'Опис',
 	'mwe-upwiz-desc-add-n' => 'додај опис на другом језику',
 	'mwe-upwiz-desc-add-0' => 'додајте опис',
@@ -16965,7 +16975,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-date-created' => 'Датум стварања',
 	'mwe-upwiz-location' => 'Место',
 	'mwe-upwiz-copyright-info' => 'Права издавања',
-	'mwe-upwiz-author' => 'Аутор(и)',
+	'mwe-upwiz-author' => 'Аутори',
 	'mwe-upwiz-autoconverted' => 'Ова датотека је самостално претворена у формат $1',
 	'mwe-upwiz-other' => 'Остали подаци',
 	'mwe-upwiz-source' => 'Извор',
@@ -16977,7 +16987,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-ok' => 'У реду',
 	'mwe-upwiz-cancel' => 'Откажи',
 	'mwe-upwiz-thumbnail-more' => 'Увећај',
-	'mwe-upwiz-overwrite' => 'Замени фајл',
+	'mwe-upwiz-overwrite' => 'Замени датотеку',
 	'mwe-upwiz-next' => 'Следеће',
 	'mwe-upwiz-next-deeds' => 'Следеће',
 	'mwe-upwiz-next-details' => 'Следеће',
@@ -19040,12 +19050,12 @@ $messages['yi'] = array(
 $messages['zh-hans'] = array(
 	'uploadwizard' => '上传向导',
 	'uploadwizard-desc' => '上传向导，由Multimedia Usability赞助开发',
-	'mwe-upwiz-uploadcampaigns' => '上传活动',
-	'mwe-upwiz-uploadcampaign' => '上传活动配置',
-	'right-upwizcampaigns' => '配置上传向导活动',
-	'group-upwizcampeditors' => '上传向导活动编者',
-	'group-upwizcampeditors-member' => '上传向导活动编者',
-	'grouppage-upwizcampeditors' => 'Project:上传向导活动编者',
+	'mwe-upwiz-uploadcampaigns' => '上传运动',
+	'mwe-upwiz-uploadcampaign' => '上传运动配置',
+	'right-upwizcampaigns' => '设置上传向导运动',
+	'group-upwizcampeditors' => '上传向导运动编辑',
+	'group-upwizcampeditors-member' => '上传向导运动编辑',
+	'grouppage-upwizcampeditors' => 'Project:上传向导运动编辑',
 	'mwe-upwiz-js-off' => '上传精灵的改进界面使用了 JavaScript。您的浏览器不支持或关闭了 JavaScript 功能，所以我们为你显示一个简单上传窗体。',
 	'mwe-upwiz-extension-disabled' => '由于临时的技术问题，此页面已被禁用。在此期间请尝试普通形式上传。',
 	'mwe-upwiz-code-unknown' => '未知的语言',
