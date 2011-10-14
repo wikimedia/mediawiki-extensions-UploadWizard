@@ -16,7 +16,11 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	_this.div = $j('<div class="mwe-upwiz-file"></div>').get(0);
 	_this.isFilled = false;
 
-	_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file" multiple="1"/>');
+	if( mw.UploadWizard.config[ 'enableMultiFileSelect' ] ) {
+		_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file" multiple="1"/>');
+	} else {
+		_this.$fileInputCtrl = $j('<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>');		
+	}
 
 	_this.initFileInputCtrl();
 
