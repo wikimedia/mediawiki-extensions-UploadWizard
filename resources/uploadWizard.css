@@ -706,3 +706,11 @@ input.mwe-date {
 	padding: 0.5em;
 }
 
+.mwe-location-lat {
+	float:left;
+	font-style:italic;
+}
+
+.mwe-location-lon {
+	font-style:italic;
+}

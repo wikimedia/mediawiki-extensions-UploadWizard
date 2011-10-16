@@ -121,6 +121,8 @@ $messages['en'] = array(
 	'mwe-upwiz-media-type' => 'Media type',
 	'mwe-upwiz-date-created' => 'Date created',
 	'mwe-upwiz-location' => 'Location',
+	'mwe-upwiz-location-lat' => 'Latitude',
+	'mwe-upwiz-location-lon' => 'Longitude',
 	'mwe-upwiz-copyright-info' => 'Release rights',
 	'mwe-upwiz-author' => 'Author(s)',
 	'mwe-upwiz-autoconverted' => 'This file was automatically converted to the $1 format',
@@ -170,6 +172,7 @@ For a photo, mention the main things that are depicted, the occasion, or the pla
 	'mwe-upwiz-tooltip-date' => 'Date this work was created or first published (YYYY-MM-DD format).',
 	'mwe-upwiz-tooltip-categories' => 'Add [$1 categories] to your file to make it easier to find.',
 	'mwe-upwiz-tooltip-other' => 'Any other information you want to include about this work — geographic coordinates, links to other versions, etc.',
+	'mwe-upwiz-tooltip-location' => 'Coordinates of the location where this media file was created.',
 	'mwe-upwiz-tooltip-more-info' => 'Learn more.',
 	'mwe-upwiz-file-need-file' => 'Please add an upload first.',
 	'mwe-upwiz-deeds-need-deed' => 'Please explain where you got {{PLURAL:$1|this file|these files}} and how this site can use {{PLURAL:$1|it|them}}, by selecting one of the options.',
@@ -436,7 +439,9 @@ This is followed by a language name in a drop-down language selector.
 
 {{Identical|Title}}',
 	'mwe-upwiz-date-created' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]',
-	'mwe-upwiz-location' => '{{Identical|Location}}',
+	'mwe-upwiz-location' => '{{Identical|Location}} - the location the media exists on the planet, further described by lat and lon',
+	'mwe-upwiz-location-lat' => 'Latitude - the GPS coordinate, expressed in signed decimal degrees',
+	'mwe-upwiz-location-lon' => 'Longitude - the GPS coordinate, expressed in signed decimal degrees',
 	'mwe-upwiz-other' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Other information}}',

@@ -156,11 +156,30 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		.growTextArea();
 
 	var otherInformationDiv = $j('<div></div>')	
-		.append( $j( '<div class="mwe-upwiz-details-more-label">' ).append( gM( 'mwe-upwiz-other' ) ).addHint( 'other' ) )
+		.append( $j( '<div class="mwe-upwiz-details-more-label"></div>' ).append( gM( 'mwe-upwiz-other' ) ).addHint( 'other' ) )
 		.append( _this.otherInformationInput );
 
+	var latId = "location-latitude" + _this.upload.index;
+	var lonId = "location-longitude" + _this.upload.index;
+	_this.latInput = $j( '<input type="text" id="' + latId + '" name="' + latId + '" type="text" class="mwe-loc-lat" size="10"/>' );
+	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" type="text" class="mwe-loc-lon" size="10"/>' );
+ 
+	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
+		.append( $j ( '<div class="mwe-location-lat-label"></div>' ).append( gM( 'mwe-upwiz-location-lat' )  ) )
+		.append( _this.latInput );
+	var lonDiv = $j( '<div class="mwe-location-lon"></div>' )
+		.append( $j ( '<div class="mwe-location-lon-label"></div>' ).append( gM( 'mwe-upwiz-location-lon' )  ) )
+		.append( _this.lonInput );
+
+	var locationDiv = $j( '<div class="mwe-location"></div>' )
+		.append( $j ('<div class="mwe-location-label"></div>' )
+		.append( gM( 'mwe-upwiz-location' ) ) 
+		.addHint( 'location' ) )
+		.append( latDiv )
+		.append( lonDiv );
+
 	$j( moreDetailsDiv ).append( 
-		// location goes here
+		locationDiv,
 		$categoriesDiv,
 		otherInformationDiv
 	);
@@ -611,36 +630,23 @@ mw.UploadWizardDetails.prototype = {
 	/**
  	 * Prefill location inputs (and/or scroll to position on map) from image info and metadata
 	 *
-	 * At least for my test images, the EXIF parser on MediaWiki is not giving back any data for
-	 *  GPSLatitude, GPSLongitude, or GPSAltitudeRef. It is giving the lat/long Refs, the Altitude, and the MapDatum 
-	 * So, this is broken until we fix MediaWiki's parser, OR, parse it ourselves somehow 
-	 *
-	 *    in Image namespace
-	 *		GPSTag		Long ??
-	 *
-	 *    in GPSInfo namespace
-	 *    GPSVersionID	byte*	2000 = 2.0.0.0
-	 *    GPSLatitude	rational 
-	 *    GPSLatitudeRef	ascii (N | S)  or North | South 
-	 *    GPSLongitude	rational
-	 *    GPSLongitudeRef   ascii (E | W)    or East | West 
-	 *    GPSAltitude	rational
-	 *    GPSAltitudeRef	byte (0 | 1)    above or below sea level
-	 *    GPSImgDirection	rational
-	 *    GPSImgDirectionRef  ascii (M | T)  magnetic or true north
-	 *    GPSMapDatum 	ascii		"WGS-84" is the standard
-	 *
-	 *  A 'rational' is a string like this:
-	 *	"53/1 0/1 201867/4096"	--> 53 deg  0 min   49.284 seconds 
-	 *	"2/1 11/1 64639/4096"    --> 2 deg  11 min  15.781 seconds
-	 *	"122/1"             -- 122 m  (altitude)
+	 * As of MediaWiki 1.18, the exif parser translates the rational GPS data tagged by the camera
+	 * to decimal format.  Let's just use that.
+	 * Leaving out altitude ref for now (for no good reason).
 	 */
 	prefillLocation: function() {
-		/* unimplemented -- awaiting bawolff's GSoC 2010 project to be committedd... */ return;
+		_this = this;
+		if ( _this.upload.imageinfo.metadata ) {
+			$j( _this.latInput ).val( _this.upload.imageinfo.metadata['gpslatitude'] );
+			$j( _this.lonInput ).val( _this.upload.imageinfo.metadata['gpslongitude'] );
+		}
 	},
 
 	/**
 	 * Given a decimal latitude and longitude, return filled out {{Location}} template
+	 *
+	 * The {{Location dec}} template is preferred and makes this conversion unnecessary.  This function is not used.
+	 * 
 	 * @param latitude decimal latitude ( -90.0 >= n >= 90.0 ; south = negative )
 	 * @param longitude decimal longitude ( -180.0 >= n >= 180.0 ; west = negative )
 	 * @param scale (optional) how rough the geocoding is. 
@@ -770,10 +776,13 @@ mw.UploadWizardDetails.prototype = {
 		}	
 
 		wikiText += "=={{int:filedesc}}==\n";
+		var lat = $j.trim( $j( _this.latInput ).val() );
+		var lon = $j.trim( $j( _this.lonInput ).val() );
+		if( lat ){ //only add the tag if the data exists; assume that if lat exists, long will as well
+			wikiText += '{{Location dec|'+ lat + '|' + lon + '}}\n';
+		}
 
 		wikiText += '{{Information\n' + info + '}}\n\n';
-
-		// add a location template if possible
 
 		// add an "anything else" template if needed
 		var otherInfoWikiText = $j.trim( $j( _this.otherInformationInput ).val() );
