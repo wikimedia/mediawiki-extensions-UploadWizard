@@ -440,8 +440,10 @@ This is followed by a language name in a drop-down language selector.
 {{Identical|Title}}',
 	'mwe-upwiz-date-created' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]',
 	'mwe-upwiz-location' => '{{Identical|Location}} - the location the media exists on the planet, further described by lat and lon',
-	'mwe-upwiz-location-lat' => 'Latitude - the GPS coordinate, expressed in signed decimal degrees',
-	'mwe-upwiz-location-lon' => 'Longitude - the GPS coordinate, expressed in signed decimal degrees',
+	'mwe-upwiz-location-lat' => 'Latitude - the GPS coordinate, expressed in signed decimal degrees.
+{{Identical|Latitude}}',
+	'mwe-upwiz-location-lon' => 'Longitude - the GPS coordinate, expressed in signed decimal degrees.
+{{Identical|Longitude}}',
 	'mwe-upwiz-other' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Other information}}',
@@ -744,6 +746,7 @@ $messages['anp'] = array(
 /** Arabic (العربية)
  * @author ;Hiba;1
  * @author Aiman titi
+ * @author AwamerT
  * @author Meno25
  * @author OsamaK
  * @author زكريا
@@ -856,6 +859,8 @@ $messages['ar'] = array(
 	'mwe-upwiz-media-type' => 'نوع الوسيط',
 	'mwe-upwiz-date-created' => 'تاريخ الانشاء',
 	'mwe-upwiz-location' => 'المكان',
+	'mwe-upwiz-location-lat' => 'خط العرض',
+	'mwe-upwiz-location-lon' => 'خط الطول',
 	'mwe-upwiz-copyright-info' => 'حقوق الإصدار',
 	'mwe-upwiz-author' => 'المؤلف(ون)',
 	'mwe-upwiz-autoconverted' => 'حُوّل هذا الملف تلقائيا إلى النسق $1',
@@ -899,12 +904,13 @@ $messages['ar'] = array(
 	'mwe-upwiz-tooltip-sign' => 'يمكنك استخدام اسم المستخدم الخاص بك ويكي أو اسمك الحقيقي.
 وفي كلتا الحالتين، سيتم ربط هذا بصفحة المستخدم الخاصة بك في الويكي',
 	'mwe-upwiz-tooltip-title' => 'عنوان فريد يصف محتوى الملف. استخدام لغة بسيطة بمسافات. لا تقم بتضمين ملحق اسم الملف.',
-	'mwe-upwiz-dialog-title' => 'يمكن تحميل الملفات بأي اسم في أي لغة في أي سكربت مادام يحمل (ترميز utf-8). ينبغي أن تكون عناوين ملفات الوسائط هادفة ومفيدة في اللغة التي تختارها.',
+	'mwe-upwiz-dialog-title' => 'يمكن رفع الملفات بأي اسم في أي لغة في أي سكربت مادام يحمل (ترميز utf-8). ينبغي أن تكون عناوين ملفات الوسائط هادفة ومفيدة في اللغة التي تختارها.',
 	'mwe-upwiz-tooltip-description' => 'وصف موجز لكل شيء ملحوظ حول العمل.
 بالنسبة للصور الفوتوغرافية، أذكر الأمور الرئيسية التي تصور أو المناسبة أو المكان.',
 	'mwe-upwiz-tooltip-date' => 'تاريخ هذا العمل تم إنشاء أو نشر لأول مرة (YYYY-MM-DD تنسيق).',
 	'mwe-upwiz-tooltip-categories' => 'إضافة [$1 تصنيف] إلى الملف الخاص بك لتسهيل البحث.',
 	'mwe-upwiz-tooltip-other' => 'أية معلومات أخرى تريد تضمينها عن هذا العمل -- الإحداثيات الجغرافية ، وصلات لإصدارات أخرى ، إلخ.',
+	'mwe-upwiz-tooltip-location' => 'إحداثيات الموقع الذي تم إنشاء هذا الملف فيه.',
 	'mwe-upwiz-tooltip-more-info' => 'تعلم المزيد.',
 	'mwe-upwiz-file-need-file' => 'الرجاء إضافة مرفوع أولا.',
 	'mwe-upwiz-deeds-need-deed' => 'يرجى شرح كيف قمت بالحصول على {{PLURAL:$1|هذا الملف|هذه الملفات}} وكيف يسمح باستخدام {{PLURAL:$1|هذا|هذه}} في هذا الموقع ، بتحديد أحد الخيارات.',
@@ -1030,6 +1036,8 @@ $1',
 	'mwe-upwiz-campaigns-editing' => 'إعداد حملة التحميل',
 	'mwe-upwiz-campaigns-delete' => 'احذف',
 	'mwe-upwiz-campaigns-confdel' => 'هل أنت متأكد أنك تريد حذف هذه الحملة؟',
+	'mwe-upwiz-campaigns-delete-failed' => 'لايمكن حذف هذه الحملة.',
+	'mwe-upwiz-campaigns-confirm-delete' => 'هل أنت متأكد من أنك تريد حذف هذه الحملة؟',
 	'uploadcampaign-legend' => 'إعداد حملة التحميل',
 	'uploadcampaign-text' => 'أنت تعدل من حملة معالج تحميل.',
 	'mwe-upwiz-campaign-name' => 'اسم الحملة:',
@@ -1052,6 +1060,7 @@ $1',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'اسم الصفحة مع نص علامة حقل المعرف. $1 يستبدل برمز اللغة:',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'صفحة فيها نص يعرض فوق صفحة واجهة مساعد التحميل. يستبدل $1 برمز اللغة:',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'صفحة فيها نص يعرض أعلى صفحة "الاستخدام". يستبدل $1 برمز اللغة:',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'الحد الأقصى لطول النص في حقل "معرف المستخدم"',
 	'mw-coolcats-confirm-new-title' => 'تأكيد تصنيف جديد',
 	'mw-coolcats-confirm-new' => 'يبدو أنك تحاول إضافة تصنيف جديدة، "$1". اعلم أن:<ul><li>التصنيفات يلزم أن تكون بالإنجليزية.</li><li>وأن معظم التصنيفات الجديدة يلزم أن تكون فروع لتصنيفات أخرى أقدم.</li></ul>وأن المختصين هم المكلفون بإنشاء التصنيفات على العموم.',
 	'mw-coolcats-confirm-new-ok' => 'أضف هذا التصنيف على كل حال',
@@ -1440,6 +1449,8 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-media-type' => 'Тып мэдыя',
 	'mwe-upwiz-date-created' => 'Дата стварэньня',
 	'mwe-upwiz-location' => 'Месцазнаходжаньне',
+	'mwe-upwiz-location-lat' => 'Шырата',
+	'mwe-upwiz-location-lon' => 'Даўгата',
 	'mwe-upwiz-copyright-info' => 'Пазначэньне правоў',
 	'mwe-upwiz-author' => 'Аўтар(ы)',
 	'mwe-upwiz-autoconverted' => 'Гэты файл быў аўтаматычна канвэртаваны ў фармат $1',
@@ -1486,6 +1497,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-tooltip-date' => 'Дата стварэньня працы ці першай публікацыі (у фармаце «гггг-мм-дд»).',
 	'mwe-upwiz-tooltip-categories' => 'Дадайце [$1 катэгорыі] да файла, каб яго можна было лягчэй знайсьці.',
 	'mwe-upwiz-tooltip-other' => 'Любая іншая інфармацыя, якую Вы жадаеце дадаць пра гэтую працу: геаграфічныя каардынаты, спасылкі на іншыя вэрсіі і іншае.',
+	'mwe-upwiz-tooltip-location' => 'Каардынаты месца, дзе быў створаны гэты мэдыя-файл.',
 	'mwe-upwiz-tooltip-more-info' => 'Даведацца болей.',
 	'mwe-upwiz-file-need-file' => 'Калі ласка, спачатку дадайце файлы.',
 	'mwe-upwiz-deeds-need-deed' => 'Калі ласка, растлумачце, адкуль {{PLURAL:$1|паходзіць файл|паходзяць файлы}} і як гэты сайт можа выкарыстоўваць {{PLURAL:$1|яго|іх}}, выбраўшы адзін з наступных пунктаў.',
@@ -7467,6 +7479,8 @@ $messages['he'] = array(
 	'mwe-upwiz-media-type' => 'סוג המדיה',
 	'mwe-upwiz-date-created' => 'תאריך היצירה',
 	'mwe-upwiz-location' => 'מיקום',
+	'mwe-upwiz-location-lat' => 'קו־רוחב',
+	'mwe-upwiz-location-lon' => 'קו־אורך',
 	'mwe-upwiz-copyright-info' => 'שחרור זכויות',
 	'mwe-upwiz-author' => 'כותב/ים',
 	'mwe-upwiz-autoconverted' => 'קובץ זה הומר אוטומטית למבנה $1',
@@ -7516,6 +7530,7 @@ $messages['he'] = array(
 	'mwe-upwiz-tooltip-date' => 'התאריך שבו הקובץ הזה פורסם לראשונה (לפי הסדר הבא: "yyyy-mm-dd", כאשר yyyy זה השנה, mm זה מספר החודש בשתי ספרות ו־dd זה היום).',
 	'mwe-upwiz-tooltip-categories' => 'הוסיפו [$1 קטגוריות] לקובץ שלכם, כדי שיהיה קל יותר למצוא אותו.',
 	'mwe-upwiz-tooltip-other' => "כל מידע אחר על היצירה שברצונכם להוסיף – קואורדינטות, קישורים לגרסאות אחרות וכו'.",
+	'mwe-upwiz-tooltip-location' => 'נקודות הציון של המקום שבו קובץ המדיה הזה נוצר.',
 	'mwe-upwiz-tooltip-more-info' => 'מידע נוסף.',
 	'mwe-upwiz-file-need-file' => 'נא להוסיף העלאה תחילה.',
 	'mwe-upwiz-deeds-need-deed' => 'נא להסביר איפה קיבלתם את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}} ואיך האתר הזה יכול להשתמש {{PLURAL:$1|בו|בהם}}, על ידי בחירה באחת האפשרויות.',
@@ -8805,6 +8820,7 @@ $1',
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Aldnonymous
  * @author Anakmalaysia
  * @author Bennylin
  * @author Farras
@@ -8814,6 +8830,9 @@ $1',
 $messages['id'] = array(
 	'uploadwizard' => 'Wisaya pengunggahan',
 	'uploadwizard-desc' => 'Wisaya pengunggahan, dikembangkan untuk Kebergunaan Multimedia',
+	'mwe-upwiz-uploadcampaigns' => 'Unggah pesan sentral',
+	'mwe-upwiz-uploadcampaign' => 'Unggah konfigurasi pesan sentral',
+	'right-upwizcampaigns' => 'Mengkonfigurasikan kampanye unggah wizard',
 	'mwe-upwiz-js-off' => 'UploadWizard menggunakan JavaScript untuk memperbaiki antarmuka. Peramban Anda tidak mendukung JavaScript atau menonaktfikan JavaScript, maka kami hanya memberikan Anda formulir pengunggahan sederhana.',
 	'mwe-upwiz-extension-disabled' => 'Halaman ini dinonaktifkan karena masalah teknis sementara. Untuk sementara, silakan gunakan formulir pengunggahan standar.',
 	'mwe-upwiz-code-unknown' => 'Bahasa tidak dikenal',
@@ -8913,6 +8932,8 @@ $messages['id'] = array(
 	'mwe-upwiz-media-type' => 'Jenis media',
 	'mwe-upwiz-date-created' => 'Tanggal pembuatan',
 	'mwe-upwiz-location' => 'Lokasi',
+	'mwe-upwiz-location-lat' => 'Lintang',
+	'mwe-upwiz-location-lon' => 'Bujur',
 	'mwe-upwiz-copyright-info' => 'Hak melepaskan',
 	'mwe-upwiz-author' => 'Pemilik',
 	'mwe-upwiz-autoconverted' => 'Berkas ini secara otomatis dikonversi ke format $1',
@@ -9051,6 +9072,20 @@ Harap tidak menggunakan teks wiki atau HTML di sini.',
 	'mwe-upwiz-feedback-error1' => 'Galat: Hasil tidak dikenal dari API',
 	'mwe-upwiz-feedback-error2' => 'Galat: Penyuntingan gagal',
 	'mwe-upwiz-feedback-error3' => 'Error: API tidak merespons',
+	'mwe-upwiz-campaigns-disabled' => 'Dinonaktifkan',
+	'mwe-upwiz-campaigns-edit' => 'Sunting',
+	'mwe-upwiz-campaigns-add' => 'Tambahkan',
+	'mwe-upwiz-campaigns-addnew' => 'Buat pengumuman sentral baru',
+	'mwe-upwiz-campaigns-existing' => 'Pesan sentral yang sudah ada',
+	'mwe-upwiz-campaigns-editing' => 'Unggah konfigurasi pesan sentral',
+	'mwe-upwiz-campaigns-delete' => 'Hapus',
+	'mwe-upwiz-campaigns-confdel' => 'Anda yakin ingin menghapus pesan sentral ini?',
+	'mwe-upwiz-campaigns-delete-failed' => 'Tidak dapat menghapus pesan sentral',
+	'mwe-upwiz-campaigns-confirm-delete' => 'Anda yakin ingin menghapus pesan sentral ini?',
+	'uploadcampaign-legend' => 'Unggah konfigurasi pesan sentral',
+	'mwe-upwiz-campaign-name' => 'Judul pesan sentral:',
+	'mwe-upwiz-campaign-enabled' => 'Pesan sentral dimungkinkan',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Melewatkan tutorial perijinan',
 );
 
 /** Igbo (Igbo)
@@ -11187,6 +11222,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-media-type' => 'Тип на мултим. податотека',
 	'mwe-upwiz-date-created' => 'Создадена на',
 	'mwe-upwiz-location' => 'Место',
+	'mwe-upwiz-location-lat' => 'Г.Ш.',
+	'mwe-upwiz-location-lon' => 'Г.Д.',
 	'mwe-upwiz-copyright-info' => 'Предавање на права',
 	'mwe-upwiz-author' => 'Автор(и)',
 	'mwe-upwiz-autoconverted' => 'Оваа податотека е автоматски претворена во $1 формат',
@@ -11233,6 +11270,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-tooltip-date' => 'Датум на создавање или прво објавување на делото (во форматот „гггг-мм-дд“).',
 	'mwe-upwiz-tooltip-categories' => 'Додајте ѝ [$1 категории] на податотеката за да може полесно да се најде.',
 	'mwe-upwiz-tooltip-other' => 'Некои други информации што би сакале да ги споменете за делото  — координати на графикот, врски до други верзии и тн.',
+	'mwe-upwiz-tooltip-location' => 'Координати на местото кајшто е направена снимката',
 	'mwe-upwiz-tooltip-more-info' => 'Дознајте повеќе.',
 	'mwe-upwiz-file-need-file' => 'Прво назначете податотека за подигање.',
 	'mwe-upwiz-deeds-need-deed' => 'Наведете од каде {{PLURAL:$1|ја земавте податотеката|ги земавте податотеките}} и како ова мреж. место може да {{PLURAL:$1|ја користи|ги користи}}, одбирајќи една од наведените можности.',
@@ -13771,6 +13809,8 @@ $messages['pl'] = array(
 	'mwe-upwiz-media-type' => 'Typ pliku',
 	'mwe-upwiz-date-created' => 'Data utworzenia',
 	'mwe-upwiz-location' => 'Położenie',
+	'mwe-upwiz-location-lat' => 'Szerokość geograficzna',
+	'mwe-upwiz-location-lon' => 'Długość geograficzna',
 	'mwe-upwiz-copyright-info' => 'Uwolnij prawa',
 	'mwe-upwiz-author' => 'Autor(‐rzy)',
 	'mwe-upwiz-autoconverted' => 'Plik został automatycznie skonwertowany do formatu $1',
@@ -13819,6 +13859,7 @@ W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejs
 	'mwe-upwiz-tooltip-date' => 'Data powstania lub pierwszej publikacji dzieła (w formacie "rrrr-mm-dd")',
 	'mwe-upwiz-tooltip-categories' => 'Dodaj do pliku [$1 kategorie], aby ułatwić jego odnalezienie.',
 	'mwe-upwiz-tooltip-other' => 'Wszelkie inne informacje, które chcesz dołączyć do tej pracy – współrzędne geograficzne, linki do innych wersji itp.',
+	'mwe-upwiz-tooltip-location' => 'Współrzędne lokalizacji, w której utworzono ten plik.',
 	'mwe-upwiz-tooltip-more-info' => 'Więcej informacji.',
 	'mwe-upwiz-file-need-file' => 'Najpierw dodaj plik do przesłania.',
 	'mwe-upwiz-deeds-need-deed' => 'Proszę wskazać skąd {{PLURAL:$1|pochodzi ten plik|pochodzą te pliki}} i jak nasza witryna może z {{PLURAL:$1|niego|nich}} skorzystać, poprzez wybranie odpowiedniej opcji.',
@@ -18780,6 +18821,8 @@ $messages['vi'] = array(
 	'mwe-upwiz-media-type' => 'Kiểu phương tiện',
 	'mwe-upwiz-date-created' => 'Ngày tháng tạo',
 	'mwe-upwiz-location' => 'Vị trí',
+	'mwe-upwiz-location-lat' => 'Vĩ độ',
+	'mwe-upwiz-location-lon' => 'Kinh độ',
 	'mwe-upwiz-copyright-info' => 'Quyền phát hành',
 	'mwe-upwiz-author' => 'Tác giả',
 	'mwe-upwiz-autoconverted' => 'Tập tin này được tự điện chuyển đổi sang định dạng $1',
@@ -18828,6 +18871,7 @@ Nếu là hình chụp, hãy nói đến những vật thể chính, cũng như 
 	'mwe-upwiz-tooltip-date' => 'Ngày tác phẩm này được tạo ra hoặc được xuất bản lần đầu tiên (định dạng “yyyy-mm-dd”).',
 	'mwe-upwiz-tooltip-categories' => 'Xếp tập tin vào các [$1 thể loại] để cho nó dễ kiếm hơn.',
 	'mwe-upwiz-tooltip-other' => 'Bổ sung thông tin khác về tác phẩm này: tọa độ địa lý, liên kết đến các phiên bản khác, v.v.',
+	'mwe-upwiz-tooltip-location' => 'Tọa độ của vị trí mà tập tin phương tiện này đã được tạo ra.',
 	'mwe-upwiz-tooltip-more-info' => 'Tìm hiểu thêm.',
 	'mwe-upwiz-file-need-file' => 'Trước tiên, xin hãy thêm một tập tin để tải lên.',
 	'mwe-upwiz-deeds-need-deed' => 'Xin hãy cho biết {{PLURAL:$1|tập tin|các tập tin}} này được lấy từ đâu và {{PLURAL:$1|nó|chúng}} có thể được sử dụng thế nào.',
