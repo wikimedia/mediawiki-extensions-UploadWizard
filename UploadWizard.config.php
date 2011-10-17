@@ -395,4 +395,7 @@ return array(
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
 
+	// Whether multi-file select is enabled -- this is temporary, just waiting for backend code r93270 to be reviewed
+	'enableMultiFileSelect' => false
+
 );
