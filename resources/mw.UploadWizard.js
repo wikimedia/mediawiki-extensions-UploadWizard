@@ -354,7 +354,11 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 
 		// scroll to the top of the page (the current step might have been very long, vertically)
-		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
+		if ( selectedStepName !== 'file' ) {
+			// this is the wrong behavior when selecting files (hides interface), so skip it.
+			// also, it breaks scrolling when selecting multiple files at once.
+			$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
+		}
 
 		$j.each( _this.stepNames, function(i, stepName) {
 
