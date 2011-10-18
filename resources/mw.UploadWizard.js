@@ -354,11 +354,7 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 
 		// scroll to the top of the page (the current step might have been very long, vertically)
-		if ( selectedStepName !== 'file' ) {
-			// this is the wrong behavior when selecting files (hides interface), so skip it.
-			// also, it breaks scrolling when selecting multiple files at once.
-			$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
-		}
+		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
 
 		$j.each( _this.stepNames, function(i, stepName) {
 
@@ -380,9 +376,8 @@ mw.UploadWizard.prototype = {
 
 		_this.currentStepName = selectedStepName;
 
-		if ( selectedStepName == 'file' && _this.uploads.length === 0 ) {
-			// add one upload field to start (this is the big one that asks you to upload something)
-			var upload = _this.newUpload();
+		if ( selectedStepName === 'file' ) {
+			_this.resetFileStepUploads();
 		}
 
 		$j.each( _this.uploads, function(i, upload) {
@@ -391,6 +386,16 @@ mw.UploadWizard.prototype = {
 
 		if ( callback ) {
 			callback();
+		}
+	},
+
+	/**
+	 * If there are no uploads, make a new one
+	 */
+	resetFileStepUploads: function() {	
+		if ( this.uploads.length === 0 ) {
+			// add one upload field to start (this is the big one that asks you to upload something)
+			var upload = this.newUpload();
 		}
 	},
 
@@ -732,8 +737,7 @@ mw.UploadWizard.prototype = {
 				_this.allowCloseWindow();
 			}
 
-			// and move back to the file step
-			_this.moveToStep( 'file' );
+			_this.resetFileStepUploads();
 		}
 
 		// allow an "add another upload" button only if we aren't at max
