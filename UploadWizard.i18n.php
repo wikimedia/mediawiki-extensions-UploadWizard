@@ -5429,7 +5429,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-uploadcampaign' => 'پیکربندی کمپین بارگذاری',
 	'right-upwizcampaigns' => 'کمپین‌های بارگذاری آسان را تنظیم کنید',
 	'group-upwizcampeditors' => 'ویرایشگران جادوگر بارگذاری کمپین',
-	'group-upwizcampeditors-member' => 'ویرایشگر جادوگر بارگذاری کمپین',
+	'group-upwizcampeditors-member' => '{{GENDER:$1|کمپین ویرایشگر جادوگر بارگذاری}}',
 	'grouppage-upwizcampeditors' => 'Project:ویرایشگران جادوگر بارگذاری کمپین',
 	'mwe-upwiz-js-off' => 'جادوگر بارگذاری از جاوااسکریپت برای بهتر شدن رابط کاربری استفاده می‌کند. مرورگر شما یا از جاوااسکریپت پشتیبانی نمی‌کند یا جاوااسکریپت خاموش است، بنابراین فرم سادهٔ بارگذاری را برایتان نمایش می‌دهیم.',
 	'mwe-upwiz-extension-disabled' => 'این صفحه به علت مشکلات فنی غیرفعال شده‌است، می‌توانید از فرم استاندارد بارگذاری استفاده کنید.',
@@ -5530,6 +5530,8 @@ $messages['fa'] = array(
 	'mwe-upwiz-media-type' => 'نوع رسانه',
 	'mwe-upwiz-date-created' => 'تاریخ ایجاد',
 	'mwe-upwiz-location' => 'مکان',
+	'mwe-upwiz-location-lat' => 'عرض جغرافیایی',
+	'mwe-upwiz-location-lon' => 'طول جغرافیایی',
 	'mwe-upwiz-copyright-info' => 'انتشار حقوق',
 	'mwe-upwiz-author' => 'نویسنده(ها)',
 	'mwe-upwiz-autoconverted' => 'این پرونده به طور خودکار به قالب $1 تبدیل شد',
@@ -5579,6 +5581,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-tooltip-date' => 'تاریخی که این کار ایجاد شده و یا اولین بار انتشار یافته است به صورت (YYYY-MM-DD).',
 	'mwe-upwiz-tooltip-categories' => 'برای پیدا کردن آسان‌تر به پرونده‌تان [$1 رده‌هایی] بیافزایید.',
 	'mwe-upwiz-tooltip-other' => 'هر اطلاعات دیگر که شما می‌خواهید درباره این کار باشد— مختصات جغرافیایی، پیوند به نسخه‌های دیگر و غیره.',
+	'mwe-upwiz-tooltip-location' => 'مختصات مکانی که این رسانه مربوط به آن است.',
 	'mwe-upwiz-tooltip-more-info' => 'بیشتر بدانید.',
 	'mwe-upwiz-file-need-file' => 'لطفاً ابتدا یک بارگذاری اضافه کنید.',
 	'mwe-upwiz-deeds-need-deed' => 'لطفاً با انتخاب یکی از گزینه‌ها، توضیح دهید که کجا این {{PLURAL:$1|پرونده|پرونده‌ها}} را گرفته‌اید و چگونه این وب‌گاه می‌تواند از {{PLURAL:$1|آن|آن‌ها}} استفاده کند.',
@@ -9708,6 +9711,7 @@ $1文字より長くしてください。',
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author Dawid Deutschland
  * @author ITshnik
  * @author გიორგიმელა
@@ -9847,6 +9851,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-category-remove' => 'ამ კატეგორიის წაშლა',
 	'mwe-upwiz-help-popup' => 'დახმარება',
 	'mwe-upwiz-help-popup-title' => 'სათაური:',
+	'mwe-upwiz-subhead-message' => 'გმადლობთ, რომ იყენებთ ჩვენს ახალ ატვირთვის ხელსაწყოს!',
 	'mwe-upwiz-subhead-bugs' => '[$1 ცნობილი პრობლემები]',
 	'mwe-upwiz-subhead-translate' => '[$1 დაგვეხმარეთ თარგმნაში]',
 	'mwe-upwiz-subhead-alt-upload' => '[$1 ძველი ფორმის დაბრუნება]',
@@ -10426,6 +10431,8 @@ $messages['lb'] = array(
 	'mwe-upwiz-media-type' => 'Medientyp',
 	'mwe-upwiz-date-created' => 'Datum vun der Creatioun',
 	'mwe-upwiz-location' => 'Plaz',
+	'mwe-upwiz-location-lat' => 'Geografesch Breet',
+	'mwe-upwiz-location-lon' => 'Geografesch Längt',
 	'mwe-upwiz-copyright-info' => 'Rechter vun der Publikatioun',
 	'mwe-upwiz-author' => 'Auteur(en)',
 	'mwe-upwiz-autoconverted' => 'Dëse Fichier gouf automatesch an de(n) $1-Format ëmgewandelt',
@@ -14710,7 +14717,10 @@ $messages['ps'] = array(
 	'mwe-upwiz-feedback-message' => 'پيغام:',
 	'mwe-upwiz-feedback-cancel' => 'ناګارل',
 	'mwe-upwiz-errordialog-ok' => 'ښه',
+	'mwe-upwiz-campaigns-status' => 'دريځ',
 	'mwe-upwiz-campaigns-edit' => 'سمول',
+	'mwe-upwiz-campaigns-add' => 'ورګډول',
+	'mwe-upwiz-campaigns-delete' => 'ړنګول',
 );
 
 /** Portuguese (Português)
@@ -18239,6 +18249,7 @@ $messages['tpi'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author 82-145
  * @author Goktr001
  * @author Karduelis
  * @author Koc61
@@ -18360,7 +18371,10 @@ $messages['tr'] = array(
 	'mwe-upwiz-license-pd-usgov-military-navy' => 'ABD Ordu Donanmasının orijinal eseri',
 	'mwe-upwiz-license-gfdl' => 'GNU Özgür Belgeleme Lisansı',
 	'mwe-upwiz-license-public-domain-head' => 'Telif hakkı kesinlikle sona erdi',
+	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Bu eser|Bu eserler}} Amerika Birleşik Devletleri hükümeti tarafından üretildi',
 	'mwe-upwiz-license-misc' => 'Çeşitli nedenlerle',
+	'mwe-upwiz-categories-add' => 'Ekle',
+	'mwe-upwiz-category-remove' => 'Kategoriyi kaldır',
 	'mwe-upwiz-help-popup' => 'Yardım',
 	'mwe-upwiz-help-popup-title' => 'Başlık',
 	'mwe-upwiz-image-preview' => 'Görüntü önizleme',
@@ -18376,13 +18390,17 @@ $messages['tr'] = array(
 	'mwe-upwiz-feedback-submit' => 'Geribildirimi Gönder',
 	'mwe-upwiz-feedback-adding' => 'Sayfaya geribildirim ekleniyor...',
 	'mwe-upwiz-feedback-error2' => 'Hata: Düzenleme başarısız oldu',
+	'mwe-upwiz-feedback-error3' => "Hata: API'den yanıt yok",
 	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 Geribildirim Gönder]',
 	'mwe-upwiz-campaigns-name' => 'Kampanya adı',
 	'mwe-upwiz-campaigns-status' => 'Durum',
+	'mwe-upwiz-campaigns-add' => 'Ekle',
 	'mwe-upwiz-campaigns-addnew' => 'Yeni bir kampanya ekle',
 	'mwe-upwiz-campaigns-newname' => 'Kampanya adı:',
 	'mwe-upwiz-campaigns-delete' => 'Sil',
 	'mwe-upwiz-campaigns-confdel' => 'Bu kampanyayı silmek istediğinizden emin misiniz?',
+	'mw-coolcats-confirm-new-title' => 'Yeni kategoriyi onayla',
+	'mw-coolcats-confirm-new-ok' => 'Yine de bu kategoriyi ekle',
 	'mw-coolcats-confirm-new-cancel' => 'Boşver',
 );
 
