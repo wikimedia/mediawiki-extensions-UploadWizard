@@ -273,12 +273,12 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-thumbnail-failed' => 'The upload succeeded, but the server could not get a preview thumbnail.',
 	'mwe-upwiz-unparseable-filename' => 'Could not understand the file name "$1"',
 	'mwe-upwiz-image-preview' => 'Image preview',
-	
+
 	'mwe-upwiz-subhead-message' => 'Thanks for using our new upload tool!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Known issues]',
 	'mwe-upwiz-subhead-translate' => '[$1 Help with translations]',
 	'mwe-upwiz-subhead-alt-upload' => '[$1 Back to the old form]',
-	
+
 	/* Feedback interface */
 	'mwe-upwiz-feedback-prompt' => '[$1 Leave feedback]',
 	'mwe-upwiz-feedback-note' => 'Your feedback will be posted publicly to the page "[$2 $1]", along with your user name, browser version and operating system.',
@@ -295,14 +295,14 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 More Info]',
 	'mwe-upwiz-feedback-blacklist-line-intro' => "This is the title blacklist entry that matched it:\n\$1",
 	'mwe-upwiz-feedback-blacklist-subject' => 'My upload title, "$1" was prohibited.',
-	
+
 	// Error dialog
 	'mwe-upwiz-errordialog-title' => 'There was an error in your submission',
 	'mwe-upwiz-errordialog-ok' => 'OK',
-	
+
 	'mwe-upwiz-error-nosuchcampaign' => 'There is no campaign with name "$1".',
 	'mwe-upwiz-error-campaigndisabled' => 'Campaign "$1" has not been enabled.',
-	
+
 	// Special:UploadCampaigns
 	'mwe-upwiz-campaigns-name' => 'Campaign name',
 	'mwe-upwiz-campaigns-status' => 'Status',
@@ -1813,9 +1813,9 @@ $messages['bg'] = array(
 	'mwe-upwiz-license-show-all' => 'Използване на различен лиценз',
 	'mwe-upwiz-license-show-recommended' => 'Използване на препоръчания лиценз',
 	'mwe-upwiz-error-signature-blank' => 'Трябва да попълните полето по-долу с истинското си име или потребителското си име в сайта.',
-	'mwe-upwiz-error-signature-too-long' => 'Подписът ви е твърде дълъг. 
+	'mwe-upwiz-error-signature-too-long' => 'Подписът ви е твърде дълъг.
 Подписът трябва да съдържа не повече от $1 {{PLURAL:$1|знак|знака}}.',
-	'mwe-upwiz-error-signature-too-short' => 'Подписът ви е твърде кратък. 
+	'mwe-upwiz-error-signature-too-short' => 'Подписът ви е твърде кратък.
 Подписът трябва да съдържа не по-малко от $1 {{PLURAL:$1|знак|знака}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Подписът ви съдържа непозволени символи.
 Не използвайте уикисинтаксис или HTML код, само истинското си име или потребителското си име в сайта.',
@@ -2278,11 +2278,11 @@ Gallout a rit staliañ [$1 Firefogg] un astenn Firefox da amdreiñ ar restr ent 
 	'mwe-upwiz-files-complete' => 'Echuet eo enporzhiadur ho restroù !',
 	'mwe-upwiz-tooltip-author' => 'Anv an den en deus tapet ar skeudenn, livet an daolenn, treset an dresadenn, h.a.',
 	'mwe-upwiz-tooltip-source' => "Al lec'h m'emañ o tont ar restr niverel a c'hell bezañ un URl, ul levr, pe un embannadur",
-	'mwe-upwiz-tooltip-sign' => "Gallout a rit implijout hoc'h anv wiki pe hoc'h anv gwir. 
+	'mwe-upwiz-tooltip-sign' => "Gallout a rit implijout hoc'h anv wiki pe hoc'h anv gwir.
 En daou zegouezh e vo liammet ouzh ho pajenn implijer wiki",
 	'mwe-upwiz-tooltip-title' => 'Un anv deskrivus nemetken evit ar restr. Gallout a rit implijout ur yezh plaen gant esaouennoù. Arabat lakaat astenn ar restr.',
 	'mwe-upwiz-dialog-title' => 'Gallout a reer enporzhiañ restroù dezho anvioù e ne vern pe yezh pe skrivadur. Ret e vefe da titloù ar restroù media bezañ talvoudus ha splann o ster er yezh dibabet.',
-	'mwe-upwiz-tooltip-description' => "Grit un tamm diverrañ eus perzhioù heverkañ al labour. 
+	'mwe-upwiz-tooltip-description' => "Grit un tamm diverrañ eus perzhioù heverkañ al labour.
 Evit ur skeudenn, merkit ar pep pouezusañ eus ar pezh a weler, an degouezh pe al lec'h.",
 	'mwe-upwiz-tooltip-date' => 'Deiziad krouiñ pe embann kentañ an oberenn-mañ (furmad "blbl-mm-dd").',
 	'mwe-upwiz-tooltip-categories' => "Ouzhpennañ [$1 rummadoù] d'ho restr evit ma vo aesoc'h da gavout.",
@@ -2553,7 +2553,7 @@ Možete [$1 instalirati Firefogg] da automatski je pretvori ili koristiti druge 
 	'mwe-upwiz-ok' => 'U redu',
 	'mwe-upwiz-cancel' => 'Odustani',
 	'mwe-upwiz-fileexists-replace' => 'Datoteka sa naslovom "$1" već postoji. Molimo promijenite vaš naslov u nešto unikatnije.',
-	'mwe-upwiz-fileexists' => 'Datoteka sa ovim nazivom već postoji. 
+	'mwe-upwiz-fileexists' => 'Datoteka sa ovim nazivom već postoji.
 Molimo provjerite b><tt>$1</tt></b> ako niste sigurni da je želite zamijeniti.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Datoteka sa tim imenom već postoji. Ako je želite zamijeniti, idite na stranicu za [$2 $1] i zamijenite je tamo.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Datoteka sa tim imenom već postoji.',
@@ -3404,9 +3404,9 @@ $messages['cy'] = array(
 	'mwe-upwiz-files-complete' => 'Uwchlwythwyd eich ffeiliau!',
 	'mwe-upwiz-tooltip-author' => "Enw'r person a dynnodd y llun, â chamera neu â llaw, ac ati.",
 	'mwe-upwiz-tooltip-source' => "Y man lle cafwyd y ffeil ddigidol hon -- p'un ai URL, llyfr neu gyhoeddiad",
-	'mwe-upwiz-tooltip-sign' => "Gallwch ddefnyddio eich enw defnyddiwr wici neu eich enw go iawn. 
+	'mwe-upwiz-tooltip-sign' => "Gallwch ddefnyddio eich enw defnyddiwr wici neu eich enw go iawn.
 Yn y naill achos fel y llall, fe osodir cyswllt o'r enw i'ch tudalen defnyddiwr ar y wici",
-	'mwe-upwiz-tooltip-title' => "Teitl unigryw disgrifiadol i'r ffeil. 
+	'mwe-upwiz-tooltip-title' => "Teitl unigryw disgrifiadol i'r ffeil.
 Gallwch ddefnyddio iaith blaen gyda bylchau.
 Peidiwch a chynnwys estyniad y ffeil.",
 	'mwe-upwiz-tooltip-description' => "Disgrifiwch yn gryno bopeth sy'n nodedig am y gwaith.  Ar gyfer llun, soniwch am y prif bethau a ddarlunnir ynddo, yr achlysur neu'r lle.",
@@ -3422,7 +3422,7 @@ Peidiwch a chynnwys estyniad y ffeil.",
 	'mwe-upwiz-error-signature-too-short' => "Mae'ch llofnod yn rhy fyr. Gwnewch hi'n hwy na $1 {{PLURAL:$1|llythyren|llythyren|lythyren|llythyren|llythyren|llythyren}}.",
 	'mwe-upwiz-error-signature-bad-chars' => "Mae'ch llofnod yn cynnwys symbolau na chaniateir. Peidiwch â defnyddio wicidestun na HTML; yn hytrach defnyddiwch dim ond eich enw defnyddiwr neu'ch enw go iawn.",
 	'mwe-upwiz-error-blank' => "Mae'r maes hwn yn ofynnol.",
-	'mwe-upwiz-error-too-long' => "Mae'r mewnbwn hwn yn rhy hir. 
+	'mwe-upwiz-error-too-long' => "Mae'r mewnbwn hwn yn rhy hir.
 Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
 	'mwe-upwiz-error-too-short' => "Mae'ch llofnod yn rhy fyr. Gwnewch hi'n hwy na $1 {{PLURAL:$1|nod}}.",
 	'mwe-upwiz-error-bad-chars' => "Mae'r maes hwn yn cynnwys symbolau na chaniateir. Peidiwch â defnyddio wicidestun na HTML yma.",
@@ -4732,7 +4732,7 @@ Bonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie,',
 	'mwe-upwiz-image-preview' => 'Antaŭvido de bildo',
 	'mwe-upwiz-subhead-message' => 'Dankon ke vi uzas la novan alŝutilon!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Konataj problemoj]',
-	'mwe-upwiz-subhead-translate' => ' 
+	'mwe-upwiz-subhead-translate' => '
 [$1 Helpu traduki]',
 	'mwe-upwiz-subhead-alt-upload' => '[$1 Al la malnova formularo]',
 	'mwe-upwiz-feedback-prompt' => 'Bonvolu [$1 sendi vian opinion] pri la Asistilo de Alŝutado',
@@ -7509,7 +7509,7 @@ $messages['he'] = array(
 	'mwe-upwiz-ok' => 'אישור',
 	'mwe-upwiz-cancel' => 'ביטול',
 	'mwe-upwiz-fileexists-replace' => 'הקובץ עם הכותרת "$1" כבר קיים. אנא שנו את הכותרת למשהו ייחודי.',
-	'mwe-upwiz-fileexists' => 'קובץ בשם הזה כבר קיים. 
+	'mwe-upwiz-fileexists' => 'קובץ בשם הזה כבר קיים.
 אנא בדקו את <tt><b>$1</b></tt> אם אינכם בטוחים שאתם רוצים להחליף אותו.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'קובץ בשם הזה כבר קיים. אם אתם רוצים להחליף אותו, לכו לדף עבור [$2 $1] והחליפו אותו שם.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'קובץ בשם כזה כבר קיים.',
@@ -8011,7 +8011,7 @@ $messages['hr'] = array(
 	'mwe-upwiz-ok' => 'Da',
 	'mwe-upwiz-cancel' => 'Odustani',
 	'mwe-upwiz-fileexists-replace' => 'Datoteka s imenom "$1" već postoji. Molimo promijenite ime vaše datoteke tako da se razlikuje.',
-	'mwe-upwiz-fileexists' => 'Datoteka s ovim imenom već postoji. 
+	'mwe-upwiz-fileexists' => 'Datoteka s ovim imenom već postoji.
 Molimo provjerite <b><tt>$1</tt></b> ako niste sigurni da ju želite zamijeniti.',
 	'mwe-upwiz-thumbnail-more' => 'Povećaj',
 	'mwe-upwiz-overwrite' => 'Zamijenite datoteku',
@@ -8044,9 +8044,9 @@ Možete rabiti i wikitekst kôd.',
 	'mwe-upwiz-error-signature-blank' => 'Morate se prijaviti u polju ispod s vašim suradničkim imenom ili pravim imenom.',
 	'mwe-upwiz-error-signature-too-long' => 'Vaš potpis je predugačak.
 Ne smije biti dulji od $1 {{PLURAL:$1|znaka|znaka|znakova}}.',
-	'mwe-upwiz-error-signature-too-short' => 'Vaš potpis je prekratak. 
+	'mwe-upwiz-error-signature-too-short' => 'Vaš potpis je prekratak.
 Učinite ga duljim od $1 {{PLURAL:$1|znaka|znaka|znakova}}.',
-	'mwe-upwiz-error-signature-bad-chars' => 'Vaš potpis sadrži simbole koji nisu dozvoljeni. 
+	'mwe-upwiz-error-signature-bad-chars' => 'Vaš potpis sadrži simbole koji nisu dozvoljeni.
 Molimo vas ne rabite wikitext ili HTML ovdje, samo vaše suradničko ime ili pravo ime.',
 	'mwe-upwiz-error-blank' => 'Ovo polje je obvezno.',
 	'mwe-upwiz-error-too-long' => 'Tekst u ovom polju je predug.
@@ -9259,7 +9259,7 @@ Puoi installare [$1 Firefogg], un'estensione di Firefox per convertire automatic
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Annulla',
 	'mwe-upwiz-fileexists-replace' => 'Un file con titolo "$1" esiste già. Rinominalo con un titolo non ancora utilizzato.',
-	'mwe-upwiz-fileexists' => 'Un file con questo nome esiste già. 
+	'mwe-upwiz-fileexists' => 'Un file con questo nome esiste già.
 Controlla <b><tt>$1</tt></b> e verifica scrupolosamente che davvero si debba sostituirlo.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Esiste già un file con questo nome. Se vuoi sostituirlo, vai alla pagina [$2 $1] e sostituiscilo lì, altrimenti scegli un nome diverso.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Esiste già un file con questo nome.',
@@ -9277,11 +9277,11 @@ Controlla <b><tt>$1</tt></b> e verifica scrupolosamente che davvero si debba sos
 	'mwe-upwiz-files-complete' => 'Il caricamento dei tuoi file è terminato!',
 	'mwe-upwiz-tooltip-author' => 'Il nome della persona che ha scattato la foto, dipinto il quadro, realizzato il disegno, ecc.',
 	'mwe-upwiz-tooltip-source' => 'Da dove proviene questo file digitale - potrebbe essere un URL, un libro, una pubblicazione, ecc.',
-	'mwe-upwiz-tooltip-sign' => 'Puoi utilizzare il tuo nome utente sulla wiki, oppure il tuo nome proprio. 
+	'mwe-upwiz-tooltip-sign' => 'Puoi utilizzare il tuo nome utente sulla wiki, oppure il tuo nome proprio.
 In entrambi i casi, sarà collegato con un link alla tua pagina utente della wiki',
 	'mwe-upwiz-tooltip-title' => "Un titolo breve e distintivo per il file. Puoi usare un linguaggio semplice con spazi. Non includere l'estensione del file.",
 	'mwe-upwiz-dialog-title' => 'I file possono essere caricati con nomi in ogni lingua e in qualsiasi sistema di scrittura. I titoli dei file multimediali dovrebbero essere significativi e di aiuto nella lingua scelta.',
-	'mwe-upwiz-tooltip-description' => "Descrivi sinteticamente tutto quanto sia degno di nota a proposito di quest'opera. 
+	'mwe-upwiz-tooltip-description' => "Descrivi sinteticamente tutto quanto sia degno di nota a proposito di quest'opera.
 Per le foto, indica le cose principali che vi sono rappresentate, l'occasione e/o il luogo in cui sono state scattate.",
 	'mwe-upwiz-tooltip-date' => "La data in cui quest'opera è stata creata o pubblicata per la prima volta (formato AAAA-MM-GG).",
 	'mwe-upwiz-tooltip-categories' => 'Aggiungi [$1 categorie] al tuo file per renderlo più semplice da trovare.',
@@ -9297,7 +9297,7 @@ Per le foto, indica le cose principali che vi sono rappresentate, l'occasione e/
 Può essere lunga al massimo $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-signature-too-short' => 'La tua firma è troppo corta.
 Deve essere lunga almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
-	'mwe-upwiz-error-signature-bad-chars' => 'La tua firma contiene simboli che non sono ammessi. 
+	'mwe-upwiz-error-signature-bad-chars' => 'La tua firma contiene simboli che non sono ammessi.
 Non utilizzare codice HTML o wikitext qui, solo il nome utente o il nome reale.',
 	'mwe-upwiz-error-blank' => 'Questo campo è obbligatorio.',
 	'mwe-upwiz-error-too-long' => 'Questo testo è troppo lungo.
@@ -13891,7 +13891,7 @@ Możesz zainstalować rozszerzenie [$1 Firefogg] do Firefoxa pozwalające na aut
 W obu przypadkach link będzie prowadził do Twojej strony użytkownika.',
 	'mwe-upwiz-tooltip-title' => 'Krótka unikalna nazwa pliku. Możesz użyć prostego języka i spacji. Nie dodawaj rozszerzenia pliku.',
 	'mwe-upwiz-dialog-title' => 'Przesyłane pliki mogą mieć nazwy w dowolnym języku i zapisie. Nazwy plików powinny zrozumiale opisywać zawartość w wybranym języku.',
-	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko istotne, co dotyczy tej pracy. 
+	'mwe-upwiz-tooltip-description' => 'Krótko opisz wszystko istotne, co dotyczy tej pracy.
 W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejsce.',
 	'mwe-upwiz-tooltip-date' => 'Data powstania lub pierwszej publikacji dzieła (w formacie "rrrr-mm-dd")',
 	'mwe-upwiz-tooltip-categories' => 'Dodaj do pliku [$1 kategorie], aby ułatwić jego odnalezienie.',
@@ -13906,14 +13906,14 @@ W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejs
 	'mwe-upwiz-error-signature-blank' => 'Musisz podpisać się w poniższym polu swoją nazwą użytkownika lub prawdziwym imieniem i nazwiskiem.',
 	'mwe-upwiz-error-signature-too-long' => 'Twój podpis jest zbyt długi.
 Skróć go do nie więcej niż $1 {{PLURAL:$1|znaku|znaków}}.',
-	'mwe-upwiz-error-signature-too-short' => 'Twój podpis jest za krótki. 
+	'mwe-upwiz-error-signature-too-short' => 'Twój podpis jest za krótki.
 Wydłuż go do co najmniej $1 {{PLURAL:$1|znaku|znaków}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Podpis zawiera niedozwolone znaki.
 Nie wolno korzystać z formatowania wiki lub HTML. Należy wpisać swoją nazwę użytkownika lub imię i nazwisko.',
 	'mwe-upwiz-error-blank' => 'Wypełnienie tego pola jest obowiązkowe.',
 	'mwe-upwiz-error-too-long' => 'To pole jest zbyt długie.
 Skróć je do nie więcej niż $1 {{PLURAL:$1|znaku|znaków}}.',
-	'mwe-upwiz-error-too-short' => 'To pole jest za krótkie. 
+	'mwe-upwiz-error-too-short' => 'To pole jest za krótkie.
 Wydłuż je do co najmniej $1 {{PLURAL:$1|znaku|znaków}}.',
 	'mwe-upwiz-error-bad-chars' => 'Pole zawiera niedozwolone znaki.
 Proszę tutaj nie korzystać z formatowania wiki lub HTML.',
@@ -14459,7 +14459,7 @@ $messages['pnb'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{انیک:$1|سکنٹ|سکنٹاں}} ریندے',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{انیک:$1|منٹ|منٹاں}} $2 {{انیک:$2|سکنٹ|سکنٹاں}} باقی',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{انیک:$1|کینٹہ|کینٹہ}} $2 {{انیک:$2|منٹ|منٹاں}} $3 {{انیک:$3|سکنٹ|سکنٹاں}} باقی',
-	'mwe-upwiz-deeds-macro-prompt' => 'ایس سائٹ تے توانوں کاپی حق {{انیک:$1|ایہ کم|ایہ کم}} لی لوڑ اے، 
+	'mwe-upwiz-deeds-macro-prompt' => 'ایس سائٹ تے توانوں کاپی حق {{انیک:$1|ایہ کم|ایہ کم}} لی لوڑ اے،
 اے ضروری بناؤ جے ہرکوئی قنونی ایناں نوں {{انیک:$1|ایہ|اوہ}} ورت سکے۔',
 	'mwe-upwiz-deeds-custom-prompt' => 'یا:',
 	'mwe-upwiz-source-ownwork' => '{{انیک:$1|ایہ فائل|ایہ فائلاں }} میرا آپنا کم اے.',
@@ -14557,7 +14557,7 @@ $1 توں وڈا کرو {{انیک:$1|اکرے|اکرا}}',
 	'mwe-upwiz-error-title-badchars' => 'ایس سرناویں چ ناں چاہی جان والی لکھت ہیگی اے۔ مہربانی کرکے اینوں ہٹاؤ۔',
 	'mwe-upwiz-error-title-senselessimagename' => 'مہربانی کرکے ایس سرناویں نوں ٹھیک کرو۔',
 	'mwe-upwiz-error-title-hosting' => 'لکدا اے جے ایہ فائل تساں کتے ہوروں لئی اے۔ مہربانی کرکے سرناواں ٹھیک کرو۔ دو واری چیک کرو جے توانوں اینوں ایتھے چھاپن دا حق اے۔',
-	'mwe-upwiz-error-title-thumbnail' => 'ایہ اک تھمبنیل سرناواں لگدا اے۔ مہربانی کرکے اکو وکی تے تھمبنیل فیر ناں چرھاؤ۔ 
+	'mwe-upwiz-error-title-thumbnail' => 'ایہ اک تھمبنیل سرناواں لگدا اے۔ مہربانی کرکے اکو وکی تے تھمبنیل فیر ناں چرھاؤ۔
 نئیں تے فائل ناں پکا کرو تاں جے ایدی کوئی دس پتہ لک سکے۔ ناں ای تھمبنیل دی پریفکس۔',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'اے سرناواں اک فائل لئی بچایا گیا اے۔ کوئی ہور چن لو۔',
 	'mwe-upwiz-error-title-double-apostrophe' => 'ایس سرناویں چ دوہری اپاسٹرافی دتی گئی اے؛ اینوں ہٹاؤ۔',
@@ -16014,7 +16014,7 @@ $messages['ru'] = array(
 Подпись не должна превышать $1 {{PLURAL:$1|символа|символов|символов}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Ваша подпись слишком коротка.
 Длина подписи должна превышать $1 {{PLURAL:$1|символ|символа|символов}}.',
-	'mwe-upwiz-error-signature-bad-chars' => 'Ваша подпись содержит недопустимые символы. 
+	'mwe-upwiz-error-signature-bad-chars' => 'Ваша подпись содержит недопустимые символы.
 Пожалуйста, не используйте в подписи викитекст или HTML, просто укажите ваше имя участника или настоящее имя.',
 	'mwe-upwiz-error-blank' => 'Это поле обязательно для заполнения.',
 	'mwe-upwiz-error-too-long' => 'Это поле слишком длинно.
@@ -18572,7 +18572,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-ok' => 'Готово',
 	'mwe-upwiz-cancel' => 'Скасувати',
 	'mwe-upwiz-fileexists-replace' => 'Файл з назвою "$1" вже існує. Будь ласка, поміняйте назву на щось унікальне.',
-	'mwe-upwiz-fileexists' => 'Файл з такою назвою вже існує. 
+	'mwe-upwiz-fileexists' => 'Файл з такою назвою вже існує.
 Будь ласка, перевірте <tt><b>$1</b></tt>, якщо ви не впевнені, або якщо ви хочете замінити його.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Файл з такою назвою вже існує. Якщо ви хочете замінити його, перейдіть на сторінку [$2 $1] і замініть його там.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Файл з такою назвою вже існує.',
@@ -18590,7 +18590,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-files-complete' => 'Завантаження Ваших файлів виконане успішно!',
 	'mwe-upwiz-tooltip-author' => "Ім'я людини, яка сфотографувала, або намалювала картину або малюнок і т.д.",
 	'mwe-upwiz-tooltip-source' => 'Джерело походження цифрового файлу - адреса URL, книга або публікація',
-	'mwe-upwiz-tooltip-sign' => 'Ви можете використовувати ваше вікі імя або реальне імя. 
+	'mwe-upwiz-tooltip-sign' => 'Ви можете використовувати ваше вікі імя або реальне імя.
 В обох випадках вони стануть посиланнями на сторінку Вашого профілю користувача.',
 	'mwe-upwiz-tooltip-title' => 'Коротка унікальна назва файла. Ви можете використовувати текст без форматування з пробілами. Не вказуйте розширення файла.',
 	'mwe-upwiz-dialog-title' => 'Файли можуть бути завантажені з назвами будь-якою мовою, будь-якою системою письма. Назви файлів мультимедіа повинні бути зрозумілими й корисними для ідентифікації вмісту.',
@@ -18611,14 +18611,14 @@ $messages['uk'] = array(
 Зробіть його меньшим ніж $1 {{PLURAL:$1|символ|символів|символів}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Ваш підпис занадто короткий.
 Зробіть його довшим ніж $1 {{PLURAL:$1|символ|символа|символів}}.',
-	'mwe-upwiz-error-signature-bad-chars' => "Ваш підпис містить символи, які не допускається. 
+	'mwe-upwiz-error-signature-bad-chars' => "Ваш підпис містить символи, які не допускається.
 Будь ласка, не використовуйте розмітку вікі або HTML тут. Тільки ваше ім'я користувача або реальне ім'я.",
 	'mwe-upwiz-error-blank' => "Це поле є обов'язковим для заповнення.",
-	'mwe-upwiz-error-too-long' => 'Це поле занадто довге. 
+	'mwe-upwiz-error-too-long' => 'Це поле занадто довге.
 Потрібно його зробити коротшим, ніж $1 {{PLURAL:$1|символ|символа|символів}}.',
 	'mwe-upwiz-error-too-short' => 'Ваш підпис занадто короткий.
 Зробіть його довшим ніж $1 {{PLURAL:$1|символ|символа|символів}}.',
-	'mwe-upwiz-error-bad-chars' => 'Це поле містить символи, не допускається. 
+	'mwe-upwiz-error-bad-chars' => 'Це поле містить символи, не допускається.
 Будь ласка, не використовуйте вікітекст або HTML тут.',
 	'mwe-upwiz-error-date' => 'Будь ласка, введіть коректну дату у форматі РРРР-ММ-ДД, або виберіть дату з календаря-підказки.',
 	'mwe-upwiz-error-title-blacklisted' => 'Ця назва містить деякий небажаний текст. Будь ласка, внесіть до нього зміни.',
@@ -19590,7 +19590,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-ok' => '确定',
 	'mwe-upwiz-cancel' => '取消',
 	'mwe-upwiz-fileexists-replace' => '以"$1"为标题的文件已经存在，请换一个更独特的名字。',
-	'mwe-upwiz-fileexists' => '有此名称的文件已经存在。 
+	'mwe-upwiz-fileexists' => '有此名称的文件已经存在。
 如果你不确定是否要替换它，请检查<b><tt>$1</tt></b>。',
 	'mwe-upwiz-fileexists-replace-on-page' => '存在同名文件。想要替换，前往其页面 [$2 $1] 进行替换操作。',
 	'mwe-upwiz-fileexists-replace-no-link' => '具有此名称的文件已存在。',
@@ -19608,11 +19608,11 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-files-complete' => '你的文件已上传完毕！',
 	'mwe-upwiz-tooltip-author' => '谁拍的照片，制的图，画的画，诸如此类。',
 	'mwe-upwiz-tooltip-source' => '这个数码文件的来源 — 可能是一个URL，一本书或一个出版物',
-	'mwe-upwiz-tooltip-sign' => '你可以使用你的维基用户名称或你的真名。 
+	'mwe-upwiz-tooltip-sign' => '你可以使用你的维基用户名称或你的真名。
 无论哪个，都将链接到你在维基的用户页',
 	'mwe-upwiz-tooltip-title' => '该文件唯一的描述性标题。你可以使用简明的语言和空格。不要包括文件扩展名。',
 	'mwe-upwiz-dialog-title' => '文件可以以任何语言和字体上传。无论使用什么语言，媒体文件的标题应该有意义且有助于理解。',
-	'mwe-upwiz-tooltip-description' => '一切有关此作品的简要描述。 
+	'mwe-upwiz-tooltip-description' => '一切有关此作品的简要描述。
 例如一张照片，提及主要描绘的东西，场合，或地方。',
 	'mwe-upwiz-tooltip-date' => '此作品创建或首次发布的日期 （"yyyy-mm-dd" 格式）。',
 	'mwe-upwiz-tooltip-categories' => '将 [$1 类别] 添加到你的文件，使其易于查找。',
@@ -19624,14 +19624,14 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-license-show-all' => '使用不同的许可证',
 	'mwe-upwiz-license-show-recommended' => '使用推荐的许可证',
 	'mwe-upwiz-error-signature-blank' => '你必须在下面填写你的用户名或真实姓名。',
-	'mwe-upwiz-error-signature-too-long' => '您的签名太长。 
+	'mwe-upwiz-error-signature-too-long' => '您的签名太长。
 请让它少于$1{{PLURAL:$1|个字|字}}。',
 	'mwe-upwiz-error-signature-too-short' => '你的签名太短了。
 令它长过$1 {{PLURAL:$1|字|字}}。',
 	'mwe-upwiz-error-signature-bad-chars' => '你的签名包含不能使用的符号。
 请勿使用维基文字或HTML文本，只有你的用户名或真名。',
 	'mwe-upwiz-error-blank' => '此项是必需的。',
-	'mwe-upwiz-error-too-long' => '此项太长。 
+	'mwe-upwiz-error-too-long' => '此项太长。
 请让它少于$1{{PLURAL:$1|个字|个字}}。',
 	'mwe-upwiz-error-too-short' => '此项太短。
 令它长过$1 {{PLURAL:$1|字|字}}。',
@@ -19909,7 +19909,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => '取消',
 	'mwe-upwiz-fileexists-replace' => '以「$1」為標題的檔案已經存在，請更改這個名稱以使其為一個獨特的名字。',
-	'mwe-upwiz-fileexists' => '與此名稱的檔案已經存在。 
+	'mwe-upwiz-fileexists' => '與此名稱的檔案已經存在。
 請檢查 <tt><b>$1</b></tt> 如果你不知道你要不要取代它。',
 	'mwe-upwiz-fileexists-replace-on-page' => '與此名稱的文件已經存在。想要替換，前往其頁面[$2 $1] 進行替換操作。',
 	'mwe-upwiz-fileexists-replace-no-link' => '具有此名稱的檔案已存在。',
@@ -19927,11 +19927,11 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-files-complete' => '您的檔案上傳完畢！',
 	'mwe-upwiz-tooltip-author' => '誰拍這張照片，或描繪的景象，畫圖紙，等等的人。',
 	'mwe-upwiz-tooltip-source' => '這個數位檔案從何來？可以是一個 URL、一本書或一個出版物',
-	'mwe-upwiz-tooltip-sign' => '你可以使用你的維基用戶名稱或您的真實姓名。 
+	'mwe-upwiz-tooltip-sign' => '你可以使用你的維基用戶名稱或您的真實姓名。
 在這兩種情況下，這將連結到你在維基的用戶頁',
 	'mwe-upwiz-tooltip-title' => '該文件唯一的描述性標題。您可以使用通俗易懂的語言與空格。不包括文件擴展名。',
 	'mwe-upwiz-dialog-title' => '檔案可以以任何語言和字體上傳。無論使用什麼語言，媒體檔案的標題應該有意義且有助於理解。',
-	'mwe-upwiz-tooltip-description' => '一切有關此作品的簡要描述。 
+	'mwe-upwiz-tooltip-description' => '一切有關此作品的簡要描述。
 對於照片，提到的主要事情是描繪的場合或場所。',
 	'mwe-upwiz-tooltip-date' => '此作品創建或首次發佈日期（YYYY-MM-DD 格式）。',
 	'mwe-upwiz-tooltip-categories' => '將您的檔案添加[$1 類別]，使其易於查找。',
@@ -19943,14 +19943,14 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-license-show-all' => '使用不同條款',
 	'mwe-upwiz-license-show-recommended' => '使用推薦的牌照',
 	'mwe-upwiz-error-signature-blank' => '你必須在下面的輸入框書寫您的用戶名或真實姓名。',
-	'mwe-upwiz-error-signature-too-long' => '您的簽名太長。 
+	'mwe-upwiz-error-signature-too-long' => '您的簽名太長。
 請讓它少於$1{{PLURAL:$1|個字|個字}}。',
 	'mwe-upwiz-error-signature-too-short' => '你的簽名太短了。
 令它長過$1 {{PLURAL:$1|字|字}}。',
 	'mwe-upwiz-error-signature-bad-chars' => '你的簽名包含不能使用的符號。
 請勿使用維基文字或HTML文字，只有你的用戶名或真名。',
 	'mwe-upwiz-error-blank' => '此項是必需的。',
-	'mwe-upwiz-error-too-long' => '此項太長。 
+	'mwe-upwiz-error-too-long' => '此項太長。
 請讓它少於$1{{PLURAL:$1|個字|個字}}。',
 	'mwe-upwiz-error-too-short' => '此項太短。
 令它長過$1 {{PLURAL:$1|字|字}}。',
