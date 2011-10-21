@@ -11892,6 +11892,8 @@ $messages['ms'] = array(
 	'mwe-upwiz-media-type' => 'Jenis media',
 	'mwe-upwiz-date-created' => 'Tarikh dicipta',
 	'mwe-upwiz-location' => 'Lokasi',
+	'mwe-upwiz-location-lat' => 'Garis lintang',
+	'mwe-upwiz-location-lon' => 'Garis bujur',
 	'mwe-upwiz-copyright-info' => 'Hak keluaran',
 	'mwe-upwiz-author' => 'Pengarang',
 	'mwe-upwiz-autoconverted' => 'Fail ini ditukarkan secara automatik kepada format $1',
@@ -11941,6 +11943,7 @@ Untuk foto, nyatakan perkara-perkara utama yang digambarkan, peristiwa atau temp
 	'mwe-upwiz-tooltip-date' => 'Tarikh karya ini dicipta atau mula-mula diterbitkan (format YYYY-MM-DD: tahun 4 angka, bulan 2 angka, haribulan 2 angka).',
 	'mwe-upwiz-tooltip-categories' => 'Tambahkan [$1 kategori] ke dalam fail supaya ia lebih mudah dicari.',
 	'mwe-upwiz-tooltip-other' => 'Sebarang maklumat lain yang ingin anda sertakan tentang karya ini – koordinat geografi, pautan ke versi lain, dsb.',
+	'mwe-upwiz-tooltip-location' => 'Koordinat lokasi di mana fail media ini dibuat.',
 	'mwe-upwiz-tooltip-more-info' => 'Ketahui lebih lanjut.',
 	'mwe-upwiz-file-need-file' => 'Tolong tambahkan bahan yang ingin dimuat naik terlebih dahulu.',
 	'mwe-upwiz-deeds-need-deed' => 'Tolong jelaskan dari mana anda perolehi {{PLURAL:$1|fail|fail-fail}} ini dan bagaimana tapak ini boleh menggunakannya, dengan memilih antara pilihan-pilihan berikut.',
@@ -17345,7 +17348,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-feedback-message' => 'Порука:',
 	'mwe-upwiz-feedback-title' => 'Дајте своје мишљење о Помоћнику за отпремање',
 	'mwe-upwiz-feedback-cancel' => 'Откажи',
-	'mwe-upwiz-feedback-submit' => 'Пошаљи мишљење',
+	'mwe-upwiz-feedback-submit' => 'Пошаљи повратну информацију',
 	'mwe-upwiz-feedback-adding' => 'Додајем исказано мишљење на страницу…',
 	'mwe-upwiz-feedback-error1' => 'Грешка: непрепознат резултат од АПИ-ја',
 	'mwe-upwiz-feedback-error2' => 'Грешка: уређивање није успело',
@@ -18615,11 +18618,11 @@ $messages['uk'] = array(
 Будь ласка, не використовуйте розмітку вікі або HTML тут. Тільки ваше ім'я користувача або реальне ім'я.",
 	'mwe-upwiz-error-blank' => "Це поле є обов'язковим для заповнення.",
 	'mwe-upwiz-error-too-long' => 'Це поле занадто довге.
-Потрібно його зробити коротшим, ніж $1 {{PLURAL:$1|символ|символа|символів}}.',
-	'mwe-upwiz-error-too-short' => 'Ваш підпис занадто короткий.
-Зробіть його довшим ніж $1 {{PLURAL:$1|символ|символа|символів}}.',
-	'mwe-upwiz-error-bad-chars' => 'Це поле містить символи, не допускається.
-Будь ласка, не використовуйте вікітекст або HTML тут.',
+Потрібно його зробити коротшим, ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
+	'mwe-upwiz-error-too-short' => 'Це поле є занадто коротким.
+Зробіть його довшим ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
+	'mwe-upwiz-error-bad-chars' => 'Це поле містить недозволені символи.
+Будь ласка, не використовуйте вікітекст або HTML.',
 	'mwe-upwiz-error-date' => 'Будь ласка, введіть коректну дату у форматі РРРР-ММ-ДД, або виберіть дату з календаря-підказки.',
 	'mwe-upwiz-error-title-blacklisted' => 'Ця назва містить деякий небажаний текст. Будь ласка, внесіть до нього зміни.',
 	'mwe-upwiz-error-title-badchars' => 'Ця назва містить деякі небажані символи. Будь ласка, вилучіть або замініть їх.',
