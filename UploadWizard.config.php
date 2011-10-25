@@ -248,7 +248,8 @@ return array(
 				)
 			),
 			array( 
-				'head' => 'mwe-upwiz-license-public-domain-head',
+				'head' => 'mwe-upwiz-license-public-domain-usa-head',
+				'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
 				'licenses' => array( 
 					'pd-old-100',
 					'pd-old', 
@@ -262,12 +263,6 @@ return array(
 				'licenses' => array( 	
 					'pd-usgov',
 					'pd-usgov-nasa'
-				)
-			),
-			array( 
-				'head' => 'mwe-upwiz-license-misc', 
-				'licenses' => array( 
-					'fal'
 				)
 			),
 			array(
