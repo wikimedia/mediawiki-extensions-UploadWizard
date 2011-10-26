@@ -404,7 +404,7 @@ class UploadWizardHooks {
 		),
 	);
 
-	/*
+	/**
 	 * ResourceLoaderRegisterModules hook
 	 *
 	 * Adds modules to ResourceLoader
