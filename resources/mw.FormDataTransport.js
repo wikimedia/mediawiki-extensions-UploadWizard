@@ -58,6 +58,7 @@ mw.FormDataTransport.prototype = {
             });
 			formData.append('filename', file.name);
 			formData.append('file', file);
+			formData.append( 'ignorewarnings', true );
 			
             this.xhr.open("POST", _this.postUrl, true);
             this.xhr.send(formData);
@@ -99,9 +100,11 @@ mw.FormDataTransport.prototype = {
                     //failed to upload, try again in 3 second
                     _this.retries++;
                     if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
+						mw.log( 'max retries exceeded on unknown response' );
                         //upload failed, raise response
                         _this.transportedCb(response);
                     } else {
+						mw.log( 'retry #' + _this.retries + ' on unknown response' );
                         setTimeout(function() {
                             _this.uploadChunk(offset);
                         }, 3000);
@@ -113,8 +116,10 @@ mw.FormDataTransport.prototype = {
             //failed to upload, try again in 3 second
             _this.retries++;
             if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
+				mw.log( 'max retries exceeded on error event' );
                 _this.parseResponse(evt, _this.transportedCb);
             } else {
+				mw.log( 'retry #' + _this.retries + ' on error event' );			
                 setTimeout(function() {
                         _this.uploadChunk(offset);
                 }, 3000);
@@ -141,6 +146,7 @@ mw.FormDataTransport.prototype = {
         });
         formData.append('offset', offset);
         formData.append('filename', file.name);
+		formData.append( 'ignorewarnings', true );
 
         if (_this.filekey) {
             formData.append('filekey', _this.filekey);

@@ -17,6 +17,8 @@ mw.UploadWizard = function( config ) {
 	this.maxUploads = mw.UploadWizard.config[ 'maxUploads' ] || 10;
 	this.maxSimultaneousConnections = mw.UploadWizard.config[  'maxSimultaneousConnections'  ] || 2;
 
+	this.makePreviewsFlag = true;
+
 };
 
 mw.UploadWizard.DEBUG = true;

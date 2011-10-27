@@ -106,8 +106,8 @@ form.mwe-upwiz-form {
 	background: #f5f5f5;
 }
 
-.mwe-upwiz-visible-file .mwe-upwiz-remove-ctrl {
-	visibility: hidden;
+.mwe-upwiz-visible-file .mwe-upwiz-remove-ctrl .mwe-upwiz-show-thumb-ctrl {
+	visibility: visible;
 }
 
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
@@ -207,7 +207,7 @@ form.mwe-upwiz-form {
 	background: #e0f0ff !important;
 }
 
-.mwe-upwiz-file.hover .mwe-upwiz-remove-ctrl {
+.mwe-upwiz-file.hover .mwe-upwiz-remove-ctrl .mwe-upwiz-show-thumb-ctrl {
 	visibility: visible;
 }
 

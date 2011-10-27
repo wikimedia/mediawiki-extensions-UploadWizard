@@ -236,7 +236,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.submittingDiv.find( '.mwe-upwiz-file-status-line' )
 		.append( _this.$removeCtrl );
 	
-	
 	$j( _this.dataDiv ).append( 
 		_this.$form,
 		_this.submittingDiv

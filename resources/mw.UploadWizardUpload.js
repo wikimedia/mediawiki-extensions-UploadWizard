@@ -41,6 +41,7 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile ) {
 	this.filename = undefined;
 	this.providedFile = providedFile;
 	this.file = undefined;
+	this.fileCount = undefined;
 
 	this.fileKey = undefined;
 
@@ -291,7 +292,10 @@ mw.UploadWizardUpload.prototype = {
 		// TODO sanitize filename
 		var basename = mw.UploadWizardUtil.getBasename( filename );
 
-
+		if( files.length > 1 ) {
+			this.wizard.makePreviewsFlag = false;
+		}
+		
 		// check to see if the file has already been selected for upload.
 		var duplicate = false;
 		$j.each( this.wizard.uploads, function ( i, upload ) {

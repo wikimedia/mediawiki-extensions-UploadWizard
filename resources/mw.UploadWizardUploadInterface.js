@@ -16,6 +16,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	_this.div = $j('<div class="mwe-upwiz-file"></div>').get(0);
 	_this.isFilled = false;
 
+	_this.previewLoaded = false;
+
 	_this.$fileInputCtrl = $j( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
 	if( mw.UploadWizard.config['enableMultiFileSelect'] ) {
 		_this.$fileInputCtrl.attr( 'multiple', '1' );
@@ -25,7 +27,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	_this.$indicator = $j( '<div class="mwe-upwiz-file-indicator"></div>' );
 
-	var visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
+	_this.visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
 		.append( _this.$indicator )
 		.append( '<div class="mwe-upwiz-visible-file-filename">'
 			   + '<div class="mwe-upwiz-file-preview"/>'
@@ -44,8 +46,10 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 		function() { _this.upload.remove(); } 
 	).addClass( "mwe-upwiz-file-status-line-item" );
 
-	visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+	_this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 		.append( _this.$removeCtrl );
+		
+	// Add show thumbnail control
 
 	//_this.errorDiv = $j('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
 
@@ -69,7 +73,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	// XXX caution -- if the add file input changes size we won't match, unless we add some sort of event to catch this.
 	_this.form = $j( '<form method="POST" encType="multipart/form-data" class="mwe-upwiz-form"></form>' )
 			.attr( { action: _this.upload.api.url } )
-			.append( visibleFilenameDiv )
+			.append( _this.visibleFilenameDiv )
 			.append( _this.fileCtrlContainer
 				.append( _this.$fileInputCtrl ) 
 			)
@@ -116,8 +120,14 @@ mw.UploadWizardUploadInterface.prototype = {
 			.unbind( 'mouseenter mouseover mouseleave mouseout' );
 
 		// remove delete control 
-		$j( _this.div )
+		$j( _this.visibleFilenameDiv )
 			.find( '.mwe-upwiz-remove-ctrl' )
+			.unbind( 'mouseenter mouseover mouseleave mouseout' )
+			.remove();
+			
+		// remove thumb control
+		$j( _this.visibleFilenameDiv )
+			.find( '.mwe-upwiz-show-thumb-ctrl' )
 			.unbind( 'mouseenter mouseover mouseleave mouseout' )
 			.remove();
 	},
@@ -204,6 +214,10 @@ mw.UploadWizardUploadInterface.prototype = {
 	showStashed: function() {
 		this.$removeCtrl.detach();
 		this.$fileInputCtrl.detach();
+		if( this.$showThumbCtrl ) {
+			this.$showThumbCtrl.detach();
+		}
+
 		this.showIndicator( 'stashed' );
 		this.setStatus( 'mwe-upwiz-stashed-upload' ); // this is just "OK", say something more.
 	},
@@ -260,6 +274,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				} );
 			}
 		}
+		
 		return files;
 	},
 
@@ -296,6 +311,35 @@ mw.UploadWizardUploadInterface.prototype = {
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
 
+		// Only do this for images.  Other things get no thumbnail.
+		// TODO: a more complete check for thumbnail-ability might be needed here.
+		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
+			if( this.upload.wizard.makePreviewsFlag ) {
+				// make the preview now.
+				this.makePreview();			
+			} else {
+				// add a control for showing the preview if the user needs it
+				this.$showThumbCtrl = $j.fn.showThumbCtrl( 
+						'mwe-upwiz-show-thumb', 
+						'mwe-upwiz-show-thumb-tip', 
+						function() { _this.makePreview(); } 
+					).addClass( "mwe-upwiz-file-status-line-item" );
+
+				this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+					.append( '<br/>' ).append( _this.$showThumbCtrl );
+
+			}
+		}
+	},
+
+	makePreview: function() {
+		var _this = this;
+
+		// don't run this repeatedly.
+		if( _this.previewLoaded ) {
+			return;
+		}
+		
 		// do preview if we can
 		if ( mw.fileApi.isAvailable() && _this.upload.file && mw.fileApi.isPreviewableFile( _this.upload.file ) ) {
 			var dataUrlReader = new FileReader();
@@ -303,13 +347,16 @@ mw.UploadWizardUploadInterface.prototype = {
 				var image = document.createElement( 'img' );
 				image.onload = function() {
 					$.publishReady( 'thumbnails.' + _this.upload.index, image );
+					_this.previewLoaded = true;
 				};
+				
+				// this step (inserting image-as-dataurl into image object) is slow for large images, which
+				// is why this is optional and has a control attached to it to load the preview.
 				image.src = dataUrlReader.result;
 				_this.upload.thumbnails['*'] = image;
 			};
 			dataUrlReader.readAsDataURL( _this.upload.file );
-		}
-
+		}	
 	},
 
 	fileChangedError: function( code, info ) {
