@@ -39,6 +39,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.autocomplete.js',
 				'resources/jquery/jquery.spinner.js',
 				'resources/jquery/jquery.removeCtrl.js',
+				'resources/jquery/jquery.showThumbCtrl.js',				
 				'resources/jquery/jquery.pubsub.js',
 
 				// common utilities
@@ -108,6 +109,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.arrowSteps.css',
 				'resources/jquery/jquery.mwCoolCats.css',
 				'resources/jquery/jquery.removeCtrl.css',
+				'resources/jquery/jquery.showThumbCtrl.css',
 			),
 			'messages' => array(
 				'uploadwizard',
@@ -174,6 +176,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-remove',
 				'mwe-upwiz-remove-upload',
 				'mwe-upwiz-remove-description',
+				'mwe-upwiz-show-thumb',
+				'mwe-upwiz-show-thumb-tip',
 				'mwe-upwiz-upload',
 				'mwe-upwiz-file-all-ok',
 				'mwe-upwiz-file-some-failed',
