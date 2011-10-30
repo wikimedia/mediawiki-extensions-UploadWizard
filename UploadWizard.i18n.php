@@ -125,6 +125,7 @@ $messages['en'] = array(
 	'mwe-upwiz-location' => 'Location',
 	'mwe-upwiz-location-lat' => 'Latitude',
 	'mwe-upwiz-location-lon' => 'Longitude',
+	'mwe-upwiz-location-alt' => 'Altitude',
 	'mwe-upwiz-copyright-info' => 'Release rights',
 	'mwe-upwiz-author' => 'Author(s)',
 	'mwe-upwiz-autoconverted' => 'This file was automatically converted to the $1 format',
@@ -182,6 +183,9 @@ For a photo, mention the main things that are depicted, the occasion, or the pla
 	'mwe-upwiz-license-show-all' => 'Use a different license',
 	'mwe-upwiz-license-show-recommended' => 'Use the recommended license',
 	'mwe-upwiz-error-signature-blank' => 'You must sign the field below with your username or real name.',
+	'mwe-upwiz-error-latitude' => 'The latitude needs to be between -90 and 90.',
+	'mwe-upwiz-error-longitude' => 'The longitude needs to be between -180 and 180.',
+	'mwe-upwiz-error-altitude' => 'The altitude needs to be a number.',
 	'mwe-upwiz-error-signature-too-long' => 'Your signature is too long.
 Make it shorter than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Your signature is too short.

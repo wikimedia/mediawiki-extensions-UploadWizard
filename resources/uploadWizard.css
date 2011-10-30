@@ -712,5 +712,10 @@ input.mwe-date {
 }
 
 .mwe-location-lon {
+	float:left;
+	font-style:italic;
+}
+
+.mwe-location-alt {
 	font-style:italic;
 }

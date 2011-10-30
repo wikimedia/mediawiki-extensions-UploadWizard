@@ -161,8 +161,11 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	var latId = "location-latitude" + _this.upload.index;
 	var lonId = "location-longitude" + _this.upload.index;
-	_this.latInput = $j( '<input type="text" id="' + latId + '" name="' + latId + '" type="text" class="mwe-loc-lat" size="10"/>' );
-	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" type="text" class="mwe-loc-lon" size="10"/>' );
+	var altId = "location-altitude" + _this.upload.index;
+	
+	_this.latInput = $j( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
+	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
+	_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
  
 	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
 		.append( $j ( '<div class="mwe-location-lat-label"></div>' ).append( gM( 'mwe-upwiz-location-lat' )  ) )
@@ -170,13 +173,20 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	var lonDiv = $j( '<div class="mwe-location-lon"></div>' )
 		.append( $j ( '<div class="mwe-location-lon-label"></div>' ).append( gM( 'mwe-upwiz-location-lon' )  ) )
 		.append( _this.lonInput );
+	var altDiv = $j( '<div class="mwe-location-alt"></div>' )
+		.append( $j ( '<div class="mwe-location-alt-label"></div>' ).append( gM( 'mwe-upwiz-location-alt' )  ) )
+		.append( _this.altInput );
 
 	var locationDiv = $j( '<div class="mwe-location"></div>' )
 		.append( $j ('<div class="mwe-location-label"></div>' )
 		.append( gM( 'mwe-upwiz-location' ) ) 
 		.addHint( 'location' ) )
-		.append( latDiv )
-		.append( lonDiv );
+		.append( 
+			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
+			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
+			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
+			latDiv, lonDiv, altDiv
+		);
 
 	$j( moreDetailsDiv ).append( 
 		locationDiv,
@@ -287,6 +297,31 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			}
 		} );
 	}
+	
+	_this.latInput.rules( "add", {
+		min: -90,
+		max: 90,
+		messages: {
+			min: gM( 'mwe-upwiz-error-latitude' ),
+			max: gM( 'mwe-upwiz-error-latitude' )
+		}
+	} );
+	
+	_this.lonInput.rules( "add", {
+		min: -180,
+		max: 180,
+		messages: {
+			min: gM( 'mwe-upwiz-error-longitude' ),
+			max: gM( 'mwe-upwiz-error-longitude' )
+		}
+	} );
+	
+	_this.altInput.rules( "add", {
+		number: true,
+		messages: {
+			number: gM( 'mwe-upwiz-error-altitude' ),
+		}
+	} );
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
@@ -634,10 +669,20 @@ mw.UploadWizardDetails.prototype = {
 	 * Leaving out altitude ref for now (for no good reason).
 	 */
 	prefillLocation: function() {
-		_this = this;
+		var _this = this;
+		
 		if ( _this.upload.imageinfo.metadata ) {
-			$j( _this.latInput ).val( _this.upload.imageinfo.metadata['gpslatitude'] );
-			$j( _this.lonInput ).val( _this.upload.imageinfo.metadata['gpslongitude'] );
+			var m = _this.upload.imageinfo.metadata;
+				
+			if ( mw.isDefined( m['gpslatitude'] ) ) {
+				$j( _this.latInput ).val( m['gpslatitude'] );
+			}
+			if ( mw.isDefined( m['gpslongitude'] ) ) {
+				$j( _this.lonInput ).val( m['gpslongitude'] );
+			}
+			if ( mw.isDefined( m['gpsaltitude'] ) ) {
+				$j( _this.altInput ).val( m['gpsaltitude'] );
+			}
 		}
 	},
 
@@ -775,10 +820,16 @@ mw.UploadWizardDetails.prototype = {
 		}	
 
 		wikiText += "=={{int:filedesc}}==\n";
+		
 		var lat = $j.trim( $j( _this.latInput ).val() );
 		var lon = $j.trim( $j( _this.lonInput ).val() );
-		if( lat ){ //only add the tag if the data exists; assume that if lat exists, long will as well
-			wikiText += '{{Location dec|'+ lat + '|' + lon + '}}\n';
+		var alt = $j.trim( $j( _this.altInput ).val() );
+		
+		// Do not require the altitude to be set, to prevent people from entering 0
+		// while it's actually unknown.
+		// When none is provided, this will result in {{Location dec|int|int|}}.
+		if( lat !== '' && lon !== '' ) {
+			wikiText += '{{Location dec|'+ lat + '|' + lon + '|' + alt + '}}\n';
 		}
 
 		wikiText += '{{Information\n' + info + '}}\n\n';
