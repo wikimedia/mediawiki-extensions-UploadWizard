@@ -348,9 +348,6 @@ return array(
 	//		supports "passthrough" mode so that assets that don't need conversions behave very similar
 	//		to a normal XHR post. 
 	'enableFirefogg' => false,
-
-	// Check if we want to enable FormData upload
-	'enableFormData' => false,
 	
 	// Setup list of video extensions for recomending firefogg. 
 	'transcodeExtensionList' => array( 'avi','asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
@@ -389,8 +386,11 @@ return array(
 
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
+	
+	// should File API uploads be available?  Required for chunked uploading and multi-file select
+	'enableFormData' => true,
 
-	// Whether multi-file select is enabled -- this is temporary, just waiting for backend code r93270 to be reviewed
-	'enableMultiFileSelect' => false
-
+	// should multi-file select be available in supporting browsers?
+	'enableMultiFileSelect' => true,
+	
 );
