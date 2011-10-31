@@ -284,7 +284,12 @@ mw.UploadWizardUploadInterface.prototype = {
 	 */
 	getFilename: function() {
 		if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
-			return this.providedFile.fileName;
+			if( this.providedFile.fileName ) {
+				return this.providedFile.fileName;
+			} else {
+				// this property has a different name in FF vs Chrome.
+				return this.providedFile.name;
+			}
 		} else {
 			return this.$fileInputCtrl.get(0).value;
 		}	
