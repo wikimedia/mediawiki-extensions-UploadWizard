@@ -58,6 +58,11 @@ mw.FormDataTransport.prototype = {
             });
 			formData.append('filename', file.name);
 			formData.append('file', file);
+
+			// ignorewarnings is turned on, since warnings are presented in a later step and this
+			// transport doesn't know how to deal with them.  Also, it's important to allow people to
+			// upload files with (for example) blacklisted names, and then rename them later in the
+			// wizard.
 			formData.append( 'ignorewarnings', true );
 			
             this.xhr.open("POST", _this.postUrl, true);
@@ -146,6 +151,8 @@ mw.FormDataTransport.prototype = {
         });
         formData.append('offset', offset);
         formData.append('filename', file.name);
+
+		// ignorewarnings is turned on intentionally, see the above comment to the same effect.
 		formData.append( 'ignorewarnings', true );
 
         if (_this.filekey) {

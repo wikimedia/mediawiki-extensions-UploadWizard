@@ -41,7 +41,6 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile ) {
 	this.filename = undefined;
 	this.providedFile = providedFile;
 	this.file = undefined;
-	this.fileCount = undefined;
 
 	this.fileKey = undefined;
 

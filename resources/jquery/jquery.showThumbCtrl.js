@@ -9,6 +9,6 @@
 			.click( function() { $j( this ).removeClass( 'hover' ).addClass( 'disabled' ).unbind( 'mouseenter mouseover mouseleave mouseout mouseup mousedown' ); callback(); } )
 			.hover( function() { $j( this ).addClass( 'hover' ); },
 				function() { $j( this ).removeClass( 'hover' ); } )
-			.append( $j( '<div class="ui-icon" /><div class="mwe-upwiz-show-thumb-ctrl-msg">' + msg + '</div>' ) );
+			.append( $j( '<div class="ui-icon ui-icon-image" /><div class="mwe-upwiz-show-thumb-ctrl-msg">' + msg + '</div>' ) );
 	};
 } )( jQuery );
