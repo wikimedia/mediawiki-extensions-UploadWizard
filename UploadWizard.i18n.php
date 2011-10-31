@@ -453,6 +453,8 @@ This is followed by a language name in a drop-down language selector.
 {{Identical|Latitude}}',
 	'mwe-upwiz-location-lon' => 'Longitude - the GPS coordinate, expressed in signed decimal degrees.
 {{Identical|Longitude}}',
+	'mwe-upwiz-location-alt' => 'Altitude - the GPS coordinate, expressed in metres.
+{{Identical|Altitude}}',
 	'mwe-upwiz-other' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Other information}}',
@@ -488,6 +490,9 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 
 This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
+	'mwe-upwiz-error-latitude' => 'Error message shown when an invalid latitude is entered',
+	'mwe-upwiz-error-longitude' => 'Error message shown when an invalid longitude is entered',
+	'mwe-upwiz-error-altitude' => 'Error message shown when an invalid altitude is entered',
 	'mwe-upwiz-error-title-thumbnail' => 'Appears when thumbnail title is similar to "22px-Example.jpg" - the prefix is what MW adds when downloading pictures as thumbnails.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
 For more information, see http://www.mediawiki.org/wiki/UploadWizard',
