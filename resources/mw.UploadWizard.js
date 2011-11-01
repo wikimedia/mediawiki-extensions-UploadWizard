@@ -740,6 +740,7 @@ mw.UploadWizard.prototype = {
 			}
 
 			_this.resetFileStepUploads();
+			_this.moveToStep( 'file' );
 		}
 
 		// allow an "add another upload" button only if we aren't at max
