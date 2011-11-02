@@ -12,8 +12,8 @@ $messages = array();
  * @author Neil Kandalgaonkar
  */
 $messages['en'] = array(
-	'uploadwizard' => 'Upload wizard',
-	'uploadwizard-desc' => 'Upload wizard, developed for the Multimedia Usability grant',
+	'uploadwizard' => 'Upload Wizard',
+	'uploadwizard-desc' => 'Upload Wizard, a user-friendly tool for uploading multimedia',
 	'mwe-upwiz-uploadcampaigns' => 'Upload campaigns',
 	'mwe-upwiz-uploadcampaign' => 'Upload campaign configuration',
 	'right-upwizcampaigns' => 'Configure Upload Wizard campaigns',
@@ -478,7 +478,7 @@ This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" pa
 	'mwe-upwiz-fileexists-replace-on-page' => 'Parameters:
 * $1 is an image name.
 * $2 is an URL.',
-	'mwe-upwiz-next' => 'Button text for going to the next upload wizard stage.
+	'mwe-upwiz-next' => 'Button text for going to the next Upload Wizard stage.
 {{Identical|Next}}',
 	'mwe-upwiz-next-file' => '{{Identical|Continue}}',
 	'mwe-upwiz-next-deeds' => '{{Identical|Next}}',
