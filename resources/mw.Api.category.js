@@ -2,9 +2,6 @@
 
 ( function( mw, $ ) {
 
-	// cached token so we don't have to keep fetching new ones for every single post
-	var cachedToken = null;
-
 	$.extend( mw.Api.prototype, { 
 		/**
 		 * @param {mw.Title} 
@@ -30,9 +27,7 @@
 				callback( exists );
 			};
 
-			var err = mw.isDefined( error ) ? error : undefined;
-
-			return this.get( params, ok, err );
+			return this.get( params, { ok: ok, err: err } );
 
 		},
 
@@ -61,9 +56,44 @@
 				callback( texts );
 			};
 
-			var err = mw.isDefined( error ) ? error : undefined;
-		
-			return this.get( params, ok, err );
+			return this.get( params, { ok: ok, err: err } );
+
+		},
+
+
+		/**
+		 * @param {mw.Title}
+		 * @param {Function} callback to pass categories to (or false, if title not found)
+		 * @param {Function} optional callback to run if api error
+		 * @return ajax call object 
+		 */
+		getCategories: function( title, callback, error, async ) {
+			var params = {
+				prop: 'categories',
+				titles: title.toString()
+			};
+			if ( async === undefined ) {
+				async = true;
+			}
+
+			var ok = function( data ) {
+				var ret = false;
+				if ( data.query && data.query.pages ) {
+					$.each( data.query.pages, function( id, page ) {
+						if ( page.categories ) {
+							if ( typeof ret !== 'object' ) { 
+								ret = [];
+							}
+							$.each( page.categories, function( i, cat ) { 
+								ret.push( new mw.Title( cat.title ) ); 
+							} );
+						}
+					} );
+				}
+				callback( ret );
+			};
+
+			return this.get( params, { ok: ok, err: error, async: async } );
 
 		}
 
