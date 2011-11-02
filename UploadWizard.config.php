@@ -214,6 +214,9 @@ return array(
 		)
 	),
 
+	// Custom wikitext must have at least one template that is a descendant of this category
+	'licenseCategory' => 'License tags',
+
 	// radio button selection of some licenses
 	'licensesOwnWork' => array( 
 		'type' => 'or',

@@ -486,8 +486,6 @@ mw.UploadWizardLicenseInput.prototype = {
 		var templates = [];
 		accumTemplates( ast, templates );
 
-		// TODO config
-		var topCat = new mw.Title( 'License tags', 'category' );
 
 		// TODO caching
 		var found = false;
@@ -512,9 +510,11 @@ mw.UploadWizardLicenseInput.prototype = {
 			_this.api.getCategories( title, ok, err, false );
 		}
 		
+		var licenseCategory = new mw.Title( mw.UploadWizard.config.licenseCategory, 'category' );
+
 		$.each( templates, function( i, t ) { 		
 			var title = new mw.Title( t, 'template' );
-			recurseCategories( topCat, title, 5 );
+			recurseCategories( licenseCategory, title, 5 );
 			if ( found ) {
 				return false;
 			}
