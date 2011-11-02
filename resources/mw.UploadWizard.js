@@ -310,7 +310,7 @@ mw.UploadWizard.prototype = {
 			else {
 				return true; // TODO: might want to have similar behaviour here
 			}
-		}
+		};
 		
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
