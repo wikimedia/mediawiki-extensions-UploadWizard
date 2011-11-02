@@ -274,22 +274,25 @@ mw.UploadWizard.prototype = {
 	 * @return {Array}
 	 */
 	getLicensingDeeds: function( uploadsLength ) {
-		var deeds = [];
-		
-		if ( mw.UploadWizard.config.ownWorkOption == 'choice' ) {
-			// these deeds are standard
-			deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength ) );
-			deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength ) );
-		}
-		else {
-			if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
-				deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength ) );
-			}
-			else {
-				deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength ) );
-			}
+		var deeds = [],
+			doOwnWork = false,
+			doThirdParty = false;
+
+		if ( mw.UploadWizard.config.ownWorkOption === 'choice' ) {
+			doOwnWork = doThirdParty = true;	
+		} else if ( mw.UploadWizard.config.ownWorkOption === 'own' ) {
+			doOwnWork = true;
+		} else {
+			doThirdParty = true;	
 		}
 		
+		if ( doOwnWork ) {
+			deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength, this.api ) );
+		} 
+		if ( doThirdParty ) {
+			deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength, this.api ) );
+		}
+
 		return deeds;
 	},
 
@@ -410,6 +413,7 @@ mw.UploadWizard.prototype = {
 	 */
 	newUpload: function( file ) {
 		var _this = this;
+
 		if ( _this.uploads.length == _this.maxUploads ) {
 			return false;
 		}
@@ -425,7 +429,7 @@ mw.UploadWizard.prototype = {
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'filled', function(e) {
-			_this.newUpload();
+			_this.newUpload();  // is this necessary? XXX XXX XXX
 			_this.setUploadFilled(upload);
 			e.stopPropagation();
 		} );
@@ -1189,14 +1193,20 @@ mw.UploadWizardDeedPreview.prototype = {
 		var $el = this;
 		var $contents = $el.find( '.mwe-upwiz-toggler-content' ).hide();
 		var $toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
+		$el.data( 'open', function() { 
+			$contents.slideDown( 250 );
+			$toggle.addClass( 'mwe-upwiz-toggler-open' );
+		} );
+		$el.data( 'close', function() {
+			$contents.slideUp( 250 );
+			$toggle.removeClass( 'mwe-upwiz-toggler-open' );
+		} );
 		$toggle.click( function( e ) {
 			e.stopPropagation();
 			if ( $toggle.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-				$contents.slideUp( 250 );
-				$toggle.removeClass( 'mwe-upwiz-toggler-open' );
+				$el.data( 'close' )();
 			} else {
-				$contents.slideDown( 250 );
-				$toggle.addClass( 'mwe-upwiz-toggler-open' );
+				$el.data( 'open' )();
 			}
 		} );
 		return this;

@@ -204,6 +204,13 @@ return array(
 		'gfdl' => array( 
 			'msg' => 'mwe-upwiz-license-gfdl',
 			'templates' => array( 'GFDL' )
+		),
+		'none' => array(
+			'msg' => 'mwe-upwiz-license-none',
+			'templates' => array( 'subst:uwl' )
+		),
+		'custom' => array( 
+			'msg' => 'mwe-upwiz-license-custom',
 		)
 	),
 
@@ -221,12 +228,11 @@ return array(
 
 	// checkbox selection of all licenses
 	'licensesThirdParty' => array( 
-		'type' => 'and',
+		'type' => 'or',
 		'licenseGroups' => array(
 			array(
-				'head' => 'mwe-upwiz-license-none-applicable-head',
-				'subhead' => 'mwe-upwiz-license-none-applicable-subhead',
-				'special' => 'none'
+				'head' => 'mwe-upwiz-license-none-head',
+				'licenses' => array( 'none' )
 			),
 			array(
 				// This should be a list of all CC licenses we can reasonably expect to find around the web
@@ -272,14 +278,12 @@ return array(
 			),
 			array(
 				'head' => 'mwe-upwiz-license-custom-head',
-				'subhead' => 'mwe-upwiz-license-custom-subhead',
-				'special' => 'custom'
+				'licenses' => array( 'custom' ),
+				'prependTemplates' => array( 'custom-badness' )
 			),
-
 		),
-		'defaults' => array(),
+		'defaults' => array( 'none' ),
 	),
-
 
 	// Default thumbnail width
 	'thumbnailWidth' => 100, 
@@ -397,6 +401,6 @@ return array(
 	'enableFormData' => true,
 
 	// should multi-file select be available in supporting browsers?
-	'enableMultiFileSelect' => true,
+	'enableMultiFileSelect' => true
 	
 );

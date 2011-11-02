@@ -44,9 +44,10 @@ mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
 	
 /**
  * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
- * XXX these deeds are starting to turn into jquery fns
+ * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
+ * @param {mw.Api} api object - useful for doing previews
  */
-mw.UploadWizardDeedOwnWork = function( uploadCount ) {
+mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 	uploadCount = uploadCount ? uploadCount : 1;
 
 	var _this = new mw.UploadWizardDeed();
@@ -66,7 +67,8 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 			licenseInputDiv, 
 			undefined, 
 			mw.UploadWizard.config.licensesOwnWork,
-			_this.uploadCount
+			_this.uploadCount,
+			api
 		);		
 	}
 
@@ -87,7 +89,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 		},
 		
 		getLicenseWikiText: function() {
-			if ( _this.showCustomDiv && this.licenseInput.getWikiText() != '' ) {
+			if ( _this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
 				return this.licenseInput.getWikiText();
 			}
 			else {
@@ -239,8 +241,12 @@ mw.UploadWizardDeedOwnWork = function( uploadCount ) {
 
 };
 
-// XXX these deeds are starting to turn into jquery fns
-mw.UploadWizardDeedThirdParty = function( uploadCount ) {
+/**
+ * Set up the form and deed object for the deed option that says these uploads are the work of a third party.
+ * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
+ * @param {mw.Api} api object - useful for doing previews
+ */
+mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 	var _this = new mw.UploadWizardDeed();
 
 	_this.uploadCount = uploadCount ? uploadCount : 1;
@@ -252,7 +258,9 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv, 
 							      undefined, 
 							      mw.UploadWizard.config.licensesThirdParty,
-							      _this.uploadCount );
+							      _this.uploadCount,
+								  api );
+	_this.licenseInput.setDefaultValues();
 
 
 	return $j.extend( _this, mw.UploadWizardDeed.prototype, {
@@ -336,7 +344,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount ) {
  * @param {Array[UploadWizardDeed]} deeds 
  * @param {Array[UploadWizardUpload]} uploads that this applies to (this is just to make deleting and plurals work)
  */ 
-mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
+mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 	var _this = this;
 	_this.$selector = $j( selector );
 	_this.uploads = mw.isDefined( uploads ) ? uploads : [];
@@ -376,7 +384,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 				_this.choose( deed );
 				_this.selectDeedInterface( $deedInterface );
 				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).attr( 'checked', true );
-			}
+			};
 		}
 		else {
 			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
@@ -443,16 +451,10 @@ mw.UploadWizardDeedChooser.prototype = {
 	uploads: [],
 
 	
-	// XXX it's impossible to choose the null deed if we stick with radio buttons, so that may be useless later
 	choose: function( deed ) {
 		var _this = this;
 		_this.deed = deed;
-		if ( deed === mw.UploadWizardNullDeed ) {
-			$j( _this ).trigger( 'chooseNullDeed' );
-			_this.$selector
-				.find( 'input.mwe-accept-deed' )
-				.attr( 'checked', false );
-		} else {
+		if ( deed !== mw.UploadWizardNullDeed ) {
 			$j( _this ).trigger( 'chooseDeed' );
 		}
 	},

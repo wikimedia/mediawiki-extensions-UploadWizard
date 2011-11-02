@@ -229,6 +229,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Attribution ShareAlike 2.0',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (release all rights, like public domain)',
+	'mwe-upwiz-license-custom' => 'The license is described by the following wikitext:',
 	'mwe-upwiz-license-fal' => 'Free Art License',
 	'mwe-upwiz-license-own-pd' => 'Public domain (all rights waived with Creative Commons Zero license)',
 	'mwe-upwiz-license-pd-old-100' => 'Author died more than 100 years ago',
@@ -258,15 +259,12 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|This work was|These works were}} made by the United States government',
 	'mwe-upwiz-license-misc' => 'Miscellaneous reasons',
 
-	'mwe-upwiz-license-custom-head' => 'Experts only: enter the code for a license not shown here',
-	'mwe-upwiz-license-custom-subhead' => 'Enter wikitext that will add a license template to your uploads.',
-
-	'mwe-upwiz-license-none-applicable-head' => 'I don\'t know',
-	'mwe-upwiz-license-none-applicable-subhead' => 'Please explain where you got the image. If it is not published under a suitable license it will be deleted without further notice.',
-
+	'mwe-upwiz-license-custom-head' => 'Another reason not mentioned above',
 	'mwe-upwiz-license-custom-preview' => 'Preview',
 
-	'mwe-upwiz-license-none-applicable' => 'Abandon {{PLURAL:$1|this upload|these uploads}} without publishing',
+	'mwe-upwiz-license-none-head' => 'I found it on the Internet -- I\'m not sure',
+	'mwe-upwiz-license-none' => 'Upload {{PLURAL:$1|this file|these files}} without copyright information for now. I understand the image may be deleted.',
+
 	'mwe-upwiz-license-confirm-remove' => 'Are you sure you want to remove {{PLURAL:$1|this upload|these uploads}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirm remove',
 

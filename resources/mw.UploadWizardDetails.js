@@ -422,7 +422,7 @@ mw.UploadWizardDetails.prototype = {
 		
 		_this.upload.deedChooser = new mw.UploadWizardDeedChooser( 
 			_this.deedDiv,
-			mw.UploadWizard.prototype.getLicensingDeeds(),
+			_this.upload.wizard.getLicensingDeeds(),
 			[ _this.upload ]
 		);
 		
