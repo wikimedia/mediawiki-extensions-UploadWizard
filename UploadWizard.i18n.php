@@ -252,7 +252,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-flickr-head' => 'The copyright holder published their {{PLURAL:$1|photo or video|photos or videos}} on Flickr with the right license',
 	'mwe-upwiz-license-flickr-subhead' => 'Check the "License" header on the side of the Flickr page. Both the icons and license name that they used have to match one of the choices here.',
 
-	'mwe-upwiz-license-public-domain-usa-head' => 'The copyright has definitely expired in the USA.',
+	'mwe-upwiz-license-public-domain-usa-head' => 'The copyright has definitely expired in the USA',
 	'mwe-upwiz-license-public-domain-usa-subhead' => '{{SITENAME}} is located in the USA, so the work must be out of copyright in that country.',
 
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|This work was|These works were}} made by the United States government',
