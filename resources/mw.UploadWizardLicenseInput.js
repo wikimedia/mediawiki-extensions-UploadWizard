@@ -219,14 +219,21 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {jQuery} wrapped textarea
 	 */
 	createCustomWikiTextInterface: function( $input ) {
-		var _this = this;
+		var _this = this, 
+			keydownTimeout;
 
 		var nameId = $input.attr( 'id' ) + '_custom';
 		var $textarea = $j( '<textarea></textarea>' )
 				.attr( { id: nameId, name: nameId } )
 				.growTextArea()
 				.focus( function() { _this.setInput( $input, true ); } )
-				.keydown( function() { _this.$selector.trigger( 'changeLicenses' ); } )
+				.keydown( function() { 
+					window.clearTimeout( keydownTimeout );
+					keydownTimeout = window.setTimeout( 
+						function() { _this.$selector.trigger( 'changeLicenses' ); },
+						2000
+					);
+				} )
 				.css( { 
 					'width': '100%', 
 					'font-family': 'monospace' 
@@ -479,8 +486,10 @@ mw.UploadWizardLicenseInput.prototype = {
 		var templates = [];
 		accumTemplates( ast, templates );
 
+		// TODO config
 		var topCat = new mw.Title( 'License tags', 'category' );
 
+		// TODO caching
 		var found = false;
 		function recurseCategories( desiredCatTitle, title, depthToContinue ) {
 			if ( depthToContinue === 0 ) {
