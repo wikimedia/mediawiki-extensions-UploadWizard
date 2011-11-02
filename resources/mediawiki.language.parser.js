@@ -372,7 +372,7 @@
 			}
 
 			var templateName = transform( 
-				makeRegexParser( /^[A-Za-z]\w+/ ),
+				makeRegexParser( /^[A-Za-z][\w ]+/ ),
 				function( result ) { return result.toString().toUpperCase(); }
 			);
 
@@ -408,7 +408,9 @@
 						templateWithReplacement,
 						nOrMore( 0, templateParam )
 					] );
-					return res === null ? null : res[0].concat( res[1] );
+					var ret = res === null ? null : res[0].concat( res[1] );
+					console.log( "templateWithReplacement!", ret );
+					return ret;
 				},
 				function() { 
 					var res = sequence( [
@@ -418,7 +420,7 @@
 					if ( res === null ) {
 						return null;
 					}
-					return res[1].length ? [ res[0], res[1] ] : [ res[0] ];
+					return [ res[0] ].concat( res[1] );
 				}
 			] );
 
