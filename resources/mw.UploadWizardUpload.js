@@ -586,21 +586,23 @@ mw.UploadWizardUpload.prototype = {
 
 	/**
 	 * Get the upload handler per browser capabilities 
+	 * @return upload handler object
 	 */
 	getUploadHandler: function(){
-		if( !this.uploadHandler ){
+		if( !this.uploadHandler ) {
+			var constructor;  // must be the name of a function in 'mw' namespace
 			if( mw.UploadWizard.config[ 'enableFirefogg' ] && typeof( Firefogg ) != 'undefined' ) {
-				mw.log("mw.UploadWizard::getUploadHandler> FirefoggHandler");
-				this.uploadHandler = new mw.FirefoggHandler( this, this.api );			
+				constructor = 'FirefoggHandler';
 			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isSliceAvailable()) {
-				mw.log("mw.UploadWizard::getUploadHandler> ApiUploadFormDataHandler");
-				this.uploadHandler = new mw.ApiUploadFormDataHandler( this, this.api );
+				constructor = 'ApiUploadFormDataHandler';
 			} else {
-				// By default use the apiUploadHandler
-				mw.log("mw.UploadWizard::getUploadHandler> ApiUploadHandler");
-				this.uploadHandler = new mw.ApiUploadHandler( this, this.api );
+				constructor = 'ApiUploadHandler';
 			}
-		}		
+			this.uploadHandler = new mw[constructor]( this, this.api );			
+			if ( mw.UploadWizard.config.debug ) {
+				mw.log( 'mw.UploadWizard::getUploadHandler> ' + constructor );
+			}		
+		}
 		return this.uploadHandler;
 	},
 
