@@ -208,6 +208,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'This title is reserved by a file on a remote shared repository. Choose another name.',
 	'mwe-upwiz-error-title-double-apostrophe' => 'This title contains a double apostrophe; please remove it.',
 	'mwe-upwiz-error-title-extension' => 'You do not need to add a file extension. Just make a human readable title and the application will take care of the rest.',
+	'mwe-upwiz-error-license-wikitext-missing' => 'You selected an option which requires you to enter wikitext.',
+	'mwe-upwiz-error-license-wikitext-too-short' => 'The wikitext here is too short to be a license',
+	'mwe-upwiz-error-license-wikitext-too-long' => 'The wikitext you entered is too long.',
+	'mwe-upwiz-error-license-wikitext-invalid' => 'This does not seem to be valid wikitext, or does not contain a license.',
 	'mwe-upwiz-details-error-count' => 'There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the errors, and try submitting again.',
 
 	/* LICENSES & combinations of licenses */

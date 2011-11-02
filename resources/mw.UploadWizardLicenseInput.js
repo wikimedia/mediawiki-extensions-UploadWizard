@@ -28,7 +28,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	}
 
 	_this.$selector = $j( selector );
-	_this.$selector.append( $j( '<div class="mwe-error"></div>' ) );
+	_this.$selector.append( $j( '<div class="mwe-error mwe-error-main"></div>' ) );
 
 	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
@@ -37,14 +37,64 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	mw.UploadWizardLicenseInput.prototype.count++;
 	_this.name = 'license' + mw.UploadWizardLicenseInput.prototype.count;
 
-	
-	/**
-	 * Define the licenses this input will show:
-	 */
-	_this.licenses = [];
+	// the jquery wrapped inputs (checkboxes or radio buttons) for this licenseInput.
 	_this.inputs = [];
+
+	// create inputs and licenses from config
+	if ( mw.isDefined( config['licenseGroups'] ) ) {
+		_this.createGroupedInputs( _this.$selector, config['licenseGroups'] );
+	} else {
+		_this.createInputs( _this.$selector, config );
+	}
+
+	// set values of the whole license input
+	if ( values ) {
+		_this.setValues( values );
+	}
+
+	return _this;
+};
+
+mw.UploadWizardLicenseInput.prototype = {
+	count: 0,
+
 	/**
-	 * append defined license inputs to element; also records licenses and inputs in _this
+	 * Creates the license input interface in toggleable groups.
+	 * @param jQuery selector
+	 * @param license input configuration groups
+	 */
+	createGroupedInputs: function( $el, configGroups ) {
+		var _this = this;
+		$j.each( configGroups, function( i, group ) { 
+			var $body, $toggler;
+			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
+			if ( mw.isDefined( group['head'] ) ) {
+				// if there is a header, make a toggle-to-expand div and append inputs there.
+				var $head = $j( '<div></div>' ).append( 
+					$j( '<a>' )
+						.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
+						.msg( group.head, _this.count )
+				);
+				$body = $j( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
+				$toggler = $group.append( $head, $body ).collapseToggle();
+			} else {
+				// if there is no header, just append licenses to the group div.
+				$body = $group;
+			}
+			if ( mw.isDefined( group['subhead'] ) ) {
+				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
+			}
+			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
+			_this.createInputs( $licensesDiv, group, $toggler );
+			$body.append( $licensesDiv );
+			_this.$selector.append( $group );
+		} );
+	},
+
+	/**
+	 * append defined license inputs to element.
+	 * SIDE EFFECT: also records licenses and inputs in _this
+	 *
 	 * Abstracts out simple lists of licenses, more complex groups with layout
 	 * @param {jQuery} selector to add inputs to
 	 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
@@ -57,22 +107,22 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	 *			methods in its data.
 	 *
 	 */
-	function appendLicenses( $el, config, groupToggler ) {
-
+	createInputs: function( $el, config, $groupToggler ) {
+		var _this = this;
 		if ( !mw.isDefined( config['licenses'] && typeof config['licenses'] === 'object' ) ) {
 			throw new Error( "improper license config" );
 		}
 		$j.each( config['licenses'], function( i, licenseName ) {
 			if ( mw.isDefined( mw.UploadWizard.config.licenses[licenseName] ) ) {
 				var license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] };
-				_this.licenses.push( license );
 				
-				var templates = _this.getTemplatesForLicense( license );
+				var templates = mw.isDefined( license.props['templates'] ) ? license.props.templates.slice(0) : [ license.name ];
 
-				var $input = _this.getInputElement( templates, config );
+				var $input = _this.createInputElement( templates, config );
 				_this.inputs.push( $input );
 
-				var $label = _this.getInputElementLabel( license, $input );
+				var $label = _this.createInputElementLabel( license, $input );
+
 				$el.append( $input, $label, $j( '<br/>' ) ); 
 				// TODO add popup help?
 
@@ -80,55 +130,122 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 				$input.data( 'licenseName', licenseName );
 
 				// this is so if a single input in a group changes, we open the entire "toggler" that was hiding them
-				$input.data( 'groupToggler', groupToggler );
+				$input.data( 'groupToggler', $groupToggler );
 
-				if ( licenseName === 'custom' ) {
-					$el.append( _this.getInputElementRelatedTextarea( $input ) );
+				if ( config['special'] === 'custom' ) {
+					var $customDiv = _this.createCustomWikiTextInterface( $input );
+					$el.append( $customDiv );
+					$input.data( 'textarea', $customDiv.find( 'textarea' ) ); 
 				}
 			}
 		} );
-	}
-	
+	},
 
-	if ( mw.isDefined( config['licenseGroups'] ) ) {
-		$j.each( config['licenseGroups'], function( i, group ) { 
-			var toggler;
-			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
-			// if there is no header, just append licenses to the group div.
-			var $body = $group;
-			// if there is a header, make a toggle-to-expand div and append to that instead.
-			if ( mw.isDefined( group['head'] ) ) {
-				var $head = $j( '<div></div>' ).append( 
-					$j( '<a>' )
-						.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
-						.msg( group.head, _this.count )
-				);
-				$body = $j( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
-				toggler = $group.append( $head, $body ).collapseToggle();
-			}
-			if ( mw.isDefined( group['subhead'] ) ) {
-				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
-			}
-			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
-			appendLicenses( $licensesDiv, group, toggler );
-			$body.append( $licensesDiv );
-			_this.$selector.append( $group );
+	/**
+	 * License templates are these abstract ideas like cc-by-sa. In general they map directly to a license template.
+	 * However, configuration for a particular option can add other templates or transform the templates, 
+	 * such as wrapping templates in an outer "self" template for own-work
+	 * @param {Array} of license template names
+	 * @param {Object}, license input configuration
+	 * @return {String} of wikitext
+	 */
+	createInputValueFromTemplateConfig: function( templates, config ) {
+		if ( mw.isDefined( config['prependTemplates'] ) ) {
+			$j.each( config['prependTemplates'], function( i, template ) {
+				templates.unshift( template );
+			} );
+		}
+		if ( mw.isDefined( config['filterTemplate'] ) ) {
+			templates.unshift( config['filterTemplate'] );
+			templates = [ templates.join( '|' ) ];
+		}
+		var wikiTexts = $j.map( templates, function(t) { return '{{' + t + '}}'; } );
+		return wikiTexts.join( '' );
+	},
+
+	/**
+	 * Return a radio button or checkbox with appropriate values, depending on config
+	 * @param {Array} of template strings
+	 * @param {Object} config for this license input
+	 * @return {jQuery} wrapped input
+	 */
+	createInputElement: function( templates, config ) {
+		var _this = this;
+					
+		var attrs = {
+			id:  _this.name + '_' + _this.inputs.length, // unique id
+			name: _this.name, // name of input, shared among all checkboxes or radio buttons.
+			type: _this.type, // kind of input
+			value: _this.createInputValueFromTemplateConfig( templates, config )
+		};
+
+		var inputHtml = '<input ' + 
+			$j.map( attrs, function(val, key) { 
+				return key + '="' + val.toString().replace( '"', '' ) + '"'; 
+			} ).join( " " ) 
+		+ ' />';
+
+		// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
+		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded	
+		return $j( inputHtml ).click( function() { 
+			_this.$selector.trigger( 'changeLicenses' ); 
 		} );
+	},
 
+	/**
+	 * Get a label for the form element
+	 * @param {Object} license definition from global config. Will tell us the messages, and maybe icons.
+	 * @param {jQuery} wrapped input
+	 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
+	 */
+	createInputElementLabel: function( license, $input ) {	
+		var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
+		var $icons = $j( '<span></span>' );
+		if ( mw.isDefined( license.props['icons'] ) ) {
+			$j.each( license.props.icons, function( i, icon ) { 
+				$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );		
+			} );
+		}
+		return $j( '<label />' )
+			.attr( { 'for': $input.attr('id') } )
+			.msg( messageKey, this.count )
+			.append( $icons );
+	},
 
-	} else {
-		appendLicenses( _this.$selector, config );
-	}
+	/**
+	 * Given an input, return another textarea to be appended below.
+	 * When text entered here, auto-selects the input.
+	 * @param {jQuery} wrapped input
+	 * @return {jQuery} wrapped textarea
+	 */
+	createCustomWikiTextInterface: function( $input ) {
+		var _this = this;
 
-	if ( values ) {
-		_this.setValues( values );
-	}
+		var nameId = $input.attr( 'id' ) + '_custom';
+		var $textarea = $j( '<textarea></textarea>' )
+				.attr( { id: nameId, name: nameId } )
+				.growTextArea()
+				.focus( function() { _this.setInput( $input, true ); } )
+				.keydown( function() { _this.$selector.trigger( 'changeLicenses' ); } )
+				.css( { 
+					'width': '100%', 
+					'font-family': 'monospace' 
+				} );
 
-	return _this;
-};
+		var $button = $j( '<span></span>' )
+				.button( { label: gM( 'mwe-upwiz-license-custom-preview' ) } )
+				.css( { 'width': '8em' } )
+				.click( function() { _this.showPreview( $textarea.val() ); } );
 
-mw.UploadWizardLicenseInput.prototype = {
-	count: 0,
+		return $j( '<div></div>' ).css( { 'width': '100%' } ).append(
+			$j( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
+			$j( '<div></div>' ).css( { 'float': 'right', 'width': '9em', 'padding-left': '1em' } ).append( $button ),
+			$j( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
+			$j( '<div></div>' ).css( { 'clear':'both' } )
+		);
+	},
+
+	/* ---- end creational stuff ----- */
 
 	// Set the input value. If it is part of a group, and this is being turned on, pop open the group so we can see this input.
 	setInput: function( $input, val ) {
@@ -140,6 +257,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		if ( bool !== oldVal ) {
 			_this.$selector.trigger( 'changeLicenses' );
 		}
+
 		// pop open the 'toggle' group if is now on. Do nothing if it is now off.
 		if ( bool && $input.data( 'groupToggler' ) ) {
 			$input.data( 'groupToggler' ).data( 'open' )();
@@ -215,20 +333,37 @@ mw.UploadWizardLicenseInput.prototype = {
 	},
 
 	/**
-	 * Gets the wikitext associated with all selected inputs.
-	 * Anything from a text input is automatically suspect, because it might not be valid. So we append a template to double check.
-	 * This is a bit of a hack, in the ideal case we'd make all the inputs into objects that returned their own wikitext, but 
-	 * it is easier to extend the current interface (which assumes form input value is all we want).
+	 * Gets the wikitext associated with all selected inputs. Some inputs also have associated textareas so we append their contents too.
 	 * @return string of wikitext (empty string if no inputs set)
-  	 */
+	 */
 	getWikiText: function() {
+		var _this = this;
 		var wikiTexts = this.getSelectedInputs().map( 
 			function() { 
-				return this.val() + "\n"; 
-			}
+				return _this.getInputWikiText( this );
+			} 
 		);
 		// need to use makeArray because a jQuery-returned set of things won't have .join
 		return $j.makeArray( wikiTexts ).join( '' );
+	},
+
+	/**
+	 * Get the value of a particular input
+	 */
+	getInputWikiText: function( $input) {
+		return $input.val() + "\n" + this.getInputTextAreaVal($input);
+	},
+
+	/**
+	 * Get the value of the associated textarea, if any
+	 * @return {String}
+	 */
+	getInputTextAreaVal: function( $input ) {
+		var extra = ''; 
+		if ( $input.data( 'textarea' ) ) {
+			extra = $j.trim( $input.data( 'textarea' ).val() );
+		}
+		return extra;
 	},
 
 	/**
@@ -242,31 +377,67 @@ mw.UploadWizardLicenseInput.prototype = {
 
 	/**
 	 * Check if a valid value is set, also look for incompatible choices. 
-	 * Side effect: if no valid value, add notes to the interface. Add listeners to interface, to revalidate and remove notes.
-	 * @return boolean; true if a value set, false otherwise
+	 * Side effect: if no valid value, add error notices to the interface. Add listeners to interface, to revalidate and remove notices
+	 * If I was sufficiently clever, most of these could just be dynamically added & subtracted validation rules.
+	 * Instead this is a bit of a recapitulation of jquery.validate
+	 * @return boolean; true if a value set and all is well, false otherwise
 	 */
 	valid: function() {
 		var _this = this;
-		var isValid = true;
 
-		if ( ! _this.isSet() ) {
-			isValid = false;
-			errorHtml = gM( 'mwe-upwiz-deeds-need-license' );
-		}
+		var errors = [];
 
-		var $errorEl = this.$selector.find( '.mwe-error' );
-		if (isValid) {
-			$errorEl.fadeOut();
+		var selectedInputs = this.getSelectedInputs();
+
+		if ( selectedInputs.length === 0 ) {
+			errors.push( [ this.$selector.find( '.mwe-error-head' ), 'mwe-upwiz-deeds-need-license' ] );
+
 		} else {
-			// we bind to $selector because unbind() doesn't work on non-DOM objects
+			// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
+			// But also check that associated textareas are filled for if the input is selected, and that 
+			// they are the appropriate size.
+			$j.each( selectedInputs, function(i, $input) {
+				if ( ! $input.data( 'textarea' ) ) {
+					return;
+				}
+			
+				var textAreaName = $input.data( 'textarea' ).attr( 'name' );
+				var $errorEl = $( 'label[for=' + textAreaName + '].mwe-error' );
+
+				var text = _this.getInputTextAreaVal( $input );
+				
+				if ( text === '' ) {
+					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-missing' ] );
+				} else if ( text.length < mw.UploadWizard.config.minCustomLicenseLength ) {
+					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-short' ] );
+				} else if ( text.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
+					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-long' ] );
+				} else if ( !_this.validateWikiText( text ) ) {
+					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-invalid' ] );
+				}
+
+			} );
+		}
+		
+		// clear out the errors if we are now valid
+		if ( errors.length === 0 ) {
+			this.$selector.find( '.mwe-error' ).fadeOut();
+		} else {
+			// show the errors
+			$j.each( errors, function( i, err ) { 
+				var $el = err[0],
+					msg = err[1];
+				$el.msg( msg ).show();
+			} );
+
+			// and watch for any change at all in the license to revalidate.
 			_this.$selector.bind( 'changeLicenses.valid', function() {
 				_this.$selector.unbind( 'changeLicenses.valid' );
 				_this.valid();
-			} );	
-			$errorEl.html( errorHtml ).show();
+			} );
 		}
 
-		return isValid;
+		return errors.length === 0;
 	},
 
 
@@ -278,120 +449,76 @@ mw.UploadWizardLicenseInput.prototype = {
 		return this.getSelectedInputs().length > 0;
 	},
 
-	/**
-	 * Given a license name, return template names
-	 * Note we return copies, so as not to perturb the configuration itself
-	 * @param {String} license name
-	 * @return {Array} of strings of template names
-	 */
-	getTemplatesForLicense: function( license ) {
-		return mw.isDefined( license.props['templates'] ) ? license.props.templates.slice(0) : [ license.name ];
-	},
 
 	/**
-	 * License templates are these abstract ideas like cc-by-sa. In general they map directly to a license template.
-	 * However, configuration for a particular option can add other templates or transform the templates, 
-	 * such as wrapping templates in an outer "self" template for own-work
-	 * @param {Array} of license template names
-	 * @param {Object}, license input configuration
-	 * @return {String} of wikitext
+	 * Attempt to determine if wikitext parses... and maybe does it contain a license tag
+	 * @return boolean
 	 */
-	getWikiTextForTemplates: function( templates, config ) {
-		if ( mw.isDefined( config['prependTemplates'] ) ) {
-			$j.each( config['prependTemplates'], function( i, template ) {
-				templates.unshift( template );
-			} );
+	validateWikiText: function( text ) {
+		var parser = new mw.language.parser(),
+			_this = this,
+			ast;	
+
+		try { 
+			ast = parser.wikiTextToAst( text );
+		} catch (e) {
+			return false;
 		}
-		if ( mw.isDefined( config['filterTemplate'] ) ) {
-			templates.unshift( config['filterTemplate'] );
-			templates = [ templates.join( '|' ) ];
-		}
-		return $j.map( templates, function(t) { return '{{' + t + '}}'; } ).join( '' );
-	},
-
-	/**
-	 * Return a radio button or checkbox with appropriate values, depending on config
-	 * @param {Array} of template strings
-	 * @param {Object} config for this license input
-	 * @return {jQuery} wrapped input
-	 */
-	getInputElement: function( templates, config ) {
-		var _this = this;
-					
-		var attrs = {
-			id:  _this.name + '_' + _this.inputs.length, // unique id
-			name: _this.name, // name of input, shared among all checkboxes or radio buttons.
-			type: _this.type, // kind of input
-			value: _this.getWikiTextForTemplates( templates, config )
-		};
-
-		var inputHtml = '<input ' + 
-			$j.map( attrs, function(val, key) { 
-				return key + '="' + val.toString().replace( '"', '' ) + '"'; 
-			} ).join( " " ) 
-		+ ' />';
-
-		// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
-		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded	
-		return $j( inputHtml ).click( function() { 
-			_this.$selector.trigger( 'changeLicenses' ); 
-		} );
-	},
-
-	/**
-	 * Get a label for the form element
-	 * @param {Object} license definition from global config. Will tell us the messages, and maybe icons.
-	 * @param {jQuery} wrapped input
-	 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
-	 */
-	getInputElementLabel: function( license, $input ) {	
-		var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
-		var $icons = $j( '<span></span>' );
-		if ( mw.isDefined( license.props['icons'] ) ) {
-			$j.each( license.props.icons, function( i, icon ) { 
-				$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );		
-			} );
-		}
-		return $j( '<label />' )
-			.attr( { 'for': $input.attr('id') } )
-			.msg( messageKey, this.count )
-			.append( $icons );
-	},
-
-	/**
-	 * Given an input, return another textarea to be appended below.
-	 * When text entered here, auto-selects the input.
-	 * @param {jQuery} wrapped input
-	 * @return {jQuery} wrapped textarea
-	 */
-	getInputElementRelatedTextarea: function( $input ) {
-		var _this = this;
-
-		var $textarea = $j( '<textarea></textarea>' )
-				.attr( { id: $input.attr( 'id' ) + '_custom' } )
-				.growTextArea()
-				.focus( function() { _this.setInput( $input, true ); } )
-				.css( { 
-					'width': '100%', 
-					'font-family': 'monospace' 
+	
+		function accumTemplates( node, templates ) {
+			if ( typeof node === 'object' ) {
+				var operation = node[0].toLowerCase();
+				if ( typeof mw.language.htmlEmitter.prototype[operation] !== 'function' ) {
+					templates.push( operation );
+				}
+				$j.map( node.slice( 1 ), function( n ) {
+					accumTemplates( n, templates );
 				} );
+			}
+		}
+		var templates = [];
+		accumTemplates( ast, templates );
 
-		var $button = $j( '<span></span>' )
-				.button( { label: gM( 'mwe-upwiz-license-custom-preview' ) } )
-				.css( { 'width': '8em' } )
-				.click( function() { _this.showPreview( $textarea.val() ); } );
+		var topCat = new mw.Title( 'License tags', 'category' );
 
-		return $j( '<div></div>' ).css( { 'width': '100%' } ).append(
-			$j( '<div></div>' ).css( { 'float': 'right', 'width': '9em', 'padding-left': '1em' } ).append( $button ),
-			$j( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
-			$j( '<div></div>' ).css( { 'clear':'both' } )
-		);
+		var found = false;
+		function recurseCategories( desiredCatTitle, title, depthToContinue ) {
+			if ( depthToContinue === 0 ) {
+				return;
+			}
+			var ok = function(cats) { 
+				if ( cats !== false ) {
+					$.each( cats, function( i, catTitle ) { 
+						if ( catTitle.getNameText() === desiredCatTitle.getNameText() ) {
+							found = true;
+							return false;
+						}
+						recurseCategories( desiredCatTitle, catTitle, depthToContinue - 1 );
+						return true;
+					} );
+				}
+			};
+			var err = function() {};
+			// this proceeds synchronously, so we pick up in the next line
+			_this.api.getCategories( title, ok, err, false );
+		}
+		
+		$.each( templates, function( i, t ) { 		
+			var title = new mw.Title( t, 'template' );
+			recurseCategories( topCat, title, 5 );
+			if ( found ) {
+				return false;
+			}
+		} );
+	
+		return found;
 	},
 
 	/**
-	 * Preview license
+	 * Preview license from a particular input, in a popup window
+	 * @param {jQuery} an input
 	 */
-	showPreview: function() {
+	showPreview: function( $input ) {
 		// do stuff with this.api
 	}
 

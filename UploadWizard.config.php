@@ -278,8 +278,8 @@ return array(
 			),
 			array(
 				'head' => 'mwe-upwiz-license-custom-head',
+				'special' => 'custom',
 				'licenses' => array( 'custom' ),
-				'prependTemplates' => array( 'custom-badness' )
 			),
 		),
 		'defaults' => array( 'none' ),
@@ -329,6 +329,12 @@ return array(
 
 	// Max number of uploads for a given form
 	'maxUploads' => 50,
+
+	// Minimum length of custom wikitext for a license, if used
+	'minCustomLicenseLength' => 6,
+
+	// Maximum length of custom wikitext for a license
+	'maxCustomLicenseLength' => 10000,
 
 	// not for use with all wikis. 
 	// The ISO 639 code for the language tagalog is "tl".
