@@ -408,9 +408,7 @@
 						templateWithReplacement,
 						nOrMore( 0, templateParam )
 					] );
-					var ret = res === null ? null : res[0].concat( res[1] );
-					console.log( "templateWithReplacement!", ret );
-					return ret;
+					return res === null ? null : res[0].concat( res[1] );
 				},
 				function() { 
 					var res = sequence( [
