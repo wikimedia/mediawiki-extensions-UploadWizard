@@ -224,6 +224,11 @@ return array(
 		'type' => 'and',
 		'licenseGroups' => array(
 			array(
+				'head' => 'mwe-upwiz-license-none-applicable-head',
+				'subhead' => 'mwe-upwiz-license-none-applicable-subhead',
+				'special' => 'none'
+			),
+			array(
 				// This should be a list of all CC licenses we can reasonably expect to find around the web
 				'head' => 'mwe-upwiz-license-cc-head',
 				'subhead' => 'mwe-upwiz-license-cc-subhead',
@@ -266,10 +271,11 @@ return array(
 				)
 			),
 			array(
-				'head' => 'mwe-upwiz-license-none-applicable-head',
-				'subhead' => 'mwe-upwiz-license-none-applicable-subhead',
-				'special' => 'delete'
-			)
+				'head' => 'mwe-upwiz-license-custom-head',
+				'subhead' => 'mwe-upwiz-license-custom-subhead',
+				'special' => 'custom'
+			),
+
 		),
 		'defaults' => array(),
 	),
@@ -277,7 +283,7 @@ return array(
 
 	// Default thumbnail width
 	'thumbnailWidth' => 100, 
- 
+
 	// Max thumbnail height:
 	'thumbnailMaxHeight' => 100,
 

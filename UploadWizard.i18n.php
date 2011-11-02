@@ -261,8 +261,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-custom-head' => 'Experts only: enter the code for a license not shown here',
 	'mwe-upwiz-license-custom-subhead' => 'Enter wikitext that will add a license template to your uploads.',
 
-	'mwe-upwiz-license-none-applicable-head' => 'I do not know if any of the above choices apply or not! Help!',
-	'mwe-upwiz-license-none-applicable-subhead' => 'If you are not absolutely sure what the intentions of the original author were then please do not upload {{PLURAL:$1|this file|these files}} to this site. Press the button below to abandon {{PLURAL:$1|this upload|these uploads}} -- do not worry, nothing has been published yet.',
+	'mwe-upwiz-license-none-applicable-head' => 'I don\'t know',
+	'mwe-upwiz-license-none-applicable-subhead' => 'Please explain where you got the image. If it is not published under a suitable license it will be deleted without further notice.',
+
+	'mwe-upwiz-license-custom-preview' => 'Preview',
 
 	'mwe-upwiz-license-none-applicable' => 'Abandon {{PLURAL:$1|this upload|these uploads}} without publishing',
 	'mwe-upwiz-license-confirm-remove' => 'Are you sure you want to remove {{PLURAL:$1|this upload|these uploads}}?',

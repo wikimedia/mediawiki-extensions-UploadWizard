@@ -338,6 +338,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-misc',
 				'mwe-upwiz-license-custom-head',
 				'mwe-upwiz-license-custom-subhead',
+				'mwe-upwiz-license-custom-preview',
 				'mwe-upwiz-license-none-applicable-head',
 				'mwe-upwiz-license-none-applicable-subhead',
 				'mwe-upwiz-license-none-applicable',

@@ -7,7 +7,7 @@
  *				'defaults' => array of template string names (can be empty array), 
  *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
  *				optional: 'licenseGroups' => groups of licenses, with more explanation
- *				optional: 'special' => String -- indicates, don't put licenses here, instead leave a placeholder div, with class based on this string.
+ *				optional: 'special' => String -- indicates, don't put licenses here, instead use a special widget
  * @param {Numbe}	  count of the things we are licensing (it matters to some texts)
  */
 
@@ -121,8 +121,24 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count ) {
 			}
 			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
 			if ( mw.isDefined( group['special'] ) ) {
-				// put a placeholder in our interface for our caller to place some special interface in
-				$licensesDiv.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-license-special-' + group.special ) );
+				switch ( group['special'] ) {
+					case 'custom':
+						$licensesDiv.append( 
+							$j( '<div></div>' ).css( { 'width': '100%' } ).append(
+								$j( '<div></div>' ).css( { 'float': 'right', 'width': '9em', 'padding-left': '1em' } ).append( 
+									$j( '<span></span>' ).button( { label: gM( 'mwe-upwiz-license-custom-preview' ) } ).css( { 'width': '8em' } )
+								),
+								$j( '<div></div>' ).css( { 'margin-right': '10em' } ).append( 
+									$j( '<textarea></textarea>' ).growTextArea().css( { 'width': '100%' } )
+								),
+								$j( '<div></div>' ).css( { 'clear':'both' } )
+							)
+						);
+						break;
+					case 'none':
+					default:
+						break;
+				}
 			} else {
 				appendLicenses( $licensesDiv, group );
 			}

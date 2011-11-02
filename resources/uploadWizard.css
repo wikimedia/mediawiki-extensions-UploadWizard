@@ -442,7 +442,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-deed-license {
-	margin-left: 24px;
+	margin-left: 1.5em;
 }
 
 #mwe-upwiz-macro-deeds {
@@ -615,7 +615,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 
 .mwe-upwiz-toggler {
 	margin-bottom: 0;
-	padding: 4px 0 3px 18px;
+	padding-left: 1.5em;
 	/* @embed */
 	background: url('images/toggle.png') no-repeat left center;
 }
@@ -626,7 +626,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 }
 
 .mwe-upwiz-toggler-content {
-	padding-left: 18px;
+	padding-left: 1.5em;
 }
 
 .mwe-upwiz-toggled {

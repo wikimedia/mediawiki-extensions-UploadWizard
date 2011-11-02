@@ -394,10 +394,6 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 	// set the "value" to be the null deed; which will cause an error if the data is submitted.
 	_this.choose( mw.UploadWizardNullDeed );
 
-	// set the "delete associated upload" option, if available
-	// this has a somewhat nasty & twisted dependency on the licenses config, since if you enable the 'special delete'
-	// option there, you have to remember to pass a deleter here
-	_this.bindDeleter();
 };
 
 
@@ -498,40 +494,6 @@ mw.UploadWizardDeedChooser.prototype = {
 
 	remove: function() {
 		this.$selector.html('');
-	},
-
-	/**
-	 * This is a bit of a hack -- originally deeds were not supposed to know what uploads they applied to,
-	 * the associated upload would just read that data when it needed to, or rebind itself on the fly. 
-	 * Unfortunately it's starting to become a bit messed up; to make deleting work, now the deeds know about the uploads,
-	 * and the uploads know about the deeds. Really ought to be that there is some channel of communication that the uploads
-	 * listen to, which could include a 'delete yourself' event.
-	 * So, what this does:
-	 * In the event that our license config includes the "special" item for i-don't-know-what-the-license-is, 
-	 * this will create a button there that deletes all the associated uploads.
-	 */
-	bindDeleter: function() {
-		var deedChooser = this;
-
-		if ( !mw.isDefined( deedChooser.deleteDialog ) ) {
-			deedChooser.deleteDialog = mw.UploadWizardDeleteDialog( 
-				deedChooser.uploads, 
-				gM( 'mwe-upwiz-license-confirm-remove-title' ),
-				gM( 'mwe-upwiz-license-confirm-remove', deedChooser.uploads.length )
-			);
-		}
-		
-		$j( deedChooser.$selector.find( '.mwe-upwiz-license-special-delete' ) ).each( function() {
-			$j( this ).append( 
-							   $j( '<button type="button" name="abandon"></button>' )
-									   .msg( 'mwe-upwiz-license-none-applicable', deedChooser.uploads.length )
-									   .button()
-									   .addClass( 'ui-button-text ui-button-textonly' )
-									   .click( function() { 
-											   deedChooser.deleteDialog.dialog( 'open' );
-									   } )
-			);
-		} );
 	}
 
 }; // end UploadWizardDeed.prototype
