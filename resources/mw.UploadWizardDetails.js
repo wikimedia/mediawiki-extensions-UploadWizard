@@ -177,7 +177,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		.append( $j ( '<div class="mwe-location-alt-label"></div>' ).append( gM( 'mwe-upwiz-location-alt' )  ) )
 		.append( _this.altInput );
 
-	var locationDiv = $j( '<div class="mwe-location"></div>' )
+	var locationDiv = $j( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append( $j ('<div class="mwe-location-label"></div>' )
 		.append( gM( 'mwe-upwiz-location' ) ) 
 		.addHint( 'location' ) )
@@ -189,8 +189,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		);
 
 	$j( moreDetailsDiv ).append( 
-		locationDiv,
 		$categoriesDiv,
+		locationDiv,
 		otherInformationDiv
 	);
 	
