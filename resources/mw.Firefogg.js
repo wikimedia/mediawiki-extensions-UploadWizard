@@ -24,5 +24,8 @@ mw.Firefogg = {
 				osLink = this.firefoggInstallLinks['win32'];
 		}
 		return osLink;
+	},
+	isInstalled: function() {
+		return typeof( Firefogg ) != 'undefined' && Firefogg().version >= '2.8.05';
 	}
 };

@@ -3,7 +3,7 @@
  * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
  */
 
-mw.FirefoggHandler = function( upload ) {
+mw.FirefoggHandler = function( upload, api ) {
 	return this.init( upload );
 };
 
@@ -15,17 +15,17 @@ mw.FirefoggHandler.prototype = {
 	 */
 	init: function( upload ){
 		this.upload = upload;
-		this.api = upload.api;		
+		this.api = upload.api;
 		// update the mwe-upwiz-file-input target
-		this.upload.ui.$fileInputCtrl = this.getInputControl()
+		this.upload.ui.$fileInputCtrl = this.getInputControl();
 		this.upload.ui.fileCtrlContainer.empty().append(
 			this.upload.ui.$fileInputCtrl
-		)
+		);
 		// update the "valid" extension to include firefogg transcode extensions: 
 		mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
 				mw.UploadWizard.config[ 'fileExtensions' ], 
 				mw.UploadWizard.config[ 'transcodeExtensionList' ]
-		)
+		);
 		
 	},
 	// Setup local pointer to firefogg instance
@@ -38,14 +38,15 @@ mw.FirefoggHandler.prototype = {
 	getTransport: function(){
 		var _this = this;
 		if( !this.transport ){
-			this.transport = new mw.FirefoggTransport(	
-					this.getForm(),
+			this.transport = new mw.FirefoggTransport(
+                    this.upload,
+                    this.api,
 					this.getFogg(),
 					function( fraction ) { 
 						_this.upload.setTransportProgress( fraction ); 
 						// also update preview video: 
 					},
-					function( result ) { 	
+					function( result ) {
 						mw.log("FirefoggTransport::getTransport> Transport done " + JSON.stringify( result ) );
 						_this.upload.setTransported( result ); 
 					}
@@ -85,12 +86,13 @@ mw.FirefoggHandler.prototype = {
 				if( _this.getFogg().selectVideo() ) {	
 					// Update the value of the input file: 
 					$j( this )
-					.val( _this.getFogg().sourceFilename )			
+					.val( _this.getFogg().sourceFilename );
 					//.trigger('change');
 					// note the change trigger does not work because we replace the target: 
 					var title = _this.getTransport().getFileName().replace( /:/g, '_' );
 					_this.upload.title = new mw.Title( title , 'file' );
 					_this.upload.ui.fileChangedOk();
+					_this.upload.filename = title;
 				}
 			} );
 	},
