@@ -358,6 +358,11 @@ mw.UploadWizard.prototype = {
 	moveToStep: function( selectedStepName, callback ) {
 		var _this = this;
 
+		if( _this.currentStepName === selectedStepName ) {
+			// already there!
+			return;
+		}
+		
 		// scroll to the top of the page (the current step might have been very long, vertically)
 		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
 
