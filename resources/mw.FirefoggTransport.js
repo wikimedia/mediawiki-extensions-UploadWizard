@@ -23,25 +23,29 @@ mw.FirefoggTransport.prototype = {
 	doUpload: function() {
 		var _this = this;
 		//Encode or passthrough Firefogg before upload
-		this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
-			function(result, file) {
-				result = JSON.parse(result);
-				if(result.progress == 1) { //encoding done
-					_this.doFormDataUpload(file);
-				} else { //encoding failed
-					var response = {
-						error: {
-							code: 500,
-							info: 'Encoding failed'
-						}
-					};
-					_this.transportedCb(response);
+		if (this.isUploadFormat()) {
+			_this.doFormDataUpload(this.upload.ui.$fileInputCtrl[0].files[0]);
+		} else {
+			this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
+				function(result, file) {
+					result = JSON.parse(result);
+					if(result.progress == 1) { //encoding done
+						_this.doFormDataUpload(file);
+					} else { //encoding failed
+						var response = {
+							error: {
+								code: 500,
+								info: 'Encoding failed'
+							}
+						};
+						_this.transportedCb(response);
+					}
+				}, function(progress) { //progress
+					progress = JSON.parse(progress);
+					_this.progressCb( progress );
 				}
-			}, function(progress) { //progress
-				progress = JSON.parse(progress);
-				_this.progressCb( progress.progress );
-			}
-		);
+			);
+		}
 	},
 	doFormDataUpload: function(file) {
 		this.upload.file = file;
@@ -49,9 +53,9 @@ mw.FirefoggTransport.prototype = {
 		this.uploadHandler.start();
 	},
 	/**
-	 * Check if the asset should be uploaded in passthrough mode ( or if it should be encoded )
+	 * Check if the asset is in a format that can be upload without encoding.
 	 */
-	isPassThrough: function(){
+	isUploadFormat: function(){
 		// Check if the server supports webm uploads: 
 		var wembExt = ( $j.inArray( 'webm', mw.UploadWizard.config[ 'fileExtensions'] ) !== -1 )
 		// Determine passthrough mode
@@ -104,8 +108,8 @@ mw.FirefoggTransport.prototype = {
 	
 	// Get the filename
 	getFileName: function(){
-		// If passthrough don't change it
-		if( this.isPassThrough() ){
+		// If file is in a supported format don't change extension
+		if( this.isUploadFormat() ){
 			return this.fogg.sourceFilename;
 		} else {			
 			if( this.isSourceAudio() ){
@@ -133,7 +137,7 @@ mw.FirefoggTransport.prototype = {
 	 * Get the encode settings from configuration and the current selected video type 
 	 */
 	getEncodeSettings: function(){
-		if( this.isPassThrough() ){
+		if( this.isUploadFormat() ){
 			return { 'passthrough' : true };
 		}
 		// Get the default encode settings: 

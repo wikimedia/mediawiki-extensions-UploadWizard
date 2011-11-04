@@ -14,13 +14,18 @@ mw.FirefoggHandler.prototype = {
 	 * Constructor 
 	 */
 	init: function( upload ){
+		var _this = this;
 		this.upload = upload;
 		this.api = upload.api;
-		// update the mwe-upwiz-file-input target
-		this.upload.ui.$fileInputCtrl = this.getInputControl();
-		this.upload.ui.fileCtrlContainer.empty().append(
-			this.upload.ui.$fileInputCtrl
-		);
+		// pass file to Firefogg after selection
+		this.upload.ui.$fileInputCtrl.bind('change', function(event) {
+			if(_this.upload.ui.$fileInputCtrl[0].files.length) {
+				_this.getFogg().setInput(_this.upload.ui.$fileInputCtrl[0].files[0]);
+				//This is required to get the right requestedTitle in UploadWizardUpload
+				var title = _this.getTransport().getFileName().replace( /:/g, '_' );
+				_this.upload.title = new mw.Title( title , 'file' );
+			}
+		});
 		// update the "valid" extension to include firefogg transcode extensions: 
 		mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
 				mw.UploadWizard.config[ 'fileExtensions' ], 
@@ -39,12 +44,12 @@ mw.FirefoggHandler.prototype = {
 		var _this = this;
 		if( !this.transport ){
 			this.transport = new mw.FirefoggTransport(
-                    this.upload,
-                    this.api,
+					this.upload,
+					this.api,
 					this.getFogg(),
-					function( fraction ) { 
-						_this.upload.setTransportProgress( fraction ); 
-						// also update preview video: 
+					function( data ) { 
+						_this.upload.setTransportProgress( data.progress ); 
+						// also update preview video, url is in data.preview 
 					},
 					function( result ) {
 						mw.log("FirefoggTransport::getTransport> Transport done " + JSON.stringify( result ) );
@@ -54,49 +59,7 @@ mw.FirefoggHandler.prototype = {
 		}
 		return this.transport;
 	},
-	isGoodExtension: function( ext ){
-		// First check if its an oky extension for the wiki: 
-		if( $j.inArray( ext.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) !== -1 ){
-			return true;
-		} 
-		// Check if its a file that can be transcoded:
-		if( this.getTransport().isSourceAudio() || this.getTransport().isSourceVideo() ){
-			return true;
-		}
-		// file can't be transcoded
-		return false;
-	},
 	
-	getForm: function(){
-		return  $j( this.upload.ui.form );
-	},
-	
-	/**
-	 * Get a pointer to the "file" input control 
-	 */
-	getInputControl: function(){
-		var _this = this;		
-		return $j('<input />').attr({
-				'size': "1",
-				 'name': "file",
-				 'type': "text"
-			})
-			.addClass( "mwe-upwiz-file-input" )
-			.click( function() {
-				if( _this.getFogg().selectVideo() ) {	
-					// Update the value of the input file: 
-					$j( this )
-					.val( _this.getFogg().sourceFilename );
-					//.trigger('change');
-					// note the change trigger does not work because we replace the target: 
-					var title = _this.getTransport().getFileName().replace( /:/g, '_' );
-					_this.upload.title = new mw.Title( title , 'file' );
-					_this.upload.ui.fileChangedOk();
-					_this.upload.filename = title;
-				}
-			} );
-	},
-
 	/**
 	 * If chunks are disabled transcode then upload else
 	 * upload and transcode at the same time
