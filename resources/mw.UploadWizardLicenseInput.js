@@ -52,6 +52,20 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 		_this.setValues( values );
 	}
 
+	// set up preview dialog		
+	_this.$previewDialog = $j( '<div></div> ')
+		.css( 'padding', 10 )
+		.dialog( {
+			autoOpen: false,
+			minWidth: 500,
+			zIndex: 200000,
+			modal: true
+		} );
+		
+	_this.$spinner = $j( '<div></div>' )
+		.addClass( 'mwe-upwiz-status-progress mwe-upwiz-file-indicator' )
+		.css( { width: 200, padding: 20 } );
+
 	return _this;
 };
 
@@ -524,11 +538,30 @@ mw.UploadWizardLicenseInput.prototype = {
 	},
 
 	/**
-	 * Preview license from a particular input, in a popup window
-	 * @param {jQuery} an input
+	 * Preview wikitext in a popup window
+	 * @param {String} wikitext
 	 */
-	showPreview: function( $input ) {
-		// do stuff with this.api
+	showPreview: function( wikiText ) {	
+
+		this.$previewDialog.html( this.$spinner ).dialog( 'open' );
+
+		var _this = this;
+		function show( html ) {
+			// apparently it is necessary to reaffirm all this every time if you want auto-resizing in jQuery 1.6
+			_this.$previewDialog.dialog( 'option', 'width', 'auto' );
+			_this.$previewDialog.dialog( 'option', 'height', 'auto' );
+			_this.$previewDialog.html( html );
+			_this.$previewDialog.dialog( 'open' );
+			_this.$previewDialog.dialog( 'option', 'position', { 'at': 'center' } );
+		}
+
+		var error = function( error ) { 
+			show( $j( '<div></div>' ).append( 
+				$j( '<h3></h3>' ).append( error['code'] ),
+				$j( '<p></p>' ).append( error['info'] ) 
+			) );
+		};
+		this.api.parse( wikiText, show, error );
 	}
 
 

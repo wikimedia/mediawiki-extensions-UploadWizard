@@ -52,6 +52,7 @@ class UploadWizardHooks {
 				'resources/mw.Api.js',
 				'resources/mw.Api.edit.js',
 				'resources/mw.Api.category.js',
+				'resources/mw.Api.parse.js',
 				'resources/mw.Api.titleblacklist.js',
 				'resources/mw.Title.js',
 				'resources/mw.Feedback.js',
