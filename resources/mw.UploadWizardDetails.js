@@ -205,7 +205,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		dateInputDiv
 	);
 	
-	if ( mw.UploadWizard.config.idField != '' ) {
+	if ( mw.UploadWizard.config.idField ) { 
 		var idFieldId = "idField" + ( _this.upload.index ).toString();
 		_this.idFieldInput = $j( '<input />' ).attr( {
 			'type': 'text',
@@ -289,7 +289,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			} 
 		} );
 	
-	if ( mw.UploadWizard.config.idField != '' ) {
+	if ( mw.UploadWizard.config.idField ) {
 		_this.idFieldInput.rules( "add", {
 			required: true,
 			messages: {
@@ -319,13 +319,14 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.altInput.rules( "add", {
 		number: true,
 		messages: {
-			number: gM( 'mwe-upwiz-error-altitude' ),
+			number: gM( 'mwe-upwiz-error-altitude' )
 		}
 	} );
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	_this.addDescription( mw.UploadWizard.config.idField == '', mw.config.get( 'wgUserLanguage' ) );
+	var hasIdField = mw.UploadWizard.config.idField ? true : false;
+	_this.addDescription( hasIdField, mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
 	if( UploadWizardConfig.useTitleBlacklistApi ) {
@@ -798,7 +799,7 @@ mw.UploadWizardDetails.prototype = {
 		} );
 		
 		// Add id field if needed
-		if ( mw.UploadWizard.config.idField != '' ) {
+		if ( mw.UploadWizard.config.idField ) {
 			var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
 			
 			if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX

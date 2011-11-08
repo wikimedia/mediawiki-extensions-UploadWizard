@@ -23,7 +23,7 @@
 		}
 
 		var defaults = { 
-			message: function() { return gM( 'mwe-prevent-close' ) },
+			message: function() { return gM( 'mwe-prevent-close' ); },
 			test: function() { return true; }
 		}; 
 		options = $.extend( defaults, options );

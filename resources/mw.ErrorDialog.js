@@ -6,7 +6,7 @@
 	 * @param {mw.Title} the title of the page where you collect feedback
 	 */
 	mw.ErrorDialog = function( errorMessage ) {
-		this.errorMessage = errorMessage
+		this.errorMessage = errorMessage;
 		this.setup();
 	};
 

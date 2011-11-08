@@ -57,7 +57,7 @@ mw.FirefoggTransport.prototype = {
 	 */
 	isUploadFormat: function(){
 		// Check if the server supports webm uploads: 
-		var wembExt = ( $j.inArray( 'webm', mw.UploadWizard.config[ 'fileExtensions'] ) !== -1 )
+		var wembExt = ( $j.inArray( 'webm', mw.UploadWizard.config[ 'fileExtensions'] ) !== -1 );
 		// Determine passthrough mode
 		if ( this.isOggFormat() || ( wembExt && this.isWebMFormat() ) ) {
 			// Already Ogg, no need to encode
@@ -147,5 +147,5 @@ mw.FirefoggTransport.prototype = {
 		
 		mw.log("FirefoggTransport::getEncodeSettings> " +  JSON.stringify(  encodeSettings ) );
 		return encodeSettings;
-	},
+	}
 };

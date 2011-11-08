@@ -8,6 +8,6 @@
 			return !! ( document.createElement('canvas')['getContext'] );
 		}
 
-	}
+	};
 
 } )( mediaWiki );

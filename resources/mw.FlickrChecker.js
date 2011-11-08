@@ -45,10 +45,11 @@ mw.FlickrChecker = {
 							// Use the license name to retrieve the template values
 							var licenseValue = mw.FlickrChecker.licenseMaps[licenseName];
 							// Set the license message to show the user.
+							var licenseMessage;
 							if ( licenseValue == 'invalid' ) {
-								var licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
+								licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
 							} else {
-								var licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+								licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
 							}
 							// XXX Do something with data.
 						}
@@ -71,7 +72,7 @@ mw.FlickrChecker = {
 				}
 			}
 		);
-	},
+	}
 	
 };
 	

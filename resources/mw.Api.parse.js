@@ -18,12 +18,12 @@
 				if ( data && data.parse && data.parse.text && data.parse.text['*'] ) {
 					useHtml( data.parse.text['*'] );
 				} 
-			}
+			};
 			this.get( params, ok, error );
 		}
 
 
-	 } ); // end extend
+	} ); // end extend
 } )( window.mediaWiki, jQuery );
 
 
