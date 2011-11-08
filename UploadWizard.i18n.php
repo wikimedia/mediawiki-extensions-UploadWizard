@@ -4977,6 +4977,8 @@ $messages['es'] = array(
 	'mwe-upwiz-failed' => 'Falló.',
 	'mwe-upwiz-remove' => 'Borrar',
 	'mwe-upwiz-remove-upload' => 'Retirar este archivo de la lista de archivos a subir',
+	'mwe-upwiz-show-thumb' => 'Mostrar miniatura',
+	'mwe-upwiz-show-thumb-tip' => 'Cargar una imagen en miniatura para este archivo',
 	'mwe-upwiz-remove-description' => 'Retirar esta descripción',
 	'mwe-upwiz-upload' => 'Subir',
 	'mwe-upwiz-file-all-ok' => 'Todos los archivos se subieron correctamente.',
@@ -4991,22 +4993,22 @@ $messages['es'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|segundo|segundos}} restantes',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} restantes',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hora|horas}} $2 {{PLURAL:$2|minuto|minutos}} $3 {{PLURAL:$3|segundo|segundos}} restantes',
-	'mwe-upwiz-deeds-macro-prompt' => '{{SITENAME}} requiere que establezcas información de copyright para {{PLURAL:$1|este trabajo|estos trabajos}}, para asegurarse de que todos puedan reusar legalmente {{PLURAL:$1|este|estos}}.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio requiere que establezcas información de copyright para {{PLURAL:$1|este trabajo|estos trabajos}}, para asegurarse de que todos puedan {{PLURAL:$1|reutilizarlo|reutilizarlos}} legalmente.',
 	'mwe-upwiz-deeds-custom-prompt' => 'O:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este archivo es|Estos archivos son}} mi propio trabajo.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'I, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, por este medio concedo irrevocablemente a cualquiera el derecho a usar, modificar y redistribuir {{PLURAL:$1|este trabajo|estos trabajos}} para cualquier propósito, y por lo tanto {{PLURAL:$1|lo|los}} publico bajo los siguientes términos:',
 	'mwe-upwiz-source-ownwork-assert' => 'Yo, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, concede a cualquiera el derecho de usar {{PLURAL:$1|este trabajo|estos trabajos}} para cualquier propósito, siempre y cuando me de crédito y comparta el trabajo derivado bajo los mismos términos.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Yo, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, publica {{PLURAL:$1|este trabajo|estos trabajos}} bajo la siguiente licencia(s):',
-	'mwe-upwiz-source-ownwork-assert-note' => 'Esto significa que liberas tu trabajo bajo la siguiente licencia: $1',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Yo, el autor de estas obras, las publico bajo los términos de la licencia $1.',
 	'mwe-upwiz-source-permission' => 'Su autor te da permiso explícito para subirlo',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Este archivo no es|Estos archivos no son}} mi propio trabajo.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Por favor ingresa la dirección donde has encontrado cada archivo.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Si todos los archivos tienen la misma fuente, autor, y status de copyright, puedes ingresarlos de una sola vez por todos.',
 	'mwe-upwiz-source-thirdparty-license' => 'El titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}} {{PLURAL:$1|lo publicó|los publicó}} bajo la(s) siguiente(s) licencia(s):',
-	'mwe-upwiz-source-thirdparty-cases' => 'Ahora especifica por qué estás seguro de que {{SITENAME}} tiene el derecho a publicar {{PLURAL:$1|este trabajo|estos trabajos}}:',
+	'mwe-upwiz-source-thirdparty-cases' => 'Ahora especifica por qué estás seguro de que este sitio tiene el derecho a publicar {{PLURAL:$1|este trabajo|estos trabajos}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Aceptar',
 	'mwe-upwiz-source-custom' => 'Proporcionar información de copyright para cada archivo individualmente en la página siguiente.',
-	'mwe-upwiz-more-options' => 'más opciones...',
+	'mwe-upwiz-more-options' => 'añadir categorías y más información...',
 	'mwe-upwiz-fewer-options' => 'menos opciones...',
 	'mwe-upwiz-desc' => 'Descripción',
 	'mwe-upwiz-desc-add-n' => 'agregar una descripción en otro idioma',
@@ -5015,6 +5017,9 @@ $messages['es'] = array(
 	'mwe-upwiz-media-type' => 'Tipo de medios',
 	'mwe-upwiz-date-created' => 'Fecha de creado',
 	'mwe-upwiz-location' => 'Ubicación',
+	'mwe-upwiz-location-lat' => 'Latitud',
+	'mwe-upwiz-location-lon' => 'Longitud',
+	'mwe-upwiz-location-alt' => 'Altitud',
 	'mwe-upwiz-copyright-info' => 'Liberar derechos',
 	'mwe-upwiz-author' => 'Autor(es)',
 	'mwe-upwiz-autoconverted' => 'Este archivo fue automáticamente convertido al formato $1',
@@ -5035,7 +5040,7 @@ $messages['es'] = array(
 	'mwe-upwiz-fileexists-replace' => 'Un archivo con el título "$1" ya existe. Por favor cambia tu título a algo único.',
 	'mwe-upwiz-fileexists' => 'Un archivo con este nombre ya existe. Por favor verifica <b><tt>$1</tt></b> si no est.ás seguro si deseas cambiarlo.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Ya existe un archivo con este nombre.',
-	'mwe-upwiz-blacklisted' => 'Se han prohibido títulos como este.',
+	'mwe-upwiz-blacklisted' => 'Elige un título diferente, más descriptivo.',
 	'mwe-upwiz-thumbnail-more' => 'Aumentar',
 	'mwe-upwiz-overwrite' => 'Reemplazar el archivo',
 	'mwe-upwiz-next' => 'Siguiente',
@@ -5095,6 +5100,7 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-license-attribution' => 'Puede utilizarse para cualquier propósito, incluyendo el comercio, si se atribuye al titular del copyright apropiadamente',
 	'mwe-upwiz-license-gfdl' => 'Licencia de documentación libre de GNU',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, atribución necesaria (GFDL, CC-BY-SA-3.0)',
+	'mwe-upwiz-license-custom-preview' => 'Previsualización',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Agregar',
 	'mwe-upwiz-category-remove' => 'Quitar esta categoría',
@@ -17161,6 +17167,7 @@ $messages['sah'] = array(
 
 /** Sinhala (සිංහල)
  * @author Pasanbhathiya2
+ * @author Singhalawap
  * @author බිඟුවා
  */
 $messages['si'] = array(
@@ -17172,8 +17179,8 @@ $messages['si'] = array(
 	'mwe-upwiz-step-details' => 'විස්තර කිරීම',
 	'mwe-upwiz-step-thanks' => 'පරිශීලනය කරන්න',
 	'mwe-upwiz-api-error-unknown-code' => 'නොදත් දෝෂය: "$1"',
-	'mwe-upwiz-help-desk' => 'උදව් අංශය',
-	'mwe-upwiz-help-desk-url' => 'උදව් අංශය',
+	'mwe-upwiz-help-desk' => 'උදව්',
+	'mwe-upwiz-help-desk-url' => 'උදව්',
 	'mwe-upwiz-add-file-n' => 'තවත් ගොනුවක් එක් කරන්න',
 	'mwe-upwiz-transport-started' => 'අරඹමින්...',
 	'mwe-upwiz-uploading' => 'උඩුගත කෙරෙමින් පවතී...',
@@ -17189,8 +17196,8 @@ $messages['si'] = array(
 	'mwe-upwiz-deeds-custom-prompt' => 'හෝ',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'සියලුම ගොනු වලට ඇත්තේ එකම මූලාශ්‍රය,කතෘ, හා හිමිකම් තත්වය නම්,ඒ සියල්ලම සඳහා ඔබට එක් වරක් පමණක් ඒ අදාල තොරතුරු ඇතුලු කල හැක',
 	'mwe-upwiz-source-thirdparty-accept' => 'හරි',
-	'mwe-upwiz-more-options' => 'වැඩියෙන් විකල්ප...',
-	'mwe-upwiz-fewer-options' => 'අඩුවෙන් විකල්ප...',
+	'mwe-upwiz-more-options' => 'ප්‍රවර්ග සහ තවත් තොරතුරු එක්කරන්න...',
+	'mwe-upwiz-fewer-options' => 'තෝරාගැනීම් අඩුකර...',
 	'mwe-upwiz-desc' => 'විස්තරය ඇතුලත්ය',
 	'mwe-upwiz-desc-add-n' => 'වෙනත් භාෂාවකින් විස්තරයක් ඇතුළුකරන්න',
 	'mwe-upwiz-desc-add-0' => 'විස්තරයක් එක් කරන්න',
@@ -17198,7 +17205,7 @@ $messages['si'] = array(
 	'mwe-upwiz-media-type' => 'මාධ්‍ය වර්ගය',
 	'mwe-upwiz-date-created' => 'නිමවූ දවස',
 	'mwe-upwiz-location' => 'ස්ථානය',
-	'mwe-upwiz-copyright-info' => 'මිදුම් හිමිකම්',
+	'mwe-upwiz-copyright-info' => 'මිදුම් හිමිකම් (Release rights)',
 	'mwe-upwiz-author' => 'කතෘන්',
 	'mwe-upwiz-autoconverted' => 'මෙම ගොනුව ස්වයංක්‍රීයව $1 ආකෘතියට පෙරලන ලදී',
 	'mwe-upwiz-other' => 'වෙනත් තොරතුරු',
@@ -17236,10 +17243,10 @@ $messages['si'] = array(
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 ඔස්ට්‍රියාව',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 ජර්මනිය',
 	'mwe-upwiz-license-cc-by-sa-3.0-ee' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 එස්ටෝනියාව',
-	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 ස්පාඤ්ඤය',
+	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'ක්‍රියේටිව් කොමන්ස් ඇට්‍රිබියුෂන් ශෙයා අලයික් 3.0 ස්පාඤ්ඤය',
 	'mwe-upwiz-license-cc-by-sa-3.0-hr' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 Croatia',
-	'mwe-upwiz-license-cc-by-sa-3.0-lu' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 ලක්ස්ම්බර්ග්',
-	'mwe-upwiz-license-cc-by-sa-3.0-nl' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 නෙදර්ලන්තය',
+	'mwe-upwiz-license-cc-by-sa-3.0-lu' => 'ක්‍රියේටිව් කොමන්ස් ඇට්‍රිබියුෂන් ශෙයා අලයික් 3.0 ලක්ස්ම්බර්ග්',
+	'mwe-upwiz-license-cc-by-sa-3.0-nl' => 'ක්‍රියේටිව් කොමන්ස් ඇට්‍රිබියුෂන් ශෙයා අලයික් 3.0 නෙදර්ලන්තය',
 	'mwe-upwiz-license-cc-by-sa-3.0-no' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 නොර්වේ',
 	'mwe-upwiz-license-cc-by-sa-3.0-pl' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 පෝලන්ත',
 	'mwe-upwiz-license-cc-by-sa-3.0-ro' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 3.0 රොමේනියාව',
@@ -17248,6 +17255,7 @@ $messages['si'] = array(
 	'mwe-upwiz-license-cc-by-2.5' => 'නිර්මාණාත්මක පොදුජන ගුණනාම 2.5',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'නිර්මාණාත්මක පොදුජන ගුණනාම-හුවමාරු ඒකාකාර 2.0',
 	'mwe-upwiz-license-cc-by-2.0' => 'නිර්මාණාත්මක පොදුජන ගුණනාම 2.0',
+	'mwe-upwiz-license-custom-preview' => 'පෙරදසුන',
 	'mwe-upwiz-categories' => 'ප්‍රවර්ග',
 	'mwe-upwiz-categories-add' => 'එක් කරන්න',
 	'mwe-upwiz-category-remove' => 'මෙම ප්‍රවර්ගය ඉවත් කරන්න',
@@ -17264,6 +17272,7 @@ $messages['si'] = array(
 	'mwe-upwiz-campaigns-add' => 'එකතු කරන්න',
 	'mwe-upwiz-campaigns-addnew' => 'නව ව්‍යාපාරයක් එකතු කරන්න',
 	'mwe-upwiz-campaigns-newname' => 'ව්‍යාපාරයේ නම',
+	'mwe-upwiz-campaigns-delete' => 'මකාදමන්න',
 );
 
 /** Slovak (Slovenčina)
@@ -18374,6 +18383,7 @@ $messages['sw'] = array(
 
 /** Tamil (தமிழ்)
  * @author Mahir78
+ * @author Sodabottle
  * @author Surya Prakash.S.A.
  * @author TRYPPN
  */
@@ -18429,8 +18439,8 @@ $messages['ta'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'மன்னிக்கவும், இந்தத் திரைக்குப் பொருந்தும் வகையில் பயிற்சியின் அளவிட்ட படிமத்தைப் பெற முடியவில்லை. இது விக்கிமீடியா காமன்சில் ஏற்பட்ட தற்காலிகச் சிக்கலாக இருக்கலாம்; சிறிது நேரம் கழித்து மீண்டும் முயலவும்.',
 	'mwe-upwiz-help-desk' => 'ஒத்தாசைப் பக்கம்',
 	'mwe-upwiz-help-desk-url' => 'ஒத்தாசைப் பக்கம்',
-	'mwe-upwiz-add-file-n' => 'மற்றொரு கோப்பை சேர்க்கவும்',
-	'mwe-upwiz-add-file-0-free' => 'கொடையளிக்க ஓர் ஊடகக் கோப்பைத் தேர்ந்தெடுக்கவும்',
+	'mwe-upwiz-add-file-n' => 'மற்றொரு கோப்பினைச் சேர்க்கவும்',
+	'mwe-upwiz-add-file-0-free' => 'கொடையளிக்க ஓர் ஊடகக் கோப்பினைத் தேர்ந்தெடுக்கவும்',
 	'mwe-upwiz-transport-started' => 'துவங்குகிறது...',
 	'mwe-upwiz-uploading' => 'பதிவேற்றப்படுகிறது...',
 	'mwe-upwiz-transported' => 'ஆம்',
