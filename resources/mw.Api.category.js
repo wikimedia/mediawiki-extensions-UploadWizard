@@ -9,7 +9,7 @@
 		 * @param {Function} optional callback to run if api error
 		 * @return ajax call object
 		 */
-		isCategory: function( title, callback, error ) {
+		isCategory: function( title, callback, err ) {
 			var params = {
 				'prop': 'categoryinfo',
 				'titles': title.toString()
@@ -37,7 +37,7 @@
 		 * @param {Function} optional callback to run if api error
 		 * @return ajax call object
 		 */
-		getCategoriesByPrefix: function( prefix, callback, error ) {		
+		getCategoriesByPrefix: function( prefix, callback, err ) {		
 
 			var params = {
 				'list': 'allcategories',
@@ -65,9 +65,10 @@
 		 * @param {mw.Title}
 		 * @param {Function} callback to pass categories to (or false, if title not found)
 		 * @param {Function} optional callback to run if api error
+		 * @param {Boolean} optional asynchronousness (default = true = async)
 		 * @return ajax call object 
 		 */
-		getCategories: function( title, callback, error, async ) {
+		getCategories: function( title, callback, err, async ) {
 			var params = {
 				prop: 'categories',
 				titles: title.toString()
