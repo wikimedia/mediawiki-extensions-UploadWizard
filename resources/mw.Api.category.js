@@ -94,7 +94,7 @@
 				callback( ret );
 			};
 
-			return this.get( params, { ok: ok, err: error, async: async } );
+			return this.get( params, { ok: ok, err: err, async: async } );
 
 		}
 
