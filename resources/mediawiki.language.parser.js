@@ -372,7 +372,9 @@
 			}
 
 			var templateName = transform( 
-				makeRegexParser( /^[A-Za-z][\w -]+/ ),
+				// see $wgLegalTitleChars
+				// not allowing : due to the need to catch "PLURAL:$1"
+				makeRegexParser( /^[ !"$&'()*,.\/0-9;=?@A-Z\^_`a-z~\x80-\xFF+-]+/ ),
 				function( result ) { return result.toString(); }
 			);
 

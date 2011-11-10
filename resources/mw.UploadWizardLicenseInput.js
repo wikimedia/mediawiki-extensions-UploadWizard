@@ -484,6 +484,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		try { 
 			ast = parser.wikiTextToAst( text );
 		} catch (e) {
+			mw.log( e.message );
 			return false;
 		}
 	
