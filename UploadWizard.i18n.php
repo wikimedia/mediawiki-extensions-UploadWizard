@@ -6152,6 +6152,18 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
 	'mw-coolcats-confirm-new-ok' => 'Luo tämä luokka kaikesta huolimatta',
 );
 
+/** Faroese (Føroyskt)
+ * @author Diupwijk
+ * @author Snævar
+ */
+$messages['fo'] = array(
+	'mwe-upwiz-help-desk' => 'Undirhúsið',
+	'mwe-upwiz-help-desk-url' => 'Undirhúsið',
+	'mwe-upwiz-uploading' => 'Legg fílu upp...',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Hesin fílurin er|}} mitt verk',
+	'mwe-upwiz-license-fal' => 'Free Art loyvi',
+);
+
 /** French (Français)
  * @author Crochet.david
  * @author Dodoïste
@@ -10363,6 +10375,33 @@ $messages['ka'] = array(
 	'mwe-upwiz-feedback-error1' => 'შეცდომა. API-ს მოულოდნელი რეზულტატი.',
 	'mwe-upwiz-feedback-error2' => 'შეცდომა: რედაქტირება ვერ განხორციელდა',
 	'mwe-upwiz-feedback-error3' => 'შეცდომა. არ არის API-ს პასუხი .',
+);
+
+/** Khmer (ភាសាខ្មែរ)
+ * @author វ័ណថារិទ្ធ
+ */
+$messages['km'] = array(
+	'mwe-upwiz-code-unknown' => 'ភាសាមិនស្គាល់',
+	'mwe-upwiz-step-file' => 'ផ្ទុកឡើង',
+	'mwe-upwiz-step-details' => 'បរិយាយ',
+	'mwe-upwiz-progressbar-uploading' => 'កំពុង​ផ្ទុកឡើង​',
+	'mwe-upwiz-finished' => 'បាន​បញ្ចាប់!',
+	'mwe-upwiz-deeds-custom-prompt' => 'ឬ៖',
+	'mwe-upwiz-other' => 'ព័ត៌មានផ្សេងទៀត',
+	'mwe-upwiz-source' => 'ប្រភព',
+	'mwe-upwiz-thanks-intro' => 'សូម​អរគុណ​ចំពោះ​ការ​ផ្ទុកឡើង​!',
+	'mwe-upwiz-next' => 'បន្ទាប់',
+	'mwe-upwiz-next-file' => 'បន្ត',
+	'mwe-upwiz-next-deeds' => 'បន្ទាប់',
+	'mwe-upwiz-next-details' => 'បន្ទាប់',
+	'mwe-upwiz-home' => 'ទៅកាន់គេហទំព័រវិគី',
+	'mwe-upwiz-upload-another' => 'ផ្ទុកឡើងឯកសារបន្ថែមទៀត',
+	'mwe-upwiz-tooltip-more-info' => 'ស្វែងយល់បន្ថែម។',
+	'mwe-upwiz-categories' => 'ចំណាត់ថ្នាក់ក្រុម',
+	'mwe-upwiz-categories-add' => 'បន្ថែម',
+	'mwe-upwiz-category-remove' => 'ដក​ចំណាត់ថ្នាក់ក្រុម​ចេញ',
+	'mwe-upwiz-help-popup' => 'ជំនួយ',
+	'mwe-upwiz-help-popup-title' => 'ចំណងជើង',
 );
 
 /** Kannada (ಕನ್ನಡ)
