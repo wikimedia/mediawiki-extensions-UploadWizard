@@ -19,6 +19,7 @@
 mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	var _this = this;
 	_this.count = count;
+	
 	_this.api = api;
 
 	if ( ! ( mw.isDefined(config.type) 
@@ -57,14 +58,14 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 		.css( 'padding', 10 )
 		.dialog( {
 			autoOpen: false,
-			minWidth: 500,
+			width: 800,
 			zIndex: 200000,
 			modal: true
 		} );
 		
 	_this.$spinner = $j( '<div></div>' )
 		.addClass( 'mwe-upwiz-status-progress mwe-upwiz-file-indicator' )
-		.css( { width: 200, padding: 20 } );
+		.css( { 'width': 200, 'padding': 20, 'float': 'none', 'margin': '0 auto' } );
 
 	return _this;
 };
@@ -488,9 +489,21 @@ mw.UploadWizardLicenseInput.prototype = {
 	
 		function accumTemplates( node, templates ) {
 			if ( typeof node === 'object' ) {
-				var operation = node[0].toLowerCase();
-				if ( typeof mw.language.htmlEmitter.prototype[operation] !== 'function' ) {
-					templates.push( operation );
+				var nodeName = node[0];
+				var lcNodeName = nodeName.toLowerCase();
+				// templates like Self are special cased, as it is not a license tag and also reparses its string arguments into templates
+				// e.g.  {{self|Cc-by-sa-3.0}}  --> we should add 'Cc-by-sa-3.0' to the templates
+				if ( mw.UploadWizard.config.licenseTagFilters 
+						&& 
+					 mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1 ) {
+					// upgrade all the arguments to be nodes in their own right (by making them the first element of an array)
+					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
+					// $.map seems to strip away arrays of one element so have to use an array within an array.
+					node = $j.map( node, function( n, i ) {
+						return i == 0 ? n : [[n]];	
+					} );
+				} else if ( typeof mw.language.htmlEmitter.prototype[lcNodeName] !== 'function' ) {
+					templates.push( nodeName );
 				}
 				$j.map( node.slice( 1 ), function( n ) {
 					accumTemplates( n, templates );
@@ -499,7 +512,6 @@ mw.UploadWizardLicenseInput.prototype = {
 		}
 		var templates = [];
 		accumTemplates( ast, templates );
-
 
 		// TODO caching
 		var found = false;
@@ -547,12 +559,8 @@ mw.UploadWizardLicenseInput.prototype = {
 
 		var _this = this;
 		function show( html ) {
-			// apparently it is necessary to reaffirm all this every time if you want auto-resizing in jQuery 1.6
-			_this.$previewDialog.dialog( 'option', 'width', 'auto' );
-			_this.$previewDialog.dialog( 'option', 'height', 'auto' );
 			_this.$previewDialog.html( html );
 			_this.$previewDialog.dialog( 'open' );
-			_this.$previewDialog.dialog( 'option', 'position', { 'at': 'center' } );
 		}
 
 		var error = function( error ) { 
@@ -561,6 +569,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				$j( '<p></p>' ).append( error['info'] ) 
 			) );
 		};
+
 		this.api.parse( wikiText, show, error );
 	}
 

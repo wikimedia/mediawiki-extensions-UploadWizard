@@ -216,6 +216,10 @@ return array(
 
 	// Custom wikitext must have at least one template that is a descendant of this category
 	'licenseCategory' => 'License tags',
+	
+	// When checking custom wikitext licenses, parse these templates as "filters"; 
+	// their arguments look like strings but they are really templates
+	'licenseTagFilters' => array( 'self' ),
 
 	// radio button selection of some licenses
 	'licensesOwnWork' => array( 
