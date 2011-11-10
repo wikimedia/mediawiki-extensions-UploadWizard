@@ -373,7 +373,7 @@
 
 			var templateName = transform( 
 				makeRegexParser( /^[A-Za-z][\w -]+/ ),
-				function( result ) { return result.toString().toUpperCase(); }
+				function( result ) { return result.toString(); }
 			);
 
 			function templateParam() {
