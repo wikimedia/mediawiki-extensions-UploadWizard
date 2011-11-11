@@ -4,6 +4,7 @@
 
 	$.extend( mw.Api.prototype, { 
 		/**
+		 * Determine if a category exists
 		 * @param {mw.Title} 
 		 * @param {Function} callback to pass boolean of category's existence
 		 * @param {Function} optional callback to run if api error
@@ -32,6 +33,8 @@
 		},
 
 		/**
+		 * Get a list of categories that match a certain prefix. 
+		 *   e.g. given "Foo", return "Food", "Foolish people", "Foosball tables" ...
 		 * @param {String} prefix to match
 		 * @param {Function} callback to pass matched categories to
 		 * @param {Function} optional callback to run if api error
@@ -62,6 +65,7 @@
 
 
 		/**
+		 * Get the categories that a particular page on the wiki belongs to
 		 * @param {mw.Title}
 		 * @param {Function} callback to pass categories to (or false, if title not found)
 		 * @param {Function} optional callback to run if api error
