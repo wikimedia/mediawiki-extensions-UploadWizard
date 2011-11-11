@@ -325,7 +325,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	var hasIdField = mw.UploadWizard.config.idField ? true : false;
+	var hasIdField = mw.UploadWizard.config.idField ? false : true;
 	_this.addDescription( hasIdField, mw.config.get( 'wgUserLanguage' ) );
 	$j( containerDiv ).append( _this.div );
 
