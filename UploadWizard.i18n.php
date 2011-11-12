@@ -2319,7 +2319,7 @@ Gallout a rit staliañ [$1 Firefogg] un astenn Firefox da amdreiñ ar restr ent 
 	'mwe-upwiz-blacklisted' => 'Dibabit un titl deskrivañ all',
 	'mwe-upwiz-thumbnail-more' => 'Brasaat',
 	'mwe-upwiz-overwrite' => "Erlec'hiañ ar restr",
-	'mwe-upwiz-next' => 'Da-heul',
+	'mwe-upwiz-next' => "War-lerc'h",
 	'mwe-upwiz-next-file' => "Kenderc'hel",
 	'mwe-upwiz-next-deeds' => "War-lerc'h",
 	'mwe-upwiz-next-details' => "War-lerc'h",
@@ -3424,6 +3424,7 @@ $messages['cy'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => "Mae'n ddrwg gennym, nid oeddem yn gallu dod o hyd i unrhyw ffeiliau ar gyfer y tiwtorial sydd i fod i fynd fan hyn. Cysylltwch â gweinyddwyr y system.",
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Mae'n ddrwg gennym, ni allem gael delwedd raddedig o'r tiwtorial i ffitio'r sgrin hon. Gall hyn fod yn broblem dros dro â Chomin Wikimedia; ceisiwch eto yn nes ymlaen.",
 	'mwe-upwiz-help-desk' => 'Desg Gymorth',
+	'mwe-upwiz-help-desk-url' => 'Y Ddesg Gymorth',
 	'mwe-upwiz-add-file-n' => 'Ychwanegu ffeil arall',
 	'mwe-upwiz-transport-started' => 'Yn dechrau...',
 	'mwe-upwiz-uploading' => "wrthi'n llwytho...",
@@ -3434,6 +3435,7 @@ $messages['cy'] = array(
 	'mwe-upwiz-failed' => 'Wedi methu.',
 	'mwe-upwiz-remove' => 'Tynnu',
 	'mwe-upwiz-remove-upload' => "Tynnu'r ffeil hon oddi ar restr y ffeiliau i'w huwchlwytho",
+	'mwe-upwiz-show-thumb' => 'Dangoser mân-lun',
 	'mwe-upwiz-remove-description' => "Tynnu'r disgrifiad hwn",
 	'mwe-upwiz-upload' => 'Uwchlwytho',
 	'mwe-upwiz-file-all-ok' => 'Llwyddodd yr holl uwchlwytho!',
@@ -3470,6 +3472,9 @@ $messages['cy'] = array(
 	'mwe-upwiz-media-type' => 'Math y cyfrwng',
 	'mwe-upwiz-date-created' => 'Dyddiad creu',
 	'mwe-upwiz-location' => 'Lleoliad',
+	'mwe-upwiz-location-lat' => 'Lledred',
+	'mwe-upwiz-location-lon' => 'Hydred',
+	'mwe-upwiz-location-alt' => 'Uchder',
 	'mwe-upwiz-copyright-info' => 'Hawliau rhyddhau',
 	'mwe-upwiz-author' => 'Awdur(on)',
 	'mwe-upwiz-autoconverted' => "Trawsnewidiwyd y ffeil hon yn awtomatig i'r fformat $1",
@@ -3895,6 +3900,7 @@ $1',
  * @author McDutchie
  * @author Metalhead64
  * @author Purodha
+ * @author Rillke
  * @author Robby
  * @author TMg
  * @author The Evil IP address
@@ -4142,7 +4148,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-license-custom-head' => 'Ein weiterer, nicht oben erwähnter Grund',
 	'mwe-upwiz-license-custom-preview' => 'Vorschau',
 	'mwe-upwiz-license-none-head' => 'Ich fand es im Internet und bin mir nicht sicher',
-	'mwe-upwiz-license-none' => '{{PLURAL:$1|Diese Datei|Diese Dateien}} einstweilen ohne Informationen zum Urheberrecht hochladen. Mir ist bewusst, dass {{PLURAL:$1|das Bild gelöscht werden könnte|die Bilder gelöscht werden könnten}} .',
+	'mwe-upwiz-license-none' => '{{PLURAL:$1|Diese Datei|Diese Dateien}} einstweilen ohne Informationen zum Urheberrecht hochladen. Mir ist bewusst, dass {{PLURAL:$1|das Bild gelöscht werden könnte|die Bilder gelöscht werden könnten}}.',
 	'mwe-upwiz-license-confirm-remove' => 'Bist du dir sicher, dass du diese {{PLURAL:$1|hochgeladene Datei|hochgeladenen Dateien}} entfernen willst?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Entfernen bestätigen',
 	'mwe-upwiz-license-external' => 'Diese Datei hat auf $1 die folgende Lizenz: <b>$2</b>.',
@@ -15227,7 +15233,7 @@ $1 توں وڈا کرو {{انیک:$1|اکرے|اکرا}}',
 مہربانی کرکے ایتھے وکیلکھت یا ایچ ٹی ایم ایل ناں ورتو، صرف ورتن ناں یا اصل ناں۔',
 	'mwe-upwiz-error-blank' => 'ایس فیلڈ دی لوڑ اے۔',
 	'mwe-upwiz-error-too-long' => 'ایہ فیلڈ چوکھا لمبا اے۔
-مہربانی کرکے ایس انٹری نوں ایس $1 {{انیک:$1|اکرا|اکرے}} توں نکا کرو۔',
+مہربانی کرکے ایس انٹری نوں ایس $1 {{PLURAL:$1|اکرا|اکرے}} توں نکا کرو۔',
 	'mwe-upwiz-error-too-short' => 'اے فیلڈ بعوں نکا اے۔
 مہربانی کرکے ایس انٹری نوں $1 {{انیک:$1|اکرا|اکرے}}  لمبا کرو',
 	'mwe-upwiz-error-bad-chars' => 'ایس فیلڈ چ ایسے نشان نیں  جناں دی اجازت نیں۔
@@ -15243,7 +15249,7 @@ $1 توں وڈا کرو {{انیک:$1|اکرے|اکرا}}',
 	'mwe-upwiz-error-title-double-apostrophe' => 'ایس سرناویں چ دوہری اپاسٹرافی دتی گئی اے؛ اینوں ہٹاؤ۔',
 	'mwe-upwiz-error-title-extension' => 'توانوں فاغۂ ایکسٹنشن نوں جوڑن دی لوڑ نئیں۔
 اک پڑھیا جان والا سرناواں چنو تے اے چلے گا۔',
-	'mwe-upwiz-details-error-count' => 'ایتھے {{انیک:$1|اک غلطی اے| $1 غلطیاں نیں}} اتے {{انیک:$2|حالت|حالتاں}} نال۔
+	'mwe-upwiz-details-error-count' => 'ایتھے {{PLURAL:$1|اک غلطی اے| $1 غلطیاں نیں}} اتے {{PLURAL:$2|حالت|حالتاں}} نال۔
 غلطی ٹھیک کرو تے فیر کرو۔',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Austria',
@@ -15282,10 +15288,10 @@ $1 توں وڈا کرو {{انیک:$1|اکرے|اکرا}}',
 	'mwe-upwiz-license-cc-subhead' => 'کریٹو کامنز دے سارے لائیسنس ایس سائیٹ لئی ٹھیک نئیں۔ اے ویکھ لو جے کاپی حق والے اینوں چوں کوئی لائیسنس ورتیا اے۔',
 	'mwe-upwiz-license-flickr-head' => 'کاپی حق رکھن والے  نے اپنیاں {{انیک:$1|مورتاں یا وڈیو}}  فلکر تے ٹھیک لائیسنس نال چھاپیاں نیں۔',
 	'mwe-upwiz-license-flickr-subhead' => '"لائیسنس" ناں ویکھو فلکر صفے تے  دونویں آئیکون تے لسنس ناں  تھلے دتیاں چنوتیاں نال رلنے چائیدے نیں۔',
-	'mwe-upwiz-license-usgov-head' => '{{انیک:$1|ایہ کم |ایہ کم} امریکی سرکار نے بناۓ سن۔',
+	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|ایہ کم |ایہ کم}} امریکی سرکار نے بناۓ سن۔',
 	'mwe-upwiz-license-misc' => 'رلیاں ملیاں وجہاں',
 	'mwe-upwiz-license-custom-head' => 'صرف گرو: کوڈ لائیسنس دسو جیہڑا ایتھے نئیں دسیا گیا۔',
-	'mwe-upwiz-license-confirm-remove' => 'کیا توانوں یقین اے جے تسیں {{انیک:$1|ایہ فائل|ایہ فائلاں}}  نوں ہٹانا چاندے او۔',
+	'mwe-upwiz-license-confirm-remove' => 'کیا توانوں یقین اے جے تسیں {{PLURAL:$1|ایہ فائل|ایہ فائلاں}}  نوں ہٹانا چاندے او۔',
 	'mwe-upwiz-license-confirm-remove-title' => 'ہٹان پکا کرو',
 	'mwe-upwiz-license-external' => 'ایہ فائل تھلے دتے گۓ لائیسنس $1 تے:<b>$2</b>',
 	'mwe-upwiz-license-external-invalid' => 'اے فائل ایس لائیسنس تھلے آندی اے $1: <b>$2</b>۔  پر ایہ لائیسنس ایس تھاں تے چلن لئی ٹھیک نئیں۔',
