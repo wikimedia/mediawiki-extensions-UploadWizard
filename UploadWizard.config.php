@@ -415,6 +415,9 @@ return array(
 	'enableFormData' => true,
 
 	// should multi-file select be available in supporting browsers?
-	'enableMultiFileSelect' => true
+	'enableMultiFileSelect' => true,
 	
+	// should chunked uploading be enabled? false for now since the backend isn't really ready.
+	'enableChunked' => false,
+
 );
