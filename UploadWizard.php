@@ -45,7 +45,7 @@ foreach ( array(
 		'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials',
 		'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials',
 		) as $module => $dir ) {
-	$wgAutoloadLocalClasses[$module] = $dir . '/' . $module . '.php';
+	$wgAutoloadClasses[$module] = $dir . '/' . $module . '.php';
 }
 
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
