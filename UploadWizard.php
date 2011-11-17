@@ -81,6 +81,9 @@ $wgGroupPermissions['bot'             ]['upwizcampaigns'] = false;
 $wgGroupPermissions['sysop'           ]['upwizcampaigns'] = true;
 $wgGroupPermissions['upwizcampeditors']['upwizcampaigns'] = true;
 
+$wgAddGroups['sysop'][] = 'upwizcampeditors';
+$wgRemoveGroups['sysop'][] = 'upwizcampeditors';
+
 // Init the upload wizard config array
 // UploadWizard.config.php includes default configuration
 // any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
