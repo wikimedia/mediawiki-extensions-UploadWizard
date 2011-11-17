@@ -42,18 +42,20 @@
 		 */
 		getCategoriesByPrefix: function( prefix, callback, err ) {		
 
+			// fetch with allpages to only get categories that have a corresponding description page.
 			var params = {
-				'list': 'allcategories',
-				'acprefix': prefix 
+				'list': 'allpages',
+				'apprefix': prefix,
+				'apnamespace': mw.config.get('wgNamespaceIds').category
 			};
 
 			var ok = function( data ) {
 				var texts = [];
-				if ( data.query && data.query.allcategories ) { 
+				if ( data.query && data.query.allpages ) { 
 					// API returns an array of objects like
-					// allcategories: [ {'*':'foo'}, {'*':'bar'} ]
-					$.each( data.query.allcategories, function( i, category ) {
-						texts.push( category['*'] );
+					// allpages: [ {'*':'foo'}, {'*':'bar'} ]
+					$.each( data.query.allpages, function( i, category ) {
+						texts.push( category.title.substr(9) ); // the substr removes Category: from the title.
 					} );
 				}
 				callback( texts );
