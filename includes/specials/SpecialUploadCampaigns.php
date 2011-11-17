@@ -81,9 +81,12 @@ class SpecialUploadCampaigns extends SpecialPage {
 	protected function displayUploadCamaigns() {
 		$this->displayAddNewControl();
 
-		$dbr = wfGetDB( DB_SLAVE );
+		// If the refresh flag is set, fetch from the master.
+		// This is to ensure changes show up right away for the person that makes then
+		// instead of getting hidden due to replag on installs with multiple db servers.
+		$db = wfGetDB( $this->getRequest()->getCheck( 'refresh' ) ? DB_MASTER : DB_SLAVE );
 
-		$campaigns = $dbr->select(
+		$campaigns = $db->select(
 			'uw_campaigns',
 			array(
 				'campaign_id',

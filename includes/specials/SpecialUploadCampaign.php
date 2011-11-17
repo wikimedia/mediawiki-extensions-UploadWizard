@@ -152,7 +152,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	}
 
 	public function onSuccess() {
-		$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaigns' )->getLocalURL() );
+		$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaigns' )->getLocalURL( array( 'refresh' => '1' ) ) );
 	}
 
 }
