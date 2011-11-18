@@ -10171,6 +10171,7 @@ $1',
 
 /** Japanese (日本語)
  * @author Akaniji
+ * @author Fryed-peach
  * @author Hosiryuhosi
  * @author Iwai.masaharu
  * @author Kanon und wikipedia
@@ -10439,6 +10440,7 @@ $1文字より長くしてください。',
 	'mwe-upwiz-campaigns-disabled' => '無効',
 	'mwe-upwiz-campaigns-edit' => '編集',
 	'mwe-upwiz-campaigns-add' => '追加',
+	'mwe-upwiz-campaigns-delete' => '削除',
 );
 
 /** Georgian (ქართული)
