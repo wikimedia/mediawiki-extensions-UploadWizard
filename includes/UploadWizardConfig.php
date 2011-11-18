@@ -111,4 +111,22 @@ class UploadWizardConfig {
 		return array();
 	}
 	
+	/**
+	 * Get a list of available third party licenses from the config.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @return array
+	 */
+	public static function getThirdPartyLicenses() {
+		$thirdParty = self::getSetting( 'licensesThirdParty' );
+		$licenses = array();
+		
+		foreach ( $thirdParty['licenseGroups'] as $group ) {
+			$licenses = array_merge( $licenses, $group['licenses'] );
+		}
+		
+		return $licenses;
+	}
+	
 }

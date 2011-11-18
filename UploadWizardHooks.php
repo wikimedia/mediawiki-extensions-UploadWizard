@@ -500,8 +500,22 @@ class UploadWizardHooks {
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
-			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
 			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
+			
+			$defOption = array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' );
+			
+			$preferences['upwiz_deflicensetype'] = array(
+				'type' => 'radio',
+				'label-message' => 'mwe-upwiz-prefs-def-licensetype',
+				'section' => 'uploads',
+				'options' => array(
+					$defOption,
+					wfMsg( 'mwe-upwiz-prefs-def-license-ownwork' ) => 'ownwork',
+					wfMsg( 'mwe-upwiz-prefs-def-license-3rdparty' ) => 'thirdparty',
+				)
+			);
+			
+			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
 			
 			$licenses = array();
 			
@@ -509,12 +523,28 @@ class UploadWizardHooks {
 				$licenses[wfMsg( $licenseConfig[$license]['msg'] )] = $license;
 			}
 			
-			$defOption = array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' );
 			$licenses = array_merge( $defOption, $licenses );
 			
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
 				'label-message' => 'mwe-upwiz-prefs-def-license',
+				'section' => 'uploads',
+				'options' => $licenses
+			);
+			
+			$thirdParty = UploadWizardConfig::getSetting( 'licensesThirdParty' );
+			
+			$licenses = array();
+			
+			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
+				$licenses[wfMsg( $licenseConfig[$license]['msg'] )] = $license;
+			}
+			
+			$licenses = array_merge( $defOption, $licenses );
+			
+			$preferences['upwiz_def3rdparty'] = array(
+				'type' => 'radio',
+				'label-message' => 'mwe-upwiz-prefs-def-3rdparty',
 				'section' => 'uploads',
 				'options' => $licenses
 			);

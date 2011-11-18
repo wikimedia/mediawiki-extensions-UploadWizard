@@ -148,6 +148,18 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['licensesOwnWork']['defaults'] = array( $defaultLicense );
 		}
 		
+		$thirdPartyDefault = $this->getUser()->getOption( 'upwiz_def3rdparty' );
+		
+		if ( $thirdPartyDefault !== 'default' && in_array( $thirdPartyDefault, UploadWizardConfig::getThirdPartyLicenses() ) ) {
+			$config['licensesThirdParty']['defaults'] = array( $thirdPartyDefault );
+		}
+		
+		$licenseTypeDefault = $this->getUser()->getOption( 'upwiz_deflicensetype' );
+		
+		if ( $licenseTypeDefault !== 'default' && $config['ownWorkOption'] === 'choice' ) {
+			$config['ownWorkOption'] = $licenseTypeDefault === 'ownwork' ? 'own' : 'notown';
+		}
+		
 		$this->getOutput()->addScript( 
 			Skin::makeVariablesScript( 
 				array(

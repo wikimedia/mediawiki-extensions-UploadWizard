@@ -86,6 +86,8 @@ $wgAddGroups['sysop'][] = 'upwizcampeditors';
 $wgRemoveGroups['sysop'][] = 'upwizcampeditors';
 
 $wgDefaultUserOptions['upwiz_deflicense'] = 'default';
+$wgDefaultUserOptions['upwiz_def3rdparty'] = 'default';
+$wgDefaultUserOptions['upwiz_deflicensetype'] = 'default';
 
 // Init the upload wizard config array
 // UploadWizard.config.php includes default configuration
