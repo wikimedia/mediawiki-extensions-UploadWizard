@@ -144,7 +144,7 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$defaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
 		
-		if ( $defaultLicense !== 'default' ) {
+		if ( $defaultLicense !== 'default' && in_array( $defaultLicense, $config['licensesOwnWork']['licenses'] ) ) {
 			$config['licensesOwnWork']['defaults'] = array( $defaultLicense );
 		}
 		
