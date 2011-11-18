@@ -142,6 +142,12 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
 		
+		$defaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
+		
+		if ( $defaultLicense !== 'default' ) {
+			$config['licensesOwnWork']['defaults'] = array( $defaultLicense );
+		}
+		
 		$this->getOutput()->addScript( 
 			Skin::makeVariablesScript( 
 				array(

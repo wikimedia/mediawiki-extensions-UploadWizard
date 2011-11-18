@@ -9,6 +9,9 @@ return array(
 	// Upload wizard has an internal debug flag	
 	'debug' => false,
 
+	// Enable or disable the default upload license user preference
+	'enableLicensePreference' => true,
+
 	// File extensions acceptable in this wiki
 	'fileExtensions' =>  $wgFileExtensions, 
 

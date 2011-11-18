@@ -486,5 +486,41 @@ class UploadWizardHooks {
 
 		return true;
 	}
+	
+	/**
+	 * Adds the preferences of UploadWizard to the list of available ones.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
+	 *
+	 * @since 1.2
+	 *
+	 * @param User $user
+	 * @param array $preferences
+	 *
+	 * @return true
+	 */
+	public static function onGetPreferences( User $user, array &$preferences ) {
+		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
+			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
+			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
+			
+			$licenses = array();
+			
+			foreach ( $ownWork['licenses'] as $license ) {
+				$licenses[wfMsg( $licenseConfig[$license]['msg'] )] = $license;
+			}
+			
+			$defOption = array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' );
+			$licenses = array_merge( $defOption, $licenses );
+			
+			$preferences['upwiz_deflicense'] = array(
+				'type' => 'radio',
+				'label-message' => 'mwe-upwiz-prefs-def-license',
+				'section' => 'uploads',
+				'options' => $licenses
+			);
+		}
+
+		return true;
+	}
 
 }

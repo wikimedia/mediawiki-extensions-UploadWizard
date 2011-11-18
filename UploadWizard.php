@@ -70,6 +70,7 @@ $wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
+$wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
 
 $wgAvailableRights[] = 'upwizcampaigns';
 
@@ -83,6 +84,8 @@ $wgGroupPermissions['upwizcampeditors']['upwizcampaigns'] = true;
 
 $wgAddGroups['sysop'][] = 'upwizcampeditors';
 $wgRemoveGroups['sysop'][] = 'upwizcampeditors';
+
+$wgDefaultUserOptions['upwiz_deflicense'] = 'default';
 
 // Init the upload wizard config array
 // UploadWizard.config.php includes default configuration
