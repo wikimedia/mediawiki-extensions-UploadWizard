@@ -211,6 +211,7 @@ return array(
 		),
 		'custom' => array( 
 			'msg' => 'mwe-upwiz-license-custom',
+			'templates' => array( 'subst:Custom license marker added by UW' )
 		)
 	),
 
