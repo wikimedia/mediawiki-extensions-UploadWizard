@@ -574,6 +574,14 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 "Use" is the message {{msg-mw|Mwe-upwiz-step-thanks}}',
 	'mw-coolcats-confirm-new-ok' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will add the selected non-existing categories to the upload.',
 	'mw-coolcats-confirm-new-cancel' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will remove the selected non-existing categories from being added to the upload.',
+
+	'prefs-uploads' => 'Preferences tab label',
+	'mwe-upwiz-prefs-def-license' => 'Form input label',
+	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
+	'mwe-upwiz-prefs-def-licensetype' => 'Form input label',
+	'mwe-upwiz-prefs-def-3rdparty' => 'Form input label',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'Radio button option',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'Radio button option',
 );
 
 /** Afrikaans (Afrikaans)
