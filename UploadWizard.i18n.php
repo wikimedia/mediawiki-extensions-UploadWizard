@@ -574,7 +574,6 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 "Use" is the message {{msg-mw|Mwe-upwiz-step-thanks}}',
 	'mw-coolcats-confirm-new-ok' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will add the selected non-existing categories to the upload.',
 	'mw-coolcats-confirm-new-cancel' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will remove the selected non-existing categories from being added to the upload.',
-
 	'prefs-uploads' => 'Preferences tab label',
 	'mwe-upwiz-prefs-def-license' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
@@ -4247,6 +4246,13 @@ $1',
 	'mw-coolcats-confirm-new' => 'Es scheint, dass du die neue Kategorie „$1“ anzulegen versuchst. Beachte dabei bitte:<ul><li>Kategorien sollten in der Regel auf Englisch sein.</li><li>Die meisten neuen Kategorien sollten eine Unterkategorie einer bereits bestehenden Kategorie sein.</li></ul>Im Allgemeinen sollten nur Experten eine neue Kategorie anlegen.',
 	'mw-coolcats-confirm-new-ok' => 'Diese Kategorie dennoch hinzufügen',
 	'mw-coolcats-confirm-new-cancel' => 'Doch nicht',
+	'prefs-uploads' => 'Hochgeladene Dateien',
+	'mwe-upwiz-prefs-def-license' => 'Standardlizenz für eigene Werke',
+	'mwe-upwiz-prefs-def-license-def' => 'Den Standard verwenden, gleich welcher er entspricht',
+	'mwe-upwiz-prefs-def-licensetype' => 'Standardlizenztyp',
+	'mwe-upwiz-prefs-def-3rdparty' => 'Standardlizenz für eine dritte Partei',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'Eigenes Werk',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'Dritte Partei',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -8036,6 +8042,12 @@ $1',
 	'mw-coolcats-confirm-new' => 'נראה שאתם מוסיפים קטגוריה חדשה, "$1". שימו לב:<ul><li>קטגוריות בדרך כלל אמורות להיות באנגלית.</li><li>רוב הקטגוריות החדשות צריכות להיות תת־קטגוריות של קטגוריה קיימת..</li></ul>בדרך כלל רק מומחים אמורים להוסיף קטגוריה.',
 	'mw-coolcats-confirm-new-ok' => 'להוסיף את הקטגוריה הזאת בכל זאת',
 	'mw-coolcats-confirm-new-cancel' => 'לא חשוב',
+	'mwe-upwiz-prefs-def-license' => 'רישיון ליצירה עצמית לפי בררת המחדל',
+	'mwe-upwiz-prefs-def-license-def' => 'להשתמש בבררת המחדל',
+	'mwe-upwiz-prefs-def-licensetype' => 'סוג רישיון לפי בררת המחדל',
+	'mwe-upwiz-prefs-def-3rdparty' => 'רישיון צד שלישי לפי בררת המחדל',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'יצירה עצמית',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'צד שלישי',
 );
 
 /** Hindi (हिन्दी)
@@ -9263,6 +9275,9 @@ $1',
 	'mw-coolcats-confirm-new' => 'Il pare que tu tenta adder un nove categoria, "$1". Attention:<ul><li>Le nomines del categorias debe generalmente esser in anglese.</li><li>Le major parte del nove categorias debe esser un subcategoria de un categoria existente.</li></ul>In general, solmente expertos deberea crear un categoria.',
 	'mw-coolcats-confirm-new-ok' => 'Adder iste categoria totevia',
 	'mw-coolcats-confirm-new-cancel' => 'Cancellar',
+	'prefs-uploads' => 'Incargamentos',
+	'mwe-upwiz-prefs-def-license' => 'Licentia predefinite de un obra proprie',
+	'mwe-upwiz-prefs-def-license-def' => 'Usar le option predefinite',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -12387,6 +12402,13 @@ $1',
 	'mw-coolcats-confirm-new' => 'Се чини дека сакате да додадете нова категорија насловена како „$1“. Имајте на ум:<ul><li>Категориите обично треба да се на англиски јазик.</li><li>Највеќето нови категории треба да бидат поткатегории на веќе постоечка категорија.</li></ul>Општо земено, категории треба да додаваат само стручни корисници.',
 	'mw-coolcats-confirm-new-ok' => 'Сепак додај ја',
 	'mw-coolcats-confirm-new-cancel' => 'Тогаш, ништо',
+	'prefs-uploads' => 'Подигања',
+	'mwe-upwiz-prefs-def-license' => 'Основно-зададена лиценца за сопствени дела',
+	'mwe-upwiz-prefs-def-license-def' => 'Користи по основно',
+	'mwe-upwiz-prefs-def-licensetype' => 'Стандардна лиценца',
+	'mwe-upwiz-prefs-def-3rdparty' => 'Стандардна лиценца од трето лице',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'Сопствено дело',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'Трето лице',
 );
 
 /** Malayalam (മലയാളം)
@@ -13055,6 +13077,13 @@ $1',
 	'mw-coolcats-confirm-new' => 'Nampaknya anda cuba menambahkan kategori baru, "$1". Awas:<ul><li>Kategori sepatutnya dalam bahasa Inggeris.</li><li>Kategori baru selalunya patut dijadikan subkategori kepada kategori yang sedia ada.</li></ul>Secara amnya, hanya golongan pakar yang patut menambahkan kategori.',
 	'mw-coolcats-confirm-new-ok' => 'Tambahkan kategori ini walau apapun',
 	'mw-coolcats-confirm-new-cancel' => 'Tak apalah',
+	'prefs-uploads' => 'Muat naikan',
+	'mwe-upwiz-prefs-def-license' => 'Lesen karya sendiri asali',
+	'mwe-upwiz-prefs-def-license-def' => 'Gunakan apa sahaja asalinya',
+	'mwe-upwiz-prefs-def-licensetype' => 'Jenis lesen asali',
+	'mwe-upwiz-prefs-def-3rdparty' => 'Lesen pihak ketiga asali',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'Karya sendiri',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'Karya pihak ketiga',
 );
 
 /** Burmese (မြန်မာဘာသာ)
@@ -13881,6 +13910,13 @@ $1',
 	'mw-coolcats-confirm-new' => 'Het lijkt erop dat u een nieuwe categorie probeert toe te voegen, "$1". Let op:<ul><li>Categorieën moeten meestal in het Engels zijn.</li><li>De meeste nieuwe categorieën moeten een subcategorie zijn van een bestaande categorie.</li></ul>In het algemeen zouden alleen experts een categorie moeten toevoegen.',
 	'mw-coolcats-confirm-new-ok' => 'Toch deze categorie toevoegen',
 	'mw-coolcats-confirm-new-cancel' => 'Laat maar',
+	'prefs-uploads' => 'Uploads',
+	'mwe-upwiz-prefs-def-license' => 'Standaardlicentie voor eigen werk',
+	'mwe-upwiz-prefs-def-license-def' => 'De standaard gebruiken',
+	'mwe-upwiz-prefs-def-licensetype' => 'Standaard licentietype',
+	'mwe-upwiz-prefs-def-3rdparty' => 'Standaard licentie derde partij',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'Eigen werk',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'Derde partij',
 );
 
 /** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
@@ -18142,7 +18178,7 @@ $1',
 	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'Ime vadnice na Wikimediini Zbirki. $1 bo nadomeščeno s kodo jezika',
 	'mwe-upwiz-campaign-conf-tutorialWidth' => 'Širina, na katero naj skrčim vadnico',
 	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'Koordinate imagemap gumba »plošče za pomoči« vadnice',
-	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'Privzeto dovoljenje lastnega dela',
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'Privzeto dovoljenje lastnega dela:',
 	'mwe-upwiz-campaign-conf-idField' => 'Wikibesedilo polja id. Primer: <nowiki>{{Rijksmonument|$1}}</nowiki>. Prazno ne prikaže polja.',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'Besedilo oznake polja id',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Ime strani z besedilom za oznako polja id. $1 bo nadomeščeno s kodo jezika',
@@ -18153,6 +18189,13 @@ $1',
 	'mw-coolcats-confirm-new' => 'Zdi se, da poskušate dodati novo kategorijo, »$1«. Bodite pozorni:<ul><li>Kategorije naj bodo po navadi v angleščini.</li><li>Večina novih kategorij naj bo podkategorija obstoječe kategorije.</li></ul>Na splošno bi naj samo strokovnjaki dodajali kategorijo.',
 	'mw-coolcats-confirm-new-ok' => 'Vseeno dodaj kategorijo',
 	'mw-coolcats-confirm-new-cancel' => 'Pozabi',
+	'prefs-uploads' => 'Nalaganja',
+	'mwe-upwiz-prefs-def-license' => 'Privzeto dovoljenje lastnega dela',
+	'mwe-upwiz-prefs-def-license-def' => 'Uporabi kar koli je privzeto',
+	'mwe-upwiz-prefs-def-licensetype' => 'Privzeta vrsta dovoljenja',
+	'mwe-upwiz-prefs-def-3rdparty' => 'Privzeto dovoljenje za dela tretjih oseb',
+	'mwe-upwiz-prefs-def-license-ownwork' => 'Lastno delo',
+	'mwe-upwiz-prefs-def-license-3rdparty' => 'Delo tretje osebe',
 );
 
 /** Somali (Soomaaliga)
@@ -19134,6 +19177,13 @@ $messages['te'] = array(
 $messages['tet'] = array(
 	'mwe-upwiz-remove' => 'Hasai',
 	'mwe-upwiz-categories-add' => 'Tau tan',
+);
+
+/** Thai (ไทย)
+ * @author Horus
+ */
+$messages['th'] = array(
+	'mwe-upwiz-upload' => 'อัปโหลด',
 );
 
 /** Tagalog (Tagalog)
@@ -20203,7 +20253,7 @@ $1',
 	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'Tên của hướng dẫn tại Wikimedia Commons. “$1” sẽ được thay bằng mã ngôn ngữ.',
 	'mwe-upwiz-campaign-conf-tutorialWidth' => 'Chiều rộng để hướng dẫn vừa',
 	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'Tọa độ của nút “bàn giúp đỡ” trong bản đồ hình ảnh của hướng dẫn',
-	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'Giấy phép mặc định cho tác phẩm do người tải lên tạo ra',
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'Giấy phép mặc định cho tác phẩm do người tải lên tạo ra:',
 	'mwe-upwiz-campaign-conf-idField' => 'Văn bản wiki trong hộp ID, ví dụ <nowiki>{{Rijksmonument|$1}}</nowiki>. Để trống để ẩn hộp.',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'Văn bản nhãn hộp ID',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Tên trang có văn bản nhãn hộp ID. “$1” sẽ được thay bằng mã ngôn ngữ.',
@@ -20214,6 +20264,9 @@ $1',
 	'mw-coolcats-confirm-new' => 'Hình như bạn muốn thêm thể loại “$1” mới. Xin lưu ý:<ul><li>Các tên thể loại thường nên bằng tiếng Anh.</li><li>Các thể loại mới thường phải được xếp vào những thể loại đã tồn tại.</li></ul>Nói chung, chỉ có các chuyên gia nên thêm một thể loại chưa có.',
 	'mw-coolcats-confirm-new-ok' => 'Cứ thêm thể loại này',
 	'mw-coolcats-confirm-new-cancel' => 'Hủy bỏ',
+	'prefs-uploads' => 'Tập tin tải lên',
+	'mwe-upwiz-prefs-def-license' => 'Giấy phép mặc định cho tác phẩm do người tải lên tạo ra',
+	'mwe-upwiz-prefs-def-license-def' => 'Sử dụng mặc định',
 );
 
 /** Walloon (Walon)
