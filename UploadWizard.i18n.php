@@ -17,6 +17,7 @@ $messages['en'] = array(
 	'mwe-upwiz-uploadcampaigns' => 'Upload campaigns',
 	'mwe-upwiz-uploadcampaign' => 'Upload campaign configuration',
 	'right-upwizcampaigns' => 'Configure Upload Wizard campaigns',
+	'action-upwizcampaigns' => 'configure upload campaigns',
 	'group-upwizcampeditors' => 'Upload Wizard campaign editors',
 	'group-upwizcampeditors-member' => '{{GENDER:$1|Upload Wizard campaign editor}}',
 	'grouppage-upwizcampeditors' => 'Project:Upload Wizard campaign editors',
