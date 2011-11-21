@@ -508,8 +508,7 @@ class UploadWizardHooks {
 				'type' => 'radio',
 				'label-message' => 'mwe-upwiz-prefs-def-licensetype',
 				'section' => 'uploads',
-				'options' => array(
-					$defOption,
+				'options' => $defOption + array(
 					wfMsg( 'mwe-upwiz-prefs-def-license-ownwork' ) => 'ownwork',
 					wfMsg( 'mwe-upwiz-prefs-def-license-3rdparty' ) => 'thirdparty',
 				)
