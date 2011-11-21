@@ -232,7 +232,7 @@ return array(
 		'licenses' => array(
 			'cc-by-sa-3.0',
 			'cc-by-3.0',
-			'own-pd'
+			'cc-zero'
 		),
 		'defaults' => array( 'cc-by-sa-3.0' )
 	),
@@ -273,10 +273,8 @@ return array(
 				'head' => 'mwe-upwiz-license-public-domain-usa-head',
 				'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
 				'licenses' => array( 
-					'pd-old-100',
-					'pd-old', 
-					'pd-art',
 					'pd-us', 
+					'pd-art',
 				)
 			),
 			array(
