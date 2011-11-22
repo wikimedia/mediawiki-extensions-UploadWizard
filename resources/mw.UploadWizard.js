@@ -916,7 +916,10 @@ mw.UploadWizard.prototype = {
 		return $j( '<input/>' ).addClass( 'mwe-title ui-corner-all' )
 			.readonly()
 			.val( s )
-			.focus( function() { this.select(); } );
+			.click( function() { 
+				this.focus();
+				this.select(); 
+			} );
 	},
 
 	/**
