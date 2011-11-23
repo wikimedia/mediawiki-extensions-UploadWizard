@@ -487,7 +487,7 @@ mw.UploadWizardUpload.prototype = {
 		if (!mw.isDefined( props ) ) {
 			props = [];
 		}
-
+		
 		var params = {
 			'prop':	'stashimageinfo',
 			'siifilekey': _this.fileKey,

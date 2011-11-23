@@ -396,6 +396,7 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 	'uploadwizard-desc' => 'Description of extension. It refers to [http://blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
 	'mwe-upwiz-uploadcampaigns' => 'Special page title. Can also be worded as "campaigns for the promotion of uploading".',
 	'mwe-upwiz-uploadcampaign' => 'Special page title.',
+	'action-upwizcampaigns' => '{{doc-action|upwizcampaigns}}',
 	'right-upwizcampaigns' => '{{doc-right|upwizcampaigns}}
 
 "Upload campaign" can also be worded as "a campaign for the promotion of uploading".',
