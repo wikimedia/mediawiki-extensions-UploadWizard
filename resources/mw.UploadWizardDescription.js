@@ -16,9 +16,10 @@ mw.UploadWizardDescription = function( languageCode, required ) {
 
 	var fieldnameDiv = $j( '<div class="mwe-upwiz-details-fieldname" />' );
 	if ( required ) {
-		fieldnameDiv.requiredFieldLabel().append( gM( 'mwe-upwiz-desc' ) ).addHint( 'description' );
+		fieldnameDiv.requiredFieldLabel();
 	}
 	
+	fieldnameDiv.append( gM( 'mwe-upwiz-desc' ) ).addHint( 'description' );
 
 	// Logic copied from MediaWiki:UploadForm.js
 	// Per request from Portuguese and Brazilian users, treat Brazilian Portuguese as Portuguese.

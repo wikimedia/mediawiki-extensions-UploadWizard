@@ -325,8 +325,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	var hasIdField = mw.UploadWizard.config.idField ? false : true;
-	_this.addDescription( hasIdField, mw.config.get( 'wgUserLanguage' ) );
+	_this.addDescription( !mw.UploadWizard.config.idField, mw.config.get( 'wgUserLanguage' ), false );
 	$j( containerDiv ).append( _this.div );
 
 	if( UploadWizardConfig.useTitleBlacklistApi ) {
@@ -538,19 +537,23 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Add a new description
 	 */
-	addDescription: function( required, languageCode ) {
+	addDescription: function( required, languageCode, allowRemove ) {
 		var _this = this;
 		if ( typeof required === 'undefined' ) {
 			required = false;
-		}		
+		}	
 	
 		if ( typeof languageCode === 'undefined' ) { 
 			languageCode = mw.LanguageUpWiz.UNKNOWN;
 		}
+		
+		if ( typeof allowRemove === 'undefined' ) { 
+			allowRemove = true;
+		}
 
-		var description = new mw.UploadWizardDescription( languageCode, required  );
+		var description = new mw.UploadWizardDescription( languageCode, required );
 
-		if ( ! required ) {
+		if ( !required && allowRemove ) {
 			$j( description.div  ).append( 
 				 $j.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
 			);
