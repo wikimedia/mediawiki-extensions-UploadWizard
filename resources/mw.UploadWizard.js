@@ -419,7 +419,7 @@ mw.UploadWizard.prototype = {
 	newUpload: function( file ) {
 		var _this = this;
 
-		if ( _this.uploads.length == _this.maxUploads ) {
+		if ( _this.uploads.length >= _this.maxUploads ) {
 			return false;
 		}
 
@@ -450,6 +450,11 @@ mw.UploadWizard.prototype = {
 	 */
 	setUploadFilled: function( upload ) {
 		var _this = this;
+		
+		if ( _this.uploads.length >= _this.maxUploads ) {
+			_this.removeUpload( upload );
+			return false;
+		}
 
 		_this.uploads.push( upload );
 
