@@ -399,6 +399,9 @@ class UploadWizardHooks {
 				'wm-license-cc-by-sa-3.0-no-text',
 				'wm-license-cc-by-sa-3.0-pl-text',
 				'wm-license-cc-by-sa-3.0-ro-text',
+				'mwe-upwiz-to-many-files-ok',
+				'mwe-upwiz-to-many-files-text',
+				'mwe-upwiz-to-many-files',
 			),
 			'group' => 'ext.uploadWizard'
 		),

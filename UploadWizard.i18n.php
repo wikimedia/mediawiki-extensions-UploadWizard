@@ -214,6 +214,9 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'The wikitext you entered is too long.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'This does not seem to be valid wikitext, or does not contain a license.',
 	'mwe-upwiz-details-error-count' => 'There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the errors, and try submitting again.',
+	'mwe-upwiz-to-many-files-ok' => 'Ok',
+	'mwe-upwiz-to-many-files-text' => 'You can only upload $1 {{PLURAL:$1|file|files}} in one go. You tried to add $2 {{PLURAL:$2|file|files}}, so $3 {{PLURAL:$3|file|files}} have been omitted.',
+	'mwe-upwiz-to-many-files' => 'To many files',
 
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
@@ -584,6 +587,9 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-prefs-def-3rdparty' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-ownwork' => 'Radio button option',
 	'mwe-upwiz-prefs-def-license-3rdparty' => 'Radio button option',
+	'mwe-upwiz-to-many-files-ok' => 'Ok button text',
+	'mwe-upwiz-to-many-files-text' => 'Error message informing the user there are to manuy uploads in a dialog. Each param is a file count.',
+	'mwe-upwiz-to-many-files' => 'Error dialog title',
 );
 
 /** Afrikaans (Afrikaans)
