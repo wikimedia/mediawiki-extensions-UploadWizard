@@ -330,14 +330,29 @@ mw.UploadWizardUpload.prototype = {
 					// and create new UploadWizardUpload objects and corresponding interfaces for the rest.
 					//
 					// don't process the very first file, since that's this instance's job.
-					$j.each( files.slice(1), function( i, file ) {
-						_this.wizard.newUpload( file );
-					} );
-					_this.wizard.updateFileCounts();
 					
 					// this input will use the last one.
 					this.file = files[0];
-
+					
+					var toManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config[ 'maxUploads' ];
+					
+					if ( toManyFiles ) {
+						var remainingFiles = mw.UploadWizard.config[ 'maxUploads' ] - _this.wizard.uploads.length;
+						var leftoverFiles = files.length - remainingFiles;
+						var files = remainingFiles > 1 ? files.slice( 1, remainingFiles - 1 ) : [];
+						// TODO: display some notification that only x of n files where uploaded.
+					}
+					else {
+						var files = files.slice( 1 );
+					}
+					
+					if ( files.length > 0 ) {
+						$j.each( files, function( i, file ) {
+							_this.wizard.newUpload( file );
+						} );
+						_this.wizard.updateFileCounts();
+					}
+					
 					// TODO check max upload size, alert user if too big
 					this.transportWeight = this.file.size;
 					if ( !mw.isDefined( this.imageinfo ) ) {
