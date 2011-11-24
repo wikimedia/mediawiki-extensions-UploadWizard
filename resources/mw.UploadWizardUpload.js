@@ -338,7 +338,7 @@ mw.UploadWizardUpload.prototype = {
 					
 					if ( tooManyFiles ) {
 						var remainingFiles = mw.UploadWizard.config[ 'maxUploads' ] - _this.wizard.uploads.length;
-						_this.showToManyFilesWarning( files.length - remainingFiles );
+						_this.showTooManyFilesWarning( files.length - remainingFiles );
 						var files = remainingFiles > 1 ? files.slice( 1, remainingFiles - 1 ) : [];
 					}
 					else {
@@ -388,10 +388,10 @@ mw.UploadWizardUpload.prototype = {
 	 * since they went over the max files limit.
 	 * @param {Integer}
 	 */
-	showToManyFilesWarning: function( filesIgnored ) {
+	showTooManyFilesWarning: function( filesIgnored ) {
 		var buttons = [
 			{ 
-				text: gM( 'mwe-upwiz-to-many-files-ok' ),
+				text: gM( 'mwe-upwiz-too-many-files-ok' ),
 				click: function() { 
 					$( this ).dialog( "close" ); 
 				}
@@ -399,7 +399,7 @@ mw.UploadWizardUpload.prototype = {
 		];
 		$j( '<div></div>' )
 			.msg(
-				'mwe-upwiz-to-many-files-text',
+				'mwe-upwiz-too-many-files-text',
 				mw.UploadWizard.config[ 'maxUploads' ],
 				mw.UploadWizard.config[ 'maxUploads' ] + filesIgnored,
 				filesIgnored
@@ -408,7 +408,7 @@ mw.UploadWizardUpload.prototype = {
 				width: 500,
 				zIndex: 200000,
 				autoOpen: true,
-				title: gM( 'mwe-upwiz-to-many-files' ),
+				title: gM( 'mwe-upwiz-too-many-files' ),
 				modal: true,
 				buttons: buttons
 			} );
