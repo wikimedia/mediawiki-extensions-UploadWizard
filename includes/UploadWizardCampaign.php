@@ -242,7 +242,7 @@ class UploadWizardCampaign {
 				if ( array_key_exists( $setting, $globalConf ) ) {
 					$config[$setting] = array_merge( array( 'default' => $globalConf[$setting] ), $data );
 				}
-				else if ( in_array( $setting, array( 'defaultOwnWorkLicence' ) ) ) {
+				elseif ( in_array( $setting, array( 'defaultOwnWorkLicence' ) ) ) {
 					// There are some special cases where a setting does not have
 					// a direct equivalent in the global config, hence the in_array().
 					$config[$setting] = $data;
@@ -486,16 +486,16 @@ class UploadWizardCampaign {
 	protected function writePropsToDB( DatabaseBase $dbw ) {
 		$success = true;
 
-		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config ) 
+		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config )
 			&& array_key_exists( 'licensesOwnWork', $this->config )
 			&& !in_array( $this->config['defaultOwnWorkLicence'], $this->config['licensesOwnWork'] ) ) {
 				$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
 		}
-		
+
 		$dbw->begin();
 
 		// TODO: it'd be better to serialize() arrays
-		
+
 		foreach ( $this->config as $prop => $value ) {
 			$success &= $dbw->insert(
 				'uw_campaign_conf',
