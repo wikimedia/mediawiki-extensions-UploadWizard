@@ -121,6 +121,12 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			_this.$form = $j( '<form />' );
 
 			_this.$authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
+			
+			var defaultLicense = mw.UploadWizard.config.licensesOwnWork.defaults[0];
+			var defaultLicenseURL = mw.isDefined ( mw.UploadWizard.config.licenses[defaultLicense].url ) ? 
+						mw.UploadWizard.config.licenses[defaultLicense].url :
+						'#missing license URL';
+			var defaultLicenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': defaultLicenseURL } );
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert',
@@ -128,7 +134,8 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 						 _this.$authorInput2 ),
 				$j( '<p class="mwe-small-print"></p>' ).msg(
 					'mwe-upwiz-source-ownwork-assert-note',
-					gM( 'mwe-upwiz-license-' + mw.UploadWizard.config.licensesOwnWork.defaults[0] )
+					gM( 'mwe-upwiz-license-' + defaultLicense, uploadCount, defaultLicenseLink ),
+					uploadCount
 				) 
 			); 
 			

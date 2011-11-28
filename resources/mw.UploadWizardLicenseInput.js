@@ -215,6 +215,11 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	createInputElementLabel: function( license, $input ) {	
 		var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
+
+		// The URL is optional, but if the message includes it as $2, we surface the fact
+		// that it's misisng.
+		var licenseURL = mw.isDefined( license.props['url'] ) ? license.props.url : '#missing license URL';
+		var licenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
 		var $icons = $j( '<span></span>' );
 		if ( mw.isDefined( license.props['icons'] ) ) {
 			$j.each( license.props.icons, function( i, icon ) { 
@@ -223,7 +228,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		}
 		return $j( '<label />' )
 			.attr( { 'for': $input.attr('id') } )
-			.msg( messageKey, this.count )
+			.msg( messageKey, this.count, licenseLink )
 			.append( $icons );
 	},
 
