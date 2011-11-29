@@ -473,15 +473,15 @@ mw.UploadWizardDeedChooser.prototype = {
 		$deedSelector.removeClass( 'selected' );
 		$j.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
 			var $form = $j( form );
+			$j.each( $form.find(".mwe-upwiz-hint"), function( i, hint ) {
+				$j( hint ).tipsy("hide");
+			} );
 			if ( $form.parents().is( ':hidden' ) ) {
 				$form.hide();
 			} else {
 				$form.slideUp( 500 );
 			}
 		} );
-		// Hide tipsy balloons
-		$("#mwe-upwiz-source-hint").tipsy("hide");
-		$("#mwe-upwiz-author-hint").tipsy("hide");
 	},
 
 	/**
