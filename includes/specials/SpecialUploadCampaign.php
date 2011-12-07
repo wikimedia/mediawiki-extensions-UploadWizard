@@ -79,13 +79,6 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$fields['Campaignname'] = array ( 'type' => 'text', 'default' => $this->subPage, 'label-message' => 'mwe-upwiz-campaign-name' );
 		$fields['Campaignenabled'] = array ( 'type' => 'check', 'default' => $enabled, 'label-message' => 'mwe-upwiz-campaign-enabled' );
 
-		// show _ALL_ the licenses!
-		$standardConfig = UploadWizardConfig::getConfig();
-		foreach ( $standardConfig['licenses'] as $key => $license ) {
-			$configFields['licensesOwnWork']['options'][ wfMsg( $license['msg'] ) ] = $key;
-			$configFields['defaultOwnWorkLicence']['options'][ wfMsg( $license['msg'] ) ] = $key;
-		}
-
 		foreach ( $configFields as $name => $data ) {
 			$data['label-message'] = 'mwe-upwiz-campaign-conf-' . $name;
 

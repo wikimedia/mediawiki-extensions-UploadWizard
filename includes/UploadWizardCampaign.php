@@ -213,11 +213,11 @@ class UploadWizardCampaign {
 			),
 		);
 
-		foreach ( $globalConfig['licensesOwnWork']['licenses'] as $license ) {
-			$licenceMsg = UploadWizardHooks::getLicenseMessage( $license, $globalConfig['licenses'] );
-			$config['licensesOwnWork']['options'][$licenceMsg] = $license;
+		foreach ( $globalConfig['licenses'] as $licenseName => $licenseDate ) {
+			$licenceMsg = UploadWizardHooks::getLicenseMessage( $licenseName, $globalConfig['licenses'] );
+			$config['licensesOwnWork']['options'][$licenceMsg] = $licenseName;
 		}
-
+		
 		$config['defaultOwnWorkLicence']['options'] = $config['licensesOwnWork']['options'];
 
 		return $config;
