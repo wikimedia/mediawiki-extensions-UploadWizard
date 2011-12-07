@@ -114,7 +114,7 @@ return array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-es',
 			'templates' => array( 'cc-by-sa-3.0-es' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/es/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/es/' // due to multiple languages, no default legalcode
 		),
 		'cc-by-sa-3.0-hr' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-hr',
