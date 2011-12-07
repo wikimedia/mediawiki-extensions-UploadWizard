@@ -144,20 +144,18 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		$defaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
 		
-		if ( $defaultLicense !== 'default' && in_array( $defaultLicense, $config['licensesOwnWork']['licenses'] ) ) {
-			$config['licensesOwnWork']['defaults'] = array( $defaultLicense );
-		}
-		
-		$thirdPartyDefault = $this->getUser()->getOption( 'upwiz_def3rdparty' );
-		
-		if ( $thirdPartyDefault !== 'default' && in_array( $thirdPartyDefault, UploadWizardConfig::getThirdPartyLicenses() ) ) {
-			$config['licensesThirdParty']['defaults'] = array( $thirdPartyDefault );
-		}
-		
-		$licenseTypeDefault = $this->getUser()->getOption( 'upwiz_deflicensetype' );
-		
-		if ( $licenseTypeDefault !== 'default' && $config['ownWorkOption'] === 'choice' ) {
-			$config['ownWorkOption'] = $licenseTypeDefault === 'ownwork' ? 'own' : 'notown';
+		if ( $defaultLicense !== 'default' ) {
+			$defaultLicense = explode( '-', $defaultLicense, 2 );
+			$licenseType = $defaultLicense[0];
+			$defaultLicense = $defaultLicense[1];
+			
+			if ( in_array( $defaultLicense, $config['licensesOwnWork']['licenses'] )
+				|| in_array( $defaultLicense,  UploadWizardConfig::getThirdPartyLicenses() ) ) {
+				
+				$licenseGroup = $licenseType === 'ownwork' ? 'licensesOwnWork' : 'licensesThirdParty';
+				$config[$licenseGroup]['defaults'] = array( $defaultLicense );
+				$config['defaultLicenseType'] = $licenseType;
+			}
 		}
 		
 		$this->getOutput()->addScript( 

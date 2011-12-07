@@ -505,27 +505,22 @@ class UploadWizardHooks {
 		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
 			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
 			
-			$defOption = array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' );
-			
-			$preferences['upwiz_deflicensetype'] = array(
-				'type' => 'radio',
-				'label-message' => 'mwe-upwiz-prefs-def-licensetype',
-				'section' => 'uploads',
-				'options' => $defOption + array(
-					wfMsg( 'mwe-upwiz-prefs-def-license-ownwork' ) => 'ownwork',
-					wfMsg( 'mwe-upwiz-prefs-def-license-3rdparty' ) => 'thirdparty',
-				)
-			);
-			
-			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
-			
 			$licenses = array();
-			
+
+			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
 			foreach ( $ownWork['licenses'] as $license ) {
-				$licenses[wfMsg( $licenseConfig[$license]['msg'] )] = $license;
+				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
+				$licenses[wfMsgExt( 'mwe-upwiz-prefs-license-own', 'parsemag', $licenseMessage )] = 'ownwork-' . $license;
 			}
 			
-			$licenses = array_merge( $defOption, $licenses );
+			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
+				if ( $license !== 'custom' ) {
+					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
+					$licenses[wfMsgExt( 'mwe-upwiz-prefs-license-thirdparty', 'parsemag', $licenseMessage )] = 'thirdparty-' . $license;
+				}
+			}
+			
+			$licenses = array_merge( array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' ), $licenses );
 			
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
@@ -533,26 +528,28 @@ class UploadWizardHooks {
 				'section' => 'uploads',
 				'options' => $licenses
 			);
-			
-			$thirdParty = UploadWizardConfig::getSetting( 'licensesThirdParty' );
-			
-			$licenses = array();
-			
-			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
-				$licenses[wfMsg( $licenseConfig[$license]['msg'] )] = $license;
-			}
-			
-			$licenses = array_merge( $defOption, $licenses );
-			
-			$preferences['upwiz_def3rdparty'] = array(
-				'type' => 'radio',
-				'label-message' => 'mwe-upwiz-prefs-def-3rdparty',
-				'section' => 'uploads',
-				'options' => $licenses
-			);
 		}
 
 		return true;
+	}
+	
+	/**
+	 * Helper function to get the message for a license.
+	 * 
+	 * @since 1.2
+	 * 
+	 * @param string $licenseName
+	 * @param array $licenseConfig
+	 * 
+	 * @return string
+	 */
+	protected static function getLicenseMessage( $licenseName, array &$licenseConfig ) {
+		if ( array_key_exists( 'url', $licenseConfig[$licenseName] ) ) {
+			return wfMsgExt( $licenseConfig[$licenseName]['msg'], 'parseinline', '', $licenseConfig[$licenseName]['url'] );
+		}
+		else {
+			return wfMsg( $licenseConfig[$licenseName]['msg'] );
+		}
 	}
 
 }

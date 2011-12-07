@@ -43,6 +43,10 @@ return array(
 	// When not provided, the message mwe-upwiz-thanks-intro will be used.
 	'thanksLabelPage' => '',
 
+	// Default license type.
+	// Possible values: choice, ownwork, thirdparty
+	'defaultLicenseType' => 'choice',
+
 	// Should the own work option be shown, and if not, what option should be set?
 	// Possible values: choice, own, notown
 	'ownWorkOption' => 'choice',

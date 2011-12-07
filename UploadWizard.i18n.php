@@ -368,12 +368,10 @@ Please do not use wikitext or HTML here.',
 
 	// Preferences
 	'prefs-uploads' => 'Uploads',
-	'mwe-upwiz-prefs-def-license' => 'Default own work license',
+	'mwe-upwiz-prefs-def-license' => 'Default license',
 	'mwe-upwiz-prefs-def-license-def' => 'Use whatever the default is',
-	'mwe-upwiz-prefs-def-licensetype' => 'Default license type',
-	'mwe-upwiz-prefs-def-3rdparty' => 'Default third party license',
-	'mwe-upwiz-prefs-def-license-ownwork' => 'Own work',
-	'mwe-upwiz-prefs-def-license-3rdparty' => 'Third party',
+	'mwe-upwiz-prefs-license-own' => 'Own work - $1',
+	'mwe-upwiz-prefs-license-thirdparty' => "Someone else's work - $1",
 );
 
 /** Message documentation (Message documentation)

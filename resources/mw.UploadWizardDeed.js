@@ -386,14 +386,19 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 
 		deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
 
+		var selectDeedFunction = function() {
+			_this.choose( deed );
+			_this.selectDeedInterface( $deedInterface );
+			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).attr( 'checked', true );
+		};
+		
 		if ( deeds.length == 1 ) {
-			_this.onLayoutReady = function() {
-				_this.choose( deed );
-				_this.selectDeedInterface( $deedInterface );
-				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).attr( 'checked', true );
-			};
+			_this.onLayoutReady = selectDeedFunction;
 		}
 		else {
+			if ( mw.UploadWizard.config.defaultLicenseType === deed.name ) {
+				_this.onLayoutReady = selectDeedFunction;
+			}
 			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
 				if ( $j( this ).is( ':checked' )  ) {
 					_this.choose( deed );
