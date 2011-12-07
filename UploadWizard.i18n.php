@@ -215,7 +215,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'This does not seem to be valid wikitext, or does not contain a license.',
 	'mwe-upwiz-details-error-count' => 'There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the errors, and try submitting again.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'You can only upload $1 {{PLURAL:$1|file|files}} at once. You tried to add $2 {{PLURAL:$2|file|files}}, so $3 {{PLURAL:$3|file|files}} have been removed.',
+	'mwe-upwiz-too-many-files-text' => 'You can only upload $1 {{PLURAL:$1|file|files}} at once. You tried to upload $2 {{PLURAL:$2|file|files}} in total, so $3 {{PLURAL:$3|file has|files have}} been removed.',
 	'mwe-upwiz-too-many-files' => 'Too many files.',
 
 	/* LICENSES & combinations of licenses */
