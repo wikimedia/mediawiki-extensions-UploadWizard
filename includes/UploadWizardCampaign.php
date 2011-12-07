@@ -300,6 +300,11 @@ class UploadWizardCampaign {
 		$defaultConfig = self::getDefaultConfig();
 
 		foreach ( $config as $settingName => &$settingValue ) {
+			// This can happen when a campaign was created with an option that has been removed from the extension.
+			if ( !array_key_exists( $settingName, $defaultConfig ) ) {
+				continue;
+			}
+			
 			if ( is_array( $defaultConfig[$settingName]['default'] ) && !is_array( $settingValue ) ) {
 				$parts = explode( '|', $settingValue );
 				$settingValue = array();
