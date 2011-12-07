@@ -543,7 +543,7 @@ class UploadWizardHooks {
 	 * 
 	 * @return string
 	 */
-	protected static function getLicenseMessage( $licenseName, array &$licenseConfig ) {
+	public static function getLicenseMessage( $licenseName, array &$licenseConfig ) {
 		if ( array_key_exists( 'url', $licenseConfig[$licenseName] ) ) {
 			return wfMsgExt( $licenseConfig[$licenseName]['msg'], 'parseinline', '', $licenseConfig[$licenseName]['url'] );
 		}

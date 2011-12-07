@@ -214,7 +214,7 @@ class UploadWizardCampaign {
 		);
 
 		foreach ( $globalConfig['licensesOwnWork']['licenses'] as $license ) {
-			$licenceMsg = wfMsg( $globalConfig['licenses'][$license]['msg'] );
+			$licenceMsg = UploadWizardHooks::getLicenseMessage( $license, $globalConfig['licenses'] );
 			$config['licensesOwnWork']['options'][$licenceMsg] = $license;
 		}
 
