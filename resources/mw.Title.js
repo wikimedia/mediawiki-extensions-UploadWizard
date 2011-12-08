@@ -34,7 +34,7 @@
 /** 
  * Constructor
  */
-( function( $j, mw ) { 
+( function( $j, mw, undefined ) { 
 	mw.Title = function( title, namespace ) {
 		// integer namespace id
 		var ns = 0;
@@ -54,7 +54,7 @@
 		 * @return {String}
 		 */
 		function clean( s ) {
-			if ( mw.isDefined( s ) ) {
+			if ( s !== undefined ) {
 				return s.replace( /[\x00-\x1f\x23\x3a\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f\s]+/g, '_' );
 			}
 		}
@@ -153,7 +153,7 @@
 		 * @return {mw.Title} this
 		 */	
 		this.setNamespace = function( s ) { 
-			if ( !mw.isDefined( mw.Title.ns[s] ) ) { 
+			if ( mw.Title.ns[s] === undefined ) { 
 				throw new Error( 'unrecognized namespace: ' + s );
 			}
 			return this.setNamespaceById( mw.Title.ns[s] );
@@ -220,7 +220,7 @@
 			throw new Error( "couldn't parse title '" + title + "'" );
 		}
 
-		if ( mw.isDefined( namespace ) ) {
+		if ( namespace !== undefined ) {
 			this.setNamespace( namespace );
 		}
 
@@ -245,5 +245,15 @@
 		'category': 14,
 		'category_talk': 15
 	};
+
+	/**
+	 * Upper-case the first letter of a string.
+	 * @param {string}
+	 * @return {string} with first letter uppercased.
+	 */
+	mw.ucfirst = function( s ) {
+		return s.substring(0,1).toUpperCase() + s.substr(1);
+	};
+
 } )( jQuery, mediaWiki );
 

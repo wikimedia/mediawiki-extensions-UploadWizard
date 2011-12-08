@@ -11,6 +11,8 @@
  * @param API
  * @param containerDiv	The div to put the interface into
  */
+( function( mw, $j, undefined ) {
+
 mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	var _this = this;
@@ -356,13 +358,13 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			} );		
 	}
 	// make this a category picker
-	var hiddenCats = mw.isDefined( mw.UploadWizard.config.autoCategories ) ? mw.UploadWizard.config.autoCategories : [];
-	if ( mw.isDefined( mw.UploadWizard.config.autoCategory ) && mw.UploadWizard.config.autoCategory !== '' ) {
+	var hiddenCats = mw.UploadWizard.config.autoCategories === undefined ? [] : mw.UploadWizard.config.autoCategories;
+	if ( mw.UploadWizard.config.autoCategory !== undefined && mw.UploadWizard.config.autoCategory !== '' ) {
 		hiddenCats.push( mw.UploadWizard.config.autoCategory );
 	}
 
 	var missingCatsWikiText = null;
-	if ( typeof mw.UploadWizard.config.missingCategoriesWikiText !== 'undefined' 
+	if ( mw.UploadWizard.config.missingCategoriesWikiText !== undefined
 			&& mw.UploadWizard.config.missingCategoriesWikiText !== '' ) {
 		missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 	}
@@ -373,7 +375,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				api: _this.upload.api,
 				hiddenCats: hiddenCats,
 				buttontext: gM( 'mwe-upwiz-categories-add' ),
-				cats: mw.isDefined( mw.UploadWizard.config.defaultCategories ) ? mw.UploadWizard.config.defaultCategories : [],
+				cats: mw.UploadWizard.config.defaultCategories === undefined ? [] : mw.UploadWizard.config.defaultCategories,
 				missingCatsWikiText: missingCatsWikiText
 			} );
 
@@ -397,7 +399,7 @@ mw.UploadWizardDetails.prototype = {
 
 		// make sure title is valid
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
-		if ( typeof titleInputValid == 'undefined' ) {
+		if ( titleInputValid === undefined ) {
 			alert( "please wait, still checking the title for uniqueness..." );
 			return false;
 		}
@@ -500,7 +502,7 @@ mw.UploadWizardDetails.prototype = {
 			$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( completeErrorLink );
 			
 			// feedback request for titleblacklist
-			if ( mw.isDefined( mw.UploadWizard.config['blacklistIssuesPage'] ) && mw.UploadWizard.config['blacklistIssuesPage'] !== '' ) {
+			if ( mw.UploadWizard.config['blacklistIssuesPage'] !== undefined && mw.UploadWizard.config['blacklistIssuesPage'] !== '' ) {
 				var feedback = new mw.Feedback(
 					_this.api,
 					new mw.Title( mw.UploadWizard.config['blacklistIssuesPage'] )
@@ -539,15 +541,15 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	addDescription: function( required, languageCode, allowRemove ) {
 		var _this = this;
-		if ( typeof required === 'undefined' ) {
+		if ( required === undefined ) {
 			required = false;
 		}	
 	
-		if ( typeof languageCode === 'undefined' ) { 
+		if ( languageCode === undefined ) { 
 			languageCode = mw.LanguageUpWiz.UNKNOWN;
 		}
 		
-		if ( typeof allowRemove === 'undefined' ) { 
+		if ( allowRemove === undefined ) { 
 			allowRemove = true;
 		}
 
@@ -648,7 +650,7 @@ mw.UploadWizardDetails.prototype = {
 		// if we don't have EXIF or other metadata, let's use "now"
 		// XXX if we have FileAPI, it might be clever to look at file attrs, saved 
 		// in the upload object for use here later, perhaps
-		if ( !mw.isDefined( dateObj ) ) {
+		if ( dateObj === undefined ) {
 			dateObj = new Date();
 		}
 		dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
@@ -678,13 +680,13 @@ mw.UploadWizardDetails.prototype = {
 		if ( _this.upload.imageinfo.metadata ) {
 			var m = _this.upload.imageinfo.metadata;
 				
-			if ( mw.isDefined( m['gpslatitude'] ) ) {
+			if ( m['gpslatitude'] !== undefined ) {
 				$j( _this.latInput ).val( m['gpslatitude'] );
 			}
-			if ( mw.isDefined( m['gpslongitude'] ) ) {
+			if ( m['gpslongitude'] !== undefined ) {
 				$j( _this.lonInput ).val( m['gpslongitude'] );
 			}
-			if ( mw.isDefined( m['gpsaltitude'] ) ) {
+			if ( m['gpsaltitude'] !== undefined ) {
 				$j( _this.altInput ).val( m['gpsaltitude'] );
 			}
 		}
@@ -848,7 +850,7 @@ mw.UploadWizardDetails.prototype = {
 		wikiText += "=={{int:license-header}}==\n";
 		wikiText += deed.getLicenseWikiText() + "\n\n";
 		
-		if ( mw.isDefined( mw.UploadWizard.config.autoWikiText ) ) {
+		if ( mw.UploadWizard.config.autoWikiText !== undefined ) {
 			wikiText += mw.UploadWizard.config.autoWikiText;
 		}
 		
@@ -856,7 +858,7 @@ mw.UploadWizardDetails.prototype = {
 		wikiText += _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
 		
 		// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
-		if ( typeof TextCleaner != 'undefined' && typeof TextCleaner.sanitizeWikiText == 'function' ) {
+		if ( typeof TextCleaner !== 'undefined' && typeof TextCleaner.sanitizeWikiText === 'function' ) {
 			wikiText = TextCleaner.sanitizeWikiText( wikiText, true );
 		}
 
@@ -1009,3 +1011,5 @@ mw.UploadWizardDetails.prototype = {
 	}
 		
 };
+
+}) ( window.mediaWiki, jQuery );

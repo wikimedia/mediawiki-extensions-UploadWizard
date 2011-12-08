@@ -1,8 +1,6 @@
 /* mw.Api objects represent the API of a particular MediaWiki server. */	
 
-// dependencies: [ mw ]
-
-( function( mw, $j ) {
+( function( mw, $j, undefined ) {
 	
 	/**
 	 * Represents the API of a particular MediaWiki server.
@@ -21,7 +19,7 @@
 	mw.Api = function( options ) {
 
 		// make sure we at least have a URL endpoint for the API
-		if ( ! mw.isDefined( options.url ) ) {
+		if ( options.url === undefined ) {
 			throw new Error( 'Configuration error - needs url property' );
 		}
 
@@ -133,10 +131,10 @@
 			
 			/* success just means 200 OK; also check for output and API errors */
 			ajaxOptions.success = function( result ) {
-				if ( mw.isEmpty( result ) ) {
+				if ( result === undefined || result === null || result === '' ) {
 					ajaxOptions.err( "ok-but-empty", "OK response but empty result (check HTTP headers?)" );
 				} else if ( result.error ) {
-					var code = mw.isDefined( result.error.code ) ? result.error.code : "unknown";
+					var code = result.error.code === undefined ? 'unknown' : result.error.code;
 					ajaxOptions.err( code, result );
 				} else { 
 					ajaxOptions.ok( result );

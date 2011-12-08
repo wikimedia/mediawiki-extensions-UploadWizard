@@ -1,6 +1,6 @@
 // library to assist with edits
 
-( function( mw, $ ) {
+( function( mw, $, undefined ) {
 
 	// cached token so we don't have to keep fetching new ones for every single post
 	var cachedToken = null;
@@ -72,7 +72,7 @@
 						return false;
 					}
 				} );
-				if ( mw.isDefined( token ) ) {
+				if ( token !== undefined ) {
 					cachedToken = token;
 					tokenCallback( token );
 				} else {

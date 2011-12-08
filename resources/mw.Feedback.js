@@ -1,4 +1,4 @@
-( function( mw, $ ) {
+( function( mw, $, undefined ) {
 
 	/**
 	 * Thingy for collecting user feedback on a wiki page
@@ -106,7 +106,7 @@
 			this.displaySubmitting();
 
 			var ok = function( result ) {
-				if ( mw.isDefined( result.edit ) ) {
+				if ( result.edit !== undefined ) {
 					if ( result.edit.result === 'Success' ) {
 						_this.$dialog.dialog( 'close' ); // edit complete, close dialog box
 					} else {

@@ -22,9 +22,9 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	
 	_this.api = api;
 
-	if ( ! ( mw.isDefined(config.type) 
-		 && mw.isDefined( config.defaults ) 
-		 && ( mw.isDefined( config.licenses ) || mw.isDefined( config.licenseGroups ) ) ) ) {
+	if ( config.type === undefined 
+		 || config.defaults === undefined 
+		 || ( config.licenses === undefined && config.licenseGroups === undefined ) ) {
 		throw new Error( 'improper initialization' );
 	}
 
@@ -42,10 +42,10 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	_this.inputs = [];
 
 	// create inputs and licenses from config
-	if ( mw.isDefined( config['licenseGroups'] ) ) {
-		_this.createGroupedInputs( _this.$selector, config['licenseGroups'] );
-	} else {
+	if ( config['licenseGroups'] === undefined ) {
 		_this.createInputs( _this.$selector, config );
+	} else {
+		_this.createGroupedInputs( _this.$selector, config['licenseGroups'] );
 	}
 
 	// set values of the whole license input
@@ -83,7 +83,10 @@ mw.UploadWizardLicenseInput.prototype = {
 		$j.each( configGroups, function( i, group ) { 
 			var $body, $toggler;
 			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
-			if ( mw.isDefined( group['head'] ) ) {
+			if ( group['head'] === undefined ) {
+				// if there is no header, just append licenses to the group div.
+				$body = $group;
+			} else {
 				// if there is a header, make a toggle-to-expand div and append inputs there.
 				var $head = $j( '<div></div>' ).append( 
 					$j( '<a>' )
@@ -92,11 +95,9 @@ mw.UploadWizardLicenseInput.prototype = {
 				);
 				$body = $j( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
 				$toggler = $group.append( $head, $body ).collapseToggle();
-			} else {
-				// if there is no header, just append licenses to the group div.
-				$body = $group;
+
 			}
-			if ( mw.isDefined( group['subhead'] ) ) {
+			if ( group['subhead'] !== undefined ) {
 				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
 			}
 			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
@@ -124,14 +125,14 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	createInputs: function( $el, config, $groupToggler ) {
 		var _this = this;
-		if ( !mw.isDefined( config['licenses'] && typeof config['licenses'] === 'object' ) ) {
+		if ( config['licenses'] === undefined || typeof config['licenses'] !== 'object' ) {
 			throw new Error( "improper license config" );
 		}
 		$j.each( config['licenses'], function( i, licenseName ) {
-			if ( mw.isDefined( mw.UploadWizard.config.licenses[licenseName] ) ) {
+			if ( mw.UploadWizard.config.licenses[licenseName] !== undefined ) {
 				var license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] };
 				
-				var templates = mw.isDefined( license.props['templates'] ) ? license.props.templates.slice(0) : [ license.name ];
+				var templates = license.props['templates'] === undefined ? [ license.name ] : license.props.templates.slice(0);
 
 				var $input = _this.createInputElement( templates, config );
 				_this.inputs.push( $input );
@@ -165,12 +166,12 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {String} of wikitext
 	 */
 	createInputValueFromTemplateConfig: function( templates, config ) {
-		if ( mw.isDefined( config['prependTemplates'] ) ) {
+		if ( config['prependTemplates'] !== undefined ) {
 			$j.each( config['prependTemplates'], function( i, template ) {
 				templates.unshift( template );
 			} );
 		}
-		if ( mw.isDefined( config['filterTemplate'] ) ) {
+		if ( config['filterTemplate'] !== undefined ) {
 			templates.unshift( config['filterTemplate'] );
 			templates = [ templates.join( '|' ) ];
 		}
@@ -214,14 +215,14 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
 	 */
 	createInputElementLabel: function( license, $input ) {	
-		var messageKey = mw.isDefined( license.props['msg'] ) ? license.props.msg : '[missing msg for ' + license.name + ']';
+		var messageKey = license.props['msg'] === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg;
 
 		// The URL is optional, but if the message includes it as $2, we surface the fact
 		// that it's misisng.
-		var licenseURL = mw.isDefined( license.props['url'] ) ? license.props.url : '#missing license URL';
+		var licenseURL = license.props['url'] === undefined ? '#missing license URL' : license.props.url;
 		var licenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
 		var $icons = $j( '<span></span>' );
-		if ( mw.isDefined( license.props['icons'] ) ) {
+		if ( license.props['icons'] !== undefined ) {
 			$j.each( license.props.icons, function( i, icon ) { 
 				$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );		
 			} );

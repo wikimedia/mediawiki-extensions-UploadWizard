@@ -2,7 +2,7 @@
 * Object that reperesents the entire multi-step Upload Wizard
 */
 
-( function( $j ) {
+( function( mw, $j, undefined ) {
 
 mw.UploadWizard = function( config ) {
 
@@ -29,38 +29,6 @@ mw.UploadWizard.userAgent = "UploadWizard (alpha)";
 mw.UploadWizard.prototype = {
 	stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
 	currentStepName: undefined,
-
-	/*
-	// list possible upload handlers in order of preference
-	// these should all be in the mw.* namespace
-	// hardcoded for now. maybe some registry system might work later, like, all
-	// things which subclass off of UploadHandler
-	uploadHandlers: [
-		'FirefoggUploadHandler',
-		'XhrUploadHandler',
-		'ApiIframeUploadHandler',
-		'SimpleUploadHandler',
-		'NullUploadHandler'
-	],
-
-	 * We can use various UploadHandlers based on the browser's capabilities. Let's pick one.
-	 * For example, the ApiUploadHandler should work just about everywhere, but XhrUploadHandler
-	 *   allows for more fine-grained upload progress
-	 * @return valid JS upload handler class constructor function
-	getUploadHandlerClass: function() {
-		// return mw.MockUploadHandler;
-		return mw.ApiUploadHandler;
-		var _this = this;
-		for ( var i = 0; i < uploadHandlers.length; i++ ) {
-			var klass = mw[uploadHandlers[i]];
-			if ( klass != undefined && klass.canRun( this.config )) {
-				return klass;
-			}
-		}
-		// this should never happen; NullUploadHandler should always work
-		return null;
-	},
-	*/
 
 	/**
 	 * Reset the entire interface so we can upload more stuff
@@ -92,9 +60,8 @@ mw.UploadWizard.prototype = {
 		// construct the message for the subheader
 		$j( '#contentSub' ).append( $j( '<span style="margin-right: 0.5em;"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
-		if ( mw.isDefined( mw.UploadWizard.config['feedbackPage'] ) && mw.UploadWizard.config['feedbackPage'] !== '' ) {
-			var feedback = new mw.Feedback( _this.api,
-				new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
+		if ( mw.UploadWizard.config['feedbackPage'] !== undefined && mw.UploadWizard.config['feedbackPage'] !== '' ) {
+			var feedback = new mw.Feedback( _this.api, new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
 			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
 				function() {
 					feedback.launch();
@@ -104,13 +71,13 @@ mw.UploadWizard.prototype = {
 			$j( '#contentSub' ).append( feedbackLink );
 		}
 
-		if ( mw.isDefined( mw.UploadWizard.config['bugList'] ) && mw.UploadWizard.config['bugList'] !== '' ) {
+		if ( mw.UploadWizard.config['bugList'] !== undefined && mw.UploadWizard.config['bugList'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-bugs', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['bugList'], target: '_blank' } ) ) );
 		}
-		if ( mw.isDefined( mw.UploadWizard.config['translateHelp'] ) && mw.UploadWizard.config['translateHelp'] !== '' ) {
+		if ( mw.UploadWizard.config['translateHelp'] !== undefined && mw.UploadWizard.config['translateHelp'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['translateHelp'], target: '_blank' } ) ) );
 		}
-		if ( mw.isDefined( mw.UploadWizard.config['altUploadForm'] ) && mw.UploadWizard.config['altUploadForm'] !== '' ) {
+		if ( mw.UploadWizard.config['altUploadForm'] !== undefined && mw.UploadWizard.config['altUploadForm'] !== '' ) {
 			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
 			var title;
 			try {
@@ -217,7 +184,7 @@ mw.UploadWizard.prototype = {
 
 		// DETAILS div
 		var finalizeDetails = function() {
-			if ( mw.isDefined( _this.allowCloseWindow ) ) {
+			if ( _this.allowCloseWindow !== undefined ) {
 				_this.allowCloseWindow();
 			}
 			_this.prefillThanksPage();
@@ -672,7 +639,7 @@ mw.UploadWizard.prototype = {
 			selector = '.mwe-upwiz-file-next-some-failed';
 		}
 
-		if ( allOk && mw.isDefined( allOkCallback ) ) {
+		if ( allOk && ( allOkCallback !== undefined ) ) {
 			allOkCallback();
 		} else {
 			$j( '#mwe-upwiz-stepdiv-' + step + ' .mwe-upwiz-buttons' ).show().find( selector ).show();
@@ -739,12 +706,12 @@ mw.UploadWizard.prototype = {
 			// fix various other pages that may have state
 			$j( '#mwe-upwiz-thanks' ).html( '' );
 
-			if ( mw.isDefined( _this.deedChooser ) ) {
+			if ( _this.deedChooser !== undefined ) {
 				_this.deedChooser.remove();
 			}
 
 			// remove any blocks on closing the window
-			if ( mw.isDefined( _this.allowCloseWindow ) ) {
+			if ( _this.allowCloseWindow !== undefined ) {
 				_this.allowCloseWindow();
 			}
 
@@ -1007,7 +974,17 @@ mw.UploadWizardDeedPreview.prototype = {
 	}
 };
 
-} )( jQuery );
+/**
+ * Check if a value is null, undefined, or the empty string. 
+ *
+ * @param {mixed} v Variable to be checked
+ * @return {boolean}
+ */
+mw.isEmpty = function( v ) {
+	return v === undefined || v === null || v === ''; 
+};
+
+} )( window.mediaWiki, jQuery );
 
 ( function ( $j ) {
 

@@ -5,7 +5,7 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-( function( $j ) {
+( function( $j, undefined ) {
 
 /**
  * Constructor for objects representing uploads. The workhorse of this entire extension.
@@ -118,7 +118,7 @@ mw.UploadWizardUpload.prototype = {
 	 * Queue some warnings for possible later consumption
 	 */
 	addWarning: function( code, info ) {
-		if ( !mw.isDefined( this.warnings ) ) {
+		if ( this.warnings === undefined ) {
 			this.warnings = [];
 		}
 		this.warnings.push( [ code, info ] );
@@ -354,7 +354,7 @@ mw.UploadWizardUpload.prototype = {
 					
 					// TODO check max upload size, alert user if too big
 					this.transportWeight = this.file.size;
-					if ( !mw.isDefined( this.imageinfo ) ) {
+					if ( this.imageinfo === undefined ) {
 						this.imageinfo = {};
 					}
 
@@ -420,11 +420,11 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Object} (as returned by jpegmeta)
 	 */
 	extractMetadataFromJpegMeta: function( meta ) {
-		if ( mw.isDefined( meta ) && meta !== null && typeof meta === 'object' ) { 
-			if ( !mw.isDefined( this.imageinfo ) ) {
+		if ( meta !== undefined && meta !== null && typeof meta === 'object' ) { 
+			if ( this.imageinfo === undefined ) {
 				this.imageinfo = {};
 			}
-			if ( !mw.isDefined( this.imageinfo.metadata ) ) {
+			if ( this.imageinfo.metadata === undefined ) {
 				this.imageinfo.metadata = {};
 			}
 			if ( meta.tiff && meta.tiff.Orientation ) {
@@ -480,7 +480,7 @@ mw.UploadWizardUpload.prototype = {
 		for ( var key in imageinfo ) {
 			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
 			if ( key == 'metadata' ) {
-				if ( !mw.isDefined( _this.imageinfo.metadata ) ) {
+				if ( _this.imageinfo.metadata === undefined ) {
 					_this.imageinfo.metadata = {};
 				}
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
@@ -527,7 +527,7 @@ mw.UploadWizardUpload.prototype = {
 	getStashImageInfo: function( callback, props, width, height ) {
 		var _this = this;
 
-		if (!mw.isDefined( props ) ) {
+		if ( props === undefined ) {
 			props = [];
 		}
 		
@@ -537,14 +537,14 @@ mw.UploadWizardUpload.prototype = {
 			'siiprop': props.join( '|' )
 		};
 
-		if ( mw.isDefined( width ) || mw.isDefined( height ) ) {
+		if ( width !== undefined || height !== undefined ) {
 			if ( ! $j.inArray( 'url', props ) ) {
 				props.push( 'url' );
 			}
-			if ( mw.isDefined( width ) ) {
+			if ( width !== undefined ) {
 				params['siiurlwidth'] = width;
 			}
-			if ( mw.isDefined( height ) ) {
+			if ( height !== undefined ) {
 				params['siiurlheight'] = height;
 			}
 		}
@@ -578,7 +578,7 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	getImageInfo: function( callback, props, width, height ) { 
 		var _this = this;
-		if (!mw.isDefined( props ) ) {
+		if ( props === undefined ) {
 			props = [];
 		}
 		var requestedTitle = _this.title.getPrefixedText();
@@ -588,14 +588,14 @@ mw.UploadWizardUpload.prototype = {
 			'iiprop': props.join( '|' )
 		};
 
-		if ( mw.isDefined( width ) || mw.isDefined( height ) ) {
+		if ( width !== undefined || height !== undefined ) {
 			if ( ! $j.inArray( 'url', props ) ) {
 				props.push( 'url' );
 			}
-			if ( mw.isDefined( width ) ) {
+			if ( width !== undefined ) {
 				params['iiurlwidth'] = width;
 			}
-			if ( mw.isDefined( height ) ) {
+			if ( height !== undefined ) {
 				params['iiurlheight'] = height;
 			}
 		}
@@ -663,7 +663,7 @@ mw.UploadWizardUpload.prototype = {
 			height = -1;
 		}
 
-		if ( !mw.isDefined( _this.thumbnailPublishers[key] ) ) {
+		if ( _this.thumbnailPublishers[key] === undefined ) {
 			var thumbnailPublisher = function( thumbnails ) { 
 				if ( thumbnails === null ) {
 					// the api call failed somehow, no thumbnail data.
@@ -879,7 +879,7 @@ mw.UploadWizardUpload.prototype = {
 		}
 		var constraints = { 
 			width: parseInt( width, 10 ),
-			height: ( mw.isDefined( height ) ? parseInt( height, 10 ) : null )
+			height: ( height === undefined ? null : parseInt( height, 10 ) )
 		};
 
 		return mw.canvas.isAvailable() ? this.getTransformedCanvasElement( image, constraints )

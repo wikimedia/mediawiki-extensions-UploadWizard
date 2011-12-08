@@ -12,7 +12,7 @@
 		 * @param {Function} optional callback to run if api error
 		 * @return ajax call object
 		 */
-		isBlacklisted: function( title, callback, error ) {
+		isBlacklisted: function( title, callback, err ) {
 			var params = {
 				'action': 'titleblacklist',
 				'tbaction': 'create',
@@ -39,8 +39,6 @@
 					callback ( false );
 				}
 			};
-
-			var err = mw.isDefined( error ) ? error : undefined;
 
 			return this.get( params, ok, err );
 

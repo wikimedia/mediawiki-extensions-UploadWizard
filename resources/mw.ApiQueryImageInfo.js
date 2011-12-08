@@ -21,7 +21,7 @@
 				'prop': 'imageinfo',
 				'titles': title.toString()
 			};
-			if ( mw.isDefined( extraParams.width ) ) {
+			if (  extraParams.width  !== undefined ) {
 				params['iiurlwidth'] = extraParams.width;
 			}
 			params.iiprop = properties.join( '|' );

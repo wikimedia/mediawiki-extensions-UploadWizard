@@ -1,7 +1,7 @@
 /**
  * Sort of an abstract class for deeds
  */
-( function( $j ) {
+( function( $j, undefined ) {
 	
 mw.UploadWizardDeed = function() {
 	var _this = this;
@@ -354,7 +354,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 	var _this = this;
 	_this.$selector = $j( selector );
-	_this.uploads = mw.isDefined( uploads ) ? uploads : [];
+	_this.uploads = uploads === undefined ? [] : uploads;
 	
 
 	_this.$errorEl = $j( '<div class="mwe-error"></div>' );

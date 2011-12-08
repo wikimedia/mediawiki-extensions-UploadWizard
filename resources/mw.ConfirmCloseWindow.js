@@ -1,4 +1,4 @@
-( function( mw, $ ) {
+( function( mw, $, undefined ) {
 	/**
 	 * Prevent the closing of a window with a confirm message (the onbeforeunload event seems to 
 	 * work in most browsers.) 
@@ -18,7 +18,7 @@
 	 * @return closure	execute this when you want to allow the user to close the window
 	 */
 	mw.confirmCloseWindow = function( options ) {
-		if ( ! mw.isDefined( options ) ) {
+		if ( options === undefined ) {
 			options = {};
 		}
 

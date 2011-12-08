@@ -4,6 +4,8 @@
  * @param div to insert file interface
  * @param providedFile a File object that this ui component should use (optional)
  */
+( function( mw, $j, undefined ) {
+
 mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	var _this = this;
 
@@ -175,7 +177,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * @param Array args: array of values, in case any need to be fed to the image.
 	 */
 	setStatus: function( msgKey, args ) {
-		if ( !mw.isDefined( args ) ) {
+		if ( args === undefined ) {
 			args = [];
 		}
 		// get the status line for our upload
@@ -569,3 +571,5 @@ mw.UploadWizardUploadInterface.prototype = {
 	}
 
 };	
+
+}) ( window.mediaWiki, jQuery );

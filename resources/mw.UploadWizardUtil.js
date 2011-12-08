@@ -1,6 +1,7 @@
 /**
  * Miscellaneous utilities
  */
+( function ( mw, $j, undefined ) {
 mw.UploadWizardUtil = {
 
 	/**
@@ -62,7 +63,7 @@ mw.UploadWizardUtil = {
 	 * @return {String} basename
 	 */
 	getBasename: function( path ) {
-		if ( !mw.isDefined( path ) || path === null ) {
+		if ( path === undefined || path === null ) {
 			return '';
 		}
 		
@@ -84,5 +85,4 @@ mw.UploadWizardUtil = {
 
 
 };
-
-
+}) ( window.mediaWiki, jQuery );
