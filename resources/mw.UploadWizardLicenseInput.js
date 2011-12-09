@@ -14,7 +14,10 @@
  * @param {mw.Api}	  api object; useful for previews
  */
 
-( function( $j, undefined ) {
+( function( mw, $j, undefined ) {
+
+var catNsId 		= mw.config.get( 'wgNamespaceIds' ).category,
+	templateNsId 	= mw.config.get( 'wgNamespaceIds' ).template;
 
 mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	var _this = this;
@@ -542,11 +545,11 @@ mw.UploadWizardLicenseInput.prototype = {
 			// this proceeds synchronously, so we pick up in the next line
 			_this.api.getCategories( title, ok, err, false );
 		}
-		
-		var licenseCategory = new mw.Title( mw.UploadWizard.config.licenseCategory, 'category' );
+
+		var licenseCategory = new mw.Title( mw.UploadWizard.config.licenseCategory, catNsId );
 
 		$.each( templates, function( i, t ) { 		
-			var title = new mw.Title( t, 'template' );
+			var title = new mw.Title( t, templateNsId );
 			recurseCategories( licenseCategory, title, 5 );
 			if ( found ) {
 				return false;
@@ -583,4 +586,4 @@ mw.UploadWizardLicenseInput.prototype = {
 
 };
 
-} )( jQuery );
+} )( window.mediaWiki, jQuery );

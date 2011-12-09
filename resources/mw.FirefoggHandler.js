@@ -17,13 +17,14 @@ mw.FirefoggHandler.prototype = {
 		var _this = this;
 		this.upload = upload;
 		this.api = upload.api;
+		var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 		// pass file to Firefogg after selection
 		this.upload.ui.$fileInputCtrl.bind('change', function(event) {
 			if(_this.upload.ui.$fileInputCtrl[0].files.length) {
 				_this.getFogg().setInput(_this.upload.ui.$fileInputCtrl[0].files[0]);
 				//This is required to get the right requestedTitle in UploadWizardUpload
 				var title = _this.getTransport().getFileName().replace( /:/g, '_' );
-				_this.upload.title = new mw.Title( title , 'file' );
+				_this.upload.title = new mw.Title( title, fileNsId );
 			}
 		});
 		// update the "valid" extension to include firefogg transcode extensions: 

@@ -7,6 +7,8 @@
  */
 ( function( $j, undefined ) {
 
+var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
+
 /**
  * Constructor for objects representing uploads. The workhorse of this entire extension.
  * 
@@ -155,7 +157,7 @@ mw.UploadWizardUpload.prototype = {
 				var existsFileName = result.upload.warnings.exists;
 				try {
 					code = 'exists';
-					info = new mw.Title( existsFileName, 'file' ).getUrl();
+					info = new mw.Title( existsFileName, fileNsId ).getUrl();
 				} catch ( e ) {
 					code = 'unknown';
 					info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";
@@ -226,7 +228,7 @@ mw.UploadWizardUpload.prototype = {
 		$j.each( duplicates, function( i, filename ) {
 			var $a = $j( '<a/>' ).append( filename );
 			try {
-				var href = new mw.Title( filename, 'file' ).getUrl();
+				var href = new mw.Title( filename, fileNsId ).getUrl();
 				$a.attr( { 'href': href, 'target': '_blank' } );
 			} catch ( e ) {
 				$a.click( function() { alert('could not parse filename=' + filename ); } );
@@ -309,7 +311,7 @@ mw.UploadWizardUpload.prototype = {
 		}
 		
 		try {
-			this.title = new mw.Title( basename.replace( /:/g, '_' ), 'file' );
+			this.title = new mw.Title( basename.replace( /:/g, '_' ), fileNsId );
 		} catch ( e ) {
 			fileNameErr( 'unparseable' );
 		}

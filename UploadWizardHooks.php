@@ -28,9 +28,15 @@ class UploadWizardHooks {
 				'mediawiki.util',
 				'mediawiki.libs.jpegmeta',
 				'ext.uploadwizard.mediawiki.language.parser',
+				'mediawiki.api',
+				'mediawiki.api.edit',
+				'mediawiki.api.category',
+				'mediawiki.api.parse',
+				'mediawiki.api.titleblacklist',
+				'mediawiki.Title',
+				'mediawiki.feedback'
 			),
 			'scripts' => array(
-
 				// jquery interface helpers
 				'resources/jquery/jquery.tipsy.js',
 				'resources/jquery/jquery.morphCrossfade.js',
@@ -48,13 +54,6 @@ class UploadWizardHooks {
 				'resources/mw.canvas.js',
 				'resources/mw.Log.js',
 				'resources/mw.UtilitiesTime.js',
-				'resources/mw.Api.js',
-				'resources/mw.Api.edit.js',
-				'resources/mw.Api.category.js',
-				'resources/mw.Api.parse.js',
-				'resources/mw.Api.titleblacklist.js',
-				'resources/mw.Title.js',
-				'resources/mw.Feedback.js',
 				'resources/mw.ErrorDialog.js',
 				'resources/mw.ConfirmCloseWindow.js',
 

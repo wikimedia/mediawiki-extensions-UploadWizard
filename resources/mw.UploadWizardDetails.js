@@ -13,6 +13,8 @@
  */
 ( function( mw, $j, undefined ) {
 
+var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
+
 mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	var _this = this;
@@ -469,8 +471,8 @@ mw.UploadWizardDetails.prototype = {
 		var titleString;
 		var errHtml;
 		
-		try { 
-			titleString = new mw.Title( result.title ).setNamespace( 'file' ).toString();
+		try {
+			titleString = new mw.Title( result.title, fileNsId ).toString();
 		} catch ( e ) {
 			// unparseable result from unique test? 
 			titleString = '[unparseable name]';
@@ -1005,9 +1007,11 @@ mw.UploadWizardDetails.prototype = {
 	 * @return {String} cleaned title with prefix and extension, stringified.
 	 */
 	setCleanTitle: function( s ) {
+		var ext = this.upload.title.getExtension();
 		var re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' );
 		var cleaned = $j.trim( s.replace( re, '' ) );
-		return this.upload.title.setNameText( cleaned ).toString();
+		this.upload.title = new mw.Title( cleaned + '.' + ext, fileNsId );
+		return this.upload.title;
 	}
 		
 };

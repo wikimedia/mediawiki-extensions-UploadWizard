@@ -12,6 +12,8 @@
  */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
 
+	var catNsId = mw.config.get( 'wgNamespaceIds' ).category;
+
 	/**
 	 * Get content from our text field, and attempt to insert it as a category.
 	 * May require confirmation from user if they appear to be adding a new category.
@@ -23,7 +25,7 @@
 			return;
 		}
 
-		var title = new mw.Title( text, 'category' );
+		var title = new mw.Title( text, catNsId );
 	
 		var insertIt = function() {
 			_insertCat( title );
@@ -228,8 +230,8 @@
 		};
 
 		// initialize with some categories, if so configured
-		$j.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, 'category' ) ); } );
-		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, 'category' ), true ); } );
+		$j.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );
+		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
 
 		_processInput();
 	} );
