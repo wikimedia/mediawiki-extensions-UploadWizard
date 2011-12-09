@@ -52,10 +52,8 @@
 			var ok = function( data ) {
 				var texts = [];
 				if ( data.query && data.query.allpages ) { 
-					// API returns an array of objects like
-					// allpages: [ {'*':'foo'}, {'*':'bar'} ]
 					$.each( data.query.allpages, function( i, category ) {
-						texts.push( category.title.substr(9) ); // the substr removes Category: from the title.
+						texts.push( new mw.Title( category.title ).getNameText() ); 
 					} );
 				}
 				callback( texts );
