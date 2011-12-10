@@ -123,9 +123,10 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			_this.$authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
 			
 			var defaultLicense = mw.UploadWizard.config.licensesOwnWork.defaults[0];
-			var defaultLicenseURL = mw.isDefined ( mw.UploadWizard.config.licenses[defaultLicense].url ) ? 
-						mw.UploadWizard.config.licenses[defaultLicense].url :
-						'#missing license URL';
+			var defaultLicenseURL = mw.UploadWizard.config.licenses[defaultLicense].url === undefined ?
+						'#missing license URL' :
+						mw.UploadWizard.config.licenses[defaultLicense].url;
+
 			var defaultLicenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': defaultLicenseURL } );
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
