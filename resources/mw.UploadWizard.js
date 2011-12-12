@@ -61,7 +61,11 @@ mw.UploadWizard.prototype = {
 		$j( '#contentSub' ).append( $j( '<span style="margin-right: 0.5em;"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
 		if ( mw.UploadWizard.config['feedbackPage'] !== undefined && mw.UploadWizard.config['feedbackPage'] !== '' ) {
-			var feedback = new mw.Feedback( _this.api, new mw.Title( mw.UploadWizard.config['feedbackPage'] ) );
+			var feedback = new mw.Feedback( 
+				_this.api, 
+				new mw.Title( mw.UploadWizard.config['feedbackPage'] ),
+				'mwe-upwiz-feedback-title'
+			);
 			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
 				function() {
 					feedback.launch();

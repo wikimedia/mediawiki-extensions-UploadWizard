@@ -507,7 +507,8 @@ mw.UploadWizardDetails.prototype = {
 			if ( mw.UploadWizard.config['blacklistIssuesPage'] !== undefined && mw.UploadWizard.config['blacklistIssuesPage'] !== '' ) {
 				var feedback = new mw.Feedback(
 					_this.api,
-					new mw.Title( mw.UploadWizard.config['blacklistIssuesPage'] )
+					new mw.Title( mw.UploadWizard.config['blacklistIssuesPage'] ),
+					'mwe-upwiz-feedback-title'
 				);
 				
 				var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg(
