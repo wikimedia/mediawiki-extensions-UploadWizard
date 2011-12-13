@@ -10,10 +10,6 @@ class UploadWizardHooks {
 	public static $modules = array(
 		// n.b. we tend not to use mediawiki.language functions, they are better implemented in mediawiki.language.parser.
 		// however, loading mediawiki.language will a) create the namespace b) load the language files with convertPlural for the current language and all.
-		'ext.uploadwizard.mediawiki.language.parser' => array(
-			'dependencies' => array( 'mediawiki.language', 'mediawiki.util' ),
-			'scripts' => 'resources/mediawiki.language.parser.js'
-		),
 		'ext.uploadWizard' => array(
 			'dependencies' => array(
 				'jquery.autoEllipsis',
@@ -27,7 +23,7 @@ class UploadWizardHooks {
 				'mediawiki.Uri',
 				'mediawiki.util',
 				'mediawiki.libs.jpegmeta',
-				'ext.uploadwizard.mediawiki.language.parser',
+				'mediawiki.jqueryMsg',
 				'mediawiki.api',
 				'mediawiki.api.edit',
 				'mediawiki.api.category',
