@@ -89,18 +89,13 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 		},
 		
 		getLicenseWikiText: function() {
-			var wikiText;
-			// TODO: not nice to have 2 cases here and then have to insert the attribution field...
-			
 			if ( _this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
-				wikiText = this.licenseInput.getWikiText();
+				return this.licenseInput.getWikiText();
 			}
 			else {
-				wikiText = '{{' + mw.UploadWizard.config.licensesOwnWork.filterTemplate
+				return '{{' + mw.UploadWizard.config.licensesOwnWork.filterTemplate
 					+ '|' + mw.UploadWizard.config.licensesOwnWork.defaults[0] + '}}';
 			}
-			
-			return wikiText.slice( 0, -2 ) + '|attribution=' + this.getAuthorWikiText() + wikiText.slice( -2 );
 		},
 
 		getSourceWikiText: function() {
