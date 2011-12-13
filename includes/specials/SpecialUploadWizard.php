@@ -186,7 +186,7 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function getPageContent( $pageName, $parse = false, $langCode = null ) {
 		$content = false;
 		
-		if ( trim( $pageName ) != '' ) {
+		if ( trim( $pageName ) !== '' ) {
 			if ( is_null( $langCode ) ) {
 				$langCode = $this->getLanguage()->getCode();
 			}
@@ -252,14 +252,14 @@ class SpecialUploadWizard extends SpecialPage {
 				// Custom message if logged-in users without any special rights can upload
 				$this->getOutput()->showErrorPage( 'uploadnologin', 'uploadnologintext' );
 			} else {
-				$this->getOutput()->permissionRequired( 'upload' );
+				throw new  PermissionsError( 'upload' );
 			}
 			return false;
 		}
 
 		// Check blocks
 		if ( $user->isBlocked() ) {
-			$this->getOutput()->blockedPage();
+			throw new UserBlockedError( $this->getUser()->mBlock );
 			return false;
 		}
 
