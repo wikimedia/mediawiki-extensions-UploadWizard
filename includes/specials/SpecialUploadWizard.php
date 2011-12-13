@@ -188,7 +188,7 @@ class SpecialUploadWizard extends SpecialPage {
 		
 		if ( trim( $pageName ) != '' ) {
 			if ( is_null( $langCode ) ) {
-				$langCode = $this->getLang()->getCode();
+				$langCode = $this->getLanguage()->getCode();
 			}
 			
 			$page = Title::newFromText( str_replace( '$1', $langCode, $pageName ) );
