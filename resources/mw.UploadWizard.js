@@ -63,7 +63,9 @@ mw.UploadWizard.prototype = {
 		if ( mw.UploadWizard.config['feedbackPage'] !== undefined && mw.UploadWizard.config['feedbackPage'] !== '' ) {
 			var feedback = new mw.Feedback( {
 				'title': new mw.Title( mw.UploadWizard.config['feedbackPage'] ),
-				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title'
+				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
+				'bugsLink': new mw.Uri( '//bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
+				'bugsListLink': new mw.Uri( mw.UploadWizard.config['bugList'] )
 			} );
 			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
 				function() {
@@ -74,9 +76,6 @@ mw.UploadWizard.prototype = {
 			$j( '#contentSub' ).append( feedbackLink );
 		}
 
-		if ( mw.UploadWizard.config['bugList'] !== undefined && mw.UploadWizard.config['bugList'] !== '' ) {
-			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-bugs', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['bugList'], target: '_blank' } ) ) );
-		}
 		if ( mw.UploadWizard.config['translateHelp'] !== undefined && mw.UploadWizard.config['translateHelp'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['translateHelp'], target: '_blank' } ) ) );
 		}
