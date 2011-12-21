@@ -486,7 +486,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return boolean
 	 */
 	validateWikiText: function( text ) {
-		var parser = new mw.language.parser(),
+		var parser = new mw.jqueryMsg.parser(),
 			_this = this,
 			ast;	
 
@@ -512,7 +512,7 @@ mw.UploadWizardLicenseInput.prototype = {
 					node = $j.map( node, function( n, i ) {
 						return i == 0 ? n : [[n]];	
 					} );
-				} else if ( typeof mw.language.htmlEmitter.prototype[lcNodeName] !== 'function' ) {
+				} else if ( typeof mw.jqueryMsg.htmlEmitter.prototype[lcNodeName] !== 'function' ) {
 					templates.push( nodeName );
 				}
 				$j.map( node.slice( 1 ), function( n ) {
