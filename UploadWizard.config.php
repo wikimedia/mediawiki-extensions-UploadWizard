@@ -265,10 +265,6 @@ return array(
 		'type' => 'or',
 		'licenseGroups' => array(
 			array(
-				'head' => 'mwe-upwiz-license-none-head',
-				'licenses' => array( 'none' )
-			),
-			array(
 				// This should be a list of all CC licenses we can reasonably expect to find around the web
 				'head' => 'mwe-upwiz-license-cc-head',
 				'subhead' => 'mwe-upwiz-license-cc-subhead',
@@ -312,6 +308,10 @@ return array(
 				'head' => 'mwe-upwiz-license-custom-head',
 				'special' => 'custom',
 				'licenses' => array( 'custom' ),
+			),
+			array(
+				'head' => 'mwe-upwiz-license-none-head',
+				'licenses' => array( 'none' )
 			),
 		),
 		'defaults' => array( 'none' ),
