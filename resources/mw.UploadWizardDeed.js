@@ -126,16 +126,20 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			var defaultLicenseURL = mw.UploadWizard.config.licenses[defaultLicense].url === undefined ?
 						'#missing license URL' :
 						mw.UploadWizard.config.licenses[defaultLicense].url;
-
+			var defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
+			var defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
 			var defaultLicenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': defaultLicenseURL } );
+
 			var $standardDiv = $j( '<div />' ).append(
 				$j( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
-				$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert',
-						 uploadCount,
-						 _this.$authorInput2 ),
+				$j( '<p></p>' ).msg( 
+						defaultLicenseMsg,
+						uploadCount,
+						_this.$authorInput2,
+						defaultLicenseLink
+				),
 				$j( '<p class="mwe-small-print"></p>' ).msg(
-					'mwe-upwiz-source-ownwork-assert-note',
-					gM( 'mwe-upwiz-license-' + defaultLicense, uploadCount, defaultLicenseLink ),
+					defaultLicenseExplainMsg,
 					uploadCount
 				) 
 			); 
