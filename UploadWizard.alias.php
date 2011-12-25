@@ -39,6 +39,11 @@ $specialPageAliases['fa'] = array(
 	'UploadWizard' => array( 'جادوگر_بارگذاری' ),
 );
 
+/** Galician (Galego) */
+$specialPageAliases['gl'] = array(
+	'UploadWizard' => array( 'Asistente_de_cargas' ),
+);
+
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = array(
 	'UploadWizard' => array( 'AsistanChajman' ),
@@ -47,6 +52,8 @@ $specialPageAliases['ht'] = array(
 /** Interlingua (Interlingua) */
 $specialPageAliases['ia'] = array(
 	'UploadWizard' => array( 'Assistente_de_incargamento' ),
+	'UploadCampaigns' => array( 'Campanias_de_incargamento' ),
+	'UploadCampaign' => array( 'Campania_de_incargamento' ),
 );
 
 /** Italian (Italiano) */
@@ -76,6 +83,11 @@ $specialPageAliases['ml'] = array(
 	'UploadWizard' => array( 'അപ്‌ലോഡ്_സഹായി' ),
 );
 
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'UploadWizard' => array( 'Opplastingsveiviser' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
 	'UploadWizard' => array( 'Opstuurhulpe' ),
@@ -88,11 +100,6 @@ $specialPageAliases['nl'] = array(
 	'UploadWizard' => array( 'WizardUploaden' ),
 	'UploadCampaigns' => array( 'Uploadcampagnes' ),
 	'UploadCampaign' => array( 'Uploadcampagne' ),
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['nb'] = array(
-	'UploadWizard' => array( 'Opplastingsveiviser' ),
 );
 
 /** Sinhala (සිංහල) */
@@ -119,8 +126,3 @@ $specialPageAliases['yue'] = array(
 $specialPageAliases['zh-hans'] = array(
 	'UploadWizard' => array( '上传向导', '上传精灵' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;
