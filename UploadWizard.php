@@ -31,7 +31,7 @@ $wgExtensionCredits['other'][] = array(
 $wgUpwizDir = dirname( __FILE__ );
 
 $wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
-$wgExtensionAliasesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.alias.php';
+$wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.alias.php';
 
 # Require modules, including the special page
 foreach ( array(
