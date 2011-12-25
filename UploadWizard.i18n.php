@@ -14553,7 +14553,7 @@ $1',
  * @author Laaknor
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'uploadwizard' => 'Opplastingsveiviser',
 	'uploadwizard-desc' => 'Opplastingsveiviser, utviklet for Multimedia Usability-stipendet',
 	'mwe-upwiz-uploadcampaigns' => 'Opplastningskampanjer',
