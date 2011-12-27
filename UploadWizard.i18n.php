@@ -278,7 +278,7 @@ Please do not use wikitext or HTML here.',
 
 	'mwe-upwiz-license-none-head' => 'I found it on the Internet -- I\'m not sure',
 
-	'mwe-upwiz-license-none' => 'I believe {{PLURAL:$1|this work is|these works are}} freely licensed or legally in the public domain. I understand that if I do not add the necessary licensing information in a timely fashion the {{PLURAL:$1|file|files}} may be deleted.',
+	'mwe-upwiz-license-none' => 'I believe {{PLURAL:$1|this work is|these works are}} freely licensed or legally in the public domain. I understand that if I do not add the necessary licensing information in a timely fashion, the {{PLURAL:$1|file|files}} may be deleted.',
 
 	'mwe-upwiz-license-confirm-remove' => 'Are you sure you want to remove {{PLURAL:$1|this upload|these uploads}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirm remove',
