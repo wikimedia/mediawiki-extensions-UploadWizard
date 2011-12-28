@@ -85,7 +85,7 @@ return array(
 		'cc-by-sa-3.0' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0',
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/'
 		),
 		'cc-by-sa-3.0-gfdl' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-gfdl',
@@ -96,71 +96,71 @@ return array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-at',
 			'templates' => array( 'cc-by-sa-3.0-at' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/at/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/at/'
 		),
 		'cc-by-sa-3.0-de' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-de',
 			'templates' => array( 'cc-by-sa-3.0-de' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/de/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/de/'
 		),
 		'cc-by-sa-3.0-ee' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-ee',
 			'templates' => array( 'cc-by-sa-3.0-ee' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/ee/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/ee/'
 		),
 		'cc-by-sa-3.0-es' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-es',
 			'templates' => array( 'cc-by-sa-3.0-es' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/es/' // due to multiple languages, no default legalcode
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/es/'
 		),
 		'cc-by-sa-3.0-hr' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-hr',
 			'templates' => array( 'cc-by-sa-3.0-hr' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/hr/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/hr/'
 		),
 		'cc-by-sa-3.0-lu' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-lu',
 			'templates' => array( 'cc-by-sa-3.0-lu' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/lu/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/lu/'
 		),
 		'cc-by-sa-3.0-nl' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-nl',
 			'templates' => array( 'cc-by-sa-3.0-nl' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/nl/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/nl/'
 		),
 		'cc-by-sa-3.0-no' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-no',
 			'templates' => array( 'cc-by-sa-3.0-no' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/no/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/no/'
 		),
 		'cc-by-sa-3.0-pl' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-pl',
 			'templates' => array( 'cc-by-sa-3.0-pl' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/pl/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/pl/'
 		),
 		'cc-by-sa-3.0-ro' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-ro',
 			'templates' => array( 'cc-by-sa-3.0-ro' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/ro/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/3.0/ro/'
 		),
 		'cc-by-3.0' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-3.0',
 			'icons' => array( 'cc-by' ),
-			'url' => 'http://creativecommons.org/licenses/by/3.0/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by/3.0/'
 		),
 		'cc-zero' => array( 
 			'msg' => 'mwe-upwiz-license-cc-zero',
 			'icons' => array( 'cc-zero' ),
-			'url' => 'http://creativecommons.org/publicdomain/zero/1.0/legalcode'
+			'url' => 'http://creativecommons.org/publicdomain/zero/1.0/'
 		),
 		'own-pd' => array( 
 			'msg' => 'mwe-upwiz-license-own-pd',
@@ -170,23 +170,23 @@ return array(
 		'cc-by-sa-2.5' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.5',
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/2.5/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/2.5/'
 		),
 		'cc-by-2.5' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-2.5', 
 			'icons' => array( 'cc-by' ),
-			'url' => 'http://creativecommons.org/licenses/by/2.5/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by/2.5/'
 		),
 		'cc-by-sa-2.0' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.0',
 			'icons' => array( 'cc-by', 'cc-sa' ),
-			'url' => 'http://creativecommons.org/licenses/by-sa/2.0/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by-sa/2.0/'
 			
 		),
 		'cc-by-2.0' => array( 
 			'msg' => 'mwe-upwiz-license-cc-by-2.0',
 			'icons' => array( 'cc-by' ),
-			'url' => 'http://creativecommons.org/licenses/by/2.0/legalcode'
+			'url' => 'http://creativecommons.org/licenses/by/2.0/'
 		),
 		'fal' => array(
 			'msg' => 'mwe-upwiz-license-fal',
