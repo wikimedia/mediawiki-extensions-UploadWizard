@@ -74,7 +74,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	// interface "below".
 	// XXX caution -- if the add file input changes size we won't match, unless we add some sort of event to catch this.
 	_this.form = $j( '<form method="POST" encType="multipart/form-data" class="mwe-upwiz-form"></form>' )
-			.attr( { action: _this.upload.api.url } )
+			.attr( { action: _this.upload.api.defaults.url } )
 			.append( _this.visibleFilenameDiv )
 			.append( _this.fileCtrlContainer
 				.append( _this.$fileInputCtrl ) 
