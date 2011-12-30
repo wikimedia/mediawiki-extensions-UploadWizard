@@ -332,7 +332,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.addDescription( !mw.UploadWizard.config.idField, mw.config.get( 'wgUserLanguage' ), false );
 	$j( containerDiv ).append( _this.div );
 
-	if( UploadWizardConfig.useTitleBlacklistApi ) {
+	if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
 		// less strict checking, since TitleBlacklist checks should catch most errors.
 		_this.$form.find( '.mwe-title' )
 			.rules( "add", {

@@ -173,7 +173,7 @@ mw.DestinationChecker.prototype = {
 			callback( { 'blacklist': result } );
 		};
 
-		if ( UploadWizardConfig.useTitleBlacklistApi ) {
+		if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
 			_this.api.isBlacklisted( title, blacklistResultProcessor );
 		} else {
 			// it's not blacklisted, because the API isn't even available 

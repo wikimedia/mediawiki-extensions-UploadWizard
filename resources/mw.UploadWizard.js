@@ -224,7 +224,7 @@ mw.UploadWizard.prototype = {
 		// WIZARD
 
 		// check to see if the the skip tutorial cookie is set
-		if ( document.cookie.indexOf('skiptutorial=1') != -1 || UploadWizardConfig['skipTutorial'] ) {
+		if ( document.cookie.indexOf('skiptutorial=1') != -1 || mw.config.get( 'UploadWizardConfig' ).skipTutorial ) {
 			// "select" the second step - highlight, make it visible, hide all others
 			_this.moveToStep( 'file' );
 		} else {
