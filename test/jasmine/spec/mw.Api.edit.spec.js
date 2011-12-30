@@ -9,20 +9,20 @@
 		dataType: 'json'
 	};
 
-	describe( "mw.Api", function() {
+	describe( 'mw.Api', function() {
 
 		var MAX_DELAY = 1000; // ms
 
 		// typical globals made available
 		// TODO this only works for me (NeilK)
-		var wgScriptPath = '/w';
+		mw.config.set( 'wgScriptPath', '/w' );
 
 		var pageUri = new mw.Uri( window.location );
 
 		var apiUrl = new mw.Uri( { 
 			protocol: pageUri.protocol, 
 			host: pageUri.host, 
-			path: wgScriptPath + '/api.php' 
+			path: mw.config.get( 'wgScriptPath' ) + '/api.php' 
 		} );
 
 		describe( "edit token", function() { 
