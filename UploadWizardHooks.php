@@ -18,6 +18,7 @@ class UploadWizardHooks {
 				'jquery.ui.datepicker',
 				'jquery.ui.progressbar',
 				'jquery.suggestions',
+				'jquery.tipsy',
 				'jquery.ui.widget',
 				'mediawiki.language',
 				'mediawiki.Uri',
@@ -34,14 +35,13 @@ class UploadWizardHooks {
 			),
 			'scripts' => array(
 				// jquery interface helpers
-				'resources/jquery/jquery.tipsy.js',
 				'resources/jquery/jquery.morphCrossfade.js',
 				'resources/jquery/jquery.validate.js',
 				'resources/jquery/jquery.arrowSteps.js',
 				'resources/jquery/jquery.autocomplete.js',
 				'resources/jquery/jquery.spinner.js',
 				'resources/jquery/jquery.removeCtrl.js',
-				'resources/jquery/jquery.showThumbCtrl.js',				
+				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
 
 				// common utilities
@@ -99,7 +99,6 @@ class UploadWizardHooks {
 				'UploadWizardPage.js'
 			),
 			'styles' => array(
-				'resources/jquery/jquery.tipsy.css',
 				'resources/uploadWizard.css',
 				'resources/jquery/jquery.arrowSteps.css',
 				'resources/jquery/jquery.mwCoolCats.css',
