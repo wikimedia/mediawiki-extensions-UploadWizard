@@ -36,10 +36,10 @@ class UploadWizardHooks {
 			'scripts' => array(
 				// jquery interface helpers
 				'resources/jquery/jquery.morphCrossfade.js',
-				'resources/jquery/jquery.validate.js',
+				'resources/jquery/jquery.validate.js', // In trunk as of 1.19
 				'resources/jquery/jquery.arrowSteps.js',
 				'resources/jquery/jquery.autocomplete.js',
-				'resources/jquery/jquery.spinner.js',
+				'resources/jquery/jquery.spinner.js', // In trunk as of 1.19
 				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
