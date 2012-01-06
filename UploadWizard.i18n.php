@@ -22223,6 +22223,7 @@ $messages['tt-cyrl'] = array(
 );
 
 /** Ukrainian (Українська)
+ * @author A1
  * @author Ahonc
  * @author Alex Khimich
  * @author Dim Grits
@@ -22555,7 +22556,9 @@ $1',
 	'mw-coolcats-confirm-new-cancel' => 'Не має значення',
 	'prefs-uploads' => 'завантаження',
 	'mwe-upwiz-prefs-def-license' => 'Стандартна ліцензія',
+	'mwe-upwiz-prefs-def-license-def' => 'Використовувати встановлене за замовченням',
 	'mwe-upwiz-prefs-license-own' => 'Власна робота - $1',
+	'mwe-upwiz-prefs-license-thirdparty' => 'Чужий твір -- $1',
 );
 
 /** Urdu (اردو) */
