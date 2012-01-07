@@ -13799,7 +13799,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-source-thirdparty' => 'ഈ {{PLURAL:$1|പ്രമാണം|പ്രമാണങ്ങൾ}} എന്റെ സ്വന്തം സൃഷ്ടി അല്ല.',
 	'mwe-upwiz-source-thirdparty-intro' => 'ദയവായി ഓരോ പ്രമാണവും കണ്ടെത്താനാകുന്ന വിലാസം നൽകുക.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'എല്ലാ പ്രമാണങ്ങൾക്കും ഒരേ സ്രോതസ്സ്, രചയിതാവ്, പകർപ്പവകാശ സ്ഥിതി എന്നിവയാണെങ്കിൽ, അവ ഒരു പ്രാവശ്യം നൽകിയാൽ മതിയാകും.',
-	'mwe-upwiz-source-thirdparty-license' => 'ഈ {{PLURAL:$1|കൃതിയുടെ|കൃതികളുടെ}} പകർപ്പവകാശ ഉടമ താഴെ പറയുന്ന അനുമതിയിൽ(അനുമതികളിൽ) ആണ് {{PLURAL:$1|അത്|അവ}} പ്രസിദ്ധീകരിച്ചിരിക്കുന്നത്:',
+	'mwe-upwiz-source-thirdparty-license' => 'ഈ {{PLURAL:$1|കൃതിയുടെ|കൃതികളുടെ}} പകർപ്പവകാശ ഉടമ താഴെ പറയുന്ന {{PLURAL:$2|അനുമതിയിൽ|അനുമതികളിൽ}} ആണ് {{PLURAL:$1|അത്|അവ}} പ്രസിദ്ധീകരിച്ചിരിക്കുന്നത്:',
 	'mwe-upwiz-source-thirdparty-cases' => 'താങ്കൾക്ക് {{PLURAL:$1|ഈ കൃതി|ഈ കൃതികൾ}} പ്രസിദ്ധീകരിക്കാനുള്ള അവകാശം എന്തുകൊണ്ടാണുള്ളതെന്ന് ഞങ്ങളോട് പറയുക:',
 	'mwe-upwiz-source-thirdparty-accept' => 'ശരി',
 	'mwe-upwiz-source-custom' => 'ഓരോ പ്രമാണത്തിനുമുള്ള പകർപ്പവകാശ അനുമതികളോരോന്നും അടുത്ത താളിൽ പ്രത്യേകം തിരഞ്ഞെടുക്കുക.',
@@ -13949,7 +13949,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-license-custom-head' => 'മുകളിൽ പരാമർശിക്കാത്ത മറ്റൊരു കാരണം',
 	'mwe-upwiz-license-custom-preview' => 'എങ്ങനെയുണ്ടെന്നു കാണുക',
 	'mwe-upwiz-license-none-head' => 'ഞാനിത് ഇന്റർനെറ്റിൽ കണ്ടെത്തിയതാണ് -- എനിക്കുറപ്പില്ല',
-	'mwe-upwiz-license-none' => 'ഈ {{PLURAL:$1|പ്രമാണം|പ്രമാണങ്ങൾ}} തത്കാലം പകർപ്പവകാശ വിവരങ്ങളില്ലാതെ അപ്‌ലോഡ് ചെയ്യുക. ഈ {{PLURAL:$1|പ്രമാണം|പ്രമാണങ്ങൾ}} മായ്ക്കപ്പെടാനിടയുണ്ടെന്ന് എനിക്ക് അറിയാം.',
+	'mwe-upwiz-license-none' => '{{PLURAL:$1|ഈ സൃഷ്ടി|ഈ സൃഷ്ടികൾ}} സ്വതന്ത്ര അനുമതി ഉള്ളതാണ് അല്ലെങ്കിൽ നിയമപ്രകാരം പൊതുസഞ്ചയത്തിൽ പ്രസിദ്ധീകരിച്ചതാണ് എന്നാണ് എന്റെ വിശ്വാസം. സമയബന്ധിതമായി ആവശ്യമായ അനുമതി വിവരങ്ങൾ ഞാൻ നൽകിയില്ലെങ്കിൽ, {{PLURAL:$1|പ്രമാണം|പ്രമാണങ്ങൾ}} മായ്ക്കപ്പെട്ടേക്കാമെന്ന് ഞാൻ മനസ്സിലാക്കുന്നു.',
 	'mwe-upwiz-license-confirm-remove' => '{{PLURAL:$1|ഈ അപ്‌ലോഡ്|ഈ അപ്‌ലോഡുകൾ}} നീക്കം ചെയ്യണമെന്ന് ഉറപ്പാണോ?',
 	'mwe-upwiz-license-confirm-remove-title' => 'നീക്കം ചെയ്യൽ സ്ഥിരീകരിക്കുക',
 	'mwe-upwiz-license-external' => 'ഈ പ്രമാണം $1-ൽ ഇനി പറയുന്ന അനുമതിയിലാണുള്ളത്: <b>$2</b>.',
@@ -14037,13 +14037,17 @@ $messages['mn'] = array(
 
 /** Marathi (मराठी)
  * @author Kaajawa
+ * @author Mahitgar
  * @author Rahuldeshmukh101
  * @author V.narsikar
  * @author कोल्हापुरी
  */
 $messages['mr'] = array(
+	'uploadwizard' => 'चढवय्या सुक्षमता-प्रणाली (अपलोड विझार्ड)',
+	'uploadwizard-desc' => 'चढवय्या सुक्षमता-प्रणाली, मलटिमिडिया चढवण्याचे एक मैत्रीपूर्ण साधन',
 	'mwe-upwiz-uploadcampaigns' => 'चढवण्याचे अभियान',
 	'action-upwizcampaigns' => 'चढवण्याच्या अभियानाचे सुस्त्रीकरण करा',
+	'group-upwizcampeditors' => 'चढवय्या सुक्षमता-प्रणाली(अपलोड विज़ार्ड) अभियान संपादक',
 	'mwe-upwiz-code-unknown' => 'अज्ञात भाषा',
 	'mwe-upwiz-step-tutorial' => 'शिकणे',
 	'mwe-upwiz-step-file' => 'चढवा',
@@ -14114,6 +14118,7 @@ $messages['mr'] = array(
 	'mwe-upwiz-desc' => 'वर्णन',
 	'mwe-upwiz-desc-add-0' => 'वर्णन वाढवा',
 	'mwe-upwiz-title' => 'शीर्षक',
+	'mwe-upwiz-media-type' => 'माध्यम(मीडिया) प्रकार',
 	'mwe-upwiz-date-created' => 'निर्मिती दिनांक',
 	'mwe-upwiz-location' => 'ठिकाण',
 	'mwe-upwiz-location-lat' => 'अक्षांश',
@@ -14125,6 +14130,7 @@ $messages['mr'] = array(
 	'mwe-upwiz-source' => 'स्रोत',
 	'mwe-upwiz-thanks-intro' => 'चढवल्या बद्दल धन्यवाद !',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'तुम्ही  $1 ही  संचिका  चढवण्यास ह्या पुर्वीच सुरुवात केलेली आहे.',
+	'mwe-upwiz-allowed-filename-extensions' => 'मान्य विस्तारके (एक्स्टेंशन) अशी आहेत:',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'तरीही चढवावे ?',
 	'mwe-upwiz-ok' => 'सर्व ठीक',
 	'mwe-upwiz-cancel' => 'रद्द करा',
@@ -14137,7 +14143,9 @@ $messages['mr'] = array(
 	'mwe-upwiz-next-details' => 'पुढील',
 	'mwe-upwiz-home' => 'विकीच्या मुखपृष्ठाकडे जा',
 	'mwe-upwiz-upload-another' => 'आणखी संचिका चढवा',
+	'mwe-upwiz-files-complete' => 'तुमच्या संचिका(फाईलींचे) चढवणे संपले !',
 	'mwe-upwiz-tooltip-more-info' => 'अधिक माहितीसाठी',
+	'mwe-upwiz-file-need-file' => 'कृपया प्रथम चढवण्याची कृती जोडा',
 	'mwe-upwiz-deeds-need-license' => 'कुपया  परवाना निवडा',
 	'mwe-upwiz-license-show-all' => 'वेगळा परवाना वापर',
 	'mwe-upwiz-license-show-recommended' => 'शिफारस केलेला  परवाना वापर',
@@ -14189,11 +14197,21 @@ $messages['mr'] = array(
 	'mwe-upwiz-campaigns-newname' => 'मोहिमेचे  शीर्षक',
 	'mwe-upwiz-campaigns-existing' => 'अस्तित्वातील मोहिमी',
 	'mwe-upwiz-campaigns-delete' => 'वगळा',
+	'mwe-upwiz-campaigns-delete-failed' => 'मोहीम वगळल् जाऊ शकली नाही.',
+	'uploadcampaign-text' => 'तुम्ही चढवय्या सुक्षमता-प्रणाली अभियानात (Upload Wizard campaign मध्ये) बदल घडवत आहात.',
 	'mwe-upwiz-campaign-name' => 'मोहिमेचे  शीर्षक',
+	'mwe-upwiz-campaign-enabled' => 'मोहीम सक्षमीत केली',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'परवाना शिकवणी दुर्लक्षीत करा',
+	'mwe-upwiz-campaign-conf-ownWorkOption' => 'स्व-कृती आणि स्वत:च्या नसलेल्या कृती कशा हाताळाव्यात:',
+	'mwe-upwiz-campaign-owner-own' => 'केवळ स्वत:च्या कृती चढवण्यास परवानगी द्या',
+	'mwe-upwiz-campaign-owner-notown' => "केवळ '''स्वत:च्या नसलेल्या कृती''' चढवण्यास परवानगी द्या",
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'स्व-कृतीचा  अविचल  परवाना (The default own work license) :',
+	'mw-coolcats-confirm-new-title' => 'नवीन वर्गीकरणास पुष्टी द्या.',
 	'mw-coolcats-confirm-new-ok' => 'हा वर्ग जोडा (अस्तित्वात नसला तरी)',
 	'mw-coolcats-confirm-new-cancel' => 'कही हरकत नहीं',
 	'prefs-uploads' => 'चढवा',
 	'mwe-upwiz-prefs-def-license' => 'डिफॉल्ट परवाना',
+	'mwe-upwiz-prefs-def-license-def' => 'जे काही अविचल (डिफॉल्ट) असेल ते वापरा',
 	'mwe-upwiz-prefs-license-own' => 'स्वतःची निर्मिती - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'कोणाचीतरी निर्मिती - $1',
 );
@@ -19693,7 +19711,7 @@ $messages['si'] = array(
 	'mwe-upwiz-license-copyrighted-free-use' => 'කතෘහිමිකම් කල, නමුත් වානිජ්‍ය ඇතුළු, ඕනෑම අරමුණක් සඳහා භාවිතා කල හැක',
 	'mwe-upwiz-license-attribution' => 'කතුහිමිකම් දරන්නා හරියටම ආරෝපිත නම්, වානිජ්‍ය ඇතුළුව, ඕනෑම අරමුණක් සඳහා භාවිතා කල හැක',
 	'mwe-upwiz-license-gfdl' => 'GNU නිදහස් ප්‍රලේඛන බලපත්‍රය',
-	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'පිටපත්හැරයාම, ගුණනාමය අවශ්‍යයි (GFDL, CC-BY-SA-3.0)',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, attribution required (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-public-domain-usa-head' => 'කතුහිමිකම ඒ.ජනපදයේදී  ඒකාන්තයෙන්ම කල් ඉකුත් වී ඇත',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|මෙම නිර්මාණය|මෙම නිර්මාණයන්}} එක්සත් ජනපද ආණ්ඩුව විසින් තනන ලදී',
 	'mwe-upwiz-license-misc' => 'විවිධ හේතුන්',
