@@ -243,7 +243,7 @@ mw.UploadWizardUpload.prototype = {
 					width: 500,
 					zIndex: 200000,
 					autoOpen: true,
-					title: gM( 'mwe-upwiz-api-error-' + code + '-popup-title', duplicates.length ),
+					title: gM( 'api-error-' + code + '-popup-title', duplicates.length ),
 					modal: true
 				} );
 		};

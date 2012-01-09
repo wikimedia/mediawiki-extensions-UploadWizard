@@ -29,41 +29,6 @@ $messages['en'] = array(
 	'mwe-upwiz-step-deeds' => 'Release rights',  // Guillaume wants "Set rights". Disagreement -- NeilK
 	'mwe-upwiz-step-details' => 'Describe',
 	'mwe-upwiz-step-thanks' => 'Use',
-	'mwe-upwiz-api-error-http' => 'Internal error: Unable to connect to server.',
-	'mwe-upwiz-api-error-ok-but-empty' => 'Internal error: No response from server.',
-	'mwe-upwiz-api-error-unclassified' => 'An unknown error occurred.',
-	'mwe-upwiz-api-error-unknown-code' => 'Unknown error: "$1"',
-	'mwe-upwiz-api-error-uploaddisabled' => 'Uploading is disabled on this wiki.',
-	'mwe-upwiz-api-error-nomodule' => 'Internal error: No upload module set.',
-	'mwe-upwiz-api-error-mustbeposted' => 'Internal error: Request requires HTTP POST.',
-	'mwe-upwiz-api-error-badaccess-groups' => 'You are not permitted to upload files to this wiki.',
-	'mwe-upwiz-api-error-stashfailed' => 'Internal error: Server failed to store temporary file.',
-	'mwe-upwiz-api-error-missingresult' => 'Internal error: Could not determine if the copy succeeded.',
-	'mwe-upwiz-api-error-missingparam' => 'Internal error: Missing parameters on request.',
-	'mwe-upwiz-api-error-invalid-file-key' => 'Internal error: File was not found in temporary storage.',
-	'mwe-upwiz-api-error-copyuploaddisabled' => 'Uploading by URL is disabled on this server.',
-	'mwe-upwiz-api-error-mustbeloggedin' => 'You must be logged in to upload files.',
-	'mwe-upwiz-api-error-empty-file' => 'The file you submitted was empty.',
-	'mwe-upwiz-api-error-file-too-large' => 'The file you submitted was too large.',
-	'mwe-upwiz-api-error-filetype-missing' => 'The file is missing an extension.',
-	'mwe-upwiz-api-error-filetype-banned' => 'This type of file is banned.',
-	'mwe-upwiz-api-error-filename-tooshort' => 'The filename is too short.',
-	'mwe-upwiz-api-error-illegal-filename' => 'The filename is not allowed.',
-	'mwe-upwiz-api-error-verification-error' => 'This file might be corrupt, or have the wrong extension.',
-	'mwe-upwiz-api-error-hookaborted' => 'The modification you tried to make was aborted by an extension hook.',
-	'mwe-upwiz-api-error-unknown-error' => 'Internal error: Something went wrong when trying to upload your file.',
-	'mwe-upwiz-api-error-internal-error' => 'Internal error: Something went wrong with processing your upload on the wiki.',
-	'mwe-upwiz-api-error-overwrite' => 'Overwriting an existing file is not allowed.',
-	'mwe-upwiz-api-error-badtoken' => 'Internal error: Bad token.',
-	'mwe-upwiz-api-error-fetchfileerror' => 'Internal error: Something went wrong while fetching the file.',
-	'mwe-upwiz-api-error-duplicate' => 'There {{PLURAL:$1|is [$2 another file]|are [$2 some other files]}} already on the site with the same content.',
-	'mwe-upwiz-api-error-duplicate-popup-title' => 'Duplicate {{PLURAL:$1|file|files}}',
-	'mwe-upwiz-api-error-duplicate-archive' => 'There {{PLURAL:$1|was [$2 another file]|were [$2 some other files]}} already on the site with the same content, but {{PLURAL:$1|it was|they were}} deleted.',
-	'mwe-upwiz-api-error-duplicate-archive-popup-title' => 'Duplicate {{PLURAL:$1|file|files}} that have already been deleted',
-	'mwe-upwiz-api-error-unknown-warning' => 'Unknown warning: $1',
-	'mwe-upwiz-api-error-timeout' => 'The server did not respond within the expected time.',
-	'mwe-upwiz-api-error-noimageinfo' => 'The upload succeeded, but the server did not give us any information about the file.',
-
 
 	'mwe-upwiz-api-warning-exists' => 'There is [$1 another file] already on the wiki with the same filename',
 	'mwe-upwiz-api-warning-was-deleted' => 'There was a file by this name, "$1", but it was deleted and you can not reupload the file. If your file is different, try renaming it.',
@@ -429,16 +394,6 @@ For more information, see http://www.mediawiki.org/wiki/UploadWizard',
 | [[file:commons-uw-L52G.png|Initial "{{MediaWiki:mwe-upwiz-step-details/en}}" page|thumb|right]]
 | [[file:commons-uw-L52X.png|Initial "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 |} This is a short greyed or bolded label, in the top bar of all pages of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]]. Use the verb for this message.',
-	'mwe-upwiz-api-error-filetype-missing' => 'The word "file" here is synonymous to "file name".
-The word "extension" refers to the part behind the last dot in a file name, that by convention gives a hint about the kind of data format which a files contents are in.',
-	'mwe-upwiz-api-error-verification-error' => '
-The word "extension" refers to the part behind the last dot in a file name, that by convention gives a hint about the kind of data format which a files contents are in.',
-	'mwe-upwiz-api-error-hookaborted' => 'The word "extension" here refers to a [[:mw:Manual:Extensions|MediaWiki Extension]] which extends the functionality of the basic wiki by adding something to its capabilities.
-
-An "[[:mw:Manual:Hooks|extension hook]]" is both a way to plug extended capabilities into the basic program, or vice versa, and the process of using or calling it. A specific task or service is associated with a hook and accessed by calling the hook.
-
-"… aborted by an extension hook" implies, that from a hook call, a negative response was received, indicating that the intended operation could not be performed successfully or was not allowed to continue to its intended end.',
-	'mwe-upwiz-api-error-duplicate-popup-title' => 'This message is a pop-up title shown in case one or more files exactly equal to the one just uploaded are already present. The word "duplicate" is an adjective.',
 	'mwe-upwiz-help-desk' => 'This should be the same text as it is used in the svg comic on the first page of the Upload Wizard',
 	'mwe-upwiz-help-desk-url' => 'As this is mailny used on Commons, it should remain as such and be overrriden when the UploadWizard is pushed on the local wikis.',
 	'mwe-upwiz-add-file-n' => '{| align="right"

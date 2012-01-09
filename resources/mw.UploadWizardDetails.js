@@ -923,7 +923,7 @@ mw.UploadWizardDetails.prototype = {
 						warningsKeys.push( key );
 					} );
 					_this.upload.state = 'error';
-					_this.showError( 'unknown', gM( 'mwe-upwiz-api-error-unknown-warning', warningsKeys.join( ', ' ) ) );
+					_this.showError( 'unknown', gM( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ) );
 				}
 			} else {
 				err( 'details-info-missing', result );
@@ -963,7 +963,7 @@ mw.UploadWizardDetails.prototype = {
 	 * @param {Mixed} result from ajax call
 	 */
 	processError: function( code, result ) {
-		var statusLine = gM( 'mwe-upwiz-api-error-unclassified' );
+		var statusLine = gM( 'api-error-unclassified' );
 		var titleErrorMap = {
 			'senselessimagename': 'senselessimagename',
 			'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
@@ -977,7 +977,7 @@ mw.UploadWizardDetails.prototype = {
 				_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-' + titleErrorMap[code] ) );
 				return;
 			} else {
-				statusKey = 'mwe-upwiz-api-error-' + code;
+				statusKey = 'api-error-' + code;
 				if ( result.error.info ) {
 					statusLine = gM( statusKey, result.error.info );
 				} else {

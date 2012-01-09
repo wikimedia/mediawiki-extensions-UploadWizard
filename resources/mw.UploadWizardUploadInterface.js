@@ -232,7 +232,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	showError: function( code, info ) {
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
-		var msgKey = 'mwe-upwiz-api-error-unknown-code';
+		var msgKey = 'api-error-unknown-code';
 		var args = [ code ];
 
 		if ( code === 'http' && info.textStatus === 'timeout' ) {
@@ -240,7 +240,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		}
 
 		if ( $j.inArray( code, mw.Api.errors ) !== -1 ) {
-			msgKey = 'mwe-upwiz-api-error-' + code;
+			msgKey = 'api-error-' + code;
 			args = $j.makeArray( info );
 		}
 		this.setStatus( msgKey, args );
