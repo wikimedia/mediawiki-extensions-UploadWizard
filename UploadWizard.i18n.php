@@ -12843,6 +12843,7 @@ $messages['mn'] = array(
 /** Marathi (मराठी)
  * @author Kaajawa
  * @author Mahitgar
+ * @author Mvkulkarni23
  * @author Prabodh1987
  * @author Rahuldeshmukh101
  * @author V.narsikar
@@ -12975,6 +12976,13 @@ $messages['mr'] = array(
 	'mwe-upwiz-error-license-wikitext-too-long' => 'आपण भरलेली विकी माहिती हि अतिदीर्घ आहे',
 	'mwe-upwiz-too-many-files-ok' => 'ठीक',
 	'mwe-upwiz-too-many-files' => 'उदंड संचिका',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूसन शेअरएलाइक ३.० ([$2 कायदा कोड])',
+	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० ऑसट्रिया ([$2 कायदा कोड])',
+	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० जर्मनी ([$2 कायदा कोड])',
+	'mwe-upwiz-license-cc-by-sa-3.0-ee' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० एस्टोनिया ([$2 कायदा कोड])',
+	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० स्पेन ([$2 कायदा कोड])',
+	'mwe-upwiz-license-cc-by-sa-3.0-hr' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० क्रोएशिया ([$2 कायदा कोड])',
+	'mwe-upwiz-license-cc-by-sa-3.0-lu' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० लक्समबर्ग ([$2 कायदा कोड])',
 	'mwe-upwiz-license-fal' => 'मुक्त कला परवाना',
 	'mwe-upwiz-license-pd-old-100' => 'लेखकाच्या  मृत्यूस  १०० वर्षा पेक्षा जास्त कालावधी पूर्ण झाला',
 	'mwe-upwiz-license-pd-old' => 'लेखकाच्या  मृत्यूस  ७  वर्षा पेक्षा जास्त कालावधी पूर्ण झाला',
@@ -15283,7 +15291,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => 'Jednocześnie możesz wysłać  tylko $1 {{PLURAL:$1| plik|pliki}} na raz. Usiłowano przekazać w sumie $2   {{PLURAL:$2| plik|plików}} dlatego $3  {{PLURAL:$3| plik został usunięty|pliki zostały usunięte}}.',
 	'mwe-upwiz-too-many-files' => 'Zbyt wiele plików.',
-	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Uznanie autorstwa-Na tych samych warunkach 3.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Austria ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 Niemcy ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-ee' => 'Creative Commons Attribution ShareAlike 3.0 Estonia ([$2 legal code])',
