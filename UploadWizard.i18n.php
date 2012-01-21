@@ -1504,6 +1504,7 @@ Comprueba <b><tt>$1</tt></b> si nun tas seguru de si quies camudalu.',
 	'mwe-upwiz-tooltip-sign' => "Pues usar el nome d'usuariu de la wiki o'l to nome real.
 N'ambos casos, esti s'enllazará cola to páxina d'usuariu de la wiki.",
 	'mwe-upwiz-tooltip-title' => 'Un títulu descriptivu únicu que sirvirá para da-y nome al ficheru. Se pue usar llinguax normal con espacios. Nun amiestes la estensión del ficheru.',
+	'mwe-upwiz-too-many-files-ok' => 'Aceutar',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Reconocimientu - Compartir Igual 3.0 ([$2 códigu llegal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Reconocimientu - Compartir Igual 3.0 Austria ([$2 códigu llegal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Reconocimientu - Compartir Igual 3.0 Alemania ([$2 códigu llegal])',
