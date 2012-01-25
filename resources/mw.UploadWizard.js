@@ -79,17 +79,34 @@ mw.UploadWizard.prototype = {
 		if ( mw.UploadWizard.config['translateHelp'] !== undefined && mw.UploadWizard.config['translateHelp'] !== '' ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['translateHelp'], target: '_blank' } ) ) );
 		}
-		if ( mw.UploadWizard.config['altUploadForm'] !== undefined && mw.UploadWizard.config['altUploadForm'] !== '' ) {
-			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
-			var title;
-			try {
-				title = new mw.Title( mw.UploadWizard.config['altUploadForm'] );
-			} catch ( e ) {
-				// page was empty, or impossible on this wiki (missing namespace or some other issue). Give up.
+		var configAltUploadForm = mw.UploadWizard.config['altUploadForm'];
+		if ( configAltUploadForm !== undefined && configAltUploadForm !== '' ) {
+			var altUploadForm;
+			if ( typeof configAltUploadForm === 'object' ) {
+				var userLanguage = mw.config.get( 'wgUserLanguage' );
+				if ( configAltUploadForm[userLanguage] ) {
+					altUploadForm = configAltUploadForm[userLanguage];
+				} else if ( configAltUploadForm['default'] ) {
+					altUploadForm = configAltUploadForm['default'];
+				} else {
+					altUploadForm = undefined;
+				}
+			} else {
+				altUploadForm = configAltUploadForm;
 			}
-			if ( title instanceof mw.Title ) { 
-				var altUploadFormUrl = title.getUrl();
-				$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $j( '<a></a>' ).attr( { href: altUploadFormUrl } ) ) );
+			
+			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
+			if ( altUploadForm ) {
+				var title;
+				try {
+					title = new mw.Title( altUploadForm );
+				} catch ( e ) {
+					// page was empty, or impossible on this wiki (missing namespace or some other issue). Give up.
+				}
+				if ( title instanceof mw.Title ) { 
+					var altUploadFormUrl = title.getUrl();
+					$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $j( '<a></a>' ).attr( { href: altUploadFormUrl } ) ) );
+				}
 			}
 		}
 		$j( '#contentSub .contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );

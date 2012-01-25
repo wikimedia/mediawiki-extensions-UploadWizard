@@ -427,7 +427,16 @@ return array(
 	// TranslateWiki page for help with translations
 	'translateHelp' => 'http://translatewiki.net/w/i.php?title=Special:Translate&group=ext-uploadwizard',
 	
-	// URL for alternative uploading form
+	// Title of page for alternative uploading form, e.g.:
+	//   'altUploadForm' => 'Special:Upload',
+	//
+	// If different pages are required for different languages,
+	// supply an object mapping user language code to page. For a catch-all
+	// page for all languages not explicitly configured, use 'default'. For instance:
+	//   array( 
+	//		'default'	=> 'Commons:Upload',
+	//		'de'		=> 'Commons:Hochladen'
+	//	 );
 	'altUploadForm' => '',
 
 	// Is titleBlacklist API even available? 
