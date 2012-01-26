@@ -15171,6 +15171,7 @@ $messages['pfl'] = array(
  * @author Nux
  * @author Odder
  * @author Olgak85
+ * @author Przemub
  * @author Rzuwig
  * @author Sp5uhe
  * @author Woytecr
@@ -15368,7 +15369,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Attribution ShareAlike 2.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (nie objęte prawami autorskimi, jak domena publiczna : [$2 legal code])',
-	'mwe-upwiz-license-custom' => 'Licencja jest opisana przez następujący Wiki-tekst (musi zawierać prawidłowy [ $2  znak prawa autorskiego]):',
+	'mwe-upwiz-license-custom' => 'Licencja jest opisana przez następujący Wiki-tekst (musi zawierać prawidłowy [$2  znak prawa autorskiego]):',
 	'mwe-upwiz-license-fal' => 'Licencja Wolnej Sztuki',
 	'mwe-upwiz-license-own-pd' => 'Rezygnacja ze wszystkich praw autorskich zgodnie z licencją Creative Commons Zero (Na podobnej zasadzie co domena publiczna)',
 	'mwe-upwiz-license-pd-old-100' => 'Autor zmarł ponad 100 lat temu',
