@@ -17187,6 +17187,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
 
 /** Russian (Русский)
  * @author Ahonc
+ * @author Amadeus71rus
  * @author Ast
  * @author Dim Grits
  * @author Eleferen
@@ -17216,7 +17217,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-code-unknown' => 'Неизвестный язык',
 	'mwe-upwiz-step-tutorial' => 'Ознакомление',
 	'mwe-upwiz-step-file' => 'Загрузка',
-	'mwe-upwiz-step-deeds' => 'Указание прав',
+	'mwe-upwiz-step-deeds' => 'Авторские права',
 	'mwe-upwiz-step-details' => 'Описание',
 	'mwe-upwiz-step-thanks' => 'Использование',
 	'mwe-upwiz-api-warning-exists' => 'Уже существует [$1 другой файл] с таким же именем',
@@ -17227,18 +17228,18 @@ $messages['ru'] = array(
 	'mwe-upwiz-help-desk' => 'Служба поддержки',
 	'mwe-upwiz-help-desk-url' => 'Служба поддержки',
 	'mwe-upwiz-add-file-n' => 'Добавить ещё один файл',
-	'mwe-upwiz-add-file-0-free' => 'Выберите медиафайл для дарения',
+	'mwe-upwiz-add-file-0-free' => 'Выберите медиафайл для загрузки',
 	'mwe-upwiz-transport-started' => 'Начало…',
-	'mwe-upwiz-uploading' => 'загрузка на сервер…',
-	'mwe-upwiz-transported' => 'OK',
+	'mwe-upwiz-uploading' => 'Загрузка файлов на сервер…',
+	'mwe-upwiz-transported' => 'Завершение загрузки...',
 	'mwe-upwiz-stashed-upload' => 'OK',
 	'mwe-upwiz-getting-metadata' => 'Получение сведений о файле и предпросмотр…',
 	'mwe-upwiz-submitting-details' => 'Отправка подробностей и публикация…',
 	'mwe-upwiz-published' => 'Опубликовано!',
-	'mwe-upwiz-failed' => 'Не удалось.',
+	'mwe-upwiz-failed' => 'Ошибка загрузки.',
 	'mwe-upwiz-remove' => 'Удалить',
 	'mwe-upwiz-remove-upload' => 'Удалить этот файл из списка файлов для загрузки',
-	'mwe-upwiz-show-thumb' => 'Нет миниатюры',
+	'mwe-upwiz-show-thumb' => 'Показать миниатюру',
 	'mwe-upwiz-show-thumb-tip' => 'Загрузка миниатюры для этого файла',
 	'mwe-upwiz-remove-description' => 'Удалить это описание',
 	'mwe-upwiz-upload' => 'Загрузить',
@@ -17293,7 +17294,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-other' => 'Другая информация',
 	'mwe-upwiz-source' => 'Источник',
 	'mwe-upwiz-thanks-intro' => 'Спасибо за загрузку!',
-	'mwe-upwiz-thanks-explain' => 'Теперь вы можете использовать {{PLURAL:$1|ваш файл|ваши файлы}} на страницах проектов вроде Википедии, или ссылаться на {{PLURAL:$1|него|них}} с других веб-сайтов.',
+	'mwe-upwiz-thanks-explain' => 'Теперь вы можете использовать {{PLURAL:$1|свой файл|свои файлы}} в Википедии и на родственных ей вики-проектов, или ссылаться на {{PLURAL:$1|него|них}} с других веб-сайтов.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Чтобы использовать файл в вики</b>, скопируйте этот текст на страницу:',
 	'mwe-upwiz-thanks-url' => '<b>Чтобы добавить ссылку в HTML</b>, скопируйте следующий адрес URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Данная вики не принимает имена файлов с расширением «.$1».',
@@ -18583,7 +18584,7 @@ $messages['so'] = array(
 	'mwe-upwiz-other' => 'wax war oo kale',
 	'mwe-upwiz-thanks-intro' => 'Waad ku mahadsantahay wax soo gelida!',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Iska soo gali?',
-	'mwe-upwiz-cancel' => 'Iska xir',
+	'mwe-upwiz-cancel' => 'kansal',
 	'mwe-upwiz-fileexists-replace' => 'Fayl leh qoraalka "$1" woo jiraa. fadlan ku badal qoraalkaada mid kale.',
 	'mwe-upwiz-next-deeds' => 'Kan ku xiga',
 	'mwe-upwiz-next-details' => 'Kan ku xiga',
