@@ -64,7 +64,7 @@ mw.UploadWizard.prototype = {
 			var feedback = new mw.Feedback( {
 				'title': new mw.Title( mw.UploadWizard.config['feedbackPage'] ),
 				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
-				'bugsLink': new mw.Uri( '//bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
+				'bugsLink': new mw.Uri( 'https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
 				'bugsListLink': new mw.Uri( mw.UploadWizard.config['bugList'] )
 			} );
 			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
