@@ -472,37 +472,37 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
 	'mwe-upwiz-too-many-files' => 'Error dialog title',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '{{CreativeCommonsLicense|by-sa|3.0|at}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => '{{CreativeCommonsLicense|by-sa|3.0|de}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-ee' => '{{CreativeCommonsLicense|by-sa|3.0|ee}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-es' => '{{CreativeCommonsLicense|by-sa|3.0|es}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-hr' => '{{CreativeCommonsLicense|by-sa|3.0|hr}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-lu' => '{{CreativeCommonsLicense|by-sa|3.0|lu}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-nl' => '{{CreativeCommonsLicense|by-sa|3.0|nl}}
-For more information, see .mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-no' => '{{CreativeCommonsLicense|by-sa|3.0|no}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-pl' => '{{CreativeCommonsLicense|by-sa|3.0|pl}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-ro' => '{{CreativeCommonsLicense|by-sa|3.0|ro}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-3.0' => '{{CreativeCommonsLicense|by|3.0}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-2.5' => '{{CreativeCommonsLicense|by-sa|2.5}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-2.5' => '{{CreativeCommonsLicense|by|2.5}}
-For more information, see .mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-2.0' => '{{CreativeCommonsLicense|by-sa|2.0}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-2.0' => '{{CreativeCommonsLicense|by|2.0}}
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-custom-preview' => '{{Identical|Preview}}',
