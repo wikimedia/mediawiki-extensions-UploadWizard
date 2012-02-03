@@ -359,8 +359,8 @@ Please do not use wikitext or HTML here.',
  */
 $messages['qqq'] = array(
 	'uploadwizard' => 'UploadWizard is a wizard to upload multimedia files to a MediaWiki website
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
-	'uploadwizard-desc' => 'Description of extension. It refers to [http://blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
+	'uploadwizard-desc' => 'Description of extension. It refers to [//blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
 	'mwe-upwiz-uploadcampaigns' => 'Special page title. Can also be worded as "campaigns for the promotion of uploading".',
 	'mwe-upwiz-uploadcampaign' => 'Special page title.',
 	'right-upwizcampaigns' => '{{doc-right|upwizcampaigns}}
@@ -472,37 +472,37 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
 	'mwe-upwiz-too-many-files' => 'Error dialog title',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '{{CreativeCommonsLicense|by-sa|3.0|at}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => '{{CreativeCommonsLicense|by-sa|3.0|de}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-ee' => '{{CreativeCommonsLicense|by-sa|3.0|ee}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-es' => '{{CreativeCommonsLicense|by-sa|3.0|es}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-hr' => '{{CreativeCommonsLicense|by-sa|3.0|hr}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-lu' => '{{CreativeCommonsLicense|by-sa|3.0|lu}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-nl' => '{{CreativeCommonsLicense|by-sa|3.0|nl}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see .mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-no' => '{{CreativeCommonsLicense|by-sa|3.0|no}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-pl' => '{{CreativeCommonsLicense|by-sa|3.0|pl}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-ro' => '{{CreativeCommonsLicense|by-sa|3.0|ro}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-3.0' => '{{CreativeCommonsLicense|by|3.0}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-2.5' => '{{CreativeCommonsLicense|by-sa|2.5}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-2.5' => '{{CreativeCommonsLicense|by|2.5}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see .mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-2.0' => '{{CreativeCommonsLicense|by-sa|2.0}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-2.0' => '{{CreativeCommonsLicense|by|2.0}}
-For more information, see http://www.mediawiki.org/wiki/UploadWizard',
+For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-custom-preview' => '{{Identical|Preview}}',
@@ -21489,7 +21489,7 @@ $messages['zh-hans'] = array(
 例如一张照片，提及主要描绘的东西，场合，或地方。',
 	'mwe-upwiz-tooltip-date' => '此作品创建或首次发布的日期 （"yyyy-mm-dd" 格式）。',
 	'mwe-upwiz-tooltip-categories' => '将[$1 您的文件]添加到类别，使其易于查找。',
-	'mwe-upwiz-tooltip-other' => '任何其他你想要包含在此作品的信息 — <a target="_blank" href="http://commons.wikimedia.org/wiki/Commons:Geocoding">地理编码</a> ，其他版本的链接等。',
+	'mwe-upwiz-tooltip-other' => '任何其他你想要包含在此作品的信息 — <a target="_blank" href="//commons.wikimedia.org/wiki/Commons:Geocoding">地理编码</a> ，其他版本的链接等。',
 	'mwe-upwiz-tooltip-location' => '此媒体文件创作位置坐标。',
 	'mwe-upwiz-tooltip-more-info' => '了解更多信息。',
 	'mwe-upwiz-file-need-file' => '请先添加一个上传文件。',
