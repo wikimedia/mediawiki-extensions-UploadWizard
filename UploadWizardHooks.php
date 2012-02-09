@@ -12,14 +12,17 @@ class UploadWizardHooks {
 		// however, loading mediawiki.language will a) create the namespace b) load the language files with convertPlural for the current language and all.
 		'ext.uploadWizard' => array(
 			'dependencies' => array(
+				'jquery.arrowSteps',
 				'jquery.autoEllipsis',
 				'jquery.ui.core',
 				'jquery.ui.dialog',
 				'jquery.ui.datepicker',
 				'jquery.ui.progressbar',
+				'jquery.spinner',
 				'jquery.suggestions',
 				'jquery.tipsy',
 				'jquery.ui.widget',
+				'jquery.validate',
 				'mediawiki.language',
 				'mediawiki.Uri',
 				'mediawiki.util',
@@ -36,10 +39,7 @@ class UploadWizardHooks {
 			'scripts' => array(
 				// jquery interface helpers
 				'resources/jquery/jquery.morphCrossfade.js',
-				'resources/jquery/jquery.validate.js', // In trunk as of 1.19
-				'resources/jquery/jquery.arrowSteps.js', // In trunk as of 1.19
 				'resources/jquery/jquery.autocomplete.js',
-				'resources/jquery/jquery.spinner.js', // In trunk as of 1.19
 				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
@@ -100,7 +100,6 @@ class UploadWizardHooks {
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',
-				'resources/jquery/jquery.arrowSteps.css',
 				'resources/jquery/jquery.mwCoolCats.css',
 				'resources/jquery/jquery.removeCtrl.css',
 				'resources/jquery/jquery.showThumbCtrl.css',
