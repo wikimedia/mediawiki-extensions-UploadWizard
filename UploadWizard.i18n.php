@@ -4464,6 +4464,7 @@ $messages['dsb'] = array(
  * @author Crazymadlover
  * @author Evropi
  * @author Geraki
+ * @author Glavkos
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -4669,6 +4670,7 @@ $messages['el'] = array(
 	'mwe-upwiz-license-cc-subhead' => 'Δεν είναι όλες οι άδειες Creative Commons κατάλληλες για τη {{SITENAME}} - βεβαιωθείτε ότι ο κάτοχος των πνευματικών δικαιωμάτων χρησιμοποίησε μια από αυτές τις άδειες.',
 	'mwe-upwiz-license-flickr-head' => 'Ο κάτοχος των πνευματικών δικαιωμάτων δημοσίευσε {{PLURAL:$1|την φωτογραφία|τις φωτογραφίες}} ή βίντεό του στο Flickr με τη σωστή άδεια',
 	'mwe-upwiz-license-flickr-subhead' => 'Ελέγξτε την κεφαλίδα "License" στο πλάι της σελίδας στο Flickr. Τόσο τα εικονίδια όσο και το όνομα της άδειας χρήσης που έχουν χρησιμοποιήσει πρέπει να ταιριάζουν με μία από τις επιλογές εδώ.',
+	'mwe-upwiz-license-public-domain-usa-head' => 'Τα δικαιώματα πνευματικής ιδιοκτησίας έχουν λήξει οριστικά στις ΗΠΑ',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Το έργο αυτό δημιουργήθηκε|Τα έργα αυτά δημιουργήθηκαν}} από την κυβέρνηση των Ηνωμένων Πολιτειών',
 	'mwe-upwiz-license-misc' => 'Διάφοροι λόγοι',
 	'mwe-upwiz-license-custom-head' => 'Μόνο ειδικοί: εισάγετε τον κωδικό για μια άδεια που δεν εμφανίζεται εδώ',
@@ -11156,6 +11158,7 @@ $messages['ka'] = array(
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author គីមស៊្រុន
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
@@ -11165,21 +11168,97 @@ $messages['km'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'កំពុង​ផ្ទុកឡើង​',
 	'mwe-upwiz-finished' => 'បាន​បញ្ចាប់!',
 	'mwe-upwiz-deeds-custom-prompt' => 'ឬ៖',
+	'mwe-upwiz-location-lat' => 'រយៈទទឹង',
+	'mwe-upwiz-location-lon' => 'រយៈបណ្តោយ',
+	'mwe-upwiz-location-alt' => 'រយៈកំពស់',
+	'mwe-upwiz-copyright-info' => 'សិទ្ធិផ្សព្វផ្សាយ',
+	'mwe-upwiz-author' => 'អ្នកនិពន្ធ',
+	'mwe-upwiz-autoconverted' => 'ឯកសារនេះត្រូវបានបំលែងជាទំរង់ $1 ដោយស្វ័យប្រវត្តិ',
 	'mwe-upwiz-other' => 'ព័ត៌មានផ្សេងទៀត',
 	'mwe-upwiz-source' => 'ប្រភព',
 	'mwe-upwiz-thanks-intro' => 'សូម​អរគុណ​ចំពោះ​ការ​ផ្ទុកឡើង​!',
+	'mwe-upwiz-thanks-explain' => 'ឥលូវអ្នកអាចប្រើ{{PLURAL:$1|ឯកសារនេះ|ឯកសារទាំងនេះ}}នៅលើវិបសាយនានាដូចជា វិគីភីឌា ឬដាក់តំណភ្ជាប់មកកាន់{{PLURAL:$1|ឯកសារនេះ|ឯកសារទាំងនេះ}}នៅលើអ៊ីនធើណិត។',
+	'mwe-upwiz-thanks-wikitext' => '<b>ដើម្បីប្រើឯកសារនេះនៅលើវិគី</b> សូមធ្វើការចំលងឃ្លាខាងក្រោមចូឡទៅក្នុងទំព័រមួយដែលអ្នកចង់ដាក់វា៖',
+	'mwe-upwiz-thanks-url' => '<b>ដើម្បីដាក់តំណភ្ជាប់មកវាជា HTML</b> សូមធ្វើការចំលងអាសយដ្ឋាន URL នេះ៖',
+	'mwe-upwiz-upload-error-bad-filename-extension' => 'វិគីនេះមិនទទួលយកឈ្មោះឯកសារដែលមានកន្ទុយ ".$1"​ទេ។',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'អ្នកបានជ្រើសយកឯកសារវីដេអូសំរាប់ធ្វើការផ្ទុកឡើង ដែលមិនមានទំរង់សេរី។
+អ្នកអាចតំលើង [$1 Firefogg ]  ដែលជាសូហ្វវែរបន្ថែមសំរាប់ Firefox ដែលអាចបំលែងឯកសាររបស់អ្នកដោយស្វ័យប្រវត្តិ។ ឬក៏ប្រើ [$2 ជំរើសបំលែង] ដទៃទៀត ដើម្បីបំលែងវីដេអូនេះជាទំរង់សេរី។',
+	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'វិគីនេះតំរូវអោយឯកសារមានកន្ទុយជា ".JPG" នៅខាងចុងឈ្មោះឯកសារ។',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'អ្នកកំពុងតែផ្ទុកឯកសារ "$1" ឡើយហើយ។',
+	'mwe-upwiz-allowed-filename-extensions' => 'កន្ទុយដែលអាចប្រើបានមាន៖',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'កន្ទុយឯកសារដែលអាចប្រើបាន',
+	'mwe-upwiz-upload-error-duplicate' => 'ឯកសារនេះត្រូវបានផ្ទុកឡើងមកវិគីនេះពីមុនរួចហើយ។',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'ផ្ទុកឡើងទៀត?',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'យើងខ្ញុំមិនអាចអានយល់ឈ្មោះឯកសារ "$1" នេះទេ។',
+	'mwe-upwiz-ok' => 'យល់ព្រម',
+	'mwe-upwiz-cancel' => 'បោះបង់​',
+	'mwe-upwiz-fileexists-replace' => 'ឯកសារដែលមានចំណងជើង "$1" មានរួចហើយ។ សូមប្ដូរចំណងជើងរបស់អ្នកកុំអោយជាន់គេ។',
+	'mwe-upwiz-fileexists' => 'ឯកសារដែលមានឈ្មោះនេះមានរួចហើយ។
+សូមពិនិត្យមើល <b><tt>$1</tt></b> ប្រសិនបើអ្នកមិនប្រាកដទេថាអ្នកចង់ប្ដូរវា។',
+	'mwe-upwiz-fileexists-replace-on-page' => 'ឯកសារដែលមានឈ្មោះនេះមានរួចហើយ។​ ប្រសិនបើអ្នកចង់ជំនួសវា សូមទៅកាន់ទំព័ររបស់ [$2 $1] ដើម្បីធ្វើការជំនួសវានៅទីនោះ។',
+	'mwe-upwiz-fileexists-replace-no-link' => 'ឯកសារដែលមានឈ្មោះនេះមានរួចហើយ។',
+	'mwe-upwiz-blacklisted' => 'សូមជ្រើសរើសឈ្មោះផ្សេងដែលក្បោះក្បាយជាង។',
+	'mwe-upwiz-thumbnail-more' => 'ពង្រីក',
+	'mwe-upwiz-overwrite' => 'ជំនួសឯកសារ',
 	'mwe-upwiz-next' => 'បន្ទាប់',
 	'mwe-upwiz-next-file' => 'បន្ត',
 	'mwe-upwiz-next-deeds' => 'បន្ទាប់',
 	'mwe-upwiz-next-details' => 'បន្ទាប់',
 	'mwe-upwiz-home' => 'ទៅកាន់គេហទំព័រវិគី',
 	'mwe-upwiz-upload-another' => 'ផ្ទុកឡើងឯកសារបន្ថែមទៀត',
+	'mwe-prevent-close' => 'ការចាកចេញពីទំព័រនេះអាចធ្វើអោយអ្នកបាត់បង់អ្វីដែលអ្នកបានធ្វើការផ្លាស់ប្ដូរ។',
+	'mwe-upwiz-prevent-close' => 'អ្នកមិនទាន់បញ្ចប់ការផ្ទុកឡើងនិងការផ្សព្វផ្សាយ{{PLURAL:$1|ឯកសារនេះ|ឯកសារទាំងនេះ}}នៅឡើងទេ។',
+	'mwe-upwiz-files-complete' => 'ឯកសាររបស់អ្នកត្រូវបានផ្ទុកឡើងចប់រួចរាល់ហើយ!',
+	'mwe-upwiz-tooltip-author' => 'ឈ្មោះរបស់បុគ្គលដែលបានថតរូបនេះ ឬគូរគំនូរនេះ ជាដើម',
+	'mwe-upwiz-tooltip-source' => 'ប្រភពរបស់ឯកសារឌីជីថលនេះ (អាចជា URL សៀវភៅ ឬ ឯកសារបោះពុម្ភ ណាមួយ)',
+	'mwe-upwiz-tooltip-sign' => 'អ្នកអាចប្រើឈ្មោះវិគីរបស់អ្នកឬក៏ឈ្មោះពិតរបស់អ្នក។
+ក្នុងករណីណាក៏ដោយ នឹងមានតំណភ្ជាប់ទៅកាន់ទំព័រអ្នកប្រើប្រាស់វិគីរបស់អ្នក។',
+	'mwe-upwiz-tooltip-title' => 'ចំណងជើងដែលមានន័យពេញលេញនិងខុសពីគេសំរាប់ឯកសារនេះ ដែលនឹងត្រូវប្រើជាឈ្មោះឯកសារ។ អ្នកអាចប្រើភាសាដោយមានចន្លោះដកឃ្លា។ សូមកុំបន្ថែមកន្ទុយឯកសារអោយសោះ។',
+	'mwe-upwiz-dialog-title' => 'ឯកសារអាចផ្ទុកឡើងដោយប្រើឈ្មោះជាភាសាឬអក្សរណាក៏បាន។ ចំណងជើងរបស់ឯកសារមេឌាគួរតែមានន័យពេញលេញ​និងអាចយល់បានក្នុងភាសាដែលអ្នកជ្រើសរើស។',
+	'mwe-upwiz-tooltip-description' => 'ពណ៌នាសង្ខេបអំពីអ្វីដែលគួរកត់សំគាល់ក្នុងស្នាដៃនេះ។
+សំរាប់រូបថត សូមនិយាយពីវត្ថុសំខាន់ៗដែលមានក្នុងនោះ ឱកាស ឬក៏ទីកន្លែងថត។',
+	'mwe-upwiz-tooltip-date' => 'កាលបរិច្ឆេទដែលស្នាដៃនេះត្រូវបានបង្កើតឬផ្សព្វផ្សាយលើកដំបូង (ទំរង់ YYYY-MM-DD)',
+	'mwe-upwiz-tooltip-categories' => 'បន្ថែមឯកសាររបស់អ្នកទៅក្នុង[ចំណាត់ថ្នាក់ក្រុម $1] ដើម្បីអោយស្រួលស្វែងរក។',
+	'mwe-upwiz-tooltip-other' => 'ព័ត៌មានផ្សេងទៀតដែលអ្នកចង់និយាយបន្ថែមអំពីស្នាដៃនេះ (កូអរដោនេភូមិសាស្ត្រ តំណភ្ជាប់ទៅច្បាប់កំណែមួយទៀត ជាដើម)',
+	'mwe-upwiz-tooltip-location' => 'កូអរដោនេរបស់ទីកន្លែងដែលឯកសារមេឌានេះត្រូវបានបង្កើត។',
 	'mwe-upwiz-tooltip-more-info' => 'ស្វែងយល់បន្ថែម។',
+	'mwe-upwiz-file-need-file' => 'សូមបន្ថែមឯកសារសំរាប់ផ្ទុកឡើងជាមុនសិន។',
+	'mwe-upwiz-deeds-need-deed' => 'សូមពន្យល់ប្រាប់ថាតើអ្នកបាន{{PLURAL:$1|ឯកសារនេះ|ឯកសារទាំងនេះ}}ពីណា និងថាតើវិបសាយនេះអាចប្រើ{{PLURAL:$1|វា|ពួកវា}}ក្រោមរូបភាពណា ដោយជ្រើសយកជំរើសមួយខាងក្រោម។',
+	'mwe-upwiz-deeds-need-license' => 'សូមជ្រើសរើសអាជ្ញាបណ្ឌ',
+	'mwe-upwiz-license-show-all' => 'ប្រើអាជ្ញាបណ្ឌមួយផ្សេងទៀត',
+	'mwe-upwiz-license-show-recommended' => 'ប្រើអាជ្ញាបណ្ឌជាអនុសាសន៍',
+	'mwe-upwiz-error-signature-blank' => 'អ្នកត្រូវតែចុះហត្ថលេខាក្នុងប្រអប់ខាងក្រោមដោយឈ្មោះអ្នកប្រើប្រាស់របស់អ្នកឬក៏ឈ្មោះពិតរបស់អ្នក។',
+	'mwe-upwiz-error-latitude' => 'រយៈទទឹងត្រូវតែស្ថិតនៅចន្លោះពី -90 ទៅ 90។',
+	'mwe-upwiz-error-longitude' => 'រយៈបណ្ដោយត្រូវតែស្ថិតនៅចន្លោះពី -180 និង 180។',
+	'mwe-upwiz-error-altitude' => 'រយៈកំពស់ត្រូវតែជាលេខ។',
+	'mwe-upwiz-error-signature-too-long' => 'ហត្ថលេខារបស់អ្នកវែងជ្រុល។
+
+ធ្វើវាអោយខ្លីជាង $1 {{PLURAL:$1|តួអក្សរ|តួអក្សរ}}។',
+	'mwe-upwiz-error-signature-too-short' => 'ហត្ថលេខារបស់អ្នកខ្លីជ្រុល។
+
+ធ្វើវាអោយវែងជាង $1 {{PLURAL:$1|តួអក្សរ|តួអក្សរ}}។',
+	'mwe-upwiz-error-signature-bad-chars' => 'ហត្ថលេខារបស់អ្នកមានផ្ទុកសញ្ញាដែលមិនអនុញ្ញាតអោយប្រើ។
+សូមកុំប្រើអត្ថបទវិគីឬក៏ HTML នៅទីនេះ។ សូមប្រើតែឈ្មោះអ្នកប្រើប្រាស់ឬឈ្មោះពិតរបស់អ្នកបានហើយ។',
+	'mwe-upwiz-error-blank' => 'ផ្នែក "$1" ត្រូវការជាចាំបាច់។',
+	'mwe-upwiz-error-too-long' => 'ផ្នែកនេះវែងជ្រុលហើយ។
+
+ធ្វើវាអោយខ្លីជាង $1 {{PLURAL:$1|តួអក្សរ|តួអក្សរ}}។',
+	'mwe-upwiz-error-too-short' => 'ផ្នែកនេះខ្លីជ្រុលហើយ។
+
+ធ្វើវាអោយវែងជាង $1 {{PLURAL:$1|តួអក្សរ|តួអក្សរ}}។',
+	'mwe-upwiz-error-bad-chars' => 'ផ្នែកនេះមានផ្ទុកសញ្ញាដែលមិនអនុញ្ញាតអោយប្រើ។
+សូមកុំប្រើអត្ថបទវិគីឬក៏ HTML នៅទីនេះ។',
+	'mwe-upwiz-error-date' => 'សូមវាយបញ្ចូលកាលបរិច្ឆទត្រឹមត្រូវជាទំរង់ YYYY-MM-DD ឬក៏ជ្រើសរើសយកការបរិច្ឆេទពីផ្ទាំងប្រតិទិន។',
+	'mwe-upwiz-error-title-blacklisted' => 'ចំណងជើងនេះមានផ្ទុកពាក្យដែលមិនសមរម្យ។ សូមពិនិត្យឡើងវិញ។',
+	'mwe-upwiz-error-title-badchars' => 'ចំណងជើងនេះមានផ្ទុកពាក្យដែលមិនសមរម្យមួយចំនួន។ សូមដកវាចេញ។',
+	'mwe-upwiz-error-title-senselessimagename' => 'សូមធ្វើអោយចំណងជើងនេះមានន័យជាងនេះ។',
 	'mwe-upwiz-categories' => 'ចំណាត់ថ្នាក់ក្រុម',
 	'mwe-upwiz-categories-add' => 'បន្ថែម',
 	'mwe-upwiz-category-remove' => 'ដក​ចំណាត់ថ្នាក់ក្រុម​ចេញ',
 	'mwe-upwiz-help-popup' => 'ជំនួយ',
 	'mwe-upwiz-help-popup-title' => 'ចំណងជើង',
+	'mwe-upwiz-prefs-license-own' => 'ស្នាដៃផ្ទាល់ខ្លួន- $1',
+	'mwe-upwiz-prefs-license-thirdparty' => 'ស្នាដៃអ្នកដទៃ - $1',
 );
 
 /** Kannada (ಕನ್ನಡ)
