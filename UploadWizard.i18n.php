@@ -10751,6 +10751,7 @@ $1',
 	'mw-coolcats-confirm-new-cancel' => 'Lascia stare',
 	'prefs-uploads' => 'Carica',
 	'mwe-upwiz-prefs-def-license' => 'Licenza predefinita',
+	'mwe-upwiz-prefs-def-license-def' => 'Usa la scelta predefinita, qualsiasi cosa sia',
 	'mwe-upwiz-prefs-license-own' => 'Opera propria - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Opera di qualcun altro - $1',
 );
