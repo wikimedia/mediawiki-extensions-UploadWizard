@@ -32,9 +32,9 @@
 		 * @todo is there a way to check this instead of hardcoding browsers and version?
 		 */
 		isSliceAvailable: function() {
-		    return mw.fileApi.isAvailable() && 
-				   ( ($j.browser.mozilla && $j.browser.version >= '5.0') ||
-				     ($j.browser.webkit && $j.browser.version >= '534.28') );
+		    return mw.fileApi.isAvailable() &&
+				   ( ($j.browser.mozilla && parseFloat($j.browser.version) >= 5.0) ||
+				     ($j.browser.webkit && parseFloat($j.browser.version) >= 534.28) );
 		}
 
 
