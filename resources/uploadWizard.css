@@ -5,6 +5,10 @@
 	font-size: 90%;
 }
 
+#contentSubUpwiz {
+	margin-right: 0.5em;
+}
+
 form.mwe-upwiz-form {
 	display: inline;
 }

@@ -58,7 +58,7 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-first-spinner' ).remove();
 		
 		// construct the message for the subheader
-		$j( '#contentSub' ).append( $j( '<span style="margin-right: 0.5em;"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
+		$j( '#contentSub' ).append( $j( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
 		if ( mw.UploadWizard.config['feedbackPage'] !== undefined && mw.UploadWizard.config['feedbackPage'] !== '' ) {
 			var feedback = new mw.Feedback( {
