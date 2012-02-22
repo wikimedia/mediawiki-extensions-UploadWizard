@@ -414,6 +414,10 @@ mw.UploadWizard.prototype = {
 
 		// we explicitly move the file input to cover the upload button
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+		// do it again in case the layout didn't update immediately
+		setTimeout(function() {
+			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+		}, 50);
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 
