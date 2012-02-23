@@ -212,17 +212,17 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-fal' => 'Free Art License',
 	'mwe-upwiz-license-own-pd' => 'All rights waived with Creative Commons Zero license (like public domain)',
 	'mwe-upwiz-license-pd-old-100' => 'Author died more than 100 years ago',
-        'mwe-upwiz-license-pd-old' => 'Author died more than 70 years ago',
-        'mwe-upwiz-license-pd-art' => 'Faithful reproduction of a painting that is in the public domain',
-        'mwe-upwiz-license-pd-us' => 'First published in the United States before 1923',
-        'mwe-upwiz-license-pd-usgov' => 'Original work of the US Federal Government',
-        'mwe-upwiz-license-pd-usgov-nasa' => 'Original work of NASA',
-        'mwe-upwiz-license-pd-usgov-military-navy' => 'Original work of the US Military Navy',
-        'mwe-upwiz-license-pd-ineligible' => 'Too simple to be copyrighted',
-        'mwe-upwiz-license-pd-ineligible-help' => 'Be careful with this one. The image has to be very simple, like a green circle or red square',
-        'mwe-upwiz-license-pd-textlogo' => 'Logo with only simple text (wordmark)',
-        'mwe-upwiz-license-copyrighted-free-use' => 'Copyrighted, but may be used for any purpose, including commercially',
-        'mwe-upwiz-license-attribution' => 'May be used for any purpose, including commercially, if the copyright holder is properly attributed',
+	'mwe-upwiz-license-pd-old' => 'Author died more than 70 years ago',
+	'mwe-upwiz-license-pd-art' => 'Faithful reproduction of a painting that is in the public domain',
+	'mwe-upwiz-license-pd-us' => 'First published in the United States before 1923',
+	'mwe-upwiz-license-pd-usgov' => 'Original work of the US Federal Government',
+	'mwe-upwiz-license-pd-usgov-nasa' => 'Original work of NASA',
+	'mwe-upwiz-license-pd-usgov-military-navy' => 'Original work of the US Military Navy',
+	'mwe-upwiz-license-pd-ineligible' => 'Too simple to be copyrighted',
+	'mwe-upwiz-license-pd-ineligible-help' => 'Be careful with this one. The image has to be very simple, like a green circle or red square',
+	'mwe-upwiz-license-pd-textlogo' => 'Logo with only simple text (wordmark)',
+	'mwe-upwiz-license-copyrighted-free-use' => 'Copyrighted, but may be used for any purpose, including commercially',
+	'mwe-upwiz-license-attribution' => 'May be used for any purpose, including commercially, if the copyright holder is properly attributed',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, attribution required (GFDL, CC-BY-SA-3.0)',
 
@@ -335,6 +335,9 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-prefs-def-license-def' => 'Use whatever the default is',
 	'mwe-upwiz-prefs-license-own' => 'Own work - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => "Someone else's work - $1",
+
+	// See for example.
+	'languageHandler.js' => '', # Do not translate this message.
 );
 
 /** Message documentation (Message documentation)
