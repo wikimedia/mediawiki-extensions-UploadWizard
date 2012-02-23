@@ -4093,7 +4093,7 @@ $1',
  */
 $messages['de'] = array(
 	'uploadwizard' => 'Assistent zum Hochladen von Dateien',
-	'uploadwizard-desc' => "Stellt ein Hilfsprogramm ''(Upload Wizard)'' zum Hochladen von Dateien bereit. Dessen Entwicklung wurde durch Fördergelder zur Verbesserung der Benutzerfreundlichkeit von MediaWiki ermöglicht ''(Multimedia Usability Project)''",
+	'uploadwizard-desc' => "Ermöglicht das Hilfsprogramm ''Upload Wizard'' zum Hochladen von Dateien",
 	'mwe-upwiz-uploadcampaigns' => 'Kampagnen',
 	'mwe-upwiz-uploadcampaign' => 'Konfiguration der Kampagne',
 	'right-upwizcampaigns' => 'Konfigurieren von Kampagnen',
@@ -12228,7 +12228,7 @@ Verzeuk 't later óbbenuids.",
 	'mwe-upwiz-help-desk' => 'Helpdesk',
 	'mwe-upwiz-help-desk-url' => 'Helpdesk',
 	'mwe-upwiz-add-file-n' => 'Veug nag e bestandj toe.',
-	'mwe-upwiz-add-file-0-free' => 'Selecteer e mediabestandj óm te gaeve',
+	'mwe-upwiz-add-file-0-free' => 'Sleip hie e mediabestandj haer óm te gaeve',
 	'mwe-upwiz-transport-started' => 'Begin...',
 	'mwe-upwiz-uploading' => 'Óplaje...',
 	'mwe-upwiz-transported' => 'Klaor',
@@ -21154,6 +21154,7 @@ $messages['vep'] = array(
 	'mwe-upwiz-uploading' => 'Jügutoitmine serverha...',
 	'mwe-upwiz-stashed-upload' => 'OK',
 	'mwe-upwiz-published' => 'Publikuidud!',
+	'mwe-upwiz-remove' => 'Čuta poiš',
 	'mwe-upwiz-upload' => 'Jügutoitta',
 	'mwe-upwiz-progressbar-uploading' => 'jügutoitmine',
 	'mwe-upwiz-deeds-custom-prompt' => 'Vai:',
@@ -21161,9 +21162,12 @@ $messages['vep'] = array(
 	'mwe-upwiz-desc' => 'Ümbrikirjutand',
 	'mwe-upwiz-title' => 'Pälkirjutez',
 	'mwe-upwiz-media-type' => 'Mediantip',
+	'mwe-upwiz-location' => 'Sijaduz',
 	'mwe-upwiz-author' => 'Tegijad',
+	'mwe-upwiz-other' => 'Toine informacii',
 	'mwe-upwiz-source' => 'Purde',
 	'mwe-upwiz-ok' => 'OK',
+	'mwe-upwiz-thumbnail-more' => 'Tobjeta',
 	'mwe-upwiz-next' => "Jäl'ghine",
 	'mwe-upwiz-next-deeds' => "Jäl'ghine",
 	'mwe-upwiz-next-details' => "Jäl'ghine",
@@ -21815,6 +21819,7 @@ $messages['yo'] = array(
  * @author Chenzw
  * @author Happy
  * @author Hydra
+ * @author Hzy980512
  * @author Liangent
  * @author Mark85296341
  * @author PhiLiP
@@ -21850,7 +21855,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-help-desk' => '帮助台',
 	'mwe-upwiz-help-desk-url' => '帮助台',
 	'mwe-upwiz-add-file-n' => '添加另一个文件',
-	'mwe-upwiz-add-file-0-free' => '选择要贡献的媒体文件',
+	'mwe-upwiz-add-file-0-free' => '把要贡献的媒体文件拖到这里',
 	'mwe-upwiz-transport-started' => '正在启动...',
 	'mwe-upwiz-uploading' => '正在上传...',
 	'mwe-upwiz-transported' => '正在完成上传...',
