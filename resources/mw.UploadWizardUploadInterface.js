@@ -460,28 +460,45 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * @param selector jquery-compatible selector, for a single element
 	 */
 	moveFileInputToCover: function( selector ) {
-		var $covered = $j( selector ); 
+		var _this = this;
+		var update = function() {
+			var $covered = $j( selector );
 
-		this.fileCtrlContainer
-			.css( $covered.position() )
-			.css( 'marginTop', $covered.css( 'marginTop' ) )
-			.css( 'marginRight', $covered.css( 'marginRight' ) )
-			.css( 'marginBottom', $covered.css( 'marginBottom' ) )
-			.css( 'marginLeft', $covered.css( 'marginLeft' ) )
-			.width( $covered.outerWidth() )
-			.height( $covered.outerHeight() ); 
+			_this.fileCtrlContainer
+				.css( $covered.position() )
+				.css( 'marginTop', $covered.css( 'marginTop' ) )
+				.css( 'marginRight', $covered.css( 'marginRight' ) )
+				.css( 'marginBottom', $covered.css( 'marginBottom' ) )
+				.css( 'marginLeft', $covered.css( 'marginLeft' ) )
+				.width( $covered.outerWidth() )
+				.height( $covered.outerHeight() );
 
-		this.fileCtrlContainer.css( { 'z-index': 1 } );
+			_this.fileCtrlContainer.css( { 'z-index': 1 } );
 
-		// shift the file input over with negative margins, 
-		// internal to the overflow-containing div, so the div shows all button
-		// and none of the textfield-like input
-		this.$fileInputCtrl.css( {
-			'margin-left': '-' + ~~( this.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
-			'margin-top' : '-' + ~~( this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
-		} );
+			// shift the file input over with negative margins,
+			// internal to the overflow-containing div, so the div shows all button
+			// and none of the textfield-like input
+			_this.$fileInputCtrl.css( {
+				'margin-left': '-' + ~~( _this.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
+				'margin-top' : '-' + ~~( _this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
+			} );
+		}
 
+		if (this.moveFileInputInterval) {
+			window.clearInterval(this.moveFileInputInterval);
+		}
+		this.moveFileInputInterval = window.setInterval(function() {
+			update();
+		}, 500);
+		update();
+	},
 
+	hideFileInput: function() {
+		if (this.moveFileInputInterval) {
+			window.clearInterval(this.moveFileInputInterval);
+		}
+		this.moveFileInputInterval = null;
+		// Should we actually hide it?
 	},
 
 	/**
