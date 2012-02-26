@@ -1743,6 +1743,7 @@ $messages['az'] = array(
 
 /** Bashkir (Башҡортса)
  * @author Haqmar
+ * @author Roustammr
  */
 $messages['ba'] = array(
 	'mwe-upwiz-code-unknown' => 'Билдәһеҙ тел',
@@ -1758,6 +1759,9 @@ $messages['ba'] = array(
 	'mwe-upwiz-uploading' => 'Серверға тейәү...',
 	'mwe-upwiz-transported' => 'Тамам',
 	'mwe-upwiz-stashed-upload' => 'Тамам',
+	'mwe-upwiz-remove' => 'Юйырға',
+	'mwe-upwiz-deeds-custom-prompt' => 'Йәки:',
+	'mwe-upwiz-author' => 'Автор(ҙар)',
 	'mwe-upwiz-thumbnail-more' => 'Ҙурайтырға',
 	'mwe-upwiz-overwrite' => 'Файлды алыштырырға',
 	'mwe-upwiz-next' => 'Киләһе',
