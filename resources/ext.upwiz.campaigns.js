@@ -1,5 +1,5 @@
 /**
- * JavasSript for the Special:UploadCampaigns of the UploadWizard MediaWiki extension.
+ * JavaScript for the Special:UploadCampaigns of the UploadWizard MediaWiki extension.
  * @see https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Extension:UploadWizard
  * 
  * @licence GNU GPL v3 or later
