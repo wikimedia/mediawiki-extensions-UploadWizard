@@ -7200,7 +7200,7 @@ $messages['gl'] = array(
 	'mwe-upwiz-help-desk' => 'Axuda',
 	'mwe-upwiz-help-desk-url' => 'Axuda',
 	'mwe-upwiz-add-file-n' => 'Engadir outro ficheiro',
-	'mwe-upwiz-add-file-0-free' => 'Deixe aquí o ficheiro multimedia que queira ofrecer',
+	'mwe-upwiz-add-file-0-free' => 'Seleccione o ficheiro multimedia que queira ofrecer',
 	'mwe-upwiz-transport-started' => 'Comezando...',
 	'mwe-upwiz-uploading' => 'Cargando...',
 	'mwe-upwiz-transported' => 'Aceptar',
@@ -12259,7 +12259,7 @@ Verzeuk 't later óbbenuids.",
 	'mwe-upwiz-help-desk' => 'Helpdesk',
 	'mwe-upwiz-help-desk-url' => 'Helpdesk',
 	'mwe-upwiz-add-file-n' => 'Veug nag e bestandj toe.',
-	'mwe-upwiz-add-file-0-free' => 'Sleip hie e mediabestandj haer óm te gaeve',
+	'mwe-upwiz-add-file-0-free' => 'Gaef hie e mediabestandj op óm te gaeve',
 	'mwe-upwiz-transport-started' => 'Begin...',
 	'mwe-upwiz-uploading' => 'Óplaje...',
 	'mwe-upwiz-transported' => 'Klaor',
@@ -13665,7 +13665,7 @@ $messages['ms'] = array(
 	'mwe-upwiz-help-desk' => 'Meja Bantuan',
 	'mwe-upwiz-help-desk-url' => 'Meja Bantuan',
 	'mwe-upwiz-add-file-n' => 'Bubuh fail lain',
-	'mwe-upwiz-add-file-0-free' => 'Letakkan fail media untuk didermakan di sini',
+	'mwe-upwiz-add-file-0-free' => 'Pilih fail media untuk didermakan',
 	'mwe-upwiz-transport-started' => 'Bermula...',
 	'mwe-upwiz-uploading' => 'Memuat naik...',
 	'mwe-upwiz-transported' => 'Selesai memuat naik...',
@@ -17733,6 +17733,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
  * @author Dim Grits
  * @author Eleferen
  * @author Eugrus
+ * @author Express2000
  * @author Haffman
  * @author Kaganer
  * @author KorneySan
@@ -17769,7 +17770,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-help-desk' => 'Служба поддержки',
 	'mwe-upwiz-help-desk-url' => 'Служба поддержки',
 	'mwe-upwiz-add-file-n' => 'Добавить ещё один файл',
-	'mwe-upwiz-add-file-0-free' => 'Перетащите сюда медиафайл, который хотите подарить',
+	'mwe-upwiz-add-file-0-free' => 'Выберите медиафайл для пожертвования',
 	'mwe-upwiz-transport-started' => 'Начало…',
 	'mwe-upwiz-uploading' => 'Загрузка файлов на сервер…',
 	'mwe-upwiz-transported' => 'Завершение загрузки...',
