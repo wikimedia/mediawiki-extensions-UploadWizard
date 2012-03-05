@@ -5838,7 +5838,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-help-desk' => 'میز کمک',
 	'mwe-upwiz-help-desk-url' => 'راهنما',
 	'mwe-upwiz-add-file-n' => 'افزودن پروندهٔ‌ دیگر',
-	'mwe-upwiz-add-file-0-free' => 'پرونده رسانه‌ای را برای بارگذاری در اینجا رها کنید',
+	'mwe-upwiz-add-file-0-free' => 'پرونده‌ای را برای اهداکردن انتخاب کنید',
 	'mwe-upwiz-transport-started' => 'شروع...',
 	'mwe-upwiz-uploading' => 'در حال بارگذاری...',
 	'mwe-upwiz-transported' => 'بارگذاری به پایان رسید...',
@@ -10812,6 +10812,7 @@ $1',
  * @author Nicolas Raoul
  * @author Ohgi
  * @author Schu
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -11060,7 +11061,11 @@ $1文字より長くしてください。',
 	'mwe-upwiz-campaigns-disabled' => '無効',
 	'mwe-upwiz-campaigns-edit' => '編集',
 	'mwe-upwiz-campaigns-add' => '追加',
+	'mwe-upwiz-campaigns-addnew' => '新規キャンペーンを追加',
+	'mwe-upwiz-campaigns-newname' => 'キャンペーン名:',
+	'mwe-upwiz-campaigns-existing' => '既存のキャンペーン',
 	'mwe-upwiz-campaigns-delete' => '削除',
+	'mwe-upwiz-campaign-name' => 'キャンペーン名:',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => '自分の作品とそうでない作品をどのように扱うか：',
 	'mwe-upwiz-campaign-owner-choice' => '自分の作品とそうでない作品とから利用者が選択できるようにする',
 	'mwe-upwiz-campaign-owner-own' => '自分の作品のアップロードだけを許可する',
