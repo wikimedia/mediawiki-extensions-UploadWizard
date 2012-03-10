@@ -21,6 +21,10 @@ $messages['en'] = array(
 	'group-upwizcampeditors' => 'Upload Wizard campaign editors',
 	'group-upwizcampeditors-member' => '{{GENDER:$1|Upload Wizard campaign editor}}',
 	'grouppage-upwizcampeditors' => '{{ns:project}}:Upload Wizard campaign editors',
+
+	'group-upwizcampeditors.css' => '/* CSS placed here will affect upload wizard campaign editors only */', # only translate this message to other languages if you have to change it
+	'group-upwizcampeditors.js'  => '/* JS placed here will affect upload wizard campaign editors only */', # only translate this message to other languages if you have to change it
+
 	'mwe-upwiz-js-off' => 'UploadWizard uses JavaScript for an improved interface. Your browser either does not support JavaScript or has JavaScript turned off, so we are showing you a simple upload form.',
 	'mwe-upwiz-extension-disabled' => 'This page has been disabled due to temporary technical problems. In the meantime try the standard upload form.',
 	'mwe-upwiz-code-unknown' => 'Unknown language',
