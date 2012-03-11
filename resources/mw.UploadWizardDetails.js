@@ -217,7 +217,9 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			'name': idFieldId,
 			'class': 'mwe-idfield',
 			'maxlength': mw.UploadWizard.config.idFieldMaxLength
-		} ); 
+		} );
+
+		_this.idFieldInput.val( mw.UploadWizard.config.idFieldInitialValue );
 		
 		_this.$form.append(
 			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + idFieldId + '" generated="true"/></div>' ),
