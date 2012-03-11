@@ -170,7 +170,11 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.latInput = $j( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
 	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
 	_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
- 
+
+	_this.latInput.val( mw.UploadWizard.config.defaultLat );
+	_this.lonInput.val( mw.UploadWizard.config.defaultLon );
+	_this.altInput.val( mw.UploadWizard.config.defaultAlt );
+
 	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
 		.append( $j ( '<div class="mwe-location-lat-label"></div>' ).append( gM( 'mwe-upwiz-location-lat' )  ) )
 		.append( _this.latInput );
@@ -331,7 +335,13 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	mw.UploadWizardUtil.makeToggler( moreDetailsCtrlDiv, moreDetailsDiv );	
 
-	_this.addDescription( !mw.UploadWizard.config.idField, mw.config.get( 'wgUserLanguage' ), false );
+	_this.addDescription(
+		!mw.UploadWizard.config.idField,
+		mw.config.get( 'wgUserLanguage' ),
+		false,
+		mw.UploadWizard.config.defaultDescription
+	);
+
 	$j( containerDiv ).append( _this.div );
 
 	if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
@@ -544,7 +554,7 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Add a new description
 	 */
-	addDescription: function( required, languageCode, allowRemove ) {
+	addDescription: function( required, languageCode, allowRemove, initialValue ) {
 		var _this = this;
 		if ( required === undefined ) {
 			required = false;
@@ -558,7 +568,7 @@ mw.UploadWizardDetails.prototype = {
 			allowRemove = true;
 		}
 
-		var description = new mw.UploadWizardDescription( languageCode, required );
+		var description = new mw.UploadWizardDescription( languageCode, required, initialValue );
 
 		if ( !required && allowRemove ) {
 			$j( description.div  ).append( 

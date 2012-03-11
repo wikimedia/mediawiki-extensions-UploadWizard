@@ -214,6 +214,18 @@ class UploadWizardCampaign {
 			'thanksLabelPage' => array(
 				'type' => 'text'
 			),
+			'defaultLat' => array(
+				'type' => 'text'
+			),
+			'defaultLon' => array(
+				'type' => 'text'
+			),
+			'defaultAlt' => array(
+				'type' => 'text'
+			),
+			'defaultDescription' => array(
+				'type' => 'text'
+			),
 		);
 
 		foreach ( $globalConfig['licenses'] as $licenseName => $licenseDate ) {
