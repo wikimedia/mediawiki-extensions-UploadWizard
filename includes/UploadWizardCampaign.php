@@ -180,6 +180,9 @@ class UploadWizardCampaign {
 			'idFieldMaxLength' => array(
 				'type' => 'int',
 			),
+			'idFieldInitialValue' => array(
+				'type' => 'text',
+			),
 			'ownWorkOption' => array(
 				'type' => 'radio',
 				'options' => array(
