@@ -58,10 +58,24 @@ class SpecialUploadWizard extends SpecialPage {
 			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
 		}
 
-		if ( $wgRequest->getCheck( 'id' ) ) {
-			UploadWizardConfig::setUrlSetting( 'idFieldInitialValue', $wgRequest->getText( 'id' ) );
+		if ( $wgRequest->getCheck( 'categories' ) ) {
+			UploadWizardConfig::setUrlSetting( 'defaultCategories', explode( '|', $wgRequest->getText( 'categories' ) ) );
 		}
-		
+
+		$ulrArgs = array(
+			'id' => 'idFieldInitialValue',
+			'description' => 'defaultDescription',
+			'lat' => 'defaultLat',
+			'lon' => 'defaultLon',
+			'alt' => 'defaultAlt',
+		);
+
+		foreach ( $ulrArgs as $arg => $setting ) {
+			if ( $wgRequest->getCheck( $arg ) ) {
+				UploadWizardConfig::setUrlSetting( $setting, $wgRequest->getText( $arg ) );
+			}
+		}
+
 		$this->handleCampaign();
 
 		$out = $this->getOutput();
