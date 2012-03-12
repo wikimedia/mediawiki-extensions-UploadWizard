@@ -35,7 +35,6 @@ $wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.al
 
 # Require modules, including the special page
 foreach ( array(
-		'UploadWizardMessages' => $wgUpwizDir,
 		'UploadWizardHooks' => $wgUpwizDir,
 		'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api',
 		'UploadWizardConfig' => $wgUpwizDir . '/includes',
