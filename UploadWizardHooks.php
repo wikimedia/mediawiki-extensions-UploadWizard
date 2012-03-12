@@ -425,10 +425,7 @@ class UploadWizardHooks {
 	 * Adds modules to ResourceLoader
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
-		global $wgExtensionAssetsPath, $wgUploadWizardDisableResourceLoader;
-		if ( $wgUploadWizardDisableResourceLoader ) {
-			return true;
-		}
+		global $wgExtensionAssetsPath;
 
 		$localpath = dirname( __FILE__ );
 		$remotepath = "$wgExtensionAssetsPath/UploadWizard";

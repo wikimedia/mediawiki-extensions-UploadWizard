@@ -62,9 +62,6 @@ $wgSpecialPageGroups['UploadCampaign'] = 'media';
 
 $wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
 
-// Disable ResourceLoader support by default, it's currently broken
-// $wgUploadWizardDisableResourceLoader = true;
-
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';
