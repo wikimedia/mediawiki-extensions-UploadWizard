@@ -556,6 +556,13 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
 );
 
+/** Ṫuroyo (Ṫuroyo)
+ * @author Ariyo
+ */
+$messages['tru'] = array(
+	'mwe-upwiz-code-unknown' => 'Leşono nuxroyo',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  * @author පසිඳු කාවින්ද
@@ -1622,6 +1629,10 @@ Por favor, nun uses testu wiki o HTML equí.',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, reconocimientu necesariu (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-cc-head' => "El propietariu de los drechos d'autor asoleyó {{PLURAL:$1|esta obra|estes obres}} cola llicencia Creative Commons correuta",
 	'mwe-upwiz-license-cc-subhead' => "Non toles llicencies Creative Commons son afayadices pa esti sitiu. Comprueba que'l propietariu de los drechos d'autor emplegó una d'estes llicencies.",
+	'mwe-upwiz-license-flickr-head' => "El titular de los drechos d'autor asoleyó {{PLURAL:$1|la semeya o videu|les semeyes o videos}} en Flickr cola llicencia correuta.",
+	'mwe-upwiz-license-flickr-subhead' => 'Comprueba la seición "Llicencia" del llateral de la páxina de Flickr. Los iconos y el nome de la llicencia qu\'usen tienen de casar con una de les opciones que s\'amuesen equí.',
+	'mwe-upwiz-license-public-domain-usa-head' => "Los drechos d'autor caducaron definitivamente nos Estaos Xuníos d'América",
+	'mwe-upwiz-license-public-domain-usa-subhead' => "{{SITENAME}} ta allugáu nos EE.XX. y, poro, la obra tien de tar llibre de drechos d'autor nesi país.",
 	'mwe-upwiz-license-misc' => 'Dellos motivos',
 	'mwe-upwiz-license-custom-head' => 'Otra razón que nun se mienta más arriba',
 	'mwe-upwiz-license-custom-preview' => 'Vista previa',
@@ -10840,9 +10851,14 @@ $1',
 	'mwe-upwiz-campaign-conf-idField' => 'Wikitesto del campo identificativo. Esempio: <nowiki>{{Rijksmonument|$1 }}</nowiki>. Ignoralo completamente per non visualizzare il campo:',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'Etichetta del campo identificativo:',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => "Il nome della pagina con il testo per l'etichetta del campo identificativo. $1 viene sostituito con il codice della lingua:",
+	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'Valore iniziale per il campo ID.',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => "Pagina che contiene il testo da visualizzare sopra l'interfaccia di Caricamento guidato. $1 viene sostituito con il codice della lingua:",
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Pagina che contiene il testo da visualizzare all\'inizio della pagina "Usa". $1 viene sostituito con il codice della lingua:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Lunghezza massima del testo nel campo identificativo',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Latitudine predefinita',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Longitudine predefinita',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Altitudine predefinita',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Descrizione predefinita',
 	'mw-coolcats-confirm-new-title' => 'Conferma nuova categoria',
 	'mw-coolcats-confirm-new' => 'Sembra che tu stia provando ad aggiungere una categoria non ancora esistente, "$1". Fai attenzione:<ul><li>Le categorie, solitamente, dovrebbero essere in inglese.</li><li>La maggior parte delle nuove categorie dovrebbe essere sottocategoria di una categoria esistente.</li></ul>In generale, solo gli esperti dovrebbero creare categorie.',
 	'mw-coolcats-confirm-new-ok' => 'Aggiungi questa categoria comunque',
@@ -18929,6 +18945,7 @@ $messages['sk'] = array(
 
 /** Slovenian (Slovenščina)
  * @author Dbc334
+ * @author Irena Plahuta
  */
 $messages['sl'] = array(
 	'uploadwizard' => 'Čarovnik nalaganja',
@@ -19218,6 +19235,10 @@ $1',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Stran z besedilom, ki bo prikazano nad vmesnikom ČarovnikaNalaganja. $1 bo nadomeščeno s kodo jezika',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Stran z besedilom, ki bo prikazano na vrhu strani »Uporaba«. $1 bo nadomeščeno s kodo jezika',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Največja dolžina besedila v polju ID',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Privzeta širina',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Privzeta dolžina',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Privzeta nadmorska višina',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Privzeti opis',
 	'mw-coolcats-confirm-new-title' => 'Potrdi novo kategorijo',
 	'mw-coolcats-confirm-new' => 'Zdi se, da poskušate dodati novo kategorijo, »$1«. Bodite pozorni:<ul><li>Kategorije naj bodo po navadi v angleščini.</li><li>Večina novih kategorij naj bo podkategorija obstoječe kategorije.</li></ul>Na splošno bi naj samo strokovnjaki dodajali kategorijo.',
 	'mw-coolcats-confirm-new-ok' => 'Vseeno dodaj kategorijo',
