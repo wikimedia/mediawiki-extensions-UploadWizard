@@ -75,21 +75,6 @@ return array(
 	// The maximum length of the id field.
 	'idFieldMaxLength' => 25,
 
-	// Initial value for the id field.
-	'idFieldInitialValue' => '',
-
-	// Initial value for the description field.
-	'defaultDescription' => '',
-
-	// Initial value for the latitude field.
-	'defaultLat' => '',
-
-	// Initial value for the longitude field.
-	'defaultLon' => '',
-
-	// Initial value for the altitude field.
-	'defaultAlt' => '',
-
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
 	// licensesOwnWork or licensesThirdParty.
 	// It just describes what licenses go with what wikitext, and how to display them in 

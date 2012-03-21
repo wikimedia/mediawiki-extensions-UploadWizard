@@ -180,9 +180,6 @@ class UploadWizardCampaign {
 			'idFieldMaxLength' => array(
 				'type' => 'int',
 			),
-			'idFieldInitialValue' => array(
-				'type' => 'text',
-			),
 			'ownWorkOption' => array(
 				'type' => 'radio',
 				'options' => array(
@@ -212,18 +209,6 @@ class UploadWizardCampaign {
 				'rows' => 4
 			),
 			'thanksLabelPage' => array(
-				'type' => 'text'
-			),
-			'defaultLat' => array(
-				'type' => 'text'
-			),
-			'defaultLon' => array(
-				'type' => 'text'
-			),
-			'defaultAlt' => array(
-				'type' => 'text'
-			),
-			'defaultDescription' => array(
 				'type' => 'text'
 			),
 		);

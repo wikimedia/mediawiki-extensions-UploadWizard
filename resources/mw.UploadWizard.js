@@ -746,7 +746,6 @@ mw.UploadWizard.prototype = {
 		} else {
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', true );
 			$j( _this.uploadToAdd.ui.div ).hide();
-			_this.uploadToAdd.ui.hideFileInput();
 		}
 
 
