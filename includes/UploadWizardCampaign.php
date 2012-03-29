@@ -232,7 +232,7 @@ class UploadWizardCampaign {
 			$licenceMsg = UploadWizardHooks::getLicenseMessage( $licenseName, $globalConfig['licenses'] );
 			$config['licensesOwnWork']['options'][$licenceMsg] = $licenseName;
 		}
-		
+
 		$config['defaultOwnWorkLicence']['options'] = $config['licensesOwnWork']['options'];
 
 		return $config;
@@ -319,7 +319,7 @@ class UploadWizardCampaign {
 			if ( !array_key_exists( $settingName, $defaultConfig ) ) {
 				continue;
 			}
-			
+
 			if ( is_array( $defaultConfig[$settingName]['default'] ) && !is_array( $settingValue ) ) {
 				$parts = explode( '|', $settingValue );
 				$settingValue = array();

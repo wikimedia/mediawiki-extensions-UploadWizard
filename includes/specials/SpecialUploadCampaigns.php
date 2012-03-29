@@ -154,9 +154,9 @@ class SpecialUploadCampaigns extends SpecialPage {
 		);
 
 		$out->addHTML( '<tbody>' );
-		
+
 		global $wgUser;
-		
+
 		foreach ( $campaigns as $campaign ) {
 			$out->addHTML(
 				'<tr>' .
@@ -197,7 +197,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( '</tbody>' );
 		$out->addHTML( '</table>' );
-		
+
 		$out->addModules( 'ext.uploadWizard.campaigns' );
 	}
 

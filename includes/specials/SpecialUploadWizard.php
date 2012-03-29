@@ -12,10 +12,10 @@
 class SpecialUploadWizard extends SpecialPage {
 	// the HTML form without javascript
 	private $simpleForm;
-	
+
 	/**
 	 * The name of the upload wizard campaign, or null when none is specified.
-	 * 
+	 *
 	 * @since 1.2
 	 * @var string|null
 	 */
@@ -51,7 +51,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$this->setHeaders();
 		$this->outputHeader();
-		
+
 		// if query string includes 'skiptutorial=true' set config variable to true
 		$skipTutorial = $wgRequest->getCheck( 'skiptutorial' );
 		if ( $skipTutorial ) {
@@ -82,7 +82,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->handleCampaign();
 
 		$out = $this->getOutput();
-		
+
 		// fallback for non-JS
 		$out->addHTML( '<noscript>' );
 		$out->addHTML( '<p class="errorbox">' . htmlspecialchars( wfMsg( 'mwe-upwiz-js-off' ) ) . '</p>' );
@@ -104,16 +104,16 @@ class SpecialUploadWizard extends SpecialPage {
 
 	/**
 	 * Handles the campaign parameter.
-	 * 
+	 *
 	 * @since 1.2
 	 */
 	protected function handleCampaign() {
 		global $wgRequest;
 		$campaignName = $wgRequest->getVal( 'campaign' );
-		
+
 		if ( $campaignName != '' ) {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName, false );
-			
+
 			if ( $campaign === false ) {
 				$this->displayError( wfMsgExt( 'mwe-upwiz-error-nosuchcampaign', 'parsemag', $campaignName ) );
 			}
@@ -127,12 +127,12 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 		}
 	}
-	
+
 	/**
 	 * Display an error message.
-	 * 
+	 *
 	 * @since 1.2
-	 * 
+	 *
 	 * @param string $message
 	 */
 	protected function displayError( $message ) {
@@ -142,94 +142,94 @@ class SpecialUploadWizard extends SpecialPage {
 			$message
 		) . '<br /><br /><br />' );
 	}
-	
+
 	/**
 	 * Adds some global variables for our use, as well as initializes the UploadWizard
-	 * 
+	 *
 	 * TODO once bug https://bugzilla.wikimedia.org/show_bug.cgi?id=26901
 	 * is fixed we should package configuration with the upload wizard instead of
-	 * in uploadWizard output page. 
-	 * 
+	 * in uploadWizard output page.
+	 *
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
 		global $wgSitename;
-		
+
 		$config = UploadWizardConfig::getConfig( $this->campaign );
-		
+
 		$labelPageContent = $this->getPageContent( $config['idFieldLabelPage'] );
 		if ( $labelPageContent !== false ) {
 			$config['idFieldLabel'] = $labelPageContent;
 		}
-		
+
 		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
-		
+
 		$defaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
-		
+
 		if ( $defaultLicense !== 'default' ) {
 			$defaultLicense = explode( '-', $defaultLicense, 2 );
 			$licenseType = $defaultLicense[0];
 			$defaultLicense = $defaultLicense[1];
-			
+
 			if ( in_array( $defaultLicense, $config['licensesOwnWork']['licenses'] )
 				|| in_array( $defaultLicense,  UploadWizardConfig::getThirdPartyLicenses() ) ) {
-				
+
 				$licenseGroup = $licenseType === 'ownwork' ? 'licensesOwnWork' : 'licensesThirdParty';
 				$config[$licenseGroup]['defaults'] = array( $defaultLicense );
 				$config['defaultLicenseType'] = $licenseType;
 			}
 		}
-		
-		$this->getOutput()->addScript( 
-			Skin::makeVariablesScript( 
+
+		$this->getOutput()->addScript(
+			Skin::makeVariablesScript(
 				array(
 					'UploadWizardConfig' => $config
 				) +
 				// Site name is a true global not specific to Upload Wizard
-				array( 
+				array(
 					'wgSiteName' => $wgSitename
 				)
 			)
 		);
 	}
-	
+
 	/**
 	 * Gets content of the specified page, or false if there is no such page.
 	 * '$1' in $pageName is replaced by the code of the current language.
-	 * 
+	 *
 	 * @since 1.2
-	 * 
+	 *
 	 * @param string $pageName
 	 * @param boolean $parse
 	 * @param string $langCode
-	 * 
+	 *
 	 * @return string|false
 	 */
 	protected function getPageContent( $pageName, $parse = false, $langCode = null ) {
 		$content = false;
-		
+
 		if ( trim( $pageName ) !== '' ) {
 			if ( is_null( $langCode ) ) {
 				$langCode = $this->getLanguage()->getCode();
 			}
-			
+
 			$page = Title::newFromText( str_replace( '$1', $langCode, $pageName ) );
-			
+
 			if ( !is_null( $page ) && $page->exists() ) {
 				$article = new Article( $page, 0 );
 				$content = $article->getContent();
-				
+
 				if ( $parse ) {
 					$content = $this->getOutput()->parse( $content );
 				}
 			}
 		}
-		
+
 		// If no page was found, and the lang is not en, then see if there in an en version.
 		if ( $content === false && $langCode != 'en' ) {
 			$content = $this->getPageContent( $pageName, $parse, 'en' );
 		}
-		
+
 		return $content;
 	}
 
@@ -296,47 +296,47 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	function getWizardHtml() {
 		global $wgExtensionAssetsPath;
-		
+
 		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
-		
+
 		$headerContent = $this->getPageContent( $globalConf['headerLabelPage'] );
 		if ( $headerContent !== false ) {
 			$this->getOutput()->addWikiText( $headerContent );
 		}
-		
-		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf ) 
-			&& array_key_exists( 'altUploadForm', $globalConf ) 
+
+		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf )
+			&& array_key_exists( 'altUploadForm', $globalConf )
 			&& $globalConf['altUploadForm'] != ''
 			&& $globalConf[ 'fallbackToAltUploadForm' ] 			) {
 
 			$linkHtml = '';
 			$altUploadForm = Title::newFromText( $globalConf[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
-				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ), 
-					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ), 
-						$globalConf['altUploadForm'] 
-					) 
+				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ),
+					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ),
+						$globalConf['altUploadForm']
+					)
 				);
 			}
 
-			return 	 
+			return
 				Html::rawElement( 'div', array( 'id' => 'upload-wizard', 'class' => 'upload-section' ),
-					Html::rawElement( 'p', array( 'style' => 'text-align: center' ), wfMsg( 'mwe-upwiz-extension-disabled' ) ) 
+					Html::rawElement( 'p', array( 'style' => 'text-align: center' ), wfMsg( 'mwe-upwiz-extension-disabled' ) )
 					. $linkHtml
 				);
 
 		}
-	
+
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
 		// TODO should use user preference not a cookie ( so the user does not have to skip it for every browser )
 		if ( !isset( $_COOKIE['skiptutorial'] ) && !$globalConf['skipTutorial'] ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
-		
+
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
-		// can be dynamically included ( for example the add media wizard ) 
-		return 
+		// can be dynamically included ( for example the add media wizard )
+		return
 		  '<div id="upload-wizard" class="upload-section">'
 
 			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
@@ -345,7 +345,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.	'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">'
 		.	'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;'
 		.	'</div>'
-		
+
 		    // the arrow steps - hide until styled
 		.   '<ul id="mwe-upwiz-steps" style="display:none;">'
 		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMsg( 'mwe-upwiz-step-tutorial' ) . '</div></li>'

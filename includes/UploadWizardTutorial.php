@@ -49,7 +49,7 @@ class UploadWizardTutorial {
 
 			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
 			$thumbnailImage = $tutorialFile->transform( array( 'width' => UploadWizardConfig::getSetting( 'tutorialWidth', $campaign ) ) );
-			
+
  			if ( $thumbnailImage ) {
 				$tutorialHtml = self::getImageHtml( $thumbnailImage );
 			} else {
@@ -69,10 +69,10 @@ class UploadWizardTutorial {
 
 	/**
 	 * Get tutorial file for a particular language, or false if not available.
-	 * 
+	 *
 	 * @param String $langCode: language Code
 	 * @param String|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
-	 * 
+	 *
 	 * @return File|false
 	 */
 	public static function getFile( $langCode, $campaign = null ) {
@@ -82,23 +82,23 @@ class UploadWizardTutorial {
 
 	/**
 	 * Constructs HTML for the tutorial (laboriously), including an imagemap for the clickable "Help desk" button.
-	 * 
+	 *
 	 * @param MediaTransformOutput $thumb
 	 * @param String|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
-	 * 
+	 *
 	 * @return String HTML representing the image, with clickable helpdesk button
 	 */
 	public static function getImageHtml( MediaTransformOutput $thumb, $campaign = null ) {
 		$helpDeskUrl = wfMsg( 'mwe-upwiz-help-desk-url' );
 
-		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message                	        
+		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message
 		if( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $helpDeskUrl )) {
-			$helpDeskHref = $helpDeskUrl;	                
+			$helpDeskHref = $helpDeskUrl;
 		} else {
 			$helpDeskTitle = Title::newFromText( $helpDeskUrl );
 			$helpDeskHref = $helpDeskTitle ? $helpDeskTitle->getLocalURL() : '#';
 		}
-		
+
 		$buttonCoords = UploadWizardConfig::getSetting( 'tutorialHelpdeskCoords', $campaign );
 		$useMap = $buttonCoords !== false && trim( $buttonCoords ) != '';
 
@@ -107,19 +107,19 @@ class UploadWizardTutorial {
 			'width' => $thumb->getWidth(),
 			'height' => $thumb->getHeight(),
 		);
-		
+
 		if ( $useMap ) {
 			$imgAttributes['usemap'] = '#' . self::IMAGEMAP_ID;
 		}
-		
+
 		// here we use the not-yet-forgotten HTML imagemap to add a clickable area to the tutorial image.
 		// we could do more special effects with hovers and images and such, not to mention SVG scripting,
 		// but we aren't sure what we want yet...
 		$imgHtml = Html::element( 'img', $imgAttributes );
-		
+
 		if ( $useMap ) {
 			$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
-			
+
 			$area = Html::element( 'area', array(
 				'shape' => 'rect',
 				'coords' => $buttonCoords,
@@ -127,14 +127,14 @@ class UploadWizardTutorial {
 				'alt' => $areaAltText,
 				'title' => $areaAltText
 			) );
-			
+
 			$imgHtml = Html::rawElement(
 				'map',
 				array( 'id' => self::IMAGEMAP_ID, 'name' => self::IMAGEMAP_ID ),
 				$area
 			) . $imgHtml;
 		}
-		
+
 		return $imgHtml;
 	}
 
