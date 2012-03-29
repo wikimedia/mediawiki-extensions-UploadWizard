@@ -73,6 +73,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
+		$out->addModuleStyles( 'ext.uploadWizard' );
 		$out->addModules( 'ext.uploadWizard' );
 
 		// where the uploadwizard will go
