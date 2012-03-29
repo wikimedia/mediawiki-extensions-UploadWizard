@@ -327,6 +327,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Page containing text to display above the UploadWizard interface. $1 is replaced with the language code:',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Page containing text to display on top of the "Use" page. $1 is replaced with the language code:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Maximum length of the text in the ID field',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Default latitude',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Default longitude',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Default altitude',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Default description',
 
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',

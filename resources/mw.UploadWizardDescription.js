@@ -4,7 +4,7 @@
  * @param languageCode -- string 
  * @param firstRequired -- boolean -- the first description is required and should be validated and displayed a bit differently
  */
-mw.UploadWizardDescription = function( languageCode, required ) {
+mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	var _this = this;
 	mw.UploadWizardDescription.prototype.count++;
 	_this.id = 'description' + mw.UploadWizardDescription.prototype.count;
@@ -36,6 +36,10 @@ mw.UploadWizardDescription = function( languageCode, required ) {
 	_this.input = $j( '<textarea name="' + _this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
 				.attr( 'title', gM( 'mwe-upwiz-tooltip-description' ) )
 				.growTextArea();
+
+	if ( initialValue !== undefined ) {
+		_this.input.val( initialValue );
+	}
 
 	// descriptions
 	_this.div = $j('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )

@@ -53,15 +53,32 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->outputHeader();
 		
 		// if query string includes 'skiptutorial=true' set config variable to true
-		if ( $wgRequest->getCheck( 'skiptutorial' ) ) {
-			$skip = in_array( $wgRequest->getText( 'skiptutorial' ), array( '1', 'true' ) );
+		$skipTutorial = $wgRequest->getCheck( 'skiptutorial' );
+		if ( $skipTutorial ) {
+			$skip = in_array( $skipTutorial, array( '1', 'true' ) );
 			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
 		}
 
-		if ( $wgRequest->getCheck( 'id' ) ) {
-			UploadWizardConfig::setUrlSetting( 'idFieldInitialValue', $wgRequest->getText( 'id' ) );
+		$categories = $wgRequest->getText( 'categories' );
+		if ( $categories ) {
+			UploadWizardConfig::setUrlSetting( 'defaultCategories', explode( '|', $categories ) );
 		}
-		
+
+		$ulrArgs = array(
+			'id' => 'idFieldInitialValue',
+			'description' => 'defaultDescription',
+			'lat' => 'defaultLat',
+			'lon' => 'defaultLon',
+			'alt' => 'defaultAlt',
+		);
+
+		foreach ( $ulrArgs as $arg => $setting ) {
+			$value = $wgRequest->getText( $arg );
+			if ( $value ) {
+				UploadWizardConfig::setUrlSetting( $setting, $value );
+			}
+		}
+
 		$this->handleCampaign();
 
 		$out = $this->getOutput();
