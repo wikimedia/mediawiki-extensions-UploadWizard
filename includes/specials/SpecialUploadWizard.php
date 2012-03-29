@@ -57,6 +57,10 @@ class SpecialUploadWizard extends SpecialPage {
 			$skip = in_array( $wgRequest->getText( 'skiptutorial' ), array( '1', 'true' ) );
 			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
 		}
+
+		if ( $wgRequest->getCheck( 'id' ) ) {
+			UploadWizardConfig::setUrlSetting( 'idFieldInitialValue', $wgRequest->getText( 'id' ) );
+		}
 		
 		$this->handleCampaign();
 
