@@ -621,7 +621,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 	margin-bottom: 0;
 	padding-left: 1.5em;
 	/* @embed */
-	background: url('images/toggle.png') no-repeat left center;
+	background: url('images/toggle-ltr.png') no-repeat left center;
 }
 
 .mwe-upwiz-toggler-open {
