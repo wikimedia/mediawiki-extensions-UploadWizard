@@ -1,23 +1,23 @@
 <?php
 /**
- * Upload Wizard Configuration 
- * Do not modify this file, instead use localsettings.php and set: 
+ * Upload Wizard Configuration
+ * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules;
 return array(
-	// Upload wizard has an internal debug flag	
+	// Upload wizard has an internal debug flag
 	'debug' => false,
 
 	// Enable or disable the default upload license user preference
 	'enableLicensePreference' => true,
 
 	// File extensions acceptable in this wiki
-	'fileExtensions' =>  $wgFileExtensions, 
+	'fileExtensions' =>  $wgFileExtensions,
 
 	// The default api url is for the current wiki ( can override at run time )
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
-	
+
 	// Categories to automatically (and silently) add all uploaded images into.
 	'autoCategories' => array(),
 
@@ -29,7 +29,7 @@ return array(
 
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
 	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
-	'missingCategoriesWikiText' => '',	
+	'missingCategoriesWikiText' => '',
 
 	// WikiText to automatically (and silently) add to all uploaded images.
 	'autoWikiText' => '',
@@ -90,14 +90,14 @@ return array(
 	// Initial value for the altitude field.
 	'defaultAlt' => '',
 
-	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in 
+	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in
 	// licensesOwnWork or licensesThirdParty.
-	// It just describes what licenses go with what wikitext, and how to display them in 
+	// It just describes what licenses go with what wikitext, and how to display them in
 	// a menu of license choices. There probably isn't any reason to delete any entry here.
 	// Under normal circumstances, the license name is the name of the wikitext template to insert.
 	// For those that aren't, there is a "templates" property.
 	'licenses' => array(
-		'cc-by-sa-3.0' => array( 
+		'cc-by-sa-3.0' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0',
 			'icons' => array( 'cc-by', 'cc-sa' ),
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/'
@@ -167,17 +167,17 @@ return array(
 			'icons' => array( 'cc-by', 'cc-sa' ),
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/ro/'
 		),
-		'cc-by-3.0' => array( 
+		'cc-by-3.0' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-3.0',
 			'icons' => array( 'cc-by' ),
 			'url' => '//creativecommons.org/licenses/by/3.0/'
 		),
-		'cc-zero' => array( 
+		'cc-zero' => array(
 			'msg' => 'mwe-upwiz-license-cc-zero',
 			'icons' => array( 'cc-zero' ),
 			'url' => '//creativecommons.org/publicdomain/zero/1.0/'
 		),
-		'own-pd' => array( 
+		'own-pd' => array(
 			'msg' => 'mwe-upwiz-license-own-pd',
 			'icons' => array( 'cc-zero' ),
 			'templates' => array( 'cc-zero' )
@@ -187,8 +187,8 @@ return array(
 			'icons' => array( 'cc-by', 'cc-sa' ),
 			'url' => '//creativecommons.org/licenses/by-sa/2.5/'
 		),
-		'cc-by-2.5' => array( 
-			'msg' => 'mwe-upwiz-license-cc-by-2.5', 
+		'cc-by-2.5' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-2.5',
 			'icons' => array( 'cc-by' ),
 			'url' => '//creativecommons.org/licenses/by/2.5/'
 		),
@@ -196,9 +196,9 @@ return array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.0',
 			'icons' => array( 'cc-by', 'cc-sa' ),
 			'url' => '//creativecommons.org/licenses/by-sa/2.0/'
-			
+
 		),
-		'cc-by-2.0' => array( 
+		'cc-by-2.0' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-2.0',
 			'icons' => array( 'cc-by' ),
 			'url' => '//creativecommons.org/licenses/by/2.0/'
@@ -211,15 +211,15 @@ return array(
 			'msg' => 'mwe-upwiz-license-pd-old-100',
 			'templates' => array( 'PD-old-100' )
 		),
-		'pd-old' => array( 
+		'pd-old' => array(
 			'msg' => 'mwe-upwiz-license-pd-old',
 			'templates' => array( 'PD-old' )
 		),
-		'pd-art' => array( 
+		'pd-art' => array(
 			'msg' => 'mwe-upwiz-license-pd-art',
 			'templates' => array( 'PD-Art' )
 		),
-		'pd-us' => array( 
+		'pd-us' => array(
 			'msg' => 'mwe-upwiz-license-pd-us',
 			'templates' => array( 'PD-US' )
 		),
@@ -234,14 +234,14 @@ return array(
 		'pd-ineligible' => array(
 			'msg' => 'mwe-upwiz-license-pd-ineligible'
 		),
-		'pd-textlogo' => array( 
+		'pd-textlogo' => array(
 			'msg' => 'mwe-upwiz-license-pd-textlogo',
 			'templates' => array( 'trademarked', 'PD-textlogo' )
 		),
 		'attribution' => array(
 			'msg' => 'mwe-upwiz-license-attribution'
 		),
-		'gfdl' => array( 
+		'gfdl' => array(
 			'msg' => 'mwe-upwiz-license-gfdl',
 			'templates' => array( 'GFDL' )
 		),
@@ -249,7 +249,7 @@ return array(
 			'msg' => 'mwe-upwiz-license-none',
 			'templates' => array( 'subst:uwl' )
 		),
-		'custom' => array( 
+		'custom' => array(
 			'msg' => 'mwe-upwiz-license-custom',
 			'templates' => array( 'subst:Custom license marker added by UW' ),
 			'url' => '//commons.wikimedia.org/wiki/Commons:Copyright_tags'
@@ -258,13 +258,13 @@ return array(
 
 	// Custom wikitext must have at least one template that is a descendant of this category
 	'licenseCategory' => 'License tags',
-	
-	// When checking custom wikitext licenses, parse these templates as "filters"; 
+
+	// When checking custom wikitext licenses, parse these templates as "filters";
 	// their arguments look like strings but they are really templates
 	'licenseTagFilters' => array( 'self' ),
 
 	// radio button selection of some licenses
-	'licensesOwnWork' => array( 
+	'licensesOwnWork' => array(
 		'type' => 'or',
 		'filterTemplate' => 'self',
 		'licenses' => array(
@@ -276,7 +276,7 @@ return array(
 	),
 
 	// checkbox selection of all licenses
-	'licensesThirdParty' => array( 
+	'licensesThirdParty' => array(
 		'type' => 'or',
 		'licenseGroups' => array(
 			array(
@@ -284,9 +284,9 @@ return array(
 				'head' => 'mwe-upwiz-license-cc-head',
 				'subhead' => 'mwe-upwiz-license-cc-subhead',
 				'licenses' => array(
-					'cc-by-sa-3.0', 
+					'cc-by-sa-3.0',
 					'cc-by-sa-2.5',
-					'cc-by-3.0', 
+					'cc-by-3.0',
 					'cc-by-2.5',
 					'cc-zero'
 				)
@@ -303,18 +303,18 @@ return array(
 					'pd-usgov',
 				)
 			),
-			array( 
+			array(
 				'head' => 'mwe-upwiz-license-public-domain-usa-head',
 				'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
-				'licenses' => array( 
-					'pd-us', 
+				'licenses' => array(
+					'pd-us',
 					'pd-art',
 				)
 			),
 			array(
-				// omitted navy because it is believed only MultiChil uses it heavily. Could add it back 
+				// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
 				'head' => 'mwe-upwiz-license-usgov-head',
-				'licenses' => array( 	
+				'licenses' => array(
 					'pd-usgov',
 					'pd-usgov-nasa'
 				)
@@ -333,7 +333,7 @@ return array(
 	),
 
 	// Default thumbnail width
-	'thumbnailWidth' => 100, 
+	'thumbnailWidth' => 100,
 
 	// Max thumbnail height:
 	'thumbnailMaxHeight' => 100,
@@ -350,7 +350,7 @@ return array(
 	// Min author string length
 	'minAuthorLength' => 1,
 
-	// Max source string length 
+	// Max source string length
 	'maxSourceLength' => 10000,
 
 	// Min source string length
@@ -359,7 +359,7 @@ return array(
 	// Max file title string length
 	'maxTitleLength' => 500,
 
-	// Min file title string length 
+	// Min file title string length
 	'minTitleLength' => 5,
 
 	// Max file description length
@@ -368,58 +368,58 @@ return array(
 	// Min file description length
 	'minDescriptionLength' => 5,
 
-	// Max length for other file information: 
+	// Max length for other file information:
 	'maxOtherInformationLength' => 10000,
 
-	// Max number of simultaneous upload requests 
+	// Max number of simultaneous upload requests
 	'maxSimultaneousConnections' => 3,
 
 	// Max number of uploads for a given form
 	'maxUploads' => 50,
 
-	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing 
+	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing
 	// braces, then two chars for a license, e.g. {{xx}}
 	'minCustomLicenseLength' => 6,
 
 	// Maximum length of custom wikitext for a license
 	'maxCustomLicenseLength' => 10000,
 
-	// not for use with all wikis. 
+	// not for use with all wikis.
 	// The ISO 639 code for the language tagalog is "tl".
 	// Normally we name templates for languages by the ISO 639 code.
 	// Commons already had a template called 'tl:  though.
 	// so, this workaround will cause tagalog descriptions to be saved with this template instead.
-	'languageTemplateFixups' =>  array( 'tl' => 'tgl' ), 
+	'languageTemplateFixups' =>  array( 'tl' => 'tgl' ),
 
 		// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 		// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config
-		// or actually, in an ideal world, we'd have some way to reliably detect gibberish, rather than trying to 
+		// or actually, in an ideal world, we'd have some way to reliably detect gibberish, rather than trying to
 		// figure out what is bad via individual regexes, we'd detect badness. Might not be too hard.
 		//
 		// we can export these to JS if we so want.
 		// filenamePrefixBlacklist: wgFilenamePrefixBlacklist,
-		// 
+		//
 		// filenameRegexBlacklist: [
 		//	/^(test|image|img|bild|example?[\s_-]*)$/,  // test stuff
 		//	/^(\d{10}[\s_-][0-9a-f]{10}[\s_-][a-z])$/   // flickr
-		// ]	
+		// ]
 
-	// Check if we want to enable firefogg, will result in 
-	// 1) firefogg install recommendation when users try to upload media asset with an extension in the 
+	// Check if we want to enable firefogg, will result in
+	// 1) firefogg install recommendation when users try to upload media asset with an extension in the
 	//		transcodeExtensionList
 	// 2) Once the user installs firefogg its used for all uploads because of the security model
 	// 		of the file select box, you can't pass off local file references to add ons. Firefogg
 	//		supports "passthrough" mode so that assets that don't need conversions behave very similar
-	//		to a normal XHR post. 
+	//		to a normal XHR post.
 	'enableFirefogg' => false,
-	
-	// Setup list of video extensions for recomending firefogg. 
+
+	// Setup list of video extensions for recomending firefogg.
 	'transcodeExtensionList' => array( 'avi','asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
 										'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg'),
-	
+
 	// Firefogg encode settings copied from TimedMediHandler high end ogg. Once Timed Media Handler
-	// is added, these videos will be transcoded by the server to lower resolutions for web playback. 
-	// Also we should switch uploadWizard to encode to high quality WebM once TMH is deployed since it 
+	// is added, these videos will be transcoded by the server to lower resolutions for web playback.
+	// Also we should switch uploadWizard to encode to high quality WebM once TMH is deployed since it
 	// will provide a higher quality source upload file.
 	'firefoggEncodeSettings' => array(
 		'maxSize'			=> '1280', // 720P
@@ -429,43 +429,43 @@ return array(
 		'keyframeInterval'	=> '128',
 		'videoCodec' 		=> 'theora',
 	),
-	
+
 	// Set skipTutorial to true to always skip tutorial step
 	'skipTutorial' => false,
-	
+
 	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',
-	
+
 	// Bugzilla page for UploadWizard bugs
 	'bugList' => 'https://bugzilla.wikimedia.org/buglist.cgi?query_format=advanced&component=UploadWizard&resolution=---&product=MediaWiki+extensions',
-	
+
 	// TranslateWiki page for help with translations
 	'translateHelp' => '//translatewiki.net/w/i.php?title=Special:Translate&group=ext-uploadwizard',
-	
+
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
 	//
 	// If different pages are required for different languages,
 	// supply an object mapping user language code to page. For a catch-all
 	// page for all languages not explicitly configured, use 'default'. For instance:
-	//   array( 
+	//   array(
 	//		'default'	=> 'Commons:Upload',
 	//		'de'		=> 'Commons:Hochladen'
 	//	 );
 	'altUploadForm' => '',
 
-	// Is titleBlacklist API even available? 
+	// Is titleBlacklist API even available?
 	'useTitleBlacklistApi' => array_key_exists( 'titleblacklist', $wgAPIModules ),
 
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
-	
+
 	// should File API uploads be available?  Required for chunked uploading and multi-file select
 	'enableFormData' => true,
 
 	// should multi-file select be available in supporting browsers?
 	'enableMultiFileSelect' => true,
-	
+
 	// should chunked uploading be enabled? false for now since the backend isn't really ready.
 	'enableChunked' => false,
 

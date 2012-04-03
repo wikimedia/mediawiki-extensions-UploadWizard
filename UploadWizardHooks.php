@@ -481,7 +481,7 @@ class UploadWizardHooks {
 
 		return true;
 	}
-	
+
 	/**
 	 * Adds the preferences of UploadWizard to the list of available ones.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
@@ -496,7 +496,7 @@ class UploadWizardHooks {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
 			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
-			
+
 			$licenses = array();
 
 			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
@@ -504,16 +504,16 @@ class UploadWizardHooks {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 				$licenses[wfMsgExt( 'mwe-upwiz-prefs-license-own', 'parsemag', $licenseMessage )] = 'ownwork-' . $license;
 			}
-			
+
 			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
 				if ( $license !== 'custom' ) {
 					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 					$licenses[wfMsgExt( 'mwe-upwiz-prefs-license-thirdparty', 'parsemag', $licenseMessage )] = 'thirdparty-' . $license;
 				}
 			}
-			
+
 			$licenses = array_merge( array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' ), $licenses );
-			
+
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
 				'label-message' => 'mwe-upwiz-prefs-def-license',
@@ -524,15 +524,15 @@ class UploadWizardHooks {
 
 		return true;
 	}
-	
+
 	/**
 	 * Helper function to get the message for a license.
-	 * 
+	 *
 	 * @since 1.2
-	 * 
+	 *
 	 * @param string $licenseName
 	 * @param array $licenseConfig
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function getLicenseMessage( $licenseName, array $licenseConfig ) {

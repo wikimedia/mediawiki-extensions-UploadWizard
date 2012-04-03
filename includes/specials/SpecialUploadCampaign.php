@@ -118,7 +118,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 			$existingCampaign = UploadWizardCampaign::newFromName( $name, false );
 			$id = $existingCampaign === false ? null : $existingCampaign->getId();
 		}
-		
+
 		$campaign = new UploadWizardCampaign( $id, $name, $enabled, $data );
 
 		$success = $campaign->writeToDB();
