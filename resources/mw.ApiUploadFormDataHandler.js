@@ -19,18 +19,18 @@ mw.ApiUploadFormDataHandler = function( upload, api ) {
         this.$form[0].action,
         this.formData,
 		this.upload,
-        function( fraction ) { 
-            _this.upload.setTransportProgress( fraction ); 
+        function( fraction ) {
+            _this.upload.setTransportProgress( fraction );
         },
         function( result ) {
-            _this.upload.setTransported( result ); 
+            _this.upload.setTransported( result );
         }
     );
 
 };
 
 mw.ApiUploadFormDataHandler.prototype = {
-    /** 
+    /**
      * Optain a fresh edit token.
      * If successful, store token and call a callback.
      * @param ok callback on success
@@ -39,7 +39,7 @@ mw.ApiUploadFormDataHandler.prototype = {
     configureEditToken: function( callerOk, err ) {
         var _this = this;
 
-        var ok = function( token ) { 
+        var ok = function( token ) {
             _this.formData.token = token;
             callerOk();
         };
@@ -60,7 +60,7 @@ mw.ApiUploadFormDataHandler.prototype = {
         };
         var err = function( code, info ) {
             _this.upload.setError( code, info );
-        }; 
+        };
         this.configureEditToken( ok, err );
     }
 };

@@ -1,9 +1,9 @@
 ( function( mw, $, undefined ) {
 	/**
-	 * Prevent the closing of a window with a confirm message (the onbeforeunload event seems to 
-	 * work in most browsers.) 
+	 * Prevent the closing of a window with a confirm message (the onbeforeunload event seems to
+	 * work in most browsers.)
 	 *
-	 * This supersedes any previous onbeforeunload handler. If there was a handler before, it is 
+	 * This supersedes any previous onbeforeunload handler. If there was a handler before, it is
 	 * restored when you execute the returned function.
 	 * e.g.
 	 *
@@ -22,21 +22,21 @@
 			options = {};
 		}
 
-		var defaults = { 
+		var defaults = {
 			message: function() { return gM( 'mwe-prevent-close' ); },
 			test: function() { return true; }
-		}; 
+		};
 		options = $.extend( defaults, options );
 
 		var oldUnloadHandler = window.onbeforeunload;
 
 		window.onbeforeunload = function() {
-			if ( options.test() ) { 
-				// remove the handler while the alert is showing - otherwise breaks caching in Firefox (3?).		
+			if ( options.test() ) {
+				// remove the handler while the alert is showing - otherwise breaks caching in Firefox (3?).
 				// but if they continue working on this page, immediately re-register this handler
-				var thisFunction = arguments.callee; 
+				var thisFunction = arguments.callee;
 				window.onbeforeunload = null;
-				setTimeout( function() { 
+				setTimeout( function() {
 					window.onbeforeunload = thisFunction;
 				} );
 
@@ -49,7 +49,7 @@
 		return function() {
 			window.onbeforeunload = oldUnloadHandler;
 		};
-				
+
 	};
 
 } )( window.mediaWiki, jQuery );

@@ -2,7 +2,7 @@
  * This script is run on [[Special:UploadWizard]].
  * Configures and creates an interface for uploading files in multiple steps, hence "wizard".
  *
- * Tries to transform Javascript globals dumped on us by the SpecialUploadWizard.php into a more 
+ * Tries to transform Javascript globals dumped on us by the SpecialUploadWizard.php into a more
  * compact configuration, owned by the UploadWizard created.
  */
 
@@ -10,11 +10,11 @@
 ( function ( $, mw, undefined ) {
 
 mw.UploadWizardPage = function () {
-	
+
 	var config = mw.config.get( 'UploadWizardConfig' );
 	if ( !config.debug ) {
 		mw.log.level = mw.log.NONE;
-	}	
+	}
 
 	var uploadWizard = new mw.UploadWizard( config );
 	uploadWizard.createInterface( '#upload-wizard' );
@@ -29,8 +29,8 @@ $( document ).ready( function () {
 	// (the interface for this needs to change; add magic on the fly?)
 	window.gM = mw.jqueryMsg.getMessageFunction( options );
 	$.fn.msg = mw.jqueryMsg.getPlugin( options );
-		
-	// show page. 
+
+	// show page.
 	mw.UploadWizardPage();
 } );
 

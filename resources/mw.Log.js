@@ -1,20 +1,20 @@
-/** 
- * Logging library 
+/**
+ * Logging library
  *
  *   Synopsis:
- * 
- *    mw.log( "falls in the forest" );  // not logged, we start off at 'silent' log level 
+ *
+ *    mw.log( "falls in the forest" );  // not logged, we start off at 'silent' log level
  *
  *    // set the minimum level for a log message to be shown. Can be 'silent', 'fatal', 'warn', 'info', 'debug'
  *    mw.log.level = 'debug'; // show just about everything
  *    mw.log( 'some random crap' ); // will be shown
  *
- *    mw.log.level = 'warn'; // show less stuff 
+ *    mw.log.level = 'warn'; // show less stuff
  *
  *    mw.log( 'foo bar' ); // won't be shown, the default level for a log is 'info'
  *
  *    mw.log( 'this is a warning', 'warn' ); // will be shown
- *    
+ *
  *    var warnCute = mw.log.getLogger( 'cuteness', 'warn' );
  *    warnCute( 'overload!' ); // will log 'cuteness> overload!'
  *
@@ -48,7 +48,7 @@
 	 * @param {string} optional, logging priority (see priority)
 	 */
 	mw.log = function( s, level ) {
-	
+
 		if ( typeof level === 'undefined' || ! priority.hasOwnProperty( level ) ) {
 			level = 'info';
 		}
@@ -96,7 +96,7 @@
 			}
 		}
 	};
-	
+
 	// Logging is silent by default -- if you're debugging an app, figure out a way to turn it on
 	mw.log.level = 0;
 
@@ -104,7 +104,7 @@
 	 * Convenience function for logging cases where you want to repeatedly log with a prefix for each message,
 	 * and/or at a particular logging level
 	 *
-	 * @param {string} prefix 
+	 * @param {string} prefix
 	 * @param {string} level name
 	 * @return {function} logging function which prepends that prefix, and logs at that level
 	 */
@@ -112,7 +112,7 @@
 		var prefix = typeof prefixArg === 'undefined' ? '' : prefixArg + '> ';
 		return function( s ) {
 			mw.log( prefix + s, level );
-		};  
+		};
 	};
 
 	/**
@@ -122,9 +122,9 @@
 	 * @return {string}
 	 */
 	function pad( d, n ) {
-		var s = d.toString(); 
+		var s = d.toString();
 		while ( s.length < n ) {
-			s = '0' + s; 
+			s = '0' + s;
 		}
 		return s;
 	}

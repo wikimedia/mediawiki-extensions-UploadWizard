@@ -1,7 +1,7 @@
 /**
  * Create 'remove' control, an X which highlights in some standardized way, with optional tooltips
  */
-( function ( $j ) { 
+( function ( $j ) {
 	$j.fn.removeCtrl = function( msgKey, tooltipMsgKey, callback ) {
 		var msg = (msgKey === null) ? '' : gM( msgKey );
 		return $j( '<div class="mwe-upwiz-remove-ctrl ui-corner-all" />' )

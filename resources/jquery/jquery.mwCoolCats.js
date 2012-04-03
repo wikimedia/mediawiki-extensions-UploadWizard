@@ -1,4 +1,4 @@
-/** 
+/**
  * Simple predictive typing category adder for Mediawiki.
  * Relies on mw.Title, mw.api.category, $.fn.removeCtrl
  * Add to the page and then use getWikiText() to get wiki text representing the categories.
@@ -7,7 +7,7 @@
  * On user action, list items are created, which have Titles as data properties.
  * To get the wikiText, we just select the list items again, get the Titles, convert to text, and return that.
  * This gets a bit complex as there is a hack for hidden categories too, and then another hack for default text
- * when the user hasn't entered any categories (not counting hidden categories!). 
+ * when the user hasn't entered any categories (not counting hidden categories!).
  * This should probably not be going through the DOM, could be more MVC.
  */
 ( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
@@ -18,7 +18,7 @@
 	 * Get content from our text field, and attempt to insert it as a category.
 	 * May require confirmation from user if they appear to be adding a new category.
 	 */
-	function _processInput() {	
+	function _processInput() {
 		var $input = $container.find( 'input' );
 		var text = _stripText( $input.val() );
 		if ( text === '' ) {
@@ -26,7 +26,7 @@
 		}
 
 		var title = new mw.Title( text, catNsId );
-	
+
 		var insertIt = function() {
 			_insertCat( title );
 			$input.val("");
@@ -37,14 +37,14 @@
 				{
 					text: gM( 'mw-coolcats-confirm-new-cancel' ),
 					click: function() {
-						$( this ).dialog( "close" ); 
+						$( this ).dialog( "close" );
 					}
 				},
-				{ 
+				{
 					text: gM( 'mw-coolcats-confirm-new-ok' ),
-					click: function() { 
+					click: function() {
 						insertIt();
-						$( this ).dialog( "close" ); 
+						$( this ).dialog( "close" );
 					}
 				}
 			];
@@ -59,7 +59,7 @@
 					buttons: buttons
 				} );
 		};
-		
+
 		if( seenTitleText[ title.getMainText() ] ) {
 			insertIt();
 		} else {
@@ -89,7 +89,7 @@
 		$li.data( 'title', title );
 		if ( isHidden ) {
 			$li.hide().addClass( 'hidden' );
-			// extra 'hidden' class is necessary to distinguish deliberately hidden categories from those 
+			// extra 'hidden' class is necessary to distinguish deliberately hidden categories from those
 			// which are hidden because the whole widget is closed
 		} else {
 			$anchor.attr( { target: "_blank", href: title.getUrl() } );
@@ -127,7 +127,7 @@
 	 * @param {String}
 	 * @return string stripped of some characters, trimmed
 	 */
-	function _stripText( s ) { 
+	function _stripText( s ) {
 		if ( typeof s !== 'string' ) {
 			throw new Error( '_stripText() argument must be a string' );
 		}
@@ -161,7 +161,7 @@
 	};
 
 	var settings = $j.extend( {}, defaults, options );
-	if ( !settings.api ) { 
+	if ( !settings.api ) {
 		throw new Error( "jQuery.mwCoolCats needs an 'api' argument" );
 	}
 
@@ -175,7 +175,7 @@
 	 */
 	return this.each( function() {
 		var _this = $j( this );
-		
+
 		_this.addClass( 'categoryInput' );
 
 		_this.suggestions( {
@@ -196,8 +196,8 @@
 		$container.append( $j( '<button type="button" name="catbutton">'+settings.buttontext+'</button>' )
 			.button()
 			.click( function(e) {
-				e.stopPropagation(); 
-				e.preventDefault(); 
+				e.stopPropagation();
+				e.preventDefault();
 				_processInput();
 				return false;
 			})
@@ -207,13 +207,13 @@
 		_this.parents('form').submit( function() {
 			_processInput();
 		});
-		
-		_this.keyup(function(e) { 
-			if(e.keyCode == 13) { 
-				e.stopPropagation(); 
-				e.preventDefault(); 
+
+		_this.keyup(function(e) {
+			if(e.keyCode == 13) {
+				e.stopPropagation();
+				e.preventDefault();
 				_processInput();
-			} 
+			}
 		});
 
 		this.getWikiText = function() {

@@ -1,11 +1,11 @@
 /**
  * jQuery Morphing Crossfade plugin
  * Copyright Neil Kandalgaonkar, 2010
- * 
- * This work is licensed under the terms of the GNU General Public License, 
- * version 2 or later. 
- * (see http://www.fsf.org/licensing/licenses/gpl.html). 
- * Derivative works and later versions of the code must be free software 
+ *
+ * This work is licensed under the terms of the GNU General Public License,
+ * version 2 or later.
+ * (see http://www.fsf.org/licensing/licenses/gpl.html).
+ * Derivative works and later versions of the code must be free software
  * licensed under the same or a compatible license.
  *
  * There are a lot of cross-fading plugins out there, but most assume that all
@@ -29,31 +29,31 @@
  * Initialize the crossfader:
  *
  *   $( '#container' ).morphCrossfader();
- * 
+ *
  * By default, this will hide all elements except the first child (in this case #panel1).
- *  
- * Then, whenever you want to crossfade, do something like this. The currently selected panel 
+ *
+ * Then, whenever you want to crossfade, do something like this. The currently selected panel
  * will fade away, and your selection will fade in.
- * 
+ *
  *   $( '#container' ).morphCrossfade( '#panel2' );
- * 
+ *
  */
 
 ( function( $ ) {
-	/** 
-	 * Initialize crossfading of the children of an element 
+	/**
+	 * Initialize crossfading of the children of an element
  	 */
 	$.fn.morphCrossfader = function() {
 		// the elements that are immediate children are the crossfadables
 		// they must all be "on top" of each other, so position them relative
-		this.css( { 
-			position : 'relative', 
+		this.css( {
+			position : 'relative',
 			overflow : 'hidden',
 			scroll: 'none'
 		} );
-		this.children().css( { 
-			position: 'absolute', 
-			'top': '0px', 
+		this.children().css( {
+			position: 'absolute',
+			'top': '0px',
 		    	left : '0px',
 			scroll: 'none',
 			opacity: 0,
@@ -63,15 +63,15 @@
 		// should achieve the same result as crossfade( this.children().first() ) but without
 		// animation etc.
 		$j.each( this, function( i, container ) {
-			var $container = $j( container ); 
+			var $container = $j( container );
 			$container.morphCrossfade( $container.children().first(), 0 );
 		} );
 
 		return this;
 	};
 
-	/** 
-	 * Initialize crossfading of the children of an element 
+	/**
+	 * Initialize crossfading of the children of an element
 	 * @param selector of new thing to show; should be an immediate child of the crossfader element
 	 * @param speed (optional) how fast to crossfade, in milliseconds
  	 */
@@ -83,21 +83,21 @@
 
 		$containers.css( { 'overflow' : 'hidden' } );
 
-		
-		$j.each( $containers, function( i, container ) { 
+
+		$j.each( $containers, function( i, container ) {
 			var $container = $j( container );
 			var $oldPanel = $( $container.data( 'crossfadeDisplay' ) );
 			var $newPanel = ( typeof newPanelSelector === 'string' ) ? $container.find( newPanelSelector ) : $j( newPanelSelector );
 
-			if ( $oldPanel.get(0) !== $newPanel.get(0) ) { 
+			if ( $oldPanel.get(0) !== $newPanel.get(0) ) {
 				if ( $oldPanel ) {
-					// remove auto setting of height from container, and 
+					// remove auto setting of height from container, and
 					// make doubly sure that the container height is equal to oldPanel
 					$container.css( { height: $oldPanel.outerHeight() } );
 					// take it out of the flow
 					$oldPanel.css( { position: 'absolute' } );
 					// fade WITHOUT hiding when opacity = 0
-					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function() { 
+					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function() {
 						$oldPanel.css( { visibility: 'hidden'} );
 					} );
 				}

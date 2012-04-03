@@ -1,4 +1,4 @@
-/** 
+/**
  * Does some local checking of a filename.
  * If you want more specific filename checks (such as bad words, other blacklisted stuff) use the TitleBlacklist API.
  *
@@ -14,13 +14,13 @@
  *   - Javascript doesn't have a standard way to access unicode character properties in regexes, so \p{PROPERTY}, \P{PROPERTY}, and [[:PROPERTY:]] have been changed when possible
  *     or the associated regex removed
 */
-( function( $ ) { 
+( function( $ ) {
 
 	var regexSets = {
-	
+
 		'titleBadchars': [
-			/[\u00A0\u1680\u180E\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/, // NBSP and other unusual spaces 
-			/[\u202A-\u202E]/, // BiDi overrides 
+			/[\u00A0\u1680\u180E\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/, // NBSP and other unusual spaces
+			/[\u202A-\u202E]/, // BiDi overrides
 			/[\x00-\x1f]/, // Control characters
 			/\uFEFF/, // Byte order mark
 			/\u00AD/, // Soft-hyphen
@@ -30,7 +30,7 @@
 		],
 
 		// note lack of extension, since we test title without extension.
-		'titleSenselessimagename': [	
+		'titleSenselessimagename': [
 			/^DCP[\d\s]+$/i, //  Kodak
 			/^DSC.[\d\s]+$/i, //  [[w:Design rule for Camera File system]] (Nikon, Fuji, Polaroid)
 			/^MVC-?[\d\s]+$/i, //  Sony Mavica
@@ -53,14 +53,14 @@
 			/^\d+px-.*/
 		],
 
-		'titleExtension': [ 
+		'titleExtension': [
 			/\.(jpe?g|png|gif|svg|ogg|ogv|oga)$/
 		]
 
 	};
 
 	$j.each( regexSets, function( name, regexes ) {
-		var tester = ( function( regexes ) { 
+		var tester = ( function( regexes ) {
 			return function( value, element, params ) {
 				var ok = true;
 				$.each( regexes, function( i, regex ) {
@@ -74,7 +74,7 @@
 			};
 		} )( regexes );
 		$.validator.addMethod( name, tester, "This title is not allowed" );
-	} );	
+	} );
 
 
 } )( jQuery );

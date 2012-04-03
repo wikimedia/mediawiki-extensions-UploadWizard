@@ -6,7 +6,7 @@
 	/**
 	 * Given a float number of seconds, returns npt format response. ( ignore
 	 * days for now )
-	 * 
+	 *
 	 * @param {Float}
 	 *            sec Seconds
 	 * @param {Boolean}
@@ -17,9 +17,9 @@
 		if ( isNaN( sec ) ) {
 			sec = 0;
 		}
-		
+
 		var tm = mw.seconds2Measurements( sec );
-				
+
 		// Round the number of seconds to the required number of significant
 		// digits
 		if ( show_ms ) {
@@ -35,15 +35,15 @@
 		} else {
 			if ( tm.minutes < 10 )
 				tm.minutes = '0' + tm.minutes;
-			
-			hoursStr = tm.hours + ":"; 
+
+			hoursStr = tm.hours + ":";
 		}
 		return hoursStr + tm.minutes + ":" + tm.seconds;
 	};
 
 	/**
 	 * Given seconds return array with 'days', 'hours', 'min', 'seconds'
-	 * 
+	 *
 	 * @param {float}
 	 *            sec Seconds to be converted into time measurements
 	 */
@@ -58,7 +58,7 @@
 
 	/**
 	 * Take hh:mm:ss,ms or hh:mm:ss.ms input, return the number of seconds
-	 * 
+	 *
 	 * @param {String}
 	 *            npt_str NPT time string
 	 * @return {Float} Number of seconds
@@ -89,6 +89,6 @@
 		sec = sec.replace( /,\s?/, '.' );
 		// Return seconds float
 		return parseInt( hour * 3600, 10 ) + parseInt( min * 60, 10 ) + parseFloat( sec );
-	};	
+	};
 
 } )( window.mediaWiki );

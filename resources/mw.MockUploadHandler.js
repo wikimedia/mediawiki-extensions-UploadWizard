@@ -12,14 +12,14 @@ mw.MockUploadHandler = function(upload) {
 };
 
 mw.MockUploadHandler.prototype = {
-	
+
 	start: function () {
 		var _this = this;
 		_this.beginTime = (new Date()).getTime();
 		_this.nextState = _this.cont;
 		_this.nextState();
-	},  
- 
+	},
+
 	cont: function () {
 		var _this = this;
 		var delta = 0.0001; // static?
@@ -31,7 +31,7 @@ mw.MockUploadHandler.prototype = {
 			setTimeout( function() { _this.nextState(); }, 200 );
 		}
 	}
- 
+
 };
 
 

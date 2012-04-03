@@ -1,12 +1,12 @@
 // Firefogg utilities not related to the upload handler or transport
 mw.Firefogg = {
-		
+
 	firefoggInstallLinks: {
 		'macosx': 'http://firefogg.org/macosx/Firefogg.xpi',
 		'win32': 'http://firefogg.org/win32/Firefogg.xpi',
 		'linux': 'http://firefogg.org/linux/Firefogg.xpi'
 	},
-	
+
 	/**
 	 * Get the URL for installing firefogg on the client OS
 	 */

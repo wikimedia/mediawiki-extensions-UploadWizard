@@ -1,8 +1,8 @@
 /* miscellaneous fileApi routines -- partially copied from mediawiki.special.upload.js, must refactor... */
 
-( function( $, mw ) { 
+( function( $, mw ) {
 
-	mw.fileApi = { 
+	mw.fileApi = {
 
 		/**
 		 * Is the FileAPI available with sufficient functionality?

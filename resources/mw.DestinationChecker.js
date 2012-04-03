@@ -2,7 +2,7 @@
  * Object to attach to a file name input, to be run on its change() event
  * Largely derived from wgUploadWarningObj in old upload.js
  * Perhaps this could be a jQuery ext
- * @param options   dictionary of options 
+ * @param options   dictionary of options
  *		selector  required, the selector for the input to check
  * 		processResult   required, function to execute on results. accepts two args:
  *			1) filename that invoked this request -- should check if this is still current filename
@@ -16,11 +16,11 @@
  * 		delay     optional how long to delay after a change in ms. falls back to configured default
  *		preprocess optional: function to apply to the contents of selector before testing
  *		events 	  what events on the input trigger a check.
- */ 
+ */
 mw.DestinationChecker = function( options ) {
 
 	var _this = this;
-	_this.selector = options.selector;		
+	_this.selector = options.selector;
 	_this.spinner = options.spinner;
 	_this.processResult = options.processResult;
 	_this.api = options.api;
@@ -34,7 +34,7 @@ mw.DestinationChecker = function( options ) {
 	// initialize!
 
 	var check = _this.getDelayedChecker();
-	
+
 	$j.each( _this.events, function(i, eventName) {
 		$j( _this.selector )[eventName]( check );
 	} );
@@ -54,12 +54,12 @@ mw.DestinationChecker.prototype = {
 
 	// cached results from uniqueness api calls
 	cachedResult: {},
-	
+
 	cachedBlacklist: {},
 
 	/**
 	 * There is an option to preprocess the name (in order to perhaps convert it from
-	 * title to path, e.g. spaces to underscores, or to add the "File:" part.) Depends on 
+	 * title to path, e.g. spaces to underscores, or to add the "File:" part.) Depends on
 	 * exactly what your input field represents.
 	 * In the event that the invoker doesn't supply a name preprocessor, use this identity function
 	 * as default
@@ -72,7 +72,7 @@ mw.DestinationChecker.prototype = {
 	/**
 	 * fire when the input changes value or keypress
 	 * will trigger a check of the name if the field has been idle for delay ms.
-	 */	
+	 */
 	getDelayedChecker: function() {
 		var _this = this;
 		return function() {
@@ -82,12 +82,12 @@ mw.DestinationChecker.prototype = {
 			}
 
 			// and start another, hoping this time we'll be idle for delay ms.
-			_this.timeoutId = window.setTimeout( 
+			_this.timeoutId = window.setTimeout(
 				function() {
 					_this.spinner( true );
 					_this.checkTitle();
 				},
-				_this.delay 
+				_this.delay
 			);
 		};
 	},
@@ -99,31 +99,31 @@ mw.DestinationChecker.prototype = {
 	checkTitle: function() {
 		var _this = this;
 		var title = _this.getTitle();
-		
+
 		var status = {
-			'unique': null, 
+			'unique': null,
 			'blacklist': null
 		};
-		
-		var checkerStatus = function( result ) { 
+
+		var checkerStatus = function( result ) {
 			if( result.unique ) {
 				status.unique = result.unique;
 			}
-			
+
 			if( result.blacklist ) {
 				status.blacklist = result.blacklist;
 			}
-			
+
 			//$j.extend( status, result );
 			if ( status.unique !== null && status.blacklist !== null ) {
 				status.title = title;
 				_this.processResult( status );
 			}
-			_this.spinner( status.unique === null || status.blacklist === null );				
+			_this.spinner( status.unique === null || status.blacklist === null );
 		};
-		
+
 		_this.checkUnique( checkerStatus );
-		_this.checkBlacklist( checkerStatus );		
+		_this.checkBlacklist( checkerStatus );
 	},
 
 	/**
@@ -133,7 +133,7 @@ mw.DestinationChecker.prototype = {
 	getTitle: function() {
 		return this.preprocess( $j( this.selector ).val() );
 	},
-	
+
 	/**
 	 * Async check if a title is in the titleblacklist.
 	 * @param {Function} takes object, like { 'blacklist': result }
@@ -141,7 +141,7 @@ mw.DestinationChecker.prototype = {
 	checkBlacklist: function( callback ) {
 		var _this = this;
 		var title = _this.getTitle();
-		
+
 		if( title === '' ) {
 			return;
 		}
@@ -150,14 +150,14 @@ mw.DestinationChecker.prototype = {
 			callback( { 'blacklist': _this.cachedBlacklist[title] } );
 			return;
 		}
-		
+
 		/**
 		 * Processes result of a TitleBlacklist api call with callback()
 		 * @param mixed - false if not blacklisted, object if blacklisted
 		 */
 		var blacklistResultProcessor = function( blacklistResult ) {
 			var result;
-			
+
 			if( blacklistResult === false ) {
 				result = { 'notBlacklisted': true };
 			} else {
@@ -168,7 +168,7 @@ mw.DestinationChecker.prototype = {
 					'blacklistLine': blacklistResult.line
 				};
 			}
-			
+
 			_this.cachedBlacklist[title] = result;
 			callback( { 'blacklist': result } );
 		};
@@ -176,11 +176,11 @@ mw.DestinationChecker.prototype = {
 		if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
 			_this.api.isBlacklisted( title, blacklistResultProcessor );
 		} else {
-			// it's not blacklisted, because the API isn't even available 
+			// it's not blacklisted, because the API isn't even available
 			blacklistResultProcessor( false );
 		}
 	},
-	
+
 	/**
 	 * Async check if a filename is unique. Can be attached to a field's change() event
 	 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
@@ -192,18 +192,18 @@ mw.DestinationChecker.prototype = {
 		var title = _this.getTitle();
 
 		// if input is empty don't bother.
-		if ( title === '' ) { 
+		if ( title === '' ) {
 			return;
 		}
-		
+
 		if ( _this.cachedResult[title] !== undefined ) {
 			callback( { 'unique': _this.cachedResult[title] } );
 			return;
-		} 
+		}
 
 		// set the spinner to spin
 		_this.spinner( true );
-		
+
 		// Setup the request -- will return thumbnail data if it finds one
 		// XXX do not use iiurlwidth as it will create a thumbnail
 		var params = {
@@ -214,15 +214,15 @@ mw.DestinationChecker.prototype = {
 		};
 
 
-		var ok = function( data ) {			
+		var ok = function( data ) {
 			// Remove spinner
 			_this.spinner( false );
-	
+
 			// if the name's changed in the meantime, our result is useless
 			if ( title != _this.getTitle() ) {
 				return;
 			}
-			
+
 			if ( !data || !data.query || !data.query.pages ) {
 				// Ignore a null result
 				mw.log("mw.DestinationChecker::checkUnique> No data in checkUnique result", 'debug');
@@ -257,7 +257,7 @@ mw.DestinationChecker.prototype = {
 					var img = data.query.pages[ page_id ].imageinfo[0];
 
 					result = {
-						isUnique: false,	
+						isUnique: false,
 						img: img,
 						title: ntitle,
 						href : img.descriptionurl
@@ -274,20 +274,20 @@ mw.DestinationChecker.prototype = {
 
 		};
 
-		var err = function( code, result ) { 
+		var err = function( code, result ) {
 			_this.spinner( false );
 			mw.log("mw.DestinationChecker::checkUnique> error in checkUnique result: " + code, 'debug');
 			return;
 		};
-	
-		// Do the destination check  
+
+		// Do the destination check
 		_this.api.get( params, { ok: ok, err: err } );
 	}
 
 };
 
 
-/** 
+/**
  * jQuery extension to make a field upload-checkable
  */
 ( function ( $ ) {
@@ -296,7 +296,7 @@ mw.DestinationChecker.prototype = {
 		options.selector = _this;
 		var checker = new mw.DestinationChecker( options );
 		// this should really be done with triggers
-		_this.checkTitle = function() { checker.checkTitle(); }; 
+		_this.checkTitle = function() { checker.checkTitle(); };
 		return _this;
-	}; 
+	};
 } )( jQuery );

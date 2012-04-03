@@ -4,7 +4,7 @@
  * @param upload UploadInterface
  * @param api
  * @param fogg Firefogg instance
- * @param progressCb	callback to execute as the upload progresses 
+ * @param progressCb	callback to execute as the upload progresses
  * @param transportedCb	callback to execute when we've finished the upload
  */
 mw.FirefoggTransport = function( upload, api, fogg, progressCb, transportedCb ) {
@@ -56,7 +56,7 @@ mw.FirefoggTransport.prototype = {
 	 * Check if the asset is in a format that can be upload without encoding.
 	 */
 	isUploadFormat: function(){
-		// Check if the server supports webm uploads: 
+		// Check if the server supports webm uploads:
 		var wembExt = ( $j.inArray( 'webm', mw.UploadWizard.config[ 'fileExtensions'] ) !== -1 );
 		// Determine passthrough mode
 		if ( this.isOggFormat() || ( wembExt && this.isWebMFormat() ) ) {
@@ -82,13 +82,13 @@ mw.FirefoggTransport.prototype = {
 	isOggFormat: function() {
 		var contentType = this.getSourceFileInfo().contentType;
 		return ( contentType.indexOf("video/ogg") != -1
-			|| contentType.indexOf("application/ogg") != -1 
+			|| contentType.indexOf("application/ogg") != -1
 			|| contentType.indexOf("audio/ogg") != -1);
 	},
 	isWebMFormat: function() {
 		return (  this.getSourceFileInfo().contentType.indexOf('webm') != -1 );
 	},
-	
+
 	/**
 	 * Get the source file info for the current file selected into this.fogg
 	 */
@@ -105,13 +105,13 @@ mw.FirefoggTransport.prototype = {
 		}
 		return this.sourceFileInfo;
 	},
-	
+
 	// Get the filename
 	getFileName: function(){
 		// If file is in a supported format don't change extension
 		if( this.isUploadFormat() ){
 			return this.fogg.sourceFilename;
-		} else {			
+		} else {
 			if( this.isSourceAudio() ){
 				return this.fogg.sourceFilename.split('.').slice(0,-1).join('.') + '.oga';
 			}
@@ -123,28 +123,28 @@ mw.FirefoggTransport.prototype = {
 	},
 	getEncodeExt: function(){
 		var encodeSettings = mw.UploadWizard.config[ 'firefoggEncodeSettings' ];
-		if( encodeSettings[ 'videoCodec' ] 
-		            && 
+		if( encodeSettings[ 'videoCodec' ]
+		            &&
 		    encodeSettings[ 'videoCodec' ] == 'vp8' )
 		{
 			return 'webm';
-		} else { 
+		} else {
 			return 'ogv';
 		}
 	},
-	
+
 	/**
-	 * Get the encode settings from configuration and the current selected video type 
+	 * Get the encode settings from configuration and the current selected video type
 	 */
 	getEncodeSettings: function(){
 		if( this.isUploadFormat() ){
 			return { 'passthrough' : true };
 		}
-		// Get the default encode settings: 
+		// Get the default encode settings:
 		var encodeSettings = mw.UploadWizard.config[ 'firefoggEncodeSettings' ];
-		// Update the format: 
+		// Update the format:
 		this.fogg.setFormat( ( this.getEncodeExt() == 'webm' ) ? 'webm' : 'ogg' );
-		
+
 		mw.log("FirefoggTransport::getEncodeSettings> " +  JSON.stringify(  encodeSettings ) );
 		return encodeSettings;
 	}

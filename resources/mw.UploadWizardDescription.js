@@ -1,7 +1,7 @@
-	
+
 /**
  * Object that represents an indvidual language description, in the details portion of Upload Wizard
- * @param languageCode -- string 
+ * @param languageCode -- string
  * @param firstRequired -- boolean -- the first description is required and should be validated and displayed a bit differently
  */
 mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
@@ -18,7 +18,7 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	if ( required ) {
 		fieldnameDiv.requiredFieldLabel();
 	}
-	
+
 	fieldnameDiv.append( gM( 'mwe-upwiz-desc' ) ).addHint( 'description' );
 
 	// Logic copied from MediaWiki:UploadForm.js
@@ -61,7 +61,7 @@ mw.UploadWizardDescription.prototype = {
 		var description = $j.trim( $j( _this.input ).val() );
 		// we assume that form validation has caught this problem if this is a required field
 		// if not, assume the user is trying to blank a description in another language
-		if ( description.length === 0 ) {	
+		if ( description.length === 0 ) {
 			return '';
 		}
 		var language = $j.trim( $j( _this.languageMenu ).val() );
@@ -73,7 +73,7 @@ mw.UploadWizardDescription.prototype = {
 	},
 
 	/**
-	 * defer adding rules until it's in a form 
+	 * defer adding rules until it's in a form
 	 * @return validator
  	 */
 	addValidationRules: function( required ) {
@@ -82,11 +82,11 @@ mw.UploadWizardDescription.prototype = {
 			minlength: mw.UploadWizard.config[  'minDescriptionLength'  ],
 			maxlength: mw.UploadWizard.config[  'maxDescriptionLength'  ],
 			required: required,
-			messages: { 
+			messages: {
 				required: gM( 'mwe-upwiz-error-blank' ),
 				minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minDescriptionLength'  ] ),
 				maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxDescriptionLength'  ] )
-			}		
+			}
 		} );
-	}	
+	}
 };

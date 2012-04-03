@@ -31,17 +31,17 @@ mw.UploadWizardUtil = {
 				$toggleLink.msg( 'mwe-upwiz-fewer-options' ).addClass( "mwe-upwiz-toggler-open" );
 			}
 		};
-		
+
 		moreDiv.hide();
 
 		$toggleLink.click( function( e ) { e.stopPropagation(); toggle(); } );
-		
+
 		$j( moreDiv ).addClass( 'mwe-upwiz-toggled' );
 	},
 
 	/**
 	 * remove an item from an array. Tests for === identity to remove the item
-	 *  XXX the entire rationale for this function may be wrong. 
+	 *  XXX the entire rationale for this function may be wrong.
 	 *  XXX The jQuery way would be to query the DOM for objects, not to keep a separate array hanging around
 	 * @param items  the array where we want to remove an item
 	 * @param item	 the item to remove
@@ -66,7 +66,7 @@ mw.UploadWizardUtil = {
 		if ( path === undefined || path === null ) {
 			return '';
 		}
-		
+
 	 	// find index of last path separator in the path, add 1. (If no separator found, yields 0)
 		// then take the entire string after that.
 		return path.substr( Math.max( path.lastIndexOf( '/' ), path.lastIndexOf( '\\' ) ) + 1 );

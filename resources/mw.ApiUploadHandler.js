@@ -21,11 +21,11 @@ mw.ApiUploadHandler = function( upload, api ) {
 	var _this = this;
 	this.transport = new mw.IframeTransport(
 		this.$form,
-		function( fraction ) { 
-			_this.upload.setTransportProgress( fraction ); 
+		function( fraction ) {
+			_this.upload.setTransportProgress( fraction );
 		},
-		function( result ) { 	
-			_this.upload.setTransported( result ); 
+		function( result ) {
+			_this.upload.setTransported( result );
 		}
 	);
 
@@ -47,12 +47,12 @@ mw.ApiUploadHandler.prototype = {
 
 		// XXX TODO - remove; if we are uploading to stash only, a comment should not be required - yet.
 		_this.addFormInputIfMissing( 'comment', 'DUMMY TEXT' );
-		
+
 		// we use JSON in HTML because according to mdale, some browsers cannot handle just JSON
 		_this.addFormInputIfMissing( 'format', 'jsonfm' );
 	},
 
-	/** 
+	/**
 	 * Modify our form to have a fresh edit token.
 	 * If successful, return true to a callback.
 	 * @param callback to return true on success
@@ -60,7 +60,7 @@ mw.ApiUploadHandler.prototype = {
 	configureEditToken: function( callerOk, err ) {
 		var _this = this;
 
-		var ok = function( token ) { 
+		var ok = function( token ) {
 			_this.addFormInputIfMissing( 'token', token );
 			callerOk();
 		};
@@ -76,7 +76,7 @@ mw.ApiUploadHandler.prototype = {
 	addFormInputIfMissing: function( name, value ) {
 		if ( this.$form.find( "[name='" + name + "']" ).length === 0 ) {
 			this.$form.append( $j( '<input type="hidden" />' ) .attr( { 'name': name, 'value': value } ));
-		}		
+		}
 	},
 
 	/**
@@ -92,7 +92,7 @@ mw.ApiUploadHandler.prototype = {
 		};
 		var err = function( code, info ) {
 			_this.upload.setError( code, info );
-		}; 
+		};
 		this.configureEditToken( ok, err );
 	}
 };

@@ -6,7 +6,7 @@ mw.GroupProgressBar = function( selector, text, uploads, successStates, errorSta
 
 	// XXX need to figure out a way to put text inside bar
 	_this.$selector = $j( selector );
-	_this.$selector.html( 
+	_this.$selector.html(
 		'<div class="mwe-upwiz-progress">'
 		+   '<div class="mwe-upwiz-progress-bar-etr-container">'
 		+     '<div class="mwe-upwiz-progress-bar-etr" style="display: none">'
@@ -32,13 +32,13 @@ mw.GroupProgressBar = function( selector, text, uploads, successStates, errorSta
 mw.GroupProgressBar.prototype = {
 
 	/**
-	 * Show the progress bar 
+	 * Show the progress bar
          */
 	showBar: function() {
 		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
 	},
 
-	/** 
+	/**
 	 * loop around the uploads, summing certain properties for a weighted total fraction
 	 */
 	start: function() {
@@ -52,7 +52,7 @@ mw.GroupProgressBar.prototype = {
 		_this.setBeginTime();
 		var shown = false;
 
-		var displayer = function() {	
+		var displayer = function() {
 			var fraction = 0.0;
 			var successStateCount = 0;
 			var errorStateCount = 0;
@@ -87,7 +87,7 @@ mw.GroupProgressBar.prototype = {
 				setTimeout( displayer, 200 );
 			} else {
 				_this.showProgress( 1.0 );
-				setTimeout( function() { _this.hideBar(); }, 500 ); 
+				setTimeout( function() { _this.hideBar(); }, 500 );
 			}
 		};
 		displayer();
@@ -100,13 +100,13 @@ mw.GroupProgressBar.prototype = {
 	hideBar: function() {
 		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeOut( 200 );
 	},
-	
+
 	/**
 	 * sets the beginning time (useful for figuring out estimated time remaining)
 	 * if time parameter omitted, will set beginning time to now
 	 *
 	 * @param time  optional; the time this bar is presumed to have started (epoch milliseconds)
-	 */ 
+	 */
 	setBeginTime: function( time ) {
 		this.beginTime = time ? time : ( new Date() ).getTime();
 	},
@@ -115,7 +115,7 @@ mw.GroupProgressBar.prototype = {
 	/**
 	 * Show overall progress for the entire UploadWizard
 	 * The current design doesn't have individual progress bars, just one giant one.
-	 * We did some tricky calculations in startUploads to try to weight each individual file's progress against 
+	 * We did some tricky calculations in startUploads to try to weight each individual file's progress against
 	 * the overall progress.
 	 * @param fraction the amount of whatever it is that's done whatever it's done
 	 */
@@ -125,13 +125,13 @@ mw.GroupProgressBar.prototype = {
 		_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
 
 		var remainingTime = _this.getRemainingTime( fraction );
-		
+
 		if ( remainingTime !== null ) {
 			var t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
 			var timeString;
 			if (t.hours === 0) {
 				if (t.minutes === 0) {
-					if (t.seconds === 0) { 
+					if (t.seconds === 0) {
 						timeString = gM( 'mwe-upwiz-finished' );
 					} else {
 						timeString = gM( 'mwe-upwiz-secs-remaining', t.seconds );
@@ -148,7 +148,7 @@ mw.GroupProgressBar.prototype = {
 
 	/**
 	 * Calculate remaining time for all uploads to complete.
-	 * 
+	 *
 	 * @param fraction	fraction of progress to show
 	 * @return 		estimated time remaining (in milliseconds)
 	 */
@@ -158,7 +158,7 @@ mw.GroupProgressBar.prototype = {
 			var elapsedTime = ( new Date() ).getTime() - _this.beginTime;
 			if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
 				var rate = fraction / elapsedTime;
-				return parseInt( ( 1.0 - fraction ) / rate, 10 ); 
+				return parseInt( ( 1.0 - fraction ) / rate, 10 );
 			}
 		}
 		return null;

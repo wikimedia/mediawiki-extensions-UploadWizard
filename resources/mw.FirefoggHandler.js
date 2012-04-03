@@ -11,7 +11,7 @@ mw.FirefoggHandler.prototype = {
 	// The transport object
 	transport : null, // lazy init
 	/**
-	 * Constructor 
+	 * Constructor
 	 */
 	init: function( upload ){
 		var _this = this;
@@ -27,12 +27,12 @@ mw.FirefoggHandler.prototype = {
 				_this.upload.title = new mw.Title( title, fileNsId );
 			}
 		});
-		// update the "valid" extension to include firefogg transcode extensions: 
+		// update the "valid" extension to include firefogg transcode extensions:
 		mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
-				mw.UploadWizard.config[ 'fileExtensions' ], 
+				mw.UploadWizard.config[ 'fileExtensions' ],
 				mw.UploadWizard.config[ 'transcodeExtensionList' ]
 		);
-		
+
 	},
 	// Setup local pointer to firefogg instance
 	getFogg: function(){
@@ -48,29 +48,29 @@ mw.FirefoggHandler.prototype = {
 					this.upload,
 					this.api,
 					this.getFogg(),
-					function( data ) { 
-						_this.upload.setTransportProgress( data.progress ); 
-						// also update preview video, url is in data.preview 
+					function( data ) {
+						_this.upload.setTransportProgress( data.progress );
+						// also update preview video, url is in data.preview
 					},
 					function( result ) {
 						mw.log("FirefoggTransport::getTransport> Transport done " + JSON.stringify( result ) );
-						_this.upload.setTransported( result ); 
+						_this.upload.setTransported( result );
 					}
 				);
 		}
 		return this.transport;
 	},
-	
+
 	/**
 	 * If chunks are disabled transcode then upload else
 	 * upload and transcode at the same time
 	 */
 	start: function() {
-		var _this = this;		
-		mw.log( "mw.FirefoggHandler::start> upload start!" );		
+		var _this = this;
+		mw.log( "mw.FirefoggHandler::start> upload start!" );
 		_this.beginTime = ( new Date() ).getTime();
 		_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 		_this.upload.ui.showTransportProgress();
-		_this.getTransport().doUpload();			
+		_this.getTransport().doUpload();
 	}
 };

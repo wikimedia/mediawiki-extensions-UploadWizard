@@ -1,7 +1,7 @@
-( function( mw ) { 
+( function( mw ) {
 
 	mw.canvas = {
-		/** 
+		/**
 		 * @return boolean
 		 */
 		isAvailable: function() {

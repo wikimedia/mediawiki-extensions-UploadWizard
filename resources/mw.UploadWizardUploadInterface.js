@@ -34,7 +34,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 		.append( '<div class="mwe-upwiz-visible-file-filename">'
 			   + '<div class="mwe-upwiz-file-preview"/>'
 			   + '<div class="mwe-upwiz-file-texts">'
-			   +   '<div class="mwe-upwiz-visible-file-filename-text"/>' 
+			   +   '<div class="mwe-upwiz-visible-file-filename-text"/>'
 			   +   '<div class="mwe-upwiz-file-status-line">'
 			   +	 '<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>'
 			   +   '</div>'
@@ -42,21 +42,21 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 			 + '</div>'
 		);
 
-	_this.$removeCtrl = $j.fn.removeCtrl( 
-		'mwe-upwiz-remove', 
-		'mwe-upwiz-remove-upload', 
-		function() { _this.upload.remove(); } 
+	_this.$removeCtrl = $j.fn.removeCtrl(
+		'mwe-upwiz-remove',
+		'mwe-upwiz-remove-upload',
+		function() { _this.upload.remove(); }
 	).addClass( "mwe-upwiz-file-status-line-item" );
 
 	_this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 		.append( _this.$removeCtrl );
-		
+
 	// Add show thumbnail control
 
 	//_this.errorDiv = $j('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
 
-	_this.filenameCtrl = $j('<input type="hidden" name="filename" value=""/>').get(0); 
-	
+	_this.filenameCtrl = $j('<input type="hidden" name="filename" value=""/>').get(0);
+
 	// this file Ctrl container is placed over other interface elements, intercepts clicks and gives them to the file input control.
 	// however, we want to pass hover events to interface elements that we are over, hence the bindings.
 	// n.b. not using toggleClass because it often gets this event wrong -- relies on previous state to know what to do
@@ -67,7 +67,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 */
 
 
-	// the css trickery (along with css) 
+	// the css trickery (along with css)
 	// here creates a giant size file input control which is contained within a div and then
 	// clipped for overflow. The effect is that we have a div (ctrl-container) we can position anywhere
 	// which works as a file input. It will be set to opacity:0 and then we can do whatever we want with
@@ -77,7 +77,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 			.attr( { action: _this.upload.api.defaults.url } )
 			.append( _this.visibleFilenameDiv )
 			.append( _this.fileCtrlContainer
-				.append( _this.$fileInputCtrl ) 
+				.append( _this.$fileInputCtrl )
 			)
 			.append( _this.filenameCtrl )
 			.get( 0 );
@@ -96,8 +96,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	// XXX feature envy
 	var $preview = $j( this.div ).find( '.mwe-upwiz-file-preview' );
-	_this.upload.setThumbnail( 
-		$preview, 
+	_this.upload.setThumbnail(
+		$preview,
 		mw.UploadWizard.config[ 'thumbnailWidth' ],
 		mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
 		true
@@ -121,12 +121,12 @@ mw.UploadWizardUploadInterface.prototype = {
 		$j( _this.div )
 			.unbind( 'mouseenter mouseover mouseleave mouseout' );
 
-		// remove delete control 
+		// remove delete control
 		$j( _this.visibleFilenameDiv )
 			.find( '.mwe-upwiz-remove-ctrl' )
 			.unbind( 'mouseenter mouseover mouseleave mouseout' )
 			.remove();
-			
+
 		// remove thumb control
 		$j( _this.visibleFilenameDiv )
 			.find( '.mwe-upwiz-show-thumb-ctrl' )
@@ -137,18 +137,18 @@ mw.UploadWizardUploadInterface.prototype = {
 	/**
  	 * change the graphic indicator at the far end of the row for this file
 	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
-	 */ 
+	 */
 	showIndicator: function( statusClass ) {
 		this.clearIndicator();
 		// add the desired class and make it visible, if it wasn't already.
 		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
-			       .css( 'visibility', 'visible' ); 
+			       .css( 'visibility', 'visible' );
 	},
 
 	/**
-	 * Reset the graphic indicator 
+	 * Reset the graphic indicator
 	 */
-	clearIndicator: function() { 
+	clearIndicator: function() {
 		var _this = this;
 		$j.each( _this.$indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
 			if ( className.match( /^mwe-upwiz-status/ ) ) {
@@ -159,7 +159,7 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	/**
 	 * Set the preview image on the file page for this upload.
-	 * @param HTMLImageElement 
+	 * @param HTMLImageElement
 	 */
 	setPreview: function( image ) {
 		var $preview = $j( this.div ).find( '.mwe-upwiz-file-preview' );
@@ -224,7 +224,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		this.setStatus( 'mwe-upwiz-stashed-upload' ); // this is just "OK", say something more.
 	},
 
-	/** 
+	/**
 	 * Show that transport has failed
 	 * @param String code: error code from API
 	 * @param {String|Object} info: extra info
@@ -249,15 +249,15 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	initFileInputCtrl: function() {
 		var _this = this;
-		_this.$fileInputCtrl.change( function() { 
+		_this.$fileInputCtrl.change( function() {
 			_this.clearErrors();
-			
+
 			_this.upload.checkFile(
 				_this.getFilename(),
 				_this.getFiles(),
 				function() { _this.fileChangedOk(); },
-				function( code, info ) { _this.fileChangedError( code, info ); } 
-			); 
+				function( code, info ) { _this.fileChangedError( code, info ); }
+			);
 		} );
 	},
 
@@ -276,7 +276,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				} );
 			}
 		}
-		
+
 		return files;
 	},
 
@@ -294,11 +294,11 @@ mw.UploadWizardUploadInterface.prototype = {
 			}
 		} else {
 			return this.$fileInputCtrl.get(0).value;
-		}	
+		}
 	},
 
 	/**
-	 * Run this when the value of the file input has changed and we know it's acceptable -- this 
+	 * Run this when the value of the file input has changed and we know it's acceptable -- this
 	 * will update interface to show as much info as possible, including preview.
 	 * n.b. in older browsers we only will know the filename
 	 */
@@ -314,7 +314,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		if ( this.upload.file ) {
 			statusItems.push( mw.units.bytes( this.upload.file.size ) );
 		}
-		
+
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
 
@@ -323,13 +323,13 @@ mw.UploadWizardUploadInterface.prototype = {
 		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
 			if( this.upload.wizard.makePreviewsFlag ) {
 				// make the preview now.
-				this.makePreview();			
+				this.makePreview();
 			} else {
 				// add a control for showing the preview if the user needs it
-				this.$showThumbCtrl = $j.fn.showThumbCtrl( 
-						'mwe-upwiz-show-thumb', 
-						'mwe-upwiz-show-thumb-tip', 
-						function() { _this.makePreview(); } 
+				this.$showThumbCtrl = $j.fn.showThumbCtrl(
+						'mwe-upwiz-show-thumb',
+						'mwe-upwiz-show-thumb-tip',
+						function() { _this.makePreview(); }
 					).addClass( "mwe-upwiz-file-status-line-item" );
 
 				this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
@@ -346,37 +346,37 @@ mw.UploadWizardUploadInterface.prototype = {
 		if( _this.previewLoaded ) {
 			return;
 		}
-		
+
 		// do preview if we can
 		if ( mw.fileApi.isAvailable() && _this.upload.file && mw.fileApi.isPreviewableFile( _this.upload.file ) ) {
 			var dataUrlReader = new FileReader();
-			dataUrlReader.onload = function() { 
+			dataUrlReader.onload = function() {
 				var image = document.createElement( 'img' );
 				image.onload = function() {
 					$.publishReady( 'thumbnails.' + _this.upload.index, image );
 					_this.previewLoaded = true;
 				};
-				
+
 				// this step (inserting image-as-dataurl into image object) is slow for large images, which
 				// is why this is optional and has a control attached to it to load the preview.
 				image.src = dataUrlReader.result;
 				_this.upload.thumbnails['*'] = image;
 			};
 			dataUrlReader.readAsDataURL( _this.upload.file );
-		}	
+		}
 	},
 
 	fileChangedError: function( code, info ) {
 		var filename = this.getFilename();
 
 		// ok we now have a fileInputCtrl with a "bad" file in it
-		// you cannot blank a file input ctrl in all browsers, so we 
+		// you cannot blank a file input ctrl in all browsers, so we
 		// replace existing file input with empty clone
 		var $newFileInput = this.$fileInputCtrl.clone();
 		this.$fileInputCtrl.replaceWith( $newFileInput );
 		this.$fileInputCtrl = $newFileInput;
 		this.initFileInputCtrl();
-		
+
 		if( this.providedFile ) {
 			this.providedFile = null;
 		}
@@ -392,7 +392,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		} else {
 			this.showUnknownError( code, filename );
 		}
-	},	
+	},
 
 	showUnparseableFilenameError: function( filename ) {
 		this.showFilenameError( gM( 'mwe-upwiz-unparseable-filename', filename ) );
@@ -400,10 +400,10 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	showBadExtensionError: function( filename, extension ) {
 		var $errorMessage;
-		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted) 
+		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
 		if ( mw.UploadWizard.config['enableFirefogg']
 				&&
-			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1 
+			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1
 		) {
 			$errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
 					mw.Firefogg.getFirefoggInstallUrl(),
@@ -416,19 +416,19 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	showMissingExtensionError: function( filename ) {
-		this.showExtensionError( $j( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) ); 
+		this.showExtensionError( $j( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) );
 	},
 
-	showUnknownFilenameError: function( filename ) { 
+	showUnknownFilenameError: function( filename ) {
 		this.showFilenameError( $j( '<p>' ).msg( 'mwe-upwiz-upload-error-unknown-filename-error', filename ) );
 	},
 
-	showExtensionError: function( $errorMessage ) {       
-		this.showFilenameError( 
-			$( '<div></div>' ).append( 
+	showExtensionError: function( $errorMessage ) {
+		this.showFilenameError(
+			$( '<div></div>' ).append(
 				$errorMessage,
 				$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
-				$j( '<blockquote>' ).append( $j( '<tt>' ).append(  
+				$j( '<blockquote>' ).append( $j( '<tt>' ).append(
 					mw.UploadWizard.config[ 'fileExtensions' ].join( " " )
 				) )
 			)
@@ -452,10 +452,10 @@ mw.UploadWizardUploadInterface.prototype = {
 
 
 	/**
-	 * Move the file input to cover a certain element on the page. 
+	 * Move the file input to cover a certain element on the page.
 	 * We use invisible file inputs because this is the only way to style a file input
 	 * or otherwise get it to do what you want.
-	 * It is helpful to sometimes move them to cover certain elements on the page, and 
+	 * It is helpful to sometimes move them to cover certain elements on the page, and
 	 * even to pass events like hover
 	 * @param selector jquery-compatible selector, for a single element
 	 */
@@ -502,11 +502,11 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
-	 * this does two things: 
-	 *   1 ) since the file input has been hidden with some clever CSS ( to avoid x-browser styling issues ), 
+	 * this does two things:
+	 *   1 ) since the file input has been hidden with some clever CSS ( to avoid x-browser styling issues ),
 	 *      update the visible filename
 	 *
-	 *   2 ) update the underlying "title" which we are targeting to add to mediawiki. 
+	 *   2 ) update the underlying "title" which we are targeting to add to mediawiki.
 	 *      TODO silently fix to have unique filename? unnecessary at this point...
 	 */
 	updateFilename: function() {
@@ -514,7 +514,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		var path = this.getFilename();
 		// get basename of file; some browsers do this C:\fakepath\something
 		path = path.replace(/\w:.*\\(.*)$/,'$1');
-		
+
 		// visible filename
 		$j( _this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).html( path );
 
@@ -530,36 +530,36 @@ mw.UploadWizardUploadInterface.prototype = {
 			var $div = $j( _this.div );
 			_this.isFilled = true;
 			$div.addClass( 'filled' );
-				
+
  			// cover the div with the file input.
 			// we use the visible-file div because it has the same offsetParent as the file input
 			// the second argument offsets the fileinput to the right so there's room for the close icon to get mouse events
-			_this.moveFileInputToCover( 	
+			_this.moveFileInputToCover(
 				$div.find( '.mwe-upwiz-visible-file-filename-text' )
 			);
 
 			// Highlight the file on mouseover (and also show controls like the remove control).
 			//
 			// On Firefox there are bugs related to capturing mouse events on inputs, so we seem to miss the
-			// mouseenter or mouseleave events randomly. It's only really bad if we miss mouseleave, 
+			// mouseenter or mouseleave events randomly. It's only really bad if we miss mouseleave,
 			// and have two highlights visible. so we add another call to REALLY make sure that other highlights
 			// are deactivated.
 			// http://code.google.com/p/fbug/issues/detail?id=2075
-			// 
-			// ALSO: When file inputs are adjacent, Firefox misses the "mouseenter" and "mouseleave" events. 
+			//
+			// ALSO: When file inputs are adjacent, Firefox misses the "mouseenter" and "mouseleave" events.
 			// Consequently we have to bind to "mouseover" and "mouseout" as well even though that's not as efficient.
-			$div.bind( 'mouseenter mouseover', function() { 
-				$div.addClass( 'hover' ); 
+			$div.bind( 'mouseenter mouseover', function() {
+				$div.addClass( 'hover' );
 				$j( '#mwe-upwiz-filelist' )
 					.children()
 					.filter( function() { return this !== _this.div; } )
 					.removeClass('hover');
 			} );
-			$div.bind( 'mouseleave mouseout', function() { 
-				$div.removeClass( 'hover' ); 	
+			$div.bind( 'mouseleave mouseout', function() {
+				$div.removeClass( 'hover' );
 			} );
 			$j( _this.div ).trigger( 'filled' );
-		} else {	
+		} else {
 			$j( _this.div ).trigger( 'filenameAccepted' );
 		}
 	},
@@ -587,6 +587,6 @@ mw.UploadWizardUploadInterface.prototype = {
 		$j( _this.errorDiv ).show();
 	}
 
-};	
+};
 
 }) ( window.mediaWiki, jQuery );

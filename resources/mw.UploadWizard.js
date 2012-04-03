@@ -56,7 +56,7 @@ mw.UploadWizard.prototype = {
 
 		// remove first spinner
 		$j( '#mwe-first-spinner' ).remove();
-		
+
 		// construct the message for the subheader
 		$j( '#contentSub' ).append( $j( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
@@ -94,7 +94,7 @@ mw.UploadWizard.prototype = {
 			} else {
 				altUploadForm = configAltUploadForm;
 			}
-			
+
 			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
 			if ( altUploadForm ) {
 				var title;
@@ -103,7 +103,7 @@ mw.UploadWizard.prototype = {
 				} catch ( e ) {
 					// page was empty, or impossible on this wiki (missing namespace or some other issue). Give up.
 				}
-				if ( title instanceof mw.Title ) { 
+				if ( title instanceof mw.Title ) {
 					var altUploadFormUrl = title.getUrl();
 					$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $j( '<a></a>' ).attr( { href: altUploadFormUrl } ) ) );
 				}
@@ -190,7 +190,7 @@ mw.UploadWizard.prototype = {
 						} else {
 							upload.deedChooser = _this.deedChooser;
 						}
-						
+
 						// the first check, happens even if the field isn't touched
 						// (ie. user accepts default title)
 						upload.details.titleInput.checkTitle();
@@ -251,10 +251,10 @@ mw.UploadWizard.prototype = {
 
 	},
 
-	
+
 	/**
 	 * Get the own work and third party licensing deeds if they are needed.
-	 * 
+	 *
 	 * @since 1.2
 	 * @param {int|false} uploadsLength
 	 * @return {Array}
@@ -265,16 +265,16 @@ mw.UploadWizard.prototype = {
 			doThirdParty = false;
 
 		if ( mw.UploadWizard.config.ownWorkOption === 'choice' ) {
-			doOwnWork = doThirdParty = true;	
+			doOwnWork = doThirdParty = true;
 		} else if ( mw.UploadWizard.config.ownWorkOption === 'own' ) {
 			doOwnWork = true;
 		} else {
-			doThirdParty = true;	
+			doThirdParty = true;
 		}
-		
+
 		if ( doOwnWork ) {
 			deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength, this.api ) );
-		} 
+		}
 		if ( doThirdParty ) {
 			deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength, this.api ) );
 		}
@@ -300,7 +300,7 @@ mw.UploadWizard.prototype = {
 				return true; // TODO: might want to have similar behaviour here
 			}
 		};
-		
+
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
 		if ( _this.uploads.length > 1 && this.shouldShowIndividualDeed() ) {
@@ -348,7 +348,7 @@ mw.UploadWizard.prototype = {
 			// already there!
 			return;
 		}
-		
+
 		// scroll to the top of the page (the current step might have been very long, vertically)
 		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
 
@@ -388,7 +388,7 @@ mw.UploadWizard.prototype = {
 	/**
 	 * If there are no uploads, make a new one
 	 */
-	resetFileStepUploads: function() {	
+	resetFileStepUploads: function() {
 		if ( this.uploads.length === 0 ) {
 			// add one upload field to start (this is the big one that asks you to upload something)
 			var upload = this.newUpload();
@@ -425,7 +425,7 @@ mw.UploadWizard.prototype = {
 			e.stopPropagation();
 		} );
 		// XXX bind to some error state
-		
+
 		return upload;
 	},
 
@@ -792,11 +792,11 @@ mw.UploadWizard.prototype = {
 			.morphCrossfade( '.mwe-upwiz-submitting' );
 
 		// hide errors ( assuming maybe this submission will fix it, if it hadn't blocked )
-		$j( '#mwe-upwiz-stepdiv-details' ) 
+		$j( '#mwe-upwiz-stepdiv-details' )
 			.find( 'label.mwe-error' )
 			.hide().empty();
 
-		$j( '#mwe-upwiz-stepdiv-details' ) 
+		$j( '#mwe-upwiz-stepdiv-details' )
 			.find( 'input.mwe-error' )
 			.removeClass( 'mwe-error' );
 
@@ -813,9 +813,9 @@ mw.UploadWizard.prototype = {
 		);
 	},
 
-	/** 
+	/**
 	 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
- 	 * right next to the submit button, so it should be obvious to the user they need to fix things. 
+ 	 * right next to the submit button, so it should be obvious to the user they need to fix things.
 	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
 	 */
@@ -832,14 +832,14 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 
 		var thnxHeader = $j( '<h3 style="text-align: center;"></h3>' );
-		
+
 		if ( mw.UploadWizard.config.thanksLabel === false ) {
 			thnxHeader.msg( 'mwe-upwiz-thanks-intro' );
 		}
 		else {
 			thnxHeader.html( mw.UploadWizard.config.thanksLabel );
 		}
-		
+
 		$j( '#mwe-upwiz-thanks' )
 			.append(
 				thnxHeader,
@@ -859,9 +859,9 @@ mw.UploadWizard.prototype = {
 				.html( $j( '<a/>' ).html( upload.title.getMainText() ) );
 			var $thumbnailWrapDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
 			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
-			upload.setThumbnail( 
-				$thumbnailDiv, 
-				mw.UploadWizard.config[ 'thumbnailWidth' ], 
+			upload.setThumbnail(
+				$thumbnailDiv,
+				mw.UploadWizard.config[ 'thumbnailWidth' ],
 				mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
 				false
 			);
@@ -903,9 +903,9 @@ mw.UploadWizard.prototype = {
 		return $j( '<input/>' ).addClass( 'mwe-title ui-corner-all' )
 			.readonly()
 			.val( s )
-			.click( function() { 
+			.click( function() {
 				this.focus();
-				this.select(); 
+				this.select();
 			} );
 	},
 
@@ -979,15 +979,15 @@ mw.UploadWizardDeedPreview.prototype = {
 		// add a preview on the deeds page
 		this.$thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		$j( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
-		this.upload.setThumbnail( 
-			this.$thumbnailDiv, 
-			mw.UploadWizard.config['thumbnailWidth'], 
+		this.upload.setThumbnail(
+			this.$thumbnailDiv,
+			mw.UploadWizard.config['thumbnailWidth'],
 			mw.UploadWizard.config['thumbnailMaxHeight'],
 			true
 		);
 	},
 
-	remove: function() { 
+	remove: function() {
 		if ( this.$thumbnailDiv ) {
 			this.$thumbnailDiv.remove();
 		}
@@ -995,13 +995,13 @@ mw.UploadWizardDeedPreview.prototype = {
 };
 
 /**
- * Check if a value is null, undefined, or the empty string. 
+ * Check if a value is null, undefined, or the empty string.
  *
  * @param {mixed} v Variable to be checked
  * @return {boolean}
  */
 mw.isEmpty = function( v ) {
-	return v === undefined || v === null || v === ''; 
+	return v === undefined || v === null || v === '';
 };
 
 } )( window.mediaWiki, jQuery );
@@ -1058,7 +1058,7 @@ mw.isEmpty = function( v ) {
 			$j( '<span/>' )
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
-				.click( function() { 
+				.click( function() {
 					if ( !this.displayed ) {
 						$j ( this ).tipsy( 'show' );
 						this.displayed = true;
@@ -1207,7 +1207,7 @@ mw.isEmpty = function( v ) {
 		var $el = this;
 		var $contents = $el.find( '.mwe-upwiz-toggler-content' ).hide();
 		var $toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
-		$el.data( 'open', function() { 
+		$el.data( 'open', function() {
 			$contents.slideDown( 250 );
 			$toggle.addClass( 'mwe-upwiz-toggler-open' );
 		} );

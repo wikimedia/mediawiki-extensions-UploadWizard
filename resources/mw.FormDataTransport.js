@@ -64,7 +64,7 @@ mw.FormDataTransport.prototype = {
 			// upload files with (for example) blacklisted names, and then rename them later in the
 			// wizard.
 			formData.append( 'ignorewarnings', true );
-			
+
             this.xhr.open("POST", _this.postUrl, true);
             this.xhr.send(formData);
         }
@@ -124,7 +124,7 @@ mw.FormDataTransport.prototype = {
 				mw.log( 'max retries exceeded on error event' );
                 _this.parseResponse(evt, _this.transportedCb);
             } else {
-				mw.log( 'retry #' + _this.retries + ' on error event' );			
+				mw.log( 'retry #' + _this.retries + ' on error event' );
                 setTimeout(function() {
                         _this.uploadChunk(offset);
                 }, 3000);
@@ -229,7 +229,7 @@ mw.FormDataTransport.prototype = {
                 reader.onload = function(e) {
                     formData.appendFile(name, e.target.result,
                                         blob.type, filename);
-                    // Call onload after last Blob 
+                    // Call onload after last Blob
                     chunksRemaining--;
                     if(!chunksRemaining && formData.xhr) {
                         onload();

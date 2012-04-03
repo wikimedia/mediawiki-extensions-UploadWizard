@@ -17,11 +17,11 @@
 			// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 			_this.buttons = {};
 			_this.buttons[ gM( 'mwe-upwiz-errordialog-ok' ) ] = function() { _this.ok(); };
-				
-			this.$dialog = 
-				$( '<div style="position:relative;"></div>' ).append( 
-					$( '<div class="mwe-upwiz-errordialog-mode mwe-upwiz-errordialog"></div>' ).append( 
-						$( '<div style="margin-top:1em;"></div>' ).append( 
+
+			this.$dialog =
+				$( '<div style="position:relative;"></div>' ).append(
+					$( '<div class="mwe-upwiz-errordialog-mode mwe-upwiz-errordialog"></div>' ).append(
+						$( '<div style="margin-top:1em;"></div>' ).append(
 							_this.errorMessage,
 							$( '<br/>' )
 						)
@@ -32,16 +32,16 @@
 					title: gM( 'mwe-upwiz-errordialog-title' ),
 					modal: true,
 					buttons: _this.buttons
-				}); 
+				});
 		},
 
-		ok: function() { 
+		ok: function() {
 			this.$dialog.dialog( 'close' );
 		},
 
 		launch: function() {
 			this.$dialog.dialog( 'open' );
-		}	
+		}
 
 	};
 

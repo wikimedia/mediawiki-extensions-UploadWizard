@@ -1,33 +1,33 @@
 /**
  * Minimal pubsub framework
- * 
+ *
  * Loosely based on https://github.com/phiggins42/bloody-jquery-plugins/pubsub.js, which is itself BSD-licensed.
  * Concept of 'ready' events is new, though.
  *
  * @author Neil Kandalgaonkar <neilk@wikimedia.org>
  */
 
-( function( $ ) { 
+( function( $ ) {
 	/**
 	 * Store of events -> array of listener callbacks
 	 */
 	var subs = {};
-	
+
 	/**
 	 * Store of ready events, as object of event name -> argument array
 	 */
 	var ready = {};
 
 	/**
-	 * Publish an event 
+	 * Publish an event
 	 * Additional variadic arguments after the event name are passed as arguments to the subscriber functions
  	 * @param {String} name of event
-	 * @return {Number} number of subscribers 
+	 * @return {Number} number of subscribers
 	 */
-	$.publish = function( name /* , args... */ ) { 
+	$.publish = function( name /* , args... */ ) {
 		var args = [].slice.call( arguments, 1 );
-		if ( typeof subs[name] !== 'undefined' && subs[name] instanceof Array ) { 
-			$.each( subs[name], function( i, sub ) { 
+		if ( typeof subs[name] !== 'undefined' && subs[name] instanceof Array ) {
+			$.each( subs[name], function( i, sub ) {
 				sub.apply( null, args );
 			} );
 			return subs[name].length;
@@ -40,13 +40,13 @@
 	 * subscribers will be called even if they subscribe later.
 	 * Additional variadic arguments after the event name are passed as arguments to the subscriber functions
  	 * @param {String} name of event
-	 * @return {Number} number of subscribers 
+	 * @return {Number} number of subscribers
 	 */
 	$.publishReady = function( name /*, args... */ ) {
 		if ( typeof ready[name] === 'undefined' ) {
 			var args = [].slice.call( arguments, 1 );
 			ready[name] = args;
-			$.publish.apply( null, arguments ); 
+			$.publish.apply( null, arguments );
 		}
 	};
 
@@ -56,10 +56,10 @@
 	 * @param {Function} callback to run when event occurs
 	 * @return {Array} returns handle which can be used as argument to unsubscribe()
 	 */
-	$.subscribe = function( name, fn ) { 
-		if ( typeof subs[name] === 'undefined' ) { 
-			subs[name] = []; 
-		} 
+	$.subscribe = function( name, fn ) {
+		if ( typeof subs[name] === 'undefined' ) {
+			subs[name] = [];
+		}
 		subs[name].push( fn );
 		return [ name, fn ];
 	};
@@ -88,7 +88,7 @@
 		var name = nameFn[0];
 		var fn = nameFn[1];
 		var success = false;
-		if ( subs[name].length ) { 
+		if ( subs[name].length ) {
 			$.each( subs[name], function( i, fni ) {
 				if ( fni === fn ) {
 					subs[name].splice( i, 1 );
@@ -100,7 +100,7 @@
 		return success;
 	};
 
-	/** 
+	/**
 	 * Prevent ready objects from hanging around forever
 	 */
 	$.purgeReadyEvents = function() {

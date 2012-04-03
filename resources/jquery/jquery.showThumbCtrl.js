@@ -1,7 +1,7 @@
 /**
  * Create 'show thumbnail' control, with optional tooltips.  works like the 'remove' control.
  */
-( function ( $j ) { 
+( function ( $j ) {
 	$j.fn.showThumbCtrl = function( msgKey, tooltipMsgKey, callback ) {
 		var msg = (msgKey === null) ? '' : gM( msgKey );
 		return $j( '<div class="mwe-upwiz-show-thumb-ctrl ui-corner-all" />' )
