@@ -1058,7 +1058,16 @@ mw.isEmpty = function( v ) {
 			$j( '<span/>' )
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
-				.click( function() { $j( this ).tipsy( 'toggle' ); return false; } )
+				.click( function() { 
+					if ( !this.displayed ) {
+						$j ( this ).tipsy( 'show' );
+						this.displayed = true;
+					} else {
+						$j ( this ).tipsy( 'hide' );
+						this.displayed = false;
+					}
+					return false;
+				} )
 				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual'} )
 		);
 	};
