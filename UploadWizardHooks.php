@@ -397,6 +397,9 @@ class UploadWizardHooks {
 				'mwe-upwiz-too-many-files-ok',
 				'mwe-upwiz-too-many-files-text',
 				'mwe-upwiz-too-many-files',
+				'mwe-upwiz-file-too-large-ok',
+				'mwe-upwiz-file-too-large-text',
+				'mwe-upwiz-file-too-large',
 			),
 			'group' => 'ext.uploadWizard'
 		),

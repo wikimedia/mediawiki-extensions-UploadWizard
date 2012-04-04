@@ -354,8 +354,14 @@ mw.UploadWizardUpload.prototype = {
 						_this.wizard.updateFileCounts();
 					}
 
-					// TODO check max upload size, alert user if too big
 					this.transportWeight = this.file.size;
+					// make sure the file isn't too large
+					if ( !mw.UploadWizard.config.enableChunked &&
+						this.transportWeight > mw.UploadWizard.config.maxUploadSize ) {
+						_this.showMaxSizeWarning( this.transportWeight );
+						return;
+					}
+
 					if ( this.imageinfo === undefined ) {
 						this.imageinfo = {};
 					}
@@ -386,9 +392,38 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Shows an error dialog informing the user that the selected file is to large
+	 * @param size integer - the size of the file in bytes
+	 */
+	showMaxSizeWarning: function( size ) {
+		var buttons = [
+			{
+				text: gM( 'mwe-upwiz-file-too-large-ok' ),
+				click: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		];
+		$j( '<div></div>' )
+			.msg(
+				'mwe-upwiz-file-too-large-text',
+				mw.units.bytes( mw.UploadWizard.config[ 'maxUploadSize' ] ),
+			    mw.units.bytes( size )
+			)
+			.dialog( {
+				width: 500,
+				zIndex: 200000,
+				autoOpen: true,
+				title: gM( 'mwe-upwiz-file-too-large' ),
+				modal: true,
+				buttons: buttons
+			} );
+	},
+
+	/**
 	 * Shows an error dialog informing the user that some uploads have been omitted
 	 * since they went over the max files limit.
-	 * @param {Integer}
+	 * @param filesIgnored integer - the number of files that have been omitted
 	 */
 	showTooManyFilesWarning: function( filesIgnored ) {
 		var buttons = [

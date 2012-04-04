@@ -191,7 +191,11 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => 'You can only upload $1 {{PLURAL:$1|file|files}} at once. You tried to upload $2 {{PLURAL:$2|file|files}} in total, so $3 {{PLURAL:$3|file has|files have}} been removed.',
 	'mwe-upwiz-too-many-files' => 'Too many files.',
+	'mwe-upwiz-file-too-large-ok' => 'OK',
+	'mwe-upwiz-file-too-large-text' => 'You can only upload files with a size of up to $1. You tried to upload a file that is $2.',
+	'mwe-upwiz-file-too-large' => 'File too large.',
 
+	
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])',
@@ -485,6 +489,8 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 {{Identical|OK}}',
 	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
 	'mwe-upwiz-too-many-files' => 'Error dialog title',
+	'mwe-upwiz-file-too-large-text' => 'Error message informing the user that their file is too large to upload. $1 is the maximum file size; $2 is the size of the file they tried to upload.',
+	'mwe-upwiz-file-too-large' => 'Error dialog title',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '{{CreativeCommonsLicense|by-sa|3.0|at}}

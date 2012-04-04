@@ -377,7 +377,13 @@ return array(
 	// Max number of uploads for a given form
 	'maxUploads' => 50,
 
-	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing
+	// Max allowed upload size for files
+	'maxUploadSize' => min(
+		wfShorthandToInteger( ini_get( 'upload_max_filesize' ) ),
+		wfShorthandToInteger( ini_get( 'post_max_size' ) )
+	),
+
+	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing 
 	// braces, then two chars for a license, e.g. {{xx}}
 	'minCustomLicenseLength' => 6,
 
