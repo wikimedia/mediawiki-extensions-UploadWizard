@@ -966,8 +966,8 @@ mw.UploadWizardUpload.prototype = {
 				$j( '<div class="mwe-upwiz-lightbox"></div>' )
 					.append( $imgDiv )
 					.dialog( {
-						'width': mw.UploadWizard.config[ 'largeThumbnailWidth' ],
-						'height': mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ],
+						'minWidth': mw.UploadWizard.config[ 'largeThumbnailWidth' ],
+						'minHeight': mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ],
 						'autoOpen': true,
 						'title': gM( 'mwe-upwiz-image-preview' ),
 						'modal': true,
