@@ -126,6 +126,8 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-visible-file {
 	display: none;
+	position:relative;
+	z-index:2;
 }
 
 .mwe-upwiz-file.filled .mwe-upwiz-visible-file {
