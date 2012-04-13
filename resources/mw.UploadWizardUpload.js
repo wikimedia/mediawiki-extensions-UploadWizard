@@ -324,7 +324,7 @@ mw.UploadWizardUpload.prototype = {
 			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) === -1 ) {
 				fileNameErr( 'ext', extension );
 			} else {
-				// extract more info via fileAPI
+				// if the JavaScript FileReader is available, extract more info via fileAPI
 				if ( mw.fileApi.isAvailable() ) {
 
 					// An UploadWizardUpload object already exists (us) when we add a file.
@@ -368,9 +368,20 @@ mw.UploadWizardUpload.prototype = {
 
 					var binReader = new FileReader();
 					binReader.onload = function() {
+						var binStr;
+						if ( typeof binReader.result == 'string' ) {
+							binStr = binReader.result;
+						} else {
+							// Array buffer; convert to binary string for the library.
+							var arr = new Uint8Array( binReader.result );
+							binStr = '';
+							for ( var i = 0; i < arr.byteLength; i++ ) {
+								binStr += String.fromCharCode( arr[i] );
+							}
+						}
 						var meta;
 						try {
-							meta = mw.libs.jpegmeta( binReader.result, _this.file.fileName );
+							meta = mw.libs.jpegmeta( binStr, _this.file.fileName );
 							meta._binary_data = null;
 						} catch ( e ) {
 							meta = null;
@@ -379,7 +390,14 @@ mw.UploadWizardUpload.prototype = {
 						_this.filename = filename;
 						fileNameOk();
 					};
-					binReader.readAsBinaryString( _this.file );
+					if ( 'readAsBinaryString' in binReader ) {
+						binReader.readAsBinaryString( _this.file );
+					} else if ( 'readAsArrayBuffer' in binReader ) {
+						binReader.readAsArrayBuffer( _this.file );
+					} else {
+						// We should never get here. :P
+						throw new Exception( "Cannot read thumbnail as binary string or array buffer" );
+					}
 				} else {
 					this.filename = filename;
 					fileNameOk();
