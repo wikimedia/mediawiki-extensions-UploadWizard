@@ -33,8 +33,9 @@
 		 */
 		isSliceAvailable: function() {
 		    return mw.fileApi.isAvailable() &&
-				   ( ($j.browser.mozilla && parseFloat($j.browser.version) >= 5.0) ||
-				     ($j.browser.webkit && parseFloat($j.browser.version) >= 534.28) );
+				   ( ( $.browser.mozilla && parseFloat($j.browser.version) >= 5.0 ) ||
+				     ( $.browser.webkit && parseFloat($j.browser.version) >= 534.28 ) ||
+				     ( $.browser.msie && parseFloat($j.browser.version) >= 10 ) );
 		}
 
 
