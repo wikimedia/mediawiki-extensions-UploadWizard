@@ -25,8 +25,9 @@ var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
  * @param {UploadWizard} wizard
  * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads
  * @param {File} providedFile - optional; only used on browsers which support FileAPI.
+ * @param {int} reservedIndex - optional, what key in the uploads array to hold for this upload
  */
-mw.UploadWizardUpload = function( wizard, filesDiv, providedFile ) {
+mw.UploadWizardUpload = function( wizard, filesDiv, providedFile, reservedIndex ) {
 
 	this.index = mw.UploadWizardUpload.prototype.count;
 	mw.UploadWizardUpload.prototype.count++;
@@ -43,6 +44,9 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile ) {
 	this.filename = undefined;
 	this.providedFile = providedFile;
 	this.file = undefined;
+
+	// reserved index for multi-file selection
+	this.reservedIndex = reservedIndex;
 
 	this.fileKey = undefined;
 
@@ -275,7 +279,7 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Called when the file is entered into the file input.
+	 * Called when the file is entered into the file input, bound to its change() event.
 	 * Checks for file validity, then extracts metadata.
 	 * Error out if filename or its contents are determined to be unacceptable
 	 * Proceed to thumbnail extraction and image info if acceptable
@@ -285,7 +289,6 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Function(String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
 	 */
 	checkFile: function( filename, files, fileNameOk, fileNameErr ) {
-		// check if local file is acceptable
 
 		var _this = this;
 
@@ -295,6 +298,7 @@ mw.UploadWizardUpload.prototype = {
 
 		if( files.length > 1 ) {
 			this.wizard.makePreviewsFlag = false;
+			this.reservedIndex = this.wizard.uploads.length;
 		}
 
 		// check to see if the file has already been selected for upload.
@@ -330,29 +334,8 @@ mw.UploadWizardUpload.prototype = {
 					// An UploadWizardUpload object already exists (us) when we add a file.
 					// So, when multiple files are provided (via select multiple), add the first file to this UploadWizardUpload
 					// and create new UploadWizardUpload objects and corresponding interfaces for the rest.
-					//
-					// don't process the very first file, since that's this instance's job.
 
-					// this input will use the last one.
 					this.file = files[0];
-
-					var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config[ 'maxUploads' ];
-
-					if ( tooManyFiles ) {
-						var remainingFiles = mw.UploadWizard.config[ 'maxUploads' ] - _this.wizard.uploads.length;
-						_this.showTooManyFilesWarning( files.length - remainingFiles );
-						var files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
-					}
-					else {
-						var files = files.slice( 1 );
-					}
-
-					if ( files.length > 0 ) {
-						$j.each( files, function( i, file ) {
-							_this.wizard.newUpload( file );
-						} );
-						_this.wizard.updateFileCounts();
-					}
 
 					this.transportWeight = this.file.size;
 					// make sure the file isn't too large
@@ -365,6 +348,7 @@ mw.UploadWizardUpload.prototype = {
 					if ( this.imageinfo === undefined ) {
 						this.imageinfo = {};
 					}
+					_this.filename = filename;
 
 					var binReader = new FileReader();
 					binReader.onload = function() {
@@ -398,6 +382,29 @@ mw.UploadWizardUpload.prototype = {
 						// We should never get here. :P
 						throw new Exception( "Cannot read thumbnail as binary string or array buffer" );
 					}
+
+					// Now that first file has been prepared, process remaining files
+					// in case of a multi-file upload.
+					var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config[ 'maxUploads' ];
+
+					if ( tooManyFiles ) {
+						var remainingFiles = mw.UploadWizard.config[ 'maxUploads' ] - _this.wizard.uploads.length;
+						_this.showTooManyFilesWarning( files.length - remainingFiles );
+						var files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
+					}
+					else {
+						var files = files.slice( 1 );
+					}
+
+					if ( files.length > 0 ) {
+						$j.each( files, function( i, file ) {
+
+							// NOTE: By running newUpload we will end up calling checkfile() again.
+							var upload = _this.wizard.newUpload( file, _this.reservedIndex + i + 1 );
+						} );
+						_this.wizard.updateFileCounts();
+					}
+
 				} else {
 					this.filename = filename;
 					fileNameOk();

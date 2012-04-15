@@ -19,7 +19,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	var _this = this;
 	_this.upload = upload;
-
+	_this.containerDiv = containerDiv;
 	_this.api = api;
 
 	_this.descriptions = [];
@@ -318,8 +318,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		mw.UploadWizard.config.defaultDescription
 	);
 
-	$j( containerDiv ).append( _this.div );
-
 	if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
 		// less strict checking, since TitleBlacklist checks should catch most errors.
 		_this.$form.find( '.mwe-title' )
@@ -372,6 +370,23 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 };
 
 mw.UploadWizardDetails.prototype = {
+
+	// Has this details object been attached to the DOM already?
+	isAttached: false,
+
+	/*
+	 * Append the div for this details object to the DOM.
+	 * We need to ensure that we add divs in the right order
+	 * (the order in which the user selected files).
+	 *
+	 * Will only append once.
+	 */
+	attach: function() {
+		if ( !this.isAttached ) {
+			$j( this.containerDiv ).append( this.div );
+			this.isAttached = true;
+		}
+	},
 
 	/**
 	 * check entire form for validity

@@ -396,20 +396,24 @@ mw.UploadWizard.prototype = {
 	},
 
 	/**
-	 * add an Upload
+	 * Add an Upload
 	 *   we create the upload interface, a handler to transport it to the server,
 	 *   and UI for the upload itself and the "details" at the second step of the wizard.
 	 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
+	 *
+	 * @param providedFile  Existing File object, typically from a multi-select operation
+	 * @param reservedIndex Hold this index for the upload, also typically multi-select related
+	 *
 	 * @return the new upload
 	 */
-	newUpload: function( file ) {
+	newUpload: function( providedFile, reservedIndex ) {
 		var _this = this;
 
 		if ( _this.uploads.length >= _this.maxUploads ) {
 			return false;
 		}
 
-		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-filelist', file );
+		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-filelist', providedFile, reservedIndex );
 		_this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
@@ -437,7 +441,15 @@ mw.UploadWizard.prototype = {
 	setUploadFilled: function( upload ) {
 		var _this = this;
 
-		_this.uploads.push( upload );
+		// When we add uploads from a multi-select operation, the file objects
+		// may be filled in random order, because filling them depends on
+		// completion of metadata extraction. We use the reservedIndex to ensure
+		// they're added in the correct order when they're filled.
+		if ( upload.reservedIndex !== undefined ) {
+			_this.uploads[upload.reservedIndex] = upload;
+		} else {
+			_this.uploads.push( upload );
+		}
 
 		_this.updateFileCounts();
 
@@ -486,6 +498,13 @@ mw.UploadWizard.prototype = {
 	 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
 	 */
 	removeEmptyUploads: function() {
+
+		// First remove array keys that don't have an assigned upload object
+		this.uploads = $j.grep( this.uploads,
+			function( v, i ) { return v !== undefined; }
+		);
+
+		// Now remove upload objects that exist but are empty
 		this.removeMatchingUploads( function( upload ) {
 			return mw.isEmpty( upload.filename );
 		} );
@@ -632,6 +651,9 @@ mw.UploadWizard.prototype = {
 	 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but
 	 * we trust that this hasn't happened.
 	 *
+	 * For uploads that have succeeded, now is the best time to add the relevant previews and details to the DOM
+	 * in the right order.
+	 *
 	 * @param {String} step that we are on
 	 * @param {String} desired state to proceed (other state is assumed to be 'error')
 	 */
@@ -642,11 +664,15 @@ mw.UploadWizard.prototype = {
 			if ( upload.state === 'error' ) {
 				errorCount++;
 			} else if ( upload.state === desiredState ) {
+				// Add previews and details to the DOM
+				upload.deedPreview.attach();
+				upload.details.attach();
 				okCount++;
 			} else {
 				mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
 			}
 		} );
+
 		var selector = null;
 		var allOk = false;
 		if ( okCount === this.uploads.length ) {
@@ -975,10 +1001,10 @@ mw.UploadWizardDeedPreview = function(upload) {
 };
 
 mw.UploadWizardDeedPreview.prototype = {
+
 	setup: function() {
-		// add a preview on the deeds page
+		// prepare a preview on the deeds page
 		this.$thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
-		$j( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
 		this.upload.setThumbnail(
 			this.$thumbnailDiv,
 			mw.UploadWizard.config['thumbnailWidth'],
@@ -990,6 +1016,23 @@ mw.UploadWizardDeedPreview.prototype = {
 	remove: function() {
 		if ( this.$thumbnailDiv ) {
 			this.$thumbnailDiv.remove();
+		}
+	},
+
+	// Has this preview been attached to the DOM already?
+	isAttached: false,
+
+	/*
+	 * Append the div for this preview object to the DOM.
+	 * We need to ensure that we add thumbs in the right order
+	 * (the order in which the user selected files).
+	 *
+	 * Will only append once.
+	 */
+	attach: function() {
+		if ( !this.isAttached ) {
+			$j( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
+			this.isAttached = true;
 		}
 	}
 };
