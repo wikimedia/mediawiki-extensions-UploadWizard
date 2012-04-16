@@ -467,6 +467,7 @@ return array(
 	'enableMultiFileSelect' => true,
 
 	// should chunked uploading be enabled? false for now since the backend isn't really ready.
+	// set to "opt-in" to control via experimental user preference under 'Uploads' tab
 	'enableChunked' => false,
 
 );

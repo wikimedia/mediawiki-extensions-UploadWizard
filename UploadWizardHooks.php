@@ -517,9 +517,17 @@ class UploadWizardHooks {
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
 				'label-message' => 'mwe-upwiz-prefs-def-license',
-				'section' => 'uploads',
+				'section' => 'uploads/upwiz-licensing',
 				'options' => $licenses
 			);
+
+			if ( UploadWizardConfig::getSetting( 'enableChunked' ) === 'opt-in' ) {
+				$preferences['upwiz-chunked'] = array(
+					'type' => 'check',
+					'label-message' => 'mwe-upwiz-prefs-chunked',
+					'section' => 'uploads/upwiz-experimental'
+				);
+			}
 		}
 
 		return true;

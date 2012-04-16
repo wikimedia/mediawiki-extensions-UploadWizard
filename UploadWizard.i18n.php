@@ -337,10 +337,13 @@ Please do not use wikitext or HTML here.',
 
 	// Preferences
 	'prefs-uploads' => 'Uploads',
+	'prefs-upwiz-licensing' => 'Licensing',
+	'prefs-upwiz-experimental' => 'Experimental features',
 	'mwe-upwiz-prefs-def-license' => 'Default license',
 	'mwe-upwiz-prefs-def-license-def' => 'Use whatever the default is',
 	'mwe-upwiz-prefs-license-own' => 'Own work - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => "Someone else's work - $1",
+	'mwe-upwiz-prefs-chunked' => 'Chunked uploads for files over 1MB in Upload Wizard',
 
 	// See for example.
 	'languageHandler.js' => '', # Do not translate this message.
