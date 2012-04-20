@@ -3357,6 +3357,7 @@ $1",
 );
 
 /** Czech (Česky)
+ * @author Jezevec
  * @author Jkjk
  * @author Mormegil
  * @author Ragimiri
@@ -3613,11 +3614,16 @@ $1',
 	'mwe-upwiz-campaign-name' => 'Jméno kampaně',
 	'mwe-upwiz-campaign-enabled' => 'Kampaň povolena',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Přeskočit licenční tutoriál',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Výchozí zeměpisná šířka',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Výchozí zeměpisná délka',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Výchozí nadmořská výška',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Výchozí popis',
 	'mw-coolcats-confirm-new-title' => 'Potvrzení nové kategorie',
 	'mw-coolcats-confirm-new' => 'Vypadá to, že se snažíte přidat novou kategorii, „$1“. Uvědomte si, že:<ul><li>Kategorie by měly být většinou anglicky.</li><li>Většina nových kategorií by měla být zařazena pod existující kategorii.</li></ul>Obecně by měli kategorie zakládat jen odborníci.',
 	'mw-coolcats-confirm-new-ok' => 'Přesto přidat tuto kategorii',
 	'mw-coolcats-confirm-new-cancel' => 'Tak nic',
 	'prefs-uploads' => 'Načítání souborů',
+	'prefs-upwiz-licensing' => 'Licencování',
 	'mwe-upwiz-prefs-def-license' => 'Výchozí licence',
 	'mwe-upwiz-prefs-def-license-def' => 'Použít výchozí hodnotu, ať je jakákoliv',
 	'mwe-upwiz-prefs-license-own' => 'Vlastní dílo – $1',
@@ -10977,16 +10983,16 @@ $1',
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'uploadwizard' => 'アップロード・ウィザード',
-	'uploadwizard-desc' => 'アップロード・ウィザード（マルチメディア・ユーザビリティで開発された機能）',
-	'mwe-upwiz-uploadcampaigns' => 'アップロード・キャンペーン',
-	'mwe-upwiz-uploadcampaign' => 'アップロード・キャンペーンの設定',
-	'right-upwizcampaigns' => 'アップロードウィザードのキャンペーンの構成',
+	'uploadwizard' => 'アップロード ウィザード',
+	'uploadwizard-desc' => 'アップロード ウィザード（マルチメディアをアップロードする利用者にやさしいツール）',
+	'mwe-upwiz-uploadcampaigns' => 'アップロード キャンペーン',
+	'mwe-upwiz-uploadcampaign' => 'アップロード キャンペーンの設定',
+	'right-upwizcampaigns' => 'アップロード ウィザードのキャンペーンの設定',
 	'action-upwizcampaigns' => 'アップロード・キャンペーンの構成',
-	'group-upwizcampeditors' => 'アップロードウィザード・キャンペーン編集者',
-	'group-upwizcampeditors-member' => '{{GENDER:$1|アップロードウィザード・キャンペーン編集者}}',
-	'grouppage-upwizcampeditors' => '{{ns:project}}:アップロードウィザード・キャンペーン編集者',
-	'mwe-upwiz-js-off' => 'アップロード・ウィザードはインターフェイス改善のためにJavaScriptを使用しています。使用中のブラウザはJavaScriptに未対応か、JavaScriptが無効になっています。そのため、簡易版のアップロードフォームを表示します。',
+	'group-upwizcampeditors' => 'アップロード ウィザードのキャンペーンの編集者',
+	'group-upwizcampeditors-member' => '{{GENDER:$1|アップロード ウィザードのキャンペーンの編集者}}',
+	'grouppage-upwizcampeditors' => '{{ns:project}}:アップロード ウィザードのキャンペーンの編集者',
+	'mwe-upwiz-js-off' => 'アップロード ウィザードはインターフェイス改善のためにJavaScriptを使用しています。ご使用中のブラウザーはJavaScriptに未対応か、JavaScriptが無効になっています。そのため、簡易版のアップロードフォームを表示します。',
 	'mwe-upwiz-extension-disabled' => 'このページは、一時的な技術的な問題のために無効になっています。復旧するまで、通常のアップロードフォームjを使ってみてください。',
 	'mwe-upwiz-code-unknown' => '不明な言語',
 	'mwe-upwiz-step-tutorial' => '詳細',
@@ -10998,7 +11004,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-api-warning-was-deleted' => '以前に"$1"という名前のファイルがありましたが、すでに削除されており、同じファイルを再度アップロードすることはできません。ファイルが異なる場合は、名前を変更してみてください。',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '申し訳ありません。使用中の言語でのチュートリアルを見つけられませんでした。代わりに英語で表示されています。',
 	'mwe-upwiz-tutorial-error-file-missing' => '申し訳ありません。ここで使用できるチュートリアルのファイルが見つかりませんでした。システム管理者に問い合わせてください。',
-	'mwe-upwiz-tutorial-error-cannot-transform' => '申し訳ありません。この画面に合うように拡大縮小したチュートリアルの画像を取得出きませんでした。ウィキメディア・コモンズで一時的な問題が発生しているかも知れません、後ほどお試しください。',
+	'mwe-upwiz-tutorial-error-cannot-transform' => 'すみません、この画面に合うように拡大/縮小したチュートリアルの画像を取得出きませんでした。ウィキメディア コモンズで一時的な問題が発生しているかもしれません、後ほどお試しください。',
 	'mwe-upwiz-help-desk' => 'ヘルプデスク',
 	'mwe-upwiz-help-desk-url' => 'ヘルプデスク',
 	'mwe-upwiz-add-file-n' => '他のファイルを追加',
@@ -13738,10 +13744,13 @@ $messages['ml'] = array(
 	'mw-coolcats-confirm-new-ok' => 'എന്തായാലും ഈ വർഗ്ഗം ചേർക്കുക',
 	'mw-coolcats-confirm-new-cancel' => 'കാര്യമാക്കേണ്ട',
 	'prefs-uploads' => 'അപ്‌ലോഡുകൾ',
+	'prefs-upwiz-licensing' => 'അനുമതി',
+	'prefs-upwiz-experimental' => 'പരീക്ഷണാടിസ്ഥാനത്തിലുള്ള സവിശേഷതകൾ',
 	'mwe-upwiz-prefs-def-license' => 'സ്വതേയുള്ള ഉപയോഗാനുമതി',
 	'mwe-upwiz-prefs-def-license-def' => 'സ്വതേയുള്ളതെന്താണെന്നാൽ അതുപയോഗിക്കുക',
 	'mwe-upwiz-prefs-license-own' => 'സ്വന്തം സൃഷ്ടി - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'മറ്റുള്ളവരുടെ സൃഷ്ടി - $1',
+	'mwe-upwiz-prefs-chunked' => 'ഒരു എം.ബി.യിലധികമുള്ള പ്രമാണങ്ങൾക്കായി അപ്‌ലോഡ് സഹായിയിൽ ബൃഹത് അപ്‌ലോഡുകൾ',
 );
 
 /** Mongolian (Монгол)
@@ -15480,6 +15489,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'De standaard gebruiken',
 	'mwe-upwiz-prefs-license-own' => 'Eigen werk - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Andermans werk - $1',
+	'mwe-upwiz-prefs-chunked' => 'Uploaden in delen in Upload Wizard voor bestanden groter dan 1 megabyte',
 );
 
 /** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
