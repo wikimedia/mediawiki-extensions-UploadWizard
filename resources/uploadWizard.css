@@ -636,7 +636,7 @@ input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 }
 
 .mwe-upwiz-toggled {
-	margin-top: 1em;
+	margin-top: 0.5em;
 }
 
 .mwe-upwiz-thanks {

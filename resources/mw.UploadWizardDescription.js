@@ -2,12 +2,13 @@
 /**
  * Object that represents an indvidual language description, in the details portion of Upload Wizard
  * @param languageCode -- string
- * @param firstRequired -- boolean -- the first description is required and should be validated and displayed a bit differently
+ * @param required -- boolean -- the first description is required and should be validated and displayed a bit differently
  */
 mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	var _this = this;
 	mw.UploadWizardDescription.prototype.count++;
 	_this.id = 'description' + mw.UploadWizardDescription.prototype.count;
+	_this.isRequired = required;
 
 	// XXX for some reason this display:block is not making it into HTML
 	var errorLabelDiv = $j(   '<div class="mwe-upwiz-details-input-error">'
@@ -15,7 +16,7 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 				+ '</div>' );
 
 	var fieldnameDiv = $j( '<div class="mwe-upwiz-details-fieldname" />' );
-	if ( required ) {
+	if ( _this.isRequired ) {
 		fieldnameDiv.requiredFieldLabel();
 	}
 
@@ -52,19 +53,27 @@ mw.UploadWizardDescription.prototype = {
 	/* widget count for auto incrementing */
 	count: 0,
 
+	getText: function() {
+		return $j.trim( $j( this.input ).val() );
+	},
+
+	getLanguage: function() {
+		return $j.trim( $j( this.languageMenu ).val() );
+	},
+
 	/**
 	 * Obtain text of this description, suitable for including into Information template
 	 * @return wikitext as a string
 	 */
 	getWikiText: function() {
 		var _this = this;
-		var description = $j.trim( $j( _this.input ).val() );
+		var description = _this.getText();
 		// we assume that form validation has caught this problem if this is a required field
 		// if not, assume the user is trying to blank a description in another language
 		if ( description.length === 0 ) {
 			return '';
 		}
-		var language = $j.trim( $j( _this.languageMenu ).val() );
+		var language = _this.getLanguage();
 		var fix = mw.UploadWizard.config[ "languageTemplateFixups" ];
 		if (fix[language]) {
 			language = fix[language];

@@ -19,6 +19,7 @@
 	 * May require confirmation from user if they appear to be adding a new category.
 	 */
 	function _processInput() {
+
 		var $input = $container.find( 'input' );
 		var text = _stripText( $input.val() );
 		if ( text === '' ) {
@@ -123,6 +124,31 @@
 	}
 
 	/**
+	 * Return the wikitext formatted, newline separated list of categories
+	 */
+	function _getWikiText() {
+
+		var wikiText = _getCats().map( function() { return '[[' + this.getPrefixedText() + ']]'; } )
+						.toArray()
+						.join( "\n" );
+
+		// if so configured, and there are no user-visible categories, add warning
+		if ( settings.missingCatsWikiText !== null && ! ( _getCats( ':not(.hidden)' ).length ) ) {
+			wikiText += '\n\n' + settings.missingCatsWikiText;
+		}
+
+		return wikiText;
+	};
+
+
+	/**
+	 * Clear out all categories.
+	 */
+	function _removeAllCats() {
+		$container.find( 'ul li.cat' ).remove();
+	};
+
+	/**
 	 * Normalize text
 	 * @param {String}
 	 * @return string stripped of some characters, trimmed
@@ -174,6 +200,7 @@
 	 * Initialize the text field(s) the widget was given to be category pickers.
 	 */
 	return this.each( function() {
+
 		var _this = $j( this );
 
 		_this.addClass( 'categoryInput' );
@@ -216,18 +243,11 @@
 			}
 		});
 
-		this.getWikiText = function() {
-			var wikiText = _getCats().map( function() { return '[[' + this.getPrefixedText() + ']]'; } )
-							.toArray()
-							.join( "\n" );
-
-			// if so configured, and there are no user-visible categories, add warning
-			if ( settings.missingCatsWikiText !== null && ! ( _getCats( ':not(.hidden)' ).length ) ) {
-				wikiText += '\n\n' + settings.missingCatsWikiText;
-			}
-
-			return wikiText;
-		};
+		// We may want to call these functions from the input DOM element.
+		this.getCats = _getCats;
+		this.insertCat = _insertCat;
+		this.removeAllCats = _removeAllCats;
+		this.getWikiText = _getWikiText;
 
 		// initialize with some categories, if so configured
 		$j.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );

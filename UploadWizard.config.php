@@ -476,4 +476,7 @@ return array(
 	// set to "opt-in" to control via experimental user preference under 'Uploads' tab
 	'enableChunked' => false,
 
+	// Should feature to copy metadata across a batch of uploads be enabled?
+	'copyMetadataFeature' => true,
+
 );

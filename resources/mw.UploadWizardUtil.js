@@ -9,26 +9,27 @@ mw.UploadWizardUtil = {
 	 *
 	 * @param toggleDiv the div which has the control to open and shut custom options
 	 * @param moreDiv the div containing the custom options
+	 * @param msg the UI message key to use for the toggler
+	 *        (with mwe-upwiz- prefix for UploadWizard messages)
 	 */
-	makeToggler: function ( toggleDiv, moreDiv ) {
+	makeToggler: function ( toggleDiv, moreDiv, msg ) {
 		var $toggleLink = $j( '<a>' )
 		   	.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
-			.append( gM( 'mwe-upwiz-more-options' ) );
+			.append( gM( msg ) );
 		$j( toggleDiv ).append( $toggleLink );
-
 
 		var toggle = function() {
 			var isOpen = $toggleLink.hasClass( "mwe-upwiz-toggler-open" );
 			if ( isOpen ) {
 				// hide the extra options
-				moreDiv.hide(); // maskSafeHide();
+				moreDiv.slideUp( 250 );
 				/* when closed, show control to open */
-				$toggleLink.msg( 'mwe-upwiz-more-options' ).removeClass( "mwe-upwiz-toggler-open" );
+				$toggleLink.removeClass( "mwe-upwiz-toggler-open" );
 			} else {
 				// show the extra options
-				moreDiv.show(); // maskSafeShow();
+				moreDiv.slideDown( 250 );
 				/* when open, show control to close */
-				$toggleLink.msg( 'mwe-upwiz-fewer-options' ).addClass( "mwe-upwiz-toggler-open" );
+				$toggleLink.addClass( "mwe-upwiz-toggler-open" );
 			}
 		};
 
