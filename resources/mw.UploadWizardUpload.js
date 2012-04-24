@@ -380,7 +380,7 @@ mw.UploadWizardUpload.prototype = {
 						binReader.readAsArrayBuffer( _this.file );
 					} else {
 						// We should never get here. :P
-						throw new Exception( "Cannot read thumbnail as binary string or array buffer" );
+						throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
 					}
 
 					// Now that first file has been prepared, process remaining files
