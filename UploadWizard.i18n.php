@@ -7896,7 +7896,7 @@ Bruch do bitte kei Wikitext oder HTML.',
 	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons „Namesnännig 2.5“ ([$2 Text vu dr Lizänz])',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons „Namesnännig, Wytergab unter glyyche Bedingige 2.0“ ([$2 Text vu dr Lizänz])',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons „Namesnännig 2.0“ ([$2 Text vu dr Lizänz])',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“ (alli Rächt werde freigee, wie d Gmeinfreiheit: [$2 Text vu dr Lizänz]',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons „CC0 1.0 Universal“ (alli Rächt werde frejgee, wie d Gmeinfrejheit: [$2 Text vu dr Lizänz])',
 	'mwe-upwiz-license-custom' => 'D Lizänz wird mit däm Wikitext bschribe (s mueß e giltigi [$2 Lizänzaagab] din haa):',
 	'mwe-upwiz-license-fal' => 'Lizänz Freji Kunst',
 	'mwe-upwiz-license-own-pd' => 'Gmäss de Creative Commons „CC0 1.0 Universal“-Lizänz wird uff alli Rächt verzichtet (entspricht de Gmeinfrejheit)',
@@ -11524,6 +11524,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-too-many-files-text' => 'თქვენ შეგიძლიათ ერთჯერადად ატვირთოთ მხოლოდ $1 {{PLURAL:$1|ფაილი|ფაილი}}. თქვენ სულ შეეცადეთ აგეტვირთათ $2 {{PLURAL:$2|ფაილი|ფაილი}}, ამიტომ $3 {{PLURAL:$3|ფაილი წაიშალა|ფაილი წაიშალა}}.',
 	'mwe-upwiz-too-many-files' => 'ძალიან ბევრი ფაილია.',
 	'mwe-upwiz-file-too-large-ok' => 'კარგი',
+	'mwe-upwiz-file-too-large-text' => 'თქვენს მიერ ატვირთული ფაილის ზომა არ უნდა აღემატებოდეს $1. თქვენ ცდილობთ ატვირთოთ ფაილი რომელიც არის $2.',
 	'mwe-upwiz-file-too-large' => 'ფაილი ძალიან დიდია.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 კოდექსი])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 ავსტრია ([$2 კოდექსი])',
@@ -11826,8 +11827,8 @@ $messages['ko'] = array(
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1시간 $2분 $3초 남았습니다',
 	'mwe-upwiz-deeds-macro-prompt' => '이 사이트에서 이 파일을 모든 사람이 법적으로 자유롭게 이용할 수 있다는 것을 확인하기 위해 {{PLURAL:$1|파일}}의 저작권 정보를 입력해주십시오.',
 	'mwe-upwiz-deeds-custom-prompt' => '또는:',
-	'mwe-upwiz-source-ownwork' => '이 {{PLURAL:$1|파일}}은 본인이 창작한 저작물입니다.',
-	'mwe-upwiz-source-ownwork-assert-any-license' => '나, $2는, 이 저작물의 저작권자로서, 모든 사람에게 어떤 목적으로든, {{PLURAL:$1|이 저작물}}을 이용, 수정, 재배포할 권리를 부여합니다. 따라서 다음 규정에 따라 이 저작물을 배포합니다:',
+	'mwe-upwiz-source-ownwork' => '이 {{PLURAL:$1}}파일은 본인이 창작한 저작물입니다.',
+	'mwe-upwiz-source-ownwork-assert-any-license' => '나, $2는, 이 저작물의 저작권자로서, 모든 사람에게 어떤 목적으로든, {{PLURAL:$1}}이 저작물을 이용, 수정, 재배포할 권리를 부여합니다. 따라서 다음 규정에 따라 이 저작물을 배포합니다:',
 	'mwe-upwiz-source-ownwork-assert' => '나, $2는, 이 저작물의 저작권자로서, 저작자를 표시하고 원저작물과 동일한 규정에 따라 이차적 저작물을 공유하는 조건 하에, 모든 사람에게 어떤 목적으로든, {{PLURAL:$1|이 저작물}}을 이용, 수정, 재배포할 권리를 부여합니다.',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => '나, $2는, {{PLURAL:$1|이 저작물}}의 저작권자로서, 누구에게나 이 저작물을 영구히 크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0 라이선스에 따라 이용할 권리를 부여합니다. ([$3 라이선스 원문])',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(누구나 제가 저작자라는 것을 표시하고 이 라이선스로 2차적 저작물을 만들어 공유하는 조건 하에 {{PLURAL:$1|이 저작물}}을 이용, 공유, 개작할 수 있습니다.)',
@@ -22489,6 +22490,9 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-too-many-files-ok' => '确定',
 	'mwe-upwiz-too-many-files-text' => '你一次只能上传$1个文件。你尝试上传共$2个文件，所以$3个文件已被删除。',
 	'mwe-upwiz-too-many-files' => '文件过多。',
+	'mwe-upwiz-file-too-large-ok' => 'OK',
+	'mwe-upwiz-file-too-large-text' => '您只能上传大小不超过 $1 的文件。您试图上传的文件大小为 $2。',
+	'mwe-upwiz-file-too-large' => '文件太大',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '知识共享“署名-相同方式共享 3.0”（[$2 法律文件]）',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '知识共享“署名-相同方式共享 3.0 奥地利”（[$2 法律文件]）',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => '知识共享“署名-相同方式共享 3.0 德国”（[$2 法律文件]）',
@@ -22619,6 +22623,7 @@ $messages['zh-hans'] = array(
  * @author Horacewai2
  * @author Mark85296341
  * @author Oapbtommy
+ * @author Simon Shek
  * @author Waihorace
  * @author Wrightbus
  */
