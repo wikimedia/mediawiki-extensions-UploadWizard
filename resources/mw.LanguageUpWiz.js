@@ -108,47 +108,7 @@ mw.LanguageUpWiz = {
 		}
 		return mw.LanguageUpWiz.getClosest( code.substring( 0, code.indexOf( '-' )) );
 	}
-
-
-	// enhance a simple text input to be an autocompleting language menu
-	// this will work when/if we move to jQuery 1.4. As of now the autocomplete is too underpowered for our needs without
-	// serious hackery
-	/*
-	$j.fn.languageMenu = function( options ) {
-		var _this = this;
-		_this.autocomplete( null, {
-			minChars: 0,
-			width: 310,
-			selectFirst: true,
-			autoFill: true,
-			mustMatch: true,
-			matchContains: false,
-			highlightItem: true,
-			scroll: true,
-			scrollHeight: 220,
-			formatItem: function( row, i, max, term ) {
-				return row.code + " " + row.code;
-			},
-			formatMatch: function( row, i, max, term ) {
-				return row.code + " " + row.code;
-			},
-			formatResult: function( row ) {
-				return row.code;
-			}
-		}, mw.Languages );
-
-		// and add a dropdown so we can see the thingy, too
-		return _this;
-	};
-	*/
-
-	// XXX the concept of "internal language" exists in UploadForm.js -- seems to be how they handled i18n, with
-	// language codes that has underscores rather than dashes, ( "en_gb" rather than the correct "en-gb" ).
-	// although other info such as Information boxes was recorded correctly.
-	// This is presumed not to apply to the shiny new world of JS2, where i18n is handled in other ways.
-
 };
-
 
 } )( window.mediaWiki );
 
