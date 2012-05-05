@@ -338,10 +338,24 @@ mw.UploadWizardUpload.prototype = {
 					this.file = files[0];
 
 					this.transportWeight = this.file.size;
+
+					// If chunked uploading is enabled, we can transfer any file that MediaWiki
+					// will accept. Otherwise we're bound by PHP's limits.
+					// NOTE: Because we don't know until runtime if the browser supports chunked
+					// uploading, we can't determine this server-side.
+					var actualMaxSize;
+					if ( mw.UploadWizard.config.enableChunked && mw.fileApi.isSliceAvailable() ) {
+						actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
+					} else {
+						actualMaxSize = Math.min(
+							mw.UploadWizard.config.maxMwUploadSize,
+							mw.UploadWizard.config.maxPhpUploadSize
+						);
+					}
+
 					// make sure the file isn't too large
-					if ( !mw.UploadWizard.config.enableChunked &&
-						this.transportWeight > mw.UploadWizard.config.maxUploadSize ) {
-						_this.showMaxSizeWarning( this.transportWeight );
+					if ( this.transportWeight > actualMaxSize ) {
+						_this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
 						return;
 					}
 
@@ -419,8 +433,9 @@ mw.UploadWizardUpload.prototype = {
 	/**
 	 * Shows an error dialog informing the user that the selected file is to large
 	 * @param size integer - the size of the file in bytes
+	 * @param maxSize integer - the maximum file size
 	 */
-	showMaxSizeWarning: function( size ) {
+	showMaxSizeWarning: function( size, maxSize ) {
 		var buttons = [
 			{
 				text: gM( 'mwe-upwiz-file-too-large-ok' ),
@@ -432,7 +447,7 @@ mw.UploadWizardUpload.prototype = {
 		$j( '<div></div>' )
 			.msg(
 				'mwe-upwiz-file-too-large-text',
-				mw.units.bytes( mw.UploadWizard.config[ 'maxUploadSize' ] ),
+				mw.units.bytes( maxSize ),
 			    mw.units.bytes( size )
 			)
 			.dialog( {

@@ -4,7 +4,7 @@
  * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules;
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize;
 return array(
 	// Upload wizard has an internal debug flag
 	'debug' => false,
@@ -377,11 +377,15 @@ return array(
 	// Max number of uploads for a given form
 	'maxUploads' => 50,
 
-	// Max allowed upload size for files
-	'maxUploadSize' => min(
+	// Max file size that is allowed by PHP (may be higher/lower than MediaWiki file size limit).
+	// When using chunked uploading, these limits can be ignored.
+	'maxPhpUploadSize' => min(
 		wfShorthandToInteger( ini_get( 'upload_max_filesize' ) ),
 		wfShorthandToInteger( ini_get( 'post_max_size' ) )
 	),
+
+	// Max file size that is allowed by MediaWiki. This limit can never be ignored.
+	'maxMwUploadSize' => $wgMaxUploadSize,
 
 	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing 
 	// braces, then two chars for a license, e.g. {{xx}}
