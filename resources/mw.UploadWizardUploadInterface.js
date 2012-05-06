@@ -318,25 +318,25 @@ mw.UploadWizardUploadInterface.prototype = {
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
 
-		// Only do this for images.  Other things get no thumbnail.
-		// TODO: a more complete check for thumbnail-ability might be needed here.
-		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
-			if( this.upload.wizard.makePreviewsFlag ) {
-				// make the preview now.
-				this.makePreview();
-			} else {
-				// add a control for showing the preview if the user needs it
-				this.$showThumbCtrl = $j.fn.showThumbCtrl(
-						'mwe-upwiz-show-thumb',
-						'mwe-upwiz-show-thumb-tip',
-						function() { _this.makePreview(); }
-					).addClass( "mwe-upwiz-file-status-line-item" );
+		if( this.upload.wizard.makePreviewsFlag ) {
+			// Make the preview now. Will check if it's a previewable file.
+			this.makePreview();
+		} else if ( this.isPreviewable() ) {
+			// add a control for showing the preview if the user needs it
+			this.$showThumbCtrl = $j.fn.showThumbCtrl(
+					'mwe-upwiz-show-thumb',
+					'mwe-upwiz-show-thumb-tip',
+					function() { _this.makePreview(); }
+				).addClass( "mwe-upwiz-file-status-line-item" );
 
-				this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
-					.append( '<br/>' ).append( _this.$showThumbCtrl );
+			this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+				.append( '<br/>' ).append( _this.$showThumbCtrl );
 
-			}
 		}
+	},
+
+	isPreviewable: function() {
+		return mw.fileApi.isAvailable() && this.upload.file && mw.fileApi.isPreviewableFile( this.upload.file );
 	},
 
 	makePreview: function() {
@@ -348,7 +348,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		}
 
 		// do preview if we can
-		if ( mw.fileApi.isAvailable() && _this.upload.file && mw.fileApi.isPreviewableFile( _this.upload.file ) ) {
+		if ( _this.isPreviewable() ) {
 			var dataUrlReader = new FileReader();
 			dataUrlReader.onload = function() {
 				var image = document.createElement( 'img' );
