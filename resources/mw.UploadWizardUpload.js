@@ -296,9 +296,20 @@ mw.UploadWizardUpload.prototype = {
 		// TODO sanitize filename
 		var basename = mw.UploadWizardUtil.getBasename( filename );
 
-		if( files.length > 1 ) {
-			this.wizard.makePreviewsFlag = false;
-			this.reservedIndex = this.wizard.uploads.length;
+		if ( files.length > 1 ) {
+
+			var totalSize = 0;
+			$j.each( files, function( i, file ) {
+				totalSize += file.size;
+			});
+
+			// Local previews are slow due to the data URI insertion into the DOM; for batches we
+			// don't generate them if the size of the batch exceeds 10 MB
+			if ( totalSize > 10000000 ) {
+				_this.wizard.makePreviewsFlag = false;
+			}
+
+			_this.reservedIndex = _this.wizard.uploads.length;
 		}
 
 		// check to see if the file has already been selected for upload.
@@ -348,39 +359,51 @@ mw.UploadWizardUpload.prototype = {
 					if ( this.imageinfo === undefined ) {
 						this.imageinfo = {};
 					}
-					_this.filename = filename;
+					this.filename = filename;
 
-					var binReader = new FileReader();
-					binReader.onload = function() {
-						var binStr;
-						if ( typeof binReader.result == 'string' ) {
-							binStr = binReader.result;
-						} else {
-							// Array buffer; convert to binary string for the library.
-							var arr = new Uint8Array( binReader.result );
-							binStr = '';
-							for ( var i = 0; i < arr.byteLength; i++ ) {
-								binStr += String.fromCharCode( arr[i] );
+					// For JPEGs, we use the JsJpegMeta library in core to extract metadata,
+					// including EXIF tags. This is done asynchronously once each file has been
+					// read. Only then is the file properly added to UploadWizard via fileNameOk().
+					//
+					// For all other file types, we don't need or want to run this.
+					//
+					// TODO: This should be refactored.
+
+					if( this.file.type === 'image/jpeg' ) {
+						var binReader = new FileReader();
+						binReader.onload = function() {
+							var binStr;
+							if ( typeof binReader.result == 'string' ) {
+								binStr = binReader.result;
+							} else {
+								// Array buffer; convert to binary string for the library.
+								var arr = new Uint8Array( binReader.result );
+								binStr = '';
+								for ( var i = 0; i < arr.byteLength; i++ ) {
+									binStr += String.fromCharCode( arr[i] );
+								}
 							}
+							var meta;
+							try {
+								meta = mw.libs.jpegmeta( binStr, _this.file.fileName );
+								meta._binary_data = null;
+							} catch ( e ) {
+								meta = null;
+							}
+							_this.extractMetadataFromJpegMeta( meta );
+							_this.filename = filename;
+							fileNameOk();
+						};
+						if ( 'readAsBinaryString' in binReader ) {
+							binReader.readAsBinaryString( _this.file );
+						} else if ( 'readAsArrayBuffer' in binReader ) {
+							binReader.readAsArrayBuffer( _this.file );
+						} else {
+							// We should never get here. :P
+							throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
 						}
-						var meta;
-						try {
-							meta = mw.libs.jpegmeta( binStr, _this.file.fileName );
-							meta._binary_data = null;
-						} catch ( e ) {
-							meta = null;
-						}
-						_this.extractMetadataFromJpegMeta( meta );
-						_this.filename = filename;
-						fileNameOk();
-					};
-					if ( 'readAsBinaryString' in binReader ) {
-						binReader.readAsBinaryString( _this.file );
-					} else if ( 'readAsArrayBuffer' in binReader ) {
-						binReader.readAsArrayBuffer( _this.file );
 					} else {
-						// We should never get here. :P
-						throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
+						fileNameOk();
 					}
 
 					// Now that first file has been prepared, process remaining files

@@ -303,6 +303,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * n.b. in older browsers we only will know the filename
 	 */
 	fileChangedOk: function() {
+
 		var _this = this;
 		_this.updateFilename();
 
@@ -558,7 +559,12 @@ mw.UploadWizardUploadInterface.prototype = {
 			$div.bind( 'mouseleave mouseout', function() {
 				$div.removeClass( 'hover' );
 			} );
-			$j( _this.div ).trigger( 'filled' );
+
+			// Create new upload slot for additional upload(s)
+			_this.upload.wizard.newUpload();
+			// Set the upload to be 'filled', which finally adds it to UploadWizard's list of uploads.
+			_this.upload.wizard.setUploadFilled( _this.upload );
+
 		} else {
 			$j( _this.div ).trigger( 'filenameAccepted' );
 		}
