@@ -357,6 +357,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-external-invalid',
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
+				'mwe-upwiz-category-will-be-added',
 				'mwe-upwiz-category-remove',
 				'mwe-upwiz-thanks-caption',
 				'mwe-upwiz-thumbnail-failed',

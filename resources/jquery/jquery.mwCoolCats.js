@@ -18,9 +18,17 @@
 	 * Get content from our text field, and attempt to insert it as a category.
 	 * May require confirmation from user if they appear to be adding a new category.
 	 */
-	function _processInput() {
+	function _processInput( _this, shouldcreate ) {
+		var $input = $(_this);
+		var $label = $input.closest('p');
+		$( '.mwe-upwiz-category-will-be-added', $label ).remove();
+		if ( $input.length === 0 ) {
+			$input = $( 'input', $container );
+			if ( $input.length === 0 ) {
+				return;
+			}
+		}
 
-		var $input = $container.find( 'input' );
 		var text = _stripText( $input.val() );
 		if ( text === '' ) {
 			return;
@@ -28,51 +36,16 @@
 
 		var title = new mw.Title( text, catNsId );
 
-		var insertIt = function() {
-			_insertCat( title );
-			$input.val("");
-		};
-
-		var confirmIt = function() {
-			var buttons = [
-				{
-					text: gM( 'mw-coolcats-confirm-new-cancel' ),
-					click: function() {
-						$( this ).dialog( "close" );
-					}
-				},
-				{
-					text: gM( 'mw-coolcats-confirm-new-ok' ),
-					click: function() {
-						insertIt();
-						$( this ).dialog( "close" );
-					}
-				}
-			];
-			$j( '<div></div>' )
-				.msg( 'mw-coolcats-confirm-new', title.getMainText() )
-				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					title: gM( 'mw-coolcats-confirm-new-title' ),
-					modal: true,
-					buttons: buttons
-				} );
-		};
-
-		if( seenTitleText[ title.getMainText() ] ) {
-			insertIt();
-		} else {
- 			settings.api.isCategory( title, function( isCategory ) {
-				if ( isCategory ) {
-					insertIt();
-				} else {
-					confirmIt();
-				}
-			} );
+		var cat = title.getMainText();
+		
+		if ( seenCat[cat] !== true ) {
+			$label.append( '<span class="mwe-upwiz-category-will-be-added"></span>' );
+			$( '.mwe-upwiz-category-will-be-added', $label ).html( settings.willbeaddedtext );
 		}
 
+		if (shouldcreate === true) {
+			_insertCat( title );
+		}
 	}
 
 	/**
@@ -161,6 +134,17 @@
 	}
 
 	/**
+	 * Add a new input to the categories form
+	 */
+	 
+	function _newInput () {
+		var $newInput = $template.clone();
+		$newInput.mwCoolCats( $.extend( options, { link: false } ) );
+		$newInput.wrap( '<p></p>' );
+		$( 'a[name=catbutton]', $container ).before( $newInput.closest('p') );
+	}
+
+	/**
 	 * Fetch and display suggestions for categories, based on what the user has already typed
 	 * into the text field
 	 */
@@ -170,10 +154,10 @@
 		var prefix = _stripText( $j( this ).val() );
 
 		var ok = function( catList ) {
+			for ( var c in catList ) {
+				seenCat[catList[c]] = true;
+			}
 			$j( _input ).suggestions( 'suggestions', catList );
-			$j.each( catList, function( i, category ) {
-				seenTitleText[category] = 1;
-			} );
 		};
 
  		$j( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
@@ -191,10 +175,14 @@
 		throw new Error( "jQuery.mwCoolCats needs an 'api' argument" );
 	}
 
-	// a cache of suggestions we've seen, to check if the category they finally enter is already on the wiki or not.
-	var seenTitleText = {};
-
+	
+	var seenCat = {};
+	for ( var cx in settings.cats ) {
+		seenCat[settings.cats[cx]] = true;
+	}
+	
 	var $container;
+	var $template;
 
 	/**
 	 * Initialize the text field(s) the widget was given to be category pickers.
@@ -217,30 +205,39 @@
 		} );
 		_this.suggestions();
 
-		_this.wrap('<div class="cat-widget"></div>');
-		$container = _this.parent(); // set to the cat-widget class we just wrapped
-		$container.prepend('<ul class="cat-list pkg"></ul>');
-		$container.append( $j( '<button type="button" name="catbutton">'+settings.buttontext+'</button>' )
-			.button()
-			.click( function(e) {
-				e.stopPropagation();
-				e.preventDefault();
-				_processInput();
-				return false;
-			})
-		);
+		if ( settings.link !== false ) {
+			_this.wrap( '<div class="cat-widget"></div>' ).wrap( '<p></p>' );
+			$container = _this.closest( '.cat-widget' ); // set to the cat-widget class we just wrapped
+			$container.prepend( '<ul class="cat-list pkg"></ul>' );
+			$container.append( $j( '<a href="javascript:" name="catbutton">' + settings.buttontext + '</a>' )
+				.click( function(e) {
+					e.stopPropagation();
+					e.preventDefault();
+					_newInput();
+					return false;
+				})
+			);
+		} else {
+			$container = _this.closest( '.cat-widget' );
+		}
 
 		//XXX ensure this isn't blocking other stuff needed.
-		_this.parents('form').submit( function() {
-			_processInput();
+		_this.parents( 'form' ).submit( function() {
+			$( 'input.categoryInput', $( this ) ).each( function () {
+				var $this = $( this );
+				_processInput( this, true );
+			});
 		});
 
 		_this.keyup(function(e) {
 			if(e.keyCode == 13) {
 				e.stopPropagation();
 				e.preventDefault();
-				_processInput();
+				_processInput(this);
 			}
+		});
+		_this.blur(function(e) {
+			_processInput(this);
 		});
 
 		// We may want to call these functions from the input DOM element.
@@ -254,6 +251,8 @@
 		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
 
 		_processInput();
+		
+		$template = _this.clone();
 	} );
 
 

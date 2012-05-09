@@ -415,7 +415,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				hiddenCats: hiddenCats,
 				buttontext: gM( 'mwe-upwiz-categories-add' ),
 				cats: mw.UploadWizard.config.defaultCategories === undefined ? [] : mw.UploadWizard.config.defaultCategories,
-				missingCatsWikiText: missingCatsWikiText
+				missingCatsWikiText: missingCatsWikiText,
+				willbeaddedtext: gM( 'mwe-upwiz-category-will-be-added' )
 			} );
 
 };
@@ -1052,6 +1053,8 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	submit: function() {
 		var _this = this;
+
+		$('form', _this.containerDiv).submit();
 
 		_this.upload.state = 'submitting-details';
 		_this.setStatus( gM( 'mwe-upwiz-submitting-details' ) );
