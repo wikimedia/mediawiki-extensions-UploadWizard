@@ -3972,7 +3972,14 @@ $messages['da'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Angiv ophavsretlig information for hver enkelt fil på den næste side.',
 	'mwe-upwiz-more-options' => 'tilføj kategorier eller yderligere oplysninger...',
-	'mwe-upwiz-fewer-options' => 'færre valgmuligheder...',
+	'mwe-upwiz-copy-metadata' => 'Kopier oplysninger til alle filerne nedenfor ...',
+	'mwe-upwiz-copy-metadata-button' => 'Kopier',
+	'mwe-upwiz-copy-title' => 'Kopier titel (med automatisk nummerering)',
+	'mwe-upwiz-copy-description' => 'Kopier beskrivelse(r)',
+	'mwe-upwiz-copy-date' => 'Kopier dato',
+	'mwe-upwiz-copy-categories' => 'Kopier kategorier',
+	'mwe-upwiz-copy-location' => 'Kopier sted',
+	'mwe-upwiz-copy-other' => 'Kopier øvrige oplysninger',
 	'mwe-upwiz-desc' => 'Beskrivelse',
 	'mwe-upwiz-desc-add-n' => 'tilføj en beskrivelse på et andet sprog',
 	'mwe-upwiz-desc-add-0' => 'tilføj en beskrivelse',
@@ -4201,6 +4208,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Brug standardlicensen',
 	'mwe-upwiz-prefs-license-own' => 'Eget værk - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'En andens værk - $1',
+	'mwe-upwiz-prefs-chunked' => 'Delvis overførsel af filer større end 1MB i vejviseren',
 );
 
 /** German (Deutsch)
@@ -4213,6 +4221,7 @@ $1',
  * @author Purodha
  * @author Rillke
  * @author Robby
+ * @author Saibo
  * @author TMg
  * @author The Evil IP address
  * @author ✓
@@ -4525,7 +4534,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Den Standard verwenden, gleich was ihm entspricht',
 	'mwe-upwiz-prefs-license-own' => 'Eigenes Werk - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Fremdes Werk - $1',
-	'mwe-upwiz-prefs-chunked' => "Hochladen von Dateien, die größer als 1 MB sind, in mehreren Teilen (''Upload Wizard'')",
+	'mwe-upwiz-prefs-chunked' => 'Hochladen von Dateien, die größer als 1 MB sind, in mehreren Teilen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -14390,7 +14399,14 @@ $messages['ms'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Nyatakan maklumat hak cipta untuk setiap satu fail di halaman berikutnya.',
 	'mwe-upwiz-more-options' => 'tambahkan kategori dan maklumat lanjut...',
-	'mwe-upwiz-fewer-options' => 'lipat...',
+	'mwe-upwiz-copy-metadata' => 'Salin maklumat kepada semua muat naik di bawah ...',
+	'mwe-upwiz-copy-metadata-button' => 'Salin',
+	'mwe-upwiz-copy-title' => 'Salin tajuk (dengan penomboran automatik)',
+	'mwe-upwiz-copy-description' => 'Salin keterangan',
+	'mwe-upwiz-copy-date' => 'Salin tarikh',
+	'mwe-upwiz-copy-categories' => 'Salin kategori',
+	'mwe-upwiz-copy-location' => 'Salin lokasi',
+	'mwe-upwiz-copy-other' => 'Salin maklumat lain',
 	'mwe-upwiz-desc' => 'Keterangan',
 	'mwe-upwiz-desc-add-n' => 'tambahkan keterangan dalam bahasa lain',
 	'mwe-upwiz-desc-add-0' => 'isikan keterangan',
@@ -20643,7 +20659,7 @@ $messages['sv'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Ge copyrightinformation för varje fil på nästa sida.',
 	'mwe-upwiz-more-options' => 'lägg till kategorier och mer information...',
-	'mwe-upwiz-fewer-options' => 'färre alternativ ...',
+	'mwe-upwiz-copy-metadata-button' => 'Kopiera',
 	'mwe-upwiz-desc' => 'Beskrivning',
 	'mwe-upwiz-desc-add-n' => 'lägg till en beskrivning på ett annat språk',
 	'mwe-upwiz-desc-add-0' => 'lägg till en beskrivning',
