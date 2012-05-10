@@ -82,6 +82,14 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	start: function() {
 		var _this = this;
+		if ( mw.UploadWizard.config.startImmediately === true ) {
+			$j('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
+			_this.wizard.startProgressBar();
+			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
+				message: function() { return gM( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ); },
+				test: function() { return _this.wizard.uploads.length > 0; }
+			} );
+		}
 		_this.setTransportProgress(0.0);
 		//_this.ui.start();
 		_this.handler.start();
@@ -106,6 +114,11 @@ mw.UploadWizardUpload.prototype = {
 		// trigger through the div. Triggering through objects doesn't always work.
 		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
 		$j( this.ui.div ).trigger( 'removeUploadEvent' );
+		
+		if ( mw.UploadWizard.config.startImmediately === true ) {
+			// check all uploads, if they're complete, show the next button
+			this.wizard.showNext( 'file', 'stashed' );
+		}
 	},
 
 
@@ -292,6 +305,14 @@ mw.UploadWizardUpload.prototype = {
 
 		var _this = this;
 
+		function finishCallback () {
+			if ( _this && _this.ui ) {
+				fileNameOk();
+			} else {
+				setTimeout( finishCallback, 200 );
+			}
+		}
+
 		// Check if filename is acceptable
 		// TODO sanitize filename
 		var basename = mw.UploadWizardUtil.getBasename( filename );
@@ -406,7 +427,7 @@ mw.UploadWizardUpload.prototype = {
 							}
 							_this.extractMetadataFromJpegMeta( meta );
 							_this.filename = filename;
-							fileNameOk();
+							finishCallback();
 						};
 						if ( 'readAsBinaryString' in binReader ) {
 							binReader.readAsBinaryString( _this.file );
@@ -417,7 +438,7 @@ mw.UploadWizardUpload.prototype = {
 							throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
 						}
 					} else {
-						fileNameOk();
+						finishCallback();
 					}
 
 					// Now that first file has been prepared, process remaining files
@@ -444,7 +465,7 @@ mw.UploadWizardUpload.prototype = {
 
 				} else {
 					this.filename = filename;
-					fileNameOk();
+					finishCallback();
 				}
 
 			}

@@ -216,8 +216,11 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * Show that upload is transported
 	 */
 	showStashed: function() {
-		this.$removeCtrl.detach();
+		if ( mw.UploadWizard.config.startImmediately !== true ) {
+			this.$removeCtrl.detach();
+		}
 		this.$fileInputCtrl.detach();
+
 		if( this.$showThumbCtrl ) {
 			this.$showThumbCtrl.detach();
 		}
