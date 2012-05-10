@@ -8147,6 +8147,7 @@ $1',
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author Ashok modhvadia
  * @author Dsvyas
  * @author KartikMistry
  * @author Rangilo Gujarati
@@ -8221,13 +8222,12 @@ $messages['gu'] = array(
 	'mwe-upwiz-source-permission' => 'આના રચયિતાએ તમને તેના વપરાશમાટે પ્રકાશન અધિકાર આપેલા છે.',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|આ ફાઈલ |આ ફાઈલો}} મારી પોતાની રચનાઓ નથી.',
 	'mwe-upwiz-source-thirdparty-intro' => 'દરેક ફાઇલ તમને જ્યાંથી મળી હોય તેનું સરનામું લખો',
-	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'જો આ ફાઈલ નો સ્ત્રોત, લેખક અને પ્રકાશન અધિકાર સમાન હોય તો દરેક માટે માત્ર એક જ વખત તેમાહિતી ઉમેરી શકો.',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'જો આ ફાઈલ નો સ્રોત, લેખક અને પ્રકાશન અધિકાર સમાન હોય તો દરેક માટે માત્ર એક જ વખત તે માહિતી ઉમેરી શકો.',
 	'mwe-upwiz-source-thirdparty-license' => '{{PLURAL:$1|આ રચના|આ રચનાઓ}} ના પ્રકાશન હક્કો ધરાવનારે {{PLURAL:$1|તે|તેઓને}} નીચેની પરવાનગી(ઓ) હેઠળ પ્રકાશિત કરી હતી:',
 	'mwe-upwiz-source-thirdparty-cases' => 'હવે અમને કહો કે શા માટે તમે આશ્વસ્ત છો કે તમને આ {{PLURAL:$1|રચના|રચનાઓ}} પ્રસિદ્ધ કરવાનો અધિકાર છે.',
 	'mwe-upwiz-source-thirdparty-accept' => 'બરાબર',
 	'mwe-upwiz-source-custom' => 'આગળના પાના પર દર એક ફાઈલના પ્રકાશન અધિકારની જુદી જુદી માહિતી આપો',
 	'mwe-upwiz-more-options' => 'શ્રેણી અને  વધારાની માહિતી ઉમેરો',
-	'mwe-upwiz-fewer-options' => 'ઓછાં વિકલ્પો...',
 	'mwe-upwiz-desc' => 'વર્ણન',
 	'mwe-upwiz-desc-add-n' => 'બીજી ભાષામાં વર્ણન ઉમેરો',
 	'mwe-upwiz-desc-add-0' => 'વર્ણન ઉમેરો',
@@ -8242,7 +8242,7 @@ $messages['gu'] = array(
 	'mwe-upwiz-author' => 'લેખક(કો)',
 	'mwe-upwiz-autoconverted' => 'આ ફાઇલને આપોઆપ $1 ફોર્મેટ માં પરિવર્તિત કરાઈ',
 	'mwe-upwiz-other' => 'બીજી માહિતી',
-	'mwe-upwiz-source' => 'સ્ત્રોત',
+	'mwe-upwiz-source' => 'સ્રોત',
 	'mwe-upwiz-thanks-intro' => 'અપલોડ માટે આભાર!',
 	'mwe-upwiz-thanks-explain' => 'તમે હવી આ {{PLURAL:$1|ફાઈલ|ફાઈલો}} ને  વિકિપીડિયા જેવી સાઈટ પ્ર વાપરી શક્કશો અથવા તો તેમની કડીઓ વેબ પર વાપરી શકશો.',
 	'mwe-upwiz-thanks-wikitext' => '<b>આ ફાઈલને વિકિમાં વાપરવા માટે</b>, આ લખાણને પાનાં પર નકલ કરો:',
