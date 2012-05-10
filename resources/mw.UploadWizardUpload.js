@@ -292,6 +292,12 @@ mw.UploadWizardUpload.prototype = {
 	 * Checks for file validity, then extracts metadata.
 	 * Error out if filename or its contents are determined to be unacceptable
 	 * Proceed to thumbnail extraction and image info if acceptable
+	 *
+	 * We changed the behavior here to be a little more sane. Now any errors
+	 * will cause the fileNameOk not to be called, and if you have a special
+	 * case where an error should be ignored, you can simply find that error
+	 * and delete it from the third parameter of the error callback. The end.
+	 *
 	 * @param {string} the filename
 	 * @param {Array} of Files.  usually one, can be more for multi-file select.
 	 * @param {Function()} callback when ok, and upload object is ready
@@ -300,6 +306,7 @@ mw.UploadWizardUpload.prototype = {
 	checkFile: function( filename, files, fileNameOk, fileNameErr ) {
 
 		var _this = this;
+		var fileErrors = {};
 
 		function finishCallback () {
 			if ( _this && _this.ui ) {
@@ -339,23 +346,37 @@ mw.UploadWizardUpload.prototype = {
 		} );
 
 		if( duplicate ) {
-			fileNameErr( 'dup', basename );
+			fileErrors.dup = true;
+			fileNameErr( 'dup', basename, fileErrors );
 		}
 
 		try {
 			this.title = new mw.Title( basename.replace( /:/g, '_' ), fileNsId );
 		} catch ( e ) {
-			fileNameErr( 'unparseable' );
+			fileErrors.unparseable = true;
+			fileNameErr( 'unparseable', null, fileErrors );
 		}
 
 		// Check if extension is acceptable
 		var extension = this.title.getExtension();
 		if ( mw.isEmpty( extension ) ) {
-			fileNameErr( 'noext' );
+			fileErrors.noext = true;
+			fileNameErr( 'noext', null, fileErrors );
 		} else {
 			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) === -1 ) {
-				fileNameErr( 'ext', extension );
-			} else {
+				fileErrors.ext = true;
+				fileNameErr( 'ext', extension, fileErrors );
+			}
+			// Split this into a separate case, if the error above got ignored,
+			// we want to still trudge forward.
+			if ( !fileErrors.ext ) {
+				var hasError = false;
+				for ( var errorIndex in fileErrors ) {
+					if ( fileErrors[errorIndex] ) {
+						hasError = true;
+						break;
+					}
+				}
 				// if the JavaScript FileReader is available, extract more info via fileAPI
 				if ( mw.fileApi.isAvailable() ) {
 
@@ -423,7 +444,9 @@ mw.UploadWizardUpload.prototype = {
 							}
 							_this.extractMetadataFromJpegMeta( meta );
 							_this.filename = filename;
-							finishCallback();
+							if ( hasError === false ) {
+								finishCallback();
+							}
 						};
 						if ( 'readAsBinaryString' in binReader ) {
 							binReader.readAsBinaryString( _this.file );
@@ -434,7 +457,9 @@ mw.UploadWizardUpload.prototype = {
 							throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
 						}
 					} else {
-						finishCallback();
+						if ( hasError === false ) {
+							finishCallback();
+						}
 					}
 
 					// Now that first file has been prepared, process remaining files
@@ -461,7 +486,9 @@ mw.UploadWizardUpload.prototype = {
 
 				} else {
 					this.filename = filename;
-					finishCallback();
+					if ( hasError === false ) {
+						finishCallback();
+					}
 				}
 
 			}
