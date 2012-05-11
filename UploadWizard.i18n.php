@@ -4609,7 +4609,7 @@ $messages['diq'] = array(
 	'uploadwizard' => 'Şexê Barkerdışi',
 	'mwe-upwiz-code-unknown' => 'Zuwano ke nê şınasiya',
 	'mwe-upwiz-step-tutorial' => 'Bımısê',
-	'mwe-upwiz-step-file' => 'Bar ke',
+	'mwe-upwiz-step-file' => 'Barke',
 	'mwe-upwiz-step-deeds' => 'Heqê vılayin',
 	'mwe-upwiz-step-details' => 'Şınasiye',
 	'mwe-upwiz-step-thanks' => 'Karkerdış',
@@ -4620,7 +4620,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-failed' => 'Nêbı',
 	'mwe-upwiz-remove' => 'Hewad',
 	'mwe-upwiz-show-thumb' => 'Resımê qıckeki bımocne',
-	'mwe-upwiz-upload' => 'Bar ke',
+	'mwe-upwiz-upload' => 'Barke',
 	'mwe-upwiz-upload-count' => '$1 dosyaya ra $2 {{PLURAL:$2|dosya|dosyay}} biyê bar',
 	'mwe-upwiz-progressbar-uploading' => 'Bar beno',
 	'mwe-upwiz-finished' => 'Biyo temam',
@@ -4629,7 +4629,6 @@ $messages['diq'] = array(
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Bar kerdışi rê $1 {{PLURAL:$1|seat|seati}}, $2 {{PLURAL:$2|deqe|deqey}} u $3 {{PLURAL:$3|saniye|saniyey}} mende',
 	'mwe-upwiz-deeds-custom-prompt' => 'Yana:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Temam',
-	'mwe-upwiz-fewer-options' => 'Dehana tay weçeni...',
 	'mwe-upwiz-desc' => 'Akerdış',
 	'mwe-upwiz-desc-add-0' => 'Akerdış deke de',
 	'mwe-upwiz-title' => 'Sername',
@@ -4643,7 +4642,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-author' => 'Nuskar(i)',
 	'mwe-upwiz-source' => 'Çıme',
 	'mwe-upwiz-ok' => 'Temam',
-	'mwe-upwiz-cancel' => 'Bıtexelne',
+	'mwe-upwiz-cancel' => 'Bıterkne',
 	'mwe-upwiz-fileexists' => 'no name de ca ra yew dosya esta. eke şıma emin niê bıvurni, kerem kerê <b><tt>$1</tt></b> kontrol bıkerê.',
 	'mwe-upwiz-thumbnail-more' => 'Gırd ke',
 	'mwe-upwiz-overwrite' => 'Dosyayer bıvurne',
@@ -4652,7 +4651,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-next-deeds' => 'Bahdoyên',
 	'mwe-upwiz-next-details' => 'Bahdoyên',
 	'mwe-upwiz-home' => 'Şori keyepelay Wiki',
-	'mwe-upwiz-license-custom-preview' => 'Verqeyd',
+	'mwe-upwiz-license-custom-preview' => 'Verqayt',
 	'mwe-upwiz-categories' => 'Kategoriy',
 	'mwe-upwiz-categories-add' => 'Deke',
 	'mwe-upwiz-errordialog-ok' => 'TEMAM',
@@ -10915,6 +10914,7 @@ $1',
  * @author Rippitippi
  * @author Trixt
  * @author Una giornata uggiosa '94
+ * @author Ximo17
  */
 $messages['it'] = array(
 	'uploadwizard' => 'Caricamento guidato',
@@ -11227,6 +11227,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Usa la scelta predefinita, qualsiasi cosa sia',
 	'mwe-upwiz-prefs-license-own' => 'Opera propria - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Opera di qualcun altro - $1',
+	'mwe-upwiz-prefs-chunked' => 'Chunked uploads per i files di oltre 1 MB in Upload Wizard',
 );
 
 /** Japanese (日本語)
