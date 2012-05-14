@@ -228,15 +228,15 @@ mw.UploadWizard.prototype = {
 				return;
 		    }
 			$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
-			if ( _this.detailsValid() ) {
+			_this.detailsValid(function () {
 				_this.hideDetailsEndButtons();
 				_this.detailsSubmit( function() {
 					_this.detailsErrorCount();
 					_this.showNext( 'details', 'complete', finalizeDetails );
 				} );
-			} else {
+			}, function () {
 				_this.detailsErrorCount();
-			}
+			});
 		};
 
 		$j( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
@@ -863,13 +863,21 @@ mw.UploadWizard.prototype = {
 	 * are all the details valid?
 	 * @return boolean
 	 */
-	detailsValid: function() {
+	detailsValid: function(cb, cberr) {
 		var _this = this;
-		var valid = true;
+		var valid = 0;
+		var total = 0;
 		$j.each( _this.uploads, function(i, upload) {
-			valid &= upload.details.valid();
-		} );
-		return valid;
+			total += 1;
+			upload.details.valid( function () {
+				valid += 1;
+			});
+		});
+		if ( valid == total ) {
+			cb();
+		} else {
+			cberr();
+		}
 	},
 
 	/**

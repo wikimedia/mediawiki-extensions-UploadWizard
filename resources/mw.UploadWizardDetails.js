@@ -613,10 +613,10 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * check entire form for validity
 	 */
-	// return boolean if we are ready to go.
+	// do callback if we are ready to go.
 	// side effect: add error text to the page for fields in an incorrect state.
 	// we must call EVERY valid() function due to side effects; do not short-circuit.
-	valid: function() {
+	valid: function(cb) {
 		var _this = this;
 		// at least one description -- never mind, we are disallowing removal of first description
 		// all the descriptions -- check min & max length
@@ -627,8 +627,8 @@ mw.UploadWizardDetails.prototype = {
 		// make sure title is valid
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
 		if ( titleInputValid === undefined ) {
-			alert( "please wait, still checking the title for uniqueness..." );
-			return false;
+			setTimeout( function () { _this.valid(cb) }, 200 );
+			return;
 		}
 
 		// make sure licenses are valid (needed for multi-file deed selection)
@@ -637,7 +637,9 @@ mw.UploadWizardDetails.prototype = {
 		// all other fields validated with validator js
 		var formValid = _this.$form.valid();
 
-		return titleInputValid && deedValid && formValid;
+		if ( titleInputValid && deedValid && formValid ) {
+			cb();
+		}
 	},
 
 
@@ -1005,113 +1007,109 @@ mw.UploadWizardDetails.prototype = {
 	 * Convert entire details for this file into wikiText, which will then be posted to the file
 	 * @return wikitext representing all details
 	 */
-	getWikiText: function() {
+	getWikiText: function(cb) {
 		var _this = this;
 
 		// if invalid, should produce side effects in the form
 		// instructing user to fix.
-		if ( ! _this.valid() ) {
-			return null;
-		}
-
-		wikiText = '';
+		_this.valid( function () {
+			wikiText = '';
 
 
-		// http://commons.wikimedia.org / wiki / Template:Information
+			// http://commons.wikimedia.org / wiki / Template:Information
 
-		// can we be more slick and do this with maps, applys, joins?
-		var information = {
-			'description' : '',	 // {{lang|description in lang}}*   required
-			'date' : '',		 // YYYY, YYYY-MM, or YYYY-MM-DD     required  - use jquery but allow editing, then double check for sane date.
-			'source' : '',    	 // {{own}} or wikitext    optional
-			'author' : '',		 // any wikitext, but particularly {{Creator:Name Surname}}   required
-			'permission' : '',       // leave blank unless OTRS pending; by default will be "see below"   optional
-			'other_versions' : '',   // pipe separated list, other versions     optional
-			'other_fields' : ''      // ???     additional table fields
-		};
+			// can we be more slick and do this with maps, applys, joins?
+			var information = {
+				'description' : '',	 // {{lang|description in lang}}*   required
+				'date' : '',		 // YYYY, YYYY-MM, or YYYY-MM-DD     required  - use jquery but allow editing, then double check for sane date.
+				'source' : '',    	 // {{own}} or wikitext    optional
+				'author' : '',		 // any wikitext, but particularly {{Creator:Name Surname}}   required
+				'permission' : '',       // leave blank unless OTRS pending; by default will be "see below"   optional
+				'other_versions' : '',   // pipe separated list, other versions     optional
+				'other_fields' : ''      // ???     additional table fields
+			};
 
-		// sanity check the descriptions -- do not have two in the same lang
-		// all should be a known lang
-		if ( _this.descriptions.length === 0 ) {
-			alert("something has gone horribly wrong, unimplemented error check for zero descriptions");
-			// XXX ruh roh
-			// we should not even allow them to press the button ( ? ) but then what about the queue...
-		}
-		$j.each( _this.descriptions, function( i, desc ) {
-			if ( i !== 0 ) {
-				information['description'] += '\n';
+			// sanity check the descriptions -- do not have two in the same lang
+			// all should be a known lang
+			if ( _this.descriptions.length === 0 ) {
+				alert("something has gone horribly wrong, unimplemented error check for zero descriptions");
+				// XXX ruh roh
+				// we should not even allow them to press the button ( ? ) but then what about the queue...
 			}
-			information['description'] += desc.getWikiText();
-		} );
+			$j.each( _this.descriptions, function( i, desc ) {
+				information['description'] += desc.getWikiText();
+			} );
 
-		// Add id fields if needed
-		if ( mw.UploadWizard.config.idField ) {
-			var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
+			// Add id field if needed
+			if ( mw.UploadWizard.config.idField ) {
+				var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
 
-			if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
-				information['description'] += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
+				if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
+					information['description'] += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
+				}
 			}
-		}
 
-		if ( mw.UploadWizard.config.idField2 ) {
-			var idField2Value = $j.trim( $j( _this.idField2Input ).val() );
-
-			if ( ! mw.isEmpty( idField2Value ) ) { // HAXXX
-				information['description'] += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
+			// Add 2nd id field if needed
+			if ( mw.UploadWizard.config.idField2 ) {
+				var idField2Value = $j.trim( $j( _this.idField2Input ).val() );
+	
+				if ( ! mw.isEmpty( idField2Value ) ) { // HAXXX
+					information['description'] += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
+				}
 			}
-		}
 
-		information['date'] = $j.trim( $j( _this.dateInput ).val() );
+			information['date'] = $j.trim( $j( _this.dateInput ).val() );
 
-		var deed = _this.upload.deedChooser.deed;
+			var deed = _this.upload.deedChooser.deed;
 
-		information['source'] = deed.getSourceWikiText();
+			information['source'] = deed.getSourceWikiText();
 
-		information['author'] = deed.getAuthorWikiText();
+			information['author'] = deed.getAuthorWikiText();
 
-		var info = '';
-		for ( var key in information ) {
-			info += '|' + key + '=' + information[key] + "\n";
-		}
+			var info = '';
+			for ( var key in information ) {
+				info += '|' + key + '=' + information[key] + "\n";
+			}
 
-		wikiText += "=={{int:filedesc}}==\n";
+			wikiText += "=={{int:filedesc}}==\n";
 
-		var lat = $j.trim( $j( _this.latInput ).val() );
-		var lon = $j.trim( $j( _this.lonInput ).val() );
-		var alt = $j.trim( $j( _this.altInput ).val() );
+			var lat = $j.trim( $j( _this.latInput ).val() );
+			var lon = $j.trim( $j( _this.lonInput ).val() );
+			var alt = $j.trim( $j( _this.altInput ).val() );
 
-		// Do not require the altitude to be set, to prevent people from entering 0
-		// while it's actually unknown.
-		// When none is provided, this will result in {{Location dec|int|int|}}.
-		if( lat !== '' && lon !== '' ) {
-			wikiText += '{{Location dec|'+ lat + '|' + lon + '|' + alt + '}}\n';
-		}
+			// Do not require the altitude to be set, to prevent people from entering 0
+			// while it's actually unknown.
+			// When none is provided, this will result in {{Location dec|int|int|}}.
+			if( lat !== '' && lon !== '' ) {
+				wikiText += '{{Location dec|'+ lat + '|' + lon + '|' + alt + '}}\n';
+			}
 
-		wikiText += '{{Information\n' + info + '}}\n\n';
+			wikiText += '{{Information\n' + info + '}}\n\n';
 
-		// add an "anything else" template if needed
-		var otherInfoWikiText = $j.trim( $j( _this.otherInformationInput ).val() );
-		if ( ! mw.isEmpty( otherInfoWikiText ) ) {
-			wikiText += otherInfoWikiText + "\n\n";
-		}
+			// add an "anything else" template if needed
+			var otherInfoWikiText = $j.trim( $j( _this.otherInformationInput ).val() );
+			if ( ! mw.isEmpty( otherInfoWikiText ) ) {
+				wikiText += otherInfoWikiText + "\n\n";
+			}
 
-		// add licensing information
-		wikiText += "=={{int:license-header}}==\n";
-		wikiText += deed.getLicenseWikiText() + "\n\n";
+			// add licensing information
+			wikiText += "=={{int:license-header}}==\n";
+			wikiText += deed.getLicenseWikiText() + "\n\n";
 
-		if ( mw.UploadWizard.config.autoWikiText !== undefined ) {
-			wikiText += mw.UploadWizard.config.autoWikiText;
-		}
+			if ( mw.UploadWizard.config.autoWikiText !== undefined ) {
+				wikiText += mw.UploadWizard.config.autoWikiText;
+			}
 
-		// add categories
-		wikiText += _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
+			// add categories
+			wikiText += _this.div.find( '.categoryInput' ).get(0).getWikiText() + "\n\n";
 
-		// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
-		if ( typeof TextCleaner !== 'undefined' && typeof TextCleaner.sanitizeWikiText === 'function' ) {
-			wikiText = TextCleaner.sanitizeWikiText( wikiText, true );
-		}
+			// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
+			if ( typeof TextCleaner !== 'undefined' && typeof TextCleaner.sanitizeWikiText === 'function' ) {
+				wikiText = TextCleaner.sanitizeWikiText( wikiText, true );
+			}
 
-		return wikiText;
+			cb(wikiText);
+		});
 	},
 
 	/**
@@ -1128,15 +1126,10 @@ mw.UploadWizardDetails.prototype = {
 		_this.setStatus( gM( 'mwe-upwiz-submitting-details' ) );
 		_this.showIndicator( 'progress' );
 
-		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
-		// validation does MOST of this already
-		var wikiText = _this.getWikiText();
-
 		var params = {
 			action: 'upload',
 			filekey: _this.upload.fileKey,
 			filename: _this.upload.title.getMain(),
-			text: wikiText,
 			comment: "User created page with " + mw.UploadWizard.userAgent
 		};
 
@@ -1144,7 +1137,6 @@ mw.UploadWizardDetails.prototype = {
 			_this.upload.state = 'error';
 			_this.processError( code, info );
 		};
-
 
 		var ok = function( result ) {
 			var warnings = null;
@@ -1203,7 +1195,12 @@ mw.UploadWizardDetails.prototype = {
 			}
 		};
 
-		_this.upload.api.postWithEditToken( params, ok, err );
+		// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
+		// validation does MOST of this already
+		_this.getWikiText( function ( wikiText ) {
+			params.text = wikiText;
+			_this.upload.api.postWithEditToken( params, ok, err );
+		});
 	},
 
 
