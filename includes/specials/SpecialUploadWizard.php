@@ -415,6 +415,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '</div>'
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">'
+		.       '<div id="mwe-upwiz-reqd-field-explain-container"><span class="mwe-upwiz-required-marker">*</span> = ' . wfMsg( "mwe-upwiz-error-blank" ) . '</div>'
 		.       '<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.	   '<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>'
