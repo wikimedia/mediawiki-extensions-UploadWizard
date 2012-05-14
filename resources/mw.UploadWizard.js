@@ -132,9 +132,10 @@ mw.UploadWizard.prototype = {
 		// handler for next button
 		$j( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next')
 			.click( function() {
-				// if the skip checkbox is checked, set the skip cookie
-				if ( $j('#mwe-upwiz-skip').is(':checked') ) {
-					_this.setSkipTutorialCookie();
+				// if the skip checkbox is checked, set the skip user preference
+				if ( $j( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
+					$j( '#mwe-upwiz-skip' ).tipsy( 'hide' );
+					_this.setSkipTutorialPreference();
 				}
 				_this.moveToStep( 'file' );
 			} );
@@ -240,13 +241,41 @@ mw.UploadWizard.prototype = {
 
 		// WIZARD
 
-		// check to see if the the skip tutorial cookie is set
-		if ( document.cookie.indexOf('skiptutorial=1') != -1 || mw.config.get( 'UploadWizardConfig' ).skipTutorial ) {
+		// check to see if the the skip tutorial preference or global setting is set
+		if (
+			mw.user.options.get( 'upwiz_skiptutorial' ) ||
+			mw.config.get( 'UploadWizardConfig' ).skipTutorial
+		) {
 			// "select" the second step - highlight, make it visible, hide all others
 			_this.moveToStep( 'file' );
 		} else {
 			// "select" the first step - highlight, make it visible, hide all others
 			_this.moveToStep( 'tutorial' );
+
+			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
+			$j( '#mwe-upwiz-skip ').tipsy( {
+				title: function() {
+					return gM(
+						'mwe-upwiz-tooltip-skiptutorial',
+						mw.util.wikiGetlink( 'Special:Preferences' ) + '#mw-prefsection-uploads',
+						gM( 'prefs-uploads' ),
+						gM( 'prefs-upwiz-interface' )
+					);
+				},
+				delayIn: 0,
+				html: true,
+				trigger: 'manual'
+			} );
+
+			$j( '#mwe-upwiz-skip' ).click(
+				function () {
+					if ( $j ( this ).is( ':checked' ) ) {
+						$j( this ).tipsy( 'show' );
+					} else {
+						$j( this ).tipsy( 'hide' );
+					}
+				}
+			);
 		}
 
 	},
@@ -936,13 +965,32 @@ mw.UploadWizard.prototype = {
 	},
 
 	/**
-	 * Set a cookie which lets the user skip the tutorial step in the future
+	 * Set the skip tutorial user preference via the options API
 	 */
-	setSkipTutorialCookie: function() {
-		var e = new Date();
-		e.setTime( e.getTime() + (365*24*60*60*1000) ); // one year
-		var cookieString='skiptutorial=1; expires=' + e.toGMTString() + '; path=/';
-		document.cookie = cookieString;
+	setSkipTutorialPreference: function() {
+
+		var _this = this;
+		var tokenRequest = {
+			'action': 'tokens',
+			'type' : 'options'
+		};
+		var prefRequest = {
+			'action': 'options',
+			'change': 'upwiz_skiptutorial=1',
+		};
+
+		_this.api.post( tokenRequest,
+			function( data ) {
+				try {
+					var token = data.tokens.optionstoken;
+				} catch ( e ) {
+					throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
+				}
+				prefRequest.token = token;
+				_this.api.post( prefRequest, function() { return true; } );
+			}
+		);
+
 	},
 
 	/**

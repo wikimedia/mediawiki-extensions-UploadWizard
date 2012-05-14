@@ -264,6 +264,7 @@ class UploadWizardHooks {
 				'mwe-prevent-close',
 				'mwe-upwiz-prevent-close',
 				'mwe-upwiz-files-complete',
+				'mwe-upwiz-tooltip-skiptutorial',
 				'mwe-upwiz-tooltip-author',
 				'mwe-upwiz-tooltip-source',
 				'mwe-upwiz-tooltip-sign',
@@ -408,6 +409,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-file-too-large-ok',
 				'mwe-upwiz-file-too-large-text',
 				'mwe-upwiz-file-too-large',
+				'prefs-uploads',
+				'prefs-upwiz-interface',
 			),
 			'group' => 'ext.uploadWizard'
 		),
@@ -505,6 +508,16 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
+
+		// User preference to skip the licensing tutorial, provided it's not globally disabled
+		if ( UploadWizardConfig::getSetting( 'skipTutorial' ) == false ) {
+			$preferences['upwiz_skiptutorial'] = array(
+				'type' => 'check',
+				'label-message' => 'mwe-upwiz-prefs-skiptutorial',
+				'section' => 'uploads/upwiz-interface'
+			);
+		}
+
 		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
 			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
 
