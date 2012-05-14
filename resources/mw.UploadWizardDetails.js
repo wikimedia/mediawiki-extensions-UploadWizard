@@ -980,6 +980,9 @@ mw.UploadWizardDetails.prototype = {
 			// we should not even allow them to press the button ( ? ) but then what about the queue...
 		}
 		$j.each( _this.descriptions, function( i, desc ) {
+			if ( i !== 0 ) {
+				information['description'] += '\n';
+			}
 			information['description'] += desc.getWikiText();
 		} );
 
