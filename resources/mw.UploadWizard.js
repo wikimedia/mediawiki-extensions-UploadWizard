@@ -212,6 +212,16 @@ mw.UploadWizard.prototype = {
 		};
 
 		var startDetails = function() {
+			var isPopupOpen = false;
+			$j( '.categoryInput' ).each( function() {
+				if ( $( this ).data( 'popupOpen' ) === true ) {
+					isPopupOpen = true;
+					$( this ).bind( 'popupClose', startDetails );
+				}
+			});
+			if ( isPopupOpen ) {
+				return;
+		    }
 			$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 			if ( _this.detailsValid() ) {
 				_this.hideDetailsEndButtons();

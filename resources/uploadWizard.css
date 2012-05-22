@@ -734,3 +734,8 @@ input.mwe-date {
 .mwe-location-alt {
 	font-style:italic;
 }
+
+.mwe-upwiz-category-will-be-added {
+	font-style:italic;
+	color:gray;
+}

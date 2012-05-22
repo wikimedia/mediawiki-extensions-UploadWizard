@@ -266,7 +266,8 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-external-invalid' => 'This file is under the following license on $1: <b>$2</b>. Unfortunately, this license is not appropriate for use on this site.',
 
 	'mwe-upwiz-categories' => 'Categories',
-	'mwe-upwiz-categories-add' => 'Add',
+	'mwe-upwiz-categories-add' => 'Add another category',
+	'mwe-upwiz-category-will-be-added' => 'This category will be created.',
 	'mwe-upwiz-category-remove' => 'Remove this category',
 	'mwe-upwiz-thanks-caption' => 'Add caption here',
 	'mwe-upwiz-thumbnail-failed' => 'The upload succeeded, but the server could not get a preview thumbnail.',
@@ -549,7 +550,8 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-categories' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Categories}}',
-	'mwe-upwiz-categories-add' => '{{Identical|Add}}',
+	'mwe-upwiz-categories-add' => 'Used as a link which, when clicked, adds a new field for adding a category.',
+	'mwe-upwiz-category-will-be-added' => 'Used to let the user know that the category they entered will be created upon form submission.',
 	'mwe-upwiz-thanks-caption' => 'Placeholder text in a plain wiki text example of how to add a thumbnailed image with a caption in MediaWiki in the "Thank you for uploading" screen of the upload wizard.',
 	'mwe-upwiz-feedback-blacklist-line-intro' => 'Parameters:
 * $1 is an entry from the title blacklist.',
