@@ -14,6 +14,7 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'jquery.arrowSteps',
 				'jquery.autoEllipsis',
+				'jquery.client',
 				'jquery.ui.core',
 				'jquery.ui.dialog',
 				'jquery.ui.datepicker',
