@@ -420,16 +420,8 @@ mw.UploadWizard.prototype = {
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
-
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
 		$j( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
-		$j( upload.ui.div ).bind( 'filled', function(e) {
-			_this.newUpload();  // is this necessary? XXX XXX XXX
-			_this.setUploadFilled(upload);
-			e.stopPropagation();
-		} );
-		// XXX bind to some error state
-
 		return upload;
 	},
 
@@ -439,6 +431,7 @@ mw.UploadWizard.prototype = {
 	 * @param UploadWizardUpload
 	 */
 	setUploadFilled: function( upload ) {
+
 		var _this = this;
 
 		// When we add uploads from a multi-select operation, the file objects
