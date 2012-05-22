@@ -277,7 +277,16 @@ class SpecialUploadWizard extends SpecialPage {
 			if ( !$user->isLoggedIn() && ( $wgGroupPermissions['user']['upload']
 				|| $wgGroupPermissions['autoconfirmed']['upload'] ) ) {
 				// Custom message if logged-in users without any special rights can upload
-				$this->getOutput()->showErrorPage( 'uploadnologin', 'uploadnologintext' );
+				$returnstr = $this->getTitle();
+				$values = $this->getRequest()->getValues();
+				if ( isset( $values['title'] ) ) {
+					unset( $values['title'] );
+				}
+				$rtq = wfArrayToCgi( $values );
+				if ( $rtq && $rtq != '' ) {
+					$returnstr .= '&returntoquery=' . $rtq;
+				}
+				$this->getOutput()->showErrorPage( 'uploadnologin', 'mwe-upwiz-error-nologin', $returnstr );
 			} else {
 				throw new  PermissionsError( 'upload' );
 			}
