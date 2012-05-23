@@ -215,7 +215,10 @@
 				if ( req && ( typeof req.abort !== 'unknown' ) && ( typeof req.abort !== 'undefined' ) && req.abort ) {
 					req.abort();
 				}
-			}
+			},
+			'result': { 'select': function ( $div, $text ) {
+				_processInput( _this );
+			} }
 		} );
 		_this.suggestions();
 
