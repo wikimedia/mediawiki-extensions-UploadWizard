@@ -36,6 +36,7 @@ mw.UploadWizard.prototype = {
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
 	reset: function() {
+		mw.UploadWizardUpload.prototype.count = -1; // this is counterintuitive, but the count needs to start at -1 to allow for the empty upload created on the first step.
 		$.purgeReadyEvents();
 		$.purgeSubscriptions();
 		this.removeMatchingUploads( function() { return true; } );
