@@ -1082,17 +1082,32 @@ mw.UploadWizardDetails.prototype = {
 
 
 		var ok = function( result ) {
+			var warnings = null;
+			var wasDeleted = false;
+			if ( result && result.upload && result.upload.warnings ) {
+				warnings = result.upload.warnings;
+			}
+			if ( warnings && warnings['was-deleted'] ) {
+				delete warnings['was-deleted'];
+				wasDeleted = true;
+				for ( var wx in warnings ) {
+					if ( warnings.hasOwnProperty( wx ) ) {
+						// if there are other warnings, deal with those first
+						wasDeleted = false;
+					}
+				}
+			}
 			if ( result && result.upload && result.upload.imageinfo ) {
 				_this.upload.extractImageInfo( result.upload.imageinfo );
 				_this.upload.detailsProgress = 1.0;
 				_this.upload.state = 'complete';
 				_this.showIndicator( 'uploaded' );
 				_this.setStatus( gM( 'mwe-upwiz-published' ) );
+			} else if ( wasDeleted === true ) {
+				params.ignorewarnings = 1;
+				_this.upload.api.postWithEditToken( params, ok, err );
 			} else if ( result && result.upload.warnings ) {
-				var warnings = result.upload.warnings;
-				if ( warnings['was-deleted'] ) {
-					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-was-deleted', _this.upload.title.toString() ) );
-				} else if ( warnings['thumb'] ) {
+				if ( warnings['thumb'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-thumbnail' ) );
 				} else if ( warnings['bad-prefix'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-senselessimagename' ) );

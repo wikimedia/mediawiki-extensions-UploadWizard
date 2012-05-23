@@ -167,11 +167,10 @@ mw.UploadWizardUpload.prototype = {
 		var info = 'unknown';
 
 		if ( result.upload && result.upload.warnings && result.upload.warnings.length !== 0 ) {
-			if ( result.upload.warnings['exists'] ) {
+			if ( result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] ) {
 				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
-				// potentially we could indicate to the upload that it should set the Title field to error state now, but we'll let them deal with that later.
-				// however, we don't get imageinfo, so let's try to get it and pretend that we did
-				var existsFileName = result.upload.warnings.exists;
+				// consequently, get rid of the warning and make sure the later stuff gets called
+				var existsFileName = result.upload.warnings.exists || result.upload.warnings['was-deleted'];
 				try {
 					code = 'exists';
 					info = new mw.Title( existsFileName, fileNsId ).getUrl();
@@ -181,15 +180,11 @@ mw.UploadWizardUpload.prototype = {
 				}
 				_this.addWarning( code, info );
 				_this.extractUploadInfo( result.upload );
-				var success = function( imageinfo ) {
-					if ( imageinfo === null ) {
-						_this.setError( 'noimageinfo' );
-					} else {
-						result.upload.stashimageinfo = imageinfo;
-						_this.setSuccess( result );
-					}
-				};
-				_this.getStashImageInfo( success, [ 'timestamp', 'url', 'size', 'dimensions', 'sha1', 'mime', 'metadata', 'bitdepth' ] );
+				if ( result.upload.stashimageinfo === null ) {
+					_this.setError( 'noimageinfo', info );
+				} else {
+					_this.setSuccess( result );
+				}
 			} else if ( result.upload.warnings['duplicate'] ) {
 				code = 'duplicate';
 				_this.setError( code, _this.duplicateErrorInfo( 'duplicate', result.upload.warnings['duplicate'] ) );
@@ -206,7 +201,8 @@ mw.UploadWizardUpload.prototype = {
 				info = warningInfo.join( ', ' );
 				_this.setError( code, [ info ] );
 			}
-		} else if ( result.upload && result.upload.result === 'Success' ) {
+		}
+		if ( result.upload && result.upload.result === 'Success' ) {
 			if ( result.upload.imageinfo ) {
 				_this.setSuccess( result );
 			} else {
