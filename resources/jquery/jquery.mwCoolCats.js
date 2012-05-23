@@ -38,15 +38,29 @@
 
 		var cat = title.getMainText();
 		
-		if ( seenCat[cat] !== true ) {
+		$input.removeClass( 'will-be-added' );
+		if ( seenCat[cat] !== true && !_doesCatExist( text ) ) {
 			$label.append( '<span class="mwe-upwiz-category-will-be-added"></span>' );
+			$input.addClass( 'will-be-added' );
 			$( '.mwe-upwiz-category-will-be-added', $label ).html( settings.willbeaddedtext );
 		}
 
-		if (shouldcreate === true) {
+		if ( shouldcreate === true ) {
 			_insertCat( title );
 		}
 	}
+	
+	function _doesCatExist( cat ) {
+		var exists = false;
+		$( 'input.will-be-added' ).each(function () {
+			if ( _stripText( $( this ).val() ) == cat ) {
+				exists = true;
+				return false;
+			}
+		});
+		return exists;
+	}
+
 
 	/**
 	 * Add a new category to the page
@@ -233,8 +247,8 @@
 			if(e.keyCode == 13) {
 				e.stopPropagation();
 				e.preventDefault();
-				_processInput(this);
 			}
+			_processInput(this);
 		});
 		_this.blur(function(e) {
 			_processInput(this);

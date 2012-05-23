@@ -738,4 +738,5 @@ input.mwe-date {
 .mwe-upwiz-category-will-be-added {
 	font-style:italic;
 	color:gray;
+	padding-left:0.5em;
 }
