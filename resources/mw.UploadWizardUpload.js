@@ -153,7 +153,7 @@ mw.UploadWizardUpload.prototype = {
 		var code = 'unknown';
 		var info = 'unknown';
 
-		if ( result.upload && result.upload.warnings ) {
+		if ( result.upload && result.upload.warnings && result.upload.warnings.length !== 0 ) {
 			if ( result.upload.warnings['exists'] ) {
 				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
 				// potentially we could indicate to the upload that it should set the Title field to error state now, but we'll let them deal with that later.
