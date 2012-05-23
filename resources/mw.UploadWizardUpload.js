@@ -355,7 +355,7 @@ mw.UploadWizardUpload.prototype = {
 					// NOTE: Because we don't know until runtime if the browser supports chunked
 					// uploading, we can't determine this server-side.
 					var actualMaxSize;
-					if ( mw.UploadWizard.config.enableChunked && mw.fileApi.isSliceAvailable() ) {
+					if ( mw.UploadWizard.config.enableChunked && mw.fileApi.isFormDataAvailable() ) {
 						actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
 					} else {
 						actualMaxSize = Math.min(
@@ -736,7 +736,7 @@ mw.UploadWizardUpload.prototype = {
 			var constructor;  // must be the name of a function in 'mw' namespace
 			if( mw.UploadWizard.config[ 'enableFirefogg' ] && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
-			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isSliceAvailable()) {
+			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isFormDataAvailable()) {
 				constructor = 'ApiUploadFormDataHandler';
 			} else {
 				constructor = 'ApiUploadHandler';

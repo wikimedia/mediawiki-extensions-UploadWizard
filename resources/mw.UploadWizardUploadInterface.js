@@ -22,7 +22,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	_this.$fileInputCtrl = $j( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
 	var profile = $.client.profile();
-	if( mw.fileApi.isAvailable() && mw.UploadWizard.config['enableMultiFileSelect'] && (profile.name != 'firefox' || profile.versionNumber > 3.6) ) {
+	if (mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isFormDataAvailable() ) {
+		// Multiple uploads requires the FormData transport
 		_this.$fileInputCtrl.attr( 'multiple', '1' );
 	}
 
