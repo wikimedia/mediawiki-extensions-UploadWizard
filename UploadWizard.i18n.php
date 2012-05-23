@@ -147,6 +147,7 @@ Please check <b><tt>$1</tt></b> if you are not sure if you want to replace it.',
 	'mwe-prevent-close' => 'Leaving this page may cause you to lose any changes you have made.',
 	'mwe-upwiz-prevent-close' => 'You have not finished uploading and publishing {{PLURAL:$1|this file|these files}} yet.',
 	'mwe-upwiz-files-complete' => 'Your files finished uploading!',
+	'mwe-upwiz-tooltip-skiptutorial' => 'You can re-enable this tutorial in [$1 your user preferences], under $2 &rarr; $3.',
 	'mwe-upwiz-tooltip-author' => 'The name of the person who took the photo, or painted the picture, drew the drawing, etc.',
 	'mwe-upwiz-tooltip-source' => 'Where this digital file came from — could be a URL, or a book or publication.',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name.
@@ -351,11 +352,13 @@ Please do not use wikitext or HTML here.',
 	'prefs-uploads' => 'Uploads',
 	'prefs-upwiz-licensing' => 'Licensing',
 	'prefs-upwiz-experimental' => 'Experimental features',
+	'prefs-upwiz-interface' => 'User interface',
 	'mwe-upwiz-prefs-def-license' => 'Default license',
 	'mwe-upwiz-prefs-def-license-def' => 'Use whatever the default is',
 	'mwe-upwiz-prefs-license-own' => 'Own work - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => "Someone else's work - $1",
 	'mwe-upwiz-prefs-chunked' => 'Chunked uploads for files over 1MB in Upload Wizard',
+	'mwe-upwiz-prefs-skiptutorial' => 'Skip introductory licensing tutorial',
 
 	// See for example.
 	'languageHandler.js' => '', # Do not translate this message.
@@ -575,8 +578,11 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mw-coolcats-confirm-new-cancel' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will remove the selected non-existing categories from being added to the upload.',
 	'prefs-uploads' => 'Preferences tab label for UploadWizard preferences related to uploads. See https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.
 {{Identical|Upload}}',
+	'prefs-upwiz-interface' => 'Preferences section heading for preferences related to the Upload Wizard user interface',
 	'mwe-upwiz-prefs-def-license' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
+	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning',
+	'mwe-upwiz-tooltip-skiptutorial' => 'The tooltip shown when clicking the checkbox in the first step which enables the user to skip the introductory licensing tutorial in future. $1 is the URL for the user preferences, $2 is {{msg-mw|prefs-uploads}}, $3 is {{msg-mw|prefs-upwiz-interface}}.',
 );
 
 /** Ṫuroyo (Ṫuroyo)
