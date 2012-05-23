@@ -34,6 +34,13 @@ $specialPageAliases['de'] = array(
 	'UploadCampaign' => array( 'Hochladekampagne' ),
 );
 
+/** Estonian (Eesti) */
+$specialPageAliases['et'] = array(
+	'UploadWizard' => array( 'Üleslaadimisviisard' ),
+	'UploadCampaigns' => array( 'Üleslaadimiskampaaniad' ),
+	'UploadCampaign' => array( 'Üleslaadimiskampaania' ),
+);
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
 	'UploadWizard' => array( 'جادوگر_بارگذاری' ),
@@ -42,6 +49,13 @@ $specialPageAliases['fa'] = array(
 /** Galician (Galego) */
 $specialPageAliases['gl'] = array(
 	'UploadWizard' => array( 'Asistente_de_cargas' ),
+);
+
+/** Swiss German (Alemannisch) */
+$specialPageAliases['gsw'] = array(
+	'UploadWizard' => array( 'Uffelade-Assistent' ),
+	'UploadCampaigns' => array( 'Uffelade-Kampagne_(mehreri)' ),
+	'UploadCampaign' => array( 'Uffelade-Kampagne' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */
@@ -54,6 +68,11 @@ $specialPageAliases['ia'] = array(
 	'UploadWizard' => array( 'Assistente_de_incargamento' ),
 	'UploadCampaigns' => array( 'Campanias_de_incargamento' ),
 	'UploadCampaign' => array( 'Campania_de_incargamento' ),
+);
+
+/** Indonesian (Bahasa Indonesia) */
+$specialPageAliases['id'] = array(
+	'UploadWizard' => array( 'Wisaya_pengunggahan', 'WisayaPengunggahan' ),
 );
 
 /** Italian (Italiano) */
@@ -81,11 +100,15 @@ $specialPageAliases['mk'] = array(
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
 	'UploadWizard' => array( 'അപ്‌ലോഡ്_സഹായി' ),
+	'UploadCampaigns' => array( 'അപ്‌ലോഡ്‌മേളകൾ' ),
+	'UploadCampaign' => array( 'അപ്‌ലോഡ്‌മേള' ),
 );
 
 /** Norwegian Bokmål (‪Norsk (bokmål)‬) */
 $specialPageAliases['nb'] = array(
 	'UploadWizard' => array( 'Opplastingsveiviser' ),
+	'UploadCampaigns' => array( 'Opplastingskampanjer' ),
+	'UploadCampaign' => array( 'Opplastingskampanje' ),
 );
 
 /** Nedersaksisch (Nedersaksisch) */
@@ -100,6 +123,13 @@ $specialPageAliases['nl'] = array(
 	'UploadWizard' => array( 'WizardUploaden' ),
 	'UploadCampaigns' => array( 'Uploadcampagnes' ),
 	'UploadCampaign' => array( 'Uploadcampagne' ),
+);
+
+/** Russian (Русский) */
+$specialPageAliases['ru'] = array(
+	'UploadWizard' => array( 'Мастер_загрузки' ),
+	'UploadCampaigns' => array( 'Кампании_по_загрузке' ),
+	'UploadCampaign' => array( 'Кампания_по_загрузке' ),
 );
 
 /** Sinhala (සිංහල) */
