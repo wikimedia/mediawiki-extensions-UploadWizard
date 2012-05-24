@@ -36,6 +36,7 @@ $wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.al
 # Require modules, including the special page
 foreach ( array(
 		'UploadWizardHooks' => $wgUpwizDir,
+		'ApiUploadCampaign' => $wgUpwizDir . '/api',
 		'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api',
 		'UploadWizardConfig' => $wgUpwizDir . '/includes',
 		'UploadWizardTutorial' => $wgUpwizDir . '/includes',
@@ -60,6 +61,7 @@ $wgSpecialPageGroups['UploadCampaigns'] = 'media';
 $wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
 $wgSpecialPageGroups['UploadCampaign'] = 'media';
 
+$wgAPIModules['uploadcampaign'] = 'ApiUploadCampaign';
 $wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
 
 // for ResourceLoader
