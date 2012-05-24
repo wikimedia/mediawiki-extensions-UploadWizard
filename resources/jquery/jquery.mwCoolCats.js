@@ -35,6 +35,7 @@
 		}
 
 		var title = new mw.Title( text, catNsId );
+		$input.data( 'title', title );
 
 		var cat = title.getMainText();
 		
@@ -95,7 +96,7 @@
 		if ( typeof selector === 'undefined' ) {
 			selector = '*'; // fetch _ALL_ the categories!
 		}
-		return $container.find( 'ul li.cat' )
+		return $container.find( 'ul li.cat, .categoryInput' )
 				.filter( selector )
 				.map( function() { return $j( this ).data( 'title' ); } );
 	}
