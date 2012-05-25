@@ -176,6 +176,7 @@ Make it longer than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Your signature contains symbols that are not allowed.
 Please do not use wikitext or HTML here, just your username or real name.',
 	'mwe-upwiz-error-blank' => 'This field is required.',
+	'mwe-upwiz-error-nologin' => 'You must be <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} logged in]</span> to upload files.',
 	'mwe-upwiz-error-too-long' => 'This field is too long.
 Please make this entry shorter than $1 {{PLURAL:$1|character|characters}}.',
 	'mwe-upwiz-error-too-short' => 'This field is too short.
@@ -508,6 +509,7 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-error-altitude' => 'Error message shown when an invalid altitude is entered',
 	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
 	'mwe-upwiz-error-title-thumbnail' => 'Appears when thumbnail title is similar to "22px-Example.jpg" - the prefix is what MW adds when downloading pictures as thumbnails.',
+	'mwe-upwiz-error-nologin' => 'Error shown when user is not logged in, returns them to the upload form.',
 	'mwe-upwiz-too-many-files-ok' => 'OK button text.
 {{Identical|OK}}',
 	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
