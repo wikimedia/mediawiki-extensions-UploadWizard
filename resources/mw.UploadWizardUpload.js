@@ -166,7 +166,7 @@ mw.UploadWizardUpload.prototype = {
 		var code = 'unknown';
 		var info = 'unknown';
 
-		if ( result.upload && result.upload.warnings && result.upload.warnings.length !== 0 ) {
+		if ( result.upload && result.upload.warnings && result.upload.warnings.length !== 0 && result.upload.result ) {
 			if ( result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] ) {
 				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
 				// consequently, get rid of the warning and make sure the later stuff gets called
@@ -191,8 +191,8 @@ mw.UploadWizardUpload.prototype = {
 			} else if ( result.upload.warnings['duplicate-archive'] ) {
 				code = 'duplicate-archive';
 				_this.setError( code, _this.duplicateErrorInfo( 'duplicate-archive', result.upload.warnings['duplicate-archive'] ) );
-			} else {
-				// we have an unknown warning. Assume fatal
+			} else if ( result.upload.result !== 'Success' ) {
+				// we have an unknown warning and the result is not "Success". Assume fatal.
 				code = 'unknown-warning';
 				var warningInfo = [];
 				$j.each( result.upload.warnings, function( k, v ) {
@@ -209,7 +209,7 @@ mw.UploadWizardUpload.prototype = {
 				_this.setError( 'noimageinfo', info );
 			}
 		} else {
-			if ( result.error ) {
+			if ( result && result.error ) {
 				if ( result.error.code ) {
 					code = result.error.code;
 				}
