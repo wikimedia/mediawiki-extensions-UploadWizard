@@ -757,7 +757,7 @@ mw.UploadWizardUpload.prototype = {
 			var constructor;  // must be the name of a function in 'mw' namespace
 			if( mw.UploadWizard.config[ 'enableFirefogg' ] && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
-			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isFormDataAvailable()) {
+			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable()) {
 				constructor = 'ApiUploadFormDataHandler';
 			} else {
 				constructor = 'ApiUploadHandler';
