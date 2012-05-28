@@ -1163,7 +1163,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-help-desk' => 'مكتب المساعدة',
 	'mwe-upwiz-help-desk-url' => 'مكتب المساعدة',
 	'mwe-upwiz-add-file-n' => 'أضف ملفًا آخرًا',
-	'mwe-upwiz-add-file-0-free' => 'ألقِ ملف وسائط هنا لتتبرع به',
+	'mwe-upwiz-add-file-0-free' => 'اختر ملف وسائط هنا لتتبرع به',
 	'mwe-upwiz-transport-started' => 'يبدأ...',
 	'mwe-upwiz-uploading' => 'يرفع...',
 	'mwe-upwiz-transported' => 'موافق',
@@ -1212,6 +1212,14 @@ $messages['ar'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'موافق',
 	'mwe-upwiz-source-custom' => 'معلومات حقوق التأليف والنشر لكل ملف كل على حدة في الصفحة التالية.',
 	'mwe-upwiz-more-options' => 'أضف تصنيفات ومزيدًا من المعلومات...',
+	'mwe-upwiz-copy-metadata' => 'انسخ المعلومات لجميع المرفوعات أدناه...',
+	'mwe-upwiz-copy-metadata-button' => 'انسخ',
+	'mwe-upwiz-copy-title' => 'انسخ العنوان (مع ترقيم آلي)',
+	'mwe-upwiz-copy-description' => 'انسخ الوصف',
+	'mwe-upwiz-copy-date' => 'انسخ التاريخ',
+	'mwe-upwiz-copy-categories' => 'انسخ التصنيفات',
+	'mwe-upwiz-copy-location' => 'انسخ الموقع',
+	'mwe-upwiz-copy-other' => 'انسخ المعلومات الأخرى',
 	'mwe-upwiz-desc' => 'الوصف',
 	'mwe-upwiz-desc-add-n' => 'أضف وصفا بلغة أخرى',
 	'mwe-upwiz-desc-add-0' => 'أضف وصفا',
@@ -1260,6 +1268,7 @@ $messages['ar'] = array(
 	'mwe-prevent-close' => 'ترك هذه الصفحة قد يؤدي إلى فقدان أية تغييرات قمت بإجرائها.',
 	'mwe-upwiz-prevent-close' => 'لم تكمل رفع {{PLURAL:$1||هذا الملف ونشره|هذين الملفين ونشرهما|هذه الملفات ونشرها}} إلى الآن.',
 	'mwe-upwiz-files-complete' => 'انتهى رفع ملفاتك!',
+	'mwe-upwiz-tooltip-skiptutorial' => 'بإمكانك إعادة تفعيل هذه التعليمات من [$1 تفضيلاتك] تحت $2 &larr; $3.',
 	'mwe-upwiz-tooltip-author' => 'اسم الشخص الذي التقط الصورة  أو رسم الرسم إلخ.',
 	'mwe-upwiz-tooltip-source' => 'مكان حصولك على هذا الملف الرقمي -- يمكن أن يكون عنوانًا أو كتابًا أو منشورًا.',
 	'mwe-upwiz-tooltip-sign' => 'يمكنك استخدام اسم مستخدمك على الويكي أو اسمك الحقيقي.
@@ -1288,6 +1297,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'التوقيع الخاص بك يحتوي على رموز غير مسموح.
 الرجاء عدم استخدام ونصوص ويكي أو HTML هنا، مجرد اسم المستخدم أو اسم حقيقي.',
 	'mwe-upwiz-error-blank' => 'هذا الحقل مطلوب.',
+	'mwe-upwiz-error-nologin' => 'يجب أن <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} تدخل]</span> لترفع الملفات.',
 	'mwe-upwiz-error-too-long' => 'هذا الحقل طويل جداً.
 الرجاء جعل هذا الإدخال أقصر من $1 {{PLURAL:$1|حرف|حروف}}.',
 	'mwe-upwiz-error-too-short' => 'هذا الحقل طويل جداً.
@@ -1311,6 +1321,8 @@ $messages['ar'] = array(
 	'mwe-upwiz-too-many-files-ok' => 'موافق',
 	'mwe-upwiz-too-many-files-text' => 'يمكنك رفع {{PLURAL:$1||ملف واحد|ملفين|$1 ملفات|$1 ملفًا|$1 ملف}} فقط كل مرة. لقد حاولت رفع ما مجموعه {{PLURAL:$2||ملف واحد|ملفين|$2 ملفات|$2 ملفًا|$2 ملف}}، ولذا أزيل {{PLURAL:$3||ملف واحد|ملفان|$3 ملفات|$3 ملفًا|$3 ملف}}.',
 	'mwe-upwiz-too-many-files' => 'ملفات كثيرة جدًا.',
+	'mwe-upwiz-file-too-large-ok' => 'موافق',
+	'mwe-upwiz-file-too-large' => 'الملف كبير جدا.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 ([$2 النص القانوني])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 النمسا ([$2 النص القانوني])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 ألمانيا ([$2 النص القانوني])',
@@ -1363,6 +1375,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-license-external-invalid' => 'هذا الملف يخضع للرخصة التالية على $1: <b>$2</b>. للاسف، هذه الرخصة لا يمكن استخدامها على هذا الموقع.',
 	'mwe-upwiz-categories' => 'تصنيفات',
 	'mwe-upwiz-categories-add' => 'أضف',
+	'mwe-upwiz-category-will-be-added' => 'سينشأ هذا التصنيف.',
 	'mwe-upwiz-category-remove' => 'أزل هذا التصنيف',
 	'mwe-upwiz-thanks-caption' => 'أضف تسمية توضيحية هنا',
 	'mwe-upwiz-thumbnail-failed' => 'نجح الرفع، لكن الخادوم لم يتمكن من عرض صورة مصغرة للمعاينة.',
@@ -1421,15 +1434,23 @@ $1',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'صفحة فيها نص يعرض فوق صفحة واجهة مساعد التحميل. يستبدل $1 برمز اللغة:',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'صفحة فيها نص يعرض أعلى صفحة "الاستخدام". يستبدل $1 برمز اللغة:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'الحد الأقصى لطول النص في حقل "معرف المستخدم"',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'خط العرض المبدئي:',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'خط الطول المبدئي:',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'الارتفاع المبدئي:',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'الوصف المبدئي:',
 	'mw-coolcats-confirm-new-title' => 'تأكيد تصنيف جديد',
 	'mw-coolcats-confirm-new' => 'يبدو أنك تحاول إضافة تصنيف جديدة، "$1". اعلم أن:<ul><li>التصنيفات يلزم أن تكون بالإنجليزية.</li><li>وأن معظم التصنيفات الجديدة يلزم أن تكون فروع لتصنيفات أخرى أقدم.</li></ul>وأن المختصين هم المكلفون بإنشاء التصنيفات على العموم.',
 	'mw-coolcats-confirm-new-ok' => 'أضف هذا التصنيف على كل حال',
 	'mw-coolcats-confirm-new-cancel' => 'حسنا',
 	'prefs-uploads' => 'المرفوعات',
+	'prefs-upwiz-licensing' => 'الترخيص',
+	'prefs-upwiz-experimental' => 'مزايا تجريبية',
+	'prefs-upwiz-interface' => 'واجهة المستخدم',
 	'mwe-upwiz-prefs-def-license' => 'الرخصة المبدئية',
 	'mwe-upwiz-prefs-def-license-def' => 'استخدم المبدئي أيًا كان',
 	'mwe-upwiz-prefs-license-own' => 'عمل شخصي - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'عمل شخص آخر-$1',
+	'mwe-upwiz-prefs-skiptutorial' => 'تخطَ تعليمات الترخيص في المقدمة',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -3503,6 +3524,14 @@ $messages['cs'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Na další stránce poskytnout informace o autorských právech pro každý soubor zvlášť.',
 	'mwe-upwiz-more-options' => 'přidat kategorie a další informace…',
+	'mwe-upwiz-copy-metadata' => 'Kopírovat informace ke všem níže uvedeným souborům…',
+	'mwe-upwiz-copy-metadata-button' => 'Okopírovat',
+	'mwe-upwiz-copy-title' => 'Okopírovat název (s automatickým číslováním)',
+	'mwe-upwiz-copy-description' => 'Okopírovat popis(y)',
+	'mwe-upwiz-copy-date' => 'Okopírovat datum',
+	'mwe-upwiz-copy-categories' => 'Okopírovat kategorie',
+	'mwe-upwiz-copy-location' => 'Okopírovat místo',
+	'mwe-upwiz-copy-other' => 'Okopírovat další informace',
 	'mwe-upwiz-desc' => 'Popis',
 	'mwe-upwiz-desc-add-n' => 'přidat popis v dalším jazyce',
 	'mwe-upwiz-desc-add-0' => 'přidat popis',
@@ -3579,6 +3608,7 @@ Podpis musí mít nejméně $1 {{PLURAL:$1|znak|znaky|znaků}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Váš podpis obsahuje nedovolené symboly.
 Nevkládejte sem HTML ani wikitext, pouze své uživatelské nebo skutečné jméno.',
 	'mwe-upwiz-error-blank' => 'Toto pole je povinné.',
+	'mwe-upwiz-error-nologin' => 'Pokud chcete načítat soubory, musíte se <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} přihlásit]</span>.',
 	'mwe-upwiz-error-too-long' => 'Toto pole je příliš dlouhé.
 Obsah může mít maximálně $1 {{PLURAL:$1|znak|znaky|znaků}}.',
 	'mwe-upwiz-error-too-short' => 'Toto pole je příliš krátké.
@@ -5446,6 +5476,7 @@ $1',
 
 /** Spanish (Español)
  * @author Armando-Martin
+ * @author Ciencia Al Poder
  * @author Crazymadlover
  * @author Dferg
  * @author Fitoschido
@@ -5615,6 +5646,7 @@ Hazla más larga que $1 {{PLURAL:$1|caracter|caracteres}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Tu firma contiene símbolos que no están permitidos.
 Por favor no uses wikitexto o HTML aquí, solo tu nombre de usuario o nombre real.',
 	'mwe-upwiz-error-blank' => 'Este campo es obligatorio.',
+	'mwe-upwiz-error-nologin' => 'Necesitas <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} iniciar sesión]</span> para subir archivos.',
 	'mwe-upwiz-error-too-long' => 'Este campo es demasiado largo.
 Hazlo más corto que $1 {{PLURAL:$1|caracter|caracteres}}.',
 	'mwe-upwiz-error-too-short' => 'Este campo es demasiado corto.
@@ -7080,6 +7112,7 @@ Elle doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Votre signature contient des symboles qui ne sont pas autorisés.
 Veuillez ne pas utiliser de code wiki ni de HTML ici, juste votre nom d’utilisateur ou votre vrai nom.',
 	'mwe-upwiz-error-blank' => 'Ce champ est obligatoire.',
+	'mwe-upwiz-error-nologin' => 'Vous devez être <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} connecté]</span> pour télécharger des fichiers.',
 	'mwe-upwiz-error-too-long' => 'Ce champ est trop long.
 Il ne doit pas dépasser $1 {{PLURAL:$1|caractère|caractères}}.',
 	'mwe-upwiz-error-too-short' => 'Ce champ est trop court.
@@ -7743,6 +7776,7 @@ Debe conter un mínimo {{PLURAL:$1|dun carácter|de $1 caracteres}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'A súa sinatura contén símbolos que non están permitidos.
 Non utilice texto wiki ou HTML aquí, tan só o seu nome de usuario ou nome real.',
 	'mwe-upwiz-error-blank' => 'Este campo é obrigatorio.',
+	'mwe-upwiz-error-nologin' => 'Debe <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} acceder ao sistema]</span> para cargar ficheiros.',
 	'mwe-upwiz-error-too-long' => 'Este campo é longo de máis.
 Non pode conter máis {{PLURAL:$1|dun carácter|de $1 caracteres}}.',
 	'mwe-upwiz-error-too-short' => 'Este campo é curto de máis.
@@ -8693,6 +8727,7 @@ $messages['he'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'החתימה שלך מכילה סמלים אסורים.
 נא לא להשתמש כאן בקוד ויקי או ב־HTML, אלא רק בשם המשתמש שלכם או בשמכם האמתי.',
 	'mwe-upwiz-error-blank' => 'חובה למלא שדה זה.',
+	'mwe-upwiz-error-nologin' => 'יש <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}}להיכנס לחשבון] כדי להעלות קבצים.',
 	'mwe-upwiz-error-too-long' => 'השדה הזה ארוך מדי.
 הוא חייב להיות קצר מ{{PLURAL:$1|תו אחד|־$1 תווים}}.',
 	'mwe-upwiz-error-too-short' => 'השדה הזה קצר מדי.
@@ -11160,6 +11195,7 @@ Deve essere lunga almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'La tua firma contiene simboli che non sono ammessi.
 Non utilizzare codice HTML o wikitesto qui, solo il nome utente o il nome reale.',
 	'mwe-upwiz-error-blank' => 'Questo campo è obbligatorio.',
+	'mwe-upwiz-error-nologin' => 'Devi aver effettuato <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} l\'accesso]</span> per caricare i file.',
 	'mwe-upwiz-error-too-long' => 'Questo testo è troppo lungo.
 Può essere lungo al massimo $1 {{PLURAL:$1|carattere|caratteri}}.',
 	'mwe-upwiz-error-too-short' => 'Questo testo è troppo breve.
@@ -12132,7 +12168,9 @@ $messages['ko'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => '확인',
 	'mwe-upwiz-source-custom' => '다음 페이지에서 개별 파일에 대한 정보를 입력하겠습니다.',
 	'mwe-upwiz-more-options' => '분류와 자세한 정보 추가하기...',
+	'mwe-upwiz-copy-metadata' => '아래의 모든 업로드 정보를 복사 ...',
 	'mwe-upwiz-copy-metadata-button' => '복사',
+	'mwe-upwiz-copy-title' => '제목 복사 (자동으로 번호 매기기)',
 	'mwe-upwiz-copy-description' => '설명 복사',
 	'mwe-upwiz-copy-date' => '날짜 복사',
 	'mwe-upwiz-copy-categories' => '분류 복사',
@@ -12186,6 +12224,7 @@ $messages['ko'] = array(
 	'mwe-prevent-close' => '이 페이지를 빠져나가면 당신이 한 편집 사항이 손실될 수 있습니다.',
 	'mwe-upwiz-prevent-close' => '{{PLURAL:$1|이 파일}}을 올리고 출판하는 것이 아직 끝나지 않았습니다.',
 	'mwe-upwiz-files-complete' => '파일 업로드가 완료되었습니다!',
+	'mwe-upwiz-tooltip-skiptutorial' => '$2 &rarr; $3 하에 [$1 사용자 환경 설정]에서 이 튜토리얼을 다시 설정할 수 있습니다.',
 	'mwe-upwiz-tooltip-author' => '사진을 찍거나 그림을 그린 사람의 이름',
 	'mwe-upwiz-tooltip-source' => '이 디지털 파일이 원래 있었던 곳 - URL이나 책, 출판물 등을 기입할 수 있습니다.',
 	'mwe-upwiz-tooltip-sign' => '당신의 위키 계정 이름이나 실명을 쓸 수 있습니다.
@@ -12214,6 +12253,7 @@ $1자보다 길게 해 주십시오.',
 	'mwe-upwiz-error-signature-bad-chars' => '당신의 서명에 부적절한 글자나 기호가 포함되어 있습니다.
 위키텍스트나 HTML을 사용하지 말고 단순히 계정 이름이나 실명만을 입력하십시오.',
 	'mwe-upwiz-error-blank' => '이 칸은 반드시 입력해야 합니다.',
+	'mwe-upwiz-error-nologin' => '파일을 업로드하려면 먼저 <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} 로그인]</span>을 해야 합니다.',
 	'mwe-upwiz-error-too-long' => '이 칸을 너무 길게 입력했습니다.
 $1글자보다 짧게 입력해주세요.',
 	'mwe-upwiz-error-too-short' => '이 칸을 너무 짧게 입력했습니다.
@@ -12368,6 +12408,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => '기본값을 따로 설정하지 않고 사용합니다',
 	'mwe-upwiz-prefs-license-own' => '자작 - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '다른 사람의 저작물 - $1',
+	'mwe-upwiz-prefs-chunked' => '1MB가 넘는 큰 용량의 파일을 업로드 마법사를 통해 올리기',
 	'mwe-upwiz-prefs-skiptutorial' => '입문 라이센스 자습서 건너뛰기',
 );
 
@@ -13856,6 +13897,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'Вашиот потпис содржи знаци што не се дозволени.
 Тука не користите викитекст или HTML, туку само вашето корисничко или вистинско име.',
 	'mwe-upwiz-error-blank' => 'Ова поле е задолжително.',
+	'mwe-upwiz-error-nologin' => 'Мора да бидете <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} најавени]</span> за да подигате податотеки.',
 	'mwe-upwiz-error-too-long' => 'Полето е предолго.
 Мора да биде пократко од $1 {{PLURAL:$1|знак|знаци}}.',
 	'mwe-upwiz-error-too-short' => 'Полето е прекратко.
@@ -14713,6 +14755,7 @@ Sila semak <b><tt>$1</tt></b> jika anda tidak pasti sama ada anda hendak menukar
 	'mwe-prevent-close' => 'Jika anda meninggalkan laman ini, anda akan kehilangan sebarang perubahan yang anda lakukan.',
 	'mwe-upwiz-prevent-close' => 'Anda belum selesai memuat naik dan menerbitkan {{PLURAL:$1|fail|fail-fail}} ini lagi.',
 	'mwe-upwiz-files-complete' => 'Fail-fail anda selesai dimuat naik!',
+	'mwe-upwiz-tooltip-skiptutorial' => 'Anda boleh menghidupkan semula tutorial ini di [$1 keutamaan pengguna anda], di bawah $2 &rarr; $3.',
 	'mwe-upwiz-tooltip-author' => 'Nama orang yang mengambil foto, atau melukis gambar ini dsb.',
 	'mwe-upwiz-tooltip-source' => 'Dari mana datangnya fail digital ini; mungkin URL, buku atau bahan terbitan yang seumpamanya',
 	'mwe-upwiz-tooltip-sign' => 'Anda boleh menggunakan nama pengguna wiki anda atau nama sebenar anda.
@@ -14741,6 +14784,7 @@ Pastikan ia melebihi $1 aksara.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Tandatangan anda mengandungi aksara-aksara yang tidak dibenarkan.
 Tolong jangan gunakan teks wiki atau HTML di sini, kami cuma memerlukan nama pengguna/nama sebenar anda.',
 	'mwe-upwiz-error-blank' => 'Ruangan ini wajib diisi.',
+	'mwe-upwiz-error-nologin' => 'Anda mestilah <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} log masuk]</span> untuk memuat naik fail.',
 	'mwe-upwiz-error-too-long' => 'Ruangan ini terlalu panjang.
 Pastikan entri ini tidak melebihi $1 aksara.',
 	'mwe-upwiz-error-too-short' => 'Ruangan ini terlalu pendek.
@@ -14819,6 +14863,7 @@ Tolong jangan gunakan teks wiki atau HTML di sini.',
 	'mwe-upwiz-license-external-invalid' => 'Fail ini di bawah lesen berikut di $1: <b>$2</b>. Bagaimanapun, lesen ini tidak sesuai digunakan di tapak ini.',
 	'mwe-upwiz-categories' => 'Kategori',
 	'mwe-upwiz-categories-add' => 'Tambahkan',
+	'mwe-upwiz-category-will-be-added' => 'Kategori ini akan dicipta.',
 	'mwe-upwiz-category-remove' => 'Buang kategori ini',
 	'mwe-upwiz-thanks-caption' => 'Isikan kapsyen di sini',
 	'mwe-upwiz-thumbnail-failed' => 'Muat naik berjaya, tetapi pelayan tidak dapat memperoleh gambar kenit (thumbnail) pralihat.',
@@ -14889,11 +14934,13 @@ $1',
 	'prefs-uploads' => 'Muat naikan',
 	'prefs-upwiz-licensing' => 'Perlesenan',
 	'prefs-upwiz-experimental' => 'Ciri-ciri percubaan',
+	'prefs-upwiz-interface' => 'Antara muka pengguna',
 	'mwe-upwiz-prefs-def-license' => 'Lesen asali',
 	'mwe-upwiz-prefs-def-license-def' => 'Gunakan apa sahaja asalinya',
 	'mwe-upwiz-prefs-license-own' => 'Karya sendiri - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Karya orang lain - $1',
 	'mwe-upwiz-prefs-chunked' => 'Muat turun berangkai untuk fail-fail yang melebihi 1MB di Upload Wizard',
+	'mwe-upwiz-prefs-skiptutorial' => 'Langkau tutorial pelesenan permulaan',
 );
 
 /** Maltese (Malti)
@@ -15945,6 +15992,7 @@ Maak deze langer dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Uw handtekening bevat symbolen die niet zijn toegestaan.
 Gebruik geen wikitext of HTML, alleen uw gebruikersnaam of echte naam.',
 	'mwe-upwiz-error-blank' => 'Dit is een verplicht veld.',
+	'mwe-upwiz-error-nologin' => 'U moet <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} aangemeld zijn]</span> om bestanden te kunnen uploaden.',
 	'mwe-upwiz-error-too-long' => 'Dit veld is te lang.
 Maak het korter dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-too-short' => 'De invoer voor dit veld is te kort.
@@ -16765,6 +16813,13 @@ $messages['pl'] = array(
 	'mwe-upwiz-source-custom' => 'Podaj na następnej stronie informacje o prawach autorskich dla każdego pliku z osobna.',
 	'mwe-upwiz-more-options' => 'dodaj kategorie i więcej informacji...',
 	'mwe-upwiz-copy-metadata' => 'kopiuj informacje do wszystkich przesyłanych zdjęć poniżej...',
+	'mwe-upwiz-copy-metadata-button' => 'Kopiuj',
+	'mwe-upwiz-copy-title' => 'kopiuj tytuł (z automatycznym numerowaniem)',
+	'mwe-upwiz-copy-description' => 'kopiuj opisy',
+	'mwe-upwiz-copy-date' => 'kopiuj datę',
+	'mwe-upwiz-copy-categories' => 'kopiuj kategorie',
+	'mwe-upwiz-copy-location' => 'kopiuj lokalizację',
+	'mwe-upwiz-copy-other' => 'kopiuj inne informacje',
 	'mwe-upwiz-desc' => 'Opis',
 	'mwe-upwiz-desc-add-n' => 'dodaj opis w innym języku',
 	'mwe-upwiz-desc-add-0' => 'dodaj opis',
@@ -18994,16 +19049,17 @@ $1',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Название страницы с текстом ИД-поля строки. $1 заменяется на код языка:',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Страница, содержащая текст, отображаемый над интерфейсом Мастера загрузок. $1 заменяется код языка:',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Страница, содержащая текст, отображаемый над страницей «Использование». $1 заменяется код языка:',
-	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Максимальная длина текста в поле идентификатора',
-	'mwe-upwiz-campaign-conf-defaultLat' => 'Широта по умолчанию',
-	'mwe-upwiz-campaign-conf-defaultLon' => 'Долгота по умолчанию',
-	'mwe-upwiz-campaign-conf-defaultAlt' => 'Высота по умолчанию',
-	'mwe-upwiz-campaign-conf-defaultDescription' => 'Описание по умолчанию',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Максимальная длина текста в поле идентификатора:',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Широта по умолчанию:',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Долгота по умолчанию:',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Высота по умолчанию:',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Описание по умолчанию:',
 	'mw-coolcats-confirm-new-title' => 'Подтверждение новой категории',
 	'mw-coolcats-confirm-new' => 'Похоже, что вы пытаетесь создать новую категорию, «$1». Имейте в виду:<ul><li>Категории, как правило, должны называться на английском языке.</li><li> Большинство новых категорий должны быть подкатегориями существующих категорий. </li></ul>Обычно категории создают только специалисты.',
 	'mw-coolcats-confirm-new-ok' => 'Всё равно добавить эту категорию',
 	'mw-coolcats-confirm-new-cancel' => 'Неважно',
 	'prefs-uploads' => 'Загрузки',
+	'prefs-upwiz-licensing' => 'Лицензирование',
 	'mwe-upwiz-prefs-def-license' => 'Лицензионное соглашение по умолчанию',
 	'mwe-upwiz-prefs-def-license-def' => 'Использовать то, что задано по умолчанию',
 	'mwe-upwiz-prefs-license-own' => 'Собственное произведение -- $1',
@@ -22350,6 +22406,7 @@ Hãy kéo dài hơn $1 ký tự.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Chữ ký của bạn chứa ký tự không hợp lệ.
 Xin đừng nhập sử dụng mã wiki hoặc HTML vào đây; chỉ cần tên đăng nhập hoặc tên thật của bạn.',
 	'mwe-upwiz-error-blank' => 'Thông tin này là bắt buộc.',
+	'mwe-upwiz-error-nologin' => 'Bạn phải <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} đăng nhập]</span> để tải lên tập tin.',
 	'mwe-upwiz-error-too-long' => 'Thông tin này quá dài.
 Hãy thu ngắn hơn $1 ký tự.',
 	'mwe-upwiz-error-too-short' => 'Thông tin này quá ngắn.
