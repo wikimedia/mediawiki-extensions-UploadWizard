@@ -394,8 +394,8 @@ mw.UploadWizard.prototype = {
 		}
 
 		// scroll to the top of the page (the current step might have been very long, vertically)
-		$j( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
-
+		var headScroll = $( '#firstHeading' ).offset();
+		$j( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
 		$j.each( _this.stepNames, function(i, stepName) {
 
 			// the step indicator
