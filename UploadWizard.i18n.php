@@ -9991,6 +9991,7 @@ Rende lo plus longe que $1 {{PLURAL:$1|character|characteres}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Tu signatura contine symbolos que non es permittite.
 Per favor non usa wikitexto o HTML hic, solmente tu nomine de usator o nomine real.',
 	'mwe-upwiz-error-blank' => 'Iste campo es obligatori.',
+	'mwe-upwiz-error-nologin' => 'Tu debe <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} aperir session]</span> pro incargar files.',
 	'mwe-upwiz-error-too-long' => 'Iste campo es troppo longe.
 Rende lo plus curte que $1 {{PLURAL:$1|character|characteres}}.',
 	'mwe-upwiz-error-too-short' => 'Iste campo es troppo curte.
@@ -11732,7 +11733,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-source-thirdparty-license' => '{{PLURAL:$1|ამ ნამუშევარზე|ამ ნამუშევრებზე}} საავტორო უფლებების მფლობელმა, გამოაქვეყნა {{PLURAL:$1|ის|ისინი}} შემდეგი ლიცენზი(ებ)ით:',
 	'mwe-upwiz-source-thirdparty-cases' => 'გვითხარით, რატომ ხართ დარწმუნებული, რომ გაქვთ {{PLURAL:$1|ამ ნამუშევრის|ამ ნამუშევრების}} გამოყენების უფლება:',
 	'mwe-upwiz-source-thirdparty-accept' => 'კარგი',
-	'mwe-upwiz-source-custom' => 'შემდეგ გვერდზე მოგვაწოდეთ ინფორმაცია საავტორო უფლებების შესახებ ყვველა ფაილზე ცალცალკე.',
+	'mwe-upwiz-source-custom' => 'შემდეგ გვერდზე მოგვაწოდეთ ინფორმაცია საავტორო უფლებების შესახებ ყველა ფაილზე ცალ-ცალკე.',
 	'mwe-upwiz-more-options' => 'კატეგორიებისა და სხვა ინფორმაციის დამატება...',
 	'mwe-upwiz-copy-metadata-button' => 'კოპირება',
 	'mwe-upwiz-copy-title' => 'სახელწოდების კოპირება (ავტომატური დანომვრით)',
@@ -12103,6 +12104,8 @@ $messages['ko'] = array(
 	'group-upwizcampeditors' => '올리기 마법사 캠페인 편집자',
 	'group-upwizcampeditors-member' => '{{GENDER:$1|올리기 마법사 캠페인 편집자}}',
 	'grouppage-upwizcampeditors' => '{{ns:project}}:올리기 마법사 캠페인 편집자',
+	'group-upwizcampeditors.css' => '/* 이 CSS 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */',
+	'group-upwizcampeditors.js' => '/* 이 자바스크립트 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */',
 	'mwe-upwiz-js-off' => '올리기 마법사는 향상된 인터페이스를 제공하기 위해 자바스크립트를 이용합니다. 당신의 브라우저가 자바스크립트를 지원하지 않거나 자바스크립트가 꺼져 있어 단순한 올리기 마법사를 표시합니다.',
 	'mwe-upwiz-extension-disabled' => '이 기능이 일시적인 기술적 문제로 인해 비활성화되었습니다. 그동안 표준 양식을 통해 올리기를 시도해 보십시오.',
 	'mwe-upwiz-code-unknown' => '알 수 없는 언어',
@@ -12209,7 +12212,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-cancel' => '취소',
 	'mwe-upwiz-fileexists-replace' => '"$1"로 된 파일 이름이 이미 사용 중입니다. 다른 이름으로 변경해주세요.',
 	'mwe-upwiz-fileexists' => '이 이름으로 된 파일이 이미 있습니다.
-덮어쓰기를 원치 않으신다면 <b><tt>$1</tt></b>을 확인해주세요.',
+덮어쓰기를 원치 않으신다면 <b><tt>$1</tt></b>(을)를 확인해주세요.',
 	'mwe-upwiz-fileexists-replace-on-page' => '이 이름으로 된 파일이 이미 있습니다. 파일을 덮어쓰려면 [$2 $1]로 가서 덮어쓰시기 바랍니다.',
 	'mwe-upwiz-fileexists-replace-no-link' => '이 이름을 가진 파일이 이미 있습니다.',
 	'mwe-upwiz-blacklisted' => '이 파일에 대해 설명할 수 있는 다른 이름을 선택해주십시오.',
@@ -12963,6 +12966,7 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-license-external-invalid' => 'Dëse Fichier steet ënner der Lizenz <b>$2</b> op $1. Leider, kann déi Lizenz net op dësem Site benotzt ginn.',
 	'mwe-upwiz-categories' => 'Kategorien',
 	'mwe-upwiz-categories-add' => 'Derbäisetzen',
+	'mwe-upwiz-category-will-be-added' => 'Dës Kategorie gëtt ugeluecht.',
 	'mwe-upwiz-category-remove' => 'Dës Kategorie ewechhuelen',
 	'mwe-upwiz-thanks-caption' => 'Beschreiwung hei derbäisetzen',
 	'mwe-upwiz-thumbnail-failed' => "D'Eroplueden huet geklappt, mä de Server ka kee Miniaturbild vum Fichier weisen.",
@@ -13194,6 +13198,7 @@ Maak 'm lenger es $1 {{PLURAL:$1|karakter|karakters}}.",
 	'mwe-upwiz-error-signature-bad-chars' => 'Dien handjteikening haet symbole die neet moge.
 Gebroek gein wikteks of HTML, allein diene gebroekersnaam of echte naam.',
 	'mwe-upwiz-error-blank' => 'Dit veld is verplich.',
+	'mwe-upwiz-error-nologin' => 'De mós zeen <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} aangemeldj]</span> óm bestenj hoeag te kinne laje.',
 	'mwe-upwiz-error-too-long' => "Dit veld is te lank.
 Maak 't kórter es $1 {{PLURAL:$1|teike|teikes}}.",
 	'mwe-upwiz-error-too-short' => "Dit veld is te kórt.
@@ -14219,6 +14224,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'താങ്കളുടെ ഒപ്പിൽ അനുവദനീയമല്ലാത്ത ചിഹ്നങ്ങൾ ഉണ്ട്.
 ദയവായി വിക്കി എഴുത്തുരീതി അല്ലെങ്കിൽ എച്ച്.റ്റി.എം.എൽ. ഉപയോഗിക്കാതിരിക്കുക, താങ്കളുടെ ഉപയോക്തൃനാമം അല്ലെങ്കിൽ യഥാർത്ഥനാമം നൽകിയാൽ മതിയാകും.',
 	'mwe-upwiz-error-blank' => 'ഇത് നിർബന്ധമായും പൂരിപ്പിക്കുക.',
+	'mwe-upwiz-error-nologin' => 'പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ താങ്കൾ <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ലോഗിൻ]</span> ചെയ്തിരിക്കണം.',
 	'mwe-upwiz-error-too-long' => 'ഈ മണ്ഡലം വളരെ വലുതാണ്.
 അത് {{PLURAL:$1|ഒരു അക്ഷരത്തിൽ|$1 അക്ഷരങ്ങളിൽ}} ചെറുതാക്കുക.',
 	'mwe-upwiz-error-too-short' => 'ഈ മണ്ഡലം വളരെ ചെറുതാണ്.
