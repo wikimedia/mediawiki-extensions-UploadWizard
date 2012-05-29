@@ -558,4 +558,7 @@ return array(
 	// Should downloads start immediately when added?
 	'startImmediately' => true,
 
+	// Should we allow multiple files in a form?
+	'enableMultipleFiles' => true,
+
 );
