@@ -1024,7 +1024,7 @@ mw.UploadWizard.prototype = {
 		};
 		var prefRequest = {
 			'action': 'options',
-			'change': 'upwiz_skiptutorial=1',
+			'change': 'upwiz_skiptutorial=1'
 		};
 
 		_this.api.post( tokenRequest,
