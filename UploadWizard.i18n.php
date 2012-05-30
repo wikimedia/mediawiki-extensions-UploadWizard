@@ -5935,6 +5935,7 @@ Saad installida [$1 Firefoggi], mis on Firefoxi lisa, et fail automaatselt konve
 	'mwe-prevent-close' => 'Kui lahkud sellelt leheküljelt, võivad su muudatused kaotsi minna.',
 	'mwe-upwiz-prevent-close' => 'Sa pole veel {{PLURAL:$1|selle faili|nende failide}} üleslaadimise ja avaldamisega lõpule jõudnud.',
 	'mwe-upwiz-files-complete' => 'Failid on üles laaditud!',
+	'mwe-upwiz-tooltip-skiptutorial' => 'Saad selle õppelehekülje uuesti sisse lülitada [$1 oma eelistuste] alaosas $2 &rarr; $3.',
 	'mwe-upwiz-tooltip-author' => 'Näiteks foto ülesvõtja nimi, kunstniku nimi või joonise tegija nimi.',
 	'mwe-upwiz-tooltip-source' => 'Kust on see digifail pärit? – Võib olla näiteks internetiaadress, raamat või väljaanne.',
 	'mwe-upwiz-tooltip-sign' => 'Saad kasutada oma kasutajanime või pärisnime.
@@ -5963,6 +5964,7 @@ Kasuta üle {{PLURAL:$1|ühe tähemärgi|$1 tähemärgi}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Sinu allkiri sisaldab keelatud märke.
 Palun ära kasuta siin vikiteksti ega HTMLi. Sisesta ainult oma kasutajanimi või pärisnimi.',
 	'mwe-upwiz-error-blank' => 'See väli on kohustuslik.',
+	'mwe-upwiz-error-nologin' => 'Pead <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} sisse logima]</span>, et faile üles laadida.',
 	'mwe-upwiz-error-too-long' => 'Sellel väljal on liiga palju märke.
 Palun sisesta alla {{PLURAL:$1|ühe tähemärgi|$1 tähemärgi}}.',
 	'mwe-upwiz-error-too-short' => 'Sellel väljal on liiga vähe märke.
@@ -6040,6 +6042,7 @@ Palun ära kasuta siin vikiteksti ega HTMLi.',
 	'mwe-upwiz-license-external-invalid' => 'Fail on avaldatud võrgukohas $1 järgmise litsentsi all: <b>$2</b>. Kahjuks ei sobi see litsents siin võrgukohas kasutamiseks.',
 	'mwe-upwiz-categories' => 'Kategooriad',
 	'mwe-upwiz-categories-add' => 'Lisa',
+	'mwe-upwiz-category-will-be-added' => 'See kategooria luuakse.',
 	'mwe-upwiz-category-remove' => 'Eemalda see kategooria',
 	'mwe-upwiz-thanks-caption' => 'Lisa siia pildiallkiri',
 	'mwe-upwiz-thumbnail-failed' => 'Üleslaadimine õnnestus, aga serveril ei õnnestunud hankida eelvaate pisipilti.',
@@ -6110,11 +6113,13 @@ $1',
 	'prefs-uploads' => 'Üleslaadimine',
 	'prefs-upwiz-licensing' => 'Litsentsimine',
 	'prefs-upwiz-experimental' => 'Katsefunktsioonid',
+	'prefs-upwiz-interface' => 'Kasutajaliides',
 	'mwe-upwiz-prefs-def-license' => 'Vaikelitsents',
 	'mwe-upwiz-prefs-def-license-def' => 'Kasuta seda, mida pakutakse',
 	'mwe-upwiz-prefs-license-own' => 'Enda looming – $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Kellegi teise looming – $1',
 	'mwe-upwiz-prefs-chunked' => 'Viisardiga laadi ühest megabaidist suuremad failid üles tükikaupa',
+	'mwe-upwiz-prefs-skiptutorial' => 'Jäta sissejuhatav litsentsiõpe vahele',
 );
 
 /** Basque (Euskara)
@@ -7157,7 +7162,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons paternité 2.0 ([$2 code légal])',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Transfert au Domaine Public (libère tous les droits, comme le domaine public: [$2 code légal])',
 	'mwe-upwiz-license-custom' => 'La licence est décrite pas le wikitexte suivant (doit contenir une [$2 balise de droit d’auteur] valide) :',
-	'mwe-upwiz-license-fal' => 'Licence artistique libre',
+	'mwe-upwiz-license-fal' => 'Licence Art Libre',
 	'mwe-upwiz-license-own-pd' => 'Tous les droits renoncé avec la licence Creative Commons zéro (comme le domaine public)',
 	'mwe-upwiz-license-pd-old-100' => 'L’auteur est décédé il y a plus de 100 ans',
 	'mwe-upwiz-license-pd-old' => 'L’auteur est décédé il y a plus de 70 ans',
@@ -12368,9 +12373,9 @@ $1',
 	'mwe-upwiz-campaigns-existing' => '캠페인 목록',
 	'mwe-upwiz-campaigns-editing' => '파일 올리기 캠페인 설정',
 	'mwe-upwiz-campaigns-delete' => '삭제',
-	'mwe-upwiz-campaigns-confdel' => '이 캠페인을 정말 삭제하시겠습니까?',
+	'mwe-upwiz-campaigns-confdel' => '이 캠페인을 정말 삭제하겠습니까?',
 	'mwe-upwiz-campaigns-delete-failed' => '이 캠페인을 삭제하지 못했습니다.',
-	'mwe-upwiz-campaigns-confirm-delete' => '이 캠페인을 정말 삭제하시겠습니까?',
+	'mwe-upwiz-campaigns-confirm-delete' => '이 캠페인을 정말 삭제하겠습니까?',
 	'uploadcampaign-legend' => '파일 올리기 캠페인 설정',
 	'uploadcampaign-text' => '파일 올리기 마법사의 캠페인 정보를 수정하고 있습니다.',
 	'mwe-upwiz-campaign-name' => '캠페인 이름:',
@@ -21508,6 +21513,7 @@ $messages['te'] = array(
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'అప్రమేయ సముద్రమట్టం:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'అప్రమేయ వివరణ:',
 	'prefs-uploads' => 'ఎక్కింపులు',
+	'mwe-upwiz-prefs-def-license' => 'అప్రమేయ లైసెన్సు',
 	'mwe-upwiz-prefs-license-own' => 'స్వంత కృతి - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'ఇతరుల కృతి - $1',
 );
@@ -22886,10 +22892,11 @@ $messages['yo'] = array(
 	'mwe-upwiz-cancel' => 'Fagilé',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Anakmalaysia
  * @author Bencmq
  * @author Chenzw
+ * @author Dimension
  * @author Happy
  * @author Hydra
  * @author Hzy980512
@@ -22978,6 +22985,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => '确定',
 	'mwe-upwiz-source-custom' => '在下一步单独提供每个文件的著作权信息。',
 	'mwe-upwiz-more-options' => '添加分类和更多信息',
+	'mwe-upwiz-copy-date' => '复制日期',
 	'mwe-upwiz-desc' => '说明',
 	'mwe-upwiz-desc-add-n' => '添加其他语言的说明',
 	'mwe-upwiz-desc-add-0' => '添加说明',
@@ -23179,7 +23187,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'ID栏的初始值：',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => '含有显示于上传向导界面的文字的页面。$1被语言代码替换：',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => '含有显示于“使用”页面顶部的文字的页面。$1被语言代码替换：',
-	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'ID栏文字的最大长度',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'ID栏文本最大长度：',
 	'mwe-upwiz-campaign-conf-defaultLat' => '默认纬度：',
 	'mwe-upwiz-campaign-conf-defaultLon' => '默认经度：',
 	'mwe-upwiz-campaign-conf-defaultAlt' => '默认海拔：',
