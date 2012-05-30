@@ -1111,7 +1111,7 @@ mw.UploadWizardDetails.prototype = {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-thumbnail' ) );
 				} else if ( warnings['bad-prefix'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-senselessimagename' ) );
-				} else if ( warnings['exists'] ) {
+				} else if ( warnings['exists'] || warnings['exists-normalized'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ) );
 				} else if ( warnings['duplicate'] ) {
 					_this.showError( 'duplicate', gM( 'mwe-upwiz-upload-error-duplicate' ) );

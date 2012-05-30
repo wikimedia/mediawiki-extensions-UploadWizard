@@ -167,10 +167,10 @@ mw.UploadWizardUpload.prototype = {
 		var info = 'unknown';
 
 		if ( result.upload && result.upload.warnings && result.upload.warnings.length !== 0 && result.upload.result ) {
-			if ( result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] ) {
+			if ( result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] || result.upload.warnings['exists-normalized'] ) {
 				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
 				// consequently, get rid of the warning and make sure the later stuff gets called
-				var existsFileName = result.upload.warnings.exists || result.upload.warnings['was-deleted'];
+				var existsFileName = result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] || result.upload.warnings['exists-normalized'];
 				try {
 					code = 'exists';
 					info = new mw.Title( existsFileName, fileNsId ).getUrl();
