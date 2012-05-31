@@ -19,19 +19,14 @@ mw.LanguageUpWiz = {
 	 * List of default languages
 	 * Make sure you have language templates set up for each of these on your wiki, e.g. {{en}}
 	 */
-	languages: [
-		{ lang: "de",		text: "Deutsch" },
-		{ lang: "en",		text: "English" },
-		{ lang: "es",		text: "Español" },
-		{ lang: "fr",		text: "Français" },
-		{ lang: "it",		text: "Italiano" },
-		{ lang: "nl",		text: "Nederlands" },
-		{ lang: "pl",		text: "Polski" },
-		{ lang: "pt",		text: "Português" },
-		{ lang: "ru",		text: "Русский" },
-		{ lang: "zh",		text: "中文" },
-		{ lang: "ja",		text: "日本語" }
-	],
+	languages: (function () {
+		var langs = mw.config.get('UploadWizardConfig').uwLanguages;
+		var list = [];
+		for ( var langcode in langs ) {
+			list.push( { code: langcode, text: langs[langcode] } );
+		}
+		return list;
+	})(),
 
 	/**
 	 * cache some useful objects
@@ -52,11 +47,11 @@ mw.LanguageUpWiz = {
 			// add an option for each language
 			select.append(
 				$j( '<option>' )
-					.attr( 'value', language.lang )
+					.attr( 'value', language.code )
 					.append( language.text )
 			);
 			// add each language into dictionary
-			mw.LanguageUpWiz._codes[language.lang] = language.text;
+			mw.LanguageUpWiz._codes[language.code] = language.text;
 		} );
 		mw.LanguageUpWiz.$_select = select;
 		mw.LanguageUpWiz.initialized = true;
