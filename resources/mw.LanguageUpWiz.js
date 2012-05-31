@@ -9,7 +9,7 @@ mediaWiki.messages.set( {
  */
 mw.LanguageUpWiz = {
 
-	defaultCode: 'en',  // when we absolutely have no idea what language to preselect
+	defaultCode: null,
 
 	initialized: false,
 
@@ -18,20 +18,16 @@ mw.LanguageUpWiz = {
 	/**
 	 * List of default languages
 	 * Make sure you have language templates set up for each of these on your wiki, e.g. {{en}}
+	 * TODO make this more configurable.
 	 */
-	languages: [
-		{ lang: "de",		text: "Deutsch" },
-		{ lang: "en",		text: "English" },
-		{ lang: "es",		text: "Español" },
-		{ lang: "fr",		text: "Français" },
-		{ lang: "it",		text: "Italiano" },
-		{ lang: "nl",		text: "Nederlands" },
-		{ lang: "pl",		text: "Polski" },
-		{ lang: "pt",		text: "Português" },
-		{ lang: "ru",		text: "Русский" },
-		{ lang: "zh",		text: "中文" },
-		{ lang: "ja",		text: "日本語" }
-	],
+	languages: ( function () {
+		var langs = UploadWizardConfig.uwLanguages;
+		var list = [];
+		for ( var langcode in langs ) {
+			list.push( { code: langcode, text: langs[langcode] } );
+		}
+		return list;
+	} )(),
 
 	/**
 	 * cache some useful objects
@@ -42,21 +38,48 @@ mw.LanguageUpWiz = {
 		if ( mw.LanguageUpWiz.initialized ) {
 			return;
 		}
-		// if a language list is defined locally (MediaWiki:LanguageHandler.js), use that list instead
-		if ( typeof LanguageHandler != 'undefined' ) {
-			this.languages = LanguageHandler.languages;
+
+		// Helper function to see if a language is in the list.
+		function checkForLang( lang ) {
+			for ( var langIndex in mw.LanguageUpWiz.languages ) {
+				if ( mw.LanguageUpWiz.languages[langIndex].code === lang ) {
+					return true;
+				}
+			}
+			return false;
 		}
+
+		// If a descriptionlang param is passed in the query string, use that,
+		// otherwise choose a good default for the description language.
+		var thisUri = new mw.Uri( window.location.href, { overrideKeys: true } );
+		if ( thisUri.query.descriptionlang && checkForLang( thisUri.query.descriptionlang ) ) {
+			mw.LanguageUpWiz.defaultCode = thisUri.query.descriptionlang;
+		} else if ( checkForLang( mw.config.get( 'wgUserLanguage' ) ) ) {
+			mw.LanguageUpWiz.defaultCode = mw.config.get( 'wgUserLanguage' );
+		} else if ( checkForLang( mw.config.get( 'wgContentLanguage' ) ) ) {
+			mw.LanguageUpWiz.defaultCode = mw.config.get( 'wgContentLanguage' );
+		} else if ( checkForLang( 'en' ) ) {
+			mw.LanguageUpWiz.defaultCode = 'en';
+		} else {
+			mw.LanguageUpWiz.defaultCode = mw.LanguageUpWiz.languages[0].code;
+		}
+
 		mw.LanguageUpWiz._codes = {};
 		var select = $j( '<select/>' );
 		$j.each( mw.LanguageUpWiz.languages, function( i, language ) {
 			// add an option for each language
-			select.append(
-				$j( '<option>' )
-					.attr( 'value', language.lang )
-					.append( language.text )
-			);
+			var $opt = $j( '<option>' )
+				.attr( 'value', language.code )
+				.append( language.text );
+
+			if ( language.code === this.defaultCode ) {
+				$opt.prop( 'selected', true );
+			}
+
+			select.append( $opt );
+
 			// add each language into dictionary
-			mw.LanguageUpWiz._codes[language.lang] = language.text;
+			mw.LanguageUpWiz._codes[language.code] = language.text;
 		} );
 		mw.LanguageUpWiz.$_select = select;
 		mw.LanguageUpWiz.initialized = true;
@@ -70,6 +93,9 @@ mw.LanguageUpWiz = {
 	 */
 	getMenu: function( name, code ) {
 		mw.LanguageUpWiz.initialize();
+		if ( mw.LanguageUpWiz.defaultCode !== null ) {
+			code = mw.LanguageUpWiz.defaultCode;
+		}
 		var $select = mw.LanguageUpWiz.$_select.clone();
 		$select.attr( 'name', name );
 		if ( code === mw.LanguageUpWiz.UNKNOWN ) {
