@@ -115,7 +115,7 @@ mw.UploadWizardUpload.prototype = {
 		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
 		$j( this.ui.div ).trigger( 'removeUploadEvent' );
 		
-		if ( mw.UploadWizard.config.startImmediately === true ) {
+		if ( this.wizard.uploads && this.wizard.uploads.length !== 0 && mw.UploadWizard.config.startImmediately === true ) {
 			// check all uploads, if they're complete, show the next button
 			this.wizard.showNext( 'file', 'stashed' );
 		}
