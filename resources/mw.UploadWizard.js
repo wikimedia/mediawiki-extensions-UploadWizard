@@ -23,7 +23,7 @@ mw.UploadWizard = function( config ) {
 
 mw.UploadWizard.DEBUG = true;
 
-mw.UploadWizard.userAgent = "UploadWizard (alpha)";
+mw.UploadWizard.userAgent = "UploadWizard";
 
 
 mw.UploadWizard.prototype = {

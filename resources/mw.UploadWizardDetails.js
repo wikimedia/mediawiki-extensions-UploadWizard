@@ -1072,7 +1072,7 @@ mw.UploadWizardDetails.prototype = {
 			filekey: _this.upload.fileKey,
 			filename: _this.upload.title.getMain(),
 			text: wikiText,
-			summary: "User created page with " + mw.UploadWizard.userAgent
+			comment: "User created page with " + mw.UploadWizard.userAgent
 		};
 
 		var err = function( code, info ) {

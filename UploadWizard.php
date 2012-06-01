@@ -17,7 +17,7 @@
  * @author Michael Dale <mdale@wikimedia.org>
  * @author Ankur Anand <drecodeam@gmail.com>
  * @license GPL v2 or later
- * @version 1.1
+ * @version 1.3
  */
 
 /* Configuration */
@@ -28,7 +28,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
 	'author' => array( 'Neil Kandalgaonkar', 'Jeroen De Dauw', 'Mark Holmquist', 'Ryan Kaldari', 'Michael Dale', 'Ankur Anand' ),
-	'version' => '1.3 alpha',
+	'version' => '1.3',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
