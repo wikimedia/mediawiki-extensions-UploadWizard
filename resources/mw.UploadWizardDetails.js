@@ -811,6 +811,7 @@ mw.UploadWizardDetails.prototype = {
 
 		var _this = this;
 		var yyyyMmDdRegex = /^(\d\d\d\d)[:\/-](\d\d)[:\/-](\d\d)\D.*/;
+		var timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 		var dateObj;
 		if ( _this.upload.imageinfo.metadata ) {
 			var metadata = _this.upload.imageinfo.metadata;
@@ -819,9 +820,19 @@ mw.UploadWizardDetails.prototype = {
 				if ( ! mw.isEmpty( dateInfo ) ) {
 					var matches = $j.trim( dateInfo ).match( yyyyMmDdRegex );
 					if ( ! mw.isEmpty( matches ) ) {
-						dateObj = new Date( parseInt( matches[1], 10 ),
-								    parseInt( matches[2], 10 ) - 1,
-								    parseInt( matches[3], 10 ) );
+						var timeMatches = $j.trim( dateInfo ).match( timeRegex );
+						if ( ! mw.isEmpty( timeMatches ) ) {
+							dateObj = new Date( parseInt( matches[1], 10 ),
+										parseInt( matches[2], 10 ) - 1,
+										parseInt( matches[3], 10 ),
+										parseInt( timeMatches[1], 10 ),
+										parseInt( timeMatches[2], 10 ),
+										parseInt( timeMatches[3], 10 ) );
+						} else {
+							dateObj = new Date( parseInt( matches[1], 10 ),
+										parseInt( matches[2], 10 ) - 1,
+										parseInt( matches[3], 10 ) );
+						}
 						return false; // break from $j.each
 					}
 				}
@@ -834,7 +845,26 @@ mw.UploadWizardDetails.prototype = {
 		if ( dateObj === undefined ) {
 			dateObj = new Date();
 		}
-		dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
+
+		var getSaneTime = function ( date ) {
+			var pad = function ( number ) {
+				if ( number < 10 ) {
+					return '0' + number;
+				} else {
+					return '' + number;
+				}
+			};
+
+			var str = '';
+
+			str += pad( date.getHours() ) + ':';
+			str += pad( date.getMinutes() ) + ':';
+			str += pad( date.getSeconds() );
+
+			return str;
+		};
+
+		dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() ) + ' ' + getSaneTime( dateObj );
 
 		// ok by now we should definitely have a dateObj and a date string
 		$j( _this.dateInput ).val( dateStr );
