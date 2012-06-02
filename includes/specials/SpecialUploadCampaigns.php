@@ -11,7 +11,7 @@
  *
  * @since 1.2
  *
- * @licence GNU GPL v3+
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialUploadCampaigns extends SpecialPage {
@@ -40,17 +40,18 @@ class SpecialUploadCampaigns extends SpecialPage {
 	 * @param string $subPage, e.g. the "foo" in Special:UploadCampaigns/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgRequest, $wgUser;
-
 		$this->setHeaders();
 		$this->outputHeader();
 
+		$req = $this->getRequest();
+		$user = $this->getUser();
+
 		// If the user is authorized, display the page, if not, show an error.
-		if ( $this->userCanExecute( $wgUser ) ) {
-			if ( $wgRequest->wasPosted()
-				&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) )
-				&& $wgRequest->getCheck( 'newcampaign' ) ) {
-					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $wgRequest->getVal( 'newcampaign' ) )->getLocalURL() );
+		if ( $this->userCanExecute( $user ) ) {
+			if ( $req->wasPosted()
+				&& $user->matchEditToken( $req->getVal( 'wpEditToken' ) )
+				&& $req->getCheck( 'newcampaign' ) ) {
+					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $req->getVal( 'newcampaign' ) )->getLocalURL() );
 			}
 			else {
 				$this->displayUploadCamaigns();
@@ -121,8 +122,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 			'submit'
 		) );
 
-		global $wgUser;
-		$out->addHTML( Html::hidden( 'wpEditToken', $wgUser->getEditToken() ) );
+		$out->addHTML( Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() ) );
 
 		$out->addHTML( '</fieldset></form>' );
 	}
@@ -155,8 +155,6 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( '<tbody>' );
 
-		global $wgUser;
-
 		foreach ( $campaigns as $campaign ) {
 			$out->addHTML(
 				'<tr>' .
@@ -186,7 +184,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 								'href' => '#',
 								'class' => 'campaign-delete',
 								'data-campaign-id' => $campaign->campaign_id,
-								'data-campaign-token' => $wgUser->getEditToken( 'deletecampaign' . $campaign->campaign_id )
+								'data-campaign-token' => $this->getUser()->getEditToken( 'deletecampaign' . $campaign->campaign_id )
 							),
 							wfMsg( 'mwe-upwiz-campaigns-delete' )
 						) .

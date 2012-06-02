@@ -41,25 +41,25 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
-		global $wgRequest, $wgUser;
-
 		// side effects: if we can't upload, will print error page to wgOut
 		// and return false
-		if ( !( $this->isUploadAllowed() && $this->isUserUploadAllowed( $wgUser ) ) ) {
+		if ( !( $this->isUploadAllowed() && $this->isUserUploadAllowed( $this->getUser() ) ) ) {
 			return;
 		}
 
 		$this->setHeaders();
 		$this->outputHeader();
 
+		$req = $this->getRequest();
+
 		// if query string includes 'skiptutorial=true' set config variable to true
-		$skipTutorial = $wgRequest->getCheck( 'skiptutorial' );
+		$skipTutorial = $req->getCheck( 'skiptutorial' );
 		if ( $skipTutorial ) {
 			$skip = in_array( $skipTutorial, array( '1', 'true' ) );
 			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
 		}
 
-		$categories = $wgRequest->getText( 'categories' );
+		$categories = $req->getText( 'categories' );
 		if ( $categories ) {
 			UploadWizardConfig::setUrlSetting( 'defaultCategories', explode( '|', $categories ) );
 		}
@@ -73,7 +73,7 @@ class SpecialUploadWizard extends SpecialPage {
 		);
 
 		foreach ( $ulrArgs as $arg => $setting ) {
-			$value = $wgRequest->getText( $arg );
+			$value = $req->getText( $arg );
 			if ( $value ) {
 				UploadWizardConfig::setUrlSetting( $setting, $value );
 			}
@@ -99,7 +99,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
-		$out->addHTML( self::getWizardHtml() );
+		$out->addHTML( $this->getWizardHtml() );
 	}
 
 	/**
@@ -108,8 +108,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @since 1.2
 	 */
 	protected function handleCampaign() {
-		global $wgRequest;
-		$campaignName = $wgRequest->getVal( 'campaign' );
+		$campaignName = $this->getRequest()->getVal( 'campaign' );
 
 		if ( $campaignName != '' ) {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName, false );
@@ -244,8 +243,6 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return boolean -- true if can upload
 	 */
 	private function isUploadAllowed() {
-		global $wgEnableAPI;
-
 		// Check uploading enabled
 		if ( !UploadBase::isEnabled() ) {
 			$this->getOutput()->showErrorPage( 'uploaddisabled', 'uploaddisabledtext' );
@@ -308,7 +305,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * Will be enhanced by the javascript to actually do stuff
 	 * @return {String} html
 	 */
-	function getWizardHtml() {
+	protected function getWizardHtml() {
 		global $wgExtensionAssetsPath;
 
 		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
