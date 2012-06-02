@@ -14,30 +14,19 @@
  */
 class ApiDeleteUploadCampaign extends ApiBase {
 
-	public function __construct( $main, $action ) {
-		parent::__construct( $main, $action );
-	}
-
 	public function execute() {
-		global $wgUser;
+		$user = $this->getUser();
 
-		if ( !$wgUser->isAllowed( 'upwizcampaigns' ) || $wgUser->isBlocked() ) {
+		if ( !$user->isAllowed( 'upwizcampaigns' ) || $user->isBlocked() ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 
 		$params = $this->extractRequestParams();
 
-		$everythingOk = true;
-
-		foreach ( $params['ids'] as $id ) {
-			$campaign = new UploadWizardCampaign( $id );
-			$everythingOk = $campaign->deleteFromDB() && $everythingOk;
-		}
-
 		$this->getResult()->addValue(
 			null,
 			'success',
-			$everythingOk
+			UploadWizardCampaigns::singleton()->delete( array( 'id' => $params['ids'] ), __METHOD__ )
 		);
 	}
 
@@ -94,7 +83,7 @@ class ApiDeleteUploadCampaign extends ApiBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+		return __CLASS__ . ': 1.0';
 	}
 
 }

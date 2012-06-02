@@ -67,7 +67,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	 * @see FormSpecialPage::getFormFields()
 	 */
 	protected function getFormFields() {
-		$campaign = UploadWizardCampaign::newFromName( $this->subPage );
+		$campaign = UploadWizardCampaigns::singleton()->selectRow( null,  array( 'name' => $this->subPage ) );
 
 		$id = $campaign ? $campaign->getId() : null;
 		$enabled = $campaign ? $campaign->getIsEnabled() : false;
@@ -114,14 +114,15 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$enabled = $data['Campaignenabled'];
 		unset( $data['Campaignenabled'] );
 
-		if ( is_null( $id ) ) {
-			$existingCampaign = UploadWizardCampaign::newFromName( $name, false );
-			$id = $existingCampaign === false ? null : $existingCampaign->getId();
-		}
+		$campaign = UploadWizardCampaigns::singleton()->newFromArray( array(
+			'id' => $id,
+			'name' => $name,
+			'enabled' => $enabled
+		) );
 
-		$campaign = new UploadWizardCampaign( $id, $name, $enabled, $data );
+		$campaign->setConfig( $data );
 
-		$success = $campaign->writeToDB();
+		$success = $campaign->save();
 
 		if ( $success ) {
 			return true;

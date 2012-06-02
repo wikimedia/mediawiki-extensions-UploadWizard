@@ -22,8 +22,8 @@
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
-	'author' => 'Neil Kandalgaonkar',
-	'version' => '1.2 alpha',
+	'author' => array( 'Neil Kandalgaonkar', 'Jeroen De Dauw' ),
+	'version' => '1.3 alpha',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
@@ -41,6 +41,7 @@ foreach ( array(
 		'UploadWizardConfig' => $wgUpwizDir . '/includes',
 		'UploadWizardTutorial' => $wgUpwizDir . '/includes',
 		'UploadWizardCampaign' => $wgUpwizDir . '/includes',
+		'UploadWizardCampaigns' => $wgUpwizDir . '/includes',
 		'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials',
 		'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials',
 		'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials',

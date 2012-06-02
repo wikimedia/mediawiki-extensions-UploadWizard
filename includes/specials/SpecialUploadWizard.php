@@ -110,8 +110,8 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function handleCampaign() {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
 
-		if ( $campaignName != '' ) {
-			$campaign = UploadWizardCampaign::newFromName( $campaignName, false );
+		if ( !is_null( $campaignName ) && $campaignName !== '' ) {
+			$campaign = UploadWizardCampaigns::singleton()->selectRow( 'enabled', array( 'name' => $campaignName ) );
 
 			if ( $campaign === false ) {
 				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->text() );
