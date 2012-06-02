@@ -122,7 +122,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 		) );
 
 		global $wgUser;
-		$out->addHTML( Html::hidden( 'wpEditToken', $wgUser->editToken() ) );
+		$out->addHTML( Html::hidden( 'wpEditToken', $wgUser->getEditToken() ) );
 
 		$out->addHTML( '</fieldset></form>' );
 	}
@@ -186,7 +186,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 								'href' => '#',
 								'class' => 'campaign-delete',
 								'data-campaign-id' => $campaign->campaign_id,
-								'data-campaign-token' => $wgUser->editToken( 'deletecampaign' . $campaign->campaign_id )
+								'data-campaign-token' => $wgUser->getEditToken( 'deletecampaign' . $campaign->campaign_id )
 							),
 							wfMsg( 'mwe-upwiz-campaigns-delete' )
 						) .
