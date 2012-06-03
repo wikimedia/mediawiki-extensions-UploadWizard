@@ -1483,6 +1483,8 @@ $messages['as'] = array(
 	'mwe-upwiz-step-details' => 'বিৱৰণ',
 	'mwe-upwiz-step-thanks' => 'ব্যৱহাৰ',
 	'mwe-upwiz-api-warning-exists' => 'এই ৱিকিত একেই নামেৰে [$1 অন্য ফাইল] আছে',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ক্ষমা কৰিব, আমি আপোনাৰ ভাষাত সহায়িকা বিচাৰি নাপালোঁ। তাৰ পৰিৱৰ্তে ইংৰাজী সহায়িকা দিয়া হৈছে।',
+	'mwe-upwiz-tutorial-error-file-missing' => "ক্ষমা কৰিব, আমি ইয়াত প্ৰদৰ্শিত হ'বলগীয়া টিউট'ৰিয়েলৰ বাবে কোনো ফাইল বিচাৰি নাপালোঁ। অনুগ্ৰহ কৰি প্ৰণালী প্ৰশাসকৰ লগত যোগাযোগ কৰক।",
 	'mwe-upwiz-help-desk' => 'সাহায্য সদন',
 	'mwe-upwiz-help-desk-url' => 'সাহায্য সদন',
 	'mwe-upwiz-add-file-n' => 'অন্য ফাইল যোগ দিয়ক',
@@ -1535,8 +1537,10 @@ $messages['as'] = array(
 	'mwe-upwiz-other' => 'অন্যান্য তথ্য',
 	'mwe-upwiz-source' => 'উৎস',
 	'mwe-upwiz-thanks-intro' => 'আপলোডৰ বাবে ধন্যবাদ!',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'যিকোনো প্ৰকাৰে আপলোড কৰক?',
 	'mwe-upwiz-ok' => 'ঠিক আছে',
 	'mwe-upwiz-cancel' => 'বাতিল',
+	'mwe-upwiz-fileexists-replace-no-link' => 'এই নামত এটা ফাইল ইতিমধ্যে আছেই।',
 	'mwe-upwiz-thumbnail-more' => 'ডাঙৰকৈ চাওক',
 	'mwe-upwiz-overwrite' => 'ফাইল প্ৰতিস্থাপন কৰক',
 	'mwe-upwiz-next' => 'পৰবৰ্তী',
@@ -1547,7 +1551,13 @@ $messages['as'] = array(
 	'mwe-upwiz-upload-another' => 'আৰু ফাইল আপলোড কৰক',
 	'mwe-upwiz-files-complete' => 'আপোনাৰ ফাইল আপলোড সম্পন্ন হৈছে!',
 	'mwe-upwiz-tooltip-more-info' => 'আৰু পঢ়ক।',
+	'mwe-upwiz-license-show-all' => 'অন্য এখন অনুজ্ঞাপত্ৰ ব্যৱহাৰ কৰক',
+	'mwe-upwiz-license-show-recommended' => 'যথাযোগ্য অনুজ্ঞাপত্ৰ ব্যৱহাৰ কৰক',
+	'mwe-upwiz-error-signature-too-long' => 'আপোনাৰ স্বাক্ষৰ অত্যাধিক দীঘলীয়া ।
+আপোনাৰ স্বাক্ষৰ {{PLURAL:$1|এটা আখৰৰ|টা আখৰৰ}} বেছি হ’ব নালাগে ।',
+	'mwe-upwiz-error-title-senselessimagename' => 'অনুগ্ৰহ কৰি এটা অৰ্থপূৰ্ণ শিৰোনাম প্ৰদান কৰক।',
 	'mwe-upwiz-too-many-files-ok' => 'ঠিক আছে',
+	'mwe-upwiz-too-many-files' => 'বহুতো ফাইল আছে।',
 	'mwe-upwiz-file-too-large-ok' => 'ঠিক আছে',
 	'mwe-upwiz-file-too-large' => 'ফাইলৰ আকাৰ অতি ডাঙৰ।',
 	'mwe-upwiz-license-fal' => 'মুক্ত কলা অনুজ্ঞাপত্ৰ',
@@ -1557,7 +1567,12 @@ $messages['as'] = array(
 	'mwe-upwiz-license-gfdl' => 'জিএনইউ মুক্ত নথি অনুজ্ঞাপত্ৰ',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'কপিলেফট, স্বীকৃতিৰ প্ৰয়োজন (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-misc' => 'অন্যান্য কাৰণ',
+	'mwe-upwiz-license-custom-head' => 'অন্য কাৰণ ওপৰত দিয়া নাই',
 	'mwe-upwiz-license-custom-preview' => 'প্রাকদর্শন',
+	'mwe-upwiz-license-none-head' => 'মই এইয়া ইণ্টাৰনেটত পাইছো -- ম‍ই নিশ্চিত নহয়',
+	'mwe-upwiz-license-confirm-remove' => 'আপনি নিশ্চিতনে যে {{PLURAL:$1|এই আপলোড কৰা ফাইলটো|এই আপলোড কৰা ফাইলসমূহ}} বিলোপ কৰিব?',
+	'mwe-upwiz-license-confirm-remove-title' => 'বিলোপ নিশ্চিত কৰক',
+	'mwe-upwiz-license-external' => 'এই ফাইলটো $1: <b>$2</b> অনুজ্ঞাপত্ৰৰ আওতাত আছে।',
 	'mwe-upwiz-categories' => 'শ্ৰেণীসমূহ',
 	'mwe-upwiz-categories-add' => 'অন্যান্য শ্ৰেণী যোগ কৰক',
 	'mwe-upwiz-category-remove' => 'শ্ৰেণী বিলোপ কৰক',
@@ -2821,7 +2836,7 @@ $messages['bn'] = array(
 	'prefs-uploads' => 'আপলোড',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Gwendal
  * @author Y-M D
@@ -3059,6 +3074,7 @@ Arabat ober gant kod wiki pe HTML amañ.',
 	'mwe-upwiz-license-external-invalid' => "Emañ ar restr-mañ diouzh an aotre-implijout da-heul war $1: <b>$2</b>. Siwazh, n'haller ket ober gant an aotre-implijout-mañ war al lec'hienn-mañ.",
 	'mwe-upwiz-categories' => 'Rummadoù',
 	'mwe-upwiz-categories-add' => 'Ouzhpennañ',
+	'mwe-upwiz-category-will-be-added' => 'Krouet e vo ar rummad-mañ',
 	'mwe-upwiz-category-remove' => 'Dilemel ar rummad-mañ',
 	'mwe-upwiz-thanks-caption' => "Ouzhpennañ un alc'hwez amañ",
 	'mwe-upwiz-thumbnail-failed' => "Pellgarget eo bet an traoù ervat nemet n'hall ket ar servijer pourchas un tamm rakweled",
@@ -3116,11 +3132,11 @@ $1',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => "Anv ar bajenn enni an destenn evit anv maezienn an ID. Erlec'hiet e vo $1 gant kod ar yezh :",
 	'mwe-upwiz-campaign-conf-headerLabelPage' => "Pajenn enni testenn da ziskouez a-us da etrefas ar skoazeller enporzhiañ. Erlec'hiet e vo $1 gant ar c'hod yezh :",
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Pajenn enni testenn da ziskouez e laez ar bajenn "Implijout". Erlec\'hiet e vo $1 gant ar c\'hod yezh :',
-	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Hirder brasañ an destenn er vaezienn ID',
-	'mwe-upwiz-campaign-conf-defaultLat' => 'Ledred dre ziouer',
-	'mwe-upwiz-campaign-conf-defaultLon' => 'Hedred dre ziouer',
-	'mwe-upwiz-campaign-conf-defaultAlt' => 'Uhelder dre ziouer',
-	'mwe-upwiz-campaign-conf-defaultDescription' => 'Deskrivadur dre ziouer',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Hirder brasañ an destenn er vaezienn ID :',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Ledred dre ziouer :',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Hedred dre ziouer :',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Uhelder dre ziouer :',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Deskrivadur dre ziouer :',
 	'mw-coolcats-confirm-new-title' => 'Kadarnaat ar rummad nevez',
 	'mw-coolcats-confirm-new' => 'Evit doare emaoc\'h o klask ouzhpennañ ur rummad, "$1". Diwallit : <ul><li>E saozneg e tlefe bezañ ar rummadoù peurliesañ.</li><li>Dleout a rafe ar pep brasañ eus ar rummadoù nevez bezañ isrummadoù eus rummadoù bet krouet c\'hoazh.</li></ul>Peurliesañ n\'eus nemet an dud arroutet-mat a grou rummadoù.',
 	'mw-coolcats-confirm-new-ok' => 'Ouzhpennañ ar rummad forzh penaos',
@@ -3322,7 +3338,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 	'mwe-upwiz-feedback-title' => 'Ostavite povratne informacije o čarobnjaku za postavljanje',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Gemmaa
  * @author Paucabot
  * @author SMP
@@ -3648,7 +3664,7 @@ $1",
 	'mwe-upwiz-prefs-skiptutorial' => "Salta la guia d'introducció sobre llicències",
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jezevec
  * @author Jkjk
  * @author Mormegil
@@ -4153,7 +4169,7 @@ Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
 	'mwe-upwiz-prefs-license-thirdparty' => 'Gwaith rhywun arall - $1',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Peter Alberti
  */
 $messages['da'] = array(
@@ -4873,6 +4889,11 @@ Bitte verwenden Sie hier kein Wikitext oder HTML.',
 $messages['diq'] = array(
 	'uploadwizard' => 'Şexê Barkerdışi',
 	'mwe-upwiz-uploadcampaigns' => 'Qampanyaya barke',
+	'group-upwizcampeditors' => 'Editorê kampanya da Barkeri',
+	'group-upwizcampeditors-member' => '{{GENDER:$1|Editorê kampanya da Barkeri}}',
+	'grouppage-upwizcampeditors' => '{{ns:project}}:Editorê kampanya da Barkeri',
+	'group-upwizcampeditors.css' => '/* Herun da CSS re kampanya da Barkeri dekere de */',
+	'group-upwizcampeditors.js' => '/*Herun da JS re on ke Editorê kampanya da Barkeri */',
 	'mwe-upwiz-code-unknown' => 'Zuwano ke nê şınasiya',
 	'mwe-upwiz-step-tutorial' => 'Bımısê',
 	'mwe-upwiz-step-file' => 'Barke',
@@ -4900,7 +4921,11 @@ $messages['diq'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'Temam',
 	'mwe-upwiz-copy-metadata-button' => 'kopya',
 	'mwe-upwiz-copy-date' => 'tarixê kopya',
+	'mwe-upwiz-copy-categories' => 'Kategoriya kopya kerê',
+	'mwe-upwiz-copy-location' => 'Heruna kopya',
+	'mwe-upwiz-copy-other' => 'Melumatê bini kopya ke',
 	'mwe-upwiz-desc' => 'Akerdış',
+	'mwe-upwiz-desc-add-n' => 'Zewbi zıwan ra melumat deke',
 	'mwe-upwiz-desc-add-0' => 'Akerdış deke de',
 	'mwe-upwiz-title' => 'Sername',
 	'mwe-upwiz-media-type' => 'Babeta medya',
@@ -4911,7 +4936,9 @@ $messages['diq'] = array(
 	'mwe-upwiz-location-alt' => 'berzî',
 	'mwe-upwiz-copyright-info' => 'Heqê vılayin',
 	'mwe-upwiz-author' => 'Nuskar(i)',
+	'mwe-upwiz-other' => 'Melumatê bini',
 	'mwe-upwiz-source' => 'Çıme',
+	'mwe-upwiz-thanks-intro' => 'Qandê barfinayışi şıma rê teşekur kem!',
 	'mwe-upwiz-ok' => 'Temam',
 	'mwe-upwiz-cancel' => 'Bıterkne',
 	'mwe-upwiz-fileexists' => 'no name de ca ra yew dosya esta. eke şıma emin niê bıvurni, kerem kerê <b><tt>$1</tt></b> kontrol bıkerê.',
@@ -4924,11 +4951,16 @@ $messages['diq'] = array(
 	'mwe-upwiz-home' => 'Şori keyepelay Wiki',
 	'mwe-upwiz-tooltip-more-info' => 'Zewbi.',
 	'mwe-upwiz-deeds-need-license' => 'Şımara reca jew lisans weçinê.',
+	'mwe-upwiz-license-show-all' => 'Zewbi lisans karfiyê',
+	'mwe-upwiz-license-show-recommended' => 'Lisansa ke weseyneyaya ay karfiyê',
+	'mwe-upwiz-error-blank' => 'No ca icab keno.',
 	'mwe-upwiz-too-many-files-ok' => 'TEMAM',
 	'mwe-upwiz-file-too-large-ok' => 'TEMAM',
+	'mwe-upwiz-license-fal' => 'Lisansê Xoseri Zagoni',
 	'mwe-upwiz-license-custom-preview' => 'Verqayt',
 	'mwe-upwiz-categories' => 'Kategoriy',
 	'mwe-upwiz-categories-add' => 'Deke',
+	'mwe-upwiz-subhead-bugs' => '[Merselê $1 ]',
 	'mwe-upwiz-subhead-translate' => '[$1 Peştiya açarnayışi]',
 	'mwe-upwiz-subhead-alt-upload' => "[Şori terzê verên dê $1'i]",
 	'mwe-upwiz-feedback-prompt' => '[$1 Peydrıştı vırad cırê]',
@@ -5676,7 +5708,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Verko de alia persono - $1',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Ciencia Al Poder
  * @author Crazymadlover
@@ -6007,7 +6039,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Saltar la guía con la introducción a las licencias',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -7132,7 +7164,7 @@ Vinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.',
 	'mwe-upwiz-license-fal' => 'Free Art loyvi',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author DavidL
  * @author Dereckson
@@ -10038,7 +10070,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Valaki más munkája - $1',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -11230,7 +11262,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Verk annara - $1',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author F. Cosoleto
@@ -13955,7 +13987,7 @@ $messages['mai'] = array(
 	'mwe-upwiz-finished' => 'खतम भेल!',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Rancher
  */
@@ -18971,7 +19003,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Fatìe de quaccheotre - $1',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author Amadeus71rus
  * @author Ast
@@ -23436,7 +23468,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-prefs-license-thirdparty' => '他人的作品 - $1',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Horacewai2
  * @author Mark85296341
@@ -23575,6 +23607,7 @@ $messages['zh-hant'] = array(
 	'mwe-prevent-close' => '離開這個頁面可能會導致您失去您所做的任何更改。',
 	'mwe-upwiz-prevent-close' => '您尚未完成{{PLURAL:$1|此文件|這些文件}}的上傳與發布過程。',
 	'mwe-upwiz-files-complete' => '您的檔案上傳完畢！',
+	'mwe-upwiz-tooltip-skiptutorial' => '您可以在 [ $1 您的用戶設定] 中的$2  →  $3 重啟本教程。',
 	'mwe-upwiz-tooltip-author' => '誰拍這張照片，或描繪的景象，畫圖紙，等等的人。',
 	'mwe-upwiz-tooltip-source' => '這個數位檔案從何來？可以是一個 URL、一本書或一個出版物',
 	'mwe-upwiz-tooltip-sign' => '你可以使用你的維基用戶名稱或您的真實姓名。
