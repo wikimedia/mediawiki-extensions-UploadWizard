@@ -66,6 +66,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$ulrArgs = array(
 			'id' => 'idFieldInitialValue',
+			'id2' => 'idField2InitialValue',
 			'description' => 'defaultDescription',
 			'lat' => 'defaultLat',
 			'lon' => 'defaultLon',

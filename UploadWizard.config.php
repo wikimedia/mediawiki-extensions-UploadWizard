@@ -114,6 +114,13 @@ return array(
 	// Initial value for the id field.
 	'idFieldInitialValue' => '',
 
+	// Same as above, but for a second field.
+	'idField2' => '',
+	'idField2Label' => '',
+	'idField2LabelPage' => '',
+	'idField2MaxLength' => 25,
+	'idField2InitialValue' => '',
+
 	// Initial value for the description field.
 	'defaultDescription' => '',
 

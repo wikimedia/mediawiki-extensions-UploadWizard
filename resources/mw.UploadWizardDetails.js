@@ -208,6 +208,25 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		);
 	}
 
+	if ( mw.UploadWizard.config.idField2 ) {
+		var idField2Id = "idField2" + ( _this.upload.index ).toString();
+		_this.idField2Input = $j( '<input />' ).attr( {
+			'type': 'text',
+			'id': idField2Id,
+			'name': idField2Id,
+			'class': 'mwe-idfield',
+			'maxlength': mw.UploadWizard.config.idField2MaxLength
+		} );
+
+		_this.idField2Input.val( mw.UploadWizard.config.idField2InitialValue );
+
+		_this.$form.append(
+			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + idField2Id + '" generated="true"/></div>' ),
+			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idField2Label ).requiredFieldLabel(),
+			$j( '<div class="mwe-id-field"></div>' ).append( _this.idField2Input )
+		);
+	}
+
 	_this.$form.append(
 		moreDetailsCtrlDiv,
 		moreDetailsDiv
@@ -987,12 +1006,20 @@ mw.UploadWizardDetails.prototype = {
 			information['description'] += desc.getWikiText();
 		} );
 
-		// Add id field if needed
+		// Add id fields if needed
 		if ( mw.UploadWizard.config.idField ) {
 			var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
 
 			if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
 				information['description'] += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
+			}
+		}
+
+		if ( mw.UploadWizard.config.idField2 ) {
+			var idField2Value = $j.trim( $j( _this.idField2Input ).val() );
+
+			if ( ! mw.isEmpty( idField2Value ) ) { // HAXXX
+				information['description'] += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
 			}
 		}
 
