@@ -300,7 +300,7 @@ class SpecialUploadWizard extends SpecialPage {
 				}
 				$rtq = wfArrayToCgi( $values );
 				if ( $rtq && $rtq != '' ) {
-					$returnstr .= '&returntoquery=' . $rtq;
+					$returnstr .= '&returntoquery=' . urlencode($rtq);
 				}
 				$this->getOutput()->showErrorPage( 'uploadnologin', 'mwe-upwiz-error-nologin', $returnstr );
 			} else {
