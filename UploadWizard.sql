@@ -4,7 +4,7 @@
 
 -- Upload wizard campaigns
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaigns (
-  campaign_id              SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  campaign_id              INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   campaign_name            VARCHAR(255)        NOT NULL,
   campaign_enabled         TINYINT             NOT NULL default '0'
 ) /*$wgDBTableOptions*/;
