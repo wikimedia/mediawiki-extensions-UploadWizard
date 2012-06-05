@@ -86,8 +86,8 @@ class SpecialUploadCampaign extends FormSpecialPage {
 			if ( is_array( $data['default'] ) ) {
 				switch ( $data['type'] ) {
 					case 'text': case 'textarea':
-						$data['default'] = implode( '|', $data['default'] );
-						break;
+					$data['default'] = implode( '|', $data['default'] );
+					break;
 				}
 			}
 

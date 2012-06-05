@@ -353,7 +353,7 @@ class UploadWizardCampaign extends ORMRow {
 		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config )
 			&& array_key_exists( 'licensesOwnWork', $this->config )
 			&& !in_array( $this->config['defaultOwnWorkLicence'], $this->config['licensesOwnWork'] ) ) {
-				$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
+			$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -383,9 +383,6 @@ class UploadWizardCampaign extends ORMRow {
 	 * Get the configuration properties from the DB.
 	 *
 	 * @since 1.2
-	 *
-	 * @param DatabaseBase $dbr
-	 * @param integer $campaignId
 	 *
 	 * @return array
 	 */

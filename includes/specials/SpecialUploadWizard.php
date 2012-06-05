@@ -28,7 +28,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
 		// at some point, if we completely subsume its functionality, change that to point here again,
-	 	// but then we'll need to process non-JS uploads in the same way Special:Upload does.
+		// but then we'll need to process non-JS uploads in the same way Special:Upload does.
 		$this->simpleForm = new UploadWizardSimpleForm();
 		$this->simpleForm->setTitle(
 			SpecialPage::getTitleFor( 'Upload' )
@@ -110,7 +110,7 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function handleCampaign() {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
 
-		if ( !is_null( $campaignName ) && $campaignName !== '' ) {
+		if ( !is_null( $campaignName ) &&  $campaignName !== '' ) {
 			$campaign = UploadWizardCampaigns::singleton()->selectRow( 'enabled', array( 'name' => $campaignName ) );
 
 			if ( $campaign === false ) {
@@ -189,10 +189,10 @@ class SpecialUploadWizard extends SpecialPage {
 				array(
 					'UploadWizardConfig' => $config
 				) +
-				// Site name is a true global not specific to Upload Wizard
-				array(
-					'wgSiteName' => $wgSitename
-				)
+					// Site name is a true global not specific to Upload Wizard
+					array(
+						'wgSiteName' => $wgSitename
+					)
 			)
 		);
 	}
@@ -331,11 +331,15 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 
 			return
-				Html::rawElement( 'div', array( 'id' => 'upload-wizard', 'class' => 'upload-section' ),
-					Html::rawElement( 'p', array( 'style' => 'text-align: center' ), wfMessage( 'mwe-upwiz-extension-disabled' )->text() )
-					. $linkHtml
+				Html::rawElement(
+					'div',
+					array( 'id' => 'upload-wizard', 'class' => 'upload-section' ),
+					Html::rawElement(
+						'p',
+						array( 'style' => 'text-align: center' ),
+						wfMessage( 'mwe-upwiz-extension-disabled' )->text()
+					) . $linkHtml
 				);
-
 		}
 
 		$tutorialHtml = '';
@@ -347,7 +351,7 @@ class SpecialUploadWizard extends SpecialPage {
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )
 		return
-		  '<div id="upload-wizard" class="upload-section">'
+			'<div id="upload-wizard" class="upload-section">'
 
 			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
 			// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
