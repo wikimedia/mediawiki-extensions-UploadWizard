@@ -11791,7 +11791,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-next-details' => '次',
 	'mwe-upwiz-home' => 'ウィキのホームページに移動',
 	'mwe-upwiz-upload-another' => 'さらにファイルをアップロード',
-	'mwe-prevent-close' => 'このページを閉じると、あなたによるすべての変更が失われる可能性があります。',
+	'mwe-prevent-close' => 'このページを閉じると、あなたによる変更がすべて失われる可能性があります。',
 	'mwe-upwiz-prevent-close' => '{{PLURAL:$1|このファイル|これらのファイル}}のアップロードと発行はまだ完了していません。',
 	'mwe-upwiz-files-complete' => 'ファイルのアップロードが完了しました！',
 	'mwe-upwiz-tooltip-skiptutorial' => '[$1 個人設定]の $2 &rarr; $3 で、このチュートリアルを再度有効にすることができます。',
@@ -11800,7 +11800,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-tooltip-sign' => 'あなたのウィキでの名前や、本名を使うことができます。
 どちらの場合でも、ウィキの利用者ページへリンクされます。',
 	'mwe-upwiz-tooltip-title' => 'ファイル固有の説明的な表題。ファイル名として使われます。平易な言葉を使い、空白を入れることができます。拡張子は含めないでください。',
-	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことを全て説明します。
+	'mwe-upwiz-tooltip-description' => 'この作品に対して特筆すべきことをすべて説明します。
 写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのかについて述べてください。',
 	'mwe-upwiz-tooltip-date' => 'この作品の作成日または初版の発行日(YYYY-MM-DD 形式)',
 	'mwe-upwiz-tooltip-categories' => 'ファイルが見つかりやすくなるように、[$1 カテゴリ]に入れてください。',
