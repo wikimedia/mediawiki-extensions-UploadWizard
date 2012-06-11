@@ -1173,7 +1173,7 @@ mw.UploadWizardDetails.prototype = {
 				} else if ( warnings['exists'] || warnings['exists-normalized'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ) );
 				} else if ( warnings['duplicate'] ) {
-					_this.showError( 'duplicate', gM( 'mwe-upwiz-upload-error-duplicate' ) );
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-upload-error-duplicate' ) );
 				} else if ( warnings['duplicate-archive'] ) {
 					if ( _this.upload.ignoreWarning['duplicate-archive'] ) {
 						// We already told the interface to ignore this warning, so
@@ -1182,7 +1182,7 @@ mw.UploadWizardDetails.prototype = {
 						_this.upload.api.postWithEditToken( params, ok, err );
 					} else {
 						// This should _never_ happen, but just in case....
-						_this.showError( 'duplicate-archive', gM( 'mwe-upwiz-upload-error-duplicate-archive' ) );
+						_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-upload-error-duplicate-archive' ) );
 					}
 				} else {
 					var warningsKeys = [];
@@ -1190,7 +1190,7 @@ mw.UploadWizardDetails.prototype = {
 						warningsKeys.push( key );
 					} );
 					_this.upload.state = 'error';
-					_this.showError( 'unknown', gM( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ) );
+					_this.recoverFromError( _this.titleId, gM( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ) );
 				}
 			} else {
 				err( 'details-info-missing', result );
