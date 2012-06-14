@@ -1695,7 +1695,7 @@ $messages['as'] = array(
 	'mwe-upwiz-prefs-skiptutorial' => "পৰিচয়মূলক অনুজ্ঞাপত্ৰ টিউট'ৰিয়েল অৱজ্ঞা কৰক",
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -2012,7 +2012,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Xubíes en trozos pa ficheros de más de 1MB nel Asistente de xubíes',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vugar 1981
  */
@@ -2179,7 +2179,7 @@ $messages['ba'] = array(
 	'mwe-upwiz-prefs-def-license-def' => 'Ғәҙәттәгене ҡулланырға',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Тест
  */
 $messages['be'] = array(
@@ -2511,7 +2511,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Прапускаць уступную даведку па ліцэнзіях',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
  */
@@ -3229,7 +3229,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Labour unan bennak all - $1',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  * @author Palapa
  */
@@ -6490,7 +6490,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Jäta sissejuhatav litsentsiõpe vahele',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Joxemai
  */
@@ -6903,7 +6903,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'اثر کسی دیگر - $1',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Linnea
  * @author Nedergard
@@ -7209,7 +7209,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Jonkun muun teos - $1',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author Diupwijk
  * @author EileenSanda
  * @author Snævar
@@ -7644,7 +7644,7 @@ $1",
 	'mwe-upwiz-prefs-skiptutorial' => 'Passer le tutoriel sur les licences',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -7942,7 +7942,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Ôvra de quârqu’un d’ôtro - $1',
 );
 
-/** Friulian (Furlan)
+/** Friulian (furlan)
  * @author Klenje
  */
 $messages['fur'] = array(
@@ -9491,7 +9491,7 @@ $messages['hi'] = array(
 	'mwe-upwiz-prefs-license-thirdparty' => 'किसी और की काम - $1',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Ex13
  * @author Roberta F.
  * @author SpeedyGonsales
@@ -13793,7 +13793,7 @@ $1",
 	'mwe-upwiz-prefs-skiptutorial' => 'Slaon inleiing licensies euver',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  */
 $messages['lt'] = array(
@@ -14167,7 +14167,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Phalphung inzirtirna kalkânna',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author GreenZeb
  * @author Kikos
  * @author Papuass
@@ -14942,7 +14942,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-prefs-skiptutorial' => 'തുടക്കത്തിലെ അനുമതി നൽകൽ സഹായി ഒഴിവാക്കുക',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -16724,7 +16724,7 @@ $messages['nl-informal'] = array(
 	'mwe-upwiz-subhead-message' => 'Dank je wel voor het gebruiken van ons nieuwe uploadprogramma!',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -16909,7 +16909,7 @@ $1',
 	'mw-coolcats-confirm-new-cancel' => 'Berre gløym det',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -17285,7 +17285,7 @@ $messages['pfl'] = array(
 	'mwe-upwiz-campaigns-delete' => 'Lesche',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Bartek50003
  * @author Beau
  * @author BeginaFelicysym
@@ -18276,7 +18276,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-prefs-license-own' => 'شخصي اثر - $1',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Alchimista
  * @author Giro720
  * @author GoEThe
@@ -18558,7 +18558,7 @@ $1',
 	'mw-coolcats-confirm-new-cancel' => 'Não adicionar',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author 555
  * @author Giro720
  * @author Hamilton Abreu
@@ -18858,7 +18858,7 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Trabalho de outra pessoa - $1',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author Minisarm
  * @author Stelistcristi
@@ -19117,7 +19117,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Lucrarea altcuiva — $1',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -19951,7 +19951,7 @@ $messages['sa'] = array(
 	'mwe-upwiz-campaigns-delete' => 'लुपयति',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -20037,7 +20037,7 @@ $messages['sah'] = array(
 	'mwe-upwiz-license-show-all' => 'Атын лиссиэнсиэйэни туруор',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  */
 $messages['scn'] = array(
@@ -20317,7 +20317,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'වෙන කාගේ හරි වැඩක් - $1',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -20390,7 +20390,7 @@ $messages['sk'] = array(
 	'mwe-upwiz-fileexists' => 'Súbor s týmto názvom už existuje. Prosím, skontrolujte <b><tt>$1</tt></b> ak si nie ste istý, či ho chcete zmeniť.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  * @author Irena Plahuta
  */
@@ -20740,7 +20740,7 @@ $messages['so'] = array(
 	'mwe-upwiz-license-show-all' => 'Isticmaal laysin kala duwan',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Olsi
  */
 $messages['sq'] = array(
@@ -20983,7 +20983,7 @@ Ju lutemi mos përdorni tekst wiki apo HTML këtu.',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 Më shumë informacion]',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Nikola Smolenski
  * @author Rancher
  * @author Жељко Тодоровић
@@ -21284,7 +21284,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Туђе дело – $1',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Rancher
  * @author Жељко Тодоровић
  */
@@ -22107,7 +22107,7 @@ $messages['te'] = array(
 	'mwe-upwiz-prefs-license-thirdparty' => 'ఇతరుల కృతి - $1',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -22459,7 +22459,7 @@ $messages['tr'] = array(
 	'mwe-upwiz-prefs-def-license' => 'Varsayılan lisans',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Zahidulla
  * @author Ильнар
  */
@@ -23177,7 +23177,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Bỏ qua hướng dẫn cấp phép',
 );
 
-/** Walloon (Walon)
+/** Walloon (walon)
  * @author Lucyin
  */
 $messages['wa'] = array(
