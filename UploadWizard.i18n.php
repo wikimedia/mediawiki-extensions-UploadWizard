@@ -43,6 +43,13 @@ $messages['en'] = array(
 	'mwe-upwiz-help-desk-url' => 'Help Desk',
 	'mwe-upwiz-add-file-n' => 'Add another file',
 	'mwe-upwiz-add-file-0-free' => 'Select a media file to donate',
+	'mwe-upwiz-upload-flickr' => 'Upload images from flickr',
+	'mwe-upwiz-add-file-flickr' => 'Add images from flickr',
+	'mwe-upwiz-add-flickr-or' => 'Or' ,
+	'mwe-upwiz-add-flickr' => 'Get images from Flickr',
+	'mwe-upwiz-flickr-input-placeholder' => 'Flickr image/photoset URL',
+	'mwe-upwiz-select-flickr' => 'Upload selected images',
+	'mwe-upwiz-multi-file-select' => 'Draw a box with your cursor over the images you would like to upload. Hold down the Ctrl/Command key to make multiple non-adjacent selections.',
 	'mwe-upwiz-transport-started' => 'Starting...',
 	'mwe-upwiz-uploading' => 'Uploading...',
 	'mwe-upwiz-transported' => 'Finished uploading...',
@@ -229,7 +236,6 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-file-too-large-text' => 'You can only upload files with a size of up to $1. You tried to upload a file that is $2.',
 	'mwe-upwiz-file-too-large' => 'File too large.',
 
-
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])',
@@ -292,7 +298,8 @@ Please do not use wikitext or HTML here.',
 
 	'mwe-upwiz-license-external' => 'This file is under the following license on $1: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => 'This file is under the following license on $1: <b>$2</b>. Unfortunately, this license is not appropriate for use on this site.',
-
+	'mwe-upwiz-license-photoset-invalid' => 'Unfortunately, no photo in the photoset has a license appropriate to be used on this site.',
+	'mwe-upwiz-url-invalid' => 'The URL entered is not a valid $1 photo or photoset URL',
 	'mwe-upwiz-categories' => 'Categories',
 	'mwe-upwiz-categories-add' => 'Add another category',
 	'mwe-upwiz-category-will-be-added' => 'This category will be created.',
@@ -464,7 +471,8 @@ $1 is the name of the fallback language.",
 | [[file:commons-uw-L526.png|The "{{MediaWiki:mwe-upwiz-step-file/en}}" page after 2 files were added|thumb|right]]
 |} This is a button label, used in the "{{MediaWiki:mwe-upwiz-step-file/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file.',
-	'mwe-upwiz-transported' => '',
+	'mwe-upwiz-multi-file-select' => 'Instructions that appear when the user can select multiple files to upload. See http://jqueryui.com/demos/selectable/#display-grid for how this works.',
+	'mwe-upwiz-transported' => '{{Identical|OK}}',
 	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).',
 	'mwe-upwiz-remove' => '{{Identical|Remove}}',
 	'mwe-upwiz-override' => 'Message for a button to steamroll over some errors. The only use right now is for overriding duplicate-archive errors, where the file was uploaded and deleted before.',
@@ -595,6 +603,7 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-confirm-remove-title' => 'Title for dialog box to confirm that you want to abandon an upload that you started',
 	'mwe-upwiz-license-external' => '$1 is a name of a website. $2 is the name of a license.',
 	'mwe-upwiz-license-external-invalid' => '$1 is a name of a website. $2 is the name of a license.',
+	'mwe-upwiz-url-invalid' => 'Error message displayed when an invalid URL is entered. $1 is the name of a website (e.g. Flickr).',
 	'mwe-upwiz-categories' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Categories}}',

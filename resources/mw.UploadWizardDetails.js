@@ -663,13 +663,38 @@ mw.UploadWizardDetails.prototype = {
 		_this.copyrightInfoFieldset.show();
 		_this.upload.wizardDeedChooser = _this.upload.deedChooser;
 
-		_this.upload.deedChooser = new mw.UploadWizardDeedChooser(
-			_this.deedDiv,
-			_this.upload.wizard.getLicensingDeeds(),
-			[ _this.upload ]
-		);
+		// Defining own deedChooser for uploads coming from external service
+		if ( _this.upload.fromURL ) {
+			if ( _this.upload.providedFile.license ) {
+				// XXX can be made a seperate class as mw.UploadFromUrlDeedChooser
+				_this.upload.deedChooser = {
+					valid : function(){ return true; }
+				};
 
-		_this.upload.deedChooser.onLayoutReady();
+				// Need to add tipsy tips here
+				$j( _this.deedDiv ).append( _this.upload.providedFile.licenseMessage );
+
+				// XXX need to add code in the remaining functions
+				_this.upload.deedChooser.deed = {
+					valid : function(){ return true; },
+					getSourceWikiText : function() {
+						return _this.upload.providedFile.url;
+					},
+					getAuthorWikiText : function() {
+						return _this.upload.providedFile.author;
+					},
+					getLicenseWikiText : function() {
+						return _this.upload.providedFile.licenseValue;
+					}
+				};
+			}
+		} else {
+			_this.upload.deedChooser = new mw.UploadWizardDeedChooser(
+				_this.deedDiv,
+				_this.upload.wizard.getLicensingDeeds(),
+				[ _this.upload ] );
+			_this.upload.deedChooser.onLayoutReady();
+		}
 	},
 
 	/**
@@ -690,7 +715,7 @@ mw.UploadWizardDetails.prototype = {
 	 * Process the result of a destination filename check.
 	 * See mw.DestinationChecker.js for documentation of result format
 	 * XXX would be simpler if we created all these divs in the DOM and had a more jquery-friendly way of selecting
- 	 * attrs. Instead we create & destroy whole interface each time. Won't someone think of the DOM elements?
+	 * attrs. Instead we create & destroy whole interface each time. Won't someone think of the DOM elements?
 	 * @param result
 	 */
 	processDestinationCheck: function( result ) {
@@ -799,7 +824,7 @@ mw.UploadWizardDetails.prototype = {
 
 		if ( !required && allowRemove ) {
 			$j( description.div  ).append(
-				 $j.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
+				$j.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
 			);
 		}
 
@@ -860,11 +885,12 @@ mw.UploadWizardDetails.prototype = {
 			mw.UploadWizard.config['thumbnailWidth'],
 			mw.UploadWizard.config['thumbnailMaxHeight'],
 			true
-		 );
+		);
 		_this.prefillDate();
 		_this.prefillSource();
 		_this.prefillAuthor();
 		_this.prefillTitle();
+		_this.prefillDescription();
 		_this.prefillLocation();
 	},
 
@@ -960,7 +986,23 @@ mw.UploadWizardDetails.prototype = {
 	},
 
 	/**
- 	 * Prefill location inputs (and/or scroll to position on map) from image info and metadata
+	 * Prefill the image description if we have a description
+	 *
+	 * Note that this is not related to specifying the descrition from the query
+	 * string (that happens earlier). This is for when we have retrieved a
+	 * description from an upload_by_url upload (e.g. Flickr transfer)
+	 */
+	prefillDescription: function() {
+		if ( this.descriptions[0].getText() === ''
+			&& this.upload.file.description !== undefined
+			&& this.upload.file.description !== ''
+		) {
+			this.descriptions[0].setText( this.upload.file.description );
+		}
+	},
+
+	/**
+	 * Prefill location inputs (and/or scroll to position on map) from image info and metadata
 	 *
 	 * As of MediaWiki 1.18, the exif parser translates the rational GPS data tagged by the camera
 	 * to decimal format (accept for altitude, bug 32410).  Let's just use that.
@@ -1129,7 +1171,7 @@ mw.UploadWizardDetails.prototype = {
 			var lat = $j.trim( $j( _this.latInput ).val() );
 			var lon = $j.trim( $j( _this.lonInput ).val() );
 			//var alt = $j.trim( $j( _this.altInput ).val() );
-	
+
 			// Do not require the altitude to be set, to prevent people from entering 0
 			// while it's actually unknown.
 			// When none is provided, this will result in {{Location dec|int|int|}}.
@@ -1290,11 +1332,11 @@ mw.UploadWizardDetails.prototype = {
 		var titleErrorMap = {
 			'senselessimagename': 'senselessimagename',
 			'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
-		 	'titleblacklist-custom-filename': 'hosting',
+			'titleblacklist-custom-filename': 'hosting',
 			'titleblacklist-custom-SVG-thumbnail': 'thumbnail',
 			'titleblacklist-custom-thumbnail': 'thumbnail',
-		 	'titleblacklist-custom-double-apostrophe': 'double-apostrophe',
-		 	'protectedpage': 'protected'
+			'titleblacklist-custom-double-apostrophe': 'double-apostrophe',
+			'protectedpage': 'protected'
 		};
 		if ( result && result.error && result.error.code ) {
 			if ( titleErrorMap[code] ) {

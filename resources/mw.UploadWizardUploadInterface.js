@@ -78,9 +78,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	_this.form = $j( '<form method="POST" encType="multipart/form-data" class="mwe-upwiz-form"></form>' )
 			.attr( { action: _this.upload.api.defaults.url } )
 			.append( _this.visibleFilenameDiv )
-			.append( _this.fileCtrlContainer
-				.append( _this.$fileInputCtrl )
-			)
+			.append( _this.fileCtrlContainer )
 			.append( _this.filenameCtrl )
 			.get( 0 );
 
@@ -92,9 +90,12 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 		);
 		$j( '#mwe-upwiz-add-file' ).hide();
 		return;
-	} else {
-		$j( _this.div ).append( _this.form );
 	}
+
+	if ( !_this.upload.fromURL ) {
+		$j( _this.fileCtrlContainer ).append( _this.$fileInputCtrl );
+	}
+	$j( _this.div ).append( _this.form );
 
 	// XXX evil hardcoded
 	// we don't really need filesdiv if we do it this way?
@@ -285,7 +286,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	getFiles: function() {
 		var files = [];
 		if ( mw.fileApi.isAvailable() ) {
-			if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+			if( this.providedFile && !this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
 				files[0] = this.providedFile;
 			} else {
 				$j.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
@@ -329,7 +330,8 @@ mw.UploadWizardUploadInterface.prototype = {
 		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
 			statusItems.push( this.upload.imageinfo.width + '\u00d7' + this.upload.imageinfo.height );
 		}
-		if ( this.upload.file ) {
+
+		if( !this.upload.fromURL ){
 			statusItems.push( mw.units.bytes( this.upload.file.size ) );
 		}
 

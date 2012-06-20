@@ -161,6 +161,12 @@ class SpecialUploadWizard extends SpecialPage {
 		if ( $labelPageContent !== false ) {
 			$config['idFieldLabel'] = $labelPageContent;
 		}
+		// UploadFromUrl parameter set to true only if the user is allowed to upload a file from a URL which we need to check in our Javascript implementation.
+		if ( UploadFromUrl::isEnabled() && UploadFromUrl::isAllowed( $this->getUser() ) === true ) {
+			$config['UploadFromUrl'] = true;
+		} else {
+			$config['UploadFromUrl'] = false;
+		}
 
 		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
 
@@ -399,14 +405,23 @@ class SpecialUploadWizard extends SpecialPage {
 
 		.     '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">'
 		.       '<div id="mwe-upwiz-files">'
+		.         '<div id="mwe-upwiz-flickr-select-list-container" class="ui-corner-all">'
+		.			'<div>' . $this->msg( 'mwe-upwiz-multi-file-select' )->text() . '</div>'
+		.			'<div id="mwe-upwiz-flickr-select-list"></div>'
+		.		  	'<button id="mwe-upwiz-select-flickr">' . $this->msg( "mwe-upwiz-add-file-0-free" )->text() . '</button>'
+		.		  '</div>'
 		.         '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
 		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">'
-		.            '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
-		.              '<button id="mwe-upwiz-add-file">' . $this->msg( "mwe-upwiz-add-file-0-free" )->text() . '</button>'
-		.  	     '</div>'
-		.        '<div id="mwe-upwiz-upload-ctrl-container">'
-		.           '<button id="mwe-upwiz-upload-ctrl">' . $this->msg( "mwe-upwiz-upload" )->text() . '</button>'
-		.         '</div>'
+		.           '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
+		.             '<button id="mwe-upwiz-add-file">' . $this->msg( "mwe-upwiz-add-file-0-free" )->text() . '</button>'
+		.	          '<div id="mwe-upwiz-upload-ctrl-flickr-container">'
+		.		        '<p id="mwe-upwiz-upload-ctr-divide">' . $this->msg( "mwe-upwiz-add-flickr-or" )->text() . '</p>'
+		.		        '<button id="mwe-upwiz-upload-ctrl-flickr">' . $this->msg( "mwe-upwiz-add-file-flickr" )->text() . '</button>'
+		.	          '</div>'
+		.  	        '</div>'
+		.           '<div id="mwe-upwiz-upload-ctrl-container">'
+		.             '<button id="mwe-upwiz-upload-ctrl">' . $this->msg( "mwe-upwiz-upload" )->text() . '</button>'
+		.           '</div>'
 		.         '</div>'
 		.         '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
 		.         '<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>'
@@ -488,5 +503,3 @@ class UploadWizardSimpleForm extends UploadForm {
 	protected function addUploadJS( ) { }
 
 }
-
-

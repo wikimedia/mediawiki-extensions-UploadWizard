@@ -370,9 +370,9 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 	mw.UploadWizardDeedChooser.prototype.widgetCount++;
 	_this.name = 'deedChooser' + mw.UploadWizardDeedChooser.prototype.widgetCount.toString();
 
-	_this.onLayoutReady = function(){};
+	_this.onLayoutReady = function() {};
 
-	$j.each( deeds, function (i, deed) {
+	$j.each( deeds, function ( i, deed ) {
 		var id = _this.name + '-' + deed.name;
 		var $deedInterface = $j(
 			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">'

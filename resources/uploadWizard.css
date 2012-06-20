@@ -16,7 +16,7 @@ form.mwe-upwiz-form {
 #upload-wizard {
 	margin-top: 18px;
 	min-width: 750px; /* width of tutorial.png plus padding */
-	max-width: 900px; /* wild guess */ 
+	max-width: 900px; /* wild guess */
 }
 
 #mwe-upwiz-steps {
@@ -56,7 +56,7 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-add-files-0, #mwe-upwiz-files {
 	margin-top: 3em;
-	margin-bottom: 3em;
+	margin-bottom: 1em;
 }
 
 .mwe-upwiz-add-files-0 {
@@ -92,14 +92,14 @@ form.mwe-upwiz-form {
 	cursor: auto !important;
 }
 
-/* file inputs are freakishly large to overflow the containing div -- we get a div 
+/* file inputs are freakishly large to overflow the containing div -- we get a div
    that can act as a more styleable single-click file input */
 .mwe-upwiz-file-input, .disabler {
 	font-size: 100px;
-	-moz-opacity: 0.3; 
+	-moz-opacity: 0.3;
 	filter:alpha(opacity: 0);
-	opacity: 0; 
-	z-index: 2; 
+	opacity: 0;
+	z-index: 2;
 }
 
 .mwe-upwiz-file.filled {
@@ -164,7 +164,7 @@ form.mwe-upwiz-form {
 .mwe-upwiz-progress-bar .ui-progressbar-value {
 	background: #dfeffa; /* matches the highlighted arrow */
 }
-	
+
 .mwe-upwiz-file-preview {
 	float: left;
 	height: 100px;
@@ -202,6 +202,73 @@ form.mwe-upwiz-form {
 }
 #mwe-upwiz-add-file-container.mwe-upwiz-add-files-n {
 	float: left;
+}
+
+/* Flickr Interface CSS*/
+
+.ui-helper-center-fix {
+	display: inline-block;
+	position: relative;
+}
+
+#mwe-upwiz-upload-ctrl-flickr-container {
+	text-align: center;
+}
+
+#mwe-upwiz-upload-ctrl-flickr {
+	text-align: center;
+}
+
+#mwe-upwiz-upload-ctr-divide {
+	display: block;
+	font-size: 1.3em;
+}
+
+#mwe-upwiz-flickr-input {
+	font-size: 1.2em;
+	width: 250px;
+	padding: 4px;
+}
+
+#mwe-upwiz-upload-add-flickr-container {
+	text-align: center;
+}
+
+#mwe-upwiz-flickr-select-list-container {
+	width: 580px; /* based on values in #mwe-upwiz-flickrSelectlist li */
+	margin: 0 auto;
+	display: none;
+	text-align: center;
+}
+#mwe-upwiz-flickr-select-list {
+	list-style: none;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+
+#mwe-upwiz-flickr-select-list .ui-selecting {
+	background: #FECA40;
+}
+
+#mwe-upwiz-flickr-select-list .ui-selected {
+	background: green;
+}
+
+#mwe-upwiz-flickr-select-list li {
+	margin: 6px;
+	padding: 1px;
+	float: left;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background: none;
+}
+
+#mwe-upwiz-flickr-select-list li img {
+	margin: 12.5px;
+	display: block;
+	position: relative;
 }
 
 .mwe-upwiz-visible-file {
@@ -254,7 +321,7 @@ form.mwe-upwiz-form {
 
 
 #mwe-upwiz-add-file-container {
-	/* empty; this changes a lot */	
+	/* empty; this changes a lot */
 }
 
 .mwe-upwiz-details-descriptions .mwe-upwiz-remove-ctrl {
@@ -397,7 +464,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-stepdiv {
-	position: relative; 
+	position: relative;
 }
 
 
@@ -515,7 +582,7 @@ a[disabled=true]:hover {
 }
 
 .mwe-upwiz-details-fieldname-input {
-	margin-bottom: 1em; 
+	margin-bottom: 1em;
 }
 
 .mwe-upwiz-details-filename {
@@ -525,7 +592,7 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-other-textarea {
 	/* width: 40.3em; */
-} 
+}
 
 fieldset.mwe-fieldset {
 	border: 1px solid #cccccc;

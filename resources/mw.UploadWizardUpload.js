@@ -45,7 +45,14 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile, reservedIndex 
 	this.providedFile = providedFile;
 	this.file = undefined;
 	this.ignoreWarning = {};
+	this.fromURL = false;
 
+	// check to see if the File is being uplaoded from a 3rd party URL.
+	if ( this.providedFile ) {
+		if ( this.providedFile.fromURL ) {
+			this.fromURL = true;
+		}
+	}
 	// reserved index for multi-file selection
 	this.reservedIndex = reservedIndex;
 
@@ -62,8 +69,6 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile, reservedIndex 
 	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
 	// this.handler = new mw.MockUploadHandler( this );
 	this.handler = this.getUploadHandler();
-
-
 };
 
 mw.UploadWizardUpload.prototype = {
@@ -79,10 +84,11 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
- 	 * start
+	 * start
 	 */
 	start: function() {
 		var _this = this;
+
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			_this.wizard.hideFileEndButtons();
 			$j('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
@@ -126,7 +132,7 @@ mw.UploadWizardUpload.prototype = {
 
 	/**
 	 * Wear our current progress, for observing processes to see
- 	 * @param fraction
+	 * @param fraction
 	 */
 	setTransportProgress: function ( fraction ) {
 		var _this = this;
@@ -263,7 +269,6 @@ mw.UploadWizardUpload.prototype = {
 		}
 	},
 
-
 	/**
 	 * Helper function to generate duplicate errors with dialog box. Works with existing duplicates and deleted dupes.
 	 * @param {String} error code, should have matching strings in .i18n.php
@@ -293,17 +298,16 @@ mw.UploadWizardUpload.prototype = {
 			$j( '<div></div>' )
 				.html( $ul )
 				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					title: gM( 'api-error-' + code + '-popup-title', duplicates.length ),
-					modal: true
+					width : 500,
+					zIndex : 200000,
+					autoOpen : true,
+					title : gM( 'api-error-' + code + '-popup-title', duplicates.length ),
+					modal : true
 				} );
 			e.preventDefault();
 		};
 		return [ duplicates.length, dialogFn ];
 	},
-
 
 	/**
 	 * Called from any upload success condition
@@ -317,7 +321,9 @@ mw.UploadWizardUpload.prototype = {
 		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 		if ( result.upload ) {
 			_this.extractUploadInfo( result.upload );
-			_this.deedPreview.setup();
+			if ( !_this.fromURL ) {
+				_this.deedPreview.setup();
+			}
 			_this.details.populate();
 			_this.state = 'stashed';
 			_this.ui.showStashed();
@@ -429,8 +435,6 @@ mw.UploadWizardUpload.prototype = {
 
 					this.file = files[0];
 
-					this.transportWeight = this.file.size;
-
 					// If chunked uploading is enabled, we can transfer any file that MediaWiki
 					// will accept. Otherwise we're bound by PHP's limits.
 					// NOTE: Because we don't know until runtime if the browser supports chunked
@@ -446,11 +450,14 @@ mw.UploadWizardUpload.prototype = {
 					}
 
 					// make sure the file isn't too large
-					if ( this.transportWeight > actualMaxSize ) {
-						_this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
-						return;
+					// XXX need a way to find the size of the Flickr image
+					if( !_this.fromURL ){
+						this.transportWeight = this.file.size;
+						if ( this.transportWeight > actualMaxSize ) {
+							_this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
+							return;
+						}
 					}
-
 					if ( this.imageinfo === undefined ) {
 						this.imageinfo = {};
 					}
@@ -558,7 +565,7 @@ mw.UploadWizardUpload.prototype = {
 			.msg(
 				'mwe-upwiz-file-too-large-text',
 				mw.units.bytes( maxSize ),
-			    mw.units.bytes( size )
+				mw.units.bytes( size )
 			)
 			.dialog( {
 				width: 500,
@@ -638,7 +645,7 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
- 	 * Accept the result from a successful API upload transport, and fill our own info
+	 * Accept the result from a successful API upload transport, and fill our own info
 	 *
 	 * @param result The JSON object from a successful API upload result.
 	 */
@@ -683,7 +690,7 @@ mw.UploadWizardUpload.prototype = {
 		}
 
 		if ( _this.title.getExtension() === null ) {
-			1;
+			// 1;
 			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
 			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
 			/*
@@ -697,10 +704,6 @@ mw.UploadWizardUpload.prototype = {
 			}
 			*/
 		}
-
-
-
-
 	},
 
 	/**
@@ -752,7 +755,6 @@ mw.UploadWizardUpload.prototype = {
 
 		this.api.get( params, { ok: ok, err: err } );
 	},
-
 
 	/**
 	 * Get information about published images
@@ -813,7 +815,6 @@ mw.UploadWizardUpload.prototype = {
 		this.api.get( params, { ok: ok, err: err } );
 	},
 
-
 	/**
 	 * Get the upload handler per browser capabilities
 	 * @return upload handler object
@@ -828,10 +829,13 @@ mw.UploadWizardUpload.prototype = {
 			} else {
 				constructor = 'ApiUploadHandler';
 			}
-			this.uploadHandler = new mw[constructor]( this, this.api );
 			if ( mw.UploadWizard.config.debug ) {
 				mw.log( 'mw.UploadWizard::getUploadHandler> ' + constructor );
 			}
+			if ( this.fromURL ) {
+				constructor = 'ApiUploadHandler';
+			}
+			this.uploadHandler = new mw[constructor]( this, this.api );
 		}
 		return this.uploadHandler;
 	},
@@ -839,7 +843,7 @@ mw.UploadWizardUpload.prototype = {
 	/**
 	 * Explicitly fetch a thumbnail for a stashed upload of the desired width.
 	 * Publishes to any event listeners that might have wanted it.
- 	 *
+	 *
 	 * @param width - desired width of thumbnail (height will scale to match)
 	 * @param height - (optional) maximum height of thumbnail
 	 */
@@ -1070,12 +1074,12 @@ mw.UploadWizardUpload.prototype = {
 		};
 
 		return mw.canvas.isAvailable() ? this.getTransformedCanvasElement( image, constraints )
-					       : this.getBrowserScaledImageElement( image, constraints );
+							: this.getBrowserScaledImageElement( image, constraints );
 	},
 
 	/**
 	 * Given a jQuery selector, subscribe to the "ready" event that fills the thumbnail
- 	 * This will trigger if the thumbnail is added in the future or if it already has been
+	 * This will trigger if the thumbnail is added in the future or if it already has been
 	 *
 	 * @param selector
 	 * @param width  Width constraint
@@ -1087,8 +1091,8 @@ mw.UploadWizardUpload.prototype = {
 
 		/**
 		 * This callback will add an image to the selector, using in-browser scaling if necessary
-	 	 * @param {HTMLImageElement}
-	 	 */
+		 * @param {HTMLImageElement}
+		 */
 		var placed = false;
 		var placeImageCallback = function( image ) {
 			if ( image === null ) {

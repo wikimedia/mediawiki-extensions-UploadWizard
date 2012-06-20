@@ -1,24 +1,29 @@
 ( function( mw, $ ) {
 
-mw.FlickrChecker = {
 
-	apiUrl: 'http://api.flickr.com/services/rest/?',
-	apiKey: 'e9d8174a79c782745289969a45d350e8',
-	licenseList: new Array(),
+mw.FlickrChecker = function( wizard, upload ) {
+	this.wizard = wizard;
+	this.upload = upload;
+	this.imageUploads = [];
+	this.apiUrl = mw.UploadWizard.config['flickrApiUrl'];
+	this.apiKey = mw.UploadWizard.config['flickrApiKey'];
+};
 
+mw.FlickrChecker.prototype = {
+	licenseList: [],
 	// Map each Flickr license name to the equivalent templates.
 	// These are the current Flickr license names as of April 26, 2011.
-	// Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=e9d8174a79c782745289969a45d350e8
+	// Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=...
 	licenseMaps: {
 		'All Rights Reserved': 'invalid',
-		'Attribution License': '{{flickrreview}}{{cc-by-2.0}}',
+		'Attribution License': '{{FlickrVerifiedByUploadWizard|cc-by-2.0}}{{cc-by-2.0}}',
 		'Attribution-NoDerivs License': 'invalid',
 		'Attribution-NonCommercial-NoDerivs License': 'invalid',
 		'Attribution-NonCommercial License': 'invalid',
 		'Attribution-NonCommercial-ShareAlike License': 'invalid',
-		'Attribution-ShareAlike License': '{{flickrreview}}{{cc-by-sa-2.0}}',
-		'No known copyright restrictions': '{{flickrreview}}{{Flickr-no known copyright restrictions}}',
-		'United States Government Work': '{{flickrreview}}{{PD-USGov}}'
+		'Attribution-ShareAlike License': '{{FlickrVerifiedByUploadWizard|cc-by-sa-2.0}}{{cc-by-sa-2.0}}',
+		'No known copyright restrictions': '{{FlickrVerifiedByUploadWizard|Flickr-no known copyright restrictions}}{{Flickr-no known copyright restrictions}}',
+		'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}'
 	},
 
 	/**
@@ -32,46 +37,269 @@ mw.FlickrChecker = {
  	 * @param $selector - the element to insert the license name into
  	 * @param upload - the upload object to set the deed for
 	 */
-	checkFlickr: function( url, $selector, upload ) {
-		var photoIdMatches = url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
-		if ( photoIdMatches && photoIdMatches[1] > 0 ) {
-			var photoId = photoIdMatches[1];
-			$.getJSON( this.apiUrl, { 'nojsoncallback': 1, 'method': 'flickr.photos.getInfo', 'api_key': this.apiKey, 'photo_id': photoId, 'format': 'json' },
-				function( data ) {
-					if ( typeof data.photo != 'undefined' ) {
-						// The returned data.photo.license is just an ID that we use to look up the license name
-						var licenseName = mw.FlickrChecker.licenseList[data.photo.license];
-						if ( typeof licenseName != 'undefined' ) {
-							// Use the license name to retrieve the template values
-							var licenseValue = mw.FlickrChecker.licenseMaps[licenseName];
-							// Set the license message to show the user.
-							var licenseMessage;
-							if ( licenseValue == 'invalid' ) {
-								licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
-							} else {
-								licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+	checkFlickr: function( flickr_input_url ) {
+		var _this = this;
+		_this.url = flickr_input_url;
+		var photoIdMatches = _this.url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
+		var albumIdMatches = _this.url.match(/flickr.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
+		if ( albumIdMatches || photoIdMatches ) {
+			$j( '#mwe-upwiz-upload-add-flickr-container' ).hide();
+			_this.imageUploads = [];
+			if ( albumIdMatches && albumIdMatches[1] > 0 ) {
+				_this.getPhotoset( albumIdMatches );
+			}
+			if ( photoIdMatches && photoIdMatches[1] > 0 ) {
+				_this.getPhoto( photoIdMatches );
+			}
+		} else {
+			// XXX show user the message that the URL entered was not valid
+			$j( '<div></div>' )
+				.html( gM( 'mwe-upwiz-url-invalid', 'Flickr' ) )
+				.dialog( {
+					width: 500,
+					zIndex: 200000,
+					autoOpen: true,
+					modal: true
+				} );
+			_this.wizard.flickrInterfaceReset();
+		}
+	},
+
+	getPhotoset: function( albumIdMatches ) {
+		var _this = this;
+		var x = 0;
+		var fileName, imageContainer;
+
+		$j( '#mwe-upwiz-select-flickr' ).button( {
+			label: gM( 'mwe-upwiz-select-flickr' ),
+			disabled: true
+		} );
+		$.getJSON( _this.apiUrl, {
+			nojsoncallback: 1,
+			method: 'flickr.photosets.getPhotos',
+			api_key: _this.apiKey,
+			photoset_id: albumIdMatches[1],
+			format: 'json',
+			extras: 'license, url_sq, owner_name, original_format' },
+			function( data ) {
+				if ( data.photoset !== undefined ) {
+					$.each( data.photoset.photo, function( i, item ){
+						// Limit to maximum of 50 images
+						if ( x < 50 ) {
+							var license = _this.checkLicense( item.license, i );
+							var licenseValue = license.licenseValue;
+							if ( licenseValue !== 'invalid' ) {
+								// if the photo is untitled, generate a title
+								if ( item.title === '' ) {
+									fileName = item.ownername + '-' + item.id + '.jpg';
+								} else {
+									fileName = item.title + '.jpg';
+								}
+								var flickrUpload = {
+									name: fileName,
+									url: '',
+									type: 'JPEG',
+									fromURL: true,
+									licenseValue: licenseValue,
+									licenseMessage: license.licenseMessage,
+									license: true,
+									photoId: item.id,
+									author: item.ownername,
+									originalFormat: item.originalformat,
+									index: i
+								};
+								// Adding all the Photoset files which have a valid license with the required info to an array so that they can be referenced later
+								_this.imageUploads[i] = flickrUpload;
+
+								// setting up the thumbnail previews in the Selection list
+								if ( item.url_sq ) {
+									imageContainer = '<li id="upload-' + i +'" class="ui-state-default"><img src="' + item.url_sq + '"></li>';
+									$( '#mwe-upwiz-flickr-select-list' ).append( imageContainer );
+								}
+								x++;
 							}
-							// XXX Do something with data.
+						}
+					} );
+				}
+
+				// Calling jquery ui selectable
+				$j( '#mwe-upwiz-flickr-select-list' ).selectable( {
+					stop: function( e ) {
+						// If at least one item is selected, activate the upload button
+						if ( $j( '.ui-selected' ).length > 0 ) {
+							$j( '#mwe-upwiz-select-flickr' ).button( 'enable' );
+						} else {
+							$j( '#mwe-upwiz-select-flickr' ).button( 'disable' );
 						}
 					}
+				} );
+				// Set up action for 'Upload selected images' button
+				$j( '#mwe-upwiz-select-flickr' ).click( function() {
+					$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
+					$j( '#mwe-upwiz-upload-ctrls' ).show();
+					$j( 'li.ui-selected' ).each( function( index, image ) {
+						image = $( this ).attr( 'id' );
+						image = image.split( '-' )[1];
+						_this.setImageDescription( image );
+						_this.setImageURL( image );
+					} );
+				} );
+
+				if ( _this.imageUploads.length === 0) {
+					$j( '<div></div>' )
+						.html( gM( 'mwe-upwiz-license-photoset-invalid' ) )
+						.dialog( {
+							width: 500,
+							zIndex: 200000,
+							autoOpen: true,
+							modal: true
+						} );
+					_this.wizard.flickrInterfaceReset();
+				} else {
+					$j( '#mwe-upwiz-flickr-select-list-container' ).show();
 				}
-			);
-		}
+			}
+		);
+	},
+
+	getPhoto: function( photoIdMatches ) {
+		var _this = this;
+		var photoId = photoIdMatches[1];
+		var fileName;
+		$.getJSON( this.apiUrl, {
+			nojsoncallback: 1,
+			method: 'flickr.photos.getInfo',
+			api_key: this.apiKey,
+			photo_id: photoId,
+			format: 'json' },
+			function( data ) {
+				if ( typeof data.photo != 'undefined' ) {
+					var license = _this.checkLicense( data.photo.license );
+					var licenseValue = license.licenseValue;
+					if ( licenseValue != 'invalid' ) {
+						// if the photo is untitled, generate a title
+						if ( data.photo.title._content === '' ) {
+							fileName = data.photo.owner.username + '-' + data.photo.id + '.jpg';
+						} else {
+							fileName = data.photo.title._content + '.jpg';
+						}
+						var flickrUpload = {
+							name: fileName,
+							url: '',
+							type: 'JPEG',
+							fromURL: true,
+							licenseValue: licenseValue,
+							licenseMessage: licenseMessage,
+							license: true,
+							author: data.photo.owner.realname,
+							description: data.photo.description._content,
+							originalFormat: data.photo.originalformat,
+							photoId: data.photo.id
+						};
+						_this.imageUploads.push( flickrUpload );
+						_this.setImageURL( 0, _this );
+					} else {
+						$j( '<div></div>' )
+							.html( licenseMessage )
+							.dialog({
+								width: 500,
+								zIndex: 200000,
+								autoOpen: true,
+								modal: true
+							});
+						_this.wizard.flickrInterfaceReset();
+					}
+				}
+			}
+		);
 	},
 
 	/**
 	 * Retrieve the list of all current Flickr licenses and store it in an array (mw.FlickrChecker.licenseList)
 	 */
 	getLicenses: function() {
-		$.getJSON( this.apiUrl, { 'nojsoncallback': 1, 'method': 'flickr.photos.licenses.getInfo', 'api_key': this.apiKey, 'format': 'json' },
+		var _this = this;
+		$.getJSON( _this.apiUrl, {
+			nojsoncallback: 1,
+			method: 'flickr.photos.licenses.getInfo',
+			api_key: _this.apiKey,
+			format: 'json' },
 			function( data ) {
 				if ( typeof data.licenses != 'undefined' ) {
-					$.each( data.licenses.license, function(index, value) {
-						mw.FlickrChecker.licenseList[value.id] = value.name;
+					$.each( data.licenses.license, function( index, value ) {
+						mw.FlickrChecker.prototype.licenseList[value.id] = value.name;
 					} );
 				}
+			$j( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
 			}
 		);
+	},
+
+	setImageDescription: function( index ) {
+		var upload = this.imageUploads[index];
+		var photoId = upload.photoId;
+
+		$.getJSON(
+			this.apiUrl,
+			{
+				nojsoncallback: 1,
+				method: 'flickr.photos.getInfo',
+				api_key: this.apiKey,
+				photo_id: photoId,
+				format: 'json'
+			},
+			function( data ) {
+				upload.description = data.photo.description._content;
+			} );
+	},
+
+	setImageURL: function( index ) {
+		var _this = this;
+		var imageURL = '';
+		var upload = this.imageUploads[index];
+		var photoId = upload.photoId;
+
+		$.getJSON( _this.apiUrl, {
+			nojsoncallback: 1,
+			method: 'flickr.photos.getSizes',
+			api_key: _this.apiKey,
+			format: 'json',
+			photo_id: photoId },
+			function( data ) {
+				$.each( data.sizes.size, function( counter, item ) {
+					imageURL = item.source;
+
+					// Flickr provides the original format for images coming from pro users, hence we need to change the default JPEG to this format
+					if ( item.label == 'Original' ) {
+						upload.type = upload.originalFormat;
+						upload.name = upload.name.split('.')[0] + '.' + upload.originalFormat;
+					}
+				} );
+				upload.url = imageURL;
+				// Need to call the newUpload here because else some code would have to be written to detect the completion of the API call.
+				_this.wizard.newUpload( upload );
+			} );
+	},
+
+	checkLicense: function( licenseId ){
+		// The returned data.photo.license is just an ID that we use to look up the license name
+		var licenseName = mw.FlickrChecker.prototype.licenseList[licenseId];
+
+		// Use the license name to retrieve the template values
+		var licenseValue = mw.FlickrChecker.prototype.licenseMaps[licenseName];
+
+		// Set the license message to show the user.
+		if ( licenseValue == 'invalid' ) {
+			licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
+		} else {
+			licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+		}
+		var license = {
+			licenseName: licenseName,
+			licenseMessage: licenseMessage,
+			licenseValue: licenseValue
+		};
+		return license;
 	}
 
 };

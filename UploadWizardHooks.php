@@ -20,6 +20,8 @@ class UploadWizardHooks {
 				'jquery.ui.datepicker',
 				'jquery.ui.progressbar',
 				'jquery.spinner',
+				'jquery.ui.selectable',
+				'jquery.placeholder',
 				'jquery.suggestions',
 				'jquery.tipsy',
 				'jquery.ui.widget',
@@ -74,6 +76,9 @@ class UploadWizardHooks {
 				'resources/mw.Firefogg.js',
 				'resources/mw.FirefoggHandler.js',
 				'resources/mw.FirefoggTransport.js',
+
+				// flickr libraries
+				'resources/mw.FlickrChecker.js',
 
 				//upload using FormData, large files in chunks
 				'resources/mw.FormDataTransport.js',
@@ -161,6 +166,10 @@ class UploadWizardHooks {
 				'mwe-upwiz-help-desk',
 				'mwe-upwiz-add-file-n',
 				'mwe-upwiz-add-file-0-free',
+				'mwe-upwiz-flickr-input-placeholder',
+				'mwe-upwiz-add-flickr',
+				'mwe-upwiz-add-file-flickr',
+				'mwe-upwiz-select-flickr',
 				'mwe-upwiz-browse',
 				'mwe-upwiz-transport-started',
 				'mwe-upwiz-uploading',
@@ -382,6 +391,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-confirm-remove-title',
 				'mwe-upwiz-license-external',
 				'mwe-upwiz-license-external-invalid',
+				'mwe-upwiz-license-photoset-invalid',
+				'mwe-upwiz-url-invalid',
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-will-be-added',
