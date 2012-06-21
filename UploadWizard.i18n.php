@@ -1715,6 +1715,8 @@ $messages['as'] = array(
 	'mwe-upwiz-feedback-title' => "আপল'ড ৱিজাৰ্ড সম্পৰ্কে আপোনাৰ প্ৰতিক্ৰিয়া ব্যক্ত কৰক",
 	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 প্রতিক্ৰিয়া পঠাওক]',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 অধিক তথ্য]',
+	'mwe-upwiz-feedback-blacklist-line-intro' => 'এইটো শিৰোনাম ব্লেকলিষ্ট ভুক্তি মিলিছে: 
+$1',
 	'mwe-upwiz-feedback-blacklist-subject' => 'ম‍ই আপলোড কৰা "$1" শীৰ্ষকটো বাধাপ্ৰাপ্ত হৈছে',
 	'mwe-upwiz-errordialog-title' => 'আপুনি জমা দিয়াত কিবা ক্ৰুটি হৈছে',
 	'mwe-upwiz-errordialog-ok' => 'ঠিক আছে',
@@ -1728,6 +1730,7 @@ $messages['as'] = array(
 	'mwe-upwiz-campaigns-add' => 'যোগ',
 	'mwe-upwiz-campaigns-addnew' => 'এটা নতুন প্ৰচাৰ যোগ কৰক',
 	'mwe-upwiz-campaigns-newname' => 'প্ৰচাৰৰ নাম:',
+	'mwe-upwiz-campaigns-namedoc' => 'চিনাক্তকাৰকজনে URLত ব্যৱহাৰ কৰা প্ৰচাৰৰ নাম। যেনে ?campaign=নাম-ৰ "নাম"',
 	'mwe-upwiz-campaigns-existing' => 'বৰ্তমানৰ প্ৰচাৰসমূহ',
 	'mwe-upwiz-campaigns-editing' => "প্ৰচাৰ কন্‌ফিগাৰেচন আপল'ড কৰক",
 	'mwe-upwiz-campaigns-delete' => 'বিলোপ কৰক',
@@ -1739,8 +1742,11 @@ $messages['as'] = array(
 	'mwe-upwiz-campaign-name' => 'প্ৰচাৰৰ নাম:',
 	'mwe-upwiz-campaign-enabled' => 'প্ৰচাৰ সক্ৰিয়',
 	'mwe-upwiz-campaign-conf-skipTutorial' => "অনুজ্ঞাপত্ৰ টিউট'ৰিয়েল অৱজ্ঞা কৰক",
+	'mwe-upwiz-campaign-conf-autoCategories' => 'ফাইলবোৰ স্বয়ংক্ৰিয়ভাৱে আৰু গুপুতে যোগ কৰা শ্ৰেণী (পাইপেৰে পৃথক কৰা):',
+	'mwe-upwiz-campaign-conf-defaultCategories' => 'বিৱৰণ টেবত তালিকাভুক্ত কৰিবলৈ ডিফল্ট শ্ৰেণী (পাইপেৰে পৃথক কৰা):',
 	'mwe-upwiz-campaign-conf-autoWikiText' => "আপল'ড কৰা সকলো ছবিত যোগ কৰিবলৈ ৱিকিপাঠ্য:",
 	'mwe-upwiz-campaign-conf-ownWorkOption' => 'নিজৰ-কাম আৰু আনৰ-কাম কেনেকৈ চিনাক্ত কৰিব:',
+	'mwe-upwiz-campaign-owner-choice' => 'নিজা কাম আৰু আনৰ কামৰ মাজত বাছনি কৰিবলৈ সদস্যজনক অনুমতি দিয়ক',
 	'mwe-upwiz-campaign-owner-own' => 'কেৱল আপোনাৰ নিজৰ আপলোডসমূহহে মান্য হ’ব',
 	'mwe-upwiz-campaign-owner-notown' => 'কেৱল আপোনাৰ নিজৰ নোহোৱা আপল’ডসমূহহে মান্য হ’ব',
 	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'সচৰাচৰ ব্যৱহৃত নিজ কামৰ অনুজ্ঞাপত্ৰ',
@@ -22811,6 +22817,7 @@ $messages['tt-cyrl'] = array(
  * @author Alex Khimich
  * @author Dim Grits
  * @author Gucci Mane Burrr
+ * @author Olvin
  * @author Renessaince
  * @author Александр Сигачёв
  * @author Тест
@@ -23000,15 +23007,15 @@ $messages['uk'] = array(
 	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'Creative Commons Attribution ShareAlike 3.0 Іспанія  ([$2 текст]',
 	'mwe-upwiz-license-cc-by-sa-3.0-hr' => 'Creative Commons Attribution ShareAlike 3.0 Хорватія  ([$2 текст]',
 	'mwe-upwiz-license-cc-by-sa-3.0-lu' => 'Creative Commons Attribution ShareAlike 3.0 Люксембург  ([$2 текст])',
-	'mwe-upwiz-license-cc-by-sa-3.0-nl' => 'Creative Commons Attribution ShareAlike 3.0 Нідерланди ([$2 текст])',
-	'mwe-upwiz-license-cc-by-sa-3.0-no' => 'Creative Commons Attribution ShareAlike 3.0 Норвегія ([$2 текст])',
-	'mwe-upwiz-license-cc-by-sa-3.0-pl' => 'Creative Commons Attribution ShareAlike 3.0 Польща ([$2 текст])',
-	'mwe-upwiz-license-cc-by-sa-3.0-ro' => 'Creative Commons Attribution ShareAlike 3.0 Румунія ([$2 текст])',
-	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0 ([$2 legal code]) ([$2 текст])',
-	'mwe-upwiz-license-cc-by-sa-2.5' => 'Creative Commons Attribution ShareAlike 2.5 ([$2 текст])',
-	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons Attribution 2.5 ([$2 текст])',
-	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Attribution ShareAlike 2.0 ([$2 текст])',
-	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0 ([$2 текст])',
+	'mwe-upwiz-license-cc-by-sa-3.0-nl' => 'Creative Commons Attribution ShareAlike 3.0 Нідерланди ([$2.uk скорочений виклад та офіційний юридичний текст])',
+	'mwe-upwiz-license-cc-by-sa-3.0-no' => 'Creative Commons Attribution ShareAlike 3.0 Норвегія ([$2.uk скорочений виклад та офіційний юридичний текст ліцензії])',
+	'mwe-upwiz-license-cc-by-sa-3.0-pl' => 'Creative Commons Attribution ShareAlike 3.0 Польща ([$2.uk скорочений виклад та офіційний юридичний текст ліцензії])',
+	'mwe-upwiz-license-cc-by-sa-3.0-ro' => 'Creative Commons Attribution ShareAlike 3.0 Румунія ([$2.uk скорочений виклад офіційного юридичного тексту ліцензії])',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0 ([$2.uk скорочений виклад та офіційний юридичний текст ліцензії])',
+	'mwe-upwiz-license-cc-by-sa-2.5' => 'Creative Commons Attribution ShareAlike 2.5 ([$2.uk спрощений виклад та офіційний юридичний текст])',
+	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons Attribution 2.5 ([$2.uk спрощений виклад та офіційний юридичний текст])',
+	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Attribution ShareAlike 2.0 ([$2.uk спрощений виклад та посилання на повний офіційний текст])',
+	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0 ([$2.uk спрощений виклад ліцензії])',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (суспільне надбання: [$2 legal code])',
 	'mwe-upwiz-license-custom' => 'Ліцензія описана наступним вікі-текстом (повинен містити дійсне [$2 посилання на авторське право]):',
 	'mwe-upwiz-license-fal' => 'Ліцензія вільного мистецтва',
