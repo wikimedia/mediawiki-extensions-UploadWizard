@@ -5805,7 +5805,7 @@ Bonvolu kontroli <b><tt>$1</tt></b> se vi ne certas ĉu vi volas anstataŭi ĝin
 	'mwe-upwiz-prevent-close' => 'Vi ne jam finis la alŝuton kaj publikigon de {{PLURAL:$1|tiu ĉi dosiero|tiuj ĉi dosieroj}}.',
 	'mwe-upwiz-files-complete' => 'Viaj dosiera alŝutado finiĝis!',
 	'mwe-upwiz-tooltip-author' => 'La nomo de la persono, kiu faris la foton, aŭ pentris la bildon, desegnis la desegnaĵon ktp.',
-	'mwe-upwiz-tooltip-source' => 'De kie devenis tiu ĉi cifereca dosiero - jan povus notiĝi URL-adreso, aŭ libro aŭ alia publikaĵo',
+	'mwe-upwiz-tooltip-source' => 'De kie devenas tiu ĉi cifereca dosiero – tio povas esti URL-adreso, aŭ libro aŭ alia publikaĵo.',
 	'mwe-upwiz-tooltip-sign' => 'Vi povas uzi vian vikian uzantonomon aŭ vian veran nomon. En ambaŭ kazoj, estos ligilo al via vikia uzantopaĝo.',
 	'mwe-upwiz-tooltip-title' => 'Klara priskriba titolo por tiu ĉi dosiero, kiu servos kiel dosiernomo. Eblas uzi normalan lingvaĵon kun interspacoj. Ne aldonu la dosieran aldonaĵon.',
 	'mwe-upwiz-tooltip-description' => 'Bonvolu koncize priskribi ĉion noteblan pri la verko.
@@ -7536,6 +7536,9 @@ $messages['fr'] = array(
 	'mwe-upwiz-source-ownwork-assert' => 'Moi, $2, titulaire du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|ce travail|ces travaux}} à n’importe quelle fin, aux conditions qu’ils me créditent et partagent les travaux dérivés selon les mêmes modalités.',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Moi, $2, détenteur du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|cette œuvre|ces œuvres}} sous la licence Creative Commons Attribution ShareAlike 3.0 ([$3 code légal]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Moi, $2, détenteur du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|cette œuvre|ces œuvres}} sous la licence Creative Commons Attribution ShareAlike 3.0 Autriche ([$3 code légal]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Moi, $2, détenteur du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|cette œuvre|ces œuvres}} sous la licence Creative Commons Attribution ShareAlike 3.0 Allemagne ([$3 code légal]).',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Moi, $2, détenteur du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|cette œuvre|ces œuvres}} sous la licence Creative Commons Attribution 3.0 ([$3 code légal]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit.)',
 	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Moi, $2, détenteur du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|cette œuvre|ces œuvres}} sous les termes de la Creative Commons “Transfert dans le Domaine Public” ([$3 code légal]).',
@@ -13432,6 +13435,7 @@ $messages['lb'] = array(
 	'mwe-upwiz-api-warning-was-deleted' => 'Et gouf schonn e Fichier mat deem Numm, "$1", awer e gouf geläscht an Dir kënnt de Fichier net nach emol eroplueden. Wann et en anere Fichier ass, da probéiert him en aneren Numm ze ginn.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Pardon, mir konnte keng Uleedung an Ärer Sprooch fannen. Déi Englesch Versioun gëtt amplaz gewisen.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Et konnte leider keng Fichiere vun der Hëllef, déi hei disponibel si soll, fonnt ginn. Kontaktéiert w.e.g. ee vun de System-Administrateuren.',
+	'mwe-upwiz-tutorial-error-cannot-transform' => 'Pardon, mir hu kee reduzéiert Bild vum Guide deen op Ären Ecran passt. Dëst kann en temporäre Problem op WikimediaCommons sinn; probéiert w.e.g. méi spéit nach eng Kéier.',
 	'mwe-upwiz-help-desk' => 'Helpdesk',
 	'mwe-upwiz-help-desk-url' => 'Helpdesk',
 	'mwe-upwiz-add-file-n' => 'En anere Fichier derbäisetzen',
@@ -22133,7 +22137,7 @@ $1',
  * @author Lloffiwr
  */
 $messages['sw'] = array(
-	'mwe-upwiz-desc' => 'Maelezo katika',
+	'mwe-upwiz-desc' => 'Maelezo',
 );
 
 /** Tamil (தமிழ்)
@@ -23550,6 +23554,7 @@ $1',
 
 /** Walloon (walon)
  * @author Lucyin
+ * @author Srtxg
  */
 $messages['wa'] = array(
 	'uploadwizard' => "Aidant a l' eberwetaedje",
@@ -23569,7 +23574,7 @@ $messages['wa'] = array(
 	'mwe-upwiz-help-desk' => "Buro d' aidance",
 	'mwe-upwiz-help-desk-url' => "Buro d' aidance",
 	'mwe-upwiz-add-file-n' => 'Rajdouter on fitchî',
-	'mwe-upwiz-add-file-0-free' => 'Tchoezixhoz on fitchî a-z eberweter',
+	'mwe-upwiz-add-file-0-free' => 'Tchoezixhoz on fitchî a dner',
 	'mwe-upwiz-transport-started' => "Ça s' escoursixh...",
 	'mwe-upwiz-uploading' => "Dji so k' eberwete li cayet...",
 	'mwe-upwiz-transported' => 'Tot eberweté',
