@@ -1749,12 +1749,24 @@ $1',
 	'mwe-upwiz-campaign-owner-choice' => 'নিজা কাম আৰু আনৰ কামৰ মাজত বাছনি কৰিবলৈ সদস্যজনক অনুমতি দিয়ক',
 	'mwe-upwiz-campaign-owner-own' => 'কেৱল আপোনাৰ নিজৰ আপলোডসমূহহে মান্য হ’ব',
 	'mwe-upwiz-campaign-owner-notown' => 'কেৱল আপোনাৰ নিজৰ নোহোৱা আপল’ডসমূহহে মান্য হ’ব',
+	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'নিজা কামৰ বাবে বাছনি কৰিব পৰা অনুজ্ঞাপত্ৰ:',
+	'mwe-upwiz-campaign-conf-tutorialTemplate' => "ৱিকিমিডিয়া কমন্সৰ টিউট'ৰিয়েলৰ নাম। $1ক এই ভাষা সংকেতেৰে সলনি কৰা হৈছে:",
+	'mwe-upwiz-campaign-conf-tutorialWidth' => "টিউট'ৰিয়েলৰ স্কে'ল মিলাবলৈ প্ৰস্থতা:",
+	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => '"সাহায্য সদন" টিউট\'ৰিয়েল বুটামৰ বাবে ইমেজমেপ স্থানাংক:',
 	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'সচৰাচৰ ব্যৱহৃত নিজ কামৰ অনুজ্ঞাপত্ৰ',
+	'mwe-upwiz-campaign-conf-idField' => 'আইডি ফিল্ড ৱিকিপাঠ্য। যেনে: <nowiki>{{Rijksmonument|$1}}</nowiki>। খালী ৰাখিলে ফিল্ড দেখা নাযাব:',
+	'mwe-upwiz-campaign-conf-idFieldLabel' => 'আইডি ফিল্ড লেবেল পাঠ্য :',
+	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'আইডি ফিল্ড লেবলৰ বাবে পাঠ্যসহ পৃষ্ঠাৰ নাম। $1ক ভাষা সংকেতেৰে সলনি কৰা হৈছে:',
+	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'আইডি ফিল্ডৰ প্ৰথম মূল্য:',
+	'mwe-upwiz-campaign-conf-headerLabelPage' => "আপল'ড ৱিজাৰ্ড ইণ্টাৰফে'চৰ ওপৰত ওলাই থকাকৈ পাঠ্যৰ পৃষ্ঠা। $1ক ভাষা সংকেতেৰে সলনি কৰা হৈছে:",
+	'mwe-upwiz-campaign-conf-thanksLabelPage' => '"ব্যৱহাৰ" পৃষ্ঠাৰ ওপৰত দৃশ্যমান হ\'বলৈ পাঠ্য থকা পৃষ্ঠা। $1ক ভাষা সংকেতেৰে সলনি কৰা হৈছে:',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'আইডি ফিল্ডৰ পাঠ্যৰ সৰ্বোচ্চ দৈৰ্ঘ্য:',
 	'mwe-upwiz-campaign-conf-defaultLat' => 'ডিফল্ট অক্ষাংশ:',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'ডিফল্ট দ্ৰাঘিমাংশ:',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'ডিফল্ট উচ্চতা:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'ডিফল্ট বিৱৰণ:',
 	'mw-coolcats-confirm-new-title' => 'নতুন শ্ৰেণী নিশ্চিত কৰক',
+	'mw-coolcats-confirm-new' => 'আপুনি "$1" নামৰ এটা শ্ৰেণী যোগ দিবলৈ চেষ্টা কৰিছে। সাৱধান:<ul><li>শ্ৰেণীৰ নামটো ইংৰাজীত হ\'লে ভাল।</li><li>বেছিভাগ নতুন শ্ৰেণীয়েই ইতিমধ্যে থকা এটাৰ উপশ্ৰেণী হ\'ব লাগে।</li></ul>সাধাৰণতে অভিজ্ঞাজনেহে শ্ৰেণীৰ সৃষ্টি কৰিব লাগে।',
 	'mw-coolcats-confirm-new-ok' => 'এই শ্ৰেণীটো যোগ কৰকেই',
 	'mw-coolcats-confirm-new-cancel' => 'বেয়া নাপাব',
 	'prefs-uploads' => "আপল'ডসমূহ",
@@ -6735,6 +6747,7 @@ $messages['eu'] = array(
  * @author Amire80
  * @author Baqeri
  * @author Ebraminio
+ * @author Hooshmand.hasannia
  * @author Huji
  * @author Leyth
  * @author Mjbmr
@@ -6978,6 +6991,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-license-external-invalid' => 'این پرونده در $1 تحت مجوز مقابل منتشر شده است: <b>$2</b>. متأسفانه، این مجوز برای استفاده در این تارنما مناسب نیست.',
 	'mwe-upwiz-categories' => 'رده‌ها',
 	'mwe-upwiz-categories-add' => 'افزودن',
+	'mwe-upwiz-category-will-be-added' => 'این رده ایجاد خواهد شد.',
 	'mwe-upwiz-category-remove' => 'حذف این رده',
 	'mwe-upwiz-thanks-caption' => 'افزودن عنوان در اینجا',
 	'mwe-upwiz-thumbnail-failed' => 'بارگذاری موفق بود، اما این سرور نمی‌تواند یک تصویر کوچک پیش نمایش دریافت کند.',
@@ -7062,6 +7076,7 @@ $1',
  * @author Silvonen
  * @author Tofu II
  * @author Veikk0.ma
+ * @author Wix
  * @author Yaamboo
  */
 $messages['fi'] = array(
@@ -7090,7 +7105,7 @@ $messages['fi'] = array(
 	'mwe-upwiz-help-desk' => 'Neuvontapiste',
 	'mwe-upwiz-help-desk-url' => 'Neuvontapiste',
 	'mwe-upwiz-add-file-n' => 'Lisää toinen tiedosto',
-	'mwe-upwiz-add-file-0-free' => 'Valitse lahjoitettava tiedosto',
+	'mwe-upwiz-add-file-0-free' => 'Valitse tallennettava tiedosto',
 	'mwe-upwiz-transport-started' => 'Aloitetaan...',
 	'mwe-upwiz-uploading' => 'Lähetetään...',
 	'mwe-upwiz-transported' => 'Siirto on valmis...',
@@ -7139,6 +7154,7 @@ $messages['fi'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Voit antaa tiedostoille tekijänoikeustiedot yksitellen seuraavalla sivulla.',
 	'mwe-upwiz-more-options' => 'lisää luokkia ja lisätietoja',
+	'mwe-upwiz-copy-metadata' => 'Kopioi tiedot kaikkiin tallennuksiin alla...',
 	'mwe-upwiz-desc' => 'Kuvaus',
 	'mwe-upwiz-desc-add-n' => 'lisää kuvaus toisella kielellä',
 	'mwe-upwiz-desc-add-0' => 'lisää kuvaus',
