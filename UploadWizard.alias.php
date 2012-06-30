@@ -20,6 +20,11 @@ $specialPageAliases['ar'] = array(
 	'UploadCampaign' => array( 'حملة_الرفع' ),
 );
 
+/** Assamese (অসমীয়া) */
+$specialPageAliases['as'] = array(
+	'UploadWizard' => array( 'আপল’ড_প্ৰক্ৰিয়া' ),
+);
+
 /** Danish (dansk) */
 $specialPageAliases['da'] = array(
 	'UploadWizard' => array( 'Vejviser_til_oplægning_af_filer' ),
@@ -53,7 +58,7 @@ $specialPageAliases['fa'] = array(
 	'UploadWizard' => array( 'جادوگر_بارگذاری' ),
 );
 
-/** Galician (Galego) */
+/** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'UploadWizard' => array( 'Asistente_de_cargas' ),
 );
