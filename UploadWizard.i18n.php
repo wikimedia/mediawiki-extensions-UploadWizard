@@ -845,7 +845,7 @@ $messages['am'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|ሴኮንድ ይቀራል|ሴኮንዶች ይቀራሉ}}',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -2296,7 +2296,7 @@ $messages['be'] = array(
 	'mwe-upwiz-categories' => 'Катэгорыі',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author KorneySan
@@ -4173,7 +4173,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Přeskočit úvodního průvodce licencováním',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -4326,16 +4326,16 @@ Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
 	'mwe-upwiz-error-bad-chars' => "Mae'r maes hwn yn cynnwys symbolau na chaniateir. Peidiwch â defnyddio wicidestun na HTML yma.",
 	'mwe-upwiz-error-date' => 'Rhowch ddyddiad dilys ar ffurf BBBB-MM-DD, neu dewiswch ddyddiad y calendr bryslen.',
 	'mwe-upwiz-error-title-senselessimagename' => 'Gwnewch y teitl hwn yn fwy ystyrlon os gwelwch yn dda.',
-	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])',
-	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Awstria',
-	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 yr Almaen',
-	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'Creative Commons Attribution ShareAlike 3.0 Sbaen',
-	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0 ([$2 legal code])',
-	'mwe-upwiz-license-cc-by-sa-2.5' => 'Creative Commons Attribution ShareAlike 2.5 ([$2 legal code])',
-	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons Attribution 2.5 ([$2 legal code])',
-	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Attribution ShareAlike 2.0 ([$2 legal code])',
-	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0 ([$2 legal code])',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (parth y cyhoedd: [$2 legal code])',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Awstria ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 yr Almaen ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'Creative Commons Attribution ShareAlike 3.0 Sbaen ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Attribution 3.0 ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-sa-2.5' => 'Creative Commons Attribution ShareAlike 2.5 ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons Attribution 2.5 ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Attribution ShareAlike 2.0 ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0 ([$2 testun y drwydded])',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (ildio pob hawl, fel ym mharth y cyhoedd: [$2 testun y drwydded])',
 	'mwe-upwiz-license-pd-old-100' => "Bu farw'r awdur mwy na 100 mlynedd yn ôl",
 	'mwe-upwiz-license-pd-old' => "Bu farw'r awdur mwy na 70 mlynedd yn ôl",
 	'mwe-upwiz-license-pd-us' => 'Cyhoeddwyd yn gyntaf yn UDA, a hynny cyn 1923',
@@ -5284,7 +5284,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-prefs-skiptutorial' => 'Şınasiya mısnayış de lisansi ser çek',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -9902,7 +9902,7 @@ Molimo ne rabite ovdje wikitekst ili HTML.',
 	'mw-coolcats-confirm-new-cancel' => 'Nije važno',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -20058,7 +20058,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Пропустить вводное руководство по лицензированию',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
