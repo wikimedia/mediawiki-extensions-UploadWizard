@@ -24085,6 +24085,7 @@ $messages['yo'] = array(
  * @author Wrightbus
  * @author Xiaomingyan
  * @author Yfdyh000
+ * @author Zhangjintao
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
@@ -24147,6 +24148,12 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-source-ownwork-assert' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，自此不可逆地授予任何人，在适当地提供著作权持有人署名并以相同条款传播演绎作品的前提下，以任何目的使用{{PLURAL:$1|该|这些}}作品的权利。',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名-相同方式共享 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '（在适当地提供著作权持有人署名并以本授权协议传播任何演绎作品的前提下，任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品。）',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名-相同方式共享 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '（在适当地提供著作权持有人署名并以本授权协议传播任何演绎作品的前提下，任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品。）',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名-相同方式共享 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '（在适当地提供著作权持有人署名并以本授权协议传播任何演绎作品的前提下，任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品。）',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名-相同方式共享 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名-相同方式共享 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '（在适当地提供著作权持有人署名的前提下，任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品。）',
 	'mwe-upwiz-source-ownwork-assert-cc-zero' => '我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“公共领域贡献宣告”（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。',
