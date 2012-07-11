@@ -2206,7 +2206,7 @@ $messages['az'] = array(
 	'mwe-upwiz-campaign-name' => 'Kampaniya adı:',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Haqmar
  * @author Roustammr
  * @author ҒатаУлла
@@ -13885,6 +13885,7 @@ $1",
 	'mwe-upwiz-prefs-def-license-def' => 'Dat Benotze wat de Standard ass',
 	'mwe-upwiz-prefs-license-own' => 'Eegent Wierk - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Engem anere säi Wierk - $1',
+	'mwe-upwiz-prefs-chunked' => 'Fichiere vu méi wéi 1MB gi vum Upload-Wizard a méi Deeler eropgelueden',
 	'mwe-upwiz-prefs-skiptutorial' => 'Den Assistent vun de Lizenzen iwwersprangen',
 );
 
@@ -16484,7 +16485,8 @@ $1',
 	'mw-coolcats-confirm-new-cancel' => 'موهم نی‌یه',
 );
 
-/** Norwegian Bokmål (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
+ * @author Danmichaelo
  * @author EivindJ
  * @author Event
  * @author Laaknor
@@ -16520,7 +16522,7 @@ $messages['nb'] = array(
 	'mwe-upwiz-add-file-n' => 'Legg til enda en fil',
 	'mwe-upwiz-add-file-0-free' => 'Velg en mediefil å donere',
 	'mwe-upwiz-transport-started' => 'Starter...',
-	'mwe-upwiz-uploading' => 'laster opp...',
+	'mwe-upwiz-uploading' => 'Laster opp...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'OK',
 	'mwe-upwiz-getting-metadata' => 'Henter filinformasjon og forhåndsvisning',
@@ -16550,7 +16552,7 @@ $messages['nb'] = array(
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Denne filen|Disse filene}} er mitt eget arbeide.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Jeg, $2, opphavsrettsinnehaveren av {{PLURAL:$1|dette verket|disse verkene}}, gir ugjenkallelig enhver person rettighetene til å bruke, endre og spre {{PLURAL:$1|dette verket|disse verkene}} for ethvert formål, og utgir {{PLURAL:$1|det|dem}} herved under følgende vilkår:',
 	'mwe-upwiz-source-ownwork-assert' => 'Jeg, $2, rettighetshaveren av {{PLURAL:$1|dette arbeidet|disse arbeidene}}, gir herved ugjenkallelig enhver person rett til å bruke {{PLURAL:$1|dette arbeidet|disse arbeidene}} for ethvert formål, så lenge de henviser til meg som opphavsmann og deler avledede arbeider under samme vilkår.',
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Jeg, $2, innehaveren av opphavsretten til {{PLURAL:$1|dette verket|disse verkene}}, gir herved ugjenkallelig rettighet for alle å bruke {{PLURAL:$1|dette verket|disse verkene}} under Creative Commons Attribution ShareAlike 3.0 lisensen ([$3 den fullstendige lisens]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Jeg, $2, innehaveren av opphavsretten til {{PLURAL:$1|dette verket|disse verkene}}, gir herved ugjenkallelig hvem som helst retten til å bruke {{PLURAL:$1|dette verket|disse verkene}} under Creative Commons Navngivelse DelPåSammeVilkår 3.0-lisensen ([$3 lisenstekst]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Alle kan bruke, dele og bearbeide {{PLURAL:$1|dette verket|disse verkene}}, så lenge de krediterer meg, og deler eventuelle bearbeidede verker under denne lisensen.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Jeg, $2, innehaveren av opphavsretten til {{PLURAL:$1|dette verket|disse verkene}}, gir ugjenkallelig rettighet for alle å bruke {{PLURAL:$1|dette verket|disse verkene}} under Creative Commons Attribution 3.0-lisensen ([$3 den fullstendige lisensen]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(Alle kan bruke, dele eller bearbeide {{PLURAL:$1|dette verket|disse verkene}}, så lenge de krediterer meg.)',
@@ -16562,19 +16564,26 @@ $messages['nb'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Denne filen|Disse filene}} er ikke mitt eget arbeide.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Skriv inn adressen der du fant hver fil.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Dersom alle filene har samme kilde, opphavsmann og opphavsrettsstatus kan du skrive dem inn én gang for dem alle.',
-	'mwe-upwiz-source-thirdparty-license' => 'Opphavsrettsinnehaveren av {{PLURAL:$1|dette verket|disse verkene}} utga {{PLURAL:$1|det|dem}} under følgende {{PLURAL:$2|lisens|lisenser}}:',
+	'mwe-upwiz-source-thirdparty-license' => 'Opphavsrettshaveren av {{PLURAL:$1|dette arbeidet|disse arbeidene}} publiserte {{PLURAL:$1|den|dem}} under følgende lisens(er):',
 	'mwe-upwiz-source-thirdparty-cases' => 'Skriv hvorfor du er sikker på at du har rett til å utgi {{PLURAL:$1|dette verket|disse verkene}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Angi opphavsrettsinformasjon individuelt for hver fil på neste side.',
-	'mwe-upwiz-more-options' => 'legg til kategorier og mer informasjon …',
-	'mwe-upwiz-fewer-options' => 'færre valg...',
+	'mwe-upwiz-more-options' => 'Legg til kategorier og mer informasjon …',
+	'mwe-upwiz-copy-metadata' => 'Kopier informasjonen til alle filene nedenfor …',
+	'mwe-upwiz-copy-metadata-button' => 'Kopier',
+	'mwe-upwiz-copy-title' => 'Kopier tittel (med automatisk nummerering)',
+	'mwe-upwiz-copy-description' => 'Kopier beskrivelse(r)',
+	'mwe-upwiz-copy-date' => 'Kopier dato',
+	'mwe-upwiz-copy-categories' => 'Kopier kategorier',
+	'mwe-upwiz-copy-location' => 'Kopier sted',
+	'mwe-upwiz-copy-other' => 'Kopier annen informasjon',
 	'mwe-upwiz-desc' => 'Beskrivelse',
-	'mwe-upwiz-desc-add-n' => 'legg til en beskrivelse på et annet språk',
-	'mwe-upwiz-desc-add-0' => 'legg til en beskrivelse',
+	'mwe-upwiz-desc-add-n' => 'Legg til en beskrivelse på et annet språk',
+	'mwe-upwiz-desc-add-0' => 'Legg til en beskrivelse',
 	'mwe-upwiz-title' => 'Tittel',
 	'mwe-upwiz-media-type' => 'Mediatype',
 	'mwe-upwiz-date-created' => 'Dato opprettet',
-	'mwe-upwiz-location' => 'Plassering',
+	'mwe-upwiz-location' => 'Sted',
 	'mwe-upwiz-location-lat' => 'Breddegrad',
 	'mwe-upwiz-location-lon' => 'Lengdegrad',
 	'mwe-upwiz-location-alt' => 'Høyde',
@@ -16615,6 +16624,7 @@ Du kan installere Firefox-utvidelsen [$1 Firefogg] for å konvertere filen autom
 	'mwe-prevent-close' => 'Å forlate denne siden kan forårsake at du eventuelle endringer du har gjort.',
 	'mwe-upwiz-prevent-close' => 'Du er ikke ferdig med å laste opp og publisere {{PLURAL:$1|denne filen|disse filene}} ennå.',
 	'mwe-upwiz-files-complete' => 'Filene dine ble lastet opp.',
+	'mwe-upwiz-tooltip-skiptutorial' => 'Du kan aktivere opplastingsveiledningen igjen i [$1 dine innstillinger], under $2 &rarr; $3.',
 	'mwe-upwiz-tooltip-author' => 'Navnet på personen som tok bildet, eller malte bildet, eller tegnet tegningen, etc.',
 	'mwe-upwiz-tooltip-source' => 'Hvor denne digitale filen kom fra – kan være en URL, en bok eller en publikasjon',
 	'mwe-upwiz-tooltip-sign' => 'Du kan bruke wikibrukernavnet ditt eller ditt virkelige navn.
@@ -16643,6 +16653,7 @@ Gjør den lengre enn $1 {{PLURAL:$1|tegn|tegn}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Signaturen din inneholder symboler som ikke er tillatt.
 Ikke bruk wikitekst eller HTML her, bare bruk brukernavnet ditt eller ditt virkelige navn.',
 	'mwe-upwiz-error-blank' => 'Dette feltet er obligatorisk.',
+	'mwe-upwiz-error-nologin' => 'Du må være <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} innlogget]</span> for å kunne laste opp filer.',
 	'mwe-upwiz-error-too-long' => 'Dette feltet er for langt.
 Gjør det kortere enn $1 {{PLURAL:$1|tegn|tegn}}.',
 	'mwe-upwiz-error-too-short' => 'Dette feltet er for kort.
@@ -16666,6 +16677,9 @@ Ikke bruk wikitekst eller HTML her.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => 'Du kan kun laste opp {{PLURAL:$1|én fil|$1 filer}} av gangen. Du prøvde å laste opp {{PLURAL:$2|én fil|$2 filer}} totalt, så {{PLURAL:$3|én fil|$3 filer}} har blitt fjernet.',
 	'mwe-upwiz-too-many-files' => 'For mange filer.',
+	'mwe-upwiz-file-too-large-ok' => 'OK',
+	'mwe-upwiz-file-too-large-text' => 'Du kan ikke laste opp filer større enn $1. Filen du forsøkte å laste opp var på $2.',
+	'mwe-upwiz-file-too-large' => 'Filen er for stor.',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Navngivelse-DelPåSammeVilkår 3.0 Unported ([$2 juridisk tekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Navngivelse-DelPåSammeVilkår 3.0 Østerrike ([$2 juridisk tekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Navngivelse-DelPåSammeVilkår 3.0 Tyskland ([$2 juridisk tekst])',
@@ -16711,11 +16725,16 @@ Ikke bruk wikitekst eller HTML her.',
 	'mwe-upwiz-license-custom-head' => 'Annen grunn som ikke er nevnt ovenfor',
 	'mwe-upwiz-license-custom-preview' => 'Forhåndsvisning',
 	'mwe-upwiz-license-none-head' => 'Jeg fant den på internett – jeg er ikke sikker',
+	'mwe-upwiz-license-none' => 'Jeg tror at {{PLURAL:$1|dette verket|disse verkene}} er gitt fri lisens eller har frifalt opphavsrett. Jeg forstår at med mindre jeg legger til nødvendig lisensinformasjon på en ryddig måte, vil {{PLURAL:$1|filen|filene}} kunne bli slettet.',
+	'mwe-upwiz-license-confirm-remove' => 'Er du sikker på at du ønsker å fjerne {{PLURAL:$1|denne opplastingen|disse opplastingene}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Bekreft fjerning',
 	'mwe-upwiz-license-external' => 'For denne filen gjelder følgende lisens under $1: <b>$2</b>.',
+	'mwe-upwiz-license-external-invalid' => 'Denne filen har følgende lisens under $1:  <b>$2</b>. Og dessverre er da denne lisensen ikke god nok for bruk på dette nettstedet.',
 	'mwe-upwiz-categories' => 'Kategorier',
 	'mwe-upwiz-categories-add' => 'Legg til',
+	'mwe-upwiz-category-will-be-added' => 'Denne kategorien vil bli opprettet.',
 	'mwe-upwiz-category-remove' => 'Fjern denne kategorien',
+	'mwe-upwiz-thanks-caption' => 'Legg inn bildetekst her',
 	'mwe-upwiz-thumbnail-failed' => 'Opplastingen var vellykket, men serveren klarte ikke å få opp et minibilde for forhåndsvisning.',
 	'mwe-upwiz-unparseable-filename' => 'Filnavnet "$1" var uforståelig',
 	'mwe-upwiz-image-preview' => 'Bildeforhåndsvisning',
@@ -16733,6 +16752,7 @@ $1',
 	'mwe-upwiz-errordialog-title' => 'Det var en feil med ditt bidrag',
 	'mwe-upwiz-errordialog-ok' => 'OK',
 	'mwe-upwiz-error-nosuchcampaign' => 'Det er ingen kampanje med navnet «$1».',
+	'mwe-upwiz-error-campaigndisabled' => 'Kampanjen "$1" er ikke aktivert.',
 	'mwe-upwiz-campaigns-name' => 'Kampanjenavn',
 	'mwe-upwiz-campaigns-status' => 'Status',
 	'mwe-upwiz-campaigns-enabled' => 'Aktivert',
@@ -16754,14 +16774,42 @@ $1',
 	'mwe-upwiz-campaign-enabled' => 'Kampanje aktivert',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Hopp over lisensieringsveiviseren',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorier filene automatisk og stille legges til (atskilles med vertikal strek):',
+	'mwe-upwiz-campaign-conf-defaultCategories' => 'Standardkategorier for beskrivelsesfanen (vertikalstrek-separert):',
 	'mwe-upwiz-campaign-conf-autoWikiText' => 'Wikitekst som automatisk skal legges til alle opplastede bilder',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => 'Hvordan egne verk og andres verk skal håndteres:',
 	'mwe-upwiz-campaign-owner-choice' => 'La brukeren velge mellom eget verk og andres verk',
 	'mwe-upwiz-campaign-owner-own' => 'Tillat kun opplasting av egne verk',
 	'mwe-upwiz-campaign-owner-notown' => 'Tillat kun opplasting av andres verk',
 	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'Lisenser som kan velges for egne verk:',
+	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'Navn på veilederen på Wikimedia Commons. $1 erstattes med språkkoden:',
+	'mwe-upwiz-campaign-conf-tutorialWidth' => 'Bredden som veiviseren skal skaleres til:',
+	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'Bildekoordinater (imagemap) for veiviserens «Hjelp»-knapp:',
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'Standardlisens for egne verk:',
+	'mwe-upwiz-campaign-conf-idField' => 'Wikitekst for ID-feltet. F.eks. <nowiki>{{Rijksmonument|$1}}</nowiki>. La stå blank hvis feltet ikke skal vises.',
+	'mwe-upwiz-campaign-conf-idFieldLabel' => 'ID-feltets etikettekst:',
+	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Sidenavn med tekst for ID-fetsetiketten. $1 erstattes med språkkoden',
+	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'Utgangsverdi for ID-feltet:',
+	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Side som inneholder tekst som skal vises over veiviserens brukergrensesnitt. $1 erstattes med språkkoden.',
+	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Side som inneholder tekst som skal vises øverst på «Bruk»-siden. $1 erstattes med språkkoden.',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Maksimal lengde på teksten i ID-feltet:',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'Standardbreddegrad:',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'Standardlengdegrad:',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Standardhøyde:',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'Standardbeskrivelse:',
 	'mw-coolcats-confirm-new-title' => 'Bekreft ny kategori',
+	'mw-coolcats-confirm-new' => 'Det ser ut som du prøver å legge til en kategori som ikke eksisterer enda, "$1". Vær oppmerksom på følgende:<ul><li>Kategorinavn skal normalt være på engelsk.</li><li>Nye kategorier bør være en underkategori av minst én eksisterende kategori.</li></ul>Generelt bør kun erfarne brukere tilføye nye kategorier.',
+	'mw-coolcats-confirm-new-ok' => 'Legg til kategorien uansett',
 	'mw-coolcats-confirm-new-cancel' => 'Glem det',
+	'prefs-uploads' => 'Opplastinger',
+	'prefs-upwiz-licensing' => 'Lisensiering',
+	'prefs-upwiz-experimental' => 'Eksperimentelle funksjoner',
+	'prefs-upwiz-interface' => 'Brukergrensesnitt',
+	'mwe-upwiz-prefs-def-license' => 'Standardlisens',
+	'mwe-upwiz-prefs-def-license-def' => 'Bruk den lisensen som til enhver tid er standard',
+	'mwe-upwiz-prefs-license-own' => 'Eget verk',
+	'mwe-upwiz-prefs-license-thirdparty' => 'Andres verk',
+	'mwe-upwiz-prefs-chunked' => 'Del opp opplastinger større enn 1 MB i mindre biter i opplastingsveiviseren',
+	'mwe-upwiz-prefs-skiptutorial' => 'Hopp over innføringen i lisensiering',
 );
 
 /** Nepali (नेपाली)
@@ -23362,7 +23410,7 @@ $messages['ur'] = array(
 	'mwe-upwiz-cancel' => 'منسوخ',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
