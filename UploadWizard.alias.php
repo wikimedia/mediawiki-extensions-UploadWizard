@@ -164,8 +164,8 @@ $specialPageAliases['tr'] = array(
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
 	'UploadWizard' => array( 'Майстер_завантаження' ),
-	'UploadCampaigns' => array( 'Масове_завантаження' ),
-	'UploadCampaign' => array( 'Масові_завантаження' ),
+	'UploadCampaigns' => array( 'Масові_завантаження' ),
+	'UploadCampaign' => array( 'Масове_завантаження' ),
 );
 
 /** Vietnamese (Tiếng Việt) */
