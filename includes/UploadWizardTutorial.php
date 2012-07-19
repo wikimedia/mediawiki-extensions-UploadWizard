@@ -60,7 +60,7 @@ class UploadWizardTutorial {
 		}
 
 		if ( $error !== null ) {
-			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), wfMsg( 'mwe-upwiz-tutorial-error-' . $error ) );
+			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), wfMessage( 'mwe-upwiz-tutorial-error-' . $error )->text() );
 		}
 
 		return $errorHtml . $tutorialHtml;
@@ -89,7 +89,7 @@ class UploadWizardTutorial {
 	 * @return String HTML representing the image, with clickable helpdesk button
 	 */
 	public static function getImageHtml( MediaTransformOutput $thumb, $campaign = null ) {
-		$helpDeskUrl = wfMsg( 'mwe-upwiz-help-desk-url' );
+		$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->text();
 
 		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message
 		if( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $helpDeskUrl )) {
@@ -118,7 +118,7 @@ class UploadWizardTutorial {
 		$imgHtml = Html::element( 'img', $imgAttributes );
 
 		if ( $useMap ) {
-			$areaAltText = wfMsg( 'mwe-upwiz-help-desk' );
+			$areaAltText = wfMessage( 'mwe-upwiz-help-desk' )->text();
 
 			$area = Html::element( 'area', array(
 				'shape' => 'rect',

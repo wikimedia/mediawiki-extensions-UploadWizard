@@ -33,7 +33,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	 * @see SpecialPage::getDescription()
 	 */
 	public function getDescription() {
-		return wfMsg( 'mwe-upwiz-' . strtolower( $this->getName() ) );
+		return $this->msg( 'mwe-upwiz-' . strtolower( $this->getName() ) )->text();
 	}
 
 	/**
@@ -52,7 +52,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$form = parent::getForm();
 		$form->addButton(
 			'cancelEdit',
-			wfMsg( 'cancel' ),
+			$this->msg( 'cancel' )->text(),
 			'cancelEdit',
 			array(
 				'onclick' => 'window.location="' . SpecialPage::getTitleFor( 'UploadCampaigns' )->getFullURL() . '";return false;'

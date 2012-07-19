@@ -527,17 +527,17 @@ class UploadWizardHooks {
 			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
 			foreach ( $ownWork['licenses'] as $license ) {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
-				$licenses[wfMsgExt( 'mwe-upwiz-prefs-license-own', 'parsemag', $licenseMessage )] = 'ownwork-' . $license;
+				$licenses[wfMessage( 'mwe-upwiz-prefs-license-own', $licenseMessage )->text()] = 'ownwork-' . $license;
 			}
 
 			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
 				if ( $license !== 'custom' ) {
 					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
-					$licenses[wfMsgExt( 'mwe-upwiz-prefs-license-thirdparty', 'parsemag', $licenseMessage )] = 'thirdparty-' . $license;
+					$licenses[wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text()] = 'thirdparty-' . $license;
 				}
 			}
 
-			$licenses = array_merge( array( wfMsg( 'mwe-upwiz-prefs-def-license-def' ) => 'default' ), $licenses );
+			$licenses = array_merge( array( wfMessage( 'mwe-upwiz-prefs-def-license-def' )->text() => 'default' ), $licenses );
 
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
@@ -570,10 +570,10 @@ class UploadWizardHooks {
 	 */
 	public static function getLicenseMessage( $licenseName, array $licenseConfig ) {
 		if ( array_key_exists( 'url', $licenseConfig[$licenseName] ) ) {
-			return wfMsgExt( $licenseConfig[$licenseName]['msg'], 'parseinline', '', $licenseConfig[$licenseName]['url'] );
+			return wfMessage( $licenseConfig[$licenseName]['msg'], '', $licenseConfig[$licenseName]['url'] )->parse();
 		}
 		else {
-			return wfMsg( $licenseConfig[$licenseName]['msg'] );
+			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
 		}
 	}
 

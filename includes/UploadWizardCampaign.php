@@ -186,9 +186,9 @@ class UploadWizardCampaign {
 			'ownWorkOption' => array(
 				'type' => 'radio',
 				'options' => array(
-					wfMsg( 'mwe-upwiz-campaign-owner-choice' ) => 'choice',
-					wfMsg( 'mwe-upwiz-campaign-owner-own' ) => 'own',
-					wfMsg( 'mwe-upwiz-campaign-owner-notown' ) => 'notown'
+					wfMessage( 'mwe-upwiz-campaign-owner-choice' )->text() => 'choice',
+					wfMessage( 'mwe-upwiz-campaign-owner-own' )->text() => 'own',
+					wfMessage( 'mwe-upwiz-campaign-owner-notown' )->text() => 'notown'
 				)
 			),
 			'licensesOwnWork' => array(

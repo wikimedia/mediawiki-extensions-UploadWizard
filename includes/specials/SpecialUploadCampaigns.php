@@ -31,7 +31,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 	 * @see SpecialPage::getDescription()
 	 */
 	public function getDescription() {
-		return wfMsg( 'mwe-upwiz-' . strtolower( $this->getName() ) );
+		return $this->msg( 'mwe-upwiz-' . strtolower( $this->getName() ) )->text();
 	}
 
 	/**
@@ -108,17 +108,17 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( '<fieldset>' );
 
-		$out->addHTML( '<legend>' . htmlspecialchars( wfMsg( 'mwe-upwiz-campaigns-addnew' ) ) . '</legend>' );
+		$out->addHTML( '<legend>' . htmlspecialchars( $this->msg( 'mwe-upwiz-campaigns-addnew' )->text() ) . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), wfMsg( 'mwe-upwiz-campaigns-namedoc' ) ) );
+		$out->addHTML( Html::element( 'p', array(), $this->msg( 'mwe-upwiz-campaigns-namedoc' )->text() ) );
 
-		$out->addHTML( Html::element( 'label', array( 'for' => 'newcampaign' ), wfMsg( 'mwe-upwiz-campaigns-newname' ) ) );
+		$out->addHTML( Html::element( 'label', array( 'for' => 'newcampaign' ), $this->msg( 'mwe-upwiz-campaigns-newname' )->text() ) );
 
 		$out->addHTML( '&#160;' . Html::input( 'newcampaign' ) . '&#160;' );
 
 		$out->addHTML( Html::input(
 			'addnewcampaign',
-			wfMsg( 'mwe-upwiz-campaigns-add' ),
+			$this->msg( 'mwe-upwiz-campaigns-add' )->text(),
 			'submit'
 		) );
 
@@ -137,7 +137,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 	protected function displayCampaignTable( ResultWrapper $campaigns ) {
 		$out = $this->getOutput();
 
-		$out->addHTML( Html::element( 'h2', array(), wfMsg( 'mwe-upwiz-campaigns-existing' ) ) );
+		$out->addHTML( Html::element( 'h2', array(), $this->msg( 'mwe-upwiz-campaigns-existing' )->text() ) );
 
 		$out->addHTML( Xml::openElement(
 			'table',
@@ -146,10 +146,10 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML(
 			'<thead><tr>' .
-				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-name' ) ) .
-				Html::element( 'th', array(), wfMsg( 'mwe-upwiz-campaigns-status' ) ) .
-				Html::element( 'th', array( 'class' => 'unsortable' ), wfMsg( 'mwe-upwiz-campaigns-edit' ) ) .
-				Html::element( 'th', array( 'class' => 'unsortable' ), wfMsg( 'mwe-upwiz-campaigns-delete' ) ) .
+				Html::element( 'th', array(), $this->msg( 'mwe-upwiz-campaigns-name' )->text() ) .
+				Html::element( 'th', array(), $this->msg( 'mwe-upwiz-campaigns-status' )->text() ) .
+				Html::element( 'th', array( 'class' => 'unsortable' ), $this->msg( 'mwe-upwiz-campaigns-edit' )->text() ) .
+				Html::element( 'th', array( 'class' => 'unsortable' ), $this->msg( 'mwe-upwiz-campaigns-delete' )->text() ) .
 			'</tr></thead>'
 		);
 
@@ -167,14 +167,14 @@ class SpecialUploadCampaigns extends SpecialPage {
 							$campaign->campaign_name
 						) .
 					'</td>' .
-					Html::element( 'td', array(), wfMsg( 'mwe-upwiz-campaigns-' . ( $campaign->campaign_enabled ? 'enabled' : 'disabled' ) ) ) .
+					Html::element( 'td', array(), $this->msg( 'mwe-upwiz-campaigns-' . ( $campaign->campaign_enabled ? 'enabled' : 'disabled' ) )->text() ) .
 					'<td>' .
 						Html::element(
 							'a',
 							array(
 								'href' => SpecialPage::getTitleFor( 'UploadCampaign', $campaign->campaign_name )->getLocalURL()
 							),
-							wfMsg( 'mwe-upwiz-campaigns-edit' )
+							$this->msg( 'mwe-upwiz-campaigns-edit' )->text()
 						) .
 					'</td>' .
 					'<td>' .
@@ -186,7 +186,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 								'data-campaign-id' => $campaign->campaign_id,
 								'data-campaign-token' => $this->getUser()->getEditToken( 'deletecampaign' . $campaign->campaign_id )
 							),
-							wfMsg( 'mwe-upwiz-campaigns-delete' )
+							$this->msg( 'mwe-upwiz-campaigns-delete' )->text()
 						) .
 					'</td>' .
 				'</tr>'

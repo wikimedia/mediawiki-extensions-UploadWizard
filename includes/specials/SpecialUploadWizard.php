@@ -85,7 +85,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// fallback for non-JS
 		$out->addHTML( '<noscript>' );
-		$out->addHTML( '<p class="errorbox">' . htmlspecialchars( wfMsg( 'mwe-upwiz-js-off' ) ) . '</p>' );
+		$out->addHTML( '<p class="errorbox">' . htmlspecialchars( wfMessage( 'mwe-upwiz-js-off' )->text() ) . '</p>' );
 		$this->simpleForm->show();
 		$out->addHTML( '</noscript>' );
 
@@ -114,14 +114,14 @@ class SpecialUploadWizard extends SpecialPage {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName, false );
 
 			if ( $campaign === false ) {
-				$this->displayError( wfMsgExt( 'mwe-upwiz-error-nosuchcampaign', 'parsemag', $campaignName ) );
+				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->text() );
 			}
 			else {
 				if ( $campaign->getIsEnabled() ) {
 					$this->campaign = $campaignName;
 				}
 				else {
-					$this->displayError( wfMsgExt( 'mwe-upwiz-error-campaigndisabled', 'parsemag', $campaignName ) );
+					$this->displayError( $this->msg( 'mwe-upwiz-error-campaigndisabled', $campaignName )->text() );
 				}
 			}
 		}
@@ -332,7 +332,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 			return
 				Html::rawElement( 'div', array( 'id' => 'upload-wizard', 'class' => 'upload-section' ),
-					Html::rawElement( 'p', array( 'style' => 'text-align: center' ), wfMsg( 'mwe-upwiz-extension-disabled' ) )
+					Html::rawElement( 'p', array( 'style' => 'text-align: center' ), wfMessage( 'mwe-upwiz-extension-disabled' )->text() )
 					. $linkHtml
 				);
 
@@ -358,11 +358,11 @@ class SpecialUploadWizard extends SpecialPage {
 
 		    // the arrow steps - hide until styled
 		.   '<ul id="mwe-upwiz-steps" style="display:none;">'
-		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMsg( 'mwe-upwiz-step-tutorial' ) . '</div></li>'
-		.     '<li id="mwe-upwiz-step-file"><div>' . wfMsg( 'mwe-upwiz-step-file' ) . '</div></li>'
-		.     '<li id="mwe-upwiz-step-deeds"><div>'  . wfMsg( 'mwe-upwiz-step-deeds' )  . '</div></li>'
-		.     '<li id="mwe-upwiz-step-details"><div>'  . wfMsg( 'mwe-upwiz-step-details' )  . '</div></li>'
-		.     '<li id="mwe-upwiz-step-thanks"><div>'   . wfMsg( 'mwe-upwiz-step-thanks' )  .  '</div></li>'
+		.     '<li id="mwe-upwiz-step-tutorial"><div>' . wfMessage( 'mwe-upwiz-step-tutorial' )->text() . '</div></li>'
+		.     '<li id="mwe-upwiz-step-file"><div>' . wfMessage( 'mwe-upwiz-step-file' )->text() . '</div></li>'
+		.     '<li id="mwe-upwiz-step-deeds"><div>'  . wfMessage( 'mwe-upwiz-step-deeds' )->text()  . '</div></li>'
+		.     '<li id="mwe-upwiz-step-details"><div>'  . wfMessage( 'mwe-upwiz-step-details' )->text()  . '</div></li>'
+		.     '<li id="mwe-upwiz-step-thanks"><div>'   . wfMessage( 'mwe-upwiz-step-thanks' )->text()  .  '</div></li>'
 		.   '</ul>'
 
 		    // the individual steps, all at once - hide until needed
@@ -374,8 +374,8 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.          '<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">'
-		.          '<label for="mwe-upwiz-skip">' . wfMsg('mwe-upwiz-skip-tutorial-future') . '</label>'
-		.          '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next" )  . '</button>'
+		.          '<label for="mwe-upwiz-skip">' . wfMessage('mwe-upwiz-skip-tutorial-future')->text() . '</label>'
+		.          '<button class="mwe-upwiz-button-next">' . wfMessage( "mwe-upwiz-next" )->text()  . '</button>'
 		.       '</div>'
 		.     '</div>'
 
@@ -384,10 +384,10 @@ class SpecialUploadWizard extends SpecialPage {
 		.         '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
 		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">'
 		.            '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
-		.              '<button id="mwe-upwiz-add-file">' . wfMsg( "mwe-upwiz-add-file-0-free" ) . '</button>'
+		.              '<button id="mwe-upwiz-add-file">' . wfMessage( "mwe-upwiz-add-file-0-free" )->text() . '</button>'
 		.  	     '</div>'
 		.        '<div id="mwe-upwiz-upload-ctrl-container">'
-		.           '<button id="mwe-upwiz-upload-ctrl">' . wfMsg( "mwe-upwiz-upload" ) . '</button>'
+		.           '<button id="mwe-upwiz-upload-ctrl">' . wfMessage( "mwe-upwiz-upload" )->text() . '</button>'
 		.         '</div>'
 		.         '</div>'
 		.         '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
@@ -395,17 +395,17 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '</div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.	   '<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">'
-		.             wfMsg( "mwe-upwiz-file-all-ok" )
-		.             '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-file" )  . '</button>'
+		.             wfMessage( "mwe-upwiz-file-all-ok" )->text()
+		.             '<button class="mwe-upwiz-button-next">' . wfMessage( "mwe-upwiz-next-file" )->text()  . '</button>'
 		.          '</div>'
 		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
-		.             wfMsg( "mwe-upwiz-file-some-failed" )
-		.             '<button class="mwe-upwiz-button-retry">' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
-		.             '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-file-despite-failures" )  . '</button>'
+		.             wfMessage( "mwe-upwiz-file-some-failed" )->text()
+		.             '<button class="mwe-upwiz-button-retry">' . wfMessage( "mwe-upwiz-file-retry" )->text()  . '</button>'
+		.             '<button class="mwe-upwiz-button-next">' . wfMessage( "mwe-upwiz-next-file-despite-failures" )->text()  . '</button>'
 		.          '</div>'
 		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
-		.             wfMsg( "mwe-upwiz-file-all-failed" )
-		.             '<button class="mwe-upwiz-button-retry"> ' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
+		.             wfMessage( "mwe-upwiz-file-all-failed" )->text()
+		.             '<button class="mwe-upwiz-button-retry"> ' . wfMessage( "mwe-upwiz-file-retry" )->text()  . '</button>'
 		.          '</div>'
 		.       '</div>'
 		.     '</div>'
@@ -415,26 +415,26 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
-		.          '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-deeds" )  . '</button>'
+		.          '<button class="mwe-upwiz-button-next">' . wfMessage( "mwe-upwiz-next-deeds" )->text()  . '</button>'
 		.       '</div>'
 		.     '</div>'
 
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">'
-		.       '<div id="mwe-upwiz-reqd-field-explain-container"><span class="mwe-upwiz-required-marker">*</span> = ' . wfMsg( "mwe-upwiz-error-blank" ) . '</div>'
+		.       '<div id="mwe-upwiz-reqd-field-explain-container"><span class="mwe-upwiz-required-marker">*</span> = ' . wfMessage( "mwe-upwiz-error-blank" )->text() . '</div>'
 		.       '<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
 		.	   '<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>'
 		.	   '<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice">'
-		.            '<button class="mwe-upwiz-button-next">' . wfMsg( "mwe-upwiz-next-details" )  . '</button>'
+		.            '<button class="mwe-upwiz-button-next">' . wfMessage( "mwe-upwiz-next-details" )->text()  . '</button>'
 		.          '</div>'
 		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
-		.             wfMsg( "mwe-upwiz-file-some-failed" )
-		.             '<button class="mwe-upwiz-button-retry">' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
-		.             '<button class="mwe-upwiz-button-next-despite-failures">' . wfMsg( "mwe-upwiz-next-file-despite-failures" )  . '</button>'
+		.             wfMessage( "mwe-upwiz-file-some-failed" )->text()
+		.             '<button class="mwe-upwiz-button-retry">' . wfMessage( "mwe-upwiz-file-retry" )->text()  . '</button>'
+		.             '<button class="mwe-upwiz-button-next-despite-failures">' . wfMessage( "mwe-upwiz-next-file-despite-failures" )->text()  . '</button>'
 		.          '</div>'
 		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
-		.             wfMsg( "mwe-upwiz-file-all-failed" )
-		.             '<button class="mwe-upwiz-button-retry"> ' . wfMsg( "mwe-upwiz-file-retry" )  . '</button>'
+		.             wfMessage( "mwe-upwiz-file-all-failed" )->text()
+		.             '<button class="mwe-upwiz-button-retry"> ' . wfMessage( "mwe-upwiz-file-retry" )->text()  . '</button>'
 		.          '</div>'
 		.       '</div>'
 		.     '</div>'
@@ -442,8 +442,8 @@ class SpecialUploadWizard extends SpecialPage {
 		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks" style="display:none;">'
 		.       '<div id="mwe-upwiz-thanks"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
-		.          '<button class="mwe-upwiz-button-home">' . wfMsg( "mwe-upwiz-home" ) . '</button>'
-		.          '<button class="mwe-upwiz-button-begin">' . wfMsg( "mwe-upwiz-upload-another" )  . '</button>'
+		.          '<button class="mwe-upwiz-button-home">' . wfMessage( "mwe-upwiz-home" )->text() . '</button>'
+		.          '<button class="mwe-upwiz-button-begin">' . wfMessage( "mwe-upwiz-upload-another" )->text()  . '</button>'
 		.       '</div>'
 		.     '</div>'
 
