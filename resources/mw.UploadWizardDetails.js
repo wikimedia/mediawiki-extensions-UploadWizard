@@ -1249,7 +1249,16 @@ mw.UploadWizardDetails.prototype = {
 				return;
 			} else {
 				statusKey = 'api-error-' + code;
-				if ( result.error.info ) {
+				if ( code === 'filetype-banned' && result.error.blacklisted ) {
+					var comma = mw.msg( 'comma-separator' );
+					code = 'filetype-banned-type';
+					statusLine = gM( 'api-error-filetype-banned-type', [
+						result.error.blacklisted.join( comma ),
+						result.error.allowed.join( comma ),
+						result.error.allowed.length,
+						result.error.blacklisted.length
+					]);
+				} else if ( result.error.info ) {
 					statusLine = gM( statusKey, result.error.info );
 				} else {
 					statusLine = gM( statusKey, '[no error info]' );

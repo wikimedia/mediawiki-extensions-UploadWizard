@@ -181,7 +181,16 @@ mw.UploadWizardUpload.prototype = {
 			if ( result.error.code ) {
 				code = result.error.code;
 			}
-			if ( result.error.info ) {
+			if ( code === 'filetype-banned' && result.error.blacklisted ) {
+				code = 'filetype-banned-type';
+				var comma = mw.msg( 'comma-separator' );
+				info = [
+					result.error.blacklisted.join( comma ),
+					result.error.allowed.join( comma ),
+					result.error.allowed.length,
+					result.error.blacklisted.length
+				];
+			} else if ( result.error.info ) {
 				info = result.error.info;
 			}
 			this.setError( code, info );

@@ -106,6 +106,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.showThumbCtrl.css',
 			),
 			'messages' => array(
+				'comma-separator',
 				'uploadwizard',
 				'uploadwizard-desc',
 				'mwe-upwiz-js-off',
@@ -132,6 +133,7 @@ class UploadWizardHooks {
 				'api-error-file-too-large',
 				'api-error-filetype-missing',
 				'api-error-filetype-banned',
+				'api-error-filetype-banned-type',
 				'api-error-filename-tooshort',
 				'api-error-illegal-filename',
 				'api-error-verification-error',
