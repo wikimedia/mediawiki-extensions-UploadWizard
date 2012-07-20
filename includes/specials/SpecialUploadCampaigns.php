@@ -108,7 +108,7 @@ class SpecialUploadCampaigns extends SpecialPage {
 
 		$out->addHTML( '<fieldset>' );
 
-		$out->addHTML( '<legend>' . htmlspecialchars( $this->msg( 'mwe-upwiz-campaigns-addnew' )->text() ) . '</legend>' );
+		$out->addHTML( '<legend>' . $this->msg( 'mwe-upwiz-campaigns-addnew' )->escaped() . '</legend>' );
 
 		$out->addHTML( Html::element( 'p', array(), $this->msg( 'mwe-upwiz-campaigns-namedoc' )->text() ) );
 
