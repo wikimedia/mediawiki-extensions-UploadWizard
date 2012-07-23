@@ -42,8 +42,8 @@ $specialPageAliases['de'] = array(
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
 	'UploadWizard' => array( 'ŞêxêBarkerdışi' ),
-	'UploadCampaigns' => array( 'KomaBArkerdışan' ),
-	'UploadCampaign' => array( 'KomaBarkerdışi' ),
+	'UploadCampaigns' => array( 'HolaBarkerdışan' ),
+	'UploadCampaign' => array( 'HolaBarkerdışi' ),
 );
 
 /** Estonian (eesti) */
