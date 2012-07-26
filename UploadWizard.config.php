@@ -252,7 +252,7 @@ return array(
 		'custom' => array(
 			'msg' => 'mwe-upwiz-license-custom',
 			'templates' => array( 'subst:Custom license marker added by UW' ),
-			'url' => '//commons.wikimedia.org/wiki/Commons:Copyright_tags'
+			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse()
 		)
 	),
 
