@@ -22,9 +22,20 @@
 		 * @return boolean
 		 */
 		isPreviewableFile: function( file ) {
-			var	known = [ 'image/png', 'image/gif', 'image/jpeg'],
+			var	known = [ 'image/png', 'image/gif', 'image/jpeg' ],
 				tooHuge = 10 * 1024 * 1024;
-			return ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
+			return this.isPreviewableVideo( file ) || ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
+		},
+
+		/**
+		 * Check if this is a recognizable video type...
+		 *
+		 * @param {File} file
+		 * @return boolean
+		 */
+		isPreviewableVideo: function ( file ) {
+			var video = document.createElement( 'video' );
+			return video.canPlayType && video.canPlayType( file.type ).replace( 'no', '' ) != '';
 		},
 
 		isFormDataAvailable: function() {
