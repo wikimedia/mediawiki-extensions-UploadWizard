@@ -72,11 +72,13 @@ mw.FirefoggTransport.prototype = {
 	},
 
 	isSourceAudio: function() {
-		return ( this.getSourceFileInfo().contentType.indexOf("audio/") != -1 );
+		var info = this.getSourceFileInfo();
+		return ( info.video.length == 0 && info.audio.length > 0 ) || info.contentType.indexOf( "audio/" ) != -1;
 	},
 
 	isSourceVideo: function() {
-		return ( this.getSourceFileInfo().contentType.indexOf("video/") != -1 );
+		var info = this.getSourceFileInfo();
+		return info.video.length > 0 || info.contentType.indexOf( "video/" ) != -1;
 	},
 
 	isOggFormat: function() {
