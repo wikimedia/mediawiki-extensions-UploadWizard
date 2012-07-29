@@ -226,7 +226,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		}
 
 		this.showIndicator( 'stashed' );
-		this.setStatus( 'mwe-upwiz-stashed-upload' ); // this is just "OK", say something more.
+		this.setStatus( 'mwe-upwiz-stashed-upload' );
 	},
 
 	/**
