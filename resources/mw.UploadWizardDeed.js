@@ -117,6 +117,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 		setFormFields: function( $selector ) {
 			_this.$selector = $selector;
+			var languageCode = mw.config.get( 'wgUserLanguage' );
 
 			_this.$form = $j( '<form />' );
 
@@ -125,7 +126,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			var defaultLicense = mw.UploadWizard.config.licensesOwnWork.defaults[0];
 			var defaultLicenseURL = mw.UploadWizard.config.licenses[defaultLicense].url === undefined ?
 						'#missing license URL' :
-						mw.UploadWizard.config.licenses[defaultLicense].url;
+						mw.UploadWizard.config.licenses[defaultLicense].url + 'deed.' + languageCode;
 			var defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 			var defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
 			var defaultLicenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': defaultLicenseURL } );

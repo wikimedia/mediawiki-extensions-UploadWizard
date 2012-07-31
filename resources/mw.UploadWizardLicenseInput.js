@@ -219,10 +219,11 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	createInputElementLabel: function( license, $input ) {
 		var messageKey = license.props['msg'] === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg;
+		var languageCode = mw.config.get( 'wgUserLanguage' );
 
 		// The URL is optional, but if the message includes it as $2, we surface the fact
 		// that it's misisng.
-		var licenseURL = license.props['url'] === undefined ? '#missing license URL' : license.props.url;
+		var licenseURL = license.props['url'] === undefined ? '#missing license URL' : license.props.url + 'deed.' + languageCode;
 		var licenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
 		var $icons = $j( '<span></span>' );
 		if ( license.props['icons'] !== undefined ) {
