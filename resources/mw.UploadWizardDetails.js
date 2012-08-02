@@ -225,7 +225,12 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 		$j.each( _this.copyMetadataTypes, function addToMetadataDiv( i, v ) {
 			var cb = 'mwe-upwiz-copy-' + v;
-			var copyMetadataMsg = gM( cb );
+			var copyMetadataMsg;
+			if ( v === 'description' || v === 'categories' ) {
+				copyMetadataMsg = gM( cb, 1 );
+			} else {
+				copyMetadataMsg = gM( cb );
+			}
 			copyMetadataDiv.append( $j( '<input type="checkbox" name="' + cb + '" id="' + cb + '" checked />' ) );
 			copyMetadataDiv.append( $j( '<label for="' + cb + '">' + copyMetadataMsg + '</label>' ) );
 			copyMetadataDiv.append( $j( '<br />' ) );
@@ -408,17 +413,18 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 	}
 
-	$categoriesDiv.find( '.mwe-upwiz-details-input' )
-			.find( 'input' )
-			.mwCoolCats( {
-				api: _this.upload.api,
-				hiddenCats: hiddenCats,
-				buttontext: gM( 'mwe-upwiz-categories-add' ),
-				cats: mw.UploadWizard.config.defaultCategories === undefined ? [] : mw.UploadWizard.config.defaultCategories,
-				missingCatsWikiText: missingCatsWikiText,
-				willbeaddedtext: gM( 'mwe-upwiz-category-will-be-added' )
-			} );
-
+	_this.$catinput = $categoriesDiv.find( '.mwe-upwiz-details-input' ).find( 'input' );
+	_this.$catinput.mwCoolCats( {
+		api: _this.upload.api,
+		hiddenCats: hiddenCats,
+		buttontext: gM( 'mwe-upwiz-categories-add' ),
+		cats: mw.UploadWizard.config.defaultCategories === undefined ? [] : mw.UploadWizard.config.defaultCategories,
+		missingCatsWikiText: missingCatsWikiText,
+		willbeaddedtext: gM( 'mwe-upwiz-category-will-be-added' ),
+		onnewcat: function () {
+			_this.updateCopyMsgs();
+		}
+	} );
 };
 
 
@@ -438,6 +444,7 @@ mw.UploadWizardDetails.prototype = {
 		if ( !this.isAttached ) {
 			$j( this.containerDiv ).append( this.div );
 			this.isAttached = true;
+			this.updateCopyMsgs();
 		}
 	},
 
@@ -554,6 +561,34 @@ mw.UploadWizardDetails.prototype = {
 		} else {
 			throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
 		}
+	},
+
+	/**
+	 * Update messages in copyMetadata div
+	 */
+	updateCopyMsgs: function () {
+		var _this = this;
+		var msgs = [
+			{
+				title: 'mwe-upwiz-copy-description',
+				counter: function () {
+					return $( '.mwe-upwiz-details-fieldname', _this.$form ).length;
+				}
+			},
+			{
+				title: 'mwe-upwiz-copy-categories',
+				counter: function () {
+					return $( 'ul li.cat, .categoryInput', _this.$form ).length;
+				}
+			}
+		];
+		for ( var mx in msgs ) {
+			var msg = msgs[mx];
+			var $lbl = $( 'label[for="' + msg.title + '"]' );
+			$lbl.text( gM( msg.title, msg.counter() ) );
+		}
+		$lbl = $( '.mwe-upwiz-details-copy-metadata a', _this.$form );
+		$lbl.text( gM( 'mwe-upwiz-copy-metadata', _this.upload.wizard.uploads.length - 1 ) );
 	},
 
 	/**
@@ -743,6 +778,7 @@ mw.UploadWizardDetails.prototype = {
 
 		_this.descriptions.push( description  );
 		_this.recountDescriptions();
+		_this.updateCopyMsgs();
 	},
 
 	/**
@@ -754,6 +790,7 @@ mw.UploadWizardDetails.prototype = {
 		$j( description.div ).remove();
 		mw.UploadWizardUtil.removeItem( _this.descriptions, description  );
 		_this.recountDescriptions();
+		_this.updateCopyMsgs();
 	},
 
 	removeAllDescriptions: function() {
@@ -761,6 +798,7 @@ mw.UploadWizardDetails.prototype = {
 		$j( _this.descriptionsDiv ).children().remove();
 		_this.descriptions = [];
 		_this.recountDescriptions();
+		_this.updateCopyMsgs();
 	},
 
 	/**
