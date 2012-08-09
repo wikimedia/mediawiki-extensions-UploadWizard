@@ -6,45 +6,49 @@
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
 
-(function( $ ) { $( document ).ready( function() {
+(function( $, mw ) {
 
-	function deleteCampaign( options, successCallback, failCallback ) {
-		$.post(
-			wgScriptPath + '/api.php',
-			{
-				'action': 'deleteuploadcampaign',
-				'format': 'json',
-				'ids': options.id,
-				'token': options.token
-			},
-			function( data ) {
-				if ( data.success ) {
-					successCallback();
-				} else {
-					failCallback( mw.msg( 'mwe-upwiz-campaigns-delete-failed' ) );
-				}
-			}
-		);
-	}
+	$( document ).ready( function() {
 
-	$( '.campaign-delete' ).click( function() {
-		$this = $( this );
-
-		if ( confirm( mw.msg( 'mwe-upwiz-campaigns-confirm-delete' ) ) ) {
-			deleteCampaign(
+		function deleteCampaign( options, successCallback, failCallback ) {
+			$.post(
+				mw.util.wikiScript( 'api' ),
 				{
-					id: $this.attr( 'data-campaign-id' ),
-					token: $this.attr( 'data-campaign-token' )
+					'action': 'deleteuploadcampaign',
+					'format': 'json',
+					'ids': options.id,
+					'token': options.token
 				},
-				function() {
-					$this.closest( 'tr' ).slideUp( 'slow', function() { $( this ).remove(); } );
-				},
-				function( error ) {
-					alert( error );
+				function( data ) {
+					if ( data.success ) {
+						successCallback();
+					} else {
+						failCallback( mw.msg( 'mwe-upwiz-campaigns-delete-failed' ) );
+					}
 				}
 			);
 		}
-		return false;
+
+		$( '.campaign-delete' ).click( function() {
+			var $this = $( this );
+
+			if ( confirm( mw.msg( 'mwe-upwiz-campaigns-confirm-delete' ) ) ) {
+				deleteCampaign(
+					{
+						id: $this.attr( 'data-campaign-id' ),
+						token: $this.attr( 'data-campaign-token' )
+					},
+					function() {
+						$this.closest( 'tr' ).slideUp( 'slow', function() { $( this ).remove(); } );
+					},
+					function( error ) {
+						alert( error );
+					}
+				);
+			}
+			return false;
+		} );
+
 	} );
 
-} ); })( jQuery );
+})( jQuery, mediaWiki );

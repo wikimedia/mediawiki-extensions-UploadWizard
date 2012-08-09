@@ -14,10 +14,6 @@
  */
 class ApiUploadCampaign extends ApiBase {
 
-	public function __construct( $main, $action ) {
-		parent::__construct( $main, $action );
-	}
-
 	public function execute() {
 		$params = $this->extractRequestParams();
 
@@ -29,14 +25,16 @@ class ApiUploadCampaign extends ApiBase {
 			$campaigns = $params['campaigns'];
 		} else {
 			$dbr = wfGetDB( DB_SLAVE );
-			$rows = $dbr->select( 'uw_campaigns', 'campaign_name', '1', __METHOD__ );
+			$rows = $dbr->select( 'uw_campaigns', 'campaign_name', '', __METHOD__ );
 			$campaigns = array();
 			foreach( $rows as $row ) {
 				$campaigns[] = $row->campaign_name;
 			}
 		}
+
 		foreach ( $campaigns as $campaign ) {
-			$campaign = UploadWizardCampaign::newFromName( $campaign );
+			$campaign = UploadWizardCampaigns::singleton()->selectRow( null,  array( 'name' => $campaign ) );
+
 			if ( $campaign ) {
 				$data[] = $this->formatRow( $campaign, $ucprop );
 			}
@@ -57,9 +55,11 @@ class ApiUploadCampaign extends ApiBase {
 			'id' => $this->safeElement( 'id', intval( $campaign->getId() ) ),
 			'isenabled' => $this->safeElement( 'isenabled', intval( $campaign->getIsEnabled() ) ),
 		);
+
 		if (in_array( 'config', $props ) ) {
 			$config = $campaign->getConfig();
 			$item['config'] = array();
+
 			foreach ( $config as $key => $val ) {
 				if ( is_array( $val ) ) {
 					$keys = array(
@@ -71,9 +71,11 @@ class ApiUploadCampaign extends ApiBase {
 				} else {
 					$val = $this->safeElement( $key, $val );
 				}
+
 				$item['config'][$key] = $val;
 			}
 		}
+
 		return $item;
 	}
 

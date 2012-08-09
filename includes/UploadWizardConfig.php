@@ -59,7 +59,7 @@ class UploadWizardConfig {
 	 * @return mixed
 	 */
 	public static function getSetting( $settingName, $campaignName = null ) {
-		$config = self::getConfig();
+		$config = self::getConfig( $campaignName );
 		return $config[$settingName];
 	}
 
@@ -101,7 +101,7 @@ class UploadWizardConfig {
 	 */
 	protected static function getCampaignConfig( $campaignName ) {
 		if ( !is_null( $campaignName ) ) {
-			$campaign = UploadWizardCampaign::newFromName( $campaignName );
+			$campaign = UploadWizardCampaigns::singleton()->selectRow( null,  array( 'name' => $campaignName ) );
 
 			if ( $campaign !== false && $campaign->getIsEnabled() ) {
 				return $campaign->getConfigForGlobalMerge();

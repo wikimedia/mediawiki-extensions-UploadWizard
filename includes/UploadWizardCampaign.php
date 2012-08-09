@@ -2,6 +2,8 @@
 
 /**
  * Class that represents a single upload campaign.
+ * An upload campaign is stored as a row in the uw_campaigns table,
+ * and it's configuration is stored in uw_campaign_conf.
  *
  * @file
  * @ingroup Upload
@@ -11,33 +13,7 @@
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class UploadWizardCampaign {
-
-	/**
-	 * If the ID of the campaign.
-	 * Either this matched a record in the uw_campaigns table or is null.
-	 *
-	 * @since 1.2
-	 * @var integer or null
-	 */
-	protected $id;
-
-	/**
-	 * If the name of the campaign.
-	 * This name is the string used to invoke the campaign via campaign=name.
-	 *
-	 * @since 1.2
-	 * @var string
-	 */
-	protected $name;
-
-	/**
-	 * If the campaign is enabled or not.
-	 *
-	 * @since 1.2
-	 * @var boolean
-	 */
-	protected $isEnabled;
+class UploadWizardCampaign extends ORMRow {
 
 	/**
 	 * The campaign configuration.
@@ -45,7 +21,7 @@ class UploadWizardCampaign {
 	 * @since 1.2
 	 * @var array
 	 */
-	protected $config;
+	protected $config = array();
 
 	/**
 	 * If the campaign config has been loaded or not.
@@ -54,91 +30,6 @@ class UploadWizardCampaign {
 	 * @var boolean
 	 */
 	protected $loadedConfig = false;
-
-	/**
-	 * Create a new instance of $campaignName.
-	 *
-	 * @since 1.2
-	 *
-	 * @param integer $id
-	 * @param string $name
-	 * @param boolean $isEnabled
-	 * @param array $config
-	 */
-	public function __construct( $id, $name = '', $isEnabled = false, array $config = array() ) {
-		$this->id = $id;
-		$this->name = $name;
-		$this->isEnabled = $isEnabled;
-
-		$this->setConfig( $config );
-	}
-
-	/**
-	 * Returns the UploadWizardCampaign with specified name, or false if there is no such campaign.
-	 *
-	 * @since 1.2
-	 *
-	 * @param string $campaignName
-	 * @param boolean $loadConfig
-	 *
-	 * @return UploadWizardCampaign or false
-	 */
-	public static function newFromName( $campaignName, $loadConfig = true ) {
-		return self::newFromDB( array( 'campaign_name' => $campaignName ), $loadConfig );
-	}
-
-	/**
-	 * Returns the UploadWizardCampaign with specified ID, or false if there is no such campaign.
-	 *
-	 * @since 1.2
-	 *
-	 * @param integer $campaignId
-	 * @param boolean $loadConfig
-	 *
-	 * @return UploadWizardCampaign or false
-	 */
-	public static function newFromId( $campaignId, $loadConfig = true ) {
-		return self::newFromDB( array( 'campaign_id' => $campaignId ), $loadConfig );
-	}
-
-	/**
-	 * Returns a new instance of UploadWizardCampaign build from a database result
-	 * obtained by doing a select with the porvided conditions on the uw_campaigns table.
-	 * If no campaign matches the conditions, false will be returned.
-	 *
-	 * @since 1.2
-	 *
-	 * @param array $conditions
-	 * @param boolean $loadConfig
-	 *
-	 * @return UploadWizardCampaign or false
-	 */
-	protected static function newFromDB( array $conditions, $loadConfig = true ) {
-		$dbr = wfGetDB( DB_SLAVE );
-
-		$campaign = $dbr->selectRow(
-			'uw_campaigns',
-			array(
-				'campaign_id',
-				'campaign_name',
-				'campaign_enabled',
-			),
-			$conditions
-		);
-
-		if ( !$campaign ) {
-			return false;
-		}
-
-		$config = $loadConfig ? self::getPropsFromDB( $dbr, $campaign->campaign_id ) : array();
-
-		return new self(
-			$campaign->campaign_id,
-			$campaign->campaign_name,
-			$campaign->campaign_enabled,
-			$config
-		);
-	}
 
 	/**
 	 * Returns the list of configuration settings that can be modified by campaigns,
@@ -272,17 +163,6 @@ class UploadWizardCampaign {
 	}
 
 	/**
-	 * Returns the id of the campaign.
-	 *
-	 * @since 1.2
-	 *
-	 * @return intgere
-	 */
-	public function getId() {
-		return $this->id;
-	}
-
-	/**
 	 * Returns the name of the campaign.
 	 *
 	 * @since 1.2
@@ -290,7 +170,7 @@ class UploadWizardCampaign {
 	 * @return string
 	 */
 	public function getName() {
-		return $this->name;
+		return $this->getField( 'name' );
 	}
 
 	/**
@@ -301,7 +181,7 @@ class UploadWizardCampaign {
 	 * @return boolean
 	 */
 	public function getIsEnabled() {
-		return $this->isEnabled;
+		return $this->getField( 'enabled' );
 	}
 
 	/**
@@ -327,7 +207,7 @@ class UploadWizardCampaign {
 				foreach ( $parts as $part ) {
 					$part = trim( $part );
 
-					if ( $part != '' ) {
+					if ( $part !== '' ) {
 						$settingValue[] = $part;
 					}
 				}
@@ -335,8 +215,7 @@ class UploadWizardCampaign {
 		}
 
 		$this->config = $config;
-
-		$this->loadedConfig = count( $this->config ) > 0;
+		$this->loadedConfig = $this->config !== array();
 	}
 
 	/**
@@ -349,8 +228,8 @@ class UploadWizardCampaign {
 	 */
 	public function getConfig() {
 		if ( !$this->loadedConfig ) {
-			if ( !is_null( $this->id ) ) {
-				$this->config = self::getPropsFromDB( wfGetDB( DB_SLAVE ), $this->id );
+			if ( $this->hasIdField() ) {
+				$this->setConfig( $this->getPropsFromDB() );
 			}
 
 			$this->loadedConfig = true;
@@ -365,7 +244,7 @@ class UploadWizardCampaign {
 	 *
 	 * @since 1.2
 	 *
-	 * @return arrayu
+	 * @return array
 	 */
 	public function getConfigForGlobalMerge() {
 		$config = $this->getConfig();
@@ -417,93 +296,58 @@ class UploadWizardCampaign {
 	}
 
 	/**
-	 * Write the campaign to the DB.
-	 * If it's already there, it'll be updated, else it'll be inserted.
+	 * @see ORMRow::insert()
 	 *
-	 * @since 1.2
+	 * @since 1.3
 	 *
-	 * @return boolean Success indicator
-	 */
-	public function writeToDB() {
-		if ( is_null( $this->id ) ) {
-			return $this->insertIntoDB();
-		}
-		else {
-			return $this->updateInDB();
-		}
-	}
-
-	/**
-	 * Insert the campaign into the DB.
-	 *
-	 * @since 1.2
+	 * @param string|null $functionName
+	 * @param array|null $options
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function insertIntoDB() {
-		$dbw = wfGetDB( DB_MASTER );
-
-		$success = $dbw->insert(
-			'uw_campaigns',
-			array(
-				'campaign_name' => $this->name,
-				'campaign_enabled' => $this->isEnabled,
-			),
-			__METHOD__,
-			array( 'campaign_id' => $this->id )
-		);
+	protected function insert( $functionName = null, array $options = null ) {
+		$success = parent::insert( $functionName, $options );
 
 		if ( $success ) {
-			$this->id = $dbw->insertId();
-			$success &= $this->writePropsToDB( $dbw );
+			$success &= $this->writePropsToDB();
 		}
 
 		return $success;
 	}
 
 	/**
-	 * Update the campaign in the DB.
+	 * @see ORMRow::save()
 	 *
-	 * @since 1.2
+	 * @since 1.3
+	 *
+	 * @param $functionName null|string
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function updateInDB() {
-		$dbw = wfGetDB( DB_MASTER );
-
-		$success = $dbw->update(
-			'uw_campaigns',
-			array(
-				'campaign_name' => $this->name,
-				'campaign_enabled' => $this->isEnabled,
-			),
-			array( 'campaign_id' => $this->id ),
-			__METHOD__
-		);
+	public function save( $functionName = null ) {
+		$success = parent::save( $functionName );
 
 		// Delete and insert instead of update.
 		// This will not result into dead-data when config vars are removed.
-		$success &= $dbw->delete(
+		$success &= wfGetDB( DB_MASTER )->delete(
 			'uw_campaign_conf',
-			array( 'cc_campaign_id' => $this->id ),
+			array( 'cc_campaign_id' => $this->getId() ),
 			__METHOD__
 		);
 
-		$success &= $this->writePropsToDB( $dbw );
+		$success &= $this->writePropsToDB();
 
 		return $success;
 	}
 
 	/**
-	 * Write (insert) the properties into the DB.
+	 * Write (insert) the configuration into the DB.
 	 *
 	 * @since 1.2
 	 *
-	 * @param Database $dbw
-	 *
 	 * @return boolean Success indicator
 	 */
-	protected function writePropsToDB( DatabaseBase $dbw ) {
+	protected function writePropsToDB() {
 		$success = true;
 
 		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config )
@@ -511,6 +355,8 @@ class UploadWizardCampaign {
 			&& !in_array( $this->config['defaultOwnWorkLicence'], $this->config['licensesOwnWork'] ) ) {
 				$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
 		}
+
+		$dbw = wfGetDB( DB_MASTER );
 
 		$dbw->begin();
 
@@ -520,7 +366,7 @@ class UploadWizardCampaign {
 			$success &= $dbw->insert(
 				'uw_campaign_conf',
 				array(
-					'cc_campaign_id' => $this->id,
+					'cc_campaign_id' => $this->getId(),
 					'cc_property' => $prop,
 					'cc_value' => is_array( $value ) ? implode( '|', $value ) : $value
 				),
@@ -538,18 +384,18 @@ class UploadWizardCampaign {
 	 *
 	 * @since 1.2
 	 *
-	 * @param Database $dbr
+	 * @param DatabaseBase $dbr
 	 * @param integer $campaignId
 	 *
 	 * @return array
 	 */
-	protected static function getPropsFromDB( DatabaseBase $dbr, $campaignId ) {
+	protected function getPropsFromDB() {
 		$config = array();
 
-		$confProps = $dbr->select(
+		$confProps = wfGetDB( DB_SLAVE )->select(
 			'uw_campaign_conf',
 			array( 'cc_property', 'cc_value' ),
-			array( 'cc_campaign_id' => $campaignId ),
+			array( 'cc_campaign_id' => $this->getId() ),
 			__METHOD__
 		);
 
@@ -563,26 +409,16 @@ class UploadWizardCampaign {
 	/**
 	 * Delete the campaign from the DB (when present).
 	 *
-	 * @since 1.2
+	 * @since 1.3
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function deleteFromDB() {
-		if ( is_null( $this->id ) ) {
-			return true;
-		}
+	public function remove() {
+		$d1 = parent::remove();
 
-		$dbw = wfGetDB( DB_MASTER );
-
-		$d1 = $dbw->delete(
-			'uw_campaigns',
-			array( 'campaign_id' => $this->id ),
-			__METHOD__
-		);
-
-		$d2 = $dbw->delete(
+		$d2 = wfGetDB( DB_MASTER )->delete(
 			'uw_campaign_conf',
-			array( 'cc_campaign_id' => $this->id ),
+			array( 'cc_campaign_id' => $this->getId() ),
 			__METHOD__
 		);
 
