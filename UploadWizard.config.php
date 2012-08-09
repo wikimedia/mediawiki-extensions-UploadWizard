@@ -417,15 +417,14 @@ return array(
 	// Check if we want to enable firefogg, will result in
 	// 1) firefogg install recommendation when users try to upload media asset with an extension in the
 	//		transcodeExtensionList
-	// 2) Once the user installs firefogg its used for all uploads because of the security model
-	// 		of the file select box, you can't pass off local file references to add ons. Firefogg
-	//		supports "passthrough" mode so that assets that don't need conversions behave very similar
-	//		to a normal XHR post.
+	// 2) Once the user installs firefogg it is used for encoding videos that are not in supported formats before handing it off to mw.ApiUploadFormDataHandler for upload
 	'enableFirefogg' => false,
 
 	// Setup list of video extensions for recomending firefogg.
-	'transcodeExtensionList' => array( 'avi','asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
-										'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg'),
+	'transcodeExtensionList' => array(
+		'avi', 'asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
+		'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg', 'mts'
+	),
 
 	// Firefogg encode settings copied from TimedMediHandler high end ogg. Once Timed Media Handler
 	// is added, these videos will be transcoded by the server to lower resolutions for web playback.

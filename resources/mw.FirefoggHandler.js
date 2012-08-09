@@ -4,36 +4,19 @@
  */
 
 mw.FirefoggHandler = function( upload, api ) {
-	return this.init( upload );
+	this.upload = upload;
+	this.api = upload.api;
+
+	// update the "valid" extension to include firefogg transcode extensions:
+	mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
+		mw.UploadWizard.config[ 'fileExtensions' ],
+		mw.UploadWizard.config[ 'transcodeExtensionList' ]
+	);
 };
 
 mw.FirefoggHandler.prototype = {
 	// The transport object
 	transport : null, // lazy init
-	/**
-	 * Constructor
-	 */
-	init: function( upload ){
-		var _this = this;
-		this.upload = upload;
-		this.api = upload.api;
-		var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
-		// pass file to Firefogg after selection
-		this.upload.ui.$fileInputCtrl.bind('change', function(event) {
-			if(_this.upload.ui.$fileInputCtrl[0].files.length) {
-				_this.getFogg().setInput(_this.upload.ui.$fileInputCtrl[0].files[0]);
-				//This is required to get the right requestedTitle in UploadWizardUpload
-				var title = _this.getTransport().getFileName().replace( /:/g, '_' );
-				_this.upload.title = new mw.Title( title, fileNsId );
-			}
-		});
-		// update the "valid" extension to include firefogg transcode extensions:
-		mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
-				mw.UploadWizard.config[ 'fileExtensions' ],
-				mw.UploadWizard.config[ 'transcodeExtensionList' ]
-		);
-
-	},
 	// Setup local pointer to firefogg instance
 	getFogg: function(){
 		if( ! this.fogg ){
@@ -68,6 +51,15 @@ mw.FirefoggHandler.prototype = {
 	start: function() {
 		var _this = this;
 		mw.log( "mw.FirefoggHandler::start> upload start!" );
+		// pass file to Firefogg
+		if ( _this.upload.file ) {
+			var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
+			_this.getFogg().setInput( _this.upload.file );
+
+			//This is required to get the right requestedTitle in UploadWizardUpload
+			var title = _this.getTransport().getFileName().replace( /:/g, '_' );
+			_this.upload.title = new mw.Title( title, fileNsId );
+		};
 		_this.beginTime = ( new Date() ).getTime();
 		_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 		_this.upload.ui.showTransportProgress();
