@@ -36,7 +36,7 @@ $messages['en'] = array(
 
 	'mwe-upwiz-api-warning-exists' => 'There is [$1 another file] already on the wiki with the same filename',
 	'mwe-upwiz-api-warning-was-deleted' => 'There was a file by this name, "$1", but it was deleted and you can not reupload the file. If your file is different, try renaming it.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The English one is shown instead.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The $1 one is shown instead.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Sorry, we could not find any files for the tutorial that is supposed to go here. Please contact the system administrators.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Sorry, we could not get a scaled image of the tutorial to fit this screen. This may be a temporary problem with Wikimedia Commons; try again later.',
 	'mwe-upwiz-help-desk' => 'Help Desk',
@@ -445,6 +445,7 @@ For more information, see //www.mediawiki.org/wiki/UploadWizard',
 | [[file:commons-uw-L52G.png|Initial "{{MediaWiki:mwe-upwiz-step-details/en}}" page|thumb|right]]
 | [[file:commons-uw-L52X.png|Initial "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 |} This is a short greyed or bolded label, in the top bar of all pages of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]]. Use the verb for this message.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'This message is shown when a tutorial file in a fallback language for user\'s interface language is used instead. $1 is the name of the fallback language.',
 	'mwe-upwiz-help-desk' => 'This should be the same text as it is used in the svg comic on the first page of the Upload Wizard',
 	'mwe-upwiz-help-desk-url' => 'As this is mailny used on Commons, it should remain as such and be overrriden when the UploadWizard is pushed on the local wikis.',
 	'mwe-upwiz-add-file-n' => '{| align="right"
@@ -25101,7 +25102,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-step-thanks' => '使用',
 	'mwe-upwiz-api-warning-exists' => '本维基已经有相同文件名的[$1 文件]',
 	'mwe-upwiz-api-warning-was-deleted' => '有相同文件名的文件“$1”，但是其已被删除且你不能重新上传该文件。如果你的文件不同，请重命名你的文件。',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => '对不起，我们没有你使用的语言的教程。我们显示英语教程替代。',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => '对不起，我们没有你使用的语言的教程。我们显示$1教程替代。',
 	'mwe-upwiz-tutorial-error-file-missing' => '对不起，我们找不到教程文件。请联系系统管理员。',
 	'mwe-upwiz-tutorial-error-cannot-transform' => '对不起，我们无法获得适合该屏幕大小的教程图像。这可能是维基共享资源暂时的问题，请稍后重试。',
 	'mwe-upwiz-help-desk' => '帮助台',

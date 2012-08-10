@@ -30,8 +30,11 @@ class UploadWizardTutorial {
 		// getFile returns false if it can't find the right file
 		if ( ! $tutorialFile = self::getFile( $langCode, $campaign ) ) {
 			$error = 'localized-file-missing';
-			if ( $langCode !== 'en' ) {
-				$tutorialFile = self::getFile( 'en', $campaign );
+			foreach ( $wgLang->getFallbackLanguages() as $langCode ) {
+				if ( $tutorialFile = self::getFile( $langCode, $campaign ) ) {
+					// $langCode remains as the code where a file is found.
+					break;
+				}
 			}
 		}
 
@@ -60,7 +63,11 @@ class UploadWizardTutorial {
 		}
 
 		if ( $error !== null ) {
-			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), wfMessage( 'mwe-upwiz-tutorial-error-' . $error )->text() );
+			$errorMsg = wfMessage( 'mwe-upwiz-tutorial-error-' . $error );
+			if ( $error === 'localized-file-missing' ) {
+				$errorMsg->params( Language::fetchLanguageName( $langCode, $wgLang->getCode() ) );
+			}
+			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), $errorMsg->text() );
 		}
 
 		return $errorHtml . $tutorialHtml;
