@@ -38,7 +38,6 @@ foreach ( array(
 		'UploadWizardHooks' => $wgUpwizDir,
 		'ApiUploadCampaign' => $wgUpwizDir . '/api',
 		'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api',
-		'ApiQueryUploadCampaigns' => $wgUpwizDir . '/api',
 		'UploadWizardConfig' => $wgUpwizDir . '/includes',
 		'UploadWizardTutorial' => $wgUpwizDir . '/includes',
 		'UploadWizardCampaign' => $wgUpwizDir . '/includes',
@@ -65,7 +64,6 @@ $wgSpecialPageGroups['UploadCampaign'] = 'media';
 
 $wgAPIModules['uploadcampaign'] = 'ApiUploadCampaign';
 $wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
-$wgAPIListModules['uploadcampaigns'] = 'ApiQueryUploadCampaigns';
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
