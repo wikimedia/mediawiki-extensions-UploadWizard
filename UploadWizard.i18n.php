@@ -614,7 +614,7 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning',
 );
 
-/** Ṫuroyo (Ṫuroyo)
+/** Turoyo (Ṫuroyo)
  * @author Ariyo
  */
 $messages['tru'] = array(
@@ -18740,7 +18740,7 @@ $messages['pms'] = array(
 	'mwe-upwiz-transport-started' => 'Partì...',
 	'mwe-upwiz-uploading' => "antramentr ch'as caria...",
 	'mwe-upwiz-transported' => 'Va bin',
-	'mwe-upwiz-stashed-upload' => 'Va bin',
+	'mwe-upwiz-stashed-upload' => 'Carià',
 	'mwe-upwiz-getting-metadata' => "Antramentre ch'as pija dj'anformassion e dle preuve dj'archivi...",
 	'mwe-upwiz-submitting-details' => "Antramentre ch'as mando dij detaj e as pùblica...",
 	'mwe-upwiz-published' => 'Publicà!',
