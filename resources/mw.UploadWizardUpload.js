@@ -44,6 +44,7 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile, reservedIndex 
 	this.filename = undefined;
 	this.providedFile = providedFile;
 	this.file = undefined;
+	this.ignoreWarning = {};
 
 	// reserved index for multi-file selection
 	this.reservedIndex = reservedIndex;
@@ -83,6 +84,7 @@ mw.UploadWizardUpload.prototype = {
 	start: function() {
 		var _this = this;
 		if ( mw.UploadWizard.config.startImmediately === true ) {
+			_this.wizard.hideFileEndButtons();
 			$j('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
 			_this.wizard.startProgressBar();
 			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
@@ -114,7 +116,7 @@ mw.UploadWizardUpload.prototype = {
 		// trigger through the div. Triggering through objects doesn't always work.
 		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
 		$j( this.ui.div ).trigger( 'removeUploadEvent' );
-		
+
 		if ( this.wizard.uploads && this.wizard.uploads.length !== 0 && mw.UploadWizard.config.startImmediately === true ) {
 			// check all uploads, if they're complete, show the next button
 			this.wizard.showNext( 'file', 'stashed' );
@@ -153,6 +155,14 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Resume the upload, assume that whatever error(s) we got were benign.
+	 */
+	removeErrors: function ( code ) {
+		this.ignoreWarning[code] = true;
+		this.start();
+	},
+
+	/**
 	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details
 	 * @param result	the API result in parsed JSON form
 	 */
@@ -163,66 +173,91 @@ mw.UploadWizardUpload.prototype = {
 		}
 
 		// default error state
-		var code = 'unknown';
-		var info = 'unknown';
+		var code = 'unknown',
+			info = 'unknown';
 
-		if ( result.upload && result.upload.warnings && result.upload.warnings.length !== 0 && result.upload.result ) {
-			if ( result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] || result.upload.warnings['exists-normalized'] ) {
-				// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
-				// consequently, get rid of the warning and make sure the later stuff gets called
-				var existsFileName = result.upload.warnings['exists'] || result.upload.warnings['was-deleted'] || result.upload.warnings['exists-normalized'];
-				try {
-					code = 'exists';
-					info = new mw.Title( existsFileName, fileNsId ).getUrl();
-				} catch ( e ) {
-					code = 'unknown';
-					info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";
+		if ( result.error ) {
+			// If there was an error, we can't really do anything else, so let's get out while we can.
+			if ( result.error.code ) {
+				code = result.error.code;
+			}
+			if ( result.error.info ) {
+				info = result.error.info;
+			}
+			this.setError( code, info );
+			return;
+		}
+
+		var warnCode;
+
+		result.upload = result.upload || {};
+		result.upload.warnings = result.upload.warnings || {};
+
+		for ( warnCode in result.upload.warnings ) {
+			if ( !this.ignoreWarning[warnCode] && this.state !== 'error' ) {
+				switch ( warnCode ) {
+					case 'exists':
+					case 'exists-normalized':
+					case 'was-deleted':
+						// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
+						// consequently, get rid of the warning and make sure the later stuff gets called
+						var existsFilename = result.upload.warnings[warnCode];
+						try {
+							code = 'exists';
+							info = new mw.Title( existsFilename, fileNsId ).getUrl();
+						} catch ( e ) {
+							code = 'unknown';
+							info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";
+						}
+						_this.extractUploadInfo( result.upload );
+						if ( result.upload.stashimageinfo === null ) {
+							_this.setError( 'noimageinfo' );
+						}
+						break;
+					case 'duplicate':
+						code = warnCode;
+						_this.setError( warnCode, _this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
+						break;
+					case 'duplicate-archive':
+						// This is the case where the file did exist, but it was deleted.
+						// We should definitely tell the user, but let them override.
+						// If they already have, then don't execute any of this.
+						code = warnCode;
+						_this.setError( warnCode, _this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
+						var $override = $( '<a></a>' )
+							.attr( 'href', 'javascript:' )
+							.text( gM( 'mwe-upwiz-override' ) )
+							.click( ( function ( theCode ) {
+								this.removeErrors( theCode );
+							} ).bind( this, warnCode ) );
+						$( '.mwe-upwiz-file-status-line-item', this.ui.visibleFilenameDiv )
+							.first()
+							.append( ' ' )
+							.append( $override );
+						break;
+					default:
+						// we have an unknown warning, so let's say what we know
+						code = 'unknown-warning';
+						info = result.upload.warnings[warnCode];
+						_this.setError( code, info );
+						break;
 				}
-				_this.addWarning( code, info );
-				_this.extractUploadInfo( result.upload );
-				if ( result.upload.stashimageinfo === null ) {
-					_this.setError( 'noimageinfo', info );
-				} else {
+			}
+		}
+
+		if ( this.state !== 'error' ) {
+			if ( result.upload && result.upload.result === 'Success' ) {
+				if ( result.upload.imageinfo ) {
 					_this.setSuccess( result );
+				} else {
+					_this.setError( 'noimageinfo', info );
 				}
-			} else if ( result.upload.warnings['duplicate'] ) {
-				code = 'duplicate';
-				_this.setError( code, _this.duplicateErrorInfo( 'duplicate', result.upload.warnings['duplicate'] ) );
-			} else if ( result.upload.warnings['duplicate-archive'] ) {
-				code = 'duplicate-archive';
-				_this.setError( code, _this.duplicateErrorInfo( 'duplicate-archive', result.upload.warnings['duplicate-archive'] ) );
-			} else if ( result.upload.result !== 'Success' ) {
-				// we have an unknown warning and the result is not "Success". Assume fatal.
-				code = 'unknown-warning';
-				var warningInfo = [];
-				$j.each( result.upload.warnings, function( k, v ) {
-					warningInfo.push( k + ': ' + v );
-				} );
-				info = warningInfo.join( ', ' );
-				_this.setError( code, [ info ] );
-			}
-		}
-		if ( result.upload && result.upload.result === 'Success' ) {
-			if ( result.upload.imageinfo ) {
-				_this.setSuccess( result );
+			} else if ( result.upload && result.upload.result === 'Warning' ) {
+				throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
 			} else {
-				_this.setError( 'noimageinfo', info );
+				_this.setError( code, info );
 			}
-		} else if ( result.upload && result.upload.result === 'Warning' ) {
-			throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
-		} else {
-			if ( result && result.error ) {
-				if ( result.error.code ) {
-					code = result.error.code;
-				}
-				if ( result.error.info ) {
-					info = result.error.info;
-				}
-			}
-			_this.setError( code, info );
 		}
-
-
 	},
 
 
@@ -283,6 +318,8 @@ mw.UploadWizardUpload.prototype = {
 			_this.state = 'stashed';
 			_this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + _this.index, 'api' );
+			// check all uploads, if they're complete, show the next button
+			_this.wizard.showNext( 'file', 'stashed' );
 		} else {
 			_this.setError( 'noimageinfo' );
 		}
