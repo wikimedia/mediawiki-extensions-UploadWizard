@@ -293,7 +293,6 @@ class SpecialUploadWizard extends SpecialPage {
 		// Check blocks
 		if ( $user->isBlocked() ) {
 			throw new UserBlockedError( $this->getUser()->mBlock );
-			return false;
 		}
 
 		// we got all the way here, so it must be okay to upload
