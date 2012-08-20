@@ -164,19 +164,37 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
 
-		$defaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
+		// Get the user's default license. This will usually be 'default', but
+		// can be a specific license like 'ownwork-cc-zero'.
+		$userDefaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
 
-		if ( $defaultLicense !== 'default' ) {
-			$defaultLicense = explode( '-', $defaultLicense, 2 );
-			$licenseType = $defaultLicense[0];
-			$defaultLicense = $defaultLicense[1];
+		if ( $userDefaultLicense !== 'default' ) {
+			$licenseParts = explode( '-', $userDefaultLicense, 2 );
+			$userLicenseType = $licenseParts[0];
+			$userDefaultLicense = $licenseParts[1];
 
-			if ( in_array( $defaultLicense, $config['licensesOwnWork']['licenses'] )
-				|| in_array( $defaultLicense,  UploadWizardConfig::getThirdPartyLicenses() ) ) {
+			// Determine if the user's default license is valid for this campaign
+			switch ( $config['ownWorkOption'] ) {
+				case "own":
+					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] );
+					break;
+				case "notown":
+					$defaultInAllowedLicenses = in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() );
+					break;
+				case "choice":
+					$defaultInAllowedLicenses = ( in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] ) ||
+						in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() ) );
+					break;
+			}
 
-				$licenseGroup = $licenseType === 'ownwork' ? 'licensesOwnWork' : 'licensesThirdParty';
-				$config[$licenseGroup]['defaults'] = array( $defaultLicense );
-				$config['defaultLicenseType'] = $licenseType;
+			if ( $defaultInAllowedLicenses ) {
+				if ( $userLicenseType === 'ownwork' ) {
+					$userLicenseGroup = 'licensesOwnWork';
+				} else {
+					$userLicenseGroup = 'licensesThirdParty';
+				}
+				$config[$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
+				$config['defaultLicenseType'] = $userLicenseType;
 			}
 		}
 

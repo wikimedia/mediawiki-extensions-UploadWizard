@@ -282,16 +282,18 @@ mw.UploadWizardLicenseInput.prototype = {
 	// Set the input value. If it is part of a group, and this is being turned on, pop open the group so we can see this input.
 	setInput: function( $input, val ) {
 		var _this = this;
-		var oldVal = $input.attr( 'checked' );
-		// !! to ensure boolean.
-		var bool = !!val;
-		$input.attr( 'checked', bool );
-		if ( bool !== oldVal ) {
+		var oldVal = $input.is( ':checked' );
+		if ( val ) {
+			$input.prop( 'checked', 'checked' );
+		} else {
+			$input.removeProp( 'checked' );
+		}
+		if ( val != oldVal ) { // loose comparison on purpose
 			_this.$selector.trigger( 'changeLicenses' );
 		}
 
 		// pop open the 'toggle' group if is now on. Do nothing if it is now off.
-		if ( bool && $input.data( 'groupToggler' ) ) {
+		if ( val && $input.data( 'groupToggler' ) ) {
 			$input.data( 'groupToggler' ).data( 'open' )();
 		}
 	},
