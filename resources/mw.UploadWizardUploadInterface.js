@@ -341,6 +341,14 @@ mw.UploadWizardUploadInterface.prototype = {
 		}
 	},
 
+	URL: function() {
+		return window.URL || window.webkitURL || window.mozURL;
+	},
+
+	isVideo: function() {
+		return mw.fileApi.isAvailable() && mw.fileApi.isPreviewableVideo( this.upload.file );
+	},
+
 	isPreviewable: function() {
 		return mw.fileApi.isAvailable() && this.upload.file && mw.fileApi.isPreviewableFile( this.upload.file );
 	},
@@ -355,20 +363,46 @@ mw.UploadWizardUploadInterface.prototype = {
 
 		// do preview if we can
 		if ( _this.isPreviewable() ) {
-			var dataUrlReader = new FileReader();
-			dataUrlReader.onload = function() {
+			// called once we have an image url
+			function loadImage( url ) {
 				var image = document.createElement( 'img' );
-				image.onload = function() {
+				image.onload = function () {
 					$.publishReady( 'thumbnails.' + _this.upload.index, image );
 					_this.previewLoaded = true;
 				};
-
-				// this step (inserting image-as-dataurl into image object) is slow for large images, which
-				// is why this is optional and has a control attached to it to load the preview.
-				image.src = dataUrlReader.result;
+				image.src = url;
 				_this.upload.thumbnails['*'] = image;
-			};
-			dataUrlReader.readAsDataURL( _this.upload.file );
+			}
+			// open video and get frame via canvas
+			if ( _this.isVideo() ) {
+				var video = document.createElement( 'video' );
+				video.addEventListener('loadedmetadata', function () {
+					//seek 2 seconds into video or to half if shorter
+					video.currentTime = Math.min( 2, video.duration / 2 );
+					video.volume = 0;
+					video.play();
+					video.pause();
+				});
+				video.addEventListener('seeked', function () {
+					var canvas = document.createElement( 'canvas' );
+					canvas.width = 100;
+					canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
+					var context = canvas.getContext( '2d' );
+					context.drawImage( video, 0, 0, canvas.width, canvas.height );
+					loadImage( canvas.toDataURL() );
+					_this.URL().revokeObjectURL( video.url );
+				});
+				var url = _this.URL().createObjectURL( _this.upload.file );
+				video.src = url;
+			} else {
+				var dataUrlReader = new FileReader();
+				dataUrlReader.onload = function() {
+					// this step (inserting image-as-dataurl into image object) is slow for large images, which
+					// is why this is optional and has a control attached to it to load the preview.
+					loadImage( dataUrlReader.result );
+				};
+				dataUrlReader.readAsDataURL( _this.upload.file );
+			}
 		}
 	},
 
