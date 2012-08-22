@@ -224,7 +224,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-file-too-large-text' => 'You can only upload files with a size of up to $1. You tried to upload a file that is $2.',
 	'mwe-upwiz-file-too-large' => 'File too large.',
 
-	
+
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])',
@@ -1789,7 +1789,7 @@ $messages['as'] = array(
 	'mwe-upwiz-feedback-title' => "আপল'ড ৱিজাৰ্ড সম্পৰ্কে আপোনাৰ প্ৰতিক্ৰিয়া ব্যক্ত কৰক",
 	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 প্রতিক্ৰিয়া পঠাওক]',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 অধিক তথ্য]',
-	'mwe-upwiz-feedback-blacklist-line-intro' => 'এইটো শিৰোনাম ব্লেকলিষ্ট ভুক্তি মিলিছে: 
+	'mwe-upwiz-feedback-blacklist-line-intro' => 'এইটো শিৰোনাম ব্লেকলিষ্ট ভুক্তি মিলিছে:
 $1',
 	'mwe-upwiz-feedback-blacklist-subject' => 'ম‍ই আপলোড কৰা "$1" শীৰ্ষকটো বাধাপ্ৰাপ্ত হৈছে',
 	'mwe-upwiz-errordialog-title' => 'আপুনি জমা দিয়াত কিবা ক্ৰুটি হৈছে',
@@ -4131,7 +4131,7 @@ $messages['cs'] = array(
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Zbývá $1 sekunda|Zbývají $1 sekundy|Zbývá $1 sekund}}',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Zbývá $1 minuta|Zbývají $1 minuty|Zbývá $1 minut}} a $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Zbývá $1 hodina|Zbývají $1 hodiny|Zbývá $1 hodin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} a $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'Tento server vyžaduje, abyste pro {{PLURAL:$1|tento soubor|tyto soubory}} {{gender:|uvedl|uvedla|uvedli}} autorskoprávní údaje, aby bylo jisté, že {{PLURAL:$1|jej|je}} může každý legálně užívat.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Tento server vyžaduje, abyste pro {{PLURAL:$1|tento soubor|tyto soubory}} uvedl autorskoprávní údaje, aby bylo jisté, že {{PLURAL:$1|jej|je}} může každý legálně užívat.',
 	'mwe-upwiz-deeds-custom-prompt' => 'Nebo:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Tento soubor je|Tyto soubory jsou}} mé vlastní dílo.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Já, $2, držitel autorských práv k {{PLURAL:$1|tomuto dílu|těmto dílům}}, tímto neodvolatelně uděluji komukoli právo je použít, upravovat a dále šířit za libovolným účelem, a proto je tímto zveřejňuji za následujících podmínek:',
@@ -9814,8 +9814,7 @@ $messages['he'] = array(
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|הקובץ הזה הוא|הקבצים האלה הם}} פרי עבודתי.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'אני, $2, בעל זכויות היוצרים {{PLURAL:$1|ביצירה הזאת|ביצירות האלה}}, מעניק בזאת, באופן בלתי חוזר, לכל אחד את הזכות להשתמש {{PLURAL:$1|בה|בהן}}, וכן לשנות ולהפיץ {{PLURAL:$1|אותה|אותן}} לכל מטרה, ולכן אני מפרסם {{PLURAL:$1|אותה|אותן}} לפי התנאים הבאים:',
 	'mwe-upwiz-source-ownwork-assert' => 'אני, $2, בעל זכויות היוצרים {{PLURAL:$1|ביצירה הזאת|ביצירות האלה}}, מעניק בזאת, באופן בלתי חוזר, לכל אחד את הזכות להשתמש {{PLURAL:$1|בה|בהן}} לכל מטרה, בתנאי שהמשתמשים ייתנו לי קרדיט וישתפו את היצירות הנגזרות לפי אותם התנאים.',
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => ' 
-אני, $2, בעל זכויות היוצרים של {{PLURAL:$1|יצירה זו|יצירות אלה}}, מעניק בזאת באופן בלתי חוזר את השימוש ב{{PLURAL:$1|יצירה זו|יצירות אלה}} תחת תנאי רישיון Creative Commons Attribution ShareAlike 3.0 ([$3 legal code]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'אני, $2, בעל זכויות היוצרים של {{PLURAL:$1|יצירה זו|יצירות אלה}}, מעניק בזאת באופן בלתי חוזר את השימוש ב{{PLURAL:$1|יצירה זו|יצירות אלה}} תחת תנאי רישיון Creative Commons Attribution ShareAlike 3.0 ([$3 legal code]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(כל אחד יכול להשתמש ביצירה{{PLURAL:$1|יצירה הזאת|יצירות האלה}}, לשתף {{PLURAL:$1|אותה|אותן}} או ליצור {{PLURAL:$1|ממנה יצירה נגזרת|מהן יצירות נגזרות}}, כל עוד ניתן לי ייחוס והיצירה משותפת לפי הרישיון הזה.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'אני, $2, בעל זכויות היוצרים {{PLURAL:$1|ביצירה זו|ביצירות אלו}}, מעניק בזאת לכול באופן בלתי־חוזר את הזכות להשתמש {{PLURAL:$1|ביצירה זו|ביצירות אלו}} בהתאם לתנאי רישיון Creative Commons Attribution ShareAlike 3.0 אוסטריה ([$3 ניסוח משפטי]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(כל אחד יכול להשתמש ביצירה{{PLURAL:$1|יצירה הזאת|יצירות האלה}}, לשתף {{PLURAL:$1|אותה|אותן}} או ליצור {{PLURAL:$1|ממנה יצירה נגזרת|מהן יצירות נגזרות}}, כל עוד ניתן לי ייחוס והיצירה משותפת לפי הרישיון הזה.)',
@@ -13545,7 +13544,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-ok' => 'კარგი',
 	'mwe-upwiz-cancel' => 'გაუქმება',
 	'mwe-upwiz-fileexists-replace' => 'ფაილი სახელწოდებით "$1" უკვე არსებობს. გთხოვთ, შეცვალეთ თქვენი ფაილის სახელწოდება რაიმე უნიკალურით.',
-	'mwe-upwiz-fileexists' => 'ფაილი ამ სახელით უკვე არსებობს. 
+	'mwe-upwiz-fileexists' => 'ფაილი ამ სახელით უკვე არსებობს.
 გთხოვთ, შეამოწმეთ <b><tt>$1</tt></b>, თუ დარწმუნებული არ ხართ, რომ გსურთ მისი შეცვლა.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'ფაილი ამ სახელწოდებით უკვე არსებობს ($1). თუ თქვენ მისი ჩანაცვლება გსურთ, შედით [$2 არსებული ფაილის გვერდზე] და იქ სცადეთ ეს.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'ამ სახელწოდების ფაილი უკვე არსებობს.',
@@ -13563,10 +13562,10 @@ $messages['ka'] = array(
 	'mwe-upwiz-files-complete' => 'თქვენი ფაილები აიტვირთა!',
 	'mwe-upwiz-tooltip-author' => 'სახელი პიროვნებისა, რომელმაც გადაიღო ფოტო, დახატა ნახატი, შექმნა გამოსახულება და ა. შ.',
 	'mwe-upwiz-tooltip-source' => 'საიდანაა ეს ეს ფოტო — ეს შეიძლება იყოს URL მისამართი, წიგნი ან გამოცემა.',
-	'mwe-upwiz-tooltip-sign' => 'თქვენ შეგიძლიათ მიუთითოთ თქვენი ვიკის ანგარიშის სახელი, ან თქვენი ნამდვილი სახელი. 
+	'mwe-upwiz-tooltip-sign' => 'თქვენ შეგიძლიათ მიუთითოთ თქვენი ვიკის ანგარიშის სახელი, ან თქვენი ნამდვილი სახელი.
 ორივე შემთხვევაში მისგან გაკეთდება ბმული თქვენი ვიკის მომხმარებლის გვერდზე.',
 	'mwe-upwiz-tooltip-title' => 'ფაილის უნიკალური აღმწერი სათაური. თქვენ შეგიძლიათ გამოიყენოთ მარტივი ტექსტი შორისებით. არ მიუთითოთ გაფართოება.',
-	'mwe-upwiz-tooltip-description' => 'მოკლედ აღწერეთ ამ ნამუშევრის შესახებ ყველაფერი მნიშვნელოვანი. 
+	'mwe-upwiz-tooltip-description' => 'მოკლედ აღწერეთ ამ ნამუშევრის შესახებ ყველაფერი მნიშვნელოვანი.
 ფოტოსათვის, მიუთითეთ რა არის გამოსახული, სად არის გადაღებული, რა ვითარებაში.',
 	'mwe-upwiz-tooltip-date' => 'ამ ნამუშევრის შექმნის, ან პირველად გამოქვეყნების თარიღი (ფორმატით წწწწ-თთ-დდ).',
 	'mwe-upwiz-tooltip-categories' => 'დაამატეთ თქვენ ფაილს [$1 კატეგორია] რათა გაადვილდეს მისი მოძიება.',
@@ -21728,7 +21727,7 @@ $messages['rue'] = array(
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Оставать $1 секунда|Оставають $1 секудны|Оставать $1 секунд}}',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Оставать $1 минута|Оставають $1 минуты|Оставать $1 минут}} і $2 {{PLURAL:$2|секунда|секунды|секунд}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Оставать $1 година|Оставають $1 годины|Оставать $1 годин}}, $2 {{PLURAL:$2|минута|минуты|минут}} і $3 {{PLURAL:$3|секунда|секунды|секунд}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'TТот сервер потребує, жебы сьте про {{PLURAL:$1|тот файл|тоты файлы}} {{gender:|увив|увела|увели}} авторскоправны дата, жебы было певне, же {{PLURAL:$1|го|їх}} може каждый леґално хосновати.',
+	'mwe-upwiz-deeds-macro-prompt' => 'TТот сервер потребує, жебы сьте про {{PLURAL:$1|тот файл|тоты файлы}} увив авторскоправны дата, жебы было певне, же {{PLURAL:$1|го|їх}} може каждый леґално хосновати.',
 	'mwe-upwiz-deeds-custom-prompt' => 'Або:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Тот файл є|Тоты файлы суть}} моя властна робота.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Я, $2, властник авторьскый прав ку {{PLURAL:$1|тому дїлу|тым дїлам}}, тым безворотно давам хоцькому право го хосновати, управляти і дале шырити за любовольным цїлём, і прото тым публікую за наслїдных условій:',
