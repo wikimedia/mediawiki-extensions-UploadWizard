@@ -1168,11 +1168,12 @@ mw.UploadWizardDetails.prototype = {
 		 	'titleblacklist-custom-filename': 'hosting',
 			'titleblacklist-custom-SVG-thumbnail': 'thumbnail',
 			'titleblacklist-custom-thumbnail': 'thumbnail',
-		 	'titleblacklist-custom-double-apostrophe': 'double-apostrophe'
+		 	'titleblacklist-custom-double-apostrophe': 'double-apostrophe',
+		 	'protectedpage': 'protected'
 		};
 		if ( result && result.error && result.error.code ) {
 			if ( titleErrorMap[code] ) {
-				_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-' + titleErrorMap[code] ) );
+				this.recoverFromError( this.titleId, gM( 'mwe-upwiz-error-title-' + titleErrorMap[code] ) );
 				return;
 			} else {
 				statusKey = 'api-error-' + code;

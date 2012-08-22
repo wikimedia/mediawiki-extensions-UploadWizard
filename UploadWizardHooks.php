@@ -320,6 +320,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-title-fileexists-shared-forbidden',
 				'mwe-upwiz-error-title-double-apostrophe',
 				'mwe-upwiz-error-title-extension',
+				'mwe-upwiz-error-title-protected',
 				'mwe-upwiz-error-license-wikitext-missing',
 				'mwe-upwiz-error-license-wikitext-too-short',
 				'mwe-upwiz-error-license-wikitext-too-long',
