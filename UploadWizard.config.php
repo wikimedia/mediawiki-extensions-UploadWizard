@@ -4,42 +4,7 @@
  * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc;
-
-// We need to get a list of languages for the description dropdown.
-$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates' );
-// Try to get a cached version of the list
-$uwLanguages = $wgMemc->get( $cacheKey );
-if ( !$uwLanguages ) {
-	$uwLanguages = array();
-
-	// First, get a list of languages we support.
-	if (  is_callable( array( 'LanguageNames', 'getNames' ) ) ) {
-		$baseLangs = LanguageNames::getNames( $wgLang->getCode() );
-	} else {
-		$baseLangs = Language::fetchLanguageNames( null, 'all' );
-	}
-
-	// Use LinkBatch to make this a little bit more faster.
-	// It works because $title->exists (below) will use LinkCache.
-	$linkBatch = new LinkBatch();
-	foreach( $baseLangs as $code => $name ) {
-		$title = Title::makeTitle( NS_TEMPLATE, ucfirst( $code ) );
-		$linkBatch->addObj( $title );
-	}
-	$linkBatch->execute();
-
-	// Then, check that there's a template for each one.
-    foreach ( $baseLangs as $code => $name ) {
-		$title = Title::makeTitle( NS_TEMPLATE, ucfirst( $code ) );
-		if ( $title->exists() ) {
-			// If there is, then it's in the final picks!
-			$uwLanguages[$code] = $name;
-		}
-	}
-	// Cache the list for 1 day
-	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
-}
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize;
 
 return array(
 	// Upload wizard has an internal debug flag
@@ -132,10 +97,6 @@ return array(
 
 	// Initial value for the altitude field.
 	'defaultAlt' => '',
-
-	// 'uwLanguages' is a list of languages and codes, for use in the description step.
-	// See the definition of $uwLanguages above.
-	'uwLanguages' => $uwLanguages,
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in
 	// licensesOwnWork or licensesThirdParty.
