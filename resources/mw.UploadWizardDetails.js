@@ -57,6 +57,9 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			api: _this.upload.api,
 			spinner: function(bool) { _this.toggleDestinationBusy(bool); },
 			preprocess: function( name ) {
+				// First, clear out any existing errors, to prevent strange visual effects.
+				// Fixes bug 32469.
+				_this.$form.find( 'label[for=' + _this.titleId + ']' ).empty();
 				if ( name !== '' ) {
 					// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
 					// side effect -- also sets this as our current title
