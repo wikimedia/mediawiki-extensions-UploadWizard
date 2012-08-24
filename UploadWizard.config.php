@@ -6,8 +6,9 @@
  */
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc;
 
+$userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
-$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates' );
+$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates', $userLangCode );
 // Try to get a cached version of the list
 $uwLanguages = $wgMemc->get( $cacheKey );
 if ( !$uwLanguages ) {
@@ -15,7 +16,7 @@ if ( !$uwLanguages ) {
 
 	// First, get a list of languages we support.
 	if (  is_callable( array( 'LanguageNames', 'getNames' ) ) ) {
-		$baseLangs = LanguageNames::getNames( $wgLang->getCode() );
+		$baseLangs = LanguageNames::getNames( $userLangCode );
 	} else {
 		$baseLangs = Language::fetchLanguageNames( null, 'all' );
 	}
@@ -37,6 +38,8 @@ if ( !$uwLanguages ) {
 			$uwLanguages[$code] = $name;
 		}
 	}
+	// Sort the list by the language name
+	natsort($uwLanguages);
 	// Cache the list for 1 day
 	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
 }
