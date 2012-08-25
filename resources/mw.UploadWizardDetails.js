@@ -139,17 +139,18 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		.append( $j( '<div class="mwe-upwiz-details-more-label"></div>' ).append( gM( 'mwe-upwiz-other' ) ).addHint( 'other' ) )
 		.append( _this.otherInformationInput );
 
+	/* Altitude is not yet supported by any of the geo tools deployed on WMF sites */
 	var latId = "location-latitude" + _this.upload.index;
 	var lonId = "location-longitude" + _this.upload.index;
-	var altId = "location-altitude" + _this.upload.index;
+	//var altId = "location-altitude" + _this.upload.index;
 
 	_this.latInput = $j( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
 	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
-	_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
+	//_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
 
 	_this.latInput.val( mw.UploadWizard.config.defaultLat );
 	_this.lonInput.val( mw.UploadWizard.config.defaultLon );
-	_this.altInput.val( mw.UploadWizard.config.defaultAlt );
+	//_this.altInput.val( mw.UploadWizard.config.defaultAlt );
 
 	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
 		.append( $j ( '<div class="mwe-location-lat-label"></div>' ).append( gM( 'mwe-upwiz-location-lat' )  ) )
@@ -157,9 +158,9 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	var lonDiv = $j( '<div class="mwe-location-lon"></div>' )
 		.append( $j ( '<div class="mwe-location-lon-label"></div>' ).append( gM( 'mwe-upwiz-location-lon' )  ) )
 		.append( _this.lonInput );
-	var altDiv = $j( '<div class="mwe-location-alt"></div>' )
-		.append( $j ( '<div class="mwe-location-alt-label"></div>' ).append( gM( 'mwe-upwiz-location-alt' )  ) )
-		.append( _this.altInput );
+	//var altDiv = $j( '<div class="mwe-location-alt"></div>' )
+	//	.append( $j ( '<div class="mwe-location-alt-label"></div>' ).append( gM( 'mwe-upwiz-location-alt' )  ) )
+	//	.append( _this.altInput );
 
 	var locationDiv = $j( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append( $j ('<div class="mwe-location-label"></div>' )
@@ -168,8 +169,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		.append(
 			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
 			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
-			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-			latDiv, lonDiv, altDiv
+			//$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
+			latDiv, lonDiv //, altDiv
 		);
 
 	$j( moreDetailsDiv ).append(
@@ -373,12 +374,16 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		}
 	} );
 
+	/* Disabled because not supported on wiki
+	 * Does not validate on rationals, only decimals
+	 * check if bug 32410 is fixed before enabling. See also bug 39553.
 	_this.altInput.rules( "add", {
 		number: true,
 		messages: {
 			number: gM( 'mwe-upwiz-error-altitude' )
 		}
 	} );
+	*/
 
 	mw.UploadWizardUtil.makeToggler(
 		moreDetailsCtrlDiv,
@@ -571,7 +576,7 @@ mw.UploadWizardDetails.prototype = {
 
 			simpleCopy( 'location-latitude' );
 			simpleCopy( 'location-longitude' );
-			simpleCopy( 'location-altitude' );
+			//simpleCopy( 'location-altitude' );
 
 		} else if ( metadataType === 'other' ) {
 
@@ -911,7 +916,7 @@ mw.UploadWizardDetails.prototype = {
  	 * Prefill location inputs (and/or scroll to position on map) from image info and metadata
 	 *
 	 * As of MediaWiki 1.18, the exif parser translates the rational GPS data tagged by the camera
-	 * to decimal format.  Let's just use that.
+	 * to decimal format (accept for altitude, bug 32410).  Let's just use that.
 	 * Leaving out altitude ref for now (for no good reason).
 	 */
 	prefillLocation: function() {
@@ -926,9 +931,9 @@ mw.UploadWizardDetails.prototype = {
 			if ( m['gpslongitude'] !== undefined ) {
 				$j( _this.lonInput ).val( m['gpslongitude'] );
 			}
-			if ( m['gpsaltitude'] !== undefined ) {
-				$j( _this.altInput ).val( m['gpsaltitude'] );
-			}
+			//if ( m['gpsaltitude'] !== undefined ) {
+			//	$j( _this.altInput ).val( m['gpsaltitude'] );
+			//}
 		}
 	},
 
@@ -1075,13 +1080,13 @@ mw.UploadWizardDetails.prototype = {
 
 			var lat = $j.trim( $j( _this.latInput ).val() );
 			var lon = $j.trim( $j( _this.lonInput ).val() );
-			var alt = $j.trim( $j( _this.altInput ).val() );
-
+			//var alt = $j.trim( $j( _this.altInput ).val() );
+	
 			// Do not require the altitude to be set, to prevent people from entering 0
 			// while it's actually unknown.
 			// When none is provided, this will result in {{Location dec|int|int|}}.
 			if( lat !== '' && lon !== '' ) {
-				wikiText += '{{Location dec|'+ lat + '|' + lon + '|' + alt + '}}\n';
+				wikiText += '{{Location dec|'+ lat + '|' + lon + '}}\n';
 			}
 
 			wikiText += '{{Information\n' + info + '}}\n\n';
