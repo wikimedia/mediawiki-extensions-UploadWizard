@@ -434,6 +434,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-file-too-large',
 				'prefs-uploads',
 				'prefs-upwiz-interface',
+				'colon-separator',
 			),
 			'group' => 'ext.uploadWizard'
 		),

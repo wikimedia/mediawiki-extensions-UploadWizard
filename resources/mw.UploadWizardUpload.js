@@ -239,7 +239,12 @@ mw.UploadWizardUpload.prototype = {
 					default:
 						// we have an unknown warning, so let's say what we know
 						code = 'unknown-warning';
-						info = result.upload.warnings[warnCode];
+						if ( typeof result.upload.warnings[warnCode] === 'string' ) {
+							// tack the original error code onto the warning info
+							info = warnCode + gM( 'colon-separator' ) + result.upload.warnings[warnCode];
+						} else {
+							info = result.upload.warnings[warnCode];
+						}
 						_this.setError( code, info );
 						break;
 				}
