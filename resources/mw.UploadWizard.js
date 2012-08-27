@@ -780,6 +780,9 @@ mw.UploadWizard.prototype = {
 	updateFileCounts: function() {
 		var _this = this;
 
+		// First reset the wizard buttons.
+		_this.hideFileEndButtons();
+
 		if ( _this.uploads.length ) {
 			// we have uploads ready to go, so allow us to proceed
 			$j( '#mwe-upwiz-upload-ctrl-container' ).show();
