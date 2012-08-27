@@ -45,6 +45,9 @@ mw.ApiUploadHandler.prototype = {
 		// force stash
 		_this.addFormInputIfMissing( 'stash', 1 );
 
+		// ignore warnings (see mw.FormDataTransport for more)
+		_this.addFormInputIfMissing( 'ignorewarnings', 1 );
+
 		// XXX TODO - remove; if we are uploading to stash only, a comment should not be required - yet.
 		_this.addFormInputIfMissing( 'comment', 'DUMMY TEXT' );
 

@@ -208,6 +208,8 @@ mw.UploadWizardUpload.prototype = {
 			} else {
 				_this.setError( 'noimageinfo', info );
 			}
+		} else if ( result.upload && result.upload.result === 'Warning' ) {
+			throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
 		} else {
 			if ( result && result.error ) {
 				if ( result.error.code ) {
