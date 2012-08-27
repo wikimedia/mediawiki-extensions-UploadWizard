@@ -8061,6 +8061,7 @@ Vinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.',
  * @author Hashar
  * @author IAlex
  * @author Jean-Frédéric
+ * @author Linedwell
  * @author Lucyin
  * @author McDutchie
  * @author Moyg
@@ -8273,6 +8274,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'Ce nom de fichier est réservé par un fichier sur un répertoire partagé distance. Choisissez un autre nom.',
 	'mwe-upwiz-error-title-double-apostrophe' => 'Ce titre contient une apostrophe double : veuillez la supprimer.',
 	'mwe-upwiz-error-title-extension' => 'Vous n’avez pas besoin d’ajouter une extension de fichier. Il suffit de faire un titre compréhensible par un humain et l’application se chargera du reste.',
+	'mwe-upwiz-error-title-protected' => 'Ce titre correspond à une page protégée sur ce wiki. Veuillez choisir un nom différent.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'Vous avez sélectionné une option qui requiert que vous entriez du wikitexte.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Le wikitexte ici est trop court pour être une licence',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Le wikitexte que vous avez saisi est trop long.',
@@ -24465,7 +24467,7 @@ $messages['sw'] = array(
 	'mwe-upwiz-other' => 'Habari nyingine',
 	'mwe-upwiz-source' => 'Chanzo',
 	'mwe-upwiz-thanks-intro' => 'Asante kwa kupakia!',
-	'mwe-upwiz-upload-error-stashed-anyway' => 'Hata hivo pakia?',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Hata hivyo, pakia?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Hatungeweza kusoma au kuelewa jina la faili "$1" kwa sababu zisizojulikana.',
 	'mwe-upwiz-ok' => 'Sawa',
 	'mwe-upwiz-cancel' => 'Ghairi',
