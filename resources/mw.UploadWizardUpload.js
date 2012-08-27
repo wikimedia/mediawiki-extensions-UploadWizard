@@ -196,15 +196,16 @@ mw.UploadWizardUpload.prototype = {
 		for ( warnCode in result.upload.warnings ) {
 			if ( !this.ignoreWarning[warnCode] && this.state !== 'error' ) {
 				switch ( warnCode ) {
+					case 'page-exists':
 					case 'exists':
 					case 'exists-normalized':
 					case 'was-deleted':
 						// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
 						// consequently, get rid of the warning and make sure the later stuff gets called
-						var existsFilename = result.upload.warnings[warnCode];
+						var existsFileName = result.upload.warnings[warnCode];
 						try {
 							code = 'exists';
-							info = new mw.Title( existsFilename, fileNsId ).getUrl();
+							info = new mw.Title( existsFileName, fileNsId ).getUrl();
 						} catch ( e ) {
 							code = 'unknown';
 							info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";

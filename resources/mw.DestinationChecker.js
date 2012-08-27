@@ -242,16 +242,25 @@ mw.DestinationChecker.prototype = {
 			} else {
 
 				for ( var page_id in data.query.pages ) {
-					if ( !data.query.pages[ page_id ].imageinfo ) {
-						continue;
-					}
-
 					// Conflict found, this filename is NOT unique
 					var ntitle;
 					if ( data.query.normalized ) {
 						ntitle = data.query.normalized[0].to;
 					} else {
 						ntitle = data.query.pages[ page_id ].title;
+					}
+
+					if ( !data.query.pages[ page_id ].imageinfo ) {
+						// This means that there's a page, but it's not a file. Well,
+						// we should really report that anyway, but we shouldn't process
+						// it like a file, and we should defer to other entries that may be files.
+						result = {
+							isUnique: false,
+							title: ntitle,
+							img: null,
+							href: null
+						};
+						continue;
 					}
 
 					var img = data.query.pages[ page_id ].imageinfo[0];
@@ -267,11 +276,8 @@ mw.DestinationChecker.prototype = {
 				}
 			}
 
-			if ( result !== undefined ) {
-				_this.cachedResult[title] = result;
-				callback( { 'unique': result } );
-			}
-
+			_this.cachedResult[title] = result;
+			callback( { 'unique': result } );
 		};
 
 		var err = function( code, result ) {
