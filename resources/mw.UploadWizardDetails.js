@@ -1166,6 +1166,8 @@ mw.UploadWizardDetails.prototype = {
 			} else if ( result && result.upload.warnings ) {
 				if ( warnings['thumb'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-thumbnail' ) );
+				} else if ( warnings['badfilename'] ) {
+					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-badchars' ) );
 				} else if ( warnings['bad-prefix'] ) {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-error-title-senselessimagename' ) );
 				} else if ( warnings['exists'] || warnings['exists-normalized'] ) {

@@ -209,6 +209,7 @@ mw.UploadWizardUpload.prototype = {
 					case 'exists':
 					case 'exists-normalized':
 					case 'was-deleted':
+					case 'badfilename':
 						// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
 						// consequently, get rid of the warning and make sure the later stuff gets called
 						var existsFileName = result.upload.warnings[warnCode];
