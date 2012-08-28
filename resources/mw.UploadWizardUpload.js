@@ -89,7 +89,7 @@ mw.UploadWizardUpload.prototype = {
 			_this.wizard.startProgressBar();
 			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
 				message: function() { return gM( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ); },
-				test: function() { return _this.wizard.uploads.length > 0; }
+				test: function() { return !_this.wizard.isComplete() && _this.wizard.uploads.length > 0; }
 			} );
 		}
 		_this.setTransportProgress(0.0);
