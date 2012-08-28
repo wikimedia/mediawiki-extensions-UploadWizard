@@ -394,7 +394,7 @@ mw.UploadWizardUpload.prototype = {
 		// check to see if the file has already been selected for upload.
 		var duplicate = false;
 		$j.each( this.wizard.uploads, function ( i, upload ) {
-			if ( _this !== upload && filename === upload.filename ) {
+			if ( upload !== undefined && _this !== upload && filename === upload.filename ) {
 				duplicate = true;
 				return false;
 			}

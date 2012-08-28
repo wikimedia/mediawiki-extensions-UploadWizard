@@ -534,7 +534,7 @@ mw.UploadWizardDetails.prototype = {
 			var destUploads = _this.upload.wizard.uploads;
 			$j.each( destUploads, function ( uploadIndex, upload ) {
 
-				if ( uploadIndex > 0 ) {
+				if ( uploadIndex > 0 && upload !== undefined ) {
 
 					// We could merge, but it's unlikely that the user wants to do anything other
 					// than just having the same descriptions across all files, so rather than

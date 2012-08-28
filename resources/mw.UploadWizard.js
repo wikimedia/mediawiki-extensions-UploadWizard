@@ -189,8 +189,10 @@ mw.UploadWizard.prototype = {
 
 					var lastUploadIndex = _this.uploads.length - 1;
 
-					$j.each( _this.uploads, function( i, upload ) {
-
+					$j.each( _this.uploads, function ( i, upload ) {
+						if ( upload === undefined ) {
+							return;
+						}
 						if ( _this.deedChooser.deed.name == 'custom' ) {
 							upload.details.useCustomDeedChooser();
 						} else {
@@ -415,6 +417,9 @@ mw.UploadWizard.prototype = {
 		}
 
 		$j.each( _this.uploads, function(i, upload) {
+			if ( upload === undefined ) {
+				return;
+			}
 			upload.state = selectedStepName;
 		} );
 
@@ -579,12 +584,18 @@ mw.UploadWizard.prototype = {
 		var toRemove = [];
 
 		$j.each( this.uploads, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			if ( criterion( upload ) ) {
 				toRemove.push( upload );
 			}
 		} );
 
 		$j.each( toRemove, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			upload.remove();
 		} );
 	},
@@ -607,7 +618,11 @@ mw.UploadWizard.prototype = {
 		var transitioner = function() {
 			var uploadsToStart = _this.maxSimultaneousConnections;
 			var endStateCount = 0;
+
 			$j.each( _this.uploads, function(i, upload) {
+				if ( upload === undefined ) {
+					return;
+				}
 				if ( $j.inArray( upload.state, endStates ) !== -1 ) {
 					endStateCount++;
 				} else if ( $j.inArray( upload.state, progressStates ) !== -1 ) {
@@ -619,7 +634,7 @@ mw.UploadWizard.prototype = {
 			} );
 
 			// build in a little delay even for the end state, so user can see progress bar in a complete state.
-			var nextAction = ( endStateCount == _this.uploads.length ) ? endCallback : transitioner;
+			var nextAction = ( endStateCount == _this.uploads.length - _this.countEmpties() ) ? endCallback : transitioner;
 
 			setTimeout( nextAction, _this.transitionerDelay );
 		};
@@ -657,6 +672,9 @@ mw.UploadWizard.prototype = {
 
 		// reset any uploads in error state back to be shiny & new
 		$j.each( _this.uploads, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			if ( upload.state === 'error' ) {
 				upload.state = 'new';
 				upload.ui.clearIndicator();
@@ -721,6 +739,9 @@ mw.UploadWizard.prototype = {
 		var okCount = 0;
 		var stillGoing = 0;
 		$j.each( this.uploads, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			if ( upload.state === 'error' ) {
 				errorCount++;
 			} else if ( upload.state === desiredState ) {
@@ -747,10 +768,10 @@ mw.UploadWizard.prototype = {
 		if ( this.progressBar ) {
 			this.progressBar.showCount( okCount );
 		}
-		if ( okCount === this.uploads.length ) {
+		if ( okCount === ( this.uploads.length - this.countEmpties() ) ) {
 			allOk = true;
 			selector = '.mwe-upwiz-file-next-all-ok';
-		} else if ( errorCount === this.uploads.length ) {
+		} else if ( errorCount === ( this.uploads.length - this.countEmpties() ) ) {
 			selector = '.mwe-upwiz-file-next-all-failed';
 		} else if ( stillGoing !== 0 ) {
 			return;
@@ -763,6 +784,19 @@ mw.UploadWizard.prototype = {
 		} else {
 			$j( '#mwe-upwiz-stepdiv-' + step + ' .mwe-upwiz-buttons' ).show().find( selector ).show();
 		}
+	},
+
+	/**
+	 * Count the number of empty (undefined) uploads in our list.
+	 */
+	countEmpties: function () {
+		var count = 0;
+		$.each( this.uploads, function ( i, upload ) {
+			if ( mw.isEmpty( upload ) ) {
+				count += 1;
+			}
+		} );
+		return count;
 	},
 
 	/**
@@ -780,7 +814,7 @@ mw.UploadWizard.prototype = {
 		// First reset the wizard buttons.
 		_this.hideFileEndButtons();
 
-		if ( _this.uploads.length ) {
+		if ( _this.uploads.length - this.countEmpties() ) {
 			// we have uploads ready to go, so allow us to proceed
 			$j( '#mwe-upwiz-upload-ctrl-container' ).show();
 
@@ -865,6 +899,9 @@ mw.UploadWizard.prototype = {
 		var valid = 0;
 		var total = 0;
 		$j.each( _this.uploads, function(i, upload) {
+			if ( upload === undefined ) {
+				return;
+			}
 			total += 1;
 			upload.details.valid( function () {
 				valid += 1;
@@ -886,6 +923,9 @@ mw.UploadWizard.prototype = {
 		var _this = this;
 
 		$j.each( _this.uploads, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			// clear out error states, so we don't end up in an infinite loop
 			if ( upload.state === 'error' ) {
 				upload.state = 'details';
@@ -959,6 +999,9 @@ mw.UploadWizard.prototype = {
 			);
 
 		$j.each( _this.uploads, function(i, upload) {
+			if ( upload === undefined ) {
+				return;
+			}
 			var id = 'thanksDiv' + i;
 			var $thanksDiv = $j( '<div></div>' ).attr( 'id', id ).addClass( "mwe-upwiz-thanks ui-helper-clearfix" );
 			_this.thanksDiv = $thanksDiv;
@@ -1074,11 +1117,17 @@ mw.UploadWizard.prototype = {
 mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 	var $filenameList = $j( '<ul></ul>' );
 	$j.each( uploads, function( i, upload ) {
+		if ( upload === undefined ) {
+			return;
+		}
 		$filenameList.append( $j( '<li></li>' ).append( upload.title.getMain() ) );
 	} );
 	var buttons = {};
 	buttons[ gM( 'mwe-upwiz-remove', uploads.length ) ] = function() {
 		$j.each( uploads, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			upload.remove();
 		} );
 		$j( this ).dialog( 'close' );

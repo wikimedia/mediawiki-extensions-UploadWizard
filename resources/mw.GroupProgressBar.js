@@ -46,6 +46,9 @@ mw.GroupProgressBar.prototype = {
 
 		var totalWeight = 0.0;
 		$j.each( _this.uploads, function( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
 			totalWeight += upload[_this.weightProperty];
 		} );
 
@@ -58,6 +61,9 @@ mw.GroupProgressBar.prototype = {
 			var errorStateCount = 0;
 			var hasData = false;
 			$j.each( _this.uploads, function( i, upload ) {
+				if ( upload === undefined ) {
+					return;
+				}
 				if ( $j.inArray( upload.state, _this.successStates ) !== -1 ) {
 					successStateCount++;
 				}
@@ -83,7 +89,7 @@ mw.GroupProgressBar.prototype = {
 			}
 			_this.showCount( successStateCount );
 
-			if ( successStateCount + errorStateCount < _this.uploads.length ) {
+			if ( successStateCount + errorStateCount < _this.uploads.length - _this.countEmpties() ) {
 				setTimeout( displayer, 200 );
 			} else {
 				_this.showProgress( 1.0 );
@@ -170,12 +176,20 @@ mw.GroupProgressBar.prototype = {
 	 * @param count  -- the number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 	 */
 	showCount: function( count ) {
-		var _this = this;
-		_this.$selector
+		this.$selector
 			.find( '.mwe-upwiz-count' )
-			.html( gM( 'mwe-upwiz-upload-count', [ count, _this.uploads.length ] ) );
-	}
+			.html( gM( 'mwe-upwiz-upload-count', [ count, this.uploads.length - this.countEmpties() ] ) );
+	},
 
+	countEmpties: function () {
+		var count = 0;
+		$.each( this.uploads, function ( i, upload ) {
+			if ( mw.isEmpty( upload ) ) {
+				count += 1;
+			}
+		} );
+		return count;
+	}
 
 };
 
