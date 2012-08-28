@@ -637,14 +637,14 @@ mw.UploadWizard.prototype = {
 
 	startProgressBar: function () {
 		$j( '#mwe-upwiz-progress' ).show();
-		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
+		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
 						           gM( 'mwe-upwiz-uploading' ),
 						           this.uploads,
 							   [ 'stashed' ],
 						           [ 'error' ],
 							   'transportProgress',
 							   'transportWeight' );
-		progressBar.start();
+		this.progressBar.start();
 	},
 
 	/**
@@ -676,14 +676,14 @@ mw.UploadWizard.prototype = {
 		} );
 
 		$j( '#mwe-upwiz-progress' ).show();
-		var progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
+		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
 						           gM( 'mwe-upwiz-uploading' ),
 						           _this.uploads,
 							   [ 'stashed' ],
 						           [ 'error' ],
 							   'transportProgress',
 							   'transportWeight' );
-		progressBar.start();
+		this.progressBar.start();
 
 		// remove ability to change files
 		// ideally also hide the "button"... but then we require styleable file input CSS trickery
@@ -750,6 +750,9 @@ mw.UploadWizard.prototype = {
 
 		var selector = null;
 		var allOk = false;
+		if ( this.progressBar ) {
+			this.progressBar.showCount( okCount );
+		}
 		if ( okCount === this.uploads.length ) {
 			allOk = true;
 			selector = '.mwe-upwiz-file-next-all-ok';

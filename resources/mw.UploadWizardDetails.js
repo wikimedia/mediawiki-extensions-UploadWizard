@@ -1180,6 +1180,16 @@ mw.UploadWizardDetails.prototype = {
 					_this.recoverFromError( _this.titleId, gM( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ) );
 				} else if ( warnings['duplicate'] ) {
 					_this.showError( 'duplicate', gM( 'mwe-upwiz-upload-error-duplicate' ) );
+				} else if ( warnings['duplicate-archive'] ) {
+					if ( _this.upload.ignoreWarning['duplicate-archive'] ) {
+						// We already told the interface to ignore this warning, so
+						// let's steamroll over it and re-call this handler.
+						params.ignorewarnings = true;
+						_this.upload.api.postWithEditToken( params, ok, err );
+					} else {
+						// This should _never_ happen, but just in case....
+						_this.showError( 'duplicate-archive', gM( 'mwe-upwiz-upload-error-duplicate-archive' ) );
+					}
 				} else {
 					var warningsKeys = [];
 					$j.each( warnings, function( key, val ) {
