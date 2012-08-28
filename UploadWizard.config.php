@@ -137,8 +137,8 @@ return array(
 	'defaultAlt' => '',
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
-	// See the definition of $uwLanguages above.
-	'uwLanguages' => $uwLanguages,
+	// See the definition of $uwLanguages above. If empty we'll just set a default.
+	'uwLanguages' => empty( $uwLanguages ) ? array( 'en' => 'English' ) : $uwLanguages,
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in
 	// licensesOwnWork or licensesThirdParty.
