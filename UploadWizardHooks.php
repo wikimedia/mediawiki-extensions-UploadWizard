@@ -188,7 +188,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-mins-secs-remaining',
 				'mwe-upwiz-hrs-mins-secs-remaining',
 				'mwe-upwiz-deeds-macro-prompt',
-				'mwe-upwiz-deeds-custom-prompt',
 				'mwe-upwiz-source-ownwork',
 				'mwe-upwiz-source-ownwork-assert-any-license',
 				'mwe-upwiz-source-ownwork-assert',
