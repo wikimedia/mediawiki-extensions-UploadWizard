@@ -367,12 +367,6 @@ mw.UploadWizard.prototype = {
 			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
 			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length );
 
-		if ( _this.uploads.length > 1 ) {
-			$j( '<div style="margin-top: 1em"></div>' )
-				.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-custom' ) )
-				.msg( 'mwe-upwiz-deeds-custom-prompt' );
-		}
-
 		_this.moveToStep( 'deeds', function() { _this.deedChooser.onLayoutReady(); } );
 
 	},

@@ -71,7 +71,6 @@ $messages['en'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minutes}} $2 {{PLURAL:$2|second|seconds}} remaining',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hour|hours}} $2 {{PLURAL:$2|minute|minutes}} $3 {{PLURAL:$3|second|seconds}} remaining',
 	'mwe-upwiz-deeds-macro-prompt' => "This site requires you to provide copyright information for {{PLURAL:$1|this work|these works}}, to make sure everyone can legally reuse {{PLURAL:$1|it|them}}.",
-	'mwe-upwiz-deeds-custom-prompt' => "Or:",
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|This file is|These files are}} my own work.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby irrevocably grant anyone the right to use, modify and redistribute {{PLURAL:$1|this work|these works}} for any purpose, and I therefore publish {{PLURAL:$1|it|them}} under the following terms:',
 	'mwe-upwiz-source-ownwork-assert' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby irrevocably grant anyone the right to use {{PLURAL:$1|this work|these works}} for any purpose, as long as they credit me and share derivative work under the same terms.',
