@@ -301,7 +301,7 @@ mw.UploadWizardUpload.prototype = {
 			}
 			$ul.append( $j( '<li></li>' ).append( $a ) );
 		} );
-		var dialogFn = function() {
+		var dialogFn = function(e) {
 			$j( '<div></div>' )
 				.html( $ul )
 				.dialog( {
@@ -311,6 +311,7 @@ mw.UploadWizardUpload.prototype = {
 					title: gM( 'api-error-' + code + '-popup-title', duplicates.length ),
 					modal: true
 				} );
+			e.preventDefault();
 		};
 		return [ duplicates.length, dialogFn ];
 	},
