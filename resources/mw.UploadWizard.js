@@ -496,25 +496,21 @@ mw.UploadWizard.prototype = {
 		upload.details = new mw.UploadWizardDetails( upload, _this.api, $j( '#mwe-upwiz-macro-files' ) );
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
-			var waiting = false;
-			$j.each( _this.uploads, function () {
-				// Inside this function,
-				// `this` is an upload (mw.UploadWizardUpload.js),
-				// `this.ui` is the user interface object (mw.UploadWizardUploadInterface.js) for that upload,
-				// `this.ui.filenameCtrl` is the <input type="file" /> for that interface object, and
-				// `this.ui.filenameCtrl.files` is the list of files in that input control.
-				// So, the if statement will check whether there are multiple files waiting to be loaded.
-				var fctrl = this.ui.filenameCtrl.files;
-				if ( fctrl && fctrl.length > 1 ) {
-					waiting = true;
-					return false;
+			// Start uploads now, no reason to wait--leave the remove button alone
+			_this.makeTransitioner(
+				'new',
+				[ 'transporting', 'transported', 'metadata' ],
+				[ 'error', 'stashed' ],
+				function( upload ) {
+					upload.start();
+				},
+				function() {
+					$j().notify( gM( 'mwe-upwiz-files-complete' ) );
+					_this.showNext( 'file', 'stashed' );
 				}
-			});
-			if ( waiting === false ) {
-				// Start uploads now, no reason to wait--leave the remove button alone
-				_this.startUploads();
-			}
+			);
 		}
+			
 	},
 
 	/**
