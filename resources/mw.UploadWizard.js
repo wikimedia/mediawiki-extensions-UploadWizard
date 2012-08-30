@@ -752,7 +752,7 @@ mw.UploadWizard.prototype = {
 			} else if ( upload.state === 'transporting' ) {
 				stillGoing += 1;
 			} else {
-				mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
+				//mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
 			}
 		} );
 

@@ -335,12 +335,8 @@ mw.UploadWizardUpload.prototype = {
 			_this.state = 'stashed';
 			_this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + _this.index, 'api' );
-			// This is currently handled in the upload's final callback.
-			// Although this isn't ideal, showNext() isn't designed to be called
-			// before all uploads are complete.
-			/*
+			// check all uploads, if they're complete, show the next button
 			_this.wizard.showNext( 'file', 'stashed' );
-			*/
 		} else {
 			_this.setError( 'noimageinfo' );
 		}
