@@ -56,8 +56,7 @@ mw.FormDataTransport.prototype = {
             $j.each(this.formData, function(key, value) {
                 formData.append(key, value);
             });
-            // use timestamp + filename to avoid conflicts on server
-			formData.append('filename', ( new Date() ).getTime().toString() + file.name);
+			formData.append('filename', file.name);
 			formData.append('file', file);
 
 			// ignorewarnings is turned on, since warnings are presented in a later step and this
@@ -151,8 +150,7 @@ mw.FormDataTransport.prototype = {
             formData.append(key, value);
         });
         formData.append('offset', offset);
-        // use timestamp + filename to avoid conflicts on server
-        formData.append('filename', ( new Date() ).getTime().toString() + file.name);
+        formData.append('filename', file.name);
 
 		// ignorewarnings is turned on intentionally, see the above comment to the same effect.
 		formData.append( 'ignorewarnings', true );
