@@ -8124,6 +8124,7 @@ $messages['fr'] = array(
 	'mwe-upwiz-published' => 'Publié !',
 	'mwe-upwiz-failed' => 'Échec',
 	'mwe-upwiz-remove' => 'Enlever',
+	'mwe-upwiz-override' => 'Télécharger malgré tout.',
 	'mwe-upwiz-remove-upload' => 'Enlever ce fichier de la liste des fichiers à importer',
 	'mwe-upwiz-show-thumb' => 'Afficher la miniature',
 	'mwe-upwiz-show-thumb-tip' => 'Charger une image miniature pour ce fichier',
@@ -8182,12 +8183,12 @@ $messages['fr'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'Valider',
 	'mwe-upwiz-source-custom' => 'Choisir des licences pour chaque fichier individuellement sur la page suivante.',
 	'mwe-upwiz-more-options' => 'ajouter des catégories et plus d’informations…',
-	'mwe-upwiz-copy-metadata' => 'Copier des informations dans tous les imports ci-dessous…',
+	'mwe-upwiz-copy-metadata' => "Copier des informations dans {{PLURAL:$1|l'autre téléchargement|tous les autres téléchargements}} ci-dessous…",
 	'mwe-upwiz-copy-metadata-button' => 'Copier',
 	'mwe-upwiz-copy-title' => 'Copier le titre (avec numérotation automatique)',
-	'mwe-upwiz-copy-description' => 'Copier la description(s)',
+	'mwe-upwiz-copy-description' => 'Copier {{PLURAL:$1|la description|les descriptions}}',
 	'mwe-upwiz-copy-date' => 'Copier la date',
-	'mwe-upwiz-copy-categories' => 'Copier les catégories',
+	'mwe-upwiz-copy-categories' => 'Copier {{PLURAL:$1|la catégorie|les catégories}}',
 	'mwe-upwiz-copy-location' => 'Copier la localisation',
 	'mwe-upwiz-copy-other' => 'Copier les autres informations',
 	'mwe-upwiz-desc' => 'Description',
@@ -8217,6 +8218,7 @@ Vous pouvez installer [$1 Firefogg], une extension Firefox pour le convertir aut
 	'mwe-upwiz-allowed-filename-extensions' => 'Les extensions autorisées sont :',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensions de nom de fichier autorisées',
 	'mwe-upwiz-upload-error-duplicate' => 'Ce fichier a déjà été téléversé sur ce wiki.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'Ce fichier a déjà été téléchargé sur ce wiki, mais a été ensuite supprimé.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Téléverser malgré tout ?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Nous ne pouvons pas lire ou comprendre le nom du fichier « $1 » pour une raison inconnue.',
 	'mwe-upwiz-ok' => 'Valider',
@@ -8404,6 +8406,9 @@ $1",
 	'mwe-upwiz-campaign-conf-idFieldLabel' => "Texte d'étiquette de champ ID",
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => "Nom de page avec le texte pour le libellé de l'ID du champ. $1 sera remplacé par le code de langue:",
 	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'Valeur initiale du champ ID:',
+	'mwe-upwiz-campaign-conf-idField2' => 'Wikitexte du champ du second ID. Exemple: <nowiki>{{Rijksmonument|$1}}</nowiki>. Blanc pour ne pas afficher le champ:',
+	'mwe-upwiz-campaign-conf-idField2Label' => "Libellé du champ de l'ID secondaire:",
+	'mwe-upwiz-campaign-conf-idField2LabelPage' => "Nom de la page avec le texte pour le libellé du champ de l'ID secondaite. $1 est remplacé par le code de langue:",
 	'mwe-upwiz-campaign-conf-headerLabelPage' => "Page contenant le texte à afficher au-dessus de l'interface de UploadWizard. $1 sera remplacé par le code de langue:",
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Page contenant le texte à afficher en haut de la page "Use". $1 sera remplacé par le code de langue:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Taille maximale du texte dans le champ ID:',
@@ -21047,7 +21052,7 @@ $messages['ro'] = array(
 	'mwe-upwiz-copy-metadata-button' => 'Copiază',
 	'mwe-upwiz-copy-title' => 'Copiază titlul (cu autonumerotare)',
 	'mwe-upwiz-copy-description' => 'Copiază  {{PLURAL:$1|descrierea|descrierile}}',
-	'mwe-upwiz-copy-date' => 'Copiați datele',
+	'mwe-upwiz-copy-date' => 'Copiază data',
 	'mwe-upwiz-copy-categories' => 'Copiază {{PLURAL:$1|categoria|categoriile}}',
 	'mwe-upwiz-copy-location' => 'Copiază locația',
 	'mwe-upwiz-copy-other' => 'Copiază alte informații',
@@ -25500,6 +25505,7 @@ $messages['tt-cyrl'] = array(
  * @author Alex Khimich
  * @author Dim Grits
  * @author Gucci Mane Burrr
+ * @author Microcell
  * @author Olvin
  * @author Pig1995z
  * @author Renessaince
@@ -25542,6 +25548,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-published' => 'Опубліковано!',
 	'mwe-upwiz-failed' => 'Не вдалося.',
 	'mwe-upwiz-remove' => 'Вилучити',
+	'mwe-upwiz-override' => 'Все одно завантажити.',
 	'mwe-upwiz-remove-upload' => 'Видалити цей файл зі списку файлів для завантаження',
 	'mwe-upwiz-show-thumb' => 'Показати мініатюру',
 	'mwe-upwiz-show-thumb-tip' => 'Завантажити мініатюрне зображення для цього файлу',
