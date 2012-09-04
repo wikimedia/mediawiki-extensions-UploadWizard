@@ -210,20 +210,7 @@ mw.UploadWizardUpload.prototype = {
 					case 'exists-normalized':
 					case 'was-deleted':
 					case 'badfilename':
-						// the filename we uploaded is in use already. Not a problem since we stashed it under a temporary name anyway
-						// consequently, get rid of the warning and make sure the later stuff gets called
-						var existsFileName = result.upload.warnings[warnCode];
-						try {
-							code = 'exists';
-							info = new mw.Title( existsFileName, fileNsId ).getUrl();
-						} catch ( e ) {
-							code = 'unknown';
-							info = 'Warned about existing filename, but filename is unparseable: "' + existsFileName + "'";
-						}
-						_this.extractUploadInfo( result.upload );
-						if ( result.upload.stashimageinfo === null ) {
-							_this.setError( 'noimageinfo' );
-						}
+						// we ignore these warnings, because the title is not our final title.
 						break;
 					case 'duplicate':
 						code = warnCode;
