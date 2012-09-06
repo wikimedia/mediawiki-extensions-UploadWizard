@@ -931,7 +931,17 @@ mw.UploadWizardDetails.prototype = {
 			return str;
 		};
 
-		dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() ) + ' ' + getSaneTime( dateObj );
+		var dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
+
+		// Add the time
+		// If the date but not the time is set in EXIF data, we'll get a bogus
+		// time value of '00:00:00'.
+		// FIXME: Check for missing time value earlier rather than blacklisting
+		// a potentially legitimate time value.
+		var saneTime = getSaneTime( dateObj );
+		if ( saneTime !== '00:00:00' ) {
+			dateStr += ' ' + saneTime;
+		}
 
 		// ok by now we should definitely have a dateObj and a date string
 		$j( _this.dateInput ).val( dateStr );
