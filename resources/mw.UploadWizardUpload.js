@@ -230,8 +230,8 @@ mw.UploadWizardUpload.prototype = {
 							} ).bind( this, warnCode ) );
 						$( '.mwe-upwiz-file-status-line-item', this.ui.visibleFilenameDiv )
 							.first()
-							.append( ' ' )
-							.append( $override );
+							.append( ' ' );
+							//.append( $override ); See bug 39852
 						break;
 					default:
 						// we have an unknown warning, so let's say what we know
@@ -323,7 +323,7 @@ mw.UploadWizardUpload.prototype = {
 			_this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + _this.index, 'api' );
 			// check all uploads, if they're complete, show the next button
-			_this.wizard.showNext( 'file', 'stashed' );
+			//_this.wizard.showNext( 'file', 'stashed' ); See bug 39852
 		} else {
 			_this.setError( 'noimageinfo' );
 		}
