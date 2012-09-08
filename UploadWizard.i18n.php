@@ -4092,6 +4092,7 @@ $1",
 );
 
 /** Czech (česky)
+ * @author Chmee2
  * @author Jezevec
  * @author Jkjk
  * @author Limojoe
@@ -4137,6 +4138,7 @@ $messages['cs'] = array(
 	'mwe-upwiz-published' => 'Zveřejněno!',
 	'mwe-upwiz-failed' => 'Chyba.',
 	'mwe-upwiz-remove' => 'Odebrat',
+	'mwe-upwiz-override' => 'Přesto načíst.',
 	'mwe-upwiz-remove-upload' => 'Odebrat tento soubor ze seznamu načítaných souborů',
 	'mwe-upwiz-show-thumb' => 'Zobrazit náhled',
 	'mwe-upwiz-show-thumb-tip' => 'Načíst náhledový obrázek tohoto souboru',
@@ -8957,7 +8959,8 @@ Pode [$1 instalar o Firefogg], unha extensión do Firefox, para convertelo autom
 	'mwe-upwiz-ok' => 'Aceptar',
 	'mwe-upwiz-cancel' => 'Cancelar',
 	'mwe-upwiz-fileexists-replace' => 'Xa existe un ficheiro titulado "$1". Cambie o nome por outro único.',
-	'mwe-upwiz-fileexists' => 'Xa existe un ficheiro con ese nome. Por favor, verifique <b><tt>$1</tt></b> se non está seguro de que quere cambialo.',
+	'mwe-upwiz-fileexists' => 'Xa existe un ficheiro con ese nome.
+Por favor, comprobe "<b><tt>$1</tt></b>" se non está seguro de querer cambialo.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Xa existe un ficheiro con ese nome. Se quere substituílo, vaia á páxina para [$2 $1] e faga alí a substitución.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Xa existe un ficheiro con ese nome.',
 	'mwe-upwiz-blacklisted' => 'Escolla un título diferente e descritivo.',
@@ -14768,12 +14771,12 @@ $messages['lb'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => "Gitt d'Copyright-Informatioune fir all Fichier individuell op der nächster Säit un.",
 	'mwe-upwiz-more-options' => 'Kategorien a méi Informatiounen derbäisetzen ...',
-	'mwe-upwiz-copy-metadata' => 'Informatioun fir all Uploaden hei drënner kopéieren ...',
+	'mwe-upwiz-copy-metadata' => 'Informatioun fir {{PLURAL:$1|den aneren Upload|all Uploaden}} hei drënner kopéieren ...',
 	'mwe-upwiz-copy-metadata-button' => 'Kopéieren',
 	'mwe-upwiz-copy-title' => 'Titel kopéieren (mat automatescher Nummeréierung)',
-	'mwe-upwiz-copy-description' => 'Beschreiwung(e) kopéieren',
+	'mwe-upwiz-copy-description' => '{{PLURAL:$1|Eng Beschreiwung|$1 Beschreiwunge}} kopéieren',
 	'mwe-upwiz-copy-date' => 'Datum kopéieren',
-	'mwe-upwiz-copy-categories' => 'Kategorie kopéieren',
+	'mwe-upwiz-copy-categories' => '{{PLURAL:$1|Eng|$1}} Kategorie kopéieren',
 	'mwe-upwiz-copy-location' => 'Plaz kopéieren',
 	'mwe-upwiz-copy-other' => 'Aner Informatioune kopéieren',
 	'mwe-upwiz-desc' => 'Beschreiwung',
@@ -23013,6 +23016,7 @@ $messages['sl'] = array(
 	'mwe-upwiz-published' => 'Objavljeno!',
 	'mwe-upwiz-failed' => 'Spodletelo.',
 	'mwe-upwiz-remove' => 'Odstrani',
+	'mwe-upwiz-override' => 'Vseeno naloži.',
 	'mwe-upwiz-remove-upload' => 'Odstrani datoteko s seznama datotek za nalaganje',
 	'mwe-upwiz-show-thumb' => 'Prikaži sličico',
 	'mwe-upwiz-show-thumb-tip' => 'Naloži prikazno sličico datoteke',
@@ -23071,12 +23075,12 @@ $messages['sl'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'V redu',
 	'mwe-upwiz-source-custom' => 'Na naslednji strani navedite podatke o avtorskih pravicah za vsako datoteko posebej.',
 	'mwe-upwiz-more-options' => 'dodaj kategorije in več informacij ...',
-	'mwe-upwiz-copy-metadata' => 'Skopiraj podatke v vse obrazce za nalaganje spodaj ...',
+	'mwe-upwiz-copy-metadata' => 'Skopiraj podatke v {{PLURAL:$1|ostali obrazec|ostala obrazca|vse obrazce}} za nalaganje spodaj ...',
 	'mwe-upwiz-copy-metadata-button' => 'Kopiraj',
 	'mwe-upwiz-copy-title' => 'Skopiraj naslov (s samodejnim številčenjem)',
-	'mwe-upwiz-copy-description' => 'Skopiraj opis(-e)',
+	'mwe-upwiz-copy-description' => 'Skopiraj {{PLURAL:$1|opis|opisa|opise}}',
 	'mwe-upwiz-copy-date' => 'Skopiraj datum',
-	'mwe-upwiz-copy-categories' => 'Skopiraj kategorije',
+	'mwe-upwiz-copy-categories' => 'Skopiraj {{PLURAL:$1|kategorijo|kategoriji|kategorije}}',
 	'mwe-upwiz-copy-location' => 'Skopiraj lokacijo',
 	'mwe-upwiz-copy-other' => 'Skopiraj druge podatke',
 	'mwe-upwiz-desc' => 'Opis',
