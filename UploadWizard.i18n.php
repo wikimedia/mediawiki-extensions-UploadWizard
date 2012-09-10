@@ -5465,6 +5465,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-published' => 'Bı vıla',
 	'mwe-upwiz-failed' => 'Nêbı',
 	'mwe-upwiz-remove' => 'Hewad',
+	'mwe-upwiz-override' => 'Xora barkerdiya.',
 	'mwe-upwiz-remove-upload' => 'Na dosya ra listey dosyayan dê bar biyeyan wedarne',
 	'mwe-upwiz-show-thumb' => 'Resımê qıckeki bımocne',
 	'mwe-upwiz-show-thumb-tip' => 'Qan dê ena dosya resimo qıckeke bar kerê',
