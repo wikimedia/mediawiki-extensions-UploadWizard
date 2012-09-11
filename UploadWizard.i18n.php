@@ -3244,6 +3244,7 @@ $1',
 /** Breton (brezhoneg)
  * @author Fulup
  * @author Gwendal
+ * @author Gwenn-Ael
  * @author Y-M D
  */
 $messages['br'] = array(
@@ -3276,12 +3277,13 @@ $messages['br'] = array(
 	'mwe-upwiz-transport-started' => "Loc'hadur...",
 	'mwe-upwiz-uploading' => "Oc'h enporzhiañ...",
 	'mwe-upwiz-transported' => 'Mat eo',
-	'mwe-upwiz-stashed-upload' => 'Mat eo',
+	'mwe-upwiz-stashed-upload' => 'Karget',
 	'mwe-upwiz-getting-metadata' => "Oc'h adtapout an titouroù restr hag ar rakweladennoù...",
 	'mwe-upwiz-submitting-details' => "O kas an titouroù hag oc'h embann...",
 	'mwe-upwiz-published' => 'Embannet !',
 	'mwe-upwiz-failed' => "C'hwitet",
 	'mwe-upwiz-remove' => 'Dilemel',
+	'mwe-upwiz-override' => 'Pellgargañ daoust da bep tra.',
 	'mwe-upwiz-remove-upload' => 'Dilemel ar restr-mañ eus roll ar restroù da gargañ',
 	'mwe-upwiz-show-thumb' => 'Diskouez ar munud',
 	'mwe-upwiz-show-thumb-tip' => 'Kargañ ur skeudenn vunut evit ar restr-mañ',
@@ -3305,6 +3307,8 @@ $messages['br'] = array(
 	'mwe-upwiz-source-ownwork-assert' => "Me, $2, perc'henn war gwirioù an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}}, a ro da viken ar gwir d'an holl da implijout an {{PLURAL:$1|oberenn-mañ|oberennoù-mañ}} evit ober ne vern petra, gant ma vo meneget ac'hanon ha gant ma vo rannet al labourioù deveret hervez an hevelep termenoù.",
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Me, $2, piaouer gwirioù aozer {{PLURAL:$1||al labour|al labourioù}}-mañ, a ro da viken da neb ar gwir da ober gant al {{PLURAL:$1|labour|labourioù}}-mañ dindan an aotre-implijout Creative Commons Kenrannañ Heñvel 3.0 ([$3 kod lezennel])',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => "(Neb a c'hall implijout, rannañ gant unan bennak all pe cheñch {{PLURAL:$1|al labour|al labourioù}}-mañ, gant ma vo meneget ma anv evel aozer ha gant ma vo embannet dindan an aotre-mañ kement labour all a c'hallfe bezañ deveret anezhañ/anezho.)",
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'I, $2, piaouer gwiroù-aozer {{PLURAL:$1|this work|these works}}, a asant fraezh ha groñs reiñ da neb piv da implijout an  {{PLURAL:$1|an oberenn-se|an oberennoù-se}} dindan an aotre-implijout  Creative Commons Attribution ShareAlike 3.0 Aostria ([$3 kod lezennel"]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => "(Neb a c'hall implijout, rannañ gant unan bennak all pe cheñch {{PLURAL:$1|al labour|al labourioù}}-mañ, gant ma vo meneget ma anv evel aozer ha gant ma vo embannet dindan an aotre-mañ kement labour all a c'hallfe bezañ deveret anezhañ/anezho.)",
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Me, $2, piaouer gwirioù aozer {{PLURAL:$1||al labour|al labourioù}}-mañ, a ro da viken da neb ar gwir da ober gant al {{PLURAL:$1|labour|labourioù}}-mañ dindan an aotre-implijout Creative Commons Deroadenn 3.0 ([$3 kod lezennel])',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => "(Neb a c'hall implijout, rannañ gant unan bennak all pe cheñch {{PLURAL:$1|al labour|al labourioù}}-mañ, gant ma vo meneget ma anv evel aozer.)",
 	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Me, $2, piaouer gwirioù aozer {{PLURAL:$1||al labour|al labourioù}}-mañ, a ro da viken da neb ar gwir da ober gant al {{PLURAL:$1|labour|labourioù}}-mañ dindan an aotre-implijout Creative Commons Public Domain Dedication ([$3 kod lezennel])',
@@ -23113,6 +23117,7 @@ Za samodejno pretvorbo lahko namestite [$1 Firefogg] kot razširitev za Firefox.
 	'mwe-upwiz-allowed-filename-extensions' => 'Dovoljene končnice so:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Dovoljene datotečne končnice',
 	'mwe-upwiz-upload-error-duplicate' => 'Datoteka je bila nekoč že naložena na ta wiki.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'Datoteka je bila že naložena na ta wiki, a je bila kasneje izbrisana.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Naložim vseeno?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Imena datoteke »$1« iz neznanih razlogov nismo mogli prebrati ali razumeti.',
 	'mwe-upwiz-ok' => 'V redu',
