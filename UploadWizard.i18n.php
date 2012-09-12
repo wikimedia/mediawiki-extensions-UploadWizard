@@ -389,8 +389,6 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-prefs-chunked' => 'Chunked uploads for files over 1MB in Upload Wizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Skip introductory licensing tutorial',
 
-	// See for example.
-	'languageHandler.js' => '', # Do not translate this message.
 );
 
 /** Message documentation (Message documentation)
