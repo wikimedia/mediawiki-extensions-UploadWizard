@@ -29,6 +29,17 @@ mw.LanguageUpWiz = {
 		return list;
 	} )(),
 
+	// Helper function to see if a language is in the list.
+	checkForLang: function( lang ) {
+		for ( var langIndex in mw.LanguageUpWiz.languages ) {
+			if ( mw.LanguageUpWiz.languages[langIndex].code === lang ) {
+				return true;
+			}
+		}
+		return false;
+	},
+
+
 	/**
 	 * cache some useful objects
 	 * 1) mostly ready-to-go language HTML menu. When/if we upgrade, make it a jQuery combobox
@@ -39,26 +50,16 @@ mw.LanguageUpWiz = {
 			return;
 		}
 
-		// Helper function to see if a language is in the list.
-		function checkForLang( lang ) {
-			for ( var langIndex in mw.LanguageUpWiz.languages ) {
-				if ( mw.LanguageUpWiz.languages[langIndex].code === lang ) {
-					return true;
-				}
-			}
-			return false;
-		}
-
 		// If a descriptionlang param is passed in the query string, use that,
 		// otherwise choose a good default for the description language.
 		var thisUri = new mw.Uri( window.location.href, { overrideKeys: true } );
-		if ( thisUri.query.descriptionlang && checkForLang( thisUri.query.descriptionlang ) ) {
+		if ( thisUri.query.descriptionlang && mw.LanguageUpWiz.checkForLang( thisUri.query.descriptionlang ) ) {
 			mw.LanguageUpWiz.defaultCode = thisUri.query.descriptionlang;
-		} else if ( checkForLang( mw.config.get( 'wgUserLanguage' ) ) ) {
+		} else if ( mw.LanguageUpWiz.checkForLang( mw.config.get( 'wgUserLanguage' ) ) ) {
 			mw.LanguageUpWiz.defaultCode = mw.config.get( 'wgUserLanguage' );
-		} else if ( checkForLang( mw.config.get( 'wgContentLanguage' ) ) ) {
+		} else if ( mw.LanguageUpWiz.checkForLang( mw.config.get( 'wgContentLanguage' ) ) ) {
 			mw.LanguageUpWiz.defaultCode = mw.config.get( 'wgContentLanguage' );
-		} else if ( checkForLang( 'en' ) ) {
+		} else if ( mw.LanguageUpWiz.checkForLang( 'en' ) ) {
 			mw.LanguageUpWiz.defaultCode = 'en';
 		} else {
 			mw.LanguageUpWiz.defaultCode = mw.LanguageUpWiz.languages[0].code;
@@ -88,21 +89,26 @@ mw.LanguageUpWiz = {
 	/**
 	 * Get an HTML select menu of all our languages.
 	 * @param name	desired name of select element
-	 * @param code	desired default language code
+	 * @param code	selected language code
 	 * @return HTML	select element configured as desired
 	 */
 	getMenu: function( name, code ) {
 		mw.LanguageUpWiz.initialize();
-		if ( mw.LanguageUpWiz.defaultCode !== null ) {
+		/* If we did not request a specific selected language code, see if we have a default. */
+		if ( mw.LanguageUpWiz.defaultCode !== null && code === mw.LanguageUpWiz.UNKNOWN ) {
 			code = mw.LanguageUpWiz.defaultCode;
 		}
+
 		var $select = mw.LanguageUpWiz.$_select.clone();
 		$select.attr( 'name', name );
 		if ( code === mw.LanguageUpWiz.UNKNOWN ) {
 			// n.b. MediaWiki LanguageHandler has ability to add custom label for 'Unknown'; possibly as pseudo-label
 			$select.prepend( $j( '<option>' ).attr( 'value', mw.LanguageUpWiz.UNKNOWN ).append( gM( 'mwe-upwiz-code-unknown' )) );
 			$select.val( mw.LanguageUpWiz.UNKNOWN );
-		} else if ( code !== undefined ) {
+		}
+
+		/* Pre select the 'code' language */
+		if ( code !== undefined && mw.LanguageUpWiz.checkForLang( code ) ) {
 			$select.val( mw.LanguageUpWiz.getClosest( code ));
 		}
 		return $select.get( 0 );

@@ -396,7 +396,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	_this.addDescription(
 		!mw.UploadWizard.config.idField,
-		mw.config.get( 'wgUserLanguage' ),
+		mw.LanguageUpWiz.UNKNOWN,
 		false,
 		mw.UploadWizard.config.defaultDescription
 	);
