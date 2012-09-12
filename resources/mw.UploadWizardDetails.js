@@ -1120,6 +1120,7 @@ mw.UploadWizardDetails.prototype = {
 			}
 
 			wikiText += "=={{int:filedesc}}==\n";
+			wikiText += '{{Information\n' + info + '}}\n';
 
 			var lat = $j.trim( $j( _this.latInput ).val() );
 			var lon = $j.trim( $j( _this.lonInput ).val() );
@@ -1132,8 +1133,6 @@ mw.UploadWizardDetails.prototype = {
 				wikiText += '{{Location dec|'+ lat + '|' + lon + '}}\n';
 			}
 
-			wikiText += '{{Information\n' + info + '}}\n\n';
-
 			// add an "anything else" template if needed
 			var otherInfoWikiText = $j.trim( $j( _this.otherInformationInput ).val() );
 			if ( ! mw.isEmpty( otherInfoWikiText ) ) {
@@ -1141,7 +1140,7 @@ mw.UploadWizardDetails.prototype = {
 			}
 
 			// add licensing information
-			wikiText += "=={{int:license-header}}==\n";
+			wikiText += "\n=={{int:license-header}}==\n";
 			wikiText += deed.getLicenseWikiText() + "\n\n";
 
 			if ( mw.UploadWizard.config.autoWikiText !== undefined ) {
