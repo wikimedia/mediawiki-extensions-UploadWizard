@@ -84,8 +84,17 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 			.append( _this.filenameCtrl )
 			.get( 0 );
 
-
-	$j( _this.div ).append( _this.form );
+	if ( $( '<input type="file">' ).attr( 'disabled' ) ) {
+		$j( '#mwe-upwiz-stepdiv-file' ).replaceWith(
+			$j( '<span/>' )
+			.addClass( 'mwe-error' )
+			.msg( 'mwe-upwiz-file-upload-notcapable' )
+		);
+		$j( '#mwe-upwiz-add-file' ).hide();
+		return;
+	} else {
+		$j( _this.div ).append( _this.form );
+	}
 
 	// XXX evil hardcoded
 	// we don't really need filesdiv if we do it this way?

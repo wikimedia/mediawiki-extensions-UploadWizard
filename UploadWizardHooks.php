@@ -175,6 +175,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-show-thumb',
 				'mwe-upwiz-show-thumb-tip',
 				'mwe-upwiz-upload',
+				'mwe-upwiz-file-upload-notcapable',
 				'mwe-upwiz-file-all-ok',
 				'mwe-upwiz-file-some-failed',
 				'mwe-upwiz-file-retry',
