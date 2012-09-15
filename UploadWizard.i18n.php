@@ -5060,8 +5060,8 @@ $messages['de'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Eine Miniaturansicht für diese Datei laden',
 	'mwe-upwiz-remove-description' => 'Entferne diese Beschreibung',
 	'mwe-upwiz-upload' => 'Hochladen',
-	'mwe-upwiz-file-upload-notcapable' => 'Dein Browser kann leider keine Dateien hochladen.
-Bitte versuche einen anderen Browser.',
+	'mwe-upwiz-file-upload-notcapable' => 'Dein Browser kann leider nicht zum Hochladen von Dateien verwendet werden.
+Bitte nutze einen alternativen Browser.',
 	'mwe-upwiz-file-all-ok' => 'Das Hochladen aller Dateien war erfolgreich!',
 	'mwe-upwiz-file-some-failed' => 'Das Hochladen einiger Dateien ist fehlgeschlagen.',
 	'mwe-upwiz-file-retry' => 'Das Hochladen der nicht hochgeladenen Dateien erneut versuchen.',
@@ -5387,6 +5387,8 @@ $messages['de-formal'] = array(
 	'mwe-upwiz-add-file-n' => 'Fügen Sie eine weitere Datei hinzu',
 	'mwe-upwiz-remove-upload' => 'Entfernen Sie diese Datei aus der Liste der hochzuladenden Dateien',
 	'mwe-upwiz-remove-description' => 'Entfernen Sie diese Beschreibung',
+	'mwe-upwiz-file-upload-notcapable' => 'Ihr Browser kann leider nicht zum Hochladen von Dateien verwendet werden.
+Bitte nutzen Sie einen alternativen Browser.',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Ich, der Rechteinhaber {{PLURAL:$2|dieses Werks|dieser Werke}}, veröffentliche {{PLURAL:$2|dieses Werk|diese Werke}} unter der Lizenz $1.',
 	'mwe-upwiz-source-permission' => 'Deren Urheber hat Ihnen die ausdrückliche Erlaubnis gegeben, sie hochzuladen.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Bitte geben Sie die jeweilige Internetadresse an, unter der Sie jede der Dateien gefunden haben.',
@@ -6512,6 +6514,8 @@ $messages['es'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Cargar una imagen en miniatura para este archivo',
 	'mwe-upwiz-remove-description' => 'Retirar esta descripción',
 	'mwe-upwiz-upload' => 'Subir',
+	'mwe-upwiz-file-upload-notcapable' => 'Desgraciadamente tu navegador no es capaz de cargar los archivos.
+Prueba un navegador alternativo.',
 	'mwe-upwiz-file-all-ok' => 'Todos los archivos se subieron correctamente.',
 	'mwe-upwiz-file-some-failed' => 'Hubo un error en algunas subidas.',
 	'mwe-upwiz-file-retry' => 'Reintentar subidas fallidas',
@@ -8874,6 +8878,8 @@ $messages['gl'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Cargar unha imaxe de miniatura para este ficheiro',
 	'mwe-upwiz-remove-description' => 'Borrar esta descrición',
 	'mwe-upwiz-upload' => 'Cargar',
+	'mwe-upwiz-file-upload-notcapable' => 'Por desgraza, o seu navegador non é capaz de cargar ficheiros.
+Inténteo con outro navegador.',
 	'mwe-upwiz-file-all-ok' => 'Todas as cargas completáronse correctamente!',
 	'mwe-upwiz-file-some-failed' => 'Algunhas cargas fallaron.',
 	'mwe-upwiz-file-retry' => 'Repetir as cargas erróneas',
@@ -15965,6 +15971,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Вчитај минијатура на оваа слика',
 	'mwe-upwiz-remove-description' => 'Отстрани го описов',
 	'mwe-upwiz-upload' => 'Подигни',
+	'mwe-upwiz-file-upload-notcapable' => 'Нажалост, вашиот пелистувач нема можност за подигање податотеки.
+Пробајте со друг прелистувач.',
 	'mwe-upwiz-file-all-ok' => 'Сите податотеки се успешно подигнати!',
 	'mwe-upwiz-file-some-failed' => 'Некои податотеки не успејаа да се подигнат.',
 	'mwe-upwiz-file-retry' => 'Повтори го подигањето на неуспешните',
@@ -16907,6 +16915,8 @@ $messages['ms'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Muatkan gambar kenit (thumbnail) untuk fail ini',
 	'mwe-upwiz-remove-description' => 'Gugurkan keterangan ini',
 	'mwe-upwiz-upload' => 'Muat naik',
+	'mwe-upwiz-file-upload-notcapable' => 'Maaf, pelayar anda tidak mampu memuat naik fail.
+Sila cuba pelayar yang lain.',
 	'mwe-upwiz-file-all-ok' => 'Semua muat naik berjaya!',
 	'mwe-upwiz-file-some-failed' => 'Beberapa muat naik gagal.',
 	'mwe-upwiz-file-retry' => 'Cuba lagi muat naik yang gagal',
