@@ -123,7 +123,7 @@ $specialPageAliases['ml'] = array(
 	'UploadCampaign' => array( 'അപ്‌ലോഡ്‌മേള' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'UploadWizard' => array( 'Opplastingsveiviser' ),
 	'UploadCampaigns' => array( 'Opplastingskampanjer' ),
@@ -178,7 +178,7 @@ $specialPageAliases['yue'] = array(
 	'UploadWizard' => array( '上載精靈' ),
 );
 
-/** Simplified Chinese (‪中文（简体）‬) */
+/** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'UploadWizard' => array( '上传向导', '上传精灵' ),
 );
