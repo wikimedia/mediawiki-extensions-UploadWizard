@@ -25,6 +25,13 @@ $specialPageAliases['as'] = array(
 	'UploadWizard' => array( 'আপল’ড_প্ৰক্ৰিয়া' ),
 );
 
+/** Bashkir (башҡортса) */
+$specialPageAliases['ba'] = array(
+	'UploadWizard' => array( 'UploadWizard' ),
+	'UploadCampaigns' => array( 'UploadCampaigns' ),
+	'UploadCampaign' => array( 'UploadCampaign' ),
+);
+
 /** Danish (dansk) */
 $specialPageAliases['da'] = array(
 	'UploadWizard' => array( 'Vejviser_til_oplægning_af_filer' ),
