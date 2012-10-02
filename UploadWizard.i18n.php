@@ -694,7 +694,6 @@ $messages['af'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekonde|sekondes}} oor',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuut|minutn}} en $2 {{PLURAL:$2|sekonde|sekondes}} oor',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|uur|uur}}, $2 {{PLURAL:$2|minuut|minute}} en $3 {{PLURAL:$3|sekonde|sekondes}} oor',
-	'mwe-upwiz-deeds-custom-prompt' => 'Of:',
 	'mwe-upwiz-source-permission' => 'Hulle skrywer het jou uitdruklike toestemming om dit te laai',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Verskaf inligting oor kopiereg vir elke lêer afsonderlik op die volgende bladsy.',
@@ -928,7 +927,6 @@ $messages['an'] = array(
 	'mwe-upwiz-mins-secs-remaining' => 'En queda $1 {{PLURAL:$1|minuto|minutos}} y $2 {{PLURAL:$2|segundo|segundos}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hora|horas}} $2 {{PLURAL:$2|menuto|menutos}} $3 {{PLURAL:$3|segundo|segundos}} restantes',
 	'mwe-upwiz-deeds-macro-prompt' => 'Iste puesto requiere que estableixca información de copyright ta {{PLURAL:$1|iste treballo|istes treballos}}, ta asegurar que totz puedan {{PLURAL:$1|reutilizarlo|reutilizarlos}} legalment.',
-	'mwe-upwiz-deeds-custom-prompt' => 'U:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Iste fichero ye|Istes fichers son}} un treballo mío.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => "Yo, $2, o titular d'o copyright d'{{PLURAL:$1|ista obra|istas obras}}, por iste meyo atorgo irrevocablement a qualsiquiera o dreito a usar, modificar y redistribuir {{PLURAL:$1|ista obra|istas obras}} ta qualsiquier proposito, y por tanto {{PLURAL:$1|la|las}} publico baixo os siguients termins:",
 	'mwe-upwiz-source-ownwork-assert' => "Yo, $2, o titular d'o copyright d'{{PLURAL:$1|iste treballo|istos treballos}}, por iste meyo atorgo irrevocablement a qualsiquiera o dreito a usar {{PLURAL:$1|iste treballo|istes treballos}} ta qualsiquier proposito, siempre que me'n reconoixca l'autoría y comparta os treballos derivaus en os mesmos termins.",
@@ -2332,7 +2330,6 @@ $messages['ba'] = array(
 	'mwe-upwiz-published' => 'Баҫтырылды',
 	'mwe-upwiz-remove' => 'Юйырға',
 	'mwe-upwiz-upload' => 'Тейәргә',
-	'mwe-upwiz-deeds-custom-prompt' => 'Йәки:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Тамам',
 	'mwe-upwiz-copy-metadata-button' => 'Күсермәһен алырға',
 	'mwe-upwiz-title' => 'Исем',
@@ -2791,7 +2788,6 @@ $messages['bg'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Остава|Остават}} $1 {{PLURAL:$1|минута|минути}} и $2 {{PLURAL:$2|секунда|секунди}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Остава|Остават}} $1 {{PLURAL:$1|час|часа}}, $2 {{PLURAL:$2|минута|минути}} и $3 {{PLURAL:$3|секунда|секунди}}',
 	'mwe-upwiz-deeds-macro-prompt' => '{{SITENAME}} изисква да предоставите информация за авторските права над {{PLURAL:$1|тази творба|тези творби}}, за да е сигурно, че всеки може законно да {{PLURAL:$1|я|ги}} използва.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Или:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Този файл е|Тези файлове са}} мое дело.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'С настоящото, аз, $2, носител на авторските права над {{PLURAL:$1|тази творба|тези творби}}, безвъзвратно давам правото на всекиго да {{PLURAL:$1|я|ги}} използва, променя и разпространява за всякакви цели, като публикувам {{PLURAL:$1|тази творба|тези творби}} под следните условия.',
 	'mwe-upwiz-source-ownwork-assert' => 'С настоящото, аз, $2, носител на авторските права над {{PLURAL:$1|тази творба|тези творби}}, безвъзвратно давам правото на всекиго да {{PLURAL:$1|я|ги}} използва за всякакви цели при условие, че ми бъде оказвано авторско признание и производните на {{PLURAL:$1|нея|тях}} работи биват споделяни под същите условия.',
@@ -3624,7 +3620,6 @@ $messages['bs'] = array(
 	'mwe-upwiz-mins-secs-remaining' => 'Još $1 {{PLURAL:$1|minuta|minute|minuta}} i $2 {{PLURAL:$2|sekunda|sekunde|sekundi}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Još $1 {{PLURAL:$1|sat|sata|sati}}, $2 {{PLURAL:$2|minuta|minute|minuta}} i $3 {{PLURAL:$3|sekunda|sekunde|sekundi}}',
 	'mwe-upwiz-deeds-macro-prompt' => '{{SITENAME}} zahtjeva od vas da navedete podatke o autorskim pravima za {{PLURAL:$1|ovaj rad|ove radove}}, da bi bili sigurni da svako može legalno da {{PLURAL:$1|ga|ih}} koristi.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Ili:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Ova datoteka je|Ove datoteke su}} moje vlastito djelo.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Ja, $2, vlasnik autorskog prava {{PLURAL:$1|ovog|ovih}} djela, ovdje neopozivo dajem pravo bilo kome da može koristiti, mijenjati i dalje dijeliti  {{PLURAL:$1|ovo djelo|ova djela}} u bilo koju svrhu te {{PLURAL:$1|ga|ih}} ja objavljujem pod ovim uslovima:',
 	'mwe-upwiz-source-ownwork-assert' => 'Ja, $2, vlasnik autorskog prava {{PLURAL:$1|ovog|ovih}} djela, ovim neopozivo dajem pravo svima da koristi {{PLURAL:$1|ovo djelo|ova djela}} u bilo koje svrhe, sve dok se navodi moje ime kao autora a sva izvedena djela se moraju objaviti pod istim uslovima.',
@@ -4470,7 +4465,6 @@ $1',
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'mwe-upwiz-deeds-custom-prompt' => 'или :',
 	'mwe-upwiz-title' => 'имѧ',
 );
 
@@ -4530,7 +4524,6 @@ $messages['cy'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1||munud|funud|munud|munud|munud}} a $2 {{PLURAL:$2|eiliad}} sydd ar ôl',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|awr}} $2 {{PLURAL:$2||munud|funud|munud|munud|munud}} a $3 {{PLURAL:$3|eiliad}} sydd ar ôl',
 	'mwe-upwiz-deeds-macro-prompt' => "Mae {{SITENAME}} yn gofyn i chi ddarparu gwybodaeth ar hawlfraint {{PLURAL:$1||y ffeil hon|y ffeiliau hyn|y ffeiliau hyn|y ffeiliau hyn|y ffeiliau hyn}}, er mwyn sicrhau y gall pawb {{PLURAL:$1||ei defnyddio|eu defnyddio|eu defnyddio|eu defnyddio|eu defnyddio}}'n gyfreithlon.",
-	'mwe-upwiz-deeds-custom-prompt' => 'Neu:',
 	'mwe-upwiz-source-ownwork' => "Fy ngwaith fy hun yw'r {{PLURAL:$1||ffeil hon|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn}}.",
 	'mwe-upwiz-source-ownwork-assert-any-license' => "Yr wyf fi, $2, deiliad hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}}, yn cynnig i unrhyw un, a hynny'n ddi-alw-nôl, yr hawl i ddefnyddio'r {{PLURAL:$1||gwaith hwn, ac i'w addasu a'i ailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu|gweithiau hyn, ac i'w haddasu a'u hailddosbarthu}}, at unrhyw ddiben, ac yr wyf yn {{PLURAL:$1||ei gyhoeddi|eu cyhoeddi|eu cyhoeddi|eu cyhoeddi|eu cyhoeddi}} yn ôl y telerau sy'n dilyn:",
 	'mwe-upwiz-source-ownwork-assert' => "Rwyf i, $2, deiliad hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}}, drwy hyn yn caniatáu'n ddiwrthdro i unrhyw un ddefnyddio'r {{PLURAL:$1||gwaith hwn|gweithiau hyn|gweithiau hyn|gweithiau hyn|gweithiau hyn}} at unrhyw bwrpas, cyn belled ag y maent yn fy nghydnabod ac yn rhannu gwaith deilliadol ar yr un telerau.",
@@ -5385,7 +5378,28 @@ $messages['de-at'] = array(
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Ich, $2, der Rechteinhaber dieser Werke gewähre unwiderruflich jedem das Recht, sie gemäß der „Creative Commons“-Lizenz „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0 Österreich“ ([$3 Text der Lizenz]) zu nutzen.',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Filzstift
+ * @author Geitost
+ */
+$messages['de-ch'] = array(
+	'mwe-upwiz-tutorial-error-cannot-transform' => "Es konnte leider kein Bild des Lernprogramms aufgerufen werden, das sich der Bildschirmgrösse anpasst. Dies könnte ein vorübergehendes Problem von ''Wikimedia Commons'' sein. Versuche es später noch einmal.",
+	'mwe-upwiz-source-ownwork-assert' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}}, räume hiermit jedem das Recht ein, {{PLURAL:$1|es|sie}} für jedweden Zweck nutzen zu können. Voraussetzung ist, dass ich als Rechteinhaber genannt werde und abgeleitete Werke gemäss den gleichen Lizenzbedingungen weitergegeben werden können.',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}} gewähre unwiderruflich jedem das Recht, {{PLURAL:$1|es|sie}} gemäss der „Creative Commons“-Lizenz „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0“ ([$3 Text der Lizenz]) zu nutzen.',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Jeder darf {{PLURAL:$1|dieses Werk|diese Werke}} nutzen, weitergeben oder verändern, solange ich als Urheber angegeben werde und Änderungen gemäss der gleichen Lizenz weitergegeben werden.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}} gewähre unwiderruflich jedem das Recht, {{PLURAL:$1|es|sie}} gemäss der „Creative Commons“-Lizenz „Namensnennung 3.0“ ([$3 Text der Lizenz]) zu nutzen.',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}} gewähre unwiderruflich jedem das Recht, {{PLURAL:$1|es|sie}} gemäss der „Creative Commons“-Lizenz „Widmung Gemeinfreiheit“ ([$3 Text der Lizenz]) zu nutzen.',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}}, gewähre unwiderruflich jedem das Recht, {{PLURAL:$1|es|sie}} gemäss der folgenden Lizenz zu nutzen:',
+	'mwe-upwiz-source-thirdparty-license' => 'Der Rechteinhaber {{PLURAL:$1|dieses Werks hat es|dieser Werke hat sie}} gemäss folgender Lizenz / folgenden Lizenzen veröffentlicht:',
+	'mwe-upwiz-thumbnail-more' => 'Vergrössern',
+	'mwe-upwiz-tooltip-title' => 'Ein eindeutiger wie einzigartiger Titel für die Datei, der als Dateiname genutzt werden wird. Normaler Text einschliesslich Leerschläge ist dabei möglich. Die Dateierweiterung darf aber nicht angegeben werden.',
+	'mwe-upwiz-error-title-hosting' => 'Diese Datei stammt vermutlich von einem anderen Dateihoster. Bitte einen aussagekräftigeren Namen angeben. Zudem sollte erneut geprüft werden, ob die Datei rechtmässig auf {{SITENAME}} veröffentlicht werden kann.',
+	'mwe-upwiz-license-own-pd' => 'Auf alle Rechte wird gemäss „Creative Commons“-Erklärung „CC0 1.0 Universal“ verzichtet (entspricht der Gemeinfreiheit).',
+	'mwe-upwiz-license-cc-head' => 'Der Urheberrechtsinhaber hat {{PLURAL:$1|dieses Werk|diese Werke}} gemäss der richtigen „Creative Commons“-Lizenz lizenziert.',
+	'mwe-upwiz-license-flickr-head' => 'Der Urheberrechtsinhaber hat {{PLURAL:$1|sein Foto oder Video|seine Fotos oder Videos}} auf Flickr gemäss der richtigen Lizenz veröffentlicht.',
+);
+
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Geitost
  * @author Imre
  * @author Kghbln
@@ -5714,7 +5728,6 @@ $messages['dsb'] = array(
 	'mwe-upwiz-next-file-despite-failures' => 'Weto dalej cyniś',
 	'mwe-upwiz-progressbar-uploading' => 'nagrawa se',
 	'mwe-upwiz-finished' => 'Dokóńcone!',
-	'mwe-upwiz-deeds-custom-prompt' => 'Abo:',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Toś ta dataja njejo|Toś tej dataji njestej|Toś te dataje njejsu|Toś te dataje njejsu}} mójo swójske źěło.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Pšosym zapódaj adresu, źož sy kuždu z datajow namakał.',
 	'mwe-upwiz-source-thirdparty-accept' => 'W pórěźe',
@@ -8038,7 +8051,6 @@ $messages['fo'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekund|sekundir}} eftir',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minutt|minuttir}} $2 {{PLURAL:$2|sekund|sekundir}} eftir',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|tími|tímar}} $2 {{PLURAL:$2|minutt|minuttir}} $3 {{PLURAL:$3|sekund|sekundir}} eftir',
-	'mwe-upwiz-deeds-custom-prompt' => 'Ella:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Henda fíla er|Hesar fílur eru}} mítt egna verk.',
 	'mwe-upwiz-desc' => 'Frágreiðing',
 	'mwe-upwiz-desc-add-n' => 'skriva eina frágreiðing á einum øðrum máli',
@@ -9855,7 +9867,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'અન્ય કોઇની રચના  - $1',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'mwe-upwiz-cancel' => 'Soke',
 );
@@ -10278,7 +10290,6 @@ $messages['hi'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|सेकंड|सेकंड}} शेष',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|मिनट|मिनट}} $2 {{PLURAL:$2|सेकंड|सेकंड}} शेष',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|घंटा|घंटा}} $2 {{PLURAL:$2|मिनट|मिनट}} $3 {{PLURAL:$3|सेकंड|सेकंड}} शेष',
-	'mwe-upwiz-deeds-custom-prompt' => 'या:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|ये फ़ाइल|ये फ़ाइलें}} मेरा अपना काम है ।',
 	'mwe-upwiz-source-ownwork-assert-note' => 'सका मतलब है कि आपका काम Creative Commons Attribution ShareAlike लाइसेंस के तहत जारी है',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|ये फ़ाइल|ये फ़ाइलें}} मेरा अपना काम नहीं है ।',
@@ -12012,7 +12023,6 @@ $messages['ilo'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minuto}} $2 {{PLURAL:$2|segundo|segundo}} ti nabati',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|oras|oras}} $2 {{PLURAL:$2|minuto|minuto}} $3 {{PLURAL:$3|segundo|segundo}} ti nabati',
 	'mwe-upwiz-deeds-macro-prompt' => 'Daytoy a pagsaadan ket sapulen na nga agited ka ti pakaammo ti karbengan ti kopia para iti {{PLURAL:$1|daytoy nga obra|dagitoy nga obra}}, tapno segurado amin a maitunos ti linteg ti panag-usar {{PLURAL:$1|daytoy|dagitoy}}.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Wenno:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Daytoy a papeles|Dagitoy a papeles}} ket obrak.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Siak, $2, ti nagtengngel ti karbengan ti kopia iti {{PLURAL:$1|daytoy nga obra|dagitoy nga obra}}, ket addaan ditoy nga ikkak amin ti sinoman ti karbengan nga agusar, agbaliw ken mangiwaras {{PLURAL:$1|daytoy nga obra|dagitoy nga obra}} para iti ania man a panggep, ken Siak iti kasta ket agipablaak iti {{PLURAL:$1|daytoy|dagitoy}} babaen kadagiti sumaganad a banag:',
 	'mwe-upwiz-source-ownwork-assert' => 'Siak, $2, ti nagtengngel ti karbengan ti kopia iti {{PLURAL:$1|daytoy nga obra|dagitoy nga obra}}, ket addaan ditoy nga ikkak amin ti sinoman ti karbengan nga agusar  {{PLURAL:$1|daytoy nga obra|dagitoy nga obra}} para iti ania man a panggep, nu met laeng ikkan dak ti pammadayaw ken ibingay ti sabali a naaramid manipud daytoy nga obra babaen ti kapada a banag.',
@@ -13919,7 +13929,6 @@ $messages['km'] = array(
 	'mwe-upwiz-step-details' => 'បរិយាយ',
 	'mwe-upwiz-progressbar-uploading' => 'កំពុង​ផ្ទុកឡើង​',
 	'mwe-upwiz-finished' => 'បាន​បញ្ចាប់!',
-	'mwe-upwiz-deeds-custom-prompt' => 'ឬ៖',
 	'mwe-upwiz-desc-add-n' => 'សរសេរការពណ៌នាជាភាសាមួយទៀត',
 	'mwe-upwiz-desc-add-0' => 'សរសេរការពណ៌នា',
 	'mwe-upwiz-media-type' => 'ប្រភេទមេឌា',
@@ -14721,7 +14730,7 @@ Aan dä Schtäll vum $1 kütt dat Köözel för de Schprooch hen:',
 	'mwe-upwiz-prefs-skiptutorial' => 'Lohß dä Övverblegg övver de Lizänze aam Aanfang fott.',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  * @author Gomada
  */
@@ -15853,7 +15862,6 @@ $messages['lv'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'augšupielādē',
 	'mwe-upwiz-finished' => 'Pabeigts!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekunde palikusi|sekundes palikušas}}',
-	'mwe-upwiz-deeds-custom-prompt' => 'Vai:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Šis fails ir manis radīts|Šie faili ir manis radīti}}.',
 	'mwe-upwiz-source-thirdparty-accept' => 'Labi',
 	'mwe-upwiz-desc' => 'Apraksts',
@@ -16724,7 +16732,6 @@ $messages['mr'] = array(
 	'mwe-upwiz-mins-secs-remaining' => 'शेष $1 {{PLURAL:$1|मिनीट|मिनीटे}} $2 {{PLURAL:$2|सेकंद|सेकंद}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'शेष $1 {{PLURAL:$1|तास|तास}} $2 {{PLURAL:$2|मिनीट|मिनीटे}} $3 {{PLURAL:$3|सेकंद|सेकंद्}}',
 	'mwe-upwiz-deeds-macro-prompt' => ' प्रत्येकास  {{PLURAL:$1|हि|ह्या}} कलाकृती कायदेशीरपणे  पुन्हा वापरता येऊ शकतात याची खात्री करण्याच्या दृष्टीने, या संकेतस्थळावर (वेबसाईटवर) आपणास {{PLURAL:$1|ह्या कलाकृती|ह्या कलाकृतीं}}ची प्रताधिकार-माहिती  (कॉपीराईट-माहिती )  उपलब्ध करून देणे आवश्यक आहे.',
-	'mwe-upwiz-deeds-custom-prompt' => 'अथवा:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1| हि संचिका-फाईल मी स्वत: निर्मिती केलेली माझी कलाकृती आहे.|ह्या संचिका-फाईल्स मी स्वत: निर्मिती केलेल्या माझ्या कलाकृती आहेत.}}',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'मी, $2, {{PLURAL:$1|ह्या कलाकृती|ह्या कलाकृतीं}}चा प्रताधिकार-धारक (copyright holder) निम्नलिखीत अटीं घालून, आता पासून  कुणासही, कोणत्याही कारणाने, संबंधीत कलाकृती बदलण्याचा,पुर्नवितरणाचा, आणि  वापरण्याचा,रद्द न करता येण्याजोग्या  वापराच्या अधिकारास स्वीकृती देत आहे.',
 	'mwe-upwiz-source-ownwork-assert' => 'मी, $2, {{PLURAL:$1|ह्या कलाकृती|ह्या कलाकृतीं}}चा प्रताधिकार-धारक (copyright holder) जो पर्यंत , आता पासून  कुणासही, कोणत्याही कारणाने, संबंधीत कलाकृती  वापरण्याचा,जो पर्यंत हि कलाकृती पूर्णरूपाने अथवा अंशिक रूपानेही वापरत असल्यास माझे निर्मितीचे श्रेय नमुद करण्याच्या अटीवर  रद्द न करता येण्याजोग्या  वापराच्या अधिकारास स्वीकृती देत आहे.',
@@ -17575,7 +17582,6 @@ $messages['my'] = array(
 	'mwe-upwiz-next-file-despite-failures' => 'မည်သို့ပင်ဖြစ်စေ၊ ဆက်လုပ်ပါ',
 	'mwe-upwiz-skip-tutorial-future' => 'နောင်တွင် ဤအဆင့်ကို ကျော်ချပါ',
 	'mwe-upwiz-file-all-failed' => 'ဖိုင်တင်ခြင်း တစ်ခုမှ မအောင်မြင်ပါ။',
-	'mwe-upwiz-deeds-custom-prompt' => 'သို့မဟုတ် -',
 	'mwe-upwiz-source-thirdparty-accept' => 'အိုကေ',
 	'mwe-upwiz-desc' => 'ဖော်ပြချက်',
 	'mwe-upwiz-desc-add-n' => 'အခြားဘာသာဖြင့် ဖော်ပြချက် ပေါင်းထည့်ရန်',
@@ -17645,7 +17651,6 @@ $messages['mzn'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|دیقه|دیقه}} $2 {{PLURAL:$2|ثانیه|ثانیه}} بموندسته',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|ساعت|ساعت}} و $2 {{PLURAL:$2|دقیقه|دقیقه}} و $3 {{PLURAL:$3|ثانیه|ثانیه}} باقی بموندسته',
 	'mwe-upwiz-deeds-macro-prompt' => 'این وب‌گاه دله نیازه که شما اطلاعات حق تکثیر این {{PLURAL:$1|کار|کارون}} ره تهیه هاکنین، تا همه از نظر قانونی مطمئن بوون که بنشنه {{PLURAL:$1|اینتا|اینان}} جه استفاده هاکردن.',
-	'mwe-upwiz-deeds-custom-prompt' => 'یا:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|اینتا پرونده|اینان پرونده‌ئون}} ره شه بساتمه.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'من،‌ $2،‌ دارندهٔ حق تکثیر این {{PLURAL:$1|اثر|آثار}}، به این وسیله به طور دائم به هرکس اجازه دمبه که این {{PLURAL:$1|اثر|آثار}} جه استفاده هاکنن و وه ره دچینن و توزیع مجدد هاکنن، هر کار سر هم استفاده هاکنن و به همین دلیل من {{PLURAL:$1|اینتا|اینان}} ره تحت شرایط موقابل منتشر کامبه:',
 	'mwe-upwiz-source-ownwork-assert' => 'من، $2، دارندهٔ حق تکثیر این {{PLURAL:$1|اثر|آثار}}، همیشه وسّه به همه اجازه دمبه این {{PLURAL:$1|اثر|آثار}} جه هر هدف وسّه استفاده هاکنن، تا زمونی که وشون به من اعتبار دنه که اثر مشتق‌شون ره تحت شرایط اتتی به اشتراک یلنه.',
@@ -17855,7 +17860,7 @@ $1',
 	'mw-coolcats-confirm-new-cancel' => 'موهم نی‌یه',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Danmichaelo
  * @author EivindJ
  * @author Event
@@ -18264,7 +18269,6 @@ $messages['ne'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|सेकेण्ड|सेकेण्ड}} रहल समय',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|मिनट|मिनट}} $2 {{PLURAL:$2|सेकेण्ड|सेकेण्ड}} रहल समय',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|घण्टा|घण्टा}} $2 {{PLURAL:$2|मिनट|मिनट}} $3 {{PLURAL:$3|सेकेण्ड|सेकेण्ड}} रहल समय',
-	'mwe-upwiz-deeds-custom-prompt' => 'अथवा:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|यो फाइल आफैंले बनाएको हो|यी फाइलहरु आफैंले बनाएका हुन्}}।',
 	'mwe-upwiz-source-thirdparty-accept' => 'ठीक',
 	'mwe-upwiz-source-custom' => 'प्रत्येक फाइलको कपी राइट सूचना  अर्को पृष्ठमा दिनुहोस्।',
@@ -18674,7 +18678,7 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => 'Inleidende licentietutorial overslaan',
 );
 
-/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
@@ -18729,7 +18733,7 @@ Gebruik geen wikitext of HTML, alleen je gebruikersnaam of echte naam.',
 	'mw-coolcats-confirm-new' => 'Het lijkt erop dat je de nieuwe categorie "$1" probeert toe te voegen. Let op:<ul><li>Categorienamen moeten meestal in het Engels zijn.</li><li>De meeste nieuwe categorieën moeten een subcategorie zijn van een bestaande categorie.</li></ul>In het algemeen voegen alleen experts een categorie toe.',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -18773,7 +18777,6 @@ $messages['nn'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minutt|minutt}} og $2 {{PLURAL:$2|sekund|sekund}} står att',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|time|timar}}, $2 {{PLURAL:$2|minutt|minutt}} og $3 {{PLURAL:$3|sekund|sekund}} står att',
 	'mwe-upwiz-deeds-macro-prompt' => 'Denne nettstaden krev at du gjev informasjon om opphavsretten for {{PLURAL:$1|arbeidet|arbeida}} for å gjera seg viss på at alle lovleg kan nytta {{PLURAL:$1|det|dei}} andre stader.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Eller:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Fila|Filene}} er mitt arbeid.',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Eg, opphavsrettshaldaren til {{PLURAL:$2|arbeidet|arbeida}}, gjev {{PLURAL:$2|arbeidet|arbeida}} med løyvet $1.',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Denne fila|Desse filene}} er ikkje mitt arbeid.',
@@ -18984,7 +18987,6 @@ $messages['or'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|ମିନିଟ|ମିନିଟ}} $2 {{PLURAL:$2|ସେକେଣ୍ଡ|ସେକେଣ୍ଡ}} ବଳକା ଅଛି',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|ଘଣ୍ଟା|ଘଣ୍ଟା}} $2 {{PLURAL:$2|ମିନିଟ|ମିନିଟ}} $3 {{PLURAL:$3|ସେକେଣ୍ଡ|ସେକେଣ୍ଡ}} ବଳକା ଅଛି',
 	'mwe-upwiz-deeds-macro-prompt' => 'ଏହି ସାଇଟରେ ଆପଣଙ୍କୁ {{PLURAL:$1|ଏହି କାମଟି|ଏହି କାମମାନଙ୍କ}} ନିମନ୍ତେ ସତ୍ଵାଧିକାର ତଥ୍ୟ ଦେବାକୁ ପଡ଼ିବ, ଯାହାଫଳରେ ସଭିଏଁ ଆଇନଗତ ଭାବରେ {{PLURAL:$1|ଏହାକୁ|ଏମାନଙ୍କୁ}} ପୁନବ୍ୟବହାର କରିପାରିବେ ।',
-	'mwe-upwiz-deeds-custom-prompt' => 'କିମ୍ବା:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|ଏହି ଫାଇଲଟି|ଏହି ଫାଇଲସବୁ}} ମୋର ଆପଣା କାମ ଅଟନ୍ତି ।',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'ମୁଁ, $2, {{PLURAL:$1|ଏହି କାମର|ଏହି କାମମାନଙ୍କର}} ସତ୍ଵାଧିକାରୀ, ଏଠାରେ ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ଯେକୌଣସି କାମରେ ସଭିଙ୍କୁ {{PLURAL:$1|ଏହି କାମର|ଏହି କାମମାନଙ୍କର}} ବ୍ୟବହାର, ବଦଳ ଓ ପୁନବଣ୍ଟନ ଲାଗି ଅନୁମତି ଦେଉଅଛି ଓ ସେଥିସକାଶେ {{PLURAL:$1|ତାହାକୁ|ସେମାନଙ୍କୁ}} ତଳଲିଖିତ ନିୟମାବଳି ଅଧୀନରେ ପ୍ରକାଶିତ କରୁଅଛି:',
 	'mwe-upwiz-source-ownwork-assert' => 'ମୁଁ, $2, {{PLURAL:$1|ଏହି କାମର|ଏହି କାମମାନଙ୍କର}} ସତ୍ଵାଧିକାରୀ, ଯେତେ ଯାଏଁ ମୋତେ କାମର ଶ୍ରେୟ ଦିଆଯାଉଥିବ ସେତେଯାଏଁ ଏଠାରେ ଅପରିବର୍ତ୍ତନୀୟ ଭାବରେ ଯେକୌଣସି କାମରେ ସଭିଙ୍କୁ {{PLURAL:$1|ଏହି କାମର|ଏହି କାମମାନଙ୍କର}} ବ୍ୟବହାର ଲାଗି ଅନୁମତି ଦେଉଅଛି ।',
@@ -19265,7 +19267,6 @@ $messages['pdc'] = array(
 	'mwe-upwiz-step-tutorial' => 'Lanne',
 	'mwe-upwiz-step-file' => 'Ufflaade',
 	'mwe-upwiz-stashed-upload' => 'OK',
-	'mwe-upwiz-deeds-custom-prompt' => 'Odder:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-title' => 'Titel',
 	'mwe-upwiz-author' => 'Schreiwer',
@@ -19292,7 +19293,6 @@ $messages['pfl'] = array(
 	'mwe-upwiz-code-unknown' => 'Ubekondi Schbrooch',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => "Dud uns leed, awa's hod nix in doinere Schbrooch. Nemme mas hald uff Englisch.",
 	'mwe-upwiz-finished' => 'Ferdisch!',
-	'mwe-upwiz-deeds-custom-prompt' => 'Oda:',
 	'mwe-upwiz-source' => 'Qwelle',
 	'mwe-upwiz-next' => 'Negschte',
 	'mwe-upwiz-next-file' => 'Waida mache',
@@ -20063,7 +20063,6 @@ $messages['pnb'] = array(
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|کینٹہ|کینٹہ}} $2 {{PLURAL:$2|منٹ|منٹاں}} $3 {{PLURAL:$3|سکنٹ|سکنٹاں}} باقی',
 	'mwe-upwiz-deeds-macro-prompt' => 'ایس سائٹ تے توانوں کاپی حق {{PLURAL:$1|ایہ کم|ایہ کم}} لی لوڑ اے،
 اے ضروری بناؤ جے ہرکوئی قنونی ایناں نوں {{PLURAL:$1|ایہ|اوہ}} ورت سکے۔',
-	'mwe-upwiz-deeds-custom-prompt' => 'یا:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|ایہ فائل|ایہ فائلاں }} میرا آپنا کم اے.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'میں، $2 {{PLURAL:$1|ایس کم|ایناں کماں}} دا بچاؤ حق رکھن والا ایتھے ہر اک نوں اینوں ورتن بدلن ونڈن دا حق {{PLURAL:$1|ایس کم|ایناں کماں}}  کم لئی دیندا واں تے ایس لئی میں اینوں {{PLURAL:$1|ایس|ایناں }} دسیاں گیاں شرطاں تے چھاپ ریا واں:',
 	'mwe-upwiz-source-ownwork-assert' => 'میں، 2$، {{{{PLURAL:$1|ایس کم|ایناں کماں}}:1$|ایس کم|ایناں کماں}} دا بچاؤ حق رکھن والا ایتھے ہر کسے نوں  اے حق دیندا واں جے {{{{PLURAL:$1|ایس کم|ایناں کماں}}:1$|ایس کم|ایناں کماں}}  نوں کسے وی کم لئی اودا تک ورت سکدا اے جدوں تک اوہ ایس دے ورتن چ ایدے توں بناۓ گۓ کماں چ میرا ناں وی دسدا اے۔',
@@ -20794,7 +20793,6 @@ $messages['pt-br'] = array(
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutos}} e $2 {{PLURAL:$2|segundo|segundos}} restantes',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hora|horas}} $2 {{PLURAL:$2|minuto|minutos}} e $3 {{PLURAL:$3|segundo|segundos}} restantes',
 	'mwe-upwiz-deeds-macro-prompt' => 'Este site requer o fornecimento da informação sobre os direitos do autor {{PLURAL:$1|desta obra|destas obras}}, para ter a certeza de que todos possam {{PLURAL:$1|utilizá-la|utilizá-las}} legalmente.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Ou:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este arquivo é|Estes arquivos são}} de minha autoria.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Eu, $2, o titular dos direitos autorais {{PLURAL:$1|desta obra|destas obras}}, pela presente concedo, de forma irrevogável e a todos, o direito de usar, modificar e redistribuir {{PLURAL:$1|esta obra|estas obras}} para qualquer fim e, portanto, {{PLURAL:$1|publico-a|publico-as}} com os seguintes termos:',
 	'mwe-upwiz-source-ownwork-assert' => 'Eu, $2, o detentor dos direitos autorais {{PLURAL:$1|desta obra|destas obras}}, concedo a todos, de forma irrevogável, o direito de {{PLURAL:$1|usá-la|usá-las}} para qualquer fim, desde que a minha autoria seja devidamente atribuída e que obras dela derivadas sejam partilhadas nos mesmos termos.',
@@ -22626,7 +22624,6 @@ $messages['sah'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 сөкүүндэ хаалла',
 	'mwe-upwiz-mins-secs-remaining' => '$1 мүнүүтэ $2 сөкүүндэ хаалла',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 чаас $2 мүнүүтэ $3 сөкүүндэ хаалбыт',
-	'mwe-upwiz-deeds-custom-prompt' => 'Эбэтэр:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Бу билэ мин бэйэм айымньым.|Бу билэлэр мин бэйэм айымньыларым.}}',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Ол аата үлэҕин бу лиссиэнсийэнэн таһаараҕын: $1',
 	'mwe-upwiz-source-permission' => 'Ааптара ситим-сиргэ бэчээттиир туһунан эйиэхэ чопчу көҥүл биэрбитэ',
@@ -23009,7 +23006,6 @@ $messages['sk'] = array(
 	'mwe-upwiz-mins-secs-remaining' => 'Zostáva $1 {{PLURAL:$1|minúta|minúty|minút}} $2 {{PLURAL:$2|sekunda|sekundy|sekúnd}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Zostáva $1 {{PLURAL:$1|hodina|hodiny|hodín}} $2 {{PLURAL:$2|minúta|minúty|minút}} $3 {{PLURAL:$3|sekunda|sekundy|sekúnd}}',
 	'mwe-upwiz-deeds-macro-prompt' => '{{SITENAME}} vyžaduje, aby ste poskytli informácie o autorských právach {{PLURAL:$1|k tomuto dielu|k týmto dielam}} na zaistenie, že každý {{PLURAL:$1|ho|ich}} môže legálne používať.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Alebo:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Tento súbor je moje vlastné dielo|Tieto súbory sú moje vlastné diela}}.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Ja, $2, držiteľ autorských práv k {{PLURAL:$1|tomuto dielu|týmto dielam}} týmto neodvolateľne udeľujem komukoľvek právo užívať, modifikovať a šíriť {{PLURAL:$1|toto dielo|tieto diela}} na akýkoľvek účel, a teda {{PLURAL:$1|ho|ich}} zverejňujem za nasledovných podmienok:',
 	'mwe-upwiz-source-ownwork-assert' => 'Ja, $2, držiteľ autorských práv k {{PLURAL:$1|tomuto dielu|týmto dielam}} týmto neodvolateľne udeľujem komukoľvek právo užívať, modifikovať a šíriť {{PLURAL:$1|toto dielo|tieto diela}} na akýkoľvek účel, za podmienky, že ma uvedú ako pôvodného autora a ak zverejnia odvodené diela, bude to za rovnakých podmienok.',
@@ -23688,7 +23684,7 @@ Ju lutemi mos përdorni tekst wiki apo HTML këtu.',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 Më shumë informacion]',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Nikola Smolenski
  * @author Rancher
  * @author Жељко Тодоровић
@@ -25070,7 +25066,6 @@ $messages['te'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|క్షణం మిగిలివుంది|క్షణాలు మిగిలివున్నాయి}}',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|నిమిషం|నిమిషాల}} $2 {{PLURAL:$2|క్షణం మిగిలివుంది|క్షణాలు మిగిలివున్నాయి}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|గంట|గంటల}} $2 {{PLURAL:$2|నిమిషం|నిమిషాల}} $3 {{PLURAL:$3|క్షణం మిగిలివుంది|క్షణాలు మిగిలివున్నాయి}}',
-	'mwe-upwiz-deeds-custom-prompt' => 'లేదా:',
 	'mwe-upwiz-source-ownwork' => 'ఈ {{PLURAL:$1|దస్త్రం నా స్వంత కృతి|దస్త్రాలు నా స్వంత కృతులు}}.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'నేను, $2, ఈ {{PLURAL:$1|కృతి|కృతుల}} యొక్క కాపీహక్కుదారున్ని, ఈ {{PLURAL:$1|కృతిని|కృతులను}} ఇందుమూలముగా ఈ క్రింది లైసెన్సు(ల) ప్రకారం ప్రచురిస్తున్నాను:',
 	'mwe-upwiz-source-thirdparty' => 'ఈ {{PLURAL:$1|దస్త్రం నా స్వంత కృతి కాదు|దస్త్రాలు నా స్వంత కృతులు కావు}}.',
@@ -25603,7 +25598,6 @@ $messages['tr'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|saniye|saniye}} kaldı',
 	'mwe-upwiz-mins-secs-remaining' => 'Kalan süre $1 {{PLURAL:$1|dakika|dakika}} $2 {{PLURAL:$2|saniye|saniye}}',
 	'mwe-upwiz-deeds-macro-prompt' => '{{SITENAME}} sitesinde {{PLURAL:$1| bu eserin | bu eserlerin}} yasal olarak herkesin kullanabilmesi için telif bilgilerinin sağlanması gerekmektedir.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Veya:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Bu dosya|Bu dosyalar}} kendi çalışmam.',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Bu dosya|Bu dosyalar}} kendi çalışmam değil.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Lütfen her dosya için onları bulduğunuz adresleri girin.',
@@ -25708,7 +25702,6 @@ $messages['tt-cyrl'] = array(
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|$1 секунд калды}}',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|$1 минут}} {{PLURAL:$2|$2 секунд калды}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|$1 сәгать}} {{PLURAL:$2|$2 минут}} {{PLURAL:$3|$3 секунд калды}}',
-	'mwe-upwiz-deeds-custom-prompt' => 'Яки:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-desc' => 'Тасвирлау',
 );
@@ -26182,7 +26175,6 @@ $messages['vep'] = array(
 	'mwe-upwiz-remove' => 'Čuta poiš',
 	'mwe-upwiz-upload' => 'Jügutoitta',
 	'mwe-upwiz-progressbar-uploading' => 'jügutoitmine',
-	'mwe-upwiz-deeds-custom-prompt' => 'Vai:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-desc' => 'Ümbrikirjutand',
 	'mwe-upwiz-title' => 'Pälkirjutez',
@@ -26624,7 +26616,6 @@ $messages['wa'] = array(
 	'mwe-upwiz-mins-secs-remaining' => 'i dmeure co $1 {{PLURAL:$1|munute|munutes}} $2 {{PLURAL:$2|sigonde|sigondes}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'I dmeure co $1 eure{{PLURAL:$1||s}} $2 munute{{PLURAL:$2||s}} et $3 sigonde{{PLURAL:$3||s}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Cisse waibe ci vos preye di dner des racsegnes so ls abondroets di {{PLURAL:$1|cist ovraedje|ces ovraedjes}} cial, po-z esse seur ki tertos {{PLURAL:$1|el|elzès}} pout eployî.',
-	'mwe-upwiz-deeds-custom-prompt' => 'Oudon-bén :',
 	'mwe-upwiz-source-ownwork' => "{{PLURAL:$1|Ci fitchî|Ces fitchîs}} cial, c' est d' l' ovraedje da minne tot seu (tote seule).",
 	'mwe-upwiz-source-ownwork-assert-any-license' => "Mi, $2, li mwaisse tinant(e) des abondroets di {{PLURAL:$1|ciste ouve|ces ouves}} cial, dji dene, pal voye di cist acertinaedje ci et sins m' poleur måy disdire, li droet a tolminme kî d' eployî, candjî et spåde {{PLURAL:$1|ciste ouve|ces ouves}} cial po tolminme ké såme; ça fwait ki dji {{PLURAL:$1|l'|ls}} eplaide al môde ki shût :",
 	'mwe-upwiz-source-ownwork-assert' => "Mi, $2, li mwaisse tinant des abondroets di {{PLURAL:$1|cist ovraedje|ces ovraedjes}} cial, pa cist acertinaedje, dji dene, sins m' poleur måy disdire, li droet a tolminme kî d' eployî {{PLURAL:$1|cist ovraedje|ces ovraedjes}} cial po tolminme ké såme, a condicion k' on cite mi no, et k' on eplaide les ovraedjes rifwaites a pårti di mi ouve, dizo l' minme licince.",
@@ -26897,7 +26888,6 @@ $messages['yi'] = array(
  * @author Demmy
  */
 $messages['yo'] = array(
-	'mwe-upwiz-deeds-custom-prompt' => 'Tàbí:',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Fáìlì|Àwọn fáìlì}} yìí jẹ́ iṣẹ́ ọwọ́ mi.',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-title' => 'Àkọlé',
@@ -27261,7 +27251,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-prefs-skiptutorial' => '跳过授权协议教程',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
  * @author Horacewai2
  * @author Justincheng12345
