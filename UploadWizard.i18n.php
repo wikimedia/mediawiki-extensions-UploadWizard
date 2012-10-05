@@ -36,7 +36,7 @@ $messages['en'] = array(
 
 	'mwe-upwiz-api-warning-exists' => 'There is [$1 another file] already on the wiki with the same filename',
 	'mwe-upwiz-api-warning-was-deleted' => 'There was a file by this name, "$1", but it was deleted and you can not reupload the file. If your file is different, try renaming it.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The English one is shown instead.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The $1 one is shown instead.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Sorry, we could not find any files for the tutorial that is supposed to go here. Please contact the system administrators.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Sorry, we could not get a scaled image of the tutorial to fit this screen. This may be a temporary problem with Wikimedia Commons; try again later.',
 	'mwe-upwiz-help-desk' => 'Help Desk',
@@ -452,6 +452,8 @@ For more information, see //www.mediawiki.org/wiki/UploadWizard',
 | [[file:commons-uw-L52G.png|Initial "{{MediaWiki:mwe-upwiz-step-details/en}}" page|thumb|right]]
 | [[file:commons-uw-L52X.png|Initial "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 |} This is a short greyed or bolded label, in the top bar of all pages of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]]. Use the verb for this message.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'This message is shown when a tutorial file in a fallback language for user\'s interface language is used instead.
+$1 is the name of the fallback language.',
 	'mwe-upwiz-help-desk' => 'This should be the same text as it is used in the svg comic on the first page of the Upload Wizard',
 	'mwe-upwiz-help-desk-url' => 'As this is mailny used on Commons, it should remain as such and be overrriden when the UploadWizard is pushed on the local wikis.',
 	'mwe-upwiz-add-file-n' => '{| align="right"
