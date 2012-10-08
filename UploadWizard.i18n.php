@@ -410,6 +410,7 @@ Please do not use wikitext or HTML here.',
  * @author Raymond
  * @author Siebrand
  * @author Strainu
+ * @author Toliño
  * @author Umherirrender
  * @author Yekrats
  */
@@ -5531,18 +5532,33 @@ $messages['diq'] = array(
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Bar kerdışi rê $1 {{PLURAL:$1|seat|seati}}, $2 {{PLURAL:$2|deqe|deqey}} u $3 {{PLURAL:$3|saniye|saniyey}} mende',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Na dosya|Nê dosyay}} gurweynayışê mınê.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Ez, wayıra telif da $2 ya, {{PLURAL:$1| ena gurenayışa|nê gurenayışê}} mı, etiya de kes nêşeno karfiyo, ke nêşeno bıvurno u fına şari ra vıla kero, {{PLURAL:$1| na gurenayışa|nê gurenayışê}} mı vılakerden rê tay şertê mı estê, enê {{PLURAL:$1| nê|şerti}} zey cêriyê:',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Awıstırya 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Almanya 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Estonya 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} İspanya 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Xırwatıstan 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Luksemburg 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Hollanda 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Norwec 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Polonya 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Romanya 3.0 lisans de Creative Commons Attribution ShareAlike bındı şeno karfiyo ([Legal kode $3]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Karfinayışê cı meqbulo, {{PLURAL:$1|na gurwa|nê gurwey}} vılakerdış yana remiksê cı, Kes emeleya cı nêkero se u na gurewyanışa sero do lisanser vıla u şari rê  akero.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} 3.0 lisans de Creative Commons Attribution bındı şeno karfiyo ([Legal kode $3]).',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Ez, wayıra $2 ya, {{PLURAL:$1|na gurenayışa|nê gurenayışê}} mı, şar pêro şeno {{PLURAL:$1|ena gurenayış|enê gurenayışa}} Awıstırya 3.0 lisans de Creative Commons Public Domain Dedication bındı şeno karfiyo ([Legal kode $3]).',
+	'mwe-upwiz-source-permission' => 'Nuskarê nina, barkerdışê ninan rê mısade da',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Na dosya|Nê dosyay}} gurweynayışê mınê.',
+	'mwe-upwiz-source-thirdparty-intro' => 'Recay ma qande herg dosya re linkane cı defiye de.',
 	'mwe-upwiz-source-thirdparty-accept' => 'Temam',
 	'mwe-upwiz-more-options' => 'Kategori u zewbi malumat dekerê de ...',
 	'mwe-upwiz-copy-metadata' => 'Malumatê bıniya {{PLURAL:$1|zewbi barkerdena|barkerdışane cı}} pêron kopya ke ...',
@@ -5565,6 +5581,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-location-alt' => 'berzî',
 	'mwe-upwiz-copyright-info' => 'Heqê vılayin',
 	'mwe-upwiz-author' => 'Nuskar(i)',
+	'mwe-upwiz-autoconverted' => 'Eno dosya otomotikmen formatê $1 rê konversiyon biyo.',
 	'mwe-upwiz-other' => 'Melumatê bini',
 	'mwe-upwiz-source' => 'Çıme',
 	'mwe-upwiz-thanks-intro' => 'Qandê barfinayışi şıma rê teşekur kem!',
@@ -5577,6 +5594,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-ok' => 'Temam',
 	'mwe-upwiz-cancel' => 'Bıtexelne',
 	'mwe-upwiz-fileexists' => 'no name de ca ra yew dosya esta. eke şıma emin niê bıvurni, kerem kerê <b><tt>$1</tt></b> kontrol bıkerê.',
+	'mwe-upwiz-fileexists-replace-no-link' => 'Xora Eno name de yew dosya esta.',
 	'mwe-upwiz-blacklisted' => 'Reca keme zewbina weçine, name wa şınasnaye bo.',
 	'mwe-upwiz-thumbnail-more' => 'Gırd ke',
 	'mwe-upwiz-overwrite' => 'Dosyayer bıvurne',
@@ -5598,6 +5616,8 @@ $messages['diq'] = array(
 	'mwe-upwiz-license-show-all' => 'Zewbi lisans karfiyê',
 	'mwe-upwiz-license-show-recommended' => 'Lisansa ke weseyneyaya ay karfiyê',
 	'mwe-upwiz-error-signature-blank' => 'Kışta bıniya ya name de raştaya yana name de karberiya imza kerdış icab kena.',
+	'mwe-upwiz-error-latitude' => "Hereneya cı -90 u 90'i ared bo.",
+	'mwe-upwiz-error-longitude' => 'Derganeya cı -180 u 180 arde bo.',
 	'mwe-upwiz-error-altitude' => 'Reqem do yew amar bo',
 	'mwe-upwiz-error-signature-too-long' => 'İmzayê şıma zaf dergo.
 $1 gani bınê no {{PLURAL:$1|karakter|karakter}} de bıbo.',
@@ -5636,6 +5656,7 @@ Reca kem wa dergeya cı $1 {{PLURAL:$1|karakter|karakter}} bo.',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Attribution 2.0 ([$2 hıquqi kode])',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (hekapêron bıvinê, male şariyo: [$2 hıquqi kode])',
 	'mwe-upwiz-license-fal' => 'Lisansê Xoseri Zagoni',
+	'mwe-upwiz-license-own-pd' => 'Hame heqan be lisanso Creative Commons Zero fereğet biyo (zey malê şari)',
 	'mwe-upwiz-license-pd-old-100' => 'Nuskarê cı 100 ser ra vêşiyo ke merdo',
 	'mwe-upwiz-license-pd-old' => 'Nuskarê cı 70 ser ra vêşiyo ke merdo',
 	'mwe-upwiz-license-pd-us' => 'Dewletanê Yewbiyayeyan de ya sıfte 1923 de hesreyayo.',
@@ -6557,7 +6578,7 @@ $messages['es'] = array(
 	'mwe-upwiz-step-thanks' => 'Usar',
 	'mwe-upwiz-api-warning-exists' => 'Ya existe [$1 otro archivo] en este wiki con el mismo nombre.',
 	'mwe-upwiz-api-warning-was-deleted' => 'Existió un archivo con este nombre, «$1», pero fue eliminado y no puedes volver a subir el archivo. Si el archivo es diferente, intenta cambiarle el nombre.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Lo sentimos, no hemos podido encontrar un tutorial en tu idioma. El tutorial en inglés se muestra en su lugar.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Lo sentimos, no hemos podido encontrar un tutorial en tu idioma. En su lugar se muestra el tutorial en $1.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Lo sentimos, no pudimos encontrar ningún archivo para el tutorial que se supone que debe ir aquí. Contacta a los administradores del sistema.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Lo sentimos, no pudimos obtener una imagen escalada del tutorial para adaptarse a esta pantalla. Esto puede ser un problema temporal con Wikimedia Commons; inténtalo de nuevo más tarde.',
 	'mwe-upwiz-help-desk' => 'Ayuda',
@@ -8924,7 +8945,7 @@ $messages['gl'] = array(
 	'mwe-upwiz-step-thanks' => 'Usar',
 	'mwe-upwiz-api-warning-exists' => 'Xa hai [$1 outro ficheiro] no wiki co mesmo nome',
 	'mwe-upwiz-api-warning-was-deleted' => 'Xa había un ficheiro con ese nome, "$1", pero foi eliminado e non pode volver cargar o ficheiro. Se o seu ficheiro é diferente, intente cambiarlle o nome.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sentímolo, non contamos cunha guía na súa lingua. En vez diso, móstrase a guía en inglés.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sentímolo, non contamos cunha guía na súa lingua. No seu lugar móstrase a guía en $1.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Sentímolo, non atopamos os ficheiros da guía que deberían ir aquí. Póñase en contacto cos administradores do sistema.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Sentímolo, non podemos obter unha imaxe a escala da guía que caiba nesta pantalla. Pódese tratar dun problema temporal da Wikimedia Commons; inténteo de novo máis tarde.',
 	'mwe-upwiz-help-desk' => 'Axuda',
@@ -17898,6 +17919,7 @@ $1',
  * @author Danmichaelo
  * @author EivindJ
  * @author Event
+ * @author Jsoby
  * @author Laaknor
  * @author Nghtwlkr
  * @author Simny
@@ -17923,7 +17945,7 @@ $messages['nb'] = array(
 	'mwe-upwiz-step-thanks' => 'Bruk',
 	'mwe-upwiz-api-warning-exists' => 'Det finnes allerede [$1 en annen fil]  på wikien med samme filnavnet',
 	'mwe-upwiz-api-warning-was-deleted' => 'Det var en annen fil med dette navn, «$1», men den ble slettet og du kan ikke laste den opp på nytt. Om denne filen er annerledes, prøv å bruke et annet navn.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Det var dessverre ingen veiviser på ditt språk. Den engelske veiviseren vises i stedet.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Det var dessverre ingen veiviser på ditt språk. Veiviseren på $1 vises i stedet.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Vi fant dessverre ikke filene for veiviseren som skal vises her. Vennligst kontakt de systemansvarlige.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Vi fant dessverre ikke en nedskalert versjon av bildet av veiviseren som passer til denne skjermen. Dette kan være et midlertidig problem med Wikimedia Commons; prøv igjen senere.',
 	'mwe-upwiz-help-desk' => 'Hjelp',
@@ -17945,6 +17967,7 @@ $messages['nb'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Laster et miniatyrbilde for denne filen',
 	'mwe-upwiz-remove-description' => 'Fjern denne beskrivelsen',
 	'mwe-upwiz-upload' => 'Last opp',
+	'mwe-upwiz-file-upload-notcapable' => 'Nettleseren din er dessverre ikke i stand til å laste opp filer. Prøv en annen nettleser.',
 	'mwe-upwiz-file-all-ok' => 'Alle opplastninger var vellykket!',
 	'mwe-upwiz-file-some-failed' => 'Noen opplastninger feilet.',
 	'mwe-upwiz-file-retry' => 'Forsøk feilede opplastninger på nytt',
@@ -23073,6 +23096,7 @@ $messages['sk'] = array(
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  * @author Irena Plahuta
  * @author Yerpo
  */
@@ -23132,8 +23156,8 @@ $messages['sl'] = array(
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|preostane $1 ura|preostaneta $1 uri|preostanejo $1 ure|preostane $1 ur}} $2 {{PLURAL:$2|minuta|minuti|minute|minut}} $3 {{PLURAL:$3|sekunda|sekundi|sekunde|sekund}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Stran od vas zahteva navedbo informacij o avtorskih pravicah za {{PLURAL:$1|to delo|ti deli|ta dela}}, zato da se prepričajo, da {{PLURAL:$1|jo|ju|jih}} lahko vsakdo zakonito ponovno uporabi.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Datoteka je|Datoteki sta|Datoteke so}} moje lastno delo.',
-	'mwe-upwiz-source-ownwork-assert-any-license' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, s tem vsakomur nepreklicno dovoljujem, da uporablja, spreminja in razširja {{PLURAL:$1|to delo|ti deli|ta dela}} za kakršen koli namen, in {{PLURAL:$1|ga|ju|jih}} zato objavljam pod naslednjimi pogoji:',
-	'mwe-upwiz-source-ownwork-assert' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, s tem vsakomur nepreklicno dovoljujem, da uporablja {{PLURAL:$1|to delo|ti deli|ta dela}} za kakršen koli namen, dokler me navedejo in delijo izpeljano delo pod enakimi pogoji.',
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'Jaz, $2, imetnik avtorskih pravic na {{PLURAL:$1|tem delu|teh delih}}, s tem vsakomur nepreklicno dovoljujem, da uporablja, spreminja in razširja {{PLURAL:$1|to delo|ti deli|ta dela}} za kakršen koli namen, in {{PLURAL:$1|ga|ju|jih}} zato objavljam pod naslednjimi pogoji:',
+	'mwe-upwiz-source-ownwork-assert' => 'Jaz, $2, imetnik avtorskih pravic na {{PLURAL:$1|tem delu|teh delih}}, s tem vsakomur nepreklicno dovoljujem, da uporablja {{PLURAL:$1|to delo|ti deli|ta dela}} za kakršen koli namen, dokler me navedejo in delijo izpeljano delo pod enakimi pogoji.',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 ([$3 zakonik]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Vsakdo lahko uporablja, deli ali predela {{PLURAL:$1|to delo|ti deli|ta dela}}, dokler me navede in deli kakršno koli predelano delo pod tem dovoljenjem.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Avstrija ([$3 zakonik]).',
@@ -23154,11 +23178,11 @@ $messages['sl'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(Vsakdo lahko uporablja, deli ali predela {{PLURAL:$1|to delo|ti deli|ta dela}}, dokler me navede kot avtorja in deli kakršno koli predelano delo pod tem dovoljenjem.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Poljska ([$3 zakonik]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(Vsakdo lahko uporablja, deli ali predela {{PLURAL:$1|to delo|ti deli|ta dela}}, dokler me navede kot avtorja in deli kakršno koli predelano delo pod tem dovoljenjem.)',
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Romunija ([$3 zakonik]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Jaz, $2, imetnik avtorskih pravic na {{PLURAL:$1|tem delu|teh delih}}, vsakomur nepreklicno podeljujem pravico do uporabe teh {{PLURAL:$1|dela|del}} pod licenco Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Romunija ([$3 zakonik]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Vsakdo lahko uporablja, deli ali predela {{PLURAL:$1|to delo|ti deli|ta dela}}, dokler me navede kot avtorja in deli kakršno koli predelano delo pod tem dovoljenjem.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Priznanje avtorstva 3.0 ([$3 zakonik]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(Vsakdo lahko uporablja, deli ali predela {{PLURAL:$1|to delo|ti deli|ta dela}}, dokler me navede.)',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Posvetitev v javno last ([$3 zakonik]).',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Jaz, $2, imetnik avtorskih pravic na {{PLURAL:$1|tem delu|teh delih}}, vsakomur nepreklicno podeljujem pravico do uporabe teh {{PLURAL:$1|dela|del}} pod dovoljenjem Creative Commons Posvetitev v javno last ([$3 zakonik]).',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(Vsakdo lahko uporablja, deli ali predela {{PLURAL:$1|to delo|ti deli|ta dela}}, brez kakršnih koli omejitev.)',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Jaz, $2, nosilec avtorskih pravic {{PLURAL:$1|tega dela|teh del}}, vsakomur nepreklicno podeljujem pravico do uporabe {{PLURAL:$1|dela|del}} pod naslednjim dovoljenjem:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Jaz, imetnik avtorskih pravic za {{PLURAL:$2|to delo|ti deli|ta dela}}, {{PLURAL:$2|to delo|ti deli|ta dela}} objavljam pod dovoljenjem $1.',
@@ -23316,7 +23340,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-license-pd-ineligible-help' => 'Previdno s tem. Slika mora biti zelo preprosta, npr. zelen krog ali rdeč kvadrat',
 	'mwe-upwiz-license-pd-textlogo' => 'Logotip s samo preprostim besedilom (trgovsko ime)',
 	'mwe-upwiz-license-copyrighted-free-use' => 'Avtorsko zaščiteno, vendar se lahko uporablja za kateri koli namen, vključno s komercialnim',
-	'mwe-upwiz-license-attribution' => 'Lahko se uporablja za kateri koli namen, vključno s komercialnim, če je nosilec avtorskih pravic pravilno pripisan',
+	'mwe-upwiz-license-attribution' => 'Lahko se uporablja za kateri koli namen, vključno komercialno, če je imetnik avtorskih pravic pravilno naveden.',
 	'mwe-upwiz-license-gfdl' => 'Dovoljenje GNU za rabo proste dokumentacije',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, potreben je pripis avtorstva (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-cc-head' => 'Imetnik avtorskih pravic je objavil {{PLURAL:$1|to delo|ti deli|ta dela}} pod ustreznim dovoljenjem Creative Commons',
@@ -26272,7 +26296,7 @@ $messages['vi'] = array(
 	'mwe-upwiz-step-thanks' => 'Sử dụng',
 	'mwe-upwiz-api-warning-exists' => 'Wiki này đã có [$1 tập tin] cùng tên và cùng nội dung.',
 	'mwe-upwiz-api-warning-was-deleted' => 'Đã từng có một tập tìn cùng tên “$1”, nhưng nó đã bị xóa. Bạn không được phép tải nó lên lại. Nếu tập tin của bạn khác với tập tin cũ, hãy thử đổi tên nó.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Rất tiếc, không thể tìm thấy hướng dẫn trong ngôn ngữ của bạn. Hướng dẫn tiếng Anh được trình bày thay thế.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Rất tiếc, không thể tìm thấy hướng dẫn trong ngôn ngữ của bạn. Hướng dẫn $1 được trình bày thay thế.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Rất tiếc, không thể tìm thấy tập tin nào của hướng dẫn thường có sẵn tại đây. Xin hãy liên lạc với những người quản lý hệ thống.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Đáng tiếc, không thể tải hình thu của hướng dẫn vừa màn hình này. Có lẽ đây chỉ là vấn đề tạm thời tại Wikimedia Commons; xin hãy thử lại sau.',
 	'mwe-upwiz-help-desk' => 'Bàn giúp đỡ',
