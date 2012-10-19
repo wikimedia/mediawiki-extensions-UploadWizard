@@ -31,6 +31,13 @@ mw.FormDataTransport.prototype = {
             file = this.uploadObject.file,
             bytesAvailable = file.size;
 
+        // use timestamp + filename to avoid conflicts on server
+        this.tempname = ( new Date() ).getTime().toString() + file.name;
+        // remove unicode characters, tempname is only used during upload
+        this.tempname = this.tempname.split('').map(function(c) {
+            return c.charCodeAt(0) > 128 ? '_' : c;
+        }).join('');
+
         if( mw.UploadWizard.config[ 'enableChunked' ] && file.size > this.chunkSize ) {
             this.uploadChunk(0);
         } else {
@@ -56,8 +63,7 @@ mw.FormDataTransport.prototype = {
             $j.each(this.formData, function(key, value) {
                 formData.append(key, value);
             });
-            // use timestamp + filename to avoid conflicts on server
-			formData.append('filename', ( new Date() ).getTime().toString() + file.name);
+			formData.append('filename', this.tempname);
 			formData.append('file', file);
 
 			// ignorewarnings is turned on, since warnings are presented in a later step and this
@@ -151,8 +157,7 @@ mw.FormDataTransport.prototype = {
             formData.append(key, value);
         });
         formData.append('offset', offset);
-        // use timestamp + filename to avoid conflicts on server
-        formData.append('filename', ( new Date() ).getTime().toString() + file.name);
+        formData.append('filename', _this.tempname);
 
 		// ignorewarnings is turned on intentionally, see the above comment to the same effect.
 		formData.append( 'ignorewarnings', true );
