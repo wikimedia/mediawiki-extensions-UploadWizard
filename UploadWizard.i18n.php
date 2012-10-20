@@ -4677,6 +4677,7 @@ Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
  * @author Christian List
  * @author Danmichaelo
  * @author Hylle
+ * @author Kaare
  * @author Peter Alberti
  */
 $messages['da'] = array(
@@ -4699,7 +4700,7 @@ $messages['da'] = array(
 	'mwe-upwiz-step-thanks' => 'Brug',
 	'mwe-upwiz-api-warning-exists' => 'Der er allerede [$1 en anden fil] med samme filnavn på denne wiki',
 	'mwe-upwiz-api-warning-was-deleted' => 'Der har tidligere været lagt en fil op med dette navn, "$1", men den blev slettet, og du kan ikke lægge den op igen. Hvis din fil er en anden, prøv at ændre navnet.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Beklager, vi kunne ikke finde en vejviser på dit sprog. I stedet for viser vi den på $1.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Beklager, vi kunne ikke finde en vejledning på dit sprog. I stedet for viser vi den på $1.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Beklager, vi kunne ikke finde nogen filer hørende til den vejviser, som skulle vises her. Tag venligst kontakt til systemadministratorerne.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Beklager, vi kunne ikke få et skaleret billede af vejviseren, der passer til skærmen. Dette kan være et midlertidigt problem med Wikimedia Commons, prøv igen senere.',
 	'mwe-upwiz-help-desk' => 'Hjælp',
@@ -20541,7 +20542,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 نور مالومات]',
 	'mwe-upwiz-errordialog-ok' => 'ښه',
 	'mwe-upwiz-campaigns-status' => 'دريځ',
-	'mwe-upwiz-campaigns-enabled' => 'چارن',
+	'mwe-upwiz-campaigns-enabled' => 'چارنول',
 	'mwe-upwiz-campaigns-disabled' => 'ناچارن',
 	'mwe-upwiz-campaigns-edit' => 'سمول',
 	'mwe-upwiz-campaigns-add' => 'ورګډول',
@@ -23308,7 +23309,7 @@ $messages['sl'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Datoteka ni|Datoteki nista|Datoteke niso}} moje delo.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Prosimo, vnesite naslove, kjer ste našli vsako od datotek.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Če imajo vse datoteke isti vir, avtorja in stanje avtorskih pravic, jih lahko za vse datoteke vnesete samo enkrat.',
-	'mwe-upwiz-source-thirdparty-license' => 'Imetnik avtorskih pravic je {{PLURAL:$1|to delo|ta dela}} objavil pod naslednjimi licencami:',
+	'mwe-upwiz-source-thirdparty-license' => 'Imetnik avtorskih pravic je {{PLURAL:$1|to delo|ti deli|ta dela}} objavil pod naslednjimi licencami:',
 	'mwe-upwiz-source-thirdparty-cases' => 'Sedaj nam povejte, zakaj ste prepričani, da imate pravico objaviti {{PLURAL:$1|to delo|ti deli|ta dela}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'V redu',
 	'mwe-upwiz-source-custom' => 'Na naslednji strani navedite podatke o avtorskih pravicah za vsako datoteko posebej.',
@@ -23463,7 +23464,7 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, potreben je pripis avtorstva (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-cc-head' => 'Imetnik avtorskih pravic je {{PLURAL:$1|to delo|ti deli|ta dela}} objavil z ustrezno licenco Creative Commons.',
 	'mwe-upwiz-license-cc-subhead' => 'Za to spletišče vse licence Creative Commons niso primerne. Prepričajte se, da je imetnik avtorskih pravic uporabil eno od naslednjih licenc.',
-	'mwe-upwiz-license-flickr-head' => 'Imetnik avtorskih pravic je {{PLURAL:$1|svojo sliko ali video|svoji sliki ali videa|svoje slike ali videe}} objavil na Flickr s pravo licenco.',
+	'mwe-upwiz-license-flickr-head' => 'Imetnik avtorskih pravic je {{PLURAL:$1|svojo sliko ali video|svoji sliki ali videa|svoje slike ali videe}} objavil na Flickr-ju s pravo licenco.',
 	'mwe-upwiz-license-flickr-subhead' => 'Preverite razdelek »License« (Licenca) na robu strani Flickr. Tako ikona kot ime uporabljene licence se morata ujemati z izbirami, ki so na razpolago tukaj.',
 	'mwe-upwiz-license-public-domain-usa-head' => 'Avtorske pravice so v ZDA zagotovo potekle.',
 	'mwe-upwiz-license-public-domain-usa-subhead' => '{{SITENAME}} se nahaja v ZDA, zato morajo avtorske pravice dela v tej državi poteči.',
@@ -23551,7 +23552,7 @@ $1',
 	'prefs-upwiz-licensing' => 'Licenciranje',
 	'prefs-upwiz-experimental' => 'Preizkusne funkcije',
 	'prefs-upwiz-interface' => 'Uporabniški vmesnik',
-	'mwe-upwiz-prefs-def-license' => 'Prednastavljena licenca',
+	'mwe-upwiz-prefs-def-license' => 'Privzeta licenca',
 	'mwe-upwiz-prefs-def-license-def' => 'Uporabi kar koli je privzeto',
 	'mwe-upwiz-prefs-license-own' => 'Lastno delo - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Delo nekoga drugega - $1',
