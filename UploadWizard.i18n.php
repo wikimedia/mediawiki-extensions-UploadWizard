@@ -5455,7 +5455,6 @@ Sie können nun [$1 Firefogg], ein Add-on zu Firefox installieren, das die Datei
 	'mwe-upwiz-file-need-file' => 'Fügen Sie zuerst eine Datei zum Hochladen hinzu.',
 	'mwe-upwiz-deeds-need-deed' => 'Erläutern Sie bitten, woher die {{PLURAL:$1|Datei|Dateien}} stammen und wie sie auf dieser Website genutzt werden können, indem Sie eine der Optionen auswählen.',
 	'mwe-upwiz-deeds-need-license' => 'Bitte wählen Sie eine Lizenz aus.',
-	'mwe-upwiz-license-show-all' => 'Verwenden Sie eine andere Lizenz',
 	'mwe-upwiz-license-show-recommended' => 'Verwenden Sie die empfohlene Lizenz',
 	'mwe-upwiz-error-signature-blank' => 'Sie müssen das Feld unten mit Ihrem Benutzernamen oder Ihrem bürgerlichen Namen unterzeichnen.',
 	'mwe-upwiz-error-signature-too-long' => 'Ihre Signatur ist zu lang.
