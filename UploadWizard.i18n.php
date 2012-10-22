@@ -24345,9 +24345,9 @@ Ovde ne koristite vikitekst ili HTML, samo svoje korisničko ili pravo ime.',
 	'mwe-upwiz-error-blank' => 'Ovo polje je obavezno.',
 	'mwe-upwiz-error-nologin' => 'Morate da budete <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} prijavljeni]</span> da biste otpremali datoteke.',
 	'mwe-upwiz-error-too-long' => 'Ovo polje je predugačko.
-Mora da bude kraće od $1 {{PLURAL:$1|znaka|znaka|znakova}}.', # Fuzzy
+Mora da bude kraće od $1 {{PLURAL:$1|znaka|znaka|znakova}}.',
 	'mwe-upwiz-error-too-short' => 'Ovo polje je prekratko.
-Mora da bude duže od $1 {{PLURAL:$1|znaka|znaka|znakova}}.', # Fuzzy
+Mora da bude duže od $1 {{PLURAL:$1|znaka|znaka|znakova}}.',
 	'mwe-upwiz-error-bad-chars' => 'Ovo polje sadrži simbole koji su zabranjeni.
 Ovde ne koristite vikitest ili HTML.',
 	'mwe-upwiz-error-date' => 'Unesite ispravan datum u formatu GGGG-MM-DD, ili pak izaberite datum iz iskačućeg kalendara.',
@@ -25306,8 +25306,8 @@ $messages['te'] = array(
 దాన్ని {{PLURAL:$1|ఒక అక్షరానికి|$1 అక్షరాల వరకూ}} పొడగించండి.',
 	'mwe-upwiz-error-blank' => 'ఈ ఖాళీని తప్పనిసరిగా పూరించాలి.',
 	'mwe-upwiz-error-nologin' => 'దస్త్రాలను ఎక్కించడానికి మీరు తప్పనిసరిగా <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ప్రవేశించి]</span> ఉండాలి.',
-	'mwe-upwiz-error-too-long' => 'ఈ ఖాళీ చాలా పెద్దగా ఉంది.
-దీన్ని {{PLURAL:$1|ఒక అక్షరానికి|$1 అక్షరాలకు}} కుదించండి.',
+	'mwe-upwiz-error-too-long' => 'ఈ పద్దు చాలా పెద్దగా ఉంది.
+దీన్ని {{PLURAL:$1|ఒక అక్షరానికి|$1 అక్షరాల కంటే తక్కువకు}} కుదించండి.',
 	'mwe-upwiz-error-title-senselessimagename' => 'ఈ శీర్షికని మరింత అర్థవంతంగా ఉండేట్టు పెట్టండి.',
 	'mwe-upwiz-too-many-files-ok' => 'సరే',
 	'mwe-upwiz-too-many-files' => 'చాలా దస్త్రాలు.',
