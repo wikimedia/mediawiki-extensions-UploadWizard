@@ -188,7 +188,7 @@ For a photo, mention the main things that are depicted, the occasion, or the pla
 	'mwe-upwiz-deeds-need-license' => 'Please select a license.',
 	'mwe-upwiz-license-show-all' => 'Use a different license',
 	'mwe-upwiz-license-show-recommended' => 'Use the recommended license',
-	'mwe-upwiz-error-signature-blank' => 'You must sign the field below with your username or real name.',
+	'mwe-upwiz-error-signature-blank' => 'You must sign with your username or real name in the field below.',
 	'mwe-upwiz-error-latitude' => 'The latitude needs to be between -90 and 90.',
 	'mwe-upwiz-error-longitude' => 'The longitude needs to be between -180 and 180.',
 	'mwe-upwiz-error-altitude' => 'The altitude needs to be a number.',
@@ -200,11 +200,11 @@ Make it longer than $1 {{PLURAL:$1|character|characters}}.',
 Please do not use wikitext or HTML here, just your username or real name.',
 	'mwe-upwiz-error-blank' => 'This field is required.',
 	'mwe-upwiz-error-nologin' => 'You must be <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} logged in]</span> to upload files.',
-	'mwe-upwiz-error-too-long' => 'This field is too long.
+	'mwe-upwiz-error-too-long' => 'This entry is too long.
 Please make this entry shorter than $1 {{PLURAL:$1|character|characters}}.',
-	'mwe-upwiz-error-too-short' => 'This field is too short.
+	'mwe-upwiz-error-too-short' => 'This entry is too short.
 Please make this entry longer than $1 {{PLURAL:$1|character|characters}}.',
-	'mwe-upwiz-error-bad-chars' => 'This field contains symbols that are not allowed.
+	'mwe-upwiz-error-bad-chars' => 'This entry contains symbols that are not allowed.
 Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-date' => 'Please enter a valid date in YYYY-MM-DD format, or pick a date from the popup calendar.',
 	'mwe-upwiz-error-title-blacklisted' => 'This title contains some undesirable text. Please revise it.',
