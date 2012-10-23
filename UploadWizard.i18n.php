@@ -4854,11 +4854,11 @@ Den skal være længere end $1 {{PLURAL:$1|tegn|tegn}}.',
 Brug venligst ikke wikitekst eller HTML her, kun dit brugernavn eller rigtige navn.',
 	'mwe-upwiz-error-blank' => 'Dette felt skal udfyldes.',
 	'mwe-upwiz-error-nologin' => 'Du skal være <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} logget på]</span> for at kunne lægge filer op.',
-	'mwe-upwiz-error-too-long' => 'Dette felt er for langt.
-Det skal være kortere end $1 {{PLURAL:$1|tegn|tegn}}.',
-	'mwe-upwiz-error-too-short' => 'Dette felt er for kort.
-Det skal være længere end $1 {{PLURAL:$1|tegn|tegn}}.',
-	'mwe-upwiz-error-bad-chars' => 'Dette felt indeholder symboler, der ikke er tilladte.
+	'mwe-upwiz-error-too-long' => 'Dette post er for lang.
+Den skal være kortere end $1 tegn.', # Fuzzy
+	'mwe-upwiz-error-too-short' => 'Denne post er for kort.
+Den skal være længere end $1 tegn.', # Fuzzy
+	'mwe-upwiz-error-bad-chars' => 'Denne post indeholder symboler, der ikke er tilladte.
 Brug venligst ikke wikitekst eller HTML her.',
 	'mwe-upwiz-error-date' => 'Indtast venligst en gyldig dato i formatet ÅÅÅÅ-MM-DD eller vælg en dato i popup-kalenderen.',
 	'mwe-upwiz-error-title-blacklisted' => 'Denne titel indeholder noget uønsket tekst. Revider den venligst',
@@ -9188,11 +9188,11 @@ Debe conter un mínimo {{PLURAL:$1|dun carácter|de $1 caracteres}}.',
 Non utilice texto wiki ou HTML aquí, tan só o seu nome de usuario ou nome real.',
 	'mwe-upwiz-error-blank' => 'Este campo é obrigatorio.',
 	'mwe-upwiz-error-nologin' => 'Debe <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} acceder ao sistema]</span> para cargar ficheiros.',
-	'mwe-upwiz-error-too-long' => 'Este campo é longo de máis.
+	'mwe-upwiz-error-too-long' => 'Esta entrada é longa de máis.
 Non pode conter máis {{PLURAL:$1|dun carácter|de $1 caracteres}}.',
-	'mwe-upwiz-error-too-short' => 'Este campo é curto de máis.
+	'mwe-upwiz-error-too-short' => 'Esta entrada é curta de máis.
 Debe conter un mínimo {{PLURAL:$1|dun carácter|de $1 caracteres}}.',
-	'mwe-upwiz-error-bad-chars' => 'Este campo contén símbolos que non están permitidos.
+	'mwe-upwiz-error-bad-chars' => 'Esta entrada contén símbolos que non están permitidos.
 Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-error-date' => 'Introduza unha data válida co formato AAA-MM-DD ou seleccione unha data no calendario emerxente.',
 	'mwe-upwiz-error-title-blacklisted' => 'Este título contén texto que non está permitido. Por favor, revíseo.',
@@ -12957,11 +12957,11 @@ Deve essere lunga almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
 Non utilizzare codice HTML o wikitesto qui, solo il nome utente o il nome reale.',
 	'mwe-upwiz-error-blank' => 'Questo campo è obbligatorio.',
 	'mwe-upwiz-error-nologin' => 'Devi aver effettuato <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} l\'accesso]</span> per caricare i file.',
-	'mwe-upwiz-error-too-long' => 'Questo testo è troppo lungo.
+	'mwe-upwiz-error-too-long' => 'Questo elemento è troppo lungo.
 Può essere lungo al massimo $1 {{PLURAL:$1|carattere|caratteri}}.',
-	'mwe-upwiz-error-too-short' => 'Questo testo è troppo breve.
+	'mwe-upwiz-error-too-short' => 'Questo elemento è troppo breve.
 Deve essere lungo almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
-	'mwe-upwiz-error-bad-chars' => 'Questo campo contiene simboli non consentiti.
+	'mwe-upwiz-error-bad-chars' => 'Questo elemento contiene simboli non consentiti.
 Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-error-date' => 'Inserisci una data valida nel formato AAAA-MM-GG, o scegli una data dal calendario.',
 	'mwe-upwiz-error-title-blacklisted' => 'Questo titolo contiene parole non opportune. Rivedilo.',
@@ -13139,7 +13139,7 @@ $1',
  */
 $messages['ja'] = array(
 	'uploadwizard' => 'アップロードウィザード',
-	'uploadwizard-desc' => 'アップロードウィザード（マルチメディアをアップロードする利用者にやさしいツール）',
+	'uploadwizard-desc' => 'アップロードウィザード（マルチメディアをアップロードするユーザーフレンドリーなツール）',
 	'mwe-upwiz-uploadcampaigns' => 'アップロードキャンペーン',
 	'mwe-upwiz-uploadcampaign' => 'アップロードキャンペーンの設定',
 	'right-upwizcampaigns' => 'アップロードウィザードのキャンペーンを構成',
@@ -13290,7 +13290,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-deeds-need-license' => 'ライセンスを選択してください。',
 	'mwe-upwiz-license-show-all' => '異なるライセンスを使用',
 	'mwe-upwiz-license-show-recommended' => '推奨されるライセンスを使用',
-	'mwe-upwiz-error-signature-blank' => '以下の項目にあなたの利用者名や本名を署名する必要があります。',
+	'mwe-upwiz-error-signature-blank' => '以下の欄に、あなたの利用者名や本名で署名してください。',
 	'mwe-upwiz-error-latitude' => '緯度は-90度から90度である必要があります。',
 	'mwe-upwiz-error-longitude' => '経度は-180度から180度である必要があります。',
 	'mwe-upwiz-error-altitude' => '標高は数値である必要があります。',
@@ -13301,12 +13301,12 @@ $1文字より長くしてください。',
 	'mwe-upwiz-error-signature-bad-chars' => '署名に、利用できない文字が含まれています。
 署名の中では、ウィキ文やHTMLを利用せず、利用者名または本名のみを入力してください。',
 	'mwe-upwiz-error-blank' => 'この欄は必須です。',
-	'mwe-upwiz-error-too-long' => 'この項目が長すぎます。
-$1文字より短くしてください。',
-	'mwe-upwiz-error-too-short' => 'この項目が短すぎます。
-$1文字より長くしてください。',
-	'mwe-upwiz-error-bad-chars' => 'この項目には、許可されていない記号があります。
-ここではウィキ文やHTMLを使用しないでください。',
+	'mwe-upwiz-error-too-long' => 'この欄の内容が長すぎます。
+$1 {{PLURAL:$1|文字}}より短くしてください。',
+	'mwe-upwiz-error-too-short' => 'この欄の内容が短すぎます。
+$1 {{PLURAL:$1|文字}}より長くしてください。',
+	'mwe-upwiz-error-bad-chars' => 'この欄の内容は、許可されていない記号を含んでいます。
+ここではウィキ文や HTML を使用しないでください。',
 	'mwe-upwiz-error-date' => '有効な日付を、YYYY-MM-DD形式で入力するか、ポップアップのカレンダーから日付を選択してください。',
 	'mwe-upwiz-error-title-blacklisted' => 'このタイトルには望ましくないテキストが含まれます。修正してください。',
 	'mwe-upwiz-error-title-badchars' => 'このタイトルには望ましくない文字が含まれます。取り除いてください。',
@@ -25946,7 +25946,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-transport-started' => 'Початок...',
 	'mwe-upwiz-uploading' => 'завантаження ...',
 	'mwe-upwiz-transported' => 'OK',
-	'mwe-upwiz-stashed-upload' => 'OK', # Fuzzy
+	'mwe-upwiz-stashed-upload' => 'Завантажено',
 	'mwe-upwiz-getting-metadata' => 'Отримання відомостей про файл та його попередній перегляд...',
 	'mwe-upwiz-submitting-details' => 'Подання відомостей і публікація...',
 	'mwe-upwiz-published' => 'Опубліковано!',
@@ -25998,7 +25998,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-copy-metadata' => 'Копіювати інформацію для всіх завантажень нижче...', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Копіювати',
 	'mwe-upwiz-copy-title' => 'Скопіювати заголовок (з автоматичною нумерацією)',
-	'mwe-upwiz-copy-description' => 'Скопіювати опис', # Fuzzy
+	'mwe-upwiz-copy-description' => 'Скопіювати {{PLURAL:$1|опис|описи}}',
 	'mwe-upwiz-copy-date' => 'Скопіювати дату',
 	'mwe-upwiz-copy-categories' => 'Скопіювати категорії', # Fuzzy
 	'mwe-upwiz-copy-location' => 'Скопіювати розташування',
@@ -26082,10 +26082,10 @@ $messages['uk'] = array(
 Будь ласка, не використовуйте розмітку вікі або HTML тут. Тільки ваше ім'я користувача або реальне ім'я.",
 	'mwe-upwiz-error-blank' => "Це поле є обов'язковим для заповнення.",
 	'mwe-upwiz-error-nologin' => 'Ви маєте <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ввійти в систему]</span>, щоб получити можливість завантажувати файли.',
-	'mwe-upwiz-error-too-long' => 'Це поле занадто довге.
-Потрібно його зробити коротшим, ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
-	'mwe-upwiz-error-too-short' => 'Це поле є занадто коротким.
-Зробіть його довшим ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
+	'mwe-upwiz-error-too-long' => 'Цей запис занадто довгий.
+Будь ласка, зробіть його коротшим ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
+	'mwe-upwiz-error-too-short' => 'Цей запис занадто короткий.
+Будь ласка, зробіть його довшим ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
 	'mwe-upwiz-error-bad-chars' => 'Це поле містить недозволені символи.
 Будь ласка, не використовуйте вікітекст або HTML.',
 	'mwe-upwiz-error-date' => 'Будь ласка, введіть коректну дату у форматі РРРР-ММ-ДД, або виберіть дату з календаря-підказки.',
@@ -26151,7 +26151,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-license-public-domain-usa-subhead' => '{{SITENAME}} розташований у США, тому робота не повинна бути захищеною законом про авторське право цієї країні.',
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Цей твір|Ці твори}} створені органами федеральної влади Сполучених Штатів Америки',
 	'mwe-upwiz-license-misc' => 'Різні причини',
-	'mwe-upwiz-license-custom-head' => 'Для експертів: введіть код ліцензії, що тут не зазначено', # Fuzzy
+	'mwe-upwiz-license-custom-head' => 'Інша причина, не згадана вище',
 	'mwe-upwiz-license-custom-preview' => 'Попередній перегляд',
 	'mwe-upwiz-license-none-head' => 'Я знайшов це в Інтернеті -- я не впевнений',
 	'mwe-upwiz-license-none' => 'Я вважаю, що {{PLURAL:$1|цей твір|ці твори}} є вільно-ліцензованими, або юридично знаходяться в суспільному надбанні. Я розумію, що якщо я вчасно не вкажу необхідну інформацію про ліцензування, {{PLURAL:$1|файл буде видалений|файли будуть видалені}}.',
