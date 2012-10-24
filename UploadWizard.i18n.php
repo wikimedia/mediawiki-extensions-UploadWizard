@@ -5210,11 +5210,11 @@ Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
 Verwende hier bitte kein Wikitext oder HTML sondern einfach deinen Benutzernamen oder deinen bürgerlichen Namen.',
 	'mwe-upwiz-error-blank' => 'Dies ist ein Pflichtfeld.',
 	'mwe-upwiz-error-nologin' => 'Du musst <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} angemeldet sein]</span>, um Dateien hochladen zu können.',
-	'mwe-upwiz-error-too-long' => 'Diese Eingabe ist zu lang.
-Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
-	'mwe-upwiz-error-too-short' => 'Diese Eingabe ist zu kurz.
-Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
-	'mwe-upwiz-error-bad-chars' => 'Diese Eingabe enthält unzulässige Zeichen.
+	'mwe-upwiz-error-too-long' => 'Dieser Eintrag ist zu lang.
+Bitte mach ihn kürzer als {{PLURAL:$1|ein Zeichen|$1 Zeichen}}.',
+	'mwe-upwiz-error-too-short' => 'Dieser Eintrag ist zu kurz.
+Bitte mach ihn länger als {{PLURAL:$1|ein Zeichen|$1 Zeichen}}.',
+	'mwe-upwiz-error-bad-chars' => 'Dieser Eintrag enthält unzulässige Zeichen.
 Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-error-date' => 'Bitte ein gültiges Datum im Format JJJJ-MM-TT eingeben oder ein Datum aus dem Popup-Kalender wählen.',
 	'mwe-upwiz-error-title-blacklisted' => 'Der Name enthält unerwünschten Text. Bitte den Namen überarbeiten.',
@@ -11264,11 +11264,11 @@ Legalább $1 karakteres legyen.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Az aláírásod nem megengedett szimbólumokat tartalmaz.
 Kérlek itt ne használj wikikódot vagy HTML-t, csak a felhasználóneved vagy a valódi neved.',
 	'mwe-upwiz-error-blank' => 'A mező kitöltése kötelező.',
-	'mwe-upwiz-error-too-long' => 'Ez a mező túl hosszú.
-Legfeljebb $1 karaktert írj bele.',
-	'mwe-upwiz-error-too-short' => 'Ez a mező túl rövid.
-Írj bele legalább $1 karaktert.',
-	'mwe-upwiz-error-bad-chars' => 'Ez a mező nem megengedett szimbólumokat tartalmaz.
+	'mwe-upwiz-error-too-long' => 'Ez a bejegyzés túl hosszú.
+Legfeljebb $1 karaktert írj bele!',
+	'mwe-upwiz-error-too-short' => 'Ez a bejegyzés túl rövid.
+Írj bele legalább $1 karaktert!',
+	'mwe-upwiz-error-bad-chars' => 'Ez a bejegyzés nem megengedett szimbólumokat tartalmaz.
 Kérlek itt ne használj wikikódot vagy HTML-t.',
 	'mwe-upwiz-error-date' => 'Kérlek adj meg egy érvényes dátumot ÉÉÉÉ-HH-NN formában, vagy válassz dátumot a naptárból.',
 	'mwe-upwiz-error-title-blacklisted' => 'A cím nemkívánatos szöveget tartalmaz. Nézd át, és távolítsd el belőle.',
@@ -15740,7 +15740,7 @@ $messages['lt'] = array(
 	'mwe-upwiz-prefs-def-license-def' => 'Naudoti, kad ir koks yra numatytasis',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
@@ -16504,7 +16504,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-step-thanks' => 'ഉപയോഗിക്കുക',
 	'mwe-upwiz-api-warning-exists' => 'വിക്കിയിൽ ഇതേ പേരിൽ [$1 മറ്റൊരു പ്രമാണമുണ്ട്]',
 	'mwe-upwiz-api-warning-was-deleted' => 'ഇതേ പേരിൽ, "$1", മുമ്പൊരു പ്രമാണമുണ്ടായിരുന്നു, അത് മായ്ക്കപ്പെട്ടിരിക്കുന്നു. താങ്കൾക്ക് പ്രമാണം വീണ്ടും അപ്‌ലോഡ് ചെയ്യാനാവില്ല. താങ്കളുടെ പ്രമാണം വ്യത്യസ്തമെങ്കിൽ, മറ്റൊരു പേര് പരീക്ഷിക്കുക.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ക്ഷമിക്കുക, താങ്കളുടെ ഭാഷയിലുള്ള പരിശീലനക്കുറിപ്പ് കണ്ടെത്താനായില്ല. പകരം ഇംഗ്ലീഷിലുള്ളത് പ്രദർശിപ്പിക്കുന്നു.', # Fuzzy
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ക്ഷമിക്കുക, താങ്കളുടെ ഭാഷയിലുള്ള പരിശീലനക്കുറിപ്പ് കണ്ടെത്താനായില്ല. പകരം $1 ഭാഷയിലുള്ളത് പ്രദർശിപ്പിക്കുന്നു.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'ക്ഷമിക്കുക, ഇവിടെ വരേണ്ട ഏതെങ്കിലും പരിശീലനക്കുറിപ്പോ പ്രമാണങ്ങളോ കണ്ടെത്താനായില്ല. ദയവായി സിസ്റ്റം കാര്യനിർവാഹകരെ സമീപിക്കുക.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'ക്ഷമിക്കുക, ഈ സ്ക്രീനിന് അനുയോജ്യമായ വിധത്തിൽ വലിപ്പവ്യത്യാസം വരുത്താവുന്ന പരിശീലനക്കുറിപ്പ് ലഭ്യമാക്കാനായില്ല. ഇത് വിക്കിമീഡിയ കോമൺസുമായി ബന്ധപ്പെട്ട താത്കാലിക പ്രശ്നമായിരിക്കാം; ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.',
 	'mwe-upwiz-help-desk' => 'സഹായമേശ',
@@ -21379,11 +21379,11 @@ Trebuie să fie mai lungă de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.'
 	'mwe-upwiz-error-signature-bad-chars' => 'Semnătura dumneavoastră conține simboluri care nu sunt permise.
 Vă rugăm să nu utilizați wikitext sau HTML aici, doar numele de utilizator sau numele real.',
 	'mwe-upwiz-error-blank' => 'Acest câmp este obligatoriu.',
-	'mwe-upwiz-error-too-long' => 'Acest câmp este prea lung.
-Trebuie să fie mai scurt de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.',
-	'mwe-upwiz-error-too-short' => 'Acest câmp este prea scurt.
-Trebuie să fie mai lung de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.',
-	'mwe-upwiz-error-bad-chars' => 'Acest câmp conține simboluri care nu sunt permise.
+	'mwe-upwiz-error-too-long' => 'Această intrare este prea lungă.
+Trebuie să fie mai scurtă de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.',
+	'mwe-upwiz-error-too-short' => 'Această intrare este prea scurtă.
+Trebuie să fie mai lungă de $1 {{PLURAL:$1|caracter|caractere|de caractere}}.',
+	'mwe-upwiz-error-bad-chars' => 'Această intrare conține simboluri care nu sunt permise.
 Vă rugăm să nu utilizați wikitext sau HTML aici.',
 	'mwe-upwiz-error-date' => 'Vă rugăm să introduceți o dată validă în formatul AAAA-LL-ZZ sau alegeți o dată din calendarul din fereastră.',
 	'mwe-upwiz-error-title-blacklisted' => 'Acest titlu conține text nedorit. Vă rugăm să îl revizuiți.',
@@ -25905,6 +25905,7 @@ $messages['tt-cyrl'] = array(
 
 /** Ukrainian (українська)
  * @author A1
+ * @author AS
  * @author Ahonc
  * @author Alex Khimich
  * @author Dim Grits
@@ -26082,9 +26083,9 @@ $messages['uk'] = array(
 Будь ласка, не використовуйте розмітку вікі або HTML тут. Тільки ваше ім'я користувача або реальне ім'я.",
 	'mwe-upwiz-error-blank' => "Це поле є обов'язковим для заповнення.",
 	'mwe-upwiz-error-nologin' => 'Ви маєте <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ввійти в систему]</span>, щоб получити можливість завантажувати файли.',
-	'mwe-upwiz-error-too-long' => 'Цей запис занадто довгий.
+	'mwe-upwiz-error-too-long' => 'Цей запис задовгий.
 Будь ласка, зробіть його коротшим ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
-	'mwe-upwiz-error-too-short' => 'Цей запис занадто короткий.
+	'mwe-upwiz-error-too-short' => 'Цей запис закороткий.
 Будь ласка, зробіть його довшим ніж $1 {{PLURAL:$1|символ|символи|символів}}.',
 	'mwe-upwiz-error-bad-chars' => 'Це поле містить недозволені символи.
 Будь ласка, не використовуйте вікітекст або HTML.',
