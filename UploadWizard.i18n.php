@@ -16667,11 +16667,11 @@ $messages['ml'] = array(
 ദയവായി വിക്കി എഴുത്തുരീതി അല്ലെങ്കിൽ എച്ച്.റ്റി.എം.എൽ. ഉപയോഗിക്കാതിരിക്കുക, താങ്കളുടെ ഉപയോക്തൃനാമം അല്ലെങ്കിൽ യഥാർത്ഥനാമം നൽകിയാൽ മതിയാകും.',
 	'mwe-upwiz-error-blank' => 'ഇത് നിർബന്ധമായും പൂരിപ്പിക്കുക.',
 	'mwe-upwiz-error-nologin' => 'പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ താങ്കൾ <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ലോഗിൻ]</span> ചെയ്തിരിക്കണം.',
-	'mwe-upwiz-error-too-long' => 'ഈ മണ്ഡലം വളരെ വലുതാണ്.
+	'mwe-upwiz-error-too-long' => 'എഴുത്ത് വളരെ വലുതാണ്.
 അത് {{PLURAL:$1|ഒരു അക്ഷരത്തിൽ|$1 അക്ഷരങ്ങളിൽ}} ചെറുതാക്കുക.',
-	'mwe-upwiz-error-too-short' => 'ഈ മണ്ഡലം വളരെ ചെറുതാണ്.
+	'mwe-upwiz-error-too-short' => 'എഴുത്ത് വളരെ ചെറുതാണ്.
 അത് {{PLURAL:$1|ഒരു അക്ഷരത്തിൽ|$1 അക്ഷരങ്ങളിൽ}} കൂടുതലാക്കുക.',
-	'mwe-upwiz-error-bad-chars' => 'ഈ മണ്ഡലത്തിൽ അനുവദനീയമല്ലാത്ത ചിഹ്നങ്ങൾ ഉണ്ട്.
+	'mwe-upwiz-error-bad-chars' => 'എഴുതി നൽകിയതിൽ അനുവദനീയമല്ലാത്ത ചിഹ്നങ്ങൾ ഉണ്ട്.
 ദയവായി വിക്കി എഴുത്തുരീതി അല്ലെങ്കിൽ എച്ച്.റ്റി.എം.എൽ. ഉപയോഗിക്കാതിരിക്കുക.',
 	'mwe-upwiz-error-date' => 'ദയവായി സാധുവായ തീയതി YYYY-MM-DD രീതിയിൽ നൽകുക, അല്ലെങ്കിൽ പോപ്-അപ് കലണ്ടറിൽ നിന്നൊരു തീയതി എടുക്കുക.',
 	'mwe-upwiz-error-title-blacklisted' => 'ഈ തലക്കെട്ടിൽ അനഭിമതമായ എഴുത്തുകൾ ഉണ്ട്. ദയവായി പുനഃപരിശോധിക്കുക',
@@ -18682,11 +18682,11 @@ Maak deze langer dan $1 {{PLURAL:$1|teken|tekens}}.',
 Gebruik geen wikitext of HTML, alleen uw gebruikersnaam of echte naam.',
 	'mwe-upwiz-error-blank' => 'Dit is een verplicht veld.',
 	'mwe-upwiz-error-nologin' => 'U moet <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} aangemeld zijn]</span> om bestanden te kunnen uploaden.',
-	'mwe-upwiz-error-too-long' => 'Dit veld is te lang.
+	'mwe-upwiz-error-too-long' => 'De invoer voor dit veld is te lang.
 Maak het korter dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-too-short' => 'De invoer voor dit veld is te kort.
 Maak het langer dan $1 {{PLURAL:$1|teken|tekens}}.',
-	'mwe-upwiz-error-bad-chars' => 'Dit veld bevat symbolen die niet zijn toegestaan.
+	'mwe-upwiz-error-bad-chars' => 'De invoer voor dit veld bevat symbolen die niet zijn toegestaan.
 Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-error-date' => 'Voer een geldige datum als JJJJ-MM-DD of kies een datum in de popupkalender.',
 	'mwe-upwiz-error-title-blacklisted' => 'Deze naam bevat ongewenste tekst. Corrigeer deze alstublieft',
