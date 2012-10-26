@@ -4303,7 +4303,7 @@ Obsah může mít maximálně $1 {{PLURAL:$1|znak|znaky|znaků}}.',
 	'mwe-upwiz-error-too-short' => 'Toto pole je příliš krátké.
 Obsah musí mít nejméně $1 {{PLURAL:$1|znak|znaky|znaků}}.',
 	'mwe-upwiz-error-bad-chars' => 'Toto pole obsahuje nedovolené symboly.
-Nepoužívejte zde HTML ani wikitext.',
+Nepoužívejte zde HTML ani wikitext.', # Fuzzy
 	'mwe-upwiz-error-date' => 'Zadejte platné datum ve formátu RRRR-MM-DD nebo vyberte datum z rozbalovacího kalendáře.',
 	'mwe-upwiz-error-title-blacklisted' => 'Tento název obsahuje nežádoucí text. Prosím upravte jej.',
 	'mwe-upwiz-error-title-badchars' => 'Tento název obsahuje některé nevhodné znaky. Odstraňte je.',
@@ -4854,7 +4854,7 @@ Den skal være længere end $1 {{PLURAL:$1|tegn|tegn}}.',
 Brug venligst ikke wikitekst eller HTML her, kun dit brugernavn eller rigtige navn.',
 	'mwe-upwiz-error-blank' => 'Dette felt skal udfyldes.',
 	'mwe-upwiz-error-nologin' => 'Du skal være <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} logget på]</span> for at kunne lægge filer op.',
-	'mwe-upwiz-error-too-long' => 'Dette post er for lang.
+	'mwe-upwiz-error-too-long' => 'Denne post er for lang.
 Den skal være kortere end $1 tegn.', # Fuzzy
 	'mwe-upwiz-error-too-short' => 'Denne post er for kort.
 Den skal være længere end $1 tegn.', # Fuzzy
@@ -21909,8 +21909,8 @@ $messages['ru'] = array(
 	'mwe-upwiz-error-nologin' => 'Вы должны <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} представиться системе]</span>, чтобы получить возможность загружать файлы.',
 	'mwe-upwiz-error-too-long' => 'Это поле слишком длинно.
 Сделайте его длину короче $1 {{PLURAL:$1|символа|символов|символов}}.',
-	'mwe-upwiz-error-too-short' => 'Это поле слишком коротко.
-Его длина должна быть больше $1 {{PLURAL:$1|символа|символов|символов}}.',
+	'mwe-upwiz-error-too-short' => 'Эта запись слишком короткая.
+Её длина должна быть больше $1 {{PLURAL:$1|символа|символов|символов}}.', # Fuzzy
 	'mwe-upwiz-error-bad-chars' => 'Это поле содержит недопустимые символы.
 Пожалуйста, не используйте викитекст или HTML.',
 	'mwe-upwiz-error-date' => 'Пожалуйста, введите корректную дату в формате ГГГГ-ММ-ДД, либо выберите дату из появляющегося календаря.',
