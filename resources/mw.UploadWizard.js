@@ -362,7 +362,7 @@ mw.UploadWizard.prototype = {
 
 		$j( '<div></div>' )
 			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
-			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length );
+			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length, mw.user );
 
 		_this.moveToStep( 'deeds', function() { _this.deedChooser.onLayoutReady(); } );
 
