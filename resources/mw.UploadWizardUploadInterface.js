@@ -387,22 +387,33 @@ mw.UploadWizardUploadInterface.prototype = {
 			}
 			// open video and get frame via canvas
 			if ( _this.isVideo() ) {
+				var first = true;
 				var video = document.createElement( 'video' );
+
 				video.addEventListener('loadedmetadata', function () {
 					//seek 2 seconds into video or to half if shorter
 					video.currentTime = Math.min( 2, video.duration / 2 );
 					video.volume = 0;
-					video.play();
-					video.pause();
 				});
 				video.addEventListener('seeked', function () {
-					var canvas = document.createElement( 'canvas' );
-					canvas.width = 100;
-					canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
-					var context = canvas.getContext( '2d' );
-					context.drawImage( video, 0, 0, canvas.width, canvas.height );
-					loadImage( canvas.toDataURL() );
-					_this.URL().revokeObjectURL( video.url );
+					// Firefox 16 sometimes does not work on first seek, seek again
+					if ( first ) {
+						first = false;
+						video.currentTime = Math.min( 2, video.duration / 2 );
+
+					} else {
+						// Chrome sometimes shows black frames if grabbing right away.
+						// wait 500ms before grabbing frame
+						setTimeout(function() {
+							var canvas = document.createElement( 'canvas' );
+							canvas.width = 100;
+							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
+							var context = canvas.getContext( '2d' );
+							context.drawImage( video, 0, 0, canvas.width, canvas.height );
+							loadImage( canvas.toDataURL() );
+							_this.URL().revokeObjectURL( video.url );
+						}, 500);
+					}
 				});
 				var url = _this.URL().createObjectURL( _this.upload.file );
 				video.src = url;
