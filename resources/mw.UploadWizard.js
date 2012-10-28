@@ -752,10 +752,9 @@ mw.UploadWizard.prototype = {
 		} );
 
 		// Show toggler to copy selected metadata if there's more than one successful upload
-		if( mw.UploadWizard.config.copyMetadataFeature === true
-			&& this.uploads[0].state === desiredState
+		if( this.uploads[0].state === desiredState
 			&& okCount > 1 ) {
-				this.uploads[0].details.copyMetadataCtrlDiv.show();
+				this.uploads[0].details.buildAndShowCopyMetadata();
 		}
 
 		var selector = null;
