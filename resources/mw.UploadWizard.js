@@ -652,6 +652,21 @@ mw.UploadWizard.prototype = {
 	},
 
 	/**
+	 * Helper function to check whether the upload process is totally
+	 * complete and we can safely leave the window.
+	 */
+	isComplete: function () {
+		var complete = true;
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload !== undefined && upload.state !== 'complete' && upload.state !== 'thanks' ) {
+				complete = false;
+				return false;
+			}
+		} );
+		return complete;
+	},
+
+	/**
 	 * Kick off the upload processes.
 	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
 	 * and kicks off a thread which will take from the queue.
@@ -679,7 +694,7 @@ mw.UploadWizard.prototype = {
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
 			message: function() { return gM( 'mwe-upwiz-prevent-close', _this.uploads.length ); },
-			test: function() { return _this.uploads.length > 0; }
+			test: function() { return !_this.isComplete() && _this.uploads.length > 0; }
 		} );
 
 		$j( '#mwe-upwiz-progress' ).show();
