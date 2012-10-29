@@ -35,6 +35,7 @@ class UploadWizardHooks {
 				'mediawiki.api.parse',
 				'mediawiki.api.titleblacklist',
 				'mediawiki.Title',
+				'mediawiki.user',
 				'mediawiki.feedback'
 			),
 			'scripts' => array(
