@@ -299,7 +299,7 @@ a[disabled=true]:hover {
 }
 .mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
 	/* @embed */
-	background: url('images/32px-Dialog-apply-009900.svg.png') no-repeat center center;
+	background: url('images/32px-check.png') no-repeat center center;
 }
 
 
@@ -327,7 +327,7 @@ a[disabled=true]:hover {
 
 .mwe-upwiz-status-error {
 	/* @embed */
-	background: url('images/32px-Nuvola_apps_important_orange.svg.png') no-repeat center center;
+	background: url('images/32px-alert.png') no-repeat center center;
 	font-weight: bold;
 	color: #CC0000;
 }
