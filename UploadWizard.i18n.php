@@ -5537,7 +5537,7 @@ REca keme xo re yewna rovıter bıcerbne.',
 	'mwe-upwiz-secs-remaining' => 'Bar kerdışi rê $1 {{PLURAL:$1|saniye|saniyey}} mende',
 	'mwe-upwiz-mins-secs-remaining' => 'Bar kerdışi rê $1 {{PLURAL:$1|deqe|deqey}} u $2 {{PLURAL:$2|saniye|saniyey}} mende',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Bar kerdışi rê $1 {{PLURAL:$1|seat|seati}}, $2 {{PLURAL:$2|deqe|deqey}} u $3 {{PLURAL:$3|saniye|saniyey}} mende',
-	'mwe-upwiz-deeds-macro-prompt' => 'Na sita de, {{GENDER:$2|şıma}} {{PLURAL:$1|na gurenayışer|nê gurenayışa}} usul de rehata karfinayışi re, heq de  {{PLURAL:$1|na|nê}} telifa malumat wazenê.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Na sita {{GENDER:$2|şıma}} rê seba {{PLURAL:$1|na kari|nê karan}} heqa telifi sero melumat gırewtış lazıma, her kes emin bo ke {{PLURAL:$1|ney|ninan}} şeno be qanun fına bıgureno.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Na dosya|Nê dosyay}} gurweynayışê mınê.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Ez, wayıra telif da $2 ya, {{PLURAL:$1| ena gurenayışa|nê gurenayışê}} mı, etiya de kes nêşeno karfiyo, ke nêşeno bıvurno u fına şari ra vıla kero, {{PLURAL:$1| na gurenayışa|nê gurenayışê}} mı vılakerden rê tay şertê mı estê, enê {{PLURAL:$1| nê|şerti}} zey cêriyê:',
 	'mwe-upwiz-source-ownwork-assert' => 'Ez wayırê $2 ya, lisansa {{PLURAL:$1|na gurenayış|nê gurenayışa}}, bilmuqabil herkes cıra istifade bıkero deye karkerdış deyêno, krediye mı u vılabyayışa {{PLURAL:$1|na gurenayış|nê gurenayışa}} bındı cıre hisse deyayo.',
@@ -5767,7 +5767,7 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 	'mwe-upwiz-campaigns-name' => 'Nameyê kampanya',
 	'mwe-upwiz-campaigns-status' => 'Weziyet',
 	'mwe-upwiz-campaigns-enabled' => 'Kerdo aktif',
-	'mwe-upwiz-campaigns-disabled' => 'Deaktivya',
+	'mwe-upwiz-campaigns-disabled' => 'Astengın',
 	'mwe-upwiz-campaigns-edit' => 'Bıvurne',
 	'mwe-upwiz-campaigns-add' => 'Defi',
 	'mwe-upwiz-campaigns-addnew' => 'Kampanyaya newi vırazê',
@@ -5823,7 +5823,7 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 	'mwe-upwiz-prefs-def-license' => 'Xesıbyaye lisans',
 	'mwe-upwiz-prefs-def-license-def' => 'Okê kar kerdışdeyo wa o bo',
 	'mwe-upwiz-prefs-license-own' => 'Karê cı- $1',
-	'mwe-upwiz-prefs-license-thirdparty' => 'Karê zewnay - $1',
+	'mwe-upwiz-prefs-license-thirdparty' => 'Karê yewê bini - $1',
 	'mwe-upwiz-prefs-chunked' => 'Şexê barkerden 1MB ra vêşi istif nêbena',
 	'mwe-upwiz-prefs-skiptutorial' => 'Şınasiya mısnayış de lisansi ser çek',
 );
@@ -5955,6 +5955,7 @@ $messages['dsb'] = array(
 
 /** Greek (Ελληνικά)
  * @author AK
+ * @author Aitolos
  * @author Crazymadlover
  * @author Evropi
  * @author Ferengi
@@ -6114,11 +6115,11 @@ $messages['el'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'Η υπογραφή σας περιέχει σύμβολα που δεν επιτρέπονται.
 Παρακαλούμε μην χρησιμοποιείτε κείμενο wiki ή HTML εδώ, μόνο το όνομα χρήστη ή το πραγματικό σας όνομα.',
 	'mwe-upwiz-error-blank' => 'Αυτό το πεδίο είναι υποχρεωτικό.',
-	'mwe-upwiz-error-too-long' => 'Αυτό το πεδίο είναι πολύ μεγάλο.
+	'mwe-upwiz-error-too-long' => 'Αυτή η καταχώρηση είναι πολύ μεγάλη.
 Παρακαλούμε να την κάνετε μικρότερη από $1 {{PLURAL:$1|χαρακτήρα|χαρακτήρες}}.',
 	'mwe-upwiz-error-too-short' => 'Αυτό το πεδίο είναι πολύ μικρό.
 Παρακαλούμε να την κάνετε μεγαλύτερη από $1 {{PLURAL:$1|χαρακτήρα|χαρακτήρες}}.',
-	'mwe-upwiz-error-bad-chars' => 'Αυτό το πεδίο περιέχει σύμβολα που δεν επιτρέπονται.
+	'mwe-upwiz-error-bad-chars' => 'Αυτή η καταχώρηση περιέχει σύμβολα που δεν επιτρέπονται.
 Παρακαλούμε μην χρησιμοποιείτε κώδικα wiki ή HTML εδώ.',
 	'mwe-upwiz-error-date' => 'Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία σε μορφή ΕΕΕΕ-ΜΜ-ΗΗ , ή επιλέξτε μια ημερομηνία από το αναδυόμενο ημερολόγιο.',
 	'mwe-upwiz-error-title-blacklisted' => 'Ο τίτλος αυτός περιέχει ορισμένο ανεπιθύμητο κείμενο. Παρακαλούμε αναθεωρήστε το',
@@ -6693,7 +6694,7 @@ Por favor, inténtalo con otro navegador.',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|segundo|segundos}} restantes',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} restantes',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hora|horas}} $2 {{PLURAL:$2|minuto|minutos}} $3 {{PLURAL:$3|segundo|segundos}} restantes',
-	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio requiere que {{GENDER:$1|tú|tú}} proporciones información de copyright para {{PLURAL:$1|este trabajo|estos trabajos}}, para asegurarse de que todos puedan {{PLURAL:$1|reutilizarlo|reutilizarlos}} legalmente.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio requiere que {{GENDER:$1|tú|tú}} proporciones información de copyright para {{PLURAL:$1|este trabajo|estos trabajos}}, para asegurar que todos puedan {{PLURAL:$1|reutilizarlo|reutilizarlos}} legalmente.', # Fuzzy
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este archivo es|Estos archivos son}} mi propio trabajo.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'I, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, por este medio concedo irrevocablemente a cualquiera el derecho a usar, modificar y redistribuir {{PLURAL:$1|este trabajo|estos trabajos}} para cualquier propósito, y por lo tanto {{PLURAL:$1|lo|los}} publico bajo los siguientes términos:',
 	'mwe-upwiz-source-ownwork-assert' => 'Yo, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, concede a cualquiera el derecho de usar {{PLURAL:$1|este trabajo|estos trabajos}} para cualquier propósito, siempre y cuando me de crédito y comparta el trabajo derivado bajo los mismos términos.',
@@ -10229,7 +10230,7 @@ $messages['he'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'החתימה שלך מכילה סמלים אסורים.
 נא לא להשתמש כאן בקוד ויקי או ב־HTML, אלא רק בשם המשתמש שלכם או בשמכם האמתי.',
 	'mwe-upwiz-error-blank' => 'חובה למלא שדה זה.',
-	'mwe-upwiz-error-nologin' => 'יש <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}}להיכנס לחשבון] כדי להעלות קבצים.',
+	'mwe-upwiz-error-nologin' => 'יש <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} להיכנס לחשבון] כדי להעלות קבצים.',
 	'mwe-upwiz-error-too-long' => 'השדה הזה ארוך מדי.
 הוא חייב להיות קצר מ{{PLURAL:$1|תו אחד|־$1 תווים}}.',
 	'mwe-upwiz-error-too-short' => 'השדה הזה קצר מדי.
@@ -14265,7 +14266,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-secs-remaining' => '$1초 남았습니다',
 	'mwe-upwiz-mins-secs-remaining' => '$1분 $2초 남았습니다',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1시간 $2분 $3초 남았습니다',
-	'mwe-upwiz-deeds-macro-prompt' => '이 사이트에서 이 파일을 모든 사람이 법적으로 자유롭게 이용할 수 있다는 것을 확인하기 위해 {{PLURAL:$1|파일}}의 저작권 정보를 입력해주십시오.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => '이 사이트에서 {{GENDER:$2}}{{PLURAL:$1|이 파일}}을 모든 사람이 법적으로 자유롭게 이용할 수 있다는 것을 확인하기 위해 {{PLURAL:$1|파일}}의 저작권 정보를 입력해주십시오.',
 	'mwe-upwiz-source-ownwork' => '이 {{PLURAL:$1}}파일은 본인이 창작한 저작물입니다.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => '나, $2는, 이 저작물의 저작권자로서, 모든 사람에게 어떤 목적으로든, {{PLURAL:$1}}이 저작물을 이용, 수정, 재배포할 권리를 부여합니다. 따라서 다음 규정에 따라 이 저작물을 배포합니다:',
 	'mwe-upwiz-source-ownwork-assert' => '나, $2는, 이 저작물의 저작권자로서, 저작자를 표시하고 원저작물과 동일한 규정에 따라 이차적 저작물을 공유하는 조건 하에, 모든 사람에게 어떤 목적으로든, {{PLURAL:$1|이 저작물}}을 이용, 수정, 재배포할 권리를 부여합니다.',
@@ -16543,7 +16544,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|ഒരു സെക്കന്റ്|$1 സെക്കന്റ്}} അവശേഷിക്കുന്നു',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|ഒരു മിനിറ്റ്|$1 മിനിറ്റ്}} {{PLURAL:$2|ഒരു സെക്കന്റ്|$2 സെക്കന്റ്}} അവശേഷിക്കുന്നു',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|ഒരു|$1}} മണിക്കൂർ {{PLURAL:$2|ഒരു|$1}} മിനിറ്റ് {{PLURAL:$3|ഒരു|$3}} സെക്കന്റ് കൂടി അവശേഷിക്കുന്നു',
-	'mwe-upwiz-deeds-macro-prompt' => 'എല്ലാവർക്കും നിയമാനുസൃതം {{PLURAL:$1|ഇത്|ഇവ}} പുനരുപയോഗിക്കാനായി, താങ്കൾ {{PLURAL:$1|ഈ കൃതിയ്ക്ക്|ഈ കൃതികൾക്ക്}} പകർപ്പവകാശ വിവരങ്ങൾ ഈ സൈറ്റിൽ നൽകേണ്ടതുണ്ട്.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'എല്ലാവർക്കും നിയമാനുസൃതം {{PLURAL:$1|ഇത്|ഇവ}} പുനരുപയോഗിക്കാനായി, {{GENDER:$2|താങ്കൾ}} {{PLURAL:$1|ഈ കൃതിയുടെ|ഈ കൃതികളുടെ}} പകർപ്പവകാശ വിവരങ്ങൾ ഈ സൈറ്റിൽ നൽകേണ്ടതുണ്ട്.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|ഈ പ്രമാണം|ഈ പ്രമാണങ്ങൾ}} എന്റെ സ്വന്തം സൃഷ്ടിയാണ്.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'ഈ {{PLURAL:$1|കൃതിയുടെ|കൃതികളുടെ}} പകർപ്പവകാശ ഉടമയായ $2 എന്ന ഞാൻ, ഏതൊരാൾക്കും ഏതൊരാവശ്യത്തിനും {{PLURAL:$1|ഈ കൃതി|ഇവ}} ഉപയോഗിക്കാനും മാറ്റം വരുത്തുവാനും പുനർവിതരണം ചെയ്യാനുമുള്ള അനുവാദം നൽകുന്നു, അതിനായി ഞാൻ {{PLURAL:$1|ഇത്|ഇവ}} താഴെ പറയുന്ന വ്യവസ്ഥകളിൽ പ്രസിദ്ധീകരിക്കുന്നു:',
 	'mwe-upwiz-source-ownwork-assert' => 'ഈ {{PLURAL:$1|കൃതിയുടെ|കൃതികളുടെ}} പകർപ്പവകാശ ഉടമയായ, $2 എന്ന ഞാൻ, എനിക്ക് കടപ്പാട് നൽകുകയും ഇതേ നിബന്ധനകളിൽ വ്യുൽപ്പന്നങ്ങൾ പങ്ക് വെയ്ക്കുകയും ചെയ്യുന്ന പക്ഷം ഏതൊരുപയോഗത്തിനും ഈ {{PLURAL:$1|കൃതി|കൃതികൾ}} ഉപയോഗിക്കാനുള്ള അവകാശം പിന്നീട് മാറ്റം വരുത്താൻ കഴിയാത്ത വിധത്തിൽ ഇതിനാൽ അനുവദിച്ചിരിക്കുന്നു.',
@@ -25913,6 +25914,7 @@ $messages['tt-cyrl'] = array(
  * @author AS
  * @author Ahonc
  * @author Alex Khimich
+ * @author Base
  * @author Dim Grits
  * @author Gucci Mane Burrr
  * @author Microcell
