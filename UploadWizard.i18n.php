@@ -6694,7 +6694,7 @@ Por favor, inténtalo con otro navegador.',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|segundo|segundos}} restantes',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} restantes',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hora|horas}} $2 {{PLURAL:$2|minuto|minutos}} $3 {{PLURAL:$3|segundo|segundos}} restantes',
-	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio requiere que {{GENDER:$1|tú|tú}} proporciones información de copyright para {{PLURAL:$1|este trabajo|estos trabajos}}, para asegurar que todos puedan {{PLURAL:$1|reutilizarlo|reutilizarlos}} legalmente.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio requiere que {{GENDER:$2|tú|tú}} proporciones información de copyright para {{PLURAL:$1|este trabajo|estos trabajos}}, y así asegurar que todos puedan {{PLURAL:$1|reutilizarlo|reutilizarlos}} legalmente.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este archivo es|Estos archivos son}} mi propio trabajo.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'I, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, por este medio concedo irrevocablemente a cualquiera el derecho a usar, modificar y redistribuir {{PLURAL:$1|este trabajo|estos trabajos}} para cualquier propósito, y por lo tanto {{PLURAL:$1|lo|los}} publico bajo los siguientes términos:',
 	'mwe-upwiz-source-ownwork-assert' => 'Yo, $2, el titular del copyright de {{PLURAL:$1|este trabajo|estos trabajos}}, concede a cualquiera el derecho de usar {{PLURAL:$1|este trabajo|estos trabajos}} para cualquier propósito, siempre y cuando me de crédito y comparta el trabajo derivado bajo los mismos términos.',
@@ -8260,6 +8260,7 @@ Vinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.',
  * @author Gomoko
  * @author Grondin
  * @author Hashar
+ * @author Hello71
  * @author IAlex
  * @author Jean-Frédéric
  * @author Linedwell
@@ -8336,7 +8337,7 @@ Veuillez essayer avec un autre navigateur.",
 	'mwe-upwiz-secs-remaining' => '$1 seconde{{PLURAL:$1||s}} restante{{PLURAL:$1||s}}',
 	'mwe-upwiz-mins-secs-remaining' => '$1 minute{{PLURAL:$1||s}} $2 seconde{{PLURAL:$2||s}} restantes',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 heure{{PLURAL:$1||s}} $2 minute{{PLURAL:$2||s}} $3 seconde{{PLURAL:$3||s}} restantes',
-	'mwe-upwiz-deeds-macro-prompt' => 'Ce site vous demande de fournir les informations de droit d’auteur pour {{PLURAL:$1|cette œuvre|ces œuvres}}, pour s’assurer que tout le monde puisse {{PLURAL:$1|la réutiliser|les réutiliser}}.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Ce site {{GENDER:2|vous demande}} de fournir les informations de droit d’auteur pour {{PLURAL:$1|cette œuvre|ces œuvres}}, pour s’assurer que tout le monde puisse {{PLURAL:$1|la réutiliser|les réutiliser}}.', # Fuzzy
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Ce fichier est|Ces fichiers sont}} de mon propre travail.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Moi, $2, le détenteur des droits d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, donne irrévocablement par la présente le droit à toute personne d’utiliser, modifier et redistribuer {{PLURAL:$1|cette œuvre|ces œuvres}} pour quelques fins que ce soit, et c’est pourquoi je {{PLURAL:$1|la|les}} publie sous les modalités suivantes :',
 	'mwe-upwiz-source-ownwork-assert' => 'Moi, $2, titulaire du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|ce travail|ces travaux}} à n’importe quelle fin, aux conditions qu’ils me créditent et partagent les travaux dérivés selon les mêmes modalités.',
