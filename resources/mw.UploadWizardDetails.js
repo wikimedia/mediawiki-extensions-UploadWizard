@@ -236,58 +236,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		moreDetailsDiv
 	);
 
-
-	_this.copyMetadataCtrlDiv = undefined;
-
-	// If this is the first upload in a batch, we offer the user the option
-	// to apply the metadata they enter to all other uploads in the same batch.
-	if( mw.UploadWizard.config.copyMetadataFeature === true && _this.upload.index === 0 ) {
-
-		_this.copyMetadataCtrlDiv = $j( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
-		var copyMetadataDiv = $j( '<div class="mwe-upwiz-metadata-copier"></div>' );
-
-		$j.each( _this.copyMetadataTypes, function addToMetadataDiv( i, v ) {
-			var cb = 'mwe-upwiz-copy-' + v;
-			var copyMetadataMsg;
-			if ( v === 'description' || v === 'categories' ) {
-				copyMetadataMsg = gM( cb, 1 );
-			} else {
-				copyMetadataMsg = gM( cb );
-			}
-			copyMetadataDiv.append( $j( '<input type="checkbox" name="' + cb + '" id="' + cb + '" checked />' ) );
-			copyMetadataDiv.append( $j( '<label for="' + cb + '">' + copyMetadataMsg + '</label>' ) );
-			copyMetadataDiv.append( $j( '<br />' ) );
-		} ) ;
-
-		copyMetadataDiv.append(
-			$j( '<button type="button" id="mwe-upwiz-copy-metadata-button">'  )
-			.msg( 'mwe-upwiz-copy-metadata-button' )
-			.button()
-			.click(
-				function( e ) {
-					$j.each( _this.copyMetadataTypes, function makeCopies( i, metadataType ) {
-							if ( $j( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
-								_this.copyMetadata( metadataType );
-							}
-						} );
-					e.stopPropagation();
-				}
-			)
-		);
-
-		mw.UploadWizardUtil.makeToggler(
-			_this.copyMetadataCtrlDiv,
-			copyMetadataDiv,
-			'mwe-upwiz-copy-metadata'
-		);
-
-		// Default state is collapsed, will be shown if there's more than one upload.
-		// See showNext in mw.UploadWizard
-		_this.copyMetadataCtrlDiv.hide();
-		_this.$form.append( _this.copyMetadataCtrlDiv, copyMetadataDiv );
-
-	}
-
 	_this.submittingDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-submitting' )
 		.append(
 			$j( '<div></div>' ).addClass( 'mwe-upwiz-file-indicator' ),
@@ -490,11 +438,12 @@ mw.UploadWizardDetails.prototype = {
 	copyMetadata: function ( metadataType ) {
 
 		var _this = this;
+		var sourceId = _this.upload.wizard.uploads[0].index;
 
 		// In the simplest case, we can use this self-explanatory vanilla loop.
 		var simpleCopy = function( id, tag ) {
 			if ( tag === undefined ) tag = 'input';
-			var firstId = '#' + id + '0';
+			var firstId = '#' + id + sourceId;
 			var firstValue = $j( firstId ).val();
 			$j( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
 				$j( this ).val( firstValue );
@@ -504,19 +453,19 @@ mw.UploadWizardDetails.prototype = {
 		if ( metadataType === 'title' ) {
 
 			// Add number suffix to first title if no numbering present
-			var titleZero = $j( '#title0' ).val();
+			var titleZero = $j( '#title' + sourceId ).val();
 			var matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
 			if ( matches === null ) {
 				titleZero = titleZero + ' 01';
 				// After setting the value, we must trigger input processing for the change to take effect
-				$j( '#title0' ).val( titleZero ).keyup();
+				$j( '#title' + sourceId ).val( titleZero ).keyup();
 			}
 
 			// Overwrite remaining title inputs with first title + increment of rightmost
 			// number in the title. Note: We ignore numbers with more than three digits, because these
 			// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
 			// numbers.
-			$j( 'input[id^=title]:not(#title0)' ).each( function (i) {
+			$j( 'input[id^=title]:not(#title' + sourceId + ')' ).each( function (i) {
 					var currentTitle = $j( this ).val();
 					currentTitle = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 						function( str, m1, m2, m3 ) {
@@ -534,7 +483,7 @@ mw.UploadWizardDetails.prototype = {
 			var destUploads = _this.upload.wizard.uploads;
 			$j.each( destUploads, function ( uploadIndex, upload ) {
 
-				if ( uploadIndex > 0 && upload !== undefined ) {
+				if ( upload !== undefined && upload.index !== sourceId ) {
 
 					// We could merge, but it's unlikely that the user wants to do anything other
 					// than just having the same descriptions across all files, so rather than
@@ -557,10 +506,10 @@ mw.UploadWizardDetails.prototype = {
 
 		} else if ( metadataType === 'categories' ) {
 
-			var visibleCategoriesZero = $j( '#categories0' ).get( 0 ).getCats( ':not(.hidden)' );
-			var hiddenCategoriesZero = $j( '#categories0' ).get( 0 ).getCats( '.hidden' );
-			$j( 'input[id^=categories]:not(#categories0)' ).each( function( i, input ) {
-				if ( this.id !== 'categories0' ) {
+			var visibleCategoriesZero = $j( '#categories' + sourceId ).get( 0 ).getCats( ':not(.hidden)' );
+			var hiddenCategoriesZero = $j( '#categories' + sourceId ).get( 0 ).getCats( '.hidden' );
+			$j( 'input[id^=categories]:not(#categories' + sourceId + ')' ).each( function( i, input ) {
+				if ( this.id !== ( 'categories' + sourceId ) ) {
 
 					// As with descriptions, we nuke whatever categories are there already.
 					input.removeAllCats();
@@ -588,6 +537,61 @@ mw.UploadWizardDetails.prototype = {
 		} else {
 			throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
 		}
+	},
+
+	/*
+	 * Construct and display the widget to copy metadata
+	 *
+	 * Call before showing the Details step. Builds, adds and displays
+	 * a metadata copy widget for the details view of this specific upload
+	 */
+	buildAndShowCopyMetadata: function() {
+		var _this = this;
+		if( mw.UploadWizard.config.copyMetadataFeature !== true ||
+			_this.copyMetadataCtrlDiv !== undefined ) {
+			return;
+		}
+
+		_this.copyMetadataCtrlDiv = $j( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
+		var copyMetadataDiv = $j( '<div class="mwe-upwiz-metadata-copier"></div>' );
+
+		$j.each( _this.copyMetadataTypes, function addToMetadataDiv( i, v ) {
+			var cb = 'mwe-upwiz-copy-' + v;
+			var copyMetadataMsg;
+			if ( v === 'description' || v === 'categories' ) {
+				copyMetadataMsg = gM( cb, 1 );
+			} else {
+				copyMetadataMsg = gM( cb );
+			}
+			copyMetadataDiv.append( $j( '<input type="checkbox" name="' + cb + '" id="' + cb + '" checked />' ) );
+			copyMetadataDiv.append( $j( '<label for="' + cb + '">' + copyMetadataMsg + '</label>' ) );
+			copyMetadataDiv.append( $j( '<br />' ) );
+		} ) ;
+
+		copyMetadataDiv.append(
+			$j( '<button type="button" id="mwe-upwiz-copy-metadata-button">'  )
+			.msg( 'mwe-upwiz-copy-metadata-button' )
+			.button()
+			.click(
+				function( e ) {
+					$j.each( _this.copyMetadataTypes, function makeCopies( i, metadataType ) {
+							if ( $j( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
+								_this.copyMetadata( metadataType );
+							}
+						} );
+					e.stopPropagation();
+				}
+			)
+		);
+
+		mw.UploadWizardUtil.makeToggler(
+			_this.copyMetadataCtrlDiv,
+			copyMetadataDiv,
+			'mwe-upwiz-copy-metadata'
+		);
+
+		_this.$form.append( _this.copyMetadataCtrlDiv, copyMetadataDiv );
+		_this.copyMetadataCtrlDiv.show();
 	},
 
 	/**
