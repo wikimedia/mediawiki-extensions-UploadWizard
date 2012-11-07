@@ -18563,7 +18563,7 @@ Probeer een alternatieve browser.',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|seconde|seconden}} resterend',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuut|minuten}} en $2 {{PLURAL:$2|seconde|seconden}} resterend',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|uur|uur}}, $2 {{PLURAL:$2|minuut|minuten}} en $3 {{PLURAL:$3|seconde|seconden}} resterend',
-	'mwe-upwiz-deeds-macro-prompt' => 'Deze site stelt het verplicht dat u auteursrechteninformatie opgeeft voor {{PLURAL:$1|het bovenstaande bestand|de bovenstaande bestanden}} zodat zeker wordt gesteld dat {{PLURAL:$1|het hergebruikt kan|ze hergebruikt kunnen}} worden.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Deze site stelt het verplicht dat {{GENDER:$2|u}} auteursrechteninformatie opgeeft voor {{PLURAL:$1|het bovenstaande bestand|de bovenstaande bestanden}} zodat zeker wordt gesteld dat {{PLURAL:$1|het hergebruikt kan|ze hergebruikt kunnen}} worden.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Dit bestand is|Deze bestanden zijn}} mijn eigen werk.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Ik, $2, de auteursrechtenhouder van {{PLURAL:$1|dit werk|deze werken}}, geeft hierbij onherroepelijk toestemming aan een ieder het recht om {{PLURAL:$1|dit werk|deze werken}} te gebruiken, te wijzigen en te verspreiden voor ieder doel en daarom publiceer ik {{PLURAL:$1|het|ze}} onder de volgende voorwaarden:',
 	'mwe-upwiz-source-ownwork-assert' => 'Ik, $2, de auteursrechthebbende van {{PLURAL:$1|dit werk|deze werken}}, verleen hierbij iedereen het onherroepelijke recht {{PLURAL:$1|dit werk|deze werken}} voor alle doeleinden te gebruiken, mits mij naamsvermelding wordt gegeven en afgeleide werken onder dezelfde voorwaarden wordt gedeeld.',
@@ -20026,9 +20026,9 @@ Për piasì, ch'a deuvra pa dël wikitext o d'HTML ambelessì, mach sò stranòm
 	'mwe-upwiz-error-blank' => "Ës camp-sì a l'é obligatòri.",
 	'mwe-upwiz-error-nologin' => 'A dev esse <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} intrà ant ël sistema]</span> për carié dj\'archivi.',
 	'mwe-upwiz-error-too-long' => "Ës camp a l'é tròp longh.
-Ch'a lo fasa pi curt che $1 {{PLURAL:$1|caràter|caràter}}.",
+Ch'a lo fasa pi curt che $1 {{PLURAL:$1|caràter|caràter}}.", # Fuzzy
 	'mwe-upwiz-error-too-short' => "Ës camp a l'é tròp curt.
-Ch'a lo fasa pi longh che $1 {{PLURAL:$1|caràter|caràter}}.",
+Ch'a lo fasa pi longh che $1 {{PLURAL:$1|caràter|caràter}}.", # Fuzzy
 	'mwe-upwiz-error-bad-chars' => "Ës camp a conten dij sìmboj che a son pa përmëttù.
 Për piasì, ch'a deuvra pa ël wikitext o l'HTML ambelessì.",
 	'mwe-upwiz-error-date' => "Për piasì, ch'a anserissa na data bon-a an formà AAAA-MM-DD, o ch'a pija na data da la fnestra dël calendari.",
