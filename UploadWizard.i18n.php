@@ -9064,7 +9064,7 @@ Inténteo con outro navegador.',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Resta $1 segundo|Restan $1 segundos}}',
 	'mwe-upwiz-mins-secs-remaining' => 'Restan {{PLURAL:$1|$1 minuto|$1 minutos}} e {{PLURAL:$2|$2 segundo|$2 segundos}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Restan {{PLURAL:$1|$1 hora|$1 horas}}, {{PLURAL:$2|$2 minuto|$2 minutos}} e {{PLURAL:$3|$3 segundo|$3 segundos}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio necesita que proporcione a información de dereitos de autor {{PLURAL:$1|desta obra|destas obras}}, para asegurar que calquera pode {{PLURAL:$1|reusala|reusalas}}.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Este sitio necesita que {{GENDER:$2|proporcione}} a información de dereitos de autor {{PLURAL:$1|desta obra|destas obras}}, para asegurar que calquera pode {{PLURAL:$1|reusala|reusalas}}.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este ficheiro é|Estes ficheiros son}} obra miña.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Eu, $2, como posuidor dos dereitos de autor {{PLURAL:$1|desta obra|destas obras}}, concedo a calquera o dereito de empregar, modificar e redistribuír {{PLURAL:$1|esta obra|estas obras}} para o propósito que considere oportuno, e polo tanto {{PLURAL:$1|queda publicada|quedan publicadas}} baixo os seguintes termos:',
 	'mwe-upwiz-source-ownwork-assert' => 'Eu, $2, como posuidor dos dereitos de autor {{PLURAL:$1|desta obra|destas obras}}, concedo de forma irrevogable a calquera o dereito a usar {{PLURAL:$1|esta obra|estas obras}} para calquera propósito, sempre e cando se recoñeza a súa autoría e as obras derivadas se compartan baixo as mesmas condicións.',
@@ -18928,11 +18928,11 @@ $messages['nn'] = array(
 	'mwe-upwiz-api-warning-was-deleted' => 'Det var ei anna fil med dette namnet, «$1», men ho vart sletta og du kan ikkje lasta henne opp på nytt. Om fila di er annleis, freista gjeva henne eit nytt namn.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Diverre kunne me ikkje finna ei rettleiing på målet ditt. Den engelske rettleiinga er vist i staden.', # Fuzzy
 	'mwe-upwiz-add-file-n' => 'Legg til ei fil til',
-	'mwe-upwiz-add-file-0-free' => 'Vel ei mediefil som skal donerast', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Vel ei mediefil som skal donerast',
 	'mwe-upwiz-transport-started' => 'Byrjar...',
 	'mwe-upwiz-uploading' => 'Lastar opp...',
 	'mwe-upwiz-transported' => 'Ferdig med å lasta opp...',
-	'mwe-upwiz-stashed-upload' => 'Greitt', # Fuzzy
+	'mwe-upwiz-stashed-upload' => 'Opplasta',
 	'mwe-upwiz-getting-metadata' => 'Hentar filinformasjon og -førehandsvising...',
 	'mwe-upwiz-submitting-details' => 'Sender detaljar og gjev ut...',
 	'mwe-upwiz-published' => 'Utgjeve!',
@@ -19010,7 +19010,7 @@ I båe tilfella vil namnet få ei lenkje til brukarsida di på wikien.',
 	'mwe-upwiz-tooltip-description' => 'Skildra stutt alt som er verdt å leggja merke til ved arbeidet.
 For eit bilete, nemn hovudtrekka som er å sjå, høvet eller staden.',
 	'mwe-upwiz-tooltip-date' => 'Dagen arbeidet vart laga eller fyrst gjeve ut (ÅÅÅÅ-MM-DD-format).',
-	'mwe-upwiz-tooltip-categories' => 'Legg til [$1 kategoriar] til fila di for å gjera henne greiare å finna.', # Fuzzy
+	'mwe-upwiz-tooltip-categories' => 'Legg til fila di i [$1 kategoriar] for å gjera henne lettare å finna.',
 	'mwe-upwiz-tooltip-more-info' => 'Lær meir.',
 	'mwe-upwiz-file-need-file' => 'Legg til ei opplasting fyrst.',
 	'mwe-upwiz-deeds-need-license' => 'Vel eit løyve.',
@@ -25911,6 +25911,13 @@ $messages['tt-cyrl'] = array(
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|$1 сәгать}} {{PLURAL:$2|$2 минут}} {{PLURAL:$3|$3 секунд калды}}',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-desc' => 'Тасвирлау',
+);
+
+/** Central Atlas Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)
+ * @author Tifinaghes
+ */
+$messages['tzm'] = array(
+	'mwe-upwiz-ok' => 'ⵡⴰⵅⵅⴰ',
 );
 
 /** Ukrainian (українська)
