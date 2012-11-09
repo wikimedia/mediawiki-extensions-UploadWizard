@@ -32,6 +32,11 @@ $specialPageAliases['ba'] = array(
 	'UploadCampaign' => array( 'UploadCampaign' ),
 );
 
+/** буряад (буряад) */
+$specialPageAliases['bxr'] = array(
+	'UploadWizard' => array( 'Оруулах_тэнгэри' ),
+);
+
 /** Danish (dansk) */
 $specialPageAliases['da'] = array(
 	'UploadWizard' => array( 'Vejviser_til_oplægning_af_filer' ),
