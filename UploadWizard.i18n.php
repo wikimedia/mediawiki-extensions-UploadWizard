@@ -2742,6 +2742,7 @@ $1',
 /** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
+ * @author Vladimir Penov
  */
 $messages['bg'] = array(
 	'uploadwizard' => 'Помощник за качванията',
@@ -2873,11 +2874,11 @@ $messages['bg'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'Подписът ви съдържа непозволени символи.
 Не използвайте уикисинтаксис или HTML код, само истинското си име или потребителското си име в сайта.',
 	'mwe-upwiz-error-blank' => 'Това поле е задължително да се попълни.',
-	'mwe-upwiz-error-too-long' => 'Това поле е твърде дълго.
+	'mwe-upwiz-error-too-long' => 'Този запис е твърде дълъг.
 Въведете съдържание по-кратко от $1 {{PLURAL:$1|символ|символа}}.',
-	'mwe-upwiz-error-too-short' => 'Това поле е твърде кратко.
+	'mwe-upwiz-error-too-short' => 'Този запис е твърде кратък.
 Въведете съдържание по-дълго от $1 {{PLURAL:$1|символ|символа}}.',
-	'mwe-upwiz-error-bad-chars' => 'Полето съдържа непозволени символи.
+	'mwe-upwiz-error-bad-chars' => 'Този запис съдържа непозволени символи.
 Не използвайте уикисинтаксис или HTML код тук.',
 	'mwe-upwiz-error-date' => 'Въведете валидна дата във формат ГГГГ-ММ-ДД или изберете дата от интерактивния календар.',
 	'mwe-upwiz-error-title-blacklisted' => 'Това заглавие съдържа нежелателен текст. Редактирайте го.',
@@ -3760,6 +3761,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 );
 
 /** Catalan (català)
+ * @author Aleator
  * @author Arnaugir
  * @author Gemmaa
  * @author Paucabot
@@ -4018,7 +4020,7 @@ No utilitzeu aquí format wiki o HTML.',
 	'mwe-upwiz-license-misc' => 'Altres motius',
 	'mwe-upwiz-license-custom-head' => "Una altra raó no s'esmenta més amunt",
 	'mwe-upwiz-license-custom-preview' => 'Vista prèvia',
-	'mwe-upwiz-license-none-head' => 'Em vaig trobar a Internet - no estic segur',
+	'mwe-upwiz-license-none-head' => "He trobat el fitxer a Internet - No n'estic segur",
 	'mwe-upwiz-license-none' => 'Crec que {{PLURAL:$1|aquesta obra és|aquestes obres són}} amb llicència lliure o legalment en domini públic. Entenc que si no afegeixo la informació apropiada sobre la llicència en un temps raonable, {{PLURAL:$1|el fitxer pot ser esborrat|els fitxers poden ser esborrats}}.',
 	'mwe-upwiz-license-confirm-remove' => 'Esteu segurs que voleu suprimir {{PLURAL:$1|aquest fitxer carregat|aquests fitxers carregats}}?',
 	'mwe-upwiz-license-confirm-remove-title' => "Confirma l'eliminació",
