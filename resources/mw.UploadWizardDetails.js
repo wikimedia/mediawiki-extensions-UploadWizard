@@ -569,16 +569,21 @@ mw.UploadWizardDetails.prototype = {
 		} ) ;
 
 		copyMetadataDiv.append(
-			$j( '<button type="button" id="mwe-upwiz-copy-metadata-button">'  )
+			$j( '<button type="button" id="mwe-upwiz-copy-metadata-button">' )
 			.msg( 'mwe-upwiz-copy-metadata-button' )
 			.button()
 			.click(
 				function( e ) {
+					var button = $( this ).find( 'span' );
 					$j.each( _this.copyMetadataTypes, function makeCopies( i, metadataType ) {
 							if ( $j( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
 								_this.copyMetadata( metadataType );
 							}
 						} );
+					button.text( mw.msg( 'mwe-upwiz-copied-metadata-button' ) );
+					setTimeout( function( ) {
+						button.text( mw.msg( 'mwe-upwiz-copy-metadata-button' ) );
+					}, 1000 );
 					e.stopPropagation();
 				}
 			)
