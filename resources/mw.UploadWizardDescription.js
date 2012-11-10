@@ -57,6 +57,12 @@ mw.UploadWizardDescription.prototype = {
 		return $j.trim( $j( this.input ).val() );
 	},
 
+	setText: function( text ) {
+		// strip out any HTML tags
+		text = text.replace( /<[^>]+>/g, '' );
+		$j( this.input ).val( $j.trim( text ) );
+	},
+
 	getLanguage: function() {
 		return $j.trim( $j( this.languageMenu ).val() );
 	},
