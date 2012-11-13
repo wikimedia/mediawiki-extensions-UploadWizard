@@ -1997,6 +1997,7 @@ Prueba con un navegador alternativu.',
 	'mwe-upwiz-more-options' => 'amestar categoríes y más información...',
 	'mwe-upwiz-copy-metadata' => "Copiar la información a {{PLURAL:$1|la otra xubida|toles xubíes}} d'abaxo...",
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
+	'mwe-upwiz-copied-metadata-button' => 'Copióse correutamente',
 	'mwe-upwiz-copy-title' => 'Copiar títulu (con numberación automática)',
 	'mwe-upwiz-copy-description' => 'Copiar {{PLURAL:$1|la descripción|les descripciones}}',
 	'mwe-upwiz-copy-date' => 'Copiar data',
@@ -2327,6 +2328,13 @@ $messages['az'] = array(
 	'mwe-upwiz-campaigns-newname' => 'Kampaniya adı:',
 	'mwe-upwiz-campaigns-delete' => 'Sil',
 	'mwe-upwiz-campaign-name' => 'Kampaniya adı:',
+);
+
+/** South Azerbaijani (South Azerbaijani)
+ * @author Erdemaslancan
+ */
+$messages['azb'] = array(
+	'prefs-upwiz-licensing' => 'لیسانس',
 );
 
 /** Bashkir (башҡортса)
@@ -6669,6 +6677,7 @@ $1',
  * @author Crazymadlover
  * @author Dferg
  * @author Fitoschido
+ * @author Gwickwire
  * @author Locos epraix
  * @author McDutchie
  * @author Mor
@@ -6704,6 +6713,8 @@ $messages['es'] = array(
 	'mwe-upwiz-help-desk-url' => 'Ayuda',
 	'mwe-upwiz-add-file-n' => 'Añadir otro archivo',
 	'mwe-upwiz-add-file-0-free' => 'Selecciona un archivo multimedia para donarlo',
+	'mwe-upwiz-add-flickr-or' => 'o',
+	'mwe-upwiz-multi-file-select' => 'Haz un cuadro el cursor sobre las imágenes que quiere usar. Mantenga pulsada el "Ctrl" o "Command" botones para hacer múltiples selecciones que no están adyacentes.',
 	'mwe-upwiz-transport-started' => 'Iniciando...',
 	'mwe-upwiz-uploading' => 'Subiendo...',
 	'mwe-upwiz-transported' => 'Terminando de subir...',
@@ -6776,6 +6787,7 @@ Por favor, inténtalo con otro navegador.',
 	'mwe-upwiz-more-options' => 'añadir categorías y más información...',
 	'mwe-upwiz-copy-metadata' => 'Copiar información a {{PLURAL:$1|la otra subida|todas las subidas}} que vienen a continuación...',
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
+	'mwe-upwiz-copied-metadata-button' => 'Está copiado correctamente',
 	'mwe-upwiz-copy-title' => 'Copiar título (con numeración automática)',
 	'mwe-upwiz-copy-description' => 'Copiar {{PLURAL:$1|descripción|descripciones}}',
 	'mwe-upwiz-copy-date' => 'Copiar la fecha',
@@ -6937,6 +6949,7 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirmar la eliminación',
 	'mwe-upwiz-license-external' => 'Este archivo está bajo la siguiente licencia en $1 : <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => 'Este archivo está bajo la siguiente licencia en $1: <b>$2</b>. Lamentablemente, esta licencia no es apropiada para su uso en este sitio.',
+	'mwe-upwiz-license-photoset-invalid' => 'Desafotrunadamente, no hay un foto en este grupo que tiene una licencia apropiada para usar en este sitio.',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Agregar',
 	'mwe-upwiz-category-will-be-added' => 'Se creó la categoría.',
@@ -13256,7 +13269,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-secs-remaining' => '残り$1{{PLURAL:$1|秒}}',
 	'mwe-upwiz-mins-secs-remaining' => '残り$1{{PLURAL:$1|分}}$2{{PLURAL:$2|秒}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '残り$1{{PLURAL:$1|時間}}$2{{PLURAL:$2|分}}$3{{PLURAL:$3|秒}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'このウェブサイトは{{PLURAL:$1|この作品|これらの作品}}についての著作権情報を提供するよう要求しています。これは、{{PLURAL:$1|その|それらの}}作品を合法的に誰もが再利用できることを確実にするためです。', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'このウェブサイトは{{PLURAL:$2|}}{{PLURAL:$1|この作品|これらの作品}}についての著作権情報を提供するよう要求しています。これは、{{PLURAL:$1|その|それらの}}作品を合法的に誰もが再利用できることを確実にするためです。',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|このファイル|これらのファイル}}は、自分自身による作品です。',
 	'mwe-upwiz-source-ownwork-assert-any-license' => '{{PLURAL:$1|この作品|これらの作品}}の著作権者である私$2は、{{PLURAL:$1|この作品|これらの作品}}をあらゆる目的で使用、修正そして再配布する権利を、ここに取消不能なものとして、あらゆる人に与えます。そのため、私は{{PLURAL:$1|それ|それら}}を以下の条項で公開します。',
 	'mwe-upwiz-source-ownwork-assert' => '{{PLURAL:$1|この作品|これらの作品}}の著作権保持者である私、$2は、著作権者表示がなされ、かつ、同じ条件の下で派生作品を共有する限り、いかなる人物に対しても、あらゆる目的のために{{PLURAL:$1|この作品|これらの作品}}を利用する権利を、ここに、撤回不可能なものとして認めます。',
@@ -13839,6 +13852,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-help-desk-url' => 'დახმარება და ინფორმაცია',
 	'mwe-upwiz-add-file-n' => 'სხვა ფაილის დამატება',
 	'mwe-upwiz-add-file-0-free' => 'აირჩიეთ შემოსაწირი მედიაფაილი',
+	'mwe-upwiz-add-flickr-or' => 'ან',
 	'mwe-upwiz-transport-started' => 'იწყება...',
 	'mwe-upwiz-uploading' => 'იტვირთება...',
 	'mwe-upwiz-transported' => 'ატვირთვა დასრულდა...',
@@ -14292,7 +14306,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-step-file' => '올리기',
 	'mwe-upwiz-step-deeds' => '이용 허락',
 	'mwe-upwiz-step-details' => '설명하기',
-	'mwe-upwiz-step-thanks' => '이용하기',
+	'mwe-upwiz-step-thanks' => '사용하기',
 	'mwe-upwiz-api-warning-exists' => '같은 파일 이름을 사용하고 있는 [$1 다른 파일]이 있습니다.',
 	'mwe-upwiz-api-warning-was-deleted' => '이 이름으로 된 파일 "$1"이 있었지만, 삭제되었으며 이 파일을 다시 올릴 수 없습니다. 당신의 파일이 다른 파일이라면 이름을 바꿔 시도해 보십시오.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '죄송합니다, 당신의 언어로 된 자습서를 찾을 수 없습니다. $1가 대신 보여집니다.',
@@ -21830,6 +21844,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
  * @author Putnik
  * @author Renessaince
  * @author Rubin
+ * @author ShinePhantom
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -21859,6 +21874,8 @@ $messages['ru'] = array(
 	'mwe-upwiz-help-desk-url' => 'Служба поддержки',
 	'mwe-upwiz-add-file-n' => 'Добавить ещё один файл',
 	'mwe-upwiz-add-file-0-free' => 'Выберите медиафайл для пожертвования',
+	'mwe-upwiz-add-file-flickr' => 'Добавить изображения с Flickr',
+	'mwe-upwiz-add-flickr' => 'Получить изображения с Flickr',
 	'mwe-upwiz-transport-started' => 'Начало…',
 	'mwe-upwiz-uploading' => 'Загрузка файлов на сервер…',
 	'mwe-upwiz-transported' => 'Завершение загрузки...',
@@ -21928,6 +21945,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-more-options' => 'добавить категории и другие сведения…',
 	'mwe-upwiz-copy-metadata' => 'Копировать информацию для всех загрузок ниже...', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Копировать',
+	'mwe-upwiz-copied-metadata-button' => 'Успешно скопировано',
 	'mwe-upwiz-copy-title' => 'Скопировать название (с автонумерацией)',
 	'mwe-upwiz-copy-description' => 'Скопировать описание(я)', # Fuzzy
 	'mwe-upwiz-copy-date' => 'Скопировать дату',
@@ -26111,10 +26129,11 @@ $messages['uk'] = array(
 	'mwe-upwiz-more-options' => 'додати категорії та більше інформації...',
 	'mwe-upwiz-copy-metadata' => 'Копіювати інформацію для всіх завантажень нижче...', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Копіювати',
+	'mwe-upwiz-copied-metadata-button' => 'Успішно скопійовано',
 	'mwe-upwiz-copy-title' => 'Скопіювати заголовок (з автоматичною нумерацією)',
 	'mwe-upwiz-copy-description' => 'Скопіювати {{PLURAL:$1|опис|описи}}',
 	'mwe-upwiz-copy-date' => 'Скопіювати дату',
-	'mwe-upwiz-copy-categories' => 'Скопіювати категорії', # Fuzzy
+	'mwe-upwiz-copy-categories' => 'Скопіювати {{PLURAL:$1|категорію|категорії}}',
 	'mwe-upwiz-copy-location' => 'Скопіювати розташування',
 	'mwe-upwiz-copy-other' => 'Скопіювати іншу інформацію',
 	'mwe-upwiz-desc' => 'Опис',
@@ -26144,6 +26163,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-allowed-filename-extensions' => 'Дозволені розширення:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Дозволені розширення файлів',
 	'mwe-upwiz-upload-error-duplicate' => 'Цей файл був раніше завантажений для цієї Вікі.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'Цей файл уже було завантажено до цієї вікі раніше, але згодом його було вилучено.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Завантажити все одно?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Неможливо прочитати або зрозуміти ім\'я файла "$1" з невідомої причини.',
 	'mwe-upwiz-ok' => 'Готово',
@@ -26174,7 +26194,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-tooltip-description' => 'Коротко напишіть саме основне та цікаве про цю роботу.
 Наприклад, для фото, опишіть що сфотографовано, місце та нагоду знімка.',
 	'mwe-upwiz-tooltip-date' => 'Дата створення або першої публікації твору у форматі XXXX-XX-XX (рік-місяць-число).',
-	'mwe-upwiz-tooltip-categories' => 'Додайте [$1 категорії] до файла, щоб його було легко віднайти.', # Fuzzy
+	'mwe-upwiz-tooltip-categories' => 'Додайте файл до [$1 категорії], щоб його було легко знайти.',
 	'mwe-upwiz-tooltip-other' => 'Будь-яка інша додаткова інформація про цей твір — географічні координати, посилання на інші версії, тощо.
 Ви можете використовувати мову розмітки Вікі.',
 	'mwe-upwiz-tooltip-location' => 'Координати місця, де було створено цей медіа-файл.',
