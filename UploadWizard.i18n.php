@@ -2330,7 +2330,7 @@ $messages['az'] = array(
 	'mwe-upwiz-campaign-name' => 'Kampaniya adı:',
 );
 
-/** South Azerbaijani (South Azerbaijani)
+/** تورکجه (تورکجه)
  * @author Erdemaslancan
  */
 $messages['azb'] = array(
@@ -8322,6 +8322,7 @@ Vinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.',
  * @author Nicolas Raoul
  * @author Od1n
  * @author Peter17
+ * @author Pierre Slamich
  * @author Seb35
  * @author Sherbrooke
  * @author TouzaxA
@@ -8360,6 +8361,7 @@ $messages['fr'] = array(
 	'mwe-upwiz-help-desk-url' => 'Service d’aide',
 	'mwe-upwiz-add-file-n' => 'Ajouter un autre fichier',
 	'mwe-upwiz-add-file-0-free' => 'Sélectionnez un fichier à partager',
+	'mwe-upwiz-add-file-flickr' => 'Ajouter des images provenant de Flickr',
 	'mwe-upwiz-transport-started' => 'Démarrage…',
 	'mwe-upwiz-uploading' => 'Téléversement en cours…',
 	'mwe-upwiz-transported' => 'Téléversement terminé…',
@@ -8432,6 +8434,7 @@ Veuillez essayer avec un autre navigateur.",
 	'mwe-upwiz-more-options' => 'ajouter des catégories et plus d’informations…',
 	'mwe-upwiz-copy-metadata' => "Copier des informations dans {{PLURAL:$1|l'autre téléchargement|tous les autres téléchargements}} ci-dessous…",
 	'mwe-upwiz-copy-metadata-button' => 'Copier',
+	'mwe-upwiz-copied-metadata-button' => 'Copié avec succès',
 	'mwe-upwiz-copy-title' => 'Copier le titre (avec numérotation automatique)',
 	'mwe-upwiz-copy-description' => 'Copier {{PLURAL:$1|la description|les descriptions}}',
 	'mwe-upwiz-copy-date' => 'Copier la date',
@@ -9087,6 +9090,13 @@ $messages['gl'] = array(
 	'mwe-upwiz-help-desk-url' => 'Axuda',
 	'mwe-upwiz-add-file-n' => 'Engadir outro ficheiro',
 	'mwe-upwiz-add-file-0-free' => 'Seleccione o ficheiro multimedia que queira ofrecer',
+	'mwe-upwiz-upload-flickr' => 'Cargar imaxes desde o Flickr',
+	'mwe-upwiz-add-file-flickr' => 'Engadir imaxes desde o Flickr',
+	'mwe-upwiz-add-flickr-or' => 'Ou',
+	'mwe-upwiz-add-flickr' => 'Obter imaxes do Flickr',
+	'mwe-upwiz-flickr-input-placeholder' => 'Imaxe do Flickr/URL do conxunto de fotos',
+	'mwe-upwiz-select-flickr' => 'Cargar as imaxes seleccionadas',
+	'mwe-upwiz-multi-file-select' => 'Debuxe unha caixa co cursor do rato sobre as imaxes que queira cargar. Prema a tecla Ctrl/Command para facer seleccións non adxacentes.',
 	'mwe-upwiz-transport-started' => 'Comezando...',
 	'mwe-upwiz-uploading' => 'Cargando...',
 	'mwe-upwiz-transported' => 'Carga completada...',
@@ -9159,6 +9169,7 @@ Inténteo con outro navegador.',
 	'mwe-upwiz-more-options' => 'engadir categorías e máis información...',
 	'mwe-upwiz-copy-metadata' => 'Copiar a información {{PLURAL:$1|na outra carga|en todas as cargas}} a continuación...',
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
+	'mwe-upwiz-copied-metadata-button' => 'Copiouse correctamente',
 	'mwe-upwiz-copy-title' => 'Copiar o título (con numeración automática)',
 	'mwe-upwiz-copy-description' => 'Copiar {{PLURAL:$1|a descrición|as descricións}}',
 	'mwe-upwiz-copy-date' => 'Copiar a data',
@@ -9322,6 +9333,8 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirmar a eliminación',
 	'mwe-upwiz-license-external' => 'Este ficheiro está baixo a seguinte licenza en $1: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => 'Este ficheiro está baixo a seguinte licenza en $1: <b>$2</b>. Por desgraza, o uso desta licenza non é axeitado neste sitio.',
+	'mwe-upwiz-license-photoset-invalid' => 'Por desgraza, ningunha das imaxes do conxunto de fotos ten unha licenza axeitada para este sitio.',
+	'mwe-upwiz-url-invalid' => 'O enderezo URL inserido non é unha foto do $1 ou un conxunto de fotos válido',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Engadir',
 	'mwe-upwiz-category-will-be-added' => 'Vaise crear esta categoría.',
@@ -10127,6 +10140,13 @@ $messages['he'] = array(
 	'mwe-upwiz-help-desk-url' => 'דלפק ייעוץ',
 	'mwe-upwiz-add-file-n' => 'להוסיף עוד קובץ',
 	'mwe-upwiz-add-file-0-free' => 'בחירת קובץ מדיה לתרומה',
+	'mwe-upwiz-upload-flickr' => 'העלאת תמונות מאתר פליקר',
+	'mwe-upwiz-add-file-flickr' => 'הוספת תמונות מאתר פליקר',
+	'mwe-upwiz-add-flickr-or' => 'או',
+	'mwe-upwiz-add-flickr' => 'קבלת תמונות מאתר פליקר',
+	'mwe-upwiz-flickr-input-placeholder' => 'קישור לתמונה או אוסף תמונות באתר פליקר',
+	'mwe-upwiz-select-flickr' => 'העלאת התמונות הנבחרות',
+	'mwe-upwiz-multi-file-select' => 'יש לסמן בעכבר את התמונות שברצונך להעלות או להחזיק את מקש Ctrl או Command כדי לבחור מספר תמונות.',
 	'mwe-upwiz-transport-started' => 'בהליכי הפעלה...',
 	'mwe-upwiz-uploading' => 'מתבצעת העלאה...',
 	'mwe-upwiz-transported' => 'ההעלאה הושלמה...',
@@ -10199,6 +10219,7 @@ $messages['he'] = array(
 	'mwe-upwiz-more-options' => 'אפשרויות נוספות...',
 	'mwe-upwiz-copy-metadata' => 'להעתיק את המידע {{PLURAL:$1|להעלאה אחרת|לכל ההעלאות להלן}}...',
 	'mwe-upwiz-copy-metadata-button' => 'העתקה',
+	'mwe-upwiz-copied-metadata-button' => 'הועתקו בהצלחה',
 	'mwe-upwiz-copy-title' => 'העתקת כותרת (עם מספור אוטומטי)',
 	'mwe-upwiz-copy-description' => 'העתקת {{PLURAL:$1|תיאור|תיאורים}}',
 	'mwe-upwiz-copy-date' => 'העתקת תאריך',
@@ -10362,6 +10383,8 @@ $messages['he'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'אישור הסרה',
 	'mwe-upwiz-license-external' => 'על הקובץ הזה חל הרישיון הבא ב{{GRAMMAR:תחילית|$1}}&rlm;: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => 'הקובץ הזה התפרסם ברישיון באתר $1: <b>$2</b>. למרבה הצער, הרישיון הזה אינו קביל באתר הזה.',
+	'mwe-upwiz-license-photoset-invalid' => 'חבל, אבל לשום תמונה מהאוסף אין רישיון שמתאים לשימוש באתר הזה.',
+	'mwe-upwiz-url-invalid' => 'הקישור שהוכנס אינו קישור תקין לתמונה או אוסף תמונות באתר $1',
 	'mwe-upwiz-categories' => 'קטגוריות',
 	'mwe-upwiz-categories-add' => 'הוספה',
 	'mwe-upwiz-category-will-be-added' => 'הקובץ יצורף לקטגוריה שאינה קיימת.',
