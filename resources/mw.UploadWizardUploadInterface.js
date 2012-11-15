@@ -331,7 +331,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			statusItems.push( this.upload.imageinfo.width + '\u00d7' + this.upload.imageinfo.height );
 		}
 
-		if( !this.upload.fromURL ){
+		if( this.upload.file && !this.upload.fromURL ){
 			statusItems.push( mw.units.bytes( this.upload.file.size ) );
 		}
 
