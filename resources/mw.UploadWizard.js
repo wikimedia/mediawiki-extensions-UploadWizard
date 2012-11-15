@@ -329,6 +329,7 @@ mw.UploadWizard.prototype = {
 		$j( '#mwe-upwiz-files' ).prepend( flickr_add );
 		// Insert input field into the form and set up submit action
 		$j( '#mwe-upwiz-flickr-url-form' ).prepend( $flickr_input ).submit( function() {
+			$j( '#mwe-upwiz-upload-add-flickr' ).attr( 'disabled', 'disabled' );
 			_this.flickrChecker( checker );
 			return false;
 		} );
@@ -357,6 +358,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-select-flickr' ).unbind();
 			$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
 			$j( '#mwe-upwiz-upload-add-flickr-container' ).show();
+			$j( '#mwe-upwiz-upload-add-flickr' ).removeAttr( 'disabled' );
 	},
 
 	/**
