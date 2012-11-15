@@ -315,6 +315,7 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * Initiates the Interface to upload media from Flickr.
+	 * Called when the user clicks on the 'Add images from Flickr' button.
 	 */
 	flickrInterfaceInit: function() {
 		var _this = this;
