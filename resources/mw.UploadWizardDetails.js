@@ -1000,6 +1000,7 @@ mw.UploadWizardDetails.prototype = {
 	prefillDescription: function() {
 		if ( this.descriptions[0].getText() === ''
 			&& this.upload.file !== undefined
+			&& this.upload.file.description !== undefined
 			&& this.upload.file.description !== ''
 		) {
 			this.descriptions[0].setText( this.upload.file.description );
