@@ -102,6 +102,8 @@ $specialPageAliases['id'] = array(
 /** Italian (italiano) */
 $specialPageAliases['it'] = array(
 	'UploadWizard' => array( 'CaricamentoGuidato' ),
+	'UploadCampaigns' => array( 'CampagneCaricamento' ),
+	'UploadCampaign' => array( 'CampagnaCaricamento' ),
 );
 
 /** Japanese (日本語) */
