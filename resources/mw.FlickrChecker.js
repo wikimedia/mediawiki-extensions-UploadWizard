@@ -219,6 +219,8 @@ mw.FlickrChecker.prototype = {
 	 */
 	getLicenses: function() {
 		var _this = this;
+		// Workaround for http://bugs.jquery.com/ticket/8283
+		jQuery.support.cors = true;
 		$.getJSON( _this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photos.licenses.getInfo',
@@ -230,7 +232,7 @@ mw.FlickrChecker.prototype = {
 						mw.FlickrChecker.prototype.licenseList[value.id] = value.name;
 					} );
 				}
-			$j( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
+				$j( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
 			}
 		);
 	},
