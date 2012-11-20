@@ -4896,8 +4896,8 @@ Den skal være længere end $1 {{PLURAL:$1|tegn|tegn}}.',
 Brug venligst ikke wikitekst eller HTML her, kun dit brugernavn eller rigtige navn.',
 	'mwe-upwiz-error-blank' => 'Dette felt skal udfyldes.',
 	'mwe-upwiz-error-nologin' => 'Du skal være <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} logget på]</span> for at kunne lægge filer op.',
-	'mwe-upwiz-error-too-long' => 'Denne post er for lang.
-Den skal være kortere end $1 tegn.', # Fuzzy
+	'mwe-upwiz-error-too-long' => 'Dette felt er for langt.
+Det skal være kortere end $1 {{PLURAL:$1|tegn|tegn}}.', # Fuzzy
 	'mwe-upwiz-error-too-short' => 'Denne post er for kort.
 Den skal være længere end $1 tegn.', # Fuzzy
 	'mwe-upwiz-error-bad-chars' => 'Denne post indeholder symboler, der ikke er tilladte.
