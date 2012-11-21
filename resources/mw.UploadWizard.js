@@ -827,6 +827,12 @@ mw.UploadWizard.prototype = {
 		var errorCount = 0;
 		var okCount = 0;
 		var stillGoing = 0;
+
+		// abort if all uploads have been removed
+		if( this.uploads.length === 0 ) {
+			return;
+		}
+
 		$j.each( this.uploads, function( i, upload ) {
 			if ( upload === undefined ) {
 				return;
