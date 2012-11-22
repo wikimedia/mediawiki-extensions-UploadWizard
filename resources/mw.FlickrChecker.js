@@ -170,7 +170,7 @@ mw.FlickrChecker.prototype = {
 	getPhoto: function( photoIdMatches ) {
 		var _this = this;
 		var photoId = photoIdMatches[1];
-		var fileName;
+		var fileName, photoAuthor;
 		$.getJSON( this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photos.getInfo',
@@ -188,6 +188,12 @@ mw.FlickrChecker.prototype = {
 						} else {
 							fileName = data.photo.title._content + '.jpg';
 						}
+						// if owner doesn't have a real name, use username
+						if ( data.photo.owner.realname !== '' ) {
+							photoAuthor = data.photo.owner.realname;
+						} else {
+							photoAuthor = data.photo.owner.username;
+						}
 						var flickrUpload = {
 							name: fileName,
 							url: '',
@@ -196,7 +202,7 @@ mw.FlickrChecker.prototype = {
 							licenseValue: licenseValue,
 							licenseMessage: licenseMessage,
 							license: true,
-							author: data.photo.owner.realname,
+							author: photoAuthor,
 							description: data.photo.description._content,
 							originalFormat: data.photo.originalformat,
 							date: data.photo.dates.taken,
