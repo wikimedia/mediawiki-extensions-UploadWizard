@@ -165,6 +165,13 @@ $specialPageAliases['ru'] = array(
 	'UploadCampaign' => array( 'Кампания_по_загрузке' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'UploadWizard' => array( 'CaricamentoGuidato' ),
+	'UploadCampaigns' => array( 'CampagneCaricamento' ),
+	'UploadCampaign' => array( 'CampagnaCaricamento' ),
+);
+
 /** Sinhala (සිංහල) */
 $specialPageAliases['si'] = array(
 	'UploadWizard' => array( 'උඩුගත_කිරීමේ_මාය_අඳුන' ),

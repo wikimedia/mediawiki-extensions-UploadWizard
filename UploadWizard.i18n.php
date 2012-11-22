@@ -19303,6 +19303,7 @@ $messages['or'] = array(
 	'mwe-upwiz-help-desk-url' => 'ସହଯୋଗ',
 	'mwe-upwiz-add-file-n' => 'ଆଉ ଏକ ଫାଇଲ ଯୋଡ଼ିବେ',
 	'mwe-upwiz-add-file-0-free' => 'ଦାନ କରିବା ନିମନ୍ତେ ଏକ ମିଡ଼ିଆ ଫାଇଲ ବାଛନ୍ତୁ', # Fuzzy
+	'mwe-upwiz-add-flickr-or' => 'କିମ୍ବା',
 	'mwe-upwiz-transport-started' => 'ଆରମ୍ଭିଲା...',
 	'mwe-upwiz-uploading' => 'ଅପଲୋଡ଼ ହେଉଛି...',
 	'mwe-upwiz-transported' => 'ଅପଲୋଡ଼ ଶେଷ ହେଲା...',
