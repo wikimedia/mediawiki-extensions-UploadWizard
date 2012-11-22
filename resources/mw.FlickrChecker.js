@@ -72,7 +72,7 @@ mw.FlickrChecker.prototype = {
 	getPhotoset: function( albumIdMatches ) {
 		var _this = this;
 		var x = 0;
-		var fileName, imageContainer;
+		var fileName, imageContainer, sourceURL;
 
 		$j( '#mwe-upwiz-select-flickr' ).button( {
 			label: gM( 'mwe-upwiz-select-flickr' ),
@@ -84,9 +84,9 @@ mw.FlickrChecker.prototype = {
 			api_key: _this.apiKey,
 			photoset_id: albumIdMatches[1],
 			format: 'json',
-			extras: 'license, url_sq, owner_name, original_format, date_taken, geo' },
+			extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias' },
 			function( data ) {
-				if ( data.photoset !== undefined ) {
+				if ( typeof data.photoset !== 'undefined' ) {
 					$.each( data.photoset.photo, function( i, item ){
 						// Limit to maximum of 50 images
 						if ( x < 50 ) {
@@ -99,6 +99,8 @@ mw.FlickrChecker.prototype = {
 								} else {
 									fileName = item.title + '.jpg';
 								}
+								sourceURL = 'http://www.flickr.com/photos/'
+									+ item.pathalias + '/' + item.id + '/';
 								var flickrUpload = {
 									name: fileName,
 									url: '',
@@ -115,6 +117,7 @@ mw.FlickrChecker.prototype = {
 									author: item.ownername,
 									date: item.datetaken,
 									originalFormat: item.originalformat,
+									sourceURL: sourceURL,
 									index: i
 								};
 								// Adding all the Photoset files which have a valid license with the required info to an array so that they can be referenced later
@@ -174,7 +177,7 @@ mw.FlickrChecker.prototype = {
 	getPhoto: function( photoIdMatches ) {
 		var _this = this;
 		var photoId = photoIdMatches[1];
-		var fileName, photoAuthor;
+		var fileName, photoAuthor, sourceURL;
 		$.getJSON( this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photos.getInfo',
@@ -182,7 +185,7 @@ mw.FlickrChecker.prototype = {
 			photo_id: photoId,
 			format: 'json' },
 			function( data ) {
-				if ( typeof data.photo != 'undefined' ) {
+				if ( typeof data.photo !== 'undefined' ) {
 					var license = _this.checkLicense( data.photo.license );
 					var licenseValue = license.licenseValue;
 					if ( licenseValue != 'invalid' ) {
@@ -198,6 +201,14 @@ mw.FlickrChecker.prototype = {
 						} else {
 							photoAuthor = data.photo.owner.username;
 						}
+						// get the URL of the photo page
+						$.each( data.photo.urls.url, function( index, url ) {
+							if ( url.type === 'photopage' ) {
+								sourceURL = url._content;
+								// break each loop
+								return false;
+							}
+						} );
 						var flickrUpload = {
 							name: fileName,
 							url: '',
@@ -211,7 +222,8 @@ mw.FlickrChecker.prototype = {
 							originalFormat: data.photo.originalformat,
 							date: data.photo.dates.taken,
 							location: data.photo.location,
-							photoId: data.photo.id
+							photoId: data.photo.id,
+							sourceURL: sourceURL
 						};
 						_this.imageUploads.push( flickrUpload );
 						_this.setImageURL( 0, _this );
@@ -255,7 +267,7 @@ mw.FlickrChecker.prototype = {
 			api_key: _this.apiKey,
 			format: 'json' },
 			function( data ) {
-				if ( typeof data.licenses != 'undefined' ) {
+				if ( typeof data.licenses !== 'undefined' ) {
 					$.each( data.licenses.license, function( index, value ) {
 						mw.FlickrChecker.prototype.licenseList[value.id] = value.name;
 					} );
@@ -283,11 +295,17 @@ mw.FlickrChecker.prototype = {
 			} );
 	},
 
+	/**
+	 * Retrieve the URL of the largest version available on Flickr and set that
+	 * as the upload URL.
+	 * @param index Index of the image we need to set the URL for
+	 */
 	setImageURL: function( index ) {
 		var _this = this;
 		var imageURL = '';
 		var upload = this.imageUploads[index];
 		var photoId = upload.photoId;
+		var largestSize;
 
 		$.getJSON( _this.apiUrl, {
 			nojsoncallback: 1,
@@ -296,18 +314,32 @@ mw.FlickrChecker.prototype = {
 			format: 'json',
 			photo_id: photoId },
 			function( data ) {
-				$.each( data.sizes.size, function( counter, item ) {
-					imageURL = item.source;
-
+				if ( typeof data.sizes !== 'undefined'
+					&& typeof data.sizes.size !== 'undefined'
+					&& data.sizes.size.length > 0 )
+				{
+					// Flickr always returns the largest version as the final size.
+					// TODO: Make this less fragile by actually comparing sizes.
+					largestSize = data.sizes.size.pop();
 					// Flickr provides the original format for images coming from pro users, hence we need to change the default JPEG to this format
-					if ( item.label == 'Original' ) {
+					if ( largestSize.label == 'Original' ) {
 						upload.type = upload.originalFormat;
 						upload.name = upload.name.split('.')[0] + '.' + upload.originalFormat;
 					}
-				} );
-				upload.url = imageURL;
-				// Need to call the newUpload here because else some code would have to be written to detect the completion of the API call.
-				_this.wizard.newUpload( upload );
+					upload.url = largestSize.source;
+					// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
+					_this.wizard.newUpload( upload );
+				} else {
+					$j( '<div></div>' )
+						.html( gM( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) )
+						.dialog( {
+							width: 500,
+							zIndex: 200000,
+							autoOpen: true,
+							modal: true
+						} );
+					_this.wizard.flickrInterfaceReset();
+				}
 			} );
 	},
 

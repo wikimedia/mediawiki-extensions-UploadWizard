@@ -683,7 +683,11 @@ mw.UploadWizardDetails.prototype = {
 				_this.upload.deedChooser.deed = {
 					valid : function(){ return true; },
 					getSourceWikiText : function() {
-						return _this.upload.providedFile.url;
+						if ( typeof _this.upload.providedFile.sourceURL !== 'undefined' ) {
+							return _this.upload.providedFile.sourceURL;
+						} else {
+							return _this.upload.providedFile.url;
+						}
 					},
 					getAuthorWikiText : function() {
 						return _this.upload.providedFile.author;

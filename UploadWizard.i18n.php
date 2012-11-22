@@ -52,6 +52,7 @@ $messages['en'] = array(
 	'mwe-upwiz-flickr-disclaimer' => 'This form will load content hosted by flickr.com and subject to the
 Flickr [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ privacy policy].<br />
 Please note that by using this tool, your IP address and request details will be available to Flickr.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Sorry, we could not retrieve the image from $1.',
 	'mwe-upwiz-multi-file-select' => 'Draw a box with your cursor over the images you would like to upload. Hold down the Ctrl/Command key to make multiple non-adjacent selections.',
 	'mwe-upwiz-transport-started' => 'Starting...',
 	'mwe-upwiz-uploading' => 'Uploading...',
@@ -476,6 +477,7 @@ $1 is the name of the fallback language.",
 |} This is a button label, used in the "{{MediaWiki:mwe-upwiz-step-file/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file.',
 	'mwe-upwiz-flickr-disclaimer' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Error message shown when UploadWizard is not able to retrieve an image from a remote source. $1 is the name of the remote source, for example, Flickr.',
 	'mwe-upwiz-multi-file-select' => 'Instructions that appear when the user can select multiple files to upload. See http://jqueryui.com/demos/selectable/#display-grid for how this works.',
 	'mwe-upwiz-transported' => '{{Identical|OK}}',
 	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).',
