@@ -40,8 +40,12 @@ mw.FlickrChecker.prototype = {
 	checkFlickr: function( flickr_input_url ) {
 		var _this = this;
 		_this.url = flickr_input_url;
-		var photoIdMatches = _this.url.match(/flickr.com\/photos\/[^\/]+\/([0-9]+)/);
-		var albumIdMatches = _this.url.match(/flickr.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
+		var photoIdMatches = _this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/);
+		if ( photoIdMatches === null ) {
+			// try static urls
+			photoIdMatches = _this.url.match(/static\.?flickr\.com\/[^\/]+\/([0-9]+)_/);
+		}
+		var albumIdMatches = _this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
 		if ( albumIdMatches || photoIdMatches ) {
 			$j( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 			_this.imageUploads = [];
