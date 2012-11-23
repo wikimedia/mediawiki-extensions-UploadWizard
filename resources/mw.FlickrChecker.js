@@ -33,9 +33,9 @@ mw.FlickrChecker.prototype = {
 	 * retrieved, do nothing. Note that the license look-up system is fragile on purpose. If Flickr
 	 * changes the name associated with a license ID, it's better for the lookup to fail than to use
 	 * an incorrect license.
- 	 * @param url - the source URL to check
- 	 * @param $selector - the element to insert the license name into
- 	 * @param upload - the upload object to set the deed for
+	 * @param url - the source URL to check
+	 * @param $selector - the element to insert the license name into
+	 * @param upload - the upload object to set the deed for
 	 */
 	checkFlickr: function( flickr_input_url ) {
 		var _this = this;
@@ -213,7 +213,18 @@ mw.FlickrChecker.prototype = {
 							});
 						_this.wizard.flickrInterfaceReset();
 					}
+				} else {
+					$j( '<div></div>' )
+						.html( gM( 'mwe-upwiz-url-invalid', 'Flickr' ) )
+						.dialog( {
+							width: 500,
+							zIndex: 200000,
+							autoOpen: true,
+							modal: true
+						} );
+					_this.wizard.flickrInterfaceReset();
 				}
+
 			}
 		);
 	},
