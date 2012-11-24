@@ -941,6 +941,16 @@ mw.UploadWizardDetails.prototype = {
 			} );
 		}
 
+		// If we don't have EXIF lets try other sources - Flickr
+		if ( dateObj === undefined && this.upload.file.date !== undefined ) {
+			var dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
+			var matches = this.upload.file.date.match( dateTimeRegex );
+			if ( !mw.isEmpty( matches ) ) {
+				$j( _this.dateInput ).val( this.upload.file.date );
+				return;
+			}
+		}
+
 		// if we don't have EXIF or other metadata, let's use "now"
 		// XXX if we have FileAPI, it might be clever to look at file attrs, saved
 		// in the upload object for use here later, perhaps

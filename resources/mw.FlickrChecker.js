@@ -84,7 +84,7 @@ mw.FlickrChecker.prototype = {
 			api_key: _this.apiKey,
 			photoset_id: albumIdMatches[1],
 			format: 'json',
-			extras: 'license, url_sq, owner_name, original_format' },
+			extras: 'license, url_sq, owner_name, original_format, date_taken' },
 			function( data ) {
 				if ( data.photoset !== undefined ) {
 					$.each( data.photoset.photo, function( i, item ){
@@ -109,6 +109,7 @@ mw.FlickrChecker.prototype = {
 									license: true,
 									photoId: item.id,
 									author: item.ownername,
+									date: item.datetaken,
 									originalFormat: item.originalformat,
 									index: i
 								};
@@ -198,6 +199,7 @@ mw.FlickrChecker.prototype = {
 							author: data.photo.owner.realname,
 							description: data.photo.description._content,
 							originalFormat: data.photo.originalformat,
+							date: data.photo.dates.taken,
 							photoId: data.photo.id
 						};
 						_this.imageUploads.push( flickrUpload );
