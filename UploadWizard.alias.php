@@ -34,7 +34,7 @@ $specialPageAliases['ba'] = array(
 
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = array(
-	'UploadWizard' => array( 'Оруулах_тэнгэри' ),
+	'UploadWizard' => array( 'Ашаалха_Зэмсэг' ),
 );
 
 /** Danish (dansk) */
@@ -156,6 +156,11 @@ $specialPageAliases['nl'] = array(
 	'UploadWizard' => array( 'WizardUploaden' ),
 	'UploadCampaigns' => array( 'Uploadcampagnes' ),
 	'UploadCampaign' => array( 'Uploadcampagne' ),
+);
+
+/** Punjabi (ਪੰਜਾਬੀ) */
+$specialPageAliases['pa'] = array(
+	'UploadWizard' => array( 'ਅੱਪਲੋਡ_ਵਿਜ਼ਰਦ' ),
 );
 
 /** Russian (русский) */
