@@ -1030,17 +1030,14 @@ mw.UploadWizardDetails.prototype = {
 		if ( _this.upload.imageinfo.metadata ) {
 			var m = _this.upload.imageinfo.metadata;
 
-			if ( m['gpslatitude'] !== undefined ) {
+			if ( m['gpslatitude'] !== undefined && m['gpslongitude'] !== undefined ) {
 				$j( _this.latInput ).val( m['gpslatitude'] );
-			} else if ( this.upload.file.location.latitude !== undefined ) {
-				$j( _this.latInput ).val( this.upload.file.location.latitude );
-			}
-
-			if ( m['gpslongitude'] !== undefined ) {
 				$j( _this.lonInput ).val( m['gpslongitude'] );
-			} else if ( this.upload.file.location.longitude !== undefined ) {
+			} else if ( this.upload.file.location !== undefined ) {
+				$j( _this.latInput ).val( this.upload.file.location.latitude );
 				$j( _this.lonInput ).val( this.upload.file.location.longitude );
 			}
+
 			//if ( m['gpsaltitude'] !== undefined ) {
 			//	$j( _this.altInput ).val( m['gpsaltitude'] );
 			//}

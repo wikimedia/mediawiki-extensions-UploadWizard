@@ -210,10 +210,7 @@ mw.FlickrChecker.prototype = {
 							description: data.photo.description._content,
 							originalFormat: data.photo.originalformat,
 							date: data.photo.dates.taken,
-							location: {
-								'latitude': data.photo.location.latitude,
-								'longitude': data.photo.location.longitude
-							},
+							location: data.photo.location,
 							photoId: data.photo.id
 						};
 						_this.imageUploads.push( flickrUpload );
