@@ -160,7 +160,7 @@ $specialPageAliases['nl'] = array(
 
 /** Punjabi (ਪੰਜਾਬੀ) */
 $specialPageAliases['pa'] = array(
-	'UploadWizard' => array( 'ਅੱਪਲੋਡ_ਵਿਜ਼ਰਦ' ),
+	'UploadWizard' => array( 'ਅੱਪਲੋਡ_ਵਿਜ਼ਾਰਡ' ),
 );
 
 /** Russian (русский) */
