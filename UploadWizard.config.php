@@ -58,7 +58,7 @@ return array(
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 
 	// Flickr details
-	'flickrApiUrl' => 'http://api.flickr.com/services/rest/?',
+	'flickrApiUrl' => 'https://secure.flickr.com/services/rest/?',
 	'flickrApiKey' => '',
 
 	// Categories to automatically (and silently) add all uploaded images into.
