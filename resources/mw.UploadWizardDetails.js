@@ -942,7 +942,7 @@ mw.UploadWizardDetails.prototype = {
 		}
 
 		// If we don't have EXIF lets try other sources - Flickr
-		if ( dateObj === undefined && this.upload.file.date !== undefined ) {
+		if ( dateObj === undefined && typeof this.upload.file !== 'undefined' && typeof this.upload.file.date !== 'undefined' ) {
 			var dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
 			var matches = this.upload.file.date.match( dateTimeRegex );
 			if ( !mw.isEmpty( matches ) ) {
@@ -1033,7 +1033,7 @@ mw.UploadWizardDetails.prototype = {
 			if ( m['gpslatitude'] !== undefined && m['gpslongitude'] !== undefined ) {
 				$j( _this.latInput ).val( m['gpslatitude'] );
 				$j( _this.lonInput ).val( m['gpslongitude'] );
-			} else if ( this.upload.file.location !== undefined ) {
+			} else if ( typeof this.upload.file !== 'undefined' && typeof this.upload.file.location !== 'undefined' ) {
 				$j( _this.latInput ).val( this.upload.file.location.latitude );
 				$j( _this.lonInput ).val( this.upload.file.location.longitude );
 			}
