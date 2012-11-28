@@ -50,13 +50,18 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	 */
 	protected function getForm() {
 		$form = parent::getForm();
+
+		$attribs = array(
+			'onclick' => 'window.location="' . SpecialPage::getTitleFor( 'UploadCampaigns' )->getFullURL() . '";return false;'
+		);
+
+		$attribs += Linker::tooltipAndAccesskeyAttribs( 'cancel-upload-campaign' );
+
 		$form->addButton(
 			'cancelEdit',
 			$this->msg( 'cancel' )->text(),
 			'cancelEdit',
-			array(
-				'onclick' => 'window.location="' . SpecialPage::getTitleFor( 'UploadCampaigns' )->getFullURL() . '";return false;'
-			)
+			$attribs
 		);
 
 		return $form;
@@ -134,6 +139,15 @@ class SpecialUploadCampaign extends FormSpecialPage {
 
 	public function onSuccess() {
 		$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaigns' )->getLocalURL( array( 'refresh' => '1' ) ) );
+	}
+
+	/**
+	 * @see FormSpecialPage::alterForm
+	 *
+	 * @param HTMLForm $form
+	 */
+	protected function alterForm( HTMLForm $form ) {
+		$form->setSubmitTooltip( 'save-upload-campaign' );
 	}
 
 }
