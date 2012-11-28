@@ -45,6 +45,17 @@ class SpecialUploadCampaign extends FormSpecialPage {
 	}
 
 	/**
+	 * @see parent::execute
+	 *
+	 * @param string $subPage
+	 */
+	public function execute( $subPage ) {
+		parent::execute( $subPage );
+
+		$this->getOutput()->addModules( 'ext.uploadWizard.campaign' );
+	}
+
+	/**
 	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getForm()
 	 */
