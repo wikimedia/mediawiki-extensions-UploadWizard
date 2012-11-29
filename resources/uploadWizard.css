@@ -265,6 +265,13 @@ form.mwe-upwiz-form {
 	background: none;
 }
 
+#mwe-upwiz-flickr-disclaimer {
+	font-size: 92%;
+	margin: 1em 0;
+	padding: 0.5em;
+	background-color: #DFEFFA;
+}
+
 #mwe-upwiz-flickr-select-list li img {
 	margin: 12.5px;
 	display: block;

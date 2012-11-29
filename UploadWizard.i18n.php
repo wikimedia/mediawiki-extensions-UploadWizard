@@ -49,6 +49,9 @@ $messages['en'] = array(
 	'mwe-upwiz-add-flickr' => 'Get images from Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr image/photoset URL',
 	'mwe-upwiz-select-flickr' => 'Upload selected images',
+	'mwe-upwiz-flickr-disclaimer' => 'This form will load content hosted by flickr.com and subject to the
+Flickr [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ privacy policy].<br />
+Please note that by using this tool, your IP address and request details will be available to Flickr.',
 	'mwe-upwiz-multi-file-select' => 'Draw a box with your cursor over the images you would like to upload. Hold down the Ctrl/Command key to make multiple non-adjacent selections.',
 	'mwe-upwiz-transport-started' => 'Starting...',
 	'mwe-upwiz-uploading' => 'Uploading...',
@@ -600,6 +603,7 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}',
+	'mwe-upwiz-flickr-disclaimer' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-license-public-domain-usa-subhead' => 'This message, assuming that the server of the website is located in the USA (like Wikimedia Commons), reminds the user that for the work to be considered in the public domain its copyright is required to be expired in the USA specifically, as being PD in the country of origin is not enough.',
 	'mwe-upwiz-license-custom-preview' => '{{Identical|Preview}}',
 	'mwe-upwiz-license-confirm-remove-title' => 'Title for dialog box to confirm that you want to abandon an upload that you started',
