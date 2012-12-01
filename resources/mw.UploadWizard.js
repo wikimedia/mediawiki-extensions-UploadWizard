@@ -1062,9 +1062,22 @@ mw.UploadWizard.prototype = {
  	 * right next to the submit button, so it should be obvious to the user they need to fix things.
 	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
+	 * This method also opens up "more info" if the form has errors.
 	 */
 	detailsErrorCount: function() {
-		var errorCount = $( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-error, textarea.mwe-error, input.mwe-validator-error, textarea.mwe-validator-error' ).length;
+		var errorElements = $( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-error, textarea.mwe-error, input.mwe-validator-error, textarea.mwe-validator-error' );
+
+		// Open "more info" if that part of the form has errors
+		errorElements.each( function () {
+			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
+				var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
+				if( !moreInfo.hasClass( "mwe-upwiz-toggler-open" ) ) {
+					moreInfo.click();
+				}
+			}
+		} );
+
+		var errorCount = errorElements.length;
 		if ( errorCount > 0 ) {
 			$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
 		} else {
@@ -1490,7 +1503,8 @@ mw.isEmpty = function( v ) {
 	 * toggle() in vector.collapsibleNav.js, not to mention jquery.collapsible
 	 * but none of those do what we want, or are inaccessible to us
 	 *
-	 * TODO needs to iterate through elements, if we want to apply toggling behavior to many elements at once
+	 * TODO: needs to iterate through elements, if we want to apply toggling behavior to many elements at once
+	 * TODO: add a method to open and close besides clicking
 	 */
 	jQuery.fn.collapseToggle = function() {
 		var $el = this;
