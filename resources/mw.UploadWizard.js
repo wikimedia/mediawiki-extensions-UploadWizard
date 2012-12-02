@@ -58,7 +58,7 @@ mw.UploadWizard.prototype = {
 		// construct the message for the subheader
 		$j( '#contentSub' ).append( $j( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
-		if ( mw.UploadWizard.config['feedbackPage'] !== undefined && mw.UploadWizard.config['feedbackPage'] !== '' ) {
+		if ( typeof mw.UploadWizard.config['feedbackPage'] === 'string' && mw.UploadWizard.config['feedbackPage'].length > 0 ) {
 			var feedback = new mw.Feedback( {
 				'title': new mw.Title( mw.UploadWizard.config['feedbackPage'] ),
 				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
@@ -74,11 +74,11 @@ mw.UploadWizard.prototype = {
 			$j( '#contentSub' ).append( feedbackLink );
 		}
 
-		if ( mw.UploadWizard.config['translateHelp'] !== undefined && mw.UploadWizard.config['translateHelp'] !== '' ) {
+		if ( typeof mw.UploadWizard.config['translateHelp'] === 'string' && mw.UploadWizard.config['translateHelp'].length > 0 ) {
 			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['translateHelp'], target: '_blank' } ) ) );
 		}
 		var configAltUploadForm = mw.UploadWizard.config['altUploadForm'];
-		if ( configAltUploadForm !== undefined && configAltUploadForm !== '' ) {
+		if ( configAltUploadForm ) {
 			var altUploadForm;
 			if ( typeof configAltUploadForm === 'object' ) {
 				var userLanguage = mw.config.get( 'wgUserLanguage' );
@@ -94,16 +94,13 @@ mw.UploadWizard.prototype = {
 			}
 
 			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
-			if ( altUploadForm ) {
+			if ( typeof altUploadForm === 'string' && altUploadForm.length > 0 ) {
 				var title;
 				try {
 					title = new mw.Title( altUploadForm );
+					$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $j( '<a></a>' ).attr( { href: title.getUrl() } ) ) );
 				} catch ( e ) {
 					// page was empty, or impossible on this wiki (missing namespace or some other issue). Give up.
-				}
-				if ( title instanceof mw.Title ) {
-					var altUploadFormUrl = title.getUrl();
-					$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $j( '<a></a>' ).attr( { href: altUploadFormUrl } ) ) );
 				}
 			}
 		}
