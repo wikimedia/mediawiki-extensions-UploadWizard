@@ -475,6 +475,7 @@ $1 is the name of the fallback language.",
 | [[file:commons-uw-L526.png|The "{{MediaWiki:mwe-upwiz-step-file/en}}" page after 2 files were added|thumb|right]]
 |} This is a button label, used in the "{{MediaWiki:mwe-upwiz-step-file/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file.',
+	'mwe-upwiz-flickr-disclaimer' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-multi-file-select' => 'Instructions that appear when the user can select multiple files to upload. See http://jqueryui.com/demos/selectable/#display-grid for how this works.',
 	'mwe-upwiz-transported' => '{{Identical|OK}}',
 	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).',
@@ -603,7 +604,6 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}',
-	'mwe-upwiz-flickr-disclaimer' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-license-public-domain-usa-subhead' => 'This message, assuming that the server of the website is located in the USA (like Wikimedia Commons), reminds the user that for the work to be considered in the public domain its copyright is required to be expired in the USA specifically, as being PD in the country of origin is not enough.',
 	'mwe-upwiz-license-custom-preview' => '{{Identical|Preview}}',
 	'mwe-upwiz-license-confirm-remove-title' => 'Title for dialog box to confirm that you want to abandon an upload that you started',
@@ -11595,6 +11595,7 @@ $1',
 );
 
 /** Armenian (Հայերեն)
+ * @author Vadgt
  * @author Xelgen
  */
 $messages['hy'] = array(
@@ -11636,9 +11637,12 @@ $messages['hy'] = array(
 	'mwe-upwiz-copy-description' => 'Պատճենել նկարագրությունը', # Fuzzy
 	'mwe-upwiz-copy-date' => 'Պատճենել ամսաթիվը',
 	'mwe-upwiz-copy-categories' => 'Պատճենել կատեգորիաները', # Fuzzy
+	'mwe-upwiz-upload-another' => 'Բեռնել ավելի շատ ֆայլեր',
+	'mwe-upwiz-thanks-caption' => 'Ավելացնել մեկնաբանություն այստեղ',
 	'mwe-upwiz-campaigns-edit' => 'Խմբագրել',
 	'mwe-upwiz-campaigns-add' => 'Ավելացնել',
 	'mwe-upwiz-campaigns-delete' => 'Ջնջել',
+	'prefs-uploads' => 'Բեռնումներ',
 );
 
 /** Interlingua (interlingua)
@@ -26216,7 +26220,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-help-desk' => 'Служба підтримки',
 	'mwe-upwiz-help-desk-url' => 'Служба підтримки',
 	'mwe-upwiz-add-file-n' => 'Додати ще один файл',
-	'mwe-upwiz-add-file-0-free' => 'Виберіть мультимедійний файл для пожертування',
+	'mwe-upwiz-add-file-0-free' => 'Оберіть файл для завантаження',
 	'mwe-upwiz-upload-flickr' => 'Завантажити зоюраження з Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Додати зображення з Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Або',
@@ -26275,7 +26279,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Надайте інформацію про авторські права для кожного файлу окремо на наступній сторінці.',
 	'mwe-upwiz-more-options' => 'додати категорії та більше інформації...',
-	'mwe-upwiz-copy-metadata' => 'Копіювати інформацію для всіх завантажень нижче...', # Fuzzy
+	'mwe-upwiz-copy-metadata' => 'Копіювати інформацію для {{PLURAL:$1|іншого зображення|інших зображень}} нижче…',
 	'mwe-upwiz-copy-metadata-button' => 'Копіювати',
 	'mwe-upwiz-copied-metadata-button' => 'Успішно скопійовано',
 	'mwe-upwiz-copy-title' => 'Скопіювати заголовок (з автоматичною нумерацією)',
@@ -26394,8 +26398,8 @@ $messages['uk'] = array(
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Австрія ([$2.uk спрощений виклад та офіційний юридичний текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 Німеччина  ([$2.uk спрощений виклад та офіційний юридичний текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-ee' => 'Creative Commons Attribution ShareAlike 3.0 Естонія ([$2.uk спрощений виклад та офіційний юридичний текст])',
-	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'Creative Commons Attribution ShareAlike 3.0 Іспанія  ([$2 текст]', # Fuzzy
-	'mwe-upwiz-license-cc-by-sa-3.0-hr' => 'Creative Commons Attribution ShareAlike 3.0 Хорватія  ([$2 текст]', # Fuzzy
+	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'Creative Commons Attribution ShareAlike 3.0 Іспанія  ([$2 текст])',
+	'mwe-upwiz-license-cc-by-sa-3.0-hr' => 'Creative Commons Attribution ShareAlike 3.0 Хорватія  ([$2 текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-lu' => 'Creative Commons Attribution ShareAlike 3.0 Люксембург ([$2.uk спрощений виклад та офіційний юридичний текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-nl' => 'Creative Commons Attribution ShareAlike 3.0 Нідерланди ([$2.uk скорочений виклад та офіційний юридичний текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-no' => 'Creative Commons Attribution ShareAlike 3.0 Норвегія ([$2.uk скорочений виклад та офіційний юридичний текст ліцензії])',
