@@ -603,6 +603,7 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-2.0' => '{{CreativeCommonsLicense|by|2.0}}
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+	'mwe-upwiz-license-custom-url' => '{{optional}}',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}',
@@ -5182,6 +5183,8 @@ $messages['de'] = array(
 	'mwe-upwiz-add-flickr' => 'Bilder von Flickr holen',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr-Bild-/Fotosatz-URL',
 	'mwe-upwiz-select-flickr' => 'Ausgewählte Bilder hochladen',
+	'mwe-upwiz-flickr-disclaimer' => 'Dieses Formular lädt Inhalte, die auf flickr.com gespeichert und den [https://www.flickr.com/help/terms/ Flickr-Nutzungsbedingungen] sowie den [https://www.flickr.com/help/privacy-policy/ Datenschutzrichtlinien] unterworfen sind.<br />
+Bitte bedenke beim Verwenden dieses Werkzeugs, dass deine IP-Adresse und Suchanfragen für Flickr verfügbar sind.',
 	'mwe-upwiz-multi-file-select' => 'Zeichne mit deinem Mauszeiger einen Kasten über die hochzuladenden Bilder. Halte die Strg-/Command-Taste gedrückt, um mehrfache nichtbenachbarte Auswahlen zu treffen.',
 	'mwe-upwiz-transport-started' => 'Starte …',
 	'mwe-upwiz-uploading' => 'Lade hoch …',
@@ -6807,6 +6810,8 @@ $messages['es'] = array(
 	'mwe-upwiz-add-flickr' => 'Obtener imágenes de Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Imagen de Flickr/Dirección URL del conjunto de fotos',
 	'mwe-upwiz-select-flickr' => 'Subir imágenes seleccionadas',
+	'mwe-upwiz-flickr-disclaimer' => 'Este formulario subirá el contenido alojado a flickr.com y estará sujeto a las [https://www.flickr.com/help/terms/ condiciones de uso] y la [https://www.flickr.com/help/privacy-policy/ política de privacidad] de Flickr.<br>
+Ten en cuenta que al usar esta herramienta, tu dirección IP y tus datos solicitados estarán disponibles en Flickr.', # Fuzzy
 	'mwe-upwiz-multi-file-select' => 'Haz un cuadro el cursor sobre las imágenes que quiere usar. Mantenga pulsada el "Ctrl" o "Command" botones para hacer múltiples selecciones que no están adyacentes.',
 	'mwe-upwiz-transport-started' => 'Iniciando...',
 	'mwe-upwiz-uploading' => 'Subiendo...',
@@ -8462,6 +8467,8 @@ $messages['fr'] = array(
 	'mwe-upwiz-add-flickr' => 'Obtenir des images de Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => "URL d'image/album de Flickr",
 	'mwe-upwiz-select-flickr' => 'Télécharger les images sélectionnées',
+	'mwe-upwiz-flickr-disclaimer' => "Ce formulaire chargera le contenu hébergé sur flickr.com et sujet aux [https://www.flickr.com/help/terms/ conditions d'utilisation] et à [https://www.flickr.com/help/privacy-policy/ la politique de confidentialité] de Flickr.<br />
+Veuillez noter qu'en utilisant cet outil, votre adresse IP et les détails de votre requête seront disponibles sur Flickr.",
 	'mwe-upwiz-multi-file-select' => 'Dessinez un rectangle avec votre curseur autour des images que vous voudriez télécharger. Maintenez enfoncée la touche Ctrl/Commande pour faire des sélections multiples non adjacentes.',
 	'mwe-upwiz-transport-started' => 'Démarrage…',
 	'mwe-upwiz-uploading' => 'Téléversement en cours…',
@@ -9199,6 +9206,9 @@ $messages['gl'] = array(
 	'mwe-upwiz-add-flickr' => 'Obter imaxes do Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Imaxe do Flickr/URL do conxunto de fotos',
 	'mwe-upwiz-select-flickr' => 'Cargar as imaxes seleccionadas',
+	'mwe-upwiz-flickr-disclaimer' => 'Este formulario cargará os contidos aloxados por flickr.com e suxeitos aos
+[https://www.flickr.com/help/terms/ termos de uso] e á [https://www.flickr.com/help/privacy-policy/ política de protección de datos] do Flickr.<br />
+Teña en conta que ao utilizar esta ferramenta, tanto o seu enderezo IP como os detalles da súa solicitude estarán dispoñibles para o Flickr.',
 	'mwe-upwiz-multi-file-select' => 'Debuxe unha caixa co cursor do rato sobre as imaxes que queira cargar. Prema a tecla Ctrl/Command para facer seleccións non adxacentes.',
 	'mwe-upwiz-transport-started' => 'Comezando...',
 	'mwe-upwiz-uploading' => 'Cargando...',
@@ -10249,6 +10259,8 @@ $messages['he'] = array(
 	'mwe-upwiz-add-flickr' => 'קבלת תמונות מאתר פליקר',
 	'mwe-upwiz-flickr-input-placeholder' => 'קישור לתמונה או אוסף תמונות באתר פליקר',
 	'mwe-upwiz-select-flickr' => 'העלאת התמונות הנבחרות',
+	'mwe-upwiz-flickr-disclaimer' => 'הטופס הזה יטען תוכן שנמצא באתר flickr.com לפי [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ מדיניות הפרטיות] של פליקר.<br />
+נא לשים לב לכך ששימוש בכלי הזה ייתן את כתובת ה־IP שלך ואת המידע על הבקשה שלך לפליקר.',
 	'mwe-upwiz-multi-file-select' => 'יש לסמן בעכבר את התמונות שברצונך להעלות או להחזיק את מקש Ctrl או Command כדי לבחור מספר תמונות.',
 	'mwe-upwiz-transport-started' => 'בהליכי הפעלה...',
 	'mwe-upwiz-uploading' => 'מתבצעת העלאה...',
@@ -13509,7 +13521,7 @@ $1文字より短くしてください。',
 $1文字より長くしてください。',
 	'mwe-upwiz-error-signature-bad-chars' => '署名に、利用できない文字が含まれています。
 署名の中では、ウィキ文やHTMLを利用せず、利用者名または本名のみを入力してください。',
-	'mwe-upwiz-error-blank' => 'この欄は必須です。',
+	'mwe-upwiz-error-blank' => 'この欄は必須入力です。',
 	'mwe-upwiz-error-nologin' => 'ファイルをアップロードするには<span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ログイン]</span>してください。',
 	'mwe-upwiz-error-too-long' => 'この欄の内容が長すぎます。
 $1 {{PLURAL:$1|文字}}より短くしてください。',
@@ -16403,6 +16415,9 @@ $messages['mk'] = array(
 	'mwe-upwiz-add-flickr' => 'Земи слики од Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL на слики/комплет од Flickr',
 	'mwe-upwiz-select-flickr' => 'Подигни ги избраните слики',
+	'mwe-upwiz-flickr-disclaimer' => 'Овој образец ќе вчита содржини вдомени на flickr.com кои подлежат на
+тамошните [https://www.flickr.com/help/terms/ услови на употреба] и [https://www.flickr.com/help/privacy-policy/ правила за приватност].<br />
+Имајте предвид дека користејќи ја алаткава, вашата IP-адреса и податоците од барањето ќе бидат доставени до Flickr.',
 	'mwe-upwiz-multi-file-select' => 'Со стрелката на глушецот направете квадрат околу сликите што сакате да ги подигнете. Држете го копчето „Ctrl/Command“ ако сакате да изберете повеќе слики што не се една до друга.',
 	'mwe-upwiz-transport-started' => 'Почнувам...',
 	'mwe-upwiz-uploading' => 'подигам...',
@@ -16763,6 +16778,8 @@ $messages['ml'] = array(
 	'mwe-upwiz-add-flickr' => 'ഫ്ലിക്കറിൽ നിന്നും ചിത്രങ്ങൾ എടുക്കുക',
 	'mwe-upwiz-flickr-input-placeholder' => 'ഫ്ലിക്കർ ചിത്രത്തിന്റെ/ഫോട്ടോസെറ്റിന്റെ യു.ആർ.എൽ.',
 	'mwe-upwiz-select-flickr' => 'തിരഞ്ഞെടുത്ത ചിത്രങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക',
+	'mwe-upwiz-flickr-disclaimer' => 'ഈ ഫോം ഫ്ലിക്കറിൽ ഹോസ്റ്റ് ചെയ്തിട്ടുള്ള ഉള്ളടക്കം, ഫ്ലിക്കറിന്റെ [https://www.flickr.com/help/terms/ ഉപയോഗനിബന്ധനകൾക്കും] [https://www.flickr.com/help/privacy-policy/ സ്വകാര്യതാനയത്തിനും] വിധേയമായി, ശേഖരിക്കപ്പെടുന്നതാണ്. <br />
+ഈ ഉപകരണം ഉപയോഗിക്കുമ്പോൾ, താങ്കളുടെ ഐ.പി. വിലാസവും അഭ്യർത്ഥനയുടെ വിശദാംശങ്ങളും ഫ്ലിക്കറിൽ ലഭ്യമായിരിക്കും എന്നത് ദയവായി ശ്രദ്ധിക്കുക.',
 	'mwe-upwiz-multi-file-select' => 'താങ്കൾ അപ്‌ലോഡ് ചെയ്യാനാഗ്രഹിക്കുന്ന ചിത്രങ്ങളുടെ മുകളിൽ കഴ്‌സർ ഉപയോഗിച്ച് ചതുരം വരയ്ക്കുക. തുടർച്ചയായല്ലാത്ത നിരവധി ചിത്രങ്ങൾ കണ്ട്രോൾ/കമാൻഡ് കീ അമർത്തി പിടിച്ചുകൊണ്ട് തിരഞ്ഞെടുക്കുക.',
 	'mwe-upwiz-transport-started' => 'തുടങ്ങുന്നു...',
 	'mwe-upwiz-uploading' => 'അപ്‌ലോഡ് ചെയ്യുന്നു...',
