@@ -2490,6 +2490,9 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-add-flickr' => 'Атрымаць выявы з Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL выявы/фотасэту Flickr',
 	'mwe-upwiz-select-flickr' => 'Загрузіць выбраныя выявы',
+	'mwe-upwiz-flickr-disclaimer' => 'Гэтая форма загрузіць зьмест з flickr.com, які падпадае пад [https://www.flickr.com/help/terms/ умовы выкарыстаньня] і [https://www.flickr.com/help/privacy-policy/ правілы адносна прыватнасьці] Flickr.<br />
+Заўважце, што пры выкарыстаньні гэтай формы ваш IP-адрас і зьвесткі з запыту будуць даступныя Flickr.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Даруйце, не атрымалася вылучыць выяву з $1.',
 	'mwe-upwiz-transport-started' => 'Пачатак…',
 	'mwe-upwiz-uploading' => 'загрузка…',
 	'mwe-upwiz-transported' => 'Добра',
@@ -4259,6 +4262,9 @@ $messages['cs'] = array(
 	'mwe-upwiz-add-flickr' => 'Získat obrázky z Flickru',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL obrázku/sady na Flickru',
 	'mwe-upwiz-select-flickr' => 'Načíst zvolené obrázky',
+	'mwe-upwiz-flickr-disclaimer' => 'Tento formulář nahraje obsah z flickr.com, který podléhá tamním [https://www.flickr.com/help/terms/ podmínkám užití] a [https://www.flickr.com/help/privacy-policy/ zásadám ochrany osobních údajů].<br />
+Uvědomte si, že použitím tohoto formuláře zpřístupníte svou IP adresu a obsah formuláře Flickru.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Je nám líto, ale nepodařilo se nám načíst soubor z $1.',
 	'mwe-upwiz-multi-file-select' => 'Pomocí kurzoru myši nakreslete rámeček přes obrázky, které chcete načíst. Několik nesouvislých výběrů můžete vytvořit podržením klávesy Ctrl/Command.',
 	'mwe-upwiz-transport-started' => 'Spouští se…',
 	'mwe-upwiz-uploading' => 'načítání…',
@@ -5185,6 +5191,7 @@ $messages['de'] = array(
 	'mwe-upwiz-select-flickr' => 'Ausgewählte Bilder hochladen',
 	'mwe-upwiz-flickr-disclaimer' => 'Dieses Formular lädt Inhalte, die auf flickr.com gespeichert und den [https://www.flickr.com/help/terms/ Flickr-Nutzungsbedingungen] sowie den [https://www.flickr.com/help/privacy-policy/ Datenschutzrichtlinien] unterworfen sind.<br />
 Bitte bedenke beim Verwenden dieses Werkzeugs, dass deine IP-Adresse und Suchanfragen für Flickr verfügbar sind.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Leider konnten wir das Bild von $1 nicht abrufen.',
 	'mwe-upwiz-multi-file-select' => 'Zeichne mit deinem Mauszeiger einen Kasten über die hochzuladenden Bilder. Halte die Strg-/Command-Taste gedrückt, um mehrfache nichtbenachbarte Auswahlen zu treffen.',
 	'mwe-upwiz-transport-started' => 'Starte …',
 	'mwe-upwiz-uploading' => 'Lade hoch …',
@@ -13387,6 +13394,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-add-flickr' => 'Flickr から画像を取得',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr の画像/写真集 URL',
 	'mwe-upwiz-select-flickr' => '選択した画像をアップロード',
+	'mwe-upwiz-error-no-image-retrieved' => '申し訳ありませんが、$1 から画像を取得できませんでした。',
 	'mwe-upwiz-transport-started' => '開始しています...',
 	'mwe-upwiz-uploading' => 'アップロード中...',
 	'mwe-upwiz-transported' => 'アップロードが終了しました...',
@@ -14474,6 +14482,10 @@ $messages['ko'] = array(
 	'mwe-upwiz-add-flickr' => 'Flickr에서 그림 얻기',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr 그림/사진집 URL',
 	'mwe-upwiz-select-flickr' => '선택한 그림 올리기',
+	'mwe-upwiz-flickr-disclaimer' => '이 양식은 Flickr [https://www.flickr.com/help/terms/ 이용 약관]과 [https://www.flickr.com/help/privacy-policy/ 개인정보 취급방침]에 따라
+flickr.com 에서 호스팅하는 콘텐츠를 불러옵니다.<br />
+이 도구를 사용하면 사용자의 IP 주소와 요청 정보가 Flickr에 제공합니다.',
+	'mwe-upwiz-error-no-image-retrieved' => '죄송합니다, $1에서 그림을 찾을 수 없습니다.',
 	'mwe-upwiz-multi-file-select' => '올리고 싶은 그림 위에 커서로 상자를 그리세요. 여러 인접하지 않는 선택을 하려면 Ctrl/Command 키를 누른 상태에서 선택하세요.',
 	'mwe-upwiz-transport-started' => '시작하는 중...',
 	'mwe-upwiz-uploading' => '올리는 중...',
@@ -16418,6 +16430,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-flickr-disclaimer' => 'Овој образец ќе вчита содржини вдомени на flickr.com кои подлежат на
 тамошните [https://www.flickr.com/help/terms/ услови на употреба] и [https://www.flickr.com/help/privacy-policy/ правила за приватност].<br />
 Имајте предвид дека користејќи ја алаткава, вашата IP-адреса и податоците од барањето ќе бидат доставени до Flickr.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Нажалост, не можев да ја преземам сликата од $1.',
 	'mwe-upwiz-multi-file-select' => 'Со стрелката на глушецот направете квадрат околу сликите што сакате да ги подигнете. Држете го копчето „Ctrl/Command“ ако сакате да изберете повеќе слики што не се една до друга.',
 	'mwe-upwiz-transport-started' => 'Почнувам...',
 	'mwe-upwiz-uploading' => 'подигам...',
@@ -26753,6 +26766,9 @@ $messages['vi'] = array(
 	'mwe-upwiz-add-flickr' => 'Lấy hình ảnh từ Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL của hình/tập hình Flickr',
 	'mwe-upwiz-select-flickr' => 'Tải lên các hình ảnh được chọn',
+	'mwe-upwiz-flickr-disclaimer' => 'Biểu mẫu này sẽ tải nội dung do flickr.com cung cấp tùy thuộc vào các [//www.flickr.com/help/terms/ điều khoản sử dụng] và [//www.flickr.com/help/privacy-policy/ chính sách về riêng tư] của Flickr.<br />
+Xin lưu ý rằng việc sử dụng công cụ này sẽ cho Flickr biết địa chỉ IP của bạn và các chi tiết yêu cầu.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Rất tiếc, chúng tôi không thể truy cập hình tại $1.',
 	'mwe-upwiz-multi-file-select' => 'Dùng con trỏ, vẽ hộp bao các hình ảnh mà bạn muốn bải lên. Bấm giữ phím Ctrl (Command trên Mac) để lựa chọn các dãy hình không liền nhau.',
 	'mwe-upwiz-transport-started' => 'Đang bắt đầu…',
 	'mwe-upwiz-uploading' => 'Đang tải lên…',
