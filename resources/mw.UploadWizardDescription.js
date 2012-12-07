@@ -60,6 +60,8 @@ mw.UploadWizardDescription.prototype = {
 	setText: function( text ) {
 		// strip out any HTML tags
 		text = text.replace( /<[^>]+>/g, '' );
+		// & and " are escaped by Flickr, so we need to unescape
+		text = text.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
 		$j( this.input ).val( $j.trim( text ) );
 	},
 
