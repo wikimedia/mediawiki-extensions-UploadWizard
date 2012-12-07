@@ -1037,7 +1037,11 @@ mw.UploadWizardDetails.prototype = {
 			if ( m['gpslatitude'] !== undefined && m['gpslongitude'] !== undefined ) {
 				$j( _this.latInput ).val( m['gpslatitude'] );
 				$j( _this.lonInput ).val( m['gpslongitude'] );
-			} else if ( typeof this.upload.file !== 'undefined' && typeof this.upload.file.location !== 'undefined' ) {
+			} else if ( typeof this.upload.file !== 'undefined'
+				&& typeof this.upload.file.location !== 'undefined'
+				&& this.upload.file.location.latitude
+				&& this.upload.file.location.longitude )
+			{
 				$j( _this.latInput ).val( this.upload.file.location.latitude );
 				$j( _this.lonInput ).val( this.upload.file.location.longitude );
 			}
