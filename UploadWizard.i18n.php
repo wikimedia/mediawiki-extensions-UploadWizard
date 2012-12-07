@@ -5368,7 +5368,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Die Eingabe in Wikitext ist zu kurz, um eine Lizenz sein zu können.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Die Eingabe in Wikitext ist zu lang.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Dies scheint entweder keine gültige Eingabe in Wikitext zu sein oder enthält keine Lizenz.',
-	'mwe-upwiz-details-error-count' => 'Beim Ausfüllen {{PLURAL:$2|des Formulars|der Formulare}} {{PLURAL:$1|ist ein Fehler|sind $1 Fehler}} aufgetreten. Bitte die Fehler berichtigen und erneut speichern.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'Beim Ausfüllen {{PLURAL:$2|des Formulars|der Formulare}} {{PLURAL:$1|ist ein Fehler|sind $1 Fehler}} aufgetreten. Bitte {{PLURAL:$1|den Fehler|die Fehler}} berichtigen und erneut speichern.',
 	'mwe-upwiz-too-many-files-ok' => 'Okay',
 	'mwe-upwiz-too-many-files-text' => 'Du kannst nur {{PLURAL:$1|eine Datei|$1 Dateien}} auf einmal hochladen. Du versuchtest {{PLURAL:$2|eine Datei|$2 Dateien}} hochzuladen, so dass {{PLURAL:$3|eine Datei|$3 Dateien}} entfernt wurden.',
 	'mwe-upwiz-too-many-files' => 'Zu viele Dateien.',
@@ -5830,7 +5830,7 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Eno wikinuşte inca de qande lisans kerdışi zaf kılmo.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Wikimetino ke şıma dekerdo de zaf dergo.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ena Wikimetin ravêrdi nêasena, yana lisanse cı çıniyo.',
-	'mwe-upwiz-details-error-count' => 'İtad {{PLURAL:$1|yew xırabin|$1 xırabin}} cor de {{PLURAL:$2|formi|forman}} ser deyê. Xetaya weçine u fına rıştışi bıcerbne.',
+	'mwe-upwiz-details-error-count' => 'İtad {{PLURAL:$1|yew xırabin|$1 xırabin}} cor de {{PLURAL:$2|formi|forman}} ser de yê. {{PLURAL:$1|Xırabin|Xıraban}} weçine u fına rıştışi bıcerbne.',
 	'mwe-upwiz-too-many-files-ok' => 'TEMAM',
 	'mwe-upwiz-too-many-files-text' => 'Şıma yew fın şenê  {{PLURAL:$1|dosyay|dosyayanê}} $1 barkerê. Şımayê kenê ke $2 {{PLURAL:$2|dosya|dosyaya}} barkerê, Qande coy $3 {{PLURAL:$3|dosya|files havedosyey}} wedaryaye.',
 	'mwe-upwiz-too-many-files' => 'Şo jewbi dosyayan.',
@@ -8655,7 +8655,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Le wikitexte ici est trop court pour être une licence',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Le wikitexte que vous avez saisi est trop long.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Cela ne semble pas être du wikitexte valide, ou ne contient pas une licence.',
-	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|Une erreur est présente|$1 erreurs sont présentes}} dans {{PLURAL:$2|le formulaire|les formulaires}} ci-dessus. Corrigez les erreurs, et essayez d’importer à nouveau.', # Fuzzy
+	'mwe-upwiz-details-error-count' => "{{PLURAL:$1|Une erreur est présente|$1 erreurs sont présentes}} dans {{PLURAL:$2|le formulaire|les formulaires}} ci-dessus. Corrigez {{PLURAL:$1|l'erreur|les erreurs}}, et essayez d’importer à nouveau.",
 	'mwe-upwiz-too-many-files-ok' => 'Valider',
 	'mwe-upwiz-too-many-files-text' => "Vous pouvez uniquement télécharger $1 {{PLURAL:$1| fichier|fichiers}} en une fois. Vous avez essayé d'ajouter $2 {{PLURAL:$2| fichier|fichiers}}, donc $3 {{PLURAL:$3| fichier|fichiers}} ont été supprimés.",
 	'mwe-upwiz-too-many-files' => 'Trop de fichiers.',
@@ -13553,7 +13553,7 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'このウィキ文はライセンスとしては短すぎます',
 	'mwe-upwiz-error-license-wikitext-too-long' => '入力したウィキ文が長すぎます。',
 	'mwe-upwiz-error-license-wikitext-invalid' => '正しいウィキ文ではないか、ライセンスが入っていないようです。',
-	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|エラー|$1個のエラー}}が上の{{PLURAL:$2|フォーム|複数フォーム}}にあります。エラーを訂正して、再度送信してみてください。', # Fuzzy
+	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|エラー|$1 個のエラー}}が上の{{PLURAL:$2|フォーム|複数フォーム}}にあります。{{PLURAL:$1|エラー}}を訂正してから送信を再度試してください。',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => '一度に $1 {{PLURAL:$1|ファイル}}までアップロードできます。合計 $2 {{PLURAL:$2|ファイル}}をアップロードしようとしましたが、$3 {{PLURAL:$3|ファイル}}が除去されました。',
 	'mwe-upwiz-too-many-files' => 'ファイルが多すぎます。',
@@ -16609,7 +16609,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Овој викитекст е прекраток за да може да биде лиценца',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Викитекстот што го внесовте е предолг.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ова не е важечки викитекст или не содржи лиценца.',
-	'mwe-upwiz-details-error-count' => 'Во {{PLURAL:$2|образецот|обрасците}} погоре има {{PLURAL:$1|една грешка|$1 грешки}}. Исправете {{PLURAL:$2|ја|ги}} и поднесете повторно.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'Во {{PLURAL:$2|образецот|обрасците}} погоре има {{PLURAL:$1|една грешка|$1 грешки}}. Исправете {{PLURAL:$2|ја|ги}} и поднесете повторно.',
 	'mwe-upwiz-too-many-files-ok' => 'ОК',
 	'mwe-upwiz-too-many-files-text' => 'Можете да подигнете само $1 {{PLURAL:$1|податотека|податотеки}} наеднаш. Се обидовте да додадете $2 {{PLURAL:$2|податотека|податотеки}}, па затоа $3 {{PLURAL:$3|од нив е отстранета|од нив се отстранети}}.',
 	'mwe-upwiz-too-many-files' => 'Премногу податотеки.',
@@ -26217,6 +26217,7 @@ $messages['tzm'] = array(
 /** Ukrainian (українська)
  * @author A1
  * @author AS
+ * @author Aced
  * @author Ahonc
  * @author Alex Khimich
  * @author Base
@@ -26227,6 +26228,7 @@ $messages['tzm'] = array(
  * @author Pig1995z
  * @author Renessaince
  * @author Александр Сигачёв
+ * @author Ата
  * @author Тест
  */
 $messages['uk'] = array(
@@ -26262,6 +26264,11 @@ $messages['uk'] = array(
 	'mwe-upwiz-add-flickr' => 'Отримати зображення з Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL-адреса зображення/фотосету Flickr',
 	'mwe-upwiz-select-flickr' => 'Завантажити вибрані зображення',
+	'mwe-upwiz-flickr-disclaimer' => 'Ця форма буде завантажувати контент, розміщений на flickr.com, з урахуванням
+[https://www.flickr.com/help/terms/ умов використання] та [https://www.flickr.com/help/privacy-policy/ політики конфіденційності] Flickr.<br />
+Будь ласка, зверніть увагу, що після використання цього інструменту Ваша IP адреса та деталі запиту будуть доступними для Flickr.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Вибачте, не вдалося отримати зображення з $1.',
+	'mwe-upwiz-multi-file-select' => 'Окресліть курсором прямокутник навколо зображень, які Ви хочете завантажити. Утримуйте клавішу Ctrl/Command для виділення несуміжних елементів.',
 	'mwe-upwiz-transport-started' => 'Початок...',
 	'mwe-upwiz-uploading' => 'завантаження ...',
 	'mwe-upwiz-transported' => 'OK',
@@ -26277,6 +26284,8 @@ $messages['uk'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'Завантажити мініатюрне зображення для цього файлу',
 	'mwe-upwiz-remove-description' => 'Видалити цей опис',
 	'mwe-upwiz-upload' => 'Завантажити',
+	'mwe-upwiz-file-upload-notcapable' => 'На жаль, ваш браузер не здатний завантажувати файли.
+Будь ласка, спробуйте інший браузер.',
 	'mwe-upwiz-file-all-ok' => 'Усі завантаження успішно завершено.',
 	'mwe-upwiz-file-some-failed' => 'Деякі завантаження зазнали невдачі.',
 	'mwe-upwiz-file-retry' => 'Повторити спробу для невдалих завантажень',
@@ -26289,21 +26298,37 @@ $messages['uk'] = array(
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Залишилось $1 секунда|Залишилось $1 секунди|Залишилось $1 секунд}}',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Залишилось $1 хвилина|Залишилось $1 хвилини|Залишилось $1 хвилин}} {{PLURAL:$2|$2 секунда|$2 секунди|$2 секунд}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Залишилось $1 година|Залишилось $1 годин}} {{PLURAL:$2|$2 хвилини|$2 хвилини|$2 хвилин}} {{PLURAL:$3|$3 секунда|$3 секунди|$3 секунд}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'Цей сайт вимагає від вас інформацію про авторські права для {{PLURAL:$1|цього твору|цих творіів}}, щоб переконатися, що кожен може на законних підставах використовувати {{PLURAL:$1|його|їх}}.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Цей сайт вимагає від {{GENDER:$2|Вас}} інформацію про авторські права для {{PLURAL:$1|цього твору|цих творів}}, щоб переконатися, що кожен може використовувати {{PLURAL:$1|його|їх}} на законних підставах.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Цей файл|Ці файли}} моя власна робота.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Я, $2 , власник авторських прав на {{PLURAL:$1|цей твір|ці твори}}, тим самим безповоротно надаю право кожному використовувати, модифікувати і поширювати {{PLURAL:$1|цей твір|ці твори}} для будь-яких цілей, і тому я публікую {{PLURAL:$1|його|їх}} на наступних умовах:',
 	'mwe-upwiz-source-ownwork-assert' => 'Я, $2, власник авторських прав на {{PLURAL:$1|цю роботу|ці роботи}}, добровільно віддаю право на використання {{PLURAL:$1|цієї роботи|цих робіт}} для будь-якої мети на стільки, на скільки вони і їх похідні роботи зберігають згадку про моє авторство.',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Я -- $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}} на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 ([$3 кодексу]).',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Я $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}} на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'Я, $2, власник виключних прав стосовно {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 (Іспанія) ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 (Хорватія) ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 (Люксембург) ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 (Нідерланди) ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 (Норвегія) ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 (Польща) ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 ([$3 кодексу]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Кожний має право використовувати, розповсюджувати та здійснювати переробку {{PLURAL:$1|цього твору|цих творів}} за умови, що на мене посилаються, а всі похідні твори поширюються на підставі цієї ліцензійної угоди.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Я, $2, власник авторських прав на {{PLURAL:$1|цього твору|цих творів}}, безповоротно надаю право на використання {{PLURAL: $1 |цього твору|цих творів}} під ліцензією Creative Commons Attribution 3.0 ([$3 кодексу]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(Будь-хто може використовувати, розповсюджувати або змінювати {{PLURAL:$1|цю роботу|ці роботи}} при умові посилання на мене.)',
 	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Я, $2, власник виключних прав по відношенні {{PLURAL:$1|цього твору|цих творів}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах ліцензійної згоди Creative Commons Attribution ShareAlike 3.0 ([$3 кодексу]).',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(Будь-хто може використовувати, розповсюджувати або змінювати {{PLURAL:$1|цю роботу|ці роботи}} без будь-яких обмежень.)',
-	'mwe-upwiz-source-ownwork-assert-custom' => 'Я, $2, як розпорядник авторських прав на {{PLURAL:$1|цю роботу|ці роботи}}, добровільно публікую {{PLURAL:$1|цю роботу|ці роботи}} за умавами наступної(них) ліцензії(ій):', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Я, $2, як розпорядник авторських прав на {{PLURAL:$1|цю роботу|ці роботи}}, на безповоротній основі надаю кожному право використовувати {{PLURAL:$1|цей твір|ці твори}} на умовах наступної ліцензії:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Я, власник авторських прав {{PLURAL:$2|на цю роботу|на ці роботи}}, публікую {{PLURAL:$2|її|їх}} на умовах ліцензії $1.',
 	'mwe-upwiz-source-permission' => 'Їхній автор дав явний дозвіл на завантаження.',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Цей файл|Ці файли}} не моя власна робота.',
@@ -26372,7 +26397,7 @@ $messages['uk'] = array(
 	'mwe-prevent-close' => 'Ваші файли в процесі завантаження. Полишаючи цю сторінку, усі внесені зміни буде втрачено.',
 	'mwe-upwiz-prevent-close' => 'Ви ще не закінчили завантаження та публікацію {{PLURAL:$1|файла|цих файлів}}.',
 	'mwe-upwiz-files-complete' => 'Завантаження Ваших файлів виконане успішно!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'Ви можете знову включити це керівництво в [$1 своїх персональних налаштуваннях], див. $2 → 3$.', # Fuzzy
+	'mwe-upwiz-tooltip-skiptutorial' => 'Ви можете знову включити це керівництво в [$1 своїх користувацьких налаштуваннях], див. $2 → $3.',
 	'mwe-upwiz-tooltip-author' => "Ім'я людини, яка сфотографувала, або намалювала картину або малюнок і т.д.",
 	'mwe-upwiz-tooltip-source' => 'Джерело походження цифрового файлу - адреса URL, книга або публікація',
 	'mwe-upwiz-tooltip-sign' => 'Ви можете використовувати ваше вікі імя або реальне імя.
@@ -26418,11 +26443,12 @@ $messages['uk'] = array(
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => "Цей заголовок зарезервовано за файлом у загальному репозиторію. Виберіть інше ім'я.",
 	'mwe-upwiz-error-title-double-apostrophe' => 'Назва містить подвійний апостроф, будь ласка, виправте його.',
 	'mwe-upwiz-error-title-extension' => 'Вам не потрібно додавати розширення файлу. Переконайтесь лише що людина зможе прочитати його назву, а програма подбає про решту.',
+	'mwe-upwiz-error-title-protected' => 'Ця назва відповідає захищеній сторінці у цій вікі. Будь ласка, виберіть іншу.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'Ви обрали варіант, який вимагає введення вікі-тексту.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Ваш вікі-текст надто короткий, щоб бути ліцензією',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Введений вами вікі-текст надто довгий.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Це виглядає як невідповідний вікі-текст або не містить ліцензію.',
-	'mwe-upwiz-details-error-count' => 'У {{PLURAL:$2|формі|формах}} {{PLURAL:$1|присутня помилка|наявні $1 помилки}}. Виправте помилки, і спробуйте знову.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'У {{PLURAL:$2|формі|формах}} {{PLURAL:$1|наявна помилка|наявні $1 помилки}}. Виправте помилки і спробуйте знову.',
 	'mwe-upwiz-too-many-files-ok' => 'Гаразд',
 	'mwe-upwiz-too-many-files-text' => 'Ви можете надіслати лише $1 {{PLURAL:$1|файл|файли|файлів}} одночасно. Ви намагались надіслати $2 {{PLURAL:$2|файл|файли|файлів}} одразу, тому $3 {{PLURAL:$3|файл|файли|файлів}} вилучено з цього завантаження.',
 	'mwe-upwiz-too-many-files' => 'Занадто багато файлів.',
@@ -26480,6 +26506,8 @@ $messages['uk'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'Підтвердити вилучення',
 	'mwe-upwiz-license-external' => 'Цей файл розповсюджується під ліцензією $1: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => 'Цей файл розповсюджується під ліцензією $1: <b>$2</b>. На жаль, наведена ліцензія не підходить для використання у цьому місті.',
+	'mwe-upwiz-license-photoset-invalid' => 'На жаль, жодне фото у фотосеті не має відповідної ліцензії для використання на цьому сайті.',
+	'mwe-upwiz-url-invalid' => 'Введена URL-адреса не є припустимим $1 фото або адресою фотосету',
 	'mwe-upwiz-categories' => 'Категорії',
 	'mwe-upwiz-categories-add' => 'Додати',
 	'mwe-upwiz-category-will-be-added' => 'Ця категорія буде створена.',
@@ -26539,9 +26567,14 @@ $1',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'ИД-поле текстової позначки:',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'Назва сторінки з текстом ID-поля строки. $1 замінюється на код мови:',
 	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'Початкове значення для поля з ID:',
+	'mwe-upwiz-campaign-conf-idField2' => 'Додаткове ID-поле вікітексту. Наприклад: <nowiki>{{Rijksmonument|$1}}</nowiki>. Залиште порожнім, щоб не показувати поле:',
+	'mwe-upwiz-campaign-conf-idField2Label' => 'Додаткове ID-поле маркованого тексту:',
+	'mwe-upwiz-campaign-conf-idField2LabelPage' => 'Назва сторінки з текстом для додаткового ID-поля строки. $1 замінюється на код мови:',
+	'mwe-upwiz-campaign-conf-idField2InitialValue' => 'Початкове значення для додаткового ID-поля:',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Сторінка, що містить текст, який відображається над інтерфейсом Майстра завантажень. $1 замінюється на код мови:',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Сторінка, що містить текст, який відображається над сторінкой "Використання". $1 замінюється на код мови:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Максимальна довжина тексту в полі ідентифікатора:',
+	'mwe-upwiz-campaign-conf-idField2MaxLength' => 'Максимальна довжина тексту в полі додаткового ідентифікатора:',
 	'mwe-upwiz-campaign-conf-defaultLat' => 'Широта за замовчуванням:',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'Довгота за замовчуванням:',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'Висота за замовчуванням:',
