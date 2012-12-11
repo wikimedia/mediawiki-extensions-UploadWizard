@@ -13019,7 +13019,7 @@ $messages['it'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Spiacenti, non abbiamo trovato alcun file per il tutorial che dovrebbe visualizzarsi. Si prega di contattare gli amministratori di sistema.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Spiacenti, non siamo riusciti a ottenere un'immagine del tutorial dimensionata per il tuo schermo. Questo può essere un problema temporaneo di Wikimedia Commons; riprovare più tardi.",
 	'mwe-upwiz-help-desk' => 'Sportello informazioni',
-	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Help desk',
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Sportello informazioni',
 	'mwe-upwiz-add-file-n' => 'Aggiungi un altro file',
 	'mwe-upwiz-add-file-0-free' => 'Seleziona un file multimediale da caricare',
 	'mwe-upwiz-upload-flickr' => 'Carica immagini da Flickr',
@@ -18835,6 +18835,9 @@ Probeer het later opnieuw.',
 	'mwe-upwiz-add-flickr' => 'Afbeeldingen van Flickr ophalen',
 	'mwe-upwiz-flickr-input-placeholder' => 'Afbeeldings- of fotoset-URL van Flickr',
 	'mwe-upwiz-select-flickr' => 'Geselecteerde afbeeldingen uploaden',
+	'mwe-upwiz-flickr-disclaimer' => 'Via dit formulier wordt inhoud die gehost wordt op flickr.com geladen en deze is onderhevig aan de
+Flickr [https://www.flickr.com/help/terms/ gebruiksvoorwaarden] en het [https://www.flickr.com/help/privacy-policy/ privacybeleid] van Flickr.<br />
+Uw IP-adres en de gegevens van uw handeling zijn zichtbaar voor Flickr tijdens het gebruik van dit hulpmiddel.',
 	'mwe-upwiz-error-no-image-retrieved' => 'We kunnen het bestand van $1 helaas niet ophalen.',
 	'mwe-upwiz-multi-file-select' => 'Trek een kader over de bestanden die u wilt uploaden. Houd "Ctrl" of "Command" ingedrukt om meerdere, niet aan elkaar grenzende selecties te maken.',
 	'mwe-upwiz-transport-started' => 'Beginnen...',
