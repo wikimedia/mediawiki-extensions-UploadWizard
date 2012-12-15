@@ -378,13 +378,13 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	}
 	// make this a category picker
 	var hiddenCats = mw.UploadWizard.config.autoCategories === undefined ? [] : mw.UploadWizard.config.autoCategories;
-	if ( mw.UploadWizard.config.autoCategory !== undefined && mw.UploadWizard.config.autoCategory !== '' ) {
+	if ( typeof mw.UploadWizard.config.autoCategory === 'string' && mw.UploadWizard.config.autoCategory.length > 0 ) {
 		hiddenCats.push( mw.UploadWizard.config.autoCategory );
 	}
 
 	var missingCatsWikiText = null;
-	if ( mw.UploadWizard.config.missingCategoriesWikiText !== undefined
-			&& mw.UploadWizard.config.missingCategoriesWikiText !== '' ) {
+	if ( typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string'
+		 && mw.UploadWizard.config.missingCategoriesWikiText.length > 0 ) {
 		missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 	}
 
@@ -442,7 +442,9 @@ mw.UploadWizardDetails.prototype = {
 
 		// In the simplest case, we can use this self-explanatory vanilla loop.
 		var simpleCopy = function( id, tag ) {
-			if ( tag === undefined ) tag = 'input';
+			if ( tag === undefined ) {
+				tag = 'input';
+			}
 			var firstId = '#' + id + sourceId;
 			var firstValue = $j( firstId ).val();
 			$j( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
@@ -1172,7 +1174,7 @@ mw.UploadWizardDetails.prototype = {
 			// Add 2nd id field if needed
 			if ( mw.UploadWizard.config.idField2 ) {
 				var idField2Value = $j.trim( $j( _this.idField2Input ).val() );
-	
+
 				if ( ! mw.isEmpty( idField2Value ) ) { // HAXXX
 					information['description'] += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
 				}
