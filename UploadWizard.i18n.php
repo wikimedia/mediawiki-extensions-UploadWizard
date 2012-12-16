@@ -5296,6 +5296,9 @@ Bitte bedenke beim Verwenden dieses Werkzeugs, dass deine IP-Adresse und Suchanf
 	'mwe-upwiz-multi-file-select' => 'Zeichne mit deinem Mauszeiger einen Kasten über die hochzuladenden Bilder. Halte die Strg-/Command-Taste gedrückt, um mehrfache nichtbenachbarte Auswahlen zu treffen.',
 	'mwe-upwiz-transport-started' => 'Starte …',
 	'mwe-upwiz-uploading' => 'Lade hoch …',
+	'mwe-upwiz-queued' => 'In der Warteschlange …',
+	'mwe-upwiz-assembling' => 'Verarbeite …',
+	'mwe-upwiz-publish' => 'Veröffentliche …',
 	'mwe-upwiz-transported' => 'Das Hochladen wurde abgeschlossen …',
 	'mwe-upwiz-stashed-upload' => 'Hochgeladen',
 	'mwe-upwiz-getting-metadata' => 'Abruf der Dateiinformationen und -vorschau …',
@@ -6924,6 +6927,9 @@ Ten en cuenta que al usar esta herramienta, tu dirección IP y tus datos solicit
 	'mwe-upwiz-multi-file-select' => 'Haz un cuadro el cursor sobre las imágenes que quiere usar. Mantenga pulsada el "Ctrl" o "Command" botones para hacer múltiples selecciones que no están adyacentes.',
 	'mwe-upwiz-transport-started' => 'Iniciando...',
 	'mwe-upwiz-uploading' => 'Subiendo...',
+	'mwe-upwiz-queued' => 'En la cola...',
+	'mwe-upwiz-assembling' => 'Montaje...',
+	'mwe-upwiz-publish' => 'Publicación...',
 	'mwe-upwiz-transported' => 'Terminando de subir...',
 	'mwe-upwiz-stashed-upload' => 'Subida',
 	'mwe-upwiz-getting-metadata' => 'Obteniendo previsualizaciones y la información de archivo...',
@@ -13505,6 +13511,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-error-no-image-retrieved' => '申し訳ありませんが、$1 から画像を取得できませんでした。',
 	'mwe-upwiz-transport-started' => '開始しています...',
 	'mwe-upwiz-uploading' => 'アップロード中...',
+	'mwe-upwiz-queued' => '順番待ち中...',
 	'mwe-upwiz-transported' => 'アップロードが終了しました...',
 	'mwe-upwiz-stashed-upload' => 'アップロード済み',
 	'mwe-upwiz-getting-metadata' => 'ファイル情報とプレビューを取得中...',
@@ -14581,7 +14588,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => '죄송합니다, 여기에 보여질 자습서 파일을 찾을 수 없습니다. 시스템 관리자에게 문의해주십시오.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => '죄송합니다, 이 화면에 맞는 자습서 파일을 확보할 수 없습니다. 이 문제는 위키미디어 공용의 일시적인 문제이니 잠시 후 다시 시도해 보십시오.',
 	'mwe-upwiz-help-desk' => '질문방',
-	'mwe-upwiz-help-desk-url' => '질문방', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:질문방',
 	'mwe-upwiz-add-file-n' => '다른 파일 추가하기',
 	'mwe-upwiz-add-file-0-free' => '올릴 파일을 선택하십시오.',
 	'mwe-upwiz-upload-flickr' => 'Flickr에서 그림 올리기',
@@ -14597,6 +14604,9 @@ flickr.com 에서 호스팅하는 콘텐츠를 불러옵니다.<br />
 	'mwe-upwiz-multi-file-select' => '올리고 싶은 그림 위에 커서로 상자를 그리세요. 여러 인접하지 않는 선택을 하려면 Ctrl/Command 키를 누른 상태에서 선택하세요.',
 	'mwe-upwiz-transport-started' => '시작하는 중...',
 	'mwe-upwiz-uploading' => '올리는 중...',
+	'mwe-upwiz-queued' => '대기 중...',
+	'mwe-upwiz-assembling' => '모으는 중...',
+	'mwe-upwiz-publish' => '게시 중...',
 	'mwe-upwiz-transported' => '올리기 완료',
 	'mwe-upwiz-stashed-upload' => '올려짐',
 	'mwe-upwiz-getting-metadata' => '파일 정보와 미리 보기를 가져오는 중...',
@@ -14773,7 +14783,7 @@ $1글자보다 길게 입력해주세요.',
 	'mwe-upwiz-error-license-wikitext-too-short' => '위키텍스트가 저작물에 대한 라이선스를 선언하기에는 너무 짧습니다.',
 	'mwe-upwiz-error-license-wikitext-too-long' => '당신이 입력한 위키텍스트가 너무 깁니다.',
 	'mwe-upwiz-error-license-wikitext-invalid' => '이것은 올바른 위키문법이 아니거나 라이선스를 포함하지 않는 것으로 보입니다.',
-	'mwe-upwiz-details-error-count' => '위 {{PLURAL:$2|양식}}에 {{PLURAL:$1|한 가지 문제|$1가지 문제}}가 있습니다. 문제를 수정한 후 다시 시도해 보십시오.', # Fuzzy
+	'mwe-upwiz-details-error-count' => '위 {{PLURAL:$2|양식}}에 {{PLURAL:$1|오류 하나|오류 $1개}}가 있습니다. {{PLURAL:$1|오류}}를 수정한 후 다시 시도해 보십시오.',
 	'mwe-upwiz-too-many-files-ok' => '확인',
 	'mwe-upwiz-too-many-files-text' => '한번에 파일 $1개만 올릴 수 있습니다. 당신은 총 파일 $2개을 올리려 했으므로 파일 $3개가 자동적으로 삭제되었습니다.',
 	'mwe-upwiz-too-many-files' => '파일이 너무 많습니다.',
@@ -16893,7 +16903,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'ക്ഷമിക്കുക, ഇവിടെ വരേണ്ട ഏതെങ്കിലും പരിശീലനക്കുറിപ്പോ പ്രമാണങ്ങളോ കണ്ടെത്താനായില്ല. ദയവായി സിസ്റ്റം കാര്യനിർവാഹകരെ സമീപിക്കുക.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'ക്ഷമിക്കുക, ഈ സ്ക്രീനിന് അനുയോജ്യമായ വിധത്തിൽ വലിപ്പവ്യത്യാസം വരുത്താവുന്ന പരിശീലനക്കുറിപ്പ് ലഭ്യമാക്കാനായില്ല. ഇത് വിക്കിമീഡിയ കോമൺസുമായി ബന്ധപ്പെട്ട താത്കാലിക പ്രശ്നമായിരിക്കാം; ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.',
 	'mwe-upwiz-help-desk' => 'സഹായമേശ',
-	'mwe-upwiz-help-desk-url' => 'സഹായമേശ', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:സഹായമേശ',
 	'mwe-upwiz-add-file-n' => 'മറ്റൊരു പ്രമാണം ചേർക്കുക',
 	'mwe-upwiz-add-file-0-free' => 'സംഭാവന ചെയ്യാനാഗ്രഹിക്കുന്ന മീഡിയ പ്രമാണം തിരഞ്ഞെടുക്കുക',
 	'mwe-upwiz-upload-flickr' => 'ഫ്ലിക്കറിൽ നിന്നും ചിത്രങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക',
@@ -16908,6 +16918,9 @@ $messages['ml'] = array(
 	'mwe-upwiz-multi-file-select' => 'താങ്കൾ അപ്‌ലോഡ് ചെയ്യാനാഗ്രഹിക്കുന്ന ചിത്രങ്ങളുടെ മുകളിൽ കഴ്‌സർ ഉപയോഗിച്ച് ചതുരം വരയ്ക്കുക. തുടർച്ചയായല്ലാത്ത നിരവധി ചിത്രങ്ങൾ കണ്ട്രോൾ/കമാൻഡ് കീ അമർത്തി പിടിച്ചുകൊണ്ട് തിരഞ്ഞെടുക്കുക.',
 	'mwe-upwiz-transport-started' => 'തുടങ്ങുന്നു...',
 	'mwe-upwiz-uploading' => 'അപ്‌ലോഡ് ചെയ്യുന്നു...',
+	'mwe-upwiz-queued' => 'വരി ചേർത്തിരിക്കുന്നു...',
+	'mwe-upwiz-assembling' => 'ഘടിപ്പിക്കുന്നു...',
+	'mwe-upwiz-publish' => 'പ്രസിദ്ധീകരിക്കുന്നു...',
 	'mwe-upwiz-transported' => 'അപ്‌ലോഡിങ് പൂർത്തിയാക്കുന്നു...',
 	'mwe-upwiz-stashed-upload' => 'അപ്‌ലോഡ് ചെയ്തിരിക്കുന്നു',
 	'mwe-upwiz-getting-metadata' => 'പ്രമാണത്തിന്റെ വിവരങ്ങളും പ്രിവ്യൂകളും എടുക്കുന്നു...',
@@ -17083,7 +17096,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-error-license-wikitext-too-short' => 'ഇവിടെ നൽകിയിരിക്കുന്ന വിക്കി എഴുത്ത് ഒരു അനുവാദ പത്രത്തിനാവശ്യമുള്ളതിലും വളരെ ചെറുതാണ്',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'താങ്കൾ നൽകിയ വിക്കി എഴുത്ത് വളരെ വലുതാണ്.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'ഇതൊരു സാധുവായ വിക്കി എഴുത്തായി, അല്ലെങ്കിൽ ഇത് അനുവാദപത്രം ഉൾക്കൊള്ളുന്നതായി തോന്നുന്നില്ല.',
-	'mwe-upwiz-details-error-count' => 'മുകളിലെ {{PLURAL:$2|ഫോമിൽ|ഫോമുകളിൽ}} {{PLURAL:$1|ഒരു പിഴവ്|$1 പിഴവുകൾ}} ഉണ്ട്. {{PLURAL:$1|പിഴവ്|പിഴവുകൾ}} തിരുത്തിയശേഷം, വീണ്ടും സമർപ്പിക്കുക.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'മുകളിലെ {{PLURAL:$2|ഫോമിൽ|ഫോമുകളിൽ}} {{PLURAL:$1|ഒരു പിഴവ്|$1 പിഴവുകൾ}} ഉണ്ട്. {{PLURAL:$1|പിഴവ്|പിഴവുകൾ}} തിരുത്തിയശേഷം, വീണ്ടും സമർപ്പിക്കുക.',
 	'mwe-upwiz-too-many-files-ok' => 'ശരി',
 	'mwe-upwiz-too-many-files-text' => 'ഒരു പ്രാവശ്യം {{PLURAL:$1|ഒരു പ്രമാണം|$1 പ്രമാണങ്ങൾ}} മാത്രമേ ഒരുമിച്ച് അപ്‌ലോഡ് ചെയ്യാൻ കഴിയൂ. താങ്കൾ ശ്രമിച്ചത് {{PLURAL:$2|ഒരു പ്രമാണം|$2 പ്രമാണങ്ങൾ}} ആണ്, അതുകൊണ്ട് {{PLURAL:$3|ഒരു പ്രമാണം|$3 പ്രമാണങ്ങൾ}} നീക്കംചെയ്തു.',
 	'mwe-upwiz-too-many-files' => 'വളരെയധികം പ്രമാണങ്ങൾ.',
@@ -18950,6 +18963,9 @@ Uw IP-adres en de gegevens van uw handeling zijn zichtbaar voor Flickr tijdens h
 	'mwe-upwiz-multi-file-select' => 'Trek een kader over de bestanden die u wilt uploaden. Houd "Ctrl" of "Command" ingedrukt om meerdere, niet aan elkaar grenzende selecties te maken.',
 	'mwe-upwiz-transport-started' => 'Beginnen...',
 	'mwe-upwiz-uploading' => 'bezig met uploaden...',
+	'mwe-upwiz-queued' => 'In de wachtrij geplaatst...',
+	'mwe-upwiz-assembling' => 'Bezig met samenvoegen...',
+	'mwe-upwiz-publish' => 'Bezig met publiceren...',
 	'mwe-upwiz-transported' => 'Uploaden afgerond...',
 	'mwe-upwiz-stashed-upload' => 'Geüpload',
 	'mwe-upwiz-getting-metadata' => 'Bestandsgegevens en miniaturen worden opgehaald...',
@@ -26935,6 +26951,9 @@ Xin lưu ý rằng việc sử dụng công cụ này sẽ cho Flickr biết đ�
 	'mwe-upwiz-multi-file-select' => 'Dùng con trỏ, vẽ hộp bao các hình ảnh mà bạn muốn bải lên. Bấm giữ phím Ctrl (Command trên Mac) để lựa chọn các dãy hình không liền nhau.',
 	'mwe-upwiz-transport-started' => 'Đang bắt đầu…',
 	'mwe-upwiz-uploading' => 'Đang tải lên…',
+	'mwe-upwiz-queued' => 'Đã xếp hàng đợi…',
+	'mwe-upwiz-assembling' => 'Đang tập hợp…',
+	'mwe-upwiz-publish' => 'Đang xuất bản…',
 	'mwe-upwiz-transported' => 'Đã hoàn thành tải lên…',
 	'mwe-upwiz-stashed-upload' => 'Tải lên xong',
 	'mwe-upwiz-getting-metadata' => 'Đang chuẩn bị xem trước thông tin tập tin…',
