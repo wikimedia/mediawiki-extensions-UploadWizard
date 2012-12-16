@@ -1071,10 +1071,11 @@ mw.UploadWizard.prototype = {
 	 * This method also opens up "more info" if the form has errors.
 	 */
 	detailsErrorCount: function() {
-		var errorElements = $( '#mwe-upwiz-stepdiv-details' ).find( 'input.mwe-error, textarea.mwe-error, input.mwe-validator-error, textarea.mwe-validator-error' );
+		var $errorElements = $( '#mwe-upwiz-stepdiv-details' )
+			.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' );
 
 		// Open "more info" if that part of the form has errors
-		errorElements.each( function () {
+		$errorElements.each( function () {
 			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
 				var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
 				if( !moreInfo.hasClass( "mwe-upwiz-toggler-open" ) ) {
@@ -1083,7 +1084,7 @@ mw.UploadWizard.prototype = {
 			}
 		} );
 
-		var errorCount = errorElements.length;
+		var errorCount = $errorElements.length;
 		if ( errorCount > 0 ) {
 			$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
 		} else {
