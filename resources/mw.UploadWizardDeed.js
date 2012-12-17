@@ -487,6 +487,21 @@ mw.UploadWizardDeedChooser.prototype = {
 			$j.each( $form.find(".mwe-upwiz-hint"), function( i, hint ) {
 				$j( hint ).tipsy("hide");
 			} );
+			// Remove errors
+			var originalResetForm = $j.fn.resetForm;
+			if ( originalResetForm ) {
+				// Make sure that $validator.resetForm() resets only the errors, not the form fields!
+				$j.fn.resetForm = function() { };
+			}
+			$j.each( $form.find( 'form' ), function( i, form ) {
+				var $validator = $j( form ).data( 'validator' );
+				if ( $validator ) {
+					$validator.resetForm(); // Clear out all errors in the form
+				}
+			} );
+			$j.fn.resetForm = originalResetForm;
+			// Prevent validation of deselected deeds by disabling all form inputs
+			$form.find( ':input' ).attr( 'disabled', true );
 			if ( $form.parents().is( ':hidden' ) ) {
 				$form.hide();
 			} else {
@@ -504,6 +519,8 @@ mw.UploadWizardDeedChooser.prototype = {
 		$deedSelector.addClass( 'selected' ).fadeTo( 'fast', 1.0 );
 		$j.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
 			var $form = $j( form );
+			// (Re-)enable all form inputs
+			$form.find( ':input' ).removeAttr( 'disabled' );
 			if ( $form.is( ':hidden' ) ) {
 				// if the form was hidden, set things up so a slide-down works
 				$form.show().slideUp( 0 );
