@@ -491,7 +491,7 @@ return array(
 	// 1) firefogg install recommendation when users try to upload media asset with an extension in the
 	//		transcodeExtensionList
 	// 2) Once the user installs firefogg it is used for encoding videos that are not in supported formats before handing it off to mw.ApiUploadFormDataHandler for upload
-	'enableFirefogg' => false,
+	'enableFirefogg' => true,
 
 	// Setup list of video extensions for recomending firefogg.
 	'transcodeExtensionList' => array(
@@ -499,17 +499,13 @@ return array(
 		'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg', 'mts'
 	),
 
-	// Firefogg encode settings copied from TimedMediHandler high end ogg. Once Timed Media Handler
-	// is added, these videos will be transcoded by the server to lower resolutions for web playback.
-	// Also we should switch uploadWizard to encode to high quality WebM once TMH is deployed since it
-	// will provide a higher quality source upload file.
+	// Firefogg encode settings copied from TimedMediHandler high end webm.
 	'firefoggEncodeSettings' => array(
-		'maxSize'			=> '1280', // 720P
-		'videoQuality'		=> 6,
-		'audioQuality'		=> 3,
-		'noUpscaling'		=> 'true',
-		'keyframeInterval'	=> '128',
-		'videoCodec' 		=> 'theora',
+		'maxSize'           => '1920x1080',
+		'videoQuality'      => 7,
+		'audioQuality'      => 3,
+		'noUpscaling'       => 'true',
+		'videoCodec'        => 'vp8',
 	),
 
 	// Set skipTutorial to true to always skip tutorial step

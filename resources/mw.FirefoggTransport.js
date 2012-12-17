@@ -26,6 +26,7 @@ mw.FirefoggTransport.prototype = {
 		if (this.isUploadFormat()) {
 			_this.doFormDataUpload(this.upload.ui.$fileInputCtrl[0].files[0]);
 		} else {
+			this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
 			this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
 				function(result, file) {
 					result = JSON.parse(result);
@@ -41,13 +42,19 @@ mw.FirefoggTransport.prototype = {
 						_this.transportedCb(response);
 					}
 				}, function(progress) { //progress
-					progress = JSON.parse(progress);
-					_this.progressCb( progress );
+					if ( _this.upload.state == 'aborted' ) {
+						_this.fogg.cancel();
+					} else {
+						progress = JSON.parse(progress);
+						_this.progressCb( progress );
+						_this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
+					}
 				}
 			);
 		}
 	},
 	doFormDataUpload: function(file) {
+		this.upload.ui.setStatus( 'mwe-upwiz-uploading' );
 		this.upload.file = file;
 		this.uploadHandler = new mw.ApiUploadFormDataHandler( this.upload, this.api );
 		this.uploadHandler.start();

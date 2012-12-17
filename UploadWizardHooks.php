@@ -173,6 +173,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-flickr-disclaimer',
 				'mwe-upwiz-browse',
 				'mwe-upwiz-transport-started',
+				'mwe-upwiz-encoding',
 				'mwe-upwiz-uploading',
 				'mwe-upwiz-transported',
 				'mwe-upwiz-stashed-upload',
