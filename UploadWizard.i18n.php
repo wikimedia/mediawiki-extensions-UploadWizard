@@ -662,6 +662,12 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-prefs-def-license' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning',
+	'mwe-upwiz-transport-started' => 'Status message when upload starts',
+	'mwe-upwiz-uploading' => 'Status message while upload is ongoing',
+	'mwe-upwiz-queued' => 'Status message once upload is done and queued on the server',
+	'mwe-upwiz-assembling' => 'Status message while server assembles the uploaded chunks',
+	'mwe-upwiz-publish' => 'Status message while server publishes file from stash',
+	'mwe-upwiz-transported' => 'Status message once upload is finished',
 );
 
 /** Afrikaans (Afrikaans)
