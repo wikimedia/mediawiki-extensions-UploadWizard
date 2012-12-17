@@ -4,13 +4,15 @@
  * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc;
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc, $wgUploadWizardConfig;
 
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
 $cacheKey = wfMemcKey( 'uploadwizard', 'language-templates', $userLangCode );
 // Try to get a cached version of the list
 $uwLanguages = $wgMemc->get( $cacheKey );
+// Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
+$uwDefaultLanguageFixups = array( 'tl' => 'tgl' );
 if ( !$uwLanguages ) {
 	$uwLanguages = array();
 
@@ -20,22 +22,36 @@ if ( !$uwLanguages ) {
 	} else {
 		$baseLangs = Language::fetchLanguageNames( null, 'all' );
 	}
-
+	// We need to take into account languageTemplateFixups
+	if ( is_array( $wgUploadWizardConfig ) && array_key_exists( 'languageTemplateFixups', $wgUploadWizardConfig ) ) {
+		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'];
+		if ( !is_array( $languageFixups ) ) {
+			$languageFixups = array();
+		}
+	} else {
+		$languageFixups = $uwDefaultLanguageFixups;
+	}
 	// Use LinkBatch to make this a little bit more faster.
 	// It works because $title->exists (below) will use LinkCache.
 	$linkBatch = new LinkBatch();
 	foreach( $baseLangs as $code => $name ) {
-		$title = Title::makeTitle( NS_TEMPLATE, ucfirst( $code ) );
-		$linkBatch->addObj( $title );
+		$fixedCode = array_key_exists( $code, $languageFixups ) ? $languageFixups[$code] : $code;
+		if ( is_string( $fixedCode ) && $fixedCode !== '' ) {
+			$title = Title::makeTitle( NS_TEMPLATE, Title::capitalize( $fixedCode, NS_TEMPLATE ) );
+			$linkBatch->addObj( $title );
+		}
 	}
 	$linkBatch->execute();
 
 	// Then, check that there's a template for each one.
 	foreach ( $baseLangs as $code => $name ) {
-		$title = Title::makeTitle( NS_TEMPLATE, ucfirst( $code ) );
-		if ( $title->exists() ) {
-			// If there is, then it's in the final picks!
-			$uwLanguages[$code] = $name;
+		$fixedCode = array_key_exists( $code, $languageFixups ) ? $languageFixups[$code] : $code;
+		if ( is_string( $fixedCode ) && $fixedCode !== '' ) {
+			$title = Title::makeTitle( NS_TEMPLATE, Title::capitalize( $fixedCode, NS_TEMPLATE ) );
+			if ( $title->exists() ) {
+				// If there is, then it's in the final picks!
+				$uwLanguages[$code] = $name;
+			}
 		}
 	}
 	// Sort the list by the language name
@@ -441,19 +457,22 @@ return array(
 	// Max file size that is allowed by MediaWiki. This limit can never be ignored.
 	'maxMwUploadSize' => $wgMaxUploadSize,
 
-	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing 
+	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing
 	// braces, then two chars for a license, e.g. {{xx}}
 	'minCustomLicenseLength' => 6,
 
 	// Maximum length of custom wikitext for a license
 	'maxCustomLicenseLength' => 10000,
 
-	// not for use with all wikis.
-	// The ISO 639 code for the language tagalog is "tl".
-	// Normally we name templates for languages by the ISO 639 code.
-	// Commons already had a template called 'tl:  though.
-	// so, this workaround will cause tagalog descriptions to be saved with this template instead.
-	'languageTemplateFixups' =>  array( 'tl' => 'tgl' ),
+	// The UploadWizard allows users to provide file descriptions in multiple languages. For each description, the user
+	// can choose the language. The UploadWizard wraps each description in a "language template". A language template is
+	// by default assumed to be a template with a name corresponding to the ISO 646 code of the language. For instance,
+    // Template:en for English, or Template:fr for French. This mechanism is used for instance at Wikimedia Commons.
+	// If this is not the case for some or all or your wiki's language templates, this map can be used to define the
+	// template names to be used. Keys are ISO 646 language codes, values are template names. The default defines the
+	// exceptions used at Wikimedia Commons: the language template for Tagalog (ISO 646 code 'tl') is not named 'tl'
+	// but 'tgl' for historical reasons.
+	'languageTemplateFixups' =>  $uwDefaultLanguageFixups,
 
 		// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 		// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config
