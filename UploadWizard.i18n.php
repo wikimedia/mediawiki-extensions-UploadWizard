@@ -8094,6 +8094,7 @@ $1',
 /** Finnish (suomi)
  * @author Alluk.
  * @author Crt
+ * @author Kulmalukko
  * @author Linnea
  * @author Nedergard
  * @author Nike
@@ -8131,6 +8132,8 @@ $messages['fi'] = array(
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Neuvontapiste',
 	'mwe-upwiz-add-file-n' => 'Lisää toinen tiedosto',
 	'mwe-upwiz-add-file-0-free' => 'Valitse tallennettava tiedosto',
+	'mwe-upwiz-add-flickr-or' => 'Tai',
+	'mwe-upwiz-select-flickr' => 'Lataa valitut kuvat',
 	'mwe-upwiz-flickr-disclaimer' => 'Tämä lomake lataa sisältö flickr.com-palvelusta ja on sen [https://www.flickr.com/help/terms/ käyttöehtojen] ja [https://www.flickr.com/help/privacy-policy/ yksityisyyssuojan] alainen.<br />
 Ota huomioon, että tämän työkalun käyttö saattaa IP-osoitteesi ja pyyntösi tiedot Flickr-palvelulle.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Kuvan lataaminen palvelusta $1 epäonnistui.',
@@ -8143,6 +8146,7 @@ Ota huomioon, että tämän työkalun käyttö saattaa IP-osoitteesi ja pyyntös
 	'mwe-upwiz-published' => 'Julkaistu!',
 	'mwe-upwiz-failed' => 'Epäonnistui.',
 	'mwe-upwiz-remove' => 'Poista',
+	'mwe-upwiz-override' => 'Lataa joka tapauksessa.',
 	'mwe-upwiz-remove-upload' => 'Poista tämä tiedosto tallennettavien tiedostojen listasta',
 	'mwe-upwiz-show-thumb' => 'Näytä pienoiskuva',
 	'mwe-upwiz-show-thumb-tip' => 'Lataa esikatselukuva tästä tiedostosta',
@@ -26413,7 +26417,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => "На жаль, ми не змогли знайти жодних файлів для підручника, який повинен бути тут. Будь ласка, зв'яжіться з системним адміністратором.",
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'На жаль, ми не змогли отримати масштабоване зображення підручника у відповідності до розміру цього екрана. Це може бути тимчасова проблема на Вікісховищі, спробуйте пізніше.',
 	'mwe-upwiz-help-desk' => 'Служба підтримки',
-	'mwe-upwiz-help-desk-url' => 'Служба підтримки', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Служба підтримки',
 	'mwe-upwiz-add-file-n' => 'Додати ще один файл',
 	'mwe-upwiz-add-file-0-free' => 'Оберіть файл для завантаження',
 	'mwe-upwiz-upload-flickr' => 'Завантажити зоюраження з Flickr',
@@ -26429,6 +26433,9 @@ $messages['uk'] = array(
 	'mwe-upwiz-multi-file-select' => 'Окресліть курсором прямокутник навколо зображень, які Ви хочете завантажити. Утримуйте клавішу Ctrl/Command для виділення несуміжних елементів.',
 	'mwe-upwiz-transport-started' => 'Початок...',
 	'mwe-upwiz-uploading' => 'завантаження ...',
+	'mwe-upwiz-queued' => 'У черзі…',
+	'mwe-upwiz-assembling' => 'Складання…',
+	'mwe-upwiz-publish' => 'Публікація…',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'Завантажено',
 	'mwe-upwiz-getting-metadata' => 'Отримання відомостей про файл та його попередній перегляд...',
