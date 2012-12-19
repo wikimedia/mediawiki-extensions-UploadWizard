@@ -1004,6 +1004,7 @@ mw.UploadWizardUpload.prototype = {
 		// Determine the offset required to center the image
 		var dx = (constraints.width - width) / 2;
 		var dy = (constraints.height - height) / 2;
+		var x, y;
 
 		switch ( rotation ) {
 			// If a rotation is applied, the direction of the axis

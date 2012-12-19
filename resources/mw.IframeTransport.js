@@ -81,7 +81,7 @@ mw.IframeTransport.prototype = {
 			//mw.log( "mw.IframeTransport::processIframeResult> innerhtml" );
 			return;
 		}
-		var response;
+		var response, json;
 		if ( doc.XMLDocument ) {
 			// The response is a document property in IE
 			response = doc.XMLDocument;

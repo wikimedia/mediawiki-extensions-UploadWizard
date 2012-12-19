@@ -652,7 +652,7 @@ mw.UploadWizardDetails.prototype = {
 		// make sure title is valid
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
 		if ( titleInputValid === undefined ) {
-			setTimeout( function () { _this.valid(cb) }, 200 );
+			setTimeout( function () { _this.valid(cb); }, 200 );
 			return;
 		}
 
@@ -1141,7 +1141,7 @@ mw.UploadWizardDetails.prototype = {
 		// if invalid, should produce side effects in the form
 		// instructing user to fix.
 		_this.valid( function () {
-			wikiText = '';
+			var wikiText = '';
 
 
 			// http://commons.wikimedia.org / wiki / Template:Information
@@ -1387,6 +1387,7 @@ mw.UploadWizardDetails.prototype = {
 	 * @param {Mixed} result from ajax call
 	 */
 	processError: function( code, result ) {
+		var statusKey;
 		var statusLine = mw.msg( 'api-error-unclassified' );
 		var titleErrorMap = {
 			'senselessimagename': 'senselessimagename',

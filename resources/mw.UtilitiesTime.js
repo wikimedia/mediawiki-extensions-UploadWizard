@@ -27,15 +27,14 @@
 		} else {
 			tm.seconds = Math.round( tm.seconds );
 		}
-		if ( tm.seconds < 10 ){
+		if ( tm.seconds < 10 ) {
 			tm.seconds = '0' +	tm.seconds;
 		}
-		if( tm.hours === 0 ){
-			hoursStr = '';
-		} else {
-			if ( tm.minutes < 10 )
+		var hoursStr = '';
+		if ( tm.hours > 0 ) {
+			if ( tm.minutes < 10 ) {
 				tm.minutes = '0' + tm.minutes;
-
+			}
 			hoursStr = tm.hours + ":";
 		}
 		return hoursStr + tm.minutes + ":" + tm.seconds;
@@ -74,7 +73,7 @@
 		var min = 0;
 		var sec = 0;
 
-		times = npt_str.split( ':' );
+		var times = npt_str.split( ':' );
 		if ( times.length == 3 ) {
 			sec = times[2];
 			min = times[1];

@@ -199,8 +199,6 @@ mw.UploadWizard.prototype = {
 				// if returns false, you can assume there are notifications in the interface.
 				if ( _this.deedChooser.valid() ) {
 
-					var lastUploadIndex = _this.uploads.length - 1;
-
 					$j.each( _this.uploads, function ( i, upload ) {
 						if ( upload === undefined ) {
 							return;
@@ -468,9 +466,6 @@ mw.UploadWizard.prototype = {
 		var headScroll = $( 'h1:first' ).offset();
 		$j( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
 		$j.each( _this.stepNames, function(i, stepName) {
-
-			// the step indicator
-			var step = $j( '#mwe-upwiz-step-' + stepName );
 
 			// the step's contents
 			var stepDiv = $j( '#mwe-upwiz-stepdiv-' + stepName );
