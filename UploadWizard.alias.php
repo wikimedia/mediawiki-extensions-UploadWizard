@@ -197,6 +197,8 @@ $specialPageAliases['uk'] = array(
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'UploadWizard' => array( 'Thuật_sĩ_tải_lên' ),
+	'UploadCampaigns' => array( 'Danh_sách_chiến_dịch_tải_lên' ),
+	'UploadCampaign' => array( 'Chiến_dịch_tải_lên' ),
 );
 
 /** Cantonese (粵語) */
