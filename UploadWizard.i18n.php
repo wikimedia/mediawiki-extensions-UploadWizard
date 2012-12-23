@@ -2368,6 +2368,7 @@ $messages['az'] = array(
  * @author Amir a57
  * @author E THP
  * @author Erdemaslancan
+ * @author Mousa
  */
 $messages['azb'] = array(
 	'uploadwizard' => 'یوکلمه سئهربازی',
@@ -2395,7 +2396,7 @@ $messages['azb'] = array(
 	'mwe-upwiz-copy-metadata-button' => 'اوزوندن گوتور',
 	'mwe-upwiz-copy-categories' => 'اوزوندن یازما{{PLURAL:$1|بؤلمه|بؤلمه‌لر}}',
 	'mwe-upwiz-desc' => 'شرح',
-	'mwe-upwiz-desc-add-0' => 'شرحی علوه ائت',
+	'mwe-upwiz-desc-add-0' => 'آچیقلاما آرتیر',
 	'mwe-upwiz-title' => 'باشلیق',
 	'mwe-upwiz-location' => 'یئرلشمه‌سی',
 	'mwe-upwiz-location-lat' => 'جغرافیایی ائنی',
@@ -2451,7 +2452,7 @@ $messages['azb'] = array(
 	'mwe-upwiz-campaigns-status' => 'وضعیت',
 	'mwe-upwiz-campaigns-enabled' => 'قوشولوب',
 	'mwe-upwiz-campaigns-disabled' => 'آیریلیب',
-	'mwe-upwiz-campaigns-edit' => 'دَيیشدیر',
+	'mwe-upwiz-campaigns-edit' => 'دَییشدیر',
 	'mwe-upwiz-campaigns-add' => 'علاوه ائت',
 	'mwe-upwiz-campaigns-newname' => 'کمپین آدی',
 	'mwe-upwiz-campaigns-delete' => 'سیل',
@@ -6564,16 +6565,23 @@ $messages['eo'] = array(
 	'mwe-upwiz-step-thanks' => 'Uzo',
 	'mwe-upwiz-api-warning-exists' => 'Ekzistas [$1 alia dosiero] jam en la vikio kun la sama dosiernomo',
 	'mwe-upwiz-api-warning-was-deleted' => 'Antaŭe estis dosiero de la nomo "$1", sed ĝi estis forigita kaj ne eblas realŝuti la dosieron. Se via dosiero malsamas, bonvolu provi renomi ĝin.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Pardonu, ni ne povis trovi gvidilon en via lingvo. La anglalingva versio estas montrata anstataŭe.', # Fuzzy
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Pardonu, ni ne povis trovi gvidilon en via lingvo. La versio $1 estas montrata anstataŭe.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Bedaŭinde, ne eblis trovi iujn ajn dosierojn por la helpsistemo kiu estu ĉi tie. Bonvolu informigi la sistem-administrantojn.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Bedaŭrinde, ne povus skali bildon de la instruilo por adapti la ekranon. Tio ĉi povas esti intertempa problemo kun Wikimedia Komunejo; reprovu poste.',
 	'mwe-upwiz-help-desk' => 'Helpejo',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Helpejo',
 	'mwe-upwiz-add-file-n' => 'Aldoni alian dosieron',
 	'mwe-upwiz-add-file-0-free' => 'Elektu dosieron kiun vi volas donaci',
+	'mwe-upwiz-upload-flickr' => 'Alŝuti bildojn de Flickr',
+	'mwe-upwiz-add-file-flickr' => 'Aldoni bildojn de Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Aŭ',
+	'mwe-upwiz-add-flickr' => 'Akiri bildojn de Flickr',
+	'mwe-upwiz-flickr-input-placeholder' => 'URL-on de Flickr bildaro/fotaro',
+	'mwe-upwiz-select-flickr' => 'Alŝuti elektitajn bildojn',
 	'mwe-upwiz-transport-started' => 'Komencanta...',
 	'mwe-upwiz-uploading' => 'Ŝarĝanta...',
+	'mwe-upwiz-assembling' => 'Kunigante...',
+	'mwe-upwiz-publish' => 'Eldonante...',
 	'mwe-upwiz-transported' => 'Ek!',
 	'mwe-upwiz-stashed-upload' => 'Alŝutita',
 	'mwe-upwiz-getting-metadata' => 'Prenanta la dosieran informon kaj antaŭvidaĵon',
@@ -6581,6 +6589,7 @@ $messages['eo'] = array(
 	'mwe-upwiz-published' => 'Publikigita',
 	'mwe-upwiz-failed' => 'Malsukcesis.',
 	'mwe-upwiz-remove' => 'Forigi',
+	'mwe-upwiz-override' => 'Alŝuti malgraŭ.',
 	'mwe-upwiz-remove-upload' => 'Forigi ĉi tiun dosieron el la listo de alŝutendaj dosieroj',
 	'mwe-upwiz-show-thumb' => 'Montri bildeton',
 	'mwe-upwiz-show-thumb-tip' => 'Ŝargi bildeton por ĉi tiu dosiero',
@@ -7316,7 +7325,7 @@ Palun proovi teist võrgulehitsejat.',
 	'mwe-upwiz-secs-remaining' => 'Jäänud $1 {{PLURAL:$1|sekund|sekundit}}',
 	'mwe-upwiz-mins-secs-remaining' => 'Jäänud $1 {{PLURAL:$1|minut|minutit}} ja $2 {{PLURAL:$2|sekund|sekundit}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Jäänud $1 {{PLURAL:$1|tund|tundi}}, $2 {{PLURAL:$2|minut|minutit}} ja $3 {{PLURAL:$3|sekund|sekundit}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'Siin võrgukohas nõutakse, et tooksid ära teabe {{PLURAL:$1|selle teose|nende teoste}} autoriõiguste kohta, selleks et kõik saaksid {{PLURAL:$1|seda|neid}} hiljem õiguspäraselt kasutada.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Siin võrgukohas nõutakse, et {{GENDER:$2|tooksid}} ära teabe {{PLURAL:$1|selle teose|nende teoste}} autoriõiguste kohta, selleks et kõik saaksid {{PLURAL:$1|seda|neid}} hiljem õiguspäraselt kasutada.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|See fail|Need failid}} on minu enda looming.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Mina, $2, {{PLURAL:$1|selle teose|nende teoste}} autoriõiguse valdajana annan käesolevaga pöördumatult kõigile õiguse {{PLURAL:$1|seda teost|neid teoseid}} ükskõik mis eesmärgil kasutada, teisendada ja taaslevitada. Seepärast avaldan {{PLURAL:$1|selle teose|need teosed}} järgmistel tingimustel:',
 	'mwe-upwiz-source-ownwork-assert' => 'Mina, $2, {{PLURAL:$1|selle teose|nende teoste}} autoriõiguse valdajana annan käesolevaga pöördumatult kõigile õiguse kasutada {{PLURAL:$1|seda teost|neid teoseid}} ükskõik mis eesmärgil. Seda tingimusel, et ära on näidatud minu nimi ja tuletatud teost levitatakse samasuguse litsentsi all.',
@@ -7464,7 +7473,7 @@ Palun ära kasuta siin vikiteksti ega HTMLi.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Vikitekst on litsentsi jaoks liiga lühike.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Sisestasid liiga pika vikiteksti.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'See ei paista olevat õige vikitekst või ei vasta litsentsile.',
-	'mwe-upwiz-details-error-count' => '{{PLURAL:$2|Ülalolevas vormis|Ülalolevates vormides}} esineb {{PLURAL:$1|üks tõrge|$1 tõrget}}. Kõrvalda tõrked ja proovi uuesti jätkata.',
+	'mwe-upwiz-details-error-count' => '{{PLURAL:$2|Ülalolevas vormis|Ülalolevates vormides}} esineb {{PLURAL:$1|üks tõrge|$1 tõrget}}. Kõrvalda {{PLURAL:$1|tõrge|tõrked}} ja proovi uuesti jätkata.',
 	'mwe-upwiz-too-many-files-ok' => 'Sobib',
 	'mwe-upwiz-too-many-files-text' => 'Korraga saab üles laadida {{PLURAL:$1|ühe faili|$1 faili}}. Proovisid üles laadida kokku {{PLURAL:$2|üht faili|$2 faili}}, seega {{PLURAL:$3|üks fail|$3 faili}} on eemaldatud.',
 	'mwe-upwiz-too-many-files' => 'Liiga palju faile.',
@@ -8102,6 +8111,7 @@ $1',
  * @author Nike
  * @author Olli
  * @author Silvonen
+ * @author Stryn
  * @author Tofu II
  * @author Veikk0.ma
  * @author Wix
@@ -8132,7 +8142,7 @@ $messages['fi'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Ohjeen skaalattu kuva ei mahdu näytölle. Tämä voi olla väliaikainen ongelma. Yritä myöhemmin uudelleen.',
 	'mwe-upwiz-help-desk' => 'Neuvontapiste',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Neuvontapiste',
-	'mwe-upwiz-add-file-n' => 'Lisää toinen tiedosto',
+	'mwe-upwiz-add-file-n' => 'Lisää enemmän tiedostoja',
 	'mwe-upwiz-add-file-0-free' => 'Valitse tallennettava tiedosto',
 	'mwe-upwiz-add-flickr-or' => 'Tai',
 	'mwe-upwiz-select-flickr' => 'Tallenna valitut kuvat',
@@ -19317,9 +19327,9 @@ $1',
 $messages['nl-informal'] = array(
 	'mwe-upwiz-js-off' => 'UploadWizard gebruik JavaScript voor een verbeterde gebruikerservaring. Je browser of ondersteunt geen JavaScript of JavaScript staat uitgeschakeld. Daarom wordt een eenvoudig uploadformulier weergegeven.',
 	'mwe-upwiz-api-warning-was-deleted' => 'Er is een bestand met de naam "$1" geweest, maar dit is verwijderd. Je kunt het niet opnieuw uploaden. Als je een ander bestand wilt uploaden, geef het dan een andere naam.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Er is geen beschrijving in jouw taal beschikbaar.
-De beschrijving wordt weergegeven in het Engels.', # Fuzzy
-	'mwe-upwiz-deeds-macro-prompt' => 'Deze site stelt het verplicht dat je auteursrechteninformatie opgeeft voor {{PLURAL:$1|het bovenstaande bestand|de bovenstaande bestanden}} zodat zeker wordt gesteld dat {{PLURAL:$1|het hergebruikt kan|ze hergebruikt kunnen}} worden.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Er is geen beschrijving in je taal beschikbaar.
+De beschrijving wordt weergegeven in het $1.',
+	'mwe-upwiz-deeds-macro-prompt' => 'Op deze site moet {{GENDER:$2|je}} auteursrechteninformatie opgeven voor {{PLURAL:$1|het bovenstaande bestand|de bovenstaande bestanden}} zodat zeker is dat {{PLURAL:$1|het hergebruikt kan|ze hergebruikt kunnen}} worden.',
 	'mwe-upwiz-source-permission' => 'De auteur van het werk heeft je expliciete toestemming gegeven het werk te uploaden',
 	'mwe-upwiz-source-thirdparty-intro' => 'Voer de plaats in waar je elk bestand gevonden hebt.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Als alle bestanden dezelfde bron, auteur en auteursrechtenstatus hebben, kan je ze één keer voor allemaal invoeren.',
@@ -25014,11 +25024,18 @@ $messages['sv'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Tyvärr kunde vi inte hitta några filer för den handledning som är tänkt att finnas här. Vänligen kontakta systemadministratören.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Tyvärr kunde vi inte få en skalad bild av övningen för att passa den här skärmen. Detta kan vara ett tillfälligt problem med Wikimedia Commons, försök igen senare.',
 	'mwe-upwiz-help-desk' => 'Hjälp',
-	'mwe-upwiz-help-desk-url' => 'Hjälpcenter',
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Hjälpcenter',
 	'mwe-upwiz-add-file-n' => 'Lägg till ytterligare en fil',
 	'mwe-upwiz-add-file-0-free' => 'Välj en mediafil att donera',
+	'mwe-upwiz-upload-flickr' => 'Ladda upp bilder från Flickr',
+	'mwe-upwiz-add-file-flickr' => 'Lägg till bilder från Flickr',
+	'mwe-upwiz-add-flickr-or' => 'Eller',
+	'mwe-upwiz-add-flickr' => 'Hämta bilder från Flickr',
 	'mwe-upwiz-transport-started' => 'Startar...',
 	'mwe-upwiz-uploading' => 'Laddar upp...',
+	'mwe-upwiz-queued' => 'Köar...',
+	'mwe-upwiz-assembling' => 'Monterar...',
+	'mwe-upwiz-publish' => 'Publicerar...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'Uppladdad',
 	'mwe-upwiz-getting-metadata' => 'Hämtar filinformation och förhandsvisningar...',
@@ -25044,7 +25061,7 @@ $messages['sv'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekund|sekunder}} kvar',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minut|minuter}} och $2 {{PLURAL:$2|sekund|sekunder}} kvar',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|timma|timmar}}, $2 {{PLURAL:$2|minut|minuter}} och $3 {{PLURAL:$3|sekund|sekunder}} kvar',
-	'mwe-upwiz-deeds-macro-prompt' => 'Denna webbplats kräver att du anger information om upphovsrätt för {{PLURAL:$1|detta verk|dessa verk}}, se till att alla lagligen kan återanvända {{PLURAL:$1|den|dem}}.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Denna webbplats kräver att {{GENDER:$2|du}} anger information om upphovsrätt för {{PLURAL:$1|detta verk|dessa verk}}, se till att alla lagligen kan återanvända {{PLURAL:$1|den|dem}}.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Den här filen är skapad|De här filerna är skapade}} av mig.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Jag, $2, upphovsrättsinnehavaren av {{PLURAL:$1|detta verk|dessa verk}}, ger härmed oåterkalleligen var och en rätt att använda, modifiera och vidaredistribuera {{PLURAL:$1|detta verk|dessa verk}} i valfritt syfte, och jag publicerar {{PLURAL:$1|den|dem}} därför enligt följande villkor:',
 	'mwe-upwiz-source-ownwork-assert' => 'Jag, $2, upphovsrättsinnehavaren av {{PLURAL:$1|detta verk|dessa verk}}, ger härmed oåterkalleligen var och en rätten att använda {{PLURAL:$1|detta verk|dessa verk}} i valfritt syfte, så länge de ger mig erkännande och ger bearbetade verk samma villkor.',
@@ -25189,7 +25206,7 @@ Använd inte wikitext eller HTML här.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Denna wikitext är för kortfattad för att kunna vara en licens',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Wikitexten som du skrev är för lång.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Det här verkar inte vara en giltig wikitext eller så innehåller den inte en licens.',
-	'mwe-upwiz-details-error-count' => 'Det finns {{PLURAL:$1|ett fel|$1 fel}} i {{PLURAL:$2|formuläret|formulären}} ovan. Korrigera felen och försök att skicka igen.',
+	'mwe-upwiz-details-error-count' => 'Det finns {{PLURAL:$1|ett fel|$1 fel}} i {{PLURAL:$2|formuläret|formulären}} ovan. Korrigera {{PLURAL:$1|felet|felen}} och försök att skicka igen.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => 'Du kan bara ladda upp $1 {{PLURAL:$1|fil|filer}} på en gång. Du försökte lägga till $2 {{PLURAL:$2|fil|filer}}, så $3 {{PLURAL:$3|fil|filer}} har tagits bort.',
 	'mwe-upwiz-too-many-files' => 'För många filer.',
@@ -27681,7 +27698,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => '对不起，我们找不到教程文件。请联系系统管理员。',
 	'mwe-upwiz-tutorial-error-cannot-transform' => '对不起，我们无法获得适合该屏幕大小的教程图像。这可能是维基共享资源暂时的问题，请稍后重试。',
 	'mwe-upwiz-help-desk' => '帮助台',
-	'mwe-upwiz-help-desk-url' => 'Project:帮助台', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:帮助台',
 	'mwe-upwiz-add-file-n' => '添加其他文件',
 	'mwe-upwiz-add-file-0-free' => '请选择要贡献的媒体文件',
 	'mwe-upwiz-upload-flickr' => '从Flickr上传图像',
@@ -28016,6 +28033,7 @@ $messages['zh-hans'] = array(
  * @author Justincheng12345
  * @author Mark85296341
  * @author Oapbtommy
+ * @author Shirayuki
  * @author Simon Shek
  * @author Waihorace
  * @author Wrightbus
@@ -28044,9 +28062,11 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => '抱歉，我們無法找到任何相關的教程，請聯繫系統管理員。',
 	'mwe-upwiz-tutorial-error-cannot-transform' => '抱歉，我們無法獲取適合此屏幕大小的教程。這也許是維基共享資源的臨時錯誤，請稍後再試。',
 	'mwe-upwiz-help-desk' => '幫助台',
-	'mwe-upwiz-help-desk-url' => '幫助台',
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:幫助台',
 	'mwe-upwiz-add-file-n' => '加入另一個檔案',
 	'mwe-upwiz-add-file-0-free' => '選擇要貢獻的媒體文件',
+	'mwe-upwiz-add-flickr-or' => '或',
+	'mwe-upwiz-select-flickr' => '上傳選定的圖像',
 	'mwe-upwiz-transport-started' => '正在啟動...',
 	'mwe-upwiz-uploading' => '上傳中...',
 	'mwe-upwiz-transported' => '正在完成上傳...',
@@ -28213,7 +28233,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-error-license-wikitext-too-short' => '維基文字過短，不可能是一個協議',
 	'mwe-upwiz-error-license-wikitext-too-long' => '您輸入的維基文字過長。',
 	'mwe-upwiz-error-license-wikitext-invalid' => '這看起來不是有效的維基文字，或不包含一個協議。',
-	'mwe-upwiz-details-error-count' => '上方的{{PLURAL:$2|表格}}中{{PLURAL:$1|有一項|有$1項}}錯誤。請更正錯誤，並嘗試再次提交。',
+	'mwe-upwiz-details-error-count' => '上方的{{PLURAL:$2|表格}}中{{PLURAL:$1|有一項|有$1項}}錯誤。請更正錯誤，並嘗試再次提交。', # Fuzzy
 	'mwe-upwiz-too-many-files-ok' => '確定',
 	'mwe-upwiz-too-many-files-text' => '您一次只能上傳$1個檔案。您共嘗試上傳了$2個，因此$3個檔案已被移除。',
 	'mwe-upwiz-too-many-files' => '過多檔案。',
