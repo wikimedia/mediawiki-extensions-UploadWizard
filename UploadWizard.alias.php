@@ -210,3 +210,10 @@ $specialPageAliases['yue'] = array(
 $specialPageAliases['zh-hans'] = array(
 	'UploadWizard' => array( '上传向导', '上传精灵' ),
 );
+
+/** Traditional Chinese (中文（繁體）‎) */
+$specialPageAliases['zh-hant'] = array(
+	'UploadWizard' => array( '上載精靈' ),
+	'UploadCampaigns' => array( '上載多個計劃' ),
+	'UploadCampaign' => array( '上載計劃' ),
+);
