@@ -6916,6 +6916,7 @@ $1',
  * @author Pertile
  * @author Platonides
  * @author Savh
+ * @author TheBITLINK
  * @author Vivaelcelta
  */
 $messages['es'] = array(
@@ -6953,7 +6954,7 @@ $messages['es'] = array(
 	'mwe-upwiz-select-flickr' => 'Subir imágenes seleccionadas',
 	'mwe-upwiz-flickr-disclaimer' => 'Este formulario subirá el contenido alojado en flickr.com y estará sujeto a las [https://www.flickr.com/help/terms/ condiciones de uso] y la [https://www.flickr.com/help/privacy-policy/ política de privacidad] de Flickr.<br />
 Ten en cuenta que al usar esta herramienta, tu dirección IP y tus datos solicitados estarán disponibles en Flickr.',
-	'mwe-upwiz-error-no-image-retrieved' => 'Lo sentimos, no podemos recuperar la imagen de $1.', # Fuzzy
+	'mwe-upwiz-error-no-image-retrieved' => 'Lo sentimos, no podemos recuperar el archivo de $1.',
 	'mwe-upwiz-multi-file-select' => 'Haz un cuadro el cursor sobre las imágenes que quiere usar. Mantenga pulsada el "Ctrl" o "Command" botones para hacer múltiples selecciones que no están adyacentes.', # Fuzzy
 	'mwe-upwiz-transport-started' => 'Iniciando...',
 	'mwe-upwiz-uploading' => 'Subiendo...',
@@ -8910,8 +8911,8 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirmer la suppression',
 	'mwe-upwiz-license-external' => 'Ce fichier est sous la licence suivante sur $1 : <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => 'Ce fichier est sous la licence suivante sur $1 : <b>$2</b>. Malheureusement, cette licence n’est pas appropriée pour une utilisation sur ce site.',
-	'mwe-upwiz-license-photoset-invalid' => "Malheureusement, aucune photo dans l'album n'a une licence permettant son utilisation sur ce site.", # Fuzzy
-	'mwe-upwiz-url-invalid' => "L'URL saisie n'est pas une URL de photo ou d'album valide de $1", # Fuzzy
+	'mwe-upwiz-license-photoset-invalid' => "Malheureusement, aucune image dans l'album n'a une licence permettant son utilisation sur ce site.",
+	'mwe-upwiz-url-invalid' => "L’URL saisie n'est pas une URL d’image ou d’album valide de $1",
 	'mwe-upwiz-categories' => 'Catégories',
 	'mwe-upwiz-categories-add' => 'Ajouter',
 	'mwe-upwiz-category-will-be-added' => 'Cette catégorie sera créée.',
@@ -19229,7 +19230,7 @@ In beide gevallen wordt deze gekoppeld aan uw gebruikerspagina in de wiki.',
 	'mwe-upwiz-tooltip-description' => 'Beschrijf het werk. Vermeld voor een foto bijvoorbeeld wat er te zien is, wanneer de foto is genomen, bij welke gelegenheid, enzovoort.',
 	'mwe-upwiz-tooltip-date' => 'Datum waarop dit werk is gemaakt of voor de eerste keer is gepubliceerd (opmaak: jjjj-mm-dd).',
 	'mwe-upwiz-tooltip-categories' => 'Voeg [$1 categorieën] toe aan uw bestand om het makkelijker vindbaar te maken.',
-	'mwe-upwiz-tooltip-other' => 'Overige gegevens die u wilt opnemen over dit werk. Denk aan geografische coördinaten, verwijzingen naar andere versies, enzovoort.',
+	'mwe-upwiz-tooltip-other' => 'Overige gegevens die u wilt opnemen over dit werk. Denk aan geografische coördinaten, koppelingen naar andere versies, enzovoort.',
 	'mwe-upwiz-tooltip-location' => 'Coördinaten van de locatie waar dit mediabestand is gemaakt.',
 	'mwe-upwiz-tooltip-more-info' => 'Meer lezen.',
 	'mwe-upwiz-file-need-file' => 'Voeg eerst een upload toe.',
@@ -19446,7 +19447,7 @@ Controleer <b><code>$1</code></b> als je niet zeker weet of je het huidige besta
 In beide gevallen wordt deze gekoppeld aan je gebruikerspagina in de wiki.',
 	'mwe-upwiz-tooltip-title' => 'Een korte beschrijvende naam voor het bestand, die als de bestandsnaam wordt gebruikt. Je kunt platte tekst met spaties gebruiken. Neem de bestandsextensie niet op.',
 	'mwe-upwiz-tooltip-categories' => 'Voeg [$1 categorieën] toe aan je bestand om het makkelijker vindbaar te maken.',
-	'mwe-upwiz-tooltip-other' => 'Overige gegevens die je wilt opnemen over dit werk. Denk aan geografische coördinaten, verwijzingen naar andere versies, enzovoort.',
+	'mwe-upwiz-tooltip-other' => 'Overige gegevens die je wilt opnemen over dit werk. Denk aan geografische coördinaten, koppelingen naar andere versies, enzovoort.',
 	'mwe-upwiz-deeds-need-deed' => 'Geef alsjeblieft aan hoe je aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.',
 	'mwe-upwiz-error-signature-blank' => 'Je moet in het onderstaande veld je gebruikersnaam of echte naam invoeren.',
 	'mwe-upwiz-error-signature-too-long' => 'Je handtekening is te lang.
@@ -21895,6 +21896,7 @@ $messages['ro'] = array(
 	'mwe-upwiz-more-options' => 'adăugare de categorii și informații suplimentare...',
 	'mwe-upwiz-copy-metadata' => 'Copiază informațiile la {{PLURAL:$1|celălalt fișier|toate fișierele}} de mai jos...',
 	'mwe-upwiz-copy-metadata-button' => 'Copiază',
+	'mwe-upwiz-copied-metadata-button' => 'Copiat cu succes',
 	'mwe-upwiz-copy-title' => 'Copiază titlul (cu autonumerotare)',
 	'mwe-upwiz-copy-description' => 'Copiază  {{PLURAL:$1|descrierea|descrierile}}',
 	'mwe-upwiz-copy-date' => 'Copiază data',
@@ -23734,6 +23736,8 @@ $1',
 	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'සාමාන්‍ය ස්වකීය නිර්මාණ බලපත්‍රය:',
 	'mwe-upwiz-campaign-conf-idField' => 'හැඳුනුම් ක්ෂේත්‍රයේ විකිපාඨය. නිදසුන: <nowiki>{{Rijksmonument|$1}}</nowiki>. ක්ෂේත්‍රය නොපෙන්වීමට හිස් කරන්න:',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'හැඳුනුම් ක්ෂේත්‍ර ලේබලයේ පාඨය:',
+	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'ID ක්ෂේත්‍රය සඳහා ආරම්භක අගය:',
+	'mwe-upwiz-campaign-conf-idField2Label' => 'ද්විත්ව ID ක්ෂේත්‍ර ලේබල පෙළ:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'හැඳුනුම් ක්ෂේත්‍රයේ තිබෙන පාඨවල උපරිම දිග', # Fuzzy
 	'mwe-upwiz-campaign-conf-defaultLat' => 'සාමාන්‍ය අක්ෂාංශය:',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'සාමාන්‍ය දේශාංශය:',
@@ -26538,6 +26542,56 @@ $messages['tt-cyrl'] = array(
  */
 $messages['tzm'] = array(
 	'mwe-upwiz-ok' => 'ⵡⴰⵅⵅⴰ',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'mwe-upwiz-step-file' => 'يۈكلە',
+	'mwe-upwiz-step-thanks' => 'ئىشلەت',
+	'mwe-upwiz-add-flickr-or' => 'ياكى',
+	'mwe-upwiz-transport-started' => 'باشلاۋاتىدۇ…',
+	'mwe-upwiz-uploading' => 'يۈكلەۋاتىدۇ…',
+	'mwe-upwiz-stashed-upload' => 'يۈكلەندى',
+	'mwe-upwiz-remove' => 'چىقىرىۋەت',
+	'mwe-upwiz-upload' => 'يۈكلە',
+	'mwe-upwiz-source-thirdparty-accept' => 'جەزملە',
+	'mwe-upwiz-copy-metadata-button' => 'كۆچۈر',
+	'mwe-upwiz-desc' => 'چۈشەندۈرۈش',
+	'mwe-upwiz-title' => 'ماۋزۇ',
+	'mwe-upwiz-media-type' => 'ۋاسىتە تىپى',
+	'mwe-upwiz-location' => 'ئورنى',
+	'mwe-upwiz-location-lat' => 'كەڭلىك',
+	'mwe-upwiz-location-lon' => 'ئۇزۇنلۇق',
+	'mwe-upwiz-location-alt' => 'دېڭىز يۈزىدىن ئېگىزلىك',
+	'mwe-upwiz-author' => 'يازغۇچى(لار)',
+	'mwe-upwiz-other' => 'باشقا ئۇچۇرلار',
+	'mwe-upwiz-source' => 'مەنبە',
+	'mwe-upwiz-ok' => 'جەزملە',
+	'mwe-upwiz-cancel' => 'ۋاز كەچ',
+	'mwe-upwiz-thumbnail-more' => 'چوڭايت',
+	'mwe-upwiz-next' => 'كەينى',
+	'mwe-upwiz-next-file' => 'داۋاملاشتۇر',
+	'mwe-upwiz-next-deeds' => 'كەينى',
+	'mwe-upwiz-next-details' => 'كەينى',
+	'mwe-upwiz-error-blank' => 'بۇ زۆرۈر مەزمۇندۇر',
+	'mwe-upwiz-too-many-files-ok' => 'جەزملە',
+	'mwe-upwiz-file-too-large-ok' => 'جەزملە',
+	'mwe-upwiz-license-custom-preview' => 'ئالدىن كۆزەت',
+	'mwe-upwiz-license-confirm-remove-title' => 'چىقىرىۋېتىشنى جەزملەش',
+	'mwe-upwiz-categories' => 'تۈرلەر',
+	'mwe-upwiz-errordialog-ok' => 'جەزملە',
+	'mwe-upwiz-campaigns-name' => 'پائالىيەت ئىسمى',
+	'mwe-upwiz-campaigns-status' => 'ھالەت',
+	'mwe-upwiz-campaigns-enabled' => 'قوزغىتىلغان',
+	'mwe-upwiz-campaigns-disabled' => 'چەكلەنگەن',
+	'mwe-upwiz-campaigns-edit' => 'تەھرىر',
+	'mwe-upwiz-campaigns-add' => 'قوش',
+	'mwe-upwiz-campaigns-addnew' => 'يېڭى بىر پائالىيەت قوش',
+	'mwe-upwiz-campaigns-delete' => 'ئۆچۈر',
+	'prefs-uploads' => 'يۈكلەر',
+	'prefs-upwiz-licensing' => 'ئىجازەت',
 );
 
 /** Ukrainian (українська)
