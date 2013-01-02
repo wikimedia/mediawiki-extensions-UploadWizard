@@ -911,11 +911,21 @@ mw.UploadWizard.prototype = {
 			// we have uploads ready to go, so allow us to proceed
 			$j( '#mwe-upwiz-upload-ctrl-container' ).show();
 			$j( '#mwe-upwiz-upload-ctr-divide' ).hide();
-			// changes the initial centered invitation button to something like "add another file"
-			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', gM( 'mwe-upwiz-add-file-n' ) );
-			$j( '#mwe-upwiz-add-file-container' ).removeClass('mwe-upwiz-add-files-0');
-			$j( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).addClass('mwe-upwiz-add-files-n');
-			$j( '#mwe-upwiz-add-file-container' ).show();
+
+			if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
+				// changes the initial centered invitation button to something like "add another file"
+				_this.$addFile = this.$addFile || $j( '#mwe-upwiz-add-file' );
+				_this.$addFile.button( 'option', 'label', gM( 'mwe-upwiz-add-file-n' ) );
+				_this.$addFileContainer = this.$addFileContainer || $j( '#mwe-upwiz-add-file-container' );
+				_this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
+				_this.$addFileContainer.addClass( 'mwe-upwiz-add-files-n' );
+				_this.$addFileContainer.show();
+			} else {
+				_this.$addFile = this.$addFile || $j( '#mwe-upwiz-add-file' );
+				_this.$addFile.hide();
+				_this.$fileInput = this.$fileInput || $j( '.mwe-upwiz-file-input' );
+				_this.$fileInput.hide();
+			}
 
 			// add the styling to the filelist, so it has rounded corners and is visible and all.
 			$j( '#mwe-upwiz-filelist' ).addClass( 'mwe-upwiz-filled-filelist' );
