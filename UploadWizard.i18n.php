@@ -6528,6 +6528,8 @@ $messages['el'] = array(
 	'mwe-upwiz-feedback-title' => 'Αφήστε σχόλια σχετικά με τον Οδηγό Επιφόρτωσης',
 	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 Αποστολή Ανατροφοδότησης]',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 Περισσότερες Πληροφορίες]',
+	'mwe-upwiz-feedback-blacklist-line-intro' => 'Βρέθηκε ταύτιση με αυτήν την καταχώρηση από τη μαύρη λίστα τίτλων:
+$1',
 	'mwe-upwiz-feedback-blacklist-subject' => 'Ο τίτλος μεταμόρφωσης, "$1" απαγορεύτηκε.',
 	'mwe-upwiz-errordialog-title' => 'Παρουσιάστηκε σφάλμα στην καταχώρηση σας',
 	'mwe-upwiz-errordialog-ok' => 'Εντάξει',
@@ -6554,6 +6556,7 @@ $messages['el'] = array(
 	'mwe-upwiz-campaign-enabled' => 'Εκστρατεία ενεργοποιημένη',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Παράλειψη της εκμάθησης αδειών χρήσης',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Κατηγορίες για να προστεθούν αυτόματα τα αρχεία (διαχωρισμένες με |)',
+	'mwe-upwiz-campaign-conf-autoWikiText' => 'Κώδικας wiki που θέλετε να προστεθεί αυτόματα σε όλα τα ανεβασμένα αρχεία:',
 	'mwe-upwiz-campaign-conf-defaultLat' => 'Προεπιλεγμένο γεωγραφικό πλάτος:',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'Προεπιλεγμένο γεωγραφικό μήκος:',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'Προεπιλεγμένο υψόμετρο:',
@@ -6607,6 +6610,7 @@ $messages['en-gb'] = array(
 /** Esperanto (Esperanto)
  * @author AVRS
  * @author Airon90
+ * @author Anakmalaysia
  * @author Blahma
  * @author Iketsi
  * @author Michawiki
@@ -6643,7 +6647,7 @@ $messages['eo'] = array(
 	'mwe-upwiz-upload-flickr' => 'Alŝuti bildojn de Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Aldoni bildojn de Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Aŭ',
-	'mwe-upwiz-add-flickr' => 'Akiri bildojn de Flickr', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Akiri de Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL-on de Flickr bildaro/fotaro',
 	'mwe-upwiz-select-flickr' => 'Alŝuti elektitajn bildojn',
 	'mwe-upwiz-transport-started' => 'Komencanta...',
@@ -6877,7 +6881,7 @@ Bonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie,',
 	'mwe-upwiz-license-external-invalid' => 'Ĉi tiu dosiero en la retejo $1 havas la sekvan licencon: <b>$2</b>. Bedaŭrinde, ĉi tiu licenco ne taŭgas por uzo en {{SITENAME}}.',
 	'mwe-upwiz-categories' => 'Kategorioj',
 	'mwe-upwiz-categories-add' => 'Aldoni',
-	'mwe-upwiz-category-will-be-added' => 'Ĉi tiu kategorio estos kreita.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Ĉi tiu kategorio ne uziĝas ankoraŭ.',
 	'mwe-upwiz-category-remove' => 'Forigi ĉi tiun kategorion',
 	'mwe-upwiz-thanks-caption' => 'Aldonu klarigeton ĉi tie',
 	'mwe-upwiz-thumbnail-failed' => 'La alŝuto sukcesis, sed la servilo ne povas montri bildetan version.',
@@ -8358,7 +8362,7 @@ Voit asentaa [$1 Firefoggin], Firefox-laajennuksen, joka muuntaa tiedoston autom
 	'mwe-upwiz-cancel' => 'Peruuta',
 	'mwe-upwiz-fileexists-replace' => 'Tiedosto nimeltä ”$1” on jo olemassa. Vaihda tiedoston nimeksi jotain yksilöllisempää.',
 	'mwe-upwiz-fileexists' => 'Samanniminen tiedosto on jo olemassa.
-Tarkista <b><code>$1</code></b> jos et ole varma, haluatko korvata sen.',
+Tarkista <b><code>$1</code></b>, jos et ole varma, haluatko korvata sen.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Tämän niminen tiedosto on jo olemassa. Jos haluat korvata aikaisemmin tallennetun tiedoston, mene sivulle [$2 $1] ja korvaa se siellä.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Samanniminen tiedosto on jo olemassa.',
 	'mwe-upwiz-blacklisted' => 'Valitse toinen, kuvaava nimi.',
@@ -17702,7 +17706,7 @@ $messages['ms'] = array(
 	'mwe-upwiz-upload-flickr' => 'Muat naik gambar dari Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Tambahkan gambar daripada Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Atau',
-	'mwe-upwiz-add-flickr' => 'Dapatkan gambar dari Flickr', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Dapatkan dari Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL imej/fotoset Flicker',
 	'mwe-upwiz-select-flickr' => 'Muat naik imej terpilih',
 	'mwe-upwiz-flickr-disclaimer' => 'Borang ini akan memuatkan kandungan yang dihoskan oleh flickr.com dan tertakluk pada [https://www.flickr.com/help/terms/ syarat-syarat penggunaan] dan [https://www.flickr.com/help/privacy-policy/ dasar privasi] Flickr.<br />
@@ -17952,7 +17956,7 @@ Tolong jangan gunakan teks wiki atau HTML di sini.',
 	'mwe-upwiz-url-invalid' => 'URL yang diberikan itu bukan URL imej atau fotoset $1 yang sah',
 	'mwe-upwiz-categories' => 'Kategori',
 	'mwe-upwiz-categories-add' => 'Tambahkan',
-	'mwe-upwiz-category-will-be-added' => 'Kategori ini akan dicipta.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Kategori ini belum digunakan.',
 	'mwe-upwiz-category-remove' => 'Buang kategori ini',
 	'mwe-upwiz-thanks-caption' => 'Isikan kapsyen di sini',
 	'mwe-upwiz-thumbnail-failed' => 'Muat naik berjaya, tetapi pelayan tidak dapat memperoleh gambar kenit (thumbnail) pralihat.',
@@ -24164,12 +24168,12 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-license-external-invalid' => 'Datoteka ima na $1 naslednjo licenco: <b>$2</b>. Žal ta licenca za uporabo na tem spletišču ni primerna.',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Dodaj',
-	'mwe-upwiz-category-will-be-added' => 'Kategorija bo ustvarjena', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Kategorija še ni v uporabi.',
 	'mwe-upwiz-category-remove' => 'Odstrani kategorijo',
 	'mwe-upwiz-thanks-caption' => 'Tukaj dodaj napis',
 	'mwe-upwiz-thumbnail-failed' => 'Nalaganje je uspelo, vendar strežnik ni mogel pridobiti predogledne sličice',
 	'mwe-upwiz-unparseable-filename' => 'Ne morem razumeti imena datoteke »$1«',
-	'mwe-upwiz-image-preview' => 'Predogled slike', # Fuzzy
+	'mwe-upwiz-image-preview' => 'Predogled datoteke',
 	'mwe-upwiz-subhead-message' => 'Zahvaljujemo se vam za uporabo novega orodja za nalaganje!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Znane težave]',
 	'mwe-upwiz-subhead-translate' => '[$1 Pomagajte pri prevajanju]',
@@ -24207,7 +24211,7 @@ $1',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Preskoči vodnik po licenciranju',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorije, h katerim samodejno in tiho dodaj datoteke (ločene z navpičnicami)',
 	'mwe-upwiz-campaign-conf-defaultCategories' => 'Na opisnem zavihku privzeto navedene kategorije (ločene z navpičnicami)',
-	'mwe-upwiz-campaign-conf-autoWikiText' => 'Wikibesedilo, ki bo samodejno dodano k vsem naloženim slikam', # Fuzzy
+	'mwe-upwiz-campaign-conf-autoWikiText' => 'Wikioznačevanje, ki bo samodejno dodano vsem naloženim datotekam:',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => 'Kako ravnati z lastnim ali nelastnim delom',
 	'mwe-upwiz-campaign-owner-choice' => 'Dovoli uporabniku ibrati med lastnim in nelastnim delom',
 	'mwe-upwiz-campaign-owner-own' => 'Dovoli samo za nalaganja lastnih del',
