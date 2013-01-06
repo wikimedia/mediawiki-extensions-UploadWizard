@@ -2382,6 +2382,7 @@ $messages['az'] = array(
 /** South Azerbaijani (تورکجه)
  * @author Amir a57
  * @author E THP
+ * @author Ebrahimi-amir
  * @author Erdemaslancan
  * @author Mousa
  */
@@ -2429,6 +2430,7 @@ $messages['azb'] = array(
 	'mwe-upwiz-next-file' => 'داوام ائت',
 	'mwe-upwiz-next-deeds' => 'سونراکی',
 	'mwe-upwiz-next-details' => 'سونراکی',
+	'mwe-upwiz-home' => 'ویکی‌نین آناصحیفه‌سینه گئدین',
 	'mwe-upwiz-files-complete' => 'شکلینیزین یوکلنمه‌سی بیتدی!',
 	'mwe-upwiz-tooltip-more-info' => 'آرتیق بیلگی',
 	'mwe-upwiz-error-signature-too-long' => 'ایمضانیز چوخ اوزون‌دور.
@@ -4379,6 +4381,7 @@ $messages['ckb'] = array(
 
 /** Czech (česky)
  * @author Chmee2
+ * @author JAn Dudík
  * @author Jezevec
  * @author Jkjk
  * @author Limojoe
@@ -4427,6 +4430,7 @@ Uvědomte si, že použitím tohoto formuláře zpřístupníte svou IP adresu a
 	'mwe-upwiz-multi-file-select' => 'Pomocí kurzoru myši nakreslete rámeček přes obrázky, které chcete načíst. Několik nesouvislých výběrů můžete vytvořit podržením klávesy Ctrl/Command.', # Fuzzy
 	'mwe-upwiz-transport-started' => 'Spouští se…',
 	'mwe-upwiz-uploading' => 'načítání…',
+	'mwe-upwiz-queued' => 'Ve frontě...',
 	'mwe-upwiz-transported' => 'OK',
 	'mwe-upwiz-stashed-upload' => 'OK (Načteno)',
 	'mwe-upwiz-getting-metadata' => 'Načítají se informace o souborech a náhledy…',
@@ -5805,7 +5809,7 @@ $messages['diq'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Qısur mewni re, tiya ra şıyayışo nêbeno dosyaye ke bı musiyo nêvineyaya. Xizmetkar de sistemiya irtibat kewê.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Qısur mewni re, ena asenger pır kero deye yew mısnayer resim ma nêdi.No belki zi Wikimedia Commons'i heta yew problemo, bahdo fına bıcerbne.",
 	'mwe-upwiz-help-desk' => 'Cayê Destegi',
-	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Cayê Destegi',
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Cayê desteki',
 	'mwe-upwiz-add-file-n' => 'Ju na dosya deke',
 	'mwe-upwiz-add-file-0-free' => 'Qan dê bêcer ju dosya weçinê',
 	'mwe-upwiz-upload-flickr' => 'Fotrafan Flickr ra bar ke',
@@ -5992,7 +5996,7 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Eno wikinuşte inca de qande lisans kerdışi zaf kılmo.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Wikimetino ke şıma dekerdo de zaf dergo.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ena Wikimetin ravêrdi nêasena, yana lisanse cı çıniyo.',
-	'mwe-upwiz-details-error-count' => 'İtad {{PLURAL:$1|yew xırabin|$1 xırabin}} cor de {{PLURAL:$2|formi|forman}} ser de yê. {{PLURAL:$1|Xırabin|Xıraban}} weçine u fına rıştışi bıcerbne.',
+	'mwe-upwiz-details-error-count' => 'Tiya de {{PLURAL:$1|yew xeta|$1 xetey}} be {{PLURAL:$2|formê|forman}} ser derê. {{PLURAL:$1|Xeta|Xeteyan}} raşt ke u fına rıştışi bıcerebne.',
 	'mwe-upwiz-too-many-files-ok' => 'TEMAM',
 	'mwe-upwiz-too-many-files-text' => 'Şıma yew fın şenê  {{PLURAL:$1|dosyay|dosyayanê}} $1 barkerê. Şımayê kenê ke $2 {{PLURAL:$2|dosya|dosyaya}} barkerê, Qande coy $3 {{PLURAL:$3|dosya|files havedosyey}} wedaryaye.',
 	'mwe-upwiz-too-many-files' => 'Şo jewbi dosyayan.',
@@ -11278,17 +11282,21 @@ $messages['hsb'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Bohužel njenamakamy dataje za nawod, kotryž měł tu być. Prošu staj so ze systemowymi administratorami do zwiska.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Bohužel njemóžachmy skalowany wobraz dostać, kotryž so wobrazowce přiměri. To móhło nachwilne problem z Wikimedia Commons być. Spytaj pozdźišo hišće raz.',
 	'mwe-upwiz-help-desk' => 'Pomoc',
-	'mwe-upwiz-help-desk-url' => 'Pomoc', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Pomoc',
 	'mwe-upwiz-add-file-n' => 'Druhu dataju přidać',
 	'mwe-upwiz-add-file-0-free' => 'Medijowu dataju za darjenje wubrać',
 	'mwe-upwiz-upload-flickr' => 'Wobrazy wot Flickr nahrać',
 	'mwe-upwiz-add-file-flickr' => 'Wobrazy wot Flickr přidać',
 	'mwe-upwiz-add-flickr-or' => 'Abo',
-	'mwe-upwiz-add-flickr' => 'Wobrazy wot Flickr wobstarać', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Wot Flickr wobstarać',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr-wobraz/URL fotosadźby',
 	'mwe-upwiz-select-flickr' => 'Wubrane wobrazy nahrać',
+	'mwe-upwiz-error-no-image-retrieved' => 'Njemóžachmy dataju z $1 wotwołać.',
 	'mwe-upwiz-transport-started' => 'Startuje so...',
 	'mwe-upwiz-uploading' => 'nahrawa so...',
+	'mwe-upwiz-queued' => 'W čakanskim rynku...',
+	'mwe-upwiz-assembling' => 'Předźěłuje so...',
+	'mwe-upwiz-publish' => 'Wozjewja so...',
 	'mwe-upwiz-transported' => 'Nahraće zakónčene...',
 	'mwe-upwiz-stashed-upload' => 'Nahraty',
 	'mwe-upwiz-getting-metadata' => 'Wotwołuja so datajowe informacije a přehlady...',
@@ -11334,6 +11342,7 @@ Prošu spytaj alternatiwny wobhladowak.',
 	'mwe-upwiz-more-options' => 'Kategorije a dalše informacije přidać...',
 	'mwe-upwiz-copy-metadata' => 'Informacije k {{PLURAL:$1|slědowacemu nahraću|slědowacymaj nahraćomaj|wšěm slědowacym nahraćam|wšěm slědowacym nahraćam}} kopěrować...',
 	'mwe-upwiz-copy-metadata-button' => 'Kopěrować',
+	'mwe-upwiz-copied-metadata-button' => 'Wuspěšnje kopěrowany',
 	'mwe-upwiz-copy-title' => 'Titul kopěrować (z awtomatiskim čisłowanjom)',
 	'mwe-upwiz-copy-description' => '{{PLURAL:$1|Wopisanje|Wopisani|Wopisanja|Wopisanja}} kopěrować',
 	'mwe-upwiz-copy-date' => 'Datum kopěrować',
@@ -11432,7 +11441,7 @@ Prošu njewužij tu wikitekst abo HTML.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Wikitekst je překrótki za licencu.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Wikitekst, kotryž sy zapodał, je předołhi.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Zda so, zo to płaćiwy wikitekst njeje abo licencu njewobsahuje.',
-	'mwe-upwiz-details-error-count' => 'Při wupjelnjenju {{PLURAL:$2|formulara|formularow|formularow|formularow}} {{PLURAL:$1|je zmylk wustupił|stej $1 zmylkaj wustupiłoj|su $1 zmylki wustupili|je $1 zmylkow wustupiło}}. Prošu porjedź zmylki a wotpósćel {{PLURAL:$1|formular|formularaj|formulary|formulary}} hišće raz.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'Při wupjelnjenju {{PLURAL:$2|formulara|formularow}} {{PLURAL:$1|je zmylk wustupił|stej $1 zmylkaj wustupiłoj|su $1 zmylki wustupili|je $1 zmylkow wustupiło}}. Prošu porjedź {{PLURAL:$1|zmylk|zmylkaj|zmylki}} a składuj  hišće raz.',
 	'mwe-upwiz-too-many-files-ok' => 'W porjadku',
 	'mwe-upwiz-too-many-files-text' => 'Móžeš jenož $1 {{PLURAL:$1|dataju|dataji|dataje|datajow}} naraz nahrać. Sy spytał $2 {{PLURAL:$2|dataju|dataji|dataje|datajow}} přidać, tak zo $3 {{PLURAL:$3|dataja je so wotstroniła|dataji stej so wotstroniłoj|dataje su so wotstronili|datajow je so wotstroniło}}.',
 	'mwe-upwiz-too-many-files' => 'Přewjele datajow.',
@@ -11482,12 +11491,12 @@ Prošu njewužij tu wikitekst abo HTML.',
 	'mwe-upwiz-license-external' => 'Tuta dataja je na $1 pod slědowacej licencu: <b>$2</b>.',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Přidać',
-	'mwe-upwiz-category-will-be-added' => 'Tuta kategorija so wutwori.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Tuta kategorija so hišće njewužiwa.',
 	'mwe-upwiz-category-remove' => 'Tutu kategoriju wotstronić',
 	'mwe-upwiz-thanks-caption' => 'Wobrazowy nadpis přidać',
 	'mwe-upwiz-thumbnail-failed' => 'Nahraće je so poradźiło, ale serwer njemóžeše žadyn přehladowy wobrazk dóstać',
 	'mwe-upwiz-unparseable-filename' => 'Datajowe mjeno "$1" njeje so zrozumiło',
-	'mwe-upwiz-image-preview' => 'Wobrazowy přehlad', # Fuzzy
+	'mwe-upwiz-image-preview' => 'Datajowy přehlad',
 	'mwe-upwiz-subhead-message' => 'Dźakujemy so za wužiwanje našeho nahrawanskeho nastroja!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Znate problemy]',
 	'mwe-upwiz-subhead-translate' => '[$1 Při přełožkach pomhać]',
@@ -12281,6 +12290,7 @@ $1',
  * @author Bennylin
  * @author Farras
  * @author IvanLanin
+ * @author Iwan Novirion
  * @author Kenrick95
  */
 $messages['id'] = array(
@@ -12391,7 +12401,8 @@ Anda dapat [$1 menginstal Firefogg] untuk mengonversikannya secara otomatis, ata
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Batalkan',
 	'mwe-upwiz-fileexists-replace' => 'Sebuah berkas dengan judul "$1" sudah ada. Silakan ubah judul Anda menjadi judul yang unik.',
-	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada. Tolong cek <b><code>$1</code></b> jika Anda tidak yakin untuk mengubahnya.',
+	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada.
+Tolong cek <b><code>$1</code></b> jika Anda tidak yakin untuk mengubahnya.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Sebuah berkas dengan nama tersebut telah ada. Jika Anda ingin menggantinya, pergilah ke halaman untuk [$2 $1] dan ganti di sana.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'Sebuah berkas dengan nama tersebut telah ada.',
 	'mwe-upwiz-blacklisted' => 'Pilih judul lain yang deskriptif',
@@ -13278,7 +13289,7 @@ $messages['it'] = array(
 	'mwe-upwiz-upload-flickr' => 'Carica immagini da Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Aggiungi immagini da Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
-	'mwe-upwiz-add-flickr' => 'Recupera da Flickr', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL immagine/photoset Flickr',
 	'mwe-upwiz-select-flickr' => 'Carica le immagini selezionate',
 	'mwe-upwiz-multi-file-select' => 'Disegna una casella con il cursore del mouse sopra i file che vuoi caricare. Tieni premuto il tasto Ctrl/Comando per selezionare più file non adiacenti.',
@@ -13521,11 +13532,11 @@ Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Conferma rimozione',
 	'mwe-upwiz-license-external' => 'Questo file è sotto la seguente licenza su $1: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => "Questo file su $1 è sotto la seguente licenza: <b>$2</b>. Purtroppo, questa licenza non è appropriata per l'uso su questo sito.",
-	'mwe-upwiz-license-photoset-invalid' => 'Purtroppo, nessuna foto nel photoset dispone di una licenza appropriata per essere utilizzata su questo sito.', # Fuzzy
-	'mwe-upwiz-url-invalid' => "L'URL inserito non è un URL valido di una foto o un photoset $1", # Fuzzy
+	'mwe-upwiz-license-photoset-invalid' => 'Purtroppo, nessuna immagine nel photoset dispone di una licenza appropriata per essere utilizzata su questo sito.',
+	'mwe-upwiz-url-invalid' => "L'URL inserito non è un URL valido di un'immagine o un photoset $1",
 	'mwe-upwiz-categories' => 'Categorie',
 	'mwe-upwiz-categories-add' => 'Aggiungi',
-	'mwe-upwiz-category-will-be-added' => 'Questa categoria verrà creata.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Questa categoria non è ancora usata.',
 	'mwe-upwiz-category-remove' => 'Elimina questa categoria',
 	'mwe-upwiz-thanks-caption' => 'Aggiungi la didascalia qui',
 	'mwe-upwiz-thumbnail-failed' => "Il caricamento è riuscito, ma il server non ha potuto generare un'anteprima.",
@@ -14758,7 +14769,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-upload-flickr' => 'Flickr에서 그림 올리기',
 	'mwe-upwiz-add-file-flickr' => 'Flickr에서 그림 추가',
 	'mwe-upwiz-add-flickr-or' => '또는',
-	'mwe-upwiz-add-flickr' => 'Flickr에서 그림 얻기', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Flickr에서 얻기',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr 그림/사진집 URL',
 	'mwe-upwiz-select-flickr' => '선택한 그림 올리기',
 	'mwe-upwiz-flickr-disclaimer' => '이 양식은 Flickr [https://www.flickr.com/help/terms/ 이용 약관]과 [https://www.flickr.com/help/privacy-policy/ 개인정보 취급방침]에 따라
@@ -15005,11 +15016,11 @@ $1글자보다 길게 입력해주세요.',
 	'mwe-upwiz-license-confirm-remove-title' => '제거 확인',
 	'mwe-upwiz-license-external' => '이 파일은 $1에서 다음 라이선스 하에 있습니다: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => '이 파일은 $1에서 다음 라이선스 하에 있습니다: <b>$2</b>. 하지만 유감스럼게도 라이선스가 이 위키에서 파일을 사용하는 데는 부적합합니다.',
-	'mwe-upwiz-license-photoset-invalid' => '불행하게도 사진집에 있는 사진은 이 사이트에서 사용하는 적절한 라이선스가 없습니다.', # Fuzzy
-	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 사진이나 사진집 URL이 아닙니다', # Fuzzy
+	'mwe-upwiz-license-photoset-invalid' => '불행하게도 사진집에 있는 그림은 이 사이트에서 사용하는 적절한 라이선스가 없습니다.',
+	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 그림이나 사진집 URL이 아닙니다',
 	'mwe-upwiz-categories' => '분류',
 	'mwe-upwiz-categories-add' => '추가',
-	'mwe-upwiz-category-will-be-added' => '이 분류는 만들어질 것입니다.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => '이 분류는 아직 사용하지 않습니다.',
 	'mwe-upwiz-category-remove' => '이 분류 제거하기',
 	'mwe-upwiz-thanks-caption' => '여기에 파일 설명을 적어 주세요',
 	'mwe-upwiz-thumbnail-failed' => '파일 업로드에 성공했지만, 서버가 섬네일 미리 보기를 불러오지 못했습니다.',
@@ -15599,7 +15610,8 @@ Dir kënnt [$1 Firefogg] oder eng Firefox Erweiderung installéieren fir Äre Fi
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Annulléieren',
 	'mwe-upwiz-fileexists-replace' => 'E Fichier mam Titel "$1" gëtt et schonn. Ännert Ären Titel op eppes wat et nach net gëtt.',
-	'mwe-upwiz-fileexists' => 'E Fichier mat dësem Numm gëtt et schonn. Kuckt w.e.g. op <b><code>$1</code></b> no wann Dir net sécher sidd ob Dir en ännere wëllt.',
+	'mwe-upwiz-fileexists' => 'E Fichier mat dësem Numm gëtt et schonn.
+Kuckt w.e.g. op <b><code>$1</code></b> no wann Dir net sécher sidd ob Dir en ännere wëllt.',
 	'mwe-upwiz-fileexists-replace-on-page' => "Et gëtt schonn e Fichier mat deem Numm. Wann dir deen ersetze wëllt da gitt op d'Säit fir [$2 $1] an ersetzt en do.",
 	'mwe-upwiz-fileexists-replace-no-link' => 'Et gëtt schonn e Fichier mat deem Numm.',
 	'mwe-upwiz-blacklisted' => 'Sicht w.e.g. en aneren Titel, deen méi iwwer de Sujet ausseet.',
@@ -22197,7 +22209,9 @@ $messages['roa-tara'] = array(
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Help Desk',
 	'mwe-upwiz-add-file-n' => "Aggunge 'n'otre file",
 	'mwe-upwiz-add-file-0-free' => "Scacchie 'nu file media da donà",
+	'mwe-upwiz-add-file-flickr' => 'Aggiunge immaggine da Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
+	'mwe-upwiz-add-flickr' => 'Pigghie da Flickr',
 	'mwe-upwiz-transport-started' => 'Stoche a parte...',
 	'mwe-upwiz-uploading' => 'Stoche a careche…',
 	'mwe-upwiz-queued' => 'In code...',
@@ -22333,7 +22347,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
 	'mwe-upwiz-category-remove' => 'Live sta categorije',
 	'mwe-upwiz-thanks-caption' => "Mitte 'a 'ndestazione aqquà",
 	'mwe-upwiz-unparseable-filename' => 'Non ge pozze capìe \'u nome d\'u file "$1"',
-	'mwe-upwiz-image-preview' => "Andeprime de l'immaggine", # Fuzzy
+	'mwe-upwiz-image-preview' => "File de l'immaggine",
 	'mwe-upwiz-subhead-message' => "Grazie ca ste ause 'u strumende nuève de carecamende!",
 	'mwe-upwiz-subhead-bugs' => '[$1 Teme canusciute]',
 	'mwe-upwiz-subhead-translate' => '[$1 Ajute cu le traduziune]',
@@ -22376,6 +22390,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
 	'mw-coolcats-confirm-new-ok' => 'Aggiugne a sta categorije comungue',
 	'mw-coolcats-confirm-new-cancel' => 'No te preoccupà',
 	'prefs-uploads' => 'Carecaminde',
+	'prefs-upwiz-experimental' => 'Dettaglie sperimendale',
 	'prefs-upwiz-interface' => 'Inderfacce utende',
 	'mwe-upwiz-prefs-def-license' => 'Licenze de base',
 	'mwe-upwiz-prefs-def-license-def' => 'Ause pe tutte le default',
