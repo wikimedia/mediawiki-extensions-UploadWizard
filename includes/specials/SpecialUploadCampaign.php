@@ -114,7 +114,18 @@ class SpecialUploadCampaign extends FormSpecialPage {
 		$enabled = $data['Campaignenabled'];
 		unset( $data['Campaignenabled'] );
 
-		$campaign = UploadWizardCampaigns::singleton()->newFromArray( array(
+		$hasNameConflict = UploadWizardCampaigns::singleton()->has(
+			array(
+				'id <>' . (int)$id,
+				'name' => $name,
+			)
+		);
+
+		if ( $hasNameConflict ) {
+			return array( 'mwe-upwiz-campaign-name-duplicate' );
+		}
+
+		$campaign = UploadWizardCampaigns::singleton()->newRow( array(
 			'id' => $id,
 			'name' => $name,
 			'enabled' => $enabled
@@ -128,7 +139,7 @@ class SpecialUploadCampaign extends FormSpecialPage {
 			return true;
 		}
 		else {
-			return array(); // TODO
+			return array( 'mwe-upwiz-campaign-unknown-error' );
 		}
 	}
 

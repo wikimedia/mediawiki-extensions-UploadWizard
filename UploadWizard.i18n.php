@@ -34,6 +34,8 @@ $messages['en'] = array(
 	'mwe-upwiz-step-details' => 'Describe',
 	'mwe-upwiz-step-thanks' => 'Use',
 
+	'mwe-upwiz-campaign-name-duplicate' => 'A campaign with this name exists already.',
+	'mwe-upwiz-campaign-unknown-error' => 'An unknown error occurred.',
 	'mwe-upwiz-api-warning-exists' => 'There is [$1 another file] already on the wiki with the same filename',
 	'mwe-upwiz-api-warning-was-deleted' => 'There was a file by this name, "$1", but it was deleted and you can not reupload the file. If your file is different, try renaming it.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sorry, we could not find a tutorial in your language. The $1 one is shown instead.',
@@ -446,6 +448,8 @@ For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'grouppage-upwizcampeditors' => '{{doc-group|upwizcampeditors|page}}',
 	'group-upwizcampeditors.css' => '{{doc-group|upwizcampeditors|css}}',
 	'group-upwizcampeditors.js' => '{{doc-group|upwizcampeditors|js}}',
+	'mwe-upwiz-campaign-name-duplicate' => 'Error message shown when saving a campaign with a name that is already taken',
+	'mwe-upwiz-campaign-unknown-error' => 'Error message shown when saving a campaign fails for an unknown reason',
 	'mwe-upwiz-step-tutorial' => '{| align="right"
 | [[file:commons-uw-L524.png|Initial "{{MediaWiki:mwe-upwiz-step-file/en}}" page|thumb|right]]
 | [[file:commons-uw-L521.png|Beginning of "{{MediaWiki:mwe-upwiz-step-tutorial/en}}" page|thumb|right]]
