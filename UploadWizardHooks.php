@@ -468,6 +468,14 @@ class UploadWizardHooks {
 				'mwe-upwiz-campaigns-confirm-delete',
 			),
 		),
+		'ext.uploadWizard.campaign' => array(
+			'scripts' => array(
+				'resources/ext.upwiz.campaign.js'
+			),
+			'dependencies' => array(
+				'jquery.ui.button',
+			),
+		),
 	);
 
 	/**
