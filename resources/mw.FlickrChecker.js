@@ -18,6 +18,14 @@ mw.FlickrChecker = function( wizard, upload ) {
  */
 mw.FlickrChecker.fileNames = {};
 
+/**
+ * Cache for Flickr blacklist lookups.
+ * Resolves to a hash whose keys are the blacklisted Flickr NSIDs.
+ * Use FlickrChecker.getBlacklist() instead of accessing this directly.
+ * @type {jQuery.Promise}
+ */
+mw.FlickrChecker.blacklist = null;
+
 mw.FlickrChecker.prototype = {
 	licenseList: [],
 	// Map each Flickr license name to the equivalent templates.
@@ -284,14 +292,15 @@ mw.FlickrChecker.prototype = {
 
 	/**
 	 * Retrieves a list of photos and displays it.
-	 * @param {string} mode may be: 'photoset' - for use with photosets,
-	 * or 'photos' - for use with everything else (the parameter is used
-	 * to determine how the properties in retrieved JSON are named)
-	 * @param options options to pass to the API call; especially API method
-	 * and some "***_id"s (photoset_id, etc.)
+	 * @param {String} mode may be: 'photoset' - for use with photosets,
+	 *     or 'photos' - for use with everything else (the parameter is used
+	 *     to determine how the properties in retrieved JSON are named)
+	 * @param {Object} options options to pass to the API call; especially API method
+	 *     and some "***_id"s (photoset_id, etc.)
 	 */
 	getPhotos: function( mode, options ) {
 		var checker = this,
+			flickrPromise,
 			req = {};
 
 		$( '#mwe-upwiz-select-flickr' ).button( {
@@ -299,10 +308,10 @@ mw.FlickrChecker.prototype = {
 			disabled: true
 		} );
 		$.extend( req, options, {
-			extras: 'license, url_sq, owner_name, original_format, date_taken, geo'
+			extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias'
 		} );
 
-		this.flickrRequest( req ).then( function ( data ) {
+		flickrPromise = this.flickrRequest( req ).then( function ( data ) {
 			var photoset;
 			if ( mode === 'photoset' ) {
 				photoset = data.photoset;
@@ -313,16 +322,15 @@ mw.FlickrChecker.prototype = {
 				$.Deferred().reject( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
 			}
 			return photoset;
-		} ).then( function( photoset ) {
+		} );
+
+		// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
+		$.when( flickrPromise, this.getBlacklist() ).then( function( photoset, blacklist ) {
 			var fileName, imageContainer, sourceURL,
 				x = 0;
-			$.each( photoset.photo, function( i, item ){
-				var flickrUpload, license, licenseValue;
 
-				// Limit to maximum of 50 images
-				if ( x++ >= 50 ) {
-					return false;
-				}
+			$.each( photoset.photo, function( i, item ) {
+				var flickrUpload, license, licenseValue, ownerId;
 
 				license = checker.checkLicense( item.license, i );
 				licenseValue = license.licenseValue;
@@ -330,13 +338,25 @@ mw.FlickrChecker.prototype = {
 					return;
 				}
 
-				fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
-
 				if ( mode === 'photoset' ) {
+					ownerId = photoset.owner;
 					sourceURL = 'http://www.flickr.com/photos/' + photoset.owner + '/' + item.id + '/';
 				} else if ( mode === 'photos' ) {
+					ownerId = item.owner;
 					sourceURL = 'http://www.flickr.com/photos/' + item.owner + '/' + item.id + '/';
 				}
+
+				if ( ownerId in blacklist || item.pathalias in blacklist ) {
+					return;
+				}
+
+				// Limit to maximum of 50 valid images
+				if ( x++ >= 50 ) {
+					return false;
+				}
+
+				fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
+
 				flickrUpload = {
 					name: fileName,
 					url: '',
@@ -414,6 +434,15 @@ mw.FlickrChecker.prototype = {
 			}
 			return data.photo;
 		} ).then( function( photo ) {
+			var isBlacklistedPromise = checker.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
+			return isBlacklistedPromise.then( function( isBlacklisted ) {
+				if ( isBlacklisted ) {
+					return $.Deferred().reject( mw.message( 'mwe-upwiz-user-blacklisted', 'Flickr' ).escaped() );
+				} else {
+					return photo;
+				}
+			} );
+		} ).then( function( photo ) {
 			var license, flickrUpload;
 
 			license = checker.checkLicense( photo.license );
@@ -461,6 +490,52 @@ mw.FlickrChecker.prototype = {
 			checker.showErrorDialog( message );
 			checker.wizard.flickrInterfaceReset();
 		} );
+	},
+
+	/**
+	 * Checks a user against the blacklist. Both the NSID and the path_alias (if it exists) MUST be
+	 * supplied, as the blacklist will probably only contain one of them. (Users don't have a
+	 * path_alias in the beginning, and must set it manually; it it does not exist, it can be left
+	 * undefined, or an empty string can be supplied (which is what the Flickr API usually returns
+	 * as the path_alias for such users).
+	 * @param {String} nsid Flickr NSID of the author
+	 * @param {String} [path_alias] Flickr username of the author (the unchangeable one, in the URL)
+	 * @return {jQuery.Promise} a promise which resolves to a boolean - true if the user is blacklisted
+	 */
+	isBlacklisted: function( nsid, path_alias ) {
+		path_alias = String( path_alias );
+		return this.getBlacklist().then( function( blacklist ) {
+			// the blacklist should never contain the empty string, but better safe then sorry
+			return ( nsid in blacklist || path_alias && path_alias in blacklist );
+		} );
+	},
+
+	/**
+	 * Returns a promise for the Flickr user blacklist.
+	 * The promise resolves to a hash with the blacklisted NSIDs/path_alias-es as its keys.
+	 * (path_alias is the username that appears in the URL.)
+	 * The blacklist will usually contain the path_alias or the NSID of the user, but not both;
+	 * it is the caller's responsibility to check against both of them.
+	 * @return {jQuery.Promise}
+	 */
+	getBlacklist: function() {
+		if ( !mw.FlickrChecker.blacklist ) {
+			var api = new mw.Api();
+			mw.FlickrChecker.blacklist = api.get( {
+				action: 'flickrblacklist',
+				list: 1,
+				format: 'json'
+			} ).then( function ( data ) {
+				var blacklist = {};
+				if ( data.flickrblacklist && data.flickrblacklist.list ) {
+					$.each( data.flickrblacklist.list, function( i, username ) {
+						blacklist[username] = true;
+					} );
+				}
+				return blacklist;
+			} );
+		}
+		return mw.FlickrChecker.blacklist;
 	},
 
 	/**

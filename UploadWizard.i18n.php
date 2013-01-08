@@ -322,6 +322,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-external-invalid' => 'The file is under the following license on the source site "$1": $2. Unfortunately, this wiki does not allow that license.',
 	'mwe-upwiz-license-photoset-invalid' => 'Unfortunately, no image in the photoset has a license appropriate to be used on this site.',
 	'mwe-upwiz-url-invalid' => 'The URL entered is unsupported or points to an invalid or restricted $1 image or photoset and cannot be used.',
+	'mwe-upwiz-user-blacklisted' => 'Unfortunately, no images from this $1 account can be uploaded on this site.',
 	'mwe-upwiz-categories' => 'Categories',
 	'mwe-upwiz-categories-add' => 'Add another category',
 	'mwe-upwiz-category-will-be-added' => 'This category is not in use yet.',
@@ -1101,6 +1102,8 @@ See also:
 See also:
 * {{msg-mw|Mwe-upwiz-license-external}}',
 	'mwe-upwiz-url-invalid' => 'Error message displayed when an invalid URL is entered. $1 is the name of a website (e.g. Flickr).',
+	'mwe-upwiz-user-blacklisted' => 'Error message displayed when trying to upload images of a blacklisted account. Parameters:
+* $1 - name of the external website, e.g. Flickr',
 	'mwe-upwiz-categories' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 {{Identical|Category}}',
 	'mwe-upwiz-categories-add' => 'Used as a link which, when clicked, adds a new field for adding a category.',
