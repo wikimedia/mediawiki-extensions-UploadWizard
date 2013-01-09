@@ -448,10 +448,10 @@ For more information, see //www.mediawiki.org/wiki/UploadWizard',
 	'group-upwizcampeditors' => '{{doc-group|upwizcampeditors}}',
 	'group-upwizcampeditors-member' => '{{doc-group|upwizcampeditors|member}}',
 	'grouppage-upwizcampeditors' => '{{doc-group|upwizcampeditors|page}}',
+	'accesskey-save-upload-campaign' => '{{doc-accesskey}}',
+	'accesskey-cancel-upload-campaign' => '{{doc-accesskey}}',
 	'group-upwizcampeditors.css' => '{{doc-group|upwizcampeditors|css}}',
 	'group-upwizcampeditors.js' => '{{doc-group|upwizcampeditors|js}}',
-	'mwe-upwiz-campaign-name-duplicate' => 'Error message shown when saving a campaign with a name that is already taken',
-	'mwe-upwiz-campaign-unknown-error' => 'Error message shown when saving a campaign fails for an unknown reason',
 	'mwe-upwiz-step-tutorial' => '{| align="right"
 | [[file:commons-uw-L524.png|Initial "{{MediaWiki:mwe-upwiz-step-file/en}}" page|thumb|right]]
 | [[file:commons-uw-L521.png|Beginning of "{{MediaWiki:mwe-upwiz-step-tutorial/en}}" page|thumb|right]]
@@ -476,6 +476,8 @@ For more information, see //www.mediawiki.org/wiki/UploadWizard',
 | [[file:commons-uw-L52G.png|Initial "{{MediaWiki:mwe-upwiz-step-details/en}}" page|thumb|right]]
 | [[file:commons-uw-L52X.png|Initial "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 |} This is a short greyed or bolded label, in the top bar of all pages of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]]. Use the verb for this message.',
+	'mwe-upwiz-campaign-name-duplicate' => 'Error message shown when saving a campaign with a name that is already taken',
+	'mwe-upwiz-campaign-unknown-error' => 'Error message shown when saving a campaign fails for an unknown reason',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => "This message is shown when a tutorial file in a fallback language for user's interface language is used instead.
 $1 is the name of the fallback language.",
 	'mwe-upwiz-help-desk' => 'This should be the same text as it is used in the svg comic on the first page of the Upload Wizard',
@@ -1972,16 +1974,19 @@ $messages['ast'] = array(
 	'mwe-upwiz-upload-flickr' => 'Xubir imaxes dende Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Amestar imaxes dende Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
-	'mwe-upwiz-add-flickr' => 'Traer imaxes dende Flickr', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Traer dende Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => "URL de la imaxe/conxuntu d'imaxes de Flickr",
 	'mwe-upwiz-select-flickr' => 'Xubir les imaxes esbillaes',
 	'mwe-upwiz-flickr-disclaimer' => "Esti formulariu cargará conteníu agospiáu por flickr.com y suxetu a los
 [https://www.flickr.com/help/terms/ términos d'usu] ya [https://www.flickr.com/help/privacy-policy/ política de protección de datos] de Flickr.<br />
 Ten en cuenta que al utilizar esta ferramienta, la to direición IP y los detalles de la to solicitú tarán disponibles pa Flickr.",
-	'mwe-upwiz-error-no-image-retrieved' => 'Sentímoslo, nun pudimos recuperar la imaxe de $1.', # Fuzzy
-	'mwe-upwiz-multi-file-select' => 'Dibuxa un cuadru col cursor sobro le imaxes que quieras xubir. Calca la tecla Ctrl/Command pa facer una esbilla múltiple non axacente.', # Fuzzy
+	'mwe-upwiz-error-no-image-retrieved' => 'Nun pudimos recuperar el ficheru de $1.',
+	'mwe-upwiz-multi-file-select' => 'Dibuxa un cuadru col cursor sobro los ficheros que quieras xubir. Calca la tecla Ctrl/Command pa facer una esbilla múltiple non axacente.',
 	'mwe-upwiz-transport-started' => 'Aniciando...',
 	'mwe-upwiz-uploading' => 'Xubiendo…',
+	'mwe-upwiz-queued' => 'Na cola...',
+	'mwe-upwiz-assembling' => 'Montando...',
+	'mwe-upwiz-publish' => 'Espublizando...',
 	'mwe-upwiz-transported' => 'Finó la xubida...',
 	'mwe-upwiz-stashed-upload' => 'Xubío',
 	'mwe-upwiz-getting-metadata' => 'Recibiendo la información del ficheru y les vistes previes...',
@@ -2216,16 +2221,16 @@ Por favor, nun uses testu wiki o HTML equí.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirmar el desaniciu',
 	'mwe-upwiz-license-external' => 'Esti ficheru ta baxo la siguiente llicencia en $1: <b>$2</b>.',
 	'mwe-upwiz-license-external-invalid' => "Esti ficheru ta baxo la siguiente llicencia en $1: <b>$2</b>. Por desgracia, l'usu d'esta llicencia nun ye afayadizu n'esti sitiu.",
-	'mwe-upwiz-license-photoset-invalid' => 'Llamentablemente, denguna semeya del conxuntu tien una llicencia afayadiza pa usar nesti sitiu.', # Fuzzy
-	'mwe-upwiz-url-invalid' => "La URL que s'escribió nun ye una URL válida d'una semeya o coleición de $1", # Fuzzy
+	'mwe-upwiz-license-photoset-invalid' => 'Llamentablemente, denguna imax del conxuntu tien una llicencia afayadiza pa usar nesti sitiu.',
+	'mwe-upwiz-url-invalid' => "La URL que s'escribió nun ye una URL válida d'una imaxe o coleición de $1",
 	'mwe-upwiz-categories' => 'Categoríes',
 	'mwe-upwiz-categories-add' => 'Amestar',
-	'mwe-upwiz-category-will-be-added' => 'Va crease esta categoría.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Esta categoría inda nun se ta usando.',
 	'mwe-upwiz-category-remove' => 'Desaniciar esta categoría',
 	'mwe-upwiz-thanks-caption' => 'Amestar equí un títulu',
 	'mwe-upwiz-thumbnail-failed' => "La xubía se fizo correutamente, pero'l sirvidor nun pudo sacar una miniatura pa la vista previa.",
 	'mwe-upwiz-unparseable-filename' => 'Nun se pudo entender el nome del ficheru «$1»',
-	'mwe-upwiz-image-preview' => 'Vista previa de la imaxe', # Fuzzy
+	'mwe-upwiz-image-preview' => 'Vista previa del ficheru',
 	'mwe-upwiz-subhead-message' => '¡Gracies por usar la nuesa ferramienta de xubíes nueva!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Problemes conocíos]',
 	'mwe-upwiz-subhead-translate' => '[$1 Ayudar coles traducciones]',
@@ -2263,7 +2268,7 @@ $1',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Saltar el tutorial de llicencies',
 	'mwe-upwiz-campaign-conf-autoCategories' => "Categoríes a les que s'amestarán los ficheros de mou automáticu y silenciosu (separaes por barres verticales):",
 	'mwe-upwiz-campaign-conf-defaultCategories' => 'Categoríes predeterminaes na llista de la llingüeta de descripción (separaes por barres verticales):',
-	'mwe-upwiz-campaign-conf-autoWikiText' => "Testu wiki que s'amestará automáticamente a toles imaxes xubíes:", # Fuzzy
+	'mwe-upwiz-campaign-conf-autoWikiText' => "Marques wiki que s'amestarán automáticamente a tolos ficheros xubíos:",
 	'mwe-upwiz-campaign-conf-ownWorkOption' => "Como xestionar les obres propies o les obres d'otros:",
 	'mwe-upwiz-campaign-owner-choice' => "Permitir al usuariu escoyer ente obra propia y d'otros",
 	'mwe-upwiz-campaign-owner-own' => 'Permitir xubir sólo obres propies',
@@ -2306,6 +2311,7 @@ $1',
 );
 
 /** Azerbaijani (azərbaycanca)
+ * @author AZISS
  * @author Cekli829
  * @author Vugar 1981
  */
@@ -2318,7 +2324,7 @@ $messages['az'] = array(
 	'mwe-upwiz-step-details' => 'İzah',
 	'mwe-upwiz-step-thanks' => 'İstifadə',
 	'mwe-upwiz-help-desk' => 'Yardım xidməti',
-	'mwe-upwiz-help-desk-url' => 'Yardım xidməti',
+	'mwe-upwiz-help-desk-url' => 'Yardım xidməti', # Fuzzy
 	'mwe-upwiz-transport-started' => 'Başla...',
 	'mwe-upwiz-uploading' => 'Yüklənir…',
 	'mwe-upwiz-stashed-upload' => 'OK', # Fuzzy
@@ -2369,7 +2375,7 @@ $messages['az'] = array(
 	'mwe-upwiz-license-pd-usgov-nasa' => 'NASA-nın orijinal işi',
 	'mwe-upwiz-license-pd-usgov-military-navy' => 'ABŞ Hərbi Donanmasının orijinal işi',
 	'mwe-upwiz-license-gfdl' => 'GNU Azad Sənədləşdirmə Lisenziyası',
-	'mwe-upwiz-license-custom-preview' => 'Sınaq göstərişi',
+	'mwe-upwiz-license-custom-preview' => 'Sınaq görüntüsü',
 	'mwe-upwiz-categories' => 'Kateqoriyalar',
 	'mwe-upwiz-categories-add' => 'Əlavə et',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 Daha çox məlumat]',
@@ -5361,6 +5367,8 @@ $messages['de'] = array(
 	'mwe-upwiz-step-deeds' => 'Lizenz wählen',
 	'mwe-upwiz-step-details' => 'Beschreiben',
 	'mwe-upwiz-step-thanks' => 'Nutzen',
+	'mwe-upwiz-campaign-name-duplicate' => 'Eine Kampagne mit diesem Namen ist bereits vorhanden.',
+	'mwe-upwiz-campaign-unknown-error' => 'Ein unbekannter Fehler ist aufgetreten.',
 	'mwe-upwiz-api-warning-exists' => 'Es gibt im Wiki bereits eine [$1 andere Datei] gleichen Namens.',
 	'mwe-upwiz-api-warning-was-deleted' => 'Es gab bereits eine Datei namens „.$1“, die allerdings gelöscht wurde. Die Datei kann nicht erneut hochgeladen werden. Sofern sich die vorliegende Datei von dieser unterscheidet, sollte sie umbenannt werden.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Leider ist kein Lernprogramm in deiner Sprache verfügbar. Es wird daher in $1 angezeigt.',
@@ -9485,6 +9493,8 @@ $messages['gl'] = array(
 	'mwe-upwiz-step-deeds' => 'Dereitos de liberación',
 	'mwe-upwiz-step-details' => 'Describir',
 	'mwe-upwiz-step-thanks' => 'Usar',
+	'mwe-upwiz-campaign-name-duplicate' => 'Xa existe un aviso central con ese nome.',
+	'mwe-upwiz-campaign-unknown-error' => 'Houbo un erro descoñecido.',
 	'mwe-upwiz-api-warning-exists' => 'Xa hai [$1 outro ficheiro] no wiki co mesmo nome',
 	'mwe-upwiz-api-warning-was-deleted' => 'Xa había un ficheiro con ese nome, "$1", pero foi eliminado e non pode volver cargar o ficheiro. Se o seu ficheiro é diferente, intente cambiarlle o nome.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Sentímolo, non contamos cunha guía na súa lingua. No seu lugar móstrase a guía en $1.',
@@ -13301,6 +13311,8 @@ $messages['it'] = array(
 	'mwe-upwiz-step-deeds' => 'Diritti di pubblicazione',
 	'mwe-upwiz-step-details' => 'Descrivi',
 	'mwe-upwiz-step-thanks' => 'Usa',
+	'mwe-upwiz-campaign-name-duplicate' => 'Esiste già una campagna con questo nome.',
+	'mwe-upwiz-campaign-unknown-error' => 'Si è verificato un errore sconosciuto.',
 	'mwe-upwiz-api-warning-exists' => "Nella wiki c'è già [$1 un altro file] con lo stesso nome",
 	'mwe-upwiz-api-warning-was-deleted' => 'C\'era già un file chiamato "$1", ma è stato cancellato. Se il tuo file è diverso, prova a rinominarlo.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Spiacenti, non abbiamo trovato un tutorial nella tua lingua. Viene visualizzato quello in $1.',
@@ -13680,6 +13692,8 @@ $messages['ja'] = array(
 	'mwe-upwiz-step-deeds' => '許可する権利',
 	'mwe-upwiz-step-details' => '説明',
 	'mwe-upwiz-step-thanks' => '使用する',
+	'mwe-upwiz-campaign-name-duplicate' => '同じ名前のキャンペーンが既に存在します。',
+	'mwe-upwiz-campaign-unknown-error' => '不明なエラーが発生しました。',
 	'mwe-upwiz-api-warning-exists' => '既に同じファイル名の[$1 別ファイル]が存在しています。',
 	'mwe-upwiz-api-warning-was-deleted' => '以前に"$1"という名前のファイルがありましたが、既に削除されており、同じファイルを再度アップロードすることはできません。ファイルが異なる場合は、名前を変更してみてください。',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '申し訳ありませんが、ご使用中の言語版のチュートリアルが見つかりませんでした。
@@ -13922,14 +13936,14 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-license-confirm-remove-title' => '削除を確認',
 	'mwe-upwiz-license-external' => 'このファイルは、$1上で以下のライセンスのもとにあります: <b>$2</b>。',
 	'mwe-upwiz-license-external-invalid' => 'このファイルは、$1上で以下のライセンスのもとにあります: <b>$2</b>。残念ながら、このライセンスはこのウェブサイトで使用するのに適切ではありません。',
-	'mwe-upwiz-url-invalid' => '入力した URL は $1 の画像または写真集の URL として無効です',
+	'mwe-upwiz-url-invalid' => '入力した URL は $1 の画像または写真集の URL として無効です。',
 	'mwe-upwiz-categories' => 'カテゴリ',
 	'mwe-upwiz-categories-add' => '他のカテゴリを追加',
 	'mwe-upwiz-category-will-be-added' => 'このカテゴリはまだ使用されていません。',
 	'mwe-upwiz-category-remove' => 'このカテゴリを除去',
 	'mwe-upwiz-thanks-caption' => 'ここに説明文を追加',
 	'mwe-upwiz-thumbnail-failed' => 'アップロードには成功しましたが、サーバーがプレビューのサムネイルを取得できませんでした。',
-	'mwe-upwiz-unparseable-filename' => 'ファイル名「$1」を認識できません',
+	'mwe-upwiz-unparseable-filename' => 'ファイル名「$1」を認識できません。',
 	'mwe-upwiz-image-preview' => 'ファイルのプレビュー',
 	'mwe-upwiz-subhead-message' => '新しいアップロード ツールを使用していただきありがとうございます!',
 	'mwe-upwiz-subhead-bugs' => '[$1 既知の問題]',
@@ -14781,6 +14795,8 @@ $messages['ko'] = array(
 	'mwe-upwiz-step-deeds' => '이용 허락',
 	'mwe-upwiz-step-details' => '설명하기',
 	'mwe-upwiz-step-thanks' => '사용하기',
+	'mwe-upwiz-campaign-name-duplicate' => '이 이름으로 된 캠페인이 이미 있습니다.',
+	'mwe-upwiz-campaign-unknown-error' => '알 수 없는 오류가 발생했습니다.',
 	'mwe-upwiz-api-warning-exists' => '같은 파일 이름을 사용하고 있는 [$1 다른 파일]이 있습니다.',
 	'mwe-upwiz-api-warning-was-deleted' => '이 이름으로 된 파일 "$1"이 있었지만, 삭제되었으며 이 파일을 다시 올릴 수 없습니다. 당신의 파일이 다른 파일이라면 이름을 바꿔 시도해 보십시오.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '죄송합니다, 당신의 언어로 된 자습서를 찾을 수 없습니다. $1가 대신 보여집니다.',
@@ -14810,7 +14826,7 @@ flickr.com 에서 호스팅하는 콘텐츠를 불러옵니다.<br />
 	'mwe-upwiz-stashed-upload' => '올려짐',
 	'mwe-upwiz-getting-metadata' => '파일 정보와 미리 보기를 가져오는 중...',
 	'mwe-upwiz-submitting-details' => '파일 정보를 올리고 배포하는 중...',
-	'mwe-upwiz-published' => '파일이 배포되었습니다!',
+	'mwe-upwiz-published' => '배포되었습니다!',
 	'mwe-upwiz-failed' => '실패했습니다.',
 	'mwe-upwiz-remove' => '제거',
 	'mwe-upwiz-override' => '아무튼 올렸습니다.',
@@ -16752,6 +16768,8 @@ $messages['mk'] = array(
 	'mwe-upwiz-step-deeds' => 'Предавање на права',
 	'mwe-upwiz-step-details' => 'Опис',
 	'mwe-upwiz-step-thanks' => 'Употреба',
+	'mwe-upwiz-campaign-name-duplicate' => 'Веќе постои кампања со ова име.',
+	'mwe-upwiz-campaign-unknown-error' => 'Се појави непозната грешка.',
 	'mwe-upwiz-api-warning-exists' => 'На викито веќе постои [$1 друга податотека] со истото име',
 	'mwe-upwiz-api-warning-was-deleted' => 'Постоела податотека по име „$1“, но сега е избришана и не може да се подига одново. Ако вашата податотека е поинаква, преименувајте ја.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Нажалост, не можевме да најдеме прирачникот на вашиот јазик. Затоа, ви ја прикажуваме верзијата на  $1.',
