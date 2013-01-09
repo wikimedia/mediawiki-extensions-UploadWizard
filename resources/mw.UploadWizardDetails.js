@@ -1270,13 +1270,13 @@ mw.UploadWizardDetails.prototype = {
 				if ( ( ( new Date() ).getTime() - firstPoll ) > 3 * 60 * 1000 ) {
 					err('server-error', 'unknown server error');
 				} else {
-					_this.upload.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
+					_this.upload.ui.setStatus( 'mwe-upwiz-' + result.upload.stage );
 					setTimeout( function() {
 						if ( _this.upload.state != 'aborted' ) {
 							_this.upload.api.postWithEditToken( {
 								action: 'upload',
 								checkstatus: true,
-								filekey: _this.upload.fileKey,
+								filekey: _this.upload.fileKey
 							},
 							ok, err );
 						}
