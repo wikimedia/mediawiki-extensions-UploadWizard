@@ -1247,9 +1247,12 @@ mw.UploadWizardDetails.prototype = {
 		_this.setStatus( gM( 'mwe-upwiz-submitting-details' ) );
 		_this.showIndicator( 'progress' );
 
+		var firstPoll = ( new Date() ).getTime();
+
 		var params = {
 			action: 'upload',
 			filekey: _this.upload.fileKey,
+			async: true,
 			filename: _this.upload.title.getMain(),
 			comment: "User created page with " + mw.UploadWizard.userAgent
 		};
@@ -1262,6 +1265,25 @@ mw.UploadWizardDetails.prototype = {
 		var ok = function( result ) {
 			var warnings = null;
 			var wasDeleted = false;
+			if ( result && result.upload && result.upload.result == 'Poll' ) {
+				// if async publishing takes longer than 3 minutes give up
+				if ( ( ( new Date() ).getTime() - firstPoll ) > 3 * 60 * 1000 ) {
+					err('server-error', 'unknown server error');
+				} else {
+					_this.upload.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
+					setTimeout( function() {
+						if ( _this.upload.state != 'aborted' ) {
+							_this.upload.api.postWithEditToken( {
+								action: 'upload',
+								checkstatus: true,
+								filekey: _this.upload.fileKey,
+							},
+							ok, err );
+						}
+					}, 3000 );
+				}
+				return;
+			}
 			if ( result && result.upload && result.upload.warnings ) {
 				warnings = result.upload.warnings;
 			}
