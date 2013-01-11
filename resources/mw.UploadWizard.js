@@ -1150,7 +1150,7 @@ mw.UploadWizard.prototype = {
 			} );
 			$thanksDiv.append( $thumbnailWrapDiv );
 
-			var thumbWikiText = "[[" + upload.title.toText() + "|thumb|" + gM( 'mwe-upwiz-thanks-caption' ) + "]]";
+			var thumbWikiText = "[[" + upload.title.toText() + "|thumb|" + upload.details.descriptions[0].getText() + "]]";
 
 			$thanksDiv.append(
 				$j( '<div class="mwe-upwiz-data"></div>' )
