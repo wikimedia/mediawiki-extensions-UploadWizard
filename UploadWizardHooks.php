@@ -399,7 +399,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-will-be-added',
 				'mwe-upwiz-category-remove',
-				'mwe-upwiz-thanks-caption',
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
 				'mwe-upwiz-image-preview',
