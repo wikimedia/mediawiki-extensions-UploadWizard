@@ -46,7 +46,7 @@ $messages['en'] = array(
 	'mwe-upwiz-help-desk' => 'Help desk',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Help desk',
 	'mwe-upwiz-add-file-n' => 'Add another file',
-	'mwe-upwiz-add-file-0-free' => 'Select a media file to donate',
+	'mwe-upwiz-add-file-0-free' => 'Select a media file to share',
 	'mwe-upwiz-upload-flickr' => 'Upload images from Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Add images from Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Or' ,
@@ -486,7 +486,7 @@ $1 is the name of the fallback language.",
 | [[file:commons-uw-L525.png|The "{{MediaWiki:mwe-upwiz-step-file/en}}" page after 1 file was added|thumb|right]]
 | [[file:commons-uw-L526.png|The "{{MediaWiki:mwe-upwiz-step-file/en}}" page after 2 files were added|thumb|right]]
 |} This is a button label, used in the "{{MediaWiki:mwe-upwiz-step-file/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
-	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file.',
+	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file. Note: when translating "share", remember that you have to makee it clear to the user that they are sharing the media with the public, making it freely available (technically, published and released under a free license); if no equivalent is available, just translate as "upload".',
 	'mwe-upwiz-add-file-flickr' => 'Label of a button in the first view of Special:UploadWizard, which is offered as an alternative to upload of local files and brings to another step.',
 	'mwe-upwiz-add-flickr-or' => 'Connecting word in upload wizard between the following action elements: 
 * {{msg-mw|mwe-upwiz-add-file-0-free}}
