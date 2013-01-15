@@ -215,8 +215,8 @@ mw.FormDataTransport.prototype = {
         api.post( params, {
             ok: function(response) {
                 if (response.upload && response.upload.result == 'Poll') {
-                    //If concatenation takes longer than 3 minutes give up
-                    if ( ( ( new Date() ).getTime() - _this.firstPoll ) > 3 * 60 * 1000 ) {
+                    //If concatenation takes longer than 10 minutes give up
+                    if ( ( ( new Date() ).getTime() - _this.firstPoll ) > 10 * 60 * 1000 ) {
                         _this.transportedCb({
                             code: 'server-error',
                             info: 'unknown server error'

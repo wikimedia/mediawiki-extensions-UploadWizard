@@ -1266,8 +1266,8 @@ mw.UploadWizardDetails.prototype = {
 			var warnings = null;
 			var wasDeleted = false;
 			if ( result && result.upload && result.upload.result == 'Poll' ) {
-				// if async publishing takes longer than 3 minutes give up
-				if ( ( ( new Date() ).getTime() - firstPoll ) > 3 * 60 * 1000 ) {
+				// if async publishing takes longer than 10 minutes give up
+				if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
 					err('server-error', 'unknown server error');
 				} else {
 					_this.upload.ui.setStatus( 'mwe-upwiz-' + result.upload.stage );
