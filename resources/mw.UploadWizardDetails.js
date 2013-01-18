@@ -1252,7 +1252,7 @@ mw.UploadWizardDetails.prototype = {
 		var params = {
 			action: 'upload',
 			filekey: _this.upload.fileKey,
-			async: true,
+			// async: true, // bug 44080
 			filename: _this.upload.title.getMain(),
 			comment: "User created page with " + mw.UploadWizard.userAgent
 		};
