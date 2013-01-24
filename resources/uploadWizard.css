@@ -641,9 +641,10 @@ legend.mwe-legend {
 
 .mwe-upwiz-copyright-info label {
 	display: inline-block;
-	padding-left: 15px;
-	text-indent: -15px;
+	padding-left: 3px;
+	text-indent: 0px;
 	margin-right: 15px;
+	padding-top: 2px;
 }
 
 /* the hanging indent checkboxes */
@@ -687,6 +688,11 @@ input[type='text'].mwe-error, textarea.mwe-error,
 input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
 	color: black;
 	border-color: #ff0000;
+}
+
+input[type='radio'].mwe-upwiz-copyright-info-radio
+{
+	vertical-align: top;
 }
 
 .mwe-upwiz-toggler {

@@ -144,7 +144,7 @@ mw.UploadWizardLicenseInput.prototype = {
 
 				$el.append( $input, $label, $j( '<br/>' ) );
 				// TODO add popup help?
-
+				$input.addClass( 'mwe-upwiz-copyright-info-radio' );
 				// this is so we can tell if a particular license ought to be set in setValues()
 				$input.data( 'licenseName', licenseName );
 
