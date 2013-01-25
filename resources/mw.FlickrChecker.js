@@ -132,34 +132,45 @@ mw.FlickrChecker.prototype = {
 							}
 						}
 					} );
-				}
-
-				// Calling jquery ui selectable
-				$j( '#mwe-upwiz-flickr-select-list' ).selectable( {
-					stop: function( e ) {
-						// If at least one item is selected, activate the upload button
-						if ( $j( '.ui-selected' ).length > 0 ) {
-							$j( '#mwe-upwiz-select-flickr' ).button( 'enable' );
-						} else {
-							$j( '#mwe-upwiz-select-flickr' ).button( 'disable' );
+					// Calling jquery ui selectable
+					$j( '#mwe-upwiz-flickr-select-list' ).selectable( {
+						stop: function( e ) {
+							// If at least one item is selected, activate the upload button
+							if ( $j( '.ui-selected' ).length > 0 ) {
+								$j( '#mwe-upwiz-select-flickr' ).button( 'enable' );
+							} else {
+								$j( '#mwe-upwiz-select-flickr' ).button( 'disable' );
+							}
 						}
-					}
-				} );
-				// Set up action for 'Upload selected images' button
-				$j( '#mwe-upwiz-select-flickr' ).click( function() {
-					$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
-					$j( '#mwe-upwiz-upload-ctrls' ).show();
-					$j( 'li.ui-selected' ).each( function( index, image ) {
-						image = $( this ).attr( 'id' );
-						image = image.split( '-' )[1];
-						_this.setImageDescription( image );
-						_this.setImageURL( image );
 					} );
-				} );
+					// Set up action for 'Upload selected images' button
+					$j( '#mwe-upwiz-select-flickr' ).click( function() {
+						$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
+						$j( '#mwe-upwiz-upload-ctrls' ).show();
+						$j( 'li.ui-selected' ).each( function( index, image ) {
+							image = $( this ).attr( 'id' );
+							image = image.split( '-' )[1];
+							_this.setImageDescription( image );
+							_this.setImageURL( image );
+						} );
+					} );
 
-				if ( _this.imageUploads.length === 0) {
+					if ( _this.imageUploads.length === 0) {
+						$j( '<div></div>' )
+							.html( gM( 'mwe-upwiz-license-photoset-invalid' ) )
+							.dialog( {
+								width: 500,
+								zIndex: 200000,
+								autoOpen: true,
+								modal: true
+							} );
+						_this.wizard.flickrInterfaceReset();
+					} else {
+						$j( '#mwe-upwiz-flickr-select-list-container' ).show();
+					}
+				} else {
 					$j( '<div></div>' )
-						.html( gM( 'mwe-upwiz-license-photoset-invalid' ) )
+						.html( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) )
 						.dialog( {
 							width: 500,
 							zIndex: 200000,
@@ -167,8 +178,6 @@ mw.FlickrChecker.prototype = {
 							modal: true
 						} );
 					_this.wizard.flickrInterfaceReset();
-				} else {
-					$j( '#mwe-upwiz-flickr-select-list-container' ).show();
 				}
 			}
 		);
