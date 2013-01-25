@@ -57,14 +57,7 @@ mw.FlickrChecker.prototype = {
 			}
 		} else {
 			// XXX show user the message that the URL entered was not valid
-			$j( '<div></div>' )
-				.html( gM( 'mwe-upwiz-url-invalid', 'Flickr' ) )
-				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					modal: true
-				} );
+			_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 			_this.wizard.flickrInterfaceReset();
 		}
 	},
@@ -156,27 +149,13 @@ mw.FlickrChecker.prototype = {
 					} );
 
 					if ( _this.imageUploads.length === 0) {
-						$j( '<div></div>' )
-							.html( gM( 'mwe-upwiz-license-photoset-invalid' ) )
-							.dialog( {
-								width: 500,
-								zIndex: 200000,
-								autoOpen: true,
-								modal: true
-							} );
+						_this.showErrorDialog( mw.msg( 'mwe-upwiz-license-photoset-invalid' ) );
 						_this.wizard.flickrInterfaceReset();
 					} else {
 						$j( '#mwe-upwiz-flickr-select-list-container' ).show();
 					}
 				} else {
-					$j( '<div></div>' )
-						.html( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) )
-						.dialog( {
-							width: 500,
-							zIndex: 200000,
-							autoOpen: true,
-							modal: true
-						} );
+					_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid' ) );
 					_this.wizard.flickrInterfaceReset();
 				}
 			}
@@ -196,8 +175,7 @@ mw.FlickrChecker.prototype = {
 			function( data ) {
 				if ( typeof data.photo !== 'undefined' ) {
 					var license = _this.checkLicense( data.photo.license );
-					var licenseValue = license.licenseValue;
-					if ( licenseValue != 'invalid' ) {
+					if ( license.licenseValue != 'invalid' ) {
 						// if the photo is untitled, generate a title
 						if ( data.photo.title._content === '' ) {
 							fileName = data.photo.owner.username + '-' + data.photo.id + '.jpg';
@@ -223,8 +201,8 @@ mw.FlickrChecker.prototype = {
 							url: '',
 							type: 'JPEG',
 							fromURL: true,
-							licenseValue: licenseValue,
-							licenseMessage: licenseMessage,
+							licenseValue: license.licenseValue,
+							licenseMessage: license.licenseMessage,
 							license: true,
 							author: photoAuthor,
 							description: data.photo.description._content,
@@ -237,25 +215,11 @@ mw.FlickrChecker.prototype = {
 						_this.imageUploads.push( flickrUpload );
 						_this.setImageURL( 0, _this );
 					} else {
-						$j( '<div></div>' )
-							.html( licenseMessage )
-							.dialog({
-								width: 500,
-								zIndex: 200000,
-								autoOpen: true,
-								modal: true
-							});
+						_this.showErrorDialog( license.licenseMessage );
 						_this.wizard.flickrInterfaceReset();
 					}
 				} else {
-					$j( '<div></div>' )
-						.html( gM( 'mwe-upwiz-url-invalid', 'Flickr' ) )
-						.dialog( {
-							width: 500,
-							zIndex: 200000,
-							autoOpen: true,
-							modal: true
-						} );
+					_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
 					_this.wizard.flickrInterfaceReset();
 				}
 
@@ -339,14 +303,7 @@ mw.FlickrChecker.prototype = {
 					// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
 					_this.wizard.newUpload( upload );
 				} else {
-					$j( '<div></div>' )
-						.html( gM( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) )
-						.dialog( {
-							width: 500,
-							zIndex: 200000,
-							autoOpen: true,
-							modal: true
-						} );
+					_this.showErrorDialog( mw.msg( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) );
 					_this.wizard.flickrInterfaceReset();
 				}
 			} );
@@ -371,6 +328,17 @@ mw.FlickrChecker.prototype = {
 			licenseValue: licenseValue
 		};
 		return license;
+	},
+
+	showErrorDialog: function( errorMsg ) {
+		$j( '<div></div>' )
+			.html( errorMsg )
+			.dialog( {
+				width: 500,
+				zIndex: 200000,
+				autoOpen: true,
+				modal: true
+			} );
 	}
 
 };
