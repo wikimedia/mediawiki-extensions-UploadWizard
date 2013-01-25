@@ -49,6 +49,7 @@ $messages['en'] = array(
 	'mwe-upwiz-add-file-0-free' => 'Select a media file to share',
 	'mwe-upwiz-upload-flickr' => 'Upload images from Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Add images from Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Add more images from Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Or' ,
 	'mwe-upwiz-add-flickr' => 'Get from Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr image/photoset URL',
@@ -487,6 +488,7 @@ $1 is the name of the fallback language.",
 |} This is a button label, used in the "{{MediaWiki:mwe-upwiz-step-file/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file. Note: when translating "share", remember that you have to makee it clear to the user that they are sharing the media with the public, making it freely available (technically, published and released under a free license); if no equivalent is available, just translate as "upload".',
 	'mwe-upwiz-add-file-flickr' => 'Label of a button in the first view of Special:UploadWizard, which is offered as an alternative to upload of local files and brings to another step.',
+	'mwe-upwiz-add-file-flickr-n' => 'Label of a button which is offered as an alternative to upload of local files after few files have already been uploaded.',
 	'mwe-upwiz-add-flickr-or' => 'Connecting word in upload wizard between the following action elements: 
 * {{msg-mw|mwe-upwiz-add-file-0-free}}
 * {{msg-mw|mwe-upwiz-add-file-flickr}}',

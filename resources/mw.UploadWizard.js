@@ -920,6 +920,13 @@ mw.UploadWizard.prototype = {
 				_this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
 				_this.$addFileContainer.addClass( 'mwe-upwiz-add-files-n' );
 				_this.$addFileContainer.show();
+				// changes the flickr add button to "add more files from flickr"
+				$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-flickr-n' ) );
+				$j( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).show();
+				// empty the flickr lists
+				$j( '#mwe-upwiz-flickr-select-list' ).empty();
+				$j( '#mwe-upwiz-flickr-select-list-container' ).unbind();
+				$j( '#mwe-upwiz-select-flickr' ).unbind();
 			} else {
 				_this.$addFile = this.$addFile || $j( '#mwe-upwiz-add-file' );
 				_this.$addFile.hide();
@@ -951,6 +958,8 @@ mw.UploadWizard.prototype = {
 			// changes the button back from "add another file" to the initial centered invitation button
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', gM( 'mwe-upwiz-add-file-0-free' ) );
 			$j( '#mwe-upwiz-upload-ctr-divide' ).show();
+			// changes the button back from "add more files from flickr" to the initial text
+			$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-flickr' ) );
 			$j( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).removeClass( 'mwe-upwiz-add-files-n' );
 			$j( '#mwe-upwiz-add-file-container' ).addClass( 'mwe-upwiz-add-files-0' );
 			$j( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).show();
@@ -987,10 +996,12 @@ mw.UploadWizard.prototype = {
 		// allow an "add another upload" button only if we aren't at max
 		if ( _this.uploads.length < _this.maxUploads ) {
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', false );
+			$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', false );
 			$j( _this.uploadToAdd.ui.div ).show();
 			_this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
 		} else {
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', true );
+			$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', true );
 			$j( _this.uploadToAdd.ui.div ).hide();
 			_this.uploadToAdd.ui.hideFileInput();
 		}
