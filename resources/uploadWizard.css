@@ -336,6 +336,7 @@ a:disabled:hover {
 	width: 40px;
 }
 
+#mwe-upwiz-flickr-select-list li,
 .mwe-upwiz-status-progress {
 	/* @embed */
 	background: url('images/24px-spinner-0645ad.gif') no-repeat center center;

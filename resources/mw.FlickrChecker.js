@@ -317,7 +317,8 @@
 			this.selectButton.setDisabled( true );
 
 			$.extend( req, options, {
-				extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias'
+				extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias',
+				per_page: '500'
 			} );
 
 			flickrPromise = this.flickrRequest( req ).then( function ( data ) {
@@ -335,7 +336,8 @@
 
 			// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
 			$.when( flickrPromise, this.getBlacklist() ).then( function ( photoset, blacklist ) {
-				var fileName, imageContainer, sourceURL,
+				var fileName, sourceURL,
+					imagesHTML = '',
 					x = 0;
 
 				$.each( photoset.photo, function ( i, item ) {
@@ -359,8 +361,9 @@
 						return;
 					}
 
-					// Limit to maximum of 50 valid images
-					if ( x++ >= 50 ) {
+					// Limit to maximum of 500 valid images
+					// (Flickr's API returns a maximum of 500 images anyway.)
+					if ( x++ >= 500 ) {
 						return false;
 					}
 
@@ -391,22 +394,38 @@
 
 					// setting up the thumbnail previews in the Selection list
 					if ( item.url_sq ) {
-						imageContainer = '<li id="upload-' + i + '" class="ui-state-default"><img src="' + item.url_sq + '"></li>';
-						$( '#mwe-upwiz-flickr-select-list' ).append( imageContainer );
+						imagesHTML += '<li id="upload-' + i + '" class="ui-state-default"><img class="lazy-thumbnail" data-original="' + item.url_sq + '"></li>';
 					}
+				} );
+				$( '#mwe-upwiz-flickr-select-list' ).append( imagesHTML );
+				// Lazy-load images
+				$( 'img.lazy-thumbnail' ).lazyload( {
+					// jQuery considers all images without 'src' to not be ':visible'
+					skip_invisible: false
+				} );
+				// Trigger initial update (HACK)
+				setTimeout( function () {
+					$( window ).triggerHandler( 'resize' );
 				} );
 				// Calling jquery ui selectable
 				$( '#mwe-upwiz-flickr-select-list' ).selectable( {
+					filter: 'li',
 					stop: function () {
 						// If at least one item is selected, activate the upload button
 						checker.selectButton.setDisabled( $( '.ui-selected' ).length === 0 );
+					},
+					selecting: function ( event, ui ) {
+						// Limit the number of selectable images
+						if ( $( '.ui-selected, .ui-selecting' ).length > mw.UploadWizard.config.maxUploads ) {
+							$( ui.selecting ).removeClass( 'ui-selecting' );
+						}
 					}
 				} );
 				// Set up action for 'Upload selected images' button
 				checker.selectButton.on( 'click', function () {
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
-					$( 'li.ui-selected' ).each( function ( index, image ) {
+					$( '.ui-selected' ).each( function ( index, image ) {
 						image = $( this ).attr( 'id' );
 						image = image.split( '-' )[1];
 						checker.setUploadDescription( checker.imageUploads[image] );
