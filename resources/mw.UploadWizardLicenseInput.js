@@ -234,7 +234,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		return $j( '<label />' )
 			.attr( { 'for': $input.attr('id') } )
 			.msg( messageKey, this.count || 0, licenseLink )
-			.append( $icons );
+			.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
 	},
 
 	/**
