@@ -144,7 +144,7 @@ $specialPageAliases['nb'] = array(
 	'UploadCampaign' => array( 'Opplastingskampanje' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'UploadWizard' => array( 'Opstuurhulpe' ),
 	'UploadCampaigns' => array( 'Kampanjes_opsturen' ),
