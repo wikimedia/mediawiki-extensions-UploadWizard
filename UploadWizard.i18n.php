@@ -14753,13 +14753,14 @@ $messages['km'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => 'ហត្ថលេខារបស់អ្នកមានផ្ទុកសញ្ញាដែលមិនអនុញ្ញាតអោយប្រើ។
 សូមកុំប្រើអត្ថបទវិគីឬក៏ HTML នៅទីនេះ។ សូមប្រើតែឈ្មោះអ្នកប្រើប្រាស់ឬឈ្មោះពិតរបស់អ្នកបានហើយ។',
 	'mwe-upwiz-error-blank' => 'ផ្នែកនេះត្រូវការអោយបំពេញជាចាំបាច់។',
-	'mwe-upwiz-error-too-long' => 'ផ្នែកនេះវែងជ្រុលហើយ។
+	'mwe-upwiz-error-nologin' => 'អ្នកចាំបាច់ត្រូវតែ<span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} កត់ឈ្មោះចូល]</span> ដើម្បីផ្ទុកឯកសារឡើង។',
+	'mwe-upwiz-error-too-long' => 'ឃ្លាវាយបញ្ចូលនេះវែងជ្រុលហើយ។
 
 ធ្វើវាអោយខ្លីជាង $1 {{PLURAL:$1|តួអក្សរ|តួអក្សរ}}។',
-	'mwe-upwiz-error-too-short' => 'ផ្នែកនេះខ្លីជ្រុលហើយ។
+	'mwe-upwiz-error-too-short' => 'ឃ្លាវាយបញ្ចូលនេះខ្លីជ្រុលហើយ។
 
 ធ្វើវាអោយវែងជាង $1 {{PLURAL:$1|តួអក្សរ|តួអក្សរ}}។',
-	'mwe-upwiz-error-bad-chars' => 'ផ្នែកនេះមានផ្ទុកសញ្ញាដែលមិនអនុញ្ញាតអោយប្រើ។
+	'mwe-upwiz-error-bad-chars' => 'ឃ្លាវាយបញ្ចូលនេះមានផ្ទុកសញ្ញាដែលមិនអនុញ្ញាតអោយប្រើ។
 សូមកុំប្រើអត្ថបទវិគីឬក៏ HTML នៅទីនេះ។',
 	'mwe-upwiz-error-date' => 'សូមវាយបញ្ចូលកាលបរិច្ឆទត្រឹមត្រូវជាទំរង់ YYYY-MM-DD ឬក៏ជ្រើសរើសយកការបរិច្ឆេទពីផ្ទាំងប្រតិទិន។',
 	'mwe-upwiz-error-title-blacklisted' => 'ចំណងជើងនេះមានផ្ទុកពាក្យដែលមិនសមរម្យ។ សូមពិនិត្យឡើងវិញ។',
@@ -27883,7 +27884,7 @@ Xin hãy thử sử dụng một trình duyệt khác.',
 	'mwe-upwiz-location' => 'Vị trí',
 	'mwe-upwiz-location-lat' => 'Vĩ độ',
 	'mwe-upwiz-location-lon' => 'Kinh độ',
-	'mwe-upwiz-location-alt' => 'Độ cao',
+	'mwe-upwiz-location-alt' => 'Cao độ',
 	'mwe-upwiz-copyright-info' => 'Quyền phát hành',
 	'mwe-upwiz-author' => 'Tác giả',
 	'mwe-upwiz-autoconverted' => 'Tập tin này được tự điện chuyển đổi sang định dạng $1',
@@ -27943,7 +27944,7 @@ Nếu là hình chụp, hãy nói đến những vật thể chính, cũng như 
 	'mwe-upwiz-error-signature-blank' => 'Bạn phải ký tên vào hộp ở dưới dùng tên đăng nhập hoặc tên thật.',
 	'mwe-upwiz-error-latitude' => 'Vĩ độ cần phải nằm giữa −90° và 90°.',
 	'mwe-upwiz-error-longitude' => 'Kinh độ cần phải nằm giữa −180° và 180°.',
-	'mwe-upwiz-error-altitude' => 'Độ cao cần phải là số.',
+	'mwe-upwiz-error-altitude' => 'Cao độ phải là số.',
 	'mwe-upwiz-error-signature-too-long' => 'Chữ ký của bạn quá dài.
 Hãy thu ngắn hơn $1 ký tự.',
 	'mwe-upwiz-error-signature-too-short' => 'Chữ ký của bạn quá ngắn.
@@ -28100,7 +28101,7 @@ $1',
 	'mwe-upwiz-campaign-conf-idField2MaxLength' => 'Số ký tự tối đa trong hộp ID phụ:',
 	'mwe-upwiz-campaign-conf-defaultLat' => 'Vĩ độ mặc định:',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'Kinh độ mặc định:',
-	'mwe-upwiz-campaign-conf-defaultAlt' => 'Độ cao mặc định:',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'Cao độ mặc định:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'Miêu tả mặc định:',
 	'mw-coolcats-confirm-new-title' => 'Xác nhận thể loại mới',
 	'mw-coolcats-confirm-new' => 'Hình như bạn muốn thêm thể loại “$1” mới. Xin lưu ý:<ul><li>Các tên thể loại thường nên bằng tiếng Anh.</li><li>Các thể loại mới thường phải được xếp vào những thể loại đã tồn tại.</li></ul>Nói chung, chỉ có các chuyên gia nên thêm một thể loại chưa có.',
