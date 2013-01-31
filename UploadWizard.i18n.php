@@ -4993,6 +4993,7 @@ Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
  * @author Christian List
  * @author Danmichaelo
  * @author Hylle
+ * @author Jan Friberg
  * @author Kaare
  * @author Palnatoke
  * @author Peter Alberti
@@ -5024,7 +5025,7 @@ $messages['da'] = array(
 	'mwe-upwiz-help-desk' => 'Hjælp',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Landsbybrønden',
 	'mwe-upwiz-add-file-n' => 'Tilføj yderligere en fil',
-	'mwe-upwiz-add-file-0-free' => 'Vælg en mediefil, du vil donere', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Vælg en mediefil, du vil dele',
 	'mwe-upwiz-upload-flickr' => 'Læg billeder fra Flickr op',
 	'mwe-upwiz-add-file-flickr' => 'Tilføj billeder fra Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Eller',
@@ -5064,7 +5065,7 @@ Prøv en anden browser.',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|sekund|sekunder}} tilbage',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minut|minutter}} og $2 {{PLURAL:$2|sekund|sekunder}} tilbage',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|time|timer}}, $2 {{PLURAL:$2|minut|minutter}} og $3 {{PLURAL:$3|sekund|sekunder}} tilbage',
-	'mwe-upwiz-deeds-macro-prompt' => 'Denne hjemmeside kræver at du angiver oplysninger om ophavsretlig beskyttelse for {{PLURAL:$1|dette værk|disse værker}} for at sikre at alle kan genbruge {{PLURAL:$1|det|dem}} på lovlig vis.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Denne hjemmeside kræver at {{GENDER:$2|du}} angiver oplysninger om ophavsretlig beskyttelse for {{PLURAL:$1|dette værk|disse værker}} for at sikre at alle kan genbruge {{PLURAL:$1|det|dem}} på lovlig vis.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Denne fil er mit eget værk|Disse filer er mine egne værker}}.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Jeg, $2, {{PLURAL:$1|dette værks|disse værkers}} ophavsretsindehaver, giver hermed uigenkaldeligt hvem som helst retten til at bruge, bearbejde og genudgive {{PLURAL:$1|dette værk|disse værker}} til et hvilket som helst formål, og jeg udgiver {{PLURAL:$1|det|dem}} derfor under de følgende betingelser:',
 	'mwe-upwiz-source-ownwork-assert' => 'Jeg, $2, indehaveren af ophavsretten til {{PLURAL:$1|dette værk|disse værker}}, giver hermed uigenkaldeligt hvem som helst retten til at bruge {{PLURAL:$1|dette værk|disse værker}} til et hvilket som helst formål så længe de krediterer mig og deler afledte værker under de samme vilkår.',
@@ -5194,9 +5195,9 @@ Brug venligst ikke wikitekst eller HTML her, kun dit brugernavn eller rigtige na
 	'mwe-upwiz-error-blank' => 'Dette felt skal udfyldes.',
 	'mwe-upwiz-error-nologin' => 'Du skal være <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} logget på]</span> for at kunne lægge filer op.',
 	'mwe-upwiz-error-too-long' => 'Dette felt er for langt.
-Det skal være kortere end $1 {{PLURAL:$1|tegn|tegn}}.', # Fuzzy
-	'mwe-upwiz-error-too-short' => 'Denne post er for kort.
-Den skal være længere end $1 tegn.', # Fuzzy
+Gør det skal være kortere end $1 {{PLURAL:$1|tegn|tegn}}.', # Fuzzy
+	'mwe-upwiz-error-too-short' => 'Denne felt er for kort.
+Gør det længere end $1 tegn.', # Fuzzy
 	'mwe-upwiz-error-bad-chars' => 'Denne post indeholder symboler, der ikke er tilladte.
 Brug venligst ikke wikitekst eller HTML her.',
 	'mwe-upwiz-error-date' => 'Indtast venligst en gyldig dato i formatet ÅÅÅÅ-MM-DD eller vælg en dato i popup-kalenderen.',
@@ -5213,7 +5214,7 @@ Brug venligst ikke wikitekst eller HTML her.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Denne wikitekst er kort til at være en licens',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Wikiteksten, du indtastede, er for lang.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Dette lader enten til ikke at være gyldig wikitekst eller til ikke at indeholde en licens.',
-	'mwe-upwiz-details-error-count' => 'Der er {{PLURAL:$1|en|$1}} fejl i {{PLURAL:$2|formularen|formularerne}} ovenfor. Ret fejlene og prøv at sende igen.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'Der er {{PLURAL:$1|en|$1}} fejl i {{PLURAL:$2|formularen|formularerne}} ovenfor. Ret {{PLURAL:$1|fejlen|fejlene}} og prøv at sende igen.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => 'Du kan kun lægge $1 {{PLURAL:$1|fil|filer}} op ad gangen. Du forsøgte at tilføje $2 {{PLURAL:$2|fil|filer}}, så $3 {{PLURAL:$3|fil|filer}} er blevet fjernet.',
 	'mwe-upwiz-too-many-files' => 'For mange filer.',
@@ -5413,6 +5414,7 @@ Bitte bedenke beim Verwenden dieses Werkzeugs, dass deine IP-Adresse und Suchanf
 	'mwe-upwiz-error-no-image-retrieved' => 'Wir konnten die Datei von $1 nicht abrufen.',
 	'mwe-upwiz-multi-file-select' => 'Zeichne mit deinem Mauszeiger einen Kasten über die hochzuladenden Dateien. Halte die Strg-/Command-Taste gedrückt, um mehrfache nichtbenachbarte Auswahlen zu treffen.',
 	'mwe-upwiz-transport-started' => 'Starte …',
+	'mwe-upwiz-encoding' => 'Umwandlung …',
 	'mwe-upwiz-uploading' => 'Lade hoch …',
 	'mwe-upwiz-queued' => 'In der Warteschlange …',
 	'mwe-upwiz-assembling' => 'Verarbeite …',
@@ -7895,6 +7897,7 @@ $messages['eu'] = array(
  * @author Hooshmand.hasannia
  * @author Huji
  * @author Leyth
+ * @author Mehdi
  * @author Mjbmr
  * @author Omnia
  * @author Reza1615
@@ -7920,6 +7923,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-step-deeds' => 'حق نشر',
 	'mwe-upwiz-step-details' => 'شرح',
 	'mwe-upwiz-step-thanks' => 'استفاده',
+	'mwe-upwiz-campaign-name-duplicate' => 'پرونده ای با این نام از قبل وجود دارد.',
 	'mwe-upwiz-campaign-unknown-error' => 'خطای ناشناخته‌ای رخ داد.',
 	'mwe-upwiz-api-warning-exists' => '[$1 پروندهٔ دیگری] با همین نام در این ویکی وجود دارد.',
 	'mwe-upwiz-api-warning-was-deleted' => 'پرونده‌ای با این نام وجود داشت، «$1»، ولی حذف شده‌است و نمی‌توانید آن را دوباره بارگذاری کنید. اگر پروندهٔ شما متفاوت است، نام آن را تغییر دهید.',
@@ -7930,9 +7934,16 @@ $messages['fa'] = array(
 	'mwe-upwiz-help-desk-url' => 'میز کمک', # Fuzzy
 	'mwe-upwiz-add-file-n' => 'افزودن پرونده‌ای دیگر',
 	'mwe-upwiz-add-file-0-free' => 'پرونده‌ای را برای اهداکردن انتخاب کنید', # Fuzzy
+	'mwe-upwiz-upload-flickr' => 'بارگذاری تصاویر از فلیکر',
+	'mwe-upwiz-add-file-flickr' => 'بارگذاری تصاویر از فلیکر',
 	'mwe-upwiz-add-flickr-or' => 'یا',
+	'mwe-upwiz-add-flickr' => 'دریافت از فلیکر',
+	'mwe-upwiz-select-flickr' => 'بارگذاری تصاویر انتخاب شده',
 	'mwe-upwiz-transport-started' => 'در حال شروع...',
+	'mwe-upwiz-encoding' => 'درحال اینکدینگ...',
 	'mwe-upwiz-uploading' => 'در حال بارگذاری...',
+	'mwe-upwiz-queued' => 'در صف...',
+	'mwe-upwiz-publish' => 'در حال انتشار...',
 	'mwe-upwiz-transported' => 'بارگذاری به پایان رسید...',
 	'mwe-upwiz-stashed-upload' => 'بارگذاری شد',
 	'mwe-upwiz-getting-metadata' => 'در حال دریافت اطلاعات پرونده و پیش‌نمایش‌ها...',
@@ -8003,6 +8014,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-more-options' => 'افزودن رده‌ها و اطلاعات بیشتر...',
 	'mwe-upwiz-copy-metadata' => 'رونویسی اطلاعات {{PLURAL:$1|بارگذاری|در تمام بارگذاری‌های}}  زیر...',
 	'mwe-upwiz-copy-metadata-button' => 'رونوشت',
+	'mwe-upwiz-copied-metadata-button' => 'با موفقیت کپی شد',
 	'mwe-upwiz-copy-title' => 'رونویسی عنوان (با شماره‌گذاری خودکار)',
 	'mwe-upwiz-copy-description' => 'رونویسی {{PLURAL:$1|شرح|شرح‌ها}}',
 	'mwe-upwiz-copy-date' => 'رونویسی تاریخ',
@@ -8541,7 +8553,7 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
 	'mwe-upwiz-license-custom-head' => 'Jokin muu syy, jota ei ole mainittu yllä',
 	'mwe-upwiz-license-custom-preview' => 'Esikatselu',
 	'mwe-upwiz-license-none-head' => 'Löysin sen Internetistä enkä ole varma',
-	'mwe-upwiz-license-none' => 'Uskon, että {{PLURAL:$1|tämä teos on vapaasti lisensoitui|nämä teokset ovat vapaasti lisensoituja}} tai lakien perusteella tekijänoikeuksettomia. Ymmärrän, että jos en lisää tarvittavia tietoja lisenssistä riittävän nopeasti, {{PLURAL:$1|tiedosto|tiedostot}} saatetaan poistaa.',
+	'mwe-upwiz-license-none' => 'Uskon, että {{PLURAL:$1|tämä teos on vapaasti lisensoitu|nämä teokset ovat vapaasti lisensoituja}} tai lakien perusteella tekijänoikeuksettomia. Ymmärrän, että jos en lisää tarvittavia tietoja lisenssistä riittävän nopeasti, {{PLURAL:$1|tiedosto|tiedostot}} saatetaan poistaa.',
 	'mwe-upwiz-license-confirm-remove' => 'Oletko varma, että haluat poistaa {{PLURAL:$1|tämän tallennuksen|nämä tallennukset}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Vahvista poisto',
 	'mwe-upwiz-license-external' => 'Tämä tiedosto on sivustolla $1 seuraavalla lisenssillä: <b>$2</b>.',
@@ -8795,6 +8807,7 @@ Veuillez noter qu'en utilisant cet outil, votre adresse IP et les détails de vo
 	'mwe-upwiz-error-no-image-retrieved' => 'Nous ne pouvons pas récupérer le fichier depuis $1.',
 	'mwe-upwiz-multi-file-select' => 'Dessinez un rectangle avec votre curseur autour des fichiers que vous voudriez télécharger. Maintenez enfoncée la touche Ctrl/Commande pour faire des sélections multiples non adjacentes.',
 	'mwe-upwiz-transport-started' => 'Démarrage…',
+	'mwe-upwiz-encoding' => 'Encodage...',
 	'mwe-upwiz-uploading' => 'Téléversement en cours…',
 	'mwe-upwiz-queued' => 'En attente…',
 	'mwe-upwiz-assembling' => "En cours d'assemblage…",
@@ -9540,6 +9553,7 @@ Teña en conta que ao utilizar esta ferramenta, tanto o seu enderezo IP como os 
 	'mwe-upwiz-error-no-image-retrieved' => 'Non podemos recuperar o ficheiro desde $1.',
 	'mwe-upwiz-multi-file-select' => 'Debuxe unha caixa co cursor do rato sobre os ficheiros que queira cargar. Prema a tecla Ctrl/Command para facer seleccións non adxacentes.',
 	'mwe-upwiz-transport-started' => 'Comezando...',
+	'mwe-upwiz-encoding' => 'Codificando...',
 	'mwe-upwiz-uploading' => 'Cargando...',
 	'mwe-upwiz-queued' => 'Na cola...',
 	'mwe-upwiz-assembling' => 'Montando...',
@@ -13350,6 +13364,7 @@ $messages['it'] = array(
 	'mwe-upwiz-error-no-image-retrieved' => 'Non è possibile recuperare il file da $1.',
 	'mwe-upwiz-multi-file-select' => 'Disegna una casella con il cursore del mouse sopra i file che vuoi caricare. Tieni premuto il tasto Ctrl/Comando per selezionare più file non adiacenti.',
 	'mwe-upwiz-transport-started' => 'Inizializzazione...',
+	'mwe-upwiz-encoding' => 'Codificando...',
 	'mwe-upwiz-uploading' => 'Caricamento in corso…',
 	'mwe-upwiz-queued' => 'In coda...',
 	'mwe-upwiz-assembling' => 'Montaggio...',
@@ -13731,6 +13746,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-select-flickr' => '選択した画像をアップロード',
 	'mwe-upwiz-error-no-image-retrieved' => '$1 からファイルを取得できませんでした。',
 	'mwe-upwiz-transport-started' => '開始しています...',
+	'mwe-upwiz-encoding' => 'エンコード中...',
 	'mwe-upwiz-uploading' => 'アップロード中...',
 	'mwe-upwiz-queued' => '順番待ち中...',
 	'mwe-upwiz-transported' => 'アップロードが終了しました...',
@@ -14835,6 +14851,7 @@ flickr.com 에서 호스팅하는 콘텐츠를 불러옵니다.<br />
 	'mwe-upwiz-error-no-image-retrieved' => '$1에서 파일을 찾을 수 없습니다.',
 	'mwe-upwiz-multi-file-select' => '올리고 싶은 파일 위에 커서로 상자를 그리세요. 여러 인접하지 않는 선택을 하려면 Ctrl/Command 키를 누른 상태에서 선택하세요.',
 	'mwe-upwiz-transport-started' => '시작하는 중...',
+	'mwe-upwiz-encoding' => '인코드 중...',
 	'mwe-upwiz-uploading' => '올리는 중...',
 	'mwe-upwiz-queued' => '대기 중...',
 	'mwe-upwiz-assembling' => '모으는 중...',
@@ -16802,6 +16819,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-error-no-image-retrieved' => 'Нажалост, не можев да ја преземам податотеката од $1.',
 	'mwe-upwiz-multi-file-select' => 'Со стрелката на глушецот направете квадрат околу податотеките што сакате да ги подигнете. Држете го копчето „Ctrl/Command“ ако сакате да изберете повеќе слики што не се една до друга.',
 	'mwe-upwiz-transport-started' => 'Почнувам...',
+	'mwe-upwiz-encoding' => 'Енкодирам...',
 	'mwe-upwiz-uploading' => 'подигам...',
 	'mwe-upwiz-queued' => 'Во редица...',
 	'mwe-upwiz-assembling' => 'Составувам...',
