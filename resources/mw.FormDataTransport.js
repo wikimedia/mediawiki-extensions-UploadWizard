@@ -179,7 +179,10 @@ mw.FormDataTransport.prototype = {
 
 		// ignorewarnings is turned on intentionally, see the above comment to the same effect.
 		formData.append( 'ignorewarnings', true );
-		formData.append( 'async', true );
+		// only enable async if file is larger 10Mb
+		if ( bytesAvailable > 10 * 1024 * 1024 ) {
+			formData.append( 'async', true );
+		}
 
         if (_this.filekey) {
             formData.append('filekey', _this.filekey);
