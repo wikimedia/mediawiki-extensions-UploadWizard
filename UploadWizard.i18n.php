@@ -7812,8 +7812,9 @@ $messages['eu'] = array(
 	'mwe-upwiz-help-desk' => 'Laguntza Gunea',
 	'mwe-upwiz-help-desk-url' => 'Laguntza Gunea', # Fuzzy
 	'mwe-upwiz-add-file-n' => 'Beste fitxategi bat gehitu',
-	'mwe-upwiz-add-file-0-free' => 'Aukeratu igotzeko fitxategia', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Aukeratu partekatzeko fitxategia',
 	'mwe-upwiz-transport-started' => 'Abiatzen...',
+	'mwe-upwiz-encoding' => 'Kodetzen...',
 	'mwe-upwiz-uploading' => 'Igotzen...',
 	'mwe-upwiz-transported' => 'Igoera amaitua...',
 	'mwe-upwiz-stashed-upload' => 'Igoa',
@@ -28515,6 +28516,7 @@ $messages['yo'] = array(
  * @author Xiaomingyan
  * @author Yfdyh000
  * @author Zhangjintao
+ * @author 乌拉跨氪
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
@@ -28535,6 +28537,8 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-step-deeds' => '授权',
 	'mwe-upwiz-step-details' => '说明',
 	'mwe-upwiz-step-thanks' => '使用',
+	'mwe-upwiz-campaign-name-duplicate' => '已存在相同名称的活动。',
+	'mwe-upwiz-campaign-unknown-error' => '出现未知错误。',
 	'mwe-upwiz-api-warning-exists' => '本维基已经有相同文件名的[$1 文件]',
 	'mwe-upwiz-api-warning-was-deleted' => '有相同文件名的文件“$1”，但是其已被删除且你不能重新上传该文件。如果你的文件不同，请重命名你的文件。',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '对不起，我们没有您使用的语言的教程。我们显示$1教程替代。',
@@ -28543,7 +28547,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-help-desk' => '帮助台',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:帮助台',
 	'mwe-upwiz-add-file-n' => '添加其他文件',
-	'mwe-upwiz-add-file-0-free' => '请选择要贡献的媒体文件', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => '请选择要共享的媒体文件',
 	'mwe-upwiz-upload-flickr' => '从Flickr上传图像',
 	'mwe-upwiz-add-file-flickr' => '从Flickr添加图像',
 	'mwe-upwiz-add-flickr-or' => '或',
@@ -28555,6 +28559,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-error-no-image-retrieved' => '抱歉，我们无法从$1获取图像。', # Fuzzy
 	'mwe-upwiz-multi-file-select' => '使用光标框选您想上传的图像。按下Ctrl/Command键以选择多个不相邻的文件。', # Fuzzy
 	'mwe-upwiz-transport-started' => '正在启动...',
+	'mwe-upwiz-encoding' => '编码中…',
 	'mwe-upwiz-uploading' => '正在上传...',
 	'mwe-upwiz-queued' => '正在排队...',
 	'mwe-upwiz-assembling' => '正在编辑...',
@@ -28783,7 +28788,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-license-external' => '该文件在$1采用的授权协议：<b>$2</b>。',
 	'mwe-upwiz-license-external-invalid' => '该文件在$1采用的授权协议：<b>$2</b>。不过该授权协议不适合在本网站使用。',
 	'mwe-upwiz-license-photoset-invalid' => '糟糕，在照片集中没有照片有适当在本网站上使用的许可协议。', # Fuzzy
-	'mwe-upwiz-url-invalid' => '输入的URL不是有效的$1照片或照片集URL', # Fuzzy
+	'mwe-upwiz-url-invalid' => '输入的URL不是有效的$1图像或图像集URL。',
 	'mwe-upwiz-categories' => '分类',
 	'mwe-upwiz-categories-add' => '添加',
 	'mwe-upwiz-category-will-be-added' => '此分类会被创建。', # Fuzzy
