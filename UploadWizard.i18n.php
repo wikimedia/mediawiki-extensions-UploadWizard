@@ -53,9 +53,9 @@ $messages['en'] = array(
 	'mwe-upwiz-add-flickr' => 'Get from Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr image/photoset URL',
 	'mwe-upwiz-select-flickr' => 'Upload selected images',
-	'mwe-upwiz-flickr-disclaimer' => 'This form will load content hosted by flickr.com and subject to the
-Flickr [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ privacy policy].<br />
-Please note that by using this tool, your IP address and request details will be available to Flickr.',
+	'mwe-upwiz-flickr-disclaimer1' => 'This form will load content hosted by flickr.com and subject to the
+Flickr [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ privacy policy].',
+	'mwe-upwiz-flickr-disclaimer2' => 'Please note that by using this tool, your IP address and request details will be available to Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'We could not retrieve the file from $1.',
 	'mwe-upwiz-multi-file-select' => 'Draw a box with your cursor over the files you would like to upload. Hold down the Ctrl/Command key to make multiple non-adjacent selections.',
 	'mwe-upwiz-transport-started' => 'Starting...',
@@ -491,7 +491,8 @@ $1 is the name of the fallback language.",
 * {{msg-mw|mwe-upwiz-add-file-0-free}}
 * {{msg-mw|mwe-upwiz-add-file-flickr}}',
 	'mwe-upwiz-add-flickr' => 'Label of the button which confirms the URL, entered by the user, of a photo or photo set from Flickr.',
-	'mwe-upwiz-flickr-disclaimer' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
+	'mwe-upwiz-flickr-disclaimer1' => 'This is a legal disclaimer to let the user know that the Flickr terms of use and privacy policy apply to all content loaded from Flickr. Please try to keep the wording similar to the approved version in English.',
+	'mwe-upwiz-flickr-disclaimer2' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Error message shown when UploadWizard is not able to retrieve an image from a remote source. $1 is the name of the remote source, for example, Flickr.',
 	'mwe-upwiz-multi-file-select' => 'Instructions that appear when the user can select multiple files to upload. See http://jqueryui.com/demos/selectable/#display-grid for how this works.',
 	'mwe-upwiz-transport-started' => 'Status message when upload starts',
