@@ -248,8 +248,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	showError: function( code, info ) {
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
-		var msgKey = 'api-error-unknown-code';
-		var args = [ code ];
+		var msgKey, args;
 
 		if ( code === 'http' && info.textStatus === 'timeout' ) {
 			code = 'timeout';
@@ -261,6 +260,9 @@ mw.UploadWizardUploadInterface.prototype = {
 		} else if ( code === 'unknown-warning' ) {
 			msgKey = 'api-error-unknown-warning';
 			args = $j.makeArray( info );
+		} else {
+			msgKey =  = 'api-error-unknown-code';
+			args = [code].concat( $j.makeArray( info ) );
 		}
 		this.setStatus( msgKey, args );
 	},
