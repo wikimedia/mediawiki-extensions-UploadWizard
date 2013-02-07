@@ -27409,11 +27409,11 @@ $messages['vec'] = array(
 	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL imaxene/photoset Flickr',
 	'mwe-upwiz-select-flickr' => 'Carga łe imaxeni sełesionae',
-	'mwe-upwiz-flickr-disclaimer' => "Sto moduło el cargarà contegnùi ospitati da flickr.com e sogeti ai [https://www.flickr.com/help/terms/ termini d'uxo] e a ła [https://www.flickr.com/help/privacy-policy/ pułitega so ła privacy] de Flickr.<br />
-Ocio che doparando sto strumento el to indiriso IP e i detaji de ła to dimanda i sarà disponibiłi so Flickr.",
+	'mwe-upwiz-flickr-disclaimer2' => 'Ocio che doparando sto tool el to indiriso IP e i detaji de ła to dimanda i sarà disponibiłi so Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Nó xe posibiłe recuperar el file da $1.',
 	'mwe-upwiz-multi-file-select' => "Dixegna na caxeła có 'l cursor del mouse sora i file che te vui cargar. Tien strucà el boton Ctrl/Comando par sełesionar pì file nó adiasenti.",
 	'mwe-upwiz-transport-started' => 'Inisiałixasion...',
+	'mwe-upwiz-encoding' => 'Drio codifegar...',
 	'mwe-upwiz-uploading' => 'Cargamento in corso…',
 	'mwe-upwiz-queued' => 'In coa...',
 	'mwe-upwiz-assembling' => 'Montajo...',

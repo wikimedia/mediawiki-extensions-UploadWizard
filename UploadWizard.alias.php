@@ -137,7 +137,7 @@ $specialPageAliases['ml'] = array(
 	'UploadCampaign' => array( 'അപ്‌ലോഡ്‌മേള' ),
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'UploadWizard' => array( 'Opplastingsveiviser' ),
 	'UploadCampaigns' => array( 'Opplastingskampanjer' ),
