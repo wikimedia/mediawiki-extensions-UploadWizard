@@ -430,7 +430,15 @@ mw.UploadWizardDetails.prototype = {
 	},
 
 	// Metadata which we can copy over to other details objects
-	copyMetadataTypes: [ 'title', 'description', 'date', 'categories', 'location', 'other' ],
+	// objects with key:metadata name and value:boolean value indicating default checked status
+	copyMetadataTypes: {
+		title: true,
+		description: true,
+		date: false,
+		categories: true,
+		location: false,
+		other: true
+	},
 
 	/*
 	 * Copy metadata from the first upload to other uploads.
@@ -569,15 +577,20 @@ mw.UploadWizardDetails.prototype = {
 		_this.copyMetadataCtrlDiv = $j( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
 		var copyMetadataDiv = $j( '<div class="mwe-upwiz-metadata-copier"></div>' );
 
-		$j.each( _this.copyMetadataTypes, function addToMetadataDiv( i, v ) {
-			var cb = 'mwe-upwiz-copy-' + v;
-			var copyMetadataMsg;
-			if ( v === 'description' || v === 'categories' ) {
+		$j.each( _this.copyMetadataTypes, function addToMetadataDiv( metadataName, defaultStatus ) {
+			var cb = 'mwe-upwiz-copy-' + metadataName,
+				copyMetadataMsg,
+				$checkbox;
+			if ( metadataName === 'description' || metadataName === 'categories' ) {
 				copyMetadataMsg = mw.msg( cb, 1 );
 			} else {
 				copyMetadataMsg = mw.msg( cb );
 			}
-			copyMetadataDiv.append( $j( '<input type="checkbox" name="' + cb + '" id="' + cb + '" checked />' ) );
+			$checkbox = $j( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', cb ).attr( 'id', cb );
+			if ( defaultStatus === true ) {
+				$checkbox.attr( 'checked', 'checked' );
+			}
+			copyMetadataDiv.append( $checkbox );
 			copyMetadataDiv.append( $j( '<label for="' + cb + '">' + copyMetadataMsg + '</label>' ) );
 			copyMetadataDiv.append( $j( '<br />' ) );
 		} ) ;
@@ -589,7 +602,7 @@ mw.UploadWizardDetails.prototype = {
 			.click(
 				function( e ) {
 					var button = $( this ).find( 'span' );
-					$j.each( _this.copyMetadataTypes, function makeCopies( i, metadataType ) {
+					$j.each( _this.copyMetadataTypes, function makeCopies( metadataType, defaultStatus ) {
 							if ( $j( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
 								_this.copyMetadata( metadataType );
 							}
