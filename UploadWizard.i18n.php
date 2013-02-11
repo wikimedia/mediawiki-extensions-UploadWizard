@@ -1742,10 +1742,10 @@ $messages['as'] = array(
 	'mwe-upwiz-thanks-intro' => 'আপলোডৰ বাবে ধন্যবাদ!',
 	'mwe-upwiz-thanks-explain' => 'আপুনি এতিয়া {{PLURAL:$1|এই ফাইলটো|এই ফাইলসমূহ}} ৱিকিপিডিয়াৰ দৰে চাইটত ব্যৱহাৰ কৰিব পাৰিব, বা ৱেবত {{PLURAL:$1|তালৈ|সেইবোৰলৈ}} লিংক দিব পাৰিব।',
 	'mwe-upwiz-thanks-wikitext' => '<b>এই ফাইলটো এটা ৱিকিত ব্যৱহাৰ কৰিবলৈ</b>, এখন পৃষ্ঠাত এই পাঠখিনি প্ৰতিলিপি কৰক:',
-	'mwe-upwiz-thanks-url' => '<b>এই HTML সংযোগ যোগ কৰিবলৈ</b>, এই URL ঠিকনা প্ৰতিলিপ কৰক:',
+	'mwe-upwiz-thanks-url' => '<b>এই HTML সংযোগ যোগ কৰিবলৈ</b>, এই URL ঠিকনা প্ৰতিলিপ কৰক:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => '".$1" এক্সটেনছনেৰে শেষ হোৱা ফাইলৰ নাম এই ৱিকিয়ে গ্ৰহণ নকৰে।',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "আপুনি আপল'ড কৰিবলৈ বাছনি কৰা ভিডিঅ' ফাইলটোৰ ফৰ্মেট মুক্ত নহয়।
-আপুনি [$1 ফায়াৰফগ ] নামৰ ফায়াৰফক্স এক্সটেনছন ইন্‌ষ্টল কৰি আপোনাৰ ফাইলটো পৰিৱৰ্তন কৰিব পাৰে। বা ভিডিঅ' ফাইলটো আন মুক্ত ফৰ্মেটলৈ পৰিৱৰ্তন কৰিবৰ বাবে আন [$2 পৰিৱৰ্তন বিকল্প] ব্যৱহাৰ কৰিব পাৰে।",
+আপুনি [$1 ফায়াৰফগ] নামৰ ফায়াৰফক্স এক্সটেনছন ইন্‌ষ্টল কৰি আপোনাৰ ফাইলটো পৰিৱৰ্তন কৰিব পাৰে। বা ভিডিঅ' ফাইলটো আন মুক্ত ফৰ্মেটলৈ পৰিৱৰ্তন কৰিবৰ বাবে আন [$2 পৰিৱৰ্তন বিকল্প] ব্যৱহাৰ কৰিব পাৰে।",
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'এই ৱিকিত ফাইলৰ শেষত এটা এক্সটেনছন থকাটো বাঞ্চনীয়, যেনে- ".JPG"।',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'আপুনি "$1"টো আপল’ড কৰি আছে',
 	'mwe-upwiz-allowed-filename-extensions' => 'অনুমোদিত এক্সটেনশ্যনসমূহ:',
@@ -3380,7 +3380,7 @@ $messages['bn'] = array(
 	'mwe-upwiz-thanks-intro' => 'আপলোডের জন্য ধন্যবাদ!',
 	'mwe-upwiz-thanks-explain' => '{{PLURAL:$1|এই ফাইলটি|ফাইলগুলো}} বিভিন্ন উইকি প্রকল্পে ব্যবহার, অথবা {{PLURAL:$1|এটি|এগুলো}} ওয়েবসাইটের সাথে যুক্ত করতে পারবেন।',
 	'mwe-upwiz-thanks-wikitext' => '<b>কোন উইকিতে এই ফাইলটি ব্যবহার করতে</b>, যেকোন পাতায় এই লেখাগুলো কপি করুন:',
-	'mwe-upwiz-thanks-url' => '<b>HTML ফাইলে যুক্ত করতে</b>, এই লিংক কপি করুন:',
+	'mwe-upwiz-thanks-url' => '<b>HTML ফাইলে যুক্ত করতে</b>, এই লিংক কপি করুন:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => '".$1" এক্সটেনশন যুক্ত ফাইল এই উইকিতে সংযুক্ত করা সম্ভব নয়।',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'এই উইকিতে কেবলমাত্র এক্সটেনশন যুক্ত ফাইল ব্যবহার করা যায় - যেমন ফাইলের নামের শেষে ".JPG" থাকে।',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => '"$1" আপনি এই ফাইলটি আপলোড শুরু করেছেন।',
@@ -4165,10 +4165,10 @@ $messages['ca'] = array(
 	'mwe-upwiz-thanks-intro' => 'Gràcies per carregar!',
 	'mwe-upwiz-thanks-explain' => 'Ara ja podeu utilitzar {{PLURAL:$1|aquest fitxer|aquests fitxers}} en llocs com la Viquipèdia o enllaçar-{{PLURAL:$1|lo|los}} a la web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Per fer servir el fitxer en un wiki</b>, copieu aquest text en una pàgina:',
-	'mwe-upwiz-thanks-url' => '<b>Per enllaçar-lo en HTML</b>, copieu aquesta adreça URL:',
+	'mwe-upwiz-thanks-url' => '<b>Per enllaçar-lo en HTML</b>, copieu aquesta adreça URL:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => "Aquest wiki no accepta noms de fitxer que acaben amb l'extensió «.$1».",
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Heu seleccionat un fitxer de vídeo per carregar que no és en un format lliure.
-Podeu instaŀlar [$1 Firefogg ], una extensió de Firefox per convertir-lo automàticament, o utilitzar [$2 altres opcions] per convertir el vostre fitxer de vídeo en un format lliure.',
+Podeu instaŀlar [$1 Firefogg], una extensió de Firefox per convertir-lo automàticament, o utilitzar [$2 altres opcions] per convertir el vostre fitxer de vídeo en un format lliure.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Aquest wiki requereix que els fitxers tinguin una extensió (com ara «.JPG») al final del seu nom.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Ja esteu carregant el fitxer «$1».',
 	'mwe-upwiz-allowed-filename-extensions' => 'Les extensions permeses són:',
@@ -5137,7 +5137,7 @@ Prøv en anden browser.',
 	'mwe-upwiz-thanks-intro' => 'Tak fordi du lægger filer op!',
 	'mwe-upwiz-thanks-explain' => 'Du kan nu bruge {{PLURAL:$1|denne fil|disse filer}} på websteder som Wikipedia eller linke til {{PLURAL:$1|den|dem}} på internettet.',
 	'mwe-upwiz-thanks-wikitext' => '<b>For at bruge filen i en wiki</b>, kopier denne tekst til siden:',
-	'mwe-upwiz-thanks-url' => '<b>For at linke til den i HTML</b>, kopier denne URL-adresse:',
+	'mwe-upwiz-thanks-url' => '<b>For at linke til den i HTML</b>, kopier denne URL-adresse:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Denne wiki accepterer ikke filnavne med endelsen ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Du har valgt at lægge en videofil op, der ikke er i et frit format.
 Du kan [$1 installere Firefogg], en Firefoxudvidelse, som kan konvertere din fil automatisk, eller bruge [$2 andre konverteringsmuligheder] for at konvertere videoen til et frit format.',
@@ -5977,10 +5977,10 @@ REca keme xo re yewna rovıter bıcerbne.',
 	'mwe-upwiz-thanks-intro' => 'Qandê barkerdışi şıma rê teşekur kem!',
 	'mwe-upwiz-thanks-explain' => 'Nıka şıma linkê {{PLURAL:$1|na dosya|nê dosyaya}} sitey zey Wikipediya de  şena ıstifade, ya zi web de  {{PLURAL:$1|na|nê}} linki bınuse.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Na dosyayer wiki de karfinayışi re</b>, ena metiner perda wiki re kopya kerê:',
-	'mwe-upwiz-thanks-url' => '<b>Qande greye HTML dayışi re</b>, enê adresê URL kopya kerê:',
+	'mwe-upwiz-thanks-url' => '<b>Qande greye HTML dayışi re</b>, enê adresê URL kopya kerê:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ena wiki derganeya nameyê dosya da ".$1" qebul nêkeno.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Tı qande uploading yew dosyayê video ke be formatê xo xoser niyo tercih kerdo.
-Tı şena download [$1 Firefogg ],tı şena konsverysiyon dosyay to be yew ekstensiyonê Firefoxi.Ya zi qande konversiyon be [$2 converting options] bınuse.',
+Tı şena download [$1 Firefogg],tı şena konsverysiyon dosyay to be yew ekstensiyonê Firefoxi.Ya zi qande konversiyon be [$2 converting options] bınuse.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => "Ena wiki de derganeya dosya icab kena — soyın de dosya de zey ''JPG'''i wa bıbo.",
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Şımaye enewke dosyay "$1" bar kenê.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Derganeyê ke cı re mısade deyayo enêyê:',
@@ -6839,9 +6839,9 @@ $messages['eo'] = array(
 	'mwe-upwiz-thanks-intro' => 'Dankon pro la alŝuto!',
 	'mwe-upwiz-thanks-explain' => 'Vi nun povas uzi ĉi-{{PLURAL:$1|tiun dosieron|tiujn dosierojn}} en retejoj kiel Vikipedio, aŭ ligigi al {{PLURAL:$1|ĝi|ili}} en la TTT.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Por uzi la dosieron en vikio</b>, kopiu la sekvan tekston en artikolon:',
-	'mwe-upwiz-thanks-url' => '<b>Por ligi ĝin en kodo HTML</b>, bonvolu kopii la sekvan URL-adreson:',
+	'mwe-upwiz-thanks-url' => '<b>Por ligi ĝin en kodo HTML</b>, bonvolu kopii la sekvan URL-adreson:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Tiu ĉi vikio ne akceptas dosieronomojn kiuj finiĝas per la aldonaĵo ".$1".',
-	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Vi elektis filman dosieron kiu ne estas en libere uzebla formato. Vi povas instali [$1 Firefogg ], kromprogramon de la retumilo \'\'Firefox\'\' aŭ "Fajrovulpo", por aŭtomate konverti vian dosieron. Aŭ uzu alian [$2 konvertan eblecon] por ŝanĝi la filmon al libere uzebla formato.',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Vi elektis filman dosieron kiu ne estas en libere uzebla formato. Vi povas instali [$1 Firefogg], kromprogramon de la retumilo \'\'Firefox\'\' aŭ "Fajrovulpo", por aŭtomate konverti vian dosieron. Aŭ uzu alian [$2 konvertan eblecon] por ŝanĝi la filmon al libere uzebla formato.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Ĉi tiu vikio devigas ke dosieroj havas sufikson — kiel ".JPG" ĉe la fino de la dosiernomo.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Vi jam alŝutas la dosieron "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'La permesitaj aldonaĵoj fine de la dosieronomo estas:',
@@ -8328,8 +8328,8 @@ $messages['fi'] = array(
 	'mwe-upwiz-step-deeds' => 'Käyttöoikeudet',
 	'mwe-upwiz-step-details' => 'Kuvaile',
 	'mwe-upwiz-step-thanks' => 'Käytä',
-	'mwe-upwiz-campaign-name-duplicate' => 'Samanniminen tiedosto on jo olemassa.',
-	'mwe-upwiz-campaign-unknown-error' => 'Tapahtui tuntematon virhe.',
+	'mwe-upwiz-campaign-name-duplicate' => 'Samanniminen kampanja on jo olemassa.',
+	'mwe-upwiz-campaign-unknown-error' => 'Tuntematon virhe.',
 	'mwe-upwiz-api-warning-exists' => 'Samaa nimeä käyttää jo [$1 toinen tiedosto].',
 	'mwe-upwiz-api-warning-was-deleted' => 'Samanniminen tiedosto ”$1” on joskus ollut olemassa, mutta se on poistettu. Et voi lisätä samannimistä tiedostoa uudelleen. Jos tiedostosi sisältö ei ole sama kuin poistetun tiedoston, nimeä se uudelleen.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Emme löytäneet ohjetta kielelläsi. Se näytetään sen sijaan kielellä $1.',
@@ -8447,7 +8447,7 @@ Kokeile toista selainta.',
 	'mwe-upwiz-thanks-intro' => 'Kiitos tallennuksesta.',
 	'mwe-upwiz-thanks-explain' => 'Nyt voit käyttää {{PLURAL:$1|tätä tiedostoa|näitä tiedostoja}} vaikkapa Wikipediassa tai laittaa linkin {{PLURAL:$1|siihen|niihin}}.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Tiedoston käyttäminen wikissä</b> onnistuu kopioimalla seuraava koodi sivulle:',
-	'mwe-upwiz-thanks-url' => '<b>Tiedostoon linkittäminen</b> tapahtuu osoitteella:',
+	'mwe-upwiz-thanks-url' => '<b>Tiedostoon linkittäminen</b> tapahtuu osoitteella:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Tämä wiki ei ota vastaan tiedostoja, jotka päättyvät tiedostopäätteeseen .$1.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Olet valinnut tallennettavaksi videotiedoston, joka ei ole vapaassa tiedostomuodossa.
 Voit asentaa [$1 Firefoggin], Firefox-laajennuksen, joka muuntaa tiedoston automaattisesti. Vaihtoehtoisesti voit käyttää [$2 muita muuntamisvaihtoehtoja] muuntaaksesi videon vapaaseen tiedostomuotoon.',
@@ -8935,7 +8935,7 @@ Veuillez essayer avec un autre navigateur.",
 	'mwe-upwiz-thanks-intro' => 'Merci d’avoir téléversé vos œuvres !',
 	'mwe-upwiz-thanks-explain' => 'Vous pouvez maintenant utiliser {{PLURAL:$1|ce fichier|ces fichiers}} sur des sites comme Wikipédia, ou {{PLURAL:$1|le|les}} lier sur le web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Afin d’utiliser le fichier sur un wiki</b>, vous pouvez copier ce texte dans une page :',
-	'mwe-upwiz-thanks-url' => '<b>Pour créer un lien en HTML</b>, copier cette URL :',
+	'mwe-upwiz-thanks-url' => '<b>Pour faire un lien vers lui en HTML</b>, copiez cette URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ce wiki n’accepte pas les noms de fichiers avec l’extension « .$1 ».',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Vous avez sélectionné un fichier vidéo pour le téléversement qui n’est pas dans un format libre.
 Vous pouvez installer [$1 Firefogg], une extension Firefox pour le convertir automatiquement, ou utiliser d’autres [$2 systèmes de conversion] pour convertir la vidéo dans un format libre.',
@@ -9680,7 +9680,7 @@ Inténteo con outro navegador.',
 	'mwe-upwiz-thanks-intro' => 'Grazas pola súa subida!',
 	'mwe-upwiz-thanks-explain' => 'Agora xa pode empregar {{PLURAL:$1|este ficheiro|estes ficheiros}} en sitios como a Wikipedia ou incluír ligazóns cara a {{PLURAL:$1|el|eles}} na web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Para empregar o ficheiro nun wiki</b>, copie este texto na páxina:',
-	'mwe-upwiz-thanks-url' => '<b>Para ligar cara a el en HTML</b>, copie este enderezo URL:',
+	'mwe-upwiz-thanks-url' => '<b>Para ligar cara a el en HTML</b>, copie este enderezo URL:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Este wiki non acepta nomes de ficheiro coa extensión ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'O ficheiro de vídeo que seleccionou para cargar non está nun formato libre.
 Pode [$1 instalar o Firefogg], unha extensión do Firefox, para convertelo automaticamente ou usar outras [$2 opcións de conversión] para facer que o vídeo teña un formato libre.',
@@ -10372,10 +10372,10 @@ $messages['gu'] = array(
 	'mwe-upwiz-thanks-intro' => 'અપલોડ માટે આભાર!',
 	'mwe-upwiz-thanks-explain' => 'તમે હવી આ {{PLURAL:$1|ફાઈલ|ફાઈલો}} ને  વિકિપીડિયા જેવી સાઈટ પ્ર વાપરી શક્કશો અથવા તો તેમની કડીઓ વેબ પર વાપરી શકશો.',
 	'mwe-upwiz-thanks-wikitext' => '<b>આ ફાઈલને વિકિમાં વાપરવા માટે</b>, આ લખાણને પાનાં પર નકલ કરો:',
-	'mwe-upwiz-thanks-url' => '<b>તેને HTMLમાં કડી કરવા માટે</b>, આ URL સરનામું નકલ કરો:',
+	'mwe-upwiz-thanks-url' => '<b>તેને HTMLમાં કડી કરવા માટે</b>, આ URL સરનામું નકલ કરો:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => '".$1" વિસ્તારકો ધરાવતી ફાઈલોને આ વિકિ સ્વીકારતું નથી.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'તમે ઍક વિડિઓ ફાઈલ ચઢાવી રહ્યાં છો. આ ફાઈલનો પ્રકાર ફ્રી ફોર્મેટ માં ઉપલબ્ધ નથી.
-તમે [$1 Firefogg ] a Firefox extension to automatically convert your file. Or use other [$2 converting options] નો ઉપયોગ કરીને તે ફાઈલને ફ્રી ફોર્મેટેમાં ફેરવી શકો છો.',
+તમે [$1 Firefogg] a Firefox extension to automatically convert your file. Or use other [$2 converting options] નો ઉપયોગ કરીને તે ફાઈલને ફ્રી ફોર્મેટેમાં ફેરવી શકો છો.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'આ વિકિને ".JPG" જેવા વિસ્તારકો ધરાવતી ફાઈલની જરૂર છે',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'તમે અત્યારે ફાઈલ "$1" અપલોડ કરી જ રહ્યા છો.',
 	'mwe-upwiz-allowed-filename-extensions' => 'મંજૂર  વિસ્તારકો (એક્સટેન્શન) આ મુજબ છે:',
@@ -10595,6 +10595,7 @@ $messages['ha'] = array(
  * @author Matanya
  * @author Rotemliss
  * @author YaronSh
+ * @author Ypnypn
  */
 $messages['he'] = array(
 	'uploadwizard' => 'אשף ההעלאה',
@@ -10634,6 +10635,7 @@ $messages['he'] = array(
 	'mwe-upwiz-error-no-image-retrieved' => 'לא הצלחנו לאזחר את הקובץ מ{{GRAMMAR:תחילית|$1}}.',
 	'mwe-upwiz-multi-file-select' => 'יש לסמן בעכבר את הקבצים שברצונך להעלות או להחזיק את מקש Ctrl או Command כדי לבחור מספר תמונות.',
 	'mwe-upwiz-transport-started' => 'בהליכי הפעלה...',
+	'mwe-upwiz-encoding' => 'מקודד...',
 	'mwe-upwiz-uploading' => 'מתבצעת העלאה...',
 	'mwe-upwiz-queued' => 'נכנס לתור...',
 	'mwe-upwiz-assembling' => 'הכנה...',
@@ -10733,7 +10735,7 @@ $messages['he'] = array(
 	'mwe-upwiz-thanks-intro' => 'תודה על ההעלאה!',
 	'mwe-upwiz-thanks-explain' => 'כעת תוכלו להשתמש ה{{PLURAL:$1|קובץ הזה|קבצים האלה}} באתרים כמו ויקיפדיה, או לקשר אל{{PLURAL:$1|יו|יהם}} מאתרי אינטרנט.',
 	'mwe-upwiz-thanks-wikitext' => '<b>כדי להשתמש בקובץ הזה בוויקי</b>, העתיקן טקסט זה לתוך הדף:',
-	'mwe-upwiz-thanks-url' => '<b>כדי לקשר אליו ב־HTML,</b> העתיקו את הכתובת הזאת:',
+	'mwe-upwiz-thanks-url' => '<b>כדי לקשר אליו ב־HTML,</b> העתיקו את הכתובת הזאת:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'ויקי זה אינו מקבל קבצים עם הסיומת "&lrm;.$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'בחרתם להעלות קובץ וידאו מסוג שאינו חופשי.
 אפשר [$1 להתקין את Firefogg], הרחבת פיירפוקס שתמיר אוטומטית את הקובץ שלך. או להשתמש ב־[$2 אפשרויות המרה אחרות] כדי להמיר את הווידאו לסוג חופשי.',
@@ -13122,10 +13124,10 @@ $messages['is'] = array(
 	'mwe-upwiz-thanks-intro' => 'Takk fyrir upplöðunina!',
 	'mwe-upwiz-thanks-explain' => 'Þú getur nú notað {{PLURAL:$1|þessa skrá|þessar skrár}} á síðum eins og WIkipedia, eða tengt í {{PLURAL:$1|hana|þær}} á veraldarvefnum.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Til þess að nota skránna á wiki</b> afritaðu þennan texta á síðuna:',
-	'mwe-upwiz-thanks-url' => '<b>Til þess að tengja í skránna með HTML</b> afritaðu þessa vefslóð:',
+	'mwe-upwiz-thanks-url' => '<b>Til þess að tengja í skránna með HTML</b> afritaðu þessa vefslóð:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Þessi wiki styður ekki skráarnöfn sem enda með skráartegundinni ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Þú hefur valið myndbandskrá til að hlaða inn sem er ekki geymd á frjálsu skráarsniði.
-Þú getur sett inn [$1 Firefogg ], sem er Firefox viðbót, til að umskrifa skrá þinni. Eða þú getur notað [$2 aðra umskrifunar möguleika] til að breyta skránni yfir á frjálst skráarsnið.',
+Þú getur sett inn [$1 Firefogg], sem er Firefox viðbót, til að umskrifa skrá þinni. Eða þú getur notað [$2 aðra umskrifunar möguleika] til að breyta skránni yfir á frjálst skráarsnið.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Þessi wiki gerir kröfu um að skrárnar hafi skráarsnið - eins og til dæmis ".JPG", í enda skráarnafnsins.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Þú ert þegar að hlaða inn skránni "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'Leyfð skráarsnið eru:',
@@ -13733,7 +13735,7 @@ $1',
  */
 $messages['ja'] = array(
 	'uploadwizard' => 'アップロードウィザード',
-	'uploadwizard-desc' => 'アップロードウィザード（マルチメディアをアップロードするユーザーフレンドリーなツール）',
+	'uploadwizard-desc' => 'アップロードウィザード (マルチメディアをアップロードするためのユーザーフレンドリーなツール)',
 	'mwe-upwiz-uploadcampaigns' => 'アップロードキャンペーン',
 	'mwe-upwiz-uploadcampaign' => 'アップロードキャンペーンの設定',
 	'right-upwizcampaigns' => 'アップロードウィザードのキャンペーンを構成',
@@ -13859,11 +13861,11 @@ $messages['ja'] = array(
 	'mwe-upwiz-source' => '入手元',
 	'mwe-upwiz-thanks-intro' => 'アップロードしていただきありがとうございます!',
 	'mwe-upwiz-thanks-explain' => 'これで、{{PLURAL:$1|このファイル|これらのファイル}}を、ウィキペディアのようなサイトで利用したり、ウェブ上で{{PLURAL:$1|このファイル|これらのファイル}}にリンクできるようになりました。',
-	'mwe-upwiz-thanks-wikitext' => '<b>このファイルをウィキで利用するには</b>、このテキストを、そのページにコピーしてください：',
-	'mwe-upwiz-thanks-url' => '<b>HTMLでリンクするには</b>、このURLアドレスをコピーしてださい：',
+	'mwe-upwiz-thanks-wikitext' => '<b>このファイルをウィキで使用するには</b>、このテキストをページにコピーしてください:',
+	'mwe-upwiz-thanks-url' => '<b>HTML でリンクするには</b>、この URL をコピーしてださい:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'このウィキは、「.$1」という拡張子を持つファイル名を受け入れていません。',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'あなたがアップロードするために選択した動画ファイルはフリーな形式ではありません。
-[$1 Firefogg]をインストールして自動的に変換してください。もしくはその他の[$2 変換の方法]を利用して動画をフリーな形式にしてください。',
+Firefox の拡張機能 [$1 Firefogg] をインストールして自動的に変換してください。またはその他の[$2 変換方法]を使用して動画をフリーな形式に変換してください。',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'このウィキでは、ファイル名の末尾に、例えば「.JPG」のような拡張子を付ける必要があります。',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'あなたは既にファイル「$1」をアップロードしています。',
 	'mwe-upwiz-allowed-filename-extensions' => '許可された拡張子:',
@@ -14494,7 +14496,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-thanks-intro' => 'გმადლობთ ატვირთვისათვის!',
 	'mwe-upwiz-thanks-explain' => 'ახლა თქვენ შეგიძლიათ გამოიყენოთ {{PLURAL:$1|საკუთარი ფაილი|საკუთარი ფაილები}} ვიკიპედიაში და მის დობილ პროექტებში, ან ბმულით გადავიდეს {{PLURAL:$1|მასზე|მათზე}} სხვა ვებ-გვერდებიდან.',
 	'mwe-upwiz-thanks-wikitext' => '<b>ამ ფაილის ერთ-ერთ ვიკიში გამოსაყენებლად</b> გადააკოპირე შემდეგი ტექსტი შესაბამის გვერდზე:',
-	'mwe-upwiz-thanks-url' => '<b>ბმულის HTML-ში დასამატებლად</b>, დააკოპირეთ შემდეგი URL მისამართი:',
+	'mwe-upwiz-thanks-url' => '<b>ბმულის HTML-ში დასამატებლად</b>, დააკოპირეთ შემდეგი URL მისამართი:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'აღნიშნული ვიკი არ იღებს ფაილების სახელებს გაფართოებით „.$1“.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'თქვენ ასატვირთად აირჩიეთ ვიდეოფაილი, რომელიც ჩაწერილია არათავისუფალ ფორმატში.
 თქვენ შეგიძლიათ დააყენოთ [$1  Firefogg], Firefox-ის ბრაუზერის გაფართოება, რათა ავტომატურად გარდაქმნათ ფაილი, ან გამოიყენოთ სხვა [$2 გარდაქმნის ხერხები], რათა წარმოადგინოთ ვიდეო თავისუფალ ფორმატში.',
@@ -14740,10 +14742,10 @@ $messages['km'] = array(
 	'mwe-upwiz-thanks-intro' => 'សូម​អរគុណ​ចំពោះ​ការ​ផ្ទុកឡើង​!',
 	'mwe-upwiz-thanks-explain' => 'ឥលូវអ្នកអាចប្រើ{{PLURAL:$1|ឯកសារនេះ|ឯកសារទាំងនេះ}}នៅលើវិបសាយនានាដូចជា វិគីភីឌា ឬដាក់តំណភ្ជាប់មកកាន់{{PLURAL:$1|ឯកសារនេះ|ឯកសារទាំងនេះ}}នៅលើអ៊ីនធើណិត។',
 	'mwe-upwiz-thanks-wikitext' => '<b>ដើម្បីប្រើឯកសារនេះនៅលើវិគី</b> សូមធ្វើការចំលងឃ្លាខាងក្រោមចូឡទៅក្នុងទំព័រមួយដែលអ្នកចង់ដាក់វា៖',
-	'mwe-upwiz-thanks-url' => '<b>ដើម្បីដាក់តំណភ្ជាប់មកវាជា HTML</b> សូមធ្វើការចំលងអាសយដ្ឋាន URL នេះ៖',
+	'mwe-upwiz-thanks-url' => '<b>ដើម្បីដាក់តំណភ្ជាប់មកវាជា HTML</b> សូមធ្វើការចំលងអាសយដ្ឋាន URL នេះ៖', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'វិគីនេះមិនទទួលយកឈ្មោះឯកសារដែលមានកន្ទុយ ".$1"​ទេ។',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'អ្នកបានជ្រើសយកឯកសារវីដេអូសំរាប់ធ្វើការផ្ទុកឡើង ដែលមិនមានទំរង់សេរី។
-អ្នកអាចតំលើង [$1 Firefogg ]  ដែលជាសូហ្វវែរបន្ថែមសំរាប់ Firefox ដែលអាចបំលែងឯកសាររបស់អ្នកដោយស្វ័យប្រវត្តិ។ ឬក៏ប្រើ [$2 ជំរើសបំលែង] ដទៃទៀត ដើម្បីបំលែងវីដេអូនេះជាទំរង់សេរី។',
+អ្នកអាចតំលើង [$1 Firefogg]  ដែលជាសូហ្វវែរបន្ថែមសំរាប់ Firefox ដែលអាចបំលែងឯកសាររបស់អ្នកដោយស្វ័យប្រវត្តិ។ ឬក៏ប្រើ [$2 ជំរើសបំលែង] ដទៃទៀត ដើម្បីបំលែងវីដេអូនេះជាទំរង់សេរី។',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'វិគីនេះតំរូវអោយឯកសារមានកន្ទុយជា ".JPG" នៅខាងចុងឈ្មោះឯកសារ។',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'អ្នកកំពុងតែផ្ទុកឯកសារ "$1" ឡើយហើយ។',
 	'mwe-upwiz-allowed-filename-extensions' => 'កន្ទុយដែលអាចប្រើបានមាន៖',
@@ -14977,7 +14979,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-thanks-intro' => '파일을 업로드해주셔서 감사합니다!',
 	'mwe-upwiz-thanks-explain' => '{{PLURAL:$1|이 파일}}을 위키백과 같은 사이트에서 이용할 수 있으며, 또 웹에서 링크할 수도 있습니다.',
 	'mwe-upwiz-thanks-wikitext' => '<b>이 파일을 위키에서 이용하려면</b>, 이 텍스트를 복사해 문서에 붙여넣으세요:',
-	'mwe-upwiz-thanks-url' => '<b>HTML로 이 파일을 링크하려면</b>, 이 URL 주소를 복사하세요:',
+	'mwe-upwiz-thanks-url' => '<b>HTML로 이 파일을 링크하려면</b>, 이 URL 주소를 복사하세요:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => '이 위키는 파일 이름 끝에 있는 확장자가 ".$1"인 파일을 허용하지 않습니다.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => '자유 포맷이 아닌 형식의 비디오 파일을 올리려 하고 있습니다.
 파일을 자동적으로 변환하기 위해 파이어폭스 확장 기능인 [$1 Firefogg]를 설치하거나 [$2 다른 변환 옵션]을 이용할 수 있습니다.',
@@ -16945,7 +16947,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-thanks-intro' => 'Ви благодариме за подигањето!',
 	'mwe-upwiz-thanks-explain' => 'Сега можете да {{PLURAL:$1|ја користите оваа податотека|ги користите овие податотеки}} на сите мреж. места како Википедија, или пак да ставате врски до {{PLURAL:$1|неа|нив}} на интернет.',
 	'mwe-upwiz-thanks-wikitext' => '<b>За да ја користите податотекава на вики</b>, ископирајте го следниов текст во страница:',
-	'mwe-upwiz-thanks-url' => '<b>За да поставите врска до неа во HTML</b>, ископирајте ја следнава HTML-адреса:',
+	'mwe-upwiz-thanks-url' => '<b>За да поставите врска до неа во HTML</b>, ископирајте ја следнава HTML-адреса:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ова вики не прифаќа податотеки со наставка „.$1“.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Одбравте да подигнете видеоснимка што не е во слободен формат.
 Можете автоматски да ја претворите ако го [$1 инсталирате Firefogg], или да искористите една од другите [$2 можности] за да го претворите во слободен формат.',
@@ -19251,12 +19253,12 @@ Probeer het later opnieuw.',
 	'mwe-upwiz-add-flickr' => 'Van Flickr ophalen',
 	'mwe-upwiz-flickr-input-placeholder' => 'Afbeeldings- of fotoset-URL van Flickr',
 	'mwe-upwiz-select-flickr' => 'Geselecteerde afbeeldingen uploaden',
-	'mwe-upwiz-flickr-disclaimer' => 'Via dit formulier wordt inhoud die gehost wordt op flickr.com geladen en deze is onderhevig aan de
-Flickr [https://www.flickr.com/help/terms/ gebruiksvoorwaarden] en het [https://www.flickr.com/help/privacy-policy/ privacybeleid] van Flickr.<br />
-Uw IP-adres en de gegevens van uw handeling zijn zichtbaar voor Flickr tijdens het gebruik van dit hulpmiddel.',
+	'mwe-upwiz-flickr-disclaimer1' => 'Via dit formulier wordt inhoud geladen die wordt gehost door flickr.com en waarop de [https://www.flickr.com/help/terms/ gebruiksvoorwaarden] en het [https://www.flickr.com/help/privacy-policy/ privacybeleid] van Flickr van toepassing zijn.',
+	'mwe-upwiz-flickr-disclaimer2' => 'Door dit hulpmiddel te gebruiken zijn uw IP-adres en verzoekgegevens beschikbaar voor Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'We kunnen het bestand van $1 niet ophalen.',
 	'mwe-upwiz-multi-file-select' => 'Trek een kader over de bestanden die u wilt uploaden. Houd "Ctrl" of "Command" ingedrukt om meerdere, niet aan elkaar grenzende selecties te maken.',
 	'mwe-upwiz-transport-started' => 'Beginnen...',
+	'mwe-upwiz-encoding' => 'Bezig met coderen...',
 	'mwe-upwiz-uploading' => 'bezig met uploaden...',
 	'mwe-upwiz-queued' => 'In de wachtrij geplaatst...',
 	'mwe-upwiz-assembling' => 'Bezig met samenvoegen...',
@@ -19356,7 +19358,7 @@ Probeer een alternatieve browser.',
 	'mwe-upwiz-thanks-intro' => 'Bedankt voor het uploaden!',
 	'mwe-upwiz-thanks-explain' => 'U kunt {{PLURAL:$1|dit bestand|deze bestanden}} nu gebruiken op sites zoals Wikipedia of ernaar verwijzen op het web.',
 	'mwe-upwiz-thanks-wikitext' => 'Kopieer deze tekst in een pagina <b>om het bestand te gebruiken</b>:',
-	'mwe-upwiz-thanks-url' => 'Kopieer deze URL om <b>ernaar te verwijzen in HTML</b>:',
+	'mwe-upwiz-thanks-url' => 'Kopieer deze URL om <b>ernaar te verwijzen in HTML</b>:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Deze wiki accepteert geen bestandsnamen met de extensie ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'U hebt een te uploaden videobestand geselecteerd in een niet vrije opmaak.
 U kunt [$1 Firefogg (een Firefox-addon) installeren] om het bestand automatisch om te zetten. U kunt ook andere [$2 mogelijkhden voor omzetten] gebruiken om het bestand in een vrije opmaak beschikbaar te stellen.',
@@ -20014,10 +20016,10 @@ $messages['or'] = array(
 	'mwe-upwiz-thanks-intro' => 'ଅପଲୋଡ଼ କରିବା ନିମନ୍ତେ ଧନ୍ୟବାଦ!',
 	'mwe-upwiz-thanks-explain' => 'ଆପଣ ଏବେ {{PLURAL:$1|ଏହି ଫାଇଲଟି|ଏହି ଫାଇଲସବୁ}} ଉଇକିପିଡ଼ିଆ ଭଳି ସାଇଟରେ ବ୍ୟବହାର କରିପାରିବେ, କିମ୍ବା ୱେବରେ {{PLURAL:$1|ଏହାକୁ|ଏସବୁକୁ}} ଲିଙ୍କଦେଇ ପାରିବେ ।',
 	'mwe-upwiz-thanks-wikitext' => '<b>ଏକ ଉଇକିରେ ବ୍ୟବହାର ହେବାପାଇଁ</b>, ଏହି ଲେଖାକୁ ଏକ ପୃଷ୍ଠାକୁ ନକଲ କରିନିଅନ୍ତୁ:',
-	'mwe-upwiz-thanks-url' => '<b>HTMLରେ ଏହାକୁ ଯୋଡ଼ିବା ନିମନ୍ତେ</b>, ଏହି URL ଠିକଣାଟି ନକଲ କରିବେ:',
+	'mwe-upwiz-thanks-url' => '<b>HTMLରେ ଏହାକୁ ଯୋଡ଼ିବା ନିମନ୍ତେ</b>, ଏହି URL ଠିକଣାଟି ନକଲ କରିବେ:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'ଏହି ଉଇକି ".$1" ରେ ସରୁଥିବା ଫଳ ନାମ ସବୁକୁ ଗ୍ରହଣ କରିନଥାଏ ।',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'ଆପଣ ଅପଲୋଡ଼ କରିବାକୁ ବାଛିଥିବା ଭିଡ଼ିଓ ଫାଇଲଟି ଏକ ମୁକ୍ତ ଫର୍ମାଟରେ ନାହିଁ ।
-ଆପଣା ଫାଇଲଟିକୁ ଆପେଆପେ ରୂପାନ୍ତର କରିବା ନିମନ୍ତେ ଆପଣ ଏକ ଫାୟାରଫକ୍ସ ଏକ୍ସଟେନସନ [$1 Firefogg ] ଇନଷ୍ଟଲ କରିପାରିବେ କିମ୍ବା ଏହି ଫାଇଲଟିକୁ ଏକ ମୁକ୍ତ ଫର୍ମାଟକୁ ରୂପନର କରିବା ପାଇଁ ଅଲଗା [$2 ରୂପାନ୍ତରଣ ବିକଳ୍ପ] ବ୍ୟବହାର କରିପାରିବେ ।',
+ଆପଣା ଫାଇଲଟିକୁ ଆପେଆପେ ରୂପାନ୍ତର କରିବା ନିମନ୍ତେ ଆପଣ ଏକ ଫାୟାରଫକ୍ସ ଏକ୍ସଟେନସନ [$1 Firefogg] ଇନଷ୍ଟଲ କରିପାରିବେ କିମ୍ବା ଏହି ଫାଇଲଟିକୁ ଏକ ମୁକ୍ତ ଫର୍ମାଟକୁ ରୂପନର କରିବା ପାଇଁ ଅଲଗା [$2 ରୂପାନ୍ତରଣ ବିକଳ୍ପ] ବ୍ୟବହାର କରିପାରିବେ ।',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'ଏହି ଉଇକି ପାଇଁ ଫାଇଲ ନାମ ଶେଷରେ ".JPG" ଥିବା ଫାଇଲ ଦରକାର ।',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'ଆପଣ ଇତିମଧ୍ୟରେ "$1" ଫାଇଲଟି ଅପଲୋଡ଼ କଲେଣି ।',
 	'mwe-upwiz-allowed-filename-extensions' => 'ଅନୁମୋଦିତ ଏକ୍ସଟେନସନସବୁ ହେଲା:',
@@ -20716,7 +20718,6 @@ $messages['pms'] = array(
 	'mwe-upwiz-add-flickr' => 'Pijé da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Anliura ëd figure/photoset ëd Flickr',
 	'mwe-upwiz-select-flickr' => 'carié figure selessionà',
-	'mwe-upwiz-flickr-disclaimer' => "Sto formolari a carierà dël contnù ospità da flickr.com e soget ai [https://www.flickr.com/help/terms/ termo d'usagi] e [https://www.flickr.com/help/privacy-policy/ polìtica ëd privatëssa] ëd Flickr.<br /> Për piasì nòta che dovrand sto utiss, toa adrëssa IP e ij detaj dl'arcesta a saran disponìbij a Flickr.",
 	'mwe-upwiz-error-no-image-retrieved' => "I podoma pa arcuperé l'archivi da $1.",
 	'mwe-upwiz-multi-file-select' => "Disegna na casela con tò cursor dzor l'archivi ch'it vorerìe carié. Ten sgnacà ël ij tast Ctrl/Command për fé dle selession mùltiple pa tacà.",
 	'mwe-upwiz-transport-started' => 'Partì...',
@@ -20819,10 +20820,10 @@ Për piasì preuva un navigador altërnativ.",
 	'mwe-upwiz-thanks-intro' => 'Mersì për avèj carià!',
 	'mwe-upwiz-thanks-explain' => "Adess a peul dovré {{PLURAL:$1|cost archivi|costi archivi}} su dij sit parèj ëd Wikipedia, o buté dj'anliure a {{PLURAL:$1|chiel|lor}} an sla ragnà.",
 	'mwe-upwiz-thanks-wikitext' => "<b>Për dovré l'archivi ant na wiki</b>, ch'a còpia cost test ant na pàgina:",
-	'mwe-upwiz-thanks-url' => "<b>Për coleghelo an HTML</b>, còpia l'adrëssa dë st'anliura:",
+	'mwe-upwiz-thanks-url' => "<b>Për coleghelo an HTML</b>, còpia l'adrëssa dë st'anliura:", # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Costa wiki a aceta pa ij nòm d\'archivi con l\'estension ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "A l'ha selessionà n'archivi filmà për ël cariament ch'a l'é pa an formà lìber.
-A peul anstalé [$1 Firefogg ], n'estension ëd Firefox për convertì automaticament sò archivi. O dovrene d'àutri [$2 sistema ëd conversion] për convertì ël filmà ant un formà lìber.",
+A peul anstalé [$1 Firefogg], n'estension ëd Firefox për convertì automaticament sò archivi. O dovrene d'àutri [$2 sistema ëd conversion] për convertì ël filmà ant un formà lìber.",
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => "Costa wiki a ciama che j'archivi a l'abio n'estension - com \".JPG\" a la fin dël nòm d'archivi.",
 	'mwe-upwiz-upload-error-duplicate-filename-error' => "A l'é già an camin ch'a caria l'archivi «$1».",
 	'mwe-upwiz-allowed-filename-extensions' => "J'estension përmëttùe a son:",
@@ -21134,9 +21135,9 @@ $messages['pnb'] = array(
 	'mwe-upwiz-thanks-intro' => 'اپگریڈنگ دا شکریہ!',
 	'mwe-upwiz-thanks-explain' => 'ہن تسیں {{PLURAL:$1|ایس فائل|ایہ فائلاں}} نوں ورت سکدے اوہ وکیپیڈیا ورگی ویب سائیٹاں تے یا ویب تے {{PLURAL:$1|ایس نوں |ایناں نوں}} جوڑ سکدے او۔',
 	'mwe-upwiz-thanks-wikitext' => '<b>اک وکی چ فائل نوں ورتنا</b>, ایس لکھت نوں اک صفے تے کاپی کرو:',
-	'mwe-upwiz-thanks-url' => '<b>ایچ ٹی ایم ایل چ اینوں جوڑن لئی</b>, ایس یو آر ایل پتے نوں کاپی کرو:',
+	'mwe-upwiz-thanks-url' => '<b>ایچ ٹی ایم ایل چ اینوں جوڑن لئی</b>, ایس یو آر ایل پتے نوں کاپی کرو:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'اے وکی ایسیاں فائلاں نئیں مندا جیدے انت تے ".$1".اندا ہووے۔',
-	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'تساں اک ایسی وڈیو فائل چڑھان لئی چنی اے جیہڑی کھلے فارمیٹ چ نئیں۔ تسیں [$1 فائرفوگ ] چڑھاسکدے او اے اک فائرفوکس ایکسٹنشن اے جیہڑی اپنے آپ تواڈی فائل نوں بدل دیویے گی۔ یا ہور ورتو [$2 بدلن چنوتیاں] وڈیو نوں اک کھلے فارمیٹ چ بدلن لئی۔',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'تساں اک ایسی وڈیو فائل چڑھان لئی چنی اے جیہڑی کھلے فارمیٹ چ نئیں۔ تسیں [$1 فائرفوگ] چڑھاسکدے او اے اک فائرفوکس ایکسٹنشن اے جیہڑی اپنے آپ تواڈی فائل نوں بدل دیویے گی۔ یا ہور ورتو [$2 بدلن چنوتیاں] وڈیو نوں اک کھلے فارمیٹ چ بدلن لئی۔',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'ایس وکی دی ایہ منگ اے جے فائلاں دا اک وادو ناں ہووے جیویں کہ ".JPG" فائل ناں دے انت تے۔',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'تسی پہلے ای "$1" فائل چڑھارۓ او۔',
 	'mwe-upwiz-allowed-filename-extensions' => 'ایکسٹنشن جناں دی اجازت اے:',
@@ -22194,10 +22195,10 @@ $messages['ro'] = array(
 	'mwe-upwiz-thanks-intro' => 'Mulțumim pentru încărcare!',
 	'mwe-upwiz-thanks-explain' => 'Puteți utiliza acum {{PLURAL:$1|acest fișier|aceste fișiere}} pe site-uri ca Wikipedia, sau să trimiteți legături către {{PLURAL:$1|el|ele}}.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Pentru a folosi acest fișier pe un wiki</b>, copiați acest text într-o pagină:',
-	'mwe-upwiz-thanks-url' => '<b>Pentru a crea o legătură în HTML</b>, copiați această adresă URL:',
+	'mwe-upwiz-thanks-url' => '<b>Pentru a crea o legătură în HTML</b>, copiați această adresă URL:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Acest wiki nu acceptă nume de fișiere care se termină în extensia „.$1”.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Ați selectat un fișier video pentru încărcare care nu este într-un format gratuit.
-Puteți instala [$1 Firefrogg ], o extensie pentru Firefox care convertește automat fișierul, sau puteți utiliza [$2 alte metode de conversie] pentru a converti filmul într-un format gratuit.',
+Puteți instala [$1 Firefrogg], o extensie pentru Firefox care convertește automat fișierul, sau puteți utiliza [$2 alte metode de conversie] pentru a converti filmul într-un format gratuit.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Acest wiki solicită fișiere care au o extensie — cum ar fi „.JPG” — la sfârșitul numelui fișierului.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Deja încărcați fișierul „$1”.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Extensiile permise sunt:',
@@ -23435,10 +23436,10 @@ $messages['sa'] = array(
 	'mwe-upwiz-thanks-intro' => 'उपारोपणाय धन्यवादः !',
 	'mwe-upwiz-thanks-explain' => '{{PLURAL:$1|एषा सञ्चिका|एताः सञ्चिकाः}}विकिपीडियादिषु क्षेत्रेषु, अथवा अन्तर्जाले {{PLURAL:$1|एतत्|एतानि}} अनुबन्धुम् उपयोक्तुम् अर्हति ।',
 	'mwe-upwiz-thanks-wikitext' => '<b>वीक्याम् अस्याः सञ्चिकायाः उपयोगं कर्तुं</b>, अस्य पाठ्यांशस्य प्रतिकृतिं पृष्ठे स्वीक्रियताम्:',
-	'mwe-upwiz-thanks-url' => '<b>पर्यङ्कभाषया(HTML) अनुबन्धुं</b>, अस्य सार्वसङ्केतस्य प्रतिकृतिः लिख्यताम् :',
+	'mwe-upwiz-thanks-url' => '<b>पर्यङ्कभाषया(HTML) अनुबन्धुं</b>, अस्य सार्वसङ्केतस्य प्रतिकृतिः लिख्यताम् :', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'इयं वीकी ".$1" अन्त्यविस्तारयुतानि सञ्चिकाशीर्षकाणि न अङ्गीकरोति',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'मुक्तप्रारूपे अविद्यमानं दृश्यं भवता उपारोपणाय चितमस्ति ।
-भवतः सञ्चिकायाः स्वचालितपरिवर्तनाय भवान् [$1 Firefogg ] नामकं फैर्फाक्स्-विस्तारं प्रतिष्ठापयितुम् अर्हति । अथवा अन्यत् [$2 converting options] उपयुज्य दृश्यं मुक्तप्रारूपं प्रति परिवर्तयितुम् अर्हति ।',
+भवतः सञ्चिकायाः स्वचालितपरिवर्तनाय भवान् [$1 Firefogg] नामकं फैर्फाक्स्-विस्तारं प्रतिष्ठापयितुम् अर्हति । अथवा अन्यत् [$2 converting options] उपयुज्य दृश्यं मुक्तप्रारूपं प्रति परिवर्तयितुम् अर्हति ।',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'इयं वीकी ".JPG" सदृश्यः विस्तारान्त्ययुताः सञ्चिकाः अपेक्षते ।',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'एतावता एव भवता "$1" सञ्चिका उपारोप्यमाणमस्ति ।',
 	'mwe-upwiz-allowed-filename-extensions' => 'अनुमताः विस्तृतयः :',
@@ -26414,10 +26415,10 @@ $messages['tl'] = array(
 	'mwe-upwiz-thanks-intro' => 'Salamat sa pagkakarga!',
 	'mwe-upwiz-thanks-explain' => 'Maaari mo nang gamitin ang {{PLURAL:$1|talaksang ito|mga talaksang ito}} sa mga sityong katulad ng Wikipedia, o kumawing {{PLURAL:$1|ito|ang mga ito}} sa web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Upang magamit ang talaksan sa isang wiki</b>, kopyahin ang tekstong ito papunta sa isang pahina:',
-	'mwe-upwiz-thanks-url' => '<b>Upang maikawing ito sa HTML</b>, kopyahin ang tirahang ito ng URL:',
+	'mwe-upwiz-thanks-url' => '<b>Upang maikawing ito sa HTML</b>, kopyahin ang tirahang ito ng URL:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ang wiking ito ay hindi tumatanggap ng mga pangalan ng talaksan may dugtong na ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Pinili mo ang isang talaksan ng bidyo para sa papaitaas na pagkaraga na hindi nasa isang malayang kaanyuan.
-Maaari mong iluklok ang [$1 Firefogg ], isang dugtong ng Firefox upang kusang mapalitan ang talaksan mo. O gumamit ng ibang [$2 mga mapagpipilian ng pagpapalit] upang mapalitan ang bidyo upang maging isang kaanyuang malaya.',
+Maaari mong iluklok ang [$1 Firefogg], isang dugtong ng Firefox upang kusang mapalitan ang talaksan mo. O gumamit ng ibang [$2 mga mapagpipilian ng pagpapalit] upang mapalitan ang bidyo upang maging isang kaanyuang malaya.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Nangangailangan ang wiking ito na may isang dugtong ang mga talaksan -- katulad ng ".JPG" sa hulihan ng pangalan ng talaksan.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Ikinakarga mo nang papaitaas ang talaksang "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'Ang pinapayagang mga dugtong ay:',
@@ -27516,7 +27517,7 @@ Ripróva có 'n altro browser.",
 	'mwe-upwiz-thanks-intro' => "Grasie pa' 'ver cargà!",
 	'mwe-upwiz-thanks-explain' => 'Xe deso posibiłe doparar {{PLURAL:$1|sto|sti}} file so siti cofà Wikipedia, o {{PLURAL:$1|linkarlo|linkarli}} dal web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Par doparar el file inte na wiki,</b> copia sto testo inte na pàjina:',
-	'mwe-upwiz-thanks-url' => '<b>Par crear un ligamento in HTML,</b> copia sto indiriso URL:',
+	'mwe-upwiz-thanks-url' => '<b>Par crear un ligamento in HTML,</b> copia sto indiriso URL:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Sta wiki nó ła aceta nomi de file có estension ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "Te ghe sełesionà pa'l cargamento un file video che nó 'l xe inte un formato libaro.
 Te poi instałar [$1 Firefogg], n'estension de Firefox par convertir automategamente i to file. Opur doparar altre [$2 opsion de conversion] par convertir el video inte un formato libaro.",
@@ -28249,10 +28250,10 @@ $messages['wa'] = array(
 	'mwe-upwiz-thanks-intro' => "Gråces d' aveur eberweté vos ouves !",
 	'mwe-upwiz-thanks-explain' => "Vos ploz asteure eployî {{PLURAL:$1|ci fitchî ci|ces fitchîs ci}} so des waibes come Wikipedia, ou fé des loyéns avou a pårti d' ene ôte waibe.",
 	'mwe-upwiz-thanks-wikitext' => '<b>Po-z eployî ci fitchî cial so on wiki</b>, ricopyîz ci tecse vola so tolminme kéne pådje  :',
-	'mwe-upwiz-thanks-url' => '<b>Po fé ene hårdêye HTML</b>, ricopyî cist URL ci :',
+	'mwe-upwiz-thanks-url' => '<b>Po fé ene hårdêye HTML</b>, ricopyî cist URL ci :', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ci wiki cial n\' acceptêye nén les fitchîs avou l\' cawete ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "Vos vloz eberweter on fitchî videyo ki l' cogne n' est nén dizo libe licince.
-Vos ploz astaler [$1 Firefogg ] on programe Firefogg di rawete po cviersî vosse fitchî. Oudon-bén eployî [$2 relijhas di cviersaedje] po cviersî li dite videyo dizo ene libe cogne.",
+Vos ploz astaler [$1 Firefogg] on programe Firefogg di rawete po cviersî vosse fitchî. Oudon-bén eployî [$2 relijhas di cviersaedje] po cviersî li dite videyo dizo ene libe cogne.",
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => "Ci wiki cial vout des fitchîs avou ene cawete — metans « .JPG » — dirî l' no do fitchî.",
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Vos av dedja eberweté l\' fitchî "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'Les cawetes acceptêyes sont :',
@@ -28387,9 +28388,9 @@ $messages['yi'] = array(
 	'mwe-upwiz-api-warning-exists' => 'שוין פֿאַראַן אויף דער וויקי [$1 אַן אַנדער טעקע] מיט דעם זעלביקן טעקע־נאָמען',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'אַנטשולדיגט, מיר האבן נישט געפֿונען אַ לערנפראגראַם אין אײַער שפּראַך. דעם לערנפראגראַם אויף $1 ווערט געוויזן אלס במקום.',
 	'mwe-upwiz-help-desk' => 'הילף דינסט',
-	'mwe-upwiz-help-desk-url' => 'הילף דינסט', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:הילף דינסט',
 	'mwe-upwiz-add-file-n' => 'צולייגן נאך א טעקע',
-	'mwe-upwiz-add-file-0-free' => 'אויסקלויבן א מעדיע טעקע צו שענקען', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'אויסקלויבן א מעדיע טעקע צו טיילן',
 	'mwe-upwiz-transport-started' => 'אָנהייבן ...',
 	'mwe-upwiz-uploading' => 'אַרופֿלאָדן...',
 	'mwe-upwiz-transported' => 'געענדיקט אַרויפֿלאָדן...',
@@ -28463,6 +28464,7 @@ $messages['yi'] = array(
 	'mwe-upwiz-too-many-files-ok' => 'ריכטיק',
 	'mwe-upwiz-too-many-files' => 'צופיל טעקעס.',
 	'mwe-upwiz-file-too-large-ok' => 'יאָ',
+	'mwe-upwiz-file-too-large' => 'טעקע צו גרויס.',
 	'mwe-upwiz-license-custom-preview' => 'פֿאראויסשטעלונג',
 	'mwe-upwiz-license-none-head' => "כ'האב עס געפונען אויף דער אינטערנעץ – נישט זיכער",
 	'mwe-upwiz-categories' => 'קאַטעגאָריעס',
@@ -28470,7 +28472,7 @@ $messages['yi'] = array(
 	'mwe-upwiz-category-remove' => 'אַראָפּנעמען די קאַטעגאָריע',
 	'mwe-upwiz-thumbnail-failed' => 'אַרויפֿגעלאָדן מיט דערפֿאלג, אבער דער סערווירער האט נישט געקענט ווײַזן א פֿאַרקלענערטן פֿארויסווײַז.',
 	'mwe-upwiz-unparseable-filename' => 'קען נישט פֿאַרשטיין די טעקע נאָמען "$1 "',
-	'mwe-upwiz-image-preview' => 'בילד פֿאָרויסווייַז', # Fuzzy
+	'mwe-upwiz-image-preview' => 'טעקע פֿאָרויסווייַז',
 	'mwe-upwiz-subhead-message' => 'א ייש"כ פֿאַר ניצן אונזער נייע אַרויפֿלאָדן מיטל!',
 	'mwe-upwiz-subhead-bugs' => '[$1 באַקאַנטע פראבלעמען]',
 	'mwe-upwiz-subhead-translate' => '[$1 הילף מיט איבערזעצונגען]',
@@ -28549,11 +28551,11 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-upload-flickr' => '从Flickr上传图像',
 	'mwe-upwiz-add-file-flickr' => '从Flickr添加图像',
 	'mwe-upwiz-add-flickr-or' => '或',
-	'mwe-upwiz-add-flickr' => '从Flickr获取图像', # Fuzzy
+	'mwe-upwiz-add-flickr' => '从Flickr获取',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr图像/照片集URL',
 	'mwe-upwiz-select-flickr' => '上传选定的图像',
-	'mwe-upwiz-error-no-image-retrieved' => '抱歉，我们无法从$1获取图像。', # Fuzzy
-	'mwe-upwiz-multi-file-select' => '使用光标框选您想上传的图像。按下Ctrl/Command键以选择多个不相邻的文件。', # Fuzzy
+	'mwe-upwiz-error-no-image-retrieved' => '我们无法从$1获取文件。',
+	'mwe-upwiz-multi-file-select' => '使用光标框选您想上传的文件。按下Ctrl/Command键以选择多个不相邻的文件。',
 	'mwe-upwiz-transport-started' => '正在启动...',
 	'mwe-upwiz-encoding' => '编码中…',
 	'mwe-upwiz-uploading' => '正在上传...',
@@ -28654,7 +28656,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-thanks-intro' => '感谢上传！',
 	'mwe-upwiz-thanks-explain' => '现在，你可以在维基百科等网站使用{{PLURAL:$1|该|这些}}文件，或在网上链接{{PLURAL:$1|它|它们}}。',
 	'mwe-upwiz-thanks-wikitext' => '<b>在维基中使用该文件</b>，请复制这些文字至页面中：',
-	'mwe-upwiz-thanks-url' => '<b>HTML链接至该文件</b>，请复制该URL地址：',
+	'mwe-upwiz-thanks-url' => '<b>HTML链接至该文件</b>，请复制该URL地址：', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => '本维基不接受扩展名为“.$1”的文件名。',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => '你选择上传的视频文件不是自由格式。你可以安装Firefox扩展程序[$1 Firefogg]自动转换你的文件，或使用其他[$2 转换选项]将视频转换为自由格式。',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => '本维基需要文件有扩展名 — 如文件名末尾的“.JPG”。',
@@ -28783,15 +28785,15 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => '确认删除',
 	'mwe-upwiz-license-external' => '该文件在$1采用的授权协议：<b>$2</b>。',
 	'mwe-upwiz-license-external-invalid' => '该文件在$1采用的授权协议：<b>$2</b>。不过该授权协议不适合在本网站使用。',
-	'mwe-upwiz-license-photoset-invalid' => '糟糕，在照片集中没有照片有适当在本网站上使用的许可协议。', # Fuzzy
+	'mwe-upwiz-license-photoset-invalid' => '糟糕，在照片集中没有照片有适当在本网站上使用的许可协议。',
 	'mwe-upwiz-url-invalid' => '输入的URL不是有效的$1图像或图像集URL。',
 	'mwe-upwiz-categories' => '分类',
 	'mwe-upwiz-categories-add' => '添加',
-	'mwe-upwiz-category-will-be-added' => '此分类会被创建。', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => '此分类还未利用。',
 	'mwe-upwiz-category-remove' => '删除该分类',
 	'mwe-upwiz-thumbnail-failed' => '上传成功，但是服务器不能获得预览缩略图。',
 	'mwe-upwiz-unparseable-filename' => '无法识别文件名“$1”',
-	'mwe-upwiz-image-preview' => '图像预览', # Fuzzy
+	'mwe-upwiz-image-preview' => '文件预览',
 	'mwe-upwiz-subhead-message' => '感谢使用我们的新上传工具！',
 	'mwe-upwiz-subhead-bugs' => '[$1 已知问题]',
 	'mwe-upwiz-subhead-translate' => '[$1 帮助翻译]',
@@ -28828,7 +28830,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-campaign-conf-skipTutorial' => '跳过授权协议教程',
 	'mwe-upwiz-campaign-conf-autoCategories' => '自动添加文件至的分类（以竖线“|”分隔）：',
 	'mwe-upwiz-campaign-conf-defaultCategories' => '默认列于说明标签的分类（以竖线“|”分隔）：',
-	'mwe-upwiz-campaign-conf-autoWikiText' => '自动添加至所有上传图像的维基文字：', # Fuzzy
+	'mwe-upwiz-campaign-conf-autoWikiText' => '自动添加至所有上传文件的维基文字：',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => '控制作品来源：',
 	'mwe-upwiz-campaign-owner-choice' => '允许用户在自己的和他人的作品间选择',
 	'mwe-upwiz-campaign-owner-own' => '只允许自己的作品的上传',
