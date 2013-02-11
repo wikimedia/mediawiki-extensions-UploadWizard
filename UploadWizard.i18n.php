@@ -160,7 +160,7 @@ Please try an alternative browser.',
 	'mwe-upwiz-thanks-intro' => 'Thanks for uploading!',
 	'mwe-upwiz-thanks-explain' => 'You can now use {{PLURAL:$1|this file|these files}} on sites like Wikipedia, or link to {{PLURAL:$1|it|them}} on the web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>To use the file in a wiki</b>, copy this text into a page:',
-	'mwe-upwiz-thanks-url' => '<b>To link to it in HTML</b>, copy this URL address:',
+	'mwe-upwiz-thanks-url' => '<b>To link to it in HTML</b>, copy this URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'This wiki does not accept filenames that end in the extension ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'You have selected a video file for uploading that is not in a free format.
 You can install [$1 Firefogg] a Firefox extension to automatically convert your file. Or use other [$2 converting options] to convert the video into a free format.',
