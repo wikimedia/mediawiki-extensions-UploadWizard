@@ -498,12 +498,15 @@ $1 is the name of the fallback language.",
 	'mwe-upwiz-multi-file-select' => 'Instructions that appear when the user can select multiple files to upload. See http://jqueryui.com/demos/selectable/#display-grid for how this works.',
 	'mwe-upwiz-transport-started' => 'Status message when upload starts',
 	'mwe-upwiz-encoding' => 'Status message while encoding with Firefogg',
-	'mwe-upwiz-uploading' => 'Status message while upload is ongoing',
+	'mwe-upwiz-uploading' => 'Status message while upload is ongoing.
+{{Identical|Uploading}}',
 	'mwe-upwiz-queued' => 'Status message once upload is done and queued on the server',
 	'mwe-upwiz-assembling' => 'Status message while server assembles the uploaded chunks',
 	'mwe-upwiz-publish' => 'Status message while server publishes file from stash',
 	'mwe-upwiz-transported' => 'Status message once upload is finished',
-	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).',
+	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).
+{{Identical|Uploaded}}',
+	'mwe-upwiz-failed' => '{{Identical|Failed}}',
 	'mwe-upwiz-remove' => '{{Identical|Remove}}',
 	'mwe-upwiz-override' => 'Message for a button to steamroll over some errors. The only use right now is for overriding duplicate-archive errors, where the file was uploaded and deleted before.',
 	'mwe-upwiz-show-thumb' => 'Link text for the control that displays a thumbnail manually, when automatic client-side thumbs are disabled for performance',
@@ -511,6 +514,7 @@ $1 is the name of the fallback language.",
 	'mwe-upwiz-upload' => '{{Identical|Upload}}',
 	'mwe-upwiz-file-upload-notcapable' => 'The message a user will see when their browser cannot be used to upload an image.',
 	'mwe-upwiz-file-retry' => 'This is the text on a button. If any uploads failed, this button can be clicked to retry uploading the files that failed the previous time.',
+	'mwe-upwiz-progressbar-uploading' => '{{Identical|Uploading}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'An explanation below the thumbnail and above the radio buttons {{msg-mw|mwe-upwiz-source-ownwork}} and {{msg-mw|mwe-upwiz-source-thirdparty}}. Parameters:
 * $1 is the number of files.
 * $2 can be used for GENDER.',
@@ -4459,11 +4463,13 @@ $messages['cs'] = array(
 	'mwe-upwiz-add-flickr' => 'Získat z Flickru',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL obrázku/sady na Flickru',
 	'mwe-upwiz-select-flickr' => 'Načíst zvolené obrázky',
-	'mwe-upwiz-flickr-disclaimer' => 'Tento formulář nahraje obsah z flickr.com, který podléhá tamním [https://www.flickr.com/help/terms/ podmínkám užití] a [https://www.flickr.com/help/privacy-policy/ zásadám ochrany osobních údajů].<br />
-Uvědomte si, že použitím tohoto formuláře zpřístupníte svou IP adresu a obsah formuláře Flickru.',
+	'mwe-upwiz-flickr-disclaimer1' => 'Tento formulář načte obsah z flickr.com, který podléhá
+[https://www.flickr.com/help/terms/ podmínkám užití] a [https://www.flickr.com/help/privacy-policy/ pravidlům ochrany osobních údajů] Flickru.',
+	'mwe-upwiz-flickr-disclaimer2' => 'Uvědomte si, že použitím tohoto nástroje zpřístupníte svou IP adresu a údaje o požadavku Flickru.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Nepodařilo se nám načíst soubor z $1.',
 	'mwe-upwiz-multi-file-select' => 'Pomocí kurzoru myši nakreslete rámeček přes soubory, které chcete načíst. Několik nesouvislých výběrů můžete vytvořit podržením klávesy Ctrl/Command.',
 	'mwe-upwiz-transport-started' => 'Spouští se…',
+	'mwe-upwiz-encoding' => 'Kódování…',
 	'mwe-upwiz-uploading' => 'načítání…',
 	'mwe-upwiz-queued' => 'Ve frontě...',
 	'mwe-upwiz-assembling' => 'Sestavuje se…',
@@ -4563,7 +4569,7 @@ Zkuste nějaký jiný prohlížeč.',
 	'mwe-upwiz-thanks-intro' => 'Děkujeme za načtení!',
 	'mwe-upwiz-thanks-explain' => 'Nyní můžete {{PLURAL:$1|tento soubor|tyto soubory}} použít na projektech, jako je Wikipedie, nebo na {{PLURAL:$1|něj|ně}} odkázat z webových stránek.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Pro použití souboru na wiki</b> vložte do stránky tento text:',
-	'mwe-upwiz-thanks-url' => '<b>Odkázat na soubor v HTML</b> můžete pomocí této adresy:',
+	'mwe-upwiz-thanks-url' => '<b>Odkázat na soubor v HTML</b> můžete pomocí této adresy:', # Fuzzy
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Tato wiki nepřijímá soubory s příponou „.$1“.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'K načtení jste {{gender:|vybral|vybrala|vybrali}} videosoubor, který není ve svobodném formátu.
 Pokud ho chcete automaticky převést, můžete si [$1 nainstalovat Firefogg], případně využijte [$2 další možnosti převodu].',
@@ -9680,7 +9686,7 @@ Inténteo con outro navegador.',
 	'mwe-upwiz-thanks-intro' => 'Grazas pola súa subida!',
 	'mwe-upwiz-thanks-explain' => 'Agora xa pode empregar {{PLURAL:$1|este ficheiro|estes ficheiros}} en sitios como a Wikipedia ou incluír ligazóns cara a {{PLURAL:$1|el|eles}} na web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Para empregar o ficheiro nun wiki</b>, copie este texto na páxina:',
-	'mwe-upwiz-thanks-url' => '<b>Para ligar cara a el en HTML</b>, copie este enderezo URL:', # Fuzzy
+	'mwe-upwiz-thanks-url' => '<b>Para ligar cara á imaxe en HTML</b>, copie este URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Este wiki non acepta nomes de ficheiro coa extensión ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'O ficheiro de vídeo que seleccionou para cargar non está nun formato libre.
 Pode [$1 instalar o Firefogg], unha extensión do Firefox, para convertelo automaticamente ou usar outras [$2 opcións de conversión] para facer que o vídeo teña un formato libre.',
@@ -13491,7 +13497,7 @@ Ritenta con un browser alternativo.',
 	'mwe-upwiz-thanks-intro' => 'Grazie per il caricamento!',
 	'mwe-upwiz-thanks-explain' => 'È ora possibile usare {{PLURAL:$1|questo|questi}} file su siti come Wikipedia, o {{PLURAL:$1|collegarlo|collegarli}} da altrove sul web.',
 	'mwe-upwiz-thanks-wikitext' => '<b>Per usare il file in un wiki,</b> copia questo testo in una pagina:',
-	'mwe-upwiz-thanks-url' => '<b>Per creare un collegamento in HTML,</b> copia questo indirizzo URL:',
+	'mwe-upwiz-thanks-url' => '<b>Per creare un collegamento in HTML,</b> copia questo URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Questo wiki non accetta nomi di file con estensione ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "Hai selezionato per il caricamento un file video che non è in un formato libero.
 Puoi installare [$1 Firefogg], un'estensione di Firefox per convertire automaticamente i tuoi file. Oppure usare altre [$2 opzioni di conversione] per convertire il video in un formato libero.",
@@ -16947,7 +16953,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-thanks-intro' => 'Ви благодариме за подигањето!',
 	'mwe-upwiz-thanks-explain' => 'Сега можете да {{PLURAL:$1|ја користите оваа податотека|ги користите овие податотеки}} на сите мреж. места како Википедија, или пак да ставате врски до {{PLURAL:$1|неа|нив}} на интернет.',
 	'mwe-upwiz-thanks-wikitext' => '<b>За да ја користите податотекава на вики</b>, ископирајте го следниов текст во страница:',
-	'mwe-upwiz-thanks-url' => '<b>За да поставите врска до неа во HTML</b>, ископирајте ја следнава HTML-адреса:', # Fuzzy
+	'mwe-upwiz-thanks-url' => '<b>За да поставите врска до неа во HTML</b>, ископирајте ја следнава URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ова вики не прифаќа податотеки со наставка „.$1“.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Одбравте да подигнете видеоснимка што не е во слободен формат.
 Можете автоматски да ја претворите ако го [$1 инсталирате Firefogg], или да искористите една од другите [$2 можности] за да го претворите во слободен формат.',
