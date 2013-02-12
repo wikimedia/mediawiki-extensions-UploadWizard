@@ -917,9 +917,9 @@ mw.UploadWizard.prototype = {
 				// changes the initial centered invitation button to something like "add another file"
 				_this.$addFile = this.$addFile || $j( '#mwe-upwiz-add-file' );
 				_this.$addFile.button( 'option', 'label', gM( 'mwe-upwiz-add-file-n' ) );
+				$j( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).addClass( 'mwe-upwiz-add-files-n' );
 				_this.$addFileContainer = this.$addFileContainer || $j( '#mwe-upwiz-add-file-container' );
 				_this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
-				_this.$addFileContainer.addClass( 'mwe-upwiz-add-files-n' );
 				_this.$addFileContainer.show();
 			} else {
 				_this.$addFile = this.$addFile || $j( '#mwe-upwiz-add-file' );
