@@ -190,7 +190,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			// if one changes all the others change (keyup event)
 			$formFields.find( '.mwe-upwiz-sign' )
 				.attr( {
-					title: gM( 'mwe-upwiz-tooltip-sign' ),
+					title: mw.msg( 'mwe-upwiz-tooltip-sign' ),
 					value: mw.config.get(  'wgUserName' )
 				} )
 				.keyup( function() {
@@ -221,9 +221,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 			var messages = {
 				author2: {
-					required: gM( 'mwe-upwiz-error-signature-blank' ),
-					minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-					maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
+					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
 				}
 			};
 
@@ -240,9 +240,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				};
 
 				messages.author = {
-					required: gM( 'mwe-upwiz-error-signature-blank' ),
-					minlength: gM( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-					maxlength: gM( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
+					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
 				};
 			}
 
@@ -297,11 +297,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 				$j( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
 				$j( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $j( '<label for="source" />' ).text( gM( 'mwe-upwiz-source' ) ).addHint( 'source' ),
+					.append( $j( '<label for="source" />' ).text( mw.msg( 'mwe-upwiz-source' ) ).addHint( 'source' ),
 						 _this.sourceInput ),
 				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $j( '<label for="author" />' ).text( gM( 'mwe-upwiz-author' ) ).addHint( 'author' ),
+					.append( $j( '<label for="author" />' ).text( mw.msg( 'mwe-upwiz-author' ) ).addHint( 'author' ),
 						 _this.authorInput ),
 				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
 					.append( $j( '<div></div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ) )
@@ -319,14 +319,14 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 				},
 				messages: {
 					source: {
-						required: gM( 'mwe-upwiz-error-blank' ),
-						minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minSourceLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxSourceLength'  ] )
+						required: mw.msg( 'mwe-upwiz-error-blank' ),
+						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minSourceLength'  ] ),
+						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxSourceLength'  ] )
 					},
 					author: {
-						required: gM( 'mwe-upwiz-error-blank' ),
-						minlength: gM( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: gM( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+						required: mw.msg( 'mwe-upwiz-error-blank' ),
+						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
+						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
 					}
 				}
 			} );
@@ -384,7 +384,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 		   +    '<span class="mwe-upwiz-deed-header">'
 		   +      '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">'
 		   +      '<label for="' + id + '" class="mwe-upwiz-deed-name">'
-		   +        gM( 'mwe-upwiz-source-' + deed.name, _this.uploads.length )
+		   +        mw.msg( 'mwe-upwiz-source-' + deed.name, _this.uploads.length )
 		   +      '</label>'
 		   +    '</span>'
 		   +  '</div>'
@@ -448,7 +448,7 @@ mw.UploadWizardDeedChooser.prototype = {
 			_this.hideError();
 		} else {
 			if ( _this.deed === mw.UploadWizardNullDeed ) {
-				_this.showError( gM( 'mwe-upwiz-deeds-need-deed', _this.uploads.length ) );
+				_this.showError( mw.msg( 'mwe-upwiz-deeds-need-deed', _this.uploads.length ) );
 				$j( _this ).bind( 'chooseDeed', function() {
 					_this.hideError();
 				} );

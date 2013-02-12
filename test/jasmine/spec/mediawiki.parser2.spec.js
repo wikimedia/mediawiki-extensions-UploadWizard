@@ -489,11 +489,10 @@ describe( "mediaWiki.language.parser", function() {
 
 	describe( "easy message interface functions", function() {
 		it( "should allow a global that returns strings", function() {
-			var gM = mediaWiki.language.parser.getMessageFunction();
 			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
 			// a surrounding <SPAN> is needed for html() to work right
 			var expectedHtml = $j( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
-			var result = gM( 'en_link_replace', 'http://example.com/foo', 'linking' );
+			var result = mw.msg( 'en_link_replace', 'http://example.com/foo', 'linking' );
 			expect( typeof result ).toEqual( 'string' );
 			expect( result ).toEqual( expectedHtml );
 		} );

@@ -68,7 +68,7 @@ mw.FlickrChecker.prototype = {
 		var fileName, imageContainer, sourceURL;
 
 		$j( '#mwe-upwiz-select-flickr' ).button( {
-			label: gM( 'mwe-upwiz-select-flickr' ),
+			label: mw.msg( 'mwe-upwiz-select-flickr' ),
 			disabled: true
 		} );
 		$.getJSON( _this.apiUrl, {
@@ -318,9 +318,9 @@ mw.FlickrChecker.prototype = {
 
 		// Set the license message to show the user.
 		if ( licenseValue == 'invalid' ) {
-			licenseMessage = gM( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
+			licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
 		} else {
-			licenseMessage = gM( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+			licenseMessage = mw.msg( 'mwe-upwiz-license-external', 'Flickr', licenseName );
 		}
 		var license = {
 			licenseName: licenseName,

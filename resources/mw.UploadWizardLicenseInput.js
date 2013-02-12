@@ -265,7 +265,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				} );
 
 		var $button = $j( '<span></span>' )
-				.button( { label: gM( 'mwe-upwiz-license-custom-preview' ) } )
+				.button( { label: mw.msg( 'mwe-upwiz-license-custom-preview' ) } )
 				.css( { 'width': '8em' } )
 				.click( function() { _this.showPreview( $textarea.val() ); } );
 

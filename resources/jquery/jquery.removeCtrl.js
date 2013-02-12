@@ -3,9 +3,9 @@
  */
 ( function ( $j ) {
 	$j.fn.removeCtrl = function( msgKey, tooltipMsgKey, callback ) {
-		var msg = (msgKey === null) ? '' : gM( msgKey );
+		var msg = (msgKey === null) ? '' : mw.msg( msgKey );
 		return $j( '<div class="mwe-upwiz-remove-ctrl ui-corner-all" />' )
-			.attr( 'title', gM( tooltipMsgKey ) )
+			.attr( 'title', mw.msg( tooltipMsgKey ) )
 			.click( callback )
 			.hover( function() { $j( this ).addClass( 'hover' ); },
 				function() { $j( this ).removeClass( 'hover' ); } )

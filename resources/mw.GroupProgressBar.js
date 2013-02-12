@@ -138,15 +138,15 @@ mw.GroupProgressBar.prototype = {
 			if (t.hours === 0) {
 				if (t.minutes === 0) {
 					if (t.seconds === 0) {
-						timeString = gM( 'mwe-upwiz-finished' );
+						timeString = mw.msg( 'mwe-upwiz-finished' );
 					} else {
-						timeString = gM( 'mwe-upwiz-secs-remaining', t.seconds );
+						timeString = mw.msg( 'mwe-upwiz-secs-remaining', t.seconds );
 					}
 				} else {
-					timeString = gM( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds );
+					timeString = mw.msg( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds );
 				}
 			} else {
-				timeString = gM( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds );
+				timeString = mw.msg( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds );
 			}
 			_this.$selector.find( '.mwe-upwiz-etr' ).html( timeString );
 		}
@@ -178,7 +178,7 @@ mw.GroupProgressBar.prototype = {
 	showCount: function( count ) {
 		this.$selector
 			.find( '.mwe-upwiz-count' )
-			.html( gM( 'mwe-upwiz-upload-count', [ count, this.uploads.length - this.countEmpties() ] ) );
+			.html( mw.msg( 'mwe-upwiz-upload-count', count, this.uploads.length - this.countEmpties() ) );
 	},
 
 	countEmpties: function () {

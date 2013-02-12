@@ -146,7 +146,7 @@ mw.UploadWizard.prototype = {
 					// check if there is an upload at all (should never happen)
 					if ( _this.uploads.length === 0 ) {
 						$j( '<div></div>' )
-							.html( gM( 'mwe-upwiz-file-need-file' ) )
+							.html( mw.msg( 'mwe-upwiz-file-need-file' ) )
 							.dialog({
 								width: 500,
 								zIndex: 200000,
@@ -285,11 +285,11 @@ mw.UploadWizard.prototype = {
 			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
 			$j( '#mwe-upwiz-skip ').tipsy( {
 				title: function() {
-					return gM(
+					return mw.msg(
 						'mwe-upwiz-tooltip-skiptutorial',
 						mw.util.wikiGetlink( 'Special:Preferences' ) + '#mw-prefsection-uploads',
-						gM( 'prefs-uploads' ),
-						gM( 'prefs-upwiz-interface' )
+						mw.msg( 'prefs-uploads' ),
+						mw.msg( 'prefs-upwiz-interface' )
 					);
 				},
 				delayIn: 0,
@@ -322,11 +322,11 @@ mw.UploadWizard.prototype = {
 			'<button id="mwe-upwiz-upload-add-flickr" class="ui-helper-center-fix" type="submit"></button></form></div>';
 		$j( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
 		// Add placeholder text to the Flickr URL input field
-		$flickr_input.attr( 'placeholder', gM( 'mwe-upwiz-flickr-input-placeholder' ) ).placeholder();
+		$flickr_input.attr( 'placeholder', mw.msg( 'mwe-upwiz-flickr-input-placeholder' ) ).placeholder();
 		// Insert form into the page
 		$j( '#mwe-upwiz-files' ).prepend( flickr_add );
 		// Add disclaimer
-		var $disclaimer = gM( 'mwe-upwiz-flickr-disclaimer1' ) + '<br/>' + gM( 'mwe-upwiz-flickr-disclaimer2' );
+		var $disclaimer = mw.msg( 'mwe-upwiz-flickr-disclaimer1' ) + '<br/>' + mw.msg( 'mwe-upwiz-flickr-disclaimer2' );
 		$disclaimer = $( '<div id="mwe-upwiz-flickr-disclaimer"></div>' ).html( $disclaimer );
 		$j( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
 		// Insert input field into the form and set up submit action
@@ -336,7 +336,7 @@ mw.UploadWizard.prototype = {
 			return false;
 		} );
 		// Set up the submit button
-		$j( '#mwe-upwiz-upload-add-flickr' ).button( { label: gM( 'mwe-upwiz-add-flickr' ) } );
+		$j( '#mwe-upwiz-upload-add-flickr' ).button( { label: mw.msg( 'mwe-upwiz-add-flickr' ) } );
 	},
 
 	/**
@@ -588,7 +588,7 @@ mw.UploadWizard.prototype = {
 					upload.start();
 				},
 				function() {
-					$j().notify( gM( 'mwe-upwiz-files-complete' ) );
+					$j().notify( mw.msg( 'mwe-upwiz-files-complete' ) );
 					_this.showNext( 'file', 'stashed' );
 				}
 			);
@@ -730,7 +730,7 @@ mw.UploadWizard.prototype = {
 	startProgressBar: function () {
 		$j( '#mwe-upwiz-progress' ).show();
 		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
-			gM( 'mwe-upwiz-uploading' ),
+			mw.msg( 'mwe-upwiz-uploading' ),
 			this.uploads,
 			[ 'stashed' ],
 			[ 'error' ],
@@ -780,13 +780,13 @@ mw.UploadWizard.prototype = {
 		} );
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
-			message: function() { return gM( 'mwe-upwiz-prevent-close', _this.uploads.length ); },
+			message: function() { return mw.msg( 'mwe-upwiz-prevent-close', _this.uploads.length ); },
 			test: function() { return !_this.isComplete() && _this.uploads.length > 0; }
 		} );
 
 		$j( '#mwe-upwiz-progress' ).show();
 		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
-			gM( 'mwe-upwiz-uploading' ),
+			mw.msg( 'mwe-upwiz-uploading' ),
 			_this.uploads,
 			[ 'stashed' ],
 			[ 'error' ],
@@ -809,7 +809,7 @@ mw.UploadWizard.prototype = {
 				upload.start();
 			},
 			function() {
-				$j().notify( gM( 'mwe-upwiz-files-complete' ) );
+				$j().notify( mw.msg( 'mwe-upwiz-files-complete' ) );
 				_this.showNext( 'file', 'stashed' );
 			}
 		);
@@ -926,7 +926,7 @@ mw.UploadWizard.prototype = {
 			if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
 				// changes the initial centered invitation button to something like "add another file"
 				_this.$addFile = this.$addFile || $j( '#mwe-upwiz-add-file' );
-				_this.$addFile.button( 'option', 'label', gM( 'mwe-upwiz-add-file-n' ) );
+				_this.$addFile.button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-n' ) );
 				$j( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).addClass( 'mwe-upwiz-add-files-n' );
 				_this.$addFileContainer = this.$addFileContainer || $j( '#mwe-upwiz-add-file-container' );
 				_this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
@@ -975,7 +975,7 @@ mw.UploadWizard.prototype = {
 			this.flickrInterfaceDestroy();
 
 			// changes the button back from "add another file" to the initial centered invitation button
-			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', gM( 'mwe-upwiz-add-file-0-free' ) );
+			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-0-free' ) );
 			$j( '#mwe-upwiz-upload-ctr-divide' ).show();
 			// changes the button back from "add more files from flickr" to the initial text
 			$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-flickr' ) );
@@ -1188,12 +1188,12 @@ mw.UploadWizard.prototype = {
 				$j( '<div class="mwe-upwiz-data"></div>' )
 					.append(
 						$j('<p/>').append(
-							gM( 'mwe-upwiz-thanks-wikitext' ),
+							mw.msg( 'mwe-upwiz-thanks-wikitext' ),
 							$j( '<br />' ),
 							_this.makeReadOnlyInput( thumbWikiText )
 						),
 						$j('<p/>').append(
-							gM( 'mwe-upwiz-thanks-url' ),
+							mw.msg( 'mwe-upwiz-thanks-url' ),
 							$j( '<br />' ),
 							_this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
 						)
@@ -1278,7 +1278,7 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 		$filenameList.append( $j( '<li></li>' ).append( upload.title.getMain() ) );
 	} );
 	var buttons = {};
-	buttons[ gM( 'mwe-upwiz-remove', uploads.length ) ] = function() {
+	buttons[ mw.msg( 'mwe-upwiz-remove', uploads.length ) ] = function() {
 		$j.each( uploads, function( i, upload ) {
 			if ( upload === undefined ) {
 				return;
@@ -1287,7 +1287,7 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 		} );
 		$j( this ).dialog( 'close' );
 	};
-	buttons[ gM( 'mwe-upwiz-cancel', uploads.length ) ] = function() {
+	buttons[ mw.msg( 'mwe-upwiz-cancel', uploads.length ) ] = function() {
 		$j( this ).dialog( 'close' );
 	};
 
@@ -1402,7 +1402,7 @@ mw.isEmpty = function( v ) {
 			contentSource = fn;
 			html = true;
 		} else {
-			attrs = { 'title': gM( 'mwe-upwiz-tooltip-' + key ) };
+			attrs = { 'title': mw.msg( 'mwe-upwiz-tooltip-' + key ) };
 			contentSource = 'title';
 		}
 		return this.append(

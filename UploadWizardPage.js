@@ -22,14 +22,6 @@ mw.UploadWizardPage = function () {
 };
 
 $( document ).ready( function () {
-	// add "magic" to Language template parser for keywords
-	var options = { magic: { 'SITENAME' : mw.config.get( 'wgSiteName' ) } };
-
-	// these functions may exist already, but we want them to also know about our magic
-	// (the interface for this needs to change; add magic on the fly?)
-	window.gM = mw.jqueryMsg.getMessageFunction( options );
-	$.fn.msg = mw.jqueryMsg.getPlugin( options );
-
 	// show page.
 	mw.UploadWizardPage();
 } );

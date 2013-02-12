@@ -461,7 +461,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	showUnparseableFilenameError: function( filename ) {
-		this.showFilenameError( gM( 'mwe-upwiz-unparseable-filename', filename ) );
+		this.showFilenameError( mw.msg( 'mwe-upwiz-unparseable-filename', filename ) );
 	},
 
 	showBadExtensionError: function( filename, extension ) {
@@ -652,7 +652,7 @@ mw.UploadWizardUploadInterface.prototype = {
 		var _this = this;
 		var args = Array.prototype.slice.call( arguments ); // copies arguments into a real array
 		var msg = 'mwe-upwiz-upload-error-' + args[0];
-		$j( _this.errorDiv ).append( $j( '<p class="mwe-upwiz-upload-error">' + gM( msg, args.slice( 1 ) ) + '</p>') );
+		$j( _this.errorDiv ).append( $j( '<p class="mwe-upwiz-upload-error">' + mw.msg( msg, args.slice( 1 ) ) + '</p>') );
 		// apply a error style to entire did
 		$j( _this.div ).addClass( 'mwe-upwiz-upload-error' );
 		$j( _this.errorDiv ).show();
