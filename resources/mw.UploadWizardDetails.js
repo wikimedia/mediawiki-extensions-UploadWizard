@@ -1273,7 +1273,7 @@ mw.UploadWizardDetails.prototype = {
 				if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
 					err('server-error', 'unknown server error');
 				} else {
-					_this.upload.ui.setStatus( 'mwe-upwiz-' + result.upload.stage );
+					_this.setStatus( mw.msg( 'mwe-upwiz-' + result.upload.stage ) );
 					setTimeout( function() {
 						if ( _this.upload.state != 'aborted' ) {
 							_this.upload.api.postWithEditToken( {
