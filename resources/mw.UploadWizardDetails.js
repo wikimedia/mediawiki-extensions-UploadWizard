@@ -1249,16 +1249,16 @@ mw.UploadWizardDetails.prototype = {
 
 		var firstPoll = ( new Date() ).getTime();
 
-		//only enable async publishing if file is larger than 10Mb
-		var async = _this.upload.transportWeight > 10*1024*1024;
-
 		var params = {
 			action: 'upload',
 			filekey: _this.upload.fileKey,
-			async: async,
 			filename: _this.upload.title.getMain(),
 			comment: "User created page with " + mw.UploadWizard.userAgent
 		};
+		//only enable async publishing if file is larger than 10Mb
+		if ( _this.upload.transportWeight > 10*1024*1024 ) {
+			params[ 'async'  ] = true;
+		}
 
 		var err = function( code, info ) {
 			_this.upload.state = 'error';
