@@ -30,8 +30,7 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
 mw.FormDataTransport.prototype = {
     upload: function() {
         var _this = this,
-            file = this.uploadObject.file,
-            bytesAvailable = file.size;
+            file = this.uploadObject.file;
 
         // use timestamp + filename to avoid conflicts on server
         this.tempname = ( new Date() ).getTime().toString() + file.name;
@@ -56,7 +55,7 @@ mw.FormDataTransport.prototype = {
                     return;
                 }
                 if (evt.lengthComputable) {
-                    var progress = parseFloat(evt.loaded) / bytesAvailable;
+                    var progress = parseFloat(evt.loaded / evt.total );
                     _this.progressCb(progress);
                 }
             }, false);
