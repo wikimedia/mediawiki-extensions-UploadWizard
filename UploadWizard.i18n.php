@@ -613,6 +613,7 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 {{Identical|OK}}',
 	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
 	'mwe-upwiz-too-many-files' => 'Error dialog title',
+	'mwe-upwiz-file-too-large-ok' => '{{Identical|OK}}',
 	'mwe-upwiz-file-too-large-text' => 'Error message informing the user that their file is too large to upload. Parameters:
 * $1 is the maximum file size;
 * $2 is the size of the file they tried to upload.',
@@ -17805,6 +17806,8 @@ $messages['ms'] = array(
 	'mwe-upwiz-step-deeds' => 'Nyatakan hak',
 	'mwe-upwiz-step-details' => 'Terangkan',
 	'mwe-upwiz-step-thanks' => 'Gunakan',
+	'mwe-upwiz-campaign-name-duplicate' => 'Nama ini sudah diambil oleh kempen yang lain.',
+	'mwe-upwiz-campaign-unknown-error' => 'Berlakunya ralat yang tidak diketahui.',
 	'mwe-upwiz-api-warning-exists' => 'Di wiki ini sudah ada [$1 satu fail lain] yang sama nama failnya',
 	'mwe-upwiz-api-warning-was-deleted' => 'Pernah ada fail yang bernama "$1", tetapi ia telah dihapuskan dan anda tidak boleh memuat naik fail itu. Jika fail anda berbeza, cuba tukar namanya.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Maaf, kami tidak dapat mencari tutorial dalam bahasa anda, sebaliknya ada versi $1.',
@@ -17813,16 +17816,20 @@ $messages['ms'] = array(
 	'mwe-upwiz-help-desk' => 'Meja Bantuan',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Meja bantuan',
 	'mwe-upwiz-add-file-n' => 'Bubuh fail lain',
-	'mwe-upwiz-add-file-0-free' => 'Pilih fail media untuk didermakan', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Pilih fail media untuk dikongsi',
 	'mwe-upwiz-upload-flickr' => 'Muat naik gambar dari Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Tambahkan gambar daripada Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Atau',
 	'mwe-upwiz-add-flickr' => 'Dapatkan dari Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL imej/fotoset Flicker',
 	'mwe-upwiz-select-flickr' => 'Muat naik imej terpilih',
+	'mwe-upwiz-flickr-disclaimer1' => 'Borang ini akan memuatkan kandungan yang dihos oleh flickr.com dan tertakluk pada
+[https://www.flickr.com/help/terms/ syarat-syarat penggunaan] dan [https://www.flickr.com/help/privacy-policy/ dasar privasi] Flickr.',
+	'mwe-upwiz-flickr-disclaimer2' => 'Sila ingat bahawa dengan menggunakan alat ini, alamat IP dan butiran pemohonan anda akan disediakan kepada Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Kami tidak dapat mengambil fail dari $1.',
 	'mwe-upwiz-multi-file-select' => 'Lukiskan satu petak dengan kursor anda di atas fail-fail yang ingin anda muat naik. Tekan dan tahan kekunci Ctrl (Windows) atau Command (Mac) untuk membuat pilihan yang tidak saling berdekatan.',
 	'mwe-upwiz-transport-started' => 'Bermula...',
+	'mwe-upwiz-encoding' => 'Sedang mengekod...',
 	'mwe-upwiz-uploading' => 'Memuat naik...',
 	'mwe-upwiz-queued' => 'Sedang dibarisgilirkan...',
 	'mwe-upwiz-assembling' => 'Sedang disusun...',
