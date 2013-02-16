@@ -7456,6 +7456,8 @@ $messages['et'] = array(
 	'mwe-upwiz-step-deeds' => 'Litsentsi valimine',
 	'mwe-upwiz-step-details' => 'Kirjeldamine',
 	'mwe-upwiz-step-thanks' => 'Kasutamine',
+	'mwe-upwiz-campaign-name-duplicate' => 'Selle nimega kampaania on juba olemas.',
+	'mwe-upwiz-campaign-unknown-error' => 'Ilmnes tundmatu tõrge.',
 	'mwe-upwiz-api-warning-exists' => '[$1 Teine samanimeline fail] on vikis juba olemas.',
 	'mwe-upwiz-api-warning-was-deleted' => 'Samanimeline fail "$1" on varem kustutatud ja seda ei saa uuesti üles laadida. Kui tegu on erineva failiga, proovi see üles laadida teistsuguse nimega.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Kahjuks ei leidu juhendit sinu keeles. Juhendit näidatakse $1 keeles.',
@@ -7463,16 +7465,19 @@ $messages['et'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Ekraaniga sobivat mastaabitud juhendfaili ei õnnestu hankida. Tegu võib olla ajutise probleemiga; proovi hiljem uuesti.',
 	'mwe-upwiz-help-desk' => 'Abi ja lisateave',
 	'mwe-upwiz-add-file-n' => 'Lisa veel üks fail',
-	'mwe-upwiz-add-file-0-free' => 'Vali üleslaadimiseks meediafail', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Vali üleslaadimiseks meediafail',
 	'mwe-upwiz-upload-flickr' => 'Laadi Flickrist pilte üles',
 	'mwe-upwiz-add-file-flickr' => 'Lisa pilte Flickrist',
 	'mwe-upwiz-add-flickr-or' => 'Või',
-	'mwe-upwiz-add-flickr' => 'Hangi Flickrist pildid', # Fuzzy
+	'mwe-upwiz-add-flickr' => 'Hangi Flickrist',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickri pildi/fotokomplekti URL',
 	'mwe-upwiz-select-flickr' => 'Laadi valitud pildid üles',
+	'mwe-upwiz-flickr-disclaimer1' => 'See vorm laadib võrgukohas flickr.org avaldatud sisu, mille kohta käivad Flickri [https://www.flickr.com/help/terms/ kasutustingimused] ja [https://www.flickr.com/help/privacy-policy/ privaatsuspõhimõtted].',
+	'mwe-upwiz-flickr-disclaimer2' => 'Pane tähele, et kui kasutad seda tööriista, saadetakse Flickrile sinu IP-aadress ja päringu üksikasjad.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Allikast $1 ei õnnestunud faili kätte saada.',
 	'mwe-upwiz-multi-file-select' => 'Joonista kursoriga kast üle failide, mida soovid üles laadida. Hoia all Ctrl- või ⌘-klahvi, et teha mitu üksteisest eemal olevat valikut.',
 	'mwe-upwiz-transport-started' => 'Alustamine...',
+	'mwe-upwiz-encoding' => 'Kodeerimine...',
 	'mwe-upwiz-uploading' => 'Üleslaadimine...',
 	'mwe-upwiz-queued' => 'Järjekorras...',
 	'mwe-upwiz-assembling' => 'Töötlemine...',
@@ -7711,11 +7716,11 @@ Palun ära kasuta siin vikiteksti ega HTMLi.',
 	'mwe-upwiz-license-confirm-remove-title' => 'Eemaldamise kinnitus',
 	'mwe-upwiz-license-external' => 'Fail on avaldatud võrgukohas $1 järgmise litsentsi all: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Fail on avaldatud võrgukohas $1 järgmise litsentsi all: $2. Kahjuks ei sobi see litsents siin võrgukohas kasutamiseks.',
-	'mwe-upwiz-license-photoset-invalid' => 'Kahjuks pole fotokomplektis ükski foto selles võrgukohas kasutamiseks sobiva litsentsiga.', # Fuzzy
-	'mwe-upwiz-url-invalid' => 'Sisestatud internetiaadress ei viita allika $1 sobivale fotole ega fotokomplektile.', # Fuzzy
+	'mwe-upwiz-license-photoset-invalid' => 'Kahjuks pole fotokomplektis ükski pilt selles võrgukohas kasutamiseks sobiva litsentsiga.',
+	'mwe-upwiz-url-invalid' => 'Sisestatud internetiaadress ei viita allika $1 sobivale pildile ega fotokomplektile.',
 	'mwe-upwiz-categories' => 'Kategooriad',
 	'mwe-upwiz-categories-add' => 'Lisa',
-	'mwe-upwiz-category-will-be-added' => 'See kategooria luuakse.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'See kategooria pole veel kasutuses.',
 	'mwe-upwiz-category-remove' => 'Eemalda see kategooria',
 	'mwe-upwiz-thumbnail-failed' => 'Üleslaadimine õnnestus, aga serveril ei õnnestunud hankida eelvaate pisipilti.',
 	'mwe-upwiz-unparseable-filename' => 'Failinimi "$1" jäi mõistetamatuks.',
@@ -25897,6 +25902,7 @@ $messages['sw'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Balajijagadesh
  * @author Karthi.dr
  * @author Logicwiki
  * @author Mahir78
@@ -25928,6 +25934,11 @@ $messages['ta'] = array(
 	'mwe-upwiz-help-desk-url' => 'ஒத்தாசைப் பக்கம்', # Fuzzy
 	'mwe-upwiz-add-file-n' => 'மற்றொரு கோப்பினைச் சேர்க்கவும்',
 	'mwe-upwiz-add-file-0-free' => 'கொடையாக அளிக்க ஓர் ஊடகக் கோப்பினைத் தேர்ந்தெடுக்கவும்.', # Fuzzy
+	'mwe-upwiz-upload-flickr' => 'Flickrயில் இருத்து படங்களை பதிவேற்றுக',
+	'mwe-upwiz-add-file-flickr' => 'Flickrயில் இருத்து படங்களை சேர்',
+	'mwe-upwiz-add-flickr-or' => 'அல்லது',
+	'mwe-upwiz-add-flickr' => 'Flickrயில் இருத்து பெறவும்',
+	'mwe-upwiz-select-flickr' => 'தேர்தெடுத்த படங்களை பதிவேற்றுக',
 	'mwe-upwiz-transport-started' => 'துவங்குகிறது...',
 	'mwe-upwiz-uploading' => 'பதிவேற்றப்படுகிறது...',
 	'mwe-upwiz-transported' => 'பதிவேற்றம் முடிந்தது...',
@@ -25970,6 +25981,7 @@ $messages['ta'] = array(
 	'mwe-upwiz-more-options' => 'பகுப்புகள் மேலதிகத் தகவல்களைச் சேர்க்கவும்...',
 	'mwe-upwiz-copy-metadata' => 'கீழேயுள்ள அனைத்து பதிவேற்றங்களுக்கும் தகவலை நகலெடு...', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'நகல் எடு',
+	'mwe-upwiz-copied-metadata-button' => 'வெற்றிகரமாக பிரதியெடுக்கபட்டது',
 	'mwe-upwiz-copy-title' => 'தலைப்பை நகலெடு (தானாக எண்ணிடுதலுடன்)',
 	'mwe-upwiz-copy-description' => 'விவரங்(களை) நகலெடு', # Fuzzy
 	'mwe-upwiz-copy-date' => 'தேதியை நகலெடு',
