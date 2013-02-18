@@ -5142,7 +5142,7 @@ Prøv en anden browser.',
 	'mwe-upwiz-source' => 'Kilde',
 	'mwe-upwiz-thanks-intro' => 'Tak fordi du lægger filer op!',
 	'mwe-upwiz-thanks-explain' => 'Du kan nu bruge {{PLURAL:$1|denne fil|disse filer}} på websteder som Wikipedia eller linke til {{PLURAL:$1|den|dem}} på internettet.',
-	'mwe-upwiz-thanks-wikitext' => 'For at bruge filen i en wiki, kopier denne tekst til siden:',
+	'mwe-upwiz-thanks-wikitext' => 'For at bruge filen i en wiki, kopier denne tekst til en side:',
 	'mwe-upwiz-thanks-url' => 'For at linke til den i HTML, kopier denne URL-adresse:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Denne wiki accepterer ikke filnavne med endelsen ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Du har valgt at lægge en videofil op, der ikke er i et frit format.
@@ -13029,6 +13029,7 @@ $messages['io'] = array(
 );
 
 /** Icelandic (íslenska)
+ * @author Bjarki S
  * @author Snævar
  */
 $messages['is'] = array(
@@ -13129,11 +13130,11 @@ $messages['is'] = array(
 	'mwe-upwiz-source' => 'Uppruni',
 	'mwe-upwiz-thanks-intro' => 'Takk fyrir upplöðunina!',
 	'mwe-upwiz-thanks-explain' => 'Þú getur nú notað {{PLURAL:$1|þessa skrá|þessar skrár}} á síðum eins og WIkipedia, eða tengt í {{PLURAL:$1|hana|þær}} á veraldarvefnum.',
-	'mwe-upwiz-thanks-wikitext' => 'Til þess að nota skránna á wiki afritaðu þennan texta á síðuna:',
-	'mwe-upwiz-thanks-url' => 'Til þess að tengja í skránna með HTML afritaðu þessa vefslóð:',
+	'mwe-upwiz-thanks-wikitext' => 'Til þess að nota skránna á wiki, afritaðu þennan texta á síðuna:',
+	'mwe-upwiz-thanks-url' => 'Til þess að tengja í skránna með HTML, afritaðu þessa vefslóð:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Þessi wiki styður ekki skráarnöfn sem enda með skráartegundinni ".$1".',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Þú hefur valið myndbandskrá til að hlaða inn sem er ekki geymd á frjálsu skráarsniði.
-Þú getur sett inn [$1 Firefogg], sem er Firefox viðbót, til að umskrifa skrá þinni. Eða þú getur notað [$2 aðra umskrifunar möguleika] til að breyta skránni yfir á frjálst skráarsnið.',
+Þú getur sett inn [$1 Firefogg], sem er Firefox viðbót, til að umskrifa skrána þína. Eða þú getur notað [$2 aðra umskriftarmöguleika] til að breyta skránni yfir á frjálst skráarsnið.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Þessi wiki gerir kröfu um að skrárnar hafi skráarsnið - eins og til dæmis ".JPG", í enda skráarnafnsins.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Þú ert þegar að hlaða inn skránni "$1".',
 	'mwe-upwiz-allowed-filename-extensions' => 'Leyfð skráarsnið eru:',
@@ -13266,7 +13267,7 @@ Vinsamlegast ekki nota wikitext eða HTML hér.',
 	'mwe-upwiz-license-confirm-remove' => 'Ertu viss um að þú viljir fjarlægja {{PLURAL:$1|þetta upphal|þessi upphöl}} ?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Staðfesta eyðingu',
 	'mwe-upwiz-license-external' => 'Þessi skrá er undir eftirfarandi leyfi á $1: $2.',
-	'mwe-upwiz-license-external-invalid' => 'Þessi skrá er undir eftirfarandi leyfi á $1: $2. Því miður þá er þetta leyfi ekki viðeigandi til að nota á þessari síðu.',
+	'mwe-upwiz-license-external-invalid' => 'Þessi skrá er undir eftirfarandi leyfi á $1: $2. Því miður þá er þetta leyfi ekki viðeigandi til notkunar á þessari síðu.',
 	'mwe-upwiz-categories' => 'Flokkar',
 	'mwe-upwiz-categories-add' => 'Bæta við',
 	'mwe-upwiz-category-will-be-added' => 'Þessi flokkur verður búinn til.', # Fuzzy
