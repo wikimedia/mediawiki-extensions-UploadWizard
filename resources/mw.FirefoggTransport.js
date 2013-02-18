@@ -80,7 +80,11 @@ mw.FirefoggTransport.prototype = {
 
 	isSourceAudio: function() {
 		var info = this.getSourceFileInfo();
-		return ( info.video.length == 0 && info.audio.length > 0 )
+		// never transcode images
+		if ( info.contentType.indexOf( "image/" ) != -1 ) {
+			return false;
+		}
+		return ( (!info.video || info.video.length == 0) && info.audio.length > 0 )
 			|| info.contentType.indexOf( "audio/" ) != -1;
 	},
 
@@ -90,7 +94,7 @@ mw.FirefoggTransport.prototype = {
 		if ( info.contentType.indexOf( "image/" ) != -1 ) {
 			return false;
 		}
-		return ( info.video.length > 0 && info.video[0].duration > 0.04 )
+		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 )
 			|| info.contentType.indexOf( "video/" ) != -1;
 	},
 
