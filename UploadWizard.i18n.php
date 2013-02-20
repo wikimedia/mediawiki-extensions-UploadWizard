@@ -490,7 +490,8 @@ $1 is the name of the fallback language.",
 	'mwe-upwiz-add-file-flickr' => 'Label of a button in the first view of Special:UploadWizard, which is offered as an alternative to upload of local files and brings to another step.',
 	'mwe-upwiz-add-flickr-or' => 'Connecting word in upload wizard between the following action elements: 
 * {{msg-mw|mwe-upwiz-add-file-0-free}}
-* {{msg-mw|mwe-upwiz-add-file-flickr}}',
+* {{msg-mw|mwe-upwiz-add-file-flickr}}
+{{Identical|Or}}',
 	'mwe-upwiz-add-flickr' => 'Label of the button which confirms the URL, entered by the user, of a photo or photo set from Flickr.',
 	'mwe-upwiz-flickr-disclaimer1' => 'This is a legal disclaimer to let the user know that the Flickr terms of use and privacy policy apply to all content loaded from Flickr. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-flickr-disclaimer2' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
@@ -28646,6 +28647,8 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-add-flickr' => '从Flickr获取',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr图像/照片集URL',
 	'mwe-upwiz-select-flickr' => '上传选定的图像',
+	'mwe-upwiz-flickr-disclaimer1' => '此表单将加载由flickr.com托管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私政策]。',
+	'mwe-upwiz-flickr-disclaimer2' => '请注意，使用此工具您的IP地址和请求详情将提供给Flickr。',
 	'mwe-upwiz-error-no-image-retrieved' => '我们无法从$1获取文件。',
 	'mwe-upwiz-multi-file-select' => '使用光标框选您想上传的文件。按下Ctrl/Command键以选择多个不相邻的文件。',
 	'mwe-upwiz-transport-started' => '正在启动...',
