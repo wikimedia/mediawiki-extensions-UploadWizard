@@ -200,23 +200,12 @@ form.mwe-upwiz-form {
 #mwe-upwiz-upload-ctrl:hover {
 	text-decoration: none;
 }
-#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n {
-	float: left;
-}
 
 /* Flickr Interface CSS*/
 
 .ui-helper-center-fix {
 	display: inline-block;
 	position: relative;
-}
-
-#mwe-upwiz-upload-ctrl-flickr-container {
-	text-align: center;
-}
-
-#mwe-upwiz-upload-ctrl-flickr {
-	text-align: center;
 }
 
 #mwe-upwiz-upload-ctr-divide {
