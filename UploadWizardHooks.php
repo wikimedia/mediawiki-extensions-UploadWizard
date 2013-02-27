@@ -169,6 +169,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-flickr-input-placeholder',
 				'mwe-upwiz-add-flickr',
 				'mwe-upwiz-add-file-flickr',
+				'mwe-upwiz-add-file-flickr-n',
 				'mwe-upwiz-select-flickr',
 				'mwe-upwiz-flickr-disclaimer1',
 				'mwe-upwiz-flickr-disclaimer2',
