@@ -713,6 +713,7 @@ See also:
 	'mw-coolcats-confirm-new-cancel' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will remove the selected non-existing categories from being added to the upload.',
 	'prefs-uploads' => 'Preferences tab label for UploadWizard preferences related to uploads. See https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.
 {{Identical|Upload}}',
+	'prefs-upwiz-licensing' => '{{Identical|Licensing}}',
 	'prefs-upwiz-interface' => 'Preferences section heading for preferences related to the Upload Wizard user interface',
 	'mwe-upwiz-prefs-def-license' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
