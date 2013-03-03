@@ -2009,6 +2009,7 @@ $messages['ast'] = array(
 	'mwe-upwiz-add-file-0-free' => 'Seleiciona un ficheru multimedia a compartir',
 	'mwe-upwiz-upload-flickr' => 'Xubir imaxes dende Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Amestar imaxes dende Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Amestar más imaxes dende Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Traer dende Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => "URL de la imaxe/conxuntu d'imaxes de Flickr",
@@ -13843,7 +13844,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-campaign-name-duplicate' => '同じ名前のキャンペーンが既に存在します。',
 	'mwe-upwiz-campaign-unknown-error' => '不明なエラーが発生しました。',
 	'mwe-upwiz-api-warning-exists' => '既に同じファイル名の[$1 別ファイル]が存在しています。',
-	'mwe-upwiz-api-warning-was-deleted' => '以前に"$1"という名前のファイルがありましたが、既に削除されており、同じファイルを再度アップロードすることはできません。ファイルが異なる場合は、名前を変更してみてください。',
+	'mwe-upwiz-api-warning-was-deleted' => 'この名前「$1」のファイルが以前ありましたが、削除されたため同じファイルを再度アップロードすることはできません。ファイルが異なる場合は、名前を変更してみてください。',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '申し訳ありませんが、ご使用中の言語版のチュートリアルが見つかりませんでした。
 代わりに$1で表示します。',
 	'mwe-upwiz-tutorial-error-file-missing' => '申し訳ありませんが、ここで使用できるチュートリアルのファイルが見つかりませんでした。システム管理者にお問い合わせください。',
@@ -13897,15 +13898,25 @@ $messages['ja'] = array(
 	'mwe-upwiz-source-ownwork-assert' => '{{PLURAL:$1|この作品|これらの作品}}の著作権保持者である私、$2は、著作権者表示がなされ、かつ、同じ条件の下で派生作品を共有する限り、いかなる人物に対しても、あらゆる目的のために{{PLURAL:$1|この作品|これらの作品}}を利用する権利を、ここに、撤回不可能なものとして認めます。',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 オーストリア ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 ドイツ ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 エストニア ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 スペイン ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 クロアチア ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 ルクセンブルク ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 オランダ ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 ノルウェー ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 ポーランド ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示-継承 3.0 ルーマニア ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(私への帰属表示をし、派生物をすべてこのライセンスで共有する限り、誰でも{{PLURAL:$1|この作品|これらの作品}}を使用、共有、改変できます。)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => '私、$2 は{{PLURAL:$1|この作品|これらの作品}}の著作権者として、{{PLURAL:$1|この作品|これらの作品}}をクリエイティブ・コモンズ表示 3.0 ライセンス ([$3 利用許諾条項]) のもとで利用する権利をすべての人に撤回できない形で与えます。',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(私への帰属表示をする限り、誰でも{{PLURAL:$1|この作品}}を使用、共有、改変できます。)',
@@ -27021,6 +27032,7 @@ $messages['ug-arab'] = array(
  * @author Aced
  * @author Ahonc
  * @author Alex Khimich
+ * @author AtUkr
  * @author Base
  * @author Dim Grits
  * @author Gucci Mane Burrr
@@ -27063,6 +27075,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-add-file-0-free' => 'Оберіть файл для завантаження',
 	'mwe-upwiz-upload-flickr' => 'Завантажити зоюраження з Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Додати зображення з Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Додати ще зображення з Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Або',
 	'mwe-upwiz-add-flickr' => 'Отримати з Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL-адреса зображення/фотосету Flickr',
