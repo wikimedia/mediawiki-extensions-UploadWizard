@@ -204,7 +204,6 @@ For a photo, mention the main things that are depicted, the occasion, or the pla
 	'mwe-upwiz-tooltip-location' => 'Coordinates of the location where this media file was created.',
 	'mwe-upwiz-tooltip-more-info' => 'Learn more.',
 	'mwe-upwiz-file-need-file' => 'Please add an upload first.',
-	'mwe-upwiz-deeds-need-deed' => 'Please explain where you got {{PLURAL:$1|this file|these files}} and how this site can use {{PLURAL:$1|it|them}}, by selecting one of the options.',
 	'mwe-upwiz-deeds-need-license' => 'Please select a license.',
 	'mwe-upwiz-license-show-all' => 'Use a different license',
 	'mwe-upwiz-license-show-recommended' => 'Use the recommended license',
