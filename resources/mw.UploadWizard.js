@@ -1109,6 +1109,8 @@ mw.UploadWizard.prototype = {
 		var errorCount = $errorElements.length;
 		if ( errorCount > 0 ) {
 			$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
+			// Scroll to the first error
+			$( 'html, body' ).animate( { scrollTop: $( $errorElements[0] ).offset().top - 50 }, 'slow' );
 		} else {
 			$( '#mwe-upwiz-details-error-count' ).empty();
 		}
