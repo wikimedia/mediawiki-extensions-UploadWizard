@@ -3610,6 +3610,7 @@ $1',
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  * @author Gwendal
  * @author Gwenn-Ael
@@ -3642,6 +3643,7 @@ $messages['br'] = array(
 	'mwe-upwiz-help-desk-url' => 'Burev skoazell', # Fuzzy
 	'mwe-upwiz-add-file-n' => 'Ouzhpennañ ur restr all',
 	'mwe-upwiz-add-file-0-free' => 'Dibabit amañ ur restr vedia evit ober un donezon', # Fuzzy
+	'mwe-upwiz-add-flickr-or' => 'Pe',
 	'mwe-upwiz-transport-started' => "Loc'hadur...",
 	'mwe-upwiz-uploading' => "Oc'h enporzhiañ...",
 	'mwe-upwiz-transported' => 'Mat eo',
@@ -7548,6 +7550,7 @@ $messages['et'] = array(
 	'mwe-upwiz-add-file-0-free' => 'Vali üleslaadimiseks meediafail',
 	'mwe-upwiz-upload-flickr' => 'Laadi Flickrist pilte üles',
 	'mwe-upwiz-add-file-flickr' => 'Lisa pilte Flickrist',
+	'mwe-upwiz-add-file-flickr-n' => 'Lisa veel pilte Flickrist',
 	'mwe-upwiz-add-flickr-or' => 'Või',
 	'mwe-upwiz-add-flickr' => 'Hangi Flickrist',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickri pildi/fotokomplekti URL',
@@ -13440,6 +13443,7 @@ $1',
  * @author Rippitippi
  * @author Trixt
  * @author Una giornata uggiosa '94
+ * @author Viscontino
  * @author Ximo17
  */
 $messages['it'] = array(
@@ -13473,10 +13477,12 @@ $messages['it'] = array(
 	'mwe-upwiz-add-file-0-free' => 'Seleziona un file multimediale da caricare',
 	'mwe-upwiz-upload-flickr' => 'Carica immagini da Flickr',
 	'mwe-upwiz-add-file-flickr' => 'Aggiungi immagini da Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Aggiungi altre immagini da Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL immagine/photoset Flickr',
 	'mwe-upwiz-select-flickr' => 'Carica le immagini selezionate',
+	'mwe-upwiz-flickr-disclaimer2' => 'Si prega di notare che, utilizzando questo strumento, il tuo indirizzo IP e i dettagli della richiesta saranno disponibili a Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Non è possibile recuperare il file da $1.',
 	'mwe-upwiz-multi-file-select' => 'Disegna una casella con il cursore del mouse sopra i file che vuoi caricare. Tieni premuto il tasto Ctrl/Comando per selezionare più file non adiacenti.',
 	'mwe-upwiz-transport-started' => 'Inizializzazione...',
