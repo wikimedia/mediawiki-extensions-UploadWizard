@@ -563,6 +563,8 @@ class UploadWizardHooks {
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 
+		$config = UploadWizardConfig::getConfig();
+
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
 		if ( UploadWizardConfig::getSetting( 'skipTutorial' ) == false ) {
 			$preferences['upwiz_skiptutorial'] = array(
@@ -606,6 +608,22 @@ class UploadWizardHooks {
 					'section' => 'uploads/upwiz-experimental'
 				);
 			}
+		}
+
+		// Setting for maximum number of simultaneous uploads (always lower than the server-side config)
+		if ( $config[ 'maxSimultaneousConnections' ] > 1 ) {
+
+			// Hack to make the key and value the same otherwise options are added wrongly.
+			$range = range( 0, $config[ 'maxSimultaneousConnections' ] );
+			unset( $range[0] );
+
+			$preferences['upwiz_maxsimultaneous'] = array(
+				'type' => 'select',
+				'label-message' => 'mwe-upwiz-prefs-maxsimultaneous-upload',
+				'section' => 'uploads/upwiz-experimental',
+				'default' => $config[ 'maxSimultaneousConnections' ],
+				'options' => $range
+			);
 		}
 
 		return true;

@@ -409,6 +409,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-prefs-license-thirdparty' => "Someone else's work - $1",
 	'mwe-upwiz-prefs-chunked' => 'Chunked uploads for files over 1MB in Upload Wizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Skip introductory licensing tutorial',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximum number of concurrent uploads',
 
 );
 
@@ -817,6 +818,7 @@ See also:
 See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
 );
 
 /** Afrikaans (Afrikaans)

@@ -15,7 +15,7 @@ mw.UploadWizard = function( config ) {
 
 	// XXX need a robust way of defining default config
 	this.maxUploads = mw.UploadWizard.config[ 'maxUploads' ] || 10;
-	this.maxSimultaneousConnections = mw.UploadWizard.config[  'maxSimultaneousConnections'  ] || 2;
+	this.maxSimultaneousConnections = mw.user.options.get( 'upwiz_maxsimultaneous' ) || 1;
 
 	this.makePreviewsFlag = true;
 	this.showDeed = false;
