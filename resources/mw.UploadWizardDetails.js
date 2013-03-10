@@ -177,7 +177,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		);
 
 	$j( moreDetailsDiv ).append(
-		$categoriesDiv,
 		locationDiv,
 		otherInformationDiv
 	);
@@ -190,7 +189,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		_this.descriptionsDiv,
 		descriptionAdderDiv,
 		_this.copyrightInfoFieldset,
-		dateInputDiv
+		dateInputDiv,
+		$categoriesDiv
 	);
 
 	if ( mw.UploadWizard.config.idField ) {
