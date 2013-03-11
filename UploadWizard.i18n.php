@@ -4272,7 +4272,7 @@ Comproveu $1 si no esteu segurs que voleu substituir-lo.',
 	'mwe-upwiz-next-deeds' => 'Següent',
 	'mwe-upwiz-next-details' => 'Següent',
 	'mwe-upwiz-home' => 'Vés a la pàgina inicial del wiki',
-	'mwe-upwiz-upload-another' => 'Puja més fitxers',
+	'mwe-upwiz-upload-another' => 'Carrega més fitxers',
 	'mwe-prevent-close' => 'En deixar la pàgina poder perdre aquells canvis que hi hàgiu fet.',
 	'mwe-upwiz-prevent-close' => 'Encara no heu acabat de carregar i publicar {{PLURAL:$1|aquest fitxer|aquests fitxers}}.',
 	'mwe-upwiz-files-complete' => "Els fitxers s'han acabat de pujar!",
@@ -10688,6 +10688,7 @@ $messages['ha'] = array(
  * @author Rotemliss
  * @author YaronSh
  * @author Ypnypn
+ * @author ערן
  */
 $messages['he'] = array(
 	'uploadwizard' => 'אשף ההעלאה',
@@ -10720,10 +10721,12 @@ $messages['he'] = array(
 	'mwe-upwiz-add-file-0-free' => 'בחירת קובץ מדיה לשיתוף',
 	'mwe-upwiz-upload-flickr' => 'העלאת תמונות מאתר פליקר',
 	'mwe-upwiz-add-file-flickr' => 'הוספת תמונות מאתר פליקר',
+	'mwe-upwiz-add-file-flickr-n' => 'הוסף תמונות נוספות מ-Flickr',
 	'mwe-upwiz-add-flickr-or' => 'או',
 	'mwe-upwiz-add-flickr' => 'לקבל מאתר פליקר',
 	'mwe-upwiz-flickr-input-placeholder' => 'קישור לתמונה או אוסף תמונות באתר פליקר',
 	'mwe-upwiz-select-flickr' => 'העלאת התמונות הנבחרות',
+	'mwe-upwiz-flickr-disclaimer2' => 'לידיעתך שימוש בכלי זה חושף את כתובת ה-IP שלך ופרטי הבקשה בפני Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'לא הצלחנו לאזחר את הקובץ מ{{GRAMMAR:תחילית|$1}}.',
 	'mwe-upwiz-multi-file-select' => 'יש לסמן בעכבר את הקבצים שברצונך להעלות או להחזיק את מקש Ctrl או Command כדי לבחור מספר תמונות.',
 	'mwe-upwiz-transport-started' => 'בהליכי הפעלה...',
