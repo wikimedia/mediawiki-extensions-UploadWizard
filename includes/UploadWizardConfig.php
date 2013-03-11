@@ -37,7 +37,7 @@ class UploadWizardConfig {
 		static $mergedConfig = false;
 
 		if ( !$mergedConfig ) {
-			$wgUploadWizardConfig = array_merge_recursive( self::getDefaultConfig(), $wgUploadWizardConfig );
+			$wgUploadWizardConfig = array_merge( self::getDefaultConfig(), $wgUploadWizardConfig );
 			$mergedConfig = true;
 		}
 
