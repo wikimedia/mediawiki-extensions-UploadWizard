@@ -354,13 +354,23 @@ mw.UploadWizard.prototype = {
 	 * Reset the interface if there is a problem while fetching the images from the URL entered by the user.
 	 */
 	flickrInterfaceReset: function() {
-			$j( '#mwe-upwiz-flickr-input' ).val( '' );
-			$j( '#mwe-upwiz-flickr-select-list' ).empty();
-			$j( '#mwe-upwiz-flickr-select-list-container' ).unbind();
-			$j( '#mwe-upwiz-select-flickr' ).unbind();
-			$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
-			$j( '#mwe-upwiz-upload-add-flickr-container' ).show();
-			$j( '#mwe-upwiz-upload-add-flickr' ).removeAttr( 'disabled' );
+		// first destroy it completely, then reshow the add button
+		this.flickrInterfaceDestroy();
+		$j( '#mwe-upwiz-upload-add-flickr-container' ).show();
+		$j( '#mwe-upwiz-upload-add-flickr' ).removeAttr( 'disabled' );
+	},
+
+	/**
+	 * Removes the flickr interface.
+	 */
+	flickrInterfaceDestroy: function() {
+		$j( '#mwe-upwiz-flickr-input' ).val( '' );
+		$j( '#mwe-upwiz-flickr-select-list' ).empty();
+		$j( '#mwe-upwiz-flickr-select-list-container' ).unbind();
+		$j( '#mwe-upwiz-select-flickr' ).unbind();
+		$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
+		$j( '#mwe-upwiz-upload-add-flickr-container' ).hide();
+		$j( '#mwe-upwiz-upload-add-flickr' ).attr( 'disabled', 'disabled' );
 	},
 
 	/**
@@ -955,6 +965,9 @@ mw.UploadWizard.prototype = {
 
 			// we can't continue
 			$j( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
+
+			// destroy the flickr interface if it exists
+			this.flickrInterfaceDestroy();
 
 			// changes the button back from "add another file" to the initial centered invitation button
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'label', gM( 'mwe-upwiz-add-file-0-free' ) );
