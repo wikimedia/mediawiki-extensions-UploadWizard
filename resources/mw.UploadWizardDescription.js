@@ -35,7 +35,6 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	$j(_this.languageMenu).addClass( 'mwe-upwiz-desc-lang-select' );
 
 	_this.input = $j( '<textarea name="' + _this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
-				.attr( 'title', mw.msg( 'mwe-upwiz-tooltip-description' ) )
 				.growTextArea();
 
 	if ( initialValue !== undefined ) {
