@@ -1443,7 +1443,6 @@ mw.isEmpty = function( v ) {
 					this.rows++;
 				}
 			}
-			return this;
 		};
 
 		this.addClass( 'mwe-grow-textarea' );
