@@ -5841,10 +5841,11 @@ $1',
 
 /** Austrian German (Österreichisches Deutsch)
  * @author AleXXw
+ * @author Man77
  */
 $messages['de-at'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Jeder darf {{PLURAL:$1|dieses Werk|diese Werke}} nutzen, weitergeben oder verändern, solange ich als Urheber angegeben werde und Änderungen gemäß der gleichen Lizenz weitergegeben werden.)',
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Ich, $2, der Rechteinhaber dieser Werke gewähre unwiderruflich jedem das Recht, sie gemäß der „Creative Commons“-Lizenz „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0 Österreich“ ([$3 Text der Lizenz]) zu nutzen.', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Ich, $2, der Rechteinhaber {{PLURAL:$1|dieses Werks|dieser Werke}} gewähre unwiderruflich jedem das Recht, {{PLURAL:$1|es|sie}} gemäß der „Creative Commons“-Lizenz „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0 Österreich“ ([$3 Text der Lizenz]) zu nutzen.',
 );
 
 /** Swiss High German (Schweizer Hochdeutsch)
@@ -10740,6 +10741,7 @@ $messages['he'] = array(
 	'mwe-upwiz-add-flickr' => 'לקבל מאתר פליקר',
 	'mwe-upwiz-flickr-input-placeholder' => 'קישור לתמונה או אוסף תמונות באתר פליקר',
 	'mwe-upwiz-select-flickr' => 'העלאת התמונות הנבחרות',
+	'mwe-upwiz-flickr-disclaimer1' => 'הטופס הזה יטען תוכן שמאוחסן באתר flickr.com ומפורסם לפי [https://www.flickr.com/help/terms/ תנאי השימוש] ולפי [https://www.flickr.com/help/privacy-policy/ מדיניות הפרטיות] של פליקר.',
 	'mwe-upwiz-flickr-disclaimer2' => 'לידיעתך שימוש בכלי זה חושף את כתובת ה-IP שלך ופרטי הבקשה בפני Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'לא הצלחנו לאזחר את הקובץ מ{{GRAMMAR:תחילית|$1}}.',
 	'mwe-upwiz-multi-file-select' => 'יש לסמן בעכבר את הקבצים שברצונך להעלות או להחזיק את מקש Ctrl או Command כדי לבחור מספר תמונות.',
