@@ -5091,6 +5091,7 @@ Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}}.",
 /** Danish (dansk)
  * @author Christian List
  * @author Danmichaelo
+ * @author HenrikKbh
  * @author Hylle
  * @author Jan Friberg
  * @author Kaare
@@ -5128,12 +5129,16 @@ $messages['da'] = array(
 	'mwe-upwiz-add-file-0-free' => 'Vælg en mediefil, du vil dele',
 	'mwe-upwiz-upload-flickr' => 'Læg billeder fra Flickr op',
 	'mwe-upwiz-add-file-flickr' => 'Tilføj billeder fra Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Tilføj flere billeder fra Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Eller',
 	'mwe-upwiz-add-flickr' => 'Hent fra Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr billede/fotosæt URL-adresse',
 	'mwe-upwiz-select-flickr' => 'Læg markerede billeder op',
+	'mwe-upwiz-flickr-disclaimer2' => 'Bemærk venligst at ved hjælp af dette værktøj, vil din IP-adresse og detaljer om din anmodning blive tilgængelig på Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Vi kunne ikke hente filen fra  $1 .',
+	'mwe-upwiz-multi-file-select' => 'Tegn en firkant med din mus over de filer som du ønsker at uploade. Hold Ctrl/Command knappen nede for at lave flere ikke-tilstødende markeringer.',
 	'mwe-upwiz-transport-started' => 'Begynder...',
+	'mwe-upwiz-encoding' => 'Koder...',
 	'mwe-upwiz-uploading' => 'Overfører...',
 	'mwe-upwiz-queued' => 'I kø...',
 	'mwe-upwiz-assembling' => 'Samler...',
@@ -5434,6 +5439,7 @@ $1',
 	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'Startværdi for ID-feltet:',
 	'mwe-upwiz-campaign-conf-idField2' => 'Wikitekst til sekundært id-felt. F. eks. <nowiki>{{Rijksmonument|$1}}</nowiki>. Lad stå blank, hvis feltet ikke skal vises:',
 	'mwe-upwiz-campaign-conf-idField2Label' => 'Etikettekst på sekundært ID-felt:',
+	'mwe-upwiz-campaign-conf-idField2LabelPage' => 'Sidenavn med tekst til det sekundære id-felts beskrivelse. $1 erstattes med sprogkoden.',
 	'mwe-upwiz-campaign-conf-headerLabelPage' => 'Side, der indeholder tekst, som skal vises over vejviserens brugerflade. $1 erstattes med sprogkoden.',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Side, der indeholder tekst, som skal vises øverst på "Brug"-siden. $1 erstattes med sprogkoden:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Maksimal længde på teksten i ID-feltet:',
@@ -6315,7 +6321,7 @@ $messages['dsb'] = array(
 	'mwe-upwiz-help-desk' => 'Pomoc',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Pomoc',
 	'mwe-upwiz-add-file-n' => 'Dalšnu dataju pśidaś',
-	'mwe-upwiz-add-file-0-free' => 'Medijowu dataju za darjenje wubraś', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Medijowu dataju za zgromadne wužywanje wubraś',
 	'mwe-upwiz-transport-started' => 'Startujo se...',
 	'mwe-upwiz-uploading' => 'Nagrawa se...',
 	'mwe-upwiz-transported' => 'Nagraśe dokóńcone...',
