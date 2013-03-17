@@ -933,7 +933,12 @@ mw.UploadWizard.prototype = {
 				_this.$addFileContainer.show();
 				// changes the flickr add button to "add more files from flickr"
 				$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-flickr-n' ) );
-				$j( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).show();
+				// show the add file interface
+				$j( '#mwe-upwiz-add-file-container' ).show();
+				// if Flickr uploading is available to this user, show the "add more files from flickr" button
+				if ( mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '' ) {
+					$j( '#mwe-upwiz-upload-ctrl-flickr-container' ).show();
+				}
 				// empty the flickr lists
 				$j( '#mwe-upwiz-flickr-select-list' ).empty();
 				$j( '#mwe-upwiz-flickr-select-list-container' ).unbind();
