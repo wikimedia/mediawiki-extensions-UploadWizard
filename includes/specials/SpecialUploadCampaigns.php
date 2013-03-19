@@ -46,19 +46,14 @@ class SpecialUploadCampaigns extends SpecialPage {
 		$req = $this->getRequest();
 		$user = $this->getUser();
 
-		// If the user is authorized, display the page, if not, show an error.
-		if ( $this->userCanExecute( $user ) ) {
-			if ( $req->wasPosted()
-				&& $user->matchEditToken( $req->getVal( 'wpEditToken' ) )
-				&& $req->getCheck( 'newcampaign' ) ) {
-					$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $req->getVal( 'newcampaign' ) )->getLocalURL() );
-			}
-			else {
-				$this->displayUploadCamaigns();
-			}
+		if ( $req->wasPosted()
+			&& $user->matchEditToken( $req->getVal( 'wpEditToken' ) )
+			&& $req->getCheck( 'newcampaign' ) ) {
+				$this->getOutput()->redirect( SpecialPage::getTitleFor( 'UploadCampaign', $req->getVal( 'newcampaign' ) )->getLocalURL() );
 		} else {
-			$this->displayRestrictionError();
+			$this->displayUploadCamaigns();
 		}
+
 	}
 
 	/**
@@ -67,7 +62,9 @@ class SpecialUploadCampaigns extends SpecialPage {
 	 * @since 1.2
 	 */
 	protected function displayUploadCamaigns() {
-		$this->displayAddNewControl();
+		if ( $this->userCanExecute( $this->getUser() ) ) {
+			$this->displayAddNewControl();
+		}
 
 		// If the refresh flag is set, fetch from the master.
 		// This is to ensure changes show up right away for the person that makes then
@@ -144,20 +141,36 @@ class SpecialUploadCampaigns extends SpecialPage {
 			array( 'class' => 'wikitable sortable', 'style' => 'width:400px' )
 		) );
 
-		$out->addHTML(
-			'<thead><tr>' .
-				Html::element( 'th', array(), $this->msg( 'mwe-upwiz-campaigns-name' )->text() ) .
-				Html::element( 'th', array(), $this->msg( 'mwe-upwiz-campaigns-status' )->text() ) .
-				Html::element( 'th', array( 'class' => 'unsortable' ), $this->msg( 'mwe-upwiz-campaigns-edit' )->text() ) .
-				Html::element( 'th', array( 'class' => 'unsortable' ), $this->msg( 'mwe-upwiz-campaigns-delete' )->text() ) .
-			'</tr></thead>'
-		);
+		$out->addHTML( $this->getTableHeadersHtml() );
 
 		$out->addHTML( '<tbody>' );
 
 		foreach ( $campaigns as $campaign ) {
-			$out->addHTML(
-				'<tr>' .
+			$out->addHTML( $this->getTableContentsHtml( $campaign ) );
+		}
+
+		$out->addHTML( '</tbody>' );
+		$out->addHTML( '</table>' );
+
+		$out->addModules( 'ext.uploadWizard.campaigns' );
+	}
+
+	private function getTableHeadersHtml() {
+		$html = '<thead><tr>' .
+					Html::element( 'th', array(), $this->msg( 'mwe-upwiz-campaigns-name' )->text() ) .
+					Html::element( 'th', array(), $this->msg( 'mwe-upwiz-campaigns-status' )->text() );
+
+		if ( $this->userCanExecute( $this->getUser() ) ) {
+			$html .= Html::element( 'th', array( 'class' => 'unsortable' ), $this->msg( 'mwe-upwiz-campaigns-edit' )->text() ) .
+					Html::element( 'th', array( 'class' => 'unsortable' ), $this->msg( 'mwe-upwiz-campaigns-delete' )->text() );
+		}
+		$html .= '</tr></thead>';
+
+		return $html;
+	}
+
+	private function getTableContentsHtml( $campaign ) {
+		$html = '<tr>' .
 					'<td>' .
 						Html::element(
 							'a',
@@ -167,36 +180,35 @@ class SpecialUploadCampaigns extends SpecialPage {
 							$campaign->campaign_name
 						) .
 					'</td>' .
-					Html::element( 'td', array(), $this->msg( 'mwe-upwiz-campaigns-' . ( $campaign->campaign_enabled ? 'enabled' : 'disabled' ) )->text() ) .
-					'<td>' .
-						Html::element(
-							'a',
-							array(
-								'href' => SpecialPage::getTitleFor( 'UploadCampaign', $campaign->campaign_name )->getLocalURL()
-							),
-							$this->msg( 'mwe-upwiz-campaigns-edit' )->text()
-						) .
-					'</td>' .
-					'<td>' .
-						Html::element(
-							'a',
-							array(
-								'href' => '#',
-								'class' => 'campaign-delete',
-								'data-campaign-id' => $campaign->campaign_id,
-								'data-campaign-token' => $this->getUser()->getEditToken( 'deletecampaign' . $campaign->campaign_id )
-							),
-							$this->msg( 'mwe-upwiz-campaigns-delete' )->text()
-						) .
-					'</td>' .
-				'</tr>'
-			);
+					Html::element( 'td', array(), $this->msg( 'mwe-upwiz-campaigns-' . ( $campaign->campaign_enabled ? 'enabled' : 'disabled' ) )->text() );
+
+		if ( $this->userCanExecute( $this->getUser() ) ) {
+			$html .=	'<td>' .
+							Html::element(
+								'a',
+								array(
+									'href' => SpecialPage::getTitleFor( 'UploadCampaign', $campaign->campaign_name )->getLocalURL()
+								),
+								$this->msg( 'mwe-upwiz-campaigns-edit' )->text()
+							) .
+						'</td>' .
+						'<td>' .
+							Html::element(
+								'a',
+								array(
+									'href' => '#',
+									'disabled' => 'disabled',
+									'class' => 'campaign-delete',
+									'data-campaign-id' => $campaign->campaign_id,
+									'data-campaign-token' => $this->getUser()->getEditToken( 'deletecampaign' . $campaign->campaign_id )
+								),
+								$this->msg( 'mwe-upwiz-campaigns-delete' )->text()
+							) .
+						'</td>';
+	
 		}
 
-		$out->addHTML( '</tbody>' );
-		$out->addHTML( '</table>' );
-
-		$out->addModules( 'ext.uploadWizard.campaigns' );
+		$html .=	'</tr>';
+		return $html;
 	}
-
 }
