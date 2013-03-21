@@ -35,7 +35,6 @@ class UploadWizardHooks {
 				'mediawiki.api.edit',
 				'mediawiki.api.category',
 				'mediawiki.api.parse',
-				'mediawiki.api.titleblacklist',
 				'mediawiki.Title',
 				'mediawiki.user',
 				'mediawiki.feedback'
@@ -489,10 +488,13 @@ class UploadWizardHooks {
 	 * Adds modules to ResourceLoader
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
-		global $wgExtensionAssetsPath;
+		global $wgExtensionAssetsPath, $wgAPIModules;
 
 		$localpath = dirname( __FILE__ );
 		$remotepath = "$wgExtensionAssetsPath/UploadWizard";
+		if ( array_key_exists( 'titleblacklist', $wgAPIModules ) ) {
+			self::$modules['ext.uploadWizard']['dependencies'][] = 'mediawiki.api.titleblacklist';
+		}
 		foreach ( self::$modules as $name => $resources ) {
 			$resourceLoader->register( $name, new ResourceLoaderFileModule( $resources, $localpath, $remotepath ) );
 		}
