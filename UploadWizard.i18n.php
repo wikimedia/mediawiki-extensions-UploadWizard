@@ -479,6 +479,12 @@ For more information, see //www.mediawiki.org/wiki/UploadWizard',
 |} This is a short greyed or bolded label, in the top bar of all pages of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]]. Use the verb for this message.',
 	'mwe-upwiz-campaign-name-duplicate' => 'Error message shown when saving a campaign with a name that is already taken',
 	'mwe-upwiz-campaign-unknown-error' => 'Error message shown when saving a campaign fails for an unknown reason',
+	'mwe-upwiz-api-warning-exists' => 'Used as warning. Paramters:
+* $1 - full URL of the file',
+	'mwe-upwiz-api-warning-was-deleted' => 'Unused at this time.
+
+Used as warning. Parameters:
+* $1 - filename',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => "This message is shown when a tutorial file in a fallback language for user's interface language is used instead.
 $1 is the name of the fallback language.",
 	'mwe-upwiz-help-desk' => 'This should be the same text as it is used in the svg comic on the first page of the Upload Wizard',
@@ -517,7 +523,22 @@ $1 is the name of the fallback language.",
 	'mwe-upwiz-upload' => '{{Identical|Upload}}',
 	'mwe-upwiz-file-upload-notcapable' => 'The message a user will see when their browser cannot be used to upload an image.',
 	'mwe-upwiz-file-retry' => 'This is the text on a button. If any uploads failed, this button can be clicked to retry uploading the files that failed the previous time.',
+	'mwe-upwiz-upload-count' => 'This message means that $1 of $2 files have been uploaded. e.g. "2 of 5 files have been uploaded"
+* $1 - number of files that have been uploaded
+* $2 - number of files',
 	'mwe-upwiz-progressbar-uploading' => '{{Identical|Uploading}}',
+	'mwe-upwiz-secs-remaining' => 'Used to show overall progress for uploading. Parameters:
+* $1 - number of seconds
+{{Related|Mwe-upwiz-remaining}}',
+	'mwe-upwiz-mins-secs-remaining' => 'Used to show overall progress for uploading. Parameters:
+* $1 - number of minutes
+* $2 - number of seconds
+{{Related|Mwe-upwiz-remaining}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => 'Used to show overall progress for uploading. Parameters:
+* $1 - number of hours
+* $2 - number of minutes
+* $3 - number of seconds
+{{Related|Mwe-upwiz-remaining}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'An explanation below the thumbnail and above the radio buttons {{msg-mw|mwe-upwiz-source-ownwork}} and {{msg-mw|mwe-upwiz-source-thirdparty}}. Parameters:
 * $1 is the number of files.
 * $2 can be used for GENDER.',
@@ -538,6 +559,8 @@ $1 is the name of the fallback language.",
 * $1 is the number of uploaded files.
 * $2 is the author name that was provided. GENDER is not supported, as the value is free text; most often probably a real name or a wiki link to a user page.',
 	'mwe-upwiz-source-ownwork-assert-note' => '{{doc-important|In this message, $1 is the name of the license, and $2 is the number of uploads for pluralization.}}',
+	'mwe-upwiz-source-thirdparty-cases' => 'This message is followed by the License form. Parameters:
+* $1 - number of works. i.e. number of uploads',
 	'mwe-upwiz-source-thirdparty-accept' => '{{Identical|OK}}',
 	'mwe-upwiz-more-options' => "Text for a 'more options' toggle that opens more of a form so a user can make more detailed descriptions/add more properties for uploaded images.",
 	'mwe-upwiz-copy-metadata' => 'Toggler which expands/collapses a selection of checkboxes vertically which allow the user to selectively copy metadata from the first upload to other uploads.',
@@ -586,8 +609,21 @@ This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" pa
 | [[file:commons-uw-L52R.png|The beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 | [[file:commons-uw-L52S.png|The end of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 |} This is used for each field in the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
+	'mwe-upwiz-upload-error-bad-filename-extension' => 'Used as error message. Parameters:
+* $1 - extension (suffix) of file',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Used as error message. Parameters:
+* $1 - URL
+* $2 - URL http://commons.wikimedia.org/wiki/Help:Converting_video (hard-coded)',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Used as error message. Parameters:
+* $1 - basename of file',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'Used as error message. Parameters:
+* $1 - filename',
 	'mwe-upwiz-ok' => '{{Identical|OK}}',
 	'mwe-upwiz-cancel' => '{{Identical|Cancel}}',
+	'mwe-upwiz-fileexists-replace' => 'Unused at this time. Parameters:
+* $1 - page title for a file',
+	'mwe-upwiz-fileexists' => 'Unused at this time. Parameters:
+* $1 - ...',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Parameters:
 * $1 is an image name.
 * $2 is an URL.',
@@ -602,17 +638,44 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-upload-another' => '[[file:commons-uw-L52S.png|The End of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 
 This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
+	'mwe-upwiz-prevent-close' => 'Used as confirmation message when closing window. Parameters:
+* $1 - number of files. i.e. number of uploads',
 	'mwe-upwiz-tooltip-skiptutorial' => 'The tooltip shown when clicking the checkbox in the first step which enables the user to skip the introductory licensing tutorial in future. Parameters:
 * $1 is the URL for the user preferences,
 * $2 is {{msg-mw|prefs-uploads}},
 * $3 is {{msg-mw|prefs-upwiz-interface}}.',
+	'mwe-upwiz-tooltip-categories' => 'Used as hint for Category input form. Parameters:
+* $1 - the URL http://commons.wikimedia.org/wiki/Commons:Categories (hard-coded)',
+	'mwe-upwiz-deeds-need-deed' => 'Used as error message. Parameters:
+* $1 - number of files. i.e. number of uploads',
+	'mwe-upwiz-error-signature-blank' => 'Used as error message.
+{{Related|Mwe-upwiz-error-signature}}',
 	'mwe-upwiz-error-latitude' => 'Error message shown when an invalid latitude is entered',
 	'mwe-upwiz-error-longitude' => 'Error message shown when an invalid longitude is entered',
 	'mwe-upwiz-error-altitude' => 'Error message shown when an invalid altitude is entered',
+	'mwe-upwiz-error-signature-too-long' => 'Used as error message. Parameters:
+* $1 - maximum number of characters for the signature
+{{Related|Mwe-upwiz-error-signature}}',
+	'mwe-upwiz-error-signature-too-short' => 'Used as error message. Parameters:
+* $1 - minimum number of characters for the signature
+{{Related|Mwe-upwiz-error-signature}}',
+	'mwe-upwiz-error-signature-bad-chars' => 'Used as error message.
+{{Related|Mwe-upwiz-error-signature}}',
 	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
 	'mwe-upwiz-error-nologin' => 'Error shown when user is not logged in, returns them to the upload form.',
+	'mwe-upwiz-error-too-long' => 'Used as error message. Parameters:
+* $1 - maximum number of characters
+See also:
+* {{msg-mw|Mwe-upwiz-error-too-short}}',
+	'mwe-upwiz-error-too-short' => 'Used as error message. Parameters:
+* $1 - minimum number of characters
+See also:
+* {{msg-mw|Mwe-upwiz-error-too-long}}',
 	'mwe-upwiz-error-title-thumbnail' => 'Appears when thumbnail title is similar to "22px-Example.jpg" - the prefix is what MW adds when downloading pictures as thumbnails.',
 	'mwe-upwiz-error-title-protected' => 'Appears when the filename chosen will put this file in a protected page. Obviously the user cannot replace it (or we would not get this error), so we ask them to rename.',
+	'mwe-upwiz-details-error-count' => 'Used as error message. Parameters:
+* $1 - number of errors
+* $2 - number of forms. i.e. number of uploads',
 	'mwe-upwiz-too-many-files-ok' => 'OK button text.
 {{Identical|OK}}',
 	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
@@ -654,6 +717,12 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-2.0' => '{{CreativeCommonsLicense|by|2.0}}
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+	'mwe-upwiz-license-cc-zero' => 'Parameters:
+* $1 - (Unused)
+* $2 - full URL',
+	'mwe-upwiz-license-custom' => 'Parameters:
+* $1 - (Unused)
+* $2 - full URL',
 	'mwe-upwiz-license-custom-url' => '{{optional}}',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
@@ -677,9 +746,28 @@ See also:
 {{Identical|Categories}}',
 	'mwe-upwiz-categories-add' => 'Used as a link which, when clicked, adds a new field for adding a category.',
 	'mwe-upwiz-category-will-be-added' => 'Used to let the user know that the category they entered will be created upon form submission.',
+	'mwe-upwiz-unparseable-filename' => 'Used as error message. Parameters:
+* $1 - filename',
+	'mwe-upwiz-subhead-bugs' => 'Unused at this time. Parameters:
+* $1 - full URL',
+	'mwe-upwiz-subhead-translate' => 'Used as a link in the sub-header. Parameters:
+* $1 - full URL',
+	'mwe-upwiz-subhead-alt-upload' => 'Used as a link in the sub-header. Parameters:
+* $1 - full URL',
+	'mwe-upwiz-feedback-prompt' => 'Used as a link in the sub-header. Parameters:
+* $1 - full URL',
+	'mwe-upwiz-feedback-title' => 'Used as title for the dialog box.',
+	'mwe-upwiz-feedback-blacklist-report-prompt' => 'Parameters:
+* $1 - full URL',
+	'mwe-upwiz-feedback-blacklist-info-prompt' => 'Parameters:
+* $1 - full URL',
 	'mwe-upwiz-feedback-blacklist-line-intro' => 'Parameters:
-* $1 is an entry from the title blacklist.',
+* $1 - an entry from the title blacklist',
 	'mwe-upwiz-errordialog-ok' => '{{Identical|OK}}',
+	'mwe-upwiz-error-nosuchcampaign' => 'Used as error message. Parameters:
+* $1 - campaign name',
+	'mwe-upwiz-error-campaigndisabled' => 'Used as error message. Parameters:
+* $1 - campaign name',
 	'mwe-upwiz-campaigns-status' => '{{Identical|Status}}',
 	'mwe-upwiz-campaigns-enabled' => '{{Identical|Enabled}}',
 	'mwe-upwiz-campaigns-disabled' => '{{Identical|Disabled}}',
@@ -707,8 +795,11 @@ See also:
 	'mwe-upwiz-campaign-conf-idField2LabelPage' => 'Instead of specifying some simple text using the ID field label text setting, it\'s possible to specify a page of which the content should be used for this purpose. When specified, and the page exists, this value will be used instead of the one of the ID field label text setting. For internationalization purposes one can use "$1" as token which then gets replaced by the language code, ie ID_Field_label_$1 will be turned into ID_Field_label_en for users that have their language set to English, and to ID_Field_label_nl for those with Dutch as language. When there is no page for the users language, English will be used as fallback.
 
 {{doc-important|$1 is not a parameter, but displayed as plain text.}}',
+	'mwe-upwiz-campaign-conf-headerLabelPage' => '{{doc-important|"$1" is not a parameter, but a literal.}}',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => '{{doc-important|"$1" is not a parameter, but a literal.}}
 "Use" is the message {{msg-mw|Mwe-upwiz-step-thanks}}',
+	'mw-coolcats-confirm-new' => 'Unused at this time. Parameters:
+* $1 - category name',
 	'mw-coolcats-confirm-new-ok' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will add the selected non-existing categories to the upload.',
 	'mw-coolcats-confirm-new-cancel' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will remove the selected non-existing categories from being added to the upload.',
 	'prefs-uploads' => 'Preferences tab label for UploadWizard preferences related to uploads. See https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.
@@ -717,6 +808,14 @@ See also:
 	'prefs-upwiz-interface' => 'Preferences section heading for preferences related to the Upload Wizard user interface',
 	'mwe-upwiz-prefs-def-license' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
+	'mwe-upwiz-prefs-license-own' => 'Parameters:
+* $1 - license message. e.g. {{msg-mw|Mwe-upwiz-license-cc-by-sa-3.0}}
+See also:
+* {{msg-mw|Mwe-upwiz-prefs-license-thirdparty}}',
+	'mwe-upwiz-prefs-license-thirdparty' => 'Parameters:
+* $1 - license message. e.g. {{msg-mw|Mwe-upwiz-license-cc-by-sa-3.0}}
+See also:
+* {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning',
 );
 
@@ -13879,7 +13978,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-step-thanks' => '使用する',
 	'mwe-upwiz-campaign-name-duplicate' => '同じ名前のキャンペーンが既に存在します。',
 	'mwe-upwiz-campaign-unknown-error' => '不明なエラーが発生しました。',
-	'mwe-upwiz-api-warning-exists' => '既に同じファイル名の[$1 別ファイル]が存在しています。',
+	'mwe-upwiz-api-warning-exists' => '同じファイル名の[$1 別のファイル]が既に存在します。',
 	'mwe-upwiz-api-warning-was-deleted' => 'この名前「$1」のファイルが以前ありましたが、削除されたため同じファイルを再度アップロードすることはできません。ファイルが異なる場合は、名前を変更してみてください。',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => '申し訳ありませんが、ご使用中の言語版のチュートリアルが見つかりませんでした。
 代わりに$1で表示します。',
@@ -15187,9 +15286,9 @@ $messages['ko'] = array(
 	'mwe-upwiz-error-longitude' => '경도는 -180에서 180 사이여야 합니다.',
 	'mwe-upwiz-error-altitude' => '고도는 숫자로 입력해야 합니다.',
 	'mwe-upwiz-error-signature-too-long' => '서명이 너무 깁니다.
-$1{{PLURAL:$1|글자}}보다 짧게 하세요.',
+$1 {{PLURAL:$1|글자}}보다 짧게 하세요.',
 	'mwe-upwiz-error-signature-too-short' => '서명이 너무 짧습니다.
-$1{{PLURAL:$1|글자}}보다 길게 하세요.',
+$1 {{PLURAL:$1|글자}}보다 길게 하세요.',
 	'mwe-upwiz-error-signature-bad-chars' => '서명에 부적절한 글자나 기호가 포함되어 있습니다.
 위키텍스트나 HTML을 사용하지 말고 단순히 계정 이름이나 실명만을 입력하세요.',
 	'mwe-upwiz-error-blank' => '이 칸은 반드시 입력해야 합니다.',
@@ -20075,7 +20174,7 @@ $messages['or'] = array(
 	'mwe-upwiz-flickr-input-placeholder' => 'ଫ୍ଲିକରର ଫଟୋ/ଫଟୋଗୋଛାର URL',
 	'mwe-upwiz-select-flickr' => 'ବାଛିଥିବା ଛବିଗୁଡିକୁ ଅପଲୋଡ କରିବେ',
 	'mwe-upwiz-flickr-disclaimer1' => 'ଏହି ଫର୍ମଟି flickr.comରେ ଥିବା ଜିନିଷଗୁଡିକୁ ଲୋଡ କରିବ ଏବଂ ଏହାର ସମସ୍ତ ଅଧିକାର ଫ୍ଲିକର [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ privacy policy]ଅନୁଯାୟୀ ହେବ ।',
-	'mwe-upwiz-flickr-disclaimer2' => 'ଦୟାକରି ଧ୍ୟାନ ଦିଅନ୍ତୁ ଯେ ଏହି ଟୁଲଟିକୁ ବ୍ୟବହାର କରିବା ଦ୍ଵାରା, ଆପଣଙ୍କ ଆଇପି ଠିକଣା ଏବଂ ଅନୁରୋଧ ସବିଶେଷ ଫ୍ଲିକ୍କରରେ ରହିବ ।',
+	'mwe-upwiz-flickr-disclaimer2' => 'ଦୟାକରି ଧ୍ୟାନ ଦିଅନ୍ତୁ ଯେ ଏହି ଟୁଲଟିକୁ ବ୍ୟବହାର କରିବା ଦ୍ଵାରା, ଆପଣଙ୍କ ଆଇପି ଠିକଣା ଏବଂ ଅନୁରୋଧ ସବିଶେଷ ଫ୍ଲିକରରେ ରହିବ ।',
 	'mwe-upwiz-error-no-image-retrieved' => 'ଆମେ ଏହି ଫାଇଲଟିଜୁ $1ରୁ ଆଣିପାରିଲୁ ନାହିଁ ।',
 	'mwe-upwiz-multi-file-select' => 'ଆପଣ ଅପଲୋଡ କରିବାକୁ ଚାହୁଁଥିବା ଫାଇଲଗୁଡିକ ଉପରେ କ୍ରସର ଦ୍ଵାରା ଏକ ବାକ୍ସ ଆଙ୍କନ୍ତୁ । Ctrl/Commandକୁ ଚାପିରଖି ନାନାଦି ଚୟନ କରନ୍ତୁ ।',
 	'mwe-upwiz-transport-started' => 'ଆରମ୍ଭିଲା...',
