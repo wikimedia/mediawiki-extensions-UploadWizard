@@ -111,7 +111,11 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				author = _this.$authorInput2.val();
 			}
 
-			return "[[User:" + mw.config.get( 'wgUserName' ) + '|' + author + ']]';
+			if ( author.indexOf( '[' ) >= 0 || author.indexOf( '{' ) >= 0 ) {
+				return author;
+			}
+
+			return '[[User:' + mw.config.get( 'wgUserName' ) + '|' + author + ']]';
 		},
 
 
