@@ -437,11 +437,13 @@ Please do not use wikitext or HTML here.',
  * @author Yekrats
  */
 $messages['qqq'] = array(
-	'uploadwizard' => 'UploadWizard is a wizard to upload multimedia files to a MediaWiki website
-For more information, see //www.mediawiki.org/wiki/UploadWizard',
+	'uploadwizard' => '{{doc-special|UploadWizard}}
+UploadWizard is a wizard to upload multimedia files to a MediaWiki website.
+For more information, see [[mw:UploadWizard]].',
 	'uploadwizard-desc' => 'Description of extension. It refers to [//blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.',
-	'mwe-upwiz-uploadcampaigns' => 'Special page title. Can also be worded as "campaigns for the promotion of uploading".',
-	'mwe-upwiz-uploadcampaign' => 'Special page title.',
+	'mwe-upwiz-uploadcampaigns' => '{{doc-special|UploadCampaigns}}
+Can also be worded as "campaigns for the promotion of uploading".',
+	'mwe-upwiz-uploadcampaign' => '{{doc-special|UploadCampaign}}',
 	'right-upwizcampaigns' => '{{doc-right|upwizcampaigns}}
 
 "Upload campaign" can also be worded as "a campaign for the promotion of uploading".',
@@ -14642,6 +14644,9 @@ $messages['ka'] = array(
 	'mwe-upwiz-select-flickr' => 'არჩეული სურათების ატვირთვა',
 	'mwe-upwiz-transport-started' => 'იწყება...',
 	'mwe-upwiz-uploading' => 'იტვირთება...',
+	'mwe-upwiz-queued' => 'რიგში...',
+	'mwe-upwiz-assembling' => 'შეკრება...',
+	'mwe-upwiz-publish' => 'გამოქვეყნება...',
 	'mwe-upwiz-transported' => 'ატვირთვა დასრულდა...',
 	'mwe-upwiz-stashed-upload' => 'ატვირთულია',
 	'mwe-upwiz-getting-metadata' => 'მიმდინარეობს ფაილის ინფორმაციისა და გამოსახულებების მიღება...',
