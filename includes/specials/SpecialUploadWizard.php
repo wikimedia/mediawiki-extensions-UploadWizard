@@ -427,23 +427,23 @@ class SpecialUploadWizard extends SpecialPage {
 		.             '<button id="mwe-upwiz-upload-ctrl">' . $this->msg( "mwe-upwiz-upload" )->text() . '</button>'
 		.           '</div>'
 		.         '</div>'
+			.       '<div class="mwe-upwiz-buttons">'
+			.	   '<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">'
+			.             $this->msg( "mwe-upwiz-file-all-ok" )->text()
+			.             '<button class="mwe-upwiz-button-next">' . $this->msg( "mwe-upwiz-next-file" )->text()  . '</button>'
+			.          '</div>'
+			.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
+			.             $this->msg( "mwe-upwiz-file-some-failed" )->text()
+			.             '<button class="mwe-upwiz-button-retry">' . $this->msg( "mwe-upwiz-file-retry" )->text()  . '</button>'
+			.             '<button class="mwe-upwiz-button-next">' . $this->msg( "mwe-upwiz-next-file-despite-failures" )->text()  . '</button>'
+			.          '</div>'
+			.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
+			.             $this->msg( "mwe-upwiz-file-all-failed" )->text()
+			.             '<button class="mwe-upwiz-button-retry"> ' . $this->msg( "mwe-upwiz-file-retry" )->text()  . '</button>'
+			.          '</div>'
 		.         '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
 		.         '<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>'
 		.       '</div>'
-		.       '<div class="mwe-upwiz-buttons">'
-		.	   '<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">'
-		.             $this->msg( "mwe-upwiz-file-all-ok" )->text()
-		.             '<button class="mwe-upwiz-button-next">' . $this->msg( "mwe-upwiz-next-file" )->text()  . '</button>'
-		.          '</div>'
-		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
-		.             $this->msg( "mwe-upwiz-file-some-failed" )->text()
-		.             '<button class="mwe-upwiz-button-retry">' . $this->msg( "mwe-upwiz-file-retry" )->text()  . '</button>'
-		.             '<button class="mwe-upwiz-button-next">' . $this->msg( "mwe-upwiz-next-file-despite-failures" )->text()  . '</button>'
-		.          '</div>'
-		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
-		.             $this->msg( "mwe-upwiz-file-all-failed" )->text()
-		.             '<button class="mwe-upwiz-button-retry"> ' . $this->msg( "mwe-upwiz-file-retry" )->text()  . '</button>'
-		.          '</div>'
 		.       '</div>'
 		.     '</div>'
 
