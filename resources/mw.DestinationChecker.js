@@ -208,7 +208,8 @@ mw.DestinationChecker.prototype = {
 		// XXX do not use iiurlwidth as it will create a thumbnail
 		var params = {
 			'titles': title,
-			'prop':  'imageinfo',
+			'prop':  'info|imageinfo',
+			'inprop': 'protection',
 			'iiprop': 'url|mime|size',
 			'iiurlwidth': 150
 		};
@@ -236,9 +237,20 @@ mw.DestinationChecker.prototype = {
 			// If file found on another repository, such as when the wiki is using InstantCommons: page with a key of -1, plus imageinfo
 			// If file found on this repository: page with some positive numeric key
 			if ( data.query.pages[-1] && !data.query.pages[-1].imageinfo ) {
-				// No conflict found on any repository this wiki uses
-				result = { isUnique: true };
-
+				var protection = data.query.pages[-1].protection;
+				if ( protection && protection.length > 0 ) {
+					$.each( protection, function( i, val ) {
+						if ( $.inArray( val.level, mw.config.get( 'wgUserGroups' ) ) === -1 ) {
+							result = {
+								isUnique: true,
+								isProtected: true
+							};
+						}
+					} );
+				} else {
+					// No conflict found on any repository this wiki uses
+					result = { isUnique: true };
+				}
 			} else {
 
 				for ( var page_id in data.query.pages ) {
@@ -275,7 +287,6 @@ mw.DestinationChecker.prototype = {
 					break;
 				}
 			}
-
 			_this.cachedResult[title] = result;
 			callback( { 'unique': result } );
 		};

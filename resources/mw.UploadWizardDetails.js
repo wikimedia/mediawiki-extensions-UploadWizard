@@ -739,7 +739,7 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		var $errorEl = _this.$form.find( 'label[for=' + _this.titleId + '].errorTitleUnique' );
 
-		if ( result.unique.isUnique && result.blacklist.notBlacklisted ) {
+		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
 			$j( _this.titleInput ).data( 'valid', true );
 			$errorEl.hide().empty();
 			_this.ignoreWarningsInput = undefined;
@@ -767,11 +767,13 @@ mw.UploadWizardDetails.prototype = {
 				errHtml = mw.msg( 'mwe-upwiz-fileexists-replace-no-link', titleString );
 			}
 
-			$errorEl.html( errHtml ).show();
+			$errorEl.text( errHtml );
+		} else if ( result.unique.isProtected ) {
+			errHtml = mw.msg( 'mwe-upwiz-error-title-protected' );
+			$errorEl.text( errHtml );
 		} else {
 			errHtml = mw.msg( 'mwe-upwiz-blacklisted', titleString );
-
-			$errorEl.html( errHtml );
+			$errorEl.text( errHtml );
 
 			var completeErrorLink = $j( '<span class="contentSubLink"></span>' ).msg(
 				'mwe-upwiz-feedback-blacklist-info-prompt',
@@ -805,9 +807,8 @@ mw.UploadWizardDetails.prototype = {
 
 				$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( feedbackLink );
 			}
-
-			$errorEl.show();
 		}
+		$errorEl.show();
 	},
 
 	/**
