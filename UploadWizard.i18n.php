@@ -14660,6 +14660,8 @@ $messages['ka'] = array(
 	'mwe-upwiz-show-thumb-tip' => 'მინიატურის ატვირთვა ამ ფაილისათვის',
 	'mwe-upwiz-remove-description' => 'მოაშორეთ ეს აღწერა.',
 	'mwe-upwiz-upload' => 'ატვირთვა',
+	'mwe-upwiz-file-upload-notcapable' => 'სამწუხაროდ თქვენ ბრაუზერს არ შეუძლია ფაილების ჩატვირთვა.
+გთხოვთ, სცადოთ სხვა ბრაუზერი.',
 	'mwe-upwiz-file-all-ok' => 'ყველა ატვირთვა განხორციელდა წარმატებით!',
 	'mwe-upwiz-file-some-failed' => 'ზოგიერთი ფაილი არ აიტვირთა.',
 	'mwe-upwiz-file-retry' => 'სცადე ხელმეორედ ატვირთვა.',
@@ -14749,6 +14751,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-allowed-filename-extensions' => 'ფაილის დაშვებული დაბოლოებებია:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'ფაილების დასაშვები გაფართოება',
 	'mwe-upwiz-upload-error-duplicate' => 'ეს ფაილი უკვე ატვირთულია ამ ვიკიზე.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'ეს ფაილი ადრე იყო ატვირთული ამ ვიკიში, მაგრამ მოგვიანებით წაიშალა.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'მაინც ავტვირთო?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'უცნობი მიზეზების გამო ჩვენ ვერ გავარჩიეთ ფაილის სახელწოდება „$1“.',
 	'mwe-upwiz-ok' => 'კარგი',
