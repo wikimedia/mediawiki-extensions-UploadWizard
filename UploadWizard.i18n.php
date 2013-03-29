@@ -22684,6 +22684,7 @@ $messages['roa-tara'] = array(
 	'mwe-upwiz-add-flickr' => 'Pigghie da Flickr',
 	'mwe-upwiz-select-flickr' => 'Careche le immaggine scacchiate',
 	'mwe-upwiz-transport-started' => 'Stoche a parte...',
+	'mwe-upwiz-encoding' => 'Stoche a codifeche...',
 	'mwe-upwiz-uploading' => 'Stoche a careche…',
 	'mwe-upwiz-queued' => 'In code...',
 	'mwe-upwiz-assembling' => 'Stoche a assemble...',
