@@ -24427,6 +24427,7 @@ $messages['sl'] = array(
 	'mwe-upwiz-step-deeds' => 'Pravice objave',
 	'mwe-upwiz-step-details' => 'Opišite',
 	'mwe-upwiz-step-thanks' => 'Uporabite',
+	'mwe-upwiz-campaign-unknown-error' => 'Prišlo je do neznane napake.',
 	'mwe-upwiz-api-warning-exists' => 'Na wikiju že obstaja [$1 druga datoteka] z enakim imenom datoteke',
 	'mwe-upwiz-api-warning-was-deleted' => 'Obstajala je datoteka s tem imenom, »$1«, vendar je bila izbrisana in je ne morete ponovno naložiti. Če je vaša datoteka drugačna, jo poskusite preimenovati.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Oprostite, vendar nismo uspeli najti vodnika v vašem jeziku. Namesto tega je prikazan v jeziku $1.',
