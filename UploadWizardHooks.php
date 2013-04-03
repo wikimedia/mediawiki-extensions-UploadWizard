@@ -241,7 +241,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-source-thirdparty',
 				'mwe-upwiz-source-thirdparty-intro',
 				'mwe-upwiz-source-thirdparty-custom-multiple-intro',
-				'mwe-upwiz-source-thirdparty-license',
 				'mwe-upwiz-source-thirdparty-cases',
 				'mwe-upwiz-source-thirdparty-accept',
 				'mwe-upwiz-source-custom',
