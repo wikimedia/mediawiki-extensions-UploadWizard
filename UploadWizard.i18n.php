@@ -13614,6 +13614,8 @@ $messages['it'] = array(
 	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL immagine/photoset Flickr',
 	'mwe-upwiz-select-flickr' => 'Carica le immagini selezionate',
+	'mwe-upwiz-flickr-disclaimer1' => "Questo modulo carica contenuti ospitati da flickr.com e soggetto alle
+[https://www.flickr.com/help/terms/ condizioni d'uso] e alla [https://www.flickr.com/help/privacy-policy/ politica sulla privacy] di Flickr.",
 	'mwe-upwiz-flickr-disclaimer2' => 'Si prega di notare che, utilizzando questo strumento, il tuo indirizzo IP e i dettagli della richiesta saranno disponibili a Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Non è possibile recuperare il file da $1.',
 	'mwe-upwiz-multi-file-select' => 'Disegna una casella con il cursore del mouse sopra i file che vuoi caricare. Tieni premuto il tasto Ctrl/Comando per selezionare più file non adiacenti.',
