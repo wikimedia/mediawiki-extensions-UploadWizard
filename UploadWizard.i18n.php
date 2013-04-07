@@ -1362,6 +1362,7 @@ $messages['anp'] = array(
  * @author Mido
  * @author Moemin05
  * @author OsamaK
+ * @author Shamselsbah
  * @author روخو
  * @author زكريا
  */
@@ -1513,6 +1514,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-allowed-filename-extensions' => 'الامتدادات المسموح بها:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'الامتدادات المسموح بها',
 	'mwe-upwiz-upload-error-duplicate' => 'سبق أن رُفع هذا الملف إلى هذه الويكي.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'تم تحميل هذا الملف مسبقًاعلى هذا الويكي، ولكن تم الحذف لاحقًا',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'أأرفعه على كل حال؟',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'لم يمكننا قراءة أو فهم اسم الملف "$1" لأسباب غير معروفة.',
 	'mwe-upwiz-ok' => 'موافق',
@@ -1579,6 +1581,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'هذا الاسم محجوز من قبل ملف آخر مشترك عن بعد. اختر اسماً آخر.',
 	'mwe-upwiz-error-title-double-apostrophe' => 'هذا العنوان يحتوي علامة اقتباس أحادية مزدوجة؛ الرجاء إزالتها.',
 	'mwe-upwiz-error-title-extension' => 'لا تحتاج إلى إضافة ملحق ملف. مجرد تقديم عنوان قراءة بشرية والعناية في التطبيق بقية.',
+	'mwe-upwiz-error-title-protected' => 'يطابق هذا العنوان صفحة محمية على هذا الويكي. برجاء اختار عنوان مختلف.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'اختر الخيار الذي يتطلب منك إدخال نص ويكي.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'نص الويكي أقصر من أن يكون رخصة.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'نص الويكي الذي تم إدخاله طويل جدا.',
@@ -1641,6 +1644,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'تأكيد إزالة',
 	'mwe-upwiz-license-external' => 'هذا الملف يخضع للرخصة التالية على $1: $2.',
 	'mwe-upwiz-license-external-invalid' => 'هذا الملف يخضع للرخصة التالية على $1: $2. للاسف، هذه الرخصة لا يمكن استخدامها على هذا الموقع.',
+	'mwe-upwiz-license-photoset-invalid' => 'للأسف: لا يوجد صورة في تلك المجموعة لديها رخصة يمكنها استخدامها على هذا الموقع',
 	'mwe-upwiz-categories' => 'تصنيفات',
 	'mwe-upwiz-categories-add' => 'أضف',
 	'mwe-upwiz-category-will-be-added' => 'هذا التصنيف غير مستخدم حاليا.',
