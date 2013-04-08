@@ -414,10 +414,7 @@ Please do not use wikitext or HTML here.',
 
 );
 
-/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
-
-It might be easier to translate it as "translation guidelines" or "translation help".
-{{Identical|Message documentation}})
+/** Message documentation (Message documentation)
  * @author Amire80
  * @author EugeneZelenko
  * @author Guillom
@@ -741,8 +738,8 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 See also:
 * {{msg-mw|Mwe-upwiz-license-external-invalid}}',
 	'mwe-upwiz-license-external-invalid' => 'Parameters:
-* $1 - name of website
-* $2 - name of license
+* $1 - name of the external website, e.g. Flickr
+* $2 - name of the license
 See also:
 * {{msg-mw|Mwe-upwiz-license-external}}',
 	'mwe-upwiz-url-invalid' => 'Error message displayed when an invalid URL is entered. $1 is the name of a website (e.g. Flickr).',
@@ -19688,7 +19685,7 @@ In beide gevallen wordt deze gekoppeld aan uw gebruikerspagina in de wiki.',
 	'mwe-upwiz-tooltip-location' => 'Coördinaten van de locatie waar dit mediabestand is gemaakt.',
 	'mwe-upwiz-tooltip-more-info' => 'Meer lezen.',
 	'mwe-upwiz-file-need-file' => 'Voeg eerst een upload toe.',
-	'mwe-upwiz-deeds-need-deed' => 'Geef alstublieft aan hoe u aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.',
+	'mwe-upwiz-deeds-need-deed' => 'Geef aan hoe u aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.',
 	'mwe-upwiz-deeds-need-license' => 'Selecteer een licentie.',
 	'mwe-upwiz-license-show-all' => 'Een andere licentie gebruiken',
 	'mwe-upwiz-license-show-recommended' => 'De aanbevolen licentie gebruiken',
@@ -19711,13 +19708,13 @@ Maak het langer dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-bad-chars' => 'De invoer voor dit veld bevat symbolen die niet zijn toegestaan.
 Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-error-date' => 'Voer een geldige datum als JJJJ-MM-DD of kies een datum in de popupkalender.',
-	'mwe-upwiz-error-title-blacklisted' => 'Deze naam bevat ongewenste tekst. Corrigeer deze alstublieft',
-	'mwe-upwiz-error-title-badchars' => 'Deze naam bevat ongewenste tekens. Verwijder deze alstublieft',
-	'mwe-upwiz-error-title-senselessimagename' => 'Geef deze naam alstublieft meer betekenis.',
-	'mwe-upwiz-error-title-hosting' => 'Het lijkt alsof u dit bestand hebt gedownload van een andere afbeeldingsdienst. Maak de naam alstublieft meer betekenisvol. Controleer ook nog een keer of u de rechten hebt om het bestand te publiceren op deze site.',
-	'mwe-upwiz-error-title-thumbnail' => 'Dit lijkt de naam van een miniatuurafbeelding. Upload alstublieft geen miniatuurafbeeldingen naar dezelfde wiki. Is dit niet het geval, corrigeer de bestandsnaam dan zodat deze meer betekenisvol is en zodat het voorvoegsel "thumbnail" niet meer aanwezig is.',
+	'mwe-upwiz-error-title-blacklisted' => 'Deze naam bevat ongewenste tekst. Corrigeer deze.',
+	'mwe-upwiz-error-title-badchars' => 'Deze naam bevat ongewenste tekens. Verwijder deze.',
+	'mwe-upwiz-error-title-senselessimagename' => 'Geef deze naam meer betekenis.',
+	'mwe-upwiz-error-title-hosting' => 'Het lijkt alsof u dit bestand hebt gedownload van een andere afbeeldingsdienst. Maak de naam meer betekenisvol. Controleer ook nog een keer of u de rechten hebt om het bestand te publiceren op deze site.',
+	'mwe-upwiz-error-title-thumbnail' => 'Dit lijkt de naam van een miniatuurafbeelding. Upload geen miniatuurafbeeldingen naar dezelfde wiki. Is dit niet het geval, corrigeer de bestandsnaam dan zodat deze meer betekenisvol is en zodat het voorvoegsel "thumbnail" niet meer aanwezig is.',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'Deze naam is gereserverd voor een bestand in een gedeelde repository. Kies een andere naam.',
-	'mwe-upwiz-error-title-double-apostrophe' => 'Deze naam bevat een dubbele apostrof. Verwijder deze alstublieft.',
+	'mwe-upwiz-error-title-double-apostrophe' => 'Deze naam bevat een dubbele apostrof. Verwijder deze.',
 	'mwe-upwiz-error-title-extension' => 'U hoeft geen bestandsextensie toe te voegen. Maak gewoon een voor mensen leesbare naam en de software zorgt voor de rest.',
 	'mwe-upwiz-error-title-protected' => 'Deze naam komt overeen met die van een beveiligde pagina in deze wiki. Kies een andere naam.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'U hebt een optie geselecteerd waarvoor u wikitekst moet invoeren.',
@@ -19901,7 +19898,7 @@ In beide gevallen wordt deze gekoppeld aan je gebruikerspagina in de wiki.',
 	'mwe-upwiz-tooltip-title' => 'Een korte beschrijvende naam voor het bestand, die als de bestandsnaam wordt gebruikt. Je kunt platte tekst met spaties gebruiken. Neem de bestandsextensie niet op.',
 	'mwe-upwiz-tooltip-categories' => 'Voeg [$1 categorieën] toe aan je bestand om het makkelijker vindbaar te maken.',
 	'mwe-upwiz-tooltip-other' => 'Overige gegevens die je wilt opnemen over dit werk. Denk aan geografische coördinaten, koppelingen naar andere versies, enzovoort.',
-	'mwe-upwiz-deeds-need-deed' => 'Geef alsjeblieft aan hoe je aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.',
+	'mwe-upwiz-deeds-need-deed' => 'Geef aan hoe je aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.',
 	'mwe-upwiz-error-signature-blank' => 'Je moet in het onderstaande veld je gebruikersnaam of echte naam invoeren.',
 	'mwe-upwiz-error-signature-too-long' => 'Je handtekening is te lang.
 Maak deze korter dan $1 {{PLURAL:$1|teken|tekens}}.',
@@ -19910,7 +19907,7 @@ Maak deze langer dan $1 {{PLURAL:$1|teken|tekens}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Je handtekening bevat symbolen die niet zijn toegestaan.
 Gebruik geen wikitext of HTML, alleen je gebruikersnaam of echte naam.',
 	'mwe-upwiz-error-nologin' => 'Je moet <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} aangemeld zijn]</span> om bestanden te kunnen uploaden.',
-	'mwe-upwiz-error-title-hosting' => 'Het lijkt alsof je dit bestand hebt gedownload van een andere afbeeldingsdienst. Maak de naam alstublieft meer betekenisvol. Controleer ook nog een keer of je de rechten hebt om het bestand te publiceren op deze site.',
+	'mwe-upwiz-error-title-hosting' => 'Het lijkt alsof je dit bestand hebt gedownload van een andere afbeeldingsdienst. Maak de naam meer betekenisvol. Controleer ook nog een keer of je de rechten hebt om het bestand te publiceren op deze site.',
 	'mwe-upwiz-error-title-extension' => 'Je hoeft geen bestandsextensie toe te voegen. Maak gewoon een voor mensen leesbare naam en de software zorgt voor de rest.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'Je hebt een optie geselecteerd waarvoor je wikitekst moet invoeren.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'De door jou ingevoerde wikitekst is te lang.',
@@ -20601,6 +20598,7 @@ $messages['pfl'] = array(
  * @author Bartek50003
  * @author Beau
  * @author BeginaFelicysym
+ * @author Chrumps
  * @author Fizykaa
  * @author Grzechooo
  * @author Karol007
@@ -20886,7 +20884,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-license-external-invalid' => 'Plik jest udostępniany przez $1 na zasadach licencji $2. Niestety ta licencja nie umożliwia wykorzystania go przez tę witrynę.',
 	'mwe-upwiz-categories' => 'Kategorie',
 	'mwe-upwiz-categories-add' => 'Dodaj',
-	'mwe-upwiz-category-will-be-added' => 'Ta kategoria zostanie utworzona.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Ta kategoria nie jest jeszcze używana.',
 	'mwe-upwiz-category-remove' => 'Usuń z tej kategorii',
 	'mwe-upwiz-thumbnail-failed' => 'Plik przesłano, ale serwer nie zwrócił miniaturki',
 	'mwe-upwiz-unparseable-filename' => 'Niezrozumiała nazwa pliku „$1”',
