@@ -20,7 +20,7 @@ $specialPageAliases['ar'] = array(
 	'UploadCampaign' => array( 'حملة_الرفع' ),
 );
 
-/** Assamese (অসমীয়া) */
+/** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'UploadWizard' => array( 'আপল’ড_প্ৰক্ৰিয়া' ),
 );
