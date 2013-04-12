@@ -85,10 +85,18 @@ mw.FlickrChecker.prototype = {
 						if ( x < 50 ) {
 							var license = _this.checkLicense( item.license, i );
 							var licenseValue = license.licenseValue;
+							var sameTitleExists = false;
 							if ( licenseValue !== 'invalid' ) {
-								// if the photo is untitled, generate a title
-								if ( item.title === '' ) {
-									fileName = item.ownername + '-' + item.id + '.jpg';
+
+								$.each( _this.imageUploads, function ( index, image ) {
+									if ( image.name === item.title + '.jpg' ) {
+										sameTitleExists = true;
+										return false; // Break out of the loop
+									}
+								} );
+								// if the photo is untitled or a same title exists, generate a title
+								if ( item.title === '' || sameTitleExists ) {
+									fileName = item.title + ' - ' + item.id + '.jpg';
 								} else {
 									fileName = item.title + '.jpg';
 								}
