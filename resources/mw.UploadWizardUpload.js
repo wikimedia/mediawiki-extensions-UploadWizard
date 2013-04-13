@@ -519,10 +519,9 @@ mw.UploadWizardUpload.prototype = {
 					if ( tooManyFiles ) {
 						var remainingFiles = mw.UploadWizard.config.maxUploads - _this.wizard.uploads.length;
 						_this.showTooManyFilesWarning( files.length - remainingFiles );
-						var files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
-					}
-					else {
-						var files = files.slice( 1 );
+						files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
+					} else {
+						files = files.slice( 1 );
 					}
 
 					if ( files.length > 0 ) {
@@ -540,11 +539,8 @@ mw.UploadWizardUpload.prototype = {
 						finishCallback();
 					}
 				}
-
 			}
-
 		}
-
 	},
 
 	/**

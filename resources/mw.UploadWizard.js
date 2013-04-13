@@ -1234,8 +1234,9 @@ mw.UploadWizard.prototype = {
 
 		_this.api.post( tokenRequest,
 			function( data ) {
+				var token;
 				try {
-					var token = data.tokens.optionstoken;
+					token = data.tokens.optionstoken;
 				} catch ( e ) {
 					throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
 				}

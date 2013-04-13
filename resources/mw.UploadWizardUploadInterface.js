@@ -368,6 +368,17 @@ mw.UploadWizardUploadInterface.prototype = {
 		return mw.fileApi.isAvailable() && this.upload.file && mw.fileApi.isPreviewableFile( this.upload.file );
 	},
 
+	// called once we have an image url
+	loadImage: function( url ) {
+		var image = document.createElement( 'img' );
+		image.onload = function () {
+			$.publishReady( 'thumbnails.' + _this.upload.index, image );
+			_this.previewLoaded = true;
+		};
+		image.src = url;
+		_this.upload.thumbnails['*'] = image;
+	},
+
 	makePreview: function() {
 		var _this = this;
 
@@ -378,16 +389,6 @@ mw.UploadWizardUploadInterface.prototype = {
 
 		// do preview if we can
 		if ( _this.isPreviewable() ) {
-			// called once we have an image url
-			function loadImage( url ) {
-				var image = document.createElement( 'img' );
-				image.onload = function () {
-					$.publishReady( 'thumbnails.' + _this.upload.index, image );
-					_this.previewLoaded = true;
-				};
-				image.src = url;
-				_this.upload.thumbnails['*'] = image;
-			}
 			// open video and get frame via canvas
 			if ( _this.isVideo() ) {
 				var first = true;
@@ -413,7 +414,7 @@ mw.UploadWizardUploadInterface.prototype = {
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							var context = canvas.getContext( '2d' );
 							context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							loadImage( canvas.toDataURL() );
+							this.loadImage( canvas.toDataURL() );
 							_this.URL().revokeObjectURL( video.url );
 						}, 500);
 					}
@@ -425,7 +426,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				dataUrlReader.onload = function() {
 					// this step (inserting image-as-dataurl into image object) is slow for large images, which
 					// is why this is optional and has a control attached to it to load the preview.
-					loadImage( dataUrlReader.result );
+					this.loadImage( dataUrlReader.result );
 				};
 				dataUrlReader.readAsDataURL( _this.upload.file );
 			}
