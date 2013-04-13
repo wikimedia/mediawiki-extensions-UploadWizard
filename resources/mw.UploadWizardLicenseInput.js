@@ -322,7 +322,7 @@ mw.UploadWizardLicenseInput.prototype = {
 
 			// check if how many license names are set to true in the values requested. Should be 0 or 1
 			var trueCount = 0;
-			var trueLicenseName = undefined;
+			var trueLicenseName;
 			$j.each( values, function( licenseName, val ) {
 				if ( val === true ) {
 					trueCount++;

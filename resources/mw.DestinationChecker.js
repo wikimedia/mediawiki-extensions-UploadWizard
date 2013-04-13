@@ -229,7 +229,7 @@ mw.DestinationChecker.prototype = {
 				return;
 			}
 
-			var result = undefined;
+			var result;
 
 			// The API will check for files with that filename.
 			// If no file found: a page with a key of -1 and no imageinfo
