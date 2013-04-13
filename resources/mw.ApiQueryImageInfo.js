@@ -22,7 +22,7 @@
 				'titles': title.toString()
 			};
 			if (  extraParams.width  !== undefined ) {
-				params['iiurlwidth'] = extraParams.width;
+				params.iiurlwidth = extraParams.width;
 			}
 			params.iiprop = properties.join( '|' );
 

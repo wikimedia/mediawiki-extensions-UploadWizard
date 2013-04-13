@@ -17,11 +17,11 @@ mw.Firefogg = {
 		}
 		if ( navigator.oscpu ) {
 			if ( navigator.oscpu.search( 'Linux' ) >= 0 )
-				osLink = this.firefoggInstallLinks['linux'];
+				osLink = this.firefoggInstallLinks.linux;
 			else if ( navigator.oscpu.search( 'Mac' ) >= 0 )
-				osLink = this.firefoggInstallLinks['macosx'];
+				osLink = this.firefoggInstallLinks.macosx;
 			else if (navigator.oscpu.search( 'Win' ) >= 0 )
-				osLink = this.firefoggInstallLinks['win32'];
+				osLink = this.firefoggInstallLinks.win32;
 		}
 		return osLink;
 	},

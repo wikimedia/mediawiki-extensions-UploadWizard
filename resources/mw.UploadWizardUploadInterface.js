@@ -22,7 +22,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	_this.$fileInputCtrl = $j( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
 	var profile = $.client.profile();
-	if (mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isFormDataAvailable() &&
+	if (mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
 		mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
 		// Multiple uploads requires the FormData transport
 		_this.$fileInputCtrl.attr( 'multiple', '1' );
@@ -111,8 +111,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	var $preview = $j( this.div ).find( '.mwe-upwiz-file-preview' );
 	_this.upload.setThumbnail(
 		$preview,
-		mw.UploadWizard.config[ 'thumbnailWidth' ],
-		mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
+		mw.UploadWizard.config.thumbnailWidth,
+		mw.UploadWizard.config.thumbnailMaxHeight,
 		true
 	);
 
@@ -467,9 +467,9 @@ mw.UploadWizardUploadInterface.prototype = {
 	showBadExtensionError: function( filename, extension ) {
 		var $errorMessage;
 		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
-		if ( mw.UploadWizard.config['enableFirefogg']
+		if ( mw.UploadWizard.config.enableFirefogg
 				&&
-			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1
+			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
 		) {
 			$errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
 					mw.Firefogg.getFirefoggInstallUrl(),
@@ -495,7 +495,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				$errorMessage,
 				$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
 				$j( '<blockquote>' ).append( $j( '<tt>' ).append(
-					mw.UploadWizard.config[ 'fileExtensions' ].join( " " )
+					mw.UploadWizard.config.fileExtensions.join( " " )
 				) )
 			)
 		);

@@ -14,8 +14,8 @@ mw.UploadWizard = function( config ) {
 	mw.UploadWizard.config = config;
 
 	// XXX need a robust way of defining default config
-	this.maxUploads = mw.UploadWizard.config[ 'maxUploads' ] || 10;
-	this.maxSimultaneousConnections = mw.UploadWizard.config[  'maxSimultaneousConnections'  ] || 2;
+	this.maxUploads = mw.UploadWizard.config.maxUploads || 10;
+	this.maxSimultaneousConnections = mw.UploadWizard.config.maxSimultaneousConnections || 2;
 
 	this.makePreviewsFlag = true;
 	this.showDeed = false;
@@ -58,12 +58,12 @@ mw.UploadWizard.prototype = {
 		// construct the message for the subheader
 		$j( '#contentSub' ).append( $j( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
-		if ( typeof mw.UploadWizard.config['feedbackPage'] === 'string' && mw.UploadWizard.config['feedbackPage'].length > 0 ) {
+		if ( typeof mw.UploadWizard.config.feedbackPage === 'string' && mw.UploadWizard.config.feedbackPage.length > 0 ) {
 			var feedback = new mw.Feedback( {
-				'title': new mw.Title( mw.UploadWizard.config['feedbackPage'] ),
+				'title': new mw.Title( mw.UploadWizard.config.feedbackPage ),
 				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
 				'bugsLink': new mw.Uri( 'https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
-				'bugsListLink': new mw.Uri( mw.UploadWizard.config['bugList'] )
+				'bugsListLink': new mw.Uri( mw.UploadWizard.config.bugList )
 			} );
 			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
 				function() {
@@ -74,10 +74,10 @@ mw.UploadWizard.prototype = {
 			$j( '#contentSub' ).append( feedbackLink );
 		}
 
-		if ( typeof mw.UploadWizard.config['translateHelp'] === 'string' && mw.UploadWizard.config['translateHelp'].length > 0 ) {
-			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['translateHelp'], target: '_blank' } ) ) );
+		if ( typeof mw.UploadWizard.config.translateHelp === 'string' && mw.UploadWizard.config.translateHelp.length > 0 ) {
+			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config.translateHelp, target: '_blank' } ) ) );
 		}
-		var configAltUploadForm = mw.UploadWizard.config['altUploadForm'];
+		var configAltUploadForm = mw.UploadWizard.config.altUploadForm;
 		if ( configAltUploadForm ) {
 			var altUploadForm;
 			if ( typeof configAltUploadForm === 'object' ) {
@@ -1170,8 +1170,8 @@ mw.UploadWizard.prototype = {
 			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
 			upload.setThumbnail(
 				$thumbnailDiv,
-				mw.UploadWizard.config[ 'thumbnailWidth' ],
-				mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
+				mw.UploadWizard.config.thumbnailWidth,
+				mw.UploadWizard.config.thumbnailMaxHeight,
 				false
 			);
 
@@ -1315,8 +1315,8 @@ mw.UploadWizardDeedPreview.prototype = {
 		this.$thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		this.upload.setThumbnail(
 			this.$thumbnailDiv,
-			mw.UploadWizard.config['thumbnailWidth'],
-			mw.UploadWizard.config['thumbnailMaxHeight'],
+			mw.UploadWizard.config.thumbnailWidth,
+			mw.UploadWizard.config.thumbnailMaxHeight,
 			true
 		);
 	},

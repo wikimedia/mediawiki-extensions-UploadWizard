@@ -5,8 +5,8 @@ mw.FlickrChecker = function( wizard, upload ) {
 	this.wizard = wizard;
 	this.upload = upload;
 	this.imageUploads = [];
-	this.apiUrl = mw.UploadWizard.config['flickrApiUrl'];
-	this.apiKey = mw.UploadWizard.config['flickrApiKey'];
+	this.apiUrl = mw.UploadWizard.config.flickrApiUrl;
+	this.apiKey = mw.UploadWizard.config.flickrApiKey;
 };
 
 mw.FlickrChecker.prototype = {

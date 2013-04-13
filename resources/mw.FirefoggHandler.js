@@ -8,9 +8,9 @@ mw.FirefoggHandler = function( upload, api ) {
 	this.api = upload.api;
 
 	// update the "valid" extension to include firefogg transcode extensions:
-	mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
-		mw.UploadWizard.config[ 'fileExtensions' ],
-		mw.UploadWizard.config[ 'transcodeExtensionList' ]
+	mw.UploadWizard.config.fileExtensions = $.merge(
+		mw.UploadWizard.config.fileExtensions,
+		mw.UploadWizard.config.transcodeExtensionList
 	);
 };
 

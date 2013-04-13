@@ -214,16 +214,16 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 					required: function( element ) {
 						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
 					},
-					minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-					maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
+					minlength: mw.UploadWizard.config.minAuthorLength,
+					maxlength: mw.UploadWizard.config.maxAuthorLength
 				}
 			};
 
 			var messages = {
 				author2: {
 					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
-					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ),
+					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength )
 				}
 			};
 
@@ -235,14 +235,14 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 					required: function( element ) {
 						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
 					},
-					minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-					maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
+					minlength: mw.UploadWizard.config.minAuthorLength,
+					maxlength: mw.UploadWizard.config.maxAuthorLength
 				};
 
 				messages.author = {
 					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
-					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ),
+					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength )
 				};
 			}
 
@@ -311,22 +311,22 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 			_this.$form.validate( {
 				rules: {
 					source: { required: true,
-						  minlength: mw.UploadWizard.config[  'minSourceLength'  ],
-						  maxlength: mw.UploadWizard.config[  'maxSourceLength'  ] },
+						  minlength: mw.UploadWizard.config.minSourceLength,
+						  maxlength: mw.UploadWizard.config.maxSourceLength },
 					author: { required: true,
-						  minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						  maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ] }
+						  minlength: mw.UploadWizard.config.minAuthorLength,
+						  maxlength: mw.UploadWizard.config.maxAuthorLength }
 				},
 				messages: {
 					source: {
 						required: mw.msg( 'mwe-upwiz-error-blank' ),
-						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minSourceLength'  ] ),
-						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxSourceLength'  ] )
+						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minSourceLength ),
+						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxSourceLength )
 					},
 					author: {
 						required: mw.msg( 'mwe-upwiz-error-blank' ),
-						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minAuthorLength ),
+						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxAuthorLength )
 					}
 				}
 			} );

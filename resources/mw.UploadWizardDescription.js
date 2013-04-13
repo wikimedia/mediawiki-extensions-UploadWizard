@@ -81,7 +81,7 @@ mw.UploadWizardDescription.prototype = {
 			return '';
 		}
 		var language = _this.getLanguage();
-		var fix = mw.UploadWizard.config[ "languageTemplateFixups" ];
+		var fix = mw.UploadWizard.config.languageTemplateFixups;
 		if (fix[language]) {
 			language = fix[language];
 		}
@@ -95,13 +95,13 @@ mw.UploadWizardDescription.prototype = {
 	addValidationRules: function( required ) {
 		// validator must find a form, so we add rules here
 		return this.input.rules( "add", {
-			minlength: mw.UploadWizard.config[  'minDescriptionLength'  ],
-			maxlength: mw.UploadWizard.config[  'maxDescriptionLength'  ],
+			minlength: mw.UploadWizard.config.minDescriptionLength,
+			maxlength: mw.UploadWizard.config.maxDescriptionLength,
 			required: required,
 			messages: {
 				required: mw.msg( 'mwe-upwiz-error-blank' ),
-				minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minDescriptionLength'  ] ),
-				maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxDescriptionLength'  ] )
+				minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minDescriptionLength ),
+				maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxDescriptionLength )
 			}
 		} );
 	}

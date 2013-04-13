@@ -779,10 +779,10 @@ mw.UploadWizardDetails.prototype = {
 			$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( completeErrorLink );
 
 			// feedback request for titleblacklist
-			if ( mw.UploadWizard.config['blacklistIssuesPage'] !== undefined && mw.UploadWizard.config['blacklistIssuesPage'] !== '' ) {
+			if ( mw.UploadWizard.config.blacklistIssuesPage !== undefined && mw.UploadWizard.config.blacklistIssuesPage !== '' ) {
 				var feedback = new mw.Feedback(
 					_this.api,
-					new mw.Title( mw.UploadWizard.config['blacklistIssuesPage'] ),
+					new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
 					'mwe-upwiz-feedback-title'
 				);
 
@@ -893,8 +893,8 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		_this.upload.setThumbnail(
 			_this.thumbnailDiv,
-			mw.UploadWizard.config['thumbnailWidth'],
-			mw.UploadWizard.config['thumbnailMaxHeight'],
+			mw.UploadWizard.config.thumbnailWidth,
+			mw.UploadWizard.config.thumbnailMaxHeight,
 			true
 		);
 		_this.prefillDate();
@@ -1036,9 +1036,9 @@ mw.UploadWizardDetails.prototype = {
 		if ( _this.upload.imageinfo.metadata ) {
 			var m = _this.upload.imageinfo.metadata;
 
-			if ( m['gpslatitude'] !== undefined && m['gpslongitude'] !== undefined ) {
-				$j( _this.latInput ).val( m['gpslatitude'] );
-				$j( _this.lonInput ).val( m['gpslongitude'] );
+			if ( m.gpslatitude !== undefined && m.gpslongitude !== undefined ) {
+				$j( _this.latInput ).val( m.gpslatitude );
+				$j( _this.lonInput ).val( m.gpslongitude );
 			} else if ( typeof this.upload.file !== 'undefined'
 				&& typeof this.upload.file.location !== 'undefined'
 				&& this.upload.file.location.latitude
@@ -1159,7 +1159,7 @@ mw.UploadWizardDetails.prototype = {
 				// we should not even allow them to press the button ( ? ) but then what about the queue...
 			}
 			$j.each( _this.descriptions, function( i, desc ) {
-				information['description'] += desc.getWikiText();
+				information.description += desc.getWikiText();
 			} );
 
 			// Add id field if needed
@@ -1167,7 +1167,7 @@ mw.UploadWizardDetails.prototype = {
 				var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
 
 				if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
-					information['description'] += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
+					information.description += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
 				}
 			}
 
@@ -1176,17 +1176,17 @@ mw.UploadWizardDetails.prototype = {
 				var idField2Value = $j.trim( $j( _this.idField2Input ).val() );
 
 				if ( ! mw.isEmpty( idField2Value ) ) { // HAXXX
-					information['description'] += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
+					information.description += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
 				}
 			}
 
-			information['date'] = $j.trim( $j( _this.dateInput ).val() );
+			information.date = $j.trim( $j( _this.dateInput ).val() );
 
 			var deed = _this.upload.deedChooser.deed;
 
-			information['source'] = deed.getSourceWikiText();
+			information.source = deed.getSourceWikiText();
 
-			information['author'] = deed.getAuthorWikiText();
+			information.author = deed.getAuthorWikiText();
 
 			var info = '';
 			for ( var key in information ) {
@@ -1257,7 +1257,7 @@ mw.UploadWizardDetails.prototype = {
 		};
 		//only enable async publishing if file is larger than 10Mb
 		if ( _this.upload.transportWeight > 10*1024*1024 ) {
-			params[ 'async'  ] = true;
+			params.async = true;
 		}
 
 		var err = function( code, info ) {
@@ -1310,15 +1310,15 @@ mw.UploadWizardDetails.prototype = {
 				params.ignorewarnings = 1;
 				_this.upload.api.postWithEditToken( params, ok, err );
 			} else if ( result && result.upload.warnings ) {
-				if ( warnings['thumb'] ) {
+				if ( warnings.thumb ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-error-title-thumbnail' ) );
-				} else if ( warnings['badfilename'] ) {
+				} else if ( warnings.badfilename ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-error-title-badchars' ) );
 				} else if ( warnings['bad-prefix'] ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-error-title-senselessimagename' ) );
-				} else if ( warnings['exists'] || warnings['exists-normalized'] ) {
+				} else if ( warnings.exists || warnings['exists-normalized'] ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ) );
-				} else if ( warnings['duplicate'] ) {
+				} else if ( warnings.duplicate ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-upload-error-duplicate' ) );
 				} else if ( warnings['duplicate-archive'] ) {
 					if ( _this.upload.ignoreWarning['duplicate-archive'] ) {
