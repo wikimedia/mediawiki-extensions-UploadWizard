@@ -11,9 +11,11 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	_this.isRequired = required;
 
 	// XXX for some reason this display:block is not making it into HTML
-	var errorLabelDiv = $j(   '<div class="mwe-upwiz-details-input-error">'
-				+   '<label generated="true" class="mwe-validator-error" for="' + _this.id + '" />'
-				+ '</div>' );
+	var errorLabelDiv = $j(
+		'<div class="mwe-upwiz-details-input-error">' +
+			'<label generated="true" class="mwe-validator-error" for="' + _this.id + '" />' +
+		'</div>'
+	);
 
 	var fieldnameDiv = $j( '<div class="mwe-upwiz-details-fieldname" />' );
 	if ( _this.isRequired ) {

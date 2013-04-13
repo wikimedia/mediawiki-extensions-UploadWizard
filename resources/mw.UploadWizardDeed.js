@@ -93,8 +93,11 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				return this.licenseInput.getWikiText();
 			}
 			else {
-				return '{{' + mw.UploadWizard.config.licensesOwnWork.filterTemplate
-					+ '|' + mw.UploadWizard.config.licensesOwnWork.defaults[0] + '}}';
+				return '{{' +
+							mw.UploadWizard.config.licensesOwnWork.filterTemplate +
+						'|' +
+							mw.UploadWizard.config.licensesOwnWork.defaults[0] +
+						'}}';
 			}
 		},
 
@@ -379,17 +382,17 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 	$j.each( deeds, function ( i, deed ) {
 		var id = _this.name + '-' + deed.name;
 		var $deedInterface = $j(
-			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">'
-			+  '<div class="mwe-upwiz-deed-option-title">'
-			+    '<span class="mwe-upwiz-deed-header">'
-			+      '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">'
-			+      '<label for="' + id + '" class="mwe-upwiz-deed-name">'
-			+        mw.msg( 'mwe-upwiz-source-' + deed.name, _this.uploads.length )
-			+      '</label>'
-			+    '</span>'
-			+  '</div>'
-			+  '<div class="mwe-upwiz-deed-form"></div>'
-			+'</div>'
+			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">' +
+				'<div class="mwe-upwiz-deed-option-title">' +
+					'<span class="mwe-upwiz-deed-header">' +
+						'<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">' +
+						'<label for="' + id + '" class="mwe-upwiz-deed-name">' +
+							mw.msg( 'mwe-upwiz-source-' + deed.name, _this.uploads.length ) +
+						'</label>' +
+					'</span>' +
+				'</div>' +
+				'<div class="mwe-upwiz-deed-form"></div>' +
+			'</div>'
 		);
 
 		var $deedSelector = _this.$selector.append( $deedInterface );

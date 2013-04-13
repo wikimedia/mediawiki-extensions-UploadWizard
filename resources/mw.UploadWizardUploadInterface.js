@@ -34,15 +34,16 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	_this.visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
 		.append( _this.$indicator )
-		.append( '<div class="mwe-upwiz-visible-file-filename">'
-			+ '<div class="mwe-upwiz-file-preview"/>'
-			+ '<div class="mwe-upwiz-file-texts">'
-			+	'<div class="mwe-upwiz-visible-file-filename-text"/>'
-			+	'<div class="mwe-upwiz-file-status-line">'
-			+	'<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>'
-			+	'</div>'
-			+ '</div>'
-			+ '</div>'
+		.append(
+			'<div class="mwe-upwiz-visible-file-filename">' +
+				'<div class="mwe-upwiz-file-preview"/>' +
+					'<div class="mwe-upwiz-file-texts">' +
+						'<div class="mwe-upwiz-visible-file-filename-text"/>' +
+						'<div class="mwe-upwiz-file-status-line">' +
+							'<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>' +
+						'</div>' +
+					'</div>' +
+				'</div>'
 		);
 
 	_this.$removeCtrl = $j.fn.removeCtrl(
@@ -466,8 +467,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	showBadExtensionError: function( filename, extension ) {
 		var $errorMessage;
 		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
-		if ( mw.UploadWizard.config.enableFirefogg
-				&&
+		if ( mw.UploadWizard.config.enableFirefogg &&
 			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
 		) {
 			$errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',

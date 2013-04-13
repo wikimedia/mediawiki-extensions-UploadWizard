@@ -71,11 +71,13 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			processResult: function( result ) { _this.processDestinationCheck( result ); }
 		} );
 
-	_this.titleErrorDiv = $j('<div class="mwe-upwiz-details-input-error">'
-					+ '<label class="mwe-error mwe-validator-error" for="' + _this.titleId + '" generated="true"/>'
-					+ '<label class="mwe-error errorTitleUnique" for="' + _this.titleId + '" generated="true"/>'
-					+ '<label class="mwe-error errorRecovery" for="' + _this.titleId + '" generated="true"/>'
-				+ '</div>');
+	_this.titleErrorDiv = $j(
+		'<div class="mwe-upwiz-details-input-error">' +
+			'<label class="mwe-error mwe-validator-error" for="' + _this.titleId + '" generated="true"/>' +
+			'<label class="mwe-error errorTitleUnique" for="' + _this.titleId + '" generated="true"/>' +
+			'<label class="mwe-error errorRecovery" for="' + _this.titleId + '" generated="true"/>' +
+		'</div>'
+	);
 
 	var titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
@@ -96,10 +98,12 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			_this.deedDiv
 		);
 
-	var $categoriesDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix">'
-				+ '<div class="mwe-upwiz-details-fieldname"></div>'
-				+ '<div class="mwe-upwiz-details-input"></div>'
-				+ '</div>' );
+	var $categoriesDiv = $j(
+		'<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix">' +
+			'<div class="mwe-upwiz-details-fieldname"></div>' +
+			'<div class="mwe-upwiz-details-input"></div>' +
+		'</div>'
+	);
 	var commonsCategoriesLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': 'http://commons.wikimedia.org/wiki/Commons:Categories' } );
 	var categoriesHint = $j( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).html();
 	var categoriesHinter = function() { return categoriesHint; };
@@ -383,8 +387,10 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	}
 
 	var missingCatsWikiText = null;
-	if ( typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string'
-		&& mw.UploadWizard.config.missingCategoriesWikiText.length > 0 ) {
+	if (
+		typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string' &&
+		mw.UploadWizard.config.missingCategoriesWikiText.length > 0
+	) {
 		missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 	}
 
@@ -1014,10 +1020,11 @@ mw.UploadWizardDetails.prototype = {
 	 * description from an upload_by_url upload (e.g. Flickr transfer)
 	 */
 	prefillDescription: function() {
-		if ( this.descriptions[0].getText() === ''
-			&& this.upload.file !== undefined
-			&& this.upload.file.description !== undefined
-			&& this.upload.file.description !== ''
+		if (
+			this.descriptions[0].getText() === '' &&
+			this.upload.file !== undefined &&
+			this.upload.file.description !== undefined &&
+			this.upload.file.description !== ''
 		) {
 			this.descriptions[0].setText( this.upload.file.description );
 		}
@@ -1039,11 +1046,12 @@ mw.UploadWizardDetails.prototype = {
 			if ( m.gpslatitude !== undefined && m.gpslongitude !== undefined ) {
 				$j( _this.latInput ).val( m.gpslatitude );
 				$j( _this.lonInput ).val( m.gpslongitude );
-			} else if ( typeof this.upload.file !== 'undefined'
-				&& typeof this.upload.file.location !== 'undefined'
-				&& this.upload.file.location.latitude
-				&& this.upload.file.location.longitude )
-			{
+			} else if (
+				typeof this.upload.file !== 'undefined' &&
+				typeof this.upload.file.location !== 'undefined' &&
+				this.upload.file.location.latitude &&
+				this.upload.file.location.longitude
+			) {
 				$j( _this.latInput ).val( this.upload.file.location.latitude );
 				$j( _this.lonInput ).val( this.upload.file.location.longitude );
 			}

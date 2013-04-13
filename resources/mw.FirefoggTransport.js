@@ -84,8 +84,8 @@ mw.FirefoggTransport.prototype = {
 		if ( info.contentType.indexOf( "image/" ) != -1 ) {
 			return false;
 		}
-		return ( (!info.video || info.video.length == 0) && info.audio.length > 0 )
-			|| info.contentType.indexOf( "audio/" ) != -1;
+		return ( ( !info.video || info.video.length == 0 ) && info.audio.length > 0 ) ||
+				info.contentType.indexOf( "audio/" ) != -1;
 	},
 
 	isSourceVideo: function() {
@@ -94,16 +94,17 @@ mw.FirefoggTransport.prototype = {
 		if ( info.contentType.indexOf( "image/" ) != -1 ) {
 			return false;
 		}
-		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 )
-			|| info.contentType.indexOf( "video/" ) != -1;
+		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 ) ||
+			info.contentType.indexOf( "video/" ) != -1;
 	},
 
 	isOggFormat: function() {
 		var contentType = this.getSourceFileInfo().contentType;
-		return ( contentType.indexOf("video/ogg") != -1
-			|| contentType.indexOf("application/ogg") != -1
-			|| contentType.indexOf("audio/ogg") != -1);
+		return contentType.indexOf( "video/ogg" ) != -1 ||
+			contentType.indexOf( "application/ogg" ) != -1 ||
+			contentType.indexOf( "audio/ogg") != -1;
 	},
+
 	isWebMFormat: function() {
 		return (  this.getSourceFileInfo().contentType.indexOf('webm') != -1 );
 	},

@@ -101,8 +101,7 @@ mw.FlickrChecker.prototype = {
 								} else {
 									fileName = item.title + '.jpg';
 								}
-								sourceURL = 'http://www.flickr.com/photos/'
-									+ item.pathalias + '/' + item.id + '/';
+								sourceURL = 'http://www.flickr.com/photos/' + item.pathalias + '/' + item.id + '/';
 								var flickrUpload = {
 									name: fileName,
 									url: '',
@@ -296,9 +295,7 @@ mw.FlickrChecker.prototype = {
 			format: 'json',
 			photo_id: photoId },
 			function( data ) {
-				if ( typeof data.sizes !== 'undefined'
-					&& typeof data.sizes.size !== 'undefined'
-					&& data.sizes.size.length > 0 )
+				if ( typeof data.sizes !== 'undefined' && typeof data.sizes.size !== 'undefined' && data.sizes.size.length > 0 )
 				{
 					// Flickr always returns the largest version as the final size.
 					// TODO: Make this less fragile by actually comparing sizes.

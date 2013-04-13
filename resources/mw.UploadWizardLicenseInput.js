@@ -25,9 +25,11 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 
 	_this.api = api;
 
-	if ( config.type === undefined
-		|| config.defaults === undefined
-		|| ( config.licenses === undefined && config.licenseGroups === undefined ) ) {
+	if (
+		config.type === undefined ||
+		config.defaults === undefined ||
+		( config.licenses === undefined && config.licenseGroups === undefined )
+	) {
 		throw new Error( 'improper initialization' );
 	}
 
@@ -199,10 +201,10 @@ mw.UploadWizardLicenseInput.prototype = {
 		};
 
 		var inputHtml = '<input ' +
-			$j.map( attrs, function(val, key) {
+			$j.map( attrs, function( val, key ) {
 				return key + '="' + val.toString().replace( '"', '' ) + '"';
-			} ).join( " " )
-		+ ' />';
+			} ).join( " " ) +
+		' />';
 
 		// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
 		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded
@@ -506,9 +508,10 @@ mw.UploadWizardLicenseInput.prototype = {
 				var lcNodeName = nodeName.toLowerCase();
 				// templates like Self are special cased, as it is not a license tag and also reparses its string arguments into templates
 				// e.g.  {{self|Cc-by-sa-3.0}}  --> we should add 'Cc-by-sa-3.0' to the templates
-				if ( mw.UploadWizard.config.licenseTagFilters
-						&&
-					mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1 ) {
+				if (
+					mw.UploadWizard.config.licenseTagFilters &&
+					mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1
+				) {
 					// upgrade all the arguments to be nodes in their own right (by making them the first element of an array)
 					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
 					// $.map seems to strip away arrays of one element so have to use an array within an array.

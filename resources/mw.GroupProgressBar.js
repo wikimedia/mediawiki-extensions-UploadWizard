@@ -7,15 +7,15 @@ mw.GroupProgressBar = function( selector, text, uploads, successStates, errorSta
 	// XXX need to figure out a way to put text inside bar
 	_this.$selector = $j( selector );
 	_this.$selector.html(
-		'<div class="mwe-upwiz-progress">'
-		+   '<div class="mwe-upwiz-progress-bar-etr-container">'
-		+     '<div class="mwe-upwiz-progress-bar-etr" style="display: none">'
-		+       '<div class="mwe-upwiz-progress-bar"></div>'
-		+       '<div class="mwe-upwiz-etr"></div>'
-		+     '</div>'
-		+   '</div>'
-		+   '<div class="mwe-upwiz-count"></div>'
-		+ '</div>'
+		'<div class="mwe-upwiz-progress">' +
+			'<div class="mwe-upwiz-progress-bar-etr-container">' +
+				'<div class="mwe-upwiz-progress-bar-etr" style="display: none">' +
+					'<div class="mwe-upwiz-progress-bar"></div>' +
+					'<div class="mwe-upwiz-etr"></div>' +
+				'</div>' +
+			'</div>' +
+			'<div class="mwe-upwiz-count"></div>' +
+		'</div>'
 	);
 
 	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
