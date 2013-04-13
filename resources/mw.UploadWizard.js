@@ -241,7 +241,7 @@ mw.UploadWizard.prototype = {
 			});
 			if ( isPopupOpen ) {
 				return;
-		    }
+			}
 			$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 			_this.detailsValid(function () {
 				_this.hideDetailsEndButtons();
@@ -689,11 +689,11 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
 	 *
-	 * @param beginState   what state the upload should be in before starting.
-	 * @param progressState  the state to set the upload to while it's doing whatever
-	 * @param endState   the state (or array of states) that signify we're done with this process
-	 * @param starter	 function, taking single argument (upload) which starts the process we're interested in
-	 * @param endCallback    function to call when all uploads are in the end state.
+	 * @param beginState	what state the upload should be in before starting.
+	 * @param progressState	the state to set the upload to while it's doing whatever
+	 * @param endState		the state (or array of states) that signify we're done with this process
+	 * @param starter		function, taking single argument (upload) which starts the process we're interested in
+	 * @param endCallback	function to call when all uploads are in the end state.
 	 */
 	makeTransitioner: function( beginState, progressStates, endStates, starter, endCallback ) {
 
@@ -816,7 +816,7 @@ mw.UploadWizard.prototype = {
 	},
 
 	/**
- 	 * Figure out what to do and what options to show after the uploads have stopped.
+	 * Figure out what to do and what options to show after the uploads have stopped.
 	 * Uploading has stopped for one of the following reasons:
 	 * 1) The user removed all uploads before they completed, in which case we are at upload.length === 0. We should start over and allow them to add new ones
 	 * 2) All succeeded - show link to next step
@@ -1105,7 +1105,7 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
- 	 * right next to the submit button, so it should be obvious to the user they need to fix things.
+	 * right next to the submit button, so it should be obvious to the user they need to fix things.
 	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
 	 * This method also opens up "more info" if the form has errors.
@@ -1482,7 +1482,7 @@ mw.isEmpty = function( v ) {
 				var mask = $j( '<div class="mwe-upwiz-mask"></div>' )
 						.css( {
 							'backgroundColor' : 'white',
-							'width'	   : el.offsetWidth + 'px',
+							'width'    : el.offsetWidth + 'px',
 							'height'   : el.offsetHeight + 'px',
 							'z-index'  : 90
 						} );
@@ -1499,7 +1499,7 @@ mw.isEmpty = function( v ) {
 
 				var $indicatorDiv = $j( '<div class="mwe-upwiz-status"></div>' )
 					.css( {
-						'width'	   : 32,
+						'width'    : 32,
 						'height'   : 32,
 						'z-index'  : 91,
 						'margin'   : '0 auto 0 auto'

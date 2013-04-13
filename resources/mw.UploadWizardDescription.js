@@ -91,7 +91,7 @@ mw.UploadWizardDescription.prototype = {
 	/**
 	 * defer adding rules until it's in a form
 	 * @return validator
- 	 */
+	 */
 	addValidationRules: function( required ) {
 		// validator must find a form, so we add rules here
 		return this.input.rules( "add", {

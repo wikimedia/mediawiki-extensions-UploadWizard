@@ -9,10 +9,10 @@
 
 		/**
 		 * Get information about an image.
-	 	 * TODO the API can handle multiple titles, this assumes only one
+		 * TODO the API can handle multiple titles, this assumes only one
 		 * @param {mw.Title} title of the image
 		 * @param {Array} properties: array of strings of properties wanted (see api documentation)
-	 	 * @param {Object} extraParams: parameters (such as width; not needed for all calls).
+		 * @param {Object} extraParams: parameters (such as width; not needed for all calls).
 		 * @param {Function} ok: success callback, takes a javascript object like imageinfo results (see API Docs)
 		 * @param {Function} err: error callback
 		 */
@@ -53,19 +53,19 @@
 		 * Get information about the thumbnail of an image.
 		 * @param {mw.Title} title of the image
 		 * @param {Number} width desired
-	 	 * @param {Function} execute on success, taking an object with the properties of src, width, height
-	 	 * @param {Function} to execute if error encountered
+		 * @param {Function} execute on success, taking an object with the properties of src, width, height
+		 * @param {Function} to execute if error encountered
 		 */
 		getThumbnail: function( title, width, ok, err ) {
 
 			var extraParams = { 'width': width };
-                   	var properties = [ 'url', 'size' ];
+			var properties = [ 'url', 'size' ];
 
 			var success = function( imageinfo ) {
 				ok( {
-			       		'src': imageinfo.thumburl,
-			       		'width': imageinfo.thumbwidth,
-			      		'height': imageinfo.thumbheight
+					'src': imageinfo.thumburl,
+					'width': imageinfo.thumbwidth,
+					'height': imageinfo.thumbheight
 				} );
 			};
 

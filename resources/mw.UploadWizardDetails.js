@@ -110,8 +110,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	var categoriesId = 'categories' + _this.upload.index;
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
 		.append( $j( '<input/>' ).attr( { id: categoriesId,
-						  name: categoriesId,
-						  type: 'text' } )
+						name: categoriesId,
+						type: 'text' } )
 		);
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
@@ -384,7 +384,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	var missingCatsWikiText = null;
 	if ( typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string'
-		 && mw.UploadWizard.config.missingCategoriesWikiText.length > 0 ) {
+		&& mw.UploadWizard.config.missingCategoriesWikiText.length > 0 ) {
 		missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
 	}
 
@@ -1142,13 +1142,13 @@ mw.UploadWizardDetails.prototype = {
 
 			// can we be more slick and do this with maps, applys, joins?
 			var information = {
-				'description' : '',	 // {{lang|description in lang}}*   required
-				'date' : '',		 // YYYY, YYYY-MM, or YYYY-MM-DD     required  - use jquery but allow editing, then double check for sane date.
-				'source' : '',    	 // {{own}} or wikitext    optional
-				'author' : '',		 // any wikitext, but particularly {{Creator:Name Surname}}   required
-				'permission' : '',       // leave blank unless OTRS pending; by default will be "see below"   optional
-				'other_versions' : '',   // pipe separated list, other versions     optional
-				'other_fields' : ''      // ???     additional table fields
+				'description' : '',		// {{lang|description in lang}}*   required
+				'date' : '',			// YYYY, YYYY-MM, or YYYY-MM-DD     required  - use jquery but allow editing, then double check for sane date.
+				'source' : '',			// {{own}} or wikitext    optional
+				'author' : '',			// any wikitext, but particularly {{Creator:Name Surname}}   required
+				'permission' : '',		// leave blank unless OTRS pending; by default will be "see below"   optional
+				'other_versions' : '',	// pipe separated list, other versions     optional
+				'other_fields' : ''		// ???     additional table fields
 			};
 
 			// sanity check the descriptions -- do not have two in the same lang

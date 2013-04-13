@@ -33,7 +33,7 @@ mw.GroupProgressBar.prototype = {
 
 	/**
 	 * Show the progress bar
-         */
+	 */
 	showBar: function() {
 		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
 	},
@@ -156,7 +156,7 @@ mw.GroupProgressBar.prototype = {
 	 * Calculate remaining time for all uploads to complete.
 	 *
 	 * @param fraction	fraction of progress to show
-	 * @return 		estimated time remaining (in milliseconds)
+	 * @return estimated time remaining (in milliseconds)
 	 */
 	getRemainingTime: function ( fraction ) {
 		var _this = this;

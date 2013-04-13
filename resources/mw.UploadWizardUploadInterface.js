@@ -35,14 +35,14 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	_this.visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
 		.append( _this.$indicator )
 		.append( '<div class="mwe-upwiz-visible-file-filename">'
-			   + '<div class="mwe-upwiz-file-preview"/>'
-			   + '<div class="mwe-upwiz-file-texts">'
-			   +   '<div class="mwe-upwiz-visible-file-filename-text"/>'
-			   +   '<div class="mwe-upwiz-file-status-line">'
-			   +	 '<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>'
-			   +   '</div>'
-			   + '</div>'
-			 + '</div>'
+			+ '<div class="mwe-upwiz-file-preview"/>'
+			+ '<div class="mwe-upwiz-file-texts">'
+			+	'<div class="mwe-upwiz-visible-file-filename-text"/>'
+			+	'<div class="mwe-upwiz-file-status-line">'
+			+	'<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>'
+			+	'</div>'
+			+ '</div>'
+			+ '</div>'
 		);
 
 	_this.$removeCtrl = $j.fn.removeCtrl(
@@ -148,14 +148,13 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
- 	 * change the graphic indicator at the far end of the row for this file
+	 * change the graphic indicator at the far end of the row for this file
 	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */
 	showIndicator: function( statusClass ) {
 		this.clearIndicator();
 		// add the desired class and make it visible, if it wasn't already.
-		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
-			       .css( 'visibility', 'visible' );
+		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass ).css( 'visibility', 'visible' );
 	},
 
 	/**
@@ -597,7 +596,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			_this.isFilled = true;
 			$div.addClass( 'filled' );
 
- 			// cover the div with the file input.
+			// cover the div with the file input.
 			// we use the visible-file div because it has the same offsetParent as the file input
 			// the second argument offsets the fileinput to the right so there's room for the close icon to get mouse events
 			_this.moveFileInputToCover(

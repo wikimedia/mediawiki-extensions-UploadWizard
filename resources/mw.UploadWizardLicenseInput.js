@@ -3,21 +3,21 @@
  * Note that this is very anti-MVC. The values are held only in the actual form elements themselves.
  *
  * @param {String|jQuery} selector to place license input
- * @param {Array} 	  license key name(s) to activate by default
- * @param {Array}	  configuration of licenseInput. Must have following properties
+ * @param {Array}     license key name(s) to activate by default
+ * @param {Array}     configuration of licenseInput. Must have following properties
  *				'type' = ("and"|"or") -- whether inclusive or exclusive license allowed
  *				'defaults' => array of template string names (can be empty array),
  *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
  *				optional: 'licenseGroups' => groups of licenses, with more explanation
  *				optional: 'special' => String -- indicates, don't put licenses here, instead use a special widget
- * @param {Number}	  count of the things we are licensing (it matters to some texts)
- * @param {mw.Api}	  api object; useful for previews
+ * @param {Number}    count of the things we are licensing (it matters to some texts)
+ * @param {mw.Api}    api object; useful for previews
  */
 
 ( function( mw, $j, undefined ) {
 
-var catNsId 		= mw.config.get( 'wgNamespaceIds' ).category,
-	templateNsId 	= mw.config.get( 'wgNamespaceIds' ).template;
+var catNsId			= mw.config.get( 'wgNamespaceIds' ).category,
+	templateNsId	= mw.config.get( 'wgNamespaceIds' ).template;
 
 mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	var _this = this;
@@ -26,8 +26,8 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	_this.api = api;
 
 	if ( config.type === undefined
-		 || config.defaults === undefined
-		 || ( config.licenses === undefined && config.licenseGroups === undefined ) ) {
+		|| config.defaults === undefined
+		|| ( config.licenses === undefined && config.licenseGroups === undefined ) ) {
 		throw new Error( 'improper initialization' );
 	}
 
@@ -117,7 +117,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * Abstracts out simple lists of licenses, more complex groups with layout
 	 * @param {jQuery} selector to add inputs to
 	 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
-	 * 			it may also have: 'prependTemplates' or 'filterTemplate', which alter the final wikitext value
+	 *			it may also have: 'prependTemplates' or 'filterTemplate', which alter the final wikitext value
 	 *			'prependTemplates' will prepend Templates. If prependTemplates were [ 'pre', 'pended' ], then...
 	 *				[ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
 	 *			'filterTemplates' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
@@ -476,7 +476,7 @@ mw.UploadWizardLicenseInput.prototype = {
 
 
 	/**
-  	 * Returns true if any license is set
+	 * Returns true if any license is set
 	 * @return boolean
 	 */
 	isSet: function() {
@@ -508,7 +508,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				// e.g.  {{self|Cc-by-sa-3.0}}  --> we should add 'Cc-by-sa-3.0' to the templates
 				if ( mw.UploadWizard.config.licenseTagFilters
 						&&
-					 mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1 ) {
+					mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1 ) {
 					// upgrade all the arguments to be nodes in their own right (by making them the first element of an array)
 					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
 					// $.map seems to strip away arrays of one element so have to use an array within an array.

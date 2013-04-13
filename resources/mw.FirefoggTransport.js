@@ -142,10 +142,7 @@ mw.FirefoggTransport.prototype = {
 	},
 	getEncodeExt: function(){
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
-		if( encodeSettings.videoCodec
-		            &&
-		    encodeSettings.videoCodec == 'vp8' )
-		{
+		if ( encodeSettings.videoCodec && encodeSettings.videoCodec == 'vp8' ) {
 			return 'webm';
 		} else {
 			return 'ogv';
