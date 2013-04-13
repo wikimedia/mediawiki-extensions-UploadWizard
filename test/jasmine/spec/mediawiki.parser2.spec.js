@@ -116,7 +116,7 @@ describe( "mediaWiki.language.parser", function() {
 		/**
 		* Get a language transform key
 		* returns default "en" fallback if none found
-	 	* @FIXME the resource loader should do this anyway, should not be necessary to know this client side
+		* @FIXME the resource loader should do this anyway, should not be necessary to know this client side
 		* @param String langKey The language key to be checked	
 		mediaWiki.language.getLangTransformKey = function( langKey ) {		
 			//if( mediaWiki.language.fallbackTransformMap[ langKey ] ) {
@@ -134,8 +134,8 @@ describe( "mediaWiki.language.parser", function() {
 
 		/**
 		 * @@FIXME this should be handled dynamically handled in the resource loader 
-		 * 	so it keeps up-to-date with php maping. 
-		 * 	( not explicitly listed here ) 
+		 *  so it keeps up-to-date with php maping.
+		 *  ( not explicitly listed here )
 		mediaWiki.language.fallbackTransformMap = {
 				'mwl' : 'pt', 
 				'ace' : 'id', 
@@ -294,7 +294,7 @@ describe( "mediaWiki.language.parser", function() {
 		 * ( for languages that override default transforms ) 
 		 * 
 		 * @@FIXME again not needed if the resource loader manages this mapping and gives 
-		 * 	us the "right" transform class regardless of what language key we request. 
+		 *  us the "right" transform class regardless of what language key we request.
 		mediaWiki.language.transformClass = ['am', 'ar', 'bat_smg', 'be_tarak', 'be', 'bh',
 				'bs', 'cs', 'cu', 'cy', 'dsb', 'fr', 'ga', 'gd', 'gv', 'he', 'hi',
 				'hr', 'hsb', 'hy', 'ksh', 'ln', 'lt', 'lv', 'mg', 'mk', 'mo', 'mt',
@@ -452,7 +452,7 @@ describe( "mediaWiki.language.parser", function() {
 			var options = {
 				magic: { 
 					'alohomora' : 'open'
-			        }
+				}
 			};
 			var parser = new mediaWiki.language.parser( options );
 			expect( parser.parse( 'en_simple_magic' ).html() ).toEqual( 'Simple open message' );

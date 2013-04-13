@@ -50,8 +50,8 @@ mw.UploadWizardUtil = {
 	 * remove an item from an array. Tests for === identity to remove the item
 	 *  XXX the entire rationale for this function may be wrong.
 	 *  XXX The jQuery way would be to query the DOM for objects, not to keep a separate array hanging around
-	 * @param items  the array where we want to remove an item
-	 * @param item	 the item to remove
+	 * @param items	the array where we want to remove an item
+	 * @param item	the item to remove
 	 */
 	removeItem: function( items, item ) {
 		for ( var i = 0; i < items.length; i++ ) {
@@ -74,10 +74,10 @@ mw.UploadWizardUtil = {
 			return '';
 		}
 
-	 	// find index of last path separator in the path, add 1. (If no separator found, yields 0)
+		// find index of last path separator in the path, add 1. (If no separator found, yields 0)
 		// then take the entire string after that.
 		return path.substr( Math.max( path.lastIndexOf( '/' ), path.lastIndexOf( '\\' ) ) + 1 );
- 	},
+	},
 
 
 

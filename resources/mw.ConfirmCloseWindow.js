@@ -12,7 +12,7 @@
 	 *       allowCloseWindow();
 	 *
 	 *
-	 * @param options 	options - optional set of the following optional arguments:
+	 * @param options Optional set of the following optional arguments:
 	 *				message: function returning string message to show.
 	 *				test: function returning boolean. If true, alert is shown. Defaults to always true.
 	 * @return closure	execute this when you want to allow the user to close the window
