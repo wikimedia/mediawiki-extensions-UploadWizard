@@ -14,8 +14,8 @@ mw.UploadWizard = function( config ) {
 	mw.UploadWizard.config = config;
 
 	// XXX need a robust way of defining default config
-	this.maxUploads = mw.UploadWizard.config[ 'maxUploads' ] || 10;
-	this.maxSimultaneousConnections = mw.UploadWizard.config[  'maxSimultaneousConnections'  ] || 2;
+	this.maxUploads = mw.UploadWizard.config.maxUploads || 10;
+	this.maxSimultaneousConnections = mw.UploadWizard.config.maxSimultaneousConnections || 2;
 
 	this.makePreviewsFlag = true;
 	this.showDeed = false;
@@ -58,12 +58,12 @@ mw.UploadWizard.prototype = {
 		// construct the message for the subheader
 		$j( '#contentSub' ).append( $j( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
-		if ( typeof mw.UploadWizard.config['feedbackPage'] === 'string' && mw.UploadWizard.config['feedbackPage'].length > 0 ) {
+		if ( typeof mw.UploadWizard.config.feedbackPage === 'string' && mw.UploadWizard.config.feedbackPage.length > 0 ) {
 			var feedback = new mw.Feedback( {
-				'title': new mw.Title( mw.UploadWizard.config['feedbackPage'] ),
+				'title': new mw.Title( mw.UploadWizard.config.feedbackPage ),
 				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
 				'bugsLink': new mw.Uri( 'https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
-				'bugsListLink': new mw.Uri( mw.UploadWizard.config['bugList'] )
+				'bugsListLink': new mw.Uri( mw.UploadWizard.config.bugList )
 			} );
 			var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
 				function() {
@@ -74,10 +74,10 @@ mw.UploadWizard.prototype = {
 			$j( '#contentSub' ).append( feedbackLink );
 		}
 
-		if ( typeof mw.UploadWizard.config['translateHelp'] === 'string' && mw.UploadWizard.config['translateHelp'].length > 0 ) {
-			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config['translateHelp'], target: '_blank' } ) ) );
+		if ( typeof mw.UploadWizard.config.translateHelp === 'string' && mw.UploadWizard.config.translateHelp.length > 0 ) {
+			$j( '#contentSub' ).append( $j( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $j( '<a></a>' ).attr( { href: mw.UploadWizard.config.translateHelp, target: '_blank' } ) ) );
 		}
-		var configAltUploadForm = mw.UploadWizard.config['altUploadForm'];
+		var configAltUploadForm = mw.UploadWizard.config.altUploadForm;
 		if ( configAltUploadForm ) {
 			var altUploadForm;
 			if ( typeof configAltUploadForm === 'object' ) {
@@ -241,7 +241,7 @@ mw.UploadWizard.prototype = {
 			});
 			if ( isPopupOpen ) {
 				return;
-		    }
+			}
 			$j( '.mwe-upwiz-hint' ).each( function(i) { $j( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 			_this.detailsValid(function () {
 				_this.hideDetailsEndButtons();
@@ -689,11 +689,11 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
 	 *
-	 * @param beginState   what state the upload should be in before starting.
-	 * @param progressState  the state to set the upload to while it's doing whatever
-	 * @param endState   the state (or array of states) that signify we're done with this process
-	 * @param starter	 function, taking single argument (upload) which starts the process we're interested in
-	 * @param endCallback    function to call when all uploads are in the end state.
+	 * @param beginState	what state the upload should be in before starting.
+	 * @param progressState	the state to set the upload to while it's doing whatever
+	 * @param endState		the state (or array of states) that signify we're done with this process
+	 * @param starter		function, taking single argument (upload) which starts the process we're interested in
+	 * @param endCallback	function to call when all uploads are in the end state.
 	 */
 	makeTransitioner: function( beginState, progressStates, endStates, starter, endCallback ) {
 
@@ -816,7 +816,7 @@ mw.UploadWizard.prototype = {
 	},
 
 	/**
- 	 * Figure out what to do and what options to show after the uploads have stopped.
+	 * Figure out what to do and what options to show after the uploads have stopped.
 	 * Uploading has stopped for one of the following reasons:
 	 * 1) The user removed all uploads before they completed, in which case we are at upload.length === 0. We should start over and allow them to add new ones
 	 * 2) All succeeded - show link to next step
@@ -862,9 +862,8 @@ mw.UploadWizard.prototype = {
 		} );
 
 		// Show toggler to copy selected metadata if there's more than one successful upload
-		if( this.uploads[0].state === desiredState
-			&& okCount > 1 ) {
-				this.uploads[0].details.buildAndShowCopyMetadata();
+		if ( this.uploads[0].state === desiredState && okCount > 1 ) {
+			this.uploads[0].details.buildAndShowCopyMetadata();
 		}
 
 		var selector = null;
@@ -1105,7 +1104,7 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
- 	 * right next to the submit button, so it should be obvious to the user they need to fix things.
+	 * right next to the submit button, so it should be obvious to the user they need to fix things.
 	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
 	 * This method also opens up "more info" if the form has errors.
@@ -1170,8 +1169,8 @@ mw.UploadWizard.prototype = {
 			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
 			upload.setThumbnail(
 				$thumbnailDiv,
-				mw.UploadWizard.config[ 'thumbnailWidth' ],
-				mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
+				mw.UploadWizard.config.thumbnailWidth,
+				mw.UploadWizard.config.thumbnailMaxHeight,
 				false
 			);
 
@@ -1235,8 +1234,9 @@ mw.UploadWizard.prototype = {
 
 		_this.api.post( tokenRequest,
 			function( data ) {
+				var token;
 				try {
-					var token = data.tokens.optionstoken;
+					token = data.tokens.optionstoken;
 				} catch ( e ) {
 					throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
 				}
@@ -1315,8 +1315,8 @@ mw.UploadWizardDeedPreview.prototype = {
 		this.$thumbnailDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		this.upload.setThumbnail(
 			this.$thumbnailDiv,
-			mw.UploadWizard.config['thumbnailWidth'],
-			mw.UploadWizard.config['thumbnailMaxHeight'],
+			mw.UploadWizard.config.thumbnailWidth,
+			mw.UploadWizard.config.thumbnailMaxHeight,
 			true
 		);
 	},
@@ -1482,7 +1482,7 @@ mw.isEmpty = function( v ) {
 				var mask = $j( '<div class="mwe-upwiz-mask"></div>' )
 						.css( {
 							'backgroundColor' : 'white',
-							'width'	   : el.offsetWidth + 'px',
+							'width'    : el.offsetWidth + 'px',
 							'height'   : el.offsetHeight + 'px',
 							'z-index'  : 90
 						} );
@@ -1499,7 +1499,7 @@ mw.isEmpty = function( v ) {
 
 				var $indicatorDiv = $j( '<div class="mwe-upwiz-status"></div>' )
 					.css( {
-						'width'	   : 32,
+						'width'    : 32,
 						'height'   : 32,
 						'z-index'  : 91,
 						'margin'   : '0 auto 0 auto'

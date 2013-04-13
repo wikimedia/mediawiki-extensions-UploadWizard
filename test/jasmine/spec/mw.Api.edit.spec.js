@@ -35,7 +35,7 @@
 
 			it( "should fetch a token with simple callback", function() { 
 				var api = new mw.Api( { url: apiUrl } );
-				var token = undefined;
+				var token;
 				var completion = false;
 				runs( function() {
 					api.getEditToken( 
@@ -58,7 +58,7 @@
 
 
 			it( "should deal with network timeout", function() {
-				var token = undefined;
+				var token;
 				var completion = false;
 				var timedOut = false;
 
@@ -100,7 +100,7 @@
 		
 
 			it( "should deal with server error", function() {
-				var token = undefined;
+				var token;
 				var completion = false;
 				var serverError = false;
 

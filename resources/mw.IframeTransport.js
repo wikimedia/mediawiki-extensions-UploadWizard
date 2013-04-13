@@ -5,7 +5,7 @@
  * The iframe is made to be the target of a form so that the existing page does not reload, even though it's a POST.
  * @param form	jQuery selector for HTML form
  * @param progressCb	callback to execute when we've started. (does not do float here because iframes can't
- *			  monitor fractional progress).
+ *						monitor fractional progress).
  * @param transportedCb	callback to execute when we've finished the upload
  */
 mw.IframeTransport = function( $form, progressCb, transportedCb ) {
@@ -28,10 +28,10 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 	// then we configure it to deal with an API submission
 	var _this = this;
 	this.$iframe.attr( { 'src'   : 'javascript:false;',
-		             'id'    : this.iframeId,
-		             'name'  : this.iframeId } )
-		    .load( function() { _this.configureForm(); } )
-		    .css( 'display', 'none' );
+					'id'    : this.iframeId,
+					'name'  : this.iframeId } )
+			.load( function() { _this.configureForm(); } )
+			.css( 'display', 'none' );
 
 	$j( "body" ).append( iframe );
 };

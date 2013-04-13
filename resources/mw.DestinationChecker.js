@@ -4,18 +4,18 @@
  * Perhaps this could be a jQuery ext
  * @param options   dictionary of options
  *		selector  required, the selector for the input to check
- * 		processResult   required, function to execute on results. accepts two args:
+ *		processResult   required, function to execute on results. accepts two args:
  *			1) filename that invoked this request -- should check if this is still current filename
  *			2) an object with the following fields
  *				isUnique: boolean
  *				img: thumbnail image src (if not unique)
  *				href: the url of the full image (if not unique)
  *				title: normalized title of file (if not unique)
- * 		spinner   required, closure to execute to show progress: accepts true to start, false to stop
- * 		apiUrl    optional url to call for api. falls back to local api url
- * 		delay     optional how long to delay after a change in ms. falls back to configured default
+ *		spinner    required, closure to execute to show progress: accepts true to start, false to stop
+ *		apiUrl     optional url to call for api. falls back to local api url
+ *		delay      optional how long to delay after a change in ms. falls back to configured default
  *		preprocess optional: function to apply to the contents of selector before testing
- *		events 	  what events on the input trigger a check.
+ *		events     what events on the input trigger a check.
  */
 mw.DestinationChecker = function( options ) {
 
@@ -127,7 +127,7 @@ mw.DestinationChecker.prototype = {
 	},
 
 	/**
-  	 * Get the current value of the input, with optional preprocessing
+	 * Get the current value of the input, with optional preprocessing
 	 * @return the current input value, with optional processing
 	 */
 	getTitle: function() {
@@ -229,7 +229,7 @@ mw.DestinationChecker.prototype = {
 				return;
 			}
 
-			var result = undefined;
+			var result;
 
 			// The API will check for files with that filename.
 			// If no file found: a page with a key of -1 and no imageinfo

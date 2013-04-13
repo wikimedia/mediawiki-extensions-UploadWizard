@@ -22,7 +22,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	_this.$fileInputCtrl = $j( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
 	var profile = $.client.profile();
-	if (mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isFormDataAvailable() &&
+	if (mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
 		mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
 		// Multiple uploads requires the FormData transport
 		_this.$fileInputCtrl.attr( 'multiple', '1' );
@@ -34,15 +34,16 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 
 	_this.visibleFilenameDiv = $j('<div class="mwe-upwiz-visible-file"></div>')
 		.append( _this.$indicator )
-		.append( '<div class="mwe-upwiz-visible-file-filename">'
-			   + '<div class="mwe-upwiz-file-preview"/>'
-			   + '<div class="mwe-upwiz-file-texts">'
-			   +   '<div class="mwe-upwiz-visible-file-filename-text"/>'
-			   +   '<div class="mwe-upwiz-file-status-line">'
-			   +	 '<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>'
-			   +   '</div>'
-			   + '</div>'
-			 + '</div>'
+		.append(
+			'<div class="mwe-upwiz-visible-file-filename">' +
+				'<div class="mwe-upwiz-file-preview"/>' +
+					'<div class="mwe-upwiz-file-texts">' +
+						'<div class="mwe-upwiz-visible-file-filename-text"/>' +
+						'<div class="mwe-upwiz-file-status-line">' +
+							'<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>' +
+						'</div>' +
+					'</div>' +
+				'</div>'
 		);
 
 	_this.$removeCtrl = $j.fn.removeCtrl(
@@ -111,8 +112,8 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	var $preview = $j( this.div ).find( '.mwe-upwiz-file-preview' );
 	_this.upload.setThumbnail(
 		$preview,
-		mw.UploadWizard.config[ 'thumbnailWidth' ],
-		mw.UploadWizard.config[ 'thumbnailMaxHeight' ],
+		mw.UploadWizard.config.thumbnailWidth,
+		mw.UploadWizard.config.thumbnailMaxHeight,
 		true
 	);
 
@@ -148,14 +149,13 @@ mw.UploadWizardUploadInterface.prototype = {
 	},
 
 	/**
- 	 * change the graphic indicator at the far end of the row for this file
+	 * change the graphic indicator at the far end of the row for this file
 	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */
 	showIndicator: function( statusClass ) {
 		this.clearIndicator();
 		// add the desired class and make it visible, if it wasn't already.
-		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass )
-			       .css( 'visibility', 'visible' );
+		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass ).css( 'visibility', 'visible' );
 	},
 
 	/**
@@ -368,6 +368,17 @@ mw.UploadWizardUploadInterface.prototype = {
 		return mw.fileApi.isAvailable() && this.upload.file && mw.fileApi.isPreviewableFile( this.upload.file );
 	},
 
+	// called once we have an image url
+	loadImage: function( url ) {
+		var image = document.createElement( 'img' );
+		image.onload = function () {
+			$.publishReady( 'thumbnails.' + _this.upload.index, image );
+			_this.previewLoaded = true;
+		};
+		image.src = url;
+		_this.upload.thumbnails['*'] = image;
+	},
+
 	makePreview: function() {
 		var _this = this;
 
@@ -378,16 +389,6 @@ mw.UploadWizardUploadInterface.prototype = {
 
 		// do preview if we can
 		if ( _this.isPreviewable() ) {
-			// called once we have an image url
-			function loadImage( url ) {
-				var image = document.createElement( 'img' );
-				image.onload = function () {
-					$.publishReady( 'thumbnails.' + _this.upload.index, image );
-					_this.previewLoaded = true;
-				};
-				image.src = url;
-				_this.upload.thumbnails['*'] = image;
-			}
 			// open video and get frame via canvas
 			if ( _this.isVideo() ) {
 				var first = true;
@@ -413,7 +414,7 @@ mw.UploadWizardUploadInterface.prototype = {
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							var context = canvas.getContext( '2d' );
 							context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							loadImage( canvas.toDataURL() );
+							this.loadImage( canvas.toDataURL() );
 							_this.URL().revokeObjectURL( video.url );
 						}, 500);
 					}
@@ -425,7 +426,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				dataUrlReader.onload = function() {
 					// this step (inserting image-as-dataurl into image object) is slow for large images, which
 					// is why this is optional and has a control attached to it to load the preview.
-					loadImage( dataUrlReader.result );
+					this.loadImage( dataUrlReader.result );
 				};
 				dataUrlReader.readAsDataURL( _this.upload.file );
 			}
@@ -467,9 +468,8 @@ mw.UploadWizardUploadInterface.prototype = {
 	showBadExtensionError: function( filename, extension ) {
 		var $errorMessage;
 		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
-		if ( mw.UploadWizard.config['enableFirefogg']
-				&&
-			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config['transcodeExtensionList'] ) !== -1
+		if ( mw.UploadWizard.config.enableFirefogg &&
+			$j.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
 		) {
 			$errorMessage = $j( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
 					mw.Firefogg.getFirefoggInstallUrl(),
@@ -495,7 +495,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				$errorMessage,
 				$j( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
 				$j( '<blockquote>' ).append( $j( '<tt>' ).append(
-					mw.UploadWizard.config[ 'fileExtensions' ].join( " " )
+					mw.UploadWizard.config.fileExtensions.join( " " )
 				) )
 			)
 		);
@@ -548,7 +548,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				'margin-left': '-' + ~~( _this.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
 				'margin-top' : '-' + ~~( _this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
 			} );
-		}
+		};
 
 		if (this.moveFileInputInterval) {
 			window.clearInterval(this.moveFileInputInterval);
@@ -597,7 +597,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			_this.isFilled = true;
 			$div.addClass( 'filled' );
 
- 			// cover the div with the file input.
+			// cover the div with the file input.
 			// we use the visible-file div because it has the same offsetParent as the file input
 			// the second argument offsets the fileinput to the right so there's room for the close icon to get mouse events
 			_this.moveFileInputToCover(

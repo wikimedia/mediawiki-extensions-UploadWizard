@@ -115,7 +115,7 @@ mw.LanguageUpWiz = {
 	},
 
 	/**
- 	 * Figure out the closest language we have to a supplied language code.
+	 * Figure out the closest language we have to a supplied language code.
 	 * It seems that people on Mediawiki set their language code as freetext, and it could be anything, even
 	 * variants we don't have a record for, or ones that are not in any ISO standard.
 	 *
@@ -124,8 +124,8 @@ mw.LanguageUpWiz = {
 	 * Otherwise, if handed "foo-bar-baz" language, try to match most specific language,
 	 *    "foo-bar-baz", then "foo-bar", then "foo"
 	 *
-	 * @param code 	A string representing a language code, which we may or may not have.
-	 *		Expected to be separated with dashes as codes from ISO 639, e.g. "zh-tw" for Chinese ( Traditional )
+	 * @param code	A string representing a language code, which we may or may not have.
+	 *				Expected to be separated with dashes as codes from ISO 639, e.g. "zh-tw" for Chinese ( Traditional )
 	 * @return a language code which is close to the supplied parameter, or fall back to mw.LanguageUpWiz.defaultCode
 	 */
 	getClosest: function( code ) {
@@ -133,7 +133,7 @@ mw.LanguageUpWiz = {
 		if ( typeof ( code ) != 'string' || code === null || code.length === 0 ) {
 			return mw.LanguageUpWiz.defaultCode;
 		}
-    		if ( code == 'nan' || code == 'minnan' ) {
+		if ( code == 'nan' || code == 'minnan' ) {
 			return 'zh-min-nan';
 		} else if ( mw.LanguageUpWiz._codes[code] !== undefined ) {
 			return code;

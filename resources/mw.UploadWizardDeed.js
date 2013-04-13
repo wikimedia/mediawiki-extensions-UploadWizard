@@ -93,8 +93,11 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				return this.licenseInput.getWikiText();
 			}
 			else {
-				return '{{' + mw.UploadWizard.config.licensesOwnWork.filterTemplate
-					+ '|' + mw.UploadWizard.config.licensesOwnWork.defaults[0] + '}}';
+				return '{{' +
+							mw.UploadWizard.config.licensesOwnWork.filterTemplate +
+						'|' +
+							mw.UploadWizard.config.licensesOwnWork.defaults[0] +
+						'}}';
 			}
 		},
 
@@ -155,9 +158,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				var $customDiv = $j('<div />').append(
 					$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 					$j( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
-							 uploadCount,
-							 _this.authorInput ),
-					 licenseInputDiv
+						uploadCount,
+						_this.authorInput ),
+					licenseInputDiv
 				);
 
 				$crossfader.append( $customDiv );
@@ -214,16 +217,16 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 					required: function( element ) {
 						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
 					},
-					minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-					maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
+					minlength: mw.UploadWizard.config.minAuthorLength,
+					maxlength: mw.UploadWizard.config.maxAuthorLength
 				}
 			};
 
 			var messages = {
 				author2: {
 					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
-					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ),
+					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength )
 				}
 			};
 
@@ -235,14 +238,14 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 					required: function( element ) {
 						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
 					},
-					minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-					maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ]
+					minlength: mw.UploadWizard.config.minAuthorLength,
+					maxlength: mw.UploadWizard.config.maxAuthorLength
 				};
 
 				messages.author = {
 					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
-					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ),
+					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength )
 				};
 			}
 
@@ -273,10 +276,10 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 				.growTextArea();
 	licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license-groups"></div>' );
 	_this.licenseInput = new mw.UploadWizardLicenseInput( licenseInputDiv,
-							      undefined,
-							      mw.UploadWizard.config.licensesThirdParty,
-							      _this.uploadCount,
-								  api );
+							undefined,
+							mw.UploadWizard.config.licensesThirdParty,
+							_this.uploadCount,
+							api );
 	_this.licenseInput.setDefaultValues();
 
 
@@ -298,11 +301,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 				$j( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
 					.append( $j( '<label for="source" />' ).text( mw.msg( 'mwe-upwiz-source' ) ).addHint( 'source' ),
-						 _this.sourceInput ),
+						_this.sourceInput ),
 				$j( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$j( '<div class="mwe-upwiz-thirdparty-fields" />' )
 					.append( $j( '<label for="author" />' ).text( mw.msg( 'mwe-upwiz-author' ) ).addHint( 'author' ),
-						 _this.authorInput ),
+						_this.authorInput ),
 				$j( '<div class="mwe-upwiz-thirdparty-license" />' )
 					.append( $j( '<div></div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ) )
 					.append( licenseInputDiv )
@@ -311,22 +314,22 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 			_this.$form.validate( {
 				rules: {
 					source: { required: true,
-						  minlength: mw.UploadWizard.config[  'minSourceLength'  ],
-						  maxlength: mw.UploadWizard.config[  'maxSourceLength'  ] },
+						minlength: mw.UploadWizard.config.minSourceLength,
+						maxlength: mw.UploadWizard.config.maxSourceLength },
 					author: { required: true,
-						  minlength: mw.UploadWizard.config[  'minAuthorLength'  ],
-						  maxlength: mw.UploadWizard.config[  'maxAuthorLength'  ] }
+						minlength: mw.UploadWizard.config.minAuthorLength,
+						maxlength: mw.UploadWizard.config.maxAuthorLength }
 				},
 				messages: {
 					source: {
 						required: mw.msg( 'mwe-upwiz-error-blank' ),
-						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minSourceLength'  ] ),
-						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxSourceLength'  ] )
+						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minSourceLength ),
+						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxSourceLength )
 					},
 					author: {
 						required: mw.msg( 'mwe-upwiz-error-blank' ),
-						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config[  'minAuthorLength'  ] ),
-						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config[  'maxAuthorLength'  ] )
+						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minAuthorLength ),
+						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxAuthorLength )
 					}
 				}
 			} );
@@ -379,17 +382,17 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 	$j.each( deeds, function ( i, deed ) {
 		var id = _this.name + '-' + deed.name;
 		var $deedInterface = $j(
-			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">'
-		   +  '<div class="mwe-upwiz-deed-option-title">'
-		   +    '<span class="mwe-upwiz-deed-header">'
-		   +      '<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">'
-		   +      '<label for="' + id + '" class="mwe-upwiz-deed-name">'
-		   +        mw.msg( 'mwe-upwiz-source-' + deed.name, _this.uploads.length )
-		   +      '</label>'
-		   +    '</span>'
-		   +  '</div>'
-		   +  '<div class="mwe-upwiz-deed-form"></div>'
-		   +'</div>'
+			'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">' +
+				'<div class="mwe-upwiz-deed-option-title">' +
+					'<span class="mwe-upwiz-deed-header">' +
+						'<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">' +
+						'<label for="' + id + '" class="mwe-upwiz-deed-name">' +
+							mw.msg( 'mwe-upwiz-source-' + deed.name, _this.uploads.length ) +
+						'</label>' +
+					'</span>' +
+				'</div>' +
+				'<div class="mwe-upwiz-deed-form"></div>' +
+			'</div>'
 		);
 
 		var $deedSelector = _this.$selector.append( $deedInterface );
@@ -468,7 +471,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	},
 
 	/**
- 	 * Uploads this deed controls
+	 * Uploads this deed controls
 	 */
 	uploads: [],
 

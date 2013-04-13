@@ -64,7 +64,7 @@ mw.FirefoggTransport.prototype = {
 	 */
 	isUploadFormat: function(){
 		// Check if the server supports webm uploads:
-		var wembExt = ( $j.inArray( 'webm', mw.UploadWizard.config[ 'fileExtensions'] ) !== -1 );
+		var wembExt = ( $j.inArray( 'webm', mw.UploadWizard.config.fileExtensions ) !== -1 );
 		// Determine passthrough mode
 		if ( this.isOggFormat() || ( wembExt && this.isWebMFormat() ) ) {
 			// Already Ogg, no need to encode
@@ -84,8 +84,8 @@ mw.FirefoggTransport.prototype = {
 		if ( info.contentType.indexOf( "image/" ) != -1 ) {
 			return false;
 		}
-		return ( (!info.video || info.video.length == 0) && info.audio.length > 0 )
-			|| info.contentType.indexOf( "audio/" ) != -1;
+		return ( ( !info.video || info.video.length == 0 ) && info.audio.length > 0 ) ||
+				info.contentType.indexOf( "audio/" ) != -1;
 	},
 
 	isSourceVideo: function() {
@@ -94,16 +94,17 @@ mw.FirefoggTransport.prototype = {
 		if ( info.contentType.indexOf( "image/" ) != -1 ) {
 			return false;
 		}
-		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 )
-			|| info.contentType.indexOf( "video/" ) != -1;
+		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 ) ||
+			info.contentType.indexOf( "video/" ) != -1;
 	},
 
 	isOggFormat: function() {
 		var contentType = this.getSourceFileInfo().contentType;
-		return ( contentType.indexOf("video/ogg") != -1
-			|| contentType.indexOf("application/ogg") != -1
-			|| contentType.indexOf("audio/ogg") != -1);
+		return contentType.indexOf( "video/ogg" ) != -1 ||
+			contentType.indexOf( "application/ogg" ) != -1 ||
+			contentType.indexOf( "audio/ogg") != -1;
 	},
+
 	isWebMFormat: function() {
 		return (  this.getSourceFileInfo().contentType.indexOf('webm') != -1 );
 	},
@@ -141,11 +142,8 @@ mw.FirefoggTransport.prototype = {
 		}
 	},
 	getEncodeExt: function(){
-		var encodeSettings = mw.UploadWizard.config[ 'firefoggEncodeSettings' ];
-		if( encodeSettings[ 'videoCodec' ]
-		            &&
-		    encodeSettings[ 'videoCodec' ] == 'vp8' )
-		{
+		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
+		if ( encodeSettings.videoCodec && encodeSettings.videoCodec == 'vp8' ) {
 			return 'webm';
 		} else {
 			return 'ogv';
@@ -160,7 +158,7 @@ mw.FirefoggTransport.prototype = {
 			return { 'passthrough' : true };
 		}
 		// Get the default encode settings:
-		var encodeSettings = mw.UploadWizard.config[ 'firefoggEncodeSettings' ];
+		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
 		// Update the format:
 		this.fogg.setFormat( ( this.getEncodeExt() == 'webm' ) ? 'webm' : 'ogg' );
 

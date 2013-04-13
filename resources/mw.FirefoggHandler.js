@@ -8,9 +8,9 @@ mw.FirefoggHandler = function( upload, api ) {
 	this.api = upload.api;
 
 	// update the "valid" extension to include firefogg transcode extensions:
-	mw.UploadWizard.config[ 'fileExtensions' ] = $.merge(
-		mw.UploadWizard.config[ 'fileExtensions' ],
-		mw.UploadWizard.config[ 'transcodeExtensionList' ]
+	mw.UploadWizard.config.fileExtensions = $.merge(
+		mw.UploadWizard.config.fileExtensions,
+		mw.UploadWizard.config.transcodeExtensionList
 	);
 };
 
@@ -59,7 +59,7 @@ mw.FirefoggHandler.prototype = {
 			//This is required to get the right requestedTitle in UploadWizardUpload
 			var title = _this.getTransport().getFileName().replace( /:/g, '_' );
 			_this.upload.title = new mw.Title( title, fileNsId );
-		};
+		}
 		_this.beginTime = ( new Date() ).getTime();
 		_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 		_this.upload.ui.showTransportProgress();
