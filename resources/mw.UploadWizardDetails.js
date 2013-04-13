@@ -646,7 +646,7 @@ mw.UploadWizardDetails.prototype = {
 		// make sure title is valid
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
 		if ( titleInputValid === undefined ) {
-			setTimeout( function () { _this.valid(cb) }, 200 );
+			setTimeout( function () { _this.valid(cb); }, 200 );
 			return;
 		}
 

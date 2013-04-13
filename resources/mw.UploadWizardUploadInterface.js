@@ -548,7 +548,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				'margin-left': '-' + ~~( _this.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
 				'margin-top' : '-' + ~~( _this.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
 			} );
-		}
+		};
 
 		if (this.moveFileInputInterval) {
 			window.clearInterval(this.moveFileInputInterval);
