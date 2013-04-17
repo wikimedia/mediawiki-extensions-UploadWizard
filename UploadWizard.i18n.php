@@ -13603,9 +13603,9 @@ $messages['it'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Spiacenti, non siamo riusciti a ottenere un'immagine del tutorial dimensionata per il tuo schermo. Questo può essere un problema temporaneo di Wikimedia Commons; riprovare più tardi.",
 	'mwe-upwiz-help-desk' => 'Sportello informazioni',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Sportello informazioni',
-	'mwe-upwiz-add-file-n' => 'Aggiungi un altro file', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Seleziona un file multimediale da caricare', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'Aggiungi immagini da Flickr', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Aggiungi più file',
+	'mwe-upwiz-add-file-0-free' => 'Seleziona i file multimediali da caricare',
+	'mwe-upwiz-add-file-flickr' => 'Carica immagini da Flickr',
 	'mwe-upwiz-add-file-flickr-n' => 'Aggiungi altre immagini da Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
@@ -13688,7 +13688,7 @@ Ritenta con un browser alternativo.',
 	'mwe-upwiz-source-thirdparty-cases' => "Adesso indicaci perché sei sicuro di avere il diritto di pubblicare {{PLURAL:$1|quest'opera|queste opere}}:",
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Fornisci le informazioni sul copyright per ciascun file separatamente nella prossima pagina.',
-	'mwe-upwiz-more-options' => 'aggiungi le categorie e altre informazioni...',
+	'mwe-upwiz-more-options' => 'Aggiungi la posizione e altre informazioni...',
 	'mwe-upwiz-copy-metadata' => "Copia le informazioni {{PLURAL:$1|nell'altro file caricato|in tutti i file caricati}} qui sotto...",
 	'mwe-upwiz-copy-metadata-button' => 'Copia',
 	'mwe-upwiz-copied-metadata-button' => 'Copia avvenuta correttamente',
@@ -13734,7 +13734,7 @@ Puoi installare [$1 Firefogg], un'estensione di Firefox per convertire automatic
 	'mwe-upwiz-fileexists' => 'Un file con questo nome esiste già.
 Controlla $1 e verifica scrupolosamente che davvero si debba sostituirlo.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Esiste già un file con questo nome. Se vuoi sostituirlo, vai alla pagina [$2 $1] e sostituiscilo lì, altrimenti scegli un nome diverso.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Esiste già un file con questo nome.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Scegli un titolo diverso, perché questo titolo è già usato da un altro file.',
 	'mwe-upwiz-blacklisted' => 'Per favore scegli un titolo diverso e descrittivo.',
 	'mwe-upwiz-thumbnail-more' => 'Ingrandisci',
 	'mwe-upwiz-overwrite' => 'Sostituisci il file',
