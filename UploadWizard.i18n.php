@@ -27708,6 +27708,7 @@ $messages['ur'] = array(
 );
 
 /** vèneto (vèneto)
+ * @author Candalua
  * @author GatoSelvadego
  */
 $messages['vec'] = array(
@@ -27737,10 +27738,10 @@ $messages['vec'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => "Ne despiaxe, nó semo riusìi a otegner n'imaxene del tutorial dimensionà pa'l to schermo. Sto cuà el pol esar un problema tenporaneo de Wikimedia Commons: ripróva pì tardi.",
 	'mwe-upwiz-help-desk' => 'Sporteło informasion',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Sporteło informasion',
-	'mwe-upwiz-add-file-n' => "Xonta 'n altro file",
-	'mwe-upwiz-add-file-0-free' => 'Sełesiona un file multimediałe da cargar',
-	'mwe-upwiz-upload-flickr' => 'Carga imaxeni da Flickr',
-	'mwe-upwiz-add-file-flickr' => 'Xonta imaxeni da Flickr',
+	'mwe-upwiz-add-file-n' => 'Xonta altri file',
+	'mwe-upwiz-add-file-0-free' => 'Sełesiona i file multimediai da cargar',
+	'mwe-upwiz-add-file-flickr' => 'Condividi imaxeni da Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Xonta altre imaxeni da Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL imaxene/photoset Flickr',
@@ -27817,11 +27818,10 @@ Ripróva có 'n altro browser.",
 	'mwe-upwiz-source-thirdparty' => "{{PLURAL:$1|Sto file nó 'l xe|Sti file nó i xe}} òpara mia.",
 	'mwe-upwiz-source-thirdparty-intro' => "Inserisi l'indiriso 'ndove te ghe catà ognun de sti file.",
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Se tuti i file i ga ła stesa fonte, autor e stato de copyright, te poi inserir ste informasion na volta soła par tuti.',
-	'mwe-upwiz-source-thirdparty-license' => 'El detentor del copyright de {{PLURAL:$1|sta òpara|ste òpare}} {{PLURAL:$1|ła ga publicà|łe ga publicae}} có ła/e seguente/i licensa/e:',
 	'mwe-upwiz-source-thirdparty-cases' => "Deso dine parché te si seguro de 'ver el dirito de publicar {{PLURAL:$1|sta òpara|ste òpare}}:",
 	'mwe-upwiz-source-thirdparty-accept' => 'Va ben',
 	'mwe-upwiz-source-custom' => "Fornisi łe informasion so'l copyright pa' ogni file separatamente inte ła prosima pàjina.",
-	'mwe-upwiz-more-options' => 'xonta łe categorie e altre informasion...',
+	'mwe-upwiz-more-options' => 'Xonta la poxision e altre informasion...',
 	'mwe-upwiz-copy-metadata' => 'Copia łe informasion {{PLURAL:$1|in chealtro file cargà|in tuti i file cargai}} cuà soto...',
 	'mwe-upwiz-copy-metadata-button' => 'Copia',
 	'mwe-upwiz-copied-metadata-button' => 'Copia avegnùa coretamente',
@@ -27867,7 +27867,7 @@ Te poi instałar [$1 Firefogg], n'estension de Firefox par convertir automategam
 	'mwe-upwiz-fileexists' => "Un file có sto nome 'l existe xà.
 Controła $1 e verifega che 'l sia veramente da sostituir.",
 	'mwe-upwiz-fileexists-replace-on-page' => 'Existe xà un file có sto nome. Se te vui sostituirlo, va a ła pàjina [$2 $1] e sostituisiło là, altrimenti siełi un nome difarente.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Existe xà un file có sto nome.',
+	'mwe-upwiz-fileexists-replace-no-link' => "Par piaser siegli un titolo difarente, parché sto titolo qua el xe xà ciapà da n'altro file.",
 	'mwe-upwiz-blacklisted' => 'Par piaser siełi un titoło difarente e descritivo.',
 	'mwe-upwiz-thumbnail-more' => 'Ingrandisi',
 	'mwe-upwiz-overwrite' => 'Sostituisi el file',
