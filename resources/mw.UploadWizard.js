@@ -326,7 +326,8 @@ mw.UploadWizard.prototype = {
 		// Insert form into the page
 		$j( '#mwe-upwiz-files' ).prepend( flickr_add );
 		// Add disclaimer
-		var $disclaimer = mw.msg( 'mwe-upwiz-flickr-disclaimer1' ) + '<br/>' + mw.msg( 'mwe-upwiz-flickr-disclaimer2' );
+		var $disclaimer = mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
+			'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse();
 		$disclaimer = $( '<div id="mwe-upwiz-flickr-disclaimer"></div>' ).html( $disclaimer );
 		$j( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
 		// Insert input field into the form and set up submit action
