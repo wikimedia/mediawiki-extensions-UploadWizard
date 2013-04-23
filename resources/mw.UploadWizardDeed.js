@@ -34,14 +34,6 @@ mw.UploadWizardDeed.prototype = {
 
 };
 
-
-mw.UploadWizardNullDeed = $j.extend( new mw.UploadWizardDeed(), {
-	valid: function() {
-		return false;
-	}
-} );
-
-
 /**
  * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
  * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
@@ -420,10 +412,6 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 
 	// deselect all deeds
 	_this.deselectDeedInterface( this.$selector.find( '.mwe-upwiz-deed' ) );
-
-	// set the "value" to be the null deed; which will cause an error if the data is submitted.
-	_this.choose( mw.UploadWizardNullDeed );
-
 };
 
 
@@ -446,13 +434,6 @@ mw.UploadWizardDeedChooser.prototype = {
 		// otherwise, we can assume that the widgets have already added error messages.
 		if (valid) {
 			_this.hideError();
-		} else {
-			if ( _this.deed === mw.UploadWizardNullDeed ) {
-				_this.showError( mw.msg( 'mwe-upwiz-deeds-need-deed', _this.uploads.length ) );
-				$j( _this ).bind( 'chooseDeed', function() {
-					_this.hideError();
-				} );
-			}
 		}
 		return valid;
 	},
@@ -476,9 +457,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	choose: function( deed ) {
 		var _this = this;
 		_this.deed = deed;
-		if ( deed !== mw.UploadWizardNullDeed ) {
-			$j( _this ).trigger( 'chooseDeed' );
-		}
+		$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next' ).show();
 	},
 
 	/**

@@ -452,7 +452,7 @@ class SpecialUploadWizard extends SpecialPage {
 		.       '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
 		.       '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
 		.       '<div class="mwe-upwiz-buttons">'
-		.          '<button class="mwe-upwiz-button-next">' . $this->msg( "mwe-upwiz-next-deeds" )->text()  . '</button>'
+		.          '<button class="mwe-upwiz-button-next" style="display:none;">' . $this->msg( "mwe-upwiz-next-deeds" )->text()  . '</button>'
 		.       '</div>'
 		.     '</div>'
 
