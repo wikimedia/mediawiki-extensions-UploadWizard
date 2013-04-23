@@ -449,6 +449,12 @@ mw.UploadWizardDetails.prototype = {
 			var firstValue = $j( firstId ).val();
 			$j( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
 				$j( this ).val( firstValue );
+				if ( $j( this ).parents( '.mwe-more-details' ).length === 1 ) {
+					var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
+					if ( !moreInfo.hasClass( "mwe-upwiz-toggler-open" ) ) {
+						moreInfo.click();
+					}
+				}
 			});
 		};
 
