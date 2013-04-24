@@ -646,8 +646,6 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 * $3 is {{msg-mw|prefs-upwiz-interface}}.',
 	'mwe-upwiz-tooltip-categories' => 'Used as hint for Category input form. Parameters:
 * $1 - the URL http://commons.wikimedia.org/wiki/Commons:Categories (hard-coded)',
-	'mwe-upwiz-deeds-need-deed' => 'Used as error message. Parameters:
-* $1 - number of files. i.e. number of uploads',
 	'mwe-upwiz-error-signature-blank' => 'Used as error message.
 {{Related|Mwe-upwiz-error-signature}}',
 	'mwe-upwiz-error-latitude' => 'Error message shown when an invalid latitude is entered',
@@ -5773,7 +5771,6 @@ Du kannst nun [$1 Firefogg], ein Add-on zu Firefox installieren, das die Datei a
 	'mwe-upwiz-tooltip-location' => 'Die Koordinaten des Standortes, an dem diese Mediendatei erstellt wurde.',
 	'mwe-upwiz-tooltip-more-info' => 'Weitere Informationen.',
 	'mwe-upwiz-file-need-file' => 'Füge zuerst eine Datei zum Hochladen hinzu.',
-	'mwe-upwiz-deeds-need-deed' => 'Erläutere bitte, woher die {{PLURAL:$1|Datei|Dateien}} stammen und wie sie auf dieser Website genutzt werden können, indem du eine der Optionen auswählst.',
 	'mwe-upwiz-deeds-need-license' => 'Bitte wähle eine Lizenz aus.',
 	'mwe-upwiz-license-show-all' => 'Eine andere Lizenz verwenden.',
 	'mwe-upwiz-license-show-recommended' => 'Die empfohlene Lizenz verwenden',
@@ -5953,6 +5950,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Fremdes Werk – $1',
 	'mwe-upwiz-prefs-chunked' => 'Hochladen von Dateien, die größer als 1 MB sind, in mehreren Teilen',
 	'mwe-upwiz-prefs-skiptutorial' => 'Einführendes Tutorial zu Lizenzen auslassen',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximale Anzahl gleichzeitiger Uploads',
 );
 
 /** Austrian German (Österreichisches Deutsch)
@@ -9199,7 +9197,6 @@ Pour une photo, mentionnez les principaux éléments représentés, l’événem
 	'mwe-upwiz-tooltip-location' => 'Coordonnées de l’emplacement où ce fichier multimédia a été créé.',
 	'mwe-upwiz-tooltip-more-info' => 'En savoir plus.',
 	'mwe-upwiz-file-need-file' => 'Veuillez ajouter d’abord un fichier à importer.',
-	'mwe-upwiz-deeds-need-deed' => 'Veuillez expliquer d’où {{PLURAL:$1|provient ce fichier|proviennent ces fichiers}}  et comment ce site peut {{PLURAL:$1|l’|les }}utiliser, en choisissant une des options.',
 	'mwe-upwiz-deeds-need-license' => 'Veuillez choisir une licence.',
 	'mwe-upwiz-license-show-all' => 'Utiliser une licence différente',
 	'mwe-upwiz-license-show-recommended' => 'Utiliser les licences recommandées',
@@ -9379,6 +9376,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Travail de quelqu’un d’autre - $1',
 	'mwe-upwiz-prefs-chunked' => 'Versements fragmentés pour les fichiers de plus de 1 Mo dans l’Assistant de téléversement',
 	'mwe-upwiz-prefs-skiptutorial' => 'Passer le tutoriel sur les licences',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Nombre maximal de téléchargements simultanés',
 );
 
 /** Franco-Provençal (arpetan)
@@ -10633,7 +10631,6 @@ $messages['gu'] = array(
 	'mwe-upwiz-tooltip-location' => 'જે સ્થળે આ મિડિયા ફાઈલ નિર્માણ કરાઈ તેના અક્ષાંસ રેખાંશ.',
 	'mwe-upwiz-tooltip-more-info' => 'વધુ જાણો.',
 	'mwe-upwiz-file-need-file' => 'મહેરબાની કરી પ્રથમ અપલોડ ઉમેરો.',
-	'mwe-upwiz-deeds-need-deed' => 'કૃપા કરી સમજાવો કે તમને આ {{PLURAL:$1|ફાઈલ|ફાઈલો}} ક્યાંથી મળી અને ઍક વિકલ્પ પસંદ કરી જણાવો કે તેઓને આ સાઈટ કેવી રીતે વાપરી શકે.',
 	'mwe-upwiz-deeds-need-license' => 'મહેરબાની કરી લાયસન્સ પસંદ કરો.',
 	'mwe-upwiz-license-show-all' => 'બીજું લાયસન્સ વાપરો.',
 	'mwe-upwiz-license-show-recommended' => 'ભલમણ કરેલ લાઈસેંસ વાપરો',
@@ -11000,7 +10997,6 @@ $messages['he'] = array(
 	'mwe-upwiz-tooltip-location' => 'נקודות הציון של המקום שבו קובץ המדיה הזה נוצר.',
 	'mwe-upwiz-tooltip-more-info' => 'מידע נוסף.',
 	'mwe-upwiz-file-need-file' => 'נא להוסיף העלאה תחילה.',
-	'mwe-upwiz-deeds-need-deed' => 'נא להסביר איפה קיבלתם את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}} ואיך האתר הזה יכול להשתמש {{PLURAL:$1|בו|בהם}}, על ידי בחירה באחת האפשרויות.',
 	'mwe-upwiz-deeds-need-license' => 'נא לבחור רישיון.',
 	'mwe-upwiz-license-show-all' => 'שימוש ברישיון אחר',
 	'mwe-upwiz-license-show-recommended' => 'שימוש ברישיון המומלץ',
@@ -13760,7 +13756,6 @@ Per le foto, indica le cose principali che vi sono rappresentate, l'occasione e/
 	'mwe-upwiz-tooltip-location' => 'Coordinate del luogo in cui è stato creato questo file multimediale.',
 	'mwe-upwiz-tooltip-more-info' => 'Per saperne di più.',
 	'mwe-upwiz-file-need-file' => 'Prima carica qualcosa.',
-	'mwe-upwiz-deeds-need-deed' => 'Spiega dove ti sei procurato {{PLURAL:$1|questo|questi}} file, e a quali condizioni questo sito può {{PLURAL:$1|utilizzarlo|utilizzarli}}, selezionando opportunamente una delle opzioni proposte.',
 	'mwe-upwiz-deeds-need-license' => 'Seleziona una licenza.',
 	'mwe-upwiz-license-show-all' => 'Usa una licenza diversa',
 	'mwe-upwiz-license-show-recommended' => 'Usa la licenza raccomandata',
@@ -14139,7 +14134,6 @@ Firefox の拡張機能 [$1 Firefogg] をインストールして自動的に変
 	'mwe-upwiz-tooltip-location' => 'このメディアファイルが作成された場所の緯度経度。',
 	'mwe-upwiz-tooltip-more-info' => '詳細。',
 	'mwe-upwiz-file-need-file' => '最初にアップロードを追加してください。',
-	'mwe-upwiz-deeds-need-deed' => 'どこで{{PLURAL:$1|このファイル|これらのファイル}}を手に入れたのか、その場所がどのように{{PLURAL:$1|それ|それら}}を利用できるか、選択肢から選んで説明してください。',
 	'mwe-upwiz-deeds-need-license' => 'ライセンスを選択してください。',
 	'mwe-upwiz-license-show-all' => '異なるライセンスを使用',
 	'mwe-upwiz-license-show-recommended' => '推奨されるライセンスを使用',
@@ -14292,6 +14286,7 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-prefs-def-license-def' => '常に既定値を使用',
 	'mwe-upwiz-prefs-license-own' => '自分の作品 - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '他人の作品 - $1',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時にアップロードできる最大個数',
 );
 
 /** Javanese (Basa Jawa)
@@ -18231,7 +18226,6 @@ Untuk foto, nyatakan perkara-perkara utama yang digambarkan, peristiwa atau temp
 	'mwe-upwiz-tooltip-location' => 'Koordinat lokasi di mana fail media ini dibuat.',
 	'mwe-upwiz-tooltip-more-info' => 'Ketahui lebih lanjut.',
 	'mwe-upwiz-file-need-file' => 'Tolong tambahkan bahan yang ingin dimuat naik terlebih dahulu.',
-	'mwe-upwiz-deeds-need-deed' => 'Tolong jelaskan dari mana anda perolehi {{PLURAL:$1|fail|fail-fail}} ini dan bagaimana tapak ini boleh menggunakannya, dengan memilih antara pilihan-pilihan berikut.',
 	'mwe-upwiz-deeds-need-license' => 'Sila pilih satu lesen.',
 	'mwe-upwiz-license-show-all' => 'Gunakan lesen yang lain',
 	'mwe-upwiz-license-show-recommended' => 'Gunakan lesen yang disyorkan',
@@ -27947,7 +27941,6 @@ Pa' łe someje, indica łe robe prinsipałi che ve xe raprexentae, l'ocaxion e/o
 	'mwe-upwiz-tooltip-location' => 'Coordinae del liogo in cui xe sta creà sto file multimediałe.',
 	'mwe-upwiz-tooltip-more-info' => 'Par saverghine de pì.',
 	'mwe-upwiz-file-need-file' => 'Prima carga calcosa.',
-	'mwe-upwiz-deeds-need-deed' => "Spiega 'ndove te te si procurà {{PLURAL:$1|sto|sti}} file, e a cuali condision sto sito pol {{PLURAL:$1|dopararlo|dopararli}}, sełesionando oportunamente una de łe opsion proposte.",
 	'mwe-upwiz-deeds-need-license' => 'Sełesiona na licensa.',
 	'mwe-upwiz-license-show-all' => 'Dopara na licensa difarente',
 	'mwe-upwiz-license-show-recommended' => 'Dopara ła licensa racomandà',
@@ -28373,7 +28366,6 @@ Nếu là hình chụp, hãy nói đến những vật thể chính, cũng như 
 	'mwe-upwiz-tooltip-location' => 'Tọa độ của vị trí mà tập tin phương tiện này đã được tạo ra.',
 	'mwe-upwiz-tooltip-more-info' => 'Tìm hiểu thêm.',
 	'mwe-upwiz-file-need-file' => 'Trước tiên, xin hãy thêm một tập tin để tải lên.',
-	'mwe-upwiz-deeds-need-deed' => 'Xin hãy cho biết {{PLURAL:$1|tập tin|các tập tin}} này được lấy từ đâu và {{PLURAL:$1|nó|chúng}} có thể được sử dụng thế nào.',
 	'mwe-upwiz-deeds-need-license' => 'Xin hãy chọn một giấy phép.',
 	'mwe-upwiz-license-show-all' => 'Sử dụng một giấy phép khác',
 	'mwe-upwiz-license-show-recommended' => 'Sử dụng giấy phép khuyến khích',
@@ -28553,6 +28545,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Tác phẩm của người khác – $1',
 	'mwe-upwiz-prefs-chunked' => 'Tải lên từng khúc các tập tin quá 1 MB trong Trình thuật sĩ tải lên',
 	'mwe-upwiz-prefs-skiptutorial' => 'Bỏ qua hướng dẫn cấp phép',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Số lượng file tối đa tải lên cùng lúc',
 );
 
 /** Walloon (walon)
@@ -28816,7 +28809,7 @@ $messages['yi'] = array(
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1| די טעקע איז | די דאזיקע טעקעס זענען}} מיין אייגן אַרבעט.',
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1| די דאזיקע טעקע איז| די דאזיקע טעקעס זענען}} נישט מיין אייגן אַרבעט.',
 	'mwe-upwiz-source-thirdparty-accept' => 'אויספֿירן',
-	'mwe-upwiz-more-options' => 'צולייגן קאטעגאריעס און נאך אינפארמאציע ...', # Fuzzy
+	'mwe-upwiz-more-options' => 'צולייגן ארט און נאך אינפארמאציע ...',
 	'mwe-upwiz-copy-metadata-button' => 'קאפירן',
 	'mwe-upwiz-copy-title' => 'קאפירן קעפל (מיט אויטאמאטישן נומערירן)',
 	'mwe-upwiz-copy-description' => 'קאפירן {{PLURAL:$1|באשרייבונג|באשרייבונגען}}',
@@ -29095,7 +29088,6 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-tooltip-location' => '该媒体文件创作地点的坐标。',
 	'mwe-upwiz-tooltip-more-info' => '了解更多。',
 	'mwe-upwiz-file-need-file' => '请先添加上传。',
-	'mwe-upwiz-deeds-need-deed' => '请选择选项之一来说明{{PLURAL:$1|该|这些}}文件的来源和本网站使用{{PLURAL:$1|它|它们}}的方式。',
 	'mwe-upwiz-deeds-need-license' => '请选择授权协议。',
 	'mwe-upwiz-license-show-all' => '使用其他授权协议',
 	'mwe-upwiz-license-show-recommended' => '使用推荐授权协议',
