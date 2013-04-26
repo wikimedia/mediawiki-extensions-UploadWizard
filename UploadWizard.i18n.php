@@ -2203,7 +2203,7 @@ Prueba con un navegador alternativu.',
 	'mwe-upwiz-source-thirdparty-cases' => 'Agora, cuntanos por qué tas seguru de que tienes drechu a espublizar {{PLURAL:$1|esta obra|estes obres}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Aceutar',
 	'mwe-upwiz-source-custom' => "Da información de los drechos d'autor pa cada ficheru individual na páxina siguiente.",
-	'mwe-upwiz-more-options' => 'amestar categoríes y más información...', # Fuzzy
+	'mwe-upwiz-more-options' => 'amestar llugar y más información...',
 	'mwe-upwiz-copy-metadata' => "Copiar la información a {{PLURAL:$1|la otra xubida|toles xubíes}} d'abaxo...",
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
 	'mwe-upwiz-copied-metadata-button' => 'Copióse correutamente',
@@ -2276,7 +2276,6 @@ Pa una semeya, cuenta les principales coses qu'apaecen, la ocasión o'l sitiu.",
 	'mwe-upwiz-tooltip-location' => 'Coordenaes del llugar onde se creó esti ficheru multimedia.',
 	'mwe-upwiz-tooltip-more-info' => 'Más información.',
 	'mwe-upwiz-file-need-file' => 'Amiesta primero un ficheru pa xubir.',
-	'mwe-upwiz-deeds-need-deed' => 'Esplica ónde consiguisti {{PLURAL:$1|esti ficheru|estos ficheros}} y cómo pue {{PLURAL:$1|usalu|usalos}} esti sitiu, seleicionando una de les opciones.',
 	'mwe-upwiz-deeds-need-license' => 'Por favor seleiciona una llicencia.',
 	'mwe-upwiz-license-show-all' => 'Usar una llicencia distinta',
 	'mwe-upwiz-license-show-recommended' => 'Usar la llicencia recomendada',
@@ -2456,6 +2455,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => "Obra d'otra persona - $1",
 	'mwe-upwiz-prefs-chunked' => 'Xubíes en trozos pa ficheros de más de 1MB nel Asistente de xubíes',
 	'mwe-upwiz-prefs-skiptutorial' => 'Saltar la guía cola introducción a les llicencies',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Númberu máximu de xubes simultánees',
 );
 
 /** Azerbaijani (azərbaycanca)
@@ -9942,7 +9942,6 @@ Para unha foto, mencione as principais cousas que están representadas, a ocasi�
 	'mwe-upwiz-tooltip-location' => 'Coordenadas do lugar onde se creou o ficheiro.',
 	'mwe-upwiz-tooltip-more-info' => 'Máis información.',
 	'mwe-upwiz-file-need-file' => 'Engada unha carga primeiro.',
-	'mwe-upwiz-deeds-need-deed' => 'Explique de onde sacou {{PLURAL:$1|este ficheiro|estes ficheiros}} e como se {{PLURAL:$1|pode|poden}} usar neste sitio. Para isto, seleccione unha das opcións.',
 	'mwe-upwiz-deeds-need-license' => 'Seleccione unha licenza.',
 	'mwe-upwiz-license-show-all' => 'Empregar unha licenza diferente',
 	'mwe-upwiz-license-show-recommended' => 'Empregar a licenza recomendada',
@@ -10122,6 +10121,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Obra doutra persoa - $1',
 	'mwe-upwiz-prefs-chunked' => 'Cargas fragmentadas para ficheiros que ocupen máis de 1MB no asistente de cargas',
 	'mwe-upwiz-prefs-skiptutorial' => 'Saltar a guía coa introdución ás licenzas',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Número máximo de cargas simultáneas',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -17244,7 +17244,6 @@ $messages['mk'] = array(
 	'mwe-upwiz-tooltip-location' => 'Координати на местото кајшто е направена снимката',
 	'mwe-upwiz-tooltip-more-info' => 'Дознајте повеќе.',
 	'mwe-upwiz-file-need-file' => 'Прво назначете податотека за подигање.',
-	'mwe-upwiz-deeds-need-deed' => 'Наведете од каде {{PLURAL:$1|ја земавте податотеката|ги земавте податотеките}} и како ова мреж. место може да {{PLURAL:$1|ја користи|ги користи}}, одбирајќи една од наведените можности.',
 	'mwe-upwiz-deeds-need-license' => 'Одберете лиценца.',
 	'mwe-upwiz-license-show-all' => 'Користи поинаква лиценца',
 	'mwe-upwiz-license-show-recommended' => 'Користи ја препорачаната лиценца',
@@ -17424,6 +17423,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Туѓо дело - $1',
 	'mwe-upwiz-prefs-chunked' => 'Подигање на парчиња за податотеки над 1 МБ со Помошникот за подигање',
 	'mwe-upwiz-prefs-skiptutorial' => 'Прескокни го воведното запознавање со лиценците',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Максимален број на истовремени преземања',
 );
 
 /** Malayalam (മലയാളം)
@@ -28545,7 +28545,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Tác phẩm của người khác – $1',
 	'mwe-upwiz-prefs-chunked' => 'Tải lên từng khúc các tập tin quá 1 MB trong Trình thuật sĩ tải lên',
 	'mwe-upwiz-prefs-skiptutorial' => 'Bỏ qua hướng dẫn cấp phép',
-	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Số lượng file tối đa tải lên cùng lúc',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Số tập tin tối đa có thể tải lên cùng lúc',
 );
 
 /** Walloon (walon)
@@ -29266,6 +29266,7 @@ $messages['zh-hans'] = array(
  * @author Anakmalaysia
  * @author Horacewai2
  * @author Justincheng12345
+ * @author Littletung
  * @author Mark85296341
  * @author Oapbtommy
  * @author Shirayuki
@@ -29300,10 +29301,9 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => '抱歉，我們無法獲取適合此屏幕大小的教程。這也許是維基共享資源的臨時錯誤，請稍後再試。',
 	'mwe-upwiz-help-desk' => '幫助台',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:幫助台',
-	'mwe-upwiz-add-file-n' => '加入另一個檔案',
+	'mwe-upwiz-add-file-n' => '加入更多檔案',
 	'mwe-upwiz-add-file-0-free' => '選擇要貢獻的媒體文件', # Fuzzy
-	'mwe-upwiz-upload-flickr' => '從Flickr上載圖片',
-	'mwe-upwiz-add-file-flickr' => '從Flickr添加圖片',
+	'mwe-upwiz-add-file-flickr' => '從Flickr添加圖片', # Fuzzy
 	'mwe-upwiz-add-flickr-or' => '或',
 	'mwe-upwiz-add-flickr' => '從Flickr獲取圖片',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr圖片/照片集URL',
@@ -29376,11 +29376,10 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|此|這些}}檔案並非由我自己創作。',
 	'mwe-upwiz-source-thirdparty-intro' => '請輸入這些檔案的來源。',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => '如果所有文件具有相同的來源、作者及版權狀態，您可以只輸入一次。',
-	'mwe-upwiz-source-thirdparty-license' => '{{PLURAL:$1|此|這些}}檔案的版權持有人以下列條款發佈{{PLURAL:$1|此|這些}}檔案：',
 	'mwe-upwiz-source-thirdparty-cases' => '現在請告訴我們，您為什麼確信您有權發佈{{PLURAL:$1|此|這些}}作品：',
 	'mwe-upwiz-source-thirdparty-accept' => '確定',
 	'mwe-upwiz-source-custom' => '於下一頁為每個檔案提供版權信息。',
-	'mwe-upwiz-more-options' => '加入分類及更多信息⋯⋯',
+	'mwe-upwiz-more-options' => '加入分類及更多信息⋯⋯', # Fuzzy
 	'mwe-upwiz-copy-metadata' => '複製{{PLURAL:$1|另一份|所有}}資料到下面的上載文檔 ...',
 	'mwe-upwiz-copy-metadata-button' => '複製',
 	'mwe-upwiz-copied-metadata-button' => '複製成功',
@@ -29424,7 +29423,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-fileexists-replace' => '以「$1」為標題的檔案已經存在，請更改名稱。',
 	'mwe-upwiz-fileexists' => '與此名稱相同的檔案已經存在。如果你不知道你是不是要取代它，請檢查$1。',
 	'mwe-upwiz-fileexists-replace-on-page' => '與此名稱相同的檔案已經存在。想需替換，請前往[$2 $1]進行替換操作。',
-	'mwe-upwiz-fileexists-replace-no-link' => '已存在相同名稱的檔案。',
+	'mwe-upwiz-fileexists-replace-no-link' => '已存在相同名稱的檔案。', # Fuzzy
 	'mwe-upwiz-blacklisted' => '請選擇一個不同的描述標題。',
 	'mwe-upwiz-thumbnail-more' => '放大',
 	'mwe-upwiz-overwrite' => '替換檔案',
@@ -29449,7 +29448,6 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-tooltip-location' => '此媒體檔案創作時的坐標。',
 	'mwe-upwiz-tooltip-more-info' => '了解更多。',
 	'mwe-upwiz-file-need-file' => '請先加入一個上傳榴案。',
-	'mwe-upwiz-deeds-need-deed' => '請選擇您於哪裡取得{{PLURAL:$1|此|這些}}檔案，以及您會如何於本站使用{{PLURAL:$1|此|這些}}檔案。',
 	'mwe-upwiz-deeds-need-license' => '請選擇一個條款。',
 	'mwe-upwiz-license-show-all' => '使用其它條款',
 	'mwe-upwiz-license-show-recommended' => '使用推薦的條款',
