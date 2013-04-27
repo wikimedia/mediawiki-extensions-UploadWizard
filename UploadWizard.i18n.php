@@ -11176,6 +11176,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'יצירה של מישהו אחר – $1',
 	'mwe-upwiz-prefs-chunked' => 'העלאה מקוטעת עבור קבצים גדולים ממגה־בייט אחד באשף ההעלאה',
 	'mwe-upwiz-prefs-skiptutorial' => 'לדלג על מדריך הרישוי למתחילים',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'מספר מרבי של העלאות בו־זמנית',
 );
 
 /** Hindi (हिन्दी)
@@ -27752,6 +27753,7 @@ $messages['ur'] = array(
 	'mwe-upwiz-prefs-def-license' => 'پہلے سے طے شدہ لائسنس',
 	'mwe-upwiz-prefs-def-license-def' => 'جو کچھ بھی پہلے سے طے شدہ ہے استعمال کریں',
 	'mwe-upwiz-prefs-skiptutorial' => 'پر تعارفی یافتہ لائسنس کے اجراء کے سبق',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'زیادہ سے زیادہ تعداد زبر اثقال',
 );
 
 /** vèneto (vèneto)
