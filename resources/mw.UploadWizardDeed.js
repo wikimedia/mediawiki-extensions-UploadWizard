@@ -256,7 +256,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
  * @param {mw.Api} api object - useful for doing previews
  */
 mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
-	var _this = new mw.UploadWizardDeed();
+	var _this, licenseInputDiv;
+
+	_this = new mw.UploadWizardDeed();
 
 	_this.uploadCount = uploadCount ? uploadCount : 1;
 	_this.sourceInput = $j('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )

@@ -188,7 +188,6 @@ mw.DestinationChecker.prototype = {
 	 */
 	checkUnique: function( callback ) {
 		var _this = this;
-		var found = false;
 		var title = _this.getTitle();
 
 		// if input is empty don't bother.

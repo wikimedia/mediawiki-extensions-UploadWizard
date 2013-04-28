@@ -284,7 +284,6 @@ mw.FlickrChecker.prototype = {
 	 */
 	setImageURL: function( index ) {
 		var _this = this;
-		var imageURL = '';
 		var upload = this.imageUploads[index];
 		var photoId = upload.photoId;
 		var largestSize;
@@ -326,6 +325,7 @@ mw.FlickrChecker.prototype = {
 		var licenseValue = mw.FlickrChecker.prototype.licenseMaps[licenseName];
 
 		// Set the license message to show the user.
+		var licenseMessage;
 		if ( licenseValue == 'invalid' ) {
 			licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
 		} else {
