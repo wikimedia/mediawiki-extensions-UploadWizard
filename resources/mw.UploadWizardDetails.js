@@ -626,11 +626,10 @@ mw.UploadWizardDetails.prototype = {
 				}
 			}
 		];
-		for ( var mx in msgs ) {
-			var msg = msgs[mx];
+		$.each( msgs, function( index, msg ) {
 			var $lbl = $( 'label[for="' + msg.title + '"]' );
 			$lbl.text( mw.msg( msg.title, msg.counter() ) );
-		}
+		} );
 		$lbl = $( '.mwe-upwiz-details-copy-metadata a', _this.$form );
 		$lbl.text( mw.msg( 'mwe-upwiz-copy-metadata', _this.upload.wizard.uploads.length - 1 ) );
 	},
