@@ -582,7 +582,8 @@ This is followed by a language name in a drop-down language selector.
 
 
 {{Identical|Title}}',
-	'mwe-upwiz-date-created' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]',
+	'mwe-upwiz-date-created' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
+{{Identical|Date created}}',
 	'mwe-upwiz-location' => 'The location the media exists on the planet, further described by lat and lon.
 {{Identical|Location}}',
 	'mwe-upwiz-location-lat' => 'Latitude - the GPS coordinate, expressed in signed decimal degrees.
