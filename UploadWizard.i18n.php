@@ -12616,7 +12616,7 @@ $messages['id'] = array(
 	'right-upwizcampaigns' => 'Mengkonfigurasikan kampanye unggah wizard',
 	'action-upwizcampaigns' => 'konfigurasi kampanye unggah',
 	'group-upwizcampeditors' => 'Editor kampanye Upload Wizard',
-	'group-upwizcampeditors-member' => '{{GENDER:$1|Editor kampanye Upload Wizard}}',
+	'group-upwizcampeditors-member' => '{{GENDER:$1|editor kampanye Upload Wizard}}',
 	'grouppage-upwizcampeditors' => '{{ns:project}}:Editor kampanye Upload Wizard',
 	'mwe-upwiz-js-off' => 'UploadWizard menggunakan JavaScript untuk memperbaiki antarmuka. Peramban Anda tidak mendukung JavaScript atau menonaktfikan JavaScript, maka kami hanya memberikan Anda formulir pengunggahan sederhana.',
 	'mwe-upwiz-extension-disabled' => 'Halaman ini dinonaktifkan karena masalah teknis sementara. Untuk sementara, silakan gunakan formulir pengunggahan standar.',
@@ -12633,7 +12633,7 @@ $messages['id'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Maaf, kami tidak dapat mendapatkan gambar berskala untuk tutorial yang pas dengan layar ini. Bisa jadi ini hanya masalah sementara dengan Wikimedia Commons; coba lagi nanti.',
 	'mwe-upwiz-help-desk' => 'Meja Bantuan',
 	'mwe-upwiz-help-desk-url' => 'Meja Bantuan', # Fuzzy
-	'mwe-upwiz-add-file-n' => 'Tambahkan berkas lain',
+	'mwe-upwiz-add-file-n' => 'Tambahkan berkas lain', # Fuzzy
 	'mwe-upwiz-add-file-0-free' => 'Pilih berkas media yang ingin disumbangkan', # Fuzzy
 	'mwe-upwiz-transport-started' => 'Mulai ...',
 	'mwe-upwiz-uploading' => 'mengunggah...',
@@ -12671,7 +12671,6 @@ $messages['id'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Berkas ini|Berkas-berkas ini}} bukan karya saya.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Silakan masukkan alamat tempat Anda menemukan setiap berkas.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Bila semua berkas memiliki sumber, pemilik, dan status hak cipta yang sama, Anda dapat memasukan semuanya sekali saja.',
-	'mwe-upwiz-source-thirdparty-license' => 'Pemegang hak cipta {{PLURAL:$1|karya ini|karya-karya ini}} menerbitkannya di bawah lisensi berikut:',
 	'mwe-upwiz-source-thirdparty-cases' => 'Sekarang, beritahu kami mengapa Anda yakin {{SITENAME}} memiliki hak untuk menerbitkan {{PLURAL:$1|karya|karya-karya}} ini:', # Fuzzy
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Berikan informasi hak cipta untuk setiap berkas secara individu pada halaman berikutnya.',
@@ -12719,7 +12718,7 @@ Anda dapat [$1 menginstal Firefogg] untuk mengonversikannya secara otomatis, ata
 	'mwe-upwiz-fileexists' => 'Suatu berkas dengan nama tersebut telah ada.
 Tolong cek $1 jika Anda tidak yakin untuk mengubahnya.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Sebuah berkas dengan nama tersebut telah ada. Jika Anda ingin menggantinya, pergilah ke halaman untuk [$2 $1] dan ganti di sana.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Sebuah berkas dengan nama tersebut telah ada.',
+	'mwe-upwiz-fileexists-replace-no-link' => 'Sebuah berkas dengan nama tersebut telah ada.', # Fuzzy
 	'mwe-upwiz-blacklisted' => 'Pilih judul lain yang deskriptif',
 	'mwe-upwiz-thumbnail-more' => 'Perbesar',
 	'mwe-upwiz-overwrite' => 'Ganti berkas',
@@ -12746,7 +12745,6 @@ Untuk foto, sebutkan hal-hal utama yang ditampilkan, kesempatan atau tempat yang
 	'mwe-upwiz-tooltip-location' => 'Koordinat lokasi tempat berkas media ini dibuat.',
 	'mwe-upwiz-tooltip-more-info' => 'Pelajari lebih lanjut.',
 	'mwe-upwiz-file-need-file' => 'Silakan tambahkan berkas unduhan terlebih dahulu.',
-	'mwe-upwiz-deeds-need-deed' => 'Mohon jelaskan di mana Anda mendapatkan {{PLURAL:$1|berkas ini|berkas-berkas ini}} dan bagaimana situs ini dapat {{PLURAL:$1|menggunakannya|menggunakannya}} dengan memilih salah satu pilihan.',
 	'mwe-upwiz-deeds-need-license' => 'Silakan pilih lisensi.',
 	'mwe-upwiz-license-show-all' => 'Gunakan lisensi yang berbeda',
 	'mwe-upwiz-license-show-recommended' => 'Gunakan lisensi yang disarankan',
@@ -13937,6 +13935,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Opera di qualcun altro - $1',
 	'mwe-upwiz-prefs-chunked' => 'Carica a blocchi i file di oltre 1 MB in Upload Wizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Salta il tutorial introduttivo sulle license',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Numero massimo di caricamenti simultanei',
 );
 
 /** Japanese (日本語)
@@ -17058,6 +17057,13 @@ $messages['mai'] = array(
 	'mwe-upwiz-finished' => 'खतम भेल!',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'group-upwizcampeditors-member' => '{{GENDER:$1|editor kampanye Upload Wizard}}',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Rancher
@@ -17615,7 +17621,6 @@ $messages['ml'] = array(
 	'mwe-upwiz-tooltip-location' => 'ഈ മീഡിയ പ്രമാണം നിർമ്മിക്കപ്പെട്ട പ്രദേശത്തിന്റെ ഭൂനിർദ്ദേശാങ്കങ്ങൾ.',
 	'mwe-upwiz-tooltip-more-info' => 'കൂടുതൽ അറിയുക.',
 	'mwe-upwiz-file-need-file' => 'ദയവായി ആദ്യം ഒരു അപ്‌ലോഡ് ചേർക്കുക.',
-	'mwe-upwiz-deeds-need-deed' => 'എവിടെ നിന്നാണ് ഈ {{PLURAL:$1|പ്രമാണം|പ്രമാണങ്ങൾ}} ലഭിച്ചതെന്നും, ഈ സൈറ്റിൽ {{PLURAL:$1|ഇത്|ഇവ}} എങ്ങനെ ഉപയോഗിക്കാം എന്നും ഐച്ഛികങ്ങളിൽ നിന്നും ഒരെണ്ണം തിരഞ്ഞെടുത്ത് ദയവായി വിശദമാക്കുക.',
 	'mwe-upwiz-deeds-need-license' => 'ഒരനുമതി തിരഞ്ഞെടുക്കുക.',
 	'mwe-upwiz-license-show-all' => 'മറ്റൊരു അനുമതി ഉപയോഗിക്കുക',
 	'mwe-upwiz-license-show-recommended' => 'നിർദ്ദേശിച്ചിരിക്കുന്ന അനുമതി ഉപയോഗിക്കുക',
@@ -17794,6 +17799,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-prefs-license-thirdparty' => 'മറ്റുള്ളവരുടെ സൃഷ്ടി - $1',
 	'mwe-upwiz-prefs-chunked' => 'ഒരു എം.ബി.യിലധികമുള്ള പ്രമാണങ്ങൾക്കായി അപ്‌ലോഡ് സഹായിയിൽ ബൃഹത് അപ്‌ലോഡുകൾ',
 	'mwe-upwiz-prefs-skiptutorial' => 'തുടക്കത്തിലെ അനുമതി നൽകൽ സഹായി ഒഴിവാക്കുക',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'ഒരേ സമയം ചെയ്യാവുന്ന പരമാവധി അപ്‌ലോഡുകൾ',
 );
 
 /** Mongolian (монгол)
