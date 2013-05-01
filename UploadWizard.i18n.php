@@ -19666,7 +19666,6 @@ In beide gevallen wordt deze gekoppeld aan uw gebruikerspagina in de wiki.',
 	'mwe-upwiz-tooltip-location' => 'Coördinaten van de locatie waar dit mediabestand is gemaakt.',
 	'mwe-upwiz-tooltip-more-info' => 'Meer lezen.',
 	'mwe-upwiz-file-need-file' => 'Voeg eerst een upload toe.',
-	'mwe-upwiz-deeds-need-deed' => 'Geef aan hoe u aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.',
 	'mwe-upwiz-deeds-need-license' => 'Selecteer een licentie.',
 	'mwe-upwiz-license-show-all' => 'Een andere licentie gebruiken',
 	'mwe-upwiz-license-show-recommended' => 'De aanbevolen licentie gebruiken',
@@ -19846,6 +19845,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Andermans werk - $1',
 	'mwe-upwiz-prefs-chunked' => 'Uploaden in delen in Upload Wizard voor bestanden groter dan 1 megabyte',
 	'mwe-upwiz-prefs-skiptutorial' => 'Inleidende licentietutorial overslaan',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximale aantal gelijktijdige uploads',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
