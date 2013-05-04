@@ -20601,8 +20601,8 @@ $messages['pl'] = array(
 	'uploadwizard' => 'Kreator przesyłania plików',
 	'uploadwizard-desc' => 'Kreator przesyłania plików, przyjazne użytkownikowi narzędzie do przesyłania multimediów',
 	'mwe-upwiz-uploadcampaigns' => 'Inicjatywa przesyłania plików',
-	'mwe-upwiz-uploadcampaign' => 'Konfiguracja inicjatywy przesyłania plików',
-	'right-upwizcampaigns' => 'Konfigurowanie inicjatywy kreatora przesyłania plików',
+	'mwe-upwiz-uploadcampaign' => 'Konfiguracja sesji przesyłania plików',
+	'right-upwizcampaigns' => 'Konfigurowanie kreatora sesji przesyłania plików',
 	'action-upwizcampaigns' => 'konfigurowanie sesji przesyłania',
 	'group-upwizcampeditors' => 'Operatorzy inicjatyw kreatora przesyłania plików',
 	'group-upwizcampeditors-member' => '{{GENDER:$1|Operator|Operatorka}} inicjatyw kreatora przesyłania plików',
@@ -20615,6 +20615,7 @@ $messages['pl'] = array(
 	'mwe-upwiz-step-deeds' => 'Uwolnij prawa',
 	'mwe-upwiz-step-details' => 'Opisz',
 	'mwe-upwiz-step-thanks' => 'Użyj',
+	'mwe-upwiz-campaign-name-duplicate' => 'Kampania o tej nazwie już istnieje.',
 	'mwe-upwiz-campaign-unknown-error' => 'Wystąpił nieznany błąd.',
 	'mwe-upwiz-api-warning-exists' => 'Jest już [$1 plik] o takiej samej nazwie',
 	'mwe-upwiz-api-warning-was-deleted' => 'Istniał już plik o nazwie „$1”, ale został usunięty. Nie możesz ponownie przesłać pliku o tej nazwie. Jeśli przesyłasz inny plik, spróbuj zmienić jego nazwę.',
@@ -20622,14 +20623,24 @@ $messages['pl'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Niestety nie odnaleziono żadnych plików samouczka przydatnych w tym momencie. Skontaktuj się z administratorem systemu.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Niestety nie powiodło się przeskalowanie grafiki samouczka, tak aby zmieściła się na Twoim ekranie. Może to oznaczać przejściowe kłopoty z Wikimedia Commons. Spróbuj później.',
 	'mwe-upwiz-help-desk' => 'Wsparcie użytkownika',
-	'mwe-upwiz-help-desk-url' => 'Wsparcie użytkownika', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Wsparcie użytkownika',
 	'mwe-upwiz-add-file-n' => 'Dodaj więcej plików',
 	'mwe-upwiz-add-file-0-free' => 'Wybierz pliki multimedialne, którymi chcesz się podzielić',
+	'mwe-upwiz-add-file-flickr' => 'Dodaj więcej zdjęć z serwisu Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Dodać więcej zdjęć z serwisu Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Lub',
+	'mwe-upwiz-add-flickr' => 'Załaduj z serwisu Flickr',
+	'mwe-upwiz-flickr-input-placeholder' => 'Adres URL grafiki/galerii z serwisu Flickr',
 	'mwe-upwiz-select-flickr' => 'Załaduj zaznaczone grafiki',
+	'mwe-upwiz-flickr-disclaimer1' => 'Ten formularz załaduje treści zapisane na flickr.com z zastrzeżeniem przepisów [https://www.flickr.com/help/terms/ warunki użytkowania] i [https://www.flickr.com/help/privacy-policy/ polityka prywatności] Flickr.',
+	'mwe-upwiz-flickr-disclaimer2' => 'Należy pamiętać, że przy używaniu tego narzędzia, Twój adres IP i szczegóły zapytania będą dostępne w serwisie Flickr.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Nie można było załadować pliku z $1.',
+	'mwe-upwiz-multi-file-select' => 'Narysuj ramkę nad plikami, które chcesz pobrać. Przytrzymaj klawisz Ctrl/Command, aby zaznaczyć niesąsiadujące ze sobą elementy.',
 	'mwe-upwiz-transport-started' => 'Trwa uruchamianie...',
+	'mwe-upwiz-encoding' => 'Kodowanie...',
 	'mwe-upwiz-uploading' => 'Trwa przesyłanie...',
 	'mwe-upwiz-queued' => 'W kolejce...',
+	'mwe-upwiz-assembling' => 'Zbieranie...',
 	'mwe-upwiz-publish' => 'Publikowanie...',
 	'mwe-upwiz-transported' => 'Zakończono przesyłanie...',
 	'mwe-upwiz-stashed-upload' => 'Załadowano',
@@ -20658,7 +20669,7 @@ Spróbuj proszę użyć innej przeglądarki.',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Pozostała 1 sekunda|Pozostały $1 sekundy|Pozostało $1 sekund}}',
 	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Pozostała $1 minuta|Pozostały $1 minuty|Pozostało $1 minut}} i $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Pozostała $1 godzina|Pozostały $1 godziny|Pozostało $1 godzin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} i $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'Niniejsza witryna wymaga podania informacji o prawach autorskich dla {{PLURAL:$1|pliku|wszystkich plików}}, aby upewnić się że każdy będzie mógł {{PLURAL:$1|go|ich}} używać.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'Ta strona wymaga od {{GENDER:$2|Ciebie}} informacji o prawach autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}}, aby upewnić się, że każdy może używać {{PLURAL:$1|ich}} legalnie.',
 	'mwe-upwiz-source-ownwork' => 'Jestem autorem {{PLURAL:$1|tego utworu|tych utworów}}.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Ja $2, właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}} niniejszym nieodwołalnie przyznaję każdemu prawo do wykorzystywania, zmieniania i rozpowszechniania {{PLURAL:$1|tego utworu|tych utworów}} w jakimkolwiek celu. W związku z tym publikuję je pod następującymi warunkami:',
 	'mwe-upwiz-source-ownwork-assert' => 'Ja $2 – właściciel praw autorskich do {{PLURAL:$1|tego dzieła|tych dzieł}}, niniejszym udzielam każdemu nieodwołalnej zgody na {{PLURAL:$1|jego|ich}} wykorzystanie w dowolnym celu pod warunkiem podania informacji o moim autorstwie oraz publikowania prac pochodnych na tej samej licencji.',
@@ -20734,6 +20745,7 @@ Możesz zainstalować rozszerzenie [$1 Firefogg] do Firefoxa pozwalające na aut
 	'mwe-upwiz-allowed-filename-extensions' => 'Dopuszczalne są rozszerzenia:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Dozwolone rozszerzenia nazw plików',
 	'mwe-upwiz-upload-error-duplicate' => 'Ten plik został wcześniej przesłany do tej wiki.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'Ten plik został już załadowany na tą wiki wcześniej, ale później został usunięty.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Przesłać mimo to?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Nie można odczytać i zrozumieć nazwy pliku „$1“ z nieznanego powodu.',
 	'mwe-upwiz-ok' => 'OK',
@@ -20768,7 +20780,6 @@ W przypadku zdjęcia, wymień najważniejsze ujęte obiekty, sytuację lub miejs
 	'mwe-upwiz-tooltip-location' => 'Współrzędne lokalizacji, w której utworzono ten plik.',
 	'mwe-upwiz-tooltip-more-info' => 'Więcej informacji.',
 	'mwe-upwiz-file-need-file' => 'Najpierw dodaj plik do przesłania.',
-	'mwe-upwiz-deeds-need-deed' => 'Proszę wskazać skąd {{PLURAL:$1|pochodzi ten plik|pochodzą te pliki}} i jak nasza witryna może z {{PLURAL:$1|niego|nich}} skorzystać, poprzez wybranie odpowiedniej opcji.',
 	'mwe-upwiz-deeds-need-license' => 'Wybierz licencję.',
 	'mwe-upwiz-license-show-all' => 'Użyj innej licencji',
 	'mwe-upwiz-license-show-recommended' => 'Użyj zalecanej licencji',
@@ -20800,6 +20811,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'Ten tytuł jest zarezerwowany przez plik znajdujący się w wspólnym repozytorium. Wybierz inną nazwę.',
 	'mwe-upwiz-error-title-double-apostrophe' => 'Ten tytuł zawiera podwójny apostrof. Usuń go.',
 	'mwe-upwiz-error-title-extension' => 'Nie musisz dodawać rozszerzenia pliku. Wystarczy tytuł zrozumiały dla człowieka, a aplikacja zajmie się resztą.',
+	'mwe-upwiz-error-title-protected' => 'Ta nazwa pasuje do chronionej strony na tej wiki. Proszę wybrać inną.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'Wybrano opcję która wymaga wprowadzenia wiki-tekstu.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Ten wiki-tekst jest za krótki, aby mógł stanowić licencję.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Ten wiki-tekst jest za długi.',
@@ -20862,6 +20874,8 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-license-confirm-remove-title' => 'Potwierdzenie usunięcia',
 	'mwe-upwiz-license-external' => 'Ten plik jest udostępniony przez $1 na licencji $2.',
 	'mwe-upwiz-license-external-invalid' => 'Plik jest udostępniany przez $1 na zasadach licencji $2. Niestety ta licencja nie umożliwia wykorzystania go przez tę witrynę.',
+	'mwe-upwiz-license-photoset-invalid' => 'Niestety, żaden obraz w galerii nie ma odpowiedniej licencji do wykorzystania na tej stronie.',
+	'mwe-upwiz-url-invalid' => 'Wprowadzony adres URL nie jest poprawnym $1 zdjęciem, lub adresem galerii.',
 	'mwe-upwiz-categories' => 'Kategorie',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-will-be-added' => 'Ta kategoria nie jest jeszcze używana.',
@@ -20906,7 +20920,7 @@ $1',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Pomiń samouczek dotyczący licencji',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'Kategorie do których pliki mają być automatycznie i bez pytania dodawane (rozdzielone pionowymi kreskami):',
 	'mwe-upwiz-campaign-conf-defaultCategories' => 'Domyślne kategorie wyświetlane w zakładce opisu (rozdzielone pionowymi kreskami):',
-	'mwe-upwiz-campaign-conf-autoWikiText' => 'Tekst w formacie wiki, który będzie automatycznie dodawany do wszystkich przesyłanych grafik:', # Fuzzy
+	'mwe-upwiz-campaign-conf-autoWikiText' => 'Tekst w formacie wiki, który będzie automatycznie dodawany do wszystkich przesyłanych plików:',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => 'Sposób obsługi prac własnych i cudzych:',
 	'mwe-upwiz-campaign-owner-choice' => 'Pozwala użytkownikom na wybór pomiędzy tym czy praca jest własna czy wykonana przez kogoś innego',
 	'mwe-upwiz-campaign-owner-own' => 'Zezwalaj na przesyłanie wyłącznie własnych prac',
@@ -25097,6 +25111,7 @@ Ju lutemi mos përdorni tekst wiki apo HTML këtu.',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Nikola Smolenski
  * @author Rancher
  * @author Жељко Тодоровић
@@ -25114,7 +25129,7 @@ $messages['sr-ec'] = array(
 	'grouppage-upwizcampeditors' => '{{ns:project}}:Уредници кампање – Помоћник за отпремање',
 	'group-upwizcampeditors.css' => '/* Овде постављен CSS ће се примењивати само на уреднике кампање Помоћника за отпремање */',
 	'group-upwizcampeditors.js' => '/* Овде постављен JS ће се примењивати само на уреднике кампање Помоћника за отпремање */',
-	'mwe-upwiz-js-off' => 'Помоћник за отпремање користи јаваскрипт за побољшано сучеље. Ваш прегледач не подржава јаваскрипт или је он онемогућен, зато је приказан једноставан образац за отпремање.',
+	'mwe-upwiz-js-off' => 'Помоћник за отпремање датотека користи JavaScript-у за бољи интерфејс. Ваш прегледач не подржава JavaScript-у или је она онемогућена, зато је приказан једноставан образац за отпремање.',
 	'mwe-upwiz-extension-disabled' => 'Ова страница је онемогућена због привремених техничких проблема. У међувремену пробајте стандардан начин за отпремање.',
 	'mwe-upwiz-code-unknown' => 'Непознати језик',
 	'mwe-upwiz-step-tutorial' => 'Сазнајте',
@@ -25129,7 +25144,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Нажалост, не можемо да пронађемо смањену слику упутства која одговара овом екрану. Ово је вероватно привремени проблем с Викимедијином оставом. Покушајте касније.',
 	'mwe-upwiz-help-desk' => 'Одсек за помоћ',
 	'mwe-upwiz-help-desk-url' => 'Одсек за помоћ', # Fuzzy
-	'mwe-upwiz-add-file-n' => 'Додај другу датотеку',
+	'mwe-upwiz-add-file-n' => 'Додај другу датотеку', # Fuzzy
 	'mwe-upwiz-add-file-0-free' => 'Изаберите снимак који желите да поклоните', # Fuzzy
 	'mwe-upwiz-transport-started' => 'Почињем…',
 	'mwe-upwiz-uploading' => 'Отпремам…',
@@ -25173,11 +25188,10 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Ова датотека није|Ове датотеке нису}} моје сопствено дело.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Унесите адресу где сте пронашли сваку од датотека.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Ако све датотеке имају исти извор, аутора и стање ауторских права, можете их унети само једном за све датотеке.',
-	'mwe-upwiz-source-thirdparty-license' => 'Власник ауторског права {{PLURAL:$1|овог дела|ових дела}} {{PLURAL:$1|га|их}} је објавио под {{PLURAL:$1|следећом лиценцом|следећим лиценцама}}:',
 	'mwe-upwiz-source-thirdparty-cases' => 'Сада нам реците зашто сте сигурни да имате право да објавите {{PLURAL:$1|ово дело|ова дела}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'У реду',
 	'mwe-upwiz-source-custom' => 'Наведите податке о ауторским правима за сваку датотеку појединачно на следећој страници.',
-	'mwe-upwiz-more-options' => 'додајте категорије и више информација…',
+	'mwe-upwiz-more-options' => 'додајте категорије и више информација…', # Fuzzy
 	'mwe-upwiz-copy-metadata' => 'Преузми податке и стави их у сва отпремања испод.', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Преузми',
 	'mwe-upwiz-copy-title' => 'Преузми наслов (са аутоматским нумерисањем)',
@@ -25221,7 +25235,7 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-fileexists' => 'Већ постоји датотека под тим називом.
 Проверите $1 ако нисте сигурни да ли желите да је замените.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Датотека с тим називом већ постоји. Ако желите да је замените, идите на страницу за [$2 $1] и замените је тамо.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Датотека с тим називом већ постоји.',
+	'mwe-upwiz-fileexists-replace-no-link' => 'Датотека с тим називом већ постоји.', # Fuzzy
 	'mwe-upwiz-blacklisted' => 'Изаберите другачији, описан назив.',
 	'mwe-upwiz-thumbnail-more' => 'Увећај',
 	'mwe-upwiz-overwrite' => 'Замени датотеку',
@@ -25248,7 +25262,6 @@ $messages['sr-ec'] = array(
 	'mwe-upwiz-tooltip-location' => 'Координате места на ком је направљен снимак.',
 	'mwe-upwiz-tooltip-more-info' => 'Сазнајте више.',
 	'mwe-upwiz-file-need-file' => 'Прво назначите датотеку за отпремање.',
-	'mwe-upwiz-deeds-need-deed' => 'Наведите одакле вам {{PLURAL:$1|ова датотека|ове датотеке}} и како сајт може да {{PLURAL:$1|је користи|их користи}}.',
 	'mwe-upwiz-deeds-need-license' => 'Изаберите лиценцу.',
 	'mwe-upwiz-license-show-all' => 'Користи другачију лиценцу',
 	'mwe-upwiz-license-show-recommended' => 'Користи подразумевану лиценцу',
@@ -27828,6 +27841,8 @@ $messages['vec'] = array(
 	'mwe-upwiz-add-flickr' => 'Recupera da Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL imaxene/photoset Flickr',
 	'mwe-upwiz-select-flickr' => 'Carga łe imaxeni sełesionae',
+	'mwe-upwiz-flickr-disclaimer1' => 'Sto modulo el carga contenuti ospità da flickr.com e sogeti a le
+[https://www.flickr.com/help/terms/ condision de uso] e a la [https://www.flickr.com/help/privacy-policy/ politica su la privacy] de Flickr.',
 	'mwe-upwiz-flickr-disclaimer2' => 'Ocio che doparando sto tool el to indiriso IP e i detaji de ła to dimanda i sarà disponibiłi so Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Nó xe posibiłe recuperar el file da $1.',
 	'mwe-upwiz-multi-file-select' => "Dixegna na caxeła có 'l cursor del mouse sora i file che te vui cargar. Tien strucà el boton Ctrl/Comando par sełesionar pì file nó adiasenti.",
@@ -29300,6 +29315,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
+ * @author Danny0838
  * @author Horacewai2
  * @author Justincheng12345
  * @author Littletung
@@ -29338,8 +29354,8 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-help-desk' => '幫助台',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:幫助台',
 	'mwe-upwiz-add-file-n' => '加入更多檔案',
-	'mwe-upwiz-add-file-0-free' => '選擇要貢獻的媒體文件', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => '從Flickr添加圖片', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => '選擇要分享的媒體檔案',
+	'mwe-upwiz-add-file-flickr' => '分享來自 Flickr 的圖像',
 	'mwe-upwiz-add-flickr-or' => '或',
 	'mwe-upwiz-add-flickr' => '從Flickr獲取圖片',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr圖片/照片集URL',
@@ -29415,7 +29431,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => '現在請告訴我們，您為什麼確信您有權發佈{{PLURAL:$1|此|這些}}作品：',
 	'mwe-upwiz-source-thirdparty-accept' => '確定',
 	'mwe-upwiz-source-custom' => '於下一頁為每個檔案提供版權信息。',
-	'mwe-upwiz-more-options' => '加入分類及更多信息⋯⋯', # Fuzzy
+	'mwe-upwiz-more-options' => '加入位置及更多信息⋯⋯',
 	'mwe-upwiz-copy-metadata' => '複製{{PLURAL:$1|另一份|所有}}資料到下面的上載文檔 ...',
 	'mwe-upwiz-copy-metadata-button' => '複製',
 	'mwe-upwiz-copied-metadata-button' => '複製成功',
@@ -29459,7 +29475,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-fileexists-replace' => '以「$1」為標題的檔案已經存在，請更改名稱。',
 	'mwe-upwiz-fileexists' => '與此名稱相同的檔案已經存在。如果你不知道你是不是要取代它，請檢查$1。',
 	'mwe-upwiz-fileexists-replace-on-page' => '與此名稱相同的檔案已經存在。想需替換，請前往[$2 $1]進行替換操作。',
-	'mwe-upwiz-fileexists-replace-no-link' => '已存在相同名稱的檔案。', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => '此標題已被其他檔案使用，請換一個。',
 	'mwe-upwiz-blacklisted' => '請選擇一個不同的描述標題。',
 	'mwe-upwiz-thumbnail-more' => '放大',
 	'mwe-upwiz-overwrite' => '替換檔案',
