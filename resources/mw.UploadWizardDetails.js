@@ -21,7 +21,7 @@
 			categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
 			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
-			showMap, linkDiv, locationDiv, hiddenCats, missingCatsWikiText,
+			showMap, linkDiv, locationHinter, locationDiv, hiddenCats, missingCatsWikiText,
 			$list,
 			details = this;
 
@@ -190,10 +190,19 @@
 			.append( $( '<div class="mwe-upwiz-details-more-label"></div>' ).text( mw.message( 'mwe-upwiz-other' ).text() ).addHint( 'other' ) )
 			.append( this.otherInformationInput );
 
+		locationHinter = function () {
+			var location = $( '<a>' ).attr( {
+				target: '_blank',
+				href: '//commons.wikimedia.org/wiki/Commons:Geocoding'
+			} );
+			return $( '<span>' ).msg( 'mwe-upwiz-tooltip-location', location ).html();
+		};
+
 		locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 			.append( $ ('<div class="mwe-location-label"></div>' )
-			.append( mw.message( 'mwe-upwiz-location' ).escaped() )
-			.addHint( 'location' ) )
+				.append( mw.message( 'mwe-upwiz-location' ).escaped() )
+				.addHint( 'location', locationHinter )
+			)
 			.append(
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lat' + this.upload.index + '" generated="true"/></div>' ),
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lon' + this.upload.index + '" generated="true"/></div>' ),
