@@ -15,7 +15,15 @@ mw.UploadWizard = function( config ) {
 
 	// XXX need a robust way of defining default config
 	this.maxUploads = mw.UploadWizard.config[ 'maxUploads' ] || 10;
-	this.maxSimultaneousConnections = mw.user.options.get( 'upwiz_maxsimultaneous' ) || 1;
+
+	var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
+	if ( maxSimPref === 'default' ) {
+		this.maxSimultaneousConnections = mw.UploadWizard.config[ 'maxSimultaneousConnections' ];
+	} else if ( maxSimPref > 0 ) {
+		this.maxSimultaneousConnections = maxSimPref;
+	} else {
+		this.maxSimultaneousConnections = 1;
+	}
 
 	this.makePreviewsFlag = true;
 	this.showDeed = false;
