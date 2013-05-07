@@ -454,7 +454,7 @@ Can also be worded as "campaigns for the promotion of uploading".',
 	'accesskey-cancel-upload-campaign' => '{{doc-accesskey}}',
 	'group-upwizcampeditors.css' => '{{doc-group|upwizcampeditors|css}}',
 	'group-upwizcampeditors.js' => '{{doc-group|upwizcampeditors|js}}',
-	'mwe-upwiz-code-unknown' => 'Nieznany język',
+	'mwe-upwiz-code-unknown' => 'Used as an option in the Language select box.',
 	'mwe-upwiz-step-tutorial' => '{| align="right"
 | [[file:commons-uw-L524.png|Initial "{{MediaWiki:mwe-upwiz-step-file/en}}" page|thumb|right]]
 | [[file:commons-uw-L521.png|Beginning of "{{MediaWiki:mwe-upwiz-step-tutorial/en}}" page|thumb|right]]
@@ -503,8 +503,10 @@ $1 is the name of the fallback language.",
 * {{msg-mw|mwe-upwiz-add-file-flickr}}
 {{Identical|Or}}',
 	'mwe-upwiz-add-flickr' => 'Label of the button which confirms the URL, entered by the user, of a photo or photo set from Flickr.',
-	'mwe-upwiz-flickr-input-placeholder' => 'URL grafiki/galerii z serwisu Flickr',
-	'mwe-upwiz-select-flickr' => 'Załaduj zanzaczone grafiki',
+	'mwe-upwiz-flickr-input-placeholder' => 'Used as placeholder for the input box.
+
+Followed by the Submit button which is labeled {{msg-mw|Mwe-upwiz-add-flickr}}.',
+	'mwe-upwiz-select-flickr' => 'Used as label for the button.',
 	'mwe-upwiz-flickr-disclaimer1' => 'This is a legal disclaimer to let the user know that the Flickr terms of use and privacy policy apply to all content loaded from Flickr. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-flickr-disclaimer2' => 'This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Error message shown when UploadWizard is not able to retrieve an image from a remote source. $1 is the name of the remote source, for example, Flickr.',
@@ -519,26 +521,43 @@ $1 is the name of the fallback language.",
 	'mwe-upwiz-transported' => 'Status message once upload is finished',
 	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).
 {{Identical|Uploaded}}',
-	'mwe-upwiz-getting-metadata' => 'Pobieranie informacji o pliku i podglądach...',
-	'mwe-upwiz-submitting-details' => 'Wysyłanie szczegółów i publikowanie...',
-	'mwe-upwiz-published' => 'Opublikowano!',
+	'mwe-upwiz-getting-metadata' => 'Used as status message.',
+	'mwe-upwiz-submitting-details' => 'Used to indicate that details are being uploaded.',
+	'mwe-upwiz-published' => 'Used as status message.
+
+This message indicates it has been published successfully.
+{{Identical|Published}}',
 	'mwe-upwiz-failed' => '{{Identical|Failed}}',
 	'mwe-upwiz-remove' => '{{Identical|Remove}}',
 	'mwe-upwiz-override' => 'Message for a button to steamroll over some errors. The only use right now is for overriding duplicate-archive errors, where the file was uploaded and deleted before.',
-	'mwe-upwiz-remove-upload' => 'Usuń ten plik z listy plików do załadowania',
+	'mwe-upwiz-remove-upload' => 'Used as hint for the action link which is labeled {{msg-mw|Mwe-upwiz-remove}}.',
 	'mwe-upwiz-show-thumb' => 'Link text for the control that displays a thumbnail manually, when automatic client-side thumbs are disabled for performance',
 	'mwe-upwiz-show-thumb-tip' => 'The tooltip for the {{msg-mw|mwe-upwiz-show-thumb}} link.',
-	'mwe-upwiz-remove-description' => 'Usuń ten opis',
+	'mwe-upwiz-remove-description' => 'Used as action link text.
+
+Preceded by the description.',
 	'mwe-upwiz-upload' => '{{Identical|Upload}}',
 	'mwe-upwiz-file-upload-notcapable' => 'The message a user will see when their browser cannot be used to upload an image.',
-	'mwe-upwiz-file-retry' => 'This is the text on a button. If any uploads failed, this button can be clicked to retry uploading the files that failed the previous time.',
-	'mwe-upwiz-next-file-despite-failures' => 'Mimo wszystko kontynuuj',
-	'mwe-upwiz-skip-tutorial-future' => 'Pomiń ten krok w przyszłości',
+	'mwe-upwiz-file-retry' => 'This is the text on a button. If any uploads failed, this button can be clicked to retry uploading the files that failed the previous time.
+
+The button may be followed by another button which is labeled {{msg-mw|Mwe-upwiz-next-file-despite-failures}}.',
+	'mwe-upwiz-next-file-despite-failures' => 'Used as label for the button.
+
+Preceded by another button which is labeled {{msg-mw|Mwe-upwiz-file-retry}}.',
+	'mwe-upwiz-skip-tutorial-future' => 'Used as label for the checkbox.
+
+Followed by the button which is labeled {{msg-mw|Mwe-upwiz-next}}.',
 	'mwe-upwiz-upload-count' => 'This message means that $1 of $2 files have been uploaded. e.g. "2 of 5 files have been uploaded"
 * $1 - number of files that have been uploaded
 * $2 - number of files',
 	'mwe-upwiz-progressbar-uploading' => '{{Identical|Uploading}}',
-	'mwe-upwiz-finished' => 'Ukończono!',
+	'mwe-upwiz-finished' => 'Used as success message.
+
+Related messages:
+* {{msg-mw|mwe-upwiz-secs-remaining}}
+* {{msg-mw|mwe-upwiz-mins-secs-remaining}}
+* {{msg-mw|mwe-upwiz-hrs-mins-secs-remaining}}
+{{Identical|Finished}}',
 	'mwe-upwiz-secs-remaining' => 'Used to show overall progress for uploading. Parameters:
 * $1 - number of seconds
 {{Related|Mwe-upwiz-remaining}}',
@@ -604,8 +623,9 @@ This is followed by a language name in a drop-down language selector.
 {{Identical|Longitude}}',
 	'mwe-upwiz-location-alt' => 'Altitude - the GPS coordinate, expressed in metres.
 {{Identical|Altitude}}',
-	'mwe-upwiz-copyright-info' => 'Uwolnij prawa',
-	'mwe-upwiz-author' => 'Autor(rzy)',
+	'mwe-upwiz-copyright-info' => 'Used as fieldset label.',
+	'mwe-upwiz-author' => 'Used as label for the Author(s) input box.
+{{Identical|Author}}',
 	'mwe-upwiz-other' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Other information}}',
@@ -631,7 +651,7 @@ This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" pa
 * $2 - URL http://commons.wikimedia.org/wiki/Help:Converting_video (hard-coded)',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Used as error message. Parameters:
 * $1 - basename of file',
-	'mwe-upwiz-upload-error-stashed-anyway' => 'Załadować mimo wszystko?',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'Confirmation message.',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Used as error message. Parameters:
 * $1 - filename',
 	'mwe-upwiz-ok' => '{{Identical|OK}}',
@@ -643,8 +663,10 @@ This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" pa
 	'mwe-upwiz-fileexists-replace-on-page' => 'Parameters:
 * $1 is an image name.
 * $2 is an URL.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Proszę wybrać inny tytuł, ponieważ ten tytuł jest już używany przez inny plik.',
-	'mwe-upwiz-blacklisted' => 'Proszę wybrać inny, opisowy tytuł.',
+	'mwe-upwiz-fileexists-replace-no-link' => 'Used as error message.',
+	'mwe-upwiz-blacklisted' => 'Used as error message.
+
+Followed by the link {{msg-mw|Mwe-upwiz-feedback-blacklist-info-prompt}}.',
 	'mwe-upwiz-thumbnail-more' => 'Powiększ',
 	'mwe-upwiz-next' => 'Button text for going to the next Upload Wizard stage.
 {{Identical|Next}}',
@@ -742,7 +764,7 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 * $1 - (Unused)
 * $2 - full URL',
 	'mwe-upwiz-license-custom-url' => '{{optional}}',
-	'mwe-upwiz-license-fal' => 'Licencja Wolnej Sztuki',
+	'mwe-upwiz-license-fal' => 'Used as license name.',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
 	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}',
@@ -765,11 +787,11 @@ See also:
 {{Identical|Categories}}',
 	'mwe-upwiz-categories-add' => 'Used as a link which, when clicked, adds a new field for adding a category.',
 	'mwe-upwiz-category-will-be-added' => 'Used to let the user know that the category they entered will be created upon form submission.',
-	'mwe-upwiz-category-remove' => 'Usuń tę kategorię',
+	'mwe-upwiz-category-remove' => 'Used as action link text.',
 	'mwe-upwiz-unparseable-filename' => 'Used as error message. Parameters:
 * $1 - filename',
-	'mwe-upwiz-image-preview' => 'Podgląd pliku',
-	'mwe-upwiz-subhead-message' => 'Dziękujemy za używanie naszego nowego narzędzia do ładowania plików!',
+	'mwe-upwiz-image-preview' => 'Used as title for the preview of the image file.',
+	'mwe-upwiz-subhead-message' => 'Used as sub-heading.',
 	'mwe-upwiz-subhead-bugs' => 'Unused at this time. Parameters:
 * $1 - full URL',
 	'mwe-upwiz-subhead-translate' => 'Used as a link in the sub-header. Parameters:
@@ -828,7 +850,7 @@ See also:
 	'prefs-uploads' => 'Preferences tab label for UploadWizard preferences related to uploads. See https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.
 {{Identical|Upload}}',
 	'prefs-upwiz-licensing' => '{{Identical|Licensing}}',
-	'prefs-upwiz-experimental' => 'Eksperymentalne rozszerzenia',
+	'prefs-upwiz-experimental' => 'Used in [[Special:Preferences]].',
 	'prefs-upwiz-interface' => 'Preferences section heading for preferences related to the Upload Wizard user interface',
 	'mwe-upwiz-prefs-def-license' => 'Form input label',
 	'mwe-upwiz-prefs-def-license-def' => 'Radio button option',
@@ -15306,7 +15328,6 @@ $messages['ko'] = array(
 	'mwe-upwiz-tooltip-location' => '이 미디어 파일이 창작된 위치의 좌표.',
 	'mwe-upwiz-tooltip-more-info' => '더 알아보세요.',
 	'mwe-upwiz-file-need-file' => '올릴 파일을 먼저 추가하세요.',
-	'mwe-upwiz-deeds-need-deed' => '{{PLURAL:$1|이 파일}}이 원래 어디에 있었는지와 이 사이트에서 어떤 라이선스 형식으로 이용할 수 있는지 설명하세요.',
 	'mwe-upwiz-deeds-need-license' => '라이선스를 선택하세요.',
 	'mwe-upwiz-license-show-all' => '다른 라이선스를 사용하기',
 	'mwe-upwiz-license-show-recommended' => '권장된 라이선스 사용',
@@ -15486,6 +15507,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '다른 사람의 저작물 - $1',
 	'mwe-upwiz-prefs-chunked' => '1MB가 넘는 큰 용량의 파일을 업로드 마법사를 통해 올리기',
 	'mwe-upwiz-prefs-skiptutorial' => '입문 라이선스 자습서 건너뛰기',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => '동시 올리기의 최대 수',
 );
 
 /** Colognian (Ripoarisch)
@@ -29019,7 +29041,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-add-flickr' => '从Flickr获取',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr图像/照片集URL',
 	'mwe-upwiz-select-flickr' => '上传选定的图像',
-	'mwe-upwiz-flickr-disclaimer1' => '此表单将加载由flickr.com托管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私政策]。',
+	'mwe-upwiz-flickr-disclaimer1' => '该表格将载入flickr.com保管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私权政策]。',
 	'mwe-upwiz-flickr-disclaimer2' => '请注意，使用此工具您的IP地址和请求详情将提供给Flickr。',
 	'mwe-upwiz-error-no-image-retrieved' => '我们无法从$1获取文件。',
 	'mwe-upwiz-multi-file-select' => '使用光标框选您想上传的文件。按下Ctrl/Command键以选择多个不相邻的文件。',
