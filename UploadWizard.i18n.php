@@ -5439,7 +5439,6 @@ For et fotografi, nævn hovedmotiverne, begivenheden eller stedet.',
 	'mwe-upwiz-tooltip-location' => 'Koordinater til det sted, hvor denne mediefil blev skabt.',
 	'mwe-upwiz-tooltip-more-info' => 'Lær mere.',
 	'mwe-upwiz-file-need-file' => 'Vær venlig først at tilføje en fil at lægge op.',
-	'mwe-upwiz-deeds-need-deed' => 'Forklar venligst hvorfra du har {{PLURAL:$1|denne fil|disse filer}} og hvordan dette websted kan bruge {{PLURAL:$1|den|dem}} ved at vælge en af følgende valgmuligheder.',
 	'mwe-upwiz-deeds-need-license' => 'Vælg venligst en licens.',
 	'mwe-upwiz-license-show-all' => 'Brug en anden licens',
 	'mwe-upwiz-license-show-recommended' => 'Brug den anbefalede licens',
@@ -5619,6 +5618,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'En andens værk - $1',
 	'mwe-upwiz-prefs-chunked' => 'Delvis overførsel af filer større end 1MB i vejviseren',
 	'mwe-upwiz-prefs-skiptutorial' => 'Spring introduktionen til licenser over',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maksimale antal samtidige oplægninger',
 );
 
 /** German (Deutsch)
@@ -21035,7 +21035,7 @@ $messages['pms'] = array(
 	'mwe-upwiz-help-desk' => "Sportel d'agiut",
 	'mwe-upwiz-help-desk-url' => "{{ns:project}}:Sportel d'agiut",
 	'mwe-upwiz-add-file-n' => "Gionté n'àutr archivi", # Fuzzy
-	'mwe-upwiz-add-file-0-free' => "Selession-a n'archivi multimojen da condivide", # Fuzzy
+	'mwe-upwiz-add-file-0-free' => "Ch'a selession-a j'archivi multimojen da partagé",
 	'mwe-upwiz-add-file-flickr' => 'Gionté dle figure da Flickr', # Fuzzy
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Pijé da Flickr',
@@ -21187,7 +21187,6 @@ Për na fòto, mension-a la còsa prinsipal che a l'é pijà, l'ocasion o ël p�
 	'mwe-upwiz-tooltip-location' => "Coordinà dël pòst anté che s'archivi multi-mojen a l'é stàit creà.",
 	'mwe-upwiz-tooltip-more-info' => 'Ampara ëd pi.',
 	'mwe-upwiz-file-need-file' => "Për piasì, ch'a gionta prima cheicòs da carié.",
-	'mwe-upwiz-deeds-need-deed' => "Për piasì, ch'a spiega andoa ch'a l'ha pijà {{PLURAL:$1|st'archivi|costi archivi}} e coma sto sit a peul dovre{{PLURAL:$1|lo|je}}, an selessionand un-a dj'opsion.",
 	'mwe-upwiz-deeds-need-license' => 'Për piasì selession-a na licensa.',
 	'mwe-upwiz-license-show-all' => 'Dovré na licensa diferenta',
 	'mwe-upwiz-license-show-recommended' => 'Dovré la licensa racomandà',
