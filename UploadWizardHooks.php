@@ -613,7 +613,7 @@ class UploadWizardHooks {
 		if ( $config[ 'maxSimultaneousConnections' ] > 1 ) {
 			// Hack to make the key and value the same otherwise options are added wrongly.
 			$range = range( 0, $config[ 'maxSimultaneousConnections' ] );
-			unset( $range[0] );
+			$range[0] = 'default';
 
 			$preferences['upwiz_maxsimultaneous'] = array(
 				'type' => 'select',
