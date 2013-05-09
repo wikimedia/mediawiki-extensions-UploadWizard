@@ -762,7 +762,7 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 * $2 - full URL',
 	'mwe-upwiz-license-custom' => 'Parameters:
 * $1 - (Unused)
-* $2 - full URL',
+* $2 - full URL, probably {{msg-mw|mwe-upwiz-license-custom-url}}',
 	'mwe-upwiz-license-custom-url' => '{{optional}}',
 	'mwe-upwiz-license-fal' => 'Used as license name.',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
@@ -20887,7 +20887,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons – za uznaniem autora 2.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver<br />(nie objęte prawami autorskimi, jak domena publiczna: [$2 legal code])',
 	'mwe-upwiz-license-custom' => 'Licencja jest opisana przez następujący wiki-tekst (musi zawierać prawidłowy [$2 znak prawa autorskiego]):',
-	'mwe-upwiz-license-custom-url' => '//commons.wikimedia.org/wiki/Commons:Oznaczenia licencji',
+	'mwe-upwiz-license-custom-url' => '//commons.wikimedia.org/wiki/Commons:Oznaczenia_licencji',
 	'mwe-upwiz-license-fal' => 'Licencja Wolnej Sztuki',
 	'mwe-upwiz-license-own-pd' => 'Rezygnacja ze wszystkich praw autorskich zgodnie z licencją Creative Commons Zero (podobnie jak domena publiczna)',
 	'mwe-upwiz-license-pd-old-100' => 'Autor zmarł ponad 100 lat temu',
