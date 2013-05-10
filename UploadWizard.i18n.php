@@ -4633,6 +4633,14 @@ $1",
 	'mwe-upwiz-prefs-skiptutorial' => "Salta la guia d'introducció sobre llicències",
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'mwe-upwiz-remove' => 'ДӀаяккха',
+	'mwe-upwiz-campaigns-delete' => 'ДӀаяккха',
+);
+
 /** Sorani Kurdish (کوردی)
  * @author Calak
  */
@@ -5533,7 +5541,7 @@ Brug venligst ikke wikitekst eller HTML her.',
 	'mwe-upwiz-license-external' => 'Denne fil er under følgende licens på $1: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Denne fil er under den følgende licens på $1: $2. Desværre er licensen ikke egnet til brug på denne hjemmeside.',
 	'mwe-upwiz-license-photoset-invalid' => 'Desværre har ingen billeder i dette fotosæt en licens, der er egnet til at blive brugt på denne hjemmeside.',
-	'mwe-upwiz-url-invalid' => 'Den angivne URL-adressen er ikke et gyldigt $1 billede eller fotosæt URL-adresse',
+	'mwe-upwiz-url-invalid' => 'Den angivne URL-adressen er ikke et gyldigt $1 billede eller fotosæt URL-adresse', # Fuzzy
 	'mwe-upwiz-categories' => 'Kategorier',
 	'mwe-upwiz-categories-add' => 'Tilføj',
 	'mwe-upwiz-category-will-be-added' => 'Denne kategori er endnu ikke i brug.',
@@ -15422,7 +15430,7 @@ $1{{PLURAL:$1|글자}}보다 길게 입력해주세요.',
 	'mwe-upwiz-license-external' => '이 파일은 $1에서 다음 라이선스 하에 있습니다: $2.',
 	'mwe-upwiz-license-external-invalid' => '이 파일은 $1에서 다음 라이선스 하에 있습니다: $2. 하지만 유감스럼게도 라이선스가 이 위키에서 파일을 사용하는 데는 부적합합니다.',
 	'mwe-upwiz-license-photoset-invalid' => '불행하게도 사진집에 있는 그림은 이 사이트에서 사용하는 적절한 라이선스가 없습니다.',
-	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 그림이나 사진집 URL이 아닙니다.',
+	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 그림이나 사진집 URL이 아닙니다.', # Fuzzy
 	'mwe-upwiz-categories' => '분류',
 	'mwe-upwiz-categories-add' => '추가',
 	'mwe-upwiz-category-will-be-added' => '이 분류는 아직 사용하지 않습니다.',
@@ -20921,7 +20929,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-license-external' => 'Ten plik jest udostępniony przez $1 na licencji $2.',
 	'mwe-upwiz-license-external-invalid' => 'Plik jest udostępniany przez $1 na zasadach licencji $2. Niestety ta licencja nie umożliwia wykorzystania go przez tę witrynę.',
 	'mwe-upwiz-license-photoset-invalid' => 'Niestety, żaden obraz w galerii nie ma odpowiedniej licencji do wykorzystania na tej stronie.',
-	'mwe-upwiz-url-invalid' => 'Wprowadzony adres URL nie jest poprawnym $1 zdjęciem, lub adresem galerii.',
+	'mwe-upwiz-url-invalid' => 'Wprowadzony adres URL nie jest poprawnym $1 zdjęciem, lub adresem galerii.', # Fuzzy
 	'mwe-upwiz-categories' => 'Kategorie',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-will-be-added' => 'Ta kategoria nie jest jeszcze używana.',
@@ -21281,7 +21289,7 @@ Për piasì, ch'a deuvra pa ël wikitext o l'HTML ambelessì.",
 	'mwe-upwiz-license-external' => "S'archivi a l'é sota la licensa ch'a sì-dapress su $1: $2.",
 	'mwe-upwiz-license-external-invalid' => "S'archivi a l'é sota la licensa sì-dapress su $1: $2. Për maleur, cota licensa a va nen bin da dovré ansima a 's sit.",
 	'mwe-upwiz-license-photoset-invalid' => "Belavans, gnun-a plancia ant l'àlbom a l'ha na licensa aproprià për esse dovrà dzora a 's sit.",
-	'mwe-upwiz-url-invalid' => "L'anliura anserìa a l'é pa n'anliura bon-a ëd figura o d'àlbom ëd $1",
+	'mwe-upwiz-url-invalid' => "L'anliura anserìa a l'é pa n'anliura bon-a ëd figura o d'àlbom ëd $1", # Fuzzy
 	'mwe-upwiz-categories' => 'Categorìe',
 	'mwe-upwiz-categories-add' => 'Gionta',
 	'mwe-upwiz-category-will-be-added' => "Costa categorìa a l'é ancor nen dovrà.",
@@ -27495,7 +27503,6 @@ $messages['uk'] = array(
 	'mwe-upwiz-tooltip-location' => 'Координати місця, де було створено цей медіа-файл.',
 	'mwe-upwiz-tooltip-more-info' => 'Дізнатися більше.',
 	'mwe-upwiz-file-need-file' => 'Будь ласка, додайте завантаження спершу.',
-	'mwe-upwiz-deeds-need-deed' => 'Будь-ласка, поясніть, де ви взяли {{PLURAL:$1|цей файл|ці файли}} і як наш сайт може використовувати {{PLURAL:$1|його|їх}}, шляхом вибору одного з декількох призначень.',
 	'mwe-upwiz-deeds-need-license' => 'Будь ласка, виберіть ліцензію.',
 	'mwe-upwiz-license-show-all' => 'Використати іншу ліцензію',
 	'mwe-upwiz-license-show-recommended' => 'Використати рекомендовану ліцензію',
@@ -27590,7 +27597,7 @@ $messages['uk'] = array(
 	'mwe-upwiz-license-external' => 'Цей файл розповсюджується під ліцензією $1: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Цей файл розповсюджується під ліцензією $1: $2. На жаль, наведена ліцензія не підходить для використання у цьому місті.',
 	'mwe-upwiz-license-photoset-invalid' => 'На жаль, жодне зображення у фотосеті не має відповідної ліцензії для використання на цьому сайті.',
-	'mwe-upwiz-url-invalid' => 'Введена URL-адреса не є припустимим $1 зображенням або адресою фотосету.',
+	'mwe-upwiz-url-invalid' => 'Введена URL-адреса не є припустимим $1 зображенням або адресою фотосету.', # Fuzzy
 	'mwe-upwiz-categories' => 'Категорії',
 	'mwe-upwiz-categories-add' => 'Додати',
 	'mwe-upwiz-category-will-be-added' => 'Ця категорія ще не використовується.',
@@ -27665,7 +27672,7 @@ $1',
 	'mw-coolcats-confirm-new' => 'Схоже, що ви намагаєтеся додати нову категорію, "$1". Майте на увазі: <ul><li>Категорії повинні, як правило, бути на англійській мові.</li><li>Більшість нових категорій повинні бути підкатегоріями вже існуючих категорій.</li></ul>Як правило, тільки фахівці з цього питання повинні створювати нові категорії.',
 	'mw-coolcats-confirm-new-ok' => 'Все одно додати цю категорію',
 	'mw-coolcats-confirm-new-cancel' => 'Не має значення',
-	'prefs-uploads' => 'завантаження',
+	'prefs-uploads' => 'Завантаження',
 	'prefs-upwiz-licensing' => 'Ліцензування',
 	'prefs-upwiz-experimental' => 'Експериментальні функції',
 	'prefs-upwiz-interface' => 'Інтерфейс користувача',
@@ -28129,7 +28136,7 @@ Nó doparar wikitesto o HTML cuà.',
 	'mwe-upwiz-license-external' => 'Sto file el xe soto ła seguente licensa so $1: $2.',
 	'mwe-upwiz-license-external-invalid' => "Sto file so $1 el xe soto ła seguente licensa:$2. Purtropo, sta licensa nó ła xe apripià pa'l uxo so sto sito.",
 	'mwe-upwiz-license-photoset-invalid' => "Purtropo, nisuna imaxene inte'l photoset ła disponde de na licensa apropiù par esar doparà so sto sito.",
-	'mwe-upwiz-url-invalid' => "El URL inserìo nó 'l xe un URL vałido de n'imaxene o un photoset $1",
+	'mwe-upwiz-url-invalid' => "El URL inserìo nó 'l xe un URL vałido de n'imaxene o un photoset $1", # Fuzzy
 	'mwe-upwiz-categories' => 'Categorie',
 	'mwe-upwiz-categories-add' => "Xonta n'altra categoria",
 	'mwe-upwiz-category-will-be-added' => 'Sta categoria nó ła xe gnancora doparà.',
@@ -29272,7 +29279,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-license-external' => '该文件在$1采用的授权协议：$2。',
 	'mwe-upwiz-license-external-invalid' => '该文件在$1采用的授权协议：$2。不过该授权协议不适合在本网站使用。',
 	'mwe-upwiz-license-photoset-invalid' => '糟糕，在照片集中没有照片有适当在本网站上使用的许可协议。',
-	'mwe-upwiz-url-invalid' => '输入的URL不是有效的$1图像或图像集URL。',
+	'mwe-upwiz-url-invalid' => '输入的URL不是有效的$1图像或图像集URL。', # Fuzzy
 	'mwe-upwiz-categories' => '分类',
 	'mwe-upwiz-categories-add' => '添加',
 	'mwe-upwiz-category-will-be-added' => '此分类还未利用。',
