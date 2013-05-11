@@ -5921,7 +5921,7 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-license-external' => 'Diese Datei hat auf $1 die folgende Lizenz: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Diese Datei hat auf $1 die folgende Lizenz: $2. Diese Lizenz ist leider nicht für die Nutzung auf {{SITENAME}} geeignet.',
 	'mwe-upwiz-license-photoset-invalid' => 'Leider hat kein Bild im Fotosatz eine angemessene Lizenz, die auf dieser Website verwendet werden könnte.',
-	'mwe-upwiz-url-invalid' => 'Die eingegebene URL ist keine gültige $1-Bild- oder Fotosatz-URL',
+	'mwe-upwiz-url-invalid' => 'Die eingegebene URL zeigt auf ein(en) ungültiges/n oder nicht erlaubtes/n $1-Bild oder Fotosatz und kann nicht verwendet werden.',
 	'mwe-upwiz-categories' => 'Kategorien',
 	'mwe-upwiz-categories-add' => 'Eine weitere Kategorie hinzufügen',
 	'mwe-upwiz-category-will-be-added' => 'Diese Kategorie ist noch nicht in Gebrauch.',
@@ -9051,6 +9051,7 @@ Vinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.',
  * @author IAlex
  * @author Jean-Frédéric
  * @author Linedwell
+ * @author Ltrlg
  * @author Lucyin
  * @author McDutchie
  * @author Metroitendo
@@ -9347,7 +9348,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-license-external' => 'Ce fichier est sous la licence suivante sur $1 : $2.',
 	'mwe-upwiz-license-external-invalid' => 'Ce fichier est sous la licence suivante sur $1 : $2. Malheureusement, cette licence n’est pas appropriée pour une utilisation sur ce site.',
 	'mwe-upwiz-license-photoset-invalid' => "Malheureusement, aucune image dans l'album n'a une licence permettant son utilisation sur ce site.",
-	'mwe-upwiz-url-invalid' => "L’URL saisie n'est pas une URL d’image ou d’album valide de $1",
+	'mwe-upwiz-url-invalid' => 'L’URL saisie pointe vers une image ou un album invalide ou d’accès restreint de $1.',
 	'mwe-upwiz-categories' => 'Catégories',
 	'mwe-upwiz-categories-add' => 'Ajouter',
 	'mwe-upwiz-category-will-be-added' => "Cette catégorie n'est pas encore utilisée.",
@@ -13905,7 +13906,7 @@ Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-license-external' => 'Questo file è sotto la seguente licenza su $1: $2.',
 	'mwe-upwiz-license-external-invalid' => "Questo file su $1 è sotto la seguente licenza: $2. Purtroppo, questa licenza non è appropriata per l'uso su questo sito.",
 	'mwe-upwiz-license-photoset-invalid' => 'Purtroppo, nessuna immagine nel photoset dispone di una licenza appropriata per essere utilizzata su questo sito.',
-	'mwe-upwiz-url-invalid' => "L'URL inserito non è un URL valido di un'immagine o un photoset $1",
+	'mwe-upwiz-url-invalid' => "L'URL inserito punta ad un'immagine o un photoset $1 non valido o con restrizioni, e non può essere utilizzato.",
 	'mwe-upwiz-categories' => 'Categorie',
 	'mwe-upwiz-categories-add' => 'Aggiungi',
 	'mwe-upwiz-category-will-be-added' => 'Questa categoria non è ancora usata.',
@@ -14282,7 +14283,7 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-license-confirm-remove-title' => '除去の確認',
 	'mwe-upwiz-license-external' => 'このファイルは、$1上で以下のライセンスのもとにあります: $2。',
 	'mwe-upwiz-license-external-invalid' => 'このファイルは、$1上で以下のライセンスのもとにあります: $2。残念ながら、このライセンスはこのウェブサイトで使用するのに適切ではありません。',
-	'mwe-upwiz-url-invalid' => '入力した URL は $1 の画像または写真集の URL として無効です。',
+	'mwe-upwiz-url-invalid' => '入力した URL は、無効または制限された $1 の画像または写真集を指しているため、使用できません。',
 	'mwe-upwiz-categories' => 'カテゴリ',
 	'mwe-upwiz-categories-add' => '他のカテゴリを追加',
 	'mwe-upwiz-category-will-be-added' => 'このカテゴリはまだ使用されていません。',
@@ -17401,7 +17402,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-license-external' => 'Податотекава е под следнава лиценца на $1: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Податотекава е под следнава лиценца на $1: $2. Нажалост, оваа лиценца е несоодветна за употреба на ова мрежно место.',
 	'mwe-upwiz-license-photoset-invalid' => 'Нажалост, во комплетот нема ниедна слика со лиценца што може да се користи на викито.',
-	'mwe-upwiz-url-invalid' => 'Внесената URL не води кон сликата/комплетот $1',
+	'mwe-upwiz-url-invalid' => 'Внесената URL-адреса води кон неважечка или ограничена слика или комплет од $1 и затоа не може да се користи.',
 	'mwe-upwiz-categories' => 'Категории',
 	'mwe-upwiz-categories-add' => 'Додај',
 	'mwe-upwiz-category-will-be-added' => 'Оваа категорија сè уште не се употребува.',
@@ -21759,6 +21760,7 @@ $messages['ps'] = array(
  * @author GoEThe
  * @author Hamilton Abreu
  * @author João Sousa
+ * @author Luckas
  * @author MetalBrasil
  * @author SandroHc
  * @author Waldir
@@ -21790,7 +21792,7 @@ $messages['pt'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Não foi possível obter uma imagem do guia, dimensionada para este ecrã. Este problema da Wikimedia Commons pode ser temporário; tente novamente mais tarde.',
 	'mwe-upwiz-help-desk' => 'Apoio Técnico',
 	'mwe-upwiz-help-desk-url' => 'Apoio Técnico', # Fuzzy
-	'mwe-upwiz-add-file-n' => 'Adicionar outro ficheiro',
+	'mwe-upwiz-add-file-n' => 'Adicionar outro ficheiro', # Fuzzy
 	'mwe-upwiz-add-file-0-free' => 'Escolha um ficheiro multimédia para oferecer', # Fuzzy
 	'mwe-upwiz-transport-started' => 'A começar...',
 	'mwe-upwiz-uploading' => 'A enviar...',
@@ -21854,11 +21856,10 @@ $messages['pt'] = array(
 	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Este ficheiro não é|Estes ficheiros não são}} de minha autoria.',
 	'mwe-upwiz-source-thirdparty-intro' => 'Introduza o endereço onde encontrou cada ficheiro, por favor.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Se todos os ficheiros têm a mesma fonte, autor e direitos de autor, pode introduzir os dados uma única vez para todos.',
-	'mwe-upwiz-source-thirdparty-license' => 'O titular dos direitos de autor {{PLURAL:$1|deste trabalho, publicou-o|destes trabalhos, publicou-os}} com a(s) seguinte(s) licença(s):',
 	'mwe-upwiz-source-thirdparty-cases' => 'Agora diga-nos porque tem a certeza de que tem o direito de publicar {{PLURAL:$1|este trabalho|estes trabalhos}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Forneça na próxima página a informação dos direitos de autor de cada ficheiro em separado.',
-	'mwe-upwiz-more-options' => 'Adicionar categorias e mais informações...',
+	'mwe-upwiz-more-options' => 'Adicionar categorias e mais informações...', # Fuzzy
 	'mwe-upwiz-copy-metadata' => 'Copiar a informação para todos os ficheiros abaixo...', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
 	'mwe-upwiz-copy-title' => 'Copiar o título (com numeração automática)',
@@ -21902,7 +21903,7 @@ Pode instalar o [$1 Firefogg], uma extensão do Firefox que converte o ficheiro 
 	'mwe-upwiz-fileexists' => 'Já existe um ficheiro com este nome.
 Verifique $1 se não tem a certeza de que pretende alterá-lo, por favor.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Já existe um ficheiro com este nome. Se pretende substituí-lo, visite a página [$2 $1] e faça a substituição lá.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Já existe um ficheiro com este nome.',
+	'mwe-upwiz-fileexists-replace-no-link' => 'Já existe um ficheiro com este nome.', # Fuzzy
 	'mwe-upwiz-blacklisted' => 'Escolha um título diferente e descritivo, por favor.',
 	'mwe-upwiz-thumbnail-more' => 'Ampliar',
 	'mwe-upwiz-overwrite' => 'Substituir o ficheiro',
@@ -21928,7 +21929,6 @@ Para uma fotografia, mencione os principais motivos fotografados, a ocasião, ou
 	'mwe-upwiz-tooltip-location' => 'Coordenadas da localização onde este ficheiro multimédia foi criado.',
 	'mwe-upwiz-tooltip-more-info' => 'Saiba mais.',
 	'mwe-upwiz-file-need-file' => 'Primeiro adicione um envio, por favor.',
-	'mwe-upwiz-deeds-need-deed' => 'Explique onde obteve {{PLURAL:$1|este ficheiro|estes ficheiros}} e como este site pode {{PLURAL:$1|utilizá-lo|utilizá-los}}, seleccionando uma das opções, por favor.',
 	'mwe-upwiz-deeds-need-license' => 'Escolha uma licença, por favor.',
 	'mwe-upwiz-license-show-all' => 'Usar uma licença diferente',
 	'mwe-upwiz-license-show-recommended' => 'Usar a licença recomendada',
@@ -22044,7 +22044,7 @@ $1',
 	'mwe-upwiz-error-campaigndisabled' => 'A campanha "$1" não está activa.',
 	'mwe-upwiz-campaigns-name' => 'Nome da campanha',
 	'mwe-upwiz-campaigns-status' => 'Estado',
-	'mwe-upwiz-campaigns-enabled' => 'Activa',
+	'mwe-upwiz-campaigns-enabled' => 'Ativo',
 	'mwe-upwiz-campaigns-disabled' => 'Inactiva',
 	'mwe-upwiz-campaigns-edit' => 'Editar',
 	'mwe-upwiz-campaigns-add' => 'Adicionar',
