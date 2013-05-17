@@ -137,6 +137,11 @@ $specialPageAliases['ml'] = array(
 	'UploadCampaign' => array( 'അപ്‌ലോഡ്‌മേള' ),
 );
 
+/** Marathi (मराठी) */
+$specialPageAliases['mr'] = array(
+	'UploadWizard' => array( 'चढवय्या_सुक्षमता-प्रणाली' ),
+);
+
 /** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'UploadWizard' => array( 'Opplastingsveiviser' ),
