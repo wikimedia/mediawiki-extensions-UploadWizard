@@ -77,7 +77,7 @@ mw.FlickrChecker.prototype = {
 			api_key: _this.apiKey,
 			photoset_id: albumIdMatches[1],
 			format: 'json',
-			extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias' },
+			extras: 'license, url_sq, owner_name, original_format, date_taken, geo' },
 			function( data ) {
 				if ( typeof data.photoset !== 'undefined' ) {
 					$.each( data.photoset.photo, function( i, item ){
@@ -102,7 +102,7 @@ mw.FlickrChecker.prototype = {
 									fileName = item.title + '.jpg';
 								}
 								sourceURL = 'http://www.flickr.com/photos/'
-									+ item.pathalias + '/' + item.id + '/';
+									+ data.photoset.owner + '/' + item.id + '/';
 								var flickrUpload = {
 									name: fileName,
 									url: '',
