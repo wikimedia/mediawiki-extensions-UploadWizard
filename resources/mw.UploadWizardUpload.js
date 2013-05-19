@@ -394,7 +394,7 @@ mw.UploadWizardUpload.prototype = {
 			}
 		} );
 
-		if( duplicate ) {
+		if ( duplicate ) {
 			fileErrors.dup = true;
 			fileNameErr( 'dup', basename, fileErrors );
 		}
@@ -412,7 +412,7 @@ mw.UploadWizardUpload.prototype = {
 			fileErrors.noext = true;
 			fileNameErr( 'noext', null, fileErrors );
 		} else {
-			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config[ 'fileExtensions' ] ) === -1 ) {
+			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1 ) {
 				fileErrors.ext = true;
 				fileNameErr( 'ext', extension, fileErrors );
 			}
@@ -451,7 +451,7 @@ mw.UploadWizardUpload.prototype = {
 
 					// make sure the file isn't too large
 					// XXX need a way to find the size of the Flickr image
-					if( !_this.fromURL ){
+					if ( !_this.fromURL ){
 						this.transportWeight = this.file.size;
 						if ( this.transportWeight > actualMaxSize ) {
 							_this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
@@ -471,11 +471,11 @@ mw.UploadWizardUpload.prototype = {
 					//
 					// TODO: This should be refactored.
 
-					if( this.file.type === 'image/jpeg' ) {
+					if ( this.file.type === 'image/jpeg' ) {
 						var binReader = new FileReader();
 						binReader.onload = function() {
 							var binStr;
-							if ( typeof binReader.result == 'string' ) {
+							if ( typeof binReader.result === 'string' ) {
 								binStr = binReader.result;
 							} else {
 								// Array buffer; convert to binary string for the library.
@@ -514,15 +514,14 @@ mw.UploadWizardUpload.prototype = {
 
 					// Now that first file has been prepared, process remaining files
 					// in case of a multi-file upload.
-					var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config[ 'maxUploads' ];
+					var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
 
 					if ( tooManyFiles ) {
-						var remainingFiles = mw.UploadWizard.config[ 'maxUploads' ] - _this.wizard.uploads.length;
+						var remainingFiles = mw.UploadWizard.config.maxUploads - _this.wizard.uploads.length;
 						_this.showTooManyFilesWarning( files.length - remainingFiles );
-						var files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
-					}
-					else {
-						var files = files.slice( 1 );
+						files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
+					} else {
+						files = files.slice( 1 );
 					}
 
 					if ( files.length > 0 ) {
@@ -594,8 +593,8 @@ mw.UploadWizardUpload.prototype = {
 		$j( '<div></div>' )
 			.msg(
 				'mwe-upwiz-too-many-files-text',
-				mw.UploadWizard.config[ 'maxUploads' ],
-				mw.UploadWizard.config[ 'maxUploads' ] + filesIgnored,
+				mw.UploadWizard.config.maxUploads,
+				mw.UploadWizard.config.maxUploads + filesIgnored,
 				filesIgnored
 			)
 			.dialog( {
@@ -732,10 +731,10 @@ mw.UploadWizardUpload.prototype = {
 				props.push( 'url' );
 			}
 			if ( width !== undefined ) {
-				params['siiurlwidth'] = width;
+				params.siiurlwidth = width;
 			}
 			if ( height !== undefined ) {
-				params['siiurlheight'] = height;
+				params.siiurlheight = height;
 			}
 		}
 
@@ -782,10 +781,10 @@ mw.UploadWizardUpload.prototype = {
 				props.push( 'url' );
 			}
 			if ( width !== undefined ) {
-				params['iiurlwidth'] = width;
+				params.iiurlwidth = width;
 			}
 			if ( height !== undefined ) {
-				params['iiurlheight'] = height;
+				params.iiurlheight = height;
 			}
 		}
 
@@ -820,11 +819,11 @@ mw.UploadWizardUpload.prototype = {
 	 * @return upload handler object
 	 */
 	getUploadHandler: function(){
-		if( !this.uploadHandler ) {
+		if ( !this.uploadHandler ) {
 			var constructor;  // must be the name of a function in 'mw' namespace
-			if( mw.UploadWizard.config[ 'enableFirefogg' ] && mw.Firefogg.isInstalled() ) {
+			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
-			} else if( mw.UploadWizard.config[ 'enableFormData' ] && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable()) {
+			} else if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable()) {
 				constructor = 'ApiUploadFormDataHandler';
 			} else {
 				constructor = 'ApiUploadHandler';
@@ -1066,8 +1065,8 @@ mw.UploadWizardUpload.prototype = {
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	getScaledImageElement: function( image, width, height ) {
-		if ( typeof width === 'undefined' || width === null || width <= 0 )  {
-			width = mw.UploadWizard.config['thumbnailWidth'];
+		if ( width === undefined || width === null || width <= 0 )  {
+			width = mw.UploadWizard.config.thumbnailWidth;
 		}
 		var constraints = {
 			width: parseInt( width, 10 ),
@@ -1156,8 +1155,8 @@ mw.UploadWizardUpload.prototype = {
 				$j( '<div class="mwe-upwiz-lightbox"></div>' )
 					.append( $imgDiv )
 					.dialog( {
-						'minWidth': mw.UploadWizard.config[ 'largeThumbnailWidth' ],
-						'minHeight': mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ],
+						'minWidth': mw.UploadWizard.config.largeThumbnailWidth,
+						'minHeight': mw.UploadWizard.config.largeThumbnailMaxHeight,
 						'autoOpen': true,
 						'title': mw.msg( 'mwe-upwiz-image-preview' ),
 						'modal': true,
@@ -1165,8 +1164,8 @@ mw.UploadWizardUpload.prototype = {
 					} );
 				_this.setThumbnail(
 					$imgDiv,
-					mw.UploadWizard.config[ 'largeThumbnailWidth' ],
-					mw.UploadWizard.config[ 'largeThumbnailMaxHeight' ],
+					mw.UploadWizard.config.largeThumbnailWidth,
+					mw.UploadWizard.config.largeThumbnailMaxHeight,
 					false /* obviously the largeThumbnail doesn't have a lightbox itself! */
 				);
 				return false;

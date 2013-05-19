@@ -3,21 +3,21 @@
  * Note that this is very anti-MVC. The values are held only in the actual form elements themselves.
  *
  * @param {String|jQuery} selector to place license input
- * @param {Array} 	  license key name(s) to activate by default
- * @param {Array}	  configuration of licenseInput. Must have following properties
+ * @param {Array|undefined} license key name(s) to activate by default
+ * @param {Object} configuration of licenseInput. Must have following properties
  *				'type' = ("and"|"or") -- whether inclusive or exclusive license allowed
  *				'defaults' => array of template string names (can be empty array),
  *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
  *				optional: 'licenseGroups' => groups of licenses, with more explanation
  *				optional: 'special' => String -- indicates, don't put licenses here, instead use a special widget
- * @param {Number}	  count of the things we are licensing (it matters to some texts)
- * @param {mw.Api}	  api object; useful for previews
+ * @param {Number} count of the things we are licensing (it matters to some texts)
+ * @param {mw.Api} api object; useful for previews
  */
 
 ( function( mw, $j, undefined ) {
 
-var catNsId 		= mw.config.get( 'wgNamespaceIds' ).category,
-	templateNsId 	= mw.config.get( 'wgNamespaceIds' ).template;
+var catNsId = mw.config.get( 'wgNamespaceIds' ).category,
+	templateNsId = mw.config.get( 'wgNamespaceIds' ).template;
 
 mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	var _this = this;
@@ -26,8 +26,9 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	_this.api = api;
 
 	if ( config.type === undefined
-		 || config.defaults === undefined
-		 || ( config.licenses === undefined && config.licenseGroups === undefined ) ) {
+		|| config.defaults === undefined
+		|| ( config.licenses === undefined && config.licenseGroups === undefined )
+	) {
 		throw new Error( 'improper initialization' );
 	}
 
