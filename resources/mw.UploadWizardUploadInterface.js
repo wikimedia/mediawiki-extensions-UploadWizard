@@ -261,7 +261,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			msgKey = 'api-error-unknown-warning';
 			args = $j.makeArray( info );
 		} else {
-			msgKey =  = 'api-error-unknown-code';
+			msgKey = 'api-error-unknown-code';
 			args = [code].concat( $j.makeArray( info ) );
 		}
 		this.setStatus( msgKey, args );
