@@ -952,6 +952,7 @@ mw.UploadWizard.prototype = {
 				_this.$addFile.hide();
 				_this.$fileInput = this.$fileInput || $j( '.mwe-upwiz-file-input' );
 				_this.$fileInput.hide();
+				$j( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
 			}
 
 			// add the styling to the filelist, so it has rounded corners and is visible and all.
