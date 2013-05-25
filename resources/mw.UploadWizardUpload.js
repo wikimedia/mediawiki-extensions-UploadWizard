@@ -341,9 +341,9 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Array} of Files.  usually one, can be more for multi-file select.
 	 * @param {Function()} callback when ok, and upload object is ready
 	 * @param {Function(String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
+	 * @param {Function()} callback when resetting FileInput
 	 */
-	checkFile: function( filename, files, fileNameOk, fileNameErr ) {
-
+	checkFile: function( filename, files, fileNameOk, fileNameErr, resetFileInput ) {
 		var _this = this;
 		var fileErrors = {};
 
@@ -358,6 +358,13 @@ mw.UploadWizardUpload.prototype = {
 		// Check if filename is acceptable
 		// TODO sanitize filename
 		var basename = mw.UploadWizardUtil.getBasename( filename );
+
+		var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
+		if ( tooManyFiles ) {
+			_this.showTooManyFilesWarning( files.length );
+			resetFileInput();
+			return;
+		}
 
 		if ( files.length > 1 ) {
 
@@ -504,16 +511,7 @@ mw.UploadWizardUpload.prototype = {
 
 					// Now that first file has been prepared, process remaining files
 					// in case of a multi-file upload.
-					var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
-
-					if ( tooManyFiles ) {
-						var remainingFiles = mw.UploadWizard.config.maxUploads - _this.wizard.uploads.length;
-						_this.showTooManyFilesWarning( files.length - remainingFiles );
-						files = remainingFiles > 1 ? files.slice( 1, remainingFiles ) : [];
-					} else {
-						files = files.slice( 1 );
-					}
-
+					files = files.slice( 1 );
 					if ( files.length > 0 ) {
 						$j.each( files, function( i, file ) {
 
@@ -566,14 +564,14 @@ mw.UploadWizardUpload.prototype = {
 	/**
 	 * Shows an error dialog informing the user that some uploads have been omitted
 	 * since they went over the max files limit.
-	 * @param filesIgnored integer - the number of files that have been omitted
+	 * @param filesUploaded integer - the number of files that have been attempted to upload
 	 */
-	showTooManyFilesWarning: function( filesIgnored ) {
+	showTooManyFilesWarning: function( filesUploaded ) {
 		var buttons = [
 			{
 				text: mw.msg( 'mwe-upwiz-too-many-files-ok' ),
 				click: function() {
-					$( this ).dialog( "close" );
+					$(this).dialog('destroy').remove();
 				}
 			}
 		];
@@ -581,8 +579,7 @@ mw.UploadWizardUpload.prototype = {
 			.msg(
 				'mwe-upwiz-too-many-files-text',
 				mw.UploadWizard.config.maxUploads,
-				mw.UploadWizard.config.maxUploads + filesIgnored,
-				filesIgnored
+				filesUploaded
 			)
 			.dialog( {
 				width: 500,

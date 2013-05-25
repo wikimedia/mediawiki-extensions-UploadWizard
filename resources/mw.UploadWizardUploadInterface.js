@@ -277,7 +277,8 @@ mw.UploadWizardUploadInterface.prototype = {
 				_this.getFilename(),
 				_this.getFiles(),
 				function() { _this.fileChangedOk(); },
-				function( code, info ) { _this.fileChangedError( code, info ); }
+				function( code, info ) { _this.fileChangedError( code, info ); },
+				function() { _this.$fileInputCtrl.get(0).value = ''; }
 			);
 		} );
 	},
@@ -289,7 +290,7 @@ mw.UploadWizardUploadInterface.prototype = {
 	getFiles: function() {
 		var files = [];
 		if ( mw.fileApi.isAvailable() ) {
-			if( this.providedFile && !this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+			if( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
 				files[0] = this.providedFile;
 			} else {
 				$j.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
