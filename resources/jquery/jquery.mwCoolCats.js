@@ -31,6 +31,7 @@
 
 		var text = _stripText( $input.val() );
 		if ( text === '' ) {
+			$input.removeData( 'title' );
 			return;
 		}
 
