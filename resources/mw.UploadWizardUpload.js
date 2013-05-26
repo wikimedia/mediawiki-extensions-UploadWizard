@@ -142,16 +142,6 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
-	 * Queue some warnings for possible later consumption
-	 */
-	addWarning: function( code, info ) {
-		if ( this.warnings === undefined ) {
-			this.warnings = [];
-		}
-		this.warnings.push( [ code, info ] );
-	},
-
-	/**
 	 * Stop the upload -- we have failed for some reason
 	 */
 	setError: function( code, info ) {
