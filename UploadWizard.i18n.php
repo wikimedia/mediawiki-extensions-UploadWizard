@@ -15333,6 +15333,7 @@ $messages['kn'] = array(
 
 /** Korean (한국어)
  * @author Altostratus
+ * @author Hym411
  * @author Kwj2772
  * @author Mintz0223
  * @author 관인생략
@@ -15618,7 +15619,7 @@ $1{{PLURAL:$1|글자}}보다 길게 입력해주세요.',
 	'mwe-upwiz-license-external' => '이 파일은 $1에서 다음 라이선스 하에 있습니다: $2.',
 	'mwe-upwiz-license-external-invalid' => '이 파일은 $1에서 다음 라이선스 하에 있습니다: $2. 하지만 유감스럼게도 라이선스가 이 위키에서 파일을 사용하는 데는 부적합합니다.',
 	'mwe-upwiz-license-photoset-invalid' => '불행하게도 사진집에 있는 그림은 이 사이트에서 사용하는 적절한 라이선스가 없습니다.',
-	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 그림이나 사진집 URL이 아닙니다.', # Fuzzy
+	'mwe-upwiz-url-invalid' => '입력된 URL은 $1의 올바른 그림이나 사진집 URL이 아닙니다.',
 	'mwe-upwiz-categories' => '분류',
 	'mwe-upwiz-categories-add' => '추가',
 	'mwe-upwiz-category-will-be-added' => '이 분류는 아직 사용하지 않습니다.',
@@ -16335,6 +16336,7 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-license-custom' => "D'Lizenz gëtt mat dësem Wikitext beschriwwen (et muss eng valabel [$2 Lizenz] dra sinn):",
 	'mwe-upwiz-license-custom-url' => '//commons.wikimedia.org/wiki/Commons:Copyright_tags',
 	'mwe-upwiz-license-fal' => 'Fräi Artistesch Lizenz (Free Art License)',
+	'mwe-upwiz-license-own-pd' => "Op all Rechter verzicht mat der 'Creative Commons Zero'-Lizenz (wéi public domain)",
 	'mwe-upwiz-license-pd-old-100' => 'Den Auteur ass viru méi wéi 100 Joer gestuerwen',
 	'mwe-upwiz-license-pd-old' => 'Den Auteur ass viru méi wéi 70 Joer gestuerwen',
 	'mwe-upwiz-license-pd-art' => "Glafwierdeg Reproduktioun vun engem Bild dat am 'Public Domain' ass",
@@ -16350,6 +16352,7 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-license-gfdl' => 'GNU Fräi Dokumentatiouns Lizenz',
 	'mwe-upwiz-license-cc-subhead' => 'Net all Creative Commons Lizenzen kënnen op dësem Site benotzt ginn. Vergewëssert Iech datt den Titulaire vun de Rechter eng vun dëse Lizenze benotzt huet.',
 	'mwe-upwiz-license-flickr-head' => 'Deen deen de Copyright huet, huet seng {{PLURAL:$1|Foto oder säi Viedo|Fotoen oder seng Videon}} op Flickr mat der richteger Lizenz publizéiert',
+	'mwe-upwiz-license-flickr-subhead' => "Kuckt d'''Lizenz''-Feld op der Säit vun der Flickr-Säit no. Souwuel d'Icone ewéi den Numm vun der Lizenz mussen d'selwecht si wéi eng vun den Optioune hei.",
 	'mwe-upwiz-license-public-domain-usa-head' => 'De Copyright ass an den USA definitiv ofgelaf.',
 	'mwe-upwiz-license-public-domain-usa-subhead' => "{{SITENAME}} steet an den USA, dofir däerf kee Copyright (droits d'auteurs) an deem Land fir dat Wierk bestoen.",
 	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Dëst Wierk gouf|Dës Wierker goufe}} vun der US-amerikanescher Regierung gemaach',
