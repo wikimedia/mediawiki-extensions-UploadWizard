@@ -66,7 +66,7 @@ mw.UploadWizardUpload = function( wizard, filesDiv, providedFile, reservedIndex 
 	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv, providedFile );
 
 	// handler -- usually ApiUploadHandler
-	// this.handler = new ( mw.UploadWizard.config[  'uploadHandlerClass'  ] )( this );
+	// this.handler = new ( mw.UploadWizard.config.uploadHandlerClass )( this );
 	// this.handler = new mw.MockUploadHandler( this );
 	this.handler = this.getUploadHandler();
 };
@@ -529,11 +529,8 @@ mw.UploadWizardUpload.prototype = {
 						finishCallback();
 					}
 				}
-
 			}
-
 		}
-
 	},
 
 	/**
@@ -669,7 +666,7 @@ mw.UploadWizardUpload.prototype = {
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
 					$j.each( imageinfo.metadata, function( i, pair ) {
 						if ( pair !== undefined ) {
-							_this.imageinfo.metadata[pair['name'].toLowerCase()] = pair['value'];
+							_this.imageinfo.metadata[pair.name.toLowerCase()] = pair.value;
 						}
 					} );
 				}

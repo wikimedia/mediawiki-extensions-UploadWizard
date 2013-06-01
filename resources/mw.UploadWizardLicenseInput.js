@@ -25,9 +25,10 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 
 	_this.api = api;
 
-	if ( config.type === undefined
-		|| config.defaults === undefined
-		|| ( config.licenses === undefined && config.licenseGroups === undefined )
+	if (
+		config.type === undefined ||
+		config.defaults === undefined ||
+		( config.licenses === undefined && config.licenseGroups === undefined )
 	) {
 		throw new Error( 'improper initialization' );
 	}
@@ -46,10 +47,10 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	_this.inputs = [];
 
 	// create inputs and licenses from config
-	if ( config['licenseGroups'] === undefined ) {
+	if ( config.licenseGroups === undefined ) {
 		_this.createInputs( _this.$selector, config );
 	} else {
-		_this.createGroupedInputs( _this.$selector, config['licenseGroups'] );
+		_this.createGroupedInputs( _this.$selector, config.licenseGroups );
 	}
 
 	// set values of the whole license input
@@ -87,7 +88,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		$j.each( configGroups, function( i, group ) {
 			var $body, $toggler;
 			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
-			if ( group['head'] === undefined ) {
+			if ( group.head === undefined ) {
 				// if there is no header, just append licenses to the group div.
 				$body = $group;
 			} else {
@@ -101,7 +102,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				$toggler = $group.append( $head, $body ).collapseToggle();
 
 			}
-			if ( group['subhead'] !== undefined ) {
+			if ( group.subhead !== undefined ) {
 				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
 			}
 			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
@@ -118,7 +119,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * Abstracts out simple lists of licenses, more complex groups with layout
 	 * @param {jQuery} selector to add inputs to
 	 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
-	 * 			it may also have: 'prependTemplates' or 'filterTemplate', which alter the final wikitext value
+	 *			it may also have: 'prependTemplates' or 'filterTemplate', which alter the final wikitext value
 	 *			'prependTemplates' will prepend Templates. If prependTemplates were [ 'pre', 'pended' ], then...
 	 *				[ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
 	 *			'filterTemplates' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
@@ -129,14 +130,14 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	createInputs: function( $el, config, $groupToggler ) {
 		var _this = this;
-		if ( config['licenses'] === undefined || typeof config['licenses'] !== 'object' ) {
+		if ( config.licenses === undefined || typeof config.licenses !== 'object' ) {
 			throw new Error( "improper license config" );
 		}
-		$j.each( config['licenses'], function( i, licenseName ) {
+		$j.each( config.licenses, function( i, licenseName ) {
 			if ( mw.UploadWizard.config.licenses[licenseName] !== undefined ) {
 				var license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] };
 
-				var templates = license.props['templates'] === undefined ? [ license.name ] : license.props.templates.slice(0);
+				var templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice(0);
 
 				var $input = _this.createInputElement( templates, config );
 				_this.inputs.push( $input );
@@ -152,7 +153,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				// this is so if a single input in a group changes, we open the entire "toggler" that was hiding them
 				$input.data( 'groupToggler', $groupToggler );
 
-				if ( config['special'] === 'custom' ) {
+				if ( config.special === 'custom' ) {
 					var $customDiv = _this.createCustomWikiTextInterface( $input );
 					$el.append( $customDiv );
 					$input.data( 'textarea', $customDiv.find( 'textarea' ) );
@@ -170,13 +171,13 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {String} of wikitext
 	 */
 	createInputValueFromTemplateConfig: function( templates, config ) {
-		if ( config['prependTemplates'] !== undefined ) {
-			$j.each( config['prependTemplates'], function( i, template ) {
+		if ( config.prependTemplates !== undefined ) {
+			$j.each( config.prependTemplates, function( i, template ) {
 				templates.unshift( template );
 			} );
 		}
-		if ( config['filterTemplate'] !== undefined ) {
-			templates.unshift( config['filterTemplate'] );
+		if ( config.filterTemplate !== undefined ) {
+			templates.unshift( config.filterTemplate );
 			templates = [ templates.join( '|' ) ];
 		}
 		var wikiTexts = $j.map( templates, function(t) { return '{{' + t + '}}'; } );
@@ -200,10 +201,10 @@ mw.UploadWizardLicenseInput.prototype = {
 		};
 
 		var inputHtml = '<input ' +
-			$j.map( attrs, function(val, key) {
+			$j.map( attrs, function( val, key ) {
 				return key + '="' + val.toString().replace( '"', '' ) + '"';
-			} ).join( " " )
-		+ ' />';
+			} ).join( " " ) +
+		' />';
 
 		// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
 		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded
@@ -219,15 +220,15 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
 	 */
 	createInputElementLabel: function( license, $input ) {
-		var messageKey = license.props['msg'] === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg;
+		var messageKey = license.props.msg === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg;
 		var languageCode = mw.config.get( 'wgUserLanguage' );
 
 		// The URL is optional, but if the message includes it as $2, we surface the fact
 		// that it's misisng.
-		var licenseURL = license.props['url'] === undefined ? '#missing license URL' : license.props.url + 'deed.' + languageCode;
+		var licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url + 'deed.' + languageCode;
 		var licenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
 		var $icons = $j( '<span></span>' );
-		if ( license.props['icons'] !== undefined ) {
+		if ( license.props.icons !== undefined ) {
 			$j.each( license.props.icons, function( i, icon ) {
 				$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
@@ -323,7 +324,7 @@ mw.UploadWizardLicenseInput.prototype = {
 
 			// check if how many license names are set to true in the values requested. Should be 0 or 1
 			var trueCount = 0;
-			var trueLicenseName = undefined;
+			var trueLicenseName;
 			$j.each( values, function( licenseName, val ) {
 				if ( val === true ) {
 					trueCount++;
@@ -477,7 +478,7 @@ mw.UploadWizardLicenseInput.prototype = {
 
 
 	/**
-  	 * Returns true if any license is set
+	 * Returns true if any license is set
 	 * @return boolean
 	 */
 	isSet: function() {
@@ -507,9 +508,10 @@ mw.UploadWizardLicenseInput.prototype = {
 				var lcNodeName = nodeName.toLowerCase();
 				// templates like Self are special cased, as it is not a license tag and also reparses its string arguments into templates
 				// e.g.  {{self|Cc-by-sa-3.0}}  --> we should add 'Cc-by-sa-3.0' to the templates
-				if ( mw.UploadWizard.config.licenseTagFilters
-						&&
-					 mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1 ) {
+				if (
+					mw.UploadWizard.config.licenseTagFilters &&
+					mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1
+				) {
 					// upgrade all the arguments to be nodes in their own right (by making them the first element of an array)
 					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
 					// $.map seems to strip away arrays of one element so have to use an array within an array.
@@ -579,8 +581,8 @@ mw.UploadWizardLicenseInput.prototype = {
 
 		var error = function( error ) {
 			show( $j( '<div></div>' ).append(
-				$j( '<h3></h3>' ).append( error['code'] ),
-				$j( '<p></p>' ).append( error['info'] )
+				$j( '<h3></h3>' ).append( error.code ),
+				$j( '<p></p>' ).append( error.info )
 			) );
 		};
 

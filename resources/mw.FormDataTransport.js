@@ -39,7 +39,7 @@ mw.FormDataTransport.prototype = {
             return c.charCodeAt(0) > 128 ? '_' : c;
         }).join('');
 
-        if( mw.UploadWizard.config[ 'enableChunked' ] && file.size > this.chunkSize ) {
+        if( mw.UploadWizard.config.enableChunked && file.size > this.chunkSize ) {
             this.uploadChunk(0);
         } else {
             this.xhr = new XMLHttpRequest();
@@ -212,8 +212,8 @@ mw.FormDataTransport.prototype = {
         $j.each(this.formData, function(key, value) {
             params[key] = value;
         });
-        params['checkstatus'] =  true;
-        params['filekey'] =  this.filekey;
+        params.checkstatus =  true;
+        params.filekey =  this.filekey;
         api.post( params, {
             ok: function(response) {
                 if (response.upload && response.upload.result == 'Poll') {
