@@ -9461,7 +9461,7 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons paternité 2.5 ([$2 code légal])',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons paternité – partage à l’identique 2.0 ([$2 texte légal])',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons paternité 2.0 ([$2 code légal])',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Transfert au Domaine Public<br />(libère tous les droits, comme le domaine public: [$2 code légal])',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Transfert au Domaine Public (libère tous les droits, comme le domaine public: [$2 code juridique])',
 	'mwe-upwiz-license-custom' => 'La licence est décrite par le wikitexte suivant (doit contenir une [$2 balise de droit d’auteur] valide) :',
 	'mwe-upwiz-license-custom-url' => '//commons.wikimedia.org/wiki/Commons:Bandeaux de licence',
 	'mwe-upwiz-license-fal' => 'Licence Art Libre',
@@ -16355,6 +16355,7 @@ $1",
 	'mwe-upwiz-campaigns-delete-failed' => "D'Campagne konnt net geläscht ginn.",
 	'mwe-upwiz-campaigns-confirm-delete' => 'Sidd Dir sécher datt Dir dës Campagne läsche wëllt?',
 	'uploadcampaign-legend' => 'Astellung vun der Campagne eroplueden',
+	'uploadcampaign-text' => 'Dir ännert eng Campagne fir Fichieren eropzelueden.',
 	'mwe-upwiz-campaign-name' => 'Numm vun der Matdeelung',
 	'mwe-upwiz-campaign-enabled' => 'Campagne aktivéiert',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'Den Tutorial vun de Lizenzen iwwersprangen',
@@ -23222,15 +23223,19 @@ $messages['ru'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'К сожалению, не удалось получить иллюстрации для руководства, масштабированные по размеру этого экрана. Возможно, это временная проблема с Викискладом. Повторите попытку позже.',
 	'mwe-upwiz-help-desk' => 'Служба поддержки',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Служба поддержки',
-	'mwe-upwiz-add-file-n' => 'Добавить ещё один файл', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Выберите медиафайл чтобы поделиться', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'Добавить изображения с Flickr', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Добавить ещё файлы',
+	'mwe-upwiz-add-file-0-free' => 'Выберите медиафайлы, чтобы поделиться',
+	'mwe-upwiz-add-file-flickr' => 'Поделиться изображениями с Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Добавить больше изображений из Flickr',
 	'mwe-upwiz-add-flickr-or' => 'ИЛИ',
 	'mwe-upwiz-add-flickr' => 'Получить с Flickr',
+	'mwe-upwiz-flickr-input-placeholder' => 'URL изображения/фотосета на Flickr',
 	'mwe-upwiz-select-flickr' => 'Загрузить выбранные изображения',
+	'mwe-upwiz-flickr-disclaimer2' => 'Обратите внимание, что при использовании этого инструмента ваш IP-адрес и информация о запросе будут доступны сайту Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Мы не удалось получить файл из  $1 .',
 	'mwe-upwiz-multi-file-select' => 'Нарисуйте рамку над файлами, которые вы хотели бы загрузить. Удерживайте нажатой клавишу Ctrl/Command, чтобы выбрать несколько несмежных.',
 	'mwe-upwiz-transport-started' => 'Начало…',
+	'mwe-upwiz-encoding' => 'Кодирование…',
 	'mwe-upwiz-uploading' => 'Загрузка файлов на сервер…',
 	'mwe-upwiz-queued' => 'В очереди...',
 	'mwe-upwiz-assembling' => 'Сбор...',
@@ -23301,7 +23306,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'Теперь расскажите нам, почему вы уверены, что имеете право публиковать {{PLURAL:$1|это произведение|эти произведения}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.',
-	'mwe-upwiz-more-options' => 'добавить категории и другие сведения…', # Fuzzy
+	'mwe-upwiz-more-options' => 'Добавить местоположение и другую информацию…',
 	'mwe-upwiz-copy-metadata' => 'Копировать информацию для {{PLURAL:$1|загрузки|всех загрузок}} ниже...',
 	'mwe-upwiz-copy-metadata-button' => 'Копировать',
 	'mwe-upwiz-copied-metadata-button' => 'Успешно скопировано',
@@ -23346,7 +23351,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-fileexists-replace' => 'Файл с названием "$1" уже существует. Пожалуйста, измените ваше название на более уникальное.',
 	'mwe-upwiz-fileexists' => 'Файл с этим именем уже существует. Пожалуйста, проверьте $1, если вы не уверены, что хотите заменить его.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Файл с этим именем уже существует. Если вы хотите его заменить, перейдите на страницу [$2 $1] и замените его там.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Файл с этим именем уже существует.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Пожалуйста, выберите другое название, потому что это название уже используется другим файлом.',
 	'mwe-upwiz-blacklisted' => 'Пожалуйста, выберите другое, более понятное название.',
 	'mwe-upwiz-thumbnail-more' => 'Увеличить',
 	'mwe-upwiz-overwrite' => 'Заменить файл',
@@ -23389,7 +23394,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-error-too-long' => 'Это поле слишком длинно.
 Сделайте его длину короче $1 {{PLURAL:$1|символа|символов|символов}}.',
 	'mwe-upwiz-error-too-short' => 'Эта запись слишком короткая.
-Её длина должна быть больше $1 {{PLURAL:$1|символа|символов|символов}}.', # Fuzzy
+Её длина должна быть больше $1 {{PLURAL:$1|символ|символа|символов}}.',
 	'mwe-upwiz-error-bad-chars' => 'Это поле содержит недопустимые символы.
 Пожалуйста, не используйте викитекст или HTML.',
 	'mwe-upwiz-error-date' => 'Пожалуйста, введите корректную дату в формате ГГГГ-ММ-ДД, либо выберите дату из появляющегося календаря.',
@@ -23401,6 +23406,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'Это имя файла зарезервировано за файлом в общем хранилище. Выберите другое имя.',
 	'mwe-upwiz-error-title-double-apostrophe' => 'Это название содержит двойной апостроф; Пожалуйста, удалите его.',
 	'mwe-upwiz-error-title-extension' => 'Вам не нужно добавлять расширение файла. Просто убедитесь, что название читаемо человеком, а приложение позаботится об остальном.',
+	'mwe-upwiz-error-title-protected' => 'Это название соответствует защищенной странице в этой вики. Пожалуйста, выберите другое.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'Вы выбрали вариант, требующий ввода викитекста.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Приведённый викитекст слишком короток, чтобы быть лицензией',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Приведённый викитекст слишком длинный',
@@ -23463,6 +23469,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'Подтвердить удаление',
 	'mwe-upwiz-license-external' => 'Этот файл распространяется на условиях лицензии на $1: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Этот файл распространяется на условиях лицензии на $1: $2. К сожалению, данная лицензия не подходит для использования на этом сайте.',
+	'mwe-upwiz-license-photoset-invalid' => 'К сожалению, в фотосете нет изображений, лицензия которых допустима для использования на этом сайте.',
 	'mwe-upwiz-categories' => 'Категории',
 	'mwe-upwiz-categories-add' => 'Добавить',
 	'mwe-upwiz-category-will-be-added' => 'Эта категория еще не используется.',
@@ -23544,6 +23551,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Чужое произведение -- $1',
 	'mwe-upwiz-prefs-chunked' => 'Разбить на части загрузку файлов свыше 1MB в Мастере загрузок',
 	'mwe-upwiz-prefs-skiptutorial' => 'Пропустить вводное руководство по лицензированию',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Максимальное количество одновременных закачек',
 );
 
 /** Rusyn (русиньскый)
