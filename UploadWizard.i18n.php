@@ -4665,7 +4665,11 @@ $1",
  * @author Умар
  */
 $messages['ce'] = array(
+	'mwe-upwiz-step-thanks' => 'Пайдаэцар',
 	'mwe-upwiz-remove' => 'ДӀаяккха',
+	'mwe-upwiz-source' => 'Хьост',
+	'mwe-upwiz-campaigns-status' => 'Хьал',
+	'mwe-upwiz-campaigns-disabled' => 'ДӀадайъина',
 	'mwe-upwiz-campaigns-delete' => 'ДӀаяккха',
 );
 
@@ -8134,7 +8138,7 @@ Palun ära kasuta siin vikiteksti ega HTMLi.',
 	'mwe-upwiz-license-external' => 'Fail on avaldatud võrgukohas $1 järgmise litsentsi all: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Fail on avaldatud võrgukohas $1 järgmise litsentsi all: $2. Kahjuks ei sobi see litsents siin võrgukohas kasutamiseks.',
 	'mwe-upwiz-license-photoset-invalid' => 'Kahjuks pole fotokomplektis ükski pilt selles võrgukohas kasutamiseks sobiva litsentsiga.',
-	'mwe-upwiz-url-invalid' => 'Sisestatud internetiaadress ei viita allika $1 sobivale pildile ega fotokomplektile.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'Sisestatud internetiaadress viitab allika $1 vigasele või piiratud ligipääsuga pildile või fotokomplektile ja on seetõttu kasutuskõlbmatu.',
 	'mwe-upwiz-categories' => 'Kategooriad',
 	'mwe-upwiz-categories-add' => 'Lisa',
 	'mwe-upwiz-category-will-be-added' => 'See kategooria pole veel kasutuses.',
@@ -8219,6 +8223,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Kellegi teise looming – $1',
 	'mwe-upwiz-prefs-chunked' => 'Viisardiga laadi ühest megabaidist suuremad failid üles tükikaupa',
 	'mwe-upwiz-prefs-skiptutorial' => 'Jäta sissejuhatav litsentsiõpe vahele',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Konkureerivate üleslaadimiste ülemmäär',
 );
 
 /** Basque (euskara)
@@ -10341,6 +10346,7 @@ $messages['grc'] = array(
 /** Swiss German (Alemannisch)
  * @author Als-Chlämens
  * @author Als-Holder
+ * @author Imbericle
  */
 $messages['gsw'] = array(
 	'uploadwizard' => 'Assischtänt zum Uffelade',
@@ -14174,6 +14180,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-add-file-n' => '他のファイルを追加',
 	'mwe-upwiz-add-file-0-free' => '共有するメディアファイルを選択してください',
 	'mwe-upwiz-add-file-flickr' => 'Flickr から画像を追加',
+	'mwe-upwiz-add-file-flickr-n' => 'Flickr からさらに画像を追加',
 	'mwe-upwiz-add-flickr-or' => 'または',
 	'mwe-upwiz-add-flickr' => 'Flickr から取得',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr の画像/写真集 URL',
@@ -14185,6 +14192,8 @@ $messages['ja'] = array(
 	'mwe-upwiz-encoding' => 'エンコード中...',
 	'mwe-upwiz-uploading' => 'アップロード中...',
 	'mwe-upwiz-queued' => '順番待ち中...',
+	'mwe-upwiz-assembling' => '組み立て中...',
+	'mwe-upwiz-publish' => '公開中...',
 	'mwe-upwiz-transported' => 'アップロードが終了しました...',
 	'mwe-upwiz-stashed-upload' => 'アップロード済み',
 	'mwe-upwiz-getting-metadata' => 'ファイル情報とプレビューを取得中...',
@@ -14192,6 +14201,7 @@ $messages['ja'] = array(
 	'mwe-upwiz-published' => '公開が完了しました!',
 	'mwe-upwiz-failed' => '失敗しました。',
 	'mwe-upwiz-remove' => '除去',
+	'mwe-upwiz-override' => '無視してアップロードする。',
 	'mwe-upwiz-remove-upload' => 'アップロードするファイルの一覧からこのファイルを除去',
 	'mwe-upwiz-show-thumb' => 'サムネイルを表示',
 	'mwe-upwiz-show-thumb-tip' => 'このファイルのサムネイルを読み込む',
@@ -16372,6 +16382,8 @@ $1",
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => "Numm vun der Säit mam Text vum Libellé vum Feld an dem d'ID drasteet. $1 gëtt duerch de Sproochcode ersat:",
 	'mwe-upwiz-campaign-conf-idFieldInitialValue' => "Ufankswäert fir d'Feld ID:",
 	'mwe-upwiz-campaign-conf-idField2LabelPage' => 'Numm vun der Säit mam Text vum Libellé vum Feld an deem déi sekundär ID drasteet. $1 gëtt duerch de Sproochcode ersat:',
+	'mwe-upwiz-campaign-conf-headerLabelPage' => "D'Säit an där Text dee vum UploadWizard gewise gëtt dran ass. $1 gëtt duerch de Sproochcode ersat:",
+	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'D\'Säit an där den Text fir uewen op der Säit "Benotzen" ze weisen dran ass. $1 gëtt duerch de Sproochcode ersat:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Maximal Längt fir den Text am ID-Feld:',
 	'mwe-upwiz-campaign-conf-idField2MaxLength' => 'Maximal Längt fir den Text am sekundären ID-Feld:',
 	'mwe-upwiz-campaign-conf-defaultLat' => 'Geografesch Breet par défaut:',
@@ -21085,7 +21097,7 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons – za uznaniem autora 2.5 ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons – za uznaniem autora, na tych samych zasadach 2.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons – za uznaniem autora 2.0 ([$2 legal code])',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver<br />(nie objęte prawami autorskimi, jak domena publiczna: [$2 legal code])',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Waiver (nie objęte prawami autorskimi, jak domena publiczna: [$2 legal code])',
 	'mwe-upwiz-license-custom' => 'Licencja jest opisana przez następujący wiki-tekst (musi zawierać prawidłowy [$2 znak prawa autorskiego]):',
 	'mwe-upwiz-license-custom-url' => '//commons.wikimedia.org/wiki/Commons:Oznaczenia_licencji',
 	'mwe-upwiz-license-fal' => 'Licencja Wolnej Sztuki',
@@ -29608,12 +29620,17 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-add-file-n' => '加入更多檔案',
 	'mwe-upwiz-add-file-0-free' => '選擇要分享的媒體檔案',
 	'mwe-upwiz-add-file-flickr' => '分享來自 Flickr 的圖像',
+	'mwe-upwiz-add-file-flickr-n' => '從 Flickr 添加更多圖像',
 	'mwe-upwiz-add-flickr-or' => '或',
 	'mwe-upwiz-add-flickr' => '從Flickr獲取圖片',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr圖片/照片集URL',
 	'mwe-upwiz-select-flickr' => '上傳選定的圖像',
+	'mwe-upwiz-flickr-disclaimer1' => '此表格將載入flickr.com保管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用條款]及[https://www.flickr.com/help/privacy-policy/ 隱私政策]。',
+	'mwe-upwiz-flickr-disclaimer2' => '請注意，使用此工具時您的IP位址及請求詳情將提供予Flickr。',
 	'mwe-upwiz-error-no-image-retrieved' => '無法從$1獲取檔案。',
+	'mwe-upwiz-multi-file-select' => '使用游標框選您想上傳的檔案。按下Ctrl/Command鍵以選擇多個不相鄰的檔案。',
 	'mwe-upwiz-transport-started' => '正在啟動...',
+	'mwe-upwiz-encoding' => '編碼中...',
 	'mwe-upwiz-uploading' => '上傳中...',
 	'mwe-upwiz-queued' => '已排隊...',
 	'mwe-upwiz-assembling' => '集合中...',
@@ -29839,6 +29856,8 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => '確認刪除',
 	'mwe-upwiz-license-external' => '此檔案在$1的授權協議為：$2。',
 	'mwe-upwiz-license-external-invalid' => '此檔案在$1的授權協議為：$2。但此授權協議不適合於此網站上使用。',
+	'mwe-upwiz-license-photoset-invalid' => '圖集內沒有圖像擁有此網站使用的許可證。',
+	'mwe-upwiz-url-invalid' => '已輸入的網址指向一個無效或受限制的$1圖像或圖集，因此不能使用。',
 	'mwe-upwiz-categories' => '分類',
 	'mwe-upwiz-categories-add' => '新增另一分類',
 	'mwe-upwiz-category-will-be-added' => '此分類尚未建立。',
@@ -29923,4 +29942,5 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '他人的作品 - $1',
 	'mwe-upwiz-prefs-chunked' => '於上傳精靈中分割上載超過1MB的檔案',
 	'mwe-upwiz-prefs-skiptutorial' => '略過授權指南',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時上載的最大數目',
 );
