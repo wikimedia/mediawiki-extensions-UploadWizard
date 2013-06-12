@@ -4665,8 +4665,10 @@ $1",
  * @author Умар
  */
 $messages['ce'] = array(
+	'mwe-upwiz-step-details' => 'Цунах лаьцна',
 	'mwe-upwiz-step-thanks' => 'Пайдаэцар',
 	'mwe-upwiz-remove' => 'ДӀаяккха',
+	'mwe-upwiz-desc' => 'Цуьнах лаьцна',
 	'mwe-upwiz-source' => 'Хьост',
 	'mwe-upwiz-campaigns-status' => 'Хьал',
 	'mwe-upwiz-campaigns-disabled' => 'ДӀадайъина',
