@@ -372,7 +372,8 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	// called once we have an image url
 	loadImage: function( url ) {
-		var image = document.createElement( 'img' );
+		var image = document.createElement( 'img' ),
+			_this = this;
 		image.onload = function () {
 			$.publishReady( 'thumbnails.' + _this.upload.index, image );
 			_this.previewLoaded = true;
@@ -428,7 +429,7 @@ mw.UploadWizardUploadInterface.prototype = {
 				dataUrlReader.onload = function() {
 					// this step (inserting image-as-dataurl into image object) is slow for large images, which
 					// is why this is optional and has a control attached to it to load the preview.
-					this.loadImage( dataUrlReader.result );
+					_this.loadImage( dataUrlReader.result );
 				};
 				dataUrlReader.readAsDataURL( _this.upload.file );
 			}
