@@ -2459,7 +2459,7 @@ Por favor, nun uses testu wiki o HTML equí.',
 	'mwe-upwiz-license-external' => 'Esti ficheru ta baxo la siguiente llicencia en $1: $2.',
 	'mwe-upwiz-license-external-invalid' => "Esti ficheru ta baxo la siguiente llicencia en $1: $2. Por desgracia, l'usu d'esta llicencia nun ye afayadizu n'esti sitiu.",
 	'mwe-upwiz-license-photoset-invalid' => 'Llamentablemente, denguna imax del conxuntu tien una llicencia afayadiza pa usar nesti sitiu.',
-	'mwe-upwiz-url-invalid' => "La URL que s'escribió nun ye una URL válida d'una imaxe o coleición de $1", # Fuzzy
+	'mwe-upwiz-url-invalid' => "La URL qu'escribió apunta a una imaxe o coleición de $1 inválida o torgada y nun pue usase.",
 	'mwe-upwiz-categories' => 'Categoríes',
 	'mwe-upwiz-categories-add' => 'Amestar',
 	'mwe-upwiz-category-will-be-added' => 'Esta categoría inda nun se ta usando.',
