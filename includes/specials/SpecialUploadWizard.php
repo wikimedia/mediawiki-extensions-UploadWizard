@@ -209,15 +209,12 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['enableChunked'] = (bool)$this->getUser()->getOption( 'upwiz-chunked' );
 		}
 
-		$this->getOutput()->addScript(
-			Skin::makeVariablesScript(
-				array(
-					'UploadWizardConfig' => $config
-				) +
-					// Site name is a true global not specific to Upload Wizard
-					array(
-						'wgSiteName' => $wgSitename
-					)
+		$this->getOutput()->addJsConfigVars(
+			array(
+				'UploadWizardConfig' => $config,
+
+				// Site name is a true global not specific to Upload Wizard
+				'wgSiteName' => $wgSitename
 			)
 		);
 	}
