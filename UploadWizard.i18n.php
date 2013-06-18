@@ -246,6 +246,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'You can only upload files with a size of up to $1. You tried to upload a file that is $2.',
 	'mwe-upwiz-file-too-large' => 'File too large.',
+	'mwe-upwiz-necessary-confirm' => 'It is recommended that you fill in a category for your uploads. Do you want to continue without filling all the fields?',
+	'mwe-upwiz-dialog-yes' => 'Yes',
+	'mwe-upwiz-dialog-no' => 'No',
+	'mwe-upwiz-dialog-title' => 'Warning',
 
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
@@ -759,6 +763,10 @@ See also:
 * $1 is the maximum file size;
 * $2 is the size of the file they tried to upload.',
 	'mwe-upwiz-file-too-large' => 'Error dialog title',
+	'mwe-upwiz-necessary-confirm' => 'Confirmation box suggesting that it is recommended to fill in a category for uploads and asking the uploader whether they want to continue without them',
+	'mwe-upwiz-dialog-yes' => 'Yes',
+	'mwe-upwiz-dialog-no' => 'No',
+	'mwe-upwiz-dialog-title' => 'Warning',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '{{CreativeCommonsLicense|by-sa|3.0|at}}

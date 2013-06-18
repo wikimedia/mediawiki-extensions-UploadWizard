@@ -672,6 +672,18 @@ mw.UploadWizardDetails.prototype = {
 		}
 	},
 
+	/**
+	 * check if we have all the *must have* but not mandatory fields filled in
+	 * Currently this tests for the following:
+	 * 1) Empty category
+	 * 2) TODO
+	 */
+	necessaryFilled: function( cb ) {
+		// check for empty category input
+		if ( this.div.find( '.categoryInput' ).val() !== '' ) {
+			cb();
+		}
+	},
 
 	/**
 	 * toggles whether we use the 'macro' deed or our own

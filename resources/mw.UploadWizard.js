@@ -1038,9 +1038,10 @@ mw.UploadWizard.prototype = {
 	 * @return boolean
 	 */
 	detailsValid: function(cb, cberr) {
-		var _this = this;
-		var valid = 0;
-		var total = 0;
+		var _this = this,
+			valid = 0,
+			necessary = 0,
+			total = 0;
 		$j.each( _this.uploads, function(i, upload) {
 			if ( upload === undefined ) {
 				return;
@@ -1049,9 +1050,39 @@ mw.UploadWizard.prototype = {
 			upload.details.valid( function () {
 				valid += 1;
 			});
+			upload.details.necessaryFilled( function () {
+				necessary += 1;
+			});
 		});
-		if ( valid == total ) {
+
+		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
+		var buttons = {};
+		buttons[ mw.msg( 'mwe-upwiz-dialog-yes' ) ] = function() {
+			$( this ).dialog( "close" );
 			cb();
+		};
+		buttons[ mw.msg( 'mwe-upwiz-dialog-no' ) ] = function() {
+			$( this ).dialog( "close" );
+		};
+		var confirmationDialog = $j( '<div></div>' )
+			.html( mw.msg( 'mwe-upwiz-necessary-confirm' ) )
+			.dialog( {
+				width: 500,
+				zIndex: 200000,
+				autoOpen: false,
+				modal: true,
+				buttons: buttons,
+				title: mw.msg( 'mwe-upwiz-dialog-title' ),
+				open: function () {
+					$( this ).siblings( '.ui-dialog-buttonpane' ).find( 'button:eq(1)' ).focus();
+				}
+			} );
+		if ( valid === total ) {
+			if ( necessary === total ) {
+				cb();
+			} else {
+				confirmationDialog.dialog( 'open' );
+			}
 		} else {
 			cberr();
 		}
