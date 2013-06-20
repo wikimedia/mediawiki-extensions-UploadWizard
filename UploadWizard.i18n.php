@@ -241,11 +241,15 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'This does not seem to be valid wikitext, or does not contain a license.',
 	'mwe-upwiz-details-error-count' => 'There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the {{PLURAL:$1|error|errors}}, and try submitting again.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'You can only upload $1 {{PLURAL:$1|file|files}} at once. You tried to upload $2 {{PLURAL:$2|file|files}} in total, so $3 {{PLURAL:$3|file has|files have}} been removed.',
+	'mwe-upwiz-too-many-files-text' => 'You can only upload $1 {{PLURAL:$1|file|files}} at once but you tried to upload $2 {{PLURAL:$2|file|files}} in total. Please try again with fewer files!',
 	'mwe-upwiz-too-many-files' => 'Too many files.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'You can only upload files with a size of up to $1. You tried to upload a file that is $2.',
 	'mwe-upwiz-file-too-large' => 'File too large.',
+	'mwe-upwiz-necessary-confirm' => 'It is recommended that you fill in a category for your uploads. Do you want to continue without filling all the fields?',
+	'mwe-upwiz-dialog-yes' => 'Yes',
+	'mwe-upwiz-dialog-no' => 'No',
+	'mwe-upwiz-dialog-title' => 'Warning',
 
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
@@ -759,6 +763,10 @@ See also:
 * $1 is the maximum file size;
 * $2 is the size of the file they tried to upload.',
 	'mwe-upwiz-file-too-large' => 'Error dialog title',
+	'mwe-upwiz-necessary-confirm' => 'Confirmation box suggesting that it is recommended to fill in a category for uploads and asking the uploader whether they want to continue without them',
+	'mwe-upwiz-dialog-yes' => 'Yes',
+	'mwe-upwiz-dialog-no' => 'No',
+	'mwe-upwiz-dialog-title' => 'Warning',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
 For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '{{CreativeCommonsLicense|by-sa|3.0|at}}
@@ -2930,18 +2938,15 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Прабачце, немагчыма атрымаць маштабаваную выяву даведкі, каб умесьціць у экран. Прычынай можа быць часовая праблема ў ВікіСховішчы. Паспрабуйце зноў пазьней.',
 	'mwe-upwiz-help-desk' => 'Дапамога',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Дапамога',
-	'mwe-upwiz-add-file-n' => 'Дадаць яшчэ файлы',
-	'mwe-upwiz-add-file-0-free' => 'Выберыце мэдыяфайлы для загрузкі',
-	'mwe-upwiz-add-file-flickr' => 'Дадаць выявы з Flickr',
-	'mwe-upwiz-add-file-flickr-n' => 'Дадаць яшчэ выявы з Flickr',
+	'mwe-upwiz-add-file-n' => 'Дадаць яшчэ файл', # Fuzzy
+	'mwe-upwiz-add-file-0-free' => 'Выберыце мэдыяфайл для загрузкі', # Fuzzy
+	'mwe-upwiz-add-file-flickr' => 'Дадаць выявы з Flickr', # Fuzzy
 	'mwe-upwiz-add-flickr-or' => 'Або',
 	'mwe-upwiz-add-flickr' => 'Атрымаць з Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL выявы/фотасэту Flickr',
 	'mwe-upwiz-select-flickr' => 'Загрузіць выбраныя выявы',
-	'mwe-upwiz-flickr-disclaimer2' => 'Зьвярніце ўвагу, што пры выкарыстаньні гэтай прылады ваш IP-адрас і зьвесткі пра запыт будуць даступныя сайту Flickr.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Даруйце, не атрымалася вылучыць файл з $1.',
 	'mwe-upwiz-transport-started' => 'Пачатак…',
-	'mwe-upwiz-encoding' => 'Кадаваньне...',
 	'mwe-upwiz-uploading' => 'загрузка…',
 	'mwe-upwiz-queued' => 'У чарзе…',
 	'mwe-upwiz-assembling' => 'Зборка…',
@@ -2992,7 +2997,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'Цяпер раскажыце нам, чаму Вы перакананыя, што маеце права на публікацыю {{PLURAL:$1|гэтага твору|гэтых твораў}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Добра',
 	'mwe-upwiz-source-custom' => 'Падайце інфармацыю пра аўтарскія правы асобна для кожнага файла на наступнай старонцы.',
-	'mwe-upwiz-more-options' => 'Дадаць месцазнаходжаньне і іншыя зьвесткі...',
+	'mwe-upwiz-more-options' => 'дадаць катэгорыі і болей інфармацыі…', # Fuzzy
 	'mwe-upwiz-copy-metadata' => 'Скапіяваць зьвесткі {{PLURAL:$1|ў іншы файл унізе|ва ўсе файлы ніжэй}} ...',
 	'mwe-upwiz-copy-metadata-button' => 'Скапіяваць',
 	'mwe-upwiz-copied-metadata-button' => 'Скапіявана пасьпяхова',
@@ -3037,7 +3042,7 @@ $messages['be-tarask'] = array(
 	'mwe-upwiz-fileexists-replace' => 'Файл з назвай «$1» ужо існуе. Калі ласка, зьмяніце назву на болей унікальную.',
 	'mwe-upwiz-fileexists' => 'Файл з такой назвай ужо існуе. Калі ласка, праверце $1, калі Вы ня ўпэўненыя, што жадаеце яго замяніць.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Файл з гэтай назвай ужо існуе. Каб замяніць яго, перайдзіце на старонку [$2 $1] і замяніце яго там.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Калі ласка, выберыце іншую назву, бо гэтая ўжо выкарыстоўваецца іншым файлам.',
+	'mwe-upwiz-fileexists-replace-no-link' => 'Файл з гэтай назвай ужо існуе.', # Fuzzy
 	'mwe-upwiz-blacklisted' => 'Калі ласка, выбярыце іншую, апісальную назву.',
 	'mwe-upwiz-thumbnail-more' => 'Павялічыць',
 	'mwe-upwiz-overwrite' => 'Замяніць файл',
@@ -3239,7 +3244,6 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Чыясьці праца — $1',
 	'mwe-upwiz-prefs-chunked' => 'Загрузка файлаў праз Upload Wizard кавалкамі па 1МБ',
 	'mwe-upwiz-prefs-skiptutorial' => 'Прапускаць уступную даведку па ліцэнзіях',
-	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Максымальная колькасьць аднолькавых загрузак',
 );
 
 /** Bulgarian (български)
@@ -26060,7 +26064,6 @@ $1',
  * @author Lejonel
  * @author Lokal Profil
  * @author Nghtwlkr
- * @author Rotsee
  * @author Sertion
  * @author Skalman
  * @author Tobulos1
@@ -26089,7 +26092,7 @@ $messages['sv'] = array(
 	'mwe-upwiz-campaign-unknown-error' => 'Ett okänt fel uppstod.',
 	'mwe-upwiz-api-warning-exists' => 'Det finns redan [$1 en annan fil] på wikin med samma filnamn',
 	'mwe-upwiz-api-warning-was-deleted' => 'Det fanns en fil med detta namn, "$1", men den togs bort och du kan inte ladda upp filen igen. Om din fil är annorlunda kan du pröva att byta namn på den.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Tyvärr kunde vi inte hitta några instruktioner på ditt språk. Versionen på $1 visas i stället.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Tyvärr kunde vi inte hitta en övning på ditt språk. Den $1 visas i stället.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Tyvärr kunde vi inte hitta några filer för den handledning som är tänkt att finnas här. Vänligen kontakta systemadministratören.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Tyvärr kunde vi inte få en skalad bild av övningen för att passa den här skärmen. Detta kan vara ett tillfälligt problem med Wikimedia Commons, försök igen senare.',
 	'mwe-upwiz-help-desk' => 'Hjälp',
