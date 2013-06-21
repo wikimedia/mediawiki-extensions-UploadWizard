@@ -46,6 +46,7 @@ $wgAutoloadClasses += array(
 	// Api Modules
 	'ApiUploadCampaign' => $wgUpwizDir . '/api/ApiUploadCampaign.php',
 	'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api/ApiDeleteUploadCampaign.php',
+	'ApiCampaign' => $wgUpwizDir . '/includes/ApiCampaign.php',
 
 	// Includes
 	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
@@ -53,11 +54,19 @@ $wgAutoloadClasses += array(
 	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
 	'UploadWizardCampaigns' => $wgUpwizDir . '/includes/UploadWizardCampaigns.php',
 
+	// Campaign ContentHandler
+	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
+	'CampaignContent' => $wgUpwizDir . '/includes/CampaignContent.php',
+	'CampaignHooks' => $wgUpwizDir . '/includes/CampaignHooks.php',
+
 	// Special Pages
 	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
 	'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaigns.php',
 	'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaign.php'
 );
+
+// Registers hook and content handlers for Campaign contenthandler
+$wgExtensionFunctions[] = 'CampaignHooks::registerHandlers';
 
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
