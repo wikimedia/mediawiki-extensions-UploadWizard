@@ -225,8 +225,12 @@ mw.UploadWizardLicenseInput.prototype = {
 
 		// The URL is optional, but if the message includes it as $2, we surface the fact
 		// that it's misisng.
-		var licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url + 'deed.' + languageCode;
+		var licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url;
+		if ( license.props.languageCodePrefix !== undefined ) {
+			licenseURL += license.props.languageCodePrefix + languageCode;
+		}
 		var licenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
+
 		var $icons = $j( '<span></span>' );
 		if ( license.props.icons !== undefined ) {
 			$j.each( license.props.icons, function( i, icon ) {
