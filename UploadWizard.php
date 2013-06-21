@@ -33,26 +33,31 @@ $wgExtensionCredits['other'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
 
-$wgUpwizDir = dirname( __FILE__ );
+$wgUpwizDir = __DIR__;
 
 $wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
 $wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.alias.php';
 
-# Require modules, including the special page
-foreach ( array(
-		'UploadWizardHooks' => $wgUpwizDir,
-		'ApiUploadCampaign' => $wgUpwizDir . '/api',
-		'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api',
-		'UploadWizardConfig' => $wgUpwizDir . '/includes',
-		'UploadWizardTutorial' => $wgUpwizDir . '/includes',
-		'UploadWizardCampaign' => $wgUpwizDir . '/includes',
-		'UploadWizardCampaigns' => $wgUpwizDir . '/includes',
-		'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials',
-		'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials',
-		'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials',
-		) as $module => $dir ) {
-	$wgAutoloadClasses[$module] = $dir . '/' . $module . '.php';
-}
+# Require modules
+$wgAutoloadClasses += array(
+	// Hooks
+	'UploadWizardHooks' => $wgUpwizDir . '/UploadWizardHooks.php',
+
+	// Api Modules
+	'ApiUploadCampaign' => $wgUpwizDir . '/api/ApiUploadCampaign.php',
+	'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api/ApiDeleteUploadCampaign.php',
+
+	// Includes
+	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
+	'UploadWizardTutorial' => $wgUpwizDir . '/includes/UploadWizardTutorial.php',
+	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
+	'UploadWizardCampaigns' => $wgUpwizDir . '/includes/UploadWizardCampaigns.php',
+
+	// Special Pages
+	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
+	'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaigns.php',
+	'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaign.php'
+);
 
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
