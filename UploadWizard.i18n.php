@@ -9148,11 +9148,11 @@ $messages['fo'] = array(
 	'mwe-upwiz-step-details' => 'Skriva frágreiðing',
 	'mwe-upwiz-step-thanks' => 'Brúka',
 	'mwe-upwiz-help-desk' => 'Undirhúsið',
-	'mwe-upwiz-help-desk-url' => 'Undirhúsið', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Hjálparborð',
 	'mwe-upwiz-transport-started' => 'Byrjar...',
 	'mwe-upwiz-uploading' => 'Legg fílu upp...',
 	'mwe-upwiz-transported' => 'Liðugt at yvirføra...',
-	'mwe-upwiz-stashed-upload' => 'Í lagi', # Fuzzy
+	'mwe-upwiz-stashed-upload' => 'Er lagt út',
 	'mwe-upwiz-published' => 'Útgivið!',
 	'mwe-upwiz-failed' => 'Miseydnaðist.',
 	'mwe-upwiz-remove' => 'Tak burtur',
@@ -9191,7 +9191,7 @@ $messages['fo'] = array(
 	'mwe-upwiz-fileexists' => 'Ein fíla við hesum navninum er longu til.
 Vinarliga kanna $1 um tú ikki ert vís/ur í at tú ynskir at skifta hana út.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Ein fíla við hesum navninum er longu til. Um tú ynskir at seta hesa í staðin, far so til síðuna fyri [$2 $1] og skift fíluna út har.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Tað er longu ein fíla við hesum navni.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Vinarliga vel eitt annað heiti, tí hetta heiti er longu í brúk av einari aðrari fílu.',
 	'mwe-upwiz-blacklisted' => 'Vinarliga vel ein annarleiðis tittul, sum lýsir fíluna betri.',
 	'mwe-upwiz-thumbnail-more' => 'Ger størri',
 	'mwe-upwiz-overwrite' => 'Skift fíluna út',
@@ -19548,11 +19548,14 @@ Ikke bruk wikitekst eller HTML her.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Dette virker ikke å være gyldig wikitekst, eller inneholder ingen lisens.',
 	'mwe-upwiz-details-error-count' => 'Det er {{PLURAL:$1|én|$1}} feil med {{PLURAL:$2|skjemaet|skjemaene}} ovenfor. Vennligst rett opp {{PLURAL:$1|feilen|feilene}}, og prøv å sende inn igjen.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'Du kan kun laste opp {{PLURAL:$1|én fil|$1 filer}} av gangen. Du prøvde å laste opp {{PLURAL:$2|én fil|$2 filer}} totalt, så {{PLURAL:$3|én fil|$3 filer}} har blitt fjernet.',
+	'mwe-upwiz-too-many-files-text' => 'Du kan kun laste opp {{PLURAL:$1|én fil|$1 filer}} av gangen. Du prøvde å laste opp {{PLURAL:$2|én fil|$2 filer}} totalt, så {{PLURAL:$3|én fil|$3 filer}} har blitt fjernet.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'For mange filer.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Du kan ikke laste opp filer større enn $1. Filen du forsøkte å laste opp var på $2.',
 	'mwe-upwiz-file-too-large' => 'Filen er for stor.',
+	'mwe-upwiz-dialog-yes' => 'Ja',
+	'mwe-upwiz-dialog-no' => 'Nei',
+	'mwe-upwiz-dialog-title' => 'Advarsel',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Navngivelse-DelPåSammeVilkår 3.0 Unported ([$2 juridisk tekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Navngivelse-DelPåSammeVilkår 3.0 Østerrike ([$2 juridisk tekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Navngivelse-DelPåSammeVilkår 3.0 Tyskland ([$2 juridisk tekst])',
@@ -29282,6 +29285,7 @@ $messages['yo'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Bencmq
+ * @author Byfserag
  * @author Chenzw
  * @author Dimension
  * @author Happy
@@ -29327,9 +29331,9 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => '对不起，我们无法获得适合该屏幕大小的教程图像。这可能是维基共享资源暂时的问题，请稍后重试。',
 	'mwe-upwiz-help-desk' => '帮助台',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:帮助台',
-	'mwe-upwiz-add-file-n' => '添加其他文件', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => '请选择要共享的媒体文件', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => '从Flickr添加图像', # Fuzzy
+	'mwe-upwiz-add-file-n' => '添加更多文件',
+	'mwe-upwiz-add-file-0-free' => '请选择要共享的媒体文件',
+	'mwe-upwiz-add-file-flickr' => '从Flickr分享图像',
 	'mwe-upwiz-add-file-flickr-n' => '添加更多图像从Flickr',
 	'mwe-upwiz-add-flickr-or' => '或',
 	'mwe-upwiz-add-flickr' => '从Flickr获取',
@@ -29410,7 +29414,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => '现在请告诉我们，你为什么确信你有权利发表{{PLURAL:$1|该|这些}}作品：',
 	'mwe-upwiz-source-thirdparty-accept' => '确定',
 	'mwe-upwiz-source-custom' => '在下一步单独提供每个文件的著作权信息。',
-	'mwe-upwiz-more-options' => '添加分类和更多信息', # Fuzzy
+	'mwe-upwiz-more-options' => '添加位置和更多的信息',
 	'mwe-upwiz-copy-metadata' => '复制{{PLURAL:$1|另一份|所有}}资料到下面的上载文档 ...',
 	'mwe-upwiz-copy-metadata-button' => '复制',
 	'mwe-upwiz-copied-metadata-button' => '复制成功',
@@ -29454,7 +29458,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-fileexists-replace' => '标题为“$1”的文件已经存在。请更换为独特的文件名。',
 	'mwe-upwiz-fileexists' => '有相同文件名的文件已经存在。如果你不确定是否要替换它，请检查$1。',
 	'mwe-upwiz-fileexists-replace-on-page' => '有相同文件名的文件已经存在。如果你想要替换它，请访问[$2 $1]的说明页面并在那里替换它。',
-	'mwe-upwiz-fileexists-replace-no-link' => '有相同文件名的文件已经存在。', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => '请选择一个不同的标题，因为这个标题已经由另一个文件使用。',
 	'mwe-upwiz-blacklisted' => '请更换为其他描述的标题。',
 	'mwe-upwiz-thumbnail-more' => '放大',
 	'mwe-upwiz-overwrite' => '替换文件',
@@ -29510,11 +29514,14 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => '这似乎不是有效的维基文字，或不含授权协议。',
 	'mwe-upwiz-details-error-count' => '上面的{{PLURAL:$2|表格}}中有$1个错误。请更正错误，并尝试再次提交。',
 	'mwe-upwiz-too-many-files-ok' => '确定',
-	'mwe-upwiz-too-many-files-text' => '你一次只能上传$1个文件。你尝试上传共$2个文件，所以$3个文件已被删除。',
+	'mwe-upwiz-too-many-files-text' => '你一次只能上传$1个文件，但是你尝试上传共$2个文件，所以$3个文件已被删除。', # Fuzzy
 	'mwe-upwiz-too-many-files' => '文件过多。',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => '您只能上传大小不超过 $1 的文件。您试图上传的文件大小为 $2。',
 	'mwe-upwiz-file-too-large' => '文件太大',
+	'mwe-upwiz-dialog-yes' => '是',
+	'mwe-upwiz-dialog-no' => '否',
+	'mwe-upwiz-dialog-title' => '警告',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '知识共享“署名-相同方式共享 3.0”（[$2 法律文件]）',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '知识共享“署名-相同方式共享 3.0 奥地利”（[$2 法律文件]）',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => '知识共享“署名-相同方式共享 3.0 德国”（[$2 法律文件]）',
