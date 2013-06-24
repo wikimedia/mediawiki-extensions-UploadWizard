@@ -4153,6 +4153,7 @@ $1',
 
 /** Bosnian (bosanski)
  * @author CERminator
+ * @author DzWiki
  * @author Palapa
  */
 $messages['bs'] = array(
@@ -4287,6 +4288,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 	'mwe-upwiz-error-title-blacklisted' => 'Ovaj naslov sadrži neki neodgovarajući tekst. Molimo provjerite ga',
 	'mwe-upwiz-error-title-badchars' => 'Ovaj naslov sadrži neke neodgovarajuće znakove. Molimo uklonite ih',
 	'mwe-upwiz-error-title-senselessimagename' => 'Molimo vas stavite naslov koji ima više smisla.',
+	'mwe-upwiz-dialog-title' => 'Datoteke se mogu postaviti sa imenima na bilo kojem jeziku na bilo kojem pismu (kodirana sa UTF-8). Naslovi medijski datoteka trebaju biti smislena i korisna na jeziku koji je odabran.', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Navođenje izvora Pod istim uslovima 3.0 ([$2 legal code])', # Fuzzy
 	'mwe-upwiz-license-cc-by-3.0' => 'Creative Commons Priznavanje autorstva 3.0 ([$2 legal code])', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-2.5' => 'Creative Commons Navođenje izvora Pod istim uslovima 2.5 ([$2 legal code])', # Fuzzy
@@ -4332,6 +4334,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 	'mwe-upwiz-subhead-alt-upload' => '[$1 Nazad na stari obrazac]',
 	'mwe-upwiz-feedback-prompt' => '[$1 Ostavite povratne informacije]',
 	'mwe-upwiz-feedback-title' => 'Ostavite povratne informacije o čarobnjaku za postavljanje',
+	'prefs-uploads' => 'Postavljanja',
 );
 
 /** Catalan (català)
@@ -17970,11 +17973,15 @@ $messages['ml'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => 'ഇതൊരു സാധുവായ വിക്കി എഴുത്തായി, അല്ലെങ്കിൽ ഇത് അനുവാദപത്രം ഉൾക്കൊള്ളുന്നതായി തോന്നുന്നില്ല.',
 	'mwe-upwiz-details-error-count' => 'മുകളിലെ {{PLURAL:$2|ഫോമിൽ|ഫോമുകളിൽ}} {{PLURAL:$1|ഒരു പിഴവ്|$1 പിഴവുകൾ}} ഉണ്ട്. {{PLURAL:$1|പിഴവ്|പിഴവുകൾ}} തിരുത്തിയശേഷം, വീണ്ടും സമർപ്പിക്കുക.',
 	'mwe-upwiz-too-many-files-ok' => 'ശരി',
-	'mwe-upwiz-too-many-files-text' => 'ഒരു പ്രാവശ്യം {{PLURAL:$1|ഒരു പ്രമാണം|$1 പ്രമാണങ്ങൾ}} മാത്രമേ ഒരുമിച്ച് അപ്‌ലോഡ് ചെയ്യാൻ കഴിയൂ. താങ്കൾ ശ്രമിച്ചത് {{PLURAL:$2|ഒരു പ്രമാണം|$2 പ്രമാണങ്ങൾ}} ആണ്, അതുകൊണ്ട് {{PLURAL:$3|ഒരു പ്രമാണം|$3 പ്രമാണങ്ങൾ}} നീക്കംചെയ്തു.',
+	'mwe-upwiz-too-many-files-text' => 'ഒരു പ്രാവശ്യം {{PLURAL:$1|ഒരു പ്രമാണം|$1 പ്രമാണങ്ങൾ}} മാത്രമേ ഒരുമിച്ച് അപ്‌ലോഡ് ചെയ്യാൻ കഴിയൂ. താങ്കൾ ശ്രമിച്ചത് {{PLURAL:$2|ഒരു പ്രമാണം|$2 പ്രമാണങ്ങൾ}} ആണ്. പ്രമാണങ്ങളുടെ എണ്ണം കുറച്ച് വീണ്ടും ശ്രമിക്കുക!',
 	'mwe-upwiz-too-many-files' => 'വളരെയധികം പ്രമാണങ്ങൾ.',
 	'mwe-upwiz-file-too-large-ok' => 'ശരി',
 	'mwe-upwiz-file-too-large-text' => 'വലിപ്പം $1 വരെയുള്ള പ്രമാണങ്ങൾ മാത്രമേ താങ്കൾക്ക് അപ്‌ലോഡ് ചെയ്യാൻ കഴിയുകയുള്ളു. താങ്കൾ ശ്രമിച്ചത് വലിപ്പം $2 ഉള്ള പ്രമാണം അപ്‌ലോഡ് ചെയ്യാനാണ്.',
 	'mwe-upwiz-file-too-large' => 'പ്രമാണം വളരെ വലുതാണ്.',
+	'mwe-upwiz-necessary-confirm' => 'താങ്കളുടെ അപ്‌ലോഡുകളിൽ താങ്കൾ അനുയോജ്യമായ വർഗ്ഗവും ചേർക്കാൻ താത്പര്യപ്പെടുന്നു. എല്ലാ മണ്ഡലങ്ങളും പൂരിപ്പിക്കാതെ തുടരേണ്ടതുണ്ടോ?',
+	'mwe-upwiz-dialog-yes' => 'ഉണ്ട്',
+	'mwe-upwiz-dialog-no' => 'വേണ്ട',
+	'mwe-upwiz-dialog-title' => 'മുന്നറിയിപ്പ്',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'ക്രിയേറ്റീവ് കോമൺസ് ആട്രിബ്യൂഷൻ ഷെയർഎലൈക് 3.0 ([$2 നിയമവ്യവസ്ഥ])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'ക്രിയേറ്റീവ് കോമൺസ് ആട്രിബ്യൂഷൻ ഷെയർഎലൈക് 3.0 ഓസ്ട്രിയ ([$2 നിയമവ്യവസ്ഥ])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'ക്രിയേറ്റീവ് കോമൺസ് ആട്രിബ്യൂഷൻ ഷെയർഎലൈക് 3.0 ജർമ്മനി ([$2 നിയമവ്യവസ്ഥ])',
@@ -18027,7 +18034,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-license-external' => 'ഈ പ്രമാണം $1-ൽ ഇനി പറയുന്ന അനുമതിയിലാണുള്ളത്: $2.',
 	'mwe-upwiz-license-external-invalid' => 'ഈ പ്രമാണം $1-ൽ ഇനിപ്പറയുന്ന അനുമതിയിലാണുള്ളത്: $2. നിർഭാഗ്യവശാൽ, ഈ അനുമതി ഈ സൈറ്റിലെ ഉപയോഗത്തിന് അനുയോജ്യമല്ല.',
 	'mwe-upwiz-license-photoset-invalid' => 'നിർഭാഗ്യവശാൽ, ഫോട്ടോസെറ്റിലെ ഒരു ചിത്രം ഈ സൈറ്റിൽ ഉപയോഗിക്കാൻ അനുയോജ്യമായ അനുമതിയിൽ ഉള്ളവയല്ല.',
-	'mwe-upwiz-url-invalid' => 'നൽകിയിരിക്കുന്ന യു.ആർ.എൽ. സാധുതയുള്ള $1 ചിത്രമോ ഫോട്ടോസെറ്റ് യു.ആർ.എല്ലോ അല്ല.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'നൽകിയിരിക്കുന്ന യു.ആർ.എൽ. അസാധുവായതോ അനുവാദം പരിമിതപ്പെടുത്തിയതോ ആയ $1 ചിത്രമോ ഫോട്ടോസെറ്റോ ആയതിനാൽ, ഉപയോഗിക്കാനാവില്ല.',
 	'mwe-upwiz-categories' => 'വർഗ്ഗങ്ങൾ',
 	'mwe-upwiz-categories-add' => 'കൂട്ടിച്ചേർക്കുക',
 	'mwe-upwiz-category-will-be-added' => 'ഈ വർഗ്ഗം ഇതുവരെ ഉപയോഗത്തിലില്ല.',
@@ -18583,11 +18590,15 @@ Tolong jangan gunakan teks wiki atau HTML di sini.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Teks wiki ini nampaknya tidak sah, atau tidak mengandungi lesen.',
 	'mwe-upwiz-details-error-count' => 'Terdapat {{PLURAL:$1|satu kesilapan|$1 kesilapan}} dalam {{PLURAL:$2|borang|borang-borang}} di atas. Betulkan {{PLURAL:$1|kesilapan|kesilapan-kesilapan}} itu, kemudian cuba menghantar lagi.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'Anda boleh memuat naik $1 fail sahaja dalam sekali. Anda cuba memuat naik $2 fail, maka $3 fail terpaksa diketepikan.',
+	'mwe-upwiz-too-many-files-text' => 'Anda boleh memuat naik $1 fail sahaja dalam sekali tetapi anda cuba memuat naik $2 fail. Sila kurangkan fail dan cuba lagi1',
 	'mwe-upwiz-too-many-files' => 'Terlalu banyak fail.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Anda hanya boleh memuat naik fail sehingga $1. Anda cuba memuat naik fail yang sebesar $2.',
 	'mwe-upwiz-file-too-large' => 'Fail terlalu besar.',
+	'mwe-upwiz-necessary-confirm' => 'Anda disaran supaya menyatakan kategori untuk muatnaikan anda. Adakah anda ingin membiarkan semua ruangan kosong?',
+	'mwe-upwiz-dialog-yes' => 'Ya',
+	'mwe-upwiz-dialog-no' => 'Tidak',
+	'mwe-upwiz-dialog-title' => 'Amaran',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Pengiktirafan-PerkongsianSerupa 3.0 ([$2 kanun undang-undang])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Pengiktirafan-PerkongsianSerupa 3.0 Austria ([$2 kanun undang-undang])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Pengiktirafan-PerkongsianSerupa 3.0 Jerman ([$2 kanun undang-undang])',
