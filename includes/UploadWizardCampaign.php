@@ -3,7 +3,7 @@
 /**
  * Class that represents a single upload campaign.
  * An upload campaign is stored as a row in the uw_campaigns table,
- * and it's configuration is stored in uw_campaign_conf.
+ * and it's configuration is stored in the Campaign: namespace
  *
  * @file
  * @ingroup Upload
@@ -244,7 +244,7 @@ class UploadWizardCampaign extends ORMRow {
 	public function getConfig() {
 		if ( !$this->loadedConfig ) {
 			if ( $this->hasIdField() ) {
-				$this->setConfig( $this->getPropsFromDB() );
+				$this->setConfig( $this->getProps() );
 			}
 
 			$this->loadedConfig = true;
@@ -324,7 +324,7 @@ class UploadWizardCampaign extends ORMRow {
 		$success = parent::insert( $functionName, $options );
 
 		if ( $success ) {
-			$success &= $this->writePropsToDB();
+			$success &= $this->writeProps();
 		}
 
 		return $success;
@@ -342,15 +342,7 @@ class UploadWizardCampaign extends ORMRow {
 	public function save( $functionName = null ) {
 		$success = parent::save( $functionName );
 
-		// Delete and insert instead of update.
-		// This will not result into dead-data when config vars are removed.
-		$success &= wfGetDB( DB_MASTER )->delete(
-			'uw_campaign_conf',
-			array( 'cc_campaign_id' => $this->getId() ),
-			__METHOD__
-		);
-
-		$success &= $this->writePropsToDB();
+		$success &= $this->writeProps();
 
 		return $success;
 	}
@@ -362,36 +354,22 @@ class UploadWizardCampaign extends ORMRow {
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function writePropsToDB() {
-		$success = true;
-
+	protected function writeProps() {
 		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config )
 			&& array_key_exists( 'licensesOwnWork', $this->config )
 			&& !in_array( $this->config['defaultOwnWorkLicence'], $this->config['licensesOwnWork'] ) ) {
 			$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$campaignName = $this->getField( 'name' );
+		$campaignPage = WikiPage::factory( Title::newFromText( $campaignName, NS_CAMPAIGN ) );
 
-		$dbw->begin();
+		$status = $campaignPage->doEditContent(
+			new CampaignContent( json_encode( $this->config ) ),
+			wfMessage( 'mwe-upwiz-campaign-edit-summary-update' )->inContentLanguage()->escaped()
+		);
 
-		// TODO: it'd be better to serialize() arrays
-
-		foreach ( $this->config as $prop => $value ) {
-			$success &= $dbw->insert(
-				'uw_campaign_conf',
-				array(
-					'cc_campaign_id' => $this->getId(),
-					'cc_property' => $prop,
-					'cc_value' => is_array( $value ) ? implode( '|', $value ) : $value
-				),
-				__METHOD__
-			);
-		}
-
-		$dbw->commit();
-
-		return $success;
+		return $status->isOK();
 	}
 
 	/**
@@ -401,19 +379,13 @@ class UploadWizardCampaign extends ORMRow {
 	 *
 	 * @return array
 	 */
-	protected function getPropsFromDB() {
+	protected function getProps() {
 		$config = array();
 
-		$confProps = wfGetDB( DB_SLAVE )->select(
-			'uw_campaign_conf',
-			array( 'cc_property', 'cc_value' ),
-			array( 'cc_campaign_id' => $this->getId() ),
-			__METHOD__
-		);
+		$campaignName = $this->getField( 'name' );
+		$campaignPage = WikiPage::factory( Title::newFromText( $campaignName, NS_CAMPAIGN ) );
 
-		foreach ( $confProps as $confProp ) {
-			$config[$confProp->cc_property] = $confProp->cc_value;
-		}
+		$config = $campaignPage->getContent()->getJsonData();
 
 		return $config;
 	}
@@ -428,13 +400,13 @@ class UploadWizardCampaign extends ORMRow {
 	public function remove() {
 		$d1 = parent::remove();
 
-		$d2 = wfGetDB( DB_MASTER )->delete(
-			'uw_campaign_conf',
-			array( 'cc_campaign_id' => $this->getId() ),
-			__METHOD__
-		);
+		$campaignName = $this->getField( 'name' );
+		$campaignPage = WikiPage::factory( Title::newFromText( $campaignName, NS_CAMPAIGN ) );
 
-		return $d1 && $d2;
+		$deleteStatus = $campaignpage->doDeleteArticleReal(
+			wfMessage( 'mwe-upwiz-campaign-edit-summary-delete' )->inContentLanguage()->text()
+		);
+		return $d1 && $deleteStatus->isOK();
 	}
 
 }
