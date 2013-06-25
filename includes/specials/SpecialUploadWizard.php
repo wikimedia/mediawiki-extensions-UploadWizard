@@ -61,27 +61,24 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 		}
 
-		$categories = $req->getText( 'categories' );
-		if ( $categories ) {
-			UploadWizardConfig::setUrlSetting( 'defaultCategories', explode( '|', $categories ) );
-		}
 
-		$ulrArgs = array(
-			'id' => 'idFieldInitialValue',
-			'id2' => 'idField2InitialValue',
-			'description' => 'defaultDescription',
-			'lat' => 'defaultLat',
-			'lon' => 'defaultLon',
-			'alt' => 'defaultAlt',
-		);
+		# FIXME: id and id2 don't really do anything
+		$ulrArgs = array( 'id', 'id2', 'description', 'lat', 'lon', 'alt' );
 
-		foreach ( $ulrArgs as $arg => $setting ) {
+		$urlDefaults = array( );
+		foreach ( $ulrArgs as $arg ) {
 			$value = $req->getText( $arg );
 			if ( $value ) {
-				UploadWizardConfig::setUrlSetting( $setting, $value );
+				$urlDefaults[ $arg ] = $value;
 			}
 		}
 
+		$categories = $req->getText( 'categories' );
+		if ( $categories ) {
+			$urlDefaults['categories'] = explode( '|', $categories );
+		}
+
+		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
 		$this->handleCampaign();
 
 		$out = $this->getOutput();

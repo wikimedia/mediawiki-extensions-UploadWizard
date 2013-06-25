@@ -155,8 +155,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
 	//_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
 
-	_this.latInput.val( mw.UploadWizard.config.defaultLat );
-	_this.lonInput.val( mw.UploadWizard.config.defaultLon );
+	_this.latInput.val( mw.UploadWizard.config.defaults.lat );
+	_this.lonInput.val( mw.UploadWizard.config.defaults.lon );
 	//_this.altInput.val( mw.UploadWizard.config.defaultAlt );
 
 	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
@@ -350,7 +350,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		!mw.UploadWizard.config.idField,
 		mw.LanguageUpWiz.UNKNOWN,
 		false,
-		mw.UploadWizard.config.defaultDescription
+		mw.UploadWizard.config.defaults.description
 	);
 
 	if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
@@ -396,7 +396,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		api: _this.upload.api,
 		hiddenCats: hiddenCats,
 		buttontext: mw.msg( 'mwe-upwiz-categories-add' ),
-		cats: mw.UploadWizard.config.defaultCategories === undefined ? [] : mw.UploadWizard.config.defaultCategories,
+		cats: mw.UploadWizard.config.defaults.categories === undefined ? [] : mw.UploadWizard.config.defaults.categories,
 		missingCatsWikiText: missingCatsWikiText,
 		willbeaddedtext: mw.msg( 'mwe-upwiz-category-will-be-added' ),
 		onnewcat: function () {

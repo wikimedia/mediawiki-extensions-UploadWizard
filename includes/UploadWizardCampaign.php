@@ -96,22 +96,7 @@ class UploadWizardCampaign extends ORMRow {
 				'options' => array(),
 				'default' => $globalConfig['licensesOwnWork']['defaults'][0]
 			),
-			'defaultCategories' => array(
-				'type' => 'text'
-			),
 			'thanksLabelPage' => array(
-				'type' => 'text'
-			),
-			'defaultLat' => array(
-				'type' => 'text'
-			),
-			'defaultLon' => array(
-				'type' => 'text'
-			),
-			'defaultAlt' => array(
-				'type' => 'text'
-			),
-			'defaultDescription' => array(
 				'type' => 'text'
 			),
 		);

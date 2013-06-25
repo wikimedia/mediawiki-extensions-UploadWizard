@@ -86,9 +86,6 @@ return array(
 		'wikitext' => '',
 	),
 
-	// Categories to list by default in the list of cats to add.
-	'defaultCategories' => array(),
-
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
 	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
 	'missingCategoriesWikiText' => '',
@@ -148,17 +145,22 @@ return array(
 	'idField2MaxLength' => 25,
 	'idField2InitialValue' => '',
 
-	// Initial value for the description field.
-	'defaultDescription' => '',
+	'defaults' => array(
+		// Categories to list by default in the list of cats to add.
+		'categories' => array( 'helloi' ),
 
-	// Initial value for the latitude field.
-	'defaultLat' => '',
+		// Initial value for the description field.
+		'description' => '',
 
-	// Initial value for the longitude field.
-	'defaultLon' => '',
+		// Initial value for the latitude field.
+		'lat' => '',
 
-	// Initial value for the altitude field.
-	'defaultAlt' => '',
+		// Initial value for the longitude field.
+		'lon' => '',
+
+		// Initial value for the altitude field.
+		'alt' => '',
+	),
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
 	// See the definition of $uwLanguages above. If empty we'll just set a default.
