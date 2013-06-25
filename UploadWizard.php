@@ -43,8 +43,7 @@ $wgAutoloadClasses += array(
 	// Hooks
 	'UploadWizardHooks' => $wgUpwizDir . '/UploadWizardHooks.php',
 
-	// Api Modules
-	'ApiUploadCampaign' => $wgUpwizDir . '/api/ApiUploadCampaign.php',
+	// Api Modules (+1 below)
 	'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api/ApiDeleteUploadCampaign.php',
 	'ApiCampaign' => $wgUpwizDir . '/includes/ApiCampaign.php',
 
@@ -81,7 +80,6 @@ $wgSpecialPageGroups['UploadCampaigns'] = 'media';
 $wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
 $wgSpecialPageGroups['UploadCampaign'] = 'media';
 
-$wgAPIModules['uploadcampaign'] = 'ApiUploadCampaign';
 $wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
 
 if ( array_key_exists( 'ApiQueryORM', $wgAutoloadLocalClasses ) ) { // Backwards-compatibility with MW 1.20
