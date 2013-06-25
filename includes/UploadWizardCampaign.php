@@ -99,13 +99,6 @@ class UploadWizardCampaign extends ORMRow {
 			'defaultCategories' => array(
 				'type' => 'text'
 			),
-			'autoCategories' => array(
-				'type' => 'text'
-			),
-			'autoWikiText' => array(
-				'type' => 'textarea',
-				'rows' => 4
-			),
 			'thanksLabelPage' => array(
 				'type' => 'text'
 			),

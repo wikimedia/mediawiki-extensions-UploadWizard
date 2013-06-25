@@ -381,10 +381,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			} );
 	}
 	// make this a category picker
-	var hiddenCats = mw.UploadWizard.config.autoCategories === undefined ? [] : mw.UploadWizard.config.autoCategories;
-	if ( typeof mw.UploadWizard.config.autoCategory === 'string' && mw.UploadWizard.config.autoCategory.length > 0 ) {
-		hiddenCats.push( mw.UploadWizard.config.autoCategory );
-	}
+	var hiddenCats = mw.UploadWizard.config.autoAdd.categories === undefined ? [] : mw.UploadWizard.config.autoAdd.categories;
 
 	var missingCatsWikiText = null;
 	if (
@@ -1256,8 +1253,8 @@ mw.UploadWizardDetails.prototype = {
 			wikiText += "\n=={{int:license-header}}==\n";
 			wikiText += deed.getLicenseWikiText() + "\n\n";
 
-			if ( mw.UploadWizard.config.autoWikiText !== undefined ) {
-				wikiText += mw.UploadWizard.config.autoWikiText;
+			if ( mw.UploadWizard.config.autoAdd.wikitext !== undefined ) {
+				wikiText += mw.UploadWizard.config.autoAdd.wikitext;
 			}
 
 			// add categories

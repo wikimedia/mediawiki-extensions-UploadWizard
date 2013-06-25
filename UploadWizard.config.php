@@ -77,11 +77,14 @@ return array(
 	'flickrApiUrl' => 'http://api.flickr.com/services/rest/?',
 	'flickrApiKey' => '',
 
-	// Categories to automatically (and silently) add all uploaded images into.
-	'autoCategories' => array(),
+	// Settings about things that get automatically (and silently) added to uploads
+	'autoAdd' => array(
+		// Categories to automatically (and silently) add all uploaded images into.
+		'categories' => array(),
 
-	// Deprecated: use autoCategories
-	'autoCategory' => '',
+		// WikiText to automatically (and silently) add to all uploaded images.
+		'wikitext' => '',
+	),
 
 	// Categories to list by default in the list of cats to add.
 	'defaultCategories' => array(),
@@ -89,9 +92,6 @@ return array(
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
 	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
 	'missingCategoriesWikiText' => '',
-
-	// WikiText to automatically (and silently) add to all uploaded images.
-	'autoWikiText' => '',
 
 	// Page containing the (wiki)text to display above the UploadWizard UI.
 	// $1 is replaced by the language code.
