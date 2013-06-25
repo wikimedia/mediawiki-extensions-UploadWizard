@@ -8120,11 +8120,15 @@ Palun ära kasuta siin vikiteksti ega HTMLi.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'See ei paista olevat õige vikitekst või ei vasta litsentsile.',
 	'mwe-upwiz-details-error-count' => '{{PLURAL:$2|Ülalolevas vormis|Ülalolevates vormides}} esineb {{PLURAL:$1|üks tõrge|$1 tõrget}}. Kõrvalda {{PLURAL:$1|tõrge|tõrked}} ja proovi uuesti jätkata.',
 	'mwe-upwiz-too-many-files-ok' => 'Sobib',
-	'mwe-upwiz-too-many-files-text' => 'Korraga saab üles laadida {{PLURAL:$1|ühe faili|$1 faili}}. Proovisid üles laadida kokku {{PLURAL:$2|üht faili|$2 faili}}, seega {{PLURAL:$3|üks fail|$3 faili}} on eemaldatud.',
+	'mwe-upwiz-too-many-files-text' => 'Korraga saab üles laadida {{PLURAL:$1|ühe faili|$1 faili}}, aga sina proovisid üles laadida kokku {{PLURAL:$2|üht faili|$2 faili}}. Palun proovi üles laadida vähemat arvu faile.',
 	'mwe-upwiz-too-many-files' => 'Liiga palju faile.',
 	'mwe-upwiz-file-too-large-ok' => 'Selge',
 	'mwe-upwiz-file-too-large-text' => 'Saad üles laadida kuni $1 suuruseid faile. Proovisid üles laadida $2 suurust faili.',
 	'mwe-upwiz-file-too-large' => 'Fail on liiga suur.',
+	'mwe-upwiz-necessary-confirm' => 'Üleslaaditavate failide juurde on soovitatav lisada kategooria. Kas tahad jätkata kõiki välju täitmata?',
+	'mwe-upwiz-dialog-yes' => 'Jah',
+	'mwe-upwiz-dialog-no' => 'Ei',
+	'mwe-upwiz-dialog-title' => 'Hoiatus',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commonsi litsents "Autorile viitamine + jagamine samadel tingimustel 3.0" ([$2 litsentsitekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commonsi Austria litsents "Autorile viitamine + jagamine samadel tingimustel 3.0" ([$2 litsentsitekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commonsi Saksamaa litsents "Autorile viitamine + jagamine samadel tingimustel 3.0" ([$2 litsentsitekst])',
@@ -22052,6 +22056,7 @@ $messages['ps'] = array(
  * @author Hamilton Abreu
  * @author João Sousa
  * @author Luckas
+ * @author Malafaya
  * @author MetalBrasil
  * @author SandroHc
  * @author Waldir
@@ -22082,9 +22087,9 @@ $messages['pt'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'Não foram encontrados os ficheiros do guia que devia ser apresentado aqui. Contacte os administradores do sistema, por favor.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Não foi possível obter uma imagem do guia, dimensionada para este ecrã. Este problema da Wikimedia Commons pode ser temporário; tente novamente mais tarde.',
 	'mwe-upwiz-help-desk' => 'Apoio Técnico',
-	'mwe-upwiz-help-desk-url' => 'Apoio Técnico', # Fuzzy
-	'mwe-upwiz-add-file-n' => 'Adicionar outro ficheiro', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Escolha um ficheiro multimédia para oferecer', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Apoio técnico',
+	'mwe-upwiz-add-file-n' => 'Adicionar mais ficheiros',
+	'mwe-upwiz-add-file-0-free' => 'Escolha ficheiros multimédia para partilhar',
 	'mwe-upwiz-transport-started' => 'A começar...',
 	'mwe-upwiz-uploading' => 'A enviar...',
 	'mwe-upwiz-transported' => 'Envio terminado...',
@@ -22256,11 +22261,12 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'O texto introduzido não parece ser notação wiki válida, ou não contém uma licença.',
 	'mwe-upwiz-details-error-count' => '{{PLURAL:$1Existe um erro|Existem $1 erros}} {{PLURAL:$2|no formulário|nos formulários}} acima. Corrija {{PLURAL:$1|o erro|os erros}} e tente {{PLURAL:$2|enviá-lo|enviá-los}} novamente.', # Fuzzy
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'Só pode enviar $1 {{PLURAL:$1|ficheiro|ficheiros}} ao mesmo tempo. Tentou enviar $2 {{PLURAL:$2|ficheiro|ficheiros}} no total, portanto $3 {{PLURAL:$3|ficheiro foi removido|ficheiros foram removidos}}.',
+	'mwe-upwiz-too-many-files-text' => 'Só pode enviar $1 {{PLURAL:$1|ficheiro|ficheiros}} ao mesmo tempo. Tentou enviar $2 {{PLURAL:$2|ficheiro|ficheiros}} no total, portanto $3 {{PLURAL:$3|ficheiro foi removido|ficheiros foram removidos}}.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'Demasiados ficheiros.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Só pode fazer enviar ficheiros com o tamanho máximo de $1. Tentou enviar um ficheiro que tem $2.',
 	'mwe-upwiz-file-too-large' => 'O ficheiro é demasiado grande.',
+	'mwe-upwiz-dialog-title' => 'Podem ser carregados ficheiros com nomes em qualquer língua e em qualquer alfabeto. Os títulos dos ficheiros multimédia devem ter um significado e ser úteis na língua escolhida.', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons - Atribuição - CompartilhaIgual 3.0 ([$2 licença jurídica])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons - Atribuição - CompartilhaIgual 3.0 Áustria ([$2 licença jurídica])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons - Atribuição - CompartilhaIgual 3.0 Alemanha ([$2 licença jurídica])',
@@ -22317,7 +22323,7 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-category-remove' => 'Remover esta categoria',
 	'mwe-upwiz-thumbnail-failed' => 'O envio correu bem, mas o servidor não conseguiu obter uma miniatura para antevisão.',
 	'mwe-upwiz-unparseable-filename' => 'O nome de ficheiro "$1" não foi compreendido',
-	'mwe-upwiz-image-preview' => 'Antevisão da imagem', # Fuzzy
+	'mwe-upwiz-image-preview' => 'Antevisão do ficheiro',
 	'mwe-upwiz-subhead-message' => 'Obrigado por ter usado a nossa nova ferramenta de envio de ficheiros!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Problemas conhecidos]',
 	'mwe-upwiz-subhead-translate' => '[$1 Ajudar na tradução]',
