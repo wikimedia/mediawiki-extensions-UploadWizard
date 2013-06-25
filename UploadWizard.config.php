@@ -110,15 +110,19 @@ return array(
 	// Possible values: choice, own, notown
 	'ownWorkOption' => 'choice',
 
-	// Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired.
-	'tutorialTemplate' => 'Licensing_tutorial_$1.svg',
+	// Settings for the tutorial to be shown.
+	// Empty array if we want to skip
+	'tutorial' => array(
+		// Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired.
+		'template' => 'Licensing_tutorial_$1.svg',
 
-	// The width we want to scale the tutorial to, for our interface.
-	'tutorialWidth' => 720,
+		// The width we want to scale the tutorial to, for our interface.
+		'width' => 720,
 
-	// Imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
-	// Empty string or false to not have an imagemap linked to the helpdesk.
-	'tutorialHelpdeskCoords' => '27, 1319, 691, 1384',
+		// Imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
+		// Empty string or false to not have an imagemap linked to the helpdesk.
+		'helpdeskCoords' => '27, 1319, 691, 1384',
+	),
 
 	// Field via which an ID can be provided.
 	// When non empty, this field will be shown, and $1 will be replaced by it's value.
@@ -507,9 +511,6 @@ return array(
 		'noUpscaling'       => 'true',
 		'videoCodec'        => 'vp8',
 	),
-
-	// Set skipTutorial to true to always skip tutorial step
-	'skipTutorial' => false,
 
 	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',

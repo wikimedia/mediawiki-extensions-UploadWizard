@@ -26,12 +26,13 @@ class UploadWizardTutorial {
 
 		$langCode = $wgLang->getCode();
 
+		$tutorial = UploadWizardConfig::getSetting( 'tutorial', $campaign );
 		$tutorialFile = false;
 		// getFile returns false if it can't find the right file
-		if ( ! $tutorialFile = self::getFile( $langCode, $campaign ) ) {
+		if ( ! $tutorialFile = self::getFile( $langCode, $tutorial ) ) {
 			$error = 'localized-file-missing';
 			foreach ( $wgLang->getFallbackLanguages() as $langCode ) {
-				if ( $tutorialFile = self::getFile( $langCode, $campaign ) ) {
+				if ( $tutorialFile = self::getFile( $langCode, $tutorial ) ) {
 					// $langCode remains as the code where a file is found.
 					break;
 				}
@@ -51,10 +52,10 @@ class UploadWizardTutorial {
 			// put it into a div of appropriate dimensions.
 
 			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
-			$thumbnailImage = $tutorialFile->transform( array( 'width' => UploadWizardConfig::getSetting( 'tutorialWidth', $campaign ) ) );
+			$thumbnailImage = $tutorialFile->transform( array( 'width' => $tutorial['width'] ) );
 
  			if ( $thumbnailImage ) {
-				$tutorialHtml = self::getImageHtml( $thumbnailImage );
+				$tutorialHtml = self::getImageHtml( $thumbnailImage, $tutorial );
 			} else {
 				$error = 'cannot-transform';
 			}
@@ -82,8 +83,8 @@ class UploadWizardTutorial {
 	 *
 	 * @return File|false
 	 */
-	public static function getFile( $langCode, $campaign = null ) {
- 		$tutorialName = str_replace( '$1', $langCode, UploadWizardConfig::getSetting( 'tutorialTemplate', $campaign ) );
+	public static function getFile( $langCode, $tutorial ) {
+		$tutorialName = str_replace( '$1', $langCode, $tutorial['template'] );
 		return wfFindFile( Title::newFromText( $tutorialName, NS_FILE ) );
 	}
 
@@ -95,7 +96,7 @@ class UploadWizardTutorial {
 	 *
 	 * @return String HTML representing the image, with clickable helpdesk button
 	 */
-	public static function getImageHtml( MediaTransformOutput $thumb, $campaign = null ) {
+	public static function getImageHtml( MediaTransformOutput $thumb, $tutorial ) {
 		$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->text();
 
 		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message
@@ -106,7 +107,7 @@ class UploadWizardTutorial {
 			$helpDeskHref = $helpDeskTitle ? $helpDeskTitle->getLocalURL() : '#';
 		}
 
-		$buttonCoords = UploadWizardConfig::getSetting( 'tutorialHelpdeskCoords', $campaign );
+		$buttonCoords = $tutorial['helpdeskCoords'];
 		$useMap = $buttonCoords !== false && trim( $buttonCoords ) != '';
 
 		$imgAttributes = array(

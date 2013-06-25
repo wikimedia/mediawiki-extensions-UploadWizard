@@ -56,7 +56,9 @@ class SpecialUploadWizard extends SpecialPage {
 		$skipTutorial = $req->getCheck( 'skiptutorial' );
 		if ( $skipTutorial ) {
 			$skip = in_array( $skipTutorial, array( '1', 'true' ) );
-			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
+			if( $skip === true ) {
+				UploadWizardConfig::setUrlSetting( 'tutorial', array( ) );
+			}
 		}
 
 		$categories = $req->getText( 'categories' );
@@ -365,7 +367,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
-		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && !$globalConf['skipTutorial'] ) {
+		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $globalConf['tutorial'] != array() ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
 

@@ -569,7 +569,7 @@ class UploadWizardHooks {
 		$config = UploadWizardConfig::getConfig();
 
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
-		if ( UploadWizardConfig::getSetting( 'skipTutorial' ) == false ) {
+		if ( UploadWizardConfig::getSetting( 'tutorial' ) != array( ) ) {
 			$preferences['upwiz_skiptutorial'] = array(
 				'type' => 'check',
 				'label-message' => 'mwe-upwiz-prefs-skiptutorial',

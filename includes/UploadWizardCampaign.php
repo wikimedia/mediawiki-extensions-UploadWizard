@@ -43,20 +43,9 @@ class UploadWizardCampaign extends ORMRow {
 	public static function getConfigTypes() {
 		$globalConfig = UploadWizardConfig::getConfig();
 
+		// XXX: This will be killed one by one, then replaced by a JSON Schema
 		$config = array(
 			'headerLabelPage' => array(
-				'type' => 'text',
-			),
-			'skipTutorial' => array(
-				'type' => 'check'
-			),
-			'tutorialTemplate' => array(
-				'type' => 'text',
-			),
-			'tutorialWidth' => array(
-				'type' => 'int',
-			),
-			'tutorialHelpdeskCoords' => array(
 				'type' => 'text',
 			),
 			'idField' => array(
