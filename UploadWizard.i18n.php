@@ -523,7 +523,7 @@ Followed by the Submit button which is labeled {{msg-mw|Mwe-upwiz-add-flickr}}.'
 	'mwe-upwiz-assembling' => 'Status message while server assembles the uploaded chunks',
 	'mwe-upwiz-publish' => 'Status message while server publishes file from stash',
 	'mwe-upwiz-transported' => 'Status message once upload is finished',
-	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was succesfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).
+	'mwe-upwiz-stashed-upload' => 'This message is displayed near the thumbnail of the file after it was successfully uploaded. It appears under the filename and above the Remove link ({{msg-mw|mwe-upwiz-remove}}).
 {{Identical|Uploaded}}',
 	'mwe-upwiz-getting-metadata' => 'Used as status message.',
 	'mwe-upwiz-submitting-details' => 'Used to indicate that details are being uploaded.',
@@ -4695,6 +4695,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-desc' => 'Цуьнах лаьцна',
 	'mwe-upwiz-location-alt' => 'Локхалла',
 	'mwe-upwiz-source' => 'Хьост',
+	'mwe-upwiz-overwrite' => 'Хийца файл',
 	'mwe-upwiz-campaigns-status' => 'Хьал',
 	'mwe-upwiz-campaigns-disabled' => 'ДӀадайъина',
 	'mwe-upwiz-campaigns-edit' => 'Нисйé',
