@@ -3,7 +3,7 @@
 /**
  * Class that represents a single upload campaign.
  * An upload campaign is stored as a row in the uw_campaigns table,
- * and it's configuration is stored in the Campaign: namespace
+ * and its configuration is stored in the Campaign: namespace
  *
  * @file
  * @ingroup Upload

@@ -29,11 +29,10 @@ class CampaignHooks {
 		$wgAPIModules[ 'camapaign' ] = 'ApiCampaign';
 		
 		return true;
-
 	}
 
 	/**
-	 * Declares JSON as the code editor language for Schema: pages.
+	 * Declares JSON as the code editor language for Campaign: pages.
 	 * This hook only runs if the CodeEditor extension is enabled.
 	 * @param Title $title
 	 * @param string &$lang Page language.
@@ -47,7 +46,7 @@ class CampaignHooks {
 	}
 
 	/**
-	 * Registers Schema namespaces and assign edit rights.
+	 * Registers Campaign namespaces and assign edit rights.
 	 * @param array &$namespaces Mapping of numbers to namespace names.
 	 * @return bool
 	 */
@@ -57,6 +56,7 @@ class CampaignHooks {
 		$namespaces[ NS_CAMPAIGN ] = 'Campaign';
 		$namespaces[ NS_CAMPAIGN_TALK ] = 'Campaign_talk';
 
+		// FIXME: Provide required protection settings here
 		$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'autoconfirmed' );
 		$wgNamespaceContentModels[ NS_CAMPAIGN ] = 'Campaign';
 
@@ -89,7 +89,7 @@ class CampaignHooks {
 	}
 
 	/**
-	 * Adds CSS for pretty-printing schema on NS_SCHEMA pages.
+	 * Adds CSS for pretty-printing schema on NS_CAMPAIGN pages.
 	 * @param OutputPage &$out
 	 * @param Skin &$skin
 	 * @return bool
