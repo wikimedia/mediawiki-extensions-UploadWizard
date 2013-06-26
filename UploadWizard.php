@@ -45,7 +45,6 @@ $wgAutoloadClasses += array(
 
 	// Api Modules (+1 below)
 	'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api/ApiDeleteUploadCampaign.php',
-	'ApiCampaign' => $wgUpwizDir . '/includes/ApiCampaign.php',
 
 	// Includes
 	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
