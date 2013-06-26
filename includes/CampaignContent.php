@@ -102,22 +102,6 @@ class CampaignContent extends TextContent {
 	}
 
 	/**
-	 * Wraps HTML representation of content.
-	 *
-	 * @param Title $title
-	 * @param int|null $revId Revision ID
-	 * @param ParserOptions|null $options
-	 * @param boolean $generateHtml Whether or not to generate HTML
-	 * @return ParserOutput
-	 */
-	public function getParserOutput( Title $title, $revId = null,
-		ParserOptions $options = null, $generateHtml = true ) {
-		$out = parent::getParserOutput( $title, $revId, $options, $generateHtml );
-
-		return $out;
-	}
-
-	/**
 	 * Generates HTML representation of content.
 	 * @return string: HTML representation.
 	 */
