@@ -37,15 +37,15 @@ class UploadWizardConfig {
 		static $mergedConfig = false;
 
 		if ( !$mergedConfig ) {
-			$wgUploadWizardConfig = array_merge( self::getDefaultConfig(), $wgUploadWizardConfig );
+			$wgUploadWizardConfig = array_replace_recursive( self::getDefaultConfig(), $wgUploadWizardConfig );
 			$mergedConfig = true;
 		}
 
 		if ( !is_null( $campaignName ) ) {
-			$wgUploadWizardConfig = array_merge( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
+			$wgUploadWizardConfig = array_replace_recursive( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
 		}
 
-		return array_merge( $wgUploadWizardConfig, self::$urlConfig );
+		return array_replace_recursive( $wgUploadWizardConfig, self::$urlConfig );
 	}
 
 	/**
