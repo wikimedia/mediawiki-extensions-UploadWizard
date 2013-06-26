@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @ingroup EventLogging
+ * @ingroup UploadWizard
  *
  * @author Ori Livneh <ori@wikimedia.org>
  * @author Yuvi Panda <yuvipanda@gmail.com>
