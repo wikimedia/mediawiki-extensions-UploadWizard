@@ -156,10 +156,17 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		$labelPageContent = $this->getPageContent( $config['idFieldLabelPage'] );
-		if ( $labelPageContent !== false ) {
-			$config['idFieldLabel'] = $labelPageContent;
+		if( array_key_exists( 'fields', $config ) ) {
+			foreach( $config['fields'] as &$field ) {
+				if( array_key_exists( 'labelPage', $field ) ) {
+					$labelPageContent = $this->getPageContent( $field['labelPage'] );
+					if ( $labelPageContent !== false ) {
+						$field['label'] = $labelPageContent;
+					}
+				}
+			}
 		}
+
 		// UploadFromUrl parameter set to true only if the user is allowed to upload a file from a URL which we need to check in our Javascript implementation.
 		if ( UploadFromUrl::isEnabled() && UploadFromUrl::isAllowed( $this->getUser() ) === true ) {
 			$config['UploadFromUrl'] = true;

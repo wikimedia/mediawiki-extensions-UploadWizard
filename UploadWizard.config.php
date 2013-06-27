@@ -121,29 +121,38 @@ return array(
 		'helpdeskCoords' => '27, 1319, 691, 1384',
 	),
 
-	// Field via which an ID can be provided.
-	// When non empty, this field will be shown, and $1 will be replaced by it's value.
-	'idField' => '',
+	'fields' => array(
+		// Field via which an ID can be provided.
+		array(
+			// When non empty, this field will be shown, and $1 will be replaced by it's value.
+			'wikitext' => '',
 
-	// Label text to display with the id field.
-	'idFieldLabel' => '',
+			// Label text to display with the field.
+			'label' => '',
 
-	// Page on which the text to display with the id field is stored.
-	// Overrides idFieldLabel when set. $1 is replaced by the language code.
-	'idFieldLabelPage' => '',
+			// Page on which the text to display with the id field is stored.
+			// Overrides label when set. $1 is replaced by the language code.
+			'lagelPage' => '',
 
-	// The maximum length of the id field.
-	'idFieldMaxLength' => 25,
+			// The maximum length of the id field.
+			'maxLength' => 25,
 
-	// Initial value for the id field.
-	'idFieldInitialValue' => '',
+			// Initial value for the id field.
+			'initialValue' => '',
 
-	// Same as above, but for a second field.
-	'idField2' => '',
-	'idField2Label' => '',
-	'idField2LabelPage' => '',
-	'idField2MaxLength' => 25,
-	'idField2InitialValue' => '',
+			// Set to true if this field is required
+			'required' => false
+
+		),
+		// Same as above, but for a second field.
+		array(
+			'id' => '',
+			'label' => '',
+			'lagelPage' => '',
+			'maxLength' => '',
+			'initialValue' => ''
+		)
+	),
 
 	'defaults' => array(
 		// Categories to list by default in the list of cats to add.
