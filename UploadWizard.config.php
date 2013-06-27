@@ -90,14 +90,16 @@ return array(
 	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
 	'missingCategoriesWikiText' => '',
 
-	// Page containing the (wiki)text to display above the UploadWizard UI.
-	// $1 is replaced by the language code.
-	'headerLabelPage' => '',
+	'display' => array(
+		// Page containing the (wiki)text to display above the UploadWizard UI.
+		// $1 is replaced by the language code.
+		'headerLabelPage' => '',
 
-	// Page containing the (wiki)text to display on top of the "use" page.
-	// $1 is replaced by the language code.
-	// When not provided, the message mwe-upwiz-thanks-intro will be used.
-	'thanksLabelPage' => '',
+		// Page containing the (wiki)text to display on top of the "use" page.
+		// $1 is replaced by the language code.
+		// When not provided, the message mwe-upwiz-thanks-intro will be used.
+		'thanksLabelPage' => ''
+	),
 
 	// Default license type.
 	// Possible values: choice, ownwork, thirdparty

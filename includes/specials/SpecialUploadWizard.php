@@ -174,7 +174,12 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['UploadFromUrl'] = false;
 		}
 
-		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
+		if( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabelPage', $config['display'] ) ) {
+			$thanksLabelContent = $this->getPageContent( $config['display']['thanksLabelPage'] );
+			if ( $thanksLabelContent !== false ) {
+				$config['display']['thanksLabel'] = $thanksLabelContent;
+			}
+		}
 
 		// Get the user's default license. This will usually be 'default', but
 		// can be a specific license like 'ownwork-cc-zero'.
@@ -335,11 +340,14 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function getWizardHtml() {
 		global $wgExtensionAssetsPath;
 
+		// FIXME: Uh, this apparently is not actually 'global', but merged conf
 		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
 
-		$headerContent = $this->getPageContent( $globalConf['headerLabelPage'] );
-		if ( $headerContent !== false ) {
-			$this->getOutput()->addWikiText( $headerContent );
+		if( array_key_exists( 'display', $globalConf ) && array_key_exists( 'headerLabelPage', $globalConf['display'] ) ) {
+			$headerContent = $this->getPageContent( $globalConf['display']['headerLabelPage'] );
+			if ( $headerContent !== false ) {
+				$this->getOutput()->addWikiText( $headerContent );
+			}
 		}
 
 		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf )
