@@ -26,6 +26,7 @@ class CampaignHooks {
 		$wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';
 		$wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageLanguage';
 		$wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';
+		$wgHooks[ 'ArticleDeleteComplete' ][] = 'CampaignHooks::onArticleDeleteComplete';
 
 		$wgAPIModules[ 'camapaign' ] = 'ApiCampaign';
 		
@@ -57,6 +58,25 @@ class CampaignHooks {
 			$insertData
 		);
 
+		$dbw->commit();
+
+		return $success;
+	}
+
+	/**
+	 * Deletes entries from uc_campaigns table when a Campaign is deleted
+	 */
+	public static function onArticleDeleteComplete( $article, $user, $reason, $id, $content, $logEntry ) {
+		if( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+			return true;
+		}
+
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
+		$success = $dbw->delete(
+			'uw_campaigns',
+			array( 'campaign_name' => $article->getTitle()->getDBKey() )
+		);
 		$dbw->commit();
 
 		return $success;
