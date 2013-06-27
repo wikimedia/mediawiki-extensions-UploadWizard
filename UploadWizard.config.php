@@ -146,7 +146,7 @@ return array(
 		),
 		// Same as above, but for a second field.
 		array(
-			'id' => '',
+			'wikitext' => '',
 			'label' => '',
 			'lagelPage' => '',
 			'maxLength' => '',

@@ -50,36 +50,6 @@ class UploadWizardCampaign extends ORMRow {
 			'headerLabelPage' => array(
 				'type' => 'text',
 			),
-			'idField' => array(
-				'type' => 'text',
-			),
-			'idFieldLabel' => array(
-				'type' => 'text',
-			),
-			'idFieldLabelPage' => array(
-				'type' => 'text',
-			),
-			'idFieldMaxLength' => array(
-				'type' => 'int',
-			),
-			'idFieldInitialValue' => array(
-				'type' => 'text',
-			),
-			'idField2' => array(
-				'type' => 'text',
-			),
-			'idField2Label' => array(
-				'type' => 'text',
-			),
-			'idField2LabelPage' => array(
-				'type' => 'text',
-			),
-			'idField2MaxLength' => array(
-				'type' => 'int',
-			),
-			'idField2InitialValue' => array(
-				'type' => 'text',
-			),
 			'ownWorkOption' => array(
 				'type' => 'radio',
 				'options' => array(
