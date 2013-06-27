@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * FIXME: This class should have much reduced functionality
+ * by the end of the refactor
  * Class that represents a single upload campaign.
  * An upload campaign is stored as a row in the uw_campaigns table,
  * and its configuration is stored in the Campaign: namespace

@@ -25,10 +25,39 @@ class CampaignHooks {
 		$wgHooks[ 'CanonicalNamespaces' ][] = 'CampaignHooks::onCanonicalNamespaces';
 		$wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';
 		$wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageLanguage';
+		$wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';
 
 		$wgAPIModules[ 'camapaign' ] = 'ApiCampaign';
 		
 		return true;
+	}
+
+	/**
+	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
+	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
+	 */
+	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor, $isWatch, $section, $flags, $revision, $status, $baseRevId ) {
+		if( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+			return true;
+		}
+
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
+
+		$campaignData = $content->getJsonData();
+		$insertData = array(
+			'campaign_enabled' => $campaignData['enabled']
+		);
+		$success = $dbw->upsert(
+			'uw_campaigns',
+			array_merge( array(
+				'campaign_name' => $article->getTitle()->getDBkey()
+			), $insertData ),
+			array( 'campaign_name' ),
+			$insertData
+		);
+
+		return $success;
 	}
 
 	/**
