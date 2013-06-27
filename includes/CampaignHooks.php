@@ -57,6 +57,8 @@ class CampaignHooks {
 			$insertData
 		);
 
+		$dbw->commit();
+
 		return $success;
 	}
 
