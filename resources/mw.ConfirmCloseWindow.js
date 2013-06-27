@@ -1,21 +1,24 @@
 ( function( mw, $, undefined ) {
 	/**
+	 * @method confirmCloseWindow
+	 * @member mw
+	 *
 	 * Prevent the closing of a window with a confirm message (the onbeforeunload event seems to
 	 * work in most browsers.)
 	 *
 	 * This supersedes any previous onbeforeunload handler. If there was a handler before, it is
 	 * restored when you execute the returned function.
-	 * e.g.
 	 *
-	 *       var allowCloseWindow = mw.confirmCloseWindow( { message: 'Dont close me!' } );
-	 *       // ... do stuff that can't be interrupted ...
-	 *       allowCloseWindow();
+	 *     var allowCloseWindow = mw.confirmCloseWindow();
+	 *     // ... do stuff that can't be interrupted ...
+	 *     allowCloseWindow();
 	 *
-	 *
-	 * @param options Optional set of the following optional arguments:
-	 *				message: function returning string message to show.
-	 *				test: function returning boolean. If true, alert is shown. Defaults to always true.
-	 * @return closure	execute this when you want to allow the user to close the window
+	 * @param {Object} [options]
+	 * @param {Function} [options.message]
+	 * @param {string} options.message.return The string message to show in the confirm dialog.
+	 * @param {Function} [options.test]
+	 * @param {boolean} options.test.return Whether to show the dialog to the user.
+	 * @return {Function} Execute this when you want to allow the user to close the window
 	 */
 	mw.confirmCloseWindow = function( options ) {
 		if ( options === undefined ) {
@@ -53,5 +56,3 @@
 	};
 
 } )( window.mediaWiki, jQuery );
-
-
