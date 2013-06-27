@@ -47,9 +47,6 @@ class UploadWizardCampaign extends ORMRow {
 
 		// XXX: This will be killed one by one, then replaced by a JSON Schema
 		$config = array(
-			'headerLabelPage' => array(
-				'type' => 'text',
-			),
 			'ownWorkOption' => array(
 				'type' => 'radio',
 				'options' => array(
@@ -67,9 +64,6 @@ class UploadWizardCampaign extends ORMRow {
 				'type' => 'radio',
 				'options' => array(),
 				'default' => $globalConfig['licensesOwnWork']['defaults'][0]
-			),
-			'thanksLabelPage' => array(
-				'type' => 'text'
 			),
 		);
 
