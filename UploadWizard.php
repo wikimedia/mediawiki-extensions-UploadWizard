@@ -59,8 +59,6 @@ $wgAutoloadClasses += array(
 
 	// Special Pages
 	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
-	'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaigns.php',
-	'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaign.php'
 );
 
 // Registers hook and content handlers for Campaign contenthandler
@@ -72,12 +70,6 @@ $wgExtensionFunctions[] = 'CampaignHooks::registerHandlers';
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
-
-$wgSpecialPages['UploadCampaigns'] = 'SpecialUploadCampaigns';
-$wgSpecialPageGroups['UploadCampaigns'] = 'media';
-
-$wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
-$wgSpecialPageGroups['UploadCampaign'] = 'media';
 
 $wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
 
@@ -94,6 +86,7 @@ $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
 
 $wgAvailableRights[] = 'upwizcampaigns';
 
+# FIXME: This needs to be carried over to the ContentHandler
 # Users that can modify the upload campaigns (ie via Special:UploadCampaigns)
 $wgGroupPermissions['*'               ]['upwizcampaigns'] = false;
 $wgGroupPermissions['user'            ]['upwizcampaigns'] = false;
