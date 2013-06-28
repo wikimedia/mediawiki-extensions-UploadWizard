@@ -1,11 +1,12 @@
 <?php
 
 /**
- * FIXME: This class should have much reduced functionality
- * by the end of the refactor
  * Class that represents a single upload campaign.
  * An upload campaign is stored as a row in the uw_campaigns table,
  * and its configuration is stored in the Campaign: namespace
+ *
+ * This class is 'readonly' - to modify the campaigns, please
+ * edit the appropriate Campaign: namespace page
  *
  * @file
  * @ingroup Upload
@@ -13,6 +14,7 @@
  * @since 1.2
  *
  * @licence GNU GPL v2+
+ * @author Yuvi Panda <yuvipanda@gmail.com>
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class UploadWizardCampaign extends ORMRow {
@@ -135,7 +137,10 @@ class UploadWizardCampaign extends ORMRow {
 	/**
 	 * Sets all config properties.
 	 *
-	 * @since 1.2
+	 * Ideally this should be private, but is required for the
+	 * batchSelect in UploadWizardCampaigns. FIXME
+	 *
+	 * @since 1.3
 	 *
 	 * @param array $config
 	 */
@@ -244,9 +249,8 @@ class UploadWizardCampaign extends ORMRow {
 	}
 
 	/**
-	 * @see ORMRow::insert()
-	 *
-	 * @since 1.3
+	 * Explicitly disallow inserting new objects
+	 * @since 1.4
 	 *
 	 * @param string|null $functionName
 	 * @param array|null $options
@@ -254,59 +258,37 @@ class UploadWizardCampaign extends ORMRow {
 	 * @return boolean Success indicator
 	 */
 	protected function insert( $functionName = null, array $options = null ) {
-		$success = parent::insert( $functionName, $options );
-
-		if ( $success ) {
-			$success &= $this->writeProps();
-		}
-
-		return $success;
+		// FIXME: Throw an exception maybe?
+		die( "This function should not be called" );
 	}
 
 	/**
-	 * @see ORMRow::save()
-	 *
-	 * @since 1.3
+	 * Explicitly disallow updating new objects
+	 * @since 1.4
 	 *
 	 * @param $functionName null|string
 	 *
 	 * @return boolean Success indicator
 	 */
 	public function save( $functionName = null ) {
-		$success = parent::save( $functionName );
-
-		$success &= $this->writeProps();
-
-		return $success;
+		// FIXME: Throw an exception maybe?
+		die( "This function should not be called" );
 	}
 
 	/**
-	 * Write (insert) the configuration into the DB.
+	 * Explicitly disallow removing objects
 	 *
-	 * @since 1.2
+	 * @since 1.4
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function writeProps() {
-		if ( array_key_exists( 'defaultOwnWorkLicence', $this->config )
-			&& array_key_exists( 'licensesOwnWork', $this->config )
-			&& !in_array( $this->config['defaultOwnWorkLicence'], $this->config['licensesOwnWork'] ) ) {
-			$this->config['licensesOwnWork'][] = $this->config['defaultOwnWorkLicence'];
-		}
-
-		$campaignName = $this->getField( 'name' );
-		$campaignPage = WikiPage::factory( Title::newFromText( $campaignName, NS_CAMPAIGN ) );
-
-		$status = $campaignPage->doEditContent(
-			new CampaignContent( json_encode( $this->config ) ),
-			wfMessage( 'mwe-upwiz-campaign-edit-summary-update' )->inContentLanguage()->escaped()
-		);
-
-		return $status->isOK();
+	public function remove() {
+		// FIXME: Throw an exception maybe?
+		die( "This function should not be called" );
 	}
 
 	/**
-	 * Get the configuration properties from the DB.
+	 * Get the configuration properties from the Campaign: namespace
 	 *
 	 * @since 1.2
 	 *
@@ -323,23 +305,5 @@ class UploadWizardCampaign extends ORMRow {
 		return $config;
 	}
 
-	/**
-	 * Delete the campaign from the DB (when present).
-	 *
-	 * @since 1.3
-	 *
-	 * @return boolean Success indicator
-	 */
-	public function remove() {
-		$d1 = parent::remove();
-
-		$campaignName = $this->getField( 'name' );
-		$campaignPage = WikiPage::factory( Title::newFromText( $campaignName, NS_CAMPAIGN ) );
-
-		$deleteStatus = $campaignpage->doDeleteArticleReal(
-			wfMessage( 'mwe-upwiz-campaign-edit-summary-delete' )->inContentLanguage()->text()
-		);
-		return $d1 && $deleteStatus->isOK();
-	}
 
 }

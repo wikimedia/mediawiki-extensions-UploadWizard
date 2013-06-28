@@ -3,12 +3,16 @@
 /**
  * Class that represents the upload campaign table: uw_campaigns.
  *
+ * This class is 'readonly' - to modify the campaigns, please
+ * edit the appropriate Campaign: namespace page
+ *
  * @file
  * @ingroup Upload
  *
  * @since 1.3
  *
  * @licence GNU GPL v2+
+ * @author Yuvi Panda <yuvipanda@gmail.com>
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class UploadWizardCampaigns extends ORMTable {
@@ -54,40 +58,15 @@ class UploadWizardCampaigns extends ORMTable {
 	}
 
 	/**
-	 * @see IORMTable::delete()
+	 * Explicitly disallow deleting
 	 *
-	 * @since 1.3
-	 *
-	 * @param array $conditions
-	 * @param string|null $functionName
+	 * @since 1.4
 	 *
 	 * @return boolean Success indicator
 	 */
 	public function delete( array $conditions, $functionName = null ) {
-		$ids = $this->selectFields( 'id', $conditions, array(), true, $functionName );
-
-		if ( $ids === array() ) {
-			return true;
-		}
-
-		$dbw = wfGetDB( DB_MASTER );
-
-		$dbw->begin();
-
-		$success = $dbw->delete(
-			$this->getName(),
-			array( $this->getPrefixedField( 'id' ) => $ids ),
-			$functionName
-		) !== false; // DatabaseBase::delete does not always return true for success as documented...
-
-		$success = $dbw->delete(
-			'uw_campaign_conf',
-			array( 'cc_campaign_id' => $ids )
-		) && $success;
-
-		$dbw->commit();
-
-		return $success;
+		// FIXME: Throw an exception maybe?
+		die( "This function should not be called" );
 	}
 
 	/**
