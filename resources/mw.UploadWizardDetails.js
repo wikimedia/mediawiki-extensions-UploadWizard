@@ -198,7 +198,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	);
 
 	_this.fields = [];
-	$j.each( mw.UploadWizard.config.fields, function( i, field ) {
+	$j.each( mw.UploadWizard.config.fields, function ( i, field ) {
 		if( field.wikitext ) {
 			var fieldInputId = "field_" + i + '_' + ( _this.upload.index ).toString();
 
@@ -1183,8 +1183,8 @@ mw.UploadWizardDetails.prototype = {
 				information.description += desc.getWikiText();
 			} );
 
-			$j.each( _this.fields, function( i, $field ) {
-				if( ! mw.isEmpty( $field.val() ) ) {
+			$j.each( _this.fields, function ( i, $field ) {
+				if ( ! mw.isEmpty( $field.val() ) ) {
 					information.description += $field.data( 'field' ).wikitext.replace( '$1', $field.val() );
 				}
 			} );

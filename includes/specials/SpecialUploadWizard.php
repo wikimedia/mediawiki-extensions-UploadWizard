@@ -56,8 +56,8 @@ class SpecialUploadWizard extends SpecialPage {
 		$skipTutorial = $req->getCheck( 'skiptutorial' );
 		if ( $skipTutorial ) {
 			$skip = in_array( $skipTutorial, array( '1', 'true' ) );
-			if( $skip === true ) {
-				UploadWizardConfig::setUrlSetting( 'tutorial', array( ) );
+			if ( $skip === true ) {
+				UploadWizardConfig::setUrlSetting( 'tutorial', array() );
 			}
 		}
 
@@ -156,8 +156,8 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if( array_key_exists( 'fields', $config ) ) {
-			foreach( $config['fields'] as &$field ) {
+		if ( array_key_exists( 'fields', $config ) ) {
+			foreach ( $config['fields'] as &$field ) {
 				if( array_key_exists( 'labelPage', $field ) ) {
 					$labelPageContent = $this->getPageContent( $field['labelPage'] );
 					if ( $labelPageContent !== false ) {
