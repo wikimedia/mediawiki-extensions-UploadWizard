@@ -203,14 +203,14 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			var fieldInputId = "field_" + i + '_' + ( _this.upload.index ).toString();
 
 			var $fieldInput = $j( '<input />' ).attr( {
-				'type': 'text',
-				'id': fieldInputId,
-				'name': fieldInputId,
-				'class': 'mwe-idfield',
-				'maxlength': field.maxLength
-			} )
-			.val( field.initialValue )
-			.data( 'field', field );
+					'type': 'text',
+					'id': fieldInputId,
+					'name': fieldInputId,
+					'class': 'mwe-idfield',
+					'maxlength': field.maxLength
+				} )
+				.val( field.initialValue )
+				.data( 'field', field );
 
 			_this.$form.append(
 				$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + fieldInputId+ '" generated="true"/></div>' ),
