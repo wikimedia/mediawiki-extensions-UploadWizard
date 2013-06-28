@@ -213,9 +213,11 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				.data( 'field', field );
 
 			_this.$form.append(
-				$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + fieldInputId+ '" generated="true"/></div>' ),
-				$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( field.label ).requiredFieldLabel(),
-				$j( '<div class="mwe-id-field"></div>' ).append( $fieldInput )
+				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
+					.append( $j( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
+				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).text( field.label ).requiredFieldLabel(),
+				$j( '<div>' ).attr( 'class', 'mwe-id-field' )
+					.append( $fieldInput )
 			);
 
 			// We can setup validation only after it has been added to a form
