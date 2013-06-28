@@ -29,10 +29,12 @@ class UploadWizardTutorial {
 		$tutorial = UploadWizardConfig::getSetting( 'tutorial', $campaign );
 		$tutorialFile = false;
 		// getFile returns false if it can't find the right file
-		if ( ! $tutorialFile = self::getFile( $langCode, $tutorial ) ) {
+		$tutorialFile = self::getFile( $langCode, $tutorial );
+		if ( $tutorialFile === false ) {
 			$error = 'localized-file-missing';
 			foreach ( $wgLang->getFallbackLanguages() as $langCode ) {
-				if ( $tutorialFile = self::getFile( $langCode, $tutorial ) ) {
+				$tutorialFile = self::getFile( $langCode, $tutorial );
+				if ( $tutorialFile !== false ) {
 					// $langCode remains as the code where a file is found.
 					break;
 				}
