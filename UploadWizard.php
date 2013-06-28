@@ -86,7 +86,6 @@ $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
 
 $wgAvailableRights[] = 'upwizcampaigns';
 
-# FIXME: This needs to be carried over to the ContentHandler
 # Users that can modify the upload campaigns (ie via Special:UploadCampaigns)
 $wgGroupPermissions['*'               ]['upwizcampaigns'] = false;
 $wgGroupPermissions['user'            ]['upwizcampaigns'] = false;

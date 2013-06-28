@@ -107,8 +107,7 @@ class CampaignHooks {
 		$namespaces[ NS_CAMPAIGN ] = 'Campaign';
 		$namespaces[ NS_CAMPAIGN_TALK ] = 'Campaign_talk';
 
-		// FIXME: Provide required protection settings here
-		$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'autoconfirmed' );
+		$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'upwizcampaigns' );
 		$wgNamespaceContentModels[ NS_CAMPAIGN ] = 'Campaign';
 
 		return true;
