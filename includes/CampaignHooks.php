@@ -27,6 +27,7 @@ class CampaignHooks {
 		$wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageLanguage';
 		$wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';
 		$wgHooks[ 'ArticleDeleteComplete' ][] = 'CampaignHooks::onArticleDeleteComplete';
+		$wgHooks[ 'TitleMoveComplete' ][] = 'CampaignHooks::onTitleMoveComplete';
 
 		$wgAPIModules[ 'camapaign' ] = 'ApiCampaign';
 		
@@ -76,6 +77,26 @@ class CampaignHooks {
 		$success = $dbw->delete(
 			'uw_campaigns',
 			array( 'campaign_name' => $article->getTitle()->getDBKey() )
+		);
+		$dbw->commit();
+
+		return $success;
+	}
+
+	/**
+	 * Update campaign names when the Campaign page moves
+	 */
+	public static function onTitleMoveComplete( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
+		if( !$oldTitle->inNamespace( NS_CAMPAIGN ) ) {
+			return true;
+		}
+
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->begin();
+		$success = $dbw->update(
+			'uw_campaigns',
+			array( 'campaign_name' => $newTitle->getDBKey() ),
+			array( 'campaign_name' => $oldTitle->getDBKey() )
 		);
 		$dbw->commit();
 
