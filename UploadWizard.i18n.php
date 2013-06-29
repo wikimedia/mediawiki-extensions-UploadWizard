@@ -5342,12 +5342,12 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-error-license-wikitext-invalid' => "Nid yw'r gystrawen wici yma'n edrych yn ddilys; neu nid oes trwydded i'w weld yma.",
 	'mwe-upwiz-details-error-count' => 'Mae {{PLURAL:$1||gwall|$1 wall|$1 gwall}} ar y {{PLURAL:$2||ffurflen|ffurflenni}} uchod. Cywirwch y {{PLURAL:$1||gwall|gwallau}}, ac yna ceisiwch eu llwytho eto.',
 	'mwe-upwiz-too-many-files-ok' => 'Iawn',
-	'mwe-upwiz-too-many-files-text' => 'Dim ond $1 ffeil y gallwch {{PLURAL:$1|ei|ei|eu}} huwchlwytho ar unwaith. Fe geisioch chi uwchlwytho $2 {{PLURAL:$2|ffeil}} i gyd, ac felly fe dynnwyd $3 {{PLURAL:$3|ffeil}} i ffwrdd.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'Dim ond $1 ffeil y gallwch {{PLURAL:$1|ei|ei|eu}} huwchlwytho ar unwaith. Fe geisioch chi uwchlwytho $2 {{PLURAL:$2|ffeil}} i gyd. Ceisiwch lwytho llai o ffeiliau ar y tro.',
 	'mwe-upwiz-too-many-files' => 'Gormod o ffeiliau.',
 	'mwe-upwiz-file-too-large-ok' => 'Iawn',
 	'mwe-upwiz-file-too-large-text' => 'Dim ond ffeiliau o faint $1 neu lai y gellir eu huwchlwytho. Fe geisioch chi uwchlwytho ffeil $2 o faint.',
 	'mwe-upwiz-file-too-large' => "Mae'r ffeil yn rhy fawr.",
-	'mwe-upwiz-dialog-title' => 'Gellir uwchlwytho ffeiliau gydag enwau mewn unrhyw iaith ac mewn unrhyw sgript. Dylai teitlau ffeiliau cyfrwng fod yn ystyrlon ac yn ddefnyddiol yn yr iaith a ddewisir.', # Fuzzy
+	'mwe-upwiz-dialog-title' => 'Rhybudd',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 testun cyfreithiol y drwydded])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Awstria ([$2 testun cyfreithiol y drwydded])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 yr Almaen ([$2 testun cyfreithiol y drwydded])',
@@ -7565,9 +7565,9 @@ $messages['es'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Lo sentimos, no pudimos obtener una imagen escalada del tutorial para adaptarse a esta pantalla. Esto puede ser un problema temporal con Wikimedia Commons; inténtalo de nuevo más tarde.',
 	'mwe-upwiz-help-desk' => 'Ayuda',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Ayuda',
-	'mwe-upwiz-add-file-n' => 'Añadir otro archivo', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Selecciona un archivo multimedia para compartirlo', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'Añadir imágenes de Flickr', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Añadir más archivos',
+	'mwe-upwiz-add-file-0-free' => 'Selecciona los archivoa multimedia para compartirlos',
+	'mwe-upwiz-add-file-flickr' => 'Compartir imágenes desde Flickr',
 	'mwe-upwiz-add-file-flickr-n' => 'Añadir más imágenes desde Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Obtener de Flickr',
@@ -7649,7 +7649,7 @@ Por favor, inténtalo con otro navegador.',
 	'mwe-upwiz-source-thirdparty-cases' => 'Ahora especifica por qué estás seguro de que este sitio tiene el derecho a publicar {{PLURAL:$1|este trabajo|estos trabajos}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'Aceptar',
 	'mwe-upwiz-source-custom' => 'Proporcionar información de copyright para cada archivo individualmente en la página siguiente.',
-	'mwe-upwiz-more-options' => 'añadir categorías y más información...', # Fuzzy
+	'mwe-upwiz-more-options' => 'Añadir la localización más información...',
 	'mwe-upwiz-copy-metadata' => 'Copiar información a {{PLURAL:$1|la otra subida|todas las subidas}} que vienen a continuación...',
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
 	'mwe-upwiz-copied-metadata-button' => 'Se copió correctamente',
@@ -7694,7 +7694,7 @@ Puedes [$1 instalar Firefogg], una extensión para Firefox, para convertirlo aut
 	'mwe-upwiz-fileexists-replace' => 'Un archivo con el título «$1» ya existe. Por favor cambia tu título a algo único.',
 	'mwe-upwiz-fileexists' => 'Un archivo con este nombre ya existe. Por favor verifica $1 si no est.ás seguro si deseas cambiarlo.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Ya existe un archivo con este nombre. Si desea reemplazarlo, vaya a la página de [$2  $1] y reemplácelo allí.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Ya existe un archivo con este nombre.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Elige un título diferente, porque ya existe un archivo con este título.',
 	'mwe-upwiz-blacklisted' => 'Elige un título diferente, más descriptivo.',
 	'mwe-upwiz-thumbnail-more' => 'Aumentar',
 	'mwe-upwiz-overwrite' => 'Reemplazar el archivo',
@@ -7757,7 +7757,7 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'El texto wiki parece no ser válido o no contiene una licencia.',
 	'mwe-upwiz-details-error-count' => 'Hay {{PLURAL:$1|un error|$1 errores}} en {{PLURAL:$2|el formulario|los formularios}} de arriba. Corrija {{PLURAL:$1|el error|los errores}} e intente realizar el envío de nuevo.',
 	'mwe-upwiz-too-many-files-ok' => 'Aceptar',
-	'mwe-upwiz-too-many-files-text' => 'Sólo puedes subir $1 {{PLURAL:$1|archivo|archivos}} a la vez. Has intentado subir $2 {{PLURAL:$1|archivo|archivos}}, así que se han quitado $3 {{PLURAL:$3|archivo|archivos}}.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'Sólo puedes subir $1 {{PLURAL:$1|archivo|archivos}} a la vez. Has intentado subir $2 {{PLURAL:$2|archivo|archivos}} en total. Por favor, ¡inténtalo otra vez con menos archivos.',
 	'mwe-upwiz-too-many-files' => 'Demasiados archivos.',
 	'mwe-upwiz-file-too-large-ok' => 'Aceptar',
 	'mwe-upwiz-file-too-large-text' => 'Sólo puedes subir archivos con un tamaño de hasta $1. Has intentado subir un archivo de $2.',
@@ -7818,7 +7818,7 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-license-external' => 'Este archivo está bajo la siguiente licencia en $1 : $2.',
 	'mwe-upwiz-license-external-invalid' => 'Este archivo está bajo la siguiente licencia en $1: $2. Lamentablemente, esta licencia no es apropiada para su uso en este sitio.',
 	'mwe-upwiz-license-photoset-invalid' => 'Desafortunadamente, no hay una imagen en este conjunto de fotos que tenga una licencia apropiada para usar en este sitio.',
-	'mwe-upwiz-url-invalid' => 'La dirección URL introducida no es una dirección URL válida de una foto o un conjunto de fotos de $1.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'La dirección URL introducida lleva a una imagen ou un conjunto de fotos $1 restringido o que no es válido, y no se pueden utilizar.',
 	'mwe-upwiz-categories' => 'Categorías',
 	'mwe-upwiz-categories-add' => 'Agregar',
 	'mwe-upwiz-category-will-be-added' => 'Esta categoría aún no tiene en uso.',
@@ -7903,6 +7903,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Trabajo de otra persona - $1',
 	'mwe-upwiz-prefs-chunked' => 'Subidas fragmentadas para archivos que ocupen más de 1MB en el Asistente de subidas',
 	'mwe-upwiz-prefs-skiptutorial' => 'Saltar la guía con la introducción a las licencias',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Número máximo de subidas simultáneas',
 );
 
 /** Estonian (eesti)
@@ -21166,11 +21167,14 @@ Ten plik wygląda na pobrany z innego serwisu z obrazkami. Zmień nazwę na bard
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ten tekst nie wygląda na poprawny wiki-tekst lub nie zawiera treści licencji.',
 	'mwe-upwiz-details-error-count' => 'Na {{PLURAL:$2|powyższym formularzu|powyższych formularzach|powyższych formularzach}} znaleziono {{PLURAL:$1|jeden błąd|$1 błędy|$1 błędów}}. Popraw błędy i spróbuj przesyłać ponownie.', # Fuzzy
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'Jednocześnie możesz wysłać tylko $1 {{PLURAL:$1|plik|pliki|plików}} na raz. Usiłowano przekazać w sumie $2 {{PLURAL:$2|plik|pliki|plików}} dlatego $3 {{PLURAL:$3|plik został usunięty|pliki zostały usunięte|plików zostało usunięte}}.',
+	'mwe-upwiz-too-many-files-text' => 'Jednocześnie możesz wysłać tylko $1 {{PLURAL:$1|plik|pliki|plików}} na raz. Usiłowano przekazać w sumie $2 {{PLURAL:$2|plik|pliki|plików}} dlatego $3 {{PLURAL:$3|plik został usunięty|pliki zostały usunięte|plików zostało usunięte}}.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'Zbyt wiele plików.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Można przesyłać pliki o rozmiarze nie przekraczającym  $1 . Próbowano wysłać plik, który ma $2 .',
 	'mwe-upwiz-file-too-large' => 'Plik jest za duży.',
+	'mwe-upwiz-dialog-yes' => 'Tak',
+	'mwe-upwiz-dialog-no' => 'Nie',
+	'mwe-upwiz-dialog-title' => 'Przesyłane pliki mogą mieć nazwy w dowolnym języku i zapisie. Nazwy plików powinny zrozumiale opisywać zawartość w wybranym języku.', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Uznanie autorstwa-Na tych samych warunkach 3.0 Unported ([$2 tekst prawny])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons – za uznaniem autora, na tych samych zasadach 3.0 Austria ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons – za uznaniem autora, na tych samych zasadach 3.0 Niemcy ([$2 legal code])',
@@ -21303,6 +21307,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Praca kogoś innego - $1',
 	'mwe-upwiz-prefs-chunked' => 'Pakietowe przekazywanie plików większych niż 1 MB w Kreatorze Przesyłania',
 	'mwe-upwiz-prefs-skiptutorial' => 'Pomiń wstępny samouczek licencjonowania',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maksymalna liczba równoczesnych załadowań',
 );
 
 /** Piedmontese (Piemontèis)
@@ -25048,12 +25053,12 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'To se ne zdi kot veljavno wikibesedilo ali pa ne vsebuje dovoljenja.',
 	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|Obstaja ena težava|Obstajata dve težavi|Obstajajo $1 težave|Obstaja $1 težav}} z {{PLURAL:$2|zgornjim obrazec|zgornjima obrazcema|zgornjimi obrazci}}. Odpravite {{PLURAL:$1|težavo|težavi|težave}} in poskusite {{PLURAL:$2|obrazec|obrazca|obrazce}} poslati ponovno.',
 	'mwe-upwiz-too-many-files-ok' => 'V redu.',
-	'mwe-upwiz-too-many-files-text' => 'Naenkrat lahko naložite samo $1 {{PLURAL:$1|datoteko|datoteki|datoteke|datotek}}. Poskusili ste dodati $2 {{PLURAL:$2|datoteko|datoteki|datoteke|datotek}}, zato smo $3 {{PLURAL:$3|datoteko|datoteki|datoteke|datotek}} odstranili.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'Naenkrat lahko naložite samo $1 {{PLURAL:$1|datoteko|datoteki|datoteke|datotek}}, medtem ko ste poskušali naložiti skupno $2 {{PLURAL:$2|datoteko|datoteki|datoteke|datotek}}. Prosimo, poskusite znova z manjšim številom datotek!',
 	'mwe-upwiz-too-many-files' => 'Preveč datotek.',
 	'mwe-upwiz-file-too-large-ok' => 'V redu',
 	'mwe-upwiz-file-too-large-text' => 'Naložite lahko samo datoteke, ki so velike do $1. Poskusili ste naložiti datoteko velikosti $2.',
 	'mwe-upwiz-file-too-large' => 'Datoteka je prevelika.',
-	'mwe-upwiz-dialog-title' => 'Datoteke je mogoče naložiti z imeni v katerem koli jeziku in v kateri koli pisavi. Naslovi predstavnostnih datotek naj bodo smiselni in koristni v izbranem jeziku.', # Fuzzy
+	'mwe-upwiz-dialog-title' => 'Opozorilo',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 ([$2 pravno besedilo])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Avstrija ([$2 zakonik])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Nemčija ([$2 zakonik])',
