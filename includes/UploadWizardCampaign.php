@@ -17,7 +17,7 @@
  * @author Yuvi Panda <yuvipanda@gmail.com>
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class UploadWizardCampaign extends ORMRow {
+class UploadWizardCampaign {
 
 	/**
 	 * The campaign configuration.
@@ -27,14 +27,41 @@ class UploadWizardCampaign extends ORMRow {
 	 */
 	protected $config = array();
 
-	/**
-	 * If the campaign config has been loaded or not.
-	 *
-	 * @since 1.2
-	 * @var boolean
-	 */
-	protected $loadedConfig = false;
+	protected $data = array( );
 
+	public static function newFromName( $name ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$result = $dbr->select(
+			'uw_campaigns',
+			'*',
+			array( 'campaign_name' => $name )
+		);
+
+		if ( $result->numRows() === 0 ) {
+			return false; // Nothing with this name, move on...
+		}
+		// We expect only one result, since there exists a unique index
+		$row = $result->fetchRow();
+
+		$campaignPage = WikiPage::factory( Title::newFromText( $name, NS_CAMPAIGN ) );
+
+		$config = $campaignPage->getContent()->getJsonData();
+
+		return new UploadWizardCampaign( $row, $config );
+	}
+
+	private function __construct( $data, $config ) {
+		$this->data = $data;
+		$this->setConfig( $config );
+	}
+
+	public function getIsEnabled() {
+		return $this->config['enabled'];
+	}
+
+	public function getName() {
+		return $this->data['campaign_name'];
+	}
 	/**
 	 * Returns the list of configuration settings that can be modified by campaigns,
 	 * and the HTMLForm input type that can be used to represent their value.
@@ -113,28 +140,6 @@ class UploadWizardCampaign extends ORMRow {
 	}
 
 	/**
-	 * Returns the name of the campaign.
-	 *
-	 * @since 1.2
-	 *
-	 * @return string
-	 */
-	public function getName() {
-		return $this->getField( 'name' );
-	}
-
-	/**
-	 * Returns if the campaign is enabled.
-	 *
-	 * @since 1.2
-	 *
-	 * @return boolean
-	 */
-	public function getIsEnabled() {
-		return $this->getField( 'enabled' );
-	}
-
-	/**
 	 * Sets all config properties.
 	 *
 	 * Ideally this should be private, but is required for the
@@ -168,7 +173,6 @@ class UploadWizardCampaign extends ORMRow {
 		}
 
 		$this->config = $config;
-		$this->loadedConfig = $this->config !== array();
 	}
 
 	/**
@@ -180,14 +184,6 @@ class UploadWizardCampaign extends ORMRow {
 	 * @return array
 	 */
 	public function getConfig() {
-		if ( !$this->loadedConfig ) {
-			if ( $this->hasIdField() ) {
-				$this->setConfig( $this->getProps() );
-			}
-
-			$this->loadedConfig = true;
-		}
-
 		return $this->config;
 	}
 
@@ -224,86 +220,4 @@ class UploadWizardCampaign extends ORMRow {
 
 		return $config;
 	}
-
-	/**
-	 * Returns all config properties by merging the set ones with a list of default ones.
-	 * Property name => array( 'default' => $value, 'type' => HTMLForm input type )
-	 *
-	 * @since 1.2
-	 *
-	 * @return array
-	 */
-	public function getAllConfig() {
-		$setConfig = $this->getConfig();
-		$config = array();
-
-		foreach ( self::getDefaultConfig() as $name => $data ) {
-			if ( array_key_exists( $name, $setConfig ) ) {
-				$data['default'] = $setConfig[$name];
-			}
-
-			$config[$name] = $data;
-		}
-
-		return $config;
-	}
-
-	/**
-	 * Explicitly disallow inserting new objects
-	 * @since 1.4
-	 *
-	 * @param string|null $functionName
-	 * @param array|null $options
-	 *
-	 * @return boolean Success indicator
-	 */
-	protected function insert( $functionName = null, array $options = null ) {
-		// FIXME: Throw an exception maybe?
-		die( "This function should not be called" );
-	}
-
-	/**
-	 * Explicitly disallow updating new objects
-	 * @since 1.4
-	 *
-	 * @param $functionName null|string
-	 *
-	 * @return boolean Success indicator
-	 */
-	public function save( $functionName = null ) {
-		// FIXME: Throw an exception maybe?
-		die( "This function should not be called" );
-	}
-
-	/**
-	 * Explicitly disallow removing objects
-	 *
-	 * @since 1.4
-	 *
-	 * @return boolean Success indicator
-	 */
-	public function remove() {
-		// FIXME: Throw an exception maybe?
-		die( "This function should not be called" );
-	}
-
-	/**
-	 * Get the configuration properties from the Campaign: namespace
-	 *
-	 * @since 1.2
-	 *
-	 * @return array
-	 */
-	protected function getProps() {
-		$config = array();
-
-		$campaignName = $this->getField( 'name' );
-		$campaignPage = WikiPage::factory( Title::newFromText( $campaignName, NS_CAMPAIGN ) );
-
-		$config = $campaignPage->getContent()->getJsonData();
-
-		return $config;
-	}
-
-
 }

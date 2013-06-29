@@ -47,7 +47,6 @@ $wgAutoloadClasses += array(
 	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
 	'UploadWizardTutorial' => $wgUpwizDir . '/includes/UploadWizardTutorial.php',
 	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
-	'UploadWizardCampaigns' => $wgUpwizDir . '/includes/UploadWizardCampaigns.php',
 
 	// Campaign ContentHandler
 	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
@@ -67,13 +66,6 @@ $wgExtensionFunctions[] = 'CampaignHooks::registerHandlers';
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
-
-$wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
-
-if ( array_key_exists( 'ApiQueryORM', $wgAutoloadLocalClasses ) ) { // Backwards-compatibility with MW 1.20
-	$wgAutoloadClasses['ApiQueryUploadCampaigns'] = $wgUpwizDir . '/api/ApiQueryUploadCampaigns.php';
-	$wgAPIListModules['uploadcampaigns'] = 'ApiQueryUploadCampaigns';
-}
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';

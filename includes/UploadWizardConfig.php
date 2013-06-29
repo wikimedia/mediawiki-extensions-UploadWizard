@@ -101,7 +101,7 @@ class UploadWizardConfig {
 	 */
 	protected static function getCampaignConfig( $campaignName ) {
 		if ( !is_null( $campaignName ) ) {
-			$campaign = UploadWizardCampaigns::singleton()->selectRow( null,  array( 'name' => $campaignName ) );
+			$campaign = UploadWizardCampaign::newFromName( $campaignName );
 
 			if ( $campaign !== false && $campaign->getIsEnabled() ) {
 				return $campaign->getConfigForGlobalMerge();
