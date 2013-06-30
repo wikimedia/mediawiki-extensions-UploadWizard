@@ -693,7 +693,7 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	necessaryFilled: function( cb ) {
 		// check for empty category input
-		if ( this.div.find( '.categoryInput' ).val() !== '' ) {
+		if ( this.div.find( '.categoryInput' ).val() !== '' || this.div.find( '.cat-list' ).find( 'li' ).length > 0 ) {
 			cb();
 		}
 	},
