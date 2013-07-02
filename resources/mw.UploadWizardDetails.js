@@ -659,7 +659,7 @@ mw.UploadWizardDetails.prototype = {
 	// do callback if we are ready to go.
 	// side effect: add error text to the page for fields in an incorrect state.
 	// we must call EVERY valid() function due to side effects; do not short-circuit.
-	valid: function(cb) {
+	valid: function( callback ) {
 		var _this = this;
 		// at least one description -- never mind, we are disallowing removal of first description
 		// all the descriptions -- check min & max length
@@ -670,7 +670,7 @@ mw.UploadWizardDetails.prototype = {
 		// make sure title is valid
 		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
 		if ( titleInputValid === undefined ) {
-			setTimeout( function () { _this.valid(cb); }, 200 );
+			setTimeout( function () { _this.valid( callback ); }, 200 );
 			return;
 		}
 
@@ -681,7 +681,7 @@ mw.UploadWizardDetails.prototype = {
 		var formValid = _this.$form.valid();
 
 		if ( titleInputValid && deedValid && formValid ) {
-			cb();
+			callback();
 		}
 	},
 
@@ -691,10 +691,10 @@ mw.UploadWizardDetails.prototype = {
 	 * 1) Empty category
 	 * 2) TODO
 	 */
-	necessaryFilled: function( cb ) {
+	necessaryFilled: function( callback ) {
 		// check for empty category input
 		if ( this.div.find( '.categoryInput' ).val() !== '' || this.div.find( '.cat-list' ).find( 'li' ).length > 0 ) {
-			cb();
+			callback();
 		}
 	},
 
@@ -1168,7 +1168,7 @@ mw.UploadWizardDetails.prototype = {
 	 * Convert entire details for this file into wikiText, which will then be posted to the file
 	 * @return wikitext representing all details
 	 */
-	getWikiText: function(cb) {
+	getWikiText: function( callback ) {
 		var _this = this;
 
 		// if invalid, should produce side effects in the form
@@ -1268,7 +1268,7 @@ mw.UploadWizardDetails.prototype = {
 				wikiText = TextCleaner.sanitizeWikiText( wikiText, true );
 			}
 
-			cb(wikiText);
+			callback(wikiText);
 		});
 	},
 
