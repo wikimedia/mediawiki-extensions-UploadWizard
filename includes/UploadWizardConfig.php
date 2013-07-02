@@ -119,7 +119,8 @@ class UploadWizardConfig {
 	 * @return array
 	 */
 	public static function getThirdPartyLicenses() {
-		$thirdParty = self::getSetting( 'licensesThirdParty' );
+		$licensing = self::getSetting( 'licensing' );
+		$thirdParty = $licensing['thirdParty'];
 		$licenses = array();
 
 		foreach ( $thirdParty['licenseGroups'] as $group ) {
