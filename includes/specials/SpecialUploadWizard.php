@@ -193,13 +193,13 @@ class SpecialUploadWizard extends SpecialPage {
 			// Determine if the user's default license is valid for this campaign
 			switch ( $config['licensing']['ownWorkDefault'] ) {
 				case "own":
-					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] );
+					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensing']['ownWork']['licenses'] );
 					break;
 				case "notown":
 					$defaultInAllowedLicenses = in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() );
 					break;
 				case "choice":
-					$defaultInAllowedLicenses = ( in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] ) ||
+					$defaultInAllowedLicenses = ( in_array( $userDefaultLicense, $config['licensing']['ownWork']['licenses'] ) ||
 						in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() ) );
 					break;
 			}
@@ -340,27 +340,26 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function getWizardHtml() {
 		global $wgExtensionAssetsPath;
 
-		// FIXME: Uh, this apparently is not actually 'global', but merged conf
-		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
+		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if( array_key_exists( 'display', $globalConf ) && array_key_exists( 'headerLabelPage', $globalConf['display'] ) ) {
-			$headerContent = $this->getPageContent( $globalConf['display']['headerLabelPage'] );
+		if( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabelPage', $config['display'] ) ) {
+			$headerContent = $this->getPageContent( $config['display']['headerLabelPage'] );
 			if ( $headerContent !== false ) {
 				$this->getOutput()->addWikiText( $headerContent );
 			}
 		}
 
-		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf )
-			&& array_key_exists( 'altUploadForm', $globalConf )
-			&& $globalConf['altUploadForm'] != ''
-			&& $globalConf[ 'fallbackToAltUploadForm' ] 			) {
+		if ( array_key_exists( 'fallbackToAltUploadForm', $config )
+			&& array_key_exists( 'altUploadForm', $config )
+			&& $config['altUploadForm'] != ''
+			&& $config[ 'fallbackToAltUploadForm' ] 			) {
 
 			$linkHtml = '';
-			$altUploadForm = Title::newFromText( $globalConf[ 'altUploadForm' ] );
+			$altUploadForm = Title::newFromText( $config[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
 				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ),
 					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ),
-						$globalConf['altUploadForm']
+						$config['altUploadForm']
 					)
 				);
 			}
@@ -379,7 +378,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
-		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $globalConf['tutorial'] != array() ) {
+		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $config['tutorial'] != array() ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
 
