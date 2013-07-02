@@ -119,10 +119,10 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * Abstracts out simple lists of licenses, more complex groups with layout
 	 * @param {jQuery} selector to add inputs to
 	 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
-	 *			it may also have: 'prependTemplates' or 'filterTemplate', which alter the final wikitext value
+	 *			it may also have: 'prependTemplates' or 'template', which alter the final wikitext value
 	 *			'prependTemplates' will prepend Templates. If prependTemplates were [ 'pre', 'pended' ], then...
 	 *				[ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
-	 *			'filterTemplates' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
+	 *			'template' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
 	 *				[ 'fooLicense', 'barLicense' ] -> {{filter|fooLicense|barLicense}}
 	 * @param {jQuery} optional - jquery-wrapped element created by $j.fn.collapseToggle(), which has 'close' and 'open'
 	 *			methods in its data.
@@ -176,8 +176,8 @@ mw.UploadWizardLicenseInput.prototype = {
 				templates.unshift( template );
 			} );
 		}
-		if ( config.filterTemplate !== undefined ) {
-			templates.unshift( config.filterTemplate );
+		if ( config.template !== undefined ) {
+			templates.unshift( config.template );
 			templates = [ templates.join( '|' ) ];
 		}
 		var wikiTexts = $j.map( templates, function(t) { return '{{' + t + '}}'; } );
