@@ -405,7 +405,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 			_this.onLayoutReady = selectDeedFunction;
 		}
 		else {
-			if ( mw.UploadWizard.config.defaultLicenseType === deed.name ) {
+			if ( mw.UploadWizard.config.licensing.defaultType === deed.name ) {
 				_this.onLayoutReady = selectDeedFunction;
 			}
 			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
