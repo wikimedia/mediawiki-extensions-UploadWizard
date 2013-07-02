@@ -101,14 +101,6 @@ return array(
 		'thanksLabelPage' => ''
 	),
 
-	// Default license type.
-	// Possible values: choice, ownwork, thirdparty
-	'defaultLicenseType' => 'choice',
-
-	// Should the own work option be shown, and if not, what option should be set?
-	// Possible values: choice, own, notown
-	'ownWorkOption' => 'choice',
-
 	// Settings for the tutorial to be shown.
 	// Empty array if we want to skip
 	'tutorial' => array(
@@ -350,73 +342,83 @@ return array(
 	// their arguments look like strings but they are really templates
 	'licenseTagFilters' => array( 'self' ),
 
-	// radio button selection of some licenses
-	'licensesOwnWork' => array(
-		'type' => 'or',
-		'filterTemplate' => 'self',
-		'licenses' => array(
-			'cc-by-sa-3.0',
-			'cc-by-3.0',
-			'cc-zero'
-		),
-		'defaults' => array( 'cc-by-sa-3.0' )
-	),
+	'licensing' => array(
+		// Default license type.
+		// Possible values: ownwork, thirdparty, choice.
+		'defaultType' => 'choice',
 
-	// checkbox selection of all licenses
-	'licensesThirdParty' => array(
-		'type' => 'or',
-		'licenseGroups' => array(
-			array(
-				// This should be a list of all CC licenses we can reasonably expect to find around the web
-				'head' => 'mwe-upwiz-license-cc-head',
-				'subhead' => 'mwe-upwiz-license-cc-subhead',
-				'licenses' => array(
-					'cc-by-sa-3.0',
-					'cc-by-sa-2.5',
-					'cc-by-3.0',
-					'cc-by-2.5',
-					'cc-zero'
-				)
+		// Should the own work option be shown, and if not, what option should be set?
+		// Possible values:  own, notown, choice.
+		'ownWorkDefault' => 'choice',
+
+		// radio button selection of some licenses
+		'ownWork' => array(
+			'type' => 'or',
+			'template' => 'self',
+			'licenses' => array(
+				'cc-by-sa-3.0',
+				'cc-by-3.0',
+				'cc-zero'
 			),
-			array(
-				// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
-				// The White House also has an account there, hence the Public Domain US Government license
-				'head' => 'mwe-upwiz-license-flickr-head',
-				'subhead' => 'mwe-upwiz-license-flickr-subhead',
-				'prependTemplates' => array( 'flickrreview' ),
-				'licenses' => array(
-					'cc-by-sa-2.0',
-					'cc-by-2.0',
-					'pd-usgov',
-				)
-			),
-			array(
-				'head' => 'mwe-upwiz-license-public-domain-usa-head',
-				'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
-				'licenses' => array(
-					'pd-us',
-					'pd-art',
-				)
-			),
-			array(
-				// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
-				'head' => 'mwe-upwiz-license-usgov-head',
-				'licenses' => array(
-					'pd-usgov',
-					'pd-usgov-nasa'
-				)
-			),
-			array(
-				'head' => 'mwe-upwiz-license-custom-head',
-				'special' => 'custom',
-				'licenses' => array( 'custom' ),
-			),
-			array(
-				'head' => 'mwe-upwiz-license-none-head',
-				'licenses' => array( 'none' )
-			),
+			'defaults' => array( 'cc-by-sa-3.0' )
 		),
-		'defaults' => array( 'none' ),
+
+		// checkbox selection of all licenses
+		'thirdParty' => array(
+			'type' => 'or',
+			'licenseGroups' => array(
+				array(
+					// This should be a list of all CC licenses we can reasonably expect to find around the web
+					'head' => 'mwe-upwiz-license-cc-head',
+					'subhead' => 'mwe-upwiz-license-cc-subhead',
+					'licenses' => array(
+						'cc-by-sa-3.0',
+						'cc-by-sa-2.5',
+						'cc-by-3.0',
+						'cc-by-2.5',
+						'cc-zero'
+					)
+				),
+				array(
+					// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
+					// The White House also has an account there, hence the Public Domain US Government license
+					'head' => 'mwe-upwiz-license-flickr-head',
+					'subhead' => 'mwe-upwiz-license-flickr-subhead',
+					'prependTemplates' => array( 'flickrreview' ),
+					'licenses' => array(
+						'cc-by-sa-2.0',
+						'cc-by-2.0',
+						'pd-usgov',
+					)
+				),
+				array(
+					'head' => 'mwe-upwiz-license-public-domain-usa-head',
+					'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
+					'licenses' => array(
+						'pd-us',
+						'pd-art',
+					)
+				),
+				array(
+					// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
+					'head' => 'mwe-upwiz-license-usgov-head',
+					'licenses' => array(
+						'pd-usgov',
+						'pd-usgov-nasa'
+					)
+				),
+				array(
+					'head' => 'mwe-upwiz-license-custom-head',
+					'special' => 'custom',
+					'licenses' => array( 'custom' ),
+				),
+				array(
+					'head' => 'mwe-upwiz-license-none-head',
+					'licenses' => array( 'none' )
+				),
+			),
+			'defaults' => array( 'none' ),
+		)
 	),
 
 	// Default thumbnail width

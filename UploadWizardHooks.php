@@ -582,7 +582,9 @@ class UploadWizardHooks {
 
 			$licenses = array();
 
-			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
+			$licensingOptions = UploadWizardConfig::getSetting( 'licensing' );
+
+			$ownWork = $licensingOptions['ownWork'];
 			foreach ( $ownWork['licenses'] as $license ) {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 				$licenses[wfMessage( 'mwe-upwiz-prefs-license-own', $licenseMessage )->text()] = 'ownwork-' . $license;

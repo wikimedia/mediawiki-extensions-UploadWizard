@@ -191,7 +191,7 @@ class SpecialUploadWizard extends SpecialPage {
 			$userDefaultLicense = $licenseParts[1];
 
 			// Determine if the user's default license is valid for this campaign
-			switch ( $config['ownWorkOption'] ) {
+			switch ( $config['licensing']['ownWorkDefault'] ) {
 				case "own":
 					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] );
 					break;
@@ -206,12 +206,12 @@ class SpecialUploadWizard extends SpecialPage {
 
 			if ( $defaultInAllowedLicenses ) {
 				if ( $userLicenseType === 'ownwork' ) {
-					$userLicenseGroup = 'licensesOwnWork';
+					$userLicenseGroup = 'ownWork';
 				} else {
-					$userLicenseGroup = 'licensesThirdParty';
+					$userLicenseGroup = 'thirdParty';
 				}
-				$config[$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
-				$config['defaultLicenseType'] = $userLicenseType;
+				$config['licensing'][$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
+				$config['licensing']['defaultType'] = $userLicenseType;
 			}
 		}
 

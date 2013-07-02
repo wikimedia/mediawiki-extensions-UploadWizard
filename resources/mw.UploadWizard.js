@@ -392,9 +392,9 @@ mw.UploadWizard.prototype = {
 			doOwnWork = false,
 			doThirdParty = false;
 
-		if ( mw.UploadWizard.config.ownWorkOption === 'choice' ) {
+		if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'choice' ) {
 			doOwnWork = doThirdParty = true;
-		} else if ( mw.UploadWizard.config.ownWorkOption === 'own' ) {
+		} else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
 			doOwnWork = true;
 		} else {
 			doThirdParty = true;
@@ -416,11 +416,11 @@ mw.UploadWizard.prototype = {
 		var deeds = _this.getLicensingDeeds( _this.uploads.length );
 
 		this.shouldShowIndividualDeed = function() {
-			if ( mw.UploadWizard.config.ownWorkOption == 'choice' ) {
+			if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'choice' ) {
 				return true;
 			}
-			else if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
-				var ownWork = mw.UploadWizard.config.licensesOwnWork;
+			else if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'own' ) {
+				var ownWork = mw.UploadWizard.config.licensing.ownWork;
 				var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
 				return ownWork.licenses.length > 1 || licenseIsNotDefault;
 			}

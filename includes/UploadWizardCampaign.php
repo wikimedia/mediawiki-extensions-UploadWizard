@@ -52,7 +52,7 @@ class UploadWizardCampaign {
 
 	private function __construct( $data, $config ) {
 		$this->data = $data;
-		$this->setConfig( $config );
+		$this->config = $config;
 	}
 
 	public function getIsEnabled() {
@@ -61,118 +61,6 @@ class UploadWizardCampaign {
 
 	public function getName() {
 		return $this->data['campaign_name'];
-	}
-	/**
-	 * Returns the list of configuration settings that can be modified by campaigns,
-	 * and the HTMLForm input type that can be used to represent their value.
-	 * Property name => HTMLForm input type
-	 *
-	 * @since 1.2
-	 *
-	 * @return array
-	 */
-	public static function getConfigTypes() {
-		$globalConfig = UploadWizardConfig::getConfig();
-
-		// XXX: This will be killed one by one, then replaced by a JSON Schema
-		$config = array(
-			'ownWorkOption' => array(
-				'type' => 'radio',
-				'options' => array(
-					wfMessage( 'mwe-upwiz-campaign-owner-choice' )->text() => 'choice',
-					wfMessage( 'mwe-upwiz-campaign-owner-own' )->text() => 'own',
-					wfMessage( 'mwe-upwiz-campaign-owner-notown' )->text() => 'notown'
-				)
-			),
-			'licensesOwnWork' => array(
-				'type' => 'multiselect',
-				'options' => array(),
-				'default' => $globalConfig['licensesOwnWork']['licenses']
-			),
-			'defaultOwnWorkLicence' => array(
-				'type' => 'radio',
-				'options' => array(),
-				'default' => $globalConfig['licensesOwnWork']['defaults'][0]
-			),
-		);
-
-		foreach ( $globalConfig['licenses'] as $licenseName => $licenseDate ) {
-			$licenceMsg = UploadWizardHooks::getLicenseMessage( $licenseName, $globalConfig['licenses'] );
-			$config['licensesOwnWork']['options'][$licenceMsg] = $licenseName;
-		}
-
-		$config['defaultOwnWorkLicence']['options'] = $config['licensesOwnWork']['options'];
-
-		return $config;
-	}
-
-	/**
-	 * Returns the default configuration values.
-	 * Property name => array( 'default' => $value, 'type' => HTMLForm input type )
-	 *
-	 * @since 1.2
-	 *
-	 * @return array
-	 */
-	public static function getDefaultConfig() {
-		static $config = false;
-
-		if ( $config === false ) {
-			$config = array();
-			$globalConf = UploadWizardConfig::getConfig();
-
-			foreach ( self::getConfigTypes() as $setting => $data ) {
-				if ( array_key_exists( $setting, $globalConf ) ) {
-					$config[$setting] = array_merge( array( 'default' => $globalConf[$setting] ), $data );
-				}
-				elseif ( in_array( $setting, array( 'defaultOwnWorkLicence' ) ) ) {
-					// There are some special cases where a setting does not have
-					// a direct equivalent in the global config, hence the in_array().
-					$config[$setting] = $data;
-				}
-				else {
-					wfWarn( "Nonexiting Upload Wizard configuration setting '$setting' will be ignored." );
-				}
-			}
-		}
-
-		return $config;
-	}
-
-	/**
-	 * Sets all config properties.
-	 *
-	 * Ideally this should be private, but is required for the
-	 * batchSelect in UploadWizardCampaigns. FIXME
-	 *
-	 * @since 1.3
-	 *
-	 * @param array $config
-	 */
-	public function setConfig( array $config ) {
-		$defaultConfig = self::getDefaultConfig();
-
-		foreach ( $config as $settingName => &$settingValue ) {
-			// This can happen when a campaign was created with an option that has been removed from the extension.
-			if ( !array_key_exists( $settingName, $defaultConfig ) ) {
-				continue;
-			}
-
-			if ( is_array( $defaultConfig[$settingName]['default'] ) && !is_array( $settingValue ) ) {
-				$parts = explode( '|', $settingValue );
-				$settingValue = array();
-
-				foreach ( $parts as $part ) {
-					$part = trim( $part );
-
-					if ( $part !== '' ) {
-						$settingValue[] = $part;
-					}
-				}
-			}
-		}
-
-		$this->config = $config;
 	}
 
 	/**
@@ -185,39 +73,5 @@ class UploadWizardCampaign {
 	 */
 	public function getConfig() {
 		return $this->config;
-	}
-
-	/**
-	 * Returns the configuration, ready for merging with the
-	 * global configuration.
-	 *
-	 * @since 1.2
-	 *
-	 * @return array
-	 */
-	public function getConfigForGlobalMerge() {
-		$config = $this->getConfig();
-
-		foreach ( $config as $settingName => &$settingValue ) {
-			switch ( $settingName ) {
-				case 'licensesOwnWork':
-					$settingValue = array_merge(
-						UploadWizardConfig::getSetting( 'licensesOwnWork' ),
-						array( 'licenses' => $settingValue )
-					);
-					break;
-			}
-		}
-
-		foreach ( self::getDefaultConfig() as $name => $data ) {
-			if ( !array_key_exists( $name, $config ) ) {
-				$config[$name] = $data['default'];
-			}
-		}
-
-		$config['licensesOwnWork']['defaults'] = array( $config['defaultOwnWorkLicence'] );
-		unset( $config['defaultOwnWorkLicence'] );
-
-		return $config;
 	}
 }
