@@ -7522,6 +7522,7 @@ $1',
 );
 
 /** Spanish (español)
+ * @author Alan
  * @author Armando-Martin
  * @author Ciencia Al Poder
  * @author Crazymadlover
@@ -7566,7 +7567,7 @@ $messages['es'] = array(
 	'mwe-upwiz-help-desk' => 'Ayuda',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Ayuda',
 	'mwe-upwiz-add-file-n' => 'Añadir más archivos',
-	'mwe-upwiz-add-file-0-free' => 'Selecciona los archivoa multimedia para compartirlos',
+	'mwe-upwiz-add-file-0-free' => 'Selecciona los archivos multimedia para compartirlos',
 	'mwe-upwiz-add-file-flickr' => 'Compartir imágenes desde Flickr',
 	'mwe-upwiz-add-file-flickr-n' => 'Añadir más imágenes desde Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
@@ -16176,6 +16177,19 @@ $messages['ku-latn'] = array(
 	'mw-coolcats-confirm-new-cancel' => 'Xem nakê',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Kgbek
+ */
+$messages['ky'] = array(
+	'uploadwizard' => 'Жүктөө устаты',
+	'right-upwizcampaigns' => 'Жүктөөчү компания устатын тууралоо',
+	'group-upwizcampeditors' => 'Жүктөөчү компания устатынын редакторлору',
+	'grouppage-upwizcampeditors' => '{{ns:долбоор}}:Жүктөөчү компания устатынын редакторлору', # Fuzzy
+	'mwe-upwiz-feedback-title' => 'Жүктөө устаты жөнүндө сын-пикир калтыру',
+	'uploadcampaign-text' => 'Сиз Жүктөө устатынын компаниясын өзгөртүүдөсүз',
+	'mwe-upwiz-prefs-chunked' => 'Жүктөө устатындагы 1MB дан ашкан файлдардын жүктөлүшүн бөлүп салуу',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
@@ -17669,7 +17683,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ова не е важечки викитекст или не содржи лиценца.',
 	'mwe-upwiz-details-error-count' => 'Во {{PLURAL:$2|образецот|обрасците}} погоре има {{PLURAL:$1|една грешка|$1 грешки}}. Исправете {{PLURAL:$2|ја|ги}} и поднесете повторно.',
 	'mwe-upwiz-too-many-files-ok' => 'ОК',
-	'mwe-upwiz-too-many-files-text' => 'Можете да подигнете само $1 {{PLURAL:$1|податотека|податотеки}} наеднаш, но вие се обидувате да подигнете $2 {{PLURAL:$2||}}. Обидете се пак, но со помалку.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'Можете да подигнете само $1 {{PLURAL:$1|податотека|податотеки}} наеднаш, но вие сакате да подигнете $2 {{PLURAL:$2|податотека|податотеки}}. Обидете се пак, но со помалку.',
 	'mwe-upwiz-too-many-files' => 'Премногу податотеки.',
 	'mwe-upwiz-file-too-large-ok' => 'ОК',
 	'mwe-upwiz-file-too-large-text' => 'Подигнатите податотеки не можат да бидат поголеми од $1. Се обидовте да подигнете податотека со големина од $2.',
