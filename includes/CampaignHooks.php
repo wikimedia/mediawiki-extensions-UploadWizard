@@ -30,7 +30,7 @@ class CampaignHooks {
 		$wgHooks[ 'TitleMoveComplete' ][] = 'CampaignHooks::onTitleMoveComplete';
 
 		$wgAPIModules[ 'camapaign' ] = 'ApiCampaign';
-		
+
 		return true;
 	}
 
