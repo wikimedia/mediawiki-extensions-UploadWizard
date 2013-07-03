@@ -27,7 +27,7 @@ class UploadWizardCampaign {
 	 */
 	protected $config = array();
 
-	protected $data = array( );
+	protected $data = array();
 
 	public static function newFromName( $name ) {
 		$dbr = wfGetDB( DB_SLAVE );

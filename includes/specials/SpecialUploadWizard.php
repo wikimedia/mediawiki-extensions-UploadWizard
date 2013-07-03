@@ -65,7 +65,7 @@ class SpecialUploadWizard extends SpecialPage {
 		# FIXME: id and id2 don't really do anything
 		$urlArgs = array( 'id', 'id2', 'description', 'lat', 'lon', 'alt' );
 
-		$urlDefaults = array( );
+		$urlDefaults = array();
 		foreach ( $urlArgs as $arg ) {
 			$value = $req->getText( $arg );
 			if ( $value ) {

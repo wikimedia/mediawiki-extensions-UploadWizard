@@ -150,7 +150,7 @@ return array(
 
 	'defaults' => array(
 		// Categories to list by default in the list of cats to add.
-		'categories' => array( ),
+		'categories' => array(),
 
 		// Initial value for the description field.
 		'description' => '',
