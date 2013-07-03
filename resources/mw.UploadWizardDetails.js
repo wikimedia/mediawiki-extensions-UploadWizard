@@ -334,7 +334,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	);
 
 	_this.addDescription(
-		!mw.UploadWizard.config.idField,
+		! ( mw.UploadWizard.config.fields && mw.uploadWizard.config.fields[0].wikitext ) ,
 		mw.LanguageUpWiz.UNKNOWN,
 		false,
 		mw.UploadWizard.config.defaults.description
