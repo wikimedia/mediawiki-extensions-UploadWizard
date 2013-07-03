@@ -144,7 +144,7 @@ class CampaignHooks {
 	 * @return True
 	 */
 	static function onEditFilterMerged( $editor, $text, &$error, $summary ) {
-		if ( $editor->getTitle()->getNamespace() !== NS_CAMPAIGN ) {
+		if ( !$editor->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
 
