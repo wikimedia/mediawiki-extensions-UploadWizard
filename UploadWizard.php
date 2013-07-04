@@ -95,3 +95,8 @@ $wgDefaultUserOptions['upwiz_maxsimultaneous'] = 'default';
 // UploadWizard.config.php includes default configuration
 // any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
 $wgUploadWizardConfig = array();
+
+/* Define default namespaces, as defined on Mediawiki.org
+ * https://www.mediawiki.org/wiki/Extension_default_namespaces#UploadWizard */
+define( 'NS_CAMPAIGN', 460 );
+define( 'NS_CAMPAIGN_TALK', 461 );
