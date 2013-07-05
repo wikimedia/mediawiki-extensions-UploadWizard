@@ -3,6 +3,9 @@
 -- Author: Jeroen De Dauw < jeroendedauw@gmail.com >
 
 -- Upload wizard campaigns
+-- This is *not* the primary storage for campaigns.
+-- Just stores a copy of information that is already present in the
+-- appropriate wikipages, for easier indexing / querying
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaigns (
   campaign_id              INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   campaign_name            VARCHAR(255)        NOT NULL,

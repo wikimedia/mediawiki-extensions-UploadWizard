@@ -535,20 +535,6 @@ class UploadWizardHooks {
 			dirname( __FILE__ ) . '/sql/UW_IndexCampaignsName.sql',
 			true
 		) );
-		$updater->addExtensionUpdate( array(
-			'addIndex',
-			'uw_campaign_conf',
-			'uw_cc_id_property',
-			dirname( __FILE__ ) . '/sql/UW_IndexConfIdProp.sql',
-			true
-		) );
-		$updater->addExtensionUpdate( array(
-			'addIndex',
-			'uw_campaign_conf',
-			'uw_cc_property',
-			dirname( __FILE__ ) . '/sql/UW_IndexConfProp.sql',
-			true
-		) );
 
 		return true;
 	}
