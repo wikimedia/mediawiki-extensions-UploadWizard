@@ -220,13 +220,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 					.append( $fieldInput )
 			);
 
-			// We can setup validation only after it has been added to a form
-			//$fieldInput.rules( "add", {
-				//required: field.required,
-				//messages: {
-					//required: mw.msg( 'mwe-upwiz-error-blank')
-				//}
-			//} );
 			_this.fields.push( $fieldInput );
 		}
 	} );
@@ -275,6 +268,14 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		}
 	} );
 
+	$.each( _this.fields, function ( i, $fieldInput ) {
+		$fieldInput.rules( "add", {
+			required: $fieldInput.data( 'field' ).required,
+			messages: {
+				required: mw.msg( 'mwe-upwiz-error-blank')
+			}
+		} );
+	} );
 	_this.$form.find( '.mwe-date' )
 		.datepicker( {
 			dateFormat: 'yy-mm-dd',
