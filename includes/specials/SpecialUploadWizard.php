@@ -62,14 +62,13 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 
-		# FIXME: id and id2 don't really do anything
-		$urlArgs = array( 'id', 'id2', 'description', 'lat', 'lon', 'alt' );
+		$urlArgs = array( 'description', 'lat', 'lon', 'alt' );
 
 		$urlDefaults = array();
 		foreach ( $urlArgs as $arg ) {
 			$value = $req->getText( $arg );
 			if ( $value ) {
-				$urlDefaults[ $arg ] = $value;
+				$urlDefaults[$arg] = $value;
 			}
 		}
 
@@ -79,6 +78,28 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
+
+		$fields = $req->getArray( 'fields' );
+		$fieldDefaults = array();
+
+		# Support id and id2 for field0 and field1
+		# Legacy support for old URL structure. They override fields[]
+		if( $req->getText( 'id' ) ) {
+			$fields[0] = $req->getText( 'id' );
+		}
+
+		if( $req->getText( 'id2' ) ) {
+			$fields[1] = $req->getText( 'id2' );
+		}
+
+		if ( $fields ) {
+			foreach ( $fields as $index => $value ) {
+				$fieldDefaults[$index]['initialValue'] = $value;
+			}
+		}
+
+		UploadWizardConfig::setUrlSetting( 'fields', $fieldDefaults );
+
 		$this->handleCampaign();
 
 		$out = $this->getOutput();
