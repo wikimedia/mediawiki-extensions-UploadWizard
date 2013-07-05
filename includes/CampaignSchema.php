@@ -48,137 +48,137 @@ return array(
 					"items" => array(
 						array(
 							"type" => "string"
-						))
-					),
-					"description" => array(
-						"type" => "string"
-					),
-					"lat" => array(
-						"type" => "number"
-					),
-					"lon" => array(
-						"type" => "number"
-					)
-				)
-			),
-			"display" => array(
-				"type" => "object",
-				"properties" =>array(
-					"headerLabelPage" => array(
-						"type" => "string"
-					),
-					"thanksLabelPage" => array(
-						"type" => "string"
-					)
-				)
-			),
-			"licensing" => array(
-				"type" => "object",
-				"properties" =>array(
-					"defaultType" => array(
-						"type" => "string"
-					),
-					"ownWorkDefault" => array(
-						"type" => "string"
-					),
-					"ownWork" => array(
-						"type" => "object",
-						"properties" =>array(
-							"defaults" => array(
-								"type" => "array",
-								"items" =>array(
-									array(
-										"type" => "string",
-										"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
-									)
-								)
-
-
-							),
-							"licenses" => array(
-								"type" => "array",
-								"items" =>array(
-									array(
-										"type" => "string",
-										"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
-									)
-								)
-
-
-							),
-							"template" => array(
-								"type" => "string"
-							),
-							"type" => array(
-								"type" => "string"
-							)
 						)
-					),
-					"thirdParty" => array(
-						"type" => "object",
-						"properties" =>array(
-							"defaults" => array(
-								"type" => "array",
-								"items" =>array(
-									array(
-										"type" => "string",
-										"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
-									))
+					)
+				),
+				"description" => array(
+					"type" => "string"
+				),
+				"lat" => array(
+					"type" => "number"
+				),
+				"lon" => array(
+					"type" => "number"
+				)
+			)
+		),
+		"display" => array(
+			"type" => "object",
+			"properties" =>array(
+				"headerLabelPage" => array(
+					"type" => "string"
+				),
+				"thanksLabelPage" => array(
+					"type" => "string"
+				)
+			)
+		),
+		"licensing" => array(
+			"type" => "object",
+			"properties" =>array(
+				"defaultType" => array(
+					"type" => "string"
+				),
+				"ownWorkDefault" => array(
+					"type" => "string"
+				),
+				"ownWork" => array(
+					"type" => "object",
+					"properties" =>array(
+						"defaults" => array(
+							"type" => "array",
+							"items" =>array(
+								array(
+									"type" => "string",
+									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+								)
+							)
 
 
-
-								),
-								"licenseGroups" => array(
-									"type" => "array",
-									"items" =>array(
-										array(
-											"type" => "object",
-											"properties" =>array(
-												"head" => array(
-													"type" => "string"
-												),
-												"licenses" => array(
-													"type" => "array",
-													"items" =>array(
-														array(
-															"type" => "string",
-															"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
-														))
+						),
+						"licenses" => array(
+							"type" => "array",
+							"items" =>array(
+								array(
+									"type" => "string",
+									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+								)
+							)
 
 
-													),
-													"subhead" => array(
-														"type" => "string"
-													)
+						),
+						"template" => array(
+							"type" => "string"
+						),
+						"type" => array(
+							"type" => "string"
+						)
+					)
+				),
+				"thirdParty" => array(
+					"type" => "object",
+					"properties" =>array(
+						"defaults" => array(
+							"type" => "array",
+							"items" =>array(
+								array(
+									"type" => "string",
+									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+								)
+							)
+						),
+						"licenseGroups" => array(
+							"type" => "array",
+							"items" =>array(
+								array(
+									"type" => "object",
+									"properties" =>array(
+										"head" => array(
+											"type" => "string"
+										),
+										"licenses" => array(
+											"type" => "array",
+											"items" =>array(
+												array(
+													"type" => "string",
+													"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
 												)
 											)
+
+
+										),
+										"subhead" => array(
+											"type" => "string"
 										)
-
-
-									),
-									"type" => array(
-										"type" => "string"
 									)
 								)
 							)
-						)
-					),
-					"tutorial" => array(
-						"type" => "object",
-						"properties" =>array(
-							"helpdeskCoords" => array(
-								"type" => "string"
-							),
-							"template" => array(
-								"type" => "string"
-							),
-							"width" => array(
-								"type" => "number"
-							)
+
+
+						),
+						"type" => array(
+							"type" => "string"
 						)
 					)
 				)
-			);
+			)
+		),
+		"tutorial" => array(
+			"type" => "object",
+			"properties" =>array(
+				"helpdeskCoords" => array(
+					"type" => "string"
+				),
+				"template" => array(
+					"type" => "string"
+				),
+				"width" => array(
+					"type" => "number"
+				)
+			)
+		)
+	)
+);
 
 
 
