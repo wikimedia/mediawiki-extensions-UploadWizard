@@ -55,10 +55,24 @@ class UploadWizardCampaign {
 		$this->config = $config;
 	}
 
+	/**
+	 * Returns true if current campaign is enabled
+	 *
+	 * @since 1.4
+	 *
+	 * @return boolean
+	 */
 	public function getIsEnabled() {
 		return $this->config['enabled'];
 	}
 
+	/**
+	 * Returns name of current campaign
+	 *
+	 * @since 1.4
+	 *
+	 * @return string
+	 */
 	public function getName() {
 		return $this->data['campaign_name'];
 	}
