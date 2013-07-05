@@ -25493,11 +25493,12 @@ Ju lutemi mos përdorni tekst wiki apo HTML këtu.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ky nuk duket të jetë një tekst wiki i vlefshëm, ose nuk përmban një licencë.',
 	'mwe-upwiz-details-error-count' => 'Ka {{PLURAL:$1|një gabim|gabime}} me {{PLURAL:$2|formularin|formularët}} më sipër. Korrigjoni gabimet, dhe provoni ta paraqisni sërish.', # Fuzzy
 	'mwe-upwiz-too-many-files-ok' => 'Në rregull',
-	'mwe-upwiz-too-many-files-text' => 'Ju mund të ngarkoni vetëm $1 {{PLURAL:$1|skedë|skeda}} një herë. Ju provuat të ngarkoni {{PLURAL:$2|skedë|skeda}} gjithsej, prandaj $3 {{PLURAL:$3|skedë është|skeda janë}} hequr.',
+	'mwe-upwiz-too-many-files-text' => 'Ju mund të ngarkoni vetëm $1 {{PLURAL:$1|skedë|skeda}} një herë. Ju provuat të ngarkoni {{PLURAL:$2|skedë|skeda}} gjithsej, prandaj $3 {{PLURAL:$3|skedë është|skeda janë}} hequr.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'Shumë skeda.',
 	'mwe-upwiz-file-too-large-ok' => 'Në rregull',
 	'mwe-upwiz-file-too-large-text' => 'Ju mundeni vetëm të ngarkoni skedarë me një madhësi deri në $1. Ju provuat të ngarkoni një skedar që është $2.',
 	'mwe-upwiz-file-too-large' => 'Skedari shumë i madh.',
+	'mwe-upwiz-dialog-title' => 'Skedat mund të ngarkohen me emra në çdo gjuhë në çdo shkrim. Titujt e skedave duhet të kenë kuptim dhe të jenë të ndihmues në gjuhën e zgjedhur.', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 kodi ligjor])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Austri ([$2 kodi ligjor])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 Gjermani ([$2 kodi ligjor])',
