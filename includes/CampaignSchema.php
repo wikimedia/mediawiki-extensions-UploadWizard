@@ -9,6 +9,22 @@ return array(
 			"type" => "boolean",
 			"required" => true
 		),
+		"autoAdd" => array(
+			"type" => "object",
+			"properties" => array(
+				"categories" => array(
+					"type" => "array",
+					"items" => array(
+						array(
+							"type" => "string"
+						)
+					)
+				),
+				"wikitext" => array(
+					"type" => "string"
+				)
+			)
+		),
 		"fields" => array(
 			"type" => "array",
 			"items" => array(
