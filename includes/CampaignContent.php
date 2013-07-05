@@ -28,16 +28,37 @@ class CampaignContent extends TextContent {
 	}
 
 	/**
+	 * Checks user input JSON to make sure that it produces a valid campaign object
+	 *
 	 * @throws JsonSchemaException: If invalid.
 	 * @return bool: True if valid.
 	 */
 	function validate() {
-		$schema = $this->getJsonData();
-		if ( !is_array( $schema ) ) {
+		global $wgUpwizDir;
+
+		$campaign = $this->getJsonData();
+		if ( !is_array( $campaign ) ) {
 			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
 		}
-		return true; // FIXME: Actually validated
-		//return efSchemaValidate( $schema );
+
+		$schema = include( $wgUpwizDir . '/includes/CampaignSchema.php' );
+
+		// Only validate fields we care about
+		$campaignFields = array_keys( $schema['properties'] );
+
+		$fullConfig = UploadWizardConfig::getConfig();
+
+		$defaultCampaignConfig = array();
+
+		foreach( $fullConfig as $key => $value ) {
+			if( in_array( $key, $campaignFields ) ) {
+				$defaultCampaignConfig[ $key ] = $value;
+			}
+		}
+
+		$mergedConfig = array_replace_recursive( $defaultCampaignConfig, $campaign );
+
+		return efSchemaValidate( $mergedConfig , $schema );
 	}
 
 	/**

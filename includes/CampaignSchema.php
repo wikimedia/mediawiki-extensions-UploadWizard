@@ -1,0 +1,184 @@
+<?php
+return array(
+	"type" => "object",
+	"id" => "#campaignnode",
+	"type" => "object",
+	"required" => "true",
+	"properties" =>array(
+		"enabled" => array(
+			"type" => "boolean",
+			"required" => true
+		),
+		"fields" => array(
+			"type" => "array",
+			"items" => array(
+				array(
+					"type" => "object",
+					"properties" => array(
+						"wikitext" => array(
+							"type" => "string"
+						),
+						"label" => array(
+							"type" => "string"
+						),
+						"labelPage" => array(
+							"type" => "string"
+						),
+						"gth" => array(
+							"type" => "integer"
+						),
+						"initialValue" => array(
+							"type" => "string"
+						),
+						"required" => array(
+							"type" => "boolean"
+						)
+					)
+				)
+			)
+		),
+		"defaults" => array(
+			"type" => "object",
+			"properties" =>array(
+				"alt" => array(
+					"type" => "string"
+				),
+				"categories" => array(
+					"type" => "array",
+					"items" => array(
+						array(
+							"type" => "string"
+						))
+					),
+					"description" => array(
+						"type" => "string"
+					),
+					"lat" => array(
+						"type" => "string"
+					),
+					"lon" => array(
+						"type" => "string"
+					)
+				)
+			),
+			"display" => array(
+				"type" => "object",
+				"properties" =>array(
+					"headerLabelPage" => array(
+						"type" => "string"
+					),
+					"thanksLabelPage" => array(
+						"type" => "string"
+					)
+				)
+			),
+			"licensing" => array(
+				"type" => "object",
+				"properties" =>array(
+					"defaultType" => array(
+						"type" => "string"
+					),
+					"ownWorkDefault" => array(
+						"type" => "string"
+					),
+					"ownWork" => array(
+						"type" => "object",
+						"properties" =>array(
+							"defaults" => array(
+								"type" => "array",
+								"items" =>array(
+									array(
+										"type" => "string",
+										"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+									)
+								)
+
+
+							),
+							"licenses" => array(
+								"type" => "array",
+								"items" =>array(
+									array(
+										"type" => "string",
+										"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+									)
+								)
+
+
+							),
+							"template" => array(
+								"type" => "string"
+							),
+							"type" => array(
+								"type" => "string"
+							)
+						)
+					),
+					"thirdParty" => array(
+						"type" => "object",
+						"properties" =>array(
+							"defaults" => array(
+								"type" => "array",
+								"items" =>array(
+									array(
+										"type" => "string",
+										"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+									))
+
+
+
+								),
+								"licenseGroups" => array(
+									"type" => "array",
+									"items" =>array(
+										array(
+											"type" => "object",
+											"properties" =>array(
+												"head" => array(
+													"type" => "string"
+												),
+												"licenses" => array(
+													"type" => "array",
+													"items" =>array(
+														array(
+															"type" => "string",
+															"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+														))
+
+
+													),
+													"subhead" => array(
+														"type" => "string"
+													)
+												)
+											)
+										)
+
+
+									),
+									"type" => array(
+										"type" => "string"
+									)
+								)
+							)
+						)
+					),
+					"tutorial" => array(
+						"type" => "object",
+						"properties" =>array(
+							"helpdeskCoords" => array(
+								"type" => "string"
+							),
+							"template" => array(
+								"type" => "string"
+							),
+							"width" => array(
+								"type" => "number"
+							)
+						)
+					)
+				)
+			);
+
+
+

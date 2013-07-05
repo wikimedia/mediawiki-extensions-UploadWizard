@@ -136,15 +136,6 @@ return array(
 
 			// Set to true if this field is required
 			'required' => false
-
-		),
-		// Same as above, but for a second field.
-		array(
-			'wikitext' => '',
-			'label' => '',
-			'lagelPage' => '',
-			'maxLength' => '',
-			'initialValue' => ''
 		)
 	),
 
