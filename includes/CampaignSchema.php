@@ -24,7 +24,7 @@ return array(
 						"labelPage" => array(
 							"type" => "string"
 						),
-						"gth" => array(
+						"maxLength" => array(
 							"type" => "integer"
 						),
 						"initialValue" => array(
