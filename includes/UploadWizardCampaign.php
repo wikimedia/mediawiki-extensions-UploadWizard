@@ -27,32 +27,28 @@ class UploadWizardCampaign {
 	 */
 	protected $config = array();
 
-	protected $data = array();
+	/**
+	 * The WikiPage representing the current campaign
+	 *
+	 * @since 1.4
+	 * @var WikiPage
+	 */
+	protected $page = null;
 
 	public static function newFromName( $name ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		$result = $dbr->select(
-			'uw_campaigns',
-			'*',
-			array( 'campaign_name' => $name )
-		);
-
-		if ( $result->numRows() === 0 ) {
-			return false; // Nothing with this name, move on...
+		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
+		if( !$campaignTitle->exists() ) {
+			return false;
 		}
-		// We expect only one result, since there exists a unique index
-		$row = $result->fetchRow();
 
 		$campaignPage = WikiPage::factory( Title::newFromText( $name, NS_CAMPAIGN ) );
 
-		$config = $campaignPage->getContent()->getJsonData();
-
-		return new UploadWizardCampaign( $row, $config );
+		return new UploadWizardCampaign( $campaignPage );
 	}
 
-	private function __construct( $data, $config ) {
-		$this->data = $data;
-		$this->config = $config;
+	private function __construct( $wikiPage ) {
+		$this->page = $wikiPage;
+		$this->config = $this->page->getContent()->getJsonData();
 	}
 
 	/**
@@ -74,7 +70,7 @@ class UploadWizardCampaign {
 	 * @return string
 	 */
 	public function getName() {
-		return $this->data['campaign_name'];
+		return $this->page->getTitle()->getDBkey();
 	}
 
 	/**
