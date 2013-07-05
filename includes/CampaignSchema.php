@@ -54,10 +54,10 @@ return array(
 						"type" => "string"
 					),
 					"lat" => array(
-						"type" => "string"
+						"type" => "number"
 					),
 					"lon" => array(
-						"type" => "string"
+						"type" => "number"
 					)
 				)
 			),
