@@ -123,13 +123,17 @@ class CampaignHooks {
 	 * @return bool
 	 */
 	static function onCanonicalNamespaces( array &$namespaces ) {
-		global $wgNamespaceContentModels, $wgNamespaceProtection;
+		global $wgNamespaceContentModels, $wgNamespaceProtection,
+			$wgCapitalLinkOverrides;
 
 		$namespaces[ NS_CAMPAIGN ] = 'Campaign';
 		$namespaces[ NS_CAMPAIGN_TALK ] = 'Campaign_talk';
 
 		$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'upwizcampaigns' );
 		$wgNamespaceContentModels[ NS_CAMPAIGN ] = 'Campaign';
+
+		$wgCapitalLinkOverrides[ NS_CAMPAIGN ] = false;
+		$wgCapitalLinkOverrides[ NS_CAMPAIGN_TALK ] = false;
 
 		return true;
 	}
