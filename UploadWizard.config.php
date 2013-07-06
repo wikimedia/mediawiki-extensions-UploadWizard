@@ -147,13 +147,13 @@ return array(
 		'description' => '',
 
 		// Initial value for the latitude field.
-		'lat' => '',
+		'lat' => 0,
 
 		// Initial value for the longitude field.
-		'lon' => '',
+		'lon' => 0,
 
 		// Initial value for the altitude field.
-		'alt' => '',
+		'alt' => 0,
 	),
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.

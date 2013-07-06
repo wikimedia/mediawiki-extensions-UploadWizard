@@ -57,7 +57,7 @@ return array(
 			"type" => "object",
 			"properties" =>array(
 				"alt" => array(
-					"type" => "string"
+					"type" => "number"
 				),
 				"categories" => array(
 					"type" => "array",
