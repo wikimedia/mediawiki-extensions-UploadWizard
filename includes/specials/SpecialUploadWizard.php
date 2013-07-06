@@ -84,11 +84,11 @@ class SpecialUploadWizard extends SpecialPage {
 
 		# Support id and id2 for field0 and field1
 		# Legacy support for old URL structure. They override fields[]
-		if( $req->getText( 'id' ) ) {
+		if ( $req->getText( 'id' ) ) {
 			$fields[0] = $req->getText( 'id' );
 		}
 
-		if( $req->getText( 'id2' ) ) {
+		if ( $req->getText( 'id2' ) ) {
 			$fields[1] = $req->getText( 'id2' );
 		}
 
@@ -179,7 +179,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		if ( array_key_exists( 'fields', $config ) ) {
 			foreach ( $config['fields'] as &$field ) {
-				if( array_key_exists( 'labelPage', $field ) ) {
+				if ( array_key_exists( 'labelPage', $field ) ) {
 					$labelPageContent = $this->getPageContent( $field['labelPage'] );
 					if ( $labelPageContent !== false ) {
 						$field['label'] = $labelPageContent;
@@ -195,7 +195,7 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['UploadFromUrl'] = false;
 		}
 
-		if( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabelPage', $config['display'] ) ) {
+		if ( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabelPage', $config['display'] ) ) {
 			$thanksLabelContent = $this->getPageContent( $config['display']['thanksLabelPage'] );
 			if ( $thanksLabelContent !== false ) {
 				$config['display']['thanksLabel'] = $thanksLabelContent;
@@ -363,7 +363,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabelPage', $config['display'] ) ) {
+		if ( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabelPage', $config['display'] ) ) {
 			$headerContent = $this->getPageContent( $config['display']['headerLabelPage'] );
 			if ( $headerContent !== false ) {
 				$this->getOutput()->addWikiText( $headerContent );

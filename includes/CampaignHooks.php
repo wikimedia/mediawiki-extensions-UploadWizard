@@ -39,7 +39,7 @@ class CampaignHooks {
 	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
 	 */
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor, $isWatch, $section, $flags, $revision, $status, $baseRevId ) {
-		if( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+		if ( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
 
@@ -68,7 +68,7 @@ class CampaignHooks {
 	 * Deletes entries from uc_campaigns table when a Campaign is deleted
 	 */
 	public static function onArticleDeleteComplete( $article, $user, $reason, $id, $content, $logEntry ) {
-		if( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+		if ( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
 
@@ -87,7 +87,7 @@ class CampaignHooks {
 	 * Update campaign names when the Campaign page moves
 	 */
 	public static function onTitleMoveComplete( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
-		if( !$oldTitle->inNamespace( NS_CAMPAIGN ) ) {
+		if ( !$oldTitle->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
 

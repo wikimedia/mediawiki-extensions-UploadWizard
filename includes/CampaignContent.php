@@ -50,8 +50,8 @@ class CampaignContent extends TextContent {
 
 		$defaultCampaignConfig = array();
 
-		foreach( $fullConfig as $key => $value ) {
-			if( in_array( $key, $campaignFields ) ) {
+		foreach ( $fullConfig as $key => $value ) {
+			if ( in_array( $key, $campaignFields ) ) {
 				$defaultCampaignConfig[ $key ] = $value;
 			}
 		}
