@@ -2,8 +2,7 @@
 return array(
 	"type" => "object",
 	"id" => "#campaignnode",
-	"type" => "object",
-	"required" => "true",
+	"required" => true,
 	"properties" =>array(
 		"enabled" => array(
 			"type" => "boolean",
