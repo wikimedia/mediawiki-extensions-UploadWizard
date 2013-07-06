@@ -159,9 +159,9 @@ class MigrateCampaigns extends Maintenance {
 			),
 			'defaults' => array(
 				'description' => $oldConfig['defaultDescription'],
-				'defaultLat' => $oldConfig['defaultLat'],
-				'defaultLon' => $oldConfig['defaultLon'],
-				'defaultCategories' => $this->explodeStringToArray( $oldConfig['defaultCategories'] )
+				'lat' => $oldConfig['defaultLat'],
+				'lon' => $oldConfig['defaultLon'],
+				'categories' => $this->explodeStringToArray( $oldConfig['defaultCategories'] )
 			),
 			'autoAdd' => array(
 				'wikitext' => $oldConfig['autoWikiText'],
