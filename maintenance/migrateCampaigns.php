@@ -39,7 +39,8 @@ class MigrateCampaigns extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "";
+		$this->mDescription = "Migrate UploadCampaigns from database storage to pages";
+		$this->addOption( 'user', 'The user to perform the migration as', false, true, 'u' );
 	}
 
 	private $oldKeyDefaults = array(
@@ -204,6 +205,8 @@ class MigrateCampaigns extends Maintenance {
 	}
 
 	public function execute() {
+		$user = $this->getOption( 'user', 'Maintenance script' );
+
 		$this->dbr = wfGetDB( DB_MASTER );
 		$campaigns = $this->dbr->select(
 			'uw_campaigns',
@@ -220,7 +223,9 @@ class MigrateCampaigns extends Maintenance {
 			$content = new CampaignContent( json_encode( $newConfig ) );
 			$status = $page->doEditContent( 
 				$content, 
-				"Migrating from old campaign tables"
+				"Migrating from old campaign tables",
+				0, false,
+				User::newFromName( $user )
 			);
 			echo "Migrated " . $campaign->campaign_name . "\n";
 		}
