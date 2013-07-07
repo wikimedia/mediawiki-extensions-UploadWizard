@@ -7141,6 +7141,7 @@ $1',
 
 /** Canadian English (Canadian English)
  * @author Dantman
+ * @author Shirayuki
  */
 $messages['en-ca'] = array(
 	'mwe-upwiz-source-ownwork-assert-custom' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby publish {{PLURAL:$1|this work|these works}} under the following licence:', # Fuzzy
@@ -7153,7 +7154,7 @@ $messages['en-ca'] = array(
 	'mwe-upwiz-license-pd-art' => 'Reproduction of a painting that is in public domain because of its age', # Fuzzy
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation Licence',
 	'mwe-upwiz-license-cc-head' => 'The copyright holder published {{PLURAL:$1|this work|these works}} with the right Creative Commons licence',
-	'mwe-upwiz-license-cc-subhead' => 'Not all Creative Commons licenscs are good for this site. Make sure the copyright holder used one of these licences.',
+	'mwe-upwiz-license-cc-subhead' => 'Not all Creative Commons licences are good for this site. Make sure the copyright holder used one of these licences.',
 	'mwe-upwiz-license-flickr-head' => 'The copyright holder published their {{PLURAL:$1|photo or video|photos or videos}} on Flickr with the right licence',
 	'mwe-upwiz-license-flickr-subhead' => 'Check the "Licence" header on the side of the Flickr page. Both the icons and licence name that they used have to match one of the choices here.',
 	'mwe-upwiz-license-custom-head' => 'Experts only: enter the code for a licence not shown here',
@@ -11872,9 +11873,9 @@ $messages['hsb'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Bohužel njemóžachmy skalowany wobraz dostać, kotryž so wobrazowce přiměri. To móhło nachwilne problem z Wikimedia Commons być. Spytaj pozdźišo hišće raz.',
 	'mwe-upwiz-help-desk' => 'Pomoc',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Pomoc',
-	'mwe-upwiz-add-file-n' => 'Druhu dataju přidać', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Medijowu dataju za dźělenje wubrać', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'Wobrazy wot Flickr přidać', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Dalše dataje přidać',
+	'mwe-upwiz-add-file-0-free' => 'Medijowe dataje za dźělenje wubrać',
+	'mwe-upwiz-add-file-flickr' => 'Wobrazy z Flickr dźělić',
 	'mwe-upwiz-add-flickr-or' => 'Abo',
 	'mwe-upwiz-add-flickr' => 'Wot Flickr wobstarać',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr-wobraz/URL fotosadźby',
@@ -11926,7 +11927,7 @@ Prošu spytaj alternatiwny wobhladowak.',
 	'mwe-upwiz-source-thirdparty-cases' => 'Prošu zdźěl nam, čehodla sy sej wěsty, zo maš prawa {{PLURAL:$1tute dźěło|tutej dźěle|tute dźěła|tute dźěła}} wozjewić:',
 	'mwe-upwiz-source-thirdparty-accept' => 'W porjadku',
 	'mwe-upwiz-source-custom' => 'Podaj informacije wo awtorskim prawje za kóždu dataju po jednym na přichodnej stronje .',
-	'mwe-upwiz-more-options' => 'Kategorije a dalše informacije přidać...', # Fuzzy
+	'mwe-upwiz-more-options' => 'Městno a dalše informacije přidać ...',
 	'mwe-upwiz-copy-metadata' => 'Informacije k {{PLURAL:$1|slědowacemu nahraću|slědowacymaj nahraćomaj|wšěm slědowacym nahraćam|wšěm slědowacym nahraćam}} kopěrować...',
 	'mwe-upwiz-copy-metadata-button' => 'Kopěrować',
 	'mwe-upwiz-copied-metadata-button' => 'Wuspěšnje kopěrowany',
@@ -11969,7 +11970,7 @@ Prošu spytaj alternatiwny wobhladowak.',
 	'mwe-upwiz-fileexists-replace' => 'Dataja z titulom "$1" hižo eksistuje. Prošu změń swój titul do njeeksistowaceho.',
 	'mwe-upwiz-fileexists' => 'Dataja z tutym mjenom hižo eksistuje. Prošu skontroluj $1, jeli njesy sej wěsty, hač chceš ju změnić.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Dataja z tutym mjenom hižo eksistuje. Jeli chceš ju wuměnić, dźi k stronje [$2 $1] a wuměń ju tam.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Dataja z tutym mjenom hižo eksistuje.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Prošu wubjer druhi titul, dokelž so tutón titul hižo přez druhu dataju wužiwa.',
 	'mwe-upwiz-blacklisted' => 'Prošu wubjer druhi, wuprajiwy titul.',
 	'mwe-upwiz-thumbnail-more' => 'Powjetšić',
 	'mwe-upwiz-overwrite' => 'Dataju narunać',
@@ -12029,11 +12030,12 @@ Prošu njewužij tu wikitekst abo HTML.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Zda so, zo to płaćiwy wikitekst njeje abo licencu njewobsahuje.',
 	'mwe-upwiz-details-error-count' => 'Při wupjelnjenju {{PLURAL:$2|formulara|formularow}} {{PLURAL:$1|je zmylk wustupił|stej $1 zmylkaj wustupiłoj|su $1 zmylki wustupili|je $1 zmylkow wustupiło}}. Prošu porjedź {{PLURAL:$1|zmylk|zmylkaj|zmylki}} a składuj  hišće raz.',
 	'mwe-upwiz-too-many-files-ok' => 'W porjadku',
-	'mwe-upwiz-too-many-files-text' => 'Móžeš jenož $1 {{PLURAL:$1|dataju|dataji|dataje|datajow}} naraz nahrać. Sy spytał $2 {{PLURAL:$2|dataju|dataji|dataje|datajow}} přidać, tak zo $3 {{PLURAL:$3|dataja je so wotstroniła|dataji stej so wotstroniłoj|dataje su so wotstronili|datajow je so wotstroniło}}.',
+	'mwe-upwiz-too-many-files-text' => 'Móžeš jenož $1 {{PLURAL:$1|dataju|dataji|dataje|datajow}} naraz nahrać. Sy spytał $2 {{PLURAL:$2|dataju|dataji|dataje|datajow}} přidać, tak zo $3 {{PLURAL:$3|dataja je so wotstroniła|dataji stej so wotstroniłoj|dataje su so wotstronili|datajow je so wotstroniło}}.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'Přewjele datajow.',
 	'mwe-upwiz-file-too-large-ok' => 'W porjadku',
 	'mwe-upwiz-file-too-large-text' => 'Móžeš jenož dataje z wulkosću hač do $1 nahrać. Sy spytał, dataju z wulkosću $2 nahrać.',
 	'mwe-upwiz-file-too-large' => 'Dataja přewulka.',
+	'mwe-upwiz-dialog-title' => 'Warnowanje',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Awstriska ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 Němska ([$2 legal code])',
