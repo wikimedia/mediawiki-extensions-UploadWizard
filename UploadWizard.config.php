@@ -350,8 +350,7 @@ return array(
 				'cc-by-sa-3.0',
 				'cc-by-3.0',
 				'cc-zero'
-			),
-			'default' => 'cc-by-sa-3.0'
+			)
 		),
 
 		// checkbox selection of all licenses
@@ -407,8 +406,7 @@ return array(
 					'head' => 'mwe-upwiz-license-none-head',
 					'licenses' => array( 'none' )
 				),
-			),
-			'default' => 'none',
+			)
 		)
 	),
 
