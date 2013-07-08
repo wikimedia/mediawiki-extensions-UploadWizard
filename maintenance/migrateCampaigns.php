@@ -152,7 +152,7 @@ class MigrateCampaigns extends Maintenance {
 
 	private function getConfigForJSON( $campaign, $oldConfig ) {
 		$config = array(
-			'enabled' => $campaign->campaign_enabled === 1,
+			'enabled' => $campaign->campaign_enabled === '1',
 			'display' => array(
 				'headerLabelPage' => $oldConfig['headerLabelPage'],
 				'thanksLabelPage' => $oldConfig['thanksLabelPage']
