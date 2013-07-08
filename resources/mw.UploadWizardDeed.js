@@ -85,7 +85,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			}
 			else {
 				return '{{' +
-							mw.UploadWizard.config.licensing.ownWork.filterTemplate +
+							mw.UploadWizard.config.licensing.ownWork.template +
 						'|' +
 							mw.UploadWizard.config.licensing.ownWork.licenses[0] +
 						'}}';
