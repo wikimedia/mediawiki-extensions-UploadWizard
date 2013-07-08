@@ -85,8 +85,6 @@ class UploadWizardConfig {
 
 		if ( !is_null( $campaignName ) ) {
 			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
-			var_dump( $wgUploadWizardConfig );
-			die();
 		}
 
 
