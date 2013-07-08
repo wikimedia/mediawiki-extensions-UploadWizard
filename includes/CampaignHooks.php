@@ -48,7 +48,7 @@ class CampaignHooks {
 
 		$campaignData = $content->getJsonData();
 		$insertData = array(
-			'campaign_enabled' => $campaignData['enabled'] ? 0 : 1
+			'campaign_enabled' => $campaignData['enabled'] ? 1 : 0
 		);
 		$success = $dbw->upsert(
 			'uw_campaigns',
