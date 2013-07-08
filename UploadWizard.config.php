@@ -351,7 +351,7 @@ return array(
 				'cc-by-3.0',
 				'cc-zero'
 			),
-			'defaults' => array( 'cc-by-sa-3.0' )
+			'default' => 'cc-by-sa-3.0'
 		),
 
 		// checkbox selection of all licenses
@@ -408,7 +408,7 @@ return array(
 					'licenses' => array( 'none' )
 				),
 			),
-			'defaults' => array( 'none' ),
+			'default' => 'none',
 		)
 	),
 

@@ -100,16 +100,9 @@ return array(
 				"ownWork" => array(
 					"type" => "object",
 					"properties" =>array(
-						"defaults" => array(
-							"type" => "array",
-							"items" =>array(
-								array(
-									"type" => "string",
-									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
-								)
-							)
-
-
+						"default" => array(
+							"type" => "string",
+							"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
 						),
 						"licenses" => array(
 							"type" => "array",
@@ -134,13 +127,8 @@ return array(
 					"type" => "object",
 					"properties" =>array(
 						"defaults" => array(
-							"type" => "array",
-							"items" =>array(
-								array(
-									"type" => "string",
-									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
-								)
-							)
+							"type" => "string",
+							"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
 						),
 						"licenseGroups" => array(
 							"type" => "array",

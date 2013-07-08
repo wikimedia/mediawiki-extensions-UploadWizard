@@ -150,6 +150,18 @@ class MigrateCampaigns extends Maintenance {
 		return $newArray;
 	}
 
+
+	/* Ensure that the default license, if set, is the first */
+	private function ensureDefaultLicense( $licenses, $default ) {
+		if ( count( $licenses ) === 1 || ( $default === null || trim( $default ) === '' ) ) {
+			return $licenses;
+		}
+		if ( in_array( $default, $licenses ) ) {
+			array_splice( $licenses, array_search( $default, $licenses ), 1 );
+		}
+		array_unshift( $licenses, $default );
+	}
+
 	private function getConfigForJSON( $campaign, $oldConfig ) {
 		$config = array(
 			'enabled' => $campaign->campaign_enabled === '1',
@@ -171,8 +183,7 @@ class MigrateCampaigns extends Maintenance {
 				'defaultType' => $oldConfig['defaultLicenseType'],
 				'ownWorkDefault' => $oldConfig['ownWorkOption'],
 				'ownWork' => array(
-					'licenses' => $this->explodeStringToArray( $oldConfig['licensesOwnWork'] ),
-					'defaults' => $this->explodeStringToArray( $oldConfig['defaultOwnWorkLicense'])
+					'licenses' => $this->ensureDefaultLicense( $this->explodeStringToArray( $oldConfig['licensesOwnWork'] ),  $oldConfig['defaultOwnWorkLicense'] )
 				)
 			),
 			'fields' => array(

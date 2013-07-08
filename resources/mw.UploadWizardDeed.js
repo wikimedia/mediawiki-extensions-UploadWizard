@@ -49,8 +49,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 		.addClass( 'mwe-upwiz-sign' );
 
 	var ownWork = mw.UploadWizard.config.licensing.ownWork;
-	var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
-	_this.showCustomDiv = ownWork.licenses.length > 1 || licenseIsNotDefault;
+	_this.showCustomDiv = ownWork.licenses.length > 1;
 
 	if ( _this.showCustomDiv ) {
 		var licenseInputDiv = $j( '<div class="mwe-upwiz-deed-license"></div>' );
@@ -88,7 +87,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				return '{{' +
 							mw.UploadWizard.config.licensing.ownWork.filterTemplate +
 						'|' +
-							mw.UploadWizard.config.licensing.ownWork.defaults[0] +
+							mw.UploadWizard.config.licensing.ownWork.licenses[0] +
 						'}}';
 			}
 		},
@@ -122,7 +121,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 			_this.$authorInput2 = $j( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
 
-			var defaultLicense = mw.UploadWizard.config.licensing.ownWork.defaults[0];
+			var defaultLicense = mw.UploadWizard.config.licensing.ownWork.licenses[0];
 			var defaultLicenseURL = mw.UploadWizard.config.licenses[defaultLicense].url === undefined ?
 						'#missing license URL' :
 						mw.UploadWizard.config.licenses[defaultLicense].url + 'deed.' + languageCode;

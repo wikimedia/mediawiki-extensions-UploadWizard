@@ -421,8 +421,7 @@ mw.UploadWizard.prototype = {
 			}
 			else if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'own' ) {
 				var ownWork = mw.UploadWizard.config.licensing.ownWork;
-				var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
-				return ownWork.licenses.length > 1 || licenseIsNotDefault;
+				return ownWork.licenses.length > 1;
 			}
 			else {
 				return true; // TODO: might want to have similar behaviour here
