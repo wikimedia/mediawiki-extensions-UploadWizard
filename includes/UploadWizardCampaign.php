@@ -37,7 +37,7 @@ class UploadWizardCampaign {
 
 	public static function newFromName( $name ) {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
-		if ( !$campaignTitle->exists() ) {
+		if ( $campaignTitle === null || !$campaignTitle->exists() ) {
 			return false;
 		}
 
