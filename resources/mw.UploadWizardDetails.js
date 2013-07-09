@@ -155,8 +155,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
 	//_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
 
-	_this.latInput.val( mw.UploadWizard.config.defaultLat );
-	_this.lonInput.val( mw.UploadWizard.config.defaultLon );
+	_this.latInput.val( mw.UploadWizard.config.defaults.lat );
+	_this.lonInput.val( mw.UploadWizard.config.defaults.lon );
 	//_this.altInput.val( mw.UploadWizard.config.defaultAlt );
 
 	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
@@ -197,43 +197,32 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		$categoriesDiv
 	);
 
-	if ( mw.UploadWizard.config.idField ) {
-		var idFieldId = "idField" + ( _this.upload.index ).toString();
-		_this.idFieldInput = $j( '<input />' ).attr( {
-			'type': 'text',
-			'id': idFieldId,
-			'name': idFieldId,
-			'class': 'mwe-idfield',
-			'maxlength': mw.UploadWizard.config.idFieldMaxLength
-		} );
+	_this.fields = [];
+	$j.each( mw.UploadWizard.config.fields, function ( i, field ) {
+		if( field.wikitext ) {
+			var fieldInputId = "field_" + i + '_' + ( _this.upload.index ).toString();
 
-		_this.idFieldInput.val( mw.UploadWizard.config.idFieldInitialValue );
+			var $fieldInput = $j( '<input />' ).attr( {
+					'type': 'text',
+					'id': fieldInputId,
+					'name': fieldInputId,
+					'class': 'mwe-idfield',
+					'maxlength': field.maxLength
+				} )
+				.val( field.initialValue )
+				.data( 'field', field );
 
-		_this.$form.append(
-			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + idFieldId + '" generated="true"/></div>' ),
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idFieldLabel ).requiredFieldLabel(),
-			$j( '<div class="mwe-id-field"></div>' ).append( _this.idFieldInput )
-		);
-	}
+			_this.$form.append(
+				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
+					.append( $j( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
+				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).text( field.label ).requiredFieldLabel(),
+				$j( '<div>' ).attr( 'class', 'mwe-id-field' )
+					.append( $fieldInput )
+			);
 
-	if ( mw.UploadWizard.config.idField2 ) {
-		var idField2Id = "idField2" + ( _this.upload.index ).toString();
-		_this.idField2Input = $j( '<input />' ).attr( {
-			'type': 'text',
-			'id': idField2Id,
-			'name': idField2Id,
-			'class': 'mwe-idfield',
-			'maxlength': mw.UploadWizard.config.idField2MaxLength
-		} );
-
-		_this.idField2Input.val( mw.UploadWizard.config.idField2InitialValue );
-
-		_this.$form.append(
-			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + idField2Id + '" generated="true"/></div>' ),
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.UploadWizard.config.idField2Label ).requiredFieldLabel(),
-			$j( '<div class="mwe-id-field"></div>' ).append( _this.idField2Input )
-		);
-	}
+			_this.fields.push( $fieldInput );
+		}
+	} );
 
 	_this.$form.append(
 		moreDetailsCtrlDiv,
@@ -279,6 +268,14 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		}
 	} );
 
+	$.each( _this.fields, function ( i, $fieldInput ) {
+		$fieldInput.rules( "add", {
+			required: $fieldInput.data( 'field' ).required,
+			messages: {
+				required: mw.msg( 'mwe-upwiz-error-blank')
+			}
+		} );
+	} );
 	_this.$form.find( '.mwe-date' )
 		.datepicker( {
 			dateFormat: 'yy-mm-dd',
@@ -301,15 +298,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				$this.data( 'open', 0 ).datepicker( 'hide' );
 			}
 		} );
-
-	if ( mw.UploadWizard.config.idField ) {
-		_this.idFieldInput.rules( "add", {
-			required: true,
-			messages: {
-				required: mw.msg( 'mwe-upwiz-error-blank' )
-			}
-		} );
-	}
 
 	_this.latInput.rules( "add", {
 		min: -90,
@@ -347,10 +335,10 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	);
 
 	_this.addDescription(
-		!mw.UploadWizard.config.idField,
+		! ( mw.UploadWizard.config.fields && mw.UploadWizard.config.fields.length  && mw.UploadWizard.config.fields[0].wikitext ) ,
 		mw.LanguageUpWiz.UNKNOWN,
 		false,
-		mw.UploadWizard.config.defaultDescription
+		mw.UploadWizard.config.defaults.description
 	);
 
 	if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
@@ -381,10 +369,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			} );
 	}
 	// make this a category picker
-	var hiddenCats = mw.UploadWizard.config.autoCategories === undefined ? [] : mw.UploadWizard.config.autoCategories;
-	if ( typeof mw.UploadWizard.config.autoCategory === 'string' && mw.UploadWizard.config.autoCategory.length > 0 ) {
-		hiddenCats.push( mw.UploadWizard.config.autoCategory );
-	}
+	var hiddenCats = mw.UploadWizard.config.autoAdd.categories === undefined ? [] : mw.UploadWizard.config.autoAdd.categories;
 
 	var missingCatsWikiText = null;
 	if (
@@ -399,7 +384,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		api: _this.upload.api,
 		hiddenCats: hiddenCats,
 		buttontext: mw.msg( 'mwe-upwiz-categories-add' ),
-		cats: mw.UploadWizard.config.defaultCategories === undefined ? [] : mw.UploadWizard.config.defaultCategories,
+		cats: mw.UploadWizard.config.defaults.categories === undefined ? [] : mw.UploadWizard.config.defaults.categories,
 		missingCatsWikiText: missingCatsWikiText,
 		willbeaddedtext: mw.msg( 'mwe-upwiz-category-will-be-added' ),
 		onnewcat: function () {
@@ -1201,23 +1186,11 @@ mw.UploadWizardDetails.prototype = {
 				information.description += desc.getWikiText();
 			} );
 
-			// Add id field if needed
-			if ( mw.UploadWizard.config.idField ) {
-				var idFieldValue = $j.trim( $j( _this.idFieldInput ).val() );
-
-				if ( ! mw.isEmpty( idFieldValue ) ) { // HAXXX
-					information.description += mw.UploadWizard.config.idField.replace( '$1', idFieldValue );
+			$j.each( _this.fields, function ( i, $field ) {
+				if ( ! mw.isEmpty( $field.val() ) ) {
+					information.description += $field.data( 'field' ).wikitext.replace( '$1', $field.val() );
 				}
-			}
-
-			// Add 2nd id field if needed
-			if ( mw.UploadWizard.config.idField2 ) {
-				var idField2Value = $j.trim( $j( _this.idField2Input ).val() );
-
-				if ( ! mw.isEmpty( idField2Value ) ) { // HAXXX
-					information.description += mw.UploadWizard.config.idField2.replace( '$1', idField2Value );
-				}
-			}
+			} );
 
 			information.date = $j.trim( $j( _this.dateInput ).val() );
 
@@ -1256,8 +1229,8 @@ mw.UploadWizardDetails.prototype = {
 			wikiText += "\n=={{int:license-header}}==\n";
 			wikiText += deed.getLicenseWikiText() + "\n\n";
 
-			if ( mw.UploadWizard.config.autoWikiText !== undefined ) {
-				wikiText += mw.UploadWizard.config.autoWikiText;
+			if ( mw.UploadWizard.config.autoAdd.wikitext !== undefined ) {
+				wikiText += mw.UploadWizard.config.autoAdd.wikitext;
 			}
 
 			// add categories

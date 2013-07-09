@@ -535,20 +535,6 @@ class UploadWizardHooks {
 			dirname( __FILE__ ) . '/sql/UW_IndexCampaignsName.sql',
 			true
 		) );
-		$updater->addExtensionUpdate( array(
-			'addIndex',
-			'uw_campaign_conf',
-			'uw_cc_id_property',
-			dirname( __FILE__ ) . '/sql/UW_IndexConfIdProp.sql',
-			true
-		) );
-		$updater->addExtensionUpdate( array(
-			'addIndex',
-			'uw_campaign_conf',
-			'uw_cc_property',
-			dirname( __FILE__ ) . '/sql/UW_IndexConfProp.sql',
-			true
-		) );
 
 		return true;
 	}
@@ -569,7 +555,7 @@ class UploadWizardHooks {
 		$config = UploadWizardConfig::getConfig();
 
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
-		if ( UploadWizardConfig::getSetting( 'skipTutorial' ) == false ) {
+		if ( UploadWizardConfig::getSetting( 'tutorial' ) != array() ) {
 			$preferences['upwiz_skiptutorial'] = array(
 				'type' => 'check',
 				'label-message' => 'mwe-upwiz-prefs-skiptutorial',
@@ -582,7 +568,9 @@ class UploadWizardHooks {
 
 			$licenses = array();
 
-			$ownWork = UploadWizardConfig::getSetting( 'licensesOwnWork' );
+			$licensingOptions = UploadWizardConfig::getSetting( 'licensing' );
+
+			$ownWork = $licensingOptions['ownWork'];
 			foreach ( $ownWork['licenses'] as $license ) {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 				$licenses[wfMessage( 'mwe-upwiz-prefs-license-own', $licenseMessage )->text()] = 'ownwork-' . $license;
