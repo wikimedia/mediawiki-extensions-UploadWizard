@@ -56,7 +56,7 @@ class CampaignContent extends TextContent {
 			}
 		}
 
-		$mergedConfig = array_replace_recursive( $defaultCampaignConfig, $campaign );
+		$mergedConfig = UploadWizardConfig::array_replace_sanely( $defaultCampaignConfig, $campaign );
 
 		return efSchemaValidate( $mergedConfig , $schema );
 	}
