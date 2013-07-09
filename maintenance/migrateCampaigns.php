@@ -201,17 +201,15 @@ class MigrateCampaigns extends Maintenance {
 					'maxLength' => $oldConfig['idField2MaxLength'],
 					'initialValue' => $oldConfig['idField2InitialValue']
 				)
-			)
-		);
-		#
-		# Use tutorial only if it is not set to be skipped
-		if ( $oldConfig['skipTutorial'] !== 0 ) {
-			$config['tutorial'] = array( 
+			),
+			'tutorial' => array(
+				'skip' => (bool)$oldConfig['skipTutorial'],
 				'template' => $oldConfig['tutorialTemplate'],
 				'helpdeskCoords' => $oldConfig['tutorialHelpdeskCoords'],
 				'width' => $oldConfig['tutorialWidth']
-			);
-		}
+			)
+		);
+
 		return $this->trimArray( $config );
 	}
 

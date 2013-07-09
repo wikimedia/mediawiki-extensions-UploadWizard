@@ -399,7 +399,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
-		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $config['tutorial'] != array() ) {
+		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $config['tutorial'] !== null && $config['tutorial'] !== array() && $config['tutorial']['skip'] !== true ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
 

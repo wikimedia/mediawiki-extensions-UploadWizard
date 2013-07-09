@@ -104,6 +104,9 @@ return array(
 	// Settings for the tutorial to be shown.
 	// Empty array if we want to skip
 	'tutorial' => array(
+		// Set to true to skip the tutorial
+		'skip' => false,
+
 		// Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired.
 		'template' => 'Licensing_tutorial_$1.svg',
 

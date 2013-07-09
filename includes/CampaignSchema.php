@@ -169,6 +169,9 @@ return array(
 		"tutorial" => array(
 			"type" => "object",
 			"properties" =>array(
+				"skip" => array(
+					"type" => "boolean"
+				),
 				"helpdeskCoords" => array(
 					"type" => "string"
 				),

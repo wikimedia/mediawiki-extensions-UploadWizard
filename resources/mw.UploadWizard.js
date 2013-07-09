@@ -280,7 +280,7 @@ mw.UploadWizard.prototype = {
 		// check to see if the the skip tutorial preference or global setting is set
 		if (
 			mw.user.options.get( 'upwiz_skiptutorial' ) ||
-			mw.config.get( 'UploadWizardConfig' ).skipTutorial
+			( mw.config.get( 'UploadWizardConfig' ).tutorial && mw.config.get( 'UploadWizardConfig' ).tutorial.skip )
 		) {
 			// "select" the second step - highlight, make it visible, hide all others
 			_this.moveToStep( 'file' );
