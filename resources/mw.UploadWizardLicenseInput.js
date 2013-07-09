@@ -6,7 +6,6 @@
  * @param {Array|undefined} license key name(s) to activate by default
  * @param {Object} configuration of licenseInput. Must have following properties
  *				'type' = ("and"|"or") -- whether inclusive or exclusive license allowed
- *				'defaults' => array of template string names (can be empty array),
  *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
  *				optional: 'licenseGroups' => groups of licenses, with more explanation
  *				optional: 'special' => String -- indicates, don't put licenses here, instead use a special widget
@@ -27,7 +26,6 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 
 	if (
 		config.type === undefined ||
-		config.defaults === undefined ||
 		( config.licenses === undefined && config.licenseGroups === undefined )
 	) {
 		throw new Error( 'improper initialization' );
@@ -38,7 +36,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 
 	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
-	_this.defaults = config.defaults;
+	_this.defaults = ( config.licenses && config.licenses[0] ) ? [ config.licenses[0] ] : [];
 
 	mw.UploadWizardLicenseInput.prototype.count++;
 	_this.name = 'license' + mw.UploadWizardLicenseInput.prototype.count;
