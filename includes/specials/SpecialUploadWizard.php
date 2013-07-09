@@ -56,29 +56,49 @@ class SpecialUploadWizard extends SpecialPage {
 		$skipTutorial = $req->getCheck( 'skiptutorial' );
 		if ( $skipTutorial ) {
 			$skip = in_array( $skipTutorial, array( '1', 'true' ) );
-			UploadWizardConfig::setUrlSetting( 'skipTutorial', $skip );
+			if ( $skip === true ) {
+				UploadWizardConfig::setUrlSetting( 'tutorial', array() );
+			}
+		}
+
+
+		$urlArgs = array( 'description', 'lat', 'lon', 'alt' );
+
+		$urlDefaults = array();
+		foreach ( $urlArgs as $arg ) {
+			$value = $req->getText( $arg );
+			if ( $value ) {
+				$urlDefaults[$arg] = $value;
+			}
 		}
 
 		$categories = $req->getText( 'categories' );
 		if ( $categories ) {
-			UploadWizardConfig::setUrlSetting( 'defaultCategories', explode( '|', $categories ) );
+			$urlDefaults['categories'] = explode( '|', $categories );
 		}
 
-		$ulrArgs = array(
-			'id' => 'idFieldInitialValue',
-			'id2' => 'idField2InitialValue',
-			'description' => 'defaultDescription',
-			'lat' => 'defaultLat',
-			'lon' => 'defaultLon',
-			'alt' => 'defaultAlt',
-		);
+		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
 
-		foreach ( $ulrArgs as $arg => $setting ) {
-			$value = $req->getText( $arg );
-			if ( $value ) {
-				UploadWizardConfig::setUrlSetting( $setting, $value );
+		$fields = $req->getArray( 'fields' );
+		$fieldDefaults = array();
+
+		# Support id and id2 for field0 and field1
+		# Legacy support for old URL structure. They override fields[]
+		if ( $req->getText( 'id' ) ) {
+			$fields[0] = $req->getText( 'id' );
+		}
+
+		if ( $req->getText( 'id2' ) ) {
+			$fields[1] = $req->getText( 'id2' );
+		}
+
+		if ( $fields ) {
+			foreach ( $fields as $index => $value ) {
+				$fieldDefaults[$index]['initialValue'] = $value;
 			}
 		}
+
+		UploadWizardConfig::setUrlSetting( 'fields', $fieldDefaults );
 
 		$this->handleCampaign();
 
@@ -112,7 +132,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
 
 		if ( !is_null( $campaignName ) &&  $campaignName !== '' ) {
-			$campaign = UploadWizardCampaigns::singleton()->selectRow( 'enabled', array( 'name' => $campaignName ) );
+			$campaign = UploadWizardCampaign::newFromName( $campaignName );
 
 			if ( $campaign === false ) {
 				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->text() );
@@ -157,10 +177,17 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		$labelPageContent = $this->getPageContent( $config['idFieldLabelPage'] );
-		if ( $labelPageContent !== false ) {
-			$config['idFieldLabel'] = $labelPageContent;
+		if ( array_key_exists( 'fields', $config ) ) {
+			foreach ( $config['fields'] as &$field ) {
+				if ( array_key_exists( 'labelPage', $field ) ) {
+					$labelPageContent = $this->getPageContent( $field['labelPage'] );
+					if ( $labelPageContent !== false ) {
+						$field['label'] = $labelPageContent;
+					}
+				}
+			}
 		}
+
 		// UploadFromUrl parameter set to true only if the user is allowed to upload a file from a URL which we need to check in our Javascript implementation.
 		if ( UploadFromUrl::isEnabled() && UploadFromUrl::isAllowed( $this->getUser() ) === true ) {
 			$config['UploadFromUrl'] = true;
@@ -168,7 +195,12 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['UploadFromUrl'] = false;
 		}
 
-		$config['thanksLabel'] = $this->getPageContent( $config['thanksLabelPage'], true );
+		if ( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabelPage', $config['display'] ) ) {
+			$thanksLabelContent = $this->getPageContent( $config['display']['thanksLabelPage'] );
+			if ( $thanksLabelContent !== false ) {
+				$config['display']['thanksLabel'] = $thanksLabelContent;
+			}
+		}
 
 		// Get the user's default license. This will usually be 'default', but
 		// can be a specific license like 'ownwork-cc-zero'.
@@ -180,27 +212,27 @@ class SpecialUploadWizard extends SpecialPage {
 			$userDefaultLicense = $licenseParts[1];
 
 			// Determine if the user's default license is valid for this campaign
-			switch ( $config['ownWorkOption'] ) {
+			switch ( $config['licensing']['ownWorkDefault'] ) {
 				case "own":
-					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] );
+					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensing']['ownWork']['licenses'] );
 					break;
 				case "notown":
 					$defaultInAllowedLicenses = in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() );
 					break;
 				case "choice":
-					$defaultInAllowedLicenses = ( in_array( $userDefaultLicense, $config['licensesOwnWork']['licenses'] ) ||
+					$defaultInAllowedLicenses = ( in_array( $userDefaultLicense, $config['licensing']['ownWork']['licenses'] ) ||
 						in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() ) );
 					break;
 			}
 
 			if ( $defaultInAllowedLicenses ) {
 				if ( $userLicenseType === 'ownwork' ) {
-					$userLicenseGroup = 'licensesOwnWork';
+					$userLicenseGroup = 'ownWork';
 				} else {
-					$userLicenseGroup = 'licensesThirdParty';
+					$userLicenseGroup = 'thirdParty';
 				}
-				$config[$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
-				$config['defaultLicenseType'] = $userLicenseType;
+				$config['licensing'][$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
+				$config['licensing']['defaultType'] = $userLicenseType;
 			}
 		}
 
@@ -329,24 +361,26 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function getWizardHtml() {
 		global $wgExtensionAssetsPath;
 
-		$globalConf = UploadWizardConfig::getConfig( $this->campaign );
+		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		$headerContent = $this->getPageContent( $globalConf['headerLabelPage'] );
-		if ( $headerContent !== false ) {
-			$this->getOutput()->addWikiText( $headerContent );
+		if ( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabelPage', $config['display'] ) ) {
+			$headerContent = $this->getPageContent( $config['display']['headerLabelPage'] );
+			if ( $headerContent !== false ) {
+				$this->getOutput()->addWikiText( $headerContent );
+			}
 		}
 
-		if ( array_key_exists( 'fallbackToAltUploadForm', $globalConf )
-			&& array_key_exists( 'altUploadForm', $globalConf )
-			&& $globalConf['altUploadForm'] != ''
-			&& $globalConf[ 'fallbackToAltUploadForm' ] 			) {
+		if ( array_key_exists( 'fallbackToAltUploadForm', $config )
+			&& array_key_exists( 'altUploadForm', $config )
+			&& $config['altUploadForm'] != ''
+			&& $config[ 'fallbackToAltUploadForm' ] 			) {
 
 			$linkHtml = '';
-			$altUploadForm = Title::newFromText( $globalConf[ 'altUploadForm' ] );
+			$altUploadForm = Title::newFromText( $config[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
 				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ),
 					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ),
-						$globalConf['altUploadForm']
+						$config['altUploadForm']
 					)
 				);
 			}
@@ -365,7 +399,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
-		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && !$globalConf['skipTutorial'] ) {
+		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $config['tutorial'] !== null && $config['tutorial'] !== array() && $config['tutorial']['skip'] !== true ) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
 

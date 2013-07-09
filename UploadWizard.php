@@ -43,21 +43,22 @@ $wgAutoloadClasses += array(
 	// Hooks
 	'UploadWizardHooks' => $wgUpwizDir . '/UploadWizardHooks.php',
 
-	// Api Modules
-	'ApiUploadCampaign' => $wgUpwizDir . '/api/ApiUploadCampaign.php',
-	'ApiDeleteUploadCampaign' => $wgUpwizDir . '/api/ApiDeleteUploadCampaign.php',
-
 	// Includes
 	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
 	'UploadWizardTutorial' => $wgUpwizDir . '/includes/UploadWizardTutorial.php',
 	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
-	'UploadWizardCampaigns' => $wgUpwizDir . '/includes/UploadWizardCampaigns.php',
+
+	// Campaign ContentHandler
+	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
+	'CampaignContent' => $wgUpwizDir . '/includes/CampaignContent.php',
+	'CampaignHooks' => $wgUpwizDir . '/includes/CampaignHooks.php',
 
 	// Special Pages
 	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
-	'SpecialUploadCampaigns' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaigns.php',
-	'SpecialUploadCampaign' => $wgUpwizDir . '/includes/specials/SpecialUploadCampaign.php'
 );
+
+// Registers hook and content handlers for Campaign contenthandler
+$wgExtensionFunctions[] = 'CampaignHooks::registerHandlers';
 
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
@@ -65,20 +66,6 @@ $wgAutoloadClasses += array(
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
-
-$wgSpecialPages['UploadCampaigns'] = 'SpecialUploadCampaigns';
-$wgSpecialPageGroups['UploadCampaigns'] = 'media';
-
-$wgSpecialPages['UploadCampaign'] = 'SpecialUploadCampaign';
-$wgSpecialPageGroups['UploadCampaign'] = 'media';
-
-$wgAPIModules['uploadcampaign'] = 'ApiUploadCampaign';
-$wgAPIModules['deleteuploadcampaign'] = 'ApiDeleteUploadCampaign';
-
-if ( array_key_exists( 'ApiQueryORM', $wgAutoloadLocalClasses ) ) { // Backwards-compatibility with MW 1.20
-	$wgAutoloadClasses['ApiQueryUploadCampaigns'] = $wgUpwizDir . '/api/ApiQueryUploadCampaigns.php';
-	$wgAPIListModules['uploadcampaigns'] = 'ApiQueryUploadCampaigns';
-}
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
@@ -108,3 +95,8 @@ $wgDefaultUserOptions['upwiz_maxsimultaneous'] = 'default';
 // UploadWizard.config.php includes default configuration
 // any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
 $wgUploadWizardConfig = array();
+
+/* Define default namespaces, as defined on Mediawiki.org
+ * https://www.mediawiki.org/wiki/Extension_default_namespaces#UploadWizard */
+define( 'NS_CAMPAIGN', 460 );
+define( 'NS_CAMPAIGN_TALK', 461 );

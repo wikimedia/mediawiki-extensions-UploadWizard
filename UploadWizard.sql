@@ -3,6 +3,9 @@
 -- Author: Jeroen De Dauw < jeroendedauw@gmail.com >
 
 -- Upload wizard campaigns
+-- This is *not* the primary storage for campaigns.
+-- Just stores a copy of information that is already present in the
+-- appropriate wikipages, for easier indexing / querying
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaigns (
   campaign_id              INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   campaign_name            VARCHAR(255)        NOT NULL,
@@ -10,13 +13,3 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaigns (
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/uw_campaigns_name ON /*_*/uw_campaigns (campaign_name);
-
--- Upload wizard campaign config
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaign_conf (
-  cc_campaign_id           SMALLINT unsigned   NOT NULL,
-  cc_property              VARCHAR(255)        NULL,
-  cc_value                 BLOB                NULL
-) /*$wgDBTableOptions*/;
-
-CREATE UNIQUE INDEX /*i*/uw_cc_id_property ON /*_*/uw_campaign_conf (cc_campaign_id,cc_property);
-CREATE INDEX /*i*/uw_cc_property ON /*_*/uw_campaign_conf (cc_property);

@@ -13,6 +13,48 @@
  */
 class UploadWizardConfig {
 
+	/* Returns true if any of the keys of an array is a string
+	 *
+	 * @param Array $array
+	 *
+	 * @return boolean
+	 */
+	private static function is_assoc( $array ) {
+		return ( bool )count( array_filter( array_keys( $array ), 'is_string' ) );
+	}
+
+	/* Same functionality as array_merge_recursive, but sanely
+	 * It treats 'normal' integer indexed arrays as scalars, and does
+	 * not recurse into them. Associative arrays are recursed into
+	 *
+	 * @param Array $array
+	 * @param Array $array1
+	 *
+	 * @return Array: Yet another array, sanely replacing contents of $array with $array1
+	 */
+	public static function array_replace_sanely( $array, $array1 ) {
+		$newArray = array();
+
+		foreach ( $array as $key => $value ) {
+			if ( array_key_exists( $key, $array1 ) ) {
+				switch ( gettype( $value ) ) {
+				case "array":
+					if ( self::is_assoc( $array[$key] ) ) {
+						$newArray[$key] = self::array_replace_sanely( $array[$key], $array1[$key] );
+						break;
+					}
+					# fall through
+				default:
+					$newArray[$key] = $array1[$key];
+					break;
+				}
+			}  else {
+				$newArray[$key] = $array[$key];
+			}
+		}
+		$newArray = array_merge( $newArray, array_diff_key( $array1, $array ) );
+		return $newArray;
+	}
 	/**
 	 * Holder for configuration specified via url arguments.
 	 * This will override other config when returned via getConfig.
@@ -37,15 +79,16 @@ class UploadWizardConfig {
 		static $mergedConfig = false;
 
 		if ( !$mergedConfig ) {
-			$wgUploadWizardConfig = array_merge( self::getDefaultConfig(), $wgUploadWizardConfig );
+			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely( self::getDefaultConfig(), $wgUploadWizardConfig );
 			$mergedConfig = true;
 		}
 
 		if ( !is_null( $campaignName ) ) {
-			$wgUploadWizardConfig = array_merge( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
+			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
 		}
 
-		return array_merge( $wgUploadWizardConfig, self::$urlConfig );
+
+		return array_replace_recursive( $wgUploadWizardConfig, self::$urlConfig );
 	}
 
 	/**
@@ -101,10 +144,10 @@ class UploadWizardConfig {
 	 */
 	protected static function getCampaignConfig( $campaignName ) {
 		if ( !is_null( $campaignName ) ) {
-			$campaign = UploadWizardCampaigns::singleton()->selectRow( null,  array( 'name' => $campaignName ) );
+			$campaign = UploadWizardCampaign::newFromName( $campaignName );
 
 			if ( $campaign !== false && $campaign->getIsEnabled() ) {
-				return $campaign->getConfigForGlobalMerge();
+				return $campaign->getConfig();
 			}
 		}
 
@@ -119,7 +162,8 @@ class UploadWizardConfig {
 	 * @return array
 	 */
 	public static function getThirdPartyLicenses() {
-		$thirdParty = self::getSetting( 'licensesThirdParty' );
+		$licensing = self::getSetting( 'licensing' );
+		$thirdParty = $licensing['thirdParty'];
 		$licenses = array();
 
 		foreach ( $thirdParty['licenseGroups'] as $group ) {
