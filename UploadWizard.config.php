@@ -77,84 +77,87 @@ return array(
 	'flickrApiUrl' => 'http://api.flickr.com/services/rest/?',
 	'flickrApiKey' => '',
 
-	// Categories to automatically (and silently) add all uploaded images into.
-	'autoCategories' => array(),
+	// Settings about things that get automatically (and silently) added to uploads
+	'autoAdd' => array(
+		// Categories to automatically (and silently) add all uploaded images into.
+		'categories' => array(),
 
-	// Deprecated: use autoCategories
-	'autoCategory' => '',
-
-	// Categories to list by default in the list of cats to add.
-	'defaultCategories' => array(),
+		// WikiText to automatically (and silently) add to all uploaded images.
+		'wikitext' => '',
+	),
 
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
 	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
 	'missingCategoriesWikiText' => '',
 
-	// WikiText to automatically (and silently) add to all uploaded images.
-	'autoWikiText' => '',
+	'display' => array(
+		// Page containing the (wiki)text to display above the UploadWizard UI.
+		// $1 is replaced by the language code.
+		'headerLabelPage' => '',
 
-	// Page containing the (wiki)text to display above the UploadWizard UI.
-	// $1 is replaced by the language code.
-	'headerLabelPage' => '',
+		// Page containing the (wiki)text to display on top of the "use" page.
+		// $1 is replaced by the language code.
+		// When not provided, the message mwe-upwiz-thanks-intro will be used.
+		'thanksLabelPage' => ''
+	),
 
-	// Page containing the (wiki)text to display on top of the "use" page.
-	// $1 is replaced by the language code.
-	// When not provided, the message mwe-upwiz-thanks-intro will be used.
-	'thanksLabelPage' => '',
+	// Settings for the tutorial to be shown.
+	// Empty array if we want to skip
+	'tutorial' => array(
+		// Set to true to skip the tutorial
+		'skip' => false,
 
-	// Default license type.
-	// Possible values: choice, ownwork, thirdparty
-	'defaultLicenseType' => 'choice',
+		// Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired.
+		'template' => 'Licensing_tutorial_$1.svg',
 
-	// Should the own work option be shown, and if not, what option should be set?
-	// Possible values: choice, own, notown
-	'ownWorkOption' => 'choice',
+		// The width we want to scale the tutorial to, for our interface.
+		'width' => 720,
 
-	// Name of the tutorial on Wikimedia Commons. The $1 is replaced with the language desired.
-	'tutorialTemplate' => 'Licensing_tutorial_$1.svg',
+		// Imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
+		// Empty string or false to not have an imagemap linked to the helpdesk.
+		'helpdeskCoords' => '27, 1319, 691, 1384',
+	),
 
-	// The width we want to scale the tutorial to, for our interface.
-	'tutorialWidth' => 720,
+	'fields' => array(
+		// Field via which an ID can be provided.
+		array(
+			// When non empty, this field will be shown, and $1 will be replaced by it's value.
+			'wikitext' => '',
 
-	// Imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
-	// Empty string or false to not have an imagemap linked to the helpdesk.
-	'tutorialHelpdeskCoords' => '27, 1319, 691, 1384',
+			// Label text to display with the field.
+			'label' => '',
 
-	// Field via which an ID can be provided.
-	// When non empty, this field will be shown, and $1 will be replaced by it's value.
-	'idField' => '',
+			// Page on which the text to display with the id field is stored.
+			// Overrides label when set. $1 is replaced by the language code.
+			'lagelPage' => '',
 
-	// Label text to display with the id field.
-	'idFieldLabel' => '',
+			// The maximum length of the id field.
+			'maxLength' => 25,
 
-	// Page on which the text to display with the id field is stored.
-	// Overrides idFieldLabel when set. $1 is replaced by the language code.
-	'idFieldLabelPage' => '',
+			// Initial value for the id field.
+			'initialValue' => '',
 
-	// The maximum length of the id field.
-	'idFieldMaxLength' => 25,
+			// Set to true if this field is required
+			'required' => false
+		)
+	),
 
-	// Initial value for the id field.
-	'idFieldInitialValue' => '',
+	'defaults' => array(
+		// Categories to list by default in the list of cats to add.
+		'categories' => array(),
 
-	// Same as above, but for a second field.
-	'idField2' => '',
-	'idField2Label' => '',
-	'idField2LabelPage' => '',
-	'idField2MaxLength' => 25,
-	'idField2InitialValue' => '',
+		// Initial value for the description field.
+		'description' => '',
 
-	// Initial value for the description field.
-	'defaultDescription' => '',
+		// Initial value for the latitude field.
+		'lat' => 0,
 
-	// Initial value for the latitude field.
-	'defaultLat' => '',
+		// Initial value for the longitude field.
+		'lon' => 0,
 
-	// Initial value for the longitude field.
-	'defaultLon' => '',
-
-	// Initial value for the altitude field.
-	'defaultAlt' => '',
+		// Initial value for the altitude field.
+		'alt' => 0,
+	),
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
 	// See the definition of $uwLanguages above. If empty we'll just set a default.
@@ -349,73 +352,81 @@ return array(
 	// their arguments look like strings but they are really templates
 	'licenseTagFilters' => array( 'self' ),
 
-	// radio button selection of some licenses
-	'licensesOwnWork' => array(
-		'type' => 'or',
-		'filterTemplate' => 'self',
-		'licenses' => array(
-			'cc-by-sa-3.0',
-			'cc-by-3.0',
-			'cc-zero'
-		),
-		'defaults' => array( 'cc-by-sa-3.0' )
-	),
+	'licensing' => array(
+		// Default license type.
+		// Possible values: ownwork, thirdparty, choice.
+		'defaultType' => 'choice',
 
-	// checkbox selection of all licenses
-	'licensesThirdParty' => array(
-		'type' => 'or',
-		'licenseGroups' => array(
-			array(
-				// This should be a list of all CC licenses we can reasonably expect to find around the web
-				'head' => 'mwe-upwiz-license-cc-head',
-				'subhead' => 'mwe-upwiz-license-cc-subhead',
-				'licenses' => array(
-					'cc-by-sa-3.0',
-					'cc-by-sa-2.5',
-					'cc-by-3.0',
-					'cc-by-2.5',
-					'cc-zero'
-				)
-			),
-			array(
-				// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
-				// The White House also has an account there, hence the Public Domain US Government license
-				'head' => 'mwe-upwiz-license-flickr-head',
-				'subhead' => 'mwe-upwiz-license-flickr-subhead',
-				'prependTemplates' => array( 'flickrreview' ),
-				'licenses' => array(
-					'cc-by-sa-2.0',
-					'cc-by-2.0',
-					'pd-usgov',
-				)
-			),
-			array(
-				'head' => 'mwe-upwiz-license-public-domain-usa-head',
-				'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
-				'licenses' => array(
-					'pd-us',
-					'pd-art',
-				)
-			),
-			array(
-				// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
-				'head' => 'mwe-upwiz-license-usgov-head',
-				'licenses' => array(
-					'pd-usgov',
-					'pd-usgov-nasa'
-				)
-			),
-			array(
-				'head' => 'mwe-upwiz-license-custom-head',
-				'special' => 'custom',
-				'licenses' => array( 'custom' ),
-			),
-			array(
-				'head' => 'mwe-upwiz-license-none-head',
-				'licenses' => array( 'none' )
-			),
+		// Should the own work option be shown, and if not, what option should be set?
+		// Possible values:  own, notown, choice.
+		'ownWorkDefault' => 'choice',
+
+		// radio button selection of some licenses
+		'ownWork' => array(
+			'type' => 'or',
+			'template' => 'self',
+			'licenses' => array(
+				'cc-by-sa-3.0',
+				'cc-by-3.0',
+				'cc-zero'
+			)
 		),
-		'defaults' => array( 'none' ),
+
+		// checkbox selection of all licenses
+		'thirdParty' => array(
+			'type' => 'or',
+			'licenseGroups' => array(
+				array(
+					// This should be a list of all CC licenses we can reasonably expect to find around the web
+					'head' => 'mwe-upwiz-license-cc-head',
+					'subhead' => 'mwe-upwiz-license-cc-subhead',
+					'licenses' => array(
+						'cc-by-sa-3.0',
+						'cc-by-sa-2.5',
+						'cc-by-3.0',
+						'cc-by-2.5',
+						'cc-zero'
+					)
+				),
+				array(
+					// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
+					// The White House also has an account there, hence the Public Domain US Government license
+					'head' => 'mwe-upwiz-license-flickr-head',
+					'subhead' => 'mwe-upwiz-license-flickr-subhead',
+					'prependTemplates' => array( 'flickrreview' ),
+					'licenses' => array(
+						'cc-by-sa-2.0',
+						'cc-by-2.0',
+						'pd-usgov',
+					)
+				),
+				array(
+					'head' => 'mwe-upwiz-license-public-domain-usa-head',
+					'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
+					'licenses' => array(
+						'pd-us',
+						'pd-art',
+					)
+				),
+				array(
+					// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
+					'head' => 'mwe-upwiz-license-usgov-head',
+					'licenses' => array(
+						'pd-usgov',
+						'pd-usgov-nasa'
+					)
+				),
+				array(
+					'head' => 'mwe-upwiz-license-custom-head',
+					'special' => 'custom',
+					'licenses' => array( 'custom' ),
+				),
+				array(
+					'head' => 'mwe-upwiz-license-none-head',
+					'licenses' => array( 'none' )
+				),
+			)
+		)
 	),
 
 	// Default thumbnail width
@@ -523,9 +534,6 @@ return array(
 		'noUpscaling'       => 'true',
 		'videoCodec'        => 'vp8',
 	),
-
-	// Set skipTutorial to true to always skip tutorial step
-	'skipTutorial' => false,
 
 	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',

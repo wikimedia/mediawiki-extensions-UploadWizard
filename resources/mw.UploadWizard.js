@@ -280,7 +280,7 @@ mw.UploadWizard.prototype = {
 		// check to see if the the skip tutorial preference or global setting is set
 		if (
 			mw.user.options.get( 'upwiz_skiptutorial' ) ||
-			mw.config.get( 'UploadWizardConfig' ).skipTutorial
+			( mw.config.get( 'UploadWizardConfig' ).tutorial && mw.config.get( 'UploadWizardConfig' ).tutorial.skip )
 		) {
 			// "select" the second step - highlight, make it visible, hide all others
 			_this.moveToStep( 'file' );
@@ -392,9 +392,9 @@ mw.UploadWizard.prototype = {
 			doOwnWork = false,
 			doThirdParty = false;
 
-		if ( mw.UploadWizard.config.ownWorkOption === 'choice' ) {
+		if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'choice' ) {
 			doOwnWork = doThirdParty = true;
-		} else if ( mw.UploadWizard.config.ownWorkOption === 'own' ) {
+		} else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
 			doOwnWork = true;
 		} else {
 			doThirdParty = true;
@@ -416,13 +416,12 @@ mw.UploadWizard.prototype = {
 		var deeds = _this.getLicensingDeeds( _this.uploads.length );
 
 		this.shouldShowIndividualDeed = function() {
-			if ( mw.UploadWizard.config.ownWorkOption == 'choice' ) {
+			if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'choice' ) {
 				return true;
 			}
-			else if ( mw.UploadWizard.config.ownWorkOption == 'own' ) {
-				var ownWork = mw.UploadWizard.config.licensesOwnWork;
-				var licenseIsNotDefault = ( ownWork.licenses.length === 1 && ownWork.licenses[0] !== ownWork.defaults[0] );
-				return ownWork.licenses.length > 1 || licenseIsNotDefault;
+			else if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'own' ) {
+				var ownWork = mw.UploadWizard.config.licensing.ownWork;
+				return ownWork.licenses.length > 1;
 			}
 			else {
 				return true; // TODO: might want to have similar behaviour here

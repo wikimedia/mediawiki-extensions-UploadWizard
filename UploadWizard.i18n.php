@@ -395,6 +395,10 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'Default altitude:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'Default description:',
 
+	// Campaign editing edit summaries
+	'mwe-upwiz-campaign-edit-summary-update' => 'Updated campaign configuration via Campaign Editor',
+	'mwe-upwiz-campaign-edit-summary-delete' => 'Deleted campaign via Campaign Editor',
+
 	// Coolcats
 	'mw-coolcats-confirm-new-title' => 'Confirm new category',
 	'mw-coolcats-confirm-new' => 'It looks like you are trying to add a new category, "$1". Be aware:<ul><li>Categories should usually be in English.</li><li>Most new categories should be a subcategory of an existing category.</li></ul>Generally, only experts should create a category.',
@@ -897,6 +901,8 @@ See also:
 	'mwe-upwiz-campaign-conf-defaultLon' => 'Used as label for the longitude field.',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'Used as label for the altitude field.',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'Used as label for the description field.',
+	'mwe-upwiz-campaign-edit-summary-update' => 'Edit summary to use when updating campaign configuration',
+	'mwe-upwiz-campaign-edit-summary-delete' => 'Edit summary to use when updating campaign configuration',
 	'mw-coolcats-confirm-new-title' => 'Potwierdź nową kategorię',
 	'mw-coolcats-confirm-new' => 'Unused at this time. Parameters:
 * $1 - category name',
