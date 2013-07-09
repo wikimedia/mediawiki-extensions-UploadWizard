@@ -5346,6 +5346,7 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-error-title-thumbnail' => "Mae hon yn edrych fel teitl mân-lun. Peidiwch ag uwchlwytho mân-luniau ar yr un wici. Fel arall, rhowch enw mwy ystyrlon i'r ffeil, a chewch wared ar y rhagddodiad mân-lun.",
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => "Mae'r teitl hwn wedi ei neilltuo i ffeil ar storfa gyfrannol tu allan i'r wici hwn. Dewiswch enw gwahanol.",
 	'mwe-upwiz-error-title-double-apostrophe' => 'Mae collnod dwbl yn y teitl hwn. Cewch wared ohono os gwelwch yn dda.',
+	'mwe-upwiz-error-title-extension' => "Nid oes angen ychwanegu estyniad i'r ffeil. Rhowch deitl synhwyrol i'r darllenydd ac fe wnaiff y dewin ddod a'r gwaith i fwcl.",
 	'mwe-upwiz-error-title-protected' => "Mae'r teitl hwn yn cael ei ddefnyddio ar ffeil a warchodwyd ar y wici hwn. Dewiswch enw gwahanol os gwelwch yn dda.",
 	'mwe-upwiz-error-license-wikitext-missing' => "Mae'r opsiwn a ddewisoch yn gofyn i chi ysgrifennu cystrawen wici.",
 	'mwe-upwiz-error-license-wikitext-too-short' => "Mae'r gystrawen wici yma'n rhy fyr i fod yn drwydded",
@@ -5358,6 +5359,9 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-file-too-large-ok' => 'Iawn',
 	'mwe-upwiz-file-too-large-text' => 'Dim ond ffeiliau o faint $1 neu lai y gellir eu huwchlwytho. Fe geisioch chi uwchlwytho ffeil $2 o faint.',
 	'mwe-upwiz-file-too-large' => "Mae'r ffeil yn rhy fawr.",
+	'mwe-upwiz-necessary-confirm' => "Argymhellir gosod eich uwchlwythiadau mewn categori. Ydych chi wir am barhau heb lanw'r holl flychau?",
+	'mwe-upwiz-dialog-yes' => 'Ydw',
+	'mwe-upwiz-dialog-no' => 'Nacydw',
 	'mwe-upwiz-dialog-title' => 'Rhybudd',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 testun cyfreithiol y drwydded])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Awstria ([$2 testun cyfreithiol y drwydded])',
@@ -5387,8 +5391,11 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-license-pd-usgov-nasa' => 'Gwaith gwreiddiol o NASA',
 	'mwe-upwiz-license-pd-usgov-military-navy' => 'Gwaith gwreiddiol o waith Llynges Filwrol yr Unol Daleithiau',
 	'mwe-upwiz-license-pd-ineligible' => 'Yn rhy syml i osod hawlfraint arno',
+	'mwe-upwiz-license-pd-ineligible-help' => "Byddwch ofalus. Rhaid i'r ddelwedd fod yn syml iawn, megis cylch gwyrdd neu sgwâr coch.",
+	'mwe-upwiz-license-pd-textlogo' => 'Logo gyda thestun syml (nod geiriol)',
 	'mwe-upwiz-license-copyrighted-free-use' => 'Mae hawlfraint arno, ond gall gael ei ddefnyddio at unrhyw bwrpas, gan gynnwys masnach.',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Haelfraint, rhaid tadogi (GFDL, CC-BY-SA-3.0)',
 	'mwe-upwiz-license-public-domain-usa-head' => "Mae'r hawlfraint yn sicr wedi dod i ben yn UDA",
 	'mwe-upwiz-license-public-domain-usa-subhead' => "UDA yw lleoliad {{SITENAME}}, felly mae'n rhaid fod unrhyw hawlfraint ar y gwaith wedi dod i ben yn UDA yn benodol.",
 	'mwe-upwiz-license-usgov-head' => 'Gwnaethpwyd y {{PLURAL:$1|gwaith hwn|gweithiau hyn}} gan lywodraeth yr Unol Daleithiau',
@@ -7188,6 +7195,7 @@ $messages['en-gb'] = array(
  * @author Anakmalaysia
  * @author Blahma
  * @author Iketsi
+ * @author KuboF
  * @author Michawiki
  * @author ThomasPusch
  * @author Yekrats
@@ -7210,6 +7218,8 @@ $messages['eo'] = array(
 	'mwe-upwiz-step-deeds' => 'Eldonaj rajtoj',
 	'mwe-upwiz-step-details' => 'Priskribi',
 	'mwe-upwiz-step-thanks' => 'Uzo',
+	'mwe-upwiz-campaign-name-duplicate' => 'Kampanjo kun ĉi tiu nomo jam ekzistas.',
+	'mwe-upwiz-campaign-unknown-error' => 'Okazis nekonata eraro',
 	'mwe-upwiz-api-warning-exists' => 'Ekzistas [$1 alia dosiero] jam en la vikio kun la sama dosiernomo',
 	'mwe-upwiz-api-warning-was-deleted' => 'Antaŭe estis dosiero de la nomo "$1", sed ĝi estis forigita kaj ne eblas realŝuti la dosieron. Se via dosiero malsamas, bonvolu provi renomi ĝin.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Pardonu, ni ne povis trovi gvidilon en via lingvo. La versio $1 estas montrata anstataŭe.',
@@ -7217,9 +7227,10 @@ $messages['eo'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Bedaŭrinde, ne povus skali bildon de la instruilo por adapti la ekranon. Tio ĉi povas esti intertempa problemo kun Wikimedia Komunejo; reprovu poste.',
 	'mwe-upwiz-help-desk' => 'Helpejo',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Helpejo',
-	'mwe-upwiz-add-file-n' => 'Aldoni alian dosieron', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Elektu dosieron kiun vi volas donaci', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'Aldoni bildojn de Flickr', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Aldoni pliajn dosierojn',
+	'mwe-upwiz-add-file-0-free' => 'Elektu dosieron kiun vi volas kunhavigi',
+	'mwe-upwiz-add-file-flickr' => 'Kunhavigi bildojn de Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Aldoni pliajn bildojn de Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Aŭ',
 	'mwe-upwiz-add-flickr' => 'Akiri de Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL-on de Flickr bildaro/fotaro',
@@ -7395,11 +7406,14 @@ Bonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie,',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Verŝajne ĉi tiu ne havas validan vikitekston, aŭ ne enhavas permesilon.',
 	'mwe-upwiz-details-error-count' => 'Estas {{PLURAL:$1|eraro|$1 eraroj}} en la supra {{PLURAL:$2|formularo|formularo}}. Bonvolu korekti la erarojn kaj reprovu alŝuti.', # Fuzzy
 	'mwe-upwiz-too-many-files-ok' => 'Ek!',
-	'mwe-upwiz-too-many-files-text' => 'Vi povas nur alŝuti po $1 {{PLURAL:$1|dosieron|dosierojn}} samtempe. Vi provis alŝuti $2 {{PLURAL:$2|dosieron|dosierojn}} entute, do $3 {{PLURAL:$3|dosiero estis forigita|dosieroj estis forigitaj}}.',
+	'mwe-upwiz-too-many-files-text' => 'Vi povas nur alŝuti po $1 {{PLURAL:$1|dosieron|dosierojn}} samtempe. Vi provis alŝuti $2 {{PLURAL:$2|dosieron|dosierojn}} entute, do $3 {{PLURAL:$3|dosiero estis forigita|dosieroj estis forigitaj}}.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'Tro da dosieroj.',
 	'mwe-upwiz-file-too-large-ok' => 'Ek!',
 	'mwe-upwiz-file-too-large-text' => 'Vi nur povas alŝuti dosierojn kun grandeco ĝis $1. Vi provis alŝuti dosieron kun grandeco $2.',
 	'mwe-upwiz-file-too-large' => 'Dosiero estas tro granda.',
+	'mwe-upwiz-dialog-yes' => 'Jes',
+	'mwe-upwiz-dialog-no' => 'Ne',
+	'mwe-upwiz-dialog-title' => 'Averto',
 	'mwe-upwiz-license-cc-by-sa-3.0' => "Permesilo ''Creative Commons Atribuite-Samkondiĉe 3.0 ([$2 legal code])''",
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => "Permesilo ''Creative Commons Atribuite-Samkondiĉe 3.0 Aŭstrujo'' ([$2 leĝa kodo])",
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => "Permesilo ''Creative Commons Atribuite-Samkondiĉe 3.0 Germanujo'' ([$2 jura kodo])",
@@ -7457,7 +7471,7 @@ Bonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie,',
 	'mwe-upwiz-category-remove' => 'Forigi ĉi tiun kategorion',
 	'mwe-upwiz-thumbnail-failed' => 'La alŝuto sukcesis, sed la servilo ne povas montri bildetan version.',
 	'mwe-upwiz-unparseable-filename' => 'Ne povis kompreni la dosiernomon "$1"',
-	'mwe-upwiz-image-preview' => 'Antaŭvido de bildo', # Fuzzy
+	'mwe-upwiz-image-preview' => 'Antaŭvido de la dosiero',
 	'mwe-upwiz-subhead-message' => 'Dankon ke vi uzas la novan alŝutilon!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Konataj problemoj]',
 	'mwe-upwiz-subhead-translate' => '
@@ -24857,6 +24871,7 @@ $1',
 
 /** Slovak (slovenčina)
  * @author Helix84
+ * @author KuboF
  */
 $messages['sk'] = array(
 	'uploadwizard' => 'Sprievodca nahrávaním',
@@ -24869,8 +24884,12 @@ $messages['sk'] = array(
 	'mwe-upwiz-step-details' => 'Popísať',
 	'mwe-upwiz-step-thanks' => 'Používať',
 	'mwe-upwiz-help-desk' => 'Centrum pomoci',
-	'mwe-upwiz-add-file-n' => 'Pridať ďalší súbor', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'Vyberte multimediálny súbor, ktorý chcete darovať', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Pridať viac súborov',
+	'mwe-upwiz-add-file-0-free' => 'Vyberte multimediálne súbory, ktorý chcete zdieať',
+	'mwe-upwiz-add-file-flickr' => 'Zdieľať obrázky z Flickr',
+	'mwe-upwiz-add-file-flickr-n' => 'Pridať ďalšie obrázky z Flickr',
+	'mwe-upwiz-add-flickr-or' => 'Alebo',
+	'mwe-upwiz-add-flickr' => 'Získať z Flickru',
 	'mwe-upwiz-transport-started' => 'Spúšťa sa...',
 	'mwe-upwiz-uploading' => 'Nahráva sa...',
 	'mwe-upwiz-transported' => 'Nahrávanie dokončené...',
