@@ -36,9 +36,6 @@ return array(
 						"label" => array(
 							"type" => "string"
 						),
-						"labelPage" => array(
-							"type" => "string"
-						),
 						"maxLength" => array(
 							"type" => "integer"
 						),

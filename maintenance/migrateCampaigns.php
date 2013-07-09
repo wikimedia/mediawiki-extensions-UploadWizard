@@ -190,6 +190,8 @@ class MigrateCampaigns extends Maintenance {
 				array(
 					'wikitext' => $oldConfig['idField'],
 					'label' => $oldConfig['idFieldLabel'],
+					# Migrated even though this is a nop.
+					# People will have to migrate this manually
 					'labelPage' => $oldConfig['idFieldLabelPage'],
 					'maxLength' => $oldConfig['idFieldMaxLength'],
 					'initialValue' => $oldConfig['idFieldInitialValue']

@@ -173,16 +173,16 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgSitename;
+		global $wgSitename, $wgParser;
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
 		if ( array_key_exists( 'fields', $config ) ) {
 			foreach ( $config['fields'] as &$field ) {
-				if ( array_key_exists( 'labelPage', $field ) ) {
-					$labelPageContent = $this->getPageContent( $field['labelPage'] );
-					if ( $labelPageContent !== false ) {
-						$field['label'] = $labelPageContent;
+				if ( array_key_exists( 'label', $field ) ) {
+					$labelContent = $this->getOutput()->parse( $field['label'] );
+					if ( $labelContent !== false ) {
+						$field['label'] = $labelContent;
 					}
 				}
 			}

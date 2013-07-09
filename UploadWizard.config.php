@@ -124,12 +124,8 @@ return array(
 			// When non empty, this field will be shown, and $1 will be replaced by it's value.
 			'wikitext' => '',
 
-			// Label text to display with the field.
+			// Label text to display with the field. Is parsed as wikitext.
 			'label' => '',
-
-			// Page on which the text to display with the id field is stored.
-			// Overrides label when set. $1 is replaced by the language code.
-			'lagelPage' => '',
 
 			// The maximum length of the id field.
 			'maxLength' => 25,
