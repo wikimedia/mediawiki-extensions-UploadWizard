@@ -91,14 +91,12 @@ return array(
 	'missingCategoriesWikiText' => '',
 
 	'display' => array(
-		// Page containing the (wiki)text to display above the UploadWizard UI.
-		// $1 is replaced by the language code.
-		'headerLabelPage' => '',
+		// wikitext to display above the UploadWizard UI.
+		'headerLabel' => '',
 
-		// Page containing the (wiki)text to display on top of the "use" page.
-		// $1 is replaced by the language code.
+		// wikitext to display on top of the "use" page.
 		// When not provided, the message mwe-upwiz-thanks-intro will be used.
-		'thanksLabelPage' => ''
+		'thanksLabel' => ''
 	),
 
 	// Settings for the tutorial to be shown.

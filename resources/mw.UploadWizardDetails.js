@@ -219,7 +219,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			// This is also meant to be html that has been pre-sanitized
 			// by the wikitext parser, and so free of any elements that can
 			// cause XSS
-			var fieldLabelHtml = $j( field.label ).html();
+			var fieldLabelHtml = $j( $j.parseHTML( field.label ) ).html();
 			_this.$form.append(
 				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
 					.append( $j( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
