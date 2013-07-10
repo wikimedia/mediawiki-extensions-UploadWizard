@@ -179,10 +179,10 @@ class SpecialUploadWizard extends SpecialPage {
 
 		if ( array_key_exists( 'fields', $config ) ) {
 			foreach ( $config['fields'] as &$field ) {
-				if ( array_key_exists( 'labelPage', $field ) ) {
-					$labelPageContent = $this->getPageContent( $field['labelPage'] );
-					if ( $labelPageContent !== false ) {
-						$field['label'] = $labelPageContent;
+				if ( array_key_exists( 'label', $field ) ) {
+					$labelContent = $this->getOutput()->parseInline( $field['label'] );
+					if ( $labelContent !== false ) {
+						$field['label'] = $labelContent;
 					}
 				}
 			}
@@ -195,8 +195,8 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['UploadFromUrl'] = false;
 		}
 
-		if ( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabelPage', $config['display'] ) ) {
-			$thanksLabelContent = $this->getPageContent( $config['display']['thanksLabelPage'] );
+		if ( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabel', $config['display'] ) ) {
+			$thanksLabelContent = $this->getOutput()->parseInline( $config['display']['thanksLabel'] );
 			if ( $thanksLabelContent !== false ) {
 				$config['display']['thanksLabel'] = $thanksLabelContent;
 			}
@@ -363,11 +363,8 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if ( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabelPage', $config['display'] ) ) {
-			$headerContent = $this->getPageContent( $config['display']['headerLabelPage'] );
-			if ( $headerContent !== false ) {
-				$this->getOutput()->addWikiText( $headerContent );
-			}
+		if ( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabel', $config['display'] ) ) {
+			$this->getOutput()->addWikiText( $config['display']['headerLabel'] );
 		}
 
 		if ( array_key_exists( 'fallbackToAltUploadForm', $config )

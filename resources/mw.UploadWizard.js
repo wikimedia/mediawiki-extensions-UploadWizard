@@ -1177,7 +1177,7 @@ mw.UploadWizard.prototype = {
 			thnxHeader.msg( 'mwe-upwiz-thanks-intro' );
 		}
 		else {
-			thnxHeader.html( mw.UploadWizard.config.thanksLabel );
+			thnxHeader.html( mw.UploadWizard.config.display.thanksLabel );
 		}
 
 		$j( '#mwe-upwiz-thanks' )

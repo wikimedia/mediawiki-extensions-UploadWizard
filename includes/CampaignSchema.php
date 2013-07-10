@@ -36,9 +36,6 @@ return array(
 						"label" => array(
 							"type" => "string"
 						),
-						"labelPage" => array(
-							"type" => "string"
-						),
 						"maxLength" => array(
 							"type" => "integer"
 						),
@@ -80,10 +77,10 @@ return array(
 		"display" => array(
 			"type" => "object",
 			"properties" =>array(
-				"headerLabelPage" => array(
+				"headerLabel" => array(
 					"type" => "string"
 				),
-				"thanksLabelPage" => array(
+				"thanksLabel" => array(
 					"type" => "string"
 				)
 			)

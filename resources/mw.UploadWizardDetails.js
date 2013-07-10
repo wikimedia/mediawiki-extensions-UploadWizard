@@ -215,7 +215,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			_this.$form.append(
 				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
 					.append( $j( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
-				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).text( field.label ).requiredFieldLabel(),
+				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel(),
 				$j( '<div>' ).attr( 'class', 'mwe-id-field' )
 					.append( $fieldInput )
 			);

@@ -91,14 +91,12 @@ return array(
 	'missingCategoriesWikiText' => '',
 
 	'display' => array(
-		// Page containing the (wiki)text to display above the UploadWizard UI.
-		// $1 is replaced by the language code.
-		'headerLabelPage' => '',
+		// wikitext to display above the UploadWizard UI.
+		'headerLabel' => '',
 
-		// Page containing the (wiki)text to display on top of the "use" page.
-		// $1 is replaced by the language code.
+		// wikitext to display on top of the "use" page.
 		// When not provided, the message mwe-upwiz-thanks-intro will be used.
-		'thanksLabelPage' => ''
+		'thanksLabel' => ''
 	),
 
 	// Settings for the tutorial to be shown.
@@ -124,12 +122,8 @@ return array(
 			// When non empty, this field will be shown, and $1 will be replaced by it's value.
 			'wikitext' => '',
 
-			// Label text to display with the field.
+			// Label text to display with the field. Is parsed as wikitext.
 			'label' => '',
-
-			// Page on which the text to display with the id field is stored.
-			// Overrides label when set. $1 is replaced by the language code.
-			'lagelPage' => '',
 
 			// The maximum length of the id field.
 			'maxLength' => 25,
