@@ -77,10 +77,10 @@ return array(
 		"display" => array(
 			"type" => "object",
 			"properties" =>array(
-				"headerLabelPage" => array(
+				"headerLabel" => array(
 					"type" => "string"
 				),
-				"thanksLabelPage" => array(
+				"thanksLabel" => array(
 					"type" => "string"
 				)
 			)
