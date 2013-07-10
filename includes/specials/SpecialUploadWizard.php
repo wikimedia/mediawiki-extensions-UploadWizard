@@ -252,46 +252,6 @@ class SpecialUploadWizard extends SpecialPage {
 	}
 
 	/**
-	 * Gets content of the specified page, or false if there is no such page.
-	 * '$1' in $pageName is replaced by the code of the current language.
-	 *
-	 * @since 1.2
-	 *
-	 * @param string $pageName
-	 * @param boolean $parse
-	 * @param string $langCode
-	 *
-	 * @return string|false
-	 */
-	protected function getPageContent( $pageName, $parse = false, $langCode = null ) {
-		$content = false;
-
-		if ( trim( $pageName ) !== '' ) {
-			if ( is_null( $langCode ) ) {
-				$langCode = $this->getLanguage()->getCode();
-			}
-
-			$page = Title::newFromText( str_replace( '$1', $langCode, $pageName ) );
-
-			if ( !is_null( $page ) && $page->exists() ) {
-				$article = new Article( $page, 0 );
-				$content = $article->getContent();
-
-				if ( $parse ) {
-					$content = $this->getOutput()->parse( $content );
-				}
-			}
-		}
-
-		// If no page was found, and the lang is not en, then see if there in an en version.
-		if ( $content === false && $langCode != 'en' ) {
-			$content = $this->getPageContent( $pageName, $parse, 'en' );
-		}
-
-		return $content;
-	}
-
-	/**
 	 * Check if anyone can upload (or if other sitewide config prevents this)
 	 * Side effect: will print error page to wgOut if cannot upload.
 	 * @return boolean -- true if can upload
