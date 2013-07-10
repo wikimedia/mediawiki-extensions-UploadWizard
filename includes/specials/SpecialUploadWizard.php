@@ -180,7 +180,7 @@ class SpecialUploadWizard extends SpecialPage {
 		if ( array_key_exists( 'fields', $config ) ) {
 			foreach ( $config['fields'] as &$field ) {
 				if ( array_key_exists( 'label', $field ) ) {
-					$labelContent = $this->getOutput()->parse( $field['label'] );
+					$labelContent = $this->getOutput()->parseInline( $field['label'] );
 					if ( $labelContent !== false ) {
 						$field['label'] = $labelContent;
 					}
@@ -196,7 +196,7 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		if ( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabel', $config['display'] ) ) {
-			$thanksLabelContent = $this->getOutput()->parse( $config['display']['thanksLabel'] );
+			$thanksLabelContent = $this->getOutput()->parseInline( $config['display']['thanksLabel'] );
 			if ( $thanksLabelContent !== false ) {
 				$config['display']['thanksLabel'] = $thanksLabelContent;
 			}

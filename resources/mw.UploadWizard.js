@@ -1177,14 +1177,7 @@ mw.UploadWizard.prototype = {
 			thnxHeader.msg( 'mwe-upwiz-thanks-intro' );
 		}
 		else {
-			// Strip out extra <p> added by the parser
-			// This is added everytime, and is a known issue that has absolutely
-			// no hope of being fixed anytime soon. Roan apparently wept
-			// over this, so I'm not even going to try.
-			// This is also meant to be html that has been pre-sanitized
-			// by the wikitext parser, and so free of any elements that can
-			// cause XSS
-			thnxHeader.html( $j ($j.parseHTML( mw.UploadWizard.config.thanksLabel ) ).html() );
+			thnxHeader.html( mw.UploadWizard.config.display.thanksLabel );
 		}
 
 		$j( '#mwe-upwiz-thanks' )

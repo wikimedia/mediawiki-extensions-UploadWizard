@@ -212,18 +212,10 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				.val( field.initialValue )
 				.data( 'field', field );
 
-			// Strip out extra <p> added by the parser
-			// This is added everytime, and is a known issue that has absolutely
-			// no hope of being fixed anytime soon. Roan apparently wept
-			// over this, so I'm not even going to try.
-			// This is also meant to be html that has been pre-sanitized
-			// by the wikitext parser, and so free of any elements that can
-			// cause XSS
-			var fieldLabelHtml = $j( $j.parseHTML( field.label ) ).html();
 			_this.$form.append(
 				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
 					.append( $j( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
-				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( fieldLabelHtml ).requiredFieldLabel(),
+				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel(),
 				$j( '<div>' ).attr( 'class', 'mwe-id-field' )
 					.append( $fieldInput )
 			);
