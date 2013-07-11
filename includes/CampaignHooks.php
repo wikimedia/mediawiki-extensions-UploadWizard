@@ -29,8 +29,6 @@ class CampaignHooks {
 		$wgHooks[ 'ArticleDeleteComplete' ][] = 'CampaignHooks::onArticleDeleteComplete';
 		$wgHooks[ 'TitleMoveComplete' ][] = 'CampaignHooks::onTitleMoveComplete';
 
-		$wgAPIModules[ 'camapaign' ] = 'ApiCampaign';
-
 		return true;
 	}
 
