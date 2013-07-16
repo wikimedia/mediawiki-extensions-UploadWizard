@@ -8525,13 +8525,16 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Alireza
  * @author Amire80
  * @author Baqeri
+ * @author Calak
  * @author Dalba
  * @author Ebraminio
  * @author Hooshmand.hasannia
  * @author Huji
  * @author Leyth
+ * @author Mahdiz
  * @author Mehdi
  * @author Mjbmr
  * @author Omnia
@@ -8566,17 +8569,22 @@ $messages['fa'] = array(
 	'mwe-upwiz-tutorial-error-file-missing' => 'متأسفیم، نتوانستیم هیچ پرونده‌ای برای خودآموز که قرار باشد اینجا برود، پیدا کنیم. لطفاً با مدیر سامانه تماس بگیرید.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'متأسفیم، نتوانسیم تصویری با قابلیت بزرگ‌نمایی از خودآموز برای گنجاندن در این صفحه پیدا کنیم. این ممکن است مشکل موقتی با انبار ویکی‌مدیا باشد؛ بعداً دوباره سعی کنید.',
 	'mwe-upwiz-help-desk' => 'میز کمک',
-	'mwe-upwiz-help-desk-url' => 'میز کمک', # Fuzzy
-	'mwe-upwiz-add-file-n' => 'افزودن پرونده‌ای دیگر', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'پرونده‌ای را برای اهداکردن انتخاب کنید', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'بارگذاری تصاویر از فلیکر', # Fuzzy
+	'mwe-upwiz-help-desk-url' => '{{ns:project}}:میز کمک',
+	'mwe-upwiz-add-file-n' => 'افزودن پرونده‌های دیگر',
+	'mwe-upwiz-add-file-0-free' => 'پرونده‌ای را برای به اشتراک گذاشتن انتخاب کنید',
+	'mwe-upwiz-add-file-flickr' => 'اشتراک‌گذاریی تصاویر از فلیکر',
+	'mwe-upwiz-add-file-flickr-n' => 'افزودن تصاویر بیشتر از فلیکر',
 	'mwe-upwiz-add-flickr-or' => 'یا',
 	'mwe-upwiz-add-flickr' => 'دریافت از فلیکر',
+	'mwe-upwiz-flickr-input-placeholder' => 'نشانی تصویر/مجموعه‌ای از تصویرهای فلیکر',
 	'mwe-upwiz-select-flickr' => 'بارگذاری تصاویر انتخاب شده',
+	'mwe-upwiz-flickr-disclaimer2' => 'لطفاً توجه داشته باشید که با استفاده از این ابزار، IP آدرس شما و اطلاعات درخواستی در فلیکر قابل دسترسی است.',
+	'mwe-upwiz-error-no-image-retrieved' => 'ما نمی‌تواند فایل را از  $1 بازیابی کنیم.',
 	'mwe-upwiz-transport-started' => 'در حال شروع...',
 	'mwe-upwiz-encoding' => 'درحال اینکدینگ...',
 	'mwe-upwiz-uploading' => 'در حال بارگذاری...',
 	'mwe-upwiz-queued' => 'در صف...',
+	'mwe-upwiz-assembling' => 'هم‌گذاری...',
 	'mwe-upwiz-publish' => 'در حال انتشار...',
 	'mwe-upwiz-transported' => 'بارگذاری به پایان رسید...',
 	'mwe-upwiz-stashed-upload' => 'بارگذاری شد',
@@ -8605,7 +8613,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|ثانیه|ثانیه}} باقی مانده‌است',
 	'mwe-upwiz-mins-secs-remaining' => '$1 دقیقه و $2 ثانیه باقی مانده‌است',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|ساعت|ساعت}} و $2 {{PLURAL:$2|دقیقه|دقیقه}} و $3 {{PLURAL:$3|ثانیه|ثانیه}} باقی مانده‌است',
-	'mwe-upwiz-deeds-macro-prompt' => 'در این تارنما نیاز است که شما اطلاعات حق تکثیر برای این {{PLURAL:$1|کار|کارها}} را تهیه کنید، تا همه از نظر قانونی مطمئن شوند که می‌توانند از {{PLURAL:$1|آن|آن‌ها}} استفاده مجدد کنند.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'در این تارنما نیاز است که {{GENDER:$2|شما}} اطلاعات حق تکثیر برای این {{PLURAL:$1|کار|کارها}} را تهیه کنید، تا همه از نظر قانونی مطمئن شوند که می‌توانند از {{PLURAL:$1|آن|آن‌ها}} استفاده مجدد کنند.',
 	'mwe-upwiz-source-ownwork' => 'این {{PLURAL:$1|پرونده|پرونده‌ها}} کار خودم است.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'من،‌ $2،‌ دارندهٔ حق تکثیر این {{PLURAL:$1|اثر|آثار}}، بدین‌وسیله به طور دائم به هر فردی این اجازه را می‌دهم که از این {{PLURAL:$1|اثر|آثار}} برای هر منظوری استفاده و آن را ویرایش و توزیع کند، و بنابراین {{PLURAL:$1|این|این‌ها}} را تحت این شرایط منتشر می‌کنم:',
 	'mwe-upwiz-source-ownwork-assert' => 'من، $2، دارندهٔ حق تکثیر این {{PLURAL:$1|اثر|آثار}}، بدین‌وسیله به هر فردی به طور دائم اجازه می‌دهم از این {{PLURAL:$1|اثر|آثار}} برای هر منظوری استفاده کنند، به شرط آن که اثر را به من منتسب کنند و آثار مشتق‌شده را با همین شرایط منتشر کنند.',
@@ -8644,7 +8652,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'حال مشخص کنید که چرا مطمئن هستید که شما اجازهٔ انتشار این {{PLURAL:$1|اثر|آثار}} را دارید:',
 	'mwe-upwiz-source-thirdparty-accept' => 'تأیید',
 	'mwe-upwiz-source-custom' => 'برای هر پرونده به طور جداگانه در صفحهٔ بعد اطلاعات حق تکثیر را ارائه کنید.',
-	'mwe-upwiz-more-options' => 'افزودن رده‌ها و اطلاعات بیشتر...', # Fuzzy
+	'mwe-upwiz-more-options' => 'افزودن موقعیت و اطلاعات بیش‌تر...',
 	'mwe-upwiz-copy-metadata' => 'رونویسی اطلاعات {{PLURAL:$1|بارگذاری|در تمام بارگذاری‌های}}  زیر...',
 	'mwe-upwiz-copy-metadata-button' => 'رونوشت',
 	'mwe-upwiz-copied-metadata-button' => 'با موفقیت کپی شد',
@@ -8690,7 +8698,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-fileexists' => 'در حال حاضر یک پرونده با این نام وجود دارد.
 لطفاً $1 را بررسی کنید اگر مطمئن نیستید اگر می‌خواهید آن را جایگزین کنید.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'در حال حاضر پرونده‌ای با این نام وجود دارد. اگر می‌خواهید آن را جایگزین کنید، به صفحه بروید برای [$2 $1] و آن را آنجا جایگزین کنید.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'پرونده ای با این نام از قبل وجود دارد.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'پرونده ای با این نام از قبل وجود دارد، به دلیل اینکه این عنوان قبلاً استفاده شده‌است.',
 	'mwe-upwiz-blacklisted' => 'لطفاً یک عنوان توصیفی متفاوت انتخاب کنید.',
 	'mwe-upwiz-thumbnail-more' => 'بزرگ کردن',
 	'mwe-upwiz-overwrite' => 'جایگزین کردن پرونده',
@@ -8752,13 +8760,17 @@ $messages['fa'] = array(
 	'mwe-upwiz-error-license-wikitext-too-short' => 'ویکی‌متن موجود، برای مجوز بودن خیلی کوتاه است',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'متنی که وارد کردید بییش از حد طولانی است.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'این ویکی‌متن به نظر معتبر نمی‌آید یا شامل مجوز نیست.',
-	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|یک خطا|$1 خطا}} برای {{PLURAL:$2|مورد|موارد}} بالا وجود دارد. {{PLURAL:$1|خطا|خطاها}} را تصحیح کنید، و دوباره سعی به ثبت آن کنید.', # Fuzzy
+	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|یک خطا|$1 خطا}} برای {{PLURAL:$2|موردد}} بالا وجود دارد. {{PLURAL:$1|خطا|خطاها}} را تصحیح کنید، و دوباره سعی به ثبت آن کنید.',
 	'mwe-upwiz-too-many-files-ok' => 'تأیید',
-	'mwe-upwiz-too-many-files-text' => 'در یک مرحله فقط می‌توانید $1 پرونده بارگذاری کنید. شما سعی در افزودن $2 پرونده داشتید، بنابراین $3 پرونده حذف شده‌است.',
+	'mwe-upwiz-too-many-files-text' => 'شما فقط می توانید   $1   {{PLURAL:$1| پرونده|پرونده‌ها}} را در یک بار بارگذاری کنید، ولی شما  برای بارگذاری $2   {{PLURAL:$2| پرونده|پرونده‌ها}}  تلاش کردید. لطفاً با پرونده های کمتر دوباره سعی کنید!',
 	'mwe-upwiz-too-many-files' => 'پرونده‌های زیاد.',
 	'mwe-upwiz-file-too-large-ok' => 'تأیید',
 	'mwe-upwiz-file-too-large-text' => 'شما فقط می‌توانید پرونده‌هایی با حجم کمتر از $1 بارگذاری کنید شما قصد بارگذاری پرونده‌ای با حجم $2 داشتید.',
 	'mwe-upwiz-file-too-large' => 'حجم پرونده خیلی زیاد است.',
+	'mwe-upwiz-necessary-confirm' => 'توصیه می شود که شما برای پرونده هایتان رده قرار دهید. آیا میخواهید بدون کامل کردن همه فیلد ها ادامه دهید؟',
+	'mwe-upwiz-dialog-yes' => 'بله',
+	'mwe-upwiz-dialog-no' => 'خیر',
+	'mwe-upwiz-dialog-title' => 'اخطار',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'کرییتیو کامانز اشتراک همسان  Cc-by-sa-3.0 با ([$2 کد قانونی])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'کرییتیو کامانز اشتراک همسان اتریش Cc-by-sa-3.0 با ([$2 کد قانونی])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'کرییتیو کامانز اشتراک همسان  آلمان Cc-by-sa-3.0 با ([$2 کد قانونی])',
@@ -8810,13 +8822,14 @@ $messages['fa'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'تأیید حذف',
 	'mwe-upwiz-license-external' => 'این پرونده در $1 تحت مجوز مقابل منتشر شده است: $2.',
 	'mwe-upwiz-license-external-invalid' => 'این پرونده در $1 تحت مجوز مقابل منتشر شده است: $2. متأسفانه، این مجوز برای استفاده در این تارنما مناسب نیست.',
+	'mwe-upwiz-license-photoset-invalid' => 'متاسفانه، هیچ تصویری در مجموعه تصاویر مجوز مناسب برای استفاده در این وب‌گاه را ندارد.',
 	'mwe-upwiz-categories' => 'رده‌ها',
 	'mwe-upwiz-categories-add' => 'افزودن',
-	'mwe-upwiz-category-will-be-added' => 'این رده ایجاد خواهد شد.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'این رده هنوز استفاده نشده‌است.',
 	'mwe-upwiz-category-remove' => 'حذف این رده',
 	'mwe-upwiz-thumbnail-failed' => 'بارگذاری موفق بود، اما این سرور نمی‌تواند یک تصویر کوچک پیش نمایش دریافت کند.',
 	'mwe-upwiz-unparseable-filename' => 'نمی‌توان نام پرونده «$1» را درک کرد.',
-	'mwe-upwiz-image-preview' => 'پیش‌نمایش تصویر', # Fuzzy
+	'mwe-upwiz-image-preview' => 'پیش‌نمایش پرونده',
 	'mwe-upwiz-subhead-message' => 'سپاس برای استفاده از ابزار بارگذاری آسان!',
 	'mwe-upwiz-subhead-bugs' => '[$1  مشکلات شناخته شده]',
 	'mwe-upwiz-subhead-translate' => '[$1 در ترجمه کمک کنید]',
@@ -8854,7 +8867,7 @@ $1',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'پرش از آموزش مجوز بندی',
 	'mwe-upwiz-campaign-conf-autoCategories' => 'رده‌هایی که به طور خودکار و بی‌صدا به پرونده‌ها افزوده می‌شوند (با علامت پایپ جدا کنید):',
 	'mwe-upwiz-campaign-conf-defaultCategories' => 'رده‌های پیش‌فرض برای فهرست کردن در زبانهٔ شرح (با استفاده از علامت پایپ جدا کنید):',
-	'mwe-upwiz-campaign-conf-autoWikiText' => 'ویکی‌متنی که به طور خودکار به تصاویر بارگذاری شده افزوده می‌شود:', # Fuzzy
+	'mwe-upwiz-campaign-conf-autoWikiText' => 'برچسب ویکی بزنید تا به طور خودکار به پرونده بارگذاری شده افزوده شود:',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => 'چگونه اثر شخصی و یا اثر غیر شخصی را تشخیص دهید:',
 	'mwe-upwiz-campaign-owner-choice' => 'به کاربران اجازه می‌دهد که بین اثر شخصی و اثر غیر شخصی، یکی را انتخاب کنند',
 	'mwe-upwiz-campaign-owner-own' => 'فقط برای بارگذاری‌های کار خود مجاز هستید.',
@@ -8880,6 +8893,7 @@ $1',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'طول جغرافیایی پیش‌فرض:',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'ارتفاع پیش‌فرض:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'توضیحات پیش‌فرض:',
+	'mwe-upwiz-campaign-edit-summary-delete' => 'کمپین به وسیلۀ ویرایشگر کمپین حذف شد.',
 	'mw-coolcats-confirm-new-title' => 'تأیید ردهٔ جدید',
 	'mw-coolcats-confirm-new' => 'به نظر می‌رسد شما سعی می‌کنید ردهٔ جدیدی اضافه کنید، «$1». به یاد داشته باشید:<ul><li>رده‌ها معمولاً باید به زبان انگلیسی باشند.</li><li>بیشتر رده‌های جدید باید یک زیر رده از ردهٔ موجود باشند.</li></ul>به طور کلی فقط افراد وارد باید رده ایجاد کنند.',
 	'mw-coolcats-confirm-new-ok' => 'این رده را به هر حال اضافه کن',
@@ -8894,6 +8908,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'اثر کسی دیگر - $1',
 	'mwe-upwiz-prefs-chunked' => 'بارگذاری‌های تکه‌شده برای  پرونده‌های بیشتر از ۱ مگابایت در جادوگر بارگذاری',
 	'mwe-upwiz-prefs-skiptutorial' => 'پرش از آموزش مقدماتی صدور مجوز',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'حداکثر تعداد بارگذاری همزمان',
 );
 
 /** Finnish (suomi)
@@ -14319,6 +14334,8 @@ $1',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'Longitudine predefinita:',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'Altitudine predefinita:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'Descrizione predefinita:',
+	'mwe-upwiz-campaign-edit-summary-update' => 'Aggiornata la configurazione della campagna tramite Campaign Editor',
+	'mwe-upwiz-campaign-edit-summary-delete' => 'Campagna cancellata tramite Campaign Editor',
 	'mw-coolcats-confirm-new-title' => 'Conferma nuova categoria',
 	'mw-coolcats-confirm-new' => 'Sembra che tu stia provando ad aggiungere una categoria non ancora esistente, "$1". Fai attenzione:<ul><li>Le categorie, solitamente, dovrebbero essere in inglese.</li><li>La maggior parte delle nuove categorie dovrebbe essere sottocategoria di una categoria esistente.</li></ul>In generale, solo gli esperti dovrebbero creare categorie.',
 	'mw-coolcats-confirm-new-ok' => 'Aggiungi questa categoria comunque',
