@@ -16,6 +16,7 @@
  * @author Ryan Kaldari <rkaldari@wikimedia.org>
  * @author Michael Dale <mdale@wikimedia.org>
  * @author Ankur Anand <drecodeam@gmail.com>
+ * @author Yuvi Panda <yuvipanda@gmail.com>
  * @license GPL v2 or later
  * @version 1.3
  */
@@ -27,7 +28,7 @@
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
-	'author' => array( 'Neil Kandalgaonkar', 'Jeroen De Dauw', 'Mark Holmquist', 'Ryan Kaldari', 'Michael Dale', 'Ankur Anand' ),
+	'author' => array( 'Neil Kandalgaonkar', 'Jeroen De Dauw', 'Mark Holmquist', 'Ryan Kaldari', 'Michael Dale', 'Ankur Anand', 'Yuvi Panda' ),
 	'version' => '1.3',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
