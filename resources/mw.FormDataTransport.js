@@ -10,10 +10,12 @@
 
 
 mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, transportedCb ) {
+    var profile = $.client.profile();
+
     this.formData = formData;
     this.progressCb = progressCb;
     this.transportedCb = transportedCb;
-	this.uploadObject = uploadObject;
+    this.uploadObject = uploadObject;
 
     this.postUrl = postUrl;
     // Set chunk size to configured chunk size or max php size,
@@ -27,7 +29,12 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
     // Workaround for Firefox < 7.0 sending an empty string
     // as filename for Blobs in FormData requests, something PHP does not like
     // https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-    this.gecko = $.browser.mozilla && $.browser.version < '7.0';
+    // From version 7.0 to 22.0, Firefox sends "blob" as the file name
+    // which seems to be accepted by the server
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=690659
+    // https://developer.mozilla.org/en-US/docs/Web/API/FormData#Browser_compatibility
+
+    this.insufficientFormDataSupport = profile.name === 'firefox' && profile.versionNumber < 7;
 };
 
 mw.FormDataTransport.prototype = {
@@ -169,7 +176,7 @@ mw.FormDataTransport.prototype = {
             transport.parseResponse(evt, transport.transportedCb);
         }, false);
 
-        if(this.gecko) {
+        if(this.insufficientFormDataSupport) {
             formData = this.geckoFormData();
         } else {
             formData = new FormData();
@@ -191,13 +198,13 @@ mw.FormDataTransport.prototype = {
             formData.append('filekey', this.filekey);
         }
         formData.append('filesize', bytesAvailable);
-        if(this.gecko) {
+        if(this.insufficientFormDataSupport) {
             formData.appendBlob('chunk', chunk, 'chunk.bin');
         } else {
             formData.append('chunk', chunk);
         }
         this.xhr.open('POST', this.postUrl, true);
-        if(this.gecko) {
+        if(this.insufficientFormDataSupport) {
             formData.send(this.xhr);
         } else {
             this.xhr.send(formData);
