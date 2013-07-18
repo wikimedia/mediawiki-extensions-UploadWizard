@@ -26,7 +26,11 @@
  * @author Yuvi Panda <yuvipanda@gmail.com>
  */
 
-require_once __DIR__ . '/../../../maintenance/Maintenance.php';
+$IP = getenv( 'MW_INSTALL_PATH' );
+if ( $IP === false ) {
+	$IP = dirname( __FILE__ ) . '/../../..';
+}
+require_once "$IP/maintenance/Maintenance.php";
 
 /**
  * Maintenance script to migrate campaigns from older, database table
@@ -35,6 +39,10 @@ require_once __DIR__ . '/../../../maintenance/Maintenance.php';
  * @ingroup Maintenance
  */
 class MigrateCampaigns extends Maintenance {
+
+	/**
+	 * @var DatabaseBase
+	 */
 	private $dbr = null;
 
 	public function __construct() {
@@ -88,6 +96,10 @@ class MigrateCampaigns extends Maintenance {
 		'defaultAlt'
 	);
 
+	/**
+	 * @param $id int|string
+	 * @return array
+	 */
 	private function getConfigFromDB( $id ) {
 		$config = array();
 
@@ -119,6 +131,10 @@ class MigrateCampaigns extends Maintenance {
 		return $mergedConfig;
 	}
 
+	/**
+	 * @param $string string
+	 * @return array
+	 */
 	private function explodeStringToArray( $string ) {
 		$parts = explode( '|', $string );
 		$array = array();
@@ -133,6 +149,10 @@ class MigrateCampaigns extends Maintenance {
 		return $array;
 	}
 
+	/**
+	 * @param $array array
+	 * @return array
+	 */
 	private function trimArray( $array ) {
 		$newArray = array();
 		foreach ( $array as $key => $value ) {
@@ -150,8 +170,13 @@ class MigrateCampaigns extends Maintenance {
 		return $newArray;
 	}
 
-
-	/* Ensure that the default license, if set, is the first */
+	/**
+	 * Ensure that the default license, if set, is the first
+	 *
+	 * @param $licenses array
+	 * @param $default string
+	 * @return array
+	 */
 	private function ensureDefaultLicense( $licenses, $default ) {
 		if ( count( $licenses ) === 1 || ( $default === null || trim( $default ) === '' ) ) {
 			return $licenses;
@@ -160,8 +185,14 @@ class MigrateCampaigns extends Maintenance {
 			array_splice( $licenses, array_search( $default, $licenses ), 1 );
 		}
 		array_unshift( $licenses, $default );
+		// FIXME: No return value
 	}
 
+	/**
+	 * @param $campaign
+	 * @param $oldConfig array
+	 * @return array
+	 */
 	private function getConfigForJSON( $campaign, $oldConfig ) {
 		$config = array(
 			'enabled' => $campaign->campaign_enabled === '1',
@@ -223,7 +254,8 @@ class MigrateCampaigns extends Maintenance {
 			'uw_campaigns',
 			'*'
 		);
-		
+
+		$count = 0;
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );
@@ -232,15 +264,16 @@ class MigrateCampaigns extends Maintenance {
 			$page = Wikipage::factory( $title );
 
 			$content = new CampaignContent( json_encode( $newConfig ) );
-			$status = $page->doEditContent( 
+			$page->doEditContent(
 				$content, 
 				"Migrating from old campaign tables",
 				0, false,
 				User::newFromName( $user )
 			);
-			echo "Migrated " . $campaign->campaign_name . "\n";
+			$count++;
+			$this->output( "Migrated {$campaign->campaign_name}\n" );
 		}
-
+		$this->output( "$count campaigns migrated.\n" );
 	}
 }
 
