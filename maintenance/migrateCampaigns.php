@@ -255,7 +255,11 @@ class MigrateCampaigns extends Maintenance {
 			'*'
 		);
 
-		$count = 0;
+		if ( !$campaigns->numRows() ) {
+			$this->output( "Nothing to migrate.\n" );
+			return;
+		}
+
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );
@@ -265,15 +269,13 @@ class MigrateCampaigns extends Maintenance {
 
 			$content = new CampaignContent( json_encode( $newConfig ) );
 			$page->doEditContent(
-				$content, 
+				$content,
 				"Migrating from old campaign tables",
 				0, false,
 				User::newFromName( $user )
 			);
-			$count++;
 			$this->output( "Migrated {$campaign->campaign_name}\n" );
 		}
-		$this->output( "$count campaigns migrated.\n" );
 	}
 }
 
