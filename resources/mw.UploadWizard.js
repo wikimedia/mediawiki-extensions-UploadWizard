@@ -541,7 +541,7 @@ mw.UploadWizard.prototype = {
 		_this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
-		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 		$j( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
@@ -1020,7 +1020,7 @@ mw.UploadWizard.prototype = {
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', false );
 			$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', false );
 			$j( _this.uploadToAdd.ui.div ).show();
-			_this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
+			_this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
 		} else {
 			$j( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', true );
 			$j( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', true );

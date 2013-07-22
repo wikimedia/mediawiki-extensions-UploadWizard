@@ -21,7 +21,6 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	_this.previewLoaded = false;
 
 	_this.$fileInputCtrl = $j( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
-	var profile = $.client.profile();
 	if (mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
 		mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
 		// Multiple uploads requires the FormData transport
@@ -49,7 +48,10 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	_this.$removeCtrl = $j.fn.removeCtrl(
 		'mwe-upwiz-remove',
 		'mwe-upwiz-remove-upload',
-		function() { _this.upload.remove(); }
+		function() {
+			_this.upload.remove();
+			_this.cancelPositionTracking();
+		}
 	).addClass( "mwe-upwiz-file-status-line-item" );
 
 	_this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
@@ -528,9 +530,11 @@ mw.UploadWizardUploadInterface.prototype = {
 	 * It is helpful to sometimes move them to cover certain elements on the page, and
 	 * even to pass events like hover
 	 * @param selector jquery-compatible selector, for a single element
+	 * @param positionTracking string, optional, whether to do position-polling ('poll')
+	 *     on the selected element or whether to listen to window-resize events ('resize')
 	 */
-	moveFileInputToCover: function( selector ) {
-		var _this = this;
+	moveFileInputToCover: function( selector, positionTracking ) {
+		var iv, to, onResize, $win, _this = this;
 		var update = function() {
 			var $covered = $j( selector );
 
@@ -554,20 +558,39 @@ mw.UploadWizardUploadInterface.prototype = {
 			} );
 		};
 
-		if (this.moveFileInputInterval) {
-			window.clearInterval(this.moveFileInputInterval);
+
+		this.cancelPositionTracking();
+		if ( positionTracking === 'poll' ) {
+			iv = window.setInterval( update, 500 );
+			this.stopTracking = function () {
+				window.clearInterval( iv );
+			}
+		} else if ( positionTracking === 'resize' ) {
+			$win = $( window );
+			onResize = function () {
+				// ensure resizing works smoothly
+				if ( to ) {
+					window.clearTimeout( to );
+				}
+				to = window.setTimeout( update, 200 );
+			};
+			$win.resize( onResize );
+			this.stopTracking = function () {
+				$win.off( 'resize', onResize );
+			}
 		}
-		this.moveFileInputInterval = window.setInterval(function() {
-			update();
-		}, 500);
 		update();
 	},
 
-	hideFileInput: function() {
-		if (this.moveFileInputInterval) {
-			window.clearInterval(this.moveFileInputInterval);
+	cancelPositionTracking: function () {
+		if ( $j.isFunction( this.stopTracking ) ) {
+			this.stopTracking();
+			this.stopTracking = null;
 		}
-		this.moveFileInputInterval = null;
+	},
+
+	hideFileInput: function () {
+		this.cancelPositionTracking();
 		// Should we actually hide it?
 	},
 
@@ -604,6 +627,7 @@ mw.UploadWizardUploadInterface.prototype = {
 			// cover the div with the file input.
 			// we use the visible-file div because it has the same offsetParent as the file input
 			// the second argument offsets the fileinput to the right so there's room for the close icon to get mouse events
+			// TODO Why do we care for this element at all and do not just hide it, once we have a valid file in it?
 			_this.moveFileInputToCover(
 				$div.find( '.mwe-upwiz-visible-file-filename-text' )
 			);
