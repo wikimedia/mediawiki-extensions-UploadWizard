@@ -37,6 +37,13 @@ $specialPageAliases['bxr'] = array(
 	'UploadWizard' => array( 'Ашаалха_Зэмсэг' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'UploadWizard' => array( 'Чуяхаран_говзанча' ),
+	'UploadCampaigns' => array( 'Чуяхаран_компанеш' ),
+	'UploadCampaign' => array( 'Чуяхаран_компани' ),
+);
+
 /** Danish (dansk) */
 $specialPageAliases['da'] = array(
 	'UploadWizard' => array( 'Vejviser_til_oplægning_af_filer' ),

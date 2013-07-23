@@ -7456,10 +7456,12 @@ $messages['en-ca'] = array(
 
 /** British English (British English)
  * @author Reedy
+ * @author Shirayuki
  */
 $messages['en-gb'] = array(
 	'mwe-upwiz-source-ownwork-assert-custom' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby publish {{PLURAL:$1|this work|these works}} under the following licence:', # Fuzzy
 	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'The licences that should be choosable for own-work:',
+	'prefs-upwiz-licensing' => 'Licencing',
 );
 
 /** Esperanto (Esperanto)
@@ -22768,11 +22770,11 @@ $1',
 	'mwe-upwiz-errordialog-title' => 'Ocorreu um erro no envio',
 	'mwe-upwiz-errordialog-ok' => 'OK',
 	'mwe-upwiz-error-nosuchcampaign' => 'Não há nenhuma campanha com o nome " $1 ".',
-	'mwe-upwiz-error-campaigndisabled' => 'A campanha "$1" não está activa.',
+	'mwe-upwiz-error-campaigndisabled' => 'A campanha "$1" não está ativa.',
 	'mwe-upwiz-campaigns-name' => 'Nome da campanha',
 	'mwe-upwiz-campaigns-status' => 'Estado',
 	'mwe-upwiz-campaigns-enabled' => 'Ativo',
-	'mwe-upwiz-campaigns-disabled' => 'Inactiva',
+	'mwe-upwiz-campaigns-disabled' => 'Inativa',
 	'mwe-upwiz-campaigns-edit' => 'Editar',
 	'mwe-upwiz-campaigns-add' => 'Adicionar',
 	'mwe-upwiz-campaigns-addnew' => 'Adicionar uma campanha nova',
