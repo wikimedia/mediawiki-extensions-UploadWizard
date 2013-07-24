@@ -11,7 +11,7 @@
  * @param API
  * @param containerDiv	The div to put the interface into
  */
-( function( mw, $j, undefined ) {
+( function( mw, $, undefined ) {
 
 var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -24,23 +24,23 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	_this.descriptions = [];
 
-	_this.div = $j( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
+	_this.div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
 
-	_this.thumbnailDiv = $j( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
+	_this.thumbnailDiv = $( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
 
-	_this.dataDiv = $j( '<div class="mwe-upwiz-data"></div>' );
+	_this.dataDiv = $( '<div class="mwe-upwiz-data"></div>' );
 
 	// descriptions
-	_this.descriptionsDiv = $j( '<div class="mwe-upwiz-details-descriptions"></div>' );
+	_this.descriptionsDiv = $( '<div class="mwe-upwiz-details-descriptions"></div>' );
 
-	_this.descriptionAdder = $j( '<a class="mwe-upwiz-more-options"/>' )
+	_this.descriptionAdder = $( '<a class="mwe-upwiz-more-options"/>' )
 					.html( mw.msg( 'mwe-upwiz-desc-add-0' ) )
 					.click( function( ) { _this.addDescription(); } );
 
 	var descriptionAdderDiv =
-		$j( '<div />' ).append(
-			$j( '<div class="mwe-upwiz-details-fieldname" />' ),
-			$j( '<div class="mwe-upwiz-details-descriptions-add" />' )
+		$( '<div />' ).append(
+			$( '<div class="mwe-upwiz-details-fieldname" />' ),
+			$( '<div class="mwe-upwiz-details-descriptions-add" />' )
 					.append( _this.descriptionAdder )
 		);
 
@@ -49,7 +49,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	//    http://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
 	//    XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 	_this.titleId = "title" + _this.upload.index;
-	_this.titleInput = $j( '<input type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" class="mwe-title" maxlength="250"/>' )
+	_this.titleInput = $( '<input type="text" id="' + _this.titleId + '" name="' + _this.titleId + '" class="mwe-title" maxlength="250"/>' )
 		.keyup( function() {
 			_this.setCleanTitle( $( _this.titleInput ).val() );
 		} )
@@ -71,7 +71,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			processResult: function( result ) { _this.processDestinationCheck( result ); }
 		} );
 
-	_this.titleErrorDiv = $j(
+	_this.titleErrorDiv = $(
 		'<div class="mwe-upwiz-details-input-error">' +
 			'<label class="mwe-error mwe-validator-error" for="' + _this.titleId + '" generated="true"/>' +
 			'<label class="mwe-error errorTitleUnique" for="' + _this.titleId + '" generated="true"/>' +
@@ -79,33 +79,33 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		'</div>'
 	);
 
-	var titleContainerDiv = $j('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
+	var titleContainerDiv = $('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
 			_this.titleErrorDiv,
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' )
+			$( '<div class="mwe-upwiz-details-fieldname"></div>' )
 				.msg( 'mwe-upwiz-title' )
 				.requiredFieldLabel()
 				.addHint( 'title' ),
-			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput )
+			$( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.titleInput )
 		);
 
-	_this.deedDiv = $j( '<div class="mwe-upwiz-custom-deed" />' );
+	_this.deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
 
-	_this.copyrightInfoFieldset = $j('<fieldset class="mwe-fieldset mwe-upwiz-copyright-info"></fieldset>')
+	_this.copyrightInfoFieldset = $('<fieldset class="mwe-fieldset mwe-upwiz-copyright-info"></fieldset>')
 		.hide()
 		.append(
-			$j( '<legend class="mwe-legend">' ).append( mw.msg( 'mwe-upwiz-copyright-info' ) ),
+			$( '<legend class="mwe-legend">' ).append( mw.msg( 'mwe-upwiz-copyright-info' ) ),
 			_this.deedDiv
 		);
 
-	var $categoriesDiv = $j(
+	var $categoriesDiv = $(
 		'<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix">' +
 			'<div class="mwe-upwiz-details-fieldname"></div>' +
 			'<div class="mwe-upwiz-details-input"></div>' +
 		'</div>'
 	);
-	var commonsCategoriesLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': 'http://commons.wikimedia.org/wiki/Commons:Categories' } );
-	var categoriesHint = $j( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).html();
+	var commonsCategoriesLink = $( '<a>' ).attr( { 'target': '_blank', 'href': 'http://commons.wikimedia.org/wiki/Commons:Categories' } );
+	var categoriesHint = $( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).html();
 	var categoriesHinter = function() { return categoriesHint; };
 	$categoriesDiv
 		.find( '.mwe-upwiz-details-fieldname' )
@@ -113,37 +113,37 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 	var categoriesId = 'categories' + _this.upload.index;
 	$categoriesDiv.find( '.mwe-upwiz-details-input' )
-		.append( $j( '<input/>' ).attr( { id: categoriesId,
-						name: categoriesId,
-						type: 'text' } )
+		.append( $( '<input type="text"/>' ).attr( { 
+						id: categoriesId,
+						name: categoriesId } )
 		);
 
 	var dateInputId = "dateInput" + ( _this.upload.index ).toString();
 
-	var dateErrorDiv = $j('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
+	var dateErrorDiv = $('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 
 	/* XXX must localize this by loading jquery.ui.datepicker-XX.js where XX is a language code */
 	/* jQuery.ui.datepicker also modifies first-day-of-week according to language, which is somewhat wrong. */
 	/* $.datepicker.setDefaults() for other settings */
 	_this.dateInput =
-		$j( '<input type="text" id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' );
+		$( '<input type="text" id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' );
 
-	var dateInputDiv = $j( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
+	var dateInputDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append(
 			dateErrorDiv,
-			$j( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( mw.msg( 'mwe-upwiz-date-created' ) ).requiredFieldLabel().addHint( 'date' ),
-			$j( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput ) );
+			$( '<div class="mwe-upwiz-details-fieldname"></div>' ).append( mw.msg( 'mwe-upwiz-date-created' ) ).requiredFieldLabel().addHint( 'date' ),
+			$( '<div class="mwe-upwiz-details-input"></div>' ).append( _this.dateInput ) );
 
-	var moreDetailsCtrlDiv = $j( '<div class="mwe-upwiz-details-more-options"></div>' );
+	var moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
 
-	var moreDetailsDiv = $j('<div class="mwe-more-details"></div>');
+	var moreDetailsDiv = $('<div class="mwe-more-details"></div>');
 
 	var otherInformationId = "otherInformation" + _this.upload.index;
-	_this.otherInformationInput = $j( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
+	_this.otherInformationInput = $( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
 		.growTextArea();
 
-	var otherInformationDiv = $j('<div></div>')
-		.append( $j( '<div class="mwe-upwiz-details-more-label"></div>' ).append( mw.msg( 'mwe-upwiz-other' ) ).addHint( 'other' ) )
+	var otherInformationDiv = $('<div>')
+		.append( $( '<div class="mwe-upwiz-details-more-label"></div>' ).append( mw.msg( 'mwe-upwiz-other' ) ).addHint( 'other' ) )
 		.append( _this.otherInformationInput );
 
 	/* Altitude is not yet supported by any of the geo tools deployed on WMF sites */
@@ -151,43 +151,44 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	var lonId = "location-longitude" + _this.upload.index;
 	//var altId = "location-altitude" + _this.upload.index;
 
-	_this.latInput = $j( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
-	_this.lonInput = $j( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
-	//_this.altInput = $j( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
+	_this.$latInput = $( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
+	_this.$lonInput = $( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
+	//_this.altInput = $( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
 
-	_this.latInput.val( mw.UploadWizard.config.defaults.lat );
-	_this.lonInput.val( mw.UploadWizard.config.defaults.lon );
+	// Do not prefill with "0"
+	_this.$latInput.val( mw.UploadWizard.config.defaults.lat );
+	_this.$lonInput.val( mw.UploadWizard.config.defaults.lon );
 	//_this.altInput.val( mw.UploadWizard.config.defaultAlt );
 
-	var latDiv = $j( '<div class="mwe-location-lat"></div>' )
-		.append( $j ( '<div class="mwe-location-lat-label"></div>' ).append( mw.msg( 'mwe-upwiz-location-lat' )  ) )
-		.append( _this.latInput );
-	var lonDiv = $j( '<div class="mwe-location-lon"></div>' )
-		.append( $j ( '<div class="mwe-location-lon-label"></div>' ).append( mw.msg( 'mwe-upwiz-location-lon' )  ) )
-		.append( _this.lonInput );
-	//var altDiv = $j( '<div class="mwe-location-alt"></div>' )
-	//	.append( $j ( '<div class="mwe-location-alt-label"></div>' ).append( mw.msg( 'mwe-upwiz-location-alt' )  ) )
+	var latDiv = $( '<div class="mwe-location-lat"></div>' )
+		.append( $ ( '<div class="mwe-location-lat-label"></div>' ).append( mw.msg( 'mwe-upwiz-location-lat' )  ) )
+		.append( _this.$latInput );
+	var lonDiv = $( '<div class="mwe-location-lon"></div>' )
+		.append( $ ( '<div class="mwe-location-lon-label"></div>' ).append( mw.msg( 'mwe-upwiz-location-lon' )  ) )
+		.append( _this.$lonInput );
+	//var altDiv = $( '<div class="mwe-location-alt"></div>' )
+	//	.append( $ ( '<div class="mwe-location-alt-label"></div>' ).append( mw.msg( 'mwe-upwiz-location-alt' )  ) )
 	//	.append( _this.altInput );
 
-	var locationDiv = $j( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
-		.append( $j ('<div class="mwe-location-label"></div>' )
+	var locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
+		.append( $ ('<div class="mwe-location-label"></div>' )
 		.append( mw.msg( 'mwe-upwiz-location' ) )
 		.addHint( 'location' ) )
 		.append(
-			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
-			$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
-			//$j( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
+			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
+			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
+			//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
 			latDiv, lonDiv //, altDiv
 		);
 
-	$j( moreDetailsDiv ).append(
+	$( moreDetailsDiv ).append(
 		locationDiv,
 		otherInformationDiv
 	);
 
 
 	/* Build the form for the file upload */
-	_this.$form = $j( '<form id="mwe-upwiz-detailsform' + _this.upload.index + '"></form>' ).addClass( 'detailsForm' );
+	_this.$form = $( '<form id="mwe-upwiz-detailsform' + _this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 	_this.$form.append(
 		titleContainerDiv,
 		_this.descriptionsDiv,
@@ -198,12 +199,11 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	);
 
 	_this.fields = [];
-	$j.each( mw.UploadWizard.config.fields, function ( i, field ) {
+	$.each( mw.UploadWizard.config.fields, function ( i, field ) {
 		if( field.wikitext ) {
 			var fieldInputId = "field_" + i + '_' + ( _this.upload.index ).toString();
 
-			var $fieldInput = $j( '<input />' ).attr( {
-					'type': 'text',
+			var $fieldInput = $( '<input type="text" />' ).attr( {
 					'id': fieldInputId,
 					'name': fieldInputId,
 					'class': 'mwe-idfield',
@@ -213,10 +213,10 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				.data( 'field', field );
 
 			_this.$form.append(
-				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
-					.append( $j( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
-				$j( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel(),
-				$j( '<div>' ).attr( 'class', 'mwe-id-field' )
+				$( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
+					.append( $( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
+				$( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel(),
+				$( '<div>' ).attr( 'class', 'mwe-id-field' )
 					.append( $fieldInput )
 			);
 
@@ -229,17 +229,17 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		moreDetailsDiv
 	);
 
-	_this.submittingDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-submitting' )
+	_this.submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
 		.append(
-			$j( '<div></div>' ).addClass( 'mwe-upwiz-file-indicator' ),
-			$j( '<div></div>' ).addClass( 'mwe-upwiz-details-texts' ).append(
-				$j( '<div></div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
-				$j( '<div></div>' ).addClass( 'mwe-upwiz-file-status-line' )
+			$( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ),
+			$( '<div>' ).addClass( 'mwe-upwiz-details-texts' ).append(
+				$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
+				$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' )
 			)
 		);
 
 	// Add in remove control to submittingDiv
-	_this.$removeCtrl = $j.fn.removeCtrl(
+	_this.$removeCtrl = $.fn.removeCtrl(
 			'mwe-upwiz-remove',
 			'mwe-upwiz-remove-upload',
 			function() { _this.upload.remove(); }
@@ -248,12 +248,12 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	_this.submittingDiv.find( '.mwe-upwiz-file-status-line' )
 		.append( _this.$removeCtrl );
 
-	$j( _this.dataDiv ).append(
+	$( _this.dataDiv ).append(
 		_this.$form,
 		_this.submittingDiv
 	).morphCrossfader();
 
-	$j( _this.div ).append(
+	$( _this.div ).append(
 		_this.thumbnailDiv,
 		_this.dataDiv
 	);
@@ -291,7 +291,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		} )
 		.data( 'open', 0 )
 		.click( function() {
-			var $this = $j( this );
+			var $this = $( this );
 			if ( $this.data( 'open' ) === 0 ) {
 				$this.data( 'open', 1 ).datepicker( 'show' );
 			} else {
@@ -299,7 +299,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			}
 		} );
 
-	_this.latInput.rules( "add", {
+	_this.$latInput.rules( "add", {
 		min: -90,
 		max: 90,
 		messages: {
@@ -308,7 +308,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		}
 	} );
 
-	_this.lonInput.rules( "add", {
+	_this.$lonInput.rules( "add", {
 		min: -180,
 		max: 180,
 		messages: {
@@ -408,7 +408,7 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	attach: function() {
 		if ( !this.isAttached ) {
-			$j( this.containerDiv ).append( this.div );
+			$( this.containerDiv ).append( this.div );
 			this.isAttached = true;
 			this.updateCopyMsgs();
 		}
@@ -445,10 +445,10 @@ mw.UploadWizardDetails.prototype = {
 				tag = 'input';
 			}
 			var firstId = '#' + id + sourceId;
-			var firstValue = $j( firstId ).val();
-			$j( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
-				$j( this ).val( firstValue );
-				if ( $j( this ).parents( '.mwe-more-details' ).length === 1 ) {
+			var firstValue = $( firstId ).val();
+			$( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
+				$( this ).val( firstValue );
+				if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
 					var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
 					if ( !moreInfo.hasClass( "mwe-upwiz-toggler-open" ) ) {
 						moreInfo.click();
@@ -460,20 +460,20 @@ mw.UploadWizardDetails.prototype = {
 		if ( metadataType === 'title' ) {
 
 			// Add number suffix to first title if no numbering present
-			var titleZero = $j( '#title' + sourceId ).val();
+			var titleZero = $( '#title' + sourceId ).val();
 			var matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
 			if ( matches === null ) {
 				titleZero = titleZero + ' 01';
 				// After setting the value, we must trigger input processing for the change to take effect
-				$j( '#title' + sourceId ).val( titleZero ).keyup();
+				$( '#title' + sourceId ).val( titleZero ).keyup();
 			}
 
 			// Overwrite remaining title inputs with first title + increment of rightmost
 			// number in the title. Note: We ignore numbers with more than three digits, because these
 			// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
 			// numbers.
-			$j( 'input[id^=title]:not(#title' + sourceId + ')' ).each( function (i) {
-					var currentTitle = $j( this ).val();
+			$( 'input[id^=title]:not(#title' + sourceId + ')' ).each( function (i) {
+					var currentTitle = $( this ).val();
 					currentTitle = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 						function( str, m1, m2, m3 ) {
 						var newstr = ( +m2 + i + 1 ) + '';
@@ -481,14 +481,14 @@ mw.UploadWizardDetails.prototype = {
 						.join( '0' ) + newstr + m3;
 					}
 				);
-				$j( this ).val( currentTitle ).keyup();
+				$( this ).val( currentTitle ).keyup();
 
 			} );
 
 		} else if ( metadataType === 'description' ) {
 
 			var destUploads = _this.upload.wizard.uploads;
-			$j.each( destUploads, function ( uploadIndex, upload ) {
+			$.each( destUploads, function ( uploadIndex, upload ) {
 
 				if ( upload !== undefined && upload.index !== sourceId ) {
 
@@ -497,7 +497,7 @@ mw.UploadWizardDetails.prototype = {
 					// create unintended consequences, we nuke any existing descriptions first.
 					upload.details.removeAllDescriptions();
 
-					$j.each( _this.descriptions, function ( srcDescriptionIndex, srcDescription ) {
+					$.each( _this.descriptions, function ( srcDescriptionIndex, srcDescription ) {
 						var isRequired = srcDescription.isRequired;
 						var languageCode = srcDescription.getLanguage();
 						var allowRemoval = !isRequired;
@@ -513,18 +513,18 @@ mw.UploadWizardDetails.prototype = {
 
 		} else if ( metadataType === 'categories' ) {
 
-			var visibleCategoriesZero = $j( '#categories' + sourceId ).get( 0 ).getCats( ':not(.hidden)' );
-			var hiddenCategoriesZero = $j( '#categories' + sourceId ).get( 0 ).getCats( '.hidden' );
-			$j( 'input[id^=categories]:not(#categories' + sourceId + ')' ).each( function( i, input ) {
+			var visibleCategoriesZero = $( '#categories' + sourceId ).get( 0 ).getCats( ':not(.hidden)' );
+			var hiddenCategoriesZero = $( '#categories' + sourceId ).get( 0 ).getCats( '.hidden' );
+			$( 'input[id^=categories]:not(#categories' + sourceId + ')' ).each( function( i, input ) {
 				if ( this.id !== ( 'categories' + sourceId ) ) {
 
 					// As with descriptions, we nuke whatever categories are there already.
 					input.removeAllCats();
 
-					$j.each(visibleCategoriesZero, function() {
+					$.each(visibleCategoriesZero, function() {
 						input.insertCat( this, false );
 					});
-					$j.each(hiddenCategoriesZero, function() {
+					$.each(hiddenCategoriesZero, function() {
 						input.insertCat( this, true );
 					});
 
@@ -559,10 +559,10 @@ mw.UploadWizardDetails.prototype = {
 			return;
 		}
 
-		_this.copyMetadataCtrlDiv = $j( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
-		var copyMetadataDiv = $j( '<div class="mwe-upwiz-metadata-copier"></div>' );
+		_this.copyMetadataCtrlDiv = $( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
+		var copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' );
 
-		$j.each( _this.copyMetadataTypes, function addToMetadataDiv( metadataName, defaultStatus ) {
+		$.each( _this.copyMetadataTypes, function addToMetadataDiv( metadataName, defaultStatus ) {
 			var cb = 'mwe-upwiz-copy-' + metadataName,
 				copyMetadataMsg,
 				$checkbox;
@@ -571,24 +571,24 @@ mw.UploadWizardDetails.prototype = {
 			} else {
 				copyMetadataMsg = mw.msg( cb );
 			}
-			$checkbox = $j( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', cb ).attr( 'id', cb );
+			$checkbox = $( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', cb ).attr( 'id', cb );
 			if ( defaultStatus === true ) {
 				$checkbox.attr( 'checked', 'checked' );
 			}
 			copyMetadataDiv.append( $checkbox );
-			copyMetadataDiv.append( $j( '<label for="' + cb + '">' + copyMetadataMsg + '</label>' ) );
-			copyMetadataDiv.append( $j( '<br />' ) );
+			copyMetadataDiv.append( $( '<label for="' + cb + '">' + copyMetadataMsg + '</label>' ) );
+			copyMetadataDiv.append( $( '<br />' ) );
 		} ) ;
 
 		copyMetadataDiv.append(
-			$j( '<button type="button" id="mwe-upwiz-copy-metadata-button">' )
+			$( '<button type="button" id="mwe-upwiz-copy-metadata-button"></button>' )
 			.msg( 'mwe-upwiz-copy-metadata-button' )
 			.button()
 			.click(
 				function( e ) {
 					var button = $( this ).find( 'span' );
-					$j.each( _this.copyMetadataTypes, function makeCopies( metadataType, defaultStatus ) {
-							if ( $j( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
+					$.each( _this.copyMetadataTypes, function makeCopies( metadataType, defaultStatus ) {
+							if ( $( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
 								_this.copyMetadata( metadataType );
 							}
 						} );
@@ -653,7 +653,7 @@ mw.UploadWizardDetails.prototype = {
 		// location?
 
 		// make sure title is valid
-		var titleInputValid = $j( _this.titleInput ).data( 'valid' );
+		var titleInputValid = $( _this.titleInput ).data( 'valid' );
 		if ( titleInputValid === undefined ) {
 			setTimeout( function () { _this.valid( callback ); }, 200 );
 			return;
@@ -700,7 +700,7 @@ mw.UploadWizardDetails.prototype = {
 				};
 
 				// Need to add tipsy tips here
-				$j( _this.deedDiv ).append( _this.upload.providedFile.licenseMessage );
+				$( _this.deedDiv ).append( _this.upload.providedFile.licenseMessage );
 
 				// XXX need to add code in the remaining functions
 				_this.upload.deedChooser.deed = {
@@ -737,7 +737,7 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		if (busy) {
 			_this.titleInput.addClass( "busy" );
-			$j( _this.titleInput ).data( 'valid', undefined );
+			$( _this.titleInput ).data( 'valid', undefined );
 		} else {
 			_this.titleInput.removeClass( "busy" );
 		}
@@ -755,14 +755,14 @@ mw.UploadWizardDetails.prototype = {
 		var $errorEl = _this.$form.find( 'label[for=' + _this.titleId + '].errorTitleUnique' );
 
 		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
-			$j( _this.titleInput ).data( 'valid', true );
+			$( _this.titleInput ).data( 'valid', true );
 			$errorEl.hide().empty();
 			_this.ignoreWarningsInput = undefined;
 			return;
 		}
 
 		// something is wrong with this title.
-		$j( _this.titleInput ).data( 'valid', false );
+		$( _this.titleInput ).data( 'valid', false );
 
 		var titleString;
 		var errHtml;
@@ -777,7 +777,7 @@ mw.UploadWizardDetails.prototype = {
 		if ( ! result.unique.isUnique ) {
 			// result is NOT unique
 			if ( result.href ) {
-				errHtml = mw.message( 'mwe-upwiz-fileexists-replace-on-page', titleString, $j( '<a />' ).attr( { href: result.href, target: '_blank' } ) ).parse();
+				errHtml = mw.message( 'mwe-upwiz-fileexists-replace-on-page', titleString, $( '<a>' ).attr( { href: result.href, target: '_blank' } ) ).parse();
 			} else {
 				errHtml = mw.msg( 'mwe-upwiz-fileexists-replace-no-link', titleString );
 			}
@@ -790,7 +790,7 @@ mw.UploadWizardDetails.prototype = {
 			errHtml = mw.msg( 'mwe-upwiz-blacklisted', titleString );
 			$errorEl.text( errHtml );
 
-			var completeErrorLink = $j( '<span class="contentSubLink"></span>' ).msg(
+			var completeErrorLink = $( '<span class="contentSubLink"></span>' ).msg(
 				'mwe-upwiz-feedback-blacklist-info-prompt',
 				function() {
 					var errorDialog = new mw.ErrorDialog( result.blacklist.blacklistReason );
@@ -809,7 +809,7 @@ mw.UploadWizardDetails.prototype = {
 					'mwe-upwiz-feedback-title'
 				);
 
-				var feedbackLink = $j( '<span class="contentSubLink"></span>' ).msg(
+				var feedbackLink = $( '<span class="contentSubLink"></span>' ).msg(
 					'mwe-upwiz-feedback-blacklist-report-prompt',
 					function() {
 						feedback.launch( {
@@ -832,7 +832,7 @@ mw.UploadWizardDetails.prototype = {
 	recountDescriptions: function() {
 		var _this = this;
 		// if there is some maximum number of descriptions, deal with that here
-		$j( _this.descriptionAdder ).html( mw.msg( 'mwe-upwiz-desc-add-' + ( _this.descriptions.length === 0 ? '0' : 'n' )  )  );
+		$( _this.descriptionAdder ).html( mw.msg( 'mwe-upwiz-desc-add-' + ( _this.descriptions.length === 0 ? '0' : 'n' )  )  );
 	},
 
 
@@ -856,12 +856,12 @@ mw.UploadWizardDetails.prototype = {
 		var description = new mw.UploadWizardDescription( languageCode, required, initialValue );
 
 		if ( !required && allowRemove ) {
-			$j( description.div  ).append(
-				$j.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
+			$( description.div  ).append(
+				$.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function() { _this.removeDescription( description ); } )
 			);
 		}
 
-		$j( _this.descriptionsDiv ).append( description.div  );
+		$( _this.descriptionsDiv ).append( description.div  );
 
 		// must defer adding rules until it's in a form
 		// sigh, this would be simpler if we refactored to be more jquery style, passing DOM element downward
@@ -878,7 +878,7 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	removeDescription: function( description  ) {
 		var _this = this;
-		$j( description.div ).remove();
+		$( description.div ).remove();
 		mw.UploadWizardUtil.removeItem( _this.descriptions, description  );
 		_this.recountDescriptions();
 		_this.updateCopyMsgs();
@@ -886,7 +886,7 @@ mw.UploadWizardDetails.prototype = {
 
 	removeAllDescriptions: function() {
 		var _this = this;
-		$j( _this.descriptionsDiv ).children().remove();
+		$( _this.descriptionsDiv ).children().remove();
 		_this.descriptions = [];
 		_this.recountDescriptions();
 		_this.updateCopyMsgs();
@@ -900,11 +900,11 @@ mw.UploadWizardDetails.prototype = {
 		var _this = this;
 		var args = Array.prototype.slice.call( arguments  ); // copies arguments into a real array
 		var msg = 'mwe-upwiz-upload-error-' + args[0];
-		$j( _this.errorDiv ).append( $j( '<p class="mwe-upwiz-upload-error">' + mw.msg( msg, args.slice( 1 ) ) + '</p>' ) );
+		$( _this.errorDiv ).append( $( '<p class="mwe-upwiz-upload-error">' + mw.msg( msg, args.slice( 1 ) ) + '</p>' ) );
 		// apply a error style to entire did
-		$j( _this.div ).addClass( 'mwe-upwiz-upload-error' );
-		$j( _this.dataDiv ).hide();
-		$j( _this.errorDiv ).show();
+		$( _this.div ).addClass( 'mwe-upwiz-upload-error' );
+		$( _this.dataDiv ).hide();
+		$( _this.errorDiv ).show();
 	},
 
 	/**
@@ -945,12 +945,12 @@ mw.UploadWizardDetails.prototype = {
 		var dateObj;
 		if ( _this.upload.imageinfo.metadata ) {
 			var metadata = _this.upload.imageinfo.metadata;
-			$j.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function( i, propName ) {
+			$.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function( i, propName ) {
 				var dateInfo = metadata[propName];
 				if ( ! mw.isEmpty( dateInfo ) ) {
-					var matches = $j.trim( dateInfo ).match( yyyyMmDdRegex );
+					var matches = $.trim( dateInfo ).match( yyyyMmDdRegex );
 					if ( ! mw.isEmpty( matches ) ) {
-						var timeMatches = $j.trim( dateInfo ).match( timeRegex );
+						var timeMatches = $.trim( dateInfo ).match( timeRegex );
 						if ( ! mw.isEmpty( timeMatches ) ) {
 							dateObj = new Date( parseInt( matches[1], 10 ),
 										parseInt( matches[2], 10 ) - 1,
@@ -974,7 +974,7 @@ mw.UploadWizardDetails.prototype = {
 			var dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
 			var matches = this.upload.file.date.match( dateTimeRegex );
 			if ( !mw.isEmpty( matches ) ) {
-				$j( _this.dateInput ).val( this.upload.file.date );
+				$( _this.dateInput ).val( this.upload.file.date );
 				return;
 			}
 		}
@@ -1017,7 +1017,7 @@ mw.UploadWizardDetails.prototype = {
 		}
 
 		// ok by now we should definitely have a dateObj and a date string
-		$j( _this.dateInput ).val( dateStr );
+		$( _this.dateInput ).val( dateStr );
 	},
 
 	/**
@@ -1025,7 +1025,7 @@ mw.UploadWizardDetails.prototype = {
 	 * Note: the interface's notion of "filename" versus "title" is the opposite of MediaWiki
 	 */
 	prefillTitle: function() {
-		$j( this.titleInput ).val( this.upload.title.getNameText() );
+		$( this.titleInput ).val( this.upload.title.getNameText() );
 	},
 
 	/**
@@ -1054,26 +1054,26 @@ mw.UploadWizardDetails.prototype = {
 	 * Leaving out altitude ref for now (for no good reason).
 	 */
 	prefillLocation: function() {
-		var _this = this;
+		var _this = this,
+			m = _this.upload.imageinfo.metadata;
 
-		if ( _this.upload.imageinfo.metadata ) {
-			var m = _this.upload.imageinfo.metadata;
-
-			if ( m.gpslatitude !== undefined && m.gpslongitude !== undefined ) {
-				$j( _this.latInput ).val( m.gpslatitude );
-				$j( _this.lonInput ).val( m.gpslongitude );
+		if ( m ) {
+			// Prefill useful stuff only
+			if ( Number( m.gpslatitude ) && Number ( m.gpslongitude ) ) {
+				_this.$latInput.val( m.gpslatitude );
+				_this.$lonInput.val( m.gpslongitude );
 			} else if (
-				typeof this.upload.file !== 'undefined' &&
-				typeof this.upload.file.location !== 'undefined' &&
+				this.upload.file &&
+				this.upload.file.location &&
 				this.upload.file.location.latitude &&
 				this.upload.file.location.longitude
 			) {
-				$j( _this.latInput ).val( this.upload.file.location.latitude );
-				$j( _this.lonInput ).val( this.upload.file.location.longitude );
+				_this.$latInput.val( this.upload.file.location.latitude );
+				_this.$lonInput.val( this.upload.file.location.longitude );
 			}
 
 			//if ( m['gpsaltitude'] !== undefined ) {
-			//	$j( _this.altInput ).val( m['gpsaltitude'] );
+			//	$( _this.altInput ).val( m['gpsaltitude'] );
 			//}
 		}
 	},
@@ -1116,7 +1116,7 @@ mw.UploadWizardDetails.prototype = {
 	prefillAuthor: function() {
 		var _this = this;
 		if ( _this.upload.imageinfo.metadata && _this.upload.imageinfo.metadata.author ) {
-			$j( _this.authorInput ).val( _this.upload.imageinfo.metadata.author );
+			$( _this.authorInput ).val( _this.upload.imageinfo.metadata.author );
 		}
 
 	},
@@ -1141,7 +1141,7 @@ mw.UploadWizardDetails.prototype = {
 					// XXX set license to be that
 					// XXX any other licenses we could guess from copyright statement
 				} else {
-					$j( _this.licenseInput ).val( copyright );
+					$( _this.licenseInput ).val( copyright );
 				}
 			}
 		}
@@ -1182,17 +1182,17 @@ mw.UploadWizardDetails.prototype = {
 				// XXX ruh roh
 				// we should not even allow them to press the button ( ? ) but then what about the queue...
 			}
-			$j.each( _this.descriptions, function( i, desc ) {
+			$.each( _this.descriptions, function( i, desc ) {
 				information.description += desc.getWikiText();
 			} );
 
-			$j.each( _this.fields, function ( i, $field ) {
+			$.each( _this.fields, function ( i, $field ) {
 				if ( ! mw.isEmpty( $field.val() ) ) {
 					information.description += $field.data( 'field' ).wikitext.replace( '$1', $field.val() );
 				}
 			} );
 
-			information.date = $j.trim( $j( _this.dateInput ).val() );
+			information.date = $.trim( $( _this.dateInput ).val() );
 
 			var deed = _this.upload.deedChooser.deed;
 
@@ -1208,19 +1208,19 @@ mw.UploadWizardDetails.prototype = {
 			wikiText += "=={{int:filedesc}}==\n";
 			wikiText += '{{Information\n' + info + '}}\n';
 
-			var lat = $j.trim( $j( _this.latInput ).val() );
-			var lon = $j.trim( $j( _this.lonInput ).val() );
-			//var alt = $j.trim( $j( _this.altInput ).val() );
+			var lat = $.trim( $( _this.$latInput ).val() );
+			var lon = $.trim( $( _this.$lonInput ).val() );
+			//var alt = $.trim( $( _this.altInput ).val() );
 
 			// Do not require the altitude to be set, to prevent people from entering 0
 			// while it's actually unknown.
 			// When none is provided, this will result in {{Location dec|int|int|}}.
-			if( lat !== '' && lon !== '' ) {
-				wikiText += '{{Location dec|'+ lat + '|' + lon + '}}\n';
+			if( Number( lat ) && Number ( lon ) ) {
+				wikiText += '{{Location dec|' + lat + '|' + lon + '}}\n';
 			}
 
 			// add an "anything else" template if needed
-			var otherInfoWikiText = $j.trim( $j( _this.otherInformationInput ).val() );
+			var otherInfoWikiText = $.trim( $( _this.otherInformationInput ).val() );
 			if ( ! mw.isEmpty( otherInfoWikiText ) ) {
 				wikiText += otherInfoWikiText + "\n\n";
 			}
@@ -1344,7 +1344,7 @@ mw.UploadWizardDetails.prototype = {
 					}
 				} else {
 					var warningsKeys = [];
-					$j.each( warnings, function( key, val ) {
+					$.each( warnings, function( key, val ) {
 						warningsKeys.push( key );
 					} );
 					_this.upload.state = 'error';
@@ -1372,7 +1372,7 @@ mw.UploadWizardDetails.prototype = {
 	recoverFromError: function( fieldId, errorMessage ) {
 		this.upload.state = 'error';
 		this.dataDiv.morphCrossfade( '.detailsForm' );
-		$j( '#' + fieldId ).addClass( 'mwe-error' );
+		$( '#' + fieldId ).addClass( 'mwe-error' );
 		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).html( errorMessage ).show();
 	},
 
@@ -1451,7 +1451,7 @@ mw.UploadWizardDetails.prototype = {
 	setCleanTitle: function( s ) {
 		var ext = this.upload.title.getExtension();
 		var re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' );
-		var cleaned = $j.trim( s.replace( re, '' ) );
+		var cleaned = $.trim( s.replace( re, '' ) );
 		this.upload.title = new mw.Title( cleaned + '.' + ext, fileNsId );
 		return this.upload.title;
 	}
