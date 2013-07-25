@@ -143,14 +143,19 @@ return array(
 		// Initial value for the description field.
 		'description' => '',
 
+		// These values are commented out by default, so they can be undefined
+		// Define them here if you want defaults.
+		// This is required, because the JsonSchema for these defines them to be type number
+		// But we can't have them to be NULL, because that's not a number.
+		// This is a technical limitation of JsonSchema, I think.
 		// Initial value for the latitude field.
-		'lat' => 0,
+		//'lat' => 0,
 
-		// Initial value for the longitude field.
-		'lon' => 0,
+		//// Initial value for the longitude field.
+		//'lon' => 0,
 
-		// Initial value for the altitude field.
-		'alt' => 0,
+		//// Initial value for the altitude field.
+		//'alt' => 0,
 	),
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
