@@ -148,7 +148,8 @@ return array(
 		// This is required, because the JsonSchema for these defines them to be type number
 		// But we can't have them to be NULL, because that's not a number.
 		// This is a technical limitation of JsonSchema, I think.
-		// Initial value for the latitude field.
+
+		//// Initial value for the latitude field.
 		//'lat' => 0,
 
 		//// Initial value for the longitude field.
