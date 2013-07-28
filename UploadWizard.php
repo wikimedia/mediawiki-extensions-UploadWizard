@@ -58,9 +58,6 @@ $wgAutoloadClasses += array(
 	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
 );
 
-// Registers hook and content handlers for Campaign contenthandler
-$wgExtensionFunctions[] = 'CampaignHooks::registerHandlers';
-
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
 
@@ -70,9 +67,16 @@ $wgSpecialPageGroups['UploadWizard'] = 'media';
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
-$wgHooks['CanonicalNamespaces'][] = 'UploadWizardHooks::canonicalNamespaces';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
+
+// Campaign hook handlers
+$wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
+$wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';
+$wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageLanguage';
+$wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';
+$wgHooks[ 'ArticleDeleteComplete' ][] = 'CampaignHooks::onArticleDeleteComplete';
+$wgHooks[ 'TitleMoveComplete' ][] = 'CampaignHooks::onTitleMoveComplete';
 
 $wgAvailableRights[] = 'upwizcampaigns';
 
@@ -97,7 +101,27 @@ $wgDefaultUserOptions['upwiz_maxsimultaneous'] = 'default';
 // any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
 $wgUploadWizardConfig = array();
 
-/* Define default namespaces, as defined on Mediawiki.org
+/* Define and configure default namespaces, as defined on Mediawiki.org
  * https://www.mediawiki.org/wiki/Extension_default_namespaces#UploadWizard */
 define( 'NS_CAMPAIGN', 460 );
 define( 'NS_CAMPAIGN_TALK', 461 );
+$wgExtraNamespaces[ NS_CAMPAIGN ] = 'Campaign';
+$wgExtraNamespaces[ NS_CAMPAIGN_TALK ] = 'Campaign_talk';
+
+$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'upwizcampaigns' );
+
+$wgNamespaceContentModels[ NS_CAMPAIGN ] = 'Campaign';
+$wgContentHandlers[ 'Campaign' ] = 'CampaignContentHandler';
+
+$wgCapitalLinkOverrides[ NS_CAMPAIGN ] = false;
+$wgCapitalLinkOverrides[ NS_CAMPAIGN_TALK ] = false;
+
+// add proper aliases for NS_FILE, otherwise an error is being thrown
+// in combined.min.js when the content language code is not 'en':
+// "unrecognized namespace=File" due to undefiled 'File' key in wgNamespaceIds
+if ( !isset( $wgNamespaceAliases['File'] ) ) {
+	$wgNamespaceAliases['File'] = NS_FILE;
+}
+if ( !isset( $wgNamespaceAliases['File_talk'] ) ) {
+	$wgNamespaceAliases['File_talk'] = NS_FILE_TALK;
+}

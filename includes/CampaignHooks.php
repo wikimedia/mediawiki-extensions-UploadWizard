@@ -12,27 +12,6 @@
 class CampaignHooks {
 
 	/**
-	 * Registers hook and content handlers if the JSON Schema
-	 * namespace is enabled for this site.
-	 * @return bool: Whether hooks and handler were registered.
-	 */
-	static function registerHandlers() {
-		global $wgAPIModules, $wgHooks, $wgContentHandlers;
-
-		$wgContentHandlers[ 'Campaign' ] = 'CampaignContentHandler';
-
-		$wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
-		$wgHooks[ 'CanonicalNamespaces' ][] = 'CampaignHooks::onCanonicalNamespaces';
-		$wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';
-		$wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageLanguage';
-		$wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';
-		$wgHooks[ 'ArticleDeleteComplete' ][] = 'CampaignHooks::onArticleDeleteComplete';
-		$wgHooks[ 'TitleMoveComplete' ][] = 'CampaignHooks::onTitleMoveComplete';
-
-		return true;
-	}
-
-	/**
 	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
 	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
 	 */
@@ -112,27 +91,6 @@ class CampaignHooks {
 		if ( $title->inNamespace( NS_CAMPAIGN ) ) {
 			$lang = 'json';
 		}
-		return true;
-	}
-
-	/**
-	 * Registers Campaign namespaces and assign edit rights.
-	 * @param array &$namespaces Mapping of numbers to namespace names.
-	 * @return bool
-	 */
-	static function onCanonicalNamespaces( array &$namespaces ) {
-		global $wgNamespaceContentModels, $wgNamespaceProtection,
-			$wgCapitalLinkOverrides;
-
-		$namespaces[ NS_CAMPAIGN ] = 'Campaign';
-		$namespaces[ NS_CAMPAIGN_TALK ] = 'Campaign_talk';
-
-		$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'upwizcampaigns' );
-		$wgNamespaceContentModels[ NS_CAMPAIGN ] = 'Campaign';
-
-		$wgCapitalLinkOverrides[ NS_CAMPAIGN ] = false;
-		$wgCapitalLinkOverrides[ NS_CAMPAIGN_TALK ] = false;
-
 		return true;
 	}
 
