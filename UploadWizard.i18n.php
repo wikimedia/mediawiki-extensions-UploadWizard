@@ -18601,6 +18601,7 @@ $messages['mr'] = array(
 	'mwe-upwiz-help-desk-url' => 'मदत केंद्र', # Fuzzy
 	'mwe-upwiz-add-file-n' => 'अतिरिक्त संचिका जमा करा', # Fuzzy
 	'mwe-upwiz-add-file-0-free' => 'येथे प्रदानासाठी मिडियासंचिका ड्रॉप करा', # Fuzzy
+	'mwe-upwiz-add-flickr-or' => 'किंवा',
 	'mwe-upwiz-transport-started' => 'कर्यान्वित होत आहे',
 	'mwe-upwiz-uploading' => 'चढवत आहे...',
 	'mwe-upwiz-transported' => ' चढवण्याचे काम पूर्ण झाले',
@@ -18642,6 +18643,8 @@ $messages['mr'] = array(
 	'mwe-upwiz-source-thirdparty-accept' => 'सर्व ठीक',
 	'mwe-upwiz-source-custom' => 'प्रत्येक संचिकेची (फाईलची) प्रताधिकार माहिती पुढील पानावर द्या.',
 	'mwe-upwiz-more-options' => 'वर्ग आणि इतर अधिक  माहिती भरा ...', # Fuzzy
+	'mwe-upwiz-copy-metadata-button' => 'नक्कल करा',
+	'mwe-upwiz-copied-metadata-button' => 'नकलवण्यात यशस्वी',
 	'mwe-upwiz-desc' => 'वर्णन',
 	'mwe-upwiz-desc-add-n' => 'इतर भाषेत वर्णण जोडा',
 	'mwe-upwiz-desc-add-0' => 'वर्णन वाढवा',
@@ -18706,6 +18709,10 @@ $messages['mr'] = array(
 	'mwe-upwiz-error-license-wikitext-too-long' => 'आपण भरलेली विकी माहिती हि अतिदीर्घ आहे',
 	'mwe-upwiz-too-many-files-ok' => 'ठीक',
 	'mwe-upwiz-too-many-files' => 'उदंड संचिका',
+	'mwe-upwiz-file-too-large-ok' => 'ठीक',
+	'mwe-upwiz-dialog-yes' => 'होय',
+	'mwe-upwiz-dialog-no' => 'नाही',
+	'mwe-upwiz-dialog-title' => 'ताकीद',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूसन शेअरएलाइक ३.० ([$2 कायदा कोड])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० ऑसट्रिया ([$2 कायदा कोड])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'क्रिएटिव्ह कॉमन्स एट्रीब्यूशन शेअरएलाइक ३.० जर्मनी ([$2 कायदा कोड])',
@@ -18798,6 +18805,7 @@ $1',
 	'mw-coolcats-confirm-new-ok' => 'हा वर्ग जोडा (अस्तित्वात नसला तरी)',
 	'mw-coolcats-confirm-new-cancel' => 'कही हरकत नहीं',
 	'prefs-uploads' => 'चढवा',
+	'prefs-upwiz-licensing' => 'परवाना',
 	'mwe-upwiz-prefs-def-license' => 'डिफॉल्ट परवाना',
 	'mwe-upwiz-prefs-def-license-def' => 'जे काही अविचल (डिफॉल्ट) असेल ते वापरा',
 	'mwe-upwiz-prefs-license-own' => 'स्वतःची निर्मिती - $1',
@@ -22749,9 +22757,9 @@ Não utilize notação wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-attribution' => 'Pode ser usada para qualquer fim, incluindo fins comerciais, desde que seja feita a devida atribuição da autoria ao titular dos direitos de autor',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, atribuição necessária (GFDL, CC-BY-SA-3.0)',
-	'mwe-upwiz-license-cc-head' => 'O titular dos direitos de autor publicou {{PLURAL:$1|este trabalho|estes trabalhos}} com a licença Creative Commons correcta',
+	'mwe-upwiz-license-cc-head' => 'O titular dos direitos de autor publicou {{PLURAL:$1|este trabalho|estes trabalhos}} com a licença Creative Commons correta',
 	'mwe-upwiz-license-cc-subhead' => 'Nem todas as licenças da Creative Commons são apropriadas para este site. Certifique-se de que o titular dos direitos de autor usou uma destas licenças.',
-	'mwe-upwiz-license-flickr-head' => 'O titular dos direitos de autor publicou {{PLURAL:$1|a fotografia ou vídeo|as fotografias ou vídeos}} no Flickr, com a licença correcta',
+	'mwe-upwiz-license-flickr-head' => 'O titular dos direitos de autor publicou {{PLURAL:$1|a fotografia ou vídeo|as fotografias ou vídeos}} no Flickr, com a licença correta',
 	'mwe-upwiz-license-flickr-subhead' => 'Verifique a seção "Licença" na lateral da página do Flickr. Tanto os ícones usados como o nome da licença, têm de corresponder a uma das escolhas disponíveis aqui.',
 	'mwe-upwiz-license-public-domain-usa-head' => 'Os direitos de autor expiraram em definitivo nos EUA',
 	'mwe-upwiz-license-public-domain-usa-subhead' => 'A {{SITENAME}} está localizada nos EUA, portanto o trabalho deve estar livre de direitos de autor naquele país.',
@@ -26321,6 +26329,7 @@ $1',
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
+ * @author Milicevic01
  * @author Rancher
  * @author Жељко Тодоровић
  */
@@ -26358,7 +26367,7 @@ $messages['sr-el'] = array(
 	'mwe-upwiz-transported' => 'Da',
 	'mwe-upwiz-stashed-upload' => 'Otpremljeno',
 	'mwe-upwiz-getting-metadata' => 'Dobavljanje podataka o datoteci i pregleda…',
-	'mwe-upwiz-submitting-details' => 'Slanje detalja i objavljivanje…',
+	'mwe-upwiz-submitting-details' => 'Šaljem podatke i objavljujem…',
 	'mwe-upwiz-published' => 'Objavljeno.',
 	'mwe-upwiz-failed' => 'Neuspelo.',
 	'mwe-upwiz-remove' => 'Ukloni',
