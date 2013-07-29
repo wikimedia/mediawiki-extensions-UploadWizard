@@ -17772,6 +17772,13 @@ $messages['lv'] = array(
 	'mwe-upwiz-prefs-def-license' => 'Noklusējuma licence',
 );
 
+/** Literary Chinese (文言)
+ * @author Yanteng3
+ */
+$messages['lzh'] = array(
+	'uploadwizard' => '貢之靈',
+);
+
 /** Maithili (मैथिली)
  * @author Ggajendra
  * @author Manojberma77
