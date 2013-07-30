@@ -371,6 +371,16 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	// make this a category picker
 	var hiddenCats = mw.UploadWizard.config.autoAdd.categories === undefined ? [] : mw.UploadWizard.config.autoAdd.categories;
 
+	// Add tracking categories
+	if ( mw.UploadWizard.config.trackingCategory ) {
+		if ( mw.UploadWizard.config.trackingCategory.all ) {
+			hiddenCats.push( mw.UploadWizard.config.trackingCategory.all );
+		}
+		if ( mw.UploadWizard.config.trackingCategory.campaign ) {
+			hiddenCats.push( mw.UploadWizard.config.trackingCategory.campaign );
+		}
+	}
+
 	var missingCatsWikiText = null;
 	if (
 		typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string' &&
