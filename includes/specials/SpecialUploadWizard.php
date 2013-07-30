@@ -189,14 +189,16 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		if ( array_key_exists( 'trackingCategory', $config )  ) {
-			if ( $this->campaign !== null && array_key_exists( 'campaign', $config['trackingCategory'] ) ) {
-				$config['trackingCategory']['campaign'] = str_replace(
-					'$1',
-					$this->campaign,
-					$config['trackingCategory']['campaign']
-				);
-			} else {
-				unset ( $config['trackingCategory']['campaign'] );
+			if ( array_key_exists( 'campaign', $config['trackingCategory'] ) ) {
+				if ( $this->campaign !== null ) {
+					$config['trackingCategory']['campaign'] = str_replace(
+						'$1',
+						$this->campaign,
+						$config['trackingCategory']['campaign']
+					);
+				} else {
+					unset( $config['trackingCategory']['campaign'] );
+				}
 			}
 		}
 		// UploadFromUrl parameter set to true only if the user is allowed to upload a file from a URL which we need to check in our Javascript implementation.
