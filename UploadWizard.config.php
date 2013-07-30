@@ -116,6 +116,15 @@ return array(
 		'helpdeskCoords' => '27, 1319, 691, 1384',
 	),
 
+	// Tracking categories for various scenarios
+	'trackingCategory' => array(
+		// Category added no matter what
+		'all' => 'Uploaded with UploadWizard',
+
+		// Tracking category added for campaigns. $1 is replaced with campaign page name
+		'campaign' => 'Uploaded via Campaign:$1'
+	),
+
 	'fields' => array(
 		// Field via which an ID can be provided.
 		array(
