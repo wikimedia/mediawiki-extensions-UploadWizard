@@ -1339,7 +1339,7 @@ mw.UploadWizardDetails.prototype = {
 				} else if ( warnings['bad-prefix'] ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-error-title-senselessimagename' ) );
 				} else if ( warnings.exists || warnings['exists-normalized'] ) {
-					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ) );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ).parse() );
 				} else if ( warnings.duplicate ) {
 					_this.recoverFromError( _this.titleId, mw.msg( 'mwe-upwiz-upload-error-duplicate' ) );
 				} else if ( warnings['duplicate-archive'] ) {
