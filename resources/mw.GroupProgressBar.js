@@ -140,7 +140,7 @@ mw.GroupProgressBar.prototype = {
 						timeString = mw.message( 'mwe-upwiz-secs-remaining', t.seconds ).escaped();
 					}
 				} else {
-					timeString = mw.message( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds ).escaped();
+					timeString = mw.message( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds, t.minutes + t.seconds ).escaped();
 				}
 			} else {
 				timeString = mw.message( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds ).escaped();
