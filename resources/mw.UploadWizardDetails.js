@@ -203,14 +203,38 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		if( field.wikitext ) {
 			var fieldInputId = "field_" + i + '_' + ( _this.upload.index ).toString();
 
-			var $fieldInput = $( '<input type="text" />' ).attr( {
-					'id': fieldInputId,
-					'name': fieldInputId,
-					'class': 'mwe-idfield',
-					'maxlength': field.maxLength
-				} )
-				.val( field.initialValue )
-				.data( 'field', field );
+			if ( !( 'type' in field ) ) {
+			  field.type = 'text';
+			}
+
+			switch ( field.type ) {
+				case 'select':
+					$fieldInput = $( '<select>' ).attr( {
+						'id': fieldInputId,
+						'name': fieldInputId,
+						'class': 'mwe-idfield'
+					} ).data( 'field', field );
+
+					if ( 'options' in field ) {
+						$.each( field.options, function ( val, label ) {
+							$fieldInput.append( $( '<option>' )
+							.val( val )
+							.text( label ) );
+						} );
+					}
+
+				break;
+				default:
+					var $fieldInput = $( '<input type="text">' ).attr( {
+						'id': fieldInputId,
+						'name': fieldInputId,
+						'class': 'mwe-idfield',
+						'maxlength': field.maxLength
+					} )
+					.val( field.initialValue )
+					.data( 'field', field );
+				break;
+			}
 
 			_this.$form.append(
 				$( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
