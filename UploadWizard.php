@@ -70,6 +70,32 @@ $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoader
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
 
+$uploadWizardModuleInfo = array(
+	'localBasePath' => __DIR__ . '/resources',
+	'remoteExtPath' => 'UploadWizard/resources',
+);
+
+$wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
+        'scripts' => 'mw.FormDataTransport.js',
+) + $uploadWizardModuleInfo;
+
+$wgResourceModules['ext.uploadWizard.iFrameTransport'] = array(
+        'scripts' => 'mw.IframeTransport.js',
+) + $uploadWizardModuleInfo;
+
+$wgResourceModules['ext.uploadWizard.apiUploadHandler'] = array(
+	'scripts' => 'mw.ApiUploadHandler.js',
+	'dependencies' => 'ext.uploadWizard.iFrameTransport',
+	'messages' => 'mwe-upwiz-transport-started',
+) + $uploadWizardModuleInfo;
+
+//upload using FormData, large files in chunks
+$wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
+	'scripts' => 'mw.ApiUploadFormDataHandler.js',
+	'dependencies' => 'ext.uploadWizard.formDataTransport',
+	'messages' => 'mwe-upwiz-transport-started',
+) + $uploadWizardModuleInfo;
+
 // Campaign hook handlers
 $wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
 $wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';

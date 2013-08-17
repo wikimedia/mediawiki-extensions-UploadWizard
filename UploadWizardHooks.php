@@ -37,7 +37,9 @@ class UploadWizardHooks {
 				'mediawiki.api.parse',
 				'mediawiki.Title',
 				'mediawiki.user',
-				'mediawiki.feedback'
+				'mediawiki.feedback',
+				'ext.uploadWizard.apiUploadHandler',
+				'ext.uploadWizard.apiUploadFormDataHandler'
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -66,8 +68,6 @@ class UploadWizardHooks {
 				'resources/mw.LanguageUpWiz.js',
 
 				// workhorse libraries
-				'resources/mw.IframeTransport.js',
-				'resources/mw.ApiUploadHandler.js',
 				'resources/mw.DestinationChecker.js',
 				'resources/mw.UploadWizardUtil.js',
 
@@ -78,10 +78,6 @@ class UploadWizardHooks {
 
 				// flickr libraries
 				'resources/mw.FlickrChecker.js',
-
-				//upload using FormData, large files in chunks
-				'resources/mw.FormDataTransport.js',
-				'resources/mw.ApiUploadFormDataHandler.js',
 
 				// interface libraries
 				'resources/mw.GroupProgressBar.js',
@@ -173,7 +169,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-flickr-disclaimer1',
 				'mwe-upwiz-flickr-disclaimer2',
 				'mwe-upwiz-browse',
-				'mwe-upwiz-transport-started',
 				'mwe-upwiz-encoding',
 				'mwe-upwiz-uploading',
 				'mwe-upwiz-queued',
