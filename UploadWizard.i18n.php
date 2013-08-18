@@ -5883,8 +5883,8 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-license-none' => "Rwyn credu bod trwydded rydd ar y {{PLURAL:$1|gwaith hwn|gwaith hwn|gweithiau hyn}} neu {{PLURAL:$1|ei fod|ei fod|eu bod}} yn perthyn yn ôl y gyfraith i'r parth cyhoeddus. Rwyn deall y gall y {{PLURAL:$1|ffeil gael ei|ffeil gael ei|ffeiliau gael eu}} dileu os na fyddaf yn ychwanegu'r wybodaeth drwyddedi ymhen fawr o dro.",
 	'mwe-upwiz-license-confirm-remove' => "Ydych chi wir am ddiddymu'r  {{PLURAL:$1||uwchlwythiad hwn|uwchlwythiadau hyn}}?",
 	'mwe-upwiz-license-confirm-remove-title' => "Cadarnhau'r diddymu",
-	'mwe-upwiz-license-external' => 'Dyma drwydded y ffeil hon ar $1: $2.', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => "Dyma drwydded y ffeil hon ar $1: $2. Yn anffodus nid yw'r drwydded hon yn addas i'w defnyddio ar y wefan hon.", # Fuzzy
+	'mwe-upwiz-license-external' => 'Dyma drwydded y ffeil ar y wefan "$1" y daeth ohoni\'n wreiddiol: $2.',
+	'mwe-upwiz-license-external-invalid' => 'Dyma drwydded y ffeil ar y wefan "$1" y daeth ohoni\'n wreiddiol: $2. Yn anffodus nid yw\'r wici hwn yn caniatau defnyddio\'r drwydded honno.',
 	'mwe-upwiz-license-photoset-invalid' => "Yn anffodus, nid oes gan ddim un o'r lluniau yn y casgliad o luniau drwydded sy'n addas i'w ddefnyddio ar y wefan hon.",
 	'mwe-upwiz-url-invalid' => "Mae'r URL a roddwyd yn pwyntio at lun neu gasgiad o luniau ar $1 sy'n annilys neu'n gyfyngedig, na ellir ei ddefnyddio.",
 	'mwe-upwiz-categories' => 'Categorïau',
