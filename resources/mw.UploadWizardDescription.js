@@ -11,13 +11,13 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	_this.isRequired = required;
 
 	// XXX for some reason this display:block is not making it into HTML
-	var errorLabelDiv = $j(
+	var errorLabelDiv = $(
 		'<div class="mwe-upwiz-details-input-error">' +
 			'<label generated="true" class="mwe-validator-error" for="' + _this.id + '" />' +
 		'</div>'
 	);
 
-	var fieldnameDiv = $j( '<div class="mwe-upwiz-details-fieldname" />' );
+	var fieldnameDiv = $( '<div class="mwe-upwiz-details-fieldname" />' );
 	if ( _this.isRequired ) {
 		fieldnameDiv.requiredFieldLabel();
 	}
@@ -34,9 +34,9 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	}
 
 	_this.languageMenu = mw.LanguageUpWiz.getMenu( 'lang', languageCode );
-	$j(_this.languageMenu).addClass( 'mwe-upwiz-desc-lang-select' );
+	$(_this.languageMenu).addClass( 'mwe-upwiz-desc-lang-select' );
 
-	_this.input = $j( '<textarea name="' + _this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
+	_this.input = $( '<textarea name="' + _this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
 				.growTextArea();
 
 	if ( initialValue !== undefined ) {
@@ -44,7 +44,7 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 	}
 
 	// descriptions
-	_this.div = $j('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
+	_this.div = $('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
 			.append( errorLabelDiv, fieldnameDiv, _this.languageMenu, _this.input );
 
 };
@@ -55,7 +55,7 @@ mw.UploadWizardDescription.prototype = {
 	count: 0,
 
 	getText: function() {
-		return $j.trim( $j( this.input ).val() );
+		return $.trim( $( this.input ).val() );
 	},
 
 	setText: function( text ) {
@@ -63,11 +63,11 @@ mw.UploadWizardDescription.prototype = {
 		text = text.replace( /<[^>]+>/g, '' );
 		// & and " are escaped by Flickr, so we need to unescape
 		text = text.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
-		$j( this.input ).val( $j.trim( text ) );
+		$( this.input ).val( $.trim( text ) );
 	},
 
 	getLanguage: function() {
-		return $j.trim( $j( this.languageMenu ).val() );
+		return $.trim( $( this.languageMenu ).val() );
 	},
 
 	/**

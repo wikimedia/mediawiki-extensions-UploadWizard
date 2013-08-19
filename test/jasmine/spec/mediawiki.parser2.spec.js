@@ -322,7 +322,7 @@ describe( "mediaWiki.language.parser", function() {
 				fn();
 			} else { 
 				mw.log( lang + " load msg transform" );
-				$j.getScript( wgScriptPath + '/resources/mediaWiki.language/languages/' + lang.toLowerCase() + '.js' , function(){
+				$.getScript( wgScriptPath + '/resources/mediaWiki.language/languages/' + lang.toLowerCase() + '.js' , function(){
 					cachedConvertPlural[lang] = mediaWiki.language.convertPlural;
 					fn();
 				});			
@@ -414,7 +414,7 @@ describe( "mediaWiki.language.parser", function() {
 			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
 			// determining bindings is hard in IE
 			var anchor = parsed.find( 'a' );
-			if ( ( $j.browser.mozilla || $j.browser.webkit ) && anchor.click ) {
+			if ( ( $.browser.mozilla || $.browser.webkit ) && anchor.click ) {
 				expect( clicked ).toEqual( false );
 				anchor.click(); 
 				expect( clicked ).toEqual( true );
@@ -425,7 +425,7 @@ describe( "mediaWiki.language.parser", function() {
 			var parser = new mediaWiki.language.parser();
 			var clicked = false;
 			var click = function() { clicked = true; };
-			var button = $j( '<button>' ).click( click );
+			var button = $( '<button>' ).click( click );
 			var parsed = parser.parse( 'en_link_replace', [ button, 'buttoning' ] );
 			var contents = parsed.contents();
 			expect( contents.length ).toEqual( 3 );
@@ -436,7 +436,7 @@ describe( "mediaWiki.language.parser", function() {
 			expect( contents[2].nodeName ).toEqual( '#text' );
 			expect( contents[2].nodeValue ).toEqual( ' behaviour.' );
 			// determining bindings is hard in IE
-			if ( ( $j.browser.mozilla || $j.browser.webkit ) && button.click ) {
+			if ( ( $.browser.mozilla || $.browser.webkit ) && button.click ) {
 				expect( clicked ).toEqual( false );
 				parsed.find( 'button' ).click();
 				expect( clicked ).toEqual( true );
@@ -461,7 +461,7 @@ describe( "mediaWiki.language.parser", function() {
 
 	describe( "quantities and plurals", function() {
 		
-		$j.each( jasmineMsgSpec, function( i, test ) { 
+		$.each( jasmineMsgSpec, function( i, test ) { 
 			var parser = new mediaWiki.language.parser();
 			it( "should parse " + test.name, function() { 
 				//var argArray = [ test.key ].concat( test.args );
@@ -491,32 +491,32 @@ describe( "mediaWiki.language.parser", function() {
 		it( "should allow a global that returns strings", function() {
 			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
 			// a surrounding <SPAN> is needed for html() to work right
-			var expectedHtml = $j( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
+			var expectedHtml = $( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
 			var result = mw.msg( 'en_link_replace', 'http://example.com/foo', 'linking' );
 			expect( typeof result ).toEqual( 'string' );
 			expect( result ).toEqual( expectedHtml );
 		} );
 
 		it( "should allow a jQuery plugin that appends to nodes", function() {
-			$j.fn.msg = mediaWiki.language.parser.getJqueryPlugin();
-			var $div = $j( '<div>' ).append( $j( '<p>' ).addClass( 'foo' ) );
+			$.fn.msg = mediaWiki.language.parser.getJqueryPlugin();
+			var $div = $( '<div>' ).append( $( '<p>' ).addClass( 'foo' ) );
 			var clicked = false;
-			var $button = $j( '<button>' ).click( function() { clicked = true; } );
+			var $button = $( '<button>' ).click( function() { clicked = true; } );
 			$div.find( '.foo' ).msg( 'en_link_replace', $button, 'buttoning' );
 			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
 			// a surrounding <SPAN> is needed for html() to work right
-			var expectedHtml = $j( '<span>Complex <button>buttoning</button> behaviour.</span>' ).html();
+			var expectedHtml = $( '<span>Complex <button>buttoning</button> behaviour.</span>' ).html();
 			var createdHtml = $div.find( '.foo' ).html();
 			// it is hard to test for clicks with IE; also it inserts or removes spaces around nodes when creating HTML tags, depending on their type.
 			// so need to check the strings stripped of spaces.
-			if ( ( $j.browser.mozilla || $j.browser.webkit ) && $button.click ) {
+			if ( ( $.browser.mozilla || $.browser.webkit ) && $button.click ) {
 				expect( createdHtml ).toEqual( expectedHtml );
 				$div.find( 'button ').click();
 				expect( clicked ).toEqual( true );
-			} else if ( $j.browser.ie ) {
+			} else if ( $.browser.ie ) {
 				expect( createdHtml.replace( /\s/, '' ) ).toEqual( expectedHtml.replace( /\s/, '' ) );
 			}
-			delete $j.fn.msg;
+			delete $.fn.msg;
 		} );
 
 

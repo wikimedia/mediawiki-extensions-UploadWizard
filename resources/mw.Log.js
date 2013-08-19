@@ -23,7 +23,7 @@
  *    logDebug( "random spammy log for developers..." );   // will log "random spammy log for developers...";
  */
 
-( function( mw, $j ) {
+( function( mw, $ ) {
 
 	/* how all the logging levels sort */
 	var priority = {

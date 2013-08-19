@@ -2,9 +2,9 @@
 // jasmine has spies and such for mocking.
 // also, how are we going to configure this test? Perhaps we'll need to have a special SpecRunner text input for API url, etc.
 
-( function( mw, $j ) {
+( function( mw, $ ) {
 
-	$j.mockjaxSettings = {
+	$.mockjaxSettings = {
 		responseTime: 0,  // as fast as possible, for tests
 		dataType: 'json'
 	};
@@ -78,7 +78,7 @@
 						}
 					};
 
-					this.mock = $j.mockjax( { 
+					this.mock = $.mockjax( { 
 						// match every url 
 						url: '*', 
 						// with a timeout
@@ -93,7 +93,7 @@
 
 				runs( function() {
 					expect( timedOut ).toBe( true );
-					$j.mockjaxClear( this.mock );
+					$.mockjaxClear( this.mock );
 				} );
 
 			} );
@@ -120,7 +120,7 @@
 						}
 					};
 
-					this.mock = $j.mockjax( { 
+					this.mock = $.mockjax( { 
 						// match every url 
 						url: '*', 
 						// with a server error
@@ -136,7 +136,7 @@
 
 				runs( function() {
 					expect( serverError ).toBe( true );
-					$j.mockjaxClear( this.mock );
+					$.mockjaxClear( this.mock );
 				} );
 
 			} );

@@ -1,14 +1,14 @@
 /**
  * Create 'show thumbnail' control, with optional tooltips.  works like the 'remove' control.
  */
-( function ( $j ) {
-	$j.fn.showThumbCtrl = function( msgKey, tooltipMsgKey, callback ) {
+( function ( $ ) {
+	$.fn.showThumbCtrl = function( msgKey, tooltipMsgKey, callback ) {
 		var msg = (msgKey === null) ? '' : mw.msg( msgKey );
-		return $j( '<div class="mwe-upwiz-show-thumb-ctrl ui-corner-all" />' )
+		return $( '<div class="mwe-upwiz-show-thumb-ctrl ui-corner-all" />' )
 			.attr( 'title', mw.msg( tooltipMsgKey ) )
-			.click( function() { $j( this ).removeClass( 'hover' ).addClass( 'disabled' ).unbind( 'mouseenter mouseover mouseleave mouseout mouseup mousedown' ); callback(); } )
-			.hover( function() { $j( this ).addClass( 'hover' ); },
-				function() { $j( this ).removeClass( 'hover' ); } )
-			.append( $j( '<div class="ui-icon ui-icon-image" /><div class="mwe-upwiz-show-thumb-ctrl-msg">' + msg + '</div>' ) );
+			.click( function() { $( this ).removeClass( 'hover' ).addClass( 'disabled' ).unbind( 'mouseenter mouseover mouseleave mouseout mouseup mousedown' ); callback(); } )
+			.hover( function() { $( this ).addClass( 'hover' ); },
+				function() { $( this ).removeClass( 'hover' ); } )
+			.append( $( '<div class="ui-icon ui-icon-image" /><div class="mwe-upwiz-show-thumb-ctrl-msg">' + msg + '</div>' ) );
 	};
 } )( jQuery );

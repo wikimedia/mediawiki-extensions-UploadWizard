@@ -973,7 +973,7 @@ mw.UploadWizardDetails.prototype = {
 										parseInt( matches[2], 10 ) - 1,
 										parseInt( matches[3], 10 ) );
 						}
-						return false; // break from $j.each
+						return false; // break from $.each
 					}
 				}
 			} );

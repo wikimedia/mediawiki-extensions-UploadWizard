@@ -47,7 +47,7 @@ mw.FlickrChecker.prototype = {
 		}
 		var albumIdMatches = _this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
 		if ( albumIdMatches || photoIdMatches ) {
-			$j( '#mwe-upwiz-upload-add-flickr-container' ).hide();
+			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 			_this.imageUploads = [];
 			if ( albumIdMatches && albumIdMatches[1] > 0 ) {
 				_this.getPhotoset( albumIdMatches );
@@ -67,7 +67,7 @@ mw.FlickrChecker.prototype = {
 		var x = 0;
 		var fileName, imageContainer, sourceURL;
 
-		$j( '#mwe-upwiz-select-flickr' ).button( {
+		$( '#mwe-upwiz-select-flickr' ).button( {
 			label: mw.msg( 'mwe-upwiz-select-flickr' ),
 			disabled: true
 		} );
@@ -134,21 +134,21 @@ mw.FlickrChecker.prototype = {
 						}
 					} );
 					// Calling jquery ui selectable
-					$j( '#mwe-upwiz-flickr-select-list' ).selectable( {
+					$( '#mwe-upwiz-flickr-select-list' ).selectable( {
 						stop: function( e ) {
 							// If at least one item is selected, activate the upload button
-							if ( $j( '.ui-selected' ).length > 0 ) {
-								$j( '#mwe-upwiz-select-flickr' ).button( 'enable' );
+							if ( $( '.ui-selected' ).length > 0 ) {
+								$( '#mwe-upwiz-select-flickr' ).button( 'enable' );
 							} else {
-								$j( '#mwe-upwiz-select-flickr' ).button( 'disable' );
+								$( '#mwe-upwiz-select-flickr' ).button( 'disable' );
 							}
 						}
 					} );
 					// Set up action for 'Upload selected images' button
-					$j( '#mwe-upwiz-select-flickr' ).click( function() {
-						$j( '#mwe-upwiz-flickr-select-list-container' ).hide();
-						$j( '#mwe-upwiz-upload-ctrls' ).show();
-						$j( 'li.ui-selected' ).each( function( index, image ) {
+					$( '#mwe-upwiz-select-flickr' ).click( function() {
+						$( '#mwe-upwiz-flickr-select-list-container' ).hide();
+						$( '#mwe-upwiz-upload-ctrls' ).show();
+						$( 'li.ui-selected' ).each( function( index, image ) {
 							image = $( this ).attr( 'id' );
 							image = image.split( '-' )[1];
 							_this.setImageDescription( image );
@@ -160,7 +160,7 @@ mw.FlickrChecker.prototype = {
 						_this.showErrorDialog( mw.msg( 'mwe-upwiz-license-photoset-invalid' ) );
 						_this.wizard.flickrInterfaceReset();
 					} else {
-						$j( '#mwe-upwiz-flickr-select-list-container' ).show();
+						$( '#mwe-upwiz-flickr-select-list-container' ).show();
 					}
 				} else {
 					_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid' ) );
@@ -253,7 +253,7 @@ mw.FlickrChecker.prototype = {
 						mw.FlickrChecker.prototype.licenseList[value.id] = value.name;
 					} );
 				}
-				$j( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
+				$( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
 			}
 		);
 	},
@@ -337,7 +337,7 @@ mw.FlickrChecker.prototype = {
 	},
 
 	showErrorDialog: function( errorMsg ) {
-		$j( '<div></div>' )
+		$( '<div></div>' )
 			.html( errorMsg )
 			.dialog( {
 				width: 500,

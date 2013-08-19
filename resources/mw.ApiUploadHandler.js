@@ -13,7 +13,7 @@
 mw.ApiUploadHandler = function( upload, api ) {
 	this.upload = upload;
 	this.api = api;
-	this.$form = $j( this.upload.ui.form );
+	this.$form = $( this.upload.ui.form );
 	this.configureForm();
 
 	// the Iframe transport is hardcoded for now because it works everywhere
@@ -83,7 +83,7 @@ mw.ApiUploadHandler.prototype = {
 	 */
 	addFormInputIfMissing: function( name, value ) {
 		if ( this.$form.find( "[name='" + name + "']" ).length === 0 ) {
-			this.$form.append( $j( '<input type="hidden" />' ) .attr( { 'name': name, 'value': value } ));
+			this.$form.append( $( '<input type="hidden" />' ) .attr( { 'name': name, 'value': value } ));
 		}
 	},
 

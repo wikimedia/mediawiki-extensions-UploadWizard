@@ -24,7 +24,7 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
     // Workaround for Firefox < 7.0 sending an empty string
     // as filename for Blobs in FormData requests, something PHP does not like
     // https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-    this.gecko = $j.browser.mozilla && $j.browser.version < "7.0";
+    this.gecko = $.browser.mozilla && $.browser.version < "7.0";
 };
 
 mw.FormDataTransport.prototype = {
@@ -65,7 +65,7 @@ mw.FormDataTransport.prototype = {
 
             var formData = new FormData();
 
-            $j.each(this.formData, function(key, value) {
+            $.each(this.formData, function(key, value) {
                 formData.append(key, value);
             });
 			formData.append('filename', this.tempname);
@@ -170,7 +170,7 @@ mw.FormDataTransport.prototype = {
         } else {
             formData = new FormData();
         }
-        $j.each(this.formData, function(key, value) {
+        $.each(this.formData, function(key, value) {
             formData.append(key, value);
         });
         formData.append('offset', offset);
@@ -209,7 +209,7 @@ mw.FormDataTransport.prototype = {
         }
         var api = new mw.Api();
         var params = {};
-        $j.each(this.formData, function(key, value) {
+        $.each(this.formData, function(key, value) {
             params[key] = value;
         });
         params.checkstatus =  true;
@@ -242,7 +242,7 @@ mw.FormDataTransport.prototype = {
     parseResponse: function(evt, callback) {
         var response;
         try {
-            response = $j.parseJSON(evt.target.responseText);
+            response = $.parseJSON(evt.target.responseText);
         } catch(e) {
             response = {
                 error: {

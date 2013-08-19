@@ -62,8 +62,8 @@
 
 		// should achieve the same result as crossfade( this.children().first() ) but without
 		// animation etc.
-		$j.each( this, function( i, container ) {
-			var $container = $j( container );
+		$.each( this, function( i, container ) {
+			var $container = $( container );
 			$container.morphCrossfade( $container.children().first(), 0 );
 		} );
 
@@ -84,10 +84,10 @@
 		$containers.css( { 'overflow' : 'hidden' } );
 
 
-		$j.each( $containers, function( i, container ) {
-			var $container = $j( container );
+		$.each( $containers, function( i, container ) {
+			var $container = $( container );
 			var $oldPanel = $( $container.data( 'crossfadeDisplay' ) );
-			var $newPanel = ( typeof newPanelSelector === 'string' ) ? $container.find( newPanelSelector ) : $j( newPanelSelector );
+			var $newPanel = ( typeof newPanelSelector === 'string' ) ? $container.find( newPanelSelector ) : $( newPanelSelector );
 
 			if ( $oldPanel.get(0) !== $newPanel.get(0) ) {
 				if ( $oldPanel ) {

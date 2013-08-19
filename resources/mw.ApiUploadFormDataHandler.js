@@ -7,7 +7,7 @@ mw.ApiUploadFormDataHandler = function( upload, api ) {
     this.upload = upload;
     this.api = api;
 
-    this.$form = $j( this.upload.ui.form );
+    this.$form = $( this.upload.ui.form );
     this.formData = {
         action: 'upload',
         stash: 1,

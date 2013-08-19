@@ -5,7 +5,7 @@ mw.GroupProgressBar = function( selector, text, uploads, successStates, errorSta
 	var _this = this;
 
 	// XXX need to figure out a way to put text inside bar
-	_this.$selector = $j( selector );
+	_this.$selector = $( selector );
 	_this.$selector.html(
 		'<div class="mwe-upwiz-progress">' +
 			'<div class="mwe-upwiz-progress-bar-etr-container">' +
@@ -45,7 +45,7 @@ mw.GroupProgressBar.prototype = {
 		var _this = this;
 
 		var totalWeight = 0.0;
-		$j.each( _this.uploads, function( i, upload ) {
+		$.each( _this.uploads, function( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -60,14 +60,14 @@ mw.GroupProgressBar.prototype = {
 			var successStateCount = 0;
 			var errorStateCount = 0;
 			var hasData = false;
-			$j.each( _this.uploads, function( i, upload ) {
+			$.each( _this.uploads, function( i, upload ) {
 				if ( upload === undefined ) {
 					return;
 				}
-				if ( $j.inArray( upload.state, _this.successStates ) !== -1 ) {
+				if ( $.inArray( upload.state, _this.successStates ) !== -1 ) {
 					successStateCount++;
 				}
-				if ( $j.inArray( upload.state, _this.errorStates ) !== -1 ) {
+				if ( $.inArray( upload.state, _this.errorStates ) !== -1 ) {
 					errorStateCount++;
 				}
 				if (upload[_this.progressProperty] !== undefined) {
