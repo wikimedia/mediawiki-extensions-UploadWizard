@@ -20,8 +20,8 @@ jQuery.autocomplete = function(input, options) {
 		$results.hide().addClass(options.resultsClass).css("position", "absolute");
 		if( options.width > 0 ) $results.css("width", options.width);
 	}else{
-		var results = $j(options.resultElem).get(0);
-		var $results = $j(options.resultElem);
+		var results = $(options.resultElem).get(0);
+		var $results = $(options.resultElem);
 		$results.hide();
 	}
 

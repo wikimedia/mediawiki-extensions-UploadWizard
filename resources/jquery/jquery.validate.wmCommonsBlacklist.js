@@ -59,7 +59,7 @@
 
 	};
 
-	$j.each( regexSets, function( name, regexes ) {
+	$.each( regexSets, function( name, regexes ) {
 		var tester = ( function( regexes ) {
 			return function( value, element, params ) {
 				var ok = true;

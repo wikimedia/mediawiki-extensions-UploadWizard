@@ -1,7 +1,7 @@
 /**
  * Miscellaneous utilities
  */
-( function ( mw, $j, undefined ) {
+( function ( mw, $, undefined ) {
 mw.UploadWizardUtil = {
 
 	/**
@@ -19,10 +19,10 @@ mw.UploadWizardUtil = {
 		} else {
 			actualMsg = mw.msg( msg );
 		}
-		var $toggleLink = $j( '<a>' )
+		var $toggleLink = $( '<a>' )
 			.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
 			.append( actualMsg );
-		$j( toggleDiv ).append( $toggleLink );
+		$( toggleDiv ).append( $toggleLink );
 
 		var toggle = function() {
 			var isOpen = $toggleLink.hasClass( "mwe-upwiz-toggler-open" );
@@ -43,7 +43,7 @@ mw.UploadWizardUtil = {
 
 		$toggleLink.click( function( e ) { e.stopPropagation(); toggle(); } );
 
-		$j( moreDiv ).addClass( 'mwe-upwiz-toggled' );
+		$( moreDiv ).addClass( 'mwe-upwiz-toggled' );
 	},
 
 	/**

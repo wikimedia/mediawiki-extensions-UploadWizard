@@ -13,7 +13,7 @@
  * @param {mw.Api} api object; useful for previews
  */
 
-( function( mw, $j, undefined ) {
+( function( mw, $, undefined ) {
 
 var catNsId = mw.config.get( 'wgNamespaceIds' ).category,
 	templateNsId = mw.config.get( 'wgNamespaceIds' ).template;
@@ -31,8 +31,8 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 		throw new Error( 'improper initialization' );
 	}
 
-	_this.$selector = $j( selector );
-	_this.$selector.append( $j( '<div class="mwe-error mwe-error-main"></div>' ) );
+	_this.$selector = $( selector );
+	_this.$selector.append( $( '<div class="mwe-error mwe-error-main"></div>' ) );
 
 	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
@@ -57,7 +57,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	}
 
 	// set up preview dialog
-	_this.$previewDialog = $j( '<div></div> ')
+	_this.$previewDialog = $( '<div></div> ')
 		.css( 'padding', 10 )
 		.dialog( {
 			autoOpen: false,
@@ -66,7 +66,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 			modal: true
 		} );
 
-	_this.$spinner = $j( '<div></div>' )
+	_this.$spinner = $( '<div></div>' )
 		.addClass( 'mwe-upwiz-status-progress mwe-upwiz-file-indicator' )
 		.css( { 'width': 200, 'padding': 20, 'float': 'none', 'margin': '0 auto' } );
 
@@ -83,27 +83,27 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	createGroupedInputs: function( $el, configGroups ) {
 		var _this = this;
-		$j.each( configGroups, function( i, group ) {
+		$.each( configGroups, function( i, group ) {
 			var $body, $toggler;
-			var $group = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
+			var $group = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
 			if ( group.head === undefined ) {
 				// if there is no header, just append licenses to the group div.
 				$body = $group;
 			} else {
 				// if there is a header, make a toggle-to-expand div and append inputs there.
-				var $head = $j( '<div></div>' ).append(
-					$j( '<a>' )
+				var $head = $( '<div></div>' ).append(
+					$( '<a>' )
 						.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
 						.msg( group.head, _this.count )
 				);
-				$body = $j( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
+				$body = $( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
 				$toggler = $group.append( $head, $body ).collapseToggle();
 
 			}
 			if ( group.subhead !== undefined ) {
-				$body.append( $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
+				$body.append( $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
 			}
-			var $licensesDiv = $j( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
+			var $licensesDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
 			_this.createInputs( $licensesDiv, group, $toggler );
 			$body.append( $licensesDiv );
 			_this.$selector.append( $group );
@@ -122,7 +122,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 *				[ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
 	 *			'template' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
 	 *				[ 'fooLicense', 'barLicense' ] -> {{filter|fooLicense|barLicense}}
-	 * @param {jQuery} optional - jquery-wrapped element created by $j.fn.collapseToggle(), which has 'close' and 'open'
+	 * @param {jQuery} optional - jquery-wrapped element created by $.fn.collapseToggle(), which has 'close' and 'open'
 	 *			methods in its data.
 	 *
 	 */
@@ -131,7 +131,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		if ( config.licenses === undefined || typeof config.licenses !== 'object' ) {
 			throw new Error( "improper license config" );
 		}
-		$j.each( config.licenses, function( i, licenseName ) {
+		$.each( config.licenses, function( i, licenseName ) {
 			if ( mw.UploadWizard.config.licenses[licenseName] !== undefined ) {
 				var license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] };
 
@@ -142,7 +142,7 @@ mw.UploadWizardLicenseInput.prototype = {
 
 				var $label = _this.createInputElementLabel( license, $input );
 
-				$el.append( $input, $label, $j( '<br/>' ) );
+				$el.append( $input, $label, $( '<br/>' ) );
 				// TODO add popup help?
 				$input.addClass( 'mwe-upwiz-copyright-info-radio' );
 				// this is so we can tell if a particular license ought to be set in setValues()
@@ -170,7 +170,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	createInputValueFromTemplateConfig: function( templates, config ) {
 		if ( config.prependTemplates !== undefined ) {
-			$j.each( config.prependTemplates, function( i, template ) {
+			$.each( config.prependTemplates, function( i, template ) {
 				templates.unshift( template );
 			} );
 		}
@@ -178,7 +178,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			templates.unshift( config.template );
 			templates = [ templates.join( '|' ) ];
 		}
-		var wikiTexts = $j.map( templates, function(t) { return '{{' + t + '}}'; } );
+		var wikiTexts = $.map( templates, function(t) { return '{{' + t + '}}'; } );
 		return wikiTexts.join( '' );
 	},
 
@@ -199,14 +199,14 @@ mw.UploadWizardLicenseInput.prototype = {
 		};
 
 		var inputHtml = '<input ' +
-			$j.map( attrs, function( val, key ) {
+			$.map( attrs, function( val, key ) {
 				return key + '="' + val.toString().replace( '"', '' ) + '"';
 			} ).join( " " ) +
 		' />';
 
 		// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
 		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded
-		return $j( inputHtml ).click( function() {
+		return $( inputHtml ).click( function() {
 			_this.$selector.trigger( 'changeLicenses' );
 		} );
 	},
@@ -227,15 +227,15 @@ mw.UploadWizardLicenseInput.prototype = {
 		if ( license.props.languageCodePrefix !== undefined ) {
 			licenseURL += license.props.languageCodePrefix + languageCode;
 		}
-		var licenseLink = $j( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
+		var licenseLink = $( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
 
-		var $icons = $j( '<span></span>' );
+		var $icons = $( '<span></span>' );
 		if ( license.props.icons !== undefined ) {
-			$j.each( license.props.icons, function( i, icon ) {
-				$icons.append( $j( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
+			$.each( license.props.icons, function( i, icon ) {
+				$icons.append( $( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 			} );
 		}
-		return $j( '<label />' )
+		return $( '<label />' )
 			.attr( { 'for': $input.attr('id') } )
 			.msg( messageKey, this.count || 0, licenseLink )
 			.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
@@ -252,7 +252,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			keydownTimeout;
 
 		var nameId = $input.attr( 'id' ) + '_custom';
-		var $textarea = $j( '<textarea></textarea>' )
+		var $textarea = $( '<textarea></textarea>' )
 				.attr( { id: nameId, name: nameId } )
 				.growTextArea()
 				.focus( function() { _this.setInput( $input, true ); } )
@@ -268,16 +268,16 @@ mw.UploadWizardLicenseInput.prototype = {
 					'font-family': 'monospace'
 				} );
 
-		var $button = $j( '<span></span>' )
+		var $button = $( '<span></span>' )
 				.button( { label: mw.msg( 'mwe-upwiz-license-custom-preview' ) } )
 				.css( { 'width': '8em' } )
 				.click( function() { _this.showPreview( $textarea.val() ); } );
 
-		return $j( '<div></div>' ).css( { 'width': '100%' } ).append(
-			$j( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
-			$j( '<div></div>' ).css( { 'float': 'right', 'width': '9em', 'padding-left': '1em' } ).append( $button ),
-			$j( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
-			$j( '<div></div>' ).css( { 'clear':'both' } )
+		return $( '<div></div>' ).css( { 'width': '100%' } ).append(
+			$( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
+			$( '<div></div>' ).css( { 'float': 'right', 'width': '9em', 'padding-left': '1em' } ).append( $button ),
+			$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
+			$( '<div></div>' ).css( { 'clear':'both' } )
 		);
 	},
 
@@ -305,7 +305,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	// this works fine for blanking all of a radio input, or for checking/unchecking individual checkboxes
 	setInputsIndividually: function( values ) {
 		var _this = this;
-		$j.each( _this.inputs, function( i, $input ) {
+		$.each( _this.inputs, function( i, $input ) {
 			var licenseName = $input.data( 'licenseName' );
 			_this.setInput( $input, values[licenseName] );
 		} );
@@ -327,7 +327,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			// check if how many license names are set to true in the values requested. Should be 0 or 1
 			var trueCount = 0;
 			var trueLicenseName;
-			$j.each( values, function( licenseName, val ) {
+			$.each( values, function( licenseName, val ) {
 				if ( val === true ) {
 					trueCount++;
 					trueLicenseName = licenseName;
@@ -338,7 +338,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				_this.setInputsIndividually( values );
 			} else if ( trueCount === 1 ) {
 				// set just one of the radio inputs and don't touch anything else
-				$j.each( _this.inputs, function( i, $input ) {
+				$.each( _this.inputs, function( i, $input ) {
 					var licenseName = $input.data( 'licenseName' );
 					// !! to ensure boolean.
 					if ( licenseName === trueLicenseName ) {
@@ -364,7 +364,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	setDefaultValues: function() {
 		var _this = this;
 		var values = {};
-		$j.each( _this.defaults, function( i, lic ) {
+		$.each( _this.defaults, function( i, lic ) {
 			values[lic] = true;
 		} );
 		_this.setValues( values );
@@ -382,7 +382,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			}
 		);
 		// need to use makeArray because a jQuery-returned set of things won't have .join
-		return $j.makeArray( wikiTexts ).join( '' );
+		return $.makeArray( wikiTexts ).join( '' );
 	},
 
 	/**
@@ -399,7 +399,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	getInputTextAreaVal: function( $input ) {
 		var extra = '';
 		if ( $input.data( 'textarea' ) ) {
-			extra = $j.trim( $input.data( 'textarea' ).val() );
+			extra = $.trim( $input.data( 'textarea' ).val() );
 		}
 		return extra;
 	},
@@ -410,7 +410,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	getSelectedInputs: function() {
 		// not sure why filter(':checked') doesn't work
-		return $j( this.inputs ).filter( function(i, $x) { return $x.is(':checked'); } );
+		return $( this.inputs ).filter( function(i, $x) { return $x.is(':checked'); } );
 	},
 
 	/**
@@ -434,7 +434,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 			// But also check that associated textareas are filled for if the input is selected, and that
 			// they are the appropriate size.
-			$j.each( selectedInputs, function(i, $input) {
+			$.each( selectedInputs, function(i, $input) {
 				if ( ! $input.data( 'textarea' ) ) {
 					return;
 				}
@@ -462,7 +462,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			this.$selector.find( '.mwe-error' ).fadeOut();
 		} else {
 			// show the errors
-			$j.each( errors, function( i, err ) {
+			$.each( errors, function( i, err ) {
 				var $el = err[0],
 					msg = err[1];
 				$el.msg( msg ).show();
@@ -517,13 +517,13 @@ mw.UploadWizardLicenseInput.prototype = {
 					// upgrade all the arguments to be nodes in their own right (by making them the first element of an array)
 					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
 					// $.map seems to strip away arrays of one element so have to use an array within an array.
-					node = $j.map( node, function( n, i ) {
+					node = $.map( node, function( n, i ) {
 						return i == 0 ? n : [[n]];
 					} );
 				} else if ( typeof mw.jqueryMsg.htmlEmitter.prototype[lcNodeName] !== 'function' ) {
 					templates.push( nodeName );
 				}
-				$j.map( node.slice( 1 ), function( n ) {
+				$.map( node.slice( 1 ), function( n ) {
 					accumTemplates( n, templates );
 				} );
 			}
@@ -582,9 +582,9 @@ mw.UploadWizardLicenseInput.prototype = {
 		}
 
 		var error = function( error ) {
-			show( $j( '<div></div>' ).append(
-				$j( '<h3></h3>' ).append( error.code ),
-				$j( '<p></p>' ).append( error.info )
+			show( $( '<div></div>' ).append(
+				$( '<h3></h3>' ).append( error.code ),
+				$( '<p></p>' ).append( error.info )
 			) );
 		};
 

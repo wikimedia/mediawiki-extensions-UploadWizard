@@ -10,7 +10,7 @@
  * when the user hasn't entered any categories (not counting hidden categories!).
  * This should probably not be going through the DOM, could be more MVC.
  */
-( function ( $j ) { $j.fn.mwCoolCats = function( options ) {
+( function ( $ ) { $.fn.mwCoolCats = function( options ) {
 
 	var catNsId = mw.config.get( 'wgNamespaceIds' ).category;
 
@@ -73,8 +73,8 @@
 		if ( _containsCat( title ) ) {
 			return;
 		}
-		var $li = $j( '<li/>' ).addClass( 'cat' );
-		var $anchor = $j( '<a/>' ).addClass( 'cat' ).append( title.getMainText() );
+		var $li = $( '<li/>' ).addClass( 'cat' );
+		var $anchor = $( '<a/>' ).addClass( 'cat' ).append( title.getMainText() );
 		$li.append( $anchor );
 		$li.data( 'title', title );
 		if ( isHidden ) {
@@ -83,7 +83,7 @@
 			// which are hidden because the whole widget is closed
 		} else {
 			$anchor.attr( { target: "_blank", href: title.getUrl() } );
-			$li.append( $j.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
+			$li.append( $.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
 		}
 		$container.find( 'ul' ).append( $li );
 	}
@@ -99,7 +99,7 @@
 		}
 		return $container.find( 'ul li.cat, .categoryInput' )
 				.filter( selector )
-				.map( function() { return $j( this ).data( 'title' ); } );
+				.map( function() { return $( this ).data( 'title' ); } );
 	}
 
 	/**
@@ -146,7 +146,7 @@
 		if ( typeof s !== 'string' ) {
 			throw new Error( '_stripText() argument must be a string' );
 		}
-		return $j.trim( s.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' ) );
+		return $.trim( s.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' ) );
 	}
 
 	/**
@@ -167,16 +167,16 @@
 	function _fetchSuggestions() {
 		var _input = this;
 		// ignore bad characters, they will be stripped out
-		var prefix = _stripText( $j( this ).val() );
+		var prefix = _stripText( $( this ).val() );
 
 		var ok = function( catList ) {
 			for ( var c in catList ) {
 				seenCat[catList[c]] = true;
 			}
-			$j( _input ).suggestions( 'suggestions', catList );
+			$( _input ).suggestions( 'suggestions', catList );
 		};
 
- 		$j( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
+ 		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
 	}
 
 	var defaults = {
@@ -186,7 +186,7 @@
 		cats: []
 	};
 
-	var settings = $j.extend( {}, defaults, options );
+	var settings = $.extend( {}, defaults, options );
 	if ( !settings.api ) {
 		throw new Error( "jQuery.mwCoolCats needs an 'api' argument" );
 	}
@@ -205,14 +205,14 @@
 	 */
 	return this.each( function() {
 
-		var _this = $j( this );
+		var _this = $( this );
 
 		_this.addClass( 'categoryInput' );
 
 		_this.suggestions( {
 			'fetch': _fetchSuggestions,
 			'cancel': function() {
-				var req = $j( this ).data( 'request' );
+				var req = $( this ).data( 'request' );
 				// XMLHttpRequest.abort is unimplemented in IE6, also returns nonstandard value of "unknown" for typeof
 				if ( req && ( typeof req.abort !== 'unknown' ) && ( typeof req.abort !== 'undefined' ) && req.abort ) {
 					req.abort();
@@ -228,7 +228,7 @@
 			_this.wrap( '<div class="cat-widget"></div>' ).wrap( '<p></p>' );
 			$container = _this.closest( '.cat-widget' ); // set to the cat-widget class we just wrapped
 			$container.prepend( '<ul class="cat-list pkg"></ul>' );
-			$container.append( $j( '<a href="javascript:" name="catbutton">' + settings.buttontext + '</a>' )
+			$container.append( $( '<a href="javascript:" name="catbutton">' + settings.buttontext + '</a>' )
 				.click( function(e) {
 					e.stopPropagation();
 					e.preventDefault();
@@ -266,8 +266,8 @@
 		this.getWikiText = _getWikiText;
 
 		// initialize with some categories, if so configured
-		$j.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );
-		$j.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
+		$.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );
+		$.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
 
 		_processInput();
 		

@@ -25,7 +25,7 @@ mw.DestinationChecker = function( options ) {
 	_this.processResult = options.processResult;
 	_this.api = options.api;
 
-	$j.each( ['preprocess', 'delay', 'events'], function( i, option ) {
+	$.each( ['preprocess', 'delay', 'events'], function( i, option ) {
 		if ( options[option] ) {
 			_this[option] = options[option];
 		}
@@ -35,8 +35,8 @@ mw.DestinationChecker = function( options ) {
 
 	var check = _this.getDelayedChecker();
 
-	$j.each( _this.events, function(i, eventName) {
-		$j( _this.selector )[eventName]( check );
+	$.each( _this.events, function(i, eventName) {
+		$( _this.selector )[eventName]( check );
 	} );
 
 };
@@ -114,7 +114,7 @@ mw.DestinationChecker.prototype = {
 				status.blacklist = result.blacklist;
 			}
 
-			//$j.extend( status, result );
+			//$.extend( status, result );
 			if ( status.unique !== null && status.blacklist !== null ) {
 				status.title = title;
 				_this.processResult( status );
@@ -131,7 +131,7 @@ mw.DestinationChecker.prototype = {
 	 * @return the current input value, with optional processing
 	 */
 	getTitle: function() {
-		return this.preprocess( $j( this.selector ).val() );
+		return this.preprocess( $( this.selector ).val() );
 	},
 
 	/**

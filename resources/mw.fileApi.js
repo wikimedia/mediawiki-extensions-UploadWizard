@@ -41,7 +41,7 @@
 		isFormDataAvailable: function() {
 			// FormData is in Firefox 4 but its file.slice is broken so we can't use it.
 			return (typeof window.FormData !== 'undefined') &&
-				!( $.browser.mozilla && parseFloat($j.browser.version) < 5.0 );
+				!( $.browser.mozilla && parseFloat($.browser.version) < 5.0 );
 		},
 
 		/**
@@ -50,9 +50,9 @@
 		 */
 		isSliceAvailable: function() {
 			return mw.fileApi.isAvailable() &&
-				( ( $.browser.mozilla && parseFloat($j.browser.version) >= 5.0 ) ||
-				( $.browser.webkit && parseFloat($j.browser.version) >= 534.28 ) ||
-				( $.browser.msie && parseFloat($j.browser.version) >= 10 ) );
+				( ( $.browser.mozilla && parseFloat($.browser.version) >= 5.0 ) ||
+				( $.browser.webkit && parseFloat($.browser.version) >= 534.28 ) ||
+				( $.browser.msie && parseFloat($.browser.version) >= 10 ) );
 		}
 	};
 } )( jQuery, mediaWiki );

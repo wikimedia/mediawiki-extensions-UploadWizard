@@ -1,14 +1,14 @@
 /**
  * Create 'remove' control, an X which highlights in some standardized way, with optional tooltips
  */
-( function ( $j ) {
-	$j.fn.removeCtrl = function( msgKey, tooltipMsgKey, callback ) {
+( function ( $ ) {
+	$.fn.removeCtrl = function( msgKey, tooltipMsgKey, callback ) {
 		var msg = (msgKey === null) ? '' : mw.msg( msgKey );
-		return $j( '<div class="mwe-upwiz-remove-ctrl ui-corner-all" />' )
+		return $( '<div class="mwe-upwiz-remove-ctrl ui-corner-all" />' )
 			.attr( 'title', mw.msg( tooltipMsgKey ) )
 			.click( callback )
-			.hover( function() { $j( this ).addClass( 'hover' ); },
-				function() { $j( this ).removeClass( 'hover' ); } )
-			.append( $j( '<div class="ui-icon ui-icon-close" /><div class="mwe-upwiz-remove-ctrl-msg">' + msg + '</div>' ) );
+			.hover( function() { $( this ).addClass( 'hover' ); },
+				function() { $( this ).removeClass( 'hover' ); } )
+			.append( $( '<div class="ui-icon ui-icon-close" /><div class="mwe-upwiz-remove-ctrl-msg">' + msg + '</div>' ) );
 	};
 } )( jQuery );

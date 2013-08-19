@@ -13,7 +13,7 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 	this.progressCb = progressCb;
 	this.transportedCb = transportedCb;
 
-	this.iframeId = 'f_' + ( $j( 'iframe' ).length + 1 );
+	this.iframeId = 'f_' + ( $( 'iframe' ).length + 1 );
 
 	//IE only works if you "create element with the name" ( not jquery style )
 	var iframe;
@@ -22,7 +22,7 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 	} catch ( ex ) {
 		iframe = document.createElement( 'iframe' );
 	}
-	this.$iframe = $j( iframe );
+	this.$iframe = $( iframe );
 
 	// we configure form on load, because the first time it loads, it's blank
 	// then we configure it to deal with an API submission
@@ -33,7 +33,7 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 			.load( function() { _this.configureForm(); } )
 			.css( 'display', 'none' );
 
-	$j( "body" ).append( iframe );
+	$( "body" ).append( iframe );
 };
 
 mw.IframeTransport.prototype = {
@@ -54,10 +54,10 @@ mw.IframeTransport.prototype = {
 
 		// Set up the completion callback
 		var _this = this;
-		$j( '#' + this.iframeId ).load( function() {
+		$( '#' + this.iframeId ).load( function() {
 			// mw.log( "mw.IframeTransport::configureForm> received result in iframe", "debug" );
 			_this.progressCb( 1.0 );
-			_this.processIframeResult( $j( this ).get( 0 ) );
+			_this.processIframeResult( $( this ).get( 0 ) );
 		} );
 	},
 
@@ -90,7 +90,7 @@ mw.IframeTransport.prototype = {
 			// We're actually searching through an HTML doc here --
 			// according to mdale we need to do this
 			// because IE does not load JSON properly in an iframe
-			json = $j( doc.body ).find( 'pre' ).text();
+			json = $( doc.body ).find( 'pre' ).text();
 			// mw.log( "mw.IframeTransport::processIframeResult> iframe:json::" + json );
 			// check that the JSON is not an XML error message
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)

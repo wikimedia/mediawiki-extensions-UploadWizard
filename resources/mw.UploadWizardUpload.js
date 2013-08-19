@@ -5,7 +5,7 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-( function( $j, undefined ) {
+( function( $, undefined ) {
 
 var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -91,7 +91,7 @@ mw.UploadWizardUpload.prototype = {
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			_this.wizard.hideFileEndButtons();
-			$j('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
+			$('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
 			_this.wizard.startProgressBar();
 			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
 				message: function() { return mw.msg( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ); },
@@ -121,7 +121,7 @@ mw.UploadWizardUpload.prototype = {
 		// this upload (the ui.div). We have to do this silly dance because we
 		// trigger through the div. Triggering through objects doesn't always work.
 		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
-		$j( this.ui.div ).trigger( 'removeUploadEvent' );
+		$( this.ui.div ).trigger( 'removeUploadEvent' );
 
 		if ( this.wizard.uploads && this.wizard.uploads.length !== 0 && mw.UploadWizard.config.startImmediately === true ) {
 			// check all uploads, if they're complete, show the next button
@@ -138,7 +138,7 @@ mw.UploadWizardUpload.prototype = {
 		var _this = this;
 		_this.state = 'transporting';
 		_this.transportProgress = fraction;
-		$j( _this.ui.div ).trigger( 'transportProgressEvent' );
+		$( _this.ui.div ).trigger( 'transportProgressEvent' );
 	},
 
 	/**
@@ -272,9 +272,9 @@ mw.UploadWizardUpload.prototype = {
 		} else if ( typeof resultDuplicate === 'string' ) {
 			duplicates = [ resultDuplicate ];
 		}
-		var $ul = $j( '<ul></ul>' );
-		$j.each( duplicates, function( i, filename ) {
-			var $a = $j( '<a/>' ).append( filename );
+		var $ul = $( '<ul></ul>' );
+		$.each( duplicates, function( i, filename ) {
+			var $a = $( '<a/>' ).append( filename );
 			try {
 				var href = new mw.Title( filename, fileNsId ).getUrl();
 				$a.attr( { 'href': href, 'target': '_blank' } );
@@ -282,10 +282,10 @@ mw.UploadWizardUpload.prototype = {
 				$a.click( function() { alert('could not parse filename=' + filename ); } );
 				$a.attr( 'href', '#' );
 			}
-			$ul.append( $j( '<li></li>' ).append( $a ) );
+			$ul.append( $( '<li></li>' ).append( $a ) );
 		} );
 		var dialogFn = function(e) {
-			$j( '<div></div>' )
+			$( '<div></div>' )
 				.html( $ul )
 				.dialog( {
 					width : 500,
@@ -369,7 +369,7 @@ mw.UploadWizardUpload.prototype = {
 		if ( files.length > 1 ) {
 
 			var totalSize = 0;
-			$j.each( files, function( i, file ) {
+			$.each( files, function( i, file ) {
 				totalSize += file.size;
 			});
 
@@ -384,7 +384,7 @@ mw.UploadWizardUpload.prototype = {
 
 		// check to see if the file has already been selected for upload.
 		var duplicate = false;
-		$j.each( this.wizard.uploads, function ( i, upload ) {
+		$.each( this.wizard.uploads, function ( i, upload ) {
 			if ( upload !== undefined && _this !== upload && filename === upload.filename ) {
 				duplicate = true;
 				return false;
@@ -409,7 +409,7 @@ mw.UploadWizardUpload.prototype = {
 			fileErrors.noext = true;
 			fileNameErr( 'noext', null, fileErrors );
 		} else {
-			if ( $j.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1 ) {
+			if ( $.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1 ) {
 				fileErrors.ext = true;
 				fileNameErr( 'ext', extension, fileErrors );
 			}
@@ -513,7 +513,7 @@ mw.UploadWizardUpload.prototype = {
 					// in case of a multi-file upload.
 					files = files.slice( 1 );
 					if ( files.length > 0 ) {
-						$j.each( files, function( i, file ) {
+						$.each( files, function( i, file ) {
 
 							// NOTE: By running newUpload we will end up calling checkfile() again.
 							var upload = _this.wizard.newUpload( file, _this.reservedIndex + i + 1 );
@@ -545,7 +545,7 @@ mw.UploadWizardUpload.prototype = {
 				}
 			}
 		];
-		$j( '<div></div>' )
+		$( '<div></div>' )
 			.msg(
 				'mwe-upwiz-file-too-large-text',
 				mw.units.bytes( maxSize ),
@@ -575,7 +575,7 @@ mw.UploadWizardUpload.prototype = {
 				}
 			}
 		];
-		$j( '<div></div>' )
+		$( '<div></div>' )
 			.msg(
 				'mwe-upwiz-too-many-files-text',
 				mw.UploadWizard.config.maxUploads,
@@ -661,7 +661,7 @@ mw.UploadWizardUpload.prototype = {
 					_this.imageinfo.metadata = {};
 				}
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
-					$j.each( imageinfo.metadata, function( i, pair ) {
+					$.each( imageinfo.metadata, function( i, pair ) {
 						if ( pair !== undefined ) {
 							_this.imageinfo.metadata[pair.name.toLowerCase()] = pair.value;
 						}
@@ -711,7 +711,7 @@ mw.UploadWizardUpload.prototype = {
 		};
 
 		if ( width !== undefined || height !== undefined ) {
-			if ( ! $j.inArray( 'url', props ) ) {
+			if ( ! $.inArray( 'url', props ) ) {
 				props.push( 'url' );
 			}
 			if ( width !== undefined ) {
@@ -761,7 +761,7 @@ mw.UploadWizardUpload.prototype = {
 		};
 
 		if ( width !== undefined || height !== undefined ) {
-			if ( ! $j.inArray( 'url', props ) ) {
+			if ( ! $.inArray( 'url', props ) ) {
 				props.push( 'url' );
 			}
 			if ( width !== undefined ) {
@@ -775,7 +775,7 @@ mw.UploadWizardUpload.prototype = {
 		var ok = function( data ) {
 			if ( data && data.query && data.query.pages ) {
 				var found = false;
-				$j.each( data.query.pages, function( pageId, page ) {
+				$.each( data.query.pages, function( pageId, page ) {
 					if ( page.title && page.title === requestedTitle && page.imageinfo ) {
 						found = true;
 						callback( page.imageinfo );
@@ -841,16 +841,16 @@ mw.UploadWizardUpload.prototype = {
 			var thumbnailPublisher = function( thumbnails ) {
 				if ( thumbnails === null ) {
 					// the api call failed somehow, no thumbnail data.
-					$j.publishReady( key, null );
+					$.publishReady( key, null );
 				} else {
 					// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
 					// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
 					// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 					// the event with a null.
-					$j.each( thumbnails, function( i, thumb ) {
+					$.each( thumbnails, function( i, thumb ) {
 						if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail error or missing information" );
-							$j.publishReady( key, null );
+							$.publishReady( key, null );
 							return;
 						}
 
@@ -860,12 +860,12 @@ mw.UploadWizardUpload.prototype = {
 						var image = document.createElement( 'img' );
 						image.width = thumb.thumbwidth;
 						image.height = thumb.thumbheight;
-						$j( image )
+						$( image )
 							.load( function() {
 								// cache this thumbnail
 								_this.thumbnails[key] = image;
 								// publish the image to anyone who wanted it
-								$j.publishReady( key, image );
+								$.publishReady( key, image );
 							} )
 							.error( function() {
 								// retry with exponential backoff
@@ -875,7 +875,7 @@ mw.UploadWizardUpload.prototype = {
 										setSrc();
 									}, timeoutMs );
 								} else {
-									$j.publishReady( key, null );
+									$.publishReady( key, null );
 								}
 							} );
 
@@ -936,7 +936,7 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	getScalingFromConstraints: function( image, constraints ) {
 		var scaling = 1;
-		$j.each( [ 'width', 'height' ], function( i, dim ) {
+		$.each( [ 'width', 'height' ], function( i, dim ) {
 			if ( constraints[dim] && image[dim] > constraints[dim] ) {
 				var s = constraints[dim] / image[dim];
 				if ( s < scaling ) {
@@ -1013,7 +1013,7 @@ mw.UploadWizardUpload.prototype = {
 				break;
 		}
 
-		var $canvas = $j( '<canvas></canvas>' ).attr( constraints );
+		var $canvas = $( '<canvas></canvas>' ).attr( constraints );
 		var ctx = $canvas[0].getContext( '2d' );
 		ctx.clearRect( 0, 0, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
@@ -1030,7 +1030,7 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	getBrowserScaledImageElement: function( image, constraints ) {
 		var scaling = this.getScalingFromConstraints( image, constraints );
-		return $j( '<img/>' )
+		return $( '<img/>' )
 			.attr( {
 				width:  parseInt( image.width * scaling, 10 ),
 				height: parseInt( image.height * scaling, 10 ),
@@ -1080,16 +1080,16 @@ mw.UploadWizardUpload.prototype = {
 		var placed = false;
 		var placeImageCallback = function( image ) {
 			if ( image === null ) {
-				$j( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
+				$( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
 				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 				return;
 			}
 			var elm = _this.getScaledImageElement( image, width, height );
 			// add the image to the DOM, finally
-			$j( selector )
+			$( selector )
 				.css( { background: 'none' } )
 				.html(
-					$j( '<a/></a>' )
+					$( '<a/></a>' )
 						.addClass( "mwe-upwiz-thumbnail-link" )
 						.append( elm )
 				);
@@ -1131,12 +1131,12 @@ mw.UploadWizardUpload.prototype = {
 	 */
 	setLightBox: function( selector ) {
 		var _this = this;
-		var $imgDiv = $j( '<div></div>' ).css( 'text-align', 'center' );
-		$j( selector )
+		var $imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
+		$( selector )
 			.click( function() {
 				// get large preview image
 				// open large preview in modal dialog box
-				$j( '<div class="mwe-upwiz-lightbox"></div>' )
+				$( '<div class="mwe-upwiz-lightbox"></div>' )
 					.append( $imgDiv )
 					.dialog( {
 						'minWidth': mw.UploadWizard.config.largeThumbnailWidth,
