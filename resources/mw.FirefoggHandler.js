@@ -56,7 +56,7 @@ mw.FirefoggHandler.prototype = {
 		var title,
 			fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
-		mw.log( 'mw.FirefoggHandler::start> upload start!' );
+		mw.log( 'mw.FirefoggHandler::start> Upload start!' );
 
 		// pass file to Firefogg
 		if ( this.upload.file ) {

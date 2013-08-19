@@ -54,13 +54,11 @@ mw.IframeTransport.prototype = {
 		// attach an additional handler to the form, so, when submitted, it starts showing the progress
 		// XXX this is lame .. there should be a generic way to indicate busy status...
 		this.$form.submit( function() {
-			// mw.log( "mw.IframeTransport::configureForm> submitting to iframe...", "debug" );
 			return true;
 		} );
 
 		// Set up the completion callback
 		$( '#' + this.iframeId ).load( function() {
-			// mw.log( "mw.IframeTransport::configureForm> received result in iframe", "debug" );
 			transport.progressCb( 1.0 );
 			transport.processIframeResult( $( this ).get( 0 ) );
 		} );
@@ -77,13 +75,11 @@ mw.IframeTransport.prototype = {
 			doc = iframe.contentDocument ? iframe.contentDocument : frames[iframe.id].document;
 		// Fix for Opera 9.26
 		if ( doc.readyState && doc.readyState !== 'complete' ) {
-			//mw.log( "mw.IframeTransport::processIframeResult>  not complete" );
 			return;
 		}
 
 		// Fix for Opera 9.64
 		if ( doc.body && doc.body.innerHTML === 'false' ) {
-			//mw.log( "mw.IframeTransport::processIframeResult> innerhtml" );
 			return;
 		}
 		if ( doc.XMLDocument ) {
@@ -95,7 +91,6 @@ mw.IframeTransport.prototype = {
 			// according to mdale we need to do this
 			// because IE does not load JSON properly in an iframe
 			json = $( doc.body ).find( 'pre' ).text();
-			// mw.log( "mw.IframeTransport::processIframeResult> iframe:json::" + json );
 			// check that the JSON is not an XML error message
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
 			if ( json && json.substring(0, 5) !== '<?xml' ) {

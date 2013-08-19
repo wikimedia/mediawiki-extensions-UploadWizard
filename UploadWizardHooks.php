@@ -53,7 +53,6 @@ class UploadWizardHooks {
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
 				'resources/mw.canvas.js',
-				'resources/mw.Log.js',
 				'resources/mw.UtilitiesTime.js',
 				'resources/mw.ErrorDialog.js',
 				'resources/mw.ConfirmCloseWindow.js',

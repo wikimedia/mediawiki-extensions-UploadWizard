@@ -129,11 +129,11 @@ mw.FormDataTransport.prototype = {
                     //failed to upload, try again in 3 seconds
                     transport.retries++;
                     if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
-						mw.log( 'max retries exceeded on unknown response' );
+						mw.log.warn( 'Max retries exceeded on unknown response' );
                         //upload failed, raise response
                         transport.transportedCb(response);
                     } else {
-						mw.log( 'retry #' + transport.retries + ' on unknown response' );
+						mw.log( 'Retry #' + transport.retries + ' on unknown response' );
                         setTimeout(function() {
                             transport.uploadChunk(offset);
                         }, 3000);
@@ -145,10 +145,10 @@ mw.FormDataTransport.prototype = {
             //failed to upload, try again in 3 second
             transport.retries++;
             if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
-				mw.log( 'max retries exceeded on error event' );
+				mw.log.warn( 'Max retries exceeded on error event' );
                 transport.parseResponse(evt, transport.transportedCb);
             } else {
-				mw.log( 'retry #' + transport.retries + ' on error event' );
+				mw.log( 'Retry #' + transport.retries + ' on error event' );
                 setTimeout(function() {
                         transport.uploadChunk(offset);
                 }, 3000);
