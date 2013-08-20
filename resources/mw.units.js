@@ -19,7 +19,7 @@
 				size /= 1024.0;
 				i++;
 			}
-			return mw.msg( scaleMsgKeys[i], size.toFixed( i > 1 ? 2 : 0 ) );
+			return mw.message( scaleMsgKeys[i], size.toFixed( i > 1 ? 2 : 0 ) ).escaped();
 		}
 	};
 

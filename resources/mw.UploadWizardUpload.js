@@ -94,7 +94,7 @@ mw.UploadWizardUpload.prototype = {
 			$('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
 			_this.wizard.startProgressBar();
 			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
-				message: function() { return mw.msg( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ); },
+				message: function() { return mw.message( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ).escaped(); },
 				test: function() { return !_this.wizard.isComplete() && _this.wizard.uploads.length > 0; }
 			} );
 		}
@@ -179,7 +179,7 @@ mw.UploadWizardUpload.prototype = {
 			}
 			if ( code === 'filetype-banned' && result.error.blacklisted ) {
 				code = 'filetype-banned-type';
-				var comma = mw.msg( 'comma-separator' );
+				var comma = mw.message( 'comma-separator' ).escaped();
 				info = [
 					result.error.blacklisted.join( comma ),
 					result.error.allowed.join( comma ),
@@ -220,7 +220,7 @@ mw.UploadWizardUpload.prototype = {
 						_this.setError( warnCode, _this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
 						var $override = $( '<a></a>' )
 							.attr( 'href', 'javascript:' )
-							.text( mw.msg( 'mwe-upwiz-override' ) )
+							.text( mw.message( 'mwe-upwiz-override' ).text() )
 							.click( ( function ( theCode ) {
 								this.removeErrors( theCode );
 							} ).bind( this, warnCode ) );
@@ -234,7 +234,7 @@ mw.UploadWizardUpload.prototype = {
 						code = 'unknown-warning';
 						if ( typeof result.upload.warnings[warnCode] === 'string' ) {
 							// tack the original error code onto the warning info
-							info = warnCode + mw.msg( 'colon-separator' ) + result.upload.warnings[warnCode];
+							info = warnCode + mw.message( 'colon-separator' ).escaped() + result.upload.warnings[warnCode];
 						} else {
 							info = result.upload.warnings[warnCode];
 						}
@@ -291,7 +291,7 @@ mw.UploadWizardUpload.prototype = {
 					width : 500,
 					zIndex : 200000,
 					autoOpen : true,
-					title : mw.msg( 'api-error-' + code + '-popup-title', duplicates.length ),
+					title : mw.message( 'api-error-' + code + '-popup-title', duplicates.length ).escaped(),
 					modal : true
 				} );
 			e.preventDefault();
@@ -539,7 +539,7 @@ mw.UploadWizardUpload.prototype = {
 	showMaxSizeWarning: function( size, maxSize ) {
 		var buttons = [
 			{
-				text: mw.msg( 'mwe-upwiz-file-too-large-ok' ),
+				text: mw.message( 'mwe-upwiz-file-too-large-ok' ).escaped(),
 				click: function() {
 					$( this ).dialog( "close" );
 				}
@@ -555,7 +555,7 @@ mw.UploadWizardUpload.prototype = {
 				width: 500,
 				zIndex: 200000,
 				autoOpen: true,
-				title: mw.msg( 'mwe-upwiz-file-too-large' ),
+				title: mw.message( 'mwe-upwiz-file-too-large' ).escaped(),
 				modal: true,
 				buttons: buttons
 			} );
@@ -569,7 +569,7 @@ mw.UploadWizardUpload.prototype = {
 	showTooManyFilesWarning: function( filesUploaded ) {
 		var buttons = [
 			{
-				text: mw.msg( 'mwe-upwiz-too-many-files-ok' ),
+				text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
 				click: function() {
 					$(this).dialog('destroy').remove();
 				}
@@ -585,7 +585,7 @@ mw.UploadWizardUpload.prototype = {
 				width: 500,
 				zIndex: 200000,
 				autoOpen: true,
-				title: mw.msg( 'mwe-upwiz-too-many-files' ),
+				title: mw.message( 'mwe-upwiz-too-many-files' ).escaped(),
 				modal: true,
 				buttons: buttons
 			} );
@@ -1142,7 +1142,7 @@ mw.UploadWizardUpload.prototype = {
 						'minWidth': mw.UploadWizard.config.largeThumbnailWidth,
 						'minHeight': mw.UploadWizard.config.largeThumbnailMaxHeight,
 						'autoOpen': true,
-						'title': mw.msg( 'mwe-upwiz-image-preview' ),
+						'title': mw.message( 'mwe-upwiz-image-preview' ).escaped(),
 						'modal': true,
 						'resizable': false
 					} );

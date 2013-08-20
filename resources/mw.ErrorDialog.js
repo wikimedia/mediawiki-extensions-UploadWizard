@@ -16,7 +16,7 @@
 
 			// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 			this.buttons = {};
-			this.buttons[ mw.msg( 'mwe-upwiz-errordialog-ok' ) ] = function () { dialog.ok(); };
+			this.buttons[ mw.message( 'mwe-upwiz-errordialog-ok' ).escaped() ] = function () { dialog.ok(); };
 
 			this.$dialog =
 				$( '<div style="position:relative;"></div>' ).append(
@@ -29,7 +29,7 @@
 				).dialog({
 					width: 600,
 					autoOpen: false,
-					title: mw.msg( 'mwe-upwiz-errordialog-title' ),
+					title: mw.message( 'mwe-upwiz-errordialog-title' ).escaped(),
 					modal: true,
 					buttons: this.buttons
 				});

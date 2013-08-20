@@ -44,7 +44,7 @@
 		if ( seenCat[cat] !== true && !_doesCatExist( text ) ) {
 			$label.append( '<span class="mwe-upwiz-category-will-be-added"></span>' );
 			$input.addClass( 'will-be-added' );
-			$( '.mwe-upwiz-category-will-be-added', $label ).html( settings.willbeaddedtext );
+			$( '.mwe-upwiz-category-will-be-added', $label ).text( settings.willbeaddedtext );
 		}
 
 		if ( shouldcreate === true ) {
@@ -228,7 +228,7 @@
 			_this.wrap( '<div class="cat-widget"></div>' ).wrap( '<p></p>' );
 			$container = _this.closest( '.cat-widget' ); // set to the cat-widget class we just wrapped
 			$container.prepend( '<ul class="cat-list pkg"></ul>' );
-			$container.append( $( '<a href="javascript:" name="catbutton">' + settings.buttontext + '</a>' )
+			$container.append( $( '<a href="javascript:" name="catbutton"></a>' ).text( settings.buttontext )
 				.click( function(e) {
 					e.stopPropagation();
 					e.preventDefault();

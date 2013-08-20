@@ -15,13 +15,13 @@ mw.UploadWizardUtil = {
 	makeToggler: function ( toggleDiv, moreDiv, msg ) {
 		var actualMsg;
 		if ( typeof msg === 'object' ) {
-			actualMsg = mw.msg.apply( this, msg );
+			actualMsg = mw.message.apply( this, msg ).text();
 		} else {
-			actualMsg = mw.msg( msg );
+			actualMsg = mw.message( msg ).text();
 		}
 		var $toggleLink = $( '<a>' )
 			.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
-			.append( actualMsg );
+			.text( actualMsg );
 		$( toggleDiv ).append( $toggleLink );
 
 		var toggle = function() {

@@ -492,7 +492,7 @@ describe( "mediaWiki.language.parser", function() {
 			// passing this through jQuery and back to string, because browsers may have subtle differences, like the case of tag names.
 			// a surrounding <SPAN> is needed for html() to work right
 			var expectedHtml = $( '<span>Complex <a href="http://example.com/foo">linking</a> behaviour.</span>' ).html();
-			var result = mw.msg( 'en_link_replace', 'http://example.com/foo', 'linking' );
+			var result = mw.message( 'en_link_replace', 'http://example.com/foo', 'linking' ).plain();
 			expect( typeof result ).toEqual( 'string' );
 			expect( result ).toEqual( expectedHtml );
 		} );

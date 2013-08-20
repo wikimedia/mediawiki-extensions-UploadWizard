@@ -56,7 +56,7 @@ mw.FlickrChecker.prototype = {
 			}
 		} else {
 			// XXX show user the message that the URL entered was not valid
-			this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
+			this.showErrorDialog( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
 			this.wizard.flickrInterfaceReset();
 		}
 	},
@@ -67,7 +67,7 @@ mw.FlickrChecker.prototype = {
 			x = 0;
 
 		$( '#mwe-upwiz-select-flickr' ).button( {
-			label: mw.msg( 'mwe-upwiz-select-flickr' ),
+			label: mw.message( 'mwe-upwiz-select-flickr' ).escaped(),
 			disabled: true
 		} );
 		$.getJSON( this.apiUrl, {
@@ -160,13 +160,13 @@ mw.FlickrChecker.prototype = {
 					} );
 
 					if ( checker.imageUploads.length === 0) {
-						checker.showErrorDialog( mw.msg( 'mwe-upwiz-license-photoset-invalid' ) );
+						checker.showErrorDialog( mw.message( 'mwe-upwiz-license-photoset-invalid' ).escaped() );
 						checker.wizard.flickrInterfaceReset();
 					} else {
 						$( '#mwe-upwiz-flickr-select-list-container' ).show();
 					}
 				} else {
-					checker.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid' ) );
+					checker.showErrorDialog( mw.message( 'mwe-upwiz-url-invalid' ).escaped() );
 					checker.wizard.flickrInterfaceReset();
 				}
 			}
@@ -233,7 +233,7 @@ mw.FlickrChecker.prototype = {
 						checker.wizard.flickrInterfaceReset();
 					}
 				} else {
-					checker.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
+					checker.showErrorDialog( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();
 				}
 
@@ -314,7 +314,7 @@ mw.FlickrChecker.prototype = {
 					// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
 					checker.wizard.newUpload( upload );
 				} else {
-					checker.showErrorDialog( mw.msg( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) );
+					checker.showErrorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();
 				}
 			} );
@@ -329,9 +329,9 @@ mw.FlickrChecker.prototype = {
 
 		// Set the license message to show the user.
 		if ( licenseValue === 'invalid' ) {
-			licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
+			licenseMessage = mw.message( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName ).escaped();
 		} else {
-			licenseMessage = mw.msg( 'mwe-upwiz-license-external', 'Flickr', licenseName );
+			licenseMessage = mw.message( 'mwe-upwiz-license-external', 'Flickr', licenseName ).escaped();
 		}
 
 		license = {

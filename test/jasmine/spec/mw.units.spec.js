@@ -8,8 +8,6 @@
 		"size-gigabytes": "$1 GB"
 	} );
 
-	window.gM = mw.language.getMessageFunction();
-
 	// assumes english language selected
 	describe( "mw.units.bytes", function() {
 		it( "should say 0 B", function() { 

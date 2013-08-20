@@ -106,7 +106,7 @@ mw.LanguageUpWiz = {
 		$select.attr( 'name', name );
 		if ( code === mw.LanguageUpWiz.UNKNOWN ) {
 			// n.b. MediaWiki LanguageHandler has ability to add custom label for 'Unknown'; possibly as pseudo-label
-			$select.prepend( $( '<option>' ).attr( 'value', mw.LanguageUpWiz.UNKNOWN ).append( mw.msg( 'mwe-upwiz-code-unknown' )) );
+			$select.prepend( $( '<option>' ).attr( 'value', mw.LanguageUpWiz.UNKNOWN ).text( mw.message( 'mwe-upwiz-code-unknown' ).escaped() ) );
 			$select.val( mw.LanguageUpWiz.UNKNOWN );
 		}
 

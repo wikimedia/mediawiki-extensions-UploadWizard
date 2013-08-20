@@ -227,7 +227,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			// if one changes all the others change (keyup event)
 			$formFields.find( '.mwe-upwiz-sign' )
 				.attr( {
-					title: mw.msg( 'mwe-upwiz-tooltip-sign' ),
+					title: mw.message( 'mwe-upwiz-tooltip-sign' ).escaped(),
 					value: mw.config.get(  'wgUserName' )
 				} )
 				.keyup( function() {
@@ -258,9 +258,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 			var messages = {
 				author2: {
-					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
-					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ),
-					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength )
+					required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
+					minlength: mw.message( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ).escaped(),
+					maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength ).escaped()
 				}
 			};
 
@@ -277,9 +277,9 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				};
 
 				messages.author = {
-					required: mw.msg( 'mwe-upwiz-error-signature-blank' ),
-					minlength: mw.msg( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ),
-					maxlength: mw.msg( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength )
+					required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
+					minlength: mw.message( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ).escaped(),
+					maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength ).escaped()
 				};
 			}
 
@@ -347,11 +347,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 				$( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
 				$( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $( '<label for="source" />' ).text( mw.msg( 'mwe-upwiz-source' ) ).addHint( 'source' ),
+					.append( $( '<label for="source" />' ).text( mw.message( 'mwe-upwiz-source' ).text() ).addHint( 'source' ),
 						_this.sourceInput ),
 				$( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
 				$( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $( '<label for="author" />' ).text( mw.msg( 'mwe-upwiz-author' ) ).addHint( 'author' ),
+					.append( $( '<label for="author" />' ).text( mw.message( 'mwe-upwiz-author' ).text() ).addHint( 'author' ),
 						_this.authorInput ),
 				$( '<div class="mwe-upwiz-thirdparty-license" />' )
 					.append( $( '<div></div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ) )
@@ -369,14 +369,14 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 				},
 				messages: {
 					source: {
-						required: mw.msg( 'mwe-upwiz-error-blank' ),
-						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minSourceLength ),
-						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxSourceLength )
+						required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
+						minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minSourceLength ).escaped(),
+						maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxSourceLength ).escaped()
 					},
 					author: {
-						required: mw.msg( 'mwe-upwiz-error-blank' ),
-						minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minAuthorLength ),
-						maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxAuthorLength )
+						required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
+						minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minAuthorLength ).escaped(),
+						maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxAuthorLength ).escaped()
 					}
 				}
 			} );
@@ -449,7 +449,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads, api ) {
 					'<span class="mwe-upwiz-deed-header">' +
 						'<input id="' + id +'" name="' + _this.name + '" type="radio" value="' + deed.name + ' /">' +
 						'<label for="' + id + '" class="mwe-upwiz-deed-name">' +
-							mw.msg( 'mwe-upwiz-source-' + deed.name, _this.uploads.length ) +
+							mw.message( 'mwe-upwiz-source-' + deed.name, _this.uploads.length ).escaped() +
 						'</label>' +
 					'</span>' +
 				'</div>' +

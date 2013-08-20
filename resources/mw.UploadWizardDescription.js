@@ -22,7 +22,7 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 		fieldnameDiv.requiredFieldLabel();
 	}
 
-	fieldnameDiv.append( mw.msg( 'mwe-upwiz-desc' ) ).addHint( 'description' );
+	fieldnameDiv.text( mw.message( 'mwe-upwiz-desc' ).text() ).addHint( 'description' );
 
 	// Logic copied from MediaWiki:UploadForm.js
 	// Per request from Portuguese and Brazilian users, treat Brazilian Portuguese as Portuguese.
@@ -101,9 +101,9 @@ mw.UploadWizardDescription.prototype = {
 			maxlength: mw.UploadWizard.config.maxDescriptionLength,
 			required: required,
 			messages: {
-				required: mw.msg( 'mwe-upwiz-error-blank' ),
-				minlength: mw.msg( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minDescriptionLength ),
-				maxlength: mw.msg( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxDescriptionLength )
+				required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
+				minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minDescriptionLength ).escaped(),
+				maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxDescriptionLength ).escaped()
 			}
 		} );
 	}
