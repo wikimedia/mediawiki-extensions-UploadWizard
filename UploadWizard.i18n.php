@@ -14684,8 +14684,8 @@ Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-license-none' => "Credo che {{PLURAL:$1|quest'opera sia stata pubblicata|queste opere siano state pubblicate}} con licenza libera oppure {{PLURAL:$1|sia|siano}} legalmente nel  pubblico dominio. Sono consapevole che se non fornisco le necessarie informazioni sulla licenza in un tempo ragionevole,  {{PLURAL:$1|potrebbe essere cancellata|potrebbero essere cancellate}}.",
 	'mwe-upwiz-license-confirm-remove' => 'Sei sicuro di voler rimuovere {{PLURAL:$1|questo file caricato|questi file caricati}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Conferma rimozione',
-	'mwe-upwiz-license-external' => 'Questo file è sotto la seguente licenza su $1: $2.', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => "Questo file su $1 è sotto la seguente licenza: $2. Purtroppo, questa licenza non è appropriata per l'uso su questo sito.", # Fuzzy
+	'mwe-upwiz-license-external' => 'Il file è sotto la seguente licenza sul sito di origine "$1": $2.',
+	'mwe-upwiz-license-external-invalid' => 'Il file è sotto la seguente licenza sul sito di origine "$1": $2. Purtroppo, questo wiki non consente tale licenza.',
 	'mwe-upwiz-license-photoset-invalid' => 'Purtroppo, nessuna immagine nel photoset dispone di una licenza appropriata per essere utilizzata su questo sito.',
 	'mwe-upwiz-url-invalid' => "L'URL inserito punta ad un'immagine o un photoset $1 non valido o con restrizioni, e non può essere utilizzato.",
 	'mwe-upwiz-categories' => 'Categorie',
