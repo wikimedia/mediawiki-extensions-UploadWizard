@@ -1,4 +1,4 @@
-( function( mw ) {
+( function( mw, $ ) {
 mediaWiki.messages.set( {
 	"mwe-upwiz-code-unknown": "Unknown language"
 } );
@@ -142,4 +142,4 @@ mw.LanguageUpWiz = {
 	}
 };
 
-} )( window.mediaWiki );
+}( mediaWiki, jQuery ) );

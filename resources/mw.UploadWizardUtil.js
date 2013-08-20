@@ -1,7 +1,7 @@
 /**
  * Miscellaneous utilities
  */
-( function ( mw, $, undefined ) {
+( function ( mw, $ ) {
 mw.UploadWizardUtil = {
 
 	/**
@@ -92,4 +92,4 @@ mw.UploadWizardUtil = {
 
 
 };
-}) ( window.mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

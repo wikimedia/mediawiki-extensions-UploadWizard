@@ -1,6 +1,6 @@
 /* miscellaneous fileApi routines -- partially copied from mediawiki.special.upload.js, must refactor... */
 
-( function( $, mw ) {
+( function( mw, $ ) {
 
 	mw.fileApi = {
 
@@ -55,4 +55,4 @@
 				( $.browser.msie && parseFloat($.browser.version) >= 10 ) );
 		}
 	};
-} )( jQuery, mediaWiki );
+}( mediaWiki, jQuery ) );

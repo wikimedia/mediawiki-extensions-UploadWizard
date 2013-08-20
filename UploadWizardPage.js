@@ -7,7 +7,7 @@
  */
 
 // Create UploadWizard
-( function ( $, mw, undefined ) {
+( function ( mw, $ ) {
 
 mw.UploadWizardPage = function () {
 
@@ -26,4 +26,4 @@ $( document ).ready( function () {
 	mw.UploadWizardPage();
 } );
 
-} )( jQuery, mediaWiki );
+} )( mediaWiki, jQuery );

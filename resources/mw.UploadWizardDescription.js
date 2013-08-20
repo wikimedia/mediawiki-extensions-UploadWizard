@@ -1,4 +1,4 @@
-
+( function ( mw, $ ) {
 /**
  * Object that represents an indvidual language description, in the details portion of Upload Wizard
  * @param languageCode -- string
@@ -108,3 +108,4 @@ mw.UploadWizardDescription.prototype = {
 		} );
 	}
 };
+}( mediaWiki, jQuery ) );

@@ -1,3 +1,4 @@
+( function ( mw, $ ) {
 /**
  * Object to attach to a file name input, to be run on its change() event
  * Largely derived from wgUploadWarningObj in old upload.js
@@ -306,13 +307,12 @@ mw.DestinationChecker.prototype = {
 /**
  * jQuery extension to make a field upload-checkable
  */
-( function ( $ ) {
-	$.fn.destinationChecked = function( options ) {
-		var _this = this;
-		options.selector = _this;
-		var checker = new mw.DestinationChecker( options );
-		// this should really be done with triggers
-		_this.checkTitle = function() { checker.checkTitle(); };
-		return _this;
-	};
-} )( jQuery );
+$.fn.destinationChecked = function( options ) {
+	var _this = this;
+	options.selector = _this;
+	var checker = new mw.DestinationChecker( options );
+	// this should really be done with triggers
+	_this.checkTitle = function() { checker.checkTitle(); };
+	return _this;
+};
+}( mediaWiki, jQuery ) );

@@ -46,4 +46,4 @@
 	};
 
 
-} )( window.mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

@@ -1,3 +1,4 @@
+( function ( mw, $ ) {
 /**
  * Represents an object which configures an html5 FormData object to upload.
  * Large files are uploaded in chunks.
@@ -64,6 +65,4 @@ mw.ApiUploadFormDataHandler.prototype = {
         this.configureEditToken( ok, err );
     }
 };
-
-
-
+}( mediaWiki, jQuery ) );

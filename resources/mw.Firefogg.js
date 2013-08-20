@@ -1,4 +1,5 @@
 // Firefogg utilities not related to the upload handler or transport
+( function ( mw, $ ) {
 mw.Firefogg = {
 
 	firefoggInstallLinks: {
@@ -29,3 +30,4 @@ mw.Firefogg = {
 		return typeof( Firefogg ) != 'undefined' && Firefogg().version >= '2.8.05';
 	}
 };
+}( mediaWiki, jQuery ) );

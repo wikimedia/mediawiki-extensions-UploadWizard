@@ -1,3 +1,4 @@
+( function ( mw, $ ) {
 /**
  * this is a progress bar for monitoring multiple objects, giving summary view
  */
@@ -192,5 +193,4 @@ mw.GroupProgressBar.prototype = {
 	}
 
 };
-
-
+}( mediaWiki, jQuery ) );
