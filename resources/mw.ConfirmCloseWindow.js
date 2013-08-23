@@ -20,33 +20,29 @@
 	 * @param {boolean} options.test.return Whether to show the dialog to the user.
 	 * @return {Function} Execute this when you want to allow the user to close the window
 	 */
-	mw.confirmCloseWindow = function( options ) {
-		if ( options === undefined ) {
-			options = {};
-		}
-
-		var defaults = {
-			message: function() { return mw.msg( 'mwe-prevent-close' ); },
-			test: function() { return true; }
-		};
-		options = $.extend( defaults, options );
-
-		var oldUnloadHandler = window.onbeforeunload;
-
-		window.onbeforeunload = function() {
+	mw.confirmCloseWindow = function ( options ) {
+		function handleBeforeUnload() {
 			if ( options.test() ) {
 				// remove the handler while the alert is showing - otherwise breaks caching in Firefox (3?).
 				// but if they continue working on this page, immediately re-register this handler
-				var thisFunction = arguments.callee;
 				window.onbeforeunload = null;
 				setTimeout( function() {
-					window.onbeforeunload = thisFunction;
+					window.onbeforeunload = handleBeforeUnload;
 				} );
 
 				// show an alert with this message
 				return options.message();
 			}
-		};
+		}
+
+		var oldUnloadHandler = window.onbeforeunload,
+			defaults = {
+				message: function() { return mw.msg( 'mwe-prevent-close' ); },
+				test: function() { return true; }
+			};
+
+		options = $.extend( defaults, options || {} );
+		window.onbeforeunload = handleBeforeUnload;
 
 		// return the function they can use to stop this
 		return function() {
@@ -54,5 +50,4 @@
 		};
 
 	};
-
 } )( mediaWiki, jQuery );

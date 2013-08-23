@@ -18,7 +18,7 @@ mw.UploadWizard = function( config ) {
 
 	var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
 	if ( maxSimPref === 'default' ) {
-		this.maxSimultaneousConnections = mw.UploadWizard.config[ 'maxSimultaneousConnections' ];
+		this.maxSimultaneousConnections = mw.UploadWizard.config.maxSimultaneousConnections;
 	} else if ( maxSimPref > 0 ) {
 		this.maxSimultaneousConnections = maxSimPref;
 	} else {
@@ -32,7 +32,7 @@ mw.UploadWizard = function( config ) {
 
 mw.UploadWizard.DEBUG = true;
 
-mw.UploadWizard.userAgent = "UploadWizard";
+mw.UploadWizard.userAgent = 'UploadWizard';
 
 
 mw.UploadWizard.prototype = {
@@ -55,10 +55,11 @@ mw.UploadWizard.prototype = {
 
 	/**
 	 * create the basic interface to make an upload in this div
-	 * @param div	The div in the DOM to put all of this into.
 	 */
-	createInterface: function( selector ) {
-		var _this = this;
+	createInterface: function() {
+		var feedback, feedbackLink, configAltUploadForm, altUploadForm,
+			userLanguage, title,
+			wizard = this;
 
 		// remove first spinner
 		$( '#mwe-first-spinner' ).remove();
@@ -67,13 +68,14 @@ mw.UploadWizard.prototype = {
 		$( '#contentSub' ).append( $( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
 		if ( typeof mw.UploadWizard.config.feedbackPage === 'string' && mw.UploadWizard.config.feedbackPage.length > 0 ) {
-			var feedback = new mw.Feedback( {
+			feedback = new mw.Feedback( {
 				'title': new mw.Title( mw.UploadWizard.config.feedbackPage ),
 				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
 				'bugsLink': new mw.Uri( 'https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
 				'bugsListLink': new mw.Uri( mw.UploadWizard.config.bugList )
 			} );
-			var feedbackLink = $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
+
+			feedbackLink = $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
 				function() {
 					feedback.launch();
 					return false;
@@ -85,11 +87,11 @@ mw.UploadWizard.prototype = {
 		if ( typeof mw.UploadWizard.config.translateHelp === 'string' && mw.UploadWizard.config.translateHelp.length > 0 ) {
 			$( '#contentSub' ).append( $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $( '<a></a>' ).attr( { href: mw.UploadWizard.config.translateHelp, target: '_blank' } ) ) );
 		}
-		var configAltUploadForm = mw.UploadWizard.config.altUploadForm;
+
+		configAltUploadForm = mw.UploadWizard.config.altUploadForm;
 		if ( configAltUploadForm ) {
-			var altUploadForm;
 			if ( typeof configAltUploadForm === 'object' ) {
-				var userLanguage = mw.config.get( 'wgUserLanguage' );
+				userLanguage = mw.config.get( 'wgUserLanguage' );
 				if ( configAltUploadForm[userLanguage] ) {
 					altUploadForm = configAltUploadForm[userLanguage];
 				} else if ( configAltUploadForm['default'] ) {
@@ -103,7 +105,6 @@ mw.UploadWizard.prototype = {
 
 			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
 			if ( typeof altUploadForm === 'string' && altUploadForm.length > 0 ) {
-				var title;
 				try {
 					title = new mw.Title( altUploadForm );
 					$( '#contentSub' ).append( $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $( '<a></a>' ).attr( { href: title.getUrl() } ) ) );
@@ -127,10 +128,10 @@ mw.UploadWizard.prototype = {
 
 
 		$( '.mwe-upwiz-button-begin' )
-			.click( function() { _this.reset(); } );
+			.click( function() { wizard.reset(); } );
 
 		$( '.mwe-upwiz-button-home' )
-			.click( function() { window.location.href = mw.config.get('wgArticlePath').replace("$1", ""); } );
+			.click( function() { window.location.href = mw.config.get('wgArticlePath').replace('$1', ''); } );
 
 		// handler for next button
 		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next')
@@ -138,10 +139,10 @@ mw.UploadWizard.prototype = {
 				// if the skip checkbox is checked, set the skip user preference
 				if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
 					$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
-					_this.setSkipTutorialPreference();
+					wizard.setSkipTutorialPreference();
 				}
 
-				_this.moveToStep( 'file' );
+				wizard.moveToStep( 'file' );
 			} );
 
 		$( '#mwe-upwiz-add-file' ).button();
@@ -152,7 +153,7 @@ mw.UploadWizard.prototype = {
 				.button()
 				.click( function() {
 					// check if there is an upload at all (should never happen)
-					if ( _this.uploads.length === 0 ) {
+					if ( wizard.uploads.length === 0 ) {
 						$( '<div></div>' )
 							.html( mw.msg( 'mwe-upwiz-file-need-file' ) )
 							.dialog({
@@ -164,8 +165,8 @@ mw.UploadWizard.prototype = {
 						return;
 					}
 
-					_this.removeEmptyUploads();
-					_this.startUploads();
+					wizard.removeEmptyUploads();
+					wizard.startUploads();
 			} );
 		} else {
 			$( '#mwe-upwiz-upload-ctrl' ).remove();
@@ -173,28 +174,28 @@ mw.UploadWizard.prototype = {
 
 		// Call Flickr Initiator function on click event
 		$( '#mwe-upwiz-upload-ctrl-flickr' ).click( function() {
-				_this.flickrInterfaceInit();
+				wizard.flickrInterfaceInit();
 			} );
 
 		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-next' ).click( function() {
-			_this.removeErrorUploads( function() {
-				if ( _this.showDeed ) {
-					_this.prepareAndMoveToDeeds();
+			wizard.removeErrorUploads( function() {
+				if ( wizard.showDeed ) {
+					wizard.prepareAndMoveToDeeds();
 				} else {
-					$.each( _this.uploads, function( i, upload ) {
+					$.each( wizard.uploads, function( i, upload ) {
 						upload.details.titleInput.checkTitle();
 						if ( upload.fromURL ) {
 							upload.details.useCustomDeedChooser();
 						}
 					} );
-					_this.moveToStep( 'details' );
+					wizard.moveToStep( 'details' );
 				}
 			} );
 		} );
 
 		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
-			_this.hideFileEndButtons();
-			_this.startUploads();
+			wizard.hideFileEndButtons();
+			wizard.startUploads();
 		} );
 
 
@@ -202,20 +203,20 @@ mw.UploadWizard.prototype = {
 
 		$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
 			.click( function() {
-				$( '.mwe-upwiz-hint' ).each( function(i) { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+				$( '.mwe-upwiz-hint' ).each( function() { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
-				if ( _this.deedChooser.valid() ) {
+				if ( wizard.deedChooser.valid() ) {
 
-					$.each( _this.uploads, function ( i, upload ) {
+					$.each( wizard.uploads, function ( i, upload ) {
 						if ( upload === undefined ) {
 							return;
 						}
 						// uploads coming from Flickr do not have a deedChooser object till yet
-						if ( _this.deedChooser.deed.name == 'custom' || upload.fromURL ) {
+						if ( wizard.deedChooser.deed.name === 'custom' || upload.fromURL ) {
 							upload.details.useCustomDeedChooser();
 						} else {
-							upload.deedChooser = _this.deedChooser;
+							upload.deedChooser = wizard.deedChooser;
 						}
 
 						// the first check, happens even if the field isn't touched
@@ -223,21 +224,21 @@ mw.UploadWizard.prototype = {
 						upload.details.titleInput.checkTitle();
 					} );
 
-					_this.moveToStep( 'details' );
+					wizard.moveToStep( 'details' );
 				}
 			} );
 
 
 		// DETAILS div
-		var finalizeDetails = function() {
-			if ( _this.allowCloseWindow !== undefined ) {
-				_this.allowCloseWindow();
+		function finalizeDetails() {
+			if ( wizard.allowCloseWindow !== undefined ) {
+				wizard.allowCloseWindow();
 			}
-			_this.prefillThanksPage();
-			_this.moveToStep( 'thanks' );
-		};
+			wizard.prefillThanksPage();
+			wizard.moveToStep( 'thanks' );
+		}
 
-		var startDetails = function() {
+		function startDetails() {
 			var isPopupOpen = false;
 			$( '.categoryInput' ).each( function() {
 				if ( $( this ).data( 'popupOpen' ) === true ) {
@@ -248,17 +249,17 @@ mw.UploadWizard.prototype = {
 			if ( isPopupOpen ) {
 				return;
 			}
-			$( '.mwe-upwiz-hint' ).each( function(i) { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
-			_this.detailsValid(function () {
-				_this.hideDetailsEndButtons();
-				_this.detailsSubmit( function() {
-					_this.detailsErrorCount();
-					_this.showNext( 'details', 'complete', finalizeDetails );
+			$( '.mwe-upwiz-hint' ).each( function() { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+			wizard.detailsValid(function () {
+				wizard.hideDetailsEndButtons();
+				wizard.detailsSubmit( function() {
+					wizard.detailsErrorCount();
+					wizard.showNext( 'details', 'complete', finalizeDetails );
 				} );
 			}, function () {
-				_this.detailsErrorCount();
+				wizard.detailsErrorCount();
 			});
-		};
+		}
 
 		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
 		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
@@ -268,7 +269,7 @@ mw.UploadWizard.prototype = {
 
 		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-next-despite-failures' )
 			.click( function() {
-				_this.removeErrorUploads( finalizeDetails );
+				wizard.removeErrorUploads( finalizeDetails );
 			} );
 
 		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
@@ -283,10 +284,10 @@ mw.UploadWizard.prototype = {
 			( mw.config.get( 'UploadWizardConfig' ).tutorial && mw.config.get( 'UploadWizardConfig' ).tutorial.skip )
 		) {
 			// "select" the second step - highlight, make it visible, hide all others
-			_this.moveToStep( 'file' );
+			this.moveToStep( 'file' );
 		} else {
 			// "select" the first step - highlight, make it visible, hide all others
-			_this.moveToStep( 'tutorial' );
+			this.moveToStep( 'tutorial' );
 
 			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
 			$( '#mwe-upwiz-skip ').tipsy( {
@@ -321,25 +322,26 @@ mw.UploadWizard.prototype = {
 	 * Called when the user clicks on the 'Add images from Flickr' button.
 	 */
 	flickrInterfaceInit: function() {
-		var _this = this;
-		var checker = new mw.FlickrChecker( this, this.upload );
-		var $flickr_input = $( '<input id="mwe-upwiz-flickr-input" class="ui-helper-center-fix" type="text" />' );
-		var flickr_add = '<div id="mwe-upwiz-upload-add-flickr-container"><form id="mwe-upwiz-flickr-url-form">' +
-			'<button id="mwe-upwiz-upload-add-flickr" class="ui-helper-center-fix" type="submit"></button></form></div>';
+		var $disclaimer,
+			wizard = this,
+			checker = new mw.FlickrChecker( this, this.upload ),
+			$flickrInput = $( '<input id="mwe-upwiz-flickr-input" class="ui-helper-center-fix" type="text" />' ),
+			flickrAdd = '<div id="mwe-upwiz-upload-add-flickr-container"><form id="mwe-upwiz-flickr-url-form">' +
+				'<button id="mwe-upwiz-upload-add-flickr" class="ui-helper-center-fix" type="submit"></button></form></div>';
 		$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
 		// Add placeholder text to the Flickr URL input field
-		$flickr_input.attr( 'placeholder', mw.msg( 'mwe-upwiz-flickr-input-placeholder' ) ).placeholder();
+		$flickrInput.attr( 'placeholder', mw.msg( 'mwe-upwiz-flickr-input-placeholder' ) ).placeholder();
 		// Insert form into the page
-		$( '#mwe-upwiz-files' ).prepend( flickr_add );
+		$( '#mwe-upwiz-files' ).prepend( flickrAdd );
 		// Add disclaimer
-		var $disclaimer = mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
+		$disclaimer = mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
 			'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse();
 		$disclaimer = $( '<div id="mwe-upwiz-flickr-disclaimer"></div>' ).html( $disclaimer );
 		$( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
 		// Insert input field into the form and set up submit action
-		$( '#mwe-upwiz-flickr-url-form' ).prepend( $flickr_input ).submit( function() {
+		$( '#mwe-upwiz-flickr-url-form' ).prepend( $flickrInput ).submit( function() {
 			$( '#mwe-upwiz-upload-add-flickr' ).attr( 'disabled', 'disabled' );
-			_this.flickrChecker( checker );
+			wizard.flickrChecker( checker );
 			return false;
 		} );
 		// Set up the submit button
@@ -349,11 +351,11 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Responsible for fetching license of the provided media.
 	 */
-	flickrChecker: function( Checker ) {
-		var flickr_input_url = $( '#mwe-upwiz-flickr-input' ).val();
-		Checker.getLicenses();
+	flickrChecker: function( checker ) {
+		var flickrInputUrl = $( '#mwe-upwiz-flickr-input' ).val();
+		checker.getLicenses();
 		$( '#mwe-upwiz-flickr-select-list-container' ).bind( 'licenselistfilled' , function() {
-			Checker.checkFlickr( flickr_input_url );
+			checker.checkFlickr( flickrInputUrl );
 		} );
 	},
 
@@ -412,14 +414,15 @@ mw.UploadWizard.prototype = {
 
 	// do some last minute prep before advancing to the DEEDS page
 	prepareAndMoveToDeeds: function() {
-		var _this = this;
-		var deeds = _this.getLicensingDeeds( _this.uploads.length );
+		var customDeed, uploadsClone,
+			wizard = this,
+			deeds = this.getLicensingDeeds( this.uploads.length );
 
 		this.shouldShowIndividualDeed = function() {
-			if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'choice' ) {
+			if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'choice' ) {
 				return true;
 			}
-			else if ( mw.UploadWizard.config.licensing.ownWorkDefault == 'own' ) {
+			else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
 				var ownWork = mw.UploadWizard.config.licensing.ownWork;
 				return ownWork.licenses.length > 1;
 			}
@@ -430,27 +433,26 @@ mw.UploadWizard.prototype = {
 
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
-		if ( _this.uploads.length > 1 && this.shouldShowIndividualDeed() ) {
-			var customDeed = $.extend( new mw.UploadWizardDeed(), {
+		if ( this.uploads.length > 1 && this.shouldShowIndividualDeed() ) {
+			customDeed = $.extend( new mw.UploadWizardDeed(), {
 				valid: function() { return true; },
 				name: 'custom'
 			} );
 			deeds.push( customDeed );
 		}
 
-		var uploadsClone = $.map( _this.uploads, function( x ) { return x; } );
-		_this.deedChooser = new mw.UploadWizardDeedChooser(
+		uploadsClone = $.map( this.uploads, function( x ) { return x; } );
+		this.deedChooser = new mw.UploadWizardDeedChooser(
 			'#mwe-upwiz-deeds',
 			deeds,
 			uploadsClone
 		);
 
 		$( '<div></div>' )
-			.insertBefore( _this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
-			.msg( 'mwe-upwiz-deeds-macro-prompt', _this.uploads.length, mw.user );
+			.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
+			.msg( 'mwe-upwiz-deeds-macro-prompt', this.uploads.length, mw.user );
 
-		_this.moveToStep( 'deeds', function() { _this.deedChooser.onLayoutReady(); } );
-
+		this.moveToStep( 'deeds', function() { wizard.deedChooser.onLayoutReady(); } );
 	},
 
 	/**
@@ -462,9 +464,7 @@ mw.UploadWizard.prototype = {
 	 * @param callback to do after layout is ready?
 	 */
 	moveToStep: function( selectedStepName, callback ) {
-		var _this = this;
-
-		if( _this.currentStepName === selectedStepName ) {
+		if( this.currentStepName === selectedStepName ) {
 			// already there!
 			return;
 		}
@@ -472,7 +472,7 @@ mw.UploadWizard.prototype = {
 		// scroll to the top of the page (the current step might have been very long, vertically)
 		var headScroll = $( 'h1:first' ).offset();
 		$( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
-		$.each( _this.stepNames, function(i, stepName) {
+		$.each( this.stepNames, function(i, stepName) {
 
 			// the step's contents
 			var stepDiv = $( '#mwe-upwiz-stepdiv-' + stepName );
@@ -487,13 +487,13 @@ mw.UploadWizard.prototype = {
 
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
-		_this.currentStepName = selectedStepName;
+		this.currentStepName = selectedStepName;
 
 		if ( selectedStepName === 'file' ) {
-			_this.resetFileStepUploads();
+			this.resetFileStepUploads();
 		}
 
-		$.each( _this.uploads, function(i, upload) {
+		$.each( this.uploads, function(i, upload) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -511,7 +511,7 @@ mw.UploadWizard.prototype = {
 	resetFileStepUploads: function() {
 		if ( this.uploads.length === 0 ) {
 			// add one upload field to start (this is the big one that asks you to upload something)
-			var upload = this.newUpload();
+			this.newUpload();
 			// hide flickr uploading button if user doesn't have permissions
 			if ( !mw.UploadWizard.config.UploadFromUrl || mw.UploadWizard.config.flickrApiKey === '' ) {
 				$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
@@ -531,21 +531,22 @@ mw.UploadWizard.prototype = {
 	 * @return the new upload
 	 */
 	newUpload: function( providedFile, reservedIndex ) {
-		var _this = this;
+		var upload,
+			wizard = this;
 
-		if ( _this.uploads.length >= _this.maxUploads ) {
+		if ( this.uploads.length >= this.maxUploads ) {
 			return false;
 		}
 
-		var upload = new mw.UploadWizardUpload( _this, '#mwe-upwiz-filelist', providedFile, reservedIndex );
-		_this.uploadToAdd = upload;
+		upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile, reservedIndex );
+		this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
-		$( upload.ui.div ).bind( 'filenameAccepted', function(e) { _this.updateFileCounts();  e.stopPropagation(); } );
-		$( upload.ui.div ).bind( 'removeUploadEvent', function(e) { _this.removeUpload( upload ); e.stopPropagation(); } );
+		$( upload.ui.div ).bind( 'filenameAccepted', function(e) { wizard.updateFileCounts();  e.stopPropagation(); } );
+		$( upload.ui.div ).bind( 'removeUploadEvent', function(e) { wizard.removeUpload( upload ); e.stopPropagation(); } );
 		return upload;
 	},
 
@@ -555,8 +556,7 @@ mw.UploadWizard.prototype = {
 	 * @param UploadWizardUpload
 	 */
 	setUploadFilled: function( upload ) {
-
-		var _this = this;
+		var wizard = this;
 
 		// When we add uploads from a multi-select operation, the file objects
 		// may be filled in random order, because filling them depends on
@@ -564,26 +564,26 @@ mw.UploadWizard.prototype = {
 		// they're added in the correct order when they're filled.
 		// TODO v1.1 consider if we really have to set up details now
 		if ( upload.reservedIndex !== undefined ) {
-			_this.uploads[upload.reservedIndex] = upload;
+			this.uploads[upload.reservedIndex] = upload;
 		} else {
-			_this.uploads.push( upload );
+			this.uploads.push( upload );
 		}
 
 		//If upload is through a local file, then we need to show the Deeds step of the wizard
 		if( !upload.fromURL ) {
-			_this.showDeed = true;
+			this.showDeed = true;
 		}
 
-		_this.updateFileCounts();
+		this.updateFileCounts();
 		// Don't add files coming from Flickr ( or any other service ) in the Deeds preview section
 		if( !upload.fromURL ) {
 			upload.deedPreview = new mw.UploadWizardDeedPreview( upload );
 		}
-		upload.details = new mw.UploadWizardDetails( upload, _this.api, $( '#mwe-upwiz-macro-files' ) );
+		upload.details = new mw.UploadWizardDetails( upload, this.api, $( '#mwe-upwiz-macro-files' ) );
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			// Start uploads now, no reason to wait--leave the remove button alone
-			_this.makeTransitioner(
+			this.makeTransitioner(
 				'new',
 				[ 'transporting', 'transported', 'metadata' ],
 				[ 'error', 'stashed' ],
@@ -592,7 +592,7 @@ mw.UploadWizard.prototype = {
 				},
 				function() {
 					$().notify( mw.msg( 'mwe-upwiz-files-complete' ) );
-					_this.showNext( 'file', 'stashed' );
+					wizard.showNext( 'file', 'stashed' );
 				}
 			);
 		}
@@ -608,17 +608,13 @@ mw.UploadWizard.prototype = {
 	 * @param upload
 	 */
 	removeUpload: function( upload ) {
-		var _this = this;
 		// remove the div that passed along the trigger
 		var $div = $( upload.ui.div );
 		$div.unbind(); // everything
-		// sexily fade away (TODO if we are looking at it)
-		//$div.fadeOut('fast', function() {
-			$div.remove();
-			// and do what we in the wizard need to do after an upload is removed
-			mw.UploadWizardUtil.removeItem( _this.uploads, upload );
-			_this.updateFileCounts();
-		//} );
+		$div.remove();
+		// and do what we in the wizard need to do after an upload is removed
+		mw.UploadWizardUtil.removeItem( this.uploads, upload );
+		this.updateFileCounts();
 	},
 
 
@@ -641,7 +637,7 @@ mw.UploadWizard.prototype = {
 
 		// First remove array keys that don't have an assigned upload object
 		this.uploads = $.grep( this.uploads,
-			function( v, i ) { return v !== undefined; }
+			function( v ) { return v !== undefined; }
 		);
 
 		// Now remove upload objects that exist but are empty
@@ -699,33 +695,32 @@ mw.UploadWizard.prototype = {
 	 * @param endCallback	function to call when all uploads are in the end state.
 	 */
 	makeTransitioner: function( beginState, progressStates, endStates, starter, endCallback ) {
+		var nextAction,
+			uploadsToStart = this.maxSimultaneousConnections,
+			endStateCount = 0;
 
-		var _this = this;
+		$.each( this.uploads, function(i, upload) {
+			if ( upload === undefined ) {
+				return;
+			}
+			if ( $.inArray( upload.state, endStates ) !== -1 ) {
+				endStateCount++;
+			} else if ( $.inArray( upload.state, progressStates ) !== -1 ) {
+				uploadsToStart--;
+			} else if ( ( upload.state === beginState ) && ( uploadsToStart > 0 ) ) {
+				starter( upload );
+				uploadsToStart--;
+			}
+		} );
 
-		var transitioner = function() {
-			var uploadsToStart = _this.maxSimultaneousConnections;
-			var endStateCount = 0;
+		// build in a little delay even for the end state, so user can see progress bar in a complete state.
+		if ( endStateCount === this.uploads.length - this.countEmpties() ) {
+			nextAction = endCallback;
+		} else {
+			nextAction = this.makeTransitioner.bind( this, beginState, progressStates, endStates, starter, endCallback );
+		}
 
-			$.each( _this.uploads, function(i, upload) {
-				if ( upload === undefined ) {
-					return;
-				}
-				if ( $.inArray( upload.state, endStates ) !== -1 ) {
-					endStateCount++;
-				} else if ( $.inArray( upload.state, progressStates ) !== -1 ) {
-					uploadsToStart--;
-				} else if ( ( upload.state == beginState ) && ( uploadsToStart > 0 ) ) {
-					starter( upload );
-					uploadsToStart--;
-				}
-			} );
-
-			// build in a little delay even for the end state, so user can see progress bar in a complete state.
-			var nextAction = ( endStateCount == _this.uploads.length - _this.countEmpties() ) ? endCallback : transitioner;
-			setTimeout( nextAction, _this.transitionerDelay );
-		};
-
-		transitioner();
+		setTimeout( nextAction, this.transitionerDelay );
 	},
 
 	transitionerDelay: 200,  // milliseconds
@@ -764,14 +759,14 @@ mw.UploadWizard.prototype = {
 	 * @param endCallback   - to execute when uploads are completed
 	 */
 	startUploads: function() {
-		var _this = this;
+		var wizard = this;
 		// remove the upload button, and the add file button
 		$( '#mwe-upwiz-upload-ctrls' ).hide();
-		_this.hideFileEndButtons();
+		this.hideFileEndButtons();
 		$( '#mwe-upwiz-add-file' ).hide();
 
 		// reset any uploads in error state back to be shiny & new
-		$.each( _this.uploads, function( i, upload ) {
+		$.each( this.uploads, function( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -783,14 +778,14 @@ mw.UploadWizard.prototype = {
 		} );
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
-			message: function() { return mw.msg( 'mwe-upwiz-prevent-close', _this.uploads.length ); },
-			test: function() { return !_this.isComplete() && _this.uploads.length > 0; }
+			message: function() { return mw.msg( 'mwe-upwiz-prevent-close', wizard.uploads.length ); },
+			test: function() { return !wizard.isComplete() && wizard.uploads.length > 0; }
 		} );
 
 		$( '#mwe-upwiz-progress' ).show();
 		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
 			mw.msg( 'mwe-upwiz-uploading' ),
-			_this.uploads,
+			this.uploads,
 			[ 'stashed' ],
 			[ 'error' ],
 			'transportProgress',
@@ -804,7 +799,7 @@ mw.UploadWizard.prototype = {
 		// it might be interesting to just make this creational -- attach it to the dom element representing
 		// the progress bar and elapsed time
 
-		_this.makeTransitioner(
+		this.makeTransitioner(
 			'new',
 			[ 'transporting', 'transported', 'metadata' ],
 			[ 'error', 'stashed' ],
@@ -813,7 +808,7 @@ mw.UploadWizard.prototype = {
 			},
 			function() {
 				$().notify( mw.msg( 'mwe-upwiz-files-complete' ) );
-				_this.showNext( 'file', 'stashed' );
+				wizard.showNext( 'file', 'stashed' );
 			}
 		);
 	},
@@ -835,9 +830,11 @@ mw.UploadWizard.prototype = {
 	 * @param {String} desired state to proceed (other state is assumed to be 'error')
 	 */
 	showNext: function( step, desiredState, allOkCallback ) {
-		var errorCount = 0;
-		var okCount = 0;
-		var stillGoing = 0;
+		var errorCount = 0,
+			okCount = 0,
+			stillGoing = 0,
+			selector = null,
+			allOk = false;
 
 		// abort if all uploads have been removed
 		if( this.uploads.length === 0 ) {
@@ -859,8 +856,6 @@ mw.UploadWizard.prototype = {
 				okCount++;
 			} else if ( upload.state === 'transporting' ) {
 				stillGoing += 1;
-			} else {
-				//mw.log( "mw.UploadWizardUpload::showFileNext> upload " + i + " not in appropriate state for filenext: " + upload.state );
 			}
 		} );
 
@@ -869,8 +864,6 @@ mw.UploadWizard.prototype = {
 			this.uploads[0].details.buildAndShowCopyMetadata();
 		}
 
-		var selector = null;
-		var allOk = false;
 		if ( this.progressBar ) {
 			this.progressBar.showCount( okCount );
 		}
@@ -915,24 +908,22 @@ mw.UploadWizard.prototype = {
 	 * button has been removed. How to get it back into "virginal" state?
 	 */
 	updateFileCounts: function() {
-		var _this = this;
-
 		// First reset the wizard buttons.
-		_this.hideFileEndButtons();
+		this.hideFileEndButtons();
 
-		if ( _this.uploads.length - this.countEmpties() ) {
+		if ( this.uploads.length - this.countEmpties() ) {
 			// we have uploads ready to go, so allow us to proceed
 			$( '#mwe-upwiz-upload-ctrl-container' ).show();
 			$( '#mwe-upwiz-upload-ctr-divide' ).hide();
 
 			if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
 				// changes the initial centered invitation button to something like "add another file"
-				_this.$addFile = this.$addFile || $( '#mwe-upwiz-add-file' );
-				_this.$addFile.button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-n' ) );
+				this.$addFile = this.$addFile || $( '#mwe-upwiz-add-file' );
+				this.$addFile.button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-n' ) );
 				$( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).addClass( 'mwe-upwiz-add-files-n' );
-				_this.$addFileContainer = this.$addFileContainer || $( '#mwe-upwiz-add-file-container' );
-				_this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
-				_this.$addFileContainer.show();
+				this.$addFileContainer = this.$addFileContainer || $( '#mwe-upwiz-add-file-container' );
+				this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
+				this.$addFileContainer.show();
 				// changes the flickr add button to "add more files from flickr"
 				$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.msg( 'mwe-upwiz-add-file-flickr-n' ) );
 				// show the add file interface
@@ -946,10 +937,10 @@ mw.UploadWizard.prototype = {
 				$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
 				$( '#mwe-upwiz-select-flickr' ).unbind();
 			} else {
-				_this.$addFile = this.$addFile || $( '#mwe-upwiz-add-file' );
-				_this.$addFile.hide();
-				_this.$fileInput = this.$fileInput || $( '.mwe-upwiz-file-input' );
-				_this.$fileInput.hide();
+				this.$addFile = this.$addFile || $( '#mwe-upwiz-add-file' );
+				this.$addFile.hide();
+				this.$fileInput = this.$fileInput || $( '.mwe-upwiz-file-input' );
+				this.$fileInput.hide();
 				$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
 			}
 
@@ -1002,33 +993,31 @@ mw.UploadWizard.prototype = {
 			$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
 			$( '#mwe-upwiz-select-flickr' ).unbind();
 
-			if ( _this.deedChooser !== undefined ) {
-				_this.deedChooser.remove();
+			if ( this.deedChooser !== undefined ) {
+				this.deedChooser.remove();
 			}
 
 			// remove any blocks on closing the window
-			if ( _this.allowCloseWindow !== undefined ) {
-				_this.allowCloseWindow();
+			if ( this.allowCloseWindow !== undefined ) {
+				this.allowCloseWindow();
 			}
 
-			_this.resetFileStepUploads();
-			_this.moveToStep( 'file' );
+			this.resetFileStepUploads();
+			this.moveToStep( 'file' );
 		}
 
 		// allow an "add another upload" button only if we aren't at max
-		if ( _this.uploads.length < _this.maxUploads ) {
+		if ( this.uploads.length < this.maxUploads ) {
 			$( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', false );
 			$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', false );
-			$( _this.uploadToAdd.ui.div ).show();
-			_this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
+			$( this.uploadToAdd.ui.div ).show();
+			this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
 		} else {
 			$( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', true );
 			$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', true );
-			$( _this.uploadToAdd.ui.div ).hide();
-			_this.uploadToAdd.ui.hideFileInput();
+			$( this.uploadToAdd.ui.div ).hide();
+			this.uploadToAdd.ui.hideFileInput();
 		}
-
-
 	},
 
 
@@ -1037,11 +1026,12 @@ mw.UploadWizard.prototype = {
 	 * @return boolean
 	 */
 	detailsValid: function(cb, cberr) {
-		var _this = this,
+		var confirmationDialog,
 			valid = 0,
 			necessary = 0,
-			total = 0;
-		$.each( _this.uploads, function(i, upload) {
+			total = 0,
+			buttons = {};
+		$.each( this.uploads, function(i, upload) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -1055,15 +1045,15 @@ mw.UploadWizard.prototype = {
 		});
 
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
-		var buttons = {};
 		buttons[ mw.msg( 'mwe-upwiz-dialog-yes' ) ] = function() {
-			$( this ).dialog( "close" );
+			$( this ).dialog( 'close' );
 			cb();
 		};
 		buttons[ mw.msg( 'mwe-upwiz-dialog-no' ) ] = function() {
-			$( this ).dialog( "close" );
+			$( this ).dialog( 'close' );
 		};
-		var confirmationDialog = $( '<div></div>' )
+
+		confirmationDialog = $( '<div></div>' )
 			.html( mw.msg( 'mwe-upwiz-necessary-confirm' ) )
 			.dialog( {
 				width: 500,
@@ -1076,6 +1066,7 @@ mw.UploadWizard.prototype = {
 					$( this ).siblings( '.ui-dialog-buttonpane' ).find( 'button:eq(1)' ).focus();
 				}
 			} );
+
 		if ( valid === total ) {
 			if ( necessary === total ) {
 				cb();
@@ -1093,9 +1084,7 @@ mw.UploadWizard.prototype = {
 	 * @param {Function} endCallback - called when all uploads complete. In our case is probably a move to the next step
 	 */
 	detailsSubmit: function( endCallback ) {
-		var _this = this;
-
-		$.each( _this.uploads, function( i, upload ) {
+		$.each( this.uploads, function( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -1126,7 +1115,7 @@ mw.UploadWizard.prototype = {
 
 		// add the upload progress bar, with ETA
 		// add in the upload count
-		_this.makeTransitioner(
+		this.makeTransitioner(
 			'details',
 			[ 'submitting-details' ],
 			[ 'error', 'complete' ],
@@ -1145,20 +1134,21 @@ mw.UploadWizard.prototype = {
 	 * This method also opens up "more info" if the form has errors.
 	 */
 	detailsErrorCount: function() {
-		var $errorElements = $( '#mwe-upwiz-stepdiv-details' )
-			.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' );
+		var errorCount,
+			$errorElements = $( '#mwe-upwiz-stepdiv-details' )
+				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' );
 
 		// Open "more info" if that part of the form has errors
 		$errorElements.each( function () {
 			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
 				var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
-				if( !moreInfo.hasClass( "mwe-upwiz-toggler-open" ) ) {
+				if( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
 					moreInfo.click();
 				}
 			}
 		} );
 
-		var errorCount = $errorElements.length;
+		errorCount = $errorElements.length;
 		if ( errorCount > 0 ) {
 			$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
 			// Scroll to the first error
@@ -1169,9 +1159,8 @@ mw.UploadWizard.prototype = {
 	},
 
 	prefillThanksPage: function() {
-		var _this = this;
-
-		var thnxHeader = $( '<h3 style="text-align: center;"></h3>' );
+		var wizard = this,
+			thnxHeader = $( '<h3 style="text-align: center;"></h3>' );
 
 		if ( mw.UploadWizard.config.thanksLabel === false ) {
 			thnxHeader.msg( 'mwe-upwiz-thanks-intro' );
@@ -1184,24 +1173,24 @@ mw.UploadWizard.prototype = {
 			.append(
 				thnxHeader,
 				$( '<p style="margin-bottom: 2em; text-align: center;">' )
-					.msg( 'mwe-upwiz-thanks-explain', _this.uploads.length )
+					.msg( 'mwe-upwiz-thanks-explain', this.uploads.length )
 			);
 
-		$.each( _this.uploads, function(i, upload) {
+		$.each( this.uploads, function(i, upload) {
 			if ( upload === undefined ) {
 				return;
 			}
-			var id = 'thanksDiv' + i;
-			var $thanksDiv = $( '<div></div>' ).attr( 'id', id ).addClass( "mwe-upwiz-thanks ui-helper-clearfix" );
-			_this.thanksDiv = $thanksDiv;
+			var thumbWikiText,
+				id = 'thanksDiv' + i,
+				$thanksDiv = $( '<div></div>' ).attr( 'id', id ).addClass( 'mwe-upwiz-thanks ui-helper-clearfix' ),
+				$thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' ),
+				$thumbnailCaption = $( '<div></div>' )
+					.css( { 'text-align': 'center', 'font-size': 'small' } )
+					.html( $( '<a/>' ).html( upload.title.getMainText() ) ),
+				$thumbnailWrapDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
 
-
-			var $thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
-			var $thumbnailCaption = $( '<div></div>' )
-				.css( { 'text-align': 'center', 'font-size': 'small' } )
-				.html( $( '<a/>' ).html( upload.title.getMainText() ) );
-			var $thumbnailWrapDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
 			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
+
 			upload.setThumbnail(
 				$thumbnailDiv,
 				mw.UploadWizard.config.thumbnailWidth,
@@ -1216,7 +1205,7 @@ mw.UploadWizard.prototype = {
 			} );
 			$thanksDiv.append( $thumbnailWrapDiv );
 
-			var thumbWikiText = "[[" + upload.title.toText() + "|thumb|" + upload.details.descriptions[0].getText() + "]]";
+			thumbWikiText = '[[' + upload.title.toText() + '|thumb|' + upload.details.descriptions[0].getText() + ']]';
 
 			$thanksDiv.append(
 				$( '<div class="mwe-upwiz-data"></div>' )
@@ -1224,12 +1213,12 @@ mw.UploadWizard.prototype = {
 						$('<p/>').append(
 							mw.msg( 'mwe-upwiz-thanks-wikitext' ),
 							$( '<br />' ),
-							_this.makeReadOnlyInput( thumbWikiText )
+							wizard.makeReadOnlyInput( thumbWikiText )
 						),
 						$('<p/>').append(
 							mw.msg( 'mwe-upwiz-thanks-url' ),
 							$( '<br />' ),
-							_this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
+							wizard.makeReadOnlyInput( upload.imageinfo.descriptionurl )
 						)
 					)
 			);
@@ -1256,18 +1245,17 @@ mw.UploadWizard.prototype = {
 	 * Set the skip tutorial user preference via the options API
 	 */
 	setSkipTutorialPreference: function() {
+		var api = this.api,
+			tokenRequest = {
+				'action': 'tokens',
+				'type' : 'options'
+			},
+			prefRequest = {
+				'action': 'options',
+				'change': 'upwiz_skiptutorial=1'
+			};
 
-		var _this = this;
-		var tokenRequest = {
-			'action': 'tokens',
-			'type' : 'options'
-		};
-		var prefRequest = {
-			'action': 'options',
-			'change': 'upwiz_skiptutorial=1'
-		};
-
-		_this.api.post( tokenRequest,
+		api.post( tokenRequest,
 			function( data ) {
 				var token;
 				try {
@@ -1276,7 +1264,7 @@ mw.UploadWizard.prototype = {
 					throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
 				}
 				prefRequest.token = token;
-				_this.api.post( prefRequest, function() { return true; } );
+				api.post( prefRequest, function() { return true; } );
 			}
 		);
 
@@ -1305,14 +1293,16 @@ mw.UploadWizard.prototype = {
  * @param {String} message for dialog text, which will precede an unordered list of upload titles.
  */
 mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
-	var $filenameList = $( '<ul></ul>' );
+	var $filenameList = $( '<ul></ul>' ),
+		buttons = {};
+
 	$.each( uploads, function( i, upload ) {
 		if ( upload === undefined ) {
 			return;
 		}
 		$filenameList.append( $( '<li></li>' ).append( upload.title.getMain() ) );
 	} );
-	var buttons = {};
+
 	buttons[ mw.msg( 'mwe-upwiz-remove', uploads.length ) ] = function() {
 		$.each( uploads, function( i, upload ) {
 			if ( upload === undefined ) {
@@ -1390,7 +1380,7 @@ mw.isEmpty = function( v ) {
 	return v === undefined || v === null || v === '';
 };
 
-	$.fn.notify = function ( message ) {
+	$.fn.notify = function ( /*message*/ ) {
 		// could do something here with Chrome's in-browser growl-like notifications.
 		// play a sound?
 		// if the current tab does not have focus, use an alert?
@@ -1458,7 +1448,7 @@ mw.isEmpty = function( v ) {
 	 * jQuery extension. Makes a textarea automatically grow if you enter overflow
 	 * (This feature was in the old Commons interface with a confusing arrow icon; it's nicer to make it automatic.)
 	 */
-	jQuery.fn.growTextArea = function( options ) {
+	jQuery.fn.growTextArea = function() {
 
 		// this is a jquery-style object
 
@@ -1495,7 +1485,7 @@ mw.isEmpty = function( v ) {
 	};
 
 	// XXX this is highly specific to the "details" page now, not really jQuery function
-	jQuery.fn.mask = function( options ) {
+	jQuery.fn.mask = function() {
 
 		// intercept clicks...
 		// Note: the size of the div must be obtainable. Hence, this cannot be a div without layout (e.g. display:none).
@@ -1507,7 +1497,7 @@ mw.isEmpty = function( v ) {
 
 				//fix for z-index bug with selects in IE6
 				if ( $.browser.msie && $.browser.version.substring(0,1) === '6' ){
-					$( el ).find( "select" ).addClass( "masked-hidden" );
+					$( el ).find( 'select' ).addClass( 'masked-hidden' );
 				}
 
 				var mask = $( '<div class="mwe-upwiz-mask"></div>' )
@@ -1516,32 +1506,33 @@ mw.isEmpty = function( v ) {
 							'width'    : el.offsetWidth + 'px',
 							'height'   : el.offsetHeight + 'px',
 							'z-index'  : 90
-						} );
+						} ),
 
-				var $statusDiv = $( '<div></div>' ).css( {
-					'width'      : el.offsetWidth + 'px',
-					'height'     : el.offsetHeight + 'px',
-					'z-index'    : 91,
-					'text-align' : 'center',
-					'position'   : 'absolute',
-					'top'        : '0px',
-					'left'       : '0px'
-				} );
+					$statusDiv = $( '<div></div>' ).css( {
+						'width'      : el.offsetWidth + 'px',
+						'height'     : el.offsetHeight + 'px',
+						'z-index'    : 91,
+						'text-align' : 'center',
+						'position'   : 'absolute',
+						'top'        : '0px',
+						'left'       : '0px'
+					} ),
 
-				var $indicatorDiv = $( '<div class="mwe-upwiz-status"></div>' )
-					.css( {
-						'width'    : 32,
-						'height'   : 32,
-						'z-index'  : 91,
-						'margin'   : '0 auto 0 auto'
-					} );
-				var $statusLineDiv = $( '<div></div>' )
-					.css( {
-						'z-index'  : 91
-					} );
-				var $statusIndicatorLineDiv = $( '<div></div>' )
-					.css( { 'margin-top': '6em' } )
-					.append( $indicatorDiv, $statusLineDiv );
+					$indicatorDiv = $( '<div class="mwe-upwiz-status"></div>' )
+						.css( {
+							'width'    : 32,
+							'height'   : 32,
+							'z-index'  : 91,
+							'margin'   : '0 auto 0 auto'
+						} ),
+					$statusLineDiv = $( '<div></div>' )
+						.css( {
+							'z-index'  : 91
+						} ),
+					$statusIndicatorLineDiv = $( '<div></div>' )
+						.css( { 'margin-top': '6em' } )
+						.append( $indicatorDiv, $statusLineDiv );
+
 				$statusDiv.append( $statusIndicatorLineDiv );
 
 				$( el ).css( { 'position' : 'relative' } )
@@ -1558,7 +1549,7 @@ mw.isEmpty = function( v ) {
 	};
 
 	// n.b. this is not called currently -- all uses of mask() are permanent
-	jQuery.fn.unmask = function( options ) {
+	jQuery.fn.unmask = function() {
 
 		$.each( this, function( i, el ) {
 			if ( $( el ).data( 'mask' ) ) {
@@ -1586,9 +1577,9 @@ mw.isEmpty = function( v ) {
 	 * TODO: add a method to open and close besides clicking
 	 */
 	jQuery.fn.collapseToggle = function() {
-		var $el = this;
-		var $contents = $el.find( '.mwe-upwiz-toggler-content' ).hide();
-		var $toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
+		var $el = this,
+			$contents = $el.find( '.mwe-upwiz-toggler-content' ).hide(),
+			$toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
 		$el.data( 'open', function() {
 			$contents.slideDown( 250 );
 			$toggle.addClass( 'mwe-upwiz-toggler-open' );

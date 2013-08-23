@@ -13,21 +13,23 @@
  * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
  */
 mw.ApiUploadHandler = function( upload, api ) {
+	// the Iframe transport is hardcoded for now because it works everywhere
+	// can also use Xhr Binary depending on browser
+	var handler = this;
+
 	this.upload = upload;
 	this.api = api;
 	this.$form = $( this.upload.ui.form );
 	this.configureForm();
 
-	// the Iframe transport is hardcoded for now because it works everywhere
-	// can also use Xhr Binary depending on browser
-	var _this = this;
 	this.transport = new mw.IframeTransport(
 		this.$form,
-		function( fraction ) {
-			_this.upload.setTransportProgress( fraction );
+		function ( fraction ) {
+			handler.upload.setTransportProgress( fraction );
 		},
-		function( result ) {
-			_this.upload.setTransported( result );
+
+		function ( result ) {
+			handler.upload.setTransported( result );
 		}
 	);
 
@@ -40,26 +42,23 @@ mw.ApiUploadHandler.prototype = {
 	 * @param callback
 	 */
 	configureForm: function() {
-		var _this = this;
-
-		_this.addFormInputIfMissing( 'action', 'upload' );
+		this.addFormInputIfMissing( 'action', 'upload' );
 
 		// force stash
-		_this.addFormInputIfMissing( 'stash', 1 );
+		this.addFormInputIfMissing( 'stash', 1 );
 
 		// ignore warnings (see mw.FormDataTransport for more)
-		_this.addFormInputIfMissing( 'ignorewarnings', 1 );
+		this.addFormInputIfMissing( 'ignorewarnings', 1 );
 
 		// XXX TODO - remove; if we are uploading to stash only, a comment should not be required - yet.
-		_this.addFormInputIfMissing( 'comment', 'DUMMY TEXT' );
+		this.addFormInputIfMissing( 'comment', 'DUMMY TEXT' );
 
 		// we use JSON in HTML because according to mdale, some browsers cannot handle just JSON
-		_this.addFormInputIfMissing( 'format', 'jsonfm' );
+		this.addFormInputIfMissing( 'format', 'jsonfm' );
 
-		if ( _this.upload.fromURL ) {
-			_this.addFormInputIfMissing( 'url', _this.upload.providedFile.url );
+		if ( this.upload.fromURL ) {
+			this.addFormInputIfMissing( 'url', this.upload.providedFile.url );
 		}
-
 	},
 
 	/**
@@ -68,14 +67,14 @@ mw.ApiUploadHandler.prototype = {
 	 * @param callback to return true on success
 	 */
 	configureEditToken: function( callerOk, err ) {
-		var _this = this;
-
-		var ok = function( token ) {
-			_this.addFormInputIfMissing( 'token', token );
+		function ok( token ) {
+			handler.addFormInputIfMissing( 'token', token );
 			callerOk();
-		};
+		}
 
-		_this.api.getEditToken( ok, err );
+		var handler = this;
+
+		this.api.getEditToken( ok, err );
 	},
 
 	/**
@@ -84,7 +83,7 @@ mw.ApiUploadHandler.prototype = {
 	 * @param value the value of the input
 	 */
 	addFormInputIfMissing: function( name, value ) {
-		if ( this.$form.find( "[name='" + name + "']" ).length === 0 ) {
+		if ( this.$form.find( '[name="' + name + '"]' ).length === 0 ) {
 			this.$form.append( $( '<input type="hidden" />' ) .attr( { 'name': name, 'value': value } ));
 		}
 	},
@@ -93,16 +92,18 @@ mw.ApiUploadHandler.prototype = {
 	 * Kick off the upload!
 	 */
 	start: function() {
-		var _this = this;
-		var ok = function() {
-			_this.beginTime = ( new Date() ).getTime();
-			_this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
-			_this.upload.ui.showTransportProgress();
-			_this.$form.submit();
-		};
-		var err = function( code, info ) {
-			_this.upload.setError( code, info );
-		};
+		function ok() {
+			handler.beginTime = ( new Date() ).getTime();
+			handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
+			handler.upload.ui.showTransportProgress();
+			handler.$form.submit();
+		}
+
+		function err( code, info ) {
+			handler.upload.setError( code, info );
+		}
+
+		var handler = this;
 		this.configureEditToken( ok, err );
 	}
 };

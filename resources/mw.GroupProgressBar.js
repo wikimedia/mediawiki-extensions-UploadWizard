@@ -3,11 +3,9 @@
  * this is a progress bar for monitoring multiple objects, giving summary view
  */
 mw.GroupProgressBar = function( selector, text, uploads, successStates, errorStates, progressProperty, weightProperty ) {
-	var _this = this;
-
 	// XXX need to figure out a way to put text inside bar
-	_this.$selector = $( selector );
-	_this.$selector.html(
+	this.$selector = $( selector );
+	this.$selector.html(
 		'<div class="mwe-upwiz-progress">' +
 			'<div class="mwe-upwiz-progress-bar-etr-container">' +
 				'<div class="mwe-upwiz-progress-bar-etr" style="display: none">' +
@@ -19,15 +17,14 @@ mw.GroupProgressBar = function( selector, text, uploads, successStates, errorSta
 		'</div>'
 	);
 
-	_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
+	this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
 
-	_this.uploads = uploads;
-	_this.successStates = successStates;
-	_this.errorStates = errorStates;
-	_this.progressProperty = progressProperty;
-	_this.weightProperty = weightProperty;
-	_this.beginTime = undefined;
-
+	this.uploads = uploads;
+	this.successStates = successStates;
+	this.errorStates = errorStates;
+	this.progressProperty = progressProperty;
+	this.weightProperty = weightProperty;
+	this.beginTime = undefined;
 };
 
 mw.GroupProgressBar.prototype = {
@@ -43,37 +40,38 @@ mw.GroupProgressBar.prototype = {
 	 * loop around the uploads, summing certain properties for a weighted total fraction
 	 */
 	start: function() {
-		var _this = this;
+		var bar = this,
+			totalWeight = 0.0,
+			shown = false;
 
-		var totalWeight = 0.0;
-		$.each( _this.uploads, function( i, upload ) {
+		$.each( this.uploads, function( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
-			totalWeight += upload[_this.weightProperty];
+			totalWeight += upload[bar.weightProperty];
 		} );
 
-		_this.setBeginTime();
-		var shown = false;
+		this.setBeginTime();
 
-		var displayer = function() {
-			var fraction = 0.0;
-			var successStateCount = 0;
-			var errorStateCount = 0;
-			var hasData = false;
-			$.each( _this.uploads, function( i, upload ) {
+		function displayer() {
+			var fraction = 0.0,
+				successStateCount = 0,
+				errorStateCount = 0,
+				hasData = false;
+
+			$.each( bar.uploads, function( i, upload ) {
 				if ( upload === undefined ) {
 					return;
 				}
-				if ( $.inArray( upload.state, _this.successStates ) !== -1 ) {
+				if ( $.inArray( upload.state, bar.successStates ) !== -1 ) {
 					successStateCount++;
 				}
-				if ( $.inArray( upload.state, _this.errorStates ) !== -1 ) {
+				if ( $.inArray( upload.state, bar.errorStates ) !== -1 ) {
 					errorStateCount++;
 				}
-				if (upload[_this.progressProperty] !== undefined) {
-					fraction += upload[_this.progressProperty] * ( upload[_this.weightProperty] / totalWeight );
-					if (upload[_this.progressProperty] > 0 ) {
+				if (upload[bar.progressProperty] !== undefined) {
+					fraction += upload[bar.progressProperty] * ( upload[bar.weightProperty] / totalWeight );
+					if (upload[bar.progressProperty] > 0 ) {
 						hasData = true;
 					}
 				}
@@ -83,20 +81,20 @@ mw.GroupProgressBar.prototype = {
 			// if we have good data AND the fraction is less than 1.
 			if ( hasData && fraction < 1.0 ) {
 				if ( ! shown ) {
-					_this.showBar();
+					bar.showBar();
 					shown = true;
 				}
-				_this.showProgress( fraction );
+				bar.showProgress( fraction );
 			}
-			_this.showCount( successStateCount );
+			bar.showCount( successStateCount );
 
-			if ( successStateCount + errorStateCount < _this.uploads.length - _this.countEmpties() ) {
+			if ( successStateCount + errorStateCount < bar.uploads.length - bar.countEmpties() ) {
 				setTimeout( displayer, 200 );
 			} else {
-				_this.showProgress( 1.0 );
-				setTimeout( function() { _this.hideBar(); }, 500 );
+				bar.showProgress( 1.0 );
+				setTimeout( function() { bar.hideBar(); }, 500 );
 			}
-		};
+		}
 		displayer();
 	},
 
@@ -127,15 +125,13 @@ mw.GroupProgressBar.prototype = {
 	 * @param fraction the amount of whatever it is that's done whatever it's done
 	 */
 	showProgress: function( fraction ) {
-		var _this = this;
+		var t, timeString,
+			remainingTime = this.getRemainingTime( fraction );
 
-		_this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
-
-		var remainingTime = _this.getRemainingTime( fraction );
+		this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
 
 		if ( remainingTime !== null ) {
-			var t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
-			var timeString;
+			t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
 			if (t.hours === 0) {
 				if (t.minutes === 0) {
 					if (t.seconds === 0) {
@@ -149,7 +145,7 @@ mw.GroupProgressBar.prototype = {
 			} else {
 				timeString = mw.msg( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds );
 			}
-			_this.$selector.find( '.mwe-upwiz-etr' ).html( timeString );
+			this.$selector.find( '.mwe-upwiz-etr' ).html( timeString );
 		}
 	},
 
@@ -160,11 +156,11 @@ mw.GroupProgressBar.prototype = {
 	 * @return estimated time remaining (in milliseconds)
 	 */
 	getRemainingTime: function ( fraction ) {
-		var _this = this;
-		if ( _this.beginTime ) {
-			var elapsedTime = ( new Date() ).getTime() - _this.beginTime;
+		var elapsedTime, rate;
+		if ( this.beginTime ) {
+			elapsedTime = ( new Date() ).getTime() - this.beginTime;
 			if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
-				var rate = fraction / elapsedTime;
+				rate = fraction / elapsedTime;
 				return parseInt( ( 1.0 - fraction ) / rate, 10 );
 			}
 		}

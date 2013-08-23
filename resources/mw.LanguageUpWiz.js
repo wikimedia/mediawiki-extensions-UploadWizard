@@ -1,6 +1,8 @@
+/* jshint nomen: false */
 ( function( mw, $ ) {
+// TODO come now, there has to be a better way
 mediaWiki.messages.set( {
-	"mwe-upwiz-code-unknown": "Unknown language"
+	'mwe-upwiz-code-unknown': 'Unknown language'
 } );
 
 /**
@@ -21,9 +23,10 @@ mw.LanguageUpWiz = {
 	 * TODO make this more configurable.
 	 */
 	languages: ( function () {
-		var langs = mw.config.get( 'UploadWizardConfig' ).uwLanguages;
-		var list = [];
-		for ( var langcode in langs ) {
+		var langcode,
+			langs = mw.config.get( 'UploadWizardConfig' ).uwLanguages,
+			list = [];
+		for ( langcode in langs ) {
 			list.push( { code: langcode, text: langs[langcode] } );
 		}
 		return list;
@@ -52,7 +55,9 @@ mw.LanguageUpWiz = {
 
 		// If a descriptionlang param is passed in the query string, use that,
 		// otherwise choose a good default for the description language.
-		var thisUri = new mw.Uri( window.location.href, { overrideKeys: true } );
+		var thisUri = new mw.Uri( window.location.href, { overrideKeys: true } ),
+			select = $( '<select>' );
+
 		if ( thisUri.query.descriptionlang && mw.LanguageUpWiz.checkForLang( thisUri.query.descriptionlang ) ) {
 			mw.LanguageUpWiz.defaultCode = thisUri.query.descriptionlang;
 		} else if ( mw.LanguageUpWiz.checkForLang( mw.config.get( 'wgUserLanguage' ) ) ) {
@@ -66,7 +71,6 @@ mw.LanguageUpWiz = {
 		}
 
 		mw.LanguageUpWiz._codes = {};
-		var select = $( '<select/>' );
 		$.each( mw.LanguageUpWiz.languages, function( i, language ) {
 			// add an option for each language
 			var $opt = $( '<option>' )
@@ -82,7 +86,7 @@ mw.LanguageUpWiz = {
 			// add each language into dictionary
 			mw.LanguageUpWiz._codes[language.code] = language.text;
 		} );
-		mw.LanguageUpWiz.$_select = select;
+		mw.LanguageUpWiz._$select = select;
 		mw.LanguageUpWiz.initialized = true;
 	},
 
@@ -99,7 +103,7 @@ mw.LanguageUpWiz = {
 			code = mw.LanguageUpWiz.defaultCode;
 		}
 
-		var $select = mw.LanguageUpWiz.$_select.clone();
+		var $select = mw.LanguageUpWiz._$select.clone();
 		$select.attr( 'name', name );
 		if ( code === mw.LanguageUpWiz.UNKNOWN ) {
 			// n.b. MediaWiki LanguageHandler has ability to add custom label for 'Unknown'; possibly as pseudo-label
@@ -130,10 +134,10 @@ mw.LanguageUpWiz = {
 	 */
 	getClosest: function( code ) {
 		mw.LanguageUpWiz.initialize();
-		if ( typeof ( code ) != 'string' || code === null || code.length === 0 ) {
+		if ( typeof ( code ) !== 'string' || code === null || code.length === 0 ) {
 			return mw.LanguageUpWiz.defaultCode;
 		}
-		if ( code == 'nan' || code == 'minnan' ) {
+		if ( code === 'nan' || code === 'minnan' ) {
 			return 'zh-min-nan';
 		} else if ( mw.LanguageUpWiz._codes[code] !== undefined ) {
 			return code;

@@ -1,3 +1,4 @@
+/* jshint scripturl: true */
 ( function ( mw, $ ) {
 /**
  * Represents a "transport" for files to upload; in this case an iframe.
@@ -17,24 +18,26 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 	this.iframeId = 'f_' + ( $( 'iframe' ).length + 1 );
 
 	//IE only works if you "create element with the name" ( not jquery style )
-	var iframe;
+	var iframe,
+		transport = this;
+
 	try {
 		iframe = document.createElement( '<iframe name="' + this.iframeId + '">' );
 	} catch ( ex ) {
 		iframe = document.createElement( 'iframe' );
 	}
+
 	this.$iframe = $( iframe );
 
 	// we configure form on load, because the first time it loads, it's blank
 	// then we configure it to deal with an API submission
-	var _this = this;
 	this.$iframe.attr( { 'src'   : 'javascript:false;',
 					'id'    : this.iframeId,
 					'name'  : this.iframeId } )
-			.load( function() { _this.configureForm(); } )
+			.load( function() { transport.configureForm(); } )
 			.css( 'display', 'none' );
 
-	$( "body" ).append( iframe );
+	$( 'body' ).append( iframe );
 };
 
 mw.IframeTransport.prototype = {
@@ -43,6 +46,8 @@ mw.IframeTransport.prototype = {
 	 * Ensure callback on completion of upload
 	 */
 	configureForm: function() {
+		var transport = this;
+
 		// Set the form target to the iframe
 		this.$form.attr( 'target', this.iframeId );
 
@@ -54,11 +59,10 @@ mw.IframeTransport.prototype = {
 		} );
 
 		// Set up the completion callback
-		var _this = this;
 		$( '#' + this.iframeId ).load( function() {
 			// mw.log( "mw.IframeTransport::configureForm> received result in iframe", "debug" );
-			_this.progressCb( 1.0 );
-			_this.processIframeResult( $( this ).get( 0 ) );
+			transport.progressCb( 1.0 );
+			transport.processIframeResult( $( this ).get( 0 ) );
 		} );
 	},
 
@@ -69,20 +73,19 @@ mw.IframeTransport.prototype = {
 	 * @param {Element} iframe iframe to extract result from
 	 */
 	processIframeResult: function( iframe ) {
-		var _this = this;
-		var doc = iframe.contentDocument ? iframe.contentDocument : frames[iframe.id].document;
+		var response, json,
+			doc = iframe.contentDocument ? iframe.contentDocument : frames[iframe.id].document;
 		// Fix for Opera 9.26
-		if ( doc.readyState && doc.readyState != 'complete' ) {
+		if ( doc.readyState && doc.readyState !== 'complete' ) {
 			//mw.log( "mw.IframeTransport::processIframeResult>  not complete" );
 			return;
 		}
 
 		// Fix for Opera 9.64
-		if ( doc.body && doc.body.innerHTML == "false" ) {
+		if ( doc.body && doc.body.innerHTML === 'false' ) {
 			//mw.log( "mw.IframeTransport::processIframeResult> innerhtml" );
 			return;
 		}
-		var response, json;
 		if ( doc.XMLDocument ) {
 			// The response is a document property in IE
 			response = doc.XMLDocument;
@@ -96,7 +99,7 @@ mw.IframeTransport.prototype = {
 			// check that the JSON is not an XML error message
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
 			if ( json && json.substring(0, 5) !== '<?xml' ) {
-				response = window["eval"]( "( " + json + " )" );
+				response = JSON.parse( json );
 			} else {
 				response = {};
 			}
@@ -105,7 +108,7 @@ mw.IframeTransport.prototype = {
 			response = doc;
 		}
 		// Process the API result
-		_this.transportedCb( response );
+		this.transportedCb( response );
 	}
 };
 }( mediaWiki, jQuery ) );

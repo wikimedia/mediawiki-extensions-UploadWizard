@@ -1,3 +1,5 @@
+// Only turning these jshint options off for ''this file''
+/* jshint camelcase: false, nomen: false */
 ( function( mw, $ ) {
 mw.FlickrChecker = function( wizard, upload ) {
 	this.wizard = wizard;
@@ -35,57 +37,59 @@ mw.FlickrChecker.prototype = {
 	 * @param $selector - the element to insert the license name into
 	 * @param upload - the upload object to set the deed for
 	 */
-	checkFlickr: function( flickr_input_url ) {
-		var _this = this;
-		_this.url = flickr_input_url;
-		var photoIdMatches = _this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/);
+	checkFlickr: function( flickrInputUrl ) {
+		this.url = flickrInputUrl;
+		var photoIdMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/),
+			albumIdMatches = this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
 		if ( photoIdMatches === null ) {
 			// try static urls
-			photoIdMatches = _this.url.match(/static\.?flickr\.com\/[^\/]+\/([0-9]+)_/);
+			photoIdMatches = this.url.match(/static\.?flickr\.com\/[^\/]+\/([0-9]+)_/);
 		}
-		var albumIdMatches = _this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
 		if ( albumIdMatches || photoIdMatches ) {
 			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
-			_this.imageUploads = [];
+			this.imageUploads = [];
 			if ( albumIdMatches && albumIdMatches[1] > 0 ) {
-				_this.getPhotoset( albumIdMatches );
+				this.getPhotoset( albumIdMatches );
 			}
 			if ( photoIdMatches && photoIdMatches[1] > 0 ) {
-				_this.getPhoto( photoIdMatches );
+				this.getPhoto( photoIdMatches );
 			}
 		} else {
 			// XXX show user the message that the URL entered was not valid
-			_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
-			_this.wizard.flickrInterfaceReset();
+			this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
+			this.wizard.flickrInterfaceReset();
 		}
 	},
 
 	getPhotoset: function( albumIdMatches ) {
-		var _this = this;
-		var x = 0;
-		var fileName, imageContainer, sourceURL;
+		var fileName, imageContainer, sourceURL,
+			checker = this,
+			x = 0;
 
 		$( '#mwe-upwiz-select-flickr' ).button( {
 			label: mw.msg( 'mwe-upwiz-select-flickr' ),
 			disabled: true
 		} );
-		$.getJSON( _this.apiUrl, {
+		$.getJSON( this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photosets.getPhotos',
-			api_key: _this.apiKey,
+			api_key: this.apiKey,
 			photoset_id: albumIdMatches[1],
 			format: 'json',
 			extras: 'license, url_sq, owner_name, original_format, date_taken, geo' },
-			function( data ) {
-				if ( typeof data.photoset !== 'undefined' ) {
+			function ( data ) {
+				if ( data.photoset !== undefined ) {
 					$.each( data.photoset.photo, function( i, item ){
+						var flickrUpload, license, licenseValue, sameTitleExists;
+
 						// Limit to maximum of 50 images
 						if ( x < 50 ) {
-							var license = _this.checkLicense( item.license, i );
-							var licenseValue = license.licenseValue;
-							var sameTitleExists = false;
+							license = checker.checkLicense( item.license, i );
+							licenseValue = license.licenseValue;
+							sameTitleExists = false;
+
 							if ( licenseValue !== 'invalid' ) {
-								$.each( _this.imageUploads, function ( index, image ) {
+								$.each( checker.imageUploads, function ( index, image ) {
 									if ( image.name === item.title + '.jpg' ) {
 										sameTitleExists = true;
 										return false; // Break out of the loop
@@ -99,8 +103,9 @@ mw.FlickrChecker.prototype = {
 								} else {
 									fileName = item.title + '.jpg';
 								}
+
 								sourceURL = 'http://www.flickr.com/photos/' + data.photoset.owner + '/' + item.id + '/';
-								var flickrUpload = {
+								flickrUpload = {
 									name: fileName,
 									url: '',
 									type: 'JPEG',
@@ -120,7 +125,7 @@ mw.FlickrChecker.prototype = {
 									index: i
 								};
 								// Adding all the Photoset files which have a valid license with the required info to an array so that they can be referenced later
-								_this.imageUploads[i] = flickrUpload;
+								checker.imageUploads[i] = flickrUpload;
 
 								// setting up the thumbnail previews in the Selection list
 								if ( item.url_sq ) {
@@ -133,7 +138,7 @@ mw.FlickrChecker.prototype = {
 					} );
 					// Calling jquery ui selectable
 					$( '#mwe-upwiz-flickr-select-list' ).selectable( {
-						stop: function( e ) {
+						stop: function () {
 							// If at least one item is selected, activate the upload button
 							if ( $( '.ui-selected' ).length > 0 ) {
 								$( '#mwe-upwiz-select-flickr' ).button( 'enable' );
@@ -149,29 +154,30 @@ mw.FlickrChecker.prototype = {
 						$( 'li.ui-selected' ).each( function( index, image ) {
 							image = $( this ).attr( 'id' );
 							image = image.split( '-' )[1];
-							_this.setImageDescription( image );
-							_this.setImageURL( image );
+							checker.setImageDescription( image );
+							checker.setImageURL( image );
 						} );
 					} );
 
-					if ( _this.imageUploads.length === 0) {
-						_this.showErrorDialog( mw.msg( 'mwe-upwiz-license-photoset-invalid' ) );
-						_this.wizard.flickrInterfaceReset();
+					if ( checker.imageUploads.length === 0) {
+						checker.showErrorDialog( mw.msg( 'mwe-upwiz-license-photoset-invalid' ) );
+						checker.wizard.flickrInterfaceReset();
 					} else {
 						$( '#mwe-upwiz-flickr-select-list-container' ).show();
 					}
 				} else {
-					_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid' ) );
-					_this.wizard.flickrInterfaceReset();
+					checker.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid' ) );
+					checker.wizard.flickrInterfaceReset();
 				}
 			}
 		);
 	},
 
 	getPhoto: function( photoIdMatches ) {
-		var _this = this;
-		var photoId = photoIdMatches[1];
-		var fileName, photoAuthor, sourceURL;
+		var fileName, photoAuthor, sourceURL,
+			checker = this,
+			photoId = photoIdMatches[1];
+
 		$.getJSON( this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photos.getInfo',
@@ -179,9 +185,11 @@ mw.FlickrChecker.prototype = {
 			photo_id: photoId,
 			format: 'json' },
 			function( data ) {
+				var license, flickrUpload;
+
 				if ( typeof data.photo !== 'undefined' ) {
-					var license = _this.checkLicense( data.photo.license );
-					if ( license.licenseValue != 'invalid' ) {
+					license = checker.checkLicense( data.photo.license );
+					if ( license.licenseValue !== 'invalid' ) {
 						// if the photo is untitled, generate a title
 						if ( data.photo.title._content === '' ) {
 							fileName = data.photo.owner.username + '-' + data.photo.id + '.jpg';
@@ -202,7 +210,7 @@ mw.FlickrChecker.prototype = {
 								return false;
 							}
 						} );
-						var flickrUpload = {
+						flickrUpload = {
 							name: fileName,
 							url: '',
 							type: 'JPEG',
@@ -218,15 +226,15 @@ mw.FlickrChecker.prototype = {
 							photoId: data.photo.id,
 							sourceURL: sourceURL
 						};
-						_this.imageUploads.push( flickrUpload );
-						_this.setImageURL( 0, _this );
+						checker.imageUploads.push( flickrUpload );
+						checker.setImageURL( 0, checker );
 					} else {
-						_this.showErrorDialog( license.licenseMessage );
-						_this.wizard.flickrInterfaceReset();
+						checker.showErrorDialog( license.licenseMessage );
+						checker.wizard.flickrInterfaceReset();
 					}
 				} else {
-					_this.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
-					_this.wizard.flickrInterfaceReset();
+					checker.showErrorDialog( mw.msg( 'mwe-upwiz-url-invalid', 'Flickr' ) );
+					checker.wizard.flickrInterfaceReset();
 				}
 
 			}
@@ -237,13 +245,13 @@ mw.FlickrChecker.prototype = {
 	 * Retrieve the list of all current Flickr licenses and store it in an array (mw.FlickrChecker.licenseList)
 	 */
 	getLicenses: function() {
-		var _this = this;
+		var checker = this;
 		// Workaround for http://bugs.jquery.com/ticket/8283
 		jQuery.support.cors = true;
-		$.getJSON( _this.apiUrl, {
+		$.getJSON( this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photos.licenses.getInfo',
-			api_key: _this.apiKey,
+			api_key: checker.apiKey,
 			format: 'json' },
 			function( data ) {
 				if ( typeof data.licenses !== 'undefined' ) {
@@ -257,8 +265,8 @@ mw.FlickrChecker.prototype = {
 	},
 
 	setImageDescription: function( index ) {
-		var upload = this.imageUploads[index];
-		var photoId = upload.photoId;
+		var upload = this.imageUploads[index],
+			photoId = upload.photoId;
 
 		$.getJSON(
 			this.apiUrl,
@@ -280,15 +288,15 @@ mw.FlickrChecker.prototype = {
 	 * @param index Index of the image we need to set the URL for
 	 */
 	setImageURL: function( index ) {
-		var _this = this;
-		var upload = this.imageUploads[index];
-		var photoId = upload.photoId;
-		var largestSize;
+		var largestSize,
+			checker = this,
+			upload = this.imageUploads[index],
+			photoId = upload.photoId;
 
-		$.getJSON( _this.apiUrl, {
+		$.getJSON( this.apiUrl, {
 			nojsoncallback: 1,
 			method: 'flickr.photos.getSizes',
-			api_key: _this.apiKey,
+			api_key: this.apiKey,
 			format: 'json',
 			photo_id: photoId },
 			function( data ) {
@@ -298,39 +306,40 @@ mw.FlickrChecker.prototype = {
 					// TODO: Make this less fragile by actually comparing sizes.
 					largestSize = data.sizes.size.pop();
 					// Flickr provides the original format for images coming from pro users, hence we need to change the default JPEG to this format
-					if ( largestSize.label == 'Original' ) {
+					if ( largestSize.label === 'Original' ) {
 						upload.type = upload.originalFormat;
 						upload.name = upload.name.split('.')[0] + '.' + upload.originalFormat;
 					}
 					upload.url = largestSize.source;
 					// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
-					_this.wizard.newUpload( upload );
+					checker.wizard.newUpload( upload );
 				} else {
-					_this.showErrorDialog( mw.msg( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) );
-					_this.wizard.flickrInterfaceReset();
+					checker.showErrorDialog( mw.msg( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ) );
+					checker.wizard.flickrInterfaceReset();
 				}
 			} );
 	},
 
 	checkLicense: function( licenseId ){
-		// The returned data.photo.license is just an ID that we use to look up the license name
-		var licenseName = mw.FlickrChecker.prototype.licenseList[licenseId];
-
-		// Use the license name to retrieve the template values
-		var licenseValue = mw.FlickrChecker.prototype.licenseMaps[licenseName];
+		var licenseMessage, license,
+			// The returned data.photo.license is just an ID that we use to look up the license name
+			licenseName = mw.FlickrChecker.prototype.licenseList[licenseId],
+			// Use the license name to retrieve the template values
+			licenseValue = mw.FlickrChecker.prototype.licenseMaps[licenseName];
 
 		// Set the license message to show the user.
-		var licenseMessage;
-		if ( licenseValue == 'invalid' ) {
+		if ( licenseValue === 'invalid' ) {
 			licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
 		} else {
 			licenseMessage = mw.msg( 'mwe-upwiz-license-external', 'Flickr', licenseName );
 		}
-		var license = {
+
+		license = {
 			licenseName: licenseName,
 			licenseMessage: licenseMessage,
 			licenseValue: licenseValue
 		};
+
 		return license;
 	},
 

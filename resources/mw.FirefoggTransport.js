@@ -22,38 +22,42 @@ mw.FirefoggTransport.prototype = {
 	 * Do an upload
 	 */
 	doUpload: function() {
-		var _this = this;
+		var transport = this;
+
 		//Encode or passthrough Firefogg before upload
-		if (this.isUploadFormat()) {
-			_this.doFormDataUpload(this.upload.ui.$fileInputCtrl[0].files[0]);
+		if ( this.isUploadFormat() ) {
+			this.doFormDataUpload( this.upload.ui.$fileInputCtrl[0].files[0] );
 		} else {
 			this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
 			this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
 				function(result, file) {
 					result = JSON.parse(result);
-					if(result.progress == 1) { //encoding done
-						_this.doFormDataUpload(file);
-					} else { //encoding failed
+					if ( result.progress === 1 ) {
+						//encoding done
+						transport.doFormDataUpload(file);
+					} else {
+						//encoding failed
 						var response = {
 							error: {
 								code: 500,
 								info: 'Encoding failed'
 							}
 						};
-						_this.transportedCb(response);
+						transport.transportedCb( response );
 					}
 				}, function(progress) { //progress
-					if ( _this.upload.state == 'aborted' ) {
-						_this.fogg.cancel();
+					if ( transport.upload.state === 'aborted' ) {
+						transport.fogg.cancel();
 					} else {
 						progress = JSON.parse(progress);
-						_this.progressCb( progress );
-						_this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
+						transport.progressCb( progress );
+						transport.upload.ui.setStatus( 'mwe-upwiz-encoding' );
 					}
 				}
 			);
 		}
 	},
+
 	doFormDataUpload: function(file) {
 		this.upload.ui.setStatus( 'mwe-upwiz-uploading' );
 		this.upload.file = file;
@@ -79,35 +83,36 @@ mw.FirefoggTransport.prototype = {
 		}
 	},
 
+	// TODO these boolean functions could be compressed and/or simplified, it looks like
 	isSourceAudio: function() {
 		var info = this.getSourceFileInfo();
 		// never transcode images
-		if ( info.contentType.indexOf( "image/" ) != -1 ) {
+		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
 			return false;
 		}
-		return ( ( !info.video || info.video.length == 0 ) && info.audio.length > 0 ) ||
-				info.contentType.indexOf( "audio/" ) != -1;
+		return ( ( !info.video || info.video.length === 0 ) && info.audio.length > 0 ) ||
+				info.contentType.indexOf( 'audio/' ) !== -1;
 	},
 
 	isSourceVideo: function() {
 		var info = this.getSourceFileInfo();
 		// never transcode images
-		if ( info.contentType.indexOf( "image/" ) != -1 ) {
+		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
 			return false;
 		}
 		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 ) ||
-			info.contentType.indexOf( "video/" ) != -1;
+			info.contentType.indexOf( 'video/' ) !== -1;
 	},
 
 	isOggFormat: function() {
 		var contentType = this.getSourceFileInfo().contentType;
-		return contentType.indexOf( "video/ogg" ) != -1 ||
-			contentType.indexOf( "application/ogg" ) != -1 ||
-			contentType.indexOf( "audio/ogg") != -1;
+		return contentType.indexOf( 'video/ogg' ) !== -1 ||
+			contentType.indexOf( 'application/ogg' ) !== -1 ||
+			contentType.indexOf( 'audio/ogg') !== -1;
 	},
 
 	isWebMFormat: function() {
-		return (  this.getSourceFileInfo().contentType.indexOf('webm') != -1 );
+		return ( this.getSourceFileInfo().contentType.indexOf('webm') !== -1 );
 	},
 
 	/**
@@ -144,7 +149,7 @@ mw.FirefoggTransport.prototype = {
 	},
 	getEncodeExt: function(){
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
-		if ( encodeSettings.videoCodec && encodeSettings.videoCodec == 'vp8' ) {
+		if ( encodeSettings.videoCodec && encodeSettings.videoCodec === 'vp8' ) {
 			return 'webm';
 		} else {
 			return 'ogv';
@@ -161,9 +166,9 @@ mw.FirefoggTransport.prototype = {
 		// Get the default encode settings:
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
 		// Update the format:
-		this.fogg.setFormat( ( this.getEncodeExt() == 'webm' ) ? 'webm' : 'ogg' );
+		this.fogg.setFormat( ( this.getEncodeExt() === 'webm' ) ? 'webm' : 'ogg' );
 
-		mw.log("FirefoggTransport::getEncodeSettings> " +  JSON.stringify(  encodeSettings ) );
+		mw.log( 'FirefoggTransport::getEncodeSettings> ' +  JSON.stringify(  encodeSettings ) );
 		return encodeSettings;
 	}
 };

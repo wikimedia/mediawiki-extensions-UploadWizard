@@ -17,17 +17,19 @@ mw.Firefogg = {
 			return 'http://firefogg.org/';
 		}
 		if ( navigator.oscpu ) {
-			if ( navigator.oscpu.search( 'Linux' ) >= 0 )
+			if ( navigator.oscpu.search( 'Linux' ) >= 0 ) {
 				osLink = this.firefoggInstallLinks.linux;
-			else if ( navigator.oscpu.search( 'Mac' ) >= 0 )
+			} else if ( navigator.oscpu.search( 'Mac' ) >= 0 ) {
 				osLink = this.firefoggInstallLinks.macosx;
-			else if (navigator.oscpu.search( 'Win' ) >= 0 )
+			} else if (navigator.oscpu.search( 'Win' ) >= 0 ) {
 				osLink = this.firefoggInstallLinks.win32;
+			}
 		}
 		return osLink;
 	},
+
 	isInstalled: function() {
-		return typeof( Firefogg ) != 'undefined' && Firefogg().version >= '2.8.05';
+		return typeof window.Firefogg !== 'undefined' && new window.Firefogg().version >= '2.8.05';
 	}
 };
 }( mediaWiki, jQuery ) );

@@ -25,12 +25,13 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
     // Workaround for Firefox < 7.0 sending an empty string
     // as filename for Blobs in FormData requests, something PHP does not like
     // https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-    this.gecko = $.browser.mozilla && $.browser.version < "7.0";
+    this.gecko = $.browser.mozilla && $.browser.version < '7.0';
 };
 
 mw.FormDataTransport.prototype = {
     upload: function() {
-        var _this = this,
+        var formData,
+			transport = this,
             file = this.uploadObject.file;
 
         // use timestamp + filename to avoid conflicts on server
@@ -44,27 +45,27 @@ mw.FormDataTransport.prototype = {
             this.uploadChunk(0);
         } else {
             this.xhr = new XMLHttpRequest();
-            this.xhr.addEventListener("load", function (evt) {
-                _this.parseResponse(evt, _this.transportedCb);
+            this.xhr.addEventListener('load', function (evt) {
+                transport.parseResponse(evt, transport.transportedCb);
             }, false);
-            this.xhr.addEventListener("error", function (evt) {
-                _this.parseResponse(evt, _this.transportedCb);
+            this.xhr.addEventListener('error', function (evt) {
+                transport.parseResponse(evt, transport.transportedCb);
             }, false);
-            this.xhr.upload.addEventListener("progress", function (evt) {
-                if ( _this.uploadObject.state == 'aborted' ) {
-                    _this.xhr.abort();
+            this.xhr.upload.addEventListener('progress', function (evt) {
+                if ( transport.uploadObject.state === 'aborted' ) {
+                    transport.xhr.abort();
                     return;
                 }
                 if (evt.lengthComputable) {
                     var progress = parseFloat(evt.loaded / evt.total );
-                    _this.progressCb(progress);
+                    transport.progressCb(progress);
                 }
             }, false);
-            this.xhr.addEventListener("abort", function (evt) {
-                _this.parseResponse(evt, _this.transportedCb);
+            this.xhr.addEventListener('abort', function (evt) {
+                transport.parseResponse(evt, transport.transportedCb);
             }, false);
 
-            var formData = new FormData();
+            formData = new FormData();
 
             $.each(this.formData, function(key, value) {
                 formData.append(key, value);
@@ -78,16 +79,17 @@ mw.FormDataTransport.prototype = {
 			// wizard.
 			formData.append( 'ignorewarnings', true );
 
-            this.xhr.open("POST", _this.postUrl, true);
+            this.xhr.open('POST', this.postUrl, true);
             this.xhr.send(formData);
         }
     },
     uploadChunk: function(offset) {
-        var _this = this,
+        var formData,
+			transport = this,
             file = this.uploadObject.file,
             bytesAvailable = file.size,
             chunk;
-        if ( this.uploadObject.state == 'aborted' ) {
+        if ( this.uploadObject.state === 'aborted' ) {
             if ( this.xhr ) {
                 this.xhr.abort();
             }
@@ -96,78 +98,77 @@ mw.FormDataTransport.prototype = {
         //Slice API was changed and has vendor prefix for now
         //new version now require start/end and not start/length
         if(file.mozSlice) {
-            chunk = file.mozSlice(offset, offset+_this.chunkSize, file.type);
+            chunk = file.mozSlice(offset, offset + this.chunkSize, file.type);
         } else if(file.webkitSlice) {
-            chunk = file.webkitSlice(offset, offset+_this.chunkSize, file.type);
+            chunk = file.webkitSlice(offset, offset + this.chunkSize, file.type);
         } else {
-            chunk = file.slice(offset, offset+_this.chunkSize, file.type);
+            chunk = file.slice(offset, offset + this.chunkSize, file.type);
         }
 
         this.xhr = new XMLHttpRequest();
-        this.xhr.addEventListener("load", function (evt) {
-            _this.responseText = evt.target.responseText;
-            _this.parseResponse(evt, function(response) {
+        this.xhr.addEventListener('load', function (evt) {
+            transport.responseText = evt.target.responseText;
+            transport.parseResponse(evt, function(response) {
                 if(response.upload && response.upload.filekey) {
-                    _this.filekey = response.upload.filekey;
+                    transport.filekey = response.upload.filekey;
                 }
-                if (response.upload && response.upload.result == 'Success') {
+                if (response.upload && response.upload.result === 'Success') {
                     //upload finished and can be unstashed later
-                    _this.transportedCb(response);
-                } else if (response.upload && response.upload.result == 'Poll') {
+                    transport.transportedCb(response);
+                } else if (response.upload && response.upload.result === 'Poll') {
                     //Server not ready, wait for 3 seconds
                     setTimeout(function() {
-                        _this.checkStatus();
+                        transport.checkStatus();
                     }, 3000);
-                } else if (response.upload && response.upload.result == 'Continue') {
+                } else if (response.upload && response.upload.result === 'Continue') {
                     //reset retry counter
-                    _this.retries = 0;
+                    transport.retries = 0;
                     //start uploading next chunk
-                    _this.uploadChunk(response.upload.offset);
+                    transport.uploadChunk(response.upload.offset);
                 } else {
                     //failed to upload, try again in 3 seconds
-                    _this.retries++;
-                    if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
+                    transport.retries++;
+                    if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
 						mw.log( 'max retries exceeded on unknown response' );
                         //upload failed, raise response
-                        _this.transportedCb(response);
+                        transport.transportedCb(response);
                     } else {
-						mw.log( 'retry #' + _this.retries + ' on unknown response' );
+						mw.log( 'retry #' + transport.retries + ' on unknown response' );
                         setTimeout(function() {
-                            _this.uploadChunk(offset);
+                            transport.uploadChunk(offset);
                         }, 3000);
                     }
                 }
             });
         }, false);
-        this.xhr.addEventListener("error", function (evt) {
+        this.xhr.addEventListener('error', function (evt) {
             //failed to upload, try again in 3 second
-            _this.retries++;
-            if (_this.maxRetries > 0 && _this.retries >= _this.maxRetries) {
+            transport.retries++;
+            if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
 				mw.log( 'max retries exceeded on error event' );
-                _this.parseResponse(evt, _this.transportedCb);
+                transport.parseResponse(evt, transport.transportedCb);
             } else {
-				mw.log( 'retry #' + _this.retries + ' on error event' );
+				mw.log( 'retry #' + transport.retries + ' on error event' );
                 setTimeout(function() {
-                        _this.uploadChunk(offset);
+                        transport.uploadChunk(offset);
                 }, 3000);
             }
         }, false);
-        this.xhr.upload.addEventListener("progress", function (evt) {
-            if ( _this.uploadObject.state == 'aborted' ) {
-                _this.xhr.abort();
+        this.xhr.upload.addEventListener('progress', function (evt) {
+            if ( transport.uploadObject.state === 'aborted' ) {
+                transport.xhr.abort();
             }
             if (evt.lengthComputable) {
                 var progress = parseFloat(offset+evt.loaded)/bytesAvailable;
-                _this.progressCb(progress);
+                transport.progressCb(progress);
             }
         }, false);
-        this.xhr.addEventListener("abort", function (evt) {
-            _this.parseResponse(evt, _this.transportedCb);
+        this.xhr.addEventListener('abort', function (evt) {
+            transport.parseResponse(evt, transport.transportedCb);
         }, false);
 
-        var formData;
-        if(_this.gecko) {
-            formData = _this.geckoFormData();
+        if(this.gecko) {
+            formData = this.geckoFormData();
         } else {
             formData = new FormData();
         }
@@ -175,7 +176,7 @@ mw.FormDataTransport.prototype = {
             formData.append(key, value);
         });
         formData.append('offset', offset);
-        formData.append('filename', _this.tempname);
+        formData.append('filename', this.tempname);
 
 		// ignorewarnings is turned on intentionally, see the above comment to the same effect.
 		formData.append( 'ignorewarnings', true );
@@ -184,32 +185,32 @@ mw.FormDataTransport.prototype = {
 			formData.append( 'async', true );
 		}
 
-        if (_this.filekey) {
-            formData.append('filekey', _this.filekey);
+        if (this.filekey) {
+            formData.append('filekey', this.filekey);
         }
         formData.append('filesize', bytesAvailable);
-        if(_this.gecko) {
+        if(this.gecko) {
             formData.appendBlob('chunk', chunk, 'chunk.bin');
         } else {
             formData.append('chunk', chunk);
         }
-        this.xhr.open("POST", _this.postUrl, true);
-        if(_this.gecko) {
+        this.xhr.open('POST', this.postUrl, true);
+        if(this.gecko) {
             formData.send(this.xhr);
         } else {
             this.xhr.send(formData);
         }
     },
     checkStatus: function() {
-        var _this = this;
-        if ( _this.uploadObject.state == 'aborted' ) {
+        var transport = this,
+			api = new mw.Api(),
+			params = {};
+        if ( this.uploadObject.state === 'aborted' ) {
             return;
         }
         if(!this.firstPoll) {
             this.firstPoll = ( new Date() ).getTime();
         }
-        var api = new mw.Api();
-        var params = {};
         $.each(this.formData, function(key, value) {
             params[key] = value;
         });
@@ -217,26 +218,26 @@ mw.FormDataTransport.prototype = {
         params.filekey =  this.filekey;
         api.post( params, {
             ok: function(response) {
-                if (response.upload && response.upload.result == 'Poll') {
+                if (response.upload && response.upload.result === 'Poll') {
                     //If concatenation takes longer than 10 minutes give up
-                    if ( ( ( new Date() ).getTime() - _this.firstPoll ) > 10 * 60 * 1000 ) {
-                        _this.transportedCb({
+                    if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
+                        transport.transportedCb({
                             code: 'server-error',
                             info: 'unknown server error'
                         });
                     //Server not ready, wait for 3 more seconds
                     } else {
-                        _this.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
+                        transport.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
                         setTimeout(function() {
-                            _this.checkStatus();
+                            transport.checkStatus();
                         }, 3000);
                     }
                 } else {
-                    _this.transportedCb(response);
+                    transport.transportedCb(response);
                 }
             },
             err: function(status, response) {
-                _this.transportedCb(response);
+                transport.transportedCb(response);
             }
         } );
     },
@@ -255,7 +256,8 @@ mw.FormDataTransport.prototype = {
         callback(response);
     },
     geckoFormData: function() {
-        var boundary = '------XX' + Math.random(),
+        var formData, onload,
+			boundary = '------XX' + Math.random(),
             dashdash = '--',
             crlf = '\r\n',
             builder = '', // Build RFC2388 string.
@@ -263,7 +265,7 @@ mw.FormDataTransport.prototype = {
 
         builder += dashdash + boundary + crlf;
 
-        var formData = {
+        formData = {
             append: function(name, data) {
                 // Generate headers.
                 builder += 'Content-Disposition: form-data; name="'+ name +'"';
@@ -313,13 +315,13 @@ mw.FormDataTransport.prototype = {
                 }
             }
         };
-        var onload = function() {
+        onload = function() {
             // Mark end of the request.
             builder += dashdash + boundary + dashdash + crlf;
 
             // Send to server
-            formData.xhr.setRequestHeader("Content-type",
-                                  "multipart/form-data; boundary=" + boundary);
+            formData.xhr.setRequestHeader('Content-type',
+                                  'multipart/form-data; boundary=' + boundary);
             formData.xhr.sendAsBinary(builder);
         };
         return formData;

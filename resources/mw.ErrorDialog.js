@@ -12,17 +12,17 @@
 
 	mw.ErrorDialog.prototype = {
 		setup: function() {
-			var _this = this;
+			var dialog = this;
 
 			// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
-			_this.buttons = {};
-			_this.buttons[ mw.msg( 'mwe-upwiz-errordialog-ok' ) ] = function() { _this.ok(); };
+			this.buttons = {};
+			this.buttons[ mw.msg( 'mwe-upwiz-errordialog-ok' ) ] = function () { dialog.ok(); };
 
 			this.$dialog =
 				$( '<div style="position:relative;"></div>' ).append(
 					$( '<div class="mwe-upwiz-errordialog-mode mwe-upwiz-errordialog"></div>' ).append(
 						$( '<div style="margin-top:1em;"></div>' ).append(
-							_this.errorMessage,
+							this.errorMessage,
 							$( '<br/>' )
 						)
 					)
@@ -31,7 +31,7 @@
 					autoOpen: false,
 					title: mw.msg( 'mwe-upwiz-errordialog-title' ),
 					modal: true,
-					buttons: _this.buttons
+					buttons: this.buttons
 				});
 		},
 
