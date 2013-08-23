@@ -291,12 +291,15 @@ mw.UploadWizardUploadInterface.prototype = {
 	 */
 	getFiles: function() {
 		var files = [];
+
 		if ( mw.fileApi.isAvailable() ) {
 			if( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
 				files[0] = this.providedFile;
 			} else {
 				$.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
-					files.push( file );
+					if ( window.File && Object.prototype.toString.call( file ) === '[object File]' ) {
+						files.push( file );
+					}
 				} );
 			}
 		}
