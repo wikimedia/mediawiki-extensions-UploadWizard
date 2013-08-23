@@ -141,7 +141,15 @@ return array(
 			'initialValue' => '',
 
 			// Set to true if this field is required
-			'required' => false
+			'required' => false,
+
+			// Define the type of widget that will be rendered,
+			// pick between text and select
+			'type' => "text",
+
+			// If the type above is select, provide a dictionary of
+			// value -> label associations to display as options
+			'options' => array(/* 'value' => 'label' */)
 		)
 	),
 

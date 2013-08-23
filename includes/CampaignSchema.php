@@ -44,7 +44,17 @@ return array(
 						),
 						"required" => array(
 							"type" => "boolean"
-						)
+						),
+						"type" => array(
+							"type" => "string"
+						),
+						// Commented out because this is currently not
+						// supported in JsonSchema.php
+						/* "options" => array( */
+						/* 	"type" => "object", */
+						/* 	"properties" => array(), */
+						/* 	"additionalProperties" => true */
+						/* ) */
 					)
 				)
 			)
