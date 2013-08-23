@@ -109,6 +109,11 @@ $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;
 
+$wgResourceModules['ext.uploadWizard.page'] = array(
+        'scripts' => 'mw.UploadWizardPage.js',
+        'dependencies' => 'ext.uploadWizard',
+) + $uploadWizardModuleInfo;
+
 // Campaign hook handlers
 $wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
 $wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';

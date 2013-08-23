@@ -116,7 +116,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// dependencies (css, js)
 		$out->addModuleStyles( 'ext.uploadWizard' );
-		$out->addModules( 'ext.uploadWizard' );
+		$out->addModules( 'ext.uploadWizard.page' );
 
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.

@@ -38,7 +38,7 @@ class UploadWizardHooks {
 				'mediawiki.user',
 				'mediawiki.feedback',
 				'ext.uploadWizard.apiUploadHandler',
-				'ext.uploadWizard.apiUploadFormDataHandler'
+				'ext.uploadWizard.apiUploadFormDataHandler',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -94,10 +94,6 @@ class UploadWizardHooks {
 				'resources/mw.UploadWizardDescription.js',
 				'resources/mw.UploadWizardDetails.js',
 				'resources/mw.UploadWizardUploadInterface.js',
-
-
-				// launcher
-				'UploadWizardPage.js'
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',

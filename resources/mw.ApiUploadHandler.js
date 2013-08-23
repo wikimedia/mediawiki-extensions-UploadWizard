@@ -10,7 +10,8 @@
 
 /**
  * Represents an object which configures a form to upload its files via an iframe talking to the MediaWiki API.
- * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
+ * @param {mw.UploadWizardUpload} upload current upload
+ * @param {mw.Api} api
  */
 mw.ApiUploadHandler = function( upload, api ) {
 	// the Iframe transport is hardcoded for now because it works everywhere
