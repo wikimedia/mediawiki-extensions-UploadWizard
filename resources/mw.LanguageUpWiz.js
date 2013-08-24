@@ -21,16 +21,9 @@ mw.LanguageUpWiz = {
 	 * List of default languages
 	 * Make sure you have language templates set up for each of these on your wiki, e.g. {{en}}
 	 * TODO make this more configurable.
+	 * This is set in the initialize().
 	 */
-	languages: ( function () {
-		var langcode,
-			langs = mw.config.get( 'UploadWizardConfig' ).uwLanguages,
-			list = [];
-		for ( langcode in langs ) {
-			list.push( { code: langcode, text: langs[langcode] } );
-		}
-		return list;
-	} )(),
+	languages: null,
 
 	// Helper function to see if a language is in the list.
 	checkForLang: function( lang ) {
@@ -49,8 +42,14 @@ mw.LanguageUpWiz = {
 	 * 2) dict of language code to name -- useful for testing for existence, maybe other things.
 	 */
 	initialize: function() {
+		var langs, langcode;
 		if ( mw.LanguageUpWiz.initialized ) {
 			return;
+		}
+		mw.LanguageUpWiz.languages = [];
+		langs = mw.UploadWizard.config.uwLanguages;
+		for ( langcode in langs ) {
+	        	mw.LanguageUpWiz.languages.push( { code: langcode, text: langs[langcode] } );
 		}
 
 		// If a descriptionlang param is passed in the query string, use that,
