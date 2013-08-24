@@ -13,3 +13,5 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/uw_campaigns (
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/uw_campaigns_name ON /*_*/uw_campaigns (campaign_name);
+-- Since we sort on campaign_id for pagination
+CREATE INDEX /*i*/uw_campaigns_enabled ON /*_*/uw_campaigns (campaign_enabled, campaign_id);
