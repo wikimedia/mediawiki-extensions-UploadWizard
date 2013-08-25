@@ -582,53 +582,179 @@ Related messages:
 * $1 is the number of files.
 * $2 can be used for GENDER.',
 	'mwe-upwiz-source-ownwork' => 'Parameters:
-* $1 - number of the files',
-	'mwe-upwiz-source-ownwork-assert' => '{{doc-singularthey}}',
+* $1 - number of files
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'Parameters:
+* $1 - number of works (number of uploads)
+* $2 - the "Author name" input box
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
+	'mwe-upwiz-source-ownwork-assert' => '{{doc-singularthey}}
+Parameters:
+* $1 - number of works
+* $2 - author name
+{{Related|Mwe-upwiz-source-ownwork}}',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Used as license message. Parameters:
-* $1 - username
-* $2 - number of the works
-* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/',
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by-sa/3.0/ (?)
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL, //creativecommons.org/licenses/by/3.0/
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '{{doc-singularthey}}
 
-"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
-	'mwe-upwiz-source-ownwork-cc-zero-explain' => '"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).',
+"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Used as license message. Parameters:
+* $1 - number of the works
+* $2 - the "Author name" input box
+* $3 - full URL
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
+	'mwe-upwiz-source-ownwork-cc-zero-explain' => '"Adapt" is an acceptable alternative to "remix". It\'s what Creative Commons themselves use in their [http://creativecommons.org/licenses/by/3.0/ summary], and "adaptation" is the term used in the actual [http://creativecommons.org/licenses/by/3.0/legalcode legal code] (see section 1 a for the full definition).
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-source-ownwork}}',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Use as approval text in the upload wizard. Parameters:
-* $1 is the number of uploaded files.
-* $2 is the author name that was provided. GENDER is not supported, as the value is free text; most often probably a real name or a wiki link to a user page.',
-	'mwe-upwiz-source-ownwork-assert-note' => '{{doc-important|In this message, $1 is the name of the license, and $2 is the number of uploads for pluralization.}}',
+* $1 - the number of uploaded files
+* $2 - the author name that was provided. GENDER is not supported, as the value is free text; most often probably a real name or a wiki link to a user page.
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Parameters:
+* $1 - the name of the license
+* $2 - the number of uploads for PLURAL
+{{Related|Mwe-upwiz-source-ownwork-assert}}',
 	'mwe-upwiz-source-permission' => '"Explicit permission" here means specific permission. The author has given "you", meaning the person uploading the files, specific permission to upload those particular files to that particular website.',
 	'mwe-upwiz-source-thirdparty' => 'Parameters:
 * $1 - number of the files',
@@ -636,7 +762,10 @@ Related messages:
 * $1 - number of works. i.e. number of uploads',
 	'mwe-upwiz-source-thirdparty-accept' => '{{Identical|OK}}',
 	'mwe-upwiz-more-options' => "Text for a 'more options' toggle that opens more of a form so a user can make more detailed descriptions/add more properties for uploaded images.",
-	'mwe-upwiz-copy-metadata' => 'Toggler which expands/collapses a selection of checkboxes vertically which allow the user to selectively copy metadata from the first upload to other uploads.',
+	'mwe-upwiz-copy-metadata' => 'Toggler which expands/collapses a selection of checkboxes vertically which allow the user to selectively copy metadata from the first upload to other uploads.
+
+Parameters:
+* $1 - number of uploads',
 	'mwe-upwiz-copy-metadata-button' => 'Label of the button which executes a copy operation of selected metadata from the first upload to all other uploads.
 {{Identical|Copy}}',
 	'mwe-upwiz-copied-metadata-button' => 'Label of the button which executes a copy operation of selected metadata from the first upload to all other uploads after successfully completing the operation.',
@@ -668,6 +797,10 @@ This is followed by a language name in a drop-down language selector.
 	'mwe-upwiz-copyright-info' => 'Used as fieldset label.',
 	'mwe-upwiz-author' => 'Used as label for the Author(s) input box.
 {{Identical|Author}}',
+	'mwe-upwiz-autoconverted' => 'Unused at this time.
+
+Parameters:
+* $1 - ...',
 	'mwe-upwiz-other' => '[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]
 
 {{Identical|Other information}}',
@@ -677,7 +810,10 @@ This is followed by a language name in a drop-down language selector.
 This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-thanks-explain' => '[[file:commons-uw-L52R.png|The beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 
-This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
+This is used in the beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].
+
+Parameters:
+* $1 - number of files (number of uploads)',
 	'mwe-upwiz-thanks-wikitext' => '{| align="right"
 | [[file:commons-uw-L52R.png|The beginning of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
 | [[file:commons-uw-L52S.png|The end of the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page|thumb|right]]
@@ -744,7 +880,11 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 	'mwe-upwiz-error-signature-bad-chars' => 'Used as error message.
 {{Related|Mwe-upwiz-error-signature}}',
 	'mwe-upwiz-error-blank' => '{{Identical|Required}}',
-	'mwe-upwiz-error-nologin' => 'Error shown when user is not logged in, returns them to the upload form.',
+	'mwe-upwiz-error-nologin' => '{{doc-important|Do not translate <code><nowiki><span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}}</nowiki></code>.}}
+Error shown when user is not logged in, returns them to the upload form.
+
+Parameters:
+* $1 - page title',
 	'mwe-upwiz-error-too-long' => 'Used as error message. Parameters:
 * $1 - maximum number of characters
 See also:
@@ -760,7 +900,11 @@ See also:
 * $2 - number of forms. i.e. number of uploads',
 	'mwe-upwiz-too-many-files-ok' => 'OK button text.
 {{Identical|OK}}',
-	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.',
+	'mwe-upwiz-too-many-files-text' => 'Error message informing the user there are too many uploads in a dialog. Each param is a file count.
+
+Parameters:
+* $1 - limit number of files
+* $2 - number of files you tried to upload',
 	'mwe-upwiz-too-many-files' => 'Error dialog title',
 	'mwe-upwiz-file-too-large-ok' => '{{Identical|OK}}',
 	'mwe-upwiz-file-too-large-text' => 'Error message informing the user that their file is too large to upload. Parameters:
@@ -20560,8 +20704,8 @@ Ikke bruk wikitekst eller HTML her.',
 	'mwe-upwiz-license-none' => 'Jeg tror at {{PLURAL:$1|dette verket|disse verkene}} er gitt fri lisens eller har frifalt opphavsrett. Jeg forstår at med mindre jeg legger til nødvendig lisensinformasjon på en ryddig måte, vil {{PLURAL:$1|filen|filene}} kunne bli slettet.',
 	'mwe-upwiz-license-confirm-remove' => 'Er du sikker på at du ønsker å fjerne {{PLURAL:$1|denne opplastingen|disse opplastingene}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Bekreft fjerning',
-	'mwe-upwiz-license-external' => 'For denne filen gjelder følgende lisens under $1: $2.',
-	'mwe-upwiz-license-external-invalid' => 'Denne filen har følgende lisens under $1:  $2. Og dessverre er da denne lisensen ikke god nok for bruk på dette nettstedet.',
+	'mwe-upwiz-license-external' => 'Denne filen er på kildenettstedet «$1» underlagt følgende lisens: $2.',
+	'mwe-upwiz-license-external-invalid' => 'Denne filen er på kildenettstedet «$1» underlagt følgende lisens: $2. Dessverre tillates ikke denne lisensen på denne wikien.',
 	'mwe-upwiz-license-photoset-invalid' => 'Beklager, det ble ikke funnet noen bilder i dette fotosettet med en lisens som kan brukes på dette nettstedet.',
 	'mwe-upwiz-url-invalid' => 'Den oppgitte URLen peker til et ugyldig eller bruksbegrenset $1-bilde eller -fotosett og kan ikke brukes.',
 	'mwe-upwiz-categories' => 'Kategorier',
@@ -28048,14 +28192,14 @@ $messages['th'] = array(
 	'uploadwizard' => 'ตัวช่วยการอัปโหลด',
 	'uploadwizard-desc' => 'ตัวช่วยอัปโหลด เครื่องมือสำหรับการอัปโหลดมัลติมีเดียอย่างง่าย',
 	'mwe-upwiz-uploadcampaigns' => 'แคมเปญอัปโหลด',
-	'mwe-upwiz-uploadcampaign' => 'การตั้งค่าอัปโหลดแคมเปญ',
-	'right-upwizcampaigns' => 'กำหนดค่าอัปโหลดแคมเปญ',
-	'action-upwizcampaigns' => 'กำหนดค่าอัปโหลดแคมเปญ',
-	'group-upwizcampeditors' => 'ตัวแก้ไขอัปโหลดแคมเปญ',
-	'group-upwizcampeditors-member' => '{{GENDER:$1|ตัวแก้ไข Upload Wizard campaign}}',
-	'grouppage-upwizcampeditors' => '{{ns:project}}:ตัวแก้ไข Upload Wizard campaign',
-	'mwe-upwiz-js-off' => 'UploadWizard ใช้ JavaScript เพื่ออินเทอร์เฟซที่ดีกว่า เบราว์เซอร์ของคุณอาจไม่สนับสนุน JavaScript หรือไม่ได้เปิดใช้งาน JavaScript ดังนั้นจะแสดงแบบฟอร์มอัพโหลดง่าย',
-	'mwe-upwiz-extension-disabled' => 'หน้านี้ได้ถูกปิดใช้งานเนื่องจากปัญหาด้านเทคนิคชั่วคราว ในระหว่างนี้ลองใช้ฟอร์มอัปโหลดมาตรฐาน',
+	'mwe-upwiz-uploadcampaign' => 'การตั้งค่าแคมเปญอัปโหลด',
+	'right-upwizcampaigns' => 'กำหนดค่าแคมเปญตัวช่วยอัปโหลด',
+	'action-upwizcampaigns' => 'กำหนดค่าแคมเปญอัปโหลด',
+	'group-upwizcampeditors' => 'ตัวแก้ไขแคมเปญตัวช่วยอัปโหลด',
+	'group-upwizcampeditors-member' => '{{GENDER:$1|ตัวแก้ไขแคมเปญตัวช่วยอัปโหลด}}',
+	'grouppage-upwizcampeditors' => '{{ns:project}}:ตัวแก้ไขแคมเปญตัวช่วยอัปโหลด',
+	'mwe-upwiz-js-off' => 'ตัวช่วยอัปโหลดใช้จาวาสคริปต์เพื่ออินเตอร์เฟซที่ดีกว่า เบราว์เซอร์ของคุณอาจไม่รองรับจาวาสคริปต์ หรือไม่ได้เปิดใช้งานจาวาสคริปต์ ดังนั้นจะแสดงแบบอัปโหลดอย่างง่าย',
+	'mwe-upwiz-extension-disabled' => 'หน้านี้ถูกปิดใช้งานเนื่องจากปัญหาด้านเทคนิคชั่วคราว ในระหว่างนี้ลองใช้แบบอัปโหลดมาตรฐาน',
 	'mwe-upwiz-code-unknown' => 'ภาษาที่ไม่รู้จัก',
 	'mwe-upwiz-step-tutorial' => 'เรียนรู้',
 	'mwe-upwiz-step-file' => 'อัปโหลด',
@@ -28063,10 +28207,10 @@ $messages['th'] = array(
 	'mwe-upwiz-step-details' => 'อธิบาย',
 	'mwe-upwiz-step-thanks' => 'ใช้',
 	'mwe-upwiz-campaign-name-duplicate' => 'แคมเปญในชื่อนี้มีอยู่แล้ว',
-	'mwe-upwiz-campaign-unknown-error' => 'ข้อผิดพลาดที่ไม่รู้จักเกิดขึ้น',
-	'mwe-upwiz-api-warning-exists' => 'มี [$1 แฟ้มอื่น] อยู่บนวิกินี้ด้วยชื่อแฟ้มเดียวกัน',
-	'mwe-upwiz-api-warning-was-deleted' => 'มีแฟ้มตามชื่อนี้, " $1 ", แต่เคยถูกลบออก และคุณไม่สามารถอัปโหลดซ้ำ ลองเปลี่ยนชื่อแฟ้ม',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ขออภัย เราไม่สามารถหาตัวช่วยในภาษาของคุณ  $1 จะแสดงผลแทน',
+	'mwe-upwiz-campaign-unknown-error' => 'เกิดข้อผิดพลาดไม่ทราบสาเหตุ',
+	'mwe-upwiz-api-warning-exists' => 'มี [$1 แฟ้มอื่น] ที่ใช้ชื่อเดียวกันบนวิกินี้แล้ว',
+	'mwe-upwiz-api-warning-was-deleted' => 'มีแฟ้มตามชื่อนี้ "$1" แต่ถูกลบ และคุณไม่สามารถอัปโหลดซ้ำ หากแฟ้มนี้มิใช่แฟ้มเดิม ลองเปลี่ยนชื่อแฟ้ม',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'ขออภัย เราไม่สามารถหาตัวช่วยในภาษาของคุณ ตัวช่วยภาษา$1จะแสดงผลแทน',
 	'mwe-upwiz-tutorial-error-file-missing' => 'ขออภัย เราไม่สามารถหาแฟ้มใด ๆ สำหรับตัวช่วยนี้ กรุณาติดต่อผู้ดูแลระบบ',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'ขออภัย เราไม่สามารถรับการปรับสัดส่วนให้พอดีกับหน้าจอนี้ นี้อาจเป็นปัญหาชั่วคราวกับ Wikimedia Commons ลองอีกครั้งภายหลัง',
 	'mwe-upwiz-help-desk' => 'โต๊ะให้ความช่วยเหลือ',
@@ -28078,24 +28222,26 @@ $messages['th'] = array(
 	'mwe-upwiz-add-flickr-or' => 'หรือ',
 	'mwe-upwiz-add-flickr' => 'เอาจาก Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'URL รูป/photoset Flickr',
-	'mwe-upwiz-select-flickr' => 'อัพโหลดรูปที่เลือกไว้',
+	'mwe-upwiz-select-flickr' => 'อัปโหลดรูปที่เลือกไว้',
+	'mwe-upwiz-flickr-disclaimer1' => 'แบบนี้จะโหลดเนื้อหาที่อยู่บน flickr.com และอยู่ภายใต้[https://www.flickr.com/help/terms/ เงื่อนไขการใช้งาน]และ[https://www.flickr.com/help/privacy-policy/ นโยบายความเป็นส่วนตัว]ของฟลิกเกอร์',
 	'mwe-upwiz-flickr-disclaimer2' => 'โปรดทราบว่า โดยการใช้เครื่องมือนี้ ที่อยู่ IP และรายละเอียดที่เกี่ยวข้องจะถูกเปิดเผยแก่ Flickr',
 	'mwe-upwiz-error-no-image-retrieved' => 'เราไม่สามารถเรียกไฟล์จาก $1',
+	'mwe-upwiz-multi-file-select' => 'ลากกล่องด้วยเคอร์เซอร์เหนือแฟ้มที่คุณต้องการอัปโหลด หรือกดแป้น Ctrl/Command เพื่อเลือกหลายแฟ้มที่มิได้อยู่ติดกัน',
 	'mwe-upwiz-transport-started' => 'กำลังเริ่ม...',
 	'mwe-upwiz-encoding' => 'กำลังเข้ารหัส...',
-	'mwe-upwiz-uploading' => 'กำลังอัปโหลด',
+	'mwe-upwiz-uploading' => 'กำลังอัปโหลด...',
 	'mwe-upwiz-queued' => 'เข้าคิวไว้...',
 	'mwe-upwiz-assembling' => 'กำลังประกอบ...',
 	'mwe-upwiz-publish' => 'กำลังเผยแพร่...',
 	'mwe-upwiz-transported' => 'อัปโหลดเสร็จสิ้น...',
 	'mwe-upwiz-stashed-upload' => 'อัปโหลดแล้ว',
-	'mwe-upwiz-getting-metadata' => 'กำลังดึงข้อมูลไฟล์และหน้าตัวอย่าง',
+	'mwe-upwiz-getting-metadata' => 'กำลังดึงข้อมูลไฟล์และตัวอย่าง...',
 	'mwe-upwiz-submitting-details' => 'กำลังส่งรายละเอียด และเผยแพร่...',
 	'mwe-upwiz-published' => 'เผยแพร่แล้ว!',
 	'mwe-upwiz-failed' => 'ล้มเหลว',
 	'mwe-upwiz-remove' => 'นำออก',
 	'mwe-upwiz-override' => 'อัปโหลดต่อไป',
-	'mwe-upwiz-remove-upload' => 'เอาแฟ้มนี้ออกจากรายการของแฟ้มที่จะอัปโหลด',
+	'mwe-upwiz-remove-upload' => 'เอาแฟ้มนี้ออกจากรายการแฟ้มที่จะอัปโหลด',
 	'mwe-upwiz-show-thumb' => 'แสดงรูปขนาดย่อ',
 	'mwe-upwiz-show-thumb-tip' => 'โหลดรูปภาพขนาดย่อสำหรับแฟ้มนี้',
 	'mwe-upwiz-remove-description' => 'เอาคำอธิบายนี้ออก',
@@ -28108,19 +28254,59 @@ $messages['th'] = array(
 	'mwe-upwiz-next-file-despite-failures' => 'ดำเนินการต่อ',
 	'mwe-upwiz-skip-tutorial-future' => 'ข้ามขั้นตอนนี้ในอนาคต',
 	'mwe-upwiz-file-all-failed' => 'การอัปโหลดทั้งหมดไม่สำเร็จ',
+	'mwe-upwiz-upload-count' => '$1 จาก $2   {{PLURAL:$2|ไฟล์|ไฟล์}} อัปโหลดแล้ว',
 	'mwe-upwiz-progressbar-uploading' => 'กำลังอัปโหลด',
-	'mwe-upwiz-finished' => 'เสร็จแล้ว!',
+	'mwe-upwiz-finished' => 'เสร็จสิ้น!',
+	'mwe-upwiz-secs-remaining' => 'เหลืออีก $1 {{PLURAL:$1|วินาที|วินาที}}',
+	'mwe-upwiz-mins-secs-remaining' => 'เหลืออีก $1 {{PLURAL:$1|นาที|นาที}}  $2 {{PLURAL:$2|วินาที|วินาที}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => 'เหลืออีก $1 {{PLURAL:$1|ชั่วโมง|ชั่วโมง}}  $2 {{PLURAL:$2|นาที|นาที}}  $3   {{PLURAL:$3|วินาที|วินาที}}',
+	'mwe-upwiz-deeds-macro-prompt' => 'เว็บไซต์นี้ต้องการให้{{GENDER:$2|คุณ}}แสดงข้อมูลลิขสิทธิ์ของ{{PLURAL:$1|งานนี้|งานเหล่านี้}} เพื่อให้แน่ใจว่าทุกคนสามารถใช้{{PLURAL:$1|งานของคุณ|งานของคุณ}}ได้ตามกฎหมาย',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|แฟ้มนี้|แฟ้มเหล่านี้}}เป็นงานของฉันเอง',
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์ของ{{PLURAL:$1|งานนี้|งานเหล่านี้}}ให้สิทธิอย่างเพิกถอนมิได้แก่ทุกคนเพื่อใช้ แก้ไข และเผยแพร่{{PLURAL:$1|งานนี้|งานเหล่านี้}} ไม่ว่าด้วยวัตถุประสงค์ใด ๆ และข้าพเจ้าเผยแพร่งานดังกล่าวภายใต้เงื่อนไขต่อไปนี้:',
+	'mwe-upwiz-source-ownwork-assert' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์ของ{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างเพิกถอนมิได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}} ไม่ว่าด้วยวัตถุประสงค์ใด ๆ ตราบเท่าที่ให้เครดิตแก่ข้าพเจ้า และแบ่งปันผลงานต่อยอดภายใต้เงื่อนไขเดียวกัน',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 ออสเตรีย  ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 เยอรมนี  ([$3 ดูกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 เอสโตเนีย ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 สเปน ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 โครเอเชีย([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 ลักเซมเบิร์ก([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 เนเธอร์แลนด์  ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 นอร์เวย์ ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 โปแลนด์ ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 โรมาเนีย ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน และแบ่งปันผลงานสร้างสรรค์ใด ๆ ภายใต้สัญญาอนุญาตนี้)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบแสดงที่มา 3.0 ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ ตราบเท่าที่ให้เครดิตฉัน)',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตครีเอทีฟคอมมอนส์แบบการอุทิศสาธารณสมบัติ ([$3 ดูข้อกฎหมาย])',
+	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(ทุกคนสามารถใช้ แบ่งปันหรือเรียบเรียง{{PLURAL:$1|งานนี้|งานเหล่านี้}}ใหม่ โดยไม่มีข้อจำกัดใด ๆ)',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} ให้สิทธิอย่างไม่อาจเพิกถอนได้แก่ทุกคนเพื่อใช้{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาตต่อไปนี้:',
+	'mwe-upwiz-source-ownwork-assert-note' => 'ข้าพเจ้า $2 ผู้ถือลิขสิทธิ์{{PLURAL:$1|งานนี้|งานเหล่านี้}} เผยแพร่{{PLURAL:$1|งานนี้|งานเหล่านี้}}ภายใต้สัญญาอนุญาต$1',
 	'mwe-upwiz-source-permission' => 'เจ้าของอนุญาตอย่างชัดแจ้งให้อัปโหลดไฟล์เหล่านี้ได้',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|ไฟล์นี้|ไฟล์เหล่านี้}}ไม่ใช่ผลงานของฉัน',
 	'mwe-upwiz-source-thirdparty-intro' => 'กรุณาใส่ที่อยู่ที่คุณพบแต่ละไฟล์',
+	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'หากแฟ้มทั้งหมดมีแหล่งที่มา ผู้สร้างสรรค์และสถานะลิขสิทธิ์เดียวกัน คุณอาจกรอกเพียงครั้งเดียว',
+	'mwe-upwiz-source-thirdparty-cases' => 'โปรดบอกเราว่าเหตุใดคุณจึงมั่นใจว่ามีสิทธิเผยแพร่{{PLURAL:$1|งานนี้|งานเหล่านี้}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'ตกลง',
 	'mwe-upwiz-source-custom' => 'ให้ข้อมูลลิขสิทธิ์สำหรับแต่ละแฟ้มในหน้าถัดไป',
 	'mwe-upwiz-more-options' => 'เพิ่มตำแหน่งที่ตั้งและข้อมูลเพิ่มเติม...',
-	'mwe-upwiz-copy-metadata' => 'คัดลอกข้อมูลไป {{PLURAL:$1|อัปโหลดอีกอันหนึ่ง|อัปโหลดทั้งหมด}} ด้านล่าง...',
+	'mwe-upwiz-copy-metadata' => 'คัดลอกข้อมูลไป{{PLURAL:$1|อัปโหลดอีกอันหนึ่ง|อัปโหลดทั้งหมด}}ด้านล่าง...',
 	'mwe-upwiz-copy-metadata-button' => 'คัดลอก',
-	'mwe-upwiz-copied-metadata-button' => 'คัดลอกเสร็จเรียบร้อยแล้ว',
+	'mwe-upwiz-copied-metadata-button' => 'คัดลอกเสร็จสิ้น',
 	'mwe-upwiz-copy-title' => 'คัดลอกชื่อ (ด้วยการกำหนดหมายเลขอัตโนมัติ)',
-	'mwe-upwiz-copy-description' => 'คัดลอก {{PLURAL:$1| คำอธิบาย|คำอธิบาย }}',
+	'mwe-upwiz-copy-description' => 'คัดลอก{{PLURAL:$1|คำอธิบาย|คำอธิบาย}}',
 	'mwe-upwiz-copy-date' => 'คัดลอกวันที่',
+	'mwe-upwiz-copy-categories' => 'คัดลอก{{PLURAL:$1|หมวดหมู่|หมวดหมู่}}',
 	'mwe-upwiz-copy-location' => 'คัดลอกตำแหน่ง',
 	'mwe-upwiz-copy-other' => 'คัดลอกข้อมูลอื่น ๆ',
 	'mwe-upwiz-desc' => 'คำอธิบาย',
@@ -28129,17 +28315,37 @@ $messages['th'] = array(
 	'mwe-upwiz-title' => 'ชื่อเรื่อง',
 	'mwe-upwiz-media-type' => 'ชนิดของสื่อ',
 	'mwe-upwiz-date-created' => 'วันที่สร้าง',
-	'mwe-upwiz-location' => 'ที่อยู่',
+	'mwe-upwiz-location' => 'ที่ตั้ง',
 	'mwe-upwiz-location-lat' => 'ละติจูด',
 	'mwe-upwiz-location-lon' => 'ลองจิจูด',
 	'mwe-upwiz-location-alt' => 'ระดับความสูงจากน้ำทะเล',
 	'mwe-upwiz-copyright-info' => 'สิทธิในการเผยแพร่',
 	'mwe-upwiz-author' => 'ผู้สร้างสรรค์',
-	'mwe-upwiz-other' => 'ข้อมูลอื่น ๆ',
+	'mwe-upwiz-autoconverted' => 'แฟ้มนี้ถูกแปลงเป็นรูปแบบ $1 อัตโนมัติ',
+	'mwe-upwiz-other' => 'ข้อมูลอื่น',
 	'mwe-upwiz-source' => 'แหล่งที่มา',
-	'mwe-upwiz-thanks-intro' => 'ขอบคุณสำหรับการอัปโหลด',
+	'mwe-upwiz-thanks-intro' => 'ขอบคุณที่อัปโหลด!',
+	'mwe-upwiz-thanks-explain' => 'ขณะนี้คุณสามารถใช้{{PLURAL:$1|แฟ้มนี้|แฟ้มเหล่านี้}}บนเว็บอย่างวิกิพีเดีย หรือเชื่อมโยงมายังแฟ้มดังกล่าวจากเว็บนั้น',
+	'mwe-upwiz-thanks-wikitext' => 'ในการใช้แฟ้มในวิกิ ให้คัดลอกข้อความนี้ไปยังหน้า:',
+	'mwe-upwiz-thanks-url' => 'ในการเชื่อมโยงถึงใน HTML ให้คัดลอก URL นี้:',
+	'mwe-upwiz-upload-error-bad-filename-extension' => 'วิกินี้ไม่ยอมรับชื่อแฟ้มที่มีนามสกุล "$1"',
+	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'คุณเลือกแฟ้มวิดีโอสำหรับอัปโหลดซึ่งมิได้อยู่ในรูปแบบเสรี
+คุณสามารถติดตั้ง [$1 Firefogg] ซึ่งเป็นส่วนขยายหนึ่งของไฟร์ฟ็อกซ์ เพื่อแปลงแฟ้มของคุณอัตโนมัติ หรือใช้[$2 ตัวเลือกการแปลง]เพื่อแปลงวิดีโอให้อยู่ในรูปแบบเสรี',
+	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'วิกินี้กำหนดให้ไฟล์ต้องมีนามสกุล เช่น ".JPG" ท้ายชื่อแฟ้ม',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'คุณอัปโหลดแฟ้ม "$1" แล้ว',
+	'mwe-upwiz-allowed-filename-extensions' => 'นามสกุลไฟล์ที่อนุญาต:',
+	'mwe-upwiz-help-allowed-filename-extensions' => 'นามสกุลไฟล์ที่อนุญาต',
+	'mwe-upwiz-upload-error-duplicate' => 'แฟ้มนี้เคยถูกอัปโหลดมายังวิกินี้ก่อนหน้านี้แล้ว',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'แฟ้มนี้ถูกอัปโหลดไว้ก่อนหน้านี้บนวิกินี้ แต่ถูกลบไปแล้ว',
+	'mwe-upwiz-upload-error-stashed-anyway' => 'อัปโหลดต่อไปหรือไม่',
+	'mwe-upwiz-upload-error-unknown-filename-error' => 'เราไม่สามารถอ่าน หรือเข้าใจชื่อแฟ้ม "$1" โดยไม่ทราบสาเหตุ',
 	'mwe-upwiz-ok' => 'ตกลง',
 	'mwe-upwiz-cancel' => 'ยกเลิก',
+	'mwe-upwiz-fileexists-replace' => 'มีแฟ้มชื่อ "$1" แล้ว โปรดเปลี่ยนชื่อ',
+	'mwe-upwiz-fileexists' => 'มีไฟล์ชื่อนี้แล้ว
+โปรดตรวจสอบ $1 หากคุณไม่มั่นใจว่าคุณต้องการแทนที่ไฟล์',
+	'mwe-upwiz-fileexists-replace-on-page' => 'มีไฟล์ชื่อนี้แล้ว หากคุณต้องการแทนที่ ให้ไปยังหน้า [$2 $1] และแทนที่ในหน้านั้น',
+	'mwe-upwiz-fileexists-replace-no-link' => 'โปรดเลือกชื่ออื่น เพราะมีไฟล์อื่นใช้ชื่อนี้แล้ว',
 	'mwe-upwiz-blacklisted' => 'กรุณาใช้ชื่ออื่นที่สื่อความหมาย',
 	'mwe-upwiz-thumbnail-more' => 'ขยาย',
 	'mwe-upwiz-overwrite' => 'แทนที่ไฟล์',
@@ -28147,57 +28353,209 @@ $messages['th'] = array(
 	'mwe-upwiz-next-file' => 'ดำเนินการต่อ',
 	'mwe-upwiz-next-deeds' => 'ถัดไป',
 	'mwe-upwiz-next-details' => 'ถัดไป',
+	'mwe-upwiz-home' => 'ไปที่หน้าแรกวิกิ',
 	'mwe-upwiz-upload-another' => 'อัปโหลดไฟล์อีก',
 	'mwe-prevent-close' => 'ออกจากเพจนี้อาจทำให้คุณสูญเสียการเปลี่ยนแปลงที่คุณทำ',
+	'mwe-upwiz-prevent-close' => 'คุณยังอัปโหลดและเผยแพร่{{PLURAL:$1|แฟ้มนี้|แฟ้มเหล่านี้}}ไม่เสร็จสิ้น',
 	'mwe-upwiz-files-complete' => 'อัปโหลดไฟล์ของคุณเสร็จสิ้นแล้ว!',
+	'mwe-upwiz-tooltip-skiptutorial' => 'คุณสามารถเปิดใช้ตัวช่วยนี้อีกใน[$1 การตั้งค่าผู้ใช้ของคุณ] ใต้ $2 &rarr; $3',
+	'mwe-upwiz-tooltip-author' => 'ชื่อของบุคคลผู้ถ่ายภาพ ทาสีภาพ วาดภาพ ฯลฯ',
+	'mwe-upwiz-tooltip-source' => 'ที่มาของแฟ้มดิจิตอลนี้ อาจเป็น URL หนังสือหรือสิ่งพิมพ์เผยแพร่',
+	'mwe-upwiz-tooltip-sign' => 'คุณสามารถใช้ชื่อผู้ใช้วิกิหรือชื่อจริงของคุณก็ได้
+ทั้งสองกรณี จะมีลิงก์ไปยังหน้าผู้ใช้วิกิของคุณ',
+	'mwe-upwiz-tooltip-title' => 'ชื่อเรื่องที่อธิบายลักษณะเฉพาะของแฟ้ม ซึ่งจะใช้เป็นชื่อแฟ้ม คุณอาจใช้ภาษาธรรมดาที่มีเว้นวรรคก็ได้ อย่ารวมนามสกุลแฟ้ม',
+	'mwe-upwiz-tooltip-description' => 'อธิบายสิ่งสำคัญเกี่ยวกับงานอย่างสั้น ๆ
+สำหรับภาพถ่าย ให้อธิบายสิ่งหลักที่พรรณนา โอกาสหรือสถานที่',
 	'mwe-upwiz-tooltip-date' => 'วันที่งานนี้ถูกสร้างขึ้น หรือเผยแพร่ครั้งแรก (รูปแบบ YYYY-MM-DD)',
+	'mwe-upwiz-tooltip-categories' => 'เพิ่มแฟ้มของคุณไปยัง[$1 หมวดหมู่]เพื่อให้หาง่ายขึ้น',
+	'mwe-upwiz-tooltip-other' => 'สารสนเทศอื่นใดที่คุณต้องการเพิ่มเติมเกี่ยวกับงานนี้ เช่น พิกัดภูมิศาสตร์ ลิงก์ไปยังรุ่นอื่น ฯลฯ',
 	'mwe-upwiz-tooltip-location' => 'พิกัดของสถานที่ที่สร้างไฟล์นี้',
 	'mwe-upwiz-tooltip-more-info' => 'เรียนรู้เพิ่มเติม',
+	'mwe-upwiz-file-need-file' => 'โปรดเพิ่มการอัปโหลดก่อน',
+	'mwe-upwiz-deeds-need-license' => 'โปรดเลือกสัญญาอนุญาต',
+	'mwe-upwiz-license-show-all' => 'ใช้สัญญาอนุญาตอื่น',
+	'mwe-upwiz-license-show-recommended' => 'ใช้สัญญาอนุญาตที่แนะนำ',
+	'mwe-upwiz-error-signature-blank' => 'คุณต้องลงชื่อด้วยชื่อผู้ใช้หรือชื่อจริงในเขตข้อมูลด้านล่าง',
 	'mwe-upwiz-error-latitude' => 'ละติจูดต้องอยู่ระหว่าง -90 และ 90',
 	'mwe-upwiz-error-longitude' => 'ลองจิจูดต้องอยู่ระหว่าง-180 และ 180',
 	'mwe-upwiz-error-altitude' => 'ความสูงต้องเป็นตัวเลข',
+	'mwe-upwiz-error-signature-too-long' => 'ลายเซ็นของคุณยาวเกินไป
+แก้ไขให้สั้นกว่า $1 อักขระ',
+	'mwe-upwiz-error-signature-too-short' => 'ลายเซ็นของคุณยาวเกินไป
+แก้ไขให้ยาวกว่า $1 อักขระ',
+	'mwe-upwiz-error-signature-bad-chars' => 'ลายเซ็นของคุณมีสัญลักษณ์ที่ไม่อนุญาต
+โปรดอย่าใช้ข้อความวิกิหรือ HTML ที่นี่ ใช้เฉพาะชื่อผู้ใช้หรือชื่อจริงของคุณ',
 	'mwe-upwiz-error-blank' => 'ช่องนี้ต้องกรอก',
+	'mwe-upwiz-error-nologin' => 'คุณต้อง<span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ล็อกอิน]</span>เพื่ออัปโหลดแฟ้ม',
+	'mwe-upwiz-error-too-long' => 'หน่วยข้อมูลนี้ยาวเกินไป
+โปรดแก้ไขให้หน่วยข้อมูลนี้สั้นกว่า $1 อักขระ',
+	'mwe-upwiz-error-too-short' => 'หน่วยข้อมูลนี้สั้นเกินไป
+โปรดแก้ไขให้หน่วยข้อมูลนี้ยาวกว่า $1 อักขระ',
+	'mwe-upwiz-error-bad-chars' => 'หน่วยข้อมูลนี้มีสัญลักษณ์ที่ไม่อนุญาต
+โปรดอย่าใช้ข้อความวิกิหรือ HTML ที่นี่',
 	'mwe-upwiz-error-date' => 'โปรดใส่วันที่ถูกต้องในรูปแบบ YYYY-MM-DD หรือเลือกวันที่จากปฏิทินที่แสดง',
 	'mwe-upwiz-error-title-blacklisted' => 'ชื่อนี้ประกอบด้วยข้อความไม่พึงประสงค์ กรุณาแก้ไข',
+	'mwe-upwiz-error-title-badchars' => 'ชื่อนี้ประกอบด้วยอักขระบางตัวที่ไม่พึงประสงค์ กรุณาลบออก',
 	'mwe-upwiz-error-title-senselessimagename' => 'โปรดตั้งชื่อให้สื่อความหมาย',
 	'mwe-upwiz-error-title-hosting' => 'ดูเหมือนว่าคุณเอารูปมาจากที่อื่น โปรดตั้งชื่อให้สื่อความหมายและตรวจดูให้แน่ใจว่าคุณมีสิทธิ์ในการเผยแพร่สื่อดังกล่าวในที่นี้',
+	'mwe-upwiz-error-title-thumbnail' => 'นี่ดูเหมือนเป็นชื่อเรื่องภาพขนาดย่อ โปรดอย่าอัปโหลดภาพขนาดย่อกลับมายังวิกิเดียวกัน มิฉะนั้น โปรดแก้ชื่อแฟ้มให้สื่อความหมาย และไม่มีคำเติมหน้าภาพขนาดย่อ',
+	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'ชื่อนี้ถูกสงวนไว้กับไฟล์บนคลังเก็บที่ใช้ร่วมกัน ให้เลือกชื่ออื่น',
 	'mwe-upwiz-error-title-double-apostrophe' => 'ชื่อนี้ประกอบด้วยเครื่องหมายอัญประกาศเดี่ยวหนึ่งคู่ กรุณาเอาออก',
+	'mwe-upwiz-error-title-extension' => 'คุณไม่จำเป็นต้องเพิ่มส่วนขยายไฟล์ แค่พิมพ์ชื่อเรื่องให้อ่านได้ แล้วแอพพลิเคชันจะจัดการที่เหลือเอง',
+	'mwe-upwiz-error-title-protected' => 'ชื่อเรื่องนี้สอดคล้องกับหน้าที่ถูกป้องกันบนวิกินี้ โปรดเลือกชื่ออื่น',
+	'mwe-upwiz-error-license-wikitext-missing' => 'คุณเลือกตัวเลือกซึ่งกำหนดให้คุณต้องกรอกข้อความวิกิ',
+	'mwe-upwiz-error-license-wikitext-too-short' => 'Wikitext นี่จะสั้นเกินไปที่จะเป็นสัญญาอนุญาต',
+	'mwe-upwiz-error-license-wikitext-too-long' => 'Wikitext ที่คุณป้อนยาวเกินไป',
+	'mwe-upwiz-error-license-wikitext-invalid' => 'นี่ดูเหมือนมิใช่ข้อความวิกิที่ถูกต้อง หรือไม่มีสัญญาอนุญาต',
+	'mwe-upwiz-details-error-count' => 'มีข้อผิดพลาด $1 จุดใน{{PLURAL:$2|แบบ|แบบ}}ด้านบน โปรดแก้ไขข้อผิดพลาดก่อนส่งใหม่',
 	'mwe-upwiz-too-many-files-ok' => 'ตกลง',
+	'mwe-upwiz-too-many-files-text' => 'คุณสามารถอัปโหลดพร้อมกันได้ไม่เกิน $1 แฟ้ม แต่คุณพยายามอัปโหลดแฟ้มรวม $2 แฟ้มพร้อมกัน โปรดลองใหม่โดยอัปโหลดแฟ้มน้อยลง',
 	'mwe-upwiz-too-many-files' => 'มีไฟล์มากเกินไป',
 	'mwe-upwiz-file-too-large-ok' => 'ตกลง',
+	'mwe-upwiz-file-too-large-text' => 'คุณสามารถอัปโหลดแฟ้มที่มีขนาดไม่เกิน $1 คุณพยายามอัปโหลดไฟล์ที่มีขนาด $2',
 	'mwe-upwiz-file-too-large' => 'ไฟล์ใหญ่เกินไป',
+	'mwe-upwiz-necessary-confirm' => 'แนะนำให้คุณกรอกหมวดหมู่สำหรับการอัปโหลดของคุณ คุณต้องการดำเนินการต่อโดยไม่กรอกเขตข้อมูลทั้งหมดหรือไม่',
 	'mwe-upwiz-dialog-yes' => 'ใช่',
 	'mwe-upwiz-dialog-no' => 'ไม่ใช่',
 	'mwe-upwiz-dialog-title' => 'คำเตือน',
+	'mwe-upwiz-license-cc-by-sa-3.0' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 ออสเตรีย ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 เยอรมนี ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-ee' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 เอสโตเนีย ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-es' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 สเปน ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-hr' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 โครเอเชีย ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-lu' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 ลักเซมเบิร์ก ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-nl' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 เนเธอร์แลนด์ ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-no' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 นอร์เวย์ ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-pl' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 โปแลนด์ ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-3.0-ro' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 3.0 โรมาเนีย ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-3.0' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา 3.0 ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-2.5' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 2.5 ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-2.5' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา 2.5 ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-sa-2.0' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา อนุญาตแบบเดียวกัน 2.0 ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-by-2.0' => 'ครีเอทีฟคอมมอนส์ แบบแสดงที่มา 2.0 ([$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-cc-zero' => 'ครีเอทีฟคอมมอนส์ CC0 การสละสิทธิ์ (สละสิทธิ์ทั้งหมด เช่นเดียวกับสาธารณสมบัติ: [$2 ดูข้อกฎหมาย])',
+	'mwe-upwiz-license-custom' => 'สัญญาอนุญาตนี้อธิบายด้วยข้อความวิกิต่อไปนี้ (ต้องมี[$2 ป้ายระบุลิขสิทธิ์]ที่ถูกต้อง)',
+	'mwe-upwiz-license-fal' => 'สัญญาอนุญาตศิลปะเสรี',
+	'mwe-upwiz-license-own-pd' => 'สิทธิทั้งหมดที่สละด้วยสัญญาอนุญาตครีเอทีฟคอมมอนส์ซีโร (เช่นเดียวกับสาธารณสมบัติ)',
+	'mwe-upwiz-license-pd-old-100' => 'ผู้สร้างสรรค์เสียชีวิตกว่า 100 ปีมาแล้ว',
+	'mwe-upwiz-license-pd-old' => 'ผู้สร้างสรรค์เสียชีวิตกว่า 70 ปีมาแล้ว',
+	'mwe-upwiz-license-pd-art' => 'การทำซ้ำจิตรกรรมซึ่งเป็นสาธารณสมบัติอย่างสุจริต',
+	'mwe-upwiz-license-pd-us' => 'เผยแพร่ครั้งแรกในสหรัฐอเมริกาก่อน ค.ศ. 1923',
+	'mwe-upwiz-license-pd-usgov' => 'งานของรัฐบาลกลางสหรัฐอเมริกา',
+	'mwe-upwiz-license-pd-usgov-nasa' => 'งานต้นฉบับของนาซา',
+	'mwe-upwiz-license-pd-usgov-military-navy' => 'งานต้นฉบับของกองทัพเรือสหรัฐอเมริกา',
+	'mwe-upwiz-license-pd-ineligible' => 'เรียบง่ายเกินไปที่จะมีลิขสิทธิ์',
+	'mwe-upwiz-license-pd-ineligible-help' => 'โปรดระวังกับสัญญาอนุญาตนี้ ภาพจำเป็นต้องเรียบง่ายมาก เช่น วงกลมสีเขียวหรือสี่เหลี่ยมสีแดง',
+	'mwe-upwiz-license-pd-textlogo' => 'โลโก้พร้อมข้อความอย่างง่าย (wordmark)',
+	'mwe-upwiz-license-copyrighted-free-use' => 'มีลิขสิทธิ์ แต่อาจใช้เพื่อจุดประสงค์ใดก็ได้ รวมทั้งเชิงพาณิชย์',
+	'mwe-upwiz-license-attribution' => 'อาจใช้เพื่อจุดประสงค์ใดก็ได้ รวมทั้งเชิงพาณิชย์ หากแสดงที่มายังผู้ถือลิขสิทธิ์อย่างเหมาะสม',
+	'mwe-upwiz-license-gfdl' => 'สัญญาอนุญาตเอกสารเสรีของกนู',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'ก็อปปีเลฟต์ ต้องแสดงที่มา (GFDL, CC-BY-SA-3.0)',
+	'mwe-upwiz-license-cc-head' => 'ผู้ถือลิขสิทธิ์เผยแพร่{{PLURAL:$1|งานนี้|งานเหล่านี้}}ด้วยสัญญาอนุญาตครีเอทีฟคอมมอนส์ที่ถูกต้อง',
+	'mwe-upwiz-license-cc-subhead' => 'มิใช่ว่าสัญญาอนุญาตครีเอทีฟคอมมอนส์ทั้งหมดจะเหมาะกับเว็บนี้ โปรดดูให้แน่ใจว่าผู้ถือลิขสิทธิ์ใช้หนึ่งในสัญญาอนุญาตเหล่านี้',
+	'mwe-upwiz-license-flickr-head' => 'ผู้ถือลิขสิทธิ์เผยแพร่{{PLURAL:$1|ภาพถ่ายหรือวีดิทัศน์|ภาพถ่ายหรือวีดิทัศน์}}บนฟลิกเกอร์ด้วยสัญญาอนุญาตที่ถูกต้อง',
+	'mwe-upwiz-license-flickr-subhead' => 'ตรวจสอบส่วนหัว "สัญญาอนุญาต" ข้างหน้าฟลิกเกอร์ ทั้งไอคอนและชื่อสัญญาอนุญาตที่ใช้ต้องตรงกับหนึ่งในตัวเลือกเหล่านี้',
+	'mwe-upwiz-license-public-domain-usa-head' => 'ลิขสิทธิ์หมดอายุแน่นอนแล้วในสหรัฐอเมริกา',
+	'mwe-upwiz-license-public-domain-usa-subhead' => '{{SITENAME}} ตั้งอยู่ในสหรัฐอเมริกา ฉะนั้น งานต้องหมดอายุลิขสิทธิ์ในประเทศนี้',
+	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|งานนี้|งานเหล่านี้}}สร้างสรรค์โดยรัฐบาลสหรัฐอเมริกา',
+	'mwe-upwiz-license-misc' => 'เหตุผลจิปาถะ',
+	'mwe-upwiz-license-custom-head' => 'เหตุผลอื่นที่ไม่ได้กล่าวถึงข้างต้น',
 	'mwe-upwiz-license-custom-preview' => 'ดูตัวอย่าง',
 	'mwe-upwiz-license-none-head' => 'ฉันเจอในอินเทอร์เน็ต - ฉันไม่แน่ใจ',
+	'mwe-upwiz-license-none' => 'ข้าพเจ้าเชื่อว่า{{PLURAL:$1|งานนี้|งานเหล่านี้}}มีสัญญาอนุญาตเสรีหรือเป็นสาธารณสมบัติตามกฎหมาย ข้าพเจ้าเข้าใจว่าหากข้าพเจ้าไม่เพิ่มสารสนเทศสัญญาอนุญาตที่จำเป็นในเวลาอันสั้น แฟ้มดังกล่าวอาจถูกลบ',
+	'mwe-upwiz-license-confirm-remove' => 'คุณต้องการนำการ{{PLURAL:$1|การอัปโหลดนี้|การอัปโหลดเหล่านี้}}ออกหรือไม่',
+	'mwe-upwiz-license-confirm-remove-title' => 'ยืนยันการลบ',
+	'mwe-upwiz-license-external' => 'แฟ้มนี้อยู่ภายใต้สัญญาอนุญาตด้านล่างบนเว็บที่มา "$1": $2',
+	'mwe-upwiz-license-external-invalid' => 'แฟ้มนี้อยู่ภายใต้สัญญาอนุญาตด้านล่างบนเว็บที่มา "$1": $2
+ทว่า วิกินี้ไม่อนุญาตสัญญาอนุญาตนั้น',
+	'mwe-upwiz-license-photoset-invalid' => 'โชคไม่ดีที่ไม่มีภาพใดในชุดภาพถ่ายมีสัญญาอนุญาตที่เหมาะจะใช้บนเว็บนี้',
+	'mwe-upwiz-url-invalid' => 'URL ที่ป้อนไม่ถูกต้อง หรือถูกจำกัด ภาพหรือชุดของภาพ $1  ไม่สามารถใช้ได้',
 	'mwe-upwiz-categories' => 'หมวดหมู่',
 	'mwe-upwiz-categories-add' => 'เพิ่มหมวดหมู่',
 	'mwe-upwiz-category-will-be-added' => 'หมวดหมู่นี้ยังไม่มีใช้งาน',
 	'mwe-upwiz-category-remove' => 'เอาหมวดหมู่นี้ออก',
+	'mwe-upwiz-thumbnail-failed' => 'การอัปโหลดสำเร็จ แต่เซิร์ฟเวอร์ไม่สามารถดึงรูปขนาดย่อตัวอย่าง',
+	'mwe-upwiz-unparseable-filename' => 'ไม่สามารถเข้าใจชื่อไฟล์ "$1"',
 	'mwe-upwiz-image-preview' => 'แสดงตัวอย่างไฟล์',
-	'mwe-upwiz-subhead-message' => 'ขอบคุณสำหรับการใช้เครื่องมืออัปโหลดใหม่ของเรา',
-	'mwe-upwiz-subhead-bugs' => '[ $1 ปัญหาที่ทราบ]',
+	'mwe-upwiz-subhead-message' => 'ขอบคุณที่ใช้เครื่องมืออัปโหลดใหม่ของเรา!',
+	'mwe-upwiz-subhead-bugs' => '[$1 ปัญหาที่ทราบ]',
+	'mwe-upwiz-subhead-translate' => '[$1 คำอธิบายเรื่องการแปล]',
+	'mwe-upwiz-subhead-alt-upload' => '[$1 กลับไปฟอร์มเก่า]',
+	'mwe-upwiz-feedback-prompt' => '[$1 ให้ข้อเสนอแนะหรือติชม]',
+	'mwe-upwiz-feedback-title' => 'ให้ข้อเสนอแนะหรือติชมเกี่ยวกับตัวช่วยอัปโหลด',
+	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 ส่งข้อเสนอแนะหรือติชม]',
+	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 สนเทศเพิ่มเติม]',
+	'mwe-upwiz-feedback-blacklist-line-intro' => 'นี่เป็นรายการในบัญชีดำที่ตรงกับ
+$1',
+	'mwe-upwiz-feedback-blacklist-subject' => 'การอัปโหลดของฉันชื่อว่า "$1" ถูกห้ามไว้',
+	'mwe-upwiz-errordialog-title' => 'มีข้อผิดพลาดในการส่งของคุณ',
 	'mwe-upwiz-errordialog-ok' => 'ตกลง',
+	'mwe-upwiz-error-nosuchcampaign' => 'ไม่มีแคมเปญชื่อ "$1"',
+	'mwe-upwiz-error-campaigndisabled' => 'แคมเปญ "$1" ยังไม่เปิดใช้งาน',
+	'mwe-upwiz-campaigns-name' => 'ชื่อแคมเปญ',
 	'mwe-upwiz-campaigns-status' => 'สถานะ',
 	'mwe-upwiz-campaigns-enabled' => 'เปิดใช้งานแล้ว',
 	'mwe-upwiz-campaigns-disabled' => 'ปิดใช้งาน',
 	'mwe-upwiz-campaigns-edit' => 'แก้ไข',
 	'mwe-upwiz-campaigns-add' => 'เพิ่ม',
+	'mwe-upwiz-campaigns-addnew' => 'เพิ่มแคมเปญใหม่',
+	'mwe-upwiz-campaigns-newname' => 'ชื่อแคมเปญ:',
+	'mwe-upwiz-campaigns-namedoc' => 'ชื่อของแคมเปญเป็นตัวบ่งชี้ที่ใช้ใน URL คือ "name" ใน ?campaign=name',
+	'mwe-upwiz-campaigns-existing' => 'แคมเปญที่มีอยู่แล้ว',
+	'mwe-upwiz-campaigns-editing' => 'การตั้งค่าอัปโหลดแคมเปญ',
 	'mwe-upwiz-campaigns-delete' => 'ลบ',
-	'mwe-upwiz-campaign-conf-defaultLat' => 'ค่าเริ่มต้นละติจูด',
-	'mwe-upwiz-campaign-conf-defaultLon' => 'ค่าเริ่มต้นลองจิจูด',
-	'mwe-upwiz-campaign-conf-defaultAlt' => 'ค่าเริ่มต้นความสูง',
+	'mwe-upwiz-campaigns-confdel' => 'คุณแน่ใจว่าต้องการลบกแคมเปญนี้หรือไม่',
+	'mwe-upwiz-campaigns-delete-failed' => 'ไม่สามารถลบแคมเปญนี้',
+	'mwe-upwiz-campaigns-confirm-delete' => 'แน่ใจว่าคุณต้องการลบแคมเปญนี้หรือไม่',
+	'uploadcampaign-legend' => 'การตั้งค่าแคมเปญอัปโหลด',
+	'uploadcampaign-text' => 'คุณกำลังปรับเปลี่ยนแคมเปญตัวช่วยอัปโหลด',
+	'mwe-upwiz-campaign-name' => 'ชื่อแคมเปญ:',
+	'mwe-upwiz-campaign-enabled' => 'แคมเปญเปิดใช้งานแล้ว',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'ข้ามการสอนเรื่องสัญญาอนุญาต',
+	'mwe-upwiz-campaign-conf-autoCategories' => 'หมวดหมู่ที่เพิ่มแฟ้มเข้าอัตโนมัติและอย่างเงียบ (คั่นด้วยไปป์):',
+	'mwe-upwiz-campaign-conf-defaultCategories' => 'หมวดหมู่เริ่มต้นที่จะแสดงรายการในแถบคำอธิบาย (คั่นด้วยไปป์):',
+	'mwe-upwiz-campaign-conf-autoWikiText' => 'มาร์กอัพวิกิที่จะเพิ่มไปยังแฟ้มที่อัปโหลดทั้งหมดอัตโนมัติ:',
+	'mwe-upwiz-campaign-conf-ownWorkOption' => 'วิธีจัดการกับงานของตนหรือมิใช่งานของตน:',
+	'mwe-upwiz-campaign-owner-choice' => 'อนุญาตให้ผู้ใช้เลือกระหว่างงานของตนหรือมิใช่งานของตน',
+	'mwe-upwiz-campaign-owner-own' => 'อนุญาตเฉพาะการอัปโหลดงานของตน',
+	'mwe-upwiz-campaign-owner-notown' => 'อนุญาตเฉพาะการอัปโหลดงานที่มิใช่ของตน',
+	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'สัญญาอนุญาตที่ควรเลือกสำหรับงานของตน:',
+	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'ชื่อการสอนบนวิกิมีเดียคอมมอนส์ $1 แทนด้วยรหัสภาษา:',
+	'mwe-upwiz-campaign-conf-tutorialWidth' => 'ความกว้างที่จะปรับตัวช่วยสอน:',
+	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'พิกัด Imagemap ของปุ่ม "helpdesk" ในเครื่องมือช่วยสอน',
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'สัญญาอนุญาตเริ่มต้นของงานที่สร้างสรรค์เอง',
+	'mwe-upwiz-campaign-conf-idField' => 'ข้อความวิกิสำกรับฟิลด์ ID  ตัวอย่าง: <nowiki>{{Rijksmonument|$1}}</nowiki> เว้นว่างเพื่อไม่แสดงฟิลด์นี้:',
+	'mwe-upwiz-campaign-conf-idFieldLabel' => 'ข้อความป้ายชื่อฟิลด์ ID:',
+	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'ชื่อหน้าที่มีข้อความป้ายชื่อเขตข้อมูล ID  $1 ถูกแทนที่ ด้วยรหัสภาษา:',
+	'mwe-upwiz-campaign-conf-idFieldInitialValue' => 'ค่าเริ่มต้นสำหรับฟิลด์ ID:',
+	'mwe-upwiz-campaign-conf-idField2' => 'ข้อความวิกิสำกรับฟิลด์ ID รอง  ตัวอย่าง: <nowiki>{{Rijksmonument|$1}}</nowiki> เว้นว่างเพื่อไม่แสดงฟิลด์นี้:',
+	'mwe-upwiz-campaign-conf-idField2Label' => 'ป้ายชื่อข้อความฟิลด์ ID รอง:',
+	'mwe-upwiz-campaign-conf-idField2LabelPage' => 'ชื่อหน้าที่มีข้อความป้ายชื่อเขตข้อมูล ID รอง  $1 ถูกแทนที่ ด้วยรหัสภาษา:',
+	'mwe-upwiz-campaign-conf-idField2InitialValue' => 'ค่าเริ่มต้นสำหรับฟิลด์ ID รอง:',
+	'mwe-upwiz-campaign-conf-headerLabelPage' => 'หน้าที่ประกอบด้วยข้อความแสดงบนอินเทอร์เฟซตัวช่วยอัปโหลด  $1 ถูกแทนที่ ด้วยรหัสภาษา:',
+	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'หน้าที่มีข้อความที่แสดงบนหน้า "Use"  $1 ถูกแทนที่ ด้วยรหัสภาษา:',
+	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'ความยาวสูงสุดของข้อความในฟิลด์ ID:',
+	'mwe-upwiz-campaign-conf-idField2MaxLength' => 'ความยาวสูงสุดของข้อความในฟิลด์ ID รอง:',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'ค่าละติจูดเริ่มต้น:',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'ค่าลองติจูดเริ่มต้น:',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'ระดับความสูงเริ่มต้น:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'คำอธิบายโดยปริยาย:',
+	'mwe-upwiz-campaign-edit-summary-update' => 'ปรับปรุงการตั้งค่าแคมเปญแล้วด้วยตัวแก้ไขแคมเปญ',
+	'mwe-upwiz-campaign-edit-summary-delete' => 'ลบแคมเปญออกแล้ด้วยเครื่องมือแก้ไขแคมเปญ',
 	'mw-coolcats-confirm-new-title' => 'ยืนยันหมวดหมู่ใหม่',
+	'mw-coolcats-confirm-new' => 'ดูเหมือนคุณพยายามจะเพิ่มหมวดหมู่ใหม่, "$1" โปรดทราบ:<ul><li>หมวดหมู่ควรจะเป็นภาษาอังกฤษ</li><li>หมวดหมู่ใหม่ควรเป็นหมวดหมู่ย่อยของหมวดหมู่มีอยู่</li></ul>ทั่วไป ผู้เชี่ยวชาญเท่านั้นควรสร้างหมวดหมู่',
+	'mw-coolcats-confirm-new-ok' => 'เพิ่มประเภทนี้ต่อไป',
 	'mw-coolcats-confirm-new-cancel' => 'ไม่เป็นไร',
 	'prefs-uploads' => 'อัปโหลด',
 	'prefs-upwiz-licensing' => 'สัญญาอนุญาต',
-	'prefs-upwiz-interface' => 'ส่วนติดต่อผู้ใช้',
+	'prefs-upwiz-experimental' => 'คุณลักษณะรุ่นทดลอง',
+	'prefs-upwiz-interface' => 'อินเตอร์เฟซผู้ใช้',
 	'mwe-upwiz-prefs-def-license' => 'สัญญาอนุญาตมาตรฐาน',
 	'mwe-upwiz-prefs-def-license-def' => 'ใช้สิ่งที่เป็นค่าเริ่มต้น',
 	'mwe-upwiz-prefs-license-own' => 'งานของตนเอง - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'งานของคนอื่น - $1',
+	'mwe-upwiz-prefs-chunked' => 'อัพโหลดเป็นชิ้นส่วนกว่า 1MB ในตัวช่วยสร้างการอัปโหลดแฟ้ม',
 	'mwe-upwiz-prefs-skiptutorial' => 'ข้ามคำแนะนำเกี่ยวกับสัญญาอนุญาตและลิขสิทธิ์',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'จำนวนสูงสุดที่อัปโหลดพร้อมกัน',
 );
