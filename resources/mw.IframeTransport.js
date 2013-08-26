@@ -1,3 +1,4 @@
+( function ( mw, $ ) {
 /**
  * Represents a "transport" for files to upload; in this case an iframe.
  * XXX dubious whether this is really separated from "ApiUploadHandler", which does a lot of form config.
@@ -107,5 +108,4 @@ mw.IframeTransport.prototype = {
 		_this.transportedCb( response );
 	}
 };
-
-
+}( mediaWiki, jQuery ) );

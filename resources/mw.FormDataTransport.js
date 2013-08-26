@@ -1,3 +1,4 @@
+( function ( mw, $ ) {
 /**
  * Represents a "transport" for files to upload; using html5 FormData.
  *
@@ -324,3 +325,4 @@ mw.FormDataTransport.prototype = {
         return formData;
     }
 };
+}( mediaWiki, jQuery ) );

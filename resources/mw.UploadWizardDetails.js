@@ -11,7 +11,7 @@
  * @param API
  * @param containerDiv	The div to put the interface into
  */
-( function( mw, $, undefined ) {
+( function( mw, $ ) {
 
 var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -1492,4 +1492,4 @@ mw.UploadWizardDetails.prototype = {
 
 };
 
-}) ( window.mediaWiki, jQuery );
+}) ( mediaWiki, jQuery );

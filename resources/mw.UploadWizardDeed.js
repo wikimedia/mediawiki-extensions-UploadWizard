@@ -1,7 +1,7 @@
 /**
  * Sort of an abstract class for deeds
  */
-( function( $, undefined ) {
+( function( mw, $ ) {
 
 mw.UploadWizardDeed = function() {
 	var _this = this;
@@ -524,4 +524,4 @@ mw.UploadWizardDeedChooser.prototype = {
 
 }; // end UploadWizardDeed.prototype
 
-} )( jQuery );
+} )( mediaWiki, jQuery );

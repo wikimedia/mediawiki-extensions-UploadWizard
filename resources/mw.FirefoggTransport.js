@@ -1,3 +1,4 @@
+( function ( mw, $ ) {
 /**
  * Represents a "transport" for files to upload; in this case an firefogg.
  *
@@ -166,3 +167,4 @@ mw.FirefoggTransport.prototype = {
 		return encodeSettings;
 	}
 };
+}( mediaWiki, jQuery ) );

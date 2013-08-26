@@ -6,6 +6,8 @@
 // n.b. if there are message strings, or any assumption about HTML structure of the form.
 // then we probably did it wrong
 
+( function ( mw, $ ) {
+
 /**
  * Represents an object which configures a form to upload its files via an iframe talking to the MediaWiki API.
  * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
@@ -104,3 +106,4 @@ mw.ApiUploadHandler.prototype = {
 		this.configureEditToken( ok, err );
 	}
 };
+}( mediaWiki, jQuery ) );

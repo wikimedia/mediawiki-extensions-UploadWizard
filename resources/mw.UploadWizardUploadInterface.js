@@ -4,7 +4,7 @@
  * @param div to insert file interface
  * @param providedFile a File object that this ui component should use (optional)
  */
-( function( mw, $, undefined ) {
+( function( mw, $ ) {
 
 mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 	var _this = this;
@@ -688,4 +688,4 @@ mw.UploadWizardUploadInterface.prototype = {
 
 };
 
-}) ( window.mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

@@ -13,7 +13,7 @@
  * @param {mw.Api} api object; useful for previews
  */
 
-( function( mw, $, undefined ) {
+( function( mw, $ ) {
 
 var catNsId = mw.config.get( 'wgNamespaceIds' ).category,
 	templateNsId = mw.config.get( 'wgNamespaceIds' ).template;
@@ -594,4 +594,4 @@ mw.UploadWizardLicenseInput.prototype = {
 
 };
 
-} )( window.mediaWiki, jQuery );
+} )( mediaWiki, jQuery );

@@ -5,7 +5,7 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-( function( $, undefined ) {
+( function( mw, $ ) {
 
 var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -1158,4 +1158,4 @@ mw.UploadWizardUpload.prototype = {
 
 };
 
-} )( jQuery );
+} )( mediaWiki, jQuery );

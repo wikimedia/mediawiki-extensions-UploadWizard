@@ -2,7 +2,7 @@
 * Object that reperesents the entire multi-step Upload Wizard
 */
 
-( function( mw, $, undefined ) {
+( function( mw, $ ) {
 
 mw.UploadWizard = function( config ) {
 
@@ -1617,4 +1617,4 @@ mw.isEmpty = function( v ) {
 		errorClass: 'mwe-validator-error'
 	} );
 
-} )( jQuery );
+} )( mediaWiki, jQuery );

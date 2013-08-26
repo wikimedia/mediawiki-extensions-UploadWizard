@@ -1,6 +1,4 @@
 ( function( mw, $ ) {
-
-
 mw.FlickrChecker = function( wizard, upload ) {
 	this.wizard = wizard;
 	this.upload = upload;
@@ -349,4 +347,4 @@ mw.FlickrChecker.prototype = {
 
 };
 
-} )( window.mediaWiki, jQuery );
+} )( mediaWiki, jQuery );

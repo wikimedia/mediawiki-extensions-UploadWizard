@@ -1,4 +1,4 @@
-( function( mw, $, undefined ) {
+( function( mw, $ ) {
 	/**
 	 * @method confirmCloseWindow
 	 * @member mw
@@ -55,4 +55,4 @@
 
 	};
 
-} )( window.mediaWiki, jQuery );
+} )( mediaWiki, jQuery );
