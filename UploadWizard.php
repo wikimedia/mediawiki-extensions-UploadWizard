@@ -65,8 +65,12 @@ $wgAutoloadClasses += array(
 
 	// Special Pages
 	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
+
+	// API
+	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php'
 );
 
+$wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
 
