@@ -1390,10 +1390,6 @@ mw.isEmpty = function( v ) {
 	return v === undefined || v === null || v === '';
 };
 
-} )( window.mediaWiki, jQuery );
-
-( function ( $ ) {
-
 	$.fn.notify = function ( message ) {
 		// could do something here with Chrome's in-browser growl-like notifications.
 		// play a sound?
