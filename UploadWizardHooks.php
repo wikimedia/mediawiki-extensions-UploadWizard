@@ -1,15 +1,14 @@
 <?php
-
-/**
- * Contains list of related resources and hooks which anticipate the use of Resource Loader, whenever that is released
- */
 class UploadWizardHooks {
 
 	/* We define scripts here for Resource Loader */
 
 	public static $modules = array(
-		// n.b. we tend not to use mediawiki.language functions, they are better implemented in mediawiki.language.parser.
-		// however, loading mediawiki.language will a) create the namespace b) load the language files with convertPlural for the current language and all.
+		// n.b. we tend not to use mediawiki.language functions,
+		// they are better implemented in mediawiki.language.parser.
+		// however, loading mediawiki.language will
+		// a) create the namespace
+		// b) load the language files with convertPlural for the current language and all.
 		'ext.uploadWizard' => array(
 			'dependencies' => array(
 				'jquery.arrowSteps',
@@ -421,10 +420,10 @@ class UploadWizardHooks {
 				'mwe-upwiz-feedback-blacklist-subject',
 				'mwe-upwiz-errordialog-title',
 				'mwe-upwiz-errordialog-ok',
- 				'size-gigabytes',
- 				'size-megabytes',
- 				'size-kilobytes',
- 				'size-bytes',
+				'size-gigabytes',
+				'size-megabytes',
+				'size-kilobytes',
+				'size-bytes',
 				'mw-coolcats-confirm-new-title',
 				'mw-coolcats-confirm-new',
 				'mw-coolcats-confirm-new-ok',
@@ -493,7 +492,10 @@ class UploadWizardHooks {
 			self::$modules['ext.uploadWizard']['dependencies'][] = 'mediawiki.api.titleblacklist';
 		}
 		foreach ( self::$modules as $name => $resources ) {
-			$resourceLoader->register( $name, new ResourceLoaderFileModule( $resources, $localpath, $remotepath ) );
+			$resourceLoader->register(
+				$name,
+				new ResourceLoaderFileModule( $resources, $localpath, $remotepath )
+			);
 		}
 		return true;
 	}
@@ -554,17 +556,24 @@ class UploadWizardHooks {
 			$ownWork = $licensingOptions['ownWork'];
 			foreach ( $ownWork['licenses'] as $license ) {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
-				$licenses[wfMessage( 'mwe-upwiz-prefs-license-own', $licenseMessage )->text()] = 'ownwork-' . $license;
+				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-own', $licenseMessage )->text();
+				$licenses[$licenseKey] = 'ownwork-' . $license;
 			}
 
 			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
 				if ( $license !== 'custom' ) {
 					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
-					$licenses[wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text()] = 'thirdparty-' . $license;
+					$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text();
+					$licenses[$licenseKey] = 'thirdparty-' . $license;
 				}
 			}
 
-			$licenses = array_merge( array( wfMessage( 'mwe-upwiz-prefs-def-license-def' )->text() => 'default' ), $licenses );
+			$licenses = array_merge(
+				array(
+					wfMessage( 'mwe-upwiz-prefs-def-license-def' )->text() => 'default'
+				),
+				$licenses
+			);
 
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
@@ -611,7 +620,11 @@ class UploadWizardHooks {
 	 */
 	public static function getLicenseMessage( $licenseName, array $licenseConfig ) {
 		if ( array_key_exists( 'url', $licenseConfig[$licenseName] ) ) {
-			return wfMessage( $licenseConfig[$licenseName]['msg'], '', $licenseConfig[$licenseName]['url'] )->parse();
+			return wfMessage(
+				$licenseConfig[$licenseName]['msg'],
+				'',
+				$licenseConfig[$licenseName]['url']
+			)->parse();
 		}
 		else {
 			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
