@@ -916,40 +916,105 @@ Parameters:
 	'mwe-upwiz-dialog-no' => '{{Identical|No}}',
 	'mwe-upwiz-dialog-title' => '{{Identical|Warning}}',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '{{CreativeCommonsLicense|by-sa|3.0|at}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/at/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => '{{CreativeCommonsLicense|by-sa|3.0|de}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/de/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-ee' => '{{CreativeCommonsLicense|by-sa|3.0|ee}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/ee/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-es' => '{{CreativeCommonsLicense|by-sa|3.0|es}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/es/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-hr' => '{{CreativeCommonsLicense|by-sa|3.0|hr}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/hr/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-lu' => '{{CreativeCommonsLicense|by-sa|3.0|lu}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/lu/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-nl' => '{{CreativeCommonsLicense|by-sa|3.0|nl}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/nl/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-no' => '{{CreativeCommonsLicense|by-sa|3.0|no}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/no/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-pl' => '{{CreativeCommonsLicense|by-sa|3.0|pl}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/pl/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-3.0-ro' => '{{CreativeCommonsLicense|by-sa|3.0|ro}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/3.0/ro/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-3.0' => '{{CreativeCommonsLicense|by|3.0}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by/3.0/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-2.5' => '{{CreativeCommonsLicense|by-sa|2.5}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/2.5/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-2.5' => '{{CreativeCommonsLicense|by|2.5}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by/2.5/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-sa-2.0' => '{{CreativeCommonsLicense|by-sa|2.0}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by-sa/2.0/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-by-2.0' => '{{CreativeCommonsLicense|by|2.0}}
-For more information, see https://www.mediawiki.org/wiki/UploadWizard',
+Parameters:
+* $1 - (Unused) empty string
+* $2 - the URL "//creativecommons.org/licenses/by/2.0/"
+For more information, see https://www.mediawiki.org/wiki/UploadWizard
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-cc-zero' => 'Parameters:
-* $1 - (Unused)
-* $2 - full URL',
+* $1 - (Unused) empty string
+* $2 - full URL "//creativecommons.org/publicdomain/zero/1.0/"
+{{Related|Mwe-upwiz-license-cc}}',
 	'mwe-upwiz-license-custom' => 'Parameters:
 * $1 - (Unused)
 * $2 - full URL, {{msg-mw|mwe-upwiz-license-custom-url}}',
@@ -957,12 +1022,23 @@ For more information, see https://www.mediawiki.org/wiki/UploadWizard',
 Used as <code>$2</code> in {{msg-mw|Mwe-upwiz-license-custom}}.',
 	'mwe-upwiz-license-fal' => 'Used as license name.',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
-	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.',
-	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => '{{Related|Mwe-upwiz-license-cc}}',
+	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.
+
+Parameters:
+* $1 - number of works
+{{Related|Mwe-upwiz-license-head}}',
+	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}
+{{Related|Mwe-upwiz-license-head}}',
+	'mwe-upwiz-license-public-domain-usa-head' => '{{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-public-domain-usa-subhead' => 'This message, assuming that the server of the website is located in the USA (like Wikimedia Commons), reminds the user that for the work to be considered in the public domain its copyright is required to be expired in the USA specifically, as being PD in the country of origin is not enough.',
 	'mwe-upwiz-license-usgov-head' => 'Parameters:
-* $1 - number of the files',
+* $1 - number of the files
+{{Related|Mwe-upwiz-license-head}}',
+	'mwe-upwiz-license-misc' => 'none',
+	'mwe-upwiz-license-custom-head' => '{{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-custom-preview' => '{{Identical|Preview}}',
+	'mwe-upwiz-license-none-head' => '{{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-none' => 'Parameters:
 * $1 - number of the files',
 	'mwe-upwiz-license-confirm-remove' => 'Used as confirmation message. Parameters:
@@ -1001,8 +1077,14 @@ See also:
 * $1 - full URL',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => 'Parameters:
 * $1 - full URL',
-	'mwe-upwiz-feedback-blacklist-line-intro' => 'Parameters:
-* $1 - an entry from the title blacklist',
+	'mwe-upwiz-feedback-blacklist-line-intro' => 'Used as feedback message body. Parameters:
+* $1 - an entry from the title blacklist
+See also:
+* {{msg-mw|Mwe-upwiz-feedback-blacklist-subject}}',
+	'mwe-upwiz-feedback-blacklist-subject' => 'Used as feedback subject. Parameters:
+* $1 - page title
+See also:
+* {{msg-mw|Mwe-upwiz-feedback-blacklist-line-intro}}',
 	'mwe-upwiz-errordialog-ok' => '{{Identical|OK}}',
 	'mwe-upwiz-error-nosuchcampaign' => 'Used as error message. Parameters:
 * $1 - campaign name',
@@ -26259,8 +26341,8 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-license-none' => 'Verjamem, da {{PLURAL:$1|je to delo|sta ti deli|so ta dela}} pod prostim dovoljenjem ali zakonito v javni lasti. Zavedam se, da {{PLURAL:$1|bo|bosta|bodo}}, če pravočasno ne dodam potrebnih podatkov o licenciranju, {{PLURAL:$1|datoteka morda izbrisana|datoteki morda izbrisani|datoteke morda izbrisane}}.',
 	'mwe-upwiz-license-confirm-remove' => 'Ste prepričani, da želite odstraniti {{PLURAL:$1|to datoteko|ti datoteki|te datoteke}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Potrdite odstranitev',
-	'mwe-upwiz-license-external' => 'Ta datoteka je na $1 pod dovoljenjem: $2.',
-	'mwe-upwiz-license-external-invalid' => 'Datoteka ima na $1 naslednjo licenco: $2. Žal ta licenca za uporabo na tem spletišču ni primerna.',
+	'mwe-upwiz-license-external' => 'Datoteka je na izvirni strani »$1« pod naslednjim dovoljenjem: $2.',
+	'mwe-upwiz-license-external-invalid' => 'Datoteka je na izvirni strani »$1« pod naslednjim dovoljenjem: $2. Wiki žal ne dovoli tega dovoljenja.',
 	'mwe-upwiz-categories' => 'Kategorije',
 	'mwe-upwiz-categories-add' => 'Dodaj',
 	'mwe-upwiz-category-will-be-added' => 'Kategorija še ni v uporabi.',
@@ -31164,7 +31246,8 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-feedback-title' => '留下有关上传向导的反馈',
 	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 发送反馈]',
 	'mwe-upwiz-feedback-blacklist-info-prompt' => '[$1 更多信息]',
-	'mwe-upwiz-feedback-blacklist-line-intro' => '这是它对应的标题黑名单条目：$1',
+	'mwe-upwiz-feedback-blacklist-line-intro' => '这是它对应的标题黑名单条目：
+$1',
 	'mwe-upwiz-feedback-blacklist-subject' => '我的上传标题，“$1”已被禁止。',
 	'mwe-upwiz-errordialog-title' => '你的提交中有错误',
 	'mwe-upwiz-errordialog-ok' => '确定',
