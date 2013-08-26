@@ -28,7 +28,16 @@
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
-	'author' => array( 'Neil Kandalgaonkar', 'Jeroen De Dauw', 'Mark Holmquist', 'Ryan Kaldari', 'Michael Dale', 'Ankur Anand', 'Nischay Nahata', 'Yuvi Panda' ),
+	'author' => array(
+		'Neil Kandalgaonkar',
+		'Jeroen De Dauw',
+		'Mark Holmquist',
+		'Ryan Kaldari',
+		'Michael Dale',
+		'Ankur Anand',
+		'Nischay Nahata',
+		'Yuvi Panda'
+	),
 	'version' => '1.3',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
@@ -76,11 +85,11 @@ $uploadWizardModuleInfo = array(
 );
 
 $wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
-        'scripts' => 'mw.FormDataTransport.js',
+	'scripts' => 'mw.FormDataTransport.js',
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.iFrameTransport'] = array(
-        'scripts' => 'mw.IframeTransport.js',
+	'scripts' => 'mw.IframeTransport.js',
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.apiUploadHandler'] = array(
@@ -124,7 +133,6 @@ $wgDefaultUserOptions['upwiz_maxsimultaneous'] = 'default';
 
 // Init the upload wizard config array
 // UploadWizard.config.php includes default configuration
-// any value can be modified in localSettings.php by setting  $wgUploadWizardConfig['name'] = 'value;
 $wgUploadWizardConfig = array();
 
 /* Define and configure default namespaces, as defined on Mediawiki.org
