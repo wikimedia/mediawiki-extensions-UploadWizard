@@ -28,6 +28,15 @@ class UploadWizardCampaign {
 	protected $config = array();
 
 	/**
+	 * The campaign configuration, after wikitext properties have been parsed.
+	 *
+	 * @since 1.2
+	 * @var array
+	 */
+	protected $parsedConfig = null;
+
+
+	/**
 	 * The WikiPage representing the current campaign
 	 *
 	 * @since 1.4
@@ -83,5 +92,62 @@ class UploadWizardCampaign {
 	 */
 	public function getConfig() {
 		return $this->config;
+	}
+
+	/**
+	 * Parses the values in an assoc array as wikitext
+	 *
+	 * @param $array Array
+	 * @param $forKeys Array: Array of keys whose values should be parsed
+	 *
+	 * @since 1.3
+	 *
+	 * @return array
+	 */
+	private function parseArrayValues( $array, $forKeys = null ) {
+		// FIXME: Don't abuse RequestContext like this
+		// Use the parser directly
+		$out = RequestContext::getMain()->getOutput();
+		$parsed = array();
+		foreach ( $array as $key => $value ) {
+			if ( $forKeys === null || in_array( $key, $forKeys ) ) {
+				$parsed[$key] = $out->parseInline( $value );
+			}
+		}
+		return $parsed;
+	}
+
+	/**
+	 * Returns all config parameters, after parsing the wikitext based ones
+	 *
+	 * @since 1.3
+	 *
+	 * @return array
+	 */
+	public function getParsedConfig() {
+		if ( $this->parsedConfig === null ) {
+			$parsedConfig = array();
+			foreach ( $this->config as $key => $value ) {
+				switch ( $key ) {
+				case "display":
+					$parsedConfig['display'] = $this->parseArrayValues( $value );
+					break;
+				case "fields":
+					$parsedConfig['fields'] = array();
+					foreach ( $value as $field ) {
+						$parsedConfig['fields'][] = $this->parseArrayValues(
+							$field,
+							array( 'label' )
+						);
+					}
+					break;
+				default:
+					$parsedConfig[$key] = $value;
+					break;
+				}
+			}
+			$this->parsedConfig = $parsedConfig;
+		}
+		return $this->parsedConfig;
 	}
 }

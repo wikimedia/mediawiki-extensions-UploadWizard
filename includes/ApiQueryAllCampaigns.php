@@ -70,7 +70,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 			$result->addValue(
 				array( 'query', $this->getModuleName(), $row->campaign_id ),
 				'*',
-				json_encode( $campaign->getConfig() )
+				json_encode( $campaign->getParsedConfig() )
 			);
 			$result->addValue(
 				array( 'query', $this->getModuleName(), $row->campaign_id ),
