@@ -6581,6 +6581,7 @@ $1',
  * @author Rillke
  * @author Robby
  * @author Saibo
+ * @author Shirayuki
  * @author TMg
  * @author The Evil IP address
  * @author ✓
@@ -6774,9 +6775,9 @@ Du kannst nun [$1 Firefogg], ein Add-on zu Firefox installieren, das die Datei a
 	'mwe-upwiz-error-longitude' => 'Die Länge muss zwischen –180 und 180 liegen.',
 	'mwe-upwiz-error-altitude' => 'Die Höhe muss eine Zahl sein.',
 	'mwe-upwiz-error-signature-too-long' => 'Deine Signatur ist zu lang.
-Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+Kürze sie auf weniger als $1 {{PLURAL:$1|Zeichen}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Deine Signatur ist zu kurz.
-Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen|Zeichen}}.',
+Verlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Deine Signatur enthält unzulässige Zeichen.
 Verwende hier bitte kein Wikitext oder HTML sondern einfach deinen Benutzernamen oder deinen bürgerlichen Namen.',
 	'mwe-upwiz-error-blank' => 'Dies ist ein Pflichtfeld.',
@@ -14736,7 +14737,7 @@ Ritenta con un browser alternativo.',
 	'mwe-upwiz-source-ownwork-assert-custom' => "Io, $2, detentore del copyright su {{PLURAL:$1|quest'opera|queste opere}}, concedo irrevocabilmente a chiunque il diritto di {{PLURAL:$1|utilizzarla|utilizzarle}} secondo le condizioni delle seguenti licenze:",
 	'mwe-upwiz-source-ownwork-assert-note' => 'Io, detentore del copyright di {{PLURAL:$2|questa opera|queste opere}}, pubblico {{PLURAL:$2|questa opera|queste opere}} sotto la licenza $1.',
 	'mwe-upwiz-source-permission' => 'Il loro autore ti ha dato il permesso esplicito di caricarle',
-	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Questo file non è|Questi files non sono}} opera mia.',
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|Questo file non è|Questi file non sono}} opera mia.',
 	'mwe-upwiz-source-thirdparty-intro' => "Inserisci l'indirizzo a cui hai trovato ciascun file.",
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Se tutti i file hanno stessa fonte, autore e stato di copyright, puoi inserire tali informazioni una volta sola per tutti quanti.',
 	'mwe-upwiz-source-thirdparty-cases' => "Adesso indicaci perché sei sicuro di avere il diritto di pubblicare {{PLURAL:$1|quest'opera|queste opere}}:",
