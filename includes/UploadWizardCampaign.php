@@ -95,6 +95,22 @@ class UploadWizardCampaign {
 	}
 
 	/**
+	 * Wrapper around OutputPage::parseInline
+	 *
+	 * @param $value String Wikitext to parse
+	 *
+	 * @since 1.3
+	 *
+	 * @return String parsed wikitext
+	 */
+	private function parseValue( $value ) {
+		// FIXME: Don't abuse RequestContext like this
+		// Use the parser directly
+		$out = RequestContext::getMain()->getOutput();
+		return $out->parseInline( $value );
+	}
+
+	/**
 	 * Parses the values in an assoc array as wikitext
 	 *
 	 * @param $array Array
@@ -105,19 +121,16 @@ class UploadWizardCampaign {
 	 * @return array
 	 */
 	private function parseArrayValues( $array, $forKeys = null ) {
-		// FIXME: Don't abuse RequestContext like this
-		// Use the parser directly
-		$out = RequestContext::getMain()->getOutput();
 		$parsed = array();
 		foreach ( $array as $key => $value ) {
 			if ( $forKeys !== null ) {
 				if( in_array( $key, $forKeys ) ) {
-					$parsed[$key] = $out->parseInline( $value );
+					$parsed[$key] = $this->parseValue( $value );
 				} else {
 					$parsed[$key] = $value;
 				}
 			} else {
-				$parsed[$key] = $out->parseInline( $value );
+				$parsed[$key] = $this->parseValue( $value );
 			}
 		}
 		return $parsed;
@@ -135,6 +148,10 @@ class UploadWizardCampaign {
 			$parsedConfig = array();
 			foreach ( $this->config as $key => $value ) {
 				switch ( $key ) {
+				case "title":
+				case "description":
+					$parsedConfig[$key] = $this->parseValue( $value );
+					break;
 				case "display":
 					$parsedConfig['display'] = $this->parseArrayValues( $value );
 					break;

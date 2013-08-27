@@ -4,6 +4,12 @@ return array(
 	"id" => "#campaignnode",
 	"required" => true,
 	"properties" =>array(
+		"title" => array(
+			"type" => "string"
+		),
+		"description" => array(
+			"type" => "string"
+		),
 		"enabled" => array(
 			"type" => "boolean",
 			"required" => true
