@@ -177,17 +177,6 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if ( array_key_exists( 'fields', $config ) ) {
-			foreach ( $config['fields'] as &$field ) {
-				if ( array_key_exists( 'label', $field ) ) {
-					$labelContent = $this->getOutput()->parseInline( $field['label'] );
-					if ( $labelContent !== false ) {
-						$field['label'] = $labelContent;
-					}
-				}
-			}
-		}
-
 		if ( array_key_exists( 'trackingCategory', $config )  ) {
 			if ( array_key_exists( 'campaign', $config['trackingCategory'] ) ) {
 				if ( $this->campaign !== null ) {
@@ -206,13 +195,6 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['UploadFromUrl'] = true;
 		} else {
 			$config['UploadFromUrl'] = false;
-		}
-
-		if ( array_key_exists( 'display', $config ) && array_key_exists( 'thanksLabel', $config['display'] ) ) {
-			$thanksLabelContent = $this->getOutput()->parseInline( $config['display']['thanksLabel'] );
-			if ( $thanksLabelContent !== false ) {
-				$config['display']['thanksLabel'] = $thanksLabelContent;
-			}
 		}
 
 		// Get the user's default license. This will usually be 'default', but
@@ -337,7 +319,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
 		if ( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabel', $config['display'] ) ) {
-			$this->getOutput()->addWikiText( $config['display']['headerLabel'] );
+			$this->getOutput()->addHtml( $config['display']['headerLabel'] );
 		}
 
 		if ( array_key_exists( 'fallbackToAltUploadForm', $config )

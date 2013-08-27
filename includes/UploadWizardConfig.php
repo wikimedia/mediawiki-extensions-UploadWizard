@@ -147,7 +147,7 @@ class UploadWizardConfig {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName );
 
 			if ( $campaign !== false && $campaign->getIsEnabled() ) {
-				return $campaign->getConfig();
+				return $campaign->getParsedConfig();
 			}
 		}
 
