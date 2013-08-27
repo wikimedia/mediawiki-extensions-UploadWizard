@@ -90,7 +90,7 @@ class UploadWizardCampaign {
 	 *
 	 * @return array
 	 */
-	public function getConfig() {
+	public function getRawConfig() {
 		return $this->config;
 	}
 
