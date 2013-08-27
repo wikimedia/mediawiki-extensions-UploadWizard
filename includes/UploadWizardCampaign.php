@@ -110,7 +110,13 @@ class UploadWizardCampaign {
 		$out = RequestContext::getMain()->getOutput();
 		$parsed = array();
 		foreach ( $array as $key => $value ) {
-			if ( $forKeys === null || in_array( $key, $forKeys ) ) {
+			if ( $forKeys !== null ) {
+				if( in_array( $key, $forKeys ) ) {
+					$parsed[$key] = $out->parseInline( $value );
+				} else {
+					$parsed[$key] = $value;
+				}
+			} else {
 				$parsed[$key] = $out->parseInline( $value );
 			}
 		}
