@@ -53,9 +53,13 @@ class UploadWizardCampaign {
 		return new UploadWizardCampaign( $campaignTitle );
 	}
 
-	private function __construct( $title ) {
+	function __construct( $title, $config = null ) {
 		$this->title = $title;
-		$this->config = WikiPage::factory( $title )->getContent()->getJsonData();
+		if ( $config === null ) {
+			$this->config = WikiPage::factory( $title )->getContent()->getJsonData();
+		} else {
+			$this->config = $config;
+		}
 	}
 
 	/**
@@ -78,6 +82,67 @@ class UploadWizardCampaign {
 	 */
 	public function getName() {
 		return $this->title->getDBkey();
+	}
+
+	public function getTrackingCategory() {
+		$trackingCats = UploadWizardConfig::getSetting( 'trackingCategory' );
+		return Title::makeTitleSafe( NS_CATEGORY, str_replace( '$1', $this->getName(), $trackingCats['campaign'] ) );
+	}
+
+	public function getUploadedMediaCount() {
+		return Category::newFromTitle( $this->getTrackingCategory() )->getFileCount();
+	}
+
+	public function getTotalContributorsCount() {
+		global $wgMemc;
+
+		$key = wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'contributors-count' );
+		$data = $wgMemc->get( $key );
+		if ( $data === false ) {
+			wfDebug( __METHOD__ . ' cache miss for key ' . $key );
+			$dbr = wfGetDB( DB_SLAVE );
+			$result = $dbr->select(
+				array( 'categorylinks', 'page', 'image' ),
+				array( 'count' => 'COUNT(DISTINCT img_user)' ),
+				array( 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ),
+				__METHOD__,
+				array(
+					'USE INDEX' => array( 'categorylinks' => 'cl_timestamp' )
+				),
+				array(
+					'page' => array( 'INNER JOIN', 'cl_from=page_id' ),
+					'image' => array( 'INNER JOIN', 'page_title=img_name' )
+				)
+			);
+
+			$data = $result->current()->count;
+
+			$wgMemc->set( $key, $data, UploadWizardConfig::getSetting( 'campaignStatsMaxAge' ) );
+		}
+		return $data;
+	}
+
+	public function getUploadedMedia( $limit = 24 ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$result = $dbr->select(
+			array( 'categorylinks', 'page' ),
+			array( 'cl_from', 'page_namespace', 'page_title' ),
+			array( 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ),
+			__METHOD__,
+			array(
+				'ORDER BY' => 'cl_timestamp DESC',
+				'LIMIT' => $limit,
+				'USE INDEX' => array( 'categorylinks' => 'cl_timestamp' )
+			),
+			array( 'page' => array( 'INNER JOIN', 'cl_from=page_id' ) )
+		);
+
+		$images = array();
+		foreach ( $result as $row ) {
+			$images[] = Title::makeTitle( $row->page_namespace, $row->page_title );
+		}
+
+		return $images;
 	}
 
 	/**

@@ -130,15 +130,7 @@ class CampaignHooks {
 		$revId = $out->getRevisionId();
 
 		if ( $title->inNamespace( NS_CAMPAIGN ) ) {
-			$out->addModules( 'ext.eventLogging.jsonSchema' );
-
-			if ( $revId !== null ) {
-				$out->addSubtitle( $out->msg( 'eventlogging-revision-id' )
-					// We use 'rawParams' rather than 'numParams' to make it
-					// easy to copy/paste the value into code.
-					->rawParams( $revId )
-					->escaped() );
-			}
+			$out->addModules( 'ext.uploadWizard.uploadCampaign.display' );
 		}
 		return true;
 	}

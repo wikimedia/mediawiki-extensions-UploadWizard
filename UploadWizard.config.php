@@ -67,6 +67,13 @@ return array(
 	// Enable or disable the default upload license user preference
 	'enableLicensePreference' => true,
 
+	// Number of seconds to cache Campaign pages in squid, for anon users
+	'campaignSquidMaxAge' => 10 * 60,
+
+	// Number of seconds to cache Campaign stats
+	// Currently affects: Contributors count for each campaign
+	'campaignStatsMaxAge' => 60,
+
 	// File extensions acceptable in this wiki
 	'fileExtensions' =>  $wgFileExtensions,
 
