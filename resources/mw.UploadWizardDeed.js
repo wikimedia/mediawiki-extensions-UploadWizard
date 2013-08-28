@@ -3,6 +3,31 @@
  */
 ( function( mw, $ ) {
 
+// Runs through the third-party license groups and finds the
+// relevant ID for that license. Probably really hacky.
+// TODO do this properly once we build the license links properly
+function findLicenseRecursively( license ) {
+	var val,
+		count = 0;
+
+	$.each( mw.UploadWizard.config.licensing.thirdParty.licenseGroups, function ( i, licenseGroup ) {
+		$.each( licenseGroup.licenses, function ( j, licenseCandidate ) {
+			if ( licenseCandidate === license ) {
+				val = '2_' + count;
+				return false;
+			}
+
+			count++;
+		} );
+
+		if ( val !== undefined ) {
+			return false;
+		}
+	} );
+
+	return val;
+}
+
 mw.UploadWizardDeed = function() {
 	var _this = this;
 	// prevent from instantiating directly?
@@ -80,6 +105,15 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 		},
 
 		getLicenseWikiText: function() {
+			var defaultLicense;
+				defaultType = mw.UploadWizard.config.licensing.defaultType;
+
+			if ( defaultType === 'ownwork' ) {
+				defaultLicense = mw.UploadWizard.config.licensing.ownWork.defaults[0];
+			} else {
+				defaultLicense = mw.UploadWizard.config.licensing.ownWork.licenses[0];
+			}
+
 			if ( _this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
 				return this.licenseInput.getWikiText();
 			}
@@ -87,7 +121,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				return '{{' +
 							mw.UploadWizard.config.licensing.ownWork.template +
 						'|' +
-							mw.UploadWizard.config.licensing.ownWork.licenses[0] +
+							defaultLicense +
 						'}}';
 			}
 		},
@@ -121,10 +155,19 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 			_this.$authorInput2 = $( '<input type="text" />' ).attr( { name: "author2" } ).addClass( 'mwe-upwiz-sign' );
 
-			var defaultLicense = mw.UploadWizard.config.licensing.ownWork.licenses[0];
+			var defaultLicense,
+				defaultType = mw.UploadWizard.config.licensing.defaultType;
+
+			if ( defaultType === 'ownwork' ) {
+				defaultLicense = mw.UploadWizard.config.licensing.ownWork.defaults[0];
+			} else {
+				defaultLicense = mw.UploadWizard.config.licensing.ownWork.licenses[0];
+			}
+
 			var defaultLicenseURL = mw.UploadWizard.config.licenses[defaultLicense].url === undefined ?
 						'#missing license URL' :
 						mw.UploadWizard.config.licenses[defaultLicense].url + 'deed.' + languageCode;
+
 			var defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 			var defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
 			var defaultLicenseLink = $( '<a>' ).attr( { 'target': '_blank', 'href': defaultLicenseURL } );
@@ -245,6 +288,13 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				rules: rules,
 				messages: messages
 			} );
+
+			$.each( mw.UploadWizard.config.licensing.ownWork.licenses, function ( i, license ) {
+				if ( license === defaultLicense ) {
+					$( '#license1_' + i ).prop( 'checked', true );
+					return false;
+				}
+			} );
 		}
 
 
@@ -282,9 +332,11 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 		name: 'thirdparty',
 
 		setFormFields: function( $selector ) {
-			var _this = this;
+			var $defaultLicense, defaultLicense, defaultLicenseNum, defaultType,
+				_this = this;
 			_this.$form = $( '<form />' );
 
+			defaultType = mw.UploadWizard.config.licensing.defaultType;
 			var $formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
 
 			if ( _this.uploadCount > 1 ) {
@@ -332,6 +384,21 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 			_this.$form.append( $formFields );
 
 			$selector.append( _this.$form );
+
+			if ( defaultType === 'thirdparty' ) {
+				defaultLicense = mw.UploadWizard.config.licensing.thirdParty.defaults[0];
+
+				defaultLicenseNum = findLicenseRecursively( defaultLicense );
+
+				if ( defaultLicenseNum ) {
+					$defaultLicense = $( '#license' + defaultLicenseNum );
+					$defaultLicense
+						.closest( '.mwe-upwiz-deed-license-group' )
+						.find( '.mwe-upwiz-toggler' )
+						.click();
+					$defaultLicense.prop( 'checked', true );
+				}
+			}
 		},
 
 		/**
