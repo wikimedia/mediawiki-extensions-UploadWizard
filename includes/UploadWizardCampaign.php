@@ -37,12 +37,12 @@ class UploadWizardCampaign {
 
 
 	/**
-	 * The WikiPage representing the current campaign
+	 * The Title representing the current campaign
 	 *
 	 * @since 1.4
-	 * @var WikiPage
+	 * @var Title
 	 */
-	protected $page = null;
+	protected $title = null;
 
 	public static function newFromName( $name ) {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
@@ -50,14 +50,12 @@ class UploadWizardCampaign {
 			return false;
 		}
 
-		$campaignPage = WikiPage::factory( Title::newFromText( $name, NS_CAMPAIGN ) );
-
-		return new UploadWizardCampaign( $campaignPage );
+		return new UploadWizardCampaign( $campaignTitle );
 	}
 
-	private function __construct( $wikiPage ) {
-		$this->page = $wikiPage;
-		$this->config = $this->page->getContent()->getJsonData();
+	private function __construct( $title ) {
+		$this->title = $title;
+		$this->config = WikiPage::factory( $title )->getContent()->getJsonData();
 	}
 
 	/**
@@ -79,7 +77,7 @@ class UploadWizardCampaign {
 	 * @return string
 	 */
 	public function getName() {
-		return $this->page->getTitle()->getDBkey();
+		return $this->title->getDBkey();
 	}
 
 	/**
