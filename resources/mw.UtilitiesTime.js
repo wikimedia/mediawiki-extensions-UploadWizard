@@ -13,16 +13,17 @@
 	 *            show_ms If milliseconds should be displayed.
 	 * @return {Float} String npt format
 	 */
-	mw.seconds2npt = function( sec, show_ms ) {
+	mw.seconds2npt = function( sec, showMs ) {
 		if ( isNaN( sec ) ) {
 			sec = 0;
 		}
 
-		var tm = mw.seconds2Measurements( sec );
+		var tm = mw.seconds2Measurements( sec ),
+			hoursStr = '';
 
 		// Round the number of seconds to the required number of significant
 		// digits
-		if ( show_ms ) {
+		if ( showMs ) {
 			tm.seconds = Math.round( tm.seconds * 1000 ) / 1000;
 		} else {
 			tm.seconds = Math.round( tm.seconds );
@@ -30,14 +31,13 @@
 		if ( tm.seconds < 10 ) {
 			tm.seconds = '0' +	tm.seconds;
 		}
-		var hoursStr = '';
 		if ( tm.hours > 0 ) {
 			if ( tm.minutes < 10 ) {
 				tm.minutes = '0' + tm.minutes;
 			}
-			hoursStr = tm.hours + ":";
+			hoursStr = tm.hours + ':';
 		}
-		return hoursStr + tm.minutes + ":" + tm.seconds;
+		return hoursStr + tm.minutes + ':' + tm.seconds;
 	};
 
 	/**
@@ -62,23 +62,25 @@
 	 *            npt_str NPT time string
 	 * @return {Float} Number of seconds
 	 */
-	mw.npt2seconds = function ( npt_str ) {
-		if ( !npt_str ) {
+	mw.npt2seconds = function ( nptStr ) {
+		var hour, min, sec, times;
+
+		if ( !nptStr ) {
 			return undefined;
 		}
 		// Strip {npt:}01:02:20 or 32{s} from time if present
-		npt_str = npt_str.replace( /npt:|s/g, '' );
+		nptStr = nptStr.replace( /npt:|s/g, '' );
 
-		var hour = 0;
-		var min = 0;
-		var sec = 0;
+		hour = 0;
+		min = 0;
+		sec = 0;
+		times = nptStr.split( ':' );
 
-		var times = npt_str.split( ':' );
-		if ( times.length == 3 ) {
+		if ( times.length === 3 ) {
 			sec = times[2];
 			min = times[1];
 			hour = times[0];
-		} else if ( times.length == 2 ) {
+		} else if ( times.length === 2 ) {
 			sec = times[1];
 			min = times[0];
 		} else {

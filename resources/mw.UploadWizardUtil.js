@@ -13,31 +13,32 @@ mw.UploadWizardUtil = {
 	 *        (with mwe-upwiz- prefix for UploadWizard messages)
 	 */
 	makeToggler: function ( toggleDiv, moreDiv, msg ) {
-		var actualMsg;
+		function toggle() {
+			var isOpen = $toggleLink.hasClass( 'mwe-upwiz-toggler-open' );
+			if ( isOpen ) {
+				// hide the extra options
+				moreDiv.slideUp( 250 );
+				/* when closed, show control to open */
+				$toggleLink.removeClass( 'mwe-upwiz-toggler-open' );
+			} else {
+				// show the extra options
+				moreDiv.slideDown( 250 );
+				/* when open, show control to close */
+				$toggleLink.addClass( 'mwe-upwiz-toggler-open' );
+			}
+		}
+
+		var $toggleLink, actualMsg;
+
 		if ( typeof msg === 'object' ) {
 			actualMsg = mw.message.apply( this, msg ).text();
 		} else {
 			actualMsg = mw.message( msg ).text();
 		}
-		var $toggleLink = $( '<a>' )
+		$toggleLink = $( '<a>' )
 			.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
 			.text( actualMsg );
 		$( toggleDiv ).append( $toggleLink );
-
-		var toggle = function() {
-			var isOpen = $toggleLink.hasClass( "mwe-upwiz-toggler-open" );
-			if ( isOpen ) {
-				// hide the extra options
-				moreDiv.slideUp( 250 );
-				/* when closed, show control to open */
-				$toggleLink.removeClass( "mwe-upwiz-toggler-open" );
-			} else {
-				// show the extra options
-				moreDiv.slideDown( 250 );
-				/* when open, show control to close */
-				$toggleLink.addClass( "mwe-upwiz-toggler-open" );
-			}
-		};
 
 		moreDiv.hide();
 

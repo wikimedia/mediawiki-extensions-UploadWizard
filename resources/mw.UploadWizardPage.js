@@ -11,12 +11,13 @@
 
 mw.UploadWizardPage = function () {
 
-	var config = mw.config.get( 'UploadWizardConfig' );
+	var uploadWizard,
+		config = mw.config.get( 'UploadWizardConfig' );
 	if ( !config.debug ) {
 		mw.log.level = mw.log.NONE;
 	}
 
-	var uploadWizard = new mw.UploadWizard( config );
+	uploadWizard = new mw.UploadWizard( config );
 	uploadWizard.createInterface( '#upload-wizard' );
 
 };

@@ -1,2 +1,3 @@
 resources/jquery
 resources/mw.Log.js
+test/jasmine
