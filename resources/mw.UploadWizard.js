@@ -294,10 +294,10 @@ mw.UploadWizard.prototype = {
 				title: function() {
 					return mw.message(
 						'mwe-upwiz-tooltip-skiptutorial',
-						mw.util.wikiGetlink( 'Special:Preferences' ) + '#mw-prefsection-uploads',
+						mw.config.get( 'wgServer' ) + mw.util.wikiGetlink( 'Special:Preferences' ) + '#mw-prefsection-uploads',
 						mw.message( 'prefs-uploads' ).escaped(),
 						mw.message( 'prefs-upwiz-interface' ).escaped()
-					).plain();
+					).parse();
 				},
 				delayIn: 0,
 				html: true,
