@@ -579,6 +579,8 @@ mw.UploadWizardUploadInterface.prototype = {
 				$win.off( 'resize', onResize );
 			}
 		}
+		// Show file input (possibly hidden by .hideFileInput())
+		this.$fileInputCtrl.show();
 		update();
 	},
 
@@ -591,7 +593,8 @@ mw.UploadWizardUploadInterface.prototype = {
 
 	hideFileInput: function () {
 		this.cancelPositionTracking();
-		// Should we actually hide it?
+		// Hide file input so it does not interfere with other interface elements
+		this.$fileInputCtrl.hide();
 	},
 
 	/**

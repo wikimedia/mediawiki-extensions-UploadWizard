@@ -325,27 +325,44 @@ mw.UploadWizard.prototype = {
 		var $disclaimer,
 			wizard = this,
 			checker = new mw.FlickrChecker( this, this.upload ),
+			// The input that will hold a flickr URL entered by the user; will be appended to a form
 			$flickrInput = $( '<input id="mwe-upwiz-flickr-input" class="ui-helper-center-fix" type="text" />' ),
-			flickrAdd = '<div id="mwe-upwiz-upload-add-flickr-container"><form id="mwe-upwiz-flickr-url-form">' +
-				'<button id="mwe-upwiz-upload-add-flickr" class="ui-helper-center-fix" type="submit"></button></form></div>';
+			// A container holding a form
+			$flickrContainer = $( '<div id="mwe-upwiz-upload-add-flickr-container"></div>' ),
+			// Form whose submit event will be listened to and prevented
+			$flickrForm = $( '<form id="mwe-upwiz-flickr-url-form"></form>' )
+				.appendTo( $flickrContainer ),
+			// Submit button to be clicked after entering the URL
+			$flickrButton = $( '<button id="mwe-upwiz-upload-add-flickr" class="ui-helper-center-fix" type="submit"></button>' )
+				.appendTo( $flickrForm );
+
+		// Hide containers for selecting files
 		$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
+		$( wizard.uploadToAdd.ui.div ).hide();
+		wizard.uploadToAdd.ui.hideFileInput();
+
 		// Add placeholder text to the Flickr URL input field
-		$flickrInput.attr( 'placeholder', mw.msg( 'mwe-upwiz-flickr-input-placeholder' ) ).placeholder();
+		$flickrInput.placeholder( mw.msg( 'mwe-upwiz-flickr-input-placeholder' ) );
+
 		// Insert form into the page
-		$( '#mwe-upwiz-files' ).prepend( flickrAdd );
+		$( '#mwe-upwiz-files' ).prepend( $flickrContainer );
+
 		// Add disclaimer
 		$disclaimer = mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
 			'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse();
 		$disclaimer = $( '<div id="mwe-upwiz-flickr-disclaimer"></div>' ).html( $disclaimer );
 		$( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
+
 		// Insert input field into the form and set up submit action
-		$( '#mwe-upwiz-flickr-url-form' ).prepend( $flickrInput ).submit( function() {
-			$( '#mwe-upwiz-upload-add-flickr' ).attr( 'disabled', 'disabled' );
+		$flickrForm.prepend( $flickrInput ).submit( function() {
+			$flickrButton.attr( 'disabled', 'disabled' );
 			wizard.flickrChecker( checker );
+			// TODO Any particular reason to stopPropagation ?
 			return false;
 		} );
+
 		// Set up the submit button
-		$( '#mwe-upwiz-upload-add-flickr' ).button( { label: mw.msg( 'mwe-upwiz-add-flickr' ) } );
+		$flickrButton.button( { label: mw.msg( 'mwe-upwiz-add-flickr' ) } );
 	},
 
 	/**
@@ -542,7 +559,7 @@ mw.UploadWizard.prototype = {
 		this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
-		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
+		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 		$( upload.ui.div ).bind( 'filenameAccepted', function(e) { wizard.updateFileCounts();  e.stopPropagation(); } );
@@ -899,7 +916,7 @@ mw.UploadWizard.prototype = {
 	},
 
 	/**
-	 * Occurs whenever we need to update the interface based on how many files there are
+	 * Occurs whenever we need to update the interface based on how many files there are.
 	 * There is an uncounted upload, waiting to be used, which has a fileInput which covers the
 	 * "add an upload" button. This is absolutely positioned, so it needs to be moved if another upload was removed.
 	 * The uncounted upload is also styled differently between the zero and n files cases
