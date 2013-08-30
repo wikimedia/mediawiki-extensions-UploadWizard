@@ -74,7 +74,7 @@ return array(
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 
 	// Flickr details
-	'flickrApiUrl' => 'http://api.flickr.com/services/rest/?',
+	'flickrApiUrl' => '//api.flickr.com/services/rest/?',
 	'flickrApiKey' => '',
 
 	// Settings about things that get automatically (and silently) added to uploads
