@@ -84,6 +84,10 @@ class UploadWizardCampaign {
 		return $this->title->getDBkey();
 	}
 
+	public function getTitle() {
+		return $this->title;
+	}
+
 	public function getTrackingCategory() {
 		$trackingCats = UploadWizardConfig::getSetting( 'trackingCategory' );
 		return Title::makeTitleSafe( NS_CATEGORY, str_replace( '$1', $this->getName(), $trackingCats['campaign'] ) );

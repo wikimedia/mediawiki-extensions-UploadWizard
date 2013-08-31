@@ -99,9 +99,10 @@ class CampaignContent extends TextContent {
 
 	function generateHtml( $title ) {
 		$context = RequestContext::getMain();
+
 		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
 		$config = $campaign->getParsedConfig();
-		$uploadLink = Skin::makeSpecialUrl( 'UploadWizard', 'campaign=' . urlencode( $campaign->getName() ) );
+
 		$campaignTitle = array_key_exists( 'title', $config ) ? $config['title'] : $campaign->getName();
 		$campaignDescription = array_key_exists( 'description', $config ) ? $config['description'] : '';
 		$campaignViewMoreLink = $campaign->getTrackingCategory()->getFullURL();
@@ -115,6 +116,22 @@ class CampaignContent extends TextContent {
 		$context->getOutput()->setSquidMaxage( UploadWizardConfig::getSetting( 'campaignSquidMaxAge' ) );
 
 		$images = $campaign->getUploadedMedia();
+
+		if ( $context->getUser()->isAnon() ) {
+			$createAccountUrl = Skin::makeSpecialUrl( 'UserLogin/signup', array( 'returnto' => $campaign->getTitle()->getPrefixedText() ) );
+			$uploadLink =
+						Html::element( 'a',
+							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $createAccountUrl ),
+							wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text()
+						);
+		} else {
+			$uploadUrl = Skin::makeSpecialUrl( 'UploadWizard', array( 'campaign' => $campaign->getName() ) );
+			$uploadLink =
+						Html::element( 'a',
+							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $uploadUrl ),
+							wfMessage( 'mwe-upwiz-campaign-upload-button' )->text()
+						);
+		}
 
 		if ( count( $images ) === 0 ) {
 			$body = Html::element( 'div', array( 'id' => 'mw-campaign-no-uploads-yet' ), wfMessage( 'mwe-upwiz-campaign-no-uploads-yet' )->plain() );
@@ -139,10 +156,7 @@ class CampaignContent extends TextContent {
 						// Any stripping that needed to be done should've been done by the parser
 						Html::rawElement( 'p', array( 'id' => 'mw-campaign-title' ), $campaignTitle ) .
 						Html::rawElement( 'p', array( 'id' => 'mw-campaign-description' ), $campaignDescription ) .
-						Html::element( 'a',
-							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $uploadLink ),
-							wfMessage( 'mwe-upwiz-campaign-cta-button' )->text()
-						)
+					$uploadLink
 					) .
 					Html::rawElement( 'div', array( 'id' => 'mw-campaign-numbers' ),
 						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
