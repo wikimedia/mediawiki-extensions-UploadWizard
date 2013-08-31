@@ -52,5 +52,25 @@
 
 #mw-campaign-view-all {
 	display: block;
+	background-color: #f9f9f9;
+	border: 1px #ddd solid;
+	padding: 8px;
+	text-align: center;
+}
+
+#mw-campaign-view-all:hover {
+	text-decoration: none;
+}
+
+.mw-campaign-chevron {
+	background: url('images/down-chevron.png') no-repeat center;
+	width: 16px ;
+}
+
+.mw-campaign-float-left {
+	float: left;
+}
+
+.mw-campaign-float-right {
 	float: right;
 }

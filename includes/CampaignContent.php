@@ -142,9 +142,11 @@ class CampaignContent extends TextContent {
 
 			$body =
 				Html::rawElement( 'div', array( 'id' => 'mw-campaign-images' ), $gallery->toHTML() ) .
-				Html::element( 'a',
+				Html::rawElement( 'a',
 					array( 'id' => 'mw-campaign-view-all', 'href' => $campaignViewMoreLink ),
-					wfMessage( 'mwe-upwiz-campaign-view-all-media' )->text()
+					Html::rawElement( 'span', array( 'class' => 'mw-campaign-chevron mw-campaign-float-left' ), '&nbsp' ) .
+					wfMessage( 'mwe-upwiz-campaign-view-all-media' )->escaped() .
+					Html::rawElement( 'span', array( 'class' => 'mw-campaign-chevron mw-campaign-float-right' ), '&nbsp' )
 				);
 		}
 
