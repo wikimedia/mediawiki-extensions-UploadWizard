@@ -65,6 +65,11 @@ $specialPageAliases['diq'] = array(
 	'UploadCampaign' => array( 'HolaBarkerdışi' ),
 );
 
+/** Greek (Ελληνικά) */
+$specialPageAliases['el'] = array(
+	'UploadWizard' => array( 'ΟδηγόςΑνεβάσματος' ),
+);
+
 /** Estonian (eesti) */
 $specialPageAliases['et'] = array(
 	'UploadWizard' => array( 'Üleslaadimisviisard' ),
