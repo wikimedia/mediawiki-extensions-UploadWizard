@@ -908,8 +908,13 @@ Parameters:
 	'mwe-upwiz-too-many-files' => 'Error dialog title',
 	'mwe-upwiz-file-too-large-ok' => '{{Identical|OK}}',
 	'mwe-upwiz-file-too-large-text' => 'Error message informing the user that their file is too large to upload. Parameters:
-* $1 is the maximum file size;
-* $2 is the size of the file they tried to upload.',
+* $1 - the maximum file size
+* $2 - the size of the file they tried to upload
+These two parameters use any one of the following messages:
+** {{msg-mw|Size-bytes}}
+** {{msg-mw|Size-kilobytes}}
+** {{msg-mw|Size-megabytes}}
+** {{msg-mw|Size-gigabytes}}',
 	'mwe-upwiz-file-too-large' => 'Error dialog title',
 	'mwe-upwiz-necessary-confirm' => 'Confirmation box suggesting that it is recommended to fill in a category for uploads and asking the uploader whether they want to continue without them',
 	'mwe-upwiz-dialog-yes' => '{{Identical|Yes}}',
@@ -26117,6 +26122,7 @@ $messages['sk'] = array(
 	'mwe-upwiz-source' => 'Zdroj',
 	'mwe-upwiz-thanks-intro' => 'Ďakujeme za nahranie súboru!',
 	'mwe-upwiz-thanks-explain' => 'Teraz môžete {{PLURAL:$1|tento súbor|tieto súbory}} použiť na stránkach ako Wikipédia alebo {{PLURAL:$1|naň|na ne}} odkazovať na webe.',
+	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Súbor „$1“ už nahrávate.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Povolené prípony sú:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Povolené prípony súborov',
 	'mwe-upwiz-upload-error-duplicate-archive' => 'Tento súbor už bol nahraný na túto wiki, ale neskôr bol zmazaný.',
