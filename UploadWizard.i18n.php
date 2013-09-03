@@ -1162,6 +1162,12 @@ See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning. This is the same licensing tutorial as is mentioned in {{msg-mw|Mwe-upwiz-campaign-conf-skipTutorial}}',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
+	'mwe-upwiz-campaign-create-account-button' => 'Text on button shown to logged out users asking them to create an account and then upload media. Link takes them to Create Account page',
+	'mwe-upwiz-campaign-upload-button' => 'Text on button shown to logged in users asking them to upload media for this campaign',
+	'mwe-upwiz-campaign-media-count-desc' => 'Text shown under the number of uploads this campaign has received',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Text shown under the number of contributors this campaign has had',
+	'mwe-upwiz-campaign-view-all-media' => 'Text on link to go to a page showing all the uploads from the campaign so far',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Text shown when no media has been uploaded yet for this campaign'
 );
 
 /** Afrikaans (Afrikaans)
