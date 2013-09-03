@@ -83,51 +83,97 @@ class CampaignContent extends TextContent {
 		return new CampaignContent( efBeautifyJson( $this->getNativeData() ) );
 	}
 
-	/**
-	 * Constructs an HTML representation of a JSON object.
-	 * @param Array $mapping
-	 * @return string: HTML.
-	 */
-	static function objectTable( $mapping ) {
-		$rows = array();
+	// Override getParserOutput, since we require $title to generate our output
+	function getParserOutput( Title $title,
+		$revId = null,
+		ParserOptions $otpions = null, $generateHtml = true
+	) {
+		$po = new ParserOutput();
 
-		foreach ( $mapping as $key => $val ) {
-			$rows[] = self::objectRow( $key, $val );
+		if ( $generateHtml ) {
+			$po->setText( $this->generateHtml( $title ) );
 		}
-		return Xml::tags( 'table', array( 'class' => 'mw-json-schema' ),
-			Xml::tags( 'tbody', array(), join( "\n", $rows ) )
-		);
+
+		return $po;
 	}
 
-	/**
-	 * Constructs HTML representation of a single key-value pair.
-	 * @param string $key
-	 * @param mixed $val
-	 * @return string: HTML.
-	 */
-	static function objectRow( $key, $val ) {
-		$th = Xml::elementClean( 'th', array(), $key );
-		if ( is_array( $val ) ) {
-			$td = Xml::tags( 'td', array(), self::objectTable( $val ) );
+	function generateHtml( $title ) {
+		$context = RequestContext::getMain();
+
+		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
+		$config = $campaign->getParsedConfig();
+
+		$campaignTitle = array_key_exists( 'title', $config ) ? $config['title'] : $campaign->getName();
+		$campaignDescription = array_key_exists( 'description', $config ) ? $config['description'] : '';
+		$campaignViewMoreLink = $campaign->getTrackingCategory()->getFullURL();
+
+		$gallery = ImageGalleryBase::factory( 'packed-hover' );
+		$gallery->setContext( $context );
+		$gallery->setWidths( 180 );
+		$gallery->setHeights( 180 );
+		$gallery->setShowBytes( false );
+
+		$context->getOutput()->setSquidMaxage( UploadWizardConfig::getSetting( 'campaignSquidMaxAge' ) );
+
+		$images = $campaign->getUploadedMedia();
+
+		if ( $context->getUser()->isAnon() ) {
+			$createAccountUrl = Skin::makeSpecialUrl( 'UserLogin/signup', array( 'returnto' => $campaign->getTitle()->getPrefixedText() ) );
+			$uploadLink =
+						Html::element( 'a',
+							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $createAccountUrl ),
+							wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text()
+						);
 		} else {
-			if ( is_string( $val ) ) {
-				$val = '"' . $val . '"';
-			} else {
-				$val = FormatJson::encode( $val );
+			$uploadUrl = Skin::makeSpecialUrl( 'UploadWizard', array( 'campaign' => $campaign->getName() ) );
+			$uploadLink =
+						Html::element( 'a',
+							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $uploadUrl ),
+							wfMessage( 'mwe-upwiz-campaign-upload-button' )->text()
+						);
+		}
+
+		if ( count( $images ) === 0 ) {
+			$body = Html::element( 'div', array( 'id' => 'mw-campaign-no-uploads-yet' ), wfMessage( 'mwe-upwiz-campaign-no-uploads-yet' )->plain() );
+		} else {
+			foreach ( $images as $image ) {
+				$gallery->add( $image );
 			}
 
-			$td = Xml::elementClean( 'td', array( 'class' => 'value' ), $val );
+			$body =
+				Html::rawElement( 'div', array( 'id' => 'mw-campaign-images' ), $gallery->toHTML() ) .
+				Html::rawElement( 'a',
+					array( 'id' => 'mw-campaign-view-all', 'href' => $campaignViewMoreLink ),
+					Html::rawElement( 'span', array( 'class' => 'mw-campaign-chevron mw-campaign-float-left' ), '&nbsp' ) .
+					wfMessage( 'mwe-upwiz-campaign-view-all-media' )->escaped() .
+					Html::rawElement( 'span', array( 'class' => 'mw-campaign-chevron mw-campaign-float-right' ), '&nbsp' )
+				);
 		}
 
-		return Xml::tags( 'tr', array(), $th . $td );
-	}
+		return
+			Html::rawElement( 'div', array( 'id' => 'mw-campaign-container' ),
+				Html::rawElement( 'div', array( 'id' => 'mw-campaign-header' ),
+					Html::rawElement( 'div', array( 'id' => 'mw-campaign-primary-info' ),
+						// No need to escape these, since they are just parsed wikitext
+						// Any stripping that needed to be done should've been done by the parser
+						Html::rawElement( 'p', array( 'id' => 'mw-campaign-title' ), $campaignTitle ) .
+						Html::rawElement( 'p', array( 'id' => 'mw-campaign-description' ), $campaignDescription ) .
+					$uploadLink
+					) .
+					Html::rawElement( 'div', array( 'id' => 'mw-campaign-numbers' ),
+						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
+							Html::element( 'div', array( 'class' => 'mw-campaign-number' ), $campaign->getTotalContributorsCount() ) .
+							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-contributors-count-desc')->plain() )
 
-	/**
-	 * Generates HTML representation of content.
-	 * @return string: HTML representation.
-	 */
-	function getHighlightHtml() {
-		$schema = $this->getJsonData();
-		return is_array( $schema ) ? self::objectTable( $schema ) : '';
+						) .
+						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
+							Html::element( 'div', array( 'class' => 'mw-campaign-number' ), $campaign->getUploadedMediaCount() ) .
+							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-media-count-desc')->plain() )
+
+						)
+					)
+				) .
+				$body
+			);
 	}
 }

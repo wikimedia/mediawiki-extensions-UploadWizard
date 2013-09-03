@@ -111,7 +111,13 @@ $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
 
 $wgResourceModules['ext.uploadWizard.page'] = array(
         'scripts' => 'mw.UploadWizardPage.js',
-        'dependencies' => 'ext.uploadWizard',
+        'dependencies' => 'ext.uploadWizard'
+) + $uploadWizardModuleInfo;
+
+$wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
+	'styles' => 'ext.uploadWizard.uploadCampaign.display.css',
+	'position' => 'top',
+	'dependencies' => 'mediawiki.ui'
 ) + $uploadWizardModuleInfo;
 
 // Campaign hook handlers

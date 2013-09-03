@@ -250,6 +250,12 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-dialog-yes' => 'Yes',
 	'mwe-upwiz-dialog-no' => 'No',
 	'mwe-upwiz-dialog-title' => 'Warning',
+	'mwe-upwiz-campaign-create-account-button' => 'Create an account to upload!',
+	'mwe-upwiz-campaign-upload-button' => 'Upload!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Uploads',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Contributors',
+	'mwe-upwiz-campaign-view-all-media' => 'View all uploaded media',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'No uploads yet!',
 
 	/* LICENSES & combinations of licenses */
 	/* may be a good idea to shift to WikimediaLicenseTexts? */
