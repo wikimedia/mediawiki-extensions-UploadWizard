@@ -70,6 +70,9 @@ return array(
 	// Number of seconds to cache Campaign pages in squid, for anon users
 	'campaignSquidMaxAge' => 10 * 60,
 
+	// Enable or disable campaignstats that are expensive to compute
+	'campaignExpensiveStatsEnabled' => true,
+
 	// Number of seconds to cache Campaign stats
 	// Currently affects: Contributors count for each campaign
 	'campaignStatsMaxAge' => 60,

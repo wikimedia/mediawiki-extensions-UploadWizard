@@ -150,6 +150,18 @@ class CampaignContent extends TextContent {
 				);
 		}
 
+		if ( UploadWizardConfig::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
+			$campaignExpensiveStats =
+				Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
+					Html::element( 'div', array( 'class' => 'mw-campaign-number' ), $campaign->getTotalContributorsCount() ) .
+					Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-contributors-count-desc')->plain() )
+
+				);
+		} else {
+			$campaignExpensiveStats = '';
+		}
+
+
 		return
 			Html::rawElement( 'div', array( 'id' => 'mw-campaign-container' ),
 				Html::rawElement( 'div', array( 'id' => 'mw-campaign-header' ),
@@ -161,15 +173,10 @@ class CampaignContent extends TextContent {
 					$uploadLink
 					) .
 					Html::rawElement( 'div', array( 'id' => 'mw-campaign-numbers' ),
-						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
-							Html::element( 'div', array( 'class' => 'mw-campaign-number' ), $campaign->getTotalContributorsCount() ) .
-							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-contributors-count-desc')->plain() )
-
-						) .
+						$campaignExpensiveStats .
 						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
 							Html::element( 'div', array( 'class' => 'mw-campaign-number' ), $campaign->getUploadedMediaCount() ) .
 							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-media-count-desc')->plain() )
-
 						)
 					)
 				) .
