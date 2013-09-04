@@ -584,9 +584,12 @@ Related messages:
 * $2 - number of minutes
 * $3 - number of seconds
 {{Related|Mwe-upwiz-remaining}}',
-	'mwe-upwiz-deeds-macro-prompt' => 'An explanation below the thumbnail and above the radio buttons {{msg-mw|mwe-upwiz-source-ownwork}} and {{msg-mw|mwe-upwiz-source-thirdparty}}. Parameters:
-* $1 is the number of files.
-* $2 can be used for GENDER.',
+	'mwe-upwiz-deeds-macro-prompt' => 'An explanation below the thumbnail and above the following radio buttons:
+* {{msg-mw|Mwe-upwiz-source-ownwork}}
+* {{msg-mw|Mwe-upwiz-source-thirdparty}}.
+Parameters:
+* $1 - the number of files
+* $2 - username, for GENDER support',
 	'mwe-upwiz-source-ownwork' => 'Parameters:
 * $1 - number of files
 {{Related|Mwe-upwiz-source-ownwork}}',
@@ -865,13 +868,23 @@ This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thank
 This is a button label, used at the end in the "{{MediaWiki:mwe-upwiz-step-thanks/en}}" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].',
 	'mwe-upwiz-prevent-close' => 'Used as confirmation message when closing window. Parameters:
 * $1 - number of files. i.e. number of uploads',
-	'mwe-upwiz-tooltip-skiptutorial' => 'The tooltip shown when clicking the checkbox in the first step which enables the user to skip the introductory licensing tutorial in future. Parameters:
-* $1 is the URL for the user preferences,
-* $2 is {{msg-mw|prefs-uploads}},
-* $3 is {{msg-mw|prefs-upwiz-interface}}.',
+	'mwe-upwiz-tooltip-skiptutorial' => 'The tooltip shown when clicking the checkbox in the first step which enables the user to skip the introductory licensing tutorial in future.
+
+Parameters:
+* $1 - the URL for the user preferences
+* $2 - {{msg-mw|Prefs-uploads}}
+* $3 - {{msg-mw|Prefs-upwiz-interface}}',
 	'mwe-upwiz-tooltip-categories' => 'Used as hint for Category input form. Parameters:
 * $1 - the URL http://commons.wikimedia.org/wiki/Commons:Categories (hard-coded)',
 	'mwe-upwiz-tooltip-more-info' => '{{Identical|Learn more}}',
+	'mwe-upwiz-license-show-all' => 'Used as action link text.
+
+See also:
+* {{msg-mw|Mwe-upwiz-license-show-recommended}}',
+	'mwe-upwiz-license-show-recommended' => 'Used as action link text.
+
+See also:
+* {{msg-mw|Mwe-upwiz-license-show-all}}',
 	'mwe-upwiz-error-signature-blank' => 'Used as error message.
 {{Related|Mwe-upwiz-error-signature}}',
 	'mwe-upwiz-error-latitude' => 'Error message shown when an invalid latitude is entered',
@@ -926,6 +939,12 @@ These two parameters use any one of the following messages:
 	'mwe-upwiz-dialog-yes' => '{{Identical|Yes}}',
 	'mwe-upwiz-dialog-no' => '{{Identical|No}}',
 	'mwe-upwiz-dialog-title' => '{{Identical|Warning}}',
+	'mwe-upwiz-campaign-create-account-button' => 'Text on button shown to logged out users asking them to create an account and then upload media. Link takes them to Create Account page',
+	'mwe-upwiz-campaign-upload-button' => 'Text on button shown to logged in users asking them to upload media for this campaign',
+	'mwe-upwiz-campaign-media-count-desc' => 'Text shown under the number of uploads this campaign has received',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Text shown under the number of contributors this campaign has had',
+	'mwe-upwiz-campaign-view-all-media' => 'Text on link to go to a page showing all the uploads from the campaign so far',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Text shown when no media has been uploaded yet for this campaign',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '{{CreativeCommonsLicense|by-sa|3.0}}
 Parameters:
 * $1 - (Unused) empty string
@@ -1034,22 +1053,29 @@ Used as <code>$2</code> in {{msg-mw|Mwe-upwiz-license-custom}}.',
 	'mwe-upwiz-license-fal' => 'Used as license name.',
 	'mwe-upwiz-license-pd-us' => 'This is one of the tags for items in the public domain. It means that the work was published first of all in the US, and before 1923. The public domain rules are different for works published first of all outside the US. The template <nowiki>{{PD-1923}}</nowiki> is used on commons for these. See [[commons:Commons:Hirtle_chart]].',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => '{{Related|Mwe-upwiz-license-cc}}',
-	'mwe-upwiz-license-cc-head' => 'The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.
+	'mwe-upwiz-license-cc-head' => 'Used as expand/collapse action link text.
+
+The word "right" seems to refer to "the right one" in the sense of one that matches or is suitable.
 
 Parameters:
 * $1 - number of works
 {{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}
+Used as expand/collapse action link text.
 {{Related|Mwe-upwiz-license-head}}',
-	'mwe-upwiz-license-public-domain-usa-head' => '{{Related|Mwe-upwiz-license-head}}',
+	'mwe-upwiz-license-public-domain-usa-head' => 'Used as expand/collapse action link text.
+{{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-public-domain-usa-subhead' => 'This message, assuming that the server of the website is located in the USA (like Wikimedia Commons), reminds the user that for the work to be considered in the public domain its copyright is required to be expired in the USA specifically, as being PD in the country of origin is not enough.',
-	'mwe-upwiz-license-usgov-head' => 'Parameters:
+	'mwe-upwiz-license-usgov-head' => 'Used as expand/collapse action link text.
+Parameters:
 * $1 - number of the files
 {{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-misc' => 'none',
-	'mwe-upwiz-license-custom-head' => '{{Related|Mwe-upwiz-license-head}}',
+	'mwe-upwiz-license-custom-head' => 'Used as expand/collapse action link text.
+{{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-custom-preview' => '{{Identical|Preview}}',
-	'mwe-upwiz-license-none-head' => '{{Related|Mwe-upwiz-license-head}}',
+	'mwe-upwiz-license-none-head' => 'Used as expand/collapse action link text.
+{{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-none' => 'Parameters:
 * $1 - number of the files',
 	'mwe-upwiz-license-confirm-remove' => 'Used as confirmation message. Parameters:
@@ -1145,7 +1171,9 @@ See also:
 * $1 - category name',
 	'mw-coolcats-confirm-new-ok' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will add the selected non-existing categories to the upload.',
 	'mw-coolcats-confirm-new-cancel' => 'Button text on the category creation dialog for the Upload Wizard. Clicking this button will remove the selected non-existing categories from being added to the upload.',
-	'prefs-uploads' => 'Preferences tab label for UploadWizard preferences related to uploads. See https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.
+	'prefs-uploads' => 'Preferences tab label for UploadWizard preferences related to uploads.
+
+See https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.
 {{Identical|Upload}}',
 	'prefs-upwiz-licensing' => '{{Identical|Licensing}}',
 	'prefs-upwiz-experimental' => 'Used in [[Special:Preferences]].',
@@ -1162,12 +1190,6 @@ See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning. This is the same licensing tutorial as is mentioned in {{msg-mw|Mwe-upwiz-campaign-conf-skipTutorial}}',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
-	'mwe-upwiz-campaign-create-account-button' => 'Text on button shown to logged out users asking them to create an account and then upload media. Link takes them to Create Account page',
-	'mwe-upwiz-campaign-upload-button' => 'Text on button shown to logged in users asking them to upload media for this campaign',
-	'mwe-upwiz-campaign-media-count-desc' => 'Text shown under the number of uploads this campaign has received',
-	'mwe-upwiz-campaign-contributors-count-desc' => 'Text shown under the number of contributors this campaign has had',
-	'mwe-upwiz-campaign-view-all-media' => 'Text on link to go to a page showing all the uploads from the campaign so far',
-	'mwe-upwiz-campaign-no-uploads-yet' => 'Text shown when no media has been uploaded yet for this campaign'
 );
 
 /** Afrikaans (Afrikaans)
@@ -6833,6 +6855,12 @@ Bitte verwende hier kein Wikitext oder HTML.',
 	'mwe-upwiz-dialog-yes' => 'Ja',
 	'mwe-upwiz-dialog-no' => 'Nein',
 	'mwe-upwiz-dialog-title' => 'Warnung',
+	'mwe-upwiz-campaign-create-account-button' => 'Erstelle ein Benutzerkonto und lade hoch!',
+	'mwe-upwiz-campaign-upload-button' => 'Hochladen!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Hochgeladene Dateien',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Mitwirkende',
+	'mwe-upwiz-campaign-view-all-media' => 'Alle hochgeladenen Medien ansehen',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Noch keine hochgeladenen Dateien!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0“ ([$2 Text der Lizenz])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0 Österreich“ ([$2 Text der Lizenz])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons „Namensnennung, Weitergabe unter gleichen Bedingungen 3.0 Deutschland“ ([$2 Text der Lizenz])',
@@ -11064,6 +11092,12 @@ Non utilice texto wiki ou HTML aquí.',
 	'mwe-upwiz-dialog-yes' => 'Si',
 	'mwe-upwiz-dialog-no' => 'Non',
 	'mwe-upwiz-dialog-title' => 'Aviso',
+	'mwe-upwiz-campaign-create-account-button' => 'Cree unha conta e cargue ficheiros!',
+	'mwe-upwiz-campaign-upload-button' => 'Cargar!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Cargas',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Colaboradores',
+	'mwe-upwiz-campaign-view-all-media' => 'Mostrar todos os ficheiros multimedia cargados',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Aínda non cargou ningún ficheiro!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons recoñecemento compartir igual 3.0 ([$2 texto legal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons recoñecemento compartir igual 3.0 Austria ([$2 texto legal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons recoñecemento compartir igual 3.0 Alemaña ([$2 texto legal])',
@@ -14893,6 +14927,12 @@ Non utilizzare wikitesto o HTML qui.',
 	'mwe-upwiz-dialog-yes' => 'Sì',
 	'mwe-upwiz-dialog-no' => 'No',
 	'mwe-upwiz-dialog-title' => 'Avvertenza',
+	'mwe-upwiz-campaign-create-account-button' => "Crea un'utenza e carica!",
+	'mwe-upwiz-campaign-upload-button' => 'Carica!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Caricamenti',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Contributori',
+	'mwe-upwiz-campaign-view-all-media' => 'Vedi tutti i contenuti caricati',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Non è stato ancora caricato niente!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribuzione-Condividi allo stesso modo 3.0 ([$2 codice legale])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribuzione-Condividi allo stesso modo 3.0 Austria ([$2 codice legale])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribuzione-Condividi allo stesso modo 3.0 Germania ([$2 codice legale])',
@@ -15237,7 +15277,7 @@ Firefox の拡張機能 [$1 Firefogg] をインストールして自動的に変
 	'mwe-upwiz-tooltip-more-info' => '詳細。',
 	'mwe-upwiz-file-need-file' => '最初にアップロードを追加してください。',
 	'mwe-upwiz-deeds-need-license' => 'ライセンスを選択してください。',
-	'mwe-upwiz-license-show-all' => '異なるライセンスを使用',
+	'mwe-upwiz-license-show-all' => 'その他のライセンスを使用',
 	'mwe-upwiz-license-show-recommended' => '推奨されるライセンスを使用',
 	'mwe-upwiz-error-signature-blank' => '以下の欄に、あなたの利用者名や本名で署名してください。',
 	'mwe-upwiz-error-latitude' => '緯度は-90度から90度である必要があります。',
@@ -15282,6 +15322,12 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-dialog-yes' => 'はい',
 	'mwe-upwiz-dialog-no' => 'いいえ',
 	'mwe-upwiz-dialog-title' => '警告',
+	'mwe-upwiz-campaign-create-account-button' => 'アカウントを作成してアップロード',
+	'mwe-upwiz-campaign-upload-button' => 'アップロード',
+	'mwe-upwiz-campaign-media-count-desc' => 'アップロード',
+	'mwe-upwiz-campaign-contributors-count-desc' => '貢献者',
+	'mwe-upwiz-campaign-view-all-media' => 'アップロードされたメディアをすべて閲覧',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'まだ何もアップロードされていません。',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'クリエイティブ・コモンズ 表示-継承 3.0 ([$2 完全な条項])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'クリエイティブ・コモンズ 表示-継承 3.0 オーストリア ([$2 完全な条項])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'クリエイティブ・コモンズ 表示-継承 3.0 ドイツ ([$2 完全な条項])',
@@ -15299,7 +15345,7 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'クリエイティブ・コモンズ 表示-継承 2.0 ([$2 完全な条項])',
 	'mwe-upwiz-license-cc-by-2.0' => 'クリエイティブ・コモンズ 表示 2.0 ([$2 完全な条項])',
 	'mwe-upwiz-license-cc-zero' => 'クリエイティブ・コモンズ CC0 権利放棄 (パブリックドメインのようにすべての権利を放棄する。[$2 完全な条項])',
-	'mwe-upwiz-license-custom' => 'ライセンスは以下のウィキテキストにて示されます (有効な[$2 著作権タグ]を含まなければなりません):',
+	'mwe-upwiz-license-custom' => 'ライセンスは、以下に記述したウィキテキストの通りです (有効な[$2 著作権タグ]を含めてください):',
 	'mwe-upwiz-license-custom-url' => '//commons.wikimedia.org/wiki/Commons:コピーライト・タグ',
 	'mwe-upwiz-license-fal' => 'フリーの作品ライセンス',
 	'mwe-upwiz-license-own-pd' => 'すべての権利をCreative Commons Zeroライセンス (パブリックドメインと同等) によって放棄',
@@ -15318,16 +15364,16 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-license-gfdl' => 'GNUフリー文書利用許諾契約書 (GNU Free Documentation License)',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'コピーレフト、帰属必須 (GFDL、CC-BY-SA-3.0)',
 	'mwe-upwiz-license-cc-head' => '著作権者が、{{PLURAL:$1|この作品|これらの作品}}を適切なクリエイティブ・コモンズのライセンスのもとで公開しました',
-	'mwe-upwiz-license-cc-subhead' => 'すべてのクリエイティブ・コモンズ・ライセンスがこのウェブサイトに適しているわけではありません。著作権者がこれらのライセンスのうちのひとつを使用していることを確認してください。',
+	'mwe-upwiz-license-cc-subhead' => 'すべてのクリエイティブ・コモンズ・ライセンスがこのウェブサイトに適しているわけではありません。著作権者が以下のライセンスのいずれかを使用していることを確認してください。',
 	'mwe-upwiz-license-flickr-head' => '著作権者は、Flickr で自身の{{PLURAL:$1|写真または動画}}を適切なライセンスで公開しました',
 	'mwe-upwiz-license-flickr-subhead' => 'Flickr のページの横の「ライセンス」ヘッダーを確認してください。使用されるアイコンとライセンス名はどちらも、ここでの選択肢のいずれかに一致する必要があります。',
-	'mwe-upwiz-license-public-domain-usa-head' => 'その著作権の期限がアメリカ合衆国で明らかに切れている',
+	'mwe-upwiz-license-public-domain-usa-head' => 'この作品の著作権の期限はアメリカ合衆国で明確に切れています',
 	'mwe-upwiz-license-public-domain-usa-subhead' => '{{SITENAME}}の所在地はアメリカ合衆国であるため、作品はそこで著作権切れになっていなければなりません。',
-	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|この作品|これらの作品}}はアメリカ合衆国政府が作った',
+	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|この作品|これらの作品}}はアメリカ合衆国政府が作成したものです',
 	'mwe-upwiz-license-misc' => 'その他の理由',
-	'mwe-upwiz-license-custom-head' => '上記で触れられていない別の理由',
+	'mwe-upwiz-license-custom-head' => '上記以外の理由',
 	'mwe-upwiz-license-custom-preview' => 'プレビュー',
-	'mwe-upwiz-license-none-head' => 'インターネットで見つけた -- よく分からない',
+	'mwe-upwiz-license-none-head' => 'インターネットで見つけました -- よく分かりません',
 	'mwe-upwiz-license-confirm-remove' => '{{PLURAL:$1|このアップロード|これらのアップロード}}を本当に除去しますか?',
 	'mwe-upwiz-license-confirm-remove-title' => '除去の確認',
 	'mwe-upwiz-license-external' => '元のサイト「$1」上で以下のライセンスのもとにあるファイルです: $2。',
@@ -18796,6 +18842,12 @@ $messages['mk'] = array(
 	'mwe-upwiz-dialog-yes' => 'Да',
 	'mwe-upwiz-dialog-no' => 'Не',
 	'mwe-upwiz-dialog-title' => 'Предупредување',
+	'mwe-upwiz-campaign-create-account-button' => 'Направете сметка за да подигате!',
+	'mwe-upwiz-campaign-upload-button' => 'Подигни!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Подигања',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Учесници',
+	'mwe-upwiz-campaign-view-all-media' => 'Погл. сите подигнати',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Сè уште немате ништо подигнато!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Криејтив комонс НаведиИзвор-СподелиПодИстиУслови 3.0 ([$2 правен текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Криејтив комонс НаведиИзвор-СподелиПодИстиУслови 3.0 Австрија ([$2 правен текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Криејтив комонс НаведиИзвор-СподелиПодИстиУслови 3.0 Германија ([$2 правен текст])',
@@ -29608,6 +29660,12 @@ $messages['uk'] = array(
 	'mwe-upwiz-dialog-yes' => 'Так',
 	'mwe-upwiz-dialog-no' => 'Ні',
 	'mwe-upwiz-dialog-title' => 'Застереження',
+	'mwe-upwiz-campaign-create-account-button' => 'Створіть обліковий запис і завантажте!',
+	'mwe-upwiz-campaign-upload-button' => 'Вивантажити!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Вивантаження',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Автори',
+	'mwe-upwiz-campaign-view-all-media' => 'Переглянути всі вивантажені медіа',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Ще нема вивантажень!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 скорочений виклад та офіційний юридичний текст ліцензії])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Австрія ([$2 спрощений виклад та офіційний юридичний текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 Німеччина  ([$2 спрощений виклад та офіційний юридичний текст])',
