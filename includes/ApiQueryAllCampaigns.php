@@ -66,30 +66,34 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				$this->setContinueEnumParameter( 'continue', $row->campaign_id );
 				break;
 			}
+
 			$campaign = UploadWizardCampaign::newFromName( $row->campaign_name );
+
+			$campaignPath = array( 'query', $this->getModuleName(), $row->campaign_id );
+
 			$result->addValue(
-				array( 'query', $this->getModuleName(), $row->campaign_id ),
+				$campaignPath,
 				'*',
 				json_encode( $campaign->getParsedConfig() )
 			);
 			$result->addValue(
-				array( 'query', $this->getModuleName(), $row->campaign_id ),
+				$campaignPath,
 				'name',
 				$campaign->getName()
 			);
 			$result->addValue(
-				array( 'query', $this->getModuleName(), $row->campaign_id ),
+				$campaignPath,
 				'trackingCategory',
 				$campaign->getTrackingCategory()->getDBKey()
 			);
 			$result->addValue(
-				array( 'query', $this->getModuleName(), $row->campaign_id ),
+				$campaignPath,
 				'totalUploads',
 				$campaign->getUploadedMediaCount()
 			);
 			if ( UploadWizardConfig::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
 				$result->addValue(
-					array( 'query', $this->getModuleName(), $row->campaign_id ),
+					$campaignPath,
 					'totalContributors',
 					$campaign->getTotalContributorsCount()
 				);
