@@ -66,6 +66,9 @@ class UploadWizardTutorial {
 		}
 
 		if ( $error !== null ) {
+			// Messages:
+			// mwe-upwiz-tutorial-error-localized-file-missing, mwe-upwiz-tutorial-error-file-missing,
+			// mwe-upwiz-tutorial-error-cannot-transform
 			$errorMsg = wfMessage( 'mwe-upwiz-tutorial-error-' . $error );
 			if ( $error === 'localized-file-missing' ) {
 				$errorMsg->params( Language::fetchLanguageName( $langCode, $wgLang->getCode() ) );
