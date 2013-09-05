@@ -129,7 +129,7 @@ class CampaignContent extends TextContent {
 				$campaignTemplate = UploadWizardConfig::getSetting( 'campaignCTACampaignTemplate' );
 				$urlParams['campaign'] = str_replace( '$1', $campaign->getName(), $campaignTemplate );
 			}
-			$createAccountUrl = Skin::makeSpecialUrl( 'UserLogin/signup', $urlParams );
+			$createAccountUrl = Skin::makeSpecialUrlSubpage( 'UserLogin', 'signup', $urlParams );
 			$uploadLink =
 						Html::element( 'a',
 							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $createAccountUrl ),

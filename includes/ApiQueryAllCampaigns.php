@@ -82,6 +82,18 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				'trackingCategory',
 				$campaign->getTrackingCategory()->getDBKey()
 			);
+			$result->addValue(
+				array( 'query', $this->getModuleName(), $row->campaign_id ),
+				'totalUploads',
+				$campaign->getUploadedMediaCount()
+			);
+			if ( UploadWizardConfig::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
+				$result->addValue(
+					array( 'query', $this->getModuleName(), $row->campaign_id ),
+					'totalContributors',
+					$campaign->getTotalContributorsCount()
+				);
+			}
 		}
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'campaign' );
 	}
