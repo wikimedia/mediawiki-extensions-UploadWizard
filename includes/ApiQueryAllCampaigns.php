@@ -77,6 +77,11 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				'name',
 				$campaign->getName()
 			);
+			$result->addValue(
+				array( 'query', $this->getModuleName(), $row->campaign_id ),
+				'trackingCategory',
+				$campaign->getTrackingCategory()->getDBKey()
+			);
 		}
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'campaign' );
 	}
