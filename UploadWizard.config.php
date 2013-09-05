@@ -77,6 +77,11 @@ return array(
 	// Currently affects: Contributors count for each campaign
 	'campaignStatsMaxAge' => 60,
 
+	// Name of Campaign (as defined by Extension:Campaigns) to use for anon signup CTA
+	// Is used only if Campaign extension is detected
+	// $1 is replaced by the uploadcampaign name
+	'campaignCTACampaignTemplate' => 'uploadCampaign:$1',
+
 	// File extensions acceptable in this wiki
 	'fileExtensions' =>  $wgFileExtensions,
 

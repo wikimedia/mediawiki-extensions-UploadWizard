@@ -97,6 +97,11 @@ class CampaignContent extends TextContent {
 		return $po;
 	}
 
+	private function isCampaignExtensionEnabled() {
+		global $wgResourceModules;
+		return isset( $wgResourceModules['ext.campaigns'] );
+	}
+
 	function generateHtml( $title ) {
 		$context = RequestContext::getMain();
 
@@ -118,7 +123,13 @@ class CampaignContent extends TextContent {
 		$images = $campaign->getUploadedMedia();
 
 		if ( $context->getUser()->isAnon() ) {
-			$createAccountUrl = Skin::makeSpecialUrl( 'UserLogin/signup', array( 'returnto' => $campaign->getTitle()->getPrefixedText() ) );
+			$urlParams = array( 'returnto' => $campaign->getTitle()->getPrefixedText() );
+
+			if ( $this->isCampaignExtensionEnabled() ) {
+				$campaignTemplate = UploadWizardConfig::getSetting( 'campaignCTACampaignTemplate' );
+				$urlParams['campaign'] = str_replace( '$1', $campaign->getName(), $campaignTemplate );
+			}
+			$createAccountUrl = Skin::makeSpecialUrl( 'UserLogin/signup', $urlParams );
 			$uploadLink =
 						Html::element( 'a',
 							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $createAccountUrl ),
