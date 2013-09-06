@@ -6108,6 +6108,12 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-dialog-yes' => 'Ydw',
 	'mwe-upwiz-dialog-no' => 'Nacydw',
 	'mwe-upwiz-dialog-title' => 'Rhybudd',
+	'mwe-upwiz-campaign-create-account-button' => 'Dechrau cyfrif ac uwchlwytho!',
+	'mwe-upwiz-campaign-upload-button' => 'Uwchlwytho!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Uwchlwythiadau',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Cyfranwyr',
+	'mwe-upwiz-campaign-view-all-media' => 'Gweld yr holl gyfryngau a uwchlwythwyd',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Dim uwchlwythiadau eto!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 testun cyfreithiol y drwydded])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Awstria ([$2 testun cyfreithiol y drwydded])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 yr Almaen ([$2 testun cyfreithiol y drwydded])',
@@ -13027,6 +13033,7 @@ $1',
  * @author Dj
  * @author Glanthor Reviol
  * @author Misibacsi
+ * @author Teemeah
  * @author Tgr
  */
 $messages['hu'] = array(
@@ -13066,6 +13073,9 @@ $messages['hu'] = array(
 	'mwe-upwiz-select-flickr' => 'Kiválasztott képek feltöltése',
 	'mwe-upwiz-flickr-disclaimer1' => 'Ez az űrlap a flickr.com-ról tölt fel tartalmat, ezért a 
 Flickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [https://www.flickr.com/help/privacy-policy/ adatvédelmi irányelvének] hatálya alá tartozik.',
+	'mwe-upwiz-flickr-disclaimer2' => 'Kérlek vedd figyelembe, hogy az eszköz használatakor az IP-címed és a kérés tartalma elérhetővé válik a Flickr számára.',
+	'mwe-upwiz-error-no-image-retrieved' => 'Nem tudtuk feltölteni a fájlt innen: $1',
+	'mwe-upwiz-multi-file-select' => 'Az egérrel rajzolj egy dobozt azon fájlok köré, amelyeket fel akarsz tölteni. Nem egymás mellett található fájlok esetében tartsd lenyomva a Ctrl billentyűt és egyenként kattints a fájlokra.',
 	'mwe-upwiz-transport-started' => 'Indítás...',
 	'mwe-upwiz-uploading' => 'feltöltés…',
 	'mwe-upwiz-transported' => 'OK',
@@ -13080,6 +13090,7 @@ Flickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [
 	'mwe-upwiz-show-thumb-tip' => 'Bélyegkép feltöltése ehhez a fáflhoz',
 	'mwe-upwiz-remove-description' => 'Leírás eltávolítása',
 	'mwe-upwiz-upload' => 'Feltöltés',
+	'mwe-upwiz-file-upload-notcapable' => 'Sajnos a böngésződ nem alkalmas a fájlok feltöltésére. Próbáld meg másik böngészőről.',
 	'mwe-upwiz-file-all-ok' => 'Az összes feltöltés sikeres volt!',
 	'mwe-upwiz-file-some-failed' => 'Néhány feltöltés sikertelen.',
 	'mwe-upwiz-file-retry' => 'Újrapróbálkozás a sikertelen feltöltésekkel',
@@ -13096,6 +13107,7 @@ Flickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Ezt a fájlt|Ezeket a fájlokat}} én készítettem.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Én, $2, ezen {{PLURAL:$1|mű|művek}} szerzői jogának tulajdonosa ezennel visszavonhatatlan jogot adok bárkinek, hogy bármilyen célra felhasználja, módosítsa és újrafelhasználja a {{PLURAL:$1|művet|műveket}} a következő feltételek mellett:',
 	'mwe-upwiz-source-ownwork-assert' => 'Én, $2, {{PLURAL:$1|jelen mű|jelen művek}} szerzői jogainak tulajdonosa, ezennel visszavonhatatlanul megadom bárkinek a jogot {{PLURAL:$1|jelen mű|jelen művek}} használatára bármilyen célra, feltéve, hogy feltüntetnek szerzőként és a származtatott műveket ugyanezen feltételek alatt osztják meg.',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Én, $2, ezen {{PLURAL:$1|mű|művek}} szerzői jogának tulajdonosa, visszavonhatatlanul biztosítom a jogot bárkinek, hogy {{PLURAL:$1|ezt a művet|ezeket a műveket}} Creative Commons Nevezd meg! – Így add tovább! 3.0 licenc alatt([$3 jogi változat]) szabadon felhasználhassa.',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Bárki használhatja, megoszthatja és feldolgozhatja {{PLURAL:$1|ezt a művet|ezeket a műveket}}, amíg megnevez engem, és a származtatott műveket is ezen licence alapján teszi közzé.)',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(Bárki használhatja, megoszthatja és feldolgozhatja {{PLURAL:$1|ezt a művet|ezeket a műveket}}, amíg megnevez engem, és a származtatott műveket is ezen licence alapján teszi közzé.)',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(Bárki használhatja, megoszthatja és feldolgozhatja {{PLURAL:$1|ezt a művet|ezeket a műveket}}, amíg megnevez engem, és a származtatott műveket is ezen licence alapján teszi közzé.)',
@@ -13107,6 +13119,7 @@ Flickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(Bárki használhatja, megoszthatja és feldolgozhatja {{PLURAL:$1|ezt a művet|ezeket a műveket}}, amíg megnevez engem, és a származtatott műveket is ezen licence alapján teszi közzé.)',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(Bárki használhatja, megoszthatja és feldolgozhatja {{PLURAL:$1|ezt a művet|ezeket a műveket}}, amíg megnevez engem, és a származtatott műveket is ezen licence alapján teszi közzé.)',
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Bárki használhatja, megoszthatja és feldolgozhatja {{PLURAL:$1|ezt a művet|ezeket a műveket}}, amíg megnevez engem, és a származtatott műveket is ezen licence alapján teszi közzé.)',
+	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => 'Bárki felhasználhatja, terjesztheti vagy származékos művet készíthet {{PLURAL:$1|ebből a műből|ezekből a művekből}}, azzal a feltétellel, hogy feltüntet engem, mint eredeti szerzőt.',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Én, $2, {{PLURAL:$1|jelen mű|jelen művek}} szerzői jogának tulajdonosa,  {{PLURAL:$1|jelen művet|jelen műveket}} visszavonhatatlanul az alábbi licenc alatt teszem mindenki számára elérhetővé:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Én, a {{PLURAL:$2|mű|művek}} szerzői jogainak tulajdonosa, közzéteszem {{PLURAL:$2|ezt a művet|ezeket a műveket}} az alábbi licenc alatt: $1',
 	'mwe-upwiz-source-permission' => 'A szerző kifejezett engedélyt adott számodra, hogy feltöltsd őket',
@@ -13116,13 +13129,14 @@ Flickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [
 	'mwe-upwiz-source-thirdparty-cases' => 'Mondd el, hogy miért vagy biztos abban, hogy a jogod van közzétenni {{PLURAL:$1|ezt a művet|ezeket a műveket}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'A következő oldalon add meg a szerzői jogi adatokat az egyes fájlokhoz.',
-	'mwe-upwiz-more-options' => 'további kategóriák és adatok…', # Fuzzy
+	'mwe-upwiz-more-options' => 'helyszín és további adatok megadása…',
 	'mwe-upwiz-copy-metadata' => 'Információk másolása az összes lejjebbi feltöltött fájlba …', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Másolás',
+	'mwe-upwiz-copied-metadata-button' => 'Sikeresen másolva.',
 	'mwe-upwiz-copy-title' => 'Cím másolása (automatikus számozással)',
-	'mwe-upwiz-copy-description' => 'Leírás(ok) másolása', # Fuzzy
+	'mwe-upwiz-copy-description' => '{{PLURAL:$1|Leírás|Leírások}} másolása',
 	'mwe-upwiz-copy-date' => 'Dátum másolása',
-	'mwe-upwiz-copy-categories' => 'Kategóriák másolása', # Fuzzy
+	'mwe-upwiz-copy-categories' => '{{PLURAL:$1|Kategória|Kategóriák}} másolása',
 	'mwe-upwiz-copy-location' => 'Helyszín másolása',
 	'mwe-upwiz-copy-other' => 'További információk másolása',
 	'mwe-upwiz-desc' => 'Leírás',
@@ -13152,6 +13166,7 @@ A [$1 Firefogg telepítésével] automatikusan elvégezhető a konvertálás, de
 	'mwe-upwiz-allowed-filename-extensions' => 'A következő fájltípusok engedélyezettek:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Engedélyezett fájlkiterjesztések',
 	'mwe-upwiz-upload-error-duplicate' => 'Ezt a fájlt már korábban feltöltötték erre a wikire.',
+	'mwe-upwiz-upload-error-duplicate-archive' => 'Ezt a fájlt korábban már feltöltötték, de törlésre került.',
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Feltöltöd ennek ellenére?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Ismeretlen okok miatt a „$1” fájlt nem lehet olvasni vagy értelmezni.',
 	'mwe-upwiz-ok' => 'OK',
@@ -13159,7 +13174,7 @@ A [$1 Firefogg telepítésével] automatikusan elvégezhető a konvertálás, de
 	'mwe-upwiz-fileexists-replace' => '„$1” című fájl már létezik. Kérlek változtasd meg a címet valami egyedire.',
 	'mwe-upwiz-fileexists' => 'Már létezik ilyen nevű fájl. Ellenőrizd a(z) $1 fájlt, ha nem vagy biztos benne, hogy le szeretnéd cserélni.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Már létezik ilyen nevű fájl. Ha le szeretnéd cserélni, menj a(z) [$2 $1] leírólapjára, és végezd el ott a műveletet.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Már létezik ilyen nevű fájl.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Adj más nevet a fájlnak, már létezik ilyen nevű fájl.',
 	'mwe-upwiz-blacklisted' => 'Válasszon egy másik, leíró címet.',
 	'mwe-upwiz-thumbnail-more' => 'Nagyítás',
 	'mwe-upwiz-overwrite' => 'Cseréld le a fájlt',
@@ -13200,6 +13215,7 @@ Legalább $1 karakteres legyen.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Az aláírásod nem megengedett szimbólumokat tartalmaz.
 Kérlek itt ne használj wikikódot vagy HTML-t, csak a felhasználóneved vagy a valódi neved.',
 	'mwe-upwiz-error-blank' => 'A mező kitöltése kötelező.',
+	'mwe-upwiz-error-nologin' => 'Fájl feltöltéséhez be kell <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} jelentkezned]</span>.',
 	'mwe-upwiz-error-too-long' => 'Ez a bejegyzés túl hosszú.
 Legfeljebb $1 karaktert írj bele!',
 	'mwe-upwiz-error-too-short' => 'Ez a bejegyzés túl rövid.
@@ -13215,17 +13231,21 @@ Kérlek itt ne használj wikikódot vagy HTML-t.',
 	'mwe-upwiz-error-title-fileexists-shared-forbidden' => 'A címet lefoglalta egy fájl a közös tárhelyen. Válassz másik nevet!',
 	'mwe-upwiz-error-title-double-apostrophe' => 'A cím dupla aposztrófot tartalmaz; távolítsd el!',
 	'mwe-upwiz-error-title-extension' => 'Nem kell hozzáírni a fájl kiterjesztését. Csak írj be egy ember által olvasható címet, és az alkalmazás gondoskodik a többiről.',
+	'mwe-upwiz-error-title-protected' => 'Ez a név megegyezik egy védett lap címével. Kérlek válassz másik nevet.',
 	'mwe-upwiz-error-license-wikitext-missing' => 'Olyan lehetőséget választottál, amelynél wikiszöveg beírása szükséges.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Az itt lévő wikiszöveg túl rövid egy licence-hez',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'A beírt wikiszöveg túl hosszú.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Ez nem tűnik egy érvényes wikiszövegnek, vagy nem tartalmaz licencet.',
-	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|Egy hiba|$1 hiba}} található a fenti {{PLURAL:$2|űrlapon|űrlapokon}}. Javítsd a hibákat, majd próbáld újra a küldést.', # Fuzzy
+	'mwe-upwiz-details-error-count' => '{{PLURAL:$1|Egy hiba|$1 hiba}} található a fenti {{PLURAL:$2|űrlapon|űrlapokon}}. Javítsd a {{PLURAL:$1|hibát|hibákat}}, majd próbáld újra a küldést.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'Egyszerre $1 fájlt tölthetsz fel. $2 fájlt próbáltál hozzáadni, ezért $3 eltávolításra került.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'Egyszerre $1 fájlt tölthetsz fel. $2 fájlt próbáltál hozzáadni, próbáld újra kevesebb fájllal.',
 	'mwe-upwiz-too-many-files' => 'Túl sok fájl.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Legfeljebb $1 méretű fájlokat tölthetsz fel. A feltölteni kívánt fájl mérete $2.',
 	'mwe-upwiz-file-too-large' => 'A fájl túl nagy.',
+	'mwe-upwiz-necessary-confirm' => 'Arra kérünk, hogy adj meg kategóriát a feltöltéseidhez. Továbblépsz a mezők kitöltése nélkül?',
+	'mwe-upwiz-dialog-yes' => 'Igen',
+	'mwe-upwiz-dialog-no' => 'Nem',
 	'mwe-upwiz-dialog-title' => 'A fájlok bármely nyelvű és írású névvel feltölthetőek. A név legyen értelmes és hasznos a választott nyelven.', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Nevezd meg! – Így add tovább! 3.0 ([$2 jogi változat])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Nevezd meg! – Így add tovább! 3.0 Ausztria ([$2 jogi változat])',
