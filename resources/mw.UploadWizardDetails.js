@@ -236,12 +236,18 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				break;
 			}
 
+
 			_this.$form.append(
 				$( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
-					.append( $( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) ),
-				$( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel(),
-				$( '<div>' ).attr( 'class', 'mwe-id-field' )
-					.append( $fieldInput )
+					.append( $( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) )
+			);
+			if ( field.required ) {
+				_this.$form.append( $( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel() );
+			} else {
+				_this.$form.append( $( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ) );
+			}
+			_this.$form.append(
+				$( '<div>' ).attr( 'class', 'mwe-id-field' ).append( $fieldInput )
 			);
 
 			_this.fields.push( $fieldInput );
