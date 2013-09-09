@@ -604,6 +604,23 @@ mw.UploadWizardDetails.prototype = {
 
 			simpleCopy( 'otherInformation', 'textarea' );
 
+			// Copy fields added though campaigns
+			$.each( mw.UploadWizard.config.fields, function ( i, field ) {
+				var elementType = field.type;
+
+				switch ( elementType ) {
+					case 'select':
+						// Field type equals HTML element type
+						break;
+					default:
+						// Element type must be adjusted to match the selector
+						elementType = 'input';
+				}
+				if( field.wikitext ) {
+					simpleCopy( 'field_' + i + '_', elementType );
+				}
+			});
+
 		} else {
 			throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
 		}
