@@ -119,6 +119,7 @@ class CampaignContent extends TextContent {
 		$gallery->setShowBytes( false );
 
 		$context->getOutput()->setSquidMaxage( UploadWizardConfig::getSetting( 'campaignSquidMaxAge' ) );
+		$context->getOutput()->setHTMLTitle( $context->msg( 'pagetitle', $campaignTitle ) );
 
 		$images = $campaign->getUploadedMedia();
 
