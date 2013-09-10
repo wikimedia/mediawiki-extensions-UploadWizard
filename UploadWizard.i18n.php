@@ -10365,6 +10365,11 @@ Veuillez ne pas utiliser de code wiki ni de HTML ici.',
 	'mwe-upwiz-dialog-yes' => 'Oui',
 	'mwe-upwiz-dialog-no' => 'Non',
 	'mwe-upwiz-dialog-title' => 'Avertissement',
+	'mwe-upwiz-campaign-upload-button' => 'Importer !',
+	'mwe-upwiz-campaign-media-count-desc' => 'Téléversements',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Contributeurs',
+	'mwe-upwiz-campaign-view-all-media' => 'Voir tous les fichiers importés.',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Pas encore de fichier !',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons paternité – partage à l’identique 3.0 ([$2 texte légal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons paternité – partage à l’identique 3.0 Autriche ([$2 texte légal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons paternité – partage à l’identique 3.0 Allemagne ([$2 texte légal])',
@@ -27892,6 +27897,12 @@ Använd inte wikitext eller HTML här.',
 	'mwe-upwiz-dialog-yes' => 'Ja',
 	'mwe-upwiz-dialog-no' => 'Nej',
 	'mwe-upwiz-dialog-title' => 'Varning',
+	'mwe-upwiz-campaign-create-account-button' => 'Skapa ett konto och ladda upp!',
+	'mwe-upwiz-campaign-upload-button' => 'Ladda upp!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Uppladdningar',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Bidragsgivare',
+	'mwe-upwiz-campaign-view-all-media' => 'Visa all uppladdad media',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Inga uppladdningar än!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Erkännande-DelaLika 3.0 ([$2 fullständig licens])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Erkännande-DelaLika 3.0 Österrike ([$2 fullständig licens])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Erkännande-DelaLika 3.0 Tyskland ([$2 fullständig licens])',
@@ -29765,11 +29776,11 @@ $messages['uk'] = array(
 	'mwe-upwiz-dialog-no' => 'Ні',
 	'mwe-upwiz-dialog-title' => 'Застереження',
 	'mwe-upwiz-campaign-create-account-button' => 'Створіть обліковий запис і завантажте!',
-	'mwe-upwiz-campaign-upload-button' => 'Вивантажити!',
-	'mwe-upwiz-campaign-media-count-desc' => 'Вивантаження',
+	'mwe-upwiz-campaign-upload-button' => 'Завантажити!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Завантаження',
 	'mwe-upwiz-campaign-contributors-count-desc' => 'Учасники',
-	'mwe-upwiz-campaign-view-all-media' => 'Переглянути всі вивантажені медіа',
-	'mwe-upwiz-campaign-no-uploads-yet' => 'Ще нема вивантажень!',
+	'mwe-upwiz-campaign-view-all-media' => 'Переглянути всі завантажені медіа',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Ще нема завантажень!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 скорочений виклад та офіційний юридичний текст ліцензії])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 Австрія ([$2 спрощений виклад та офіційний юридичний текст])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 Німеччина  ([$2 спрощений виклад та офіційний юридичний текст])',
@@ -31248,6 +31259,7 @@ $messages['yo'] = array(
  * @author Xiaomingyan
  * @author Yfdyh000
  * @author Zhangjintao
+ * @author Zhuyifei1999
  * @author 乌拉跨氪
  * @author 阿pp
  */
@@ -31470,6 +31482,10 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-dialog-yes' => '是',
 	'mwe-upwiz-dialog-no' => '否',
 	'mwe-upwiz-dialog-title' => '警告',
+	'mwe-upwiz-campaign-create-account-button' => '创建一个帐户并上传 ！',
+	'mwe-upwiz-campaign-upload-button' => '上传！',
+	'mwe-upwiz-campaign-contributors-count-desc' => '贡献者',
+	'mwe-upwiz-campaign-view-all-media' => '查看所有上载的媒体',
 	'mwe-upwiz-license-cc-by-sa-3.0' => '知识共享“署名-相同方式共享 3.0”（[$2 法律文件]）',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => '知识共享“署名-相同方式共享 3.0 奥地利”（[$2 法律文件]）',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => '知识共享“署名-相同方式共享 3.0 德国”（[$2 法律文件]）',
@@ -31520,7 +31536,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-license-confirm-remove' => '确认要删除{{PLURAL:$1|该|这些}}上传吗？',
 	'mwe-upwiz-license-confirm-remove-title' => '确认删除',
 	'mwe-upwiz-license-external' => '该文件在来源站$1采用的授权协议：$2。',
-	'mwe-upwiz-license-external-invalid' => '该文件在$1采用的授权协议：$2。不过该授权协议不适合在本网站使用。', # Fuzzy
+	'mwe-upwiz-license-external-invalid' => '该文件在原站点“$1”采用授权协议：$2。不过本维基不允许该授权协议。',
 	'mwe-upwiz-license-photoset-invalid' => '糟糕，在照片集中没有照片有适当在本网站上使用的许可协议。',
 	'mwe-upwiz-url-invalid' => '输入的URL链至了无效或受限的图片或图集$1因此无法使用。',
 	'mwe-upwiz-categories' => '分类',
@@ -31607,6 +31623,7 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '他人的作品 - $1',
 	'mwe-upwiz-prefs-chunked' => '在上传向导中对于超过1MB的文件使用分块上传',
 	'mwe-upwiz-prefs-skiptutorial' => '跳过授权协议教程',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => '并发上载的最大数目',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
