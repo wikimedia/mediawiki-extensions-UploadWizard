@@ -89,7 +89,7 @@ Please try an alternative browser.',
 	'mwe-upwiz-progressbar-uploading' => 'uploading',
 	'mwe-upwiz-finished' => 'Finished!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|second|seconds}} remaining',
-	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minutes}} $2 {{PLURAL:$2|second|seconds}} remaining',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minutes}} $2 {{PLURAL:$2|second|seconds}} {{PLURAL:$3|remaining}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hour|hours}} $2 {{PLURAL:$2|minute|minutes}} $3 {{PLURAL:$3|second|seconds}} remaining',
 	// Dummy GENDER, to prevent translatewiki.net warnings.
 	'mwe-upwiz-deeds-macro-prompt' => "This site requires {{GENDER:$2|you}} to provide copyright information for {{PLURAL:$1|this work|these works}}, to make sure everyone can legally reuse {{PLURAL:$1|it|them}}.",
@@ -582,6 +582,7 @@ Related messages:
 	'mwe-upwiz-mins-secs-remaining' => 'Used to show overall progress for uploading. Parameters:
 * $1 - number of minutes
 * $2 - number of seconds
+* $3 - sum of $1 and $2, for usage in PLURAL where needed
 {{Related|Mwe-upwiz-remaining}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'Used to show overall progress for uploading. Parameters:
 * $1 - number of hours
