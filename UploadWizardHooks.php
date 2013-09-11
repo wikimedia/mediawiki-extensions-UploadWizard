@@ -39,6 +39,7 @@ class UploadWizardHooks {
 				'mediawiki.feedback',
 				'ext.uploadWizard.apiUploadHandler',
 				'ext.uploadWizard.apiUploadFormDataHandler',
+				'ext.uploadWizard.events',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -472,6 +473,12 @@ class UploadWizardHooks {
 				'jquery.ui.button',
 			),
 		),
+
+		'ext.uploadWizard.events' => array(
+			'scripts' => array(
+				'resources/ext.UploadWizardEvent.js',
+			),
+		),
 	);
 
 	/**
@@ -480,12 +487,18 @@ class UploadWizardHooks {
 	 * Adds modules to ResourceLoader
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
-		global $wgExtensionAssetsPath, $wgAPIModules;
+		global $wgExtensionAssetsPath, $wgAPIModules, $wgResourceModules;
 
 		$localpath = dirname( __FILE__ );
 		$remotepath = "$wgExtensionAssetsPath/UploadWizard";
 		if ( array_key_exists( 'titleblacklist', $wgAPIModules ) ) {
 			self::$modules['ext.uploadWizard']['dependencies'][] = 'mediawiki.api.titleblacklist';
+		}
+		if ( array_key_exists( 'ext.eventLogging', $wgResourceModules ) ) {
+			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
+				'ext.eventLogging',
+				'schema.UploadWizardTutorialActions',
+			);
 		}
 		foreach ( self::$modules as $name => $resources ) {
 			$resourceLoader->register(
@@ -493,6 +506,7 @@ class UploadWizardHooks {
 				new ResourceLoaderFileModule( $resources, $localpath, $remotepath )
 			);
 		}
+
 		return true;
 	}
 
