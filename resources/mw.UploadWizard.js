@@ -133,9 +133,25 @@ mw.UploadWizard.prototype = {
 		$( '.mwe-upwiz-button-home' )
 			.click( function() { window.location.href = mw.config.get('wgArticlePath').replace('$1', ''); } );
 
+		// Event handlers for EventLogging-type things
+		// Skip tutorial checkbox click
+		$( '#mwe-upwiz-skip' ).click( function () {
+				if ( $( this ).prop( 'checked' ) ) {
+					( new mw.UploadWizardTutorialEvent( 'skip-check' ) ).dispatch();
+				} else {
+					( new mw.UploadWizardTutorialEvent( 'skip-uncheck' ) ).dispatch();
+				}
+		} );
+
+		// Helpdesk link click
+		$( '#mwe-upwiz-tutorial-helpdesk' ).click( function () {
+			( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
+		} );
+
 		// handler for next button
 		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next')
 			.click( function() {
+				( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
 				// if the skip checkbox is checked, set the skip user preference
 				if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
 					$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
@@ -288,6 +304,7 @@ mw.UploadWizard.prototype = {
 		} else {
 			// "select" the first step - highlight, make it visible, hide all others
 			this.moveToStep( 'tutorial' );
+			( new mw.UploadWizardTutorialEvent( 'load' ) ).dispatch();
 
 			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
 			$( '#mwe-upwiz-skip ').tipsy( {

@@ -138,7 +138,8 @@ class UploadWizardTutorial {
 				'coords' => $buttonCoords,
 				'href' => $helpDeskHref,
 				'alt' => $areaAltText,
-				'title' => $areaAltText
+				'title' => $areaAltText,
+				'id' => 'mwe-upwiz-tutorial-helpdesk',
 			) );
 
 			$imgHtml = Html::rawElement(

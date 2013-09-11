@@ -120,6 +120,12 @@ $wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
 	'dependencies' => 'mediawiki.ui'
 ) + $uploadWizardModuleInfo;
 
+$wgResourceModules['schema.UploadWizardTutorialActions'] = array(
+	'class'  => 'ResourceLoaderSchemaModule',
+	'schema' => 'UploadWizardTutorialActions',
+	'revision' => 5803466,
+);
+
 // Campaign hook handlers
 $wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
 $wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';
