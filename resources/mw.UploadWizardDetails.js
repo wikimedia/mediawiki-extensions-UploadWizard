@@ -611,14 +611,16 @@ mw.UploadWizardDetails.prototype = {
 	 * a metadata copy widget for the details view of this specific upload
 	 */
 	buildAndShowCopyMetadata: function() {
-		var _this = this;
+		var _this = this,
+			$copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' ),
+			$checkboxes = $();
+
 		if( mw.UploadWizard.config.copyMetadataFeature !== true ||
 			_this.copyMetadataCtrlDiv !== undefined ) {
 			return;
 		}
 
 		_this.copyMetadataCtrlDiv = $( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
-		var copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' );
 
 		$.each( _this.copyMetadataTypes, function addToMetadataDiv( metadataName, defaultStatus ) {
 			var copyMessage = 'mwe-upwiz-copy-' + metadataName,
@@ -630,15 +632,20 @@ mw.UploadWizardDetails.prototype = {
 				copyMetadataMsg = mw.message( copyMessage ).text();
 			}
 			$checkbox = $( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', copyMessage ).attr( 'id', copyMessage );
+			$checkboxes = $checkboxes.add( $checkbox );
 			if ( defaultStatus === true ) {
 				$checkbox.attr( 'checked', 'checked' );
 			}
-			copyMetadataDiv.append( $checkbox );
-			copyMetadataDiv.append( $( '<label for="' + copyMessage + '"></label>' ).text( copyMetadataMsg ) );
-			copyMetadataDiv.append( $( '<br />' ) );
-		} ) ;
 
-		copyMetadataDiv.append(
+			$copyMetadataDiv
+				.append( $checkbox )
+				.append( $( '<label for="' + copyMessage + '"></label>' ).text( copyMetadataMsg ) )
+				.append( $( '<br />' ) );
+		} ) ;
+		$checkboxes.checkboxShiftClick();
+
+
+		$copyMetadataDiv.append(
 			$( '<button type="button" id="mwe-upwiz-copy-metadata-button"></button>' )
 			.msg( 'mwe-upwiz-copy-metadata-button' )
 			.button()
@@ -661,11 +668,11 @@ mw.UploadWizardDetails.prototype = {
 
 		mw.UploadWizardUtil.makeToggler(
 			_this.copyMetadataCtrlDiv,
-			copyMetadataDiv,
+			$copyMetadataDiv,
 			'mwe-upwiz-copy-metadata'
 		);
 
-		_this.$form.append( _this.copyMetadataCtrlDiv, copyMetadataDiv );
+		_this.$form.append( _this.copyMetadataCtrlDiv, $copyMetadataDiv );
 		_this.copyMetadataCtrlDiv.show();
 	},
 

@@ -13,6 +13,7 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'jquery.arrowSteps',
 				'jquery.autoEllipsis',
+				'jquery.checkboxShiftClick',
 				'jquery.client',
 				'jquery.ui.core',
 				'jquery.ui.dialog',
