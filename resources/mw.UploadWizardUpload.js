@@ -672,11 +672,12 @@ mw.UploadWizardUpload.prototype = {
 			}
 		}
 
+		/*
 		if ( _this.title.getExtension() === null ) {
 			// 1;
 			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
 			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
-			/*
+
 			var extension = mw.UploadWizardUtil.getExtension( _this.imageinfo.url );
 			if ( !extension ) {
 				if ( _this.imageinfo.mimetype ) {
@@ -685,8 +686,9 @@ mw.UploadWizardUpload.prototype = {
 					}
 				}
 			}
-			*/
+			
 		}
+		*/
 	},
 
 	/**
