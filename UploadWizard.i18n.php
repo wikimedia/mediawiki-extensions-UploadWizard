@@ -190,7 +190,7 @@ Please check $1 if you are not sure if you want to replace it.',
 	'mwe-prevent-close' => 'Leaving this page may cause you to lose any changes you have made.',
 	'mwe-upwiz-prevent-close' => 'You have not finished uploading and publishing {{PLURAL:$1|this file|these files}} yet.',
 	'mwe-upwiz-files-complete' => 'Your files finished uploading!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'You can re-enable this tutorial in [$1 your user preferences], under $2 &rarr; $3.',
+	'mwe-upwiz-tooltip-skiptutorial' => 'You can re-enable this tutorial in [$1 your user preferences], under $2 → $3.',
 	'mwe-upwiz-tooltip-author' => 'The name of the person who took the photo, or painted the picture, drew the drawing, etc.',
 	'mwe-upwiz-tooltip-source' => 'Where this digital file came from — could be a URL, or a book or publication.',
 	'mwe-upwiz-tooltip-sign' => 'You can use your wiki user name or your real name.
