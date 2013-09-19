@@ -10331,7 +10331,7 @@ Veuillez vérifier $1 si vous n’êtes pas sûr de vouloir le remplacer.',
 	'mwe-prevent-close' => 'Quitter cette page peut vous faire perdre toutes les modifications que vous avez faites.',
 	'mwe-upwiz-prevent-close' => 'Vous n’avez pas encore terminé le téléversement et la publication de {{PLURAL:$1|ce fichier|ces fichiers}}.',
 	'mwe-upwiz-files-complete' => 'Le téléversement de vos fichiers est terminé !',
-	'mwe-upwiz-tooltip-skiptutorial' => 'Vous pouvez réactiver ce didacticiel dans [$1  vos préférences personnelles], sous  $2  →  $3 .', # Fuzzy
+	'mwe-upwiz-tooltip-skiptutorial' => 'Vous pouvez réactiver ce didacticiel dans [$1  vos préférences personnelles], sous $2 → $3.',
 	'mwe-upwiz-tooltip-author' => 'Le nom de la personne qui a pris la photo, peint le tableau, dessiné le dessin, etc.',
 	'mwe-upwiz-tooltip-source' => 'L’endroit d’où vient le fichier numérique, peut être une URL, un livre ou une publication',
 	'mwe-upwiz-tooltip-sign' => 'Vous pouvez utiliser votre nom d’utilisateur du wiki ou votre vrai nom. Dans les deux cas, ce sera lié à votre page utilisateur du wiki',
@@ -24763,6 +24763,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
  * @author Lockal
  * @author MaxSem
  * @author McDutchie
+ * @author Okras
  * @author Putnik
  * @author Renessaince
  * @author Rubin
@@ -24838,7 +24839,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'загрузка на сервер',
 	'mwe-upwiz-finished' => 'Готово!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Осталась $1 секунда|Осталось $1 секунды|Осталось $1 секунд}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Осталась $1 минута|Осталось $1 минуты|Осталось $1 минут}} {{PLURAL:$2|$2 секунда|$2 секунды|$2 секунд}}',
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Осталась $1 минута|Осталось $1 минуты|Осталось $1 минут}} {{PLURAL:$2|$2 секунда|$2 секунды|$2 секунд}}', # Fuzzy
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Остался $1 час|Осталось $1 часа|Осталось $1 часов}} {{PLURAL:$2|$2 минута|$2 минуты|$2 минут}} {{PLURAL:$3|$3 секунда|$3 секунды|$3 секунд}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Этот сайт требует {{GENDER:$2|от вас}} указать сведения об авторских правах для {{PLURAL:$1|этого произведения|этих произведений}}, чтобы убедиться, что все могут {{PLURAL:$1|его|их}} использовать на законных основаниях.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Этот файл является моим собственным произведением.|Эти файлы являются моими собственными произведениями.}}',
@@ -24868,7 +24869,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Attribution 3.0 ([$3 кодекса]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(Каждый вправе использовать и распространять {{PLURAL:$1|это произведение|эти произведения}}, а также создавать производные произведения при условии, что на меня ссылаются.)',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Public Domain Dedication ([$3 кодекса]).',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Zero Public Domain Dedication ([$3 кодекса]).',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(Каждый вправе использовать и распространять {{PLURAL:$1|это произведение|эти произведения}}, а также создавать производные произведения без каких-либо ограничений.)',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|это произведение|эти произведения}} на условиях следующего лицензионного соглашения:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'Я, владелец авторских прав на {{PLURAL:$2|это произведение|эти произведения}}, публикую {{PLURAL:$2|его|их}} на условиях лицензии  $1.',
@@ -24937,7 +24938,7 @@ $messages['ru'] = array(
 	'mwe-prevent-close' => 'Покидая эту страницу вы можете потерять все сделанные вами изменения.',
 	'mwe-upwiz-prevent-close' => 'Вы ещё не закончили загрузку и публикацию {{PLURAL:$1|этого фала|этих файлов}}.',
 	'mwe-upwiz-files-complete' => 'Загрузка ваших файлов завершена!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'Вы можете снова включить это руководство в [$1 своих персональных настройках], см.  $2  →  $3 .',
+	'mwe-upwiz-tooltip-skiptutorial' => 'Вы можете снова включить это руководство в [$1 своих персональных настройках], см. $2 → $3.',
 	'mwe-upwiz-tooltip-author' => 'Имя человека, который сделал фотографию, нарисовал картину или рисунок и т. д.',
 	'mwe-upwiz-tooltip-source' => 'Откуда получен этот цифровой файл, это может быть URL, название книги или публикации.',
 	'mwe-upwiz-tooltip-sign' => 'Вы можете использовать имя своей учётной записи в вики или своё настоящее имя. В обоих случаях с него будет идти ссылка на вашу страницу участника в вики.',
@@ -25043,8 +25044,8 @@ $messages['ru'] = array(
 	'mwe-upwiz-license-none' => 'Я считаю, что {{PLURAL:$1|это произведение|эти произведения}} являются свободно-лицензированными, либо юридически находятся в общественном достоянии. Я понимаю, что если я своевременно не укажу необходимую информацию о лицензировании, {{PLURAL:$1|файл будет удалён|файлы будут удалены}}.',
 	'mwe-upwiz-license-confirm-remove' => 'Вы уверены, что вы хотите удалить {{PLURAL:$1|этот объект|эти объекты}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Подтвердить удаление',
-	'mwe-upwiz-license-external' => 'Этот файл распространяется на условиях лицензии на $1: $2.',
-	'mwe-upwiz-license-external-invalid' => 'Этот файл распространяется на условиях лицензии на $1: $2. К сожалению, данная лицензия не подходит для использования на этом сайте.',
+	'mwe-upwiz-license-external' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2.',
+	'mwe-upwiz-license-external-invalid' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2. К сожалению, здесь данная лицензия не подходит для использования.',
 	'mwe-upwiz-license-photoset-invalid' => 'К сожалению, в фотосете нет изображений, лицензия которых допустима для использования на этом сайте.',
 	'mwe-upwiz-url-invalid' => 'Введённый URL указывает на неправильное или недопустимое  изображение или фотосет на сайте $1, и не может быть использован.',
 	'mwe-upwiz-categories' => 'Категории',
@@ -29766,7 +29767,7 @@ $messages['uk'] = array(
 	'mwe-prevent-close' => 'Ваші файли в процесі завантаження. Полишаючи цю сторінку, усі внесені зміни буде втрачено.',
 	'mwe-upwiz-prevent-close' => 'Ви ще не закінчили завантаження та публікацію {{PLURAL:$1|файла|цих файлів}}.',
 	'mwe-upwiz-files-complete' => 'Завантаження Ваших файлів виконане успішно!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'Ви можете знову включити це керівництво в [$1 своїх користувацьких налаштуваннях], див. $2 → $3.', # Fuzzy
+	'mwe-upwiz-tooltip-skiptutorial' => 'Ви можете знову включити це керівництво в [$1 своїх користувацьких налаштуваннях], див. $2 → $3.',
 	'mwe-upwiz-tooltip-author' => "Ім'я людини, яка сфотографувала, або намалювала картину або малюнок і т.д.",
 	'mwe-upwiz-tooltip-source' => 'Джерело походження цифрового файлу - адреса URL, книга або публікація',
 	'mwe-upwiz-tooltip-sign' => 'Ви можете використовувати ваше вікі імя або реальне імя.
@@ -31665,6 +31666,7 @@ $1',
 	'mwe-upwiz-campaign-conf-defaultAlt' => '默认海拔：',
 	'mwe-upwiz-campaign-conf-defaultDescription' => '默认描述：',
 	'mwe-upwiz-campaign-edit-summary-update' => '利用任务编辑器的更新运动配置',
+	'mwe-upwiz-campaign-edit-summary-delete' => '通过任务编辑器删除的任务',
 	'mw-coolcats-confirm-new-title' => '确认新分类',
 	'mw-coolcats-confirm-new' => '你好像想添加新分类“$1”。注意：<ul><li>分类名通常是英语。</li><li>大多数新分类应是已有分类的子分类。</li></ul>一般地，只有专家才能创建分类。',
 	'mw-coolcats-confirm-new-ok' => '继续添加该分类',
