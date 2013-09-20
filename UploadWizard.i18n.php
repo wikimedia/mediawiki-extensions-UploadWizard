@@ -9868,7 +9868,7 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
 	'mwe-upwiz-dialog-yes' => 'Kyllä',
 	'mwe-upwiz-dialog-no' => 'En',
 	'mwe-upwiz-dialog-title' => 'Varoitus',
-	'mwe-upwiz-campaign-create-account-button' => 'Luo tunnus ja lataa tiedosto!',
+	'mwe-upwiz-campaign-create-account-button' => 'Luo tunnus ja tallenna tiedosto!',
 	'mwe-upwiz-campaign-upload-button' => 'Tallenna!',
 	'mwe-upwiz-campaign-media-count-desc' => 'Tallennukset',
 	'mwe-upwiz-campaign-contributors-count-desc' => 'Muokkaajat',
@@ -16654,7 +16654,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-progressbar-uploading' => '올리는 중',
 	'mwe-upwiz-finished' => '완료!',
 	'mwe-upwiz-secs-remaining' => '$1{{PLURAL:$1|초}} 남았습니다',
-	'mwe-upwiz-mins-secs-remaining' => '$1{{PLURAL:$1|분}} $2{{PLURAL:$2|초}} 남았습니다', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '$1{{PLURAL:$1|분}} $2{{PLURAL:$2|초}} {{PLURAL:$3|남았습니다}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1{{PLURAL:$1|시간}} $2{{PLURAL:$2|분}} $3{{PLURAL:$3|초}} 남았습니다',
 	'mwe-upwiz-deeds-macro-prompt' => '이 사이트에서 {{GENDER:$2}}{{PLURAL:$1|이 파일}}을 모든 사람이 법적으로 자유롭게 이용할 수 있다는 것을 확인하기 위해 {{PLURAL:$1|파일}}의 저작권 정보를 입력해주십시오.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|이 파일}}은 본인이 창작한 저작물입니다.',
@@ -16684,7 +16684,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(누구나 제가 저작자라는 것을 표시하고 이 라이선스로 2차적 저작물을 만들어 공유하는 조건에 따라 {{PLURAL:$1|이 저작물}}을 이용, 공유, 개작할 수 있습니다.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => '나, $2는, {{PLURAL:$1|이 저작물}}의 저작권자로서, 누구에게나 {{PLURAL:$1|이 저작물}}을 영구히 크리에이티브 커먼즈 저작자표시 3.0 라이선스에 따라 이용할 권리를 부여합니다. ([$3 라이선스 원문])',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(누구나 제가 저작자라는 것을 표시하는 조건에 따라 {{PLURAL:$1|이 저작물}}을 이용, 공유, 개작할 수 있습니다.)',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => '나, $2는, {{PLURAL:$1|이 저작물}}의 저작권자로서, 누구에게나 {{PLURAL:$1|이 저작물}}을 영구히 크리에이티브 커먼즈 퍼블릭 도메인 선언에 따라 이용할 권리를 부여합니다. ([$3 라이선스 원문])', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => '나, $2는, {{PLURAL:$1|이 저작물}}의 저작권자로서, 누구에게나 {{PLURAL:$1|이 저작물}}을 영구히 CC0 퍼블릭 도메인 선언에 따라 이용할 권리를 부여합니다. ([$3 라이선스 원문])',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(누구나 아무런 조건 없이 {{PLURAL:$1|이 저작물}}을 이용, 공유, 개작할 수 있습니다.)',
 	'mwe-upwiz-source-ownwork-assert-custom' => '나, $2는, {{PLURAL:$1|이 저작물}}의 저작권자로서, {{PLURAL:$1|이 저작물}}을 누구에게나 영구히 다음 라이선스에 따라 이용할 권리를 부여합니다:',
 	'mwe-upwiz-source-ownwork-assert-note' => '나는, {{PLURAL:$2|이 저작물}}의 저작권자로서, {{PLURAL:$2|이 저작물}}을 $1 라이선스에 따라 배포합니다.',
@@ -31153,9 +31153,15 @@ Rissaetchîz les scrijhaedjes wiki ou HTML.',
 );
 
 /** Wu (吴语)
+ * @author 十弌
  */
 $messages['wuu'] = array(
 	'mwe-upwiz-cancel' => '取消',
+	'mwe-upwiz-campaign-create-account-button' => '建個帳號加上傳！',
+	'mwe-upwiz-campaign-upload-button' => '上傳！',
+	'mwe-upwiz-campaign-media-count-desc' => '上傳',
+	'mwe-upwiz-campaign-view-all-media' => '望全部上傳個媒體',
+	'mwe-upwiz-campaign-no-uploads-yet' => '嘸眼上傳！',
 );
 
 /** Yiddish (ייִדיש)
