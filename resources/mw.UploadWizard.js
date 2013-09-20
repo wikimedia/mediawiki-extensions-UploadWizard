@@ -731,6 +731,7 @@ mw.UploadWizard.prototype = {
 	makeTransitioner: function( beginState, progressStates, endStates, starter, endCallback ) {
 		var nextAction,
 			uploadsToStart = this.maxSimultaneousConnections,
+			wizard = this,
 			endStateCount = 0;
 
 		$.each( this.uploads, function(i, upload) {
@@ -751,7 +752,10 @@ mw.UploadWizard.prototype = {
 		if ( endStateCount === this.uploads.length - this.countEmpties() ) {
 			nextAction = endCallback;
 		} else {
-			nextAction = this.makeTransitioner.bind( this, beginState, progressStates, endStates, starter, endCallback );
+			// Function.prototype.bind is not used because it is not supported by IE 8
+			nextAction = function() {
+				wizard.makeTransitioner( beginState, progressStates, endStates, starter, endCallback );
+			};
 		}
 
 		setTimeout( nextAction, this.transitionerDelay );
