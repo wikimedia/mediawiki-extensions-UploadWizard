@@ -44,6 +44,14 @@ class UploadWizardCampaign {
 	 */
 	protected $title = null;
 
+	/**
+	 * The RequestContext to use for operations performed from this object
+	 *
+	 * @since 1.4
+	 * @var RequestContext
+	 */
+	protected $context = null;
+
 	public static function newFromName( $name ) {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
 		if ( $campaignTitle === null || !$campaignTitle->exists() ) {
@@ -53,12 +61,17 @@ class UploadWizardCampaign {
 		return new UploadWizardCampaign( $campaignTitle );
 	}
 
-	function __construct( $title, $config = null ) {
+	function __construct( $title, $config = null, $context = null ) {
 		$this->title = $title;
 		if ( $config === null ) {
 			$this->config = WikiPage::factory( $title )->getContent()->getJsonData();
 		} else {
 			$this->config = $config;
+		}
+		if ( $context === null ) {
+			$this->context = RequestContext::getMain();
+		} else {
+			$this->context = $context;
 		}
 	}
 
@@ -171,10 +184,23 @@ class UploadWizardCampaign {
 	 * @return String parsed wikitext
 	 */
 	private function parseValue( $value ) {
-		// FIXME: Don't abuse RequestContext like this
-		// Use the parser directly
-		$out = RequestContext::getMain()->getOutput();
-		return $out->parseInline( $value );
+		global $wgParser;
+
+		$parserOptions = ParserOptions::newFromContext( $this->context );
+		$parserOptions->setEditSection( false );
+		$parserOptions->setInterfaceMessage( true );
+
+		$output = $wgParser->parse( $value, $this->getTitle(),
+									$parserOptions );
+		$parsed = $output->getText();
+
+		// Strip out the surrounding <p> tags
+		$m = array();
+		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?/sU', $parsed, $m ) ) {
+			$parsed = $m[1];
+		}
+
+		return $parsed;
 	}
 
 	/**
