@@ -33,6 +33,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 	}
 
 	public function execute() {
+		wfProfileIn( __METHOD__ );
 		$params = $this->extractRequestParams();
 
 		$limit = $params['limit'];
@@ -54,7 +55,9 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 			$this->addWhere( "campaign_id >= $from_id" ); // Not SQL Injection, since we already force this to be an integer
 		}
 
+		wfProfileIn( __METHOD__ . '-sql' );
 		$res = $this->select( __METHOD__ );
+		wfProfileOut( __METHOD__ . '-sql' );
 
 		$result = $this->getResult();
 
@@ -100,6 +103,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 			}
 		}
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'campaign' );
+		wfProfileOut( __METHOD__ );
 	}
 
 	public function getCacheMode( $params ) {

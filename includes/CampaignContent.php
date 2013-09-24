@@ -36,6 +36,7 @@ class CampaignContent extends TextContent {
 	function validate() {
 		global $wgUpwizDir;
 
+		wfProfileIn( __METHOD__ );
 		$campaign = $this->getJsonData();
 		if ( !is_array( $campaign ) ) {
 			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
@@ -57,8 +58,10 @@ class CampaignContent extends TextContent {
 		}
 
 		$mergedConfig = UploadWizardConfig::array_replace_sanely( $defaultCampaignConfig, $campaign );
+		$result = efSchemaValidate( $mergedConfig , $schema );
+		wfProfileOut( __METHOD__ );
 
-		return efSchemaValidate( $mergedConfig , $schema );
+		return $result;
 	}
 
 	/**
@@ -103,6 +106,7 @@ class CampaignContent extends TextContent {
 	}
 
 	function generateHtml( $title ) {
+		wfProfileIn( __METHOD__ );
 		$context = RequestContext::getMain();
 
 		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
@@ -174,7 +178,7 @@ class CampaignContent extends TextContent {
 		}
 
 
-		return
+		$result =
 			Html::rawElement( 'div', array( 'id' => 'mw-campaign-container' ),
 				Html::rawElement( 'div', array( 'id' => 'mw-campaign-header' ),
 					Html::rawElement( 'div', array( 'id' => 'mw-campaign-primary-info' ),
@@ -194,5 +198,8 @@ class CampaignContent extends TextContent {
 				) .
 				$body
 			);
+		wfProfileOut( __METHOD__ );
+
+		return $result;
 	}
 }

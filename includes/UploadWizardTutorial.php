@@ -20,6 +20,7 @@ class UploadWizardTutorial {
 	public static function getHtml( $campaign = null ) {
 		global $wgLang;
 
+		wfProfileIn( __METHOD__ );
 		$error = null;
 		$errorHtml = '';
 		$tutorialHtml = '';
@@ -27,7 +28,6 @@ class UploadWizardTutorial {
 		$langCode = $wgLang->getCode();
 
 		$tutorial = UploadWizardConfig::getSetting( 'tutorial', $campaign );
-		$tutorialFile = false;
 		// getFile returns false if it can't find the right file
 		$tutorialFile = self::getFile( $langCode, $tutorial );
 		if ( $tutorialFile === false ) {
@@ -75,6 +75,7 @@ class UploadWizardTutorial {
 			}
 			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), $errorMsg->text() );
 		}
+		wfProfileOut( __METHOD__ );
 
 		return $errorHtml . $tutorialHtml;
 
