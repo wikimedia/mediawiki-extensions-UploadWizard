@@ -2040,7 +2040,7 @@ $1',
 	'mwe-upwiz-campaigns-status' => 'الحالة',
 	'mwe-upwiz-campaigns-enabled' => 'مشغل',
 	'mwe-upwiz-campaigns-disabled' => 'معطل',
-	'mwe-upwiz-campaigns-edit' => 'تعديل',
+	'mwe-upwiz-campaigns-edit' => 'عدل',
 	'mwe-upwiz-campaigns-add' => 'أضف',
 	'mwe-upwiz-campaigns-addnew' => 'إضافة حملة جديدة',
 	'mwe-upwiz-campaigns-newname' => 'اسم الحملة:',
@@ -11711,7 +11711,7 @@ $messages['gu'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'અપલોડ થઈ રહ્યું છે',
 	'mwe-upwiz-finished' => 'સંપૂર્ણ!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|સેકંડ|સેકંડ}} બાકી',
-	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|મિનિટ|મોનિટો}} $2 {{PLURAL:$2|સેકન્ડ|સેકન્ડો}} બાકી',
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|મિનિટ|મોનિટો}} $2 {{PLURAL:$2|સેકન્ડ|સેકન્ડો}} {{PLURAL:$3|બાકી}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|કલાક|કલાલો}} $2 {{PLURAL:$2|મિનિટ|મિનિટ}} $3 {{PLURAL:$3|સેકન્ડ|સેકન્ડો}} બાકી',
 	'mwe-upwiz-deeds-macro-prompt' => 'આ {{PLURAL:$1|રચના|રચનાઓ}} ને કોપીરાઈટ માહિતી તમારે આ સાઈટ પર આપવી રહેશે. જેથી દરેક લોકો આને કાયદેસર રીતે તેને વપરી શકે.', # Fuzzy
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|આ ફાઈલ |આ ફાઈલો}} મારી પોતાની રચનાઓ છે.',
@@ -11721,7 +11721,7 @@ $messages['gu'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(મને મારી રચના જશ આપે અને આ પરવાના હ્થા અમુક સકારાત્મક રચનાત્મકકાર્ય કરે  તે સૌકોઈ  આ  {{PLURAL:$1|રચના|રચનાઓ}} ને વાપરી, વેહેંચી કે રીમિક્સ  કરી (મઠારી) શકે છે)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'હું, $2, {{PLURAL:$1|આ રચના|આ રચનાઓ}}ના પ્રકાશનાધિકારનો માલિક. {{PLURAL:$1|આ રચના|આ રચનાઓ}}નો ઉપયોગ કરવાના અબાધિત અધિકાર ક્રિએટિવ કોમન્સ એટ્રીબ્યુશન ૩.૦૦ લાઈસન્સ હેઠળ સૌ કોઈને આપું છું ([$3 legal code]) .',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(મને મારી રચના જશ આપે તે સૌકોઈ  આ   {{PLURAL:$1|રચના|રચનાઓ}} ને વાપરી, વેહેંચી કે રીમિક્સ  કરી (મઠારી) શકે છે)',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'હું, $2, આ {{PLURAL:$1|રચના|રચનઓ}}ના પ્રકાશન હક્કો ધરાવું છું. આને વાપરાવાના હક્કો હું ક્રીઍટીવ કોમન્સ પબ્લીક ડોમેન્સ ડેડીકેશન ([$3 legal code]) હેઠળ સૌને આપું છું',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'હું, $2, આ {{PLURAL:$1|રચના|રચનઓ}}ના પ્રકાશન હક્કો ધરાવું છું. આને વાપરાવાના હક્કો હું ક્રીઍટીવ કોમન્સ શૂન્ય પબ્લીક ડોમેન્સ ડેડીકેશન ([$3 legal code]) હેઠળ સૌને આપું છું',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(કોઈ પણ બંધન કે શરતો વગર કોઈ પણ આ  {{PLURAL:$1|રચના|રચનાઓ}} ને વાપરી, વેહેંચી કે રીમિક્સ  કરી (મઠારી) શકે છે)',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'હું, $2, {{PLURAL:$1|આ રચના|આ રચનાઓ}}ના પ્રકાશનાધિકારનો માલિક. {{PLURAL:$1|આ રચના|આ રચનાઓ}}નો ઉપયોગ કરવાના અબાધિત અધિકાર નીચેના લાઈસન્સ હેઠળ સૌ કોઈને આપું છું.',
 	'mwe-upwiz-source-ownwork-assert-note' => 'હું, આ {{PLURAL:$2|રચના|રચનાઓ}}નો પ્રકાશન ધારક, આ {{PLURAL:$2|કાર્ય|કાર્યો}}ને $1 હેઠળ પ્રકાશિત કરું છું.',
@@ -11835,10 +11835,11 @@ $messages['gu'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => 'આ વૈધ wikitext નથી, તેમાં પરવાનગિઓ નથી.',
 	'mwe-upwiz-details-error-count' => 'ઉપરના {{PLURAL:$2|ફોર્મ|ફોર્મસ}}માં {{PLURAL:$1|ક્ષતિ| $1 ક્ષતિઓ}} છે. {{PLURAL:$1|ક્ષતિ|ક્ષતિઓ}} સુધારી ફરી ચઢાવવા પ્રયાસ કરો.',
 	'mwe-upwiz-too-many-files-ok' => 'બરાબર',
-	'mwe-upwiz-too-many-files-text' => 'એક સમયે તમે માત્ર $1 {{PLURAL:$1|ફાઈલ|ફાઈલો}} ચઢાવી શકો છો. તમે કુલ $2 {{PLURAL:$2|ફાઈલ|ફાઈલો}} ચઢાવવાનો પ્રયત્ન કર્યો.,   આથી $3 {{PLURAL:$3|ફાઈલ|ફાઈલો}} હતાવી દેવાઈ.',
+	'mwe-upwiz-too-many-files-text' => 'એક સમયે તમે માત્ર $1 {{PLURAL:$1|ફાઈલ|ફાઈલો}} ચઢાવી શકો છો. તમે કુલ $2 {{PLURAL:$2|ફાઈલ|ફાઈલો}} ચઢાવવાનો પ્રયત્ન કર્યો.,   આથી $3 {{PLURAL:$3|ફાઈલ|ફાઈલો}} હતાવી દેવાઈ.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'બહુ બધી ફાઈલ્સ.',
 	'mwe-upwiz-file-too-large-ok' => 'બરાબર',
 	'mwe-upwiz-file-too-large' => 'ફાઇલ બહુ મોટી છે.',
+	'mwe-upwiz-dialog-title' => 'કોઈ પણ ભાષા અને કોઈ પણ લિપીમાં ફાઈલનું નામ આપી શકાશે. તેમના શીર્ષકો અર્થસભર અને જેતે ભાષામાં ઉપયોગી હોવા જોઈએ.', # Fuzzy
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'ક્રીએટીવ કોમન્સ એટ્રીબ્યુશન શેર અ લાઈક 3.0 ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'ક્રીએટીવ કોમન્સ એટ્રીબ્યુશન શેર અ લાઈક 3.0 ઓસ્ટ્રીયા ([$2 legal code])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'ક્રીએટીવ કોમન્સ એટ્રીબ્યુશન શેર અ લાઈક 3.0 જર્મની ([$2 legal code])',
@@ -11888,8 +11889,8 @@ $messages['gu'] = array(
 	'mwe-upwiz-license-none' => 'હું માનું છું કે આ {{PLURAL:$1|રચના|રચનાઓ}} મુક્ત પ્રવાના કે પબ્લીક ડોમેન હેઠળ છે. હું જાણું છું કે જોઇ હું સમયોચિત્ત યોગ્ય પરવાના માહિતી નહીં આપુઇં તો આ {{PLURAL:$1|ફાઈલ|ફાઈલો}} હટાવી દેવાશે.',
 	'mwe-upwiz-license-confirm-remove' => 'શું તમે ખરેખર {{PLURAL:$1|આ અપલોડ|આ અપલોડ}} હટાવવા માંગો છો?',
 	'mwe-upwiz-license-confirm-remove-title' => 'હટાવવાની ખાત્રી આપો.',
-	'mwe-upwiz-license-external' => '$1 પર આ ફાઈલ નીચેના પરવાના હેઠળ છે: $2.',
-	'mwe-upwiz-license-external-invalid' => '$1 પર આ ફાઈલ નીચેના પ્રકાશન અધિકાર હેઠળ ધરાવે છે: $2. કમનસીબે, આ પરવાનો આ સાઈટ પર વપરાશની પરવાનગી નથી આપતો.',
+	'mwe-upwiz-license-external' => '$1 પર આ ફાઈલ નીચેના પરવાના હેઠળ છે: $2.', # Fuzzy
+	'mwe-upwiz-license-external-invalid' => '$1 પર આ ફાઈલ નીચેના પ્રકાશન અધિકાર હેઠળ ધરાવે છે: $2. કમનસીબે, આ પરવાનો આ સાઈટ પર વપરાશની પરવાનગી નથી આપતો.', # Fuzzy
 	'mwe-upwiz-categories' => 'શ્રેણીઓ',
 	'mwe-upwiz-categories-add' => 'ઉમેરો',
 	'mwe-upwiz-category-will-be-added' => 'આ શ્રેણી હજુ સુધી વપરાયેલી નથી.',
@@ -11993,6 +11994,8 @@ $messages['he'] = array(
 	'group-upwizcampeditors' => 'עורכי מבצעי קידום העלאות',
 	'group-upwizcampeditors-member' => '{{GENDER:$1|עורך|עורכת}} מבצעי קידום העלאות',
 	'grouppage-upwizcampeditors' => '{{ns:project}}:עורכי מבצעי קידום העלאות',
+	'group-upwizcampeditors.css' => '/* הסגנונות הנכתבים כאן ישפיעו על עורכי מבצעי קידום העלאות בלבד */',
+	'group-upwizcampeditors.js' => '/* כל סקריפט JavaScript שנכתב כאן ירוץ עבור עורכי מבצעי קידום העלאות בלבד */',
 	'mwe-upwiz-js-off' => "אשף ההעלאה משתמש בג'אווה סקריפט לשם שיפור הממשק. הדפדפן שלכם אינו תומך בג'אווה סקריפט או שהרצת הג'אווה סקריפט בו כובתה, ולכן אנחנו מראים לכם טופס העלאה פשוט.",
 	'mwe-upwiz-extension-disabled' => 'דף זה אינו פעיל זמנית עקב בעיות טכניות. בינתיים נסו את דף ההעלאות הרגיל.',
 	'mwe-upwiz-code-unknown' => 'שפה בלתי מוכרת',
@@ -12213,6 +12216,8 @@ $messages['he'] = array(
 	'mwe-upwiz-dialog-yes' => 'כן',
 	'mwe-upwiz-dialog-no' => 'לא',
 	'mwe-upwiz-dialog-title' => 'אזהרה',
+	'mwe-upwiz-campaign-upload-button' => 'העלאה!',
+	'mwe-upwiz-campaign-view-all-media' => 'הצגת כל קובצי המדיה שהועלו',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons ייחוס ושיתוף זהה 3.0 ([$2 ניסוח משפטי])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons ייחוס–שיתוף זהה 3.0 אוסטריה ([$2 ניסוח משפטי])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons ייחוס–שיתוף זהה 3.0 גרמניה ([$2 ניסוח משפטי])',
@@ -12319,7 +12324,7 @@ $1',
 	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'שם קובץ המדריך למשתמש בוויקישיתוף. $1 מוחלף בקוד שפה',
 	'mwe-upwiz-campaign-conf-tutorialWidth' => 'באיזה רוחב להציג את המדריך',
 	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'נקודות הציון על התמונה של כפתור „דלפק ייעוץ”',
-	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'רישיון ליצירה עצמית לפי בררת המחדל',
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'רישיון ליצירה עצמית לפי ברירת המחדל:',
 	'mwe-upwiz-campaign-conf-idField' => 'קוד ויקי לשדה מזהה. דוגמה: <nowiki>{{אתר מורשת|$1}}</nowiki>. אם הערך יהיה ריק, השדה לא יוצג.',
 	'mwe-upwiz-campaign-conf-idFieldLabel' => 'טקסט לתווית שדה מזהה',
 	'mwe-upwiz-campaign-conf-idFieldLabelPage' => 'שם הדף עם טקסט עבור תווית שדה המזהה? $1 מוחלף בקוד השפה',
@@ -12332,10 +12337,10 @@ $1',
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'הדף שמכיל טקסט שיוצג בראש דף „שימוש”. $1 מוחלף בקוד שפה:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'אורך מרבי של טקסט בשדה מזהה:',
 	'mwe-upwiz-campaign-conf-idField2MaxLength' => 'אורך מרבי של הטקסט בשדה מזהה משני:',
-	'mwe-upwiz-campaign-conf-defaultLat' => 'קו־רוחב לפי בררת המחדל:',
-	'mwe-upwiz-campaign-conf-defaultLon' => 'קו־אורך לפי בררת המחדל:',
-	'mwe-upwiz-campaign-conf-defaultAlt' => 'גובה לפי בררת המחדל:',
-	'mwe-upwiz-campaign-conf-defaultDescription' => 'תיאור לפי בררת המחדל:',
+	'mwe-upwiz-campaign-conf-defaultLat' => 'קו־רוחב לפי ברירת המחדל:',
+	'mwe-upwiz-campaign-conf-defaultLon' => 'קו־אורך לפי ברירת המחדל:',
+	'mwe-upwiz-campaign-conf-defaultAlt' => 'גובה לפי ברירת המחדל:',
+	'mwe-upwiz-campaign-conf-defaultDescription' => 'תיאור לפי ברירת המחדל:',
 	'mwe-upwiz-campaign-edit-summary-update' => 'הגדרות מסע פרסום מעודכנות דרך עורך מסעות פרסום',
 	'mwe-upwiz-campaign-edit-summary-delete' => 'נמחק מסע פרסום דרך עורך מסעות פרסום',
 	'mw-coolcats-confirm-new-title' => 'אישור קטגוריה חדשה',
@@ -12349,7 +12354,7 @@ $1',
 	'mwe-upwiz-prefs-def-license' => 'רישיון בררת המחדל',
 	'mwe-upwiz-prefs-def-license-def' => 'להשתמש בבררת המחדל',
 	'mwe-upwiz-prefs-license-own' => 'יצירה עצמית – $1',
-	'mwe-upwiz-prefs-license-thirdparty' => 'יצירה של מישהו אחר – $1',
+	'mwe-upwiz-prefs-license-thirdparty' => 'יצירה של אדם אחר – $1',
 	'mwe-upwiz-prefs-chunked' => 'העלאה מקוטעת עבור קבצים גדולים ממגה־בייט אחד באשף ההעלאה',
 	'mwe-upwiz-prefs-skiptutorial' => 'לדלג על מדריך הרישוי למתחילים',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'מספר מרבי של העלאות בו־זמנית',
@@ -16754,7 +16759,7 @@ $messages['ko'] = array(
 	'mwe-prevent-close' => '이 문서를 떠나면 바뀜을 잃을 수 있습니다.',
 	'mwe-upwiz-prevent-close' => '{{PLURAL:$1|이 파일}}을 올리고 배포하는 것이 아직 끝나지 않았습니다.',
 	'mwe-upwiz-files-complete' => '파일 업로드가 완료되었습니다!',
-	'mwe-upwiz-tooltip-skiptutorial' => '$2 → $3에 따라 [$1 사용자 환경 설정]에서 이 자습서를 다시 활성화할 수 있습니다.',
+	'mwe-upwiz-tooltip-skiptutorial' => '[$1 사용자 환경 설정]의 $2 → $3에 따라 이 자습서를 다시 활성화할 수 있습니다.',
 	'mwe-upwiz-tooltip-author' => '사진을 찍거나 그림을 그린 사람의 이름',
 	'mwe-upwiz-tooltip-source' => '이 디지털 파일이 원래 있었던 곳 - URL이나 책, 출판물 등을 기입할 수 있습니다.',
 	'mwe-upwiz-tooltip-sign' => '위키 계정 이름이나 실명을 쓸 수 있습니다.
@@ -21222,6 +21227,7 @@ $messages['ne'] = array(
  * @author SPQRobin
  * @author Saruman
  * @author Siebrand
+ * @author Southparkfan
  * @author TheDJ
  * @author Tvdm
  * @author Wiki13
@@ -21459,6 +21465,7 @@ Gebruik hier geen wikitekst of HTML.',
 	'mwe-upwiz-dialog-yes' => 'Ja',
 	'mwe-upwiz-dialog-no' => 'Nee',
 	'mwe-upwiz-dialog-title' => 'Waarschuwing',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Bijdragers',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Naamsvermelding-Gelijk delen 3.0 ([$2 juridische tekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Naamsvermelding-Gelijk delen 3.0 Oostenrijk ([$2 juridische tekst])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Naamsvermelding-Gelijk delen 3.0 Duitsland ([$2 juridische tekst])',
@@ -23375,7 +23382,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-remove' => 'غورځول',
 	'mwe-upwiz-show-thumb' => 'بټنوکه ښکاره کول',
 	'mwe-upwiz-show-thumb-tip' => 'همدې دوتنې ته يو بټنوک انځور برسېرول',
-	'mwe-upwiz-remove-description' => 'دا څرګندونه ړنګول',
+	'mwe-upwiz-remove-description' => 'دا څرگندونه ړنگول',
 	'mwe-upwiz-upload' => 'پورته کول',
 	'mwe-upwiz-file-all-ok' => 'ټولې برسېرېدنې بريالۍ شوې!',
 	'mwe-upwiz-file-some-failed' => 'ځينې برسېرېدنې نابريالې شوې.',
@@ -23453,7 +23460,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-campaigns-disabled' => 'ناچارن',
 	'mwe-upwiz-campaigns-edit' => 'سمول',
 	'mwe-upwiz-campaigns-add' => 'ورګډول',
-	'mwe-upwiz-campaigns-delete' => 'ړنګول',
+	'mwe-upwiz-campaigns-delete' => 'ړنگول',
 	'mwe-upwiz-campaign-conf-skipTutorial' => 'د منښتليک لارښود نه تېرېدل',
 	'mwe-upwiz-campaign-conf-ownWorkOption' => 'د شخصي اثر يا غير شخصي اثر ترمېنځ څنګه توپير وکړو:',
 	'mwe-upwiz-campaign-owner-own' => 'يوازې د شخصي اثر د پورته کولو اجازه ورکول',
@@ -24839,7 +24846,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'загрузка на сервер',
 	'mwe-upwiz-finished' => 'Готово!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Осталась $1 секунда|Осталось $1 секунды|Осталось $1 секунд}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Осталась $1 минута|Осталось $1 минуты|Осталось $1 минут}} {{PLURAL:$2|$2 секунда|$2 секунды|$2 секунд}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|Осталась|Осталось}} $1 {{PLURAL:$1| минута|минуты|минут}} $2 {{PLURAL:$2|секунда|секунды|секунд}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Остался $1 час|Осталось $1 часа|Осталось $1 часов}} {{PLURAL:$2|$2 минута|$2 минуты|$2 минут}} {{PLURAL:$3|$3 секунда|$3 секунды|$3 секунд}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Этот сайт требует {{GENDER:$2|от вас}} указать сведения об авторских правах для {{PLURAL:$1|этого произведения|этих произведений}}, чтобы убедиться, что все могут {{PLURAL:$1|его|их}} использовать на законных основаниях.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Этот файл является моим собственным произведением.|Эти файлы являются моими собственными произведениями.}}',
@@ -27709,6 +27716,7 @@ $1',
  * @author Boivie
  * @author Dafer45
  * @author Diupwijk
+ * @author Jopparn
  * @author Lejonel
  * @author Lokal Profil
  * @author Nghtwlkr
@@ -27889,7 +27897,7 @@ Du kan installera [$1 Firefogg], ett Firefoxtillägg, för att automatiskt konve
 	'mwe-prevent-close' => 'Lämnar du denna sida kan du förlora alla ändringar du har gjort.',
 	'mwe-upwiz-prevent-close' => 'Du har inte laddat upp och publicerat {{PLURAL:$1|den här filen|dessa filer}} ännu.',
 	'mwe-upwiz-files-complete' => 'Dina filer har lagts upp!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'Du kan återaktivera denna guide på [$1 dina användarinställningar], under $2 → $3.',
+	'mwe-upwiz-tooltip-skiptutorial' => 'Du kan återaktivera denna guide i [$1 dina användarinställningar], under $2 → $3.',
 	'mwe-upwiz-tooltip-author' => 'Namnet på den person som tog fotot, målade bilden, ritade ritningen, etc.',
 	'mwe-upwiz-tooltip-source' => 'Var denna digitala filen kom från – det kan vara en URL, en bok eller en annan publikation.',
 	'mwe-upwiz-tooltip-sign' => 'Du kan använda ditt wikianvändarnamn eller ditt riktiga namn.
