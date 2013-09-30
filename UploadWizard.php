@@ -61,6 +61,7 @@ $wgAutoloadClasses += array(
 	// Campaign ContentHandler
 	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
 	'CampaignContent' => $wgUpwizDir . '/includes/CampaignContent.php',
+	'CampaignPageFormatter' => $wgUpwizDir . '/includes/CampaignPageFormatter.php',
 	'CampaignHooks' => $wgUpwizDir . '/includes/CampaignHooks.php',
 
 	// Special Pages
