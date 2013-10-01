@@ -19,10 +19,9 @@ var catNsId = mw.config.get( 'wgNamespaceIds' ).category,
 	templateNsId = mw.config.get( 'wgNamespaceIds' ).template;
 
 mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
-	var _this = this;
-	_this.count = count;
+	this.count = count;
 
-	_this.api = api;
+	this.api = api;
 
 	if (
 		config.type === undefined ||
@@ -31,33 +30,33 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 		throw new Error( 'improper initialization' );
 	}
 
-	_this.$selector = $( selector );
-	_this.$selector.append( $( '<div class="mwe-error mwe-error-head"></div>' ) );
+	this.$selector = $( selector );
+	this.$selector.append( $( '<div class="mwe-error mwe-error-head"></div>' ) );
 
-	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
+	this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
-	_this.defaults = ( config.licenses && config.licenses[0] ) ? [ config.licenses[0] ] : [];
+	this.defaults = ( config.licenses && config.licenses[0] ) ? [ config.licenses[0] ] : [];
 
 	mw.UploadWizardLicenseInput.prototype.count++;
-	_this.name = 'license' + mw.UploadWizardLicenseInput.prototype.count;
+	this.name = 'license' + mw.UploadWizardLicenseInput.prototype.count;
 
 	// the jquery wrapped inputs (checkboxes or radio buttons) for this licenseInput.
-	_this.inputs = [];
+	this.inputs = [];
 
 	// create inputs and licenses from config
 	if ( config.licenseGroups === undefined ) {
-		_this.createInputs( _this.$selector, config );
+		this.createInputs( this.$selector, config );
 	} else {
-		_this.createGroupedInputs( _this.$selector, config.licenseGroups );
+		this.createGroupedInputs( this.$selector, config.licenseGroups );
 	}
 
 	// set values of the whole license input
 	if ( values ) {
-		_this.setValues( values );
+		this.setValues( values );
 	}
 
 	// set up preview dialog
-	_this.$previewDialog = $( '<div></div> ')
+	this.$previewDialog = $( '<div></div> ')
 		.css( 'padding', 10 )
 		.dialog( {
 			autoOpen: false,
@@ -66,11 +65,9 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 			modal: true
 		} );
 
-	_this.$spinner = $( '<div></div>' )
+	this.$spinner = $( '<div></div>' )
 		.addClass( 'mwe-upwiz-status-progress mwe-upwiz-file-indicator' )
 		.css( { 'width': 200, 'padding': 20, 'float': 'none', 'margin': '0 auto' } );
-
-	return _this;
 };
 
 mw.UploadWizardLicenseInput.prototype = {
@@ -82,37 +79,37 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @param license input configuration groups
 	 */
 	createGroupedInputs: function( $el, configGroups ) {
-		var _this = this;
+		var input = this;
 		$.each( configGroups, function( i, group ) {
-			var $body, $toggler;
-			var $group = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
+			var $body, $toggler, $head, $licensesDiv,
+				$group = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
 			if ( group.head === undefined ) {
 				// if there is no header, just append licenses to the group div.
 				$body = $group;
 			} else {
 				// if there is a header, make a toggle-to-expand div and append inputs there.
-				var $head = $( '<div></div>' ).append(
+				$head = $( '<div></div>' ).append(
 					$( '<a>' )
 						.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
-						.msg( group.head, _this.count )
+						.msg( group.head, input.count )
 				);
 				$body = $( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
 				$toggler = $group.append( $head, $body ).collapseToggle();
 
 			}
 			if ( group.subhead !== undefined ) {
-				$body.append( $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, _this.count ) );
+				$body.append( $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, input.count ) );
 			}
-			var $licensesDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
-			_this.createInputs( $licensesDiv, group, $toggler );
+			$licensesDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
+			input.createInputs( $licensesDiv, group, $toggler );
 			$body.append( $licensesDiv );
-			_this.$selector.append( $group );
+			input.$selector.append( $group );
 		} );
 	},
 
 	/**
 	 * append defined license inputs to element.
-	 * SIDE EFFECT: also records licenses and inputs in _this
+	 * SIDE EFFECT: also records licenses and inputs in the object
 	 *
 	 * Abstracts out simple lists of licenses, more complex groups with layout
 	 * @param {jQuery} selector to add inputs to
@@ -127,21 +124,19 @@ mw.UploadWizardLicenseInput.prototype = {
 	 *
 	 */
 	createInputs: function( $el, config, $groupToggler ) {
-		var _this = this;
+		var input = this;
 		if ( config.licenses === undefined || typeof config.licenses !== 'object' ) {
-			throw new Error( "improper license config" );
+			throw new Error( 'improper license config' );
 		}
 		$.each( config.licenses, function( i, licenseName ) {
 			if ( mw.UploadWizard.config.licenses[licenseName] !== undefined ) {
-				var license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] };
+				var $customDiv,
+					license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] },
+					templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice(0),
+					$input = input.createInputElement( templates, config ),
+					$label = input.createInputElementLabel( license, $input );
 
-				var templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice(0);
-
-				var $input = _this.createInputElement( templates, config );
-				_this.inputs.push( $input );
-
-				var $label = _this.createInputElementLabel( license, $input );
-
+				input.inputs.push( $input );
 				$el.append( $input, $label, $( '<br/>' ) );
 				// TODO add popup help?
 				$input.addClass( 'mwe-upwiz-copyright-info-radio' );
@@ -152,7 +147,7 @@ mw.UploadWizardLicenseInput.prototype = {
 				$input.data( 'groupToggler', $groupToggler );
 
 				if ( config.special === 'custom' ) {
-					var $customDiv = _this.createCustomWikiTextInterface( $input );
+					$customDiv = input.createCustomWikiTextInterface( $input );
 					$el.append( $customDiv );
 					$input.data( 'textarea', $customDiv.find( 'textarea' ) );
 				}
@@ -189,25 +184,25 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {jQuery} wrapped input
 	 */
 	createInputElement: function( templates, config ) {
-		var _this = this;
+		var input = this,
 
-		var attrs = {
-			id:  _this.name + '_' + _this.inputs.length, // unique id
-			name: _this.name, // name of input, shared among all checkboxes or radio buttons.
-			type: _this.type, // kind of input
-			value: _this.createInputValueFromTemplateConfig( templates, config )
-		};
+			attrs = {
+				id:  this.name + '_' + this.inputs.length, // unique id
+				name: this.name, // name of input, shared among all checkboxes or radio buttons.
+				type: this.type, // kind of input
+				value: this.createInputValueFromTemplateConfig( templates, config )
+			},
 
-		var inputHtml = '<input ' +
-			$.map( attrs, function( val, key ) {
-				return key + '="' + val.toString().replace( '"', '' ) + '"';
-			} ).join( " " ) +
-		' />';
+			inputHtml = '<input ' +
+				$.map( attrs, function( val, key ) {
+					return key + '="' + val.toString().replace( '"', '' ) + '"';
+				} ).join( ' ' ) +
+			' />';
 
 		// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
 		// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded
 		return $( inputHtml ).click( function() {
-			_this.$selector.trigger( 'changeLicenses' );
+			input.$selector.trigger( 'changeLicenses' );
 		} );
 	},
 
@@ -218,18 +213,20 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
 	 */
 	createInputElementLabel: function( license, $input ) {
-		var messageKey = license.props.msg === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg;
-		var languageCode = mw.config.get( 'wgUserLanguage' );
+		var messageKey = license.props.msg === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg,
+			languageCode = mw.config.get( 'wgUserLanguage' ),
 
-		// The URL is optional, but if the message includes it as $2, we surface the fact
-		// that it's misisng.
-		var licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url;
+			// The URL is optional, but if the message includes it as $2, we surface the fact
+			// that it's misisng.
+			licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url,
+
+			licenseLink = $( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } ),
+
+			$icons = $( '<span></span>' );
+
 		if ( license.props.languageCodePrefix !== undefined ) {
 			licenseURL += license.props.languageCodePrefix + languageCode;
 		}
-		var licenseLink = $( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } );
-
-		var $icons = $( '<span></span>' );
 		if ( license.props.icons !== undefined ) {
 			$.each( license.props.icons, function( i, icon ) {
 				$icons.append( $( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
@@ -248,30 +245,30 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return {jQuery} wrapped textarea
 	 */
 	createCustomWikiTextInterface: function( $input ) {
-		var _this = this,
-			keydownTimeout;
+		var keydownTimeout,
+			input = this,
 
-		var nameId = $input.attr( 'id' ) + '_custom';
-		var $textarea = $( '<textarea></textarea>' )
+			nameId = $input.attr( 'id' ) + '_custom',
+			$textarea = $( '<textarea></textarea>' )
 				.attr( { id: nameId, name: nameId } )
 				.growTextArea()
-				.focus( function() { _this.setInput( $input, true ); } )
+				.focus( function() { input.setInput( $input, true ); } )
 				.keydown( function() {
 					window.clearTimeout( keydownTimeout );
 					keydownTimeout = window.setTimeout(
-						function() { _this.$selector.trigger( 'changeLicenses' ); },
+						function() { input.$selector.trigger( 'changeLicenses' ); },
 						2000
 					);
 				} )
 				.css( {
 					'width': '100%',
 					'font-family': 'monospace'
-				} );
+				} ),
 
-		var $button = $( '<span></span>' )
+			$button = $( '<span></span>' )
 				.button( { label: mw.message( 'mwe-upwiz-license-custom-preview' ).escaped() } )
 				.css( { 'width': '8em' } )
-				.click( function() { _this.showPreview( $textarea.val() ); } );
+				.click( function() { input.showPreview( $textarea.val() ); } );
 
 		return $( '<div></div>' ).css( { 'width': '100%' } ).append(
 			$( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
@@ -285,15 +282,14 @@ mw.UploadWizardLicenseInput.prototype = {
 
 	// Set the input value. If it is part of a group, and this is being turned on, pop open the group so we can see this input.
 	setInput: function( $input, val ) {
-		var _this = this;
 		var oldVal = $input.is( ':checked' );
 		if ( val ) {
 			$input.prop( 'checked', 'checked' );
 		} else {
 			$input.removeProp( 'checked' );
 		}
-		if ( val != oldVal ) { // loose comparison on purpose
-			_this.$selector.trigger( 'changeLicenses' );
+		if ( val !== oldVal ) { // loose comparison on purpose
+			this.$selector.trigger( 'changeLicenses' );
 		}
 
 		// pop open the 'toggle' group if is now on. Do nothing if it is now off.
@@ -304,10 +300,10 @@ mw.UploadWizardLicenseInput.prototype = {
 
 	// this works fine for blanking all of a radio input, or for checking/unchecking individual checkboxes
 	setInputsIndividually: function( values ) {
-		var _this = this;
-		$.each( _this.inputs, function( i, $input ) {
+		var input = this;
+		$.each( this.inputs, function( i, $input ) {
 			var licenseName = $input.data( 'licenseName' );
-			_this.setInput( $input, values[licenseName] );
+			input.setInput( $input, values[licenseName] );
 		} );
 	},
 
@@ -317,16 +313,16 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @param object of license-key to boolean values, e.g. { 'cc_by_sa_30': true, 'gfdl': true, 'flickrreview|cc_by_sa_30': false }
 	 */
 	setValues: function( values ) {
-		var _this = this;
+		var trueCount, trueLicenseName,
+			input = this;
 		// ugly division between radio and checkbox, because in jquery 1.6.4 if you set any element of a radio input to false, every element
 		// is set to false! Unfortunately the incoming data structure is a key-val object so we have to make extra sure it makes sense for
 		// a radio button input.
 
-		if ( _this.type === 'radio' ) {
-
+		if ( this.type === 'radio' ) {
 			// check if how many license names are set to true in the values requested. Should be 0 or 1
-			var trueCount = 0;
-			var trueLicenseName;
+			trueCount = 0;
+
 			$.each( values, function( licenseName, val ) {
 				if ( val === true ) {
 					trueCount++;
@@ -335,39 +331,38 @@ mw.UploadWizardLicenseInput.prototype = {
 			} );
 
 			if ( trueCount === 0 ) {
-				_this.setInputsIndividually( values );
+				this.setInputsIndividually( values );
 			} else if ( trueCount === 1 ) {
 				// set just one of the radio inputs and don't touch anything else
-				$.each( _this.inputs, function( i, $input ) {
+				$.each( this.inputs, function( i, $input ) {
 					var licenseName = $input.data( 'licenseName' );
 					// !! to ensure boolean.
 					if ( licenseName === trueLicenseName ) {
-						_this.setInput( $input, true );
+						input.setInput( $input, true );
 					}
 				} );
 			} else {
-				mw.log.warn( "Too many true values for a radio button!");
+				mw.log.warn( 'Too many true values for a radio button!' );
 			}
 
-		} else if ( _this.type === 'checkbox' ) {
-			_this.setInputsIndividually( values );
+		} else if ( this.type === 'checkbox' ) {
+			this.setInputsIndividually( values );
 		} else {
-			mw.log.warn( "Impossible? UploadWizardLicenseInput type neither radio nor checkbox" );
+			mw.log.warn( 'Impossible? UploadWizardLicenseInput type neither radio nor checkbox' );
 		}
 		// we use the selector because events can't be unbound unless they're in the DOM.
-		_this.$selector.trigger( 'changeLicenses' );
+		this.$selector.trigger( 'changeLicenses' );
 	},
 
 	/**
 	 * Set the default configured licenses
 	 */
 	setDefaultValues: function() {
-		var _this = this;
 		var values = {};
-		$.each( _this.defaults, function( i, lic ) {
+		$.each( this.defaults, function( i, lic ) {
 			values[lic] = true;
 		} );
-		_this.setValues( values );
+		this.setValues( values );
 	},
 
 	/**
@@ -375,12 +370,12 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return string of wikitext (empty string if no inputs set)
 	 */
 	getWikiText: function() {
-		var _this = this;
-		var wikiTexts = this.getSelectedInputs().map(
-			function() {
-				return _this.getInputWikiText( this );
-			}
-		);
+		var input = this,
+			wikiTexts = this.getSelectedInputs().map(
+				function() {
+					return input.getInputWikiText( this );
+				}
+			);
 		// need to use makeArray because a jQuery-returned set of things won't have .join
 		return $.makeArray( wikiTexts ).join( '' );
 	},
@@ -389,7 +384,7 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * Get the value of a particular input
 	 */
 	getInputWikiText: function( $input) {
-		return $input.val() + "\n" + this.getInputTextAreaVal($input);
+		return $input.val() + '\n' + this.getInputTextAreaVal($input);
 	},
 
 	/**
@@ -421,11 +416,9 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return boolean; true if a value set and all is well, false otherwise
 	 */
 	valid: function() {
-		var _this = this;
-
-		var errors = [];
-
-		var selectedInputs = this.getSelectedInputs();
+		var input = this,
+			errors = [],
+			selectedInputs = this.getSelectedInputs();
 
 		if ( selectedInputs.length === 0 ) {
 			errors.push( [ this.$selector.find( '.mwe-error-head' ), 'mwe-upwiz-deeds-need-license' ] );
@@ -439,10 +432,9 @@ mw.UploadWizardLicenseInput.prototype = {
 					return;
 				}
 
-				var textAreaName = $input.data( 'textarea' ).attr( 'name' );
-				var $errorEl = $( 'label[for=' + textAreaName + '].mwe-error' );
-
-				var text = _this.getInputTextAreaVal( $input );
+				var textAreaName = $input.data( 'textarea' ).attr( 'name' ),
+					$errorEl = $( 'label[for=' + textAreaName + '].mwe-error' ),
+					text = input.getInputTextAreaVal( $input );
 
 				if ( text === '' ) {
 					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-missing' ] );
@@ -450,10 +442,9 @@ mw.UploadWizardLicenseInput.prototype = {
 					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-short' ] );
 				} else if ( text.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
 					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-long' ] );
-				} else if ( !_this.validateWikiText( text ) ) {
+				} else if ( !input.validateWikiText( text ) ) {
 					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-invalid' ] );
 				}
-
 			} );
 		}
 
@@ -469,9 +460,9 @@ mw.UploadWizardLicenseInput.prototype = {
 			} );
 
 			// and watch for any change at all in the license to revalidate.
-			_this.$selector.bind( 'changeLicenses.valid', function() {
-				_this.$selector.unbind( 'changeLicenses.valid' );
-				_this.valid();
+			this.$selector.bind( 'changeLicenses.valid', function() {
+				input.$selector.unbind( 'changeLicenses.valid' );
+				input.valid();
 			} );
 		}
 
@@ -493,9 +484,9 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @return boolean
 	 */
 	validateWikiText: function( text ) {
-		var parser = new mw.jqueryMsg.parser(),
-			_this = this,
-			ast;
+		var ast, templates, found, licenseCategory,
+			input = this,
+			parser = new mw.jqueryMsg.parser();
 
 		try {
 			ast = parser.wikiTextToAst( text );
@@ -505,9 +496,12 @@ mw.UploadWizardLicenseInput.prototype = {
 		}
 
 		function accumTemplates( node, templates ) {
+			var nodeName, lcNodeName;
+
 			if ( typeof node === 'object' ) {
-				var nodeName = node[0];
-				var lcNodeName = nodeName.toLowerCase();
+				nodeName = node[0];
+				lcNodeName = nodeName.toLowerCase();
+
 				// templates like Self are special cased, as it is not a license tag and also reparses its string arguments into templates
 				// e.g.  {{self|Cc-by-sa-3.0}}  --> we should add 'Cc-by-sa-3.0' to the templates
 				if (
@@ -518,7 +512,7 @@ mw.UploadWizardLicenseInput.prototype = {
 					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
 					// $.map seems to strip away arrays of one element so have to use an array within an array.
 					node = $.map( node, function( n, i ) {
-						return i == 0 ? n : [[n]];
+						return i === 0 ? n : [[n]];
 					} );
 				} else if ( typeof mw.jqueryMsg.htmlEmitter.prototype[lcNodeName] !== 'function' ) {
 					templates.push( nodeName );
@@ -528,16 +522,18 @@ mw.UploadWizardLicenseInput.prototype = {
 				} );
 			}
 		}
-		var templates = [];
+
+		templates = [];
 		accumTemplates( ast, templates );
 
 		// TODO caching
-		var found = false;
+		found = false;
 		function recurseCategories( desiredCatTitle, title, depthToContinue ) {
 			if ( depthToContinue === 0 ) {
 				return;
 			}
-			var ok = function(cats) {
+
+			function ok(cats) {
 				if ( cats !== false ) {
 					$.each( cats, function( i, catTitle ) {
 						if ( catTitle.getNameText() === desiredCatTitle.getNameText() ) {
@@ -548,13 +544,15 @@ mw.UploadWizardLicenseInput.prototype = {
 						return true;
 					} );
 				}
-			};
-			var err = function() {};
+			}
+
+			function err() {}
+
 			// this proceeds synchronously, so we pick up in the next line
-			_this.api.getCategories( title, ok, err, false );
+			input.api.getCategories( title, ok, err, false );
 		}
 
-		var licenseCategory = new mw.Title( mw.UploadWizard.config.licenseCategory, catNsId );
+		licenseCategory = new mw.Title( mw.UploadWizard.config.licenseCategory, catNsId );
 
 		$.each( templates, function( i, t ) {
 			var title = new mw.Title( t, templateNsId );
@@ -572,21 +570,21 @@ mw.UploadWizardLicenseInput.prototype = {
 	 * @param {String} wikitext
 	 */
 	showPreview: function( wikiText ) {
-
 		this.$previewDialog.html( this.$spinner ).dialog( 'open' );
 
-		var _this = this;
+		var input = this;
+
 		function show( html ) {
-			_this.$previewDialog.html( html );
-			_this.$previewDialog.dialog( 'open' );
+			input.$previewDialog.html( html );
+			input.$previewDialog.dialog( 'open' );
 		}
 
-		var error = function( error ) {
+		function error( e ) {
 			show( $( '<div></div>' ).append(
-				$( '<h3></h3>' ).append( error.code ),
-				$( '<p></p>' ).append( error.info )
+				$( '<h3></h3>' ).append( e.code ),
+				$( '<p></p>' ).append( e.info )
 			) );
-		};
+		}
 
 		this.api.parse( wikiText, show, error );
 	}
