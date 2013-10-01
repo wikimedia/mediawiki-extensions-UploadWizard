@@ -35,7 +35,7 @@
 		 */
 		isPreviewableVideo: function ( file ) {
 			var video = document.createElement( 'video' );
-			return video.canPlayType && video.canPlayType( file.type ).replace( 'no', '' ) != '';
+			return video.canPlayType && video.canPlayType( file.type ).replace( 'no', '' ) !== '';
 		},
 
 		isFormDataAvailable: function() {
