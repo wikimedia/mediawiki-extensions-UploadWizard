@@ -1,3 +1,4 @@
+/* jshint nomen: false, camelcase: false */
 /**
  * Represents the upload -- in its local and remote state. (Possibly those could be separate objects too...)
  * This is our 'model' object if we are thinking MVC. Needs to be better factored, lots of feature envy with the UploadWizard
@@ -78,28 +79,27 @@ mw.UploadWizardUpload.prototype = {
 	// increments with each upload
 	count: 0,
 
-	acceptDeed: function( deed ) {
-		var _this = this;
-		_this.deed.applyDeed( _this );
+	acceptDeed: function () {
+		this.deed.applyDeed( this );
 	},
 
 	/**
 	 * start
 	 */
 	start: function() {
-		var _this = this;
+		var upload = this;
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
-			_this.wizard.hideFileEndButtons();
-			_this.wizard.startProgressBar();
-			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
-				message: function() { return mw.message( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ).escaped(); },
-				test: function() { return !_this.wizard.isComplete() && _this.wizard.uploads.length > 0; }
+			this.wizard.hideFileEndButtons();
+			this.wizard.startProgressBar();
+			this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
+				message: function () { return mw.message( 'mwe-upwiz-prevent-close', upload.wizard.uploads.length ).escaped(); },
+				test: function () { return !upload.wizard.isComplete() && upload.wizard.uploads.length > 0; }
 			} );
 		}
-		_this.setTransportProgress(0.0);
-		//_this.ui.start();
-		_this.handler.start();
+		this.setTransportProgress(0.0);
+		//this.ui.start();
+		this.handler.start();
 	},
 
 	/**
@@ -134,10 +134,9 @@ mw.UploadWizardUpload.prototype = {
 	 * @param fraction
 	 */
 	setTransportProgress: function ( fraction ) {
-		var _this = this;
-		_this.state = 'transporting';
-		_this.transportProgress = fraction;
-		$( _this.ui.div ).trigger( 'transportProgressEvent' );
+		this.state = 'transporting';
+		this.transportProgress = fraction;
+		$( this.ui.div ).trigger( 'transportProgressEvent' );
 	},
 
 	/**
@@ -162,13 +161,18 @@ mw.UploadWizardUpload.prototype = {
 	 * @param result	the API result in parsed JSON form
 	 */
 	setTransported: function( result ) {
-		var _this = this;
-		if ( _this.state == 'aborted' ) {
+		if ( this.state === 'aborted' ) {
 			return;
 		}
 
+		function rmErrs( theCode ) {
+			upload.removeErrors( theCode );
+		}
+
 		// default error state
-		var code = 'unknown',
+		var comma, warnCode, $override,
+			upload = this,
+			code = 'unknown',
 			info = 'unknown';
 
 		if ( result.error ) {
@@ -178,7 +182,7 @@ mw.UploadWizardUpload.prototype = {
 			}
 			if ( code === 'filetype-banned' && result.error.blacklisted ) {
 				code = 'filetype-banned-type';
-				var comma = mw.message( 'comma-separator' ).escaped();
+				comma = mw.message( 'comma-separator' ).escaped();
 				info = [
 					result.error.blacklisted.join( comma ),
 					result.error.allowed.join( comma ),
@@ -191,8 +195,6 @@ mw.UploadWizardUpload.prototype = {
 			this.setError( code, info );
 			return;
 		}
-
-		var warnCode;
 
 		result.upload = result.upload || {};
 		result.upload.warnings = result.upload.warnings || {};
@@ -209,20 +211,18 @@ mw.UploadWizardUpload.prototype = {
 						break;
 					case 'duplicate':
 						code = warnCode;
-						_this.setError( warnCode, _this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
+						this.setError( warnCode, this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
 						break;
 					case 'duplicate-archive':
 						// This is the case where the file did exist, but it was deleted.
 						// We should definitely tell the user, but let them override.
 						// If they already have, then don't execute any of this.
 						code = warnCode;
-						_this.setError( warnCode, _this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
-						var $override = $( '<a></a>' )
-							.attr( 'href', 'javascript:' )
+						this.setError( warnCode, this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
+						$override = $( '<a></a>' )
+							.attr( 'href', 'javascript:void(0)' )
 							.text( mw.message( 'mwe-upwiz-override' ).text() )
-							.click( ( function ( theCode ) {
-								this.removeErrors( theCode );
-							} ).bind( this, warnCode ) );
+							.click( rmErrs );
 						$( '.mwe-upwiz-file-status-line-item', this.ui.visibleFilenameDiv )
 							.first()
 							.append( ' ' );
@@ -237,7 +237,7 @@ mw.UploadWizardUpload.prototype = {
 						} else {
 							info = result.upload.warnings[warnCode];
 						}
-						_this.setError( code, info );
+						this.setError( code, info );
 						break;
 				}
 			}
@@ -246,14 +246,14 @@ mw.UploadWizardUpload.prototype = {
 		if ( this.state !== 'error' ) {
 			if ( result.upload && result.upload.result === 'Success' ) {
 				if ( result.upload.imageinfo ) {
-					_this.setSuccess( result );
+					this.setSuccess( result );
 				} else {
-					_this.setError( 'noimageinfo', info );
+					this.setError( 'noimageinfo', info );
 				}
 			} else if ( result.upload && result.upload.result === 'Warning' ) {
 				throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
 			} else {
-				_this.setError( code, info );
+				this.setError( code, info );
 			}
 		}
 	},
@@ -264,26 +264,7 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Object} portion of the API error result listing duplicates
 	 */
 	duplicateErrorInfo: function( code, resultDuplicate ) {
-		var _this = this;
-		var duplicates;
-		if ( typeof resultDuplicate === 'object' ) {
-			duplicates = resultDuplicate;
-		} else if ( typeof resultDuplicate === 'string' ) {
-			duplicates = [ resultDuplicate ];
-		}
-		var $ul = $( '<ul></ul>' );
-		$.each( duplicates, function( i, filename ) {
-			var $a = $( '<a/>' ).append( filename );
-			try {
-				var href = new mw.Title( filename, fileNsId ).getUrl();
-				$a.attr( { 'href': href, 'target': '_blank' } );
-			} catch ( e ) {
-				$a.click( function() { alert('could not parse filename=' + filename ); } );
-				$a.attr( 'href', '#' );
-			}
-			$ul.append( $( '<li></li>' ).append( $a ) );
-		} );
-		var dialogFn = function(e) {
+		function dialogFn(e) {
 			$( '<div></div>' )
 				.html( $ul )
 				.dialog( {
@@ -294,7 +275,31 @@ mw.UploadWizardUpload.prototype = {
 					modal : true
 				} );
 			e.preventDefault();
-		};
+		}
+
+		var duplicates,
+			$ul = $( '<ul>' );
+
+		if ( typeof resultDuplicate === 'object' ) {
+			duplicates = resultDuplicate;
+		} else if ( typeof resultDuplicate === 'string' ) {
+			duplicates = [ resultDuplicate ];
+		}
+
+		$.each( duplicates, function( i, filename ) {
+			var href,
+				$a = $( '<a/>' ).append( filename );
+
+			try {
+				href = new mw.Title( filename, fileNsId ).getUrl();
+				$a.attr( { 'href': href, 'target': '_blank' } );
+			} catch ( e ) {
+				$a.click( function() { window.alert('could not parse filename=' + filename ); } );
+				$a.attr( 'href', '#' );
+			}
+			$ul.append( $( '<li></li>' ).append( $a ) );
+		} );
+
 		return [ duplicates.length, dialogFn ];
 	},
 
@@ -303,26 +308,25 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Mixed} result -- result of AJAX call
 	 */
 	setSuccess: function( result ) {
-		var _this = this;
-		_this.state = 'transported';
-		_this.transportProgress = 1;
+		this.state = 'transported';
+		this.transportProgress = 1;
 
-		_this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
+		this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
+
 		if ( result.upload ) {
-			_this.extractUploadInfo( result.upload );
-			if ( !_this.fromURL ) {
-				_this.deedPreview.setup();
+			this.extractUploadInfo( result.upload );
+			if ( !this.fromURL ) {
+				this.deedPreview.setup();
 			}
-			_this.details.populate();
-			_this.state = 'stashed';
-			_this.ui.showStashed();
-			$.publishReady( 'thumbnails.' + _this.index, 'api' );
+			this.details.populate();
+			this.state = 'stashed';
+			this.ui.showStashed();
+			$.publishReady( 'thumbnails.' + this.index, 'api' );
 			// check all uploads, if they're complete, show the next button
-			//_this.wizard.showNext( 'file', 'stashed' ); See bug 39852
+			//this.wizard.showNext( 'file', 'stashed' ); See bug 39852
 		} else {
-			_this.setError( 'noimageinfo' );
+			this.setError( 'noimageinfo' );
 		}
-
 	},
 
 	/**
@@ -343,31 +347,32 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Function()} callback when resetting FileInput
 	 */
 	checkFile: function( filename, files, fileNameOk, fileNameErr, resetFileInput ) {
-		var _this = this;
-		var fileErrors = {};
+		var totalSize, duplicate, extension, hasError, errorIndex,
+			actualMaxSize, binReader,
+			upload = this,
+			fileErrors = {},
 
-		function finishCallback () {
-			if ( _this && _this.ui ) {
+			// Check if filename is acceptable
+			// TODO sanitize filename
+			basename = mw.UploadWizardUtil.getBasename( filename ),
+			tooManyFiles = files.length + this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
+
+		function finishCallback() {
+			if ( upload && upload.ui ) {
 				fileNameOk();
 			} else {
 				setTimeout( finishCallback, 200 );
 			}
 		}
 
-		// Check if filename is acceptable
-		// TODO sanitize filename
-		var basename = mw.UploadWizardUtil.getBasename( filename );
-
-		var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
 		if ( tooManyFiles ) {
-			_this.showTooManyFilesWarning( files.length + _this.wizard.uploads.length );
+			this.showTooManyFilesWarning( files.length + this.wizard.uploads.length );
 			resetFileInput();
 			return;
 		}
 
 		if ( files.length > 1 ) {
-
-			var totalSize = 0;
+			totalSize = 0;
 			$.each( files, function( i, file ) {
 				totalSize += file.size;
 			});
@@ -375,16 +380,16 @@ mw.UploadWizardUpload.prototype = {
 			// Local previews are slow due to the data URI insertion into the DOM; for batches we
 			// don't generate them if the size of the batch exceeds 10 MB
 			if ( totalSize > 10000000 ) {
-				_this.wizard.makePreviewsFlag = false;
+				this.wizard.makePreviewsFlag = false;
 			}
 
-			_this.reservedIndex = _this.wizard.uploads.length;
+			this.reservedIndex = this.wizard.uploads.length;
 		}
 
 		// check to see if the file has already been selected for upload.
-		var duplicate = false;
-		$.each( this.wizard.uploads, function ( i, upload ) {
-			if ( upload !== undefined && _this !== upload && filename === upload.filename ) {
+		duplicate = false;
+		$.each( this.wizard.uploads, function ( i, thisupload ) {
+			if ( thisupload !== undefined && upload !== thisupload && filename === thisupload.filename ) {
 				duplicate = true;
 				return false;
 			}
@@ -403,7 +408,7 @@ mw.UploadWizardUpload.prototype = {
 		}
 
 		// Check if extension is acceptable
-		var extension = this.title.getExtension();
+		extension = this.title.getExtension();
 		if ( mw.isEmpty( extension ) ) {
 			fileErrors.noext = true;
 			fileNameErr( 'noext', null, fileErrors );
@@ -415,8 +420,8 @@ mw.UploadWizardUpload.prototype = {
 			// Split this into a separate case, if the error above got ignored,
 			// we want to still trudge forward.
 			if ( !fileErrors.ext ) {
-				var hasError = false;
-				for ( var errorIndex in fileErrors ) {
+				hasError = false;
+				for ( errorIndex in fileErrors ) {
 					if ( fileErrors[errorIndex] ) {
 						hasError = true;
 						break;
@@ -435,7 +440,6 @@ mw.UploadWizardUpload.prototype = {
 					// will accept. Otherwise we're bound by PHP's limits.
 					// NOTE: Because we don't know until runtime if the browser supports chunked
 					// uploading, we can't determine this server-side.
-					var actualMaxSize;
 					if ( mw.UploadWizard.config.enableChunked && mw.fileApi.isFormDataAvailable() ) {
 						actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
 					} else {
@@ -447,10 +451,10 @@ mw.UploadWizardUpload.prototype = {
 
 					// make sure the file isn't too large
 					// XXX need a way to find the size of the Flickr image
-					if ( !_this.fromURL ){
+					if ( !this.fromURL ){
 						this.transportWeight = this.file.size;
 						if ( this.transportWeight > actualMaxSize ) {
-							_this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
+							this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
 							return;
 						}
 					}
@@ -468,36 +472,35 @@ mw.UploadWizardUpload.prototype = {
 					// TODO: This should be refactored.
 
 					if ( this.file.type === 'image/jpeg' ) {
-						var binReader = new FileReader();
+						binReader = new FileReader();
 						binReader.onload = function() {
-							var binStr;
+							var binStr, arr, i, meta;
 							if ( typeof binReader.result === 'string' ) {
 								binStr = binReader.result;
 							} else {
 								// Array buffer; convert to binary string for the library.
-								var arr = new Uint8Array( binReader.result );
+								arr = new Uint8Array( binReader.result );
 								binStr = '';
-								for ( var i = 0; i < arr.byteLength; i++ ) {
+								for ( i = 0; i < arr.byteLength; i++ ) {
 									binStr += String.fromCharCode( arr[i] );
 								}
 							}
-							var meta;
 							try {
-								meta = mw.libs.jpegmeta( binStr, _this.file.fileName );
+								meta = mw.libs.jpegmeta( binStr, upload.file.fileName );
 								meta._binary_data = null;
 							} catch ( e ) {
 								meta = null;
 							}
-							_this.extractMetadataFromJpegMeta( meta );
-							_this.filename = filename;
+							upload.extractMetadataFromJpegMeta( meta );
+							upload.filename = filename;
 							if ( hasError === false ) {
 								finishCallback();
 							}
 						};
 						if ( 'readAsBinaryString' in binReader ) {
-							binReader.readAsBinaryString( _this.file );
+							binReader.readAsBinaryString( upload.file );
 						} else if ( 'readAsArrayBuffer' in binReader ) {
-							binReader.readAsArrayBuffer( _this.file );
+							binReader.readAsArrayBuffer( upload.file );
 						} else {
 							// We should never get here. :P
 							throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
@@ -513,13 +516,11 @@ mw.UploadWizardUpload.prototype = {
 					files = files.slice( 1 );
 					if ( files.length > 0 ) {
 						$.each( files, function( i, file ) {
-
 							// NOTE: By running newUpload we will end up calling checkfile() again.
-							var upload = _this.wizard.newUpload( file, _this.reservedIndex + i + 1 );
+							upload.wizard.newUpload( file, upload.reservedIndex + i + 1 );
 						} );
-						_this.wizard.updateFileCounts();
+						this.wizard.updateFileCounts();
 					}
-
 				} else {
 					this.filename = filename;
 					if ( hasError === false ) {
@@ -540,7 +541,7 @@ mw.UploadWizardUpload.prototype = {
 			{
 				text: mw.message( 'mwe-upwiz-file-too-large-ok' ).escaped(),
 				click: function() {
-					$( this ).dialog( "close" );
+					$( this ).dialog( 'close' );
 				}
 			}
 		];
@@ -607,12 +608,13 @@ mw.UploadWizardUpload.prototype = {
 				this.imageinfo.metadata.orientation = meta.tiff.Orientation.value;
 			}
 			if ( meta.general ) {
-				var pixelHeightDim = 'height';
-				var pixelWidthDim = 'width';
-				// this must be called after orientation is set above. If no orientation set, defaults to 0
-				var degrees = this.getOrientationDegrees();
+				var pixelHeightDim = 'height',
+					pixelWidthDim = 'width',
+					// this must be called after orientation is set above. If no orientation set, defaults to 0
+					degrees = this.getOrientationDegrees();
+
 				// jpegmeta reports pixelHeight & width
-				if ( degrees == 90 || degrees == 270 ) {
+				if ( degrees === 90 || degrees === 270 ) {
 					pixelHeightDim = 'width';
 					pixelWidthDim = 'height';
 				}
@@ -632,7 +634,6 @@ mw.UploadWizardUpload.prototype = {
 	 * @param result The JSON object from a successful API upload result.
 	 */
 	extractUploadInfo: function( resultUpload ) {
-
 		if ( resultUpload.filekey ) {
 			this.fileKey = resultUpload.filekey;
 		}
@@ -652,36 +653,40 @@ mw.UploadWizardUpload.prototype = {
 	 * @param imageinfo JSON object obtained from API result.
 	 */
 	extractImageInfo: function( imageinfo ) {
-		var _this = this;
-		for ( var key in imageinfo ) {
-			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
-			if ( key == 'metadata' ) {
-				if ( _this.imageinfo.metadata === undefined ) {
-					_this.imageinfo.metadata = {};
-				}
-				if ( imageinfo.metadata && imageinfo.metadata.length ) {
-					$.each( imageinfo.metadata, function( i, pair ) {
-						if ( pair !== undefined ) {
-							_this.imageinfo.metadata[pair.name.toLowerCase()] = pair.value;
-						}
-					} );
-				}
-			} else {
-				_this.imageinfo[key] = imageinfo[key];
+		var key,
+			upload = this;
+
+		function setMetadata( i, pair ) {
+			if ( pair !== undefined ) {
+				upload.imageinfo.metadata[pair.name.toLowerCase()] = pair.value;
 			}
 		}
 
-		/*
-		if ( _this.title.getExtension() === null ) {
+		for ( key in imageinfo ) {
+			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
+			if ( key === 'metadata' ) {
+				if ( this.imageinfo.metadata === undefined ) {
+					this.imageinfo.metadata = {};
+				}
+				if ( imageinfo.metadata && imageinfo.metadata.length ) {
+					$.each( imageinfo.metadata, setMetadata );
+				}
+			} else {
+				this.imageinfo[key] = imageinfo[key];
+			}
+		}
+
+		/* BEFORE YOU UNCOMMENT: declare the extension variable at the top of this function.
+		if ( this.title.getExtension() === null ) {
 			// 1;
 			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
 			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
 
-			var extension = mw.UploadWizardUtil.getExtension( _this.imageinfo.url );
+			var extension = mw.UploadWizardUtil.getExtension( this.imageinfo.url );
 			if ( !extension ) {
-				if ( _this.imageinfo.mimetype ) {
-					if ( mw.UploadWizardUtil.mimetypeToExtension[ _this.imageinfo.mimetype ] ) {
-						extension = mw.UploadWizardUtil.mimetypeToExtension[ _this.imageinfo.mimetype ];
+				if ( this.imageinfo.mimetype ) {
+					if ( mw.UploadWizardUtil.mimetypeToExtension[ this.imageinfo.mimetype ] ) {
+						extension = mw.UploadWizardUtil.mimetypeToExtension[ this.imageinfo.mimetype ];
 					}
 				}
 			}
@@ -699,17 +704,29 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
 	getStashImageInfo: function( callback, props, width, height ) {
-		var _this = this;
+		var params = {
+			'prop':	'stashimageinfo',
+			'siifilekey': this.fileKey,
+			'siiprop': props.join( '|' )
+		};
+
+		function ok( data ) {
+			if ( !data || !data.query || !data.query.stashimageinfo ) {
+				mw.log.warn( 'mw.UploadWizardUpload::getStashImageInfo> No data? ' );
+				callback( null );
+				return;
+			}
+			callback( data.query.stashimageinfo );
+		}
+
+		function err( code ) {
+			mw.log.warn( 'mw.UploadWizardUpload::getStashImageInfo> ' + code );
+			callback( null );
+		}
 
 		if ( props === undefined ) {
 			props = [];
 		}
-
-		var params = {
-			'prop':	'stashimageinfo',
-			'siifilekey': _this.fileKey,
-			'siiprop': props.join( '|' )
-		};
 
 		if ( width !== undefined || height !== undefined ) {
 			if ( ! $.inArray( 'url', props ) ) {
@@ -722,20 +739,6 @@ mw.UploadWizardUpload.prototype = {
 				params.siiurlheight = height;
 			}
 		}
-
-		var ok = function( data ) {
-			if ( !data || !data.query || !data.query.stashimageinfo ) {
-				mw.log.warn("mw.UploadWizardUpload::getStashImageInfo> No data? ");
-				callback( null );
-				return;
-			}
-			callback( data.query.stashimageinfo );
-		};
-
-		var err = function( code, result ) {
-			mw.log.warn( 'mw.UploadWizardUpload::getStashImageInfo> ' + code );
-			callback( null );
-		};
 
 		this.api.get( params ).done( ok ).fail( err );
 	},
@@ -750,30 +753,7 @@ mw.UploadWizardUpload.prototype = {
 	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
 	getImageInfo: function( callback, props, width, height ) {
-		var _this = this;
-		if ( props === undefined ) {
-			props = [];
-		}
-		var requestedTitle = _this.title.getPrefixedText();
-		var params = {
-			'prop': 'imageinfo',
-			'titles': requestedTitle,
-			'iiprop': props.join( '|' )
-		};
-
-		if ( width !== undefined || height !== undefined ) {
-			if ( ! $.inArray( 'url', props ) ) {
-				props.push( 'url' );
-			}
-			if ( width !== undefined ) {
-				params.iiurlwidth = width;
-			}
-			if ( height !== undefined ) {
-				params.iiurlheight = height;
-			}
-		}
-
-		var ok = function( data ) {
+		function ok( data ) {
 			if ( data && data.query && data.query.pages ) {
 				var found = false;
 				$.each( data.query.pages, function( pageId, page ) {
@@ -787,14 +767,38 @@ mw.UploadWizardUpload.prototype = {
 					return;
 				}
 			}
-			mw.log.warn("mw.UploadWizardUpload::getImageInfo> No data matching " + requestedTitle + " ? ");
-			callback( null );
-		};
 
-		var err = function( code, result ) {
+			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> No data matching ' + requestedTitle + ' ? ');
+			callback( null );
+		}
+
+		function err( code, result ) {
 			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> ' + code );
 			callback( null );
-		};
+		}
+
+		if ( props === undefined ) {
+			props = [];
+		}
+
+		var requestedTitle = this.title.getPrefixedText(),
+			params = {
+				'prop': 'imageinfo',
+				'titles': requestedTitle,
+				'iiprop': props.join( '|' )
+			};
+
+		if ( width !== undefined || height !== undefined ) {
+			if ( ! $.inArray( 'url', props ) ) {
+				props.push( 'url' );
+			}
+			if ( width !== undefined ) {
+				params.iiurlwidth = width;
+			}
+			if ( height !== undefined ) {
+				params.iiurlheight = height;
+			}
+		}
 
 		this.api.get( params ).done( ok ).fail( err );
 	},
@@ -832,70 +836,70 @@ mw.UploadWizardUpload.prototype = {
 	 * @param height - (optional) maximum height of thumbnail
 	 */
 	getAndPublishApiThumbnail: function( key, width, height ) {
-		var _this = this;
+		function thumbnailPublisher( thumbnails ) {
+			if ( thumbnails === null ) {
+				// the api call failed somehow, no thumbnail data.
+				$.publishReady( key, null );
+			} else {
+				// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
+				// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
+				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
+				// the event with a null.
+				$.each( thumbnails, function ( i, thumb ) {
+					if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
+						mw.log.warn( 'mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information' );
+						$.publishReady( key, null );
+						return;
+					}
+
+					// try to load this image with exponential backoff
+					// if the delay goes past 8 seconds, it gives up and publishes the event with null
+					var timeoutMs = 100,
+						image = document.createElement( 'img' );
+					image.width = thumb.thumbwidth;
+					image.height = thumb.thumbheight;
+					$( image )
+						.load( function() {
+							// cache this thumbnail
+							upload.thumbnails[key] = image;
+							// publish the image to anyone who wanted it
+							$.publishReady( key, image );
+						} )
+						.error( function() {
+							// retry with exponential backoff
+							if ( timeoutMs < 8000 ) {
+								setTimeout( function() {
+									timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) );
+									setSrc();
+								}, timeoutMs );
+							} else {
+								$.publishReady( key, null );
+							}
+						} );
+
+					// executing this should cause a .load() or .error() event on the image
+					function setSrc() {
+						image.src = thumb.thumburl;
+					}
+
+					// and, go!
+					setSrc();
+				} );
+			}
+		}
+
+		var upload = this;
 
 		if ( mw.isEmpty( height ) ) {
 			height = -1;
 		}
 
-		if ( _this.thumbnailPublishers[key] === undefined ) {
-			var thumbnailPublisher = function( thumbnails ) {
-				if ( thumbnails === null ) {
-					// the api call failed somehow, no thumbnail data.
-					$.publishReady( key, null );
-				} else {
-					// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
-					// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
-					// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
-					// the event with a null.
-					$.each( thumbnails, function( i, thumb ) {
-						if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
-							mw.log.warn( "mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information" );
-							$.publishReady( key, null );
-							return;
-						}
-
-						// try to load this image with exponential backoff
-						// if the delay goes past 8 seconds, it gives up and publishes the event with null
-						var timeoutMs = 100;
-						var image = document.createElement( 'img' );
-						image.width = thumb.thumbwidth;
-						image.height = thumb.thumbheight;
-						$( image )
-							.load( function() {
-								// cache this thumbnail
-								_this.thumbnails[key] = image;
-								// publish the image to anyone who wanted it
-								$.publishReady( key, image );
-							} )
-							.error( function() {
-								// retry with exponential backoff
-								if ( timeoutMs < 8000 ) {
-									setTimeout( function() {
-										timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) );
-										setSrc();
-									}, timeoutMs );
-								} else {
-									$.publishReady( key, null );
-								}
-							} );
-
-						// executing this should cause a .load() or .error() event on the image
-						function setSrc() {
-							image.src = thumb.thumburl;
-						}
-
-						// and, go!
-						setSrc();
-					} );
-				}
-			};
-
-			_this.thumbnailPublishers[key] = thumbnailPublisher;
-			if ( _this.state !== 'complete' ) {
-				_this.getStashImageInfo( thumbnailPublisher, [ 'url' ], width, height );
+		if ( this.thumbnailPublishers[key] === undefined ) {
+			this.thumbnailPublishers[key] = thumbnailPublisher;
+			if ( this.state !== 'complete' ) {
+				this.getStashImageInfo( thumbnailPublisher, [ 'url' ], width, height );
 			} else {
-				_this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
+				this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
 			}
 
 		}
@@ -919,7 +923,6 @@ mw.UploadWizardUpload.prototype = {
 				case 6:
 					orientation = 270;   // 'top left' -> 'right top'
 					break;
-				case 1:
 				default:
 					orientation = 0;     // 'top left' -> 'top left'
 					break;
@@ -956,18 +959,18 @@ mw.UploadWizardUpload.prototype = {
 	 * @return {HTMLCanvasElement}
 	 */
 	getTransformedCanvasElement: function( image, constraints ) {
-
-		var rotation = 0;
+		var angle, scaleConstraints, scaling, width, height,
+			dx, dy, x, y, $canvas, ctx,
+			rotation = 0;
 
 		// if this wiki can rotate images to match their EXIF metadata,
 		// we should do the same in our preview
 		if ( mw.config.get( 'wgFileCanRotate' ) ) {
-			var angle = this.getOrientationDegrees();
+			angle = this.getOrientationDegrees();
 			rotation = angle ? 360 - angle : 0;
 		}
 
 		// swap scaling constraints if needed by rotation...
-		var scaleConstraints;
 		if ( rotation === 90 || rotation === 270 ) {
 			scaleConstraints = {
 				width: constraints.height,
@@ -980,15 +983,14 @@ mw.UploadWizardUpload.prototype = {
 			};
 		}
 
-		var scaling = this.getScalingFromConstraints( image, constraints );
+		scaling = this.getScalingFromConstraints( image, constraints );
 
-		var width = image.width * scaling;
-		var height = image.height * scaling;
+		width = image.width * scaling;
+		height = image.height * scaling;
 
 		// Determine the offset required to center the image
-		var dx = (constraints.width - width) / 2;
-		var dy = (constraints.height - height) / 2;
-		var x, y;
+		dx = (constraints.width - width) / 2;
+		dy = (constraints.height - height) / 2;
 
 		switch ( rotation ) {
 			// If a rotation is applied, the direction of the axis
@@ -1007,15 +1009,14 @@ mw.UploadWizardUpload.prototype = {
 				x = dx - constraints.width;
 				y = dy;
 				break;
-			case 0:
 			default:
 				x = dx;
 				y = dy;
 				break;
 		}
 
-		var $canvas = $( '<canvas></canvas>' ).attr( constraints );
-		var ctx = $canvas[0].getContext( '2d' );
+		$canvas = $( '<canvas></canvas>' ).attr( constraints );
+		ctx = $canvas[0].getContext( '2d' );
 		ctx.clearRect( 0, 0, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
 		ctx.drawImage( image, x, y, width, height );
@@ -1072,47 +1073,50 @@ mw.UploadWizardUpload.prototype = {
 	 * @param boolean add lightbox large preview when ready
 	 */
 	setThumbnail: function( selector, width, height, isLightBox ) {
-		var _this = this;
+		var upload = this,
+			placed = false;
 
 		/**
 		 * This callback will add an image to the selector, using in-browser scaling if necessary
 		 * @param {HTMLImageElement}
 		 */
-		var placed = false;
-		var placeImageCallback = function( image ) {
+		function placeImageCallback( image ) {
+			var elm;
+
 			if ( image === null ) {
 				$( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
-				_this.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
+				upload.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
 				return;
 			}
-			var elm = _this.getScaledImageElement( image, width, height );
+
+			elm = upload.getScaledImageElement( image, width, height );
 			// add the image to the DOM, finally
 			$( selector )
 				.css( { background: 'none' } )
 				.html(
 					$( '<a/></a>' )
-						.addClass( "mwe-upwiz-thumbnail-link" )
+						.addClass( 'mwe-upwiz-thumbnail-link' )
 						.append( elm )
 				);
 			placed = true;
-		};
+		}
 
 		// Listen for even which says some kind of thumbnail is available.
 		// The argument is an either an ImageHtmlElement ( if we could get the thumbnail locally ) or the string 'api' indicating you
 		// now need to get the scaled thumbnail via the API
 		$.subscribeReady(
-			'thumbnails.' + _this.index,
+			'thumbnails.' + this.index,
 			function ( x ) {
 				if ( isLightBox ) {
-					_this.setLightBox( selector );
+					upload.setLightBox( selector );
 				}
 				if ( !placed ) {
 					if ( x === 'api' ) {
 						// get the thumbnail via API. This also works with an async pub/sub model; if this thumbnail was already
 						// fetched for some reason, we'll get it immediately
-						var key = 'apiThumbnail.' + _this.index + ',width=' + width + ',height=' + height;
+						var key = 'apiThumbnail.' + upload.index + ',width=' + width + ',height=' + height;
 						$.subscribeReady( key, placeImageCallback );
-						_this.getAndPublishApiThumbnail( key, width, height );
+						upload.getAndPublishApiThumbnail( key, width, height );
 					} else if ( x instanceof HTMLImageElement ) {
 						placeImageCallback( x );
 					} else {
@@ -1131,8 +1135,9 @@ mw.UploadWizardUpload.prototype = {
 	 * @param selector
 	 */
 	setLightBox: function( selector ) {
-		var _this = this;
-		var $imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
+		var upload = this,
+			$imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
+
 		$( selector )
 			.click( function() {
 				// get large preview image
@@ -1147,7 +1152,7 @@ mw.UploadWizardUpload.prototype = {
 						'modal': true,
 						'resizable': false
 					} );
-				_this.setThumbnail(
+				upload.setThumbnail(
 					$imgDiv,
 					mw.UploadWizard.config.largeThumbnailWidth,
 					mw.UploadWizard.config.largeThumbnailMaxHeight,
