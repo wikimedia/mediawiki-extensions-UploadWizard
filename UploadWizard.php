@@ -128,6 +128,7 @@ $wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageL
 $wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';
 $wgHooks[ 'ArticleDeleteComplete' ][] = 'CampaignHooks::onArticleDeleteComplete';
 $wgHooks[ 'TitleMoveComplete' ][] = 'CampaignHooks::onTitleMoveComplete';
+$wgHooks[ 'LinksUpdateComplete' ][] = 'CampaignHooks::onLinksUpdateComplete';
 
 $wgAvailableRights[] = 'upwizcampaigns';
 

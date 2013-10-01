@@ -35,6 +35,15 @@ class UploadWizardCampaign {
 	 */
 	protected $parsedConfig = null;
 
+	/**
+	 * Array of templates used in this campaign.
+	 * Each item is an array with ( namespace, tempalte_title )
+	 * Stored without deduplication
+	 *
+	 * @since 1.2
+	 * @var array
+	 */
+	protected $templates = array();
 
 	/**
 	 * The Title representing the current campaign
@@ -179,21 +188,37 @@ class UploadWizardCampaign {
 	}
 
 	/**
+	 * Update internal list of templates used in parsing this campaign
+	 *
+	 * @param ParserOutput $parserOutput
+	 */
+	private function updateTemplates( ParserOutput $parserOutput ) {
+		foreach ( $parserOutput->getTemplates() as $ns => $templates ) {
+			foreach ( $templates as $dbk => $id ) {
+				$this->templates[ "$ns:$dbk" ] = array( $ns, $dbk );
+			}
+		}
+	}
+
+	/**
 	 * Wrapper around OutputPage::parseInline
 	 *
 	 * @param $value String Wikitext to parse
+	 * @param $lang Language
 	 *
 	 * @since 1.3
 	 *
 	 * @return String parsed wikitext
 	 */
-	private function parseValue( $value ) {
+	private function parseValue( $value, Language $lang ) {
 		global $wgParser;
 
 		wfProfileIn( __METHOD__ );
 		$parserOptions = ParserOptions::newFromContext( $this->context );
 		$parserOptions->setEditSection( false );
 		$parserOptions->setInterfaceMessage( true );
+		$parserOptions->setUserLang( $lang );
+		$parserOptions->setTargetLanguage( $lang );
 
 		$output = $wgParser->parse( $value, $this->getTitle(),
 									$parserOptions );
@@ -204,6 +229,8 @@ class UploadWizardCampaign {
 		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?/sU', $parsed, $m ) ) {
 			$parsed = $m[1];
 		}
+
+		$this->updateTemplates( $output );
 		wfProfileOut( __METHOD__ );
 
 		return $parsed;
@@ -219,17 +246,17 @@ class UploadWizardCampaign {
 	 *
 	 * @return array
 	 */
-	private function parseArrayValues( $array, $forKeys = null ) {
+	private function parseArrayValues( $array, $lang, $forKeys = null ) {
 		$parsed = array();
 		foreach ( $array as $key => $value ) {
 			if ( $forKeys !== null ) {
 				if( in_array( $key, $forKeys ) ) {
-					$parsed[$key] = $this->parseValue( $value );
+					$parsed[$key] = $this->parseValue( $value, $lang );
 				} else {
 					$parsed[$key] = $value;
 				}
 			} else {
-				$parsed[$key] = $this->parseValue( $value );
+				$parsed[$key] = $this->parseValue( $value, $lang );
 			}
 		}
 		return $parsed;
@@ -242,7 +269,26 @@ class UploadWizardCampaign {
 	 *
 	 * @return array
 	 */
-	public function getParsedConfig() {
+	public function getParsedConfig( $lang = null ) {
+		global $wgMemc;
+
+		if ( $lang === null ) {
+			$lang = $this->context->getLanguage();
+		}
+
+		// We check if the parsed config for this campaign is cached. If it is available in cache,
+		// we then check to make sure that it is the latest version - by verifying that its
+		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
+		// issued.
+		$memKey = wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'parsed-config', $lang->getCode() );
+		$memValue = $wgMemc->get( $memKey );
+		if ( $memValue !== false ) {
+			$invalidateTimestamp = $wgMemc->get( $this->makeInvalidateTimestampKey() );
+			if( $invalidateTimestamp === false || $memValue['timestamp'] >= $invalidateTimestamp ) {
+				$this->parsedConfig = $memValue['config'];
+			}
+		}
+
 		wfProfileIn( __METHOD__ );
 		if ( $this->parsedConfig === null ) {
 			$parsedConfig = array();
@@ -250,16 +296,17 @@ class UploadWizardCampaign {
 				switch ( $key ) {
 				case "title":
 				case "description":
-					$parsedConfig[$key] = $this->parseValue( $value );
+					$parsedConfig[$key] = $this->parseValue( $value, $lang );
 					break;
 				case "display":
-					$parsedConfig['display'] = $this->parseArrayValues( $value );
+					$parsedConfig['display'] = $this->parseArrayValues( $value, $lang );
 					break;
 				case "fields":
 					$parsedConfig['fields'] = array();
 					foreach ( $value as $field ) {
 						$parsedConfig['fields'][] = $this->parseArrayValues(
 							$field,
+							$lang,
 							array( 'label' )
 						);
 					}
@@ -270,8 +317,45 @@ class UploadWizardCampaign {
 				}
 			}
 			$this->parsedConfig = $parsedConfig;
+			$wgMemc->set( $memKey, array( 'timestamp' => time(), 'config' => $parsedConfig ) );
 		}
 		wfProfileOut( __METHOD__ );
 		return $this->parsedConfig;
+	}
+
+	/**
+	 * Returns the templates used in this Campaign's config
+	 *
+	 * @return array with items of form array( ns, title )
+	 */
+	public function getTemplates() {
+		if ( $this->parsedConfig === null ) {
+			$this->getParsedConfig();
+		}
+		return array_values( $this->templates );
+	}
+
+
+	/**
+	 * Invalidate the cache for this campaign, in all languages
+	 *
+	 * Does so by simply writing a new invalidate timestamp to memcached.
+	 * Since this invalidate timestamp is checked on every read, the cached entries
+	 * for the campaign will be regenerated the next time there is a read.
+	 */
+	public function invalidateCache() {
+		global $wgMemc;
+
+		$memKey = $this->makeInvalidateTimestampKey();
+		$wgMemc->set($memKey, time() );
+	}
+
+	/**
+	 * Returns key used to store the last time the cache for a particular campaign was invalidated
+	 *
+	 * @return String
+	 */
+	private function makeInvalidateTimestampKey() {
+		return wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'parsed-config', 'invalidate-timestamp' );
 	}
 }

@@ -36,11 +36,53 @@ class CampaignHooks {
 			$insertData
 		);
 
+
+		$campaign = new UploadWizardCampaign( $article->getTitle(), $content->getJsonData() );
+
+		// Track the templates being used in the wikitext in this campaign, and add the campaign page
+		// as a dependency on those templates, via the templatelinks table. This triggers an update
+		// for the Campaign page when LinksUpdate runs due to an edit to any of the templates in
+		// the dependency chain - and hence we can invalidate caches when any page that the
+		// Campaign depends on changes!
+		$templates = $campaign->getTemplates();
+
+		$insertions = array();
+
+		foreach ( $templates as $template ) {
+			$insertions[] = array(
+				'tl_from' => $article->getId(),
+				'tl_namespace' => $template[0],
+				'tl_title' => $template[1]
+			);
+		}
+
+		$success = $success && $dbw->delete( 'templatelinks', array( 'tl_from' => $article->getId() ) );
+		$success = $success && $dbw->insert( 'templatelinks', $insertions, __METHOD__, array( 'IGNORE' ) );
+
 		$dbw->commit();
+
+		$campaign->invalidateCache();
 
 		return $success;
 	}
 
+	/**
+	 * Invalidates the cache for a campaign when any of its dependents are edited. The 'dependents'
+	 * are tracked by entries in the templatelinks table, which are inserted by using the
+	 * PageContentSaveComplete hook.
+	 *
+	 * This is usually run via the Job Queue mechanism.
+	 */
+	public static function onLinksUpdateComplete( LinksUpdate &$linksupdate) {
+		if( !$linksupdate->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+			return true;
+		}
+
+		$campaign = new UploadWizardCampaign( $linksupdate->getTitle() );
+		$campaign->invalidateCache();
+
+		return true;
+	}
 	/**
 	 * Deletes entries from uc_campaigns table when a Campaign is deleted
 	 */
