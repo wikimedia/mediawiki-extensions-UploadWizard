@@ -37,7 +37,7 @@
 
 		var oldUnloadHandler = window.onbeforeunload,
 			defaults = {
-				message: function() { return mw.msg( 'mwe-prevent-close' ); },
+				message: function() { return mw.message( 'mwe-prevent-close' ).text(); },
 				test: function() { return true; }
 			};
 
