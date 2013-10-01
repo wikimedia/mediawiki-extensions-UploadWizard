@@ -99,7 +99,7 @@ mw.IframeTransport.prototype = {
 			// check that the JSON is not an XML error message
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
 			if ( json && json.substring(0, 5) !== '<?xml' ) {
-				response = JSON.parse( json );
+				response = $.parseJSON( json );
 			} else {
 				response = {};
 			}
