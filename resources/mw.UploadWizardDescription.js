@@ -5,20 +5,19 @@
  * @param required -- boolean -- the first description is required and should be validated and displayed a bit differently
  */
 mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
-	var _this = this;
 	mw.UploadWizardDescription.prototype.count++;
-	_this.id = 'description' + mw.UploadWizardDescription.prototype.count;
-	_this.isRequired = required;
+	this.id = 'description' + mw.UploadWizardDescription.prototype.count;
+	this.isRequired = required;
 
 	// XXX for some reason this display:block is not making it into HTML
 	var errorLabelDiv = $(
-		'<div class="mwe-upwiz-details-input-error">' +
-			'<label generated="true" class="mwe-validator-error" for="' + _this.id + '" />' +
-		'</div>'
-	);
+			'<div class="mwe-upwiz-details-input-error">' +
+				'<label generated="true" class="mwe-validator-error" for="' + this.id + '" />' +
+			'</div>'
+		),
+		fieldnameDiv = $( '<div class="mwe-upwiz-details-fieldname" />' );
 
-	var fieldnameDiv = $( '<div class="mwe-upwiz-details-fieldname" />' );
-	if ( _this.isRequired ) {
+	if ( this.isRequired ) {
 		fieldnameDiv.requiredFieldLabel();
 	}
 
@@ -26,26 +25,26 @@ mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
 
 	// Logic copied from MediaWiki:UploadForm.js
 	// Per request from Portuguese and Brazilian users, treat Brazilian Portuguese as Portuguese.
-	if (languageCode == 'pt-br') {
+	if (languageCode === 'pt-br') {
 		languageCode = 'pt';
 	// this was also in UploadForm.js, but without the heartwarming justification
-	} else if (languageCode == 'en-gb') {
+	} else if (languageCode === 'en-gb') {
 		languageCode = 'en';
 	}
 
-	_this.languageMenu = mw.LanguageUpWiz.getMenu( 'lang', languageCode );
-	$(_this.languageMenu).addClass( 'mwe-upwiz-desc-lang-select' );
+	this.languageMenu = mw.LanguageUpWiz.getMenu( 'lang', languageCode );
+	$(this.languageMenu).addClass( 'mwe-upwiz-desc-lang-select' );
 
-	_this.input = $( '<textarea name="' + _this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
+	this.input = $( '<textarea name="' + this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
 				.growTextArea();
 
 	if ( initialValue !== undefined ) {
-		_this.input.val( initialValue );
+		this.input.val( initialValue );
 	}
 
 	// descriptions
-	_this.div = $('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
-			.append( errorLabelDiv, fieldnameDiv, _this.languageMenu, _this.input );
+	this.div = $('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
+			.append( errorLabelDiv, fieldnameDiv, this.languageMenu, this.input );
 
 };
 
@@ -75,15 +74,15 @@ mw.UploadWizardDescription.prototype = {
 	 * @return wikitext as a string
 	 */
 	getWikiText: function() {
-		var _this = this;
-		var description = _this.getText();
+		var language, fix,
+			description = this.getText();
 		// we assume that form validation has caught this problem if this is a required field
 		// if not, assume the user is trying to blank a description in another language
 		if ( description.length === 0 ) {
 			return '';
 		}
-		var language = _this.getLanguage();
-		var fix = mw.UploadWizard.config.languageTemplateFixups;
+		language = this.getLanguage();
+		fix = mw.UploadWizard.config.languageTemplateFixups;
 		if (fix[language]) {
 			language = fix[language];
 		}
@@ -96,7 +95,7 @@ mw.UploadWizardDescription.prototype = {
 	 */
 	addValidationRules: function( required ) {
 		// validator must find a form, so we add rules here
-		return this.input.rules( "add", {
+		return this.input.rules( 'add', {
 			minlength: mw.UploadWizard.config.minDescriptionLength,
 			maxlength: mw.UploadWizard.config.maxDescriptionLength,
 			required: required,
