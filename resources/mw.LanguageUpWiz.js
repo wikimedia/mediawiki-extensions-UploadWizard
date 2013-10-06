@@ -55,7 +55,7 @@ mw.LanguageUpWiz = {
 		// If a descriptionlang param is passed in the query string, use that,
 		// otherwise choose a good default for the description language.
 		var thisUri = new mw.Uri( window.location.href, { overrideKeys: true } ),
-			select = $( '<select>' );
+			$select = $( '<select>' );
 
 		if ( thisUri.query.descriptionlang && mw.LanguageUpWiz.checkForLang( thisUri.query.descriptionlang ) ) {
 			mw.LanguageUpWiz.defaultCode = thisUri.query.descriptionlang;
@@ -73,19 +73,17 @@ mw.LanguageUpWiz = {
 		$.each( mw.LanguageUpWiz.languages, function( i, language ) {
 			// add an option for each language
 			var $opt = $( '<option>' )
-				.attr( 'value', language.code )
-				.append( language.text );
+				.prop( 'value', language.code )
+				.text( language.text )
+				.prop( 'selected', language.code === this.defaultCode );
 
-			if ( language.code === this.defaultCode ) {
-				$opt.prop( 'selected', true );
-			}
-
-			select.append( $opt );
+			$select.append( $opt );
 
 			// add each language into dictionary
 			mw.LanguageUpWiz._codes[language.code] = language.text;
 		} );
-		mw.LanguageUpWiz._$select = select;
+
+		mw.LanguageUpWiz.$select = $select;
 		mw.LanguageUpWiz.initialized = true;
 	},
 
@@ -102,18 +100,26 @@ mw.LanguageUpWiz = {
 			code = mw.LanguageUpWiz.defaultCode;
 		}
 
-		var $select = mw.LanguageUpWiz._$select.clone();
-		$select.attr( 'name', name );
+		var $select = mw.LanguageUpWiz.$select
+			.clone()
+			.prop( 'name', name );
+
 		if ( code === mw.LanguageUpWiz.UNKNOWN ) {
 			// n.b. MediaWiki LanguageHandler has ability to add custom label for 'Unknown'; possibly as pseudo-label
-			$select.prepend( $( '<option>' ).attr( 'value', mw.LanguageUpWiz.UNKNOWN ).text( mw.message( 'mwe-upwiz-code-unknown' ).escaped() ) );
-			$select.val( mw.LanguageUpWiz.UNKNOWN );
+			$select
+				.prepend(
+					$( '<option>' )
+						.prop( 'value', mw.LanguageUpWiz.UNKNOWN )
+						.text( mw.message( 'mwe-upwiz-code-unknown' ).text() )
+				)
+				.val( mw.LanguageUpWiz.UNKNOWN );
 		}
 
 		/* Pre select the 'code' language */
 		if ( code !== undefined && mw.LanguageUpWiz.checkForLang( code ) ) {
 			$select.val( mw.LanguageUpWiz.getClosest( code ));
 		}
+
 		return $select.get( 0 );
 	},
 
