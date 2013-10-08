@@ -42,20 +42,20 @@ mw.LanguageUpWiz = {
 	 * 2) dict of language code to name -- useful for testing for existence, maybe other things.
 	 */
 	initialize: function() {
-		var langs, langcode;
+		var langs, langcode,
+			thisUri = new mw.Uri( window.location.href, { overrideKeys: true } ),
+			$select = $( '<select>' );
 		if ( mw.LanguageUpWiz.initialized ) {
 			return;
 		}
 		mw.LanguageUpWiz.languages = [];
 		langs = mw.UploadWizard.config.uwLanguages;
 		for ( langcode in langs ) {
-	        	mw.LanguageUpWiz.languages.push( { code: langcode, text: langs[langcode] } );
+			mw.LanguageUpWiz.languages.push( { code: langcode, text: langs[langcode] } );
 		}
 
 		// If a descriptionlang param is passed in the query string, use that,
 		// otherwise choose a good default for the description language.
-		var thisUri = new mw.Uri( window.location.href, { overrideKeys: true } ),
-			$select = $( '<select>' );
 
 		if ( thisUri.query.descriptionlang && mw.LanguageUpWiz.checkForLang( thisUri.query.descriptionlang ) ) {
 			mw.LanguageUpWiz.defaultCode = thisUri.query.descriptionlang;
@@ -69,7 +69,7 @@ mw.LanguageUpWiz = {
 			mw.LanguageUpWiz.defaultCode = mw.LanguageUpWiz.languages[0].code;
 		}
 
-		mw.LanguageUpWiz._codes = {};
+		mw.LanguageUpWiz.codes = {};
 		$.each( mw.LanguageUpWiz.languages, function( i, language ) {
 			// add an option for each language
 			var $opt = $( '<option>' )
@@ -80,7 +80,7 @@ mw.LanguageUpWiz = {
 			$select.append( $opt );
 
 			// add each language into dictionary
-			mw.LanguageUpWiz._codes[language.code] = language.text;
+			mw.LanguageUpWiz.codes[language.code] = language.text;
 		} );
 
 		mw.LanguageUpWiz.$select = $select;
@@ -144,7 +144,7 @@ mw.LanguageUpWiz = {
 		}
 		if ( code === 'nan' || code === 'minnan' ) {
 			return 'zh-min-nan';
-		} else if ( mw.LanguageUpWiz._codes[code] !== undefined ) {
+		} else if ( mw.LanguageUpWiz.codes[code] !== undefined ) {
 			return code;
 		}
 		return mw.LanguageUpWiz.getClosest( code.substring( 0, code.indexOf( '-' )) );
