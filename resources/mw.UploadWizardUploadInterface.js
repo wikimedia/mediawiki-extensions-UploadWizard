@@ -416,7 +416,7 @@ mw.UploadWizardUploadInterface.prototype = {
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							context = canvas.getContext( '2d' );
 							context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							this.loadImage( canvas.toDataURL() );
+							ui.loadImage( canvas.toDataURL() );
 							ui.URL().revokeObjectURL( video.url );
 						}, 500);
 					}
