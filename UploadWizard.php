@@ -66,6 +66,7 @@ $wgAutoloadClasses += array(
 
 	// Special Pages
 	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
+	'SpecialCampaigns' => $wgUpwizDir . '/includes/specials/SpecialCampaigns.php',
 
 	// API
 	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php'
@@ -77,6 +78,7 @@ $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
 
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
+$wgSpecialPages['Campaigns'] = 'SpecialCampaigns';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
 
 // for ResourceLoader
@@ -119,6 +121,11 @@ $wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
 	'styles' => 'ext.uploadWizard.uploadCampaign.display.css',
 	'position' => 'top',
 	'dependencies' => 'mediawiki.ui'
+) + $uploadWizardModuleInfo;
+
+$wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = array(
+	'styles' => 'ext.uploadWizard.uploadCampaign.list.css',
+	'position' => 'top'
 ) + $uploadWizardModuleInfo;
 
 // Campaign hook handlers
