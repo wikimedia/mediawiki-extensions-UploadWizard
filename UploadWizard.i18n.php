@@ -1197,6 +1197,10 @@ See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning. This is the same licensing tutorial as is mentioned in {{msg-mw|Mwe-upwiz-campaign-conf-skipTutorial}}',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
+
+	// Campaigns listing page
+	'mwe-upload-campaigns-pagination-next' => 'Link to next page of upload campaigns',
+	'mwe-upload-campaigns-list-title' => 'Title of page that has list of upload campaigns',
 );
 
 /** Afrikaans (Afrikaans)
