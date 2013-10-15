@@ -423,6 +423,9 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-prefs-skiptutorial' => 'Skip introductory licensing tutorial',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximum number of concurrent uploads',
 
+	// Campaigns listing page
+	'mwe-upload-campaigns-pagination-next' => 'Next page',
+	'mwe-upload-campaigns-list-title' => 'List of upload campaigns',
 );
 
 /** Message documentation (Message documentation)
