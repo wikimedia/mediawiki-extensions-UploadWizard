@@ -1734,6 +1734,7 @@ $messages['anp'] = array(
  * @author Shamselsbah
  * @author روخو
  * @author زكريا
+ * @author مشعل الحربي
  */
 $messages['ar'] = array(
 	'uploadwizard' => 'معالج الرفع',
@@ -1760,9 +1761,9 @@ $messages['ar'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'عذراً، لم نتمكن من الحصول على صورة ذات مقياس من البرنامج التعليمي لتتناسب مع هذه الشاشة. قد يكون هذا مشكلة مؤقتة في ويكيميديا كومنز؛ حاول مرة أخرى لاحقاً.',
 	'mwe-upwiz-help-desk' => 'مكتب المساعدة',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:مكتب المساعدة',
-	'mwe-upwiz-add-file-n' => 'أضف ملفًا آخرًا', # Fuzzy
-	'mwe-upwiz-add-file-0-free' => 'اختر ملف وسائط هنا لتشارك به', # Fuzzy
-	'mwe-upwiz-add-file-flickr' => 'أضف صورًا من فلِكر', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'إضافة ملفات أخرى',
+	'mwe-upwiz-add-file-0-free' => 'تحديد ملفات وسائط لمشاركتها',
+	'mwe-upwiz-add-file-flickr' => 'مشاركة صور من فلكر',
 	'mwe-upwiz-add-file-flickr-n' => 'أضف مزيدا من صور فلِكر',
 	'mwe-upwiz-add-flickr-or' => 'أو',
 	'mwe-upwiz-add-flickr' => 'اجلب من فلِكر',
@@ -1844,7 +1845,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'الآن أثبت لنا سبب تأكدك من أن لك حق نشر {{PLURAL:$1||هذا العمل|هذين العملين|هذه الأعمال}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'موافق',
 	'mwe-upwiz-source-custom' => 'معلومات حقوق التأليف والنشر لكل ملف كل على حدة في الصفحة التالية.',
-	'mwe-upwiz-more-options' => 'أضف تصنيفات ومزيدًا من المعلومات...', # Fuzzy
+	'mwe-upwiz-more-options' => 'إضافة الموقع الجغرافي ومعلومات أكثر...',
 	'mwe-upwiz-copy-metadata' => 'انسخ المعلومات {{PLURAL:$1||للملف المرفوع|للملفين المرفوعين الآخرين|للملفات المرفوعة الأخرى}} أدناه...',
 	'mwe-upwiz-copy-metadata-button' => 'انسخ',
 	'mwe-upwiz-copied-metadata-button' => 'تم النسخ بنجاح',
@@ -1890,7 +1891,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-fileexists' => 'يوجد ملف بهذا الاسم مسبقاً.
 الرجاء التحقق من $1 إذا لم تكن متأكداً مما إذا كان الذي تريد استبداله.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'يوجد ملف بهذا الاسم مسبقاً. إذا كنت تريد أن تحل محلها، انتقل إلى الصفحة ل [$2 $1] واستبدال هناك.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'يوجد ملف بهذا الاسم مسبقاً.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'الرجاء اختيار عنوان مختلف، لأن هذا العنوان مستخدم حاليًا من قبل ملف آخر.',
 	'mwe-upwiz-blacklisted' => 'اختر عنوانا مختلفا ومفهوما.',
 	'mwe-upwiz-thumbnail-more' => 'كبّر',
 	'mwe-upwiz-overwrite' => 'استبدل الملف',
@@ -1959,7 +1960,9 @@ $messages['ar'] = array(
 	'mwe-upwiz-file-too-large-ok' => 'موافق',
 	'mwe-upwiz-file-too-large-text' => 'يمكنك فقط أن ترفع ملفّات حجمها لا يتجاوز $1. لقد حاولت أن ترفع ملفا حجمه $2.',
 	'mwe-upwiz-file-too-large' => 'الملف كبير جدا.',
-	'mwe-upwiz-dialog-title' => 'يمكن رفع الملفات بأي اسم وبأي لغة وبأي أبجدية. ينبغي أن تكون عناوين ملفات الوسائط هادفة ومفيدة في اللغة التي تختارها.', # Fuzzy
+	'mwe-upwiz-dialog-yes' => 'نعم',
+	'mwe-upwiz-dialog-no' => 'لا',
+	'mwe-upwiz-dialog-title' => 'تحذير',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 ([$2 النص القانوني])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 النمسا ([$2 النص القانوني])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 ألمانيا ([$2 النص القانوني])',
