@@ -1197,7 +1197,8 @@ See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning. This is the same licensing tutorial as is mentioned in {{msg-mw|Mwe-upwiz-campaign-conf-skipTutorial}}',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
-	'mwe-upload-campaigns-pagination-next' => 'Link to next page of upload campaigns',
+	'mwe-upload-campaigns-pagination-next' => 'Link to next page of upload campaigns.
+{{Identical|Next page}}',
 	'mwe-upload-campaigns-list-title' => 'Title of page that has list of upload campaigns',
 );
 
@@ -1968,6 +1969,11 @@ $messages['ar'] = array(
 	'mwe-upwiz-dialog-yes' => 'نعم',
 	'mwe-upwiz-dialog-no' => 'لا',
 	'mwe-upwiz-dialog-title' => 'تحذير',
+	'mwe-upwiz-campaign-upload-button' => 'رفع!',
+	'mwe-upwiz-campaign-media-count-desc' => 'مرفوعات',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'المساهمون',
+	'mwe-upwiz-campaign-view-all-media' => 'عرض كل الوسائط المرفوعة',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'لا يوجد مرفوعات حتى الآن!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 ([$2 النص القانوني])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 النمسا ([$2 النص القانوني])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0 ألمانيا ([$2 النص القانوني])',
@@ -2017,9 +2023,10 @@ $messages['ar'] = array(
 	'mwe-upwiz-license-none' => 'أعتقد أن {{PLURAL:$1||هذا العمل يخضع|هذين العملين يخضعان|هذه الأعمال تخضع}} لرخصة حرة أو {{PLURAL:$1||هو|هما|هي}} قانونيا في الملكية العامة. أتفهم أني إذا لم أضف معلومات الترخيص المطلوبة بسرعة فإن {{PLURAL:$1||الملف سيحذف|الملفين سيحذفان|الملفات ستحذف}}.',
 	'mwe-upwiz-license-confirm-remove' => 'هل أنت متأكد أنك تريد إزالة {{PLURAL:$1| هذا الملف المرفوع | هذه الملفات المرفوعة}}؟',
 	'mwe-upwiz-license-confirm-remove-title' => 'تأكيد إزالة',
-	'mwe-upwiz-license-external' => 'هذا الملف يخضع للرخصة التالية على $1: $2.', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => 'هذا الملف يخضع للرخصة التالية على $1: $2. للاسف، هذه الرخصة لا يمكن استخدامها على هذا الموقع.', # Fuzzy
+	'mwe-upwiz-license-external' => 'هذا الملف يخضع للرخصة التالية على موقع المصدر "$1": $2.',
+	'mwe-upwiz-license-external-invalid' => 'هذا الملف يخضع للرخصة التالية على موقع المصدر "$1": $2. للأسف، لا تسمح هذه الويكي بهذه الرخصة.',
 	'mwe-upwiz-license-photoset-invalid' => 'للأسف: لا يوجد صورة في تلك المجموعة لديها رخصة يمكنها استخدامها على هذا الموقع',
+	'mwe-upwiz-url-invalid' => 'الرابط المدخل يقود إلى صورة أو ألبوم $1 مقيد أو غير صحيح ولا يمكن استخدامه.',
 	'mwe-upwiz-categories' => 'تصنيفات',
 	'mwe-upwiz-categories-add' => 'أضف',
 	'mwe-upwiz-category-will-be-added' => 'هذا التصنيف غير مستخدم حاليا.',
@@ -2100,6 +2107,9 @@ $1',
 	'mwe-upwiz-prefs-license-own' => 'عمل شخصي - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'عمل شخص آخر-$1',
 	'mwe-upwiz-prefs-skiptutorial' => 'تخطَ تعليمات الترخيص في المقدمة',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'العدد الأقصى لعمليات الرفع المتزامنة',
+	'mwe-upload-campaigns-pagination-next' => 'الصفحة التالية',
+	'mwe-upload-campaigns-list-title' => 'قائمة حملات الرفع',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -2845,6 +2855,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Xubíes en trozos pa ficheros de más de 1MB nel Asistente de xubíes',
 	'mwe-upwiz-prefs-skiptutorial' => 'Saltar la guía cola introducción a les llicencies',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Númberu máximu de xubes simultánees',
+	'mwe-upload-campaigns-pagination-next' => 'Páxina siguiente',
+	'mwe-upload-campaigns-list-title' => 'Llista de campañes de carga',
 );
 
 /** Azerbaijani (azərbaycanca)
@@ -7035,6 +7047,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Hochladen von Dateien, die größer als 1 MB sind, in mehreren Teilen',
 	'mwe-upwiz-prefs-skiptutorial' => 'Einführendes Tutorial zu Lizenzen auslassen',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximale Anzahl gleichzeitiger Uploads',
+	'mwe-upload-campaigns-pagination-next' => 'Nächste Seite',
+	'mwe-upload-campaigns-list-title' => 'Liste der Hochladekampagnen',
 );
 
 /** Austrian German (Österreichisches Deutsch)
@@ -10534,6 +10548,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Versements fragmentés pour les fichiers de plus de 1 Mo dans l’Assistant de téléversement',
 	'mwe-upwiz-prefs-skiptutorial' => 'Passer le tutoriel sur les licences',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Nombre maximal de téléchargements simultanés',
+	'mwe-upload-campaigns-pagination-next' => 'Page suivante',
+	'mwe-upload-campaigns-list-title' => 'Liste des campagnes de téléchargement',
 );
 
 /** Franco-Provençal (arpetan)
@@ -11288,6 +11304,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Cargas fragmentadas para ficheiros que ocupen máis de 1MB no asistente de cargas',
 	'mwe-upwiz-prefs-skiptutorial' => 'Saltar a guía coa introdución ás licenzas',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Número máximo de cargas simultáneas',
+	'mwe-upload-campaigns-pagination-next' => 'Páxina seguinte',
+	'mwe-upload-campaigns-list-title' => 'Lista de campañas de cargas',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -15187,6 +15205,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Carica a blocchi i file di oltre 1 MB in Upload Wizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Salta il tutorial introduttivo sulle license',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Numero massimo di caricamenti simultanei',
+	'mwe-upload-campaigns-pagination-next' => 'Pagina successiva',
+	'mwe-upload-campaigns-list-title' => 'Elenco delle iniziative per il caricamento guidato',
 );
 
 /** Japanese (日本語)
@@ -15555,6 +15575,8 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-prefs-license-own' => '自分の作品 - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '他人の作品 - $1',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時にアップロードできる最大個数',
+	'mwe-upload-campaigns-pagination-next' => '次のページ',
+	'mwe-upload-campaigns-list-title' => 'アップロード キャンペーン一覧',
 );
 
 /** Javanese (Basa Jawa)
@@ -16949,6 +16971,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => '1MB가 넘는 큰 용량의 파일을 업로드 마법사를 통해 올리기',
 	'mwe-upwiz-prefs-skiptutorial' => '입문 라이선스 자습서 건너뛰기',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '동시 올리기의 최대 수',
+	'mwe-upload-campaigns-pagination-next' => '다음 문서',
+	'mwe-upload-campaigns-list-title' => '업로드 캠페인 목록',
 );
 
 /** Colognian (Ripoarisch)
@@ -19109,6 +19133,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Подигање на парчиња за податотеки над 1 МБ со Помошникот за подигање',
 	'mwe-upwiz-prefs-skiptutorial' => 'Прескокни го воведното запознавање со лиценците',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Максимален број на истовремени преземања',
+	'mwe-upload-campaigns-pagination-next' => 'Следна страница',
+	'mwe-upload-campaigns-list-title' => 'Список на кампањи за подигање',
 );
 
 /** Malayalam (മലയാളം)
@@ -26433,7 +26459,11 @@ $messages['sl'] = array(
 	'mwe-upwiz-add-flickr' => 'Pridobi s Flickr',
 	'mwe-upwiz-select-flickr' => 'Naloži izbrane slike',
 	'mwe-upwiz-transport-started' => 'Začenjanje ...',
+	'mwe-upwiz-encoding' => 'Kodiranje ...',
 	'mwe-upwiz-uploading' => 'Nalaganje ...',
+	'mwe-upwiz-queued' => 'V čakalni vrsti ...',
+	'mwe-upwiz-assembling' => 'Združevanje ...',
+	'mwe-upwiz-publish' => 'Objavljanje ...',
 	'mwe-upwiz-transported' => 'Nalaganje je zaključeno ...',
 	'mwe-upwiz-stashed-upload' => 'Naloženo',
 	'mwe-upwiz-getting-metadata' => 'Pridobivanje informacij o datoteki in predogledov ...',
@@ -26459,7 +26489,7 @@ Prosimo, poskusite drug brskalnik.',
 	'mwe-upwiz-progressbar-uploading' => 'nalaganje',
 	'mwe-upwiz-finished' => 'Končano!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|preostane $1 sekunda|preostaneta $1 sekundi|preostanejo $1 sekunde|preostane $1 sekund}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|preostane $1 minuta|preostaneta $1 minuti|preostanejo $1 minute|preostane $1 minut}} $2 {{PLURAL:$2|sekunda|sekundi|sekunde|sekund}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|preostane $1 minuta|preostaneta $1 minuti|preostanejo $1 minute|preostane $1 minut}} {{PLURAL:$3|$2}} {{PLURAL:$2|sekunda|sekundi|sekunde|sekund}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|preostane $1 ura|preostaneta $1 uri|preostanejo $1 ure|preostane $1 ur}} $2 {{PLURAL:$2|minuta|minuti|minute|minut}} $3 {{PLURAL:$3|sekunda|sekundi|sekunde|sekund}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Stran od {{GENDER:$2|vas}} zahteva navedbo informacij o avtorskih pravicah za {{PLURAL:$1|to delo|ti deli|ta dela}}, zato da se prepričajo, da {{PLURAL:$1|jo|ju|jih}} lahko vsakdo zakonito ponovno uporabi.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Datoteka je|Datoteki sta|Datoteke so}} moje lastno delo.',
@@ -26614,8 +26644,15 @@ Prosimo, da tukaj ne uporabljate wikibesedila ali HTML.',
 	'mwe-upwiz-file-too-large-ok' => 'V redu',
 	'mwe-upwiz-file-too-large-text' => 'Naložite lahko samo datoteke, ki so velike do $1. Poskusili ste naložiti datoteko velikosti $2.',
 	'mwe-upwiz-file-too-large' => 'Datoteka je prevelika.',
+	'mwe-upwiz-dialog-yes' => 'Da',
+	'mwe-upwiz-dialog-no' => 'Ne',
 	'mwe-upwiz-dialog-title' => 'Opozorilo',
 	'mwe-upwiz-campaign-create-account-button' => 'Ustvarite si račun in nalagajte!',
+	'mwe-upwiz-campaign-upload-button' => 'Naloži!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Nalaganja',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Sodelavci',
+	'mwe-upwiz-campaign-view-all-media' => 'Ogled vseh naloženih predstavnosti',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Tukaj ni še nobenega nalaganja!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 ([$2 pravno besedilo])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Avstrija ([$2 zakonik])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 3.0 Nemčija ([$2 zakonik])',
@@ -26745,6 +26782,9 @@ $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Delo nekoga drugega - $1',
 	'mwe-upwiz-prefs-chunked' => 'Nalaganje po delih za datoteke večje od 1 MB v Čarovniku za nalaganje',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preskoči uvodni vodič po licenciranju',
+	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Največje število sočasnih nalaganj',
+	'mwe-upload-campaigns-pagination-next' => 'Naslednja stran',
+	'mwe-upload-campaigns-list-title' => 'Seznam nalagalskih kampanj',
 );
 
 /** Somali (Soomaaliga)
@@ -29957,6 +29997,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Розділити на частини завантаження файлів понад 1 Мб в Майстрі завантажень',
 	'mwe-upwiz-prefs-skiptutorial' => 'Пропустити вступне керівництво по ліцензуванню',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Максимальне число одночасних завантажень',
+	'mwe-upload-campaigns-pagination-next' => 'Наступна сторінка',
+	'mwe-upload-campaigns-list-title' => 'Список завантаження кампаній',
 );
 
 /** Urdu (اردو)
@@ -31668,6 +31710,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => '在上传向导中对于超过1MB的文件使用分块上传',
 	'mwe-upwiz-prefs-skiptutorial' => '跳过授权协议教程',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '并发上载的最大数目',
+	'mwe-upload-campaigns-pagination-next' => '下一页',
+	'mwe-upload-campaigns-list-title' => '上传活动列表',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
