@@ -4706,6 +4706,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Ober gant an talvoud dre ziouer',
 	'mwe-upwiz-prefs-license-own' => 'Labour an-unan - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Labour unan bennak all - $1',
+	'mwe-upload-campaigns-pagination-next' => "Pajenn war-lerc'h",
 );
 
 /** Bosnian (bosanski)
@@ -17798,6 +17799,7 @@ $1",
 	'mwe-upwiz-prefs-chunked' => 'Fichiere vu méi wéi 1MB gi vum Upload-Wizard a méi Deeler eropgelueden',
 	'mwe-upwiz-prefs-skiptutorial' => 'Den Assistent vun de Lizenzen iwwersprangen',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximal Zuel vun Uploaden de selwechten Ament',
+	'mwe-upload-campaigns-pagination-next' => 'Nächst Säit',
 );
 
 /** Limburgish (Limburgs)
