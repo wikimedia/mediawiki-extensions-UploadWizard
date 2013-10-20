@@ -6656,6 +6656,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Delvis overførsel af filer større end 1MB i vejviseren',
 	'mwe-upwiz-prefs-skiptutorial' => 'Spring introduktionen til licenser over',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maksimale antal samtidige oplægninger',
+	'mwe-upload-campaigns-pagination-next' => 'Næste side',
+	'mwe-upload-campaigns-list-title' => 'Liste over upload kampagner',
 );
 
 /** German (Deutsch)
@@ -9124,6 +9126,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Viisardiga laadi ühest megabaidist suuremad failid üles tükikaupa',
 	'mwe-upwiz-prefs-skiptutorial' => 'Jäta sissejuhatav litsentsiõpe vahele',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Konkureerivate üleslaadimiste ülemmäär',
+	'mwe-upload-campaigns-pagination-next' => 'Järgmine lehekülg',
+	'mwe-upload-campaigns-list-title' => 'Üleslaadimiskampaaniate loend',
 );
 
 /** Basque (euskara)
@@ -12070,7 +12074,7 @@ $messages['he'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'בהעלאה',
 	'mwe-upwiz-finished' => 'התהליך הסתיים!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|נותרה שנייה אחת|נותרו $1 שניות}}',
-	'mwe-upwiz-mins-secs-remaining' => 'הזמן שנותר: {{PLURAL:$1|דקה אחת|$1 דקות}} ו{{PLURAL:$2|שנייה אחת|־$2 שניות}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|נותרה {{PLURAL:$3|דקה}} אחת|נותרו $1 דקות}} {{PLURAL:$2|ושנייה אחת|ו־$2 שניות}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'הזמן שנותר: {{PLURAL:$1|שעה אחת|$1 שעות}}, {{PLURAL:$2|דקה אחת|$2 דקות}} ו{{PLURAL:$3|שנייה אחת|־$3 שניות}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'באתר {{SITENAME}} {{GENDER:$2|עליך|עלייך}} לספק מידע על זכויות יוצרים עבור {{PLURAL:$1|היצירה הזאת|היצירות האלו}}, כדי לוודא שכולם יכולים להשתמש {{PLURAL:$1|בה|בהן}} באופן חוקי.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|הקובץ הזה הוא|הקבצים האלה הם}} פרי עבודתי.',
@@ -12100,7 +12104,7 @@ $messages['he'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(כל אחד יכול להשתמש ביצירה{{PLURAL:$1|יצירה הזאת|יצירות האלה}}, לשתף {{PLURAL:$1|אותה|אותן}} או ליצור {{PLURAL:$1|ממנה יצירה נגזרת|מהן יצירות נגזרות}}, כל עוד ניתן לי ייחוס והיצירה משותפת לפי הרישיון הזה.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'אני, $2, בעל זכויות היוצרים של {{PLURAL:$1|יצירה זו|יצירות אלה}}, מעניק בזאת באופן בלתי חוזר את השימוש ב{{PLURAL:$1|יצירה זו|יצירות אלה}} תחת תנאי רישיון Creative Commons Attribution 3.0 license  ([$3 legal code]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(כל אחד יכול להשתמש, לשתף או ליצור יצירה נגזרת מ{{PLURAL:$1|יצירה זו|יצירות אלה}}, כל עוד ניתן לי ייחוס (קרדיט) כיוצר/ת היצירה.)',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'אני, $2, בעל זכויות היוצרים של {{PLURAL:$1|יצירה זו|יצירות אלה}}, מעניק בזאת באופן בלתי חוזר את השימוש ב{{PLURAL:$1|יצירה זו|יצירות אלה}} תחת תנאי רישיון Creative Commons Public Domain Dedication ([$3 legal code]).', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'אני, $2, בעל זכויות היוצרים של {{PLURAL:$1|יצירה זו|יצירות אלה}}, מעניק בזאת באופן בלתי חוזר את השימוש ב{{PLURAL:$1|יצירה זו|יצירות אלה}} תחת תנאי רישיון Creative Commons Zero Public Domain Dedication ([$3 legal code]).',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(כל אחד יכול להשתמש, לשתף או ליצור יצירה נגזרת מ{{PLURAL:$1|יצירה זו|יצירות אלה}}, בלא כל הגבלה.)',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'אני, $2, בעל זכויות היוצרים {{PLURAL:$1|ביצירה הזאת|ביצירות האלה}}, מעניק לכול את הזכות להשתמש {{PLURAL:$1|בה|בהן}} לפי תנאי הרישיון הבא:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'אני, בעל זכויות היוצרים {{PLURAL:$2|ביצירה הזאת|ביצירות האלו}}, מוציא {{PLURAL:$2|אותה|אותן}} לאור ברישיון $1.',
@@ -12170,7 +12174,7 @@ $messages['he'] = array(
 	'mwe-prevent-close' => 'עזיבת את הדף תגרום לך לאבד את כל השינויים שעשית.',
 	'mwe-upwiz-prevent-close' => 'לא השלמתם את ההעלאה והפרסום של {{PLURAL:$1|הקובץ הזה|הקבצים האלו}} עדיין.',
 	'mwe-upwiz-files-complete' => 'העלאת הקבצים שלכם הסתיימה!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'אפשר להפעיל את המדריך הזה מחדש ב[$1 העדפות שלך], תחת $2 ← $3.', # Fuzzy
+	'mwe-upwiz-tooltip-skiptutorial' => 'אפשר להפעיל את המדריך הזה מחדש ב[$1 העדפות שלך], תחת $2 ← $3.',
 	'mwe-upwiz-tooltip-author' => "השם של מי שיצר את התצלום, או צייר את התמונה, שרטט את התרשים, וכו'.",
 	'mwe-upwiz-tooltip-source' => 'מאין הגיע הקובץ הזה – כתובת URL, ספר או פרסום',
 	'mwe-upwiz-tooltip-sign' => 'אפשר להשתמש בשם המשתמש שלכם בוויקי או בשמכם האמתי.
@@ -12230,8 +12234,12 @@ $messages['he'] = array(
 	'mwe-upwiz-dialog-yes' => 'כן',
 	'mwe-upwiz-dialog-no' => 'לא',
 	'mwe-upwiz-dialog-title' => 'אזהרה',
+	'mwe-upwiz-campaign-create-account-button' => 'ליצור חשבון ולהעלות!',
 	'mwe-upwiz-campaign-upload-button' => 'העלאה!',
+	'mwe-upwiz-campaign-media-count-desc' => 'העלאות',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'תורמים',
 	'mwe-upwiz-campaign-view-all-media' => 'הצגת כל קובצי המדיה שהועלו',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'אין עדיין העלאות!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons ייחוס ושיתוף זהה 3.0 ([$2 ניסוח משפטי])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons ייחוס–שיתוף זהה 3.0 אוסטריה ([$2 ניסוח משפטי])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons ייחוס–שיתוף זהה 3.0 גרמניה ([$2 ניסוח משפטי])',
@@ -12371,6 +12379,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'העלאה מקוטעת עבור קבצים גדולים ממגה־בייט אחד באשף ההעלאה',
 	'mwe-upwiz-prefs-skiptutorial' => 'לדלג על מדריך הרישוי למתחילים',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'מספר מרבי של העלאות בו־זמנית',
+	'mwe-upload-campaigns-pagination-next' => 'הדף הבא',
+	'mwe-upload-campaigns-list-title' => 'רשימת מבצעי העלאה',
 );
 
 /** Hindi (हिन्दी)
@@ -21120,6 +21130,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Del opp opplastinger større enn 1 MB i mindre biter i opplastingsveiviseren',
 	'mwe-upwiz-prefs-skiptutorial' => 'Hopp over innføringen i lisensiering',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maks antall samtidige opplastinger',
+	'mwe-upload-campaigns-pagination-next' => 'Neste side',
+	'mwe-upload-campaigns-list-title' => 'Liste over opplastingskampanjer',
 );
 
 /** Nepali (नेपाली)
@@ -22374,7 +22386,7 @@ $messages['pl'] = array(
 	'right-upwizcampaigns' => 'Konfigurowanie kreatora sesji przesyłania plików',
 	'action-upwizcampaigns' => 'konfigurowanie sesji przesyłania',
 	'group-upwizcampeditors' => 'Operatorzy inicjatyw kreatora przesyłania plików',
-	'group-upwizcampeditors-member' => '{{GENDER:$1|Operator|Operatorka}} inicjatyw kreatora przesyłania plików',
+	'group-upwizcampeditors-member' => '{{GENDER:$1|operator|operatorka}} inicjatyw kreatora przesyłania plików',
 	'grouppage-upwizcampeditors' => '{{ns:project}}:Operatorzy inicjatyw kreatora przesyłania plików',
 	'mwe-upwiz-js-off' => 'Kreator przesyłania plików do realizacji udoskonalonego interfejsu korzysta z JavaScript. Twoja przeglądarka nie obsługuje lub ma wyłączoną obsługę JavaScript i dlatego wyświetlany jest zwykły formularz przesyłania.',
 	'mwe-upwiz-extension-disabled' => 'Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.',
@@ -32092,4 +32104,5 @@ $1',
 	'mwe-upwiz-prefs-chunked' => '於上傳精靈中分割上載超過1MB的檔案',
 	'mwe-upwiz-prefs-skiptutorial' => '略過授權指南',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時上載的最大數目',
+	'mwe-upload-campaigns-pagination-next' => '下一頁',
 );
