@@ -6434,7 +6434,7 @@ Du kan [$1 installere Firefogg], en Firefoxudvidelse, som kan konvertere din fil
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Af ukendte årsager kunne vi ikke læse eller forstå filnavnet "$1".',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Afbryd',
-	'mwe-upwiz-fileexists-replace' => 'Der findes allerede en fil med titlen "$1". Ændr venligst din titel til noget unikt.',
+	'mwe-upwiz-fileexists-replace' => 'Der findes allerede en fil med titlen "$1". Ændre venligst din titel til noget unikt.',
 	'mwe-upwiz-fileexists' => 'Der findes allerede en fil med dette navn.
 Tjek venligst $1, hvis du ikke er sikker på, om du ønsker at erstatte den.',
 	'mwe-upwiz-fileexists-replace-on-page' => "Der findes allerede en fil med dette navn. Hvis du vil erstatte den, gå til [$2 $1]'s filbeskrivelsesside og erstat den derfra.",
@@ -9473,8 +9473,8 @@ $messages['fa'] = array(
 آن را به $1 {{PLURAL:$1|نویسه|نویسه}} کوتاه کنید.',
 	'mwe-upwiz-error-too-short' => 'متن این گزینه بیش از حد کوتاه است.
 آن را به $1 {{PLURAL:$1|نویسه|نویسه}} افزایش دهید.',
-	'mwe-upwiz-error-bad-chars' => 'این خانه شامل نمادهای غیرمجاز است.
-از ویکی‌متن یا اچ‌تی‌ام‌ال در اینجا استفاده نکنید.',
+	'mwe-upwiz-error-bad-chars' => 'این مدحل شامل نمادهای غیرمجاز است.
+لطفاً از ویکی‌متن یا اچ‌تی‌ام‌ال در اینجا استفاده نکنید.', # Fuzzy
 	'mwe-upwiz-error-date' => 'لطفاً یک تاریخ معتبر با قالب‌بندی YYYY-MM-DD وارد کنید، یا یک تاریخ از پنجرهٔ تقویم انتخاب کنید.',
 	'mwe-upwiz-error-title-blacklisted' => 'این عنوان شامل یک مقداری متن نامطلوب است. لطفاً در آن تجدید نظر کنید.',
 	'mwe-upwiz-error-title-badchars' => 'این عنوان شامل برخی نویسه‌های نامطلوب است. لطفاً آن‌ها را حذف کنید',
@@ -19526,6 +19526,8 @@ $messages['ml'] = array(
 	'mwe-upwiz-prefs-chunked' => 'ഒരു എം.ബി.യിലധികമുള്ള പ്രമാണങ്ങൾക്കായി അപ്‌ലോഡ് സഹായിയിൽ ബൃഹത് അപ്‌ലോഡുകൾ',
 	'mwe-upwiz-prefs-skiptutorial' => 'തുടക്കത്തിലെ അനുമതി നൽകൽ സഹായി ഒഴിവാക്കുക',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'ഒരേ സമയം ചെയ്യാവുന്ന പരമാവധി അപ്‌ലോഡുകൾ',
+	'mwe-upload-campaigns-pagination-next' => 'അടുത്ത താൾ',
+	'mwe-upload-campaigns-list-title' => 'അപ്‌ലോഡ് മേളകളുടെ പട്ടിക',
 );
 
 /** Mongolian (монгол)
