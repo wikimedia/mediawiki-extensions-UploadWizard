@@ -9465,7 +9465,7 @@ $messages['fa'] = array(
 آن را به $1 {{PLURAL:$1|نویسه|نویسه}} کوتاه کنید.',
 	'mwe-upwiz-error-signature-too-short' => 'امضا شما بیش از حد کوتاه است.
 آن را به $1 {{PLURAL:$1|نویسه|نویسه}} افزایش دهید.',
-	'mwe-upwiz-error-signature-bad-chars' => 'امضا شما شامل نمادهای غیر مجاز است.
+	'mwe-upwiz-error-signature-bad-chars' => 'امضای شما شامل نمادهای نامجاز است.
 لطفاً از ویکی‌متن و اچ‌تی‌ام‌ال در اینجا استفاده نکنید، فقط از نام کاربری و یا نام واقعی خود استفاده کنید.',
 	'mwe-upwiz-error-blank' => 'این گزینه الزامی‌است.',
 	'mwe-upwiz-error-nologin' => 'برای بارگذاری پرونده شما باید <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} به سیستم وارد شوید]</span>',
@@ -31553,9 +31553,10 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-error-signature-bad-chars' => '你的签名含有不允许的符号。请不要在这里使用维基文字或HTML，请只输入你的用户名或真实姓名。',
 	'mwe-upwiz-error-blank' => '本栏必填。',
 	'mwe-upwiz-error-nologin' => '您必须先<span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} 登录]</span>才能上传文件。',
-	'mwe-upwiz-error-too-long' => '本栏内容过长。请少于$1个字符。',
-	'mwe-upwiz-error-too-short' => '本栏内容过短。请多于$1个字符。',
-	'mwe-upwiz-error-bad-chars' => '本栏含有不允许的符号。请不要使用维基文字或HTML。',
+	'mwe-upwiz-error-too-long' => '本栏内容过长。请少于$1个{{PLURAL:$1|字符|字符}}。',
+	'mwe-upwiz-error-too-short' => '本栏内容过短。请多于$1个{{PLURAL:$1|字符|字符}}。',
+	'mwe-upwiz-error-bad-chars' => '本栏含有不允许的符号。
+请不要使用维基文字或HTML。',
 	'mwe-upwiz-error-date' => '请以“年-月-日”格式输入一个有效的日期，或在弹出的日历中选择日期。',
 	'mwe-upwiz-error-title-blacklisted' => '该标题含有一些不良文字。请修改。',
 	'mwe-upwiz-error-title-badchars' => '该标题含有一些不被接受的字符。请移除后再试。',
@@ -32107,4 +32108,5 @@ $1',
 	'mwe-upwiz-prefs-skiptutorial' => '略過授權指南',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時上載的最大數目',
 	'mwe-upload-campaigns-pagination-next' => '下一頁',
+	'mwe-upload-campaigns-list-title' => '上載活動列表',
 );
