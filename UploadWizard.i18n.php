@@ -8002,6 +8002,7 @@ $messages['en-ca'] = array(
  * @author Shirayuki
  */
 $messages['en-gb'] = array(
+	'mwe-upwiz-skip-tutorial-future' => 'Skip this step in future',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby publish {{PLURAL:$1|this work|these works}} under the following licence:', # Fuzzy
 	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'The licences that should be choosable for own-work:',
 	'prefs-upwiz-licensing' => 'Licencing',
@@ -28140,6 +28141,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Bitvis överföringar för filer över 1 MB i uppladdningsguiden',
 	'mwe-upwiz-prefs-skiptutorial' => 'Hoppa över introduktionen för licensieringsguiden',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximalt antal samtidiga uppladdningar',
+	'mwe-upload-campaigns-pagination-next' => 'Nästa sida',
+	'mwe-upload-campaigns-list-title' => 'Lista över uppladdningskampanjer',
 );
 
 /** Swahili (Kiswahili)
@@ -30993,6 +30996,8 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Tải lên từng khúc các tập tin quá 1 MB trong Trình thuật sĩ tải lên',
 	'mwe-upwiz-prefs-skiptutorial' => 'Bỏ qua hướng dẫn cấp phép',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Số tập tin tối đa có thể tải lên cùng lúc',
+	'mwe-upload-campaigns-pagination-next' => 'Trang sau',
+	'mwe-upload-campaigns-list-title' => 'Danh sách chiến dịch tải lên',
 );
 
 /** Walloon (walon)
