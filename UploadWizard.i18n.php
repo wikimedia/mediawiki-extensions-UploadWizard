@@ -1115,7 +1115,8 @@ See also:
 	'mwe-upwiz-subhead-alt-upload' => 'Used as a link in the sub-header. Parameters:
 * $1 - full URL',
 	'mwe-upwiz-feedback-prompt' => 'Used as a link in the sub-header. Parameters:
-* $1 - full URL',
+* $1 - full URL
+{{Identical|Leave feedback}}',
 	'mwe-upwiz-feedback-title' => 'Used as title for the dialog box.',
 	'mwe-upwiz-feedback-blacklist-report-prompt' => 'Parameters:
 * $1 - full URL',
