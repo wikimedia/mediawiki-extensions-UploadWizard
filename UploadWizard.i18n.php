@@ -5253,6 +5253,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-step-deeds' => 'Авторан бакъонаш',
 	'mwe-upwiz-step-details' => 'Цунах лаьцна',
 	'mwe-upwiz-step-thanks' => 'Пайдаэцар',
+	'mwe-upwiz-campaign-name-duplicate' => 'Ишта цӀе йолу кампани йолуш ю.',
 	'mwe-upwiz-add-file-n' => 'ТӀетоха кхин файлаш',
 	'mwe-upwiz-add-file-0-free' => 'Къастае медиафайлаш',
 	'mwe-upwiz-remove' => 'ДӀаяккха',
@@ -5264,7 +5265,11 @@ $messages['ce'] = array(
 	'mwe-upwiz-media-type' => 'Медиан тайп',
 	'mwe-upwiz-location-alt' => 'Локхалла',
 	'mwe-upwiz-source' => 'Хьост',
+	'mwe-upwiz-thanks-explain' => 'ХӀинца хьа йиш ю Википедехь а цуна гергара вики-проекташкахь а {{PLURAL:$1|хьайн файл|хьайн файлаш}} лело, я кхечу веб-сайташкара {{PLURAL:$1|цунна|царна}} тӀе хьажорагаш хӀитто.',
+	'mwe-upwiz-thanks-wikitext' => 'Веки чохь файл лело, хӀара йоза агӀона чу дилла.',
+	'mwe-upwiz-thanks-url' => 'HTML чу хьажораг тӀетоха, лахара URL адрес копи йе:',
 	'mwe-upwiz-cancel' => 'Цаоьшу',
+	'mwe-upwiz-fileexists' => 'Иштта цӀе йолу файл йолуш ю. Дехар до, хьажа $1, лаьий хьуна и хийца.',
 	'mwe-upwiz-overwrite' => 'Хийца файл',
 	'mwe-upwiz-next-file' => 'Кхин дӀа',
 	'mwe-upwiz-next-deeds' => 'Кхин дӀа',
@@ -15604,6 +15609,13 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upload-campaigns-list-title' => 'アップロード キャンペーン一覧',
 );
 
+/** Lojban (Lojban)
+ * @author Gleki
+ */
+$messages['jbo'] = array(
+	'mwe-upwiz-step-tutorial' => 'cilre',
+);
+
 /** Javanese (Basa Jawa)
  * @author NoiX180
  * @author පසිඳු කාවින්ද
@@ -15974,7 +15986,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'იტვირთება',
 	'mwe-upwiz-finished' => 'დამთავრებულია!',
 	'mwe-upwiz-secs-remaining' => 'კიდევ $1 {{PLURAL:$1|წამი|წამი}}',
-	'mwe-upwiz-mins-secs-remaining' => 'კიდევ $1 {{PLURAL:$1|წუთი|წუთი}} და $2 {{PLURAL:$2|წამი|წამი}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|დარჩა}} $1 {{PLURAL:$1|წუთი}} $2 {{PLURAL:$2|წამი}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => 'კიდევ $1 {{PLURAL:$1|საათი|საათი}}, $2 {{PLURAL:$2|წუთი|წუთი}} და $3 {{PLURAL:$3|წამი|წამი}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'ეს საიტი {{GENDER:$2|თქვენგან}} მოითხოვს {{PLURAL:$1|ამ ნამუშევარზე|ამ ნამუშევრებზე}} საავტორო უფლებების შესახებ ინფორმაციის მითითებას, რათა დარწმუნდეს, რომ ყველა შეუძლია {{PLURAL:$1|მისი|მათი}} სამართლებრივი გამოყენება.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|ეს ფაილი არის ჩემი პირადი ნამუშევარი|ეს ფაილები არის ჩემი პირადი ნამუშევრები}}.',
@@ -32021,7 +32033,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => '這看起來不是有效的維基文字，或不包含一個協議。',
 	'mwe-upwiz-details-error-count' => '上方的{{PLURAL:$2|表格}}中{{PLURAL:$1|有一項|有$1項}}錯誤。請更正錯誤，並嘗試再次提交。',
 	'mwe-upwiz-too-many-files-ok' => '確定',
-	'mwe-upwiz-too-many-files-text' => '您一次只能上傳$1個檔案。您共嘗試上傳了$2個，因此$3個檔案已被移除。', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => '您一次只能上傳$1個檔案但您試圖上傳$2個。請在清除一部份後重試！',
 	'mwe-upwiz-too-many-files' => '過多檔案。',
 	'mwe-upwiz-file-too-large-ok' => '確定',
 	'mwe-upwiz-file-too-large-text' => '您只能上載大小不超過$1的文件。您試圖上載的檔案大小為$2。',
@@ -32157,6 +32169,7 @@ $1',
 	'mwe-upwiz-campaign-conf-defaultLon' => '預設經度：',
 	'mwe-upwiz-campaign-conf-defaultAlt' => '預設海拔：',
 	'mwe-upwiz-campaign-conf-defaultDescription' => '預設說明：',
+	'mwe-upwiz-campaign-edit-summary-delete' => '已刪除運動通過運動編輯器',
 	'mw-coolcats-confirm-new-title' => '確認新分類',
 	'mw-coolcats-confirm-new' => '似乎您正在添加新的分類「$1」。請注意：<ul><li>分類通常使用英語</li><li>大多數新分類都應被劃屬為現有分類的子分類。 </li></ul>通常而言，只有專家才需要創建新的分類。',
 	'mw-coolcats-confirm-new-ok' => '仍然添加此分​​類',
