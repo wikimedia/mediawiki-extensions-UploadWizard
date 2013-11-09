@@ -253,6 +253,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-media-type',
 				'mwe-upwiz-date-created',
 				'mwe-upwiz-location',
+				'mwe-upwiz-location-button',
 				'mwe-upwiz-location-lat',
 				'mwe-upwiz-location-lon',
 				'mwe-upwiz-location-alt',

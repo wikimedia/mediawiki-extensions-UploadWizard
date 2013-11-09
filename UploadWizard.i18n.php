@@ -148,6 +148,7 @@ Please try an alternative browser.',
 	'mwe-upwiz-media-type' => 'Media type',
 	'mwe-upwiz-date-created' => 'Date created',
 	'mwe-upwiz-location' => 'Location',
+	'mwe-upwiz-location-button' => 'Show on map',
 	'mwe-upwiz-location-lat' => 'Latitude',
 	'mwe-upwiz-location-lon' => 'Longitude',
 	'mwe-upwiz-location-alt' => 'Altitude',
@@ -804,6 +805,7 @@ This is followed by a language name in a drop-down language selector.
 {{Identical|Date created}}',
 	'mwe-upwiz-location' => 'The location the media exists on the planet, further described by lat and lon.
 {{Identical|Location}}',
+	'mwe-upwiz-location-button' => 'Label for button which opens location on OpenStreetMap using entered input coordinates.',
 	'mwe-upwiz-location-lat' => 'Latitude - the GPS coordinate, expressed in signed decimal degrees.
 {{Identical|Latitude}}',
 	'mwe-upwiz-location-lon' => 'Longitude - the GPS coordinate, expressed in signed decimal degrees.
