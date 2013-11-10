@@ -16141,6 +16141,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-file-too-large-ok' => 'კარგი',
 	'mwe-upwiz-file-too-large-text' => 'თქვენს მიერ ატვირთული ფაილის ზომა არ უნდა აღემატებოდეს $1. თქვენ ცდილობთ ატვირთოთ ფაილი რომელიც არის $2.',
 	'mwe-upwiz-file-too-large' => 'ფაილი ძალიან დიდია.',
+	'mwe-upwiz-campaign-media-count-desc' => 'ატვირთვები',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 კოდექსი])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 ავსტრია ([$2 კოდექსი])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 გერმანია ([$2 კოდექსი])',
