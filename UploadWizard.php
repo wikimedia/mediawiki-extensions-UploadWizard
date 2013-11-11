@@ -80,6 +80,7 @@ $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPages['Campaigns'] = 'SpecialCampaigns';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
+$wgSpecialPageGroups['Campaigns'] = 'media';
 
 // for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';

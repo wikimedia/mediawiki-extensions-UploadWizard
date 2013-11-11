@@ -424,6 +424,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximum number of concurrent uploads',
 
 	// Campaigns listing page
+	'campaigns' => 'Upload Wizard campaigns',
 	'mwe-upload-campaigns-pagination-next' => 'Next page',
 	'mwe-upload-campaigns-list-title' => 'List of upload campaigns',
 );
@@ -1201,6 +1202,9 @@ See also:
 	'mwe-upload-campaigns-pagination-next' => 'Link to next page of upload campaigns.
 {{Identical|Next page}}',
 	'mwe-upload-campaigns-list-title' => 'Title of page that has list of upload campaigns',
+	'campaigns' => 'Used as link text in [[Special:SpecialPages]].
+The UploadWizard campaign page provides a list of Upload Wizard campaigns.
+For more information, see [[:mw:Extension:UploadWizard/Campaigns]].',
 );
 
 /** Afrikaans (Afrikaans)
