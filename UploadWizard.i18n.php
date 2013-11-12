@@ -1199,12 +1199,12 @@ See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning. This is the same licensing tutorial as is mentioned in {{msg-mw|Mwe-upwiz-campaign-conf-skipTutorial}}',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
+	'campaigns' => '{{doc-special|Campaigns}}
+The UploadWizard campaign page provides a list of Upload Wizard campaigns.
+For more information, see [[:mw:Extension:UploadWizard/Campaigns]].',
 	'mwe-upload-campaigns-pagination-next' => 'Link to next page of upload campaigns.
 {{Identical|Next page}}',
 	'mwe-upload-campaigns-list-title' => 'Title of page that has list of upload campaigns',
-	'campaigns' => 'Used as link text in [[Special:SpecialPages]].
-The UploadWizard campaign page provides a list of Upload Wizard campaigns.
-For more information, see [[:mw:Extension:UploadWizard/Campaigns]].',
 );
 
 /** Afrikaans (Afrikaans)
@@ -7064,6 +7064,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Hochladen von Dateien, die größer als 1 MB sind, in mehreren Teilen',
 	'mwe-upwiz-prefs-skiptutorial' => 'Einführendes Tutorial zu Lizenzen auslassen',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximale Anzahl gleichzeitiger Uploads',
+	'campaigns' => 'Kampagnen des Hochladeassistenten',
 	'mwe-upload-campaigns-pagination-next' => 'Nächste Seite',
 	'mwe-upload-campaigns-list-title' => 'Liste der Hochladekampagnen',
 );
@@ -9672,6 +9673,7 @@ $1',
  * @author Nedergard
  * @author Nike
  * @author Olli
+ * @author Pxos
  * @author Samoasambia
  * @author Silvonen
  * @author Stryn
@@ -9913,7 +9915,7 @@ Pidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.',
 	'mwe-upwiz-campaign-create-account-button' => 'Luo tunnus ja tallenna tiedosto!',
 	'mwe-upwiz-campaign-upload-button' => 'Tallenna!',
 	'mwe-upwiz-campaign-media-count-desc' => 'Tallennukset',
-	'mwe-upwiz-campaign-contributors-count-desc' => 'Muokkaajat',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Osallistujat',
 	'mwe-upwiz-campaign-view-all-media' => 'Näytä kaikki ladattu media',
 	'mwe-upwiz-campaign-no-uploads-yet' => 'Ei latauksia vielä!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Nimeä-Tarttuva 3.0 ([$2 laki])',
@@ -10576,6 +10578,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Versements fragmentés pour les fichiers de plus de 1 Mo dans l’Assistant de téléversement',
 	'mwe-upwiz-prefs-skiptutorial' => 'Passer le tutoriel sur les licences',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Nombre maximal de téléchargements simultanés',
+	'campaigns' => 'Télécharger l’assistant de campagnes',
 	'mwe-upload-campaigns-pagination-next' => 'Page suivante',
 	'mwe-upload-campaigns-list-title' => 'Liste des campagnes de téléchargement',
 );
@@ -12402,6 +12405,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'העלאה מקוטעת עבור קבצים גדולים ממגה־בייט אחד באשף ההעלאה',
 	'mwe-upwiz-prefs-skiptutorial' => 'לדלג על מדריך הרישוי למתחילים',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'מספר מרבי של העלאות בו־זמנית',
+	'campaigns' => 'מבצעי פרסום של אשף ההעלאות',
 	'mwe-upload-campaigns-pagination-next' => 'הדף הבא',
 	'mwe-upload-campaigns-list-title' => 'רשימת מבצעי העלאה',
 );
@@ -15239,6 +15243,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Carica a blocchi i file di oltre 1 MB in Upload Wizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Salta il tutorial introduttivo sulle license',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Numero massimo di caricamenti simultanei',
+	'campaigns' => 'Campagne di caricamento guidato',
 	'mwe-upload-campaigns-pagination-next' => 'Pagina successiva',
 	'mwe-upload-campaigns-list-title' => 'Elenco delle iniziative per il caricamento guidato',
 );
@@ -15609,6 +15614,7 @@ $1 {{PLURAL:$1|文字}}より長くしてください。',
 	'mwe-upwiz-prefs-license-own' => '自分の作品 - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => '他人の作品 - $1',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時にアップロードできる最大個数',
+	'campaigns' => 'アップロードウィザードのキャンペーン',
 	'mwe-upload-campaigns-pagination-next' => '次のページ',
 	'mwe-upload-campaigns-list-title' => 'アップロード キャンペーン一覧',
 );
@@ -23153,6 +23159,7 @@ $1",
 	'mwe-upwiz-prefs-chunked' => "Cariament framentà për j'archivi ëd pi d'1MB ant l'Assistent ëd cariament",
 	'mwe-upwiz-prefs-skiptutorial' => "Sauté le spiegassion d'antrodussion ëd le license",
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Nùmer màssim ëd cariagi simultani',
+	'campaigns' => "Carié l'assistent ëd campagne",
 	'mwe-upload-campaigns-pagination-next' => 'Pàgina apress',
 	'mwe-upload-campaigns-list-title' => 'Lista dle campagne ëd cariagi',
 );
@@ -30093,6 +30100,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Розділити на частини завантаження файлів понад 1 Мб в Майстрі завантажень',
 	'mwe-upwiz-prefs-skiptutorial' => 'Пропустити вступне керівництво по ліцензуванню',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Максимальне число одночасних завантажень',
+	'campaigns' => 'Завантажити майстер кампаній',
 	'mwe-upload-campaigns-pagination-next' => 'Наступна сторінка',
 	'mwe-upload-campaigns-list-title' => 'Список завантаження кампаній',
 );
@@ -31809,6 +31817,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => '在上传向导中对于超过1MB的文件使用分块上传',
 	'mwe-upwiz-prefs-skiptutorial' => '跳过授权协议教程',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '并发上载的最大数目',
+	'campaigns' => '上传向导运动',
 	'mwe-upload-campaigns-pagination-next' => '下一页',
 	'mwe-upload-campaigns-list-title' => '上传活动列表',
 );
