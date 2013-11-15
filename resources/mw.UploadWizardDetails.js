@@ -1318,8 +1318,8 @@ mw.UploadWizardDetails.prototype = {
 		};
 
 		var ok = function( result ) {
-			var warnings = null;
-			var wasDeleted = false;
+			var warnings, wasDeleted, existingFile, existingFileUrl;
+
 			if ( result && result.upload && result.upload.result == 'Poll' ) {
 				// if async publishing takes longer than 10 minutes give up
 				if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
@@ -1341,6 +1341,7 @@ mw.UploadWizardDetails.prototype = {
 			}
 			if ( result && result.upload && result.upload.warnings ) {
 				warnings = result.upload.warnings;
+				existingFile = warnings.exists || warnings['exists-normalized'];
 			}
 			if ( warnings && warnings['was-deleted'] ) {
 				delete warnings['was-deleted'];
@@ -1358,20 +1359,22 @@ mw.UploadWizardDetails.prototype = {
 				_this.upload.state = 'complete';
 				_this.showIndicator( 'uploaded' );
 				_this.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
-			} else if ( wasDeleted === true ) {
+			} else if ( wasDeleted ) {
 				params.ignorewarnings = 1;
 				_this.upload.api.postWithEditToken( params, ok, err );
 			} else if ( result && result.upload.warnings ) {
 				if ( warnings.thumb ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).escaped() );
 				} else if ( warnings.badfilename ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).escaped() );
 				} else if ( warnings['bad-prefix'] ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text() );
-				} else if ( warnings.exists || warnings['exists-normalized'] ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).escaped() );
+				} else if ( existingFile ) {
+					// API always returns the title of the file that exists
+					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, 6 ).getUrl();
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse() );
 				} else if ( warnings.duplicate ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).escaped() );
 				} else if ( warnings['duplicate-archive'] ) {
 					if ( _this.upload.ignoreWarning['duplicate-archive'] ) {
 						// We already told the interface to ignore this warning, so
@@ -1380,7 +1383,7 @@ mw.UploadWizardDetails.prototype = {
 						_this.upload.api.postWithEditToken( params, ok, err );
 					} else {
 						// This should _never_ happen, but just in case....
-						_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text() );
+						_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).escaped() );
 					}
 				} else {
 					var warningsKeys = [];
@@ -1388,7 +1391,7 @@ mw.UploadWizardDetails.prototype = {
 						warningsKeys.push( key );
 					} );
 					_this.upload.state = 'error';
-					_this.recoverFromError( _this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).escaped() );
 				}
 			} else {
 				err( 'details-info-missing', result );
@@ -1407,13 +1410,13 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
 	 * @param {String} id of input field -- presumed to be within this upload's details form.
-	 * @param {String} error message to show
+	 * @param {String} HTML error message to show. Make sure escaping text properly.
 	 */
 	recoverFromError: function( fieldId, errorMessage ) {
 		this.upload.state = 'error';
 		this.dataDiv.morphCrossfade( '.detailsForm' );
 		$( '#' + fieldId ).addClass( 'mwe-error' );
-		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).text( errorMessage ).show();
+		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).html( errorMessage ).show();
 	},
 
 	/**
@@ -1446,7 +1449,7 @@ mw.UploadWizardDetails.prototype = {
 		};
 		if ( result && result.error && result.error.code ) {
 			if ( titleErrorMap[code] ) {
-				this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).text() );
+				this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).escaped() );
 				return;
 			} else {
 				statusKey = 'api-error-' + code;
