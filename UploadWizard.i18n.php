@@ -17022,6 +17022,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => '1MB가 넘는 큰 용량의 파일을 업로드 마법사를 통해 올리기',
 	'mwe-upwiz-prefs-skiptutorial' => '입문 라이선스 자습서 건너뛰기',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '동시 올리기의 최대 수',
+	'campaigns' => '올리기 마법사 캠페인',
 	'mwe-upload-campaigns-pagination-next' => '다음 문서',
 	'mwe-upload-campaigns-list-title' => '업로드 캠페인 목록',
 );
