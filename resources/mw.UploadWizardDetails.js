@@ -170,6 +170,18 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
 	//	.append( _this.altInput );
 
+	var showMap = $( '<button>' ).prop( 'type', 'button' ).prop( 'size', 20 )
+		.addClass( 'mwe-upwiz-buttons' )
+		.msg( 'mwe-upwiz-location-button' )
+		.button()
+		.click( function( ) {
+			var latd = _this.$latInput.val(),
+				lond = _this.$lonInput.val(),
+				mapLink = new mw.Uri( 'https://openstreetmap.org/' )
+					.extend( { zoom: 9, layers: 'M', lat: +latd, lon: +lond } );
+			window.open( mapLink.toString() );
+		} );
+
 	var locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append( $ ('<div class="mwe-location-label"></div>' )
 		.append( mw.message( 'mwe-upwiz-location' ).escaped() )
@@ -179,7 +191,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
 			//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
 			latDiv, lonDiv //, altDiv
-		);
+		)
+		.append( showMap );
 
 	$( moreDetailsDiv ).append(
 		locationDiv,
