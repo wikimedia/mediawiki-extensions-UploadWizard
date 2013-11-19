@@ -1071,7 +1071,8 @@ Parameters:
 * $1 - number of works
 {{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-flickr-head' => '{{doc-singularthey}}
-Used as expand/collapse action link text.
+Used as expand/collapse action link text. Parameters:
+* $1 - number of works (photos or videos)
 {{Related|Mwe-upwiz-license-head}}',
 	'mwe-upwiz-license-public-domain-usa-head' => 'Used as expand/collapse action link text.
 {{Related|Mwe-upwiz-license-head}}',
@@ -17632,6 +17633,7 @@ Probéiert et w.e.g. mat engem anere Browser.',
 	'mwe-upwiz-media-type' => 'Medientyp',
 	'mwe-upwiz-date-created' => 'Datum vun der Creatioun',
 	'mwe-upwiz-location' => 'Plaz',
+	'mwe-upwiz-location-button' => 'Op der Kaart weisen',
 	'mwe-upwiz-location-lat' => 'Geografesch Breet',
 	'mwe-upwiz-location-lon' => 'Geografesch Längt',
 	'mwe-upwiz-location-alt' => 'Héicht',
@@ -19342,6 +19344,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-media-type' => 'മീഡിയ തരം',
 	'mwe-upwiz-date-created' => 'സൃഷ്ടിച്ച തീയതി',
 	'mwe-upwiz-location' => 'സ്ഥലം',
+	'mwe-upwiz-location-button' => 'ഭൂപടത്തിൽ പ്രദർശിപ്പിക്കുക',
 	'mwe-upwiz-location-lat' => 'അക്ഷാംശം',
 	'mwe-upwiz-location-lon' => 'രേഖാംശം',
 	'mwe-upwiz-location-alt' => 'ഉന്നതി',
@@ -19587,6 +19590,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-prefs-chunked' => 'ഒരു എം.ബി.യിലധികമുള്ള പ്രമാണങ്ങൾക്കായി അപ്‌ലോഡ് സഹായിയിൽ ബൃഹത് അപ്‌ലോഡുകൾ',
 	'mwe-upwiz-prefs-skiptutorial' => 'തുടക്കത്തിലെ അനുമതി നൽകൽ സഹായി ഒഴിവാക്കുക',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'ഒരേ സമയം ചെയ്യാവുന്ന പരമാവധി അപ്‌ലോഡുകൾ',
+	'campaigns' => 'അപ്‌ലോഡ് സഹായി മേളകൾ',
 	'mwe-upload-campaigns-pagination-next' => 'അടുത്ത താൾ',
 	'mwe-upload-campaigns-list-title' => 'അപ്‌ലോഡ് മേളകളുടെ പട്ടിക',
 );
