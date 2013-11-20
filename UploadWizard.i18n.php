@@ -8404,6 +8404,7 @@ $1',
  * @author Dferg
  * @author Fitoschido
  * @author Gwickwire
+ * @author Ihojose
  * @author Locos epraix
  * @author MarcoAurelio
  * @author McDutchie
@@ -8542,6 +8543,7 @@ Por favor, inténtalo con otro navegador.',
 	'mwe-upwiz-media-type' => 'Tipo de medios',
 	'mwe-upwiz-date-created' => 'Fecha de creación',
 	'mwe-upwiz-location' => 'Ubicación',
+	'mwe-upwiz-location-button' => 'Mostrar en el mapa',
 	'mwe-upwiz-location-lat' => 'Latitud',
 	'mwe-upwiz-location-lon' => 'Longitud',
 	'mwe-upwiz-location-alt' => 'Altitud',
@@ -8642,7 +8644,12 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-dialog-yes' => 'Sí',
 	'mwe-upwiz-dialog-no' => 'No',
 	'mwe-upwiz-dialog-title' => 'Advertencia',
+	'mwe-upwiz-campaign-create-account-button' => 'Crea una cuenta y sube!',
+	'mwe-upwiz-campaign-upload-button' => '¡Subir!',
+	'mwe-upwiz-campaign-media-count-desc' => 'Subidas',
 	'mwe-upwiz-campaign-contributors-count-desc' => 'Colaboradores',
+	'mwe-upwiz-campaign-view-all-media' => 'Ver todos los archivos multimedia subidos',
+	'mwe-upwiz-campaign-no-uploads-yet' => 'Aún no hay subidas!',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons reconocimiento compartir igual 3.0 ([$2 texto legal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons reconocimiento compartir igual 3.0 Austria ([$2 texto legal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons reconocimiento compartir igual 3.0 Alemania ([$2 texto legal])',
@@ -8692,8 +8699,8 @@ Por favor no uses wikitexto o HTML aquí.',
 	'mwe-upwiz-license-none' => 'Creo que {{PLURAL:$1|esta obra tiene|estas obras tienen}} una licencia libre o legalmente {{PLURAL:$1|está|están}} en el dominio público. Entiendo que si no añado la información de licencia necesaria a tiempo {{PLURAL:$1|el archivo puede ser eliminado|los archivos pueden ser eliminados}}.',
 	'mwe-upwiz-license-confirm-remove' => '¿Está seguro que desea eliminar {{PLURAL:$1|esta subida|estas subidas}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Confirmar la eliminación',
-	'mwe-upwiz-license-external' => 'Este archivo está bajo la siguiente licencia en $1 : $2.', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => 'Este archivo está bajo la siguiente licencia en $1: $2. Lamentablemente, esta licencia no es apropiada para su uso en este sitio.', # Fuzzy
+	'mwe-upwiz-license-external' => 'Este archivo está bajo la siguiente licencia en $1 : $2.',
+	'mwe-upwiz-license-external-invalid' => 'Este archivo está bajo la siguiente licencia en $1: $2. Lamentablemente, esta licencia no es apropiada para su uso en este sitio.',
 	'mwe-upwiz-license-photoset-invalid' => 'Desafortunadamente, no hay una imagen en este conjunto de fotos que tenga una licencia apropiada para usar en este sitio.',
 	'mwe-upwiz-url-invalid' => 'La dirección URL introducida lleva a una imagen ou un conjunto de fotos $1 restringido o que no es válido, y no se pueden utilizar.',
 	'mwe-upwiz-categories' => 'Categorías',
@@ -16660,6 +16667,7 @@ $messages['kn'] = array(
 /** Korean (한국어)
  * @author Altostratus
  * @author Hym411
+ * @author Jytim
  * @author Kwj2772
  * @author Mintz0223
  * @author 관인생략
@@ -16795,6 +16803,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-media-type' => '미디어 종류',
 	'mwe-upwiz-date-created' => '창작한 날짜',
 	'mwe-upwiz-location' => '위치',
+	'mwe-upwiz-location-button' => '지도에 표시',
 	'mwe-upwiz-location-lat' => '위도',
 	'mwe-upwiz-location-lon' => '경도',
 	'mwe-upwiz-location-alt' => '고도',
@@ -18963,6 +18972,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-media-type' => 'Тип на мултим. податотека',
 	'mwe-upwiz-date-created' => 'Создадена на',
 	'mwe-upwiz-location' => 'Место',
+	'mwe-upwiz-location-button' => 'Прикажи на карта',
 	'mwe-upwiz-location-lat' => 'Г.Ш.',
 	'mwe-upwiz-location-lon' => 'Г.Д.',
 	'mwe-upwiz-location-alt' => 'Надм. височина',
@@ -31612,6 +31622,7 @@ $messages['zh-hans'] = array(
 	'mwe-upwiz-media-type' => '媒体文件类型',
 	'mwe-upwiz-date-created' => '创作日期',
 	'mwe-upwiz-location' => '地点',
+	'mwe-upwiz-location-button' => '在地图上显示',
 	'mwe-upwiz-location-lat' => '纬度',
 	'mwe-upwiz-location-lon' => '经度',
 	'mwe-upwiz-location-alt' => '海拔',
@@ -31997,6 +32008,7 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-media-type' => '媒體類型',
 	'mwe-upwiz-date-created' => '建立日期',
 	'mwe-upwiz-location' => '位置',
+	'mwe-upwiz-location-button' => '於地圖中顯示',
 	'mwe-upwiz-location-lat' => '緯度',
 	'mwe-upwiz-location-lon' => '經度',
 	'mwe-upwiz-location-alt' => '海拔',
