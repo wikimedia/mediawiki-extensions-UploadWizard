@@ -1114,7 +1114,8 @@ See also:
 	'mwe-upwiz-image-preview' => 'Used as title for the preview of the image file.',
 	'mwe-upwiz-subhead-message' => 'Used as sub-heading.',
 	'mwe-upwiz-subhead-bugs' => 'Unused at this time. Parameters:
-* $1 - full URL',
+* $1 - full URL
+{{Identical|Known issue}}',
 	'mwe-upwiz-subhead-translate' => 'Used as a link in the sub-header. Parameters:
 * $1 - full URL',
 	'mwe-upwiz-subhead-alt-upload' => 'Used as a link in the sub-header. Parameters:
@@ -30875,6 +30876,7 @@ Xin hãy thử sử dụng một trình duyệt khác.',
 	'mwe-upwiz-media-type' => 'Kiểu phương tiện',
 	'mwe-upwiz-date-created' => 'Ngày tháng tạo',
 	'mwe-upwiz-location' => 'Vị trí',
+	'mwe-upwiz-location-button' => 'Xem trên bản đồ',
 	'mwe-upwiz-location-lat' => 'Vĩ độ',
 	'mwe-upwiz-location-lon' => 'Kinh độ',
 	'mwe-upwiz-location-alt' => 'Cao độ',
