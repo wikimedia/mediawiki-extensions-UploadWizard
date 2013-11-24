@@ -5287,6 +5287,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-next-details' => 'Кхин дӀа',
 	'mwe-upwiz-home' => 'Википедин цӀера агӀоне гӀо',
 	'mwe-upwiz-upload-another' => 'Чуяха кхин файлаш',
+	'mwe-upwiz-dialog-yes' => 'ХӀаъ',
 	'mwe-upwiz-license-confirm-remove-title' => 'Бакъде дӀаяккхар',
 	'mwe-upwiz-categories-add' => 'ТIетоха',
 	'mwe-upwiz-subhead-message' => 'Баркал файлаш чуяхаран керла гӀирс лела барна!',
