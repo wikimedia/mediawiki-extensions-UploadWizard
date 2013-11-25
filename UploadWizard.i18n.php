@@ -6457,7 +6457,7 @@ Du kan [$1 installere Firefogg], en Firefoxudvidelse, som kan konvertere din fil
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'Af ukendte årsager kunne vi ikke læse eller forstå filnavnet "$1".',
 	'mwe-upwiz-ok' => 'OK',
 	'mwe-upwiz-cancel' => 'Afbryd',
-	'mwe-upwiz-fileexists-replace' => 'Der findes allerede en fil med titlen "$1". Ændre venligst din titel til noget unikt.',
+	'mwe-upwiz-fileexists-replace' => 'Der findes allerede en fil med titlen "$1". Vær venlig at ændre din titel til noget unikt.',
 	'mwe-upwiz-fileexists' => 'Der findes allerede en fil med dette navn.
 Tjek venligst $1, hvis du ikke er sikker på, om du ønsker at erstatte den.',
 	'mwe-upwiz-fileexists-replace-on-page' => "Der findes allerede en fil med dette navn. Hvis du vil erstatte den, gå til [$2 $1]'s filbeskrivelsesside og erstat den derfra.",
@@ -21465,6 +21465,7 @@ Probeer een alternatieve browser.',
 	'mwe-upwiz-media-type' => 'Mediatype',
 	'mwe-upwiz-date-created' => 'Aangemaakt op',
 	'mwe-upwiz-location' => 'Locatie',
+	'mwe-upwiz-location-button' => 'Op kaart weergeven',
 	'mwe-upwiz-location-lat' => 'Breedtegraad',
 	'mwe-upwiz-location-lon' => 'Lengtegraad',
 	'mwe-upwiz-location-alt' => 'Hoogte',
@@ -32164,8 +32165,8 @@ $messages['zh-hant'] = array(
 	'mwe-upwiz-license-none' => '我相信{{PLURAL:$1|此|這些}}作品有自由許可或是法律上的公共領域。我了解若我不及時添加必要的許可信息，{{PLURAL:$1|此|這些}}檔案可能會被刪除。',
 	'mwe-upwiz-license-confirm-remove' => '您確定要刪除{{PLURAL:$1|此|這些}}上傳嗎？',
 	'mwe-upwiz-license-confirm-remove-title' => '確認刪除',
-	'mwe-upwiz-license-external' => '此檔案在$1的授權協議為：$2。', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => '此檔案在$1的授權協議為：$2。但此授權協議不適合於此網站上使用。', # Fuzzy
+	'mwe-upwiz-license-external' => "此檔案在''$1''的授權協議為：$2。",
+	'mwe-upwiz-license-external-invalid' => "此檔案在''$1''的授權協議為：$2。可惜此wiki不接受此授權協議。",
 	'mwe-upwiz-license-photoset-invalid' => '圖集內沒有圖像擁有此網站使用的許可證。',
 	'mwe-upwiz-url-invalid' => '已輸入的網址指向一個無效或受限制的$1圖像或圖集，因此不能使用。',
 	'mwe-upwiz-categories' => '分類',
