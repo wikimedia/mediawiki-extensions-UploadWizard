@@ -5525,7 +5525,7 @@ $messages['ckb'] = array(
 	'mwe-upwiz-prefs-license-thirdparty' => 'کاری کەسێکی تر - $1',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Chmee2
  * @author JAn Dudík
  * @author Jezevec
@@ -5609,7 +5609,7 @@ Zkuste nějaký jiný prohlížeč.',
 	'mwe-upwiz-progressbar-uploading' => 'načítání',
 	'mwe-upwiz-finished' => 'Hotovo!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Zbývá $1 sekunda|Zbývají $1 sekundy|Zbývá $1 sekund}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Zbývá $1 minuta|Zbývají $1 minuty|Zbývá $1 minut}} a $2 {{PLURAL:$2|sekunda|sekundy|sekund}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|Zbývá|Zbývají|Zbývá}} {{PLURAL:$1|$1 minuta|$1 minuty|$1 minut}} a $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Zbývá $1 hodina|Zbývají $1 hodiny|Zbývá $1 hodin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} a $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Tento server vyžaduje, abyste pro {{PLURAL:$1|tento soubor|tyto soubory}} {{GENDER:$2|uvedl|uvedla|uvedli}} autorskoprávní údaje, aby bylo jisté, že {{PLURAL:$1|jej|je}} může každý legálně užívat.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Tento soubor je|Tyto soubory jsou}} mé vlastní dílo.',
@@ -5667,6 +5667,7 @@ Zkuste nějaký jiný prohlížeč.',
 	'mwe-upwiz-media-type' => 'Typ média',
 	'mwe-upwiz-date-created' => 'Datum vytvoření',
 	'mwe-upwiz-location' => 'Místo',
+	'mwe-upwiz-location-button' => 'Ukázat na mapě',
 	'mwe-upwiz-location-lat' => 'Zeměpisná šířka',
 	'mwe-upwiz-location-lon' => 'Zeměpisná délka',
 	'mwe-upwiz-location-alt' => 'Nadmořská výška',
@@ -5695,7 +5696,7 @@ Pokud ho chcete automaticky převést, můžete si [$1 nainstalovat Firefogg], p
 	'mwe-upwiz-fileexists-replace' => 'Soubor s názvem „$1“ již existuje. Změňte zvolený název na jedinečnější.',
 	'mwe-upwiz-fileexists' => 'Soubor s tímto jménem již existuje, prosím podívejte se na $1, pokud nevíte jistě, zda chcete tento soubor nahradit.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Soubor s tímto názvem již existuje. Pokud ho chcete nahradit, jděte na stránku [$2 $1] a nahraďte ho tam.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Soubor s tímto názvem již existuje.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Zvolte prosím jiný název, protože tento název je již používán jiným souborem.',
 	'mwe-upwiz-blacklisted' => 'Zvolte jiný, popisný název.',
 	'mwe-upwiz-thumbnail-more' => 'Zvětšit',
 	'mwe-upwiz-overwrite' => 'Nahradit existující soubor',
@@ -5764,9 +5765,11 @@ Nepoužívejte zde HTML ani wikitext.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Můžete načítat jen soubory velké nejvýše $1. Pokusili jste se načíst soubor o velikosti $2.',
 	'mwe-upwiz-file-too-large' => 'Soubor je příliš velký.',
+	'mwe-upwiz-necessary-confirm' => 'Je doporučeno vyplnit kategorii pro vaše obrázky. Chcete pokračovat bez vyplnění všech polí?',
 	'mwe-upwiz-dialog-yes' => 'Ano',
 	'mwe-upwiz-dialog-no' => 'Ne',
 	'mwe-upwiz-dialog-title' => 'Upozornění',
+	'mwe-upwiz-campaign-create-account-button' => 'Vytvořit účet a nahrávat!',
 	'mwe-upwiz-campaign-upload-button' => 'Nahrát!',
 	'mwe-upwiz-campaign-media-count-desc' => 'načtené soubory',
 	'mwe-upwiz-campaign-contributors-count-desc' => 'Přispěvatelé',
@@ -5821,10 +5824,10 @@ Nepoužívejte zde HTML ani wikitext.',
 	'mwe-upwiz-license-none' => 'Věřím, že {{PLURAL:$1|toto dílo je svobodně licencované nebo ze zákona volné|tato díla jsou svobodně licencovaná nebo ze zákona volná}}. Chápu, že pokud včas nedoplním potřebné licenční údaje, {{PLURAL:$1|může být tento soubor smazán|mohou být tyto soubory smazány}}.',
 	'mwe-upwiz-license-confirm-remove' => 'Opravdu chcete odebrat {{PLURAL:$1|načtený soubor|načtené soubory}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Potvrdit odstranění',
-	'mwe-upwiz-license-external' => 'Tento soubor je na {{grammar:6sg|$1}} dostupný pod následující licencí: $2.', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => 'Tento soubor je na $1 nabízen pod následující licencí: $2 Tato licence však bohužel není pro tento server přijatelná.', # Fuzzy
+	'mwe-upwiz-license-external' => 'Soubor je na zdrojové stránce „$1“ pod následující licencí: $2.',
+	'mwe-upwiz-license-external-invalid' => 'Soubor je na zdrojové stránce „$1“ pod následující licencí: $2. Tato licence bohužel není pro tento server přijatelná.',
 	'mwe-upwiz-license-photoset-invalid' => 'Žádný obrázek v této sadě bohužel nemá licenci použitelnou na této wiki.',
-	'mwe-upwiz-url-invalid' => 'Zadané URL není platné URL obrázku či sady na {{grammar:6sg|$1}}.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'Zadané URL odkazuje na neplatný nebo nepřístupný obrázek nebo fotoset na serveru $1 a nelze jej použít.',
 	'mwe-upwiz-categories' => 'Kategorie',
 	'mwe-upwiz-categories-add' => 'Přidat',
 	'mwe-upwiz-category-will-be-added' => 'Tato kategorie se dosud nepoužívá.',
@@ -5894,6 +5897,7 @@ $1',
 	'mwe-upwiz-campaign-conf-defaultLon' => 'Výchozí zeměpisná délka:',
 	'mwe-upwiz-campaign-conf-defaultAlt' => 'Výchozí nadmořská výška:',
 	'mwe-upwiz-campaign-conf-defaultDescription' => 'Výchozí popis:',
+	'mwe-upwiz-campaign-edit-summary-update' => 'Konfigurace kampaně byla aktualizována pomocí kampaňového editoru.',
 	'mwe-upwiz-campaign-edit-summary-delete' => 'Smazaná kampaň prostřednictvím Editora kampaní',
 	'mw-coolcats-confirm-new-title' => 'Potvrzení nové kategorie',
 	'mw-coolcats-confirm-new' => 'Vypadá to, že se snažíte přidat novou kategorii, „$1“. Uvědomte si, že:<ul><li>Kategorie by měly být většinou anglicky.</li><li>Většina nových kategorií by měla být zařazena pod existující kategorii.</li></ul>Obecně by měli kategorie zakládat jen odborníci.',
@@ -5910,6 +5914,9 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Blokové načítání souborů přes 1 MB v Průvodci načítáním souborů',
 	'mwe-upwiz-prefs-skiptutorial' => 'Přeskočit úvodního průvodce licencováním',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximální počet souběžných odesílání obrázků',
+	'campaigns' => 'Kampaně nástroje Upload Wizard',
+	'mwe-upload-campaigns-pagination-next' => 'Další strana',
+	'mwe-upload-campaigns-list-title' => 'Seznam kampaní pro upload',
 );
 
 /** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
