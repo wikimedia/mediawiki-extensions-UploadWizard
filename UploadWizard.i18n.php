@@ -4911,6 +4911,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
  * @author Aleator
  * @author Arnaugir
  * @author Gemmaa
+ * @author Papapep
  * @author Paucabot
  * @author SMP
  * @author Ssola
@@ -5045,7 +5046,7 @@ Podeu instaŀlar [$1 Firefogg], una extensió de Firefox per convertir-lo autom�
 	'mwe-upwiz-allowed-filename-extensions' => 'Les extensions permeses són:',
 	'mwe-upwiz-help-allowed-filename-extensions' => 'Extensions de nom de fitxer permeses',
 	'mwe-upwiz-upload-error-duplicate' => "Ja s'ha pujat abans aquest fitxer al wiki.",
-	'mwe-upwiz-upload-error-duplicate-archive' => "Aquest fitxer ja s'havia carregat en aquest wiki, però desprès ha estat esborrat.",
+	'mwe-upwiz-upload-error-duplicate-archive' => "Aquest fitxer ja s'havia carregat en aquest wiki, però desprès s'ha suprimit.",
 	'mwe-upwiz-upload-error-stashed-anyway' => 'Voleu pujar-lo igualment?',
 	'mwe-upwiz-upload-error-unknown-filename-error' => 'No es pot llegir o interpretar el nom del fitxer «$1» per raons desconegudes.',
 	'mwe-upwiz-ok' => "D'acord",
@@ -5164,7 +5165,7 @@ No utilitzeu aquí format wiki o HTML.',
 	'mwe-upwiz-license-flickr-subhead' => "Mireu l'apartat \"Llicència\" del lateral de la pàgina de Flickr. Tant les icones com el nom de la llicència que s'utilitza han de coincidir amb una de les opcions d'aquí.",
 	'mwe-upwiz-license-public-domain-usa-head' => 'El copyright ha expirat definitivament als EUA.',
 	'mwe-upwiz-license-public-domain-usa-subhead' => "{{SITENAME}} està situat als EUA, per la qual cosa ha de ser l'obra d'autor d'aquest país.",
-	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|Aquesta obra ha estat feta|Aquestes obres han estat fetes}} pel govern dels Estats Units',
+	'mwe-upwiz-license-usgov-head' => "{{PLURAL:$1|Aquesta obra l'ha fet|Aquestes obres les ha fet}} el govern dels Estats Units",
 	'mwe-upwiz-license-misc' => 'Altres motius',
 	'mwe-upwiz-license-custom-head' => "Una altra raó no s'esmenta més amunt",
 	'mwe-upwiz-license-custom-preview' => 'Vista prèvia',
@@ -5618,7 +5619,7 @@ Zkuste nějaký jiný prohlížeč.',
 	'mwe-upwiz-progressbar-uploading' => 'načítání',
 	'mwe-upwiz-finished' => 'Hotovo!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Zbývá $1 sekunda|Zbývají $1 sekundy|Zbývá $1 sekund}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|Zbývá|Zbývají|Zbývá}} {{PLURAL:$1|$1 minuta|$1 minuty|$1 minut}} a $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|Zbývá $1 minuta|Zbývají $1 minuty|Zbývá $1 minut}} {{PLURAL:$3|a}} $2 {{PLURAL:$2|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Zbývá $1 hodina|Zbývají $1 hodiny|Zbývá $1 hodin}}, $2 {{PLURAL:$2|minuta|minuty|minut}} a $3 {{PLURAL:$3|sekunda|sekundy|sekund}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Tento server vyžaduje, abyste pro {{PLURAL:$1|tento soubor|tyto soubory}} {{GENDER:$2|uvedl|uvedla|uvedli}} autorskoprávní údaje, aby bylo jisté, že {{PLURAL:$1|jej|je}} může každý legálně užívat.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Tento soubor je|Tyto soubory jsou}} mé vlastní dílo.',
@@ -7195,6 +7196,7 @@ Bitte verwenden Sie hier kein Wikitext oder HTML.',
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
  * @author Gorizon
+ * @author Marmase
  * @author Mirzali
  * @author Olvörg
  */
@@ -7471,11 +7473,11 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 	'mwe-upwiz-license-none' => 'Ezo emel kena ke {{PLURAL:$1|na gurenayış|nê gurenayışi}} Male şariye. Zeman de cıdı şıma malumate lisanser de nêvıstê se, esternayışa dosya do bıbo.',
 	'mwe-upwiz-license-confirm-remove' => '{{PLURAL:$1|Na barkerden|Nê Barkerdeni}} şıma qayılê ke wedariyo?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Tesdiqê ahulnayışi',
-	'mwe-upwiz-license-external' => 'Na dosya pawıtış de ena lisans bındı  $1: $2.', # Fuzzy
-	'mwe-upwiz-license-external-invalid' => 'Na lisans qandê $1 akerdiya:$2. welakin na lisans na sita dı karkerdışi rê hewl niya.', # Fuzzy
+	'mwe-upwiz-license-external' => 'Na dosya pawıtış de ena lisans bındı çımey cı lisans biyo $1: $2.',
+	'mwe-upwiz-license-external-invalid' => 'Na dosya lisans qandê $1 akerdiya:$2. welakin na lisans na sita dı karkerdışi rê hewl niya.',
 	'mwe-upwiz-categories' => 'Kategoriy',
 	'mwe-upwiz-categories-add' => 'Deke',
-	'mwe-upwiz-category-will-be-added' => 'O ke no kategori deyo do vıraziyo.', # Fuzzy
+	'mwe-upwiz-category-will-be-added' => 'Na kategori de teba nékariya yo.',
 	'mwe-upwiz-category-remove' => 'Kategori hewad',
 	'mwe-upwiz-thumbnail-failed' => 'Barkerdış temamya, lakin wasteri verqaytê resmê qıckeki nêşa bıgiro.',
 	'mwe-upwiz-unparseable-filename' => 'Ma namey dosya da "$1" fahm nêkerde.',
@@ -23505,7 +23507,7 @@ $messages['ps'] = array(
 	'mwe-upwiz-step-tutorial' => 'زده کول',
 	'mwe-upwiz-step-file' => 'پورته کول',
 	'mwe-upwiz-step-deeds' => 'د خپرولو رښتې',
-	'mwe-upwiz-step-details' => 'څرګندل',
+	'mwe-upwiz-step-details' => 'څرگندول',
 	'mwe-upwiz-step-thanks' => 'کارول',
 	'mwe-upwiz-help-desk' => 'د مرستې مېز',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:د مرستې ونجړی',
