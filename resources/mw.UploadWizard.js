@@ -64,8 +64,6 @@ mw.UploadWizard.prototype = {
 		// remove first spinner
 		$( '#mwe-first-spinner' ).remove();
 
-		// construct the message for the subheader
-		$( '#contentSub' ).append( $( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
 		if ( typeof mw.UploadWizard.config.feedbackPage === 'string' && mw.UploadWizard.config.feedbackPage.length > 0 ) {
 			feedback = new mw.Feedback( {
@@ -82,10 +80,6 @@ mw.UploadWizard.prototype = {
 				}
 			);
 			$( '#contentSub' ).append( feedbackLink );
-		}
-
-		if ( typeof mw.UploadWizard.config.translateHelp === 'string' && mw.UploadWizard.config.translateHelp.length > 0 ) {
-			$( '#contentSub' ).append( $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $( '<a></a>' ).attr( { href: mw.UploadWizard.config.translateHelp, target: '_blank' } ) ) );
 		}
 
 		configAltUploadForm = mw.UploadWizard.config.altUploadForm;

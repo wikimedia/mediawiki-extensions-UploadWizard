@@ -158,7 +158,7 @@ Please try an alternative browser.',
 	'mwe-upwiz-other' => 'Other information',
 	'mwe-upwiz-source' => 'Source',
 	'mwe-upwiz-thanks-intro' => 'Thanks for uploading!',
-	'mwe-upwiz-thanks-explain' => 'You can now use {{PLURAL:$1|this file|these files}} on sites like Wikipedia, or link to {{PLURAL:$1|it|them}} on the web.',
+	'mwe-upwiz-thanks-explain' => 'You can now use {{PLURAL:$1|this file|these files}} on wikis, or link to {{PLURAL:$1|it|them}} on the web.',
 	'mwe-upwiz-thanks-wikitext' => 'To use the file in a wiki, copy this text into a page:',
 	'mwe-upwiz-thanks-url' => 'To link to it in HTML, copy this URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'This wiki does not accept filenames that end in the extension ".$1".',
@@ -330,9 +330,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-unparseable-filename' => 'Could not understand the file name "$1".',
 	'mwe-upwiz-image-preview' => 'File preview',
 
-	'mwe-upwiz-subhead-message' => 'Thanks for using our new upload tool!',
 	'mwe-upwiz-subhead-bugs' => '[$1 Known issues]',
-	'mwe-upwiz-subhead-translate' => '[$1 Help with translations]',
 	'mwe-upwiz-subhead-alt-upload' => '[$1 Back to the old form]',
 
 	/* Feedback interface */
