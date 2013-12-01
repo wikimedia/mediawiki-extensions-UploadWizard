@@ -4909,6 +4909,7 @@ Molimo ne koristite ovdje wikitekst ili HTML.',
 
 /** Catalan (català)
  * @author Aleator
+ * @author Alvaro Vidal-Abarca
  * @author Arnaugir
  * @author Gemmaa
  * @author Papapep
@@ -4943,7 +4944,7 @@ $messages['ca'] = array(
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Ens sap greu, no hem pogut obtenir una imatge a escala del tutorial per adaptar-se a aquesta pantalla. Això pot ser un problema temporal amb Wikimedia Commons; intenti-ho de nou més tard.',
 	'mwe-upwiz-help-desk' => 'Ajuda',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Ajuda',
-	'mwe-upwiz-add-file-n' => 'Afegeix-hi un altre fitxer', # Fuzzy
+	'mwe-upwiz-add-file-n' => 'Afegeix-hi més fitxers',
 	'mwe-upwiz-add-file-0-free' => 'Escolliu un fitxer multimèdia per compartir', # Fuzzy
 	'mwe-upwiz-add-flickr-or' => 'o',
 	'mwe-upwiz-transport-started' => 'Començant...',
@@ -5123,7 +5124,7 @@ No utilitzeu aquí format wiki o HTML.',
 	'mwe-upwiz-file-too-large-ok' => 'Acceptar',
 	'mwe-upwiz-file-too-large-text' => 'Només podeu carregar fitxers amb una mida màxima de $1. Heu intentat carregar un fitxer de $2.',
 	'mwe-upwiz-file-too-large' => 'Fitxer massa gran.',
-	'mwe-upwiz-dialog-title' => 'Els fitxers es poden carregar amb un nom en qualsevol idioma i en qualsevol alfabet. Els títols dels fitxers haurien de ser significatius i útils en la llengua escollida.', # Fuzzy
+	'mwe-upwiz-dialog-title' => 'Advertència',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Reconeixement - Compartir Igual 3.0 ([$2 text legal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Reconeixement - Compartir Igual 3.0 Àustria ([$2 text legal])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Reconeixement - Compartir Igual 3.0 Alemanya ([$2 text legal])',
