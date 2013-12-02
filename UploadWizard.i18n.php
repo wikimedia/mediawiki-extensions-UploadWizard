@@ -8055,9 +8055,31 @@ $messages['en-ca'] = array(
  */
 $messages['en-gb'] = array(
 	'mwe-upwiz-skip-tutorial-future' => 'Skip this step in future',
-	'mwe-upwiz-source-ownwork-assert-custom' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby publish {{PLURAL:$1|this work|these works}} under the following licence:', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-custom' => 'I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, irrevocably grant anyone the right to use {{PLURAL:$1|this work|these works}} under the following licence:',
+	'mwe-upwiz-source-ownwork-assert-note' => 'I, copyright holder of {{PLURAL:$2|this work|these works}}, publish {{PLURAL:$2|this work|these works}} under the $1 licence.',
+	'mwe-upwiz-deeds-need-license' => 'Please select a licence.',
+	'mwe-upwiz-license-show-all' => 'Use a different licence',
+	'mwe-upwiz-license-show-recommended' => 'Use the recommended licence',
+	'mwe-upwiz-error-license-wikitext-too-short' => 'The wikitext here is too short to be a licence',
+	'mwe-upwiz-error-license-wikitext-invalid' => 'This does not seem to be valid wikitext, or does not contain a licence.',
+	'mwe-upwiz-license-custom' => 'The licence is described by the following wikitext (must contain a valid [$2 copyright tag]):',
+	'mwe-upwiz-license-fal' => 'Free Art Licence',
+	'mwe-upwiz-license-own-pd' => 'All rights waived with Creative Commons Zero licence (like public domain)',
+	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation Licence',
+	'mwe-upwiz-license-cc-head' => 'The copyright holder published {{PLURAL:$1|this work|these works}} with the right Creative Commons licence',
+	'mwe-upwiz-license-cc-subhead' => 'Not all Creative Commons licences are good for this site. Make sure the copyright holder used one of these licences.',
+	'mwe-upwiz-license-flickr-head' => 'The copyright holder published their {{PLURAL:$1|photo or video|photos or videos}} on Flickr with the right licence',
+	'mwe-upwiz-license-flickr-subhead' => 'Check the "Licence" header on the side of the Flickr page. Both the icons and licence name that they used have to match one of the choices here.',
+	'mwe-upwiz-license-none' => 'I believe {{PLURAL:$1|this work is|these works are}} freely licenced or legally in the public domain. I understand that if I do not add the necessary licencing information in a timely fashion, the {{PLURAL:$1|file|files}} may be deleted.',
+	'mwe-upwiz-license-external' => 'The file is under the following licence on the source site "$1": $2.',
+	'mwe-upwiz-license-external-invalid' => 'The file is under the following licence on the source site "$1": $2. Unfortunately, this wiki does not allow that licence.',
+	'mwe-upwiz-license-photoset-invalid' => 'Unfortunately, no image in the photoset has a licence appropriate to be used on this site.',
+	'mwe-upwiz-campaign-conf-skipTutorial' => 'Skip the licencing tutorial',
 	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'The licences that should be choosable for own-work:',
+	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'The default own work licence:',
 	'prefs-upwiz-licensing' => 'Licencing',
+	'mwe-upwiz-prefs-def-license' => 'Default licence',
+	'mwe-upwiz-prefs-skiptutorial' => 'Skip introductory licencing tutorial',
 );
 
 /** Esperanto (Esperanto)
@@ -11813,7 +11835,7 @@ $messages['gu'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|સેકંડ|સેકંડ}} બાકી',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|મિનિટ|મોનિટો}} $2 {{PLURAL:$2|સેકન્ડ|સેકન્ડો}} {{PLURAL:$3|બાકી}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|કલાક|કલાલો}} $2 {{PLURAL:$2|મિનિટ|મિનિટ}} $3 {{PLURAL:$3|સેકન્ડ|સેકન્ડો}} બાકી',
-	'mwe-upwiz-deeds-macro-prompt' => 'આ {{PLURAL:$1|રચના|રચનાઓ}} ને કોપીરાઈટ માહિતી તમારે આ સાઈટ પર આપવી રહેશે. જેથી દરેક લોકો આને કાયદેસર રીતે તેને વપરી શકે.', # Fuzzy
+	'mwe-upwiz-deeds-macro-prompt' => 'આ {{PLURAL:$1|રચના|રચનાઓ}} ને કોપીરાઈટ માહિતી {{GENDER:$2|તમારે}} આ સાઈટ પર આપવી રહેશે. જેથી દરેક લોકો {{PLURAL:$1|તેને|તેને}} કાયદેસર રીતે વાપરી શકે.', # Fuzzy
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|આ ફાઈલ |આ ફાઈલો}} મારી પોતાની રચનાઓ છે.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'હું, $2, આ {{PLURAL:$1|રચના|રચનાઓ}}નો પ્રકશન અધિકાર ધારક, અહીં, સર્વને આ રચનાને કોઈ પણ કાર્ય માટે પુનઃ વિસ્તરણ કરવા, પ્રસિદ્ધ કરવા નીચેની શરતે પરવાનગી આપું છું.',
 	'mwe-upwiz-source-ownwork-assert' => 'હું, $2, આ {{PLURAL:$1|રચના|રચનાઓ}}નો પ્રકાશન ધારક , અહીં સૌને આ  {{PLURAL:$1|રચના|રચનાઓ}} ને વાપ્રવાનો અધિકાર આપું છું, જો તેઓ મને આ રચનાનો જશ આપે અને તેમાંથી તૈયાર થયેલ સુધારીતે કે નવી રચનાના એવાજ હક્કો તેજ શરતો હેઠળ મને પણ આપે.',
