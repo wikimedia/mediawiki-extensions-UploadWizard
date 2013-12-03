@@ -573,9 +573,6 @@ return array(
 	// Bugzilla page for UploadWizard bugs
 	'bugList' => 'https://bugzilla.wikimedia.org/buglist.cgi?query_format=advanced&component=UploadWizard&resolution=---&product=MediaWiki+extensions',
 
-	// TranslateWiki page for help with translations
-	'translateHelp' => '//translatewiki.net/w/i.php?title=Special:Translate&group=ext-uploadwizard',
-
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
 	//
