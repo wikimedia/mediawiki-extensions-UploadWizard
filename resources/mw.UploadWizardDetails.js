@@ -170,7 +170,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
 	//	.append( _this.altInput );
 
-	var showMap = $( '<button>' ).prop( 'type', 'button' ).prop( 'size', 20 )
+	var showMap = $( '<button type="button" size="20"></button>' )
 		.addClass( 'mwe-upwiz-buttons' )
 		.msg( 'mwe-upwiz-location-button' )
 		.button()
