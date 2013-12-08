@@ -4165,7 +4165,7 @@ $messages['bn'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'আপলোডিং',
 	'mwe-upwiz-finished' => 'সম্পন্ন!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|সেকেন্ড|সেকেন্ড}} বাকি',
-	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|মিনিট|মিনিট}} $2 {{PLURAL:$2|সেকেন্ড|সেকেন্ড}} বাকি', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|মিনিট|মিনিট}} $2 {{PLURAL:$2|সেকেন্ড|সেকেন্ড}} {{PLURAL:$3|বাকি}}', # Fuzzy
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|ঘন্টা|ঘন্টা}} $2 {{PLURAL:$2|মিনিট|মিনিট}} $3 {{PLURAL:$3|সেকেন্ড|সেকেন্ড}} বাকি',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|এই ফাইলটি|এই ফাইলগুলো}} আমার নিজের কাজ।',
 	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'আমি, $2, {{PLURAL:$1|এই কাজ|এই কাজগুলোর}} কপিরাইট হোল্ডার, ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন শেয়ার এলাইক ৩.০ অস্ট্রেলিয়া লাইসেন্সের অধিনে {{PLURAL:$1|এই কাজ|এই কাজগুলোর}} সকলের ব্যবহারের জন্য প্রকাশ করছি ([$3 legal code])।',
@@ -4283,6 +4283,12 @@ $messages['bn'] = array(
 	'mwe-upwiz-file-too-large-ok' => 'ঠিক আছে',
 	'mwe-upwiz-file-too-large-text' => 'আপনি সর্বোচ্চ $1 আকারের ফাইল আপলোড করতে পারবেন। আপনি $2 আকারের ফাইল আওলোডের চেষ্টা করছেন।',
 	'mwe-upwiz-file-too-large' => 'ফাইলটি অনেক বড়।',
+	'mwe-upwiz-dialog-yes' => 'হ্যাঁ',
+	'mwe-upwiz-dialog-no' => 'না',
+	'mwe-upwiz-dialog-title' => 'সতর্কীকরণ',
+	'mwe-upwiz-campaign-upload-button' => 'আপলোড!',
+	'mwe-upwiz-campaign-media-count-desc' => 'আপলোডগুলি',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'অবদান',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন শেয়ার অ্যালাইক ৩.০ ([$2 লিগাল কোড])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন শেয়ার অ্যালাইক ৩.০ অস্ট্রেলিয়া ([$2 লিগাল কোড])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন শেয়ার অ্যালাইক ৩.০ জার্মানি ([$2 লিগাল কোড])',
@@ -4376,6 +4382,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'ডিফল্টটি ব্যবহার করো',
 	'mwe-upwiz-prefs-license-own' => 'নিজের কাজ - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'অন্য কারও কাজ - $1',
+	'mwe-upload-campaigns-pagination-next' => 'পরবর্তী পাতা',
 );
 
 /** Breton (brezhoneg)
@@ -5243,6 +5250,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-uploading' => 'Файлаш сервес чуйолуш ю…',
 	'mwe-upwiz-stashed-upload' => 'Чуйаьккхина',
 	'mwe-upwiz-remove' => 'ДӀаяккха',
+	'mwe-upwiz-upload' => 'Чуяккха',
 	'mwe-upwiz-file-all-ok' => 'Чуяхар кхиамца чекхдели!',
 	'mwe-upwiz-next-file-despite-failures' => 'Такха а кхин дӀа',
 	'mwe-upwiz-upload-count' => '$2 {{PLURAL:$2|Файлех|Файлашах}} {{PLURAL:$1|чуаьккха $1 файл|чуаьха $1 файлаш}}',
@@ -5268,6 +5276,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-upload-another' => 'Чуяха кхин файлаш',
 	'mwe-upwiz-error-blank' => 'ХӀара юззар тӀехь ду.',
 	'mwe-upwiz-dialog-yes' => 'ХӀаъ',
+	'mwe-upwiz-campaign-upload-button' => 'Чуяккха',
 	'mwe-upwiz-campaign-media-count-desc' => 'Чуйаьхарш',
 	'mwe-upwiz-license-custom-preview' => 'Хьалха муха ю хьажа',
 	'mwe-upwiz-license-confirm-remove-title' => 'Бакъде дӀаяккхар',
@@ -32114,6 +32123,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => '於上傳精靈中分割上載超過1MB的檔案',
 	'mwe-upwiz-prefs-skiptutorial' => '略過授權指南',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => '同時上載的最大數目',
+	'campaigns' => '上載運動嚮導',
 	'mwe-upload-campaigns-pagination-next' => '下一頁',
 	'mwe-upload-campaigns-list-title' => '上載活動列表',
 );
