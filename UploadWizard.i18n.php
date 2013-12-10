@@ -27933,7 +27933,7 @@ Prova en annan webbläsare.',
 	'mwe-upwiz-other' => 'Övrig information',
 	'mwe-upwiz-source' => 'Källa',
 	'mwe-upwiz-thanks-intro' => 'Tack för uppladdningen!',
-	'mwe-upwiz-thanks-explain' => 'Du kan nu använda {{PLURAL:$1|denna fil|dessa filer}} på webbplatser som Wikipedia, eller länka till {{PLURAL:$1|den|dem}} på webben.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Du kan nu använda {{PLURAL:$1|denna fil|dessa filer}} på olika wikis, eller länka till {{PLURAL:$1|den|dem}} på webben.',
 	'mwe-upwiz-thanks-wikitext' => 'För att använda filen i en wiki, kopiera denna text till en sida:',
 	'mwe-upwiz-thanks-url' => 'För att länka till den i HTML, kopiera denna URL-adress:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Denna wiki accepterar inte filnamn med filändelsen ".$1".',
