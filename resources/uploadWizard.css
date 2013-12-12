@@ -799,6 +799,11 @@ input.mwe-date {
 .mwe-location-alt {
 	font-style:italic;
 }
+/* Refer ---> http://stackoverflow.com/questions/17047694/add-line-break-to-before-or-after-pseudo-element-content */
+.mwe-loc-link:before {
+	content:'\a';
+	white-space:pre;
+}
 
 .mwe-upwiz-category-will-be-added {
 	font-style:italic;
