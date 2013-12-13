@@ -85,7 +85,7 @@ $specialPageAliases['fa'] = array(
 
 /** Galician (galego) */
 $specialPageAliases['gl'] = array(
-	'UploadWizard' => array( 'Asistente_de_cargas' ),
+	'UploadWizard' => array( 'Asistente_de_subidas', 'Asistente_de_cargas' ),
 );
 
 /** Swiss German (Alemannisch) */
