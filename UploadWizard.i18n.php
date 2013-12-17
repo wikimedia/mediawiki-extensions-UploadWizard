@@ -8246,7 +8246,7 @@ Por foto, menciu la esencaj aĵoj bildigitaj, la okazon, aŭ la lokon.',
 Bonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie, nur vian vikian uzantonomon aŭ vian veran nomon.',
 	'mwe-upwiz-error-blank' => 'Ĉi tiu kampo estas deviga.',
 	'mwe-upwiz-error-nologin' => 'Vi devas esti <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ensalutita]</span> por alŝuti dosierojn.',
-	'mwe-upwiz-error-too-long' => 'Tiu ĉi noto tro longas. Koncizigu ĝin al malpli ol {{PLURAL:$1|karaktro|karaktroj}}.',
+	'mwe-upwiz-error-too-long' => 'Tiu ĉi noto estas tro longa. Koncizigu ĝin al malpli ol $1  {{PLURAL:$1|signo|signoj}}.',
 	'mwe-upwiz-error-too-short' => 'Tiu ĉi noto tro mallongas. Ampleksigu ĝin al pli ol {{PLURAL:$1|signo|signoj}}.',
 	'mwe-upwiz-error-bad-chars' => 'Tiu ĉi noto enhavas simbolojn ne permesatajn.
 Bonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie,',
@@ -18357,6 +18357,7 @@ $messages['lt'] = array(
 
 /** Mizo (Mizo ţawng)
  * @author RMizo
+ * @author Shirayuki
  */
 $messages['lus'] = array(
 	'uploadwizard' => 'Hlànkàina kháwlrelh',
@@ -18528,7 +18529,7 @@ Hetah chuan wikithu leh HTML hmang lo hräm rawh.',
 	'mwe-upwiz-license-cc-by-2.5' => 'Creative Commons Insawilanna 2.5 ([$2 dàn zîak])',
 	'mwe-upwiz-license-cc-by-sa-2.0' => 'Creative Commons Insawilanga AnpuiaChhuahchhawnna 2.0 ([$2 dàn zîak])',
 	'mwe-upwiz-license-cc-by-2.0' => 'Creative Commons Insawilanna 2.0 ([$2 dàn zîak])',
-	'mwe-upwiz-license-cc-zero' => 'Creative Commons CCO Phalràina (khuahkhirhna dan zawng zawng, vangtlang thil ang maia hlih vekna: [$2 dàn zîak])',
+	'mwe-upwiz-license-cc-zero' => 'Creative Commons CC0 Phalràina (khuahkhirhna dan zawng zawng, vangtlang thil ang maia hlih vekna: [$2 dàn zîak])',
 	'mwe-upwiz-license-custom' => 'A phalphung chu a hnuaia wikithu hian a sawifiah ([$2 lâkchhàwn phalphung] dik a kengtel tùr a ni):',
 	'mwe-upwiz-license-fal' => 'Thiamthil Phalphung Zalèn',
 	'mwe-upwiz-license-own-pd' => 'Creative Commons Zero phalphung hmangin khuahkhirhna zawng zawng hlih vek a ni (vantlang thil ang a ni)',
