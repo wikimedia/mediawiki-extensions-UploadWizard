@@ -5666,7 +5666,7 @@ Zkuste nějaký jiný prohlížeč.',
 	'mwe-upwiz-other' => 'Další informace',
 	'mwe-upwiz-source' => 'Zdroj',
 	'mwe-upwiz-thanks-intro' => 'Děkujeme za načtení!',
-	'mwe-upwiz-thanks-explain' => 'Nyní můžete {{PLURAL:$1|tento soubor|tyto soubory}} použít na projektech, jako je Wikipedie, nebo na {{PLURAL:$1|něj|ně}} odkázat z webových stránek.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Nyní můžete {{PLURAL:$1|tento soubor|tyto soubory}} použít na wiki nebo na {{PLURAL:$1|něj|ně}} odkázat z webových stránek.',
 	'mwe-upwiz-thanks-wikitext' => 'Pro použití souboru na wiki vložte do stránky tento text:',
 	'mwe-upwiz-thanks-url' => 'Odkázat na soubor v HTML můžete pomocí této adresy:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Tato wiki nepřijímá soubory s příponou „.$1“.',
