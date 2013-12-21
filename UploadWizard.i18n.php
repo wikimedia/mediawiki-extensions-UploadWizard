@@ -2255,7 +2255,7 @@ $messages['as'] = array(
 	'mwe-upwiz-source' => 'উৎস',
 	'mwe-upwiz-thanks-intro' => 'আপলোডৰ বাবে ধন্যবাদ!',
 	'mwe-upwiz-thanks-explain' => 'আপুনি এতিয়া {{PLURAL:$1|এই ফাইলটো|এই ফাইলসমূহ}} ৱিকিপিডিয়াৰ দৰে চাইটত ব্যৱহাৰ কৰিব পাৰিব, বা ৱেবত {{PLURAL:$1|তালৈ|সেইবোৰলৈ}} লিংক দিব পাৰিব।', # Fuzzy
-	'mwe-upwiz-thanks-wikitext' => 'এই ফাইলটো এটা ৱিকিত ব্যৱহাৰ কৰিবলৈ, এখন পৃষ্ঠাত এই পাঠখিনি প্ৰতিলিপি কৰক:',
+	'mwe-upwiz-thanks-wikitext' => 'এই ফাইলটো এটা ৱিকিত ব্যৱহাৰ কৰিবলৈ, এটা পৃষ্ঠাত এই পাঠখিনি প্ৰতিলিপি কৰক:',
 	'mwe-upwiz-thanks-url' => 'এই HTML সংযোগ যোগ কৰিবলৈ, এই URL ঠিকনা প্ৰতিলিপ কৰক:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => '".$1" এক্সটেনছনেৰে শেষ হোৱা ফাইলৰ নাম এই ৱিকিয়ে গ্ৰহণ নকৰে।',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => "আপুনি আপল'ড কৰিবলৈ বাছনি কৰা ভিডিঅ' ফাইলটোৰ ফৰ্মেট মুক্ত নহয়।
@@ -10957,6 +10957,20 @@ $messages['fur'] = array(
 	'mwe-upwiz-categories' => 'Categoriis',
 	'mwe-upwiz-categories-add' => 'Zonte',
 	'mwe-upwiz-category-remove' => 'Gjave cheste categorie',
+);
+
+/** Western Frisian (Frysk)
+ * @author Kening Aldgilles
+ */
+$messages['fy'] = array(
+	'mwe-upwiz-ok' => 'Okee',
+	'mwe-upwiz-cancel' => 'Ofbrekke',
+	'mwe-upwiz-next' => 'Folgjende',
+	'mwe-upwiz-next-file' => 'Trochgean',
+	'mwe-upwiz-next-deeds' => 'Folgjende',
+	'mwe-upwiz-next-details' => 'Folgjende',
+	'mwe-upwiz-home' => 'Gean nei haadside fan wiky',
+	'mwe-upwiz-upload-another' => 'Mear bestannen oplade',
 );
 
 /** Irish (Gaeilge)
@@ -26631,7 +26645,7 @@ Prosimo, poskusite drug brskalnik.',
 	'mwe-upwiz-other' => 'Druge informacije',
 	'mwe-upwiz-source' => 'Vir',
 	'mwe-upwiz-thanks-intro' => 'Hvala za nalaganje!',
-	'mwe-upwiz-thanks-explain' => 'Zdaj lahko {{PLURAL:$1|to datoteko|ti datoteki|te datoteke}} uporabite na straneh, kot je Wikipedija, ali {{PLURAL:$1|jo|ju|jih}} povežete s spleta.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Zdaj lahko {{PLURAL:$1|datoteko|datoteki|datoteke}} uporabite na wikijih ali {{PLURAL:$1|jo|ju|jih}} povežete na spletu.',
 	'mwe-upwiz-thanks-wikitext' => 'Za uporabo datoteke v wikiju skopirajte v stran to besedilo:',
 	'mwe-upwiz-thanks-url' => 'Za povezavo v HTML skopirajte ta naslov URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ta wiki ne sprejema imen datotek s končnico ».$1«.',
