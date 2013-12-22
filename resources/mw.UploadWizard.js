@@ -374,6 +374,8 @@ mw.UploadWizard.prototype = {
 
 		// Set up the submit button
 		$flickrButton.button( { label: mw.message( 'mwe-upwiz-add-flickr' ).escaped() } );
+
+		$flickrInput.focus();
 	},
 
 	/**
