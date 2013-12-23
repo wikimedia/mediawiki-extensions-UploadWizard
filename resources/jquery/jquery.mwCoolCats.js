@@ -166,8 +166,16 @@
 	 */
 	function _fetchSuggestions() {
 		var _input = this;
-		// ignore bad characters, they will be stripped out
-		var prefix = _stripText( $( this ).val() );
+
+		// Get the name of the category (no "Category:"), stripping out
+		// bad characters as necessary.
+		var prefix = _stripText( $( this ).val() ),
+			title = mw.Title.newFromText( prefix, catNsId );
+		if ( title && title.getNamespaceId() === catNsId ) {
+			prefix = title.getMainText();
+		} else {
+			prefix = title.getPrefixedText();
+		}
 
 		var ok = function( catList ) {
 			for ( var c in catList ) {
@@ -176,7 +184,7 @@
 			$( _input ).suggestions( 'suggestions', catList );
 		};
 
- 		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
+		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
 	}
 
 	var defaults = {
