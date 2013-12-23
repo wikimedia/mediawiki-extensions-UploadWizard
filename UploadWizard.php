@@ -86,7 +86,7 @@ $wgSpecialPageGroups['Campaigns'] = 'media';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
-$wgHooks['ResourceLoaderTestModules'][] = 'UploadWizardHooks::getTestModules';
+$wgHooks['ResourceLoaderTestModules'][] = 'UploadWizardHooks::onResourceLoaderTestModules';
 
 $uploadWizardModuleInfo = array(
 	'localBasePath' => __DIR__ . '/resources',

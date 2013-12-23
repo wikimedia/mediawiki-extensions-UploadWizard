@@ -630,6 +630,26 @@ class UploadWizardHooks {
 	}
 
 	/**
+	 * Get JavaScript test modules
+	 * @param array $testModules
+	 * @param ResourceLoader resourceLoader
+	 * @return bool
+	 */
+	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
+		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
+			'scripts' => array(
+				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
+				'tests/qunit/mw.FlickrChecker.test.js',
+			),
+			'dependencies' => array(
+				'ext.uploadWizard',
+			),
+			'localBasePath' => __DIR__,
+			'remoteExtPath' => 'UploadWizard',
+		);
+	}
+
+	/**
 	 * Helper function to get the message for a license.
 	 *
 	 * @since 1.2
@@ -650,26 +670,5 @@ class UploadWizardHooks {
 		else {
 			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
 		}
-	}
-
-	/**
-	 * Get modules for testing our JavaScript
-	 * @param array $testModules
-	 * @param ResourceLoader resourceLoader
-	 * @return bool
-	 */
-	public static function getTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
-		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
-				'scripts' => array(
-						'tests/qunit/mw.UploadWizardLicenseInput.test.js',
-				),
-				'dependencies' => array(
-						'ext.uploadWizard',
-				),
-				'localBasePath' => __DIR__,
-				'remoteExtPath' => 'UploadWizard',
-		);
-
-		return true;
 	}
 }
