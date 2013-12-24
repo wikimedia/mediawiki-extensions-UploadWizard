@@ -71,6 +71,7 @@ class TestUploadWizardAPICalls(unittest.TestCase):
             "ignorewarnings": "true",
             "filename": "Test-image-rosa-mx-15x15.png",
             "comment": "Test image uploaded via python script.",
+            "text": "[[Category:Test images]]",
         }
         req = wikitools.api.APIRequest(wiki, params)
         data = req.query()
