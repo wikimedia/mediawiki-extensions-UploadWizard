@@ -86,6 +86,7 @@ $wgSpecialPageGroups['Campaigns'] = 'media';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
+$wgHooks['ResourceLoaderTestModules'][] = 'UploadWizardHooks::getTestModules';
 
 $uploadWizardModuleInfo = array(
 	'localBasePath' => __DIR__ . '/resources',
@@ -114,8 +115,8 @@ $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.page'] = array(
-        'scripts' => 'mw.UploadWizardPage.js',
-        'dependencies' => 'ext.uploadWizard'
+	'scripts' => 'mw.UploadWizardPage.js',
+	'dependencies' => 'ext.uploadWizard'
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
