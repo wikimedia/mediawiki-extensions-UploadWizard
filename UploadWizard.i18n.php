@@ -5278,6 +5278,8 @@ $messages['ce'] = array(
 	'mwe-upwiz-dialog-yes' => 'ХӀаъ',
 	'mwe-upwiz-campaign-upload-button' => 'Чуяккха',
 	'mwe-upwiz-campaign-media-count-desc' => 'Чуйаьхарш',
+	'mwe-upwiz-license-pd-old-100' => 'Автор дӀакхелхина 100 шо хьалха',
+	'mwe-upwiz-license-pd-old' => 'Автор дӀакхелхина 70 шо хьалха',
 	'mwe-upwiz-license-custom-preview' => 'Хьалха муха ю хьажа',
 	'mwe-upwiz-license-confirm-remove-title' => 'Бакъде дӀаяккхар',
 	'mwe-upwiz-categories-add' => 'ТIетоха',
@@ -16805,7 +16807,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-media-type' => '미디어 종류',
 	'mwe-upwiz-date-created' => '창작한 날짜',
 	'mwe-upwiz-location' => '위치',
-	'mwe-upwiz-location-button' => '지도에 표시',
+	'mwe-upwiz-location-button' => '지도에 보이기',
 	'mwe-upwiz-location-lat' => '위도',
 	'mwe-upwiz-location-lon' => '경도',
 	'mwe-upwiz-location-alt' => '고도',
@@ -17877,6 +17879,14 @@ $1",
 	'mwe-upwiz-prefs-skiptutorial' => 'Den Assistent vun de Lizenzen iwwersprangen',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximal Zuel vun Uploaden de selwechten Ament',
 	'mwe-upload-campaigns-pagination-next' => 'Nächst Säit',
+);
+
+/** Lezghian (лезги)
+ * @author Soul Train
+ */
+$messages['lez'] = array(
+	'mwe-upwiz-remove' => 'Алудун',
+	'mwe-upwiz-categories' => 'Категорияр',
 );
 
 /** Limburgish (Limburgs)
