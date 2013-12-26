@@ -5258,6 +5258,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-more-options' => 'ТӀетоха и йолу меттиг а кхин хаам а…',
 	'mwe-upwiz-desc' => 'Цуьнах лаьцна',
 	'mwe-upwiz-desc-add-n' => 'тӀетоха цунах лаьцна кхечу маттахь',
+	'mwe-upwiz-desc-add-0' => 'тӀетоха цуьнах лаьцна',
 	'mwe-upwiz-title' => 'Корта',
 	'mwe-upwiz-media-type' => 'Медиан тайп',
 	'mwe-upwiz-date-created' => 'Кхолийна терахь',
@@ -9448,6 +9449,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-media-type' => 'نوع رسانه',
 	'mwe-upwiz-date-created' => 'تاریخ ایجاد',
 	'mwe-upwiz-location' => 'مکان',
+	'mwe-upwiz-location-button' => 'نمایش روی نقشه',
 	'mwe-upwiz-location-lat' => 'عرض جغرافیایی',
 	'mwe-upwiz-location-lon' => 'طول جغرافیایی',
 	'mwe-upwiz-location-alt' => 'ارتفاع',
@@ -9457,7 +9459,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-other' => 'اطلاعات دیگر',
 	'mwe-upwiz-source' => 'منبع',
 	'mwe-upwiz-thanks-intro' => 'سپاس از بارگذاری!',
-	'mwe-upwiz-thanks-explain' => 'شما می‌توانید از این {{PLURAL:$1|پرونده|پرونده‌ها}} در وب‌گاه‌هایی همچون ویکی‌پدیا استفاده کنید، یا در وب به {{PLURAL:$1|آن|آن‌ها}} پیوند دهید.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'شما می‌توانید از این {{PLURAL:$1|پرونده|پرونده‌ها}} در وب‌گاه‌ها استفاده کنید، یا در وب به {{PLURAL:$1|آن|آن‌ها}} پیوند دهید.',
 	'mwe-upwiz-thanks-wikitext' => 'برای استفاده پرونده در ویکی، این متن را به یک صفحه بیفزایید:',
 	'mwe-upwiz-thanks-url' => 'برای پیوند دادن به آن در اچ‌تی‌ام‌ال، از این نشانی نسخه برداری کنید:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'این ویکی نام پرونده با پسوند ".$1" قبول نمی‌کند.',
@@ -9693,6 +9695,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'بارگذاری‌های تکه‌شده برای  پرونده‌های بیشتر از ۱ مگابایت در جادوگر بارگذاری',
 	'mwe-upwiz-prefs-skiptutorial' => 'پرش از آموزش مقدماتی صدور مجوز',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'حداکثر تعداد بارگذاری همزمان',
+	'campaigns' => 'کمپین جادوگر بارگذاری',
 	'mwe-upload-campaigns-pagination-next' => 'صفحهٔ بعدی',
 	'mwe-upload-campaigns-list-title' => 'فهرست همهٔ کمپین‌ها',
 );
@@ -16674,6 +16677,7 @@ $messages['kn'] = array(
  * @author Jytim
  * @author Kwj2772
  * @author Mintz0223
+ * @author Priviet
  * @author 관인생략
  * @author 아라
  */
@@ -16701,7 +16705,7 @@ $messages['ko'] = array(
 	'mwe-upwiz-campaign-unknown-error' => '알 수 없는 오류가 발생했습니다.',
 	'mwe-upwiz-api-warning-exists' => '같은 파일 이름을 사용하고 있는 [$1 다른 파일]이 있습니다',
 	'mwe-upwiz-api-warning-was-deleted' => '이 이름으로 된 파일 "$1"이 있었지만, 삭제되었으며 이 파일을 다시 올릴 수 없습니다. 파일이 다르다면 이름을 바꿔 시도하세요.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => '죄송합니다, 당신의 언어로 된 자습서를 찾을 수 없습니다. $1가 대신 보여집니다.',
+	'mwe-upwiz-tutorial-error-localized-file-missing' => '죄송합니다, 당신의 언어로 된 자습서를 찾을 수 없습니다. $1가 대신 보입니다.',
 	'mwe-upwiz-tutorial-error-file-missing' => '죄송합니다, 여기에 보여질 자습서 파일을 찾을 수 없습니다. 시스템 관리자에게 문의하세요.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => '죄송합니다, 이 화면에 맞는 자습서 파일을 확보할 수 없습니다. 이 문제는 위키미디어 공용의 일시적인 문제이니 잠시 후 다시 시도하세요.',
 	'mwe-upwiz-help-desk' => '질문방',
