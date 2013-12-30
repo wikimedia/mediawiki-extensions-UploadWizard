@@ -283,7 +283,7 @@ class SpecialUploadWizard extends SpecialPage {
 			if ( !$user->isLoggedIn() && ( $wgGroupPermissions['user']['upload']
 				|| $wgGroupPermissions['autoconfirmed']['upload'] ) ) {
 				// Custom message if logged-in users without any special rights can upload
-				$returnstr = $this->getTitle();
+				$returnstr = $this->getPageTitle();
 				$values = $this->getRequest()->getValues();
 				if ( isset( $values['title'] ) ) {
 					unset( $values['title'] );
