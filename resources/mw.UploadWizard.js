@@ -1212,7 +1212,7 @@ mw.UploadWizard.prototype = {
 				return;
 			}
 			var thumbWikiText,
-				id = 'thanksDiv' + i,
+				id = 'mwe-upwiz-thanks-div-' + i,
 				$thanksDiv = $( '<div></div>' ).attr( 'id', id ).addClass( 'mwe-upwiz-thanks ui-helper-clearfix' ),
 				$thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' ),
 				$thumbnailCaption = $( '<div></div>' )
