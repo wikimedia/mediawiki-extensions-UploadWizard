@@ -227,10 +227,18 @@ mw.FormDataTransport.prototype = {
                         });
                     //Server not ready, wait for 3 more seconds
                     } else {
-                        transport.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
-                        setTimeout(function() {
-                            transport.checkStatus();
-                        }, 3000);
+                        if ( response.upload.stage === undefined ) {
+                            console.log( "Unable to check file's status" );
+                        } else {
+                            //Statuses that can be returned:
+                            // *mwe-upwiz-queued
+                            // *mwe-upwiz-publish
+                            // *mwe-upwiz-assembling
+                            transport.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
+                            setTimeout(function() {
+                                transport.checkStatus();
+                            }, 3000);
+                        }
                     }
                 } else {
                     transport.transportedCb(response);
