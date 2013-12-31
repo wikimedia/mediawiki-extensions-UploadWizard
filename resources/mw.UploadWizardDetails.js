@@ -170,17 +170,12 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
 	//	.append( _this.altInput );
 
-	var showMap = $( '<button type="button" size="20"></button>' )
-		.addClass( 'mwe-upwiz-buttons' )
-		.msg( 'mwe-upwiz-location-button' )
-		.button()
-		.click( function( ) {
-			var latd = _this.$latInput.val(),
-				lond = _this.$lonInput.val(),
-				mapLink = new mw.Uri( 'https://openstreetmap.org/' )
-					.extend( { zoom: 9, layers: 'M', lat: +latd, lon: +lond } );
-			window.open( mapLink.toString() );
-		} );
+	var showMap = $( '<a></a>' )
+		.append( mw.message( 'mwe-upwiz-location-button' ).text() )
+		.hide();
+
+	var linkDiv = $( '<div class="mwe-loc-link"></div>' )
+		.append( showMap );
 
 	var locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append( $ ('<div class="mwe-location-label"></div>' )
@@ -190,9 +185,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
 			//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-			latDiv, lonDiv //, altDiv
-		)
-		.append( showMap );
+			latDiv, lonDiv, linkDiv//, altDiv
+		);
 
 	$( moreDetailsDiv ).append(
 		locationDiv,
@@ -308,6 +302,17 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		messages: {
 			required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
 			/* dateISO: mw.message( 'mwe-upwiz-error-date' ).escaped() */
+		}
+	} );
+
+	var $list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon ' );
+	$list.on( 'input keyup change cut paste', function ( event ) {
+		var link = _this.osmMapLink();
+		if (  $list.valid() ) {
+			showMap.attr( { 'href':link, 'target':'_blank' } ).show();
+		}
+		else {
+			showMap.hide();
 		}
 	} );
 
@@ -662,6 +667,15 @@ mw.UploadWizardDetails.prototype = {
 
 		_this.$form.append( _this.copyMetadataCtrlDiv, copyMetadataDiv );
 		_this.copyMetadataCtrlDiv.show();
+	},
+
+	/**
+	 * Open OSM map
+	 */
+	osmMapLink: function () {
+			var mapLink = new mw.Uri( 'https://openstreetmap.org/' )
+					.extend( { zoom: 9, layers: 'M', lat: this.$latInput.val(), lon: this.$lonInput.val() } );
+			return mapLink.toString();
 	},
 
 	/**
