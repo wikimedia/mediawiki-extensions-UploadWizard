@@ -17519,6 +17519,15 @@ $messages['ky'] = array(
 	'mwe-upwiz-prefs-chunked' => 'Жүктөө устатындагы 1MB дан ашкан файлдардын жүктөлүшүн бөлүп салуу',
 );
 
+/** Ladino (Ladino)
+ * @author Menachem.Moreira
+ */
+$messages['lad'] = array(
+	'mwe-upwiz-published' => 'Publikado!',
+	'mwe-upwiz-dialog-yes' => 'Si',
+	'mwe-upwiz-dialog-no' => 'No',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
