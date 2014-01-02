@@ -148,6 +148,7 @@ class UploadWizardHooks {
 				'api-error-noimageinfo',
 				'api-error-fileexists-shared-forbidden',
 				'api-error-unclassified',
+				'api-error-stasherror',
 				'mwe-upwiz-api-warning-was-deleted',
 				'mwe-upwiz-api-warning-exists',
 				'mwe-upwiz-tutorial-error-localized-file-missing',
