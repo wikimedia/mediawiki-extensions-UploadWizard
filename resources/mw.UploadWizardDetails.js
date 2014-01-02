@@ -1352,17 +1352,25 @@ mw.UploadWizardDetails.prototype = {
 				if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
 					err('server-error', 'unknown server error');
 				} else {
-					_this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
-					setTimeout( function() {
-						if ( _this.upload.state != 'aborted' ) {
-							_this.upload.api.postWithEditToken( {
-								action: 'upload',
-								checkstatus: true,
-								filekey: _this.upload.fileKey
-							},
-							ok, err );
-						}
-					}, 3000 );
+					if ( result.upload.stage === undefined ) {
+						console.log( "Unable to check file's status" );
+					} else {
+						//Messages that can be returned:
+						// *mwe-upwiz-queued
+						// *mwe-upwiz-publish
+						// *mwe-upwiz-assembling
+						_this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
+						setTimeout( function() {
+							if ( _this.upload.state != 'aborted' ) {
+								_this.upload.api.postWithEditToken( {
+									action: 'upload',
+									checkstatus: true,
+									filekey: _this.upload.fileKey
+								},
+								ok, err );
+							}
+						}, 3000 );
+					}
 				}
 				return;
 			}
