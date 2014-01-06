@@ -9,6 +9,15 @@ mw.FlickrChecker = function( wizard, upload ) {
 	this.apiKey = mw.UploadWizard.config.flickrApiKey;
 };
 
+/**
+ * Static list of all Flickr upload filenames.
+ * Used to avoid name conflicts. Filenames are not removed when an upload is cancelled, so this can
+ * contain fakes. Since we only use the list to choose an ugly but more unique file format on conflict,
+ * and never refuse an upload based on it, that is not really a problem.
+ * @type {Object}
+ */
+mw.FlickrChecker.fileNames = {};
+
 mw.FlickrChecker.prototype = {
 	licenseList: [],
 	// Map each Flickr license name to the equivalent templates.
@@ -61,6 +70,39 @@ mw.FlickrChecker.prototype = {
 		}
 	},
 
+	/**
+	 * Returns a suggested filename for the image.
+	 * Usually the filename is just the Flickr title plus an extension, but in case of name conflicts
+	 * or empty title a unique filename is generated.
+	 * @param {String} title image title on Flickr
+	 * @param {number} id image id on Flickr
+	 * @param {String} ownername owner name on Flickr
+	 * @return {String}
+	 */
+	getFilenameFromItem: function( title, id, ownername ) {
+		var fileName;
+
+		if ( title === '' ) {
+			fileName = ownername + ' - ' + id + '.jpg';
+		} else if ( mw.FlickrChecker.fileNames[title + '.jpg'] ) {
+			fileName = title + ' - ' + id + '.jpg';
+		} else {
+			fileName = title + '.jpg';
+		}
+
+		return fileName;
+	},
+
+	/**
+	 * Reserves a filename; used by mw.FlickrChecker.getFileNameFromItem() which tries to
+	 * avoid returning a filename which is already reserved.
+	 * This works even when the filename was reserved in a different FlickrChecker instance.
+	 * @param {String} fileName
+	 */
+	reserveFileName: function( fileName ) {
+		mw.FlickrChecker.fileNames[fileName] = true;
+	},
+
 	getPhotoset: function( albumIdMatches ) {
 		var fileName, imageContainer, sourceURL,
 			checker = this,
@@ -80,29 +122,15 @@ mw.FlickrChecker.prototype = {
 			function ( data ) {
 				if ( data.photoset !== undefined ) {
 					$.each( data.photoset.photo, function( i, item ){
-						var flickrUpload, license, licenseValue, sameTitleExists;
+						var flickrUpload, license, licenseValue;
 
 						// Limit to maximum of 50 images
 						if ( x < 50 ) {
 							license = checker.checkLicense( item.license, i );
 							licenseValue = license.licenseValue;
-							sameTitleExists = false;
 
 							if ( licenseValue !== 'invalid' ) {
-								$.each( checker.imageUploads, function ( index, image ) {
-									if ( image.name === item.title + '.jpg' ) {
-										sameTitleExists = true;
-										return false; // Break out of the loop
-									}
-								} );
-								// if the photo is untitled or the same title exists, generate a title
-								if ( item.title === '' ) {
-									fileName = item.ownername + ' - ' + item.id + '.jpg';
-								} else if ( sameTitleExists ) {
-									fileName = item.title + ' - ' + item.id + '.jpg';
-								} else {
-									fileName = item.title + '.jpg';
-								}
+								fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
 
 								sourceURL = 'http://www.flickr.com/photos/' + data.photoset.owner + '/' + item.id + '/';
 								flickrUpload = {
@@ -126,6 +154,7 @@ mw.FlickrChecker.prototype = {
 								};
 								// Adding all the Photoset files which have a valid license with the required info to an array so that they can be referenced later
 								checker.imageUploads[i] = flickrUpload;
+								checker.reserveFileName( fileName );
 
 								// setting up the thumbnail previews in the Selection list
 								if ( item.url_sq ) {
@@ -190,12 +219,9 @@ mw.FlickrChecker.prototype = {
 				if ( typeof data.photo !== 'undefined' ) {
 					license = checker.checkLicense( data.photo.license );
 					if ( license.licenseValue !== 'invalid' ) {
-						// if the photo is untitled, generate a title
-						if ( data.photo.title._content === '' ) {
-							fileName = data.photo.owner.username + '-' + data.photo.id + '.jpg';
-						} else {
-							fileName = data.photo.title._content + '.jpg';
-						}
+						fileName = checker.getFilenameFromItem( data.photo.title._content, data.photo.id,
+							data.photo.owner.username );
+
 						// if owner doesn't have a real name, use username
 						if ( data.photo.owner.realname !== '' ) {
 							photoAuthor = data.photo.owner.realname;
@@ -228,6 +254,7 @@ mw.FlickrChecker.prototype = {
 						};
 						checker.imageUploads.push( flickrUpload );
 						checker.setImageURL( 0, checker );
+						checker.reserveFileName( fileName );
 					} else {
 						checker.showErrorDialog( license.licenseMessage );
 						checker.wizard.flickrInterfaceReset();
