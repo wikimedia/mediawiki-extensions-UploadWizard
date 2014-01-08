@@ -9487,7 +9487,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-fileexists-replace-on-page' => 'در حال حاضر پرونده‌ای با این نام وجود دارد. اگر می‌خواهید آن را جایگزین کنید، به صفحه بروید برای [$2 $1] و آن را آنجا جایگزین کنید.',
 	'mwe-upwiz-fileexists-replace-no-link' => 'پرونده ای با این نام از قبل وجود دارد، به دلیل اینکه این عنوان قبلاً استفاده شده‌است.',
 	'mwe-upwiz-blacklisted' => 'لطفاً یک عنوان توصیفی متفاوت انتخاب کنید.',
-	'mwe-upwiz-thumbnail-more' => 'بزرگ کردن',
+	'mwe-upwiz-thumbnail-more' => 'بزرگ‌کردن',
 	'mwe-upwiz-overwrite' => 'جایگزین کردن پرونده',
 	'mwe-upwiz-next' => 'بعدی',
 	'mwe-upwiz-next-file' => 'ادامه',
@@ -13686,13 +13686,13 @@ $messages['ia'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'Ora explica proque tu es secur de haber le derecto de publicar {{PLURAL:$1|iste obra|iste obras}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Forni informationes de copyright pro cata file individualmente in le pagina sequente.',
-	'mwe-upwiz-more-options' => 'adder categorias e plus information...', # Fuzzy
-	'mwe-upwiz-copy-metadata' => 'Copiar information a tote le incargamentos hic infra...', # Fuzzy
+	'mwe-upwiz-more-options' => 'Adder position e altere information...',
+	'mwe-upwiz-copy-metadata' => 'Copiar information {{PLURAL:$1|al altere file|a tote le files}} incargate hic infra...',
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
 	'mwe-upwiz-copy-title' => 'Copiar titulo (con numeration automatic)',
-	'mwe-upwiz-copy-description' => 'Copiar description(es)', # Fuzzy
+	'mwe-upwiz-copy-description' => 'Copiar {{PLURAL:$1|description|descriptiones}}',
 	'mwe-upwiz-copy-date' => 'Copiar data',
-	'mwe-upwiz-copy-categories' => 'Copiar categorias', # Fuzzy
+	'mwe-upwiz-copy-categories' => 'Copiar {{PLURAL:$1|categoria|categorias}}',
 	'mwe-upwiz-copy-location' => 'Copiar position',
 	'mwe-upwiz-copy-other' => 'Copiar altere information',
 	'mwe-upwiz-desc' => 'Description',
@@ -13711,7 +13711,7 @@ $messages['ia'] = array(
 	'mwe-upwiz-other' => 'Altere informationes',
 	'mwe-upwiz-source' => 'Origine',
 	'mwe-upwiz-thanks-intro' => 'Gratias pro le incargamento!',
-	'mwe-upwiz-thanks-explain' => 'Tu pote ora usar iste {{PLURAL:$1|file|files}} in sitos como Wikipedia, o ligar a {{PLURAL:$1|illo|illos}} in le web.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Tu pote ora usar iste {{PLURAL:$1|file|files}} in wikis, o ligar a {{PLURAL:$1|illo|illos}} in le web.',
 	'mwe-upwiz-thanks-wikitext' => 'Pro usar le file in un wiki, copia iste texto in un pagina:',
 	'mwe-upwiz-thanks-url' => 'Pro ligar a illo in HTML, copia iste adresse URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Iste wiki non accepta nomines de file con le extension ".$1".',
@@ -13729,7 +13729,7 @@ Tu pote [$1 installar Firefogg], un extension de Firefox, pro converter le file 
 	'mwe-upwiz-fileexists-replace' => 'Un file con le titulo "$1" ja existe. Per favor modifica tu titulo pro render lo unic.',
 	'mwe-upwiz-fileexists' => 'Un file con iste nomine ja existe. Per favor verifica $1 si tu non es secur de voler reimplaciar lo.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'Un file con iste nomine existe jam. Si tu vole reimplaciar lo, tu pote facer lo desde le pagina pro [$2 $1].',
-	'mwe-upwiz-fileexists-replace-no-link' => 'Un file con iste nomine existe jam.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'Per favor elige un altere titulo, perque iste titulo es jam usate per un altere file.',
 	'mwe-upwiz-blacklisted' => 'Per favor elige un altere titulo, plus descriptive.',
 	'mwe-upwiz-thumbnail-more' => 'Aggrandir',
 	'mwe-upwiz-overwrite' => 'Reimplaciar le file',
@@ -13789,7 +13789,7 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Le wikitexto hic es troppo curte pro poter esser un licentia',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Le wikitexto que tu entrava es troppo longe.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Isto non sembla esser wikitexto valide, o non contine un licentia.',
-	'mwe-upwiz-details-error-count' => 'Il ha {{PLURAL:$1|un error|$1 errores}} con le {{PLURAL:$2|formulario|formularios}} hic supra. Corrige le errores, e tenta resubmitter.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'Il ha {{PLURAL:$1|un error|$1 errores}} con le {{PLURAL:$2|formulario|formularios}} hic supra. Corrige le {{PLURAL:$1|error|errores}}, e tenta resubmitter.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
 	'mwe-upwiz-too-many-files-text' => 'Tu pote solmente incargar $1 {{PLURAL:$1|file|files}} in un vice. Tu tentava adder $2 {{PLURAL:$2|file|files}}, dunque $3 {{PLURAL:$3|file|files}} ha essite removite.', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'Troppo de files.',
@@ -24914,6 +24914,7 @@ Pe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere|carattere}}.',
  * @author Putnik
  * @author Renessaince
  * @author Rubin
+ * @author Rubin16
  * @author ShinePhantom
  * @author Александр Сигачёв
  */
@@ -24984,59 +24985,59 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-next-file-despite-failures' => 'Все равно продолжить',
 	'mwe-upwiz-skip-tutorial-future' => 'Пропустить этот шаг в будущем',
 	'mwe-upwiz-file-all-failed' => 'Ни одна из загрузок не удалась.',
-	'mwe-upwiz-upload-count' => '{{PLURAL:$1|Передан $1 файл|Передано $1 файлов|Передано $1 файла}} из $2 {{PLURAL:$2|файла|файлов|файла}}', # Fuzzy
+	'mwe-upwiz-upload-count' => '{{PLURAL:$1|Передан $1 файл|Передано $1 файлов|Передано $1 файла}} из $2 {{PLURAL:$2|файла|файлов|файла}}',
 	'mwe-upwiz-progressbar-uploading' => 'загрузка на сервер',
 	'mwe-upwiz-finished' => 'Готово!',
-	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Осталась $1 секунда|Осталось $1 секунд|Осталось $1 секунды}}', # Fuzzy
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|1=Осталась|Осталось}} $1 {{PLURAL:$1|минута|минут|минуты}} $2 {{PLURAL:$2|секунда|секунд|секунды}}', # Fuzzy
-	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Остался $1 час|Осталось $1 часов|Осталось $1 часа}} {{PLURAL:$2|$2 минута|$2 минут|$2 минуты}} {{PLURAL:$3|$3 секунда|$3 секунд|$3 секунды}}', # Fuzzy
-	'mwe-upwiz-deeds-macro-prompt' => 'Этот сайт требует {{GENDER:$2|от вас}} указать сведения об авторских правах для {{PLURAL:$1|1=этого произведения|этих произведений}}, чтобы убедиться, что все могут {{PLURAL:$1|1=его|их}} использовать на законных основаниях.', # Fuzzy
-	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|1=Этот файл является моим собственным произведением.|Эти файлы являются моими собственными произведениями.}}', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-any-license' => 'Я, $2, владелец авторских прав на {{PLURAL:$1|1=это произведение|эти произведения}}, настоящим даю неотзывное право любому использовать, изменять и распространять {{PLURAL:$1|1=это произведение|эти произведения}} в любых целей, поэтому я публикую {{PLURAL:$1|1=его|их}} на следующих условиях:', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert' => 'Я, $2, владелец авторских прав на {{PLURAL:$1|1=это произведение|эти произведения}}, добровольно разрешаю использовать {{PLURAL:$1|1=его|их}} в любых целях, при условии сохранения сведений обо мне, как о владельце авторских прав, и распространении данных условий на производные работы.', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Attribution ShareAlike 3.0 ([$3 кодекса]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Austria ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Germany ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Estonia ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Spain ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Croatia ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Luxembourg ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Netherlands ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Norway ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Poland ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Romania ([$3 текст лицензии]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Attribution 3.0 ([$3 кодекса]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(Каждый вправе использовать и распространять {{PLURAL:$1|1=это произведение|эти произведения}}, а также создавать производные произведения при условии, что на меня ссылаются.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Zero Public Domain Dedication ([$3 кодекса]).', # Fuzzy
-	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(Каждый вправе использовать и распространять {{PLURAL:$1|1=это произведение|эти произведения}}, а также создавать производные произведения без каких-либо ограничений.)', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-custom' => 'Я -- $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}} на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях следующего лицензионного соглашения:', # Fuzzy
-	'mwe-upwiz-source-ownwork-assert-note' => 'Я, владелец авторских прав на {{PLURAL:$2|1=это произведение|эти произведения}}, публикую {{PLURAL:$2|1=его|их}} на условиях лицензии  $1.', # Fuzzy
+	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Осталась $1 секунда|Осталось $1 секунд|Осталось $1 секунды}}',
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|1=Осталась|Осталось}} $1 {{PLURAL:$1|минута|минут|минуты}} $2 {{PLURAL:$2|секунда|секунд|секунды}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Остался $1 час|Осталось $1 часов|Осталось $1 часа}} $2 {{PLURAL:$2|минута|минут|минуты}} $3 {{PLURAL:$3|секунда|секунд|секунды}}',
+	'mwe-upwiz-deeds-macro-prompt' => 'Этот сайт требует {{GENDER:$2|от вас}} указать сведения об авторских правах для {{PLURAL:$1|1=этого произведения|этих произведений}}, чтобы убедиться, что все могут {{PLURAL:$1|1=его|их}} использовать на законных основаниях.',
+	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|1=Этот файл является моим собственным произведением.|Эти файлы являются моими собственными произведениями.}}',
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'Я, $2, владелец авторских прав на {{PLURAL:$1|1=это произведение|эти произведения}}, настоящим даю неотзывное право любому использовать, изменять и распространять {{PLURAL:$1|1=это произведение|эти произведения}} в любых целях, поэтому я публикую {{PLURAL:$1|1=его|их}} на следующих условиях:',
+	'mwe-upwiz-source-ownwork-assert' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, добровольно разрешаю использовать {{PLURAL:$1|1=его|их}} в любых целях, при условии сохранения сведений обо мне как о владельце авторских прав, а также распространении данных условий на производные произведения.',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензионного соглашения Creative Commons Attribution ShareAlike 3.0 ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Austria ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Germany ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Estonia ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Spain ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Croatia ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Luxembourg ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Netherlands ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Norway ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Poland ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution ShareAlike 3.0 Romania ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются, а все производные произведения распространяются на основании этого лицензионного соглашения.)',
+	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Attribution 3.0 ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} при условии, что на меня ссылаются.)',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons Zero Public Domain Dedication ([$3 текст лицензии]).',
+	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(Каждый вправе использовать, распространять и осуществлять переработку {{PLURAL:$1|1=этого произведения|этих произведений}} без каких-либо ограничений.)',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Я, $2, обладатель исключительных прав в отношении {{PLURAL:$1|1=этого произведения|этих произведений}}, на безотзывной основе предоставляю каждому право использовать {{PLURAL:$1|1=это произведение|эти произведения}} на условиях следующего лицензионного соглашения:',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Я, владелец авторских прав на {{PLURAL:$2|1=это произведение|эти произведения}}, публикую {{PLURAL:$2|1=его|их}} на условиях лицензии $1.',
 	'mwe-upwiz-source-permission' => 'Их автор дал вам явное разрешение загрузить эти произведения на сайт',
-	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|1=Этот файл не является моим собственным произведением.|Эти файлы не являются моими собственными произведениями.}}', # Fuzzy
+	'mwe-upwiz-source-thirdparty' => '{{PLURAL:$1|1=Этот файл не является моим собственным произведением.|Эти файлы не являются моими собственными произведениями.}}',
 	'mwe-upwiz-source-thirdparty-intro' => 'Пожалуйста, введите для каждого файла адрес, где вы его нашли.',
 	'mwe-upwiz-source-thirdparty-custom-multiple-intro' => 'Если все файлы имеют один и тот же источник, автора и правовой статус, вы можете ввести эти сведения один раз для всех файлов.',
-	'mwe-upwiz-source-thirdparty-cases' => 'Теперь расскажите нам, почему вы уверены, что имеете право публиковать {{PLURAL:$1|1=это произведение|эти произведения}}:', # Fuzzy
+	'mwe-upwiz-source-thirdparty-cases' => 'Теперь расскажите нам, почему вы уверены, что имеете право публиковать {{PLURAL:$1|1=это произведение|эти произведения}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.',
 	'mwe-upwiz-more-options' => 'Добавить местоположение и другую информацию…',
-	'mwe-upwiz-copy-metadata' => 'Копировать информацию для {{PLURAL:$1|1=загрузки|всех загрузок}} ниже...', # Fuzzy
+	'mwe-upwiz-copy-metadata' => 'Копировать информацию для {{PLURAL:$1|1=загрузки|всех загрузок}} ниже...',
 	'mwe-upwiz-copy-metadata-button' => 'Копировать',
 	'mwe-upwiz-copied-metadata-button' => 'Успешно скопировано',
 	'mwe-upwiz-copy-title' => 'Скопировать название (с автонумерацией)',
-	'mwe-upwiz-copy-description' => 'Скопировать {{PLURAL:$1|1=описание|описания}}', # Fuzzy
+	'mwe-upwiz-copy-description' => 'Скопировать {{PLURAL:$1|1=описание|описания}}',
 	'mwe-upwiz-copy-date' => 'Скопировать дату',
-	'mwe-upwiz-copy-categories' => 'Скопировать {{PLURAL:$1|1=категорию|категории}}', # Fuzzy
+	'mwe-upwiz-copy-categories' => 'Скопировать {{PLURAL:$1|1=категорию|категории}}',
 	'mwe-upwiz-copy-location' => 'Скопировать расположение',
 	'mwe-upwiz-copy-other' => 'Скопировать остальную информацию',
 	'mwe-upwiz-desc' => 'Описание',
@@ -25056,7 +25057,7 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-other' => 'Другая информация',
 	'mwe-upwiz-source' => 'Источник',
 	'mwe-upwiz-thanks-intro' => 'Спасибо за загрузку!',
-	'mwe-upwiz-thanks-explain' => 'Теперь вы можете использовать {{PLURAL:$1|1=этот файл|эти файлы}} в вики-проектах или ссылаться на {{PLURAL:$1|1=него|них}} с других веб-сайтов.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Теперь вы можете использовать {{PLURAL:$1|1=этот файл|эти файлы}} в вики-проектах или ссылаться на {{PLURAL:$1|1=него|них}} с других веб-сайтов.',
 	'mwe-upwiz-thanks-wikitext' => 'Чтобы использовать файл в вики, скопируйте этот текст на страницу:',
 	'mwe-upwiz-thanks-url' => 'Чтобы добавить ссылку в HTML, скопируйте следующий адрес URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Данная вики не принимает имена файлов с расширением «.$1».',
@@ -25086,7 +25087,7 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-home' => 'Перейти на домашнюю страницу вики',
 	'mwe-upwiz-upload-another' => 'Загрузить ещё файлы',
 	'mwe-prevent-close' => 'Покидая эту страницу вы можете потерять все сделанные вами изменения.',
-	'mwe-upwiz-prevent-close' => 'Вы ещё не закончили загрузку и публикацию {{PLURAL:$1|1=этого фала|этих файлов}}.', # Fuzzy
+	'mwe-upwiz-prevent-close' => 'Вы ещё не закончили загрузку и публикацию {{PLURAL:$1|1=этого фала|этих файлов}}.',
 	'mwe-upwiz-files-complete' => 'Загрузка ваших файлов завершена!',
 	'mwe-upwiz-tooltip-skiptutorial' => 'Вы можете снова включить это руководство в [$1 своих персональных настройках], см. $2 → $3.',
 	'mwe-upwiz-tooltip-author' => 'Имя человека, который сделал фотографию, нарисовал картину или рисунок и т. д.',
@@ -25108,17 +25109,17 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-error-longitude' => 'Долгота должна быть от -180 до 180.',
 	'mwe-upwiz-error-altitude' => 'Высота должна быть числом.',
 	'mwe-upwiz-error-signature-too-long' => 'Ваша подпись слишком длинна.
-Подпись не должна превышать $1 {{PLURAL:$1|символа|символов|символов}}.', # Fuzzy
+Размер подписи не должен превышать $1 {{PLURAL:$1|символ|символов|символа}}.',
 	'mwe-upwiz-error-signature-too-short' => 'Ваша подпись слишком коротка.
-Длина подписи должна превышать $1 {{PLURAL:$1|символ|символов|символа}}.', # Fuzzy
+Длина подписи должна превышать $1 {{PLURAL:$1|символ|символов|символа}}.',
 	'mwe-upwiz-error-signature-bad-chars' => 'Ваша подпись содержит недопустимые символы.
 Пожалуйста, не используйте в подписи викитекст или HTML, просто укажите ваше имя участника или настоящее имя.',
 	'mwe-upwiz-error-blank' => 'Это поле обязательно для заполнения.',
 	'mwe-upwiz-error-nologin' => 'Вы должны <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} представиться системе]</span>, чтобы получить возможность загружать файлы.',
-	'mwe-upwiz-error-too-long' => 'Это поле слишком длинно.
-Сделайте его длину короче $1 {{PLURAL:$1|символа|символов|символов}}.', # Fuzzy
+	'mwe-upwiz-error-too-long' => 'Эта запись слишком длинная.
+Сделайте так, чтобы она была короче $1 {{PLURAL:$1|символа|символов}}.',
 	'mwe-upwiz-error-too-short' => 'Эта запись слишком короткая.
-Её длина должна быть больше $1 {{PLURAL:$1|символ|символов|символа}}.', # Fuzzy
+Она должна быть длиннее $1 {{PLURAL:$1|символа|символов}}.',
 	'mwe-upwiz-error-bad-chars' => 'Это поле содержит недопустимые символы.
 Пожалуйста, не используйте викитекст или HTML.',
 	'mwe-upwiz-error-date' => 'Пожалуйста, введите корректную дату в формате ГГГГ-ММ-ДД, либо выберите дату из появляющегося календаря.',
@@ -25135,9 +25136,9 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Приведённый викитекст слишком короток, чтобы быть лицензией',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Приведённый викитекст слишком длинный',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Это не похоже на викитекст, или он не содержит лицензии.',
-	'mwe-upwiz-details-error-count' => 'На {{PLURAL:$2|1=форме|формах}} {{PLURAL:$1|1=присутствует ошибка|присутствуют $1 ошибок}}. Исправьте {{PLURAL:$1|1=ошибку|ошибки}} и попробуйте записать снова.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'В {{PLURAL:$2|1=форме|формах}} {{PLURAL:$1|присутствует $1 ошибка|присутствуют $1 ошибок|1=присутствует ошибка}}. Исправьте {{PLURAL:$1|1=ошибку|ошибки}} и попробуйте записать снова.',
 	'mwe-upwiz-too-many-files-ok' => 'OK',
-	'mwe-upwiz-too-many-files-text' => 'Вы можете загрузить за один раз только $1 {{PLURAL:$1|файл|файлов|файла}}. Вы попытались загрузить в общей сложности $2 {{PLURAL:$2|файл|файлов|файла}}. Пожалуйста, попробуйте снова с меньшим количеством файлов!', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'Вы можете загрузить за один раз только $1 {{PLURAL:$1|файл|файлов|файла}}. Вы попытались загрузить в общей сложности $2 {{PLURAL:$2|файл|файлов|файла}}. Пожалуйста, попробуйте снова с меньшим количеством файлов!',
 	'mwe-upwiz-too-many-files' => 'Слишком много файлов.',
 	'mwe-upwiz-file-too-large-ok' => 'OK',
 	'mwe-upwiz-file-too-large-text' => 'Вы можете загрузить файлы, размер которых не превышает $1. Вы же пытаетесь загрузить файл размером  $2.',
@@ -25187,19 +25188,19 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-license-attribution' => 'Может быть использовано для любых целей, в том числе в коммерческих, если правильно указан владелец авторских прав',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
 	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, требуется указание автора (GFDL, CC-BY-SA-3.0)',
-	'mwe-upwiz-license-cc-head' => 'Владелец авторских прав опубликовал {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons', # Fuzzy
+	'mwe-upwiz-license-cc-head' => 'Владелец авторских прав опубликовал {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons',
 	'mwe-upwiz-license-cc-subhead' => 'Не все лицензии Creative Commons подходят для этого сайта. Убедитесь, что владелец авторских прав указал одну из этих лицензий.',
-	'mwe-upwiz-license-flickr-head' => 'Владелец авторских прав опубликовал {{PLURAL:$1|1=это фото или видео|эти фото или видео}} на Flickr на условиях лицензии', # Fuzzy
+	'mwe-upwiz-license-flickr-head' => 'Владелец авторских прав опубликовал {{PLURAL:$1|1=это фото или видео|эти фото или видео}} на Flickr на условиях лицензии',
 	'mwe-upwiz-license-flickr-subhead' => 'Обратите внимание на раздел «Лицензия» на странице Flickr. Значок и название используемой лицензии должны соответствовать одному из представленных здесь вариантов.',
 	'mwe-upwiz-license-public-domain-usa-head' => 'Срок защиты авторских прав явно истёк в США.',
 	'mwe-upwiz-license-public-domain-usa-subhead' => 'Сайт {{SITENAME}} расположен в США, поэтому произведение не должно защищаться законом об авторских правах этой страны.',
-	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|1=Это произведение|Эти произведения}} были сделаны правительством США', # Fuzzy
+	'mwe-upwiz-license-usgov-head' => '{{PLURAL:$1|1=Это произведение|Эти произведения}} были сделаны правительством США',
 	'mwe-upwiz-license-misc' => 'Прочие причины',
 	'mwe-upwiz-license-custom-head' => 'Иная причина, не указанная выше',
 	'mwe-upwiz-license-custom-preview' => 'Предпросмотр',
 	'mwe-upwiz-license-none-head' => 'Найдено в Интернете — Я не уверен',
-	'mwe-upwiz-license-none' => 'Я считаю, что {{PLURAL:$1|1=это произведение|эти произведения}} являются свободно-лицензированными, либо юридически находятся в общественном достоянии. Я понимаю, что если я своевременно не укажу необходимую информацию о лицензировании, {{PLURAL:$1|1=файл будет удалён|файлы будут удалены}}.', # Fuzzy
-	'mwe-upwiz-license-confirm-remove' => 'Вы уверены, что вы хотите удалить {{PLURAL:$1|1=этот объект|эти объекты}}?', # Fuzzy
+	'mwe-upwiz-license-none' => 'Я считаю, что {{PLURAL:$1|1=это произведение|эти произведения}} опубликованы под свободной лицензией, либо юридически находятся в общественном достоянии. Я понимаю, что если я своевременно не укажу необходимую информацию о лицензировании, {{PLURAL:$1|1=файл может быть удалён|файлы могут быть удалены}}.',
+	'mwe-upwiz-license-confirm-remove' => 'Вы уверены, что хотите удалить {{PLURAL:$1|1=этот объект|эти объекты}}?',
 	'mwe-upwiz-license-confirm-remove-title' => 'Подтвердить удаление',
 	'mwe-upwiz-license-external' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2. К сожалению, здесь данная лицензия не подходит для использования.',
