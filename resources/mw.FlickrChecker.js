@@ -49,19 +49,34 @@ mw.FlickrChecker.prototype = {
 	checkFlickr: function( flickrInputUrl ) {
 		this.url = flickrInputUrl;
 		var photoIdMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/),
-			albumIdMatches = this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/);
+			albumIdMatches = this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/),
+			userCollectionMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/),
+			userPhotostreamMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/),
+			groupPoolMatches = this.url.match(/flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/),
+			userGalleryMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/),
+			userFavoritesMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/);
 		if ( photoIdMatches === null ) {
 			// try static urls
 			photoIdMatches = this.url.match(/static\.?flickr\.com\/[^\/]+\/([0-9]+)_/);
 		}
-		if ( albumIdMatches || photoIdMatches ) {
+		if ( albumIdMatches || photoIdMatches || userCollectionMatches || userPhotostreamMatches ||
+			groupPoolMatches || userGalleryMatches || userFavoritesMatches ) {
 			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 			this.imageUploads = [];
 			if ( albumIdMatches && albumIdMatches[1] > 0 ) {
 				this.getPhotoset( albumIdMatches );
-			}
-			if ( photoIdMatches && photoIdMatches[1] > 0 ) {
+			} else if ( photoIdMatches && photoIdMatches[1] > 0 ) {
 				this.getPhoto( photoIdMatches );
+			} else if ( userCollectionMatches ) {
+				this.getCollection( userCollectionMatches );
+			} else if ( userFavoritesMatches && userFavoritesMatches[1] ) {
+				this.getPhotostream( 'favorites', userPhotostreamMatches );
+			} else if ( userGalleryMatches && userGalleryMatches[1] ) {
+				this.getGallery();
+			} else if ( userPhotostreamMatches && userPhotostreamMatches[1] ) {
+				this.getPhotostream( 'stream' );
+			} else if ( groupPoolMatches ) {
+				this.getGroupPool( groupPoolMatches );
 			}
 		} else {
 			// XXX show user the message that the URL entered was not valid
@@ -103,25 +118,208 @@ mw.FlickrChecker.prototype = {
 		mw.FlickrChecker.fileNames[fileName] = true;
 	},
 
+	/*
+	 * Retrieves a list of photos in photostream and displays it.
+	 * @param {string} mode may be: 'favorites' - user's favorites are retrieved,
+	 * or 'stream' - user's photostream is retrieved
+	 * @see {@link getPhotos}
+	 */
+	getPhotostream: function ( mode ) {
+		var that = this;
+		$.getJSON( this.apiUrl, {
+				nojsoncallback: 1,
+				format: 'json',
+				method: 'flickr.urls.lookupUser',
+				api_key: this.apiKey,
+				url: this.url
+			}, function ( data ) {
+				var method;
+				if( mode === 'stream' ) {
+					method = 'flickr.people.getPublicPhotos';
+				} else if( mode === 'favorites' ) {
+					method = 'flickr.favorites.getPublicList';
+				}
+				that.getPhotos( 'photos', {
+						method: method,
+						user_id: data.user.id
+					} );
+			});
+	},
+
+	/**
+	 * Retrieves a list of photos in group pool and displays it.
+	 * @param groupPoolMatches result of this.url.match
+	 * @see {@link getPhotos}
+	 */
+	getGroupPool: function( groupPoolMatches ) {
+		var that = this;
+		$.getJSON( this.apiUrl, {
+				nojsoncallback: 1,
+				format: 'json',
+				method: 'flickr.urls.lookupGroup',
+				api_key: this.apiKey,
+				url: this.url
+			}, function ( data ) {
+				var gid = data.group.id;
+				if( groupPoolMatches[1] ) { // URL contains a user ID
+					$.getJSON( that.apiUrl, {
+						nojsoncallback: 1,
+						format: 'json',
+						method: 'flickr.urls.lookupUser',
+						api_key: that.apiKey,
+						url: 'http://www.flickr.com/photos/' + groupPoolMatches[1]
+					}, function ( data ) {
+						that.getPhotos( 'photos', {
+								method: 'flickr.groups.pools.getPhotos',
+								group_id: gid,
+								user_id: data.user.id
+							} );
+					});
+				} else {
+					that.getPhotos( 'photos', {
+							method: 'flickr.groups.pools.getPhotos',
+							group_id: gid
+						} );
+				}
+			} );
+	},
+
+	/**
+	 * Constructs an unordered list of sets in the collection.
+	 * @param appendId true if you want to append
+	 * id="mwe-upwiz-files-collection-chooser"; false otherwise
+	 * @param data the retrieved data
+	 * @see {@link getCollection}
+	 */
+	buildCollectionLinks: function( appendId, data ) {
+		var elem = $( '<ul>' ),
+			that = this,
+			li, ul;
+		if( appendId ) {
+			elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
+		}
+		$.each( data.collection, function( index, value ) {
+			li = $( '<li>' );
+			li.append( value.title );
+			if( value.collection !== undefined ) {
+				li.append( that.buildCollectionLinks( false, value ) );
+			}
+			if( value.set !== undefined ) {
+				ul = $( '<ul>' );
+				$.each( value.set, function( index2, value2 ) {
+					var link = $( '<a>', { href: '#', role: 'button', 'data-id': value2.id } );
+					link.append( value2.title );
+					link.click( function() {
+						$( '#mwe-upwiz-files-collection-chooser' ).remove();
+						that.getPhotos( 'photoset', {
+								method: 'flickr.photosets.getPhotos',
+								photoset_id: link.data( 'id' )
+							} );
+					} );
+					ul.append( $( '<li>' ).append( link ) );
+				} );
+				li.append( ul );
+			}
+			elem.append( li );
+		} );
+		return elem;
+	},
+
+	/**
+	 * Retrieves a list of sets in a collection and displays it.
+	 * @param userCollectionMatches result of this.url.match
+	 */
+	getCollection: function( userCollectionMatches ) {
+		var that = this;
+		$.getJSON( this.apiUrl, {
+				nojsoncallback: 1,
+				format: 'json',
+				method: 'flickr.urls.lookupUser',
+				api_key: this.apiKey,
+				url: this.url
+			}, function ( data ) {
+				var req = {
+					nojsoncallback: 1,
+					api_key: that.apiKey,
+					method: 'flickr.collections.getTree',
+					format: 'json',
+					extras: 'license, url_sq, owner_name, original_format, date_taken, geo',
+					user_id: data.user.id
+				};
+				if( userCollectionMatches[1] ) {
+					req.collection_id = userCollectionMatches[1];
+				}
+				$.getJSON( that.apiUrl, req, function ( data ) {
+						$( '#mwe-upwiz-files' ).append( that.buildCollectionLinks( true, data.collections) );
+					} );
+			} );
+	},
+
+	/**
+	 * Retrieves a list of photos in gallery and displays it.
+	 * @see {@link getPhotos}
+	 */
+	getGallery: function() {
+		var that = this;
+		$.getJSON( this.apiUrl, {
+				nojsoncallback: 1,
+				format: 'json',
+				method: 'flickr.urls.lookupGallery',
+				api_key: this.apiKey,
+				url: this.url
+			}, function ( data ) {
+				that.getPhotos( 'photos', {
+						method: 'flickr.galleries.getPhotos',
+						gallery_id: data.gallery.id
+					} );
+			});
+	},
+
+	/**
+	 * Retrieves a list of photos in photoset and displays it.
+	 * @param albumIdMatches result of this.url.match
+	 * @see {@link getPhotos}
+	 */
 	getPhotoset: function( albumIdMatches ) {
+		this.getPhotos( 'photoset', {
+				method: 'flickr.photosets.getPhotos',
+				photoset_id: albumIdMatches[1]
+			} );
+	},
+
+	/**
+	 * Retrieves a list of photos and displays it.
+	 * @param {string} mode may be: 'photoset' - for use with photosets,
+	 * or 'photos' - for use with everything else (the parameter is used
+	 * to determine how the properties in retrieved JSON are named)
+	 * @param options options to pass to the API call; especially API method
+	 * and some "***_id"s (photoset_id, etc.)
+	 */
+	getPhotos: function( mode, options ) {
 		var fileName, imageContainer, sourceURL,
 			checker = this,
-			x = 0;
+			x = 0,
+			req = {};
 
 		$( '#mwe-upwiz-select-flickr' ).button( {
 			label: mw.message( 'mwe-upwiz-select-flickr' ).escaped(),
 			disabled: true
 		} );
-		$.getJSON( this.apiUrl, {
+		$.extend( req, options, {
 			nojsoncallback: 1,
-			method: 'flickr.photosets.getPhotos',
 			api_key: this.apiKey,
-			photoset_id: albumIdMatches[1],
 			format: 'json',
-			extras: 'license, url_sq, owner_name, original_format, date_taken, geo' },
-			function ( data ) {
-				if ( data.photoset !== undefined ) {
-					$.each( data.photoset.photo, function( i, item ){
+			extras: 'license, url_sq, owner_name, original_format, date_taken, geo' } );
+			
+		$.getJSON( this.apiUrl, req, function ( data ) {
+				var photoset;
+				if ( mode === 'photoset' ) {
+					photoset = data.photoset;
+				} else if ( mode === 'photos' ) {
+					photoset = data.photos;
+				}
+				if ( photoset !== undefined ) {
+					$.each( photoset.photo, function( i, item ){
 						var flickrUpload, license, licenseValue;
 
 						// Limit to maximum of 50 images
@@ -132,7 +330,11 @@ mw.FlickrChecker.prototype = {
 							if ( licenseValue !== 'invalid' ) {
 								fileName = checker.getFilenameFromItem( item.title, item.id, item.ownername );
 
-								sourceURL = 'http://www.flickr.com/photos/' + data.photoset.owner + '/' + item.id + '/';
+								if ( mode === 'photoset' ) {
+									sourceURL = 'http://www.flickr.com/photos/' + data.photoset.owner + '/' + item.id + '/';
+								} else if ( mode === 'photos' ) {
+									sourceURL = 'http://www.flickr.com/photos/' + item.owner + '/' + item.id + '/';
+								}
 								flickrUpload = {
 									name: fileName,
 									url: '',
