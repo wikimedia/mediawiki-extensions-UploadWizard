@@ -91,7 +91,6 @@ mw.UploadWizardUpload.prototype = {
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			_this.wizard.hideFileEndButtons();
-			$('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
 			_this.wizard.startProgressBar();
 			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
 				message: function() { return mw.message( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ).escaped(); },

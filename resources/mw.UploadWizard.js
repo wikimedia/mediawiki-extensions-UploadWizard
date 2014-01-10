@@ -949,6 +949,7 @@ mw.UploadWizard.prototype = {
 			// we have uploads ready to go, so allow us to proceed
 			$( '#mwe-upwiz-upload-ctrl-container' ).show();
 			$( '#mwe-upwiz-upload-ctr-divide' ).hide();
+			$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
 
 			if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
 				// changes the initial centered invitation button to something like "add another file"
