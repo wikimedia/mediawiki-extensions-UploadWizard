@@ -5964,7 +5964,7 @@ $messages['cy'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'Ychwanegu rhagor o luniau o Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Neu',
 	'mwe-upwiz-add-flickr' => 'Estyn o Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => "URL y llun neu'r albwm ar Flickr", # Fuzzy
+	'mwe-upwiz-flickr-input-placeholder' => 'URL Flickr',
 	'mwe-upwiz-select-flickr' => 'Uwchlwyther y lluniau a ddewiswyd',
 	'mwe-upwiz-flickr-disclaimer1' => "Mae'r ffurflen hon yn llwytho cynnwys a westeir gan flickr.com yn ôl [https://www.flickr.com/help/terms/ termau defnydd] a [https://www.flickr.com/help/privacy-policy/ pholisi preifatrwydd] Flickr.",
 	'mwe-upwiz-flickr-disclaimer2' => 'Sylwch y bydd eich cyfeiriad IP a manylion eich cais ar gael i Flickr os y defnyddiwch y teclyn hwn.',
@@ -14763,7 +14763,7 @@ Vinsamlegast ekki nota wikitext eða HTML hér.',
 	'mwe-upwiz-error-license-wikitext-too-short' => 'Textinn er of stuttur til þess að geta talist sem leyfi.',
 	'mwe-upwiz-error-license-wikitext-too-long' => 'Textinn er of langur.',
 	'mwe-upwiz-error-license-wikitext-invalid' => 'Þetta virðist ekki vera rétt wiki-tákn eða inniheldur ekki leyfi.',
-	'mwe-upwiz-details-error-count' => 'Það {{PLURAL:$1|er ein villa|eru $1 villur}} við {{PLURAL:$2|reitinn|reitina}} hér fyrir ofan. Leiðréttu villurnar og reyndu að senda aftur.', # Fuzzy
+	'mwe-upwiz-details-error-count' => 'Það {{PLURAL:$1|er $1 villa|eru $1 villur}} við {{PLURAL:$2|reitinn|reitina}} hér fyrir ofan. Leiðréttu {{PLURAL:$1|villuna|villurnar}} og reyndu að senda aftur.',
 	'mwe-upwiz-too-many-files-ok' => 'Í lagi',
 	'mwe-upwiz-too-many-files-text' => 'Þú mátt aðeins hlaða inn {{PLURAL:$1|einni skrá|$1 skrám}} í einu. Þú reyndir að bæta við $2 {{PLURAL:$2|skrá|skrám}}. Vinsamlegast reyndu aftur með færri skrám!',
 	'mwe-upwiz-too-many-files' => 'Of margar skrár.',
@@ -17532,6 +17532,8 @@ $messages['lad'] = array(
 	'mwe-upwiz-published' => 'Publikado!',
 	'mwe-upwiz-dialog-yes' => 'Si',
 	'mwe-upwiz-dialog-no' => 'No',
+	'mwe-upwiz-categories' => 'Kategorias',
+	'mwe-upwiz-categories-add' => 'Anyadir otra kategoria',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -17825,7 +17827,7 @@ Benotzt hei w.e.g. kee Wikitext a keen HTML.',
 	'mwe-upwiz-license-external' => 'De Fichier huet op dem Quellsite "$1" dës Lizenz: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Dëse Fichier steet ënner der Lizenz $2 op dem Quellsite "$1". Leider, däerf déi Lizenz net op dëser Wiki benotzt ginn.',
 	'mwe-upwiz-license-photoset-invalid' => 'Leider huet keen vun de Biller aus dem Foto-Set eng Lizenz déi et erlaabt se op dësem Site ze benotzen.',
-	'mwe-upwiz-url-invalid' => 'Déi URL déi Dir aginn hutt weist op een net valabelt oder net erlaabte $1-Bild oder Fotoset a kann net benotzt ginn.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'Déi URL déi Dir aginn hutt gëtt net ënnerstëtzt oder weist op een net valabelt oder net erlaabte $1-Bild oder Fotoset a kann net benotzt ginn.',
 	'mwe-upwiz-categories' => 'Kategorien',
 	'mwe-upwiz-categories-add' => 'Derbäisetzen',
 	'mwe-upwiz-category-will-be-added' => 'Dës Kategorie gëtt nach net benotzt.',
@@ -24963,7 +24965,7 @@ $messages['ru'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'Добавить больше изображений из Flickr',
 	'mwe-upwiz-add-flickr-or' => 'ИЛИ',
 	'mwe-upwiz-add-flickr' => 'Получить с Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => 'URL изображения/фотосета на Flickr', # Fuzzy
+	'mwe-upwiz-flickr-input-placeholder' => 'URL на Flickr',
 	'mwe-upwiz-select-flickr' => 'Загрузить выбранные изображения',
 	'mwe-upwiz-flickr-disclaimer1' => 'Эта форма загрузит содержимое, размещённое на сайте flickr.com при соблюдении
 Flickr [https://www.flickr.com/help/terms/ условий использования] и [https://www.flickr.com/help/privacy-policy/ политики конфиденциальности].',
@@ -25217,7 +25219,7 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-license-external' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2. К сожалению, здесь данная лицензия не подходит для использования.',
 	'mwe-upwiz-license-photoset-invalid' => 'К сожалению, в фотосете нет изображений, лицензия которых допустима для использования на этом сайте.',
-	'mwe-upwiz-url-invalid' => 'Введённый URL указывает на неправильное или недопустимое  изображение или фотосет на сайте $1, и не может быть использован.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'Введённый URL не поддерживается или указывает на неправильное или недопустимое изображение или фотосет на сайте $1, и не может быть использован.',
 	'mwe-upwiz-categories' => 'Категории',
 	'mwe-upwiz-categories-add' => 'Добавить',
 	'mwe-upwiz-category-will-be-added' => 'Эта категория еще не используется.',
