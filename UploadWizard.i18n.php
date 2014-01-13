@@ -6341,7 +6341,7 @@ $messages['da'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'Tilføj flere billeder fra Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Eller',
 	'mwe-upwiz-add-flickr' => 'Hent fra Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => 'Flickr billede/fotosæt URL-adresse',
+	'mwe-upwiz-flickr-input-placeholder' => 'Flickr URL-adresse',
 	'mwe-upwiz-select-flickr' => 'Læg markerede billeder op',
 	'mwe-upwiz-flickr-disclaimer1' => 'Denne formular vil indlæse indhold fra flickr.com og med forbehold for Flickrs [https://www.flickr.com/help/terms/ brugerbetingelser] og [https://www.flickr.com/help/privacy-policy/ privatlivspolitik].',
 	'mwe-upwiz-flickr-disclaimer2' => 'Bemærk venligst at ved hjælp af dette værktøj, vil din IP-adresse og detaljer om din anmodning blive tilgængelig på Flickr.',
@@ -6597,7 +6597,7 @@ Brug venligst ikke wikitekst eller HTML her.',
 	'mwe-upwiz-license-external' => 'Filen er under følgende licens på kildewebstedet "$1": $2.',
 	'mwe-upwiz-license-external-invalid' => 'Filen er under følgende licens på kildewebstedet "$1": $2. Desværre, er den licens ikke tilladt på denne wiki.',
 	'mwe-upwiz-license-photoset-invalid' => 'Desværre har ingen billeder i dette fotosæt en licens, der er egnet til at blive brugt på denne hjemmeside.',
-	'mwe-upwiz-url-invalid' => 'Den angivne URL-adresse peger på et ugyldigt eller adgangsbegrænset $1 billede eller fotosæt og kan ikke bruges.',
+	'mwe-upwiz-url-invalid' => 'Den angivne URL-adresse er ikke understøttet eller peger på et ugyldigt eller adgangsbegrænset $1 billede eller fotosæt og kan ikke bruges.',
 	'mwe-upwiz-categories' => 'Kategorier',
 	'mwe-upwiz-categories-add' => 'Tilføj',
 	'mwe-upwiz-category-will-be-added' => 'Denne kategori er endnu ikke i brug.',
@@ -17527,13 +17527,14 @@ $messages['ky'] = array(
 
 /** Ladino (Ladino)
  * @author Menachem.Moreira
+ * @author Universal Life
  */
 $messages['lad'] = array(
 	'mwe-upwiz-published' => 'Publikado!',
 	'mwe-upwiz-dialog-yes' => 'Si',
 	'mwe-upwiz-dialog-no' => 'No',
-	'mwe-upwiz-categories' => 'Kategorias',
-	'mwe-upwiz-categories-add' => 'Anyadir otra kategoria',
+	'mwe-upwiz-categories' => 'Kategorías',
+	'mwe-upwiz-categories-add' => 'Ajustar otra kategoría',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -22861,7 +22862,7 @@ $messages['pms'] = array(
 	'mwe-upwiz-add-file-flickr-n' => "Gionté d'àutre plance da Flickr",
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Pijé da Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => 'Anliura ëd figure/àlbom ëd Flickr',
+	'mwe-upwiz-flickr-input-placeholder' => 'Liura ëd Flickr',
 	'mwe-upwiz-select-flickr' => 'Carié le figure selessionà',
 	'mwe-upwiz-flickr-disclaimer1' => "Ës formolari a cariërà dël contnù ospità da flickr.com e sogetà a le [https://www.flickr.com/help/terms/ condission d'usagi] e a le [https://www.flickr.com/help/privacy-policy/ régole ëd confidensialità] ëd Flickr.",
 	'mwe-upwiz-flickr-disclaimer2' => "Për piasì, ch'a ten-a da ment che an dovrand s'utiss, soa adrëssa IP e ij detaj dj'arceste a saran disponìbij për Flickr.",
@@ -23117,7 +23118,7 @@ Për piasì, ch'a deuvra pa ël wikitext o l'HTML ambelessì.",
 	'mwe-upwiz-license-external' => "S'archivi a l'é sota la licensa sì-dapress an sël sit sorgiss «$1»: $2.",
 	'mwe-upwiz-license-external-invalid' => "S'archivi a l'é sota la licensa sì-dapress an sël sit sorgiss «$1»: $2. Për maleur, costa wiki a përmet nen costa licensa.",
 	'mwe-upwiz-license-photoset-invalid' => "Belavans, gnun-a plancia ant l'àlbom a l'ha na licensa aproprià për esse dovrà dzora a 's sit.",
-	'mwe-upwiz-url-invalid' => "L'anliura anserìa a l'é na liura a na figura o a n'àlbom ëd $1 nen bon-a o a acess limità e a peul pa esse dovrà.",
+	'mwe-upwiz-url-invalid' => "L'anliura anserìa a l'é nen mantnùa o a ponta vers na plancia o n'àlbom nen vàlid o d'acess limità $1 e a peul pa esse dovrà.",
 	'mwe-upwiz-categories' => 'Categorìe',
 	'mwe-upwiz-categories-add' => 'Gionta',
 	'mwe-upwiz-category-will-be-added' => "Costa categorìa a l'é ancor nen dovrà.",
@@ -25219,7 +25220,7 @@ Flickr [https://www.flickr.com/help/terms/ условий использован
 	'mwe-upwiz-license-external' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Файл распространяется на условиях лицензии на исходном сайте «$1»: $2. К сожалению, здесь данная лицензия не подходит для использования.',
 	'mwe-upwiz-license-photoset-invalid' => 'К сожалению, в фотосете нет изображений, лицензия которых допустима для использования на этом сайте.',
-	'mwe-upwiz-url-invalid' => 'Введённый URL не поддерживается или указывает на неправильное или недопустимое изображение или фотосет на сайте $1, и не может быть использован.',
+	'mwe-upwiz-url-invalid' => 'Введённый URL не поддерживается или указывает на неправильное или недопустимое изображение или фотосет на сайте $1, поэтому не может быть использован.',
 	'mwe-upwiz-categories' => 'Категории',
 	'mwe-upwiz-categories-add' => 'Добавить',
 	'mwe-upwiz-category-will-be-added' => 'Эта категория еще не используется.',
