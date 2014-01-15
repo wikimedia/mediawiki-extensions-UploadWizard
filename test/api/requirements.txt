@@ -1,2 +1,3 @@
 wikitools>=1.1
 poster>=0.8
+PIL>=1.1.7

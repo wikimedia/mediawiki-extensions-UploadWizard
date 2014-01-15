@@ -1,13 +1,23 @@
 #!/usr/bin/python -u
 # Public domain
+#
+# Set of integration tests that simulate API calls made by the
+# UploadWizard frontend.
 
 import argparse
 import sys
 import unittest
 import urllib2
 import wikitools
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+import time
+import os
 
 # This script also depends on poster: https://pypi.python.org/pypi/poster/
+# To install all dependencies in your unix instance use:
+#   sudo pip install -r requirements.txt
 
 # Global wiki object to perform API calls.
 wiki = None
@@ -15,26 +25,45 @@ wiki = None
 # Global verbosity variable used inside the tests.
 verbosity = 0
 
+# Global generate new image variable used to check the --gen_new_image flag
+generate_new_image = False
+
 
 class TestUploadWizardAPICalls(unittest.TestCase):
     """Test API calls done by the Upload Wizard"""
 
-    # Test use same global variables initialized in main().
+    # Tests use same global variables initialized in main().
     global wiki
+    global generate_new_image
     global verbosity
 
-    def testUploadImageUsingWizardWorkflow(self):
-        """Test that basic api calls used by the UploadWizard are working as expected"""
+    def createNewImage(self):
+        """Create a new image with current timestamp as text marker"""
+        current_timestamp = time.time()
+        filename = repr(current_timestamp) + ".png"
+        ImageFont.load_default()
+        image = Image.new("RGB", (125, 25))
+        draw = ImageDraw.Draw(image)
+        draw.text((10, 10), repr(current_timestamp), (255, 255, 255))
+        # TODO(aarcos): Store in /tmp
+        image.save(filename, "PNG")
+        return filename
 
+    def uploadImage(self, remote_stash_filename, final_remote_filename, local_filename):
+        """Uploads image using a workflow very similar to the UploadWizard. First upload
+        to the stash area, if that's successfull then upload for real.
+
+        remote_stash_filename - Filename used when we upload to stash area
+        final_remote_filename - Filename when we upload for real
+        local_filename - Local filename of the image to be uploaded
+        """
         # Get edit token
         params = {
             "action": "tokens",
             "type": "edit",
         }
         req = wikitools.api.APIRequest(wiki, params)
-
         data = req.query()
-
         token = data["tokens"]["edittoken"]
 
         self.assertTrue(len(token) > 0, "Could not get valid token")
@@ -45,8 +74,8 @@ class TestUploadWizardAPICalls(unittest.TestCase):
             "token": token,
             "stash": "1",
             "ignorewarnings": "true",
-            "filename": "55390test-image-rosa-mx-15x15.png",
-            "file": open("./test-image-rosa-mx-15x15.png"),
+            "filename": remote_stash_filename,
+            "file": open(local_filename),
         }
         req = wikitools.api.APIRequest(wiki, params, multipart=True)
         data = req.query()
@@ -69,7 +98,7 @@ class TestUploadWizardAPICalls(unittest.TestCase):
             "token": token,
             "filekey": filekey,
             "ignorewarnings": "true",
-            "filename": "Test-image-rosa-mx-15x15.png",
+            "filename": final_remote_filename,
             "comment": "Test image uploaded via python script.",
             "text": "[[Category:Test images]]",
         }
@@ -85,13 +114,36 @@ class TestUploadWizardAPICalls(unittest.TestCase):
         url = data["upload"]["imageinfo"]["url"]
 
         # Assert uploaded content same as source file !
-        file_content = file("./test-image-rosa-mx-15x15.png", "rb").read()
+        file_content = file(local_filename, "rb").read()
         url_content = urllib2.urlopen(url).read()
 
         self.assertEqual(url_content, file_content, "Uploaded content different than original !")
 
-        if verbosity >= 3:
-            print "File uploaded successfully !"
+        if verbosity >= 0:
+            print "File '%s' uploaded successfully !" % final_remote_filename
+
+    def testUploadImageUsingWizardWorkflow(self):
+        """Test that basic api calls used by the UploadWizard are working as expected"""
+
+        remote_stash_filename = "55390test-image-rosa-mx-15x15.png"
+        final_remote_filename = "Test-image-rosa-mx-15x15.png"
+        local_filename = "test-image-rosa-mx-15x15.png"
+
+        if generate_new_image:
+            temp_image = self.createNewImage()
+            remote_stash_filename = temp_image
+            final_remote_filename = "Test-" + temp_image
+            local_filename = temp_image
+
+            if verbosity >= 3:
+                print "Created temp_image:", temp_image
+
+            try:
+                self.uploadImage(remote_stash_filename, final_remote_filename, local_filename)
+            finally:
+                os.remove(temp_image)
+        else:
+            self.uploadImage(remote_stash_filename, final_remote_filename, local_filename)
 
     def testFileInfoAPICall(self):
         """Test file info api call used by the UploadWizard"""
@@ -143,6 +195,7 @@ def main():
     # Global varibles that are going to be used by the tests.
     global wiki
     global verbosity
+    global generate_new_image
 
     # Parse line arguments
     parser = argparse.ArgumentParser(description="Upload Wizard API smoke tests.")
@@ -151,10 +204,12 @@ def main():
     parser.add_argument("--username", required=True, help="Username for API calls")
     parser.add_argument("--password", required=True, help="Password for API calls")
     parser.add_argument("-v", "--verbose", type=int, default=0, help="Increase output verbosity")
+    parser.add_argument("--gen_new_image", action="store_true", help="Create a new image with current timestamp")
     args = parser.parse_args()
 
     # Create wikitools object
     wiki = wikitools.Wiki(args.api_url)
+    generate_new_image = args.gen_new_image
     verbosity = args.verbose
 
     # Log in user
