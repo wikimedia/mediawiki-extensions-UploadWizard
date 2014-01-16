@@ -5259,6 +5259,22 @@ $messages['ce'] = array(
 	'mwe-upwiz-upload-count' => '$2 {{PLURAL:$2|1=Файлех|Файлашах}} {{PLURAL:$1|1=чуаьккха $1 файл|чуаьха $1 файлаш}}', # Fuzzy
 	'mwe-upwiz-progressbar-uploading' => 'сервесан чуяхар',
 	'mwe-upwiz-finished' => 'Кийчча ю!',
+	'mwe-upwiz-source-ownwork-assert-any-license' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенеша}} бакъо йолучо, {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} {{PLURAL:$1|1=цуьнах|царах}} луург дан йиш йолуш бакъо луш кхуза чуйоху лахарчу лицензица:',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Austria лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Germany лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Estonia лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Spain лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Croatia лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело бакъо ло хӀокху Creative Commons Attribution ShareAlike 3.0 Luxembourg лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Netherlands лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Norway лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Poland лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution ShareAlike 3.0 Romania лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Attribution 3.0 лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело хӀокху Creative Commons Zero Public Domain Dedication лицензица ([$3 лицензин йоза]).',
+	'mwe-upwiz-source-ownwork-assert-custom' => 'Аса, $2, {{PLURAL:$1|1=хӀокху произведенин|хӀокху произведенешан}} бакъо йолучо, бакъо ло {{PLURAL:$1|1=хӀара произведени|хӀара произведенеш}} лело лахара лицензица.',
+	'mwe-upwiz-source-ownwork-assert-note' => 'Аса, {{PLURAL:$2|1=хӀокху произведенин|хӀокху произведенеша}} бакъо йолучо, {{PLURAL:$2|1=иза|уьш}} чуйокху $1 лицензица.',
 	'mwe-upwiz-more-options' => 'ТӀетоха и йолу меттиг а кхин хаам а…',
 	'mwe-upwiz-desc' => 'Цуьнах лаьцна',
 	'mwe-upwiz-desc-add-n' => 'тӀетоха цунах лаьцна кхечу маттахь',
@@ -5286,6 +5302,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-campaign-no-uploads-yet' => 'Чуйоху файлаш хӀинца а яц!',
 	'mwe-upwiz-license-pd-old-100' => 'Автор дӀакхелхина 100 шо хьалха',
 	'mwe-upwiz-license-pd-old' => 'Автор дӀакхелхина 70 шо хьалха',
+	'mwe-upwiz-license-cc-head' => '{{PLURAL:$1|1=ХӀокху произведенин|ХӀокху произведенешан}} бакъо йолучу авторо Creative Commons лицензица и лело бакъо ела.',
 	'mwe-upwiz-license-custom-preview' => 'Хьалха муха ю хьажа',
 	'mwe-upwiz-license-confirm-remove-title' => 'Бакъде дӀаяккхар',
 	'mwe-upwiz-categories-add' => 'ТIетоха',
@@ -16981,7 +16998,7 @@ $1{{PLURAL:$1|글자}}보다 길게 입력해주세요.',
 	'mwe-upwiz-license-external' => '파일은 "$1" 원본 사이트에서 다음 라이선스에 따릅니다: $2.',
 	'mwe-upwiz-license-external-invalid' => '파일은 "$1" 원본 사이트에서 다음 라이선스에 따릅니다: $2. 유감스럽게도 이 위키는 해당 라이선스를 허용하지 않습니다.',
 	'mwe-upwiz-license-photoset-invalid' => '불행하게도 사진집에 있는 그림은 이 사이트에서 사용하는 적절한 라이선스가 없습니다.',
-	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 그림이나 사진집 URL이 아닙니다.', # Fuzzy
+	'mwe-upwiz-url-invalid' => '입력한 URL은 $1의 올바른 그림이나 지원하는 사진집 URL이 아닙니다.',
 	'mwe-upwiz-categories' => '분류',
 	'mwe-upwiz-categories-add' => '추가',
 	'mwe-upwiz-category-will-be-added' => '이 분류는 아직 사용하지 않습니다.',
@@ -21227,6 +21244,7 @@ $1',
 
 /** Nepali (नेपाली)
  * @author Bhawani Gautam
+ * @author Krish Dulal
  */
 $messages['ne'] = array(
 	'uploadwizard' => 'अपलोड विजार्ड',
@@ -21282,7 +21300,7 @@ $messages['ne'] = array(
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|यो फाइल आफैंले बनाएको हो|यी फाइलहरु आफैंले बनाएका हुन्}}।',
 	'mwe-upwiz-source-thirdparty-accept' => 'ठीक',
 	'mwe-upwiz-source-custom' => 'प्रत्येक फाइलको कपी राइट सूचना  अर्को पृष्ठमा दिनुहोस्।',
-	'mwe-upwiz-more-options' => 'श्रेणीहरु र अरु विवरण थप्ने...', # Fuzzy
+	'mwe-upwiz-more-options' => 'स्थान र अरु विवरण थप्ने...',
 	'mwe-upwiz-desc' => 'विवरण',
 	'mwe-upwiz-desc-add-n' => 'अर्को भाषामा विवरण थप्ने',
 	'mwe-upwiz-desc-add-0' => 'विवरण थप्ने',
