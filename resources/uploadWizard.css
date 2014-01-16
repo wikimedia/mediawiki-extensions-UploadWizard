@@ -801,8 +801,25 @@ input.mwe-date {
 }
 /* Refer ---> http://stackoverflow.com/questions/17047694/add-line-break-to-before-or-after-pseudo-element-content */
 .mwe-loc-link:before {
-	content:'\a';
-	white-space:pre;
+	content: '\a';
+	white-space: pre;
+}
+
+.mwe-loc-link a {
+	cursor: pointer;
+}
+
+div.mwe-loc-map {
+	float: right;
+	background-color: #d3d3d3;
+	position: relative;
+	height: 230px;
+	width: 280px;
+	padding: 5px;
+}
+
+img.mwe-loc-map {
+	display: block;
 }
 
 .mwe-upwiz-category-will-be-added {

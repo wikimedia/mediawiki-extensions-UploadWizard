@@ -170,13 +170,6 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
 	//	.append( _this.altInput );
 
-	var showMap = $( '<a></a>' )
-		.append( mw.message( 'mwe-upwiz-location-button' ).text() )
-		.hide();
-
-	var linkDiv = $( '<div class="mwe-loc-link"></div>' )
-		.append( showMap );
-
 	var locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append( $ ('<div class="mwe-location-label"></div>' )
 		.append( mw.message( 'mwe-upwiz-location' ).escaped() )
@@ -185,7 +178,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
 			//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-			latDiv, lonDiv, linkDiv//, altDiv
+			latDiv, lonDiv//, altDiv
 		);
 
 	$( moreDetailsDiv ).append(
@@ -305,16 +298,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		}
 	} );
 
-	var $list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon ' );
-	$list.on( 'input keyup change cut paste', function ( event ) {
-		var link = _this.osmMapLink();
-		if (  $list.valid() ) {
-			showMap.attr( { 'href':link, 'target':'_blank' } ).show();
-		}
-		else {
-			showMap.hide();
-		}
-	} );
+	_this.map = new mw.GeoMap( _this.$form );
 
 	$.each( _this.fields, function ( i, $fieldInput ) {
 		$fieldInput.rules( "add", {
@@ -506,6 +490,7 @@ mw.UploadWizardDetails.prototype = {
 			var firstValue = $( firstId ).val();
 			$( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
 				$( this ).val( firstValue );
+				$( this ).trigger( 'uw-copy' );
 				if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
 					var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
 					if ( !moreInfo.hasClass( "mwe-upwiz-toggler-open" ) ) {
@@ -667,15 +652,6 @@ mw.UploadWizardDetails.prototype = {
 
 		_this.$form.append( _this.copyMetadataCtrlDiv, copyMetadataDiv );
 		_this.copyMetadataCtrlDiv.show();
-	},
-
-	/**
-	 * Open OSM map
-	 */
-	osmMapLink: function () {
-			var mapLink = new mw.Uri( 'https://openstreetmap.org/' )
-					.extend( { zoom: 9, layers: 'M', lat: this.$latInput.val(), lon: this.$lonInput.val() } );
-			return mapLink.toString();
 	},
 
 	/**

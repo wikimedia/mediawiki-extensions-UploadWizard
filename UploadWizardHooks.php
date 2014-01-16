@@ -25,6 +25,7 @@ class UploadWizardHooks {
 				'jquery.tipsy',
 				'jquery.ui.widget',
 				'jquery.validate',
+				'jquery.throttle-debounce',
 				'mediawiki.language',
 				'mediawiki.Uri',
 				'mediawiki.util',
@@ -94,6 +95,9 @@ class UploadWizardHooks {
 				'resources/mw.UploadWizardDescription.js',
 				'resources/mw.UploadWizardDetails.js',
 				'resources/mw.UploadWizardUploadInterface.js',
+
+				// Geographical map library
+				'resources/mw.GeoMap.js',
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',
