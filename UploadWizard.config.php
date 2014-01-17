@@ -90,7 +90,8 @@ return array(
 
 	// Flickr details
 	'flickrApiUrl' => '//api.flickr.com/services/rest/?',
-	'flickrApiKey' => '',
+	'flickrApiKey' => 'aeefff139445d825d4460796616f9349', // you should probably replace this with your own
+	'flickrBlacklistPage' => '', // name of wiki page with blacklist of Flickr users
 
 	// Settings about things that get automatically (and silently) added to uploads
 	'autoAdd' => array(

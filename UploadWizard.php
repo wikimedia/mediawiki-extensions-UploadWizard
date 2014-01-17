@@ -57,6 +57,7 @@ $wgAutoloadClasses += array(
 	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
 	'UploadWizardTutorial' => $wgUpwizDir . '/includes/UploadWizardTutorial.php',
 	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
+	'UploadWizardFlickrBlacklist' => $wgUpwizDir . '/includes/UploadWizardFlickrBlacklist.php',
 
 	// Campaign ContentHandler
 	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
@@ -69,12 +70,14 @@ $wgAutoloadClasses += array(
 	'SpecialCampaigns' => $wgUpwizDir . '/includes/specials/SpecialCampaigns.php',
 
 	// API
-	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php'
+	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php',
+	'ApiFlickrBlacklist' => $wgUpwizDir . '/includes/ApiFlickrBlacklist.php',
 );
 
 $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
+$wgAPIModules['flickrblacklist'] = 'ApiFlickrBlacklist';
 
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
@@ -82,11 +85,12 @@ $wgSpecialPages['Campaigns'] = 'SpecialCampaigns';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
 $wgSpecialPageGroups['Campaigns'] = 'media';
 
-// for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
+$wgHooks['IsUploadAllowedFromUrl'][] = 'UploadWizardHooks::onIsUploadAllowedFromUrl';
 $wgHooks['ResourceLoaderTestModules'][] = 'UploadWizardHooks::onResourceLoaderTestModules';
+$wgHooks['UnitTestsList'][] = 'UploadWizardHooks::onUnitTestsList';
 
 $uploadWizardModuleInfo = array(
 	'localBasePath' => __DIR__ . '/resources',
