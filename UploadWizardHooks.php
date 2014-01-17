@@ -390,6 +390,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-external-invalid',
 				'mwe-upwiz-license-photoset-invalid',
 				'mwe-upwiz-url-invalid',
+				'mwe-upwiz-user-blacklisted',
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-will-be-added',

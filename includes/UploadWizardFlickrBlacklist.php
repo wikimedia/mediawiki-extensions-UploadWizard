@@ -15,7 +15,7 @@ class UploadWizardFlickrBlacklist {
 	const PHOTO_URL_REGEXP = '!flickr\.com/(?:x/t/[^/]+/)?photos/[^/]+/([0-9]+)!';
 
 	/**
-	 * An array of the blacklisted Flickr NSIDs and usernames.
+	 * An array of the blacklisted Flickr NSIDs and path_aliases.
 	 * Used as an in-memory cache to speed successive lookups; null means not yet initialized.
 	 * @var array|null
 	 */
@@ -33,7 +33,11 @@ class UploadWizardFlickrBlacklist {
 
 	/**
 	 * Name of the wiki page which contains the NSID blacklist.
-	 * The page should contain usernames (either human-readable or NSID) separated by whitespace.
+	 *
+	 * The page should contain usernames (either the path_alias - the human-readable username
+	 * in the URL - or the NSID) separated by whitespace. It is not required to contain both
+	 * path_alias and NSID for the same user.
+	 *
 	 * Lines starting with # are ignored.
 	 * @var string
 	 */
@@ -74,10 +78,10 @@ class UploadWizardFlickrBlacklist {
 	}
 
 	/**
-	 * Returns the blacklist, which is a non-associative array of user NSIDs and usernames
+	 * Returns the blacklist, which is a non-associative array of user NSIDs and path_aliases
 	 * (the name name which can be seen in the pretty URL). For a given user, usually only one
-	 * of the NSID and the username will be present; it is the responsibility of the consumers
-	 * of this list to check it against both.
+	 * of the NSID and the path_alias will be present; it is the responsibility of the consumers
+	 * of the blacklist to check it against both.
 	 * @return array
 	 */
 	public function getBlacklist() {
@@ -111,12 +115,12 @@ class UploadWizardFlickrBlacklist {
 	}
 
 	/**
-	 * Takes a photo ID, returns owner's NSID and username (the one which appears in the URL),
-	 * if available.
+	 * Takes a photo ID, returns owner's NSID and path_alias
+	 * (the username which appears in the URL), if available.
 	 * @param string $flickrPhotoId
-	 * @return array an array containing the NSID first and the userid (path_alias in Flickr terms)
-	 *     second. Username is not guaranteed to exist; if there is no such photo (or some other
-	 *     error happened), the array will be empty.
+	 * @return array an array containing the NSID first and the path_alias second. The path_alias
+	 *     is not guaranteed to exist, in which case the array will have a single item;
+	 *     if there is no such photo (or some other error happened), the array will be empty.
 	 */
 	protected function getUserIdsFromPhotoId( $flickrPhotoId ) {
 		$userIds = array();
