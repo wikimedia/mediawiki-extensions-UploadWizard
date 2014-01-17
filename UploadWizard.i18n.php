@@ -5303,6 +5303,8 @@ $messages['ce'] = array(
 	'mwe-upwiz-license-pd-old-100' => 'Автор дӀакхелхина 100 шо хьалха',
 	'mwe-upwiz-license-pd-old' => 'Автор дӀакхелхина 70 шо хьалха',
 	'mwe-upwiz-license-cc-head' => '{{PLURAL:$1|1=ХӀокху произведенин|ХӀокху произведенешан}} бакъо йолучу авторо Creative Commons лицензица и лело бакъо ела.',
+	'mwe-upwiz-license-cc-subhead' => 'Массо Creative Commons лицензеш сайтан йогӀуш яц. Хила тешна, авторийн бакъонаш йолучо царах цхьаъ лицензи билгала йина хилар.',
+	'mwe-upwiz-license-public-domain-usa-head' => 'АЦШхь авторийн бакъонаш ларош йолу хан билгала чекхъяьлла.',
 	'mwe-upwiz-license-custom-preview' => 'Хьалха муха ю хьажа',
 	'mwe-upwiz-license-confirm-remove-title' => 'Бакъде дӀаяккхар',
 	'mwe-upwiz-categories-add' => 'ТIетоха',
@@ -19031,7 +19033,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-thanks-url' => 'За да поставите врска до неа во HTML, ископирајте ја следнава URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ова вики не прифаќа податотеки со наставка „.$1“.',
 	'mwe-upwiz-upload-error-bad-extension-video-firefogg' => 'Одбравте да подигнете видеоснимка што не е во слободен формат.
-Можете автоматски да ја претворите ако го [$1 инсталирате Firefogg], или да искористите една од другите [$2 можности] за да го претворите во слободен формат.',
+Можете автоматски да ја претворите ако го [$1 воспоставите Firefogg], или да искористите една од другите [$2 можности] за да го претворите во слободен формат.',
 	'mwe-upwiz-upload-error-bad-filename-no-extension' => 'Викито наложува дека податотеките мора да имаат наставка (на пр. „.JPG“) на крајот од името.',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'Веќе ја подигате податотеката „$1“.',
 	'mwe-upwiz-allowed-filename-extensions' => 'Допуштени наставки:',
