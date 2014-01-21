@@ -5323,6 +5323,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-dialog-yes' => 'ХӀаъ',
 	'mwe-upwiz-campaign-upload-button' => 'Чуяккха',
 	'mwe-upwiz-campaign-media-count-desc' => 'Чуйаьхарш',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'Автораш',
 	'mwe-upwiz-campaign-no-uploads-yet' => 'Чуйоху файлаш хӀинца а яц!',
 	'mwe-upwiz-license-pd-old-100' => 'Автор дӀакхелхина 100 шо хьалха',
 	'mwe-upwiz-license-pd-old' => 'Автор дӀакхелхина 70 шо хьалха',
