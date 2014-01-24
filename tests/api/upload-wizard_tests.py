@@ -219,6 +219,11 @@ def main():
         sys.stderr.write("Wrong credentials, please try again.\n")
         exit(1)
 
+    # Switch to directory of script
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
+
     # Run tests
     suite = unittest.TestLoader().loadTestsFromTestCase(TestUploadWizardAPICalls)
     unittest.TextTestRunner(verbosity=verbosity).run(suite)
