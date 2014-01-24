@@ -98,12 +98,14 @@ class UploadWizardHooks {
 
 				// Geographical map library
 				'resources/mw.GeoMap.js',
+				'resources/leaflet/leaflet-src.js',
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',
 				'resources/jquery/jquery.mwCoolCats.css',
 				'resources/jquery/jquery.removeCtrl.css',
 				'resources/jquery/jquery.showThumbCtrl.css',
+				'resources/leaflet/leaflet.css',
 			),
 			'messages' => array(
 				'comma-separator',
