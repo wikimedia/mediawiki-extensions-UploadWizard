@@ -360,7 +360,7 @@ mw.UploadWizardUpload.prototype = {
 
 		var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
 		if ( tooManyFiles ) {
-			_this.showTooManyFilesWarning( files.length );
+			_this.showTooManyFilesWarning( files.length + _this.wizard.uploads.length );
 			resetFileInput();
 			return;
 		}
