@@ -5269,6 +5269,7 @@ $messages['ce'] = array(
 	'mwe-upwiz-uploading' => 'Файлаш сервес чуйолуш ю…',
 	'mwe-upwiz-queued' => 'РогӀехь...',
 	'mwe-upwiz-stashed-upload' => 'Чуйаьккхина',
+	'mwe-upwiz-submitting-details' => 'Чуйоккху…',
 	'mwe-upwiz-published' => 'Чуяьккхина!',
 	'mwe-upwiz-remove' => 'ДӀаяккха',
 	'mwe-upwiz-upload' => 'Чуяккха',
@@ -7659,6 +7660,7 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 );
 
 /** Lower Sorbian (dolnoserbski)
+ * @author Derbeth
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -7682,7 +7684,7 @@ $messages['dsb'] = array(
 	'mwe-upwiz-transported' => 'Nagraśe dokóńcone...',
 	'mwe-upwiz-stashed-upload' => 'Nagraty',
 	'mwe-upwiz-published' => 'Wózjawjony!',
-	'mwe-upwiz-failed' => 'Njeraźiło.',
+	'mwe-upwiz-failed' => 'Njejo se raźiło.',
 	'mwe-upwiz-remove' => 'Wótpóraś',
 	'mwe-upwiz-remove-description' => 'Toś to wopisanje wótpóraś',
 	'mwe-upwiz-upload' => 'Nagraś',
@@ -19997,6 +19999,7 @@ $messages['mr'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'वगळण्याची पुष्टि करा',
 	'mwe-upwiz-license-external' => '$1: ही संचिका "$1" या स्रोत संकेतस्थळावर खालील परवान्या अंतर्गत आहे: $2.',
 	'mwe-upwiz-license-external-invalid' => '$1: ही संचिका "$1" या स्रोत संकेतस्थळावर खालील परवान्या अंतर्गत आहे: $2. दुर्दैवाने,हा विकि या परवान्यास मान्यता देत नाही.',
+	'mwe-upwiz-user-blacklisted' => 'दुर्दैवाने,या $1 खात्यातून काहीच चित्रे या संकेतस्थळावर अपभारीत करता आली नाहीत.',
 	'mwe-upwiz-categories' => 'वर्ग',
 	'mwe-upwiz-categories-add' => 'दुसरा वर्ग जोडा',
 	'mwe-upwiz-category-remove' => 'हा वर्ग वगळावा',
@@ -24886,7 +24889,7 @@ $messages['roa-tara'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'Aggiunge cchiù immaggine da Flickr',
 	'mwe-upwiz-add-flickr-or' => 'O',
 	'mwe-upwiz-add-flickr' => 'Pigghie da Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => "URL de l'immaggine/'nzieme de fote de Flickr",
+	'mwe-upwiz-flickr-input-placeholder' => 'URL de Flickr',
 	'mwe-upwiz-select-flickr' => 'Careche le immaggine scacchiate',
 	'mwe-upwiz-error-no-image-retrieved' => "Non ge putime recuperà 'u file da $1.",
 	'mwe-upwiz-transport-started' => 'Stoche a parte...',
@@ -24918,7 +24921,7 @@ $messages['roa-tara'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'stoche a careche',
 	'mwe-upwiz-finished' => 'Spicciate!',
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|seconde|seconde}} ca rumanene',
-	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minute}} $2 {{PLURAL:$2|seconde|seconde}} ca rumanene', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute}} $2 {{PLURAL:$2|seconde}} ca {{PLURAL:$3|rumanene}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|ore|ore}} $2 {{PLURAL:$2|minute|minute}} $3 {{PLURAL:$3|seconde|seconde}} rumanende',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Stu file jè|Ste file sonde}} fatia meje.',
 	'mwe-upwiz-source-thirdparty' => "{{PLURAL:$1|Stu file non g'è|Ste file non ge sonde}} fatia meje.",
