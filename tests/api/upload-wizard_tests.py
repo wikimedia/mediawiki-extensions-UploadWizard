@@ -202,18 +202,21 @@ def main():
     parser.add_argument("--api_url", default="https://commons.wikimedia.org/w/api.php",
                         help="URL of wiki API, such as http://example.org/w/api.php")
     parser.add_argument("--username", help="Username for API calls. You can also set MEDIAWIKI_USER")
-    parser.add_argument("--password", help="Password for API calls. You can also set MEDIAWIKI_PASSWORD")
+    parser.add_argument("--password",
+                        help="Password for API calls. You can also set MEDIAWIKI_PASSWORD " +
+                        "or MEDIAWIKI_PASSWORD_VARIABLE (points to env var with password value)")
     parser.add_argument("-v", "--verbose", type=int, default=0, help="Increase output verbosity")
     parser.add_argument("--gen_new_image", action="store_true", help="Create a new image with current timestamp")
     args = parser.parse_args()
 
     username = args.username or os.getenv("MEDIAWIKI_USER")
-    password = args.password or os.getenv("MEDIAWIKI_PASSWORD")
+    password = args.password or os.getenv("MEDIAWIKI_PASSWORD") or os.getenv(os.getenv("MEDIAWIKI_PASSWORD_VARIABLE"))
 
     if username is None or password is None:
         sys.stderr.write(
-            "error: username and password required. Pass these values with " +
-            "the corresponding flags or set the env variables: MEDIAWIKI_USER and MEDIAWIKI_PASSWORD\n")
+            "error: username and password required. Pass these values with the corresponding flags or set " +
+            "the env variables: MEDIAWIKI_USER and MEDIAWIKI_PASSWORD or " +
+            "MEDIAWIKI_PASSWORD_VARIABLE (points to env var with password value)\n")
         exit(1)
 
     # Create wikitools object
