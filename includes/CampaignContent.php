@@ -105,6 +105,7 @@ class CampaignContent extends TextContent {
 		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
 
 		$formatter = new CampaignPageFormatter( $campaign );
+		wfProfileOut( __METHOD__ );
 		return $formatter->generateReadHtml();
 	}
 }
