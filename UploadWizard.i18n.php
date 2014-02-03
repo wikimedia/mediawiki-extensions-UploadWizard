@@ -9434,6 +9434,7 @@ $messages['eu'] = array(
 /** Persian (فارسی)
  * @author Alireza
  * @author Amire80
+ * @author Armin1392
  * @author Baqeri
  * @author Calak
  * @author Dalba
@@ -9483,7 +9484,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'افزودن تصاویر بیشتر از فلیکر',
 	'mwe-upwiz-add-flickr-or' => 'یا',
 	'mwe-upwiz-add-flickr' => 'دریافت از فلیکر',
-	'mwe-upwiz-flickr-input-placeholder' => 'نشانی تصویر/مجموعه‌ای از تصویرهای فلیکر', # Fuzzy
+	'mwe-upwiz-flickr-input-placeholder' => 'یوآر‌ال فلیکر',
 	'mwe-upwiz-select-flickr' => 'بارگذاری تصاویر انتخاب‌شده',
 	'mwe-upwiz-flickr-disclaimer1' => 'این فرم محتویات نگهداری‌شده توسط فلیکر را بارگیری می‌کند و شرایط آن در فلیکر در [https://www.flickr.com/help/terms/ شرایط استفاده] و [https://www.flickr.com/help/privacy-policy/ سیاست حریم خصوصی] موجود است.',
 	'mwe-upwiz-flickr-disclaimer2' => 'لطفاً توجه داشته باشید که با استفاده از این ابزار، IP آدرس شما و اطلاعات درخواستی در فلیکر قابل دسترسی است.',
@@ -9740,6 +9741,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-license-external-invalid' => 'این پرونده تجت این اجازه‌نامه در تارنما مبدأ «$1» منتشر شده‌است: $2. متأسفانه، این مجوز برای استفاده در این تارنما مناسب نیست.',
 	'mwe-upwiz-license-photoset-invalid' => 'متاسفانه، هیچ تصویری در مجموعه تصاویر مجوز مناسب برای استفاده در این وب‌گاه را ندارد.',
 	'mwe-upwiz-url-invalid' => 'نشانی وارد شده به تصویر یا مجموعه تصویر محدود شده $1  اشاره دارد و قابل استفاده نیست.', # Fuzzy
+	'mwe-upwiz-user-blacklisted' => 'متأسفانه، هیچ عکسی از این حساب $1 نمی‌تواند در این سایت منتقل شود.',
 	'mwe-upwiz-categories' => 'رده‌ها',
 	'mwe-upwiz-categories-add' => 'افزودن',
 	'mwe-upwiz-category-will-be-added' => 'این رده هنوز استفاده نشده‌است.',
@@ -18442,11 +18444,13 @@ $messages['lrc'] = array(
 	'mwe-upwiz-transported' => 'سوار کرد تموم بیه....',
 	'mwe-upwiz-override' => 'د هر شلکی سوار کرد نه انجوم به.',
 	'mwe-upwiz-remove-upload' => 'ای جانیا نه د نوم گه جانیایا سی سوار کرد جا وه جا کو',
+	'mwe-upwiz-show-thumb' => 'نشو دئن بن کلکی',
 	'mwe-upwiz-upload' => 'سوار کرد',
 	'mwe-upwiz-file-some-failed' => 'یه قرئ د سوارکردیا انجوم نبی.',
 	'mwe-upwiz-file-all-failed' => 'هیش کوم د سوارکردیا خوو نبی.',
 	'mwe-upwiz-upload-count' => '$1 of $2 {{جمی:$2|جانیاجانیایا}} سوار بیه', # Fuzzy
 	'mwe-upwiz-desc-add-n' => 'یه گل نیسه د زون هنی اضاف بکید',
+	'mwe-upwiz-location-button' => 'نشو دئن د نشقه',
 	'mwe-upwiz-thanks-intro' => 'منمون سی سوارکردتو!',
 	'mwe-upwiz-upload-error-duplicate-filename-error' => 'شما ایسنی  د حال سوارکرد جانیا "$1" هئیت.',
 	'mwe-upwiz-upload-error-duplicate' => 'ای جانیا دماتر مین ای ویکی سوار بیه.',
@@ -19110,7 +19114,7 @@ $messages['mk'] = array(
 	'mwe-upwiz-api-warning-was-deleted' => 'Постоела податотека по име „$1“, но сега е избришана и не може да се подига одново. Ако вашата податотека е поинаква, преименувајте ја.',
 	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Нажалост, не можевме да најдеме прирачникот на вашиот јазик. Затоа, ви ја прикажуваме верзијата на  $1.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Нажалост, не можевме да најдеме податотеки за прирачникот што треба да оди тука. Обратете се кај администраторите.',
-	'mwe-upwiz-tutorial-error-cannot-transform' => 'Нажалост, не можевме да најдеме намалена слика на прирачникот што одговара на овој екран. Ова може да е привремен проблем поради неправилности во Заедничката Ризница. Обидете се подоцна.',
+	'mwe-upwiz-tutorial-error-cannot-transform' => 'Нажалост, не можевме да најдеме намалена слика на прирачникот што одговара на овој екран. Ова може да е привремен проблем поради неправилности во Ризницата. Обидете се подоцна.',
 	'mwe-upwiz-help-desk' => 'Биро за помош',
 	'mwe-upwiz-help-desk-url' => '{{ns:project}}:Биро за помош',
 	'mwe-upwiz-add-file-n' => 'Додај уште податотеки',
@@ -19422,7 +19426,7 @@ $1',
 	'mwe-upwiz-campaign-owner-own' => 'Дозволи само подигање на сопствени дела',
 	'mwe-upwiz-campaign-owner-notown' => 'Дозволи само подигање на несопствени дела',
 	'mwe-upwiz-campaign-conf-licensesOwnWork' => 'Лиценците на избор за сопствено дело',
-	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'Името на упатството на Заедничката Ризница. $1 се заменува со јазичниот код',
+	'mwe-upwiz-campaign-conf-tutorialTemplate' => 'Името на упатството на Ризницата. $1 се заменува со јазичниот код',
 	'mwe-upwiz-campaign-conf-tutorialWidth' => 'На која широчина да се прикажува упатството',
 	'mwe-upwiz-campaign-conf-tutorialHelpdeskCoords' => 'Координати за карти со врски на копчето „Биро за помош“ во упатството',
 	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => 'Стандардната лиценца за сопствени дела',
