@@ -126,7 +126,7 @@ $wgResourceModules['ext.uploadWizard.page'] = array(
 $wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
 	'styles' => 'ext.uploadWizard.uploadCampaign.display.css',
 	'position' => 'top',
-	'dependencies' => 'mediawiki.ui'
+	'dependencies' => 'mediawiki.ui.button'
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = array(
