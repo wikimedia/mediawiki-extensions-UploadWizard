@@ -100,7 +100,7 @@ class TestUploadWizardAPICalls(unittest.TestCase):
             "ignorewarnings": "true",
             "filename": final_remote_filename,
             "comment": "Test image uploaded via python script.",
-            "text": "[[Category:Test images]]",
+            "text": "{{pd-ineligible}}[[Category:Test images]]",
         }
         req = wikitools.api.APIRequest(wiki, params)
         data = req.query()
