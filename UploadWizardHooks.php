@@ -558,6 +558,7 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
+		global $wgLang;
 
 		$config = UploadWizardConfig::getConfig();
 
@@ -609,7 +610,10 @@ class UploadWizardHooks {
 			if ( UploadWizardConfig::getSetting( 'enableChunked' ) === 'opt-in' ) {
 				$preferences['upwiz-chunked'] = array(
 					'type' => 'check',
-					'label-message' => 'mwe-upwiz-prefs-chunked',
+					'label-message' => array(
+						'mwe-upwiz-prefs-chunked',
+						$wgLang->formatSize( UploadWizardConfig::getSetting( 'chunkSize' ) )
+					),
 					'section' => 'uploads/upwiz-experimental'
 				);
 			}

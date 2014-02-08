@@ -419,7 +419,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-prefs-def-license-def' => 'Use whatever the default is',
 	'mwe-upwiz-prefs-license-own' => 'Own work - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => "Someone else's work - $1",
-	'mwe-upwiz-prefs-chunked' => 'Chunked uploads for files over 1MB in Upload Wizard',
+	'mwe-upwiz-prefs-chunked' => 'Chunked uploads for files over $1 in Upload Wizard',
 	'mwe-upwiz-prefs-skiptutorial' => 'Skip introductory licensing tutorial',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximum number of concurrent uploads',
 
@@ -1200,6 +1200,8 @@ See also:
 * $1 - license message. e.g. {{msg-mw|Mwe-upwiz-license-cc-by-sa-3.0}}
 See also:
 * {{msg-mw|Mwe-upwiz-prefs-license-own}}',
+	'mwe-upwiz-prefs-chunked' => 'Preference that enables chunked uploading. Parameters:
+* $1 - size of each chunk, as configured on this wiki',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preference which enables the user to permanently skip the licensing tutorial at the beginning. This is the same licensing tutorial as is mentioned in {{msg-mw|Mwe-upwiz-campaign-conf-skipTutorial}}',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Preference which sets the maximum number of concurrent upload requests',
 	'campaigns' => '{{doc-special|Campaigns}}

@@ -602,6 +602,9 @@ return array(
 	// set to "opt-in" to control via experimental user preference under 'Uploads' tab
 	'enableChunked' => false,
 
+	// If chunked uploads are enabled, what size, in bytes, should each chunk be?
+	'chunkSize' => 5 * 1024 * 1024,
+
 	// Should feature to copy metadata across a batch of uploads be enabled?
 	'copyMetadataFeature' => true,
 

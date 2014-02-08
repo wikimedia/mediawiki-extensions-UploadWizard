@@ -16,8 +16,10 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
 	this.uploadObject = uploadObject;
 
     this.postUrl = postUrl;
-    //set chunk size to 5MB or max php size
-    this.chunkSize = Math.min(5 * 1024 * 1024, mw.UploadWizard.config.maxPhpUploadSize);
+    // Set chunk size to configured chunk size or max php size,
+    // whichever is smaller.
+    this.chunkSize = Math.min( mw.UploadWizard.config.chunkSize,
+        mw.UploadWizard.config.maxPhpUploadSize );
     this.maxRetries = 2;
     this.retries = 0;
     this.firstPoll = false;
