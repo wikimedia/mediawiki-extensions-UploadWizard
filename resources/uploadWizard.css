@@ -800,15 +800,18 @@ input.mwe-date {
 	font-style:italic;
 }
 
-a.mwe-loc-link {
-	cursor: pointer;
+div.mwe-loc-link{
+	opacity: 0.5;
+	height: 100%;
+	Width: 100%;
 }
+
 div.mwe-location-map{
 	float: right;
-	background-color: #d3d3d3;
+	background-color:  white;
 	position: relative;
-	height: 270px;
-	width: 300px;
+	height: 300px;
+	width: 60%;
 	padding: 5px;
 	cursor: auto;
 }
@@ -817,16 +820,24 @@ div.mwe-loc-map{
 	float: right;
 	background-color: #d3d3d3;
 	position: relative;
-	height: 230px;
-	width: 280px;
+	height: 90%;
+	width: 97.5%;
 	padding: 5px;
+	cursor: auto;
 }
 img.mwe-loc-map {
 	display: block;
+	height: 100%;
+	width: 100%;
+}
+div#simpleSearch.mwe-loc-map-label {
+	float: right;
+	height: 25px;
+	width: 99.7%;
 }
 div.mwe-loc-map-label{
 	float: left;
-	width: 140px;
+	width: 100%;
 }
 
 .mwe-upwiz-category-will-be-added {

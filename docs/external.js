@@ -10,7 +10,3 @@
  * @class jQuery
  * A jQuery object.
  */
-/**
- * @class HTMLDivElement
- * HTML div element.
- */
