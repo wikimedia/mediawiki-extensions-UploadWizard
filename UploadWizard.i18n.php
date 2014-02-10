@@ -1737,6 +1737,7 @@ $messages['anp'] = array(
 /** Arabic (العربية)
  * @author ;Hiba;1
  * @author Aiman titi
+ * @author Asaifm
  * @author AwamerT
  * @author Malekbr
  * @author Meno25
@@ -1874,6 +1875,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-media-type' => 'نوع الوسيط',
 	'mwe-upwiz-date-created' => 'تاريخ الانشاء',
 	'mwe-upwiz-location' => 'الموقع',
+	'mwe-upwiz-location-button' => 'أظهر على الخريطة',
 	'mwe-upwiz-location-lat' => 'خط العرض',
 	'mwe-upwiz-location-lon' => 'خط الطول',
 	'mwe-upwiz-location-alt' => 'الارتفاع',
@@ -10744,7 +10746,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Utiliser la valeur par défaut',
 	'mwe-upwiz-prefs-license-own' => 'Travail personnel - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Travail de quelqu’un d’autre - $1',
-	'mwe-upwiz-prefs-chunked' => 'Versements fragmentés pour les fichiers de plus de $1 dans l’Assistant de téléversement', # Fuzzy
+	'mwe-upwiz-prefs-chunked' => 'Versements fragmentés pour les fichiers de plus de $1 dans l’Assistant de téléchargement',
 	'mwe-upwiz-prefs-skiptutorial' => 'Passer le tutoriel sur les licences',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Nombre maximal de téléchargements simultanés',
 	'campaigns' => 'Télécharger l’assistant de campagnes',
@@ -19847,7 +19849,7 @@ $messages['ml'] = array(
 	'mwe-upwiz-prefs-def-license-def' => 'സ്വതേയുള്ളതെന്താണെന്നാൽ അതുപയോഗിക്കുക',
 	'mwe-upwiz-prefs-license-own' => 'സ്വന്തം സൃഷ്ടി - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'മറ്റുള്ളവരുടെ സൃഷ്ടി - $1',
-	'mwe-upwiz-prefs-chunked' => 'ഒരു എം.ബി.യിലധികമുള്ള പ്രമാണങ്ങൾക്കായി അപ്‌ലോഡ് സഹായിയിൽ ബൃഹത് അപ്‌ലോഡുകൾ',
+	'mwe-upwiz-prefs-chunked' => ' $1 അളവിലും അധികമുള്ള  പ്രമാണങ്ങൾക്കായി അപ്‌ലോഡ് സഹായിയിൽ ബൃഹത് അപ്‌ലോഡുകൾ',
 	'mwe-upwiz-prefs-skiptutorial' => 'തുടക്കത്തിലെ അനുമതി നൽകൽ സഹായി ഒഴിവാക്കുക',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'ഒരേ സമയം ചെയ്യാവുന്ന പരമാവധി അപ്‌ലോഡുകൾ',
 	'campaigns' => 'അപ്‌ലോഡ് സഹായി മേളകൾ',
