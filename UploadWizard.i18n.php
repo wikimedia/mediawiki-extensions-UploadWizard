@@ -23052,7 +23052,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Użyj domyślnej licencji',
 	'mwe-upwiz-prefs-license-own' => 'Praca własna - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Praca kogoś innego - $1',
-	'mwe-upwiz-prefs-chunked' => 'Pakietowe przekazywanie plików większych niż $1 w Kreatorze Przesyłania', # Fuzzy
+	'mwe-upwiz-prefs-chunked' => 'Pakietowe przekazywanie plików większych niż $1 w Kreatorze Przesyłania',
 	'mwe-upwiz-prefs-skiptutorial' => 'Pomiń wstępny samouczek licencjonowania',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maksymalna liczba równoczesnych załadowań',
 );
