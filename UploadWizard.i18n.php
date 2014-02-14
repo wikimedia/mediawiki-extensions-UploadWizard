@@ -7491,10 +7491,10 @@ Qande fotrafa, tay vatena qısan, fırsenan yana cayan ra bahs kerê.',
 	'mwe-upwiz-error-latitude' => "Hereneya cı -90 u 90'i ared bo.",
 	'mwe-upwiz-error-longitude' => 'Derganeya cı -180 u 180 arde bo.',
 	'mwe-upwiz-error-altitude' => 'Reqem do yew amar bo',
-	'mwe-upwiz-error-signature-too-long' => 'İmzayê şıma zaf dergo.
-$1 gani bınê no {{PLURAL:$1|karakter|karakter}} de bıbo.',
-	'mwe-upwiz-error-signature-too-short' => 'İmzayê şıma zaf kılma.
-$1 gani bınê no {{PLURAL:$1|karakter|karakter}} de bıbo.',
+	'mwe-upwiz-error-signature-too-long' => 'İmzaya şıma zaf derga.
+Aye $1 {{PLURAL:$1|karakter|karakteran}} ra kılm ke.',
+	'mwe-upwiz-error-signature-too-short' => 'İmzaya şıma zaf kılma.
+Aye $1 {{PLURAL:$1|karakter|karakteran}} ra derg ke.',
 	'mwe-upwiz-error-signature-bad-chars' => 'İmzer da şıma de sembole xırabi estê.
 Reca keme ita de wikimetin yana HTML mekarne, tenya namey karberi yana namey xoyo raştay.',
 	'mwe-upwiz-error-blank' => 'No ca icab keno.',
@@ -19167,9 +19167,9 @@ $messages['mk'] = array(
 	'mwe-upwiz-upload-count' => '{{PLURAL:$1|Подигната е $1|Подигнати се $1}} од {{PLURAL:$2|$2 податотека|$2 податотеки}}',
 	'mwe-upwiz-progressbar-uploading' => 'подигам',
 	'mwe-upwiz-finished' => 'Готово!',
-	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Преостанува $1 секунда|Преостануваат $1 секунди}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|Преостанува|Преостануваат}} {{PLURAL:$1|$1 минута|$1 минути}} и $2 {{PLURAL:$2|секунда|секунди}}',
-	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Преостанува $1  час|Преостануваат $1 часа}}, $2 {{PLURAL:$2|минута|минути}} и $3 {{PLURAL:$3|секунда|секунди}}',
+	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|Преостанува една секунда|Преостануваат $1 секунди}}',
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|Преостанува|Преостануваат}} {{PLURAL:$1|една минута|$1 минути}} и {{PLURAL:$2|една секунда|$2 секунди}}',
+	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|Преостанува еден час|Преостануваат $1 часа}}, {{PLURAL:$2|една минута|$2 минути}} и {{PLURAL:$3|една секунда|$3 секунди}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Ова мрежно место бара да {{GENDER:$2|наведете}} информации за авторските права на {{PLURAL:$1|ова дело|овие дела}}, за да може секој да {{PLURAL:$1|го|ги}} употребува без да прави прекршоци.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Оваа податотека е|Овие податотеки се}} мое сопствено дело.',
 	'mwe-upwiz-source-ownwork-assert-any-license' => 'Јас, $2, имателот на авторското право на {{PLURAL:$1|ова дело|овие дела}}, со ова неотповикливо секому му го давам правото да {{PLURAL:$1|го|ги}} користи, менува и раздава {{PLURAL:$1|делово|делава}} за било каква цел, и затоа {{PLURAL:$1|го|ги}} објавувам под следниве услови:',
@@ -28498,9 +28498,10 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Använd standarden oavsett vad den är',
 	'mwe-upwiz-prefs-license-own' => 'Eget arbete - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Någon annans verk - $1',
-	'mwe-upwiz-prefs-chunked' => 'Bitvis överföringar för filer över $1 i uppladdningsguiden', # Fuzzy
+	'mwe-upwiz-prefs-chunked' => 'Bitvis överföringar för filer över $1 i uppladdningsguiden',
 	'mwe-upwiz-prefs-skiptutorial' => 'Hoppa över introduktionen för licensieringsguiden',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maximalt antal samtidiga uppladdningar',
+	'campaigns' => 'Kampanjer för uppladdningsguiden',
 	'mwe-upload-campaigns-pagination-next' => 'Nästa sida',
 	'mwe-upload-campaigns-list-title' => 'Lista över uppladdningskampanjer',
 );
