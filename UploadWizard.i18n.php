@@ -1817,7 +1817,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'يرفع',
 	'mwe-upwiz-finished' => 'تم!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|بقي أقل من ثانية|بقيت ثانية واحدة|بقيت ثانيتان|بقي $1 ثوانٍ|بقي $1 ثانية}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|بقي أقل من دقيقة|بقيت دقيقة واحدة|بقيت دقيقتان|بقي $1 دقائق|بقي $1 دقيقة}} {{PLURAL:$2||وثانية واحدة|وثانيتان|و$2 ثوانٍ|و$2 ثانية}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$3|بقيت}} {{PLURAL:$1|دقيقة|$1 دقيقة}} و{{PLURAL:$2|ثانية|$2 ثانية}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|بقي أقل من ساعة|بقيت ساعة واحدة|بقيت ساعتان|بقي $1 ساعات|بقي $1 ساعة}} و{{PLURAL:$2|أقل من دقيقة|دقيقة واحدة|دقيقتان|$2 دقائق|$2 دقيقة}} {{PLURAL:$3||وثانية واحدة|وثانيتان|و$3 ثوانٍ|و$3 ثانية}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'يطلب {{GENDER:$2|منك|منكِ}} هذا الموقع توفير معلومات عن حقوق نشر {{PLURAL:$1||هذا العمل|هذين العملين|هذه الأعمال}} للتأكد من أن للجميع إعادة {{PLURAL:$1||استخدامه|استخدامهما|استخدامها}} قانونيًا.',
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1||هذا الملف|هذان الملفان|هذه الملفات}} من عملي الخاص.',
@@ -1847,7 +1847,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(يحق لأي شخص استخدام وتشارك وتعديل {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} ما دام يذكر مساهمتي {{PLURAL:$1||فيه|فيهما|فيها}} ويرخص الأعمال المشتقة {{PLURAL:$1||منه|منهما|منها}} بنفس الشروط.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'أنا $2 المتصرف بحقوق تأليف ونشر {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} بموجبه أمنح بما لا رجعة فيها أي شخص الحق في استخدام {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} وفقا لرخصة المشاع الإبداعي: النسبة 3.0 ([$3 النص القانوني]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(يحق لأي شخص استخدام وتشارك وتعديل {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} ما دام يذكر مساهمتي {{PLURAL:$1||فيه|فيهما|فيها}})',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'أنا $2 المتصرف بحقوق تأليف ونشر {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} بموجبه أمنح بما لا رجعة فيها أي شخص الحق في استخدام {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} وفقا لإعلان الملكية العامة للمشاع الإبداعي ([$3 النص القانوني]).', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'أنا $2 المتصرف بحقوق تأليف ونشر {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} بموجبه أمنح بما لا رجعة فيها أي شخص الحق في استخدام {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} وفقا لإعلان الملكية العامة للمشاع الإبداعي ([$3 النص القانوني]).',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(يحق لأي شخص استخدام وتشارك وتعديل {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} بدون قيود على الإطلاق)',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'أنا $2 المتصرف بحقوق تأليف ونشر {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} بموجبه أمنح بما لا رجعة فيها أي شخص الحق في استخدام {{PLURAL:$1||هذا المصنف|هذين المصنفين|هذه المصنفات}} وفقا للرخصة التالية:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'أنا المتصرف بحقوق تأليف ونشر {{PLURAL:$2||هذا المصنف|هذين المصنفين|هذه المصنفات}} أنشر {{PLURAL:$2||هذا المصنف|هذين المصنفين|هذه المصنفات}} برخصة $1.',
@@ -1885,7 +1885,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-other' => 'معلومات أخرى',
 	'mwe-upwiz-source' => 'المصدر',
 	'mwe-upwiz-thanks-intro' => 'شكرا على الرفع!',
-	'mwe-upwiz-thanks-explain' => 'يمكنك استخدام {{PLURAL:$1||هذا الملف|هذين الملفين|هذه الملفات}} على موقع مثل ويكيبيديا أو أن {{PLURAL:$1||تربطه|تربطهما|تربطها}} بصفحة على الوب.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'يمكنك استخدام {{PLURAL:$1||هذا الملف|هذين الملفين|هذه الملفات}} على الويكيات أو أن {{PLURAL:$1||تربطه|تربطهما|تربطها}} بصفحة على الوب.',
 	'mwe-upwiz-thanks-wikitext' => 'لاستخدام هذا الملف في ويكي، انسخ هذا النص إلى الصفحة:',
 	'mwe-upwiz-thanks-url' => 'لتربطه عبر HTML، انسخ هذا العنوان:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'لا تقبل هذه الويكي أسماء الملفات المنتهية ب".$1".',
@@ -1969,7 +1969,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => 'لا يبدو أن هذا نص ويكي صحيح أو قد لا يحتوي رخصة.',
 	'mwe-upwiz-details-error-count' => 'هناك {{PLURAL:$1||خطأ واحد|خطأين|$1 أخطاء|$1 خطأ}} على {{PLURAL:$2|الشكل|الأشكال}} أعلاه. قم بتصحيح {{PLURAL:$1||الخطأ|الخطأين|الأخطاء}}، وحاول مرة أخرى.',
 	'mwe-upwiz-too-many-files-ok' => 'موافق',
-	'mwe-upwiz-too-many-files-text' => 'يمكنك رفع {{PLURAL:$1||ملف واحد|ملفين|$1 ملفات|$1 ملفًا|$1 ملف}} فقط كل مرة. لقد حاولت رفع ما مجموعه {{PLURAL:$2||ملف واحد|ملفين|$2 ملفات|$2 ملفًا|$2 ملف}}، ولذا أزيل {{PLURAL:$3||ملف واحد|ملفان|$3 ملفات|$3 ملفًا|$3 ملف}}.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'يمكنك رفع {{PLURAL:$1||ملف واحد|ملفين|$1 ملفات|$1 ملفًا|$1 ملف}} فقط في المرة الواحدة. الرجاء المحاولة مرة أخرى مع عدد أقل من الملفات!', # Fuzzy
 	'mwe-upwiz-too-many-files' => 'ملفات كثيرة جدًا.',
 	'mwe-upwiz-file-too-large-ok' => 'موافق',
 	'mwe-upwiz-file-too-large-text' => 'يمكنك فقط أن ترفع ملفّات حجمها لا يتجاوز $1. لقد حاولت أن ترفع ملفا حجمه $2.',
@@ -2034,7 +2034,7 @@ $messages['ar'] = array(
 	'mwe-upwiz-license-external' => 'هذا الملف يخضع للرخصة التالية على موقع المصدر "$1": $2.',
 	'mwe-upwiz-license-external-invalid' => 'هذا الملف يخضع للرخصة التالية على موقع المصدر "$1": $2. للأسف، لا تسمح هذه الويكي بهذه الرخصة.',
 	'mwe-upwiz-license-photoset-invalid' => 'للأسف: لا يوجد صورة في تلك المجموعة لديها رخصة يمكنها استخدامها على هذا الموقع',
-	'mwe-upwiz-url-invalid' => 'الرابط المدخل يقود إلى صورة أو ألبوم $1 مقيد أو غير صحيح ولا يمكن استخدامه.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'الرابط المدخل يقود إلى صورة أو ألبوم صور $1 مقيد أو غير صحيح ولا يمكن استخدامه.',
 	'mwe-upwiz-categories' => 'تصنيفات',
 	'mwe-upwiz-categories-add' => 'أضف',
 	'mwe-upwiz-category-will-be-added' => 'هذا التصنيف غير مستخدم حاليا.',
@@ -7340,10 +7340,14 @@ $messages['diq'] = array(
 	'mwe-upwiz-add-file-flickr' => 'Fotrafan Flickr ra cı kerê',
 	'mwe-upwiz-add-flickr-or' => 'Ya zi',
 	'mwe-upwiz-add-flickr' => 'Flickr ra fotrafan bıgê',
-	'mwe-upwiz-flickr-input-placeholder' => 'Resmê Flickri/URLyê albumi', # Fuzzy
+	'mwe-upwiz-flickr-input-placeholder' => 'Flickr URL',
 	'mwe-upwiz-select-flickr' => 'Fotrafê weçinıtey bar ke',
 	'mwe-upwiz-transport-started' => 'Dest pêkêno...',
+	'mwe-upwiz-encoding' => 'Kod kerden...',
 	'mwe-upwiz-uploading' => 'Bar beno...',
+	'mwe-upwiz-queued' => 'Ratnayen...',
+	'mwe-upwiz-assembling' => 'Jew kerden...',
+	'mwe-upwiz-publish' => 'Hesırnayen...',
 	'mwe-upwiz-transported' => 'Barkerdış qedya...',
 	'mwe-upwiz-stashed-upload' => 'Bar biyo',
 	'mwe-upwiz-getting-metadata' => 'Malumatê u verqaytê dosyayo gêrêno...',
@@ -7438,7 +7442,7 @@ REca keme xo re yewna rovıter bıcerbne.',
 	'mwe-upwiz-other' => 'Melumatê bini',
 	'mwe-upwiz-source' => 'Çıme',
 	'mwe-upwiz-thanks-intro' => 'Qandê barkerdışi şıma rê teşekur kem!',
-	'mwe-upwiz-thanks-explain' => 'Nıka şıma linkê {{PLURAL:$1|na dosya|nê dosyaya}} sitey zey Wikipediya de  şena ıstifade, ya zi web de  {{PLURAL:$1|na|nê}} linki bınuse.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Nıka şıma linkê {{PLURAL:$1|na dosya|nê dosyaya}} sitey zey Wikipediya de  şena ıstifade, ya zi web de  {{PLURAL:$1|na|nê}} linki bınuse.',
 	'mwe-upwiz-thanks-wikitext' => 'Na dosyayer wiki de karfinayışi re, ena metiner perda wiki re kopya kerê:',
 	'mwe-upwiz-thanks-url' => 'Qande greye HTML dayışi re, enê adresê URL kopya kerê:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Ena wiki derganeya nameyê dosya da ".$1" qebul nêkeno.',
@@ -7663,6 +7667,7 @@ Reca keme wikimetin yana HTML tiya mekarnê.',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Karê yewê bini - $1',
 	'mwe-upwiz-prefs-chunked' => 'Şexê barkerden $1 ra vêşi istif nêbena',
 	'mwe-upwiz-prefs-skiptutorial' => 'Şınasiya mısnayış de lisansi ser çek',
+	'mwe-upload-campaigns-pagination-next' => 'Pela peyêne',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -22824,6 +22829,7 @@ Spróbuj proszę użyć innej przeglądarki.',
 	'mwe-upwiz-media-type' => 'Typ pliku',
 	'mwe-upwiz-date-created' => 'Data utworzenia',
 	'mwe-upwiz-location' => 'Położenie',
+	'mwe-upwiz-location-button' => 'Pokaż na mapie',
 	'mwe-upwiz-location-lat' => 'Szerokość geograficzna',
 	'mwe-upwiz-location-lon' => 'Długość geograficzna',
 	'mwe-upwiz-location-alt' => 'Wysokość nad poziomem morza',
@@ -23055,6 +23061,7 @@ $1',
 	'mwe-upwiz-prefs-chunked' => 'Pakietowe przekazywanie plików większych niż $1 w Kreatorze Przesyłania',
 	'mwe-upwiz-prefs-skiptutorial' => 'Pomiń wstępny samouczek licencjonowania',
 	'mwe-upwiz-prefs-maxsimultaneous-upload' => 'Maksymalna liczba równoczesnych załadowań',
+	'mwe-upload-campaigns-pagination-next' => 'Następna strona',
 );
 
 /** Piedmontese (Piemontèis)
