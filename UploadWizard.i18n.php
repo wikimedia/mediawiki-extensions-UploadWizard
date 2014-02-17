@@ -6339,7 +6339,7 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-license-external' => 'Dyma drwydded y ffeil ar y wefan "$1" y daeth ohoni\'n wreiddiol: $2.',
 	'mwe-upwiz-license-external-invalid' => 'Dyma drwydded y ffeil ar y wefan "$1" y daeth ohoni\'n wreiddiol: $2. Yn anffodus nid yw\'r wici hwn yn caniatau defnyddio\'r drwydded honno.',
 	'mwe-upwiz-license-photoset-invalid' => "Yn anffodus, nid oes gan ddim un o'r lluniau yn y casgliad o luniau drwydded sy'n addas i'w ddefnyddio ar y wefan hon.",
-	'mwe-upwiz-url-invalid' => "Mae'r URL a roddwyd yn pwyntio at lun neu gasgiad o luniau ar $1 sy'n annilys neu'n gyfyngedig, na ellir ei ddefnyddio.", # Fuzzy
+	'mwe-upwiz-url-invalid' => "Mae'r URL a roddwyd naill ai heb ei gefnogi, neu yn pwyntio at lun neu gasgiad o luniau ar $1 sy'n annilys neu'n gyfyngedig, na ellir ei ddefnyddio.",
 	'mwe-upwiz-categories' => 'Categorïau',
 	'mwe-upwiz-categories-add' => 'Ychwanegu categori arall',
 	'mwe-upwiz-category-will-be-added' => "Nid yw'r categori hwn yn cael ei ddefnyddio eto.",
@@ -22734,7 +22734,7 @@ $messages['pl'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'Dodać więcej zdjęć z serwisu Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Lub',
 	'mwe-upwiz-add-flickr' => 'Załaduj z serwisu Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => 'Adres URL grafiki/galerii z serwisu Flickr', # Fuzzy
+	'mwe-upwiz-flickr-input-placeholder' => 'Adres URL z serwisu Flickr',
 	'mwe-upwiz-select-flickr' => 'Załaduj zaznaczone grafiki',
 	'mwe-upwiz-flickr-disclaimer1' => 'Ten formularz załaduje treści zapisane na flickr.com z zastrzeżeniem przepisów [https://www.flickr.com/help/terms/ warunki użytkowania] i [https://www.flickr.com/help/privacy-policy/ polityka prywatności] Flickr.',
 	'mwe-upwiz-flickr-disclaimer2' => 'Należy pamiętać, że przy używaniu tego narzędzia, Twój adres IP i szczegóły zapytania będą dostępne w serwisie Flickr.',
