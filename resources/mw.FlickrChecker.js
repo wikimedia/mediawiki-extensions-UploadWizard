@@ -21,7 +21,7 @@ mw.FlickrChecker.fileNames = {};
 /**
  * Cache for Flickr blacklist lookups.
  * Resolves to a hash whose keys are the blacklisted Flickr NSIDs.
- * Use FlickrChecker.getBlacklist() instead of accessing this directly.
+ * Use `FlickrChecker.getBlacklist()` instead of accessing this directly.
  * @type {jQuery.Promise}
  */
 mw.FlickrChecker.blacklist = null;
@@ -44,7 +44,7 @@ mw.FlickrChecker.prototype = {
 	},
 
 	/**
-	 * If a photo is from flickr, retrieve its license. If the license is valid, display the license
+	 * If a photo is from Flickr, retrieve its license. If the license is valid, display the license
 	 * to the user, hide the normal license selection interface, and set it as the deed for the upload.
 	 * If the license is not valid, alert the user with an error message. If no recognized license is
 	 * retrieved, do nothing. Note that the license look-up system is fragile on purpose. If Flickr
@@ -117,7 +117,7 @@ mw.FlickrChecker.prototype = {
 	},
 
 	/**
-	 * Reserves a filename; used by mw.FlickrChecker.getFileNameFromItem() which tries to
+	 * Reserves a filename; used by `mw.FlickrChecker.getFileNameFromItem()` which tries to
 	 * avoid returning a filename which is already reserved.
 	 * This works even when the filename was reserved in a different FlickrChecker instance.
 	 * @param {String} fileName
@@ -166,7 +166,7 @@ mw.FlickrChecker.prototype = {
 
 	/**
 	 * Retrieves a list of photos in group pool and displays it.
-	 * @param groupPoolMatches result of this.url.match
+	 * @param groupPoolMatches result of `this.url.match`
 	 * @see {@link getPhotos}
 	 */
 	getGroupPool: function( groupPoolMatches ) {
@@ -495,7 +495,7 @@ mw.FlickrChecker.prototype = {
 	/**
 	 * Checks a user against the blacklist. Both the NSID and the path_alias (if it exists) MUST be
 	 * supplied, as the blacklist will probably only contain one of them. (Users don't have a
-	 * path_alias in the beginning, and must set it manually; it it does not exist, it can be left
+	 * path_alias in the beginning, and must set it manually; if it does not exist, it can be left
 	 * undefined, or an empty string can be supplied (which is what the Flickr API usually returns
 	 * as the path_alias for such users).
 	 * @param {String} nsid Flickr NSID of the author
@@ -539,7 +539,7 @@ mw.FlickrChecker.prototype = {
 	},
 
 	/**
-	 * Retrieve the list of all current Flickr licenses and store it in an array (mw.FlickrChecker.licenseList)
+	 * Retrieve the list of all current Flickr licenses and store it in an array (`mw.FlickrChecker.licenseList`)
 	 */
 	getLicenses: function() {
 		var checker = this;
