@@ -274,6 +274,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-allowed-filename-extensions',
 				'mwe-upwiz-help-allowed-filename-extensions',
 				'mwe-upwiz-upload-error-duplicate',
+				'mwe-upwiz-upload-error-duplicate-archive',
 				'mwe-upwiz-upload-error-stashed-anyway',
 				'mwe-upwiz-ok',
 				'mwe-upwiz-cancel',
