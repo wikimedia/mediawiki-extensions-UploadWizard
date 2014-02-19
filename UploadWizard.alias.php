@@ -21,6 +21,13 @@ $specialPageAliases['ar'] = array(
 	'UploadCampaign' => array( 'حملة_الرفع' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'UploadWizard' => array( 'ساحر_الرفع' ),
+	'UploadCampaigns' => array( 'حملات_الرفع' ),
+	'UploadCampaign' => array( 'حمله_الرفع' ),
+);
+
 /** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'UploadWizard' => array( 'আপল’ড_প্ৰক্ৰিয়া' ),
