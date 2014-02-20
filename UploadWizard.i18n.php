@@ -26352,6 +26352,13 @@ $messages['scn'] = array(
 	'mw-coolcats-confirm-new-cancel' => 'Làssa jìri',
 );
 
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'mwe-upwiz-prefs-chunked' => "Chunked uploads fer files o'er $1 in Upload Wizard",
+);
+
 /** Sinhala (සිංහල)
  * @author Pasanbhathiya2
  * @author Singhalawap
