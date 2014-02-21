@@ -1238,8 +1238,7 @@ mw.UploadWizardDetails.prototype = {
 				'source' : '',			// {{own}} or wikitext    optional
 				'author' : '',			// any wikitext, but particularly {{Creator:Name Surname}}   required
 				'permission' : '',		// leave blank unless OTRS pending; by default will be "see below"   optional
-				'other_versions' : '',	// pipe separated list, other versions     optional
-				'other_fields' : ''		// ???     additional table fields
+				'other_versions' : ''		// pipe separated list, other versions     optional
 			};
 
 			// sanity check the descriptions -- do not have two in the same lang
