@@ -1260,7 +1260,10 @@ mw.UploadWizard.prototype = {
 			$( '#mwe-upwiz-thanks' ).append( $thanksDiv );
 		} );
 		
-	//Gallery 
+			
+	/**
+	 * Output a Gallery form made with the uploaded images ready to be copy/paste
+	 */ 
 	$( '#mwe-upwiz-thanks' ).append('<br> &ltgallery&gt');
 	$.each( this.uploads, function(i, upload) {
 		if ( upload === undefined ) {
