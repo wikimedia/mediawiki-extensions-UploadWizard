@@ -1259,6 +1259,18 @@ mw.UploadWizard.prototype = {
 
 			$( '#mwe-upwiz-thanks' ).append( $thanksDiv );
 		} );
+		
+	//Gallery 
+	$( '#mwe-upwiz-thanks' ).append('<br> &ltgallery&gt');
+	$.each( this.uploads, function(i, upload) {
+		if ( upload === undefined ) {
+		return;
+		}
+		$( '#mwe-upwiz-thanks' ).append( '<br>Image:' + upload.title.getMainText());				
+		} );
+	$( '#mwe-upwiz-thanks' ).append('<br>&lt/gallery&gt');
+
+
 	},
 
 	/**
