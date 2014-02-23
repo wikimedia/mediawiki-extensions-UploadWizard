@@ -16167,6 +16167,7 @@ $1',
  * @author David1010
  * @author Dawid Deutschland
  * @author ITshnik
+ * @author Tokoko
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
@@ -16202,7 +16203,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'მეტი სურათების დამატება Flickr-დან',
 	'mwe-upwiz-add-flickr-or' => 'ან',
 	'mwe-upwiz-add-flickr' => 'Flickr-დან მიღება',
-	'mwe-upwiz-flickr-input-placeholder' => 'Flickr-ის სურათი/ფოტო ნაკრების URL',
+	'mwe-upwiz-flickr-input-placeholder' => 'Flickr-ის URL',
 	'mwe-upwiz-select-flickr' => 'არჩეული სურათების ატვირთვა',
 	'mwe-upwiz-transport-started' => 'იწყება...',
 	'mwe-upwiz-encoding' => 'კოდირება...',
@@ -16265,7 +16266,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain' => '(ყველას აქვს უფლება გამოიყენოს, გაავრცელოს და გადაამუშავოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}} იმ პირობით, რომ გაკეთდება ბმული ჩემზე და ყველა გადამუშავებული ნაწარმოები გავრცელდება ამ ლიცენზიით.)',
 	'mwe-upwiz-source-ownwork-assert-cc-by-3.0' => 'მე -- $2, {{PLURAL:$1|ამ ნამუშევარზე|ამ ნამუშევრებზე}} საავტორო უფლებების მფლობელი შეუქცევად საფუძველზე უფლებას ვაძლევ ყველას გამოიყენოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}} Creative Commons Attribution 3.0 ლიცენზიის პირობით ([$3 კოდექსი]).',
 	'mwe-upwiz-source-ownwork-cc-by-3.0-explain' => '(ყველას აქვს უფლება გამოიყენოს და გაავრცელოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}}, აგრეთვე შექმნას გადამუშავებული ნაწარმოებები იმ პირობით, რომ გაკეთდება ბმული ჩემზე.)',
-	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'მე -- $2, {{PLURAL:$1|ამ ნამუშევარზე|ამ ნამუშევრებზე}} საავტორო უფლებების მფლობელი შეუქცევად საფუძველზე უფლებას ვაძლევ ყველას გამოიყენოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}} Creative Commons Public Domain Dedication ლიცენზიის პირობით ([$3 კოდექსი]).', # Fuzzy
+	'mwe-upwiz-source-ownwork-assert-cc-zero' => 'მე, $2, {{PLURAL:$1|ამ ნამუშევარზე|ამ ნამუშევრებზე}} საავტორო უფლებების მფლობელი შეუქცევად საფუძველზე უფლებას ვაძლევ ყველას გამოიყენოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}} Creative Commons Public Domain Dedication ლიცენზიის პირობით ([$3 კოდექსი]).',
 	'mwe-upwiz-source-ownwork-cc-zero-explain' => '(ყველას აქვს უფლება გამოიყენოს და გაავრცელოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}}, აგრეთვე შექმნას გადამუშავებული ნაწარმოებები ყოველგვარი შეზღუდვის გარეშე.)',
 	'mwe-upwiz-source-ownwork-assert-custom' => 'მე -- $2, {{PLURAL:$1|ამ ნამუშევრის|ამ ნამუსევრების}} მიმართ გამორჩეული უფლების მფლობელი შეუქცევად საფუძველზე უფლებას ვაძლევ ყველას გამოიყენოს {{PLURAL:$1|ეს ნამუშევარი|ეს ნამუშევრები}} შემდეგი სალიცენზიო პირობით:',
 	'mwe-upwiz-source-ownwork-assert-note' => 'მე, {{PLURAL:$2|ამ ნამუშევრის|ამ ნამუშევრების}} საავტორო უფლებების მფლობელი, ვაქვეყნებ {{PLURAL:$2|მას|მათ}} $1 ლიცენზიით.',
@@ -16293,6 +16294,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-media-type' => 'მედიის ტიპი',
 	'mwe-upwiz-date-created' => 'შექმნის თარიღი',
 	'mwe-upwiz-location' => 'მდებარეობა',
+	'mwe-upwiz-location-button' => 'აჩვენე რუკაზე',
 	'mwe-upwiz-location-lat' => 'განედი',
 	'mwe-upwiz-location-lon' => 'გრძედი',
 	'mwe-upwiz-location-alt' => 'სიმაღლე',
@@ -16302,7 +16304,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-other' => 'დამატებითი ინფორმაცია',
 	'mwe-upwiz-source' => 'წყარო',
 	'mwe-upwiz-thanks-intro' => 'გმადლობთ ატვირთვისათვის!',
-	'mwe-upwiz-thanks-explain' => 'ახლა თქვენ შეგიძლიათ გამოიყენოთ {{PLURAL:$1|საკუთარი ფაილი|საკუთარი ფაილები}} ვიკიპედიაში და მის დობილ პროექტებში, ან ბმულით გადავიდეს {{PLURAL:$1|მასზე|მათზე}} სხვა ვებ-გვერდებიდან.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'ახლა თქვენ შეგიძლიათ გამოიყენოთ {{PLURAL:$1|საკუთარი ფაილი|საკუთარი ფაილები}} ვიკიპედიასა და მის დობილ პროექტებში, ან ბმულით დაუკავშირდეთ {{PLURAL:$1|მას|მათ}} სხვა ვებ-გვერდებიდან.',
 	'mwe-upwiz-thanks-wikitext' => 'ამ ფაილის ერთ-ერთ ვიკიში გამოსაყენებლად გადააკოპირე შემდეგი ტექსტი შესაბამის გვერდზე:',
 	'mwe-upwiz-thanks-url' => 'ბმულის HTML-ში დასამატებლად, დააკოპირეთ შემდეგი URL მისამართი:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'აღნიშნული ვიკი არ იღებს ფაილების სახელებს გაფართოებით „.$1“.',
@@ -16322,7 +16324,7 @@ $messages['ka'] = array(
 	'mwe-upwiz-fileexists' => 'ფაილი ამ სახელით უკვე არსებობს.
 გთხოვთ, შეამოწმეთ $1, თუ დარწმუნებული არ ხართ, რომ გსურთ მისი შეცვლა.',
 	'mwe-upwiz-fileexists-replace-on-page' => 'ფაილი ამ სახელწოდებით უკვე არსებობს ($1). თუ თქვენ მისი ჩანაცვლება გსურთ, შედით [$2 არსებული ფაილის გვერდზე] და იქ სცადეთ ეს.',
-	'mwe-upwiz-fileexists-replace-no-link' => 'ამ სახელწოდების ფაილი უკვე არსებობს.', # Fuzzy
+	'mwe-upwiz-fileexists-replace-no-link' => 'ამ სახელწოდების ფაილი უკვე არსებობს.',
 	'mwe-upwiz-blacklisted' => 'გთხოვთ, აირჩიეთ სხვა, აღწერილობითი სათაური.',
 	'mwe-upwiz-thumbnail-more' => 'გაზარდე',
 	'mwe-upwiz-overwrite' => 'შეცვალეთ ფაილი',
@@ -16335,7 +16337,7 @@ $messages['ka'] = array(
 	'mwe-prevent-close' => 'ამ გვერდის დატოვება გამოიწვევს თქვენ მიერ განხორციელებული ყველა ცვლილების დაკარგვას.',
 	'mwe-upwiz-prevent-close' => '{{PLURAL:$1|ამ ფაილის|ამ ფაილების}} ატვირთვისა და გამოქვეყნების პროცესი ჯერ დასრულებული არაა.',
 	'mwe-upwiz-files-complete' => 'თქვენი ფაილები აიტვირთა!',
-	'mwe-upwiz-tooltip-skiptutorial' => 'თქვენ შეგიძლიათ კვლავ ჩართოთ ეს სახელმძღვანელო [$1 თქვენი პირადი პარამეტრებიდან], იხ.  $2  →  $3 .', # Fuzzy
+	'mwe-upwiz-tooltip-skiptutorial' => 'თქვენ შეგიძლიათ კვლავ ჩართოთ ეს სახელმძღვანელო [$1 თქვენი პირადი პარამეტრებიდან], იხ.  $2  →  $3 .',
 	'mwe-upwiz-tooltip-author' => 'სახელი პიროვნებისა, რომელმაც გადაიღო ფოტო, დახატა ნახატი, შექმნა გამოსახულება და ა. შ.',
 	'mwe-upwiz-tooltip-source' => 'საიდანაა ეს ეს ფოტო — ეს შეიძლება იყოს URL მისამართი, წიგნი ან გამოცემა.',
 	'mwe-upwiz-tooltip-sign' => 'თქვენ შეგიძლიათ მიუთითოთ თქვენი ვიკის ანგარიშის სახელი, ან თქვენი ნამდვილი სახელი.
@@ -16385,12 +16387,19 @@ $messages['ka'] = array(
 	'mwe-upwiz-error-license-wikitext-invalid' => 'ეს არ გავს ვიკიტექსტს, ან არ შეიცავს ლიცენზიას.',
 	'mwe-upwiz-details-error-count' => '{{PLURAL:$2|ფორმას|ფორმას}} თან {{PLURAL:$1|ახლავს შეცდომა|ახლავს $1 შეცდომა}}. შეასწორეთ {{PLURAL:$1|შეცდომა|შეცდომები}} და ხელმეორედ სცადეთ ჩაწერა.',
 	'mwe-upwiz-too-many-files-ok' => 'კარგი',
-	'mwe-upwiz-too-many-files-text' => 'თქვენ შეგიძლიათ ერთჯერადად ატვირთოთ მხოლოდ $1 {{PLURAL:$1|ფაილი|ფაილი}}. თქვენ სულ შეეცადეთ აგეტვირთათ $2 {{PLURAL:$2|ფაილი|ფაილი}}, ამიტომ $3 {{PLURAL:$3|ფაილი წაიშალა|ფაილი წაიშალა}}.', # Fuzzy
+	'mwe-upwiz-too-many-files-text' => 'თქვენ შეგიძლიათ ერთდროულად ატვირთოთ მხოლოდ $1 {{PLURAL:$1|ფაილი|ფაილი}}. თქვენ შეეცადეთ აგეტვირთათ $2 {{PLURAL:$2|ფაილი|ფაილი}}. გთხოვთ თავიდან სცადოთ.',
 	'mwe-upwiz-too-many-files' => 'ძალიან ბევრი ფაილია.',
 	'mwe-upwiz-file-too-large-ok' => 'კარგი',
 	'mwe-upwiz-file-too-large-text' => 'თქვენს მიერ ატვირთული ფაილის ზომა არ უნდა აღემატებოდეს $1. თქვენ ცდილობთ ატვირთოთ ფაილი რომელიც არის $2.',
 	'mwe-upwiz-file-too-large' => 'ფაილი ძალიან დიდია.',
+	'mwe-upwiz-dialog-yes' => 'დიახ',
+	'mwe-upwiz-dialog-no' => 'არა',
+	'mwe-upwiz-dialog-title' => 'გაფრთხილება',
+	'mwe-upwiz-campaign-create-account-button' => 'შექმენი ანგარიში და ატვირთე ფაილი!',
+	'mwe-upwiz-campaign-upload-button' => 'ატვირთვა!',
 	'mwe-upwiz-campaign-media-count-desc' => 'ატვირთვები',
+	'mwe-upwiz-campaign-contributors-count-desc' => 'რედაქტორები',
+	'mwe-upwiz-campaign-view-all-media' => 'ნახე ატვირთული ფაილები',
 	'mwe-upwiz-license-cc-by-sa-3.0' => 'Creative Commons Attribution ShareAlike 3.0 ([$2 კოდექსი])',
 	'mwe-upwiz-license-cc-by-sa-3.0-at' => 'Creative Commons Attribution ShareAlike 3.0 ავსტრია ([$2 კოდექსი])',
 	'mwe-upwiz-license-cc-by-sa-3.0-de' => 'Creative Commons Attribution ShareAlike 3.0 გერმანია ([$2 კოდექსი])',
@@ -16518,8 +16527,9 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'იმის გამოყენება, რაც ნაგულისხმევია',
 	'mwe-upwiz-prefs-license-own' => 'საკუთარი ნამუშევარი - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'სხვისი ნამუშევარი - $1',
-	'mwe-upwiz-prefs-chunked' => 'ფაილების ატვირთვა, რომელთა ზომაც აღემატება 1მბ',
+	'mwe-upwiz-prefs-chunked' => 'ფაილების ატვირთვა, რომელთა ზომაც აღემატება 1მბ', # Fuzzy
 	'mwe-upwiz-prefs-skiptutorial' => 'ლიცენზირების გაცნობითი სახელმძღვანელო გამოტოვება',
+	'mwe-upload-campaigns-pagination-next' => 'შემდეგი გვერდი',
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
