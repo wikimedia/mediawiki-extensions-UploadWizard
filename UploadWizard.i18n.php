@@ -2290,7 +2290,7 @@ $messages['as'] = array(
 	'mwe-upwiz-next-details' => 'পৰৱৰ্তী',
 	'mwe-upwiz-home' => 'ৱিকিৰ বেটুপাতলৈ যাওক',
 	'mwe-upwiz-upload-another' => 'আৰু ফাইল আপলোড কৰক',
-	'mwe-prevent-close' => "এই পৃষ্ঠাখন এৰি গ'লে আপোনাৰ সাঁচি নোথোৱা তথ্য হেৰাই যাব পাৰে।",
+	'mwe-prevent-close' => "এই পৃষ্ঠাটো এৰি গ'লে আপোনাৰ সাঁচি নোথোৱা তথ্য হেৰাই যাব পাৰে।",
 	'mwe-upwiz-prevent-close' => "আপুনি এতিয়াও {{PLURAL:$1|এই ফাইলটো|এই ফাইলসমূহ}} আপল'ড আৰু প্ৰকাশ কৰি শেষ কৰা নাই।",
 	'mwe-upwiz-files-complete' => 'আপোনাৰ ফাইল আপলোড সম্পন্ন হৈছে!',
 	'mwe-upwiz-tooltip-skiptutorial' => '$2 → $3ৰ ভিতৰত আপুনি এই টিউটৰিয়েলটো [$1 আপোনাৰ পছন্দসমূহত] পুনৰ সক্ৰিয় কৰিব পাৰে।',
@@ -2477,7 +2477,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'ডিফল্ট যিয়েই নহওক ব্যৱহাৰ কৰক',
 	'mwe-upwiz-prefs-license-own' => 'নিজা কাম - $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'অন্য কাৰোবাৰ সৃষ্টি  - $1',
-	'mwe-upwiz-prefs-chunked' => "আপল'ড প্ৰক্ৰিয়াত ১এমবিৰ ডাঙৰ ফাইলসমূহৰ বাবে টুকুৰা আপল'ড",
+	'mwe-upwiz-prefs-chunked' => "আপল'ড প্ৰক্ৰিয়াত ১এমবিৰ ডাঙৰ ফাইলসমূহৰ বাবে টুকুৰা আপল'ড", # Fuzzy
 	'mwe-upwiz-prefs-skiptutorial' => "পৰিচয়মূলক অনুজ্ঞাপত্ৰ টিউট'ৰিয়েল অৱজ্ঞা কৰক",
 );
 
@@ -14032,6 +14032,7 @@ Per favor non usa wikitexto o HTML hic.',
 	'mwe-upwiz-license-external-invalid' => 'Le file es sub le sequente licentia in le sito de origine "$1": $2. Regrettabilemente, iste wiki non permitte tal licentia.',
 	'mwe-upwiz-license-photoset-invalid' => 'Regrettabilemente, le collection de photos non include un imagine con un licentia que permitte su uso in iste sito.',
 	'mwe-upwiz-url-invalid' => 'Le adresse URL entrate non es supportate o puncta a un imagine de $1 invalide o restringite e non pote esser usate.',
+	'mwe-upwiz-user-blacklisted' => 'Infortunatemente, nulle imagine de iste conto de $1 pote esser incargate sur iste sito.',
 	'mwe-upwiz-categories' => 'Categorias',
 	'mwe-upwiz-categories-add' => 'Adder',
 	'mwe-upwiz-category-will-be-added' => 'Iste categoria non es ancora usate.',
@@ -18489,6 +18490,7 @@ $messages['lrc'] = array(
 	'mwe-upwiz-campaign-view-all-media' => 'همه رسانه یا سوار بیه نه دین',
 	'mwe-upwiz-license-pd-textlogo' => 'نشون دیار فقط وا یه نیسه ساده(کلیمه نشون)',
 	'mwe-upwiz-license-confirm-remove' => 'شما سی یه که میهایت  {{جمی:$1|ای سوارکرد|ای سوارکردیا}} نه جا وه جا مطمئن هئیت?', # Fuzzy
+	'mwe-upwiz-feedback-blacklist-report-prompt' => '[$1 یه گل بازحرد کل کرد]',
 	'prefs-uploads' => 'سوارکردیا',
 	'prefs-upwiz-interface' => 'مین پیوست کارور',
 );
