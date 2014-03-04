@@ -12602,6 +12602,7 @@ $1',
  * @author Karthi.dr
  * @author Mayur
  * @author Rsrikanth05
+ * @author Siddhartha Ghai
  * @author Vibhijain
  */
 $messages['hi'] = array(
@@ -12773,7 +12774,7 @@ $messages['hi'] = array(
 	'mwe-upwiz-category-remove' => 'यह श्रेणी हटाएँ',
 	'mwe-upwiz-thumbnail-failed' => 'अपलोड सफल, लेकिन सर्वर एक पूर्वावलोकन थंबनेल नहीं मिल सका.',
 	'mwe-upwiz-unparseable-filename' => '"$1" फ़ाइल का नाम नहीं समझ सका',
-	'mwe-upwiz-image-preview' => 'चित्र पूर्वावलोकन', # Fuzzy
+	'mwe-upwiz-image-preview' => 'फ़ाइल पूर्वावलोकन',
 	'mwe-upwiz-subhead-bugs' => '[$1 ज्ञात समस्याएँ]',
 	'mwe-upwiz-subhead-alt-upload' => '[$1 पुराने फार्म को वापस]',
 	'mwe-upwiz-feedback-prompt' => '[$1 प्रतिक्रिया छोड़]',
@@ -27814,7 +27815,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Користи подразумевано',
 	'mwe-upwiz-prefs-license-own' => 'Сопствено дело – $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Туђе дело – $1',
-	'mwe-upwiz-prefs-chunked' => 'Отпремање на парчиће за датотеке изнад $1 са Помоћником за отпремање', # Fuzzy
+	'mwe-upwiz-prefs-chunked' => 'Отпремање из делова за датотеке изнад $1 са Помоћником за отпремање',
 	'mwe-upwiz-prefs-skiptutorial' => 'Прескочи уводно упутство о лиценцирању',
 );
 
@@ -28132,7 +28133,7 @@ $1',
 	'mwe-upwiz-prefs-def-license-def' => 'Koristi podrazumevano',
 	'mwe-upwiz-prefs-license-own' => 'Sopstveno delo – $1',
 	'mwe-upwiz-prefs-license-thirdparty' => 'Tuđe delo – $1',
-	'mwe-upwiz-prefs-chunked' => 'Otpremanje na parčiće za datoteke iznad $1 sa Pomoćnikom za otpremanje', # Fuzzy
+	'mwe-upwiz-prefs-chunked' => 'Otpremanje iz delova za datoteke iznad $1 sa Pomoćnikom za otpremanje',
 	'mwe-upwiz-prefs-skiptutorial' => 'Preskoči uvodno uputstvo o licenciranju',
 );
 
