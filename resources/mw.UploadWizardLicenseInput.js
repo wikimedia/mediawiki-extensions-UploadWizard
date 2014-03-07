@@ -32,7 +32,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	}
 
 	_this.$selector = $( selector );
-	_this.$selector.append( $( '<div class="mwe-error mwe-error-main"></div>' ) );
+	_this.$selector.append( $( '<div class="mwe-error mwe-error-head"></div>' ) );
 
 	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
