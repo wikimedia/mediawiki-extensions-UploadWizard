@@ -6340,6 +6340,7 @@ Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-license-external-invalid' => 'Dyma drwydded y ffeil ar y wefan "$1" y daeth ohoni\'n wreiddiol: $2. Yn anffodus nid yw\'r wici hwn yn caniatau defnyddio\'r drwydded honno.',
 	'mwe-upwiz-license-photoset-invalid' => "Yn anffodus, nid oes gan ddim un o'r lluniau yn y casgliad o luniau drwydded sy'n addas i'w ddefnyddio ar y wefan hon.",
 	'mwe-upwiz-url-invalid' => "Mae'r URL a roddwyd naill ai heb ei gefnogi, neu yn pwyntio at lun neu gasgiad o luniau ar $1 sy'n annilys neu'n gyfyngedig, na ellir ei ddefnyddio.",
+	'mwe-upwiz-user-blacklisted' => "Yn anffodus, ni ellir uwchlwytho delweddau o'r cyfrif $1 ar y wefan hon.",
 	'mwe-upwiz-categories' => 'Categorïau',
 	'mwe-upwiz-categories-add' => 'Ychwanegu categori arall',
 	'mwe-upwiz-category-will-be-added' => "Nid yw'r categori hwn yn cael ei ddefnyddio eto.",
@@ -6390,6 +6391,7 @@ $1",
 	'mwe-upwiz-campaign-conf-tutorialTemplate' => "Enw'r tiwtorial ar Gomin Wicifryngau. Rhoddir côd yr iaith yn lle $1:",
 	'mwe-upwiz-campaign-conf-tutorialWidth' => "Y lled ar gyfer ehangu'r tiwtorial:",
 	'mwe-upwiz-campaign-conf-defaultOwnWorkLicence' => "Y drwydded diofyn i'ch gwaith eich hunan:",
+	'mwe-upwiz-campaign-conf-headerLabelPage' => "Tudalen sy'n cynnwys y testun i'w gosod uwchben rhyngwyneb y Dewin Uwchlwytho. Caiff $1 ei ddisodli gan y cod iaith:",
 	'mwe-upwiz-campaign-conf-thanksLabelPage' => 'Enw\'r dudalen sy\'n cynnwys y testun i\'w ddangos ar frig y dudalen "Defnyddio". Caiff $1 ei ddisodli gan gôd yr iaith:',
 	'mwe-upwiz-campaign-conf-idFieldMaxLength' => 'Uchafswm hyd y testun yn y maes ID:',
 	'mwe-upwiz-campaign-conf-idField2MaxLength' => 'Uchafswm hyd y testun yn y maes ID eilaidd:',
@@ -9498,7 +9500,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-select-flickr' => 'بارگذاری تصاویر انتخاب‌شده',
 	'mwe-upwiz-flickr-disclaimer1' => 'این فرم محتویات نگهداری‌شده توسط فلیکر را بارگیری می‌کند و شرایط آن در فلیکر در [https://www.flickr.com/help/terms/ شرایط استفاده] و [https://www.flickr.com/help/privacy-policy/ سیاست حریم خصوصی] موجود است.',
 	'mwe-upwiz-flickr-disclaimer2' => 'لطفاً توجه داشته باشید که با استفاده از این ابزار، IP آدرس شما و اطلاعات درخواستی در فلیکر قابل دسترسی است.',
-	'mwe-upwiz-error-no-image-retrieved' => 'ما نمی‌تواند فایل را از  $1 بازیابی کنیم.',
+	'mwe-upwiz-error-no-image-retrieved' => 'ما نمی‌تواند پرونده را از $1 بازیابی کنیم.',
 	'mwe-upwiz-multi-file-select' => 'یک مربع بر روی پرونده‌هایی که می‌خواهید بارگذاری کنید به کمک موس بکشید. با پائین نگه‌داشتن دکمهٔ موس و دکمهٔ Ctrl/Command می‌توانید چندین پرونده را انتخاب نمائید.',
 	'mwe-upwiz-transport-started' => 'در حال شروع...',
 	'mwe-upwiz-encoding' => 'درحال اینکدینگ...',
@@ -9749,7 +9751,7 @@ $messages['fa'] = array(
 	'mwe-upwiz-license-confirm-remove-title' => 'تأیید حذف',
 	'mwe-upwiz-license-external' => 'این پرونده تجت این اجازه‌نامه در وب‌گاه مبدأ «$1» منتشر شده‌است: $2.',
 	'mwe-upwiz-license-external-invalid' => 'این پرونده تجت این اجازه‌نامه در تارنما مبدأ «$1» منتشر شده‌است: $2. متأسفانه، این مجوز برای استفاده در این تارنما مناسب نیست.',
-	'mwe-upwiz-license-photoset-invalid' => 'متاسفانه، هیچ تصویری در مجموعه تصاویر مجوز مناسب برای استفاده در این وب‌گاه را ندارد.',
+	'mwe-upwiz-license-photoset-invalid' => 'متأسفانه، هیچ تصویری در مجموعه تصاویر مجوز مناسب برای استفاده در این وب‌گاه را ندارد.',
 	'mwe-upwiz-url-invalid' => 'یوآر‌ال وارد شده به تصویر یا مجموعه تصویر محدود شده یا نامعتبر $1 یا اشاره دارد و پشتیبانی نشده‌است.',
 	'mwe-upwiz-user-blacklisted' => 'متأسفانه، هیچ عکسی از این حساب $1 نمی‌تواند در این سایت منتقل شود.',
 	'mwe-upwiz-categories' => 'رده‌ها',
@@ -23850,6 +23852,7 @@ $messages['ps'] = array(
  * @author Giro720
  * @author GoEThe
  * @author Hamilton Abreu
+ * @author Imperadeiro98
  * @author João Sousa
  * @author Luckas
  * @author Malafaya
@@ -23879,7 +23882,7 @@ $messages['pt'] = array(
 	'mwe-upwiz-step-thanks' => 'Usar',
 	'mwe-upwiz-api-warning-exists' => 'Já existe [$1 outro ficheiro] na wiki com o mesmo nome',
 	'mwe-upwiz-api-warning-was-deleted' => 'Existia um ficheiro com este nome,  "$1", mas foi eliminado e não pode voltar a colocá-lo na wiki. Se o seu ficheiro é diferente, tente dar-lhe outro nome.',
-	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Não foi encontrado nenhum guia na sua língua. Será usado o de língua inglesa.', # Fuzzy
+	'mwe-upwiz-tutorial-error-localized-file-missing' => 'Desculpe, mas nós não conseguimos encontrar um tutorial na sua linguagem. O $1 é mostrado, em vez do seu.',
 	'mwe-upwiz-tutorial-error-file-missing' => 'Não foram encontrados os ficheiros do guia que devia ser apresentado aqui. Contacte os administradores do sistema, por favor.',
 	'mwe-upwiz-tutorial-error-cannot-transform' => 'Não foi possível obter uma imagem do guia, dimensionada para este ecrã. Este problema da Wikimedia Commons pode ser temporário; tente novamente mais tarde.',
 	'mwe-upwiz-help-desk' => 'Apoio Técnico',
@@ -23910,7 +23913,7 @@ $messages['pt'] = array(
 	'mwe-upwiz-progressbar-uploading' => 'a enviar',
 	'mwe-upwiz-finished' => 'Terminado!',
 	'mwe-upwiz-secs-remaining' => '{{PLURAL:$1|falta $1 segundo|faltam $1 segundos}}',
-	'mwe-upwiz-mins-secs-remaining' => '{{PLURAL:$1|falta $1 minuto|faltam $1 minutos}} e $2 {{PLURAL:$2|segundo|segundos}}', # Fuzzy
+	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} {{PLURAL:$3|restante|restantes}}',
 	'mwe-upwiz-hrs-mins-secs-remaining' => '{{PLURAL:$1|falta $1 hora|faltam $1 horas}}, $2 {{PLURAL:$2|minuto|minutos}} e $3 {{PLURAL:$3|segundo|segundos}}',
 	'mwe-upwiz-deeds-macro-prompt' => 'Este site requer que seja fornecida informação sobre os direitos de autor {{PLURAL:$1|deste trabalho|destes trabalhos}}, para ter a certeza de que todos podem {{PLURAL:$1|reutilizá-lo|reutilizá-los}} legalmente.', # Fuzzy
 	'mwe-upwiz-source-ownwork' => '{{PLURAL:$1|Este ficheiro é|Estes ficheiros são}} de minha autoria.',
@@ -23951,13 +23954,13 @@ $messages['pt'] = array(
 	'mwe-upwiz-source-thirdparty-cases' => 'Agora diga-nos porque tem a certeza de que tem o direito de publicar {{PLURAL:$1|este trabalho|estes trabalhos}}:',
 	'mwe-upwiz-source-thirdparty-accept' => 'OK',
 	'mwe-upwiz-source-custom' => 'Forneça na próxima página a informação dos direitos de autor de cada ficheiro em separado.',
-	'mwe-upwiz-more-options' => 'Adicionar categorias e mais informações...', # Fuzzy
+	'mwe-upwiz-more-options' => 'Adicionar uma localização e mais informações...',
 	'mwe-upwiz-copy-metadata' => 'Copiar a informação para todos os ficheiros abaixo...', # Fuzzy
 	'mwe-upwiz-copy-metadata-button' => 'Copiar',
 	'mwe-upwiz-copy-title' => 'Copiar o título (com numeração automática)',
-	'mwe-upwiz-copy-description' => 'Copiar a descrição ou descrições', # Fuzzy
+	'mwe-upwiz-copy-description' => 'Copiar {{PLURAL:$1|a descrição|as descrições}}',
 	'mwe-upwiz-copy-date' => 'Copiar a data',
-	'mwe-upwiz-copy-categories' => 'Copiar as categorias', # Fuzzy
+	'mwe-upwiz-copy-categories' => 'Copiar {{PLURAL:$1|a categoria|as categorias}}',
 	'mwe-upwiz-copy-location' => 'Copiar a localização',
 	'mwe-upwiz-copy-other' => 'Copiar outra informação',
 	'mwe-upwiz-desc' => 'Descrição',
