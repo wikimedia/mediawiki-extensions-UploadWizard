@@ -17,7 +17,7 @@ mw.GeoMap = function ( $form ) {
 	_this.isGeoMapInitialized = false;
 	_this.map = null;
 	_this.address = '';
-	_this.zoom = 6;
+	_this.zoom = 8;
 
 	mw.GeoMap.mapId = ( mw.GeoMap.mapId || 0 ) + 1;
 	_this.mapDiv = $( '<div>' ).addClass( 'mwe-loc-map' ).attr( 'id', 'mwe-location-map' + mw.GeoMap.mapId );
@@ -107,14 +107,14 @@ mw.GeoMap.prototype = {
 		var _this = this,
 			latlng = L.latLng ( latVal, lonVal );
 		if ( !_this.isGeoMapInitialized ) {
-			_this.map = new L.map( _this.mapDiv.attr('id'), { center: [ latVal, lonVal ], zoom: _this.zoom, dragging: false } );
+			_this.map = new L.map( _this.mapDiv.attr( 'id' ), { center: [ latVal, lonVal ], zoom: _this.zoom, dragging: true } );
 			_this.map.on( 'click', function ( e ) {
 				_this.mapViewToinputs( e.latlng );
 			} );
 			_this.isGeoMapInitialized = true;
 			new L.TileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
 				minZoom: 1,
-				maxZoom: 16,
+				maxZoom: 25,
 				attribution: 'Data, imagery and map information provided by' +
 					'<a href=' + 'http://open.mapquest.co.uk' + ' target=_blank>MapQuest</a>' + ',' +
 					'<a href=' + 'http://www.openstreetmap.org/' + ' target=_blank>OpenStreetMap</a> and contributors',
@@ -257,10 +257,8 @@ mw.GeoMap.prototype = {
 				if ( !( ( i === 'country' ) || ( i === 'country_code' )|| ( i === 'postcode' ) ||
 					( i === 'state_district' ) || ( i === 'county' ) ) && value
 				) {
-					if ( _this.geoLocation.find( '#searchInput' ).val() !== value ) {
-						address += value + ',';
-						value = false;
-					}
+					address += value + ',';
+					value = false;
 				}
 				else if ( ( i === 'country' ) && value ) {
 					address += value;
@@ -270,92 +268,44 @@ mw.GeoMap.prototype = {
 					value = false;
 				}
 
-				//Setting zoom level according to 'importance' element; nominatim describes 'importance'as
-				//Indicator of how important a place is. Values in the range 0 to 1 where 1 is most important.
-				//The major weight of importance comes indeed from the Wikipedia link count.
-				//Incase of a detailed location search importnce value will be more than 1.
-				if ( data.importance ) {
-					if ( data.importance <= 0.5 ) {// most probably small places, not famous ones
-						zoom = 14;
-					}
-					else if ( data.importance <= 0.6 ) {// most probably a city|town
-						zoom = 13;
-					}
-					else if ( data.importance <= 0.7 ) {// most probably a city|town
-						zoom = 12;
-					}
-					else if ( data.importance <= 0.8 ) {// most probably a district|state|country
-						zoom = 11;
-					}
-					else if ( data.importance <= 0.9 ) {// most probably a district|state|country
-						zoom = 7;
-					}
-					else if ( data.importance <= 1 ) {//most probably an entire country|continent or an extremely famous place
-						if ( data.type === 'administrative' ) {//If its a country|continent
+				if ( data.importance || !( _this.isGeoMapInitialized ) ){//Setting zoom level according to various types of places during address search
+					if ( data.osm_type ) {
+						if ( data.osm_type === 'relation' ) {//most probably a country|state
 							zoom = 5;
+							if ( data.type ) {
+							//'type' as its name suggests describes type of location|place.
+							//There are plenty of 'types' defined|approved by nominatim
+							//most relevant for our purpose is 'administrative'.
+							//for more info on 'type' refer --->[ http://taginfo.openstreetmap.org/]
+								if ( data.type === 'administrative' ) {
+									address = data.display_name;
+									if ( data.address.city ) {//most probably a capital city
+										zoom = 12;
+									}
+									else if ( data.address.state_district ) {//most probably a district
+										zoom = 10;
+									}
+									else if ( data.address.state ) {//most probably a state
+										zoom = 8;
+									}
+								}
+							}
 						}
-						else {
-							zoom = 8;
+						else if ( data.osm_type === 'node' ) {
+							zoom = 12;
 						}
-						address = data.display_name;
-					}
-					else if ( data.importance <= 1.5 ) {// most probably a multiple word search|detailed address search
-						zoom = 11;
-					}
-					else if ( data.importance <= 2 ) {// most probably a multiple word search|full address search
-						zoom = 13;
-					}
-				}
+						else if ( data.osm_type === 'way' ) {//Most probably a house|restaurant|street etc
+							zoom = 15;
+						}
 
-				//For a single-word-location search, setting zoom level based on 'importance' could be sufficient( Provided user enters
-				// exact name of place which is having most number of links in Wikipedia ) but in case of detailed address search or
-				//multiple word search one may have to check additional elements, one such element is 'type'.
-				//'type' as its name suggests describes type of location|place. There are plenty of 'types' defined|approved by nominatim
-				//most relevant for our purpose is 'primary' and 'secondary' as they define full address or detailed address searches.
-				//for more info on 'type' refer --->[ http://taginfo.openstreetmap.org/ ]
-				if ( data.type ) {
-					if ( data.type === 'attraction' ) {//An extremely famous place like a monument, tourist spot etc.
-						zoom = 15;
-						address = data.display_name;
-					}
-					else if ( ( data.type === 'bus_stop' ) || ( data.type === 'restaurant' ) ||
-						( data.type === 'road' ) || ( data.type === 'hamlet' ) || ( data.type === 'house' ) ||
-						( data.type === 'primary' ) || ( data.type === 'secondary' )
-					) {
-						zoom = 15;
-					}
-					else if ( ( data.type === 'village') || ( data.type === 'street' ) ||
-						( data.type === 'standard_street' ) || ( data.type === 'small_place' ) ||
-						( data.type === 'residential' )
-					) {
-						zoom = 13;
-					}
-					else if ( ( data.type === 'town' )|| ( data.type === 'standard_place' ) ) {
-						zoom = 12;
-					}
-					else if ( ( data.type === 'city' ) || ( data.type === 'state' ) ) {
-						zoom = 11;
-					}
-					else if ( data.type === 'country' ) {
-						zoom = 7;
-					}
-					else if ( data.type === 'administrative' ) {
-					//An administrative place like capital city|state|country etc, hence double check its 'importance' and set the value.
-						if ( data.importance ) {
-							if ( ( data.importance >= 1 ) && ( data.importance <= 1.5 ) ) {
-								zoom = 9 ;
-							}
-							else if ( ( data.importance >= 1.5 ) && ( data.importance <= 2 ) ) {
-								zoom = 8 ;
-							}
-							else if ( ( data.importance >= 2 ) && ( data.importance <= 2.5 ) ) {
-								zoom = 7 ;
-							}
-							else if ( data.importance >= 2.5 ) {
-								zoom = 6 ;
-							}
+						if ( data.class === 'tourism' ) {//A tourist spot
+							zoom = 17;
+							address = data.display_name;
 						}
-						address = data.display_name;
+						else if ( data.class === 'amenity' ) {//park, hospital, university etc
+							zoom = 16;
+							address = data.display_name;
+						}
 					}
 				}
 			} );
