@@ -294,7 +294,7 @@ Please do not use wikitext or HTML here.',
 	'mwe-upwiz-license-copyrighted-free-use' => 'Copyrighted, but may be used for any purpose, including commercially',
 	'mwe-upwiz-license-attribution' => 'May be used for any purpose, including commercially, if the copyright holder is properly attributed',
 	'mwe-upwiz-license-gfdl' => 'GNU Free Documentation License',
-	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, attribution required (GFDL, CC-BY-SA-3.0)',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft, attribution required (GFDL, CC BY-SA-3.0)',
 
 	'mwe-upwiz-license-cc-head' => 'The copyright holder published {{PLURAL:$1|this work|these works}} with the right Creative Commons license',
 	'mwe-upwiz-license-cc-subhead' => 'Not all Creative Commons licenses are good for this site. Make sure the copyright holder used one of these licenses.',
@@ -457,7 +457,7 @@ $messages['qqq'] = array(
 UploadWizard is a wizard to upload multimedia files to a MediaWiki website.
 For more information, see [[mw:UploadWizard]].',
 	'uploadwizard-desc' => '{{desc|name=Upload Wizard|url=http://www.mediawiki.org/wiki/Extension:UploadWizard}}
-Refers to [//blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the 
+Refers to [//blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the
 development was paid with this $300,000 grant.',
 	'mwe-upwiz-uploadcampaigns' => '{{doc-special|UploadCampaigns}}
 Can also be worded as "campaigns for the promotion of uploading".',
@@ -519,7 +519,7 @@ Parameters:
 	'mwe-upwiz-add-file-0-free' => 'This message appears on the big button on the first page of the Upload Wizard. Files can be dragged to that button from the operating system\'s file manager. Pressing the button will open a "browse" window to choose a file. Note: when translating "share", remember that you have to makee it clear to the user that they are sharing the media with the public, making it freely available (technically, published and released under a free license); if no equivalent is available, just translate as "upload".',
 	'mwe-upwiz-add-file-flickr' => 'Label of a button in the first view of Special:UploadWizard, which is offered as an alternative to upload of local files and brings to another step.',
 	'mwe-upwiz-add-file-flickr-n' => 'Label of a button which is offered as an alternative to upload of local files after few files have already been uploaded.',
-	'mwe-upwiz-add-flickr-or' => 'Connecting word in upload wizard between the following action elements: 
+	'mwe-upwiz-add-flickr-or' => 'Connecting word in upload wizard between the following action elements:
 * {{msg-mw|mwe-upwiz-add-file-0-free}}
 * {{msg-mw|mwe-upwiz-add-file-flickr}}
 {{Identical|Or}}',
@@ -6256,16 +6256,16 @@ Peidiwch â chynnwys estyniad y ffeil.",
 	'mwe-upwiz-error-altitude' => "Rhaid i'r uchder fod yn rif.",
 	'mwe-upwiz-error-signature-too-long' => "Mae'ch llofnod yn rhy hir.
 Gwnewch hi'n llai na $1 {{PLURAL:$1|llythyren|llythyren|lythyren|llythyren}} o hyd.",
-	'mwe-upwiz-error-signature-too-short' => "Mae'ch llofnod yn rhy fyr. 
+	'mwe-upwiz-error-signature-too-short' => "Mae'ch llofnod yn rhy fyr.
 Gwnewch hi'n hwy na $1 {{PLURAL:$1|llythyren|llythyren|lythyren|llythyren}}.",
 	'mwe-upwiz-error-signature-bad-chars' => "Mae'ch llofnod yn cynnwys symbolau na chaniateir. Peidiwch â defnyddio cystrawen wici na HTML; yn hytrach defnyddiwch dim ond eich enw defnyddiwr neu'ch enw go iawn.",
 	'mwe-upwiz-error-blank' => "Mae'r maes hwn yn ofynnol.",
 	'mwe-upwiz-error-nologin' => 'Rhaid i chi <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} fewngofnodi]</span> i uwchlwytho ffeiliau.',
 	'mwe-upwiz-error-too-long' => "Mae'r cofnod hwn yn rhy hir.
 Rhaid iddo fod yn llai na $1 {{PLURAL:$1|nod}} o hyd.",
-	'mwe-upwiz-error-too-short' => "Mae'r cofnod hwn yn rhy fyr. 
+	'mwe-upwiz-error-too-short' => "Mae'r cofnod hwn yn rhy fyr.
 Rhaid iddo fod yn hwy na $1 {{PLURAL:$1|nod}}.",
-	'mwe-upwiz-error-bad-chars' => "Mae'r cofnod hwn yn cynnwys symbolau na chaniateir. 
+	'mwe-upwiz-error-bad-chars' => "Mae'r cofnod hwn yn cynnwys symbolau na chaniateir.
 Peidiwch â defnyddio cystrawen wici na HTML yma.",
 	'mwe-upwiz-error-date' => 'Rhowch ddyddiad dilys ar ffurf BBBB-MM-DD, neu dewiswch ddyddiad ar galendr y neidlen.',
 	'mwe-upwiz-error-title-blacklisted' => "Mae'r teitl hwn yn cynnwys testun annerbyniol. Newidiwch y teitl os gwelwch yn dda.",
@@ -13391,7 +13391,7 @@ $messages['hu'] = array(
 	'mwe-upwiz-add-flickr' => 'Áttöltés a Flickrről',
 	'mwe-upwiz-flickr-input-placeholder' => 'Flickr kép vagy gyűjtemény URL', # Fuzzy
 	'mwe-upwiz-select-flickr' => 'Kiválasztott képek feltöltése',
-	'mwe-upwiz-flickr-disclaimer1' => 'Ez az űrlap a flickr.com-ról tölt fel tartalmat, ezért a 
+	'mwe-upwiz-flickr-disclaimer1' => 'Ez az űrlap a flickr.com-ról tölt fel tartalmat, ezért a
 Flickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [https://www.flickr.com/help/privacy-policy/ adatvédelmi irányelvének] hatálya alá tartozik.',
 	'mwe-upwiz-flickr-disclaimer2' => 'Kérlek vedd figyelembe, hogy az eszköz használatakor az IP-címed és a kérés tartalma elérhetővé válik a Flickr számára.',
 	'mwe-upwiz-error-no-image-retrieved' => 'Nem tudtuk feltölteni a fájlt innen: $1',
@@ -24288,7 +24288,7 @@ $messages['pt-br'] = array(
 	'mwe-upwiz-add-flickr' => 'Obter do Flickr',
 	'mwe-upwiz-flickr-input-placeholder' => 'Imagem do Flickr/URL', # Fuzzy
 	'mwe-upwiz-select-flickr' => 'Enviar as imagens selecionadas',
-	'mwe-upwiz-flickr-disclaimer1' => 'Este formulário vai carregar o conteúdo hospedado no 
+	'mwe-upwiz-flickr-disclaimer1' => 'Este formulário vai carregar o conteúdo hospedado no
 flickr.com e está sujeito aos
 [https://www.flickr.com/help/terms/ termos de uso] e [https://www.flickr.com/help/privacy-policy/ política de privacidade] do Flickr.',
 	'mwe-upwiz-flickr-disclaimer2' => 'Observe que ao usar esta ferramenta, seu endereço de IP e outros detalhes obtidos ficarão disponíveis para o Flickr.',
@@ -30514,9 +30514,9 @@ $messages['ur'] = array(
 	'mwe-upwiz-add-flickr' => 'فلکر سے حاصل کریں',
 	'mwe-upwiz-flickr-input-placeholder' => 'فلکر تصویر/یو آر ایل  برائے تصویری مجموعہ',
 	'mwe-upwiz-select-flickr' => 'منتخب تصاویر اثقال کریں',
-	'mwe-upwiz-flickr-disclaimer1' => 'یہ فارم میزبانی اٹھائے گا  flickr.com کی سہولت میزبانی کے ساتھ ۔  فلکر کے ضمن میں 
+	'mwe-upwiz-flickr-disclaimer1' => 'یہ فارم میزبانی اٹھائے گا  flickr.com کی سہولت میزبانی کے ساتھ ۔  فلکر کے ضمن میں
  [https://www.flickr.com/help/terms/ terms of use]
-اور 
+اور
 [https://www.flickr.com/help/privacy-policy/ privacy policy].',
 	'mwe-upwiz-flickr-disclaimer2' => 'براہ مہربانی یہ ٹول استعمال کرتے ہوئے یاد رکھیں ، آپ کا IP ایڈریس اور تفصیلات فلکر کے لیے دستیاب ہو جائے گا ۔',
 	'mwe-upwiz-error-no-image-retrieved' => 'ہم سے ملف $1 بازیافت نہیں کر پائے ۔',
@@ -30553,7 +30553,7 @@ $messages['ur'] = array(
 	'mwe-upwiz-secs-remaining' => '$1 {{PLURAL:$1|باقی second|seconds}}',
 	'mwe-upwiz-mins-secs-remaining' => '$1 {{PLURAL:$1|minute|minutes}}  $2   {{PLURAL:$2| second|seconds}} باقی ہیں', # Fuzzy
 	'mwe-upwiz-hrs-mins-secs-remaining' => '$1 {{PLURAL:$1|hour|hours}}  $2   {{PLURAL:$2| minute|minutes}}  $3   {{PLURAL:$3| second|seconds}} باقی  ہیں',
-	'mwe-upwiz-deeds-macro-prompt' => 'اس ویب سائٹ پہ بتانا ضروری ہے {{GENDER:$2|you}}  تا کہ حق طبع و نشر کی معلومات فراہم ہوں  
+	'mwe-upwiz-deeds-macro-prompt' => 'اس ویب سائٹ پہ بتانا ضروری ہے {{GENDER:$2|you}}  تا کہ حق طبع و نشر کی معلومات فراہم ہوں
 {{PLURAL:$1|this work|ان کاموں کے}}
 ،  پھر ہر کوئی قانونی طور پر یقینی استعمال کرے
   {{PLURAL:$1| it|them}} ۔',
