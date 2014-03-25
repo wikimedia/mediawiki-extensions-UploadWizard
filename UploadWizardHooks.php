@@ -499,18 +499,20 @@ class UploadWizardHooks {
 		if ( array_key_exists( 'titleblacklist', $wgAPIModules ) ) {
 			self::$modules['ext.uploadWizard']['dependencies'][] = 'mediawiki.api.titleblacklist';
 		}
-		if ( array_key_exists( 'ext.eventLogging', $wgResourceModules ) ) {
-			self::$modules['schema.UploadWizardTutorialActions'] = array(
-				'class'  => 'ResourceLoaderSchemaModule',
-				'schema' => 'UploadWizardTutorialActions',
-				'revision' => 5803466,
-			);
+
+		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
+			$resourceLoader->register( 'schema.UploadWizardTutorialActions', array(
+					'class' => 'ResourceLoaderSchemaModule',
+					'schema' => 'UploadWizardTutorialActions',
+					'revision' => 5803466,
+			) );
 
 			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
 				'ext.eventLogging',
 				'schema.UploadWizardTutorialActions',
 			);
 		}
+
 		foreach ( self::$modules as $name => $resources ) {
 			$resourceLoader->register(
 				$name,
