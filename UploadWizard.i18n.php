@@ -26419,6 +26419,7 @@ $messages['scn'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Capiecair, attreebution needit (GFDL, CC BY-SA-3.0)',
 	'mwe-upwiz-prefs-chunked' => 'Chunked uplaids fer files ower $1 in Uplaid Worlock',
 );
 
@@ -29464,6 +29465,7 @@ $1',
 
 /** Tagalog (Tagalog)
  * @author AnakngAraw
+ * @author Jojit fb
  * @author Sky Harbor
  */
 $messages['tl'] = array(
@@ -29710,7 +29712,7 @@ Mangyaring huwag gumamit ng wikiteksto o HTML dito.',
 	'mwe-upwiz-license-copyrighted-free-use' => 'Nakakarapatang-ari, subalit maaaring gamitin para sa anumang layunin, kasama na ang pangkalakalan',
 	'mwe-upwiz-license-attribution' => 'Maaaring gamitin para sa anumang layunin, kasama ang pangkalakalan, kung ang tagapaghawak ng karapatang-ari ay maaayos na binabanggit',
 	'mwe-upwiz-license-gfdl' => 'Lisensiyang GNU para sa Malayang Dokumentasyon',
-	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Siping pakaliwa, kailangan ang pagbanggit (GFDL, CC BY-SA-3.0)',
+	'mwe-upwiz-license-cc-by-sa-3.0-gfdl' => 'Copyleft o siping pakaliwa, kailangan ang pagbanggit (GFDL, CC BY-SA-3.0)',
 	'mwe-upwiz-license-cc-head' => 'Inilathala ng tagapaghawak ng karapatang-ari ang {{PLURAL:$1|akdang ito|mga akdang ito}} na may tamang lisensiya ng Malikhaing mga Pangkaraniwan',
 	'mwe-upwiz-license-cc-subhead' => 'Hindi lahat ng mga lisensiya ng Creative Commons ay mabuti para sa pook na ito. Tiyakin na ginamit ng tagapaghawak ng karapatang-ari ang isa ganitong mga lisensiya.',
 	'mwe-upwiz-license-flickr-head' => 'Inilathala ng may hawak ng karapatang ari ang kanilang {{PLURAL:$1|larawan o bidyo|mga larawan o mga bidyo}} sa Flickr na may tamang lisensiya',
