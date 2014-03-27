@@ -65,7 +65,7 @@
 		var thumbWikiText = '[[' + [
 				upload.title.toText(),
 				'thumb',
-				upload.details.descriptions[0].getText()
+				upload.details.descriptions[0].getDescriptionText()
 			].join( '|' ) + ']]',
 
 			$thanksDiv = $( '<div>' )

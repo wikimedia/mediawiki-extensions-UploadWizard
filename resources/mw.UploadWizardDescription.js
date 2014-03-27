@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function ( mw, $, uw ) {
 	/**
 	 * Object that represents an indvidual language description, in the details portion of Upload Wizard
 	 * @param languageCode -- string
@@ -33,7 +33,7 @@
 		}
 
 		this.languageMenu = mw.LanguageUpWiz.getMenu( 'lang', languageCode );
-		$(this.languageMenu).addClass( 'mwe-upwiz-desc-lang-select' );
+		$( this.languageMenu ).addClass( 'mwe-upwiz-desc-lang-select' );
 
 		this.input = $( '<textarea name="' + this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
 					.growTextArea();
@@ -46,6 +46,7 @@
 		this.div = $('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
 				.append( errorLabelDiv, fieldnameDiv, this.languageMenu, this.input );
 
+		this.description = new uw.model.Description( languageCode, initialValue, mw.UploadWizard.config.languageTemplateFixups );
 	};
 
 	mw.UploadWizardDescription.prototype = {
@@ -53,16 +54,32 @@
 		/* widget count for auto incrementing */
 		count: 0,
 
-		getText: function () {
-			return $.trim( $( this.input ).val() );
-		},
-
 		setText: function ( text ) {
 			// strip out any HTML tags
 			text = text.replace( /<[^>]+>/g, '' );
 			// & and " are escaped by Flickr, so we need to unescape
 			text = text.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
 			$( this.input ).val( $.trim( text ) );
+		},
+
+		getWikiText: function () {
+			this.updateDescriptionLanguage();
+			this.updateDescriptionText();
+
+			return this.description.getValue();
+		},
+
+		getDescriptionText: function () {
+			this.updateDescriptionText();
+			return this.description.text;
+		},
+
+		updateDescriptionText: function () {
+			this.description.setText( $.trim( $( this.input ).val() ) );
+		},
+
+		updateDescriptionLanguage: function () {
+			this.description.setLanguage( $.trim( $( this.languageMenu ).val() ) );
 		},
 
 		getLanguage: function () {
@@ -89,26 +106,6 @@
 		 */
 		unlockLanguageMenu: function () {
 			$( this.languageMenu ).prop( 'disabled', false );
-		},
-
-		/**
-		 * Obtain text of this description, suitable for including into Information template
-		 * @return wikitext as a string
-		 */
-		getWikiText: function () {
-			var language, fix,
-				description = this.getText();
-			// we assume that form validation has caught this problem if this is a required field
-			// if not, assume the user is trying to blank a description in another language
-			if ( description.length === 0 ) {
-				return '';
-			}
-			language = this.getLanguage();
-			fix = mw.UploadWizard.config.languageTemplateFixups;
-			if (fix[language]) {
-				language = fix[language];
-			}
-			return '{{' + language + '|1=' + description + '}}';
 		},
 
 		/**
@@ -139,4 +136,4 @@
 			} );
 		}
 	};
-}( mediaWiki, jQuery ) );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard ) );
