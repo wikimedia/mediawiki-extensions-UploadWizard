@@ -24288,7 +24288,7 @@ $messages['pt-br'] = array(
 	'mwe-upwiz-add-file-flickr-n' => 'Adicionar mais imagens do Flickr',
 	'mwe-upwiz-add-flickr-or' => 'Ou',
 	'mwe-upwiz-add-flickr' => 'Obter do Flickr',
-	'mwe-upwiz-flickr-input-placeholder' => 'Imagem do Flickr/URL', # Fuzzy
+	'mwe-upwiz-flickr-input-placeholder' => 'URL do Flickr',
 	'mwe-upwiz-select-flickr' => 'Enviar as imagens selecionadas',
 	'mwe-upwiz-flickr-disclaimer1' => 'Este formulário vai carregar o conteúdo hospedado no
 flickr.com e está sujeito aos
@@ -24394,7 +24394,7 @@ Por favor, tente um navegador alternativo.',
 	'mwe-upwiz-other' => 'Outras informações',
 	'mwe-upwiz-source' => 'Fonte',
 	'mwe-upwiz-thanks-intro' => 'Obrigado por enviar!',
-	'mwe-upwiz-thanks-explain' => 'Agora você pode usar {{PLURAL:$1|este arquivo|estes arquivos}} em sites como a Wikipédia, ou criar links para {{PLURAL:$1|ele|eles}} na internet.', # Fuzzy
+	'mwe-upwiz-thanks-explain' => 'Agora você pode usar {{PLURAL:$1|este arquivo|estes arquivos}} em wikis, ou criar ligações para {{PLURAL:$1|ele|eles}} na internet.',
 	'mwe-upwiz-thanks-wikitext' => 'Para usar o arquivo numa wiki, copie este texto para uma página:',
 	'mwe-upwiz-thanks-url' => 'Para criar um link para o arquivo em HTML, copie este URL:',
 	'mwe-upwiz-upload-error-bad-filename-extension' => 'Esta wiki não aceita nomes de arquivos com a extensão ".$1".',
@@ -24543,7 +24543,7 @@ Não utilize texto wiki ou HTML aqui, por favor.',
 	'mwe-upwiz-license-external' => 'Este arquivo está sujeito à seguinte licença no site "$1": $2.',
 	'mwe-upwiz-license-external-invalid' => 'O arquivo está sob a seguinte licença no site de origem "$1": $2. Infelizmente, esta wiki não permite o uso desta licença.',
 	'mwe-upwiz-license-photoset-invalid' => 'Infelizmente, nenhum das imagem possui uma licença apropriada para ser usada nesse site.',
-	'mwe-upwiz-url-invalid' => 'A URL aponta para uma imagem ou galeria inválida ou restrita ($1) e não pode ser utilizada.', # Fuzzy
+	'mwe-upwiz-url-invalid' => 'O URL inserido não é suportado ou aponta para uma imagem ou galeria de $1 inválida ou restrita e não pode ser utilizada.',
 	'mwe-upwiz-categories' => 'Categorias',
 	'mwe-upwiz-categories-add' => 'Adicionar outra categoria',
 	'mwe-upwiz-category-will-be-added' => 'Essa categoria ainda não está em uso.',
