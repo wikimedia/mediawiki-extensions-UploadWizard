@@ -209,7 +209,7 @@
     "mwe-upwiz-error-signature-bad-chars": "Allekirjoituksesi sisältää merkkejä, jotka eivät ole sallittuja.\nÄlä käytä tässä wikitekstiä tai HTML-kieltä, vain käyttäjänimeäsi tai oikeaa nimeäsi.",
     "mwe-upwiz-error-blank": "Tämä kenttä on pakollinen.",
     "mwe-upwiz-error-nologin": "Sinun pitää <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} olla sisäänkirjautunut]</span> tallettaaksesi tiedostoja.",
-    "mwe-upwiz-error-too-long": "Tämä kenttä on liian pitkä.\nLyhennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.",
+    "mwe-upwiz-error-too-long": "!!FUZZY!!Tämä kenttä on liian pitkä.\nLyhennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.",
     "mwe-upwiz-error-too-short": "Tämä kenttä on liian lyhyt.\nPidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.",
     "mwe-upwiz-error-bad-chars": "Tämä kenttä sisältää merkkejä, jotka eivät ole sallittuja.\nÄlä käytä wikitekstiä tai HTML:ää.",
     "mwe-upwiz-error-date": "Kirjoita kelvollinen päivämäärä muodossa VVVV-KK-PP tai valitse se alasvetokalenterista.",
