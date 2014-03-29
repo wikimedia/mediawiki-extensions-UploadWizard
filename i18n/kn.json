@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Nayvik",
+            "VASANTH S.N."
+        ]
+    },
+    "mwe-upwiz-step-thanks": "ಉಪಯೋಗ",
+    "mwe-upwiz-campaign-unknown-error": "ಅಪರಿಚಿತ ತಪ್ಪು ಸಂಭವಿಸಿದೆ",
+    "mwe-upwiz-api-warning-exists": "ಇದೇ ಹೆಸರಿನ[$1 ಇನ್ನೊಂದು]ಕಡತ ವಿಕಿಯಲ್ಲಿದೆ",
+    "mwe-upwiz-tutorial-error-localized-file-missing": "ಕ್ಷಮಿಸಿ,ನಿಮ್ಮಭಾಷೆಯಲ್ಲಿ ವಿವರಣೆ ಸಿಗುತ್ತಿಲ್ಲ. ಬದಲಾಗಿ $1 ತೋರಿಸಲ್ಪಟ್ಟಿದೆ.",
+    "mwe-upwiz-help-desk": "ಸಹಾಯ ವಿಭಾಗ",
+    "mwe-upwiz-add-file-n": "ಇನ್ನೊಂದು ಕಡತ ಸೇರಿಸಿ",
+    "mwe-upwiz-add-file-0-free": "ಹಂಚಲು ಒಂದು ಸಮೂಹ ಮಾದ್ಯಮ ಕಡತವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
+    "mwe-upwiz-add-file-flickr": "ಪ್ಲಿಕರ್‍ನಿಂದ ಚಿತ್ರಗಳನ್ನು ಸೇರಿಸಿ",
+    "mwe-upwiz-add-flickr-or": "ಅಥವಾ",
+    "mwe-upwiz-add-flickr": "ಫ್ಲಿಕರ್‍ನಿಂದ ಪಡೆಯಿರಿ",
+    "mwe-upwiz-select-flickr": "ಆಯ್ಕೆಮಾಡಿದ ಚಿತ್ರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+    "mwe-upwiz-flickr-disclaimer2": "ದಯವಿಟ್ಟು ಗಮನಿಸಿ: ಈ ಉಪಕರಣ ಉಪಯೋಗಿಸುವುದರಿಂದ ನಿಮ್ಮ ಐಪಿ ವಿಳಾಸ ಹಾಗೂ ಕೋರಿಕೆಯ ವಿವರಗಳು ಫ್ಲಿಕರ್‍ಗೆ ದೊರೆಯುತ್ತದೆ",
+    "mwe-upwiz-error-no-image-retrieved": "ನಾವು $1ನಿಂದ ಕಡತಗಳನ್ನು ಪತ್ತೆ ಹಚ್ಚಲು ಸಾದ್ಯವಾಗುತ್ತಿಲ್ಲ",
+    "mwe-upwiz-transport-started": "ಪ್ರಾರಂಭವಾಗುತ್ತಿದೆ.....",
+    "mwe-upwiz-encoding": "ಸಂಕೇತಿಕರಣವಾಗುತ್ತಿದೆ.....",
+    "mwe-upwiz-uploading": "ಅಪ್ಲೋಡ್ ಆಗುತ್ತಿದೆ....",
+    "mwe-upwiz-queued": "ಸರತಿಯಲ್ಲಿದೆ....",
+    "mwe-upwiz-cancel": "ರದ್ದು ಮಾಡು",
+    "mwe-upwiz-categories-add": "ಸೇರಿಸು"
+}

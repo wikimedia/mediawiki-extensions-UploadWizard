@@ -23,7 +23,6 @@
 
 /* Configuration */
 
-
 // Credits
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
@@ -38,13 +37,14 @@ $wgExtensionCredits['other'][] = array(
 		'Nischay Nahata',
 		'Yuvi Panda'
 	),
-	'version' => '1.3',
+	'version' => '1.4.0',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
 
 $wgUpwizDir = __DIR__;
 
+$wgMessagesDirs['UploadWizard'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
 $wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.alias.php';
 

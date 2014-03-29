@@ -1,0 +1,42 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bonevarluri"
+        ]
+    },
+    "uploadwizard": "جادو سوارکرد",
+    "mwe-upwiz-code-unknown": "زون ناشناس",
+    "mwe-upwiz-step-file": "سوارکرد",
+    "mwe-upwiz-add-file-n": "جانیایا هنی نه اضاف بکید",
+    "mwe-upwiz-add-file-0-free": "جانیایا رسانه ای سی بئر کردن انتخاو بوئه",
+    "mwe-upwiz-select-flickr": "سوارکرد عسگیا انتخاو بیه",
+    "mwe-upwiz-uploading": "د حالت سوار كرد......",
+    "mwe-upwiz-transported": "سوار کرد تموم بیه....",
+    "mwe-upwiz-override": "د هر شلکی سوار کرد نه انجوم به.",
+    "mwe-upwiz-remove-upload": "ای جانیا نه د نوم گه جانیایا سی سوار کرد جا وه جا کو",
+    "mwe-upwiz-show-thumb": "نشو دئن بن کلکی",
+    "mwe-upwiz-upload": "سوار کرد",
+    "mwe-upwiz-file-some-failed": "یه قرئ د سوارکردیا انجوم نبی.",
+    "mwe-upwiz-file-all-failed": "هیش کوم د سوارکردیا خوو نبی.",
+    "mwe-upwiz-upload-count": "$1 of $2 {{جمی:$2|جانیاجانیایا}} سوار بیه",
+    "mwe-upwiz-desc-add-n": "یه گل نیسه د زون هنی اضاف بکید",
+    "mwe-upwiz-location-button": "نشو دئن د نشقه",
+    "mwe-upwiz-thanks-intro": "منمون سی سوارکردتو!",
+    "mwe-upwiz-upload-error-duplicate-filename-error": "شما ایسنی  د حال سوارکرد جانیا \"$1\" هئیت.",
+    "mwe-upwiz-upload-error-duplicate": "ای جانیا دماتر مین ای ویکی سوار بیه.",
+    "mwe-upwiz-upload-error-stashed-anyway": "د هر شلکی سوار کرد انجوم بوئه؟",
+    "mwe-upwiz-overwrite": "جاوه جا کردن جانیا",
+    "mwe-upwiz-home": "رو د سرآسونه ویکی",
+    "mwe-upwiz-upload-another": "سوار کردن جانیایا هنی",
+    "mwe-upwiz-file-need-file": "لطفا اول یه گل سوارکرد اضاف کو.",
+    "mwe-upwiz-error-signature-too-long": "نشون دیارتو فره گپه.\nوه نه د $1 کؤچکتر بکید{{جمی:$1|نیسه|نیسه یا}}.",
+    "mwe-upwiz-too-many-files": "فایلیا فره.",
+    "mwe-upwiz-campaign-create-account-button": "یه گل حساو راست بکید و سوار کرد نه انجوم بیئتو!",
+    "mwe-upwiz-campaign-media-count-desc": "سوارکردیا",
+    "mwe-upwiz-campaign-view-all-media": "همه رسانه یا سوار بیه نه دین",
+    "mwe-upwiz-license-pd-textlogo": "نشون دیار فقط وا یه نیسه ساده(کلیمه نشون)",
+    "mwe-upwiz-license-confirm-remove": "شما سی یه که میهایت  {{جمی:$1|ای سوارکرد|ای سوارکردیا}} نه جا وه جا مطمئن هئیت?",
+    "mwe-upwiz-feedback-blacklist-report-prompt": "[$1 یه گل بازحرد کل کرد]",
+    "prefs-uploads": "سوارکردیا",
+    "prefs-upwiz-interface": "مین پیوست کارور"
+}
