@@ -329,7 +329,7 @@
     "mwe-upwiz-subhead-alt-upload": "[$1 Retour à l’ancien formulaire]",
     "mwe-upwiz-feedback-prompt": "[$1 Faites-nous savoir] ce que vous pensez de l’assistant de versement !",
     "mwe-upwiz-feedback-title": "Laissez vos commentaires sur l'assistant de téléversement",
-    "mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Envoyer son ressenti]",
+    "mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Donnez-nous votre avis]",
     "mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Plus d'informations]",
     "mwe-upwiz-feedback-blacklist-line-intro": "Voici l’entrée de la liste noire de titres qui a fourni une correspondance :\n$1",
     "mwe-upwiz-feedback-blacklist-subject": "Mon titre de versement, « $1 », a été interdit.",

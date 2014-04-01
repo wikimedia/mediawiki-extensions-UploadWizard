@@ -258,7 +258,7 @@
     "mwe-upwiz-subhead-alt-upload": "Used as a link in the sub-header. Parameters:\n* $1 - full URL",
     "mwe-upwiz-feedback-prompt": "Used as a link in the sub-header. Parameters:\n* $1 - full URL\n{{Identical|Leave feedback}}",
     "mwe-upwiz-feedback-title": "Used as title for the dialog box.",
-    "mwe-upwiz-feedback-blacklist-report-prompt": "Parameters:\n* $1 - full URL",
+    "mwe-upwiz-feedback-blacklist-report-prompt": "Parameters:\n* $1 - full URL\n{{Identical|Send feedback}}",
     "mwe-upwiz-feedback-blacklist-info-prompt": "Parameters:\n* $1 - full URL",
     "mwe-upwiz-feedback-blacklist-line-intro": "Used as feedback message body. Parameters:\n* $1 - an entry from the title blacklist\nSee also:\n* {{msg-mw|Mwe-upwiz-feedback-blacklist-subject}}",
     "mwe-upwiz-feedback-blacklist-subject": "Used as feedback subject. Parameters:\n* $1 - page title\nSee also:\n* {{msg-mw|Mwe-upwiz-feedback-blacklist-line-intro}}",
