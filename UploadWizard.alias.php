@@ -78,6 +78,11 @@ $specialPageAliases['el'] = array(
 	'UploadWizard' => array( 'ΟδηγόςΑνεβάσματος' ),
 );
 
+/** Spanish (español) */
+$specialPageAliases['es'] = array(
+	'UploadWizard' => array( 'AsistenteCarga' ),
+);
+
 /** Estonian (eesti) */
 $specialPageAliases['et'] = array(
 	'UploadWizard' => array( 'Üleslaadimisviisard' ),
