@@ -239,8 +239,8 @@ $specialPageAliases['yue'] = array(
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'UploadWizard' => array( '上传向导', '上传精灵' ),
-	'UploadCampaigns' => array( '上传运动表' ),
-	'UploadCampaign' => array( '上传运动' ),
+	'UploadCampaigns' => array( '上传多个活动' ),
+	'UploadCampaign' => array( '上传活动' ),
 );
 
 /** Traditional Chinese (中文（繁體）‎) */
