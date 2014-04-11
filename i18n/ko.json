@@ -296,7 +296,7 @@
     "mwe-upwiz-categories-add": "추가",
     "mwe-upwiz-category-will-be-added": "이 분류는 아직 사용하지 않습니다.",
     "mwe-upwiz-category-remove": "이 분류 제거하기",
-    "mwe-upwiz-thumbnail-failed": "파일 업로드에 성공했지만, 서버가 섬네일 미리 보기를 불러오지 못했습니다.",
+    "mwe-upwiz-thumbnail-failed": "올리기에 성공했지만, 서버가 섬네일 미리 보기를 불러오지 못했습니다.",
     "mwe-upwiz-unparseable-filename": "\"$1\" 파일 이름을 인식하지 못했습니다.",
     "mwe-upwiz-image-preview": "파일 미리 보기",
     "mwe-upwiz-subhead-bugs": "[$1 알려진 문제점]",
