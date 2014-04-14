@@ -22,7 +22,8 @@
             "Zhangjintao",
             "Zhuyifei1999",
             "乌拉跨氪",
-            "阿pp"
+            "阿pp",
+            "Hudafu"
         ]
     },
     "uploadwizard": "上传向导",
@@ -167,7 +168,7 @@
     "mwe-upwiz-upload-error-bad-filename-extension": "本维基不接受扩展名为“.$1”的文件名。",
     "mwe-upwiz-upload-error-bad-extension-video-firefogg": "你选择上传的视频文件不是自由格式。你可以安装Firefox扩展程序[$1 Firefogg]自动转换你的文件，或使用其他[$2 转换选项]将视频转换为自由格式。",
     "mwe-upwiz-upload-error-bad-filename-no-extension": "本维基需要文件有扩展名 — 如文件名末尾的“.JPG”。",
-    "mwe-upwiz-upload-error-duplicate-filename-error": "您正在上传文件“$1”。",
+    "mwe-upwiz-upload-error-duplicate-filename-error": "您已经在上传文件“$1”。",
     "mwe-upwiz-allowed-filename-extensions": "允许的扩展名为：",
     "mwe-upwiz-help-allowed-filename-extensions": "允许的文件扩展名",
     "mwe-upwiz-upload-error-duplicate": "该文件曾经上传到过本维基。",
