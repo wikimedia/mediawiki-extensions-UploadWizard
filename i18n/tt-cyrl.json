@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Zahidulla",
-            "Ильнар"
-        ]
-    },
-    "uploadwizard": "Йөкләү җиһазы",
-    "uploadwizard-desc": "Йөкләү мастеры, Юзабилити мультимедиа гранты буенча ясалган",
-    "mwe-upwiz-uploadcampaigns": "Йөкләү кампаниясе",
-    "mwe-upwiz-uploadcampaign": "Йөкләүләр кампаниясенең конфигурациясе",
-    "right-upwizcampaigns": "йөкләү кампаниясенең мастерын көйләү",
-    "group-upwizcampeditors": "йөкләү кампаниясе мастерының редакторлары",
-    "group-upwizcampeditors-member": "{{GENDER:$1|йөкләү кампаниясе мастерының редакторы}}",
-    "grouppage-upwizcampeditors": "{{ns:project}}:Йөкләү кампаниясе мастерының редакторлары",
-    "mwe-upwiz-progressbar-uploading": "йөкләү",
-    "mwe-upwiz-finished": "Әзер!",
-    "mwe-upwiz-secs-remaining": "{{PLURAL:$1|$1 секунд калды}}",
-    "mwe-upwiz-mins-secs-remaining": "{{PLURAL:$1|$1 минут}} {{PLURAL:$2|$2 секунд калды}}",
-    "mwe-upwiz-hrs-mins-secs-remaining": "{{PLURAL:$1|$1 сәгать}} {{PLURAL:$2|$2 минут}} {{PLURAL:$3|$3 секунд калды}}",
-    "mwe-upwiz-source-thirdparty-accept": "OK",
-    "mwe-upwiz-desc": "Тасвирлау"
+	"@metadata": {
+		"authors": [
+			"Zahidulla",
+			"Ильнар"
+		]
+	},
+	"uploadwizard": "Йөкләү җиһазы",
+	"uploadwizard-desc": "Йөкләү мастеры, Юзабилити мультимедиа гранты буенча ясалган",
+	"mwe-upwiz-uploadcampaigns": "Йөкләү кампаниясе",
+	"mwe-upwiz-uploadcampaign": "Йөкләүләр кампаниясенең конфигурациясе",
+	"right-upwizcampaigns": "йөкләү кампаниясенең мастерын көйләү",
+	"group-upwizcampeditors": "йөкләү кампаниясе мастерының редакторлары",
+	"group-upwizcampeditors-member": "{{GENDER:$1|йөкләү кампаниясе мастерының редакторы}}",
+	"grouppage-upwizcampeditors": "{{ns:project}}:Йөкләү кампаниясе мастерының редакторлары",
+	"mwe-upwiz-progressbar-uploading": "йөкләү",
+	"mwe-upwiz-finished": "Әзер!",
+	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|$1 секунд калды}}",
+	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$1|$1 минут}} {{PLURAL:$2|$2 секунд калды}}",
+	"mwe-upwiz-hrs-mins-secs-remaining": "{{PLURAL:$1|$1 сәгать}} {{PLURAL:$2|$2 минут}} {{PLURAL:$3|$3 секунд калды}}",
+	"mwe-upwiz-source-thirdparty-accept": "OK",
+	"mwe-upwiz-desc": "Тасвирлау"
 }
