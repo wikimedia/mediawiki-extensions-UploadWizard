@@ -96,7 +96,7 @@
 	"mwe-upwiz-error-signature-too-short": "Tín undirskrift er ov stutt.\nGer hana longri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Tín signaturur inniheldur symbolir, sum ikki eru loyvd.\nVinarliga brúka ikki wikitekst ella HTML her, bara títt brúkaranavn ella títt veruliga navn.",
 	"mwe-upwiz-error-blank": "Hesin teigur skal útfyllast.",
-	"mwe-upwiz-error-too-long": "!!FUZZY!!Hesin teigur er ov langur.\nVinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.",
+	"mwe-upwiz-error-too-long": "Hesin teigur er ov langur.\nVinarliga ger hetta styttri enn $1 {{PLURAL:$1|bókstav|bókstavar}}.",
 	"mwe-upwiz-error-date": "Vinarliga skriva eina dagfesting í formatinum ÁÁÁÁ-MM-DD  ella vel ein dag í pop-upp-kalendaranum.",
 	"mwe-upwiz-error-title-blacklisted": "Hetta heiti inniheldur óynsktan tekst. Vinarliga broyt hann.",
 	"mwe-upwiz-error-title-badchars": "Hetta heiti inniheldur nøkur óynskt tekn. Vinarliga tak tey burtur.",
