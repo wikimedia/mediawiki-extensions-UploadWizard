@@ -320,7 +320,7 @@
 	"mwe-upwiz-errordialog-title": "Сталася помилка при надсиланні",
 	"mwe-upwiz-errordialog-ok": "Гаразд",
 	"mwe-upwiz-error-nosuchcampaign": "Не існує кампанії з назвою \"$1\".",
-	"mwe-upwiz-error-campaigndisabled": "Акція «$1» не була увімкнена.",
+	"mwe-upwiz-error-campaigndisabled": "Кампанія «$1» вимкнена.",
 	"mwe-upwiz-campaigns-name": "Назва кампанії",
 	"mwe-upwiz-campaigns-status": "Стан",
 	"mwe-upwiz-campaigns-enabled": "Увімкнено",
@@ -385,7 +385,7 @@
 	"mwe-upwiz-prefs-chunked": "Розділити на частини завантаження файлів понад $1 в Майстрі завантажень",
 	"mwe-upwiz-prefs-skiptutorial": "Пропустити вступне керівництво по ліцензуванню",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимальне число одночасних завантажень",
-	"campaigns": "Завантажити майстер кампаній",
+	"campaigns": "Кампанії майстра завантажень",
 	"mwe-upload-campaigns-pagination-next": "Наступна сторінка",
-	"mwe-upload-campaigns-list-title": "Список завантаження кампаній"
+	"mwe-upload-campaigns-list-title": "Список кампаній майстра завантаження"
 }

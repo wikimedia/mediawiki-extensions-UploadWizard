@@ -62,6 +62,7 @@ $specialPageAliases['da'] = array(
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
+	'Campaigns' => array( 'Kampagnen' ),
 	'UploadWizard' => array( 'Hochladeassistent' ),
 	'UploadCampaigns' => array( 'Hochladekampagnen' ),
 	'UploadCampaign' => array( 'Hochladekampagne' ),
