@@ -1,4 +1,3 @@
-/* jshint scripturl: true */
 ( function ( mw, $ ) {
 /**
  * Represents a "transport" for files to upload; in this case an iframe.
@@ -11,6 +10,14 @@
  * @param transportedCb	callback to execute when we've finished the upload
  */
 mw.IframeTransport = function( $form, progressCb, transportedCb ) {
+	var iframe,
+		transport = this;
+
+	function setupFormCallback() {
+		transport.configureForm();
+		transport.$iframe.off( 'load', setupFormCallback );
+	}
+
 	this.$form = $form;
 	this.progressCb = progressCb;
 	this.transportedCb = transportedCb;
@@ -18,9 +25,6 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 	this.iframeId = 'f_' + ( $( 'iframe' ).length + 1 );
 
 	//IE only works if you "create element with the name" ( not jquery style )
-	var iframe,
-		transport = this;
-
 	try {
 		iframe = document.createElement( '<iframe name="' + this.iframeId + '">' );
 	} catch ( ex ) {
@@ -31,13 +35,15 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 
 	// we configure form on load, because the first time it loads, it's blank
 	// then we configure it to deal with an API submission
-	this.$iframe.attr( { 'src'   : 'javascript:false;',
-					'id'    : this.iframeId,
-					'name'  : this.iframeId } )
-			.load( function() { transport.configureForm(); } )
-			.css( 'display', 'none' );
+	this.$iframe
+		.prop( 'src', '#' )
+		.prop( 'id', this.iframeId )
+		.prop( 'name', this.iframeId )
+		.load( setupFormCallback )
+		.addClass( 'hidden' )
+		.hide();
 
-	$( 'body' ).append( iframe );
+	$( 'body' ).append( this.$iframe );
 };
 
 mw.IframeTransport.prototype = {
@@ -49,18 +55,18 @@ mw.IframeTransport.prototype = {
 		var transport = this;
 
 		// Set the form target to the iframe
-		this.$form.attr( 'target', this.iframeId );
+		this.$form.prop( 'target', this.iframeId );
 
 		// attach an additional handler to the form, so, when submitted, it starts showing the progress
 		// XXX this is lame .. there should be a generic way to indicate busy status...
-		this.$form.submit( function() {
+		this.$form.submit( function () {
 			return true;
 		} );
 
 		// Set up the completion callback
-		$( '#' + this.iframeId ).load( function() {
+		this.$iframe.load( function () {
 			transport.progressCb( 1.0 );
-			transport.processIframeResult( $( this ).get( 0 ) );
+			transport.processIframeResult( this );
 		} );
 	},
 
@@ -70,9 +76,10 @@ mw.IframeTransport.prototype = {
 	 *
 	 * @param {Element} iframe iframe to extract result from
 	 */
-	processIframeResult: function( iframe ) {
+	processIframeResult: function ( iframe ) {
 		var response, json,
-			doc = iframe.contentDocument ? iframe.contentDocument : frames[iframe.id].document;
+			doc = iframe.contentDocument || frames[iframe.id].document;
+
 		// Fix for Opera 9.26
 		if ( doc.readyState && doc.readyState !== 'complete' ) {
 			return;
@@ -82,6 +89,7 @@ mw.IframeTransport.prototype = {
 		if ( doc.body && doc.body.innerHTML === 'false' ) {
 			return;
 		}
+
 		if ( doc.XMLDocument ) {
 			// The response is a document property in IE
 			response = doc.XMLDocument;
@@ -91,6 +99,7 @@ mw.IframeTransport.prototype = {
 			// according to mdale we need to do this
 			// because IE does not load JSON properly in an iframe
 			json = $( doc.body ).find( 'pre' ).text();
+
 			// check that the JSON is not an XML error message
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
 			if ( json && json.substring(0, 5) !== '<?xml' ) {
@@ -102,6 +111,7 @@ mw.IframeTransport.prototype = {
 			// Response is a xml document
 			response = doc;
 		}
+
 		// Process the API result
 		this.transportedCb( response );
 	}
