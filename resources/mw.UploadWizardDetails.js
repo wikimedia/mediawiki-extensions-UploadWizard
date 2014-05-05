@@ -810,10 +810,10 @@ mw.UploadWizardDetails.prototype = {
 	toggleDestinationBusy: function ( busy ) {
 		var _this = this;
 		if (busy) {
-			_this.titleInput.addClass( "busy" );
+			_this.titleInput.addClass( "mwe-upwiz-busy" );
 			$( _this.titleInput ).data( 'valid', undefined );
 		} else {
-			_this.titleInput.removeClass( "busy" );
+			_this.titleInput.removeClass( "mwe-upwiz-busy" );
 		}
 	},
 

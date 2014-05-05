@@ -454,8 +454,8 @@ a[disabled=true]:hover {
 }
 
 
-/* XXX add spinner gif instead, maybe */
-.busy {
+/* Add spinner gif instead, maybe */
+.mwe-upwiz-busy {
 	/* background: yellow; */
 }
 

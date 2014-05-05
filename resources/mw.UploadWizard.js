@@ -1066,6 +1066,7 @@ mw.UploadWizard.prototype = {
 			necessary = 0,
 			total = 0,
 			buttons = {};
+
 		$.each( this.uploads, function(i, upload) {
 			if ( upload === undefined ) {
 				return;
