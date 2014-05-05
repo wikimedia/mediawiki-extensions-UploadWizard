@@ -122,13 +122,13 @@ mw.DestinationChecker.prototype = {
 			checker.spinner( status.unique === null || status.blacklist === null );
 		}
 
-		this.checkUnique( checkerStatus );
-		this.checkBlacklist( checkerStatus );
+		this.checkUnique( checkerStatus, title );
+		this.checkBlacklist( checkerStatus, title );
 	},
 
 	/**
 	 * Get the current value of the input, with optional preprocessing
-	 * @return the current input value, with optional processing
+	 * @return {string} the current input value, with optional processing
 	 */
 	getTitle: function() {
 		return this.preprocess( $( this.selector ).val() );
@@ -137,8 +137,11 @@ mw.DestinationChecker.prototype = {
 	/**
 	 * Async check if a title is in the titleblacklist.
 	 * @param {Function} takes object, like { 'blacklist': result }
+	 * @param {string} title the blacklist should be checked against
 	 */
-	checkBlacklist: function ( callback ) {
+	checkBlacklist: function ( callback, title ) {
+		var checker = this;
+
 		function blacklistResultProcessor( blacklistResult ) {
 			var result;
 
@@ -157,8 +160,6 @@ mw.DestinationChecker.prototype = {
 			callback( { 'blacklist': result } );
 		}
 
-		var checker = this,
-			title = this.getTitle();
 
 		if ( title === '' ) {
 			return;
@@ -185,8 +186,12 @@ mw.DestinationChecker.prototype = {
 	 * Async check if a filename is unique. Can be attached to a field's change() event
 	 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
 	 * @param {Function} takes object, like { 'unique': result }
+	 * @param {string} title the uniqueness should be checked for
 	 */
-	checkUnique: function( callback ) {
+	checkUnique: function( callback, title ) {
+		var params,
+			checker = this;
+
 		function ok( data ) {
 			var result, protection, pageId, ntitle, img;
 
@@ -267,20 +272,18 @@ mw.DestinationChecker.prototype = {
 			mw.log( 'mw.DestinationChecker::checkUnique> Error in checkUnique result: ' + code );
 		}
 
-		var checker = this,
-			title = this.getTitle(),
 
-			// Setup the request -- will return thumbnail data if it finds one
-			// XXX do not use iiurlwidth as it will create a thumbnail
-			params = {
-				'titles': title,
-				'prop':  'info|imageinfo',
-				'inprop': 'protection',
-				'iiprop': 'url|mime|size',
-				'iiurlwidth': 150
-			};
+		// Setup the request -- will return thumbnail data if it finds one
+		// XXX do not use iiurlwidth as it will create a thumbnail
+		params = {
+			'titles':     title,
+			'prop':       'info|imageinfo',
+			'inprop':     'protection',
+			'iiprop':     'url|mime|size',
+			'iiurlwidth': 150
+		};
 
-		// if input is empty don't bother.
+		// if input is empty or invalid, don't bother.
 		if ( title === '' ) {
 			return;
 		}
