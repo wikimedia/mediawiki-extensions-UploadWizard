@@ -294,7 +294,7 @@ mw.DestinationChecker.prototype = {
 		this.spinner( true );
 
 		// Do the destination check
-		this.api.get( params, { ok: ok, err: err } );
+		this.api.get( params ).done( ok ).fail( err );
 	}
 
 };

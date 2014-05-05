@@ -737,7 +737,7 @@ mw.UploadWizardUpload.prototype = {
 			callback( null );
 		};
 
-		this.api.get( params, { ok: ok, err: err } );
+		this.api.get( params ).done( ok ).fail( err );
 	},
 
 	/**
@@ -796,7 +796,7 @@ mw.UploadWizardUpload.prototype = {
 			callback( null );
 		};
 
-		this.api.get( params, { ok: ok, err: err } );
+		this.api.get( params ).done( ok ).fail( err );
 	},
 
 	/**
