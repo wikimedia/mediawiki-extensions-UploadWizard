@@ -61,7 +61,7 @@
 	"mwe-upwiz-remove-description": "Odstrani opis",
 	"mwe-upwiz-upload": "Naloži",
 	"mwe-upwiz-file-upload-notcapable": "Vaš brskalnik na žalost ni zmožen nalagati datotek.\nProsimo, poskusite drug brskalnik.",
-	"mwe-upwiz-file-all-ok": "Vse datoteke so bile uspešno naložene!",
+	"mwe-upwiz-file-all-ok": "Vse datoteke so uspešno naložene!",
 	"mwe-upwiz-file-some-failed": "Nalaganje nekaterih datotek je spodletelo.",
 	"mwe-upwiz-file-retry": "Znova naloži spodletele datoteke",
 	"mwe-upwiz-next-file-despite-failures": "Vseeno nadaljuj",
