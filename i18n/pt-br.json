@@ -12,7 +12,8 @@
 			"Rafael Vargas",
 			"TheGabrielZaum",
 			"Tuliouel",
-			"555"
+			"555",
+			"Rillke"
 		]
 	},
 	"uploadwizard": "Assistente de envios",
@@ -222,7 +223,7 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "O wikitexto digitado é muito curto para ser uma licença",
 	"mwe-upwiz-error-license-wikitext-too-long": "O wikitexto digitado é muito longo.",
 	"mwe-upwiz-error-license-wikitext-invalid": "Isso não parece ser wikitexto válido, ou não contém uma licença.",
-	"mwe-upwiz-details-error-count": "{{PLURAL:$1Existe um erro|Existem $1 erros}} {{PLURAL:$2|no formulário|nos formulários}} acima. Corrija {{PLURAL:$1|o erro|os erros}} e tente {{PLURAL:$2|enviá-lo|enviá-los}} novamente.",
+	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Existe um erro|Existem $1 erros}} {{PLURAL:$2|no formulário|nos formulários}} acima. Corrija {{PLURAL:$1|o erro|os erros}} e tente {{PLURAL:$2|enviá-lo|enviá-los}} novamente.",
 	"mwe-upwiz-too-many-files-ok": "OK",
 	"mwe-upwiz-too-many-files-text": "Você só pode enviar $1 arquivo{{PLURAL:$1||s}} de uma só vez, mas você tentou enviar $2 arquivo{{PLURAL:$2||s}} no total. Tente enviar menos arquivos!",
 	"mwe-upwiz-too-many-files": "Arquivos demais.",
