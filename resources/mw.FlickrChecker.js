@@ -542,7 +542,6 @@ mw.FlickrChecker.prototype = {
 	 * Retrieve the list of all current Flickr licenses and store it in an array (`mw.FlickrChecker.licenseList`)
 	 */
 	getLicenses: function() {
-		var checker = this;
 		// Workaround for http://bugs.jquery.com/ticket/8283
 		jQuery.support.cors = true;
 		this.flickrRequest( {

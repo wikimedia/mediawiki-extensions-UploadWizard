@@ -236,8 +236,8 @@ mw.FormDataTransport.prototype = {
                         });
                     //Server not ready, wait for 3 more seconds
                     } else {
-                        if ( response.upload.stage === undefined ) {
-                            console.log( "Unable to check file's status" );
+                        if ( response.upload.stage === undefined && window.console ) {
+                            window.console.log( 'Unable to check file\'s status' );
                         } else {
                             //Statuses that can be returned:
                             // *mwe-upwiz-queued
