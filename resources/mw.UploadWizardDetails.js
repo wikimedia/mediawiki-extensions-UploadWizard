@@ -310,8 +310,8 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	} );
 
 	$list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon ' )
-		.on( 'input keyup change cut paste', function ( event ) {
-			var link = _this.osmMapLink();
+		.on( 'input keyup change cut paste', function () {
+			var link = details.osmMapLink();
 			if (  $list.valid() ) {
 				showMap.attr( { 'href':link, 'target':'_blank' } ).show();
 			}
@@ -1301,7 +1301,7 @@ mw.UploadWizardDetails.prototype = {
 		}
 
 		function ok( result ) {
-			var wx, warningsKeys,
+			var wx, warningsKeys, existingFile, existingFileUrl,
 				warnings = null,
 				wasDeleted = false;
 
@@ -1310,8 +1310,8 @@ mw.UploadWizardDetails.prototype = {
 				if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
 					err('server-error', 'unknown server error');
 				} else {
-					if ( result.upload.stage === undefined ) {
-						console.log( "Unable to check file's status" );
+					if ( result.upload.stage === undefined && window.console ) {
+						window.console.log( 'Unable to check file\'s status' );
 					} else {
 						//Messages that can be returned:
 						// *mwe-upwiz-queued

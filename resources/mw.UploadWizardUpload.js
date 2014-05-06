@@ -220,6 +220,7 @@ mw.UploadWizardUpload.prototype = {
 						code = warnCode;
 						this.setError( warnCode, this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
 						$override = $( '<a></a>' )
+							/*jshint scripturl:true*/
 							.attr( 'href', 'javascript:void(0)' )
 							.text( mw.message( 'mwe-upwiz-override' ).text() )
 							.click( rmErrs );
@@ -690,7 +691,7 @@ mw.UploadWizardUpload.prototype = {
 					}
 				}
 			}
-			
+
 		}
 		*/
 	},
@@ -772,7 +773,7 @@ mw.UploadWizardUpload.prototype = {
 			callback( null );
 		}
 
-		function err( code, result ) {
+		function err( code ) {
 			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> ' + code );
 			callback( null );
 		}
