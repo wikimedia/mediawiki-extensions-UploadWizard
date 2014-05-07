@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 	/**
 	 * @class mw.UploadWizardEvent
 	 * Represents an event to be logged. Used for EventLogging.
@@ -68,4 +68,4 @@
 
 	mw.UploadWizardTutorialEvent.prototype.schemaName = 'UploadWizardTutorialActions';
 	mw.UploadWizardTutorialEvent.prototype.schemaVersion = 5803466;
-}( mediaWiki, jQuery ) );
+}( mediaWiki ) );

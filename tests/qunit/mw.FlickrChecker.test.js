@@ -1,4 +1,4 @@
-( function( mw, $ ) {
+( function( mw ) {
 	'use strict';
 
 	QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', QUnit.newMwEnvironment( {
@@ -58,4 +58,4 @@
 			'foo - 123.jpg'
 		);
 	} );
-} ( mediaWiki, jQuery ) );
+} ( mediaWiki ) );
