@@ -40,14 +40,14 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	// descriptions
 	this.descriptionsDiv = $( '<div class="mwe-upwiz-details-descriptions"></div>' );
 
-	this.descriptionAdder = $( '<a class="mwe-upwiz-more-options"/>' )
+	this.descriptionAdder = $( '<a class="mwe-upwiz-more-options"></a>' )
 					.text( mw.message( 'mwe-upwiz-desc-add-0' ).text() )
 					.click( function( ) { details.addDescription(); } );
 
 	descriptionAdderDiv =
-		$( '<div />' ).append(
-			$( '<div class="mwe-upwiz-details-fieldname" />' ),
-			$( '<div class="mwe-upwiz-details-descriptions-add" />' )
+		$( '<div>' ).append(
+			$( '<div class="mwe-upwiz-details-fieldname"></div>' ),
+			$( '<div class="mwe-upwiz-details-descriptions-add"></div>' )
 					.append( this.descriptionAdder )
 		);
 
@@ -64,13 +64,23 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			api: this.upload.api,
 			spinner: function(bool) { details.toggleDestinationBusy(bool); },
 			preprocess: function( name ) {
+				var cleanTitle;
+
 				// First, clear out any existing errors, to prevent strange visual effects.
-				// Fixes bug 32469.
-				details.$form.find( 'label[for=' + details.titleId + ']' ).empty();
+				// Fixes bug 32469. But introduced a new bug: Some validator methods run immediately
+				// and this cleared out any error set by the validator if no titleblacklist
+				// is installed (where validation is done entirely remotely) because that second type
+				// of validation had a delay.
+				// Now only clearing errors from the delayed methods.
+				// TLDR; FIXME: `clearTitleErrors` should not be in a function called "preprocess"
+				// It's simply counter-intuitive.
+				details.clearTitleErrors();
+
 				if ( name !== '' ) {
-					// turn the contents of the input into a MediaWiki title ("File:foo_bar.jpg") to look up
+					// turn the contents of the input into a MediaWiki title ("File:foo bar.jpg") to look up
 					// side effect -- also sets this as our current title
-					return details.setCleanTitle( name ).toString();
+					cleanTitle = details.setCleanTitle( name );
+					return cleanTitle && cleanTitle.getMainText() || '';
 				} else {
 					return name;
 				}
@@ -398,8 +408,10 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		this.$form.find( '.mwe-title' )
 			.rules( 'add', {
 				required: true,
+				titleParsability: true,
 				messages: {
-					required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
+					required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
+					titleParsability: mw.message( 'mwe-upwiz-unparseable-title' ).escaped()
 				}
 			} );
 	} else {
@@ -411,15 +423,18 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 				titleSenselessimagename: true,
 				titleThumbnail: true,
 				titleExtension: true,
+				titleParsability: true,
 				messages: {
 					required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
 					titleBadchars: mw.message( 'mwe-upwiz-error-title-badchars' ).escaped(),
 					titleSenselessimagename: mw.message( 'mwe-upwiz-error-title-senselessimagename' ).escaped(),
 					titleThumbnail: mw.message( 'mwe-upwiz-error-title-thumbnail' ).escaped(),
-					titleExtension: mw.message( 'mwe-upwiz-error-title-extension' ).escaped()
+					titleExtension: mw.message( 'mwe-upwiz-error-title-extension' ).escaped(),
+					titleParsability: mw.message( 'mwe-upwiz-unparseable-title' ).escaped()
 				}
 			} );
 	}
+
 	// make this a category picker
 	hiddenCats = mw.UploadWizard.config.autoAdd.categories === undefined ? [] : mw.UploadWizard.config.autoAdd.categories;
 
@@ -485,6 +500,31 @@ mw.UploadWizardDetails.prototype = {
 		categories: true,
 		location: false,
 		other: true
+	},
+
+	/*
+	 * Get a reference to the error labels
+	 *
+	 * @return {jQuery} reference to error labels
+	 */
+	$getTitleErrorLabels: function() {
+		if ( !this.$titleErrorLabels || this.$titleErrorLabels.length === 0 ) {
+			this.$titleErrorLabels = this.$form.find( 'label[for=' + this.titleId + ']' ).not( '.mwe-validator-error' );
+		}
+		return this.$titleErrorLabels;
+	},
+
+	/*
+	 * Clears errors shown in UI
+	 *
+	 * @chainable
+	 */
+	clearTitleErrors: function() {
+		var $labels = this.$getTitleErrorLabels();
+
+		$labels.empty();
+
+		return this;
 	},
 
 	/*
@@ -1521,18 +1561,21 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Apply some special cleanups for titles before adding to model. These cleanups are not reflected in what the user sees in the title input field.
 	 * For example, we remove an extension in the title if it matches the extension we're going to add anyway. (bug #30676)
-	 * @param {String} title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
-	 * @return {String} cleaned title with prefix and extension, stringified.
+	 * @param {string} title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
+	 * @return {mw.Title} cleaned title with prefix and extension, stringified.
 	 */
 	setCleanTitle: function( s ) {
 		var ext = this.upload.title.getExtension(),
 			re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' ),
 			cleaned = $.trim( s.replace( re, '' ) );
 
-		this.upload.title = new mw.Title( cleaned + '.' + ext, fileNsId );
+		this.upload.title = mw.Title.newFromText( cleaned + '.' + ext, fileNsId ) || this.upload.title;
 		return this.upload.title;
 	}
-
 };
+
+$.validator.addMethod( 'titleParsability', function( s, elem ) {
+    return this.optional( elem ) || mw.Title.newFromText( $.trim( s ) );
+} );
 
 }) ( mediaWiki, jQuery );

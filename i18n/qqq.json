@@ -253,6 +253,7 @@
 	"mwe-upwiz-category-will-be-added": "Used to let the user know that the category they entered will be created upon form submission.",
 	"mwe-upwiz-category-remove": "Used as action link text.\n{{Identical|Remove category}}",
 	"mwe-upwiz-unparseable-filename": "Used as error message. Parameters:\n* $1 - filename",
+	"mwe-upwiz-unparseable-title": "Used as error message. More information about page titles [[:mw:Manual:Page title|at MediaWiki.org]].",
 	"mwe-upwiz-image-preview": "Used as title for the preview of the image file.",
 	"mwe-upwiz-subhead-bugs": "Unused at this time. Parameters:\n* $1 - full URL\n{{Identical|Known issue}}",
 	"mwe-upwiz-subhead-alt-upload": "Used as a link in the sub-header. Parameters:\n* $1 - full URL",

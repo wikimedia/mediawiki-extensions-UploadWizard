@@ -401,6 +401,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-category-remove',
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
+				'mwe-upwiz-unparseable-title',
 				'mwe-upwiz-image-preview',
 				'mwe-upwiz-subhead-bugs',
 				'mwe-upwiz-subhead-alt-upload',
@@ -647,7 +648,10 @@ class UploadWizardHooks {
 	 */
 	public static function onIsUploadAllowedFromUrl( $url, &$allowed ) {
 		if ( $allowed ) {
-			$flickrBlacklist = new UploadWizardFlickrBlacklist( UploadWizardConfig::getConfig(), RequestContext::getMain() );
+			$flickrBlacklist = new UploadWizardFlickrBlacklist(
+				UploadWizardConfig::getConfig(),
+				RequestContext::getMain()
+			);
 			if ( $flickrBlacklist->isBlacklisted( $url ) ) {
 				$allowed = false;
 			}
@@ -661,7 +665,10 @@ class UploadWizardHooks {
 	 * @param ResourceLoader resourceLoader
 	 * @return bool
 	 */
-	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
+	public static function onResourceLoaderTestModules(
+		array &$testModules,
+		ResourceLoader &$resourceLoader
+	) {
 		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
 			'scripts' => array(
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
