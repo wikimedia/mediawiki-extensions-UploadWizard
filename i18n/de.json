@@ -304,6 +304,7 @@
 	"mwe-upwiz-category-remove": "Diese Kategorie entfernen",
 	"mwe-upwiz-thumbnail-failed": "Das Hochladen war erfolgreich, aber der Server kann keine Miniaturvorschau der Datei erstellen.",
 	"mwe-upwiz-unparseable-filename": "Der Dateiname „$1“ wurde nicht verstanden.",
+	"mwe-upwiz-unparseable-title": "Dieser Titel ist ungültig. Achte darauf, Zeichen wie eckige Klammern, Doppelpunkte, Vergleichsoperatoren, senkrechte Striche und geschweifte Klammern zu entfernen.",
 	"mwe-upwiz-image-preview": "Dateivorschau",
 	"mwe-upwiz-subhead-bugs": "[$1 Bekannte Probleme]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Zurück zum alten Formular]",

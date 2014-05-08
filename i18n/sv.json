@@ -302,6 +302,7 @@
 	"mwe-upwiz-category-remove": "Ta bort denna kategori",
 	"mwe-upwiz-thumbnail-failed": "Uppladdningen lyckades, men servern kunde inte hämta en miniatyrbild för förhandsgranskning",
 	"mwe-upwiz-unparseable-filename": "Kunde inte förstå filnamnet \"$1\"",
+	"mwe-upwiz-unparseable-title": "Denna titel är ogiltig. Se till att ta bort tecken såsom hakparenteser, kolon, större/mindre än, lodsträck och klammerparenteser.",
 	"mwe-upwiz-image-preview": "Filförhandsvisning",
 	"mwe-upwiz-subhead-bugs": "[$1 Kända problem]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Tillbaka till det gamla formuläret]",

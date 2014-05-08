@@ -13,7 +13,8 @@
 			"Schu",
 			"Shirayuki",
 			"Whym",
-			"青子守歌"
+			"青子守歌",
+			"Rxy"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -300,6 +301,7 @@
 	"mwe-upwiz-category-remove": "このカテゴリを除去",
 	"mwe-upwiz-thumbnail-failed": "アップロードには成功しましたが、サーバーがプレビューのサムネイルを取得できませんでした。",
 	"mwe-upwiz-unparseable-filename": "ファイル名「$1」を認識できません。",
+	"mwe-upwiz-unparseable-title": "このページ名は無効です。大括弧、コロン、比較演算子、パイプ記号、中括弧のような無効な文字を除去してください。",
 	"mwe-upwiz-image-preview": "ファイルのプレビュー",
 	"mwe-upwiz-subhead-bugs": "[$1 既知の問題]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 旧型のアップロードフォームに戻る]",
