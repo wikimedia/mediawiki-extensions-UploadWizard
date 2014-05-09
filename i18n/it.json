@@ -301,6 +301,7 @@
 	"mwe-upwiz-category-remove": "Elimina questa categoria",
 	"mwe-upwiz-thumbnail-failed": "Il caricamento è riuscito, ma il server non ha potuto generare un'anteprima.",
 	"mwe-upwiz-unparseable-filename": "Non è stato possibile capire il nome del file \"$1\"",
+	"mwe-upwiz-unparseable-title": "Questo titolo non è valido. Assicurati di rimuovere caratteri come parentesi quadre, due punti, operatori di confronto, barre verticali e parentesi graffe.",
 	"mwe-upwiz-image-preview": "Anteprima del file",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemi noti]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Torna al vecchio modulo]",

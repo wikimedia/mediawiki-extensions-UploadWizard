@@ -301,6 +301,7 @@
 	"mwe-upwiz-category-remove": "刪除此分類",
 	"mwe-upwiz-thumbnail-failed": "上傳成功，但伺服器無法生成預覽縮略圖。",
 	"mwe-upwiz-unparseable-filename": "無法理解檔案名「$1」",
+	"mwe-upwiz-unparseable-title": "這個標題無效。請確保移除特定字元（如方括弧、冒號、比較運算子、管道、大括弧）。",
 	"mwe-upwiz-image-preview": "檔案預覽",
 	"mwe-upwiz-subhead-bugs": "[$1 已知問題]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 回到舊形式]",

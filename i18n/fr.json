@@ -324,6 +324,7 @@
 	"mwe-upwiz-category-remove": "Enlever cette catégorie",
 	"mwe-upwiz-thumbnail-failed": "Le téléversement a réussi, mais le serveur n’a pas pu obtenir un aperçu",
 	"mwe-upwiz-unparseable-filename": "Impossible d'interpréter le nom du fichier « $1 »",
+	"mwe-upwiz-unparseable-title": "Ce titre n’est pas valide. Assurez-vous de supprimer les caractères comme les crochets, les deux-points, les opérateurs de comparaison, les barres verticales et les accolades.",
 	"mwe-upwiz-image-preview": "Prévisualisation du fichier",
 	"mwe-upwiz-subhead-bugs": "[$1 Problèmes connus]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Retour à l’ancien formulaire]",

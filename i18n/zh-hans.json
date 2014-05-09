@@ -311,6 +311,7 @@
 	"mwe-upwiz-category-remove": "删除该分类",
 	"mwe-upwiz-thumbnail-failed": "上传成功，但是服务器不能获得预览缩略图。",
 	"mwe-upwiz-unparseable-filename": "无法识别文件名“$1”",
+	"mwe-upwiz-unparseable-title": "此标题无效。请确保移除特殊字符（例如：方括号、冒号、比较运算符、管道符号和大括号）。",
 	"mwe-upwiz-image-preview": "文件预览",
 	"mwe-upwiz-subhead-bugs": "[$1 已知问题]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 返回旧版表格]",
