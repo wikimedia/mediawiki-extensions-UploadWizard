@@ -534,7 +534,11 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
-		$updater->addExtensionTable( 'uw_campaigns', dirname( __FILE__ ) . '/UploadWizard.sql' );
+		$dbfile = dirname( __FILE__ ) . '/UploadWizard.' . $updater->getDB()->getType() . '.sql';
+		if ( !file_exists( $dbfile ) ) {
+			$dbfile = dirname( __FILE__ ) . '/UploadWizard.sql';
+		}
+		$updater->addExtensionTable( 'uw_campaigns', $dbfile );
 		$updater->addExtensionUpdate( array(
 			'addIndex',
 			'uw_campaigns',
