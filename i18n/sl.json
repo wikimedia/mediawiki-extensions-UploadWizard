@@ -355,6 +355,5 @@
 	"mwe-upwiz-prefs-chunked": "Nalaganje po delih za datoteke, večje od $1, v Čarovniku za nalaganje",
 	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič po licenciranju",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Največje število sočasnih nalaganj",
-	"mwe-upload-campaigns-pagination-next": "Naslednja stran",
-	"mwe-upload-campaigns-list-title": "Seznam nalagalskih kampanj"
+	"mwe-upload-campaigns-pagination-next": "Naslednja stran"
 }

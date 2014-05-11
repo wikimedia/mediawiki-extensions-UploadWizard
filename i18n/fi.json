@@ -171,7 +171,7 @@
 	"mwe-upwiz-cancel": "Peruuta",
 	"mwe-upwiz-fileexists-replace": "Tiedosto nimeltä ”$1” on jo olemassa. Vaihda tiedoston nimeksi jotain yksilöllisempää.",
 	"mwe-upwiz-fileexists": "Samanniminen tiedosto on jo olemassa.\nTarkista $1, jos et ole varma, haluatko korvata sen.",
-	"mwe-upwiz-fileexists-replace-on-page": "Tämän niminen tiedosto on jo olemassa. Jos haluat korvata aikaisemmin tallennetun tiedoston, mene sivulle [$2 $1] ja korvaa se siellä.",
+	"mwe-upwiz-fileexists-replace-on-page": "Tämänniminen tiedosto on jo olemassa. Jos haluat korvata sen uudella, mene sivulle [$2 $1] ja korvaa se siellä.",
 	"mwe-upwiz-fileexists-replace-no-link": "Valitse toinen nimi, sillä tämä nimi on jo käytössä.",
 	"mwe-upwiz-blacklisted": "Valitse toinen, kuvaava nimi.",
 	"mwe-upwiz-thumbnail-more": "Suurenna",
