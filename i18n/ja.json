@@ -357,5 +357,6 @@
 	"mwe-upwiz-prefs-license-thirdparty": "他人の作品 - $1",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "同時にアップロードできる最大個数",
 	"campaigns": "アップロードウィザードのキャンペーン",
-	"mwe-upload-campaigns-pagination-next": "次のページ"
+	"mwe-upload-campaigns-pagination-next": "次のページ",
+	"mwe-upload-campaigns-list-title": "アップロード キャンペーン一覧"
 }

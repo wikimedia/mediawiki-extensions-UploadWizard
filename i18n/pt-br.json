@@ -376,5 +376,6 @@
 	"mwe-upwiz-prefs-chunked": "Envios fragmentados para arquivos acima de $1 no Upload Wizard",
 	"mwe-upwiz-prefs-skiptutorial": "Pular tutorial de introdução a licenciamento",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de envios concorrentes",
-	"mwe-upload-campaigns-pagination-next": "Próxima página"
+	"mwe-upload-campaigns-pagination-next": "Próxima página",
+	"mwe-upload-campaigns-list-title": "Lista de campanhas enviadas"
 }

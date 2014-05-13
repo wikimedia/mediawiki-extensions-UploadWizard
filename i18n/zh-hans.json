@@ -390,5 +390,6 @@
 	"mwe-upwiz-prefs-skiptutorial": "跳过授权协议教程",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "并行上传的最大数目",
 	"campaigns": "上传向导运动",
-	"mwe-upload-campaigns-pagination-next": "下一页"
+	"mwe-upload-campaigns-pagination-next": "下一页",
+	"mwe-upload-campaigns-list-title": "上传活动列表"
 }

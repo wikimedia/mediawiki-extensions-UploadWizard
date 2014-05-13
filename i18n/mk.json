@@ -371,5 +371,6 @@
 	"mwe-upwiz-prefs-skiptutorial": "Прескокни го воведното запознавање со лиценците",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимален број на истовремени преземања",
 	"campaigns": "Кампањи со Помошникот за подигање",
-	"mwe-upload-campaigns-pagination-next": "Следна страница"
+	"mwe-upload-campaigns-pagination-next": "Следна страница",
+	"mwe-upload-campaigns-list-title": "Список на кампањи за подигање"
 }

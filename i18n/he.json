@@ -379,5 +379,6 @@
 	"mwe-upwiz-prefs-skiptutorial": "לדלג על מדריך הרישוי למתחילים",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "מספר מרבי של העלאות בו־זמנית",
 	"campaigns": "מבצעי פרסום של אשף ההעלאות",
-	"mwe-upload-campaigns-pagination-next": "הדף הבא"
+	"mwe-upload-campaigns-pagination-next": "הדף הבא",
+	"mwe-upload-campaigns-list-title": "רשימת מבצעי העלאה"
 }

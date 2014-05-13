@@ -299,6 +299,7 @@
 	"mwe-upwiz-category-remove": "Odebrat tuto kategorii",
 	"mwe-upwiz-thumbnail-failed": "Načtení bylo úspěšné, ale server nedokázal získat náhled.",
 	"mwe-upwiz-unparseable-filename": "Název souboru „$1“ je nesrozumitelný",
+	"mwe-upwiz-unparseable-title": "Tento název je neplatný. Nezapomeňte odstranit znaky jako hranaté závorky, dvojtečky, porovnávací operátory, svislítka a složené závorky.",
 	"mwe-upwiz-image-preview": "Náhled souboru",
 	"mwe-upwiz-subhead-bugs": "[$1 Známé problémy]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Zpět na starý formulář]",

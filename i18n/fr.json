@@ -403,5 +403,6 @@
 	"mwe-upwiz-prefs-skiptutorial": "Passer le tutoriel sur les licences",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Nombre maximal de téléchargements simultanés",
 	"campaigns": "Télécharger l’assistant de campagnes",
-	"mwe-upload-campaigns-pagination-next": "Page suivante"
+	"mwe-upload-campaigns-pagination-next": "Page suivante",
+	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléchargement"
 }
