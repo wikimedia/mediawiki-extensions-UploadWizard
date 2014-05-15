@@ -28,6 +28,11 @@ mw.UploadWizard = function( config ) {
 	this.makePreviewsFlag = true;
 	this.showDeed = false;
 
+    /**
+     * A random number identifying this upload session for analytics purposes.
+     * @property {string}
+     */
+    this.flowId = parseInt( new Date().getTime() + '' + Math.floor( Math.random() * 1000 ), 10 );
 };
 
 mw.UploadWizard.DEBUG = true;
@@ -50,6 +55,7 @@ mw.UploadWizard.prototype = {
 		$.purgeReadyEvents();
 		$.purgeSubscriptions();
 		this.removeMatchingUploads( function() { return true; } );
+        this.currentStepName = undefined;
 	},
 
 
@@ -517,7 +523,14 @@ mw.UploadWizard.prototype = {
 
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
-		this.currentStepName = selectedStepName;
+        if ( mw.eventLog ) {
+            if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
+                mw.eventLog.logEvent( 'UploadWizardStep', { flowId: this.flowId, step: 'tutorial', skipped: true } );
+            }
+            mw.eventLog.logEvent( 'UploadWizardStep', { flowId: this.flowId, step: selectedStepName } );
+        }
+
+        this.currentStepName = selectedStepName;
 
 		if ( selectedStepName === 'file' ) {
 			this.resetFileStepUploads();

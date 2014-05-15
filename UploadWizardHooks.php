@@ -512,6 +512,9 @@ class UploadWizardHooks {
 				'ext.eventLogging',
 				'schema.UploadWizardTutorialActions',
 			);
+
+			self::$modules['ext.uploadWizard']['dependencies'][] = 'schema.UploadWizardStep';
+
 		}
 
 		foreach ( self::$modules as $name => $resources ) {
@@ -671,6 +674,7 @@ class UploadWizardHooks {
 	) {
 		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
 			'scripts' => array(
+				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',
 			),
