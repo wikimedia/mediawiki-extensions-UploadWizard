@@ -88,13 +88,22 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			processResult: function( result ) { details.processDestinationCheck( result ); }
 		} );
 
-	this.titleErrorDiv = $(
-		'<div class="mwe-upwiz-details-input-error">' +
-			'<label class="mwe-error mwe-validator-error" for="' + this.titleId + '" generated="true"/>' +
-			'<label class="mwe-error errorTitleUnique" for="' + this.titleId + '" generated="true"/>' +
-			'<label class="mwe-error errorRecovery" for="' + this.titleId + '" generated="true"/>' +
-		'</div>'
-	);
+	this.titleErrorDiv = $( '<div>' ).addClass( 'mwe-upwiz-details-input-error' );
+
+	function makeAndAppendTitleErrorLabel ( labelClass ) {
+		$( '<label>' )
+			.attr( {
+				'for': details.titleId,
+				generated: 'true'
+			} )
+			.addClass( 'mwe-error ' + labelClass )
+			.appendTo( details.titleErrorDiv );
+	}
+
+	makeAndAppendTitleErrorLabel( 'mwe-validator-error mwe-upwiz-validation-immediate' );
+	makeAndAppendTitleErrorLabel( 'mwe-upwiz-duplicate-title mwe-upwiz-validation-immediate' );
+	makeAndAppendTitleErrorLabel( 'mwe-upwiz-error-title-unique mwe-upwiz-validation-delayed' );
+	makeAndAppendTitleErrorLabel( 'mwe-upwiz-error-recovery mwe-upwiz-validation-delayed' );
 
 	titleContainerDiv = $('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
 		.append(
@@ -509,7 +518,8 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	$getTitleErrorLabels: function() {
 		if ( !this.$titleErrorLabels || this.$titleErrorLabels.length === 0 ) {
-			this.$titleErrorLabels = this.$form.find( 'label[for=' + this.titleId + ']' ).not( '.mwe-validator-error' );
+			this.$titleErrorLabels = this.$form
+				.find( 'label[for=' + this.titleId + '].mwe-upwiz-validation-delayed' );
 		}
 		return this.$titleErrorLabels;
 	},
@@ -523,6 +533,43 @@ mw.UploadWizardDetails.prototype = {
 		var $labels = this.$getTitleErrorLabels();
 
 		$labels.empty();
+
+		return this;
+	},
+
+	/*
+	 * Display error message about multiple uploaded files with the same title specified
+	 *
+	 * @chainable
+	 */
+	setDuplicateTitleError: function() {
+		var $duplicateTitleLabel = this.$form
+			.find( 'label[for=' + this.titleId + '].mwe-upwiz-duplicate-title' );
+
+		$duplicateTitleLabel.text( mw.message( 'mwe-upwiz-error-title-duplicate' ).text() );
+
+		// Clear error as soon as the value changed
+		// The input event is not implemented in all browsers we support but
+		// it's sufficient to clear the error upon form submit and when this happens
+		// the change event is fired anyway
+		// keyup would clear the error when pressing meta keys, adding leading spaces, ...
+		this.titleInput.one( 'input change', function() {
+			$duplicateTitleLabel.empty();
+		} );
+
+		return this;
+	},
+
+
+	/*
+	 * Empties the error message about multiple uploaded files with the same title specified
+	 *
+	 * @chainable
+	 */
+	clearDuplicateTitleError: function() {
+		this.$form
+			.find( 'label[for=' + this.titleId + '].mwe-upwiz-duplicate-title' )
+			.empty();
 
 		return this;
 	},
@@ -890,7 +937,8 @@ mw.UploadWizardDetails.prototype = {
 	processDestinationCheck: function( result ) {
 		var titleString, errHtml, completeErrorLink,
 			feedback, feedbackLink,
-			$errorEl = this.$form.find( 'label[for=' + this.titleId + '].errorTitleUnique' );
+			$errorEl = this.$form
+				.find( 'label[for=' + this.titleId + '].mwe-upwiz-error-title-unique' );
 
 		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
 			$( this.titleInput ).data( 'valid', true );
@@ -1488,7 +1536,10 @@ mw.UploadWizardDetails.prototype = {
 		this.upload.state = 'error';
 		this.dataDiv.morphCrossfade( '.detailsForm' );
 		$( '#' + fieldId ).addClass( 'mwe-error' );
-		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).html( errorMessage ).show();
+		this.$form
+			.find( 'label[for=' + fieldId + '].mwe-upwiz-error-recovery' )
+			.html( errorMessage )
+			.show();
 	},
 
 	/**

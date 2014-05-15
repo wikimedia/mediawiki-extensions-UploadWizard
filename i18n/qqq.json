@@ -193,6 +193,7 @@
 	"mwe-upwiz-error-too-short": "Used as error message. Parameters:\n* $1 - minimum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-long}}",
 	"mwe-upwiz-error-title-thumbnail": "Appears when thumbnail title is similar to \"22px-Example.jpg\" - the prefix is what MW adds when downloading pictures as thumbnails.",
 	"mwe-upwiz-error-title-protected": "Appears when the filename chosen will put this file in a protected page. Obviously the user cannot replace it (or we would not get this error), so we ask them to rename.",
+	"mwe-upwiz-error-title-duplicate": "Appears when the title chosen is not unique amongst the files being uploaded. In other words, the user specified the same title (in normalized form) for at least two files they're uploading.",
 	"mwe-upwiz-details-error-count": "Used as error message. Parameters:\n* $1 - number of errors\n* $2 - number of forms. i.e. number of uploads",
 	"mwe-upwiz-too-many-files-ok": "OK button text.\n{{Identical|OK}}",
 	"mwe-upwiz-too-many-files-text": "Error message informing the user there are too many uploads in a dialog. Each param is a file count.\n\nParameters:\n* $1 - limit number of files\n* $2 - number of files you tried to upload",

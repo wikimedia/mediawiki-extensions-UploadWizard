@@ -1060,25 +1060,40 @@ mw.UploadWizard.prototype = {
 	 * are all the details valid?
 	 * @return boolean
 	 */
-	detailsValid: function(cb, cberr) {
-		var confirmationDialog,
+	detailsValid: function (cb, cberr) {
+		var confirmationDialog, title,
 			valid = 0,
 			necessary = 0,
 			total = 0,
-			buttons = {};
+			buttons = {},
+			titles = {};
 
-		$.each( this.uploads, function(i, upload) {
+		$.each( this.uploads, function (i, upload) {
 			if ( upload === undefined ) {
 				return;
 			}
 			total += 1;
-			upload.details.valid( function () {
+
+			upload.details.clearDuplicateTitleError().valid( function () {
+
+				title = upload.title.getName();
+
+				// Seen this title before?
+				if ( titles[title] ) {
+
+					// Don't submit. Instead, set an error in details step.
+					upload.details.setDuplicateTitleError();
+					return;
+				} else {
+
+					titles[title] = true;
+				}
 				valid += 1;
-			});
+			} );
 			upload.details.necessaryFilled( function () {
 				necessary += 1;
-			});
-		});
+			} );
+		} );
 
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
 		buttons[ mw.message( 'mwe-upwiz-dialog-yes' ).escaped() ] = function() {
