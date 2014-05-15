@@ -70,6 +70,7 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
+	'Campaigns' => array( 'Holi' ),
 	'UploadWizard' => array( 'SihirbazéBarkerdışi' ),
 	'UploadCampaigns' => array( 'HolaBarkerdışan' ),
 	'UploadCampaign' => array( 'HolaBarkerdışi' ),
