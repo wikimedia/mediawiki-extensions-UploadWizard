@@ -16,11 +16,16 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 	function setupFormCallback() {
 		transport.configureForm();
 		transport.$iframe.off( 'load', setupFormCallback );
+		transport.setUpStatus.resolve();
+	}
+	function iframeError() {
+		transport.setUpStatus.reject();
 	}
 
 	this.$form = $form;
 	this.progressCb = progressCb;
 	this.transportedCb = transportedCb;
+	this.setUpStatus = $.Deferred();
 
 	this.iframeId = 'f_' + ( $( 'iframe' ).length + 1 );
 
@@ -35,18 +40,32 @@ mw.IframeTransport = function( $form, progressCb, transportedCb ) {
 
 	// we configure form on load, because the first time it loads, it's blank
 	// then we configure it to deal with an API submission
+	// Using javascript:false because it works in IE6; otherwise about:blank would
+	// be a viable option; see If04206fa993129
+
+	/* jshint scripturl: true */
 	this.$iframe
-		.prop( 'src', '#' )
+		.load( setupFormCallback )
+		.error( iframeError )
 		.prop( 'id', this.iframeId )
 		.prop( 'name', this.iframeId )
-		.load( setupFormCallback )
+		.prop( 'src', 'javascript:false;' )
 		.addClass( 'hidden' )
 		.hide();
+	/* jshint scripturl: false */
 
 	$( 'body' ).append( this.$iframe );
 };
 
 mw.IframeTransport.prototype = {
+	/**
+	 * Accessor function
+	 * @return {jQuery.Deferred}
+	 */
+	getSetUpStatus: function() {
+		return this.setUpStatus;
+	},
+
 	/**
 	 * Configure a form with a File Input so that it submits to the iframe
 	 * Ensure callback on completion of upload
