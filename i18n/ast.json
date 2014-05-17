@@ -289,6 +289,7 @@
 	"mwe-upwiz-category-remove": "Desaniciar esta categoría",
 	"mwe-upwiz-thumbnail-failed": "La xubía se fizo correutamente, pero'l sirvidor nun pudo sacar una miniatura pa la vista previa.",
 	"mwe-upwiz-unparseable-filename": "Nun se pudo entender el nome del ficheru «$1»",
+	"mwe-upwiz-unparseable-title": "Esti títulu ye inválidu. Asegúrate de quitar caráuteres como corchetes, dos puntos, operadores de comparación, barres verticales y llaves.",
 	"mwe-upwiz-image-preview": "Vista previa del ficheru",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemes conocíos]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Volver al formulariu antiguu]",
