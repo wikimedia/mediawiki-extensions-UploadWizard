@@ -292,6 +292,7 @@
 	"mwe-upwiz-category-remove": "Gỡ thể loại này",
 	"mwe-upwiz-thumbnail-failed": "Đã tải lên thành viên, nhưng máy chủ không thể lấy hình nhỏ xem trước",
 	"mwe-upwiz-unparseable-filename": "Không hiểu tên tập tin “$1”",
+	"mwe-upwiz-unparseable-title": "Tiêu đề này không hợp lệ. Xin hãy xóa các ký tự như dấu ngoặc vuông, hai chấm, bất đẳng thức, sổ thẳng, và ngoặc cong.",
 	"mwe-upwiz-image-preview": "Xem trước tập tin",
 	"mwe-upwiz-subhead-bugs": "[$1 Vấn đề đã biết]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Quay lại biểu mẫu cũ]",
