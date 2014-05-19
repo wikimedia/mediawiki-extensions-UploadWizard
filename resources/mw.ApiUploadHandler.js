@@ -97,7 +97,9 @@ mw.ApiUploadHandler.prototype = {
 			handler.beginTime = ( new Date() ).getTime();
 			handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 			handler.upload.ui.showTransportProgress();
-			handler.$form.submit();
+			handler.transport.getSetUpStatus().done( function() {
+				handler.$form.submit();
+			} );
 		}
 
 		function err( code, info ) {
