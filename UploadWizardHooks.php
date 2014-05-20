@@ -4,6 +4,20 @@ class UploadWizardHooks {
 	/* We define scripts here for Resource Loader */
 
 	public static $modules = array(
+		'uw.base' => array(
+			'scripts' => array(
+				'resources/uw.base.js',
+			),
+		),
+		'uw.EventFlowLogger' => array(
+			'scripts' => array(
+				'resources/uw.EventFlowLogger.js',
+			),
+			'dependencies' => array(
+				'uw.base',
+			),
+		),
+
 		'ext.uploadWizard' => array(
 			'dependencies' => array(
 				'jquery.arrowSteps',
@@ -31,6 +45,7 @@ class UploadWizardHooks {
 				'mediawiki.Title',
 				'mediawiki.user',
 				'mediawiki.feedback',
+				'uw.base',
 				'ext.uploadWizard.apiUploadHandler',
 				'ext.uploadWizard.apiUploadFormDataHandler',
 				'ext.uploadWizard.events',
@@ -38,6 +53,7 @@ class UploadWizardHooks {
 				// OOJS is loaded for the UploadWizardInterface class,
 				// which is now an EventEmitter.
 				'oojs',
+				'uw.EventFlowLogger',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -479,9 +495,11 @@ class UploadWizardHooks {
 	 * ResourceLoaderRegisterModules hook
 	 *
 	 * Adds modules to ResourceLoader
+	 *
+	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
-		global $wgExtensionAssetsPath, $wgAPIModules, $wgResourceModules;
+		global $wgExtensionAssetsPath, $wgAPIModules;
 
 		$localpath = dirname( __FILE__ );
 		$remotepath = "$wgExtensionAssetsPath/UploadWizard";
@@ -501,7 +519,10 @@ class UploadWizardHooks {
 				'schema.UploadWizardTutorialActions',
 			);
 
-			self::$modules['ext.uploadWizard']['dependencies'][] = 'schema.UploadWizardStep';
+			self::$modules['uw.EventFlowLogger']['dependencies'] += array(
+				'ext.eventLogging',
+				'schema.UploadWizardStep',
+			);
 
 		}
 
@@ -666,6 +687,7 @@ class UploadWizardHooks {
 	) {
 		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
 			'scripts' => array(
+				'tests/qunit/uw.EventFlowLogger.test.js',
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',

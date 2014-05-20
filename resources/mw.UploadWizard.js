@@ -2,7 +2,7 @@
 * Object that reperesents the entire multi-step Upload Wizard
 */
 
-( function( mw, $ ) {
+( function( mw, uw, $ ) {
 
 mw.UploadWizard = function( config ) {
 
@@ -28,11 +28,7 @@ mw.UploadWizard = function( config ) {
 	this.makePreviewsFlag = true;
 	this.showDeed = false;
 
-    /**
-     * A random number identifying this upload session for analytics purposes.
-     * @property {string}
-     */
-    this.flowId = parseInt( new Date().getTime() + '' + Math.floor( Math.random() * 1000 ), 10 );
+    this.eventFlowLogger = new uw.EventFlowLogger( mw.eventLog );
 };
 
 mw.UploadWizard.DEBUG = true;
@@ -388,12 +384,10 @@ mw.UploadWizard.prototype = {
 
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
-        if ( mw.eventLog ) {
-            if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
-                mw.eventLog.logEvent( 'UploadWizardStep', { flowId: this.flowId, step: 'tutorial', skipped: true } );
-            }
-            mw.eventLog.logEvent( 'UploadWizardStep', { flowId: this.flowId, step: selectedStepName } );
+        if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
+            this.eventFlowLogger.logSkippedStep( 'tutorial' );
         }
+        this.eventFlowLogger.logStep( selectedStepName );
 
         this.currentStepName = selectedStepName;
 
@@ -1518,4 +1512,4 @@ mw.isEmpty = function( v ) {
 		errorClass: 'mwe-validator-error'
 	} );
 
-} )( mediaWiki, jQuery );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
