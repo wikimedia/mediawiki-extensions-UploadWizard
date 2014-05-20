@@ -145,6 +145,7 @@
 	"mwe-upwiz-media-type": "Median tyyppi",
 	"mwe-upwiz-date-created": "Luontiajankohta",
 	"mwe-upwiz-location": "Sijainti",
+	"mwe-upwiz-location-button": "Näytä kartalla",
 	"mwe-upwiz-location-lat": "Leveyspiiri",
 	"mwe-upwiz-location-lon": "Pituuspiiri",
 	"mwe-upwiz-location-alt": "Korkeus",
@@ -154,7 +155,7 @@
 	"mwe-upwiz-other": "Muuta tietoa",
 	"mwe-upwiz-source": "Lähde",
 	"mwe-upwiz-thanks-intro": "Kiitos tallennuksesta.",
-	"mwe-upwiz-thanks-explain": "Nyt voit käyttää {{PLURAL:$1|tätä tiedostoa|näitä tiedostoja}} vaikkapa Wikipediassa tai laittaa linkin {{PLURAL:$1|siihen|niihin}}.",
+	"mwe-upwiz-thanks-explain": "Nyt voit käyttää {{PLURAL:$1|tätä tiedostoa|näitä tiedostoja}} wikeissä, tai laittaa linkin {{PLURAL:$1|siihen|niihin}}.",
 	"mwe-upwiz-thanks-wikitext": "Tiedoston käyttäminen wikissä onnistuu kopioimalla seuraava koodi sivulle:",
 	"mwe-upwiz-thanks-url": "Tiedostoon linkittäminen tapahtuu osoitteella:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Tämä wiki ei ota vastaan tiedostoja, jotka päättyvät tiedostopäätteeseen .$1.",
@@ -228,7 +229,7 @@
 	"mwe-upwiz-error-license-wikitext-invalid": "Syöttämäsi wikiteksti ei kelpaa, tai se ei sisällä lisenssiä.",
 	"mwe-upwiz-details-error-count": "Yllä {{PLURAL:$2|olevassa lomakkeessa|olevissa lomakkeissa}} on {{PLURAL:$1|virhe|$1 virhettä}}. Korjaa {{PLURAL:$1|virhe|virheet}} ja yritä uudelleen.",
 	"mwe-upwiz-too-many-files-ok": "OK",
-	"mwe-upwiz-too-many-files-text": "Voit ladata vain $1 {{PLURAL:$1|tiedoston|tiedostoa}} kerralla. Yritit ladata yhteensä $2 {{PLURAL:$2|tiedoston|tiedostoa}}, joten $3 {{PLURAL:$3|tiedoston|tiedostoa}} poistettiin.",
+	"mwe-upwiz-too-many-files-text": "Voit ladata vain $1 {{PLURAL:$1|tiedoston|tiedostoa}} kerralla, mutta yritit ladata yhteensä $2 {{PLURAL:$2|tiedoston|tiedostoa}}. Yritä uudelleen pienemmän tiedostomäärän kanssa!",
 	"mwe-upwiz-too-many-files": "Liian monta tiedostoa.",
 	"mwe-upwiz-file-too-large-ok": "ok",
 	"mwe-upwiz-file-too-large-text": "Voit tallentaa vain tiedostoja, joiden koko ei ylitä seuraavaa kokorajoitusta $1. Yritit ladata tiedostoa, jonka koko on $2.",
@@ -375,5 +376,6 @@
 	"mwe-upwiz-prefs-license-thirdparty": "Jonkun muun teos - $1",
 	"mwe-upwiz-prefs-chunked": "Ohjatussa tiedoston tallentamisessa yli $1 kokoisten tiedostojen tallennukset osissa",
 	"mwe-upwiz-prefs-skiptutorial": "Ohita esittelevä lisensointiopas",
-	"mwe-upwiz-prefs-maxsimultaneous-upload": "Enimmäismäärä samanaikaisia latauksia"
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "Enimmäismäärä samanaikaisia latauksia",
+	"mwe-upload-campaigns-pagination-next": "Seuraava sivu"
 }

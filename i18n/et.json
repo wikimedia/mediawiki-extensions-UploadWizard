@@ -288,6 +288,7 @@
 	"mwe-upwiz-category-remove": "Eemalda see kategooria",
 	"mwe-upwiz-thumbnail-failed": "Üleslaadimine õnnestus, aga serveril ei õnnestunud hankida eelvaate pisipilti.",
 	"mwe-upwiz-unparseable-filename": "Failinimi \"$1\" jäi mõistetamatuks.",
+	"mwe-upwiz-unparseable-title": "See pealkiri on vigane. Ära kasuta nurksulge, kooloneid, võrdusmärke, võrratusmärke, püstkriipse ega looksulge.",
 	"mwe-upwiz-image-preview": "Faili eelvaade",
 	"mwe-upwiz-subhead-bugs": "[$1 Teadaolevadad probleemid]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Vana üleslaadimisvorm]",
