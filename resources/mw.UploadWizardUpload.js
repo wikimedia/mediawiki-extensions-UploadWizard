@@ -860,13 +860,13 @@ mw.UploadWizardUpload.prototype = {
 					image.width = thumb.thumbwidth;
 					image.height = thumb.thumbheight;
 					$( image )
-						.load( function() {
+						.on( 'load', function() {
 							// cache this thumbnail
 							upload.thumbnails[key] = image;
 							// publish the image to anyone who wanted it
 							$.publishReady( key, image );
 						} )
-						.error( function() {
+						.on( 'error', function() {
 							// retry with exponential backoff
 							if ( timeoutMs < 8000 ) {
 								setTimeout( function() {

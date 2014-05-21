@@ -82,7 +82,7 @@ mw.UploadWizardUploadInterface = function( upload, filesDiv, providedFile ) {
 			.append( this.filenameCtrl )
 			.get( 0 );
 
-	if ( $( '<input type="file">' ).attr( 'disabled' ) ) {
+	if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
 		$( '#mwe-upwiz-stepdiv-file' ).replaceWith(
 			$( '<span/>' )
 			.addClass( 'mwe-error' )

@@ -39,20 +39,7 @@
 		},
 
 		isFormDataAvailable: function() {
-			// FormData is in Firefox 4 but its file.slice is broken so we can't use it.
-			return (typeof window.FormData !== 'undefined') &&
-				!( $.browser.mozilla && parseFloat($.browser.version) < 5.0 );
-		},
-
-		/**
-		 * Is the slice function of FileAPI available with sufficient functionality?
-		 * @todo is there a way to check this instead of hardcoding browsers and version?
-		 */
-		isSliceAvailable: function() {
-			return mw.fileApi.isAvailable() &&
-				( ( $.browser.mozilla && parseFloat($.browser.version) >= 5.0 ) ||
-				( $.browser.webkit && parseFloat($.browser.version) >= 534.28 ) ||
-				( $.browser.msie && parseFloat($.browser.version) >= 10 ) );
+			return window.FormData !== undefined && window.File !== undefined && window.File.prototype.slice !== undefined;
 		}
 	};
 }( mediaWiki, jQuery ) );

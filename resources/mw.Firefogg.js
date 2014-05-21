@@ -13,7 +13,7 @@ mw.Firefogg = {
 	 */
 	getFirefoggInstallUrl: function() {
 		var osLink = false;
-		if( ! $.browser.mozilla ){
+		if( $.client.profile().name !== 'firefox' ) {
 			return 'http://firefogg.org/';
 		}
 		if ( navigator.oscpu ) {

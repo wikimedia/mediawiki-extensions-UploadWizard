@@ -45,7 +45,7 @@ mw.ApiUploadFormDataHandler.prototype = {
                 callerOk();
             };
 
-        this.api.getEditToken( ok, err );
+        this.api.getEditToken().done( ok ).fail( err );
     },
 
     /**

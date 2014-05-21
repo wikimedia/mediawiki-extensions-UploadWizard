@@ -75,7 +75,7 @@ mw.ApiUploadHandler.prototype = {
 
 		var handler = this;
 
-		this.api.getEditToken( ok, err );
+		this.api.getEditToken().done( ok ).fail( err );
 	},
 
 	/**

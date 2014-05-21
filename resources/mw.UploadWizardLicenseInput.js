@@ -284,9 +284,9 @@ mw.UploadWizardLicenseInput.prototype = {
 	setInput: function( $input, val ) {
 		var oldVal = $input.is( ':checked' );
 		if ( val ) {
-			$input.prop( 'checked', 'checked' );
+			$input.prop( 'checked', true );
 		} else {
-			$input.removeProp( 'checked' );
+			$input.prop( 'checked', false );
 		}
 		if ( val !== oldVal ) { // loose comparison on purpose
 			this.$selector.trigger( 'changeLicenses' );

@@ -305,7 +305,7 @@ mw.UploadWizard.prototype = {
 				title: function() {
 					return mw.message(
 						'mwe-upwiz-tooltip-skiptutorial',
-						mw.config.get( 'wgServer' ) + mw.util.wikiGetlink( 'Special:Preferences' ) + '#mw-prefsection-uploads',
+						mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
 						mw.message( 'prefs-uploads' ).escaped(),
 						mw.message( 'prefs-upwiz-interface' ).escaped()
 					).parse();
@@ -366,7 +366,7 @@ mw.UploadWizard.prototype = {
 
 		// Insert input field into the form and set up submit action
 		$flickrForm.prepend( $flickrInput ).submit( function() {
-			$flickrButton.attr( 'disabled', 'disabled' );
+			$flickrButton.prop( 'disabled', true );
 			wizard.flickrChecker( checker );
 			// TODO Any particular reason to stopPropagation ?
 			return false;
@@ -396,7 +396,7 @@ mw.UploadWizard.prototype = {
 		// first destroy it completely, then reshow the add button
 		this.flickrInterfaceDestroy();
 		$( '#mwe-upwiz-upload-add-flickr-container' ).show();
-		$( '#mwe-upwiz-upload-add-flickr' ).removeAttr( 'disabled' );
+		$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', false );
 	},
 
 	/**
@@ -409,7 +409,7 @@ mw.UploadWizard.prototype = {
 		$( '#mwe-upwiz-select-flickr' ).unbind();
 		$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 		$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
-		$( '#mwe-upwiz-upload-add-flickr' ).attr( 'disabled', 'disabled' );
+		$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', true );
 	},
 
 	/**
@@ -1439,13 +1439,12 @@ mw.isEmpty = function( v ) {
 
 	$.fn.enableNextButton = function() {
 		return this.find( '.mwe-upwiz-button-next' )
-			.removeAttr( 'disabled' );
-		//	.effect( 'pulsate', { times: 3 }, 1000 );
+			.prop( 'disabled', false );
 	};
 
 	$.fn.disableNextButton = function() {
 		return this.find( '.mwe-upwiz-button-next' )
-			.attr( 'disabled', true );
+			.prop( 'disabled', true );
 	};
 
 	$.fn.readonly = function() {
@@ -1536,6 +1535,7 @@ mw.isEmpty = function( v ) {
 
 	// XXX this is highly specific to the "details" page now, not really jQuery function
 	jQuery.fn.mask = function() {
+		var profile = $.client.profile();
 
 		// intercept clicks...
 		// Note: the size of the div must be obtainable. Hence, this cannot be a div without layout (e.g. display:none).
@@ -1546,7 +1546,7 @@ mw.isEmpty = function( v ) {
 
 
 				//fix for z-index bug with selects in IE6
-				if ( $.browser.msie && $.browser.version.substring(0,1) === '6' ){
+				if ( profile.name === 'msie' && profile.versionNumber === 6 ) {
 					$( el ).find( 'select' ).addClass( 'masked-hidden' );
 				}
 
