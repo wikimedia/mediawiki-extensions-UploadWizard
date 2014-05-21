@@ -243,6 +243,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "Ce titre contient une apostrophe double : veuillez la supprimer.",
 	"mwe-upwiz-error-title-extension": "Vous n’avez pas besoin d’ajouter une extension de fichier. Il suffit de faire un titre compréhensible par un humain et l’application se chargera du reste.",
 	"mwe-upwiz-error-title-protected": "Ce titre correspond à une page protégée sur ce wiki. Veuillez choisir un nom différent.",
+	"mwe-upwiz-error-title-duplicate": "Ce titre a été spécifié pour plus d’un fichier que vous allez télécharger. Les espaces soulignés sont traités comme des espaces, une extension de fichier est ajoutée automatiquement.",
 	"mwe-upwiz-error-license-wikitext-missing": "Vous avez sélectionné une option qui requiert que vous entriez du wikitexte.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Le wikitexte ici est trop court pour être une licence",
 	"mwe-upwiz-error-license-wikitext-too-long": "Le wikitexte que vous avez saisi est trop long.",

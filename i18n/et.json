@@ -207,6 +207,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "See pealkiri sisaldab topeltülakoma; palun eemalda see.",
 	"mwe-upwiz-error-title-extension": "Faililaiendit pole tarvis lisada. Lihtsalt pane failile loetav pealkiri ja rakendus teeb ülejäänu.",
 	"mwe-upwiz-error-title-protected": "See pealkiri vastab siin vikis kaitstud leheküljele. Palun vali muu pealkiri.",
+	"mwe-upwiz-error-title-duplicate": "Oled määranud selle pealkirja mitmele failile, mida üles laadid. Allkriipsu samastatakse tühikuga, faililaiend lisatakse automaatselt.",
 	"mwe-upwiz-error-license-wikitext-missing": "Selle valiku korral tuleb sisestada vikitekst.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Vikitekst on litsentsi jaoks liiga lühike.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Sisestasid liiga pika vikiteksti.",

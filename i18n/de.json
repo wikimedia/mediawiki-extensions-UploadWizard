@@ -223,6 +223,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "Dieser Name enthält einen doppelten Apostroph. Bitte einen entfernen.",
 	"mwe-upwiz-error-title-extension": "Eine Dateierweiterung braucht nicht angegeben werden. Es braucht lediglich ein allgemeinverständlicher Name angegeben werden. Die Anwendung kümmert sich um den Rest.",
 	"mwe-upwiz-error-title-protected": "Dieser Dateiname entspricht dem Namen einer geschützten Seite auf diesem Wiki. Bitte wähle einen anderen Namen.",
+	"mwe-upwiz-error-title-duplicate": "Dieser Titel wurde für mehr als eine hochzuladende Datei angegeben. Unterstriche werden als Leerzeichen behandelt, eine Dateierweiterung wird automatisch hinzugefügt.",
 	"mwe-upwiz-error-license-wikitext-missing": "Du wähltest eine Option, die eine Eingabe in Wikitext erforderlich macht.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Die Eingabe in Wikitext ist zu kurz, um eine Lizenz sein zu können.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Die Eingabe in Wikitext ist zu lang.",
