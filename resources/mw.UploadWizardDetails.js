@@ -743,7 +743,7 @@ mw.UploadWizardDetails.prototype = {
 			$checkbox = $( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', copyMessage ).attr( 'id', copyMessage );
 			$checkboxes = $checkboxes.add( $checkbox );
 			if ( defaultStatus === true ) {
-				$checkbox.attr( 'checked', 'checked' );
+				$checkbox.prop( 'checked', true );
 			}
 
 			$copyMetadataDiv
@@ -1429,8 +1429,7 @@ mw.UploadWizardDetails.prototype = {
 									action: 'upload',
 									checkstatus: true,
 									filekey: details.upload.fileKey
-								},
-								ok, err );
+								} ).done( ok ).fail( err );
 							}
 						}, 3000 );
 					}
@@ -1459,7 +1458,7 @@ mw.UploadWizardDetails.prototype = {
 				details.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
 			} else if ( wasDeleted === true ) {
 				params.ignorewarnings = 1;
-				details.upload.api.postWithEditToken( params, ok, err );
+				details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
 			} else if ( result && result.upload.warnings ) {
 				if ( warnings.thumb ) {
 					details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text() );
@@ -1477,7 +1476,7 @@ mw.UploadWizardDetails.prototype = {
 						// We already told the interface to ignore this warning, so
 						// let's steamroll over it and re-call this handler.
 						params.ignorewarnings = true;
-						details.upload.api.postWithEditToken( params, ok, err );
+						details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
 					} else {
 						// This should _never_ happen, but just in case....
 						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text() );
@@ -1522,7 +1521,7 @@ mw.UploadWizardDetails.prototype = {
 		// validation does MOST of this already
 		this.getWikiText( function ( wikiText ) {
 			params.text = wikiText;
-			details.upload.api.postWithEditToken( params, ok, err );
+			details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
 		});
 	},
 

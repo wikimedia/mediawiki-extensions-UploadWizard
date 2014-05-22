@@ -325,13 +325,13 @@ form.mwe-upwiz-form {
 	display: inline-block;
 }
 
-a[disabled=true] {
+a:disabled {
 	color: #999999;
 	text-decoration: none;
 	cursor: default;
 }
 
-a[disabled=true]:hover {
+a:disabled:hover {
 	text-decoration: none;
 }
 

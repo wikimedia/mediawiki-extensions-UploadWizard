@@ -481,7 +481,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 		function selectDeedFunction() {
 			chooser.choose( deed );
 			chooser.selectDeedInterface( $deedInterface );
-			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).attr( 'checked', true );
+			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).prop( 'checked', true );
 		}
 
 		if ( deeds.length === 1 ) {
@@ -572,7 +572,7 @@ mw.UploadWizardDeedChooser.prototype = {
 			} );
 			$.fn.resetForm = originalResetForm;
 			// Prevent validation of deselected deeds by disabling all form inputs
-			$form.find( ':input' ).attr( 'disabled', true );
+			$form.find( ':input' ).prop( 'disabled', true );
 			if ( $form.parents().is( ':hidden' ) ) {
 				$form.hide();
 			} else {
@@ -591,7 +591,7 @@ mw.UploadWizardDeedChooser.prototype = {
 		$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
 			var $form = $( form );
 			// (Re-)enable all form inputs
-			$form.find( ':input' ).removeAttr( 'disabled' );
+			$form.find( ':input' ).prop( 'disabled', false );
 			if ( $form.is( ':hidden' ) ) {
 				// if the form was hidden, set things up so a slide-down works
 				$form.show().slideUp( 0 );
