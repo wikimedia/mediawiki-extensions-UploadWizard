@@ -230,6 +230,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "该标题含有双撇号，请删除。",
 	"mwe-upwiz-error-title-extension": "你不需要添加文件扩展名，只需要使用能够让人理解的标题。应用程序会处理其他事项。",
 	"mwe-upwiz-error-title-protected": "此标题已被保护。请选择另外一个。",
+	"mwe-upwiz-error-title-duplicate": "此标题已指定为您将上传的多于一个文件。下划线会视为空格，并会自动添加文件拓展名。",
 	"mwe-upwiz-error-license-wikitext-missing": "你选择了需要你输入维基文字的选项。",
 	"mwe-upwiz-error-license-wikitext-too-short": "这里的维基文字过短，不是授权协议",
 	"mwe-upwiz-error-license-wikitext-too-long": "你输入的维基文字过长。",
