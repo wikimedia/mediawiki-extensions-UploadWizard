@@ -221,6 +221,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "Denna titel innehåller en dubbel apostrof, vänligen ta bort den.",
 	"mwe-upwiz-error-title-extension": "Du behöver inte lägga till en filändelse. Gör bara titeln läsbar så kommer applikationen att ta hand om resten.",
 	"mwe-upwiz-error-title-protected": "Denna titel motsvarar en skyddad sida på denna wiki. Var god välj ett annat namn.",
+	"mwe-upwiz-error-title-duplicate": "Denna titel har angivits för mer än en fil du ska ladda upp. Understreck behandlas som mellanslag, en filändelse läggs till automatiskt.",
 	"mwe-upwiz-error-license-wikitext-missing": "Du har valt ett alternativ som medför att du måste skriva in wikitext.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Denna wikitext är för kortfattad för att kunna vara en licens",
 	"mwe-upwiz-error-license-wikitext-too-long": "Wikitexten som du skrev är för lång.",
