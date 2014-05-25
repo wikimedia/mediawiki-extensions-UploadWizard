@@ -160,6 +160,7 @@ $specialPageAliases['mk'] = array(
 
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
+	'Campaigns' => array( 'മേളകൾ' ),
 	'UploadWizard' => array( 'അപ്‌ലോഡ്_സഹായി' ),
 	'UploadCampaigns' => array( 'അപ്‌ലോഡ്‌മേളകൾ' ),
 	'UploadCampaign' => array( 'അപ്‌ലോഡ്‌മേള' ),

@@ -38,7 +38,7 @@
 	"mwe-upwiz-api-warning-exists": "此維基已有[$1 另一個]相同名稱的文件",
 	"mwe-upwiz-api-warning-was-deleted": "有一個同名檔案「$1」已被刪除，您無法重新上傳該檔案。如果您的檔案不同，請嘗試重命名。",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "抱歉，我們無法找到您使用的語言的教程。顯示$1版作為替代。",
-	"mwe-upwiz-tutorial-error-file-missing": "抱歉，我們無法找到任何相關的教程，請聯繫系統管理員。",
+	"mwe-upwiz-tutorial-error-file-missing": "抱歉，我們無法找到任何相關的教程，請聯絡系統管理員。",
 	"mwe-upwiz-tutorial-error-cannot-transform": "抱歉，我們無法獲取適合此屏幕大小的教程。這也許是維基共享資源的臨時錯誤，請稍後再試。",
 	"mwe-upwiz-help-desk": "幫助台",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:幫助台",
