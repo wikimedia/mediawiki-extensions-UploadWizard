@@ -110,6 +110,14 @@ $specialPageAliases['gsw'] = array(
 	'UploadCampaign' => array( 'Uffelade-Kampagne' ),
 );
 
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'Campaigns' => array( 'מבצעים' ),
+	'UploadWizard' => array( 'אשף_ההעלאה' ),
+	'UploadCampaigns' => array( 'מבצעי_העלאה' ),
+	'UploadCampaign' => array( 'מבצע_העלאה' ),
+);
+
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = array(
 	'UploadWizard' => array( 'AsistanChajman' ),
