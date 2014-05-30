@@ -23,7 +23,8 @@
 			"Zhuyifei1999",
 			"乌拉跨氪",
 			"阿pp",
-			"Hudafu"
+			"Hudafu",
+			"Mywood"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -292,7 +293,7 @@
 	"mwe-upwiz-license-flickr-head": "著作权持有人以适当的授权协议在Flickr发表了他们的{{PLURAL:$1|照片或视频}}",
 	"mwe-upwiz-license-flickr-subhead": "请检查Flickr页面侧边的“License（授权）”标题。它们使用的图标和授权协议名称都必须和这里的选项之一对应。",
 	"mwe-upwiz-license-public-domain-usa-head": "美国的著作权肯定已经过期",
-	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}}服务器位于美国，所以该作品必须在美国著作权过期。",
+	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}}位于美国，所以该作品必须在美国著作权过期。",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|该|这些}}作品是美国政府创作的",
 	"mwe-upwiz-license-misc": "其他原因",
 	"mwe-upwiz-license-custom-head": "上面没有提到的其他原因",
