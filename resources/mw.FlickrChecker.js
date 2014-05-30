@@ -583,6 +583,8 @@ mw.FlickrChecker.prototype = {
 			method: 'flickr.photos.getSizes',
 			photo_id: photoId
 		} ).done( function( data ) {
+			var nameParts;
+
 			if ( typeof data.sizes !== 'undefined' && typeof data.sizes.size !== 'undefined' && data.sizes.size.length > 0 )
 			{
 				// Flickr always returns the largest version as the final size.
@@ -591,7 +593,12 @@ mw.FlickrChecker.prototype = {
 				// Flickr provides the original format for images coming from pro users, hence we need to change the default JPEG to this format
 				if ( largestSize.label === 'Original' ) {
 					upload.type = upload.originalFormat;
-					upload.name = upload.name.split('.')[0] + '.' + upload.originalFormat;
+
+					nameParts = upload.name.split( '.' );
+					if ( nameParts.length > 1 ) {
+						nameParts.pop();
+					}
+					upload.name = nameParts.join( '.' ) + '.' + upload.originalFormat;
 				}
 				upload.url = largestSize.source;
 				// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
