@@ -211,6 +211,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "Tên này chứa dấu móc đôi; hãy loại bỏ nó.",
 	"mwe-upwiz-error-title-extension": "Bạn không cần phải thêm một phần mở rộng tập tin. Chỉ việc đặt tên miêu tả rõ ràng và trình thuật sĩ này sẽ tự động chọn phần mở rộng.",
 	"mwe-upwiz-error-title-protected": "Tên này ứng với một trang bị khóa trên wiki này. Xin vui lòng chọn tên khác.",
+	"mwe-upwiz-error-title-duplicate": "Bạn đang chuẩn bị tải lên tập tin khác cùng tên. Dấu gạch dưới trở thành dấu cách và phần mở rộng được thêm tự động.",
 	"mwe-upwiz-error-license-wikitext-missing": "Tùy chọn của bạn cần bạn nhập mã wiki.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Mã wiki bạn đã nhập quá ngắn có vẻ không phải là một giấy phép.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Mã wiki bạn đã nhập quá dài.",
