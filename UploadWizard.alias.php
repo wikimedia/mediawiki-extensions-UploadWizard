@@ -149,6 +149,7 @@ $specialPageAliases['ja'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
+	'Campaigns' => array( '캠페인' ),
 	'UploadWizard' => array( '올리기마법사' ),
 	'UploadCampaigns' => array( '올리기캠페인목록' ),
 	'UploadCampaign' => array( '올리기캠페인' ),

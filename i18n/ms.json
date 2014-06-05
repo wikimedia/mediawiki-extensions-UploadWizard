@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
-			"Diagramma Della Verita"
+			"Diagramma Della Verita",
+			"Pizza1016"
 		]
 	},
 	"uploadwizard": "Alat muat naik ajaib",
@@ -256,7 +257,7 @@
 	"mwe-upwiz-license-pd-textlogo": "Logo dengan teks ringkas (tanda kata) sahaja",
 	"mwe-upwiz-license-copyrighted-free-use": "Berhak cipta, tetapi boleh digunakan untuk sebarang tujuan, termasuk perdagangan",
 	"mwe-upwiz-license-attribution": "Boleh digunakan untuk sebarang tujuan, termasuk perdagangan, jika pemegang hak cipta diatribusi dengan betul",
-	"mwe-upwiz-license-gfdl": "Lesen Dokumentasi Bebas GNU",
+	"mwe-upwiz-license-gfdl": "Lesen Pendokumenan Bebas GNU",
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribusi diperlukan (GFDL, CC BY-SA-3.0)",
 	"mwe-upwiz-license-cc-head": "Pemegang hak cipta menerbitkan {{PLURAL:$1|karya|karya-karya}} ini dengan lesen Creative Commons yang betul",
 	"mwe-upwiz-license-cc-subhead": "Tidak semua lesen Creative Commons sesuai untuk tapak ini. Pastikan agar pemegang hak cipta menggunakan salah satu lesen ini.",
