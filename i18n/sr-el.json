@@ -304,5 +304,6 @@
 	"mwe-upwiz-prefs-license-own": "Sopstveno delo – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Tuđe delo – $1",
 	"mwe-upwiz-prefs-chunked": "Otpremanje iz delova za datoteke iznad $1 sa Pomoćnikom za otpremanje",
-	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodno uputstvo o licenciranju"
+	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodno uputstvo o licenciranju",
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maksimalan broj istovremenih otpremanja"
 }

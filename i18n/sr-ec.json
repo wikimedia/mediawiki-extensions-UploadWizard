@@ -311,5 +311,6 @@
 	"mwe-upwiz-prefs-license-own": "Сопствено дело – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Туђе дело – $1",
 	"mwe-upwiz-prefs-chunked": "Отпремање из делова за датотеке изнад $1 са Помоћником за отпремање",
-	"mwe-upwiz-prefs-skiptutorial": "Прескочи уводно упутство о лиценцирању"
+	"mwe-upwiz-prefs-skiptutorial": "Прескочи уводно упутство о лиценцирању",
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максималан број истовремених отпремања"
 }
