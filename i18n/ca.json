@@ -10,7 +10,8 @@
 			"SMP",
 			"Ssola",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Jmarchn"
 		]
 	},
 	"uploadwizard": "Auxiliar de càrrega",
@@ -72,7 +73,7 @@
 	"mwe-upwiz-progressbar-uploading": "carregant",
 	"mwe-upwiz-finished": "Ha finalitzat!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|Resta $1 segon|Resten $1 segons}}",
-	"mwe-upwiz-mins-secs-remaining": "Resten {{PLURAL:$1|$1 minut|$1 minuts}} i {{PLURAL:$2|$2 segon|$2 segons}}",
+	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minut|minuts}} $2 {{PLURAL:$2|segon|segons}} {{PLURAL:$3|restants}}",
 	"mwe-upwiz-hrs-mins-secs-remaining": "Resten $1 {{PLURAL:$1|hora|hores}}, $2 {{PLURAL:$2|minut|minuts}} i $3 {{PLURAL:$3|segon|segons}}",
 	"mwe-upwiz-deeds-macro-prompt": "Aquest lloc requereix que {{GENDER:$2|faciliteu}} la informació dels drets d'autor per {{PLURAL:$1|aquesta obra|aquestes obres}}, per assegurar que tothom pot {{PLURAL:$1|reutilitzar-la|reutilitzar-les}} legalment.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Aquest fitxer és|Aquests fitxers són}} fruit del meu propi treball.",
@@ -80,6 +81,7 @@
 	"mwe-upwiz-source-ownwork-assert": "Jo, $2, titular dels drets d'autor {{PLURAL:$1|d'aquesta obra|d'aquestes obres}}, per la present concedeixo a tothom i de forma irrevocable el dret d'usar {{PLURAL:$1|aquesta obra|aquestes obres}} per qualsevol propòsit, mentre se'n reconegui pròpiament la meva autoria i tota obra derivada es publiqui sota les mateixes condicions.",
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0": "Jo, $2, titular dels drets d'autor {{PLURAL:$1|d'aquesta obra|d'aquestes obres}}, concedeixo a tothom i de forma irrevocable el dret d'usar {{PLURAL:$1|aquesta obra|aquestes obres}} sota la llicència de Creative Commons Reconeixement i Compartir Igual 3.0 ([$3 text legal]).",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sempre que se m'atribueixi i es publiqui tota obra derivada sota aquesta mateixa llicència.)",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at": "Jo, $2, titular dels drets d'autor d'{{PLURAL:$1|aquesta obra|aquestes obres}}, concedeixo a tothom i de forma irrevocable el dret d'usar {{PLURAL:$1|aquesta obra|aquestes obres}} sota la llicència d'Àustria de Creative Commons Reconeixement i Compartir Igual 3.0 ([$3 text legal]).",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sempre que se m'atribueixi i es publiqui tota obra derivada sota aquesta mateixa llicència.)",
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de": "Jo, $2, titular dels drets d'autor {{PLURAL:$1|d'aquesta obra|d'aquestes obres}}, concedeixo a tothom i de forma irrevocable el dret d'usar {{PLURAL:$1|aquesta obra|aquestes obres}} sota la llicència de Creative Commons Reconeixement i Compartir Igual 3.0 ([$3 text legal]).",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sempre que se m'atribueixi i es publiqui tota obra derivada sota aquesta mateixa llicència.)",
