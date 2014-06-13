@@ -196,6 +196,7 @@ $specialPageAliases['nds-nl'] = array(
 
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
+	'Campaigns' => array( 'Campagnes' ),
 	'UploadWizard' => array( 'WizardUploaden' ),
 	'UploadCampaigns' => array( 'Uploadcampagnes' ),
 	'UploadCampaign' => array( 'Uploadcampagne' ),
