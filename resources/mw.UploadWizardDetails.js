@@ -481,6 +481,24 @@
 		} );
 	};
 
+	/**
+	 * Reliably turn input into a MediaWiki title that is located in the File: namespace
+	 *
+	 *     var title = mw.UploadWizardDetails.makeTitleInFileNS( 'filename.ext' );
+	 *
+	 * @static
+	 * @param {string} filename Desired file name; optionally with File: namespace prefixed
+	 * @return {mw.Title|null}
+	 */
+	mw.UploadWizardDetails.makeTitleInFileNS = function ( filename ) {
+		var mwTitle = mw.Title.newFromText( filename, fileNsId );
+		if ( mwTitle && mwTitle.getNamespaceId() !== fileNsId ) {
+			// Force file namespace
+			mwTitle = mw.Title.newFromText( 'File:' + filename );
+		}
+		return mwTitle;
+	};
+
 	mw.UploadWizardDetails.prototype = {
 
 		// Has this details object been attached to the DOM already?
@@ -950,7 +968,7 @@
 			$( this.titleInput ).data( 'valid', false );
 
 			try {
-				titleString = new mw.Title( result.title, fileNsId ).toString();
+				titleString = mw.UploadWizardDetails.makeTitleInFileNS( result.title ).toString();
 			} catch ( e ) {
 				// unparseable result from unique test?
 				titleString = '[unparseable name]';
@@ -1672,7 +1690,7 @@
 				re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' ),
 				cleaned = $.trim( s.replace( re, '' ) );
 
-			this.upload.title = mw.Title.newFromText( cleaned + '.' + ext, fileNsId ) || this.upload.title;
+			this.upload.title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + ext ) || this.upload.title;
 			return this.upload.title;
 		}
 	};
