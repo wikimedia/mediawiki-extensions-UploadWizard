@@ -3,7 +3,8 @@
 		"authors": [
 			"Ex13",
 			"Roberta F.",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"MaGa"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje datoteka",
@@ -138,5 +139,15 @@
 	"mwe-upwiz-campaigns-disabled": "Onemogućeno",
 	"mwe-upwiz-campaigns-edit": "Uredi",
 	"mwe-upwiz-campaigns-add": "Dodaj",
-	"mw-coolcats-confirm-new-cancel": "Nije važno"
+	"mw-coolcats-confirm-new-cancel": "Nije važno",
+	"prefs-uploads": "Postavljanja",
+	"prefs-upwiz-licensing": "Licenciranje",
+	"prefs-upwiz-interface": "Korisničko sučelje",
+	"mwe-upwiz-prefs-def-license": "Podrazumijevana licencija.",
+	"mwe-upwiz-prefs-def-license-def": "Koristi podrazumijevanu",
+	"mwe-upwiz-prefs-license-own": "Vlastito djelo - $1",
+	"mwe-upwiz-prefs-license-thirdparty": "Tuđe djelo - $1",
+	"mwe-upwiz-prefs-chunked": "Postavljanje datoteka iz dijelova za datoteke veće od $1 uz pomoć čarobnjaka za postavljanje.",
+	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič o licenciranju.",
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "Najveći broj istovremenih postavljanja"
 }
