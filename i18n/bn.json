@@ -65,7 +65,7 @@
 	"mwe-upwiz-finished": "সম্পন্ন!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|সেকেন্ড|সেকেন্ড}} বাকি",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|মিনিট|মিনিট}} $2 {{PLURAL:$2|সেকেন্ড|সেকেন্ড}} {{PLURAL:$3|বাকি}}",
-	"mwe-upwiz-hrs-mins-secs-remaining": "$1 {{PLURAL:$1|ঘন্টা|ঘন্টা}} $2 {{PLURAL:$2|মিনিট|মিনিট}} $3 {{PLURAL:$3|সেকেন্ড|সেকেন্ড}} বাকি",
+	"mwe-upwiz-hrs-mins-secs-remaining": "$1 {{PLURAL:$1|ঘণ্টা}} $2 {{PLURAL:$2|মিনিট}} $3 {{PLURAL:$3|সেকেন্ড}} বাকি",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|এই ফাইলটি|এই ফাইলগুলো}} আমার নিজের কাজ।",
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at": "আমি, $2, {{PLURAL:$1|এই কাজ|এই কাজগুলোর}} কপিরাইট হোল্ডার, ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন শেয়ার এলাইক ৩.০ অস্ট্রেলিয়া লাইসেন্সের অধিনে {{PLURAL:$1|এই কাজ|এই কাজগুলোর}} সকলের ব্যবহারের জন্য প্রকাশ করছি ([$3 legal code])।",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain": "(যেকেউ {{PLURAL:$1|এই কাজ|এই কাজগুলো}} ব্যবহার, শেয়ার বা পরিবর্তন করার অধিকার পাবে, যদি সে কৃতজ্ঞতায় আমার নাম উল্লেখ করে এবং নতুন তৈরী কাজটি একই লাইসেনন্সে প্রকাশ করে।)",

@@ -129,6 +129,7 @@
 	"mwe-upwiz-license-cc-zero": "Creative Commons CC0 Odricanje (javno dobro: [$2 legal code])",
 	"mwe-upwiz-license-fal": "Slobodna umjetnička licencija",
 	"mwe-upwiz-license-gfdl": "GNU licencija za slobodnu dokumentaciju",
+	"mwe-upwiz-license-none": "Vjerujem da {{PLURAL:$1|je ovo djelo dostupno pod slobodnom licencijom ili je|su ova djela dostupna pod slobodnom licencijom ili su}} u javnom vlasništvu. Razumijem da {{PLURAL:$1|datoteka može biti izbrisana|datoteke mogu biti izbrisane}} ako se blagovremeno ne navedu potrebne informacije o autorstvu.",
 	"mwe-upwiz-categories": "Kategorije",
 	"mwe-upwiz-categories-add": "Dodaj",
 	"mwe-upwiz-category-remove": "Ukloni ovu kategoriju",
