@@ -118,6 +118,11 @@ $specialPageAliases['he'] = array(
 	'UploadCampaign' => array( 'מבצע_העלאה' ),
 );
 
+/** Upper Sorbian (hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'Campaigns' => array( 'Kampanje' ),
+);
+
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = array(
 	'UploadWizard' => array( 'AsistanChajman' ),
@@ -240,6 +245,7 @@ $specialPageAliases['uk'] = array(
 
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
+	'Campaigns' => array( 'Chiến_dịch' ),
 	'UploadWizard' => array( 'Thuật_sĩ_tải_lên' ),
 	'UploadCampaigns' => array( 'Danh_sách_chiến_dịch_tải_lên' ),
 	'UploadCampaign' => array( 'Chiến_dịch_tải_lên' ),
