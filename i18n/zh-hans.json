@@ -173,7 +173,7 @@
 	"mwe-upwiz-allowed-filename-extensions": "允许的扩展名为：",
 	"mwe-upwiz-help-allowed-filename-extensions": "允许的文件扩展名",
 	"mwe-upwiz-upload-error-duplicate": "该文件曾经上传到过本维基。",
-	"mwe-upwiz-upload-error-duplicate-archive": "此档案曾上载至此wiki，但随后被删除。",
+	"mwe-upwiz-upload-error-duplicate-archive": "此文件曾上传至此wiki，但随后被删除。",
 	"mwe-upwiz-upload-error-stashed-anyway": "继续上传？",
 	"mwe-upwiz-upload-error-unknown-filename-error": "因为未知原因，我们不能读取或识别文件名“$1”。",
 	"mwe-upwiz-ok": "确定",

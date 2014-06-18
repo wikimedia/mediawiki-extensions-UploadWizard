@@ -326,7 +326,7 @@
 	"mwe-upwiz-campaigns-newname": "Nome dell'iniziativa:",
 	"mwe-upwiz-campaigns-namedoc": "Il nome dell'iniziativa è l'identificatore usato negli URL. Ad esempio inserendo \"nome\" nell'indirizzo apparirà ?campaign=nome",
 	"mwe-upwiz-campaigns-existing": "Iniziative esistenti",
-	"mwe-upwiz-campaigns-delete": "Elimina",
+	"mwe-upwiz-campaigns-delete": "Cancella",
 	"mwe-upwiz-campaigns-confdel": "Sei sicuro di voler eliminare questa iniziativa?",
 	"mwe-upwiz-campaigns-delete-failed": "Non è stato possibile eliminare l'iniziativa.",
 	"mwe-upwiz-campaigns-confirm-delete": "Sei sicuro di voler eliminare questa iniziativa?",

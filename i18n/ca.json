@@ -11,7 +11,8 @@
 			"Ssola",
 			"Toniher",
 			"Vriullop",
-			"Jmarchn"
+			"Jmarchn",
+			"Fitoschido"
 		]
 	},
 	"uploadwizard": "Auxiliar de càrrega",
@@ -287,7 +288,7 @@
 	"mwe-upwiz-license-custom-preview": "Vista prèvia",
 	"mwe-upwiz-license-none-head": "He trobat el fitxer a Internet - No n'estic segur",
 	"mwe-upwiz-license-none": "Crec que {{PLURAL:$1|aquesta obra és|aquestes obres són}} amb llicència lliure o legalment en domini públic. Entenc que si no afegeixo la informació apropiada sobre la llicència en un temps raonable, {{PLURAL:$1|el fitxer pot ser esborrat|els fitxers poden ser esborrats}}.",
-	"mwe-upwiz-license-confirm-remove": "Esteu segurs que voleu suprimir {{PLURAL:$1|aquest fitxer carregat|aquests fitxers carregats}}?",
+	"mwe-upwiz-license-confirm-remove": "Esteu segur que voleu suprimir {{PLURAL:$1|aquest fitxer carregat|aquests fitxers carregats}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirma l'eliminació",
 	"mwe-upwiz-license-external": "Aquest fitxer està subjecte a la següent llicència del lloc d'origen \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Aquest fitxer està subjecte a la següent llicència del lloc d'origen \"$1\": $2. Malauradament, aquesta llicència no és permesa en aquest wiki.",
