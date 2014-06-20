@@ -297,6 +297,7 @@
 	"mwe-upwiz-category-remove": "Categorie verwijderen",
 	"mwe-upwiz-thumbnail-failed": "De upload is afgerond, maar de server kon geen miniatuurafbeelding weergeven.",
 	"mwe-upwiz-unparseable-filename": "De bestandsnaam \"$1\" kon niet verwerkt worden",
+	"mwe-upwiz-unparseable-title": "Deze titel is ongeldig. Wees er zeker van dat tekens als vierkante haken, dubbele punten, vergelijkingstekens, pijpen en accolades niet aanwezig zijn.",
 	"mwe-upwiz-image-preview": "Voorvertoning van bestand",
 	"mwe-upwiz-subhead-bugs": "[$1 Bekende problemen]",
 	"mwe-upwiz-subhead-alt-upload": "[$1 Terug naar het oude formulier]",
