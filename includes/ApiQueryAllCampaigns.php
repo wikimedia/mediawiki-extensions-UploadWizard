@@ -29,7 +29,7 @@
  */
 class ApiQueryAllCampaigns extends ApiQueryBase {
 	public function __construct( $query, $moduleName ) {
-		parent::__construct( $query, $moduleName, 'uc' );
+		parent::__construct( $query, $moduleName, 'uwc' );
 	}
 
 	public function execute() {
@@ -139,7 +139,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 
 	public function getExamples() {
 		return array(
-			'api.php?action=query&list=allcampaigns&ucenabledonly=' => 'Enumerate enabled campaigns'
+			'api.php?action=query&list=allcampaigns&uwcenabledonly=' => 'Enumerate enabled campaigns'
 		);
 	}
 

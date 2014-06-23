@@ -13,6 +13,7 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'jquery.arrowSteps',
 				'jquery.autoEllipsis',
+				'jquery.checkboxShiftClick',
 				'jquery.client',
 				'jquery.ui.core',
 				'jquery.ui.dialog',
@@ -53,7 +54,6 @@ class UploadWizardHooks {
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
 				'resources/mw.canvas.js',
-				'resources/mw.Log.js',
 				'resources/mw.UtilitiesTime.js',
 				'resources/mw.ErrorDialog.js',
 				'resources/mw.ConfirmCloseWindow.js',
@@ -149,6 +149,7 @@ class UploadWizardHooks {
 				'api-error-noimageinfo',
 				'api-error-fileexists-shared-forbidden',
 				'api-error-unclassified',
+				'api-error-stasherror',
 				'mwe-upwiz-api-warning-was-deleted',
 				'mwe-upwiz-api-warning-exists',
 				'mwe-upwiz-tutorial-error-localized-file-missing',
@@ -156,8 +157,10 @@ class UploadWizardHooks {
 				'mwe-upwiz-tutorial-error-cannot-transform',
 				'mwe-upwiz-help-desk',
 				'mwe-upwiz-add-file-n',
+				'mwe-upwiz-multi-file-select',
 				'mwe-upwiz-add-file-0-free',
 				'mwe-upwiz-flickr-input-placeholder',
+				'mwe-upwiz-add-flickr-or',
 				'mwe-upwiz-add-flickr',
 				'mwe-upwiz-add-file-flickr',
 				'mwe-upwiz-add-file-flickr-n',
@@ -253,6 +256,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-media-type',
 				'mwe-upwiz-date-created',
 				'mwe-upwiz-location',
+				'mwe-upwiz-location-button',
 				'mwe-upwiz-location-lat',
 				'mwe-upwiz-location-lon',
 				'mwe-upwiz-location-alt',
@@ -273,6 +277,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-allowed-filename-extensions',
 				'mwe-upwiz-help-allowed-filename-extensions',
 				'mwe-upwiz-upload-error-duplicate',
+				'mwe-upwiz-upload-error-duplicate-archive',
 				'mwe-upwiz-upload-error-stashed-anyway',
 				'mwe-upwiz-ok',
 				'mwe-upwiz-cancel',
@@ -389,6 +394,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-external-invalid',
 				'mwe-upwiz-license-photoset-invalid',
 				'mwe-upwiz-url-invalid',
+				'mwe-upwiz-user-blacklisted',
 				'mwe-upwiz-categories',
 				'mwe-upwiz-categories-add',
 				'mwe-upwiz-category-will-be-added',
@@ -396,9 +402,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
 				'mwe-upwiz-image-preview',
-				'mwe-upwiz-subhead-message',
 				'mwe-upwiz-subhead-bugs',
-				'mwe-upwiz-subhead-translate',
 				'mwe-upwiz-subhead-alt-upload',
 				'mwe-upwiz-feedback-prompt',
 				'mwe-upwiz-feedback-note',
@@ -451,6 +455,7 @@ class UploadWizardHooks {
 			),
 			'group' => 'ext.uploadWizard'
 		),
+		// TODO(aarcos): I don't think this is used anymore?
 		'ext.uploadWizard.tests' => array(
 			'scripts' => array(
 				'resources/mw.MockUploadHandler.js'
@@ -494,18 +499,20 @@ class UploadWizardHooks {
 		if ( array_key_exists( 'titleblacklist', $wgAPIModules ) ) {
 			self::$modules['ext.uploadWizard']['dependencies'][] = 'mediawiki.api.titleblacklist';
 		}
-		if ( array_key_exists( 'ext.eventLogging', $wgResourceModules ) ) {
-			self::$modules['schema.UploadWizardTutorialActions'] = array(
-				'class'  => 'ResourceLoaderSchemaModule',
-				'schema' => 'UploadWizardTutorialActions',
-				'revision' => 5803466,
-			);
+
+		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
+			$resourceLoader->register( 'schema.UploadWizardTutorialActions', array(
+					'class' => 'ResourceLoaderSchemaModule',
+					'schema' => 'UploadWizardTutorialActions',
+					'revision' => 5803466,
+			) );
 
 			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
 				'ext.eventLogging',
 				'schema.UploadWizardTutorialActions',
 			);
 		}
+
 		foreach ( self::$modules as $name => $resources ) {
 			$resourceLoader->register(
 				$name,
@@ -557,6 +564,7 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
+		global $wgLang;
 
 		$config = UploadWizardConfig::getConfig();
 
@@ -608,7 +616,10 @@ class UploadWizardHooks {
 			if ( UploadWizardConfig::getSetting( 'enableChunked' ) === 'opt-in' ) {
 				$preferences['upwiz-chunked'] = array(
 					'type' => 'check',
-					'label-message' => 'mwe-upwiz-prefs-chunked',
+					'label-message' => array(
+						'mwe-upwiz-prefs-chunked',
+						$wgLang->formatSize( UploadWizardConfig::getSetting( 'chunkSize' ) )
+					),
 					'section' => 'uploads/upwiz-experimental'
 				);
 			}
@@ -628,6 +639,50 @@ class UploadWizardHooks {
 			);
 		}
 
+		return true;
+	}
+
+	/**
+	 * Hook to blacklist flickr images by intercepting upload from url
+	 */
+	public static function onIsUploadAllowedFromUrl( $url, &$allowed ) {
+		if ( $allowed ) {
+			$flickrBlacklist = new UploadWizardFlickrBlacklist( UploadWizardConfig::getConfig(), RequestContext::getMain() );
+			if ( $flickrBlacklist->isBlacklisted( $url ) ) {
+				$allowed = false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Get JavaScript test modules
+	 * @param array $testModules
+	 * @param ResourceLoader resourceLoader
+	 * @return bool
+	 */
+	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
+		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
+			'scripts' => array(
+				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
+				'tests/qunit/mw.FlickrChecker.test.js',
+			),
+			'dependencies' => array(
+				'ext.uploadWizard',
+			),
+			'localBasePath' => __DIR__,
+			'remoteExtPath' => 'UploadWizard',
+		);
+	}
+
+	/**
+	 * Hook to add unit tests
+	 * @param array $files list of testcases
+	 * @return bool
+	 */
+	public static function onUnitTestsList( array &$files ) {
+		$testDir = __DIR__ . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . 'phpunit';
+		$files = array_merge( $files, glob( $testDir . DIRECTORY_SEPARATOR . '*Test.php' ) );
 		return true;
 	}
 
@@ -653,5 +708,4 @@ class UploadWizardHooks {
 			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
 		}
 	}
-
 }

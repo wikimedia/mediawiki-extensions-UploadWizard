@@ -32,7 +32,7 @@ mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	}
 
 	_this.$selector = $( selector );
-	_this.$selector.append( $( '<div class="mwe-error mwe-error-main"></div>' ) );
+	_this.$selector.append( $( '<div class="mwe-error mwe-error-head"></div>' ) );
 
 	_this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
@@ -346,13 +346,13 @@ mw.UploadWizardLicenseInput.prototype = {
 					}
 				} );
 			} else {
-				mw.log( "too many true values for a radio button!");
+				mw.log.warn( "Too many true values for a radio button!");
 			}
 
 		} else if ( _this.type === 'checkbox' ) {
 			_this.setInputsIndividually( values );
 		} else {
-			mw.log( "impossible? UploadWizardLicenseInput type neither radio nor checkbox" );
+			mw.log.warn( "Impossible? UploadWizardLicenseInput type neither radio nor checkbox" );
 		}
 		// we use the selector because events can't be unbound unless they're in the DOM.
 		_this.$selector.trigger( 'changeLicenses' );
@@ -500,7 +500,7 @@ mw.UploadWizardLicenseInput.prototype = {
 		try {
 			ast = parser.wikiTextToAst( text );
 		} catch (e) {
-			mw.log( e.message );
+			mw.log.warn( e.message );
 			return false;
 		}
 

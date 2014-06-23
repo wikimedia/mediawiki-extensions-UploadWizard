@@ -170,6 +170,13 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
 	//	.append( _this.altInput );
 
+	var showMap = $( '<a></a>' )
+		.append( mw.message( 'mwe-upwiz-location-button' ).text() )
+		.hide();
+
+	var linkDiv = $( '<div class="mwe-loc-link"></div>' )
+		.append( showMap );
+
 	var locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 		.append( $ ('<div class="mwe-location-label"></div>' )
 		.append( mw.message( 'mwe-upwiz-location' ).escaped() )
@@ -178,7 +185,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
 			$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
 			//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-			latDiv, lonDiv //, altDiv
+			latDiv, lonDiv, linkDiv//, altDiv
 		);
 
 	$( moreDetailsDiv ).append(
@@ -295,6 +302,17 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 		messages: {
 			required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
 			/* dateISO: mw.message( 'mwe-upwiz-error-date' ).escaped() */
+		}
+	} );
+
+	var $list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon ' );
+	$list.on( 'input keyup change cut paste', function ( event ) {
+		var link = _this.osmMapLink();
+		if (  $list.valid() ) {
+			showMap.attr( { 'href':link, 'target':'_blank' } ).show();
+		}
+		else {
+			showMap.hide();
 		}
 	} );
 
@@ -593,14 +611,16 @@ mw.UploadWizardDetails.prototype = {
 	 * a metadata copy widget for the details view of this specific upload
 	 */
 	buildAndShowCopyMetadata: function() {
-		var _this = this;
+		var _this = this,
+			$copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' ),
+			$checkboxes = $();
+
 		if( mw.UploadWizard.config.copyMetadataFeature !== true ||
 			_this.copyMetadataCtrlDiv !== undefined ) {
 			return;
 		}
 
 		_this.copyMetadataCtrlDiv = $( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
-		var copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' );
 
 		$.each( _this.copyMetadataTypes, function addToMetadataDiv( metadataName, defaultStatus ) {
 			var copyMessage = 'mwe-upwiz-copy-' + metadataName,
@@ -612,15 +632,20 @@ mw.UploadWizardDetails.prototype = {
 				copyMetadataMsg = mw.message( copyMessage ).text();
 			}
 			$checkbox = $( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', copyMessage ).attr( 'id', copyMessage );
+			$checkboxes = $checkboxes.add( $checkbox );
 			if ( defaultStatus === true ) {
 				$checkbox.attr( 'checked', 'checked' );
 			}
-			copyMetadataDiv.append( $checkbox );
-			copyMetadataDiv.append( $( '<label for="' + copyMessage + '"></label>' ).text( copyMetadataMsg ) );
-			copyMetadataDiv.append( $( '<br />' ) );
-		} ) ;
 
-		copyMetadataDiv.append(
+			$copyMetadataDiv
+				.append( $checkbox )
+				.append( $( '<label for="' + copyMessage + '"></label>' ).text( copyMetadataMsg ) )
+				.append( $( '<br />' ) );
+		} ) ;
+		$checkboxes.checkboxShiftClick();
+
+
+		$copyMetadataDiv.append(
 			$( '<button type="button" id="mwe-upwiz-copy-metadata-button"></button>' )
 			.msg( 'mwe-upwiz-copy-metadata-button' )
 			.button()
@@ -643,12 +668,21 @@ mw.UploadWizardDetails.prototype = {
 
 		mw.UploadWizardUtil.makeToggler(
 			_this.copyMetadataCtrlDiv,
-			copyMetadataDiv,
+			$copyMetadataDiv,
 			'mwe-upwiz-copy-metadata'
 		);
 
-		_this.$form.append( _this.copyMetadataCtrlDiv, copyMetadataDiv );
+		_this.$form.append( _this.copyMetadataCtrlDiv, $copyMetadataDiv );
 		_this.copyMetadataCtrlDiv.show();
+	},
+
+	/**
+	 * Open OSM map
+	 */
+	osmMapLink: function () {
+			var mapLink = new mw.Uri( 'https://openstreetmap.org/' )
+					.extend( { zoom: 9, layers: 'M', lat: this.$latInput.val(), lon: this.$lonInput.val() } );
+			return mapLink.toString();
 	},
 
 	/**
@@ -1211,8 +1245,7 @@ mw.UploadWizardDetails.prototype = {
 				'source' : '',			// {{own}} or wikitext    optional
 				'author' : '',			// any wikitext, but particularly {{Creator:Name Surname}}   required
 				'permission' : '',		// leave blank unless OTRS pending; by default will be "see below"   optional
-				'other_versions' : '',	// pipe separated list, other versions     optional
-				'other_fields' : ''		// ???     additional table fields
+				'other_versions' : ''		// pipe separated list, other versions     optional
 			};
 
 			// sanity check the descriptions -- do not have two in the same lang
@@ -1318,29 +1351,38 @@ mw.UploadWizardDetails.prototype = {
 		};
 
 		var ok = function( result ) {
-			var warnings = null;
-			var wasDeleted = false;
+			var warnings, wasDeleted, existingFile, existingFileUrl;
+
 			if ( result && result.upload && result.upload.result == 'Poll' ) {
 				// if async publishing takes longer than 10 minutes give up
 				if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
 					err('server-error', 'unknown server error');
 				} else {
-					_this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
-					setTimeout( function() {
-						if ( _this.upload.state != 'aborted' ) {
-							_this.upload.api.postWithEditToken( {
-								action: 'upload',
-								checkstatus: true,
-								filekey: _this.upload.fileKey
-							},
-							ok, err );
-						}
-					}, 3000 );
+					if ( result.upload.stage === undefined ) {
+						console.log( "Unable to check file's status" );
+					} else {
+						//Messages that can be returned:
+						// *mwe-upwiz-queued
+						// *mwe-upwiz-publish
+						// *mwe-upwiz-assembling
+						_this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
+						setTimeout( function() {
+							if ( _this.upload.state != 'aborted' ) {
+								_this.upload.api.postWithEditToken( {
+									action: 'upload',
+									checkstatus: true,
+									filekey: _this.upload.fileKey
+								},
+								ok, err );
+							}
+						}, 3000 );
+					}
 				}
 				return;
 			}
 			if ( result && result.upload && result.upload.warnings ) {
 				warnings = result.upload.warnings;
+				existingFile = warnings.exists || warnings['exists-normalized'];
 			}
 			if ( warnings && warnings['was-deleted'] ) {
 				delete warnings['was-deleted'];
@@ -1358,20 +1400,22 @@ mw.UploadWizardDetails.prototype = {
 				_this.upload.state = 'complete';
 				_this.showIndicator( 'uploaded' );
 				_this.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
-			} else if ( wasDeleted === true ) {
+			} else if ( wasDeleted ) {
 				params.ignorewarnings = 1;
 				_this.upload.api.postWithEditToken( params, ok, err );
 			} else if ( result && result.upload.warnings ) {
 				if ( warnings.thumb ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).escaped() );
 				} else if ( warnings.badfilename ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).escaped() );
 				} else if ( warnings['bad-prefix'] ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text() );
-				} else if ( warnings.exists || warnings['exists-normalized'] ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', _this.upload.title.getUrl() ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).escaped() );
+				} else if ( existingFile ) {
+					// API always returns the title of the file that exists
+					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, 6 ).getUrl();
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse() );
 				} else if ( warnings.duplicate ) {
-					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).escaped() );
 				} else if ( warnings['duplicate-archive'] ) {
 					if ( _this.upload.ignoreWarning['duplicate-archive'] ) {
 						// We already told the interface to ignore this warning, so
@@ -1380,7 +1424,7 @@ mw.UploadWizardDetails.prototype = {
 						_this.upload.api.postWithEditToken( params, ok, err );
 					} else {
 						// This should _never_ happen, but just in case....
-						_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text() );
+						_this.recoverFromError( _this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).escaped() );
 					}
 				} else {
 					var warningsKeys = [];
@@ -1388,7 +1432,7 @@ mw.UploadWizardDetails.prototype = {
 						warningsKeys.push( key );
 					} );
 					_this.upload.state = 'error';
-					_this.recoverFromError( _this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text() );
+					_this.recoverFromError( _this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).escaped() );
 				}
 			} else {
 				err( 'details-info-missing', result );
@@ -1407,13 +1451,13 @@ mw.UploadWizardDetails.prototype = {
 	/**
 	 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
 	 * @param {String} id of input field -- presumed to be within this upload's details form.
-	 * @param {String} error message to show
+	 * @param {String} HTML error message to show. Make sure escaping text properly.
 	 */
 	recoverFromError: function( fieldId, errorMessage ) {
 		this.upload.state = 'error';
 		this.dataDiv.morphCrossfade( '.detailsForm' );
 		$( '#' + fieldId ).addClass( 'mwe-error' );
-		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).text( errorMessage ).show();
+		this.$form.find( 'label[for=' + fieldId + '].errorRecovery' ).html( errorMessage ).show();
 	},
 
 	/**
@@ -1446,7 +1490,7 @@ mw.UploadWizardDetails.prototype = {
 		};
 		if ( result && result.error && result.error.code ) {
 			if ( titleErrorMap[code] ) {
-				this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).text() );
+				this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).escaped() );
 				return;
 			} else {
 				statusKey = 'api-error-' + code;

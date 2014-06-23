@@ -21,6 +21,13 @@ $specialPageAliases['ar'] = array(
 	'UploadCampaign' => array( 'حملة_الرفع' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'UploadWizard' => array( 'ساحر_الرفع' ),
+	'UploadCampaigns' => array( 'حملات_الرفع' ),
+	'UploadCampaign' => array( 'حمله_الرفع' ),
+);
+
 /** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'UploadWizard' => array( 'আপল’ড_প্ৰক্ৰিয়া' ),
@@ -71,6 +78,11 @@ $specialPageAliases['el'] = array(
 	'UploadWizard' => array( 'ΟδηγόςΑνεβάσματος' ),
 );
 
+/** Spanish (español) */
+$specialPageAliases['es'] = array(
+	'UploadWizard' => array( 'AsistenteCarga' ),
+);
+
 /** Estonian (eesti) */
 $specialPageAliases['et'] = array(
 	'UploadWizard' => array( 'Üleslaadimisviisard' ),
@@ -85,7 +97,7 @@ $specialPageAliases['fa'] = array(
 
 /** Galician (galego) */
 $specialPageAliases['gl'] = array(
-	'UploadWizard' => array( 'Asistente_de_cargas' ),
+	'UploadWizard' => array( 'Asistente_de_subidas', 'Asistente_de_cargas' ),
 );
 
 /** Swiss German (Alemannisch) */

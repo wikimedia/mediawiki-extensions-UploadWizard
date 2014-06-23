@@ -90,7 +90,8 @@ return array(
 
 	// Flickr details
 	'flickrApiUrl' => '//api.flickr.com/services/rest/?',
-	'flickrApiKey' => '',
+	'flickrApiKey' => 'aeefff139445d825d4460796616f9349', // you should probably replace this with your own
+	'flickrBlacklistPage' => '', // name of wiki page with blacklist of Flickr users
 
 	// Settings about things that get automatically (and silently) added to uploads
 	'autoAdd' => array(
@@ -573,9 +574,6 @@ return array(
 	// Bugzilla page for UploadWizard bugs
 	'bugList' => 'https://bugzilla.wikimedia.org/buglist.cgi?query_format=advanced&component=UploadWizard&resolution=---&product=MediaWiki+extensions',
 
-	// TranslateWiki page for help with translations
-	'translateHelp' => '//translatewiki.net/w/i.php?title=Special:Translate&group=ext-uploadwizard',
-
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
 	//
@@ -603,6 +601,9 @@ return array(
 	// should chunked uploading be enabled? false for now since the backend isn't really ready.
 	// set to "opt-in" to control via experimental user preference under 'Uploads' tab
 	'enableChunked' => false,
+
+	// If chunked uploads are enabled, what size, in bytes, should each chunk be?
+	'chunkSize' => 5 * 1024 * 1024,
 
 	// Should feature to copy metadata across a batch of uploads be enabled?
 	'copyMetadataFeature' => true,

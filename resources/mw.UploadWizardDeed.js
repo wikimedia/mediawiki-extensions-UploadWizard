@@ -29,14 +29,21 @@ function findLicenseRecursively( license ) {
 }
 
 mw.UploadWizardDeed = function() {
-	var _this = this;
+	mw.UploadWizardDeed.prototype.instanceCount++;
+
 	// prevent from instantiating directly?
 	return false;
 };
 
 mw.UploadWizardDeed.prototype = {
+	instanceCount: 0,
+
 	valid: function() {
 		return false;
+	},
+
+	getInstanceCount: function() {
+		return this.instanceCount;
 	},
 
 	setFormFields: function() { },
@@ -314,10 +321,13 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 
 	_this.uploadCount = uploadCount ? uploadCount : 1;
 	_this.sourceInput = $('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
+				.attr( 'id', 'mwe-source-' + _this.getInstanceCount() )
 				.growTextArea();
 	_this.authorInput = $('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
+				.attr( 'id', 'mwe-author-' + _this.getInstanceCount() )
 				.growTextArea();
 	licenseInputDiv = $( '<div class="mwe-upwiz-deed-license-groups"></div>' );
+
 	_this.licenseInput = new mw.UploadWizardLicenseInput(
 		licenseInputDiv,
 		undefined,
@@ -334,38 +344,51 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 		setFormFields: function( $selector ) {
 			var $defaultLicense, defaultLicense, defaultLicenseNum, defaultType,
 				_this = this;
-			_this.$form = $( '<form />' );
+
+			_this.$form = $( '<form>' );
 
 			defaultType = mw.UploadWizard.config.licensing.defaultType;
 			var $formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
 
 			if ( _this.uploadCount > 1 ) {
-				$formFields.append( $( '<div />' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
+				$formFields.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
 			}
 
 			$formFields.append (
 				$( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-				$( '<label for="source" generated="true" class="mwe-validator-error" style="display:block;" />' ),
+				$( '<label generated="true" class="mwe-validator-error" style="display:block;" />' )
+					.attr( 'for', 'mwe-source-' + _this.getInstanceCount() ),
 				$( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $( '<label for="source" />' ).text( mw.message( 'mwe-upwiz-source' ).text() ).addHint( 'source' ),
+					.append( $( '<label>' )
+							.text( mw.message( 'mwe-upwiz-source' ).text() )
+							.attr( 'for', 'mwe-source-' + _this.getInstanceCount() )
+							.addHint( 'source' ),
 						_this.sourceInput ),
-				$( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
+				$( '<label generated="true" class="mwe-validator-error" style="display:block;" />' )
+					.attr( 'for', 'mwe-author-' + _this.getInstanceCount() ),
 				$( '<div class="mwe-upwiz-thirdparty-fields" />' )
-					.append( $( '<label for="author" />' ).text( mw.message( 'mwe-upwiz-author' ).text() ).addHint( 'author' ),
+					.append( $( '<label>' )
+							.text( mw.message( 'mwe-upwiz-author' ).text() )
+							.attr( 'for', 'mwe-author-' + _this.getInstanceCount() )
+							.addHint( 'author' ),
 						_this.authorInput ),
 				$( '<div class="mwe-upwiz-thirdparty-license" />' )
-					.append( $( '<div></div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ) )
+					.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', _this.uploadCount ) )
 					.append( licenseInputDiv )
 			);
 
 			_this.$form.validate( {
 				rules: {
-					source: { required: true,
+					source: {
+						required: true,
 						minlength: mw.UploadWizard.config.minSourceLength,
-						maxlength: mw.UploadWizard.config.maxSourceLength },
-					author: { required: true,
+						maxlength: mw.UploadWizard.config.maxSourceLength
+					},
+					author: {
+						required: true,
 						minlength: mw.UploadWizard.config.minAuthorLength,
-						maxlength: mw.UploadWizard.config.maxAuthorLength }
+						maxlength: mw.UploadWizard.config.maxAuthorLength
+					}
 				},
 				messages: {
 					source: {

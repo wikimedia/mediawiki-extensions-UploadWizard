@@ -70,7 +70,7 @@ class SpecialCampaigns extends SpecialPage {
 	}
 
 	private function getHtmlForPagination( $firstId ) {
-		$nextHref = $this->getTitle()->getLocalURL( array( 'start' => $firstId ) );
+		$nextHref = $this->getPageTitle()->getLocalURL( array( 'start' => $firstId ) );
 		return Html::rawElement( 'div',
 			array( 'id' => 'mwe-upload-campaigns-pagination' ),
 			Html::element( 'a',

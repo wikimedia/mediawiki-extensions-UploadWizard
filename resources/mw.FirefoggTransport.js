@@ -120,13 +120,13 @@ mw.FirefoggTransport.prototype = {
 	 */
 	getSourceFileInfo: function() {
 		if ( !this.fogg.sourceInfo ) {
-			mw.log( 'Error:: No firefogg source info is available' );
+			mw.log.warn( 'No firefogg source info is available' );
 			return false;
 		}
 		try {
 			this.sourceFileInfo = JSON.parse( this.fogg.sourceInfo );
 		} catch ( e ) {
-			mw.log( 'Error :: could not parse fogg sourceInfo' );
+			mw.log.warn( 'Could not parse fogg sourceInfo' );
 			return false;
 		}
 		return this.sourceFileInfo;

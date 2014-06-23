@@ -91,7 +91,6 @@ mw.UploadWizardUpload.prototype = {
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			_this.wizard.hideFileEndButtons();
-			$('#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons').hide();
 			_this.wizard.startProgressBar();
 			_this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
 				message: function() { return mw.message( 'mwe-upwiz-prevent-close', _this.wizard.uploads.length ).escaped(); },
@@ -361,7 +360,7 @@ mw.UploadWizardUpload.prototype = {
 
 		var tooManyFiles = files.length + _this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
 		if ( tooManyFiles ) {
-			_this.showTooManyFilesWarning( files.length );
+			_this.showTooManyFilesWarning( files.length + _this.wizard.uploads.length );
 			resetFileInput();
 			return;
 		}
@@ -726,7 +725,7 @@ mw.UploadWizardUpload.prototype = {
 
 		var ok = function( data ) {
 			if ( !data || !data.query || !data.query.stashimageinfo ) {
-				mw.log("mw.UploadWizardUpload::getStashImageInfo> No data? ");
+				mw.log.warn("mw.UploadWizardUpload::getStashImageInfo> No data? ");
 				callback( null );
 				return;
 			}
@@ -734,7 +733,7 @@ mw.UploadWizardUpload.prototype = {
 		};
 
 		var err = function( code, result ) {
-			mw.log( 'mw.UploadWizardUpload::getStashImageInfo> error: ' + code, 'debug' );
+			mw.log.warn( 'mw.UploadWizardUpload::getStashImageInfo> ' + code );
 			callback( null );
 		};
 
@@ -788,12 +787,12 @@ mw.UploadWizardUpload.prototype = {
 					return;
 				}
 			}
-			mw.log("mw.UploadWizardUpload::getImageInfo> No data matching " + requestedTitle + " ? ");
+			mw.log.warn("mw.UploadWizardUpload::getImageInfo> No data matching " + requestedTitle + " ? ");
 			callback( null );
 		};
 
 		var err = function( code, result ) {
-			mw.log( 'mw.UploadWizardUpload::getImageInfo> error: ' + code, 'debug' );
+			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> ' + code );
 			callback( null );
 		};
 
@@ -851,7 +850,7 @@ mw.UploadWizardUpload.prototype = {
 					// the event with a null.
 					$.each( thumbnails, function( i, thumb ) {
 						if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
-							mw.log( "mw.UploadWizardUpload::getThumbnail> thumbnail error or missing information" );
+							mw.log.warn( "mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information" );
 							$.publishReady( key, null );
 							return;
 						}
@@ -1118,7 +1117,7 @@ mw.UploadWizardUpload.prototype = {
 						placeImageCallback( x );
 					} else {
 						// something else went wrong, place broken image
-						mw.log( 'unexpected argument to thumbnails event: ' + x );
+						mw.log.warn( 'Unexpected argument to thumbnails event: ' + x );
 						placeImageCallback( null );
 					}
 				}

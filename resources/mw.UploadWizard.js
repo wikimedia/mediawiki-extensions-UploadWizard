@@ -64,8 +64,6 @@ mw.UploadWizard.prototype = {
 		// remove first spinner
 		$( '#mwe-first-spinner' ).remove();
 
-		// construct the message for the subheader
-		$( '#contentSub' ).append( $( '<span id="contentSubUpwiz"></span>' ).msg( 'mwe-upwiz-subhead-message' ) );
 		// feedback request
 		if ( typeof mw.UploadWizard.config.feedbackPage === 'string' && mw.UploadWizard.config.feedbackPage.length > 0 ) {
 			feedback = new mw.Feedback( {
@@ -82,10 +80,6 @@ mw.UploadWizard.prototype = {
 				}
 			);
 			$( '#contentSub' ).append( feedbackLink );
-		}
-
-		if ( typeof mw.UploadWizard.config.translateHelp === 'string' && mw.UploadWizard.config.translateHelp.length > 0 ) {
-			$( '#contentSub' ).append( $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-translate', $( '<a></a>' ).attr( { href: mw.UploadWizard.config.translateHelp, target: '_blank' } ) ) );
 		}
 
 		configAltUploadForm = mw.UploadWizard.config.altUploadForm;
@@ -380,6 +374,8 @@ mw.UploadWizard.prototype = {
 
 		// Set up the submit button
 		$flickrButton.button( { label: mw.message( 'mwe-upwiz-add-flickr' ).escaped() } );
+
+		$flickrInput.focus();
 	},
 
 	/**
@@ -953,6 +949,7 @@ mw.UploadWizard.prototype = {
 			// we have uploads ready to go, so allow us to proceed
 			$( '#mwe-upwiz-upload-ctrl-container' ).show();
 			$( '#mwe-upwiz-upload-ctr-divide' ).hide();
+			$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
 
 			if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
 				// changes the initial centered invitation button to something like "add another file"
@@ -1218,7 +1215,7 @@ mw.UploadWizard.prototype = {
 				return;
 			}
 			var thumbWikiText,
-				id = 'thanksDiv' + i,
+				id = 'mwe-upwiz-thanks-div-' + i,
 				$thanksDiv = $( '<div></div>' ).attr( 'id', id ).addClass( 'mwe-upwiz-thanks ui-helper-clearfix' ),
 				$thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' ),
 				$thumbnailCaption = $( '<div></div>' )

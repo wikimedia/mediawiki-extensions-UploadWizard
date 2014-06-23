@@ -23,7 +23,6 @@
 
 /* Configuration */
 
-
 // Credits
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
@@ -38,13 +37,14 @@ $wgExtensionCredits['other'][] = array(
 		'Nischay Nahata',
 		'Yuvi Panda'
 	),
-	'version' => '1.3',
+	'version' => '1.4.0',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
 
 $wgUpwizDir = __DIR__;
 
+$wgMessagesDirs['UploadWizard'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
 $wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.alias.php';
 
@@ -57,6 +57,7 @@ $wgAutoloadClasses += array(
 	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
 	'UploadWizardTutorial' => $wgUpwizDir . '/includes/UploadWizardTutorial.php',
 	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
+	'UploadWizardFlickrBlacklist' => $wgUpwizDir . '/includes/UploadWizardFlickrBlacklist.php',
 
 	// Campaign ContentHandler
 	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
@@ -69,22 +70,27 @@ $wgAutoloadClasses += array(
 	'SpecialCampaigns' => $wgUpwizDir . '/includes/specials/SpecialCampaigns.php',
 
 	// API
-	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php'
+	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php',
+	'ApiFlickrBlacklist' => $wgUpwizDir . '/includes/ApiFlickrBlacklist.php',
 );
 
 $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
 // $wgAPIListModules['titlecheck'] = 'ApiTitleCheck';
+$wgAPIModules['flickrblacklist'] = 'ApiFlickrBlacklist';
 
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPages['Campaigns'] = 'SpecialCampaigns';
 $wgSpecialPageGroups['UploadWizard'] = 'media';
+$wgSpecialPageGroups['Campaigns'] = 'media';
 
-// for ResourceLoader
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';
 $wgHooks['GetPreferences'][] = 'UploadWizardHooks::onGetPreferences';
+$wgHooks['IsUploadAllowedFromUrl'][] = 'UploadWizardHooks::onIsUploadAllowedFromUrl';
+$wgHooks['ResourceLoaderTestModules'][] = 'UploadWizardHooks::onResourceLoaderTestModules';
+$wgHooks['UnitTestsList'][] = 'UploadWizardHooks::onUnitTestsList';
 
 $uploadWizardModuleInfo = array(
 	'localBasePath' => __DIR__ . '/resources',
@@ -113,14 +119,14 @@ $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.page'] = array(
-        'scripts' => 'mw.UploadWizardPage.js',
-        'dependencies' => 'ext.uploadWizard'
+	'scripts' => 'mw.UploadWizardPage.js',
+	'dependencies' => 'ext.uploadWizard'
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
 	'styles' => 'ext.uploadWizard.uploadCampaign.display.css',
 	'position' => 'top',
-	'dependencies' => 'mediawiki.ui'
+	'dependencies' => 'mediawiki.ui.button'
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = array(

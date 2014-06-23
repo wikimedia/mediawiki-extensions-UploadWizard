@@ -10,14 +10,18 @@
 
 
 mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, transportedCb ) {
+    var profile = $.client.profile();
+
     this.formData = formData;
     this.progressCb = progressCb;
     this.transportedCb = transportedCb;
-	this.uploadObject = uploadObject;
+    this.uploadObject = uploadObject;
 
     this.postUrl = postUrl;
-    //set chunk size to 5MB or max php size
-    this.chunkSize = Math.min(5 * 1024 * 1024, mw.UploadWizard.config.maxPhpUploadSize);
+    // Set chunk size to configured chunk size or max php size,
+    // whichever is smaller.
+    this.chunkSize = Math.min( mw.UploadWizard.config.chunkSize,
+        mw.UploadWizard.config.maxPhpUploadSize );
     this.maxRetries = 2;
     this.retries = 0;
     this.firstPoll = false;
@@ -25,7 +29,12 @@ mw.FormDataTransport = function( postUrl, formData, uploadObject, progressCb, tr
     // Workaround for Firefox < 7.0 sending an empty string
     // as filename for Blobs in FormData requests, something PHP does not like
     // https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-    this.gecko = $.browser.mozilla && $.browser.version < '7.0';
+    // From version 7.0 to 22.0, Firefox sends "blob" as the file name
+    // which seems to be accepted by the server
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=690659
+    // https://developer.mozilla.org/en-US/docs/Web/API/FormData#Browser_compatibility
+
+    this.insufficientFormDataSupport = profile.name === 'firefox' && profile.versionNumber < 7;
 };
 
 mw.FormDataTransport.prototype = {
@@ -129,11 +138,11 @@ mw.FormDataTransport.prototype = {
                     //failed to upload, try again in 3 seconds
                     transport.retries++;
                     if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
-						mw.log( 'max retries exceeded on unknown response' );
+						mw.log.warn( 'Max retries exceeded on unknown response' );
                         //upload failed, raise response
                         transport.transportedCb(response);
                     } else {
-						mw.log( 'retry #' + transport.retries + ' on unknown response' );
+						mw.log( 'Retry #' + transport.retries + ' on unknown response' );
                         setTimeout(function() {
                             transport.uploadChunk(offset);
                         }, 3000);
@@ -145,10 +154,10 @@ mw.FormDataTransport.prototype = {
             //failed to upload, try again in 3 second
             transport.retries++;
             if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
-				mw.log( 'max retries exceeded on error event' );
+				mw.log.warn( 'Max retries exceeded on error event' );
                 transport.parseResponse(evt, transport.transportedCb);
             } else {
-				mw.log( 'retry #' + transport.retries + ' on error event' );
+				mw.log( 'Retry #' + transport.retries + ' on error event' );
                 setTimeout(function() {
                         transport.uploadChunk(offset);
                 }, 3000);
@@ -167,7 +176,7 @@ mw.FormDataTransport.prototype = {
             transport.parseResponse(evt, transport.transportedCb);
         }, false);
 
-        if(this.gecko) {
+        if(this.insufficientFormDataSupport) {
             formData = this.geckoFormData();
         } else {
             formData = new FormData();
@@ -189,13 +198,13 @@ mw.FormDataTransport.prototype = {
             formData.append('filekey', this.filekey);
         }
         formData.append('filesize', bytesAvailable);
-        if(this.gecko) {
+        if(this.insufficientFormDataSupport) {
             formData.appendBlob('chunk', chunk, 'chunk.bin');
         } else {
             formData.append('chunk', chunk);
         }
         this.xhr.open('POST', this.postUrl, true);
-        if(this.gecko) {
+        if(this.insufficientFormDataSupport) {
             formData.send(this.xhr);
         } else {
             this.xhr.send(formData);
@@ -227,10 +236,18 @@ mw.FormDataTransport.prototype = {
                         });
                     //Server not ready, wait for 3 more seconds
                     } else {
-                        transport.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
-                        setTimeout(function() {
-                            transport.checkStatus();
-                        }, 3000);
+                        if ( response.upload.stage === undefined ) {
+                            console.log( "Unable to check file's status" );
+                        } else {
+                            //Statuses that can be returned:
+                            // *mwe-upwiz-queued
+                            // *mwe-upwiz-publish
+                            // *mwe-upwiz-assembling
+                            transport.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
+                            setTimeout(function() {
+                                transport.checkStatus();
+                            }, 3000);
+                        }
                     }
                 } else {
                     transport.transportedCb(response);

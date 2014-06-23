@@ -200,7 +200,7 @@ mw.DestinationChecker.prototype = {
 
 			if ( !data || !data.query || !data.query.pages ) {
 				// Ignore a null result
-				mw.log( 'mw.DestinationChecker::checkUnique> No data in checkUnique result', 'debug' );
+				mw.log( 'mw.DestinationChecker::checkUnique> No data in checkUnique result' );
 				return;
 			}
 
@@ -264,7 +264,7 @@ mw.DestinationChecker.prototype = {
 
 		function err( code ) {
 			checker.spinner( false );
-			mw.log( 'mw.DestinationChecker::checkUnique> error in checkUnique result: ' + code, 'debug');
+			mw.log( 'mw.DestinationChecker::checkUnique> Error in checkUnique result: ' + code );
 		}
 
 		var checker = this,
