@@ -355,5 +355,7 @@
 	"mwe-upwiz-prefs-chunked": "Fichiere vu méi wéi $1 gi vum Upload-Wizard a méi Deeler eropgelueden",
 	"mwe-upwiz-prefs-skiptutorial": "Den Assistent vun de Lizenzen iwwersprangen",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximal Zuel vun Uploaden de selwechten Ament",
-	"mwe-upload-campaigns-pagination-next": "Nächst Säit"
+	"campaigns": "Campagnen vum Assistent fir eropzelueden",
+	"mwe-upload-campaigns-pagination-next": "Nächst Säit",
+	"mwe-upload-campaigns-list-title": "Lëscht vun de Campagne fir Eropzelueden"
 }
