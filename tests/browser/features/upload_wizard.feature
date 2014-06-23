@@ -9,7 +9,7 @@
 # UploadWizard top-level directory and at
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
-@commons.wikimedia.beta.wmflabs.org @ie6-bug  @ie7-bug  @ie8-bug @login @test2.wikipedia.org
+@chrome @commons.wikimedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
 Feature: UploadWizard
 
   Background:
@@ -24,14 +24,12 @@ Feature: UploadWizard
     When I click Next button at Learn page
     Then Upload page should appear
 
-
   Scenario: Navigate to Release rights page
     When I click Next button at Learn page
       And upload file image.png
       And click button Continue
     Then Release rights page should open
       And thumbnail should be visible
-
 
   Scenario: Navigate to Describe page
     When I click Next button at Learn page
@@ -42,7 +40,6 @@ Feature: UploadWizard
     Then Describe page should open
       And title text field should be there
 
-  @ie6-bug @ie7-bug @ie8-bug
   Scenario: Navigate to Use page
     When I click Next button at Learn page
       And upload file image.png
