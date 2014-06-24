@@ -155,6 +155,13 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		if ( !isset( $wgUploadWizardConfig['flickrApiKey'] ) ) {
 			$this->markTestSkipped( 'This test needs a Flickr API key to work' );
 		}
+		if ( !isset( $wgUploadWizardConfig['flickrApiUrl'] )
+			|| Http::get( $wgUploadWizardConfig['flickrApiUrl'] ) === false
+		) {
+			// Http::get returns false if the server is unreachable.
+			// Sometimes unit tests may be run in places without network access.
+			$this->markTestSkipped( $wgUploadWizardConfig['flickrApiUrl'] . ' is unreachable.' );
+		}
 	}
 	/**
 	 * Changes global parameter for blacklist page in such a way that the change can be
