@@ -333,8 +333,6 @@
 	"mwe-upwiz-campaigns-existing": "کمپین های موجود",
 	"mwe-upwiz-campaigns-delete": "حذف",
 	"mwe-upwiz-campaigns-confdel": "آیا مطمئن هستید که می‌خواهید این کمپین را حذف کنید؟",
-	"mwe-upwiz-campaigns-delete-failed": "نمی‌توانید کمپین را حذف نمایید.",
-	"mwe-upwiz-campaigns-confirm-delete": "آیا مطمئنید که می‌خواهید این کمپین را حذف کنید؟",
 	"uploadcampaign-legend": "بارگذاری پیکربندی کمپین",
 	"uploadcampaign-text": "شما در حال ویرایش یک جادوگر بارگذاری کمپین هستید.",
 	"mwe-upwiz-campaign-name": "نام کمپین:",

@@ -328,8 +328,6 @@
 	"mwe-upwiz-campaigns-existing": "现有的活動",
 	"mwe-upwiz-campaigns-delete": "刪除",
 	"mwe-upwiz-campaigns-confdel": "你確定要刪除此活動？",
-	"mwe-upwiz-campaigns-delete-failed": "無法刪除這項活動。",
-	"mwe-upwiz-campaigns-confirm-delete": "您確定要刪除此活動？",
 	"uploadcampaign-legend": "上傳活動配置",
 	"uploadcampaign-text": "您正在修改上傳精靈活動。",
 	"mwe-upwiz-campaign-name": "活動名稱：",

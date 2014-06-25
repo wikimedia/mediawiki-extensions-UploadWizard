@@ -323,8 +323,6 @@
 	"mwe-upwiz-campaigns-existing": "Bestaande campagnes",
 	"mwe-upwiz-campaigns-delete": "Verwijderen",
 	"mwe-upwiz-campaigns-confdel": "Weet u zeker dat u deze campagne wilt verwijderen?",
-	"mwe-upwiz-campaigns-delete-failed": "Het was niet mogelijk de campagne te verwijderen.",
-	"mwe-upwiz-campaigns-confirm-delete": "Weet u zeker dat u deze campagne wilt verwijderen?",
 	"uploadcampaign-legend": "Instellingen uploadcampagne",
 	"uploadcampaign-text": "U bent een campagne van de Wizard Uploaden aan het wijzigen.",
 	"mwe-upwiz-campaign-name": "Campagnenaam:",

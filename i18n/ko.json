@@ -325,8 +325,6 @@
 	"mwe-upwiz-campaigns-existing": "캠페인 목록",
 	"mwe-upwiz-campaigns-delete": "삭제",
 	"mwe-upwiz-campaigns-confdel": "이 캠페인을 삭제하겠습니까?",
-	"mwe-upwiz-campaigns-delete-failed": "이 캠페인을 삭제하지 못했습니다.",
-	"mwe-upwiz-campaigns-confirm-delete": "이 캠페인을 삭제하겠습니까?",
 	"uploadcampaign-legend": "파일 올리기 캠페인 설정",
 	"uploadcampaign-text": "파일 올리기 마법사의 캠페인 정보를 수정하고 있습니다.",
 	"mwe-upwiz-campaign-name": "캠페인 이름:",

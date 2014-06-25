@@ -327,8 +327,6 @@
 	"mwe-upwiz-campaigns-existing": "Campanyes existents",
 	"mwe-upwiz-campaigns-delete": "Esborra",
 	"mwe-upwiz-campaigns-confdel": "Esteu segurs de voler esborrar aquesta campanya?",
-	"mwe-upwiz-campaigns-delete-failed": "No s'ha pogut eliminar la campanya.",
-	"mwe-upwiz-campaigns-confirm-delete": "Esteu segurs de voler esborrar aquesta campanya?",
 	"uploadcampaign-legend": "Configuració de la campanya de càrrega",
 	"uploadcampaign-text": "Esteu modificant una campanya de l'Auxiliar de càrrega",
 	"mwe-upwiz-campaign-name": "Nom de la campanya",

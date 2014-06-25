@@ -328,8 +328,6 @@
 	"mwe-upwiz-campaigns-existing": "Iniziative esistenti",
 	"mwe-upwiz-campaigns-delete": "Cancella",
 	"mwe-upwiz-campaigns-confdel": "Sei sicuro di voler eliminare questa iniziativa?",
-	"mwe-upwiz-campaigns-delete-failed": "Non è stato possibile eliminare l'iniziativa.",
-	"mwe-upwiz-campaigns-confirm-delete": "Sei sicuro di voler eliminare questa iniziativa?",
 	"uploadcampaign-legend": "Configurazione dell'iniziativa per il caricamento",
 	"uploadcampaign-text": "Stai modificando un'iniziativa per Caricamento guidato.",
 	"mwe-upwiz-campaign-name": "Nome dell'iniziativa:",

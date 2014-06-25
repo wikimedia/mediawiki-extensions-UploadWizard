@@ -339,8 +339,6 @@
 	"mwe-upwiz-campaigns-existing": "现有运动",
 	"mwe-upwiz-campaigns-delete": "删除",
 	"mwe-upwiz-campaigns-confdel": "确认要删除该运动吗？",
-	"mwe-upwiz-campaigns-delete-failed": "无法删除该运动。",
-	"mwe-upwiz-campaigns-confirm-delete": "确认要删除该运动吗？",
 	"uploadcampaign-legend": "上传运动设置",
 	"uploadcampaign-text": "你正在修改上传向导运动。",
 	"mwe-upwiz-campaign-name": "运动名称：",
