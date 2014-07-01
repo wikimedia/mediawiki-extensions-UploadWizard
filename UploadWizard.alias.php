@@ -236,6 +236,13 @@ $specialPageAliases['tr'] = array(
 	'UploadWizard' => array( 'YüklemeSihirbazı' ),
 );
 
+/** Tuvinian (тыва дыл) */
+$specialPageAliases['tyv'] = array(
+	'UploadWizard' => array( 'Мерген_чүдүрүлге' ),
+	'UploadCampaigns' => array( 'Чүдүрүлге_орууктары' ),
+	'UploadCampaign' => array( 'Чүдүрүлге_оруу' ),
+);
+
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
 	'UploadWizard' => array( 'Майстер_завантаження' ),
