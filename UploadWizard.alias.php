@@ -167,6 +167,7 @@ $specialPageAliases['lb'] = array(
 
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
+	'Campaigns' => array( 'Кампањи' ),
 	'UploadWizard' => array( 'ПомошникЗаПодигање' ),
 	'UploadCampaigns' => array( 'ПодигниКампањи' ),
 	'UploadCampaign' => array( 'ПодигниКампања' ),
