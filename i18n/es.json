@@ -329,8 +329,6 @@
 	"mwe-upwiz-campaigns-existing": "Campañas existentes",
 	"mwe-upwiz-campaigns-delete": "Eliminar",
 	"mwe-upwiz-campaigns-confdel": "¿Estás seguro que quieres eliminar esta campaña?",
-	"mwe-upwiz-campaigns-delete-failed": "No se pudo eliminar la campaña.",
-	"mwe-upwiz-campaigns-confirm-delete": "¿Estás seguro que quieres eliminar esta campaña?",
 	"uploadcampaign-legend": "Configuración de campañas de subidas",
 	"uploadcampaign-text": "Está modificando una campaña del Asistente de subidas.",
 	"mwe-upwiz-campaign-name": "Nombre de la campaña:",
