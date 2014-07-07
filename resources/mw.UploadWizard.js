@@ -117,9 +117,11 @@ mw.UploadWizard.prototype = {
 
 			.on( 'flickr-ui-init', function () {
 				wizard.flickrInterfaceInit();
+				wizard.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
 			} )
 
 			.on( 'retry-uploads', function () {
+				wizard.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 				wizard.ui.hideFileEndButtons();
 				wizard.startUploads();
 			} )
@@ -387,7 +389,8 @@ mw.UploadWizard.prototype = {
         if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
             this.eventFlowLogger.logSkippedStep( 'tutorial' );
         }
-        this.eventFlowLogger.logStep( selectedStepName );
+
+		this.eventFlowLogger.logStep( selectedStepName );
 
         this.currentStepName = selectedStepName;
 
@@ -441,16 +444,22 @@ mw.UploadWizard.prototype = {
 		}
 
 		upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile, reservedIndex )
+			.on( 'file-changed', function ( files ) {
+				wizard.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
+			} )
+
 			.on( 'filled', function () {
 				wizard.setUploadFilled( upload );
 			} );
+
 		this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
-		$( upload.ui.div ).bind( 'filenameAccepted', function(e) { wizard.updateFileCounts();  e.stopPropagation(); } );
+		$( upload.ui.div ).bind( 'filenameAccepted', function(e) { wizard.updateFileCounts(); e.stopPropagation(); } );
+
 		$( upload.ui.div ).bind( 'removeUploadEvent', function(e) { wizard.removeUpload( upload ); e.stopPropagation(); } );
 		return upload;
 	},

@@ -134,8 +134,6 @@ $wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = array(
 	'position' => 'top'
 ) + $uploadWizardModuleInfo;
 
-$wgEventLoggingSchemas[ 'UploadWizardStep' ] = 8851805;
-
 // Campaign hook handlers
 $wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
 $wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';

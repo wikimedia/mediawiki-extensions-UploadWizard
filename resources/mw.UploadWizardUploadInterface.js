@@ -120,7 +120,7 @@ function UploadWizardUploadInterface( upload, filesDiv, providedFile ) {
 
 	if( providedFile ) {
 		// if a file is already present, trigger the change event immediately.
-		this.$fileInputCtrl.change();
+		this.$fileInputCtrl.trigger( 'change', { isFake: true } );
 	}
 }
 
@@ -270,12 +270,19 @@ UIP.showError = function( code, info ) {
 
 UIP.initFileInputCtrl = function() {
 	var ui = this;
-	this.$fileInputCtrl.change( function() {
+
+	this.$fileInputCtrl.change( function( e, eventData ) {
+		var files = ui.getFiles();
+
+		if ( !eventData || !eventData.isFake ) {
+			ui.emit( 'file-changed', files );
+		}
+
 		ui.clearErrors();
 
 		ui.upload.checkFile(
 			ui.getFilename(),
-			ui.getFiles(),
+			files,
 			function() { ui.fileChangedOk(); },
 			function( code, info ) { ui.fileChangedError( code, info ); },
 			function() { ui.$fileInputCtrl.get(0).value = ''; }

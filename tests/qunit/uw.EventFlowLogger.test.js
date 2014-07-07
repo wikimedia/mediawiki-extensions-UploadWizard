@@ -24,6 +24,7 @@
 
         logger.logStep( 'foo' );
         logger.logSkippedStep( 'bar' );
-        assert.ok( eventLog.logEvent.calledTwice, 'both steps were logged' );
+        logger.logEvent( 'baz' );
+        assert.ok( eventLog.logEvent.calledThrice, 'all steps were logged' );
     } );
 } ( mediaWiki, mediaWiki.uploadWizard ) );

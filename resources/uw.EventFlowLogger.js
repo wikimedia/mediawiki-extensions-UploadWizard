@@ -41,27 +41,41 @@
 	 * @private
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
 	 * @param {boolean} [skipped=false]
+	 * @param {Object} [extraData] Extra data passed to the log.
 	 */
-	EFLP.performStepLog = function ( step, skipped ) {
-		if ( !this.eventLog ) {
-			return;
-		}
+	EFLP.performStepLog = function ( step, skipped, extraData ) {
+		var data = extraData || {};
 
-		var data = { flowId: this.flowId, step: step };
+		data.step = step;
 
 		if ( skipped === true ) {
 			data.skipped = true;
 		}
 
-		this.eventLog.logEvent( 'UploadWizardStep', data );
+		this.log( 'UploadWizardStep', data );
+	};
+
+	/**
+	 * @protected
+	 * Logs arbitrary data. This is for internal use, you should call one of the more specific functions.
+	 * @param {string} schema EventLogger schema name
+	 * @param {object} data event data (without flowId)
+	 */
+	EFLP.log = function ( schema, data ) {
+		if ( !this.eventLog ) {
+			return;
+		}
+		data.flowId = this.flowId;
+		this.eventLog.logEvent( schema, data );
 	};
 
 	/**
 	 * Logs entering into a given step of the upload process.
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
+	 * @param {Object} [extraData] Extra data to pass along in the log.
 	 */
-	EFLP.logStep = function ( step ) {
-		this.performStepLog( step, false );
+	EFLP.logStep = function ( step, extraData ) {
+		this.performStepLog( step, false, extraData );
 	};
 
 	/**
@@ -70,6 +84,44 @@
 	 */
 	EFLP.logSkippedStep = function ( step ) {
 		this.performStepLog( step, true );
+	};
+
+	/**
+	 * Logs an event.
+	 * @param {string} name Event name. Recognized names:
+	 *  - upload-button-clicked
+	 *  - flickr-upload-button-clicked
+	 *  - retry-uploads-button-clicked
+	 *  - continue-clicked
+	 *  - continue-anyway-clicked
+	 *  - leave-page
+	 */
+	EFLP.logEvent = function ( name ) {
+		this.log( 'UploadWizardFlowEvent', { event: name } );
+	};
+
+	/**
+	 * Logs an upload event.
+	 * @param {string} name Event name. Recognized names:
+	 *  - upload-started
+	 *  - upload-succeeded
+	 *  - upload-failed
+	 *  - upload-removed
+	 *  - uploads-added
+	 * @param {object} data
+	 * @param {integer} data.size file size in bytes (will be anonymized)
+	 * @param {integer} data.duration upload duration in seconds
+	 * @param {string} data.error upload error string
+	 */
+	EFLP.logUploadEvent = function ( name, data ) {
+		data.event = name;
+
+		if ( 'size' in data ) {
+			// anonymize size by rounding to closest number with 1 significant digit
+			data.size = parseFloat( Number( data.size ).toPrecision( 1 ), 10 );
+		}
+
+		this.log( 'UploadWizardFlowEvent', data );
 	};
 
 	uw.EventFlowLogger = EventFlowLogger;
