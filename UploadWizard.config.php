@@ -89,7 +89,8 @@ return array(
 	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
 
 	// Flickr details
-	'flickrApiUrl' => '//api.flickr.com/services/rest/?',
+	// Flickr API is SSL-only as of June 27th, 2014: http://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
+	'flickrApiUrl' => 'https://api.flickr.com/services/rest/?',
 	'flickrApiKey' => 'aeefff139445d825d4460796616f9349', // you should probably replace this with your own
 	'flickrBlacklistPage' => '', // name of wiki page with blacklist of Flickr users
 
