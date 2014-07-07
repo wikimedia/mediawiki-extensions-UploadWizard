@@ -204,6 +204,12 @@ return array(
 	// Under normal circumstances, the license name is the name of the wikitext template to insert.
 	// For those that aren't, there is a "templates" property.
 	'licenses' => array(
+		'cc-by-sa-4.0' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-sa-4.0',
+			'icons' => array( 'cc-by', 'cc-sa' ),
+			'url' => '//creativecommons.org/licenses/by-sa/4.0/',
+			'languageCodePrefix' => 'deed.'
+		),
 		'cc-by-sa-3.0' => array(
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0',
 			'icons' => array( 'cc-by', 'cc-sa' ),
@@ -283,6 +289,12 @@ return array(
 			'templates' => array( 'cc-by-sa-3.0-ro' ),
 			'icons' => array( 'cc-by', 'cc-sa' ),
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/ro/',
+			'languageCodePrefix' => 'deed.'
+		),
+		'cc-by-4.0' => array(
+			'msg' => 'mwe-upwiz-license-cc-by-4.0',
+			'icons' => array( 'cc-by' ),
+			'url' => '//creativecommons.org/licenses/by/4.0/',
 			'languageCodePrefix' => 'deed.'
 		),
 		'cc-by-3.0' => array(
@@ -400,7 +412,9 @@ return array(
 			'type' => 'or',
 			'template' => 'self',
 			'licenses' => array(
+				'cc-by-sa-4.0',
 				'cc-by-sa-3.0',
+				'cc-by-4.0',
 				'cc-by-3.0',
 				'cc-zero'
 			)
@@ -415,8 +429,10 @@ return array(
 					'head' => 'mwe-upwiz-license-cc-head',
 					'subhead' => 'mwe-upwiz-license-cc-subhead',
 					'licenses' => array(
+						'cc-by-sa-4.0',
 						'cc-by-sa-3.0',
 						'cc-by-sa-2.5',
+						'cc-by-4.0',
 						'cc-by-3.0',
 						'cc-by-2.5',
 						'cc-zero'
