@@ -10,7 +10,8 @@
 			"Misibacsi",
 			"Samat",
 			"Teemeah",
-			"Tgr"
+			"Tgr",
+			"Csega"
 		]
 	},
 	"uploadwizard": "Feltöltésvarázsló",
@@ -237,6 +238,7 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "Közreműködők",
 	"mwe-upwiz-campaign-view-all-media": "Az összes feltöltött fájl megtekintése",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nincs még feltöltve semmi!",
+	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Nevezd meg! – Így add tovább! 4.0 ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Nevezd meg! – Így add tovább! 3.0 ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Nevezd meg! – Így add tovább! 3.0 Ausztria ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Nevezd meg! – Így add tovább! 3.0  ([$2 jogi változat])",
@@ -248,6 +250,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-no": "Creative Commons Nevezd meg! – Így add tovább! 3.0 Norvégia ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-sa-3.0-pl": "Creative Commons Nevezd meg! – Így add tovább! 3.0 Lengyelország ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-sa-3.0-ro": "Creative Commons Nevezd meg! – Így add tovább! 3.0 Románia ([$2 jogi változat])",
+	"mwe-upwiz-license-cc-by-4.0": "Creative Commons Nevezd meg! 4.0 ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-3.0": "Creative Commons Nevezd meg! 3.0 ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-sa-2.5": "Creative Commons Nevezd meg! – Így add tovább! 2.5 ([$2 jogi változat])",
 	"mwe-upwiz-license-cc-by-2.5": "Creative Commons Nevezd meg! 2.5 ([$2 jogi változat])",
@@ -321,8 +324,6 @@
 	"mwe-upwiz-campaigns-existing": "Meglévő kampányok",
 	"mwe-upwiz-campaigns-delete": "Törlés",
 	"mwe-upwiz-campaigns-confdel": "Valóban törölni akarod ezt a kampányt?",
-	"mwe-upwiz-campaigns-delete-failed": "Nem sikerült törölni a kampányt.",
-	"mwe-upwiz-campaigns-confirm-delete": "Valóban törölni akarod ezt a kampányt?",
 	"uploadcampaign-legend": "Kampány konfiguráció feltöltése",
 	"uploadcampaign-text": "Egy feltöltésvarázsló kampányt módosítasz.",
 	"mwe-upwiz-campaign-name": "Kampány neve:",
