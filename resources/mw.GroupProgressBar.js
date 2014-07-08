@@ -131,6 +131,7 @@ mw.GroupProgressBar.prototype = {
 		this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
 
 		if ( remainingTime !== null ) {
+			// TODO remove the library, make this a method on GPB
 			t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
 			if (t.hours === 0) {
 				if (t.minutes === 0) {

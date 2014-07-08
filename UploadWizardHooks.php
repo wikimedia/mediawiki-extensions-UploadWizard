@@ -4,15 +4,9 @@ class UploadWizardHooks {
 	/* We define scripts here for Resource Loader */
 
 	public static $modules = array(
-		// n.b. we tend not to use mediawiki.language functions,
-		// they are better implemented in mediawiki.language.parser.
-		// however, loading mediawiki.language will
-		// a) create the namespace
-		// b) load the language files with convertPlural for the current language and all.
 		'ext.uploadWizard' => array(
 			'dependencies' => array(
 				'jquery.arrowSteps',
-				'jquery.autoEllipsis',
 				'jquery.checkboxShiftClick',
 				'jquery.client',
 				'jquery.ui.core',
@@ -26,7 +20,6 @@ class UploadWizardHooks {
 				'jquery.tipsy',
 				'jquery.ui.widget',
 				'jquery.validate',
-				'mediawiki.language',
 				'mediawiki.Uri',
 				'mediawiki.util',
 				'mediawiki.libs.jpegmeta',
@@ -45,7 +38,6 @@ class UploadWizardHooks {
 			'scripts' => array(
 				// jquery interface helpers
 				'resources/jquery/jquery.morphCrossfade.js',
-				'resources/jquery/jquery.autocomplete.js',
 				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
