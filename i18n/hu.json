@@ -11,7 +11,8 @@
 			"Samat",
 			"Teemeah",
 			"Tgr",
-			"Csega"
+			"Csega",
+			"Tacsipacsi"
 		]
 	},
 	"uploadwizard": "Feltöltésvarázsló",
@@ -46,7 +47,7 @@
 	"mwe-upwiz-add-file-flickr-n": "További fájlok feltöltése Flickrről",
 	"mwe-upwiz-add-flickr-or": "vagy",
 	"mwe-upwiz-add-flickr": "Áttöltés a Flickrről",
-	"mwe-upwiz-flickr-input-placeholder": "Flickr kép vagy gyűjtemény URL",
+	"mwe-upwiz-flickr-input-placeholder": "Flickr URL",
 	"mwe-upwiz-select-flickr": "Kiválasztott képek feltöltése",
 	"mwe-upwiz-flickr-disclaimer1": "Ez az űrlap a flickr.com-ról tölt fel tartalmat, ezért a\nFlickr [https://www.flickr.com/help/terms/ felhasználási feltételeinek] és [https://www.flickr.com/help/privacy-policy/ adatvédelmi irányelvének] hatálya alá tartozik.",
 	"mwe-upwiz-flickr-disclaimer2": "Kérlek vedd figyelembe, hogy az eszköz használatakor az IP-címed és a kérés tartalma elérhetővé válik a Flickr számára.",
@@ -82,7 +83,7 @@
 	"mwe-upwiz-progressbar-uploading": "feltöltés",
 	"mwe-upwiz-finished": "Kész!",
 	"mwe-upwiz-secs-remaining": "$1 másodperc van hátra",
-	"mwe-upwiz-mins-secs-remaining": "$1 perc $2 másodperc van hátra",
+	"mwe-upwiz-mins-secs-remaining": "$1 perc $2 másodperc {{PLURAL:$3|van hátra}}",
 	"mwe-upwiz-hrs-mins-secs-remaining": "$1 óra $2 perc $3 másodperc van hátra",
 	"mwe-upwiz-deeds-macro-prompt": "Az oldal megköveteli{{GENDER:$2|}} a {{PLURAL:$1|műhöz|művekhez}} tartozó szerzői jogi információk megadását, hogy {{PLURAL:$1|azt|azokat}} bárki legálisan használhassa fel.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Ezt a fájlt|Ezeket a fájlokat}} én készítettem.",
@@ -140,6 +141,7 @@
 	"mwe-upwiz-media-type": "Média típusa",
 	"mwe-upwiz-date-created": "Készítés dátuma",
 	"mwe-upwiz-location": "Helyszín",
+	"mwe-upwiz-location-button": "Megjelenítés térképen",
 	"mwe-upwiz-location-lat": "Földrajzi szélesség",
 	"mwe-upwiz-location-lon": "Földrajzi hosszúság",
 	"mwe-upwiz-location-alt": "Tengerszint feletti magasság",
@@ -149,7 +151,7 @@
 	"mwe-upwiz-other": "További információ",
 	"mwe-upwiz-source": "Forrás",
 	"mwe-upwiz-thanks-intro": "Köszönjük a feltöltést!",
-	"mwe-upwiz-thanks-explain": "Mostantól használhatod {{PLURAL:$1|ezt a fájlt|ezeket a fájlokat}} az olyan oldalakon, mint a Wikipédia vagy linkelhetsz {{PLURAL:$1|rá|rájuk}} az interneten.",
+	"mwe-upwiz-thanks-explain": "Mostantól használhatod {{PLURAL:$1|ezt a fájlt|ezeket a fájlokat}} wikiken vagy linkelhetsz {{PLURAL:$1|rá|rájuk}} az interneten.",
 	"mwe-upwiz-thanks-wikitext": "Ahhoz, hogy egy wikin használhasd ezt a fájlt, másold az alábbi szöveget a lapba:",
 	"mwe-upwiz-thanks-url": "HTML-link létrehozásához, használd ezt az URL-címet:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ez a wiki nem fogad el „.$1” kiterjesztésű fájlokat.",
@@ -234,7 +236,7 @@
 	"mwe-upwiz-dialog-title": "Figyelmeztetés",
 	"mwe-upwiz-campaign-create-account-button": "Regisztrálj és tölts fel!",
 	"mwe-upwiz-campaign-upload-button": "Tölts fel!",
-	"mwe-upwiz-campaign-media-count-desc": "Feltöltések",
+	"mwe-upwiz-campaign-media-count-desc": "Feltöltés",
 	"mwe-upwiz-campaign-contributors-count-desc": "Közreműködők",
 	"mwe-upwiz-campaign-view-all-media": "Az összes feltöltött fájl megtekintése",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nincs még feltöltve semmi!",
@@ -292,7 +294,7 @@
 	"mwe-upwiz-license-external": "A fájl a következő licenc alatt van a forrásoldalon ($1): $2.",
 	"mwe-upwiz-license-external-invalid": "A fájl a következő licenc alatt van a forrásoldalon ($1): $2. Sajnos ez a licenc nem engedélyezett ezen a wikin.",
 	"mwe-upwiz-license-photoset-invalid": "Sajnos, a képgyűjteményben nincsen olyan kép sem, aminek a licence elfogadott lenne ezen az oldalon.",
-	"mwe-upwiz-url-invalid": "A megadott URL egy hibás vagy korlátozott hozzáférésű $1-kép vagy -képgyűjtemény, ezért nem lehet felhasználni.",
+	"mwe-upwiz-url-invalid": "A megadott URL nem támogatott vagy egy hibás vagy korlátozott hozzáférésű $1-kép vagy -képgyűjtemény, ezért nem lehet felhasználni.",
 	"mwe-upwiz-categories": "Kategóriák",
 	"mwe-upwiz-categories-add": "Hozzáadás",
 	"mwe-upwiz-category-will-be-added": "A kategória még nincs használva.",
@@ -372,5 +374,8 @@
 	"mwe-upwiz-prefs-license-thirdparty": "Valaki más munkája - $1",
 	"mwe-upwiz-prefs-chunked": "$1-nál nagyobb méretű fájlok darabolt feltöltése a Feltöltés Varázslóval",
 	"mwe-upwiz-prefs-skiptutorial": "Bevezető licence oktatás kihagyása",
-	"mwe-upwiz-prefs-maxsimultaneous-upload": "Egyidejű feltöltések maximális száma"
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "Egyidejű feltöltések maximális száma",
+	"campaigns": "Feltöltésvarázsló kampányok",
+	"mwe-upload-campaigns-pagination-next": "Következő lap",
+	"mwe-upload-campaigns-list-title": "Feltöltési kampányok listája"
 }

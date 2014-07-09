@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"GunChleoc"
+		]
+	},
+	"uploadwizard": "Draoidh luchdaidh suas",
+	"uploadwizard-desc": "Draoidh luchdaidh suas, seo inneal feumail dhan luchd-cleachdaidh gus iomadh meadhan a luchdadh suas",
+	"mwe-upwiz-uploadcampaigns": "Iomairtean luchdaidh suas",
+	"mwe-upwiz-uploadcampaign": "Rèitich iomairt luchdaidh suas",
+	"right-upwizcampaigns": "Rèitich iomairtean le draoidh luchdaidh suas",
+	"action-upwizcampaigns": "rèitich na h-iomairtean luchdaidh suas",
+	"group-upwizcampeditors": "Deasaichean airson iomairtean le draoidh luchdaidh suas",
+	"group-upwizcampeditors-member": "Deasaiche airson iomairtean le draoidh luchdaidh suas",
+	"grouppage-upwizcampeditors": "{{ns:project}}:Deasaichean airson iomairtean le draoidh luchdaidh suas",
+	"group-upwizcampeditors.css": "/* Cha bhi buaidh aig an CSS a chuireas tu an-seo ach air deasaichean airson iomairtean le draoidh luchdaidh suas */",
+	"group-upwizcampeditors.js": "/* Cha dèid an JavaScript a chuireas tu an-seo a luchdadh ach airson deasaichean airson iomairtean le draoidh luchdaidh suas */",
+	"mwe-upwiz-js-off": "Cleachdaidh an draoidh luchdaidh suas JavaScript airson eadar-aghaidh leasaichte. Cha chuir am brabhsair agad taic ri JavaScript no chaidh JavaScript a chur dheth, mar sin tha sinn a' sealltainn foirm luchdaidh suas simplidh dhut.",
+	"mwe-upwiz-campaign-name-duplicate": "Tha iomairt air a bheil an t-ainm seo ann mar-thà.",
+	"mwe-upwiz-feedback-title": "Cuir beachd thugainn mun draoidh luchdaidh suas",
+	"mwe-upwiz-error-nosuchcampaign": "Cha eil iomairt air a bheil \"$1\" ann.",
+	"mwe-upwiz-error-campaigndisabled": "Cha deach an iomairt \"$1\" a chur an comas.",
+	"mwe-upwiz-campaigns-name": "Ainm na h-iomairte",
+	"mwe-upwiz-campaigns-addnew": "Cuir iomairt ùr ris",
+	"mwe-upwiz-campaigns-newname": "Ainm na h-iomairte:",
+	"mwe-upwiz-campaigns-namedoc": "Is an t-aithnichear a thèid a chleachdadh ann an URLaichean a th' ann an ainm na h-iomairte, m.e. \"ainm\" ann an ?campaign=ainm",
+	"mwe-upwiz-campaigns-existing": "Iomairtean a tha ann",
+	"mwe-upwiz-campaigns-confdel": "A bheil thu cinnteach gu bheil thu airson an iomairt seo a sguabadh às?",
+	"uploadcampaign-legend": "Rèiteachadh na h-iomairt luchdaidh suas",
+	"uploadcampaign-text": "Tha thu ag atharrachadh iomairt a chleachdas draoidh luchdaidh suas.",
+	"mwe-upwiz-campaign-name": "Ainm na h-iomairte:",
+	"mwe-upwiz-campaign-enabled": "Tha an iomairt an comas",
+	"mwe-upwiz-campaign-conf-headerLabelPage": "Duilleag air a bheil teacsa a thèid a shealltainn os cionn eadar-aghaidh an draoidh luchdaidh suas. Thèid còd a' chànain a chur an àite $1:",
+	"mwe-upwiz-campaign-edit-summary-update": "Chaidh rèiteachadh iomairte ùrachadh le deasaiche nan iomairtean",
+	"mwe-upwiz-campaign-edit-summary-delete": "Chaidh iomairt a sguabadh às le deasaiche nan iomairtean",
+	"mwe-upwiz-prefs-chunked": "Luchdaich suas faidhlichean nas motha na $1 'nan cnapan leis an draoidh luchdaidh suas",
+	"campaigns": "Iomairtean le draoidh luchdaidh suas",
+	"mwe-upload-campaigns-list-title": "Liosta dhe na h-iomairtean luchdaidh suas"
+}
