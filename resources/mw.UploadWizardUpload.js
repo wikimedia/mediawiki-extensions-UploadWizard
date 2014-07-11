@@ -1144,6 +1144,7 @@ mw.UploadWizardUpload.prototype = {
 			$imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
 
 		$( selector )
+			.addClass( 'mwe-upwiz-lightbox-link' )
 			.click( function() {
 				// get large preview image
 				// open large preview in modal dialog box

@@ -811,3 +811,7 @@ input.mwe-date {
 	color:gray;
 	padding-left:0.5em;
 }
+
+.mwe-upwiz-lightbox-link a {
+	cursor: pointer;
+}
