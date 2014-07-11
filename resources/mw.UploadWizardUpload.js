@@ -91,7 +91,11 @@ mw.UploadWizardUpload.prototype = {
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			this.wizard.hideFileEndButtons();
-			this.wizard.startProgressBar();
+
+			if ( !this.wizard.progressBar || this.wizard.progressBar.finished === true ) {
+				this.wizard.startProgressBar();
+			}
+
 			this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
 				message: function () { return mw.message( 'mwe-upwiz-prevent-close', upload.wizard.uploads.length ).escaped(); },
 				test: function () { return !upload.wizard.isComplete() && upload.wizard.uploads.length > 0; }

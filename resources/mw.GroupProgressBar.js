@@ -41,23 +41,24 @@ mw.GroupProgressBar.prototype = {
 	 */
 	start: function() {
 		var bar = this,
-			totalWeight = 0.0,
 			shown = false;
-
-		$.each( this.uploads, function( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-			totalWeight += upload[bar.weightProperty];
-		} );
 
 		this.setBeginTime();
 
 		function displayer() {
-			var fraction = 0.0,
+			var totalWeight = 0.0,
+				fraction = 0.0,
 				successStateCount = 0,
 				errorStateCount = 0,
 				hasData = false;
+
+			$.each( bar.uploads, function( i, upload ) {
+				if ( upload === undefined ) {
+					return;
+				}
+
+				totalWeight += upload[bar.weightProperty];
+			} );
 
 			$.each( bar.uploads, function( i, upload ) {
 				if ( upload === undefined ) {
@@ -92,6 +93,7 @@ mw.GroupProgressBar.prototype = {
 				setTimeout( displayer, 200 );
 			} else {
 				bar.showProgress( 1.0 );
+				bar.finished = true;
 				setTimeout( function() { bar.hideBar(); }, 500 );
 			}
 		}
