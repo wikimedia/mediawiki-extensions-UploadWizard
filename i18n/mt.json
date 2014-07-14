@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chrisportelli",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Leli Forte"
 		]
 	},
 	"mwe-upwiz-js-off": "It-tlugħ ta' fajls iggwidat juża l-JavaScript sabiex joffri interfaċċa aħjar. Il-browżer jew ma jsostnix il-JavaScript jew għandu l-JavaScript mitfi, għalhekk qed nuru l-formola s-sempliċi għat-tlugħ ta' fajls.",
@@ -15,13 +16,13 @@
 	"mwe-upwiz-step-thanks": "Uża",
 	"mwe-upwiz-api-warning-exists": "Fil-wiki diġà hemm [$1 fajl ieħor] bl-istess isem",
 	"mwe-upwiz-api-warning-was-deleted": "Kien hemm fajl bl-istess isem, \"$1\", però ġie mħassar. Jekk il-fajl tiegħek huwa differenti, ipprova semmieh mill-ġdid.",
-	"mwe-upwiz-tutorial-error-localized-file-missing": "Jiddispjaċina, ma stajniex insibu gwida bil-lingwa tiegħek. Il-waħda Ingliża qiegħdha tintwera minflok.",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "Jiddispjaċina, ma stajniex insibu gwida bil-Malti. Minflok qegħdin nuru l-verżjoni Ingliża.",
 	"mwe-upwiz-tutorial-error-file-missing": "Jiddispjaċina, ma sibna l-ebda fajl għall-gwida li suppost għandu jintwera hawnhekk. Jekk jogħġbok ikkuntatja lill-amministraturi tas-sistema.",
 	"mwe-upwiz-tutorial-error-cannot-transform": "Jiddispjaċina, ma stajnix inġibu stampa tal-gwida biex tidħol fl-iskrin tiegħek. Din tista' tkun problema temporanja mal-Wikimedia Commons; erġa' pprova iktar tard.",
 	"mwe-upwiz-help-desk": "Għajnuna",
 	"mwe-upwiz-help-desk-url": "Għajnuna",
 	"mwe-upwiz-add-file-n": "Żid fajl ieħor",
-	"mwe-upwiz-add-file-0-free": "Agħżel fajl multimedjali xi ttella'",
+	"mwe-upwiz-add-file-0-free": "Agħżel il-fajl multimedjali li trid ittella'",
 	"mwe-upwiz-transport-started": "Bidu...",
 	"mwe-upwiz-uploading": "Tiela'...",
 	"mwe-upwiz-transported": "It-tlugħ spiċċa...",
@@ -250,8 +251,6 @@
 	"mwe-upwiz-campaigns-existing": "Inizjattivi eżistenti",
 	"mwe-upwiz-campaigns-delete": "Ħassar",
 	"mwe-upwiz-campaigns-confdel": "Inti ċert li tixtieq tħassar din l-inizjattiva?",
-	"mwe-upwiz-campaigns-delete-failed": "L-inizjattiva ma setgħetx titħassar.",
-	"mwe-upwiz-campaigns-confirm-delete": "Inti ċert li tixtieq tħassar din l-inizjattiva?",
 	"uploadcampaign-legend": "Konfigurazzjoni tal-inizjattiva għat-tlugħ",
 	"uploadcampaign-text": "Inti qiegħed timmodifika inizjattiva għat-Tlugħ Iggwidat.",
 	"mwe-upwiz-campaign-name": "Isem tal-inizjattiva:",
