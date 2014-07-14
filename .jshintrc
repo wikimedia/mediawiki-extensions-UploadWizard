@@ -38,6 +38,7 @@
 	"predef": [
 		"mediaWiki",
 		"jQuery",
+		"OO",
 		"QUnit"
 	]
 }

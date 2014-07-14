@@ -34,6 +34,10 @@ class UploadWizardHooks {
 				'ext.uploadWizard.apiUploadHandler',
 				'ext.uploadWizard.apiUploadFormDataHandler',
 				'ext.uploadWizard.events',
+
+				// OOJS is loaded for the UploadWizardInterface class,
+				// which is now an EventEmitter.
+				'oojs',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -77,6 +81,9 @@ class UploadWizardHooks {
 				// UploadWizard specific abstractions
 				'resources/mw.UploadWizardDeed.js',
 				'resources/mw.UploadWizardLicenseInput.js',
+
+				// main ui class
+				'resources/mw.UploadWizardInterface.js',
 
 				// main library
 				'resources/mw.UploadWizard.js',
