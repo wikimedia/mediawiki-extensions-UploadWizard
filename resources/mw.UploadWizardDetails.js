@@ -399,7 +399,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 	} );
 	*/
 
-	mw.UploadWizardUtil.makeToggler(
+	this.makeToggler(
 		moreDetailsCtrlDiv,
 		moreDetailsDiv,
 		'mwe-upwiz-more-options'
@@ -775,7 +775,7 @@ mw.UploadWizardDetails.prototype = {
 			)
 		);
 
-		mw.UploadWizardUtil.makeToggler(
+		this.makeToggler(
 			this.copyMetadataCtrlDiv,
 			$copyMetadataDiv,
 			'mwe-upwiz-copy-metadata'
@@ -1062,7 +1062,14 @@ mw.UploadWizardDetails.prototype = {
 	 */
 	removeDescription: function( description  ) {
 		$( description.div ).remove();
-		mw.UploadWizardUtil.removeItem( this.descriptions, description  );
+
+		this.descriptions = $.grep(
+			this.descriptions,
+			function ( d ) {
+				return d !== description;
+			}
+		);
+
 		this.recountDescriptions();
 		this.updateCopyMsgs();
 	},
@@ -1604,6 +1611,49 @@ mw.UploadWizardDetails.prototype = {
 			.show()
 			.removeClass( 'mwe-upwiz-status-progress mwe-upwiz-status-error mwe-upwiz-status-uploaded' )
 			.addClass( 'mwe-upwiz-status-' + statusStr );
+	},
+
+	/**
+	 * Simple 'more options' toggle that opens more of a form.
+	 *
+	 * @param {jQuery} $toggleDiv the div which has the control to open and shut custom options
+	 * @param {jQuery} $moreDiv the div containing the custom options
+	 * @param {string} msg the UI message key to use for the toggler
+	 *        (with mwe-upwiz- prefix for UploadWizard messages)
+	 */
+	makeToggler: function ( $toggleDiv, $moreDiv, msg ) {
+		function toggle() {
+			var isOpen = $toggleLink.hasClass( 'mwe-upwiz-toggler-open' );
+			if ( isOpen ) {
+				// hide the extra options
+				$moreDiv.slideUp( 250 );
+				/* when closed, show control to open */
+				$toggleLink.removeClass( 'mwe-upwiz-toggler-open' );
+			} else {
+				// show the extra options
+				$moreDiv.slideDown( 250 );
+				/* when open, show control to close */
+				$toggleLink.addClass( 'mwe-upwiz-toggler-open' );
+			}
+		}
+
+		var $toggleLink, actualMsg;
+
+		if ( typeof msg === 'object' ) {
+			actualMsg = mw.message.apply( this, msg ).text();
+		} else {
+			actualMsg = mw.message( msg ).text();
+		}
+		$toggleLink = $( '<a>' )
+			.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
+			.text( actualMsg );
+		$toggleDiv.append( $toggleLink );
+
+		$moreDiv.hide();
+
+		$toggleLink.click( function( e ) { e.stopPropagation(); toggle(); } );
+
+		$moreDiv.addClass( 'mwe-upwiz-toggled' );
 	},
 
 	dateInputCount: 0,
