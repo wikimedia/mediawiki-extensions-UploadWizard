@@ -15,32 +15,26 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function( mw ) {
-	/**
-	 * @class mw.UtilitiesTime
-	 * @singleton
-	 */
+( function ( mw ) {
+    QUnit.module( 'mw.UtilitiesTime', QUnit.newMwEnvironment() );
 
-	/**
-	 * Convert number into an object representing an amount of time.
-	 * @param {number} sec Seconds to be converted into time measurements
-	 * @return {Object}
-	 * @return {number} return.days
-	 * @return {number} return.hours
-	 * @return {number} return.minutes
-	 * @return {number} return.seconds
-	 */
-	mw.seconds2Measurements = function ( sec ) {
-		var tm = {};
-		tm.days = Math.floor( sec / ( 3600 * 24 ) );
-		tm.hours = Math.floor( ( sec / 3600 ) % 24 );
-		tm.minutes = Math.floor( ( sec / 60 ) % 60 );
-		tm.seconds = sec % 60;
-		return tm;
-	};
+    QUnit.test( 'Basic maths testing', 3, function ( assert ) {
+	assert.deepEqual(
+		mw.seconds2Measurements( 1500 ),
+		{ days: 0, hours: 0, minutes: 25, seconds: 0 },
+		'Basic time conversion test, minutes only'
+	);
 
-	/**
-	 * @class mw
-	 * @mixins mw.UtilitiesTime.seconds2Measurements
-	 */
+	assert.deepEqual(
+		mw.seconds2Measurements( 1893 ),
+		{ days: 0, hours: 0, minutes: 31, seconds: 33 },
+		'Basic time conversion test, minutes and seconds'
+	);
+
+	assert.deepEqual(
+		mw.seconds2Measurements( 159291 ),
+		{ days: 1, hours: 20, minutes: 14, seconds: 51 },
+		'Basic time conversion test, bigger number, all units'
+	);
+    } );
 }( mediaWiki ) );
