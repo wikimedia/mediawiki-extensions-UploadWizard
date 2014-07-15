@@ -7,7 +7,8 @@
 			"Renessaince",
 			"Wizardist",
 			"Zedlik",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Глеб Бераставы"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -246,7 +247,7 @@
 	"mwe-upwiz-license-flickr-subhead": "Зьвярніце ўвагу на частку «Ліцэнзія» на старонцы Flickr. Мініятура і назва выкарыстанай ліцэнзіі павінны адпавядаць аднаму з прадстаўленых тут варыянтаў.",
 	"mwe-upwiz-license-public-domain-usa-head": "Тэрмін аховы аўтарскіх правоў відавочна скончыўся ў ЗША.",
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} знаходзіцца ў ЗША, таму твор павінен ахоўвацца законам аб аўтарскім праве гэтай краіны.",
-	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|1=Гэтая праца створаная|Гэтыя працы створаныя}} фэдэральным ўрадам ЗША",
+	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|1=Гэтая праца створаная|Гэтыя працы створаныя}} фэдэральным урадам ЗША",
 	"mwe-upwiz-license-misc": "Іншыя прычыны",
 	"mwe-upwiz-license-custom-head": "Іншая прычына не прыведзеная вышэй",
 	"mwe-upwiz-license-custom-preview": "Папярэдні прагляд",
@@ -287,8 +288,6 @@
 	"mwe-upwiz-campaigns-existing": "Існуючыя кампаніі",
 	"mwe-upwiz-campaigns-delete": "Выдаліць",
 	"mwe-upwiz-campaigns-confdel": "Вы ўпэўнены, што жадаеце выдаліць гэтую кампанію?",
-	"mwe-upwiz-campaigns-delete-failed": "Немагчыма выдаліць кампанію.",
-	"mwe-upwiz-campaigns-confirm-delete": "Вы ўпэўнены, што жадаеце выдаліць гэтую кампанію?",
 	"uploadcampaign-legend": "Загрузіць налады кампаніі",
 	"uploadcampaign-text": "Вы мадыфікуеце кампанію Майстра загрузак.",
 	"mwe-upwiz-campaign-name": "Назва кампаніі",

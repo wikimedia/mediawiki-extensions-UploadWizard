@@ -290,7 +290,7 @@
 	"mwe-upwiz-license-flickr-subhead": "Перевірте розділ «Ліцензія» на сторінці фото на сайті Flickr. Позначка та назва ліцензії повинні відповідати одному з наступних варіантів",
 	"mwe-upwiz-license-public-domain-usa-head": "Термін захисту авторських прав вже точно минув у США",
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} розташований у США, тому робота не повинна бути захищеною законом про авторське право цієї країні.",
-	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|1=Цей твір|Ці твори}} створені органами федеральної влади Сполучених Штатів Америки",
+	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|1=Цей твір|Ці твори}} створено органами федеральної влади Сполучених Штатів Америки",
 	"mwe-upwiz-license-misc": "Різні причини",
 	"mwe-upwiz-license-custom-head": "Інша причина, не згадана вище",
 	"mwe-upwiz-license-custom-preview": "Попередній перегляд",
