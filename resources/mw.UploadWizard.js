@@ -62,95 +62,35 @@ mw.UploadWizard.prototype = {
 	/**
 	 * create the basic interface to make an upload in this div
 	 */
-	createInterface: function() {
-		var feedback, feedbackLink, configAltUploadForm, altUploadForm,
-			userLanguage, title,
-			wizard = this;
+	createInterface: function () {
+		var wizard = this;
 
-		// remove first spinner
-		$( '#mwe-first-spinner' ).remove();
-
-		// feedback request
-		if ( typeof mw.UploadWizard.config.feedbackPage === 'string' && mw.UploadWizard.config.feedbackPage.length > 0 ) {
-			feedback = new mw.Feedback( {
-				'title': new mw.Title( mw.UploadWizard.config.feedbackPage ),
-				'dialogTitleMessageKey': 'mwe-upwiz-feedback-title',
-				'bugsLink': new mw.Uri( 'https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
-				'bugsListLink': new mw.Uri( mw.UploadWizard.config.bugList )
-			} );
-
-			feedbackLink = $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-feedback-prompt',
-				function() {
-					feedback.launch();
-					return false;
-				}
-			);
-			$( '#contentSub' ).append( feedbackLink );
+		function finalizeDetails() {
+			if ( wizard.allowCloseWindow !== undefined ) {
+				wizard.allowCloseWindow();
+			}
+			wizard.prefillThanksPage();
+			wizard.moveToStep( 'thanks' );
 		}
 
-		configAltUploadForm = mw.UploadWizard.config.altUploadForm;
-		if ( configAltUploadForm ) {
-			if ( typeof configAltUploadForm === 'object' ) {
-				userLanguage = mw.config.get( 'wgUserLanguage' );
-				if ( configAltUploadForm[userLanguage] ) {
-					altUploadForm = configAltUploadForm[userLanguage];
-				} else if ( configAltUploadForm['default'] ) {
-					altUploadForm = configAltUploadForm['default'];
-				} else {
-					altUploadForm = undefined;
-				}
-			} else {
-				altUploadForm = configAltUploadForm;
-			}
+		this.ui = new mw.UploadWizardInterface( this )
+			.on( 'reset-wizard', function () {
+				wizard.reset();
+			} )
 
-			// altUploadForm is expected to be a page title like 'Commons:Upload', so convert to URL
-			if ( typeof altUploadForm === 'string' && altUploadForm.length > 0 ) {
-				try {
-					title = new mw.Title( altUploadForm );
-					$( '#contentSub' ).append( $( '<span class="contentSubLink"></span>' ).msg( 'mwe-upwiz-subhead-alt-upload', $( '<a></a>' ).attr( { href: title.getUrl() } ) ) );
-				} catch ( e ) {
-					// page was empty, or impossible on this wiki (missing namespace or some other issue). Give up.
-				}
-			}
-		}
-		$( '#contentSub .contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
-
-		// construct the arrow steps from the UL in the HTML
-		$( '#mwe-upwiz-steps' )
-			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
-			.arrowSteps()
-			.show();
-
-		// make all stepdiv proceed buttons into jquery buttons
-		$( '.mwe-upwiz-stepdiv .mwe-upwiz-buttons button' )
-			.button()
-			.css( { 'margin-left': '1em' } );
-
-
-		$( '.mwe-upwiz-button-begin' )
-			.click( function() { wizard.reset(); } );
-
-		$( '.mwe-upwiz-button-home' )
-			.click( function() { window.location.href = mw.config.get('wgArticlePath').replace('$1', ''); } );
-
-		// Event handlers for EventLogging-type things
-		// Skip tutorial checkbox click
-		$( '#mwe-upwiz-skip' ).click( function () {
-				if ( $( this ).prop( 'checked' ) ) {
+			.on( 'skip-tutorial-click', function ( skipped ) {
+				if ( skipped ) {
 					( new mw.UploadWizardTutorialEvent( 'skip-check' ) ).dispatch();
 				} else {
 					( new mw.UploadWizardTutorialEvent( 'skip-uncheck' ) ).dispatch();
 				}
-		} );
+			} )
 
-		// Helpdesk link click
-		$( '#mwe-upwiz-tutorial-helpdesk' ).click( function () {
-			( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
-		} );
+			.on( 'helpdesk-click', function () {
+				( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
+			} )
 
-		// handler for next button
-		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next')
-			.click( function() {
+			.on( 'next-from-tutorial', function () {
 				( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
 				// if the skip checkbox is checked, set the skip user preference
 				if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
@@ -159,67 +99,52 @@ mw.UploadWizard.prototype = {
 				}
 
 				wizard.moveToStep( 'file' );
-			} );
+			} )
 
-		$( '#mwe-upwiz-add-file' ).button();
-		$( '#mwe-upwiz-upload-ctrl-flickr' ).button();
-
-		if ( mw.UploadWizard.config.startImmediately !== true ) {
-			$( '#mwe-upwiz-upload-ctrl' )
-				.button()
-				.click( function() {
-					// check if there is an upload at all (should never happen)
-					if ( wizard.uploads.length === 0 ) {
-						$( '<div></div>' )
-							.text( mw.message( 'mwe-upwiz-file-need-file' ).text() )
-							.dialog({
-								width: 500,
-								zIndex: 200000,
-								autoOpen: true,
-								modal: true
-							});
-						return;
-					}
-
-					wizard.removeEmptyUploads();
-					wizard.startUploads();
-			} );
-		} else {
-			$( '#mwe-upwiz-upload-ctrl' ).remove();
-		}
-
-		// Call Flickr Initiator function on click event
-		$( '#mwe-upwiz-upload-ctrl-flickr' ).click( function() {
-				wizard.flickrInterfaceInit();
-			} );
-
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-next' ).click( function() {
-			wizard.removeErrorUploads( function() {
-				if ( wizard.showDeed ) {
-					wizard.prepareAndMoveToDeeds();
-				} else {
-					$.each( wizard.uploads, function( i, upload ) {
-						upload.details.titleInput.checkTitle();
-						if ( upload.fromURL ) {
-							upload.details.useCustomDeedChooser();
-						}
-					} );
-					wizard.moveToStep( 'details' );
+			.on( 'upload-start', function () {
+				// check if there is an upload at all (should never happen)
+				if ( wizard.uploads.length === 0 ) {
+					$( '<div>' )
+						.text( mw.message( 'mwe-upwiz-file-need-file' ).text() )
+						.dialog( {
+							width: 500,
+							zIndex: 200000,
+							autoOpen: true,
+							modal: true
+						} );
+					return;
 				}
-			} );
-		} );
 
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
-			wizard.hideFileEndButtons();
-			wizard.startUploads();
-		} );
+				wizard.removeEmptyUploads();
+				wizard.startUploads();
+			} )
 
+			.on( 'flickr-ui-init', function () {
+				wizard.flickrInterfaceInit();
+			} )
 
-		// DEEDS div
+			.on( 'retry-uploads', function () {
+				wizard.hideFileEndButtons();
+				wizard.startUploads();
+			} )
 
-		$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next')
-			.click( function() {
-				$( '.mwe-upwiz-hint' ).each( function() { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+			.on( 'next-from-upload', function () {
+				wizard.removeErrorUploads( function() {
+					if ( wizard.showDeed ) {
+						wizard.prepareAndMoveToDeeds();
+					} else {
+						$.each( wizard.uploads, function( i, upload ) {
+							upload.details.titleInput.checkTitle();
+							if ( upload.fromURL ) {
+								upload.details.useCustomDeedChooser();
+							}
+						} );
+						wizard.moveToStep( 'details' );
+					}
+				} );
+			} )
+
+			.on( 'next-from-deeds', function () {
 				// validate has the side effect of notifying the user of problems, or removing existing notifications.
 				// if returns false, you can assume there are notifications in the interface.
 				if ( wizard.deedChooser.valid() ) {
@@ -242,57 +167,23 @@ mw.UploadWizard.prototype = {
 
 					wizard.moveToStep( 'details' );
 				}
-			} );
+			} )
 
-
-		// DETAILS div
-		function finalizeDetails() {
-			if ( wizard.allowCloseWindow !== undefined ) {
-				wizard.allowCloseWindow();
-			}
-			wizard.prefillThanksPage();
-			wizard.moveToStep( 'thanks' );
-		}
-
-		function startDetails() {
-			var isPopupOpen = false;
-			$( '.categoryInput' ).each( function() {
-				if ( $( this ).data( 'popupOpen' ) === true ) {
-					isPopupOpen = true;
-					$( this ).bind( 'popupClose', startDetails );
-				}
-			});
-			if ( isPopupOpen ) {
-				return;
-			}
-			$( '.mwe-upwiz-hint' ).each( function() { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
-			wizard.detailsValid(function () {
-				wizard.hideDetailsEndButtons();
-				wizard.detailsSubmit( function() {
+			.on( 'start-details', function () {
+				wizard.detailsValid( function () {
+					wizard.hideDetailsEndButtons();
+					wizard.detailsSubmit( function () {
+						wizard.detailsErrorCount();
+						wizard.showNext( 'details', 'complete', finalizeDetails );
+					} );
+				}, function () {
 					wizard.detailsErrorCount();
-					wizard.showNext( 'details', 'complete', finalizeDetails );
 				} );
-			}, function () {
-				wizard.detailsErrorCount();
-			});
-		}
+			} )
 
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next .mwe-upwiz-button-next' )
-			.click( startDetails );
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-next-despite-failures' )
-			.click( function() {
+			.on( 'finalize-details-after-removal', function () {
 				wizard.removeErrorUploads( finalizeDetails );
 			} );
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
-			.click( startDetails );
-
-
-		// WIZARD
 
 		// check to see if the the skip tutorial preference or global setting is set
 		if (
@@ -305,33 +196,7 @@ mw.UploadWizard.prototype = {
 			// "select" the first step - highlight, make it visible, hide all others
 			this.moveToStep( 'tutorial' );
 			( new mw.UploadWizardTutorialEvent( 'load' ) ).dispatch();
-
-			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
-			$( '#mwe-upwiz-skip ').tipsy( {
-				title: function() {
-					return mw.message(
-						'mwe-upwiz-tooltip-skiptutorial',
-						mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
-						mw.message( 'prefs-uploads' ).escaped(),
-						mw.message( 'prefs-upwiz-interface' ).escaped()
-					).parse();
-				},
-				delayIn: 0,
-				html: true,
-				trigger: 'manual'
-			} );
-
-			$( '#mwe-upwiz-skip' ).click(
-				function () {
-					if ( $ ( this ).is( ':checked' ) ) {
-						$( this ).tipsy( 'show' );
-					} else {
-						$( this ).tipsy( 'hide' );
-					}
-				}
-			);
 		}
-
 	},
 
 	/**
