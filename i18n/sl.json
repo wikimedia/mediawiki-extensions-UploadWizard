@@ -287,8 +287,8 @@
 	"mwe-upwiz-unparseable-filename": "Ne morem razumeti imena datoteke »$1«",
 	"mwe-upwiz-image-preview": "Predogled datoteke",
 	"mwe-upwiz-subhead-bugs": "[$1 Znane težave]",
-	"mwe-upwiz-subhead-alt-upload": "[$1 Nazaj na staro obliko]",
-	"mwe-upwiz-feedback-prompt": "[$1 Pustite povratne informacije]",
+	"mwe-upwiz-subhead-alt-upload": "Nazaj na staro obliko",
+	"mwe-upwiz-feedback-prompt": "Pustite povratne informacije",
 	"mwe-upwiz-feedback-title": "Pustite povratno informacijo o čarovniku za nalaganje",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Pošlji povratno informacijo]",
 	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Več informacij]",
@@ -310,8 +310,6 @@
 	"mwe-upwiz-campaigns-existing": "Obstoječe kampanje",
 	"mwe-upwiz-campaigns-delete": "Izbriši",
 	"mwe-upwiz-campaigns-confdel": "Ste prepričani, da želite izbrisati kampanjo?",
-	"mwe-upwiz-campaigns-delete-failed": "Kampanje ni bilo mogoče izbrisati.",
-	"mwe-upwiz-campaigns-confirm-delete": "Ste prepričani, da želite izbrisati kampanjo?",
 	"uploadcampaign-legend": "Konfiguracija kampanje nalaganja",
 	"uploadcampaign-text": "Spreminjate kampanjo čarovnika nalaganja",
 	"mwe-upwiz-campaign-name": "Ime kampanje",
@@ -355,5 +353,6 @@
 	"mwe-upwiz-prefs-chunked": "Nalaganje po delih za datoteke, večje od $1, v Čarovniku za nalaganje",
 	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič po licenciranju",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Največje število sočasnih nalaganj",
-	"mwe-upload-campaigns-pagination-next": "Naslednja stran"
+	"mwe-upload-campaigns-pagination-next": "Naslednja stran",
+	"mwe-upload-campaigns-list-title": "Seznam nalagalskih kampanj"
 }

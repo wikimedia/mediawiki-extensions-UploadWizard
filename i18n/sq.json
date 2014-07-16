@@ -240,8 +240,8 @@
 	"mwe-upwiz-unparseable-filename": "Nuk mund ta kuptojë emrin e skedës \"$1\"",
 	"mwe-upwiz-image-preview": "Parapamje e figurës",
 	"mwe-upwiz-subhead-bugs": "[$1 Probleme të njohura]",
-	"mwe-upwiz-subhead-alt-upload": "[$1 Prapa te formulari i vjetër]",
-	"mwe-upwiz-feedback-prompt": "[$1 Lini përshtypjet]",
+	"mwe-upwiz-subhead-alt-upload": "Prapa te formulari i vjetër",
+	"mwe-upwiz-feedback-prompt": "Lini përshtypjet",
 	"mwe-upwiz-feedback-title": "Lini përshtypjet rreth Ekspertit për Ngarkim",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Dërgo përshtypjen]",
 	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Më shumë informacion]"
