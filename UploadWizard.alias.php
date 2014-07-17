@@ -233,6 +233,14 @@ $specialPageAliases['si'] = array(
 	'UploadWizard' => array( 'උඩුගත_කිරීමේ_මාය_අඳුන' ),
 );
 
+/** Swedish (svenska) */
+$specialPageAliases['sv'] = array(
+	'Campaigns' => array( 'Kampanjer' ),
+	'UploadWizard' => array( 'Uppladdningsguide' ),
+	'UploadCampaigns' => array( 'Uppladdningskampanjer' ),
+	'UploadCampaign' => array( 'Uppladdningskampanj' ),
+);
+
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
 	'UploadWizard' => array( 'YüklemeSihirbazı' ),
