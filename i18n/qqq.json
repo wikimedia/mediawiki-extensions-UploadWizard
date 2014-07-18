@@ -253,6 +253,7 @@
 	"mwe-upwiz-license-confirm-remove-title": "Title for dialog box to confirm that you want to abandon an upload that you started",
 	"mwe-upwiz-license-external": "Parameters:\n* $1 - name of website\n* $2 - name of license\nSee also:\n* {{msg-mw|Mwe-upwiz-license-external-invalid}}",
 	"mwe-upwiz-license-external-invalid": "Parameters:\n* $1 - name of the external website, e.g. Flickr\n* $2 - name of the license\nSee also:\n* {{msg-mw|Mwe-upwiz-license-external}}",
+	"mwe-upwiz-license-pd-old-70-1923": "Message for license option in UploadWizard. This is one of the tags for items in the public domain. The public domain rules are different for works published first of all outside the US. Confer to [[Commons:Template:PD-old-70-1923]] and [[commons:Commons:Hirtle_chart]].",
 	"mwe-upwiz-url-invalid": "Error message displayed when an invalid URL is entered. $1 is the name of a website (e.g. Flickr).",
 	"mwe-upwiz-user-blacklisted": "Error message displayed when trying to upload images of a blacklisted account. Parameters:\n* $1 - name of the external website, e.g. Flickr",
 	"mwe-upwiz-categories": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n{{Identical|Category}}",
