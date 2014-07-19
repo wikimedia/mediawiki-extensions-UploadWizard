@@ -301,6 +301,7 @@
 	"mwe-upwiz-license-external": "Este ficheiro está sujeito à seguinte licença no sítio \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Este ficheiro está sujeito à seguinte licença no sítio \"$1\": $2. Infelizmente, este projecto não permite o uso desta licença.",
 	"mwe-upwiz-license-photoset-invalid": "Infelizmente, nenhuma das imagens no conjunto possui uma licença apropriada para ser usada neste site.",
+	"mwe-upwiz-license-pd-old-70-1923": "Publicado pela primeira vez antes de 1923 e o autor faleceu há mais de 70 anos",
 	"mwe-upwiz-url-invalid": "O URL inserido não é suportado ou aponta para uma imagem ou galeria do $1 inválida ou restrita e não pode ser utilizado.",
 	"mwe-upwiz-user-blacklisted": "Infelizmente, nenhuma das imagens desta conta $1 pode ser carregada neste site.",
 	"mwe-upwiz-categories": "Categorias",
