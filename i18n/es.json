@@ -304,6 +304,7 @@
 	"mwe-upwiz-license-external": "Este archivo está bajo la siguiente licencia en $1 : $2.",
 	"mwe-upwiz-license-external-invalid": "Este archivo está bajo la siguiente licencia en $1: $2. Lamentablemente, esta licencia no es apropiada para su uso en este sitio.",
 	"mwe-upwiz-license-photoset-invalid": "Desafortunadamente, no hay una imagen en este conjunto de fotos que tenga una licencia apropiada para usar en este sitio.",
+	"mwe-upwiz-license-pd-old-70-1923": "Publicado por primera vez antes de 1923 y autor fallecido hace más de 70 años",
 	"mwe-upwiz-url-invalid": "La dirección URL introducida lleva a una imagen ou un conjunto de fotos $1 restringido o que no es válido, y no se pueden utilizar.",
 	"mwe-upwiz-categories": "Categorías",
 	"mwe-upwiz-categories-add": "Agregar",

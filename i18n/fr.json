@@ -35,7 +35,8 @@
 			"Wouterhagens",
 			"Wyz",
 			"Y-M D",
-			"Jdforrester"
+			"Jdforrester",
+			"Orikrin1998"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -337,7 +338,7 @@
 	"mwe-upwiz-image-preview": "Prévisualisation du fichier",
 	"mwe-upwiz-subhead-bugs": "[$1 Problèmes connus]",
 	"mwe-upwiz-subhead-alt-upload": "Retour à l’ancien formulaire",
-	"mwe-upwiz-feedback-prompt": "Faites-nous savoir ce que vous pensez de l’assistant de versement !",
+	"mwe-upwiz-feedback-prompt": "Laisser un commentaire",
 	"mwe-upwiz-feedback-title": "Laissez vos commentaires sur l'assistant de téléversement",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Donnez-nous votre avis]",
 	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Plus d'informations]",
