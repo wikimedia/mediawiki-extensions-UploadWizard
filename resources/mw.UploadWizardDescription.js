@@ -111,8 +111,8 @@ mw.UploadWizardDescription.prototype = {
 			required: required,
 			messages: {
 				required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-				minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minDescriptionLength ).escaped(),
-				maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxDescriptionLength ).escaped()
+				minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minDescriptionLength - 1 ).escaped(),
+				maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxDescriptionLength + 1 ).escaped()
 			}
 		} );
 	}
