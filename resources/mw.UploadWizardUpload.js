@@ -335,6 +335,23 @@ mw.UploadWizardUpload.prototype = {
 	},
 
 	/**
+	 * Get the basename of a path.
+	 * For error conditions, returns the empty string.
+	 *
+	 * @param {string} path
+	 * @return {string} basename
+	 */
+	getBasename: function ( path ) {
+		if ( path === undefined || path === null ) {
+			return '';
+		}
+
+		// find index of last path separator in the path, add 1. (If no separator found, yields 0)
+		// then take the entire string after that.
+		return path.substr( Math.max( path.lastIndexOf( '/' ), path.lastIndexOf( '\\' ) ) + 1 );
+	},
+
+	/**
 	 * Called when the file is entered into the file input, bound to its change() event.
 	 * Checks for file validity, then extracts metadata.
 	 * Error out if filename or its contents are determined to be unacceptable
@@ -359,7 +376,7 @@ mw.UploadWizardUpload.prototype = {
 
 			// Check if filename is acceptable
 			// TODO sanitize filename
-			basename = mw.UploadWizardUtil.getBasename( filename ),
+			basename = this.getBasename( filename ),
 			tooManyFiles = files.length + this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
 
 		function finishCallback() {
@@ -680,24 +697,6 @@ mw.UploadWizardUpload.prototype = {
 				this.imageinfo[key] = imageinfo[key];
 			}
 		}
-
-		/* BEFORE YOU UNCOMMENT: declare the extension variable at the top of this function.
-		if ( this.title.getExtension() === null ) {
-			// 1;
-			// TODO v1.1 what if we don't have an extension? Should be impossible as it is currently impossible to upload without extension, but you
-			// never know... theoretically there is no restriction on extensions if we are uploading to the stash, but the check is performed anyway.
-
-			var extension = mw.UploadWizardUtil.getExtension( this.imageinfo.url );
-			if ( !extension ) {
-				if ( this.imageinfo.mimetype ) {
-					if ( mw.UploadWizardUtil.mimetypeToExtension[ this.imageinfo.mimetype ] ) {
-						extension = mw.UploadWizardUtil.mimetypeToExtension[ this.imageinfo.mimetype ];
-					}
-				}
-			}
-
-		}
-		*/
 	},
 
 	/**

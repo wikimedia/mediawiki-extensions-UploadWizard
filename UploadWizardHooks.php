@@ -65,7 +65,6 @@ class UploadWizardHooks {
 
 				// workhorse libraries
 				'resources/mw.DestinationChecker.js',
-				'resources/mw.UploadWizardUtil.js',
 
 				// firefogg support libraries
 				'resources/mw.Firefogg.js',
@@ -667,6 +666,7 @@ class UploadWizardHooks {
 		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
 			'scripts' => array(
 				'tests/qunit/mw.UploadWizard.test.js',
+				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',
 				'tests/qunit/mw.UtilitiesTime.test.js',

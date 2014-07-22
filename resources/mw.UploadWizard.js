@@ -518,10 +518,17 @@ mw.UploadWizard.prototype = {
 	removeUpload: function( upload ) {
 		// remove the div that passed along the trigger
 		var $div = $( upload.ui.div );
+
 		$div.unbind(); // everything
 		$div.remove();
 		// and do what we in the wizard need to do after an upload is removed
-		mw.UploadWizardUtil.removeItem( this.uploads, upload );
+		this.uploads = $.grep(
+			this.uploads,
+			function ( u ) {
+				return u !== upload;
+			}
+		);
+
 		this.updateFileCounts();
 	},
 
