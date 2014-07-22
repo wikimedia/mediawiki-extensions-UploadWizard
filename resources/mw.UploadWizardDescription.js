@@ -94,6 +94,16 @@ mw.UploadWizardDescription.prototype = {
 	 * @return validator
 	 */
 	addValidationRules: function( required ) {
+		// Make sure the keyup event doesn't bubble...we don't care
+		// about validity until blur.
+		// Note that this event is caught higher up by the jQuery
+		// validation plugin, and they don't have any options for
+		// setting which events should trigger a check.
+		this.input.on( 'keyup', function ( e ) {
+			e.stopPropagation();
+			return false;
+		} );
+
 		// validator must find a form, so we add rules here
 		return this.input.rules( 'add', {
 			minlength: mw.UploadWizard.config.minDescriptionLength,
