@@ -3,7 +3,8 @@
 		"authors": [
 			"CERminator",
 			"DzWiki",
-			"Palapa"
+			"Palapa",
+			"KWiki"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -16,8 +17,8 @@
 	"mwe-upwiz-step-deeds": "Prava izdavanja",
 	"mwe-upwiz-step-details": "Opiši",
 	"mwe-upwiz-step-thanks": "Koristi",
-	"mwe-upwiz-api-warning-exists": "Već postoji [$1 druga datoteka] na ovoj wiki sa istim imenom",
-	"mwe-upwiz-api-warning-was-deleted": "Postoji datoteka pod ovim imenom, \"$1\", ali je obrisana a ne možete postaviti datoteku. Ako je vaša datoteka drugačija, probajte joj dati drugo ime.",
+	"mwe-upwiz-api-warning-exists": "Već postoji [$1 druga datoteka] na ovoj wiki a istim imenom",
+	"mwe-upwiz-api-warning-was-deleted": "Postoji datoteka pod ovim imenom, \"$1\", ali je obrisana, a ne možete postaviti datoteku. Ako je Vaša datoteka drugačija, probajte joj dati drugo ime.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Žao nam je, nismo mogli naći uputstvo na vašem jeziku. Može se prikazati samo engleska verzija.",
 	"mwe-upwiz-tutorial-error-file-missing": "Žao nam je, nismo mogli naći nijednu datoteku za pomoć koji bi trebala biti ovdje. Molimo kontaktirajte vašeg administratora sistema.",
 	"mwe-upwiz-tutorial-error-cannot-transform": "Žao nam je, nismo mogli naći smanjenu sliku objašnjenja da može stati na ovaj ekran. Ovo može biti privremeni problem sa Wikimedia Commonsom, pokušajte kasnije.",
@@ -89,8 +90,8 @@
 	"mwe-upwiz-ok": "U redu",
 	"mwe-upwiz-cancel": "Odustani",
 	"mwe-upwiz-fileexists-replace": "Datoteka sa naslovom \"$1\" već postoji. Molimo promijenite vaš naslov u nešto unikatnije.",
-	"mwe-upwiz-fileexists": "Datoteka sa ovim nazivom već postoji.\nMolimo provjerite b>$1 ako niste sigurni da je želite zamijeniti.",
-	"mwe-upwiz-fileexists-replace-on-page": "Datoteka sa tim imenom već postoji. Ako je želite zamijeniti, idite na stranicu za [$2 $1] i zamijenite je tamo.",
+	"mwe-upwiz-fileexists": "Datoteka s ovim nazivom već postoji.\nMolimo da provjerite b>$1 ako niste sigurni da je želite zamijeniti.",
+	"mwe-upwiz-fileexists-replace-on-page": "Datoteka s tim imenom već postoji. Ako je želite zamijeniti, idite na stranicu za [$2 $1] i zamijenite je tamo.",
 	"mwe-upwiz-fileexists-replace-no-link": "Datoteka sa tim imenom već postoji.",
 	"mwe-upwiz-thumbnail-more": "Uvećajte",
 	"mwe-upwiz-overwrite": "Zamijeni datoteku",
@@ -145,7 +146,7 @@
 	"mwe-upwiz-license-pd-usgov-nasa": "Originalno djelo od NASA",
 	"mwe-upwiz-license-pd-usgov-military-navy": "Originalni rad od strane Američke vojne mornarice",
 	"mwe-upwiz-license-pd-ineligible": "Previše jednostavno za zaštitu autorskih prava",
-	"mwe-upwiz-license-pd-ineligible-help": "Budite oprezni s ovim. Slika izgleda veoma jednostavna, poput zelenog kruga ili crvenog kvadrata",
+	"mwe-upwiz-license-pd-ineligible-help": "Budite oprezni s ovim. Slika mora biti veoma jednostavna, poput zelenog kruga ili crvenog kvadrata.",
 	"mwe-upwiz-license-pd-textlogo": "Logo samo sa jednostavnim tekstom (trgovinski naziv)",
 	"mwe-upwiz-license-copyrighted-free-use": "Zaštićeno autorskim pravom, ali se može koristiti u bilo koju svrhu, ukljujući komercijalnu",
 	"mwe-upwiz-license-attribution": "Može se koristiti u bilo koju svrhu, ukljujući komercijalnu, ako je pravilno naveden vlasnik autorskog prava",
