@@ -13,7 +13,8 @@
 			"Shirayuki",
 			"Simon Shek",
 			"Waihorace",
-			"Wrightbus"
+			"Wrightbus",
+			"LNDDYL"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -152,7 +153,7 @@
 	"mwe-upwiz-other": "其他資訊",
 	"mwe-upwiz-source": "來源",
 	"mwe-upwiz-thanks-intro": "感謝上傳！",
-	"mwe-upwiz-thanks-explain": "您現在可於wiki使用{{PLURAL:$1|這些檔案}}，或於網路鏈接至{{PLURAL:$1|此}}。",
+	"mwe-upwiz-thanks-explain": "您現在可於wiki使用{{PLURAL:$1|這些檔案}}，或於網路連結至{{PLURAL:$1|此}}。",
 	"mwe-upwiz-thanks-wikitext": "要在維基中使用此檔案，複製以下文字至該頁面：",
 	"mwe-upwiz-thanks-url": "要連結到HTML中，複製此網址：",
 	"mwe-upwiz-upload-error-bad-filename-extension": "本維基不接受副檔名為「.$1」的檔案。",
