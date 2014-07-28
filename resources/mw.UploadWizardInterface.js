@@ -301,5 +301,19 @@
 			.click( startDetails );
 	};
 
+	/**
+	 * Hide the button choices at the end of the file step.
+	 */
+	UWIP.hideFileEndButtons = function () {
+		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
+	};
+
+	/**
+	 * Hide the button choices at the end of the details step.
+	 */
+	UWIP.hideDetailsEndButtons = function () {
+		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
+	};
+
 	mw.UploadWizardInterface = UploadWizardInterface;
 }( mediaWiki, jQuery, OO ) );

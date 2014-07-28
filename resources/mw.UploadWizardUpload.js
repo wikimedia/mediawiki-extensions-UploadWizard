@@ -90,8 +90,6 @@ mw.UploadWizardUpload.prototype = {
 		var upload = this;
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
-			this.wizard.hideFileEndButtons();
-
 			if ( !this.wizard.progressBar || this.wizard.progressBar.finished === true ) {
 				this.wizard.startProgressBar();
 			}

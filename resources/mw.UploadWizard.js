@@ -124,7 +124,7 @@ mw.UploadWizard.prototype = {
 			} )
 
 			.on( 'retry-uploads', function () {
-				wizard.hideFileEndButtons();
+				wizard.ui.hideFileEndButtons();
 				wizard.startUploads();
 			} )
 
@@ -171,7 +171,7 @@ mw.UploadWizard.prototype = {
 
 			.on( 'start-details', function () {
 				wizard.detailsValid( function () {
-					wizard.hideDetailsEndButtons();
+					wizard.ui.hideDetailsEndButtons();
 					wizard.detailsSubmit( function () {
 						wizard.detailsErrorCount();
 						wizard.showNext( 'details', 'complete', finalizeDetails );
@@ -532,18 +532,6 @@ mw.UploadWizard.prototype = {
 		this.updateFileCounts();
 	},
 
-
-	/**
-	 * Hide the button choices at the end of the file step.
-	 */
-	hideFileEndButtons: function() {
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
-	},
-
-	hideDetailsEndButtons: function() {
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
-	},
-
 	/**
 	 * This is useful to clean out unused upload file inputs if the user hits GO.
 	 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
@@ -681,7 +669,7 @@ mw.UploadWizard.prototype = {
 		var wizard = this;
 		// remove the upload button, and the add file button
 		$( '#mwe-upwiz-upload-ctrls' ).hide();
-		this.hideFileEndButtons();
+		this.ui.hideFileEndButtons();
 		$( '#mwe-upwiz-add-file' ).hide();
 
 		// reset any uploads in error state back to be shiny & new
@@ -828,7 +816,7 @@ mw.UploadWizard.prototype = {
 	 */
 	updateFileCounts: function() {
 		// First reset the wizard buttons.
-		this.hideFileEndButtons();
+		this.ui.hideFileEndButtons();
 
 		if ( this.uploads.length - this.countEmpties() ) {
 			// we have uploads ready to go, so allow us to proceed
