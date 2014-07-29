@@ -499,7 +499,6 @@ mw.UploadWizard.prototype = {
 					upload.start();
 				},
 				function() {
-					$().notify( mw.message( 'mwe-upwiz-files-complete' ).escaped() );
 					wizard.showNext( 'file', 'stashed' );
 				}
 			);
@@ -714,7 +713,6 @@ mw.UploadWizard.prototype = {
 				upload.start();
 			},
 			function() {
-				$().notify( mw.message( 'mwe-upwiz-files-complete' ).escaped() );
 				wizard.showNext( 'file', 'stashed' );
 			}
 		);
@@ -1302,13 +1300,6 @@ mw.UploadWizardDeedPreview.prototype = {
 mw.isEmpty = function( v ) {
 	return v === undefined || v === null || v === '';
 };
-
-	$.fn.notify = function ( /*message*/ ) {
-		// could do something here with Chrome's in-browser growl-like notifications.
-		// play a sound?
-		// if the current tab does not have focus, use an alert?
-		// alert( message );
-	};
 
 	$.fn.enableNextButton = function() {
 		return this.find( '.mwe-upwiz-button-next' )
