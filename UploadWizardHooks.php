@@ -366,6 +366,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-fal',
 				'mwe-upwiz-license-own-pd',
 				'mwe-upwiz-license-pd-old-100',
+				'mwe-upwiz-license-pd-old-70-1923',
 				'mwe-upwiz-license-pd-old',
 				'mwe-upwiz-license-pd-art',
 				'mwe-upwiz-license-pd-us',
