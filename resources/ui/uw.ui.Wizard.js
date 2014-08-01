@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, oo ) {
+( function ( mw, $, ui, oo ) {
 	var UWIP;
 
 	/**
@@ -41,6 +41,8 @@
 		this.initUpload();
 		this.initDeeds();
 		this.initDetails();
+
+		this.thanksPage = new ui.Thanks();
 	}
 
 	oo.inheritClass( UploadWizardInterface, oo.EventEmitter );
@@ -315,5 +317,5 @@
 		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
 	};
 
-	mw.UploadWizardInterface = UploadWizardInterface;
-}( mediaWiki, jQuery, OO ) );
+	ui.Wizard = UploadWizardInterface;
+}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );

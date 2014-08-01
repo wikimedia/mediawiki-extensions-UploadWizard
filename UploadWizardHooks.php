@@ -50,10 +50,8 @@ class UploadWizardHooks {
 				'ext.uploadWizard.apiUploadFormDataHandler',
 				'ext.uploadWizard.events',
 
-				// OOJS is loaded for the UploadWizardInterface class,
-				// which is now an EventEmitter.
-				'oojs',
 				'uw.EventFlowLogger',
+				'uw.ui.Wizard',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -96,9 +94,6 @@ class UploadWizardHooks {
 				// UploadWizard specific abstractions
 				'resources/mw.UploadWizardDeed.js',
 				'resources/mw.UploadWizardLicenseInput.js',
-
-				// main ui class
-				'resources/mw.UploadWizardInterface.js',
 
 				// main library
 				'resources/mw.UploadWizard.js',
@@ -284,10 +279,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-other',
 				'mwe-upwiz-other-prefill',
 				'mwe-upwiz-source',
-				'mwe-upwiz-thanks-intro',
-				'mwe-upwiz-thanks-explain',
-				'mwe-upwiz-thanks-wikitext',
-				'mwe-upwiz-thanks-url',
 				'mwe-upwiz-upload-error-bad-extension-video-firefogg',
 				'mwe-upwiz-upload-error-bad-filename-extension',
 				'mwe-upwiz-upload-error-bad-filename-no-extension',
@@ -487,6 +478,50 @@ class UploadWizardHooks {
 		'ext.uploadWizard.events' => array(
 			'scripts' => array(
 				'resources/ext.UploadWizardEvent.js',
+			),
+		),
+
+		'uw.ui.base' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.base.js',
+			),
+
+			'dependencies' => array(
+				'uw.base',
+			),
+		),
+
+		'uw.ui.Wizard' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.Wizard.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.ui.base',
+				'uw.ui.Thanks',
+			),
+		),
+
+		'uw.ui.Thanks' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.Thanks.js',
+			),
+
+			'styles' => array(
+				'resources/ui/uw.ui.Thanks.less',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.ui.base',
+			),
+
+			'messages' => array(
+				'mwe-upwiz-thanks-intro',
+				'mwe-upwiz-thanks-explain',
+				'mwe-upwiz-thanks-wikitext',
+				'mwe-upwiz-thanks-url',
 			),
 		),
 	);
