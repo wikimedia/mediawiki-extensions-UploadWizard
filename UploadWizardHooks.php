@@ -52,6 +52,12 @@ class UploadWizardHooks {
 
 				'uw.EventFlowLogger',
 				'uw.ui.Wizard',
+
+				'uw.controller.Deed',
+				'uw.controller.Details',
+				'uw.controller.Thanks',
+				'uw.controller.Tutorial',
+				'uw.controller.Upload',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -481,6 +487,92 @@ class UploadWizardHooks {
 			),
 		),
 
+		'uw.controller.base' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.base.js',
+			),
+
+			'dependencies' => array(
+				'uw.base',
+			),
+		),
+
+		'uw.controller.Deed' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.Deed.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.controller.Step',
+				'uw.controller.base',
+				'uw.ui.Step',
+			),
+		),
+
+		'uw.controller.Details' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.Details.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.controller.Step',
+				'uw.controller.base',
+				'uw.ui.Step',
+			),
+		),
+
+		'uw.controller.Step' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.Step.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.controller.base',
+			),
+		),
+
+		'uw.controller.Thanks' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.Thanks.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.controller.Step',
+				'uw.controller.base',
+				'uw.ui.Thanks',
+			),
+		),
+
+		'uw.controller.Tutorial' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.Tutorial.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.controller.Step',
+				'uw.controller.base',
+				'uw.ui.Step',
+			),
+		),
+
+		'uw.controller.Upload' => array(
+			'scripts' => array(
+				'resources/controller/uw.controller.Upload.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.controller.Step',
+				'uw.controller.base',
+				'uw.ui.Step',
+			),
+		),
+
 		'uw.ui.base' => array(
 			'scripts' => array(
 				'resources/ui/uw.ui.base.js',
@@ -499,7 +591,16 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'oojs',
 				'uw.ui.base',
-				'uw.ui.Thanks',
+			),
+		),
+
+		'uw.ui.Step' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.Step.js',
+			),
+
+			'dependencies' => array(
+				'uw.ui.base',
 			),
 		),
 
@@ -515,6 +616,7 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'oojs',
 				'uw.ui.base',
+				'uw.ui.Step',
 			),
 
 			'messages' => array(

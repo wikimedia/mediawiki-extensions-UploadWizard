@@ -21,33 +21,35 @@
 	/**
 	 * Represents the UI for the wizard's Thanks step.
 	 * @class uw.ui.Thanks
-	 * @extends OO.EventEmitter
+	 * @extends mw.uw.ui.Step
 	 * @constructor
 	 */
 	function Thanks() {
-		var $div = $( '#mwe-upwiz-thanks' ),
+		var $header;
 
-			$header = $( '<h3>' )
-				.addClass( 'mwe-upwiz-thanks-header' )
-				.appendTo( $div );
+		ui.Step.call(
+			this,
+			$( '#mwe-upwiz-stepdiv-thanks' ),
+			$( '#mwe-upwiz-step-thanks' )
+		);
 
 		$( '<p>' )
 			.addClass( 'mwe-upwiz-thanks-explain' )
 			.msg( 'mwe-upwiz-thanks-explain' )
-			.appendTo( $div );
+			.prependTo( this.$div );
 
-		oo.EventEmitter.call( this );
+		$header = $( '<h3>' )
+			.addClass( 'mwe-upwiz-thanks-header' )
+			.prependTo( this.$div );
 
 		if ( !mw.UploadWizard.config.thanksLabel ) {
 			$header.text( mw.message( 'mwe-upwiz-thanks-intro' ).text() );
 		} else {
 			$header.html( mw.UploadWizard.config.display.thanksLabel );
 		}
-
-		this.$div = $div;
 	}
 
-	oo.inheritClass( Thanks, oo.EventEmitter );
+	oo.inheritClass( Thanks, ui.Step );
 
 	TP = Thanks.prototype;
 
@@ -111,7 +113,7 @@
 			'target': '_blank'
 		} );
 
-		this.$div.append( $thanksDiv );
+		this.$div.find( '.mwe-upwiz-buttons' ).before( $thanksDiv );
 	};
 
 	/**

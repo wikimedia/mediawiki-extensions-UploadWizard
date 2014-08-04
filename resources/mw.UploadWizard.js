@@ -29,6 +29,14 @@ mw.UploadWizard = function( config ) {
 	this.showDeed = false;
 
     this.eventFlowLogger = new uw.EventFlowLogger( mw.eventLog );
+
+	this.steps = {
+		tutorial: new uw.controller.Tutorial(),
+		file: new uw.controller.Upload(),
+		deeds: new uw.controller.Deed(),
+		details: new uw.controller.Details(),
+		thanks: new uw.controller.Thanks()
+	};
 };
 
 mw.UploadWizard.DEBUG = true;
@@ -51,7 +59,7 @@ mw.UploadWizard.prototype = {
 		$.purgeReadyEvents();
 		$.purgeSubscriptions();
 		this.removeMatchingUploads( function() { return true; } );
-        this.currentStepName = undefined;
+		this.moveToStep( 'file' );
 	},
 
 
@@ -65,7 +73,6 @@ mw.UploadWizard.prototype = {
 			if ( wizard.allowCloseWindow !== undefined ) {
 				wizard.allowCloseWindow();
 			}
-			wizard.prefillThanksPage();
 			wizard.moveToStep( 'thanks' );
 		}
 
@@ -367,22 +374,17 @@ mw.UploadWizard.prototype = {
 		}
 
 		// scroll to the top of the page (the current step might have been very long, vertically)
-		var headScroll = $( 'h1:first' ).offset();
+		var headScroll = $( 'h1:first' ).offset(),
+			fromStep = this.steps[this.currentStepName],
+			targetStep = this.steps[selectedStepName];
+
+		if ( fromStep ) {
+			fromStep.moveFrom( this.uploads );
+		}
+
+		targetStep.moveTo( this.uploads );
+
 		$( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
-		$.each( this.stepNames, function(i, stepName) {
-
-			// the step's contents
-			var stepDiv = $( '#mwe-upwiz-stepdiv-' + stepName );
-
-			if ( selectedStepName === stepName ) {
-				stepDiv.show();
-			} else {
-				stepDiv.hide();
-			}
-
-		} );
-
-		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( '#mwe-upwiz-step-' + selectedStepName );
 
         if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
             this.eventFlowLogger.logSkippedStep( 'tutorial' );
@@ -889,7 +891,9 @@ mw.UploadWizard.prototype = {
 			$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next' ).show();
 
 			// fix various other pages that may have state
-			this.ui.thanksPage.empty();
+			$.each( this.steps, function ( i, step ) {
+				step.empty();
+			} );
 
 			$( '#mwe-upwiz-flickr-select-list' ).empty();
 			$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
@@ -1073,14 +1077,6 @@ mw.UploadWizard.prototype = {
 		} else {
 			$( '#mwe-upwiz-details-error-count' ).empty();
 		}
-	},
-
-	prefillThanksPage: function() {
-		var wizard = this;
-
-		$.each( this.uploads, function( i, upload ) {
-			wizard.ui.thanksPage.addUpload( upload );
-		} );
 	},
 
 	/**
