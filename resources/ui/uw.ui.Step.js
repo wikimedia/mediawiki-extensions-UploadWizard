@@ -27,6 +27,8 @@
 	 * @param {jQuery} $arrow The arrow that represents the step.
 	 */
 	function Step( $div, $arrow ) {
+		oo.EventEmitter.call( this );
+
 		this.$div = $div;
 		this.$arrow = $arrow;
 	}
