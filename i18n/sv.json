@@ -301,6 +301,7 @@
 	"mwe-upwiz-license-external": "Filen är under följande licens på källsidan \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Filen är under följande licens på källsidan \"$1\": $2. Tyvärr tillåter denna wiki inte licensen.",
 	"mwe-upwiz-license-photoset-invalid": "Tyvärr har ingen bild i detta fotoset en licens som är lämplig att användas på denna webbplats.",
+	"mwe-upwiz-license-pd-old-70-1923": "Först utgiven före 1923 och författaren avled för mer än 70 år sedan",
 	"mwe-upwiz-url-invalid": "Den angivna URL-adressen stöds inte eller pekar mot en ogiltig eller begränsad bild eller fotosett från $1 och kan inte användas.",
 	"mwe-upwiz-user-blacklisted": "Dessvärre kan inga bilder från detta $1-konto laddas upp till denna webbplats.",
 	"mwe-upwiz-categories": "Kategorier",
