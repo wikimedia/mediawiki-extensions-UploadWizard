@@ -85,7 +85,7 @@
 	"mwe-upwiz-next-file-despite-failures": "به هر حال ادامه بده",
 	"mwe-upwiz-skip-tutorial-future": "در آینده از این مرحله بگذر",
 	"mwe-upwiz-file-all-failed": "هیچ‌یک از بارگذاری‌ها موفق نبودند.",
-	"mwe-upwiz-upload-count": "$1 پرونده از $2تا بارگذاری شد",
+	"mwe-upwiz-upload-count": "$1 از $2 {{PLURAL:$2|پرونده}} بارگذاری شد",
 	"mwe-upwiz-progressbar-uploading": "در حال بارگذاری",
 	"mwe-upwiz-finished": "تمام شد!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|ثانیه|ثانیه}} باقی مانده‌است",
