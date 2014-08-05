@@ -440,7 +440,10 @@ mw.UploadWizard.prototype = {
 			return false;
 		}
 
-		upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile, reservedIndex );
+		upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile, reservedIndex )
+			.on( 'filled', function () {
+				wizard.setUploadFilled( upload );
+			} );
 		this.uploadToAdd = upload;
 
 		// we explicitly move the file input to cover the upload button
@@ -457,8 +460,11 @@ mw.UploadWizard.prototype = {
 	 * and set up some other interfaces
 	 * @param UploadWizardUpload
 	 */
-	setUploadFilled: function( upload ) {
+	setUploadFilled: function ( upload ) {
 		var wizard = this;
+
+		// Create new upload slot for additional upload(s)
+		this.newUpload();
 
 		// When we add uploads from a multi-select operation, the file objects
 		// may be filled in random order, because filling them depends on
@@ -477,11 +483,6 @@ mw.UploadWizard.prototype = {
 		}
 
 		this.updateFileCounts();
-		// Don't add files coming from Flickr ( or any other service ) in the Deeds preview section
-		if( !upload.fromURL ) {
-			upload.deedPreview = new mw.UploadWizardDeedPreview( upload );
-		}
-		upload.details = new mw.UploadWizardDetails( upload, this.api, $( '#mwe-upwiz-macro-files' ) );
 
 		if ( mw.UploadWizard.config.startImmediately === true ) {
 			// Start uploads now, no reason to wait--leave the remove button alone

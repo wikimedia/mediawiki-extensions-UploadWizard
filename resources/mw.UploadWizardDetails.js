@@ -15,7 +15,7 @@
 
 var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
-mw.UploadWizardDetails = function( upload, api, containerDiv ) {
+mw.UploadWizardDetails = function( upload, containerDiv ) {
 	var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,
 		commonsCategoriesLink, categoriesHint, categoriesHinter,
 		categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
@@ -27,7 +27,7 @@ mw.UploadWizardDetails = function( upload, api, containerDiv ) {
 
 	this.upload = upload;
 	this.containerDiv = containerDiv;
-	this.api = api;
+	this.api = upload.api;
 
 	this.descriptions = [];
 
