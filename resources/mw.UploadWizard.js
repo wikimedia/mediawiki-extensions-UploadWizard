@@ -69,7 +69,7 @@ mw.UploadWizard.prototype = {
 			wizard.moveToStep( 'thanks' );
 		}
 
-		this.ui = new mw.UploadWizardInterface( this )
+		this.ui = new uw.ui.Wizard( this )
 			.on( 'reset-wizard', function () {
 				wizard.reset();
 			} )
@@ -888,7 +888,8 @@ mw.UploadWizard.prototype = {
 			$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next' ).show();
 
 			// fix various other pages that may have state
-			$( '#mwe-upwiz-thanks' ).html( '' );
+			this.ui.thanksPage.empty();
+
 			$( '#mwe-upwiz-flickr-select-list' ).empty();
 			$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
 			$( '#mwe-upwiz-select-flickr' ).unbind();
@@ -1074,86 +1075,11 @@ mw.UploadWizard.prototype = {
 	},
 
 	prefillThanksPage: function() {
-		var wizard = this,
-			thnxHeader = $( '<h3 style="text-align: center;"></h3>' );
+		var wizard = this;
 
-		if ( mw.UploadWizard.config.thanksLabel === false ) {
-			thnxHeader.msg( 'mwe-upwiz-thanks-intro' );
-		}
-		else {
-			thnxHeader.html( mw.UploadWizard.config.display.thanksLabel );
-		}
-
-		$( '#mwe-upwiz-thanks' )
-			.append(
-				thnxHeader,
-				$( '<p style="margin-bottom: 2em; text-align: center;">' )
-					.msg( 'mwe-upwiz-thanks-explain', this.uploads.length )
-			);
-
-		$.each( this.uploads, function(i, upload) {
-			if ( upload === undefined ) {
-				return;
-			}
-			var thumbWikiText,
-				id = 'mwe-upwiz-thanks-div-' + i,
-				$thanksDiv = $( '<div></div>' ).attr( 'id', id ).addClass( 'mwe-upwiz-thanks ui-helper-clearfix' ),
-				$thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' ),
-				$thumbnailCaption = $( '<div></div>' )
-					.css( { 'text-align': 'center', 'font-size': 'small' } )
-					.html( $( '<a/>' ).html( upload.title.getMainText() ) ),
-				$thumbnailWrapDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail-side' );
-
-			$thumbnailWrapDiv.append( $thumbnailDiv, $thumbnailCaption );
-
-			upload.setThumbnail(
-				$thumbnailDiv,
-				mw.UploadWizard.config.thumbnailWidth,
-				mw.UploadWizard.config.thumbnailMaxHeight,
-				false
-			);
-
-			// Set the thumbnail links so that they point to the image description page
-			$thumbnailWrapDiv.find( 'a' ).attr( {
-				'href': upload.imageinfo.descriptionurl,
-				'target' : '_blank'
-			} );
-			$thanksDiv.append( $thumbnailWrapDiv );
-
-			thumbWikiText = '[[' + upload.title.toText() + '|thumb|' + upload.details.descriptions[0].getText() + ']]';
-
-			$thanksDiv.append(
-				$( '<div class="mwe-upwiz-data"></div>' )
-					.append(
-						$('<p/>').text( mw.message( 'mwe-upwiz-thanks-wikitext' ).text() )
-							.append(
-								$( '<br />' ),
-								wizard.makeReadOnlyInput( thumbWikiText )
-							),
-						$('<p/>').text( mw.message( 'mwe-upwiz-thanks-url' ).text() )
-							.append(
-								$( '<br />' ),
-								wizard.makeReadOnlyInput( upload.imageinfo.descriptionurl )
-							)
-					)
-			);
-
-			$( '#mwe-upwiz-thanks' ).append( $thanksDiv );
+		$.each( this.uploads, function( i, upload ) {
+			wizard.ui.thanksPage.addUpload( upload );
 		} );
-	},
-
-	/**
-	 * make a read only text input, which self-selects on gaining focus
-	 * @param {String} text it will contain
-	 */
-	makeReadOnlyInput: function ( s ) {
-		return $( '<input/>' ).addClass( 'mwe-title ui-corner-all' )
-			.readonly()
-			.val( s )
-			.click( function() {
-				this.focus();
-				this.select();
-			} );
 	},
 
 	/**
