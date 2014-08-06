@@ -1214,15 +1214,28 @@
 		 * Note that this is not related to specifying the descrition from the query
 		 * string (that happens earlier). This is for when we have retrieved a
 		 * description from an upload_by_url upload (e.g. Flickr transfer)
+		 * or from the metadata.
 		 */
 		prefillDescription: function () {
 			if (
 				this.descriptions[0].getText() === '' &&
-				this.upload.file !== undefined &&
-				this.upload.file.description !== undefined &&
-				this.upload.file.description !== ''
+				this.upload.file !== undefined
 			) {
-				this.descriptions[0].setText( this.upload.file.description );
+				var m = this.upload.imageinfo.metadata,
+					desc = this.descriptions[0],
+					descText = this.upload.file.description ||
+						( m && m.imagedescription &&
+						m.imagedescription[0] && m.imagedescription[0].value );
+
+				if ( descText ) {
+					desc.setText( descText );
+
+					// In future, when using a AJAX service for language detection
+					// use `desc.lockLanguageMenu();` and `desc.unlockLanguageMenu();`
+					// to prevent interaction by the user.
+					// For now, stick to the content language.
+					desc.setLanguage( mw.config.get( 'wgContentLanguage' ) );
+				}
 			}
 		},
 

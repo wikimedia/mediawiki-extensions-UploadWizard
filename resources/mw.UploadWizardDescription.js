@@ -70,6 +70,28 @@
 		},
 
 		/**
+		 * Sets the language of a description
+		 * @param {string} ietfLanguageTag the selector should be set to
+		 */
+		setLanguage: function ( ietfLanguageTag ) {
+			$( this.languageMenu ).val( ietfLanguageTag.replace(/_/g, '-').toLowerCase() );
+		},
+
+		/**
+		 * Locks the language specifier
+		 */
+		lockLanguageMenu: function () {
+			$( this.languageMenu ).prop( 'disabled', true );
+		},
+
+		/**
+		 * Unlocks the language specifier
+		 */
+		unlockLanguageMenu: function () {
+			$( this.languageMenu ).prop( 'disabled', false );
+		},
+
+		/**
 		 * Obtain text of this description, suitable for including into Information template
 		 * @return wikitext as a string
 		 */
