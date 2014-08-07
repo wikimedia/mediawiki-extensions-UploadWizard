@@ -1290,7 +1290,7 @@ mw.isEmpty = function( v ) {
 		// Technically this means text could now dangle over the edge,
 		// but it shouldn't because it will always grow to accomodate very quickly.
 
-		if ($.msie) {
+		if ( $.msie ) {
 			this.each( function(i, textArea) {
 				textArea.style.overflow = 'visible';
 			} );
@@ -1299,9 +1299,9 @@ mw.isEmpty = function( v ) {
 		var resizeIfNeeded = function() {
 			// this is the dom element
 			// is there a better way to do this?
-			if (this.scrollHeight >= this.offsetHeight) {
+			if ( this.scrollHeight >= this.offsetHeight && !this.style.height ) {
 				this.rows++;
-				while (this.scrollHeight > this.offsetHeight) {
+				while ( this.scrollHeight > this.offsetHeight ) {
 					this.rows++;
 				}
 			}
