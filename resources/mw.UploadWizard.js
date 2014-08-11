@@ -30,14 +30,8 @@
 		this.showDeed = false;
 
 		this.steps = {
-			tutorial: new uw.controller.Tutorial()
+			tutorial: new uw.controller.Tutorial( this.api )
 				.on( 'next-step', function () {
-					// if the skip checkbox is checked, set the skip user preference
-					if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
-						$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
-						wizard.setSkipTutorialPreference();
-					}
-
 					wizard.moveToStep( 'file' );
 				} ),
 			file: new uw.controller.Upload(),
@@ -1076,29 +1070,6 @@
 			} else {
 				$( '#mwe-upwiz-details-error-count' ).empty();
 			}
-		},
-
-		/**
-		 * Set the skip tutorial user preference via the options API
-		 */
-		setSkipTutorialPreference: function () {
-			var api = this.api,
-				isComplete = false,
-				allowCloseWindow = mw.confirmCloseWindow( {
-					message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
-					test: function () { return !isComplete; }
-				} );
-
-			api.postWithToken( 'options', {
-				action: 'options',
-				change: 'upwiz_skiptutorial=1'
-			} )
-			.done( function () {
-				isComplete = true;
-				allowCloseWindow();
-				return true;
-			} );
-
 		}
 	};
 
