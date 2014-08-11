@@ -21,6 +21,7 @@
 	/**
 	 * Represents a step in the wizard.
 	 * @class mw.uw.controller.Step
+	 * @extends oo.EventEmitter
 	 * @abstract
 	 * @constructor
 	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.

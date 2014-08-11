@@ -517,8 +517,9 @@ class UploadWizardHooks {
 
 			'dependencies' => array(
 				'oojs',
-				'uw.controller.Step',
 				'uw.controller.base',
+				'uw.controller.Step',
+				'uw.ui.Details',
 				'uw.ui.Step',
 			),
 		),
@@ -604,6 +605,17 @@ class UploadWizardHooks {
 			),
 
 			'dependencies' => array(
+				'uw.ui.base',
+			),
+		),
+
+		'uw.ui.Details' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.Details.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
 				'uw.ui.base',
 			),
 		),

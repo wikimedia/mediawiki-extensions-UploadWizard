@@ -115,12 +115,6 @@
 						if ( wizard.showDeed ) {
 							wizard.prepareAndMoveToDeeds();
 						} else {
-							$.each( wizard.uploads, function ( i, upload ) {
-								upload.details.titleInput.checkTitle();
-								if ( upload.fromURL ) {
-									upload.details.useCustomDeedChooser();
-								}
-							} );
 							wizard.moveToStep( 'details' );
 						}
 					} );
@@ -130,23 +124,6 @@
 					// validate has the side effect of notifying the user of problems, or removing existing notifications.
 					// if returns false, you can assume there are notifications in the interface.
 					if ( wizard.deedChooser.valid() ) {
-
-						$.each( wizard.uploads, function ( i, upload ) {
-							if ( upload === undefined ) {
-								return;
-							}
-							// uploads coming from Flickr do not have a deedChooser object till yet
-							if ( wizard.deedChooser.deed.name === 'custom' || upload.fromURL ) {
-								upload.details.useCustomDeedChooser();
-							} else {
-								upload.deedChooser = wizard.deedChooser;
-							}
-
-							// the first check, happens even if the field isn't touched
-							// (ie. user accepts default title)
-							upload.details.titleInput.checkTitle();
-						} );
-
 						wizard.moveToStep( 'details' );
 					}
 				} )
@@ -297,7 +274,7 @@
 
 		// do some last minute prep before advancing to the DEEDS page
 		prepareAndMoveToDeeds: function () {
-			var customDeed, uploadsClone,
+			var customDeed,
 				wizard = this,
 				deeds = this.getLicensingDeeds( this.uploads.length );
 
@@ -322,11 +299,10 @@
 				deeds.push( customDeed );
 			}
 
-			uploadsClone = $.map( this.uploads, function ( x ) { return x; } );
 			this.deedChooser = new mw.UploadWizardDeedChooser(
 				'#mwe-upwiz-deeds',
 				deeds,
-				uploadsClone
+				this.uploads
 			);
 
 			$( '<div></div>' )
@@ -744,21 +720,11 @@
 				if ( upload.state === 'error' ) {
 					errorCount++;
 				} else if ( upload.state === desiredState ) {
-					// Add previews and details to the DOM
-					if ( !upload.fromURL ) {
-						upload.deedPreview.attach();
-					}
-					upload.details.attach();
 					okCount++;
 				} else if ( upload.state === 'transporting' ) {
 					stillGoing += 1;
 				}
 			} );
-
-			// Show toggler to copy selected metadata if there's more than one successful upload
-			if ( this.uploads[0].state === desiredState && okCount > 1 ) {
-				this.uploads[0].details.buildAndShowCopyMetadata();
-			}
 
 			if ( this.progressBar ) {
 				this.progressBar.showCount( okCount );
@@ -879,11 +845,6 @@
 				$( '#mwe-upwiz-progress' ).hide();
 				$( '#mwe-upwiz-add-file' ).show();
 
-				// reset buttons on the details page
-				$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
-				$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
-				$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next' ).show();
-
 				// fix various other pages that may have state
 				$.each( this.steps, function ( i, step ) {
 					step.empty();
@@ -939,7 +900,6 @@
 				total += 1;
 
 				upload.details.clearDuplicateTitleError().valid( function () {
-
 					title = upload.title.getName();
 
 					// Seen this title before?
@@ -949,7 +909,6 @@
 						upload.details.setDuplicateTitleError();
 						return;
 					} else {
-
 						titles[title] = true;
 					}
 					valid += 1;

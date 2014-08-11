@@ -536,7 +536,15 @@
 		uploads: [],
 
 		choose: function ( deed ) {
+			var chooser = this;
+
 			this.deed = deed;
+
+			$.each( this.uploads, function ( i, upload ) {
+				upload.chosenDeed = deed;
+				upload.deedChooser = chooser;
+			} );
+
 			$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next' ).show();
 		},
 
