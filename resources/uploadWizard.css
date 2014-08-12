@@ -340,12 +340,6 @@ a:disabled:hover {
 	width: 40px;
 }
 
-.mwe-upwiz-mask {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-}
-
 .mwe-upwiz-status-progress {
 	/* @embed */
 	background: url('images/24px-spinner-0645ad.gif') no-repeat center center;
@@ -599,10 +593,6 @@ fieldset.mwe-fieldset {
 legend.mwe-legend {
 	padding: 0.5em 0.5em 0.5em 0.33em;
 	color: #666666;
-}
-
-.masked-hidden {
-	visibility: hidden !important;
 }
 
 .mwe-upwiz-thirdparty-fields {
