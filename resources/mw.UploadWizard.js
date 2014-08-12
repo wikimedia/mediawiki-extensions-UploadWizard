@@ -361,6 +361,8 @@
 				upload.state = selectedStepName;
 			} );
 
+			this.currentStepObject = targetStep;
+
 			if ( callback ) {
 				callback();
 			}
@@ -773,86 +775,16 @@
 			// First reset the wizard buttons.
 			this.ui.hideFileEndButtons();
 
-			if ( this.uploads.length - this.countEmpties() ) {
-				// we have uploads ready to go, so allow us to proceed
-				$( '#mwe-upwiz-upload-ctrl-container' ).show();
-				$( '#mwe-upwiz-upload-ctr-divide' ).hide();
-				$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).show();
+			this.currentStepObject.updateFileCounts( ( this.uploads.length - this.countEmpties() ) > 0, this.maxUploads, this.uploadToAdd );
 
-				if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
-					// changes the initial centered invitation button to something like "add another file"
-					this.$addFile = this.$addFile || $( '#mwe-upwiz-add-file' );
-					this.$addFile.button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-n' ).escaped() );
-					$( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).addClass( 'mwe-upwiz-add-files-n' );
-					this.$addFileContainer = this.$addFileContainer || $( '#mwe-upwiz-add-file-container' );
-					this.$addFileContainer.removeClass( 'mwe-upwiz-add-files-0' );
-					this.$addFileContainer.show();
-					// changes the flickr add button to "add more files from flickr"
-					$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-flickr-n' ).escaped() );
-					// show the add file interface
-					$( '#mwe-upwiz-add-file-container' ).show();
-					// if Flickr uploading is available to this user, show the "add more files from flickr" button
-					if ( mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '' ) {
-						$( '#mwe-upwiz-upload-ctrl-flickr-container' ).show();
-					}
-					// empty the flickr lists
-					$( '#mwe-upwiz-flickr-select-list' ).empty();
-					$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
-					$( '#mwe-upwiz-select-flickr' ).unbind();
-				} else {
-					this.$addFile = this.$addFile || $( '#mwe-upwiz-add-file' );
-					this.$addFile.hide();
-					this.$fileInput = this.$fileInput || $( '.mwe-upwiz-file-input' );
-					this.$fileInput.hide();
-					$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
-				}
-
-				// add the styling to the filelist, so it has rounded corners and is visible and all.
-				$( '#mwe-upwiz-filelist' ).addClass( 'mwe-upwiz-filled-filelist' );
-
-				// fix the rounded corners on file elements.
-				// we want them to be rounded only when their edge touched the top or bottom of the filelist.
-				$( '#mwe-upwiz-filelist .filled .mwe-upwiz-visible-file' ).removeClass( 'ui-corner-top' ).removeClass( 'ui-corner-bottom' );
-				$( '#mwe-upwiz-filelist .filled .mwe-upwiz-visible-file:first' ).addClass( 'ui-corner-top' );
-				$( '#mwe-upwiz-filelist .filled .mwe-upwiz-visible-file:last' ).addClass( 'ui-corner-bottom' );
-				$( '#mwe-upwiz-filelist .filled:odd' ).addClass( 'odd' );
-				$( '#mwe-upwiz-filelist .filled:even' ).removeClass( 'odd' );
-			} else {
-				// no uploads, so don't allow us to proceed
-				$( '#mwe-upwiz-upload-ctrl-container' ).hide();
-
-				// remove the border from the filelist. We can't hide it or make it invisible since it contains the displaced
-				// file input element that becomes the "click here to add"
-				$( '#mwe-upwiz-filelist' ).removeClass( 'mwe-upwiz-filled-filelist' );
-
-				// we can't continue
-				$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' ).hide();
-
+			if ( this.uploads.length - this.countEmpties() <= 0 ) {
 				// destroy the flickr interface if it exists
 				this.flickrInterfaceDestroy();
-
-				// changes the button back from "add another file" to the initial centered invitation button
-				$( '#mwe-upwiz-add-file' ).button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-0-free' ).escaped() );
-				$( '#mwe-upwiz-upload-ctr-divide' ).show();
-				// changes the button back from "add more files from flickr" to the initial text
-				$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-flickr' ).escaped() );
-				$( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).removeClass( 'mwe-upwiz-add-files-n' );
-				$( '#mwe-upwiz-add-file-container' ).addClass( 'mwe-upwiz-add-files-0' );
-				$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).show();
-
-				// recovering from an earlier attempt to upload
-				$( '#mwe-upwiz-upload-ctrls' ).show();
-				$( '#mwe-upwiz-progress' ).hide();
-				$( '#mwe-upwiz-add-file' ).show();
 
 				// fix various other pages that may have state
 				$.each( this.steps, function ( i, step ) {
 					step.empty();
 				} );
-
-				$( '#mwe-upwiz-flickr-select-list' ).empty();
-				$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
-				$( '#mwe-upwiz-select-flickr' ).unbind();
 
 				if ( this.deedChooser !== undefined ) {
 					this.deedChooser.remove();
@@ -865,19 +797,6 @@
 
 				this.resetFileStepUploads();
 				this.moveToStep( 'file' );
-			}
-
-			// allow an "add another upload" button only if we aren't at max
-			if ( this.uploads.length < this.maxUploads ) {
-				$( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', false );
-				$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', false );
-				$( this.uploadToAdd.ui.div ).show();
-				this.uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
-			} else {
-				$( '#mwe-upwiz-add-file' ).button( 'option', 'disabled', true );
-				$( '#mwe-upwiz-upload-ctrl-flickr' ).button( 'option', 'disabled', true );
-				$( this.uploadToAdd.ui.div ).hide();
-				this.uploadToAdd.ui.hideFileInput();
 			}
 		},
 

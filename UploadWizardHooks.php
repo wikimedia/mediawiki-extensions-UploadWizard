@@ -174,14 +174,10 @@ class UploadWizardHooks {
 				'mwe-upwiz-tutorial-error-file-missing',
 				'mwe-upwiz-tutorial-error-cannot-transform',
 				'mwe-upwiz-help-desk',
-				'mwe-upwiz-add-file-n',
 				'mwe-upwiz-multi-file-select',
-				'mwe-upwiz-add-file-0-free',
 				'mwe-upwiz-flickr-input-placeholder',
 				'mwe-upwiz-add-flickr-or',
 				'mwe-upwiz-add-flickr',
-				'mwe-upwiz-add-file-flickr',
-				'mwe-upwiz-add-file-flickr-n',
 				'mwe-upwiz-select-flickr',
 				'mwe-upwiz-flickr-disclaimer1',
 				'mwe-upwiz-flickr-disclaimer2',
@@ -573,8 +569,7 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'oojs',
 				'uw.controller.Step',
-				'uw.controller.base',
-				'uw.ui.Step',
+				'uw.ui.Upload',
 			),
 		),
 
@@ -616,7 +611,7 @@ class UploadWizardHooks {
 
 			'dependencies' => array(
 				'oojs',
-				'uw.ui.base',
+				'uw.ui.Step',
 			),
 		),
 
@@ -684,6 +679,24 @@ class UploadWizardHooks {
 				'mwe-upwiz-tooltip-skiptutorial',
 				'prefs-uploads',
 				'prefs-upwiz-interface',
+			),
+		),
+
+		'uw.ui.Upload' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.Upload.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.ui.Step',
+			),
+
+			'messages' => array(
+				'mwe-upwiz-add-file-n',
+				'mwe-upwiz-add-file-0-free',
+				'mwe-upwiz-add-file-flickr-n',
+				'mwe-upwiz-add-file-flickr',
 			),
 		),
 	);
