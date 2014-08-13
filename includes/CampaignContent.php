@@ -13,18 +13,10 @@
 /**
  * Represents the configuration of an Upload Campaign
  */
-class CampaignContent extends TextContent {
+class CampaignContent extends JSONContent {
 
 	function __construct( $text ) {
 		parent::__construct( $text, 'Campaign' );
-	}
-
-	/**
-	 * Decodes the Upload Campaign data into a PHP associative array.
-	 * @return array: Schema array.
-	 */
-	function getJsonData() {
-		return FormatJson::decode( $this->getNativeData(), true );
 	}
 
 	/**
@@ -69,24 +61,15 @@ class CampaignContent extends TextContent {
 	 */
 	function isValid() {
 		try {
-			return $this->validate();
+			return parent::isValid() && $this->validate();
 		} catch ( JsonSchemaException $e ) {
 			return false;
 		}
 	}
 
 	/**
-	 * Beautifies JSON prior to save.
-	 * @param Title $title Title
-	 * @param User $user User
-	 * @param ParserOptions $popts
-	 * @return JsonSchemaContent
+	 * Override getParserOutput, since we require $title to generate our output
 	 */
-	function preSaveTransform( Title $title, User $user, ParserOptions $popts ) {
-		return new CampaignContent( efBeautifyJson( $this->getNativeData() ) );
-	}
-
-	// Override getParserOutput, since we require $title to generate our output
 	function getParserOutput( Title $title,
 		$revId = null,
 		ParserOptions $otpions = null, $generateHtml = true
