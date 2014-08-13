@@ -311,16 +311,52 @@ class UploadWizardCampaign {
 						);
 					}
 					break;
+				case "whileActive":
+					if ( array_key_exists( 'display', $value ) ) {
+						$value['display'] = $this->parseArrayValues( $value['display'], $lang );
+					}
+					$parsedConfig['whileActive'] = $value;
+					break;
 				default:
 					$parsedConfig[$key] = $value;
 					break;
 				}
 			}
+
 			$this->parsedConfig = $parsedConfig;
 			$wgMemc->set( $memKey, array( 'timestamp' => time(), 'config' => $parsedConfig ) );
 		}
+
+		$this->modifyIfNecessary();
+
 		wfProfileOut( __METHOD__ );
 		return $this->parsedConfig;
+	}
+
+	/**
+	 * Modifies the parsed config if there are time-based modifiers that are active.
+	 */
+	protected function modifyIfNecessary() {
+		foreach ( $this->parsedConfig as $cnf => $modifiers ) {
+			if ( $cnf === 'whileActive' && $this->isActive() ) {
+				$activeModifiers = $modifiers;
+			}
+		}
+
+		if ( isset( $activeModifiers ) ) {
+			foreach ( $activeModifiers as $cnf => $modifier ) {
+				switch ( $cnf ) {
+					case "autoAdd":
+					case "display":
+						if ( !array_key_exists( $cnf, $this->parsedConfig ) ) {
+							$this->parsedConfig[$cnf] = array();
+						}
+
+						$this->parsedConfig[$cnf] = array_merge( $this->parsedConfig[$cnf], $modifier );
+						break;
+				}
+			}
+		}
 	}
 
 	/**
@@ -357,5 +393,17 @@ class UploadWizardCampaign {
 	 */
 	private function makeInvalidateTimestampKey() {
 		return wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'parsed-config', 'invalidate-timestamp' );
+	}
+
+	/**
+	 * Checks the current date against the configured start and end dates to determine
+	 * whether the campaign is currently active.
+	 */
+	private function isActive() {
+		$today = strtotime( date( "Y-m-d" ) );
+		$start = array_key_exists( 'start', $this->parsedConfig ) ? strtotime( $this->parsedConfig['start'] ) : null;
+		$end = array_key_exists( 'end', $this->parsedConfig ) ? strtotime( $this->parsedConfig['end'] ) : null;
+
+		return ($start === null || $start <= $today ) && ($end === null || $end > $today );
 	}
 }
