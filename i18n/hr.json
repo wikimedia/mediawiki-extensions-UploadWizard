@@ -89,6 +89,7 @@
 	"mwe-upwiz-home": "Idi na početnu stranicu wiki",
 	"mwe-upwiz-upload-another": "Pošalji više datoteka",
 	"mwe-prevent-close": "Vaše datoteke se još uvijek šalju.\nJeste li sigurni da želite otići s ove stranice?",
+	"mwe-upwiz-prevent-close": "Niste završili postavljanje i objavu {{PLURAL:$1|datoteke|datoteka}}.",
 	"mwe-upwiz-files-complete": "Vaše datoteke su poslane!",
 	"mwe-upwiz-tooltip-author": "Ime osobe koja je snimila fotografiju, ili naslikala sliku ili nacrtala crtež, itd.",
 	"mwe-upwiz-tooltip-source": "Odakle je došla ova digitalna datoteka -- može biti URL, knjiga ili publikacija",
