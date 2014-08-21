@@ -85,9 +85,6 @@ return array(
 	// File extensions acceptable in this wiki
 	'fileExtensions' =>  $wgFileExtensions,
 
-	// The default api url is for the current wiki ( can override at run time )
-	'apiUrl' => $wgServer . $wgScriptPath . '/api.php',
-
 	// Flickr details
 	// Flickr API is SSL-only as of June 27th, 2014: http://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
 	'flickrApiUrl' => 'https://api.flickr.com/services/rest/?',

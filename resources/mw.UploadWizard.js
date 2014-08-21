@@ -7,7 +7,7 @@
 mw.UploadWizard = function( config ) {
 
 	this.uploads = [];
-	this.api = new mw.Api( { ajax: { url: config.apiUrl, timeout: 0 } } );
+	this.api = new mw.Api( { ajax: { timeout: 0 } } );
 
 	// making a sort of global for now, should be done by passing in config or fragments of config when needed
 	// elsewhere
