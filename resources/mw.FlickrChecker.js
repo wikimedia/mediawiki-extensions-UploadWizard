@@ -1,7 +1,7 @@
 // Only turning these jshint options off for ''this file''
 /* jshint camelcase: false, nomen: false */
-( function( mw, $ ) {
-mw.FlickrChecker = function( wizard, upload ) {
+( function ( mw, $ ) {
+mw.FlickrChecker = function ( wizard, upload ) {
 	this.wizard = wizard;
 	this.upload = upload;
 	this.imageUploads = [];
@@ -54,7 +54,7 @@ mw.FlickrChecker.prototype = {
 	 * @param $selector - the element to insert the license name into
 	 * @param upload - the upload object to set the deed for
 	 */
-	checkFlickr: function( flickrInputUrl ) {
+	checkFlickr: function ( flickrInputUrl ) {
 		this.url = flickrInputUrl;
 		var photoIdMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/),
 			albumIdMatches = this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/),
@@ -102,7 +102,7 @@ mw.FlickrChecker.prototype = {
 	 * @param {String} ownername owner name on Flickr
 	 * @return {String}
 	 */
-	getFilenameFromItem: function( title, id, ownername ) {
+	getFilenameFromItem: function ( title, id, ownername ) {
 		var fileName;
 
 		if ( title === '' ) {
@@ -122,7 +122,7 @@ mw.FlickrChecker.prototype = {
 	 * This works even when the filename was reserved in a different FlickrChecker instance.
 	 * @param {String} fileName
 	 */
-	reserveFileName: function( fileName ) {
+	reserveFileName: function ( fileName ) {
 		mw.FlickrChecker.fileNames[fileName] = true;
 	},
 
@@ -130,7 +130,7 @@ mw.FlickrChecker.prototype = {
 	 * @param {Object} params
 	 * @returns {jQuery.Promise} a promise with the response data
 	 */
-	flickrRequest: function( params ) {
+	flickrRequest: function ( params ) {
 		params = $.extend( {
 			api_key: this.apiKey,
 			format: 'json',
@@ -152,9 +152,9 @@ mw.FlickrChecker.prototype = {
 				url: this.url
 		} ).done( function ( data ) {
 			var method;
-			if( mode === 'stream' ) {
+			if ( mode === 'stream' ) {
 				method = 'flickr.people.getPublicPhotos';
-			} else if( mode === 'favorites' ) {
+			} else if ( mode === 'favorites' ) {
 				method = 'flickr.favorites.getPublicList';
 			}
 			that.getPhotos( 'photos', {
@@ -169,14 +169,14 @@ mw.FlickrChecker.prototype = {
 	 * @param groupPoolMatches result of `this.url.match`
 	 * @see {@link getPhotos}
 	 */
-	getGroupPool: function( groupPoolMatches ) {
+	getGroupPool: function ( groupPoolMatches ) {
 		var that = this;
 		this.flickrRequest( {
 				method: 'flickr.urls.lookupGroup',
 				url: this.url
 		} ).done( function ( data ) {
 			var gid = data.group.id;
-			if( groupPoolMatches[1] ) { // URL contains a user ID
+			if ( groupPoolMatches[1] ) { // URL contains a user ID
 				that.flickrRequest( {
 					method: 'flickr.urls.lookupUser',
 					url: 'http://www.flickr.com/photos/' + groupPoolMatches[1]
@@ -203,25 +203,25 @@ mw.FlickrChecker.prototype = {
 	 * @param data the retrieved data
 	 * @see {@link getCollection}
 	 */
-	buildCollectionLinks: function( appendId, data ) {
+	buildCollectionLinks: function ( appendId, data ) {
 		var elem = $( '<ul>' ),
 			that = this,
 			li, ul;
-		if( appendId ) {
+		if ( appendId ) {
 			elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
 		}
-		$.each( data.collection, function( index, value ) {
+		$.each( data.collection, function ( index, value ) {
 			li = $( '<li>' );
 			li.append( value.title );
-			if( value.collection !== undefined ) {
+			if ( value.collection !== undefined ) {
 				li.append( that.buildCollectionLinks( false, value ) );
 			}
-			if( value.set !== undefined ) {
+			if ( value.set !== undefined ) {
 				ul = $( '<ul>' );
-				$.each( value.set, function( index2, value2 ) {
+				$.each( value.set, function ( index2, value2 ) {
 					var link = $( '<a>', { href: '#', role: 'button', 'data-id': value2.id } );
 					link.append( value2.title );
-					link.click( function() {
+					link.click( function () {
 						$( '#mwe-upwiz-files-collection-chooser' ).remove();
 						that.getPhotos( 'photoset', {
 								method: 'flickr.photosets.getPhotos',
@@ -241,7 +241,7 @@ mw.FlickrChecker.prototype = {
 	 * Retrieves a list of sets in a collection and displays it.
 	 * @param userCollectionMatches result of this.url.match
 	 */
-	getCollection: function( userCollectionMatches ) {
+	getCollection: function ( userCollectionMatches ) {
 		var that = this;
 		this.flickrRequest( {
 				method: 'flickr.urls.lookupUser',
@@ -252,7 +252,7 @@ mw.FlickrChecker.prototype = {
 				extras: 'license, url_sq, owner_name, original_format, date_taken, geo',
 				user_id: data.user.id
 			};
-			if( userCollectionMatches[1] ) {
+			if ( userCollectionMatches[1] ) {
 				req.collection_id = userCollectionMatches[1];
 			}
 			that.flickrRequest( req ).done( function ( data ) {
@@ -265,7 +265,7 @@ mw.FlickrChecker.prototype = {
 	 * Retrieves a list of photos in gallery and displays it.
 	 * @see {@link getPhotos}
 	 */
-	getGallery: function() {
+	getGallery: function () {
 		var that = this;
 		this.flickrRequest( {
 			method: 'flickr.urls.lookupGallery',
@@ -283,7 +283,7 @@ mw.FlickrChecker.prototype = {
 	 * @param albumIdMatches result of this.url.match
 	 * @see {@link getPhotos}
 	 */
-	getPhotoset: function( albumIdMatches ) {
+	getPhotoset: function ( albumIdMatches ) {
 		this.getPhotos( 'photoset', {
 			method: 'flickr.photosets.getPhotos',
 			photoset_id: albumIdMatches[1]
@@ -298,7 +298,7 @@ mw.FlickrChecker.prototype = {
 	 * @param {Object} options options to pass to the API call; especially API method
 	 *     and some "***_id"s (photoset_id, etc.)
 	 */
-	getPhotos: function( mode, options ) {
+	getPhotos: function ( mode, options ) {
 		var checker = this,
 			flickrPromise,
 			req = {};
@@ -325,11 +325,11 @@ mw.FlickrChecker.prototype = {
 		} );
 
 		// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
-		$.when( flickrPromise, this.getBlacklist() ).then( function( photoset, blacklist ) {
+		$.when( flickrPromise, this.getBlacklist() ).then( function ( photoset, blacklist ) {
 			var fileName, imageContainer, sourceURL,
 				x = 0;
 
-			$.each( photoset.photo, function( i, item ) {
+			$.each( photoset.photo, function ( i, item ) {
 				var flickrUpload, license, licenseValue, ownerId;
 
 				license = checker.checkLicense( item.license, i );
@@ -382,7 +382,7 @@ mw.FlickrChecker.prototype = {
 
 				// setting up the thumbnail previews in the Selection list
 				if ( item.url_sq ) {
-					imageContainer = '<li id="upload-' + i +'" class="ui-state-default"><img src="' + item.url_sq + '"></li>';
+					imageContainer = '<li id="upload-' + i + '" class="ui-state-default"><img src="' + item.url_sq + '"></li>';
 					$( '#mwe-upwiz-flickr-select-list' ).append( imageContainer );
 				}
 			} );
@@ -398,10 +398,10 @@ mw.FlickrChecker.prototype = {
 				}
 			} );
 			// Set up action for 'Upload selected images' button
-			$( '#mwe-upwiz-select-flickr' ).click( function() {
+			$( '#mwe-upwiz-select-flickr' ).click( function () {
 				$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 				$( '#mwe-upwiz-upload-ctrls' ).show();
-				$( 'li.ui-selected' ).each( function( index, image ) {
+				$( 'li.ui-selected' ).each( function ( index, image ) {
 					image = $( this ).attr( 'id' );
 					image = image.split( '-' )[1];
 					checker.setImageDescription( image );
@@ -414,13 +414,13 @@ mw.FlickrChecker.prototype = {
 			} else {
 				$( '#mwe-upwiz-flickr-select-list-container' ).show();
 			}
-		} ).fail( function( message ) {
+		} ).fail( function ( message ) {
 			checker.showErrorDialog( message );
 			checker.wizard.flickrInterfaceReset();
 		} );
 	},
 
-	getPhoto: function( photoIdMatches ) {
+	getPhoto: function ( photoIdMatches ) {
 		var fileName, photoAuthor, sourceURL,
 			checker = this,
 			photoId = photoIdMatches[1];
@@ -428,21 +428,21 @@ mw.FlickrChecker.prototype = {
 		this.flickrRequest( {
 			method: 'flickr.photos.getInfo',
 			photo_id: photoId
-		} ).then( function( data ) {
+		} ).then( function ( data ) {
 			if ( !data.photo ) {
 				return $.Deferred().reject( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
 			}
 			return data.photo;
-		} ).then( function( photo ) {
+		} ).then( function ( photo ) {
 			var isBlacklistedPromise = checker.isBlacklisted( photo.owner.nsid, photo.owner.path_alias );
-			return isBlacklistedPromise.then( function( isBlacklisted ) {
+			return isBlacklistedPromise.then( function ( isBlacklisted ) {
 				if ( isBlacklisted ) {
 					return $.Deferred().reject( mw.message( 'mwe-upwiz-user-blacklisted', 'Flickr' ).escaped() );
 				} else {
 					return photo;
 				}
 			} );
-		} ).then( function( photo ) {
+		} ).then( function ( photo ) {
 			var license, flickrUpload;
 
 			license = checker.checkLicense( photo.license );
@@ -460,7 +460,7 @@ mw.FlickrChecker.prototype = {
 				photoAuthor = photo.owner.username;
 			}
 			// get the URL of the photo page
-			$.each( photo.urls.url, function( index, url ) {
+			$.each( photo.urls.url, function ( index, url ) {
 				if ( url.type === 'photopage' ) {
 					sourceURL = url._content;
 					// break each loop
@@ -502,9 +502,9 @@ mw.FlickrChecker.prototype = {
 	 * @param {String} [path_alias] Flickr username of the author (the unchangeable one, in the URL)
 	 * @return {jQuery.Promise} a promise which resolves to a boolean - true if the user is blacklisted
 	 */
-	isBlacklisted: function( nsid, path_alias ) {
+	isBlacklisted: function ( nsid, path_alias ) {
 		path_alias = String( path_alias );
-		return this.getBlacklist().then( function( blacklist ) {
+		return this.getBlacklist().then( function ( blacklist ) {
 			// the blacklist should never contain the empty string, but better safe then sorry
 			return ( nsid in blacklist || path_alias && path_alias in blacklist );
 		} );
@@ -518,7 +518,7 @@ mw.FlickrChecker.prototype = {
 	 * it is the caller's responsibility to check against both of them.
 	 * @return {jQuery.Promise}
 	 */
-	getBlacklist: function() {
+	getBlacklist: function () {
 		if ( !mw.FlickrChecker.blacklist ) {
 			var api = new mw.Api();
 			mw.FlickrChecker.blacklist = api.get( {
@@ -528,7 +528,7 @@ mw.FlickrChecker.prototype = {
 			} ).then( function ( data ) {
 				var blacklist = {};
 				if ( data.flickrblacklist && data.flickrblacklist.list ) {
-					$.each( data.flickrblacklist.list, function( i, username ) {
+					$.each( data.flickrblacklist.list, function ( i, username ) {
 						blacklist[username] = true;
 					} );
 				}
@@ -541,14 +541,14 @@ mw.FlickrChecker.prototype = {
 	/**
 	 * Retrieve the list of all current Flickr licenses and store it in an array (`mw.FlickrChecker.licenseList`)
 	 */
-	getLicenses: function() {
+	getLicenses: function () {
 		// Workaround for http://bugs.jquery.com/ticket/8283
 		jQuery.support.cors = true;
 		this.flickrRequest( {
 			method: 'flickr.photos.licenses.getInfo'
-		} ).done( function( data ) {
+		} ).done( function ( data ) {
 			if ( typeof data.licenses !== 'undefined' ) {
-				$.each( data.licenses.license, function( index, value ) {
+				$.each( data.licenses.license, function ( index, value ) {
 					mw.FlickrChecker.prototype.licenseList[value.id] = value.name;
 				} );
 			}
@@ -556,14 +556,14 @@ mw.FlickrChecker.prototype = {
 		} );
 	},
 
-	setImageDescription: function( index ) {
+	setImageDescription: function ( index ) {
 		var upload = this.imageUploads[index],
 			photoId = upload.photoId;
 
 		this.flickrRequest( {
 			method: 'flickr.photos.getInfo',
 			photo_id: photoId
-		} ).done( function( data ) {
+		} ).done( function ( data ) {
 			upload.description = data.photo.description._content;
 		} );
 	},
@@ -573,7 +573,7 @@ mw.FlickrChecker.prototype = {
 	 * as the upload URL.
 	 * @param index Index of the image we need to set the URL for
 	 */
-	setImageURL: function( index ) {
+	setImageURL: function ( index ) {
 		var largestSize,
 			checker = this,
 			upload = this.imageUploads[index],
@@ -582,7 +582,7 @@ mw.FlickrChecker.prototype = {
 		this.flickrRequest( {
 			method: 'flickr.photos.getSizes',
 			photo_id: photoId
-		} ).done( function( data ) {
+		} ).done( function ( data ) {
 			var nameParts;
 
 			if ( typeof data.sizes !== 'undefined' && typeof data.sizes.size !== 'undefined' && data.sizes.size.length > 0 )
@@ -610,7 +610,7 @@ mw.FlickrChecker.prototype = {
 		} );
 	},
 
-	checkLicense: function( licenseId ){
+	checkLicense: function ( licenseId ) {
 		var licenseMessage, license,
 			// The returned data.photo.license is just an ID that we use to look up the license name
 			licenseName = mw.FlickrChecker.prototype.licenseList[licenseId],
@@ -633,7 +633,7 @@ mw.FlickrChecker.prototype = {
 		return license;
 	},
 
-	showErrorDialog: function( errorMsg ) {
+	showErrorDialog: function ( errorMsg ) {
 		$( '<div></div>' )
 			.html( errorMsg )
 			.dialog( {

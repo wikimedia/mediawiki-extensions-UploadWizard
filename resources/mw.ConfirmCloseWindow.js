@@ -1,4 +1,4 @@
-( function( mw, $ ) {
+( function ( mw, $ ) {
 	/**
 	 * @method confirmCloseWindow
 	 * @member mw
@@ -26,7 +26,7 @@
 				// remove the handler while the alert is showing - otherwise breaks caching in Firefox (3?).
 				// but if they continue working on this page, immediately re-register this handler
 				window.onbeforeunload = null;
-				setTimeout( function() {
+				setTimeout( function () {
 					window.onbeforeunload = handleBeforeUnload;
 				} );
 
@@ -37,15 +37,15 @@
 
 		var oldUnloadHandler = window.onbeforeunload,
 			defaults = {
-				message: function() { return mw.message( 'mwe-prevent-close' ).text(); },
-				test: function() { return true; }
+				message: function () { return mw.message( 'mwe-prevent-close' ).text(); },
+				test: function () { return true; }
 			};
 
 		options = $.extend( defaults, options || {} );
 		window.onbeforeunload = handleBeforeUnload;
 
 		// return the function they can use to stop this
-		return function() {
+		return function () {
 			window.onbeforeunload = oldUnloadHandler;
 		};
 

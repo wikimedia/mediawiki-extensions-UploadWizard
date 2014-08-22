@@ -9,7 +9,7 @@
  *						monitor fractional progress).
  * @param transportedCb	callback to execute when we've finished the upload
  */
-mw.IframeTransport = function( $form, progressCb, transportedCb ) {
+mw.IframeTransport = function ( $form, progressCb, transportedCb ) {
 	var iframe,
 		transport = this;
 
@@ -62,7 +62,7 @@ mw.IframeTransport.prototype = {
 	 * Accessor function
 	 * @return {jQuery.Deferred}
 	 */
-	getSetUpStatus: function() {
+	getSetUpStatus: function () {
 		return this.setUpStatus;
 	},
 
@@ -70,7 +70,7 @@ mw.IframeTransport.prototype = {
 	 * Configure a form with a File Input so that it submits to the iframe
 	 * Ensure callback on completion of upload
 	 */
-	configureForm: function() {
+	configureForm: function () {
 		var transport = this;
 
 		// Set the form target to the iframe

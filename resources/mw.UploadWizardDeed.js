@@ -1,7 +1,7 @@
 /**
  * Sort of an abstract class for deeds
  */
-( function( mw, $ ) {
+( function ( mw, $ ) {
 
 // Runs through the third-party license groups and finds the
 // relevant ID for that license. Probably really hacky.
@@ -28,7 +28,7 @@ function findLicenseRecursively( license ) {
 	return val;
 }
 
-mw.UploadWizardDeed = function() {
+mw.UploadWizardDeed = function () {
 	mw.UploadWizardDeed.prototype.instanceCount++;
 
 	// prevent from instantiating directly?
@@ -38,21 +38,21 @@ mw.UploadWizardDeed = function() {
 mw.UploadWizardDeed.prototype = {
 	instanceCount: 0,
 
-	valid: function() {
+	valid: function () {
 		return false;
 	},
 
-	getInstanceCount: function() {
+	getInstanceCount: function () {
 		return this.instanceCount;
 	},
 
-	setFormFields: function() { },
+	setFormFields: function () { },
 
-	getSourceWikiText: function() {
+	getSourceWikiText: function () {
 		return $( this.sourceInput ).val();
 	},
 
-	getAuthorWikiText: function() {
+	getAuthorWikiText: function () {
 		return $( this.authorInput ).val();
 	},
 
@@ -60,7 +60,7 @@ mw.UploadWizardDeed.prototype = {
 	 * Get wikitext representing the licenses selected in the license object
 	 * @return wikitext of all applicable license templates.
 	 */
-	getLicenseWikiText: function() {
+	getLicenseWikiText: function () {
 		return this.licenseInput.getWikiText();
 	}
 
@@ -71,7 +71,7 @@ mw.UploadWizardDeed.prototype = {
  * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
  * @param {mw.Api} api object - useful for doing previews
  */
-mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
+mw.UploadWizardDeedOwnWork = function ( uploadCount, api ) {
 	uploadCount = uploadCount ? uploadCount : 1;
 
 	var licenseInputDiv,
@@ -104,7 +104,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 		 * Is this correctly set, with side effects of causing errors to show in interface.
 		 * @return boolean true if valid, false if not
 		 */
-		valid: function() {
+		valid: function () {
 			// n.b. valid() has side effects and both should be called every time the function is called.
 			// do not short-circuit.
 			var formValid = this.$form.valid(),
@@ -112,7 +112,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			return formValid && licenseInputValid;
 		},
 
-		getLicenseWikiText: function() {
+		getLicenseWikiText: function () {
 			var defaultLicense,
 				defaultType = mw.UploadWizard.config.licensing.defaultType;
 
@@ -124,8 +124,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 			if ( this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
 				return this.licenseInput.getWikiText();
-			}
-			else {
+			} else {
 				return '{{' +
 							mw.UploadWizard.config.licensing.ownWork.template +
 						'|' +
@@ -134,13 +133,13 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			}
 		},
 
-		getSourceWikiText: function() {
+		getSourceWikiText: function () {
 			return '{{own}}';
 		},
 
 		// XXX do we need to escape authorInput, or is wikitext a feature here?
 		// what about scripts?
-		getAuthorWikiText: function() {
+		getAuthorWikiText: function () {
 			var author = $( this.authorInput ).val();
 
 			if ( author === '' ) {
@@ -154,8 +153,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			return '[[User:' + mw.config.get( 'wgUserName' ) + '|' + author + ']]';
 		},
 
-
-		setFormFields: function( $selector ) {
+		setFormFields: function ( $selector ) {
 			this.$selector = $selector;
 			var $customDiv, $formFields, $toggler, rules, messages, defaultLicense,
 				defaultLicenseURL, defaultLicenseMsg, defaultLicenseExplainMsg,
@@ -195,7 +193,6 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			);
 			$crossfader = $( '<div />' ).append( $standardDiv );
 
-
 			if ( this.showCustomDiv ) {
 				$customDiv = $('<div />').append(
 					$( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
@@ -214,7 +211,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 			$toggler = $( '<p class="mwe-more-options" style="text-align: right"></p>' )
 				.append( $( '<a />' )
 					.msg( 'mwe-upwiz-license-show-all' )
-					.click( function() {
+					.click( function () {
 						thisDeed.formValidator.resetForm();
 						if ( $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0) ) {
 							thisDeed.licenseInput.setDefaultValues();
@@ -238,10 +235,10 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 					title: mw.message( 'mwe-upwiz-tooltip-sign' ).escaped(),
 					value: mw.config.get(  'wgUserName' )
 				} )
-				.keyup( function() {
+				.keyup( function () {
 					var thisInput = this,
 						thisVal = $( thisInput ).val();
-					$.each( $formFields.find( '.mwe-upwiz-sign' ), function( i, input ) {
+					$.each( $formFields.find( '.mwe-upwiz-sign' ), function ( i, input ) {
 						if (thisInput !== input) {
 							$( input ).val( thisVal );
 						}
@@ -255,7 +252,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 
 			rules = {
 				author2: {
-					required: function() {
+					required: function () {
 						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
 					},
 					minlength: mw.UploadWizard.config.minAuthorLength,
@@ -276,7 +273,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
 				this.licenseInput.setDefaultValues();
 
 				rules.author = {
-					required: function() {
+					required: function () {
 						return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
 					},
 					minlength: mw.UploadWizard.config.minAuthorLength,
@@ -311,7 +308,7 @@ mw.UploadWizardDeedOwnWork = function( uploadCount, api ) {
  * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
  * @param {mw.Api} api object - useful for doing previews
  */
-mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
+mw.UploadWizardDeedThirdParty = function ( uploadCount, api ) {
 	var licenseInputDiv,
 		deed = new mw.UploadWizardDeed();
 
@@ -336,7 +333,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 	return $.extend( deed, mw.UploadWizardDeed.prototype, {
 		name: 'thirdparty',
 
-		setFormFields: function( $selector ) {
+		setFormFields: function ( $selector ) {
 			var $defaultLicense, defaultLicense, defaultLicenseNum, defaultType,
 				$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
 
@@ -424,7 +421,7 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 		 * all validators work the same.
 		 * @return boolean true if valid, false if not
 		 */
-		valid: function() {
+		valid: function () {
 			// n.b. valid() has side effects and both should be called every time the function is called.
 			// do not short-circuit.
 			var formValid = this.$form.valid(),
@@ -434,20 +431,16 @@ mw.UploadWizardDeedThirdParty = function( uploadCount, api ) {
 	} );
 };
 
-
-
-
 /**
  * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
  * @param {String|jQuery} selector where to put this deed chooser
  * @param {Array[UploadWizardDeed]} deeds
  * @param {Array[UploadWizardUpload]} uploads that this applies to (this is just to make deleting and plurals work)
  */
-mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
+mw.UploadWizardDeedChooser = function ( selector, deeds, uploads ) {
 	var chooser = this;
 	this.$selector = $( selector );
 	this.uploads = uploads === undefined ? [] : uploads;
-
 
 	this.$errorEl = $( '<div class="mwe-error"></div>' );
 	this.$selector.append( this.$errorEl );
@@ -456,7 +449,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 	mw.UploadWizardDeedChooser.prototype.widgetCount++;
 	this.name = 'deedChooser' + mw.UploadWizardDeedChooser.prototype.widgetCount.toString();
 
-	this.onLayoutReady = function() {};
+	this.onLayoutReady = function () {};
 
 	$.each( deeds, function ( i, deed ) {
 		var id = chooser.name + '-' + deed.name,
@@ -464,7 +457,7 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 				'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">' +
 					'<div class="mwe-upwiz-deed-option-title">' +
 						'<span class="mwe-upwiz-deed-header">' +
-							'<input id="' + id +'" name="' + chooser.name + '" type="radio" value="' + deed.name + ' /">' +
+							'<input id="' + id + '" name="' + chooser.name + '" type="radio" value="' + deed.name + ' /">' +
 							'<label for="' + id + '" class="mwe-upwiz-deed-name">' +
 								mw.message( 'mwe-upwiz-source-' + deed.name, chooser.uploads.length ).escaped() +
 							'</label>' +
@@ -486,12 +479,11 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 
 		if ( deeds.length === 1 ) {
 			chooser.onLayoutReady = selectDeedFunction;
-		}
-		else {
+		} else {
 			if ( mw.UploadWizard.config.licensing.defaultType === deed.name ) {
 				chooser.onLayoutReady = selectDeedFunction;
 			}
-			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function() {
+			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function () {
 				if ( $( this ).is( ':checked' )  ) {
 					chooser.choose( deed );
 					chooser.selectDeedInterface( $deedInterface );
@@ -504,7 +496,6 @@ mw.UploadWizardDeedChooser = function( selector, deeds, uploads ) {
 	this.deselectDeedInterface( this.$selector.find( '.mwe-upwiz-deed' ) );
 };
 
-
 mw.UploadWizardDeedChooser.prototype = {
 
 	/**
@@ -516,7 +507,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
 	 * @return boolean; true if valid, false if not
 	 */
-	valid: function() {
+	valid: function () {
 		// we assume there is always a deed available, even if it's just the null deed.
 		var valid = this.deed.valid();
 		// the only time we need to set an error message is if the null deed is selected.
@@ -527,12 +518,12 @@ mw.UploadWizardDeedChooser.prototype = {
 		return valid;
 	},
 
-	showError: function( error ) {
+	showError: function ( error ) {
 		this.$errorEl.html( error );
 		this.$errorEl.fadeIn();
 	},
 
-	hideError: function() {
+	hideError: function () {
 		this.$errorEl.fadeOut();
 		this.$errorEl.empty();
 	},
@@ -542,8 +533,7 @@ mw.UploadWizardDeedChooser.prototype = {
 	 */
 	uploads: [],
 
-
-	choose: function( deed ) {
+	choose: function ( deed ) {
 		this.deed = deed;
 		$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next' ).show();
 	},
@@ -551,20 +541,20 @@ mw.UploadWizardDeedChooser.prototype = {
 	/**
 	 * From the deed choices, make a choice fade to the background a bit, hide the extended form
 	 */
-	deselectDeedInterface: function( $deedSelector ) {
+	deselectDeedInterface: function ( $deedSelector ) {
 		$deedSelector.removeClass( 'selected' );
-		$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
+		$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
 			var $form = $( form ),
 				originalResetForm = $.fn.resetForm;
-			$.each( $form.find('.mwe-upwiz-hint'), function( i, hint ) {
+			$.each( $form.find('.mwe-upwiz-hint'), function ( i, hint ) {
 				$( hint ).tipsy('hide');
 			} );
 			// Remove errors
 			if ( originalResetForm ) {
 				// Make sure that $validator.resetForm() resets only the errors, not the form fields!
-				$.fn.resetForm = function() { };
+				$.fn.resetForm = function () { };
 			}
-			$.each( $form.find( 'form' ), function( i, form ) {
+			$.each( $form.find( 'form' ), function ( i, form ) {
 				var $validator = $( form ).data( 'validator' );
 				if ( $validator ) {
 					$validator.resetForm(); // Clear out all errors in the form
@@ -584,11 +574,11 @@ mw.UploadWizardDeedChooser.prototype = {
 	/**
 	 * From the deed choice page, show a particular deed
 	 */
-	selectDeedInterface: function( $deedSelector ) {
+	selectDeedInterface: function ( $deedSelector ) {
 		var $otherDeeds = $deedSelector.siblings().filter( '.mwe-upwiz-deed' );
 		this.deselectDeedInterface( $otherDeeds );
 		$deedSelector.addClass( 'selected' ).fadeTo( 'fast', 1.0 );
-		$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function( i, form ) {
+		$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
 			var $form = $( form );
 			// (Re-)enable all form inputs
 			$form.find( ':input' ).prop( 'disabled', false );
@@ -600,7 +590,7 @@ mw.UploadWizardDeedChooser.prototype = {
 		} );
 	},
 
-	remove: function() {
+	remove: function () {
 		this.$selector.html('');
 	}
 

@@ -4,7 +4,7 @@
  * @param languageCode -- string
  * @param required -- boolean -- the first description is required and should be validated and displayed a bit differently
  */
-mw.UploadWizardDescription = function( languageCode, required, initialValue ) {
+mw.UploadWizardDescription = function ( languageCode, required, initialValue ) {
 	mw.UploadWizardDescription.prototype.count++;
 	this.id = 'description' + mw.UploadWizardDescription.prototype.count;
 	this.isRequired = required;
@@ -53,11 +53,11 @@ mw.UploadWizardDescription.prototype = {
 	/* widget count for auto incrementing */
 	count: 0,
 
-	getText: function() {
+	getText: function () {
 		return $.trim( $( this.input ).val() );
 	},
 
-	setText: function( text ) {
+	setText: function ( text ) {
 		// strip out any HTML tags
 		text = text.replace( /<[^>]+>/g, '' );
 		// & and " are escaped by Flickr, so we need to unescape
@@ -65,7 +65,7 @@ mw.UploadWizardDescription.prototype = {
 		$( this.input ).val( $.trim( text ) );
 	},
 
-	getLanguage: function() {
+	getLanguage: function () {
 		return $.trim( $( this.languageMenu ).val() );
 	},
 
@@ -73,7 +73,7 @@ mw.UploadWizardDescription.prototype = {
 	 * Obtain text of this description, suitable for including into Information template
 	 * @return wikitext as a string
 	 */
-	getWikiText: function() {
+	getWikiText: function () {
 		var language, fix,
 			description = this.getText();
 		// we assume that form validation has caught this problem if this is a required field
@@ -93,7 +93,7 @@ mw.UploadWizardDescription.prototype = {
 	 * defer adding rules until it's in a form
 	 * @return validator
 	 */
-	addValidationRules: function( required ) {
+	addValidationRules: function ( required ) {
 		// Make sure the keyup event doesn't bubble...we don't care
 		// about validity until blur.
 		// Note that this event is caught higher up by the jQuery

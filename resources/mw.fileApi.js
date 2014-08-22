@@ -1,13 +1,13 @@
 /* miscellaneous fileApi routines -- partially copied from mediawiki.special.upload.js, must refactor... */
 
-( function( mw, $ ) {
+( function ( mw, $ ) {
 
 	mw.fileApi = {
 
 		/**
 		 * Is the FileAPI available with sufficient functionality?
 		 */
-		isAvailable: function() {
+		isAvailable: function () {
 			return typeof window.FileReader !== 'undefined';
 		},
 
@@ -21,7 +21,7 @@
 		 * @param {File} file
 		 * @return boolean
 		 */
-		isPreviewableFile: function( file ) {
+		isPreviewableFile: function ( file ) {
 			var	known = [ 'image/png', 'image/gif', 'image/jpeg' ],
 				tooHuge = 10 * 1024 * 1024;
 			return this.isPreviewableVideo( file ) || ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
@@ -38,7 +38,7 @@
 			return video.canPlayType && video.canPlayType( file.type ).replace( 'no', '' ) !== '';
 		},
 
-		isFormDataAvailable: function() {
+		isFormDataAvailable: function () {
 			return window.FormData !== undefined && window.File !== undefined && window.File.prototype.slice !== undefined;
 		}
 	};

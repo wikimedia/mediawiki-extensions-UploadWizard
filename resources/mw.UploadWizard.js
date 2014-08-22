@@ -2,9 +2,9 @@
 * Object that reperesents the entire multi-step Upload Wizard
 */
 
-( function( mw, uw, $ ) {
+( function ( mw, uw, $ ) {
 
-mw.UploadWizard = function( config ) {
+mw.UploadWizard = function ( config ) {
 
 	this.uploads = [];
 	this.api = new mw.Api( { ajax: { timeout: 0 } } );
@@ -43,7 +43,6 @@ mw.UploadWizard.DEBUG = true;
 
 mw.UploadWizard.userAgent = 'UploadWizard';
 
-
 mw.UploadWizard.prototype = {
 	stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
 	currentStepName: undefined,
@@ -53,15 +52,14 @@ mw.UploadWizard.prototype = {
 	 * (depends on updateFileCounts to reset the interface when uploads go down to 0)
 	 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 	 */
-	reset: function() {
+	reset: function () {
 		mw.UploadWizardUpload.prototype.count = -1; // this is counterintuitive, but the count needs to start at -1 to allow for the empty upload created on the first step.
 		this.showDeed = false;
 		$.purgeReadyEvents();
 		$.purgeSubscriptions();
-		this.removeMatchingUploads( function() { return true; } );
+		this.removeMatchingUploads( function () { return true; } );
 		this.moveToStep( 'file' );
 	},
-
 
 	/**
 	 * create the basic interface to make an upload in this div
@@ -134,11 +132,11 @@ mw.UploadWizard.prototype = {
 			} )
 
 			.on( 'next-from-upload', function () {
-				wizard.removeErrorUploads( function() {
+				wizard.removeErrorUploads( function () {
 					if ( wizard.showDeed ) {
 						wizard.prepareAndMoveToDeeds();
 					} else {
-						$.each( wizard.uploads, function( i, upload ) {
+						$.each( wizard.uploads, function ( i, upload ) {
 							upload.details.titleInput.checkTitle();
 							if ( upload.fromURL ) {
 								upload.details.useCustomDeedChooser();
@@ -208,7 +206,7 @@ mw.UploadWizard.prototype = {
 	 * Initiates the Interface to upload media from Flickr.
 	 * Called when the user clicks on the 'Add images from Flickr' button.
 	 */
-	flickrInterfaceInit: function() {
+	flickrInterfaceInit: function () {
 		var $disclaimer,
 			wizard = this,
 			checker = new mw.FlickrChecker( this, this.upload ),
@@ -241,7 +239,7 @@ mw.UploadWizard.prototype = {
 		$( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
 
 		// Insert input field into the form and set up submit action
-		$flickrForm.prepend( $flickrInput ).submit( function() {
+		$flickrForm.prepend( $flickrInput ).submit( function () {
 			$flickrButton.prop( 'disabled', true );
 			wizard.flickrChecker( checker );
 			// TODO Any particular reason to stopPropagation ?
@@ -257,10 +255,10 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Responsible for fetching license of the provided media.
 	 */
-	flickrChecker: function( checker ) {
+	flickrChecker: function ( checker ) {
 		var flickrInputUrl = $( '#mwe-upwiz-flickr-input' ).val();
 		checker.getLicenses();
-		$( '#mwe-upwiz-flickr-select-list-container' ).bind( 'licenselistfilled' , function() {
+		$( '#mwe-upwiz-flickr-select-list-container' ).bind( 'licenselistfilled', function () {
 			checker.checkFlickr( flickrInputUrl );
 		} );
 	},
@@ -268,7 +266,7 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Reset the interface if there is a problem while fetching the images from the URL entered by the user.
 	 */
-	flickrInterfaceReset: function() {
+	flickrInterfaceReset: function () {
 		// first destroy it completely, then reshow the add button
 		this.flickrInterfaceDestroy();
 		$( '#mwe-upwiz-upload-add-flickr-container' ).show();
@@ -278,7 +276,7 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Removes the flickr interface.
 	 */
-	flickrInterfaceDestroy: function() {
+	flickrInterfaceDestroy: function () {
 		$( '#mwe-upwiz-flickr-input' ).val( '' );
 		$( '#mwe-upwiz-flickr-select-list' ).empty();
 		$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
@@ -295,7 +293,7 @@ mw.UploadWizard.prototype = {
 	 * @param {int|false} uploadsLength
 	 * @return {Array}
 	 */
-	getLicensingDeeds: function( uploadsLength ) {
+	getLicensingDeeds: function ( uploadsLength ) {
 		var deeds = [],
 			doOwnWork = false,
 			doThirdParty = false;
@@ -319,20 +317,18 @@ mw.UploadWizard.prototype = {
 	},
 
 	// do some last minute prep before advancing to the DEEDS page
-	prepareAndMoveToDeeds: function() {
+	prepareAndMoveToDeeds: function () {
 		var customDeed, uploadsClone,
 			wizard = this,
 			deeds = this.getLicensingDeeds( this.uploads.length );
 
-		this.shouldShowIndividualDeed = function() {
+		this.shouldShowIndividualDeed = function () {
 			if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'choice' ) {
 				return true;
-			}
-			else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
+			} else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
 				var ownWork = mw.UploadWizard.config.licensing.ownWork;
 				return ownWork.licenses.length > 1;
-			}
-			else {
+			} else {
 				return true; // TODO: might want to have similar behaviour here
 			}
 		};
@@ -341,13 +337,13 @@ mw.UploadWizard.prototype = {
 		// licenses individually
 		if ( this.uploads.length > 1 && this.shouldShowIndividualDeed() ) {
 			customDeed = $.extend( new mw.UploadWizardDeed(), {
-				valid: function() { return true; },
+				valid: function () { return true; },
 				name: 'custom'
 			} );
 			deeds.push( customDeed );
 		}
 
-		uploadsClone = $.map( this.uploads, function( x ) { return x; } );
+		uploadsClone = $.map( this.uploads, function ( x ) { return x; } );
 		this.deedChooser = new mw.UploadWizardDeedChooser(
 			'#mwe-upwiz-deeds',
 			deeds,
@@ -358,7 +354,7 @@ mw.UploadWizard.prototype = {
 			.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
 			.msg( 'mwe-upwiz-deeds-macro-prompt', this.uploads.length, mw.user );
 
-		this.moveToStep( 'deeds', function() { wizard.deedChooser.onLayoutReady(); } );
+		this.moveToStep( 'deeds', function () { wizard.deedChooser.onLayoutReady(); } );
 	},
 
 	/**
@@ -369,8 +365,8 @@ mw.UploadWizard.prototype = {
 	 * @param selectedStepName
 	 * @param callback to do after layout is ready?
 	 */
-	moveToStep: function( selectedStepName, callback ) {
-		if( this.currentStepName === selectedStepName ) {
+	moveToStep: function ( selectedStepName, callback ) {
+		if ( this.currentStepName === selectedStepName ) {
 			// already there!
 			return;
 		}
@@ -400,7 +396,7 @@ mw.UploadWizard.prototype = {
 			this.resetFileStepUploads();
 		}
 
-		$.each( this.uploads, function(i, upload) {
+		$.each( this.uploads, function (i, upload) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -415,7 +411,7 @@ mw.UploadWizard.prototype = {
 	/**
 	 * If there are no uploads, make a new one
 	 */
-	resetFileStepUploads: function() {
+	resetFileStepUploads: function () {
 		if ( this.uploads.length === 0 ) {
 			// add one upload field to start (this is the big one that asks you to upload something)
 			this.newUpload();
@@ -437,7 +433,7 @@ mw.UploadWizard.prototype = {
 	 *
 	 * @return the new upload
 	 */
-	newUpload: function( providedFile, reservedIndex ) {
+	newUpload: function ( providedFile, reservedIndex ) {
 		var upload,
 			wizard = this;
 
@@ -460,9 +456,15 @@ mw.UploadWizard.prototype = {
 		upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
 
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
-		$( upload.ui.div ).bind( 'filenameAccepted', function(e) { wizard.updateFileCounts(); e.stopPropagation(); } );
+		$( upload.ui.div ).bind( 'filenameAccepted', function (e) {
+			wizard.updateFileCounts();
+			e.stopPropagation();
+		} );
 
-		$( upload.ui.div ).bind( 'removeUploadEvent', function(e) { wizard.removeUpload( upload ); e.stopPropagation(); } );
+		$( upload.ui.div ).bind( 'removeUploadEvent', function (e) {
+			wizard.removeUpload( upload );
+			e.stopPropagation();
+		} );
 		return upload;
 	},
 
@@ -489,7 +491,7 @@ mw.UploadWizard.prototype = {
 		}
 
 		//If upload is through a local file, then we need to show the Deeds step of the wizard
-		if( !upload.fromURL ) {
+		if ( !upload.fromURL ) {
 			this.showDeed = true;
 		}
 
@@ -501,10 +503,10 @@ mw.UploadWizard.prototype = {
 				'new',
 				[ 'transporting', 'transported', 'metadata' ],
 				[ 'error', 'stashed' ],
-				function( upload ) {
+				function ( upload ) {
 					upload.start();
 				},
-				function() {
+				function () {
 					wizard.showNext( 'file', 'stashed' );
 				}
 			);
@@ -520,7 +522,7 @@ mw.UploadWizard.prototype = {
 	 *
 	 * @param upload
 	 */
-	removeUpload: function( upload ) {
+	removeUpload: function ( upload ) {
 		// remove the div that passed along the trigger
 		var $div = $( upload.ui.div );
 
@@ -541,15 +543,15 @@ mw.UploadWizard.prototype = {
 	 * This is useful to clean out unused upload file inputs if the user hits GO.
 	 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
 	 */
-	removeEmptyUploads: function() {
+	removeEmptyUploads: function () {
 
 		// First remove array keys that don't have an assigned upload object
 		this.uploads = $.grep( this.uploads,
-			function( v ) { return v !== undefined; }
+			function ( v ) { return v !== undefined; }
 		);
 
 		// Now remove upload objects that exist but are empty
-		this.removeMatchingUploads( function( upload ) {
+		this.removeMatchingUploads( function ( upload ) {
 			return mw.isEmpty( upload.filename );
 		} );
 	},
@@ -558,23 +560,22 @@ mw.UploadWizard.prototype = {
 	 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
 	 * @param {Function} to be called when done
 	 */
-	removeErrorUploads: function( endCallback ) {
-		this.removeMatchingUploads( function( upload ) {
+	removeErrorUploads: function ( endCallback ) {
+		this.removeMatchingUploads( function ( upload ) {
 			return upload.state === 'error';
 		} );
 		endCallback();
 	},
-
 
 	/**
 	 * This is useful to clean out file inputs that we don't want for some reason (error, empty...)
 	 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
 	 * @param Function criterion: function to test the upload, returns boolean; true if should be removed
 	 */
-	removeMatchingUploads: function( criterion ) {
+	removeMatchingUploads: function ( criterion ) {
 		var toRemove = [];
 
-		$.each( this.uploads, function( i, upload ) {
+		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -583,15 +584,13 @@ mw.UploadWizard.prototype = {
 			}
 		} );
 
-		$.each( toRemove, function( i, upload ) {
+		$.each( toRemove, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
 			upload.remove();
 		} );
 	},
-
-
 
 	/**
 	 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
@@ -602,13 +601,13 @@ mw.UploadWizard.prototype = {
 	 * @param starter		function, taking single argument (upload) which starts the process we're interested in
 	 * @param endCallback	function to call when all uploads are in the end state.
 	 */
-	makeTransitioner: function( beginState, progressStates, endStates, starter, endCallback ) {
+	makeTransitioner: function ( beginState, progressStates, endStates, starter, endCallback ) {
 		var nextAction,
 			uploadsToStart = this.maxSimultaneousConnections,
 			wizard = this,
 			endStateCount = 0;
 
-		$.each( this.uploads, function(i, upload) {
+		$.each( this.uploads, function (i, upload) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -627,7 +626,7 @@ mw.UploadWizard.prototype = {
 			nextAction = endCallback;
 		} else {
 			// Function.prototype.bind is not used because it is not supported by IE 8
-			nextAction = function() {
+			nextAction = function () {
 				wizard.makeTransitioner( beginState, progressStates, endStates, starter, endCallback );
 			};
 		}
@@ -670,7 +669,7 @@ mw.UploadWizard.prototype = {
 	 * and kicks off a thread which will take from the queue.
 	 * @param endCallback   - to execute when uploads are completed
 	 */
-	startUploads: function() {
+	startUploads: function () {
 		var wizard = this;
 		// remove the upload button, and the add file button
 		$( '#mwe-upwiz-upload-ctrls' ).hide();
@@ -678,7 +677,7 @@ mw.UploadWizard.prototype = {
 		$( '#mwe-upwiz-add-file' ).hide();
 
 		// reset any uploads in error state back to be shiny & new
-		$.each( this.uploads, function( i, upload ) {
+		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -690,8 +689,8 @@ mw.UploadWizard.prototype = {
 		} );
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
-			message: function() { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
-			test: function() { return !wizard.isComplete() && wizard.uploads.length > 0; }
+			message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
+			test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; }
 		} );
 
 		$( '#mwe-upwiz-progress' ).show();
@@ -715,10 +714,10 @@ mw.UploadWizard.prototype = {
 			'new',
 			[ 'transporting', 'transported', 'metadata' ],
 			[ 'error', 'stashed' ],
-			function( upload ) {
+			function ( upload ) {
 				upload.start();
 			},
-			function() {
+			function () {
 				wizard.showNext( 'file', 'stashed' );
 			}
 		);
@@ -740,7 +739,7 @@ mw.UploadWizard.prototype = {
 	 * @param {String} step that we are on
 	 * @param {String} desired state to proceed (other state is assumed to be 'error')
 	 */
-	showNext: function( step, desiredState, allOkCallback ) {
+	showNext: function ( step, desiredState, allOkCallback ) {
 		var errorCount = 0,
 			okCount = 0,
 			stillGoing = 0,
@@ -748,11 +747,11 @@ mw.UploadWizard.prototype = {
 			allOk = false;
 
 		// abort if all uploads have been removed
-		if( this.uploads.length === 0 ) {
+		if ( this.uploads.length === 0 ) {
 			return;
 		}
 
-		$.each( this.uploads, function( i, upload ) {
+		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -760,7 +759,7 @@ mw.UploadWizard.prototype = {
 				errorCount++;
 			} else if ( upload.state === desiredState ) {
 				// Add previews and details to the DOM
-				if( !upload.fromURL ){
+				if ( !upload.fromURL ) {
 					upload.deedPreview.attach();
 				}
 				upload.details.attach();
@@ -818,7 +817,7 @@ mw.UploadWizard.prototype = {
 	 * TODO in the case of aborting the only upload, we get kicked back here, but the file input over the add file
 	 * button has been removed. How to get it back into "virginal" state?
 	 */
-	updateFileCounts: function() {
+	updateFileCounts: function () {
 		// First reset the wizard buttons.
 		this.ui.hideFileEndButtons();
 
@@ -935,7 +934,6 @@ mw.UploadWizard.prototype = {
 		}
 	},
 
-
 	/**
 	 * are all the details valid?
 	 * @return boolean
@@ -976,11 +974,11 @@ mw.UploadWizard.prototype = {
 		} );
 
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
-		buttons[ mw.message( 'mwe-upwiz-dialog-yes' ).escaped() ] = function() {
+		buttons[ mw.message( 'mwe-upwiz-dialog-yes' ).escaped() ] = function () {
 			$( this ).dialog( 'close' );
 			cb();
 		};
-		buttons[ mw.message( 'mwe-upwiz-dialog-no' ).escaped() ] = function() {
+		buttons[ mw.message( 'mwe-upwiz-dialog-no' ).escaped() ] = function () {
 			$( this ).dialog( 'close' );
 		};
 		confirmationDialog = $( '<div></div>' )
@@ -1013,8 +1011,8 @@ mw.UploadWizard.prototype = {
 	 * Works just like startUploads -- parallel simultaneous submits with progress bar.
 	 * @param {Function} endCallback - called when all uploads complete. In our case is probably a move to the next step
 	 */
-	detailsSubmit: function( endCallback ) {
-		$.each( this.uploads, function( i, upload ) {
+	detailsSubmit: function ( endCallback ) {
+		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -1049,7 +1047,7 @@ mw.UploadWizard.prototype = {
 			'details',
 			[ 'submitting-details' ],
 			[ 'error', 'complete' ],
-			function( upload ) {
+			function ( upload ) {
 				upload.details.submit();
 			},
 			endCallback /* called when all uploads are in a valid end state */
@@ -1063,7 +1061,7 @@ mw.UploadWizard.prototype = {
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
 	 * This method also opens up "more info" if the form has errors.
 	 */
-	detailsErrorCount: function() {
+	detailsErrorCount: function () {
 		var errorCount,
 			$errorElements = $( '#mwe-upwiz-stepdiv-details' )
 				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' );
@@ -1072,7 +1070,7 @@ mw.UploadWizard.prototype = {
 		$errorElements.each( function () {
 			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
 				var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
-				if( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
+				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
 					moreInfo.click();
 				}
 			}
@@ -1091,12 +1089,12 @@ mw.UploadWizard.prototype = {
 	/**
 	 * Set the skip tutorial user preference via the options API
 	 */
-	setSkipTutorialPreference: function() {
+	setSkipTutorialPreference: function () {
 		var api = this.api,
 			isComplete = false,
 			tokenRequest = {
 				'action': 'tokens',
-				'type' : 'options'
+				'type': 'options'
 			},
 			prefRequest = {
 				'action': 'options',
@@ -1104,12 +1102,12 @@ mw.UploadWizard.prototype = {
 			};
 
 		var allowCloseWindow = mw.confirmCloseWindow( {
-			message: function() { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
-			test: function() { return !isComplete; }
+			message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
+			test: function () { return !isComplete; }
 		} );
 
 		api.post( tokenRequest,
-			function( data ) {
+			function ( data ) {
 				var token;
 				try {
 					token = data.tokens.optionstoken;
@@ -1117,7 +1115,7 @@ mw.UploadWizard.prototype = {
 					throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
 				}
 				prefRequest.token = token;
-				api.post( prefRequest, function() {
+				api.post( prefRequest, function () {
 					isComplete = true;
 					allowCloseWindow();
 					return true;
@@ -1134,19 +1132,19 @@ mw.UploadWizard.prototype = {
  * @param {String} message for dialog title
  * @param {String} message for dialog text, which will precede an unordered list of upload titles.
  */
-mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
+mw.UploadWizardDeleteDialog = function ( uploads, dialogTitle, dialogText ) {
 	var $filenameList = $( '<ul></ul>' ),
 		buttons = {};
 
-	$.each( uploads, function( i, upload ) {
+	$.each( uploads, function ( i, upload ) {
 		if ( upload === undefined ) {
 			return;
 		}
 		$filenameList.append( $( '<li></li>' ).append( upload.title.getMain() ) );
 	} );
 
-	buttons[ mw.message( 'mwe-upwiz-remove', uploads.length ).escaped() ] = function() {
-		$.each( uploads, function( i, upload ) {
+	buttons[ mw.message( 'mwe-upwiz-remove', uploads.length ).escaped() ] = function () {
+		$.each( uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
@@ -1154,7 +1152,7 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 		} );
 		$( this ).dialog( 'close' );
 	};
-	buttons[ mw.message( 'mwe-upwiz-cancel', uploads.length ).escaped() ] = function() {
+	buttons[ mw.message( 'mwe-upwiz-cancel', uploads.length ).escaped() ] = function () {
 		$( this ).dialog( 'close' );
 	};
 
@@ -1170,14 +1168,13 @@ mw.UploadWizardDeleteDialog = function( uploads, dialogTitle, dialogText ) {
 		} );
 };
 
-
-mw.UploadWizardDeedPreview = function(upload) {
+mw.UploadWizardDeedPreview = function (upload) {
 	this.upload = upload;
 };
 
 mw.UploadWizardDeedPreview.prototype = {
 
-	setup: function() {
+	setup: function () {
 		// prepare a preview on the deeds page
 		this.$thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		this.upload.setThumbnail(
@@ -1188,7 +1185,7 @@ mw.UploadWizardDeedPreview.prototype = {
 		);
 	},
 
-	remove: function() {
+	remove: function () {
 		if ( this.$thumbnailDiv ) {
 			this.$thumbnailDiv.remove();
 		}
@@ -1204,7 +1201,7 @@ mw.UploadWizardDeedPreview.prototype = {
 	 *
 	 * Will only append once.
 	 */
-	attach: function() {
+	attach: function () {
 		if ( !this.isAttached ) {
 			$( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
 			this.isAttached = true;
@@ -1218,16 +1215,16 @@ mw.UploadWizardDeedPreview.prototype = {
  * @param {mixed} v Variable to be checked
  * @return {boolean}
  */
-mw.isEmpty = function( v ) {
+mw.isEmpty = function ( v ) {
 	return v === undefined || v === null || v === '';
 };
 
-	$.fn.readonly = function() {
+	$.fn.readonly = function () {
 		return this.attr( 'readonly', 'readonly' ).addClass( 'mwe-readonly' );
 	};
 
 	/* will change in RTL, but I can't think of an easy way to do this with only CSS */
-	$.fn.requiredFieldLabel = function() {
+	$.fn.requiredFieldLabel = function () {
 		this.addClass( 'mwe-upwiz-required-field' );
 		return this.prepend( $( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
 	};
@@ -1240,7 +1237,7 @@ mw.isEmpty = function( v ) {
 	 * @param key {string}  -- will base the tooltip on a message found with this key
 	 * @param fn {function} optional -- call this function every time tip is created to generate message. If present HTML element gets an id of the exact key specified
 	 */
-	$.fn.addHint = function( key, fn ) {
+	$.fn.addHint = function ( key, fn ) {
 		var attrs, contentSource, html = false;
 		if ( typeof fn === 'function' ) {
 			attrs = { id: key };
@@ -1254,7 +1251,7 @@ mw.isEmpty = function( v ) {
 			$( '<span/>' )
 				.addClass( 'mwe-upwiz-hint' )
 				.attr( attrs )
-				.click( function() {
+				.click( function () {
 					if ( !this.displayed ) {
 						$ ( this ).tipsy( 'show' );
 						this.displayed = true;
@@ -1264,7 +1261,7 @@ mw.isEmpty = function( v ) {
 					}
 					return false;
 				} )
-				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual'} )
+				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual' } )
 		);
 	};
 
@@ -1272,7 +1269,7 @@ mw.isEmpty = function( v ) {
 	 * jQuery extension. Makes a textarea automatically grow if you enter overflow
 	 * (This feature was in the old Commons interface with a confusing arrow icon; it's nicer to make it automatic.)
 	 */
-	jQuery.fn.growTextArea = function() {
+	jQuery.fn.growTextArea = function () {
 
 		// this is a jquery-style object
 
@@ -1281,12 +1278,12 @@ mw.isEmpty = function( v ) {
 		// but it shouldn't because it will always grow to accomodate very quickly.
 
 		if ( $.msie ) {
-			this.each( function(i, textArea) {
+			this.each( function (i, textArea) {
 				textArea.style.overflow = 'visible';
 			} );
 		}
 
-		var resizeIfNeeded = function() {
+		var resizeIfNeeded = function () {
 			// this is the dom element
 			// is there a better way to do this?
 			if ( this.scrollHeight >= this.offsetHeight && !this.style.height ) {
@@ -1304,7 +1301,6 @@ mw.isEmpty = function( v ) {
 		this.keyup( resizeIfNeeded );
 		this.change( resizeIfNeeded );
 
-
 		return this;
 	};
 
@@ -1320,19 +1316,19 @@ mw.isEmpty = function( v ) {
 	 * TODO: needs to iterate through elements, if we want to apply toggling behavior to many elements at once
 	 * TODO: add a method to open and close besides clicking
 	 */
-	jQuery.fn.collapseToggle = function() {
+	jQuery.fn.collapseToggle = function () {
 		var $el = this,
 			$contents = $el.find( '.mwe-upwiz-toggler-content' ).hide(),
 			$toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
-		$el.data( 'open', function() {
+		$el.data( 'open', function () {
 			$contents.slideDown( 250 );
 			$toggle.addClass( 'mwe-upwiz-toggler-open' );
 		} );
-		$el.data( 'close', function() {
+		$el.data( 'close', function () {
 			$contents.slideUp( 250 );
 			$toggle.removeClass( 'mwe-upwiz-toggler-open' );
 		} );
-		$toggle.click( function( e ) {
+		$toggle.click( function ( e ) {
 			e.stopPropagation();
 			if ( $toggle.hasClass( 'mwe-upwiz-toggler-open' ) ) {
 				$el.data( 'close' )();

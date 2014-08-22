@@ -2,7 +2,7 @@
 /**
  * this is a progress bar for monitoring multiple objects, giving summary view
  */
-mw.GroupProgressBar = function( selector, text, uploads, successStates, errorStates, progressProperty, weightProperty ) {
+mw.GroupProgressBar = function ( selector, text, uploads, successStates, errorStates, progressProperty, weightProperty ) {
 	// XXX need to figure out a way to put text inside bar
 	this.$selector = $( selector );
 	this.$selector.html(
@@ -17,7 +17,7 @@ mw.GroupProgressBar = function( selector, text, uploads, successStates, errorSta
 		'</div>'
 	);
 
-	this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value : 0 } );
+	this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value: 0 } );
 
 	this.uploads = uploads;
 	this.successStates = successStates;
@@ -32,14 +32,14 @@ mw.GroupProgressBar.prototype = {
 	/**
 	 * Show the progress bar
 	 */
-	showBar: function() {
+	showBar: function () {
 		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
 	},
 
 	/**
 	 * loop around the uploads, summing certain properties for a weighted total fraction
 	 */
-	start: function() {
+	start: function () {
 		var bar = this,
 			shown = false;
 
@@ -52,7 +52,7 @@ mw.GroupProgressBar.prototype = {
 				errorStateCount = 0,
 				hasData = false;
 
-			$.each( bar.uploads, function( i, upload ) {
+			$.each( bar.uploads, function ( i, upload ) {
 				if ( upload === undefined ) {
 					return;
 				}
@@ -60,7 +60,7 @@ mw.GroupProgressBar.prototype = {
 				totalWeight += upload[bar.weightProperty];
 			} );
 
-			$.each( bar.uploads, function( i, upload ) {
+			$.each( bar.uploads, function ( i, upload ) {
 				if ( upload === undefined ) {
 					return;
 				}
@@ -81,7 +81,7 @@ mw.GroupProgressBar.prototype = {
 			// sometimes, the first data we have just tells us that it's over. So only show the bar
 			// if we have good data AND the fraction is less than 1.
 			if ( hasData && fraction < 1.0 ) {
-				if ( ! shown ) {
+				if ( !shown ) {
 					bar.showBar();
 					shown = true;
 				}
@@ -94,17 +94,16 @@ mw.GroupProgressBar.prototype = {
 			} else {
 				bar.showProgress( 1.0 );
 				bar.finished = true;
-				setTimeout( function() { bar.hideBar(); }, 500 );
+				setTimeout( function () { bar.hideBar(); }, 500 );
 			}
 		}
 		displayer();
 	},
 
-
 	/**
 	 * Hide the progress bar with a slideup motion
 	 */
-	hideBar: function() {
+	hideBar: function () {
 		this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeOut( 200 );
 	},
 
@@ -114,10 +113,9 @@ mw.GroupProgressBar.prototype = {
 	 *
 	 * @param time  optional; the time this bar is presumed to have started (epoch milliseconds)
 	 */
-	setBeginTime: function( time ) {
+	setBeginTime: function ( time ) {
 		this.beginTime = time ? time : ( new Date() ).getTime();
 	},
-
 
 	/**
 	 * Show overall progress for the entire UploadWizard
@@ -126,7 +124,7 @@ mw.GroupProgressBar.prototype = {
 	 * the overall progress.
 	 * @param fraction the amount of whatever it is that's done whatever it's done
 	 */
-	showProgress: function( fraction ) {
+	showProgress: function ( fraction ) {
 		var t, timeString,
 			remainingTime = this.getRemainingTime( fraction );
 
@@ -170,12 +168,11 @@ mw.GroupProgressBar.prototype = {
 		return null;
 	},
 
-
 	/**
 	 * Show the overall count as we upload
 	 * @param count  -- the number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 	 */
-	showCount: function( count ) {
+	showCount: function ( count ) {
 		this.$selector
 			.find( '.mwe-upwiz-count' )
 			.html( mw.message( 'mwe-upwiz-upload-count', count, this.uploads.length - this.countEmpties() ).escaped() );

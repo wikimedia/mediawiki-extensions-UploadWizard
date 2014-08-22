@@ -6,7 +6,7 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-( function( mw, $, oo ) {
+( function ( mw, $, oo ) {
 
 var UWUP,
 	fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
@@ -107,7 +107,7 @@ UWUP.acceptDeed = function () {
 /**
  * start
  */
-UWUP.start = function() {
+UWUP.start = function () {
 	var upload = this;
 
 	if ( mw.UploadWizard.config.startImmediately === true ) {
@@ -130,7 +130,7 @@ UWUP.start = function() {
 /**
  *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from
  */
-UWUP.remove = function() {
+UWUP.remove = function () {
 	this.state = 'aborted';
 	if ( this.deedPreview ) {
 		this.deedPreview.remove();
@@ -153,7 +153,6 @@ UWUP.remove = function() {
 	}
 };
 
-
 /**
  * Wear our current progress, for observing processes to see
  * @param fraction
@@ -167,7 +166,7 @@ UWUP.setTransportProgress = function ( fraction ) {
 /**
  * Stop the upload -- we have failed for some reason
  */
-UWUP.setError = function( code, info ) {
+UWUP.setError = function ( code, info ) {
 	this.state = 'error';
 	this.transportProgress = 0;
 	this.ui.showError( code, info );
@@ -186,7 +185,7 @@ UWUP.removeErrors = function ( code ) {
  * To be executed when an individual upload finishes. Processes the result and updates step 2's details
  * @param result	the API result in parsed JSON form
  */
-UWUP.setTransported = function( result ) {
+UWUP.setTransported = function ( result ) {
 	if ( this.state === 'aborted' ) {
 		return;
 	}
@@ -290,16 +289,16 @@ UWUP.setTransported = function( result ) {
  * @param {String} error code, should have matching strings in .i18n.php
  * @param {Object} portion of the API error result listing duplicates
  */
-UWUP.duplicateErrorInfo = function( code, resultDuplicate ) {
+UWUP.duplicateErrorInfo = function ( code, resultDuplicate ) {
 	function dialogFn(e) {
 		$( '<div></div>' )
 			.html( $ul )
 			.dialog( {
-				width : 500,
-				zIndex : 200000,
-				autoOpen : true,
-				title : mw.message( 'api-error-' + code + '-popup-title', duplicates.length ).escaped(),
-				modal : true
+				width: 500,
+				zIndex: 200000,
+				autoOpen: true,
+				title: mw.message( 'api-error-' + code + '-popup-title', duplicates.length ).escaped(),
+				modal: true
 			} );
 		e.preventDefault();
 	}
@@ -313,7 +312,7 @@ UWUP.duplicateErrorInfo = function( code, resultDuplicate ) {
 		duplicates = [ resultDuplicate ];
 	}
 
-	$.each( duplicates, function( i, filename ) {
+	$.each( duplicates, function ( i, filename ) {
 		var href,
 			$a = $( '<a/>' ).append( filename );
 
@@ -321,7 +320,7 @@ UWUP.duplicateErrorInfo = function( code, resultDuplicate ) {
 			href = new mw.Title( filename, fileNsId ).getUrl();
 			$a.attr( { 'href': href, 'target': '_blank' } );
 		} catch ( e ) {
-			$a.click( function() { window.alert('could not parse filename=' + filename ); } );
+			$a.click( function () { window.alert('could not parse filename=' + filename ); } );
 			$a.attr( 'href', '#' );
 		}
 		$ul.append( $( '<li></li>' ).append( $a ) );
@@ -334,7 +333,7 @@ UWUP.duplicateErrorInfo = function( code, resultDuplicate ) {
  * Called from any upload success condition
  * @param {Mixed} result -- result of AJAX call
  */
-UWUP.setSuccess = function( result ) {
+UWUP.setSuccess = function ( result ) {
 	this.state = 'transported';
 	this.transportProgress = 1;
 
@@ -386,11 +385,11 @@ UWUP.getBasename = function ( path ) {
  *
  * @param {string} the filename
  * @param {Array} of Files.  usually one, can be more for multi-file select.
- * @param {Function()} callback when ok, and upload object is ready
- * @param {Function(String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
- * @param {Function()} callback when resetting FileInput
+ * @param {function ()} callback when ok, and upload object is ready
+ * @param {function (String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
+ * @param {function ()} callback when resetting FileInput
  */
-UWUP.checkFile = function( filename, files, fileNameOk, fileNameErr, resetFileInput ) {
+UWUP.checkFile = function ( filename, files, fileNameOk, fileNameErr, resetFileInput ) {
 	var totalSize, duplicate, extension, hasError, errorIndex,
 		actualMaxSize, binReader,
 		upload = this,
@@ -417,7 +416,7 @@ UWUP.checkFile = function( filename, files, fileNameOk, fileNameErr, resetFileIn
 
 	if ( files.length > 1 ) {
 		totalSize = 0;
-		$.each( files, function( i, file ) {
+		$.each( files, function ( i, file ) {
 			totalSize += file.size;
 		});
 
@@ -495,7 +494,7 @@ UWUP.checkFile = function( filename, files, fileNameOk, fileNameErr, resetFileIn
 
 				// make sure the file isn't too large
 				// XXX need a way to find the size of the Flickr image
-				if ( !this.fromURL ){
+				if ( !this.fromURL ) {
 					this.transportWeight = this.file.size;
 					if ( this.transportWeight > actualMaxSize ) {
 						this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
@@ -517,7 +516,7 @@ UWUP.checkFile = function( filename, files, fileNameOk, fileNameErr, resetFileIn
 
 				if ( this.file.type === 'image/jpeg' ) {
 					binReader = new FileReader();
-					binReader.onload = function() {
+					binReader.onload = function () {
 						var binStr, arr, i, meta;
 						if ( typeof binReader.result === 'string' ) {
 							binStr = binReader.result;
@@ -559,7 +558,7 @@ UWUP.checkFile = function( filename, files, fileNameOk, fileNameErr, resetFileIn
 				// in case of a multi-file upload.
 				files = files.slice( 1 );
 				if ( files.length > 0 ) {
-					$.each( files, function( i, file ) {
+					$.each( files, function ( i, file ) {
 						// NOTE: By running newUpload we will end up calling checkfile() again.
 						upload.wizard.newUpload( file, upload.reservedIndex + i + 1 );
 					} );
@@ -580,11 +579,11 @@ UWUP.checkFile = function( filename, files, fileNameOk, fileNameErr, resetFileIn
  * @param size integer - the size of the file in bytes
  * @param maxSize integer - the maximum file size
  */
-UWUP.showMaxSizeWarning = function( size, maxSize ) {
+UWUP.showMaxSizeWarning = function ( size, maxSize ) {
 	var buttons = [
 		{
 			text: mw.message( 'mwe-upwiz-file-too-large-ok' ).escaped(),
-			click: function() {
+			click: function () {
 				$( this ).dialog( 'close' );
 			}
 		}
@@ -610,11 +609,11 @@ UWUP.showMaxSizeWarning = function( size, maxSize ) {
  * since they went over the max files limit.
  * @param filesUploaded integer - the number of files that have been attempted to upload
  */
-UWUP.showTooManyFilesWarning = function( filesUploaded ) {
+UWUP.showTooManyFilesWarning = function ( filesUploaded ) {
 	var buttons = [
 		{
 			text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
-			click: function() {
+			click: function () {
 				$(this).dialog('destroy').remove();
 			}
 		}
@@ -635,12 +634,11 @@ UWUP.showTooManyFilesWarning = function( filesUploaded ) {
 		} );
 };
 
-
 /**
  * Map fields from jpegmeta's metadata return into our format (which is more like the imageinfo returned from the API
  * @param {Object} (as returned by jpegmeta)
  */
-UWUP.extractMetadataFromJpegMeta = function( meta ) {
+UWUP.extractMetadataFromJpegMeta = function ( meta ) {
 	if ( meta !== undefined && meta !== null && typeof meta === 'object' ) {
 		if ( this.imageinfo === undefined ) {
 			this.imageinfo = {};
@@ -677,7 +675,7 @@ UWUP.extractMetadataFromJpegMeta = function( meta ) {
  *
  * @param result The JSON object from a successful API upload result.
  */
-UWUP.extractUploadInfo = function( resultUpload ) {
+UWUP.extractUploadInfo = function ( resultUpload ) {
 	if ( resultUpload.filekey ) {
 		this.fileKey = resultUpload.filekey;
 	}
@@ -696,7 +694,7 @@ UWUP.extractUploadInfo = function( resultUpload ) {
  * This may overwrite metadata obtained from FileReader.
  * @param imageinfo JSON object obtained from API result.
  */
-UWUP.extractImageInfo = function( imageinfo ) {
+UWUP.extractImageInfo = function ( imageinfo ) {
 	var key,
 		upload = this;
 
@@ -729,7 +727,7 @@ UWUP.extractImageInfo = function( imageinfo ) {
  * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
  * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
  */
-UWUP.getStashImageInfo = function( callback, props, width, height ) {
+UWUP.getStashImageInfo = function ( callback, props, width, height ) {
 	var params = {
 		'prop':	'stashimageinfo',
 		'siifilekey': this.fileKey,
@@ -755,7 +753,7 @@ UWUP.getStashImageInfo = function( callback, props, width, height ) {
 	}
 
 	if ( width !== undefined || height !== undefined ) {
-		if ( ! $.inArray( 'url', props ) ) {
+		if ( !$.inArray( 'url', props ) ) {
 			props.push( 'url' );
 		}
 		if ( width !== undefined ) {
@@ -778,11 +776,11 @@ UWUP.getStashImageInfo = function( callback, props, width, height ) {
  * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
  * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
  */
-UWUP.getImageInfo = function( callback, props, width, height ) {
+UWUP.getImageInfo = function ( callback, props, width, height ) {
 	function ok( data ) {
 		if ( data && data.query && data.query.pages ) {
 			var found = false;
-			$.each( data.query.pages, function( pageId, page ) {
+			$.each( data.query.pages, function ( pageId, page ) {
 				if ( page.title && page.title === requestedTitle && page.imageinfo ) {
 					found = true;
 					callback( page.imageinfo );
@@ -815,7 +813,7 @@ UWUP.getImageInfo = function( callback, props, width, height ) {
 		};
 
 	if ( width !== undefined || height !== undefined ) {
-		if ( ! $.inArray( 'url', props ) ) {
+		if ( !$.inArray( 'url', props ) ) {
 			props.push( 'url' );
 		}
 		if ( width !== undefined ) {
@@ -833,7 +831,7 @@ UWUP.getImageInfo = function( callback, props, width, height ) {
  * Get the upload handler per browser capabilities
  * @return upload handler object
  */
-UWUP.getUploadHandler = function(){
+UWUP.getUploadHandler = function () {
 	if ( !this.uploadHandler ) {
 		var constructor;  // must be the name of a function in 'mw' namespace
 		if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
@@ -861,7 +859,7 @@ UWUP.getUploadHandler = function(){
  * @param width - desired width of thumbnail (height will scale to match)
  * @param height - (optional) maximum height of thumbnail
  */
-UWUP.getAndPublishApiThumbnail = function( key, width, height ) {
+UWUP.getAndPublishApiThumbnail = function ( key, width, height ) {
 	function thumbnailPublisher( thumbnails ) {
 		if ( thumbnails === null ) {
 			// the api call failed somehow, no thumbnail data.
@@ -872,7 +870,7 @@ UWUP.getAndPublishApiThumbnail = function( key, width, height ) {
 			// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 			// the event with a null.
 			$.each( thumbnails, function ( i, thumb ) {
-				if ( thumb.thumberror || ( ! ( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
+				if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 					mw.log.warn( 'mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information' );
 					$.publishReady( key, null );
 					return;
@@ -885,16 +883,16 @@ UWUP.getAndPublishApiThumbnail = function( key, width, height ) {
 				image.width = thumb.thumbwidth;
 				image.height = thumb.thumbheight;
 				$( image )
-					.on( 'load', function() {
+					.on( 'load', function () {
 						// cache this thumbnail
 						upload.thumbnails[key] = image;
 						// publish the image to anyone who wanted it
 						$.publishReady( key, image );
 					} )
-					.on( 'error', function() {
+					.on( 'error', function () {
 						// retry with exponential backoff
 						if ( timeoutMs < 8000 ) {
-							setTimeout( function() {
+							setTimeout( function () {
 								timeoutMs = timeoutMs * 2 + Math.round( Math.random() * ( timeoutMs / 10 ) );
 								setSrc();
 							}, timeoutMs );
@@ -936,7 +934,7 @@ UWUP.getAndPublishApiThumbnail = function( key, width, height ) {
  * may have been extracted at filereader stage, or after the upload when we fetch metadata. Default returns 0.
  * @return {Integer} orientation in degrees: 0, 90, 180 or 270
  */
-UWUP.getOrientationDegrees = function() {
+UWUP.getOrientationDegrees = function () {
 	var orientation = 0;
 	if ( this.imageinfo && this.imageinfo.metadata && this.imageinfo.metadata.orientation ) {
 		switch ( this.imageinfo.metadata.orientation ) {
@@ -964,9 +962,9 @@ UWUP.getOrientationDegrees = function() {
  * @param {Object} with width & height properties
  * @return {Number}
  */
-UWUP.getScalingFromConstraints = function( image, constraints ) {
+UWUP.getScalingFromConstraints = function ( image, constraints ) {
 	var scaling = 1;
-	$.each( [ 'width', 'height' ], function( i, dim ) {
+	$.each( [ 'width', 'height' ], function ( i, dim ) {
 		if ( constraints[dim] && image[dim] > constraints[dim] ) {
 			var s = constraints[dim] / image[dim];
 			if ( s < scaling ) {
@@ -984,7 +982,7 @@ UWUP.getScalingFromConstraints = function( image, constraints ) {
  * @param {Object} containing width & height constraints
  * @return {HTMLCanvasElement}
  */
-UWUP.getTransformedCanvasElement = function( image, constraints ) {
+UWUP.getTransformedCanvasElement = function ( image, constraints ) {
 	var angle, scaleConstraints, scaling, width, height,
 		dx, dy, x, y, $canvas, ctx,
 		rotation = 0;
@@ -1056,7 +1054,7 @@ UWUP.getTransformedCanvasElement = function( image, constraints ) {
  * @param {Object} with width and height properties
  * @return {HTMLImageElement} with same src, but different attrs
  */
-UWUP.getBrowserScaledImageElement = function( image, constraints ) {
+UWUP.getBrowserScaledImageElement = function ( image, constraints ) {
 	var scaling = this.getScalingFromConstraints( image, constraints );
 	return $( '<img/>' )
 		.attr( {
@@ -1076,8 +1074,8 @@ UWUP.getBrowserScaledImageElement = function( image, constraints ) {
  * @param {Integer} height
  * @return {HTMLCanvasElement|HTMLImageElement}
  */
-UWUP.getScaledImageElement = function( image, width, height ) {
-	if ( width === undefined || width === null || width <= 0 )  {
+UWUP.getScaledImageElement = function ( image, width, height ) {
+	if ( width === undefined || width === null || width <= 0 ) {
 		width = mw.UploadWizard.config.thumbnailWidth;
 	}
 	var constraints = {
@@ -1098,7 +1096,7 @@ UWUP.getScaledImageElement = function( image, width, height ) {
  * @param height Height constraint (optional)
  * @param boolean add lightbox large preview when ready
  */
-UWUP.setThumbnail = function( selector, width, height, isLightBox ) {
+UWUP.setThumbnail = function ( selector, width, height, isLightBox ) {
 	var upload = this,
 		placed = false;
 
@@ -1160,13 +1158,13 @@ UWUP.setThumbnail = function( selector, width, height, isLightBox ) {
  * TODO center this
  * @param selector
  */
-UWUP.setLightBox = function( selector ) {
+UWUP.setLightBox = function ( selector ) {
 	var upload = this,
 		$imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
 
 	$( selector )
 		.addClass( 'mwe-upwiz-lightbox-link' )
-		.click( function() {
+		.click( function () {
 			// get large preview image
 			// open large preview in modal dialog box
 			$( '<div class="mwe-upwiz-lightbox"></div>' )

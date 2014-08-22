@@ -5,7 +5,7 @@
 // will have to figure this out.
 
 // this should be loaded with test suites when appropriate. separate file.
-mw.MockUploadHandler = function(upload) {
+mw.MockUploadHandler = function (upload) {
 	this.upload = upload;
 	this.nextState = null;
 	this.progress = 0.0;
@@ -28,7 +28,7 @@ mw.MockUploadHandler.prototype = {
 		if (1.0 - this.progress < delta) {
 			this.upload.setTransported();
 		} else {
-			setTimeout( function() { handler.nextState(); }, 200 );
+			setTimeout( function () { handler.nextState(); }, 200 );
 		}
 	}
 

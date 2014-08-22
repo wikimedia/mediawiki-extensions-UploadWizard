@@ -4,7 +4,7 @@
  * Large files are uploaded in chunks.
  * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
  */
-mw.ApiUploadFormDataHandler = function( upload, api ) {
+mw.ApiUploadFormDataHandler = function ( upload, api ) {
     var handler = this;
 
     this.upload = upload;
@@ -21,10 +21,10 @@ mw.ApiUploadFormDataHandler = function( upload, api ) {
         this.$form[0].action,
         this.formData,
         this.upload,
-        function( fraction ) {
+        function ( fraction ) {
             handler.upload.setTransportProgress( fraction );
         },
-        function( result ) {
+        function ( result ) {
             handler.upload.setTransported( result );
         }
     );
@@ -38,9 +38,9 @@ mw.ApiUploadFormDataHandler.prototype = {
      * @param ok callback on success
      * @param err callback on error
      */
-    configureEditToken: function( callerOk, err ) {
+    configureEditToken: function ( callerOk, err ) {
         var handler = this,
-            ok = function( token ) {
+            ok = function ( token ) {
                 handler.formData.token = token;
                 callerOk();
             };
@@ -51,7 +51,7 @@ mw.ApiUploadFormDataHandler.prototype = {
     /**
      * Kick off the upload!
      */
-    start: function() {
+    start: function () {
         function ok() {
             handler.beginTime = ( new Date() ).getTime();
             handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );

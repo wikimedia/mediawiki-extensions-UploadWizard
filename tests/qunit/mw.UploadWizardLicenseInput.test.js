@@ -1,6 +1,6 @@
 ( function ( mw, $ ) {
 	QUnit.module( 'ext.uploadWizardLicenseInput', QUnit.newMwEnvironment( {
-		setup: function() {
+		setup: function () {
 			mw.UploadWizard.config = {
 				licenses: {
 					'cc-by-sa-3.0': {

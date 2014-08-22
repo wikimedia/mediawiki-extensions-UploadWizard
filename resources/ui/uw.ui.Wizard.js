@@ -93,7 +93,7 @@
 			.prop( 'href', mw.util.getUrl( feedbackPage ) )
 			.msg( 'mwe-upwiz-feedback-prompt' )
 			.click(
-				function() {
+				function () {
 					ui.feedback.launch();
 					return false;
 				}
@@ -177,7 +177,7 @@
 		$( '#mwe-upwiz-skip' )
 			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
 			.tipsy( {
-				title: function() {
+				title: function () {
 					return mw.message(
 						'mwe-upwiz-tooltip-skiptutorial',
 						mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
@@ -208,7 +208,7 @@
 		} );
 
 		// handler for next button
-		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next').click( function() {
+		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next').click( function () {
 			ui.emit( 'next-from-tutorial' );
 		} );
 	};
@@ -232,7 +232,7 @@
 		}
 
 		// Call Flickr Initiator function on click event
-		$( '#mwe-upwiz-upload-ctrl-flickr' ).click( function() {
+		$( '#mwe-upwiz-upload-ctrl-flickr' ).click( function () {
 			ui.emit( 'flickr-ui-init' );
 		} );
 
@@ -240,7 +240,7 @@
 			ui.emit( 'next-from-upload' );
 		} );
 
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function() {
+		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function () {
 			ui.emit( 'retry-uploads' );
 		} );
 	};
@@ -270,7 +270,7 @@
 		function startDetails() {
 			var isPopupOpen = false;
 
-			$( '.categoryInput' ).each( function() {
+			$( '.categoryInput' ).each( function () {
 				if ( $( this ).data( 'popupOpen' ) === true ) {
 					isPopupOpen = true;
 					$( this ).bind( 'popupClose', startDetails );
@@ -281,7 +281,7 @@
 				return;
 			}
 
-			$( '.mwe-upwiz-hint' ).each( function() { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+			$( '.mwe-upwiz-hint' ).each( function () { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
 
 			ui.emit( 'start-details' );
 		}

@@ -1,17 +1,17 @@
-( function( mw, $ ) {
+( function ( mw, $ ) {
 
 	/**
 	 * Thingy for collecting user feedback on a wiki page
 	 * @param {mw.Api}  api properly configured to talk to this wiki
 	 * @param {mw.Title} the title of the page where you collect feedback
 	 */
-	mw.ErrorDialog = function( errorMessage ) {
+	mw.ErrorDialog = function ( errorMessage ) {
 		this.errorMessage = errorMessage;
 		this.setup();
 	};
 
 	mw.ErrorDialog.prototype = {
-		setup: function() {
+		setup: function () {
 			var dialog = this;
 
 			// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
@@ -35,15 +35,14 @@
 				});
 		},
 
-		ok: function() {
+		ok: function () {
 			this.$dialog.dialog( 'close' );
 		},
 
-		launch: function() {
+		launch: function () {
 			this.$dialog.dialog( 'open' );
 		}
 
 	};
-
 
 }( mediaWiki, jQuery ) );
