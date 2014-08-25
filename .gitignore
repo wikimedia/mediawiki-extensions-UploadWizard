@@ -4,3 +4,6 @@
 .*.swp
 docs/js
 *.pyc
+tests/browser/.gem
+tests/browser/.bundle
+
