@@ -3,7 +3,7 @@ return array(
 	"type" => "object",
 	"id" => "#campaignnode",
 	"required" => true,
-	"properties" =>array(
+	"properties" => array(
 		"title" => array(
 			"type" => "string"
 		),
@@ -12,7 +12,13 @@ return array(
 		),
 		"enabled" => array(
 			"type" => "boolean",
-			"required" => true
+			"required" => true,
+		),
+		"start" => array(
+			"type" => "string",
+		),
+		"end" => array(
+			"type" => "string",
 		),
 		"autoAdd" => array(
 			"type" => "object",
@@ -193,9 +199,39 @@ return array(
 					"type" => "number"
 				)
 			)
-		)
+		),
+		"whileActive" => array(
+			"type" => "object",
+			"properties" => array(
+				"display" => array(
+					"type" => "object",
+					"properties" =>array(
+						"headerLabel" => array(
+							"type" => "string"
+						),
+						"thanksLabel" => array(
+							"type" => "string"
+						),
+					),
+				),
+
+				"autoAdd" => array(
+					"type" => "object",
+					"properties" => array(
+						"categories" => array(
+							"type" => "array",
+							"items" => array(
+								array(
+									"type" => "string"
+								),
+							),
+						),
+						"wikitext" => array(
+							"type" => "string"
+						),
+					),
+				),
+			),
+		),
 	)
 );
-
-
-
