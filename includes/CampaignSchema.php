@@ -233,5 +233,37 @@ return array(
 				),
 			),
 		),
+		"beforeActive" => array(
+			"type" => "object",
+			"properties" => array(
+				"display" => array(
+					"type" => "object",
+					"properties" =>array(
+						"headerLabel" => array(
+							"type" => "string"
+						),
+						"thanksLabel" => array(
+							"type" => "string"
+						),
+					),
+				),
+			),
+		),
+		"afterActive" => array(
+			"type" => "object",
+			"properties" => array(
+				"display" => array(
+					"type" => "object",
+					"properties" =>array(
+						"headerLabel" => array(
+							"type" => "string"
+						),
+						"thanksLabel" => array(
+							"type" => "string"
+						),
+					),
+				),
+			),
+		),
 	)
 );

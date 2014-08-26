@@ -312,10 +312,12 @@ class UploadWizardCampaign {
 					}
 					break;
 				case "whileActive":
+				case "afterActive":
+				case "beforeActive":
 					if ( array_key_exists( 'display', $value ) ) {
 						$value['display'] = $this->parseArrayValues( $value['display'], $lang );
 					}
-					$parsedConfig['whileActive'] = $value;
+					$parsedConfig[$key] = $value;
 					break;
 				default:
 					$parsedConfig[$key] = $value;
@@ -339,6 +341,10 @@ class UploadWizardCampaign {
 	protected function modifyIfNecessary() {
 		foreach ( $this->parsedConfig as $cnf => $modifiers ) {
 			if ( $cnf === 'whileActive' && $this->isActive() ) {
+				$activeModifiers = $modifiers;
+			} else if ( $cnf === 'afterActive' && $this->wasActive() ) {
+				$activeModifiers = $modifiers;
+			} else if ( $cnf === 'beforeActive' ) {
 				$activeModifiers = $modifiers;
 			}
 		}
@@ -405,5 +411,16 @@ class UploadWizardCampaign {
 		$end = array_key_exists( 'end', $this->parsedConfig ) ? strtotime( $this->parsedConfig['end'] ) : null;
 
 		return ($start === null || $start <= $today ) && ($end === null || $end > $today );
+	}
+
+	/**
+	 * Checks the current date against the configured start and end dates to determine
+	 * whether the campaign is currently active.
+	 */
+	private function wasActive() {
+		$today = strtotime( date( "Y-m-d" ) );
+		$start = array_key_exists( 'start', $this->parsedConfig ) ? strtotime( $this->parsedConfig['start'] ) : null;
+
+		return $start === null || $start <= $today;
 	}
 }
