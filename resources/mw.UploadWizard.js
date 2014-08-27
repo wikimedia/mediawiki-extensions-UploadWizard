@@ -1110,22 +1110,7 @@ mw.UploadWizard.prototype = {
 			}
 		);
 
-	},
-
-	/**
-	 *
-	 */
-	pause: function() {
-
-	},
-
-	/**
-	 *
-	 */
-	stop: function() {
-
 	}
-
 };
 
 /**
@@ -1222,16 +1207,6 @@ mw.isEmpty = function( v ) {
 	return v === undefined || v === null || v === '';
 };
 
-	$.fn.enableNextButton = function() {
-		return this.find( '.mwe-upwiz-button-next' )
-			.prop( 'disabled', false );
-	};
-
-	$.fn.disableNextButton = function() {
-		return this.find( '.mwe-upwiz-button-next' )
-			.prop( 'disabled', true );
-	};
-
 	$.fn.readonly = function() {
 		return this.attr( 'readonly', 'readonly' ).addClass( 'mwe-readonly' );
 	};
@@ -1313,87 +1288,6 @@ mw.isEmpty = function( v ) {
 
 		this.keyup( resizeIfNeeded );
 		this.change( resizeIfNeeded );
-
-
-		return this;
-	};
-
-	// XXX this is highly specific to the "details" page now, not really jQuery function
-	jQuery.fn.mask = function() {
-		var profile = $.client.profile();
-
-		// intercept clicks...
-		// Note: the size of the div must be obtainable. Hence, this cannot be a div without layout (e.g. display:none).
-		// some of this is borrowed from http://code.google.com/p/jquery-loadmask/ , but simplified
-		$.each( this, function( i, el ) {
-
-			if ( ! $( el ).data( 'mask' ) ) {
-
-
-				//fix for z-index bug with selects in IE6
-				if ( profile.name === 'msie' && profile.versionNumber === 6 ) {
-					$( el ).find( 'select' ).addClass( 'masked-hidden' );
-				}
-
-				var mask = $( '<div class="mwe-upwiz-mask"></div>' )
-						.css( {
-							'backgroundColor' : 'white',
-							'width'    : el.offsetWidth + 'px',
-							'height'   : el.offsetHeight + 'px',
-							'z-index'  : 90
-						} ),
-
-					$statusDiv = $( '<div></div>' ).css( {
-						'width'      : el.offsetWidth + 'px',
-						'height'     : el.offsetHeight + 'px',
-						'z-index'    : 91,
-						'text-align' : 'center',
-						'position'   : 'absolute',
-						'top'        : '0px',
-						'left'       : '0px'
-					} ),
-
-					$indicatorDiv = $( '<div class="mwe-upwiz-status"></div>' )
-						.css( {
-							'width'    : 32,
-							'height'   : 32,
-							'z-index'  : 91,
-							'margin'   : '0 auto 0 auto'
-						} ),
-					$statusLineDiv = $( '<div></div>' )
-						.css( {
-							'z-index'  : 91
-						} ),
-					$statusIndicatorLineDiv = $( '<div></div>' )
-						.css( { 'margin-top': '6em' } )
-						.append( $indicatorDiv, $statusLineDiv );
-
-				$statusDiv.append( $statusIndicatorLineDiv );
-
-				$( el ).css( { 'position' : 'relative' } )
-					.append( mask.fadeTo( 'fast', 0.6 ) )
-					.append( $statusDiv )
-					.data( 'indicator', $indicatorDiv )
-					.data( 'statusLine', $statusLineDiv );
-
-			}
-		} );
-
-		return this;
-
-	};
-
-	// n.b. this is not called currently -- all uses of mask() are permanent
-	jQuery.fn.unmask = function() {
-
-		$.each( this, function( i, el ) {
-			if ( $( el ).data( 'mask' ) ) {
-				var mask = $( el ).data( 'mask' );
-				$( el ).removeData( 'mask' ); // from the data
-				mask.remove(); // from the DOM
-				$( el ).fadeTo( 'fast', 1.0 );
-			}
-		} );
 
 
 		return this;
