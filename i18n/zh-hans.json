@@ -317,7 +317,7 @@
 	"mwe-upwiz-url-invalid": "输入的URL不受支持或连接至一个无效或受限制的$1图像或剪影并无法使用。",
 	"mwe-upwiz-user-blacklisted": "很遗憾，没有来自该$1账户的图像可以上传至该网站。",
 	"mwe-upwiz-categories": "分类",
-	"mwe-upwiz-categories-add": "添加",
+	"mwe-upwiz-categories-add": "添加其他分类",
 	"mwe-upwiz-category-will-be-added": "此分类还未利用。",
 	"mwe-upwiz-category-remove": "删除该分类",
 	"mwe-upwiz-thumbnail-failed": "上传成功，但是服务器不能获得预览缩略图。",
