@@ -9,16 +9,14 @@
 # UploadWizard top-level directory and at
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
-class LearnPage
+class PreferencesResetPage
   include PageObject
 
   include URL
-  page_url URL.url("Special:UploadWizard")
-
-  div(:tutorial, id: "mwe-upwiz-stepdiv-tutorial")
-
-  span(:next) do |page|
-    page.tutorial_element.span_element(text: "Next")
+  def self.url
+    URL.url('Special:Preferences/reset')
   end
-  checkbox(:skip, id: "mwe-upwiz-skip")
+  page_url url
+
+  button(:reset, xpath: "//form[@action='/wiki/Special:Preferences/reset']//input[@type='submit']")
 end

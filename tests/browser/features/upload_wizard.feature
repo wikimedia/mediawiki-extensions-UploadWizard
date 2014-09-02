@@ -9,6 +9,10 @@
 # UploadWizard top-level directory and at
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
+
+# IMPORTANT: For scenarios which set a preference, tag as @preferenceSet to
+# reset to defaults after they are finished. (See support/hooks.rb)
+
 @chrome @commons.wikimedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
 Feature: UploadWizard
 
@@ -19,6 +23,13 @@ Feature: UploadWizard
   Scenario: Navigate to Learn page
     Then Learn page should appear
       And Skip this step in the future checkbox should be there
+
+  @preferenceSet
+  Scenario: Skip tutorial
+    When I click the Skip checkbox
+    And I click Next button at Learn page
+    And I navigate to Upload Wizard
+    Then the tutorial should not be visible
 
   Scenario: Navigate to Upload page
     When I click Next button at Learn page
@@ -51,4 +62,6 @@ Feature: UploadWizard
       And I enter category
       And I click Next button at Describe page
     Then Use page should open
-      And Upload more files button should be there
+    And Upload more files button should be there
+
+
