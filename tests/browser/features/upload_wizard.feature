@@ -18,13 +18,13 @@ Feature: UploadWizard
 
   Background:
     Given I am logged in
+      And my Preferences Skip tutorial box is unchecked
     When I navigate to Upload Wizard
 
   Scenario: Navigate to Learn page
     Then Learn page should appear
       And Skip this step in the future checkbox should be there
 
-  @preferenceSet
   Scenario: Skip tutorial
     When I click the Skip checkbox
     And I click Next button at Learn page

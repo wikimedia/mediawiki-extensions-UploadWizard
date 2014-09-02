@@ -14,9 +14,12 @@ class PreferencesResetPage
 
   include URL
   def self.url
-    URL.url('Special:Preferences/reset')
+    URL.url('Special:Preferences')
   end
   page_url url
 
-  button(:reset, xpath: "//form[@action='/wiki/Special:Preferences/reset']//input[@type='submit']")
+  a(:upload_wizard_pref_tab, id: "preftab-uploads")
+  checkbox(:reset_skip_checkbox, id: "mw-input-wpupwiz_skiptutorial")
+  button(:preferences_save_button, id: "prefcontrol")
+
 end

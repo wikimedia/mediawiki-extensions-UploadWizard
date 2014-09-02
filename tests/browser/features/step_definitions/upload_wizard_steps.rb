@@ -13,6 +13,14 @@ Given(/^I am logged out$/) do
   visit LogoutPage
 end
 
+Given(/^my Preferences Skip tutorial box is unchecked$/) do
+  visit(PreferencesResetPage) do |page|
+    page.upload_wizard_pref_tab_element.when_present.click
+    page.uncheck_reset_skip_checkbox
+    page.preferences_save_button_element.click
+  end
+end
+
 When(/^click button Continue$/) do
   on(UploadPage).continue_element.when_present(15).click
 end
@@ -48,7 +56,7 @@ When(/^thumbnail should be visible$/) do
   on(ReleaseRightsPage).thumbnail_element.when_present.should be_visible
 end
 When(/^I click the Skip checkbox$/) do
-  on(LearnPage).check_skip
+  on(LearnPage).check_tutorial_skip
 end
 
 Then(/^link to log in should appear$/) do

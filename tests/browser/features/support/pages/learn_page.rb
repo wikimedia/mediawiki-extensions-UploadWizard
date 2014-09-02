@@ -20,5 +20,5 @@ class LearnPage
   span(:next) do |page|
     page.tutorial_element.span_element(text: "Next")
   end
-  checkbox(:skip, id: "mwe-upwiz-skip")
+  checkbox(:tutorial_skip, id: "mwe-upwiz-skip")
 end
