@@ -16,5 +16,7 @@ class CampaignContentHandler extends JSONContentHandler {
 		parent::__construct( $modelId, array( CONTENT_FORMAT_JSON ) );
 	}
 
-	protected $contentClass = 'CampaignContent';
+	protected function getContentClass() {
+		return 'CampaignContent';
+	}
 }
