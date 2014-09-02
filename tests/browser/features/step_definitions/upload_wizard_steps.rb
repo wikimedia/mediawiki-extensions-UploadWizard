@@ -9,6 +9,10 @@
 # UploadWizard top-level directory and at
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
+Given(/^I am logged out$/) do
+  visit LogoutPage
+end
+
 When(/^click button Continue$/) do
   on(UploadPage).continue_element.when_present(15).click
 end
@@ -44,6 +48,9 @@ When(/^thumbnail should be visible$/) do
   on(ReleaseRightsPage).thumbnail_element.when_present.should be_visible
 end
 
+Then(/^link to log in should appear$/) do
+  on(UploadWizardPage).logged_in_element.should be_visible
+end
 Then(/^(.+) checkbox should be there$/) do |_|
   on(LearnPage).skip_element.when_present.should be_visible
 end
