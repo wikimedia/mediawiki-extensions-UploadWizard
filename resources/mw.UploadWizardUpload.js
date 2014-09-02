@@ -69,6 +69,10 @@ function UploadWizardUpload( wizard, filesDiv, providedFile, reservedIndex ) {
 
 	// details
 	this.ui = new mw.UploadWizardUploadInterface( this, filesDiv, providedFile )
+		.on( 'file-changed', function ( files ) {
+			upload.emit( 'file-changed', files );
+		} )
+
 		.on( 'upload-filled', function () {
 			// Don't add files coming from Flickr ( or any other service ) in the Deeds preview section
 			if ( !upload.fromURL ) {
@@ -167,6 +171,7 @@ UWUP.setError = function( code, info ) {
 	this.state = 'error';
 	this.transportProgress = 0;
 	this.ui.showError( code, info );
+	this.emit( 'error', code, info );
 };
 
 /**

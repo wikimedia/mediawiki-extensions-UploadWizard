@@ -543,6 +543,11 @@ class UploadWizardHooks {
 		}
 
 		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
+			$wgEventLoggingSchemas[ 'UploadWizardUploadActions' ] = 5811620;
+			$wgEventLoggingSchemas[ 'UploadWizardStep' ] = 8851805;
+			$wgEventLoggingSchemas[ 'UploadWizardFlowEvent' ] = 8851807;
+			$wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 9609883;
+
 			$resourceLoader->register( 'schema.UploadWizardTutorialActions', array(
 					'class' => 'ResourceLoaderSchemaModule',
 					'schema' => 'UploadWizardTutorialActions',
@@ -551,14 +556,11 @@ class UploadWizardHooks {
 
 			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
 				'ext.eventLogging',
-				'schema.UploadWizardTutorialActions',
 			);
 
 			self::$modules['uw.EventFlowLogger']['dependencies'] += array(
 				'ext.eventLogging',
-				'schema.UploadWizardStep',
 			);
-
 		}
 
 		foreach ( self::$modules as $name => $resources ) {
