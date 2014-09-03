@@ -10,3 +10,6 @@
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
 require "mediawiki_selenium"
+
+# This allows us to use wait_for_ajax in step definitions.
+PageObject.javascript_framework = :jquery
