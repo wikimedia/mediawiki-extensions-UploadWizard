@@ -1097,6 +1097,7 @@ mw.UploadWizard.prototype = {
 	 */
 	setSkipTutorialPreference: function() {
 		var api = this.api,
+			isComplete = false,
 			tokenRequest = {
 				'action': 'tokens',
 				'type' : 'options'
@@ -1105,6 +1106,11 @@ mw.UploadWizard.prototype = {
 				'action': 'options',
 				'change': 'upwiz_skiptutorial=1'
 			};
+
+		var allowCloseWindow = mw.confirmCloseWindow( {
+			message: function() { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
+			test: function() { return !isComplete; }
+		} );
 
 		api.post( tokenRequest,
 			function( data ) {
@@ -1115,7 +1121,11 @@ mw.UploadWizard.prototype = {
 					throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
 				}
 				prefRequest.token = token;
-				api.post( prefRequest, function() { return true; } );
+				api.post( prefRequest, function() {
+					isComplete = true;
+					allowCloseWindow();
+					return true;
+				} );
 			}
 		);
 

@@ -307,6 +307,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-upload-another',
 				'mwe-prevent-close',
 				'mwe-upwiz-prevent-close',
+				'mwe-upwiz-prevent-close-wait',
 				'mwe-upwiz-files-complete',
 				'mwe-upwiz-tooltip-skiptutorial',
 				'mwe-upwiz-tooltip-author',
