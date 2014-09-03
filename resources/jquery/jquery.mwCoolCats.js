@@ -39,7 +39,7 @@
 		$input.data( 'title', title );
 
 		var cat = title.getMainText();
-		
+
 		$input.removeClass( 'will-be-added' );
 		if ( seenCat[cat] !== true && !_doesCatExist( text ) ) {
 			$label.append( '<span class="mwe-upwiz-category-will-be-added"></span>' );
@@ -51,7 +51,7 @@
 			_insertCat( title );
 		}
 	}
-	
+
 	function _doesCatExist( cat ) {
 		var exists = false;
 		$( 'input.will-be-added' ).each(function () {
@@ -152,7 +152,7 @@
 	/**
 	 * Add a new input to the categories form
 	 */
-	 
+
 	function _newInput () {
 		var $newInput = $template.clone();
 		$newInput.mwCoolCats( $.extend( options, { link: false } ) );
@@ -184,7 +184,7 @@
 			$( _input ).suggestions( 'suggestions', catList );
 		};
 
-		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix, ok ) );
+		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix ).done( ok ) );
 	}
 
 	var defaults = {
@@ -199,12 +199,12 @@
 		throw new Error( "jQuery.mwCoolCats needs an 'api' argument" );
 	}
 
-	
+
 	var seenCat = {};
 	for ( var cx in settings.cats ) {
 		seenCat[settings.cats[cx]] = true;
 	}
-	
+
 	var $container;
 	var $template;
 
@@ -278,7 +278,7 @@
 		$.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
 
 		_processInput();
-		
+
 		$template = _this.clone();
 	} );
 
