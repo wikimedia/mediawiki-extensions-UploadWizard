@@ -586,7 +586,7 @@ mw.UploadWizardLicenseInput.prototype = {
 			) );
 		}
 
-		this.api.parse( wikiText, show, error );
+		this.api.parse( wikiText ).done( show ).fail( error );
 	}
 
 
