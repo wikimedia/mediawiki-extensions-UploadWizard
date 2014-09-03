@@ -63,7 +63,7 @@ Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
 end
 Then(/^(.+) checkbox should be there$/) do |_|
-  on(LearnPage).skip_element.when_present.should be_visible
+  on(LearnPage).tutorial_skip_element.when_present.should be_visible
 end
 Then(/^the tutorial should not be visible$/) do
   on(LearnPage).tutorial_element.should_not be_visible
