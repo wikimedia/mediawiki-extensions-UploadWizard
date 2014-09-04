@@ -80,7 +80,7 @@ mw.UploadWizardDetails = function( upload, containerDiv ) {
 					// turn the contents of the input into a MediaWiki title ("File:foo bar.jpg") to look up
 					// side effect -- also sets this as our current title
 					cleanTitle = details.setCleanTitle( name );
-					return cleanTitle && cleanTitle.getMainText() || '';
+					return cleanTitle && cleanTitle.getPrefixedText() || '';
 				} else {
 					return name;
 				}
