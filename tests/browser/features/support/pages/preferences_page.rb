@@ -9,7 +9,7 @@
 # UploadWizard top-level directory and at
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
-class PreferencesResetPage
+class PreferencesPage
   include PageObject
 
   include URL

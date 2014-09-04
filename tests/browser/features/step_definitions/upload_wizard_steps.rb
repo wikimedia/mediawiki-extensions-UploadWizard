@@ -14,7 +14,7 @@ Given(/^I am logged out$/) do
 end
 
 Given(/^my Preferences Skip tutorial box is unchecked$/) do
-  visit(PreferencesResetPage) do |page|
+  visit(PreferencesPage) do |page|
     page.upload_wizard_pref_tab_element.when_present.click
     page.uncheck_reset_skip_checkbox
     page.preferences_save_button_element.click
