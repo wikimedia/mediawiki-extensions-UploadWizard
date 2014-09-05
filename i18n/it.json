@@ -185,6 +185,7 @@
 	"mwe-upwiz-home": "Vai alla pagina principale",
 	"mwe-upwiz-upload-another": "Carica altri file",
 	"mwe-prevent-close": "Lasciare questa pagina potrebbe causare la perdita di qualsiasi modifica apportata.",
+	"mwe-upwiz-prevent-close-wait": "Uscendo da questa pagina si può causare la perdita di eventuali modifiche apportate. Attendi alcuni secondi.",
 	"mwe-upwiz-prevent-close": "Non hai ancora finito di caricare e pubblicare {{PLURAL:$1|questo|questi}} file.",
 	"mwe-upwiz-files-complete": "Il caricamento dei tuoi file è terminato!",
 	"mwe-upwiz-tooltip-skiptutorial": "Puoi riattivare questo tutorial nelle [$1 tue preferenze utente], sotto $2 → $3.",

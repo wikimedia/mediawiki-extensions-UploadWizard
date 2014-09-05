@@ -198,6 +198,7 @@
 	"mwe-upwiz-home": "访问首页",
 	"mwe-upwiz-upload-another": "上传更多文件",
 	"mwe-prevent-close": "离开本页面可能会使你失去你做出的任何更改。",
+	"mwe-upwiz-prevent-close-wait": "离开此页面可能导致您丢失您做出的任何更改。请等待几秒钟。",
 	"mwe-upwiz-prevent-close": "你还没有完成{{PLURAL:$1|该|这些}}文件的上传和发表。",
 	"mwe-upwiz-files-complete": "你的文件已完成上传！",
 	"mwe-upwiz-tooltip-skiptutorial": "您可以在[$1 您的用户首选项]中的$2 → $3重启本教程。",
