@@ -34,14 +34,14 @@
 		// Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=...
 		licenseMaps: {
 			'All Rights Reserved': 'invalid',
-			'Attribution License': '{{FlickrVerifiedByUploadWizard|cc-by-2.0}}{{cc-by-2.0}}',
+			'Attribution License': '{{FlickrByUploadWizard|cc-by-2.0}}{{flickrreview}}{{cc-by-2.0}}',
 			'Attribution-NoDerivs License': 'invalid',
 			'Attribution-NonCommercial-NoDerivs License': 'invalid',
 			'Attribution-NonCommercial License': 'invalid',
 			'Attribution-NonCommercial-ShareAlike License': 'invalid',
-			'Attribution-ShareAlike License': '{{FlickrVerifiedByUploadWizard|cc-by-sa-2.0}}{{cc-by-sa-2.0}}',
-			'No known copyright restrictions': '{{FlickrVerifiedByUploadWizard|Flickr-no known copyright restrictions}}{{Flickr-no known copyright restrictions}}',
-			'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}'
+			'Attribution-ShareAlike License': '{{FlickrByUploadWizard|cc-by-sa-2.0}}{{flickrreview}}{{cc-by-sa-2.0}}',
+			'No known copyright restrictions': '{{FlickrByUploadWizard|Flickr-no known copyright restrictions}}{{flickrreview}}{{Flickr-no known copyright restrictions}}',
+			'United States Government Work': '{{FlickrByUploadWizard|PD-USGov}}{{flickrreview}}{{PD-USGov}}'
 		},
 
 		/**
