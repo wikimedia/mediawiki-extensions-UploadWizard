@@ -241,7 +241,8 @@ class SpecialUploadWizard extends SpecialPage {
 				'UploadWizardConfig' => $config,
 
 				// Site name is a true global not specific to Upload Wizard
-				'wgSiteName' => $wgSitename
+				'wgSiteName' => $wgSitename,
+				'wgFileCanRotate' => BitmapHandler::canRotate()
 			)
 		);
 	}
