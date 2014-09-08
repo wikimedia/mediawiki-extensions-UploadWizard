@@ -15,9 +15,6 @@
 
 ( function( mw, $ ) {
 
-var catNsId = mw.config.get( 'wgNamespaceIds' ).category,
-	templateNsId = mw.config.get( 'wgNamespaceIds' ).template;
-
 mw.UploadWizardLicenseInput = function( selector, values, config, count, api ) {
 	this.count = count;
 
@@ -442,8 +439,6 @@ mw.UploadWizardLicenseInput.prototype = {
 					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-short' ] );
 				} else if ( text.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
 					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-long' ] );
-				} else if ( !input.validateWikiText( text ) ) {
-					errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-invalid' ] );
 				}
 			} );
 		}
@@ -476,93 +471,6 @@ mw.UploadWizardLicenseInput.prototype = {
 	 */
 	isSet: function() {
 		return this.getSelectedInputs().length > 0;
-	},
-
-
-	/**
-	 * Attempt to determine if wikitext parses... and maybe does it contain a license tag
-	 * @return boolean
-	 */
-	validateWikiText: function( text ) {
-		var ast, templates, found, licenseCategory,
-			input = this,
-			parser = new mw.jqueryMsg.parser();
-
-		try {
-			ast = parser.wikiTextToAst( text );
-		} catch (e) {
-			mw.log.warn( e.message );
-			return false;
-		}
-
-		function accumTemplates( node, templates ) {
-			var nodeName, lcNodeName;
-
-			if ( typeof node === 'object' ) {
-				nodeName = node[0];
-				lcNodeName = nodeName.toLowerCase();
-
-				// templates like Self are special cased, as it is not a license tag and also reparses its string arguments into templates
-				// e.g.  {{self|Cc-by-sa-3.0}}  --> we should add 'Cc-by-sa-3.0' to the templates
-				if (
-					mw.UploadWizard.config.licenseTagFilters &&
-					mw.UploadWizard.config.licenseTagFilters.indexOf( lcNodeName ) !== -1
-				) {
-					// upgrade all the arguments to be nodes in their own right (by making them the first element of an array)
-					// so, [ "self", "Cc-by-sa-3.0", "GFDL" ] --> [ "self", [ "Cc-by-sa-3.0" ], [ "GFDL" ] ];
-					// $.map seems to strip away arrays of one element so have to use an array within an array.
-					node = $.map( node, function( n, i ) {
-						return i === 0 ? n : [[n]];
-					} );
-				} else if ( typeof mw.jqueryMsg.htmlEmitter.prototype[lcNodeName] !== 'function' ) {
-					templates.push( nodeName );
-				}
-				$.map( node.slice( 1 ), function( n ) {
-					accumTemplates( n, templates );
-				} );
-			}
-		}
-
-		templates = [];
-		accumTemplates( ast, templates );
-
-		// TODO caching
-		found = false;
-		function recurseCategories( desiredCatTitle, title, depthToContinue ) {
-			if ( depthToContinue === 0 ) {
-				return;
-			}
-
-			function ok(cats) {
-				if ( cats !== false ) {
-					$.each( cats, function( i, catTitle ) {
-						if ( catTitle.getNameText() === desiredCatTitle.getNameText() ) {
-							found = true;
-							return false;
-						}
-						recurseCategories( desiredCatTitle, catTitle, depthToContinue - 1 );
-						return true;
-					} );
-				}
-			}
-
-			function err() {}
-
-			// this proceeds synchronously, so we pick up in the next line
-			input.api.getCategories( title, ok, err, false );
-		}
-
-		licenseCategory = new mw.Title( mw.UploadWizard.config.licenseCategory, catNsId );
-
-		$.each( templates, function( i, t ) {
-			var title = new mw.Title( t, templateNsId );
-			recurseCategories( licenseCategory, title, 5 );
-			if ( found ) {
-				return false;
-			}
-		} );
-
-		return found;
 	},
 
 	/**
