@@ -92,7 +92,7 @@
 			// Make it a link, and show the feedback page URL - we
 			// cancel the event propagation anyway, so the user won't
 			// see the actual page.
-			.prop( 'href', feedbackPage )
+			.prop( 'href', mw.util.getUrl( feedbackPage ) )
 			.msg( 'mwe-upwiz-feedback-prompt' )
 			.click(
 				function() {
