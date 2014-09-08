@@ -41,8 +41,6 @@
 		this.initUpload();
 		this.initDeeds();
 		this.initDetails();
-
-		this.thanksPage = new ui.Thanks();
 	}
 
 	oo.inheritClass( UploadWizardInterface, oo.EventEmitter );
