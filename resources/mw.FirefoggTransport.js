@@ -8,7 +8,7 @@
  * @param progressCb	callback to execute as the upload progresses
  * @param transportedCb	callback to execute when we've finished the upload
  */
-mw.FirefoggTransport = function( upload, api, fogg, progressCb, transportedCb ) {
+mw.FirefoggTransport = function ( upload, api, fogg, progressCb, transportedCb ) {
 	this.upload = upload;
 	this.api = api;
 	this.fogg = fogg;
@@ -21,7 +21,7 @@ mw.FirefoggTransport.prototype = {
 	/**
 	 * Do an upload
 	 */
-	doUpload: function() {
+	doUpload: function () {
 		var transport = this;
 
 		//Encode or passthrough Firefogg before upload
@@ -30,7 +30,7 @@ mw.FirefoggTransport.prototype = {
 		} else {
 			this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
 			this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
-				function(result, file) {
+				function (result, file) {
 					result = JSON.parse(result);
 					if ( result.progress === 1 ) {
 						//encoding done
@@ -45,7 +45,7 @@ mw.FirefoggTransport.prototype = {
 						};
 						transport.transportedCb( response );
 					}
-				}, function(progress) { //progress
+				}, function (progress) { //progress
 					if ( transport.upload.state === 'aborted' ) {
 						transport.fogg.cancel();
 					} else {
@@ -58,7 +58,7 @@ mw.FirefoggTransport.prototype = {
 		}
 	},
 
-	doFormDataUpload: function(file) {
+	doFormDataUpload: function (file) {
 		this.upload.ui.setStatus( 'mwe-upwiz-uploading' );
 		this.upload.file = file;
 		this.uploadHandler = new mw.ApiUploadFormDataHandler( this.upload, this.api );
@@ -67,7 +67,7 @@ mw.FirefoggTransport.prototype = {
 	/**
 	 * Check if the asset is in a format that can be upload without encoding.
 	 */
-	isUploadFormat: function(){
+	isUploadFormat: function () {
 		// Check if the server supports webm uploads:
 		var wembExt = ( $.inArray( 'webm', mw.UploadWizard.config.fileExtensions ) !== -1 );
 		// Determine passthrough mode
@@ -84,7 +84,7 @@ mw.FirefoggTransport.prototype = {
 	},
 
 	// TODO these boolean functions could be compressed and/or simplified, it looks like
-	isSourceAudio: function() {
+	isSourceAudio: function () {
 		var info = this.getSourceFileInfo();
 		// never transcode images
 		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
@@ -94,7 +94,7 @@ mw.FirefoggTransport.prototype = {
 				info.contentType.indexOf( 'audio/' ) !== -1;
 	},
 
-	isSourceVideo: function() {
+	isSourceVideo: function () {
 		var info = this.getSourceFileInfo();
 		// never transcode images
 		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
@@ -104,21 +104,21 @@ mw.FirefoggTransport.prototype = {
 			info.contentType.indexOf( 'video/' ) !== -1;
 	},
 
-	isOggFormat: function() {
+	isOggFormat: function () {
 		var contentType = this.getSourceFileInfo().contentType;
 		return contentType.indexOf( 'video/ogg' ) !== -1 ||
 			contentType.indexOf( 'application/ogg' ) !== -1 ||
 			contentType.indexOf( 'audio/ogg') !== -1;
 	},
 
-	isWebMFormat: function() {
+	isWebMFormat: function () {
 		return ( this.getSourceFileInfo().contentType.indexOf('webm') !== -1 );
 	},
 
 	/**
 	 * Get the source file info for the current file selected into this.fogg
 	 */
-	getSourceFileInfo: function() {
+	getSourceFileInfo: function () {
 		if ( !this.fogg.sourceInfo ) {
 			mw.log.warn( 'No firefogg source info is available' );
 			return false;
@@ -133,21 +133,21 @@ mw.FirefoggTransport.prototype = {
 	},
 
 	// Get the filename
-	getFileName: function(){
+	getFileName: function () {
 		// If file is in a supported format don't change extension
-		if( this.isUploadFormat() ){
+		if ( this.isUploadFormat() ) {
 			return this.fogg.sourceFilename;
 		} else {
-			if( this.isSourceAudio() ){
-				return this.fogg.sourceFilename.split('.').slice(0,-1).join('.') + '.oga';
+			if ( this.isSourceAudio() ) {
+				return this.fogg.sourceFilename.split('.').slice(0, -1).join('.') + '.oga';
 			}
-			if( this.isSourceVideo() ){
+			if ( this.isSourceVideo() ) {
                 var ext = this.getEncodeExt();
-				return this.fogg.sourceFilename.split('.').slice(0,-1).join('.') + '.' + ext;
+				return this.fogg.sourceFilename.split('.').slice(0, -1).join('.') + '.' + ext;
 			}
 		}
 	},
-	getEncodeExt: function(){
+	getEncodeExt: function () {
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
 		if ( encodeSettings.videoCodec && encodeSettings.videoCodec === 'vp8' ) {
 			return 'webm';
@@ -159,9 +159,9 @@ mw.FirefoggTransport.prototype = {
 	/**
 	 * Get the encode settings from configuration and the current selected video type
 	 */
-	getEncodeSettings: function(){
-		if( this.isUploadFormat() ){
-			return { 'passthrough' : true };
+	getEncodeSettings: function () {
+		if ( this.isUploadFormat() ) {
+			return { 'passthrough': true };
 		}
 		// Get the default encode settings:
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;

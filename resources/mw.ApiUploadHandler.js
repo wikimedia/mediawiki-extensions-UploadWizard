@@ -13,7 +13,7 @@
  * @param {mw.UploadWizardUpload} upload current upload
  * @param {mw.Api} api
  */
-mw.ApiUploadHandler = function( upload, api ) {
+mw.ApiUploadHandler = function ( upload, api ) {
 	// the Iframe transport is hardcoded for now because it works everywhere
 	// can also use Xhr Binary depending on browser
 	var handler = this;
@@ -42,7 +42,7 @@ mw.ApiUploadHandler.prototype = {
 	 * with proper params for the API
 	 * @param callback
 	 */
-	configureForm: function() {
+	configureForm: function () {
 		this.addFormInputIfMissing( 'action', 'upload' );
 
 		// force stash
@@ -67,7 +67,7 @@ mw.ApiUploadHandler.prototype = {
 	 * If successful, return true to a callback.
 	 * @param callback to return true on success
 	 */
-	configureEditToken: function( callerOk, err ) {
+	configureEditToken: function ( callerOk, err ) {
 		function ok( token ) {
 			handler.addFormInputIfMissing( 'token', token );
 			callerOk();
@@ -83,7 +83,7 @@ mw.ApiUploadHandler.prototype = {
 	 * @param name  the name of the input
 	 * @param value the value of the input
 	 */
-	addFormInputIfMissing: function( name, value ) {
+	addFormInputIfMissing: function ( name, value ) {
 		if ( this.$form.find( '[name="' + name + '"]' ).length === 0 ) {
 			this.$form.append( $( '<input type="hidden" />' ) .attr( { 'name': name, 'value': value } ));
 		}
@@ -92,12 +92,12 @@ mw.ApiUploadHandler.prototype = {
 	/**
 	 * Kick off the upload!
 	 */
-	start: function() {
+	start: function () {
 		function ok() {
 			handler.beginTime = ( new Date() ).getTime();
 			handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 			handler.upload.ui.showTransportProgress();
-			handler.transport.getSetUpStatus().done( function() {
+			handler.transport.getSetUpStatus().done( function () {
 				handler.$form.submit();
 			} );
 		}

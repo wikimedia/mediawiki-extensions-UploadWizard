@@ -10,7 +10,7 @@
  * when the user hasn't entered any categories (not counting hidden categories!).
  * This should probably not be going through the DOM, could be more MVC.
  */
-( function ( $ ) { $.fn.mwCoolCats = function( options ) {
+( function ( $ ) { $.fn.mwCoolCats = function ( options ) {
 
 	var catNsId = mw.config.get( 'wgNamespaceIds' ).category;
 
@@ -55,14 +55,13 @@
 	function _doesCatExist( cat ) {
 		var exists = false;
 		$( 'input.will-be-added' ).each(function () {
-			if ( _stripText( $( this ).val() ) == cat ) {
+			if ( _stripText( $( this ).val() ) === cat ) {
 				exists = true;
 				return false;
 			}
 		});
 		return exists;
 	}
-
 
 	/**
 	 * Add a new category to the page
@@ -82,8 +81,8 @@
 			// extra 'hidden' class is necessary to distinguish deliberately hidden categories from those
 			// which are hidden because the whole widget is closed
 		} else {
-			$anchor.attr( { target: "_blank", href: title.getUrl() } );
-			$li.append( $.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function() { $li.remove(); } ) );
+			$anchor.attr( { target: '_blank', href: title.getUrl() } );
+			$li.append( $.fn.removeCtrl( null, 'mwe-upwiz-category-remove', function () { $li.remove(); } ) );
 		}
 		$container.find( 'ul' ).append( $li );
 	}
@@ -99,7 +98,7 @@
 		}
 		return $container.find( 'ul li.cat, .categoryInput' )
 				.filter( selector )
-				.map( function() { return $( this ).data( 'title' ); } );
+				.map( function () { return $( this ).data( 'title' ); } );
 	}
 
 	/**
@@ -109,7 +108,7 @@
 	 */
 	function _containsCat( title ) {
 		var s = title.toString();
-		return _getCats().filter( function() { return this.toString() == s; } ).length !== 0;
+		return _getCats().filter( function () { return this.toString() === s; } ).length !== 0;
 	}
 
 	/**
@@ -117,25 +116,24 @@
 	 */
 	function _getWikiText() {
 
-		var wikiText = _getCats().map( function() { return '[[' + this.getPrefixedText() + ']]'; } )
+		var wikiText = _getCats().map( function () { return '[[' + this.getPrefixedText() + ']]'; } )
 						.toArray()
-						.join( "\n" );
+						.join( '\n' );
 
 		// if so configured, and there are no user-visible categories, add warning
-		if ( settings.missingCatsWikiText !== null && ! ( _getCats( ':not(.hidden)' ).length ) ) {
+		if ( settings.missingCatsWikiText !== null && !( _getCats( ':not(.hidden)' ).length ) ) {
 			wikiText += '\n\n' + settings.missingCatsWikiText;
 		}
 
 		return wikiText;
-	};
-
+	}
 
 	/**
 	 * Clear out all categories.
 	 */
 	function _removeAllCats() {
 		$container.find( 'ul li.cat' ).remove();
-	};
+	}
 
 	/**
 	 * Normalize text
@@ -153,7 +151,7 @@
 	 * Add a new input to the categories form
 	 */
 
-	function _newInput () {
+	function _newInput() {
 		var $newInput = $template.clone();
 		$newInput.mwCoolCats( $.extend( options, { link: false } ) );
 		$newInput.wrap( '<p></p>' );
@@ -177,7 +175,7 @@
 			prefix = title.getPrefixedText();
 		}
 
-		var ok = function( catList ) {
+		var ok = function ( catList ) {
 			for ( var c in catList ) {
 				seenCat[catList[c]] = true;
 			}
@@ -196,9 +194,8 @@
 
 	var settings = $.extend( {}, defaults, options );
 	if ( !settings.api ) {
-		throw new Error( "jQuery.mwCoolCats needs an 'api' argument" );
+		throw new Error( 'jQuery.mwCoolCats needs an \'api\' argument' );
 	}
-
 
 	var seenCat = {};
 	for ( var cx in settings.cats ) {
@@ -211,7 +208,7 @@
 	/**
 	 * Initialize the text field(s) the widget was given to be category pickers.
 	 */
-	return this.each( function() {
+	return this.each( function () {
 
 		var _this = $( this );
 
@@ -219,14 +216,14 @@
 
 		_this.suggestions( {
 			'fetch': _fetchSuggestions,
-			'cancel': function() {
+			'cancel': function () {
 				var req = $( this ).data( 'request' );
 				// XMLHttpRequest.abort is unimplemented in IE6, also returns nonstandard value of "unknown" for typeof
 				if ( req && ( typeof req.abort !== 'unknown' ) && ( typeof req.abort !== 'undefined' ) && req.abort ) {
 					req.abort();
 				}
 			},
-			'result': { 'select': function ( $div, $text ) {
+			'result': { 'select': function () {
 				_processInput( _this );
 			} }
 		} );
@@ -237,7 +234,7 @@
 			$container = _this.closest( '.cat-widget' ); // set to the cat-widget class we just wrapped
 			$container.prepend( '<ul class="cat-list pkg"></ul>' );
 			$container.append( $( '<a href="javascript:" name="catbutton"></a>' ).text( settings.buttontext )
-				.click( function(e) {
+				.click( function (e) {
 					e.stopPropagation();
 					e.preventDefault();
 					_newInput();
@@ -249,21 +246,20 @@
 		}
 
 		//XXX ensure this isn't blocking other stuff needed.
-		_this.parents( 'form' ).submit( function() {
+		_this.parents( 'form' ).submit( function () {
 			$( 'input.categoryInput', $( this ) ).each( function () {
-				var $this = $( this );
 				_processInput( this, true );
 			});
 		});
 
-		_this.keyup(function(e) {
-			if(e.keyCode == 13) {
+		_this.keyup( function (e) {
+			if ( e.keyCode === 13 ) {
 				e.stopPropagation();
 				e.preventDefault();
 			}
 			_processInput(this);
 		});
-		_this.blur(function(e) {
+		_this.blur( function () {
 			_processInput(this);
 		});
 
@@ -274,13 +270,12 @@
 		this.getWikiText = _getWikiText;
 
 		// initialize with some categories, if so configured
-		$.each( settings.cats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );
-		$.each( settings.hiddenCats, function( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
+		$.each( settings.cats, function ( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );
+		$.each( settings.hiddenCats, function ( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
 
 		_processInput();
 
 		$template = _this.clone();
 	} );
-
 
 }; } )( jQuery );

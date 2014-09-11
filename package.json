@@ -1,0 +1,25 @@
+{
+  "name": "UploadWizard",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard.git"
+  },
+  "licenses": [
+    {
+      "type": "GPLv2",
+      "url": "https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard.git/master/COPYING"
+    }
+  ],
+  "devDependencies": {
+    "grunt": "0.4.2",
+    "grunt-contrib-csslint": "0.2.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-banana-checker": "0.1.0",
+    "grunt-jscs": "0.6.1"
+  }
+}

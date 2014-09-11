@@ -18,7 +18,7 @@
  *		preprocess optional: function to apply to the contents of selector before testing
  *		events     what events on the input trigger a check.
  */
-mw.DestinationChecker = function( options ) {
+mw.DestinationChecker = function ( options ) {
 
 	var checker = this,
 		check = this.getDelayedChecker();
@@ -28,7 +28,7 @@ mw.DestinationChecker = function( options ) {
 	this.processResult = options.processResult;
 	this.api = options.api;
 
-	$.each( ['preprocess', 'delay', 'events'], function( i, option ) {
+	$.each( ['preprocess', 'delay', 'events'], function ( i, option ) {
 		if ( options[option] ) {
 			checker[option] = options[option];
 		}
@@ -66,16 +66,16 @@ mw.DestinationChecker.prototype = {
 	 * @param something
 	 * @return that same thing
 	 */
-	preprocess: function(x) { return x; },
+	preprocess: function (x) { return x; },
 
 	/**
 	 * fire when the input changes value or keypress
 	 * will trigger a check of the name if the field has been idle for delay ms.
 	 */
-	getDelayedChecker: function() {
+	getDelayedChecker: function () {
 		var checker = this;
 
-		return function() {
+		return function () {
 			// if we changed before the old timeout ran, clear that timeout.
 			if ( checker.timeoutId ) {
 				window.clearTimeout( checker.timeoutId );
@@ -83,7 +83,7 @@ mw.DestinationChecker.prototype = {
 
 			// and start another, hoping this time we'll be idle for delay ms.
 			checker.timeoutId = window.setTimeout(
-				function() {
+				function () {
 					checker.spinner( true );
 					checker.checkTitle();
 				},
@@ -96,7 +96,7 @@ mw.DestinationChecker.prototype = {
 	 * the backend of getDelayedChecker, and the title checker jQuery extension
 	 * dispatches title check requests in parallel, aggregates results
 	 */
-	checkTitle: function() {
+	checkTitle: function () {
 		var checker = this,
 			title = this.getTitle(),
 			status = {
@@ -130,7 +130,7 @@ mw.DestinationChecker.prototype = {
 	 * Get the current value of the input, with optional preprocessing
 	 * @return {string} the current input value, with optional processing
 	 */
-	getTitle: function() {
+	getTitle: function () {
 		return this.preprocess( $( this.selector ).val() );
 	},
 
@@ -145,7 +145,7 @@ mw.DestinationChecker.prototype = {
 		function blacklistResultProcessor( blacklistResult ) {
 			var result;
 
-			if( blacklistResult === false ) {
+			if ( blacklistResult === false ) {
 				result = { 'notBlacklisted': true };
 			} else {
 				result = {
@@ -159,7 +159,6 @@ mw.DestinationChecker.prototype = {
 			checker.cachedBlacklist[title] = result;
 			callback( { 'blacklist': result } );
 		}
-
 
 		if ( title === '' ) {
 			return;
@@ -188,7 +187,7 @@ mw.DestinationChecker.prototype = {
 	 * @param {Function} takes object, like { 'unique': result }
 	 * @param {string} title the uniqueness should be checked for
 	 */
-	checkUnique: function( callback, title ) {
+	checkUnique: function ( callback, title ) {
 		var params,
 			checker = this;
 
@@ -216,7 +215,7 @@ mw.DestinationChecker.prototype = {
 			if ( data.query.pages[-1] && !data.query.pages[-1].imageinfo ) {
 				protection = data.query.pages[-1].protection;
 				if ( protection && protection.length > 0 ) {
-					$.each( protection, function( i, val ) {
+					$.each( protection, function ( i, val ) {
 						if ( $.inArray( val.level, mw.config.get( 'wgUserGroups' ) ) === -1 ) {
 							result = {
 								isUnique: true,
@@ -256,7 +255,7 @@ mw.DestinationChecker.prototype = {
 						isUnique: false,
 						img: img,
 						title: ntitle,
-						href : img.descriptionurl
+						href: img.descriptionurl
 					};
 
 					break;
@@ -271,7 +270,6 @@ mw.DestinationChecker.prototype = {
 			checker.spinner( false );
 			mw.log( 'mw.DestinationChecker::checkUnique> Error in checkUnique result: ' + code );
 		}
-
 
 		// Setup the request -- will return thumbnail data if it finds one
 		// XXX do not use iiurlwidth as it will create a thumbnail
@@ -302,15 +300,14 @@ mw.DestinationChecker.prototype = {
 
 };
 
-
 /**
  * jQuery extension to make a field upload-checkable
  */
-$.fn.destinationChecked = function( options ) {
+$.fn.destinationChecked = function ( options ) {
 	options.selector = this;
 	var checker = new mw.DestinationChecker( options );
 	// this should really be done with triggers
-	this.checkTitle = function() { checker.checkTitle(); };
+	this.checkTitle = function () { checker.checkTitle(); };
 	return this;
 };
 }( mediaWiki, jQuery ) );

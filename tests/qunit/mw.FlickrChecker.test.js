@@ -1,8 +1,8 @@
-( function( mw ) {
+( function ( mw ) {
 	'use strict';
 
 	QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', QUnit.newMwEnvironment( {
-		setup: function() {
+		setup: function () {
 			mw.FlickrChecker.fileNames = {};
 		}
 	} ) );
@@ -14,7 +14,7 @@
 		return new mw.FlickrChecker(wizard, upload);
 	}
 
-	QUnit.test( 'getFilenameFromItem() simple case', 1, function() {
+	QUnit.test( 'getFilenameFromItem() simple case', 1, function () {
 		var flickrChecker = getInstance();
 		QUnit.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
@@ -22,7 +22,7 @@
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() with empty title', 1, function() {
+	QUnit.test( 'getFilenameFromItem() with empty title', 1, function () {
 		var flickrChecker = getInstance();
 		QUnit.equal(
 			flickrChecker.getFilenameFromItem( '', 123, 'johndoe' ),
@@ -30,7 +30,7 @@
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict within instance', 2, function() {
+	QUnit.test( 'getFilenameFromItem() name conflict within instance', 2, function () {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		QUnit.equal(
@@ -44,7 +44,7 @@
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict between different instances', 2, function() {
+	QUnit.test( 'getFilenameFromItem() name conflict between different instances', 2, function () {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		QUnit.equal(

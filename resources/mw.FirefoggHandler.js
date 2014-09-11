@@ -17,29 +17,30 @@ mw.FirefoggHandler = function ( upload, api ) {
 
 mw.FirefoggHandler.prototype = {
 	// The transport object
-	transport : null, // lazy init
+	transport: null, // lazy init
+
 	// Setup local pointer to firefogg instance
-	getFogg: function(){
-		if( ! this.fogg ){
+	getFogg: function () {
+		if ( !this.fogg ) {
 			this.fogg = new window.Firefogg();
 		}
 		return this.fogg;
 	},
 
-	getTransport: function(){
+	getTransport: function () {
 		var upload = this.upload;
 
-		if( !this.transport ){
+		if ( !this.transport ) {
 			this.transport = new mw.FirefoggTransport(
 					this.upload,
 					this.api,
 					this.getFogg(),
-					function( data ) {
+					function ( data ) {
 						upload.setTransportProgress( data.progress );
 						// also update preview video, url is in data.preview
 					},
 
-					function( result ) {
+					function ( result ) {
 						mw.log( 'FirefoggTransport::getTransport> Transport done ' + JSON.stringify( result ) );
 						upload.setTransported( result );
 					}
@@ -52,7 +53,7 @@ mw.FirefoggHandler.prototype = {
 	 * If chunks are disabled transcode then upload else
 	 * upload and transcode at the same time
 	 */
-	start: function() {
+	start: function () {
 		var title,
 			fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 

@@ -1,5 +1,5 @@
 /* jshint nomen: false */
-( function( mw, $ ) {
+( function ( mw, $ ) {
 // TODO come now, there has to be a better way
 mediaWiki.messages.set( {
 	'mwe-upwiz-code-unknown': 'Unknown language'
@@ -26,7 +26,7 @@ mw.LanguageUpWiz = {
 	languages: null,
 
 	// Helper function to see if a language is in the list.
-	checkForLang: function( lang ) {
+	checkForLang: function ( lang ) {
 		for ( var langIndex in mw.LanguageUpWiz.languages ) {
 			if ( mw.LanguageUpWiz.languages[langIndex].code === lang ) {
 				return true;
@@ -35,13 +35,12 @@ mw.LanguageUpWiz = {
 		return false;
 	},
 
-
 	/**
 	 * cache some useful objects
 	 * 1) mostly ready-to-go language HTML menu. When/if we upgrade, make it a jQuery combobox
 	 * 2) dict of language code to name -- useful for testing for existence, maybe other things.
 	 */
-	initialize: function() {
+	initialize: function () {
 		var langs, langcode,
 			thisUri = new mw.Uri( window.location.href, { overrideKeys: true } ),
 			$select = $( '<select>' );
@@ -70,7 +69,7 @@ mw.LanguageUpWiz = {
 		}
 
 		mw.LanguageUpWiz.codes = {};
-		$.each( mw.LanguageUpWiz.languages, function( i, language ) {
+		$.each( mw.LanguageUpWiz.languages, function ( i, language ) {
 			// add an option for each language
 			var $opt = $( '<option>' )
 				.prop( 'value', language.code )
@@ -93,7 +92,7 @@ mw.LanguageUpWiz = {
 	 * @param code	selected language code
 	 * @return HTML	select element configured as desired
 	 */
-	getMenu: function( name, code ) {
+	getMenu: function ( name, code ) {
 		mw.LanguageUpWiz.initialize();
 		/* If we did not request a specific selected language code, see if we have a default. */
 		if ( mw.LanguageUpWiz.defaultCode !== null && code === mw.LanguageUpWiz.UNKNOWN ) {
@@ -137,7 +136,7 @@ mw.LanguageUpWiz = {
 	 *				Expected to be separated with dashes as codes from ISO 639, e.g. "zh-tw" for Chinese ( Traditional )
 	 * @return a language code which is close to the supplied parameter, or fall back to mw.LanguageUpWiz.defaultCode
 	 */
-	getClosest: function( code ) {
+	getClosest: function ( code ) {
 		mw.LanguageUpWiz.initialize();
 		if ( typeof ( code ) !== 'string' || code === null || code.length === 0 ) {
 			return mw.LanguageUpWiz.defaultCode;

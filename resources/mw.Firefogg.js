@@ -11,9 +11,9 @@ mw.Firefogg = {
 	/**
 	 * Get the URL for installing firefogg on the client OS
 	 */
-	getFirefoggInstallUrl: function() {
+	getFirefoggInstallUrl: function () {
 		var osLink = false;
-		if( $.client.profile().name !== 'firefox' ) {
+		if ( $.client.profile().name !== 'firefox' ) {
 			return 'http://firefogg.org/';
 		}
 		if ( navigator.oscpu ) {
@@ -28,7 +28,7 @@ mw.Firefogg = {
 		return osLink;
 	},
 
-	isInstalled: function() {
+	isInstalled: function () {
 		return typeof window.Firefogg !== 'undefined' && new window.Firefogg().version >= '2.8.05';
 	}
 };

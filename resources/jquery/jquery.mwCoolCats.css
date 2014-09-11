@@ -18,9 +18,9 @@
 }
 .cat-widget li {
   background-color: #fff;
-  border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  border-radius: 4px;
   border-top: 1px solid #fff;
   border: 1px solid #fff;
   color: black;
@@ -29,9 +29,9 @@
 }
 .cat-widget li:hover {
   background-color: #444;
-  border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  border-radius: 4px;
   border-top: 1px solid #111;
   border: 1px solid #222;
   color:white;

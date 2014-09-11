@@ -39,22 +39,22 @@
  *
  */
 
-( function( $ ) {
+( function ( $ ) {
 	/**
 	 * Initialize crossfading of the children of an element
- 	 */
-	$.fn.morphCrossfader = function() {
+	 */
+	$.fn.morphCrossfader = function () {
 		// the elements that are immediate children are the crossfadables
 		// they must all be "on top" of each other, so position them relative
 		this.css( {
-			position : 'relative',
-			overflow : 'hidden',
+			position: 'relative',
+			overflow: 'hidden',
 			scroll: 'none'
 		} );
 		this.children().css( {
 			position: 'absolute',
-			'top': '0px',
-		    	left : '0px',
+			top: '0px',
+			left: '0px',
 			scroll: 'none',
 			opacity: 0,
 			visibility: 'hidden'
@@ -62,7 +62,7 @@
 
 		// should achieve the same result as crossfade( this.children().first() ) but without
 		// animation etc.
-		$.each( this, function( i, container ) {
+		$.each( this, function ( i, container ) {
 			var $container = $( container );
 			$container.morphCrossfade( $container.children().first(), 0 );
 		} );
@@ -74,17 +74,16 @@
 	 * Initialize crossfading of the children of an element
 	 * @param selector of new thing to show; should be an immediate child of the crossfader element
 	 * @param speed (optional) how fast to crossfade, in milliseconds
- 	 */
-	$.fn.morphCrossfade = function( newPanelSelector, speed ) {
+	 */
+	$.fn.morphCrossfade = function ( newPanelSelector, speed ) {
 		var $containers = this;
 		if ( typeof speed === 'undefined' ) {
 			speed = 400;
 		}
 
-		$containers.css( { 'overflow' : 'hidden' } );
+		$containers.css( { 'overflow': 'hidden' } );
 
-
-		$.each( $containers, function( i, container ) {
+		$.each( $containers, function ( i, container ) {
 			var $container = $( container );
 			var $oldPanel = $( $container.data( 'crossfadeDisplay' ) );
 			var $newPanel = ( typeof newPanelSelector === 'string' ) ? $container.find( newPanelSelector ) : $( newPanelSelector );
@@ -97,18 +96,18 @@
 					// take it out of the flow
 					$oldPanel.css( { position: 'absolute' } );
 					// fade WITHOUT hiding when opacity = 0
-					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function() {
-						$oldPanel.css( { visibility: 'hidden'} );
+					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function () {
+						$oldPanel.css( { visibility: 'hidden' } );
 					} );
 				}
 				$container.data( 'crossfadeDisplay', $newPanel );
 
 				$newPanel.css( { visibility: 'visible' } );
-				$container.stop().animate( { height: $newPanel.outerHeight() }, speed, 'linear', function() {
+				$container.stop().animate( { height: $newPanel.outerHeight() }, speed, 'linear', function () {
 					// we place it back into the flow, in case its size changes.
 					$newPanel.css( { position: 'relative' } );
 					// and allow the container to grow with it.
-					$container.css( { height : 'auto' } );
+					$container.css( { height: 'auto' } );
 				} );
 				$newPanel.stop().animate( { opacity: 1 }, speed );
 			}

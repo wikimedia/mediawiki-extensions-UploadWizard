@@ -14,7 +14,7 @@
  *   - Javascript doesn't have a standard way to access unicode character properties in regexes, so \p{PROPERTY}, \P{PROPERTY}, and [[:PROPERTY:]] have been changed when possible
  *     or the associated regex removed
 */
-( function( $ ) {
+( function ( $ ) {
 
 	var regexSets = {
 
@@ -59,11 +59,11 @@
 
 	};
 
-	$.each( regexSets, function( name, regexes ) {
-		var tester = ( function( regexes ) {
-			return function( value, element, params ) {
+	$.each( regexSets, function ( name, regexes ) {
+		var tester = ( function ( regexes ) {
+			return function ( value ) {
 				var ok = true;
-				$.each( regexes, function( i, regex ) {
+				$.each( regexes, function ( i, regex ) {
 					// if we make a mistake with commas in the above list, IE sometimes gives us an undefined regex, causes nastiness
 					if ( typeof regex !== undefined && value.match( regex ) ) {
 						ok = false;
@@ -73,8 +73,7 @@
 				return ok;
 			};
 		} )( regexes );
-		$.validator.addMethod( name, tester, "This title is not allowed" );
+		$.validator.addMethod( name, tester, 'This title is not allowed' );
 	} );
-
 
 } )( jQuery );

@@ -1,4 +1,4 @@
-( function( mw, $, oo ) {
+( function ( mw, $, oo ) {
 
 var UIP;
 
@@ -53,7 +53,7 @@ function UploadWizardUploadInterface( upload, filesDiv, providedFile ) {
 	this.$removeCtrl = $.fn.removeCtrl(
 		'mwe-upwiz-remove',
 		'mwe-upwiz-remove-upload',
-		function() {
+		function () {
 			ui.upload.remove();
 			ui.cancelPositionTracking();
 		}
@@ -118,7 +118,7 @@ function UploadWizardUploadInterface( upload, filesDiv, providedFile ) {
 		true
 	);
 
-	if( providedFile ) {
+	if ( providedFile ) {
 		// if a file is already present, trigger the change event immediately.
 		this.$fileInputCtrl.trigger( 'change', { isFake: true } );
 	}
@@ -131,7 +131,7 @@ UIP = UploadWizardUploadInterface.prototype;
 /**
  * Things to do to this interface once we start uploading
  */
-UIP.start = function() {
+UIP.start = function () {
 	// remove hovering
 	$( this.div )
 		.unbind( 'mouseenter mouseover mouseleave mouseout' );
@@ -153,7 +153,7 @@ UIP.start = function() {
  * change the graphic indicator at the far end of the row for this file
  * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
  */
-UIP.showIndicator = function( statusClass ) {
+UIP.showIndicator = function ( statusClass ) {
 	this.clearIndicator();
 	// add the desired class and make it visible, if it wasn't already.
 	this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass ).css( 'visibility', 'visible' );
@@ -162,9 +162,9 @@ UIP.showIndicator = function( statusClass ) {
 /**
  * Reset the graphic indicator
  */
-UIP.clearIndicator = function() {
+UIP.clearIndicator = function () {
 	var ui = this;
-	$.each( this.$indicator.attr( 'class' ).split( /\s+/ ), function( i, className ) {
+	$.each( this.$indicator.attr( 'class' ).split( /\s+/ ), function ( i, className ) {
 		if ( className.match( /^mwe-upwiz-status/ ) ) {
 			ui.$indicator.removeClass( className );
 		}
@@ -175,7 +175,7 @@ UIP.clearIndicator = function() {
  * Set the preview image on the file page for this upload.
  * @param HTMLImageElement
  */
-UIP.setPreview = function( image ) {
+UIP.setPreview = function ( image ) {
 	var $preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
 	if ( image === null ) {
 		$preview.addClass( 'mwe-upwiz-file-preview-broken' );
@@ -190,7 +190,7 @@ UIP.setPreview = function( image ) {
  * @param String msgKey: key for the message
  * @param Array args: array of values, in case any need to be fed to the image.
  */
-UIP.setStatus = function( msgKey, args ) {
+UIP.setStatus = function ( msgKey, args ) {
 	if ( args === undefined ) {
 		args = [];
 	}
@@ -203,14 +203,14 @@ UIP.setStatus = function( msgKey, args ) {
  * Set status line directly with a string
  * @param {String}
  */
-UIP.setStatusString = function( s ) {
+UIP.setStatusString = function ( s ) {
 	$( this.div ).find( '.mwe-upwiz-file-status' ).html( s ).show();
 };
 
 /**
  * Clear the status line for this upload (hide it, in case there are paddings and such which offset other things.)
  */
-UIP.clearStatus = function() {
+UIP.clearStatus = function () {
 	$( this.div ).find( '.mwe-upwiz-file-status' ).hide();
 };
 
@@ -227,13 +227,13 @@ UIP.showTransportProgress = function () {
 /**
  * Show that upload is transported
  */
-UIP.showStashed = function() {
+UIP.showStashed = function () {
 	if ( mw.UploadWizard.config.startImmediately !== true ) {
 		this.$removeCtrl.detach();
 	}
 	this.$fileInputCtrl.detach();
 
-	if( this.$showThumbCtrl ) {
+	if ( this.$showThumbCtrl ) {
 		this.$showThumbCtrl.detach();
 	}
 
@@ -246,7 +246,7 @@ UIP.showStashed = function() {
  * @param String code: error code from API
  * @param {String|Object} info: extra info
  */
-UIP.showError = function( code, info ) {
+UIP.showError = function ( code, info ) {
 	this.showIndicator( 'error' );
 	// is this an error that we expect to have a message for?
 	var msgKey, args;
@@ -268,10 +268,10 @@ UIP.showError = function( code, info ) {
 	this.setStatus( msgKey, args );
 };
 
-UIP.initFileInputCtrl = function() {
+UIP.initFileInputCtrl = function () {
 	var ui = this;
 
-	this.$fileInputCtrl.change( function( e, eventData ) {
+	this.$fileInputCtrl.change( function ( e, eventData ) {
 		var files = ui.getFiles();
 
 		if ( !eventData || !eventData.isFake ) {
@@ -283,9 +283,9 @@ UIP.initFileInputCtrl = function() {
 		ui.upload.checkFile(
 			ui.getFilename(),
 			files,
-			function() { ui.fileChangedOk(); },
-			function( code, info ) { ui.fileChangedError( code, info ); },
-			function() { ui.$fileInputCtrl.get(0).value = ''; }
+			function () { ui.fileChangedOk(); },
+			function ( code, info ) { ui.fileChangedError( code, info ); },
+			function () { ui.$fileInputCtrl.get(0).value = ''; }
 		);
 	} );
 };
@@ -294,13 +294,13 @@ UIP.initFileInputCtrl = function() {
  * Get a list of the files from this file input, defaulting to the value from the input form
  * @return {Array} of File objects
  */
-UIP.getFiles = function() {
+UIP.getFiles = function () {
 	var files = [];
 	if ( mw.fileApi.isAvailable() ) {
-		if( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
+		if ( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
 			files[0] = this.providedFile;
 		} else {
-			$.each( this.$fileInputCtrl.get(0).files, function( i, file ) {
+			$.each( this.$fileInputCtrl.get(0).files, function ( i, file ) {
 				files.push( file );
 			} );
 		}
@@ -313,9 +313,9 @@ UIP.getFiles = function() {
  * Get just the filename.
  * @return {String}
  */
-UIP.getFilename = function() {
-	if( this.providedFile && ! this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
-		if( this.providedFile.fileName ) {
+UIP.getFilename = function () {
+	if ( this.providedFile && !this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+		if ( this.providedFile.fileName ) {
 			return this.providedFile.fileName;
 		} else {
 			// this property has a different name in FF vs Chrome.
@@ -331,7 +331,7 @@ UIP.getFilename = function() {
  * will update interface to show as much info as possible, including preview.
  * n.b. in older browsers we only will know the filename
  */
-UIP.fileChangedOk = function() {
+UIP.fileChangedOk = function () {
 	var ui = this,
 		statusItems = [];
 
@@ -342,14 +342,14 @@ UIP.fileChangedOk = function() {
 		statusItems.push( this.upload.imageinfo.width + '\u00d7' + this.upload.imageinfo.height );
 	}
 
-	if( this.upload.file && !this.upload.fromURL ){
+	if ( this.upload.file && !this.upload.fromURL ) {
 		statusItems.push( mw.units.bytes( this.upload.file.size ) );
 	}
 
 	this.clearStatus();
 	this.setStatusString( statusItems.join( ' \u00b7 ' ) );
 
-	if( this.upload.wizard.makePreviewsFlag ) {
+	if ( this.upload.wizard.makePreviewsFlag ) {
 		// Make the preview now. Will check if it's a previewable file.
 		this.makePreview();
 	} else if ( this.isPreviewable() ) {
@@ -357,7 +357,7 @@ UIP.fileChangedOk = function() {
 		this.$showThumbCtrl = $.fn.showThumbCtrl(
 				'mwe-upwiz-show-thumb',
 				'mwe-upwiz-show-thumb-tip',
-				function() { ui.makePreview(); }
+				function () { ui.makePreview(); }
 			).addClass( 'mwe-upwiz-file-status-line-item' );
 
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
@@ -366,20 +366,20 @@ UIP.fileChangedOk = function() {
 	}
 };
 
-UIP.URL = function() {
+UIP.URL = function () {
 	return window.URL || window.webkitURL || window.mozURL;
 };
 
-UIP.isVideo = function() {
+UIP.isVideo = function () {
 	return mw.fileApi.isAvailable() && mw.fileApi.isPreviewableVideo( this.upload.file );
 };
 
-UIP.isPreviewable = function() {
+UIP.isPreviewable = function () {
 	return mw.fileApi.isAvailable() && this.upload.file && mw.fileApi.isPreviewableFile( this.upload.file );
 };
 
 // called once we have an image url
-UIP.loadImage = function( url ) {
+UIP.loadImage = function ( url ) {
 	var image = document.createElement( 'img' ),
 		ui = this;
 	image.onload = function () {
@@ -390,12 +390,12 @@ UIP.loadImage = function( url ) {
 	this.upload.thumbnails['*'] = image;
 };
 
-UIP.makePreview = function() {
+UIP.makePreview = function () {
 	var first, video, url, dataUrlReader,
 		ui = this;
 
 	// don't run this repeatedly.
-	if( this.previewLoaded ) {
+	if ( this.previewLoaded ) {
 		return;
 	}
 
@@ -420,7 +420,7 @@ UIP.makePreview = function() {
 				} else {
 					// Chrome sometimes shows black frames if grabbing right away.
 					// wait 500ms before grabbing frame
-					setTimeout(function() {
+					setTimeout(function () {
 						var context,
 							canvas = document.createElement( 'canvas' );
 						canvas.width = 100;
@@ -436,7 +436,7 @@ UIP.makePreview = function() {
 			video.src = url;
 		} else {
 			dataUrlReader = new FileReader();
-			dataUrlReader.onload = function() {
+			dataUrlReader.onload = function () {
 				// this step (inserting image-as-dataurl into image object) is slow for large images, which
 				// is why this is optional and has a control attached to it to load the preview.
 				ui.loadImage( dataUrlReader.result );
@@ -446,7 +446,7 @@ UIP.makePreview = function() {
 	}
 };
 
-UIP.fileChangedError = function( code, info ) {
+UIP.fileChangedError = function ( code, info ) {
 	var filename = this.getFilename(),
 
 		// ok we now have a fileInputCtrl with a "bad" file in it
@@ -458,7 +458,7 @@ UIP.fileChangedError = function( code, info ) {
 	this.$fileInputCtrl = $newFileInput;
 	this.initFileInputCtrl();
 
-	if( this.providedFile ) {
+	if ( this.providedFile ) {
 		this.providedFile = null;
 	}
 
@@ -475,11 +475,11 @@ UIP.fileChangedError = function( code, info ) {
 	}
 };
 
-UIP.showUnparseableFilenameError = function( filename ) {
+UIP.showUnparseableFilenameError = function ( filename ) {
 	this.showFilenameError( mw.message( 'mwe-upwiz-unparseable-filename', filename ).escaped() );
 };
 
-UIP.showBadExtensionError = function( filename, extension ) {
+UIP.showBadExtensionError = function ( filename, extension ) {
 	var $errorMessage;
 	// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
 	if ( mw.UploadWizard.config.enableFirefogg &&
@@ -499,11 +499,11 @@ UIP.showMissingExtensionError = function () {
 	this.showExtensionError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) );
 };
 
-UIP.showUnknownFilenameError = function( filename ) {
+UIP.showUnknownFilenameError = function ( filename ) {
 	this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-unknown-filename-error', filename ) );
 };
 
-UIP.showExtensionError = function( $errorMessage ) {
+UIP.showExtensionError = function ( $errorMessage ) {
 	this.showFilenameError(
 		$( '<div></div>' ).append(
 			$errorMessage,
@@ -515,11 +515,11 @@ UIP.showExtensionError = function( $errorMessage ) {
 	);
 };
 
-UIP.showDuplicateError = function( filename, basename ) {
+UIP.showDuplicateError = function ( filename, basename ) {
 	this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-duplicate-filename-error', basename ) );
 };
 
-UIP.showFilenameError = function( $text ) {
+UIP.showFilenameError = function ( $text ) {
 	$( '<div>' )
 		.html( $text )
 		.dialog({
@@ -540,7 +540,7 @@ UIP.showFilenameError = function( $text ) {
  * @param positionTracking string, optional, whether to do position-polling ('poll')
  *     on the selected element or whether to listen to window-resize events ('resize')
  */
-UIP.moveFileInputToCover = function( selector, positionTracking ) {
+UIP.moveFileInputToCover = function ( selector, positionTracking ) {
 	var iv, to, onResize, $win,
 		ui = this;
 
@@ -563,10 +563,9 @@ UIP.moveFileInputToCover = function( selector, positionTracking ) {
 		// and none of the textfield-like input
 		ui.$fileInputCtrl.css( {
 			'margin-left': '-' + ( ui.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
-			'margin-top' : '-' + ( ui.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
+			'margin-top': '-' + ( ui.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
 		} );
 	}
-
 
 	this.cancelPositionTracking();
 	if ( positionTracking === 'poll' ) {
@@ -614,12 +613,12 @@ UIP.hideFileInput = function () {
  *   2 ) update the underlying "title" which we are targeting to add to mediawiki.
  *      TODO silently fix to have unique filename? unnecessary at this point...
  */
-UIP.updateFilename = function() {
+UIP.updateFilename = function () {
 	var $div,
 		ui = this,
 		path = this.getFilename();
 	// get basename of file; some browsers do this C:\fakepath\something
-	path = path.replace(/\w:.*\\(.*)$/,'$1');
+	path = path.replace(/\w:.*\\(.*)$/, '$1');
 
 	// visible filename
 	$( this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).text( path );
@@ -632,7 +631,7 @@ UIP.updateFilename = function() {
 	$( this.filenameCtrl ).val( ( new Date() ).getTime().toString() + path );
 
 	// deal with styling the file inputs and making it react to mouse
-	if ( ! this.isFilled ) {
+	if ( !this.isFilled ) {
 		$div = $( this.div );
 		this.isFilled = true;
 		$div.addClass( 'filled' );
@@ -655,14 +654,14 @@ UIP.updateFilename = function() {
 		//
 		// ALSO: When file inputs are adjacent, Firefox misses the "mouseenter" and "mouseleave" events.
 		// Consequently we have to bind to "mouseover" and "mouseout" as well even though that's not as efficient.
-		$div.bind( 'mouseenter mouseover', function() {
+		$div.bind( 'mouseenter mouseover', function () {
 			$div.addClass( 'hover' );
 			$( '#mwe-upwiz-filelist' )
 				.children()
-				.filter( function() { return this !== ui.div; } )
+				.filter( function () { return this !== ui.div; } )
 				.removeClass('hover');
 		} );
-		$div.bind( 'mouseleave mouseout', function() {
+		$div.bind( 'mouseleave mouseout', function () {
 			$div.removeClass( 'hover' );
 		} );
 
@@ -676,7 +675,7 @@ UIP.updateFilename = function() {
  * Remove any complaints we had about errors and such
  * XXX this should be changed to something Theme compatible
  */
-UIP.clearErrors = function() {
+UIP.clearErrors = function () {
 	$( this.div ).removeClass( 'mwe-upwiz-upload-error ');
 	$( this.errorDiv ).hide().empty();
 };
