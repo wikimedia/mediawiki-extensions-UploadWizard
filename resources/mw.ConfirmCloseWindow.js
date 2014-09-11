@@ -9,9 +9,9 @@
 	 * This supersedes any previous onbeforeunload handler. If there was a handler before, it is
 	 * restored when you execute the returned function.
 	 *
-	 *     var allowCloseWindow = mw.confirmCloseWindow();
-	 *     // ... do stuff that can't be interrupted ...
-	 *     allowCloseWindow();
+	 *	 var allowCloseWindow = mw.confirmCloseWindow();
+	 *	 // ... do stuff that can't be interrupted ...
+	 *	 allowCloseWindow();
 	 *
 	 * @param {Object} [options]
 	 * @param {Function} [options.message]

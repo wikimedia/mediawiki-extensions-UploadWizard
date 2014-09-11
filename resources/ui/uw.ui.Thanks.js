@@ -83,22 +83,22 @@
 				.text( upload.title.getMainText() )
 				.appendTo( $thumbnailCaption );
 
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-data' )
-				.appendTo( $thanksDiv )
-				.append(
-					$( '<p>' )
-						.text( mw.message( 'mwe-upwiz-thanks-wikitext' ).text() )
-						.append(
-							$( '<br />' ),
-							this.makeReadOnlyInput( thumbWikiText )
-						),
-					$('<p/>').text( mw.message( 'mwe-upwiz-thanks-url' ).text() )
-						.append(
-							$( '<br />' ),
-							this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
-						)
-				);
+		$( '<div>' )
+			.addClass( 'mwe-upwiz-data' )
+			.appendTo( $thanksDiv )
+			.append(
+				$( '<p>' )
+					.text( mw.message( 'mwe-upwiz-thanks-wikitext' ).text() )
+					.append(
+						$( '<br />' ),
+						this.makeReadOnlyInput( thumbWikiText )
+					),
+				$('<p/>').text( mw.message( 'mwe-upwiz-thanks-url' ).text() )
+					.append(
+						$( '<br />' ),
+						this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
+					)
+			);
 
 		upload.setThumbnail(
 			$thumbnailDiv,

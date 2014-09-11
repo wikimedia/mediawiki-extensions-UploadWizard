@@ -1,7 +1,6 @@
 {
 	"preset": "wikimedia",
 
-	"validateIndentation": null,
 	"requireMultipleVarDecl": null,
 	"disallowDanglingUnderscores": null,
 	"requireCamelCaseOrUpperCaseIdentifiers": null,

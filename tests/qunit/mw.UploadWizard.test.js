@@ -16,10 +16,10 @@
  */
 
 ( function ( mw ) {
-    QUnit.module( 'mw.UploadWizard', QUnit.newMwEnvironment() );
+	QUnit.module( 'mw.UploadWizard', QUnit.newMwEnvironment() );
 
-    QUnit.test( 'constructor sanity test', 1, function ( assert ) {
-        var wizard = new mw.UploadWizard( {} );
-        assert.ok( wizard );
-    } );
+	QUnit.test( 'constructor sanity test', 1, function ( assert ) {
+		var wizard = new mw.UploadWizard( {} );
+		assert.ok( wizard );
+	} );
 }( mediaWiki, jQuery ) );
