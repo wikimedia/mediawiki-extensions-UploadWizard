@@ -3,6 +3,5 @@
 
 	"requireMultipleVarDecl": null,
 	"disallowDanglingUnderscores": null,
-	"requireCamelCaseOrUpperCaseIdentifiers": null,
-	"requireSpacesInsideArrayBrackets": null
-}
+	"requireCamelCaseOrUpperCaseIdentifiers": null
+ }

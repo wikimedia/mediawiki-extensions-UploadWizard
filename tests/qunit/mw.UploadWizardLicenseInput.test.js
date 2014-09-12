@@ -25,7 +25,7 @@
 
 	QUnit.test( 'createInputs()', 2, function ( assert ) {
 		var values,
-			config = { type: 'or', licenses: ['cc-by-sa-3.0'] },
+			config = { type: 'or', licenses: [ 'cc-by-sa-3.0' ] },
 			uwLicenseInput;
 
 		uwLicenseInput = new mw.UploadWizardLicenseInput( '#qunit-fixture', values, config );
@@ -45,7 +45,7 @@
 					{
 						head: 'mwe-upwiz-license-cc-head',
 						subhead: 'mwe-upwiz-license-cc-subhead',
-						licenses: ['cc-by-sa-3.0']
+						licenses: [ 'cc-by-sa-3.0' ]
 					}
 				]
 			},
