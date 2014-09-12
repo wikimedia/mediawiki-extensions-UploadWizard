@@ -109,8 +109,8 @@
 
 		// Set the thumbnail links so that they point to the image description page
 		$thumbnailLink.add( $thumbnailDiv.find( '.mwe-upwiz-thumbnail-link' ) ).attr( {
-			'href': upload.imageinfo.descriptionurl,
-			'target': '_blank'
+			href:upload.imageinfo.descriptionurl,
+			target:'_blank'
 		} );
 
 		this.$div.find( '.mwe-upwiz-buttons' ).before( $thanksDiv );

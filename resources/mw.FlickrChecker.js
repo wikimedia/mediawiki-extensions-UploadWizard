@@ -367,8 +367,8 @@
 						license: true,
 						photoId: item.id,
 						location: {
-							'latitude': item.latitude,
-							'longitude': item.longitude
+							latitude:item.latitude,
+							longitude:item.longitude
 						},
 						author: item.ownername,
 						date: item.datetaken,

@@ -1093,12 +1093,12 @@
 			var api = this.api,
 				isComplete = false,
 				tokenRequest = {
-					'action': 'tokens',
-					'type': 'options'
+					action:'tokens',
+					type:'options'
 				},
 				prefRequest = {
-					'action': 'options',
-					'change': 'upwiz_skiptutorial=1'
+					action:'options',
+					change:'upwiz_skiptutorial=1'
 				};
 
 			var allowCloseWindow = mw.confirmCloseWindow( {
@@ -1244,7 +1244,7 @@
 			contentSource = fn;
 			html = true;
 		} else {
-			attrs = { 'title': mw.message( 'mwe-upwiz-tooltip-' + key ).escaped() };
+			attrs = { title:mw.message( 'mwe-upwiz-tooltip-' + key ).escaped() };
 			contentSource = 'title';
 		}
 		return this.append(

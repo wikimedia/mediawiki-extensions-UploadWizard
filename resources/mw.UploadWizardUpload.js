@@ -318,7 +318,7 @@
 
 			try {
 				href = new mw.Title( filename, fileNsId ).getUrl();
-				$a.attr( { 'href': href, 'target': '_blank' } );
+				$a.attr( { href:href, target:'_blank' } );
 			} catch ( e ) {
 				$a.click( function () { window.alert('could not parse filename=' + filename ); } );
 				$a.attr( 'href', '#' );
@@ -729,9 +729,9 @@
 	 */
 	UWUP.getStashImageInfo = function ( callback, props, width, height ) {
 		var params = {
-			'prop':	'stashimageinfo',
-			'siifilekey': this.fileKey,
-			'siiprop': props.join( '|' )
+			prop: 'stashimageinfo',
+			siifilekey: this.fileKey,
+			siiprop: props.join( '|' )
 		};
 
 		function ok( data ) {
@@ -807,9 +807,9 @@
 
 		var requestedTitle = this.title.getPrefixedText(),
 			params = {
-				'prop': 'imageinfo',
-				'titles': requestedTitle,
-				'iiprop': props.join( '|' )
+				prop:'imageinfo',
+				titles:requestedTitle,
+				iiprop:props.join( '|' )
 			};
 
 		if ( width !== undefined || height !== undefined ) {
@@ -1174,12 +1174,12 @@
 				$( '<div class="mwe-upwiz-lightbox"></div>' )
 					.append( $imgDiv )
 					.dialog( {
-						'minWidth': mw.UploadWizard.config.largeThumbnailWidth,
-						'minHeight': mw.UploadWizard.config.largeThumbnailMaxHeight,
-						'autoOpen': true,
-						'title': mw.message( 'mwe-upwiz-image-preview' ).escaped(),
-						'modal': true,
-						'resizable': false
+						minWidth:mw.UploadWizard.config.largeThumbnailWidth,
+						minHeight:mw.UploadWizard.config.largeThumbnailMaxHeight,
+						autoOpen:true,
+						title:mw.message( 'mwe-upwiz-image-preview' ).escaped(),
+						modal:true,
+						resizable:false
 					} );
 				upload.setThumbnail(
 					$imgDiv,

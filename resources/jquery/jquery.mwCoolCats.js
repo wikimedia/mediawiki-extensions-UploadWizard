@@ -215,15 +215,15 @@
 		_this.addClass( 'categoryInput' );
 
 		_this.suggestions( {
-			'fetch': _fetchSuggestions,
-			'cancel': function () {
+			fetch:_fetchSuggestions,
+			cancel:function () {
 				var req = $( this ).data( 'request' );
 				// XMLHttpRequest.abort is unimplemented in IE6, also returns nonstandard value of "unknown" for typeof
 				if ( req && ( typeof req.abort !== 'unknown' ) && ( typeof req.abort !== 'undefined' ) && req.abort ) {
 					req.abort();
 				}
 			},
-			'result': { 'select': function () {
+			result:{ select:function () {
 				_processInput( _this );
 			} }
 		} );

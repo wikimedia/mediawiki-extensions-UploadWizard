@@ -81,7 +81,7 @@
 			speed = 400;
 		}
 
-		$containers.css( { 'overflow': 'hidden' } );
+		$containers.css( { overflow:'hidden' } );
 
 		$.each( $containers, function ( i, container ) {
 			var $container = $( container );

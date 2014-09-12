@@ -4,6 +4,5 @@
 	"requireMultipleVarDecl": null,
 	"disallowDanglingUnderscores": null,
 	"requireCamelCaseOrUpperCaseIdentifiers": null,
-	"disallowQuotedKeysInObjects": null,
 	"requireSpacesInsideArrayBrackets": null
 }

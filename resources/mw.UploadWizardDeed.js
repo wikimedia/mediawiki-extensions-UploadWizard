@@ -173,7 +173,7 @@
 						mw.UploadWizard.config.licenses[defaultLicense].url + 'deed.' + languageCode;
 				defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 				defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
-				defaultLicenseLink = $( '<a>' ).attr( { 'target': '_blank', 'href': defaultLicenseURL } );
+				defaultLicenseLink = $( '<a>' ).attr( { target:'_blank', href:defaultLicenseURL } );
 
 				this.$form = $( '<form>' );
 				this.$authorInput2 = $( '<input type="text" />' ).attr( { name: 'author2' } ).addClass( 'mwe-upwiz-sign' );

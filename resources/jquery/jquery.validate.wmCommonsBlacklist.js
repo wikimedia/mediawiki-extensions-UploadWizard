@@ -18,7 +18,7 @@
 
 	var regexSets = {
 
-		'titleBadchars': [
+		titleBadchars:[
 			/[\u00A0\u1680\u180E\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/, // NBSP and other unusual spaces
 			/[\u202A-\u202E]/, // BiDi overrides
 			/[\x00-\x1f]/, // Control characters
@@ -30,7 +30,7 @@
 		],
 
 		// note lack of extension, since we test title without extension.
-		'titleSenselessimagename': [
+		titleSenselessimagename:[
 			/^DCP[\d\s]+$/i, //  Kodak
 			/^DSC.[\d\s]+$/i, //  [[w:Design rule for Camera File system]] (Nikon, Fuji, Polaroid)
 			/^MVC-?[\d\s]+$/i, //  Sony Mavica
@@ -49,11 +49,11 @@
 			/^SANY[\d\s]+$/ //  Sanyo
 		],
 
-		'titleThumbnail': [
+		titleThumbnail:[
 			/^\d+px-.*/
 		],
 
-		'titleExtension': [
+		titleExtension:[
 			/\.(jpe?g|png|gif|svg|ogg|ogv|oga)$/
 		]
 

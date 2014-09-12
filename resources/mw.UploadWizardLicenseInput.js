@@ -64,7 +64,7 @@
 
 		this.$spinner = $( '<div></div>' )
 			.addClass( 'mwe-upwiz-status-progress mwe-upwiz-file-indicator' )
-			.css( { 'width': 200, 'padding': 20, 'float': 'none', 'margin': '0 auto' } );
+			.css( { width: 200, padding: 20, float: 'none', margin: '0 auto' } );
 	};
 
 	mw.UploadWizardLicenseInput.prototype = {
@@ -90,7 +90,7 @@
 							.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
 							.msg( group.head, input.count )
 					);
-					$body = $( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { 'marginBottom': '1em' } );
+					$body = $( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { marginBottom: '1em' } );
 					$toggler = $group.append( $head, $body ).collapseToggle();
 
 				}
@@ -217,7 +217,7 @@
 				// that it's misisng.
 				licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url,
 
-				licenseLink = $( '<a>' ).attr( { 'target': '_blank', 'href': licenseURL } ),
+				licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } ),
 
 				$icons = $( '<span></span>' );
 
@@ -230,7 +230,7 @@
 				} );
 			}
 			return $( '<label />' )
-				.attr( { 'for': $input.attr('id') } )
+				.attr( { for: $input.attr('id') } )
 				.msg( messageKey, this.count || 0, licenseLink )
 				.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
 		},
@@ -258,20 +258,20 @@
 						);
 					} )
 					.css( {
-						'width': '100%',
+						width: '100%',
 						'font-family': 'monospace'
 					} ),
 
 				$button = $( '<span></span>' )
 					.button( { label: mw.message( 'mwe-upwiz-license-custom-preview' ).escaped() } )
-					.css( { 'width': '8em' } )
+					.css( { width: '8em' } )
 					.click( function () { input.showPreview( $textarea.val() ); } );
 
-			return $( '<div></div>' ).css( { 'width': '100%' } ).append(
+			return $( '<div></div>' ).css( { width: '100%' } ).append(
 				$( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
-				$( '<div></div>' ).css( { 'float': 'right', 'width': '9em', 'padding-left': '1em' } ).append( $button ),
+				$( '<div></div>' ).css( { float: 'right', width: '9em', 'padding-left': '1em' } ).append( $button ),
 				$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
-				$( '<div></div>' ).css( { 'clear':'both' } )
+				$( '<div></div>' ).css( { clear: 'both' } )
 			);
 		},
 
@@ -307,7 +307,7 @@
 		/**
 		 * Sets the value(s) of a license input. This is a little bit klugey because it relies on an inverted dict, and in some
 		 * cases we are now letting license inputs create multiple templates.
-		 * @param object of license-key to boolean values, e.g. { 'cc_by_sa_30': true, 'gfdl': true, 'flickrreview|cc_by_sa_30': false }
+		 * @param object of license-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
 		 */
 		setValues: function ( values ) {
 			var trueCount, trueLicenseName,
