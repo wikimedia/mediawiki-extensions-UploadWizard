@@ -9,19 +9,19 @@
 // Create UploadWizard
 ( function ( mw, $ ) {
 
-mw.UploadWizardPage = function () {
+	mw.UploadWizardPage = function () {
 
-	var uploadWizard,
-		config = mw.config.get( 'UploadWizardConfig' );
+		var uploadWizard,
+			config = mw.config.get( 'UploadWizardConfig' );
 
-	uploadWizard = new mw.UploadWizard( config );
-	uploadWizard.createInterface( '#upload-wizard' );
+		uploadWizard = new mw.UploadWizard( config );
+		uploadWizard.createInterface( '#upload-wizard' );
 
-};
+	};
 
-$( document ).ready( function () {
-	// show page.
-	mw.UploadWizardPage();
-} );
+	$( document ).ready( function () {
+		// show page.
+		mw.UploadWizardPage();
+	} );
 
 } )( mediaWiki, jQuery );

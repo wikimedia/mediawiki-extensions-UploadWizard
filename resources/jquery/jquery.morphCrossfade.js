@@ -21,9 +21,9 @@
  * one parent, e.g.
  *
  *  <div id="container">
- *    <div id="panel1"/>
- *    <div id="panel2"/>
- *    <div id="panel3"/>
+ *	<div id="panel1"/>
+ *	<div id="panel2"/>
+ *	<div id="panel3"/>
  *  </div>
  *
  * Initialize the crossfader:

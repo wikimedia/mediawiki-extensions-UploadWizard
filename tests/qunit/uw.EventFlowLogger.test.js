@@ -16,15 +16,15 @@
  */
 
 ( function ( mw, uw ) {
-    QUnit.module( 'uw.EventFlowLogger', QUnit.newMwEnvironment() );
+	QUnit.module( 'uw.EventFlowLogger', QUnit.newMwEnvironment() );
 
-    QUnit.test( 'sanity test', 1, function ( assert ) {
-        var eventLog = { logEvent: this.sandbox.stub() },
-            logger = new uw.EventFlowLogger( eventLog );
+	QUnit.test( 'sanity test', 1, function ( assert ) {
+		var eventLog = { logEvent: this.sandbox.stub() },
+			logger = new uw.EventFlowLogger( eventLog );
 
-        logger.logStep( 'foo' );
-        logger.logSkippedStep( 'bar' );
-        logger.logEvent( 'baz' );
-        assert.ok( eventLog.logEvent.calledThrice, 'all steps were logged' );
-    } );
+		logger.logStep( 'foo' );
+		logger.logSkippedStep( 'bar' );
+		logger.logEvent( 'baz' );
+		assert.ok( eventLog.logEvent.calledThrice, 'all steps were logged' );
+	} );
 } ( mediaWiki, mediaWiki.uploadWizard ) );
