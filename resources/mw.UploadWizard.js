@@ -1099,12 +1099,11 @@
 				prefRequest = {
 					action:'options',
 					change:'upwiz_skiptutorial=1'
-				};
-
-			var allowCloseWindow = mw.confirmCloseWindow( {
-				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
-				test: function () { return !isComplete; }
-			} );
+				},
+				allowCloseWindow = mw.confirmCloseWindow( {
+					message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
+					test: function () { return !isComplete; }
+				} );
 
 			api.post( tokenRequest,
 				function ( data ) {

@@ -12,15 +12,17 @@
  */
 ( function ( $ ) { $.fn.mwCoolCats = function ( options ) {
 
-	var catNsId = mw.config.get( 'wgNamespaceIds' ).category;
+	var defaults, settings, cx, seenCat, $container, $template,
+		catNsId = mw.config.get( 'wgNamespaceIds' ).category;
 
 	/**
 	 * Get content from our text field, and attempt to insert it as a category.
 	 * May require confirmation from user if they appear to be adding a new category.
 	 */
 	function _processInput( _this, shouldcreate ) {
-		var $input = $(_this);
-		var $label = $input.closest('p');
+		var text, title, cat,
+			$input = $(_this),
+			$label = $input.closest('p');
 		$( '.mwe-upwiz-category-will-be-added', $label ).remove();
 		if ( $input.length === 0 ) {
 			$input = $( 'input', $container );
@@ -29,16 +31,16 @@
 			}
 		}
 
-		var text = _stripText( $input.val() );
+		text = _stripText( $input.val() );
 		if ( text === '' ) {
 			$input.removeData( 'title' );
 			return;
 		}
 
-		var title = new mw.Title( text, catNsId );
+		title = new mw.Title( text, catNsId );
 		$input.data( 'title', title );
 
-		var cat = title.getMainText();
+		cat = title.getMainText();
 
 		$input.removeClass( 'will-be-added' );
 		if ( seenCat[cat] !== true && !_doesCatExist( text ) ) {
@@ -69,11 +71,14 @@
 	 * @param {boolean} whether this category is visible to the user
 	 */
 	function _insertCat( title, isHidden ) {
+		var $li, $anchor;
+
 		if ( _containsCat( title ) ) {
 			return;
 		}
-		var $li = $( '<li/>' ).addClass( 'cat' );
-		var $anchor = $( '<a/>' ).addClass( 'cat' ).append( title.getMainText() );
+
+		$li = $( '<li/>' ).addClass( 'cat' );
+		$anchor = $( '<a/>' ).addClass( 'cat' ).append( title.getMainText() );
 		$li.append( $anchor );
 		$li.data( 'title', title );
 		if ( isHidden ) {
@@ -163,19 +168,20 @@
 	 * into the text field
 	 */
 	function _fetchSuggestions() {
-		var _input = this;
+		var prefix, ok, title,
+			_input = this;
 
 		// Get the name of the category (no "Category:"), stripping out
 		// bad characters as necessary.
-		var prefix = _stripText( $( this ).val() ),
-			title = mw.Title.newFromText( prefix, catNsId );
+		prefix = _stripText( $( this ).val() );
+		title = mw.Title.newFromText( prefix, catNsId );
 		if ( title && title.getNamespaceId() === catNsId ) {
 			prefix = title.getMainText();
 		} else {
 			prefix = title.getPrefixedText();
 		}
 
-		var ok = function ( catList ) {
+		ok = function ( catList ) {
 			for ( var c in catList ) {
 				seenCat[catList[c]] = true;
 			}
@@ -185,25 +191,22 @@
 		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix ).done( ok ) );
 	}
 
-	var defaults = {
+	defaults = {
 		buttontext: 'Add',
 		hiddenCats: [],
 		missingCatsWikiText: null,
 		cats: []
 	};
 
-	var settings = $.extend( {}, defaults, options );
+	settings = $.extend( {}, defaults, options );
 	if ( !settings.api ) {
 		throw new Error( 'jQuery.mwCoolCats needs an \'api\' argument' );
 	}
 
-	var seenCat = {};
-	for ( var cx in settings.cats ) {
+	seenCat = {};
+	for ( cx in settings.cats ) {
 		seenCat[settings.cats[cx]] = true;
 	}
-
-	var $container;
-	var $template;
 
 	/**
 	 * Initialize the text field(s) the widget was given to be category pickers.

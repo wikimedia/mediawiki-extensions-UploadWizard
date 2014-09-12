@@ -8,15 +8,16 @@
  */
 
 ( function ( $ ) {
-	/**
-	 * Store of events -> array of listener callbacks
-	 */
-	var subs = {};
+	var
+		/**
+		 * Store of events -> array of listener callbacks
+		 */
+		subs = {},
 
-	/**
-	 * Store of ready events, as object of event name -> argument array
-	 */
-	var ready = {};
+		/**
+		 * Store of ready events, as object of event name -> argument array
+		 */
+		ready = {};
 
 	/**
 	 * Publish an event
@@ -85,9 +86,10 @@
 	 * @return {Boolean} success
 	 */
 	$.unsubscribe = function ( nameFn ) {
-		var name = nameFn[0];
-		var fn = nameFn[1];
-		var success = false;
+		var name = nameFn[0],
+			fn = nameFn[1],
+			success = false;
+
 		if ( subs[name].length ) {
 			$.each( subs[name], function ( i, fni ) {
 				if ( fni === fn ) {
