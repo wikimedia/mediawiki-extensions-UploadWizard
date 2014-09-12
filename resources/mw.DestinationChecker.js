@@ -136,7 +136,7 @@
 
 		/**
 		 * Async check if a title is in the titleblacklist.
-		 * @param {Function} takes object, like { 'blacklist': result }
+		 * @param {Function} takes object, like { blacklist:result }
 		 * @param {string} title the blacklist should be checked against
 		 */
 		checkBlacklist: function ( callback, title ) {
@@ -146,18 +146,18 @@
 				var result;
 
 				if ( blacklistResult === false ) {
-					result = { 'notBlacklisted': true };
+					result = { notBlacklisted:true };
 				} else {
 					result = {
-						'notBlacklisted': false,
-						'blacklistReason': blacklistResult.reason,
-						'blacklistMessage': blacklistResult.message,
-						'blacklistLine': blacklistResult.line
+						notBlacklisted:false,
+						blacklistReason:blacklistResult.reason,
+						blacklistMessage:blacklistResult.message,
+						blacklistLine:blacklistResult.line
 					};
 				}
 
 				checker.cachedBlacklist[title] = result;
-				callback( { 'blacklist': result } );
+				callback( { blacklist:result } );
 			}
 
 			if ( title === '' ) {
@@ -165,7 +165,7 @@
 			}
 
 			if ( this.cachedBlacklist[title] !== undefined ) {
-				callback( { 'blacklist': this.cachedBlacklist[title] } );
+				callback( { blacklist:this.cachedBlacklist[title] } );
 				return;
 			}
 
@@ -184,7 +184,7 @@
 		/**
 		 * Async check if a filename is unique. Can be attached to a field's change() event
 		 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
-		 * @param {Function} takes object, like { 'unique': result }
+		 * @param {Function} takes object, like { unique:result }
 		 * @param {string} title the uniqueness should be checked for
 		 */
 		checkUnique: function ( callback, title ) {
@@ -263,7 +263,7 @@
 				}
 
 				checker.cachedResult[title] = result;
-				callback( { 'unique': result } );
+				callback( { unique:result } );
 			}
 
 			function err( code ) {
@@ -274,11 +274,11 @@
 			// Setup the request -- will return thumbnail data if it finds one
 			// XXX do not use iiurlwidth as it will create a thumbnail
 			params = {
-				'titles': title,
-				'prop': 'info|imageinfo',
-				'inprop': 'protection',
-				'iiprop': 'url|mime|size',
-				'iiurlwidth': 150
+				titles:title,
+				prop:'info|imageinfo',
+				inprop:'protection',
+				iiprop:'url|mime|size',
+				iiurlwidth:150
 			};
 
 			// if input is empty or invalid, don't bother.
@@ -287,7 +287,7 @@
 			}
 
 			if ( this.cachedResult[title] !== undefined ) {
-				callback( { 'unique': this.cachedResult[title] } );
+				callback( { unique:this.cachedResult[title] } );
 				return;
 			}
 

@@ -22,7 +22,6 @@
 
 	// Enforcing
 	"bitwise": true,
-	"es3": true,
 	"forin": false,
 	"regexp": false,
 	"strict": false,

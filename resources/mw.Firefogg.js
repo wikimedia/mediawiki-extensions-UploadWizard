@@ -3,9 +3,9 @@
 	mw.Firefogg = {
 
 		firefoggInstallLinks: {
-			'macosx': 'http://firefogg.org/macosx/Firefogg.xpi',
-			'win32': 'http://firefogg.org/win32/Firefogg.xpi',
-			'linux': 'http://firefogg.org/linux/Firefogg.xpi'
+			macosx:'http://firefogg.org/macosx/Firefogg.xpi',
+			win32:'http://firefogg.org/win32/Firefogg.xpi',
+			linux:'http://firefogg.org/linux/Firefogg.xpi'
 		},
 
 		/**

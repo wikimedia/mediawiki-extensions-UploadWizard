@@ -93,7 +93,7 @@
 		function makeAndAppendTitleErrorLabel( labelClass ) {
 			$( '<label>' )
 				.attr( {
-					'for': details.titleId,
+					for: details.titleId,
 					generated: 'true'
 				} )
 				.addClass( 'mwe-error ' + labelClass )
@@ -130,7 +130,7 @@
 				'<div class="mwe-upwiz-details-input"></div>' +
 			'</div>'
 		);
-		commonsCategoriesLink = $( '<a>' ).attr( { 'target': '_blank', 'href': 'http://commons.wikimedia.org/wiki/Commons:Categories' } );
+		commonsCategoriesLink = $( '<a>' ).attr( { target:'_blank', href:'http://commons.wikimedia.org/wiki/Commons:Categories' } );
 		categoriesHint = $( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).html();
 		categoriesHinter = function () { return categoriesHint; };
 		$categoriesDiv
@@ -243,9 +243,9 @@
 
 				if ( field.type === 'select' ) {
 					$fieldInput = $( '<select>' ).attr( {
-						'id': fieldInputId,
-						'name': fieldInputId,
-						'class': 'mwe-idfield'
+						id: fieldInputId,
+						name: fieldInputId,
+						class: 'mwe-idfield'
 					} ).data( 'field', field );
 
 					if ( 'options' in field ) {
@@ -257,10 +257,10 @@
 					}
 				} else {
 					$fieldInput = $( '<input type="text">' ).attr( {
-						'id': fieldInputId,
-						'name': fieldInputId,
-						'class': 'mwe-idfield',
-						'maxlength': field.maxLength
+						id: fieldInputId,
+						name: fieldInputId,
+						class: 'mwe-idfield',
+						maxlength: field.maxLength
 					} )
 					.val( field.initialValue )
 					.data( 'field', field );
@@ -268,7 +268,7 @@
 
 				details.$form.append(
 					$( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
-						.append( $( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, 'generated': 'true' } ) )
+						.append( $( '<label>' ).attr( { class: 'mwe-validator-error', for: fieldInputId, generated: 'true' } ) )
 				);
 				if ( field.required ) {
 					details.$form.append( $( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel() );
@@ -331,7 +331,7 @@
 			.on( 'input keyup change cut paste', function () {
 				var link = details.osmMapLink();
 				if (  $list.valid() ) {
-					showMap.attr( { 'href':link, 'target':'_blank' } ).show();
+					showMap.attr( { href: link, target: '_blank' } ).show();
 				} else {
 					showMap.hide();
 				}
@@ -1318,12 +1318,18 @@
 
 					// can we be more slick and do this with maps, applys, joins?
 					information = {
-						'description': '',		// {{lang|description in lang}}*   required
-						'date': '',			// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
-						'source': '',			// {{own}} or wikitext	optional
-						'author': '',			// any wikitext, but particularly {{Creator:Name Surname}}   required
-						'permission': '',		// leave blank unless OTRS pending; by default will be "see below"   optional
-						'other_versions': ''	// pipe separated list, other versions	 optional
+						// {{lang|description in lang}}*   required
+						description: '',
+						// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
+						date: '',
+						// {{own}} or wikitext	optional
+						source: '',
+						// any wikitext, but particularly {{Creator:Name Surname}}   required
+						author: '',
+						// leave blank unless OTRS pending; by default will be "see below"   optional
+						permission: '',
+						// pipe separated list, other versions	 optional
+						'other versions': ''
 					};
 
 				// sanity check the descriptions -- do not have two in the same lang
@@ -1354,7 +1360,7 @@
 				info = '';
 
 				for ( key in information ) {
-					info += '|' + key + '=' + information[key] + '\n';
+					info += '|' + key.replace( /:/g, '_' ) + '=' + information[key] + '\n';
 				}
 
 				wikiText += '=={{int:filedesc}}==\n';
@@ -1562,13 +1568,13 @@
 			var statusKey, comma,
 				statusLine = mw.message( 'api-error-unclassified' ).text(),
 				titleErrorMap = {
-					'senselessimagename': 'senselessimagename',
+					senselessimagename: 'senselessimagename',
 					'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
 					'titleblacklist-custom-filename': 'hosting',
 					'titleblacklist-custom-SVG-thumbnail': 'thumbnail',
 					'titleblacklist-custom-thumbnail': 'thumbnail',
 					'titleblacklist-custom-double-apostrophe': 'double-apostrophe',
-					'protectedpage': 'protected'
+					protectedpage: 'protected'
 				};
 
 			if ( result && result.error && result.error.code ) {
