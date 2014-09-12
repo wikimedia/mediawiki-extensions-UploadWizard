@@ -84,9 +84,10 @@
 		$containers.css( { overflow:'hidden' } );
 
 		$.each( $containers, function ( i, container ) {
-			var $container = $( container );
-			var $oldPanel = $( $container.data( 'crossfadeDisplay' ) );
-			var $newPanel = ( typeof newPanelSelector === 'string' ) ? $container.find( newPanelSelector ) : $( newPanelSelector );
+			var $container = $( container ),
+				$oldPanel = $( $container.data( 'crossfadeDisplay' ) ),
+				$newPanel = ( typeof newPanelSelector === 'string' ) ?
+					$container.find( newPanelSelector ) : $( newPanelSelector );
 
 			if ( $oldPanel.get(0) !== $newPanel.get(0) ) {
 				if ( $oldPanel ) {
