@@ -263,7 +263,7 @@
 			args = $.makeArray( info );
 		} else {
 			msgKey = 'api-error-unknown-code';
-			args = [code].concat( $.makeArray( info ) );
+			args = [ code ].concat( $.makeArray( info ) );
 		}
 		this.setStatus( msgKey, args );
 	};

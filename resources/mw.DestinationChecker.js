@@ -28,7 +28,7 @@
 		this.processResult = options.processResult;
 		this.api = options.api;
 
-		$.each( ['preprocess', 'delay', 'events'], function ( i, option ) {
+		$.each( [ 'preprocess', 'delay', 'events' ], function ( i, option ) {
 			if ( options[option] ) {
 				checker[option] = options[option];
 			}
