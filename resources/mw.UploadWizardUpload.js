@@ -1,4 +1,3 @@
-/* jshint nomen: false, camelcase: false */
 /**
  * Represents the upload -- in its local and remote state. (Possibly those could be separate objects too...)
  * This is our 'model' object if we are thinking MVC. Needs to be better factored, lots of feature envy with the UploadWizard
@@ -6,6 +5,8 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
+/* jshint camelcase: false, nomen: false */
+/* jscs:disable disallowDanglingUnderscores */
 ( function ( mw, $, oo ) {
 
 	var UWUP,

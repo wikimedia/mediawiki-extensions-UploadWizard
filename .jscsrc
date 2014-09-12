@@ -1,6 +1,5 @@
 {
 	"preset": "wikimedia",
 
-	"disallowDanglingUnderscores": null,
 	"requireCamelCaseOrUpperCaseIdentifiers": null
 }

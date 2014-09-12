@@ -19,9 +19,9 @@
 	 * Get content from our text field, and attempt to insert it as a category.
 	 * May require confirmation from user if they appear to be adding a new category.
 	 */
-	function _processInput( _this, shouldcreate ) {
+	function processInput( input, shouldcreate ) {
 		var text, title, cat,
-			$input = $(_this),
+			$input = $( input ),
 			$label = $input.closest('p');
 		$( '.mwe-upwiz-category-will-be-added', $label ).remove();
 		if ( $input.length === 0 ) {
@@ -31,7 +31,7 @@
 			}
 		}
 
-		text = _stripText( $input.val() );
+		text = stripText( $input.val() );
 		if ( text === '' ) {
 			$input.removeData( 'title' );
 			return;
@@ -43,21 +43,21 @@
 		cat = title.getMainText();
 
 		$input.removeClass( 'will-be-added' );
-		if ( seenCat[cat] !== true && !_doesCatExist( text ) ) {
+		if ( seenCat[cat] !== true && !doesCatExist( text ) ) {
 			$label.append( '<span class="mwe-upwiz-category-will-be-added"></span>' );
 			$input.addClass( 'will-be-added' );
 			$( '.mwe-upwiz-category-will-be-added', $label ).text( settings.willbeaddedtext );
 		}
 
 		if ( shouldcreate === true ) {
-			_insertCat( title );
+			insertCat( title );
 		}
 	}
 
-	function _doesCatExist( cat ) {
+	function doesCatExist( cat ) {
 		var exists = false;
 		$( 'input.will-be-added' ).each(function () {
-			if ( _stripText( $( this ).val() ) === cat ) {
+			if ( stripText( $( this ).val() ) === cat ) {
 				exists = true;
 				return false;
 			}
@@ -70,10 +70,10 @@
 	 * @param {mw.Title} title of category -- should already be in category namespace
 	 * @param {boolean} whether this category is visible to the user
 	 */
-	function _insertCat( title, isHidden ) {
+	function insertCat( title, isHidden ) {
 		var $li, $anchor;
 
-		if ( _containsCat( title ) ) {
+		if ( containsCat( title ) ) {
 			return;
 		}
 
@@ -97,7 +97,7 @@
 	 * @param selector {String} optional extra filter
 	 * @return {Array of mw.Title}
 	 */
-	function _getCats( selector ) {
+	function getCats( selector ) {
 		if ( typeof selector === 'undefined' ) {
 			selector = '*'; // fetch _ALL_ the categories!
 		}
@@ -111,22 +111,22 @@
 	 * @param {mw.Title}
 	 * @return boolean, true if already on the page
 	 */
-	function _containsCat( title ) {
+	function containsCat( title ) {
 		var s = title.toString();
-		return _getCats().filter( function () { return this.toString() === s; } ).length !== 0;
+		return getCats().filter( function () { return this.toString() === s; } ).length !== 0;
 	}
 
 	/**
 	 * Return the wikitext formatted, newline separated list of categories
 	 */
-	function _getWikiText() {
+	function getWikiText() {
 
-		var wikiText = _getCats().map( function () { return '[[' + this.getPrefixedText() + ']]'; } )
+		var wikiText = getCats().map( function () { return '[[' + this.getPrefixedText() + ']]'; } )
 						.toArray()
 						.join( '\n' );
 
 		// if so configured, and there are no user-visible categories, add warning
-		if ( settings.missingCatsWikiText !== null && !( _getCats( ':not(.hidden)' ).length ) ) {
+		if ( settings.missingCatsWikiText !== null && !( getCats( ':not(.hidden)' ).length ) ) {
 			wikiText += '\n\n' + settings.missingCatsWikiText;
 		}
 
@@ -136,7 +136,7 @@
 	/**
 	 * Clear out all categories.
 	 */
-	function _removeAllCats() {
+	function removeAllCats() {
 		$container.find( 'ul li.cat' ).remove();
 	}
 
@@ -145,7 +145,7 @@
 	 * @param {String}
 	 * @return string stripped of some characters, trimmed
 	 */
-	function _stripText( s ) {
+	function stripText( s ) {
 		if ( typeof s !== 'string' ) {
 			throw new Error( '_stripText() argument must be a string' );
 		}
@@ -156,7 +156,7 @@
 	 * Add a new input to the categories form
 	 */
 
-	function _newInput() {
+	function newInput() {
 		var $newInput = $template.clone();
 		$newInput.mwCoolCats( $.extend( options, { link: false } ) );
 		$newInput.wrap( '<p></p>' );
@@ -167,13 +167,13 @@
 	 * Fetch and display suggestions for categories, based on what the user has already typed
 	 * into the text field
 	 */
-	function _fetchSuggestions() {
+	function fetchSuggestions() {
 		var prefix, ok, title,
-			_input = this;
+			input = this;
 
 		// Get the name of the category (no "Category:"), stripping out
 		// bad characters as necessary.
-		prefix = _stripText( $( this ).val() );
+		prefix = stripText( $( this ).val() );
 		title = mw.Title.newFromText( prefix, catNsId );
 		if ( title && title.getNamespaceId() === catNsId ) {
 			prefix = title.getMainText();
@@ -185,10 +185,10 @@
 			for ( var c in catList ) {
 				seenCat[catList[c]] = true;
 			}
-			$( _input ).suggestions( 'suggestions', catList );
+			$( input ).suggestions( 'suggestions', catList );
 		};
 
-		$( _input ).data( 'request', settings.api.getCategoriesByPrefix( prefix ).done( ok ) );
+		$( input ).data( 'request', settings.api.getCategoriesByPrefix( prefix ).done( ok ) );
 	}
 
 	defaults = {
@@ -213,12 +213,12 @@
 	 */
 	return this.each( function () {
 
-		var _this = $( this );
+		var input = $( this );
 
-		_this.addClass( 'categoryInput' );
+		input.addClass( 'categoryInput' );
 
-		_this.suggestions( {
-			fetch:_fetchSuggestions,
+		input.suggestions( {
+			fetch: fetchSuggestions,
 			cancel:function () {
 				var req = $( this ).data( 'request' );
 				// XMLHttpRequest.abort is unimplemented in IE6, also returns nonstandard value of "unknown" for typeof
@@ -227,58 +227,58 @@
 				}
 			},
 			result:{ select:function () {
-				_processInput( _this );
+				processInput( input );
 			} }
 		} );
-		_this.suggestions();
+		input.suggestions();
 
 		if ( settings.link !== false ) {
-			_this.wrap( '<div class="cat-widget"></div>' ).wrap( '<p></p>' );
-			$container = _this.closest( '.cat-widget' ); // set to the cat-widget class we just wrapped
+			input.wrap( '<div class="cat-widget"></div>' ).wrap( '<p></p>' );
+			$container = input.closest( '.cat-widget' ); // set to the cat-widget class we just wrapped
 			$container.prepend( '<ul class="cat-list pkg"></ul>' );
 			$container.append( $( '<a href="javascript:" name="catbutton"></a>' ).text( settings.buttontext )
 				.click( function (e) {
 					e.stopPropagation();
 					e.preventDefault();
-					_newInput();
+					newInput();
 					return false;
 				})
 			);
 		} else {
-			$container = _this.closest( '.cat-widget' );
+			$container = input.closest( '.cat-widget' );
 		}
 
 		//XXX ensure this isn't blocking other stuff needed.
-		_this.parents( 'form' ).submit( function () {
+		input.parents( 'form' ).submit( function () {
 			$( 'input.categoryInput', $( this ) ).each( function () {
-				_processInput( this, true );
+				processInput( this, true );
 			});
 		});
 
-		_this.keyup( function (e) {
+		input.keyup( function (e) {
 			if ( e.keyCode === 13 ) {
 				e.stopPropagation();
 				e.preventDefault();
 			}
-			_processInput(this);
+			processInput(this);
 		});
-		_this.blur( function () {
-			_processInput(this);
+		input.blur( function () {
+			processInput(this);
 		});
 
 		// We may want to call these functions from the input DOM element.
-		this.getCats = _getCats;
-		this.insertCat = _insertCat;
-		this.removeAllCats = _removeAllCats;
-		this.getWikiText = _getWikiText;
+		this.getCats = getCats;
+		this.insertCat = insertCat;
+		this.removeAllCats = removeAllCats;
+		this.getWikiText = getWikiText;
 
 		// initialize with some categories, if so configured
-		$.each( settings.cats, function ( i, cat ) { _insertCat( new mw.Title( cat, catNsId ) ); } );
-		$.each( settings.hiddenCats, function ( i, cat ) { _insertCat( new mw.Title( cat, catNsId ), true ); } );
+		$.each( settings.cats, function ( i, cat ) { insertCat( new mw.Title( cat, catNsId ) ); } );
+		$.each( settings.hiddenCats, function ( i, cat ) { insertCat( new mw.Title( cat, catNsId ), true ); } );
 
-		_processInput();
+		processInput();
 
-		$template = _this.clone();
+		$template = input.clone();
 	} );
 
 }; } )( jQuery );
