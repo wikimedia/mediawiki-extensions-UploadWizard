@@ -13,7 +13,7 @@
 /**
  * Represents the configuration of an Upload Campaign
  */
-class CampaignContent extends JSONContent {
+class CampaignContent extends JsonContent {
 
 	function __construct( $text ) {
 		parent::__construct( $text, 'Campaign' );

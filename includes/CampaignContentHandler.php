@@ -10,10 +10,10 @@
  * @author Yuvi Panda <yuvipanda@gmail.com>
  */
 
-class CampaignContentHandler extends JSONContentHandler {
+class CampaignContentHandler extends JsonContentHandler {
 
 	public function __construct( $modelId = 'Campaign' ) {
-		parent::__construct( $modelId, array( CONTENT_FORMAT_JSON ) );
+		parent::__construct( $modelId );
 	}
 
 	protected function getContentClass() {
