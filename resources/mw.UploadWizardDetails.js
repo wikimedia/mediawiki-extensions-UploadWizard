@@ -1229,7 +1229,7 @@
 		/**
 		 * Prefill the image description if we have a description
 		 *
-		 * Note that this is not related to specifying the descrition from the query
+		 * Note that this is not related to specifying the description from the query
 		 * string (that happens earlier). This is for when we have retrieved a
 		 * description from an upload_by_url upload (e.g. Flickr transfer)
 		 * or from the metadata.
