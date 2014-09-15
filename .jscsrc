@@ -1,5 +1,3 @@
 {
-	"preset": "wikimedia",
-
-	"requireCamelCaseOrUpperCaseIdentifiers": null
+	"preset": "wikimedia"
 }

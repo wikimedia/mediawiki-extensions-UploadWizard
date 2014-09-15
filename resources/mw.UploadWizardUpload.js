@@ -6,7 +6,7 @@
  * should fork this into two -- local and remote, e.g. filename
  */
 /* jshint camelcase: false, nomen: false */
-/* jscs:disable disallowDanglingUnderscores */
+/* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
 ( function ( mw, $, oo ) {
 
 	var UWUP,
