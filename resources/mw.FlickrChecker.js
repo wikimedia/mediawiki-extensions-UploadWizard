@@ -1,5 +1,6 @@
 // Only turning these jshint options off for ''this file''
 /* jshint camelcase: false, nomen: false */
+/* jscs:disable disallowDanglingUnderscores */
 ( function ( mw, $ ) {
 	mw.FlickrChecker = function ( wizard, upload ) {
 		this.wizard = wizard;
