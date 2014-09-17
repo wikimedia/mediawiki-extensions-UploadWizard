@@ -645,11 +645,6 @@ class UploadWizardHooks {
 		}
 
 		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
-			$wgEventLoggingSchemas[ 'UploadWizardUploadActions' ] = 5811620;
-			$wgEventLoggingSchemas[ 'UploadWizardStep' ] = 8851805;
-			$wgEventLoggingSchemas[ 'UploadWizardFlowEvent' ] = 8851807;
-			$wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 9609883;
-
 			$resourceLoader->register( 'schema.UploadWizardTutorialActions', array(
 					'class' => 'ResourceLoaderSchemaModule',
 					'schema' => 'UploadWizardTutorialActions',
