@@ -182,6 +182,8 @@
 	"mwe-upwiz-file-too-large-ok": "У реду",
 	"mwe-upwiz-file-too-large-text": "Отпремљене датотеке не могу бити веће од $1. Пробали сте да отпремите датотеку величине $2.",
 	"mwe-upwiz-file-too-large": "Датотека је превелика.",
+	"mwe-upwiz-dialog-yes": "Да",
+	"mwe-upwiz-dialog-no": "Не",
 	"mwe-upwiz-dialog-title": "Упозорење",
 	"mwe-upwiz-campaign-contributors-count-desc": "Доприносиоци",
 	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Ауторство-Делити под истим условима 4.0 ([$2 текст лиценце])",
