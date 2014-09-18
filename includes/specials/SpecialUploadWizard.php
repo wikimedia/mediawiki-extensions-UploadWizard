@@ -236,13 +236,14 @@ class SpecialUploadWizard extends SpecialPage {
 			$config['enableChunked'] = (bool)$this->getUser()->getOption( 'upwiz-chunked' );
 		}
 
+		$bitmapHandler = new BitmapHandler();
 		$this->getOutput()->addJsConfigVars(
 			array(
 				'UploadWizardConfig' => $config,
 
 				// Site name is a true global not specific to Upload Wizard
 				'wgSiteName' => $wgSitename,
-				'wgFileCanRotate' => BitmapHandler::canRotate()
+				'wgFileCanRotate' => $bitmapHandler->canRotate(),
 			)
 		);
 	}
