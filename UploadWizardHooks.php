@@ -645,18 +645,17 @@ class UploadWizardHooks {
 		}
 
 		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
-			$resourceLoader->register( 'schema.UploadWizardTutorialActions', array(
-					'class' => 'ResourceLoaderSchemaModule',
-					'schema' => 'UploadWizardTutorialActions',
-					'revision' => 5803466,
-			) );
-
 			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
 				'ext.eventLogging',
+			    'schema.UploadWizardTutorialActions',
+			    'schema.UploadWizardUploadActions',
 			);
 
 			self::$modules['uw.EventFlowLogger']['dependencies'] += array(
 				'ext.eventLogging',
+			    'schema.UploadWizardStep',
+			    'schema.UploadWizardFlowEvent',
+			    'schema.UploadWizardUploadFlowEvent',
 			);
 		}
 
