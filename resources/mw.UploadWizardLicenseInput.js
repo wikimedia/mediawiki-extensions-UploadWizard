@@ -13,7 +13,7 @@
  * @param {mw.Api} api object; useful for previews
  */
 
-( function ( mw, $ ) {
+( function ( mw, uw, $ ) {
 
 	mw.UploadWizardLicenseInput = function ( selector, values, config, count, api ) {
 		this.count = count;
@@ -486,10 +486,13 @@
 				input.$previewDialog.dialog( 'open' );
 			}
 
-			function error( e ) {
+			function error( code, result ) {
+				var message = result.textStatus || result.error && result.error.info || undefined;
+
+				uw.eventFlowLogger.logError( 'license', { code: code, message: message } );
 				show( $( '<div></div>' ).append(
-					$( '<h3></h3>' ).append( e.code ),
-					$( '<p></p>' ).append( e.info )
+					$( '<h3></h3>' ).append( code ),
+					$( '<p></p>' ).append( message )
 				) );
 			}
 
@@ -498,4 +501,4 @@
 
 	};
 
-} )( mediaWiki, jQuery );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
