@@ -1,4 +1,4 @@
-( function ( mw, $, oo ) {
+( function ( mw, uw, $, oo ) {
 
 	var UIP;
 
@@ -520,6 +520,7 @@
 	};
 
 	UIP.showFilenameError = function ( $text ) {
+		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: $text.text() } );
 		$( '<div>' )
 			.html( $text )
 			.dialog({
@@ -682,4 +683,4 @@
 
 	mw.UploadWizardUploadInterface = UploadWizardUploadInterface;
 
-}( mediaWiki, jQuery, OO ) );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

@@ -28,8 +28,6 @@
 		this.makePreviewsFlag = true;
 		this.showDeed = false;
 
-		this.eventFlowLogger = new uw.EventFlowLogger( mw.eventLog );
-
 		this.steps = {
 			tutorial: new uw.controller.Tutorial(),
 			file: new uw.controller.Upload(),
@@ -122,11 +120,11 @@
 
 				.on( 'flickr-ui-init', function () {
 					wizard.flickrInterfaceInit();
-					wizard.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
+					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
 				} )
 
 				.on( 'retry-uploads', function () {
-					wizard.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
+					uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 					wizard.ui.hideFileEndButtons();
 					wizard.startUploads();
 				} )
@@ -385,10 +383,10 @@
 			$( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
 
 			if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
-				this.eventFlowLogger.logSkippedStep( 'tutorial' );
+				uw.eventFlowLogger.logSkippedStep( 'tutorial' );
 			}
 
-			this.eventFlowLogger.logStep( selectedStepName );
+			uw.eventFlowLogger.logStep( selectedStepName );
 
 			this.currentStepName = selectedStepName;
 
@@ -443,11 +441,15 @@
 
 			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile, reservedIndex )
 				.on( 'file-changed', function ( files ) {
-					wizard.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
+					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 				} )
 
 				.on( 'filled', function () {
 					wizard.setUploadFilled( upload );
+				} )
+
+				.on( 'error', function ( code, message ) {
+					uw.eventFlowLogger.logError( 'file', { code: code, message: message } );
 				} );
 
 			this.uploadToAdd = upload;

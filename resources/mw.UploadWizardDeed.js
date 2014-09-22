@@ -1,7 +1,7 @@
 /**
  * Sort of an abstract class for deeds
  */
-( function ( mw, $ ) {
+( function ( mw, uw, $ ) {
 
 	// Runs through the third-party license groups and finds the
 	// relevant ID for that license. Probably really hacky.
@@ -518,7 +518,9 @@
 			return valid;
 		},
 
+		// FIXME does not seem to be used
 		showError: function ( error ) {
+			uw.eventFlowLogger.logError( 'deeds', { message: error } );
 			this.$errorEl.html( error );
 			this.$errorEl.fadeIn();
 		},
@@ -596,4 +598,4 @@
 
 	}; // end UploadWizardDeed.prototype
 
-} )( mediaWiki, jQuery );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery );

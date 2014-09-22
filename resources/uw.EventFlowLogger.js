@@ -100,6 +100,14 @@
 		this.log( 'UploadWizardFlowEvent', { event: name } );
 	};
 
+	EFLP.logError = function ( step, data ) {
+		this.log( 'UploadWizardErrorFlowEvent', {
+			step: step,
+			code: data.code,
+			message: data.message
+		} );
+	};
+
 	/**
 	 * Logs an upload event.
 	 * @param {string} name Event name. Recognized names:
@@ -125,4 +133,7 @@
 	};
 
 	uw.EventFlowLogger = EventFlowLogger;
+
+	// FIXME
+	uw.eventFlowLogger = new EventFlowLogger( mw.eventLog );
 }( mediaWiki, mediaWiki.uploadWizard ) );

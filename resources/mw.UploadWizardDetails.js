@@ -11,7 +11,7 @@
  * @param API
  * @param containerDiv	The div to put the interface into
  */
-( function ( mw, $ ) {
+( function ( mw, uw, $ ) {
 
 	var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -1571,6 +1571,7 @@
 		 * @param {String} HTML error message to show. Make sure escaping text properly.
 		 */
 		recoverFromError: function ( fieldId, errorMessage ) {
+			uw.eventFlowLogger.logError( 'details', { code: fieldId, message: errorMessage } );
 			this.upload.state = 'error';
 			this.dataDiv.morphCrossfade( '.detailsForm' );
 			$( '#' + fieldId ).addClass( 'mwe-error' );
@@ -1586,6 +1587,7 @@
 		 * @param {String} status line
 		 */
 		showError: function ( code, statusLine ) {
+			uw.eventFlowLogger.logError( 'details', { code: code, message: statusLine } );
 			this.showIndicator( 'error' );
 			this.setStatus( statusLine );
 		},
@@ -1712,4 +1714,4 @@
 		return this.optional( elem ) || mw.Title.newFromText( $.trim( s ) );
 	} );
 
-}) ( mediaWiki, jQuery );
+}) ( mediaWiki, mediaWiki.uploadWizard, jQuery );
