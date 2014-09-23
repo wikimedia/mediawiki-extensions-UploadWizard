@@ -653,11 +653,9 @@
 					$( this ).val( currentTitle ).keyup();
 
 				} );
-
 			} else if ( metadataType === 'description' ) {
 				destUploads = this.upload.wizard.uploads;
 				$.each( destUploads, function ( uploadIndex, upload ) {
-
 					if ( upload !== undefined && upload.index !== sourceId ) {
 
 						// We could merge, but it's unlikely that the user wants to do anything other
@@ -669,7 +667,7 @@
 							var isRequired = srcDescription.isRequired,
 								languageCode = srcDescription.getLanguage(),
 								allowRemoval = !isRequired,
-								descriptionText = srcDescription.getText();
+								descriptionText = srcDescription.getDescriptionText();
 							upload.details.addDescription ( isRequired, languageCode, allowRemoval, descriptionText );
 						} );
 					}
@@ -1236,7 +1234,7 @@
 		 */
 		prefillDescription: function () {
 			if (
-				this.descriptions[0].getText() === '' &&
+				this.descriptions[0].getDescriptionText() === '' &&
 				this.upload.file !== undefined
 			) {
 				var m = this.upload.imageinfo.metadata,

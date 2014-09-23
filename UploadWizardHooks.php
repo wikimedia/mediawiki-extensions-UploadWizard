@@ -4,11 +4,6 @@ class UploadWizardHooks {
 	/* We define scripts here for Resource Loader */
 
 	public static $modules = array(
-		'uw.base' => array(
-			'scripts' => array(
-				'resources/uw.base.js',
-			),
-		),
 		'uw.EventFlowLogger' => array(
 			'scripts' => array(
 				'resources/uw.EventFlowLogger.js',
@@ -58,6 +53,7 @@ class UploadWizardHooks {
 				'uw.controller.Thanks',
 				'uw.controller.Tutorial',
 				'uw.controller.Upload',
+				'uw.model.Description',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -626,6 +622,32 @@ class UploadWizardHooks {
 				'mwe-upwiz-thanks-url',
 			),
 		),
+
+		'uw.base' => array(
+			'scripts' => array(
+				'resources/uw/uw.base.js',
+			),
+		),
+
+		'uw.model.base' => array(
+			'scripts' => array(
+				'resources/uw/model/uw.model.base.js',
+			),
+
+			'dependencies' => array(
+				'uw.base',
+			),
+		),
+
+		'uw.model.Description' => array(
+			'scripts' => array(
+				'resources/uw/model/uw.model.Description.js',
+			),
+
+			'dependencies' => array(
+				'uw.model.base',
+			),
+		),
 	);
 
 	/**
@@ -825,6 +847,7 @@ class UploadWizardHooks {
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
+				'tests/qunit/mw.uw.model.Description.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',
 				'tests/qunit/mw.UploadWizardDetails.test.js',
 				'tests/qunit/mw.UtilitiesTime.test.js',
