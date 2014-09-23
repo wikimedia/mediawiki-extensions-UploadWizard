@@ -382,7 +382,10 @@
 
 			$( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
 
-			if ( selectedStepName === 'file' && !this.currentStepName ) { // tutorial was skipped
+			if (
+				selectedStepName === 'file' &&
+				( !this.currentStepName || this.currentStepName === 'thanks' )
+			) { // tutorial was skipped
 				uw.eventFlowLogger.logSkippedStep( 'tutorial' );
 			}
 
