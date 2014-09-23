@@ -251,7 +251,11 @@ class UploadWizardCampaign {
 		foreach ( $array as $key => $value ) {
 			if ( $forKeys !== null ) {
 				if( in_array( $key, $forKeys ) ) {
-					$parsed[$key] = $this->parseValue( $value, $lang );
+					if ( is_array( $value ) ) {
+						$parsed[$key] = $this->parseArrayValues( $value, $lang );
+					} else {
+						$parsed[$key] = $this->parseValue( $value, $lang );
+					}
 				} else {
 					$parsed[$key] = $value;
 				}
@@ -307,7 +311,7 @@ class UploadWizardCampaign {
 						$parsedConfig['fields'][] = $this->parseArrayValues(
 							$field,
 							$lang,
-							array( 'label' )
+							array( 'label', 'options' )
 						);
 					}
 					break;
