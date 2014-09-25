@@ -1499,16 +1499,16 @@
 					details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
 				} else if ( result && result.upload.warnings ) {
 					if ( warnings.thumb ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text() );
+						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text(), 'error-title-thumbnail' );
 					} else if ( warnings.badfilename ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text() );
+						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text(), 'title-badchars' );
 					} else if ( warnings['bad-prefix'] ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text() );
+						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text(), 'title-senselessimagename' );
 					} else if ( existingFile ) {
 						existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, 6 ).getUrl();
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse() );
+						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
 					} else if ( warnings.duplicate ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text() );
+						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
 					} else if ( warnings['duplicate-archive'] ) {
 						if ( details.upload.ignoreWarning['duplicate-archive'] ) {
 							// We already told the interface to ignore this warning, so
@@ -1517,7 +1517,7 @@
 							details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
 						} else {
 							// This should _never_ happen, but just in case....
-							details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text() );
+							details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text(), 'upload-error-duplicate-archive' );
 						}
 					} else {
 						warningsKeys = [];
@@ -1525,7 +1525,7 @@
 							warningsKeys.push( key );
 						} );
 						details.upload.state = 'error';
-						details.recoverFromError( details.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text() );
+						details.recoverFromError( details.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text(), 'api-error-unknown-warning' );
 					}
 				} else {
 					err( 'details-info-missing', result );
@@ -1565,11 +1565,12 @@
 
 		/**
 		 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
-		 * @param {String} id of input field -- presumed to be within this upload's details form.
-		 * @param {String} HTML error message to show. Make sure escaping text properly.
+		 * @param {String} fieldId id of input field -- presumed to be within this upload's details form.
+		 * @param {String} errorMessage HTML error message to show. Make sure escaping text properly.
+		 * @param {String} errorCode
 		 */
-		recoverFromError: function ( fieldId, errorMessage ) {
-			uw.eventFlowLogger.logError( 'details', { code: fieldId, message: errorMessage } );
+		recoverFromError: function ( fieldId, errorMessage, errorCode ) {
+			uw.eventFlowLogger.logError( 'details', { code: errorCode || 'details.recoverFromError.unknown', message: errorMessage } );
 			this.upload.state = 'error';
 			this.dataDiv.morphCrossfade( '.detailsForm' );
 			$( '#' + fieldId ).addClass( 'mwe-error' );
@@ -1610,7 +1611,7 @@
 
 			if ( result && result.error && result.error.code ) {
 				if ( titleErrorMap[code] ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).escaped() );
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).escaped(), 'title-' + titleErrorMap[code] );
 					return;
 				} else {
 					statusKey = 'api-error-' + code;
