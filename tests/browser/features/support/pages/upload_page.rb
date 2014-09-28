@@ -51,9 +51,12 @@ class UploadPage
         indicator: uploadDiv.div(
           xpath: './/div[contains(@class,"mwe-upwiz-file-indicator")]'
         ),
-        filename: uploadDiv.div(
+        fileName: uploadDiv.div(
           xpath: './/div[contains(@class,"mwe-upwiz-visible-file-filename-text")]'
-        ).text
+        ).text.strip,
+        removeCtrl: uploadDiv.div(
+          xpath: './/div[contains(@class,"mwe-upwiz-remove-ctrl")]'
+        )
       }
     end
   end
@@ -71,10 +74,31 @@ class UploadPage
     getUploadObjects(false)[0]
   end
 
+  # Gets upload by name. Filenames *should* be unique to be uploaded, but can be
+  # non-unique (they should be in an error state if so), so this always returns an array
+  def getUploadsByName(fileName)
+    getUploads.select{ |upload|
+      upload[:fileName].eql?(fileName)
+    }
+  end
+
   # In PageObject, file fields are magic, you can assign a path to
   # upload a file. However, this file field is a Watir::FileField,
   # so we use .set()
   def addFile(path)
     getUploadToAdd[:fileInput].set(path)
   end
+
+  # Remove file(s) with a filename. Note, this is basename, not the full path
+  def removeFile(fileName)
+    getUploadsByName(fileName).each do |upload|
+      upload[:removeCtrl].click
+    end
+  end
+
+  # Check if an upload exists, by name. Return boolean
+  def hasUpload(fileName)
+    getUploadsByName(fileName).length > 0
+  end
+
 end

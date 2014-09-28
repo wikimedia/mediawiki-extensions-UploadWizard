@@ -83,13 +83,16 @@ end
 When(/^I click the Skip checkbox$/) do
   on(LearnPage).check_tutorial_skip
 end
-When(/^I add file (.+)$/) do |file_name|
+When(/^I add file (\S+)$/) do |file_name|
   path = "#{Dir.tmpdir}/#{file_name}"
 
   image = ChunkyPNG::Image.new(Random.new.rand(255), Random.new.rand(255), Random.new.rand(255))
   image.save path
 
   on(UploadPage).addFile(path)
+end
+When(/^I remove file (.+)$/) do |fileName|
+  on(UploadPage).removeFile(fileName)
 end
 Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
@@ -135,4 +138,7 @@ end
 Then(/^Use page should open$/) do
   on(UsePage)
   @browser.url.should match /Special:UploadWizard/
+end
+Then(/^there should be an upload for (\S+)$/) do |fileName|
+  on(UploadPage).hasUpload(fileName).should == true
 end

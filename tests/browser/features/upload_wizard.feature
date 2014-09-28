@@ -48,6 +48,22 @@ Feature: UploadWizard
       And I add file image2.png
     Then there should be 2 uploads
 
+  Scenario: Add and remove file
+    When I click Next button at Learn page
+      And I add file image.png
+      And I remove file image.png
+    Then there should be 0 uploads
+
+  Scenario: Add two and remove one
+    When I click Next button at Learn page
+      And I add file image.png
+      And I add file image2.png
+      And I add file image3.png
+      And I remove file image2.png
+    Then there should be 2 uploads
+     And there should be an upload for image.png
+     And there should be an upload for image3.png
+
   Scenario: Navigate to Describe page
     When I click Next button at Learn page
       And I add file image.png
