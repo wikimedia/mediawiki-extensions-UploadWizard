@@ -12,6 +12,13 @@
 require "tempfile"
 require "chunky_png"
 
+def make_temp_image(filename, shade, width, height)
+  path = "#{Dir.tmpdir}/#{filename}"
+  image = ChunkyPNG::Image.new(shade, width, height)
+  image.save path
+  path
+end
+
 Given(/^I am logged out$/) do
   visit LogoutPage
 end
@@ -76,24 +83,34 @@ end
 
 When(/^there should be (\d+) uploads$/) do |countStr|
   count = countStr.to_i
-  uploads = on(UploadPage).getUploads
+  uploads = on(UploadPage).uploads
   uploads.length.should eql(count)
 end
 
 When(/^I click the Skip checkbox$/) do
   on(LearnPage).check_tutorial_skip
 end
-When(/^I add file (\S+)$/) do |file_name|
-  path = "#{Dir.tmpdir}/#{file_name}"
 
-  image = ChunkyPNG::Image.new(Random.new.rand(255), Random.new.rand(255), Random.new.rand(255))
-  image.save path
+When(/^I add file (\S+)$/) do |filename|
+  shade = Random.new.rand(255)
+  width = Random.new.rand(255)
+  height = Random.new.rand(255)
+  path = make_temp_image(filename, shade, width, height)
+  on(UploadPage).add_file(path)
+end
 
-  on(UploadPage).addFile(path)
+When(/^I add file (\S+) with (\d+)% black, (\d+)px x (\d+)px$/) do |filename, shadeStr, widthStr, heightStr|
+  shade = ((shadeStr.to_i / 100.0) * 255).round
+  width = widthStr.to_i
+  height = heightStr.to_i
+  path = make_temp_image(filename, shade, width, height)
+  on(UploadPage).add_file(path)
 end
-When(/^I remove file (.+)$/) do |fileName|
-  on(UploadPage).removeFile(fileName)
+
+When(/^I remove file (.+)$/) do |filename|
+  on(UploadPage).remove_file(filename)
 end
+
 Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
 end
@@ -139,6 +156,11 @@ Then(/^Use page should open$/) do
   on(UsePage)
   @browser.url.should match /Special:UploadWizard/
 end
-Then(/^there should be an upload for (\S+)$/) do |fileName|
-  on(UploadPage).hasUpload(fileName).should == true
+
+Then(/^there should be an upload for (\S+)$/) do |filename|
+  on(UploadPage).upload?(filename).should == true
+end
+
+Then(/^a duplicate name error should appear$/) do
+  on(UploadPage).duplicate_error_element.when_present.should be_visible
 end
