@@ -9,6 +9,9 @@
 # UploadWizard top-level directory and at
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
+require "tempfile"
+require "chunky_png"
+
 Given(/^I am logged out$/) do
   visit LogoutPage
 end
@@ -71,10 +74,23 @@ When(/^thumbnail should be visible$/) do
   on(ReleaseRightsPage).thumbnail_element.when_present.should be_visible
 end
 
+When(/^there should be (\d+) uploads$/) do |countStr|
+  count = countStr.to_i
+  uploads = on(UploadPage).getUploads
+  uploads.length.should eql(count)
+end
+
 When(/^I click the Skip checkbox$/) do
   on(LearnPage).check_tutorial_skip
 end
+When(/^I add file (.+)$/) do |file_name|
+  path = "#{Dir.tmpdir}/#{file_name}"
 
+  image = ChunkyPNG::Image.new(Random.new.rand(255), Random.new.rand(255), Random.new.rand(255))
+  image.save path
+
+  on(UploadPage).addFile(path)
+end
 Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
 end
@@ -109,7 +125,7 @@ Then(/^title text field should be there$/) do
 end
 
 Then(/^Upload more files button should be there$/) do
-  on(UsePage).upload_more_files_element.when_present.should be_visible
+  on(UsePage).upload_more_files_element.when_present(30).should be_visible
 end
 
 Then(/^Upload page should appear$/) do
@@ -117,5 +133,6 @@ Then(/^Upload page should appear$/) do
 end
 
 Then(/^Use page should open$/) do
+  on(UsePage)
   @browser.url.should match /Special:UploadWizard/
 end
