@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kandar"
+		]
+	},
+	"uploadwizard": "Sulap Pamuatan",
+	"uploadwizard-desc": "Sulap Pamuatan, parabot pikeun muat multimédia",
+	"mwe-upwiz-uploadcampaigns": "Kampanyeu pamuatan",
+	"mwe-upwiz-uploadcampaign": "Setélan kampanyeu pamuatan",
+	"right-upwizcampaigns": "Setél kampanyeu Sulap Pamuatan",
+	"action-upwizcampaigns": "setél kampanyeu pamuatan",
+	"group-upwizcampeditors": "Editor kampanyeu Sulap Pamuatan",
+	"group-upwizcampeditors-member": "{{GENDER:$1|Editor kampanyeu Sulap Pamuatan}}",
+	"grouppage-upwizcampeditors": "{{ns:project}}:Editor kampanyeu Sulap Pamuatan",
+	"mwe-upwiz-js-off": "Ngarah antarmukana hadé, UploadWizard migunakeun JavaScript. Browser anjeun henteu ngadukung JavaScript atawa ditumpurkeun, ku kituna maké formulir pamuatan anu basajan.",
+	"mwe-upwiz-extension-disabled": "Ieu kaca ditumpurkun kusabab aya masalah téknis. Mangga cobi formulir pamuatan baku.",
+	"mwe-upwiz-code-unknown": "Basa teu dipikawanoh",
+	"mwe-upwiz-step-tutorial": "Lenyepan",
+	"mwe-upwiz-step-file": "Muat",
+	"mwe-upwiz-step-deeds": "Hak medal",
+	"mwe-upwiz-step-details": "Pedar",
+	"mwe-upwiz-step-thanks": "Pamakéan",
+	"mwe-upwiz-campaign-name-duplicate": "Kampanyeu anu maké ngaran ieu geus aya.",
+	"mwe-upwiz-campaign-unknown-error": "Aya éror anu teu kanyahoan.",
+	"mwe-upwiz-api-warning-exists": "Geus aya [$1 berkas lian] anu ngaranna sarua di wiki"
+}
