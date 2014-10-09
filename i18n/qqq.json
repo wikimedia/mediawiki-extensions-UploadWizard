@@ -92,7 +92,7 @@
 	"mwe-upwiz-file-all-ok": "Displayed when an upload session succeeds with no errors.",
 	"mwe-upwiz-file-some-failed": "Displayed when an upload session is completed, but there are some errors or warnings.",
 	"mwe-upwiz-file-retry": "This is the text on a button. If any uploads failed, this button can be clicked to retry uploading the files that failed the previous time.\n\nThe button may be followed by another button which is labeled {{msg-mw|Mwe-upwiz-next-file-despite-failures}}.",
-	"mwe-upwiz-next-file-despite-failures": "Used as label for the button.\n\nPreceded by another button which is labeled {{msg-mw|Mwe-upwiz-file-retry}}.",
+	"mwe-upwiz-next-file-despite-failures": "Used as label for the button.\n\nPreceded by another button which is labeled {{msg-mw|Mwe-upwiz-file-retry}}.\n{{Identical|Continue anyway}}",
 	"mwe-upwiz-skip-tutorial-future": "Used as label for the checkbox.\n\nFollowed by the button which is labeled {{msg-mw|Mwe-upwiz-next}}.",
 	"mwe-upwiz-file-all-failed": "Displayed when an upload session is complete and all of the uploads in it were rejected.",
 	"mwe-upwiz-upload-count": "This message means that $1 of $2 files have been uploaded. e.g. \"2 of 5 files have been uploaded\"\n* $1 - number of files that have been uploaded\n* $2 - number of files",
