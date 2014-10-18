@@ -1097,35 +1097,20 @@
 		setSkipTutorialPreference: function () {
 			var api = this.api,
 				isComplete = false,
-				tokenRequest = {
-					action:'tokens',
-					type:'options'
-				},
-				prefRequest = {
-					action:'options',
-					change:'upwiz_skiptutorial=1'
-				},
 				allowCloseWindow = mw.confirmCloseWindow( {
 					message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
 					test: function () { return !isComplete; }
 				} );
 
-			api.post( tokenRequest,
-				function ( data ) {
-					var token;
-					try {
-						token = data.tokens.optionstoken;
-					} catch ( e ) {
-						throw new Error( 'Could not get token to set user preferences (requires MediaWiki 1.20).' );
-					}
-					prefRequest.token = token;
-					api.post( prefRequest, function () {
-						isComplete = true;
-						allowCloseWindow();
-						return true;
-					} );
-				}
-			);
+			api.postWithToken( 'options', {
+				action: 'options',
+				change: 'upwiz_skiptutorial=1'
+			} )
+			.done( function () {
+				isComplete = true;
+				allowCloseWindow();
+				return true;
+			} );
 
 		}
 	};
