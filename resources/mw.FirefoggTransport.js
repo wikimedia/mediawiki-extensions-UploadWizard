@@ -22,11 +22,22 @@
 		 * Do an upload
 		 */
 		doUpload: function () {
-			var transport = this;
+			var fileToUpload, transport = this;
 
 			//Encode or passthrough Firefogg before upload
 			if ( this.isUploadFormat() ) {
-				this.doFormDataUpload( this.upload.ui.$fileInputCtrl[0].files[0] );
+				if ( this.upload.ui.$fileInputCtrl[0].files && this.upload.ui.$fileInputCtrl[0].files.length ) {
+					fileToUpload = this.upload.ui.$fileInputCtrl[0].files[0];
+				} else if ( this.upload.file ) {
+					fileToUpload = this.upload.file;
+				} else if ( this.upload.providedFile ) {
+					fileToUpload = this.upload.providedFile;
+				} else {
+					mw.log.warn( 'Firefogg tried to upload a file but was unable to find one.' );
+					return false;
+				}
+
+				this.doFormDataUpload( fileToUpload );
 			} else {
 				this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
 				this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
