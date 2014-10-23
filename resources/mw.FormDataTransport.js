@@ -224,8 +224,8 @@
 			});
 			params.checkstatus =  true;
 			params.filekey =  this.filekey;
-			api.post( params, {
-				ok: function (response) {
+			api.post( params )
+				.done( function (response) {
 					if (response.upload && response.upload.result === 'Poll') {
 						//If concatenation takes longer than 10 minutes give up
 						if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
@@ -251,11 +251,10 @@
 					} else {
 						transport.transportedCb(response);
 					}
-				},
-				err: function (status, response) {
+				} )
+				.fail( function (status, response) {
 					transport.transportedCb(response);
-				}
-			} );
+				} );
 		},
 		parseResponse: function (evt, callback) {
 			var response;
