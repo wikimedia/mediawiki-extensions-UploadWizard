@@ -846,7 +846,7 @@
 				mw.log( 'mw.UploadWizard::getUploadHandler> ' + constructor );
 			}
 			if ( this.fromURL ) {
-				constructor = 'ApiUploadHandler';
+				constructor = 'ApiUploadPostHandler';
 			}
 			this.uploadHandler = new mw[constructor]( this, this.api );
 		}

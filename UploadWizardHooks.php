@@ -42,6 +42,7 @@ class UploadWizardHooks {
 				'mediawiki.feedback',
 				'uw.base',
 				'ext.uploadWizard.apiUploadHandler',
+				'ext.uploadWizard.apiUploadPostHandler',
 				'ext.uploadWizard.apiUploadFormDataHandler',
 				'ext.uploadWizard.events',
 
