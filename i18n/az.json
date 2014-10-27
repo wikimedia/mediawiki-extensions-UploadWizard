@@ -40,7 +40,6 @@
 	"mwe-upwiz-next-file": "Davam et",
 	"mwe-upwiz-next-deeds": "Sonrakı",
 	"mwe-upwiz-next-details": "Sonrakı",
-	"mwe-upwiz-files-complete": "Şəklinizin yüklənməsi bitdi!",
 	"mwe-upwiz-tooltip-more-info": "Daha çox öyrən",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 qanuni kod])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Avstriya ([$2qanuni kod])",
@@ -69,14 +68,5 @@
 	"mwe-upwiz-categories": "Kateqoriyalar",
 	"mwe-upwiz-categories-add": "Əlavə et",
 	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Daha çox məlumat]",
-	"mwe-upwiz-errordialog-ok": "OK",
-	"mwe-upwiz-campaigns-name": "Kampaniya adı:",
-	"mwe-upwiz-campaigns-status": "Status",
-	"mwe-upwiz-campaigns-enabled": "Qoşulub",
-	"mwe-upwiz-campaigns-disabled": "Kənarlaşdırılıb",
-	"mwe-upwiz-campaigns-edit": "Redaktə",
-	"mwe-upwiz-campaigns-add": "Əlavə et",
-	"mwe-upwiz-campaigns-newname": "Kampaniya adı:",
-	"mwe-upwiz-campaigns-delete": "Sil",
-	"mwe-upwiz-campaign-name": "Kampaniya adı:"
+	"mwe-upwiz-errordialog-ok": "OK"
 }

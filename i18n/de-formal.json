@@ -32,7 +32,6 @@
 	"mwe-upwiz-fileexists": "Eine Datei dieses Namens ist bereits vorhanden. Bitte prüfen Sie $1, sofern Sie sich nicht sicher sind, ob Sie sie ersetzen möchten.",
 	"mwe-upwiz-fileexists-replace-on-page": "Eine Datei dieses Namens ist bereits vorhanden. Sofern Sie sie ersetzen möchten, gehen Sie zur Seite für [$2 $1] und erledigen dies dort.",
 	"mwe-prevent-close": "Das Verlassen dieser Seite führt dazu, dass alle Ihre Änderungen verloren gehen.",
-	"mwe-upwiz-files-complete": "Ihre Dateien wurden nunmehr vollständig hochgeladen!",
 	"mwe-upwiz-tooltip-skiptutorial": "Sie können dieses Tutorial erneut in [$1 Ihren Benutzereinstellungen] unter „$2“ → „$3“ aktivieren.",
 	"mwe-upwiz-tooltip-sign": "Sie können Ihren Benutzernamen auf diesem Wiki oder Ihren bürgerlichen Namen verwenden. In beiden Fällen wird er mit Ihrer Benutzerseite verknüpft.",
 	"mwe-upwiz-tooltip-description": "Beschreiben Sie kurz alles Wichtige zu diesem Werk. Bei einem Foto beispielsweise die wichtigsten abgebildeten Bestandteile, den Anlass der Aufnahme und/oder den Standort.",

@@ -20,6 +20,5 @@
 	"mwe-upwiz-license-flickr-subhead": "Check the \"Licence\" header on the side of the Flickr page. Both the icons and licence name that they used have to match one of the choices here.",
 	"mwe-upwiz-license-custom-head": "Experts only: enter the code for a licence not shown here",
 	"mwe-upwiz-license-external": "This file is under the following licence on $1: $2.",
-	"mwe-upwiz-license-external-invalid": "This file is under the following licence on $1: $2. Unfortunately, this licence is not appropriate for use on this site.",
-	"mwe-upwiz-campaign-conf-defaultOwnWorkLicence": "The default own work licence:"
+	"mwe-upwiz-license-external-invalid": "This file is under the following licence on $1: $2. Unfortunately, this licence is not appropriate for use on this site."
 }

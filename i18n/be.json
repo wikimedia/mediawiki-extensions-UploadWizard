@@ -48,7 +48,6 @@
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Вы падрыхтаваліся для загрузкі файла \"$1\"",
 	"mwe-upwiz-upload-error-stashed-anyway": "Загрузіць усё роўна?",
 	"mwe-upwiz-cancel": "Адмена",
-	"mwe-upwiz-files-complete": "Загрузка вашых файлаў скончана!",
 	"mwe-upwiz-tooltip-more-info": "Даведацца болей",
 	"mwe-upwiz-deeds-need-license": " Калі ласка, выберыце ліцэнзію.",
 	"mwe-upwiz-license-show-all": "Выкарыстаць іншую ліцэнзію",
@@ -63,9 +62,5 @@
 	"mwe-upwiz-license-none-head": "Я знайшоў яго ў Інтэрнэце -- Я не ўпэўнены",
 	"mwe-upwiz-categories": "Катэгорыі",
 	"mwe-upwiz-categories-add": "Дадаць іншую катэгорыю",
-	"mwe-upwiz-category-remove": "Выдаліць гэтую катэгорыю",
-	"mwe-upwiz-campaigns-status": "Статус",
-	"mwe-upwiz-campaigns-edit": "Правіць",
-	"mwe-upwiz-campaigns-add": "Дадаць",
-	"mwe-upwiz-campaigns-delete": "Выдаліць"
+	"mwe-upwiz-category-remove": "Выдаліць гэтую катэгорыю"
 }
