@@ -1702,8 +1702,7 @@
 		setCleanTitle: function ( s ) {
 			var ext = this.upload.title.getExtension(),
 				re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' ),
-				cleaned = $.trim( s.replace( re, '' ) );
-
+				cleaned = $.trim( s.replace( re, '').replace( /\.+$/g, '' ) );
 			this.upload.title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + ext ) || this.upload.title;
 			return this.upload.title;
 		}
