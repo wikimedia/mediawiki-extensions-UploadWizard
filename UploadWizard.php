@@ -139,7 +139,7 @@ $wgEventLoggingSchemas[ 'UploadWizardUploadActions' ] = 5811620;
 $wgEventLoggingSchemas[ 'UploadWizardStep' ] = 8851805;
 $wgEventLoggingSchemas[ 'UploadWizardFlowEvent' ] = 8851807;
 $wgEventLoggingSchemas[ 'UploadWizardErrorFlowEvent' ] = 9924376;
-$wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 9609883;
+$wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 9651951;
 
 // Campaign hook handlers
 $wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';

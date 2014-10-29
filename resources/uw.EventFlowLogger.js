@@ -117,8 +117,10 @@
 	 *  - upload-removed
 	 *  - uploads-added
 	 * @param {object} data
-	 * @param {integer} data.size file size in bytes (will be anonymized)
-	 * @param {integer} data.duration upload duration in seconds
+	 * @param {string} data.extension file extension
+	 * @param {number} data.quantity number of files added
+	 * @param {number} data.size file size in bytes (will be anonymized)
+	 * @param {number} data.duration upload duration in seconds
 	 * @param {string} data.error upload error string
 	 */
 	EFLP.logUploadEvent = function ( name, data ) {
@@ -129,7 +131,7 @@
 			data.size = parseFloat( Number( data.size ).toPrecision( 1 ), 10 );
 		}
 
-		this.log( 'UploadWizardFlowEvent', data );
+		this.log( 'UploadWizardUploadFlowEvent', data );
 	};
 
 	uw.EventFlowLogger = EventFlowLogger;
