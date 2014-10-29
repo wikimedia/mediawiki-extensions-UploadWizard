@@ -120,10 +120,16 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			),
-			'continue' => null
+			'continue' => array(
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-continue',
+			),
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'enabledonly' => 'Only list campaigns that are enabled',
@@ -132,14 +138,30 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Enumerate all Campaigns';
 	}
 
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'api.php?action=query&list=allcampaigns&uwcenabledonly=' => 'Enumerate enabled campaigns'
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&list=allcampaigns&uwcenabledonly='
+				=> 'apihelp-query+allcampaigns-example-1',
 		);
 	}
 

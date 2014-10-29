@@ -47,6 +47,9 @@ class ApiFlickrBlacklist extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'url' => 'The flickr url to be tested',
@@ -55,15 +58,33 @@ class ApiFlickrBlacklist extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Validate a flickr URL by using its NSID for blacklisting. When used '
 			. 'with the list option, return all blacklisted NSIDs.';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'api.php?action=flickrblacklist&url=http%3A//farm1.staticflickr.com/44/147426941_98baf36fd1_o.jpg',
 			'api.php?action=flickrblacklist&list',
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=flickrblacklist&url=http%3A//farm1.staticflickr.com/44/147426941_98baf36fd1_o.jpg'
+				=> 'apihelp-flickrblacklist-example-1',
+			'action=flickrblacklist&list='
+				=> 'apihelp-flickrblacklist-example-2',
 		);
 	}
 }
