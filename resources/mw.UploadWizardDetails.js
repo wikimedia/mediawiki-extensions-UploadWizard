@@ -1131,7 +1131,7 @@
 		},
 
 		/**
-		 * Check if we got an EXIF date back; otherwise use today's date; and enter it into the details
+		 * Check if we got an EXIF date back and enter it into the details
 		 * XXX We ought to be using date + time here...
 		 * EXIF examples tend to be in ISO 8601, but the separators are sometimes things like colons, and they have lots of trailing info
 		 * (which we should actually be using, such as time and timezone)
@@ -1184,7 +1184,7 @@
 			}
 
 			// If we don't have EXIF lets try other sources - Flickr
-			if ( dateObj === undefined && typeof this.upload.file !== 'undefined' && typeof this.upload.file.date !== 'undefined' ) {
+			if ( dateObj === undefined && this.upload.file !== undefined && this.upload.file.date !== undefined ) {
 				dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
 				matches = this.upload.file.date.match( dateTimeRegex );
 				if ( !mw.isEmpty( matches ) ) {
@@ -1193,11 +1193,11 @@
 				}
 			}
 
-			// if we don't have EXIF or other metadata, let's use "now"
+			// if we don't have EXIF or other metadata, just don't put a date in.
 			// XXX if we have FileAPI, it might be clever to look at file attrs, saved
 			// in the upload object for use here later, perhaps
 			if ( dateObj === undefined ) {
-				dateObj = new Date();
+				return;
 			}
 
 			dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
