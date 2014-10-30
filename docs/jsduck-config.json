@@ -6,7 +6,6 @@
 	"--output": "./js",
 	"--": [
 		"./external.js",
-		"../resources/mw.ConfirmCloseWindow.js",
 		"../resources/uw/model"
 	]
 }

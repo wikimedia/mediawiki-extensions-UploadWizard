@@ -37,6 +37,7 @@ class UploadWizardHooks {
 				'mediawiki.api.edit',
 				'mediawiki.api.category',
 				'mediawiki.api.parse',
+				'mediawiki.confirmCloseWindow',
 				'mediawiki.Title',
 				'mediawiki.user',
 				'mediawiki.feedback',
@@ -68,7 +69,6 @@ class UploadWizardHooks {
 				'resources/mw.canvas.js',
 				'resources/mw.UtilitiesTime.js',
 				'resources/mw.ErrorDialog.js',
-				'resources/mw.ConfirmCloseWindow.js',
 
 				// mediawiki-specific interface helper (relies on mediawiki globals)
 				'resources/jquery/jquery.mwCoolCats.js',

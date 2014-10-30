@@ -120,7 +120,8 @@
 
 			this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
 				message: function () { return mw.message( 'mwe-upwiz-prevent-close', upload.wizard.uploads.length ).escaped(); },
-				test: function () { return !upload.wizard.isComplete() && upload.wizard.uploads.length > 0; }
+				test: function () { return !upload.wizard.isComplete() && upload.wizard.uploads.length > 0; },
+				namespace: 'uploadwizard'
 			} );
 		}
 		this.setTransportProgress(0.0);
