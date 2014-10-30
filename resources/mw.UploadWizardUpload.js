@@ -28,9 +28,8 @@
 	 * @param {UploadWizard} wizard
 	 * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads
 	 * @param {File} providedFile - optional; only used on browsers which support FileAPI.
-	 * @param {int} reservedIndex - optional, what key in the uploads array to hold for this upload
 	 */
-	function UploadWizardUpload( wizard, filesDiv, providedFile, reservedIndex ) {
+	function UploadWizardUpload( wizard, filesDiv, providedFile ) {
 		var upload = this;
 
 		oo.EventEmitter.call( this );
@@ -59,8 +58,6 @@
 				this.fromURL = true;
 			}
 		}
-		// reserved index for multi-file selection
-		this.reservedIndex = reservedIndex;
 
 		this.fileKey = undefined;
 
@@ -425,8 +422,6 @@
 			if ( totalSize > 10000000 ) {
 				this.wizard.makePreviewsFlag = false;
 			}
-
-			this.reservedIndex = this.wizard.uploads.length;
 		}
 
 		// check to see if the file has already been selected for upload.
@@ -560,7 +555,7 @@
 					if ( files.length > 0 ) {
 						$.each( files, function ( i, file ) {
 							// NOTE: By running newUpload we will end up calling checkfile() again.
-							upload.wizard.newUpload( file, upload.reservedIndex + i + 1 );
+							upload.wizard.newUpload( file );
 						} );
 						this.wizard.updateFileCounts();
 					}

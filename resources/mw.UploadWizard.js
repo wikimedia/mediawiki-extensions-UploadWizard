@@ -389,11 +389,10 @@
 		 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
 		 *
 		 * @param providedFile  Existing File object, typically from a multi-select operation
-		 * @param reservedIndex Hold this index for the upload, also typically multi-select related
 		 *
 		 * @return the new upload
 		 */
-		newUpload: function ( providedFile, reservedIndex ) {
+		newUpload: function ( providedFile ) {
 			var upload,
 				wizard = this;
 
@@ -401,7 +400,7 @@
 				return false;
 			}
 
-			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile, reservedIndex )
+			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile )
 				.on( 'file-changed', function ( files ) {
 					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 				} )
@@ -438,16 +437,7 @@
 			// Create new upload slot for additional upload(s)
 			this.newUpload();
 
-			// When we add uploads from a multi-select operation, the file objects
-			// may be filled in random order, because filling them depends on
-			// completion of metadata extraction. We use the reservedIndex to ensure
-			// they're added in the correct order when they're filled.
-			// TODO v1.1 consider if we really have to set up details now
-			if ( upload.reservedIndex !== undefined ) {
-				this.uploads[upload.reservedIndex] = upload;
-			} else {
-				this.uploads.push( upload );
-			}
+			this.uploads.push( upload );
 
 			//If upload is through a local file, then we need to show the Deeds step of the wizard
 			if ( !upload.fromURL ) {
