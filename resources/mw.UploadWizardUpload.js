@@ -70,8 +70,9 @@
 
 		// details
 		this.ui = new mw.UploadWizardUploadInterface( this, filesDiv, providedFile )
-			.on( 'file-changed', function ( files ) {
-				upload.emit( 'file-changed', files );
+			.connect( this, {
+				'file-changed': [ 'emit', 'file-changed' ],
+				'filename-accepted': [ 'emit', 'filename-accepted' ]
 			} )
 
 			.on( 'upload-filled', function () {
@@ -143,11 +144,9 @@
 		if ( this.thanksDiv ) {
 			this.thanksDiv.remove();
 		}
-		// we signal to the wizard to update itself, which has to delete the final vestige of
-		// this upload (the ui.div). We have to do this silly dance because we
-		// trigger through the div. Triggering through objects doesn't always work.
-		// TODO v.1.1 fix, don't need to use the div any more -- this now works in jquery 1.4.2
-		$( this.ui.div ).trigger( 'removeUploadEvent' );
+		// we signal to the wizard to update itself, which has to delete the
+		// final vestige of this upload
+		this.emit( 'remove-upload' );
 
 		if ( this.wizard.uploads && this.wizard.uploads.length !== 0 && mw.UploadWizard.config.startImmediately === true ) {
 			// check all uploads, if they're complete, show the next button

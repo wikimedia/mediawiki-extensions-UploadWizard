@@ -20,7 +20,9 @@
 
 		// may need to collaborate with the particular upload type sometimes
 		// for the interface, as well as the uploadwizard. OY.
-		this.div = $('<div class="mwe-upwiz-file"></div>').get(0);
+		this.$div = $('<div class="mwe-upwiz-file"></div>');
+		this.div = this.$div.get(0);
+
 		this.isFilled = false;
 
 		this.previewLoaded = false;
@@ -668,7 +670,7 @@
 
 			this.emit( 'upload-filled' );
 		} else {
-			$( this.div ).trigger( 'filenameAccepted' );
+			this.emit( 'filename-accepted' );
 		}
 	};
 

@@ -419,16 +419,11 @@
 			// we explicitly move the file input to cover the upload button
 			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
 
-			// we bind to the ui div since unbind doesn't work for non-DOM objects
-			$( upload.ui.div ).bind( 'filenameAccepted', function (e) {
-				wizard.updateFileCounts();
-				e.stopPropagation();
+			upload.connect( this, {
+				'filename-accepted': 'updateFileCounts',
+				'remove-upload': [ 'removeUpload', upload ]
 			} );
 
-			$( upload.ui.div ).bind( 'removeUploadEvent', function (e) {
-				wizard.removeUpload( upload );
-				e.stopPropagation();
-			} );
 			return upload;
 		},
 
