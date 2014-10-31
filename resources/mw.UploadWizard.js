@@ -26,7 +26,6 @@
 			this.maxSimultaneousConnections = 1;
 		}
 
-		this.makePreviewsFlag = true;
 		this.showDeed = false;
 
 		this.steps = {

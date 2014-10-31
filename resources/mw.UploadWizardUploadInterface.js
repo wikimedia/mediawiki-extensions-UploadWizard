@@ -13,6 +13,8 @@
 
 		oo.EventEmitter.call( this );
 
+		this.generatePreview = true;
+
 		this.upload = upload;
 
 		// may need to collaborate with the particular upload type sometimes
@@ -348,7 +350,7 @@
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
 
-		if ( this.upload.wizard.makePreviewsFlag ) {
+		if ( this.generatePreview ) {
 			// Make the preview now. Will check if it's a previewable file.
 			this.makePreview();
 		} else if ( this.isPreviewable() ) {
@@ -363,6 +365,13 @@
 				.append( '<br/>' ).append( this.$showThumbCtrl );
 
 		}
+	};
+
+	/**
+	 * Disable preview thumbnail for this upload.
+	 */
+	UIP.disablePreview = function () {
+		this.generatePreview = false;
 	};
 
 	UIP.URL = function () {

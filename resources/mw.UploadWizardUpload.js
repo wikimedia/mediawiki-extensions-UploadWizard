@@ -379,7 +379,7 @@
 	 * @param {function ()} callback when resetting FileInput
 	 */
 	UWUP.checkFile = function ( filename, files, fileNameOk, fileNameErr ) {
-		var totalSize, duplicate, extension, hasError, errorIndex,
+		var totalSize, duplicate, extension, hasError, errorIndex, toobig,
 			actualMaxSize, binReader,
 			upload = this,
 			fileErrors = {},
@@ -402,10 +402,12 @@
 				totalSize += file.size;
 			});
 
+			toobig = totalSize > 10000000;
+
 			// Local previews are slow due to the data URI insertion into the DOM; for batches we
 			// don't generate them if the size of the batch exceeds 10 MB
-			if ( totalSize > 10000000 ) {
-				this.wizard.makePreviewsFlag = false;
+			if ( toobig ) {
+				this.ui.disablePreview();
 			}
 		}
 
@@ -540,7 +542,11 @@
 					if ( files.length > 0 ) {
 						$.each( files, function ( i, file ) {
 							// NOTE: By running newUpload we will end up calling checkfile() again.
-							upload.wizard.newUpload( file );
+							var newUpload = upload.wizard.newUpload( file );
+
+							if ( toobig ) {
+								newUpload.ui.disablePreview();
+							}
 						} );
 						this.wizard.updateFileCounts();
 					}
