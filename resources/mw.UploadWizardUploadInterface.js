@@ -235,9 +235,6 @@
 	 * Show that upload is transported
 	 */
 	UIP.showStashed = function () {
-		if ( mw.UploadWizard.config.startImmediately !== true ) {
-			this.$removeCtrl.detach();
-		}
 		this.$fileInputCtrl.detach();
 
 		if ( this.$showThumbCtrl ) {
