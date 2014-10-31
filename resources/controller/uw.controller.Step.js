@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw ) {
+( function ( uw, oo ) {
 	var SP;
 
 	/**
@@ -26,8 +26,12 @@
 	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.
 	 */
 	function Step( ui ) {
+		oo.EventEmitter.call( this );
+
 		this.ui = ui;
 	}
+
+	oo.inheritClass( Step, oo.EventEmitter );
 
 	SP = Step.prototype;
 
@@ -55,4 +59,4 @@
 	};
 
 	uw.controller.Step = Step;
-}( mediaWiki.uploadWizard ) );
+}( mediaWiki.uploadWizard, OO ) );

@@ -318,7 +318,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-prevent-close',
 				'mwe-upwiz-prevent-close-wait',
 				'mwe-upwiz-files-complete',
-				'mwe-upwiz-tooltip-skiptutorial',
 				'mwe-upwiz-tooltip-author',
 				'mwe-upwiz-tooltip-source',
 				'mwe-upwiz-tooltip-sign',
@@ -472,8 +471,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-dialog-yes',
 				'mwe-upwiz-dialog-no',
 				'mwe-upwiz-dialog-title',
-				'prefs-uploads',
-				'prefs-upwiz-interface',
 				'colon-separator',
 			),
 			'group' => 'ext.uploadWizard'
@@ -559,7 +556,7 @@ class UploadWizardHooks {
 				'oojs',
 				'uw.controller.Step',
 				'uw.controller.base',
-				'uw.ui.Step',
+				'uw.ui.Tutorial',
 			),
 		),
 
@@ -653,6 +650,24 @@ class UploadWizardHooks {
 
 			'dependencies' => array(
 				'uw.model.base',
+			),
+		),
+		
+		'uw.ui.Tutorial' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.Tutorial.js',
+			),
+
+			'dependencies' => array(
+				'oojs',
+				'uw.ui.base',
+				'uw.ui.Step',
+			),
+
+			'messages' => array(
+				'mwe-upwiz-tooltip-skiptutorial',
+				'prefs-uploads',
+				'prefs-upwiz-interface',
 			),
 		),
 	);

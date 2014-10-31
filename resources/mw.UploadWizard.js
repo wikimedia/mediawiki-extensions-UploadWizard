@@ -5,7 +5,6 @@
 ( function ( mw, uw, $ ) {
 
 	mw.UploadWizard = function ( config ) {
-
 		this.uploads = [];
 		this.api = new mw.Api( { ajax: { timeout: 0 } } );
 
@@ -16,7 +15,9 @@
 		// XXX need a robust way of defining default config
 		this.maxUploads = mw.UploadWizard.config.maxUploads || 10;
 
-		var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
+		var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' ),
+			wizard = this;
+
 		if ( maxSimPref === 'default' ) {
 			this.maxSimultaneousConnections = mw.UploadWizard.config.maxSimultaneousConnections;
 		} else if ( maxSimPref > 0 ) {
@@ -29,7 +30,16 @@
 		this.showDeed = false;
 
 		this.steps = {
-			tutorial: new uw.controller.Tutorial(),
+			tutorial: new uw.controller.Tutorial()
+				.on( 'next-step', function () {
+					// if the skip checkbox is checked, set the skip user preference
+					if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
+						$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
+						wizard.setSkipTutorialPreference();
+					}
+
+					wizard.moveToStep( 'file' );
+				} ),
 			file: new uw.controller.Upload(),
 			deeds: new uw.controller.Deed(),
 			details: new uw.controller.Details(),
@@ -75,29 +85,6 @@
 			this.ui = new uw.ui.Wizard( this )
 				.on( 'reset-wizard', function () {
 					wizard.reset();
-				} )
-
-				.on( 'skip-tutorial-click', function ( skipped ) {
-					if ( skipped ) {
-						( new mw.UploadWizardTutorialEvent( 'skip-check' ) ).dispatch();
-					} else {
-						( new mw.UploadWizardTutorialEvent( 'skip-uncheck' ) ).dispatch();
-					}
-				} )
-
-				.on( 'helpdesk-click', function () {
-					( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
-				} )
-
-				.on( 'next-from-tutorial', function () {
-					( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
-					// if the skip checkbox is checked, set the skip user preference
-					if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
-						$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
-						wizard.setSkipTutorialPreference();
-					}
-
-					wizard.moveToStep( 'file' );
 				} )
 
 				.on( 'upload-start', function () {
