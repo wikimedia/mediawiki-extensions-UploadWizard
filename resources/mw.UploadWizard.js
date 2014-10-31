@@ -436,6 +436,19 @@
 					wizard.setUploadFilled( upload );
 				} )
 
+				.on( 'extra-files', function ( files, toobig ) {
+					$.each( files, function ( i, file ) {
+						// NOTE: By running newUpload we will end up calling checkfile() again.
+						var newUpload = wizard.newUpload( file );
+
+						if ( toobig ) {
+							newUpload.disablePreview();
+						}
+					} );
+
+					wizard.updateFileCounts();
+				} )
+
 				.on( 'error', function ( code, message ) {
 					uw.eventFlowLogger.logError( 'file', { code: code, message: message } );
 				} );
