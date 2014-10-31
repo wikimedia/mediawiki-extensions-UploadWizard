@@ -179,8 +179,6 @@
 
 			// Hide containers for selecting files
 			$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
-			$( wizard.uploadToAdd.ui.div ).hide();
-			wizard.uploadToAdd.ui.hideFileInput();
 
 			// Add placeholder text to the Flickr URL input field
 			$flickrInput.placeholder( mw.message( 'mwe-upwiz-flickr-input-placeholder' ).escaped() );
@@ -363,6 +361,8 @@
 
 			this.currentStepObject = targetStep;
 
+			this.updateFileCounts( false );
+
 			if ( callback ) {
 				callback();
 			}
@@ -400,8 +400,24 @@
 				return false;
 			}
 
-			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist', providedFile )
-				.on( 'file-changed', function ( files ) {
+			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist' )
+				.on( 'file-changed', function ( upload, files ) {
+					var totalFiles = files.length + wizard.uploads.length,
+						tooManyFiles = totalFiles > mw.UploadWizard.config.maxUploads;
+
+					if ( tooManyFiles ) {
+						wizard.showTooManyFilesWarning( totalFiles );
+						upload.resetFileInput();
+						return;
+					}
+
+					upload.checkFile(
+						upload.ui.getFilename(),
+						files,
+						function () { upload.ui.fileChangedOk(); },
+						function ( code, info ) { upload.ui.fileChangedError( code, info ); }
+					);
+
 					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 				} )
 
@@ -413,7 +429,9 @@
 					uw.eventFlowLogger.logError( 'file', { code: code, message: message } );
 				} );
 
-			this.uploadToAdd = upload;
+			if ( providedFile ) {
+				upload.fill( providedFile );
+			}
 
 			// we explicitly move the file input to cover the upload button
 			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
@@ -424,6 +442,36 @@
 			} );
 
 			return upload;
+		},
+
+		/**
+		 * Shows an error dialog informing the user that some uploads have been omitted
+		 * since they went over the max files limit.
+		 * @param filesUploaded integer - the number of files that have been attempted to upload
+		 */
+		showTooManyFilesWarning: function ( filesUploaded ) {
+			var buttons = [
+				{
+					text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
+					click: function () {
+						$(this).dialog('destroy').remove();
+					}
+				}
+			];
+			$( '<div>' )
+				.msg(
+					'mwe-upwiz-too-many-files-text',
+					mw.UploadWizard.config.maxUploads,
+					filesUploaded
+				)
+				.dialog( {
+					width: 500,
+					zIndex: 200000,
+					autoOpen: true,
+					title: mw.message( 'mwe-upwiz-too-many-files' ).escaped(),
+					modal: true,
+					buttons: buttons
+				} );
 		},
 
 		/**
@@ -755,14 +803,20 @@
 		 *
 		 * TODO in the case of aborting the only upload, we get kicked back here, but the file input over the add file
 		 * button has been removed. How to get it back into "virginal" state?
+		 *
+		 * @param {boolean} autoMoveToFile Whether to move to the file step if there are no non-empty upload objects.
 		 */
-		updateFileCounts: function () {
+		updateFileCounts: function ( autoMoveToFile ) {
+			if ( autoMoveToFile === undefined ) {
+				autoMoveToFile = true;
+			}
+
 			// First reset the wizard buttons.
 			this.ui.hideFileEndButtons();
 
-			this.currentStepObject.updateFileCounts( ( this.uploads.length - this.countEmpties() ) > 0, this.maxUploads, this.uploadToAdd );
+			this.currentStepObject.updateFileCounts( ( this.uploads.length - this.countEmpties() ) > 0, this.maxUploads, this.uploads );
 
-			if ( this.uploads.length - this.countEmpties() <= 0 ) {
+			if ( autoMoveToFile && ( this.uploads.length - this.countEmpties() <= 0 ) ) {
 				// destroy the flickr interface if it exists
 				this.flickrInterfaceDestroy();
 

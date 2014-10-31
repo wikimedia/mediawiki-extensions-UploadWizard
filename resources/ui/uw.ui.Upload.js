@@ -59,9 +59,8 @@
 	 * Updates the interface based on the number of uploads.
 	 * @param {boolean} haveUploads Whether there are any uploads at all.
 	 * @param {boolean} fewerThanMax Whether we can add more uploads.
-	 * @param {mw.UploadWizardUpload} uploadToAdd The last upload object added to the interface, if any.
 	 */
-	UP.updateFileCounts = function ( haveUploads, fewerThanMax, uploadToAdd ) {
+	UP.updateFileCounts = function ( haveUploads, fewerThanMax ) {
 		this.$fileList.toggleClass( 'mwe-upwiz-filled-filelist', haveUploads );
 		this.$addFile.add( this.$flickrAddFile ).toggleClass( 'mwe-upwiz-add-files-n', haveUploads );
 		this.$addFileContainer.toggleClass( 'mwe-upwiz-add-files-0', !haveUploads );
@@ -98,16 +97,7 @@
 			.add( this.$flickrAddFile )
 			.button( 'option', 'disabled', !fewerThanMax );
 
-		if ( uploadToAdd ) {
-			// allow an "add another upload" button only if we aren't at max
-			if ( fewerThanMax ) {
-				$( uploadToAdd.ui.div ).show();
-				uploadToAdd.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'resize' );
-			} else {
-				$( uploadToAdd.ui.div ).hide();
-				uploadToAdd.ui.hideFileInput();
-			}
-		}
+		this.$fileList.find( '.mwe-upwiz-file:not(.filled) .mwe-upwiz-file-input' ).prop( 'disabled', !fewerThanMax );
 	};
 
 	/**

@@ -58,6 +58,7 @@
 			this.addFormInputIfMissing( 'format', 'jsonfm' );
 
 			if ( this.upload.fromURL ) {
+				this.removeFormInputIfPresent( 'file' );
 				this.addFormInputIfMissing( 'url', this.upload.providedFile.url );
 			}
 		},
@@ -76,6 +77,18 @@
 			var handler = this;
 
 			this.api.getEditToken().done( ok ).fail( err );
+		},
+
+		/**
+		 * Remove a file input if it's there.
+		 * @param {string} name
+		 */
+		removeFormInputIfPresent: function ( name ) {
+			var $input = this.$form.find( '[name="' + name + '"]' );
+
+			if ( $input.length > 0 ) {
+				$input.remove();
+			}
 		},
 
 		/**

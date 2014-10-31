@@ -22,14 +22,10 @@
 	 * There is an "empty" fileInput which is invisibly floating above certain buttons in the interface, like "Add a file". When
 	 * this fileInput gets a file, this upload becomes 'filled'.
 	 *
-	 * On some browsers, the user may select multiple files. So upon such a 'filled' event, we add the first File to this Upload, and
-	 * then create other UploadWizardUpload objects from the individual Files, using the optional providedFile parameter.
-	 *
 	 * @param {UploadWizard} wizard
 	 * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads
-	 * @param {File} providedFile - optional; only used on browsers which support FileAPI.
 	 */
-	function UploadWizardUpload( wizard, filesDiv, providedFile ) {
+	function UploadWizardUpload( wizard, filesDiv ) {
 		var upload = this;
 
 		oo.EventEmitter.call( this );
@@ -47,17 +43,9 @@
 		this.mimetype = undefined;
 		this.extension = undefined;
 		this.filename = undefined;
-		this.providedFile = providedFile;
 		this.file = undefined;
 		this.ignoreWarning = {};
 		this.fromURL = false;
-
-		// check to see if the File is being uplaoded from a 3rd party URL.
-		if ( this.providedFile ) {
-			if ( this.providedFile.fromURL ) {
-				this.fromURL = true;
-			}
-		}
 
 		this.fileKey = undefined;
 
@@ -66,9 +54,9 @@
 		this.detailsWeight = 1; // default all same
 
 		// details
-		this.ui = new mw.UploadWizardUploadInterface( this, filesDiv, providedFile )
+		this.ui = new mw.UploadWizardUploadInterface( this, filesDiv )
 			.connect( this, {
-				'file-changed': [ 'emit', 'file-changed' ],
+				'file-changed': [ 'emit', 'file-changed', upload ],
 				'filename-accepted': [ 'emit', 'filename-accepted' ]
 			} )
 
@@ -82,11 +70,6 @@
 
 				upload.emit( 'filled' );
 			} );
-
-		// handler -- usually ApiUploadHandler
-		// this.handler = new ( mw.UploadWizard.config.uploadHandlerClass )( this );
-		// this.handler = new mw.MockUploadHandler( this );
-		this.handler = this.getUploadHandler();
 	}
 
 	oo.inheritClass( UploadWizardUpload, oo.EventEmitter );
@@ -99,8 +82,32 @@
 	// increments with each upload
 	UWUP.count = 0;
 
+	/**
+	 * Manually fill the file input with a file.
+	 * @param {File} providedFile
+	 */
+	UWUP.fill = function ( providedFile ) {
+		// check to see if the File is being uplaoded from a 3rd party URL.
+		if ( providedFile ) {
+			this.providedFile = providedFile;
+
+			if ( providedFile.fromURL ) {
+				this.fromURL = true;
+			}
+
+			this.ui.fill( providedFile );
+		}
+	};
+
 	UWUP.acceptDeed = function () {
 		this.deed.applyDeed( this );
+	};
+
+	/**
+	 * Reset file input.
+	 */
+	UWUP.resetFileInput = function () {
+		this.ui.resetFileInput();
 	};
 
 	/**
@@ -124,6 +131,9 @@
 		}
 		this.setTransportProgress(0.0);
 		//this.ui.start();
+
+		// handler -- usually ApiUploadHandler
+		this.handler = this.getUploadHandler();
 		this.handler.start();
 	};
 
@@ -386,7 +396,7 @@
 	 * @param {function (String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
 	 * @param {function ()} callback when resetting FileInput
 	 */
-	UWUP.checkFile = function ( filename, files, fileNameOk, fileNameErr, resetFileInput ) {
+	UWUP.checkFile = function ( filename, files, fileNameOk, fileNameErr ) {
 		var totalSize, duplicate, extension, hasError, errorIndex,
 			actualMaxSize, binReader,
 			upload = this,
@@ -394,8 +404,7 @@
 
 			// Check if filename is acceptable
 			// TODO sanitize filename
-			basename = this.getBasename( filename ),
-			tooManyFiles = files.length + this.wizard.uploads.length > mw.UploadWizard.config.maxUploads;
+			basename = this.getBasename( filename );
 
 		function finishCallback() {
 			if ( upload && upload.ui ) {
@@ -403,12 +412,6 @@
 			} else {
 				setTimeout( finishCallback, 200 );
 			}
-		}
-
-		if ( tooManyFiles ) {
-			this.showTooManyFilesWarning( files.length + this.wizard.uploads.length );
-			resetFileInput();
-			return;
 		}
 
 		if ( files.length > 1 ) {
@@ -594,36 +597,6 @@
 				zIndex: 200000,
 				autoOpen: true,
 				title: mw.message( 'mwe-upwiz-file-too-large' ).escaped(),
-				modal: true,
-				buttons: buttons
-			} );
-	};
-
-	/**
-	 * Shows an error dialog informing the user that some uploads have been omitted
-	 * since they went over the max files limit.
-	 * @param filesUploaded integer - the number of files that have been attempted to upload
-	 */
-	UWUP.showTooManyFilesWarning = function ( filesUploaded ) {
-		var buttons = [
-			{
-				text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
-				click: function () {
-					$(this).dialog('destroy').remove();
-				}
-			}
-		];
-		$( '<div></div>' )
-			.msg(
-				'mwe-upwiz-too-many-files-text',
-				mw.UploadWizard.config.maxUploads,
-				filesUploaded
-			)
-			.dialog( {
-				width: 500,
-				zIndex: 200000,
-				autoOpen: true,
-				title: mw.message( 'mwe-upwiz-too-many-files' ).escaped(),
 				modal: true,
 				buttons: buttons
 			} );

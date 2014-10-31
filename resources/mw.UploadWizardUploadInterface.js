@@ -6,17 +6,14 @@
 	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 * @param upload
 	 * @param div to insert file interface
-	 * @param providedFile a File object that this ui component should use (optional)
 	 */
-	function UploadWizardUploadInterface( upload, filesDiv, providedFile ) {
+	function UploadWizardUploadInterface( upload, filesDiv ) {
 		var $preview,
 			ui = this;
 
 		oo.EventEmitter.call( this );
 
 		this.upload = upload;
-
-		this.providedFile = providedFile;
 
 		// may need to collaborate with the particular upload type sometimes
 		// for the interface, as well as the uploadwizard. OY.
@@ -119,16 +116,24 @@
 			mw.UploadWizard.config.thumbnailMaxHeight,
 			true
 		);
-
-		if ( providedFile ) {
-			// if a file is already present, trigger the change event immediately.
-			this.$fileInputCtrl.trigger( 'change', { isFake: true } );
-		}
 	}
 
 	oo.inheritClass( UploadWizardUploadInterface, oo.EventEmitter );
 
 	UIP = UploadWizardUploadInterface.prototype;
+
+	/**
+	 * Manually fill the file input with a file.
+	 * @param {File} providedFile
+	 */
+	UIP.fill = function ( providedFile ) {
+		if ( providedFile ) {
+			this.providedFile = providedFile;
+
+			// if a file is already present, trigger the change event immediately.
+			this.$fileInputCtrl.trigger( 'change' );
+		}
+	};
 
 	/**
 	 * Things to do to this interface once we start uploading
@@ -273,23 +278,18 @@
 	UIP.initFileInputCtrl = function () {
 		var ui = this;
 
-		this.$fileInputCtrl.change( function ( e, eventData ) {
-			var files = ui.getFiles();
-
-			if ( !eventData || !eventData.isFake ) {
-				ui.emit( 'file-changed', files );
-			}
+		this.$fileInputCtrl.change( function () {
+			ui.emit( 'file-changed', ui.getFiles() );
 
 			ui.clearErrors();
-
-			ui.upload.checkFile(
-				ui.getFilename(),
-				files,
-				function () { ui.fileChangedOk(); },
-				function ( code, info ) { ui.fileChangedError( code, info ); },
-				function () { ui.$fileInputCtrl.get(0).value = ''; }
-			);
 		} );
+	};
+
+	/**
+	 * Reset file input to have no value.
+	 */
+	UIP.resetFileInput = function () {
+		this.$fileInputCtrl.get( 0 ).value = '';
 	};
 
 	/**
@@ -522,7 +522,15 @@
 	};
 
 	UIP.showFilenameError = function ( $text ) {
-		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: $text.text() } );
+		var msgText;
+
+		if ( $text instanceof jQuery ) {
+			msgText = $text.text();
+		} else {
+			msgText = $text;
+		}
+
+		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: msgText } );
 		$( '<div>' )
 			.html( $text )
 			.dialog({
