@@ -558,6 +558,10 @@ class UploadWizardHooks {
 				'uw.controller.base',
 				'uw.ui.Tutorial',
 			),
+
+			'messages' => array(
+				'mwe-upwiz-prevent-close-wait',
+			),
 		),
 
 		'uw.controller.Upload' => array(

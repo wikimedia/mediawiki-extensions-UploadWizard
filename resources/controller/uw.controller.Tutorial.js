@@ -16,8 +16,12 @@
  */
 
 ( function ( mw, uw, $, oo ) {
-	function Tutorial() {
+	var TP;
+
+	function Tutorial( api ) {
 		var tutorial = this;
+
+		this.api = api;
 
 		uw.controller.Step.call(
 			this,
@@ -36,12 +40,43 @@
 
 				.on( 'next-step', function () {
 					( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
+
+					// if the skip checkbox is checked, set the skip user preference
+					if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
+						$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
+						tutorial.setSkipPreference();
+					}
+
 					tutorial.emit( 'next-step' );
 				} )
 		);
 	}
 
 	oo.inheritClass( Tutorial, uw.controller.Step );
+
+	TP = Tutorial.prototype;
+
+	/**
+	 * Set the skip tutorial user preference via the options API
+	 */
+	TP.setSkipPreference = function () {
+		var api = this.api,
+			isComplete = false,
+			allowCloseWindow = mw.confirmCloseWindow( {
+				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
+				test: function () { return !isComplete; }
+			} );
+
+		api.postWithToken( 'options', {
+			action: 'options',
+			change: 'upwiz_skiptutorial=1'
+		} )
+		.done( function () {
+			isComplete = true;
+			allowCloseWindow();
+			return true;
+		} );
+	};
 
 	uw.controller.Tutorial = Tutorial;
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
