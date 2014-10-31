@@ -543,6 +543,11 @@
 			);
 
 			this.updateFileCounts();
+
+			if ( this.uploads && this.uploads.length !== 0 ) {
+				// check all uploads, if they're complete, show the next button
+				this.showNext( 'file', 'stashed' );
+			}
 		},
 
 		/**

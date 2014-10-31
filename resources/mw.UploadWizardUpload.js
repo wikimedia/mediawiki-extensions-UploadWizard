@@ -141,9 +141,6 @@
 		// we signal to the wizard to update itself, which has to delete the
 		// final vestige of this upload
 		this.emit( 'remove-upload' );
-
-		// check all uploads, if they're complete, show the next button
-		this.wizard.showNext( 'file', 'stashed' );
 	};
 
 	/**
