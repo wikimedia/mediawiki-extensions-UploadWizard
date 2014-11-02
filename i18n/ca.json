@@ -165,7 +165,7 @@
 	"mwe-upwiz-ok": "D'acord",
 	"mwe-upwiz-cancel": "Cancel·la",
 	"mwe-upwiz-fileexists-replace": "Ja existeix un fitxer amb el títol «$1». Canvieu el títol per un altre que sigui únic.",
-	"mwe-upwiz-fileexists": "Ja existeix un fitxer amb aquest nom.\nComproveu $1 si no esteu segurs que voleu substituir-lo.",
+	"mwe-upwiz-fileexists": "Ja existeix un fitxer amb aquest nom.\nComproveu $1 si no esteu segur que voleu substituir-lo.",
 	"mwe-upwiz-fileexists-replace-on-page": "Ja existeix un fitxer amb aquest nom. Si voleu substituir-lo, aneu a la seva pàgina [$2 $1] i carregueu una nova versió allà.",
 	"mwe-upwiz-fileexists-replace-no-link": "Si us plau, escolliu un títol diferent, perquè aquest títol ja s'està utilitzant per un altre fitxer.",
 	"mwe-upwiz-blacklisted": "Trieu un títol diferent, més descriptiu.",
