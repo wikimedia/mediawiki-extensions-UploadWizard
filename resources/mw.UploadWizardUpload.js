@@ -346,7 +346,6 @@
 			if ( !this.fromURL ) {
 				this.deedPreview.setup();
 			}
-			this.details.populate();
 			this.state = 'stashed';
 			this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + this.index, 'api' );
@@ -1193,6 +1192,11 @@
 			} ); // close thumbnail click function
 	};
 
-	mw.UploadWizardUpload = UploadWizardUpload;
+	UWUP.createDetails = function () {
+		this.details = new mw.UploadWizardDetails( this, $( '#mwe-upwiz-macro-files' ) );
+		this.details.populate();
+		this.details.attach();
+	};
 
+	mw.UploadWizardUpload = UploadWizardUpload;
 } )( mediaWiki, jQuery, OO );
