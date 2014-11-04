@@ -16,14 +16,31 @@
  */
 
 ( function ( uw, $, oo ) {
+	var UP;
+
 	function Upload() {
 		uw.controller.Step.call(
 			this,
-			new uw.ui.Step( $( '#mwe-upwiz-stepdiv-file' ), $( '#mwe-upwiz-step-file' ) )
+			new uw.ui.Upload()
 		);
 	}
 
 	oo.inheritClass( Upload, uw.controller.Step );
+
+	UP = Upload.prototype;
+
+	/**
+	 * Updates the upload step data when a file is added or removed.
+	 */
+	UP.updateFileCounts = function ( haveUploads, max, uploadToAdd ) {
+		var fewerThanMax = this.uploads.length < max;
+
+		this.ui.updateFileCounts( haveUploads, fewerThanMax, uploadToAdd );
+	};
+
+	UP.empty = function () {
+		this.ui.empty();
+	};
 
 	uw.controller.Upload = Upload;
 }( mediaWiki.uploadWizard, jQuery, OO ) );

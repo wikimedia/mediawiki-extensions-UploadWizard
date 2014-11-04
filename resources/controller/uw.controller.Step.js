@@ -47,7 +47,8 @@
 	 * Move to this step.
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
-	SP.moveTo = function () {
+	SP.moveTo = function ( uploads ) {
+		this.uploads = uploads;
 		this.ui.moveTo();
 	};
 
@@ -58,6 +59,11 @@
 	SP.moveFrom = function () {
 		this.ui.moveFrom();
 	};
+
+	/**
+	 * Update file counts for the step.
+	 */
+	SP.updateFileCounts = function () {};
 
 	uw.controller.Step = Step;
 }( mediaWiki.uploadWizard, OO ) );
