@@ -44,6 +44,9 @@ end
 When(/^I enter category$/) do
   on(DescribePage).category = "Test"
 end
+When(/^I enter date created$/) do
+  on(DescribePage).date_created = "11/4/2014"
+end
 When(/^I enter description$/) do
   on(DescribePage).description = "description"
 end
