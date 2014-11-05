@@ -1,15 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kening Aldgilles"
+			"Kening Aldgilles",
+			"Robin0van0der0vliet"
 		]
 	},
 	"mwe-upwiz-ok": "Okee",
-	"mwe-upwiz-cancel": "Ofbrekke",
+	"mwe-upwiz-cancel": "Annulearje",
 	"mwe-upwiz-next": "Folgjende",
 	"mwe-upwiz-next-file": "Trochgean",
 	"mwe-upwiz-next-deeds": "Folgjende",
 	"mwe-upwiz-next-details": "Folgjende",
 	"mwe-upwiz-home": "Gean nei haadside fan wiky",
-	"mwe-upwiz-upload-another": "Mear bestannen oplade"
+	"mwe-upwiz-upload-another": "Mear bestannen oplade",
+	"mwe-upwiz-dialog-yes": "Ja",
+	"mwe-upwiz-dialog-no": "Nee"
 }
