@@ -328,5 +328,14 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимален број на истовремени преземања",
 	"campaigns": "Кампањи со Помошникот за подигање",
 	"mwe-upload-campaigns-pagination-next": "Следна страница",
-	"mwe-upload-campaigns-list-title": "Список на кампањи за подигање"
+	"mwe-upload-campaigns-list-title": "Список на кампањи за подигање",
+	"apihelp-flickrblacklist-description": "Провери URL-адреса од Flickr во црниот список користејќи ја корисничката назнака (NSID).\n\nКога се користи со можноста за списочен испис, дај ги сите назнаки на црниот список.",
+	"apihelp-flickrblacklist-param-url": "URL-адреса од Flickr што треба да се провери.",
+	"apihelp-flickrblacklist-param-list": "Кога е зададено, ќе се даде целиот црн список. Не може да се користи заедно со $1url.",
+	"apihelp-flickrblacklist-example-1": "Провери URL-адреса во црниот список",
+	"apihelp-flickrblacklist-example-2": "Дај го целиот црн список",
+	"apihelp-query+allcampaigns-description": "Наброј ги сите кампањи на Помошникот за подигање.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Испиши ги само кампањите кои се во тек.",
+	"apihelp-query+allcampaigns-param-limit": "Број на кампањи во исписот.",
+	"apihelp-query+allcampaigns-example-1": "Наброј ги тековните кампањи"
 }

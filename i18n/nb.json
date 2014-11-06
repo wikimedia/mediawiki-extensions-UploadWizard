@@ -332,5 +332,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maks antall samtidige opplastinger",
 	"campaigns": "Kampanjer for opplastningsveiviseren",
 	"mwe-upload-campaigns-pagination-next": "Neste side",
-	"mwe-upload-campaigns-list-title": "Liste over opplastingskampanjer"
+	"mwe-upload-campaigns-list-title": "Liste over opplastingskampanjer",
+	"apihelp-flickrblacklist-param-url": "Flickr-URL som skal testes.",
+	"apihelp-flickrblacklist-example-1": "Sjekk en URL mot svartelisten"
 }
