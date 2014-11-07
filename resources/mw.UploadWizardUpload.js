@@ -1144,5 +1144,12 @@
 		this.details.attach();
 	};
 
+	/**
+	 * Notification that the file input has changed and it's fine...set info.
+	 */
+	UWUP.fileChangedOk = function () {
+		this.ui.fileChangedOk( this.imageinfo, this.file, this.fromURL );
+	};
+
 	mw.UploadWizardUpload = UploadWizardUpload;
 } )( mediaWiki, jQuery, OO );
