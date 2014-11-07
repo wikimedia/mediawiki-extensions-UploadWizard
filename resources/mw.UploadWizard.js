@@ -387,11 +387,9 @@
 		 *   and UI for the upload itself and the "details" at the second step of the wizard.
 		 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
 		 *
-		 * @param providedFile  Existing File object, typically from a multi-select operation
-		 *
 		 * @return the new upload
 		 */
-		newUpload: function ( providedFile ) {
+		newUpload: function () {
 			var upload,
 				wizard = this;
 
@@ -439,11 +437,13 @@
 				.on( 'extra-files', function ( files, toobig ) {
 					$.each( files, function ( i, file ) {
 						// NOTE: By running newUpload we will end up calling checkfile() again.
-						var newUpload = wizard.newUpload( file );
+						var newUpload = wizard.newUpload();
 
 						if ( toobig ) {
 							newUpload.disablePreview();
 						}
+
+						newUpload.fill( file );
 					} );
 
 					wizard.updateFileCounts();
@@ -452,10 +452,6 @@
 				.on( 'error', function ( code, message ) {
 					uw.eventFlowLogger.logError( 'file', { code: code, message: message } );
 				} );
-
-			if ( providedFile ) {
-				upload.fill( providedFile );
-			}
 
 			// we explicitly move the file input to cover the upload button
 			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );

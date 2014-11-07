@@ -13,8 +13,6 @@
 
 		oo.EventEmitter.call( this );
 
-		this.generatePreview = true;
-
 		this.upload = upload;
 
 		// may need to collaborate with the particular upload type sometimes
@@ -23,8 +21,6 @@
 		this.div = this.$div.get(0);
 
 		this.isFilled = false;
-
-		this.previewLoaded = false;
 
 		this.$fileInputCtrl = $( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
 		if (mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
@@ -336,8 +332,7 @@
 	 * @param {boolean} fromURL
 	 */
 	UIP.fileChangedOk = function ( imageinfo, file, fromURL ) {
-		var ui = this,
-			statusItems = [];
+		var statusItems = [];
 
 		this.updateFilename();
 
@@ -352,109 +347,23 @@
 
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
-
-		if ( this.generatePreview ) {
-			// Make the preview now. Will check if it's a previewable file.
-			this.makePreview();
-		} else if ( this.isPreviewable() ) {
-			// add a control for showing the preview if the user needs it
-			this.$showThumbCtrl = $.fn.showThumbCtrl(
-					'mwe-upwiz-show-thumb',
-					'mwe-upwiz-show-thumb-tip',
-					function () { ui.makePreview(); }
-				).addClass( 'mwe-upwiz-file-status-line-item' );
-
-			this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
-				.append( '<br/>' ).append( this.$showThumbCtrl );
-
-		}
 	};
 
 	/**
-	 * Disable preview thumbnail for this upload.
+	 * Show a link that will show the thumbnail preview.
 	 */
-	UIP.disablePreview = function () {
-		this.generatePreview = false;
-	};
+	UIP.makeShowThumbCtrl = function () {
+		var ui = this;
 
-	UIP.URL = function () {
-		return window.URL || window.webkitURL || window.mozURL;
-	};
+		// add a control for showing the preview if the user needs it
+		this.$showThumbCtrl = $.fn.showThumbCtrl(
+				'mwe-upwiz-show-thumb',
+				'mwe-upwiz-show-thumb-tip',
+				function () { ui.emit( 'show-preview' ); }
+			).addClass( 'mwe-upwiz-file-status-line-item' );
 
-	UIP.isVideo = function () {
-		return mw.fileApi.isAvailable() && mw.fileApi.isPreviewableVideo( this.upload.file );
-	};
-
-	UIP.isPreviewable = function () {
-		return mw.fileApi.isAvailable() && this.upload.file && mw.fileApi.isPreviewableFile( this.upload.file );
-	};
-
-	// called once we have an image url
-	UIP.loadImage = function ( url ) {
-		var image = document.createElement( 'img' ),
-			ui = this;
-		image.onload = function () {
-			$.publishReady( 'thumbnails.' + ui.upload.index, image );
-			ui.previewLoaded = true;
-		};
-		image.src = url;
-		this.upload.thumbnails['*'] = image;
-	};
-
-	UIP.makePreview = function () {
-		var first, video, url, dataUrlReader,
-			ui = this;
-
-		// don't run this repeatedly.
-		if ( this.previewLoaded ) {
-			return;
-		}
-
-		// do preview if we can
-		if ( this.isPreviewable() ) {
-			// open video and get frame via canvas
-			if ( this.isVideo() ) {
-				first = true;
-				video = document.createElement( 'video' );
-
-				video.addEventListener('loadedmetadata', function () {
-					//seek 2 seconds into video or to half if shorter
-					video.currentTime = Math.min( 2, video.duration / 2 );
-					video.volume = 0;
-				});
-				video.addEventListener('seeked', function () {
-					// Firefox 16 sometimes does not work on first seek, seek again
-					if ( first ) {
-						first = false;
-						video.currentTime = Math.min( 2, video.duration / 2 );
-
-					} else {
-						// Chrome sometimes shows black frames if grabbing right away.
-						// wait 500ms before grabbing frame
-						setTimeout(function () {
-							var context,
-								canvas = document.createElement( 'canvas' );
-							canvas.width = 100;
-							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
-							context = canvas.getContext( '2d' );
-							context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							ui.loadImage( canvas.toDataURL() );
-							ui.URL().revokeObjectURL( video.url );
-						}, 500);
-					}
-				});
-				url = this.URL().createObjectURL( this.upload.file );
-				video.src = url;
-			} else {
-				dataUrlReader = new FileReader();
-				dataUrlReader.onload = function () {
-					// this step (inserting image-as-dataurl into image object) is slow for large images, which
-					// is why this is optional and has a control attached to it to load the preview.
-					ui.loadImage( dataUrlReader.result );
-				};
-				dataUrlReader.readAsDataURL( this.upload.file );
-			}
-		}
+		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+			.append( '<br>' ).append( this.$showThumbCtrl );
 	};
 
 	UIP.fileChangedError = function ( code, info ) {

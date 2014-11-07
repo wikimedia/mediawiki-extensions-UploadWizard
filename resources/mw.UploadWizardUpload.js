@@ -46,6 +46,8 @@
 		this.file = undefined;
 		this.ignoreWarning = {};
 		this.fromURL = false;
+		this.previewLoaded = false;
+		this.generatePreview = true;
 
 		this.fileKey = undefined;
 
@@ -57,7 +59,8 @@
 		this.ui = new mw.UploadWizardUploadInterface( this, filesDiv )
 			.connect( this, {
 				'file-changed': [ 'emit', 'file-changed', upload ],
-				'filename-accepted': [ 'emit', 'filename-accepted' ]
+				'filename-accepted': [ 'emit', 'filename-accepted' ],
+				'show-preview': 'makePreview'
 			} )
 
 			.on( 'upload-filled', function () {
@@ -407,7 +410,7 @@
 			// Local previews are slow due to the data URI insertion into the DOM; for batches we
 			// don't generate them if the size of the batch exceeds 10 MB
 			if ( toobig ) {
-				this.ui.disablePreview();
+				this.disablePreview();
 			}
 		}
 
@@ -549,6 +552,13 @@
 				}
 			}
 		}
+	};
+
+	/**
+	 * Disable preview thumbnail for this upload.
+	 */
+	UWUP.disablePreview = function () {
+		this.generatePreview = false;
 	};
 
 	/**
@@ -1149,6 +1159,106 @@
 	 */
 	UWUP.fileChangedOk = function () {
 		this.ui.fileChangedOk( this.imageinfo, this.file, this.fromURL );
+
+		if ( this.generatePreview ) {
+			this.makePreview();
+		} else {
+			this.ui.makeShowThumbCtrl();
+		}
+	};
+
+	/**
+	 * Make a preview for the file.
+	 */
+	UWUP.makePreview = function () {
+		var first, video, url, dataUrlReader,
+			upload = this;
+
+		// don't run this repeatedly.
+		if ( this.previewLoaded ) {
+			return;
+		}
+
+		// do preview if we can
+		if ( this.isPreviewable() ) {
+			// open video and get frame via canvas
+			if ( this.isVideo() ) {
+				first = true;
+				video = document.createElement( 'video' );
+
+				video.addEventListener('loadedmetadata', function () {
+					//seek 2 seconds into video or to half if shorter
+					video.currentTime = Math.min( 2, video.duration / 2 );
+					video.volume = 0;
+				});
+				video.addEventListener('seeked', function () {
+					// Firefox 16 sometimes does not work on first seek, seek again
+					if ( first ) {
+						first = false;
+						video.currentTime = Math.min( 2, video.duration / 2 );
+
+					} else {
+						// Chrome sometimes shows black frames if grabbing right away.
+						// wait 500ms before grabbing frame
+						setTimeout(function () {
+							var context,
+								canvas = document.createElement( 'canvas' );
+							canvas.width = 100;
+							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
+							context = canvas.getContext( '2d' );
+							context.drawImage( video, 0, 0, canvas.width, canvas.height );
+							upload.loadImage( canvas.toDataURL() );
+							upload.URL().revokeObjectURL( video.url );
+						}, 500);
+					}
+				});
+				url = this.URL().createObjectURL( this.file );
+				video.src = url;
+			} else {
+				dataUrlReader = new FileReader();
+				dataUrlReader.onload = function () {
+					// this step (inserting image-as-dataurl into image object) is slow for large images, which
+					// is why this is optional and has a control attached to it to load the preview.
+					upload.loadImage( dataUrlReader.result );
+				};
+				dataUrlReader.readAsDataURL( this.file );
+			}
+		}
+	};
+
+	/**
+	 * Loads an image preview.
+	 */
+	UWUP.loadImage = function ( url ) {
+		var image = document.createElement( 'img' ),
+			upload = this;
+		image.onload = function () {
+			$.publishReady( 'thumbnails.' + upload.index, image );
+			upload.previewLoaded = true;
+		};
+		image.src = url;
+		this.thumbnails['*'] = image;
+	};
+
+	/**
+	 * Check if the file is previewable.
+	 */
+	UWUP.isPreviewable = function () {
+		return mw.fileApi.isAvailable() && this.file && mw.fileApi.isPreviewableFile( this.file );
+	};
+
+	/**
+	 * Finds the right URL object to use.
+	 */
+	UWUP.URL = function () {
+		return window.URL || window.webkitURL || window.mozURL;
+	};
+
+	/**
+	 * Checks if this upload is a video.
+	 */
+	UWUP.isVideo = function () {
+		return mw.fileApi.isAvailable() && mw.fileApi.isPreviewableVideo( this.file );
 	};
 
 	mw.UploadWizardUpload = UploadWizardUpload;
