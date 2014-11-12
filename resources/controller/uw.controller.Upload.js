@@ -32,10 +32,16 @@
 	/**
 	 * Updates the upload step data when a file is added or removed.
 	 */
-	UP.updateFileCounts = function ( haveUploads, max, uploadToAdd ) {
-		var fewerThanMax = this.uploads.length < max;
+	UP.updateFileCounts = function ( haveUploads, max, uploads ) {
+		var fewerThanMax;
 
-		this.ui.updateFileCounts( haveUploads, fewerThanMax, uploadToAdd );
+		if ( uploads ) {
+			this.uploads = uploads;
+		}
+
+		fewerThanMax = this.uploads.length < max;
+
+		this.ui.updateFileCounts( haveUploads, fewerThanMax );
 	};
 
 	UP.empty = function () {

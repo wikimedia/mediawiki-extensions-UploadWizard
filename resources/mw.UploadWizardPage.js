@@ -16,7 +16,6 @@
 
 		uploadWizard = new mw.UploadWizard( config );
 		uploadWizard.createInterface( '#upload-wizard' );
-
 	};
 
 	$( document ).ready( function () {
