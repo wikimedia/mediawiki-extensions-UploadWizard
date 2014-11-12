@@ -1131,33 +1131,46 @@
 
 	/**
 	 * jQuery extension. Makes a textarea automatically grow if you enter overflow
-	 * (This feature was in the old Commons interface with a confusing arrow icon; it's nicer to make it automatic.)
+	 * Stolen implementation from OOJS-UI. Thanks guys.
+	 *
+	 * @TODO Just use OOJS-UI for this instead of copying their code.
 	 */
 	jQuery.fn.growTextArea = function () {
+		function resizeIfNeeded() {
+		// Begin stolen code from OOJS-UI's TextInputWidget.prototype.adjustSize
+			var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight,
+				$this = $( this );
 
-		// this is a jquery-style object
+			$clone = $this.clone()
+				.val( $this.val() )
+				// Set inline height property to 0 to measure scroll height
+				.css( { height: 0 } )
+				.insertAfter( $this );
 
-		// in MSIE, this makes it possible to know what scrollheight is
-		// Technically this means text could now dangle over the edge,
-		// but it shouldn't because it will always grow to accomodate very quickly.
-
-		if ( $.msie ) {
-			this.each( function (i, textArea) {
-				textArea.style.overflow = 'visible';
-			} );
+			scrollHeight = $clone[0].scrollHeight;
+			// Remove inline height property to measure natural heights
+			$clone.css( 'height', '' );
+			innerHeight = $clone.innerHeight();
+			outerHeight = $clone.outerHeight();
+			// Measure max rows height
+			$clone.attr( 'rows', 20 ).css( 'height', 'auto' ).val( '' );
+			maxInnerHeight = $clone.innerHeight();
+			// Difference between reported innerHeight and scrollHeight with no scrollbars present
+			// Equals 1 on Blink-based browsers and 0 everywhere else
+			measurementError = maxInnerHeight - $clone[0].scrollHeight;
+			$clone.remove();
+			idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
+			// Only apply inline height when expansion beyond natural height is needed
+			if ( idealHeight > innerHeight ) {
+				// Use the difference between the inner and outer height as a buffer
+				$this.css( 'height', idealHeight + ( outerHeight - innerHeight ) );
+			} else {
+				$this.css( 'height', '' );
+			}
+			// End stolen code from OOJS-UI's TextInputWidget.prototype.adjustSize
 		}
 
-		var resizeIfNeeded = function () {
-			// this is the dom element
-			// is there a better way to do this?
-			if ( this.scrollHeight >= this.offsetHeight && !this.style.height ) {
-				this.rows++;
-				while ( this.scrollHeight > this.offsetHeight ) {
-					this.rows++;
-				}
-			}
-		};
-
+		// this is a jquery-style object
 		this.addClass( 'mwe-grow-textarea' );
 
 		this.bind( 'resizeEvent', resizeIfNeeded );

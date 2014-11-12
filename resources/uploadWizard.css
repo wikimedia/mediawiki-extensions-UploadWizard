@@ -832,3 +832,7 @@ input.mwe-date {
 .mwe-upwiz-lightbox-link a {
 	cursor: pointer;
 }
+
+.mwe-upwiz-other-textarea {
+	width: 31.5em;
+}

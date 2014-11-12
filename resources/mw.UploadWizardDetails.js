@@ -165,8 +165,12 @@
 		moreDetailsDiv = $('<div class="mwe-more-details"></div>');
 
 		otherInformationId = 'otherInformation' + this.upload.index;
-		this.otherInformationInput = $( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea"></textarea>' )
-			.growTextArea();
+		this.otherInformationInput = $( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea" rows="2" cols="36"></textarea>' )
+			.growTextArea()
+			.on( 'keyup', function ( e ) {
+				e.stopPropagation();
+				return false;
+			} );
 
 		otherInformationDiv = $('<div>')
 			.append( $( '<div class="mwe-upwiz-details-more-label"></div>' ).text( mw.message( 'mwe-upwiz-other' ).text() ).addHint( 'other' ) )
