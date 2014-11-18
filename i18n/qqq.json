@@ -28,7 +28,7 @@
 		]
 	},
 	"uploadwizard": "{{doc-special|UploadWizard}}\nUploadWizard is a wizard to upload multimedia files to a MediaWiki website.\nFor more information, see [[mw:UploadWizard]].",
-	"uploadwizard-desc": "{{desc|name=Upload Wizard|url=http://www.mediawiki.org/wiki/Extension:UploadWizard}}\nRefers to [//blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the\ndevelopment was paid with this $300,000 grant.",
+	"uploadwizard-desc": "{{desc|name=Upload Wizard|url=http://www.mediawiki.org/wiki/Extension:UploadWizard}}\nRefers to [//blog.wikimedia.org/blog/2009/07/02/ford-foundation-awards-300k-grant-for-wikimedia-commons/ this event], i.e. the development was paid with this $300,000 grant.",
 	"mwe-upwiz-uploadcampaigns": "{{doc-special|UploadCampaigns}}\nCan also be worded as \"campaigns for the promotion of uploading\".",
 	"mwe-upwiz-uploadcampaign": "{{doc-special|UploadCampaign}}",
 	"right-upwizcampaigns": "{{doc-right|upwizcampaigns}}\n\n\"Upload campaign\" can also be worded as \"a campaign for the promotion of uploading\".",
