@@ -339,5 +339,9 @@
 	"campaigns": "Kampanjer för uppladdningsguiden",
 	"mwe-upload-campaigns-pagination-next": "Nästa sida",
 	"mwe-upload-campaigns-list-title": "Lista över uppladdningskampanjer",
-	"apihelp-flickrblacklist-param-url": "Webbadress till Flickr att testa."
+	"apihelp-flickrblacklist-description": "Validera en Flickr-URL genom att använda användar-ID:et (NSID) för svartlistning.\n\nNär detta används med listalternativet, returneras alla svartlistade ID.",
+	"apihelp-flickrblacklist-param-url": "Webbadress till Flickr att testa.",
+	"apihelp-flickrblacklist-param-list": "När angiven, returneras den kompletta svartlistan. Kan inte användas tillsammans med $1url.",
+	"apihelp-flickrblacklist-example-1": "Kontrollera en URL-adress mot svartlistan",
+	"apihelp-flickrblacklist-example-2": "Returnera hela svartlistan"
 }

@@ -353,6 +353,7 @@
 	"mwe-upload-campaigns-list-title": "上传活动列表",
 	"apihelp-flickrblacklist-param-url": "要测试的Flickr URL。",
 	"apihelp-flickrblacklist-example-2": "返回全部黑名单",
+	"apihelp-query+allcampaigns-param-enabledonly": "只列出启用的通告。",
 	"apihelp-query+allcampaigns-param-limit": "要返回的通告数。",
 	"apihelp-query+allcampaigns-example-1": "列举启用的通告"
 }
