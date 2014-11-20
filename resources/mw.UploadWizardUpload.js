@@ -114,21 +114,8 @@
 	 * start
 	 */
 	UWUP.start = function () {
-		var upload = this;
+		this.emit( 'starting' );
 
-		if ( mw.UploadWizard.config.startImmediately === true ) {
-			this.wizard.ui.hideFileEndButtons();
-
-			if ( !this.wizard.progressBar || this.wizard.progressBar.finished === true ) {
-				this.wizard.startProgressBar();
-			}
-
-			this.wizard.allowCloseWindow = mw.confirmCloseWindow( {
-				message: function () { return mw.message( 'mwe-upwiz-prevent-close', upload.wizard.uploads.length ).escaped(); },
-				test: function () { return !upload.wizard.isComplete() && upload.wizard.uploads.length > 0; },
-				namespace: 'uploadwizard'
-			} );
-		}
 		this.setTransportProgress(0.0);
 		//this.ui.start();
 
@@ -155,10 +142,8 @@
 		// final vestige of this upload
 		this.emit( 'remove-upload' );
 
-		if ( this.wizard.uploads && this.wizard.uploads.length !== 0 && mw.UploadWizard.config.startImmediately === true ) {
-			// check all uploads, if they're complete, show the next button
-			this.wizard.showNext( 'file', 'stashed' );
-		}
+		// check all uploads, if they're complete, show the next button
+		this.wizard.showNext( 'file', 'stashed' );
 	};
 
 	/**

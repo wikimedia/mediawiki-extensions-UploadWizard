@@ -221,16 +221,6 @@
 
 		$( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).button();
 
-		if ( mw.UploadWizard.config.startImmediately !== true ) {
-			$( '#mwe-upwiz-upload-ctrl' )
-				.button()
-				.click( function () {
-					ui.emit( 'upload-start' );
-				} );
-		} else {
-			$( '#mwe-upwiz-upload-ctrl' ).remove();
-		}
-
 		// Call Flickr Initiator function on click event
 		$( '#mwe-upwiz-upload-ctrl-flickr' ).click( function () {
 			ui.emit( 'flickr-ui-init' );

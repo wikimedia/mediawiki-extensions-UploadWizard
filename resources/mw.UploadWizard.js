@@ -421,6 +421,18 @@
 					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 				} )
 
+				.on( 'starting', function () {
+					if ( !wizard.progressBar || wizard.progressBar.finished === true ) {
+						wizard.startProgressBar();
+					}
+
+					wizard.allowCloseWindow = mw.confirmCloseWindow( {
+						message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
+						test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; },
+						namespace: 'uploadwizard'
+					} );
+				} )
+
 				.on( 'filled', function () {
 					wizard.setUploadFilled( upload );
 				} )
@@ -494,21 +506,18 @@
 
 			this.updateFileCounts();
 
-			if ( mw.UploadWizard.config.startImmediately === true ) {
-				// Start uploads now, no reason to wait--leave the remove button alone
-				this.makeTransitioner(
-					'new',
-					[ 'transporting', 'transported', 'metadata' ],
-					[ 'error', 'stashed' ],
-					function ( upload ) {
-						upload.start();
-					},
-					function () {
-						wizard.showNext( 'file', 'stashed' );
-					}
-				);
-			}
-
+			// Start uploads now, no reason to wait--leave the remove button alone
+			this.makeTransitioner(
+				'new',
+				[ 'transporting', 'transported', 'metadata' ],
+				[ 'error', 'stashed' ],
+				function ( upload ) {
+					upload.start();
+				},
+				function () {
+					wizard.showNext( 'file', 'stashed' );
+				}
+			);
 		},
 
 		/**

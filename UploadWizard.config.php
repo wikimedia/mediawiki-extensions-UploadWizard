@@ -622,10 +622,6 @@ return array(
 	// Should feature to copy metadata across a batch of uploads be enabled?
 	'copyMetadataFeature' => true,
 
-	// Should downloads start immediately when added?
-	'startImmediately' => true,
-
 	// Should we allow multiple files in a form?
 	'enableMultipleFiles' => true,
-
 );

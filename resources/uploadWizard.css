@@ -73,7 +73,7 @@ form.mwe-upwiz-form {
 }
 
 /* perhaps a general class for links that are actually "buttons" */
-#mwe-upwiz-add-file, .mwe-upwiz-more-options, #mwe-upwiz-upload-ctrl {
+#mwe-upwiz-add-file, .mwe-upwiz-more-options {
 	outline: none;
 	cursor: pointer;
 }
@@ -191,15 +191,6 @@ form.mwe-upwiz-form {
 
 #mwe-upwiz-add-file-container.mwe-upwiz-add-files-n, .mwe-upwiz-progress-bar-etr {
 	width: 300px;
-}
-
-#mwe-upwiz-upload-ctrl-container {
-	float: right;
-	display: none;
-}
-
-#mwe-upwiz-upload-ctrl:hover {
-	text-decoration: none;
 }
 
 /* Flickr Interface CSS*/
