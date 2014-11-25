@@ -394,7 +394,7 @@
 	 */
 	UWUP.checkFile = function ( filename, files, fileNameOk, fileNameErr ) {
 		var totalSize, duplicate, extension, hasError, errorIndex, toobig,
-			actualMaxSize, binReader,
+			actualMaxSize, binReader, illegalCharRegex, legalBasename,
 			upload = this,
 			fileErrors = {},
 
@@ -439,8 +439,11 @@
 			fileNameErr( 'dup', basename, fileErrors );
 		}
 
+		illegalCharRegex = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '#:' ) + ']', 'g' );
+		legalBasename = basename.replace( illegalCharRegex, '-' );
+
 		try {
-			this.title = new mw.Title( basename.replace( /:/g, '_' ), fileNsId );
+			this.title = new mw.Title( legalBasename, fileNsId );
 		} catch ( e ) {
 			fileErrors.unparseable = true;
 			fileNameErr( 'unparseable', null, fileErrors );

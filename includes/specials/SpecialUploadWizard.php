@@ -173,7 +173,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgSitename;
+		global $wgSitename, $wgIllegalFileChars;
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
@@ -244,6 +244,7 @@ class SpecialUploadWizard extends SpecialPage {
 				// Site name is a true global not specific to Upload Wizard
 				'wgSiteName' => $wgSitename,
 				'wgFileCanRotate' => $bitmapHandler->canRotate(),
+				'wgIllegalFileChars' => $wgIllegalFileChars . '#',
 			)
 		);
 	}
