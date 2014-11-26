@@ -20,7 +20,7 @@
 			commonsCategoriesLink, categoriesHint, categoriesHinter,
 			categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
-			otherInformationDiv, latId, lonId, latDiv, lonDiv,
+			otherInformationDiv, latId, lonId, latDiv, lonDiv, headId, headDiv,
 			showMap, linkDiv, locationDiv, hiddenCats, missingCatsWikiText,
 			$list,
 			details = this;
@@ -179,15 +179,24 @@
 		/* Altitude is not yet supported by any of the geo tools deployed on WMF sites */
 		latId = 'location-latitude' + this.upload.index;
 		lonId = 'location-longitude' + this.upload.index;
+		headId = 'location-heading' + this.upload.index;
 		//var altId = "location-altitude" + _this.upload.index;
 
 		this.$latInput = $( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
 		this.$lonInput = $( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
+		this.$headingInput = $( '<input>' )
+			.attr( 'type', 'text' )
+			.attr( 'id', headId )
+			.attr( 'name', headId )
+			.attr( 'size', '10' )
+			.addClass( 'mwe-loc-head' );
+
 		//_this.altInput = $( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
 
 		// Do not prefill with "0"
 		this.$latInput.val( mw.UploadWizard.config.defaults.lat );
 		this.$lonInput.val( mw.UploadWizard.config.defaults.lon );
+		this.$headingInput.val( mw.UploadWizard.config.defaults.heading );
 		//_this.altInput.val( mw.UploadWizard.config.defaultAlt );
 
 		latDiv = $( '<div class="mwe-location-lat"></div>' )
@@ -196,6 +205,14 @@
 		lonDiv = $( '<div class="mwe-location-lon"></div>' )
 			.append( $( '<div class="mwe-location-lon-label"></div>' ).text( mw.message( 'mwe-upwiz-location-lon' ).text() ) )
 			.append( this.$lonInput );
+		headDiv = $( '<div>' )
+			.addClass( 'mwe-location-head' )
+			.append(
+				$( '<div>' )
+					.addClass( 'mwe-location-head-label' )
+					.text( mw.message( 'mwe-upwiz-location-heading' ).text() ),
+				this.$headingInput
+			);
 
 		//var altDiv = $( '<div class="mwe-location-alt"></div>' )
 		//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
@@ -216,7 +233,7 @@
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
 				//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-				latDiv, lonDiv, linkDiv//, altDiv
+				latDiv, lonDiv, headDiv, linkDiv//, altDiv
 			);
 
 		$( moreDetailsDiv ).append(
@@ -387,6 +404,15 @@
 			messages: {
 				min: mw.message( 'mwe-upwiz-error-longitude' ).escaped(),
 				max: mw.message( 'mwe-upwiz-error-longitude' ).escaped()
+			}
+		} );
+
+		this.$headingInput.rules( 'add', {
+			min: 0,
+			max: 360,
+			messages: {
+				min: mw.message( 'mwe-upwiz-error-heading' ).escaped(),
+				max: mw.message( 'mwe-upwiz-error-heading' ).escaped()
 			}
 		} );
 
@@ -1267,9 +1293,22 @@
 		 * Leaving out altitude ref for now (for no good reason).
 		 */
 		prefillLocation: function () {
-			var m = this.upload.imageinfo.metadata;
+			var dir, m = this.upload.imageinfo.metadata;
 
 			if ( m ) {
+				dir = m.gpsimgdirection || m.gpsdestbearing;
+
+				if ( dir ) {
+					if ( dir.match( /^\d+\/\d+$/ ) !== null ) {
+						// Apparently it can take the form "x/y" instead of
+						// a decimal value. Mighty silly, but let's save it.
+						dir = dir.split( '/' );
+						dir = parseInt( dir[0], 10 ) / parseInt( dir[1], 10 );
+					}
+
+					this.$headingInput.val( dir );
+				}
+
 				// Prefill useful stuff only
 				if ( Number( m.gpslatitude ) && Number ( m.gpslongitude ) ) {
 					this.$latInput.val( m.gpslatitude );
@@ -1344,7 +1383,8 @@
 			// if invalid, should produce side effects in the form
 			// instructing user to fix.
 			this.valid( function () {
-				var deed, info, key, lat, lon, otherInfoWikiText,
+				var deed, info, key, lat, lon, otherInfoWikiText, heading,
+					locationThings,
 					wikiText = '',
 
 					// http://commons.wikimedia.org / wiki / Template:Information
@@ -1401,13 +1441,20 @@
 
 				lat = $.trim( $( details.$latInput ).val() );
 				lon = $.trim( $( details.$lonInput ).val() );
+				heading = $.trim( details.$headingInput.val() );
 				//var alt = $.trim( $( details.altInput ).val() );
 
 				// Do not require the altitude to be set, to prevent people from entering 0
 				// while it's actually unknown.
 				// When none is provided, this will result in {{Location dec|int|int|}}.
 				if ( Number( lat ) && Number ( lon ) ) {
-					wikiText += '{{Location dec|' + lat + '|' + lon + '}}\n';
+					locationThings = [ '{{Location dec', lat, lon ];
+
+					if ( Number( heading ) ) {
+						locationThings.push( 'heading:' + heading );
+					}
+
+					wikiText += locationThings.join( '|' ) + '}}\n';
 				}
 
 				// add an "anything else" template if needed

@@ -186,8 +186,11 @@ return array(
 		//// Initial value for the longitude field.
 		//'lon' => 0,
 
-		//// Initial value for the altitude field.
+		//// Initial value for the altitude field. (unused)
 		//'alt' => 0,
+
+		//// Initial value for the heading field.
+		//'heading' => 0,
 	),
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
