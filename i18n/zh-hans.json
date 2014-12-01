@@ -352,6 +352,7 @@
 	"mwe-upload-campaigns-pagination-next": "下一页",
 	"mwe-upload-campaigns-list-title": "上传活动列表",
 	"apihelp-flickrblacklist-param-url": "要测试的Flickr URL。",
+	"apihelp-flickrblacklist-param-list": "一旦设置，就会返回完整的黑名单。不能与$1url一起使用。",
 	"apihelp-flickrblacklist-example-1": "检查URL是否触发黑名单",
 	"apihelp-flickrblacklist-example-2": "返回全部黑名单",
 	"apihelp-query+allcampaigns-description": "列举所有UploadWizard活动。",
