@@ -538,17 +538,8 @@
 
 					// Now that first file has been prepared, process remaining files
 					// in case of a multi-file upload.
-					files = files.slice( 1 );
-					if ( files.length > 0 ) {
-						$.each( files, function ( i, file ) {
-							// NOTE: By running newUpload we will end up calling checkfile() again.
-							var newUpload = upload.wizard.newUpload( file );
-
-							if ( toobig ) {
-								newUpload.ui.disablePreview();
-							}
-						} );
-						this.wizard.updateFileCounts();
+					if ( files.length > 1 ) {
+						this.emit( 'extra-files', files.slice( 1 ), toobig );
 					}
 				} else {
 					this.filename = filename;
