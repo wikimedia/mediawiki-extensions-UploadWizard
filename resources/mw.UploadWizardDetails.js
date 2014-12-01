@@ -20,7 +20,7 @@
 			commonsCategoriesLink, categoriesHint, categoriesHinter,
 			categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
-			otherInformationDiv, latId, lonId, latDiv, lonDiv, headId, headDiv,
+			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
 			showMap, linkDiv, locationDiv, hiddenCats, missingCatsWikiText,
 			$list,
 			details = this;
@@ -172,54 +172,29 @@
 			.append( $( '<div class="mwe-upwiz-details-more-label"></div>' ).text( mw.message( 'mwe-upwiz-other' ).text() ).addHint( 'other' ) )
 			.append( this.otherInformationInput );
 
-		/* Altitude is not yet supported by any of the geo tools deployed on WMF sites */
-		latId = 'location-latitude' + this.upload.index;
-		lonId = 'location-longitude' + this.upload.index;
-		headId = 'location-heading' + this.upload.index;
-		//var altId = "location-altitude" + _this.upload.index;
-
-		this.$latInput = this.makeTextInput( latId, 'loc-lat', 10, undefined, mw.UploadWizard.config.defaults.lat );
-		this.$lonInput = this.makeTextInput( lonId, 'loc-lon', 10, undefined, mw.UploadWizard.config.defaults.lon );
-		this.$headingInput = this.makeTextInput( headId, 'loc-head', 10, undefined, mw.UploadWizard.config.defaults.heading );
-
-		//this.altInput = this.makeTextInput( altId, 'loc-alt', 10, undefined, mw.UploadWizard.config.defaults.alt );
-
-		latDiv = $( '<div class="mwe-location-lat"></div>' )
-			.append( $( '<div class="mwe-location-lat-label"></div>' ).text( mw.message( 'mwe-upwiz-location-lat' ).text() ) )
-			.append( this.$latInput );
-		lonDiv = $( '<div class="mwe-location-lon"></div>' )
-			.append( $( '<div class="mwe-location-lon-label"></div>' ).text( mw.message( 'mwe-upwiz-location-lon' ).text() ) )
-			.append( this.$lonInput );
-		headDiv = $( '<div>' )
-			.addClass( 'mwe-location-head' )
+		locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
+			.append( $ ('<div class="mwe-location-label"></div>' )
+			.append( mw.message( 'mwe-upwiz-location' ).escaped() )
+			.addHint( 'location' ) )
 			.append(
-				$( '<div>' )
-					.addClass( 'mwe-location-head-label' )
-					.text( mw.message( 'mwe-upwiz-location-heading' ).text() ),
-				this.$headingInput
+				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lat' + this.upload.index + '" generated="true"/></div>' ),
+				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lon' + this.upload.index + '" generated="true"/></div>' ),
+				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-heading' + this.upload.index + '" generated="true"/></div>' ),
+				//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
+				latitudeDiv, longitudeDiv, headingDiv, linkDiv//, altitudeDiv
 			);
 
-		//var altDiv = $( '<div class="mwe-location-alt"></div>' )
-		//	.append( $( '<div class="mwe-location-alt-label"></div>' ).append( mw.message( 'mwe-upwiz-location-alt' ).text() ) )
-		//	.append( _this.altInput );
+		this.$latitudeInput = this.makeLocationField( 'lat', locationDiv );
+		this.$longitudeInput = this.makeLocationField( 'lon', locationDiv );
+		this.$headingInput = this.makeLocationField( 'heading', locationDiv );
 
 		showMap = $( '<a></a>' )
 			.append( mw.message( 'mwe-upwiz-location-button' ).text() )
 			.hide();
 
 		linkDiv = $( '<div class="mwe-loc-link"></div>' )
-			.append( showMap );
-
-		locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
-			.append( $ ('<div class="mwe-location-label"></div>' )
-			.append( mw.message( 'mwe-upwiz-location' ).escaped() )
-			.addHint( 'location' ) )
-			.append(
-				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + latId + '" generated="true"/></div>' ),
-				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + lonId + '" generated="true"/></div>' ),
-				//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-				latDiv, lonDiv, headDiv, linkDiv//, altDiv
-			);
+			.append( showMap )
+			.appendTo( locationDiv );
 
 		$( moreDetailsDiv ).append(
 			locationDiv,
@@ -368,7 +343,7 @@
 				}
 			} );
 
-		this.$latInput.rules( 'add', {
+		this.$latitudeInput.rules( 'add', {
 			min: -90,
 			max: 90,
 			messages: {
@@ -377,7 +352,7 @@
 			}
 		} );
 
-		this.$lonInput.rules( 'add', {
+		this.$longitudeInput.rules( 'add', {
 			min: -180,
 			max: 180,
 			messages: {
@@ -398,7 +373,7 @@
 		/* Disabled because not supported on wiki
 		 * Does not validate on rationals, only decimals
 		 * check if bug 32410 is fixed before enabling. See also bug 39553.
-		_this.altInput.rules( "add", {
+		_this.altitudeInput.rules( "add", {
 			number: true,
 			messages: {
 				number: mw.message( 'mwe-upwiz-error-altitude' ).escaped()
@@ -708,8 +683,9 @@
 
 			} else if ( metadataType === 'location' ) {
 
-				simpleCopy( 'location-latitude' );
-				simpleCopy( 'location-longitude' );
+				simpleCopy( 'location-lat' );
+				simpleCopy( 'location-lon' );
+				simpleCopy( 'location-heading' );
 				//simpleCopy( 'location-altitude' );
 
 			} else if ( metadataType === 'other' ) {
@@ -814,7 +790,7 @@
 		 */
 		osmMapLink: function () {
 			var mapLink = new mw.Uri( 'https://openstreetmap.org/' )
-				.extend( { zoom: 9, layers: 'M', lat: this.$latInput.val(), lon: this.$lonInput.val() } );
+				.extend( { zoom: 9, layers: 'M', lat: this.$latitudeInput.val(), lon: this.$longitudeInput.val() } );
 			return mapLink.toString();
 		},
 
@@ -1290,20 +1266,20 @@
 
 				// Prefill useful stuff only
 				if ( Number( m.gpslatitude ) && Number ( m.gpslongitude ) ) {
-					this.$latInput.val( m.gpslatitude );
-					this.$lonInput.val( m.gpslongitude );
+					this.$latitudeInput.val( m.gpslatitude );
+					this.$longitudeInput.val( m.gpslongitude );
 				} else if (
 					this.upload.file &&
 					this.upload.file.location &&
 					this.upload.file.location.latitude &&
 					this.upload.file.location.longitude
 				) {
-					this.$latInput.val( this.upload.file.location.latitude );
-					this.$lonInput.val( this.upload.file.location.longitude );
+					this.$latitudeInput.val( this.upload.file.location.latitude );
+					this.$longitudeInput.val( this.upload.file.location.longitude );
 				}
 
 				//if ( m['gpsaltitude'] !== undefined ) {
-				//	$( this.altInput ).val( m['gpsaltitude'] );
+				//	$( this.altitudeInput ).val( m['gpsaltitude'] );
 				//}
 			}
 		},
@@ -1380,6 +1356,27 @@
 		},
 
 		/**
+		 * Shortcut for creating location fields.
+		 */
+		makeLocationField: function ( name, $container ) {
+			var fieldId = 'location-' + name + this.upload.index,
+				fieldClass = 'loc-' + name,
+				$input = this.makeTextInput( fieldId, fieldClass, 10, undefined, mw.UploadWizard.config.defaults[name] );
+
+			$( '<div>' )
+				.addClass( 'mwe-location-' + name )
+				.append(
+					$( '<div>' )
+						.addClass( 'mwe-location-' + name + '-label' )
+						.text( mw.message( 'mwe-upwiz-location-' + name ).text() ),
+					$input
+				)
+				.appendTo( $container );
+
+			return $input;
+		},
+
+		/**
 		 * Convert entire details for this file into wikiText, which will then be posted to the file
 		 * @return wikitext representing all details
 		 */
@@ -1389,7 +1386,7 @@
 			// if invalid, should produce side effects in the form
 			// instructing user to fix.
 			this.valid( function () {
-				var deed, info, key, lat, lon, otherInfoWikiText, heading,
+				var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
 					locationThings,
 					wikiText = '',
 
@@ -1445,16 +1442,16 @@
 				wikiText += '=={{int:filedesc}}==\n';
 				wikiText += '{{Information\n' + info + '}}\n';
 
-				lat = $.trim( $( details.$latInput ).val() );
-				lon = $.trim( $( details.$lonInput ).val() );
+				latitude = $.trim( $( details.$latitudeInput ).val() );
+				longitude = $.trim( $( details.$longitudeInput ).val() );
 				heading = $.trim( details.$headingInput.val() );
-				//var alt = $.trim( $( details.altInput ).val() );
+				//var altitude = $.trim( $( details.altitudeInput ).val() );
 
 				// Do not require the altitude to be set, to prevent people from entering 0
 				// while it's actually unknown.
 				// When none is provided, this will result in {{Location dec|int|int|}}.
-				if ( Number( lat ) && Number ( lon ) ) {
-					locationThings = [ '{{Location dec', lat, lon ];
+				if ( Number( latitude ) && Number ( longitude ) ) {
+					locationThings = [ '{{Location dec', latitude, longitude ];
 
 					if ( Number( heading ) ) {
 						locationThings.push( 'heading:' + heading );

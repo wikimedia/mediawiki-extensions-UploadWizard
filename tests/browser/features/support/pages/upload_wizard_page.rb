@@ -19,7 +19,7 @@ class UploadWizardPage
   page_url url
 
   text_field(:add_categories, id: "categories0")
-  text_field(:altitude, id: "location-altitude0")
+  text_field(:altitude, id: "location-alt0")
   text_field(:author, name: "author2")
   textarea(:author, name: "author") # todo # fix duplicate
   radio(:believe_free, id: "license2_13")
@@ -46,7 +46,7 @@ class UploadWizardPage
   radio(:free_form, id: "license2_12")
   textarea(:free_lic, id: "license2_12_custom")
   select(:language, name: "lang")
-  text_field(:latitude, id: "location-latitude0")
+  text_field(:latitude, id: "location-lat0")
   # todo # check if legal_* links actually go the right place https://bugzilla.wikimedia.org/show_bug.cgi?id=35702
   a(:legal_code_cc_sa25, href: "https://creativecommons.org/licenses/by-sa/2.5/")
   a(:legal_code_cc_sa3, href: "https://creativecommons.org/licenses/by-sa/3.0/")
@@ -55,7 +55,7 @@ class UploadWizardPage
   a(:legal_code_cca3, href: "https://creativecommons.org/licenses/by/3.0/")
   a(:legal_code_recommended, href: "https://creativecommons.org/licenses/by-sa/3.0/")
   a(:logged_in, text: "logged in")
-  text_field(:longitude, id: "location-longitude0")
+  text_field(:longitude, id: "location-lon0")
   radio(:nasa, id: "license2_11")
   span(:next, text: "Next")
   button(:next_button, xpath: "//div[4]/button")
