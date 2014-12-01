@@ -413,7 +413,7 @@
 					upload.checkFile(
 						upload.ui.getFilename(),
 						files,
-						function () { upload.ui.fileChangedOk(); },
+						function () { upload.fileChangedOk(); },
 						function ( code, info ) { upload.ui.fileChangedError( code, info ); }
 					);
 

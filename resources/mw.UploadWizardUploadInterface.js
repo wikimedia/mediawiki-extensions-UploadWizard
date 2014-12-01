@@ -331,20 +331,23 @@
 	 * Run this when the value of the file input has changed and we know it's acceptable -- this
 	 * will update interface to show as much info as possible, including preview.
 	 * n.b. in older browsers we only will know the filename
+	 * @param {Object} imageinfo
+	 * @param {File} file
+	 * @param {boolean} fromURL
 	 */
-	UIP.fileChangedOk = function () {
+	UIP.fileChangedOk = function ( imageinfo, file, fromURL ) {
 		var ui = this,
 			statusItems = [];
 
 		this.updateFilename();
 
 		// set the status string - e.g. "256 Kb, 100 x 200"
-		if ( this.upload.imageinfo && this.upload.imageinfo.width && this.upload.imageinfo.height ) {
-			statusItems.push( this.upload.imageinfo.width + '\u00d7' + this.upload.imageinfo.height );
+		if ( imageinfo && imageinfo.width && imageinfo.height ) {
+			statusItems.push( imageinfo.width + '\u00d7' + imageinfo.height );
 		}
 
-		if ( this.upload.file && !this.upload.fromURL ) {
-			statusItems.push( mw.units.bytes( this.upload.file.size ) );
+		if ( file && !fromURL ) {
+			statusItems.push( mw.units.bytes( file.size ) );
 		}
 
 		this.clearStatus();
