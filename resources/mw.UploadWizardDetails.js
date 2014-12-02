@@ -56,7 +56,7 @@
 		//	http://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
 		//	XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 		this.titleId = 'title' + this.upload.index;
-		this.titleInput = $( '<input type="text" id="' + this.titleId + '" name="' + this.titleId + '" class="mwe-title" maxlength="250"/>' )
+		this.titleInput = this.makeTextInput( this.titleId, 'title', undefined, 250 )
 			.keyup( function () {
 				details.setCleanTitle( $( details.titleInput ).val() );
 			} )
@@ -139,10 +139,7 @@
 			.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 		categoriesId = 'categories' + this.upload.index;
 		$categoriesDiv.find( '.mwe-upwiz-details-input' )
-			.append( $( '<input type="text"/>' ).attr( {
-				id: categoriesId,
-				name: categoriesId
-			} )	);
+			.append( this.makeTextInput( categoriesId ) );
 
 		dateInputId = 'dateInput' + ( this.upload.index ).toString();
 
@@ -151,8 +148,7 @@
 		/* XXX must localize this by loading jquery.ui.datepicker-XX.js where XX is a language code */
 		/* jQuery.ui.datepicker also modifies first-day-of-week according to language, which is somewhat wrong. */
 		/* $.datepicker.setDefaults() for other settings */
-		this.dateInput =
-			$( '<input type="text" id="' + dateInputId + '" name="' + dateInputId + '" type="text" class="mwe-date" size="20"/>' );
+		this.dateInput = this.makeTextInput( dateInputId, 'date', 20 );
 
 		dateInputDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 			.append(
@@ -182,22 +178,11 @@
 		headId = 'location-heading' + this.upload.index;
 		//var altId = "location-altitude" + _this.upload.index;
 
-		this.$latInput = $( '<input type="text" id="' + latId + '" name="' + latId + '" class="mwe-loc-lat" size="10"/>' );
-		this.$lonInput = $( '<input type="text" id="' + lonId + '" name="' + lonId + '" class="mwe-loc-lon" size="10"/>' );
-		this.$headingInput = $( '<input>' )
-			.attr( 'type', 'text' )
-			.attr( 'id', headId )
-			.attr( 'name', headId )
-			.attr( 'size', '10' )
-			.addClass( 'mwe-loc-head' );
+		this.$latInput = this.makeTextInput( latId, 'loc-lat', 10, undefined, mw.UploadWizard.config.defaults.lat );
+		this.$lonInput = this.makeTextInput( lonId, 'loc-lon', 10, undefined, mw.UploadWizard.config.defaults.lon );
+		this.$headingInput = this.makeTextInput( headId, 'loc-head', 10, undefined, mw.UploadWizard.config.defaults.heading );
 
-		//_this.altInput = $( '<input type="text" id="' + altId + '" name="' + altId + '" class="mwe-loc-alt" size="10"/>' );
-
-		// Do not prefill with "0"
-		this.$latInput.val( mw.UploadWizard.config.defaults.lat );
-		this.$lonInput.val( mw.UploadWizard.config.defaults.lon );
-		this.$headingInput.val( mw.UploadWizard.config.defaults.heading );
-		//_this.altInput.val( mw.UploadWizard.config.defaultAlt );
+		//this.altInput = this.makeTextInput( altId, 'loc-alt', 10, undefined, mw.UploadWizard.config.defaults.alt );
 
 		latDiv = $( '<div class="mwe-location-lat"></div>' )
 			.append( $( '<div class="mwe-location-lat-label"></div>' ).text( mw.message( 'mwe-upwiz-location-lat' ).text() ) )
@@ -277,14 +262,8 @@
 						} );
 					}
 				} else {
-					$fieldInput = $( '<input type="text">' ).attr( {
-						id: fieldInputId,
-						name: fieldInputId,
-						class: 'mwe-idfield',
-						maxlength: field.maxLength
-					} )
-					.val( field.initialValue )
-					.data( 'field', field );
+					$fieldInput = details.makeTextInput( fieldInputId, 'idfield', undefined, field.maxLength, field.initialValue )
+						.data( 'field', field );
 				}
 
 				details.$form.append(
@@ -1371,6 +1350,33 @@
 				}
 			}
 			// if we still haven't set a copyright use the user's preferences?
+		},
+
+		/**
+		 * Shortcut to create a text input element.
+		 * @param {string} id ID for the element, also used as its name.
+		 * @param {string} [className] Class to add to the element. Automatically namespaced by prefixing 'mwe-' to it.
+		 * @param {number} [size] Size - default leaves the size attribute unset.
+		 * @param {number} [maxlength] Maximum length of the field.
+		 * @param {Mixed} [defaultValue] Default value for the field.
+		 * @return {jQuery} New text input element
+		 */
+		makeTextInput: function ( id, className, size, maxlength, defaultValue ) {
+			var $newInput = $( '<input>' )
+				.attr( {
+					type: 'text',
+					id: id,
+					name: id,
+					size: size,
+					maxlength: maxlength
+				} );
+
+			if ( className ) {
+				$newInput.addClass( 'mwe-' + className );
+			}
+
+			return $newInput
+				.val( defaultValue );
 		},
 
 		/**
