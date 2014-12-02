@@ -164,7 +164,7 @@
 	"mwe-upwiz-location-lat": "Latitude - the GPS coordinate, expressed in signed decimal degrees.\n{{Identical|Latitude}}",
 	"mwe-upwiz-location-lon": "Longitude - the GPS coordinate, expressed in signed decimal degrees.\n{{Identical|Longitude}}",
 	"mwe-upwiz-location-alt": "Altitude - the GPS coordinate, expressed in metres.\n{{Identical|Altitude}}",
-	"mwe-upwiz-location-heading": "Heading - the direction the camera or other device was pointing based on GPS data.",
+	"mwe-upwiz-location-heading": "'''This is not \"Heading\" in the sense of \"Title\".''' This is the direction the camera or other device was pointing based on GPS data.",
 	"mwe-upwiz-copyright-info": "Used as fieldset label.",
 	"mwe-upwiz-author": "Used as label for the Author(s) input box.\n{{Identical|Author}}",
 	"mwe-upwiz-autoconverted": "Unused at this time.\n\nParameters:\n* $1 - ...",
