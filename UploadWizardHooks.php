@@ -209,6 +209,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-file-all-failed',
 				'mwe-upwiz-upload-count',
 				'mwe-upwiz-progressbar-uploading',
+				'mwe-upwiz-almost-finished',
 				'mwe-upwiz-finished',
 				'mwe-upwiz-secs-remaining',
 				'mwe-upwiz-mins-secs-remaining',

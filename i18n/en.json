@@ -74,6 +74,7 @@
 	"mwe-upwiz-file-all-failed": "None of the uploads were successful.",
 	"mwe-upwiz-upload-count": "$1 of $2 {{PLURAL:$2|file|files}} uploaded",
 	"mwe-upwiz-progressbar-uploading": "uploading",
+	"mwe-upwiz-almost-finished": "Processing files...",
 	"mwe-upwiz-finished": "Finished!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|second|seconds}} remaining",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minute|minutes}} $2 {{PLURAL:$2|second|seconds}} {{PLURAL:$3|remaining}}",
