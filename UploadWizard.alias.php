@@ -17,6 +17,7 @@ $specialPageAliases['en'] = array(
 
 /** Arabic (العربية) */
 $specialPageAliases['ar'] = array(
+	'Campaigns' => array( 'حملات' ),
 	'UploadWizard' => array( 'ساحر_الرفع' ),
 	'UploadCampaigns' => array( 'حملات_الرفع' ),
 	'UploadCampaign' => array( 'حملة_الرفع' ),
