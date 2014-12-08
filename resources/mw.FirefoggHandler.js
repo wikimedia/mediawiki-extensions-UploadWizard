@@ -26,19 +26,16 @@
 
 			if ( !this.transport ) {
 				this.transport = new mw.FirefoggTransport(
-						this.upload,
-						this.api,
-						this.getFogg(),
-						function ( data ) {
-							upload.setTransportProgress( data.progress );
-							// also update preview video, url is in data.preview
-						},
-
-						function ( result ) {
-							mw.log( 'FirefoggTransport::getTransport> Transport done ' + JSON.stringify( result ) );
-							upload.setTransported( result );
-						}
-					);
+					this.upload,
+					this.api,
+					this.getFogg()
+				).on( 'progress', function ( data ) {
+					upload.setTransportProgress( data.progress );
+					// also update preview video, url is in data.preview
+				} ).on( 'transported', function ( result ) {
+					mw.log( 'FirefoggTransport::getTransport> Transport done ' + JSON.stringify( result ) );
+					upload.setTransported( result );
+				} );
 			}
 			return this.transport;
 		},
