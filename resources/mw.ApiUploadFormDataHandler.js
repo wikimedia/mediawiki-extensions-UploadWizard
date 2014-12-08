@@ -20,15 +20,12 @@
 		this.transport = new mw.FormDataTransport(
 			this.$form[0].action,
 			this.formData,
-			this.upload,
-			function ( fraction ) {
-				handler.upload.setTransportProgress( fraction );
-			},
-			function ( result ) {
-				handler.upload.setTransported( result );
-			}
-		);
-
+			this.upload
+		).on( 'progress', function ( fraction ) {
+			handler.upload.setTransportProgress( fraction );
+		} ).on( 'transported', function ( result ) {
+			handler.upload.setTransported( result );
+		} );
 	};
 
 	mw.ApiUploadFormDataHandler.prototype = {
