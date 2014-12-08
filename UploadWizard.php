@@ -103,6 +103,9 @@ $wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
 
 $wgResourceModules['ext.uploadWizard.iFrameTransport'] = array(
 	'scripts' => 'mw.IframeTransport.js',
+	'dependencies' => array(
+		'oojs',
+	),
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.apiUploadHandler'] = array(

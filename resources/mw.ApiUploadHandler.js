@@ -24,16 +24,12 @@
 		this.configureForm();
 
 		this.transport = new mw.IframeTransport(
-			this.$form,
-			function ( fraction ) {
-				handler.upload.setTransportProgress( fraction );
-			},
-
-			function ( result ) {
-				handler.upload.setTransported( result );
-			}
-		);
-
+			this.$form
+		).on( 'progress', function ( fraction ) {
+			handler.upload.setTransportProgress( fraction );
+		} ).on( 'transported', function ( result ) {
+			handler.upload.setTransported( result );
+		} );
 	};
 
 	mw.ApiUploadHandler.prototype = {
