@@ -40,7 +40,6 @@
 		this.initTutorial();
 		this.initUpload();
 		this.initDeeds();
-		this.initDetails();
 	}
 
 	oo.mixinClass( UploadWizardInterface, oo.EventEmitter );
@@ -252,57 +251,10 @@
 	};
 
 	/**
-	 * Initialize the details step interface.
-	 */
-	UWIP.initDetails = function () {
-		var ui = this;
-
-		function startDetails() {
-			var isPopupOpen = false;
-
-			$( '.categoryInput' ).each( function () {
-				if ( $( this ).data( 'popupOpen' ) === true ) {
-					isPopupOpen = true;
-					$( this ).bind( 'popupClose', startDetails );
-				}
-			});
-
-			if ( isPopupOpen ) {
-				return;
-			}
-
-			$( '.mwe-upwiz-hint' ).each( function () { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
-
-			ui.emit( 'start-details' );
-		}
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-some-failed' ).hide();
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-file-next-all-failed' ).hide();
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-start-next .mwe-upwiz-button-next' )
-			.click( startDetails );
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-next-despite-failures' )
-			.click( function () {
-				ui.emit( 'finalize-details-after-removal' );
-			} );
-
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-button-retry' )
-			.click( startDetails );
-	};
-
-	/**
 	 * Hide the button choices at the end of the file step.
 	 */
 	UWIP.hideFileEndButtons = function () {
 		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
-	};
-
-	/**
-	 * Hide the button choices at the end of the details step.
-	 */
-	UWIP.hideDetailsEndButtons = function () {
-		$( '#mwe-upwiz-stepdiv-details .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
 	};
 
 	ui.Wizard = UploadWizardInterface;

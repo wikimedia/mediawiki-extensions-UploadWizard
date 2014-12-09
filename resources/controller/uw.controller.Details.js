@@ -27,10 +27,12 @@
 	function Details() {
 		uw.controller.Step.call(
 			this,
-			new uw.ui.Step( $( '#mwe-upwiz-stepdiv-details' ), $( '#mwe-upwiz-step-details' ) )
+			new uw.ui.Details()
+				.connect( this, {
+					'start-details': [ 'emit', 'start-details' ],
+					'finalize-details-after-removal': [ 'emit', 'start-details' ]
+				} )
 		);
-
-		this.ui = new uw.ui.Details();
 	}
 
 	oo.inheritClass( Details, uw.controller.Step );

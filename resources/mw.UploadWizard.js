@@ -18,6 +18,13 @@
 		var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' ),
 			wizard = this;
 
+		function finalizeDetails() {
+			if ( wizard.allowCloseWindow !== undefined ) {
+				wizard.allowCloseWindow();
+			}
+			wizard.moveToStep( 'thanks' );
+		}
+
 		if ( maxSimPref === 'default' ) {
 			this.maxSimultaneousConnections = mw.UploadWizard.config.maxSimultaneousConnections;
 		} else if ( maxSimPref > 0 ) {
@@ -35,7 +42,24 @@
 				} ),
 			file: new uw.controller.Upload(),
 			deeds: new uw.controller.Deed(),
-			details: new uw.controller.Details(),
+
+			details: new uw.controller.Details()
+				.on( 'start-details', function () {
+					wizard.detailsValid( function () {
+						wizard.steps.details.ui.hideEndButtons();
+						wizard.detailsSubmit( function () {
+							wizard.detailsErrorCount();
+							wizard.showNext( 'details', 'complete', finalizeDetails );
+						} );
+					}, function () {
+						wizard.detailsErrorCount();
+					} );
+				} )
+
+				.on( 'finalize-details-after-removal', function () {
+					wizard.removeErrorUploads( finalizeDetails );
+				} ),
+
 			thanks: new uw.controller.Thanks()
 		};
 
@@ -75,13 +99,6 @@
 		 */
 		createInterface: function () {
 			var wizard = this;
-
-			function finalizeDetails() {
-				if ( wizard.allowCloseWindow !== undefined ) {
-					wizard.allowCloseWindow();
-				}
-				wizard.moveToStep( 'thanks' );
-			}
 
 			this.ui = new uw.ui.Wizard( this )
 				.on( 'reset-wizard', function () {
@@ -133,22 +150,6 @@
 					if ( wizard.deedChooser.valid() ) {
 						wizard.moveToStep( 'details' );
 					}
-				} )
-
-				.on( 'start-details', function () {
-					wizard.detailsValid( function () {
-						wizard.ui.hideDetailsEndButtons();
-						wizard.detailsSubmit( function () {
-							wizard.detailsErrorCount();
-							wizard.showNext( 'details', 'complete', finalizeDetails );
-						} );
-					}, function () {
-						wizard.detailsErrorCount();
-					} );
-				} )
-
-				.on( 'finalize-details-after-removal', function () {
-					wizard.removeErrorUploads( finalizeDetails );
 				} );
 
 			// check to see if the the skip tutorial preference or global setting is set

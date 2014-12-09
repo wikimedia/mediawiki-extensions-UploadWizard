@@ -25,11 +25,54 @@
 	 * @constructor
 	 */
 	function Details() {
+		var details = this;
+
+		function startDetails() {
+			var isPopupOpen = false;
+
+			$( '.categoryInput' ).each( function () {
+				if ( $( this ).data( 'popupOpen' ) === true ) {
+					isPopupOpen = true;
+					$( this ).bind( 'popupClose', startDetails );
+				}
+			});
+
+			if ( isPopupOpen ) {
+				return;
+			}
+
+			$( '.mwe-upwiz-hint' ).each( function () { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+
+			details.emit( 'start-details' );
+		}
+
 		ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-details' ),
 			$( '#mwe-upwiz-step-details' )
 		);
+
+		this.$nextSomeFailed = this.$div
+			.find( '.mwe-upwiz-file-next-some-failed' )
+			.hide();
+
+		this.$nextAllFailed = this.$div
+			.find( '.mwe-upwiz-file-next-all-failed' )
+			.hide();
+
+		this.$nextButton = this.$div
+			.find( '.mwe-upwiz-start-next .mwe-upwiz-button-next' )
+			.click( startDetails );
+
+		this.$nextButtonDespiteFailures = this.$div
+			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-next-despite-failures' )
+			.click( function () {
+				details.emit( 'finalize-details-after-removal' );
+			} );
+
+		this.$retryButton = this.$div
+			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-retry' )
+			.click( startDetails );
 	}
 
 	oo.inheritClass( Details, ui.Step );
@@ -44,6 +87,15 @@
 		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).hide();
 		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).hide();
 		this.$div.find( '.mwe-upwiz-start-next' ).show();
+	};
+
+	/**
+	 * Hide buttons for moving to the next step.
+	 */
+	DP.hideEndButtons = function () {
+		this.$div
+			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
+			.hide();
 	};
 
 	ui.Details = Details;
