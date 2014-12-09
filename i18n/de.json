@@ -85,6 +85,7 @@
 	"mwe-upwiz-file-all-failed": "Das Hochladen aller Dateien ist fehlgeschlagen.",
 	"mwe-upwiz-upload-count": "$1 von $2 {{PLURAL:$2|Datei|Dateien}} hochgeladen",
 	"mwe-upwiz-progressbar-uploading": "Am Hochladen …",
+	"mwe-upwiz-almost-finished": "Verarbeite Dateien …",
 	"mwe-upwiz-finished": "Fertig!",
 	"mwe-upwiz-secs-remaining": "Noch $1 {{PLURAL:$1|Sekunde|Sekunden}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|Noch}} {{PLURAL:$1|eine Minute|$1 Minuten}} und {{PLURAL:$2|eine Sekunde|$2 Sekunden}}",
