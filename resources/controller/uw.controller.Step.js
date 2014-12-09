@@ -21,7 +21,7 @@
 	/**
 	 * Represents a step in the wizard.
 	 * @class mw.uw.controller.Step
-	 * @extends oo.EventEmitter
+	 * @mixins oo.EventEmitter
 	 * @abstract
 	 * @constructor
 	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.
@@ -32,7 +32,7 @@
 		this.ui = ui;
 	}
 
-	oo.inheritClass( Step, oo.EventEmitter );
+	oo.mixinClass( Step, oo.EventEmitter );
 
 	SP = Step.prototype;
 

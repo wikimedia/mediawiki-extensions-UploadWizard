@@ -21,7 +21,7 @@
 	/**
 	 * Represents a generic UI for a step.
 	 * @class mw.uw.ui.Step
-	 * @extends OO.EventEmitter
+	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {jQuery} $div The div that contains the step.
 	 * @param {jQuery} $arrow The arrow that represents the step.
@@ -33,7 +33,7 @@
 		this.$arrow = $arrow;
 	}
 
-	oo.inheritClass( Step, oo.EventEmitter );
+	oo.mixinClass( Step, oo.EventEmitter );
 
 	SP = Step.prototype;
 
