@@ -38,6 +38,14 @@
 			details: new uw.controller.Details(),
 			thanks: new uw.controller.Thanks()
 		};
+
+		if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
+			// update the "valid" extension to include firefogg transcode extensions:
+			mw.UploadWizard.config.fileExtensions = $.merge(
+				mw.UploadWizard.config.fileExtensions,
+				mw.UploadWizard.config.transcodeExtensionList
+			);
+		}
 	};
 
 	mw.UploadWizard.DEBUG = true;
@@ -1242,5 +1250,4 @@
 		debug: true,
 		errorClass: 'mwe-validator-error'
 	} );
-
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery );
