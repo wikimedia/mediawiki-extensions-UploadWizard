@@ -40,7 +40,27 @@
 				.on( 'next-step', function () {
 					wizard.moveToStep( 'file' );
 				} ),
-			file: new uw.controller.Upload(),
+			file: new uw.controller.Upload()
+				.on( 'retry', function () {
+					uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
+					wizard.startUploads();
+				} )
+
+				.on( 'flickr-ui-init', function () {
+					wizard.flickrInterfaceInit();
+					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
+				} )
+
+				.on( 'next-step', function () {
+					wizard.removeErrorUploads( function () {
+						if ( wizard.showDeed ) {
+							wizard.prepareAndMoveToDeeds();
+						} else {
+							wizard.moveToStep( 'details' );
+						}
+					} );
+				} ),
+
 			deeds: new uw.controller.Deed(),
 
 			details: new uw.controller.Details()
@@ -103,45 +123,6 @@
 			this.ui = new uw.ui.Wizard( this )
 				.on( 'reset-wizard', function () {
 					wizard.reset();
-				} )
-
-				.on( 'upload-start', function () {
-					// check if there is an upload at all (should never happen)
-					if ( wizard.uploads.length === 0 ) {
-						$( '<div>' )
-							.text( mw.message( 'mwe-upwiz-file-need-file' ).text() )
-							.dialog( {
-								width: 500,
-								zIndex: 200000,
-								autoOpen: true,
-								modal: true
-							} );
-						return;
-					}
-
-					wizard.removeEmptyUploads();
-					wizard.startUploads();
-				} )
-
-				.on( 'flickr-ui-init', function () {
-					wizard.flickrInterfaceInit();
-					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
-				} )
-
-				.on( 'retry-uploads', function () {
-					uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
-					wizard.ui.hideFileEndButtons();
-					wizard.startUploads();
-				} )
-
-				.on( 'next-from-upload', function () {
-					wizard.removeErrorUploads( function () {
-						if ( wizard.showDeed ) {
-							wizard.prepareAndMoveToDeeds();
-						} else {
-							wizard.moveToStep( 'details' );
-						}
-					} );
 				} )
 
 				.on( 'next-from-deeds', function () {
@@ -701,7 +682,7 @@
 			var wizard = this;
 			// remove the upload button, and the add file button
 			$( '#mwe-upwiz-upload-ctrls' ).hide();
-			this.ui.hideFileEndButtons();
+			this.steps.file.ui.hideEndButtons();
 			$( '#mwe-upwiz-add-file' ).hide();
 
 			// reset any uploads in error state back to be shiny & new
@@ -843,7 +824,7 @@
 			}
 
 			// First reset the wizard buttons.
-			this.ui.hideFileEndButtons();
+			this.steps.file.ui.hideEndButtons();
 
 			this.currentStepObject.updateFileCounts( ( this.uploads.length - this.countEmpties() ) > 0, this.maxUploads, this.uploads );
 

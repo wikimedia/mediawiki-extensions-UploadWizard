@@ -25,6 +25,8 @@
 	 * @constructor
 	 */
 	function Upload() {
+		var upload = this;
+
 		ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-file' ),
@@ -36,15 +38,33 @@
 		this.$uploadCenterDivide = $( '#mwe-upwiz-upload-ctr-divide' );
 		this.$uploadStepButtons = $( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' );
 
-		this.$addFile = $( '#mwe-upwiz-add-file' );
+		this.$addFile = $( '#mwe-upwiz-add-file' )
+			.button();
 		this.$addFileContainer = $( '#mwe-upwiz-add-file-container' );
 
-		this.$flickrAddFile = $( '#mwe-upwiz-upload-ctrl-flickr' );
+		this.$flickrAddFile = $( '#mwe-upwiz-upload-ctrl-flickr' )
+			.button()
+			.click( function () {
+				upload.emit( 'flickr-ui-init' );
+			} );
 		this.$flickrAddFileContainer = $( '#mwe-upwiz-upload-ctrl-flickr-container' );
 
 		this.$flickrSelect = $( '#mwe-upwiz-select-flickr' );
 		this.$flickrSelectList = $( '#mwe-upwiz-flickr-select-list' );
 		this.$flickrSelectListContainer = $( '#mwe-upwiz-flickr-select-list-container' );
+
+		this.$nextStepButton = this.$div
+			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-next' )
+			.click( function () {
+				upload.emit( 'next-step' );
+			} );
+
+		this.$retryButton = this.$div
+			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-retry' )
+			.click( function () {
+				upload.hideEndButtons();
+				upload.emit( 'retry' );
+			} );
 
 		this.$fileList = $( '#mwe-upwiz-filelist' );
 
@@ -159,6 +179,15 @@
 		this.$addFile.add( this.$flickrAddFile ).removeClass( 'mwe-upwiz-add-files-n' );
 		this.$addFileContainer.addClass( 'mwe-upwiz-add-files-0' );
 		this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
+	};
+
+	/**
+	 * Hide the buttons for moving to the next step.
+	 */
+	UP.hideEndButtons = function () {
+		this.$div
+			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
+			.hide();
 	};
 
 	ui.Upload = Upload;
