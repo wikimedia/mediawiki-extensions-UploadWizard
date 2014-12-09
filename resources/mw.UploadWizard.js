@@ -65,15 +65,14 @@
 
 			details: new uw.controller.Details()
 				.on( 'start-details', function () {
-					wizard.detailsValid( function () {
-						wizard.steps.details.ui.hideEndButtons();
-						wizard.detailsSubmit( function () {
-							wizard.detailsErrorCount();
-							wizard.showNext( 'details', 'complete', finalizeDetails );
-						} );
-					}, function () {
+					wizard.detailsSubmit( function () {
 						wizard.detailsErrorCount();
+						wizard.showNext( 'details', 'complete', finalizeDetails );
 					} );
+				} )
+
+				.on( 'details-error', function () {
+					wizard.detailsErrorCount();
 				} )
 
 				.on( 'finalize-details-after-removal', function () {
@@ -850,76 +849,6 @@
 				this.moveToStep( 'file' );
 
 				this.progressBar = undefined;
-			}
-		},
-
-		/**
-		 * are all the details valid?
-		 * @return boolean
-		 */
-		detailsValid: function (cb, cberr) {
-			var confirmationDialog, title,
-				valid = 0,
-				necessary = 0,
-				total = 0,
-				buttons = {},
-				titles = {};
-
-			$.each( this.uploads, function (i, upload) {
-				if ( upload === undefined ) {
-					return;
-				}
-				total += 1;
-
-				upload.details.clearDuplicateTitleError().valid( function () {
-					title = upload.title.getName();
-
-					// Seen this title before?
-					if ( titles[title] ) {
-
-						// Don't submit. Instead, set an error in details step.
-						upload.details.setDuplicateTitleError();
-						return;
-					} else {
-						titles[title] = true;
-					}
-					valid += 1;
-				} );
-				upload.details.necessaryFilled( function () {
-					necessary += 1;
-				} );
-			} );
-
-			// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
-			buttons[ mw.message( 'mwe-upwiz-dialog-yes' ).escaped() ] = function () {
-				$( this ).dialog( 'close' );
-				cb();
-			};
-			buttons[ mw.message( 'mwe-upwiz-dialog-no' ).escaped() ] = function () {
-				$( this ).dialog( 'close' );
-			};
-			confirmationDialog = $( '<div></div>' )
-				.text( mw.message( 'mwe-upwiz-necessary-confirm' ).text() )
-				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: false,
-					modal: true,
-					buttons: buttons,
-					title: mw.message( 'mwe-upwiz-dialog-title' ).escaped(),
-					open: function () {
-						$( this ).siblings( '.ui-dialog-buttonpane' ).find( 'button:eq(1)' ).focus();
-					}
-				} );
-
-			if ( valid === total ) {
-				if ( necessary === total ) {
-					cb();
-				} else {
-					confirmationDialog.dialog( 'open' );
-				}
-			} else {
-				cberr();
 			}
 		},
 
