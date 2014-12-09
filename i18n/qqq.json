@@ -97,6 +97,7 @@
 	"mwe-upwiz-file-all-failed": "Displayed when an upload session is complete and all of the uploads in it were rejected.",
 	"mwe-upwiz-upload-count": "This message means that $1 of $2 files have been uploaded. e.g. \"2 of 5 files have been uploaded\"\n* $1 - number of files that have been uploaded\n* $2 - number of files",
 	"mwe-upwiz-progressbar-uploading": "{{Identical|Uploading}}",
+	"mwe-upwiz-almost-finished": "Used to indicate that the upload process is complete, but the server is still processing files.",
 	"mwe-upwiz-finished": "Used as success message.\n\nRelated messages:\n* {{msg-mw|mwe-upwiz-secs-remaining}}\n* {{msg-mw|mwe-upwiz-mins-secs-remaining}}\n* {{msg-mw|mwe-upwiz-hrs-mins-secs-remaining}}\n{{Identical|Finished}}",
 	"mwe-upwiz-secs-remaining": "Used to show overall progress for uploading. Parameters:\n* $1 - number of seconds\n{{Related|Mwe-upwiz-remaining}}",
 	"mwe-upwiz-mins-secs-remaining": "Used to show overall progress for uploading. Parameters:\n* $1 - number of minutes\n* $2 - number of seconds\n* $3 - sum of $1 and $2, for usage in PLURAL where needed\n{{Related|Mwe-upwiz-remaining}}",

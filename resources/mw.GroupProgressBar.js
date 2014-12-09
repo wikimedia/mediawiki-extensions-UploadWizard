@@ -132,11 +132,15 @@
 
 			if ( remainingTime !== null ) {
 				// TODO remove the library, make this a method on GPB
-				t = mw.seconds2Measurements( parseInt( remainingTime / 1000, 10 ) );
+				t = mw.seconds2Measurements( Math.floor( remainingTime / 1000 ) );
 				if (t.hours === 0) {
 					if (t.minutes === 0) {
 						if (t.seconds === 0) {
-							timeString = mw.message( 'mwe-upwiz-finished' ).escaped();
+							if ( fraction === 1.0 ) {
+								timeString = mw.message( 'mwe-upwiz-finished' ).escaped();
+							} else {
+								timeString = mw.message( 'mwe-upwiz-almost-finished' ).escaped();
+							}
 						} else {
 							timeString = mw.message( 'mwe-upwiz-secs-remaining', t.seconds ).escaped();
 						}
@@ -162,7 +166,7 @@
 				elapsedTime = ( new Date() ).getTime() - this.beginTime;
 				if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
 					rate = fraction / elapsedTime;
-					return parseInt( ( 1.0 - fraction ) / rate, 10 );
+					return ( ( 1.0 - fraction ) / rate );
 				}
 			}
 			return null;
