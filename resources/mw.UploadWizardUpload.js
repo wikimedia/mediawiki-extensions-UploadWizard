@@ -151,6 +151,10 @@
 	 * @param fraction
 	 */
 	UWUP.setTransportProgress = function ( fraction ) {
+		if ( this.state === 'aborted' ) {
+			// We shouldn't be transporting anything anymore.
+			return;
+		}
 		this.state = 'transporting';
 		this.transportProgress = fraction;
 		$( this.ui.div ).trigger( 'transportProgressEvent' );
@@ -160,6 +164,10 @@
 	 * Stop the upload -- we have failed for some reason
 	 */
 	UWUP.setError = function ( code, info ) {
+		if ( this.state === 'aborted' ) {
+			// There's no point in reporting an error anymore.
+			return;
+		}
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, info );
