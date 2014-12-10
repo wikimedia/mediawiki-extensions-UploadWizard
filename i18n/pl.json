@@ -90,6 +90,7 @@
 	"mwe-upwiz-file-all-failed": "Nie udało się przesłać żadnego pliku.",
 	"mwe-upwiz-upload-count": "Przesłano $1 z $2 {{PLURAL:$2|pliku|plików}}",
 	"mwe-upwiz-progressbar-uploading": "przesyłanie",
+	"mwe-upwiz-almost-finished": "Przetwarzanie plików...",
 	"mwe-upwiz-finished": "Gotowe!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|Pozostała 1 sekunda|Pozostały $1 sekundy|Pozostało $1 sekund}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$1|Pozostała $1 minuta|Pozostały $1 minuty|Pozostało $1 minut}} {{PLURAL:$3|i}} $2 {{PLURAL:$2|sekunda|sekundy|sekund}}",

@@ -73,6 +73,7 @@
 	"mwe-upwiz-file-all-failed": "Не успеав да подигнам ниту една податотека",
 	"mwe-upwiz-upload-count": "{{PLURAL:$1|Подигната е $1|Подигнати се $1}} од {{PLURAL:$2|$2 податотека|$2 податотеки}}",
 	"mwe-upwiz-progressbar-uploading": "подигам",
+	"mwe-upwiz-almost-finished": "Ги обработувам податотеките...",
 	"mwe-upwiz-finished": "Готово!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|Преостанува една секунда|Преостануваат $1 секунди}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|Преостанува|Преостануваат}} {{PLURAL:$1|една минута|$1 минути}} и {{PLURAL:$2|една секунда|$2 секунди}}",

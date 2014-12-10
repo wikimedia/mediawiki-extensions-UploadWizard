@@ -20,7 +20,8 @@
 			"Zlir'a",
 			"Александр Сигачёв",
 			"Ата",
-			"Тест"
+			"Тест",
+			"Ypryima"
 		]
 	},
 	"uploadwizard": "Майстер завантаження",
@@ -89,6 +90,7 @@
 	"mwe-upwiz-file-all-failed": "Жодне з завантажень не вдалося.",
 	"mwe-upwiz-upload-count": "$1 з $2 {{PLURAL:$2|1=файл|файлів}} завантажено",
 	"mwe-upwiz-progressbar-uploading": "завантаження на сервер",
+	"mwe-upwiz-almost-finished": "Обробка файлів...",
 	"mwe-upwiz-finished": "Готово!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|Залишилось $1 секунда|Залишилось $1 секунди|Залишилось $1 секунд}}",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|хвилина|хвилини|хвилин}} $2 {{PLURAL:$2|секунда|секунди|секунд}} {{PLURAL:$3|залишилося}}",

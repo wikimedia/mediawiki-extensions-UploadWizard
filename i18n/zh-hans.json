@@ -95,6 +95,7 @@
 	"mwe-upwiz-file-all-failed": "没有上传成功。",
 	"mwe-upwiz-upload-count": "$1个文件已上传 共$2个文件",
 	"mwe-upwiz-progressbar-uploading": "正在上传",
+	"mwe-upwiz-almost-finished": "处理文件中……",
 	"mwe-upwiz-finished": "完成！",
 	"mwe-upwiz-secs-remaining": "剩余$1秒",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|剩余}}$1分$2秒",

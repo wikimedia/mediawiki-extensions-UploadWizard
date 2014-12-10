@@ -81,6 +81,7 @@
 	"mwe-upwiz-file-all-failed": "אף אחת מההעלאות לא הצליחה.",
 	"mwe-upwiz-upload-count": "$1 מתוך {{PLURAL:$2|קובץ אחד|$2 קבצים}} {{PLURAL:$1|הועלה|הועלו}}",
 	"mwe-upwiz-progressbar-uploading": "בהעלאה",
+	"mwe-upwiz-almost-finished": "עיבוד קבצים...",
 	"mwe-upwiz-finished": "התהליך הסתיים!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|נותרה שנייה אחת|נותרו $1 שניות}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$1|נותרה {{PLURAL:$3|דקה}} אחת|נותרו $1 דקות}} {{PLURAL:$2|ושנייה אחת|ו־$2 שניות}}",
