@@ -13,6 +13,9 @@
 		fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
+	 * @class mw.UploadWizardUpload
+	 * @mixins OO.EventEmitter
+	 * @constructor
 	 * Constructor for objects representing uploads. The workhorse of this entire extension.
 	 *
 	 * The upload knows nothing of other uploads. It manages its own interface, and transporting its own data, to
@@ -75,7 +78,7 @@
 			} );
 	}
 
-	oo.inheritClass( UploadWizardUpload, oo.EventEmitter );
+	oo.mixinClass( UploadWizardUpload, oo.EventEmitter );
 
 	UWUP = UploadWizardUpload.prototype;
 

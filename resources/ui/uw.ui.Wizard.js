@@ -21,7 +21,7 @@
 	/**
 	 * Represents the UI for the wizard.
 	 * @class mw.UploadWizardInterface
-	 * @extends OO.EventEmitter
+	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {mw.UploadWizard} wizard
 	 */
@@ -43,7 +43,7 @@
 		this.initDetails();
 	}
 
-	oo.inheritClass( UploadWizardInterface, oo.EventEmitter );
+	oo.mixinClass( UploadWizardInterface, oo.EventEmitter );
 
 	UWIP = UploadWizardInterface.prototype;
 
