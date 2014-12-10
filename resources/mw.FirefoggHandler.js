@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 	/**
 	 * Represents an object which configures a form to upload its files via an firefogg talking to the MediaWiki API.
 	 * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
@@ -7,12 +7,6 @@
 	mw.FirefoggHandler = function ( upload, api ) {
 		this.upload = upload;
 		this.api = api;
-
-		// update the "valid" extension to include firefogg transcode extensions:
-		mw.UploadWizard.config.fileExtensions = $.merge(
-			mw.UploadWizard.config.fileExtensions,
-			mw.UploadWizard.config.transcodeExtensionList
-		);
 	};
 
 	mw.FirefoggHandler.prototype = {
@@ -73,4 +67,4 @@
 			this.getTransport().doUpload();
 		}
 	};
-}( mediaWiki, jQuery ) );
+}( mediaWiki ) );
