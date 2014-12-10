@@ -61,7 +61,7 @@
 				} );
 
 				$.each( bar.uploads, function ( i, upload ) {
-					if ( upload === undefined ) {
+					if ( upload === undefined || upload.state === 'aborted' ) {
 						return;
 					}
 					if ( $.inArray( upload.state, bar.successStates ) !== -1 ) {
@@ -185,12 +185,11 @@
 		countEmpties: function () {
 			var count = 0;
 			$.each( this.uploads, function ( i, upload ) {
-				if ( mw.isEmpty( upload ) ) {
+				if ( mw.isEmpty( upload ) || upload.state === 'aborted' ) {
 					count += 1;
 				}
 			} );
 			return count;
 		}
-
 	};
 }( mediaWiki, jQuery ) );

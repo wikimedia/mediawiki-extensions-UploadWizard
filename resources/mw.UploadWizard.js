@@ -866,6 +866,8 @@
 
 				this.resetFileStepUploads();
 				this.moveToStep( 'file' );
+
+				this.progressBar = undefined;
 			}
 		},
 
