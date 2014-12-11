@@ -27,8 +27,8 @@ Feature: UploadWizard
 
   Scenario: Skip tutorial
     When I click the Skip checkbox
-    And I click Next button at Learn page
-    And I navigate to Upload Wizard
+      And I click Next button at Learn page
+      And I navigate to Upload Wizard
     Then the tutorial should not be visible
 
   Scenario: Navigate to Upload page
@@ -63,6 +63,6 @@ Feature: UploadWizard
       And I enter date created
       And I click Next button at Describe page
     Then Use page should open
-    And Upload more files button should be there
+      And Upload more files button should be there
 
 
