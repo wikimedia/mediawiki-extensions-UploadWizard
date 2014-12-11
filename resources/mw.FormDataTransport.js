@@ -134,6 +134,9 @@
 						//start uploading next chunk
 						transport.uploadChunk(response.upload.offset);
 					} else {
+						if ( transport.uploadObject.state === 'aborted' ) {
+							return;
+						}
 						//failed to upload, try again in 3 seconds
 						transport.retries++;
 						if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
@@ -150,6 +153,9 @@
 				});
 			}, false);
 			this.xhr.addEventListener('error', function (evt) {
+				if ( transport.uploadObject.state === 'aborted' ) {
+					return;
+				}
 				//failed to upload, try again in 3 second
 				transport.retries++;
 				if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
