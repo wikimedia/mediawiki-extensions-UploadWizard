@@ -6,7 +6,8 @@
 			"Dawid Deutschland",
 			"ITshnik",
 			"Tokoko",
-			"გიორგიმელა"
+			"გიორგიმელა",
+			"MIKHEIL"
 		]
 	},
 	"uploadwizard": "ფაილთა ატვირთვის ასისტენტი",
@@ -71,6 +72,7 @@
 	"mwe-upwiz-file-all-failed": "არცერთი ფაილი არ აიტვირთა წარმატებით.",
 	"mwe-upwiz-upload-count": "$2-დან $1 {{PLURAL:$2|ფაილი|ფაილი}} ატვირთულია",
 	"mwe-upwiz-progressbar-uploading": "იტვირთება",
+	"mwe-upwiz-almost-finished": "ფაილები მზადების პროცესშია...",
 	"mwe-upwiz-finished": "დამთავრებულია!",
 	"mwe-upwiz-secs-remaining": "კიდევ $1 {{PLURAL:$1|წამი|წამი}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|დარჩა}} $1 {{PLURAL:$1|წუთი}} $2 {{PLURAL:$2|წამი}}",
