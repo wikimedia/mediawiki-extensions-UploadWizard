@@ -222,7 +222,7 @@
 	"mwe-upwiz-license-flickr-subhead": "Proverite zaglavlje „Licenca“ (License) koje se nalazi s bočne strane stranice na Flickr-u. Ikone i naziv licence moraju da se poklapaju s jednom od ponuđenih licenci.",
 	"mwe-upwiz-license-public-domain-usa-head": "Autorska prava su svakako istekla u SAD",
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} je smešten u SAD, pa su zato autorska prava dela verovatno istekla u toj zemlji.",
-	"mwe-upwiz-license-usgov-head": "Ovo {{PLURAL:$1|1=delo|dela}} je napravila vlada SAD",
+	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|1=Ovo delo|Ova dela}} je napravila vlada SAD",
 	"mwe-upwiz-license-misc": "Razni razlozi",
 	"mwe-upwiz-license-custom-head": "Drugi razlog koji nije spomenut gore",
 	"mwe-upwiz-license-custom-preview": "Pretpregled",
