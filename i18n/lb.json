@@ -69,6 +69,7 @@
 	"mwe-upwiz-file-all-failed": "D'Eropluede vun alle Fichieren huet net funktionéiert",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|Fichier|Fichiere}} vu(n) $2 {{PLURAL:$2|Fichier|Fichieren}} eropgelueden",
 	"mwe-upwiz-progressbar-uploading": "eroplueden",
+	"mwe-upwiz-almost-finished": "Fichiere verschaffen...",
 	"mwe-upwiz-finished": "Fäerdeg!",
 	"mwe-upwiz-secs-remaining": "nach $1 {{PLURAL:$1|Sekonn|Sekonnen}}",
 	"mwe-upwiz-mins-secs-remaining": "nach $1 {{PLURAL:$1|Minutt|Minutten}} $2 {{PLURAL:$2|Sekonn|Sekonne}} {{PLURAL:$3|bleift|bleiwen}}",

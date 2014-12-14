@@ -72,6 +72,7 @@
 	"mwe-upwiz-file-all-failed": "Tiada muat naik yang berjaya.",
 	"mwe-upwiz-upload-count": "$1 daripada $2 fail dimuat naik",
 	"mwe-upwiz-progressbar-uploading": "sedang memuat naik",
+	"mwe-upwiz-almost-finished": "Sedang memproses fail...",
 	"mwe-upwiz-finished": "Siap!",
 	"mwe-upwiz-secs-remaining": "tinggal $1 saat",
 	"mwe-upwiz-mins-secs-remaining": "tinggal $1 minit $2 saat",

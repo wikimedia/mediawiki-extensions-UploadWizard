@@ -69,6 +69,7 @@
 	"mwe-upwiz-file-all-failed": "Kõigi failide üleslaadimine ebaõnnestus.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$2|fail|faili}} $2-st üles laaditud",
 	"mwe-upwiz-progressbar-uploading": "üleslaadimine",
+	"mwe-upwiz-almost-finished": "Töö failidega...",
 	"mwe-upwiz-finished": "Valmis!",
 	"mwe-upwiz-secs-remaining": "Jäänud $1 {{PLURAL:$1|sekund|sekundit}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|Jäänud}} $1 {{PLURAL:$1|minut|minutit}} ja $2 {{PLURAL:$2|sekund|sekundit}}",
