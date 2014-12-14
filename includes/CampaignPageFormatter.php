@@ -115,7 +115,7 @@ class CampaignPageFormatter {
 						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
 							Html::element( 'div', array( 'class' => 'mw-campaign-number' ),
 								$this->context->getLanguage()->formatNum( $this->campaign->getUploadedMediaCount() ) ) .
-							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-media-count-desc')->plain() )
+							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-media-count-desc')->text() )
 						)
 					)
 				) .
