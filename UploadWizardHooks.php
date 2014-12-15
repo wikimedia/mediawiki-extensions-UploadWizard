@@ -56,6 +56,8 @@ class UploadWizardHooks {
 				'uw.controller.Tutorial',
 				'uw.controller.Upload',
 				'uw.model.Description',
+
+				'oojs',
 			),
 			'scripts' => array(
 				// jquery interface helpers
