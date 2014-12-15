@@ -584,7 +584,7 @@
 				method: 'flickr.photos.getSizes',
 				photo_id: photoId
 			} ).done( function ( data ) {
-				var nameParts;
+				var nameParts, newUpload;
 
 				if ( typeof data.sizes !== 'undefined' && typeof data.sizes.size !== 'undefined' && data.sizes.size.length > 0 )
 				{
@@ -603,7 +603,9 @@
 					}
 					upload.url = largestSize.source;
 					// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
-					checker.wizard.newUpload( upload );
+					newUpload = checker.wizard.newUpload();
+
+					newUpload.fill( upload );
 				} else {
 					checker.showErrorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();
