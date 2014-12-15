@@ -9,15 +9,14 @@
 	 * @constructor
 	 * @param {string} postUrl URL to post to.
 	 * @param {Object} formData Additional form fields required for upload api call
-	 * @param {mw.UploadWizardUpload} uploadObject Stupidly included object that is controlling the upload details
 	 */
-	mw.FormDataTransport = function ( postUrl, formData, uploadObject ) {
+	mw.FormDataTransport = function ( postUrl, formData ) {
 		var profile = $.client.profile();
 
 		oo.EventEmitter.call( this );
 
 		this.formData = formData;
-		this.uploadObject = uploadObject;
+		this.aborted = false;
 
 		this.postUrl = postUrl;
 		// Set chunk size to configured chunk size or max php size,
@@ -43,10 +42,17 @@
 
 	FDTP = mw.FormDataTransport.prototype;
 
-	FDTP.upload = function () {
+	FDTP.abort = function () {
+		this.aborted = true;
+
+		if ( this.xhr ) {
+			this.xhr.abort();
+		}
+	};
+
+	FDTP.upload = function ( file ) {
 		var formData,
-			transport = this,
-			file = this.uploadObject.file;
+			transport = this;
 
 		// use timestamp + filename to avoid conflicts on server
 		this.tempname = ( new Date() ).getTime().toString() + file.name;
@@ -56,7 +62,7 @@
 		}).join('');
 
 		if ( mw.UploadWizard.config.enableChunked && file.size > this.chunkSize ) {
-			this.uploadChunk(0);
+			this.uploadChunk( file, 0 );
 		} else {
 			this.xhr = new XMLHttpRequest();
 			this.xhr.addEventListener('load', function (evt) {
@@ -67,15 +73,7 @@
 			}, false);
 
 			this.xhr.upload.addEventListener( 'progress', function ( evt ) {
-				if ( transport.uploadObject.state === 'aborted' ) {
-					transport.xhr.abort();
-					return;
-				}
-
-				if ( evt.lengthComputable ) {
-					var progress = parseFloat(evt.loaded / evt.total );
-					transport.emit( 'progress', progress );
-				}
+				transport.emit( 'progress', evt );
 			}, false);
 			this.xhr.addEventListener('abort', function (evt) {
 				transport.emitParsedResponse( evt );
@@ -100,13 +98,12 @@
 		}
 	};
 
-	FDTP.uploadChunk = function ( offset ) {
+	FDTP.uploadChunk = function ( file, offset ) {
 		var formData,
 			transport = this,
-			file = this.uploadObject.file,
 			bytesAvailable = file.size,
 			chunk;
-		if ( this.uploadObject.state === 'aborted' ) {
+		if ( this.aborted ) {
 			if ( this.xhr ) {
 				this.xhr.abort();
 			}
@@ -141,7 +138,7 @@
 					//reset retry counter
 					transport.retries = 0;
 					//start uploading next chunk
-					transport.uploadChunk(response.upload.offset);
+					transport.uploadChunk( file, response.upload.offset );
 				} else {
 					//failed to upload, try again in 3 seconds
 					transport.retries++;
@@ -152,7 +149,7 @@
 					} else {
 						mw.log( 'Retry #' + transport.retries + ' on unknown response' );
 						setTimeout(function () {
-							transport.uploadChunk(offset);
+							transport.uploadChunk( file, offset );
 						}, 3000);
 					}
 				}
@@ -167,18 +164,12 @@
 			} else {
 				mw.log( 'Retry #' + transport.retries + ' on error event' );
 				setTimeout(function () {
-					transport.uploadChunk(offset);
+					transport.uploadChunk( file, offset );
 				}, 3000);
 			}
 		}, false);
 		this.xhr.upload.addEventListener( 'progress', function ( evt ) {
-			if ( transport.uploadObject.state === 'aborted' ) {
-				transport.xhr.abort();
-			}
-			if ( evt.lengthComputable ) {
-				var progress = parseFloat( offset + evt.loaded ) / bytesAvailable;
-				transport.emit( 'progress', progress );
-			}
+			transport.emit( 'progress', evt );
 		}, false );
 		this.xhr.addEventListener('abort', function (evt) {
 			transport.emitParsedResponse( evt );
@@ -223,9 +214,11 @@
 		var transport = this,
 			api = new mw.Api(),
 			params = {};
-		if ( this.uploadObject.state === 'aborted' ) {
+
+		if ( this.aborted ) {
 			return;
 		}
+
 		if (!this.firstPoll) {
 			this.firstPoll = ( new Date() ).getTime();
 		}
@@ -249,10 +242,10 @@
 							window.console.log( 'Unable to check file\'s status' );
 						} else {
 							//Statuses that can be returned:
-							// *mwe-upwiz-queued
-							// *mwe-upwiz-publish
-							// *mwe-upwiz-assembling
-							transport.uploadObject.ui.setStatus( 'mwe-upwiz-' + response.upload.stage );
+							// * queued
+							// * publish
+							// * assembling
+							transport.emit( 'update-stage' + response.upload.stage );
 							setTimeout(function () {
 								transport.checkStatus();
 							}, 3000);

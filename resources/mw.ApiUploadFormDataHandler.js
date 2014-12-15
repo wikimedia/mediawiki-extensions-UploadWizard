@@ -17,14 +17,30 @@
 			format: 'json'
 		};
 
+		upload.on( 'remove-upload', function () {
+			handler.transport.abort();
+		} );
+
 		this.transport = new mw.FormDataTransport(
 			this.$form[0].action,
 			this.formData,
 			this.upload
-		).on( 'progress', function ( fraction ) {
-			handler.upload.setTransportProgress( fraction );
+		).on( 'progress', function ( evt, xhr ) {
+			var fraction;
+
+			if ( upload.state === 'aborted' ) {
+				xhr.abort();
+				return;
+			}
+
+			if ( evt.lengthComputable ) {
+				fraction = parseFloat( evt.loaded / evt.total );
+				upload.setTransportProgress( fraction );
+			}
 		} ).on( 'transported', function ( result ) {
-			handler.upload.setTransported( result );
+			upload.setTransported( result );
+		} ).on( 'update-stage', function ( stage ) {
+			upload.ui.setStatus( 'mwe-upwiz-' + stage );
 		} );
 	};
 
@@ -53,7 +69,7 @@
 				handler.beginTime = ( new Date() ).getTime();
 				handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 				handler.upload.ui.showTransportProgress();
-				handler.transport.upload();
+				handler.transport.upload( handler.upload.file );
 			}
 
 			function err( code, info ) {
