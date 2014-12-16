@@ -87,6 +87,7 @@
 	"mwe-upwiz-file-all-failed": "Ninguna subida tuvo éxito.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|archivo|archivos}} de $2 {{PLURAL:$2|subido|subidos}}",
 	"mwe-upwiz-progressbar-uploading": "subiendo",
+	"mwe-upwiz-almost-finished": "Procesando archivos ...",
 	"mwe-upwiz-finished": "¡Terminado!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|segundo|segundos}} restantes",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} {{PLURAL:$3|restante|restantes}}",
