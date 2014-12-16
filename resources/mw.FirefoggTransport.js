@@ -6,14 +6,14 @@
 	 * @class mw.FirefoggTransport
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {mw.UploadWizardUpload} upload
+	 * @param {File} file
 	 * @param {mw.Api} api
 	 * @param {Firefogg} fogg Firefogg instance
 	 */
-	mw.FirefoggTransport = function ( upload, api, fogg ) {
+	mw.FirefoggTransport = function ( file, api, fogg ) {
 		oo.EventEmitter.call( this );
 
-		this.upload = upload;
+		this.fileToUpload = file;
 		this.api = api;
 		this.fogg = fogg;
 	};
@@ -26,24 +26,13 @@
 	 * Do an upload
 	 */
 	FTP.doUpload = function () {
-		var fileToUpload, transport = this;
+		var fileToUpload = this.fileToUpload, transport = this;
 
 		//Encode or passthrough Firefogg before upload
 		if ( this.isUploadFormat() ) {
-			if ( this.upload.ui.$fileInputCtrl[0].files && this.upload.ui.$fileInputCtrl[0].files.length ) {
-				fileToUpload = this.upload.ui.$fileInputCtrl[0].files[0];
-			} else if ( this.upload.file ) {
-				fileToUpload = this.upload.file;
-			} else if ( this.upload.providedFile ) {
-				fileToUpload = this.upload.providedFile;
-			} else {
-				mw.log.warn( 'Firefogg tried to upload a file but was unable to find one.' );
-				return false;
-			}
-
 			this.doFormDataUpload( fileToUpload );
 		} else {
-			this.upload.ui.setStatus( 'mwe-upwiz-encoding' );
+			this.emit( 'encoding' );
 			this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
 				function (result, file) {
 					result = JSON.parse(result);
@@ -62,23 +51,14 @@
 						transport.emit( 'transported', response );
 					}
 				}, function ( progress ) { //progress
-					if ( transport.upload.state === 'aborted' ) {
-						transport.fogg.cancel();
-					} else {
-						progress = JSON.parse(progress);
-						transport.emit( 'progress',  progress );
-						transport.upload.ui.setStatus( 'mwe-upwiz-encoding' );
-					}
+					transport.emit( 'progress', JSON.parse( progress ) );
 				}
 			);
 		}
 	};
 
 	FTP.doFormDataUpload = function ( file ) {
-		this.upload.ui.setStatus( 'mwe-upwiz-uploading' );
-		this.upload.file = file;
-		this.uploadHandler = new mw.ApiUploadFormDataHandler( this.upload, this.api );
-		this.uploadHandler.start();
+		this.emit( 'starting', file );
 	};
 
 	/**
