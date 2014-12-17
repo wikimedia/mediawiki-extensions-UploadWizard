@@ -84,6 +84,7 @@
 	"mwe-upwiz-file-all-failed": "Todos os envios falharam.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|ficheiro enviado|ficheiros enviados}}, do total de $2",
 	"mwe-upwiz-progressbar-uploading": "a enviar",
+	"mwe-upwiz-almost-finished": "A processar os ficheiros...",
 	"mwe-upwiz-finished": "Terminado!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|falta $1 segundo|faltam $1 segundos}}",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minuto|minutos}} $2 {{PLURAL:$2|segundo|segundos}} {{PLURAL:$3|restante|restantes}}",

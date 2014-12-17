@@ -63,6 +63,7 @@
 	"mwe-upwiz-file-all-failed": "Цхьаа чуяккха цаелира",
 	"mwe-upwiz-upload-count": "$2 {{PLURAL:$2|Файлех|Файлашах}} {{PLURAL:$1|1=чуаьккха $1 файл|чуаьха $1 файлаш}}",
 	"mwe-upwiz-progressbar-uploading": "сервесан чуяхар",
+	"mwe-upwiz-almost-finished": "Файл кечъеш ю...",
 	"mwe-upwiz-finished": "Кийчча ю!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|Йисина $1 секунд}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|Йисина}} $1 {{PLURAL:$1|минот}} $2 {{PLURAL:$2|секунд}}",
