@@ -901,6 +901,7 @@ class UploadWizardHooks {
 			'scripts' => array(
 				'tests/qunit/controller/uw.controller.Deed.test.js',
 				'tests/qunit/controller/uw.controller.Details.test.js',
+				'tests/qunit/controller/uw.controller.Upload.test.js',
 				'tests/qunit/uw.EventFlowLogger.test.js',
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
