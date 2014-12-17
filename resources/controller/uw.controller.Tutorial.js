@@ -70,11 +70,12 @@
 		api.postWithToken( 'options', {
 			action: 'options',
 			change: 'upwiz_skiptutorial=1'
-		} )
-		.done( function () {
+		} ).done( function () {
 			isComplete = true;
 			allowCloseWindow();
 			return true;
+		} ).fail( function ( code, err ) {
+			mw.notify( err.textStatus );
 		} );
 	};
 
