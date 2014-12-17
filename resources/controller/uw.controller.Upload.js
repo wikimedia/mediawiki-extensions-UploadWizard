@@ -22,6 +22,11 @@
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Upload()
+				.connect( this, {
+					retry: [ 'emit', 'retry' ],
+					'next-step': [ 'emit', 'next-step' ],
+					'flickr-ui-init': [ 'emit', 'flickr-ui-init' ]
+				} )
 		);
 	}
 

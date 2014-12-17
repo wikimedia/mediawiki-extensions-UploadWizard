@@ -38,7 +38,6 @@
 		this.initButtons();
 
 		this.initTutorial();
-		this.initUpload();
 		this.initDeeds();
 	}
 
@@ -213,28 +212,6 @@
 	};
 
 	/**
-	 * Initialize the upload step interface.
-	 */
-	UWIP.initUpload = function () {
-		var ui = this;
-
-		$( '#mwe-upwiz-add-file, #mwe-upwiz-upload-ctrl-flickr' ).button();
-
-		// Call Flickr Initiator function on click event
-		$( '#mwe-upwiz-upload-ctrl-flickr' ).click( function () {
-			ui.emit( 'flickr-ui-init' );
-		} );
-
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-next' ).click( function () {
-			ui.emit( 'next-from-upload' );
-		} );
-
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-button-retry' ).click( function () {
-			ui.emit( 'retry-uploads' );
-		} );
-	};
-
-	/**
 	 * Initializes the deed step interface.
 	 */
 	UWIP.initDeeds = function () {
@@ -248,13 +225,6 @@
 
 			ui.emit( 'next-from-deeds' );
 		} );
-	};
-
-	/**
-	 * Hide the button choices at the end of the file step.
-	 */
-	UWIP.hideFileEndButtons = function () {
-		$( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice' ).hide();
 	};
 
 	ui.Wizard = UploadWizardInterface;
