@@ -72,6 +72,9 @@ $wgAutoloadClasses += array(
 	// API
 	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php',
 	'ApiFlickrBlacklist' => $wgUpwizDir . '/includes/ApiFlickrBlacklist.php',
+
+	// Appease the tests
+	'UploadWizardSimpleForm' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
 );
 
 $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
