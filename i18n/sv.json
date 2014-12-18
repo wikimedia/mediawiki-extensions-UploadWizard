@@ -83,6 +83,7 @@
 	"mwe-upwiz-file-all-failed": "Ingen av uppladdningarna lyckades.",
 	"mwe-upwiz-upload-count": "$1 av $2 {{PLURAL:$2|fil uppladdad|filer uppladdade}}",
 	"mwe-upwiz-progressbar-uploading": "Laddar upp",
+	"mwe-upwiz-almost-finished": "Behandling filer...",
 	"mwe-upwiz-finished": "Klar!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|sekund|sekunder}} kvar",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minut|minuter}} och $2 {{PLURAL:$2|sekund|sekunder}} {{PLURAL:$3|kvar}}",
@@ -150,6 +151,7 @@
 	"mwe-upwiz-location-lat": "Breddgrad",
 	"mwe-upwiz-location-lon": "Längdgrad",
 	"mwe-upwiz-location-alt": "Altitud",
+	"mwe-upwiz-location-heading": "Riktning",
 	"mwe-upwiz-copyright-info": "Licens",
 	"mwe-upwiz-author": "Upphovsman/-män",
 	"mwe-upwiz-autoconverted": "Denna fil konverterades automatiskt till $1-formatet",
@@ -203,6 +205,7 @@
 	"mwe-upwiz-error-latitude": "Breddgraden måste vara mellan -90 och 90.",
 	"mwe-upwiz-error-longitude": "Längdgraden måste vara mellan -180 och 180.",
 	"mwe-upwiz-error-altitude": "Altituden måste vara ett tal.",
+	"mwe-upwiz-error-heading": "Riktningen måste vara ett nummer mellan 0 och 360.",
 	"mwe-upwiz-error-signature-too-long": "Din signatur är för lång.\nGör den kortare än $1 {{PLURAL:$1|tecken|tecken}}.",
 	"mwe-upwiz-error-signature-too-short": "Din signatur är för kort.\nGör den längre än $1 {{PLURAL:$1|tecken|tecken}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Din signatur innehåller symboler som inte är tillåtna.\nAnvänd inte wikitext eller HTML här, utan bara ditt användarnamn eller ditt riktiga namn.",
@@ -305,7 +308,7 @@
 	"mwe-upwiz-category-remove": "Ta bort denna kategori",
 	"mwe-upwiz-thumbnail-failed": "Uppladdningen lyckades, men servern kunde inte hämta en miniatyrbild för förhandsgranskning",
 	"mwe-upwiz-unparseable-filename": "Kunde inte förstå filnamnet \"$1\"",
-	"mwe-upwiz-unparseable-title": "Denna titel är ogiltig. Se till att ta bort tecken såsom hakparenteser, kolon, större/mindre än, lodsträck och klammerparenteser.",
+	"mwe-upwiz-unparseable-title": "Denna titel är ogiltig. Se till att ta bort tecken såsom hakparenteser, kolon, större/mindre än, lodstreck och klammerparenteser.",
 	"mwe-upwiz-image-preview": "Filförhandsvisning",
 	"mwe-upwiz-subhead-bugs": "[$1 Kända problem]",
 	"mwe-upwiz-subhead-alt-upload": "Tillbaka till det gamla formuläret",
@@ -343,5 +346,9 @@
 	"apihelp-flickrblacklist-param-url": "Webbadress till Flickr att testa.",
 	"apihelp-flickrblacklist-param-list": "När angiven, returneras den kompletta svartlistan. Kan inte användas tillsammans med $1url.",
 	"apihelp-flickrblacklist-example-1": "Kontrollera en URL-adress mot svartlistan",
-	"apihelp-flickrblacklist-example-2": "Returnera hela svartlistan"
+	"apihelp-flickrblacklist-example-2": "Returnera hela svartlistan",
+	"apihelp-query+allcampaigns-description": "Räkna upp alla UploadWizard-kampanjer.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Lista enbart kampanjer som är aktiverade.",
+	"apihelp-query+allcampaigns-param-limit": "Antal kampanjer att returnera.",
+	"apihelp-query+allcampaigns-example-1": "Räkna upp aktiverade kampanjer"
 }
