@@ -899,6 +899,7 @@ class UploadWizardHooks {
 	) {
 		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
 			'scripts' => array(
+				'tests/qunit/controller/uw.controller.Deed.test.js',
 				'tests/qunit/uw.EventFlowLogger.test.js',
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
