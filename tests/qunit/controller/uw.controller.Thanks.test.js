@@ -15,34 +15,27 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, oo ) {
-	var TP;
+( function ( uw ) {
+	QUnit.module( 'mw.uw.controller.Thanks', QUnit.newMwEnvironment() );
 
-	/**
-	 * The thanks step.
-	 * @class
-	 * @constructor
-	 */
-	function Thanks() {
-		uw.controller.Step.call(
-			this,
-			new uw.ui.Thanks()
-		);
-	}
+	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
+		var step;
 
-	oo.inheritClass( Thanks, uw.controller.Step );
+		mw.UploadWizard.config = { display: { thanksLabel: 'Thanks!' } };
 
-	TP = Thanks.prototype;
+		step = new uw.controller.Thanks();
+		assert.ok( step );
+		assert.ok( step instanceof uw.controller.Step );
+		assert.ok( step.ui );
+	} );
 
-	TP.moveTo = function ( uploads ) {
-		var thanks = this;
+	QUnit.test( 'moveTo', 1, function ( assert ) {
+		var step = new uw.controller.Thanks(),
+			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
-		$.each( uploads, function ( i, upload ) {
-			thanks.ui.addUpload( upload );
-		} );
+		this.sandbox.stub( step.ui, 'moveTo' );
+		step.moveTo( [ 1, 2, 3 ] );
 
-		uw.controller.Step.prototype.moveTo.call( this );
-	};
-
-	uw.controller.Thanks = Thanks;
-}( mediaWiki.uploadWizard, jQuery, OO ) );
+		assert.strictEqual( auStub.callCount, 3 );
+	} );
+}( mediaWiki.uploadWizard ) );

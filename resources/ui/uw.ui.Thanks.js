@@ -42,7 +42,7 @@
 			.addClass( 'mwe-upwiz-thanks-header' )
 			.prependTo( this.$div );
 
-		if ( !mw.UploadWizard.config.thanksLabel ) {
+		if ( !mw.UploadWizard.config || !mw.UploadWizard.config.display || !mw.UploadWizard.config.display.thanksLabel ) {
 			$header.text( mw.message( 'mwe-upwiz-thanks-intro' ).text() );
 		} else {
 			$header.html( mw.UploadWizard.config.display.thanksLabel );
