@@ -908,6 +908,7 @@ class UploadWizardHooks {
 				'tests/qunit/mw.FlickrChecker.test.js',
 				'tests/qunit/mw.UploadWizardDetails.test.js',
 				'tests/qunit/mw.UtilitiesTime.test.js',
+				'tests/qunit/mw.fileApi.test.js',
 			),
 			'dependencies' => array(
 				'ext.uploadWizard',
