@@ -77,6 +77,7 @@
 	"mwe-upwiz-file-all-failed": "Non se completou ningunha das cargas.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|ficheiro|ficheiros}} de $2 {{PLURAL:$1|subido|subidos}}",
 	"mwe-upwiz-progressbar-uploading": "subindo",
+	"mwe-upwiz-almost-finished": "Procesando os ficheiros...",
 	"mwe-upwiz-finished": "Feito!",
 	"mwe-upwiz-secs-remaining": "{{PLURAL:$1|Resta $1 segundo|Restan $1 segundos}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|Restan}} {{PLURAL:$1|$1 minuto|$1 minutos}} e {{PLURAL:$2|$2 segundo|$2 segundos}}",
