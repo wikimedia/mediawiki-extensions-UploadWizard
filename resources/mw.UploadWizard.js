@@ -401,8 +401,7 @@
 					upload.checkFile(
 						upload.ui.getFilename(),
 						files,
-						function () { upload.fileChangedOk(); },
-						function ( code, info ) { upload.ui.fileChangedError( code, info ); }
+						function () { upload.fileChangedOk(); }
 					);
 
 					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
@@ -1002,6 +1001,17 @@
 				$( '#mwe-upwiz-details-error-count' ).empty();
 			}
 		}
+	};
+
+	/**
+	 * Sanitizes a filename for use as a File: page title
+	 * @static
+	 * @param {string} filename Pre-sanitization filename.
+	 * @return {string} Filename sanitized for use as a title.
+	 */
+	mw.UploadWizard.sanitizeFilename = function ( filename ) {
+		var illegalCharRegex = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '' ) + '#:%]', 'g' );
+		return filename.replace( illegalCharRegex, '-' );
 	};
 
 	/**

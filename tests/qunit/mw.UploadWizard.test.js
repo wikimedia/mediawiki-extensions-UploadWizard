@@ -22,4 +22,26 @@
 		var wizard = new mw.UploadWizard( {} );
 		assert.ok( wizard );
 	} );
+
+	QUnit.test( 'sanitizeFilename', 3, function ( assert ) {
+		var oldchars = mw.config.get( 'wgIllegalFileChars', '' );
+
+		assert.strictEqual(
+			mw.UploadWizard.sanitizeFilename( '#winning at 100%.jpg' ),
+			'-winning at 100-.jpg'
+		);
+
+		assert.strictEqual(
+			mw.UploadWizard.sanitizeFilename( 'perfectly acceptable filename.jpg' ),
+			'perfectly acceptable filename.jpg'
+		);
+
+		mw.config.set( 'wgIllegalFileChars', 'f' );
+		assert.strictEqual(
+			mw.UploadWizard.sanitizeFilename( 'free the forest from fires.jpg' ),
+			'-ree the -orest -rom -ires.jpg'
+		);
+
+		mw.config.set( 'wgIllegalFileChars', oldchars );
+	} );
 }( mediaWiki, jQuery ) );
