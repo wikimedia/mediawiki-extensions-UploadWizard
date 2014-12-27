@@ -127,6 +127,7 @@
 	"mwe-upwiz-thanks-explain": "ХӀинца хьа йиш ю Википедехь а цуна гергара вики-проекташкахь а {{PLURAL:$1|1=хьайн файл|хьайн файлаш}} лело, я кхечу веб-сайташкара {{PLURAL:$1|1=цунна|царна}} тӀе хьажоргаш хӀитто.",
 	"mwe-upwiz-thanks-wikitext": "Веки чохь файл лело, хӀара йоза агӀона чу дилла.",
 	"mwe-upwiz-thanks-url": "HTML чу хьажорг тӀетоха, лахара URL адрес копи йе:",
+	"mwe-upwiz-upload-error-duplicate-filename-error": "Ахьа «$1» хӀинцале чуяьккхина ю.",
 	"mwe-upwiz-upload-error-stashed-anyway": "ТӀакха а чуяккха?",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-cancel": "Цаоьшу",
