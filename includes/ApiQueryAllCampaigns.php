@@ -99,7 +99,11 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				);
 			}
 		}
-		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'campaign' );
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$result->defineIndexedTagName( array( 'query', $this->getModuleName() ), 'campaign' );
+		} else {
+			$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'campaign' );
+		}
 	}
 
 	public function getCacheMode( $params ) {
