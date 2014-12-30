@@ -3,7 +3,8 @@
 		"authors": [
 			"Noor2020",
 			"පසිඳු කාවින්ද",
-			"Tahir mq"
+			"Tahir mq",
+			"Obaid Raza"
 		]
 	},
 	"uploadwizard": "مددگار اپ لوڈ کریں",
@@ -108,7 +109,7 @@
 	"mwe-upwiz-thanks-intro": "زیراثقال و کے لئے شکریہ!",
 	"mwe-upwiz-thanks-wikitext": "ویکی میں فائل کو استعمال کرنے کے لئے، صفحے میں اس متن کو نقل کریں:",
 	"mwe-upwiz-thanks-url": "اسے ایچ ٹی ایم ایل سے مربوط کرنے کے لیے، اس یو آر ایل کو نقل کریں:",
-	"mwe-upwiz-upload-error-duplicate-filename-error": "آپ نے پہلے ہی فائل اپ لوڈ کر رہے ہیں \"$1\".",
+	"mwe-upwiz-upload-error-duplicate-filename-error": "آپ پہلے ہی فائل اپ لوڈ کر رہے ہیں \"$1\".",
 	"mwe-upwiz-ok": "ٹھیک ہے",
 	"mwe-upwiz-cancel": "منسوخ",
 	"mwe-upwiz-next": "اگلے",
