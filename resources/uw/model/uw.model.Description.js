@@ -40,10 +40,7 @@
 		 */
 		this.language = language;
 
-		/**
-		 * @property {string} text
-		 */
-		this.text = text;
+		this.setText( text );
 
 		/**
 		 * @property {Object} languageTemplateFixups
@@ -91,7 +88,10 @@
 	 * @param {string} text
 	 */
 	DP.setText = function ( text ) {
-		this.text = text;
+		/**
+		 * @property {string} text
+		 */
+		this.text = text.replace( /\|/g, '&#124;' );
 	};
 
 	uw.model.Description = Description;
