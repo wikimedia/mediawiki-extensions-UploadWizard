@@ -86,7 +86,7 @@
 	"mwe-upwiz-progressbar-uploading": "上傳中",
 	"mwe-upwiz-almost-finished": "檔案處理中...",
 	"mwe-upwiz-finished": "已完成！",
-	"mwe-upwiz-secs-remaining": "剩餘 $1 {{PLURAL:$1|秒|秒}}",
+	"mwe-upwiz-secs-remaining": "剩餘 $1 {{PLURAL:$1|秒}}",
 	"mwe-upwiz-mins-secs-remaining": "{{PLURAL:$3|剩餘}} $1 {{PLURAL:$1|分|分}} $2 {{PLURAL:$2|秒|秒}}",
 	"mwe-upwiz-hrs-mins-secs-remaining": "剩餘 $1 {{PLURAL:$1|小時|小時}} $2 {{PLURAL:$2|分|分}} $3 {{PLURAL:$3|秒|秒}}",
 	"mwe-upwiz-deeds-macro-prompt": "此網站需要{{GENDER:$2|您}}提供{{PLURAL:$1|此作品|這些作品}}的版權資訊，以確保每個人都可以合法的重複使用{{PLURAL:$1|此作品|這些作品}}。",

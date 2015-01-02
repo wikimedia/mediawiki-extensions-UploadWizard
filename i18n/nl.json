@@ -9,7 +9,8 @@
 			"TheDJ",
 			"Tvdm",
 			"Wiki13",
-			"Wouterhagens"
+			"Wouterhagens",
+			"Robin0van0der0vliet"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -78,6 +79,7 @@
 	"mwe-upwiz-file-all-failed": "Alle uploads zijn mislukt.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|bestand|bestanden}} van $2 te uploaden {{PLURAL:$2|bestand|bestanden}} geüpload",
 	"mwe-upwiz-progressbar-uploading": "bezig met uploaden",
+	"mwe-upwiz-almost-finished": "Bestanden verwerken...",
 	"mwe-upwiz-finished": "Voltooid.",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|seconde|seconden}} resterend",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minuut|minuten}} en $2 {{PLURAL:$2|seconde|seconden}} {{PLURAL:$3|resterend}}",
@@ -141,6 +143,7 @@
 	"mwe-upwiz-location-lat": "Breedtegraad",
 	"mwe-upwiz-location-lon": "Lengtegraad",
 	"mwe-upwiz-location-alt": "Hoogte",
+	"mwe-upwiz-location-heading": "Kopje",
 	"mwe-upwiz-copyright-info": "Rechten vrijgeven",
 	"mwe-upwiz-author": "Auteur(s)",
 	"mwe-upwiz-autoconverted": "Dit bestand is automatisch omgezet naar het formaat $1",
@@ -231,6 +234,7 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "Bijdragers",
 	"mwe-upwiz-campaign-view-all-media": "Alle geüploade media bekijken",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nog geen uploads!",
+	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Naamsvermelding GelijkDelen 4.0 ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Naamsvermelding-Gelijk delen 3.0 ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Naamsvermelding-Gelijk delen 3.0 Oostenrijk ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Naamsvermelding-Gelijk delen 3.0 Duitsland ([$2 juridische tekst])",
@@ -242,6 +246,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-no": "Creative Commons Naamsvermelding-Gelijk delen 3.0 Noorwegen ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-sa-3.0-pl": "Creative Commons Naamsvermelding-Gelijk delen 3.0 Polen ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-sa-3.0-ro": "Creative Commons Naamsvermelding-Gelijk delen 3.0 Roemenië ([$2 juridische tekst])",
+	"mwe-upwiz-license-cc-by-4.0": "Creative Commons Naamsvermelding 4.0 ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-3.0": "Creative Commons Naamsvermelding 3.0 ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-sa-2.5": "Creative Commons Naamsvermelding-Gelijk delen 2.5 ([$2 juridische tekst])",
 	"mwe-upwiz-license-cc-by-2.5": "Creative Commons Naamsvermelding 2.5 ([$2 juridische tekst])",
