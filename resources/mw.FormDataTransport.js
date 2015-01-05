@@ -9,20 +9,23 @@
 	 * @constructor
 	 * @param {string} postUrl URL to post to.
 	 * @param {Object} formData Additional form fields required for upload api call
+	 * @param {Object} [config]
 	 */
-	mw.FormDataTransport = function ( postUrl, formData ) {
+	mw.FormDataTransport = function ( postUrl, formData, config ) {
 		var profile = $.client.profile();
+
+		this.config = config || mw.UploadWizard.config;
 
 		oo.EventEmitter.call( this );
 
 		this.formData = formData;
 		this.aborted = false;
+		this.api = new mw.Api();
 
 		this.postUrl = postUrl;
 		// Set chunk size to configured chunk size or max php size,
 		// whichever is smaller.
-		this.chunkSize = Math.min( mw.UploadWizard.config.chunkSize,
-			mw.UploadWizard.config.maxPhpUploadSize );
+		this.chunkSize = Math.min( this.config.chunkSize, this.config.maxPhpUploadSize );
 		this.maxRetries = 2;
 		this.retries = 0;
 		this.firstPoll = false;
@@ -50,6 +53,75 @@
 		}
 	};
 
+	/**
+	 * Creates an XHR and sets some generic event handlers on it.
+	 * @return XMLHttpRequest
+	 */
+	FDTP.createXHR = function () {
+		var xhr = new XMLHttpRequest(),
+			transport = this;
+
+		xhr.upload.addEventListener( 'progress', function ( evt ) {
+			transport.emit( 'progress', evt );
+		}, false );
+
+		xhr.addEventListener( 'abort', function ( evt ) {
+			transport.emitParsedResponse( evt );
+		}, false );
+
+		return xhr;
+	};
+
+	/**
+	 * Creates a FormData object suitable for upload.
+	 * @param {string} filename
+	 * @param {number} [offset] For chunked uploads
+	 * @return FormData
+	 */
+	FDTP.createFormData = function ( filename, offset ) {
+		var formData;
+
+		if ( this.insufficientFormDataSupport ) {
+			formData = this.geckoFormData();
+		} else {
+			formData = new FormData();
+		}
+
+		$.each( this.formData, function ( key, value ) {
+			formData.append( key, value );
+		} );
+
+		formData.append( 'filename', filename );
+
+		// ignorewarnings is turned on, since warnings are presented in a
+		// later step and this transport doesn't know how to deal with them.
+		// Also, it's important to allow people to upload files with (for
+		// example) blacklisted names, and then rename them later in the
+		// wizard.
+		formData.append( 'ignorewarnings', true );
+
+		if ( offset ) {
+			formData.append( 'offset', offset );
+		}
+
+		return formData;
+	};
+
+	/**
+	 * Sends data in a FormData object through an XHR.
+	 * @param {XMLHttpRequest} xhr
+	 * @param {FormData} formData
+	 */
+	FDTP.sendData = function ( xhr, formData ) {
+		xhr.open( 'POST', this.postUrl, true );
+
+		if ( this.insufficientFormDataSupport ) {
+			formData.send( xhr );
+		} else {
+			xhr.send( formData );
+		}
+	};
+
 	FDTP.upload = function ( file ) {
 		var formData,
 			transport = this;
@@ -61,10 +133,10 @@
 			return c.charCodeAt(0) > 128 ? '_' : c;
 		}).join('');
 
-		if ( mw.UploadWizard.config.enableChunked && file.size > this.chunkSize ) {
+		if ( this.config.enableChunked && file.size > this.chunkSize ) {
 			this.uploadChunk( file, 0 );
 		} else {
-			this.xhr = new XMLHttpRequest();
+			this.xhr = this.createXHR();
 			this.xhr.addEventListener('load', function (evt) {
 				transport.emitParsedResponse( evt );
 			}, false);
@@ -72,29 +144,10 @@
 				transport.emitParsedResponse( evt );
 			}, false);
 
-			this.xhr.upload.addEventListener( 'progress', function ( evt ) {
-				transport.emit( 'progress', evt );
-			}, false);
-			this.xhr.addEventListener('abort', function (evt) {
-				transport.emitParsedResponse( evt );
-			}, false);
+			formData = this.createFormData();
+			formData.append( 'file', file );
 
-			formData = new FormData();
-
-			$.each(this.formData, function (key, value) {
-				formData.append(key, value);
-			});
-			formData.append('filename', this.tempname);
-			formData.append('file', file);
-
-			// ignorewarnings is turned on, since warnings are presented in a later step and this
-			// transport doesn't know how to deal with them.  Also, it's important to allow people to
-			// upload files with (for example) blacklisted names, and then rename them later in the
-			// wizard.
-			formData.append( 'ignorewarnings', true );
-
-			this.xhr.open('POST', this.postUrl, true);
-			this.xhr.send(formData);
+			this.sendData( this.xhr, formData );
 		}
 	};
 
@@ -119,7 +172,7 @@
 			chunk = file.slice(offset, offset + this.chunkSize, file.type);
 		}
 
-		this.xhr = new XMLHttpRequest();
+		this.xhr = this.createXHR();
 		this.xhr.addEventListener('load', function (evt) {
 			transport.responseText = evt.target.responseText;
 			transport.parseResponse(evt, function (response) {
@@ -168,26 +221,9 @@
 				}, 3000);
 			}
 		}, false);
-		this.xhr.upload.addEventListener( 'progress', function ( evt ) {
-			transport.emit( 'progress', evt );
-		}, false );
-		this.xhr.addEventListener('abort', function (evt) {
-			transport.emitParsedResponse( evt );
-		}, false);
 
-		if (this.insufficientFormDataSupport) {
-			formData = this.geckoFormData();
-		} else {
-			formData = new FormData();
-		}
-		$.each(this.formData, function (key, value) {
-			formData.append(key, value);
-		});
-		formData.append('offset', offset);
-		formData.append('filename', this.tempname);
+		formData = this.createFormData( this.tempname, offset );
 
-		// ignorewarnings is turned on intentionally, see the above comment to the same effect.
-		formData.append( 'ignorewarnings', true );
 		// only enable async if file is larger 10Mb
 		if ( bytesAvailable > 10 * 1024 * 1024 ) {
 			formData.append( 'async', true );
@@ -202,17 +238,12 @@
 		} else {
 			formData.append('chunk', chunk);
 		}
-		this.xhr.open('POST', this.postUrl, true);
-		if (this.insufficientFormDataSupport) {
-			formData.send(this.xhr);
-		} else {
-			this.xhr.send(formData);
-		}
+
+		this.sendData( this.xhr, formData );
 	};
 
 	FDTP.checkStatus = function () {
 		var transport = this,
-			api = new mw.Api(),
 			params = {};
 
 		if ( this.aborted ) {
@@ -227,7 +258,7 @@
 		});
 		params.checkstatus =  true;
 		params.filekey =  this.filekey;
-		api.post( params )
+		this.api.post( params )
 			.done( function (response) {
 				if (response.upload && response.upload.result === 'Poll') {
 					//If concatenation takes longer than 10 minutes give up
@@ -245,7 +276,7 @@
 							// * queued
 							// * publish
 							// * assembling
-							transport.emit( 'update-stage' + response.upload.stage );
+							transport.emit( 'update-stage', response.upload.stage );
 							setTimeout(function () {
 								transport.checkStatus();
 							}, 3000);
