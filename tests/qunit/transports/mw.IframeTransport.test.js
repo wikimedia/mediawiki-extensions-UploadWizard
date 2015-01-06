@@ -1,0 +1,55 @@
+/*
+ * This file is part of the MediaWiki extension UploadWizard.
+ *
+ * UploadWizard is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * UploadWizard is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+( function ( mw, $ ) {
+	QUnit.module( 'mw.IframeTransport', QUnit.newMwEnvironment() );
+
+	function createTransport() {
+		return new mw.IframeTransport( $( '<form>' ) );
+	}
+
+	QUnit.test( 'Constructor sanity test', 1, function ( assert ) {
+		var transport = createTransport();
+
+		assert.ok( transport );
+	} );
+
+	QUnit.test( 'getSetUpStatus', 2, function ( assert ) {
+		var transport = createTransport(),
+			sustat = transport.getSetUpStatus();
+
+		assert.ok( sustat );
+		assert.ok( sustat.state() );
+	} );
+
+	QUnit.test( 'configureForm', 5, function ( assert ) {
+		var transport = createTransport(),
+			$form = transport.$form,
+			pstub = this.sandbox.stub(),
+			pirstub = this.sandbox.stub( transport, 'processIframeResult' );
+
+		transport.configureForm();
+
+		assert.strictEqual( $form.prop( 'target' ), transport.iframeId );
+		transport.on( 'progress', pstub );
+		assert.ok( !pstub.called );
+		assert.ok( !pirstub.called );
+		transport.$iframe.load();
+		assert.ok( pstub.calledWith( 1.0 ) );
+		assert.ok( pirstub.calledWith( transport.$iframe.get( 0 ) ) );
+	} );
+}( mediaWiki, jQuery ) );
