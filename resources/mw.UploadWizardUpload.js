@@ -552,9 +552,7 @@
 
 					// Now that first file has been prepared, process remaining files
 					// in case of a multi-file upload.
-					if ( files.length > 1 ) {
-						this.emit( 'extra-files', files.slice( 1 ), toobig );
-					}
+					this.emit( 'extra-files', files.slice( 1 ), toobig );
 				} else {
 					this.filename = filename;
 					if ( hasError === false ) {

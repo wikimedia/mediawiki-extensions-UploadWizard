@@ -435,6 +435,9 @@
 						newUpload.fill( file );
 					} );
 
+					// Add a new upload to cover the button
+					wizard.newUpload();
+
 					wizard.updateFileCounts();
 				} )
 
@@ -490,9 +493,6 @@
 		 */
 		setUploadFilled: function ( upload ) {
 			var wizard = this;
-
-			// Create new upload slot for additional upload(s)
-			this.newUpload();
 
 			this.uploads.push( upload );
 
@@ -845,7 +845,6 @@
 					this.allowCloseWindow();
 				}
 
-				this.resetFileStepUploads();
 				this.moveToStep( 'file' );
 
 				this.progressBar = undefined;
