@@ -64,10 +64,10 @@
 
 	/**
 	 * Accessor function
-	 * @return {jQuery.Deferred}
+	 * @return {jQuery.Promise}
 	 */
 	ITP.getSetUpStatus = function () {
-		return this.setUpStatus;
+		return this.setUpStatus.promise();
 	};
 
 	/**
