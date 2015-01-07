@@ -904,6 +904,7 @@ class UploadWizardHooks {
 				'tests/qunit/controller/uw.controller.Thanks.test.js',
 				'tests/qunit/controller/uw.controller.Tutorial.test.js',
 				'tests/qunit/controller/uw.controller.Upload.test.js',
+				'tests/qunit/transports/mw.FormDataTransport.test.js',
 				'tests/qunit/uw.EventFlowLogger.test.js',
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
