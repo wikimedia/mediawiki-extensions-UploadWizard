@@ -41,6 +41,7 @@
 	"mwe-upwiz-file-all-failed": "Nijedno postavljanje nije bilo uspješno.",
 	"mwe-upwiz-upload-count": "$1 od $2 {{PLURAL:$2|datoteka postavljena|datoteke postavljene|datoteka postavljeno}}",
 	"mwe-upwiz-progressbar-uploading": "šaljem datoteku",
+	"mwe-upwiz-almost-finished": "Obrađujem datoteke...",
 	"mwe-upwiz-finished": "Završeno!",
 	"mwe-upwiz-secs-remaining": "Još $1 {{PLURAL:$1|sekunda|sekunde|sekundi}}",
 	"mwe-upwiz-mins-secs-remaining": "Još $1 {{PLURAL:$1|minuta|minute|minuta}} i $2 {{PLURAL:$2|sekunda|sekunde|sekundi}}",
