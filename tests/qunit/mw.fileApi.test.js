@@ -55,18 +55,24 @@
 	} );
 
 	QUnit.test( 'isPreviewableVideo', 4, function ( assert ) {
-		var testFile = {},
+		var result, testFile = {},
 			fakeVideo = {
 				canPlayType: this.sandbox.stub().returns( 'yes' )
 			};
 
 		this.sandbox.stub( document, 'createElement' ).returns( fakeVideo );
+		result = mw.fileApi.isPreviewableVideo( testFile );
+		document.createElement.restore();
 
-		assert.strictEqual( mw.fileApi.isPreviewableVideo( testFile ), true );
+		assert.strictEqual( result, true );
 		assert.strictEqual( fakeVideo.canPlayType.callCount, 1 );
 
 		fakeVideo.canPlayType = this.sandbox.stub().returns( 'no' );
-		assert.strictEqual( mw.fileApi.isPreviewableVideo( testFile ), false );
+		this.sandbox.stub( document, 'createElement' ).returns( fakeVideo );
+		result = mw.fileApi.isPreviewableVideo( testFile );
+		document.createElement.restore();
+
+		assert.strictEqual( result, false );
 		assert.strictEqual( fakeVideo.canPlayType.callCount, 1 );
 	} );
 
