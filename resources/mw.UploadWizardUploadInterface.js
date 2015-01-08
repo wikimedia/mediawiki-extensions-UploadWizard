@@ -553,7 +553,7 @@
 		path = path.replace(/\w:.*\\(.*)$/, '$1');
 
 		// visible filename
-		$( this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).text( path );
+		$( this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).text( mw.UploadWizard.sanitizeFilename( path ) );
 
 		// Set the filename we tell to the API to be the current timestamp + the filename
 		// This is because we don't actually care what the filename is at this point, we just want it to be unique for this session and have the

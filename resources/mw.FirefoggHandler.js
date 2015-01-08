@@ -74,8 +74,7 @@
 		 * upload and transcode at the same time
 		 */
 		start: function () {
-			var title,
-				fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
+			var title;
 
 			mw.log( 'mw.FirefoggHandler::start> Upload start!' );
 
@@ -84,8 +83,9 @@
 				this.getFogg().setInput( this.upload.file );
 
 				//This is required to get the right requestedTitle in UploadWizardUpload
-				title = this.getTransport().getFileName().replace( /:/g, '_' );
-				this.upload.title = new mw.Title( title, fileNsId );
+				title = this.getTransport().getFileName();
+
+				this.upload.setTitle( title );
 			}
 			this.beginTime = ( new Date() ).getTime();
 			this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );

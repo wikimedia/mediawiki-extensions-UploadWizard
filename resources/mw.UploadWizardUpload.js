@@ -373,6 +373,16 @@
 	};
 
 	/**
+	 * Shows a filename error in the UI.
+	 * @param {string} code Short code for i18n strings
+	 * @param {string} info More information
+	 */
+	UWUP.fileNameErr = function ( code, info ) {
+		this.hasError = true;
+		this.ui.fileChangedError( code, info );
+	};
+
+	/**
 	 * Called when the file is entered into the file input, bound to its change() event.
 	 * Checks for file validity, then extracts metadata.
 	 * Error out if filename or its contents are determined to be unacceptable
@@ -386,14 +396,11 @@
 	 * @param {string} the filename
 	 * @param {Array} of Files.  usually one, can be more for multi-file select.
 	 * @param {function ()} callback when ok, and upload object is ready
-	 * @param {function (String, Mixed)} callback when filename or contents in error. Signature of string code, mixed info
-	 * @param {function ()} callback when resetting FileInput
 	 */
-	UWUP.checkFile = function ( filename, files, fileNameOk, fileNameErr ) {
-		var totalSize, duplicate, extension, hasError, errorIndex, toobig,
-			actualMaxSize, binReader, illegalCharRegex, legalBasename,
+	UWUP.checkFile = function ( filename, files, fileNameOk ) {
+		var totalSize, duplicate, extension, toobig,
+			actualMaxSize, binReader,
 			upload = this,
-			fileErrors = {},
 
 			// Check if filename is acceptable
 			// TODO sanitize filename
@@ -406,6 +413,9 @@
 				setTimeout( finishCallback, 200 );
 			}
 		}
+
+		// Eternal optimism
+		this.hasError = false;
 
 		if ( files.length > 1 ) {
 			totalSize = 0;
@@ -432,40 +442,21 @@
 		} );
 
 		if ( duplicate ) {
-			fileErrors.dup = true;
-			fileNameErr( 'dup', basename, fileErrors );
+			this.fileNameErr( 'dup', basename );
 		}
 
-		illegalCharRegex = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '#:' ) + ']', 'g' );
-		legalBasename = basename.replace( illegalCharRegex, '-' );
-
-		try {
-			this.title = new mw.Title( legalBasename, fileNsId );
-		} catch ( e ) {
-			fileErrors.unparseable = true;
-			fileNameErr( 'unparseable', null, fileErrors );
-		}
+		this.setTitle( basename );
 
 		// Check if extension is acceptable
 		extension = this.title.getExtension();
 		if ( mw.isEmpty( extension ) ) {
-			fileErrors.noext = true;
-			fileNameErr( 'noext', null, fileErrors );
+			this.fileNameErr( 'noext', null );
 		} else {
 			if ( $.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1 ) {
-				fileErrors.ext = true;
-				fileNameErr( 'ext', extension, fileErrors );
-			}
-			// Split this into a separate case, if the error above got ignored,
-			// we want to still trudge forward.
-			if ( !fileErrors.ext ) {
-				hasError = false;
-				for ( errorIndex in fileErrors ) {
-					if ( fileErrors[errorIndex] ) {
-						hasError = true;
-						break;
-					}
-				}
+				this.fileNameErr( 'ext', extension );
+			} else {
+				// Split this into a separate case, if the error above got ignored,
+				// we want to still trudge forward.
 				// if the JavaScript FileReader is available, extract more info via fileAPI
 				if ( mw.fileApi.isAvailable() ) {
 
@@ -532,7 +523,7 @@
 							}
 							upload.extractMetadataFromJpegMeta( meta );
 							upload.filename = filename;
-							if ( hasError === false ) {
+							if ( upload.hasError === false ) {
 								finishCallback();
 							}
 						};
@@ -545,7 +536,7 @@
 							throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
 						}
 					} else {
-						if ( hasError === false ) {
+						if ( this.hasError === false ) {
 							finishCallback();
 						}
 					}
@@ -557,11 +548,23 @@
 					}
 				} else {
 					this.filename = filename;
-					if ( hasError === false ) {
+					if ( this.hasError === false ) {
 						finishCallback();
 					}
 				}
 			}
+		}
+	};
+
+	/**
+	 * Sanitize and set the title of the upload.
+	 * @param {string} title Unsanitized title.
+	 */
+	UWUP.setTitle = function ( title ) {
+		try {
+			this.title = mw.Title.newFromFileName( mw.UploadWizard.sanitizeFilename( title ) );
+		} catch ( e ) {
+			this.fileNameErr( 'unparseable', null );
 		}
 	};
 
