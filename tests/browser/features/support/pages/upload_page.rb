@@ -11,13 +11,70 @@
 #
 class UploadPage
   include PageObject
-
   include URL
+
   def self.url
     URL.url("Special:UploadWizard")
   end
   page_url url
 
   span(:continue, text: "Continue")
-  file_field(:select_file, name: "file")
+
+  # We need to keep track of all the uploads on the page.
+  # PageObjects are bad at finding elements that are repeated and change.
+  # We have to break through to the underlying Watir library,
+  # accessible through @browser.
+
+  # Get all the 'uploads' on the page, or more precisely the Upload
+  # interfaces. n.b. there is at least one "unfilled" upload on
+  # the page which is ready to accept new files. It is usually
+  # invisible and its file input is styled to cover the button which
+  # adds more files.
+  def getUploadInterfaceDivs(isFilled)
+    basicConstraint = "contains(@class,'mwe-upwiz-file')"
+    filledConstraint = "contains(@class,'filled')"
+    if !isFilled
+      filledConstraint = 'not(' + filledConstraint + ')'
+    end
+    constraints = [basicConstraint, filledConstraint].join(' and ')
+    @browser.divs(
+      xpath: "//div[@id='mwe-upwiz-filelist']/div[#{constraints}]"
+    )
+  end
+
+  # break the upload divs into objects with easy to access 'properties'
+  # n.b. in xpath, .// will search relative to current node
+  def getUploadObjects(isFilled)
+    getUploadInterfaceDivs(isFilled).map do |uploadDiv|
+      {
+        fileInput: uploadDiv.file_field(xpath: './/input[@type="file"]'),
+        indicator: uploadDiv.div(
+          xpath: './/div[contains(@class,"mwe-upwiz-file-indicator")]'
+        ),
+        filename: uploadDiv.div(
+          xpath: './/div[contains(@class,"mwe-upwiz-visible-file-filename-text")]'
+        ).text
+      }
+    end
+  end
+
+  # return the filled uploads on the page (the visible stuff
+  # with thumbnails and whatnot)
+  def getUploads
+    getUploadObjects(true)
+  end
+
+  # The last upload on the page is 'empty', waiting to be filled.
+  # It's either the one represented by the initial big button, or
+  # it's the one represented by the "add more files" button.
+  def getUploadToAdd
+    getUploadObjects(false)[0]
+  end
+
+  # In PageObject, file fields are magic, you can assign a path to
+  # upload a file. However, this file field is a Watir::FileField,
+  # so we use .set()
+  def addFile(path)
+    getUploadToAdd[:fileInput].set(path)
+  end
 end

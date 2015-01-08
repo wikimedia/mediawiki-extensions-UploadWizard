@@ -37,14 +37,20 @@ Feature: UploadWizard
 
   Scenario: Navigate to Release rights page
     When I click Next button at Learn page
-      And upload file image.png
+      And I add file image.png
       And click button Continue
     Then Release rights page should open
       And thumbnail should be visible
 
+  Scenario: Add two files
+    When I click Next button at Learn page
+      And I add file image.png
+      And I add file image2.png
+    Then there should be 2 uploads
+
   Scenario: Navigate to Describe page
     When I click Next button at Learn page
-      And upload file image.png
+      And I add file image.png
       And click button Continue
       And I click This file is my own work
       And I click Next button at Release rights page
@@ -53,7 +59,7 @@ Feature: UploadWizard
 
   Scenario: Navigate to Use page
     When I click Next button at Learn page
-      And upload file image.png
+      And I add file image.png
       And click button Continue
       And I click This file is my own work
       And I click Next button at Release rights page
