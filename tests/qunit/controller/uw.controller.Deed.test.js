@@ -30,17 +30,17 @@
 				new mw.Api(),
 				{ licensing: { thirdParty: { type: 'test', licenses: [] } } }
 			),
-			dpaStub = this.sandbox.stub(),
+			ststub = this.sandbox.stub(),
 			uploads = [
-				{ fromURL: true, deedPreview: { attach: dpaStub } },
-				{ deedPreview: { attach: dpaStub } },
-				{ fromURL: true, deedPreview: { attach: dpaStub } },
-				{ deedPreview: { attach: dpaStub } }
+				{ fromURL: true, setThumbnail: ststub },
+				{ setThumbnail: ststub },
+				{ fromURL: true, setThumbnail: ststub },
+				{ setThumbnail: ststub }
 			];
 
 		this.sandbox.stub( step.ui, 'moveTo' );
 		step.moveTo( uploads );
 
-		assert.strictEqual( dpaStub.callCount, 2 );
+		assert.strictEqual( ststub.callCount, 2 );
 	} );
 }( mediaWiki.uploadWizard ) );

@@ -67,11 +67,6 @@
 			} )
 
 			.on( 'upload-filled', function () {
-				// Don't add files coming from Flickr ( or any other service ) in the Deeds preview section
-				if ( !upload.fromURL ) {
-					upload.deedPreview = new mw.UploadWizardDeedPreview( upload );
-				}
-
 				upload.details = new mw.UploadWizardDetails( upload, $( '#mwe-upwiz-macro-files' ) );
 
 				upload.emit( 'filled' );
@@ -342,9 +337,6 @@
 
 		if ( result.upload ) {
 			this.extractUploadInfo( result.upload );
-			if ( !this.fromURL ) {
-				this.deedPreview.setup();
-			}
 			this.state = 'stashed';
 			this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + this.index, 'api' );
