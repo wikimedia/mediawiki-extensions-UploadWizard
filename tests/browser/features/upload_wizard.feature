@@ -64,6 +64,12 @@ Feature: UploadWizard
      And there should be an upload for image.png
      And there should be an upload for image3.png
 
+  Scenario: Same name, different content
+    When I click Next button at Learn page
+      And I add file image.png with 50% black, 50px x 50px
+      And I add file image.png with 100% black, 100px x 70px
+    Then a duplicate name error should appear
+
   Scenario: Navigate to Describe page
     When I click Next button at Learn page
       And I add file image.png
