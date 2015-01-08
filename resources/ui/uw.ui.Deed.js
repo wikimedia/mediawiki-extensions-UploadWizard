@@ -15,33 +15,43 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, oo ) {
+( function ( mw, $, ui, oo ) {
 	var DP;
 
+	/**
+	 * Represents the UI for the wizard's Deed step.
+	 * @class uw.ui.Deed
+	 * @extends uw.ui.Step
+	 * @constructor
+	 */
 	function Deed() {
-		uw.controller.Step.call(
+		var deed = this;
+
+		ui.Step.call(
 			this,
-			new uw.ui.Deed()
-				.connect( this, {
-					'next-step': [ 'emit', 'next-step' ]
-				} )
+			$( '#mwe-upwiz-stepdiv-deeds' ),
+			$( '#mwe-upwiz-step-deeds' )
 		);
+
+		this.$div.find( '.mwe-upwiz-button-next' ).click( function () {
+			$( '.mwe-upwiz-hint' ).each( function () {
+				// Close tipsy help balloons
+				$( this ).tipsy( 'hide' );
+			} );
+
+			deed.emit( 'next-step' );
+		} );
 	}
 
-	oo.inheritClass( Deed, uw.controller.Step );
+	oo.inheritClass( Deed, ui.Step );
 
 	DP = Deed.prototype;
 
-	DP.moveTo = function ( uploads ) {
-		$.each( uploads, function ( i, upload ) {
-			// Add previews and details to the DOM
-			if ( !upload.fromURL ) {
-				upload.deedPreview.attach();
-			}
-		} );
-
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+	/**
+	 * Empty out all upload information.
+	 */
+	DP.empty = function () {
 	};
 
-	uw.controller.Deed = Deed;
-}( mediaWiki.uploadWizard, jQuery, OO ) );
+	ui.Deed = Deed;
+}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
