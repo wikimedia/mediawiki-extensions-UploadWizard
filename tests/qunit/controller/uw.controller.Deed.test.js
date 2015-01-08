@@ -26,7 +26,10 @@
 	} );
 
 	QUnit.test( 'moveTo', 1, function ( assert ) {
-		var step = new uw.controller.Deed(),
+		var step = new uw.controller.Deed(
+				new mw.Api(),
+				{ licensing: { thirdParty: { type: 'test', licenses: [] } } }
+			),
 			dpaStub = this.sandbox.stub(),
 			uploads = [
 				{ fromURL: true, deedPreview: { attach: dpaStub } },

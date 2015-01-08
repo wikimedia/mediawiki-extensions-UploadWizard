@@ -907,8 +907,9 @@
 				}
 			} else {
 				this.upload.deedChooser = new mw.UploadWizardDeedChooser(
+					mw.UploadWizard.config,
 					this.deedDiv,
-					this.upload.wizard.getLicensingDeeds(),
+					mw.UploadWizard.getLicensingDeeds( 1, mw.UploadWizard.config ),
 					[ this.upload ] );
 				this.upload.deedChooser.onLayoutReady();
 			}
