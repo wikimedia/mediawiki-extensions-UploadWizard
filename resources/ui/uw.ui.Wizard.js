@@ -78,7 +78,7 @@
 		this.feedback = new mw.Feedback( {
 			title: new mw.Title( feedbackPage ),
 			dialogTitleMessageKey: 'mwe-upwiz-feedback-title',
-			bugsLink: new mw.Uri( 'https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions&component=UploadWizard' ),
+			bugsLink: new mw.Uri( 'https://phabricator.wikimedia.org/maniphest/task/create/?projects=MediaWiki-extensions-UploadWizard' ),
 			bugsListLink: new mw.Uri( bugList )
 		} );
 

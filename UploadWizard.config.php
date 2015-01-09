@@ -589,7 +589,7 @@ return array(
 	'feedbackPage' => '',
 
 	// Bugzilla page for UploadWizard bugs
-	'bugList' => 'https://bugzilla.wikimedia.org/buglist.cgi?query_format=advanced&component=UploadWizard&resolution=---&product=MediaWiki+extensions',
+	'bugList' => 'https://phabricator.wikimedia.org/tag/MediaWiki-extensions-UploadWizard',
 
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
