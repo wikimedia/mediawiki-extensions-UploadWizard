@@ -61,7 +61,14 @@
 					} );
 				} ),
 
-			deeds: new uw.controller.Deed(),
+			deeds: new uw.controller.Deed()
+				.on( 'next-step', function () {
+					// validate has the side effect of notifying the user of problems, or removing existing notifications.
+					// if returns false, you can assume there are notifications in the interface.
+					if ( wizard.deedChooser.valid() ) {
+						wizard.moveToStep( 'details' );
+					}
+				} ),
 
 			details: new uw.controller.Details()
 				.on( 'start-details', function () {
@@ -122,14 +129,6 @@
 			this.ui = new uw.ui.Wizard( this )
 				.on( 'reset-wizard', function () {
 					wizard.reset();
-				} )
-
-				.on( 'next-from-deeds', function () {
-					// validate has the side effect of notifying the user of problems, or removing existing notifications.
-					// if returns false, you can assume there are notifications in the interface.
-					if ( wizard.deedChooser.valid() ) {
-						wizard.moveToStep( 'details' );
-					}
 				} );
 
 			// check to see if the the skip tutorial preference or global setting is set

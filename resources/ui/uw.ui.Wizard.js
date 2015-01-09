@@ -38,7 +38,6 @@
 		this.initButtons();
 
 		this.initTutorial();
-		this.initDeeds();
 	}
 
 	oo.mixinClass( UploadWizardInterface, oo.EventEmitter );
@@ -208,22 +207,6 @@
 		// handler for next button
 		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next').click( function () {
 			ui.emit( 'next-from-tutorial' );
-		} );
-	};
-
-	/**
-	 * Initializes the deed step interface.
-	 */
-	UWIP.initDeeds = function () {
-		var ui = this;
-
-		$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next').click( function () {
-			$( '.mwe-upwiz-hint' ).each( function () {
-				// Close tipsy help balloons
-				$( this ).tipsy( 'hide' );
-			} );
-
-			ui.emit( 'next-from-deeds' );
 		} );
 	};
 
