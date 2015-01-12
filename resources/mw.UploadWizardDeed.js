@@ -6,11 +6,11 @@
 	// Runs through the third-party license groups and finds the
 	// relevant ID for that license. Probably really hacky.
 	// TODO do this properly once we build the license links properly
-	function findLicenseRecursively( license ) {
+	function findLicenseRecursively( config, license ) {
 		var val,
 			count = 0;
 
-		$.each( mw.UploadWizard.config.licensing.thirdParty.licenseGroups, function ( i, licenseGroup ) {
+		$.each( config.licensing.thirdParty.licenseGroups, function ( i, licenseGroup ) {
 			$.each( licenseGroup.licenses, function ( j, licenseCandidate ) {
 				if ( licenseCandidate === license ) {
 					val = '2_' + count;
@@ -70,13 +70,14 @@
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
 	 * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api object - useful for doing previews
+	 * @param {Object} config The UW config
 	 */
-	mw.UploadWizardDeedOwnWork = function ( uploadCount, api ) {
+	mw.UploadWizardDeedOwnWork = function ( uploadCount, api, config ) {
 		uploadCount = uploadCount ? uploadCount : 1;
 
 		var licenseInputDiv,
 			deed = new mw.UploadWizardDeed(),
-			ownWork = mw.UploadWizard.config.licensing.ownWork;
+			ownWork = config.licensing.ownWork;
 
 		deed.authorInput = $( '<input type="text" />' )
 			.attr( { name: 'author' } )
@@ -90,7 +91,7 @@
 			deed.licenseInput = new mw.UploadWizardLicenseInput(
 				licenseInputDiv,
 				undefined,
-				mw.UploadWizard.config.licensing.ownWork,
+				config.licensing.ownWork,
 				deed.uploadCount,
 				api
 			);
@@ -114,19 +115,19 @@
 
 			getLicenseWikiText: function () {
 				var defaultLicense,
-					defaultType = mw.UploadWizard.config.licensing.defaultType;
+					defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
-					defaultLicense = mw.UploadWizard.config.licensing.ownWork.defaults[0];
+					defaultLicense = config.licensing.ownWork.defaults[0];
 				} else {
-					defaultLicense = mw.UploadWizard.config.licensing.ownWork.licenses[0];
+					defaultLicense = config.licensing.ownWork.licenses[0];
 				}
 
 				if ( this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
 					return this.licenseInput.getWikiText();
 				} else {
 					return '{{' +
-								mw.UploadWizard.config.licensing.ownWork.template +
+								config.licensing.ownWork.template +
 							'|' +
 								defaultLicense +
 							'}}';
@@ -160,17 +161,17 @@
 					defaultLicenseLink, $standardDiv, $crossfader,
 					thisDeed = this,
 					languageCode = mw.config.get( 'wgUserLanguage' ),
-					defaultType = mw.UploadWizard.config.licensing.defaultType;
+					defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
-					defaultLicense = mw.UploadWizard.config.licensing.ownWork.defaults[0];
+					defaultLicense = config.licensing.ownWork.defaults[0];
 				} else {
-					defaultLicense = mw.UploadWizard.config.licensing.ownWork.licenses[0];
+					defaultLicense = config.licensing.ownWork.licenses[0];
 				}
 
-				defaultLicenseURL = mw.UploadWizard.config.licenses[defaultLicense].url === undefined ?
+				defaultLicenseURL = config.licenses[defaultLicense].url === undefined ?
 						'#missing license URL' :
-						mw.UploadWizard.config.licenses[defaultLicense].url + 'deed.' + languageCode;
+						config.licenses[defaultLicense].url + 'deed.' + languageCode;
 				defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 				defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
 				defaultLicenseLink = $( '<a>' ).attr( { target:'_blank', href:defaultLicenseURL } );
@@ -255,16 +256,16 @@
 						required: function () {
 							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
 						},
-						minlength: mw.UploadWizard.config.minAuthorLength,
-						maxlength: mw.UploadWizard.config.maxAuthorLength
+						minlength: config.minAuthorLength,
+						maxlength: config.maxAuthorLength
 					}
 				};
 
 				messages = {
 					author2: {
 						required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
-						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ).escaped(),
-						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength ).escaped()
+						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', config.minAuthorLength ).escaped(),
+						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', config.maxAuthorLength ).escaped()
 					}
 				};
 
@@ -276,14 +277,14 @@
 						required: function () {
 							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
 						},
-						minlength: mw.UploadWizard.config.minAuthorLength,
-						maxlength: mw.UploadWizard.config.maxAuthorLength
+						minlength: config.minAuthorLength,
+						maxlength: config.maxAuthorLength
 					};
 
 					messages.author = {
 						required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
-						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', mw.UploadWizard.config.minAuthorLength ).escaped(),
-						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', mw.UploadWizard.config.maxAuthorLength ).escaped()
+						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', config.minAuthorLength ).escaped(),
+						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', config.maxAuthorLength ).escaped()
 					};
 				}
 
@@ -293,7 +294,7 @@
 					messages: messages
 				} );
 
-				$.each( mw.UploadWizard.config.licensing.ownWork.licenses, function ( i, license ) {
+				$.each( config.licensing.ownWork.licenses, function ( i, license ) {
 					if ( license === defaultLicense ) {
 						$( '#license1_' + i ).prop( 'checked', true );
 						return false;
@@ -307,8 +308,9 @@
 	 * Set up the form and deed object for the deed option that says these uploads are the work of a third party.
 	 * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api object - useful for doing previews
+	 * @param {Object} config The UW config
 	 */
-	mw.UploadWizardDeedThirdParty = function ( uploadCount, api ) {
+	mw.UploadWizardDeedThirdParty = function ( uploadCount, api, config ) {
 		var licenseInputDiv,
 			deed = new mw.UploadWizardDeed();
 
@@ -324,7 +326,7 @@
 		deed.licenseInput = new mw.UploadWizardLicenseInput(
 			licenseInputDiv,
 			undefined,
-			mw.UploadWizard.config.licensing.thirdParty,
+			config.licensing.thirdParty,
 			deed.uploadCount,
 			api
 		);
@@ -339,7 +341,7 @@
 
 				this.$form = $( '<form>' );
 
-				defaultType = mw.UploadWizard.config.licensing.defaultType;
+				defaultType = config.licensing.defaultType;
 
 				if ( this.uploadCount > 1 ) {
 					$formFields.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
@@ -372,25 +374,25 @@
 					rules: {
 						source: {
 							required: true,
-							minlength: mw.UploadWizard.config.minSourceLength,
-							maxlength: mw.UploadWizard.config.maxSourceLength
+							minlength: config.minSourceLength,
+							maxlength: config.maxSourceLength
 						},
 						author: {
 							required: true,
-							minlength: mw.UploadWizard.config.minAuthorLength,
-							maxlength: mw.UploadWizard.config.maxAuthorLength
+							minlength: config.minAuthorLength,
+							maxlength: config.maxAuthorLength
 						}
 					},
 					messages: {
 						source: {
 							required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-							minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minSourceLength ).escaped(),
-							maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxSourceLength ).escaped()
+							minlength: mw.message( 'mwe-upwiz-error-too-short', config.minSourceLength ).escaped(),
+							maxlength: mw.message( 'mwe-upwiz-error-too-long', config.maxSourceLength ).escaped()
 						},
 						author: {
 							required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-							minlength: mw.message( 'mwe-upwiz-error-too-short', mw.UploadWizard.config.minAuthorLength ).escaped(),
-							maxlength: mw.message( 'mwe-upwiz-error-too-long', mw.UploadWizard.config.maxAuthorLength ).escaped()
+							minlength: mw.message( 'mwe-upwiz-error-too-short', config.minAuthorLength ).escaped(),
+							maxlength: mw.message( 'mwe-upwiz-error-too-long', config.maxAuthorLength ).escaped()
 						}
 					}
 				} );
@@ -400,9 +402,9 @@
 				$selector.append( this.$form );
 
 				if ( defaultType === 'thirdparty' ) {
-					defaultLicense = mw.UploadWizard.config.licensing.thirdParty.defaults[0];
+					defaultLicense = config.licensing.thirdParty.defaults[0];
 
-					defaultLicenseNum = findLicenseRecursively( defaultLicense );
+					defaultLicenseNum = findLicenseRecursively( config, defaultLicense );
 
 					if ( defaultLicenseNum ) {
 						$defaultLicense = $( '#license' + defaultLicenseNum );
@@ -433,11 +435,12 @@
 
 	/**
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
+	 * @param {Object} config The UW config
 	 * @param {String|jQuery} selector where to put this deed chooser
 	 * @param {Array[UploadWizardDeed]} deeds
 	 * @param {Array[UploadWizardUpload]} uploads that this applies to (this is just to make deleting and plurals work)
 	 */
-	mw.UploadWizardDeedChooser = function ( selector, deeds, uploads ) {
+	mw.UploadWizardDeedChooser = function ( config, selector, deeds, uploads ) {
 		var chooser = this;
 		this.$selector = $( selector );
 		this.uploads = uploads === undefined ? [] : uploads;
@@ -480,7 +483,7 @@
 			if ( deeds.length === 1 ) {
 				chooser.onLayoutReady = selectDeedFunction;
 			} else {
-				if ( mw.UploadWizard.config.licensing.defaultType === deed.name ) {
+				if ( config.licensing.defaultType === deed.name ) {
 					chooser.onLayoutReady = selectDeedFunction;
 				}
 				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function () {

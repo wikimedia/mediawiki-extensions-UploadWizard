@@ -54,20 +54,16 @@
 				.on( 'next-step', function () {
 					wizard.removeErrorUploads( function () {
 						if ( wizard.showDeed ) {
-							wizard.prepareAndMoveToDeeds();
+							wizard.moveToStep( 'deeds' );
 						} else {
 							wizard.moveToStep( 'details' );
 						}
 					} );
 				} ),
 
-			deeds: new uw.controller.Deed()
+			deeds: new uw.controller.Deed( this.api, config )
 				.on( 'next-step', function () {
-					// validate has the side effect of notifying the user of problems, or removing existing notifications.
-					// if returns false, you can assume there are notifications in the interface.
-					if ( wizard.deedChooser.valid() ) {
-						wizard.moveToStep( 'details' );
-					}
+					wizard.moveToStep( 'details' );
 				} ),
 
 			details: new uw.controller.Details()
@@ -225,76 +221,6 @@
 			$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 			$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', true );
-		},
-
-		/**
-		 * Get the own work and third party licensing deeds if they are needed.
-		 *
-		 * @since 1.2
-		 * @param {int|false} uploadsLength
-		 * @return {Array}
-		 */
-		getLicensingDeeds: function ( uploadsLength ) {
-			var deeds = [],
-				doOwnWork = false,
-				doThirdParty = false;
-
-			if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'choice' ) {
-				doOwnWork = doThirdParty = true;
-			} else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
-				doOwnWork = true;
-			} else {
-				doThirdParty = true;
-			}
-
-			if ( doOwnWork ) {
-				deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength, this.api ) );
-			}
-			if ( doThirdParty ) {
-				deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength, this.api ) );
-			}
-
-			return deeds;
-		},
-
-		// do some last minute prep before advancing to the DEEDS page
-		prepareAndMoveToDeeds: function () {
-			var customDeed,
-				wizard = this,
-				deeds = this.getLicensingDeeds( this.uploads.length );
-
-			this.shouldShowIndividualDeed = function () {
-				if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'choice' ) {
-					return true;
-				} else if ( mw.UploadWizard.config.licensing.ownWorkDefault === 'own' ) {
-					var ownWork = mw.UploadWizard.config.licensing.ownWork;
-					return ownWork.licenses.length > 1;
-				} else {
-					return true; // TODO: might want to have similar behaviour here
-				}
-			};
-
-			// if we have multiple uploads, also give them the option to set
-			// licenses individually
-			if ( this.uploads.length > 1 && this.shouldShowIndividualDeed() ) {
-				customDeed = $.extend( new mw.UploadWizardDeed(), {
-					valid: function () { return true; },
-					name: 'custom'
-				} );
-				deeds.push( customDeed );
-			}
-
-			this.deedChooser = new mw.UploadWizardDeedChooser(
-				'#mwe-upwiz-deeds',
-				deeds,
-				this.uploads
-			);
-
-			$( '<div></div>' )
-				.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
-				.msg( 'mwe-upwiz-deeds-macro-prompt', this.uploads.length, mw.user );
-
-			this.moveToStep( 'deeds', function () { wizard.deedChooser.onLayoutReady(); } );
 		},
 
 		/**
@@ -834,10 +760,6 @@
 					step.empty();
 				} );
 
-				if ( this.deedChooser !== undefined ) {
-					this.deedChooser.remove();
-				}
-
 				// remove any blocks on closing the window
 				if ( this.allowCloseWindow !== undefined ) {
 					this.allowCloseWindow();
@@ -939,6 +861,40 @@
 	mw.UploadWizard.sanitizeFilename = function ( filename ) {
 		var illegalCharRegex = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '' ) + '#:%]', 'g' );
 		return filename.replace( illegalCharRegex, '-' );
+	};
+
+	/**
+	 * Get the own work and third party licensing deeds if they are needed.
+	 *
+	 * @static
+	 * @since 1.2
+	 * @param {number} uploadsLength
+	 * @param {Object} config The UW config object.
+	 * @return {mw.UploadWizardDeed[]}
+	 */
+	mw.UploadWizard.getLicensingDeeds = function ( uploadsLength, config ) {
+		var deeds = [],
+			doOwnWork = false,
+			doThirdParty = false;
+
+		this.api = this.api || new mw.Api( { ajax: { timeout: 0 } } );
+
+		if ( config.licensing.ownWorkDefault === 'choice' ) {
+			doOwnWork = doThirdParty = true;
+		} else if ( config.licensing.ownWorkDefault === 'own' ) {
+			doOwnWork = true;
+		} else {
+			doThirdParty = true;
+		}
+
+		if ( doOwnWork ) {
+			deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength, this.api, config ) );
+		}
+		if ( doThirdParty ) {
+			deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength, this.api, config ) );
+		}
+
+		return deeds;
 	};
 
 	/**

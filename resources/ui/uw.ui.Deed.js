@@ -47,11 +47,5 @@
 
 	DP = Deed.prototype;
 
-	/**
-	 * Empty out all upload information.
-	 */
-	DP.empty = function () {
-	};
-
 	ui.Deed = Deed;
 }( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );

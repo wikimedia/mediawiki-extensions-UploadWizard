@@ -18,12 +18,20 @@
 ( function ( uw, $, oo ) {
 	var DP;
 
-	function Deed() {
+	/**
+	 * Deed step controller.
+	 * @param {mw.Api} api
+	 * @param {Object} config Only the licensing section of the UploadWizard config.
+	 */
+	function Deed( api, config ) {
+		this.api = api;
+		this.config = config;
+
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Deed()
 				.connect( this, {
-					'next-step': [ 'emit', 'next-step' ]
+					'next-step': 'validate'
 				} )
 		);
 	}
@@ -32,7 +40,45 @@
 
 	DP = Deed.prototype;
 
+	DP.validate = function () {
+		// validate has the side effect of notifying the user of problems, or removing existing notifications.
+		// if returns false, you can assume there are notifications in the interface.
+		if ( this.deedChooser.valid() ) {
+			this.emit( 'next-step' );
+		}
+	};
+
+	/**
+	 * Move to this step.
+	 */
 	DP.moveTo = function ( uploads ) {
+		var customDeed, deeds;
+
+		uw.controller.Step.prototype.moveTo.call( this, uploads );
+
+		deeds = mw.UploadWizard.getLicensingDeeds( this.uploads.length, this.config );
+
+		// if we have multiple uploads, also give them the option to set
+		// licenses individually
+		if ( this.uploads.length > 1 && this.shouldShowIndividualDeed( this.config ) ) {
+			customDeed = $.extend( new mw.UploadWizardDeed(), {
+				valid: function () { return true; },
+				name: 'custom'
+			} );
+			deeds.push( customDeed );
+		}
+
+		this.deedChooser = new mw.UploadWizardDeedChooser(
+			this.config,
+			'#mwe-upwiz-deeds',
+			deeds,
+			this.uploads
+		);
+
+		$( '<div>' )
+			.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
+			.msg( 'mwe-upwiz-deeds-macro-prompt', this.uploads.length, mw.user );
+
 		$.each( uploads, function ( i, upload ) {
 			// Add previews and details to the DOM
 			if ( !upload.fromURL ) {
@@ -40,7 +86,34 @@
 			}
 		} );
 
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		this.deedChooser.onLayoutReady();
+	};
+
+	/**
+	 * Check whether we should give the user the option to choose licenses for
+	 * individual files on the details step.
+	 * @private
+	 */
+	DP.shouldShowIndividualDeed = function ( config ) {
+		var ownWork;
+
+		if ( config.licensing.ownWorkDefault === 'choice' ) {
+			return true;
+		} else if ( config.licensing.ownWorkDefault === 'own' ) {
+			ownWork = config.licensing.ownWork;
+			return ownWork.licenses.length > 1;
+		} else {
+			return true; // TODO: might want to have similar behaviour here
+		}
+	};
+
+	/**
+	 * Empty out all upload information.
+	 */
+	DP.empty = function () {
+		if ( this.deedChooser !== undefined ) {
+			this.deedChooser.remove();
+		}
 	};
 
 	uw.controller.Deed = Deed;
