@@ -14,6 +14,9 @@
 		var uploadWizard,
 			config = mw.config.get( 'UploadWizardConfig' );
 
+		// Default configuration value that cannot be removed
+		config.maxUploads = config.maxUploads || 10;
+
 		uploadWizard = new mw.UploadWizard( config );
 		uploadWizard.createInterface( '#upload-wizard' );
 	};
