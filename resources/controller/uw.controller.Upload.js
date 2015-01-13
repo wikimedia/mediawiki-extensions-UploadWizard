@@ -71,5 +71,50 @@
 		this.ui.empty();
 	};
 
+	UP.moveTo = function () {
+		uw.controller.Step.prototype.moveTo.call( this );
+		this.progressBar = undefined;
+	};
+
+	/**
+	 * Starts the upload progress bar.
+	 */
+	UP.startProgressBar = function () {
+		$( '#mwe-upwiz-progress' ).show();
+		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
+			mw.message( 'mwe-upwiz-uploading' ).escaped(),
+			this.uploads,
+			[ 'stashed' ],
+			[ 'error' ],
+			'transportProgress',
+			'transportWeight' );
+		this.progressBar.start();
+	};
+
+	/**
+	 * Starts progress bar if there's not an existing one.
+	 */
+	UP.maybeStartProgressBar = function () {
+		if ( this.progressBarEmptyOrFinished() ) {
+			this.startProgressBar();
+		}
+	};
+
+	/**
+	 * Check if there is a vacancy for a new progress bar.
+	 */
+	UP.progressBarEmptyOrFinished = function () {
+		return !this.progressBar || this.progressBar.finished === true;
+	};
+
+	/**
+	 * Update success count on the progress bar.
+	 */
+	UP.updateProgressBarCount = function ( okCount ) {
+		if ( this.progressBar ) {
+			this.progressBar.showCount( okCount );
+		}
+	};
+
 	uw.controller.Upload = Upload;
 }( mediaWiki.uploadWizard, jQuery, OO ) );
