@@ -23,9 +23,12 @@
 	 * @class uw.ui.Upload
 	 * @extends uw.ui.Step
 	 * @constructor
+	 * @param {Object} config UploadWizard config object.
 	 */
-	function Upload() {
+	function Upload( config ) {
 		var upload = this;
+
+		this.config = config;
 
 		ui.Step.call(
 			this,
@@ -188,6 +191,37 @@
 		this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
 			.hide();
+	};
+
+	/**
+	 * Shows an error dialog informing the user that some uploads have been omitted
+	 * since they went over the max files limit.
+	 * @param filesUploaded integer - the number of files that have been attempted to upload
+	 */
+	UP.showTooManyFilesWarning = function ( filesUploaded ) {
+		var buttons = [
+			{
+				text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
+				click: function () {
+					$( this ).dialog('destroy').remove();
+				}
+			}
+		];
+
+		$( '<div>' )
+			.msg(
+				'mwe-upwiz-too-many-files-text',
+				this.config.maxUploads,
+				filesUploaded
+			)
+			.dialog( {
+				width: 500,
+				zIndex: 200000,
+				autoOpen: true,
+				title: mw.message( 'mwe-upwiz-too-many-files' ).escaped(),
+				modal: true,
+				buttons: buttons
+			} );
 	};
 
 	ui.Upload = Upload;

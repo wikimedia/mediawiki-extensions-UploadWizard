@@ -40,7 +40,7 @@
 				.on( 'next-step', function () {
 					wizard.moveToStep( 'file' );
 				} ),
-			file: new uw.controller.Upload()
+			file: new uw.controller.Upload( config )
 				.on( 'retry', function () {
 					uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 					wizard.startUploads();
@@ -317,7 +317,7 @@
 						tooManyFiles = totalFiles > mw.UploadWizard.config.maxUploads;
 
 					if ( tooManyFiles ) {
-						wizard.showTooManyFilesWarning( totalFiles );
+						wizard.steps.file.showTooManyFilesWarning( totalFiles );
 						upload.resetFileInput();
 						return;
 					}
@@ -378,36 +378,6 @@
 			} );
 
 			return upload;
-		},
-
-		/**
-		 * Shows an error dialog informing the user that some uploads have been omitted
-		 * since they went over the max files limit.
-		 * @param filesUploaded integer - the number of files that have been attempted to upload
-		 */
-		showTooManyFilesWarning: function ( filesUploaded ) {
-			var buttons = [
-				{
-					text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
-					click: function () {
-						$(this).dialog('destroy').remove();
-					}
-				}
-			];
-			$( '<div>' )
-				.msg(
-					'mwe-upwiz-too-many-files-text',
-					mw.UploadWizard.config.maxUploads,
-					filesUploaded
-				)
-				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					title: mw.message( 'mwe-upwiz-too-many-files' ).escaped(),
-					modal: true,
-					buttons: buttons
-				} );
 		},
 
 		/**

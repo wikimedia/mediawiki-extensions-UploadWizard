@@ -18,10 +18,19 @@
 ( function ( uw, $, oo ) {
 	var UP;
 
-	function Upload() {
+	/**
+	 * Upload step controller.
+	 * @class uw.controller.Upload
+	 * @extends uw.controller.Step
+	 * @constructor
+	 * @param {Object} config UploadWizard config object.
+	 */
+	function Upload( config ) {
+		this.config = config;
+
 		uw.controller.Step.call(
 			this,
-			new uw.ui.Upload()
+			new uw.ui.Upload( config )
 				.connect( this, {
 					retry: [ 'emit', 'retry' ],
 					'next-step': [ 'emit', 'next-step' ],
@@ -47,6 +56,15 @@
 		fewerThanMax = this.uploads.length < max;
 
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
+	};
+
+	/**
+	 * Shows an error dialog informing the user that some uploads have been omitted
+	 * since they went over the max files limit.
+	 * @param filesUploaded integer - the number of files that have been attempted to upload
+	 */
+	UP.showTooManyFilesWarning = function ( filesUploaded ) {
+		this.ui.showTooManyFilesWarning( filesUploaded );
 	};
 
 	UP.empty = function () {
