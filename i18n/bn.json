@@ -5,7 +5,8 @@
 			"Bellayet",
 			"Nasir8891",
 			"Sm faysal",
-			"Wikitanvir"
+			"Wikitanvir",
+			"Aftabuzzaman"
 		]
 	},
 	"uploadwizard": "আপলোড উইজার্ড",
@@ -96,7 +97,7 @@
 	"mwe-upwiz-source-permission": "কাজগুলোর স্বত্তাধিকারী আপনাকে এগুলো আপলোড করার পূর্ণ অনুমতি প্রদান করেছেন",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|এই ফাইলটি|এই ফাইলগুলো}} আমার নিজের কাজ নয়।",
 	"mwe-upwiz-source-thirdparty-intro": "অনুগ্রহপূর্বক প্রত্যেকটি ফাইল আপনি কোথা থেকে পেয়েছেন তা উল্লেখ করুন।",
-	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "যদি সবগুলো ফাইলের সোর্স, লেখক এবং কপিরাইট সংক্রান্ত তথ্য একই হয়, তবে আপনি সকগুলোর জন্য একত্রে নির্বাচন করতে পারবেন।",
+	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "যদি সবগুলো ফাইলের উৎস, লেখক এবং কপিরাইট সংক্রান্ত তথ্য একই হয়, তবে আপনি সকগুলোর জন্য একত্রে নির্বাচন করতে পারবেন।",
 	"mwe-upwiz-source-thirdparty-cases": "{{PLURAL:$1|এই কাজটি|এই কাজগুলো}} কেন আপনার প্রকাশের অধিকার রয়েছে সেটি বর্ণনা করুন:",
 	"mwe-upwiz-source-thirdparty-accept": "ঠিক আছে",
 	"mwe-upwiz-source-custom": "পরবর্তী পাতাতে প্রত্যেকটি ফাইলের জন্য আলাদাভাবে কপিরাইট তথ্য প্রদান করুন।",
