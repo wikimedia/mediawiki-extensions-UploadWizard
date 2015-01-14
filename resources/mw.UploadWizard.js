@@ -332,9 +332,7 @@
 				} )
 
 				.on( 'starting', function () {
-					if ( !wizard.progressBar || wizard.progressBar.finished === true ) {
-						wizard.startProgressBar();
-					}
+					wizard.steps.file.maybeStartProgressBar();
 
 					wizard.allowCloseWindow = mw.confirmCloseWindow( {
 						message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
@@ -538,18 +536,6 @@
 
 		transitionerDelay: 200,  // milliseconds
 
-		startProgressBar: function () {
-			$( '#mwe-upwiz-progress' ).show();
-			this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
-				mw.message( 'mwe-upwiz-uploading' ).escaped(),
-				this.uploads,
-				[ 'stashed' ],
-				[ 'error' ],
-				'transportProgress',
-				'transportWeight' );
-			this.progressBar.start();
-		},
-
 		/**
 		 * Helper function to check whether the upload process is totally
 		 * complete and we can safely leave the window.
@@ -595,15 +581,7 @@
 				test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; }
 			} );
 
-			$( '#mwe-upwiz-progress' ).show();
-			this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
-				mw.message( 'mwe-upwiz-uploading' ).escaped(),
-				this.uploads,
-				[ 'stashed' ],
-				[ 'error' ],
-				'transportProgress',
-				'transportWeight' );
-			this.progressBar.start();
+			this.steps.file.startProgressBar();
 
 			// remove ability to change files
 			// ideally also hide the "button"... but then we require styleable file input CSS trickery
@@ -666,9 +644,8 @@
 				}
 			} );
 
-			if ( this.progressBar ) {
-				this.progressBar.showCount( okCount );
-			}
+			this.steps.file.updateProgressBarCount( okCount );
+
 			if ( okCount === ( this.uploads.length - this.countEmpties() ) ) {
 				allOk = true;
 				selector = '.mwe-upwiz-file-next-all-ok';
@@ -736,8 +713,6 @@
 				}
 
 				this.moveToStep( 'file' );
-
-				this.progressBar = undefined;
 			}
 		},
 
