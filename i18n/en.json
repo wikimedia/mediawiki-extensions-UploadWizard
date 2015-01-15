@@ -298,7 +298,7 @@
 	"mwe-upwiz-category-will-be-added": "This category is not in use yet.",
 	"mwe-upwiz-category-remove": "Remove this category",
 	"mwe-upwiz-thumbnail-failed": "The upload succeeded, but the server could not get a preview thumbnail.",
-	"mwe-upwiz-unparseable-filename": "Could not understand the file name \"$1\".",
+	"mwe-upwiz-unparseable-filename": "Could not understand the filename \"$1\".",
 	"mwe-upwiz-unparseable-title": "This title is invalid. Make sure to remove characters like square brackets, colons, comparison operators, pipes and curly brackets.",
 	"mwe-upwiz-image-preview": "File preview",
 	"mwe-upwiz-subhead-bugs": "[$1 Known issues]",
