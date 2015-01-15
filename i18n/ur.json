@@ -4,7 +4,8 @@
 			"Noor2020",
 			"පසිඳු කාවින්ද",
 			"Tahir mq",
-			"Obaid Raza"
+			"Obaid Raza",
+			"عثمان خان شاہ"
 		]
 	},
 	"uploadwizard": "مددگار اپ لوڈ کریں",
@@ -144,6 +145,7 @@
 	"mwe-upwiz-categories": "زمرہ جات",
 	"mwe-upwiz-categories-add": "ایک اور زمرہ کا اضافہ کریں",
 	"mwe-upwiz-category-remove": "زمرہ حذف کریں",
+	"mwe-upwiz-unparseable-filename": "\"$1\" ملف نام نہیں سمجھ پائے",
 	"mwe-upwiz-errordialog-title": "وہاں اپنے پیش میں ایک غلطی تھی",
 	"mwe-upwiz-errordialog-ok": "ٹھیک ہے",
 	"uploadcampaign-legend": "مہم کی ترتیب کو اپ لوڈ کریں",
