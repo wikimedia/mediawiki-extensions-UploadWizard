@@ -17,7 +17,7 @@
 ( function ( uw ) {
 	QUnit.module( 'uw.model.Description', QUnit.newMwEnvironment( {} ) );
 
-	QUnit.test( 'getValue', 4, function ( assert ) {
+	QUnit.test( 'getValue', 3, function ( assert ) {
 		var desc = new uw.model.Description();
 
 		assert.strictEqual( desc.getValue(), '', 'Empty value returns empty string.' );
@@ -27,8 +27,5 @@
 
 		desc.setLanguage( 'en' );
 		assert.strictEqual( desc.getValue(), '{{en|1=Blah}}', 'Setting language returns template call to that language template.' );
-
-		desc.setText( 'Blah | blah' );
-		assert.strictEqual( desc.getValue(), '{{en|1=Blah &#124; blah}}', 'Escaping of | characters' );
 	} );
 }( mediaWiki.uploadWizard ) );
