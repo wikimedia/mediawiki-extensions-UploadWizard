@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, oo ) {
+( function ( mw, uw, $, oo ) {
 	var DP;
 
 	/**
@@ -52,7 +52,8 @@
 	 * Move to this step.
 	 */
 	DP.moveTo = function ( uploads ) {
-		var customDeed, deeds;
+		var customDeed, deeds,
+			step = this;
 
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
 
@@ -82,7 +83,7 @@
 		$.each( uploads, function ( i, upload ) {
 			// Add previews and details to the DOM
 			if ( !upload.fromURL ) {
-				upload.deedPreview.attach();
+				upload.deedPreview = new uw.ui.DeedPreview( upload, step.config );
 			}
 		} );
 
@@ -117,4 +118,4 @@
 	};
 
 	uw.controller.Deed = Deed;
-}( mediaWiki.uploadWizard, jQuery, OO ) );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

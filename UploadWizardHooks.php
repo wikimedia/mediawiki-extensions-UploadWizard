@@ -509,6 +509,7 @@ class UploadWizardHooks {
 				'uw.controller.Step',
 				'uw.controller.base',
 				'uw.ui.Deed',
+				'uw.ui.DeedPreview',
 			),
 		),
 
@@ -617,6 +618,16 @@ class UploadWizardHooks {
 			'dependencies' => array(
 				'oojs',
 				'uw.ui.Step',
+			),
+		),
+
+		'uw.ui.DeedPreview' => array(
+			'scripts' => array(
+				'resources/ui/uw.ui.DeedPreview.js',
+			),
+
+			'dependencies' => array(
+				'uw.ui.base',
 			),
 		),
 
