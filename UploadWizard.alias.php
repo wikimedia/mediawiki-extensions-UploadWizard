@@ -36,6 +36,13 @@ $specialPageAliases['as'] = array(
 	'UploadWizard' => array( 'আপল’ড_প্ৰক্ৰিয়া' ),
 );
 
+/** Avaric (авар) */
+$specialPageAliases['av'] = array(
+	'UploadWizard' => array( 'Мастер_загрузки' ),
+	'UploadCampaigns' => array( 'Кампании_по_загрузке' ),
+	'UploadCampaign' => array( 'Кампания_по_загрузке' ),
+);
+
 /** Bashkir (башҡортса) */
 $specialPageAliases['ba'] = array(
 	'UploadWizard' => array( 'UploadWizard' ),
