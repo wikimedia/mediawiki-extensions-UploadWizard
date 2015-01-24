@@ -45,6 +45,7 @@ When(/^I click Next button at Describe page$/) do
 end
 
 When(/^I click Next button at Learn page$/) do
+  sleep 1
   on(LearnPage).next_element.when_present(15).click
   on(LearnPage).wait_for_ajax
 end
@@ -163,4 +164,8 @@ end
 
 Then(/^a duplicate name error should appear$/) do
   on(UploadPage).duplicate_error_element.when_present.should be_visible
+end
+
+When(/^I click Upload more files button at Use page$/) do
+  on(UsePage).upload_more_files_element.when_present(15).click
 end
