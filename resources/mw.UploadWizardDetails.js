@@ -11,7 +11,7 @@
  * @param API
  * @param containerDiv	The div to put the interface into
  */
-( function ( mw, uw, $ ) {
+( function ( mw, uw, $, oo ) {
 
 	var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -721,7 +721,8 @@
 		 * a metadata copy widget for the details view of this specific upload
 		 */
 		buildAndShowCopyMetadata: function () {
-			var details = this,
+			var copyButton,
+				details = this,
 				$copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' ),
 				$checkboxes = $();
 
@@ -754,26 +755,25 @@
 			} ) ;
 			$checkboxes.checkboxShiftClick();
 
-			$copyMetadataDiv.append(
-				$( '<button type="button" id="mwe-upwiz-copy-metadata-button"></button>' )
-				.msg( 'mwe-upwiz-copy-metadata-button' )
-				.button()
-				.click(
-					function ( e ) {
-						var button = $( this ).find( 'span' );
-						$.each( details.copyMetadataTypes, function makeCopies( metadataType ) {
-							if ( $( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
-								details.copyMetadata( metadataType );
-							}
-						} );
-						button.text( mw.message( 'mwe-upwiz-copied-metadata-button' ).text() );
-						setTimeout( function ( ) {
-							button.text( mw.message( 'mwe-upwiz-copy-metadata-button' ).text() );
-						}, 1000 );
-						e.stopPropagation();
+			copyButton = new oo.ui.ButtonWidget( {
+				id: 'mwe-upwiz-copy-metadata-button',
+				label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
+				flags: [ 'constructive' ]
+			} ).on( 'click', function () {
+				$.each( details.copyMetadataTypes, function ( metadataType ) {
+					if ( $( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
+						details.copyMetadata( metadataType );
 					}
-				)
-			);
+				} );
+
+				copyButton.setLabel( mw.message( 'mwe-upwiz-copied-metadata-button' ).text() );
+
+				setTimeout( function () {
+					copyButton.setLabel( mw.message( 'mwe-upwiz-copy-metadata-button' ).text() );
+				}, 1000 );
+			} );
+
+			$copyMetadataDiv.append( copyButton.$element );
 
 			this.makeToggler(
 				this.copyMetadataCtrlDiv,
@@ -1803,4 +1803,4 @@
 		return this.optional( elem ) || mw.Title.newFromText( $.trim( s ) );
 	} );
 
-}) ( mediaWiki, mediaWiki.uploadWizard, jQuery );
+}) ( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

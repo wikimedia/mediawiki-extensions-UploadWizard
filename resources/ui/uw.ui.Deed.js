@@ -25,22 +25,15 @@
 	 * @constructor
 	 */
 	function Deed() {
-		var deed = this;
-
 		ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-deeds' ),
 			$( '#mwe-upwiz-step-deeds' )
 		);
 
-		this.$div.find( '.mwe-upwiz-button-next' ).click( function () {
-			$( '.mwe-upwiz-hint' ).each( function () {
-				// Close tipsy help balloons
-				$( this ).tipsy( 'hide' );
-			} );
+		this.addNextButton();
 
-			deed.emit( 'next-step' );
-		} );
+		this.nextButton.$element.hide();
 	}
 
 	oo.inheritClass( Deed, ui.Step );

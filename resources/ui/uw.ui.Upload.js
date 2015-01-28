@@ -41,33 +41,69 @@
 		this.$uploadCenterDivide = $( '#mwe-upwiz-upload-ctr-divide' );
 		this.$uploadStepButtons = $( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' );
 
-		this.$addFile = $( '#mwe-upwiz-add-file' )
-			.button();
+		this.addFile = new oo.ui.ButtonWidget( {
+			id: 'mwe-upwiz-add-file',
+			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
+			flags: [ 'constructive', 'primary' ]
+		} );
+
 		this.$addFileContainer = $( '#mwe-upwiz-add-file-container' );
 
-		this.$flickrAddFile = $( '#mwe-upwiz-upload-ctrl-flickr' )
-			.button()
-			.click( function () {
+		this.$addFileContainer.prepend( this.addFile.$element );
+
+		if ( this.isFlickrImportEnabled() ) {
+			this.addFlickrFile = new oo.ui.ButtonWidget( {
+				id: 'mwe-upwiz-add-flickr-file',
+				label: mw.message( 'mwe-upwiz-add-file-flickr' ).text(),
+				flags: 'constructive'
+			} ).on( 'click', function () {
 				upload.emit( 'flickr-ui-init' );
 			} );
-		this.$flickrAddFileContainer = $( '#mwe-upwiz-upload-ctrl-flickr-container' );
 
-		this.$flickrSelect = $( '#mwe-upwiz-select-flickr' );
-		this.$flickrSelectList = $( '#mwe-upwiz-flickr-select-list' );
-		this.$flickrSelectListContainer = $( '#mwe-upwiz-flickr-select-list-container' );
+			this.$flickrAddFileContainer = $( '#mwe-upwiz-upload-ctrl-flickr-container' );
 
-		this.$nextStepButton = this.$div
-			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-next' )
-			.click( function () {
-				upload.emit( 'next-step' );
-			} );
+			this.$flickrAddFileContainer.append( this.addFlickrFile.$element );
 
-		this.$retryButton = this.$div
-			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-retry' )
-			.click( function () {
-				upload.hideEndButtons();
-				upload.emit( 'retry' );
-			} );
+			this.$flickrSelect = $( '#mwe-upwiz-select-flickr' );
+			this.$flickrSelectList = $( '#mwe-upwiz-flickr-select-list' );
+			this.$flickrSelectListContainer = $( '#mwe-upwiz-flickr-select-list-container' );
+		}
+
+		this.nextStepButtonAllOk = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-next-file' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', function () {
+			upload.emit( 'next-step' );
+		} );
+
+		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).append( this.nextStepButtonAllOk.$element );
+
+		this.retryButtonSomeFailed = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
+			flags: [ 'progressive' ]
+		} ).on( 'click', function () {
+			upload.hideEndButtons();
+			upload.emit( 'retry' );
+		} );
+
+		this.nextStepButtonSomeFailed = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', function () {
+			upload.emit( 'next-step' );
+		} );
+
+		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append( this.retryButtonSomeFailed.$element, this.nextStepButtonSomeFailed.$element );
+
+		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
+			flags: [ 'progressive' ]
+		} ).on( 'click', function () {
+			upload.hideEndButtons();
+			upload.emit( 'retry' );
+		} );
+
+		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append( this.retryButtonAllFailed.$element );
 
 		this.$fileList = $( '#mwe-upwiz-filelist' );
 
@@ -84,8 +120,9 @@
 	 * @param {boolean} fewerThanMax Whether we can add more uploads.
 	 */
 	UP.updateFileCounts = function ( haveUploads, fewerThanMax ) {
+		var $needToHide;
+
 		this.$fileList.toggleClass( 'mwe-upwiz-filled-filelist', haveUploads );
-		this.$addFile.add( this.$flickrAddFile ).toggleClass( 'mwe-upwiz-add-files-n', haveUploads );
 		this.$addFileContainer.toggleClass( 'mwe-upwiz-add-files-0', !haveUploads );
 
 		this.setAddButtonText( haveUploads && this.config.enableMultipleFiles === true );
@@ -96,11 +133,15 @@
 			this.$uploadCenterDivide.hide();
 
 			if ( mw.UploadWizard.config.enableMultipleFiles !== true ) {
-				$( '.mwe-upwiz-file-input' )
-					.add( this.$addFile )
-					.add( this.$flickrAddFileContainer )
-					.add( this.$flickrSelectListContainer )
-					.hide();
+				$needToHide = $( '.mwe-upwiz-file-input' )
+					.add( this.$addFileContainer );
+
+				if ( this.isFlickrImportEnabled() ) {
+					$needToHide.add( this.$flickrAddFileContainer )
+						.add( this.$flickrSelectListContainer );
+				}
+
+				$needToHide.hide();
 			}
 
 			// fix the rounded corners on file elements.
@@ -122,9 +163,11 @@
 			}
 		}
 
-		this.$addFile
-			.add( this.$flickrAddFile )
-			.button( 'option', 'disabled', !fewerThanMax );
+		this.addFile.setDisabled( !fewerThanMax );
+
+		if ( this.isFlickrImportEnabled() ) {
+			this.addFlickrFile.setDisabled( !fewerThanMax );
+		}
 
 		this.$fileList.find( '.mwe-upwiz-file:not(.filled) .mwe-upwiz-file-input' ).prop( 'disabled', !fewerThanMax );
 	};
@@ -143,12 +186,13 @@
 			msg += '0-free';
 		}
 
-		this.$addFile.button( 'option', 'label', mw.message( msg ).escaped() );
+		this.addFile.setLabel( mw.message( msg ).text() );
 
 		// if Flickr uploading is available to this user, show the "add more files from flickr" button
 		if ( this.isFlickrImportEnabled() ) {
-			// changes the flickr add button to "add more files from flickr"
-			this.$flickrAddFile.button( 'option', 'label', mw.message( fmsg ).escaped() );
+			// changes the flickr add button to "add more files from flickr" if necessary.
+			this.addFlickrFile.setLabel( mw.message( fmsg ).text() );
+			this.$flickrAddFileContainer.show();
 		}
 	};
 
@@ -162,22 +206,23 @@
 			.hide();
 
 		this.$addFileContainer
-			.add( this.$addFile )
+			.add( this.$uploadCenterDivide )
+			.add( this.$uploadCtrls )
 			.show();
 
 		if ( this.isFlickrImportEnabled() ) {
 			this.$flickrAddFileContainer
 				.add( this.$uploadCenterDivide )
 				.show();
+
+			// changes the button back from "add more files from flickr" to the initial text
+			this.addFlickrFile.setLabel( mw.message( 'mwe-upwiz-add-file-flickr' ).text() );
+
+			this.emptyFlickrLists();
 		}
 
 		// changes the button back from "add another file" to the initial centered invitation button
-		this.$addFile.button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-0-free' ).escaped() );
-
-		// changes the button back from "add more files from flickr" to the initial text
-		this.$flickrAddFile.button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-flickr' ).escaped() );
-
-		this.emptyFlickrLists();
+		this.addFile.setLabel( mw.message( 'mwe-upwiz-add-file-0-free' ).text() );
 	};
 
 	/**
@@ -193,8 +238,6 @@
 	UP.moveTo = function () {
 		ui.Step.prototype.moveTo.call( this );
 
-		this.$addFile.add( this.$flickrAddFile ).removeClass( 'mwe-upwiz-add-files-n' );
-		this.$addFileContainer.addClass( 'mwe-upwiz-add-files-0' );
 		this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
 
 		// Show the upload button, and the add file button

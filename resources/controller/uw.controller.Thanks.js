@@ -27,6 +27,9 @@
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Thanks()
+				.connect( this, {
+					'reset-wizard': [ 'emit', 'reset-wizard' ]
+				} )
 		);
 
 		this.stepName = 'thanks';

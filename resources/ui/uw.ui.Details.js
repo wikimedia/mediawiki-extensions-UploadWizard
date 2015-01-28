@@ -60,19 +60,33 @@
 			.find( '.mwe-upwiz-file-next-all-failed' )
 			.hide();
 
-		this.$nextButton = this.$div
-			.find( '.mwe-upwiz-start-next .mwe-upwiz-button-next' )
-			.click( startDetails );
+		this.nextButton = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-next-details' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', startDetails );
 
-		this.$nextButtonDespiteFailures = this.$div
-			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-next-despite-failures' )
-			.click( function () {
-				details.emit( 'finalize-details-after-removal' );
-			} );
+		this.$div.find( '.mwe-upwiz-start-next' ).append( this.nextButton.$element );
 
-		this.$retryButton = this.$div
-			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-retry' )
-			.click( startDetails );
+		this.nextButtonDespiteFailures = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
+			flags: [ 'progressive' ]
+		} ).on( 'click', function () {
+			details.emit( 'finalize-details-after-removal' );
+		} );
+
+		this.retryButtonSomeFailed = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-file-retry' ),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', startDetails );
+
+		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append( this.nextButtonDespiteFailures.$element, this.retryButtonSomeFailed.$element );
+
+		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-file-retry' ),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', startDetails );
+
+		this.$div.find( '.mwe-upwiz-file-all-failed' ).append( this.retryButtonAllFailed.$element );
 
 		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
 	}

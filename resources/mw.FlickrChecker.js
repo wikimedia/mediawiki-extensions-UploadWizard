@@ -1,13 +1,21 @@
 // Only turning these jshint options off for ''this file''
 /* jshint camelcase: false, nomen: false */
 /* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
-( function ( mw, $ ) {
+( function ( mw, $, oo ) {
 	mw.FlickrChecker = function ( wizard, upload ) {
 		this.wizard = wizard;
 		this.upload = upload;
 		this.imageUploads = [];
 		this.apiUrl = mw.UploadWizard.config.flickrApiUrl;
 		this.apiKey = mw.UploadWizard.config.flickrApiKey;
+
+		this.selectButton = new oo.ui.ButtonWidget( {
+			id: 'mwe-upwiz-select-flickr',
+			label: mw.message( 'mwe-upwiz-add-file-0-free' ),
+			flags: [ 'constructive', 'primary' ]
+		} );
+
+		$( '#mwe-upwiz-flickr-select-list-container' ).append( this.selectButton.$element );
 	};
 
 	/**
@@ -304,10 +312,9 @@
 				flickrPromise,
 				req = {};
 
-			$( '#mwe-upwiz-select-flickr' ).button( {
-				label: mw.message( 'mwe-upwiz-select-flickr' ).escaped(),
-				disabled: true
-			} );
+			this.selectButton.setLabel( mw.message( 'mwe-upwiz-select-flickr' ).text() );
+			this.selectButton.setDisabled( true );
+
 			$.extend( req, options, {
 				extras: 'license, url_sq, owner_name, original_format, date_taken, geo, path_alias'
 			} );
@@ -391,15 +398,11 @@
 				$( '#mwe-upwiz-flickr-select-list' ).selectable( {
 					stop: function () {
 						// If at least one item is selected, activate the upload button
-						if ( $( '.ui-selected' ).length > 0 ) {
-							$( '#mwe-upwiz-select-flickr' ).button( 'enable' );
-						} else {
-							$( '#mwe-upwiz-select-flickr' ).button( 'disable' );
-						}
+						checker.selectButton.setDisabled( $( '.ui-selected' ).length === 0 );
 					}
 				} );
 				// Set up action for 'Upload selected images' button
-				$( '#mwe-upwiz-select-flickr' ).click( function () {
+				checker.selectButton.on( 'click', function () {
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
 					$( 'li.ui-selected' ).each( function ( index, image ) {
@@ -659,4 +662,4 @@
 
 	};
 
-} )( mediaWiki, jQuery );
+} )( mediaWiki, jQuery, OO );

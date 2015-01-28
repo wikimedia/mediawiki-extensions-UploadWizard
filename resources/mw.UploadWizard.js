@@ -2,7 +2,7 @@
 * Object that reperesents the entire multi-step Upload Wizard
 */
 
-( function ( mw, uw, $ ) {
+( function ( mw, uw, $, oo ) {
 
 	mw.UploadWizard = function ( config ) {
 		this.uploads = [];
@@ -57,6 +57,9 @@
 				} ),
 
 			thanks: new uw.controller.Thanks()
+				.on( 'reset-wizard', function () {
+					wizard.reset();
+				} )
 		};
 
 		$.each( this.steps, function ( name, step ) {
@@ -154,9 +157,13 @@
 				// Form whose submit event will be listened to and prevented
 				$flickrForm = $( '<form id="mwe-upwiz-flickr-url-form"></form>' )
 					.appendTo( $flickrContainer ),
-				// Submit button to be clicked after entering the URL
-				$flickrButton = $( '<button id="mwe-upwiz-upload-add-flickr" class="ui-helper-center-fix" type="submit"></button>' )
-					.appendTo( $flickrForm );
+				flickrButton = new oo.ui.ButtonInputWidget( {
+					id: 'mwe-upwiz-upload-ctrl-flickr',
+					label: mw.message( 'mwe-upwiz-add-flickr' ).text(),
+					flags: [ 'progressive', 'primary' ]
+				} );
+
+			$flickrForm.append( flickrButton.$element );
 
 			// Hide containers for selecting files
 			$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
@@ -175,14 +182,11 @@
 
 			// Insert input field into the form and set up submit action
 			$flickrForm.prepend( $flickrInput ).submit( function () {
-				$flickrButton.prop( 'disabled', true );
+				flickrButton.setDisabled( true );
 				wizard.flickrChecker( checker );
 				// TODO Any particular reason to stopPropagation ?
 				return false;
 			} );
-
-			// Set up the submit button
-			$flickrButton.button( { label: mw.message( 'mwe-upwiz-add-flickr' ).escaped() } );
 
 			$flickrInput.focus();
 		},
@@ -699,4 +703,4 @@
 		debug: true,
 		errorClass: 'mwe-validator-error'
 	} );
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
