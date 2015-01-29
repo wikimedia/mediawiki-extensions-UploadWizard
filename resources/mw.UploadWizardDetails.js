@@ -722,9 +722,10 @@
 		 */
 		buildAndShowCopyMetadata: function () {
 			var copyButton,
+				copyTypes = {},
+				fieldset = new OO.ui.FieldsetLayout(),
 				details = this,
-				$copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' ),
-				$checkboxes = $();
+				$copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' );
 
 			if ( mw.UploadWizard.config.copyMetadataFeature !== true ||
 				this.copyMetadataCtrlDiv !== undefined ) {
@@ -733,27 +734,34 @@
 
 			this.copyMetadataCtrlDiv = $( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
 
-			$.each( this.copyMetadataTypes, function addToMetadataDiv( metadataName, defaultStatus ) {
-				var copyMessage = 'mwe-upwiz-copy-' + metadataName,
-					copyMetadataMsg,
-					$checkbox;
+			$copyMetadataDiv.append( fieldset.$element );
+
+			$.each( this.copyMetadataTypes, function ( metadataName, defaultStatus ) {
+				var copyMetadataMsg, checkbox, field,
+					copyMessage = 'mwe-upwiz-copy-' + metadataName;
+
 				if ( metadataName === 'description' || metadataName === 'categories' ) {
 					copyMetadataMsg = mw.message( copyMessage, 1 ).text();
 				} else {
 					copyMetadataMsg = mw.message( copyMessage ).text();
 				}
-				$checkbox = $( '<input>' ).attr( 'type', 'checkbox' ).attr( 'name', copyMessage ).attr( 'id', copyMessage );
-				$checkboxes = $checkboxes.add( $checkbox );
-				if ( defaultStatus === true ) {
-					$checkbox.prop( 'checked', true );
-				}
 
-				$copyMetadataDiv
-					.append( $checkbox )
-					.append( $( '<label for="' + copyMessage + '"></label>' ).text( copyMetadataMsg ) )
-					.append( $( '<br />' ) );
+				checkbox = new OO.ui.CheckboxInputWidget( {
+					selected: defaultStatus
+				} );
+
+				copyTypes[metadataName] = checkbox;
+
+				field = new OO.ui.FieldLayout( checkbox, {
+					label: copyMetadataMsg,
+					align: 'inline'
+				} );
+
+				fieldset.addItems( [ field ] );
 			} ) ;
-			$checkboxes.checkboxShiftClick();
+
+			// Keep our checkboxShiftClick behaviour alive
+			$copyMetadataDiv.find( 'input[type=checkbox]' ).checkboxShiftClick();
 
 			copyButton = new oo.ui.ButtonWidget( {
 				id: 'mwe-upwiz-copy-metadata-button',
@@ -761,7 +769,7 @@
 				flags: [ 'constructive' ]
 			} ).on( 'click', function () {
 				$.each( details.copyMetadataTypes, function ( metadataType ) {
-					if ( $( '#mwe-upwiz-copy-' + metadataType ).is( ':checked' ) ) {
+					if ( copyTypes[metadataType].isSelected() ) {
 						details.copyMetadata( metadataType );
 					}
 				} );
