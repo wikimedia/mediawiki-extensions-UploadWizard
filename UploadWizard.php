@@ -42,39 +42,37 @@ $wgExtensionCredits['other'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
 );
 
-$wgUpwizDir = __DIR__;
-
 $wgMessagesDirs['UploadWizard'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['UploadWizard'] = $wgUpwizDir . '/UploadWizard.i18n.php';
-$wgExtensionMessagesFiles['UploadWizardAlias'] = $wgUpwizDir . '/UploadWizard.alias.php';
+$wgExtensionMessagesFiles['UploadWizard'] = __DIR__ . '/UploadWizard.i18n.php';
+$wgExtensionMessagesFiles['UploadWizardAlias'] = __DIR__ . '/UploadWizard.alias.php';
 
 # Require modules
 $wgAutoloadClasses += array(
 	// Hooks
-	'UploadWizardHooks' => $wgUpwizDir . '/UploadWizardHooks.php',
+	'UploadWizardHooks' => __DIR__ . '/UploadWizardHooks.php',
 
 	// Includes
-	'UploadWizardConfig' => $wgUpwizDir . '/includes/UploadWizardConfig.php',
-	'UploadWizardTutorial' => $wgUpwizDir . '/includes/UploadWizardTutorial.php',
-	'UploadWizardCampaign' => $wgUpwizDir . '/includes/UploadWizardCampaign.php',
-	'UploadWizardFlickrBlacklist' => $wgUpwizDir . '/includes/UploadWizardFlickrBlacklist.php',
+	'UploadWizardConfig' => __DIR__ . '/includes/UploadWizardConfig.php',
+	'UploadWizardTutorial' => __DIR__ . '/includes/UploadWizardTutorial.php',
+	'UploadWizardCampaign' => __DIR__ . '/includes/UploadWizardCampaign.php',
+	'UploadWizardFlickrBlacklist' => __DIR__ . '/includes/UploadWizardFlickrBlacklist.php',
 
 	// Campaign ContentHandler
-	'CampaignContentHandler' => $wgUpwizDir . '/includes/CampaignContentHandler.php',
-	'CampaignContent' => $wgUpwizDir . '/includes/CampaignContent.php',
-	'CampaignPageFormatter' => $wgUpwizDir . '/includes/CampaignPageFormatter.php',
-	'CampaignHooks' => $wgUpwizDir . '/includes/CampaignHooks.php',
+	'CampaignContentHandler' => __DIR__ . '/includes/CampaignContentHandler.php',
+	'CampaignContent' => __DIR__ . '/includes/CampaignContent.php',
+	'CampaignPageFormatter' => __DIR__ . '/includes/CampaignPageFormatter.php',
+	'CampaignHooks' => __DIR__ . '/includes/CampaignHooks.php',
 
 	// Special Pages
-	'SpecialUploadWizard' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
-	'SpecialCampaigns' => $wgUpwizDir . '/includes/specials/SpecialCampaigns.php',
+	'SpecialUploadWizard' => __DIR__ . '/includes/specials/SpecialUploadWizard.php',
+	'SpecialCampaigns' => __DIR__ . '/includes/specials/SpecialCampaigns.php',
 
 	// API
-	'ApiQueryAllCampaigns' => $wgUpwizDir . '/includes/ApiQueryAllCampaigns.php',
-	'ApiFlickrBlacklist' => $wgUpwizDir . '/includes/ApiFlickrBlacklist.php',
+	'ApiQueryAllCampaigns' => __DIR__ . '/includes/ApiQueryAllCampaigns.php',
+	'ApiFlickrBlacklist' => __DIR__ . '/includes/ApiFlickrBlacklist.php',
 
 	// Appease the tests
-	'UploadWizardSimpleForm' => $wgUpwizDir . '/includes/specials/SpecialUploadWizard.php',
+	'UploadWizardSimpleForm' => __DIR__ . '/includes/specials/SpecialUploadWizard.php',
 );
 
 $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';

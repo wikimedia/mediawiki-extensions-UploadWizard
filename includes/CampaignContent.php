@@ -26,15 +26,13 @@ class CampaignContent extends JsonContent {
 	 * @return bool: True if valid.
 	 */
 	function validate() {
-		global $wgUpwizDir;
-
 		wfProfileIn( __METHOD__ );
 		$campaign = $this->getJsonData();
 		if ( !is_array( $campaign ) ) {
 			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
 		}
 
-		$schema = include( $wgUpwizDir . '/includes/CampaignSchema.php' );
+		$schema = include( __DIR__ . '/CampaignSchema.php' );
 
 		// Only validate fields we care about
 		$campaignFields = array_keys( $schema['properties'] );
