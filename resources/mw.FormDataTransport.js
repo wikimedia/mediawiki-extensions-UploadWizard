@@ -144,7 +144,7 @@
 				transport.emitParsedResponse( evt );
 			}, false);
 
-			formData = this.createFormData();
+			formData = this.createFormData( this.tempname );
 			formData.append( 'file', file );
 
 			this.sendData( this.xhr, formData );
