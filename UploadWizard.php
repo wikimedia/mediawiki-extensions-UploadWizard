@@ -39,7 +39,8 @@ $wgExtensionCredits['other'][] = array(
 	),
 	'version' => '1.4.0',
 	'descriptionmsg' => 'uploadwizard-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard'
+	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard',
+	'license-name' => 'GPL-2.0+'
 );
 
 $wgMessagesDirs['UploadWizard'] = __DIR__ . '/i18n';
