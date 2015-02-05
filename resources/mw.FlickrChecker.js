@@ -405,7 +405,7 @@
 					$( 'li.ui-selected' ).each( function ( index, image ) {
 						image = $( this ).attr( 'id' );
 						image = image.split( '-' )[1];
-						checker.setImageDescription( image );
+						checker.setUploadDescription( checker.imageUploads[image] );
 						checker.setImageURL( image );
 					} );
 				} );
@@ -477,13 +477,13 @@
 					licenseMessage: license.licenseMessage,
 					license: true,
 					author: photoAuthor,
-					description: photo.description._content,
 					originalFormat: photo.originalformat,
 					date: photo.dates.taken,
 					location: photo.location,
 					photoId: photo.id,
 					sourceURL: sourceURL
 				};
+				checker.setUploadDescription( flickrUpload, photo.description._content );
 				checker.imageUploads.push( flickrUpload );
 				checker.setImageURL( 0, checker );
 				checker.reserveFileName( fileName );
@@ -557,15 +557,25 @@
 			} );
 		},
 
-		setImageDescription: function ( index ) {
-			var upload = this.imageUploads[index],
+		setUploadDescription: function ( upload, description ) {
+			if ( description !== undefined ) {
+				// If a Flickr description has a | character in it, it will
+				// mess up the MediaWiki description. Escape them.
+				upload.description = description.replace( /\|/g, '&#124;' );
+			} else {
+				this.setImageDescription( upload );
+			}
+		},
+
+		setImageDescription: function ( upload ) {
+			var checker = this,
 				photoId = upload.photoId;
 
 			this.flickrRequest( {
 				method: 'flickr.photos.getInfo',
 				photo_id: photoId
 			} ).done( function ( data ) {
-				upload.description = data.photo.description._content;
+				checker.setUploadDescription( upload, data.photo.description._content );
 			} );
 		},
 

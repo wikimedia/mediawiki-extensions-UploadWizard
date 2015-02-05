@@ -58,4 +58,36 @@
 			'foo - 123.jpg'
 		);
 	} );
+
+	QUnit.test( 'setUploadDescription', 9, function ( assert ) {
+		var flickrChecker = getInstance(),
+			upload = {},
+			sidstub = this.sandbox.stub( flickrChecker, 'setImageDescription' );
+
+		flickrChecker.setUploadDescription( upload );
+		assert.ok( sidstub.called );
+		assert.ok( !upload.description );
+
+		sidstub.reset();
+		upload = {};
+		flickrChecker.setUploadDescription( upload, 'Testing' );
+		assert.strictEqual( upload.description, 'Testing' );
+		assert.ok( !sidstub.called );
+
+		sidstub.reset();
+		upload = {};
+		flickrChecker.setUploadDescription( upload, 'Testing | 1234' );
+		assert.strictEqual( upload.description, 'Testing &#124; 1234' );
+		assert.ok( !sidstub.called );
+
+		upload = {};
+		flickrChecker.setUploadDescription( upload, 'Testing | 1234 | 5678' );
+		assert.strictEqual( upload.description, 'Testing &#124; 1234 &#124; 5678' );
+
+		sidstub.reset();
+		upload = {};
+		flickrChecker.setUploadDescription( upload, '' );
+		assert.ok( !sidstub.called );
+		assert.strictEqual( upload.description, '' );
+	} );
 } ( mediaWiki ) );
