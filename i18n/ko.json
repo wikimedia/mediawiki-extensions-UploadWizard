@@ -127,7 +127,7 @@
 	"mwe-upwiz-copy-metadata": "아래의 {{PLURAL:$1|다른 올리기|모든 올리기}} 정보를 복사 ...",
 	"mwe-upwiz-copy-metadata-button": "복사",
 	"mwe-upwiz-copied-metadata-button": "성공적으로 복사함",
-	"mwe-upwiz-copy-title": "제목 복사 (자동으로 번호 매기기)",
+	"mwe-upwiz-copy-title": "(자동으로 번호를 매겨서) 제목 복사",
 	"mwe-upwiz-copy-description": "{{PLURAL:$1|설명}} 복사",
 	"mwe-upwiz-copy-date": "날짜 복사",
 	"mwe-upwiz-copy-categories": "{{PLURAL:$1|분류}} 복사",
