@@ -355,7 +355,8 @@
 						.append( $( '<label>' )
 								.text( mw.message( 'mwe-upwiz-source' ).text() )
 								.attr( 'for', 'mwe-source-' + this.getInstanceCount() )
-								.addHint( 'source' ),
+								.addHint( 'source' )
+								.requiredFieldLabel(),
 							this.sourceInput ),
 					$( '<label generated="true" class="mwe-validator-error" style="display:block;" />' )
 						.attr( 'for', 'mwe-author-' + this.getInstanceCount() ),
@@ -363,7 +364,8 @@
 						.append( $( '<label>' )
 								.text( mw.message( 'mwe-upwiz-author' ).text() )
 								.attr( 'for', 'mwe-author-' + this.getInstanceCount() )
-								.addHint( 'author' ),
+								.addHint( 'author' )
+								.requiredFieldLabel(),
 							this.authorInput ),
 					$( '<div class="mwe-upwiz-thirdparty-license" />' )
 						.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', this.uploadCount ) )
