@@ -26,7 +26,6 @@ class CampaignContent extends JsonContent {
 	 * @return bool: True if valid.
 	 */
 	function validate() {
-		wfProfileIn( __METHOD__ );
 		$campaign = $this->getJsonData();
 		if ( !is_array( $campaign ) ) {
 			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
@@ -48,10 +47,7 @@ class CampaignContent extends JsonContent {
 		}
 
 		$mergedConfig = UploadWizardConfig::array_replace_sanely( $defaultCampaignConfig, $campaign );
-		$result = efSchemaValidate( $mergedConfig , $schema );
-		wfProfileOut( __METHOD__ );
-
-		return $result;
+		return efSchemaValidate( $mergedConfig , $schema );
 	}
 
 	/**
@@ -82,11 +78,10 @@ class CampaignContent extends JsonContent {
 	}
 
 	function generateHtml( $title ) {
-		wfProfileIn( __METHOD__ );
 		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
 
 		$formatter = new CampaignPageFormatter( $campaign );
-		wfProfileOut( __METHOD__ );
+
 		return $formatter->generateReadHtml();
 	}
 }

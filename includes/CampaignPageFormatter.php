@@ -133,7 +133,6 @@ class CampaignPageFormatter {
 				) .
 				$body
 			);
-		wfProfileOut( __METHOD__ );
 		return $result;
 	}
 }
