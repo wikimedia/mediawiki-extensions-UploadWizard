@@ -89,4 +89,14 @@ class CampaignContent extends JsonContent {
 		wfProfileOut( __METHOD__ );
 		return $formatter->generateReadHtml();
 	}
+
+	/**
+	 * Deprecated in JsonContent but still useful here because we need to merge the schema's data
+	 * with a config array
+	 *
+	 * @return array|null
+	 */
+	public function getJsonData() {
+		return FormatJson::decode( $this->getNativeData(), true );
+	}
 }
