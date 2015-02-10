@@ -23,8 +23,7 @@
 
 		this.transport = new mw.FormDataTransport(
 			this.$form[0].action,
-			this.formData,
-			this.upload
+			this.formData
 		).on( 'progress', function ( evt, xhr ) {
 			var fraction;
 
