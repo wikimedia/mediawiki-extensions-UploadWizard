@@ -20,7 +20,6 @@ class UploadWizardTutorial {
 	public static function getHtml( $campaign = null ) {
 		global $wgLang;
 
-		wfProfileIn( __METHOD__ );
 		$error = null;
 		$errorHtml = '';
 		$tutorialHtml = '';
@@ -75,7 +74,6 @@ class UploadWizardTutorial {
 			}
 			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), $errorMsg->text() );
 		}
-		wfProfileOut( __METHOD__ );
 
 		return $errorHtml . $tutorialHtml;
 

@@ -122,7 +122,6 @@ class UploadWizardCampaign {
 	public function getTotalContributorsCount() {
 		global $wgMemc;
 
-		wfProfileIn( __METHOD__ );
 		$key = wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'contributors-count' );
 		$data = $wgMemc->get( $key );
 		if ( $data === false ) {
@@ -146,12 +145,11 @@ class UploadWizardCampaign {
 
 			$wgMemc->set( $key, $data, UploadWizardConfig::getSetting( 'campaignStatsMaxAge' ) );
 		}
-		wfProfileOut( __METHOD__ );
+
 		return $data;
 	}
 
 	public function getUploadedMedia( $limit = 24 ) {
-		wfProfileIn( __METHOD__ );
 		$dbr = wfGetDB( DB_SLAVE );
 		$result = $dbr->select(
 			array( 'categorylinks', 'page' ),
@@ -170,7 +168,6 @@ class UploadWizardCampaign {
 		foreach ( $result as $row ) {
 			$images[] = Title::makeTitle( $row->page_namespace, $row->page_title );
 		}
-		wfProfileOut( __METHOD__ );
 
 		return $images;
 	}
@@ -213,7 +210,6 @@ class UploadWizardCampaign {
 	private function parseValue( $value, Language $lang ) {
 		global $wgParser;
 
-		wfProfileIn( __METHOD__ );
 		$parserOptions = ParserOptions::newFromContext( $this->context );
 		$parserOptions->setEditSection( false );
 		$parserOptions->setInterfaceMessage( true );
@@ -231,7 +227,6 @@ class UploadWizardCampaign {
 		}
 
 		$this->updateTemplates( $output );
-		wfProfileOut( __METHOD__ );
 
 		return $parsed;
 	}
@@ -293,7 +288,6 @@ class UploadWizardCampaign {
 			}
 		}
 
-		wfProfileIn( __METHOD__ );
 		if ( $this->parsedConfig === null ) {
 			$parsedConfig = array();
 			foreach ( $this->config as $key => $value ) {
@@ -335,7 +329,6 @@ class UploadWizardCampaign {
 
 		$this->modifyIfNecessary();
 
-		wfProfileOut( __METHOD__ );
 		return $this->parsedConfig;
 	}
 
