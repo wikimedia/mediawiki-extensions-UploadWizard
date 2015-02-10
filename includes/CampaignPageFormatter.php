@@ -89,17 +89,23 @@ class CampaignPageFormatter {
 		}
 
 		if ( UploadWizardConfig::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
+			$uploaderCount = $this->campaign->getTotalContributorsCount();
 			$campaignExpensiveStats =
 				Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
 					Html::element( 'div', array( 'class' => 'mw-campaign-number' ),
-						$this->context->getLanguage()->formatNum( $this->campaign->getTotalContributorsCount() ) ) .
-					Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-contributors-count-desc')->plain() )
+						$this->context->getLanguage()->formatNum( $uploaderCount ) ) .
+					Html::element( 'span',
+						array( 'class' => 'mw-campaign-number-desc' ),
+						wfMessage( 'mwe-upwiz-campaign-contributors-count-desc')
+						->numParams( $uploaderCount )
+						->text()
+					)
 				);
 		} else {
 			$campaignExpensiveStats = '';
 		}
 
-
+		$uploadCount = $this->campaign->getUploadedMediaCount();
 		$result =
 			Html::rawElement( 'div', array( 'id' => 'mw-campaign-container' ),
 				Html::rawElement( 'div', array( 'id' => 'mw-campaign-header' ),
@@ -114,8 +120,14 @@ class CampaignPageFormatter {
 						$campaignExpensiveStats .
 						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
 							Html::element( 'div', array( 'class' => 'mw-campaign-number' ),
-								$this->context->getLanguage()->formatNum( $this->campaign->getUploadedMediaCount() ) ) .
-							Html::element( 'span', array( 'class' => 'mw-campaign-number-desc' ), wfMessage( 'mwe-upwiz-campaign-media-count-desc')->text() )
+								$this->context->getLanguage()->formatNum( $uploadCount ) 
+							) .
+							Html::element( 'span',
+								array( 'class' => 'mw-campaign-number-desc' ),
+								wfMessage( 'mwe-upwiz-campaign-media-count-desc')
+								->numParams( $uploadCount )
+								->text()
+							)
 						)
 					)
 				) .
