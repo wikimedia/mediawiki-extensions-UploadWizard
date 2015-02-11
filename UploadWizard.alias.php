@@ -97,6 +97,7 @@ $specialPageAliases['es'] = array(
 
 /** Estonian (eesti) */
 $specialPageAliases['et'] = array(
+	'Campaigns' => array( 'Kampaaniad' ),
 	'UploadWizard' => array( 'Üleslaadimisviisard' ),
 	'UploadCampaigns' => array( 'Üleslaadimiskampaaniad' ),
 	'UploadCampaign' => array( 'Üleslaadimiskampaania' ),
