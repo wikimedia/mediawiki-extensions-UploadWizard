@@ -219,6 +219,8 @@
 	"mwe-upwiz-dialog-yes": "Ya",
 	"mwe-upwiz-dialog-no": "Tidak",
 	"mwe-upwiz-dialog-title": "Amaran",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Muatnaikan}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Penyumbang}}",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Pengiktirafan-PerkongsianSerupa 3.0 ([$2 kanun undang-undang])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Pengiktirafan-PerkongsianSerupa 3.0 Austria ([$2 kanun undang-undang])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Pengiktirafan-PerkongsianSerupa 3.0 Jerman ([$2 kanun undang-undang])",

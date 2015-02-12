@@ -36,7 +36,8 @@
 			"Wyz",
 			"Y-M D",
 			"Jdforrester",
-			"Orikrin1998"
+			"Orikrin1998",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -263,7 +264,7 @@
 	"mwe-upwiz-campaign-create-account-button": "Créez un compte et importez des fichiers !",
 	"mwe-upwiz-campaign-upload-button": "Importer !",
 	"mwe-upwiz-campaign-media-count-desc": "Téléversements",
-	"mwe-upwiz-campaign-contributors-count-desc": "Contributeurs",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Contributeur|Contributeurs}}",
 	"mwe-upwiz-campaign-view-all-media": "Voir tous les fichiers importés.",
 	"mwe-upwiz-campaign-no-uploads-yet": "Pas encore de fichier !",
 	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Attribution ShareAlike 4.0 ([$2 contenu légal])",

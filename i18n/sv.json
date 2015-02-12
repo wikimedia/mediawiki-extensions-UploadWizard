@@ -14,7 +14,8 @@
 			"Skalman",
 			"Tobulos1",
 			"Warrakkk",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Jenniesarina"
 		]
 	},
 	"uploadwizard": "Uppladdningsguiden",
@@ -241,8 +242,8 @@
 	"mwe-upwiz-dialog-title": "Varning",
 	"mwe-upwiz-campaign-create-account-button": "Skapa ett konto och ladda upp!",
 	"mwe-upwiz-campaign-upload-button": "Ladda upp!",
-	"mwe-upwiz-campaign-media-count-desc": "Uppladdningar",
-	"mwe-upwiz-campaign-contributors-count-desc": "Bidragsgivare",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Upload|Uploads}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Bidragsgivare|Bidragsgivare}}",
 	"mwe-upwiz-campaign-view-all-media": "Visa all uppladdad media",
 	"mwe-upwiz-campaign-no-uploads-yet": "Inga uppladdningar än!",
 	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Erkännande-DelaLika 4.0 ([$2 fullständig licens])",
