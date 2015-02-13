@@ -37,7 +37,8 @@
 			"Y-M D",
 			"Jdforrester",
 			"Orikrin1998",
-			"Macofe"
+			"Macofe",
+			"Element303"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -263,7 +264,7 @@
 	"mwe-upwiz-dialog-title": "Avertissement",
 	"mwe-upwiz-campaign-create-account-button": "Créez un compte et importez des fichiers !",
 	"mwe-upwiz-campaign-upload-button": "Importer !",
-	"mwe-upwiz-campaign-media-count-desc": "Téléversements",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Téléversement|Téléversements}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Contributeur|Contributeurs}}",
 	"mwe-upwiz-campaign-view-all-media": "Voir tous les fichiers importés.",
 	"mwe-upwiz-campaign-no-uploads-yet": "Pas encore de fichier !",

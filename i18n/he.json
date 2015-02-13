@@ -10,7 +10,8 @@
 			"Rotemliss",
 			"YaronSh",
 			"Ypnypn",
-			"ערן"
+			"ערן",
+			"Yona b"
 		]
 	},
 	"uploadwizard": "אשף ההעלאה",
@@ -239,8 +240,8 @@
 	"mwe-upwiz-dialog-title": "אזהרה",
 	"mwe-upwiz-campaign-create-account-button": "ליצור חשבון ולהעלות!",
 	"mwe-upwiz-campaign-upload-button": "העלאה!",
-	"mwe-upwiz-campaign-media-count-desc": "העלאות",
-	"mwe-upwiz-campaign-contributors-count-desc": "תורמים",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|העלאה|העלאות}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|תורם|תורמים}}",
 	"mwe-upwiz-campaign-view-all-media": "הצגת כל קובצי המדיה שהועלו",
 	"mwe-upwiz-campaign-no-uploads-yet": "אין עדיין העלאות!",
 	"mwe-upwiz-license-cc-by-sa-4.0": "קריאייטיב קומונז–ייחוס–שיתוף זהה 4.0 ([$2 טקסט משפטי])",
