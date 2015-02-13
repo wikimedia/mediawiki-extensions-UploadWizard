@@ -26,4 +26,46 @@ class DescribePage
     page.next_parent_element.span_element(text: "Next")
   end
   text_field(:title, id: "title0")
+  checkbox(:title_check, id: "mwe-upwiz-copy-title")
+  checkbox(:description_check, id: "mwe-upwiz-copy-description")
+  checkbox(:date_check, id: "mwe-upwiz-copy-date")
+  checkbox(:categories_check, id: "mwe-upwiz-copy-categories")
+  checkbox(:other_check, id: "mwe-upwiz-copy-other")
+  span(:copy_expand) do |page|
+    page.next_parent_element.link_element(text: "Copy information to all uploads below ...")
+  end
+  span(:copy) do |page|
+    page.next_parent_element.button_element(id: "mwe-upwiz-copy-metadata-button")
+  end
+
+  def div_at_index(index)
+    @browser.divs(xpath: ["//div[@class='mwe-upwiz-info-file ui-helper-clearfix filled'][", "]"].join(index)).first
+  end
+
+  def field(index, fieldname)
+    case fieldname
+    when "description" then div_at_index(index).textarea(css: 'textarea.mwe-upwiz-desc-lang-text')
+    when "date" then div_at_index(index).text_field(css: 'input.mwe-date')
+    when "category" then div_at_index(index).text_field(css: 'input.categoryInput')
+    when "title" then div_at_index(index).text_field(css: 'input.mwe-title')
+    end
+  end
+
+  def field_value(index, fieldname)
+    if index != '1' && fieldname == 'category'
+      div_at_index(index).li(xpath: './/li[@class="cat"]').text
+    else
+      field(index, fieldname).value
+    end
+  end
+
+  # Check if a field exists and is non-empty for a given filename
+  def field_filled?(index, fieldname)
+    field_value(index, fieldname) != ''
+  end
+
+  # Add value to a field on the first upload
+  def set_field(fieldname, value)
+    field('1', fieldname).value = value
+  end
 end

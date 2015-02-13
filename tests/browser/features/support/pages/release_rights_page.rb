@@ -24,4 +24,5 @@ class ReleaseRightsPage
     page.next_parent_element.span_element(text: "Next")
   end
   div(:thumbnail, id: "mwe-upwiz-deeds-thumbnails")
+  li(:highlighted_step_heading, xpath: "//ul[@id='mwe-upwiz-steps']/li[@id='mwe-upwiz-step-deeds'][@class='arrow head']")
 end
