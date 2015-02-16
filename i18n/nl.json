@@ -10,7 +10,8 @@
 			"Tvdm",
 			"Wiki13",
 			"Wouterhagens",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Sjoerddebruin"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -230,8 +231,8 @@
 	"mwe-upwiz-dialog-title": "Waarschuwing",
 	"mwe-upwiz-campaign-create-account-button": "Maak een gebruiker aan om te uploaden!",
 	"mwe-upwiz-campaign-upload-button": "Uploaden!",
-	"mwe-upwiz-campaign-media-count-desc": "Uploads",
-	"mwe-upwiz-campaign-contributors-count-desc": "Bijdragers",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Upload|Uploads}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Bijdrager|Bijdragers}}",
 	"mwe-upwiz-campaign-view-all-media": "Alle geüploade media bekijken",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nog geen uploads!",
 	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Naamsvermelding GelijkDelen 4.0 ([$2 juridische tekst])",
