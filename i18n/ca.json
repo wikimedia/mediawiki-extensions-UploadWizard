@@ -12,7 +12,8 @@
 			"Toniher",
 			"Vriullop",
 			"Jmarchn",
-			"Fitoschido"
+			"Fitoschido",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Auxiliar de càrrega",
@@ -232,7 +233,7 @@
 	"mwe-upwiz-campaign-create-account-button": "Creeu un compte i carregueu!",
 	"mwe-upwiz-campaign-upload-button": "Carrega!",
 	"mwe-upwiz-campaign-media-count-desc": "càrregues",
-	"mwe-upwiz-campaign-contributors-count-desc": "Col·laboradors",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Col·laborador|Col·laboradors}}",
 	"mwe-upwiz-campaign-view-all-media": "Mostra tots els fitxers carregats",
 	"mwe-upwiz-campaign-no-uploads-yet": "Cap càrrega per ara!",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Reconeixement - Compartir Igual 3.0 ([$2 text legal])",
