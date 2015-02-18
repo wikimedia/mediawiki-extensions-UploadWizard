@@ -31,9 +31,10 @@ Feature: UploadWizard
       And I enter description
       And I enter category
       And I enter date created
-	  And I click Next button at Describe page
+      And I click Next button at Describe page
       And I click Upload more files button at Use page
-	  And I add file image3.png
+      And I wait for the upload interface to be present
+      And I add file image3.png
     Then there should be 1 uploads
       And there should be an upload for image3.png
 

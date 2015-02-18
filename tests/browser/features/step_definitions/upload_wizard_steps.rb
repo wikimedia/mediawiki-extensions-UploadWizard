@@ -112,6 +112,10 @@ When(/^I remove file (.+)$/) do |filename|
   on(UploadPage).remove_file(filename)
 end
 
+When(/^I wait for the upload interface to be present$/) do
+  on(UploadPage).select_file_control_to_wait_for_element.when_present
+end
+
 Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
 end

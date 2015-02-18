@@ -21,5 +21,4 @@ class PreferencesPage
   a(:upload_wizard_pref_tab, id: "preftab-uploads")
   checkbox(:reset_skip_checkbox, id: "mw-input-wpupwiz_skiptutorial")
   button(:preferences_save_button, id: "prefcontrol")
-
 end
