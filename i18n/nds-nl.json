@@ -4,9 +4,16 @@
 			"Servien"
 		]
 	},
-	"uploadwizard": "Wegwiezer veur t opsturen van bestaanden",
+	"uploadwizard": "Oplaoiwegwiezer",
+	"uploadwizard-desc": "Oplaoiwegwiezer, n gebrukersvrendelik instrument veur t oplaojen van bestaanden",
+	"mwe-upwiz-uploadcampaigns": "Oplaoikampanjes",
+	"mwe-upwiz-uploadcampaign": "Instellingen oplaoikampanje",
+	"right-upwizcampaigns": "Kampanjes van de oplaoiwegwiezer instellen",
+	"action-upwizcampaigns": "oplaoikampanjes instellen",
+	"group-upwizcampeditors": "Kampanjebeheerders van de Oplaoiwegwiezer",
 	"mwe-upwiz-code-unknown": "Onbekende taal",
 	"mwe-upwiz-step-tutorial": "Leren",
+	"mwe-upwiz-step-file": "Bestaand oplaojen",
 	"mwe-upwiz-step-deeds": "Rechten vriegeven",
 	"mwe-upwiz-step-details": "Beschrieven",
 	"mwe-upwiz-step-thanks": "Gebruken",
