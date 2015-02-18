@@ -169,9 +169,7 @@ class CampaignHooks {
 	 */
 	static function onBeforePageDisplay( &$out, &$skin ) {
 		$title = $out->getTitle();
-		$revId = $out->getRevisionId();
-
-		if ( $title->inNamespace( NS_CAMPAIGN ) ) {
+		if ( $title && $title->inNamespace( NS_CAMPAIGN ) ) {
 			$out->addModules( 'ext.uploadWizard.uploadCampaign.display' );
 		}
 		return true;
