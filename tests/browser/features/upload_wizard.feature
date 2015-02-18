@@ -92,5 +92,3 @@ Feature: UploadWizard
       And I click Next button at Describe page
     Then Use page should open
       And Upload more files button should be there
-
-
