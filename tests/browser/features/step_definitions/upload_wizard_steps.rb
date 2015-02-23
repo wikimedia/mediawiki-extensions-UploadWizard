@@ -55,7 +55,11 @@ When(/^I click Next button at Release rights page$/) do
 end
 
 When(/^I click This file is my own work$/) do
-  on(ReleaseRightsPage).select_my_own_work
+  on(ReleaseRightsPage) do |page|
+    page.highlighted_step_heading_element.when_present
+    sleep 0.5 # Sleep because of annoying JS animation
+    page.my_own_work_element.when_present.click
+  end
 end
 
 When(/^I enter category$/) do
@@ -72,6 +76,10 @@ end
 
 When(/^I enter title$/) do
   on(DescribePage).title = "Title #{Random.new.rand}"
+end
+
+When(/^I enter (\S+) (.+)$/) do |fieldname, value|
+  on(DescribePage).set_field(fieldname, value)
 end
 
 When(/^I navigate to Upload Wizard$/) do
@@ -172,4 +180,47 @@ end
 
 When(/^I click Upload more files button at Use page$/) do
   on(UsePage).upload_more_files_element.when_present(15).click
+end
+
+When(/^I click Copy information to all uploads below$/) do
+  on(DescribePage).copy_expand_element.when_present(15).click
+end
+
+When(/^I check Title$/) do
+  on(DescribePage).check_title_check
+end
+
+When(/^I check Descriptions$/) do
+  on(DescribePage).check_description_check
+end
+
+When(/^I check Date$/) do
+  on(DescribePage).check_date_check
+end
+
+When(/^I check Categories$/) do
+  on(DescribePage).check_categories_check
+end
+
+When(/^I click the Copy button$/) do
+  on(DescribePage) do |page|
+    page.copy_element.when_present(15).click
+    page.wait_for_ajax
+  end
+end
+
+Then(/^upload number (\d+) should have a (\S+)$/) do |index, fieldname|
+  on(DescribePage).field_filled?(index, fieldname).should == true
+end
+
+Then(/^upload number (\d+) should have the (\S+) (.+)$/) do |index, fieldname, value|
+  on(DescribePage).field_value(index, fieldname).should == value
+end
+
+When(/^I uncheck all of the copy checkboxes$/) do
+  on(DescribePage).title_check_element.when_present(10).uncheck
+  on(DescribePage).description_check_element.when_present(10).uncheck
+  on(DescribePage).date_check_element.when_present(10).uncheck
+  on(DescribePage).categories_check_element.when_present(10).uncheck
+  on(DescribePage).other_check_element.when_present(10).uncheck
 end
