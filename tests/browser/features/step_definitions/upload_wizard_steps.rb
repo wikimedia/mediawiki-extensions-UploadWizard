@@ -28,6 +28,7 @@ Given(/^my Preferences Skip tutorial box is unchecked$/) do
     page.upload_wizard_pref_tab_element.when_present.click
     page.uncheck_reset_skip_checkbox
     page.preferences_save_button_element.click
+    page.wait_for_ajax
   end
 end
 
@@ -35,30 +36,53 @@ When(/^click button Continue$/) do
   on(UploadPage).continue_element.when_present(15).click
 end
 
-When(/^I click Next button$/) do
-  on(UploadWizardPage).next_element.when_present(15).click
+When(/^I click the Next button at the Describe page$/) do
+  on(DescribePage) do |page|
+    page.next_element.click
+    page.wait_for_ajax
+  end
 end
 
-When(/^I click Next button at Describe page$/) do
-  sleep 1 # todo # I can not figure out at the moment how to make this work without using sleep
-  on(DescribePage).next_element.when_present(15).click
+When(/^I click the Skip checkbox$/) do
+  on(LearnPage) do |page|
+    page.highlighted_step_heading_element.when_present
+    if @browser.driver.browser == :chrome
+      # ChromeDriver can't click on the element because of a bug in the driver
+      # related to automatic scrolling to out-of-view elements taking time
+      # Reported here: https://code.google.com/p/selenium/issues/detail?id=8528
+      @browser.execute_script("$( '#mwe-upwiz-skip' ).click();")
+    else
+      page.check_tutorial_skip
+    end
+  end
 end
 
-When(/^I click Next button at Learn page$/) do
-  sleep 1
-  on(LearnPage).next_element.when_present(15).click
-  on(LearnPage).wait_for_ajax
+When(/^I click the Next button at the Learn page$/) do
+  on(LearnPage) do |page|
+    page.highlighted_step_heading_element.when_present
+    if @browser.driver.browser == :chrome
+      # Same Chrome issue as above
+      @browser.execute_script("$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next' ).click();")
+    else
+      page.next_element.click
+    end
+    page.wait_for_ajax
+  end
 end
 
-When(/^I click Next button at Release rights page$/) do
-  on(ReleaseRightsPage).next_element.when_present(15).click
+When(/^I click the Next button at the Release rights page$/) do
+  on(ReleaseRightsPage) do |page|
+    page.next_element.click
+    page.wait_for_ajax # Clicking Next fetches data about each file through AJAX
+  end
 end
 
 When(/^I click This file is my own work$/) do
   on(ReleaseRightsPage) do |page|
     page.highlighted_step_heading_element.when_present
-    sleep 0.5 # Sleep because of annoying JS animation
+    sleep 0.5 # Sleep because of annoying JS animation happening in this menu
     page.my_own_work_element.when_present.click
+    sleep 0.5 # Sleep because of annoying JS animation happening in this menu
   end
 end
 
@@ -66,8 +90,9 @@ When(/^I enter category$/) do
   on(DescribePage).category = "Test"
 end
 
-When(/^I enter date created$/) do
+When(/^I enter date$/) do
   on(DescribePage).date_created = "11/4/2014"
+  sleep 0.5 # Sleep because of annoying JS animation happening in the date picker
 end
 
 When(/^I enter description$/) do
@@ -96,10 +121,6 @@ When(/^there should be (\d+) uploads$/) do |countStr|
   uploads.length.should eql(count)
 end
 
-When(/^I click the Skip checkbox$/) do
-  on(LearnPage).check_tutorial_skip
-end
-
 When(/^I add file (\S+)$/) do |filename|
   shade = Random.new.rand(255)
   width = Random.new.rand(255)
@@ -117,7 +138,9 @@ When(/^I add file (\S+) with (\d+)% black, (\d+)px x (\d+)px$/) do |filename, sh
 end
 
 When(/^I remove file (.+)$/) do |filename|
-  on(UploadPage).remove_file(filename)
+  on(UploadPage) do |page|
+    page.remove_file(filename)
+  end
 end
 
 When(/^I wait for the upload interface to be present$/) do
@@ -148,25 +171,18 @@ Then(/^Release rights page should open$/) do
   @browser.url.should match /Special:UploadWizard/
 end
 
-Then(/^Select a media file to donate button should be there$/) do
-  sleep 1
-  on(UploadPage).select_file_element.when_present.should be_visible
-end
-
 Then(/^title text field should be there$/) do
   on(DescribePage).title_element.when_present.should be_visible
 end
 
 Then(/^Upload more files button should be there$/) do
-  on(UsePage).upload_more_files_element.when_present(30).should be_visible
+  on(UsePage) do |page|
+    page.highlighted_step_heading_element.when_present(15)
+    page.upload_more_files_element.when_present.should be_visible
+  end
 end
 
 Then(/^Upload page should appear$/) do
-  @browser.url.should match /Special:UploadWizard/
-end
-
-Then(/^Use page should open$/) do
-  on(UsePage)
   @browser.url.should match /Special:UploadWizard/
 end
 

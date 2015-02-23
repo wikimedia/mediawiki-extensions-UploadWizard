@@ -22,16 +22,16 @@ Feature: UploadWizard
     When I navigate to Upload Wizard
 
   Scenario: Upload more files
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And click button Continue
       And I click This file is my own work
-      And I click Next button at Release rights page
+      And I click the Next button at the Release rights page
       And I enter title
       And I enter description
       And I enter category
-      And I enter date created
-      And I click Next button at Describe page
+      And I enter date
+      And I click the Next button at the Describe page
       And I click Upload more files button at Use page
       And I wait for the upload interface to be present
       And I add file image3.png

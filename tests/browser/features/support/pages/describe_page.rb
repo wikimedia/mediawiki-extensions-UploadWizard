@@ -18,6 +18,7 @@ class DescribePage
   end
   page_url url
 
+  li(:highlighted_step_heading, xpath: "//ul[@id='mwe-upwiz-steps']/li[@id='mwe-upwiz-step-details'][@class='arrow head']")
   text_field(:category, id: "categories0")
   text_field(:date_created, id: "dateInput0")
   textarea(:description, name: /^description/)

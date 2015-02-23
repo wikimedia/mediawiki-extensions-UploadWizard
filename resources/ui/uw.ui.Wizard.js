@@ -30,14 +30,9 @@
 
 		this.wizard = wizard;
 
-		// remove first spinner
-		$( '#mwe-first-spinner' ).remove();
-
 		this.initHeader( mw.UploadWizard.config );
 
 		this.initButtons();
-
-		this.initTutorial();
 	}
 
 	oo.mixinClass( UploadWizardInterface, oo.EventEmitter );
@@ -161,53 +156,6 @@
 		$( '.mwe-upwiz-button-home' )
 			.click( function () { window.location.href = mw.config.get( 'wgArticlePath' ).replace( '$1', '' ); } );
 
-	};
-
-	/**
-	 * Initialize the tutorial page interface.
-	 */
-	UWIP.initTutorial = function () {
-		var ui = this;
-
-		// Event handlers for EventLogging-type things
-		// Skip tutorial checkbox click
-		$( '#mwe-upwiz-skip' )
-			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
-			.tipsy( {
-				title: function () {
-					return mw.message(
-						'mwe-upwiz-tooltip-skiptutorial',
-						mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
-						mw.message( 'prefs-uploads' ).escaped(),
-						mw.message( 'prefs-upwiz-interface' ).escaped()
-					).parse();
-				},
-				delayIn: 0,
-				html: true,
-				trigger: 'manual'
-			} )
-
-			.click( function () {
-				var $this = $( this );
-
-				ui.emit( 'skip-tutorial-click', $this.prop( 'checked' ) );
-
-				if ( $this.prop( 'checked' ) ) {
-					$this.tipsy( 'show' );
-				} else {
-					$this.tipsy( 'hide' );
-				}
-			} );
-
-		// Helpdesk link click
-		$( '#mwe-upwiz-tutorial-helpdesk' ).click( function () {
-			ui.emit( 'helpdesk-click' );
-		} );
-
-		// handler for next button
-		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next').click( function () {
-			ui.emit( 'next-from-tutorial' );
-		} );
 	};
 
 	ui.Wizard = UploadWizardInterface;

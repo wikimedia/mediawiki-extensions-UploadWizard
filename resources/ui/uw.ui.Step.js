@@ -41,6 +41,8 @@
 	 * Move to the step.
 	 */
 	SP.moveTo = function () {
+		// Remove the initial spinner if it's still present
+		$( '#mwe-first-spinner' ).remove();
 		this.$div.show();
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( this.$arrow );
 	};

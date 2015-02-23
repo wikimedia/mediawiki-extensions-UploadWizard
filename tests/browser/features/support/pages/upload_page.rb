@@ -20,7 +20,7 @@ class UploadPage
 
   span(:continue, text: "Continue")
   p(:duplicate_error, text: /You are already uploading/)
-  div(:select_file_control_to_wait_for, class: 'mwe-upwiz-file-ctrl-container')
+  div(:select_file_control_to_wait_for, class: "mwe-upwiz-file-ctrl-container")
 
   # We need to keep track of all the uploads on the page.
   # PageObjects are bad at finding elements that are repeated and change.
@@ -49,7 +49,7 @@ class UploadPage
         fileInput: uploadDiv.file_field(xpath: './/input[@type="file"]'),
         indicator: uploadDiv.div(xpath: './/div[contains(@class,"mwe-upwiz-file-indicator")]'),
         fileName: uploadDiv.div(xpath: './/div[contains(@class,"mwe-upwiz-visible-file-filename-text")]').text.strip,
-        removeCtrl: uploadDiv.div(xpath: './/div[contains(@class,"mwe-upwiz-remove-ctrl")]')
+        removeCtrl: uploadDiv.div(xpath: './/div[contains(@class,"mwe-upwiz-remove-ctrl-msg")]')
       }
     end
   end
