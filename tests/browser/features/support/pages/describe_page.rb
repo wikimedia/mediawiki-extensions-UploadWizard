@@ -27,11 +27,21 @@ class DescribePage
     page.next_parent_element.span_element(text: "Next")
   end
   text_field(:title, id: "title0")
+
   checkbox(:title_check, id: "mwe-upwiz-copy-title")
   checkbox(:description_check, id: "mwe-upwiz-copy-description")
   checkbox(:date_check, id: "mwe-upwiz-copy-date")
   checkbox(:categories_check, id: "mwe-upwiz-copy-categories")
   checkbox(:other_check, id: "mwe-upwiz-copy-other")
+
+  a(:use_a_different_license, xpath: "//div[@id='mwe-upwiz-stepdiv-details']//form[@id='mwe-upwiz-detailsform0']//p[@class='mwe-more-options']/a")
+
+  radio(:own_cc_zero_radio, id: "license3_4")
+  radio(:thirdparty_nasa_radio, id: "license4_13")
+  radio(:own_cc_by_sa_4_radio, id: "license3_0")
+  radio(:own_work_radio, id: "deedChooser2-ownwork")
+  radio(:thirdparty_radio, id: "deedChooser2-thirdparty")
+
   span(:copy_expand) do |page|
     page.next_parent_element.link_element(text: "Copy information to all uploads below ...")
   end

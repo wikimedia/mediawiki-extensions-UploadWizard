@@ -32,7 +32,13 @@
 
 		this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
-		this.defaults = ( config.licenses && config.licenses[0] ) ? [ config.licenses[0] ] : [];
+		this.defaults = [];
+
+		if ( config.defaults && config.defaults[0] ) {
+			this.defaults = config.defaults;
+		} else if ( config.licenses && config.licenses[0] ) {
+			this.defaults = [ config.licenses[0] ];
+		}
 
 		mw.UploadWizardLicenseInput.prototype.count++;
 		this.name = 'license' + mw.UploadWizardLicenseInput.prototype.count;
@@ -122,9 +128,11 @@
 		 */
 		createInputs: function ( $el, config, $groupToggler ) {
 			var input = this;
+
 			if ( config.licenses === undefined || typeof config.licenses !== 'object' ) {
 				throw new Error( 'improper license config' );
 			}
+
 			$.each( config.licenses, function ( i, licenseName ) {
 				if ( mw.UploadWizard.config.licenses[licenseName] !== undefined ) {
 					var $customDiv,

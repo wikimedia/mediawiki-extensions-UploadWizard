@@ -21,4 +21,7 @@ class PreferencesPage
   a(:upload_wizard_pref_tab, id: "preftab-uploads")
   checkbox(:reset_skip_checkbox, id: "mw-input-wpupwiz_skiptutorial")
   button(:preferences_save_button, id: "prefcontrol")
+  radio(:own_cc_zero_radio, id: "mw-input-wpupwiz_deflicense-ownwork-cc-zero")
+  radio(:thirdparty_nasa_radio, id: "mw-input-wpupwiz_deflicense-thirdparty-pd-usgov-nasa")
+  radio(:default_radio, id: "mw-input-wpupwiz_deflicense-default")
 end
