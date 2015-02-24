@@ -18,45 +18,27 @@ Feature: UploadWizard
 
   Background:
     Given I am logged in
-      And my Preferences Skip tutorial box is unchecked
+      And I set my preference to skip the tutorial
     When I navigate to Upload Wizard
 
-  Scenario: Navigate to Learn page
-    Then Learn page should appear
-      And Skip this step in the future checkbox should be there
-
-  Scenario: Skip tutorial
-    When I click the Skip checkbox
-      And I click the Next button at the Learn page
-      And I navigate to Upload Wizard
-    Then the tutorial should not be visible
-
-  Scenario: Navigate to Upload page
-    When I click the Next button at the Learn page
-    Then Upload page should appear
-
   Scenario: Navigate to Release rights page
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And click button Continue
     Then Release rights page should open
       And thumbnail should be visible
 
   Scenario: Add two files
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And I add file image2.png
     Then there should be 2 uploads
 
   Scenario: Add and remove file
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And I remove file image.png
     Then there should be 0 uploads
 
   Scenario: Add two and remove one
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And I add file image2.png
       And I add file image3.png
       And I remove file image2.png
@@ -65,14 +47,12 @@ Feature: UploadWizard
      And there should be an upload for image3.png
 
   Scenario: Same name, different content
-    When I click the Next button at the Learn page
-      And I add file image.png with 50% black, 50px x 50px
+    When I add file image.png with 50% black, 50px x 50px
       And I add file image.png with 100% black, 100px x 70px
     Then a duplicate name error should appear
 
   Scenario: Navigate to Describe page
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And click button Continue
       And I click This file is my own work
       And I click the Next button at the Release rights page
@@ -80,8 +60,7 @@ Feature: UploadWizard
       And title text field should be there
 
   Scenario: Navigate to Use page
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And click button Continue
       And I click This file is my own work
       And I click the Next button at the Release rights page

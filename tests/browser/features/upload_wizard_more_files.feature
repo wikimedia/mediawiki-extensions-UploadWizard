@@ -18,12 +18,11 @@ Feature: UploadWizard
 
   Background:
     Given I am logged in
-      And my Preferences Skip tutorial box is unchecked
+      And I set my preference to skip the tutorial
     When I navigate to Upload Wizard
 
   Scenario: Upload more files
-    When I click the Next button at the Learn page
-      And I add file image.png
+    When I add file image.png
       And click button Continue
       And I click This file is my own work
       And I click the Next button at the Release rights page
