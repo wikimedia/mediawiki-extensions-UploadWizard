@@ -78,7 +78,7 @@ When(/^I enter title$/) do
   on(DescribePage).title = "Title #{Random.new.rand}"
 end
 
-When(/^I enter (\S+) (.+)$/) do |fieldname, value|
+When(/^I enter metadata (\S+) (.+)$/) do |fieldname, value|
   on(DescribePage).set_field(fieldname, value)
 end
 
