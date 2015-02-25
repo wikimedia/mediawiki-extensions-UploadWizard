@@ -10,7 +10,7 @@
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
 @chrome @commons.wikimedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
-Feature: UploadWizard logged out
+Feature: Logged out
 
   Scenario: Require login
     Given I am logged out
