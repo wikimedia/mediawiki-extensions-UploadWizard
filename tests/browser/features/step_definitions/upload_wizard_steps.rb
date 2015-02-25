@@ -10,14 +10,6 @@
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
 require "tempfile"
-require "chunky_png"
-
-def make_temp_image(filename, shade, width, height)
-  path = "#{Dir.tmpdir}/#{filename}"
-  image = ChunkyPNG::Image.new(shade, width, height)
-  image.save path
-  path
-end
 
 Given(/^I am logged out$/) do
   visit LogoutPage
