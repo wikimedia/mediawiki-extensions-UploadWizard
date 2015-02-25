@@ -32,6 +32,30 @@ Given(/^my Preferences Skip tutorial box is unchecked$/) do
   end
 end
 
+When(/^I set the default license to Own work - Creative Commons CC0 Waiver in my Preferences$/) do
+  visit(PreferencesPage) do |page|
+    page.upload_wizard_pref_tab_element.when_present.click
+    page.select_own_cc_zero_radio
+    page.preferences_save_button_element.click
+  end
+end
+
+When(/^I set the default license to Someone else's work - Original work of NASA in my Preferences$/) do
+  visit(PreferencesPage) do |page|
+    page.upload_wizard_pref_tab_element.when_present.click
+    page.select_thirdparty_nasa_radio
+    page.preferences_save_button_element.click
+  end
+end
+
+When(/^I set the default license to Use whatever the default is in my Preferences$/) do
+  visit(PreferencesPage) do |page|
+    page.upload_wizard_pref_tab_element.when_present.click
+    page.select_default_radio
+    page.preferences_save_button_element.click
+  end
+end
+
 When(/^click button Continue$/) do
   on(UploadPage).continue_element.when_present(15).click
 end
@@ -75,14 +99,24 @@ When(/^I click the Next button at the Release rights page$/) do
     page.next_element.click
     page.wait_for_ajax # Clicking Next fetches data about each file through AJAX
   end
+  on(DescribePage).highlighted_step_heading_element.when_present
 end
 
 When(/^I click This file is my own work$/) do
   on(ReleaseRightsPage) do |page|
     page.highlighted_step_heading_element.when_present
-    sleep 0.5 # Sleep because of annoying JS animation happening in this menu
+    sleep 1 # Sleep because of annoying JS animation happening in this menu
     page.my_own_work_element.when_present.click
-    sleep 0.5 # Sleep because of annoying JS animation happening in this menu
+    sleep 1 # Sleep because of annoying JS animation happening in this menu
+  end
+end
+
+When(/^I click Provide copyright information for each file$/) do
+  on(ReleaseRightsPage) do |page|
+    page.highlighted_step_heading_element.when_present
+    sleep 1 # Sleep because of annoying JS animation happening in this menu
+    on(ReleaseRightsPage).select_provide_copyright_information
+    sleep 1 # Sleep because of annoying JS animation happening in this menu
   end
 end
 
@@ -147,6 +181,14 @@ When(/^I wait for the upload interface to be present$/) do
   on(UploadPage).select_file_control_to_wait_for_element.when_present
 end
 
+When(/^I click Use a different license for the first file$/) do
+  on(DescribePage).use_a_different_license_element.when_present.click
+end
+
+When(/^I click Upload more files button at Use page$/) do
+  on(UsePage).upload_more_files_element.when_present(15).click
+end
+
 Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
 end
@@ -187,15 +229,30 @@ Then(/^Upload page should appear$/) do
 end
 
 Then(/^there should be an upload for (\S+)$/) do |filename|
-  on(UploadPage).upload?(filename).should == true
+  on(UploadPage).upload?(filename).should eq(true)
 end
 
 Then(/^a duplicate name error should appear$/) do
   on(UploadPage).duplicate_error_element.when_present.should be_visible
 end
 
-When(/^I click Upload more files button at Use page$/) do
-  on(UsePage).upload_more_files_element.when_present(15).click
+Then(/^Creative Commons CC0 Waiver should be checked for the first file$/) do
+  on(DescribePage).own_cc_zero_radio_selected?.should eq(true)
+end
+
+Then(/^Creative Commons Attribution ShareAlike 4.0 should be checked for the first file$/) do
+  on(DescribePage).own_cc_by_sa_4_radio_selected?.should eq(true)
+end
+
+Then(/^Original work of NASA should be checked for the first file$/) do
+  on(DescribePage).thirdparty_nasa_radio_selected?.should eq(true)
+end
+
+Then(/^The Release rights radio buttons should be unchecked$/) do
+  on(DescribePage) do |page|
+    page.own_work_radio_selected?.should eq(false)
+    page.thirdparty_radio_selected?.should eq(false)
+  end
 end
 
 When(/^I click Copy information to all uploads below$/) do
