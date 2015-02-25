@@ -14,7 +14,7 @@
 # reset to defaults after they are finished. (See support/hooks.rb)
 
 @chrome @commons.wikimedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
-Feature: UploadWizard
+Feature: Upload more files
 
   Background:
     Given I am logged in
