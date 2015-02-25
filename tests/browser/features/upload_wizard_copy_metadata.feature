@@ -20,12 +20,12 @@ Feature: UploadWizard
     Given I am logged in
       And my Preferences Skip tutorial box is unchecked
     When I navigate to Upload Wizard
-      And I click Next button at Learn page
+      And I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
       And click button Continue
       And I click This file is my own work
-      And I click Next button at Release rights page
+      And I click the Next button at the Release rights page
       And I click Copy information to all uploads below
       And I uncheck all of the copy checkboxes
 

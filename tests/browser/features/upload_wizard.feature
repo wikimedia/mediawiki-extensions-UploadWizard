@@ -27,35 +27,35 @@ Feature: UploadWizard
 
   Scenario: Skip tutorial
     When I click the Skip checkbox
-      And I click Next button at Learn page
+      And I click the Next button at the Learn page
       And I navigate to Upload Wizard
     Then the tutorial should not be visible
 
   Scenario: Navigate to Upload page
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
     Then Upload page should appear
 
   Scenario: Navigate to Release rights page
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And click button Continue
     Then Release rights page should open
       And thumbnail should be visible
 
   Scenario: Add two files
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
     Then there should be 2 uploads
 
   Scenario: Add and remove file
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And I remove file image.png
     Then there should be 0 uploads
 
   Scenario: Add two and remove one
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
       And I add file image3.png
@@ -65,30 +65,29 @@ Feature: UploadWizard
      And there should be an upload for image3.png
 
   Scenario: Same name, different content
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png with 50% black, 50px x 50px
       And I add file image.png with 100% black, 100px x 70px
     Then a duplicate name error should appear
 
   Scenario: Navigate to Describe page
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And click button Continue
       And I click This file is my own work
-      And I click Next button at Release rights page
+      And I click the Next button at the Release rights page
     Then Describe page should open
       And title text field should be there
 
   Scenario: Navigate to Use page
-    When I click Next button at Learn page
+    When I click the Next button at the Learn page
       And I add file image.png
       And click button Continue
       And I click This file is my own work
-      And I click Next button at Release rights page
+      And I click the Next button at the Release rights page
       And I enter title
       And I enter description
       And I enter category
-      And I enter date created
-      And I click Next button at Describe page
-    Then Use page should open
-      And Upload more files button should be there
+      And I enter date
+      And I click the Next button at the Describe page
+    Then Upload more files button should be there
