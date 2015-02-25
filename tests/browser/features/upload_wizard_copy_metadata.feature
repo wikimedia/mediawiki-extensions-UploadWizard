@@ -30,25 +30,25 @@ Feature: UploadWizard
       And I uncheck all of the copy checkboxes
 
   Scenario: Copy description
-    When I enter description Testing 1 2 3
+    When I enter metadata description Testing 1 2 3
       And I check Descriptions
       And I click the Copy button
     Then upload number 2 should have the description Testing 1 2 3
 
   Scenario: Copy category
-    When I enter category Testing 4 5 6
+    When I enter metadata category Testing 4 5 6
       And I check Categories
       And I click the Copy button
     Then upload number 2 should have the category Testing 4 5 6
 
   Scenario: Copy date
-    When I enter date 1990-04-28
+    When I enter metadata date 1990-04-28
       And I check Date
       And I click the Copy button
     Then upload number 2 should have the date 1990-04-28
 
   Scenario: Copy title
-    When I enter title This is a test file
+    When I enter metadata title This is a test file
       And I check Title
       And I click the Copy button
     Then upload number 2 should have the title This is a test file 02
