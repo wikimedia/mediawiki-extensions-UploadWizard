@@ -98,5 +98,27 @@
 			.hide();
 	};
 
+	/**
+	 * Disable edits to the details.
+	 */
+	DP.disableEdits = function () {
+		this.$div
+			.find( '.mwe-upwiz-data' )
+			.morphCrossfade( '.mwe-upwiz-submitting' );
+	};
+
+	/**
+	 * Hide validation errors.
+	 */
+	DP.hideErrors = function () {
+		this.$div
+			.find( 'label.mwe-error' )
+			.hide().empty();
+
+		this.$div
+			.find( 'input.mwe-error' )
+			.removeClass( 'mwe-error' );
+	};
+
 	ui.Details = Details;
 }( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );

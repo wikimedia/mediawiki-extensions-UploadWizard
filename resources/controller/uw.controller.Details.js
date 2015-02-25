@@ -93,6 +93,7 @@
 
 		this.valid().done( function () {
 			details.ui.hideEndButtons();
+			details.submit();
 			details.emit( 'start-details' );
 		} ).fail( function () {
 			details.emit( 'details-error' );
@@ -193,6 +194,33 @@
 
 	DP.transitionStarter = function ( upload ) {
 		upload.details.submit();
+	};
+
+	/**
+	 * Submit details to the API.
+	 * @TODO move the actual submission here - need to fiddle with makeTransitioner first
+	 */
+	DP.submit = function () {
+		$.each( this.uploads, function ( i, upload ) {
+			// Skip empty uploads
+			if ( upload === undefined ) {
+				return;
+			}
+
+			// Clear error state
+			if ( upload.state === 'error' ) {
+				upload.state = 'details';
+			}
+
+			// Set details view to have correct title
+			upload.details.setVisibleTitle( upload.title.getMain() );
+		} );
+
+		// Disable edit interface
+		this.ui.disableEdits();
+
+		// Hide errors (maybe this submission fixes them)
+		this.ui.hideErrors();
 	};
 
 	uw.controller.Details = Details;

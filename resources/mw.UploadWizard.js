@@ -53,13 +53,13 @@
 				} )
 
 				.on( 'next-step', function () {
-					wizard.removeErrorUploads( function () {
-						if ( wizard.showDeed ) {
-							wizard.moveToStep( 'deeds' );
-						} else {
-							wizard.moveToStep( 'details' );
-						}
-					} );
+					wizard.removeErrorUploads();
+
+					if ( wizard.showDeed ) {
+						wizard.moveToStep( 'deeds' );
+					} else {
+						wizard.moveToStep( 'details' );
+					}
 				} )
 
 				.on( 'reset', function () {
@@ -77,7 +77,7 @@
 
 			details: new uw.controller.Details( config )
 				.on( 'start-details', function () {
-					wizard.detailsSubmit( function () {
+					wizard.detailsSubmit().done( function () {
 						wizard.detailsErrorCount();
 						wizard.showNext( 'details', 'complete', finalizeDetails );
 					} );
@@ -88,7 +88,8 @@
 				} )
 
 				.on( 'finalize-details-after-removal', function () {
-					wizard.removeErrorUploads( finalizeDetails );
+					wizard.removeErrorUploads();
+					finalizeDetails();
 				} )
 
 				.on( 'no-uploads', function () {
@@ -486,13 +487,11 @@
 
 		/**
 		 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
-		 * @param {Function} to be called when done
 		 */
-		removeErrorUploads: function ( endCallback ) {
+		removeErrorUploads: function () {
 			this.removeMatchingUploads( function ( upload ) {
 				return upload.state === 'error';
 			} );
-			endCallback();
 		},
 
 		/**
@@ -658,43 +657,18 @@
 		/**
 		 * Submit all edited details and other metadata
 		 * Works just like startUploads -- parallel simultaneous submits with progress bar.
-		 * @param {Function} endCallback - called when all uploads complete. In our case is probably a move to the next step
+		 * @return {jQuery.Promise}
 		 */
-		detailsSubmit: function ( endCallback ) {
-			$.each( this.uploads, function ( i, upload ) {
-				if ( upload === undefined ) {
-					return;
-				}
-				// clear out error states, so we don't end up in an infinite loop
-				if ( upload.state === 'error' ) {
-					upload.state = 'details';
-				}
-
-				// set the "minimized" view of the details to have the right title
-				$( upload.details.submittingDiv )
-					.find( '.mwe-upwiz-visible-file-filename-text' )
-					.html( upload.title.getMain() );
-			} );
-
-			// remove ability to edit details
-			$( '#mwe-upwiz-stepdiv-details' )
-				.find( '.mwe-upwiz-data' )
-				.morphCrossfade( '.mwe-upwiz-submitting' );
-
-			// hide errors ( assuming maybe this submission will fix it, if it hadn't blocked )
-			$( '#mwe-upwiz-stepdiv-details' )
-				.find( 'label.mwe-error' )
-				.hide().empty();
-
-			$( '#mwe-upwiz-stepdiv-details' )
-				.find( 'input.mwe-error' )
-				.removeClass( 'mwe-error' );
+		detailsSubmit: function () {
+			var deferred = $.Deferred();
 
 			// add the upload progress bar, with ETA
 			// add in the upload count
 			this.steps.details.transitionAll().done( function () {
-				endCallback();
+				deferred.resolve();
 			} );
+
+			return deferred.promise();
 		},
 
 		/**

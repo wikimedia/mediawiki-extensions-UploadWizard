@@ -1761,6 +1761,12 @@
 
 			this.upload.title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + ext ) || this.upload.title;
 			return this.upload.title;
+		},
+
+		setVisibleTitle: function ( s ) {
+			$( this.submittingDiv )
+				.find( '.mwe-upwiz-visible-file-filename-text' )
+				.text( s );
 		}
 	};
 
