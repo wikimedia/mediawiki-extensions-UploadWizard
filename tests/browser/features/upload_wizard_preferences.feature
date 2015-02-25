@@ -14,12 +14,25 @@ Feature: UploadWizard preferences
 
   Background:
     Given I am logged in
-      And my Preferences Skip tutorial box is unchecked
+      And I set my preference to skip the tutorial
+
+  Scenario: Set license preference to show the tutorial
+    When I unset Skip introductory licensing tutorial in my Preferences
+      And I navigate to Upload Wizard
+    Then Learn page should appear
+      And Skip this step in the future checkbox should be there
+
+  Scenario: Skip tutorial
+    When I unset Skip introductory licensing tutorial in my Preferences
+      And I navigate to Upload Wizard
+      And I click the Skip checkbox
+      And I click the Next button at the Learn page
+      And I navigate to Upload Wizard
+    Then the tutorial should not be visible
 
   Scenario: Set license preference to Own work - Creative Commons CC0 Waiver
     When I set the default license to Own work - Creative Commons CC0 Waiver in my Preferences
       And I navigate to Upload Wizard
-      And I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
       And click button Continue
@@ -31,7 +44,6 @@ Feature: UploadWizard preferences
   Scenario: Set license preference to Someone else's work - Original work of NASA
     When I set the default license to Someone else's work - Original work of NASA in my Preferences
       And I navigate to Upload Wizard
-      And I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
       And click button Continue
@@ -42,7 +54,6 @@ Feature: UploadWizard preferences
   Scenario: Set license preference to Use whatever the default is
     When I set the default license to Use whatever the default is in my Preferences
       And I navigate to Upload Wizard
-      And I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
       And click button Continue

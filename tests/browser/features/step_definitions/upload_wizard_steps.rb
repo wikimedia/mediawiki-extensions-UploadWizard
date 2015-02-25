@@ -23,7 +23,16 @@ Given(/^I am logged out$/) do
   visit LogoutPage
 end
 
-Given(/^my Preferences Skip tutorial box is unchecked$/) do
+Given(/^I set my preference to skip the tutorial$/) do
+  on(MainPage) do |page|
+    @browser.execute_script("var api = new mw.Api();
+api.postWithToken( 'options', { action: 'options', change: 'upwiz_skiptutorial=1' } ).done(
+function() { $( '<div id=\"cucumber-tutorial-preference-set\">&nbsp;</div>' ).appendTo( 'body' ); } );")
+    page.tutorial_preference_set_element.when_present
+  end
+end
+
+When(/^I unset Skip introductory licensing tutorial in my Preferences$/) do
   visit(PreferencesPage) do |page|
     page.upload_wizard_pref_tab_element.when_present.click
     page.uncheck_reset_skip_checkbox
@@ -37,6 +46,7 @@ When(/^I set the default license to Own work - Creative Commons CC0 Waiver in my
     page.upload_wizard_pref_tab_element.when_present.click
     page.select_own_cc_zero_radio
     page.preferences_save_button_element.click
+    page.wait_for_ajax
   end
 end
 
@@ -45,6 +55,7 @@ When(/^I set the default license to Someone else's work - Original work of NASA 
     page.upload_wizard_pref_tab_element.when_present.click
     page.select_thirdparty_nasa_radio
     page.preferences_save_button_element.click
+    page.wait_for_ajax
   end
 end
 
@@ -53,6 +64,7 @@ When(/^I set the default license to Use whatever the default is in my Preference
     page.upload_wizard_pref_tab_element.when_present.click
     page.select_default_radio
     page.preferences_save_button_element.click
+    page.wait_for_ajax
   end
 end
 

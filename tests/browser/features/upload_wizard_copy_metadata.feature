@@ -18,9 +18,8 @@ Feature: UploadWizard
 
   Background:
     Given I am logged in
-      And my Preferences Skip tutorial box is unchecked
+      And I set my preference to skip the tutorial
     When I navigate to Upload Wizard
-      And I click the Next button at the Learn page
       And I add file image.png
       And I add file image2.png
       And click button Continue
