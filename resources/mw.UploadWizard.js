@@ -78,13 +78,13 @@
 			details: new uw.controller.Details( config )
 				.on( 'start-details', function () {
 					wizard.detailsSubmit().done( function () {
-						wizard.detailsErrorCount();
+						wizard.steps.details.showErrors();
 						wizard.showNext( 'details', 'complete', finalizeDetails );
 					} );
 				} )
 
 				.on( 'details-error', function () {
-					wizard.detailsErrorCount();
+					wizard.steps.details.showErrors();
 				} )
 
 				.on( 'finalize-details-after-removal', function () {
@@ -669,38 +669,6 @@
 			} );
 
 			return deferred.promise();
-		},
-
-		/**
-		 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
-		 * right next to the submit button, so it should be obvious to the user they need to fix things.
-		 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
-		 * outside of that library. So we are going to just look for any visible inputs in an error state.
-		 * This method also opens up "more info" if the form has errors.
-		 */
-		detailsErrorCount: function () {
-			var errorCount,
-				$errorElements = $( '#mwe-upwiz-stepdiv-details' )
-					.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' );
-
-			// Open "more info" if that part of the form has errors
-			$errorElements.each( function () {
-				if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
-					var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
-					if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-						moreInfo.click();
-					}
-				}
-			} );
-
-			errorCount = $errorElements.length;
-			if ( errorCount > 0 ) {
-				$( '#mwe-upwiz-details-error-count' ).msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
-				// Scroll to the first error
-				$( 'html, body' ).animate( { scrollTop: $( $errorElements[0] ).offset().top - 50 }, 'slow' );
-			} else {
-				$( '#mwe-upwiz-details-error-count' ).empty();
-			}
 		}
 	};
 

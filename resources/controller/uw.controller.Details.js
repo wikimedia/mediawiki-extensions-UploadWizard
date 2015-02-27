@@ -223,5 +223,13 @@
 		this.ui.hideErrors();
 	};
 
+	/**
+	 * Show errors in the form.
+	 * See UI class for more.
+	 */
+	DP.showErrors = function () {
+		this.ui.showErrors();
+	};
+
 	uw.controller.Details = Details;
 }( mediaWiki.uploadWizard, jQuery, OO ) );

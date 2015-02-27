@@ -73,6 +73,8 @@
 		this.$retryButton = this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-button-retry' )
 			.click( startDetails );
+
+		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
 	}
 
 	oo.inheritClass( Details, ui.Step );
@@ -118,6 +120,38 @@
 		this.$div
 			.find( 'input.mwe-error' )
 			.removeClass( 'mwe-error' );
+	};
+
+	/**
+	 * Show errors in the form.
+	 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
+	 * right next to the submit button, so it should be obvious to the user they need to fix things.
+	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
+	 * outside of that library. So we are going to just look for any visible inputs in an error state.
+	 * This method also opens up "more info" if the form has errors.
+	 */
+	DP.showErrors = function () {
+		var $errorElements = this.$div
+				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' ),
+			errorCount = $errorElements.length;
+
+		// Open "more info" if that part of the form has errors
+		$errorElements.each( function () {
+			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
+				var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
+				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
+					moreInfo.click();
+				}
+			}
+		} );
+
+		if ( errorCount > 0 ) {
+			this.$errorCount.msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
+			// Scroll to the first error
+			$( 'html, body' ).animate( { scrollTop: $( $errorElements[0] ).offset().top - 50 }, 'slow' );
+		} else {
+			this.$errorCount.empty();
+		}
 	};
 
 	ui.Details = Details;
