@@ -71,6 +71,8 @@
 	"mwe-upwiz-too-many-files": "ډېرې زياتې دوتنې",
 	"mwe-upwiz-file-too-large-ok": "ښه",
 	"mwe-upwiz-file-too-large": "دوتنه ډېره لويه ده.",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|پورته کېدنه|پورته کېدنې}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|ونډه وال|ونډه والان}}",
 	"mwe-upwiz-license-cc-by-sa-3.0": "کريېټيف کامنز همډوله ته اړوندول 3.0 ([$2 قانوني کوډ])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "کريېټيف کامنز همډوله ته اړوندول 3.0 اتريش ([$2 قانوني کوډ])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "کريېټيف کامنز همډوله ته اړوندول 3.0 جرمني ([$2 قانوني کوډ])",
