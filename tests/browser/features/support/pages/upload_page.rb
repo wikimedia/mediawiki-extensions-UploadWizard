@@ -20,7 +20,8 @@ class UploadPage
 
   span(:continue, text: "Continue")
   p(:duplicate_error, text: /You are already uploading/)
-  div(:select_file_control_to_wait_for, class: "mwe-upwiz-file-ctrl-container")
+  div(:select_file_control_to_wait_for, class: 'mwe-upwiz-file-ctrl-container')
+  file_field(:select_file, name: "file")
 
   # We need to keep track of all the uploads on the page.
   # PageObjects are bad at finding elements that are repeated and change.

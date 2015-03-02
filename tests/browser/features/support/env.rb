@@ -11,5 +11,9 @@
 #
 require "mediawiki_selenium"
 
+require_relative "file_helper"
+
+World(FileHelper)
+
 # This allows us to use wait_for_ajax in step definitions.
 PageObject.javascript_framework = :jquery

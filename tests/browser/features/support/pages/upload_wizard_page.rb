@@ -18,6 +18,7 @@ class UploadWizardPage
   end
   page_url url
 
+  div(:stepdiv_file, id: "mwe-upwiz-stepdiv-file")
   text_field(:add_categories, id: "categories0")
   text_field(:altitude, id: "location-alt0")
   text_field(:author, name: "author2")
