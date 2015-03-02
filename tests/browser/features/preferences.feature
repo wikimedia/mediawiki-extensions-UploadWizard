@@ -10,7 +10,7 @@
 # https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
 #
 @chrome @commons.wikimedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
-Feature: UploadWizard preferences
+Feature: Preferences
 
   Background:
     Given I am logged in
