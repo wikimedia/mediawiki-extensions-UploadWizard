@@ -61,7 +61,8 @@ When(/^I set the default license to Use whatever the default is in my Preference
 end
 
 When(/^click button Continue$/) do
-  on(UploadPage).continue_element.when_present(15).click
+  # Wait a while because this is sometimes waiting for the upload(s) to complete
+  on(UploadPage).continue_element.when_present(60).click
 end
 
 When(/^I click the Next button at the Describe page$/) do
@@ -193,6 +194,62 @@ When(/^I click Upload more files button at Use page$/) do
   on(UsePage).upload_more_files_element.when_present(15).click
 end
 
+When(/^I click Copy information to all uploads below$/) do
+  on(DescribePage).copy_expand_element.when_present(15).click
+end
+
+When(/^I check Title$/) do
+  on(DescribePage).check_title_check
+end
+
+When(/^I check Descriptions$/) do
+  on(DescribePage).check_description_check
+end
+
+When(/^I check Date$/) do
+  on(DescribePage).check_date_check
+end
+
+When(/^I check Categories$/) do
+  on(DescribePage).check_categories_check
+end
+
+When(/^I click the Copy button$/) do
+  on(DescribePage) do |page|
+    page.copy_element.when_present(15).click
+    page.wait_for_ajax
+  end
+end
+
+When(/^I uncheck all of the copy checkboxes$/) do
+  on(DescribePage).title_check_element.when_present(10).uncheck
+  on(DescribePage).description_check_element.when_present(10).uncheck
+  on(DescribePage).date_check_element.when_present(10).uncheck
+  on(DescribePage).categories_check_element.when_present(10).uncheck
+  on(DescribePage).other_check_element.when_present(10).uncheck
+end
+
+When(/^I click the Flickr import button$/) do
+  on(UploadPage).flickr_button_element.when_present.click
+end
+
+When(/^I enter (.+) as the Flickr URL$/) do |url|
+  on(UploadPage).flickr_url_element.when_present.value = url
+end
+
+When(/^I click the Get from Flickr button$/) do
+  on(UploadPage).flickr_get_button_element.when_present.click
+end
+
+When(/^I click Flickr upload (\d+)$/) do |index|
+  modifier = Selenium::WebDriver::Platform.os == :macosx ? :command : :control
+  on(UploadPage).flickr_upload(index).when_present.click(modifier)
+end
+
+When(/^I click the Upload selected images button$/) do
+  on(UploadPage).flickr_select_button_element.when_present.click
+end
+
 Then(/^link to log in should appear$/) do
   on(UploadWizardPage).logged_in_element.should be_visible
 end
@@ -259,33 +316,6 @@ Then(/^The Release rights radio buttons should be unchecked$/) do
   end
 end
 
-When(/^I click Copy information to all uploads below$/) do
-  on(DescribePage).copy_expand_element.when_present(15).click
-end
-
-When(/^I check Title$/) do
-  on(DescribePage).check_title_check
-end
-
-When(/^I check Descriptions$/) do
-  on(DescribePage).check_description_check
-end
-
-When(/^I check Date$/) do
-  on(DescribePage).check_date_check
-end
-
-When(/^I check Categories$/) do
-  on(DescribePage).check_categories_check
-end
-
-When(/^I click the Copy button$/) do
-  on(DescribePage) do |page|
-    page.copy_element.when_present(15).click
-    page.wait_for_ajax
-  end
-end
-
 Then(/^upload number (\d+) should have a (\S+)$/) do |index, fieldname|
   on(DescribePage).field_filled?(index, fieldname).should == true
 end
@@ -294,10 +324,28 @@ Then(/^upload number (\d+) should have the (\S+) (.+)$/) do |index, fieldname, v
   on(DescribePage).field_value(index, fieldname).should == value
 end
 
-When(/^I uncheck all of the copy checkboxes$/) do
-  on(DescribePage).title_check_element.when_present(10).uncheck
-  on(DescribePage).description_check_element.when_present(10).uncheck
-  on(DescribePage).date_check_element.when_present(10).uncheck
-  on(DescribePage).categories_check_element.when_present(10).uncheck
-  on(DescribePage).other_check_element.when_present(10).uncheck
+Then(/^the Flickr uploads have the correct information$/) do
+  # Unfortunately flickr upload order isn't guaranteed because of chained async API calls, hence why we need this conditional
+  if on(DescribePage).field_value(1, "title") == "Phytotaxa.173.1.4"
+    first_index = "1"
+    second_index = "2"
+  else
+    first_index = "2"
+    second_index = "1"
+  end
+
+  step "upload number " + first_index + " should have the title Phytotaxa.173.1.4"
+  step "upload number " + first_index + " should have the description Image extracted from: Rikkinen,"\
+  " J., Tuovila, H., Beimforde, C., Seyfullah, L., Perrichot, V., & Schmidt, A. R. (2014). "\
+  "Chaenothecopsis neocaledonica sp. nov.: The first resinicolous mycocalicioid fungus from an "\
+  "araucarian conifer. Phytotaxa, 173(1), 49. doi:10.11646/phytotaxa.173.1.4 licensed under the "\
+  "Creative Commons Attribution Licence (CC-BY) creativecommons.org/licenses/by/3.0"
+  step "upload number " + first_index + " should have the date 2014-06-24 06:06:43"
+  step "upload number " + second_index + " should have the title Phytotaxa.173.1.9"
+  step "upload number " + second_index + " should have the description Image extracted from: Qiu, Q.,"\
+  " Wei, Y.-M., Cheng, X.-F., & Zhu, R.-L. (2014). Notes on Early Land Plants Today. 57. Cheilolejeunea "\
+  "boliviensis and Cheilolejeunea savesiana, two new synonyms in Lejeunea (Marchantiophyta, Lejeuneaceae)"\
+  " . Phytotaxa, 173(1), 88. doi:10.11646/phytotaxa.173.1.9 licensed under the Creative Commons "\
+  "Attribution Licence (CC-BY) creativecommons.org/licenses/by/3.0"
+  step "upload number " + second_index + " should have the date 2014-06-24 06:07:07"
 end

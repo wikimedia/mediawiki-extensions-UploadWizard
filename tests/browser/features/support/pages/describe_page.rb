@@ -50,7 +50,7 @@ class DescribePage
   end
 
   def div_at_index(index)
-    @browser.divs(xpath: ["//div[@class='mwe-upwiz-info-file ui-helper-clearfix filled'][", "]"].join(index)).first
+    @browser.div(xpath: "//div[@class='mwe-upwiz-info-file ui-helper-clearfix filled'][" + index.to_s + "]")
   end
 
   def field(index, fieldname)

@@ -22,6 +22,14 @@ class UploadPage
   p(:duplicate_error, text: /You are already uploading/)
   div(:select_file_control_to_wait_for, class: 'mwe-upwiz-file-ctrl-container')
   file_field(:select_file, name: "file")
+  button(:flickr_button, id: "mwe-upwiz-upload-ctrl-flickr")
+  text_field(:flickr_url, id: "mwe-upwiz-flickr-input")
+  button(:flickr_get_button, id: "mwe-upwiz-upload-add-flickr")
+  button(:flickr_select_button, id: "mwe-upwiz-select-flickr")
+
+  def flickr_upload(index)
+    @browser.li(id: "upload-" + index)
+  end
 
   # We need to keep track of all the uploads on the page.
   # PageObjects are bad at finding elements that are repeated and change.
