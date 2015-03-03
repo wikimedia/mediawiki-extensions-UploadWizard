@@ -92,4 +92,65 @@
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
 	} );
+
+	QUnit.test( 'canTransition', 4, function ( assert ) {
+		var upload = {},
+			step = new uw.controller.Details( {
+				maxSimultaneousConnections: 1
+			} );
+
+		assert.strictEqual( step.canTransition( upload ), false );
+		upload.state = 'details';
+		assert.strictEqual( step.canTransition( upload ), true );
+		step.uploadsTransitioning = 1;
+		assert.strictEqual( step.canTransition( upload ), false );
+		step.uploadsTransitioning = 0;
+		upload.state = 'complete';
+		assert.strictEqual( step.canTransition( upload ), false );
+	} );
+
+	QUnit.test( 'isTransitioning', 4, function ( assert ) {
+		var upload = {},
+			step = new uw.controller.Details( {
+				maxSimultaneousConnections: 1
+			} );
+
+		assert.strictEqual( step.isTransitioning( upload ), false );
+		upload.state = 'details';
+		assert.strictEqual( step.isTransitioning( upload ), false );
+		upload.state = 'submitting-details';
+		assert.strictEqual( step.isTransitioning( upload ), true );
+		upload.state = 'complete';
+		assert.strictEqual( step.isTransitioning( upload ), false );
+	} );
+
+	QUnit.test( 'isDoneTransitioning', 5, function ( assert ) {
+		var upload = {},
+			step = new uw.controller.Details( {
+				maxSimultaneousConnections: 1
+			} );
+
+		assert.strictEqual( step.isDoneTransitioning( upload ), false );
+		upload.state = 'details';
+		assert.strictEqual( step.isDoneTransitioning( upload ), false );
+		upload.state = 'submitting-details';
+		assert.strictEqual( step.isDoneTransitioning( upload ), false );
+		upload.state = 'complete';
+		assert.strictEqual( step.isDoneTransitioning( upload ), true );
+		upload.state = 'error';
+		assert.strictEqual( step.isDoneTransitioning( upload ), true );
+	} );
+
+	QUnit.test( 'transitionStarter', 2, function ( assert ) {
+		var upload = {
+				details: {
+					submit: this.sandbox.stub()
+				}
+			},
+			step = new uw.controller.Details();
+
+		assert.strictEqual( upload.details.submit.called, false );
+		step.transitionStarter( upload );
+		assert.ok( upload.details.submit.called );
+	} );
 }( mediaWiki.uploadWizard ) );

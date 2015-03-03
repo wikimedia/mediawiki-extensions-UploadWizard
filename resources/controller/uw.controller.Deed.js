@@ -25,14 +25,14 @@
 	 */
 	function Deed( api, config ) {
 		this.api = api;
-		this.config = config;
 
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Deed()
 				.connect( this, {
 					'next-step': 'validate'
-				} )
+				} ),
+			config
 		);
 	}
 

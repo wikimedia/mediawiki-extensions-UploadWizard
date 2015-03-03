@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, oo ) {
+( function ( uw, oo, $ ) {
 	var SP;
 
 	/**
@@ -25,9 +25,20 @@
 	 * @abstract
 	 * @constructor
 	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.
+	 * @param {Object} config The UW config object, or relevant subset.
 	 */
-	function Step( ui ) {
+	function Step( ui, config ) {
 		oo.EventEmitter.call( this );
+
+		/**
+		 * @property {Object} config
+		 */
+		this.config = config;
+
+		/**
+		 * @property {number} uploadsTransitioning The number of uploads currently in this step and in transition.
+		 */
+		this.uploadsTransitioning = 0;
 
 		this.ui = ui;
 	}
@@ -65,5 +76,88 @@
 	 */
 	SP.updateFileCounts = function () {};
 
+	/**
+	 * Perform this step's changes on all uploads. Replaces makeTransitioner
+	 * in the UploadWizard class.
+	 * @return {jQuery.Promise}
+	 */
+	SP.transitionAll = function () {
+		var step = this,
+			transpromises = [];
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
+
+			transpromises.push( step.transitionOne( upload ) );
+		} );
+
+		return $.when.apply( $, transpromises );
+	};
+
+	/**
+	 * Check if upload is able to be put through this step's changes.
+	 * @param {mw.UploadWizardUpload} upload
+	 * @return {boolean}
+	 */
+	SP.canTransition = function () {
+		return this.uploadsTransitioning < this.config.maxSimultaneousConnections;
+	};
+
+	/**
+	 * Check if upload is currently being put through this step's transition.
+	 * @param {mw.UploadWizardUpload} upload
+	 * @return {boolean}
+	 */
+	SP.isTransitioning = function () {
+		return false;
+	};
+
+	/**
+	 * Check if the upload is finished with its transition.
+	 * @param {mw.UploadWizardUpload} upload
+	 * @return {boolean}
+	 */
+	SP.isDoneTransitioning = function () {
+		return false;
+	};
+
+	/**
+	 * Perform this step's changes on one upload.
+	 * @param {mw.UploadWizardUpload} upload
+	 * @return {jQuery.Promise}
+	 */
+	SP.transitionOne = function ( upload ) {
+		var step = this,
+			deferred = $.Deferred();
+
+		function tryStarting() {
+			if ( step.isDoneTransitioning( upload ) ) {
+				// Finished transition, resolve deferred and break loop
+				step.uploadsTransitioning--;
+				deferred.resolve();
+			} else {
+				// Not finished
+				if ( !step.isTransitioning( upload ) && step.canTransition( upload ) ) {
+					// Not started, can start, so start
+					step.uploadsTransitioning++;
+					step.transitionStarter( upload );
+				}
+
+				// Check status in 200ms
+				window.setTimeout( tryStarting, 200 );
+			}
+		}
+
+		tryStarting();
+
+		return deferred.promise();
+	};
+
+	SP.transitionStarter = function () {
+		return false;
+	};
+
 	uw.controller.Step = Step;
-}( mediaWiki.uploadWizard, OO ) );
+}( mediaWiki.uploadWizard, OO, jQuery ) );

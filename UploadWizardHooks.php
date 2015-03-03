@@ -922,6 +922,7 @@ class UploadWizardHooks {
 			'scripts' => array(
 				'tests/qunit/controller/uw.controller.Deed.test.js',
 				'tests/qunit/controller/uw.controller.Details.test.js',
+				'tests/qunit/controller/uw.controller.Step.test.js',
 				'tests/qunit/controller/uw.controller.Thanks.test.js',
 				'tests/qunit/controller/uw.controller.Tutorial.test.js',
 				'tests/qunit/controller/uw.controller.Upload.test.js',

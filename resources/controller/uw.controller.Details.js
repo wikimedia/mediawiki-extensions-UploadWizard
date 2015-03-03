@@ -24,14 +24,15 @@
 	 * @extends mw.uw.controller.Step
 	 * @constructor
 	 */
-	function Details() {
+	function Details( config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Details()
 				.connect( this, {
 					'start-details': 'startDetails',
 					'finalize-details-after-removal': [ 'emit', 'start-details' ]
-				} )
+				} ),
+			config
 		);
 	}
 
@@ -168,6 +169,30 @@
 		} else {
 			return d.reject();
 		}
+	};
+
+	DP.canTransition = function ( upload ) {
+		return (
+			uw.controller.Step.prototype.canTransition.call( this, upload ) &&
+			upload.state === 'details'
+		);
+	};
+
+	DP.isTransitioning = function ( upload ) {
+		return (
+			upload.state === 'submitting-details'
+		);
+	};
+
+	DP.isDoneTransitioning = function ( upload ) {
+		return (
+			upload.state === 'complete' ||
+			upload.state === 'error'
+		);
+	};
+
+	DP.transitionStarter = function ( upload ) {
+		upload.details.submit();
 	};
 
 	uw.controller.Details = Details;

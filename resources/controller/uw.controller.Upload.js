@@ -26,8 +26,6 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	function Upload( config ) {
-		this.config = config;
-
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Upload( config )
@@ -35,7 +33,8 @@
 					retry: [ 'emit', 'retry' ],
 					'next-step': [ 'emit', 'next-step' ],
 					'flickr-ui-init': [ 'emit', 'flickr-ui-init' ]
-				} )
+				} ),
+			config
 		);
 	}
 
@@ -114,6 +113,32 @@
 		if ( this.progressBar ) {
 			this.progressBar.showCount( okCount );
 		}
+	};
+
+	UP.canTransition = function ( upload ) {
+		return (
+			uw.controller.Step.prototype.canTransition.call( this, upload ) &&
+			upload.state === 'new'
+		);
+	};
+
+	UP.isTransitioning = function ( upload ) {
+		return (
+			upload.state === 'transporting' ||
+			upload.state === 'transported' ||
+			upload.state === 'metadata'
+		);
+	};
+
+	UP.isDoneTransitioning = function ( upload ) {
+		return (
+			upload.state === 'stashed' ||
+			upload.state === 'error'
+		);
+	};
+
+	UP.transitionStarter = function ( upload ) {
+		upload.start();
 	};
 
 	uw.controller.Upload = Upload;

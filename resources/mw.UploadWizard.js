@@ -25,13 +25,15 @@
 			wizard.moveToStep( 'thanks' );
 		}
 
-		if ( maxSimPref === 'default' ) {
-			this.maxSimultaneousConnections = mw.UploadWizard.config.maxSimultaneousConnections;
-		} else if ( maxSimPref > 0 ) {
-			this.maxSimultaneousConnections = maxSimPref;
-		} else {
-			this.maxSimultaneousConnections = 1;
+		if ( maxSimPref !== 'default' ) {
+			if ( maxSimPref > 0 ) {
+				config.maxSimultaneousConnections = maxSimPref;
+			} else {
+				config.maxSimultaneousConnections = 1;
+			}
 		}
+
+		this.maxSimultaneousConnections = config.maxSimultaneousConnections;
 
 		this.showDeed = false;
 
@@ -66,7 +68,7 @@
 					wizard.moveToStep( 'details' );
 				} ),
 
-			details: new uw.controller.Details()
+			details: new uw.controller.Details( config )
 				.on( 'start-details', function () {
 					wizard.detailsSubmit( function () {
 						wizard.detailsErrorCount();
@@ -396,17 +398,9 @@
 			this.updateFileCounts();
 
 			// Start uploads now, no reason to wait--leave the remove button alone
-			this.makeTransitioner(
-				'new',
-				[ 'transporting', 'transported', 'metadata' ],
-				[ 'error', 'stashed' ],
-				function ( upload ) {
-					upload.start();
-				},
-				function () {
-					wizard.showNext( 'file', 'stashed' );
-				}
-			);
+			this.steps.file.transitionAll().done( function () {
+				wizard.showNext( 'file', 'stashed' );
+			} );
 		},
 
 		/**
@@ -493,50 +487,6 @@
 		},
 
 		/**
-		 * Manage transitioning all of our uploads from one state to another -- like from "new" to "uploaded".
-		 *
-		 * @param beginState	what state the upload should be in before starting.
-		 * @param progressState	the state to set the upload to while it's doing whatever
-		 * @param endState		the state (or array of states) that signify we're done with this process
-		 * @param starter		function, taking single argument (upload) which starts the process we're interested in
-		 * @param endCallback	function to call when all uploads are in the end state.
-		 */
-		makeTransitioner: function ( beginState, progressStates, endStates, starter, endCallback ) {
-			var nextAction,
-				uploadsToStart = this.maxSimultaneousConnections,
-				wizard = this,
-				endStateCount = 0;
-
-			$.each( this.uploads, function (i, upload) {
-				if ( upload === undefined ) {
-					return;
-				}
-				if ( $.inArray( upload.state, endStates ) !== -1 ) {
-					endStateCount++;
-				} else if ( $.inArray( upload.state, progressStates ) !== -1 ) {
-					uploadsToStart--;
-				} else if ( ( upload.state === beginState ) && ( uploadsToStart > 0 ) ) {
-					starter( upload );
-					uploadsToStart--;
-				}
-			} );
-
-			// build in a little delay even for the end state, so user can see progress bar in a complete state.
-			if ( endStateCount === this.uploads.length - this.countEmpties() ) {
-				nextAction = endCallback;
-			} else {
-				// Function.prototype.bind is not used because it is not supported by IE 8
-				nextAction = function () {
-					wizard.makeTransitioner( beginState, progressStates, endStates, starter, endCallback );
-				};
-			}
-
-			setTimeout( nextAction, this.transitionerDelay );
-		},
-
-		transitionerDelay: 200,  // milliseconds
-
-		/**
 		 * Helper function to check whether the upload process is totally
 		 * complete and we can safely leave the window.
 		 */
@@ -590,17 +540,9 @@
 			// it might be interesting to just make this creational -- attach it to the dom element representing
 			// the progress bar and elapsed time
 
-			this.makeTransitioner(
-				'new',
-				[ 'transporting', 'transported', 'metadata' ],
-				[ 'error', 'stashed' ],
-				function ( upload ) {
-					upload.start();
-				},
-				function () {
-					wizard.showNext( 'file', 'stashed' );
-				}
-			);
+			this.steps.file.transitionAll().done( function () {
+				wizard.showNext( 'file', 'stashed' );
+			} );
 		},
 
 		/**
@@ -753,15 +695,9 @@
 
 			// add the upload progress bar, with ETA
 			// add in the upload count
-			this.makeTransitioner(
-				'details',
-				[ 'submitting-details' ],
-				[ 'error', 'complete' ],
-				function ( upload ) {
-					upload.details.submit();
-				},
-				endCallback /* called when all uploads are in a valid end state */
-			);
+			this.steps.details.transitionAll().done( function () {
+				endCallback();
+			} );
 		},
 
 		/**
