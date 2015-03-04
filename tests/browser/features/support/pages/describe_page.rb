@@ -36,9 +36,9 @@ class DescribePage
 
   a(:use_a_different_license, xpath: "//div[@id='mwe-upwiz-stepdiv-details']//form[@id='mwe-upwiz-detailsform0']//p[@class='mwe-more-options']/a")
 
-  radio(:own_cc_zero_radio, id: "license3_4")
-  radio(:thirdparty_nasa_radio, id: "license4_13")
-  radio(:own_cc_by_sa_4_radio, id: "license3_0")
+  radio(:own_cc_zero_radio, value: "{{self|cc-zero}}")
+  radio(:thirdparty_nasa_radio, value: "{{PD-USGov-NASA}}")
+  radio(:own_cc_by_sa_4_radio, value: "{{self|cc-by-sa-4.0}}")
   radio(:own_work_radio, id: "deedChooser2-ownwork")
   radio(:thirdparty_radio, id: "deedChooser2-thirdparty")
 
