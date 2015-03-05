@@ -88,14 +88,14 @@
 		this.$addFile.add( this.$flickrAddFile ).toggleClass( 'mwe-upwiz-add-files-n', haveUploads );
 		this.$addFileContainer.toggleClass( 'mwe-upwiz-add-files-0', !haveUploads );
 
+		this.setAddButtonText( haveUploads && this.config.enableMultipleFiles === true );
+
 		if ( haveUploads ) {
 			// we have uploads ready to go, so allow us to proceed
 			this.$uploadCtrlContainer.add( this.$uploadStepButtons ).show();
 			this.$uploadCenterDivide.hide();
 
-			if ( mw.UploadWizard.config.enableMultipleFiles === true ) {
-				this.showAddAnotherFile();
-			} else {
+			if ( mw.UploadWizard.config.enableMultipleFiles !== true ) {
 				$( '.mwe-upwiz-file-input' )
 					.add( this.$addFile )
 					.add( this.$flickrAddFileContainer )
@@ -114,6 +114,9 @@
 
 			this.$fileListings.filter( ':odd' ).addClass( 'odd' );
 			this.$fileListings.filter( ':even' ).removeClass( 'odd' );
+		} else {
+			this.$uploadStepButtons.hide();
+			this.$uploadCenterDivide.show();
 		}
 
 		this.$addFile
@@ -126,19 +129,24 @@
 	/**
 	 * Changes the initial centered invitation button to something like "add another file"
 	 */
-	UP.showAddAnotherFile = function () {
-		this.$addFile.button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-n' ).escaped() );
-		this.$addFileContainer.show();
+	UP.setAddButtonText = function ( more ) {
+		var msg = 'mwe-upwiz-add-file-',
+			fmsg = 'mwe-upwiz-add-file-flickr';
+
+		if ( more ) {
+			msg += 'n';
+			fmsg += '-n';
+		} else {
+			msg += '0-free';
+		}
+
+		this.$addFile.button( 'option', 'label', mw.message( msg ).escaped() );
 
 		// if Flickr uploading is available to this user, show the "add more files from flickr" button
 		if ( mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '' ) {
 			// changes the flickr add button to "add more files from flickr"
-			this.$flickrAddFile.button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-flickr-n' ).escaped() );
-
-			this.$flickrAddFileContainer.show();
+			this.$flickrAddFile.button( 'option', 'label', mw.message( fmsg ).escaped() );
 		}
-
-		this.emptyFlickrLists();
 	};
 
 	/**

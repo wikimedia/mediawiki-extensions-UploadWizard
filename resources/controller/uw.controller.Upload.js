@@ -45,16 +45,21 @@
 	/**
 	 * Updates the upload step data when a file is added or removed.
 	 */
-	UP.updateFileCounts = function ( haveUploads, max, uploads ) {
-		var fewerThanMax;
+	UP.updateFileCounts = function ( uploads ) {
+		var fewerThanMax, haveUploads,
+			max = this.config.maxUploads;
 
-		if ( uploads ) {
-			this.uploads = uploads;
-		}
+		this.ui.hideEndButtons();
+
+		haveUploads = uw.controller.Step.prototype.updateFileCounts.call( this, uploads );
 
 		fewerThanMax = this.uploads.length < max;
 
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
+
+		if ( !haveUploads ) {
+			this.emit( 'reset' );
+		}
 	};
 
 	/**

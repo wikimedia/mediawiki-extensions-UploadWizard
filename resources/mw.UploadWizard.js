@@ -11,9 +11,8 @@
 		// making a sort of global for now, should be done by passing in config or fragments of config when needed
 		// elsewhere
 		mw.UploadWizard.config = config;
-
-		// XXX need a robust way of defining default config
-		this.maxUploads = mw.UploadWizard.config.maxUploads || 10;
+		// Shortcut for local references
+		this.config = config;
 
 		var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' ),
 			wizard = this;
@@ -61,11 +60,19 @@
 							wizard.moveToStep( 'details' );
 						}
 					} );
+				} )
+
+				.on( 'reset', function () {
+					wizard.bailAndMoveToFile();
 				} ),
 
 			deeds: new uw.controller.Deed( this.api, config )
 				.on( 'next-step', function () {
 					wizard.moveToStep( 'details' );
+				} )
+
+				.on( 'no-uploads', function () {
+					wizard.bailAndMoveToFile();
 				} ),
 
 			details: new uw.controller.Details( config )
@@ -82,6 +89,10 @@
 
 				.on( 'finalize-details-after-removal', function () {
 					wizard.removeErrorUploads( finalizeDetails );
+				} )
+
+				.on( 'no-uploads', function () {
+					wizard.bailAndMoveToFile();
 				} ),
 
 			thanks: new uw.controller.Thanks()
@@ -115,6 +126,26 @@
 			$.purgeReadyEvents();
 			$.purgeSubscriptions();
 			this.removeMatchingUploads( function () { return true; } );
+			this.moveToStep( 'file' );
+		},
+
+		/**
+		 * Resets wizard state and moves to the file step.
+		 */
+		bailAndMoveToFile: function () {
+			// destroy the flickr interface if it exists
+			this.flickrInterfaceDestroy();
+
+			// fix various other pages that may have state
+			$.each( this.steps, function ( i, step ) {
+				step.empty();
+			} );
+
+			// remove any blocks on closing the window
+			if ( this.allowCloseWindow !== undefined ) {
+				this.allowCloseWindow();
+			}
+
 			this.moveToStep( 'file' );
 		},
 
@@ -276,7 +307,7 @@
 
 			this.currentStepObject = targetStep;
 
-			this.updateFileCounts( false );
+			this.currentStepObject.updateFileCounts( this.uploads );
 
 			if ( callback ) {
 				callback();
@@ -309,14 +340,14 @@
 			var upload,
 				wizard = this;
 
-			if ( this.uploads.length >= this.maxUploads ) {
+			if ( this.uploads.length >= this.config.maxUploads ) {
 				return false;
 			}
 
 			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist' )
 				.on( 'file-changed', function ( upload, files ) {
 					var totalFiles = files.length + wizard.uploads.length,
-						tooManyFiles = totalFiles > mw.UploadWizard.config.maxUploads;
+						tooManyFiles = totalFiles > wizard.config.maxUploads;
 
 					if ( tooManyFiles ) {
 						wizard.steps.file.showTooManyFilesWarning( totalFiles );
@@ -362,7 +393,11 @@
 					// Add a new upload to cover the button
 					wizard.newUpload();
 
-					wizard.updateFileCounts();
+					wizard.currentStepObject.updateFileCounts( wizard.uploads );
+				} )
+
+				.on( 'filename-accepted', function () {
+					wizard.currentStepObject.updateFileCounts( wizard.uploads );
 				} )
 
 				.on( 'error', function ( code, message ) {
@@ -373,7 +408,6 @@
 			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
 
 			upload.connect( this, {
-				'filename-accepted': 'updateFileCounts',
 				'remove-upload': [ 'removeUpload', upload ]
 			} );
 
@@ -395,7 +429,7 @@
 				this.showDeed = true;
 			}
 
-			this.updateFileCounts();
+			this.currentStepObject.updateFileCounts( this.uploads );
 
 			// Start uploads now, no reason to wait--leave the remove button alone
 			this.steps.file.transitionAll().done( function () {
@@ -425,7 +459,7 @@
 				}
 			);
 
-			this.updateFileCounts();
+			this.currentStepObject.updateFileCounts( this.uploads );
 
 			if ( this.uploads && this.uploads.length !== 0 ) {
 				// check all uploads, if they're complete, show the next button
@@ -608,6 +642,8 @@
 
 		/**
 		 * Count the number of empty (undefined) uploads in our list.
+		 * @TODO duplicated in the step prototype for now, delete when relevant
+		 * things have all been moved to the step controllers.
 		 */
 		countEmpties: function () {
 			var count = 0;
@@ -617,45 +653,6 @@
 				}
 			} );
 			return count;
-		},
-
-		/**
-		 * Occurs whenever we need to update the interface based on how many files there are.
-		 * There is an uncounted upload, waiting to be used, which has a fileInput which covers the
-		 * "add an upload" button. This is absolutely positioned, so it needs to be moved if another upload was removed.
-		 * The uncounted upload is also styled differently between the zero and n files cases
-		 *
-		 * TODO in the case of aborting the only upload, we get kicked back here, but the file input over the add file
-		 * button has been removed. How to get it back into "virginal" state?
-		 *
-		 * @param {boolean} autoMoveToFile Whether to move to the file step if there are no non-empty upload objects.
-		 */
-		updateFileCounts: function ( autoMoveToFile ) {
-			if ( autoMoveToFile === undefined ) {
-				autoMoveToFile = true;
-			}
-
-			// First reset the wizard buttons.
-			this.steps.file.ui.hideEndButtons();
-
-			this.currentStepObject.updateFileCounts( ( this.uploads.length - this.countEmpties() ) > 0, this.maxUploads, this.uploads );
-
-			if ( autoMoveToFile && ( this.uploads.length - this.countEmpties() <= 0 ) ) {
-				// destroy the flickr interface if it exists
-				this.flickrInterfaceDestroy();
-
-				// fix various other pages that may have state
-				$.each( this.steps, function ( i, step ) {
-					step.empty();
-				} );
-
-				// remove any blocks on closing the window
-				if ( this.allowCloseWindow !== undefined ) {
-					this.allowCloseWindow();
-				}
-
-				this.moveToStep( 'file' );
-			}
 		},
 
 		/**

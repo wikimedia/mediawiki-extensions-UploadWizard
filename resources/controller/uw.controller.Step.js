@@ -72,9 +72,40 @@
 	};
 
 	/**
-	 * Update file counts for the step.
+	 * Count the number of empty (undefined) uploads in our list.
 	 */
-	SP.updateFileCounts = function () {};
+	SP.countEmpties = function () {
+		var count = 0;
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( mw.isEmpty( upload ) ) {
+				count += 1;
+			}
+		} );
+
+		return count;
+	};
+
+	/**
+	 * Update file counts for the step.
+	 * @param {mw.UploadWizardUpload[]} uploads
+	 * @return {boolean} Whether there are uploads present in the list
+	 */
+	SP.updateFileCounts = function ( uploads ) {
+		if ( uploads ) {
+			this.uploads = uploads;
+		} else {
+			this.uploads = [];
+		}
+
+		if ( uploads.length - this.countEmpties() <= 0 ) {
+			this.uploads = [];
+			this.emit( 'no-uploads' );
+			return false;
+		}
+
+		return true;
+	};
 
 	/**
 	 * Perform this step's changes on all uploads. Replaces makeTransitioner

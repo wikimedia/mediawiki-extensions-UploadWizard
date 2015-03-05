@@ -19,23 +19,25 @@
 	QUnit.module( 'mw.uw.controller.Upload', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step = new uw.controller.Upload();
+		var step = new uw.controller.Upload( { maxUploads: 10 } );
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
 	QUnit.test( 'updateFileCounts', 3, function ( assert ) {
-		var step = new uw.controller.Upload(),
+		var step = new uw.controller.Upload( { maxUploads: 5 } ),
 			ufcStub = this.sandbox.stub( step.ui, 'updateFileCounts' );
 
-		step.updateFileCounts( true, 5, [ 1, 2 ] );
+		step.updateFileCounts( [ 1, 2 ] );
 		assert.ok( ufcStub.calledWith( true, true ) );
 
-		step.updateFileCounts( false, 5, [] );
+		ufcStub.reset();
+		step.updateFileCounts( [] );
 		assert.ok( ufcStub.calledWith( false, true ) );
 
-		step.updateFileCounts( true, 5, [ 1, 2, 3, 4, 5, 6 ] );
+		ufcStub.reset();
+		step.updateFileCounts( [ 1, 2, 3, 4, 5, 6 ] );
 		assert.ok( ufcStub.calledWith( true, false ) );
 	} );
 
