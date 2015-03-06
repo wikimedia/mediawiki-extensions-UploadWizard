@@ -76,11 +76,8 @@
 				} ),
 
 			details: new uw.controller.Details( config )
-				.on( 'start-details', function () {
-					wizard.detailsSubmit().done( function () {
-						wizard.steps.details.showErrors();
-						wizard.showNext( 'details', 'complete', finalizeDetails );
-					} );
+				.on( 'details-submitted', function () {
+					wizard.showNext( 'details', 'complete', finalizeDetails );
 				} )
 
 				.on( 'details-error', function () {
@@ -652,23 +649,6 @@
 				}
 			} );
 			return count;
-		},
-
-		/**
-		 * Submit all edited details and other metadata
-		 * Works just like startUploads -- parallel simultaneous submits with progress bar.
-		 * @return {jQuery.Promise}
-		 */
-		detailsSubmit: function () {
-			var deferred = $.Deferred();
-
-			// add the upload progress bar, with ETA
-			// add in the upload count
-			this.steps.details.transitionAll().done( function () {
-				deferred.resolve();
-			} );
-
-			return deferred.promise();
 		}
 	};
 

@@ -60,7 +60,7 @@
 	 */
 	SP.moveTo = function ( uploads ) {
 		this.uploads = uploads;
-		this.ui.moveTo();
+		this.ui.moveTo( uploads );
 	};
 
 	/**

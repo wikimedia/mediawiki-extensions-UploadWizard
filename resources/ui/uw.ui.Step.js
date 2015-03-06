@@ -39,6 +39,7 @@
 
 	/**
 	 * Move to the step.
+	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	SP.moveTo = function ( uploads ) {
 		this.uploads = uploads;
