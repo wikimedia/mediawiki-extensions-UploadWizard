@@ -87,8 +87,16 @@
 		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
 			return false;
 		}
-		return ( ( !info.video || info.video.length === 0 ) && info.audio.length > 0 ) ||
-				info.contentType.indexOf( 'audio/' ) !== -1;
+
+		if ( info.video && info.video.length > 0 ) {
+			return false;
+		}
+
+		if ( info.audio && info.audio.length > 0 ) {
+			return true;
+		}
+
+		return info.contentType.indexOf( 'audio/' ) !== -1;
 	};
 
 	FTP.isSourceVideo = function () {
@@ -97,8 +105,12 @@
 		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
 			return false;
 		}
-		return ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 ) ||
-			info.contentType.indexOf( 'video/' ) !== -1;
+
+		if ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 ) {
+			return true;
+		}
+
+		return info.contentType.indexOf( 'video/' ) !== -1;
 	};
 
 	FTP.isOggFormat = function () {
