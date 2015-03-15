@@ -226,6 +226,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "Este título contiene un apóstrofo doble; Elimínalo.",
 	"mwe-upwiz-error-title-extension": "No es necesario añadir la extensión del archivo. Tan sólo tienes que asignar un título comprensible y la aplicación se encargará del resto.",
 	"mwe-upwiz-error-title-protected": "Este título corresponde a una página protegida de este wiki. Elige uno diferente.",
+	"mwe-upwiz-error-title-duplicate": "Este título está especificado para de un archivo de los que intentas subir. Ten en cuenta que las barras bajas se tratan como espacios y que la extensión del archivo se añade automáticamente.",
 	"mwe-upwiz-error-license-wikitext-missing": "Es necesario insertar texto wiki a la opción que ha selecionado.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Este texto wiki es demasiado corto para ser una licencia",
 	"mwe-upwiz-error-license-wikitext-too-long": "El texto wiki que has introducido es demasiado largo.",
