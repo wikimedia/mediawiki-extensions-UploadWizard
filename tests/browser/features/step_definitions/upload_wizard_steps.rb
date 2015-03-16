@@ -349,3 +349,11 @@ Then(/^the Flickr uploads have the correct information$/) do
   "Attribution Licence (CC-BY) creativecommons.org/licenses/by/3.0"
   step "upload number " + second_index + " should have the date 2014-06-24 06:07:07"
 end
+
+Then(/^I should be scrolled to the (\S+) field$/) do |field|
+  on(DescribePage).field(1, field).should be_present
+end
+
+Then(/^the (\S+) field should have a warning next to it$/) do |field|
+  on(DescribePage).field(1, field).parent.div(css: ".mwe-upwiz-details-input-error").should be_visible
+end

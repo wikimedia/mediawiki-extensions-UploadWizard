@@ -40,7 +40,8 @@
 	/**
 	 * Move to the step.
 	 */
-	SP.moveTo = function () {
+	SP.moveTo = function ( uploads ) {
+		this.uploads = uploads;
 		// Remove the initial spinner if it's still present
 		$( '#mwe-first-spinner' ).remove();
 		this.$div.show();

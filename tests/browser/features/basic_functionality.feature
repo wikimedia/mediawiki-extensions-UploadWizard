@@ -69,4 +69,17 @@ Feature: Basic functionality
       And I enter category
       And I enter date
       And I click the Next button at the Describe page
-    Then Upload more files button should be there
+      Then Upload more files button should be there
+
+  Scenario: Scroll to error
+    When I add file image.png
+      And I add file image2.png
+      And I add file image3.png
+      And click button Continue
+      And I click This file is my own work
+      And I click the Next button at the Release rights page
+      And I enter title
+      And I enter date
+      And I click the Next button at the Describe page
+    Then I should be scrolled to the description field
+      And the description field should have a warning next to it
