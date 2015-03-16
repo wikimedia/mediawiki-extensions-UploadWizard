@@ -198,9 +198,11 @@
 
 	/**
 	 * Submit details to the API.
-	 * @TODO move the actual submission here - need to fiddle with makeTransitioner first
+	 * @returns {jQuery.Promise}
 	 */
 	DP.submit = function () {
+		var details = this;
+
 		$.each( this.uploads, function ( i, upload ) {
 			// Skip empty uploads
 			if ( upload === undefined ) {
@@ -221,6 +223,11 @@
 
 		// Hide errors (maybe this submission fixes them)
 		this.ui.hideErrors();
+
+		return this.transitionAll().then( function () {
+			details.showErrors();
+			details.emit( 'details-submitted' );
+		} );
 	};
 
 	/**
