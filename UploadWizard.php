@@ -100,7 +100,7 @@ $uploadWizardModuleInfo = array(
 );
 
 $wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
-	'scripts' => 'mw.FormDataTransport.js',
+	'scripts' => 'transports/mw.FormDataTransport.js',
 
 	'dependencies' => array(
 		'oojs',
@@ -108,26 +108,26 @@ $wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.iFrameTransport'] = array(
-	'scripts' => 'mw.IframeTransport.js',
+	'scripts' => 'transports/mw.IframeTransport.js',
 	'dependencies' => array(
 		'oojs',
 	),
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.apiUploadHandler'] = array(
-	'scripts' => 'mw.ApiUploadHandler.js',
+	'scripts' => 'handlers/mw.ApiUploadHandler.js',
 	'dependencies' => 'ext.uploadWizard.iFrameTransport',
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;
 
 $wgResourceModules['ext.uploadWizard.apiUploadPostHandler'] = array(
-	'scripts' => 'mw.ApiUploadPostHandler.js',
+	'scripts' => 'handlers/mw.ApiUploadPostHandler.js',
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;
 
 //upload using FormData, large files in chunks
 $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
-	'scripts' => 'mw.ApiUploadFormDataHandler.js',
+	'scripts' => 'handlers/mw.ApiUploadFormDataHandler.js',
 	'dependencies' => 'ext.uploadWizard.formDataTransport',
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;

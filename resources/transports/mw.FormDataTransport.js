@@ -55,18 +55,19 @@
 
 	/**
 	 * Creates an XHR and sets some generic event handlers on it.
+	 * @param {jQuery.Deferred} deferred Object to send events to.
 	 * @return XMLHttpRequest
 	 */
-	FDTP.createXHR = function () {
+	FDTP.createXHR = function ( deferred ) {
 		var xhr = new XMLHttpRequest(),
 			transport = this;
 
 		xhr.upload.addEventListener( 'progress', function ( evt ) {
-			transport.emit( 'progress', evt );
+			deferred.notify( evt, xhr );
 		}, false );
 
 		xhr.addEventListener( 'abort', function ( evt ) {
-			transport.emitParsedResponse( evt );
+			deferred.reject( transport.parseResponse( evt ) );
 		}, false );
 
 		return xhr;
@@ -122,8 +123,12 @@
 		}
 	};
 
+	/**
+	 * Start the upload with the provided file.
+	 * @return {jQuery.Promise}
+	 */
 	FDTP.upload = function ( file ) {
-		var formData,
+		var formData, deferred,
 			transport = this;
 
 		// use timestamp + filename to avoid conflicts on server
@@ -134,28 +139,39 @@
 		}).join('');
 
 		if ( this.config.enableChunked && file.size > this.chunkSize ) {
-			this.uploadChunk( file, 0 );
+			return this.uploadChunk( file, 0 );
 		} else {
-			this.xhr = this.createXHR();
-			this.xhr.addEventListener('load', function (evt) {
-				transport.emitParsedResponse( evt );
+			deferred = $.Deferred();
+			this.xhr = this.createXHR( deferred );
+			this.xhr.addEventListener( 'load', function ( evt ) {
+				deferred.resolve( transport.parseResponse( evt ) );
 			}, false);
-			this.xhr.addEventListener('error', function (evt) {
-				transport.emitParsedResponse( evt );
+			this.xhr.addEventListener( 'error', function ( evt ) {
+				deferred.reject( transport.parseResponse( evt ) );
 			}, false);
 
 			formData = this.createFormData( this.tempname );
 			formData.append( 'file', file );
 
 			this.sendData( this.xhr, formData );
+
+			return deferred.promise();
 		}
 	};
 
+	/**
+	 * Upload a single chunk.
+	 * @param {File} file
+	 * @param {number} offset Offset in bytes.
+	 * @return {jQuery.Promise}
+	 */
 	FDTP.uploadChunk = function ( file, offset ) {
 		var formData,
+			deferred = $.Deferred(),
 			transport = this,
 			bytesAvailable = file.size,
 			chunk;
+
 		if ( this.aborted ) {
 			if ( this.xhr ) {
 				this.xhr.abort();
@@ -172,55 +188,9 @@
 			chunk = file.slice(offset, offset + this.chunkSize, file.type);
 		}
 
-		this.xhr = this.createXHR();
-		this.xhr.addEventListener('load', function (evt) {
-			transport.responseText = evt.target.responseText;
-			transport.parseResponse(evt, function (response) {
-				if (response.upload && response.upload.filekey) {
-					transport.filekey = response.upload.filekey;
-				}
-				if (response.upload && response.upload.result === 'Success') {
-					//upload finished and can be unstashed later
-					transport.emit( 'transported', response );
-				} else if (response.upload && response.upload.result === 'Poll') {
-					//Server not ready, wait for 3 seconds
-					setTimeout(function () {
-						transport.checkStatus();
-					}, 3000);
-				} else if (response.upload && response.upload.result === 'Continue') {
-					//reset retry counter
-					transport.retries = 0;
-					//start uploading next chunk
-					transport.uploadChunk( file, response.upload.offset );
-				} else {
-					//failed to upload, try again in 3 seconds
-					transport.retries++;
-					if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
-						mw.log.warn( 'Max retries exceeded on unknown response' );
-						//upload failed, raise response
-						transport.emit( 'transported', response );
-					} else {
-						mw.log( 'Retry #' + transport.retries + ' on unknown response' );
-						setTimeout(function () {
-							transport.uploadChunk( file, offset );
-						}, 3000);
-					}
-				}
-			});
-		}, false);
-		this.xhr.addEventListener('error', function (evt) {
-			//failed to upload, try again in 3 second
-			transport.retries++;
-			if (transport.maxRetries > 0 && transport.retries >= transport.maxRetries) {
-				mw.log.warn( 'Max retries exceeded on error event' );
-				transport.emitParsedResponse( evt );
-			} else {
-				mw.log( 'Retry #' + transport.retries + ' on error event' );
-				setTimeout(function () {
-					transport.uploadChunk( file, offset );
-				}, 3000);
-			}
-		}, false);
+		this.xhr = this.createXHR( deferred );
+		this.xhr.addEventListener( 'load', deferred.resolve, false );
+		this.xhr.addEventListener( 'error', deferred.reject, false );
 
 		formData = this.createFormData( this.tempname, offset );
 
@@ -240,8 +210,101 @@
 		}
 
 		this.sendData( this.xhr, formData );
+
+		return deferred.promise().then( function ( evt ) {
+			return transport.parseResponse( evt );
+		}, function ( evt ) {
+			return transport.parseResponse( evt );
+		} ).then( function ( response ) {
+			if ( response.upload && response.upload.filekey ) {
+				transport.filekey = response.upload.filekey;
+			}
+
+			if ( response.upload && response.upload.result ) {
+				switch ( response.upload.result ) {
+					case 'Continue':
+						// Reset retry counter
+						transport.retries = 0;
+						// Start uploading next chunk
+						return transport.uploadChunk( file, response.upload.offset );
+					case 'Success':
+						// Just pass the response through.
+						return response;
+					case 'Poll':
+						// Need to retry with checkStatus.
+						return transport.retryWithMethod( 'checkStatus' );
+				}
+			} else {
+				// Failed to upload, try again in 3 seconds
+				return transport.maybeRetry(
+					'on unknown response',
+					response,
+					'uploadChunk',
+					file, offset
+				);
+			}
+		}, function ( response ) {
+			return transport.maybeRetry(
+				'on error event',
+				response,
+				'uploadChunk',
+				file, offset
+			);
+		} );
 	};
 
+	/**
+	 * Handle possible retry event - rejected if maximum retries already fired.
+	 * @param {string} contextMsg
+	 * @param {Object} response
+	 * @param {string} retryMethod
+	 * @param {File} [file]
+	 * @param {number} [offset]
+	 * @return {jQuery.Promise}
+	 */
+	FDTP.maybeRetry = function ( contextMsg, response, retryMethod, file, offset ) {
+		this.retries++;
+
+		if ( this.tooManyRetries() ) {
+			mw.log.warn( 'Max retries exceeded ' + contextMsg );
+			return $.Deferred().reject( response );
+		} else {
+			mw.log( 'Retry #' + this.retries + ' ' + contextMsg );
+			return this.retryWithMethod( retryMethod, file, offset );
+		}
+	};
+
+	/**
+	 * Have we retried too many times already?
+	 * @return {boolean}
+	 */
+	FDTP.tooManyRetries = function () {
+		return this.maxRetries > 0 && this.retries >= this.maxRetries;
+	};
+
+	/**
+	 * Either retry uploading or checking the status.
+	 * @param {'uploadChunk'|'checkStatus'} methodName
+	 * @param {File} [file]
+	 * @param {number} [offset]
+	 * @return {jQuery.Promise}
+	 */
+	FDTP.retryWithMethod = function ( methodName, file, offset ) {
+		var retryDeferred,
+			transport = this;
+
+		retryDeferred = $.Deferred();
+		setTimeout( function () {
+			transport[methodName]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
+		}, 3000 );
+
+		return retryDeferred.promise();
+	};
+
+	/**
+	 * Check the status of the upload.
+	 * @return {jQuery.Promise}
+	 */
 	FDTP.checkStatus = function () {
 		var transport = this,
 			params = {};
@@ -258,41 +321,42 @@
 		});
 		params.checkstatus =  true;
 		params.filekey =  this.filekey;
-		this.api.post( params )
-			.done( function (response) {
-				if (response.upload && response.upload.result === 'Poll') {
+		return this.api.post( params )
+			.then( function ( response ) {
+				if ( response.upload && response.upload.result === 'Poll' ) {
 					//If concatenation takes longer than 10 minutes give up
 					if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
-						transport.emit( 'transported', {
+						return $.Deferred().reject( {
 							code: 'server-error',
 							info: 'unknown server error'
 						} );
-					//Server not ready, wait for 3 more seconds
 					} else {
 						if ( response.upload.stage === undefined && window.console ) {
 							window.console.log( 'Unable to check file\'s status' );
+							return $.Deferred().reject();
 						} else {
 							//Statuses that can be returned:
 							// * queued
 							// * publish
 							// * assembling
 							transport.emit( 'update-stage', response.upload.stage );
-							setTimeout(function () {
-								transport.checkStatus();
-							}, 3000);
+							return transport.retryWithMethod( 'checkStatus' );
 						}
 					}
-				} else {
-					transport.emit( 'transported', response );
 				}
-			} )
-			.fail( function (status, response) {
-				transport.emit( 'transported', response );
+
+				return response;
 			} );
 	};
 
-	FDTP.parseResponse = function ( evt, cb ) {
+	/**
+	 * Parse response from the server.
+	 * @param {Event} evt
+	 * @return {Object}
+	 */
+	FDTP.parseResponse = function ( evt ) {
 		var response;
+
 		try {
 			response = $.parseJSON(evt.target.responseText);
 		} catch ( e ) {
@@ -304,20 +368,7 @@
 			};
 		}
 
-		cb( response );
-	};
-
-	/**
-	 * Emits a 'transported' event with an object indicating status,
-	 * parsed from JSON in the event body.
-	 * @param {Event} evt The response event.
-	 */
-	FDTP.emitParsedResponse = function ( evt ) {
-		var transport = this;
-
-		this.parseResponse( evt, function ( response ) {
-			transport.emit( 'transported', response );
-		} );
+		return response;
 	};
 
 	FDTP.geckoFormData = function () {

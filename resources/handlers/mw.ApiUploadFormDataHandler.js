@@ -24,21 +24,7 @@
 		this.transport = new mw.FormDataTransport(
 			this.$form[0].action,
 			this.formData
-		).on( 'progress', function ( evt, xhr ) {
-			var fraction;
-
-			if ( upload.state === 'aborted' ) {
-				xhr.abort();
-				return;
-			}
-
-			if ( evt.lengthComputable ) {
-				fraction = parseFloat( evt.loaded / evt.total );
-				upload.setTransportProgress( fraction );
-			}
-		} ).on( 'transported', function ( result ) {
-			upload.setTransported( result );
-		} ).on( 'update-stage', function ( stage ) {
+		).on( 'update-stage', function ( stage ) {
 			upload.ui.setStatus( 'mwe-upwiz-' + stage );
 		} );
 	};
@@ -47,36 +33,46 @@
 		/**
 		 * Optain a fresh edit token.
 		 * If successful, store token and call a callback.
-		 * @param ok callback on success
-		 * @param err callback on error
+		 * @return {jQuery.Promise}
 		 */
-		configureEditToken: function ( callerOk, err ) {
-			var handler = this,
-				ok = function ( token ) {
-					handler.formData.token = token;
-					callerOk();
-				};
+		configureEditToken: function () {
+			var handler = this;
 
-			this.api.getEditToken().done( ok ).fail( err );
+			return this.api.getEditToken().then( function ( token ) {
+				handler.formData.token = token;
+			} );
 		},
 
 		/**
 		 * Kick off the upload!
+		 * @return {jQuery.Promise}
 		 */
 		start: function () {
-			function ok() {
+			var handler = this;
+
+			return this.configureEditToken().then( function () {
 				handler.beginTime = ( new Date() ).getTime();
 				handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 				handler.upload.ui.showTransportProgress();
-				handler.transport.upload( handler.upload.file );
-			}
+				return handler.transport.upload( handler.upload.file )
+					.progress( function ( evt, xhr ) {
+						var fraction;
 
-			function err( code, info ) {
+						if ( handler.upload.state === 'aborted' ) {
+							xhr.abort();
+							return;
+						}
+
+						if ( evt.lengthComputable ) {
+							fraction = parseFloat( evt.loaded / evt.total );
+							handler.upload.setTransportProgress( fraction );
+						}
+					} ).then( function ( result ) {
+						handler.upload.setTransported( result );
+					} );
+			}, function ( code, info ) {
 				handler.upload.setError( code, info );
-			}
-
-			var handler = this;
-			this.configureEditToken( ok, err );
+			} );
 		}
 	};
 }( mediaWiki, jQuery ) );
