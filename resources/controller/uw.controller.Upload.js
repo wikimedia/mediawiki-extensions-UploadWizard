@@ -143,7 +143,7 @@
 	};
 
 	UP.transitionStarter = function ( upload ) {
-		upload.start();
+		return upload.start();
 	};
 
 	uw.controller.Upload = Upload;

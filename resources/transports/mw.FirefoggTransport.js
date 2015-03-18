@@ -1,64 +1,58 @@
-( function ( mw, $, oo ) {
+( function ( mw, $ ) {
 	var FTP;
 
 	/**
 	 * Represents a "transport" for files to upload; in this case using Firefogg.
 	 * @class mw.FirefoggTransport
-	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {File} file
 	 * @param {mw.Api} api
 	 * @param {Firefogg} fogg Firefogg instance
 	 */
 	mw.FirefoggTransport = function ( file, api, fogg ) {
-		oo.EventEmitter.call( this );
-
 		this.fileToUpload = file;
 		this.api = api;
 		this.fogg = fogg;
 	};
 
-	oo.mixinClass( mw.FirefoggTransport, oo.EventEmitter );
-
 	FTP = mw.FirefoggTransport.prototype;
 
 	/**
 	 * Do an upload
+	 * @return {jQuery.Promise}
 	 */
-	FTP.doUpload = function () {
-		var fileToUpload = this.fileToUpload, transport = this;
+	FTP.upload = function () {
+		var fileToUpload = this.fileToUpload,
+			deferred = $.Deferred();
 
 		//Encode or passthrough Firefogg before upload
 		if ( this.isUploadFormat() ) {
-			this.doFormDataUpload( fileToUpload );
-		} else {
-			this.emit( 'encoding' );
-			this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
-				function (result, file) {
-					result = JSON.parse(result);
-					if ( result.progress === 1 ) {
-						//encoding done
-						transport.doFormDataUpload(file);
-					} else {
-						//encoding failed
-						var response = {
-							error: {
-								code: 500,
-								info: 'Encoding failed'
-							}
-						};
-
-						transport.emit( 'transported', response );
-					}
-				}, function ( progress ) { //progress
-					transport.emit( 'progress', JSON.parse( progress ) );
-				}
-			);
+			return $.Deferred().resolve( fileToUpload );
 		}
-	};
 
-	FTP.doFormDataUpload = function ( file ) {
-		this.emit( 'starting', file );
+		deferred.notify( 'encoding' );
+
+		this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
+			function ( result, file ) {
+				result = JSON.parse(result);
+				if ( result.progress === 1 ) {
+					//encoding done
+					deferred.resolve( file );
+				} else {
+					//encoding failed
+					deferred.reject( {
+						error: {
+							code: 500,
+							info: 'Encoding failed'
+						}
+					} );
+				}
+			}, function ( progress ) {
+				deferred.notify( JSON.parse( progress ) );
+			}
+		);
+
+		return deferred.promise();
 	};
 
 	/**
@@ -181,4 +175,4 @@
 		mw.log( 'FirefoggTransport::getEncodeSettings> ' +  JSON.stringify(  encodeSettings ) );
 		return encodeSettings;
 	};
-}( mediaWiki, jQuery, OO ) );
+}( mediaWiki, jQuery ) );

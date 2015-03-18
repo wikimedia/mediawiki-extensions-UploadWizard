@@ -150,10 +150,9 @@
 			postd = $.Deferred(),
 			poststub = this.sandbox.stub( transport.api, 'post' ).returns( postd.promise() );
 
-		transport.on( 'transported', tstub );
 		transport.on( 'update-stage', usstub );
 
-		transport.checkStatus();
+		transport.checkStatus().fail( tstub );
 		transport.firstPoll = 0;
 		postd.resolve( { upload: { result: 'Poll' } } );
 		assert.ok( tstub.calledWith( {
@@ -175,7 +174,7 @@
 		poststub.returns( postd.promise() );
 		tstub.reset();
 		usstub.reset();
-		transport.checkStatus();
+		transport.checkStatus().done( tstub );
 		postd.resolve( 'testing' );
 		assert.ok( tstub.calledWith( 'testing' ) );
 		assert.ok( !usstub.called );
@@ -185,61 +184,29 @@
 		poststub.returns( postd.promise() );
 		tstub.reset();
 		usstub.reset();
-		transport.checkStatus();
+		transport.checkStatus().fail( tstub );
 		postd.reject( 500, 'testing' );
-		assert.ok( tstub.calledWith( 'testing' ) );
+		assert.ok( tstub.calledWith( 500, 'testing' ) );
 		assert.ok( !usstub.called );
 	} );
 
 	QUnit.test( 'parseResponse', 2, function ( assert ) {
-		var cbstub = this.sandbox.stub(),
-			transport = createTransport( false, 10 );
+		var transport = createTransport( false, 10 ),
+			response = {
+				target: {
+					responseText: '{"testing": "testing"}'
+				}
+			};
 
-		transport.parseResponse( {
-			target: {
-				responseText: '{"testing": "testing"}'
-			}
-		}, cbstub );
+		assert.ok( transport.parseResponse( response ), { testing: 'testing' } );
 
-		assert.ok( cbstub.calledWith( { testing: 'testing' } ) );
-
-		cbstub.reset();
-		transport.parseResponse( { target: { code: 'test', responseText: 'a test error' } }, cbstub );
-		assert.ok( cbstub.calledWith( {
+		response = { target: { code: 'test', responseText: 'a test error' } };
+		assert.ok( transport.parseResponse( response ), {
 			error: {
 				code: 'test',
 				info: 'a test error'
 			}
-		} ) );
-	} );
-
-	QUnit.test( 'emitParsedResponse', 2, function ( assert ) {
-		var tstub = this.sandbox.stub(),
-			transport = createTransport( false, 10 );
-
-		transport.on( 'transported', tstub );
-
-		transport.emitParsedResponse( {
-			target: {
-				responseText: '{"testing": "testing"}'
-			}
 		} );
-
-		assert.ok( tstub.calledWith( { testing: 'testing' } ) );
-		tstub.reset();
-
-		transport.emitParsedResponse( {
-			target: {
-				code: 'test',
-				responseText: 'a test error'
-			}
-		} );
-		assert.ok( tstub.calledWith( {
-			error: {
-				code: 'test',
-				info: 'a test error'
-			}
-		} ) );
 	} );
 
 	QUnit.test( 'geckoFormData', 4, function ( assert ) {

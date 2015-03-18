@@ -35,21 +35,4 @@
 		assert.ok( sustat );
 		assert.ok( sustat.state() );
 	} );
-
-	QUnit.test( 'configureForm', 5, function ( assert ) {
-		var transport = createTransport(),
-			$form = transport.$form,
-			pstub = this.sandbox.stub(),
-			pirstub = this.sandbox.stub( transport, 'processIframeResult' );
-
-		transport.configureForm();
-
-		assert.strictEqual( $form.prop( 'target' ), transport.iframeId );
-		transport.on( 'progress', pstub );
-		assert.ok( !pstub.called );
-		assert.ok( !pirstub.called );
-		transport.$iframe.load();
-		assert.ok( pstub.calledWith( 1.0 ) );
-		assert.ok( pirstub.calledWith( transport.$iframe.get( 0 ) ) );
-	} );
 }( mediaWiki, jQuery ) );

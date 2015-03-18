@@ -87,8 +87,8 @@ class UploadWizardHooks {
 
 				// firefogg support libraries
 				'resources/mw.Firefogg.js',
-				'resources/mw.FirefoggHandler.js',
-				'resources/mw.FirefoggTransport.js',
+				'resources/handlers/mw.FirefoggHandler.js',
+				'resources/transports/mw.FirefoggTransport.js',
 
 				// flickr libraries
 				'resources/mw.FlickrChecker.js',
@@ -480,7 +480,7 @@ class UploadWizardHooks {
 		// TODO(aarcos): I don't think this is used anymore?
 		'ext.uploadWizard.tests' => array(
 			'scripts' => array(
-				'resources/mw.MockUploadHandler.js'
+				'resources/handlers/mw.MockUploadHandler.js'
 			),
 		),
 		'ext.uploadWizard.events' => array(

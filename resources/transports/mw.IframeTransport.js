@@ -1,4 +1,4 @@
-( function ( mw, $, oo ) {
+( function ( mw, $ ) {
 	var ITP;
 
 	/**
@@ -6,7 +6,6 @@
 	 * Represents a "transport" for files to upload; in this case an iframe.
 	 * XXX dubious whether this is really separated from "ApiUploadHandler", which does a lot of form config.
 	 * The iframe is made to be the target of a form so that the existing page does not reload, even though it's a POST.
-	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {jQuery} $form HTML form with the upload data.
 	 */
@@ -14,10 +13,7 @@
 		var iframe,
 			transport = this;
 
-		oo.EventEmitter.call( this );
-
 		function setupFormCallback() {
-			transport.configureForm();
 			transport.$iframe.off( 'load', setupFormCallback );
 			transport.setUpStatus.resolve();
 		}
@@ -58,8 +54,6 @@
 		$( 'body' ).append( this.$iframe );
 	};
 
-	oo.mixinClass( mw.IframeTransport, oo.EventEmitter );
-
 	ITP = mw.IframeTransport.prototype;
 
 	/**
@@ -68,29 +62,6 @@
 	 */
 	ITP.getSetUpStatus = function () {
 		return this.setUpStatus.promise();
-	};
-
-	/**
-	 * Configure a form with a File Input so that it submits to the iframe
-	 * Ensure callback on completion of upload
-	 */
-	ITP.configureForm = function () {
-		var transport = this;
-
-		// Set the form target to the iframe
-		this.$form.prop( 'target', this.iframeId );
-
-		// attach an additional handler to the form, so, when submitted, it starts showing the progress
-		// XXX this is lame .. there should be a generic way to indicate busy status...
-		this.$form.submit( function () {
-			return true;
-		} );
-
-		// Set up the completion callback
-		this.$iframe.load( function () {
-			transport.emit( 'progress', 1.0 );
-			transport.processIframeResult( this );
-		} );
 	};
 
 	/**
@@ -136,6 +107,36 @@
 		}
 
 		// Process the API result
-		this.emit( 'transported', response );
+		return response;
 	};
-}( mediaWiki, jQuery, OO ) );
+
+	/**
+	 * Start the upload.
+	 * @return {jQuery.Promise}
+	 */
+	ITP.upload = function () {
+		var transport = this;
+
+		return this.getSetUpStatus().then( function () {
+			var deferred = $.Deferred();
+
+			// Set the form target to the iframe
+			transport.$form.prop( 'target', this.iframeId );
+
+			// attach an additional handler to the form, so, when submitted, it starts showing the progress
+			// XXX this is lame .. there should be a generic way to indicate busy status...
+			transport.$form.submit( function () {
+				return true;
+			} );
+
+			transport.$iframe.on( 'load', function () {
+				deferred.notify( 1.0 );
+				deferred.resolve( transport.processIframeResult() );
+			} );
+
+			transport.$form.submit();
+
+			return deferred.promise();
+		} );
+	};
+}( mediaWiki, jQuery ) );

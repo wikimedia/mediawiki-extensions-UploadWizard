@@ -61,18 +61,15 @@
 
 		/**
 		 * Modify our form to have a fresh edit token.
-		 * If successful, return true to a callback.
-		 * @param callback to return true on success
+		 * @return {jQuery.Promise}
 		 */
-		configureEditToken: function ( callerOk, err ) {
-			function ok( token ) {
-				handler.addFormInputIfMissing( 'token', token );
-				callerOk();
-			}
-
+		configureEditToken: function () {
 			var handler = this;
 
-			this.api.getEditToken().done( ok ).fail( err );
+			return this.api.getEditToken()
+				.then( function ( token ) {
+					handler.addFormInputIfMissing( 'token', token );
+				} );
 		},
 
 		/**
@@ -100,23 +97,21 @@
 
 		/**
 		 * Kick off the upload!
+		 * @return {jQuery.Promise}
 		 */
 		start: function () {
-			function ok() {
-				handler.beginTime = ( new Date() ).getTime();
-				handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
-				handler.upload.ui.showTransportProgress();
-				handler.transport.getSetUpStatus().done( function () {
-					handler.$form.submit();
-				} );
-			}
-
-			function err( code, info ) {
-				handler.upload.setError( code, info );
-			}
-
 			var handler = this;
-			this.configureEditToken( ok, err );
+
+			return this.configureEditToken()
+				.then( function () {
+					handler.beginTime = ( new Date() ).getTime();
+					handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
+					handler.upload.ui.showTransportProgress();
+
+					return handler.transport.upload();
+				}, function ( code, info ) {
+					handler.upload.setError( code, info );
+				} );
 		}
 	};
 }( mediaWiki, jQuery ) );
