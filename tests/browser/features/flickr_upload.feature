@@ -23,3 +23,20 @@ Feature: Flickr upload
       And I click the Upload selected images button
       And click button Continue
     Then the Flickr uploads have the correct information
+
+  Scenario: Lack of Flickr rights during upload
+    Given I am logged in
+      And I am on the file upload step
+      And I don't have Flickr upload rights
+    When I add file image.png
+      And I remove file image.png
+      And I add file image.png
+    Then the Flickr import button should be absent
+
+  Scenario: Lack of Flickr rights when reset
+    Given I am logged in
+      And I am on the file upload step
+      And I don't have Flickr upload rights
+    When I add file image.png
+      And I remove file image.png
+    Then the Flickr import button should be absent

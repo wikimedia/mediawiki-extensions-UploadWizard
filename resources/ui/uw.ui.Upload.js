@@ -116,7 +116,10 @@
 			this.$fileListings.filter( ':even' ).removeClass( 'odd' );
 		} else {
 			this.$uploadStepButtons.hide();
-			this.$uploadCenterDivide.show();
+
+			if ( this.isFlickrImportEnabled() ) {
+				this.$uploadCenterDivide.show();
+			}
 		}
 
 		this.$addFile
@@ -143,7 +146,7 @@
 		this.$addFile.button( 'option', 'label', mw.message( msg ).escaped() );
 
 		// if Flickr uploading is available to this user, show the "add more files from flickr" button
-		if ( mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '' ) {
+		if ( this.isFlickrImportEnabled() ) {
 			// changes the flickr add button to "add more files from flickr"
 			this.$flickrAddFile.button( 'option', 'label', mw.message( fmsg ).escaped() );
 		}
@@ -159,11 +162,14 @@
 			.hide();
 
 		this.$addFileContainer
-			.add( this.$flickrAddFileContainer )
-			.add( this.$uploadCenterDivide )
 			.add( this.$addFile )
-			.add( this.$uploadCtrls )
 			.show();
+
+		if ( this.isFlickrImportEnabled() ) {
+			this.$flickrAddFileContainer
+				.add( this.$uploadCenterDivide )
+				.show();
+		}
 
 		// changes the button back from "add another file" to the initial centered invitation button
 		this.$addFile.button( 'option', 'label', mw.message( 'mwe-upwiz-add-file-0-free' ).escaped() );
@@ -230,6 +236,14 @@
 				modal: true,
 				buttons: buttons
 			} );
+	};
+
+	/**
+	 * Checks whether flickr import is enabled and the current user has the rights to use it
+	 * @returns {Boolean}
+	 */
+	UP.isFlickrImportEnabled = function () {
+		return mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '';
 	};
 
 	ui.Upload = Upload;

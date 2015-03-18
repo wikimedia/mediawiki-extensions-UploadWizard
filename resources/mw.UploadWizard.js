@@ -463,6 +463,8 @@
 				// check all uploads, if they're complete, show the next button
 				this.showNext( 'file', 'stashed' );
 			}
+
+			this.resetFileStepUploads();
 		},
 
 		/**
