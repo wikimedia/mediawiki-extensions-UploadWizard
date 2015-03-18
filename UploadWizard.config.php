@@ -588,7 +588,7 @@ return array(
 	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',
 
-	// Bugzilla page for UploadWizard bugs
+	// Phabricator page for UploadWizard bugs & tasks
 	'bugList' => 'https://phabricator.wikimedia.org/tag/MediaWiki-extensions-UploadWizard',
 
 	// Title of page for alternative uploading form, e.g.:
