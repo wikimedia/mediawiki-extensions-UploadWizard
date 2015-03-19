@@ -1,22 +1,7 @@
-#
-# This file is subject to the license terms in the COPYING file found in the
-# UploadWizard top-level directory and at
-# https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/COPYING. No part of
-# UploadWizard, including this file, may be copied, modified, propagated, or
-# distributed except according to the terms contained in the COPYING file.
-#
-# Copyright 2012-2014 by the Mediawiki developers. See the CREDITS file in the
-# UploadWizard top-level directory and at
-# https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
-#
 class DescribePage
   include PageObject
 
-  include URL
-  def self.url
-    URL.url("Special:UploadWizard")
-  end
-  page_url url
+  page_url 'Special:UploadWizard'
 
   li(:highlighted_step_heading, xpath: "//ul[@id='mwe-upwiz-steps']/li[@id='mwe-upwiz-step-details'][@class='arrow head']")
   text_field(:category, id: "categories0")
@@ -50,7 +35,7 @@ class DescribePage
   end
 
   def div_at_index(index)
-    @browser.div(xpath: "//div[@class='mwe-upwiz-info-file ui-helper-clearfix filled'][" + index.to_s + "]")
+    browser.div(xpath: "//div[@class='mwe-upwiz-info-file ui-helper-clearfix filled'][" + index.to_s + "]")
   end
 
   def field(index, fieldname)

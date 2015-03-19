@@ -12,11 +12,7 @@
 class ReleaseRightsPage
   include PageObject
 
-  include URL
-  def self.url
-    URL.url("Special:UploadWizard")
-  end
-  page_url url
+  page_url 'Special:UploadWizard'
 
   radio(:my_own_work, id: "deedChooser1-ownwork")
   radio(:provide_copyright_information, id: "deedChooser1-custom")

@@ -11,12 +11,8 @@
 #
 class UploadPage
   include PageObject
-  include URL
 
-  def self.url
-    URL.url("Special:UploadWizard")
-  end
-  page_url url
+  page_url 'Special:UploadWizard'
 
   span(:continue, text: "Continue")
   p(:duplicate_error, text: /You are already uploading/)
@@ -28,13 +24,13 @@ class UploadPage
   button(:flickr_select_button, id: "mwe-upwiz-select-flickr")
 
   def flickr_upload(index)
-    @browser.li(id: "upload-" + index)
+    browser.li(id: "upload-" + index)
   end
 
   # We need to keep track of all the uploads on the page.
   # PageObjects are bad at finding elements that are repeated and change.
   # We have to break through to the underlying Watir library,
-  # accessible through @browser.
+  # accessible through browser.
 
   # Get all the 'uploads' on the page, or more precisely the Upload
   # interfaces. n.b. there is at least one "unfilled" upload on
@@ -45,7 +41,7 @@ class UploadPage
     basic_constraint = "contains(@class,'mwe-upwiz-file')"
     filled_constraint = is_filled ? "contains(@class,'filled')" : "not(contains(@class,'filled'))"
     constraints = [basic_constraint, filled_constraint].join(' and ')
-    @browser.divs(
+    browser.divs(
       xpath: "//div[@id='mwe-upwiz-filelist']/div[#{constraints}]"
     )
   end

@@ -12,11 +12,7 @@
 class UploadWizardPage
   include PageObject
 
-  include URL
-  def self.url
-    URL.url("Special:UploadWizard")
-  end
-  page_url url
+  page_url 'Special:UploadWizard'
 
   div(:stepdiv_file, id: "mwe-upwiz-stepdiv-file")
   text_field(:add_categories, id: "categories0")

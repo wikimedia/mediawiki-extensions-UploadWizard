@@ -12,11 +12,7 @@
 class UsePage
   include PageObject
 
-  include URL
-  def self.url
-    URL.url("Special:UploadWizard")
-  end
-  page_url url
+  page_url 'Special:UploadWizard'
 
   span(:upload_more_files, text: "Upload more files")
   li(:highlighted_step_heading, xpath: "//ul[@id='mwe-upwiz-steps']/li[@id='mwe-upwiz-step-thanks'][@class='head']")

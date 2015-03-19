@@ -12,11 +12,7 @@
 class PreferencesPage
   include PageObject
 
-  include URL
-  def self.url
-    URL.url('Special:Preferences')
-  end
-  page_url url
+  page_url 'Special:Preferences'
 
   a(:upload_wizard_pref_tab, id: "preftab-uploads")
   checkbox(:reset_skip_checkbox, id: "mw-input-wpupwiz_skiptutorial")
