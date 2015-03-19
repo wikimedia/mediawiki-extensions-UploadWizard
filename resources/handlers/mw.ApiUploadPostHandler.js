@@ -17,7 +17,7 @@
 			this.beginTime = ( new Date() ).getTime();
 			this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 
-			this.api.postWithToken( 'edit', {
+			return this.api.postWithToken( 'edit', {
 				action: 'upload',
 				stash: 1,
 				ignorewarnings: 1,

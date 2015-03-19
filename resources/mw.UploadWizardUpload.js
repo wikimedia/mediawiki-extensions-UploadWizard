@@ -113,16 +113,15 @@
 
 	/**
 	 * start
+	 * @return {jQuery.Promise}
 	 */
 	UWUP.start = function () {
-		this.emit( 'starting' );
-
 		this.setTransportProgress(0.0);
 		//this.ui.start();
 
 		// handler -- usually ApiUploadHandler
 		this.handler = this.getUploadHandler();
-		this.handler.start();
+		return this.handler.start();
 	};
 
 	/**
