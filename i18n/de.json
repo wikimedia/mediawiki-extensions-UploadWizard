@@ -343,5 +343,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximale Anzahl gleichzeitiger Uploads",
 	"campaigns": "Kampagnen des Hochladeassistenten",
 	"mwe-upload-campaigns-pagination-next": "Nächste Seite",
-	"mwe-upload-campaigns-list-title": "Liste der Hochladekampagnen"
+	"mwe-upload-campaigns-list-title": "Liste der Hochladekampagnen",
+	"apihelp-flickrblacklist-param-url": "Die zu testende Flickr-URL.",
+	"apihelp-query+allcampaigns-param-limit": "Anzahl der zurückzugebenden Kampagnen."
 }
