@@ -121,7 +121,7 @@
 			var deferred = $.Deferred();
 
 			// Set the form target to the iframe
-			transport.$form.prop( 'target', this.iframeId );
+			transport.$form.prop( 'target', transport.iframeId );
 
 			// attach an additional handler to the form, so, when submitted, it starts showing the progress
 			// XXX this is lame .. there should be a generic way to indicate busy status...
@@ -131,7 +131,7 @@
 
 			transport.$iframe.on( 'load', function () {
 				deferred.notify( 1.0 );
-				deferred.resolve( transport.processIframeResult() );
+				deferred.resolve( transport.processIframeResult( this ) );
 			} );
 
 			transport.$form.submit();
