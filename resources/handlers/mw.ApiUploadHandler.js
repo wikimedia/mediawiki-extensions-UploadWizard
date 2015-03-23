@@ -16,20 +16,12 @@
 	mw.ApiUploadHandler = function ( upload, api ) {
 		// the Iframe transport is hardcoded for now because it works everywhere
 		// can also use Xhr Binary depending on browser
-		var handler = this;
-
 		this.upload = upload;
 		this.api = api;
 		this.$form = $( this.upload.ui.form );
 		this.configureForm();
 
-		this.transport = new mw.IframeTransport(
-			this.$form
-		).on( 'progress', function ( fraction ) {
-			handler.upload.setTransportProgress( fraction );
-		} ).on( 'transported', function ( result ) {
-			handler.upload.setTransported( result );
-		} );
+		this.transport = new mw.IframeTransport( this.$form );
 	};
 
 	mw.ApiUploadHandler.prototype = {
@@ -108,7 +100,13 @@
 					handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 					handler.upload.ui.showTransportProgress();
 
-					return handler.transport.upload();
+					return handler.transport.upload()
+						.progress( function ( fraction ) {
+							handler.upload.setTransportProgress( fraction );
+						} )
+						.then( function ( result ) {
+							handler.upload.setTransported( result );
+						} );
 				}, function ( code, info ) {
 					handler.upload.setError( code, info );
 				} );
