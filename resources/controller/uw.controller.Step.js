@@ -28,6 +28,8 @@
 	 * @param {Object} config The UW config object, or relevant subset.
 	 */
 	function Step( ui, config ) {
+		var step = this;
+
 		oo.EventEmitter.call( this );
 
 		/**
@@ -41,6 +43,16 @@
 		this.uploadsTransitioning = 0;
 
 		this.ui = ui;
+
+		this.ui.on( 'next-step', function () {
+			step.moveFrom();
+		} );
+
+		/**
+		 * @property {mw.uw.controller.Step} nextStep
+		 * The next step in the process.
+		 */
+		this.nextStep = null;
 	}
 
 	oo.mixinClass( Step, oo.EventEmitter );
@@ -55,20 +67,53 @@
 	};
 
 	/**
+	 * Set the next step in the process.
+	 * @param {mw.uw.controller.Step} step
+	 */
+	SP.setNextStep = function ( step ) {
+		this.nextStep = step;
+	};
+
+	/**
 	 * Move to this step.
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	SP.moveTo = function ( uploads ) {
-		this.uploads = uploads;
+		var step = this;
+
+		this.uploads = uploads || [];
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload !== undefined ) {
+				upload.state = step.stepName;
+			}
+		} );
+
 		this.ui.moveTo( uploads );
+		( new mw.UploadWizardTutorialEvent( 'load' ) ).dispatch();
+		uw.eventFlowLogger.logStep( this.stepName );
+		this.emit( 'load' );
+
+		this.updateFileCounts( this.uploads );
 	};
 
 	/**
 	 * Move out of this step.
-	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	SP.moveFrom = function () {
-		this.ui.moveFrom();
+		this.ui.moveFrom( this.uploads );
+
+		if ( this.nextStep ) {
+			this.nextStep.moveTo( this.uploads );
+		}
+	};
+
+	/**
+	 * Skip this step.
+	 */
+	SP.skip = function () {
+		uw.eventFlowLogger.logSkippedStep( this.stepName );
+		this.moveFrom();
 	};
 
 	/**

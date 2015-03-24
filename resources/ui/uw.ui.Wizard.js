@@ -143,19 +143,10 @@
 	 * Initialize all of the buttons in the interface.
 	 */
 	UWIP.initButtons = function () {
-		var ui = this;
-
 		// make all stepdiv proceed buttons into jquery buttons
 		$( '.mwe-upwiz-stepdiv .mwe-upwiz-buttons button' )
 			.button()
 			.css( { 'margin-left': '1em' } );
-
-		$( '.mwe-upwiz-button-begin' )
-			.click( function () { ui.emit( 'reset-wizard' ); } );
-
-		$( '.mwe-upwiz-button-home' )
-			.click( function () { window.location.href = mw.config.get( 'wgArticlePath' ).replace( '$1', '' ); } );
-
 	};
 
 	ui.Wizard = UploadWizardInterface;

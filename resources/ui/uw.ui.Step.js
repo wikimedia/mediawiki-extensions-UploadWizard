@@ -42,11 +42,18 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	SP.moveTo = function ( uploads ) {
+		var offset = $( 'h1:first' ).offset();
+
 		this.uploads = uploads;
 		// Remove the initial spinner if it's still present
 		$( '#mwe-first-spinner' ).remove();
 		this.$div.show();
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( this.$arrow );
+
+		$( 'html, body' ).animate( {
+			scrollTop: offset.top,
+			scrollLeft: offset.left
+		}, 'slow' );
 	};
 
 	/**

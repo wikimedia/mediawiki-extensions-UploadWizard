@@ -28,6 +28,8 @@
 			this,
 			new uw.ui.Thanks()
 		);
+
+		this.stepName = 'thanks';
 	}
 
 	oo.inheritClass( Thanks, uw.controller.Step );
@@ -37,11 +39,13 @@
 	TP.moveTo = function ( uploads ) {
 		var thanks = this;
 
+		uw.controller.Step.prototype.moveTo.call( this );
+
 		$.each( uploads, function ( i, upload ) {
 			thanks.ui.addUpload( upload );
 		} );
 
-		uw.controller.Step.prototype.moveTo.call( this );
+		this.uploads = undefined;
 	};
 
 	uw.controller.Thanks = Thanks;

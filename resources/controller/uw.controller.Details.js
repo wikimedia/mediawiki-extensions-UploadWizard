@@ -34,6 +34,8 @@
 				} ),
 			config
 		);
+
+		this.stepName = 'details';
 	}
 
 	oo.inheritClass( Details, uw.controller.Step );

@@ -31,11 +31,12 @@
 			new uw.ui.Upload( config )
 				.connect( this, {
 					retry: [ 'emit', 'retry' ],
-					'next-step': [ 'emit', 'next-step' ],
 					'flickr-ui-init': [ 'emit', 'flickr-ui-init' ]
 				} ),
 			config
 		);
+
+		this.stepName = 'file';
 	}
 
 	oo.inheritClass( Upload, uw.controller.Step );
@@ -58,7 +59,7 @@
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
 
 		if ( !haveUploads ) {
-			this.emit( 'reset' );
+			this.emit( 'no-uploads' );
 		}
 	};
 

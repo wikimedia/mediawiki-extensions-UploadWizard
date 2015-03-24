@@ -19,7 +19,7 @@
 	QUnit.module( 'mw.uw.controller.Step', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 2, function ( assert ) {
-		var step = new uw.controller.Step( {}, {} );
+		var step = new uw.controller.Step( { on: $.noop }, {} );
 		assert.ok( step );
 		assert.ok( step.ui );
 	} );
@@ -30,7 +30,7 @@
 			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],
 			ps = [ ds[0].promise(), ds[1].promise(), ds[2].promise() ],
 			calls = [],
-			step = new uw.controller.Step( {}, {
+			step = new uw.controller.Step( { on: $.noop }, {
 				maxSimultaneousConnections: 3
 			} );
 
