@@ -212,5 +212,69 @@
 		return $.Deferred().reject( 'Using default transitioner is not supported' );
 	};
 
+	/**
+	 * Figure out what to do and what options to show after the uploads have stopped.
+	 * Uploading has stopped for one of the following reasons:
+	 * 1) The user removed all uploads before they completed, in which case we are at upload.length === 0. We should start over and allow them to add new ones
+	 * 2) All succeeded - show link to next step
+	 * 3) Some failed, some succeeded - offer them the chance to retry the failed ones or go on to the next step
+	 * 4) All failed -- have to retry, no other option
+	 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but
+	 * we trust that this hasn't happened.
+	 *
+	 * For uploads that have succeeded, now is the best time to add the relevant previews and details to the DOM
+	 * in the right order.
+	 * @return {boolean} Whether all of the uploads are in a successful state.
+	 */
+	SP.showNext = function () {
+		var errorCount = 0,
+			okCount = 0,
+			stillGoing = 0,
+			selector = null,
+			allOk = false,
+			desiredState = this.finishState;
+
+		// abort if all uploads have been removed
+		if ( this.uploads.length === 0 ) {
+			return false;
+		}
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
+			if ( upload.state === 'error' ) {
+				errorCount++;
+			} else if ( upload.state === desiredState ) {
+				okCount++;
+			} else if ( upload.state === 'transporting' ) {
+				stillGoing += 1;
+			}
+		} );
+
+		this.updateProgressBarCount( okCount );
+
+		if ( okCount === ( this.uploads.length - this.countEmpties() ) ) {
+			allOk = true;
+			selector = '.mwe-upwiz-file-next-all-ok';
+		} else if ( errorCount === ( this.uploads.length - this.countEmpties() ) ) {
+			selector = '.mwe-upwiz-file-next-all-failed';
+		} else if ( stillGoing !== 0 ) {
+			return false;
+		} else {
+			selector = '.mwe-upwiz-file-next-some-failed';
+		}
+
+		this.ui.$div.find( '.mwe-upwiz-buttons' ).show().find( selector ).show();
+
+		return allOk;
+	};
+
+	/**
+	 * Function used by some steps to update progress bar for the whole
+	 * batch of uploads.
+	 */
+	SP.updateProgressBarCount = function () {};
+
 	uw.controller.Step = Step;
 }( mediaWiki.uploadWizard, OO, jQuery ) );

@@ -60,12 +60,6 @@
 				} ),
 
 			details: new uw.controller.Details( config )
-				.on( 'details-submitted', function () {
-					wizard.showNext( 'details', 'complete', function () {
-						wizard.steps.details.moveFrom();
-					} );
-				} )
-
 				.on( 'details-error', function () {
 					wizard.steps.details.showErrors();
 				} )
@@ -344,7 +338,7 @@
 
 			// Start uploads now, no reason to wait--leave the remove button alone
 			this.steps.file.transitionAll().done( function () {
-				wizard.showNext( 'file', 'stashed' );
+				wizard.steps.file.showNext();
 			} );
 		},
 
@@ -374,7 +368,7 @@
 
 			if ( this.uploads && this.uploads.length !== 0 ) {
 				// check all uploads, if they're complete, show the next button
-				this.showNext( 'file', 'stashed' );
+				this.steps.file.showNext();
 			}
 
 			this.resetFileStepUploads();
@@ -486,84 +480,8 @@
 			// the progress bar and elapsed time
 
 			this.steps.file.transitionAll().done( function () {
-				wizard.showNext( 'file', 'stashed' );
+				wizard.steps.file.showNext();
 			} );
-		},
-
-		/**
-		 * Figure out what to do and what options to show after the uploads have stopped.
-		 * Uploading has stopped for one of the following reasons:
-		 * 1) The user removed all uploads before they completed, in which case we are at upload.length === 0. We should start over and allow them to add new ones
-		 * 2) All succeeded - show link to next step
-		 * 3) Some failed, some succeeded - offer them the chance to retry the failed ones or go on to the next step
-		 * 4) All failed -- have to retry, no other option
-		 * In principle there could be other configurations, like having the uploads not all in error or stashed state, but
-		 * we trust that this hasn't happened.
-		 *
-		 * For uploads that have succeeded, now is the best time to add the relevant previews and details to the DOM
-		 * in the right order.
-		 *
-		 * @param {String} step that we are on
-		 * @param {String} desired state to proceed (other state is assumed to be 'error')
-		 */
-		showNext: function ( step, desiredState, allOkCallback ) {
-			var errorCount = 0,
-				okCount = 0,
-				stillGoing = 0,
-				selector = null,
-				allOk = false;
-
-			// abort if all uploads have been removed
-			if ( this.uploads.length === 0 ) {
-				return;
-			}
-
-			$.each( this.uploads, function ( i, upload ) {
-				if ( upload === undefined ) {
-					return;
-				}
-				if ( upload.state === 'error' ) {
-					errorCount++;
-				} else if ( upload.state === desiredState ) {
-					okCount++;
-				} else if ( upload.state === 'transporting' ) {
-					stillGoing += 1;
-				}
-			} );
-
-			this.steps.file.updateProgressBarCount( okCount );
-
-			if ( okCount === ( this.uploads.length - this.countEmpties() ) ) {
-				allOk = true;
-				selector = '.mwe-upwiz-file-next-all-ok';
-			} else if ( errorCount === ( this.uploads.length - this.countEmpties() ) ) {
-				selector = '.mwe-upwiz-file-next-all-failed';
-			} else if ( stillGoing !== 0 ) {
-				return;
-			} else {
-				selector = '.mwe-upwiz-file-next-some-failed';
-			}
-
-			if ( allOk && ( allOkCallback !== undefined ) ) {
-				allOkCallback();
-			} else {
-				$( '#mwe-upwiz-stepdiv-' + step + ' .mwe-upwiz-buttons' ).show().find( selector ).show();
-			}
-		},
-
-		/**
-		 * Count the number of empty (undefined) uploads in our list.
-		 * @TODO duplicated in the step prototype for now, delete when relevant
-		 * things have all been moved to the step controllers.
-		 */
-		countEmpties: function () {
-			var count = 0;
-			$.each( this.uploads, function ( i, upload ) {
-				if ( mw.isEmpty( upload ) ) {
-					count += 1;
-				}
-			} );
-			return count;
 		}
 	};
 

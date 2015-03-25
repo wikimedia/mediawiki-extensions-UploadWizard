@@ -36,6 +36,7 @@
 		);
 
 		this.stepName = 'details';
+		this.finishState = 'complete';
 	}
 
 	oo.inheritClass( Details, uw.controller.Step );
@@ -217,7 +218,10 @@
 
 		return this.transitionAll().then( function () {
 			details.showErrors();
-			details.emit( 'details-submitted' );
+
+			if ( details.showNext() ) {
+				details.moveFrom();
+			}
 		} );
 	};
 

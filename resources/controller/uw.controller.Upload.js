@@ -37,6 +37,7 @@
 		);
 
 		this.stepName = 'file';
+		this.finishState = 'stashed';
 	}
 
 	oo.inheritClass( Upload, uw.controller.Step );
