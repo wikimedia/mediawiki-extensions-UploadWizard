@@ -113,16 +113,39 @@
 	 * @return {jQuery.Promise}
 	 */
 	SP.transitionAll = function () {
-		var step = this,
-			transpromises = [];
+		var i,
+			step = this,
+			transpromises = [],
+			uploadsQueued = [];
+
+		function startNextUpload() {
+			var ix, upload;
+
+			// Run through uploads looking for one we can transition. In most
+			// cases this will be the next upload.
+			while ( uploadsQueued.length > 0 ) {
+				ix = uploadsQueued.shift();
+				upload = step.uploads[ix];
+
+				if ( step.canTransition( upload ) ) {
+					return step.transitionOne( upload ).then( startNextUpload );
+				}
+			}
+
+			return $.Deferred().resolve();
+		}
 
 		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
 
-			transpromises.push( step.transitionOne( upload ) );
+			uploadsQueued.push( i );
 		} );
+
+		for ( i = 0; i < this.config.maxSimultaneousConnections; i++ ) {
+			transpromises.push( startNextUpload() );
+		}
 
 		return $.when.apply( $, transpromises );
 	};
@@ -137,57 +160,11 @@
 	};
 
 	/**
-	 * Check if upload is currently being put through this step's transition.
-	 * @param {mw.UploadWizardUpload} upload
-	 * @return {boolean}
-	 */
-	SP.isTransitioning = function () {
-		return false;
-	};
-
-	/**
-	 * Check if the upload is finished with its transition.
-	 * @param {mw.UploadWizardUpload} upload
-	 * @return {boolean}
-	 */
-	SP.isDoneTransitioning = function () {
-		return false;
-	};
-
-	/**
 	 * Perform this step's changes on one upload.
-	 * @param {mw.UploadWizardUpload} upload
 	 * @return {jQuery.Promise}
 	 */
-	SP.transitionOne = function ( upload ) {
-		var step = this,
-			deferred = $.Deferred();
-
-		function tryStarting() {
-			if ( step.isDoneTransitioning( upload ) ) {
-				// Finished transition, resolve deferred and break loop
-				step.uploadsTransitioning--;
-				deferred.resolve();
-			} else {
-				// Not finished
-				if ( !step.isTransitioning( upload ) && step.canTransition( upload ) ) {
-					// Not started, can start, so start
-					step.uploadsTransitioning++;
-					step.transitionStarter( upload );
-				}
-
-				// Check status in 200ms
-				window.setTimeout( tryStarting, 200 );
-			}
-		}
-
-		tryStarting();
-
-		return deferred.promise();
-	};
-
-	SP.transitionStarter = function () {
-		return false;
+	SP.transitionOne = function () {
+		return $.Deferred().reject( 'Using default transitioner is not supported' );
 	};
 
 	uw.controller.Step = Step;

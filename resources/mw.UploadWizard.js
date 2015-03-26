@@ -47,6 +47,14 @@
 					wizard.startUploads();
 				} )
 
+				.on( 'prevent-close', function () {
+					wizard.allowCloseWindow = mw.confirmCloseWindow( {
+						message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
+						test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; },
+						namespace: 'uploadwizard'
+					} );
+				} )
+
 				.on( 'flickr-ui-init', function () {
 					wizard.flickrInterfaceInit();
 					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
@@ -360,16 +368,6 @@
 					);
 
 					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
-				} )
-
-				.on( 'starting', function () {
-					wizard.steps.file.maybeStartProgressBar();
-
-					wizard.allowCloseWindow = mw.confirmCloseWindow( {
-						message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
-						test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; },
-						namespace: 'uploadwizard'
-					} );
 				} )
 
 				.on( 'filled', function () {

@@ -127,23 +127,18 @@
 		);
 	};
 
-	UP.isTransitioning = function ( upload ) {
-		return (
-			upload.state === 'transporting' ||
-			upload.state === 'transported' ||
-			upload.state === 'metadata'
-		);
+	UP.transitionOne = function ( upload ) {
+		var promise = upload.start();
+		this.maybeStartProgressBar();
+		return promise;
 	};
 
-	UP.isDoneTransitioning = function ( upload ) {
-		return (
-			upload.state === 'stashed' ||
-			upload.state === 'error'
-		);
-	};
-
-	UP.transitionStarter = function ( upload ) {
-		return upload.start();
+	/**
+	 * Make sure the window doesn't get closed accidentally during upload.
+	 */
+	UP.transitionAll = function () {
+		this.emit( 'prevent-close' );
+		return uw.controller.Step.prototype.transitionAll.call( this );
 	};
 
 	uw.controller.Upload = Upload;

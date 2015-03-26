@@ -823,35 +823,19 @@
 
 		/**
 		 * check entire form for validity
+		 * @return {boolean} Whether the form is valid.
 		 */
-		// do callback if we are ready to go.
 		// side effect: add error text to the page for fields in an incorrect state.
 		// we must call EVERY valid() function due to side effects; do not short-circuit.
-		valid: function ( callback ) {
-			// at least one description -- never mind, we are disallowing removal of first description
+		valid: function () {
 			// all the descriptions -- check min & max length
 			// categories are assumed valid
 			// pop open the 'more-options' if the date is bad
 			// location?
-			var deedValid, formValid,
-				details = this,
-				// make sure title is valid
-				titleInputValid = $( this.titleInput ).data( 'valid' );
-
-			if ( titleInputValid === undefined ) {
-				setTimeout( function () { details.valid( callback ); }, 200 );
-				return;
-			}
-
-			// make sure licenses are valid (needed for multi-file deed selection)
-			deedValid = this.upload.deedChooser.valid();
-
-			// all other fields validated with validator js
-			formValid = this.$form.valid();
-
-			if ( titleInputValid && deedValid && formValid ) {
-				callback();
-			}
+			return (
+				this.upload.deedChooser.valid() &&
+				this.$form.valid()
+			);
 		},
 
 		/**
@@ -859,12 +843,14 @@
 		 * Currently this tests for the following:
 		 * 1) Empty category
 		 * 2) TODO
+		 * @return {boolean}
 		 */
-		necessaryFilled: function ( callback ) {
+		necessaryFilled: function () {
 			// check for empty category input
-			if ( this.div.find( '.categoryInput' ).val() !== '' || this.div.find( '.cat-list' ).find( 'li' ).length > 0 ) {
-				callback();
-			}
+			return (
+				this.div.find( '.categoryInput' ).val() !== '' ||
+				this.div.find( '.cat-list' ).find( 'li' ).length > 0
+			);
 		},
 
 		/**
@@ -1379,35 +1365,33 @@
 
 		/**
 		 * Convert entire details for this file into wikiText, which will then be posted to the file
-		 * @return wikitext representing all details
+		 * @return {string} wikitext representing all details
 		 */
-		getWikiText: function ( callback ) {
-			var details = this;
+		getWikiText: function () {
+			var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
+				locationThings, information,
+				wikiText = '',
+				details = this;
 
 			// if invalid, should produce side effects in the form
 			// instructing user to fix.
-			this.valid( function () {
-				var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
-					locationThings,
-					wikiText = '',
-
-					// http://commons.wikimedia.org / wiki / Template:Information
-
-					// can we be more slick and do this with maps, applys, joins?
-					information = {
-						// {{lang|description in lang}}*   required
-						description: '',
-						// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
-						date: '',
-						// {{own}} or wikitext	optional
-						source: '',
-						// any wikitext, but particularly {{Creator:Name Surname}}   required
-						author: '',
-						// leave blank unless OTRS pending; by default will be "see below"   optional
-						permission: '',
-						// pipe separated list, other versions	 optional
-						'other versions': ''
-					};
+			if ( this.valid() ) {
+				// http://commons.wikimedia.org / wiki / Template:Information
+				// can we be more slick and do this with maps, applys, joins?
+				information = {
+					// {{lang|description in lang}}*   required
+					description: '',
+					// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
+					date: '',
+					// {{own}} or wikitext	optional
+					source: '',
+					// any wikitext, but particularly {{Creator:Name Surname}}   required
+					author: '',
+					// leave blank unless OTRS pending; by default will be "see below"   optional
+					permission: '',
+					// pipe separated list, other versions	 optional
+					'other versions': ''
+				};
 
 				// sanity check the descriptions -- do not have two in the same lang
 				// all should be a known lang
@@ -1416,11 +1400,11 @@
 					// XXX ruh roh
 					// we should not even allow them to press the button ( ? ) but then what about the queue...
 				}
-				$.each( details.descriptions, function ( i, desc ) {
+				$.each( this.descriptions, function ( i, desc ) {
 					information.description += desc.getWikiText();
 				} );
 
-				$.each( details.fields, function ( i, $field ) {
+				$.each( this.fields, function ( i, $field ) {
 					if ( !mw.isEmpty( $field.val() ) ) {
 						information.description += $field.data( 'field' ).wikitext.replace( '$1', $field.val() );
 					}
@@ -1428,7 +1412,7 @@
 
 				information.date = $.trim( $( details.dateInput ).val() );
 
-				deed = details.upload.deedChooser.deed;
+				deed = this.upload.deedChooser.deed;
 
 				information.source = deed.getSourceWikiText();
 
@@ -1443,9 +1427,9 @@
 				wikiText += '=={{int:filedesc}}==\n';
 				wikiText += '{{Information\n' + info + '}}\n';
 
-				latitude = $.trim( $( details.$latitudeInput ).val() );
-				longitude = $.trim( $( details.$longitudeInput ).val() );
-				heading = $.trim( details.$headingInput.val() );
+				latitude = $.trim( $( this.$latitudeInput ).val() );
+				longitude = $.trim( $( this.$longitudeInput ).val() );
+				heading = $.trim( this.$headingInput.val() );
 				//var altitude = $.trim( $( details.altitudeInput ).val() );
 
 				// Do not require the altitude to be set, to prevent people from entering 0
@@ -1476,118 +1460,27 @@
 				}
 
 				// add categories
-				wikiText += details.div.find( '.categoryInput' ).get(0).getWikiText() + '\n\n';
+				wikiText += this.div.find( '.categoryInput' ).get(0).getWikiText() + '\n\n';
 
 				// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
 				if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {
 					wikiText = window.TextCleaner.sanitizeWikiText( wikiText, true );
 				}
 
-				callback(wikiText);
-			});
+				return wikiText;
+			}
+
+			return false;
 		},
 
 		/**
 		 * Post wikitext as edited here, to the file
 		 * XXX This should be split up -- one part should get wikitext from the interface here, and the ajax call
 		 * should be be part of upload
+		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			function err( code, info ) {
-				details.upload.state = 'error';
-				details.processError( code, info );
-			}
-
-			function ok( result ) {
-				var wx, warningsKeys, existingFile, existingFileUrl,
-					warnings = null,
-					wasDeleted = false;
-
-				if ( result && result.upload && result.upload.result === 'Poll' ) {
-					// if async publishing takes longer than 10 minutes give up
-					if ( ( ( new Date() ).getTime() - firstPoll ) > 10 * 60 * 1000 ) {
-						err('server-error', 'unknown server error');
-					} else {
-						if ( result.upload.stage === undefined && window.console ) {
-							window.console.log( 'Unable to check file\'s status' );
-						} else {
-							//Messages that can be returned:
-							// *mwe-upwiz-queued
-							// *mwe-upwiz-publish
-							// *mwe-upwiz-assembling
-							details.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
-							setTimeout( function () {
-								if ( details.upload.state !== 'aborted' ) {
-									details.upload.api.postWithEditToken( {
-										action: 'upload',
-										checkstatus: true,
-										filekey: details.upload.fileKey
-									} ).done( ok ).fail( err );
-								}
-							}, 3000 );
-						}
-					}
-					return;
-				}
-				if ( result && result.upload && result.upload.warnings ) {
-					warnings = result.upload.warnings;
-					existingFile = warnings.exists || warnings['exists-normalized'];
-				}
-				if ( warnings && warnings['was-deleted'] ) {
-					delete warnings['was-deleted'];
-					wasDeleted = true;
-					for ( wx in warnings ) {
-						if ( warnings.hasOwnProperty( wx ) ) {
-							// if there are other warnings, deal with those first
-							wasDeleted = false;
-						}
-					}
-				}
-				if ( result && result.upload && result.upload.imageinfo ) {
-					details.upload.extractImageInfo( result.upload.imageinfo );
-					details.upload.detailsProgress = 1.0;
-					details.upload.state = 'complete';
-					details.showIndicator( 'uploaded' );
-					details.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
-				} else if ( wasDeleted === true ) {
-					params.ignorewarnings = 1;
-					details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
-				} else if ( result && result.upload.warnings ) {
-					if ( warnings.thumb ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text(), 'error-title-thumbnail' );
-					} else if ( warnings.badfilename ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text(), 'title-badchars' );
-					} else if ( warnings['bad-prefix'] ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text(), 'title-senselessimagename' );
-					} else if ( existingFile ) {
-						existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, 6 ).getUrl();
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
-					} else if ( warnings.duplicate ) {
-						details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
-					} else if ( warnings['duplicate-archive'] ) {
-						if ( details.upload.ignoreWarning['duplicate-archive'] ) {
-							// We already told the interface to ignore this warning, so
-							// let's steamroll over it and re-call this handler.
-							params.ignorewarnings = true;
-							details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
-						} else {
-							// This should _never_ happen, but just in case....
-							details.recoverFromError( details.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text(), 'upload-error-duplicate-archive' );
-						}
-					} else {
-						warningsKeys = [];
-						$.each( warnings, function ( key ) {
-							warningsKeys.push( key );
-						} );
-						details.upload.state = 'error';
-						details.recoverFromError( details.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text(), 'api-error-unknown-warning' );
-					}
-				} else {
-					err( 'details-info-missing', result );
-				}
-			}
-
-			var firstPoll, params,
+			var params, wikiText,
 				details = this;
 
 			$('form', this.containerDiv).submit();
@@ -1596,7 +1489,7 @@
 			this.setStatus( mw.message( 'mwe-upwiz-submitting-details' ).text() );
 			this.showIndicator( 'progress' );
 
-			firstPoll = ( new Date() ).getTime();
+			this.firstPoll = ( new Date() ).getTime();
 
 			params = {
 				action: 'upload',
@@ -1612,10 +1505,139 @@
 
 			// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
 			// validation does MOST of this already
-			this.getWikiText( function ( wikiText ) {
+			wikiText = this.getWikiText();
+
+			if ( wikiText !== false ) {
 				params.text = wikiText;
-				details.upload.api.postWithEditToken( params ).done( ok ).fail( err );
-			});
+				return details.upload.api.postWithEditToken( params )
+					.then(
+						function ( result ) {
+							return details.handleSubmitResult( result, params );
+						},
+
+						function ( code, info ) {
+							details.upload.state = 'error';
+							details.processError( code, info );
+							return $.Deferred().reject( code, info );
+						}
+					);
+
+			}
+
+			return $.Deferred().reject();
+		},
+
+		/**
+		 * Handles the result of a submission.
+		 * @param {Object} result API result of an upload or status check.
+		 * @param {Object} params What we passed to the API that caused this response.
+		 * @return {jQuery.Promise}
+		 */
+		handleSubmitResult: function ( result, params ) {
+			var wx, warningsKeys, existingFile, existingFileUrl,
+				details = this,
+				warnings = null,
+				wasDeleted = false,
+				deferred = $.Deferred();
+
+			if ( result && result.upload && result.upload.result === 'Poll' ) {
+				// if async publishing takes longer than 10 minutes give up
+				if ( ( ( new Date() ).getTime() - this.firstPoll ) > 10 * 60 * 1000 ) {
+					return $.Deferred().reject( 'server-error', 'unknown server error' );
+				} else {
+					if ( result.upload.stage === undefined && window.console ) {
+						return $.Deferred().reject( 'no-stage', 'Unable to check file\'s status' );
+					} else {
+						//Messages that can be returned:
+						// *mwe-upwiz-queued
+						// *mwe-upwiz-publish
+						// *mwe-upwiz-assembling
+						this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
+						setTimeout( function () {
+							if ( details.upload.state !== 'aborted' ) {
+								details.upload.api.postWithEditToken( {
+									action: 'upload',
+									checkstatus: true,
+									filekey: details.upload.fileKey
+								} ).then( function ( result ) {
+									return details.handleSubmitResult( result ).then( deferred.resolve, deferred.reject );
+								}, deferred.reject );
+							} else {
+								deferred.resolve( 'aborted' );
+							}
+						}, 3000 );
+
+						return deferred.promise();
+					}
+				}
+			}
+			if ( result && result.upload && result.upload.warnings ) {
+				warnings = result.upload.warnings;
+				existingFile = warnings.exists || warnings['exists-normalized'];
+			}
+			if ( warnings && warnings['was-deleted'] ) {
+				delete warnings['was-deleted'];
+				wasDeleted = true;
+				for ( wx in warnings ) {
+					if ( warnings.hasOwnProperty( wx ) ) {
+						// if there are other warnings, deal with those first
+						wasDeleted = false;
+					}
+				}
+			}
+			if ( result && result.upload && result.upload.imageinfo ) {
+				this.upload.extractImageInfo( result.upload.imageinfo );
+				this.upload.thisProgress = 1.0;
+				this.upload.state = 'complete';
+				this.showIndicator( 'uploaded' );
+				this.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
+				return $.Deferred().resolve();
+			} else if ( wasDeleted === true ) {
+				params.ignorewarnings = 1;
+				return this.upload.api.postWithEditToken( params ).then( function ( result ) {
+					return details.handleSubmitResult( result );
+				}, function ( code, info ) {
+					return $.Deferred().reject( code, info );
+				} );
+			} else if ( result && result.upload.warnings ) {
+				if ( warnings.thumb ) {
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text(), 'error-title-thumbnail' );
+				} else if ( warnings.badfilename ) {
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text(), 'title-badchars' );
+				} else if ( warnings['bad-prefix'] ) {
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text(), 'title-senselessimagename' );
+				} else if ( existingFile ) {
+					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, 6 ).getUrl();
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
+				} else if ( warnings.duplicate ) {
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
+				} else if ( warnings['duplicate-archive'] ) {
+					if ( this.upload.ignoreWarning['duplicate-archive'] ) {
+						// We already told the interface to ignore this warning, so
+						// let's steamroll over it and re-call this handler.
+						params.ignorewarnings = true;
+						return this.upload.api.postWithEditToken( params ).then( function ( result ) {
+							return details.handleSubmitResult( result );
+						}, function ( code, info ) {
+							return $.Deferred().reject( code, info );
+						} );
+					} else {
+						// This should _never_ happen, but just in case....
+						this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text(), 'upload-error-duplicate-archive' );
+					}
+				} else {
+					warningsKeys = [];
+					$.each( warnings, function ( key ) {
+						warningsKeys.push( key );
+					} );
+					this.upload.state = 'error';
+					this.recoverFromError( this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text(), 'api-error-unknown-warning' );
+				}
+
+				return $.Deferred.resolve();
+			} else {
+				return $.Deferred.reject( 'this-info-missing', result );
+			}
 		},
 
 		/**

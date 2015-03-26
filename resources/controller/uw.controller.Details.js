@@ -117,9 +117,10 @@
 			if ( upload === undefined ) {
 				return;
 			}
+
 			total += 1;
 
-			upload.details.clearDuplicateTitleError().valid( function () {
+			if ( upload.details.clearDuplicateTitleError().valid() ) {
 				title = upload.title.getName();
 
 				// Seen this title before?
@@ -132,10 +133,11 @@
 					titles[title] = true;
 				}
 				valid += 1;
-			} );
-			upload.details.necessaryFilled( function () {
-				necessary += 1;
-			} );
+
+				if ( upload.details.necessaryFilled() ) {
+					necessary += 1;
+				}
+			}
 		} );
 
 		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
@@ -179,21 +181,8 @@
 		);
 	};
 
-	DP.isTransitioning = function ( upload ) {
-		return (
-			upload.state === 'submitting-details'
-		);
-	};
-
-	DP.isDoneTransitioning = function ( upload ) {
-		return (
-			upload.state === 'complete' ||
-			upload.state === 'error'
-		);
-	};
-
-	DP.transitionStarter = function ( upload ) {
-		upload.details.submit();
+	DP.transitionOne = function ( upload ) {
+		return upload.details.submit();
 	};
 
 	/**
