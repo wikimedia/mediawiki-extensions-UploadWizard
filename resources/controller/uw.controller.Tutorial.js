@@ -49,19 +49,15 @@
 	 */
 	TP.setSkipPreference = function () {
 		var api = this.api,
-			isComplete = false,
 			allowCloseWindow = mw.confirmCloseWindow( {
-				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); },
-				test: function () { return !isComplete; }
+				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); }
 			} );
 
 		api.postWithToken( 'options', {
 			action: 'options',
 			change: 'upwiz_skiptutorial=1'
 		} ).done( function () {
-			isComplete = true;
 			allowCloseWindow();
-			return true;
 		} ).fail( function ( code, err ) {
 			mw.notify( err.textStatus );
 		} );
@@ -90,6 +86,10 @@
 		}
 
 		uw.controller.Step.prototype.moveFrom.call( this );
+	};
+
+	TP.isComplete = function () {
+		return true;
 	};
 
 	uw.controller.Tutorial = Tutorial;

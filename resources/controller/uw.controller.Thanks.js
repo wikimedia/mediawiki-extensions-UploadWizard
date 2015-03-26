@@ -48,5 +48,9 @@
 		this.uploads = undefined;
 	};
 
+	TP.isComplete = function () {
+		return true;
+	};
+
 	uw.controller.Thanks = Thanks;
 }( mediaWiki.uploadWizard, jQuery, OO ) );

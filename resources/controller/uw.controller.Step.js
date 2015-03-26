@@ -81,6 +81,8 @@
 	SP.moveTo = function ( uploads ) {
 		var step = this;
 
+		this.movedFrom = false;
+
 		this.uploads = uploads || [];
 
 		$.each( this.uploads, function ( i, upload ) {
@@ -102,6 +104,8 @@
 	 */
 	SP.moveFrom = function () {
 		this.ui.moveFrom( this.uploads );
+
+		this.movedFrom = true;
 
 		if ( this.nextStep ) {
 			this.nextStep.moveTo( this.uploads );
@@ -275,6 +279,16 @@
 	 * batch of uploads.
 	 */
 	SP.updateProgressBarCount = function () {};
+
+	/**
+	 * Check whether this step has been completed, or is in progress.
+	 * The default check is for the three middle steps - tutorial and
+	 * thanks have their own.
+	 * @return {boolean}
+	 */
+	SP.isComplete = function () {
+		return this.uploads.length === 0 || this.movedFrom;
+	};
 
 	uw.controller.Step = Step;
 }( mediaWiki.uploadWizard, OO, jQuery ) );

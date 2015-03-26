@@ -36,14 +36,6 @@
 					wizard.startUploads();
 				} )
 
-				.on( 'prevent-close', function () {
-					wizard.allowCloseWindow = mw.confirmCloseWindow( {
-						message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
-						test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; },
-						namespace: 'uploadwizard'
-					} );
-				} )
-
 				.on( 'flickr-ui-init', function () {
 					wizard.flickrInterfaceInit();
 					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
@@ -70,11 +62,6 @@
 				} ),
 
 			thanks: new uw.controller.Thanks()
-				.on( 'load', function () {
-					if ( wizard.allowCloseWindow !== undefined ) {
-						wizard.allowCloseWindow();
-					}
-				} )
 		};
 
 		$.each( this.steps, function ( name, step ) {
@@ -89,6 +76,16 @@
 		this.steps.deeds.setNextStep( this.steps.details );
 		this.steps.details.setNextStep( this.steps.thanks );
 		this.steps.thanks.setNextStep( this.steps.file );
+
+		this.allowCloseWindow = mw.confirmCloseWindow( {
+			message: function () {
+				return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped();
+			},
+
+			test: function () {
+				return !wizard.isComplete();
+			}
+		} );
 
 		if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 			// update the "valid" extension to include firefogg transcode extensions:
@@ -135,11 +132,6 @@
 			$.each( this.steps, function ( i, step ) {
 				step.empty();
 			} );
-
-			// remove any blocks on closing the window
-			if ( this.allowCloseWindow !== undefined ) {
-				this.allowCloseWindow();
-			}
 		},
 
 		/**
@@ -431,12 +423,14 @@
 		 */
 		isComplete: function () {
 			var complete = true;
-			$.each( this.uploads, function ( i, upload ) {
-				if ( upload !== undefined && upload.state !== 'complete' && upload.state !== 'thanks' ) {
+
+			$.each( this.steps, function ( i, step ) {
+				if ( !step.isComplete() ) {
 					complete = false;
 					return false;
 				}
 			} );
+
 			return complete;
 		},
 
@@ -463,11 +457,6 @@
 					upload.ui.clearIndicator();
 					upload.ui.clearStatus();
 				}
-			} );
-
-			this.allowCloseWindow = mw.confirmCloseWindow( {
-				message: function () { return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped(); },
-				test: function () { return !wizard.isComplete() && wizard.uploads.length > 0; }
 			} );
 
 			this.steps.file.startProgressBar();
