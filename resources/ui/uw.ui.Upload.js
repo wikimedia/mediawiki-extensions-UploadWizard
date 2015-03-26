@@ -196,6 +196,10 @@
 		this.$addFile.add( this.$flickrAddFile ).removeClass( 'mwe-upwiz-add-files-n' );
 		this.$addFileContainer.addClass( 'mwe-upwiz-add-files-0' );
 		this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
+
+		// Show the upload button, and the add file button
+		$( '#mwe-upwiz-upload-ctrls' ).show();
+		$( '#mwe-upwiz-add-file' ).show();
 	};
 
 	/**

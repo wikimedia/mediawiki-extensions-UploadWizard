@@ -30,7 +30,7 @@
 			this,
 			new uw.ui.Upload( config )
 				.connect( this, {
-					retry: [ 'emit', 'retry' ],
+					retry: 'retry',
 					'flickr-ui-init': [ 'emit', 'flickr-ui-init' ]
 				} ),
 			config
@@ -78,6 +78,7 @@
 	};
 
 	UP.moveTo = function () {
+		this.updateFileCounts( [] );
 		uw.controller.Step.prototype.moveTo.call( this );
 		this.progressBar = undefined;
 	};
@@ -141,6 +142,47 @@
 	UP.transitionAll = function () {
 		this.emit( 'prevent-close' );
 		return uw.controller.Step.prototype.transitionAll.call( this );
+	};
+
+	/**
+	 * Kick off the upload processes.
+	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
+	 * and kicks off a thread which will take from the queue.
+	 * @return {jQuery.Promise}
+	 */
+	UP.startUploads = function () {
+		var step = this;
+
+		this.ui.hideEndButtons();
+
+		// reset any uploads in error state back to be shiny & new
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
+
+			if ( upload.state === 'error' ) {
+				upload.state = 'new';
+				upload.ui.clearIndicator();
+				upload.ui.clearStatus();
+			}
+		} );
+
+		// remove ability to change files
+		// ideally also hide the "button"... but then we require styleable file input CSS trickery
+		// although, we COULD do this just for files already in progress...
+
+		// it might be interesting to just make this creational -- attach it to the dom element representing
+		// the progress bar and elapsed time
+
+		return this.transitionAll().done( function () {
+			step.showNext();
+		} );
+	};
+
+	UP.retry = function () {
+		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
+		this.startUploads();
 	};
 
 	uw.controller.Upload = Upload;

@@ -31,11 +31,6 @@
 			tutorial: new uw.controller.Tutorial( this.api ),
 
 			file: new uw.controller.Upload( config )
-				.on( 'retry', function () {
-					uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
-					wizard.startUploads();
-				} )
-
 				.on( 'flickr-ui-init', function () {
 					wizard.flickrInterfaceInit();
 					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
@@ -322,16 +317,10 @@
 		 * @param UploadWizardUpload
 		 */
 		setUploadFilled: function ( upload ) {
-			var wizard = this;
-
 			this.uploads.push( upload );
-
 			this.steps.file.updateFileCounts( this.uploads );
-
 			// Start uploads now, no reason to wait--leave the remove button alone
-			this.steps.file.transitionAll().done( function () {
-				wizard.steps.file.showNext();
-			} );
+			this.steps.file.startUploads();
 		},
 
 		/**
@@ -432,45 +421,6 @@
 			} );
 
 			return complete;
-		},
-
-		/**
-		 * Kick off the upload processes.
-		 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
-		 * and kicks off a thread which will take from the queue.
-		 * @param endCallback   - to execute when uploads are completed
-		 */
-		startUploads: function () {
-			var wizard = this;
-			// remove the upload button, and the add file button
-			$( '#mwe-upwiz-upload-ctrls' ).hide();
-			this.steps.file.ui.hideEndButtons();
-			$( '#mwe-upwiz-add-file' ).hide();
-
-			// reset any uploads in error state back to be shiny & new
-			$.each( this.uploads, function ( i, upload ) {
-				if ( upload === undefined ) {
-					return;
-				}
-				if ( upload.state === 'error' ) {
-					upload.state = 'new';
-					upload.ui.clearIndicator();
-					upload.ui.clearStatus();
-				}
-			} );
-
-			this.steps.file.startProgressBar();
-
-			// remove ability to change files
-			// ideally also hide the "button"... but then we require styleable file input CSS trickery
-			// although, we COULD do this just for files already in progress...
-
-			// it might be interesting to just make this creational -- attach it to the dom element representing
-			// the progress bar and elapsed time
-
-			this.steps.file.transitionAll().done( function () {
-				wizard.steps.file.showNext();
-			} );
 		}
 	};
 
