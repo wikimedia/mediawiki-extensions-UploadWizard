@@ -19,8 +19,6 @@
 	var TP;
 
 	function Tutorial( api ) {
-		var tutorial = this;
-
 		this.api = api;
 
 		uw.controller.Step.call(
@@ -37,19 +35,9 @@
 				.on( 'helpdesk-click', function () {
 					( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
 				} )
-
-				.on( 'next-step', function () {
-					( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
-
-					// if the skip checkbox is checked, set the skip user preference
-					if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
-						$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
-						tutorial.setSkipPreference();
-					}
-
-					tutorial.emit( 'next-step' );
-				} )
 		);
+
+		this.stepName = 'tutorial';
 	}
 
 	oo.inheritClass( Tutorial, uw.controller.Step );
@@ -77,6 +65,31 @@
 		} ).fail( function ( code, err ) {
 			mw.notify( err.textStatus );
 		} );
+	};
+
+	TP.moveTo = function () {
+		var tconf = mw.config.get( 'UploadWizardConfig' ).tutorial;
+
+		if (
+			mw.user.options.get( 'upwiz_skiptutorial' ) ||
+			( tconf && tconf.skip )
+		) {
+			this.skip();
+		} else {
+			uw.controller.Step.prototype.moveTo.call( this );
+		}
+	};
+
+	TP.moveFrom = function () {
+		( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
+
+		// if the skip checkbox is checked, set the skip user preference
+		if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
+			$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
+			this.setSkipPreference();
+		}
+
+		uw.controller.Step.prototype.moveFrom.call( this );
 	};
 
 	uw.controller.Tutorial = Tutorial;

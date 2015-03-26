@@ -17,13 +17,6 @@
 		var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' ),
 			wizard = this;
 
-		function finalizeDetails() {
-			if ( wizard.allowCloseWindow !== undefined ) {
-				wizard.allowCloseWindow();
-			}
-			wizard.moveToStep( 'thanks' );
-		}
-
 		if ( maxSimPref !== 'default' ) {
 			if ( maxSimPref > 0 ) {
 				config.maxSimultaneousConnections = maxSimPref;
@@ -34,13 +27,9 @@
 
 		this.maxSimultaneousConnections = config.maxSimultaneousConnections;
 
-		this.showDeed = false;
-
 		this.steps = {
-			tutorial: new uw.controller.Tutorial( this.api )
-				.on( 'next-step', function () {
-					wizard.moveToStep( 'file' );
-				} ),
+			tutorial: new uw.controller.Tutorial( this.api ),
+
 			file: new uw.controller.Upload( config )
 				.on( 'retry', function () {
 					uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
@@ -60,32 +49,21 @@
 					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
 				} )
 
-				.on( 'next-step', function () {
-					wizard.removeErrorUploads();
-
-					if ( wizard.showDeed ) {
-						wizard.moveToStep( 'deeds' );
-					} else {
-						wizard.moveToStep( 'details' );
-					}
-				} )
-
-				.on( 'reset', function () {
-					wizard.bailAndMoveToFile();
+				.on( 'load', function () {
+					wizard.reset();
+					wizard.resetFileStepUploads();
 				} ),
 
 			deeds: new uw.controller.Deed( this.api, config )
-				.on( 'next-step', function () {
-					wizard.moveToStep( 'details' );
-				} )
-
-				.on( 'no-uploads', function () {
-					wizard.bailAndMoveToFile();
+				.on( 'load', function () {
+					wizard.removeErrorUploads();
 				} ),
 
 			details: new uw.controller.Details( config )
 				.on( 'details-submitted', function () {
-					wizard.showNext( 'details', 'complete', finalizeDetails );
+					wizard.showNext( 'details', 'complete', function () {
+						wizard.steps.details.moveFrom();
+					} );
 				} )
 
 				.on( 'details-error', function () {
@@ -94,15 +72,29 @@
 
 				.on( 'finalize-details-after-removal', function () {
 					wizard.removeErrorUploads();
-					finalizeDetails();
-				} )
-
-				.on( 'no-uploads', function () {
-					wizard.bailAndMoveToFile();
+					wizard.steps.details.moveFrom();
 				} ),
 
 			thanks: new uw.controller.Thanks()
+				.on( 'load', function () {
+					if ( wizard.allowCloseWindow !== undefined ) {
+						wizard.allowCloseWindow();
+					}
+				} )
 		};
+
+		$.each( this.steps, function ( name, step ) {
+			step
+				.on( 'no-uploads', function () {
+					wizard.bailAndMoveToFile();
+				} );
+		} );
+
+		this.steps.tutorial.setNextStep( this.steps.file );
+		this.steps.file.setNextStep( this.steps.deeds );
+		this.steps.deeds.setNextStep( this.steps.details );
+		this.steps.details.setNextStep( this.steps.thanks );
+		this.steps.thanks.setNextStep( this.steps.file );
 
 		if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 			// update the "valid" extension to include firefogg transcode extensions:
@@ -119,7 +111,6 @@
 
 	mw.UploadWizard.prototype = {
 		stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
-		currentStepName: undefined,
 
 		/**
 		 * Reset the entire interface so we can upload more stuff
@@ -127,12 +118,16 @@
 		 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
 		 */
 		reset: function () {
-			mw.UploadWizardUpload.prototype.count = -1; // this is counterintuitive, but the count needs to start at -1 to allow for the empty upload created on the first step.
+			if ( this.hasLoadedBefore ) {
+				// this is counterintuitive, but the count needs to start at -1 to allow for the empty upload created on the first step.
+				mw.UploadWizardUpload.prototype.count = -1;
+			}
+
 			this.showDeed = false;
 			$.purgeReadyEvents();
 			$.purgeSubscriptions();
 			this.removeMatchingUploads( function () { return true; } );
-			this.moveToStep( 'file' );
+			this.hasLoadedBefore = true;
 		},
 
 		/**
@@ -151,33 +146,16 @@
 			if ( this.allowCloseWindow !== undefined ) {
 				this.allowCloseWindow();
 			}
-
-			this.moveToStep( 'file' );
 		},
 
 		/**
 		 * create the basic interface to make an upload in this div
 		 */
 		createInterface: function () {
-			var wizard = this;
+			this.ui = new uw.ui.Wizard( this );
 
-			this.ui = new uw.ui.Wizard( this )
-				.on( 'reset-wizard', function () {
-					wizard.reset();
-				} );
-
-			// check to see if the the skip tutorial preference or global setting is set
-			if (
-				mw.user.options.get( 'upwiz_skiptutorial' ) ||
-				( mw.config.get( 'UploadWizardConfig' ).tutorial && mw.config.get( 'UploadWizardConfig' ).tutorial.skip )
-			) {
-				// "select" the second step - highlight, make it visible, hide all others
-				this.moveToStep( 'file' );
-			} else {
-				// "select" the first step - highlight, make it visible, hide all others
-				this.moveToStep( 'tutorial' );
-				( new mw.UploadWizardTutorialEvent( 'load' ) ).dispatch();
-			}
+			// "select" the first step - highlight, make it visible, hide all others
+			this.steps.tutorial.moveTo();
 		},
 
 		/**
@@ -263,64 +241,6 @@
 		},
 
 		/**
-		 * Advance one "step" in the wizard interface.
-		 * It is assumed that the previous step to the current one was selected.
-		 * We do not hide the tabs because this messes up certain calculations we'd like to make about dimensions, while elements are not
-		 * on screen. So instead we make the tabs zero height and, in CSS, they are already overflow hidden
-		 * @param selectedStepName
-		 * @param callback to do after layout is ready?
-		 */
-		moveToStep: function ( selectedStepName, callback ) {
-			if ( this.currentStepName === selectedStepName ) {
-				// already there!
-				return;
-			}
-
-			// scroll to the top of the page (the current step might have been very long, vertically)
-			var headScroll = $( 'h1:first' ).offset(),
-				fromStep = this.steps[this.currentStepName],
-				targetStep = this.steps[selectedStepName];
-
-			if ( fromStep ) {
-				fromStep.moveFrom( this.uploads );
-			}
-
-			targetStep.moveTo( this.uploads );
-
-			$( 'html, body' ).animate( { scrollTop: headScroll.top, scrollLeft: headScroll.left }, 'slow' );
-
-			if (
-				selectedStepName === 'file' &&
-				( !this.currentStepName || this.currentStepName === 'thanks' )
-			) { // tutorial was skipped
-				uw.eventFlowLogger.logSkippedStep( 'tutorial' );
-			}
-
-			uw.eventFlowLogger.logStep( selectedStepName );
-
-			this.currentStepName = selectedStepName;
-
-			if ( selectedStepName === 'file' ) {
-				this.resetFileStepUploads();
-			}
-
-			$.each( this.uploads, function (i, upload) {
-				if ( upload === undefined ) {
-					return;
-				}
-				upload.state = selectedStepName;
-			} );
-
-			this.currentStepObject = targetStep;
-
-			this.currentStepObject.updateFileCounts( this.uploads );
-
-			if ( callback ) {
-				callback();
-			}
-		},
-
-		/**
 		 * If there are no uploads, make a new one
 		 */
 		resetFileStepUploads: function () {
@@ -389,11 +309,11 @@
 					// Add a new upload to cover the button
 					wizard.newUpload();
 
-					wizard.currentStepObject.updateFileCounts( wizard.uploads );
+					wizard.steps.file.updateFileCounts( wizard.uploads );
 				} )
 
 				.on( 'filename-accepted', function () {
-					wizard.currentStepObject.updateFileCounts( wizard.uploads );
+					wizard.steps.file.updateFileCounts( wizard.uploads );
 				} )
 
 				.on( 'error', function ( code, message ) {
@@ -420,12 +340,7 @@
 
 			this.uploads.push( upload );
 
-			//If upload is through a local file, then we need to show the Deeds step of the wizard
-			if ( !upload.fromURL ) {
-				this.showDeed = true;
-			}
-
-			this.currentStepObject.updateFileCounts( this.uploads );
+			this.steps.file.updateFileCounts( this.uploads );
 
 			// Start uploads now, no reason to wait--leave the remove button alone
 			this.steps.file.transitionAll().done( function () {
@@ -455,7 +370,7 @@
 				}
 			);
 
-			this.currentStepObject.updateFileCounts( this.uploads );
+			this.steps.file.updateFileCounts( this.uploads );
 
 			if ( this.uploads && this.uploads.length !== 0 ) {
 				// check all uploads, if they're complete, show the next button

@@ -25,7 +25,8 @@
 	 * @constructor
 	 */
 	function Thanks() {
-		var $header;
+		var $header,
+			thanks = this;
 
 		ui.Step.call(
 			this,
@@ -47,6 +48,18 @@
 		} else {
 			$header.html( mw.UploadWizard.config.display.thanksLabel );
 		}
+
+		// "Upload more files" button
+		this.$div.find( '.mwe-upwiz-button-begin' )
+			.click( function () {
+				thanks.emit( 'next-step' );
+			} );
+
+		// "Go to wiki home" button
+		$( '.mwe-upwiz-button-home' )
+			.click( function () {
+				window.location.href = mw.config.get( 'wgArticlePath' ).replace( '$1', '' );
+			} );
 	}
 
 	oo.inheritClass( Thanks, ui.Step );

@@ -34,6 +34,8 @@
 				} ),
 			config
 		);
+
+		this.stepName = 'deeds';
 	}
 
 	oo.inheritClass( Deed, uw.controller.Step );
@@ -53,9 +55,24 @@
 	 */
 	DP.moveTo = function ( uploads ) {
 		var customDeed, deeds,
+			showDeed = false,
 			step = this;
 
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( !upload.fromURL ) {
+				showDeed = true;
+				return false;
+			}
+		} );
+
+		// If all of the uploads are from URLs, then we know the licenses
+		// already, we don't need this step.
+		if ( !showDeed ) {
+			this.moveFrom();
+			return;
+		}
 
 		deeds = mw.UploadWizard.getLicensingDeeds( this.uploads.length, this.config );
 
