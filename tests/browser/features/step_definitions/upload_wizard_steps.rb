@@ -1,14 +1,3 @@
-#
-# This file is subject to the license terms in the COPYING file found in the
-# UploadWizard top-level directory and at
-# https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/COPYING. No part of
-# UploadWizard, including this file, may be copied, modified, propagated, or
-# distributed except according to the terms contained in the COPYING file.
-#
-# Copyright 2012-2014 by the Mediawiki developers. See the CREDITS file in the
-# UploadWizard top-level directory and at
-# https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard/HEAD/CREDITS
-#
 require "tempfile"
 
 Given(/^I am logged out$/) do
@@ -16,12 +5,7 @@ Given(/^I am logged out$/) do
 end
 
 Given(/^I set my preference to skip the tutorial$/) do
-  on(MainPage) do |page|
-    @browser.execute_script("var api = new mw.Api();
-api.postWithToken( 'options', { action: 'options', change: 'upwiz_skiptutorial=1' } ).done(
-function() { $( '<div id=\"cucumber-tutorial-preference-set\">&nbsp;</div>' ).appendTo( 'body' ); } );")
-    page.tutorial_preference_set_element.when_present
-  end
+  api.action(:options, change: 'upwiz_skiptutorial=1')
 end
 
 When(/^I unset Skip introductory licensing tutorial in my Preferences$/) do
@@ -75,11 +59,11 @@ end
 When(/^I click the Skip checkbox$/) do
   on(LearnPage) do |page|
     page.highlighted_step_heading_element.when_present
-    if @browser.driver.browser == :chrome
+    if browser.driver.browser == :chrome
       # ChromeDriver can't click on the element because of a bug in the driver
       # related to automatic scrolling to out-of-view elements taking time
       # Reported here: https://code.google.com/p/selenium/issues/detail?id=8528
-      @browser.execute_script("$( '#mwe-upwiz-skip' ).click();")
+      browser.execute_script("$( '#mwe-upwiz-skip' ).click();")
     else
       page.check_tutorial_skip
     end
@@ -89,9 +73,9 @@ end
 When(/^I click the Next button at the Learn page$/) do
   on(LearnPage) do |page|
     page.highlighted_step_heading_element.when_present
-    if @browser.driver.browser == :chrome
+    if browser.driver.browser == :chrome
       # Same Chrome issue as above
-      @browser.execute_script("$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next' ).click();")
+      browser.execute_script("$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next' ).click();")
     else
       page.next_element.click
     end
@@ -242,15 +226,15 @@ Then(/^the tutorial should not be visible$/) do
 end
 
 Then(/^Describe page should open$/) do
-  @browser.url.should match /Special:UploadWizard/
+  browser.url.should match /Special:UploadWizard/
 end
 
 Then(/^Learn page should appear$/) do
-  @browser.url.should match /Special:UploadWizard/
+  browser.url.should match /Special:UploadWizard/
 end
 
 Then(/^Release rights page should open$/) do
-  @browser.url.should match /Special:UploadWizard/
+  browser.url.should match /Special:UploadWizard/
 end
 
 Then(/^title text field should be there$/) do
@@ -265,7 +249,7 @@ Then(/^Upload more files button should be there$/) do
 end
 
 Then(/^Upload page should appear$/) do
-  @browser.url.should match /Special:UploadWizard/
+  browser.url.should match /Special:UploadWizard/
 end
 
 Then(/^there should be an upload for (\S+)$/) do |filename|

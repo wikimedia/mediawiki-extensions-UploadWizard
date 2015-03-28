@@ -9,7 +9,7 @@ end
 
 And(/^chunked upload is enabled in my preferences$/) do
   # quite a nasty hack. Faster than actually enabling and reloading, though, and does not have race conditions
-  @browser.execute_script('mw.UploadWizard.config.enableChunked = true;')
+  browser.execute_script('mw.UploadWizard.config.enableChunked = true;')
 end
 
 When(/^I upload a large file$/) do
