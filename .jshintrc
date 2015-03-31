@@ -39,6 +39,7 @@
 		"mw",
 		"jQuery",
 		"OO",
-		"QUnit"
+		"QUnit",
+		"sinon"
 	]
 }

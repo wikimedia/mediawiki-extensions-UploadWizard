@@ -755,6 +755,7 @@ class UploadWizardHooks {
 				'schema.UploadWizardStep',
 				'schema.UploadWizardFlowEvent',
 				'schema.UploadWizardErrorFlowEvent',
+				'schema.UploadWizardExceptionFlowEvent',
 				'schema.UploadWizardUploadFlowEvent',
 			);
 		}

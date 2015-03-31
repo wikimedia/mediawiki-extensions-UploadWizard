@@ -153,6 +153,7 @@ $wgEventLoggingSchemas[ 'UploadWizardUploadActions' ] = 5811620;
 $wgEventLoggingSchemas[ 'UploadWizardStep' ] = 8851805;
 $wgEventLoggingSchemas[ 'UploadWizardFlowEvent' ] = 11562780;
 $wgEventLoggingSchemas[ 'UploadWizardErrorFlowEvent' ] = 9924376;
+$wgEventLoggingSchemas[ 'UploadWizardExceptionFlowEvent' ] = 11717009;
 $wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 9651951;
 
 // Campaign hook handlers
