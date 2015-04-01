@@ -287,7 +287,7 @@
 	 * @return {boolean}
 	 */
 	SP.isComplete = function () {
-		return this.uploads.length === 0 || this.movedFrom;
+		return this.uploads === undefined || this.uploads.length === 0 || this.movedFrom;
 	};
 
 	uw.controller.Step = Step;
