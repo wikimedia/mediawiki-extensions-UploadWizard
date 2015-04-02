@@ -345,5 +345,6 @@
 	"mwe-upload-campaigns-pagination-next": "Nächste Seite",
 	"mwe-upload-campaigns-list-title": "Liste der Hochladekampagnen",
 	"apihelp-flickrblacklist-param-url": "Die zu testende Flickr-URL.",
+	"apihelp-flickrblacklist-example-2": "Gibt die ganze Blacklist zurück",
 	"apihelp-query+allcampaigns-param-limit": "Anzahl der zurückzugebenden Kampagnen."
 }
