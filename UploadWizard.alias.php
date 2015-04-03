@@ -264,6 +264,7 @@ $specialPageAliases['tyv'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
+	'Campaigns' => array( 'Кампанії' ),
 	'UploadWizard' => array( 'Майстер_завантаження' ),
 	'UploadCampaigns' => array( 'Масові_завантаження' ),
 	'UploadCampaign' => array( 'Масове_завантаження' ),
