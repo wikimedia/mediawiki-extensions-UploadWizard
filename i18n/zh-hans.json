@@ -26,7 +26,8 @@
 			"Hudafu",
 			"Mywood",
 			"Duolaimi",
-			"Impersonator 1"
+			"Impersonator 1",
+			"Kuailong"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -132,7 +133,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-4.0-explain": "（在适当地提供著作权持有人署名的前提下，任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品。）",
 	"mwe-upwiz-source-ownwork-assert-cc-by-3.0": "我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以知识共享“署名 3.0”许可协议（[$3 法律文件]）不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利。",
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "（在适当地提供著作权持有人署名的前提下，任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品。）",
-	"mwe-upwiz-source-ownwork-assert-cc-zero": "我，$2，{{PLURAL:$1|该作品|这些作品}}的著作权持有人，义无反顾地采用知识共享“公共领域贡献宣告”（[$3 法律文件]）授予任何人使用{{PLURAL:$1|该作品|这些作品}}的权利。",
+	"mwe-upwiz-source-ownwork-assert-cc-zero": "我，$2，作为{{PLURAL:$1|该作品|这些作品}}的版权持有者，不可撤回地以知识共享公共领域贡献宣告（[$3 法律文本]）授予任何人使用{{PLURAL:$1|该作品|这些作品}}的权利。",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "（任何人可以使用、传播或修改{{PLURAL:$1|该|这些}}作品，没有任何限制。）",
 	"mwe-upwiz-source-ownwork-assert-custom": "我，$2，{{PLURAL:$1|该|这些}}作品著作权持有人，以以下条款不可逆地授予任何人使用{{PLURAL:$1|该|这些}}作品的权利：",
 	"mwe-upwiz-source-ownwork-assert-note": "我，{{PLURAL:$2|该|这些}}作品著作权持有人，以$1授权协议发表{{PLURAL:$2|该|这些}}作品。",
