@@ -50,6 +50,11 @@ $specialPageAliases['ba'] = array(
 	'UploadCampaign' => array( 'UploadCampaign' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'UploadWizard' => array( 'جاوگرین_بُرز_کنۆک' ),
+);
+
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = array(
 	'UploadWizard' => array( 'Ашаалха_Зэмсэг' ),
