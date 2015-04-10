@@ -150,11 +150,11 @@ $wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = array(
 
 $wgEventLoggingSchemas[ 'UploadWizardTutorialActions' ] = 5803466;
 $wgEventLoggingSchemas[ 'UploadWizardUploadActions' ] = 5811620;
-$wgEventLoggingSchemas[ 'UploadWizardStep' ] = 8851805;
-$wgEventLoggingSchemas[ 'UploadWizardFlowEvent' ] = 11562780;
-$wgEventLoggingSchemas[ 'UploadWizardErrorFlowEvent' ] = 9924376;
-$wgEventLoggingSchemas[ 'UploadWizardExceptionFlowEvent' ] = 11717009;
-$wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 9651951;
+$wgEventLoggingSchemas[ 'UploadWizardStep' ] = 11772724;
+$wgEventLoggingSchemas[ 'UploadWizardFlowEvent' ] = 11772723;
+$wgEventLoggingSchemas[ 'UploadWizardErrorFlowEvent' ] = 11772725;
+$wgEventLoggingSchemas[ 'UploadWizardExceptionFlowEvent' ] = 11772722;
+$wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 11772717;
 
 // Campaign hook handlers
 $wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';

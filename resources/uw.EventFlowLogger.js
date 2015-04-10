@@ -27,14 +27,38 @@
 	 */
 	function EventFlowLogger( eventLog ) {
 		this.eventLog = eventLog;
-
-		/**
-		 * A random number identifying this upload session for analytics purposes.
-		 * @property {string}
-		 */
-		this.flowId = parseInt( new Date().getTime() + '' + Math.floor( Math.random() * 1000 ), 10 );
 	}
 	EFLP = EventFlowLogger.prototype;
+
+	/**
+	 * Returns a string identifying this upload session for analytics purposes.
+	 * Since UploadWizard is currently implemented as a single-page application, this is just
+	 * a number regenerated on every pageview. It's stored as a string to avoid overflow problems
+	 * on the backend.
+	 * @private
+	 * @return {string}
+	 */
+	EFLP.getFlowId = function () {
+		var rnd;
+
+		if ( !EventFlowLogger.flowId ) {
+			rnd = '00' + Math.floor( Math.random() * 1000 );
+			EventFlowLogger.flowId = new Date().getTime() + rnd.substr( rnd.length - 3, 3 );
+		}
+		return EventFlowLogger.flowId;
+	};
+
+	/**
+	 * Returns a number identifying this event's position in the event flow.
+	 * (I.e. (flowId, flowPosition) will uniquely identify an event, with the positions for a given
+	 * flowId going 1..N.)
+	 * @private
+	 * @return {number}
+	 */
+	EFLP.getFlowPosition = function () {
+		EventFlowLogger.flowPosition = ( EventFlowLogger.flowPosition || 0 ) + 1;
+		return EventFlowLogger.flowPosition;
+	};
 
 	/**
 	 * Does the work of logging a step.
@@ -65,7 +89,8 @@
 		if ( !this.eventLog ) {
 			return;
 		}
-		data.flowId = this.flowId;
+		data.flowId = this.getFlowId();
+		data.flowPosition = this.getFlowPosition();
 		this.eventLog.logEvent( schema, data );
 	};
 
