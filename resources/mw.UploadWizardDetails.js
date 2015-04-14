@@ -1634,9 +1634,9 @@
 					this.recoverFromError( this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text(), 'api-error-unknown-warning' );
 				}
 
-				return $.Deferred.resolve();
+				return $.Deferred().resolve();
 			} else {
-				return $.Deferred.reject( 'this-info-missing', result );
+				return $.Deferred().reject( 'this-info-missing', result );
 			}
 		},
 
