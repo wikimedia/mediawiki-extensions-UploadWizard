@@ -14,6 +14,7 @@ class UploadWizardHooks {
 		),
 
 		'ext.uploadWizard' => array(
+			'position' => 'top',
 			'dependencies' => array(
 				'jquery.arrowSteps',
 				'jquery.checkboxShiftClick',
@@ -690,7 +691,7 @@ class UploadWizardHooks {
 				'uw.model.base',
 			),
 		),
-		
+
 		'uw.ui.Tutorial' => array(
 			'scripts' => array(
 				'resources/ui/uw.ui.Tutorial.js',
