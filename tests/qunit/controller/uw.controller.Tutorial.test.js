@@ -30,7 +30,7 @@
 		var mnStub,
 			api = new mw.Api(),
 			step = new uw.controller.Tutorial( api ),
-			acwStub = this.sandbox.stub(),
+			acwStub = { release: this.sandbox.stub() },
 			pwtd = $.Deferred();
 
 		this.sandbox.stub( mw, 'confirmCloseWindow' ).returns( acwStub );
@@ -45,18 +45,18 @@
 		} ) );
 
 		pwtd.resolve();
-		assert.ok( acwStub.called );
+		assert.ok( acwStub.release.called );
 
 		api = new mw.Api();
 		step = new uw.controller.Tutorial( api );
-		acwStub.reset();
+		acwStub.release.reset();
 		pwtd = $.Deferred();
 		mnStub = this.sandbox.stub( mw, 'notify' );
 
 		this.sandbox.stub( api, 'postWithToken' ).returns( pwtd.promise() );
 
 		step.setSkipPreference();
-		assert.ok( !acwStub.called );
+		assert.ok( !acwStub.release.called );
 
 		pwtd.reject( 'http', { textStatus: 'Foo bar' } );
 		assert.ok( mnStub.calledWith( 'Foo bar' ) );

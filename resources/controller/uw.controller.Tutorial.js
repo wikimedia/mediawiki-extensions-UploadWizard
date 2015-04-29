@@ -57,7 +57,7 @@
 			action: 'options',
 			change: 'upwiz_skiptutorial=1'
 		} ).done( function () {
-			allowCloseWindow();
+			allowCloseWindow.release();
 		} ).fail( function ( code, err ) {
 			mw.notify( err.textStatus );
 		} );
