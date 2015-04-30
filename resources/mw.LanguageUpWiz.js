@@ -1,10 +1,5 @@
 /* jshint nomen: false */
 ( function ( mw, $ ) {
-	// TODO come now, there has to be a better way
-	mediaWiki.messages.set( {
-		'mwe-upwiz-code-unknown': 'Unknown language'
-	} );
-
 	/**
 	 * Utility class which knows about languages, and how to construct HTML to select them
 	 * TODO: make this a more common library, used by this and TimedText
