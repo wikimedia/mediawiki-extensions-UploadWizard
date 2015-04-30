@@ -60,6 +60,7 @@
 
 			return this.api.getEditToken()
 				.then( function ( token ) {
+					handler.removeFormInputIfPresent( 'token' );
 					handler.addFormInputIfMissing( 'token', token );
 				} );
 		},
