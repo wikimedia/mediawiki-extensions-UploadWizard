@@ -479,12 +479,6 @@ class UploadWizardHooks {
 			),
 			'group' => 'ext.uploadWizard'
 		),
-		// TODO(aarcos): I don't think this is used anymore?
-		'ext.uploadWizard.tests' => array(
-			'scripts' => array(
-				'resources/handlers/mw.MockUploadHandler.js'
-			),
-		),
 		'ext.uploadWizard.events' => array(
 			'scripts' => array(
 				'resources/ext.UploadWizardEvent.js',
