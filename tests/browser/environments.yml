@@ -33,3 +33,8 @@ test2:
   mediawiki_url: http://test2.wikipedia.org/wiki/
   mediawiki_user: Selenium_user
   # mediawiki_password: SET THIS IN THE ENVIRONMENT!
+
+default:
+  mediawiki_url: http://localhost/wiki/
+  # mediawiki_user: SET THIS IN THE ENVIRONMENT!
+  # mediawiki_password: SET THIS IN THE ENVIRONMENT!
