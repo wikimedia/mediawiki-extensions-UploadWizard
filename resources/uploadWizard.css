@@ -312,7 +312,10 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-details-descriptions .mwe-upwiz-remove-ctrl {
 	vertical-align: top;
-	display: inline-block;
+	float: right;
+	margin-top: 3px;
+	border: 1px solid #74A6CC;
+	padding: 3px;
 }
 
 a:disabled {
