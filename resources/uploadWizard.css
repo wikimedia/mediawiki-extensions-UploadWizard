@@ -78,6 +78,11 @@ form.mwe-upwiz-form {
 	cursor: pointer;
 }
 
+.mwe-upwiz-more-options {
+	display: inline-block;
+	margin-top: 10px;
+}
+
 /* CSS styling hack for file inputs - http://www.quirksmode.org/dom/inputfile.html */
 .mwe-upwiz-file-ctrl-container {
 	position: absolute;
