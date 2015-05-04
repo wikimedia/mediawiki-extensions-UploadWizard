@@ -271,6 +271,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-copy-location',
 				'mwe-upwiz-copy-other',
 				'mwe-upwiz-desc',
+				'mwe-upwiz-desc-placeholder',
 				'mwe-upwiz-desc-add-n',
 				'mwe-upwiz-desc-add-0',
 				'mwe-upwiz-title',

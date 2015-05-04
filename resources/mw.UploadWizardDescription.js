@@ -35,8 +35,15 @@
 		this.languageMenu = mw.LanguageUpWiz.getMenu( 'lang', languageCode );
 		$( this.languageMenu ).addClass( 'mwe-upwiz-desc-lang-select' );
 
-		this.input = $( '<textarea name="' + this.id  + '" rows="2" cols="36" class="mwe-upwiz-desc-lang-text"></textarea>' )
-					.growTextArea();
+		this.input = $( '<textarea>' )
+			.attr( {
+				name: this.id,
+				rows: 2,
+				cols: 36,
+				class: 'mwe-upwiz-desc-lang-text',
+				placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ).text()
+			} )
+			.growTextArea();
 
 		if ( initialValue !== undefined ) {
 			this.input.val( initialValue );
