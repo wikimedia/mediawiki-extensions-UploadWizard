@@ -1026,7 +1026,7 @@
 			description = new mw.UploadWizardDescription( languageCode, required, initialValue );
 
 			if ( !required && allowRemove ) {
-				$( description.div  ).append(
+				$( description.div  ).prepend(
 					$.fn.removeCtrl( null, 'mwe-upwiz-remove-description', function () { details.removeDescription( description ); } )
 				);
 			}
