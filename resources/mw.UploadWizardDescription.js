@@ -17,11 +17,11 @@
 			),
 			fieldnameDiv = $( '<div class="mwe-upwiz-details-fieldname" />' );
 
+		fieldnameDiv.text( mw.message( 'mwe-upwiz-desc' ).text() ).addHint( 'description' );
+
 		if ( this.isRequired ) {
 			fieldnameDiv.requiredFieldLabel();
 		}
-
-		fieldnameDiv.text( mw.message( 'mwe-upwiz-desc' ).text() ).addHint( 'description' );
 
 		// Logic copied from MediaWiki:UploadForm.js
 		// Per request from Portuguese and Brazilian users, treat Brazilian Portuguese as Portuguese.
