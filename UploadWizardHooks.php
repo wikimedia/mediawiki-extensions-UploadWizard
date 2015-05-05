@@ -36,7 +36,6 @@ class UploadWizardHooks {
 				'mediawiki.jqueryMsg',
 				'mediawiki.api',
 				'mediawiki.api.edit',
-				'mediawiki.api.category',
 				'mediawiki.api.parse',
 				'mediawiki.confirmCloseWindow',
 				'mediawiki.Title',
