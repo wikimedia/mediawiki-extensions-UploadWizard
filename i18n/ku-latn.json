@@ -12,6 +12,7 @@
 	"mwe-upwiz-step-deeds": "Mafan serbest bike",
 	"mwe-upwiz-step-details": "Rave bike",
 	"mwe-upwiz-step-thanks": "Bikarbîne",
+	"mwe-upwiz-campaign-unknown-error": "Çewtiyeke nenas pêk hat.",
 	"mwe-upwiz-add-file-0-free": "Ji bo barkirinê dosyeyekê hilbijêre",
 	"mwe-upwiz-add-file-flickr": "Wêneyên ji Flickrê parve bike",
 	"mwe-upwiz-add-file-flickr-n": "Bêhtir wêneyan ji Flickrê bar bike",
@@ -69,10 +70,14 @@
 	"mwe-upwiz-dialog-yes": "Erê",
 	"mwe-upwiz-dialog-no": "Na",
 	"mwe-upwiz-dialog-title": "Hişyarî",
+	"mwe-upwiz-campaign-upload-button": "Bar bike!",
 	"mwe-upwiz-license-pd-old-100": "Xwedî bêhtirî 100 sal berê miriye",
 	"mwe-upwiz-license-pd-old": "Xwedî bêhtirî 70 sal berê miriye",
+	"mwe-upwiz-license-custom-preview": "Pêşdîtin",
 	"mwe-upwiz-categories": "Kategorî",
 	"mwe-upwiz-categories-add": "Zêde bike",
+	"mwe-upwiz-category-remove": "Vê kategoriyê jê bibe",
 	"mwe-upwiz-image-preview": "Pêşdîtina dosye",
+	"mwe-upwiz-errordialog-ok": "Baş e",
 	"mw-coolcats-confirm-new-cancel": "Xem nakê"
 }
