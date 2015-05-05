@@ -269,8 +269,6 @@ class UploadWizardCampaign {
 	 * @return array
 	 */
 	public function getParsedConfig( $lang = null ) {
-		global $wgMemc;
-
 		if ( $lang === null ) {
 			$lang = $this->context->getLanguage();
 		}
@@ -279,13 +277,14 @@ class UploadWizardCampaign {
 		// we then check to make sure that it is the latest version - by verifying that its
 		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
 		// issued.
+		$cache = ObjectCache::getMainWANInstance();
 		$memKey = wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'parsed-config', $lang->getCode() );
-		$memValue = $wgMemc->get( $memKey );
-		if ( $memValue !== false ) {
-			$invalidateTimestamp = $wgMemc->get( $this->makeInvalidateTimestampKey() );
-			if( $invalidateTimestamp === false || $memValue['timestamp'] >= $invalidateTimestamp ) {
-				$this->parsedConfig = $memValue['config'];
-			}
+		$depKeys = array( $this->makeInvalidateTimestampKey() );
+
+		$curTTL = null;
+		$memValue = $cache->get( $memKey, $curTTL, $depKeys );
+		if ( is_array( $memValue ) && $curTTL > 0 ) {
+			$this->parsedConfig = $memValue['config'];
 		}
 
 		if ( $this->parsedConfig === null ) {
@@ -324,7 +323,7 @@ class UploadWizardCampaign {
 			}
 
 			$this->parsedConfig = $parsedConfig;
-			$wgMemc->set( $memKey, array( 'timestamp' => time(), 'config' => $parsedConfig ) );
+			$cache->set( $memKey, array( 'timestamp' => time(), 'config' => $parsedConfig ) );
 		}
 
 		$this->modifyIfNecessary();
@@ -383,10 +382,8 @@ class UploadWizardCampaign {
 	 * for the campaign will be regenerated the next time there is a read.
 	 */
 	public function invalidateCache() {
-		global $wgMemc;
-
-		$memKey = $this->makeInvalidateTimestampKey();
-		$wgMemc->set($memKey, time() );
+		$cache = ObjectCache::getMainWANInstance();
+		$cache->touchCheckKey( $this->makeInvalidateTimestampKey() );
 	}
 
 	/**
