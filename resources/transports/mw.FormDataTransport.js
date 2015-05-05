@@ -10,6 +10,10 @@
 	 * @param {string} postUrl URL to post to.
 	 * @param {Object} formData Additional form fields required for upload api call
 	 * @param {Object} [config]
+	 * @param {Object} [config.chunkSize]
+	 * @param {Object} [config.maxPhpUploadSize]
+	 * @param {Object} [config.enableChunked]
+	 * @param {Object} [config.useRetryTimeout]
 	 */
 	mw.FormDataTransport = function ( postUrl, formData, config ) {
 		var profile = $.client.profile();
@@ -290,13 +294,18 @@
 	 * @return {jQuery.Promise}
 	 */
 	FDTP.retryWithMethod = function ( methodName, file, offset ) {
-		var retryDeferred,
-			transport = this;
+		var
+			transport = this,
+			retryDeferred = $.Deferred(),
+			retry = function () {
+				transport[methodName]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
+			};
 
-		retryDeferred = $.Deferred();
-		setTimeout( function () {
-			transport[methodName]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
-		}, 3000 );
+		if ( this.config.useRetryTimeout !== false ) {
+			setTimeout( retry, 3000 );
+		} else {
+			retry();
+		}
 
 		return retryDeferred.promise();
 	};

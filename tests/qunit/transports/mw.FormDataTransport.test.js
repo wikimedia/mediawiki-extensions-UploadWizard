@@ -25,6 +25,7 @@
 		chunkSize = chunkSize || 0;
 
 		config = {
+			useRetryTimeout: false,
 			chunkSize: chunkSize,
 			enableChunked: enableChunked,
 			maxPhpUploadSize: 0
@@ -143,15 +144,17 @@
 		assert.ok( request.async );
 	} );
 
-	QUnit.test( 'checkStatus', 7, function ( assert ) {
+	QUnit.test( 'checkStatus', 8, function ( assert ) {
 		var transport = createTransport( false, 10 ),
 			usstub = this.sandbox.stub(),
 			tstub = this.sandbox.stub(),
-			postd = $.Deferred(),
-			poststub = this.sandbox.stub( transport.api, 'post' ).returns( postd.promise() );
+			poststub = this.sandbox.stub( transport.api, 'post' ),
+			postd, postd2;
 
 		transport.on( 'update-stage', usstub );
 
+		postd = $.Deferred();
+		poststub.returns( postd.promise() );
 		transport.checkStatus().fail( tstub );
 		transport.firstPoll = 0;
 		postd.resolve( { upload: { result: 'Poll' } } );
@@ -161,13 +164,19 @@
 		} ) );
 
 		postd = $.Deferred();
+		postd2 = $.Deferred();
 		poststub.reset();
-		poststub.returns( postd.promise() );
+		poststub
+			.onFirstCall().returns( postd.promise() )
+			.onSecondCall().returns( postd2.promise() );
 		tstub.reset();
 		transport.checkStatus();
 		postd.resolve( { upload: { result: 'Poll', stage: 'test' } } );
 		assert.ok( !tstub.called );
 		assert.ok( usstub.calledWith( 'test' ) );
+		postd2.resolve( { upload: { result: 'Success' } } );
+		assert.ok( poststub.calledTwice );
+		poststub.resetBehavior();
 
 		postd = $.Deferred();
 		poststub.reset();
