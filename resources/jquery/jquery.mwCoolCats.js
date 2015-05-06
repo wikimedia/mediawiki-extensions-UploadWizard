@@ -168,27 +168,30 @@
 	 * into the text field
 	 */
 	function fetchSuggestions() {
-		var prefix, ok, title,
+		var prefix, title,
 			input = this;
 
-		// Get the name of the category (no "Category:"), stripping out
-		// bad characters as necessary.
+		// Stripping out bad characters as necessary.
 		prefix = stripText( $( this ).val() );
 		title = mw.Title.newFromText( prefix, catNsId );
-		if ( title && title.getNamespaceId() === catNsId ) {
-			prefix = title.getMainText();
-		} else {
-			prefix = title.getPrefixedText();
-		}
+		prefix = title.getPrefixedText();
 
-		ok = function ( catList ) {
-			for ( var c in catList ) {
+		$( input ).data( 'request', settings.api.get( {
+			action: 'opensearch',
+			namespace: catNsId,
+			limit: 10,
+			search: prefix
+		} ).done( function ( res ) {
+			var c,
+				catList = res[1].map( function ( name ) {
+					return mw.Title.newFromText( name, catNsId ).getMainText();
+				} );
+
+			for ( c in catList ) {
 				seenCat[catList[c]] = true;
 			}
 			$( input ).suggestions( 'suggestions', catList );
-		};
-
-		$( input ).data( 'request', settings.api.getCategoriesByPrefix( prefix ).done( ok ) );
+		} ) );
 	}
 
 	defaults = {
