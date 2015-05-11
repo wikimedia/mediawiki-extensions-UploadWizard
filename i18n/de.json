@@ -16,7 +16,8 @@
 			"Shirayuki",
 			"TMg",
 			"The Evil IP address",
-			"✓"
+			"✓",
+			"Umherirrender"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -28,7 +29,7 @@
 	"group-upwizcampeditors": "Kampagnenbearbeiter (Hochladeassistent)",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampagnenbearbeiter|Kampagnenbearbeiterin}} (Hochladeassistent)",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampagnenbearbeiter (Hochladeassistent)",
-	"mwe-upwiz-js-off": "Der Assistent zum Hochladen von Dateien nutzt JavaSkript zur Verbesserung der Handhabung durch den Benutzer. Dein Browser unterstützt entweder kein JavaScript oder JavaScript wurde deaktiviert. Es wird daher das einfache Formular zum Hochladen von Dateien verwendet.",
+	"mwe-upwiz-js-off": "Der Assistent zum Hochladen von Dateien nutzt JavaScript zur Verbesserung der Handhabung durch den Benutzer. Dein Browser unterstützt entweder kein JavaScript oder JavaScript wurde deaktiviert. Es wird daher das einfache Formular zum Hochladen von Dateien verwendet.",
 	"mwe-upwiz-extension-disabled": "Diese Seite wurde aufgrund technischer Probleme vorübergehend deaktiviert. In der Zwischenzeit kann das Standardformular zum Hochladen genutzt werden.",
 	"mwe-upwiz-code-unknown": "Unbekannte Sprache",
 	"mwe-upwiz-step-tutorial": "Lernen",
