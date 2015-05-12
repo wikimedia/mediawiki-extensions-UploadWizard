@@ -515,7 +515,6 @@ a:disabled:hover {
 .mwe-upwiz-desc-lang-text {
 	width: 31.5em;
 	margin-left: 0.5em;
-	overflow: hidden;
 	font-family: sans-serif; /* XXX is this right? */
 	font-size: small;
 }
@@ -529,7 +528,6 @@ a:disabled:hover {
 }
 
 .mwe-grow-textarea, .mwe-long-textarea {
-	overflow: hidden;
 	font-family: sans-serif;
 	font-size: small;
 }
