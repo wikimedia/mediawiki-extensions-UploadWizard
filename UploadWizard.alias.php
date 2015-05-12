@@ -23,7 +23,7 @@ $specialPageAliases['ar'] = array(
 	'UploadCampaign' => array( 'حملة_الرفع' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'Campaigns' => array( 'حملات' ),
 	'UploadWizard' => array( 'ساحر_الرفع' ),
