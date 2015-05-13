@@ -601,6 +601,7 @@ class UploadWizardHooks {
 			),
 
 			'dependencies' => array(
+				'oojs',
 				'uw.ui.base',
 			),
 		),
