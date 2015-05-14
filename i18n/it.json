@@ -13,7 +13,8 @@
 			"Trixt",
 			"Una giornata uggiosa '94",
 			"Viscontino",
-			"Ximo17"
+			"Ximo17",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -140,6 +141,7 @@
 	"mwe-upwiz-copy-location": "Copia posizione",
 	"mwe-upwiz-copy-other": "Copia altre informazioni",
 	"mwe-upwiz-desc": "Descrizione",
+	"mwe-upwiz-desc-placeholder": "Descrivi l'immagine",
 	"mwe-upwiz-desc-add-n": "aggiungi una descrizione in un'altra lingua",
 	"mwe-upwiz-desc-add-0": "aggiungi una descrizione",
 	"mwe-upwiz-title": "Titolo",
