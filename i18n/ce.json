@@ -61,7 +61,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Такха а кхин дӀа",
 	"mwe-upwiz-skip-tutorial-future": "ХӀума цадеш йитта",
 	"mwe-upwiz-file-all-failed": "Цхьаа чуяккха цаелира",
-	"mwe-upwiz-upload-count": "$2 {{PLURAL:$2|Файлех|Файлашах}} {{PLURAL:$1|1=чуаьккха $1 файл|чуаьха $1 файлаш}}",
+	"mwe-upwiz-upload-count": "$2 {{PLURAL:$2|Файлех|Файлашах}} {{PLURAL:$1|чуяьккхина $1 файл}}",
 	"mwe-upwiz-progressbar-uploading": "сервесан чуяхар",
 	"mwe-upwiz-almost-finished": "Файл кечъеш ю...",
 	"mwe-upwiz-finished": "Кийчча ю!",
