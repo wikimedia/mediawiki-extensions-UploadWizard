@@ -14,7 +14,6 @@ class UploadWizardHooks {
 		),
 
 		'ext.uploadWizard' => array(
-			'position' => 'top',
 			'dependencies' => array(
 				'jquery.arrowSteps',
 				'jquery.checkboxShiftClick',
