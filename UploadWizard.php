@@ -84,8 +84,6 @@ $wgAPIModules['flickrblacklist'] = 'ApiFlickrBlacklist';
 # Let the special page be a special center of unique specialness
 $wgSpecialPages['UploadWizard'] = 'SpecialUploadWizard';
 $wgSpecialPages['Campaigns'] = 'SpecialCampaigns';
-$wgSpecialPageGroups['UploadWizard'] = 'media';
-$wgSpecialPageGroups['Campaigns'] = 'media';
 
 $wgHooks['ResourceLoaderRegisterModules'][] = 'UploadWizardHooks::resourceLoaderRegisterModules';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'UploadWizardHooks::onSchemaUpdate';

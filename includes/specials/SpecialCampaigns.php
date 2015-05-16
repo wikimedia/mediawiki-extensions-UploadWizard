@@ -80,4 +80,7 @@ class SpecialCampaigns extends SpecialPage {
 		);
 	}
 
+	protected function getGroupName() {
+		return 'media';
+	}
 }

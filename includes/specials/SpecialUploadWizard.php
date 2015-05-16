@@ -475,6 +475,9 @@ class SpecialUploadWizard extends SpecialPage {
 		. '</div>';
 	}
 
+	protected function getGroupName() {
+		return 'media';
+	}
 }
 
 
