@@ -551,11 +551,6 @@ a:disabled:hover {
 	margin-bottom: 1em;
 }
 
-.mwe-upwiz-details-filename {
-	overflow: hidden;
-	width: 350px;
-}
-
 fieldset.mwe-fieldset {
 	border: 1px solid #cccccc;
 	padding-left: 12px;
