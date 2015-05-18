@@ -31,7 +31,7 @@ class DescribePage
     page.next_parent_element.link_element(text: "Copy information to all uploads below ...")
   end
   span(:copy) do |page|
-    page.next_parent_element.button_element(id: "mwe-upwiz-copy-metadata-button")
+    page.next_parent_element.div_element(id: "mwe-upwiz-copy-metadata-button").link_element(text: "Copy")
   end
 
   def div_at_index(index)

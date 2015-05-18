@@ -68,10 +68,7 @@
 			ui.emit( 'helpdesk-click' );
 		} );
 
-		// handler for next button
-		$( '#mwe-upwiz-stepdiv-tutorial .mwe-upwiz-button-next').click( function () {
-			ui.emit( 'next-step' );
-		} );
+		this.addNextButton();
 	}
 
 	oo.inheritClass( Tutorial, uw.ui.Step );

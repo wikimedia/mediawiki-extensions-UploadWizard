@@ -49,17 +49,30 @@
 			$header.html( mw.UploadWizard.config.display.thanksLabel );
 		}
 
-		// "Upload more files" button
-		this.$div.find( '.mwe-upwiz-button-begin' )
-			.click( function () {
-				thanks.emit( 'next-step' );
-			} );
+		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
 
-		// "Go to wiki home" button
-		$( '.mwe-upwiz-button-home' )
-			.click( function () {
-				window.location.href = mw.config.get( 'wgArticlePath' ).replace( '$1', '' );
-			} );
+		this.homeButton = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-home' ).text(),
+			href: mw.config.get( 'wgArticlePath' ).replace( '$1', '' )
+		} );
+
+		this.homeButtonField = new oo.ui.FieldLayout( this.homeButton, { align: 'inline' } );
+
+		this.beginButton = new oo.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-upload-another' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', function () {
+			thanks.emit( 'next-step' );
+		} );
+
+		this.beginButtonField = new oo.ui.FieldLayout( this.beginButton, { align: 'inline' } );
+
+		this.buttonsFieldset = new oo.ui.FieldsetLayout().addItems( [
+			this.homeButtonField,
+			this.beginButtonField
+		] );
+
+		this.$buttons.append( this.buttonsFieldset.$element );
 	}
 
 	oo.inheritClass( Thanks, ui.Step );

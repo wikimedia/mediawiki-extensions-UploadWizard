@@ -68,5 +68,29 @@
 	 */
 	SP.empty = function () {};
 
+	/**
+	 * Add a 'next' button to the step's button container
+	 */
+	SP.addNextButton = function () {
+		var ui = this;
+
+		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
+
+		this.nextButton = new oo.ui.ButtonWidget( {
+			classes: [ 'mwe-upwiz-button-next' ],
+			label: mw.message( 'mwe-upwiz-next' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', function () {
+			$( '.mwe-upwiz-hint' ).each( function () {
+				// Close tipsy help balloons
+				$( this ).tipsy( 'hide' );
+			} );
+
+			ui.emit( 'next-step' );
+		} );
+
+		this.$buttons.append( this.nextButton.$element );
+	};
+
 	ui.Step = Step;
 }( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );

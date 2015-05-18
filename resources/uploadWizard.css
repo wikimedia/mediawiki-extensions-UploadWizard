@@ -54,6 +54,14 @@ form.mwe-upwiz-form {
 	padding: 1em;
 }
 
+#mwe-upwiz-upload-ctrl-flickr-container {
+	display: inline-block;
+}
+
+.mwe-upwiz-add-files-0 #mwe-upwiz-upload-ctrl-flickr-container {
+	display: block;
+}
+
 .mwe-upwiz-add-files-0, #mwe-upwiz-files {
 	margin-top: 3em;
 	margin-bottom: 1em;

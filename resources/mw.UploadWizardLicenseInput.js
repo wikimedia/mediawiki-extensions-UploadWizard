@@ -13,7 +13,7 @@
  * @param {mw.Api} api object; useful for previews
  */
 
-( function ( mw, uw, $ ) {
+( function ( mw, uw, $, oo ) {
 
 	mw.UploadWizardLicenseInput = function ( selector, values, config, count, api ) {
 		this.count = count;
@@ -270,14 +270,16 @@
 						'font-family': 'monospace'
 					} ),
 
-				$button = $( '<span></span>' )
-					.button( { label: mw.message( 'mwe-upwiz-license-custom-preview' ).escaped() } )
-					.css( { width: '8em' } )
-					.click( function () { input.showPreview( $textarea.val() ); } );
+				button = new oo.ui.ButtonWidget( {
+					label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
+					flags: [ 'progressive' ]
+				} ).on( 'click', function () {
+					input.showPreview( $textarea.val() );
+				} );
 
 			return $( '<div></div>' ).css( { width: '100%' } ).append(
 				$( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
-				$( '<div></div>' ).css( { float: 'right', width: '9em', 'padding-left': '1em' } ).append( $button ),
+				$( '<div></div>' ).css( { float: 'right', width: '9em', 'padding-left': '1em' } ).append( button.$element ),
 				$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
 				$( '<div></div>' ).css( { clear: 'both' } )
 			);
@@ -509,4 +511,4 @@
 
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

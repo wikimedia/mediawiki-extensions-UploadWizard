@@ -57,6 +57,7 @@ class UploadWizardHooks {
 				'uw.model.Description',
 
 				'oojs',
+				'oojs-ui',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -601,6 +602,7 @@ class UploadWizardHooks {
 
 			'dependencies' => array(
 				'oojs',
+				'oojs-ui',
 				'uw.ui.base',
 			),
 		),
