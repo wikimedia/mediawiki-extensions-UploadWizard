@@ -316,35 +316,40 @@
 		createCustomWikiTextInterface: function ( $input ) {
 			var keydownTimeout,
 				input = this,
-
 				nameId = $input.attr( 'id' ) + '_custom',
-				$textarea = $( '<textarea></textarea>' )
-					.attr( { id: nameId, name: nameId } )
-					.growTextArea()
-					.focus( function () { input.setInput( $input, true ); } )
-					.keydown( function () {
-						window.clearTimeout( keydownTimeout );
-						keydownTimeout = window.setTimeout(
-							function () { input.$selector.trigger( 'changeLicenses' ); },
-							2000
-						);
-					} )
-					.css( {
-						width: '100%',
-						'font-family': 'monospace'
-					} ),
+				textarea, button;
 
-				button = new OO.ui.ButtonWidget( {
-					label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
-					flags: [ 'progressive' ]
-				} ).on( 'click', function () {
-					input.showPreview( $textarea.val() );
+			textarea = new OO.ui.TextInputWidget( {
+				name: nameId,
+				multiline: true,
+				autosize: true
+			} );
+			textarea.$input.attr( 'id', nameId );
+
+			textarea.$input
+				.focus( function () { input.setInput( $input, true ); } )
+				.keydown( function () {
+					window.clearTimeout( keydownTimeout );
+					keydownTimeout = window.setTimeout(
+						function () { input.$selector.trigger( 'changeLicenses' ); },
+						2000
+					);
+				} )
+				.css( {
+					'font-family': 'monospace'
 				} );
+
+			button = new OO.ui.ButtonWidget( {
+				label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
+				flags: [ 'progressive' ]
+			} ).on( 'click', function () {
+				input.showPreview( textarea.getValue() );
+			} );
 
 			return $( '<div></div>' ).css( { width: '100%' } ).append(
 				$( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
 				$( '<div></div>' ).css( { float: 'right', width: '9em', 'padding-left': '1em' } ).append( button.$element ),
-				$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( $textarea ),
+				$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( textarea.$element ),
 				$( '<div></div>' ).css( { clear: 'both' } )
 			);
 		},

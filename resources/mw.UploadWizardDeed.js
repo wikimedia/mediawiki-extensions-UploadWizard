@@ -49,11 +49,11 @@
 		setFormFields: function () { },
 
 		getSourceWikiText: function () {
-			return $( this.sourceInput ).val();
+			return this.sourceInput.getValue();
 		},
 
 		getAuthorWikiText: function () {
-			return $( this.authorInput ).val();
+			return this.authorInput.getValue();
 		},
 
 		/**
@@ -81,9 +81,12 @@
 
 		uploadCount = uploadCount ? uploadCount : 1;
 
-		deed.authorInput = $( '<input type="text" />' )
-			.attr( { name: 'author' } )
-			.addClass( 'mwe-upwiz-sign' );
+		deed.authorInput = new OO.ui.TextInputWidget( {
+			name: 'author',
+			title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
+			value: mw.config.get( 'wgUserName' ),
+			classes: [ 'mwe-upwiz-sign' ]
+		} );
 
 		deed.showCustomDiv = ownWork.licenses.length > 1;
 
@@ -144,7 +147,7 @@
 			// XXX do we need to escape authorInput, or is wikitext a feature here?
 			// what about scripts?
 			getAuthorWikiText: function () {
-				var author = $( this.authorInput ).val();
+				var author = this.authorInput.getValue();
 
 				if ( author === '' ) {
 					author = this.$authorInput2.val();
@@ -181,14 +184,19 @@
 				defaultLicenseLink = $( '<a>' ).attr( { target: '_blank', href: defaultLicenseURL } );
 
 				this.$form = $( '<form>' );
-				this.$authorInput2 = $( '<input type="text" />' ).attr( { name: 'author2' } ).addClass( 'mwe-upwiz-sign' );
+				this.authorInput2 = new OO.ui.TextInputWidget( {
+					name: 'author2',
+					classes: [ 'mwe-upwiz-sign' ],
+					title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
+					value: mw.config.get( 'wgUserName' )
+				} );
 
 				$standardDiv = $( '<div />' ).append(
 					$( '<label for="author2" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 					$( '<p></p>' ).msg(
 							defaultLicenseMsg,
 							uploadCount,
-							this.$authorInput2,
+							this.authorInput2.$element,
 							defaultLicenseLink
 					),
 					$( '<p class="mwe-small-print"></p>' ).msg(
@@ -203,7 +211,7 @@
 						$( '<label for="author" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
-							this.authorInput ),
+							this.authorInput.$element ),
 						licenseInputDiv
 					);
 
@@ -235,17 +243,14 @@
 				// synchronize both username signatures
 				// set initial value to configured username
 				// if one changes all the others change (keyup event)
-				$formFields.find( '.mwe-upwiz-sign' )
-					.attr( {
-						title: mw.message( 'mwe-upwiz-tooltip-sign' ).escaped(),
-						value: mw.config.get(  'wgUserName' )
-					} )
+				$formFields.find( '.mwe-upwiz-sign input' )
 					.keyup( function () {
 						var thisInput = this,
 							thisVal = $( thisInput ).val();
-						$.each( $formFields.find( '.mwe-upwiz-sign' ), function ( i, input ) {
+						$.each( $formFields.find( '.mwe-upwiz-sign input' ), function ( i, input ) {
 							if ( thisInput !== input ) {
 								$( input ).val( thisVal );
+								$( input ).trigger( 'change' );
 							}
 						} );
 					} );
@@ -320,12 +325,22 @@
 			deed = new mw.UploadWizardDeed();
 
 		deed.uploadCount = uploadCount ? uploadCount : 1;
-		deed.sourceInput = $( '<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
-					.attr( 'id', 'mwe-source-' + deed.getInstanceCount() )
-					.growTextArea();
-		deed.authorInput = $( '<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
-					.attr( 'id', 'mwe-author-' + deed.getInstanceCount() )
-					.growTextArea();
+		deed.sourceInput = new OO.ui.TextInputWidget( {
+			multiline: true,
+			autosize: true,
+			classes: [ 'mwe-source' ],
+			name: 'source'
+		} );
+		deed.sourceInput.$input.attr( 'id', 'mwe-source-' + deed.getInstanceCount() );
+
+		deed.authorInput = new OO.ui.TextInputWidget( {
+			multiline: true,
+			autosize: true,
+			classes: [ 'mwe-author' ],
+			name: 'author'
+		} );
+		deed.authorInput.$input.attr( 'id', 'mwe-author-' + deed.getInstanceCount() );
+
 		licenseInputDiv = $( '<div class="mwe-upwiz-deed-license-groups"></div>' );
 
 		deed.licenseInput = new mw.UploadWizardLicenseInput(
@@ -362,7 +377,7 @@
 								.attr( 'for', 'mwe-source-' + this.getInstanceCount() )
 								.addHint( 'source' )
 								.requiredFieldLabel(),
-							this.sourceInput ),
+							this.sourceInput.$element ),
 					$( '<label generated="true" class="mwe-validator-error" style="display: block;" />' )
 						.attr( 'for', 'mwe-author-' + this.getInstanceCount() ),
 					$( '<div class="mwe-upwiz-thirdparty-fields" />' )
@@ -371,7 +386,7 @@
 								.attr( 'for', 'mwe-author-' + this.getInstanceCount() )
 								.addHint( 'author' )
 								.requiredFieldLabel(),
-							this.authorInput ),
+							this.authorInput.$element ),
 					$( '<div class="mwe-upwiz-thirdparty-license" />' )
 						.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', this.uploadCount ) )
 						.append( licenseInputDiv )

@@ -421,11 +421,6 @@ form.mwe-upwiz-form {
 	padding-top:  0.3em;
 }
 
-.mwe-grow-textarea, .mwe-long-textarea {
-	font-family: sans-serif;
-	font-size: small;
-}
-
 .mwe-title {
 	font-family: sans-serif;
 	font-size: small;
@@ -632,4 +627,11 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 
 .mwe-upwiz-metadata-copier .oo-ui-fieldLayout {
 	margin-bottom: 0;
+}
+
+.mwe-upwiz-sign {
+	max-width: 20em;
+	display: inline-block;
+	margin-right: 0;
+	vertical-align: baseline;
 }
