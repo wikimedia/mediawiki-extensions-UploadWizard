@@ -83,6 +83,7 @@
 	"mwe-upwiz-file-all-failed": "Nessuno dei caricamenti è riuscito.",
 	"mwe-upwiz-upload-count": "$1 di $2 {{PLURAL:$2|file|file}} caricati",
 	"mwe-upwiz-progressbar-uploading": "caricamento in corso",
+	"mwe-upwiz-almost-finished": "Elaborazione del file...",
 	"mwe-upwiz-finished": "Completato!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|secondo rimanente|secondi rimanenti}}",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minuto|minuti}} e $2 {{PLURAL:$2|secondo|secondi}} {{PLURAL:$3|rimanente|rimanenti}}",
