@@ -47,6 +47,7 @@
 	"mwe-upwiz-title": "శీర్షిక",
 	"mwe-upwiz-date-created": "సృష్టించిన తేదీ",
 	"mwe-upwiz-location": "ప్రాంతం",
+	"mwe-upwiz-location-button": "పటంలో చూపించు",
 	"mwe-upwiz-location-lat": "అక్షాంశం",
 	"mwe-upwiz-location-lon": "రేఖాంశం",
 	"mwe-upwiz-location-alt": "సముద్ర మట్టం",
@@ -87,6 +88,10 @@
 	"mwe-upwiz-too-many-files": "చాలా దస్త్రాలు.",
 	"mwe-upwiz-file-too-large-ok": "సరే",
 	"mwe-upwiz-file-too-large": "చాలా పెద్ద దస్త్రం.",
+	"mwe-upwiz-dialog-yes": "అవును",
+	"mwe-upwiz-dialog-no": "కాదు",
+	"mwe-upwiz-dialog-title": "హెచ్చరిక",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|1 ఎక్కింపు|$1 ఎక్కింపులు}}",
 	"mwe-upwiz-license-cc-by-3.0": "క్రియేటివ్ కామన్స్ ఆపాదింపు 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-2.5": "క్రియేటివ్ కామన్స్ ఆపాదింపు 2.5 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-2.0": "క్రియేటివ్ కామన్స్ ఆపాదింపు 2.0 ([$2 legal code])",
@@ -115,5 +120,6 @@
 	"prefs-upwiz-experimental": "ప్రయోగాత్మక సౌలభ్యాలు",
 	"mwe-upwiz-prefs-def-license": "అప్రమేయ లైసెన్సు",
 	"mwe-upwiz-prefs-license-own": "స్వంత కృతి - $1",
-	"mwe-upwiz-prefs-license-thirdparty": "ఇతరుల కృతి - $1"
+	"mwe-upwiz-prefs-license-thirdparty": "ఇతరుల కృతి - $1",
+	"mwe-upload-campaigns-pagination-next": "తరువాతి పేజీ"
 }

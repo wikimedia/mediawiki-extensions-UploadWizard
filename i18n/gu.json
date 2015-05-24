@@ -5,7 +5,8 @@
 			"Dsvyas",
 			"KartikMistry",
 			"Rangilo Gujarati",
-			"Sushant savla"
+			"Sushant savla",
+			"NehalDaveND"
 		]
 	},
 	"uploadwizard": "અપલોડ વિઝાર્ડ",
@@ -34,6 +35,7 @@
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:મદદ",
 	"mwe-upwiz-add-file-n": "વધુ ફાઈલ ઉમેરો",
 	"mwe-upwiz-add-file-0-free": "વહેંચવા માટેની માધ્યમ ફાઇલો પસંદ કરો",
+	"mwe-upwiz-add-flickr-or": "વા",
 	"mwe-upwiz-transport-started": "શરુ કરે છે...",
 	"mwe-upwiz-uploading": "અપલોડ કરે છે...",
 	"mwe-upwiz-transported": "અપલોડ કરવાનું પૂર્ણ કરેલ છે...",
@@ -171,7 +173,12 @@
 	"mwe-upwiz-too-many-files": "બહુ બધી ફાઈલ્સ.",
 	"mwe-upwiz-file-too-large-ok": "બરાબર",
 	"mwe-upwiz-file-too-large": "ફાઇલ બહુ મોટી છે.",
+	"mwe-upwiz-dialog-yes": "હા",
+	"mwe-upwiz-dialog-no": "ના",
 	"mwe-upwiz-dialog-title": "કોઈ પણ ભાષા અને કોઈ પણ લિપીમાં ફાઈલનું નામ આપી શકાશે. તેમના શીર્ષકો અર્થસભર અને જેતે ભાષામાં ઉપયોગી હોવા જોઈએ.",
+	"mwe-upwiz-campaign-upload-button": "અપવોડ!",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|અપલોડ|અપલોડ્સ્}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|યોગદાનકર્તા|યોગદાનકર્તાઓ}}",
 	"mwe-upwiz-license-cc-by-sa-3.0": "ક્રીએટીવ કોમન્સ એટ્રીબ્યુશન શેર અ લાઈક 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "ક્રીએટીવ કોમન્સ એટ્રીબ્યુશન શેર અ લાઈક 3.0 ઓસ્ટ્રીયા ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "ક્રીએટીવ કોમન્સ એટ્રીબ્યુશન શેર અ લાઈક 3.0 જર્મની ([$2 legal code])",
@@ -249,9 +256,11 @@
 	"mw-coolcats-confirm-new-ok": "તેમ છતાં પણા શ્રેણી ઉમેરો",
 	"mw-coolcats-confirm-new-cancel": "વાંધો નહીં",
 	"prefs-uploads": "ચઢાવો",
+	"prefs-upwiz-licensing": "પરવાના",
 	"prefs-upwiz-experimental": "પ્રાયોગિક ખાસિયતો",
 	"mwe-upwiz-prefs-def-license": "મૂળભૂત લાયસન્સ",
 	"mwe-upwiz-prefs-def-license-def": "જે પણ પહેલેથી મોજૂદ કારક હોય તે પસંદ કરો",
 	"mwe-upwiz-prefs-license-own": "પોતાની રચના - $1",
-	"mwe-upwiz-prefs-license-thirdparty": "અન્ય કોઇની રચના  - $1"
+	"mwe-upwiz-prefs-license-thirdparty": "અન્ય કોઇની રચના  - $1",
+	"mwe-upload-campaigns-pagination-next": "પછીનું પાનું"
 }
