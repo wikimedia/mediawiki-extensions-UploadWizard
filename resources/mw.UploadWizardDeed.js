@@ -430,6 +430,7 @@
 				// do not short-circuit.
 				var formValid = this.$form.valid(),
 					licenseInputValid = this.licenseInput.valid();
+
 				return formValid && licenseInputValid;
 			}
 		} );

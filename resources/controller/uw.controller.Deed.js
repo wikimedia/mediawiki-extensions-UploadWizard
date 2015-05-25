@@ -28,10 +28,7 @@
 
 		uw.controller.Step.call(
 			this,
-			new uw.ui.Deed()
-				.connect( this, {
-					'next-step': 'validate'
-				} ),
+			new uw.ui.Deed(),
 			config
 		);
 
@@ -42,11 +39,12 @@
 
 	DP = Deed.prototype;
 
-	DP.validate = function () {
+	DP.moveFrom = function () {
+		var valid = this.deedChooser.valid();
 		// validate has the side effect of notifying the user of problems, or removing existing notifications.
 		// if returns false, you can assume there are notifications in the interface.
-		if ( this.deedChooser.valid() ) {
-			this.emit( 'next-step' );
+		if ( valid ) {
+			uw.controller.Step.prototype.moveFrom.call( this );
 		}
 	};
 
