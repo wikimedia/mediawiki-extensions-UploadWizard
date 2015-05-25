@@ -38,7 +38,8 @@
 			"Jdforrester",
 			"Orikrin1998",
 			"Macofe",
-			"Element303"
+			"Element303",
+			"Framafan"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -109,6 +110,7 @@
 	"mwe-upwiz-file-all-failed": "Aucun des téléversements n’a réussi.",
 	"mwe-upwiz-upload-count": "$1 fichier{{PLURAL:$1||s}} sur $2 importé{{PLURAL:$1||s}}",
 	"mwe-upwiz-progressbar-uploading": "Téléversement en cours",
+	"mwe-upwiz-almost-finished": "Chargement des fichiers...",
 	"mwe-upwiz-finished": "Terminé !",
 	"mwe-upwiz-secs-remaining": "$1 seconde{{PLURAL:$1||s}} restante{{PLURAL:$1||s}}",
 	"mwe-upwiz-mins-secs-remaining": "$1 minute{{PLURAL:$1||s}} $2 seconde{{PLURAL:$2||s}} restante{{PLURAL:$3||s}}",
@@ -365,5 +367,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Nombre maximal de téléchargements simultanés",
 	"campaigns": "Télécharger l’assistant de campagnes",
 	"mwe-upload-campaigns-pagination-next": "Page suivante",
-	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléchargement"
+	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléchargement",
+	"apihelp-flickrblacklist-param-url": "Le lien Flickr à tester."
 }

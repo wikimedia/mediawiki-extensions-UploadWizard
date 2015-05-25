@@ -4,7 +4,8 @@
 			"Bhawani Gautam",
 			"Krish Dulal",
 			"बिप्लब आनन्द",
-			"Nirjal stha"
+			"Nirjal stha",
+			"NehalDaveND"
 		]
 	},
 	"uploadwizard": "अपलोड विजार्ड",
@@ -98,6 +99,7 @@
 	"mwe-upwiz-location-lat": "अक्षांश",
 	"mwe-upwiz-location-lon": "देशान्तर",
 	"mwe-upwiz-location-alt": "उँचाई",
+	"mwe-upwiz-location-heading": "शीर्षक",
 	"mwe-upwiz-copyright-info": "अधिकार जारी गर्ने",
 	"mwe-upwiz-author": "रचयिता(हरु)",
 	"mwe-upwiz-other": "अरु जानकारी",
@@ -127,6 +129,15 @@
 	"mwe-upwiz-upload-another": "अरु फाइलहरु अपलोड गर्ने",
 	"mwe-prevent-close": "यो पृष्ठ छोड़ेर जाँदा तपाईंले गरेका परिवर्तनहरु हराएर जान सक्छन्।",
 	"mwe-upwiz-prevent-close": "तपाईंले अहिले सम्म {{PLURAL:$1|यो फाइल|यी फाइलहरु }} अपलोड र प्रकाशन गर्ने कार्य पूरा गर्नु भएको छैन।",
+	"mwe-upwiz-tooltip-more-info": "सिक्न थप",
+	"mwe-upwiz-too-many-files-ok": "हुन्छहुन्छ",
+	"mwe-upwiz-file-too-large-ok": "हुन्छ",
+	"mwe-upwiz-dialog-yes": "हो",
+	"mwe-upwiz-dialog-no": "कुनै",
+	"mwe-upwiz-dialog-title": "चेतावनी",
+	"mwe-upwiz-campaign-upload-button": "अपलोड!",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|अपलोड|अपलोडस्}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|योजदानकर्ता}}",
 	"mwe-upwiz-license-misc": "विविध कारणहरू",
 	"mwe-upwiz-license-custom-head": "अन्य कारण जुन माथि उल्लेखित छैन",
 	"mwe-upwiz-license-custom-preview": "पूर्वावलोकन",
