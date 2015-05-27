@@ -44,7 +44,6 @@ $wgExtensionCredits['other'][] = array(
 );
 
 $wgMessagesDirs['UploadWizard'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['UploadWizard'] = __DIR__ . '/UploadWizard.i18n.php';
 $wgExtensionMessagesFiles['UploadWizardAlias'] = __DIR__ . '/UploadWizard.alias.php';
 
 # Require modules
