@@ -160,7 +160,8 @@
 				flickrButton = new oo.ui.ButtonInputWidget( {
 					id: 'mwe-upwiz-upload-ctrl-flickr',
 					label: mw.message( 'mwe-upwiz-add-flickr' ).text(),
-					flags: [ 'progressive', 'primary' ]
+					flags: [ 'progressive', 'primary' ],
+					type: 'submit'
 				} );
 
 			$flickrForm.append( flickrButton.$element );
