@@ -73,7 +73,7 @@
 	"mwe-upwiz-upload-count": "{{PLURAL:$1|{{PLURAL:$2|Die|Ein|Fähler!}} Dattei|$1 Datteije|Kein Dattei}} {{PLURAL:$2||vun $2 Datteije|vun nix}} {{PLURAL:$1|wood|woodte|wood}} huhjelaade.",
 	"mwe-upwiz-progressbar-uploading": "Aam Huhlaade",
 	"mwe-upwiz-almost-finished": "Datteije wähde beärbeidt&nbs;En de Waadeschang&hnbsp;…",
-	"mwe-upwiz-finished": "Fäädesch!",
+	"mwe-upwiz-finished": "Fähdesch!",
 	"mwe-upwiz-secs-remaining": "Noch $1 {{PLURAL:$1|Sekund|Sekunde|Sekunde}}",
 	"mwe-upwiz-mins-secs-remaining": "Noch $1 {{PLURAL:$1|Menot|Mentte|Menotte}} un $2 {{PLURAL:$2|Sekond|Sekonde|Sekonde}} {{PLURAL:$3|övveresch}}",
 	"mwe-upwiz-hrs-mins-secs-remaining": "Noch $1 {{PLURAL:$1|Shtund|Shtunde|Shtunde}}, $2 {{PLURAL:$2|Menut|Menutte|Menutte}} un $3 {{PLURAL:$3|Sekund|Sekunde|Sekunde}}",
