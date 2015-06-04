@@ -8,12 +8,7 @@
     "type": "git",
     "url": "https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard.git"
   },
-  "licenses": [
-    {
-      "type": "GPLv2",
-      "url": "https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FUploadWizard.git/master/COPYING"
-    }
-  ],
+  "license": "GPL-2.0+",
   "devDependencies": {
     "grunt": "0.4.2",
     "grunt-cli": "0.1.13",
