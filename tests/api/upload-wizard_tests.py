@@ -238,11 +238,16 @@ def main():
 
     # Run tests
     suite = unittest.TestLoader().loadTestsFromTestCase(TestUploadWizardAPICalls)
-    unittest.TextTestRunner(verbosity=verbosity).run(suite)
+    success = unittest.TextTestRunner(verbosity=verbosity).run(suite).wasSuccessful()
 
     # Log out user
     wiki.logout()
 
+    return success
+
 
 if __name__ == "__main__":
-    main()
+    if main() is True:
+        sys.exit(0)
+    else:
+        sys.exit(1)
