@@ -10,7 +10,7 @@
 	"mwe-upwiz-uploadcampaign": "کم  جانکاری چڑھاؤ",
 	"right-upwizcampaigns": "چڑھاؤ کم دسو۔",
 	"group-upwizcampeditors": "چڑھاؤ کم لکھاری",
-	"group-upwizcampeditors-member": "{{جنس:$1|فائل چڑھاؤ کم لکھاری}}",
+	"group-upwizcampeditors-member": "{{GENDER:$1|فائل چڑھاؤ کم لکھاری}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}: چڑھاؤ کم لکھاری",
 	"mwe-upwiz-js-off": "فائل چڑھان سوفٹویر جاواسکرپٹ ودیا انٹرفیس ل‏ی ورتدا اے۔ تواڈا براؤزر یاں تے جاواسکرپٹ  نئیں چلاسکدا یا جاواسکرپٹ بند اے، ایس اسیں توانوں اک سادا فائل چڑھان فارم دے دے رۓ آں۔",
 	"mwe-upwiz-extension-disabled": "ایس صفے نوں تھوڑے چر ل‏ی تکنیکی مسلے توں نکارہ کیتا گیا اے۔  اونے چر تک چڑھان دا سٹینڈرڈ فارم ورتو۔",
