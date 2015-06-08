@@ -40,7 +40,12 @@
 	DP = Deed.prototype;
 
 	DP.moveFrom = function () {
-		var valid = this.deedChooser.valid();
+		var valid = true;
+
+		if ( this.deedChooser ) {
+			valid = this.deedChooser.valid();
+		}
+
 		// validate has the side effect of notifying the user of problems, or removing existing notifications.
 		// if returns false, you can assume there are notifications in the interface.
 		if ( valid ) {
