@@ -39,7 +39,8 @@
 			"Orikrin1998",
 			"Macofe",
 			"Element303",
-			"Framafan"
+			"Framafan",
+			"Mattho69"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -179,6 +180,7 @@
 	"mwe-upwiz-location-lat": "Latitude",
 	"mwe-upwiz-location-lon": "Longitude",
 	"mwe-upwiz-location-alt": "Altitude",
+	"mwe-upwiz-location-heading": "Titre",
 	"mwe-upwiz-copyright-info": "Libérer des droits",
 	"mwe-upwiz-author": "Auteur(s)",
 	"mwe-upwiz-autoconverted": "Ce fichier a été automatiquement converti au format de $1",
