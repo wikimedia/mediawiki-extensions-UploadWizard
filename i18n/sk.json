@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"KuboF"
+			"KuboF",
+			"Teslaton"
 		]
 	},
 	"uploadwizard": "Sprievodca nahrávaním",
@@ -18,7 +19,7 @@
 	"mwe-upwiz-api-warning-exists": "Na tejto wiki je [$1 iný súbor] s rovnakým názvom",
 	"mwe-upwiz-help-desk": "Centrum pomoci",
 	"mwe-upwiz-add-file-n": "Pridať viac súborov",
-	"mwe-upwiz-add-file-0-free": "Vyberte multimediálne súbory, ktorý chcete zdieľať",
+	"mwe-upwiz-add-file-0-free": "Vyberte multimediálne súbory, ktoré chcete zdieľať",
 	"mwe-upwiz-add-file-flickr": "Zdieľať obrázky z Flickr",
 	"mwe-upwiz-add-file-flickr-n": "Pridať ďalšie obrázky z Flickr",
 	"mwe-upwiz-add-flickr-or": "Alebo",
@@ -52,7 +53,7 @@
 	"mwe-upwiz-secs-remaining": "Zostáva $1 {{PLURAL:$1|sekunda|sekundy|sekúnd}}",
 	"mwe-upwiz-mins-secs-remaining": "Zostáva $1 {{PLURAL:$1|minúta|minúty|minút}} $2 {{PLURAL:$2|sekunda|sekundy|sekúnd}}",
 	"mwe-upwiz-hrs-mins-secs-remaining": "Zostáva $1 {{PLURAL:$1|hodina|hodiny|hodín}} $2 {{PLURAL:$2|minúta|minúty|minút}} $3 {{PLURAL:$3|sekunda|sekundy|sekúnd}}",
-	"mwe-upwiz-deeds-macro-prompt": "{{SITENAME}} vyžaduje, aby ste poskytli informácie o autorských právach {{PLURAL:$1|k tomuto dielu|k týmto dielam}} na zaistenie, že každý {{PLURAL:$1|ho|ich}} môže legálne používať.",
+	"mwe-upwiz-deeds-macro-prompt": "Tento server vyžaduje, aby ste poskytli informácie o autorských právach {{PLURAL:$1|k tomuto dielu|k týmto dielam}} na zaistenie, že {{PLURAL:$1|ho|ich}} bude môcť ktokoľvek legálne použiť.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Tento súbor je moje vlastné dielo|Tieto súbory sú moje vlastné diela}}.",
 	"mwe-upwiz-source-ownwork-assert-any-license": "Ja, $2, držiteľ autorských práv k {{PLURAL:$1|tomuto dielu|týmto dielam}} týmto neodvolateľne udeľujem komukoľvek právo užívať, modifikovať a šíriť {{PLURAL:$1|toto dielo|tieto diela}} na akýkoľvek účel, a teda {{PLURAL:$1|ho|ich}} zverejňujem za nasledovných podmienok:",
 	"mwe-upwiz-source-ownwork-assert": "Ja, $2, držiteľ autorských práv k {{PLURAL:$1|tomuto dielu|týmto dielam}} týmto neodvolateľne udeľujem komukoľvek právo užívať, modifikovať a šíriť {{PLURAL:$1|toto dielo|tieto diela}} na akýkoľvek účel, za podmienky, že ma uvedú ako pôvodného autora a ak zverejnia odvodené diela, bude to za rovnakých podmienok.",
@@ -135,8 +136,13 @@
 	"mwe-upwiz-dialog-yes": "Áno",
 	"mwe-upwiz-dialog-no": "Nie",
 	"mwe-upwiz-dialog-title": "Upozornenie",
+	"mwe-upwiz-license-cc-head": "Držiteľ autorských práv zverejnil {{PLURAL:$1|toto dielo|tieto diela}} pod slobodnou licenciou Creative Commons",
+	"mwe-upwiz-license-flickr-head": "Držiteľ autorských práv zverejnil {{PLURAL:$1|svoju fotografiu alebo video|svoje fotografie alebo videá}} na Flicker-i pod kompatibilnou slobodnou licenciou",
+	"mwe-upwiz-license-public-domain-usa-head": "Autorská ochrana už v USA s konečnou platnosťou vypršala",
+	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|Toto dielo|Tieto diela}} vytvorila vláda Spojených štátov",
+	"mwe-upwiz-license-custom-head": "Iný vyššie neuvedený dôvod",
 	"mwe-upwiz-license-custom-preview": "Náhľad",
-	"mwe-upwiz-license-none-head": "Našiel som to na internete - nie som si istý",
+	"mwe-upwiz-license-none-head": "Našiel som ho na internete – nie som si istý",
 	"mwe-upwiz-license-confirm-remove": "Naozaj chcete odstrániť  {{PLURAL:$1|tento nahraný súbor|tieto nahrané súbory}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Potvrdiť odstránenie",
 	"mwe-upwiz-categories": "Kategórie",
