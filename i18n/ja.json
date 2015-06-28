@@ -15,7 +15,8 @@
 			"Whym",
 			"青子守歌",
 			"Rxy",
-			"2nd-player"
+			"2nd-player",
+			"Sujiniku"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -234,8 +235,8 @@
 	"mwe-upwiz-dialog-title": "警告",
 	"mwe-upwiz-campaign-create-account-button": "アカウントを作成してアップロード",
 	"mwe-upwiz-campaign-upload-button": "アップロード",
-	"mwe-upwiz-campaign-media-count-desc": "アップロード",
-	"mwe-upwiz-campaign-contributors-count-desc": "貢献者",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Upload|アップロード}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Contributor|貢献者}}",
 	"mwe-upwiz-campaign-view-all-media": "アップロードされたメディアをすべて閲覧",
 	"mwe-upwiz-campaign-no-uploads-yet": "まだ何もアップロードされていません。",
 	"mwe-upwiz-license-cc-by-sa-3.0": "クリエイティブ・コモンズ 表示-継承 3.0 ([$2 完全な条項])",
