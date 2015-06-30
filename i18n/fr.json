@@ -234,6 +234,7 @@
 	"mwe-upwiz-error-latitude": "La latitude doit être comprise entre -90 et 90.",
 	"mwe-upwiz-error-longitude": "La longitude doit être comprise entre -180 et 180.",
 	"mwe-upwiz-error-altitude": "L’altitude doit être un nombre.",
+	"mwe-upwiz-error-heading": "L’entête doit être un nombre entre 0 et 360.",
 	"mwe-upwiz-error-signature-too-long": "Votre signature est trop longue.\nElle ne doit pas dépasser $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-signature-too-short": "Votre signature est trop courte.\nElle doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Votre signature contient des symboles qui ne sont pas autorisés.\nVeuillez ne pas utiliser de code wiki ni de HTML ici, juste votre nom d’utilisateur ou votre vrai nom.",
@@ -370,5 +371,13 @@
 	"campaigns": "Télécharger l’assistant de campagnes",
 	"mwe-upload-campaigns-pagination-next": "Page suivante",
 	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléchargement",
-	"apihelp-flickrblacklist-param-url": "Le lien Flickr à tester."
+	"apihelp-flickrblacklist-description": "Valider une URL Flickr en utilisant l’ID de l’utilisateur (NSID) d’après la liste noire.\n\nQuand utilisé avec l’option liste, renvoie toutes les IDs en liste noire.",
+	"apihelp-flickrblacklist-param-url": "Le lien Flickr à tester.",
+	"apihelp-flickrblacklist-param-list": "Si positionné, la liste noire complète est renvoyée. Impossible à utiliser avec $1url.",
+	"apihelp-flickrblacklist-example-1": "Vérifier une URL d’après la liste noire",
+	"apihelp-flickrblacklist-example-2": "Renvoyer la liste noire complète",
+	"apihelp-query+allcampaigns-description": "Énumérer toutes les campagnes UploadWizard",
+	"apihelp-query+allcampaigns-param-enabledonly": "Lister uniquement les campagnes qui sont activées.",
+	"apihelp-query+allcampaigns-param-limit": "Nombre de campagnes à renvoyer.",
+	"apihelp-query+allcampaigns-example-1": "Énumérer les campagnes activées"
 }
