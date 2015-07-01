@@ -451,7 +451,10 @@
 		if ( mw.isEmpty( extension ) ) {
 			this.fileNameErr( 'noext', null );
 		} else {
-			if ( $.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1 ) {
+			if (
+				mw.UploadWizard.config.fileExtensions !== null &&
+				$.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1
+			) {
 				this.fileNameErr( 'ext', extension );
 			} else {
 				// Split this into a separate case, if the error above got ignored,
