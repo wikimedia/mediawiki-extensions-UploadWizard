@@ -73,7 +73,11 @@ class UploadWizardCampaign {
 	function __construct( $title, $config = null, $context = null ) {
 		$this->title = $title;
 		if ( $config === null ) {
-			$this->config = WikiPage::factory( $title )->getContent()->getJsonData();
+			$content = WikiPage::factory( $title )->getContent();
+			if ( $content->getModel() !== 'Campaign' ) {
+				throw new MWException( 'Wrong content model' );
+			}
+			$this->config = $content->getJsonData();
 		} else {
 			$this->config = $config;
 		}
