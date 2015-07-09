@@ -4,7 +4,8 @@
 			"CERminator",
 			"DzWiki",
 			"Palapa",
-			"KWiki"
+			"KWiki",
+			"Semso98"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -123,7 +124,7 @@
 	"mwe-upwiz-error-title-blacklisted": "Ovaj naslov sadrži neki neodgovarajući tekst. Molimo provjerite ga",
 	"mwe-upwiz-error-title-badchars": "Ovaj naslov sadrži neke neodgovarajuće znakove. Molimo uklonite ih",
 	"mwe-upwiz-error-title-senselessimagename": "Molimo vas stavite naslov koji ima više smisla.",
-	"mwe-upwiz-dialog-title": "Datoteke se mogu postaviti sa imenima na bilo kojem jeziku na bilo kojem pismu (kodirana sa UTF-8). Naslovi medijski datoteka trebaju biti smislena i korisna na jeziku koji je odabran.",
+	"mwe-upwiz-dialog-title": "Upozorenje",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Navođenje izvora Pod istim uslovima 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-3.0": "Creative Commons Priznavanje autorstva 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-2.5": "Creative Commons Navođenje izvora Pod istim uslovima 2.5 ([$2 legal code])",
