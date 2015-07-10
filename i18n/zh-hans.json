@@ -216,7 +216,7 @@
 	"mwe-upwiz-deeds-need-license": "请选择授权协议。",
 	"mwe-upwiz-license-show-all": "使用其他授权协议",
 	"mwe-upwiz-license-show-recommended": "使用推荐授权协议",
-	"mwe-upwiz-error-signature-blank": "你必须在下面一栏中填写你的用户名或真实姓名。",
+	"mwe-upwiz-error-signature-blank": "您必须在下面一栏中填写你的用户名或真实姓名。",
 	"mwe-upwiz-error-latitude": "纬度应该在-90和90之间。",
 	"mwe-upwiz-error-longitude": "经度应该在-180和180之间。",
 	"mwe-upwiz-error-altitude": "海拔应该是数字。",
