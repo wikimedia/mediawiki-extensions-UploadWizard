@@ -204,7 +204,7 @@
 	"mwe-upwiz-deeds-need-license": "Wybierz licencję.",
 	"mwe-upwiz-license-show-all": "Użyj innej licencji",
 	"mwe-upwiz-license-show-recommended": "Użyj zalecanej licencji",
-	"mwe-upwiz-error-signature-blank": "Musisz podpisać się w poniższym polu swoją nazwą użytkownika lub prawdziwym imieniem i nazwiskiem.",
+	"mwe-upwiz-error-signature-blank": "Musisz podpisać się w odpowiednim polu swoją nazwą użytkownika lub prawdziwym imieniem i nazwiskiem.",
 	"mwe-upwiz-error-latitude": "Szerokość geograficzna musi zawierać się pomiędzy -90 a 90.",
 	"mwe-upwiz-error-longitude": "Długość geograficzna musi zawierać się pomiędzy -180 a 180.",
 	"mwe-upwiz-error-altitude": "Wysokość musi być liczbą.",
