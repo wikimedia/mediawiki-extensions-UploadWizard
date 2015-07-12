@@ -6,7 +6,8 @@
 			"Nasir8891",
 			"Sm faysal",
 			"Wikitanvir",
-			"Aftabuzzaman"
+			"Aftabuzzaman",
+			"Sayma Jahan"
 		]
 	},
 	"uploadwizard": "আপলোড উইজার্ড",
@@ -159,7 +160,7 @@
 	"mwe-upwiz-deeds-need-license": "অনুগ্রহ করে কোন লাইসেন্স নির্বাচন করুন।",
 	"mwe-upwiz-license-show-all": "ভিন্ন লাইসেন্স ব্যবহার",
 	"mwe-upwiz-license-show-recommended": "সুপারিশকৃত লাইসেন্স ব্যবহার",
-	"mwe-upwiz-error-signature-blank": "এই অংশে অবশ্যই আপনাকে নিজের ব্যবহারকারী নাম অথবা নাম লিখৈ স্বাক্ষর করতে হবে।",
+	"mwe-upwiz-error-signature-blank": "এই অংশে অবশ্যই আপনাকে নিজের ব্যবহারকারী নাম অথবা আসল নাম লিখে সঠিক স্থানে স্বাক্ষর করতে হবে।",
 	"mwe-upwiz-error-latitude": "অক্ষাংশ অবশ্যই -৯০ থেকে ৯০ এর মধ্যে হতে হবে।",
 	"mwe-upwiz-error-longitude": "দ্রাঘিমাংশ অবশ্যই -১৮০ থেকে ১৮০ এর মধ্যে হতে হবে।",
 	"mwe-upwiz-error-altitude": "উচ্চতা সংখ্যাতে প্রকাশ করতে হবে।",

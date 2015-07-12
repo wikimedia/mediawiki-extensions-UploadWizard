@@ -135,7 +135,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Podaj na następnej stronie informacje o prawach autorskich dla każdego pliku z osobna.",
 	"mwe-upwiz-more-options": "Dodaj lokalizację i więcej informacji...",
-	"mwe-upwiz-copy-metadata": "Kopiuj informacje do {{PLURAL:$1|innego przesłanego zdjęcia|wszystkich przesyłanych zdjęć}} poniżej...",
+	"mwe-upwiz-copy-metadata": "Kopiuj informacje do {{PLURAL:$1|następującego innego przesłanego pliku|wszystkich następujących przesyłanych plików}} ...",
 	"mwe-upwiz-copy-metadata-button": "Kopiuj",
 	"mwe-upwiz-copied-metadata-button": "Skopiowano pomyślnie",
 	"mwe-upwiz-copy-title": "kopiuj tytuł (z automatycznym numerowaniem)",
