@@ -146,7 +146,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "确定",
 	"mwe-upwiz-source-custom": "在下一步单独提供每个文件的著作权信息。",
 	"mwe-upwiz-more-options": "添加地点和更多的信息...",
-	"mwe-upwiz-copy-metadata": "复制{{PLURAL:$1|另一份|所有}}资料到下面的上载文档 ...",
+	"mwe-upwiz-copy-metadata": "复制信息至下方的{{PLURAL:$1|另一次|所有}}上传 ...",
 	"mwe-upwiz-copy-metadata-button": "复制",
 	"mwe-upwiz-copied-metadata-button": "复制成功",
 	"mwe-upwiz-copy-title": "复制标题（提供自动编号功能）",
