@@ -49,7 +49,9 @@
 			'Attribution-NonCommercial-ShareAlike License': 'invalid',
 			'Attribution-ShareAlike License': '{{FlickrVerifiedByUploadWizard|cc-by-sa-2.0}}{{cc-by-sa-2.0}}',
 			'No known copyright restrictions': '{{FlickrVerifiedByUploadWizard|Flickr-no known copyright restrictions}}{{Flickr-no known copyright restrictions}}',
-			'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}'
+			'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}',
+			'Public Domain Dedication (CC0)': '{{FlickrVerifiedByUploadWizard|cc-zero}}{{cc-zero}}',
+			'Public Domain Mark': '{{FlickrVerifiedByUploadWizard|Public Domain Mark}}' // T105629
 		},
 
 		/**
@@ -372,7 +374,7 @@
 						fromURL: true,
 						licenseValue: licenseValue,
 						licenseMessage: license.licenseMessage,
-						license: true,
+						license: license.licenseName !== 'Public Domain Mark',
 						photoId: item.id,
 						location: {
 							latitude:item.latitude,
@@ -478,7 +480,7 @@
 					fromURL: true,
 					licenseValue: license.licenseValue,
 					licenseMessage: license.licenseMessage,
-					license: true,
+					license: license.licenseName !== 'Public Domain Mark',
 					author: photoAuthor,
 					originalFormat: photo.originalformat,
 					date: photo.dates.taken,
