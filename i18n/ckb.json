@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Calak",
-			"Ckb-kushared"
+			"Ckb-kushared",
+			"Pirehelokan"
 		]
 	},
 	"uploadwizard": "بارکەری جادوویی",
@@ -114,7 +115,7 @@
 	"mwe-upwiz-deeds-need-license": "تکایە مۆڵەتێک دیاری بکە",
 	"mwe-upwiz-license-show-all": "مۆڵەتی جیاواز بەکاربێنە",
 	"mwe-upwiz-license-show-recommended": "بەکارهێنانی مۆڵەتی پێشنیازکراو",
-	"mwe-upwiz-error-signature-blank": "دەبێت تەنیا واژووی ناوی بەکارهێنەریت یان ناوی ڕاسەقینەت بکەیت لەم بۆشاییەی خوارەوە.",
+	"mwe-upwiz-error-signature-blank": "دەبێت تەنیابە ناوی بەکارهێنەریت یان ناوی ڕاسەقینەت  واژووی بکەیت لەم بۆشاییەی خوارەوەدا.",
 	"mwe-upwiz-error-latitude": "پێویستە هێڵی پانی لەنێوان  -٩٠ و٩٠ بێت.",
 	"mwe-upwiz-error-longitude": "پێویستە هێڵی درێژی لەنێوان -١٨٠ و١٨٠ بێت.",
 	"mwe-upwiz-error-altitude": "پێویستە هێڵی بەرزی بەژمارە بنوێندرێت.",
