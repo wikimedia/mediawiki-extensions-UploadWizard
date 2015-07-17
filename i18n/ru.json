@@ -212,7 +212,7 @@
 	"mwe-upwiz-deeds-need-license": "Пожалуйста, выберите лицензию.",
 	"mwe-upwiz-license-show-all": "Воспользуйтесь другой лицензией",
 	"mwe-upwiz-license-show-recommended": "Воспользуйтесь рекомендованной лицензией",
-	"mwe-upwiz-error-signature-blank": "Вы должны указать в приведённом ниже поле ваше имя участника или настоящее имя.",
+	"mwe-upwiz-error-signature-blank": "Вы должны указать в соответствующем поле ваше имя участника или настоящее имя.",
 	"mwe-upwiz-error-latitude": "Широта должна быть от -90 до 90.",
 	"mwe-upwiz-error-longitude": "Долгота должна быть от -180 до 180.",
 	"mwe-upwiz-error-altitude": "Высота должна быть числом.",
