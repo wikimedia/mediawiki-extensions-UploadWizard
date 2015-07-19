@@ -225,7 +225,7 @@
 	"mwe-upwiz-error-title-senselessimagename": "Modifique el título para hacerlo más significativo.",
 	"mwe-upwiz-error-title-hosting": "Parece que consiguió el archivo de otro servicio de alojamiento de imágenes. Haga que el título sea más significativo. Además compruebe que tiene los derechos necesarios para publicarlo en este sitio.",
 	"mwe-upwiz-error-title-thumbnail": "Parece que el título es de una imagen en miniatura. No cargue imágenes en miniaturas en el wiki del que las sacó. Si la imagen no es una miniatura, corrija el nombre del archivo para que sea más significativo y no tenga el prefijo de las miniaturas.",
-	"mwe-upwiz-error-title-fileexists-shared-forbidden": "Este título está reservado para otro archivo perteneciente a un repositorio compartido remoto. Elija otro nombre.",
+	"mwe-upwiz-error-title-fileexists-shared-forbidden": "Este título está reservado para un archivo en un repositorio compartido remoto. Elige otro nombre.",
 	"mwe-upwiz-error-title-double-apostrophe": "Este título contiene un apóstrofo doble; Elimínalo.",
 	"mwe-upwiz-error-title-extension": "No es necesario añadir la extensión del archivo. Tan sólo tienes que asignar un título comprensible y la aplicación se encargará del resto.",
 	"mwe-upwiz-error-title-protected": "Este título corresponde a una página protegida de este wiki. Elige uno diferente.",
