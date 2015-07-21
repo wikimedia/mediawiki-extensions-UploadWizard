@@ -14,7 +14,8 @@
 			"Una giornata uggiosa '94",
 			"Viscontino",
 			"Ximo17",
-			"Macofe"
+			"Macofe",
+			"The Polish"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -202,7 +203,7 @@
 	"mwe-upwiz-deeds-need-license": "Seleziona una licenza.",
 	"mwe-upwiz-license-show-all": "Usa una licenza diversa",
 	"mwe-upwiz-license-show-recommended": "Usa la licenza raccomandata",
-	"mwe-upwiz-error-signature-blank": "È necessario firmare il campo sottostante con il tuo nome utente o con il tuo nome reale.",
+	"mwe-upwiz-error-signature-blank": "È necessario firmare il campo appropriato con il tuo nome utente o con il tuo nome reale.",
 	"mwe-upwiz-error-latitude": "La latitudine deve essere compresa tra -90 e 90.",
 	"mwe-upwiz-error-longitude": "La longitudine deve essere compresa tra -180 e 180.",
 	"mwe-upwiz-error-altitude": "L'altitudine deve essere un numero.",

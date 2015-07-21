@@ -188,7 +188,7 @@
 	"mwe-upwiz-deeds-need-license": "Palun vali litsents.",
 	"mwe-upwiz-license-show-all": "Kasuta muud litsentsi",
 	"mwe-upwiz-license-show-recommended": "Kasuta soovitatavat litsentsi",
-	"mwe-upwiz-error-signature-blank": "Pead allakirjutamiseks allolevale väljale sisestama oma kasutajanime või pärisnime.",
+	"mwe-upwiz-error-signature-blank": "Pead allakirjutamiseks sisestama sobivale väljale oma kasutajanime või pärisnime.",
 	"mwe-upwiz-error-latitude": "Laius peab olema vahemikus −90…90.",
 	"mwe-upwiz-error-longitude": "Pikkus peab olema vahemikus −180…180.",
 	"mwe-upwiz-error-altitude": "Kõrgus peab olema number.",

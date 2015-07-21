@@ -212,7 +212,7 @@
 	"mwe-upwiz-error-title-hosting": "Panašu, kad šį failą gavote iš kito paveikslėlių serverio. Prašome nurodyti prasmingesnį pavadinimą. Taip pat, gerai pasitikrinkite, kad turite teisę publikuoti jį šiame tinklapyje.",
 	"mwe-upwiz-error-title-thumbnail": "Tai panašu į miniatiūros pavadinimą. Prašome neįkelinėti miniatiūrų į tą patį vikį. Kitu atveju, prašome nurodyti prasmingesnį failo vardą, ir kuris neturi miniatiūros prefikso.",
 	"mwe-upwiz-error-title-fileexists-shared-forbidden": "Šis pavadinimas yra rezervuotas failo nuotoliniu būdu prieinamoje talpykloje. Pasirinkite kitą pavadinimą.",
-	"mwe-upwiz-error-title-double-apostrophe": "Šiame pavadinime yra dvigubos kabutės; prašome jas pašalinti.",
+	"mwe-upwiz-error-title-double-apostrophe": "Šiame pavadinime yra dvigubas apostrofas; prašome jį pašalinti.",
 	"mwe-upwiz-error-title-extension": "Jums nereikia nurodyti failo plėtinio. Tiesiog nurodykite žmogui suprantamą pavadinimą, o programa pasirūpins viskuo kitu.",
 	"mwe-upwiz-error-title-protected": "Šis pavadinimas nurodo apsaugotą puslapį šiame vikyje. Prašome pasirinkti kitą pavadinimą.",
 	"mwe-upwiz-error-title-duplicate": "Šis pavadinimas buvo nurodytas daugiau nei vienam failui, kurį ketinate įkelti. Pabraukimai yra traktuojami kaip tarpai, failo plėtinys yra pridedamas automatiškai.",
