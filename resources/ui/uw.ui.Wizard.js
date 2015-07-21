@@ -58,6 +58,15 @@
 			$( '#contentSub' ).append( this.$feedbackLink );
 		}
 
+		if ( config.alternativeUploadToolsPage ) {
+			this.$alternativeUploads = $( '<a>' )
+				.addClass( 'contentSubLink' )
+				.prop( 'href', new mw.Title( config.alternativeUploadToolsPage ).getUrl() )
+				.msg( 'mwe-upwiz-subhead-alternatives' );
+
+			$( '#contentSub' ).append( this.$alternativeUploads );
+		}
+
 		if ( config.altUploadForm ) {
 			this.initAltUploadForm( config.altUploadForm );
 		}

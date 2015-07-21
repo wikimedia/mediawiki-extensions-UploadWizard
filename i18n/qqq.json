@@ -323,6 +323,7 @@
 	"mwe-upwiz-unparseable-title": "Used as error message. More information about page titles [[:mw:Manual:Page title|at MediaWiki.org]].",
 	"mwe-upwiz-subhead-bugs": "Unused at this time. Parameters:\n* $1 - full URL\n{{Identical|Known issue}}",
 	"mwe-upwiz-subhead-alt-upload": "Used as a link in the sub-header. Will go to an alternate upload form.",
+	"mwe-upwiz-subhead-alternatives": "Used as a link in the sub-header. Will go to a page that lists upload tools.",
 	"mwe-upwiz-feedback-prompt": "Used as a link in the sub-header.\n{{Identical|Leave feedback}}",
 	"mwe-upwiz-feedback-title": "Used as title for the dialog box.",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "Parameters:\n* $1 - full URL\n{{Identical|Send feedback}}",

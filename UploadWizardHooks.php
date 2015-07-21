@@ -417,6 +417,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-unparseable-title',
 				'mwe-upwiz-subhead-bugs',
 				'mwe-upwiz-subhead-alt-upload',
+				'mwe-upwiz-subhead-alternatives',
 				'mwe-upwiz-feedback-prompt',
 				'mwe-upwiz-feedback-note',
 				'mwe-upwiz-feedback-subject',
