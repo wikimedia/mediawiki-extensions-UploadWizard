@@ -4,7 +4,8 @@
 			"An13sa",
 			"Joxemai",
 			"පසිඳු කාවින්ද",
-			"Subi"
+			"Subi",
+			"Sator"
 		]
 	},
 	"uploadwizard": "Igoera Laguntzailea",
@@ -15,6 +16,7 @@
 	"mwe-upwiz-step-deeds": "Argitalpen eskubideak",
 	"mwe-upwiz-step-details": "Deskribatu",
 	"mwe-upwiz-step-thanks": "Erabili",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "Barkatu, ez dugu tutorialik aurkitu zure hizkuntzan. Horren ordez $1 ikusiko duzu.",
 	"mwe-upwiz-help-desk": "Laguntza",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Laguntza",
 	"mwe-upwiz-add-file-n": "Fitxategi gehiago gehitu",

@@ -198,7 +198,7 @@
 	"mwe-upwiz-tooltip-title": "Un título único descriptivo para el archivo, que servirá como un nombre de archivo. Puede usar un lenguaje claro con espacios. No incluyas la extensión del archivo.",
 	"mwe-upwiz-tooltip-description": "Describe brevemente todo lo destacable acerca del trabajo.\nPara una foto, menciona las cosas principales que se representan, la ocasión o el lugar.",
 	"mwe-upwiz-tooltip-date": "La fecha en que este trabajo se creó o publicó por primera vez (AAAA-MM-DD).",
-	"mwe-upwiz-tooltip-categories": "Añada su fichero a las [$1 categorías] para facilitar la búsqueda.",
+	"mwe-upwiz-tooltip-categories": "Añade tu archivo a [$1 categorías] para facilitar su búsqueda.",
 	"mwe-upwiz-tooltip-other": "Alguna otra información que desees incluir acerca de este trabajo, como coordenadas geográficas, enlaces a otras versiones, etc.",
 	"mwe-upwiz-tooltip-location": "Coordenadas del lugar donde se creó el archivo.",
 	"mwe-upwiz-tooltip-more-info": "Más información.",
