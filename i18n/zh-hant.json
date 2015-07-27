@@ -15,7 +15,8 @@
 			"Waihorace",
 			"Wrightbus",
 			"LNDDYL",
-			"Cwlin0416"
+			"Cwlin0416",
+			"EagerLin"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -242,8 +243,8 @@
 	"mwe-upwiz-dialog-title": "警告",
 	"mwe-upwiz-campaign-create-account-button": "建立一個帳號並上傳！",
 	"mwe-upwiz-campaign-upload-button": "上傳！",
-	"mwe-upwiz-campaign-media-count-desc": "上傳",
-	"mwe-upwiz-campaign-contributors-count-desc": "貢獻者",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|上傳}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|貢獻者}}",
 	"mwe-upwiz-campaign-view-all-media": "檢視所有已上傳的媒體",
 	"mwe-upwiz-campaign-no-uploads-yet": "尚無任何上傳！",
 	"mwe-upwiz-license-cc-by-sa-4.0": "創用 CC 姓名標示-相同方式分享 4.0 ([$2 法律條款])",
