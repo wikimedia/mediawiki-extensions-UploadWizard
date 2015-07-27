@@ -24,9 +24,12 @@
 	 * @extends mw.uw.ui.Step
 	 * @constructor
 	 */
-	function Thanks() {
+	function Thanks( config ) {
 		var $header,
+			beginButtonTarget,
 			thanks = this;
+
+		this.config = config;
 
 		ui.Step.call(
 			this,
@@ -52,18 +55,26 @@
 		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
 
 		this.homeButton = new oo.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-home' ).text(),
-			href: mw.config.get( 'wgArticlePath' ).replace( '$1', '' )
+			label: this.getButtonConfig( 'homeButton', 'label' ) || mw.message( 'mwe-upwiz-home' ).text(),
+			href: this.getButtonConfig( 'homeButton', 'target' ) || mw.config.get( 'wgArticlePath' ).replace( '$1', '' )
 		} );
 
 		this.homeButtonField = new oo.ui.FieldLayout( this.homeButton, { align: 'inline' } );
 
 		this.beginButton = new oo.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-upload-another' ).text(),
+			label: this.getButtonConfig( 'beginButton', 'label' ) ||  mw.message( 'mwe-upwiz-upload-another' ).text(),
 			flags: [ 'progressive', 'primary' ]
-		} ).on( 'click', function () {
-			thanks.emit( 'next-step' );
 		} );
+
+		// TODO: make the step order configurable by campaign definitions instead of using this hack
+		beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
+		if ( !beginButtonTarget ) {
+			this.beginButton.on( 'click', function () {
+				thanks.emit( 'next-step' );
+			} );
+		} else {
+			this.beginButton.setHref( beginButtonTarget );
+		}
 
 		this.beginButtonField = new oo.ui.FieldLayout( this.beginButton, { align: 'inline' } );
 
@@ -163,6 +174,20 @@
 	 */
 	TP.empty = function () {
 		this.$div.find( '.mwe-upwiz-thanks' ).remove();
+	};
+
+	/**
+	 * Get button configuration options from a campaign definition
+	 * @param {string} buttonName name of the button as defined in campaign configuration
+	 * @param {string} configField name of the button's attributes
+	 * @return {Object|undefined}
+	 */
+	TP.getButtonConfig = function ( buttonName, configField ) {
+		if ( !this.config || !this.config.display || !this.config.display[buttonName] ) {
+			return;
+		}
+
+		return this.config.display[buttonName][configField];
 	};
 
 	ui.Thanks = Thanks;

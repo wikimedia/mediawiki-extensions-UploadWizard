@@ -23,10 +23,10 @@
 	 * @class
 	 * @constructor
 	 */
-	function Thanks() {
+	function Thanks( config ) {
 		uw.controller.Step.call(
 			this,
-			new uw.ui.Thanks()
+			new uw.ui.Thanks( config )
 				.connect( this, {
 					'reset-wizard': [ 'emit', 'reset-wizard' ]
 				} )

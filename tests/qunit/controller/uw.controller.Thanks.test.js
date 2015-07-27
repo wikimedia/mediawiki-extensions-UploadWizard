@@ -38,4 +38,45 @@
 
 		assert.strictEqual( auStub.callCount, 3 );
 	} );
+
+	QUnit.test( 'Custom button configuration', 4, function ( assert ) {
+		var config = {
+				display: {
+					homeButton: {
+						label: 'This is just a test',
+						target: 'https://wiki.example.com/wiki/Main_Page'
+					},
+					beginButton: {
+						label: 'Let me start again',
+						target: 'https://commons.wikimedia.org/wiki/Special:UploadWizard'
+					}
+				}
+			},
+			uiThanks = new uw.ui.Thanks( config );
+
+		assert.equal(
+			uiThanks.homeButton.getLabel(),
+			'This is just a test',
+			'The label of the home button matches the configured text.'
+		);
+
+		assert.equal(
+			uiThanks.homeButton.getHref(),
+			'https://wiki.example.com/wiki/Main_Page',
+			'The target of the home button matches the configured URL.'
+		);
+
+		assert.equal(
+			uiThanks.beginButton.getLabel(),
+			'Let me start again',
+			'The label of the begin button matches the configured text.'
+		);
+
+		assert.equal(
+			uiThanks.beginButton.getHref(),
+			'https://commons.wikimedia.org/wiki/Special:UploadWizard',
+			'The target of the begin button matches the configured URL.'
+		);
+
+	} );
 }( mediaWiki.uploadWizard ) );

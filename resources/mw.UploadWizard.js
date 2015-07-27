@@ -56,7 +56,7 @@
 					wizard.steps.details.moveFrom();
 				} ),
 
-			thanks: new uw.controller.Thanks()
+			thanks: new uw.controller.Thanks( config )
 				.on( 'reset-wizard', function () {
 					wizard.reset();
 				} )

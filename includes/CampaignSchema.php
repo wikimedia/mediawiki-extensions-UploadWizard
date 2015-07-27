@@ -102,6 +102,28 @@ return array(
 				),
 				"thanksLabel" => array(
 					"type" => "string"
+				),
+				"homeButton" => array(
+					"type" => "object",
+					"properties" => array(
+						"label" => array(
+							"type" => "string"
+						),
+						"target" => array(
+							"type" => "string"
+						)
+					)
+				),
+				"beginButton" => array(
+					"type" => "object",
+					"properties" => array(
+						"label" => array(
+							"type" => "string"
+						),
+						"target" => array(
+							"type" => "string"
+						)
+					)
 				)
 			)
 		),

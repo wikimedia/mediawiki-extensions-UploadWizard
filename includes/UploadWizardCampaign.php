@@ -300,7 +300,17 @@ class UploadWizardCampaign {
 					$parsedConfig[$key] = $this->parseValue( $value, $lang );
 					break;
 				case "display":
-					$parsedConfig['display'] = $this->parseArrayValues( $value, $lang );
+					foreach ( $value as $option => $optionValue ) {
+						if ( is_array( $optionValue ) ) {
+							$parsedConfig['display'][$option] = $this->parseArrayValues(
+								$optionValue,
+								$lang,
+								array( 'label' )
+							);
+						} else {
+							$parsedConfig['display'][$option] = $this->parseValue( $optionValue, $lang );
+						}
+					}
 					break;
 				case "fields":
 					$parsedConfig['fields'] = array();
