@@ -59,8 +59,6 @@
 			href: this.getButtonConfig( 'homeButton', 'target' ) || mw.config.get( 'wgArticlePath' ).replace( '$1', '' )
 		} );
 
-		this.homeButtonField = new oo.ui.FieldLayout( this.homeButton, { align: 'inline' } );
-
 		this.beginButton = new oo.ui.ButtonWidget( {
 			label: this.getButtonConfig( 'beginButton', 'label' ) ||  mw.message( 'mwe-upwiz-upload-another' ).text(),
 			flags: [ 'progressive', 'primary' ]
@@ -76,14 +74,11 @@
 			this.beginButton.setHref( beginButtonTarget );
 		}
 
-		this.beginButtonField = new oo.ui.FieldLayout( this.beginButton, { align: 'inline' } );
+		this.buttonGroup = new oo.ui.ButtonGroupWidget( {
+			items: [ this.homeButton, this.beginButton ]
+		} );
 
-		this.buttonsFieldset = new oo.ui.FieldsetLayout().addItems( [
-			this.homeButtonField,
-			this.beginButtonField
-		] );
-
-		this.$buttons.append( this.buttonsFieldset.$element );
+		this.$buttons.append( this.buttonGroup.$element );
 	}
 
 	oo.inheritClass( Thanks, ui.Step );
