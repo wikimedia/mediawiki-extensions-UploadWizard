@@ -64,13 +64,16 @@
 			flags: [ 'progressive', 'primary' ]
 		} );
 
-		// TODO: make the step order configurable by campaign definitions instead of using this hack
+		// TODO: make the step order configurable by campaign definitions instead of using these hacks
 		beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
 		if ( !beginButtonTarget ) {
 			this.beginButton.on( 'click', function () {
 				thanks.emit( 'next-step' );
 			} );
 		} else {
+			if ( beginButtonTarget === 'dropObjref' ) {
+				beginButtonTarget = this.dropParameterFromURL( location.href, 'updateList' );
+			}
 			this.beginButton.setHref( beginButtonTarget );
 		}
 
@@ -183,6 +186,22 @@
 		}
 
 		return this.config.display[buttonName][configField];
+	};
+
+	/**
+	 * Drops a parameter from the given url
+	 * @param url
+	 * @param paramName parameter to be dropped
+	 * @return {string}
+	 * @private
+	 */
+	TP.dropParameterFromURL = function ( url, paramName ) {
+		var newUrl = new mw.Uri( url );
+		if ( newUrl.query ) {
+			delete newUrl.query[paramName];
+			delete newUrl.query[paramName + '[]'];
+		}
+		return newUrl.toString();
 	};
 
 	ui.Thanks = Thanks;

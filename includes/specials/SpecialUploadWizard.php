@@ -77,6 +77,8 @@ class SpecialUploadWizard extends SpecialPage {
 			$urlDefaults['categories'] = explode( '|', $categories );
 		}
 
+		$urlDefaults['objref'] = $req->getText( 'objref' ) ?: '';
+
 		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
 
 		$fields = $req->getArray( 'fields' );

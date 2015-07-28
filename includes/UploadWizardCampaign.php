@@ -337,9 +337,14 @@ class UploadWizardCampaign {
 			}
 
 			$this->parsedConfig = $parsedConfig;
+
 			$cache->set( $memKey, array( 'timestamp' => time(), 'config' => $parsedConfig ) );
 		}
 
+		$uwDefaults = UploadWizardConfig::getSetting( 'defaults' );
+		if ( array_key_exists( 'objref', $uwDefaults ) ) {
+			$this->applyObjectReferenceToButtons( $uwDefaults['objref'] );
+		}
 		$this->modifyIfNecessary();
 
 		return $this->parsedConfig;
@@ -430,5 +435,39 @@ class UploadWizardCampaign {
 		$start = array_key_exists( 'start', $this->parsedConfig ) ? strtotime( $this->parsedConfig['start'] ) : null;
 
 		return $start === null || $start <= $today;
+	}
+
+	/**
+	 * Generate the URL out of the object reference
+	 *
+	 * @param string $objRef
+	 * @return bool|string
+	 */
+	private function getButtonHrefByObjectReference( $objRef ) {
+		list( $wiki, $title ) = explode( '|', $objRef );
+		if ( Interwiki::isValidInterwiki( $wiki ) ) {
+			return str_replace( '$1', $title, Interwiki::fetch( $wiki )->getURL() );
+		}
+		return false;
+	}
+
+	/**
+	 * Apply given object reference to buttons configured to use it as href
+	 *
+	 * @param string $objRef
+	 */
+	private function applyObjectReferenceToButtons( $objRef ) {
+		$customizableButtons = array( 'homeButton', 'beginButton' );
+
+		foreach( $customizableButtons as $button ) {
+			if ( array_key_exists( $button, $this->parsedConfig['display'] ) &&
+				 $this->parsedConfig['display'][$button]['target'] === 'useObjref'
+			) {
+				$validUrl = $this->getButtonHrefByObjectReference( $objRef );
+				if ( $validUrl ) {
+					$this->parsedConfig['display'][$button]['target'] = $validUrl;
+				}
+			}
+		}
 	}
 }

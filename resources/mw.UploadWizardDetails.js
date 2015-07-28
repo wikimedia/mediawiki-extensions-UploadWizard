@@ -1467,6 +1467,14 @@
 					wikiText += mw.UploadWizard.config.autoAdd.wikitext;
 				}
 
+				// add parameters for list callback bot
+				// this cue will be used to supplement a wiki page with an image thumbnail
+				if ( mw.UploadWizard.config.defaults.objref !== undefined ) {
+					wikiText += '\n<!-- WIKIPAGE_UPDATE_PARAMS ' +
+						mw.UploadWizard.config.defaults.objref +
+						' -->\n\n';
+				}
+
 				// add categories
 				wikiText += this.div.find( '.categoryInput' ).get(0).getWikiText() + '\n\n';
 
