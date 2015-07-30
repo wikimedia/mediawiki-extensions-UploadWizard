@@ -142,7 +142,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.",
 	"mwe-upwiz-more-options": "Добавить местоположение и другую информацию…",
-	"mwe-upwiz-copy-metadata": "Копировать информацию для {{PLURAL:$1|1=загрузки|всех загрузок}} ниже...",
+	"mwe-upwiz-copy-metadata": "Копировать информацию для {{PLURAL:$1|1=следующей загрузки|всех следующих загрузок}}…",
 	"mwe-upwiz-copy-metadata-button": "Копировать",
 	"mwe-upwiz-copied-metadata-button": "Успешно скопировано",
 	"mwe-upwiz-copy-title": "Скопировать название (с автонумерацией)",
