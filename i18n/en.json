@@ -313,6 +313,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "There is no campaign with name \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "Campaign \"$1\" has not been enabled.",
+	"mwe-upwiz-custom-date": "Use custom date format",
 	"uploadcampaign-legend": "Upload campaign configuration",
 	"uploadcampaign-text": "You are modifying an Upload Wizard campaign.",
 	"mw-coolcats-confirm-new-title": "Confirm new category",

@@ -677,16 +677,12 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 }
 
 .mwe-date {
-	width: 20em;
-	/* @embed */
-	background: #ffffff url('images/calendar.gif') no-repeat right center;
-}
-input.mwe-date {
-	direction: ltr;
-}
-
-.ui-datepicker-current-day a.ui-state-active {
-	background: #ffff99;
+	display: inline-block;
+	/* Force width matching the date input for the text input */
+	width: 21em;
+	/* Date input has different margins */
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .mwe-upwiz-hint {

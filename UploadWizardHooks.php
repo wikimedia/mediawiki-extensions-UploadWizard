@@ -20,7 +20,6 @@ class UploadWizardHooks {
 				'jquery.client',
 				'jquery.ui.core',
 				'jquery.ui.dialog',
-				'jquery.ui.datepicker',
 				'jquery.spinner',
 				'jquery.ui.selectable',
 				'jquery.placeholder',
@@ -57,6 +56,7 @@ class UploadWizardHooks {
 
 				'oojs',
 				'oojs-ui',
+				'mediawiki.widgets',
 			),
 			'scripts' => array(
 				// jquery interface helpers
@@ -444,6 +444,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-feedback-blacklist-subject',
 				'mwe-upwiz-errordialog-title',
 				'mwe-upwiz-errordialog-ok',
+				'mwe-upwiz-custom-date',
 				'size-gigabytes',
 				'size-megabytes',
 				'size-kilobytes',
