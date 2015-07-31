@@ -21,7 +21,6 @@ class UploadWizardHooks {
 				'jquery.ui.core',
 				'jquery.ui.dialog',
 				'jquery.ui.datepicker',
-				'jquery.ui.progressbar',
 				'jquery.spinner',
 				'jquery.ui.selectable',
 				'jquery.placeholder',

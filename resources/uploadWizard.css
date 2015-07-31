@@ -171,14 +171,6 @@ form.mwe-upwiz-form {
 	color: #797979;
 }
 
-.mwe-upwiz-progress-bar {
-	border: 1px solid #aed0ea;
-}
-
-.mwe-upwiz-progress-bar .ui-progressbar-value {
-	background: #dfeffa; /* matches the highlighted arrow */
-}
-
 .mwe-upwiz-file-preview {
 	float: left;
 	height: 100px;
