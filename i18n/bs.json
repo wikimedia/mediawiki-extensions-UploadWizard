@@ -120,7 +120,6 @@
 	"mwe-upwiz-error-too-long": "Ovo polje je predugo.\nSkratite ga da bude manje od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-too-short": "Ovo polje je prekratko.\nProdužite ga da bude veće od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-bad-chars": "Ovo polje sadrži znakove koji nisu dopušteni.\nMolimo ne koristite ovdje wikitekst ili HTML.",
-	"mwe-upwiz-error-date": "Molimo unesite valjan datum u formatu YYYY-MM-DD ili odaberite datum iz priručnog kalendara.",
 	"mwe-upwiz-error-title-blacklisted": "Ovaj naslov sadrži neki neodgovarajući tekst. Molimo provjerite ga",
 	"mwe-upwiz-error-title-badchars": "Ovaj naslov sadrži neke neodgovarajuće znakove. Molimo uklonite ih",
 	"mwe-upwiz-error-title-senselessimagename": "Molimo vas stavite naslov koji ima više smisla.",

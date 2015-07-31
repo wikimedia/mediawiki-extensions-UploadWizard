@@ -204,7 +204,6 @@
 	"mwe-upwiz-error-too-long": "Dat heh es zoh lang.\nEt moß kööter wi {{PLURAL:$1|ei|$1|kei}} Zeische sin.\nMaach dadd esuh.",
 	"mwe-upwiz-error-too-short": "Dat heh es zoh koot.\nEt moß länger wi {{PLURAL:$1|ei|$1|kei}} Zeische sin.\nMaach dadd esuh.",
 	"mwe-upwiz-error-bad-chars": "En däm enjejovve Fäld schtonn Zeijsche, di doh nit ze bruche sen.\nBes esu joot, un donn keine Wikkitäx un och kei <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"HyperText Markup Language\">HTML<i> heh enjävve.",
-	"mwe-upwiz-error-date": "Bes esu joot, un donn e jöltesch Dattum em Fommaat <span title=\"Johres-Nommer noh Chrestus\">Johr</span>-<span title=\"Ennem Mohnd sing Nommer\">MM</span>-<span title=\"De Nommer vum Daach em Mohnd\">DD</span> met bloß Nommere enjävve. Do kanns och e Dattum tiräk uss_em Kalländer ußsöhke, dä doh huh kütt.",
 	"mwe-upwiz-error-title-blacklisted": "En dä Övverschreff sin verbodde Wööt udder Täxschtöcke. Maach di fott.",
 	"mwe-upwiz-error-title-badchars": "En dä Övverschreff sin verbodde Zeische. Donn se fott.",
 	"mwe-upwiz-error-title-senselessimagename": "Bes esu johd un donn en Övverschreff ußsöhke, dä jet mieh säät!",

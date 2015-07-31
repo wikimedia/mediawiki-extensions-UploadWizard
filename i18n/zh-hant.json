@@ -216,7 +216,6 @@
 	"mwe-upwiz-error-too-long": "此項目過長。\n請使此項目小於 $1 個{{PLURAL:$1|字元|字元}}。",
 	"mwe-upwiz-error-too-short": "此項目過短。\n請使此項目大於 $1 個{{PLURAL:$1|字元|字元}}。",
 	"mwe-upwiz-error-bad-chars": "此項目含有不允許使用的符號。\n請勿在此使用 WikiText 或 HTML。",
-	"mwe-upwiz-error-date": "請輸入有效的日期格式 YYYY-MM-DD，或從彈跳日曆中選擇日期。",
 	"mwe-upwiz-error-title-blacklisted": "此標題含有部份己封鎖的文字，請修正。",
 	"mwe-upwiz-error-title-badchars": "此標題含有部份己封鎖的字元，請移除。",
 	"mwe-upwiz-error-title-senselessimagename": "請使用一個更具意義的標題。",

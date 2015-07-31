@@ -206,7 +206,6 @@
 	"mwe-upwiz-error-too-long": "Mục này quá dài.\nXin hãy thu ngắn hơn $1 ký tự.",
 	"mwe-upwiz-error-too-short": "Mục này quá ngắn.\nXin hãy kéo dài hơn $1 ký tự.",
 	"mwe-upwiz-error-bad-chars": "Mục này chứa ký tự không hợp lệ.\nXin đừng nhập mã wiki hoặc HTML vào đây.",
-	"mwe-upwiz-error-date": "Xin hãy nhập ngày hợp lệ theo định dạng YYYY-MM-DD (năm-tháng-ngày) hoặc dùng lịch nổi lên để chọn ngày.",
 	"mwe-upwiz-error-title-blacklisted": "Tên này chứa những văn bản không hợp lý. Xin vui lòng sửa lại nó.",
 	"mwe-upwiz-error-title-badchars": "Tên này chứa những ký tự không hợp lý. Xin vui lòng sửa lại nó.",
 	"mwe-upwiz-error-title-senselessimagename": "Xin vui lòng đặt tên miêu tả rõ ràng hơn.",

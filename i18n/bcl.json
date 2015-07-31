@@ -192,7 +192,6 @@
 	"mwe-upwiz-error-too-long": "Ining entrada grabe kahalabaon.\nPakihimoa tabi ining entrada na halipoton pa sa $1 {{PLURAL:$1|karakter|mga karakter}}.",
 	"mwe-upwiz-error-too-short": "Ining entrada grabe kahalipoton.\nPakihimoa ining entrada na harohalaba pa sa $1 {{PLURAL:$1|karakter|mga karakter}}.",
 	"mwe-upwiz-error-bad-chars": "Ining entra igwa nin mga simbolo na dae tabi pinagtutugutan.\nDae tabi maggamit nin wikitext o HTML digde.",
-	"mwe-upwiz-error-date": "Pakikaag tabi nin sarong balidong petsa sa TTTT-BB-AA na pormat, o magkua nin petsa gikan sa pasulpot na kalendaryo.",
 	"mwe-upwiz-error-title-blacklisted": "Ining titulo igwa nin nagkapira na malainong teksto. Pakibaguha tabi ini.",
 	"mwe-upwiz-error-title-badchars": "Ining titulo igwa nin nagpirang malainon na karakter. Pakitangkas tabi sainda.",
 	"mwe-upwiz-error-title-senselessimagename": "Pakihimoa tabi ining titulo na mas pang makahulugan.",
