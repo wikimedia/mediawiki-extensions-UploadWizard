@@ -346,7 +346,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-too-long',
 				'mwe-upwiz-error-too-short',
 				'mwe-upwiz-error-bad-chars',
-				'mwe-upwiz-error-date',
 				'mwe-upwiz-error-title-blacklisted',
 				'mwe-upwiz-error-title-badchars',
 				'mwe-upwiz-error-title-senselessimagename',

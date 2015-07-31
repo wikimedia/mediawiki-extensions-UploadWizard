@@ -206,7 +206,6 @@
 	"mwe-upwiz-error-too-long": "This entry is too long.\nPlease make this entry shorter than $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-too-short": "This entry is too short.\nPlease make this entry longer than $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-bad-chars": "This entry contains symbols that are not allowed.\nPlease do not use wikitext or HTML here.",
-	"mwe-upwiz-error-date": "Please enter a valid date in YYYY-MM-DD format, or pick a date from the popup calendar.",
 	"mwe-upwiz-error-title-blacklisted": "This title contains some undesirable text. Please revise it.",
 	"mwe-upwiz-error-title-badchars": "This title contains some undesirable characters. Please remove them.",
 	"mwe-upwiz-error-title-senselessimagename": "Please make this title more meaningful.",

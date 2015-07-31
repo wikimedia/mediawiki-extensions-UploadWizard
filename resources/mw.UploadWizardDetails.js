@@ -293,10 +293,8 @@
 		this.$form.validate();
 		this.$form.find( '.mwe-date' ).rules( 'add', {
 			required: true,
-			/* dateISO: true, */
 			messages: {
 				required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
-				/* dateISO: mw.message( 'mwe-upwiz-error-date' ).escaped() */
 			}
 		} );
 

@@ -229,7 +229,6 @@
 	"mwe-upwiz-error-too-long": "Used as error message. Parameters:\n* $1 - maximum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-short}}",
 	"mwe-upwiz-error-too-short": "Used as error message. Parameters:\n* $1 - minimum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-long}}",
 	"mwe-upwiz-error-bad-chars": "Error message shown to the user when they have entered characters that aren't allowed.",
-	"mwe-upwiz-error-date": "Error message shown to the user when they have entered a date in a format that isn't allowed.",
 	"mwe-upwiz-error-title-blacklisted": "Error message shown to the user when they have entered a file name that matches the 'blacklist' of banned words.",
 	"mwe-upwiz-error-title-badchars": "Error message shown to the user when they have entered a file name that matches the 'blacklist' of banned characters.",
 	"mwe-upwiz-error-title-senselessimagename": "Error message shown to the user when they have entered a file name that looks like an automatic name rather than a useful one.",
