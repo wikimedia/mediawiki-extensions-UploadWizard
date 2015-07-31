@@ -1074,7 +1074,6 @@
 				true
 			);
 			this.prefillDate();
-			this.prefillSource();
 			this.prefillAuthor();
 			this.prefillTitle();
 			this.prefillDescription();
@@ -1210,14 +1209,6 @@
 					this.$longitudeInput.val( this.upload.file.location.longitude );
 				}
 			}
-		},
-
-		/**
-		 * If there is a way to figure out source from image info, do so here
-		 * XXX user pref?
-		 */
-		prefillSource: function () {
-			// we have no way to do this AFAICT
 		},
 
 		/**
