@@ -178,8 +178,7 @@
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lat' + this.upload.index + '" generated="true"/></div>' ),
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lon' + this.upload.index + '" generated="true"/></div>' ),
 				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-heading' + this.upload.index + '" generated="true"/></div>' ),
-				//$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + altId + '" generated="true"/></div>' ),
-				latitudeDiv, longitudeDiv, headingDiv, linkDiv//, altitudeDiv
+				latitudeDiv, longitudeDiv, headingDiv, linkDiv
 			);
 
 		this.$latitudeInput = this.makeLocationField( 'lat', locationDiv );
@@ -353,17 +352,6 @@
 				max: mw.message( 'mwe-upwiz-error-heading' ).escaped()
 			}
 		} );
-
-		/* Disabled because not supported on wiki
-		 * Does not validate on rationals, only decimals
-		 * check if bug 32410 is fixed before enabling. See also bug 39553.
-		_this.altitudeInput.rules( "add", {
-			number: true,
-			messages: {
-				number: mw.message( 'mwe-upwiz-error-altitude' ).escaped()
-			}
-		} );
-		*/
 
 		this.makeToggler(
 			moreDetailsCtrlDiv,
@@ -670,7 +658,6 @@
 				simpleCopy( 'location-lat' );
 				simpleCopy( 'location-lon' );
 				simpleCopy( 'location-heading' );
-				//simpleCopy( 'location-altitude' );
 
 			} else if ( metadataType === 'other' ) {
 
@@ -1223,8 +1210,7 @@
 		 * Prefill location inputs (and/or scroll to position on map) from image info and metadata
 		 *
 		 * As of MediaWiki 1.18, the exif parser translates the rational GPS data tagged by the camera
-		 * to decimal format (accept for altitude, bug 32410).  Let's just use that.
-		 * Leaving out altitude ref for now (for no good reason).
+		 * to decimal format.  Let's just use that.
 		 */
 		prefillLocation: function () {
 			var dir, m = this.upload.imageinfo.metadata;
@@ -1256,10 +1242,6 @@
 					this.$latitudeInput.val( this.upload.file.location.latitude );
 					this.$longitudeInput.val( this.upload.file.location.longitude );
 				}
-
-				//if ( m['gpsaltitude'] !== undefined ) {
-				//	$( this.altitudeInput ).val( m['gpsaltitude'] );
-				//}
 			}
 		},
 
@@ -1362,8 +1344,7 @@
 		getWikiText: function () {
 			var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
 				locationThings, information,
-				wikiText = '',
-				details = this;
+				wikiText = '';
 
 			// if invalid, should produce side effects in the form
 			// instructing user to fix.
@@ -1387,7 +1368,7 @@
 
 				// sanity check the descriptions -- do not have two in the same lang
 				// all should be a known lang
-				if ( details.descriptions.length === 0 ) {
+				if ( this.descriptions.length === 0 ) {
 					window.alert('something has gone horribly wrong, unimplemented error check for zero descriptions');
 					// XXX ruh roh
 					// we should not even allow them to press the button ( ? ) but then what about the queue...
@@ -1402,7 +1383,7 @@
 					}
 				} );
 
-				information.date = $.trim( $( details.dateInput ).val() );
+				information.date = $.trim( $( this.dateInput ).val() );
 
 				deed = this.upload.deedChooser.deed;
 
@@ -1419,14 +1400,10 @@
 				wikiText += '=={{int:filedesc}}==\n';
 				wikiText += '{{Information\n' + info + '}}\n';
 
-				latitude = $.trim( $( this.$latitudeInput ).val() );
-				longitude = $.trim( $( this.$longitudeInput ).val() );
+				latitude = $.trim( this.$latitudeInput.val() );
+				longitude = $.trim( this.$longitudeInput.val() );
 				heading = $.trim( this.$headingInput.val() );
-				//var altitude = $.trim( $( details.altitudeInput ).val() );
 
-				// Do not require the altitude to be set, to prevent people from entering 0
-				// while it's actually unknown.
-				// When none is provided, this will result in {{Location dec|int|int|}}.
 				if ( Number( latitude ) && Number ( longitude ) ) {
 					locationThings = [ '{{Location dec', latitude, longitude ];
 
@@ -1438,7 +1415,7 @@
 				}
 
 				// add an "anything else" template if needed
-				otherInfoWikiText = $.trim( $( details.otherInformationInput ).val() );
+				otherInfoWikiText = $.trim( $( this.otherInformationInput ).val() );
 				if ( !mw.isEmpty( otherInfoWikiText ) ) {
 					wikiText += otherInfoWikiText + '\n\n';
 				}
