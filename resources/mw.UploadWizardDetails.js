@@ -145,9 +145,7 @@
 
 		dateErrorDiv = $('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 
-		/* XXX must localize this by loading jquery.ui.datepicker-XX.js where XX is a language code */
-		/* jQuery.ui.datepicker also modifies first-day-of-week according to language, which is somewhat wrong. */
-		/* $.datepicker.setDefaults() for other settings */
+		// This field has $.datepicker applied to it later.
 		this.dateInput = this.makeTextInput( dateInputId, 'date', 20 );
 
 		dateInputDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
@@ -324,23 +322,11 @@
 			.datepicker( {
 				dateFormat: 'yy-mm-dd',
 				constrainInput: false,
-				//buttonImage: mw.getMwEmbedPath() + 'skins/common/images/calendar.gif',
 				showOn: 'focus',
-				/* buttonImage: '???',
-				buttonImageOnly: true,  */
 				changeMonth: true,
 				changeYear: true,
 				showAnim: 'slideDown',
 				showButtonPanel: true
-			} )
-			.data( 'open', 0 )
-			.click( function () {
-				var $this = $( this );
-				if ( $this.data( 'open' ) === 0 ) {
-					$this.data( 'open', 1 ).datepicker( 'show' );
-				} else {
-					$this.data( 'open', 0 ).datepicker( 'hide' );
-				}
 			} );
 
 		this.$latitudeInput.rules( 'add', {
