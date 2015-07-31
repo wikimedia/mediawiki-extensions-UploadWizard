@@ -410,7 +410,7 @@
 		) {
 			$errorMessage = $( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
 					mw.Firefogg.getFirefoggInstallUrl(),
-					'http://commons.wikimedia.org/wiki/Help:Converting_video'
+					'https://commons.wikimedia.org/wiki/Help:Converting_video'
 				);
 		} else {
 			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );

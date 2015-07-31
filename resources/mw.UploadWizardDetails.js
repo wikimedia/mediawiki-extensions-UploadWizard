@@ -52,8 +52,8 @@
 			);
 
 		// Commons specific help for titles
-		//	http://commons.wikimedia.org/wiki/Commons:File_naming
-		//	http://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
+		//	https://commons.wikimedia.org/wiki/Commons:File_naming
+		//	https://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
 		//	XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 		this.titleId = 'title' + this.upload.index;
 		this.titleInput = this.makeTextInput( this.titleId, 'title', undefined, 250 )
@@ -130,7 +130,7 @@
 				'<div class="mwe-upwiz-details-input"></div>' +
 			'</div>'
 		);
-		commonsCategoriesLink = $( '<a>' ).attr( { target:'_blank', href:'http://commons.wikimedia.org/wiki/Commons:Categories' } );
+		commonsCategoriesLink = $( '<a>' ).attr( { target:'_blank', href:'https://commons.wikimedia.org/wiki/Commons:Categories' } );
 		categoriesHint = $( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).html();
 		categoriesHinter = function () { return categoriesHint; };
 		$categoriesDiv
@@ -1370,7 +1370,7 @@
 			// if invalid, should produce side effects in the form
 			// instructing user to fix.
 			if ( this.valid() ) {
-				// http://commons.wikimedia.org / wiki / Template:Information
+				// https://commons.wikimedia.org/wiki/Template:Information
 				// can we be more slick and do this with maps, applys, joins?
 				information = {
 					// {{lang|description in lang}}*   required
