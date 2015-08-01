@@ -7,7 +7,7 @@
 		]
 	},
 	"uploadwizard": "Čarobnjak za slanje",
-	"uploadwizard-desc": "Vodič za otpremanje razvijen pomoću sredstava za multimedijsku upotrebljivost",
+	"uploadwizard-desc": "Čarobnjak za slanje, zgodna alatka za otpremanje multimedijalnih sadržaja",
 	"mwe-upwiz-uploadcampaigns": "Kampanje za otpremanje",
 	"mwe-upwiz-uploadcampaign": "Postavke kampanje za otpremanje",
 	"right-upwizcampaigns": "podešavanje kampanja za otpremanje",
@@ -161,7 +161,6 @@
 	"mwe-upwiz-error-too-long": "Ovo polje je predugačko.\nMora da bude kraće od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-too-short": "Ovo polje je prekratko.\nMora da bude duže od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-bad-chars": "Ovo polje sadrži simbole koji su zabranjeni.\nOvde ne koristite vikitest ili HTML.",
-	"mwe-upwiz-error-date": "Unesite ispravan datum u formatu GGGG-MM-DD, ili pak izaberite datum iz iskačućeg kalendara.",
 	"mwe-upwiz-error-title-blacklisted": "Ovaj naslov sadrži nepoželjan tekst. Izmenite ga.",
 	"mwe-upwiz-error-title-badchars": "Ovaj naslov sadrži nepoželjne znake. Uklonite ih.",
 	"mwe-upwiz-error-title-senselessimagename": "Napravite naslov koji ima više smisla.",
