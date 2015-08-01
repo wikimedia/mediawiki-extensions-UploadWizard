@@ -250,7 +250,6 @@
 						$( '.mwe-upwiz-file-status-line-item', this.ui.visibleFilenameDiv )
 							.first()
 							.append( ' ' );
-							//.append( $override ); See bug 39852
 						break;
 					default:
 						// we have an unknown warning, so let's say what we know
@@ -342,8 +341,6 @@
 			this.state = 'stashed';
 			this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + this.index, 'api' );
-			// check all uploads, if they're complete, show the next button
-			//this.wizard.showNext( 'file', 'stashed' ); See bug 39852
 		} else {
 			this.setError( 'noimageinfo' );
 		}
