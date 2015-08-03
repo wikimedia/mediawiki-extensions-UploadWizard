@@ -9,7 +9,6 @@
 			'<div class="mwe-upwiz-progress">' +
 				'<div class="mwe-upwiz-progress-bar-etr-container">' +
 					'<div class="mwe-upwiz-progress-bar-etr" style="display: none">' +
-						'<div class="mwe-upwiz-progress-bar"></div>' +
 						'<div class="mwe-upwiz-etr"></div>' +
 					'</div>' +
 				'</div>' +
@@ -17,7 +16,13 @@
 			'</div>'
 		);
 
-		this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( { value: 0 } );
+		this.progressBarWidget = new OO.ui.ProgressBarWidget( {
+			classes: [ 'mwe-upwiz-progress-bar' ],
+			progress: 0
+		} );
+
+		this.$selector.find( '.mwe-upwiz-progress-bar-etr' )
+			.prepend( this.progressBarWidget.$element );
 
 		this.uploads = uploads;
 		this.successStates = successStates;
@@ -128,7 +133,7 @@
 			var t, timeString,
 				remainingTime = this.getRemainingTime( fraction );
 
-			this.$selector.find( '.mwe-upwiz-progress-bar' ).progressbar( 'value', parseInt( fraction * 100, 10 ) );
+			this.progressBarWidget.setProgress( parseInt( fraction * 100, 10 ) );
 
 			if ( remainingTime !== null ) {
 				// TODO remove the library, make this a method on GPB
