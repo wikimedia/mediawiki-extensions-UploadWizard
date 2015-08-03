@@ -39,7 +39,6 @@
 		this.wizard = wizard;
 		this.api = wizard.api;
 		this.state = 'new';
-		this.thumbnails = {};
 		this.thumbnailPublishers = {};
 		this.imageinfo = {};
 		this.title = undefined;
@@ -814,16 +813,26 @@
 
 	/**
 	 * Explicitly fetch a thumbnail for a stashed upload of the desired width.
-	 * Publishes to any event listeners that might have wanted it.
 	 *
-	 * @param width - desired width of thumbnail (height will scale to match)
-	 * @param height - (optional) maximum height of thumbnail
+	 * @param {number} width desired width of thumbnail (height will scale to match, if not given)
+	 * @param {number} [height] maximum height of thumbnail
+	 * @return {jQuery.Promise} Promise resolved with a HTMLImageElement, or null if thumbnail
+	 *     couldn't be generated
 	 */
-	UWUP.getAndPublishApiThumbnail = function ( key, width, height ) {
+	UWUP.getAndPublishApiThumbnail = function ( width, height ) {
+		var deferred,
+			key = width + '|' + height;
+
+		if ( this.thumbnailPublishers[key] ) {
+			return this.thumbnailPublishers[key];
+		}
+
+		deferred = $.Deferred();
+
 		function thumbnailPublisher( thumbnails ) {
 			if ( thumbnails === null ) {
 				// the api call failed somehow, no thumbnail data.
-				$.publishReady( key, null );
+				deferred.resolve( null );
 			} else {
 				// ok, the api callback has returned us information on where the thumbnail(s) ARE, but that doesn't mean
 				// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
@@ -832,7 +841,7 @@
 				$.each( thumbnails, function ( i, thumb ) {
 					if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 						mw.log.warn( 'mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information' );
-						$.publishReady( key, null );
+						deferred.resolve( null );
 						return;
 					}
 
@@ -844,10 +853,8 @@
 					image.height = thumb.thumbheight;
 					$( image )
 						.on( 'load', function () {
-							// cache this thumbnail
-							upload.thumbnails[key] = image;
 							// publish the image to anyone who wanted it
-							$.publishReady( key, image );
+							deferred.resolve( image );
 						} )
 						.on( 'error', function () {
 							// retry with exponential backoff
@@ -857,7 +864,7 @@
 									setSrc();
 								}, timeoutMs );
 							} else {
-								$.publishReady( key, null );
+								deferred.resolve( null );
 							}
 						} );
 
@@ -872,21 +879,18 @@
 			}
 		}
 
-		var upload = this;
-
 		if ( mw.isEmpty( height ) ) {
 			height = -1;
 		}
 
-		if ( this.thumbnailPublishers[key] === undefined ) {
-			this.thumbnailPublishers[key] = thumbnailPublisher;
-			if ( this.state !== 'complete' ) {
-				this.getStashImageInfo( thumbnailPublisher, [ 'url' ], width, height );
-			} else {
-				this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
-			}
-
+		if ( this.state !== 'complete' ) {
+			this.getStashImageInfo( thumbnailPublisher, [ 'url' ], width, height );
+		} else {
+			this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
 		}
+
+		this.thumbnailPublishers[key] = deferred.promise();
+		return this.thumbnailPublishers[key];
 	};
 
 	/**
@@ -1066,7 +1070,7 @@
 
 		/**
 		 * This callback will add an image to the selector, using in-browser scaling if necessary
-		 * @param {HTMLImageElement}
+		 * @param {HTMLImageElement|null}
 		 */
 		function placeImageCallback( image ) {
 			var elm;
@@ -1100,11 +1104,9 @@
 				}
 				if ( !placed ) {
 					if ( x === 'api' ) {
-						// get the thumbnail via API. This also works with an async pub/sub model; if this thumbnail was already
+						// get the thumbnail via API. Queries are cached, so if this thumbnail was already
 						// fetched for some reason, we'll get it immediately
-						var key = 'apiThumbnail.' + upload.index + ',width=' + width + ',height=' + height;
-						$.subscribeReady( key, placeImageCallback );
-						upload.getAndPublishApiThumbnail( key, width, height );
+						upload.getAndPublishApiThumbnail( width, height ).done( placeImageCallback );
 					} else if ( x instanceof HTMLImageElement ) {
 						placeImageCallback( x );
 					} else {
@@ -1240,7 +1242,6 @@
 			upload.previewLoaded = true;
 		};
 		image.src = url;
-		this.thumbnails['*'] = image;
 	};
 
 	/**
