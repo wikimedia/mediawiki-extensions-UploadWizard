@@ -47,15 +47,12 @@
 		// the elements that are immediate children are the crossfadables
 		// they must all be "on top" of each other, so position them relative
 		this.css( {
-			position: 'relative',
-			overflow: 'hidden',
-			scroll: 'none'
+			position: 'relative'
 		} );
 		this.children().css( {
 			position: 'absolute',
-			top: '0px',
-			left: '0px',
-			scroll: 'none',
+			top: 0,
+			left: 0,
 			opacity: 0,
 			visibility: 'hidden'
 		} );
@@ -76,29 +73,30 @@
 	 * @param speed (optional) how fast to crossfade, in milliseconds
 	 */
 	$.fn.morphCrossfade = function ( newPanelSelector, speed ) {
-		var $containers = this;
 		if ( typeof speed === 'undefined' ) {
 			speed = 400;
 		}
 
-		$containers.css( { overflow:'hidden' } );
-
-		$.each( $containers, function ( i, container ) {
+		$.each( this, function ( i, container ) {
 			var $container = $( container ),
+				oldOverflow = $container.css( 'overflow' ),
 				$oldPanel = $( $container.data( 'crossfadeDisplay' ) ),
 				$newPanel = ( typeof newPanelSelector === 'string' ) ?
 					$container.find( newPanelSelector ) : $( newPanelSelector );
 
 			if ( $oldPanel.get(0) !== $newPanel.get(0) ) {
-				if ( $oldPanel ) {
+				if ( $oldPanel.length ) {
 					// remove auto setting of height from container, and
-					// make doubly sure that the container height is equal to oldPanel
+					// make doubly sure that the container height is equal to oldPanel,
+					// and prevent now-oversized panels from sticking out
 					$container.css( { height: $oldPanel.outerHeight() } );
+					$container.css( { overflow: 'hidden' } );
 					// take it out of the flow
 					$oldPanel.css( { position: 'absolute' } );
 					// fade WITHOUT hiding when opacity = 0
 					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function () {
 						$oldPanel.css( { visibility: 'hidden' } );
+						$container.css( { overflow: oldOverflow } );
 					} );
 				}
 				$container.data( 'crossfadeDisplay', $newPanel );
