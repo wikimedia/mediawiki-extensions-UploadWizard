@@ -130,7 +130,7 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function handleCampaign() {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
 
-		if ( !is_null( $campaignName ) &&  $campaignName !== '' ) {
+		if ( !is_null( $campaignName ) && $campaignName !== '' ) {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName );
 
 			if ( $campaign === false ) {
@@ -176,7 +176,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if ( array_key_exists( 'trackingCategory', $config )  ) {
+		if ( array_key_exists( 'trackingCategory', $config ) ) {
 			if ( array_key_exists( 'campaign', $config['trackingCategory'] ) ) {
 				if ( $this->campaign !== null ) {
 					$config['trackingCategory']['campaign'] = str_replace(
@@ -296,7 +296,7 @@ class SpecialUploadWizard extends SpecialPage {
 				}
 				$this->getOutput()->showErrorPage( 'uploadnologin', 'mwe-upwiz-error-nologin', $returnstr );
 			} else {
-				throw new  PermissionsError( 'upload' );
+				throw new PermissionsError( 'upload' );
 			}
 			return false;
 		}
@@ -360,100 +360,104 @@ class SpecialUploadWizard extends SpecialPage {
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )
 		return
-			'<div id="upload-wizard" class="upload-section">'
+			'<div id="upload-wizard" class="upload-section">' .
 
-			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
-			// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
-			// the min-width & max-width is copied from the #uploadWizard properties, so in nice browsers the spinner is right where the button will go.
-		.	'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">'
-		.	'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;'
-		.	'</div>'
+				// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
+				// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
+				// the min-width & max-width is copied from the #uploadWizard properties, so in nice browsers the spinner is right where the button will go.
+				'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">' .
+					'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;' .
+				'</div>' .
 
-		    // the arrow steps - hide until styled
-		.   '<ul id="mwe-upwiz-steps" style="display:none;">'
-		.     '<li id="mwe-upwiz-step-tutorial"><div>' . $this->msg( 'mwe-upwiz-step-tutorial' )->escaped() . '</div></li>'
-		.     '<li id="mwe-upwiz-step-file"><div>' . $this->msg( 'mwe-upwiz-step-file' )->escaped() . '</div></li>'
-		.     '<li id="mwe-upwiz-step-deeds"><div>'  . $this->msg( 'mwe-upwiz-step-deeds' )->escaped()  . '</div></li>'
-		.     '<li id="mwe-upwiz-step-details"><div>'  . $this->msg( 'mwe-upwiz-step-details' )->escaped()  . '</div></li>'
-		.     '<li id="mwe-upwiz-step-thanks"><div>'   . $this->msg( 'mwe-upwiz-step-thanks' )->escaped()  .  '</div></li>'
-		.   '</ul>'
+				// the arrow steps - hide until styled
+				'<ul id="mwe-upwiz-steps" style="display:none;">' .
+					'<li id="mwe-upwiz-step-tutorial"><div>' . $this->msg( 'mwe-upwiz-step-tutorial' )->escaped() . '</div></li>' .
+					'<li id="mwe-upwiz-step-file"><div>' . $this->msg( 'mwe-upwiz-step-file' )->escaped() . '</div></li>' .
+					'<li id="mwe-upwiz-step-deeds"><div>' . $this->msg( 'mwe-upwiz-step-deeds' )->escaped() . '</div></li>' .
+					'<li id="mwe-upwiz-step-details"><div>' . $this->msg( 'mwe-upwiz-step-details' )->escaped() . '</div></li>' .
+					'<li id="mwe-upwiz-step-thanks"><div>' . $this->msg( 'mwe-upwiz-step-thanks' )->escaped() . '</div></li>' .
+				'</ul>' .
 
-		    // the individual steps, all at once - hide until needed
-		.   '<div id="mwe-upwiz-content">'
+				// the individual steps, all at once - hide until needed
+				'<div id="mwe-upwiz-content">' .
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial" style="display:none;">'
-		.       '<div id="mwe-upwiz-tutorial">'
-		.         $tutorialHtml
-		.       '</div>'
-		.       '<div class="mwe-upwiz-buttons">'
-		.          '<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">'
-		.          '<label for="mwe-upwiz-skip">' . $this->msg('mwe-upwiz-skip-tutorial-future')->text() . '</label>'
-		.       '</div>'
-		.     '</div>'
+					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial" style="display:none;">' .
+						'<div id="mwe-upwiz-tutorial">' .
+							$tutorialHtml .
+						'</div>' .
+						'<div class="mwe-upwiz-buttons">' .
+							'<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">' .
+							'<label for="mwe-upwiz-skip">' . $this->msg('mwe-upwiz-skip-tutorial-future')->text() . '</label>' .
+						'</div>' .
+					'</div>' .
 
-		.     '<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">'
-		.       '<div id="mwe-upwiz-files">'
-		.         '<div id="mwe-upwiz-flickr-select-list-container" class="ui-corner-all">'
-		.			'<div>' . $this->msg( 'mwe-upwiz-multi-file-select' )->text() . '</div>'
-		.			'<div id="mwe-upwiz-flickr-select-list"></div>'
-		.		  '</div>'
-		.         '<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>'
-		.         '<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">'
-		.           '<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">'
-		.	          '<div id="mwe-upwiz-upload-ctrl-flickr-container">'
-		.		        '<p id="mwe-upwiz-upload-ctr-divide">' . $this->msg( "mwe-upwiz-add-flickr-or" )->text() . '</p>'
-		.	          '</div>'
-		.  	        '</div>'
-		.         '</div>'
-			.       '<div class="mwe-upwiz-buttons">'
-			.	   '<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">'
-			.             $this->msg( "mwe-upwiz-file-all-ok" )->text()
-			.          '</div>'
-			.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
-			.             $this->msg( "mwe-upwiz-file-some-failed" )->text()
-			.          '</div>'
-			.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
-			.             $this->msg( "mwe-upwiz-file-all-failed" )->text()
-			.          '</div>'
-		.         '<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>'
-		.         '<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>'
-		.       '</div>'
-		.       '</div>'
-		.     '</div>'
+					'<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">' .
+						'<div id="mwe-upwiz-files">' .
+							'<div id="mwe-upwiz-flickr-select-list-container" class="ui-corner-all">' .
+								'<div>' . $this->msg( 'mwe-upwiz-multi-file-select' )->text() . '</div>' .
+								'<div id="mwe-upwiz-flickr-select-list"></div>' .
+							'</div>' .
+							'<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>' .
+							'<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">' .
+								'<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">' .
+									'<div id="mwe-upwiz-upload-ctrl-flickr-container">' .
+										'<p id="mwe-upwiz-upload-ctr-divide">' . $this->msg( "mwe-upwiz-add-flickr-or" )->text() . '</p>' .
+									'</div>' .
+								'</div>' .
+							'</div>' .
+							'<div class="mwe-upwiz-buttons">' .
+								'<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">' .
+									$this->msg( "mwe-upwiz-file-all-ok" )->text() .
+								'</div>' .
+								'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">' .
+									$this->msg( "mwe-upwiz-file-some-failed" )->text() .
+								'</div>' .
+								'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">' .
+									$this->msg( "mwe-upwiz-file-all-failed" )->text() .
+								'</div>' .
+								'<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>' .
+								'<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>' .
+							'</div>' .
+						'</div>' .
+					'</div>' .
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds" style="display:none;">'
-		.       '<div id="mwe-upwiz-reqd-field-explain-container"><span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->text() . '</div>'
-		.       '<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>'
-		.       '<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>'
-		.       '<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>'
-		.       '<div class="mwe-upwiz-buttons"></div>'
-		.     '</div>'
+					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds" style="display:none;">' .
+						'<div id="mwe-upwiz-reqd-field-explain-container">' .
+							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->text() .
+						'</div>' .
+						'<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>' .
+						'<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>' .
+						'<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>' .
+						'<div class="mwe-upwiz-buttons"></div>' .
+					'</div>' .
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">'
-		.       '<div id="mwe-upwiz-reqd-field-explain-container"><span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->text() . '</div>'
-		.       '<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>'
-		.       '<div class="mwe-upwiz-buttons">'
-		.	   '<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>'
-		.	   '<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice"></div>'
-		.	   '<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">'
-		.             $this->msg( "mwe-upwiz-file-some-failed" )->text()
-		.          '</div>'
-		.	   '<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">'
-		.             $this->msg( "mwe-upwiz-file-all-failed" )->text()
-		.          '</div>'
-		.       '</div>'
-		.     '</div>'
+					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">' .
+						'<div id="mwe-upwiz-reqd-field-explain-container">' .
+							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->text() .
+						'</div>' .
+						'<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>' .
+						'<div class="mwe-upwiz-buttons">' .
+							'<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>' .
+							'<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice"></div>' .
+							'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">' .
+								$this->msg( "mwe-upwiz-file-some-failed" )->text() .
+							'</div>' .
+							'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">' .
+								$this->msg( "mwe-upwiz-file-all-failed" )->text() .
+							'</div>' .
+						'</div>' .
+					'</div>' .
 
-		.     '<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks" style="display:none;">'
-		.       '<div id="mwe-upwiz-thanks"></div>'
-		.       '<div class="mwe-upwiz-buttons"></div>'
-		.     '</div>'
+					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks" style="display:none;">' .
+						'<div id="mwe-upwiz-thanks"></div>' .
+						'<div class="mwe-upwiz-buttons"></div>' .
+					'</div>' .
 
-		.   '</div>'
+				'</div>' .
 
-		.   '<div class="mwe-upwiz-clearing"></div>'
+				'<div class="mwe-upwiz-clearing"></div>' .
 
-		. '</div>';
+			'</div>';
 	}
 
 	protected function getGroupName() {
