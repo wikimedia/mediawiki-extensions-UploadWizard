@@ -74,7 +74,7 @@
 			this.beginButton.setHref( beginButtonTarget );
 		}
 
-		this.buttonGroup = new oo.ui.ButtonGroupWidget( {
+		this.buttonGroup = new oo.ui.HorizontalLayout( {
 			items: [ this.homeButton, this.beginButton ]
 		} );
 
