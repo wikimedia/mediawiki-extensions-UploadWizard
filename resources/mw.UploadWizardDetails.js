@@ -145,14 +145,21 @@
 
 		dateErrorDiv = $('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 
-		// This field has $.datepicker applied to it later.
-		this.dateInput = this.makeTextInput( dateInputId, 'date', 20 );
+		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'
+		this.dateInputWidgetToggler = new OO.ui.ButtonWidget( {
+			framed: false,
+			icon: 'advanced',
+			title: mw.msg( 'mwe-upwiz-custom-date' )
+		} ).on( 'click', function () {
+			details.setupDateInput();
+			details.dateInputWidget.focus();
+		} );
 
 		dateInputDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 			.append(
 				dateErrorDiv,
 				$( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.message( 'mwe-upwiz-date-created' ).text() ).requiredFieldLabel().addHint( 'date' ),
-				$( '<div class="mwe-upwiz-details-input"></div>' ).append( this.dateInput ) );
+				$( '<div class="mwe-upwiz-details-input"></div>' ).append( this.dateInputWidgetToggler.$element ) );
 
 		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
 
@@ -290,12 +297,7 @@
 		);
 
 		this.$form.validate();
-		this.$form.find( '.mwe-date' ).rules( 'add', {
-			required: true,
-			messages: {
-				required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
-			}
-		} );
+		this.setupDateInput();
 
 		$list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon ' )
 			.on( 'input keyup change cut paste', function () {
@@ -315,16 +317,6 @@
 				}
 			} );
 		} );
-		this.$form.find( '.mwe-date' )
-			.datepicker( {
-				dateFormat: 'yy-mm-dd',
-				constrainInput: false,
-				showOn: 'focus',
-				changeMonth: true,
-				changeYear: true,
-				showAnim: 'slideDown',
-				showButtonPanel: true
-			} );
 
 		this.$latitudeInput.rules( 'add', {
 			min: -90,
@@ -513,6 +505,49 @@
 		},
 
 		/*
+		 * Set up the date input field, or switch between 'calendar' and 'arbitrary' mode.
+		 * @param {string} [mode] Mode to switch to, 'calendar' or 'arbitrary'
+		 */
+		setupDateInput: function ( mode ) {
+			var
+				oldDateInputWidget = this.dateInputWidget,
+				dateInputId = 'dateInput' + ( this.upload.index ).toString();
+
+			if ( mode === undefined ) {
+				mode = this.dateInputWidgetMode === 'calendar' ? 'arbitrary' : 'calendar';
+			}
+			this.dateInputWidgetMode = mode;
+
+			if ( mode === 'arbitrary' ) {
+				this.dateInputWidget = new OO.ui.TextInputWidget( {
+					classes: [ 'mwe-date' ],
+					id: dateInputId
+				} );
+			} else {
+				this.dateInputWidget = new mw.widgets.DateInputWidget( {
+					classes: [ 'mwe-date' ],
+					id: dateInputId
+				} );
+			}
+
+			if ( oldDateInputWidget ) {
+				this.dateInputWidget.setValue( oldDateInputWidget.getValue() );
+				oldDateInputWidget.$element.replaceWith( this.dateInputWidget.$element );
+			} else {
+				this.dateInputWidgetToggler.$element.before( this.dateInputWidget.$element );
+			}
+
+			this.$form.validate(); // this might not be necessary here
+			// FIXME Shouldn't abuse jQuery validate for this
+			this.dateInputWidget.$input.rules( 'add', {
+				required: true,
+				messages: {
+					required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
+				}
+			} );
+		},
+
+		/*
 		 * Display error message about multiple uploaded files with the same title specified
 		 *
 		 * @chainable
@@ -559,10 +594,12 @@
 		 */
 		copyMetadata: function ( metadataType ) {
 
-			var titleZero, matches, destUploads, visibleCategoriesZero,
+			var titleZero, matches, visibleCategoriesZero,
 				hiddenCategoriesZero,
+				i, sourceMode,
 				details = this,
-				sourceId = this.upload.wizard.uploads[0].index;
+				uploads = this.upload.wizard.uploads,
+				sourceId = uploads[0].index;
 
 			// In the simplest case, we can use this self-explanatory vanilla loop.
 			function simpleCopy( id, tag ) {
@@ -580,6 +617,16 @@
 						}
 					}
 				});
+			}
+
+			function oouiCopy( property ) {
+				var i,
+					sourceUpload = uploads[0],
+					sourceValue = sourceUpload.details[property].getValue();
+
+				for ( i = 1; i < uploads.length; i++ ) {
+					uploads[i].details[property].setValue( sourceValue );
+				}
 			}
 
 			if ( metadataType === 'title' ) {
@@ -610,8 +657,7 @@
 
 				} );
 			} else if ( metadataType === 'description' ) {
-				destUploads = this.upload.wizard.uploads;
-				$.each( destUploads, function ( uploadIndex, upload ) {
+				$.each( uploads, function ( uploadIndex, upload ) {
 					if ( upload !== undefined && upload.index !== sourceId ) {
 
 						// We could merge, but it's unlikely that the user wants to do anything other
@@ -631,7 +677,13 @@
 
 			} else if ( metadataType === 'date' ) {
 
-				simpleCopy( 'dateInput' );
+				sourceMode = uploads[0].details.dateInputWidgetMode;
+
+				for ( i = 1; i < uploads.length; i++ ) {
+					uploads[i].details.setupDateInput( sourceMode );
+				}
+
+				oouiCopy( 'dateInputWidget' );
 
 			} else if ( metadataType === 'categories' ) {
 
@@ -1115,7 +1167,7 @@
 				flickrDateRegex = /^\d\d\d\d-\d\d-\d\d/;
 				matches = this.upload.file.date.match( flickrDateRegex );
 				if ( !mw.isEmpty( matches ) ) {
-					$( this.dateInput ).val( this.upload.file.date );
+					this.dateInputWidget.setValue( this.upload.file.date );
 					return;
 				}
 			}
@@ -1130,7 +1182,7 @@
 			dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
 
 			// ok by now we should definitely have a dateObj and a date string
-			$( this.dateInput ).val( dateStr );
+			this.dateInputWidget.setValue( dateStr );
 		},
 
 		/**
@@ -1341,7 +1393,7 @@
 					}
 				} );
 
-				information.date = $.trim( $( this.dateInput ).val() );
+				information.date = this.dateInputWidget.getValue();
 
 				deed = this.upload.deedChooser.deed;
 
@@ -1702,8 +1754,6 @@
 
 			$moreDiv.addClass( 'mwe-upwiz-toggled' );
 		},
-
-		dateInputCount: 0,
 
 		/**
 		 * Apply some special cleanups for titles before adding to model. These cleanups are not reflected in what the user sees in the title input field.
