@@ -609,10 +609,6 @@ label.mwe-upwiz-copyright-info {
 	text-align: right;  /* works for now, only one 'next' button */
 }
 
-.mwe-upwiz-buttons .oo-ui-buttonWidget {
-	margin-left: 0.5em; /* Bug T101617 */
-}
-
 a.mwe-upwiz-tooltip-link {
 	cursor: pointer;
 }

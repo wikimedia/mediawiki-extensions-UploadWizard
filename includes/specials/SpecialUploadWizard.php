@@ -385,10 +385,7 @@ class SpecialUploadWizard extends SpecialPage {
 						'<div id="mwe-upwiz-tutorial">' .
 							$tutorialHtml .
 						'</div>' .
-						'<div class="mwe-upwiz-buttons">' .
-							'<input type="checkbox" id="mwe-upwiz-skip" value="1" name="skip">' .
-							'<label for="mwe-upwiz-skip">' . $this->msg('mwe-upwiz-skip-tutorial-future')->text() . '</label>' .
-						'</div>' .
+						'<div class="mwe-upwiz-buttons"></div>' .
 					'</div>' .
 
 					'<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">' .

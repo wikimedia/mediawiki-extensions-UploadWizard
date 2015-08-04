@@ -204,7 +204,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-file-upload-notcapable',
 				'mwe-upwiz-file-retry',
 				'mwe-upwiz-next-file-despite-failures',
-				'mwe-upwiz-skip-tutorial-future',
 				'mwe-upwiz-upload-count',
 				'mwe-upwiz-progressbar-uploading',
 				'mwe-upwiz-almost-finished',
@@ -696,6 +695,7 @@ class UploadWizardHooks {
 			),
 
 			'messages' => array(
+				'mwe-upwiz-skip-tutorial-future',
 				'mwe-upwiz-tooltip-skiptutorial',
 				'prefs-uploads',
 				'prefs-upwiz-interface',

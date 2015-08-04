@@ -19,12 +19,15 @@
 	var TP;
 
 	function Tutorial( api ) {
+		var controller = this;
+		this.shouldSkipTutorial = false;
 		this.api = api;
 
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Tutorial()
 				.on( 'skip-tutorial-click', function ( skipped ) {
+					controller.shouldSkipTutorial = skipped;
 					if ( skipped ) {
 						( new mw.UploadWizardTutorialEvent( 'skip-check' ) ).dispatch();
 					} else {
@@ -80,8 +83,7 @@
 		( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
 
 		// if the skip checkbox is checked, set the skip user preference
-		if ( $( '#mwe-upwiz-skip' ).is( ':checked' ) ) {
-			$( '#mwe-upwiz-skip' ).tipsy( 'hide' );
+		if ( this.shouldSkipTutorial ) {
 			this.setSkipPreference();
 		}
 

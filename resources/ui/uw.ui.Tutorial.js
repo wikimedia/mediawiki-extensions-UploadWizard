@@ -33,9 +33,16 @@
 			$( '#mwe-upwiz-step-tutorial' )
 		);
 
-		// Event handlers for EventLogging-type things
-		// Skip tutorial checkbox click
-		$( '#mwe-upwiz-skip' )
+		// 'Skip tutorial' checkbox
+		this.skipCheckbox = new OO.ui.CheckboxInputWidget( {
+			id: 'mwe-upwiz-skip'
+		} );
+		this.skipCheckboxLabel = new OO.ui.LabelWidget( {
+			input: this.skipCheckbox,
+			label: mw.message( 'mwe-upwiz-skip-tutorial-future' ).text()
+		} );
+
+		this.skipCheckbox.$element
 			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
 			.tipsy( {
 				title: function () {
@@ -49,19 +56,17 @@
 				delayIn: 0,
 				html: true,
 				trigger: 'manual'
-			} )
-
-			.click( function () {
-				var $this = $( this );
-
-				ui.emit( 'skip-tutorial-click', $this.prop( 'checked' ) );
-
-				if ( $this.prop( 'checked' ) ) {
-					$this.tipsy( 'show' );
-				} else {
-					$this.tipsy( 'hide' );
-				}
 			} );
+
+		this.skipCheckbox.on( 'change', function () {
+			ui.emit( 'skip-tutorial-click', ui.skipCheckbox.isSelected() );
+
+			if ( ui.skipCheckbox.isSelected() ) {
+				ui.skipCheckbox.$element.tipsy( 'show' );
+			} else {
+				ui.skipCheckbox.$element.tipsy( 'hide' );
+			}
+		} );
 
 		// Helpdesk link click
 		$( '#mwe-upwiz-tutorial-helpdesk' ).click( function () {
@@ -69,6 +74,16 @@
 		} );
 
 		this.addNextButton();
+
+		this.nextButton.on( 'click', function () {
+			ui.skipCheckbox.$element.tipsy( 'hide' );
+		} );
+
+		this.$div.find( '.mwe-upwiz-buttons' ).append(
+			new OO.ui.HorizontalLayout( {
+				items: [ this.skipCheckbox, this.skipCheckboxLabel, this.nextButton ]
+			} ).$element
+		);
 	}
 
 	oo.inheritClass( Tutorial, uw.ui.Step );
