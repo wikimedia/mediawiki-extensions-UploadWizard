@@ -406,15 +406,9 @@ class SpecialUploadWizard extends SpecialPage {
 								'</div>' .
 							'</div>' .
 							'<div class="mwe-upwiz-buttons">' .
-								'<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice">' .
-									$this->msg( "mwe-upwiz-file-all-ok" )->text() .
-								'</div>' .
-								'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">' .
-									$this->msg( "mwe-upwiz-file-some-failed" )->text() .
-								'</div>' .
-								'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">' .
-									$this->msg( "mwe-upwiz-file-all-failed" )->text() .
-								'</div>' .
+								'<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice"></div>' .
+								'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice"></div>' .
+								'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice"></div>' .
 								'<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>' .
 								'<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>' .
 							'</div>' .

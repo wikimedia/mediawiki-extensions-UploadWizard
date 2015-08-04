@@ -76,7 +76,16 @@
 			upload.emit( 'next-step' );
 		} );
 
-		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).append( this.nextStepButtonAllOk.$element );
+		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).append(
+			new OO.ui.HorizontalLayout( {
+				items: [
+					new OO.ui.LabelWidget( {
+						label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
+					} ),
+					this.nextStepButtonAllOk
+				]
+			} ).$element
+		);
 
 		this.retryButtonSomeFailed = new oo.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
@@ -93,7 +102,17 @@
 			upload.emit( 'next-step' );
 		} );
 
-		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append( this.retryButtonSomeFailed.$element, this.nextStepButtonSomeFailed.$element );
+		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append(
+			new OO.ui.HorizontalLayout( {
+				items: [
+					new OO.ui.LabelWidget( {
+						label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+					} ),
+					this.retryButtonSomeFailed,
+					this.nextStepButtonSomeFailed
+				]
+			} ).$element
+		);
 
 		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
@@ -103,7 +122,16 @@
 			upload.emit( 'retry' );
 		} );
 
-		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append( this.retryButtonAllFailed.$element );
+		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append(
+			new OO.ui.HorizontalLayout( {
+				items: [
+					new OO.ui.LabelWidget( {
+						label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+					} ),
+					this.retryButtonAllFailed
+				]
+			} ).$element
+		);
 
 		this.$fileList = $( '#mwe-upwiz-filelist' );
 
