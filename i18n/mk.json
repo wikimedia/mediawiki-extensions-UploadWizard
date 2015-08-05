@@ -312,6 +312,7 @@
 	"mwe-upwiz-errordialog-ok": "ОК",
 	"mwe-upwiz-error-nosuchcampaign": "Не постои кампања по име „$1“.",
 	"mwe-upwiz-error-campaigndisabled": "Кампањата „$1“ не е овозможена.",
+	"mwe-upwiz-custom-date": "Користи сопствен формат на датум",
 	"uploadcampaign-legend": "Подигни поставки за кампања",
 	"uploadcampaign-text": "Менувате кампања на Помошникот за подигање.",
 	"mw-coolcats-confirm-new-title": "Потврдете нова категорија",
