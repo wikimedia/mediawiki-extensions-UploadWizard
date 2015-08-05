@@ -110,7 +110,21 @@ return array(
 
 		// wikitext to display on top of the "use" page.
 		// When not provided, the message mwe-upwiz-thanks-intro will be used.
-		'thanksLabel' => ''
+		'thanksLabel' => '',
+
+		// checkbox label to display with each entry on the upload page to choose one image that
+		// should be used as an image thumbnail for the referenced object
+		// When not provided, the message mwe-upwiz-objref-pick-image will be used.
+		'labelPickImage' => '',
+
+		// wikitext to display with each entry on the upload page to inform the users that there
+		// already is an image thumbnail for the referenced object
+		// When not provided, the message mwe-upwiz-objref-notice-existing-image will be used.
+		'noticeExistingImage' => '',
+
+		// wikitext to display on top of the "use" page if an image was marked with an object reference
+		// When not provided, the message mwe-upwiz-objref-notice-update-delay will be used.
+		'noticeUpdateDelay' => ''
 	),
 
 	// Settings for the tutorial to be shown.

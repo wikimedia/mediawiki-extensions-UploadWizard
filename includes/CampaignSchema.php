@@ -124,6 +124,15 @@ return array(
 							"type" => "string"
 						)
 					)
+				),
+				"labelPickImage" => array(
+					"type" => "string"
+				),
+				"noticeExistingImage" => array(
+					"type" => "string"
+				),
+				"noticeUpdateDelay" => array(
+					"type" => "string"
 				)
 			)
 		),

@@ -1435,12 +1435,12 @@
 				wikiText += deed.getLicenseWikiText() + '\n\n';
 
 				if ( mw.UploadWizard.config.autoAdd.wikitext !== undefined ) {
-					wikiText += mw.UploadWizard.config.autoAdd.wikitext;
+					wikiText += mw.UploadWizard.config.autoAdd.wikitext + '\n';
 				}
 
 				// add parameters for list callback bot
 				// this cue will be used to supplement a wiki page with an image thumbnail
-				if ( mw.UploadWizard.config.defaults.objref !== undefined ) {
+				if ( $( '#imgPicker' + this.upload.index ).prop( 'checked' ) ) {
 					wikiText += '\n<!-- WIKIPAGE_UPDATE_PARAMS ' +
 						mw.UploadWizard.config.defaults.objref +
 						' -->\n\n';

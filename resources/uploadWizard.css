@@ -819,3 +819,16 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 .mwe-upwiz-other-textarea {
 	width: 31.5em;
 }
+
+.mwe-upwiz-objref-pick-image {
+    font-weight: bold;
+}
+
+.mwe-upwiz-objref-pick-image input:disabled+label {
+    color: grey;
+    font-weight: normal;
+}
+
+.mwe-upwiz-objref-notice-existing-image {
+    font-weight: bold;
+}

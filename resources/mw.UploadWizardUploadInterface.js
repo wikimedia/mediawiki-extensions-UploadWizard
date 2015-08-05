@@ -59,6 +59,15 @@
 			}
 		).addClass( 'mwe-upwiz-file-status-line-item' );
 
+		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
+			this.$imagePicker = this.createImagePickerField(
+				this.upload.index,
+				mw.UploadWizard.config.defaults.updateList === ''
+			);
+			this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+				.append( this.$imagePicker );
+		}
+
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( this.$removeCtrl );
 
@@ -610,6 +619,71 @@
 	UIP.clearErrors = function () {
 		$( this.div ).removeClass( 'mwe-upwiz-upload-error ');
 		$( this.errorDiv ).hide().empty();
+	};
+
+	/**
+	* Create a checkbox to process the object reference parameter
+	* @param index number of the file for which the field is being created
+	* @param setDisabled disable in case there already is an image in the referring list
+	* @return {jQuery} div containing a checkbox, label, and optional notice
+	*/
+	UIP.createImagePickerField = function ( index, setDisabled ) {
+		var $fieldContainer = $( '<div>' ).attr( {
+			'class': 'mwe-upwiz-objref-pick-image'
+		} ),
+		attributes = {
+			'class': 'imgPicker',
+			id: 'imgPicker' + index,
+			disabled: false,
+			checked: false
+		};
+
+		if ( setDisabled ) {
+			attributes.disabled = 'disabled';
+		} else if ( index === 0 ) {
+			attributes.checked = 'checked';
+		}
+
+		$fieldContainer.append(
+			$( '<input type="checkbox">' ).attr( attributes ).on( 'click', function () {
+				$( this )
+					.prop( 'checked', true )
+					.closest( '.mwe-upwiz-file' )
+					.siblings()
+					.find( '.imgPicker' )
+					.prop( 'checked', false );
+				} ),
+
+			$( '<label>' ).attr( {
+				'for': 'imgPicker' + index
+			} ).text( this.getPickImageLabel() )
+		);
+
+		if ( setDisabled ) {
+			$fieldContainer.append(
+				$( '<div>' ).attr( {
+					'class': 'mwe-upwiz-objref-notice-existing-image'
+				} ).text( this.getExistingImageNotice() )
+			);
+		}
+
+		return $fieldContainer;
+	};
+
+	UIP.getExistingImageNotice = function () {
+		if ( mw.UploadWizard.config && mw.UploadWizard.config.display && mw.UploadWizard.config.display.noticeExistingImage ) {
+			return mw.UploadWizard.config.display.noticeExistingImage;
+		} else {
+			return mw.message( 'mwe-upwiz-objref-notice-existing-image' ).text();
+		}
+	};
+
+	UIP.getPickImageLabel = function () {
+		if ( mw.UploadWizard.config && mw.UploadWizard.config.display && mw.UploadWizard.config.display.labelPickImage ) {
+			return mw.UploadWizard.config.display.labelPickImage;
+		} else {
+			return mw.message( 'mwe-upwiz-objref-pick-image' ).text();
+		}
 	};
 
 	mw.UploadWizardUploadInterface = UploadWizardUploadInterface;

@@ -78,6 +78,7 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		$urlDefaults['objref'] = $req->getText( 'objref' ) ?: '';
+		$urlDefaults['updateList'] = $req->getText( 'updateList' ) ?: '';
 
 		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
 

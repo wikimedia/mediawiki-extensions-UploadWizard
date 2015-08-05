@@ -37,6 +37,10 @@
 			$( '#mwe-upwiz-step-thanks' )
 		);
 
+		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
+			this.getDelayNotice().prependTo( this.$div );
+		}
+
 		$( '<p>' )
 			.addClass( 'mwe-upwiz-thanks-explain' )
 			.msg( 'mwe-upwiz-thanks-explain' )
@@ -202,6 +206,17 @@
 			delete newUrl.query[paramName + '[]'];
 		}
 		return newUrl.toString();
+	};
+
+	TP.getDelayNotice = function () {
+		var $delayNotice = $( '<p>' )
+			.addClass( 'mwe-upwiz-thanks-update-delay' )
+			.msg( 'mwe-upwiz-objref-notice-update-delay' );
+
+		if ( mw.UploadWizard.config && mw.UploadWizard.config.display && mw.UploadWizard.config.display.noticeUpdateDelay ) {
+			$delayNotice.html( mw.UploadWizard.config.display.noticeUpdateDelay );
+		}
+		return $delayNotice;
 	};
 
 	ui.Thanks = Thanks;
