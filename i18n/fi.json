@@ -16,7 +16,8 @@
 			"Veikk0.ma",
 			"VezonThunder",
 			"Wix",
-			"Yaamboo"
+			"Yaamboo",
+			"Pitke"
 		]
 	},
 	"uploadwizard": "Ohjattu tiedoston tallentaminen",
@@ -208,7 +209,6 @@
 	"mwe-upwiz-error-too-long": "Tämä kenttä on liian pitkä.\nLyhennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.",
 	"mwe-upwiz-error-too-short": "Tämä kenttä on liian lyhyt.\nPidennä sisältöä vähintään {{PLURAL:$1|$1 merkin}} pituiseksi.",
 	"mwe-upwiz-error-bad-chars": "Tämä kenttä sisältää merkkejä, jotka eivät ole sallittuja.\nÄlä käytä wikitekstiä tai HTML:ää.",
-	"mwe-upwiz-error-date": "Kirjoita kelvollinen päivämäärä muodossa VVVV-KK-PP tai valitse se alasvetokalenterista.",
 	"mwe-upwiz-error-title-blacklisted": "Tämä nimi sisältää ei-toivottua tekstiä. Ole hyvä ja tarkista se.",
 	"mwe-upwiz-error-title-badchars": "Tämä nimi sisältää ei-toivottuja merkkejä. Ole hyvä ja poista ne.",
 	"mwe-upwiz-error-title-senselessimagename": "Vaihda tämä nimi merkityksellisemmäksi.",
@@ -309,6 +309,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Kampanjaa nimeltä \"$1\"  ei löydy.",
 	"mwe-upwiz-error-campaigndisabled": "Kampanjaa $1 ei ole otettu käyttöön.",
+	"mwe-upwiz-custom-date": "Käytä mukautettua päivämäärämuotoa",
 	"uploadcampaign-legend": "Tallennuskampanjan asetukset",
 	"uploadcampaign-text": "Muokkaat lataustoiminnon kampanjaa.",
 	"mw-coolcats-confirm-new-title": "Vahvista uusi luokka",
