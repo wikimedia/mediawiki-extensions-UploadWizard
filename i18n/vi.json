@@ -313,6 +313,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Không có chiến dịch với tên “$1”.",
 	"mwe-upwiz-error-campaigndisabled": "Chiến dịch “$1” hiện đang vô hiệu.",
+	"mwe-upwiz-custom-date": "Định dạng ngày tháng tùy biến",
 	"uploadcampaign-legend": "Tải lên cấu hình chiến dịch",
 	"uploadcampaign-text": "Bạn đang sửa đổi một chiến dịch tải lên cho Trình thuật sĩ tải lên.",
 	"mw-coolcats-confirm-new-title": "Xác nhận thể loại mới",
