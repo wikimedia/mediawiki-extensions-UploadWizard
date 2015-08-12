@@ -310,6 +310,7 @@
 	"mwe-upwiz-errordialog-ok": "Aceutar",
 	"mwe-upwiz-error-nosuchcampaign": "Nun hai campaña denguna col nome «$1».",
 	"mwe-upwiz-error-campaigndisabled": "La campaña «$1» nun ta activada.",
+	"mwe-upwiz-custom-date": "Usar un formatu de data personalizáu",
 	"uploadcampaign-legend": "Configuración de campañes de xubíes",
 	"uploadcampaign-text": "Tas camudando una campaña del Asistente de xubíes.",
 	"mw-coolcats-confirm-new-title": "Confirmar la nueva categoría",
