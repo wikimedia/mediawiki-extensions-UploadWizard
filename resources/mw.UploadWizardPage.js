@@ -17,6 +17,11 @@
 		// Default configuration value that cannot be removed
 		config.maxUploads = config.maxUploads || 10;
 
+		if ( $( '#upload-wizard' ).length === 0 ) {
+			mw.log( 'UploadWizard is disabled, nothing to do.' );
+			return;
+		}
+
 		uploadWizard = new mw.UploadWizard( config );
 		uploadWizard.createInterface( '#upload-wizard' );
 	};
