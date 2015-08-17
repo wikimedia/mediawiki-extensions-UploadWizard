@@ -93,7 +93,7 @@
 		function makeAndAppendTitleErrorLabel( labelClass ) {
 			$( '<label>' )
 				.attr( {
-					for: details.titleId,
+					'for': details.titleId,
 					generated: 'true'
 				} )
 				.addClass( 'mwe-error ' + labelClass )
@@ -230,7 +230,7 @@
 					$fieldInput = $( '<select>' ).attr( {
 						id: fieldInputId,
 						name: fieldInputId,
-						class: 'mwe-idfield'
+						'class': 'mwe-idfield'
 					} ).data( 'field', field );
 
 					if ( 'options' in field ) {
@@ -247,7 +247,7 @@
 
 				details.$form.append(
 					$( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
-						.append( $( '<label>' ).attr( { class: 'mwe-validator-error', for: fieldInputId, generated: 'true' } ) )
+						.append( $( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, generated: 'true' } ) )
 				);
 				if ( field.required ) {
 					details.$form.append( $( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel() );

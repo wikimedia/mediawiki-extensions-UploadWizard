@@ -238,7 +238,7 @@
 				} );
 			}
 			return $( '<label />' )
-				.attr( { for: $input.attr('id') } )
+				.attr( { 'for': $input.attr('id') } )
 				.msg( messageKey, this.count || 0, licenseLink )
 				.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
 		},
