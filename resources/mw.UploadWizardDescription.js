@@ -40,7 +40,7 @@
 				name: this.id,
 				rows: 2,
 				cols: 36,
-				class: 'mwe-upwiz-desc-lang-text',
+				'class': 'mwe-upwiz-desc-lang-text',
 				placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ).text()
 			} )
 			.growTextArea();
