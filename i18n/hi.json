@@ -8,7 +8,8 @@
 			"Rsrikanth05",
 			"Siddhartha Ghai",
 			"Vibhijain",
-			"NehalDaveND"
+			"NehalDaveND",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"uploadwizard": "अपलोड विज़ार्ड",
@@ -30,7 +31,7 @@
 	"mwe-upwiz-step-thanks": "प्रयोग करें",
 	"mwe-upwiz-api-warning-exists": "वहाँ पहले से ही समान फ़ाइल नाम के साथ [$1]  [$1 दूसरी फ़ाइल] मौजूद है",
 	"mwe-upwiz-api-warning-was-deleted": "इस नाम से एक फ़ाइल \" $1 \" है , लेकिन इसे नष्ट कर दिया गया है और आप फ़ाइल reupload नहीं कर सकते, यदि आपकी फ़ाइल अलग है तो इसका नाम बदल कर इसे अपलोड करे",
-	"mwe-upwiz-tutorial-error-localized-file-missing": "क्षमा करे हमें आपकी भाषा में सामग्री नहीं मिली, कृपया अंग्रेजी भाषा की सहायता ले",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "क्षमा करे हमें आपकी भाषा में सामग्री नहीं मिली, कृपया $1 भाषा की सहायता ले",
 	"mwe-upwiz-tutorial-error-file-missing": "क्षमा करें, हम हम ऐसे किसी भी को खोजने में असमर्थ रहें जिसकी अपेक्षा आपको यहाँ हैं कृपया सिस्टम व्यवस्थापक से संपर्क करें।",
 	"mwe-upwiz-tutorial-error-cannot-transform": "क्षमा करें, हम इस स्क्रीन फिट करने के लिए ट्यूटोरियल की एक स्केल्ड छवि नहीं मिल सका। यह विकीमीडिया कॉमन्स के साथ एक अस्थायी समस्या हो सकता है; बाद में पुन: प्रयास करें।",
 	"mwe-upwiz-help-desk": "सहायता डेस्क",
@@ -113,7 +114,6 @@
 	"mwe-upwiz-error-blank": "इस फ़ील्ड की आवश्यकता है।",
 	"mwe-upwiz-error-too-short": "यह क्षेत्र बहुत छोटा है कृपाअ इसको $1 {{PLURAL:$1|अक्षरों}} से बढा़ करे",
 	"mwe-upwiz-error-bad-chars": "यह क्षेत्र वह संकेत लिये है जिनकी अनुमति नहीं है, कृपया विकिपाठ या HTML का प्रयाग मत करे",
-	"mwe-upwiz-error-date": "कृपया कोई मान्य दिनांक YYYY-MM-DD स्वरूप में दर्ज करें, या पॉपअप कैलेंडर से कोई दिनांक चुने।",
 	"mwe-upwiz-error-title-blacklisted": "यह शीर्षक में कुछ अवांछनीय पाठ शामिल हैं. कृपया यह संशोधन करे",
 	"mwe-upwiz-error-title-badchars": "यह शीर्षक कुछ अवांछनीय वर्ण हैं. कृपया उन्हें निकालें",
 	"mwe-upwiz-error-title-senselessimagename": "कृपया इस शीर्षक को अधिक अर्थपूर्ण बनाने।",
