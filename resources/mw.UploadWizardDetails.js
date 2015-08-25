@@ -1134,7 +1134,9 @@
 
 		/**
 		 * Check if we got an EXIF date back and enter it into the details
+		 * XXX We ought to be using date + time here...
 		 * EXIF examples tend to be in ISO 8601, but the separators are sometimes things like colons, and they have lots of trailing info
+		 * (which we should actually be using, such as time and timezone)
 		 */
 		prefillDate: function () {
 			// XXX surely we have this function somewhere already
@@ -1142,20 +1144,41 @@
 				return n < 10 ? '0' + n : '' + n;
 			}
 
-			var dateObj, metadata, flickrDateRegex, matches, dateStr,
-				yyyyMmDdRegex = /^(\d\d\d\d)[:\/\-](\d\d)[:\/\-](\d\d)\D.*/;
+			function getSaneTime( date ) {
+				var str = '';
+
+				str += pad( date.getHours() ) + ':';
+				str += pad( date.getMinutes() ) + ':';
+				str += pad( date.getSeconds() );
+
+				return str;
+			}
+
+			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
+				yyyyMmDdRegex = /^(\d\d\d\d)[:\/\-](\d\d)[:\/\-](\d\d)\D.*/,
+				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
 			if ( this.upload.imageinfo.metadata ) {
 				metadata = this.upload.imageinfo.metadata;
 				$.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function ( i, propName ) {
-					var matches,
+					var matches, timeMatches,
 						dateInfo = metadata[propName];
 					if ( !mw.isEmpty( dateInfo ) ) {
 						matches = $.trim( dateInfo ).match( yyyyMmDdRegex );
 						if ( !mw.isEmpty( matches ) ) {
+							timeMatches = $.trim( dateInfo ).match( timeRegex );
+							if ( !mw.isEmpty( timeMatches ) ) {
+								dateObj = new Date( parseInt( matches[1], 10 ),
+											parseInt( matches[2], 10 ) - 1,
+											parseInt( matches[3], 10 ),
+											parseInt( timeMatches[1], 10 ),
+											parseInt( timeMatches[2], 10 ),
+											parseInt( timeMatches[3], 10 ) );
+							} else {
 								dateObj = new Date( parseInt( matches[1], 10 ),
 											parseInt( matches[2], 10 ) - 1,
 											parseInt( matches[3], 10 ) );
+							}
 							return false; // break from $.each
 						}
 					}
@@ -1164,8 +1187,8 @@
 
 			// If we don't have EXIF lets try other sources - Flickr
 			if ( dateObj === undefined && this.upload.file !== undefined && this.upload.file.date !== undefined ) {
-				flickrDateRegex = /^\d\d\d\d-\d\d-\d\d/;
-				matches = this.upload.file.date.match( flickrDateRegex );
+				dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
+				matches = this.upload.file.date.match( dateTimeRegex );
 				if ( !mw.isEmpty( matches ) ) {
 					this.dateInputWidget.setValue( this.upload.file.date );
 					return;
@@ -1180,6 +1203,19 @@
 			}
 
 			dateStr = dateObj.getFullYear() + '-' + pad( dateObj.getMonth() + 1 ) + '-' + pad( dateObj.getDate() );
+
+			// Add the time
+			// If the date but not the time is set in EXIF data, we'll get a bogus
+			// time value of '00:00:00'.
+			// FIXME: Check for missing time value earlier rather than blacklisting
+			// a potentially legitimate time value.
+			saneTime = getSaneTime( dateObj );
+			if ( saneTime !== '00:00:00' ) {
+				dateStr += ' ' + saneTime;
+
+				// Switch to freeform date field. DateInputWidget (with calendar) handles dates only, not times.
+				this.setupDateInput( 'arbitrary' );
+			}
 
 			// ok by now we should definitely have a dateObj and a date string
 			this.dateInputWidget.setValue( dateStr );
