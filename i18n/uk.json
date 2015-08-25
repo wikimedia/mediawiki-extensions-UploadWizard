@@ -21,7 +21,8 @@
 			"Александр Сигачёв",
 			"Ата",
 			"Тест",
-			"Ypryima"
+			"Ypryima",
+			"Dars"
 		]
 	},
 	"uploadwizard": "Майстер завантаження",
@@ -161,6 +162,9 @@
 	"mwe-upwiz-location-alt": "Висота",
 	"mwe-upwiz-location-heading": "Напрямок",
 	"mwe-upwiz-copyright-info": "Встановлення прав",
+	"mwe-upwiz-objref-pick-image": "Додати посилання на об'єкт зображення.",
+	"mwe-upwiz-objref-notice-existing-image": "Для згаданого об'єкту вже існує зображення.",
+	"mwe-upwiz-objref-notice-update-delay": "Оновлення згаданої сторінки може зайняти деякий час.",
 	"mwe-upwiz-author": "Автор(и)",
 	"mwe-upwiz-autoconverted": "Цей файл автоматично був перетворрений в формат $1",
 	"mwe-upwiz-other": "Інша інформація",
@@ -168,6 +172,7 @@
 	"mwe-upwiz-thanks-intro": "Дякуємо за завантаження!",
 	"mwe-upwiz-thanks-explain": "Тепер ви можете використовувати {{PLURAL:$1|1=цей файл|ці файли}} у вікіпроектах або робити посилання на {{PLURAL:$1|1=нього|них}} з інших сайтів.",
 	"mwe-upwiz-thanks-wikitext": "Щоб використовувати цей файл в Wiki, вставте цей текст в сторінку:",
+	"mwe-upwiz-thanks-update-delay": "Вставлення зображення до списку сторінок може зайняти до п'яти хвилин.",
 	"mwe-upwiz-thanks-url": "Щоб додати посилання на нього в HTML, скопіювати URL адресу:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ця Вікі не приймає імена файлів з розширенням \".$1\".",
 	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Ви вибрали для завантаження відеофайл, записаний у невільному форматі.\nВи можете встановити [$1 Firefogg] Firefox-розширення для автоматичної конвертації файлів. Або використати інші [$2 засоби конвертації] для представлення відео у вільному форматі.",
