@@ -505,6 +505,10 @@ a:disabled:hover {
 	padding-top:  0.3em;
 }
 
+/* HACK Until T97631 is fixed, otherwise the icons look awful */
+.mwe-upwiz-details-input .oo-ui-buttonOptionWidget.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+	width: 24px;
+}
 
 .mwe-upwiz-desc-lang-select {
 	width: 11.5em;

@@ -146,20 +146,33 @@
 		dateErrorDiv = $('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
 
 		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'
-		this.dateInputWidgetToggler = new OO.ui.ButtonWidget( {
-			framed: false,
-			icon: 'advanced',
-			title: mw.msg( 'mwe-upwiz-custom-date' )
-		} ).on( 'click', function () {
-			details.setupDateInput();
-			details.dateInputWidget.focus();
-		} );
+		this.dateInputWidgetToggler = new OO.ui.ButtonSelectWidget( {
+			items: [
+				new OO.ui.ButtonOptionWidget( {
+					data: 'calendar',
+					icon: 'calendar',
+					title: mw.msg( 'mwe-upwiz-calendar-date' )
+				} ),
+				new OO.ui.ButtonOptionWidget( {
+					data: 'arbitrary',
+					icon: 'edit',
+					title: mw.msg( 'mwe-upwiz-custom-date' )
+				} )
+			]
+		} )
+			.selectItemByData( 'calendar' )
+			.on( 'choose', function ( selectedItem ) {
+				details.setupDateInput( selectedItem.getData() );
+				details.dateInputWidget.focus();
+			} );
 
 		dateInputDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 			.append(
 				dateErrorDiv,
 				$( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.message( 'mwe-upwiz-date-created' ).text() ).requiredFieldLabel().addHint( 'date' ),
-				$( '<div class="mwe-upwiz-details-input"></div>' ).append( this.dateInputWidgetToggler.$element ) );
+				new OO.ui.HorizontalLayout( { classes: [ 'mwe-upwiz-details-input' ] } ).$element
+					.append( this.dateInputWidgetToggler.$element )
+			);
 
 		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
 
@@ -517,6 +530,7 @@
 				mode = this.dateInputWidgetMode === 'calendar' ? 'arbitrary' : 'calendar';
 			}
 			this.dateInputWidgetMode = mode;
+			this.dateInputWidgetToggler.selectItemByData( mode );
 
 			if ( mode === 'arbitrary' ) {
 				this.dateInputWidget = new OO.ui.TextInputWidget( {
@@ -534,9 +548,10 @@
 				this.dateInputWidget.setValue( oldDateInputWidget.getValue() );
 				oldDateInputWidget.$element.replaceWith( this.dateInputWidget.$element );
 			} else {
-				this.dateInputWidgetToggler.$element.before( this.dateInputWidget.$element );
+				this.dateInputWidgetToggler.$element.after( this.dateInputWidget.$element );
 			}
 
+			this.dateInputWidget.$input.data( 'mwe-error-placement', this.dateInputWidget.$element.parent() );
 			this.$form.validate(); // this might not be necessary here
 			// FIXME Shouldn't abuse jQuery validate for this
 			this.dateInputWidget.$input.rules( 'add', {

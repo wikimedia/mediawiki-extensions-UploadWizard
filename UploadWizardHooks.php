@@ -56,6 +56,8 @@ class UploadWizardHooks {
 
 				'oojs',
 				'oojs-ui',
+				'oojs-ui.styles.icons-editing-core',
+				'oojs-ui.styles.icons-editing-advanced',
 				'mediawiki.widgets',
 			),
 			'scripts' => array(
