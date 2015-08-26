@@ -9,7 +9,8 @@
 			"Priviet",
 			"관인생략",
 			"아라",
-			"Revi"
+			"Revi",
+			"Hwangjy9"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -124,7 +125,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "확인",
 	"mwe-upwiz-source-custom": "다음 페이지에서 개별 파일에 대한 정보를 입력하겠습니다.",
 	"mwe-upwiz-more-options": "위치와 자세한 정보 추가하기...",
-	"mwe-upwiz-copy-metadata": "아래의 {{PLURAL:$1|다른 올리기|모든 올리기}} 정보를 복사 ...",
+	"mwe-upwiz-copy-metadata": "다음의 {{PLURAL:$1|다른 올리기|모든 올리기}} 정보를 복사 ...",
 	"mwe-upwiz-copy-metadata-button": "복사",
 	"mwe-upwiz-copied-metadata-button": "성공적으로 복사함",
 	"mwe-upwiz-copy-title": "(자동으로 번호를 매겨서) 제목 복사",
@@ -191,7 +192,7 @@
 	"mwe-upwiz-deeds-need-license": "라이선스를 선택하세요.",
 	"mwe-upwiz-license-show-all": "다른 라이선스를 사용하기",
 	"mwe-upwiz-license-show-recommended": "권장된 라이선스 사용",
-	"mwe-upwiz-error-signature-blank": "아래 칸에 계정 이름이나 실명으로 서명해야 합니다.",
+	"mwe-upwiz-error-signature-blank": "적절한 칸에 계정 이름이나 실명으로 서명해야 합니다.",
 	"mwe-upwiz-error-latitude": "위도 값은 -90에서 90 사이의 숫자여야 합니다.",
 	"mwe-upwiz-error-longitude": "경도는 -180에서 180 사이여야 합니다.",
 	"mwe-upwiz-error-altitude": "고도는 숫자로 입력해야 합니다.",
@@ -203,7 +204,6 @@
 	"mwe-upwiz-error-too-long": "이 항목이 너무 깁니다.\n$1{{PLURAL:$1|글자}}보다 짧게 입력해주세요.",
 	"mwe-upwiz-error-too-short": "이 항목이 너무 짧습니다.\n$1{{PLURAL:$1|글자}}보다 길게 입력해주세요.",
 	"mwe-upwiz-error-bad-chars": "이 항목에 쓸 수 없는 기호가 포함되어 있습니다.\n위키문법이나 HTML을 여기에 사용하지 마세요.",
-	"mwe-upwiz-error-date": "YYYY-MM-DD 형식으로 올바른 날짜를 입력하거나 팝업으로 뜨는 달력에서 날짜를 선택하세요.",
 	"mwe-upwiz-error-title-blacklisted": "제목에 부적절한 글자가 포함되어 있습니다. 글자를 수정하세요.",
 	"mwe-upwiz-error-title-badchars": "제목에 부적절한 글자가 포함되어 있습니다. 글자를 지우세요.",
 	"mwe-upwiz-error-title-senselessimagename": "보다 의미있는 제목을 붙이세요.",

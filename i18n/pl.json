@@ -156,6 +156,8 @@
 	"mwe-upwiz-location-lon": "Długość geograficzna",
 	"mwe-upwiz-location-alt": "Wysokość nad poziomem morza",
 	"mwe-upwiz-copyright-info": "Uwolnij prawa",
+	"mwe-upwiz-objref-notice-existing-image": "Dla wymienionego obiektu obraz już istnieje.",
+	"mwe-upwiz-objref-notice-update-delay": "Aktualizacja wymienionej strony może zająć trochę czasu.",
 	"mwe-upwiz-author": "Autor(‐rzy)",
 	"mwe-upwiz-autoconverted": "Plik został automatycznie skonwertowany do formatu $1",
 	"mwe-upwiz-other": "Inne informacje",
