@@ -37,7 +37,7 @@
 			$( '#mwe-upwiz-step-thanks' )
 		);
 
-		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
+		if ( this.isObjectReferenceGiven() ) {
 			this.getDelayNotice().prependTo( this.$div );
 		}
 
@@ -70,7 +70,7 @@
 
 		// TODO: make the step order configurable by campaign definitions instead of using these hacks
 		beginButtonTarget = this.getButtonConfig( 'beginButton', 'target' );
-		if ( !beginButtonTarget ) {
+		if ( !beginButtonTarget || ( beginButtonTarget === 'dropObjref' && !this.isObjectReferenceGiven() ) ) {
 			this.beginButton.on( 'click', function () {
 				thanks.emit( 'next-step' );
 			} );
@@ -217,6 +217,10 @@
 			$delayNotice.html( mw.UploadWizard.config.display.noticeUpdateDelay );
 		}
 		return $delayNotice;
+	};
+
+	TP.isObjectReferenceGiven = function () {
+		return mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '';
 	};
 
 	ui.Thanks = Thanks;

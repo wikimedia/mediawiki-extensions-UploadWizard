@@ -466,6 +466,8 @@ class UploadWizardCampaign {
 				$validUrl = $this->getButtonHrefByObjectReference( $objRef );
 				if ( $validUrl ) {
 					$this->parsedConfig['display'][$button]['target'] = $validUrl;
+				} else {
+					unset( $this->parsedConfig['display'][$button] );
 				}
 			}
 		}
