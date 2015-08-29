@@ -24,7 +24,8 @@
 			"Rubin16",
 			"ShinePhantom",
 			"Александр Сигачёв",
-			"Дмитрий"
+			"Дмитрий",
+			"Translatobecomer"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -164,6 +165,7 @@
 	"mwe-upwiz-location-alt": "Высота",
 	"mwe-upwiz-location-heading": "Направление",
 	"mwe-upwiz-copyright-info": "Указание прав",
+	"mwe-upwiz-objref-notice-update-delay": "Обновление упомянутой страницы может занять некоторое время.",
 	"mwe-upwiz-author": "Автор(ы)",
 	"mwe-upwiz-autoconverted": "Этот файл был автоматически преобразован в формат $1",
 	"mwe-upwiz-other": "Другая информация",
