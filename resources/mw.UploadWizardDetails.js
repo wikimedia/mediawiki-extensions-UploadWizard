@@ -820,8 +820,8 @@
 		 * Open OSM map
 		 */
 		osmMapLink: function () {
-			var mapLink = new mw.Uri( 'https://openstreetmap.org/' )
-				.extend( { zoom: 9, layers: 'M', lat: this.$latitudeInput.val(), lon: this.$longitudeInput.val() } );
+			var mapLink = new mw.Uri( 'https://www.openstreetmap.org/' )
+				.extend( { zoom: 9, mlat: this.$latitudeInput.val(), mlon: this.$longitudeInput.val() } );
 			return mapLink.toString();
 		},
 
