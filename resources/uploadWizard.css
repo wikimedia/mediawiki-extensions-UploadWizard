@@ -836,3 +836,7 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 .mwe-upwiz-objref-notice-existing-image {
     font-weight: bold;
 }
+
+.mwe-upwiz-metadata-copier .oo-ui-fieldLayout {
+	margin-bottom: 0;
+}
