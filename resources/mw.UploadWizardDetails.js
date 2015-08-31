@@ -542,6 +542,15 @@
 					classes: [ 'mwe-date' ],
 					id: dateInputId
 				} );
+				// If the user types '{{', assume that they are trying to input template wikitext and switch
+				// to 'arbitrary' mode. This might help confused power-users (T110026#1567714).
+				this.dateInputWidget.textInput.on( 'change', function ( value ) {
+					if ( value === '{{' ) {
+						this.setupDateInput( 'arbitrary' );
+						this.dateInputWidget.setValue( '{{' );
+						this.dateInputWidget.moveCursorToEnd();
+					}
+				}.bind( this ) );
 			}
 
 			if ( oldDateInputWidget ) {
