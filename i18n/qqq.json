@@ -340,6 +340,7 @@
 	"mwe-upwiz-errordialog-ok": "{{Identical|OK}}",
 	"mwe-upwiz-error-nosuchcampaign": "Used as error message. Parameters:\n* $1 - campaign name",
 	"mwe-upwiz-error-campaigndisabled": "Used as error message. Parameters:\n* $1 - campaign name",
+	"mwe-upwiz-calendar-date": "Shown as a tooltip of a button next to a date input field, to display a calendar to choose a date from.",
 	"mwe-upwiz-custom-date": "Shown as a tooltip of a button next to a date input field, to enable inputting arbitrary text rather than only choosing dates from a calendar. (For example, if the date you want to input is 'circa 1900'.)",
 	"uploadcampaign-legend": "Diambiguation: this message is about the configuration of an upload campaign.",
 	"uploadcampaign-text": "Text shown on the edit page for an upload campaign.",
