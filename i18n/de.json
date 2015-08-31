@@ -329,6 +329,7 @@
 	"mwe-upwiz-errordialog-ok": "Okay",
 	"mwe-upwiz-error-nosuchcampaign": "Es gibt keine Kampagne mit dem Namen „$1“.",
 	"mwe-upwiz-error-campaigndisabled": "Die Kampagne „$1“ wurde bislang nicht freigeschaltet.",
+	"mwe-upwiz-calendar-date": "Datum aus dem Kalender auswählen",
 	"mwe-upwiz-custom-date": "Benutzerdefiniertes Datumsformat verwenden",
 	"uploadcampaign-legend": "Konfiguration der Kampagne",
 	"uploadcampaign-text": "Du modifizierst gerade eine Kampagne.",
