@@ -331,7 +331,13 @@
 				return this.providedFile.name;
 			}
 		} else {
-			return this.$fileInputCtrl.get(0).value;
+			var input = this.$fileInputCtrl.get(0);
+			// On IE 11, input.value is incorrect for <input type=file multiple>, like we're using here;
+			// the input.files interface is reliable. (T88223#1595320)
+			if ( input.files && input.files[0] && input.files[0].name ) {
+				return input.files[0].name;
+			}
+			return input.value;
 		}
 	};
 
