@@ -354,6 +354,7 @@
 	"mwe-upwiz-errordialog-ok": "Valider",
 	"mwe-upwiz-error-nosuchcampaign": "Il n'existe pas de campagne avec le nom \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "La campagne « $1 » n’a pas été activée.",
+	"mwe-upwiz-calendar-date": "Choisir une date dans le calendrier",
 	"mwe-upwiz-custom-date": "Utiliser un format de date personnalisé",
 	"uploadcampaign-legend": "Configuration des campagnes de versement",
 	"uploadcampaign-text": "Vous êtes en train de modifier une campagne Assistant de versement.",

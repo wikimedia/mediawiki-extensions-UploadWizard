@@ -334,6 +334,7 @@
 	"mwe-upwiz-errordialog-ok": "Гаразд",
 	"mwe-upwiz-error-nosuchcampaign": "Не існує кампанії з назвою \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "Кампанія «$1» вимкнена.",
+	"mwe-upwiz-calendar-date": "Вибрати дату з календаря",
 	"mwe-upwiz-custom-date": "Використати користувацький формат дати",
 	"uploadcampaign-legend": "Конфігурація кампанії з завантажень",
 	"uploadcampaign-text": "Ви змінюєте кампанію Майстра завантажень.",

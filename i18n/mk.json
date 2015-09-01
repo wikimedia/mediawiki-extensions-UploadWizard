@@ -316,6 +316,7 @@
 	"mwe-upwiz-errordialog-ok": "ОК",
 	"mwe-upwiz-error-nosuchcampaign": "Не постои кампања по име „$1“.",
 	"mwe-upwiz-error-campaigndisabled": "Походот „$1“ не е овозможен.",
+	"mwe-upwiz-calendar-date": "Изберете датум од календарот",
 	"mwe-upwiz-custom-date": "Користи сопствен формат на датум",
 	"uploadcampaign-legend": "Подигни поставки за поход",
 	"uploadcampaign-text": "Менувате поход на Помошникот за подигање.",

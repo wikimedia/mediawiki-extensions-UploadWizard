@@ -302,6 +302,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Et gëtt keng Campagne mam Numm \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "D'Campagne \"$1\" ass net aktivéiert.",
+	"mwe-upwiz-calendar-date": "Datum aus dem Kalenner eraussichen",
 	"mwe-upwiz-custom-date": "Benotzt e personaliséierten Datumsformat",
 	"uploadcampaign-legend": "Astellung vun der Campagne eroplueden",
 	"uploadcampaign-text": "Dir ännert eng Campagne fir Fichieren eropzelueden.",

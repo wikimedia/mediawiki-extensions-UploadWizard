@@ -325,6 +325,7 @@
 	"mwe-upwiz-errordialog-ok": "אישור",
 	"mwe-upwiz-error-nosuchcampaign": "אין מבצע פרסום בשם „$1”.",
 	"mwe-upwiz-error-campaigndisabled": "מבצע הפרסום „$1” לא הופעל.",
+	"mwe-upwiz-calendar-date": "בחירת תאריך מלוח שנה",
 	"mwe-upwiz-custom-date": "להשתמש בתסדיר תאריך מותאם",
 	"uploadcampaign-legend": "העלאת הגדרות מבצע הפרסום",
 	"uploadcampaign-text": "אתם משנים מבצע פרסום של אשף ההעלאות.",
