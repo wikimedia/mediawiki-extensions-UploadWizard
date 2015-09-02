@@ -437,6 +437,15 @@
 
 		this.setTitle( basename );
 
+		if ( !this.title ) {
+			if ( basename.indexOf( '.' ) === -1 ) {
+				this.fileNameErr( 'noext', null );
+			} else {
+				this.fileNameErr( 'unparseable', null );
+			}
+			return;
+		}
+
 		// Check if extension is acceptable
 		extension = this.title.getExtension();
 		if ( mw.isEmpty( extension ) ) {
@@ -549,11 +558,7 @@
 	 * @param {string} title Unsanitized title.
 	 */
 	UWUP.setTitle = function ( title ) {
-		try {
-			this.title = mw.Title.newFromFileName( mw.UploadWizard.sanitizeFilename( title ) );
-		} catch ( e ) {
-			this.fileNameErr( 'unparseable', null );
-		}
+		this.title = mw.Title.newFromFileName( mw.UploadWizard.sanitizeFilename( title ) );
 	};
 
 	/**
