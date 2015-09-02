@@ -4,7 +4,7 @@
  * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc, $wgUploadWizardConfig;
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions;
 
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
@@ -83,7 +83,7 @@ return array(
 	'campaignCTACampaignTemplate' => 'uploadCampaign:$1',
 
 	// File extensions acceptable in this wiki
-	'fileExtensions' =>  $wgFileExtensions,
+	'fileExtensions' => $wgCheckFileExtensions ? $wgFileExtensions : null,
 
 	// Flickr details
 	// Flickr API is SSL-only as of June 27th, 2014: http://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
