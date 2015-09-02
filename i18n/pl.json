@@ -21,7 +21,8 @@
 			"Rzuwig",
 			"Sp5uhe",
 			"Woytecr",
-			"WTM"
+			"WTM",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
@@ -53,7 +54,7 @@
 	"mwe-upwiz-add-file-n": "Dodaj więcej plików",
 	"mwe-upwiz-add-file-0-free": "Wybierz pliki multimedialne, którymi chcesz się podzielić",
 	"mwe-upwiz-add-file-flickr": "Dodaj więcej zdjęć z serwisu Flickr",
-	"mwe-upwiz-add-file-flickr-n": "Dodać więcej zdjęć z serwisu Flickr",
+	"mwe-upwiz-add-file-flickr-n": "Dodaj więcej zdjęć z serwisu Flickr",
 	"mwe-upwiz-add-flickr-or": "Lub",
 	"mwe-upwiz-add-flickr": "Załaduj z serwisu Flickr",
 	"mwe-upwiz-flickr-input-placeholder": "Adres URL z serwisu Flickr",
@@ -316,6 +317,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Brak inicjatywy „$1“.",
 	"mwe-upwiz-error-campaigndisabled": "Inicjatywa „$1“ nie została włączona.",
+	"mwe-upwiz-calendar-date": "Wybierz datę z kalendarza",
 	"mwe-upwiz-custom-date": "Użyj własnego formatu zapisu daty",
 	"uploadcampaign-legend": "Prześlij konfigurację inicjatywy",
 	"uploadcampaign-text": "Zmieniasz konfigurację inicjatywy kreatora przesyłania plików.",

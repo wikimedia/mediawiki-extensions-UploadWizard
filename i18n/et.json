@@ -312,6 +312,7 @@
 	"mwe-upwiz-errordialog-ok": "Sobib",
 	"mwe-upwiz-error-nosuchcampaign": "Kampaania nimega \"$1\" puudub.",
 	"mwe-upwiz-error-campaigndisabled": "Kampaania \"$1\" pole lubatud.",
+	"mwe-upwiz-calendar-date": "Vali kuupäev kalendrist",
 	"mwe-upwiz-custom-date": "Kasuta kohandatud kuupäeva vormingut",
 	"uploadcampaign-legend": "Üleslaadimiskampaania häälestus",
 	"uploadcampaign-text": "Muudad üleslaadimiskampaaniat.",

@@ -6,7 +6,8 @@
 			"Gallaecio",
 			"MetalBrasil",
 			"Toliño",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"Banjo"
 		]
 	},
 	"uploadwizard": "Asistente de cargas",
@@ -320,6 +321,7 @@
 	"mwe-upwiz-errordialog-ok": "Aceptar",
 	"mwe-upwiz-error-nosuchcampaign": "Non hai campaña ningunha co nome \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "A campaña \"$1\" non foi activada.",
+	"mwe-upwiz-calendar-date": "Escoller data desde o calendario",
 	"mwe-upwiz-custom-date": "Utilizar un formato de data personalizado",
 	"uploadcampaign-legend": "Configuración da campaña de cargas",
 	"uploadcampaign-text": "Está modificando unha campaña do asistente de cargas.",

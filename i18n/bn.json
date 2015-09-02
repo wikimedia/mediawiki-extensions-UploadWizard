@@ -245,6 +245,7 @@
 	"mwe-upwiz-errordialog-ok": "ঠিক আছে",
 	"mwe-upwiz-error-nosuchcampaign": "\"$1\" নামে কোনো ক্যাম্পেইন নেই।",
 	"mwe-upwiz-error-campaigndisabled": "\"$1\" নামের ক্যাম্পেইনটি চালু করা হয়নি।",
+	"mwe-upwiz-calendar-date": "পঞ্জিকা থেকে তারিখ নির্বাচন করুন",
 	"uploadcampaign-legend": "আপলোড ক্যাম্পেইন কনফিগারেশন",
 	"uploadcampaign-text": "আপনি একটি আপলোড উইজার্ড ক্যাম্পেইন সম্পাদনা করছেন।",
 	"mw-coolcats-confirm-new-title": "নতুন বিষয়শ্রেণী নিশ্চতকরণ",

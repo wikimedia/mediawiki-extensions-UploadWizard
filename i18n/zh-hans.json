@@ -340,6 +340,7 @@
 	"mwe-upwiz-errordialog-ok": "确定",
 	"mwe-upwiz-error-nosuchcampaign": "没有名称为“$1”的运动。",
 	"mwe-upwiz-error-campaigndisabled": "运动“$1”还没有启用。",
+	"mwe-upwiz-calendar-date": "在日历中选择日期",
 	"mwe-upwiz-custom-date": "使用自定义时间格式",
 	"uploadcampaign-legend": "上传运动设置",
 	"uploadcampaign-text": "你正在修改上传向导运动。",

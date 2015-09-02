@@ -324,6 +324,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Det finns ingen kampanj med namnet \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "Kampanj \"$1\" har inte aktiverats.",
+	"mwe-upwiz-calendar-date": "Välj datum från kalendern",
 	"uploadcampaign-legend": "Ladda upp kampanjkonfiguration",
 	"uploadcampaign-text": "Du ändrar en Upload Wizard kampanj.",
 	"mw-coolcats-confirm-new-title": "Bekräfta ny kategori",
