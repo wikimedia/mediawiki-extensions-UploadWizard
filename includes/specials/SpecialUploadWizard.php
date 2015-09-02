@@ -309,6 +309,17 @@ class SpecialUploadWizard extends SpecialPage {
 			throw new UserBlockedError( $this->getUser()->mBlock );
 		}
 
+		// Global blocks
+		if ( class_exists( 'GlobalBlocking' ) ) {
+			$error = GlobalBlocking::getUserBlockErrors(
+				$user,
+				$this->getRequest()->getIP()
+			);
+			if ( count( $error ) ) {
+				throw new ErrorPageError( 'blockedtitle', array_shift( $error ), $error );
+			}
+		}
+
 		// we got all the way here, so it must be okay to upload
 		return true;
 	}
