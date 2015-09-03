@@ -16,7 +16,8 @@
 			"青子守歌",
 			"Rxy",
 			"2nd-player",
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -150,6 +151,9 @@
 	"mwe-upwiz-location-lon": "経度",
 	"mwe-upwiz-location-alt": "高度",
 	"mwe-upwiz-copyright-info": "許可する権利",
+	"mwe-upwiz-objref-pick-image": "この画像へのオブジェクトの注釈を追加する。",
+	"mwe-upwiz-objref-notice-existing-image": "画像は、参照先のオブジェクトに既に存在します。",
+	"mwe-upwiz-objref-notice-update-delay": "参照先のページを更新すると、時間がかかる場合があります。",
 	"mwe-upwiz-author": "作者",
 	"mwe-upwiz-autoconverted": "このファイルは、自動的に$1形式に変換されました",
 	"mwe-upwiz-other": "その他の情報",
@@ -157,6 +161,7 @@
 	"mwe-upwiz-thanks-intro": "アップロードしていただきありがとうございます!",
 	"mwe-upwiz-thanks-explain": "これで、{{PLURAL:$1|このファイル|これらのファイル}}を、ウィキで利用したり、ウェブ上で{{PLURAL:$1|このファイル|これらのファイル}}にリンクできるようになりました。",
 	"mwe-upwiz-thanks-wikitext": "このファイルをウィキで使用するには、このテキストをページにコピーしてください:",
+	"mwe-upwiz-thanks-update-delay": "一覧ページに画像を挿入すると、5分程度かかる場合があります。",
 	"mwe-upwiz-thanks-url": "HTML でリンクするには、この URL をコピーしてださい:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "このウィキは、「.$1」という拡張子を持つファイル名を受け入れていません。",
 	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "あなたがアップロードするために選択した動画ファイルはフリーな形式ではありません。\nFirefox の拡張機能 [$1 Firefogg] をインストールして自動的に変換してください。またはその他の[$2 変換方法]を使用して動画をフリーな形式に変換してください。",
@@ -209,7 +214,6 @@
 	"mwe-upwiz-error-too-long": "この欄の内容が長すぎます。\n$1 {{PLURAL:$1|文字}}より短くしてください。",
 	"mwe-upwiz-error-too-short": "この欄の内容が短すぎます。\n$1 {{PLURAL:$1|文字}}より長くしてください。",
 	"mwe-upwiz-error-bad-chars": "この欄の内容は、許可されていない記号を含んでいます。\nここではウィキ文や HTML を使用しないでください。",
-	"mwe-upwiz-error-date": "有効な日付を、YYYY-MM-DD形式で入力するか、ポップアップのカレンダーから日付を選択してください。",
 	"mwe-upwiz-error-title-blacklisted": "このタイトルには望ましくないテキストが含まれます。修正してください。",
 	"mwe-upwiz-error-title-badchars": "このタイトルには望ましくない文字が含まれます。取り除いてください。",
 	"mwe-upwiz-error-title-senselessimagename": "このタイトルをもっと意味があるものにしてください。",
@@ -309,6 +313,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "「$1」という名前のキャンペーンはありません。",
 	"mwe-upwiz-error-campaigndisabled": "キャンペーン「$1」は有効になっていません。",
+	"mwe-upwiz-calendar-date": "カレンダーから日付を選択してください",
 	"uploadcampaign-legend": "アップロードキャンペーンの設定",
 	"mw-coolcats-confirm-new-title": "新しいカテゴリを確認",
 	"mw-coolcats-confirm-new": "あなたは新しいカテゴリ「$1」を追加しようとしているようです。次のことをご承知ください。<ul><li>カテゴリは通常は英語にすべきです。</li><li>新しいカテゴリのほとんどは既存のカテゴリの下位カテゴリにすべきです。</li></ul>一般には、熟練者だけがカテゴリを作成すべきです。",
