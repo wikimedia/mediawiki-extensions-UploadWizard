@@ -444,9 +444,12 @@ class UploadWizardCampaign {
 	 * @return bool|string
 	 */
 	private function getButtonHrefByObjectReference( $objRef ) {
-		list( $wiki, $title ) = explode( '|', $objRef );
-		if ( Interwiki::isValidInterwiki( $wiki ) ) {
-			return str_replace( '$1', $title, Interwiki::fetch( $wiki )->getURL() );
+		$arrObjRef = explode( '|', $objRef );
+		if ( count( $arrObjRef ) > 1 ) {
+			list( $wiki, $title ) = $arrObjRef;
+			if ( Interwiki::isValidInterwiki( $wiki ) ) {
+				return str_replace( '$1', $title, Interwiki::fetch( $wiki )->getURL() );
+			}
 		}
 		return false;
 	}
