@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"C.R.",
-			"Candalua"
+			"Candalua",
+			"Chelin"
 		]
 	},
 	"uploadwizard": "Carrecamiente guidate",
@@ -125,6 +126,11 @@
 	"mwe-upwiz-desc-placeholder": "Descrive l'immaggene",
 	"mwe-upwiz-desc-add-n": "Azzecca na descriziona dint'a n'ata lengua",
 	"mwe-upwiz-title": "Titulo",
+	"mwe-upwiz-location": "Luoco",
+	"mwe-upwiz-location-lat": "Latitudine",
+	"mwe-upwiz-location-lon": "Longitudine",
+	"mwe-upwiz-location-alt": "Autezza",
+	"mwe-upwiz-location-heading": "Titulo",
 	"mwe-upwiz-objref-pick-image": "Azzecca 'o riferimento oggetto a st'immaggene",
 	"mwe-upwiz-objref-notice-existing-image": "N'immaggene esiste già pe' l'oggetto riferito",
 	"mwe-upwiz-objref-notice-update-delay": "'E se ffà agghiurnamente d' 'a paggena riferita se pigliasse nu poch' 'e tiempo.",
