@@ -302,7 +302,7 @@
 	"mwe-upwiz-license-custom-preview": "Vista previa",
 	"mwe-upwiz-license-none-head": "La encontré en Internet; no estoy seguro",
 	"mwe-upwiz-license-none": "Creo que {{PLURAL:$1|esta obra tiene|estas obras tienen}} una licencia libre o legalmente {{PLURAL:$1|está|están}} en el dominio público. Entiendo que si no añado la información de licencia necesaria a tiempo {{PLURAL:$1|el archivo puede ser eliminado|los archivos pueden ser eliminados}}.",
-	"mwe-upwiz-license-confirm-remove": "¿Está seguro que desea eliminar {{PLURAL:$1|esta subida|estas subidas}}?",
+	"mwe-upwiz-license-confirm-remove": "¿Estás seguro de que quieres eliminar {{PLURAL:$1|esta subida|estas subidas}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmar la eliminación",
 	"mwe-upwiz-license-external": "Este archivo está bajo la siguiente licencia en $1 : $2.",
 	"mwe-upwiz-license-external-invalid": "Este archivo está bajo la siguiente licencia en $1: $2. Lamentablemente, esta licencia no es apropiada para su uso en este sitio.",

@@ -334,6 +334,8 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Нет кампании с названием «$1»",
 	"mwe-upwiz-error-campaigndisabled": "Кампания «$1» не была включена.",
+	"mwe-upwiz-calendar-date": "Выбрать дату из календаря",
+	"mwe-upwiz-custom-date": "Использовать пользовательский формат даты",
 	"uploadcampaign-legend": "Конфигурация кампании по загрузкам",
 	"uploadcampaign-text": "Вы изменяете кампанию Мастера загрузок.",
 	"mw-coolcats-confirm-new-title": "Подтверждение новой категории",
