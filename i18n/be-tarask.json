@@ -8,7 +8,8 @@
 			"Wizardist",
 			"Zedlik",
 			"Александр Сигачёв",
-			"Глеб Бераставы"
+			"Глеб Бераставы",
+			"Red Winged Duck"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -43,7 +44,7 @@
 	"mwe-upwiz-add-file-flickr-n": "Дадаць яшчэ выявы з Flickr",
 	"mwe-upwiz-add-flickr-or": "Або",
 	"mwe-upwiz-add-flickr": "Атрымаць з Flickr",
-	"mwe-upwiz-flickr-input-placeholder": "URL выявы/фотасэту Flickr",
+	"mwe-upwiz-flickr-input-placeholder": "URL-адрас Flickr",
 	"mwe-upwiz-select-flickr": "Загрузіць выбраныя выявы",
 	"mwe-upwiz-flickr-disclaimer2": "Зьвярніце ўвагу, што пры выкарыстаньні гэтай прылады ваш IP-адрас і зьвесткі пра запыт будуць даступныя сайту Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Даруйце, не атрымалася вылучыць файл з $1.",
@@ -177,7 +178,6 @@
 	"mwe-upwiz-error-too-long": "Значэньне поля занадта доўгае.\nЗрабіце яго не даўжэй за $1 {{PLURAL:$1|сымбаль|сымбалі|сымбаляў}}.",
 	"mwe-upwiz-error-too-short": "Значэньне поля занадта кароткае.\nЗрабіце яго даўжэй за $1 {{PLURAL:$1|сымбаль|сымбалі|сымбаляў}}.",
 	"mwe-upwiz-error-bad-chars": "Гэтае поле зьмяшчае недапушчальныя сымбалі.\nНе выкарыстоўвайце ў ім вікі-фарматаваньне ці HTML.",
-	"mwe-upwiz-error-date": "Калі ласка, пазначце дату ў фармаце ГГГГ-ММ-ДД, ці выберыце з выкіднога календара.",
 	"mwe-upwiz-error-title-blacklisted": "Гэтая назва зьмяшчае непажаданы тэкст. Варта яго выправіць",
 	"mwe-upwiz-error-title-badchars": "Гэтая назва зьмяшчае непажаданыя сымбалі. Калі ласка, выдаліце іх",
 	"mwe-upwiz-error-title-senselessimagename": "Калі ласка, зрабіце гэту назву больш зьмястоўнай.",

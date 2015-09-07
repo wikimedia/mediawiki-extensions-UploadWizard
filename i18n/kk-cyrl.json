@@ -66,8 +66,8 @@
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|секунт|секунт}} қалды",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|минут|минут}} $2 {{PLURAL:$2|секунт|секунт}} {{PLURAL:$3|қалды}}",
 	"mwe-upwiz-hrs-mins-secs-remaining": "$1 {{PLURAL:$1|сағат|сағат}} $2 {{PLURAL:$2|минут|минут}} $3 {{PLURAL:$3|секунт|секунт}} қалды",
-	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Бұл файл|Бұл файлдар}} өзімнің жұмысым.",
-	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Бұл файл|Бұл файлдар}} менің өзімнің жұмысым емес.",
+	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Бұл файл|Бұл файлдар}} өзімнің туындым.",
+	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Бұл файл|Бұл файлдар}} менің өзімнің туындым емес.",
 	"mwe-upwiz-source-thirdparty-intro": "Сіз тапқан әрбір файлдың мекен-жайын енгізіңіз.",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-more-options": "Мекенін қосу және көбірек ақпарат ...",
@@ -209,7 +209,7 @@
 	"prefs-upwiz-experimental": "Тәжірибелік мүмкіндіктер",
 	"prefs-upwiz-interface": "Пайдаланушылық тілдесу",
 	"mwe-upwiz-prefs-def-license": "Әдепкі лицензия",
-	"mwe-upwiz-prefs-license-own": "Өзімнің жұмысым - $1",
+	"mwe-upwiz-prefs-license-own": "Өзімнің туындым - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Басқа біредің жұмысы - $1",
 	"mwe-upload-campaigns-pagination-next": "Келесі бет"
 }
