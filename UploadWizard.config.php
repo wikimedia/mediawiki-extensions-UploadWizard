@@ -17,11 +17,7 @@ if ( !$uwLanguages ) {
 	$uwLanguages = array();
 
 	// First, get a list of languages we support.
-	if (  is_callable( array( 'LanguageNames', 'getNames' ) ) ) {
-		$baseLangs = LanguageNames::getNames( $userLangCode );
-	} else {
-		$baseLangs = Language::fetchLanguageNames( null, 'all' );
-	}
+	$baseLangs = Language::fetchLanguageNames( $userLangCode, 'all' );
 	// We need to take into account languageTemplateFixups
 	if ( is_array( $wgUploadWizardConfig ) && array_key_exists( 'languageTemplateFixups', $wgUploadWizardConfig ) ) {
 		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'];
