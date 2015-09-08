@@ -16,7 +16,8 @@
 			"مشعل الحربي",
 			"فلورانس",
 			"أحمد",
-			"Abanima"
+			"Abanima",
+			"Hiba Alshawi"
 		]
 	},
 	"uploadwizard": "معالج الرفع",
@@ -217,7 +218,6 @@
 	"mwe-upwiz-error-too-long": "هذا الحقل طويل جداً.\nالرجاء جعل هذا الإدخال أقصر من $1 {{PLURAL:$1|حرف|حروف}}.",
 	"mwe-upwiz-error-too-short": "هذه المدخلة أقصر مما ينبغي.\nاجعل هذه المدخلة أطول من $1 {{PLURAL:$1|حرفا|أحرف}}.",
 	"mwe-upwiz-error-bad-chars": "يحتوي هذا الحقل على رموز غير مسموح بها.\nالرجاء عدم استخدام ومعرفات الويكي أو HTML هنا.",
-	"mwe-upwiz-error-date": "الرجاء إدخال تاريخ صالح بالتنسيق  YYYY-MM-DD  ، أو اختيار تاريخ من التقويم المنبثق.",
 	"mwe-upwiz-error-title-blacklisted": "يحتوي هذا الكتاب على بعض النص غير المرغوب فيها. الرجاء إعادة النظر فيه",
 	"mwe-upwiz-error-title-badchars": "يحتوي هذا الكتاب على بعض النص غير المرغوب فيها. الرجاء إعادة النظر فيه",
 	"mwe-upwiz-error-title-senselessimagename": "الرجاء جعل هذا العنوان أكثر وضوحا.",
@@ -325,6 +325,7 @@
 	"mwe-upwiz-errordialog-ok": "موافق",
 	"mwe-upwiz-error-nosuchcampaign": "ما من حملة باسم \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "\"$1\" حملة لم تشغل.",
+	"mwe-upwiz-calendar-date": "اختيار تاريخ من التقويم",
 	"uploadcampaign-legend": "إعداد حملة التحميل",
 	"uploadcampaign-text": "أنت تعدل من حملة معالج تحميل.",
 	"mw-coolcats-confirm-new-title": "تأكيد تصنيف جديد",
