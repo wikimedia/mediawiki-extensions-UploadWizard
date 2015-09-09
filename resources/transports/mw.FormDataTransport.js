@@ -105,9 +105,7 @@
 		// wizard.
 		formData.append( 'ignorewarnings', true );
 
-		if ( offset ) {
-			formData.append( 'offset', offset );
-		}
+		formData.append( 'offset', offset || 0 );
 
 		return formData;
 	};
