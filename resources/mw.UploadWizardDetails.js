@@ -1658,7 +1658,8 @@
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
 				} else if ( warnings.duplicate ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
-				} else if ( warnings['duplicate-archive'] ) {
+				} else if ( warnings['duplicate-archive'] !== undefined ) {
+					// warnings['duplicate-archive'] may be '' (empty string) for revdeleted files
 					if ( this.upload.ignoreWarning['duplicate-archive'] ) {
 						// We already told the interface to ignore this warning, so
 						// let's steamroll over it and re-call this handler.

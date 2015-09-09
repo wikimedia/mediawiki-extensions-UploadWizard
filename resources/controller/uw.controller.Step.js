@@ -246,9 +246,9 @@
 		var errorCount = 0,
 			okCount = 0,
 			stillGoing = 0,
-			selector = null,
 			allOk = false,
-			desiredState = this.finishState;
+			desiredState = this.finishState,
+			$buttons;
 
 		// abort if all uploads have been removed
 		if ( this.uploads.length === 0 ) {
@@ -270,18 +270,23 @@
 
 		this.updateProgressBarCount( okCount );
 
+		$buttons = this.ui.$div.find( '.mwe-upwiz-buttons' );
+		$buttons.show();
+
+		$buttons.find( '.mwe-upwiz-file-next-all-ok' ).hide();
+		$buttons.find( '.mwe-upwiz-file-next-some-failed' ).hide();
+		$buttons.find( '.mwe-upwiz-file-next-all-failed' ).hide();
+
 		if ( okCount === ( this.uploads.length - this.countEmpties() ) ) {
 			allOk = true;
-			selector = '.mwe-upwiz-file-next-all-ok';
+			$buttons.find( '.mwe-upwiz-file-next-all-ok' ).show();
 		} else if ( errorCount === ( this.uploads.length - this.countEmpties() ) ) {
-			selector = '.mwe-upwiz-file-next-all-failed';
+			$buttons.find( '.mwe-upwiz-file-next-all-failed' ).show();
 		} else if ( stillGoing !== 0 ) {
 			return false;
 		} else {
-			selector = '.mwe-upwiz-file-next-some-failed';
+			$buttons.find( '.mwe-upwiz-file-next-some-failed' ).show();
 		}
-
-		this.ui.$div.find( '.mwe-upwiz-buttons' ).show().find( selector ).show();
 
 		return allOk;
 	};

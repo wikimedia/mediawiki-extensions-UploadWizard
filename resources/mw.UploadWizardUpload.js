@@ -245,10 +245,11 @@
 							/*jshint scripturl:true*/
 							.attr( 'href', 'javascript:void(0)' )
 							.text( mw.message( 'mwe-upwiz-override' ).text() )
-							.click( rmErrs );
+							.click( rmErrs.bind( this, warnCode ) );
 						$( '.mwe-upwiz-file-status-line-item', this.ui.visibleFilenameDiv )
 							.first()
-							.append( ' ' );
+							.append( ' ' )
+							.append( $override );
 						break;
 					default:
 						// we have an unknown warning, so let's say what we know
@@ -340,6 +341,8 @@
 			this.state = 'stashed';
 			this.ui.showStashed();
 			$.publishReady( 'thumbnails.' + this.index, 'api' );
+			// check all uploads, if they're complete, show the next button
+			this.wizard.steps.file.showNext();
 		} else {
 			this.setError( 'noimageinfo' );
 		}
