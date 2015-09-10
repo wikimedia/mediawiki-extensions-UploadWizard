@@ -30,7 +30,7 @@
 			new uw.ui.Details()
 				.connect( this, {
 					'start-details': 'startDetails',
-					'finalize-details-after-removal': [ 'emit', 'start-details' ]
+					'finalize-details-after-removal': [ 'emit', 'finalize-details-after-removal' ]
 				} ),
 			config
 		);

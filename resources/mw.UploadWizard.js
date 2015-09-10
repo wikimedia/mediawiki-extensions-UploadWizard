@@ -338,17 +338,18 @@
 		 */
 		removeUpload: function ( upload ) {
 			// remove the div that passed along the trigger
-			var $div = $( upload.ui.div );
+			var $div = $( upload.ui.div ),
+				index;
 
 			$div.unbind(); // everything
 			$div.remove();
 			// and do what we in the wizard need to do after an upload is removed
-			this.uploads = $.grep(
-				this.uploads,
-				function ( u ) {
-					return u !== upload;
-				}
-			);
+			// Remove the upload from the uploads array (modify in-place, as this is shared among various
+			// things that rely on having current information).
+			index = this.uploads.indexOf( upload );
+			if ( index !== -1 ) {
+				this.uploads.splice( index, 1 );
+			}
 
 			this.steps.file.updateFileCounts( this.uploads );
 

@@ -134,9 +134,6 @@
 		if ( this.details && this.details.div ) {
 			this.details.div.remove();
 		}
-		if ( this.thanksDiv ) {
-			this.thanksDiv.remove();
-		}
 		// we signal to the wizard to update itself, which has to delete the
 		// final vestige of this upload
 		this.emit( 'remove-upload' );
