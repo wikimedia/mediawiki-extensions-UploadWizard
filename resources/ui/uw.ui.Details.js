@@ -75,18 +75,18 @@
 		} );
 
 		this.retryButtonSomeFailed = new oo.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-file-retry' ),
+			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
 		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append( this.nextButtonDespiteFailures.$element, this.retryButtonSomeFailed.$element );
 
 		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-file-retry' ),
+			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
-		this.$div.find( '.mwe-upwiz-file-all-failed' ).append( this.retryButtonAllFailed.$element );
+		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append( this.retryButtonAllFailed.$element );
 
 		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
 	}
