@@ -444,12 +444,8 @@ class SpecialUploadWizard extends SpecialPage {
 						'<div class="mwe-upwiz-buttons">' .
 							'<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>' .
 							'<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice"></div>' .
-							'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice">' .
-								$this->msg( "mwe-upwiz-file-some-failed" )->text() .
-							'</div>' .
-							'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice">' .
-								$this->msg( "mwe-upwiz-file-all-failed" )->text() .
-							'</div>' .
+							'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice"></div>' .
+							'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice"></div>' .
 						'</div>' .
 					'</div>' .
 

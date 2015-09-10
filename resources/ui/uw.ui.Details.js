@@ -52,14 +52,6 @@
 			$( '#mwe-upwiz-step-details' )
 		);
 
-		this.$nextSomeFailed = this.$div
-			.find( '.mwe-upwiz-file-next-some-failed' )
-			.hide();
-
-		this.$nextAllFailed = this.$div
-			.find( '.mwe-upwiz-file-next-all-failed' )
-			.hide();
-
 		this.nextButton = new oo.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-details' ).text(),
 			flags: [ 'progressive', 'primary' ]
@@ -79,14 +71,33 @@
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
-		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append( this.nextButtonDespiteFailures.$element, this.retryButtonSomeFailed.$element );
+		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append(
+			new OO.ui.HorizontalLayout( {
+				items: [
+					new OO.ui.LabelWidget( {
+						label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+					} ),
+					this.nextButtonDespiteFailures,
+					this.retryButtonSomeFailed
+				]
+			} ).$element
+		);
 
 		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
-		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append( this.retryButtonAllFailed.$element );
+		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append(
+			new OO.ui.HorizontalLayout( {
+				items: [
+					new OO.ui.LabelWidget( {
+						label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+					} ),
+					this.retryButtonAllFailed
+				]
+			} ).$element
+		);
 
 		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
 	}
