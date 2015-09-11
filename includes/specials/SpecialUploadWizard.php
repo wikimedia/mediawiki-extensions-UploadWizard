@@ -341,8 +341,8 @@ class SpecialUploadWizard extends SpecialPage {
 		if ( array_key_exists( 'fallbackToAltUploadForm', $config )
 			&& array_key_exists( 'altUploadForm', $config )
 			&& $config['altUploadForm'] != ''
-			&& $config[ 'fallbackToAltUploadForm' ] 			) {
-
+			&& $config[ 'fallbackToAltUploadForm' ]
+		) {
 			$linkHtml = '';
 			$altUploadForm = Title::newFromText( $config[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
@@ -356,7 +356,7 @@ class SpecialUploadWizard extends SpecialPage {
 			return
 				Html::rawElement(
 					'div',
-					array( 'id' => 'upload-wizard', 'class' => 'upload-section' ),
+					array(),
 					Html::rawElement(
 						'p',
 						array( 'style' => 'text-align: center' ),
