@@ -1581,10 +1581,10 @@
 		 * @return {jQuery.Promise}
 		 */
 		handleSubmitResult: function ( result, params ) {
-			var wx, warningsKeys, existingFile, existingFileUrl,
+			var wx, warningsKeys, existingFile, existingFileUrl, existingFileExt, ourFileExt,
 				details = this,
 				warnings = null,
-				wasDeleted = false,
+				ignoreTheseWarnings = false,
 				deferred = $.Deferred();
 
 			if ( result && result.upload && result.upload.result === 'Poll' ) {
@@ -1620,16 +1620,27 @@
 			}
 			if ( result && result.upload && result.upload.warnings ) {
 				warnings = result.upload.warnings;
-				existingFile = warnings.exists || warnings['exists-normalized'];
+			}
+			if ( warnings && warnings.exists ) {
+				existingFile = warnings.exists;
+			} else if ( warnings && warnings['exists-normalized'] ) {
+				existingFile = warnings['exists-normalized'];
+				existingFileExt = mw.Title.normalizeExtension( existingFile.split( '.' ).pop() );
+				ourFileExt = mw.Title.normalizeExtension( this.upload.title.getExtension() );
+
+				if ( existingFileExt !== ourFileExt ) {
+					delete warnings['exists-normalized'];
+					ignoreTheseWarnings = true;
+				}
 			}
 			if ( warnings && warnings['was-deleted'] ) {
 				delete warnings['was-deleted'];
-				wasDeleted = true;
-				for ( wx in warnings ) {
-					if ( warnings.hasOwnProperty( wx ) ) {
-						// if there are other warnings, deal with those first
-						wasDeleted = false;
-					}
+				ignoreTheseWarnings = true;
+			}
+			for ( wx in warnings ) {
+				if ( warnings.hasOwnProperty( wx ) ) {
+					// if there are other warnings, deal with those first
+					ignoreTheseWarnings = false;
 				}
 			}
 			if ( result && result.upload && result.upload.imageinfo ) {
@@ -1639,7 +1650,7 @@
 				this.showIndicator( 'uploaded' );
 				this.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
 				return $.Deferred().resolve();
-			} else if ( wasDeleted === true ) {
+			} else if ( ignoreTheseWarnings ) {
 				params.ignorewarnings = 1;
 				return this.upload.api.postWithEditToken( params ).then( function ( result ) {
 					return details.handleSubmitResult( result );
