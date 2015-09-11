@@ -649,14 +649,8 @@
 		},
 
 		showErrorDialog: function ( errorMsg ) {
-			$( '<div></div>' )
-				.html( errorMsg )
-				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					modal: true
-				} );
+			var errorDialog = new mw.ErrorDialog( errorMsg );
+			errorDialog.open();
 		}
 
 	};

@@ -14,6 +14,62 @@
  */
 
 ( function ( mw, uw, $, OO ) {
+	function LicensePreviewDialog( config ) {
+		LicensePreviewDialog.parent.call( this, config );
+	}
+
+	OO.inheritClass( LicensePreviewDialog, OO.ui.Dialog );
+
+	LicensePreviewDialog.prototype.initialize = function () {
+		var dialog = this;
+
+		LicensePreviewDialog.parent.prototype.initialize.call( this );
+
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+		this.$body.append( this.content.$element );
+		this.$spinner = $.createSpinner( { size: 'large', type: 'block' } )
+			.css( { width: 200, padding: 20, float: 'none', margin: '0 auto' } );
+
+		$( 'body' ).on( 'click', function ( e ) {
+			if ( !$.contains( dialog.$body.get( 0 ), e.target ) ) {
+				dialog.close();
+			}
+		} );
+	};
+
+	LicensePreviewDialog.prototype.addCloseButton = function () {
+		var dialog = this,
+			closeButton = new OO.ui.ButtonWidget( {
+				label: OO.ui.msg( 'ooui-dialog-process-dismiss' )
+			} );
+
+		closeButton.on( 'click', function () {
+			dialog.close();
+		} );
+
+		this.content.$element.append( closeButton.$element );
+	};
+
+	LicensePreviewDialog.prototype.getBodyHeight = function () {
+		return this.content.$element.outerHeight( true );
+	};
+
+	LicensePreviewDialog.prototype.setLoading = function ( isLoading ) {
+		if ( isLoading ) {
+			this.content.$element.empty().append( this.$spinner );
+			this.addCloseButton();
+		} else {
+			this.content.$element.empty();
+		}
+
+		this.updateSize();
+	};
+
+	LicensePreviewDialog.prototype.setPreview = function ( html ) {
+		this.content.$element.empty().append( html );
+		this.addCloseButton();
+		this.updateSize();
+	};
 
 	mw.UploadWizardLicenseInput = function ( selector, values, config, count, api ) {
 		this.count = count;
@@ -58,19 +114,10 @@
 			this.setValues( values );
 		}
 
-		// set up preview dialog
-		this.$previewDialog = $( '<div></div> ')
-			.css( 'padding', 10 )
-			.dialog( {
-				autoOpen: false,
-				width: 800,
-				zIndex: 200000,
-				modal: true
-			} );
-
-		this.$spinner = $( '<div></div>' )
-			.addClass( 'mwe-upwiz-status-progress mwe-upwiz-file-indicator' )
-			.css( { width: 200, padding: 20, float: 'none', margin: '0 auto' } );
+		this.windowManager = new OO.ui.WindowManager();
+		$( 'body' ).append( this.windowManager.$element );
+		this.previewDialog = new LicensePreviewDialog();
+		this.windowManager.addWindows( [ this.previewDialog ] );
 	};
 
 	mw.UploadWizardLicenseInput.prototype = {
@@ -487,13 +534,14 @@
 		 * @param {String} wikitext
 		 */
 		showPreview: function ( wikiText ) {
-			this.$previewDialog.html( this.$spinner ).dialog( 'open' );
+			this.previewDialog.setLoading( true );
+			this.windowManager.openWindow( this.previewDialog );
 
 			var input = this;
 
 			function show( html ) {
-				input.$previewDialog.html( html );
-				input.$previewDialog.dialog( 'open' );
+				input.previewDialog.setPreview( html );
+				input.windowManager.openWindow( input.previewDialog );
 			}
 
 			function error( code, result ) {

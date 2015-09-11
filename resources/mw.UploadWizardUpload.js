@@ -579,28 +579,16 @@
 	 * @param maxSize integer - the maximum file size
 	 */
 	mw.UploadWizardUpload.prototype.showMaxSizeWarning = function ( size, maxSize ) {
-		var buttons = [
-			{
-				text: mw.message( 'mwe-upwiz-file-too-large-ok' ).escaped(),
-				click: function () {
-					$( this ).dialog( 'close' );
-				}
-			}
-		];
-		$( '<div></div>' )
-			.msg(
-				'mwe-upwiz-file-too-large-text',
-				mw.units.bytes( maxSize ),
-				mw.units.bytes( size )
-			)
-			.dialog( {
-				width: 500,
-				zIndex: 200000,
-				autoOpen: true,
-				title: mw.message( 'mwe-upwiz-file-too-large' ).escaped(),
-				modal: true,
-				buttons: buttons
-			} );
+		var ed = new mw.ErrorDialog(
+				mw.message(
+					'mwe-upwiz-file-too-large-text',
+					mw.units.bytes( maxSize ),
+					mw.units.bytes( size )
+				).text(),
+				mw.message( 'mwe-upwiz-file-too-large' ).text()
+			);
+
+		ed.open();
 	};
 
 	/**

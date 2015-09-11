@@ -472,7 +472,7 @@
 	};
 
 	mw.UploadWizardUploadInterface.prototype.showFilenameError = function ( $text ) {
-		var msgText;
+		var msgText, dialog;
 
 		if ( $text instanceof jQuery ) {
 			msgText = $text.text();
@@ -481,14 +481,8 @@
 		}
 
 		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: msgText } );
-		$( '<div>' )
-			.html( $text )
-			.dialog({
-				width: 500,
-				zIndex: 200000,
-				autoOpen: true,
-				modal: true
-			});
+		dialog = new mw.ErrorDialog( $text );
+		dialog.open();
 	};
 
 	/**

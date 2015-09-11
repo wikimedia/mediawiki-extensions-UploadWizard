@@ -1019,7 +1019,7 @@
 					'mwe-upwiz-feedback-blacklist-info-prompt',
 					function () {
 						var errorDialog = new mw.ErrorDialog( result.blacklist.blacklistReason );
-						errorDialog.launch();
+						errorDialog.open();
 						return false;
 					}
 				);
