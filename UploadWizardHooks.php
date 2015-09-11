@@ -200,6 +200,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-remove',
 				'mwe-upwiz-remove-upload',
 				'mwe-upwiz-remove-description',
+				'mwe-upwiz-deleted-duplicate-unknown-filename',
 				'mwe-upwiz-show-thumb',
 				'mwe-upwiz-show-thumb-tip',
 				'mwe-upwiz-upload',

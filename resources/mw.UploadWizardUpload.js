@@ -307,17 +307,19 @@
 		}
 
 		$.each( duplicates, function ( i, filename ) {
-			var href,
-				$a = $( '<a/>' ).append( filename );
+			var href, $a;
 
 			try {
 				href = new mw.Title( filename, fileNsId ).getUrl();
-				$a.attr( { href:href, target:'_blank' } );
+				$a = $( '<a>' )
+					.text( filename )
+					.attr( { href: href, target: '_blank' } );
 			} catch ( e ) {
-				$a.click( function () { window.alert('could not parse filename=' + filename ); } );
-				$a.attr( 'href', '#' );
+				// For example, if the file was revdeleted
+				$a = $( '<em>' )
+					.text( mw.msg( 'mwe-upwiz-deleted-duplicate-unknown-filename' ) );
 			}
-			$ul.append( $( '<li></li>' ).append( $a ) );
+			$ul.append( $( '<li>' ).append( $a ) );
 		} );
 
 		return [ duplicates.length, dialogFn ];
