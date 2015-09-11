@@ -637,6 +637,11 @@ class UploadWizardHooks {
 				'oojs',
 				'uw.ui.Step',
 			),
+
+			'messages' => array(
+				'mwe-upwiz-file-some-failed',
+				'mwe-upwiz-file-all-failed',
+			),
 		),
 
 		'uw.ui.Thanks' => array(
