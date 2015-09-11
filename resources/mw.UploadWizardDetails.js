@@ -1647,7 +1647,7 @@
 					return $.Deferred().reject( code, info );
 				} );
 			} else if ( result && result.upload.warnings ) {
-				if ( warnings.thumb ) {
+				if ( warnings.thumb || warnings['thumb-name'] ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text(), 'error-title-thumbnail' );
 				} else if ( warnings.badfilename ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text(), 'title-badchars' );
