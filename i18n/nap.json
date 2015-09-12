@@ -164,6 +164,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Stu file è stato gia carrecato int'a stu wiki, ma successivamente fosse stato cancellato.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Vulite carrecà 'o stesso?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nun putimmo carrecà o capì 'o filename \"$1\" pe' mutive scanusciute.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Filename scanusciuto",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-cancel": "Canciella",
 	"mwe-upwiz-fileexists-replace": "Nu file c' 'o titolo \"$1\" esiste già. Scagnatevello stu titolo a na cosa ca fosse unica.",

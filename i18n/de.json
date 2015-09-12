@@ -178,6 +178,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Diese Datei wurde bereits zu einem früheren Zeitpunkt auf diesem Wiki hochgeladen, danach allerdings gelöscht.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Dennoch hochladen?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Der Dateiname „$1“ konnte aus unbekannten Gründen nicht verarbeitet werden.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Unbekannter Dateiname",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-cancel": "Abbrechen",
 	"mwe-upwiz-fileexists-replace": "Eine Datei namens „$1“ ist bereits vorhanden. Bitte zu einem bislang nicht vergebenen Namen ändern.",

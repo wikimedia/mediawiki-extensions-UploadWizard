@@ -161,6 +161,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Seda faili on varem siia vikisse üles laaditud, aga see kustutati.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Laadi üles sellegipoolest?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Teadmata põhjusel ei õnnestu failinime \"$1\" lugemine.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Tundmatu failinimi",
 	"mwe-upwiz-ok": "Sobib",
 	"mwe-upwiz-cancel": "Loobu",
 	"mwe-upwiz-fileexists-replace": "Fail nimega \"$1\" on juba olemas. Palun vali varem kasutamata failinimi.",

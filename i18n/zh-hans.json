@@ -189,6 +189,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "此文件曾上传至此wiki，但随后被删除。",
 	"mwe-upwiz-upload-error-stashed-anyway": "继续上传？",
 	"mwe-upwiz-upload-error-unknown-filename-error": "因为未知原因，我们不能读取或识别文件名“$1”。",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "未知文件名",
 	"mwe-upwiz-ok": "确定",
 	"mwe-upwiz-cancel": "取消",
 	"mwe-upwiz-fileexists-replace": "标题为“$1”的文件已经存在。请更换为独特的文件名。",
