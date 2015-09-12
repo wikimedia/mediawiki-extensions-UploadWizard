@@ -16,8 +16,6 @@
  */
 
 ( function ( mw, uw ) {
-	var DP;
-
 	/**
 	 * @class mw.uw.model.Description
 	 * @extends mw.uw.model.Model
@@ -26,7 +24,7 @@
 	 * @param {string} [text='']
 	 * @param {Object} [languageTemplateFixups]
 	 */
-	function Description(
+	uw.model.Description = function UWModelDescription(
 		language,
 		text,
 		languageTemplateFixups
@@ -49,15 +47,13 @@
 		 * @property {Object} languageTemplateFixups
 		 */
 		this.languageTemplateFixups = languageTemplateFixups;
-	}
-
-	DP = Description.prototype;
+	};
 
 	/**
 	 * Gets the wikitext value of the description.
 	 * @returns {string}
 	 */
-	DP.getValue = function () {
+	uw.model.Description.prototype.getValue = function () {
 		// Assume that form validation has already told the user to
 		// enter a description if this field is required. Else this
 		// means "remove this description".
@@ -72,7 +68,7 @@
 	 * Sets the language.
 	 * @param {string} language
 	 */
-	DP.setLanguage = function ( language ) {
+	uw.model.Description.prototype.setLanguage = function ( language ) {
 		var fix;
 
 		if ( this.languageTemplateFixups ) {
@@ -90,9 +86,8 @@
 	 * Sets the text.
 	 * @param {string} text
 	 */
-	DP.setText = function ( text ) {
+	uw.model.Description.prototype.setText = function ( text ) {
 		this.text = text;
 	};
 
-	uw.model.Description = Description;
 }( mediaWiki, mediaWiki.uploadWizard ) );

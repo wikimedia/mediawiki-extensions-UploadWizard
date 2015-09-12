@@ -1,7 +1,5 @@
 ( function ( mw, uw, $, OO ) {
 
-	var UIP;
-
 	/**
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
@@ -10,7 +8,7 @@
 	 * @param upload
 	 * @param div to insert file interface
 	 */
-	function UploadWizardUploadInterface( upload, filesDiv ) {
+	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload, filesDiv ) {
 		var $preview,
 			ui = this;
 
@@ -126,17 +124,15 @@
 			mw.UploadWizard.config.thumbnailMaxHeight,
 			true
 		);
-	}
+	};
 
-	OO.mixinClass( UploadWizardUploadInterface, OO.EventEmitter );
-
-	UIP = UploadWizardUploadInterface.prototype;
+	OO.mixinClass( mw.UploadWizardUploadInterface, OO.EventEmitter );
 
 	/**
 	 * Manually fill the file input with a file.
 	 * @param {File} providedFile
 	 */
-	UIP.fill = function ( providedFile ) {
+	mw.UploadWizardUploadInterface.prototype.fill = function ( providedFile ) {
 		if ( providedFile ) {
 			this.providedFile = providedFile;
 
@@ -148,7 +144,7 @@
 	/**
 	 * Things to do to this interface once we start uploading
 	 */
-	UIP.start = function () {
+	mw.UploadWizardUploadInterface.prototype.start = function () {
 		// remove hovering
 		$( this.div )
 			.unbind( 'mouseenter mouseover mouseleave mouseout' );
@@ -170,7 +166,7 @@
 	 * change the graphic indicator at the far end of the row for this file
 	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */
-	UIP.showIndicator = function ( statusClass ) {
+	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( statusClass ) {
 		this.clearIndicator();
 		// add the desired class and make it visible, if it wasn't already.
 		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass ).css( 'visibility', 'visible' );
@@ -179,7 +175,7 @@
 	/**
 	 * Reset the graphic indicator
 	 */
-	UIP.clearIndicator = function () {
+	mw.UploadWizardUploadInterface.prototype.clearIndicator = function () {
 		var ui = this;
 		$.each( this.$indicator.attr( 'class' ).split( /\s+/ ), function ( i, className ) {
 			if ( className.match( /^mwe-upwiz-status/ ) ) {
@@ -192,7 +188,7 @@
 	 * Set the preview image on the file page for this upload.
 	 * @param HTMLImageElement
 	 */
-	UIP.setPreview = function ( image ) {
+	mw.UploadWizardUploadInterface.prototype.setPreview = function ( image ) {
 		var $preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
 		if ( image === null ) {
 			$preview.addClass( 'mwe-upwiz-file-preview-broken' );
@@ -207,7 +203,7 @@
 	 * @param String msgKey: key for the message
 	 * @param Array args: array of values, in case any need to be fed to the image.
 	 */
-	UIP.setStatus = function ( msgKey, args ) {
+	mw.UploadWizardUploadInterface.prototype.setStatus = function ( msgKey, args ) {
 		if ( args === undefined ) {
 			args = [];
 		}
@@ -220,14 +216,14 @@
 	 * Set status line directly with a string
 	 * @param {String}
 	 */
-	UIP.setStatusString = function ( s ) {
+	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( s ) {
 		$( this.div ).find( '.mwe-upwiz-file-status' ).html( s ).show();
 	};
 
 	/**
 	 * Clear the status line for this upload (hide it, in case there are paddings and such which offset other things.)
 	 */
-	UIP.clearStatus = function () {
+	mw.UploadWizardUploadInterface.prototype.clearStatus = function () {
 		$( this.div ).find( '.mwe-upwiz-file-status' ).hide();
 	};
 
@@ -235,7 +231,7 @@
 	 * Put the visual state of an individual upload into "progress"
 	 * @param fraction	The fraction of progress. Float between 0 and 1
 	 */
-	UIP.showTransportProgress = function () {
+	mw.UploadWizardUploadInterface.prototype.showTransportProgress = function () {
 		// if fraction available, update individual progress bar / estimates, etc.
 		this.showIndicator( 'progress' );
 		this.setStatus( 'mwe-upwiz-uploading' );
@@ -244,7 +240,7 @@
 	/**
 	 * Show that upload is transported
 	 */
-	UIP.showStashed = function () {
+	mw.UploadWizardUploadInterface.prototype.showStashed = function () {
 		this.$fileInputCtrl.detach();
 
 		if ( this.$showThumbCtrl ) {
@@ -260,7 +256,7 @@
 	 * @param String code: error code from API
 	 * @param {String|Object} info: extra info
 	 */
-	UIP.showError = function ( code, info ) {
+	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info ) {
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
 		var msgKey, args;
@@ -282,7 +278,7 @@
 		this.setStatus( msgKey, args );
 	};
 
-	UIP.initFileInputCtrl = function () {
+	mw.UploadWizardUploadInterface.prototype.initFileInputCtrl = function () {
 		var ui = this;
 
 		this.$fileInputCtrl.change( function () {
@@ -295,7 +291,7 @@
 	/**
 	 * Reset file input to have no value.
 	 */
-	UIP.resetFileInput = function () {
+	mw.UploadWizardUploadInterface.prototype.resetFileInput = function () {
 		this.$fileInputCtrl.get( 0 ).value = '';
 	};
 
@@ -303,7 +299,7 @@
 	 * Get a list of the files from this file input, defaulting to the value from the input form
 	 * @return {Array} of File objects
 	 */
-	UIP.getFiles = function () {
+	mw.UploadWizardUploadInterface.prototype.getFiles = function () {
 		var files = [];
 		if ( mw.fileApi.isAvailable() ) {
 			if ( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
@@ -322,7 +318,7 @@
 	 * Get just the filename.
 	 * @return {String}
 	 */
-	UIP.getFilename = function () {
+	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
 		if ( this.providedFile && !this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
 			if ( this.providedFile.fileName ) {
 				return this.providedFile.fileName;
@@ -349,7 +345,7 @@
 	 * @param {File} file
 	 * @param {boolean} fromURL
 	 */
-	UIP.fileChangedOk = function ( imageinfo, file, fromURL ) {
+	mw.UploadWizardUploadInterface.prototype.fileChangedOk = function ( imageinfo, file, fromURL ) {
 		var statusItems = [];
 
 		this.updateFilename();
@@ -370,7 +366,7 @@
 	/**
 	 * Show a link that will show the thumbnail preview.
 	 */
-	UIP.makeShowThumbCtrl = function () {
+	mw.UploadWizardUploadInterface.prototype.makeShowThumbCtrl = function () {
 		var ui = this;
 
 		// add a control for showing the preview if the user needs it
@@ -384,7 +380,7 @@
 			.append( '<br>' ).append( this.$showThumbCtrl );
 	};
 
-	UIP.fileChangedError = function ( code, info ) {
+	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {
 		var filename = this.getFilename(),
 
 			// ok we now have a fileInputCtrl with a "bad" file in it
@@ -413,11 +409,11 @@
 		}
 	};
 
-	UIP.showUnparseableFilenameError = function ( filename ) {
+	mw.UploadWizardUploadInterface.prototype.showUnparseableFilenameError = function ( filename ) {
 		this.showFilenameError( mw.message( 'mwe-upwiz-unparseable-filename', filename ).escaped() );
 	};
 
-	UIP.showBadExtensionError = function ( filename, extension ) {
+	mw.UploadWizardUploadInterface.prototype.showBadExtensionError = function ( filename, extension ) {
 		var $errorMessage;
 		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
 		if ( mw.UploadWizard.config.enableFirefogg &&
@@ -433,15 +429,15 @@
 		this.showFilenameError( $errorMessage );
 	};
 
-	UIP.showMissingExtensionError = function () {
+	mw.UploadWizardUploadInterface.prototype.showMissingExtensionError = function () {
 		this.showExtensionError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) );
 	};
 
-	UIP.showUnknownFilenameError = function ( filename ) {
+	mw.UploadWizardUploadInterface.prototype.showUnknownFilenameError = function ( filename ) {
 		this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-unknown-filename-error', filename ) );
 	};
 
-	UIP.showExtensionError = function ( $errorMessage ) {
+	mw.UploadWizardUploadInterface.prototype.showExtensionError = function ( $errorMessage ) {
 		this.showFilenameError(
 			$( '<div></div>' ).append(
 				$errorMessage,
@@ -453,11 +449,11 @@
 		);
 	};
 
-	UIP.showDuplicateError = function ( filename, basename ) {
+	mw.UploadWizardUploadInterface.prototype.showDuplicateError = function ( filename, basename ) {
 		this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-duplicate-filename-error', basename ) );
 	};
 
-	UIP.showFilenameError = function ( $text ) {
+	mw.UploadWizardUploadInterface.prototype.showFilenameError = function ( $text ) {
 		var msgText;
 
 		if ( $text instanceof jQuery ) {
@@ -487,7 +483,7 @@
 	 * @param positionTracking string, optional, whether to do position-polling ('poll')
 	 *	 on the selected element or whether to listen to window-resize events ('resize')
 	 */
-	UIP.moveFileInputToCover = function ( selector, positionTracking ) {
+	mw.UploadWizardUploadInterface.prototype.moveFileInputToCover = function ( selector, positionTracking ) {
 		var iv, to, onResize, $win,
 			ui = this;
 
@@ -539,14 +535,14 @@
 		update();
 	};
 
-	UIP.cancelPositionTracking = function () {
+	mw.UploadWizardUploadInterface.prototype.cancelPositionTracking = function () {
 		if ( $.isFunction( this.stopTracking ) ) {
 			this.stopTracking();
 			this.stopTracking = null;
 		}
 	};
 
-	UIP.hideFileInput = function () {
+	mw.UploadWizardUploadInterface.prototype.hideFileInput = function () {
 		this.cancelPositionTracking();
 		// Hide file input so it does not interfere with other interface elements
 		this.$fileInputCtrl.hide();
@@ -560,7 +556,7 @@
 	 *   2 ) update the underlying "title" which we are targeting to add to mediawiki.
 	 *	  TODO silently fix to have unique filename? unnecessary at this point...
 	 */
-	UIP.updateFilename = function () {
+	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
 		var $div,
 			ui = this,
 			path = this.getFilename();
@@ -622,7 +618,7 @@
 	 * Remove any complaints we had about errors and such
 	 * XXX this should be changed to something Theme compatible
 	 */
-	UIP.clearErrors = function () {
+	mw.UploadWizardUploadInterface.prototype.clearErrors = function () {
 		$( this.div ).removeClass( 'mwe-upwiz-upload-error ');
 		$( this.errorDiv ).hide().empty();
 	};
@@ -633,7 +629,7 @@
 	* @param setDisabled disable in case there already is an image in the referring list
 	* @return {jQuery} div containing a checkbox, label, and optional notice
 	*/
-	UIP.createImagePickerField = function ( index, setDisabled ) {
+	mw.UploadWizardUploadInterface.prototype.createImagePickerField = function ( index, setDisabled ) {
 		var $fieldContainer = $( '<div>' ).attr( {
 			'class': 'mwe-upwiz-objref-pick-image'
 		} ),
@@ -676,7 +672,7 @@
 		return $fieldContainer;
 	};
 
-	UIP.getExistingImageNotice = function () {
+	mw.UploadWizardUploadInterface.prototype.getExistingImageNotice = function () {
 		if ( mw.UploadWizard.config && mw.UploadWizard.config.display && mw.UploadWizard.config.display.noticeExistingImage ) {
 			return mw.UploadWizard.config.display.noticeExistingImage;
 		} else {
@@ -684,14 +680,12 @@
 		}
 	};
 
-	UIP.getPickImageLabel = function () {
+	mw.UploadWizardUploadInterface.prototype.getPickImageLabel = function () {
 		if ( mw.UploadWizard.config && mw.UploadWizard.config.display && mw.UploadWizard.config.display.labelPickImage ) {
 			return mw.UploadWizard.config.display.labelPickImage;
 		} else {
 			return mw.message( 'mwe-upwiz-objref-pick-image' ).text();
 		}
 	};
-
-	mw.UploadWizardUploadInterface = UploadWizardUploadInterface;
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

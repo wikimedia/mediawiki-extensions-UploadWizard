@@ -15,17 +15,15 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, OO ) {
-	var DP;
-
+( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Deed step.
 	 * @class uw.ui.Deed
 	 * @extends uw.ui.Step
 	 * @constructor
 	 */
-	function Deed() {
-		ui.Step.call(
+	uw.ui.Deed = function UWUIDeed() {
+		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-deeds' ),
 			$( '#mwe-upwiz-step-deeds' )
@@ -34,11 +32,7 @@
 		this.addNextButton();
 
 		this.nextButton.$element.hide();
-	}
+	};
 
-	OO.inheritClass( Deed, ui.Step );
-
-	DP = Deed.prototype;
-
-	ui.Deed = Deed;
-}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
+	OO.inheritClass( uw.ui.Deed, uw.ui.Step );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

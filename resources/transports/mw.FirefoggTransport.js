@@ -1,6 +1,4 @@
 ( function ( mw, $ ) {
-	var FTP;
-
 	/**
 	 * Represents a "transport" for files to upload; in this case using Firefogg.
 	 * @class mw.FirefoggTransport
@@ -15,13 +13,11 @@
 		this.fogg = fogg;
 	};
 
-	FTP = mw.FirefoggTransport.prototype;
-
 	/**
 	 * Do an upload
 	 * @return {jQuery.Promise}
 	 */
-	FTP.upload = function () {
+	mw.FirefoggTransport.prototype.upload = function () {
 		var fileToUpload = this.fileToUpload,
 			deferred = $.Deferred();
 
@@ -58,7 +54,7 @@
 	/**
 	 * Check if the asset is in a format that can be upload without encoding.
 	 */
-	FTP.isUploadFormat = function () {
+	mw.FirefoggTransport.prototype.isUploadFormat = function () {
 		// Check if the server supports webm uploads:
 		var wembExt = ( $.inArray( 'webm', mw.UploadWizard.config.fileExtensions ) !== -1 );
 		// Determine passthrough mode
@@ -75,7 +71,7 @@
 	};
 
 	// TODO these boolean functions could be compressed and/or simplified, it looks like
-	FTP.isSourceAudio = function () {
+	mw.FirefoggTransport.prototype.isSourceAudio = function () {
 		var info = this.getSourceFileInfo();
 		// never transcode images
 		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
@@ -93,7 +89,7 @@
 		return info.contentType.indexOf( 'audio/' ) !== -1;
 	};
 
-	FTP.isSourceVideo = function () {
+	mw.FirefoggTransport.prototype.isSourceVideo = function () {
 		var info = this.getSourceFileInfo();
 		// never transcode images
 		if ( info.contentType.indexOf( 'image/' ) !== -1 ) {
@@ -107,21 +103,21 @@
 		return info.contentType.indexOf( 'video/' ) !== -1;
 	};
 
-	FTP.isOggFormat = function () {
+	mw.FirefoggTransport.prototype.isOggFormat = function () {
 		var contentType = this.getSourceFileInfo().contentType;
 		return contentType.indexOf( 'video/ogg' ) !== -1 ||
 			contentType.indexOf( 'application/ogg' ) !== -1 ||
 			contentType.indexOf( 'audio/ogg') !== -1;
 	};
 
-	FTP.isWebMFormat = function () {
+	mw.FirefoggTransport.prototype.isWebMFormat = function () {
 		return ( this.getSourceFileInfo().contentType.indexOf('webm') !== -1 );
 	};
 
 	/**
 	 * Get the source file info for the current file selected into this.fogg
 	 */
-	FTP.getSourceFileInfo = function () {
+	mw.FirefoggTransport.prototype.getSourceFileInfo = function () {
 		if ( !this.fogg.sourceInfo ) {
 			mw.log.warn( 'No firefogg source info is available' );
 			return false;
@@ -136,7 +132,7 @@
 	};
 
 	// Get the filename
-	FTP.getFileName = function () {
+	mw.FirefoggTransport.prototype.getFileName = function () {
 		// If file is in a supported format don't change extension
 		if ( this.isUploadFormat() ) {
 			return this.fogg.sourceFilename;
@@ -151,7 +147,7 @@
 		}
 	};
 
-	FTP.getEncodeExt = function () {
+	mw.FirefoggTransport.prototype.getEncodeExt = function () {
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
 		if ( encodeSettings.videoCodec && encodeSettings.videoCodec === 'vp8' ) {
 			return 'webm';
@@ -163,7 +159,7 @@
 	/**
 	 * Get the encode settings from configuration and the current selected video type
 	 */
-	FTP.getEncodeSettings = function () {
+	mw.FirefoggTransport.prototype.getEncodeSettings = function () {
 		if ( this.isUploadFormat() ) {
 			return { passthrough:true };
 		}

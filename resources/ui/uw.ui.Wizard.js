@@ -15,17 +15,15 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, OO ) {
-	var UWIP;
-
+( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard.
-	 * @class mw.UploadWizardInterface
+	 * @class mw.uw.ui.Wizard
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {mw.UploadWizard} wizard
 	 */
-	function UploadWizardInterface( wizard ) {
+	uw.ui.Wizard = function UWUIWizard( wizard ) {
 		OO.EventEmitter.call( this );
 
 		this.wizard = wizard;
@@ -33,16 +31,14 @@
 		this.initHeader( mw.UploadWizard.config );
 
 		this.initButtons();
-	}
+	};
 
-	OO.mixinClass( UploadWizardInterface, OO.EventEmitter );
-
-	UWIP = UploadWizardInterface.prototype;
+	OO.mixinClass( uw.ui.Wizard, OO.EventEmitter );
 
 	/**
 	 * Initializes the static stuff above the wizard.
 	 */
-	UWIP.initHeader = function ( config ) {
+	uw.ui.Wizard.prototype.initHeader = function ( config ) {
 		// feedback request
 		if ( typeof config.feedbackPage === 'string' && config.feedbackPage.length > 0 ) {
 			this.initFeedback(
@@ -67,7 +63,7 @@
 	 * @param {string} feedbackPage URL where we send the feedback.
 	 * @param {string} bugList URL where a list of known bugs can be found.
 	 */
-	UWIP.initFeedback = function ( feedbackPage, bugList ) {
+	uw.ui.Wizard.prototype.initFeedback = function ( feedbackPage, bugList ) {
 		var ui = this;
 
 		this.feedback = new mw.Feedback( {
@@ -98,7 +94,7 @@
 	 * Initializes a link to the alternate upload form, if any.
 	 * @param {Object|string} configAltUploadForm A link or map of languages to links, pointing at an alternate form.
 	 */
-	UWIP.initAltUploadForm = function ( configAltUploadForm ) {
+	uw.ui.Wizard.prototype.initAltUploadForm = function ( configAltUploadForm ) {
 		var altUploadForm, userLanguage, title, $altLink;
 
 		if ( typeof configAltUploadForm === 'object' ) {
@@ -132,7 +128,7 @@
 	/**
 	 * Initializes the arrow steps above the wizard.
 	 */
-	UWIP.initArrowSteps = function () {
+	uw.ui.Wizard.prototype.initArrowSteps = function () {
 		$( '#mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
 			.arrowSteps()
@@ -142,12 +138,11 @@
 	/**
 	 * Initialize all of the buttons in the interface.
 	 */
-	UWIP.initButtons = function () {
+	uw.ui.Wizard.prototype.initButtons = function () {
 		// make all stepdiv proceed buttons into jquery buttons
 		$( '.mwe-upwiz-stepdiv .mwe-upwiz-buttons button' )
 			.button()
 			.css( { 'margin-left': '1em' } );
 	};
 
-	ui.Wizard = UploadWizardInterface;
-}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

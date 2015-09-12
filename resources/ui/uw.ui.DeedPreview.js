@@ -15,9 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( $, ui ) {
-	var DPP;
-
+( function ( $, uw ) {
 	/**
 	 * Represents the UI for a thumbnail in the Deed step.
 	 * @class uw.ui.DeedPreview
@@ -25,7 +23,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 * @param {Object} config The UW config object.
 	 */
-	function DeedPreview( upload, config ) {
+	uw.ui.DeedPreview = function UWUIDeedPreview( upload, config ) {
 		this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 		upload.setThumbnail(
 			this.$thumbnailDiv,
@@ -34,15 +32,12 @@
 			true
 		);
 		$( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
-	}
+	};
 
-	DPP = DeedPreview.prototype;
-
-	DPP.remove = function () {
+	uw.ui.DeedPreview.prototype.remove = function () {
 		if ( this.$thumbnailDiv ) {
 			this.$thumbnailDiv.remove();
 		}
 	};
 
-	ui.DeedPreview = DeedPreview;
-}( jQuery, mediaWiki.uploadWizard.ui ) );
+}( jQuery, mediaWiki.uploadWizard ) );

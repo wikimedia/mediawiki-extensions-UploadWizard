@@ -15,16 +15,14 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, OO ) {
-	var DP;
-
+( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Details step.
 	 * @class uw.ui.Details
 	 * @extends uw.ui.Step
 	 * @constructor
 	 */
-	function Details() {
+	uw.ui.Details = function UWUIDetails() {
 		var details = this;
 
 		function startDetails() {
@@ -46,7 +44,7 @@
 			details.emit( 'start-details' );
 		}
 
-		ui.Step.call(
+		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-details' ),
 			$( '#mwe-upwiz-step-details' )
@@ -100,16 +98,14 @@
 		);
 
 		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
-	}
+	};
 
-	OO.inheritClass( Details, ui.Step );
-
-	DP = Details.prototype;
+	OO.inheritClass( uw.ui.Details, uw.ui.Step );
 
 	/**
 	 * Empty out all upload information.
 	 */
-	DP.empty = function () {
+	uw.ui.Details.prototype.empty = function () {
 		// reset buttons on the details page
 		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).hide();
 		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).hide();
@@ -119,7 +115,7 @@
 	/**
 	 * Hide buttons for moving to the next step.
 	 */
-	DP.hideEndButtons = function () {
+	uw.ui.Details.prototype.hideEndButtons = function () {
 		this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
 			.hide();
@@ -128,7 +124,7 @@
 	/**
 	 * Disable edits to the details.
 	 */
-	DP.disableEdits = function () {
+	uw.ui.Details.prototype.disableEdits = function () {
 		this.$div
 			.find( '.mwe-upwiz-data' )
 			.morphCrossfade( '.mwe-upwiz-submitting' );
@@ -137,7 +133,7 @@
 	/**
 	 * Hide validation errors.
 	 */
-	DP.hideErrors = function () {
+	uw.ui.Details.prototype.hideErrors = function () {
 		this.$div
 			.find( 'label.mwe-error' )
 			.hide().empty();
@@ -155,7 +151,7 @@
 	 * outside of that library. So we are going to just look for any visible inputs in an error state.
 	 * This method also opens up "more info" if the form has errors.
 	 */
-	DP.showErrors = function () {
+	uw.ui.Details.prototype.showErrors = function () {
 		var $errorElements = this.$div
 				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' ),
 			errorCount = $errorElements.length;
@@ -179,5 +175,4 @@
 		}
 	};
 
-	ui.Details = Details;
-}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

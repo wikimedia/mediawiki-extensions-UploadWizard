@@ -16,14 +16,12 @@
  */
 
 ( function ( mw, uw, $, OO ) {
-	var DP;
-
 	/**
 	 * Deed step controller.
 	 * @param {mw.Api} api
 	 * @param {Object} config Only the licensing section of the UploadWizard config.
 	 */
-	function Deed( api, config ) {
+	uw.controller.Deed = function UWControllerDeed( api, config ) {
 		this.api = api;
 
 		uw.controller.Step.call(
@@ -33,13 +31,11 @@
 		);
 
 		this.stepName = 'deeds';
-	}
+	};
 
-	OO.inheritClass( Deed, uw.controller.Step );
+	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
 
-	DP = Deed.prototype;
-
-	DP.moveFrom = function () {
+	uw.controller.Deed.prototype.moveFrom = function () {
 		var valid = true;
 
 		if ( this.deedChooser ) {
@@ -56,7 +52,7 @@
 	/**
 	 * Move to this step.
 	 */
-	DP.moveTo = function ( uploads ) {
+	uw.controller.Deed.prototype.moveTo = function ( uploads ) {
 		var customDeed, deeds,
 			showDeed = false,
 			step = this;
@@ -115,7 +111,7 @@
 	 * individual files on the details step.
 	 * @private
 	 */
-	DP.shouldShowIndividualDeed = function ( config ) {
+	uw.controller.Deed.prototype.shouldShowIndividualDeed = function ( config ) {
 		var ownWork;
 
 		if ( config.licensing.ownWorkDefault === 'choice' ) {
@@ -131,11 +127,10 @@
 	/**
 	 * Empty out all upload information.
 	 */
-	DP.empty = function () {
+	uw.controller.Deed.prototype.empty = function () {
 		if ( this.deedChooser !== undefined ) {
 			this.deedChooser.remove();
 		}
 	};
 
-	uw.controller.Deed = Deed;
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

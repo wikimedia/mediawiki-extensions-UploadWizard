@@ -16,7 +16,6 @@
  */
 
 ( function ( uw, $, OO ) {
-	var UP;
 
 	/**
 	 * Upload step controller.
@@ -25,7 +24,7 @@
 	 * @constructor
 	 * @param {Object} config UploadWizard config object.
 	 */
-	function Upload( config ) {
+	uw.controller.Upload = function UWControllerUpload( config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Upload( config )
@@ -38,16 +37,14 @@
 
 		this.stepName = 'file';
 		this.finishState = 'stashed';
-	}
+	};
 
-	OO.inheritClass( Upload, uw.controller.Step );
-
-	UP = Upload.prototype;
+	OO.inheritClass( uw.controller.Upload, uw.controller.Step );
 
 	/**
 	 * Updates the upload step data when a file is added or removed.
 	 */
-	UP.updateFileCounts = function ( uploads ) {
+	uw.controller.Upload.prototype.updateFileCounts = function ( uploads ) {
 		var fewerThanMax, haveUploads,
 			max = this.config.maxUploads;
 
@@ -69,15 +66,15 @@
 	 * since they went over the max files limit.
 	 * @param filesUploaded integer - the number of files that have been attempted to upload
 	 */
-	UP.showTooManyFilesWarning = function ( filesUploaded ) {
+	uw.controller.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
 		this.ui.showTooManyFilesWarning( filesUploaded );
 	};
 
-	UP.empty = function () {
+	uw.controller.Upload.prototype.empty = function () {
 		this.ui.empty();
 	};
 
-	UP.moveTo = function () {
+	uw.controller.Upload.prototype.moveTo = function () {
 		this.updateFileCounts( [] );
 		uw.controller.Step.prototype.moveTo.call( this );
 		this.progressBar = undefined;
@@ -86,7 +83,7 @@
 	/**
 	 * Starts the upload progress bar.
 	 */
-	UP.startProgressBar = function () {
+	uw.controller.Upload.prototype.startProgressBar = function () {
 		$( '#mwe-upwiz-progress' ).show();
 		this.progressBar = new mw.GroupProgressBar( '#mwe-upwiz-progress',
 			mw.message( 'mwe-upwiz-uploading' ).escaped(),
@@ -101,7 +98,7 @@
 	/**
 	 * Starts progress bar if there's not an existing one.
 	 */
-	UP.maybeStartProgressBar = function () {
+	uw.controller.Upload.prototype.maybeStartProgressBar = function () {
 		if ( this.progressBarEmptyOrFinished() ) {
 			this.startProgressBar();
 		}
@@ -110,27 +107,27 @@
 	/**
 	 * Check if there is a vacancy for a new progress bar.
 	 */
-	UP.progressBarEmptyOrFinished = function () {
+	uw.controller.Upload.prototype.progressBarEmptyOrFinished = function () {
 		return !this.progressBar || this.progressBar.finished === true;
 	};
 
 	/**
 	 * Update success count on the progress bar.
 	 */
-	UP.updateProgressBarCount = function ( okCount ) {
+	uw.controller.Upload.prototype.updateProgressBarCount = function ( okCount ) {
 		if ( this.progressBar ) {
 			this.progressBar.showCount( okCount );
 		}
 	};
 
-	UP.canTransition = function ( upload ) {
+	uw.controller.Upload.prototype.canTransition = function ( upload ) {
 		return (
 			uw.controller.Step.prototype.canTransition.call( this, upload ) &&
 			upload.state === 'new'
 		);
 	};
 
-	UP.transitionOne = function ( upload ) {
+	uw.controller.Upload.prototype.transitionOne = function ( upload ) {
 		var promise = upload.start();
 		this.maybeStartProgressBar();
 		return promise;
@@ -139,7 +136,7 @@
 	/**
 	 * Make sure the window doesn't get closed accidentally during upload.
 	 */
-	UP.transitionAll = function () {
+	uw.controller.Upload.prototype.transitionAll = function () {
 		this.emit( 'prevent-close' );
 		return uw.controller.Step.prototype.transitionAll.call( this );
 	};
@@ -150,7 +147,7 @@
 	 * and kicks off a thread which will take from the queue.
 	 * @return {jQuery.Promise}
 	 */
-	UP.startUploads = function () {
+	uw.controller.Upload.prototype.startUploads = function () {
 		var step = this;
 
 		this.ui.hideEndButtons();
@@ -180,10 +177,9 @@
 		} );
 	};
 
-	UP.retry = function () {
+	uw.controller.Upload.prototype.retry = function () {
 		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 		this.startUploads();
 	};
 
-	uw.controller.Upload = Upload;
 }( mediaWiki.uploadWizard, jQuery, OO ) );
