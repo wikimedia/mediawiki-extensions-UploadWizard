@@ -1,7 +1,7 @@
 // Only turning these jshint options off for ''this file''
 /* jshint camelcase: false, nomen: false */
 /* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
-( function ( mw, $, oo ) {
+( function ( mw, $, OO ) {
 	mw.FlickrChecker = function ( wizard, upload ) {
 		this.wizard = wizard;
 		this.upload = upload;
@@ -9,7 +9,7 @@
 		this.apiUrl = mw.UploadWizard.config.flickrApiUrl;
 		this.apiKey = mw.UploadWizard.config.flickrApiKey;
 
-		this.selectButton = new oo.ui.ButtonWidget( {
+		this.selectButton = new OO.ui.ButtonWidget( {
 			id: 'mwe-upwiz-select-flickr',
 			label: mw.message( 'mwe-upwiz-add-file-0-free' ),
 			flags: [ 'constructive', 'primary' ]

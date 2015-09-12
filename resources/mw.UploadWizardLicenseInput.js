@@ -13,7 +13,7 @@
  * @param {mw.Api} api object; useful for previews
  */
 
-( function ( mw, uw, $, oo ) {
+( function ( mw, uw, $, OO ) {
 
 	mw.UploadWizardLicenseInput = function ( selector, values, config, count, api ) {
 		this.count = count;
@@ -270,7 +270,7 @@
 						'font-family': 'monospace'
 					} ),
 
-				button = new oo.ui.ButtonWidget( {
+				button = new OO.ui.ButtonWidget( {
 					label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
 					flags: [ 'progressive' ]
 				} ).on( 'click', function () {

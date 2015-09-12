@@ -7,7 +7,7 @@
  */
 /* jshint camelcase: false, nomen: false */
 /* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
-( function ( mw, $, oo ) {
+( function ( mw, $, OO ) {
 
 	var UWUP,
 		fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
@@ -31,7 +31,7 @@
 	function UploadWizardUpload( wizard, filesDiv ) {
 		var upload = this;
 
-		oo.EventEmitter.call( this );
+		OO.EventEmitter.call( this );
 
 		this.index = mw.UploadWizardUpload.prototype.count;
 		mw.UploadWizardUpload.prototype.count++;
@@ -72,7 +72,7 @@
 			} );
 	}
 
-	oo.mixinClass( UploadWizardUpload, oo.EventEmitter );
+	OO.mixinClass( UploadWizardUpload, OO.EventEmitter );
 
 	UWUP = UploadWizardUpload.prototype;
 

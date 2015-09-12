@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, oo ) {
+( function ( mw, $, ui, OO ) {
 	var TP;
 
 	/**
@@ -58,12 +58,12 @@
 
 		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
 
-		this.homeButton = new oo.ui.ButtonWidget( {
+		this.homeButton = new OO.ui.ButtonWidget( {
 			label: this.getButtonConfig( 'homeButton', 'label' ) || mw.message( 'mwe-upwiz-home' ).text(),
 			href: this.getButtonConfig( 'homeButton', 'target' ) || mw.config.get( 'wgArticlePath' ).replace( '$1', '' )
 		} );
 
-		this.beginButton = new oo.ui.ButtonWidget( {
+		this.beginButton = new OO.ui.ButtonWidget( {
 			label: this.getButtonConfig( 'beginButton', 'label' ) ||  mw.message( 'mwe-upwiz-upload-another' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} );
@@ -81,14 +81,14 @@
 			this.beginButton.setHref( beginButtonTarget );
 		}
 
-		this.buttonGroup = new oo.ui.HorizontalLayout( {
+		this.buttonGroup = new OO.ui.HorizontalLayout( {
 			items: [ this.homeButton, this.beginButton ]
 		} );
 
 		this.$buttons.append( this.buttonGroup.$element );
 	}
 
-	oo.inheritClass( Thanks, ui.Step );
+	OO.inheritClass( Thanks, ui.Step );
 
 	TP = Thanks.prototype;
 

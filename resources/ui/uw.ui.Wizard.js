@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, oo ) {
+( function ( mw, $, ui, OO ) {
 	var UWIP;
 
 	/**
@@ -26,7 +26,7 @@
 	 * @param {mw.UploadWizard} wizard
 	 */
 	function UploadWizardInterface( wizard ) {
-		oo.EventEmitter.call( this );
+		OO.EventEmitter.call( this );
 
 		this.wizard = wizard;
 
@@ -35,7 +35,7 @@
 		this.initButtons();
 	}
 
-	oo.mixinClass( UploadWizardInterface, oo.EventEmitter );
+	OO.mixinClass( UploadWizardInterface, OO.EventEmitter );
 
 	UWIP = UploadWizardInterface.prototype;
 

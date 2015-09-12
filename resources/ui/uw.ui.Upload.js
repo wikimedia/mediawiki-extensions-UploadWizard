@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, oo ) {
+( function ( mw, $, ui, OO ) {
 	var UP;
 
 	/**
@@ -41,7 +41,7 @@
 		this.$uploadCenterDivide = $( '#mwe-upwiz-upload-ctr-divide' );
 		this.$uploadStepButtons = $( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' );
 
-		this.addFile = new oo.ui.ButtonWidget( {
+		this.addFile = new OO.ui.ButtonWidget( {
 			id: 'mwe-upwiz-add-file',
 			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
 			flags: [ 'constructive', 'primary' ]
@@ -52,7 +52,7 @@
 		this.$addFileContainer.prepend( this.addFile.$element );
 
 		if ( this.isFlickrImportEnabled() ) {
-			this.addFlickrFile = new oo.ui.ButtonWidget( {
+			this.addFlickrFile = new OO.ui.ButtonWidget( {
 				id: 'mwe-upwiz-add-flickr-file',
 				label: mw.message( 'mwe-upwiz-add-file-flickr' ).text(),
 				flags: 'constructive'
@@ -69,7 +69,7 @@
 			this.$flickrSelectListContainer = $( '#mwe-upwiz-flickr-select-list-container' );
 		}
 
-		this.nextStepButtonAllOk = new oo.ui.ButtonWidget( {
+		this.nextStepButtonAllOk = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', function () {
@@ -87,7 +87,7 @@
 			} ).$element
 		);
 
-		this.retryButtonSomeFailed = new oo.ui.ButtonWidget( {
+		this.retryButtonSomeFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', function () {
@@ -95,7 +95,7 @@
 			upload.emit( 'retry' );
 		} );
 
-		this.nextStepButtonSomeFailed = new oo.ui.ButtonWidget( {
+		this.nextStepButtonSomeFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', function () {
@@ -114,7 +114,7 @@
 			} ).$element
 		);
 
-		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
+		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', function () {
@@ -138,7 +138,7 @@
 		this.$progress = $( '#mwe-upwiz-progress' );
 	}
 
-	oo.inheritClass( Upload, ui.Step );
+	OO.inheritClass( Upload, ui.Step );
 
 	UP = Upload.prototype;
 

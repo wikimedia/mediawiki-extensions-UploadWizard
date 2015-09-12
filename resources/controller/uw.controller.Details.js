@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, oo ) {
+( function ( uw, $, OO ) {
 	var DP;
 
 	/**
@@ -39,7 +39,7 @@
 		this.finishState = 'complete';
 	}
 
-	oo.inheritClass( Details, uw.controller.Step );
+	OO.inheritClass( Details, uw.controller.Step );
 
 	DP = Details.prototype;
 

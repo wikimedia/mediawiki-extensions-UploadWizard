@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, oo ) {
+( function ( mw, $, ui, OO ) {
 	var SP;
 
 	/**
@@ -27,13 +27,13 @@
 	 * @param {jQuery} $arrow The arrow that represents the step.
 	 */
 	function Step( $div, $arrow ) {
-		oo.EventEmitter.call( this );
+		OO.EventEmitter.call( this );
 
 		this.$div = $div;
 		this.$arrow = $arrow;
 	}
 
-	oo.mixinClass( Step, oo.EventEmitter );
+	OO.mixinClass( Step, OO.EventEmitter );
 
 	SP = Step.prototype;
 
@@ -76,7 +76,7 @@
 
 		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
 
-		this.nextButton = new oo.ui.ButtonWidget( {
+		this.nextButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-next' ],
 			label: mw.message( 'mwe-upwiz-next' ).text(),
 			flags: [ 'progressive', 'primary' ]

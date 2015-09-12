@@ -2,7 +2,7 @@
 * Object that reperesents the entire multi-step Upload Wizard
 */
 
-( function ( mw, uw, $, oo ) {
+( function ( mw, uw, $, OO ) {
 
 	mw.UploadWizard = function ( config ) {
 		this.uploads = [];
@@ -157,7 +157,7 @@
 				// Form whose submit event will be listened to and prevented
 				$flickrForm = $( '<form id="mwe-upwiz-flickr-url-form"></form>' )
 					.appendTo( $flickrContainer ),
-				flickrButton = new oo.ui.ButtonInputWidget( {
+				flickrButton = new OO.ui.ButtonInputWidget( {
 					id: 'mwe-upwiz-upload-ctrl-flickr',
 					label: mw.message( 'mwe-upwiz-add-flickr' ).text(),
 					flags: [ 'progressive', 'primary' ],

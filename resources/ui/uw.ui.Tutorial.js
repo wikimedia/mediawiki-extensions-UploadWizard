@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, uw, oo ) {
+( function ( mw, $, uw, OO ) {
 	var TP;
 
 	/**
@@ -86,7 +86,7 @@
 		);
 	}
 
-	oo.inheritClass( Tutorial, uw.ui.Step );
+	OO.inheritClass( Tutorial, uw.ui.Step );
 
 	TP = Tutorial.prototype;
 

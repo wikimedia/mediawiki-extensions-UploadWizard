@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, oo ) {
+( function ( mw, $, ui, OO ) {
 	var DP;
 
 	/**
@@ -36,7 +36,7 @@
 		this.nextButton.$element.hide();
 	}
 
-	oo.inheritClass( Deed, ui.Step );
+	OO.inheritClass( Deed, ui.Step );
 
 	DP = Deed.prototype;
 

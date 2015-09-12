@@ -1,4 +1,4 @@
-( function ( mw, uw, $, oo ) {
+( function ( mw, uw, $, OO ) {
 
 	var UIP;
 
@@ -14,7 +14,7 @@
 		var $preview,
 			ui = this;
 
-		oo.EventEmitter.call( this );
+		OO.EventEmitter.call( this );
 
 		this.upload = upload;
 
@@ -128,7 +128,7 @@
 		);
 	}
 
-	oo.mixinClass( UploadWizardUploadInterface, oo.EventEmitter );
+	OO.mixinClass( UploadWizardUploadInterface, OO.EventEmitter );
 
 	UIP = UploadWizardUploadInterface.prototype;
 
