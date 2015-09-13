@@ -13,7 +13,8 @@
 			"SandroHc",
 			"Vitorvicentevalente",
 			"Waldir",
-			"Rillke"
+			"Rillke",
+			"Fúlvio"
 		]
 	},
 	"uploadwizard": "Assistente de envio de ficheiros",
@@ -170,6 +171,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Este ficheiro foi carregado anteriormente neste sítio, contudo, foi eliminado mais tarde.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Enviar à mesma?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Por razões desconhecidas, não foi possível ler nem compreender o ficheiro \"$1\".",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nome de ficheiro desconhecido",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-cancel": "Cancelar",
 	"mwe-upwiz-fileexists-replace": "Já existe um ficheiro com o título \"$1\". Altere o título para torná-lo único, por favor.",
@@ -213,7 +215,6 @@
 	"mwe-upwiz-error-too-long": "Este campo é demasiado longo.\nPor favor, mantenha esta entrada mais curta do que $1\n{{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-too-short": "Este campo é demasiado curto.\nPor favor, mantenha esta entrada mais longa do que $1\n{{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-bad-chars": "Este campo contém caracteres que não são permitidos.\nPor favor, não utilize notação wiki ou código HTML aqui.",
-	"mwe-upwiz-error-date": "Introduza uma data válida no formato AAAA-MM-DD, ou escolha uma do calendário.",
 	"mwe-upwiz-error-title-blacklisted": "Este título contém algum texto indesejável. Reveja-o, por favor.",
 	"mwe-upwiz-error-title-badchars": "Este título contém alguns caracteres indesejáveis. Remova-os, por favor.",
 	"mwe-upwiz-error-title-senselessimagename": "Altere este título para ser mais fácil de compreender, por favor.",

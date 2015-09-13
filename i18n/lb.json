@@ -156,6 +156,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Dëse Fichier gouf virdru schonn op dës wiki eropgelueden awer méi spéit geläscht.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Trotzdeem eroplueden?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Den Numm vum Fichier \"$1\" konnt aus onbekannte Grënn net gelies oder net verstan ginn.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Onbekannten Numm vum Fichier",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-cancel": "Annulléieren",
 	"mwe-upwiz-fileexists-replace": "E Fichier mam Titel \"$1\" gëtt et schonn. Ännert Ären Titel op eppes wat et nach net gëtt.",
