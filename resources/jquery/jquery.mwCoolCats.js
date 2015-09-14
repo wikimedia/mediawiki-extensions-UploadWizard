@@ -31,19 +31,20 @@
 			}
 		}
 
-		text = stripText( $input.val() );
-		if ( text === '' ) {
+		text = $input.val();
+		title = mw.Title.newFromUserInput( text, catNsId );
+		if ( !title ) {
+			// This also checks for empty $input
 			$input.removeData( 'title' );
 			return;
 		}
 
-		title = new mw.Title( text, catNsId );
 		$input.data( 'title', title );
 
 		cat = title.getMainText();
 
 		$input.removeClass( 'will-be-added' );
-		if ( seenCat[cat] !== true && !doesCatExist( text ) ) {
+		if ( seenCat[cat] !== true && !doesCatExist( cat ) ) {
 			$label.append( '<span class="mwe-upwiz-category-will-be-added"></span>' );
 			$input.addClass( 'will-be-added' );
 			$( '.mwe-upwiz-category-will-be-added', $label ).text( settings.willbeaddedtext );
@@ -57,7 +58,7 @@
 	function doesCatExist( cat ) {
 		var exists = false;
 		$( 'input.will-be-added' ).each(function () {
-			if ( stripText( $( this ).val() ) === cat ) {
+			if ( $( this ).data( 'title' ) && $( this ).data( 'title' ).getMainText() === cat ) {
 				exists = true;
 				return false;
 			}
@@ -144,21 +145,8 @@
 	}
 
 	/**
-	 * Normalize text
-	 * @param {String}
-	 * @return string stripped of some characters, trimmed
-	 */
-	function stripText( s ) {
-		if ( typeof s !== 'string' ) {
-			throw new Error( '_stripText() argument must be a string' );
-		}
-		return $.trim( s.replace( /[\x00-\x1f\x3c\x3e\x5b\x5d\x7b\x7c\x7d\x7f]+/g, '' ) );
-	}
-
-	/**
 	 * Add a new input to the categories form
 	 */
-
 	function newInput() {
 		var $newInput = $template.clone();
 		$newInput.mwCoolCats( $.extend( options, { link: false } ) );
@@ -175,8 +163,10 @@
 			input = this;
 
 		// Stripping out bad characters as necessary.
-		prefix = stripText( $( this ).val() );
-		title = mw.Title.newFromText( prefix, catNsId );
+		title = mw.Title.newFromUserInput( $( this ).val(), catNsId );
+		if ( !title ) {
+			return;
+		}
 		prefix = title.getPrefixedText();
 
 		$( input ).data( 'request', settings.api.get( {
