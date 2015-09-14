@@ -67,12 +67,15 @@
 
 	/**
 	 * Add a new category to the page
-	 * @param {mw.Title} title of category -- should already be in category namespace
+	 * @param {mw.Title|null} title of category -- should already be in category namespace
 	 * @param {boolean} whether this category is visible to the user
 	 */
 	function insertCat( title, isHidden ) {
 		var $li, $anchor;
 
+		if ( !title ) {
+			return;
+		}
 		if ( containsCat( title ) ) {
 			return;
 		}
@@ -276,8 +279,8 @@
 		this.getWikiText = getWikiText;
 
 		// initialize with some categories, if so configured
-		$.each( settings.cats, function ( i, cat ) { insertCat( new mw.Title( cat, catNsId ) ); } );
-		$.each( settings.hiddenCats, function ( i, cat ) { insertCat( new mw.Title( cat, catNsId ), true ); } );
+		$.each( settings.cats, function ( i, cat ) { insertCat( mw.Title.newFromText( cat, catNsId ) ); } );
+		$.each( settings.hiddenCats, function ( i, cat ) { insertCat( mw.Title.newFromText( cat, catNsId ), true ); } );
 
 		processInput();
 
