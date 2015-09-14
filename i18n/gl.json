@@ -170,6 +170,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Xa se cargara este ficheiro no wiki con anterioridade e fora borrado.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Quéreo subir de todos os xeitos?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Por razóns descoñecidas, o programa non é capaz de ler ou entender o nome do ficheiro \"$1\".",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nome de ficheiro descoñecido",
 	"mwe-upwiz-ok": "Aceptar",
 	"mwe-upwiz-cancel": "Cancelar",
 	"mwe-upwiz-fileexists-replace": "Xa existe un ficheiro titulado \"$1\". Cambie o nome por outro único.",
