@@ -151,14 +151,14 @@
 	/**
 	 * Stop the upload -- we have failed for some reason
 	 */
-	mw.UploadWizardUpload.prototype.setError = function ( code, info ) {
+	mw.UploadWizardUpload.prototype.setError = function ( code, info, additionalStatus ) {
 		if ( this.state === 'aborted' ) {
 			// There's no point in reporting an error anymore.
 			return;
 		}
 		this.state = 'error';
 		this.transportProgress = 0;
-		this.ui.showError( code, info );
+		this.ui.showError( code, info, additionalStatus );
 		this.emit( 'error', code, info );
 	};
 
@@ -179,13 +179,8 @@
 			return;
 		}
 
-		function rmErrs( theCode ) {
-			upload.removeErrors( theCode );
-		}
-
 		// default error state
-		var comma, warnCode, $override,
-			upload = this,
+		var comma, warnCode,
 			code = 'unknown',
 			info = 'unknown';
 
@@ -235,24 +230,9 @@
 						// we ignore these warnings, because the title is not our final title.
 						break;
 					case 'duplicate':
-						code = warnCode;
-						this.setError( warnCode, this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
-						break;
 					case 'duplicate-archive':
-						// This is the case where the file did exist, but it was deleted.
-						// We should definitely tell the user, but let them override.
-						// If they already have, then don't execute any of this.
 						code = warnCode;
-						this.setError( warnCode, this.duplicateErrorInfo( warnCode, result.upload.warnings[warnCode] ) );
-						$override = $( '<a></a>' )
-							/*jshint scripturl:true*/
-							.attr( 'href', 'javascript:void(0)' )
-							.text( mw.message( 'mwe-upwiz-override' ).text() )
-							.click( rmErrs.bind( this, warnCode ) );
-						$( '.mwe-upwiz-file-status-line-item', this.ui.visibleFilenameDiv )
-							.first()
-							.append( ' ' )
-							.append( $override );
+						this.setDuplicateError( warnCode, result.upload.warnings[warnCode] );
 						break;
 					default:
 						// we have an unknown warning, so let's say what we know
@@ -285,26 +265,14 @@
 	};
 
 	/**
-	 * Helper function to generate duplicate errors with dialog box. Works with existing duplicates and deleted dupes.
-	 * @param {String} error code, should have matching strings in .i18n.php
-	 * @param {Object} portion of the API error result listing duplicates
+	 * Helper function to generate duplicate errors in a possibly collapsible list.
+	 * Works with existing duplicates and deleted dupes.
+	 * @param {String} code Error code, should have matching strings in .i18n.php
+	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
+	 * @return {jQuery}
 	 */
-	mw.UploadWizardUpload.prototype.duplicateErrorInfo = function ( code, resultDuplicate ) {
-		function dialogFn(e) {
-			$( '<div></div>' )
-				.html( $ul )
-				.dialog( {
-					width: 500,
-					zIndex: 200000,
-					autoOpen: true,
-					title: mw.message( 'api-error-' + code + '-popup-title', duplicates.length ).escaped(),
-					modal: true
-				} );
-			e.preventDefault();
-		}
-
-		var duplicates,
-			$ul = $( '<ul>' );
+	mw.UploadWizardUpload.prototype.setDuplicateError = function ( code, resultDuplicate ) {
+		var duplicates, $ul, $override, $extra;
 
 		if ( typeof resultDuplicate === 'object' ) {
 			duplicates = resultDuplicate;
@@ -312,14 +280,18 @@
 			duplicates = [ resultDuplicate ];
 		}
 
+		$ul = $( '<ul>' );
 		$.each( duplicates, function ( i, filename ) {
-			var href, $a;
+			var href, $a, params = {};
 
 			try {
-				href = new mw.Title( filename, fileNsId ).getUrl();
-				$a = $( '<a>' )
-					.text( filename )
-					.attr( { href: href, target: '_blank' } );
+				$a = $( '<a>' ).text( filename );
+				if ( code === 'duplicate-archive' ) {
+					$a.addClass( 'new' );
+					params = { action: 'edit', redlink: '1' };
+				}
+				href = new mw.Title( filename, fileNsId ).getUrl( params );
+				$a.attr( { href: href, target: '_blank' } );
 			} catch ( e ) {
 				// For example, if the file was revdeleted
 				$a = $( '<em>' )
@@ -328,7 +300,27 @@
 			$ul.append( $( '<li>' ).append( $a ) );
 		} );
 
-		return [ duplicates.length, dialogFn ];
+		if ( duplicates.length > 1 ) {
+			$ul.makeCollapsible( { collapsed: true } );
+		}
+
+		$extra = $ul;
+		if ( code === 'duplicate-archive' ) {
+			$override = $( '<a>' )
+				.attr( 'href', '#' )
+				.text( mw.message( 'mwe-upwiz-override' ).text() )
+				.click( function () {
+					this.removeErrors( 'duplicate-archive' );
+				}.bind( this ) );
+			$extra = $extra.add( $override );
+		}
+
+		// HACK Have to pass a noop function for backwards-compatibility with old message translations
+		this.setError( code, [ duplicates.length, $.noop ], $extra );
+		// HACK Remove a link that does nothing
+		$( this.ui.div ).find( '.mwe-upwiz-file-status' ).find( 'a' ).replaceWith( function () {
+			return $( this ).text();
+		} );
 	};
 
 	/**
