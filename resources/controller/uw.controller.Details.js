@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, OO ) {
+( function ( mw, uw, $, OO ) {
 	/**
 	 * Represents the details step in the wizard.
 	 * @class mw.uw.controller.Details
@@ -229,4 +229,4 @@
 		this.ui.showErrors();
 	};
 
-}( mediaWiki.uploadWizard, jQuery, OO ) );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
