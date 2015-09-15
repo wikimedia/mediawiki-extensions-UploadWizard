@@ -120,7 +120,7 @@
 			total += 1;
 
 			if ( upload.details.clearDuplicateTitleError().valid() ) {
-				title = upload.title.getName();
+				title = upload.title.getName() + '.' + mw.Title.normalizeExtension( upload.title.getExtension() );
 
 				// Seen this title before?
 				if ( titles[title] ) {
