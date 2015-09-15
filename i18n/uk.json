@@ -183,6 +183,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Цей файл уже було завантажено до цієї вікі раніше, але згодом його було вилучено.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Завантажити все одно?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Неможливо прочитати або зрозуміти ім'я файла \"$1\" з невідомої причини.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Невідоме ім'я файлу",
 	"mwe-upwiz-ok": "Готово",
 	"mwe-upwiz-cancel": "Скасувати",
 	"mwe-upwiz-fileexists-replace": "Файл з назвою \"$1\" вже існує. Будь ласка, поміняйте назву на щось унікальне.",

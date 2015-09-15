@@ -165,6 +165,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Šis failas anksčiau buvo įkeltas į šį vikį, bet vėliau buvo ištrintas.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Vis tiek kelti?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nepavyko perskaityti arba suprasti failo vardą \"$1\" dėl nežinomų priežasčių .",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nežinomas failo vardas",
 	"mwe-upwiz-ok": "Gerai",
 	"mwe-upwiz-cancel": "Atšaukti",
 	"mwe-upwiz-fileexists-replace": "Failas su pavadinimu \"$1\" jau egzistuoja. Prašome pakeisti savo pavadinimą į kažką unikalaus.",

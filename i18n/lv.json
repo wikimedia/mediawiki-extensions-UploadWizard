@@ -113,6 +113,7 @@
 	"mwe-upwiz-allowed-filename-extensions": "Atļautie paplašinājumi ir:",
 	"mwe-upwiz-upload-error-stashed-anyway": "Augšupielādēt tāpat?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nezināmu iemeslu dēļ nevarēja nolasīt vai saprast faila nosaukumu \"$1\".",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nezināms faila nosaukums",
 	"mwe-upwiz-ok": "Labi",
 	"mwe-upwiz-cancel": "Atcelt",
 	"mwe-upwiz-blacklisted": "Lūdzu, izvēlieties citu, aprakstošu nosaukumu!",

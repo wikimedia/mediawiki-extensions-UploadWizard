@@ -179,6 +179,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Este archivo fue subido anteriormente a este wiki, pero fue posteriormente eliminado.",
 	"mwe-upwiz-upload-error-stashed-anyway": "¿Subir de todos modos?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "No pudimos leer o entender el nombre del archivo «$1» por razones desconocidas.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nombre de archivo desconocido",
 	"mwe-upwiz-ok": "Aceptar",
 	"mwe-upwiz-cancel": "Cancelar",
 	"mwe-upwiz-fileexists-replace": "Un archivo con el título «$1» ya existe. Cambia el título por uno único.",
