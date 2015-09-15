@@ -15,13 +15,13 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, oo, $ ) {
+( function ( uw, OO, $ ) {
 	var SP;
 
 	/**
 	 * Represents a step in the wizard.
 	 * @class mw.uw.controller.Step
-	 * @mixins oo.EventEmitter
+	 * @mixins OO.EventEmitter
 	 * @abstract
 	 * @constructor
 	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.
@@ -30,7 +30,7 @@
 	function Step( ui, config ) {
 		var step = this;
 
-		oo.EventEmitter.call( this );
+		OO.EventEmitter.call( this );
 
 		/**
 		 * @property {Object} config
@@ -55,7 +55,7 @@
 		this.nextStep = null;
 	}
 
-	oo.mixinClass( Step, oo.EventEmitter );
+	OO.mixinClass( Step, OO.EventEmitter );
 
 	SP = Step.prototype;
 

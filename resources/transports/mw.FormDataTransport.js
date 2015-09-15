@@ -1,10 +1,10 @@
-( function ( mw, $, oo ) {
+( function ( mw, $, OO ) {
 	var FDTP;
 
 	/**
 	 * @class mw.FormDataTransport
 	 * Represents a "transport" for files to upload; using HTML5 FormData.
-	 * @mixins oo.EventEmitter
+	 * @mixins OO.EventEmitter
 	 *
 	 * @constructor
 	 * @param {string} postUrl URL to post to.
@@ -20,7 +20,7 @@
 
 		this.config = config || mw.UploadWizard.config;
 
-		oo.EventEmitter.call( this );
+		OO.EventEmitter.call( this );
 
 		this.formData = formData;
 		this.aborted = false;
@@ -45,7 +45,7 @@
 		this.insufficientFormDataSupport = profile.name === 'firefox' && profile.versionNumber < 7;
 	};
 
-	oo.mixinClass( mw.FormDataTransport, oo.EventEmitter );
+	OO.mixinClass( mw.FormDataTransport, OO.EventEmitter );
 
 	FDTP = mw.FormDataTransport.prototype;
 

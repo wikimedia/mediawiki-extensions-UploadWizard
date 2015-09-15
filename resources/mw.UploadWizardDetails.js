@@ -11,7 +11,7 @@
  * @param API
  * @param containerDiv	The div to put the interface into
  */
-( function ( mw, uw, $, oo ) {
+( function ( mw, uw, $, OO ) {
 
 	var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -810,7 +810,7 @@
 			// Keep our checkboxShiftClick behaviour alive
 			$copyMetadataDiv.find( 'input[type=checkbox]' ).checkboxShiftClick();
 
-			copyButton = new oo.ui.ButtonWidget( {
+			copyButton = new OO.ui.ButtonWidget( {
 				id: 'mwe-upwiz-copy-metadata-button',
 				label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
 				flags: [ 'constructive' ]

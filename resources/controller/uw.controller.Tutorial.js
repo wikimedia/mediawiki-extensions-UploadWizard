@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, $, oo ) {
+( function ( mw, uw, $, OO ) {
 	var TP;
 
 	function Tutorial( api ) {
@@ -43,7 +43,7 @@
 		this.stepName = 'tutorial';
 	}
 
-	oo.inheritClass( Tutorial, uw.controller.Step );
+	OO.inheritClass( Tutorial, uw.controller.Step );
 
 	TP = Tutorial.prototype;
 

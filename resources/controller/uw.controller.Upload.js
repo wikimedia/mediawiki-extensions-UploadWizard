@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, oo ) {
+( function ( uw, $, OO ) {
 	var UP;
 
 	/**
@@ -40,7 +40,7 @@
 		this.finishState = 'stashed';
 	}
 
-	oo.inheritClass( Upload, uw.controller.Step );
+	OO.inheritClass( Upload, uw.controller.Step );
 
 	UP = Upload.prototype;
 

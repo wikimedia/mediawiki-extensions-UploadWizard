@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, oo ) {
+( function ( mw, $, ui, OO ) {
 	var DP;
 
 	/**
@@ -52,21 +52,21 @@
 			$( '#mwe-upwiz-step-details' )
 		);
 
-		this.nextButton = new oo.ui.ButtonWidget( {
+		this.nextButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-details' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
 		this.$div.find( '.mwe-upwiz-start-next' ).append( this.nextButton.$element );
 
-		this.nextButtonDespiteFailures = new oo.ui.ButtonWidget( {
+		this.nextButtonDespiteFailures = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', function () {
 			details.emit( 'finalize-details-after-removal' );
 		} );
 
-		this.retryButtonSomeFailed = new oo.ui.ButtonWidget( {
+		this.retryButtonSomeFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
@@ -83,7 +83,7 @@
 			} ).$element
 		);
 
-		this.retryButtonAllFailed = new oo.ui.ButtonWidget( {
+		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
@@ -102,7 +102,7 @@
 		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
 	}
 
-	oo.inheritClass( Details, ui.Step );
+	OO.inheritClass( Details, ui.Step );
 
 	DP = Details.prototype;
 
