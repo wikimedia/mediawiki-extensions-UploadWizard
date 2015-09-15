@@ -5,8 +5,6 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-/* jshint camelcase: false, nomen: false */
-/* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
 ( function ( mw, $, OO ) {
 
 	var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
@@ -529,7 +527,9 @@
 							}
 							try {
 								meta = mw.libs.jpegmeta( binStr, upload.file.fileName );
+								// jscs:disable requireCamelCaseOrUpperCaseIdentifiers, disallowDanglingUnderscores
 								meta._binary_data = null;
+								// jscs:enable
 							} catch ( e ) {
 								meta = null;
 							}
