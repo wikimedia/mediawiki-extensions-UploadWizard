@@ -16,15 +16,13 @@
  */
 
 ( function ( mw, $, uw, OO ) {
-	var TP;
-
 	/**
 	 * Represents the UI for the wizard's Tutorial step.
 	 * @class uw.ui.Tutorial
 	 * @extends uw.ui.Step
 	 * @constructor
 	 */
-	function Tutorial() {
+	uw.ui.Tutorial = function UWUITutorial() {
 		var ui = this;
 
 		uw.ui.Step.call(
@@ -84,11 +82,8 @@
 				items: [ this.skipCheckbox, this.skipCheckboxLabel, this.nextButton ]
 			} ).$element
 		);
-	}
+	};
 
-	OO.inheritClass( Tutorial, uw.ui.Step );
+	OO.inheritClass( uw.ui.Tutorial, uw.ui.Step );
 
-	TP = Tutorial.prototype;
-
-	uw.ui.Tutorial = Tutorial;
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

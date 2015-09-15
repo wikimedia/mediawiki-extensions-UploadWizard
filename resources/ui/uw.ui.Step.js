@@ -15,9 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, OO ) {
-	var SP;
-
+( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents a generic UI for a step.
 	 * @class mw.uw.ui.Step
@@ -26,22 +24,20 @@
 	 * @param {jQuery} $div The div that contains the step.
 	 * @param {jQuery} $arrow The arrow that represents the step.
 	 */
-	function Step( $div, $arrow ) {
+	uw.ui.Step = function UWUIStep( $div, $arrow ) {
 		OO.EventEmitter.call( this );
 
 		this.$div = $div;
 		this.$arrow = $arrow;
-	}
+	};
 
-	OO.mixinClass( Step, OO.EventEmitter );
-
-	SP = Step.prototype;
+	OO.mixinClass( uw.ui.Step, OO.EventEmitter );
 
 	/**
 	 * Move to the step.
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
-	SP.moveTo = function ( uploads ) {
+	uw.ui.Step.prototype.moveTo = function ( uploads ) {
 		var offset = $( 'h1:first' ).offset();
 
 		this.uploads = uploads;
@@ -59,19 +55,19 @@
 	/**
 	 * Move out of the step.
 	 */
-	SP.moveFrom = function () {
+	uw.ui.Step.prototype.moveFrom = function () {
 		this.$div.hide();
 	};
 
 	/**
 	 * Empty data from the step.
 	 */
-	SP.empty = function () {};
+	uw.ui.Step.prototype.empty = function () {};
 
 	/**
 	 * Add a 'next' button to the step's button container
 	 */
-	SP.addNextButton = function () {
+	uw.ui.Step.prototype.addNextButton = function () {
 		var ui = this;
 
 		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
@@ -92,5 +88,4 @@
 		this.$buttons.append( this.nextButton.$element );
 	};
 
-	ui.Step = Step;
-}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

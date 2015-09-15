@@ -9,8 +9,7 @@
 /* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
 ( function ( mw, $, OO ) {
 
-	var UWUP,
-		fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
+	var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
 	 * @class mw.UploadWizardUpload
@@ -28,7 +27,7 @@
 	 * @param {UploadWizard} wizard
 	 * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads
 	 */
-	function UploadWizardUpload( wizard, filesDiv ) {
+	mw.UploadWizardUpload = function MWUploadWizardUpload( wizard, filesDiv ) {
 		var upload = this;
 
 		OO.EventEmitter.call( this );
@@ -70,23 +69,21 @@
 
 				upload.emit( 'filled' );
 			} );
-	}
+	};
 
-	OO.mixinClass( UploadWizardUpload, OO.EventEmitter );
-
-	UWUP = UploadWizardUpload.prototype;
+	OO.mixinClass( mw.UploadWizardUpload, OO.EventEmitter );
 
 	// Upload handler
-	UWUP.uploadHandler = null;
+	mw.UploadWizardUpload.prototype.uploadHandler = null;
 
 	// increments with each upload
-	UWUP.count = 0;
+	mw.UploadWizardUpload.prototype.count = 0;
 
 	/**
 	 * Manually fill the file input with a file.
 	 * @param {File} providedFile
 	 */
-	UWUP.fill = function ( providedFile ) {
+	mw.UploadWizardUpload.prototype.fill = function ( providedFile ) {
 		// check to see if the File is being uplaoded from a 3rd party URL.
 		if ( providedFile ) {
 			this.providedFile = providedFile;
@@ -99,14 +96,14 @@
 		}
 	};
 
-	UWUP.acceptDeed = function () {
+	mw.UploadWizardUpload.prototype.acceptDeed = function () {
 		this.deed.applyDeed( this );
 	};
 
 	/**
 	 * Reset file input.
 	 */
-	UWUP.resetFileInput = function () {
+	mw.UploadWizardUpload.prototype.resetFileInput = function () {
 		this.ui.resetFileInput();
 	};
 
@@ -114,7 +111,7 @@
 	 * start
 	 * @return {jQuery.Promise}
 	 */
-	UWUP.start = function () {
+	mw.UploadWizardUpload.prototype.start = function () {
 		this.setTransportProgress(0.0);
 		//this.ui.start();
 
@@ -126,7 +123,7 @@
 	/**
 	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from
 	 */
-	UWUP.remove = function () {
+	mw.UploadWizardUpload.prototype.remove = function () {
 		this.state = 'aborted';
 		if ( this.deedPreview ) {
 			this.deedPreview.remove();
@@ -143,7 +140,7 @@
 	 * Wear our current progress, for observing processes to see
 	 * @param fraction
 	 */
-	UWUP.setTransportProgress = function ( fraction ) {
+	mw.UploadWizardUpload.prototype.setTransportProgress = function ( fraction ) {
 		if ( this.state === 'aborted' ) {
 			// We shouldn't be transporting anything anymore.
 			return;
@@ -156,7 +153,7 @@
 	/**
 	 * Stop the upload -- we have failed for some reason
 	 */
-	UWUP.setError = function ( code, info ) {
+	mw.UploadWizardUpload.prototype.setError = function ( code, info ) {
 		if ( this.state === 'aborted' ) {
 			// There's no point in reporting an error anymore.
 			return;
@@ -170,7 +167,7 @@
 	/**
 	 * Resume the upload, assume that whatever error(s) we got were benign.
 	 */
-	UWUP.removeErrors = function ( code ) {
+	mw.UploadWizardUpload.prototype.removeErrors = function ( code ) {
 		this.ignoreWarning[code] = true;
 		this.start();
 	};
@@ -179,7 +176,7 @@
 	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details
 	 * @param result	the API result in parsed JSON form
 	 */
-	UWUP.setTransported = function ( result ) {
+	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
 		if ( this.state === 'aborted' ) {
 			return;
 		}
@@ -294,7 +291,7 @@
 	 * @param {String} error code, should have matching strings in .i18n.php
 	 * @param {Object} portion of the API error result listing duplicates
 	 */
-	UWUP.duplicateErrorInfo = function ( code, resultDuplicate ) {
+	mw.UploadWizardUpload.prototype.duplicateErrorInfo = function ( code, resultDuplicate ) {
 		function dialogFn(e) {
 			$( '<div></div>' )
 				.html( $ul )
@@ -340,7 +337,7 @@
 	 * Called from any upload success condition
 	 * @param {Mixed} result -- result of AJAX call
 	 */
-	UWUP.setSuccess = function ( result ) {
+	mw.UploadWizardUpload.prototype.setSuccess = function ( result ) {
 		this.state = 'transported';
 		this.transportProgress = 1;
 
@@ -365,7 +362,7 @@
 	 * @param {string} path
 	 * @return {string} basename
 	 */
-	UWUP.getBasename = function ( path ) {
+	mw.UploadWizardUpload.prototype.getBasename = function ( path ) {
 		if ( path === undefined || path === null ) {
 			return '';
 		}
@@ -380,7 +377,7 @@
 	 * @param {string} code Short code for i18n strings
 	 * @param {string} info More information
 	 */
-	UWUP.fileNameErr = function ( code, info ) {
+	mw.UploadWizardUpload.prototype.fileNameErr = function ( code, info ) {
 		this.hasError = true;
 		this.ui.fileChangedError( code, info );
 	};
@@ -400,7 +397,7 @@
 	 * @param {Array} of Files.  usually one, can be more for multi-file select.
 	 * @param {function ()} callback when ok, and upload object is ready
 	 */
-	UWUP.checkFile = function ( filename, files, fileNameOk ) {
+	mw.UploadWizardUpload.prototype.checkFile = function ( filename, files, fileNameOk ) {
 		var totalSize, duplicate, extension, toobig,
 			actualMaxSize, binReader,
 			upload = this,
@@ -573,14 +570,14 @@
 	 * Sanitize and set the title of the upload.
 	 * @param {string} title Unsanitized title.
 	 */
-	UWUP.setTitle = function ( title ) {
+	mw.UploadWizardUpload.prototype.setTitle = function ( title ) {
 		this.title = mw.Title.newFromFileName( mw.UploadWizard.sanitizeFilename( title ) );
 	};
 
 	/**
 	 * Disable preview thumbnail for this upload.
 	 */
-	UWUP.disablePreview = function () {
+	mw.UploadWizardUpload.prototype.disablePreview = function () {
 		this.generatePreview = false;
 	};
 
@@ -589,7 +586,7 @@
 	 * @param size integer - the size of the file in bytes
 	 * @param maxSize integer - the maximum file size
 	 */
-	UWUP.showMaxSizeWarning = function ( size, maxSize ) {
+	mw.UploadWizardUpload.prototype.showMaxSizeWarning = function ( size, maxSize ) {
 		var buttons = [
 			{
 				text: mw.message( 'mwe-upwiz-file-too-large-ok' ).escaped(),
@@ -618,7 +615,7 @@
 	 * Map fields from jpegmeta's metadata return into our format (which is more like the imageinfo returned from the API
 	 * @param {Object} (as returned by jpegmeta)
 	 */
-	UWUP.extractMetadataFromJpegMeta = function ( meta ) {
+	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function ( meta ) {
 		if ( meta !== undefined && meta !== null && typeof meta === 'object' ) {
 			if ( this.imageinfo === undefined ) {
 				this.imageinfo = {};
@@ -655,7 +652,7 @@
 	 *
 	 * @param result The JSON object from a successful API upload result.
 	 */
-	UWUP.extractUploadInfo = function ( resultUpload ) {
+	mw.UploadWizardUpload.prototype.extractUploadInfo = function ( resultUpload ) {
 		if ( resultUpload.filekey ) {
 			this.fileKey = resultUpload.filekey;
 		}
@@ -674,7 +671,7 @@
 	 * This may overwrite metadata obtained from FileReader.
 	 * @param imageinfo JSON object obtained from API result.
 	 */
-	UWUP.extractImageInfo = function ( imageinfo ) {
+	mw.UploadWizardUpload.prototype.extractImageInfo = function ( imageinfo ) {
 		var key,
 			upload = this;
 
@@ -707,7 +704,7 @@
 	 * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
 	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
-	UWUP.getStashImageInfo = function ( callback, props, width, height ) {
+	mw.UploadWizardUpload.prototype.getStashImageInfo = function ( callback, props, width, height ) {
 		var params = {
 			prop: 'stashimageinfo',
 			siifilekey: this.fileKey,
@@ -756,7 +753,7 @@
 	 * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
 	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
-	UWUP.getImageInfo = function ( callback, props, width, height ) {
+	mw.UploadWizardUpload.prototype.getImageInfo = function ( callback, props, width, height ) {
 		function ok( data ) {
 			if ( data && data.query && data.query.pages ) {
 				var found = false;
@@ -811,7 +808,7 @@
 	 * Get the upload handler per browser capabilities
 	 * @return upload handler object
 	 */
-	UWUP.getUploadHandler = function () {
+	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
 		if ( !this.uploadHandler ) {
 			var constructor;  // must be the name of a function in 'mw' namespace
 			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
@@ -840,7 +837,7 @@
 	 * @return {jQuery.Promise} Promise resolved with a HTMLImageElement, or null if thumbnail
 	 *     couldn't be generated
 	 */
-	UWUP.getAndPublishApiThumbnail = function ( width, height ) {
+	mw.UploadWizardUpload.prototype.getAndPublishApiThumbnail = function ( width, height ) {
 		var deferred,
 			key = width + '|' + height;
 
@@ -919,7 +916,7 @@
 	 * may have been extracted at filereader stage, or after the upload when we fetch metadata. Default returns 0.
 	 * @return {Integer} orientation in degrees: 0, 90, 180 or 270
 	 */
-	UWUP.getOrientationDegrees = function () {
+	mw.UploadWizardUpload.prototype.getOrientationDegrees = function () {
 		var orientation = 0;
 		if ( this.imageinfo && this.imageinfo.metadata && this.imageinfo.metadata.orientation ) {
 			switch ( this.imageinfo.metadata.orientation ) {
@@ -951,7 +948,7 @@
 	 * @param {Object} with width & height properties
 	 * @return {Number}
 	 */
-	UWUP.getScalingFromConstraints = function ( image, constraints ) {
+	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;
 		$.each( [ 'width', 'height' ], function ( i, dim ) {
 			if ( constraints[dim] && image[dim] > constraints[dim] ) {
@@ -971,7 +968,7 @@
 	 * @param {Object} containing width & height constraints
 	 * @return {HTMLCanvasElement}
 	 */
-	UWUP.getTransformedCanvasElement = function ( image, constraints ) {
+	mw.UploadWizardUpload.prototype.getTransformedCanvasElement = function ( image, constraints ) {
 		var angle, scaleConstraints, scaling, width, height,
 			dx, dy, x, y, $canvas, ctx,
 			rotation = 0;
@@ -1043,7 +1040,7 @@
 	 * @param {Object} with width and height properties
 	 * @return {HTMLImageElement} with same src, but different attrs
 	 */
-	UWUP.getBrowserScaledImageElement = function ( image, constraints ) {
+	mw.UploadWizardUpload.prototype.getBrowserScaledImageElement = function ( image, constraints ) {
 		var scaling = this.getScalingFromConstraints( image, constraints );
 		return $( '<img/>' )
 			.attr( {
@@ -1063,7 +1060,7 @@
 	 * @param {Integer} height
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
-	UWUP.getScaledImageElement = function ( image, width, height ) {
+	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
 		if ( width === undefined || width === null || width <= 0 ) {
 			width = mw.UploadWizard.config.thumbnailWidth;
 		}
@@ -1085,7 +1082,7 @@
 	 * @param height Height constraint (optional)
 	 * @param boolean add lightbox large preview when ready
 	 */
-	UWUP.setThumbnail = function ( selector, width, height, isLightBox ) {
+	mw.UploadWizardUpload.prototype.setThumbnail = function ( selector, width, height, isLightBox ) {
 		var upload = this,
 			placed = false;
 
@@ -1145,7 +1142,7 @@
 	 * TODO center this
 	 * @param selector
 	 */
-	UWUP.setLightBox = function ( selector ) {
+	mw.UploadWizardUpload.prototype.setLightBox = function ( selector ) {
 		var upload = this,
 			$imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
 
@@ -1174,7 +1171,7 @@
 			} ); // close thumbnail click function
 	};
 
-	UWUP.createDetails = function () {
+	mw.UploadWizardUpload.prototype.createDetails = function () {
 		this.details = new mw.UploadWizardDetails( this, $( '#mwe-upwiz-macro-files' ) );
 		this.details.populate();
 		this.details.attach();
@@ -1183,7 +1180,7 @@
 	/**
 	 * Notification that the file input has changed and it's fine...set info.
 	 */
-	UWUP.fileChangedOk = function () {
+	mw.UploadWizardUpload.prototype.fileChangedOk = function () {
 		this.ui.fileChangedOk( this.imageinfo, this.file, this.fromURL );
 
 		if ( this.generatePreview ) {
@@ -1196,7 +1193,7 @@
 	/**
 	 * Make a preview for the file.
 	 */
-	UWUP.makePreview = function () {
+	mw.UploadWizardUpload.prototype.makePreview = function () {
 		var first, video, url, dataUrlReader,
 			upload = this;
 
@@ -1255,7 +1252,7 @@
 	/**
 	 * Loads an image preview.
 	 */
-	UWUP.loadImage = function ( url ) {
+	mw.UploadWizardUpload.prototype.loadImage = function ( url ) {
 		var image = document.createElement( 'img' ),
 			upload = this;
 		image.onload = function () {
@@ -1268,23 +1265,22 @@
 	/**
 	 * Check if the file is previewable.
 	 */
-	UWUP.isPreviewable = function () {
+	mw.UploadWizardUpload.prototype.isPreviewable = function () {
 		return mw.fileApi.isAvailable() && this.file && mw.fileApi.isPreviewableFile( this.file );
 	};
 
 	/**
 	 * Finds the right URL object to use.
 	 */
-	UWUP.URL = function () {
+	mw.UploadWizardUpload.prototype.URL = function () {
 		return window.URL || window.webkitURL || window.mozURL;
 	};
 
 	/**
 	 * Checks if this upload is a video.
 	 */
-	UWUP.isVideo = function () {
+	mw.UploadWizardUpload.prototype.isVideo = function () {
 		return mw.fileApi.isAvailable() && mw.fileApi.isPreviewableVideo( this.file );
 	};
 
-	mw.UploadWizardUpload = UploadWizardUpload;
 } )( mediaWiki, jQuery, OO );

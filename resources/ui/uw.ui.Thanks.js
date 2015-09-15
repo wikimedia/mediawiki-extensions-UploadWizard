@@ -15,23 +15,21 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, OO ) {
-	var TP;
-
+( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Thanks step.
 	 * @class uw.ui.Thanks
 	 * @extends mw.uw.ui.Step
 	 * @constructor
 	 */
-	function Thanks( config ) {
+	uw.ui.Thanks = function UWUIThanks( config ) {
 		var $header,
 			beginButtonTarget,
 			thanks = this;
 
 		this.config = config;
 
-		ui.Step.call(
+		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-thanks' ),
 			$( '#mwe-upwiz-step-thanks' )
@@ -86,17 +84,15 @@
 		} );
 
 		this.$buttons.append( this.buttonGroup.$element );
-	}
+	};
 
-	OO.inheritClass( Thanks, ui.Step );
-
-	TP = Thanks.prototype;
+	OO.inheritClass( uw.ui.Thanks, uw.ui.Step );
 
 	/**
 	 * Adds an upload to the Thanks interface.
 	 * @param {mw.UploadWizardUpload} upload
 	 */
-	TP.addUpload = function ( upload ) {
+	uw.ui.Thanks.prototype.addUpload = function ( upload ) {
 		if ( upload === undefined ) {
 			return;
 		}
@@ -160,7 +156,7 @@
 	 * @param {string} text it will contain
 	 * @return {jQuery}
 	 */
-	TP.makeReadOnlyInput = function ( s ) {
+	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( s ) {
 		return $( '<input>' )
 			.addClass( 'mwe-title ui-corner-all' )
 			.readonly()
@@ -174,7 +170,7 @@
 	/**
 	 * Empty out all upload information.
 	 */
-	TP.empty = function () {
+	uw.ui.Thanks.prototype.empty = function () {
 		this.$div.find( '.mwe-upwiz-thanks' ).remove();
 	};
 
@@ -184,7 +180,7 @@
 	 * @param {string} configField name of the button's attributes
 	 * @return {Object|undefined}
 	 */
-	TP.getButtonConfig = function ( buttonName, configField ) {
+	uw.ui.Thanks.prototype.getButtonConfig = function ( buttonName, configField ) {
 		if ( !this.config || !this.config.display || !this.config.display[buttonName] ) {
 			return;
 		}
@@ -199,7 +195,7 @@
 	 * @return {string}
 	 * @private
 	 */
-	TP.dropParameterFromURL = function ( url, paramName ) {
+	uw.ui.Thanks.prototype.dropParameterFromURL = function ( url, paramName ) {
 		var newUrl = new mw.Uri( url );
 		if ( newUrl.query ) {
 			delete newUrl.query[paramName];
@@ -208,7 +204,7 @@
 		return newUrl.toString();
 	};
 
-	TP.getDelayNotice = function () {
+	uw.ui.Thanks.prototype.getDelayNotice = function () {
 		var $delayNotice = $( '<p>' )
 			.addClass( 'mwe-upwiz-thanks-update-delay' )
 			.msg( 'mwe-upwiz-objref-notice-update-delay' );
@@ -219,9 +215,8 @@
 		return $delayNotice;
 	};
 
-	TP.isObjectReferenceGiven = function () {
+	uw.ui.Thanks.prototype.isObjectReferenceGiven = function () {
 		return mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '';
 	};
 
-	ui.Thanks = Thanks;
-}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

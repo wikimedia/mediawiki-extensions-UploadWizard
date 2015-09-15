@@ -1,6 +1,4 @@
 ( function ( mw, $, OO ) {
-	var FDTP;
-
 	/**
 	 * @class mw.FormDataTransport
 	 * Represents a "transport" for files to upload; using HTML5 FormData.
@@ -47,9 +45,7 @@
 
 	OO.mixinClass( mw.FormDataTransport, OO.EventEmitter );
 
-	FDTP = mw.FormDataTransport.prototype;
-
-	FDTP.abort = function () {
+	mw.FormDataTransport.prototype.abort = function () {
 		this.aborted = true;
 
 		if ( this.xhr ) {
@@ -62,7 +58,7 @@
 	 * @param {jQuery.Deferred} deferred Object to send events to.
 	 * @return XMLHttpRequest
 	 */
-	FDTP.createXHR = function ( deferred ) {
+	mw.FormDataTransport.prototype.createXHR = function ( deferred ) {
 		var xhr = new XMLHttpRequest(),
 			transport = this;
 
@@ -83,7 +79,7 @@
 	 * @param {number} [offset] For chunked uploads
 	 * @return FormData
 	 */
-	FDTP.createFormData = function ( filename, offset ) {
+	mw.FormDataTransport.prototype.createFormData = function ( filename, offset ) {
 		var formData;
 
 		if ( this.insufficientFormDataSupport ) {
@@ -115,7 +111,7 @@
 	 * @param {XMLHttpRequest} xhr
 	 * @param {FormData} formData
 	 */
-	FDTP.sendData = function ( xhr, formData ) {
+	mw.FormDataTransport.prototype.sendData = function ( xhr, formData ) {
 		xhr.open( 'POST', this.postUrl, true );
 
 		if ( this.insufficientFormDataSupport ) {
@@ -129,7 +125,7 @@
 	 * Start the upload with the provided file.
 	 * @return {jQuery.Promise}
 	 */
-	FDTP.upload = function ( file ) {
+	mw.FormDataTransport.prototype.upload = function ( file ) {
 		var formData, deferred,
 			transport = this;
 
@@ -167,7 +163,7 @@
 	 * @param {number} offset Offset in bytes.
 	 * @return {jQuery.Promise}
 	 */
-	FDTP.uploadChunk = function ( file, offset ) {
+	mw.FormDataTransport.prototype.uploadChunk = function ( file, offset ) {
 		var formData,
 			deferred = $.Deferred(),
 			transport = this,
@@ -264,7 +260,7 @@
 	 * @param {number} [offset]
 	 * @return {jQuery.Promise}
 	 */
-	FDTP.maybeRetry = function ( contextMsg, response, retryMethod, file, offset ) {
+	mw.FormDataTransport.prototype.maybeRetry = function ( contextMsg, response, retryMethod, file, offset ) {
 		this.retries++;
 
 		if ( this.tooManyRetries() ) {
@@ -280,7 +276,7 @@
 	 * Have we retried too many times already?
 	 * @return {boolean}
 	 */
-	FDTP.tooManyRetries = function () {
+	mw.FormDataTransport.prototype.tooManyRetries = function () {
 		return this.maxRetries > 0 && this.retries >= this.maxRetries;
 	};
 
@@ -291,7 +287,7 @@
 	 * @param {number} [offset]
 	 * @return {jQuery.Promise}
 	 */
-	FDTP.retryWithMethod = function ( methodName, file, offset ) {
+	mw.FormDataTransport.prototype.retryWithMethod = function ( methodName, file, offset ) {
 		var
 			transport = this,
 			retryDeferred = $.Deferred(),
@@ -312,7 +308,7 @@
 	 * Check the status of the upload.
 	 * @return {jQuery.Promise}
 	 */
-	FDTP.checkStatus = function () {
+	mw.FormDataTransport.prototype.checkStatus = function () {
 		var transport = this,
 			params = {};
 
@@ -361,7 +357,7 @@
 	 * @param {Event} evt
 	 * @return {Object}
 	 */
-	FDTP.parseResponse = function ( evt ) {
+	mw.FormDataTransport.prototype.parseResponse = function ( evt ) {
 		var response;
 
 		try {
@@ -378,7 +374,7 @@
 		return response;
 	};
 
-	FDTP.geckoFormData = function () {
+	mw.FormDataTransport.prototype.geckoFormData = function () {
 		var formData, onload,
 			boundary = '------XX' + Math.random(),
 			dashdash = '--',

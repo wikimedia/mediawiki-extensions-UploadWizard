@@ -1,6 +1,4 @@
 ( function ( mw, $ ) {
-	var ITP;
-
 	/**
 	 * @class mw.IframeTransport
 	 * Represents a "transport" for files to upload; in this case an iframe.
@@ -54,13 +52,11 @@
 		$( 'body' ).append( this.$iframe );
 	};
 
-	ITP = mw.IframeTransport.prototype;
-
 	/**
 	 * Accessor function
 	 * @return {jQuery.Promise}
 	 */
-	ITP.getSetUpStatus = function () {
+	mw.IframeTransport.prototype.getSetUpStatus = function () {
 		return this.setUpStatus.promise();
 	};
 
@@ -70,7 +66,7 @@
 	 *
 	 * @param {Element} iframe iframe to extract result from
 	 */
-	ITP.processIframeResult = function ( iframe ) {
+	mw.IframeTransport.prototype.processIframeResult = function ( iframe ) {
 		var response, json,
 			doc = iframe.contentDocument || frames[iframe.id].document;
 
@@ -114,7 +110,7 @@
 	 * Start the upload.
 	 * @return {jQuery.Promise}
 	 */
-	ITP.upload = function () {
+	mw.IframeTransport.prototype.upload = function () {
 		var transport = this;
 
 		return this.getSetUpStatus().then( function () {

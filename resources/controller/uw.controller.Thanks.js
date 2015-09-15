@@ -16,14 +16,12 @@
  */
 
 ( function ( uw, $, OO ) {
-	var TP;
-
 	/**
 	 * The thanks step.
 	 * @class
 	 * @constructor
 	 */
-	function Thanks( config ) {
+	uw.controller.Thanks = function UWControllerThanks( config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Thanks( config )
@@ -33,13 +31,11 @@
 		);
 
 		this.stepName = 'thanks';
-	}
+	};
 
-	OO.inheritClass( Thanks, uw.controller.Step );
+	OO.inheritClass( uw.controller.Thanks, uw.controller.Step );
 
-	TP = Thanks.prototype;
-
-	TP.moveTo = function ( uploads ) {
+	uw.controller.Thanks.prototype.moveTo = function ( uploads ) {
 		var thanks = this;
 
 		uw.controller.Step.prototype.moveTo.call( this );
@@ -51,9 +47,8 @@
 		this.uploads = undefined;
 	};
 
-	TP.isComplete = function () {
+	uw.controller.Thanks.prototype.isComplete = function () {
 		return true;
 	};
 
-	uw.controller.Thanks = Thanks;
 }( mediaWiki.uploadWizard, jQuery, OO ) );

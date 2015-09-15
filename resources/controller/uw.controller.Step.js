@@ -16,8 +16,6 @@
  */
 
 ( function ( uw, OO, $ ) {
-	var SP;
-
 	/**
 	 * Represents a step in the wizard.
 	 * @class mw.uw.controller.Step
@@ -27,7 +25,7 @@
 	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.
 	 * @param {Object} config The UW config object, or relevant subset.
 	 */
-	function Step( ui, config ) {
+	uw.controller.Step = function UWControllerStep( ui, config ) {
 		var step = this;
 
 		OO.EventEmitter.call( this );
@@ -53,16 +51,14 @@
 		 * The next step in the process.
 		 */
 		this.nextStep = null;
-	}
+	};
 
-	OO.mixinClass( Step, OO.EventEmitter );
-
-	SP = Step.prototype;
+	OO.mixinClass( uw.controller.Step, OO.EventEmitter );
 
 	/**
 	 * Empty the step of all data.
 	 */
-	SP.empty = function () {
+	uw.controller.Step.prototype.empty = function () {
 		this.ui.empty();
 	};
 
@@ -70,7 +66,7 @@
 	 * Set the next step in the process.
 	 * @param {mw.uw.controller.Step} step
 	 */
-	SP.setNextStep = function ( step ) {
+	uw.controller.Step.prototype.setNextStep = function ( step ) {
 		this.nextStep = step;
 	};
 
@@ -78,7 +74,7 @@
 	 * Move to this step.
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
-	SP.moveTo = function ( uploads ) {
+	uw.controller.Step.prototype.moveTo = function ( uploads ) {
 		var step = this;
 
 		this.movedFrom = false;
@@ -114,7 +110,7 @@
 	/**
 	 * Move out of this step.
 	 */
-	SP.moveFrom = function () {
+	uw.controller.Step.prototype.moveFrom = function () {
 		this.ui.moveFrom( this.uploads );
 
 		this.movedFrom = true;
@@ -127,7 +123,7 @@
 	/**
 	 * Skip this step.
 	 */
-	SP.skip = function () {
+	uw.controller.Step.prototype.skip = function () {
 		uw.eventFlowLogger.logSkippedStep( this.stepName );
 		this.moveFrom();
 	};
@@ -135,7 +131,7 @@
 	/**
 	 * Count the number of empty (undefined) uploads in our list.
 	 */
-	SP.countEmpties = function () {
+	uw.controller.Step.prototype.countEmpties = function () {
 		var count = 0;
 
 		$.each( this.uploads, function ( i, upload ) {
@@ -152,7 +148,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 * @return {boolean} Whether there are uploads present in the list
 	 */
-	SP.updateFileCounts = function ( uploads ) {
+	uw.controller.Step.prototype.updateFileCounts = function ( uploads ) {
 		if ( uploads ) {
 			this.uploads = uploads;
 		} else {
@@ -173,7 +169,7 @@
 	 * in the UploadWizard class.
 	 * @return {jQuery.Promise}
 	 */
-	SP.transitionAll = function () {
+	uw.controller.Step.prototype.transitionAll = function () {
 		var i,
 			step = this,
 			transpromises = [],
@@ -216,7 +212,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 * @return {boolean}
 	 */
-	SP.canTransition = function () {
+	uw.controller.Step.prototype.canTransition = function () {
 		return this.uploadsTransitioning < this.config.maxSimultaneousConnections;
 	};
 
@@ -224,7 +220,7 @@
 	 * Perform this step's changes on one upload.
 	 * @return {jQuery.Promise}
 	 */
-	SP.transitionOne = function () {
+	uw.controller.Step.prototype.transitionOne = function () {
 		return $.Deferred().reject( 'Using default transitioner is not supported' );
 	};
 
@@ -242,7 +238,7 @@
 	 * in the right order.
 	 * @return {boolean} Whether all of the uploads are in a successful state.
 	 */
-	SP.showNext = function () {
+	uw.controller.Step.prototype.showNext = function () {
 		var errorCount = 0,
 			okCount = 0,
 			stillGoing = 0,
@@ -295,7 +291,7 @@
 	 * Function used by some steps to update progress bar for the whole
 	 * batch of uploads.
 	 */
-	SP.updateProgressBarCount = function () {};
+	uw.controller.Step.prototype.updateProgressBarCount = function () {};
 
 	/**
 	 * Check whether this step has been completed, or is in progress.
@@ -303,9 +299,8 @@
 	 * thanks have their own.
 	 * @return {boolean}
 	 */
-	SP.isComplete = function () {
+	uw.controller.Step.prototype.isComplete = function () {
 		return this.uploads === undefined || this.uploads.length === 0 || this.movedFrom;
 	};
 
-	uw.controller.Step = Step;
 }( mediaWiki.uploadWizard, OO, jQuery ) );

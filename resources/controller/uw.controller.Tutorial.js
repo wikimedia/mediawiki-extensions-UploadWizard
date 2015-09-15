@@ -16,9 +16,7 @@
  */
 
 ( function ( mw, uw, $, OO ) {
-	var TP;
-
-	function Tutorial( api ) {
+	uw.controller.Tutorial = function UWControllerTutorial( api ) {
 		var controller = this;
 		this.shouldSkipTutorial = false;
 		this.api = api;
@@ -41,16 +39,14 @@
 		);
 
 		this.stepName = 'tutorial';
-	}
+	};
 
-	OO.inheritClass( Tutorial, uw.controller.Step );
-
-	TP = Tutorial.prototype;
+	OO.inheritClass( uw.controller.Tutorial, uw.controller.Step );
 
 	/**
 	 * Set the skip tutorial user preference via the options API
 	 */
-	TP.setSkipPreference = function () {
+	uw.controller.Tutorial.prototype.setSkipPreference = function () {
 		var api = this.api,
 			allowCloseWindow = mw.confirmCloseWindow( {
 				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); }
@@ -66,7 +62,7 @@
 		} );
 	};
 
-	TP.moveTo = function () {
+	uw.controller.Tutorial.prototype.moveTo = function () {
 		var tconf = mw.config.get( 'UploadWizardConfig' ).tutorial;
 
 		if (
@@ -79,7 +75,7 @@
 		}
 	};
 
-	TP.moveFrom = function () {
+	uw.controller.Tutorial.prototype.moveFrom = function () {
 		( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
 
 		// if the skip checkbox is checked, set the skip user preference
@@ -90,9 +86,8 @@
 		uw.controller.Step.prototype.moveFrom.call( this );
 	};
 
-	TP.isComplete = function () {
+	uw.controller.Tutorial.prototype.isComplete = function () {
 		return true;
 	};
 
-	uw.controller.Tutorial = Tutorial;
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

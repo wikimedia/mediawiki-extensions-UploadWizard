@@ -15,9 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, ui, OO ) {
-	var UP;
-
+( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Upload step.
 	 * @class uw.ui.Upload
@@ -25,12 +23,12 @@
 	 * @constructor
 	 * @param {Object} config UploadWizard config object.
 	 */
-	function Upload( config ) {
+	uw.ui.Upload = function UWUIUpload( config ) {
 		var upload = this;
 
 		this.config = config;
 
-		ui.Step.call(
+		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-file' ),
 			$( '#mwe-upwiz-step-file' )
@@ -136,18 +134,16 @@
 		this.$fileList = $( '#mwe-upwiz-filelist' );
 
 		this.$progress = $( '#mwe-upwiz-progress' );
-	}
+	};
 
-	OO.inheritClass( Upload, ui.Step );
-
-	UP = Upload.prototype;
+	OO.inheritClass( uw.ui.Upload, uw.ui.Step );
 
 	/**
 	 * Updates the interface based on the number of uploads.
 	 * @param {boolean} haveUploads Whether there are any uploads at all.
 	 * @param {boolean} fewerThanMax Whether we can add more uploads.
 	 */
-	UP.updateFileCounts = function ( haveUploads, fewerThanMax ) {
+	uw.ui.Upload.prototype.updateFileCounts = function ( haveUploads, fewerThanMax ) {
 		var $needToHide;
 
 		this.$fileList.toggleClass( 'mwe-upwiz-filled-filelist', haveUploads );
@@ -203,7 +199,7 @@
 	/**
 	 * Changes the initial centered invitation button to something like "add another file"
 	 */
-	UP.setAddButtonText = function ( more ) {
+	uw.ui.Upload.prototype.setAddButtonText = function ( more ) {
 		var msg = 'mwe-upwiz-add-file-',
 			fmsg = 'mwe-upwiz-add-file-flickr';
 
@@ -227,7 +223,7 @@
 	/**
 	 * Empties the upload list.
 	 */
-	UP.empty = function () {
+	uw.ui.Upload.prototype.empty = function () {
 		this.$uploadCtrlContainer
 			.add( this.$uploadStepButtons )
 			.add( this.$progress )
@@ -256,15 +252,15 @@
 	/**
 	 * Empties the Flickr selection lists.
 	 */
-	UP.emptyFlickrLists = function () {
+	uw.ui.Upload.prototype.emptyFlickrLists = function () {
 		// empty the flickr lists
 		this.$flickrSelectList.empty();
 		this.$flickrSelectListContainer.unbind();
 		this.$flickrSelect.unbind();
 	};
 
-	UP.moveTo = function () {
-		ui.Step.prototype.moveTo.call( this );
+	uw.ui.Upload.prototype.moveTo = function () {
+		uw.ui.Step.prototype.moveTo.call( this );
 
 		this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
 
@@ -276,7 +272,7 @@
 	/**
 	 * Hide the buttons for moving to the next step.
 	 */
-	UP.hideEndButtons = function () {
+	uw.ui.Upload.prototype.hideEndButtons = function () {
 		this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
 			.hide();
@@ -287,7 +283,7 @@
 	 * since they went over the max files limit.
 	 * @param filesUploaded integer - the number of files that have been attempted to upload
 	 */
-	UP.showTooManyFilesWarning = function ( filesUploaded ) {
+	uw.ui.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
 		var buttons = [
 			{
 				text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
@@ -317,9 +313,8 @@
 	 * Checks whether flickr import is enabled and the current user has the rights to use it
 	 * @returns {Boolean}
 	 */
-	UP.isFlickrImportEnabled = function () {
+	uw.ui.Upload.prototype.isFlickrImportEnabled = function () {
 		return mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '';
 	};
 
-	ui.Upload = Upload;
-}( mediaWiki, jQuery, mediaWiki.uploadWizard.ui, OO ) );
+}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

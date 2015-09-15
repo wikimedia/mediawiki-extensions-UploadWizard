@@ -16,8 +16,6 @@
  */
 
 ( function ( mw, uw ) {
-	var EFLP;
-
 	/**
 	 * @class uw.EventFlowLogger
 	 * Event logging helper for funnel analysis. Should be instantiated at the very beginning; uses internal state
@@ -25,10 +23,9 @@
 	 * @constructor
 	 * @param eventLog mw.eventLog object, for dependency injection
 	 */
-	function EventFlowLogger( eventLog ) {
+	uw.EventFlowLogger = function UWEventFlowLogger( eventLog ) {
 		this.eventLog = eventLog;
-	}
-	EFLP = EventFlowLogger.prototype;
+	};
 
 	/**
 	 * Returns a string identifying this upload session for analytics purposes.
@@ -38,14 +35,14 @@
 	 * @private
 	 * @return {string}
 	 */
-	EFLP.getFlowId = function () {
+	uw.EventFlowLogger.prototype.getFlowId = function () {
 		var rnd;
 
-		if ( !EventFlowLogger.flowId ) {
+		if ( !uw.EventFlowLogger.flowId ) {
 			rnd = '00' + Math.floor( Math.random() * 1000 );
-			EventFlowLogger.flowId = new Date().getTime() + rnd.substr( rnd.length - 3, 3 );
+			uw.EventFlowLogger.flowId = new Date().getTime() + rnd.substr( rnd.length - 3, 3 );
 		}
-		return EventFlowLogger.flowId;
+		return uw.EventFlowLogger.flowId;
 	};
 
 	/**
@@ -55,9 +52,9 @@
 	 * @private
 	 * @return {number}
 	 */
-	EFLP.getFlowPosition = function () {
-		EventFlowLogger.flowPosition = ( EventFlowLogger.flowPosition || 0 ) + 1;
-		return EventFlowLogger.flowPosition;
+	uw.EventFlowLogger.prototype.getFlowPosition = function () {
+		uw.EventFlowLogger.flowPosition = ( uw.EventFlowLogger.flowPosition || 0 ) + 1;
+		return uw.EventFlowLogger.flowPosition;
 	};
 
 	/**
@@ -67,7 +64,7 @@
 	 * @param {boolean} [skipped=false]
 	 * @param {Object} [extraData] Extra data passed to the log.
 	 */
-	EFLP.performStepLog = function ( step, skipped, extraData ) {
+	uw.EventFlowLogger.prototype.performStepLog = function ( step, skipped, extraData ) {
 		var data = extraData || {};
 
 		data.step = step;
@@ -85,7 +82,7 @@
 	 * @param {string} schema EventLogger schema name
 	 * @param {object} data event data (without flowId)
 	 */
-	EFLP.log = function ( schema, data ) {
+	uw.EventFlowLogger.prototype.log = function ( schema, data ) {
 		if ( !this.eventLog ) {
 			return;
 		}
@@ -99,7 +96,7 @@
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
 	 * @param {Object} [extraData] Extra data to pass along in the log.
 	 */
-	EFLP.logStep = function ( step, extraData ) {
+	uw.EventFlowLogger.prototype.logStep = function ( step, extraData ) {
 		this.performStepLog( step, false, extraData );
 	};
 
@@ -107,7 +104,7 @@
 	 * Logs skipping a given step of the upload process.
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
 	 */
-	EFLP.logSkippedStep = function ( step ) {
+	uw.EventFlowLogger.prototype.logSkippedStep = function ( step ) {
 		this.performStepLog( step, true );
 	};
 
@@ -121,11 +118,11 @@
 	 *  - continue-anyway-clicked
 	 *  - leave-page
 	 */
-	EFLP.logEvent = function ( name ) {
+	uw.EventFlowLogger.prototype.logEvent = function ( name ) {
 		this.log( 'UploadWizardFlowEvent', { event: name } );
 	};
 
-	EFLP.logError = function ( step, data ) {
+	uw.EventFlowLogger.prototype.logError = function ( step, data ) {
 		this.log( 'UploadWizardErrorFlowEvent', {
 			step: step,
 			code: data.code,
@@ -136,7 +133,7 @@
 	/**
 	 * Sets up logging for global javascript errors.
 	 */
-	EFLP.installExceptionLogger = function () {
+	uw.EventFlowLogger.prototype.installExceptionLogger = function () {
 		function toNumber( val ) {
 			var num = parseInt( val, 10 );
 			if ( isNaN( num ) ) {
@@ -173,7 +170,7 @@
 	 * @param {number} data.duration upload duration in seconds
 	 * @param {string} data.error upload error string
 	 */
-	EFLP.logUploadEvent = function ( name, data ) {
+	uw.EventFlowLogger.prototype.logUploadEvent = function ( name, data ) {
 		data.event = name;
 
 		if ( 'size' in data ) {
@@ -184,9 +181,7 @@
 		this.log( 'UploadWizardUploadFlowEvent', data );
 	};
 
-	uw.EventFlowLogger = EventFlowLogger;
-
 	// FIXME
-	uw.eventFlowLogger = new EventFlowLogger( mw.eventLog );
+	uw.eventFlowLogger = new uw.EventFlowLogger( mw.eventLog );
 	uw.eventFlowLogger.installExceptionLogger();
 }( mediaWiki, mediaWiki.uploadWizard ) );

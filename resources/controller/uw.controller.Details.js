@@ -16,15 +16,13 @@
  */
 
 ( function ( uw, $, OO ) {
-	var DP;
-
 	/**
 	 * Represents the details step in the wizard.
 	 * @class mw.uw.controller.Details
 	 * @extends mw.uw.controller.Step
 	 * @constructor
 	 */
-	function Details( config ) {
+	uw.controller.Details = function UWControllerDetails( config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Details()
@@ -37,17 +35,15 @@
 
 		this.stepName = 'details';
 		this.finishState = 'complete';
-	}
+	};
 
-	OO.inheritClass( Details, uw.controller.Step );
-
-	DP = Details.prototype;
+	OO.inheritClass( uw.controller.Details, uw.controller.Step );
 
 	/**
 	 * Move to this step.
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
-	DP.moveTo = function ( uploads ) {
+	uw.controller.Details.prototype.moveTo = function ( uploads ) {
 		var successes = 0;
 
 		$.each( uploads, function ( i, upload ) {
@@ -83,7 +79,7 @@
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
 	};
 
-	DP.empty = function () {
+	uw.controller.Details.prototype.empty = function () {
 		this.ui.empty();
 	};
 
@@ -91,7 +87,7 @@
 	 * Start details submit.
 	 * @TODO move the rest of the logic here from mw.UploadWizard
 	 */
-	DP.startDetails = function () {
+	uw.controller.Details.prototype.startDetails = function () {
 		var details = this;
 
 		this.valid().done( function () {
@@ -107,7 +103,7 @@
 	 * Check details for validity.
 	 * @return {jQuery.Promise}
 	 */
-	DP.valid = function () {
+	uw.controller.Details.prototype.valid = function () {
 		var confirmationDialog, title,
 			d = $.Deferred(),
 			valid = 0,
@@ -177,14 +173,14 @@
 		}
 	};
 
-	DP.canTransition = function ( upload ) {
+	uw.controller.Details.prototype.canTransition = function ( upload ) {
 		return (
 			uw.controller.Step.prototype.canTransition.call( this, upload ) &&
 			upload.state === 'details'
 		);
 	};
 
-	DP.transitionOne = function ( upload ) {
+	uw.controller.Details.prototype.transitionOne = function ( upload ) {
 		return upload.details.submit();
 	};
 
@@ -192,7 +188,7 @@
 	 * Submit details to the API.
 	 * @returns {jQuery.Promise}
 	 */
-	DP.submit = function () {
+	uw.controller.Details.prototype.submit = function () {
 		var details = this;
 
 		$.each( this.uploads, function ( i, upload ) {
@@ -229,9 +225,8 @@
 	 * Show errors in the form.
 	 * See UI class for more.
 	 */
-	DP.showErrors = function () {
+	uw.controller.Details.prototype.showErrors = function () {
 		this.ui.showErrors();
 	};
 
-	uw.controller.Details = Details;
 }( mediaWiki.uploadWizard, jQuery, OO ) );
