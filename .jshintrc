@@ -36,7 +36,6 @@
 
 	"predef": [
 		"mediaWiki",
-		"mw",
 		"jQuery",
 		"OO",
 		"QUnit",

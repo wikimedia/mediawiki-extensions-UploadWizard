@@ -15,7 +15,7 @@
  * along with DeedWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw ) {
+( function ( mw, uw ) {
 	QUnit.module( 'mw.uw.controller.Deed', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
@@ -43,4 +43,4 @@
 
 		assert.strictEqual( ststub.callCount, 2 );
 	} );
-}( mediaWiki.uploadWizard ) );
+}( mediaWiki, mediaWiki.uploadWizard ) );

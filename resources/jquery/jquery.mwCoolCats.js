@@ -10,7 +10,8 @@
  * when the user hasn't entered any categories (not counting hidden categories!).
  * This should probably not be going through the DOM, could be more MVC.
  */
-( function ( $ ) { $.fn.mwCoolCats = function ( options ) {
+( function ( mw, $ ) {
+$.fn.mwCoolCats = function ( options ) {
 
 	var defaults, settings, cx, seenCat, $container, $template,
 		catNsId = mw.config.get( 'wgNamespaceIds' ).category;
@@ -277,4 +278,5 @@
 		$template = input.clone();
 	} );
 
-}; } )( jQuery );
+};
+} )( mediaWiki, jQuery );

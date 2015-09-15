@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, OO, $ ) {
+( function ( mw, uw, OO, $ ) {
 	/**
 	 * Represents a step in the wizard.
 	 * @class mw.uw.controller.Step
@@ -303,4 +303,4 @@
 		return this.uploads === undefined || this.uploads.length === 0 || this.movedFrom;
 	};
 
-}( mediaWiki.uploadWizard, OO, jQuery ) );
+}( mediaWiki, mediaWiki.uploadWizard, OO, jQuery ) );

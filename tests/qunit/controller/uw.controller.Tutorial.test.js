@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $ ) {
+( function ( mw, uw, $ ) {
 	QUnit.module( 'mw.uw.controller.Tutorial', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 4, function ( assert ) {
@@ -61,4 +61,4 @@
 		pwtd.reject( 'http', { textStatus: 'Foo bar' } );
 		assert.ok( mnStub.calledWith( 'Foo bar' ) );
 	} );
-}( mediaWiki.uploadWizard, jQuery ) );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );
