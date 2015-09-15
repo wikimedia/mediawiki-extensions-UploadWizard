@@ -126,7 +126,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.upload = function ( file ) {
-		var formData, deferred,
+		var formData, deferred, ext,
 			transport = this;
 
 		// use timestamp + filename to avoid conflicts on server
@@ -135,6 +135,11 @@
 		this.tempname = this.tempname.split('').map(function (c) {
 			return c.charCodeAt(0) > 128 ? '_' : c;
 		}).join('');
+		// Also limit length to 240 bytes (limit hardcoded in UploadBase.php).
+		if ( this.tempname.length > 240 ) {
+			ext = this.tempname.split( '.' ).pop();
+			this.tempname = this.tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
+		}
 
 		if ( this.config.enableChunked && file.size > this.chunkSize ) {
 			return this.uploadChunk( file, 0 );
