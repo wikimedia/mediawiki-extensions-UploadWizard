@@ -163,6 +163,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Esti ficheru yá se xubió a esta wiki con anterioridá, pero dempués desanicióse.",
 	"mwe-upwiz-upload-error-stashed-anyway": "¿Xubir de toles maneres?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nun ye posible lleer o entender el nome del ficheru «$1» por razones desconocíes.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nome de ficheru desconocíu",
 	"mwe-upwiz-ok": "Aceutar",
 	"mwe-upwiz-cancel": "Encaboxar",
 	"mwe-upwiz-fileexists-replace": "Yá esiste un ficheru col títulu «$1». Camuda'l títulu por otru que seya únicu.",
