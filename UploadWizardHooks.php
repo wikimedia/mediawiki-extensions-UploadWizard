@@ -445,6 +445,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-feedback-blacklist-subject',
 				'mwe-upwiz-errordialog-title',
 				'mwe-upwiz-errordialog-ok',
+				'mwe-upwiz-calendar-date',
 				'mwe-upwiz-custom-date',
 				'size-gigabytes',
 				'size-megabytes',
