@@ -704,77 +704,45 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 }
 
 #upload-wizard .ui-corner-tl {
-	-moz-border-radius-topleft: 4px;
-	-webkit-border-top-left-radius: 4px;
 	border-top-left-radius: 4px;
 }
 
 #upload-wizard .ui-corner-tr {
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-right-radius: 4px;
 	border-top-right-radius: 4px;
 }
 
 #upload-wizard .ui-corner-bl {
-	-moz-border-radius-bottomleft: 4px;
-	-webkit-border-bottom-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 }
 
 #upload-wizard .ui-corner-br {
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-bottom-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 
 #upload-wizard .ui-corner-top {
-	-moz-border-radius-topleft: 4px;
-	-webkit-border-top-left-radius: 4px;
 	border-top-left-radius: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-right-radius: 4px;
 	border-top-right-radius: 4px;
 }
 
 #upload-wizard .ui-corner-bottom {
-	-moz-border-radius-bottomleft: 4px;
-	-webkit-border-bottom-left-radius: 4px;
 	border-bottom-left-radius: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-bottom-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 
 #upload-wizard .ui-corner-left {
-	-moz-border-radius-topleft: 4px;
-	-webkit-border-top-left-radius: 4px;
 	border-top-left-radius: 4px;
-	-moz-border-radius-bottomleft: 4px;
-	-webkit-border-bottom-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 }
 
 #upload-wizard .ui-corner-right {
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-right-radius: 4px;
 	border-top-right-radius: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-bottom-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 
 #upload-wizard .ui-corner-all {
-	-moz-border-radius-topleft: 4px;
-	-webkit-border-top-left-radius: 4px;
 	border-top-left-radius: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-right-radius: 4px;
 	border-top-right-radius: 4px;
-	-moz-border-radius-bottomleft: 4px;
-	-webkit-border-bottom-left-radius: 4px;
 	border-bottom-left-radius: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-bottom-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 
