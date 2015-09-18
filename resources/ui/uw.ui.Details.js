@@ -26,20 +26,10 @@
 		var details = this;
 
 		function startDetails() {
-			var isPopupOpen = false;
-
-			$( '.categoryInput' ).each( function () {
-				if ( $( this ).data( 'popupOpen' ) === true ) {
-					isPopupOpen = true;
-					$( this ).bind( 'popupClose', startDetails );
-				}
-			});
-
-			if ( isPopupOpen ) {
-				return;
-			}
-
-			$( '.mwe-upwiz-hint' ).each( function () { $( this ).tipsy( 'hide' ); } ); // close tipsy help balloons
+			// close tipsy help balloons
+			$( '.mwe-upwiz-hint' ).each( function () {
+				$( this ).tipsy( 'hide' );
+			} );
 
 			details.emit( 'start-details' );
 		}
