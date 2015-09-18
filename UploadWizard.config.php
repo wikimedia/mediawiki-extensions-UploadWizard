@@ -637,4 +637,8 @@ return array(
 
 	// Should we allow multiple files in a form?
 	'enableMultipleFiles' => true,
+
+	// Should we pester the user with a confirmation step when submitting a file without assigning it
+	// to any categories?
+	'enableCategoryCheck' => true,
 );

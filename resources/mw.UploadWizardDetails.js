@@ -875,14 +875,13 @@
 		 * check if we have all the *must have* but not mandatory fields filled in
 		 * Currently this tests for the following:
 		 * 1) Empty category
-		 * 2) TODO
 		 * @return {boolean}
 		 */
 		necessaryFilled: function () {
 			// check for empty category input
-			return (
+			return !mw.UploadWizard.config.enableCategoryCheck || (
 				this.div.find( '.categoryInput' ).val() !== '' ||
-				this.div.find( '.cat-list' ).find( 'li' ).length > 0
+				this.div.find( '.cat-list' ).find( 'li' ).not( '.hidden' ).length > 0
 			);
 		},
 
