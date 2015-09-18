@@ -198,13 +198,3 @@ $wgContentHandlers[ 'Campaign' ] = 'CampaignContentHandler';
 
 $wgCapitalLinkOverrides[ NS_CAMPAIGN ] = false;
 $wgCapitalLinkOverrides[ NS_CAMPAIGN_TALK ] = false;
-
-// add proper aliases for NS_FILE, otherwise an error is being thrown
-// in combined.min.js when the content language code is not 'en':
-// "unrecognized namespace=File" due to undefiled 'File' key in wgNamespaceIds
-if ( !isset( $wgNamespaceAliases['File'] ) ) {
-	$wgNamespaceAliases['File'] = NS_FILE;
-}
-if ( !isset( $wgNamespaceAliases['File_talk'] ) ) {
-	$wgNamespaceAliases['File_talk'] = NS_FILE_TALK;
-}
