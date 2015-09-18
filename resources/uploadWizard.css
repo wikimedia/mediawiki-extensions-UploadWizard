@@ -773,12 +773,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 	white-space:pre;
 }
 
-.mwe-upwiz-category-will-be-added {
-	font-style:italic;
-	color:gray;
-	padding-left:0.5em;
-}
-
 .mwe-upwiz-other-textarea {
 	width: 31.5em;
 }

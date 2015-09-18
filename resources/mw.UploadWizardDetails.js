@@ -16,7 +16,7 @@
 			categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
 			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
-			showMap, linkDiv, locationHinter, locationDiv, hiddenCats, missingCatsWikiText,
+			showMap, linkDiv, locationHinter, locationDiv, categories,
 			$list,
 			details = this;
 
@@ -132,9 +132,6 @@
 			.find( '.mwe-upwiz-details-fieldname' )
 			.append( mw.message( 'mwe-upwiz-categories' ).escaped() )
 			.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
-		categoriesId = 'categories' + this.upload.index;
-		$categoriesDiv.find( '.mwe-upwiz-details-input' )
-			.append( this.makeTextInput( categoriesId ) );
 
 		dateInputId = 'dateInput' + ( this.upload.index ).toString();
 
@@ -411,38 +408,35 @@
 				} );
 		}
 
-		// make this a category picker
-		hiddenCats = mw.UploadWizard.config.autoAdd.categories === undefined ? [] : mw.UploadWizard.config.autoAdd.categories;
-
-		// Add tracking categories
-		if ( mw.UploadWizard.config.trackingCategory ) {
-			if ( mw.UploadWizard.config.trackingCategory.all ) {
-				hiddenCats.push( mw.UploadWizard.config.trackingCategory.all );
-			}
-			if ( mw.UploadWizard.config.trackingCategory.campaign ) {
-				hiddenCats.push( mw.UploadWizard.config.trackingCategory.campaign );
-			}
-		}
-
-		missingCatsWikiText = null;
-		if (
-			typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string' &&
-			mw.UploadWizard.config.missingCategoriesWikiText.length > 0
-		) {
-			missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
-		}
-
-		this.$catinput = $categoriesDiv.find( '.mwe-upwiz-details-input' ).find( 'input' );
-		this.$catinput.mwCoolCats( {
-			api: this.upload.api,
-			hiddenCats: hiddenCats,
-			buttontext: mw.message( 'mwe-upwiz-categories-add' ).text(),
-			cats: mw.UploadWizard.config.defaults.categories === undefined ? [] : mw.UploadWizard.config.defaults.categories,
-			missingCatsWikiText: missingCatsWikiText,
-			willbeaddedtext: mw.message( 'mwe-upwiz-category-will-be-added' ).text(),
-			onnewcat: function () {
-			}
+		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( function ( cat ) {
+			// Keep only valid titles
+			return !!mw.Title.newFromText( 'Category:' + cat );
 		} );
+
+		categoriesId = 'categories' + this.upload.index;
+		this.categoriesWidget = new mw.widgets.CategorySelector( {
+			id: categoriesId
+		} );
+
+		this.categoriesWidget.createItemWidget = function ( data ) {
+			var widget = this.constructor.prototype.createItemWidget.call( this, data );
+			widget.setMissing = function ( missing ) {
+				this.constructor.prototype.setMissing.call( this, missing );
+				if ( !missing ) {
+					this.$element.removeAttr( 'title' );
+				} else {
+					this.$element
+						.attr( 'title', mw.msg( 'mwe-upwiz-categories-missing' ) )
+						.tipsy()
+						.tipsy( 'show' );
+				}
+			};
+			return widget;
+		};
+		this.categoriesWidget.setItemsFromData( categories );
+
+		$categoriesDiv.find( '.mwe-upwiz-details-input' )
+			.append( this.categoriesWidget.$element );
 	};
 
 	/**
@@ -620,8 +614,7 @@
 		 */
 		copyMetadata: function ( metadataType ) {
 
-			var titleZero, matches, visibleCategoriesZero,
-				hiddenCategoriesZero,
+			var titleZero, matches,
 				i, sourceMode,
 				details = this,
 				uploads = this.upload.wizard.uploads,
@@ -645,13 +638,15 @@
 				});
 			}
 
-			function oouiCopy( property ) {
+			function oouiCopy( property, methods ) {
 				var i,
 					sourceUpload = uploads[0],
-					sourceValue = sourceUpload.details[property].getValue();
+					getMethod = methods && methods.get || 'getValue',
+					setMethod = methods && methods.set || 'setValue',
+					sourceValue = sourceUpload.details[property][getMethod]();
 
 				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[i].details[property].setValue( sourceValue );
+					uploads[i].details[property][setMethod]( sourceValue );
 				}
 			}
 
@@ -713,23 +708,10 @@
 
 			} else if ( metadataType === 'categories' ) {
 
-				visibleCategoriesZero = $( '#categories' + sourceId ).get( 0 ).getCats( ':not(.hidden)' );
-				hiddenCategoriesZero = $( '#categories' + sourceId ).get( 0 ).getCats( '.hidden' );
-				$( 'input[id^=categories]:not(#categories' + sourceId + ')' ).each( function ( i, input ) {
-					if ( this.id !== ( 'categories' + sourceId ) ) {
-
-						// As with descriptions, we nuke whatever categories are there already.
-						input.removeAllCats();
-
-						$.each(visibleCategoriesZero, function () {
-							input.insertCat( this, false );
-						});
-						$.each(hiddenCategoriesZero, function () {
-							input.insertCat( this, true );
-						});
-
-					}
-				});
+				oouiCopy( 'categoriesWidget', {
+					get: 'getItemsData',
+					set: 'setItemsFromData'
+				} );
 
 			} else if ( metadataType === 'location' ) {
 
@@ -874,10 +856,8 @@
 		 */
 		necessaryFilled: function () {
 			// check for empty category input
-			return !mw.UploadWizard.config.enableCategoryCheck || (
-				this.div.find( '.categoryInput' ).val() !== '' ||
-				this.div.find( '.cat-list' ).find( 'li' ).not( '.hidden' ).length > 0
-			);
+			return !mw.UploadWizard.config.enableCategoryCheck ||
+				this.categoriesWidget.getItemsData().length > 0;
 		},
 
 		/**
@@ -1415,6 +1395,7 @@
 		 */
 		getWikiText: function () {
 			var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
+				hiddenCats, missingCatsWikiText, categories,
 				locationThings, information,
 				wikiText = '';
 
@@ -1505,11 +1486,49 @@
 				if ( $( '#imgPicker' + this.upload.index ).prop( 'checked' ) ) {
 					wikiText += '\n<!-- WIKIPAGE_UPDATE_PARAMS ' +
 						mw.UploadWizard.config.defaults.objref +
-						' -->\n\n';
+						' -->\n';
 				}
 
-				// add categories
-				wikiText += this.div.find( '.categoryInput' ).get(0).getWikiText() + '\n\n';
+				// categories
+
+				hiddenCats = [];
+				if ( mw.UploadWizard.config.autoAdd.categories ) {
+					hiddenCats = hiddenCats.concat( mw.UploadWizard.config.autoAdd.categories );
+				}
+				if ( mw.UploadWizard.config.trackingCategory ) {
+					if ( mw.UploadWizard.config.trackingCategory.all ) {
+						hiddenCats.push( mw.UploadWizard.config.trackingCategory.all );
+					}
+					if ( mw.UploadWizard.config.trackingCategory.campaign ) {
+						hiddenCats.push( mw.UploadWizard.config.trackingCategory.campaign );
+					}
+				}
+				hiddenCats = hiddenCats.filter( function ( cat ) {
+					// Keep only valid titles
+					return !!mw.Title.newFromText( 'Category:' + cat );
+				} );
+
+				missingCatsWikiText = null;
+				if (
+					typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string' &&
+					mw.UploadWizard.config.missingCategoriesWikiText.length > 0
+				) {
+					missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
+				}
+
+				categories = this.categoriesWidget.getItemsData();
+
+				// add all categories
+				wikiText += '\n' + categories.concat( hiddenCats )
+					.map( function ( cat ) {
+						return '[[' + mw.Title.newFromText( 'Category:' + cat ).getPrefixedText() + ']]';
+					} )
+					.join( '\n' ) + '\n';
+
+				// if so configured, and there are no user-visible categories, add warning
+				if ( missingCatsWikiText !== null && categories.length === 0 ) {
+					wikiText += '\n' + missingCatsWikiText;
+				}
 
 				// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
 				if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {

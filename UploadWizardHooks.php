@@ -75,9 +75,6 @@ class UploadWizardHooks {
 				'resources/mw.UtilitiesTime.js',
 				'resources/mw.ErrorDialog.js',
 
-				// mediawiki-specific interface helper (relies on mediawiki globals)
-				'resources/jquery/jquery.mwCoolCats.js',
-
 				// wikimedia-comons specific title checker
 				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
 
@@ -114,7 +111,6 @@ class UploadWizardHooks {
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',
-				'resources/jquery/jquery.mwCoolCats.css',
 				'resources/jquery/jquery.removeCtrl.css',
 				'resources/jquery/jquery.showThumbCtrl.css',
 			),
@@ -417,9 +413,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-url-invalid',
 				'mwe-upwiz-user-blacklisted',
 				'mwe-upwiz-categories',
-				'mwe-upwiz-categories-add',
-				'mwe-upwiz-category-will-be-added',
-				'mwe-upwiz-category-remove',
+				'mwe-upwiz-categories-missing',
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
 				'mwe-upwiz-unparseable-title',
