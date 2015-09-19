@@ -40,7 +40,8 @@
 			"Macofe",
 			"Element303",
 			"Framafan",
-			"Mattho69"
+			"Mattho69",
+			"Orlodrim"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -203,6 +204,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Ce fichier a déjà été téléversé sur ce wiki, mais a été ensuite supprimé.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Téléverser malgré tout ?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nous ne pouvons pas lire ou comprendre le nom du fichier « $1 » pour une raison inconnue.",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nom de fichier inconnu",
 	"mwe-upwiz-ok": "Valider",
 	"mwe-upwiz-cancel": "Annuler",
 	"mwe-upwiz-fileexists-replace": "Un fichier avec le titre « $1 » existe déjà. Veuillez modifier votre titre pour qu’il soit unique.",
@@ -358,10 +360,6 @@
 	"mwe-upwiz-custom-date": "Utiliser un format de date personnalisé",
 	"uploadcampaign-legend": "Configuration des campagnes de versement",
 	"uploadcampaign-text": "Vous êtes en train de modifier une campagne Assistant de versement.",
-	"mw-coolcats-confirm-new-title": "Confirmer la nouvelle catégorie",
-	"mw-coolcats-confirm-new": "Il semble que vous essayez d'ajouter une nouvelle catégorie, « $1 ». Attention : <ul><li> Le nom des catégories doit être en anglais. </li><li> Les nouvelles catégories doivent être une sous-catégorie d'une catégorie existante. </li></ul> Généralement, seuls les contributeurs expérimentés créent de nouvelles catégories.",
-	"mw-coolcats-confirm-new-ok": "Ajouter cette catégorie de toute façon",
-	"mw-coolcats-confirm-new-cancel": "Ce n'est pas grave",
 	"prefs-uploads": "Import de fichiers",
 	"prefs-upwiz-licensing": "Mettre sous licence",
 	"prefs-upwiz-experimental": "Fonctionnalités expérimentales",
