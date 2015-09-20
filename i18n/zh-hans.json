@@ -40,6 +40,7 @@
 	"group-upwizcampeditors": "上传向导步骤编辑者",
 	"group-upwizcampeditors-member": "{{GENDER:$1|上传向导步骤编辑者}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:上传向导步骤编辑者",
+	"group-upwizcampeditors.css": "/* 这里放置的CSS将只影响上传向导步骤编辑者 */",
 	"mwe-upwiz-js-off": "上传向导使用JavaScript增强界面。你的浏览器不支持JavaScript或关闭了JavaScript，所以我们给你显示简单上传表格。",
 	"mwe-upwiz-extension-disabled": "因暂时的技术问题，本页面已停用。在此期间，请使用标准上传表格。",
 	"mwe-upwiz-code-unknown": "未知语言",
