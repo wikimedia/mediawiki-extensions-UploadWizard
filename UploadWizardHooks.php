@@ -299,7 +299,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-upload-error-duplicate-archive',
 				'mwe-upwiz-upload-error-stashed-anyway',
 				'mwe-upwiz-ok',
-				'mwe-upwiz-cancel',
 				'mwe-upwiz-change',
 				'mwe-upwiz-fileexists-replace',
 				'mwe-upwiz-fileexists',

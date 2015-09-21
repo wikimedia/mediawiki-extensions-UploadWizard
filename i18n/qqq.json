@@ -191,7 +191,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Used as error message. Parameters:\n* $1 - filename",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Text displayed instead of a file name in a list when it is not available.",
 	"mwe-upwiz-ok": "{{Identical|OK}}",
-	"mwe-upwiz-cancel": "{{Identical|Cancel}}",
 	"mwe-upwiz-fileexists-replace": "Unused at this time. Parameters:\n* $1 - page title for a file",
 	"mwe-upwiz-fileexists": "Unused at this time. Parameters:\n* $1 - ...",
 	"mwe-upwiz-fileexists-replace-on-page": "Parameters:\n* $1 is an image name.\n* $2 is an URL.",
