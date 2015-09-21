@@ -168,7 +168,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "We could not read or understand the filename \"$1\" for unknown reasons.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Unknown filename",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-cancel": "Cancel",
 	"mwe-upwiz-fileexists-replace": "A file with the title \"$1\" exists already. Please change your title to something unique.",
 	"mwe-upwiz-fileexists": "A file with this name exists already.\nPlease check $1 if you are not sure if you want to replace it.",
 	"mwe-upwiz-fileexists-replace-on-page": "A file with this name exists already. If you want to replace it, go to the page for [$2 $1] and replace it there.",

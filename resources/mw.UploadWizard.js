@@ -475,48 +475,6 @@
 		return deeds;
 	};
 
-	/**
-	 * Makes a modal dialog to confirm deletion of one or more uploads. Will have "Remove" and "Cancel" buttons
-	 * @param {Array} array of UploadWizardUpload objects
-	 * @param {String} message for dialog title
-	 * @param {String} message for dialog text, which will precede an unordered list of upload titles.
-	 */
-	mw.UploadWizardDeleteDialog = function ( uploads, dialogTitle, dialogText ) {
-		var $filenameList = $( '<ul></ul>' ),
-			buttons = {};
-
-		$.each( uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-			$filenameList.append( $( '<li></li>' ).append( upload.title.getMain() ) );
-		} );
-
-		buttons[ mw.message( 'mwe-upwiz-remove', uploads.length ).escaped() ] = function () {
-			$.each( uploads, function ( i, upload ) {
-				if ( upload === undefined ) {
-					return;
-				}
-				upload.remove();
-			} );
-			$( this ).dialog( 'close' );
-		};
-		buttons[ mw.message( 'mwe-upwiz-cancel', uploads.length ).escaped() ] = function () {
-			$( this ).dialog( 'close' );
-		};
-
-		return $( '<div></div>' )
-			.append( $( '<p></p>' ).append( dialogText ), $filenameList )
-			.dialog( {
-				width: 500,
-				zIndex: 200000,
-				autoOpen: false,
-				title: dialogTitle,
-				modal: true,
-				buttons: buttons
-			} );
-	};
-
 	mw.UploadWizardDeedPreview = function (upload) {
 		this.upload = upload;
 	};
