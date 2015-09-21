@@ -121,8 +121,7 @@
 		this.upload.setThumbnail(
 			$preview,
 			mw.UploadWizard.config.thumbnailWidth,
-			mw.UploadWizard.config.thumbnailMaxHeight,
-			true
+			mw.UploadWizard.config.thumbnailMaxHeight
 		);
 	};
 

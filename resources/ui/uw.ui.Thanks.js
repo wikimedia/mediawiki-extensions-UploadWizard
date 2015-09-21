@@ -138,8 +138,7 @@
 		upload.setThumbnail(
 			$thumbnailDiv,
 			mw.UploadWizard.config.thumbnailWidth,
-			mw.UploadWizard.config.thumbnailMaxHeight,
-			false
+			mw.UploadWizard.config.thumbnailMaxHeight
 		);
 
 		// Set the thumbnail links so that they point to the image description page
