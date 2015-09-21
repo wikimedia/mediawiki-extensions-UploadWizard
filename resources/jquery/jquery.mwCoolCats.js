@@ -14,7 +14,7 @@
 $.fn.mwCoolCats = function ( options ) {
 
 	var defaults, settings, cx, seenCat, $container, $template,
-		catNsId = mw.config.get( 'wgNamespaceIds' ).category;
+		NS_CATEGORY = mw.config.get( 'wgNamespaceIds' ).category;
 
 	/**
 	 * Get content from our text field, and attempt to insert it as a category.
@@ -33,7 +33,7 @@ $.fn.mwCoolCats = function ( options ) {
 		}
 
 		text = $input.val();
-		title = mw.Title.newFromUserInput( text, catNsId );
+		title = mw.Title.newFromUserInput( text, NS_CATEGORY );
 		if ( !title ) {
 			// This also checks for empty $input
 			$input.removeData( 'title' );
@@ -164,7 +164,7 @@ $.fn.mwCoolCats = function ( options ) {
 			input = this;
 
 		// Stripping out bad characters as necessary.
-		title = mw.Title.newFromUserInput( $( this ).val(), catNsId );
+		title = mw.Title.newFromUserInput( $( this ).val(), NS_CATEGORY );
 		if ( !title ) {
 			return;
 		}
@@ -172,13 +172,13 @@ $.fn.mwCoolCats = function ( options ) {
 
 		$( input ).data( 'request', settings.api.get( {
 			action: 'opensearch',
-			namespace: catNsId,
+			namespace: NS_CATEGORY,
 			limit: 10,
 			search: prefix
 		} ).done( function ( res ) {
 			var c,
 				catList = res[1].map( function ( name ) {
-					return mw.Title.newFromText( name, catNsId ).getMainText();
+					return mw.Title.newFromText( name, NS_CATEGORY ).getMainText();
 				} );
 
 			for ( c in catList ) {
@@ -270,8 +270,12 @@ $.fn.mwCoolCats = function ( options ) {
 		this.getWikiText = getWikiText;
 
 		// initialize with some categories, if so configured
-		$.each( settings.cats, function ( i, cat ) { insertCat( mw.Title.newFromText( cat, catNsId ) ); } );
-		$.each( settings.hiddenCats, function ( i, cat ) { insertCat( mw.Title.newFromText( cat, catNsId ), true ); } );
+		$.each( settings.cats, function ( i, cat ) {
+			insertCat( mw.Title.newFromText( cat, NS_CATEGORY ) );
+		} );
+		$.each( settings.hiddenCats, function ( i, cat ) {
+			insertCat( mw.Title.newFromText( cat, NS_CATEGORY ), true );
+		} );
 
 		processInput();
 

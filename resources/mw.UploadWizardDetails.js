@@ -13,7 +13,7 @@
  */
 ( function ( mw, uw, $, OO ) {
 
-	var fileNsId = mw.config.get( 'wgNamespaceIds' ).file;
+	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,
@@ -452,8 +452,8 @@
 	 * @return {mw.Title|null}
 	 */
 	mw.UploadWizardDetails.makeTitleInFileNS = function ( filename ) {
-		var mwTitle = mw.Title.newFromText( filename, fileNsId );
-		if ( mwTitle && mwTitle.getNamespaceId() !== fileNsId ) {
+		var mwTitle = mw.Title.newFromText( filename, NS_FILE );
+		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
 			// Force file namespace
 			mwTitle = mw.Title.newFromText( 'File:' + filename );
 		}
@@ -1664,7 +1664,7 @@
 				} else if ( warnings['bad-prefix'] ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text(), 'title-senselessimagename' );
 				} else if ( existingFile ) {
-					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, 6 ).getUrl();
+					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, NS_FILE ).getUrl();
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
 				} else if ( warnings.duplicate ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
