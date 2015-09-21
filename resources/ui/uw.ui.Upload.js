@@ -284,29 +284,16 @@
 	 * @param filesUploaded integer - the number of files that have been attempted to upload
 	 */
 	uw.ui.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
-		var buttons = [
-			{
-				text: mw.message( 'mwe-upwiz-too-many-files-ok' ).escaped(),
-				click: function () {
-					$( this ).dialog('destroy').remove();
-				}
-			}
-		];
+		var dialog = new mw.ErrorDialog(
+				mw.message(
+					'mwe-upwiz-too-many-files-text',
+					this.config.maxUploads,
+					filesUploaded
+				).text(),
+				mw.message( 'mwe-upwiz-too-many-files' ).text()
+			);
 
-		$( '<div>' )
-			.msg(
-				'mwe-upwiz-too-many-files-text',
-				this.config.maxUploads,
-				filesUploaded
-			)
-			.dialog( {
-				width: 500,
-				zIndex: 200000,
-				autoOpen: true,
-				title: mw.message( 'mwe-upwiz-too-many-files' ).escaped(),
-				modal: true,
-				buttons: buttons
-			} );
+		dialog.open();
 	};
 
 	/**

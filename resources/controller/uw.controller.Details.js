@@ -104,12 +104,10 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.valid = function () {
-		var confirmationDialog, title,
-			d = $.Deferred(),
+		var windowManager, confirmationDialog, title,
 			valid = 0,
 			necessary = 0,
 			total = 0,
-			buttons = {},
 			titles = {};
 
 		$.each( this.uploads, function ( i, upload ) {
@@ -139,38 +137,46 @@
 			}
 		} );
 
-		// Set up buttons for dialog box. We have to do it the hard way since the json keys are localized
-		buttons[ mw.message( 'mwe-upwiz-dialog-yes' ).escaped() ] = function () {
-			$( this ).dialog( 'close' );
-			d.resolve();
-		};
-		buttons[ mw.message( 'mwe-upwiz-dialog-no' ).escaped() ] = function () {
-			$( this ).dialog( 'close' );
-		};
-		confirmationDialog = $( '<div></div>' )
-			.text( mw.message( 'mwe-upwiz-necessary-confirm' ).text() )
-			.dialog( {
-				width: 500,
-				zIndex: 200000,
-				autoOpen: false,
-				modal: true,
-				buttons: buttons,
-				title: mw.message( 'mwe-upwiz-dialog-title' ).escaped(),
-				open: function () {
-					$( this ).siblings( '.ui-dialog-buttonpane' ).find( 'button:eq(1)' ).focus();
-				}
-			} );
-
-		if ( valid === total ) {
-			if ( necessary === total ) {
-				return d.resolve();
-			} else {
-				confirmationDialog.dialog( 'open' );
-				return d.promise();
-			}
-		} else {
-			return d.reject();
+		if ( valid !== total ) {
+			// Not all uploads valid, reject
+			return $.Deferred().reject();
+		} else if ( necessary === total ) {
+			// All uploads valid, all necessary fields filled
+			return $.Deferred().resolve();
 		}
+
+		windowManager = new OO.ui.WindowManager();
+		confirmationDialog = new OO.ui.MessageDialog();
+		windowManager.addWindows( [ confirmationDialog ] );
+		$( 'body' ).append( windowManager.$element );
+
+		return windowManager.openWindow( confirmationDialog, {
+			title: mw.message( 'mwe-upwiz-dialog-title' ).text(),
+			message: mw.message( 'mwe-upwiz-necessary-confirm' ).text(),
+			actions: [
+				{
+					label: mw.message( 'mwe-upwiz-dialog-no' ).text(),
+					action: 'reject',
+					flags: [ 'safe' ]
+				},
+
+				{
+					label: mw.message( 'mwe-upwiz-dialog-yes' ).text(),
+					action: 'accept',
+					flags: [ 'constructive', 'primary' ]
+				}
+			]
+		} ).then( function ( opened ) {
+			return opened.then( function ( closing ) {
+				return closing.then( function ( data ) {
+					if ( data.action === 'accept' ) {
+						return $.Deferred().resolve();
+					}
+
+					return $.Deferred().reject();
+				} );
+			} );
+		} );
 	};
 
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
