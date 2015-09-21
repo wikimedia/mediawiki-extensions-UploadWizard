@@ -475,47 +475,6 @@
 		return deeds;
 	};
 
-	mw.UploadWizardDeedPreview = function (upload) {
-		this.upload = upload;
-	};
-
-	mw.UploadWizardDeedPreview.prototype = {
-
-		setup: function () {
-			// prepare a preview on the deeds page
-			this.$thumbnailDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-thumbnail' );
-			this.upload.setThumbnail(
-				this.$thumbnailDiv,
-				mw.UploadWizard.config.thumbnailWidth,
-				mw.UploadWizard.config.thumbnailMaxHeight,
-				true
-			);
-		},
-
-		remove: function () {
-			if ( this.$thumbnailDiv ) {
-				this.$thumbnailDiv.remove();
-			}
-		},
-
-		// Has this preview been attached to the DOM already?
-		isAttached: false,
-
-		/*
-		 * Append the div for this preview object to the DOM.
-		 * We need to ensure that we add thumbs in the right order
-		 * (the order in which the user selected files).
-		 *
-		 * Will only append once.
-		 */
-		attach: function () {
-			if ( !this.isAttached ) {
-				$( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
-				this.isAttached = true;
-			}
-		}
-	};
-
 	/**
 	 * Check if a value is null, undefined, or the empty string.
 	 *
