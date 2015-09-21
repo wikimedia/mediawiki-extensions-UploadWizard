@@ -763,10 +763,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 	margin-bottom: 0;
 }
 
-.ui-dialog .mwe-upwiz-lightbox {
-	padding: 0;
-}
-
 .mwe-upwiz-details-texts {
 	padding: 0.5em;
 }
@@ -789,10 +785,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 	font-style:italic;
 	color:gray;
 	padding-left:0.5em;
-}
-
-.mwe-upwiz-lightbox-link a {
-	cursor: pointer;
 }
 
 .mwe-upwiz-other-textarea {

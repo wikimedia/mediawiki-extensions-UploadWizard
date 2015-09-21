@@ -28,8 +28,7 @@
 		upload.setThumbnail(
 			this.$thumbnailDiv,
 			config.thumbnailWidth,
-			config.thumbnailMaxHeight,
-			true
+			config.thumbnailMaxHeight
 		);
 		$( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
 	};

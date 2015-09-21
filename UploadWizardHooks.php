@@ -423,7 +423,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-thumbnail-failed',
 				'mwe-upwiz-unparseable-filename',
 				'mwe-upwiz-unparseable-title',
-				'mwe-upwiz-image-preview',
 				'mwe-upwiz-subhead-bugs',
 				'mwe-upwiz-subhead-alt-upload',
 				'mwe-upwiz-feedback-prompt',

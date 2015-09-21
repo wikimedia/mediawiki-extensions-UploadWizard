@@ -1072,9 +1072,8 @@
 	 * @param selector
 	 * @param width  Width constraint
 	 * @param height Height constraint (optional)
-	 * @param boolean add lightbox large preview when ready
 	 */
-	mw.UploadWizardUpload.prototype.setThumbnail = function ( selector, width, height, isLightBox ) {
+	mw.UploadWizardUpload.prototype.setThumbnail = function ( selector, width, height ) {
 		var upload = this,
 			placed = false;
 
@@ -1109,9 +1108,6 @@
 		$.subscribeReady(
 			'thumbnails.' + this.index,
 			function ( x ) {
-				if ( isLightBox ) {
-					upload.setLightBox( selector );
-				}
 				if ( !placed ) {
 					if ( x === 'api' ) {
 						// get the thumbnail via API. Queries are cached, so if this thumbnail was already
@@ -1127,40 +1123,6 @@
 				}
 			}
 		);
-	};
-
-	/**
-	 * set up lightbox behavior for non-complete thumbnails
-	 * TODO center this
-	 * @param selector
-	 */
-	mw.UploadWizardUpload.prototype.setLightBox = function ( selector ) {
-		var upload = this,
-			$imgDiv = $( '<div></div>' ).css( 'text-align', 'center' );
-
-		$( selector )
-			.addClass( 'mwe-upwiz-lightbox-link' )
-			.click( function () {
-				// get large preview image
-				// open large preview in modal dialog box
-				$( '<div class="mwe-upwiz-lightbox"></div>' )
-					.append( $imgDiv )
-					.dialog( {
-						minWidth:mw.UploadWizard.config.largeThumbnailWidth,
-						minHeight:mw.UploadWizard.config.largeThumbnailMaxHeight,
-						autoOpen:true,
-						title:mw.message( 'mwe-upwiz-image-preview' ).escaped(),
-						modal:true,
-						resizable:false
-					} );
-				upload.setThumbnail(
-					$imgDiv,
-					mw.UploadWizard.config.largeThumbnailWidth,
-					mw.UploadWizard.config.largeThumbnailMaxHeight,
-					false /* obviously the largeThumbnail doesn't have a lightbox itself! */
-				);
-				return false;
-			} ); // close thumbnail click function
 	};
 
 	mw.UploadWizardUpload.prototype.createDetails = function () {

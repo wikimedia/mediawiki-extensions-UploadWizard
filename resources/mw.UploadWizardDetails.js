@@ -1146,8 +1146,7 @@
 			this.upload.setThumbnail(
 				this.thumbnailDiv,
 				mw.UploadWizard.config.thumbnailWidth,
-				mw.UploadWizard.config.thumbnailMaxHeight,
-				true
+				mw.UploadWizard.config.thumbnailMaxHeight
 			);
 			this.prefillDate();
 			this.prefillAuthor();
