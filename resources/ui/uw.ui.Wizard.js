@@ -29,8 +29,6 @@
 		this.wizard = wizard;
 
 		this.initHeader( mw.UploadWizard.config );
-
-		this.initButtons();
 	};
 
 	OO.mixinClass( uw.ui.Wizard, OO.EventEmitter );
@@ -133,16 +131,6 @@
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
 			.arrowSteps()
 			.show();
-	};
-
-	/**
-	 * Initialize all of the buttons in the interface.
-	 */
-	uw.ui.Wizard.prototype.initButtons = function () {
-		// make all stepdiv proceed buttons into jquery buttons
-		$( '.mwe-upwiz-stepdiv .mwe-upwiz-buttons button' )
-			.button()
-			.css( { 'margin-left': '1em' } );
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

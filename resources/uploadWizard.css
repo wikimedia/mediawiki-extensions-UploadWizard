@@ -305,10 +305,6 @@ form.mwe-upwiz-form {
 	margin-top: 1em;
 }
 
-#mwe-upwiz-upload-ctrls button, .mwe-upwiz-buttons button {
-	font-size: 1em;
-}
-
 #mwe-upwiz-stepdiv-file .mwe-upwiz-buttons {
 	display: none;
 }
@@ -707,11 +703,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio
 .mwe-upwiz-hint:hover {
     /* @embed */
     background: url('images/question-hover.png') no-repeat;
-}
-
-/* Hack for Explorer 6 and 7 - line up buttons with other content */
-.mwe-upwiz-buttons .ui-button, .cat-widget .ui-button {
-	*vertical-align: middle;
 }
 
 #upload-wizard .ui-corner-tl {
