@@ -221,10 +221,25 @@
 	};
 
 	/**
+	 * Set additional status information
+	 * @param {jQuery} [$status] If not given or null, additional status is cleared
+	 */
+	mw.UploadWizardUploadInterface.prototype.setAdditionalStatus = function ( $status ) {
+		if ( this.$additionalStatus ) {
+			this.$additionalStatus.remove();
+		}
+		this.$additionalStatus = $status;
+		if ( this.$additionalStatus ) {
+			$( this.div ).find( '.mwe-upwiz-file-status' ).after( this.$additionalStatus );
+		}
+	};
+
+	/**
 	 * Clear the status line for this upload (hide it, in case there are paddings and such which offset other things.)
 	 */
 	mw.UploadWizardUploadInterface.prototype.clearStatus = function () {
 		$( this.div ).find( '.mwe-upwiz-file-status' ).hide();
+		this.setAdditionalStatus( null );
 	};
 
 	/**
@@ -235,6 +250,7 @@
 		// if fraction available, update individual progress bar / estimates, etc.
 		this.showIndicator( 'progress' );
 		this.setStatus( 'mwe-upwiz-uploading' );
+		this.setAdditionalStatus( null );
 	};
 
 	/**
@@ -249,14 +265,16 @@
 
 		this.showIndicator( 'stashed' );
 		this.setStatus( 'mwe-upwiz-stashed-upload' );
+		this.setAdditionalStatus( null );
 	};
 
 	/**
 	 * Show that transport has failed
 	 * @param String code: error code from API
 	 * @param {String|Object} info: extra info
+	 * @param {jQuery} [$additionalStatus]
 	 */
-	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info ) {
+	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
 		var msgKey, args;
@@ -276,6 +294,7 @@
 			args = [ code ].concat( $.makeArray( info ) );
 		}
 		this.setStatus( msgKey, args );
+		this.setAdditionalStatus( $additionalStatus );
 	};
 
 	mw.UploadWizardUploadInterface.prototype.initFileInputCtrl = function () {

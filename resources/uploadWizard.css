@@ -167,6 +167,11 @@ form.mwe-upwiz-form {
 	color: #797979;
 }
 
+.mwe-upwiz-file-status-line ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .mwe-upwiz-file-preview {
 	float: left;
 	height: 100px;
@@ -177,6 +182,12 @@ form.mwe-upwiz-form {
 	text-align: center;
 	/* @embed */
 	background: url('images/32px-Blank-document.svg.png') no-repeat center center;
+}
+
+.mwe-upwiz-file-texts {
+	/* This also create a new block formatting context, resulting in the the whole block
+	   displaying next to image thumbnail, rather than wrapping the lines of text around it */
+	overflow: hidden;
 }
 
 .mwe-upwiz-file-preview-broken {
