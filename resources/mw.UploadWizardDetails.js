@@ -1028,11 +1028,10 @@
 
 				// feedback request for titleblacklist
 				if ( mw.UploadWizard.config.blacklistIssuesPage !== undefined && mw.UploadWizard.config.blacklistIssuesPage !== '' ) {
-					feedback = new mw.Feedback(
-						this.api,
-						new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
-						'mwe-upwiz-feedback-title'
-					);
+					feedback = new mw.Feedback( {
+						title: new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
+						dialogTitleMessageKey: 'mwe-upwiz-feedback-title'
+					} );
 
 					feedbackLink = $( '<span class="contentSubLink"></span>' ).msg(
 						'mwe-upwiz-feedback-blacklist-report-prompt',
