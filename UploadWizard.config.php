@@ -595,11 +595,15 @@ return array(
 		'videoCodec'        => 'vp8',
 	),
 
-	// Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
-	'feedbackPage' => '',
+	// Link to page where users can leave feedback or bug reports.
+	// Defaults to UploadWizard's bug tracker.
+	// If you want to use a wiki page, set this to a falsy value,
+	// and set feedbackPage to the name of the wiki page.
 
-	// Phabricator page for UploadWizard bugs & tasks
-	'bugList' => 'https://phabricator.wikimedia.org/tag/MediaWiki-extensions-UploadWizard',
+	'feedbackLink' => 'https://phabricator.wikimedia.org/maniphest/task/create/?projects=MediaWiki-extensions-UploadWizard',
+
+	// [deprecated] Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
+	'feedbackPage' => '',
 
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
