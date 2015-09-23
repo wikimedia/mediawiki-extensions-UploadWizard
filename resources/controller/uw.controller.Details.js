@@ -153,6 +153,7 @@
 		return windowManager.openWindow( confirmationDialog, {
 			title: mw.message( 'mwe-upwiz-dialog-title' ).text(),
 			message: mw.message( 'mwe-upwiz-necessary-confirm' ).text(),
+			verbose: true,
 			actions: [
 				{
 					label: mw.message( 'mwe-upwiz-dialog-no' ).text(),
