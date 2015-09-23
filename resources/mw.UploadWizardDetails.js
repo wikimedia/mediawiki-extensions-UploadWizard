@@ -912,39 +912,46 @@
 		 * toggles whether we use the 'macro' deed or our own
 		 */
 		useCustomDeedChooser: function () {
-			var details = this;
+			var config, deed,
+				details = this;
 
 			this.copyrightInfoFieldset.show();
 			this.upload.wizardDeedChooser = this.upload.deedChooser;
 
 			// Defining own deedChooser for uploads coming from external service
 			if ( this.upload.fromURL ) {
+				// XXX can be made a seperate class as mw.UploadFromUrlDeedChooser
+				this.upload.deedChooser = { valid: function () { return this.deed.valid(); } };
+
 				if ( this.upload.providedFile.license ) {
-					// XXX can be made a seperate class as mw.UploadFromUrlDeedChooser
-					this.upload.deedChooser = {
-						valid: function () { return true; }
-					};
-
-					// Need to add tipsy tips here
-					$( this.deedDiv ).append( this.upload.providedFile.licenseMessage );
-
 					// XXX need to add code in the remaining functions
-					this.upload.deedChooser.deed = {
-						valid: function () { return true; },
-						getSourceWikiText: function () {
-							if ( typeof details.upload.providedFile.sourceURL !== 'undefined' ) {
-								return details.upload.providedFile.sourceURL;
-							} else {
-								return details.upload.providedFile.url;
-							}
-						},
-						getAuthorWikiText: function () {
-							return details.upload.providedFile.author;
+					this.upload.deedChooser.deed = this.getDeed();
+				} else {
+					config = { type: 'or', licenses: [ 'custom' ], special: 'custom' };
+					deed = {};
+
+					deed.licenseInput = new mw.UploadWizardLicenseInput(
+						this.deedDiv,
+						undefined,
+						config,
+						1,
+						this.api
+					);
+
+					deed.licenseInput.setDefaultValues();
+
+					this.upload.deedChooser.deed = this.getDeed( deed, {
+						valid: function () {
+							return this.licenseInput.valid();
 						},
 						getLicenseWikiText: function () {
-							return details.upload.providedFile.licenseValue;
+							if ( details.upload.providedFile.licenseValue ) {
+								return details.upload.providedFile.licenseValue + this.licenseInput.getWikiText();
+							} else {
+								return this.licenseInput.getWikiText();
+							}
 						}
-					};
+					} );
 				}
 			} else {
 				this.upload.deedChooser = new mw.UploadWizardDeedChooser(
@@ -954,6 +961,34 @@
 					[ this.upload ] );
 				this.upload.deedChooser.onLayoutReady();
 			}
+		},
+
+		getDeed: function ( deed, overrides ) {
+			var details = this;
+
+			// Need to add tipsy tips here
+			$( this.deedDiv ).append( this.upload.providedFile.licenseMessage );
+
+			deed = deed || {};
+			overrides = overrides || {};
+
+			// XXX need to add code in the remaining functions
+			return $.extend( deed, {
+				valid: function () { return true; },
+				getSourceWikiText: function () {
+					if ( typeof details.upload.providedFile.sourceURL !== 'undefined' ) {
+						return details.upload.providedFile.sourceURL;
+					} else {
+						return details.upload.providedFile.url;
+					}
+				},
+				getAuthorWikiText: function () {
+					return details.upload.providedFile.author;
+				},
+				getLicenseWikiText: function () {
+					return details.upload.providedFile.licenseValue;
+				}
+			}, overrides );
 		},
 
 		/**
