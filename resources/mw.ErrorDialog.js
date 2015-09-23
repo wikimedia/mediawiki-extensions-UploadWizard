@@ -18,6 +18,7 @@
 		this.windowManager.openWindow( this.dialog, {
 			title: this.title,
 			message: this.errorMessage,
+			verbose: true,
 			actions: [
 				{
 					label: mw.message( 'mwe-upwiz-errordialog-ok' ).text(),
