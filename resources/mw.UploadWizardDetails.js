@@ -2,11 +2,6 @@
  * Object that represents the Details (step 2) portion of the UploadWizard
  * n.b. each upload gets its own details.
  *
- * XXX a lot of this construction is not really the jQuery way.
- * The correct thing would be to have some hidden static HTML
- * on the page which we clone and slice up with selectors. Inputs can still be members of the object
- * but they'll be found by selectors, not by creating them as members and then adding them to a DOM structure.
- *
  * @param UploadWizardUpload
  * @param API
  * @param containerDiv	The div to put the interface into
