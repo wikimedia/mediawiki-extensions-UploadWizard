@@ -97,7 +97,8 @@ return array(
 	),
 
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
-	// Use this to indicate that some human should categorize this file. Does not consider autoCategories, which are hidden.
+	// Use this to indicate that some human should categorize this file. Does not consider autoAdd.categories,
+	// which are hidden.
 	'missingCategoriesWikiText' => '',
 
 	'display' => array(
