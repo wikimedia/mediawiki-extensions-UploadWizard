@@ -229,7 +229,7 @@
 	"mwe-upwiz-tooltip-date": "Date de la création ou de la première publication de cette œuvre (format « aaaa-mm-jj »).",
 	"mwe-upwiz-tooltip-categories": "Ajoutez votre fichier aux [$1 catégories] pour le rendre plus facile à trouver.",
 	"mwe-upwiz-tooltip-other": "Toute autre information que vous souhaitez inclure à propos de ce travail — coordonnées géographiques, liens vers d’autres versions, …",
-	"mwe-upwiz-tooltip-location": "Coordonnées de l’emplacement où ce fichier multimédia a été créé.",
+	"mwe-upwiz-tooltip-location": "[$1 Géocoder votre fichier] pour identifier où le média a été enregistré (il n’est pas toujours utile de saisir un emplacement pour chaque sorte de média).",
 	"mwe-upwiz-tooltip-more-info": "En savoir plus.",
 	"mwe-upwiz-file-need-file": "Veuillez ajouter d’abord un fichier à importer.",
 	"mwe-upwiz-deeds-need-license": "Veuillez choisir une licence.",
