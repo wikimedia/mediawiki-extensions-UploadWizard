@@ -1,6 +1,3 @@
-#ruby=ruby-2.1.1
-#ruby-gemset=UploadWizard
-
 source "https://rubygems.org"
 
 gem "chunky_png", "~> 1.3.4"
