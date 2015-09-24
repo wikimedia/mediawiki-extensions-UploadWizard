@@ -66,6 +66,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
+				'resources/jquery/jquery.lazyload.js',
 
 				// common utilities
 				'resources/mw.fileApi.js',

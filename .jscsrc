@@ -8,5 +8,7 @@
 	"requireSpaceBeforeObjectValues": null,
 	"requireSpaceBeforeKeywords": null,
 	"requireSpacesInsideParentheses": null,
-	"validateIndentation": null
+	"validateIndentation": null,
+
+	"excludeFiles": [ "resources/jquery/**" ]
 }

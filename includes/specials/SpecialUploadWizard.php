@@ -405,7 +405,7 @@ class SpecialUploadWizard extends SpecialPage {
 					'<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">' .
 						'<div id="mwe-upwiz-files">' .
 							'<div id="mwe-upwiz-flickr-select-list-container" class="ui-corner-all">' .
-								'<div>' . $this->msg( 'mwe-upwiz-multi-file-select' )->text() . '</div>' .
+								'<div>' . $this->msg( 'mwe-upwiz-multi-file-select', $config['maxUploads'] )->text() . '</div>' .
 								'<div id="mwe-upwiz-flickr-select-list"></div>' .
 							'</div>' .
 							'<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>' .
