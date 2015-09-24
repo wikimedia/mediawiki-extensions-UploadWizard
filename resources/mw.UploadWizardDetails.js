@@ -446,7 +446,6 @@
 			missingCatsWikiText: missingCatsWikiText,
 			willbeaddedtext: mw.message( 'mwe-upwiz-category-will-be-added' ).text(),
 			onnewcat: function () {
-				details.updateCopyMsgs();
 			}
 		} );
 	};
@@ -485,7 +484,6 @@
 			if ( !this.isAttached ) {
 				$( this.containerDiv ).append( this.div );
 				this.isAttached = true;
-				this.updateCopyMsgs();
 			}
 		},
 
@@ -794,13 +792,11 @@
 
 			$.each( this.copyMetadataTypes, function ( metadataName, defaultStatus ) {
 				var copyMetadataMsg, checkbox, field,
+					// mwe-upwiz-copy-title, mwe-upwiz-copy-description, mwe-upwiz-copy-date,
+					// mwe-upwiz-copy-categories, mwe-upwiz-copy-location, mwe-upwiz-copy-other
 					copyMessage = 'mwe-upwiz-copy-' + metadataName;
 
-				if ( metadataName === 'description' || metadataName === 'categories' ) {
-					copyMetadataMsg = mw.message( copyMessage, 1 ).text();
-				} else {
-					copyMetadataMsg = mw.message( copyMessage ).text();
-				}
+				copyMetadataMsg = mw.message( copyMessage ).text();
 
 				checkbox = new OO.ui.CheckboxInputWidget( {
 					selected: defaultStatus
@@ -856,33 +852,6 @@
 			var mapLink = new mw.Uri( 'https://www.openstreetmap.org/' )
 				.extend( { zoom: 9, mlat: this.$latitudeInput.val(), mlon: this.$longitudeInput.val() } );
 			return mapLink.toString();
-		},
-
-		/**
-		 * Update messages in copyMetadata div
-		 */
-		updateCopyMsgs: function () {
-			var $lbl,
-				msgs = [
-					{
-						title: 'mwe-upwiz-copy-description',
-						counter: function () {
-							return $( '.mwe-upwiz-details-fieldname', this.$form ).length;
-						}
-					},
-					{
-						title: 'mwe-upwiz-copy-categories',
-						counter: function () {
-							return $( 'ul li.cat, .categoryInput', this.$form ).length;
-						}
-					}
-				];
-			$.each( msgs, function ( index, msg ) {
-				var $lbl = $( 'label[for="' + msg.title + '"]' );
-				$lbl.text( mw.message( msg.title, msg.counter() ).text() );
-			} );
-			$lbl = $( '.mwe-upwiz-details-copy-metadata a', this.$form );
-			$lbl.text( mw.message( 'mwe-upwiz-copy-metadata', this.upload.wizard.uploads.length - 1 ).text() );
 		},
 
 		/**
@@ -1137,7 +1106,6 @@
 
 			this.descriptions.push( description );
 			this.recountDescriptions();
-			this.updateCopyMsgs();
 		},
 
 		/**
@@ -1155,14 +1123,12 @@
 			);
 
 			this.recountDescriptions();
-			this.updateCopyMsgs();
 		},
 
 		removeAllDescriptions: function () {
 			$( this.descriptionsDiv ).children().remove();
 			this.descriptions = [];
 			this.recountDescriptions();
-			this.updateCopyMsgs();
 		},
 
 		/**
