@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"FatosMorina",
-			"Olsi"
+			"Olsi",
+			"Kosovastar"
 		]
 	},
 	"uploadwizard": "Eksperti për ngarkim",
@@ -79,10 +80,10 @@
 	"mwe-upwiz-source-thirdparty-accept": "Në rregull",
 	"mwe-upwiz-source-custom": "Siguroni informacion për të drejtat e autorit për çdo skedë individualisht në faqen tjetër.",
 	"mwe-upwiz-more-options": "shto kategori dhe më shumë informacion...",
-	"mwe-upwiz-copy-metadata": "Kopjo informacionin tek të gjitha ngarkesat më poshtë ...",
+	"mwe-upwiz-copy-metadata": "Kopjo informacionin tek të gjitha ngarkesat ...",
 	"mwe-upwiz-copy-metadata-button": "Kopjo",
 	"mwe-upwiz-copy-title": "Kopjo titullin (me numërimin automatik)",
-	"mwe-upwiz-copy-description": "Kopjo përshkrimin(et)",
+	"mwe-upwiz-copy-description": "Kopjo përshkrimet",
 	"mwe-upwiz-copy-date": "Kopjo datën",
 	"mwe-upwiz-copy-categories": "Kopjo kategoritë",
 	"mwe-upwiz-copy-location": "Kopjo vendndodhjen",
@@ -114,7 +115,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Ngarko gjithsesi?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Ne nuk mundëm ta lexonim ose ta kuptonim emrin e skedës \"$1\" për arsye të panjohura.",
 	"mwe-upwiz-ok": "Në rregull",
-	"mwe-upwiz-cancel": "Anulo",
 	"mwe-upwiz-fileexists-replace": "Një skedë me titullin \"$1\" ekziston tashmë. Ju lutemi ndryshojeni titullin në diçka unik.",
 	"mwe-upwiz-fileexists": "Një skedë më këtë emër ekziston tashmë.\nJu lutemi kontrolloni $1 nëse nuk jeni të sigurt nëse doni ta zëvendësoni.",
 	"mwe-upwiz-fileexists-replace-on-page": "Një skedë me këtë emër ekziston tashmë. Nëse doni ta zëvendësoni, shkoni tek faqja për [$2 $1] dhe zëvendësojeni atje.",
@@ -155,7 +155,6 @@
 	"mwe-upwiz-error-too-long": "Kjo fushë është shumë e gjatë.\nJu lutemi bëjeni më të shkurtër se $1 {{PLURAL:$1|karakter|karaktere}}.",
 	"mwe-upwiz-error-too-short": "Kjo fushë është shumë e shkurtër.\nJu lutemi bëjeni më të gjatë se $1 {{PLURAL:$1|karakter|karaktere}}.",
 	"mwe-upwiz-error-bad-chars": "Kjo fushë përmban simbole që nuk lejohen.\nJu lutemi mos përdorni tekst wiki apo HTML këtu.",
-	"mwe-upwiz-error-date": "Ju lutemi shkruani një datë të vlefshme në formatin VVVV-MM-DD, ose zgjidhni një datë nga kalendari.",
 	"mwe-upwiz-error-title-blacklisted": "Ky titull përmban teks të padëshirueshëm. Ju lutemi rishikojeni.",
 	"mwe-upwiz-error-title-badchars": "Ky titull përmban disa karaktere të padëshirueshme. Ju lutemi hiqini ato.",
 	"mwe-upwiz-error-title-senselessimagename": "Ju lutemi bëjeni këtë titull më kuptimplotë.",
@@ -168,10 +167,8 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Teksti wiki këtu është shumë i shkurtër për të qenë një licencë",
 	"mwe-upwiz-error-license-wikitext-too-long": "Teksti wiki që shkruat është shumë i gjatë.",
 	"mwe-upwiz-details-error-count": "Ka {{PLURAL:$1|një gabim|gabime}} me {{PLURAL:$2|formularin|formularët}} më sipër. Korrigjoni gabimet, dhe provoni ta paraqisni sërish.",
-	"mwe-upwiz-too-many-files-ok": "Në rregull",
 	"mwe-upwiz-too-many-files-text": "Ju mund të ngarkoni vetëm $1 {{PLURAL:$1|skedë|skeda}} një herë. Ju provuat të ngarkoni {{PLURAL:$2|skedë|skeda}} gjithsej, prandaj $3 {{PLURAL:$3|skedë është|skeda janë}} hequr.",
 	"mwe-upwiz-too-many-files": "Shumë skeda.",
-	"mwe-upwiz-file-too-large-ok": "Në rregull",
 	"mwe-upwiz-file-too-large-text": "Ju mundeni vetëm të ngarkoni skedarë me një madhësi deri në $1. Ju provuat të ngarkoni një skedar që është $2.",
 	"mwe-upwiz-file-too-large": "Skedari shumë i madh.",
 	"mwe-upwiz-dialog-title": "Skedat mund të ngarkohen me emra në çdo gjuhë në çdo shkrim. Titujt e skedave duhet të kenë kuptim dhe të jenë të ndihmues në gjuhën e zgjedhur.",
@@ -232,7 +229,6 @@
 	"mwe-upwiz-category-remove": "Hiqe këtë kategori",
 	"mwe-upwiz-thumbnail-failed": "Ngarkimi doli me sukses, por serveri nuk mundi të merrte një parapamje të zvogëluar.",
 	"mwe-upwiz-unparseable-filename": "Nuk mund ta kuptojë emrin e skedës \"$1\"",
-	"mwe-upwiz-image-preview": "Parapamje e figurës",
 	"mwe-upwiz-subhead-bugs": "[$1 Probleme të njohura]",
 	"mwe-upwiz-subhead-alt-upload": "Prapa te formulari i vjetër",
 	"mwe-upwiz-feedback-prompt": "Lini përshtypjet",
