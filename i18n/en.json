@@ -45,7 +45,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "This form will load content hosted by flickr.com and subject to the\nFlickr [https://www.flickr.com/help/terms/ terms of use] and [https://www.flickr.com/help/privacy-policy/ privacy policy].",
 	"mwe-upwiz-flickr-disclaimer2": "Please note that by using this tool, your IP address and request details will be available to Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "We could not retrieve the file from $1.",
-	"mwe-upwiz-multi-file-select": "Draw a box with your cursor over the files you would like to upload. Hold down the Ctrl/Command key to make multiple non-adjacent selections. You can select up to $1 files to upload.",
+	"mwe-upwiz-multi-file-select": "Draw a box with your cursor over the files you would like to upload. Hold down the Ctrl/Command key to make multiple non-adjacent selections. You can select up to $1 {{PLURAL:$1|file|files}} to upload.",
 	"mwe-upwiz-transport-started": "Starting...",
 	"mwe-upwiz-encoding": "Encoding...",
 	"mwe-upwiz-uploading": "Uploading...",
