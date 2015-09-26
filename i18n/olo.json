@@ -4,6 +4,7 @@
 			"Mashoi7"
 		]
 	},
+	"mwe-upwiz-code-unknown": "Tundematoi kieli",
 	"mwe-upwiz-step-tutorial": "Opastu",
 	"mwe-upwiz-step-thanks": "Käytä",
 	"mwe-upwiz-add-flickr-or": "Libo",
@@ -21,8 +22,12 @@
 	"mwe-upwiz-file-too-large": "Failu on liijan suuri.",
 	"mwe-upwiz-dialog-yes": "Muga",
 	"mwe-upwiz-dialog-no": "Ei",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Kirjuttai|Kirjuttajat}}",
+	"mwe-upwiz-license-custom-preview": "Ezikačo",
 	"mwe-upwiz-license-none-head": "Lövvin sen netaspäi engo ole varmu",
 	"mwe-upwiz-categories": "Kategouriet",
+	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Anna työndyö]",
+	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Ližätieduo]",
 	"mwe-upwiz-calendar-date": "Valliče päivy kalenduaraspäi",
 	"mwe-upload-campaigns-pagination-next": "Tulii sivu"
 }
