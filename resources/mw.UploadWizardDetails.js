@@ -564,6 +564,8 @@
 
 			this.dateInputWidget.$input.data( 'mwe-error-placement', this.dateInputWidget.$element.parent() );
 			this.$form.validate(); // this might not be necessary here
+			// jQuery validate requires a name, otherwise these rules would get applied to all inputs with no name
+			this.dateInputWidget.$input.attr( 'name', dateInputId );
 			// FIXME Shouldn't abuse jQuery validate for this
 			this.dateInputWidget.$input.rules( 'add', {
 				required: true,
