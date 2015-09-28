@@ -37,12 +37,25 @@
 	 * Initializes the static stuff above the wizard.
 	 */
 	uw.ui.Wizard.prototype.initHeader = function ( config ) {
-		// feedback request
-		if ( typeof config.feedbackPage === 'string' && config.feedbackPage.length > 0 ) {
-			this.initFeedback(
-				config.feedbackPage,
-				config.bugList
-			);
+		var feedbackLink;
+
+		if ( config.feedbackLink ) {
+			// Preferred. Send user to bug tracker (defaults to UW's own
+			// Phabricator project)
+			feedbackLink = config.feedbackLink;
+		} else if ( config.feedbackPage ) {
+			// Backwards compatibility...send user to talk page to give
+			// feedback.
+			feedbackLink = mw.util.getUrl( config.feedbackPage );
+		}
+
+		if ( feedbackLink ) {
+			this.$feedbackLink = $( '<a>' )
+				.addClass( 'contentSubLink' )
+				.prop( 'href', config.feedbackLink )
+				.msg( 'mwe-upwiz-feedback-prompt' );
+
+			$( '#contentSub' ).append( this.$feedbackLink );
 		}
 
 		if ( config.altUploadForm ) {
@@ -54,38 +67,6 @@
 
 		// construct the arrow steps from the UL in the HTML
 		this.initArrowSteps();
-	};
-
-	/**
-	 * Initializes the feedback interface.
-	 * @param {string} feedbackPage URL where we send the feedback.
-	 * @param {string} bugList URL where a list of known bugs can be found.
-	 */
-	uw.ui.Wizard.prototype.initFeedback = function ( feedbackPage, bugList ) {
-		var ui = this;
-
-		this.feedback = new mw.Feedback( {
-			title: new mw.Title( feedbackPage ),
-			dialogTitleMessageKey: 'mwe-upwiz-feedback-title',
-			bugsLink: new mw.Uri( 'https://phabricator.wikimedia.org/maniphest/task/create/?projects=MediaWiki-extensions-UploadWizard' ),
-			bugsListLink: new mw.Uri( bugList )
-		} );
-
-		this.$feedbackLink = $( '<a>' )
-			.addClass( 'contentSubLink' )
-			// Make it a link, and show the feedback page URL - we
-			// cancel the event propagation anyway, so the user won't
-			// see the actual page.
-			.prop( 'href', mw.util.getUrl( feedbackPage ) )
-			.msg( 'mwe-upwiz-feedback-prompt' )
-			.click(
-				function () {
-					ui.feedback.launch();
-					return false;
-				}
-			);
-
-		$( '#contentSub' ).append( this.$feedbackLink );
 	};
 
 	/**
