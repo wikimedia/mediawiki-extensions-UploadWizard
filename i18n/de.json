@@ -240,7 +240,7 @@
 	"mwe-upwiz-too-many-files": "Zu viele Dateien.",
 	"mwe-upwiz-file-too-large-text": "Du kannst nur Dateien mit einer Größe von bis zu $1 hochladen. Du hast versucht, eine Datei mit $2 hochzuladen.",
 	"mwe-upwiz-file-too-large": "Die Datei ist zu groß.",
-	"mwe-upwiz-necessary-confirm": "Es wird empfohlen, dass du eine Kategorie für deine hochgeladenen Dateien angibst. Willst du fortfahren, ohne alle Felder auszufüllen?",
+	"mwe-upwiz-necessary-confirm": "Es wird empfohlen, dass du einige Kategorien für deine hochgeladenen Dateien angibst. Willst du fortfahren, ohne alle Felder auszufüllen?",
 	"mwe-upwiz-dialog-yes": "Ja",
 	"mwe-upwiz-dialog-no": "Nein",
 	"mwe-upwiz-dialog-title": "Warnung",

@@ -235,7 +235,7 @@
 	"mwe-upwiz-too-many-files": "ファイルが多すぎます。",
 	"mwe-upwiz-file-too-large-text": "サイズが $1までのファイルのみをアップロードできます。サイズが $2のファイルをアップロードしようとしました。",
 	"mwe-upwiz-file-too-large": "ファイルが大きすぎます。",
-	"mwe-upwiz-necessary-confirm": "アップロードに対してカテゴリを記入することをお勧めします。記入していない欄がありますが本当にアップロードしますか?",
+	"mwe-upwiz-necessary-confirm": "アップロードに対して、いくつかのカテゴリを記入することをお勧めします。記入していない欄がありますが、本当にアップロードしますか?",
 	"mwe-upwiz-dialog-yes": "はい",
 	"mwe-upwiz-dialog-no": "いいえ",
 	"mwe-upwiz-dialog-title": "警告",
