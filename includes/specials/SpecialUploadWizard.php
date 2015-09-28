@@ -405,14 +405,14 @@ class SpecialUploadWizard extends SpecialPage {
 					'<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">' .
 						'<div id="mwe-upwiz-files">' .
 							'<div id="mwe-upwiz-flickr-select-list-container" class="ui-corner-all">' .
-								'<div>' . $this->msg( 'mwe-upwiz-multi-file-select', $config['maxUploads'] )->text() . '</div>' .
+								'<div>' . $this->msg( 'mwe-upwiz-multi-file-select', $config['maxUploads'] )->escaped() . '</div>' .
 								'<div id="mwe-upwiz-flickr-select-list"></div>' .
 							'</div>' .
 							'<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>' .
 							'<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">' .
 								'<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">' .
 									'<div id="mwe-upwiz-upload-ctrl-flickr-container">' .
-										'<p id="mwe-upwiz-upload-ctr-divide">' . $this->msg( "mwe-upwiz-add-flickr-or" )->text() . '</p>' .
+										'<p id="mwe-upwiz-upload-ctr-divide">' . $this->msg( "mwe-upwiz-add-flickr-or" )->escaped() . '</p>' .
 									'</div>' .
 								'</div>' .
 							'</div>' .
@@ -428,7 +428,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds" style="display:none;">' .
 						'<div id="mwe-upwiz-reqd-field-explain-container">' .
-							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->text() .
+							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->escaped() .
 						'</div>' .
 						'<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>' .
 						'<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>' .
@@ -438,7 +438,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">' .
 						'<div id="mwe-upwiz-reqd-field-explain-container">' .
-							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->text() .
+							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->escaped() .
 						'</div>' .
 						'<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>' .
 						'<div class="mwe-upwiz-buttons">' .
