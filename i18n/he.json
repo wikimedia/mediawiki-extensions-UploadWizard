@@ -236,7 +236,7 @@
 	"mwe-upwiz-too-many-files": "יותר מדי קבצים.",
 	"mwe-upwiz-file-too-large-text": "אפשר להעלות קובץ בגודל של $1 לכל היותר. ניסית להעלות קובץ בגודל $2.",
 	"mwe-upwiz-file-too-large": "הקובץ גדול מדי.",
-	"mwe-upwiz-necessary-confirm": "מומלץ למלא קטגוריה לקבצים המועלים. האם להמשיך ללא מילוי השדות?",
+	"mwe-upwiz-necessary-confirm": "מומלץ למלא קטגוריה אחדות לקבצים {{GENDER:|שאת|שאתה}} מעלה. האם להמשיך ללא מילוי השדות?",
 	"mwe-upwiz-dialog-yes": "כן",
 	"mwe-upwiz-dialog-no": "לא",
 	"mwe-upwiz-dialog-title": "אזהרה",

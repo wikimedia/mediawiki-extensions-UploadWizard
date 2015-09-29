@@ -236,7 +236,7 @@
 	"mwe-upwiz-too-many-files": "Zbyt wiele plików.",
 	"mwe-upwiz-file-too-large-text": "Można przesyłać pliki o rozmiarze nie przekraczającym $1. Próbowano wysłać plik, który ma $2.",
 	"mwe-upwiz-file-too-large": "Plik jest za duży.",
-	"mwe-upwiz-necessary-confirm": "Zaleca się, aby określić kategorię dla przesyłanego pliku. Czy chcesz kontynuować bez wypełniania wszystkich pól?",
+	"mwe-upwiz-necessary-confirm": "Zaleca się, aby określić jakieś kategorie dla przesyłanego pliku. Czy chcesz kontynuować bez wypełniania wszystkich pól?",
 	"mwe-upwiz-dialog-yes": "Tak",
 	"mwe-upwiz-dialog-no": "Nie",
 	"mwe-upwiz-dialog-title": "Ostrzeżenie",

@@ -241,7 +241,7 @@
 	"mwe-upwiz-too-many-files": "Demasiados archivos.",
 	"mwe-upwiz-file-too-large-text": "Sólo puedes subir archivos con un tamaño de hasta $1. Has intentado subir un archivo de $2.",
 	"mwe-upwiz-file-too-large": "El archivo es demasiado grande.",
-	"mwe-upwiz-necessary-confirm": "Se recomienda incluir las subidas en una categoría. ¿Quieres continuar sin cubrir todos los campos?",
+	"mwe-upwiz-necessary-confirm": "Se recomienda incluir las subidas en algunas categorías. ¿Quieres continuar sin completar todos los campos?",
 	"mwe-upwiz-dialog-yes": "Sí",
 	"mwe-upwiz-dialog-no": "No",
 	"mwe-upwiz-dialog-title": "Advertencia",
