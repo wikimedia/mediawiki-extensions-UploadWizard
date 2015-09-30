@@ -1338,32 +1338,6 @@
 		},
 
 		/**
-		 * Prefill license (such as can be determined) from image info and metadata
-		 * XXX user pref?
-		 */
-		prefillLicense: function () {
-			if ( this.upload.imageinfo.metadata ) {
-				var copyright = this.upload.imageinfo.metadata.copyright;
-				if (copyright !== undefined) {
-					if (copyright.match(/\bcc-by-sa\b/i)) {
-						window.alert('unimplemented cc-by-sa in prefillLicense');
-						// XXX set license to be that CC-BY-SA
-					} else if (copyright.match(/\bcc-by\b/i)) {
-						window.alert('unimplemented cc-by in prefillLicense');
-						// XXX set license to be that
-					} else if (copyright.match(/\bcc-zero\b/i)) {
-						window.alert('unimplemented cc-zero in prefillLicense');
-						// XXX set license to be that
-						// XXX any other licenses we could guess from copyright statement
-					} else {
-						$( this.licenseInput ).val( copyright );
-					}
-				}
-			}
-			// if we still haven't set a copyright use the user's preferences?
-		},
-
-		/**
 		 * Shortcut to create a text input element.
 		 * @param {string} id ID for the element, also used as its name.
 		 * @param {string} [className] Class to add to the element. Automatically namespaced by prefixing 'mwe-' to it.
