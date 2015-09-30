@@ -58,6 +58,8 @@ class UploadWizardHooks {
 				'oojs-ui.styles.icons-editing-core',
 				'oojs-ui.styles.icons-editing-advanced',
 				'mediawiki.widgets.DateInputWidget',
+				// CategorySelector
+				'mediawiki.widgets',
 			),
 			'scripts' => array(
 				// jquery interface helpers
