@@ -315,12 +315,7 @@
 			$extra = $extra.add( $override );
 		}
 
-		// HACK Have to pass a noop function for backwards-compatibility with old message translations
-		this.setError( code, [ duplicates.length, $.noop ], $extra );
-		// HACK Remove a link that does nothing
-		$( this.ui.div ).find( '.mwe-upwiz-file-status' ).find( 'a' ).replaceWith( function () {
-			return $( this ).text();
-		} );
+		this.setError( code, [ duplicates.length ], $extra );
 	};
 
 	/**
