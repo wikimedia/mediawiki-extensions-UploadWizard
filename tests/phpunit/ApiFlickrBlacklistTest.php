@@ -73,7 +73,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 	public function testBlacklistMatchWithMultipleItems() {
 		$this->checkApiSetup();
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
-		$this->editPage( self::BLACKLIST_PAGE, 'foo bar ' . self::PASFAM_NSID . ' baz');
+		$this->editPage( self::BLACKLIST_PAGE, 'foo bar ' . self::PASFAM_NSID . ' baz' );
 
 		list( $response, , ) = $this->doApiRequest( array(
 			'action' => 'flickrblacklist',
@@ -189,8 +189,16 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 	 */
 	protected function assertBlacklistMatch( $result, $message = '' ) {
 		$this->assertArrayHasKey( 'flickrblacklist', $result, $message ?: 'API result missing' );
-		$this->assertArrayHasKey( 'result', $result['flickrblacklist'], $message ?: 'API result missing' );
-		$this->assertEquals( 'bad', $result['flickrblacklist']['result'], $message ?: 'blacklist does not match' );
+		$this->assertArrayHasKey(
+			'result',
+			$result['flickrblacklist'],
+			$message ?: 'API result missing'
+		);
+		$this->assertEquals(
+			'bad',
+			$result['flickrblacklist']['result'],
+			$message ?: 'blacklist does not match'
+		);
 	}
 
 	/**
@@ -199,7 +207,15 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 	 */
 	protected function assertNotBlacklistMatch( $result, $message = '' ) {
 		$this->assertArrayHasKey( 'flickrblacklist', $result, $message ?: 'API result missing' );
-		$this->assertArrayHasKey( 'result', $result['flickrblacklist'], $message ?: 'API result missing' );
-		$this->assertEquals( 'ok', $result['flickrblacklist']['result'], $message ?: 'blacklist does match' );
+		$this->assertArrayHasKey(
+			'result',
+			$result['flickrblacklist'],
+			$message ?: 'API result missing'
+		);
+		$this->assertEquals(
+			'ok',
+			$result['flickrblacklist']['result'],
+			$message ?: 'blacklist does match'
+		);
 	}
 }

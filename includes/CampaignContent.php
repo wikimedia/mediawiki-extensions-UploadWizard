@@ -31,7 +31,7 @@ class CampaignContent extends JsonContent {
 			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
 		}
 
-		$schema = include( __DIR__ . '/CampaignSchema.php' );
+		$schema = include ( __DIR__ . '/CampaignSchema.php' );
 
 		// Only validate fields we care about
 		$campaignFields = array_keys( $schema['properties'] );
@@ -47,7 +47,7 @@ class CampaignContent extends JsonContent {
 		}
 
 		$mergedConfig = UploadWizardConfig::array_replace_sanely( $defaultCampaignConfig, $campaign );
-		return efSchemaValidate( $mergedConfig , $schema );
+		return efSchemaValidate( $mergedConfig, $schema );
 	}
 
 	/**

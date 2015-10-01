@@ -14,7 +14,7 @@ class SpecialCampaigns extends SpecialPage {
 
 		$limit = 50;
 
-		$cond = array('campaign_enabled = 1' );
+		$cond = array( 'campaign_enabled = 1' );
 
 		if ( $start !== null ) {
 			// Not SQL Injection, since $start is cast to (int)
@@ -29,14 +29,14 @@ class SpecialCampaigns extends SpecialPage {
 			array( 'LIMIT' => $limit + 1 )
 		);
 
-		$this->getOutput()->setPageTitle( $this->msg( 'mwe-upload-campaigns-list-title') );
+		$this->getOutput()->setPageTitle( $this->msg( 'mwe-upload-campaigns-list-title' ) );
 		$this->getOutput()->addModules( 'ext.uploadWizard.uploadCampaign.list' );
 		$this->getOutput()->addHTML( '<dl>' );
 
 		$curCount = 0;
 		$lastId = null;
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$curCount++;
 
 			if ( $curCount > $limit ) {

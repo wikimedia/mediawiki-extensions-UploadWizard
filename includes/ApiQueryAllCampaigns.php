@@ -51,7 +51,8 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 
 		if ( !is_null( $params['continue'] ) ) {
 			$from_id = (int)$params['continue'];
-			$this->addWhere( "campaign_id >= $from_id" ); // Not SQL Injection, since we already force this to be an integer
+			// Not SQL Injection, since we already force this to be an integer
+			$this->addWhere( "campaign_id >= $from_id" );
 		}
 
 		$res = $this->select( __METHOD__ );
@@ -121,7 +122,8 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			),
 			'continue' => array(
-				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				/** @todo Once support for MediaWiki < 1.25 is dropped,
+				 just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-continue',
 			),
 		);

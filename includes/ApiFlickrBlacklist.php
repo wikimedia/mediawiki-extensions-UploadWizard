@@ -71,8 +71,10 @@ class ApiFlickrBlacklist extends ApiBase {
 	 */
 	public function getExamples() {
 		return array(
+			// @codingStandardsIgnoreStart
 			'api.php?action=flickrblacklist&url=http%3A//farm1.staticflickr.com/44/147426941_98baf36fd1_o.jpg',
 			'api.php?action=flickrblacklist&list',
+			// @codingStandardsIgnoreEnd
 		);
 	}
 

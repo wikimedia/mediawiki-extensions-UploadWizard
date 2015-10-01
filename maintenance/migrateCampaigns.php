@@ -214,7 +214,10 @@ class MigrateCampaigns extends Maintenance {
 				'defaultType' => $oldConfig['defaultLicenseType'],
 				'ownWorkDefault' => $oldConfig['ownWorkOption'],
 				'ownWork' => array(
-					'licenses' => $this->ensureDefaultLicense( $this->explodeStringToArray( $oldConfig['licensesOwnWork'] ),  $oldConfig['defaultOwnWorkLicense'] )
+					'licenses' => $this->ensureDefaultLicense(
+						$this->explodeStringToArray( $oldConfig['licensesOwnWork'] ),
+						$oldConfig['defaultOwnWorkLicense']
+					)
 				)
 			),
 			'fields' => array(

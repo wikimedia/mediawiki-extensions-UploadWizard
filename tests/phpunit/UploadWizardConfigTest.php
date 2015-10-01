@@ -35,7 +35,9 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider objRefProvider
 	 */
-	public function testButtonTargetIsSetToUseObjRef_buttonHrefMatchesRefPage( $objRef, $expectedResult ) {
+	public function testButtonTargetIsSetToUseObjRef_buttonHrefMatchesRefPage(
+		$objRef, $expectedResult
+	) {
 		global $wgUploadWizardConfig;
 		ParserTest::setupInterwikis();
 
@@ -65,6 +67,8 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 		);
 
 		$config = $campaign->getParsedConfig();
-		return isset( $config['display']['homeButton']['target'] ) ? $config['display']['homeButton']['target'] : false;
+		return isset(
+			$config['display']['homeButton']['target']
+		) ? $config['display']['homeButton']['target'] : false;
 	}
 }

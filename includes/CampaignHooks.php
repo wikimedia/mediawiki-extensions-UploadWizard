@@ -15,7 +15,10 @@ class CampaignHooks {
 	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
 	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
 	 */
-	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor, $isWatch, $section, $flags, $revision, $status, $baseRevId ) {
+	public static function onPageContentSaveComplete(
+		$article, $user, $content, $summary, $isMinor, $isWatch,
+		$section, $flags, $revision, $status, $baseRevId
+	) {
 		if ( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
@@ -35,7 +38,6 @@ class CampaignHooks {
 			array( 'campaign_name' ),
 			$insertData
 		);
-
 
 		$campaign = new UploadWizardCampaign( $article->getTitle(), $content->getJsonData() );
 
@@ -57,7 +59,9 @@ class CampaignHooks {
 		}
 
 		$success = $success && $dbw->delete( 'templatelinks', array( 'tl_from' => $article->getId() ) );
-		$success = $success && $dbw->insert( 'templatelinks', $insertions, __METHOD__, array( 'IGNORE' ) );
+		$success = $success && $dbw->insert(
+			'templatelinks', $insertions, __METHOD__, array( 'IGNORE' )
+		);
 
 		$dbw->commit();
 
@@ -73,8 +77,8 @@ class CampaignHooks {
 	 *
 	 * This is usually run via the Job Queue mechanism.
 	 */
-	public static function onLinksUpdateComplete( LinksUpdate &$linksupdate) {
-		if( !$linksupdate->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+	public static function onLinksUpdateComplete( LinksUpdate &$linksupdate ) {
+		if ( !$linksupdate->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
 
@@ -86,7 +90,9 @@ class CampaignHooks {
 	/**
 	 * Deletes entries from uc_campaigns table when a Campaign is deleted
 	 */
-	public static function onArticleDeleteComplete( $article, $user, $reason, $id, $content, $logEntry ) {
+	public static function onArticleDeleteComplete(
+		$article, $user, $reason, $id, $content, $logEntry
+	) {
 		if ( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}

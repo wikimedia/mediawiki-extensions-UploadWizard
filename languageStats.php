@@ -1,7 +1,5 @@
 <?php
 
-require( 'UploadWizard.i18n.php' );
-
 $langsToTest = array_slice( $argv, 1 );
 
 $wikipediaSize = getWikipediaSize();
@@ -9,14 +7,14 @@ $wikipediaSize = getWikipediaSize();
 $total = count( $messages['en'] );
 
 foreach ( $wikipediaSize as $lang => $size ) {
-	if ( count($langsToTest) and (! in_array( $lang, $langsToTest ) ) ) {
+	if ( count( $langsToTest ) and ( ! in_array( $lang, $langsToTest ) ) ) {
 		continue;
 	}
 	$percentComplete[$lang] = 0;
 	$translated = 0;
 	if ( array_key_exists( $lang, $messages ) ) {
 		$langDict = $messages[$lang];
-		foreach( $messages['en'] as $key => $val ) {
+		foreach ( $messages['en'] as $key => $val ) {
 			if ( array_key_exists( $key, $langDict ) ) {
 				$translated++;
 			}
@@ -27,9 +25,10 @@ foreach ( $wikipediaSize as $lang => $size ) {
 
 }
 
-
 # taken from stats.wikimedia.org/EN/TablesArticlesTotal.htm May 2011
+// @codingStandardsIgnoreStart
 function getWikipediaSize() {
+// @codingStandardsIgnoreEnd
 	return array(
 		'en' => 3600000,
 		'de' => 1200000,

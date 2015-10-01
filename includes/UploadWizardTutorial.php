@@ -42,11 +42,14 @@ class UploadWizardTutorial {
 
 		// at this point, we have one of the following situations:
 		// $error is null, and tutorialFile is the right one for this language
-		// $error notes we couldn't find the tutorialFile for your language, and $tutorialFile is the english one
-		// $error notes we couldn't find the tutorialFile for your language, and $tutorialFile is still false (major file failure)
+		// $error notes we couldn't find the tutorialFile for your language,
+		// and $tutorialFile is the english one
+		// $error notes we couldn't find the tutorialFile for your language,
+		// and $tutorialFile is still false (major file failure)
 
 		if ( $tutorialFile ) {
-			// XXX TODO if the client can handle SVG, we could also just send it the unscaled thumb, client-scaled into a DIV or something.
+			// XXX TODO if the client can handle SVG, we could also just send it the unscaled thumb,
+			// client-scaled into a DIV or something.
 			// if ( client can handle SVG ) {
 			//   $tutorialThumbnailImage->getUnscaledThumb();
 			// }
@@ -55,7 +58,7 @@ class UploadWizardTutorial {
 			// n.b. File::transform() returns false if failed, MediaTransformOutput otherwise
 			$thumbnailImage = $tutorialFile->transform( array( 'width' => $tutorial['width'] ) );
 
- 			if ( $thumbnailImage ) {
+			if ( $thumbnailImage ) {
 				$tutorialHtml = self::getImageHtml( $thumbnailImage, $tutorial );
 			} else {
 				$error = 'cannot-transform';
@@ -72,7 +75,9 @@ class UploadWizardTutorial {
 			if ( $error === 'localized-file-missing' ) {
 				$errorMsg->params( Language::fetchLanguageName( $langCode, $wgLang->getCode() ) );
 			}
-			$errorHtml = Html::element( 'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), $errorMsg->text() );
+			$errorHtml = Html::element(
+				'p', array( 'class' => 'errorbox', 'style' => 'float: none;' ), $errorMsg->text()
+			);
 		}
 
 		return $errorHtml . $tutorialHtml;
@@ -93,7 +98,8 @@ class UploadWizardTutorial {
 	}
 
 	/**
-	 * Constructs HTML for the tutorial (laboriously), including an imagemap for the clickable "Help desk" button.
+	 * Constructs HTML for the tutorial (laboriously),
+	 * including an imagemap for the clickable "Help desk" button.
 	 *
 	 * @param MediaTransformOutput $thumb
 	 * @param String|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
@@ -104,7 +110,7 @@ class UploadWizardTutorial {
 		$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->text();
 
 		// Per convention, we may be either using an absolute URL or a wiki page title in this UI message
-		if( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $helpDeskUrl )) {
+		if ( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $helpDeskUrl ) ) {
 			$helpDeskHref = $helpDeskUrl;
 		} else {
 			$helpDeskTitle = Title::newFromText( $helpDeskUrl );

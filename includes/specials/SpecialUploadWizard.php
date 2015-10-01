@@ -61,7 +61,6 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 		}
 
-
 		$urlArgs = array( 'description', 'lat', 'lon', 'alt' );
 
 		$urlDefaults = array();
@@ -112,7 +111,6 @@ class SpecialUploadWizard extends SpecialPage {
 		$out->addHTML( '<p class="errorbox">' . $this->msg( 'mwe-upwiz-js-off' )->escaped() . '</p>' );
 		$this->simpleForm->show();
 		$out->addHTML( '</noscript>' );
-
 
 		// global javascript variables
 		$this->addJsVars( $subPage );
@@ -192,7 +190,8 @@ class SpecialUploadWizard extends SpecialPage {
 				}
 			}
 		}
-		// UploadFromUrl parameter set to true only if the user is allowed to upload a file from a URL which we need to check in our Javascript implementation.
+		// UploadFromUrl parameter set to true only if the user is allowed to upload a file
+		// from a URL which we need to check in our Javascript implementation.
 		if ( UploadFromUrl::isEnabled() && UploadFromUrl::isAllowed( $this->getUser() ) === true ) {
 			$config['UploadFromUrl'] = true;
 		} else {
@@ -211,13 +210,19 @@ class SpecialUploadWizard extends SpecialPage {
 			// Determine if the user's default license is valid for this campaign
 			switch ( $config['licensing']['ownWorkDefault'] ) {
 				case "own":
-					$defaultInAllowedLicenses = in_array( $userDefaultLicense, $config['licensing']['ownWork']['licenses'] );
+					$defaultInAllowedLicenses = in_array(
+						$userDefaultLicense, $config['licensing']['ownWork']['licenses']
+					);
 					break;
 				case "notown":
-					$defaultInAllowedLicenses = in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() );
+					$defaultInAllowedLicenses = in_array(
+						$userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses()
+					);
 					break;
 				case "choice":
-					$defaultInAllowedLicenses = ( in_array( $userDefaultLicense, $config['licensing']['ownWork']['licenses'] ) ||
+					$defaultInAllowedLicenses = ( in_array(
+							$userDefaultLicense, $config['licensing']['ownWork']['licenses']
+						) ||
 						in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() ) );
 					break;
 			}
@@ -295,7 +300,7 @@ class SpecialUploadWizard extends SpecialPage {
 				}
 				$rtq = wfArrayToCgi( $values );
 				if ( $rtq && $rtq != '' ) {
-					$returnstr .= '&returntoquery=' . urlencode($rtq);
+					$returnstr .= '&returntoquery=' . urlencode( $rtq );
 				}
 				$this->getOutput()->showErrorPage( 'uploadnologin', 'mwe-upwiz-error-nologin', $returnstr );
 			} else {
@@ -334,7 +339,9 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
-		if ( array_key_exists( 'display', $config ) && array_key_exists( 'headerLabel', $config['display'] ) ) {
+		if ( array_key_exists(
+			'display', $config ) && array_key_exists( 'headerLabel', $config['display'] )
+		) {
 			$this->getOutput()->addHtml( $config['display']['headerLabel'] );
 		}
 
@@ -367,13 +374,17 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
-		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) && $config['tutorial'] !== null && $config['tutorial'] !== array() && $config['tutorial']['skip'] !== true ) {
+		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) &&
+			$config['tutorial'] !== null && $config['tutorial'] !== array() &&
+			$config['tutorial']['skip'] !== true
+		) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
 		}
 
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )
 		return
+		// @codingStandardsIgnoreStart
 			'<div id="upload-wizard" class="upload-section">' .
 
 				// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
@@ -459,6 +470,7 @@ class SpecialUploadWizard extends SpecialPage {
 				'<div class="mwe-upwiz-clearing"></div>' .
 
 			'</div>';
+		// @codingStandardsIgnoreEnd
 	}
 
 	protected function getGroupName() {
@@ -473,10 +485,11 @@ class SpecialUploadWizard extends SpecialPage {
 class UploadWizardSimpleForm extends UploadForm {
 
 	/*
- 	 * Normally, UploadForm adds its own Javascript.
- 	 * We wish to prevent this, because we want to control the case where we have Javascript.
- 	 * So, we make the addUploadJS a no-op.
+	 * Normally, UploadForm adds its own Javascript.
+	 * We wish to prevent this, because we want to control the case where we have Javascript.
+	 * So, we make the addUploadJS a no-op.
 	 */
-	protected function addUploadJS( ) { }
+	protected function addUploadJS() {
 
+	}
 }

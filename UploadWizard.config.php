@@ -4,7 +4,8 @@
  * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
-global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang, $wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions;
+global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgMaxUploadSize, $wgLang,
+	$wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions;
 
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
@@ -19,7 +20,10 @@ if ( !$uwLanguages ) {
 	// First, get a list of languages we support.
 	$baseLangs = Language::fetchLanguageNames( $userLangCode, 'all' );
 	// We need to take into account languageTemplateFixups
-	if ( is_array( $wgUploadWizardConfig ) && array_key_exists( 'languageTemplateFixups', $wgUploadWizardConfig ) ) {
+	if (
+		is_array( $wgUploadWizardConfig ) &&
+		array_key_exists( 'languageTemplateFixups', $wgUploadWizardConfig )
+	) {
 		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'];
 		if ( !is_array( $languageFixups ) ) {
 			$languageFixups = array();
@@ -30,7 +34,7 @@ if ( !$uwLanguages ) {
 	// Use LinkBatch to make this a little bit more faster.
 	// It works because $title->exists (below) will use LinkCache.
 	$linkBatch = new LinkBatch();
-	foreach( $baseLangs as $code => $name ) {
+	foreach ( $baseLangs as $code => $name ) {
 		$fixedCode = array_key_exists( $code, $languageFixups ) ? $languageFixups[$code] : $code;
 		if ( is_string( $fixedCode ) && $fixedCode !== '' ) {
 			$title = Title::makeTitle( NS_TEMPLATE, Title::capitalize( $fixedCode, NS_TEMPLATE ) );
@@ -51,7 +55,7 @@ if ( !$uwLanguages ) {
 		}
 	}
 	// Sort the list by the language name
-	natsort($uwLanguages);
+	natsort( $uwLanguages );
 	// Cache the list for 1 day
 	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
 }
@@ -82,10 +86,15 @@ return array(
 	'fileExtensions' => $wgCheckFileExtensions ? $wgFileExtensions : null,
 
 	// Flickr details
-	// Flickr API is SSL-only as of June 27th, 2014: http://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
+	// Flickr API is SSL-only as of June 27th, 2014:
+	// http://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
 	'flickrApiUrl' => 'https://api.flickr.com/services/rest/?',
-	'flickrApiKey' => 'aeefff139445d825d4460796616f9349', // you should probably replace this with your own
-	'flickrBlacklistPage' => '', // name of wiki page with blacklist of Flickr users
+
+	// you should probably replace this with your own
+	'flickrApiKey' => 'aeefff139445d825d4460796616f9349',
+
+	// name of wiki page with blacklist of Flickr users
+	'flickrBlacklistPage' => '',
 
 	// Settings about things that get automatically (and silently) added to uploads
 	'autoAdd' => array(
@@ -97,8 +106,8 @@ return array(
 	),
 
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
-	// Use this to indicate that some human should categorize this file. Does not consider autoAdd.categories,
-	// which are hidden.
+	// Use this to indicate that some human should categorize this file.
+	// Does not consider autoAdd.categories, which are hidden.
 	'missingCategoriesWikiText' => '',
 
 	'display' => array(
@@ -174,7 +183,7 @@ return array(
 
 			// If the type above is select, provide a dictionary of
 			// value -> label associations to display as options
-			'options' => array(/* 'value' => 'label' */)
+			'options' => array( /* 'value' => 'label' */ )
 		)
 	),
 
@@ -184,6 +193,8 @@ return array(
 
 		// Initial value for the description field.
 		'description' => '',
+
+		// @codingStandardsIgnoreStart
 
 		// These values are commented out by default, so they can be undefined
 		// Define them here if you want defaults.
@@ -202,6 +213,8 @@ return array(
 
 		//// Initial value for the heading field.
 		//'heading' => 0,
+
+		// @codingStandardsIgnoreEnd
 	),
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
@@ -545,23 +558,27 @@ return array(
 	// Max file size that is allowed by MediaWiki. This limit can never be ignored.
 	'maxMwUploadSize' => $wgMaxUploadSize,
 
-	// Minimum length of custom wikitext for a license, if used. It is 6 because at minimum it needs four chars for opening and closing
+	// Minimum length of custom wikitext for a license, if used.
+	// It is 6 because at minimum it needs four chars for opening and closing
 	// braces, then two chars for a license, e.g. {{xx}}
 	'minCustomLicenseLength' => 6,
 
 	// Maximum length of custom wikitext for a license
 	'maxCustomLicenseLength' => 10000,
 
+	// @codingStandardsIgnoreStart
 	// The UploadWizard allows users to provide file descriptions in multiple languages. For each description, the user
 	// can choose the language. The UploadWizard wraps each description in a "language template". A language template is
 	// by default assumed to be a template with a name corresponding to the ISO 646 code of the language. For instance,
-    // Template:en for English, or Template:fr for French. This mechanism is used for instance at Wikimedia Commons.
+	// Template:en for English, or Template:fr for French. This mechanism is used for instance at Wikimedia Commons.
 	// If this is not the case for some or all or your wiki's language templates, this map can be used to define the
 	// template names to be used. Keys are ISO 646 language codes, values are template names. The default defines the
 	// exceptions used at Wikimedia Commons: the language template for Tagalog (ISO 646 code 'tl') is not named 'tl'
 	// but 'tgl' for historical reasons.
+	// @codingStandardsIgnoreEnd
 	'languageTemplateFixups' =>  $uwDefaultLanguageFixups,
 
+		// @codingStandardsIgnoreStart
 		// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 		// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config
 		// or actually, in an ideal world, we'd have some way to reliably detect gibberish, rather than trying to
@@ -574,11 +591,14 @@ return array(
 		//	/^(test|image|img|bild|example?[\s_-]*)$/,  // test stuff
 		//	/^(\d{10}[\s_-][0-9a-f]{10}[\s_-][a-z])$/   // flickr
 		// ]
+		// @codingStandardsIgnoreEnd
 
+	// @codingStandardsIgnoreStart
 	// Check if we want to enable firefogg, will result in
 	// 1) firefogg install recommendation when users try to upload media asset with an extension in the
 	//		transcodeExtensionList
 	// 2) Once the user installs firefogg it is used for encoding videos that are not in supported formats before handing it off to mw.ApiUploadFormDataHandler for upload
+	// @codingStandardsIgnoreEnd
 	'enableFirefogg' => true,
 
 	// Setup list of video extensions for recomending firefogg.
@@ -600,12 +620,14 @@ return array(
 	// Defaults to UploadWizard's bug tracker.
 	// If you want to use a wiki page, set this to a falsy value,
 	// and set feedbackPage to the name of the wiki page.
-
+	// @codingStandardsIgnoreStart
 	'feedbackLink' => 'https://phabricator.wikimedia.org/maniphest/task/create/?projects=MediaWiki-extensions-UploadWizard',
+	// @codingStandardsIgnoreEnd
 
-	// [deprecated] Wiki page for leaving Upload Wizard feedback, for example 'Commons:Upload wizard feedback'
+	// [deprecated] Wiki page for leaving Upload Wizard feedback,
+	// for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',
-
+	// @codingStandardsIgnoreStart
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
 	//
@@ -616,6 +638,7 @@ return array(
 	//		'default'	=> 'Commons:Upload',
 	//		'de'		=> 'Commons:Hochladen'
 	//	 );
+	// @codingStandardsIgnoreEnd
 	'altUploadForm' => '',
 
 	// Is titleBlacklist API even available?

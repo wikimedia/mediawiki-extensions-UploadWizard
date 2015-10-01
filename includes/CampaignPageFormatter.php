@@ -34,7 +34,9 @@ class CampaignPageFormatter {
 	public function generateReadHtml() {
 		$config = $this->campaign->getParsedConfig();
 
-		$campaignTitle = array_key_exists( 'title', $config ) ? $config['title'] : $this->campaign->getName();
+		$campaignTitle = array_key_exists( 'title', $config ) ?
+			$config['title'] :
+			$this->campaign->getName();
 		$campaignDescription = array_key_exists( 'description', $config ) ? $config['description'] : '';
 		$campaignViewMoreLink = $this->campaign->getTrackingCategory()->getFullURL();
 
@@ -44,7 +46,9 @@ class CampaignPageFormatter {
 		$gallery->setHeights( 180 );
 		$gallery->setShowBytes( false );
 
-		$this->context->getOutput()->setSquidMaxage( UploadWizardConfig::getSetting( 'campaignSquidMaxAge' ) );
+		$this->context->getOutput()->setSquidMaxage(
+			UploadWizardConfig::getSetting( 'campaignSquidMaxAge' )
+		);
 		$this->context->getOutput()->setHTMLTitle( $this->context->msg( 'pagetitle', $campaignTitle ) );
 
 		$images = $this->campaign->getUploadedMedia();
@@ -63,7 +67,9 @@ class CampaignPageFormatter {
 							wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text()
 						);
 		} else {
-			$uploadUrl = Skin::makeSpecialUrl( 'UploadWizard', array( 'campaign' => $this->campaign->getName() ) );
+			$uploadUrl = Skin::makeSpecialUrl(
+				'UploadWizard', array( 'campaign' => $this->campaign->getName() )
+			);
 			$uploadLink =
 						Html::element( 'a',
 							array( 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $uploadUrl ),
@@ -72,7 +78,11 @@ class CampaignPageFormatter {
 		}
 
 		if ( count( $images ) === 0 ) {
-			$body = Html::element( 'div', array( 'id' => 'mw-campaign-no-uploads-yet' ), wfMessage( 'mwe-upwiz-campaign-no-uploads-yet' )->plain() );
+			$body = Html::element(
+				'div',
+				array( 'id' => 'mw-campaign-no-uploads-yet' ),
+				wfMessage( 'mwe-upwiz-campaign-no-uploads-yet' )->plain()
+			);
 		} else {
 			foreach ( $images as $image ) {
 				$gallery->add( $image );
@@ -82,9 +92,15 @@ class CampaignPageFormatter {
 				Html::rawElement( 'div', array( 'id' => 'mw-campaign-images' ), $gallery->toHTML() ) .
 				Html::rawElement( 'a',
 					array( 'id' => 'mw-campaign-view-all', 'href' => $campaignViewMoreLink ),
-					Html::rawElement( 'span', array( 'class' => 'mw-campaign-chevron mw-campaign-float-left' ), '&nbsp' ) .
+					Html::rawElement(
+						'span',
+						array( 'class' => 'mw-campaign-chevron mw-campaign-float-left' ), '&nbsp'
+					) .
 					wfMessage( 'mwe-upwiz-campaign-view-all-media' )->escaped() .
-					Html::rawElement( 'span', array( 'class' => 'mw-campaign-chevron mw-campaign-float-right' ), '&nbsp' )
+					Html::rawElement(
+						'span',
+						array( 'class' => 'mw-campaign-chevron mw-campaign-float-right' ), '&nbsp'
+					)
 				);
 		}
 
@@ -96,7 +112,7 @@ class CampaignPageFormatter {
 						$this->context->getLanguage()->formatNum( $uploaderCount ) ) .
 					Html::element( 'span',
 						array( 'class' => 'mw-campaign-number-desc' ),
-						wfMessage( 'mwe-upwiz-campaign-contributors-count-desc')
+						wfMessage( 'mwe-upwiz-campaign-contributors-count-desc' )
 						->numParams( $uploaderCount )
 						->text()
 					)
@@ -120,11 +136,11 @@ class CampaignPageFormatter {
 						$campaignExpensiveStats .
 						Html::rawElement( 'div', array( 'class' => 'mw-campaign-number-container' ),
 							Html::element( 'div', array( 'class' => 'mw-campaign-number' ),
-								$this->context->getLanguage()->formatNum( $uploadCount ) 
+								$this->context->getLanguage()->formatNum( $uploadCount )
 							) .
 							Html::element( 'span',
 								array( 'class' => 'mw-campaign-number-desc' ),
-								wfMessage( 'mwe-upwiz-campaign-media-count-desc')
+								wfMessage( 'mwe-upwiz-campaign-media-count-desc' )
 								->numParams( $uploadCount )
 								->text()
 							)

@@ -116,7 +116,9 @@ class UploadWizardCampaign {
 
 	public function getTrackingCategory() {
 		$trackingCats = UploadWizardConfig::getSetting( 'trackingCategory' );
-		return Title::makeTitleSafe( NS_CATEGORY, str_replace( '$1', $this->getName(), $trackingCats['campaign'] ) );
+		return Title::makeTitleSafe(
+			NS_CATEGORY, str_replace( '$1', $this->getName(), $trackingCats['campaign'] )
+		);
 	}
 
 	public function getUploadedMediaCount() {
@@ -249,7 +251,7 @@ class UploadWizardCampaign {
 		$parsed = array();
 		foreach ( $array as $key => $value ) {
 			if ( $forKeys !== null ) {
-				if( in_array( $key, $forKeys ) ) {
+				if ( in_array( $key, $forKeys ) ) {
 					if ( is_array( $value ) ) {
 						$parsed[$key] = $this->parseArrayValues( $value, $lang );
 					} else {
@@ -282,7 +284,9 @@ class UploadWizardCampaign {
 		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
 		// issued.
 		$cache = ObjectCache::getMainWANInstance();
-		$memKey = wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'parsed-config', $lang->getCode() );
+		$memKey = wfMemcKey(
+			'uploadwizard', 'campaign', $this->getName(), 'parsed-config', $lang->getCode()
+		);
 		$depKeys = array( $this->makeInvalidateTimestampKey() );
 
 		$curTTL = null;
@@ -357,9 +361,9 @@ class UploadWizardCampaign {
 		foreach ( $this->parsedConfig as $cnf => $modifiers ) {
 			if ( $cnf === 'whileActive' && $this->isActive() ) {
 				$activeModifiers = $modifiers;
-			} else if ( $cnf === 'afterActive' && $this->wasActive() ) {
+			} elseif ( $cnf === 'afterActive' && $this->wasActive() ) {
 				$activeModifiers = $modifiers;
-			} else if ( $cnf === 'beforeActive' ) {
+			} elseif ( $cnf === 'beforeActive' ) {
 				$activeModifiers = $modifiers;
 			}
 		}
@@ -411,7 +415,9 @@ class UploadWizardCampaign {
 	 * @return String
 	 */
 	private function makeInvalidateTimestampKey() {
-		return wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'parsed-config', 'invalidate-timestamp' );
+		return wfMemcKey(
+			'uploadwizard', 'campaign', $this->getName(), 'parsed-config', 'invalidate-timestamp'
+		);
 	}
 
 	/**
@@ -420,10 +426,14 @@ class UploadWizardCampaign {
 	 */
 	private function isActive() {
 		$today = strtotime( date( "Y-m-d" ) );
-		$start = array_key_exists( 'start', $this->parsedConfig ) ? strtotime( $this->parsedConfig['start'] ) : null;
-		$end = array_key_exists( 'end', $this->parsedConfig ) ? strtotime( $this->parsedConfig['end'] ) : null;
+		$start = array_key_exists(
+			'start', $this->parsedConfig
+		) ? strtotime( $this->parsedConfig['start'] ) : null;
+		$end = array_key_exists(
+			'end', $this->parsedConfig
+		) ? strtotime( $this->parsedConfig['end'] ) : null;
 
-		return ($start === null || $start <= $today ) && ($end === null || $end > $today );
+		return ( $start === null || $start <= $today ) && ( $end === null || $end > $today );
 	}
 
 	/**
@@ -432,7 +442,9 @@ class UploadWizardCampaign {
 	 */
 	private function wasActive() {
 		$today = strtotime( date( "Y-m-d" ) );
-		$start = array_key_exists( 'start', $this->parsedConfig ) ? strtotime( $this->parsedConfig['start'] ) : null;
+		$start = array_key_exists(
+			'start', $this->parsedConfig
+		) ? strtotime( $this->parsedConfig['start'] ) : null;
 
 		return $start === null || $start <= $today;
 	}
@@ -462,7 +474,7 @@ class UploadWizardCampaign {
 	private function applyObjectReferenceToButtons( $objRef ) {
 		$customizableButtons = array( 'homeButton', 'beginButton' );
 
-		foreach( $customizableButtons as $button ) {
+		foreach ( $customizableButtons as $button ) {
 			if ( array_key_exists( $button, $this->parsedConfig['display'] ) &&
 				 $this->parsedConfig['display'][$button]['target'] === 'useObjref'
 			) {

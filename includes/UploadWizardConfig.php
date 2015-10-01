@@ -20,7 +20,7 @@ class UploadWizardConfig {
 	 * @return boolean
 	 */
 	private static function is_assoc( $array ) {
-		return ( bool )count( array_filter( array_keys( $array ), 'is_string' ) );
+		return (bool)count( array_filter( array_keys( $array ), 'is_string' ) );
 	}
 
 	/* Same functionality as array_merge_recursive, but sanely
@@ -79,14 +79,19 @@ class UploadWizardConfig {
 		static $mergedConfig = false;
 
 		if ( !$mergedConfig ) {
-			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely( self::getDefaultConfig(), $wgUploadWizardConfig );
+			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely(
+				self::getDefaultConfig(),
+				$wgUploadWizardConfig
+			);
 			$mergedConfig = true;
 		}
 
 		if ( !is_null( $campaignName ) ) {
-			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely( $wgUploadWizardConfig, self::getCampaignConfig( $campaignName ) );
+			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely(
+				$wgUploadWizardConfig,
+				self::getCampaignConfig( $campaignName )
+			);
 		}
-
 
 		return array_replace_recursive( $wgUploadWizardConfig, self::$urlConfig );
 	}
@@ -128,7 +133,7 @@ class UploadWizardConfig {
 	 */
 	protected static function getDefaultConfig() {
 		$configPath =  dirname( __DIR__ ) . '/UploadWizard.config.php';
-		return is_file( $configPath ) ? include( $configPath ) : array();
+		return is_file( $configPath ) ? include ( $configPath ) : array();
 	}
 
 	/**

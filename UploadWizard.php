@@ -122,7 +122,7 @@ $wgResourceModules['ext.uploadWizard.apiUploadPostHandler'] = array(
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;
 
-//upload using FormData, large files in chunks
+// upload using FormData, large files in chunks
 $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
 	'scripts' => 'handlers/mw.ApiUploadFormDataHandler.js',
 	'dependencies' => 'ext.uploadWizard.formDataTransport',
@@ -184,7 +184,8 @@ $wgDefaultUserOptions['upwiz_maxsimultaneous'] = 'default';
 $wgUploadWizardConfig = array();
 
 /* Define and configure default namespaces, as defined on Mediawiki.org
- * https://www.mediawiki.org/wiki/Extension_default_namespaces#UploadWizard */
+ * https://www.mediawiki.org/wiki/Extension_default_namespaces#UploadWizard
+ */
 define( 'NS_CAMPAIGN', 460 );
 define( 'NS_CAMPAIGN_TALK', 461 );
 $wgExtraNamespaces[ NS_CAMPAIGN ] = 'Campaign';
