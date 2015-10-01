@@ -298,6 +298,7 @@
 	"mwe-upwiz-url-invalid": "入力した URL は、未対応か、無効または制限された $1 の画像または写真集を指しているため、使用できません。",
 	"mwe-upwiz-user-blacklisted": "残念ながら、この $1 アカウントにはこのサイトにアップロードできる画像がありません。",
 	"mwe-upwiz-categories": "カテゴリ",
+	"mwe-upwiz-categories-missing": "このカテゴリは説明ページを欠いています。名前は正確に入力しましたか？",
 	"mwe-upwiz-thumbnail-failed": "アップロードには成功しましたが、サーバーがプレビューのサムネイルを取得できませんでした。",
 	"mwe-upwiz-unparseable-filename": "ファイル名「$1」を認識できません。",
 	"mwe-upwiz-unparseable-title": "このページ名は無効です。大括弧、コロン、比較演算子、パイプ記号、中括弧のような無効な文字を除去してください。",

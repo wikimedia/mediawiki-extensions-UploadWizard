@@ -332,7 +332,7 @@
 	"apihelp-flickrblacklist-description": "Провери URL-адреса од Flickr во црниот список користејќи ја корисничката назнака (NSID).\n\nКога се користи со можноста за списочен испис, дај ги сите назнаки на црниот список.",
 	"apihelp-flickrblacklist-param-url": "URL-адреса од Flickr што треба да се провери.",
 	"apihelp-flickrblacklist-param-list": "Кога е зададено, ќе се даде целиот црн список. Не може да се користи заедно со $1url.",
-	"apihelp-flickrblacklist-example-1": "Провери URL-адреса во црниот список",
+	"apihelp-flickrblacklist-example-1": "Провери URL во црниот список",
 	"apihelp-flickrblacklist-example-2": "Дај го целиот црн список",
 	"apihelp-query+allcampaigns-description": "Наброј ги сите походи на Помошникот за подигање.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Испиши ги само походите кои се во тек.",

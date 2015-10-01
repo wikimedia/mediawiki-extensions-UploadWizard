@@ -293,6 +293,7 @@
 	"mwe-upwiz-url-invalid": "L'URL azzeccato nun è suppurtato o spontasse a n'immaggene o photoset $1 ca nun servesse o ca tenesse 'e restriziune, e nun se putesse ausà.",
 	"mwe-upwiz-user-blacklisted": "Purtroppo, nisciuna immaggene 'a st'utenza $1 se pò carecà ncopp'a stu sito.",
 	"mwe-upwiz-categories": "Categurìe",
+	"mwe-upwiz-categories-missing": "Sta categuria mancasse na paggena 'e descriziona. Site sicuro/a ca l'avite dato 'o nomme apposto?",
 	"mwe-upwiz-thumbnail-failed": "'A carreca è ngarrata, ma 'o server nun ave pututo fà n'anteprimma",
 	"mwe-upwiz-unparseable-filename": "Nun se pò capì 'o filename \"$1\".",
 	"mwe-upwiz-unparseable-title": "'O titolo nun è buono. Assicurateve 'e luvà carattere comm' 'e parentesi quadre, duj punte, operatori 'e cunfronto, barre verticale e parentesi graffe.",

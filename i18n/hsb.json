@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michawiki"
+			"Michawiki",
+			"J budissin"
 		]
 	},
 	"uploadwizard": "Asistent za nahraća",
@@ -66,6 +67,7 @@
 	"mwe-upwiz-file-all-failed": "Žane nahraće wuspěšne njebě.",
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|dataja|dataji|dataje|datajow}} z $2 {{PLURAL:$2|dataje|datajow|datajow|datajow}} {{PLURAL:$1|nahrata|nahratej|nahrate|nahratych}}",
 	"mwe-upwiz-progressbar-uploading": "nahrawa so",
+	"mwe-upwiz-almost-finished": "Předźěła dataje...",
 	"mwe-upwiz-finished": "Dokónčene!",
 	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|sekunda|sekundźe|sekundy|sekundow}} wyše",
 	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|mjeńšina|mjeńšinje|mjeńšiny|mjeńšin}} $2 {{PLURAL:$2|sekunda|sekundźe|sekundy|sekundow}} {{PLURAL:$3|wyše}}",
@@ -122,7 +124,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Najebać toho nahrać?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Datajowe mjeno \"$1\" njeda so z njeznatych přičinow čitać abo rozumić.",
 	"mwe-upwiz-ok": "W porjadku",
-	"mwe-upwiz-cancel": "Přetorhnyć",
 	"mwe-upwiz-fileexists-replace": "Dataja z titulom \"$1\" hižo eksistuje. Prošu změń swój titul do njeeksistowaceho.",
 	"mwe-upwiz-fileexists": "Dataja z tutym mjenom hižo eksistuje. Prošu skontroluj $1, jeli njesy sej wěsty, hač chceš ju změnić.",
 	"mwe-upwiz-fileexists-replace-on-page": "Dataja z tutym mjenom hižo eksistuje. Jeli chceš ju wuměnić, dźi k stronje [$2 $1] a wuměń ju tam.",
@@ -162,7 +163,6 @@
 	"mwe-upwiz-error-too-long": "Tutón zapisk je předołho.\nSkrótš tutón zapisk pod $1 {{PLURAL:$1|znamješko|znamješce|znamješka|znamješkow}}.",
 	"mwe-upwiz-error-too-short": "Tutón zapisk je překrótko.\nPodlěš tutón zapisk nad $1 {{PLURAL:$1|znamješko|znamješce|znamješka|znamješkow}}.",
 	"mwe-upwiz-error-bad-chars": "Tutón zapisk wobsahuje symbole, kotrež njejsu dowolene.\nProšu njewužij tu wikitekst abo HTML.",
-	"mwe-upwiz-error-date": "Prošu zapodajće płaćiwy datum w formaće YYYY-MM-DD abo wubjer datum z wuskakowaceje protyki.",
 	"mwe-upwiz-error-title-blacklisted": "Tutón titul wobsahuje njewitany tekst. Prošu změń jón.",
 	"mwe-upwiz-error-title-badchars": "Tutón titul wobsahuje někotre njewitane znamješka. Prošu wotstroń je.",
 	"mwe-upwiz-error-title-senselessimagename": "Prošu podaj wuprajiwše mjeno.",
@@ -173,10 +173,8 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Wikitekst je překrótki za licencu.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Wikitekst, kotryž sy zapodał, je předołhi.",
 	"mwe-upwiz-details-error-count": "Při wupjelnjenju {{PLURAL:$2|formulara|formularow}} {{PLURAL:$1|je zmylk wustupił|stej $1 zmylkaj wustupiłoj|su $1 zmylki wustupili|je $1 zmylkow wustupiło}}. Prošu porjedź {{PLURAL:$1|zmylk|zmylkaj|zmylki}} a składuj  hišće raz.",
-	"mwe-upwiz-too-many-files-ok": "W porjadku",
 	"mwe-upwiz-too-many-files-text": "Móžeš jenož $1 {{PLURAL:$1|dataju|dataji|dataje|datajow}} naraz nahrać, ale sy spytał $2 {{PLURAL:$2|dataju|dataji|dataje|datajow}} dohromady nahrać. Spytaj prošu hišće raz z mjenje datajemi!",
 	"mwe-upwiz-too-many-files": "Přewjele datajow.",
-	"mwe-upwiz-file-too-large-ok": "W porjadku",
 	"mwe-upwiz-file-too-large-text": "Móžeš jenož dataje z wulkosću hač do $1 nahrać. Sy spytał, dataju z wulkosću $2 nahrać.",
 	"mwe-upwiz-file-too-large": "Dataja přewulka.",
 	"mwe-upwiz-dialog-yes": "Haj",
@@ -230,12 +228,8 @@
 	"mwe-upwiz-license-confirm-remove-title": "Wotstronjenje wobkrućić",
 	"mwe-upwiz-license-external": "Dataja je na žórłowym sedle ''$1'' pod slědowacej licencu: $2.",
 	"mwe-upwiz-categories": "Kategorije",
-	"mwe-upwiz-categories-add": "Přidać",
-	"mwe-upwiz-category-will-be-added": "Tuta kategorija so hišće njewužiwa.",
-	"mwe-upwiz-category-remove": "Tutu kategoriju wotstronić",
 	"mwe-upwiz-thumbnail-failed": "Nahraće je so poradźiło, ale serwer njemóžeše žadyn přehladowy wobrazk dóstać",
 	"mwe-upwiz-unparseable-filename": "Datajowe mjeno \"$1\" njeje so zrozumiło",
-	"mwe-upwiz-image-preview": "Datajowy přehlad",
 	"mwe-upwiz-subhead-bugs": "[$1 Znate problemy]",
 	"mwe-upwiz-subhead-alt-upload": "Wróćo k staremu formularej",
 	"mwe-upwiz-feedback-prompt": "Komentar zawostajić",
@@ -250,9 +244,6 @@
 	"mwe-upwiz-error-campaigndisabled": "Kampanja \"$1\" njeje so zmóžniła.",
 	"uploadcampaign-legend": "Konfiguracija nahrawanskeje kampanje",
 	"uploadcampaign-text": "Měnješ runje nahrawansku kampanju.",
-	"mw-coolcats-confirm-new-title": "Nowu kategoriju wobkrućić",
-	"mw-coolcats-confirm-new-ok": "Tutu kategoriju najebać toho přidać",
-	"mw-coolcats-confirm-new-cancel": "Tola nic",
 	"prefs-uploads": "Nahraća",
 	"prefs-upwiz-licensing": "Licencowanje",
 	"prefs-upwiz-experimental": "Eksperimentelne funkcije",
