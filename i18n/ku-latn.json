@@ -39,7 +39,7 @@
 	"mwe-upwiz-finished": "Xilas!",
 	"mwe-upwiz-source-thirdparty-accept": "Baş e",
 	"mwe-upwiz-copy-date": "Dîrokê kopî bike",
-	"mwe-upwiz-copy-categories": "{{PLURAL:$1|Kategoriyê|Kategoriyan}} kopî bike",
+	"mwe-upwiz-copy-categories": "Kategoriyan kopî bike",
 	"mwe-upwiz-copy-location": "Cih kopî bike",
 	"mwe-upwiz-copy-other": "Agahiyên din kopî bike",
 	"mwe-upwiz-desc": "Danasîn",
@@ -55,7 +55,6 @@
 	"mwe-upwiz-source": "Çavkanî",
 	"mwe-upwiz-thanks-intro": "Spas ji bo barkirinê!",
 	"mwe-upwiz-ok": "Baş e",
-	"mwe-upwiz-cancel": "Betal bike",
 	"mwe-upwiz-next": "Pêşve",
 	"mwe-upwiz-next-file": "Bidomîne",
 	"mwe-upwiz-next-deeds": "Pêşve",
@@ -65,8 +64,6 @@
 	"mwe-upwiz-license-show-all": "Lîsanseke din hilbijêre.",
 	"mwe-upwiz-license-show-recommended": "Lîsansa pêşniyarkirî hilbijêre",
 	"mwe-upwiz-error-blank": "Ev beş pêwîst e.",
-	"mwe-upwiz-too-many-files-ok": "Baş e",
-	"mwe-upwiz-file-too-large-ok": "Baş e",
 	"mwe-upwiz-dialog-yes": "Erê",
 	"mwe-upwiz-dialog-no": "Na",
 	"mwe-upwiz-dialog-title": "Hişyarî",
@@ -75,9 +72,5 @@
 	"mwe-upwiz-license-pd-old": "Xwedî bêhtirî 70 sal berê miriye",
 	"mwe-upwiz-license-custom-preview": "Pêşdîtin",
 	"mwe-upwiz-categories": "Kategorî",
-	"mwe-upwiz-categories-add": "Zêde bike",
-	"mwe-upwiz-category-remove": "Vê kategoriyê jê bibe",
-	"mwe-upwiz-image-preview": "Pêşdîtina dosye",
-	"mwe-upwiz-errordialog-ok": "Baş e",
-	"mw-coolcats-confirm-new-cancel": "Xem nakê"
+	"mwe-upwiz-errordialog-ok": "Baş e"
 }

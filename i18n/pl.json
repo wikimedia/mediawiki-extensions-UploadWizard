@@ -22,7 +22,8 @@
 			"Sp5uhe",
 			"Woytecr",
 			"WTM",
-			"Matma Rex"
+			"Matma Rex",
+			"Expert3222"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
@@ -236,7 +237,7 @@
 	"mwe-upwiz-too-many-files": "Zbyt wiele plików.",
 	"mwe-upwiz-file-too-large-text": "Można przesyłać pliki o rozmiarze nie przekraczającym $1. Próbowano wysłać plik, który ma $2.",
 	"mwe-upwiz-file-too-large": "Plik jest za duży.",
-	"mwe-upwiz-necessary-confirm": "Zaleca się, aby określić jakieś kategorie dla przesyłanego pliku. Czy chcesz kontynuować bez wypełniania wszystkich pól?",
+	"mwe-upwiz-necessary-confirm": "Zaleca się określenie kilku kategorii dla przesyłanego pliku. Czy chcesz kontynuować bez wypełniania wszystkich pól?",
 	"mwe-upwiz-dialog-yes": "Tak",
 	"mwe-upwiz-dialog-no": "Nie",
 	"mwe-upwiz-dialog-title": "Ostrzeżenie",
@@ -297,6 +298,7 @@
 	"mwe-upwiz-license-pd-old-70-1923": "Po raz pierwszy opublikowano przed 1923 rokiem i autor zmarł ponad 70 lat temu",
 	"mwe-upwiz-url-invalid": "Wprowadzony adres URL nie jest poprawnym $1 zdjęciem, lub adresem galerii.",
 	"mwe-upwiz-categories": "Kategorie",
+	"mwe-upwiz-categories-missing": "W tej kategorii brakuje strony opisującej. Czy jesteś pewien, że wpisana nazwa jest poprawna?",
 	"mwe-upwiz-thumbnail-failed": "Plik przesłano, ale serwer nie zwrócił miniaturki",
 	"mwe-upwiz-unparseable-filename": "Niezrozumiała nazwa pliku „$1”",
 	"mwe-upwiz-subhead-bugs": "[$1 Znane błędy]",
