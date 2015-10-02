@@ -131,31 +131,6 @@
 	};
 
 	/**
-	 * Sets up logging for global javascript errors.
-	 */
-	uw.EventFlowLogger.prototype.installExceptionLogger = function () {
-		function toNumber( val ) {
-			var num = parseInt( val, 10 );
-			if ( isNaN( num ) ) {
-				return undefined;
-			}
-			return num;
-		}
-
-		var self = this;
-
-		mw.trackSubscribe( 'global.error', function ( topic, data ) {
-			self.log( 'UploadWizardExceptionFlowEvent', {
-				message: data.errorMessage,
-				url: data.url,
-				line: toNumber( data.lineNumber ),
-				column: toNumber( data.columnNumber ),
-				stack: undefined // T91347
-			} );
-		} );
-	};
-
-	/**
 	 * Logs an upload event.
 	 * @param {string} name Event name. Recognized names:
 	 *  - upload-started
@@ -183,5 +158,4 @@
 
 	// FIXME
 	uw.eventFlowLogger = new uw.EventFlowLogger( mw.eventLog );
-	uw.eventFlowLogger.installExceptionLogger();
 }( mediaWiki, mediaWiki.uploadWizard ) );
