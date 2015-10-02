@@ -230,6 +230,11 @@
 			$categoriesDiv
 		);
 
+		this.$form.on( 'submit', function ( e ) {
+			// Prevent actual form submission
+			e.preventDefault();
+		} );
+
 		this.fields = [];
 		$.each( mw.UploadWizard.config.fields, function ( i, field ) {
 			if ( field.wikitext ) {

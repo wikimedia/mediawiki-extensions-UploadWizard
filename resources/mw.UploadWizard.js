@@ -619,7 +619,6 @@
 	};
 
 	$.validator.setDefaults( {
-		debug: true,
 		errorClass: 'mwe-validator-error',
 		errorPlacement: function ( $errorLabel, $element ) {
 			var $placement = $element.data( 'mwe-error-placement' );
