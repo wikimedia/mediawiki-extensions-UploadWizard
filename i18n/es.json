@@ -131,7 +131,7 @@
 	"mwe-upwiz-source-permission": "Su autor te dio permiso explícito para subirlos",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Este archivo no es|Estos archivos no son}} mi propio trabajo.",
 	"mwe-upwiz-source-thirdparty-intro": "Escribe la dirección donde has encontrado cada archivo.",
-	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si todos los archivos tienen la misma fuente, autor, y status de copyright, puedes ingresarlos de una sola vez por todos.",
+	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si todos los archivos tienen la misma fuente, autor y estado de derechos de autor, puedes ingresarlos de una sola vez por todos.",
 	"mwe-upwiz-source-thirdparty-cases": "Ahora especifica por qué estás seguro de que tienes derecho a publicar {{PLURAL:$1|este trabajo|estos trabajos}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Aceptar",
 	"mwe-upwiz-source-custom": "Proporcionar información de derecho de autor para cada archivo individualmente en la página siguiente.",
