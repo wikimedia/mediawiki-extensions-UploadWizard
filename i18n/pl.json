@@ -298,7 +298,7 @@
 	"mwe-upwiz-license-pd-old-70-1923": "Po raz pierwszy opublikowano przed 1923 rokiem i autor zmarł ponad 70 lat temu",
 	"mwe-upwiz-url-invalid": "Wprowadzony adres URL nie jest poprawnym $1 zdjęciem, lub adresem galerii.",
 	"mwe-upwiz-categories": "Kategorie",
-	"mwe-upwiz-categories-missing": "W tej kategorii brakuje strony opisującej. Czy jesteś pewien, że wpisana nazwa jest poprawna?",
+	"mwe-upwiz-categories-missing": "Ta kategoria nie ma strony opisu. Czy jesteś pewien, że wpisana nazwa jest poprawna?",
 	"mwe-upwiz-thumbnail-failed": "Plik przesłano, ale serwer nie zwrócił miniaturki",
 	"mwe-upwiz-unparseable-filename": "Niezrozumiała nazwa pliku „$1”",
 	"mwe-upwiz-subhead-bugs": "[$1 Znane błędy]",
