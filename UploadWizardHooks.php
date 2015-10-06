@@ -297,8 +297,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-upload-error-stashed-anyway',
 				'mwe-upwiz-ok',
 				'mwe-upwiz-change',
-				'mwe-upwiz-fileexists-replace',
-				'mwe-upwiz-fileexists',
 				'mwe-upwiz-fileexists-replace-on-page',
 				'mwe-upwiz-fileexists-replace-no-link',
 				'mwe-upwiz-blacklisted',
