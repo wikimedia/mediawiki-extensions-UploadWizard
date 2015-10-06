@@ -510,7 +510,7 @@
 			contentSource = fn;
 			html = true;
 		} else {
-			attrs = { title: mw.message( 'mwe-upwiz-tooltip-' + key ).escaped() };
+			attrs = { title: mw.message( 'mwe-upwiz-tooltip-' + key ).text() };
 			contentSource = 'title';
 		}
 		return this.append(
