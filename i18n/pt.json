@@ -173,8 +173,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Por razões desconhecidas, não foi possível ler nem compreender o ficheiro \"$1\".",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nome de ficheiro desconhecido",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "Já existe um ficheiro com o título \"$1\". Altere o título para torná-lo único, por favor.",
-	"mwe-upwiz-fileexists": "Já existe um ficheiro com este nome.\nVerifique $1 se não tem a certeza de que pretende alterá-lo, por favor.",
 	"mwe-upwiz-fileexists-replace-on-page": "Já existe um ficheiro com este nome. Se pretende substituí-lo, visite a página [$2 $1] e faça a substituição lá.",
 	"mwe-upwiz-fileexists-replace-no-link": "Por favor, escolha um título diferente porque já existe um ficheiro com este nome.",
 	"mwe-upwiz-blacklisted": "Escolha um título diferente e descritivo, por favor.",

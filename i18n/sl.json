@@ -151,8 +151,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Naložim vseeno?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Imena datoteke »$1« iz neznanih razlogov nismo mogli prebrati ali razumeti.",
 	"mwe-upwiz-ok": "V redu",
-	"mwe-upwiz-fileexists-replace": "Datoteka z naslovom »$1« že obstaja. Prosimo, spremenite naslov v nekaj edinstvenega.",
-	"mwe-upwiz-fileexists": "Datoteka s tem imenom že obstaja.\nProsimo, preverite $1, če niste prepričani, da jo želite zamenjati.",
 	"mwe-upwiz-fileexists-replace-on-page": "Datoteka s tem imenom že obstaja. Če jo želite zamenjati, pojdite na stran za [$2 $1] in jo zamenjajte tam.",
 	"mwe-upwiz-fileexists-replace-no-link": "Prosimo, izberite drugačen naslov, saj ta naslov že uporablja druga datoteka.",
 	"mwe-upwiz-blacklisted": "Prosimo, izberite drugačen, opisen naslov.",

@@ -168,8 +168,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nepavyko perskaityti arba suprasti failo vardą \"$1\" dėl nežinomų priežasčių .",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nežinomas failo vardas",
 	"mwe-upwiz-ok": "Gerai",
-	"mwe-upwiz-fileexists-replace": "Failas su pavadinimu \"$1\" jau egzistuoja. Prašome pakeisti savo pavadinimą į kažką unikalaus.",
-	"mwe-upwiz-fileexists": "Failas su šiuo vardu jau egzistuoja.\nPrašome pasitikrinti $1, jeigu nesate tikri, ar norite jį perrašyti.",
 	"mwe-upwiz-fileexists-replace-on-page": "Failas su tokiu vardu jau egzistuoja. Jeigu norite jį perrašyti, eikite į puslapį [$2 $1] ir perrašykite jį ten.",
 	"mwe-upwiz-fileexists-replace-no-link": "Prašome pasirinkti kitą pavadinimą, nes šį pavadinimą jau naudoja kitas failas.",
 	"mwe-upwiz-blacklisted": "Prašome pasirinkti kitą, aprašomąją antraštę.",

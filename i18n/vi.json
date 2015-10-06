@@ -163,8 +163,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Có muốn cố tải lên?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Không thể đọc hoặc hiểu tập tin tại “$1” vì lý do không rõ.",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "Đã có tập tin có tên “$1”. Xin hãy chọn tên khác cho tập tin của bạn.",
-	"mwe-upwiz-fileexists": "Một tập tin với tên này đã tồn tại, xin hãy kiểm tra lại $1 nếu bạn không chắc bạn có muốn thay đổi nó hay không.",
 	"mwe-upwiz-fileexists-replace-on-page": "Một tập tin với tên này đã tồn tại. Bạn có thể thay thế nó tại trang [$2 $1].",
 	"mwe-upwiz-fileexists-replace-no-link": "Hãy chọn tên khác vì một tập tin khác đã lấy tên này.",
 	"mwe-upwiz-blacklisted": "Xin vui lòng chọn một tên khác miêu tả đầy đủ.",

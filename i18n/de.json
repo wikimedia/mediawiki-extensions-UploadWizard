@@ -180,8 +180,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Der Dateiname „$1“ konnte aus unbekannten Gründen nicht verarbeitet werden.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Unbekannter Dateiname",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "Eine Datei namens „$1“ ist bereits vorhanden. Bitte zu einem bislang nicht vergebenen Namen ändern.",
-	"mwe-upwiz-fileexists": "Eine Datei dieses Namens ist bereits vorhanden. Bitte prüfe $1, sofern du dir nicht sicher bist, ob du sie ersetzen möchtest.",
 	"mwe-upwiz-fileexists-replace-on-page": "Eine Datei dieses Namens ist bereits vorhanden. Sofern du sie ersetzen möchtest, geh zur Seite für [$2 $1] und erledige dies dort.",
 	"mwe-upwiz-fileexists-replace-no-link": "Bitte wähle einen anderen Namen, da dieser Name bereits von einer anderen Datei benutzt wird.",
 	"mwe-upwiz-blacklisted": "Bitte einen anderen, aussagekräftigen Titel wählen.",

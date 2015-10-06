@@ -150,8 +150,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Încărcați oricum?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nu am putut citi sau înțelege fișierul „$1” din motive necunoscute.",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "Un fișier cu titlul „$1” există deja. Vă rugăm să schimbați titlul în ceva unic.",
-	"mwe-upwiz-fileexists": "Un fișier cu acest nume există deja.\nVă rugăm să verificați $1 dacă nu sunteți sigur că doriți să îl schimbați.",
 	"mwe-upwiz-fileexists-replace-on-page": "Un fișier cu acest nume există deja. Dacă doriți să îl înlocuiți, mergeți pe pagina [$2 $1] și înlocuiți-l acolo.",
 	"mwe-upwiz-fileexists-replace-no-link": "Alegeți alt titlu, pentru că acest nume este folosit deja de un alt fișier.",
 	"mwe-upwiz-blacklisted": "Vă rugăm să alegeți un alt titlu, mai descriptiv.",

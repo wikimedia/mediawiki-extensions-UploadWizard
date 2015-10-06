@@ -176,8 +176,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "לא הצלחנו לקרוא או להבין את שם הקובץ \"$1\" מסיבות שאינן ידועות.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "שם קובץ לא ידוע",
 	"mwe-upwiz-ok": "אישור",
-	"mwe-upwiz-fileexists-replace": "הקובץ עם הכותרת \"$1\" כבר קיים. אנא שנו את הכותרת למשהו ייחודי.",
-	"mwe-upwiz-fileexists": "קובץ בשם הזה כבר קיים.\nאנא בדקו את $1 אם אינכם בטוחים שאתם רוצים להחליף אותו.",
 	"mwe-upwiz-fileexists-replace-on-page": "קובץ בשם הזה כבר קיים. אם אתם רוצים להחליף אותו, לכו לדף עבור [$2 $1] והחליפו אותו שם.",
 	"mwe-upwiz-fileexists-replace-no-link": "נא לבחור שם אחר, כי השם הזה כבר בשימוש על־ידי קובץ אחר.",
 	"mwe-upwiz-blacklisted": "נא לבחור כותרת שונה, מתארת יותר.",

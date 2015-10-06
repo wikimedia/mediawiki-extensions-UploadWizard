@@ -179,8 +179,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nie można odczytać i zrozumieć nazwy pliku „$1“ z nieznanego powodu.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nieznana nazwa pliku",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "Plik o tytule „$1” już istnieje. Proszę podać unikalny tytuł.",
-	"mwe-upwiz-fileexists": "Plik o tej nazwie już istnieje. Sprawdź $1 jeśli nie jesteś pewien czy chcesz go zastąpić.",
 	"mwe-upwiz-fileexists-replace-on-page": "Plik o tej nazwie już istnieje. Jeśli chcesz go zastąpić, przejdź do strony [$2 $1] na której możesz to zrobić.",
 	"mwe-upwiz-fileexists-replace-no-link": "Wybierz inny tytuł, ponieważ ten jest już używany przez inny plik.",
 	"mwe-upwiz-blacklisted": "Wybierz inny, opisowy tytuł.",

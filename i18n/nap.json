@@ -166,8 +166,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nun putimmo carrecà o capì 'o filename \"$1\" pe' mutive scanusciute.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Filename scanusciuto",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "Nu file c' 'o titolo \"$1\" esiste già. Scagnatevello stu titolo a na cosa ca fosse unica.",
-	"mwe-upwiz-fileexists": "Nu file cu stu nomme esiste già.\nPe' piacere cuntrullate $1 si vuje nun site sicuro/a si 'o vulite sostituì.",
 	"mwe-upwiz-fileexists-replace-on-page": "Nu file cu stu nomme già esiste. Si vulite rimpiazzà, jate 'a paggena pe [$2 $1] e rimpiazzatevello là.",
 	"mwe-upwiz-fileexists-replace-no-link": "Pe' piacere scigliteve nu titolo differente pecché stu titolo è stato già ausato dint'a n'atu file.",
 	"mwe-upwiz-blacklisted": "Pe' piacere sciglite nu titolo differente e descrittivo.",

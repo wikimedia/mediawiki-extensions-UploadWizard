@@ -167,8 +167,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Не можевме да го прочитаме или разбереме податотечното име „$1“ од непознати причини.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Непознато податотечно име",
 	"mwe-upwiz-ok": "ОК",
-	"mwe-upwiz-fileexists-replace": "Веќе постои податотека со насловот „$1“. Ставете поинаков наслов.",
-	"mwe-upwiz-fileexists": "Веќе постои податотека со тоа име. Проверете ја $1 ако не сте сигурни дека сакате да ја замените.",
 	"mwe-upwiz-fileexists-replace-on-page": "Веќе постои податотека со ова име. Ако сакате да ја замените, одете на страницата за [$2 $1]  и заменете ја таму.",
 	"mwe-upwiz-fileexists-replace-no-link": "Изберете друг наслов. Овој е веќе зафатен.",
 	"mwe-upwiz-blacklisted": "Одберете поинаков, описен наслов.",

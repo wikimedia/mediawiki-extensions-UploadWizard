@@ -124,8 +124,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Ipak otpremiti?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Ne mogu da pročitam ili prepoznam naziv datoteke „$1“ zbog nepoznatih razloga.",
 	"mwe-upwiz-ok": "U redu",
-	"mwe-upwiz-fileexists-replace": "Već postoji datoteka s nazivom „$1“. Izaberite drugi naziv.",
-	"mwe-upwiz-fileexists": "Datoteka s tim nazivom već postoji.\nProverite $1 ako niste sigurni da li želite da je zamenite.",
 	"mwe-upwiz-fileexists-replace-on-page": "Datoteka s tim nazivom već postoji. Ako želite da je zamenite, idite na stranicu za [$2 $1] i zamenite je tamo.",
 	"mwe-upwiz-fileexists-replace-no-link": "Datoteka s tim nazivom već postoji. Izaberite drugi.",
 	"mwe-upwiz-blacklisted": "Izaberite drugačiji, opisan naziv.",

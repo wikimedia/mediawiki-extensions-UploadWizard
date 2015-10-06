@@ -192,8 +192,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "因为未知原因，我们不能读取或识别文件名“$1”。",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "未知文件名",
 	"mwe-upwiz-ok": "确定",
-	"mwe-upwiz-fileexists-replace": "标题为“$1”的文件已经存在。请更换为独特的文件名。",
-	"mwe-upwiz-fileexists": "有相同文件名的文件已经存在。如果你不确定是否要替换它，请检查$1。",
 	"mwe-upwiz-fileexists-replace-on-page": "有相同文件名的文件已经存在。如果你想要替换它，请访问[$2 $1]的说明页面并在那里替换它。",
 	"mwe-upwiz-fileexists-replace-no-link": "请选择一个不同的标题，因为这个标题已经由另一个文件使用。",
 	"mwe-upwiz-blacklisted": "请选择其他描述性的标题。",

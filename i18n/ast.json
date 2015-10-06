@@ -165,8 +165,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nun ye posible lleer o entender el nome del ficheru «$1» por razones desconocíes.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nome de ficheru desconocíu",
 	"mwe-upwiz-ok": "Aceutar",
-	"mwe-upwiz-fileexists-replace": "Yá esiste un ficheru col títulu «$1». Camuda'l títulu por otru que seya únicu.",
-	"mwe-upwiz-fileexists": "Yá esiste un ficheru con esti nome.\nComprueba $1 si nun tas seguru de si quies camudalu.",
 	"mwe-upwiz-fileexists-replace-on-page": "Yá esiste un ficheru con esti nome. Si quies camudalu, visita la páxina de [$2 $1] y fai el cambiu allí.",
 	"mwe-upwiz-fileexists-replace-no-link": "Por favor, escueya un títulu distintu, porque esti ta usandolu yá otru ficheru.",
 	"mwe-upwiz-blacklisted": "Escueyi un títulu distintu, más descriptivu.",

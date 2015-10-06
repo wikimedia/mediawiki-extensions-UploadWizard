@@ -178,8 +178,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "不明な理由で、ファイル名「$1」の読み取りまたは理解ができませんでした。",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "不明なファイル名",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "「$1」というタイトルのファイルは既に存在しています。タイトルを独自のものに変更してください。",
-	"mwe-upwiz-fileexists": "同名のファイルが既に存在します。\n上書きしていいかどうか分からない場合は$1を確認してください。",
 	"mwe-upwiz-fileexists-replace-on-page": "この名前のファイルは既に存在します。置き換えたい場合は、[$2 $1]で置き換えてください。",
 	"mwe-upwiz-fileexists-replace-no-link": "このファイル名は別のファイルで既に使用されているため、別のファイル名を指定してください。",
 	"mwe-upwiz-blacklisted": "他の、説明的なタイトルをお選びください。",

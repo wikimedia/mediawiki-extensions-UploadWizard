@@ -162,8 +162,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Mer kunnte dä Datteiname „$1“ nit verstonn udder opnämme, wisu es nit klohr.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "- Onbikannt -",
 	"mwe-upwiz-ok": "Lohß Jonn!",
-	"mwe-upwiz-fileexists-replace": "En Dattei met dä Övverschreff „$1“ jidd_et ald. Bes esu jood un nemm en Övverschreff , dä eijmohlesch es.",
-	"mwe-upwiz-fileexists": "En Dattei met dämm Name jidd_et ald. Beß esu joot un donn $1 prööfe, wann De Der nit sescher beß, of De jät ändere wells.",
 	"mwe-upwiz-fileexists-replace-on-page": "En Dattei met däm Name es ald doh. Wann De se övverschrieve wells, jangk op di Sigg [$2 $1] un donn se doh ußtuusche.",
 	"mwe-upwiz-fileexists-replace-no-link": "En Dattei met däm Name jidd_et ald, dröm söhg en andere Övverschrevv uß.",
 	"mwe-upwiz-blacklisted": "Söhk Der ene anndere Nahme uß, dä mih drövver säht.",

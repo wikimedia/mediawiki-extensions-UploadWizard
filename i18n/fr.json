@@ -206,8 +206,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Nous ne pouvons pas lire ou comprendre le nom du fichier « $1 » pour une raison inconnue.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nom de fichier inconnu",
 	"mwe-upwiz-ok": "Valider",
-	"mwe-upwiz-fileexists-replace": "Un fichier avec le titre « $1 » existe déjà. Veuillez modifier votre titre pour qu’il soit unique.",
-	"mwe-upwiz-fileexists": "Un fichier existe déjà sous ce nom.\nVeuillez vérifier $1 si vous n’êtes pas sûr de vouloir le remplacer.",
 	"mwe-upwiz-fileexists-replace-on-page": "Un fichier avec ce nom existe déjà. Si vous souhaitez le remplacer, allez sur la page pour [$2 $1] et remplacez-le là-bas.",
 	"mwe-upwiz-fileexists-replace-no-link": "Veuillez choisir un titre différent, car ce titre est déjà utilisé par un autre fichier.",
 	"mwe-upwiz-blacklisted": "Merci de choisir un autre titre descriptif.",

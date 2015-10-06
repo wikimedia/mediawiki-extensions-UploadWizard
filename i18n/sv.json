@@ -177,8 +177,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Av okända anledningar kunde vi inte läsa eller förstå filnamnet \"$1\".",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Okänt filnamn",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "En fil med titeln \"$1\" finns redan. Vänligen ändra din titel till något unikt.",
-	"mwe-upwiz-fileexists": "En fil med detta namn finns redan. Vänligen kontrollera $1 om du inte är säker på att du vill ersätta den.",
 	"mwe-upwiz-fileexists-replace-on-page": "Det finns redan en fil med detta namn. Om du vill ersätta den, gå till [$2 $1]s filbeskrivningssida och ersätt den där.",
 	"mwe-upwiz-fileexists-replace-no-link": "Välj en annan titel, eftersom denna titel redan används av en annan fil.",
 	"mwe-upwiz-blacklisted": "Välj en annan beskrivande titel.",

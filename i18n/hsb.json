@@ -124,8 +124,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "Najebać toho nahrać?",
 	"mwe-upwiz-upload-error-unknown-filename-error": "Datajowe mjeno \"$1\" njeda so z njeznatych přičinow čitać abo rozumić.",
 	"mwe-upwiz-ok": "W porjadku",
-	"mwe-upwiz-fileexists-replace": "Dataja z titulom \"$1\" hižo eksistuje. Prošu změń swój titul do njeeksistowaceho.",
-	"mwe-upwiz-fileexists": "Dataja z tutym mjenom hižo eksistuje. Prošu skontroluj $1, jeli njesy sej wěsty, hač chceš ju změnić.",
 	"mwe-upwiz-fileexists-replace-on-page": "Dataja z tutym mjenom hižo eksistuje. Jeli chceš ju wuměnić, dźi k stronje [$2 $1] a wuměń ju tam.",
 	"mwe-upwiz-fileexists-replace-no-link": "Prošu wubjer druhi titul, dokelž so tutón titul hižo přez druhu dataju wužiwa.",
 	"mwe-upwiz-blacklisted": "Prošu wubjer druhi, wuprajiwy titul.",

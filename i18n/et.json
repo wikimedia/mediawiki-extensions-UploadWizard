@@ -163,8 +163,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Teadmata põhjusel ei õnnestu failinime \"$1\" lugemine.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Tundmatu failinimi",
 	"mwe-upwiz-ok": "Sobib",
-	"mwe-upwiz-fileexists-replace": "Fail nimega \"$1\" on juba olemas. Palun vali varem kasutamata failinimi.",
-	"mwe-upwiz-fileexists": "Sellise nimega fail on juba olemas.\nPalun kontrolli lehekülge $1, kui sa pole kindel, kas soovid seda faili asendada.",
 	"mwe-upwiz-fileexists-replace-on-page": "Selle nimega fail on juba olemas. Kui soovid seda asendada, mine leheküljele [$2 $1] ja asenda see seal.",
 	"mwe-upwiz-fileexists-replace-no-link": "Palun vali erinev nimi, sest selle nimega fail on juba olemas.",
 	"mwe-upwiz-blacklisted": "Palun vali muu pealkiri, mis on kirjeldav.",

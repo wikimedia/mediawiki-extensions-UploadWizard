@@ -158,8 +158,6 @@
 	"mwe-upwiz-upload-error-unknown-filename-error": "Den Numm vum Fichier \"$1\" konnt aus onbekannte Grënn net gelies oder net verstan ginn.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Onbekannten Numm vum Fichier",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-fileexists-replace": "E Fichier mam Titel \"$1\" gëtt et schonn. Ännert Ären Titel op eppes wat et nach net gëtt.",
-	"mwe-upwiz-fileexists": "E Fichier mat dësem Numm gëtt et schonn.\nKuckt w.e.g. op $1 no wann Dir net sécher sidd ob Dir en ännere wëllt.",
 	"mwe-upwiz-fileexists-replace-on-page": "Et gëtt schonn e Fichier mat deem Numm. Wann Dir deen ersetze wëllt da gitt op d'Säit fir [$2 $1] an ersetzt en do.",
 	"mwe-upwiz-fileexists-replace-no-link": "Sicht w.e.g. en aneren Numm, well dësn nUmm scho vun engem anere Fiohier benotzt gëtt.",
 	"mwe-upwiz-blacklisted": "Sicht w.e.g. en aneren Titel, deen méi iwwer de Sujet ausseet.",
