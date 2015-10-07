@@ -293,6 +293,7 @@
 	"mwe-upwiz-url-invalid": "Įvestoji URL nuoroda nėra palaikoma arba nukreipia į neveikiantį arba neleidžiamą $1 paveikslėlį ar nuotraukų albumą ir negali būti naudojama.",
 	"mwe-upwiz-user-blacklisted": "Deja, nei vienas paveikslėlis iš $1 paskyros gali būti įkeltas į šį tinklapį.",
 	"mwe-upwiz-categories": "Kategorijos",
+	"mwe-upwiz-categories-missing": "Šiai kategorijai trūksta aprašymo puslapio. Ar tikrai vardą įvedėte teisingai?",
 	"mwe-upwiz-thumbnail-failed": "Įkelta sėkmingai, bet serveris negalėjo pateikti peržiūros miniatiūros.",
 	"mwe-upwiz-unparseable-filename": "Nepavyko suprasti failo pavadinimo \"$1\".",
 	"mwe-upwiz-unparseable-title": "Šis pavadinimas nėra tinkamas. Įsitikinkite, kad pašalinote tokius simbolius kaip laužtiniai skliausteliai, kabliataškiai, palyginimo operatoriai, vertikalūs brūkšniai ir riestiniai skliausteliai.",

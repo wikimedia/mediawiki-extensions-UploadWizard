@@ -36,12 +36,11 @@
 	"mwe-upwiz-source": "Mənbə",
 	"mwe-upwiz-thanks-intro": "Yüklədiyiniz üçün təşəkkürlər!",
 	"mwe-upwiz-ok": "OK",
-	"mwe-upwiz-cancel": "İmtina",
 	"mwe-upwiz-next": "Sonrakı",
 	"mwe-upwiz-next-file": "Davam et",
 	"mwe-upwiz-next-deeds": "Sonrakı",
 	"mwe-upwiz-next-details": "Sonrakı",
-	"mwe-upwiz-tooltip-more-info": "Daha çox öyrən",
+	"mwe-upwiz-tooltip-more-info": "Daha ətraflı öyrən.",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 qanuni kod])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Avstriya ([$2qanuni kod])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Attribution ShareAlike 3.0 Almaniya ([$2 hüquqi mətn])",
@@ -67,8 +66,7 @@
 	"mwe-upwiz-license-gfdl": "GNU Azad Sənədləşdirmə Lisenziyası",
 	"mwe-upwiz-license-custom-preview": "Sınaq görüntüsü",
 	"mwe-upwiz-categories": "Kateqoriyalar",
-	"mwe-upwiz-categories-add": "Əlavə et",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Daha çox məlumat]",
+	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Daha ətraflı]",
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-calendar-date": "Təqvimdən tarixi seçin"
 }
