@@ -202,7 +202,7 @@
 	"mwe-upwiz-file-need-file": "נא להוסיף העלאה תחילה.",
 	"mwe-upwiz-deeds-need-license": "נא לבחור רישיון.",
 	"mwe-upwiz-license-show-all": "שימוש ברישיון אחר",
-	"mwe-upwiz-license-show-recommended": "שימוש ברישיון המומלץ",
+	"mwe-upwiz-license-show-recommended": "שימוש ברישיון שהאתר ממליץ עליו",
 	"mwe-upwiz-error-signature-blank": "יש לחתום בשם המשתמש שלך או בשמך האמתי בשדה המתאים.",
 	"mwe-upwiz-error-latitude": "קו הרוחב צריך להיות בין <span dir=\"ltr\">-90</span> לבין 90.",
 	"mwe-upwiz-error-longitude": "קו האורך צריך להיות בין  <span dir=\"ltr\">-180</span> לבין 180.",
