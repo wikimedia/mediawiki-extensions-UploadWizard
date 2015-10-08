@@ -36,6 +36,7 @@ class UploadWizardHooks {
 				'mediawiki.Title',
 				'mediawiki.user',
 				'mediawiki.feedback',
+				'moment',
 				'uw.base',
 				'ext.uploadWizard.apiUploadHandler',
 				'ext.uploadWizard.apiUploadPostHandler',
@@ -72,7 +73,6 @@ class UploadWizardHooks {
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
 				'resources/mw.canvas.js',
-				'resources/mw.UtilitiesTime.js',
 				'resources/mw.ErrorDialog.js',
 
 				// wikimedia-comons specific title checker
@@ -206,9 +206,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-progressbar-uploading',
 				'mwe-upwiz-almost-finished',
 				'mwe-upwiz-finished',
-				'mwe-upwiz-secs-remaining',
-				'mwe-upwiz-mins-secs-remaining',
-				'mwe-upwiz-hrs-mins-secs-remaining',
 				'mwe-upwiz-deeds-macro-prompt',
 				'mwe-upwiz-source-ownwork',
 				'mwe-upwiz-source-ownwork-assert-any-license',
@@ -926,7 +923,6 @@ class UploadWizardHooks {
 				'tests/qunit/mw.uw.model.Description.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',
 				'tests/qunit/mw.UploadWizardDetails.test.js',
-				'tests/qunit/mw.UtilitiesTime.test.js',
 				'tests/qunit/mw.fileApi.test.js',
 			),
 			'dependencies' => array(
