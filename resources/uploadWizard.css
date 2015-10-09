@@ -124,10 +124,6 @@ form.mwe-upwiz-form {
 	background: #f5f5f5;
 }
 
-.mwe-upwiz-visible-file .mwe-upwiz-remove-ctrl .mwe-upwiz-show-thumb-ctrl {
-	visibility: visible;
-}
-
 .mwe-upwiz-file-indicator, .mwe-upwiz-count {
 	float: right;
 	margin-left: 0.5em;
@@ -280,10 +276,6 @@ form.mwe-upwiz-form {
 	background: #e0f0ff !important;
 }
 
-.mwe-upwiz-file.hover .mwe-upwiz-remove-ctrl .mwe-upwiz-show-thumb-ctrl {
-	visibility: visible;
-}
-
 /* XXX we probably have a standard for this */
 .helper {
 	color: #cccccc; /* or whatever we do for greyed out text */
@@ -311,14 +303,6 @@ form.mwe-upwiz-form {
 
 #mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice {
 	display: none;
-}
-
-.mwe-upwiz-details-descriptions .mwe-upwiz-remove-ctrl {
-	vertical-align: top;
-	float: right;
-	margin-top: 3px;
-	border: 1px solid #74A6CC;
-	padding: 3px;
 }
 
 a:disabled {

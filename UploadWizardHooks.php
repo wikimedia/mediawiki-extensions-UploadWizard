@@ -64,7 +64,6 @@ class UploadWizardHooks {
 			'scripts' => array(
 				// jquery interface helpers
 				'resources/jquery/jquery.morphCrossfade.js',
-				'resources/jquery/jquery.removeCtrl.js',
 				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.pubsub.js',
 				'resources/jquery/jquery.lazyload.js',
@@ -111,7 +110,6 @@ class UploadWizardHooks {
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',
-				'resources/jquery/jquery.removeCtrl.css',
 				'resources/jquery/jquery.showThumbCtrl.css',
 			),
 			'messages' => array(

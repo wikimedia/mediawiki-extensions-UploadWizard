@@ -49,14 +49,16 @@
 					'</div>'
 			);
 
-		this.$removeCtrl = $.fn.removeCtrl(
-			'mwe-upwiz-remove',
-			'mwe-upwiz-remove-upload',
-			function () {
-				ui.upload.remove();
-				ui.cancelPositionTracking();
-			}
-		);
+		this.removeCtrl = new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-remove' ).escaped(),
+			title: mw.message( 'mwe-upwiz-remove-upload' ).escaped(),
+			flags: 'destructive',
+			icon: 'remove',
+			framed: false
+		} ).on( 'click', function () {
+			ui.upload.remove();
+			ui.cancelPositionTracking();
+		} );
 
 		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
 			this.$imagePicker = this.createImagePickerField(
@@ -68,7 +70,7 @@
 		}
 
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
-			.append( this.$removeCtrl );
+			.append( this.removeCtrl.$element );
 
 		// Add show thumbnail control
 
