@@ -207,7 +207,7 @@
 	"mwe-upwiz-file-need-file": "Añade una subida primero.",
 	"mwe-upwiz-deeds-need-license": "Selecciona una licencia.",
 	"mwe-upwiz-license-show-all": "Usar una licencia diferente",
-	"mwe-upwiz-license-show-recommended": "Usar la licencia recomendada",
+	"mwe-upwiz-license-show-recommended": "Usar la licencia recomendada del sitio",
 	"mwe-upwiz-error-signature-blank": "Debes firmar con tu nombre de usuario o nombre real en el campo apropiado.",
 	"mwe-upwiz-error-latitude": "La altitud debe tener un valor entre -90 y 90.",
 	"mwe-upwiz-error-longitude": "La longitud debe tener un valor entre -180 y 180.",

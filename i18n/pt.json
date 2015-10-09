@@ -199,7 +199,7 @@
 	"mwe-upwiz-file-need-file": "Primeiro adicione um envio, por favor.",
 	"mwe-upwiz-deeds-need-license": "Escolha uma licença, por favor.",
 	"mwe-upwiz-license-show-all": "Usar uma licença diferente",
-	"mwe-upwiz-license-show-recommended": "Usar a licença recomendada",
+	"mwe-upwiz-license-show-recommended": "Usar a licença recomendada do sítio",
 	"mwe-upwiz-error-signature-blank": "Precisa de assinar com o seu nome de utilizador ou o seu nome verdadeiro no campo apropriado.",
 	"mwe-upwiz-error-latitude": "A latitude deve ser entre -90 e 90.",
 	"mwe-upwiz-error-longitude": "A longitude deve ser entre -180 e 180.",
