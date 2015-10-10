@@ -19,6 +19,7 @@
 
 	/**
 	 * Upload step controller.
+	 *
 	 * @class uw.controller.Upload
 	 * @extends uw.controller.Step
 	 * @constructor
@@ -64,7 +65,8 @@
 	/**
 	 * Shows an error dialog informing the user that some uploads have been omitted
 	 * since they went over the max files limit.
-	 * @param filesUploaded integer - the number of files that have been attempted to upload
+	 *
+	 * @param {number} filesUploaded integer - the number of files that have been attempted to upload
 	 */
 	uw.controller.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
 		this.ui.showTooManyFilesWarning( filesUploaded );
@@ -145,6 +147,7 @@
 	 * Kick off the upload processes.
 	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
 	 * and kicks off a thread which will take from the queue.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Upload.prototype.startUploads = function () {

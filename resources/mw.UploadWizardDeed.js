@@ -58,6 +58,7 @@
 
 		/**
 		 * Get wikitext representing the licenses selected in the license object
+		 *
 		 * @return wikitext of all applicable license templates.
 		 */
 		getLicenseWikiText: function () {
@@ -68,6 +69,7 @@
 
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
+	 *
 	 * @param {number} integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api object - useful for doing previews
 	 * @param {Object} config The UW config
@@ -103,6 +105,7 @@
 
 			/**
 			 * Is this correctly set, with side effects of causing errors to show in interface.
+			 *
 			 * @return boolean true if valid, false if not
 			 */
 			valid: function () {
@@ -306,6 +309,7 @@
 
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are the work of a third party.
+	 *
 	 * @param {number} integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api object - useful for doing previews
 	 * @param {Object} config The UW config
@@ -423,6 +427,7 @@
 			 * Is this correctly set, with side effects of causing errors to show in interface.
 			 * this is exactly the same as the ownwork valid() function... hopefully we can reduce these to nothing if we make
 			 * all validators work the same.
+			 *
 			 * @return boolean true if valid, false if not
 			 */
 			valid: function () {
@@ -438,6 +443,7 @@
 
 	/**
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
+	 *
 	 * @param {Object} config The UW config
 	 * @param {string|jQuery} selector where to put this deed chooser
 	 * @param {Array[UploadWizardDeed]} deeds
@@ -511,6 +517,7 @@
 
 		/**
 		 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
+		 *
 		 * @return boolean; true if valid, false if not
 		 */
 		valid: function () {

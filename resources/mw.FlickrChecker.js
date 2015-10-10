@@ -107,6 +107,7 @@
 		 * Returns a suggested filename for the image.
 		 * Usually the filename is just the Flickr title plus an extension, but in case of name conflicts
 		 * or empty title a unique filename is generated.
+		 *
 		 * @param {string} title image title on Flickr
 		 * @param {number} id image id on Flickr
 		 * @param {string} ownername owner name on Flickr
@@ -130,6 +131,7 @@
 		 * Reserves a filename; used by `mw.FlickrChecker.getFileNameFromItem()` which tries to
 		 * avoid returning a filename which is already reserved.
 		 * This works even when the filename was reserved in a different FlickrChecker instance.
+		 *
 		 * @param {string} fileName
 		 */
 		reserveFileName: function ( fileName ) {
@@ -138,7 +140,7 @@
 
 		/**
 		 * @param {Object} params
-		 * @returns {jQuery.Promise} a promise with the response data
+		 * @return {jQuery.Promise} a promise with the response data
 		 */
 		flickrRequest: function ( params ) {
 			params = $.extend( {
@@ -176,6 +178,7 @@
 
 		/**
 		 * Retrieves a list of photos in group pool and displays it.
+		 *
 		 * @param groupPoolMatches result of `this.url.match`
 		 * @see {@link getPhotos}
 		 */
@@ -208,6 +211,7 @@
 
 		/**
 		 * Constructs an unordered list of sets in the collection.
+		 *
 		 * @param appendId true if you want to append
 		 * id="mwe-upwiz-files-collection-chooser"; false otherwise
 		 * @param data the retrieved data
@@ -249,6 +253,7 @@
 
 		/**
 		 * Retrieves a list of sets in a collection and displays it.
+		 *
 		 * @param userCollectionMatches result of this.url.match
 		 */
 		getCollection: function ( userCollectionMatches ) {
@@ -273,6 +278,7 @@
 
 		/**
 		 * Retrieves a list of photos in gallery and displays it.
+		 *
 		 * @see {@link getPhotos}
 		 */
 		getGallery: function () {
@@ -290,6 +296,7 @@
 
 		/**
 		 * Retrieves a list of photos in photoset and displays it.
+		 *
 		 * @param albumIdMatches result of this.url.match
 		 * @see {@link getPhotos}
 		 */
@@ -302,6 +309,7 @@
 
 		/**
 		 * Retrieves a list of photos and displays it.
+		 *
 		 * @param {string} mode may be: 'photoset' - for use with photosets,
 		 *	 or 'photos' - for use with everything else (the parameter is used
 		 *	 to determine how the properties in retrieved JSON are named)
@@ -522,6 +530,7 @@
 		 * path_alias in the beginning, and must set it manually; if it does not exist, it can be left
 		 * undefined, or an empty string can be supplied (which is what the Flickr API usually returns
 		 * as the path_alias for such users).
+		 *
 		 * @param {string} nsid Flickr NSID of the author
 		 * @param {string} [path_alias] Flickr username of the author (the unchangeable one, in the URL)
 		 * @return {jQuery.Promise} a promise which resolves to a boolean - true if the user is blacklisted
@@ -540,11 +549,12 @@
 		 * (path_alias is the username that appears in the URL.)
 		 * The blacklist will usually contain the path_alias or the NSID of the user, but not both;
 		 * it is the caller's responsibility to check against both of them.
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		getBlacklist: function () {
+			var api = new mw.Api();
 			if ( !mw.FlickrChecker.blacklist ) {
-				var api = new mw.Api();
 				mw.FlickrChecker.blacklist = api.get( {
 					action: 'flickrblacklist',
 					list: 1,

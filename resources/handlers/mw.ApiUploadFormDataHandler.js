@@ -2,7 +2,8 @@
 	/**
 	 * Represents an object which configures an html5 FormData object to upload.
 	 * Large files are uploaded in chunks.
-	 * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
+	 *
+	 * @param {mw.UploadWizardUploadInterface} upload Contains a .form property which points to a real HTML form in the DOM
 	 */
 	mw.ApiUploadFormDataHandler = function ( upload, api ) {
 		var handler = this;
@@ -33,6 +34,7 @@
 		/**
 		 * Optain a fresh edit token.
 		 * If successful, store token and call a callback.
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		configureEditToken: function () {
@@ -45,6 +47,7 @@
 
 		/**
 		 * Kick off the upload!
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		start: function () {

@@ -844,6 +844,7 @@
 
 		/**
 		 * check entire form for validity
+		 *
 		 * @return {boolean} Whether the form is valid.
 		 */
 		// side effect: add error text to the page for fields in an incorrect state.
@@ -863,6 +864,7 @@
 		 * check if we have all the *must have* but not mandatory fields filled in
 		 * Currently this tests for the following:
 		 * 1) Empty category
+		 *
 		 * @return {boolean}
 		 */
 		necessaryFilled: function () {
@@ -956,6 +958,7 @@
 
 		/**
 		 * show file destination field as "busy" while checking
+		 *
 		 * @param busy boolean true = show busy-ness, false = remove
 		 */
 		toggleDestinationBusy: function ( busy ) {
@@ -972,6 +975,7 @@
 		 * See mw.DestinationChecker.js for documentation of result format
 		 * XXX would be simpler if we created all these divs in the DOM and had a more jquery-friendly way of selecting
 		 * attrs. Instead we create & destroy whole interface each time. Won't someone think of the DOM elements?
+		 *
 		 * @param result
 		 */
 		processDestinationCheck: function ( result ) {
@@ -1095,6 +1099,7 @@
 
 		/**
 		 * Remove a description
+		 *
 		 * @param description
 		 */
 		removeDescription: function ( description  ) {
@@ -1134,6 +1139,7 @@
 
 		/**
 		 * Given the API result pull some info into the form ( for instance, extracted from EXIF, desired filename )
+		 *
 		 * @param result	Upload API result object
 		 */
 		populate: function () {
@@ -1328,6 +1334,7 @@
 
 		/**
 		 * Shortcut to create a text input element.
+		 *
 		 * @param {string} id ID for the element, also used as its name.
 		 * @param {string} [className] Class to add to the element. Automatically namespaced by prefixing 'mwe-' to it.
 		 * @param {number} [size] Size - default leaves the size attribute unset.
@@ -1376,6 +1383,7 @@
 
 		/**
 		 * Convert entire details for this file into wikiText, which will then be posted to the file
+		 *
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
@@ -1530,6 +1538,7 @@
 		 * Post wikitext as edited here, to the file
 		 * XXX This should be split up -- one part should get wikitext from the interface here, and the ajax call
 		 * should be be part of upload
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
@@ -1582,6 +1591,7 @@
 
 		/**
 		 * Handles the result of a submission.
+		 *
 		 * @param {Object} result API result of an upload or status check.
 		 * @param {Object} params What we passed to the API that caused this response.
 		 * @return {jQuery.Promise}
@@ -1707,6 +1717,7 @@
 
 		/**
 		 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
+		 *
 		 * @param {string} fieldId id of input field -- presumed to be within this upload's details form.
 		 * @param {string} errorMessage HTML error message to show. Make sure escaping text properly.
 		 * @param {string} errorCode
@@ -1724,6 +1735,7 @@
 
 		/**
 		 * Show error state, possibly using a recoverable error form
+		 *
 		 * @param {string} error code
 		 * @param {string} status line
 		 */
@@ -1735,6 +1747,7 @@
 
 		/**
 		 * Decide how to treat various errors
+		 *
 		 * @param {string} error code
 		 * @param {Mixed} result from ajax call
 		 */
@@ -1844,6 +1857,7 @@
 		/**
 		 * Apply some special cleanups for titles before adding to model. These cleanups are not reflected in what the user sees in the title input field.
 		 * For example, we remove an extension in the title if it matches the extension we're going to add anyway. (bug #30676)
+		 *
 		 * @param {string} title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
 		 * @return {mw.Title} cleaned title with prefix and extension, stringified.
 		 */

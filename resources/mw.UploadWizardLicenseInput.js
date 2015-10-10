@@ -125,6 +125,7 @@
 
 		/**
 		 * Creates the license input interface in toggleable groups.
+		 *
 		 * @param jQuery selector
 		 * @param license input configuration groups
 		 */
@@ -162,6 +163,7 @@
 		 * SIDE EFFECT: also records licenses and inputs in the object
 		 *
 		 * Abstracts out simple lists of licenses, more complex groups with layout
+		 *
 		 * @param {jQuery} selector to add inputs to
 		 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
 		 *			it may also have: 'prependTemplates' or 'template', which alter the final wikitext value
@@ -211,6 +213,7 @@
 		 * License templates are these abstract ideas like cc-by-sa. In general they map directly to a license template.
 		 * However, configuration for a particular option can add other templates or transform the templates,
 		 * such as wrapping templates in an outer "self" template for own-work
+		 *
 		 * @param {Array} of license template names
 		 * @param {Object}, license input configuration
 		 * @return {string} of wikitext

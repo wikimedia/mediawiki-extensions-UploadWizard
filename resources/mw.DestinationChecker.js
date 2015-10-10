@@ -3,7 +3,8 @@
 	 * Object to attach to a file name input, to be run on its change() event
 	 * Largely derived from wgUploadWarningObj in old upload.js
 	 * Perhaps this could be a jQuery ext
-	 * @param options   dictionary of options
+	 *
+	 * @param {Object} options dictionary of options
 	 *		selector  required, the selector for the input to check
 	 *		processResult   required, function to execute on results. accepts two args:
 	 *			1) filename that invoked this request -- should check if this is still current filename
@@ -62,9 +63,6 @@
 		 * exactly what your input field represents.
 		 * In the event that the invoker doesn't supply a name preprocessor, use this identity function
 		 * as default
-		 *
-		 * @param something
-		 * @return that same thing
 		 */
 		preprocess: function ( x ) { return x; },
 
@@ -128,6 +126,7 @@
 
 		/**
 		 * Get the current value of the input, with optional preprocessing
+		 *
 		 * @return {string} the current input value, with optional processing
 		 */
 		getTitle: function () {
@@ -136,7 +135,8 @@
 
 		/**
 		 * Async check if a title is in the titleblacklist.
-		 * @param {Function} takes object, like { blacklist:result }
+		 *
+		 * @param {Function} callback takes object, like { blacklist:result }
 		 * @param {string} title the blacklist should be checked against
 		 */
 		checkBlacklist: function ( callback, title ) {
@@ -171,6 +171,7 @@
 
 			/**
 			 * Processes result of a TitleBlacklist api call with callback()
+			 *
 			 * @param mixed - false if not blacklisted, object if blacklisted
 			 */
 			if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
@@ -184,7 +185,8 @@
 		/**
 		 * Async check if a filename is unique. Can be attached to a field's change() event
 		 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
-		 * @param {Function} takes object, like { unique:result }
+		 *
+		 * @param {Function} callback takes object, like { unique:result }
 		 * @param {string} title the uniqueness should be checked for
 		 */
 		checkUnique: function ( callback, title ) {
@@ -304,8 +306,9 @@
 	 * jQuery extension to make a field upload-checkable
 	 */
 	$.fn.destinationChecked = function ( options ) {
+		var checker;
 		options.selector = this;
-		var checker = new mw.DestinationChecker( options );
+		checker = new mw.DestinationChecker( options );
 		// this should really be done with triggers
 		this.checkTitle = function () { checker.checkTitle(); };
 		return this;

@@ -18,6 +18,7 @@
 ( function ( mw, uw, OO, $ ) {
 	/**
 	 * Represents a step in the wizard.
+	 *
 	 * @class mw.uw.controller.Step
 	 * @mixins OO.EventEmitter
 	 * @abstract
@@ -64,6 +65,7 @@
 
 	/**
 	 * Set the next step in the process.
+	 *
 	 * @param {mw.uw.controller.Step} step
 	 */
 	uw.controller.Step.prototype.setNextStep = function ( step ) {
@@ -72,6 +74,7 @@
 
 	/**
 	 * Move to this step.
+	 *
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Step.prototype.moveTo = function ( uploads ) {
@@ -145,6 +148,7 @@
 
 	/**
 	 * Update file counts for the step.
+	 *
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 * @return {boolean} Whether there are uploads present in the list
 	 */
@@ -167,6 +171,7 @@
 	/**
 	 * Perform this step's changes on all uploads. Replaces makeTransitioner
 	 * in the UploadWizard class.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Step.prototype.transitionAll = function () {
@@ -209,7 +214,8 @@
 
 	/**
 	 * Check if upload is able to be put through this step's changes.
-	 * @param {mw.UploadWizardUpload} upload
+	 *
+	 * @param {mw.UploadWizardUpload}
 	 * @return {boolean}
 	 */
 	uw.controller.Step.prototype.canTransition = function () {
@@ -218,6 +224,7 @@
 
 	/**
 	 * Perform this step's changes on one upload.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Step.prototype.transitionOne = function () {
@@ -236,6 +243,7 @@
 	 *
 	 * For uploads that have succeeded, now is the best time to add the relevant previews and details to the DOM
 	 * in the right order.
+	 *
 	 * @return {boolean} Whether all of the uploads are in a successful state.
 	 */
 	uw.controller.Step.prototype.showNext = function () {
@@ -297,6 +305,7 @@
 	 * Check whether this step has been completed, or is in progress.
 	 * The default check is for the three middle steps - tutorial and
 	 * thanks have their own.
+	 *
 	 * @return {boolean}
 	 */
 	uw.controller.Step.prototype.isComplete = function () {

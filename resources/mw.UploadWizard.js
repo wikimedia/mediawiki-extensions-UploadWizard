@@ -319,6 +319,7 @@
 		/**
 		 * When an upload is filled with a real file, accept it in the wizard's list of uploads
 		 * and set up some other interfaces
+		 *
 		 * @param UploadWizardUpload
 		 */
 		setUploadFilled: function ( upload ) {
@@ -331,7 +332,7 @@
 		/**
 		 * Remove an upload from our array of uploads, and the HTML UI
 		 * We can remove the HTML UI directly, as jquery will just get the parent.
-			 * We need to grep through the array of uploads, since we don't know the current index.
+		 * We need to grep through the array of uploads, since we don't know the current index.
 		 * We need to update file counts for obvious reasons.
 		 *
 		 * @param upload
@@ -390,6 +391,7 @@
 		/**
 		 * This is useful to clean out file inputs that we don't want for some reason (error, empty...)
 		 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
+		 *
 		 * @param Function criterion: function to test the upload, returns boolean; true if should be removed
 		 */
 		removeMatchingUploads: function ( criterion ) {
@@ -432,6 +434,7 @@
 
 	/**
 	 * Sanitizes a filename for use as a File: page title
+	 *
 	 * @static
 	 * @param {string} filename Pre-sanitization filename.
 	 * @return {string} Filename sanitized for use as a title.
@@ -500,6 +503,7 @@
 	 * the string as 'mwe-upwiz-tooltip-' plus that id, and creates the hint with a similar id
 	 * or with function and id -- function will be called to generate the hint every time
 	 * TODO v1.1 split into two plugins?
+	 *
 	 * @param key {string}  -- will base the tooltip on a message found with this key
 	 * @param fn {function} optional -- call this function every time tip is created to generate message. If present HTML element gets an id of the exact key specified
 	 */

@@ -2,6 +2,7 @@
 
 	/**
 	 * Displays an error message.
+	 *
 	 * @param {string} errorMessage
 	 * @param {string} [title]
 	 */

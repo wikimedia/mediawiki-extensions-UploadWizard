@@ -1,6 +1,7 @@
 ( function ( mw ) {
 	/**
 	 * Represents an object which configures a form to upload its files via an firefogg talking to the MediaWiki API.
+	 *
 	 * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
 	 */
 
@@ -53,6 +54,7 @@
 		/**
 		 * If chunks are disabled transcode then upload else
 		 * upload and transcode at the same time
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		start: function () {

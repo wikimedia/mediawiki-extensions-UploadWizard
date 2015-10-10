@@ -42,6 +42,7 @@
 	/**
 	 * Fires the event to the server - can almost always be fired immediately
 	 * after construction.
+	 *
 	 * @return {jQuery.Promise|null} null if eventlogging isn't installed
 	 */
 	mw.UploadWizardEvent.prototype.dispatch = function () {

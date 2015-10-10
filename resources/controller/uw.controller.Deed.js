@@ -18,6 +18,7 @@
 ( function ( mw, uw, $, OO ) {
 	/**
 	 * Deed step controller.
+	 *
 	 * @param {mw.Api} api
 	 * @param {Object} config Only the licensing section of the UploadWizard config.
 	 */
@@ -109,6 +110,7 @@
 	/**
 	 * Check whether we should give the user the option to choose licenses for
 	 * individual files on the details step.
+	 *
 	 * @private
 	 */
 	uw.controller.Deed.prototype.shouldShowIndividualDeed = function ( config ) {

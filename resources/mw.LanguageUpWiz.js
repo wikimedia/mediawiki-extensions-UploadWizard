@@ -83,6 +83,7 @@
 
 		/**
 		 * Get an HTML select menu of all our languages.
+		 *
 		 * @param name	desired name of select element
 		 * @param code	selected language code
 		 * @return HTML	select element configured as desired

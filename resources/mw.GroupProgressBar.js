@@ -128,6 +128,7 @@
 		 * The current design doesn't have individual progress bars, just one giant one.
 		 * We did some tricky calculations in startUploads to try to weight each individual file's progress against
 		 * the overall progress.
+		 *
 		 * @param fraction the amount of whatever it is that's done whatever it's done
 		 */
 		showProgress: function ( fraction ) {
@@ -170,6 +171,7 @@
 
 		/**
 		 * Show the overall count as we upload
+		 *
 		 * @param count  -- the number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 		 */
 		showCount: function ( count ) {

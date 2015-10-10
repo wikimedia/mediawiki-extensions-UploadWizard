@@ -10,6 +10,7 @@
 
 	/**
 	 * Represents an object which configures a form to upload its files via an iframe talking to the MediaWiki API.
+	 *
 	 * @param {mw.UploadWizardUpload} upload current upload
 	 * @param {mw.Api} api
 	 */
@@ -28,7 +29,6 @@
 		/**
 		 * Configure an HTML form so that it will submit its files to our transport (an iframe)
 		 * with proper params for the API
-		 * @param callback
 		 */
 		configureForm: function () {
 			this.addFormInputIfMissing( 'action', 'upload' );
@@ -53,6 +53,7 @@
 
 		/**
 		 * Modify our form to have a fresh edit token.
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		configureEditToken: function () {
@@ -67,6 +68,7 @@
 
 		/**
 		 * Remove a file input if it's there.
+		 *
 		 * @param {string} name
 		 */
 		removeFormInputIfPresent: function ( name ) {
@@ -79,8 +81,9 @@
 
 		/**
 		 * Add a hidden input to a form  if it was not already there.
-		 * @param name  the name of the input
-		 * @param value the value of the input
+		 *
+		 * @param {string} name the name of the input
+		 * @param {string} value the value of the input
 		 */
 		addFormInputIfMissing: function ( name, value ) {
 			if ( this.$form.find( '[name="' + name + '"]' ).length === 0 ) {
@@ -90,6 +93,7 @@
 
 		/**
 		 * Kick off the upload!
+		 *
 		 * @return {jQuery.Promise}
 		 */
 		start: function () {

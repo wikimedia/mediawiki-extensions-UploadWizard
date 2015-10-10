@@ -1,6 +1,7 @@
 ( function ( mw, $, uw ) {
 	/**
 	 * Object that represents an indvidual language description, in the details portion of Upload Wizard
+	 *
 	 * @param languageCode -- string
 	 * @param required -- boolean -- the first description is required and should be validated and displayed a bit differently
 	 */
@@ -95,6 +96,7 @@
 
 		/**
 		 * Sets the language of a description
+		 *
 		 * @param {string} ietfLanguageTag the selector should be set to
 		 */
 		setLanguage: function ( ietfLanguageTag ) {
@@ -117,6 +119,7 @@
 
 		/**
 		 * defer adding rules until it's in a form
+		 *
 		 * @return validator
 		 */
 		addValidationRules: function ( required ) {

@@ -18,6 +18,7 @@
 ( function ( mw, uw, $, OO ) {
 	/**
 	 * Represents the details step in the wizard.
+	 *
 	 * @class mw.uw.controller.Details
 	 * @extends mw.uw.controller.Step
 	 * @constructor
@@ -41,6 +42,7 @@
 
 	/**
 	 * Move to this step.
+	 *
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Details.prototype.moveTo = function ( uploads ) {
@@ -101,6 +103,7 @@
 
 	/**
 	 * Check details for validity.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.valid = function () {
@@ -193,7 +196,8 @@
 
 	/**
 	 * Submit details to the API.
-	 * @returns {jQuery.Promise}
+	 *
+	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.submit = function () {
 		var details = this;

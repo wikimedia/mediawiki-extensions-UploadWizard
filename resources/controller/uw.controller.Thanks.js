@@ -18,6 +18,7 @@
 ( function ( uw, $, OO ) {
 	/**
 	 * The thanks step.
+	 *
 	 * @class
 	 * @constructor
 	 */
