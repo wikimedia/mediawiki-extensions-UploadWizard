@@ -5,7 +5,8 @@
 			"Nikola Smolenski",
 			"Rancher",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"uploadwizard": "Чаробњак за слање",
@@ -152,7 +153,7 @@
 	"mwe-upwiz-file-need-file": "Прво назначите датотеку за отпремање.",
 	"mwe-upwiz-deeds-need-license": "Изаберите лиценцу.",
 	"mwe-upwiz-license-show-all": "Користи другачију лиценцу",
-	"mwe-upwiz-license-show-recommended": "Користи подразумевану лиценцу",
+	"mwe-upwiz-license-show-recommended": "Користи препоручену лиценцу сајта",
 	"mwe-upwiz-error-signature-blank": "Морате да се потпишете у поље испод са својим корисничким или правим именом.",
 	"mwe-upwiz-error-latitude": "Географска ширина мора бити између -90 и 90.",
 	"mwe-upwiz-error-longitude": "Географска дужина мора бити између -180 и 180.",
