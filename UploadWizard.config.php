@@ -153,7 +153,13 @@ return array(
 	// Tracking categories for various scenarios
 	'trackingCategory' => array(
 		// Category added no matter what
-		'all' => 'Uploaded with UploadWizard',
+		// Default to none because we don't know what categories
+		// exist or not on local wikis.
+		// Do not uncomment this line, set
+		// $wgUploadWizardConfig['trackingCategory']['all']
+		// to your favourite category name.
+
+		// 'all' => '',
 
 		// Tracking category added for campaigns. $1 is replaced with campaign page name
 		'campaign' => 'Uploaded via Campaign:$1'
