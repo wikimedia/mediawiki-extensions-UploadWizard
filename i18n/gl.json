@@ -198,7 +198,7 @@
 	"mwe-upwiz-file-need-file": "Engada unha carga primeiro.",
 	"mwe-upwiz-deeds-need-license": "Seleccione unha licenza.",
 	"mwe-upwiz-license-show-all": "Empregar unha licenza diferente",
-	"mwe-upwiz-license-show-recommended": "Empregar a licenza recomendada",
+	"mwe-upwiz-license-show-recommended": "Empregar a licenza recomendada do sitio",
 	"mwe-upwiz-error-signature-blank": "Debe asinar co seu nome de usuario ou nome real no campo axeitado.",
 	"mwe-upwiz-error-latitude": "A altitude debe ter un valor entre -90 e 90.",
 	"mwe-upwiz-error-longitude": "A lonxitude debe ter un valor entre -180 e 180.",
