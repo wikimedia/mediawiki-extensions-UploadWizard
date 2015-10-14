@@ -12,7 +12,7 @@
 
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,
-			commonsCategoriesLink, categoriesHint, categoriesHinter,
+			categoriesHinter,
 			categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
 			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
@@ -125,9 +125,13 @@
 				'<div class="mwe-upwiz-details-input"></div>' +
 			'</div>'
 		);
-		commonsCategoriesLink = $( '<a>' ).attr( { target:'_blank', href:'https://commons.wikimedia.org/wiki/Commons:Categories' } );
-		categoriesHint = $( '<span>' ).msg( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).html();
-		categoriesHinter = function () { return categoriesHint; };
+		categoriesHinter = function () {
+			var commonsCategoriesLink = $( '<a>' ).attr( {
+				target: '_blank',
+				href: 'https://commons.wikimedia.org/wiki/Commons:Categories'
+			} );
+			return mw.message( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).parse();
+		};
 		$categoriesDiv
 			.find( '.mwe-upwiz-details-fieldname' )
 			.text( mw.message( 'mwe-upwiz-categories' ).text() )
@@ -187,7 +191,7 @@
 				target: '_blank',
 				href: '//commons.wikimedia.org/wiki/Commons:Geocoding'
 			} );
-			return $( '<span>' ).msg( 'mwe-upwiz-tooltip-location', location ).html();
+			return mw.message( 'mwe-upwiz-tooltip-location', location ).parse();
 		};
 
 		locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
