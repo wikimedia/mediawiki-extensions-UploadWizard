@@ -111,7 +111,6 @@
 	 */
 	mw.UploadWizardUpload.prototype.start = function () {
 		this.setTransportProgress(0.0);
-		//this.ui.start();
 
 		// handler -- usually ApiUploadHandler
 		this.handler = this.getUploadHandler();
