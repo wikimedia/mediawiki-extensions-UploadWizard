@@ -42,7 +42,7 @@
 						'<div class="mwe-upwiz-file-texts">' +
 							'<div class="mwe-upwiz-visible-file-filename-text"/>' +
 							'<div class="mwe-upwiz-file-status-line">' +
-								'<div class="mwe-upwiz-file-status mwe-upwiz-file-status-line-item"></div>' +
+								'<div class="mwe-upwiz-file-status"></div>' +
 							'</div>' +
 						'</div>' +
 					'</div>'
@@ -55,7 +55,7 @@
 				ui.upload.remove();
 				ui.cancelPositionTracking();
 			}
-		).addClass( 'mwe-upwiz-file-status-line-item' );
+		);
 
 		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
 			this.$imagePicker = this.createImagePickerField(
@@ -371,7 +371,7 @@
 				'mwe-upwiz-show-thumb',
 				'mwe-upwiz-show-thumb-tip',
 				function () { ui.emit( 'show-preview' ); }
-			).addClass( 'mwe-upwiz-file-status-line-item' );
+			);
 
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( '<br>' ).append( this.$showThumbCtrl );
