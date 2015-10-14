@@ -1,4 +1,5 @@
-( function ( mw, $ ) {
+/*global moment*/
+( function ( mw, $, moment ) {
 	/**
 	 * this is a progress bar for monitoring multiple objects, giving summary view
 	 */
@@ -136,26 +137,16 @@
 			this.progressBarWidget.setProgress( parseInt( fraction * 100, 10 ) );
 
 			if ( remainingTime !== null ) {
-				// TODO remove the library, make this a method on GPB
-				t = mw.seconds2Measurements( Math.floor( remainingTime / 1000 ) );
-				if (t.hours === 0) {
-					if (t.minutes === 0) {
-						if (t.seconds === 0) {
-							if ( fraction === 1.0 ) {
-								timeString = mw.message( 'mwe-upwiz-finished' ).escaped();
-							} else {
-								timeString = mw.message( 'mwe-upwiz-almost-finished' ).escaped();
-							}
-						} else {
-							timeString = mw.message( 'mwe-upwiz-secs-remaining', t.seconds ).escaped();
-						}
-					} else {
-						timeString = mw.message( 'mwe-upwiz-mins-secs-remaining', t.minutes, t.seconds, t.minutes + t.seconds ).escaped();
-					}
+				if ( remainingTime === 0 ) {
+					timeString = mw.message( 'mwe-upwiz-finished' ).escaped();
+				} else if ( remainingTime < 1000 ) {
+					timeString = mw.message( 'mwe-upwiz-almost-finished' ).escaped();
 				} else {
-					timeString = mw.message( 'mwe-upwiz-hrs-mins-secs-remaining', t.hours, t.minutes, t.seconds ).escaped();
+					t = moment.duration( remainingTime );
+					timeString = t.humanize();
 				}
-				this.$selector.find( '.mwe-upwiz-etr' ).html( timeString );
+
+				this.$selector.find( '.mwe-upwiz-etr' ).text( timeString );
 			}
 		},
 
@@ -197,4 +188,4 @@
 			return count;
 		}
 	};
-}( mediaWiki, jQuery ) );
+}( mediaWiki, jQuery, moment ) );
