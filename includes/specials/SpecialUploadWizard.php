@@ -332,7 +332,7 @@ class SpecialUploadWizard extends SpecialPage {
 	/**
 	 * Return the basic HTML structure for the entire page
 	 * Will be enhanced by the javascript to actually do stuff
-	 * @return {String} html
+	 * @return {string} html
 	 */
 	protected function getWizardHtml() {
 		global $wgExtensionAssetsPath;

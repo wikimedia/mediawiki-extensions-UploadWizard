@@ -1703,9 +1703,9 @@
 
 		/**
 		 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
-		 * @param {String} fieldId id of input field -- presumed to be within this upload's details form.
-		 * @param {String} errorMessage HTML error message to show. Make sure escaping text properly.
-		 * @param {String} errorCode
+		 * @param {string} fieldId id of input field -- presumed to be within this upload's details form.
+		 * @param {string} errorMessage HTML error message to show. Make sure escaping text properly.
+		 * @param {string} errorCode
 		 */
 		recoverFromError: function ( fieldId, errorMessage, errorCode ) {
 			uw.eventFlowLogger.logError( 'details', { code: errorCode || 'details.recoverFromError.unknown', message: errorMessage } );
@@ -1720,8 +1720,8 @@
 
 		/**
 		 * Show error state, possibly using a recoverable error form
-		 * @param {String} error code
-		 * @param {String} status line
+		 * @param {string} error code
+		 * @param {string} status line
 		 */
 		showError: function ( code, statusLine ) {
 			uw.eventFlowLogger.logError( 'details', { code: code, message: statusLine } );
@@ -1731,7 +1731,7 @@
 
 		/**
 		 * Decide how to treat various errors
-		 * @param {String} error code
+		 * @param {string} error code
 		 * @param {Mixed} result from ajax call
 		 */
 		processError: function ( code, result ) {

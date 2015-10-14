@@ -267,7 +267,7 @@
 	/**
 	 * Helper function to generate duplicate errors in a possibly collapsible list.
 	 * Works with existing duplicates and deleted dupes.
-	 * @param {String} code Error code, should have matching strings in .i18n.php
+	 * @param {string} code Error code, should have matching strings in .i18n.php
 	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
 	 * @return {jQuery}
 	 */
@@ -676,8 +676,8 @@
 	 * See API documentation for prop=stashimageinfo for what 'props' can contain
 	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
 	 * @param {Array} properties to extract
-	 * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
-	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
+	 * @param {number} optional, width of thumbnail. Will force 'url' to be added to props
+	 * @param {number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getStashImageInfo = function ( callback, props, width, height ) {
 		var params = {
@@ -725,8 +725,8 @@
 	 * See API documentation for prop=imageinfo for what 'props' can contain
 	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
 	 * @param {Array} properties to extract
-	 * @param {Number} optional, width of thumbnail. Will force 'url' to be added to props
-	 * @param {Number} optional, height of thumbnail. Will force 'url' to be added to props
+	 * @param {number} optional, width of thumbnail. Will force 'url' to be added to props
+	 * @param {number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getImageInfo = function ( callback, props, width, height ) {
 		function ok( data ) {
@@ -921,7 +921,7 @@
 	 * Fit an image into width & height constraints with scaling factor
 	 * @param {HTMLImageElement}
 	 * @param {Object} with width & height properties
-	 * @return {Number}
+	 * @return {number}
 	 */
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;

@@ -22,8 +22,8 @@
 	/**
 	 * Publish an event
 	 * Additional variadic arguments after the event name are passed as arguments to the subscriber functions
-	 * @param {String} name of event
-	 * @return {Number} number of subscribers
+	 * @param {string} name of event
+	 * @return {number} number of subscribers
 	 */
 	$.publish = function ( name /* , args... */ ) {
 		var args = [].slice.call( arguments, 1 );
@@ -40,8 +40,8 @@
 	 * Publish a ready event. Ready events occur once only, so
 	 * subscribers will be called even if they subscribe later.
 	 * Additional variadic arguments after the event name are passed as arguments to the subscriber functions
-	 * @param {String} name of event
-	 * @return {Number} number of subscribers
+	 * @param {string} name of event
+	 * @return {number} number of subscribers
 	 */
 	$.publishReady = function ( name /*, args... */ ) {
 		if ( typeof ready[name] === 'undefined' ) {
@@ -53,7 +53,7 @@
 
 	/**
 	 * Subscribe to an event.
-	 * @param {String} name of event to listen for
+	 * @param {string} name of event to listen for
 	 * @param {Function} callback to run when event occurs
 	 * @return {Array} returns handle which can be used as argument to unsubscribe()
 	 */
@@ -68,7 +68,7 @@
 	/**
 	 * Subscribe to a ready event. See publishReady().
 	 * Subscribers will be called even if they subscribe long after the event fired.
-	 * @param {String} name of event to listen for
+	 * @param {string} name of event to listen for
 	 * @param {Function} callback to run now (if event already occurred) or when event occurs
 	 * @return {Array} returns handle which can be used as argument to unsubscribe()
 	 */
