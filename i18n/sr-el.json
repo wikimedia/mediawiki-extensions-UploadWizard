@@ -141,7 +141,7 @@
 	"mwe-upwiz-tooltip-date": "Datum stvaranja ili prvo objavljivanje dela (u formatu GGGG-MM-DD).",
 	"mwe-upwiz-tooltip-categories": "Dodajte datoteku u [$1 kategorije] da biste je lakše pronašli.",
 	"mwe-upwiz-tooltip-other": "Neke druge podatke koje biste želeli da pomenete o delu – geografske koordinate, veze do drugih verzija itd.",
-	"mwe-upwiz-tooltip-location": "Koordinate mesta na kom je napravljen snimak.",
+	"mwe-upwiz-tooltip-location": "[$1 Geokodirajte vašu datoteku] da bi znali gde je datoteka napravljena, jednostavnije je nego da unosite lokaciju za svaku pojedinačnu datoteku.",
 	"mwe-upwiz-tooltip-more-info": "Saznajte više.",
 	"mwe-upwiz-file-need-file": "Prvo naznačite datoteku za otpremanje.",
 	"mwe-upwiz-deeds-need-license": "Izaberite licencu.",

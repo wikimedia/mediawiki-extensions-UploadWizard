@@ -26,7 +26,8 @@
 			"Александр Сигачёв",
 			"Дмитрий",
 			"Translatobecomer",
-			"INS Pirat"
+			"INS Pirat",
+			"Краснорядцева Елена"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -314,6 +315,7 @@
 	"mwe-upwiz-unparseable-title": "Это некорректное название. Убедитесь в том, что убрали такие символы, как квадратные скобки, двоеточия, операторы сравнения, вертикальные линии и фигурные скобки.",
 	"mwe-upwiz-subhead-bugs": "[$1 Известные проблемы]",
 	"mwe-upwiz-subhead-alt-upload": "Вернуться к старой форме",
+	"mwe-upwiz-subhead-alternatives": "Альтернативные методы загрузки",
 	"mwe-upwiz-feedback-prompt": "Оставить отзыв",
 	"mwe-upwiz-feedback-title": "Оставьте отзыв о Мастере загрузок",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Отправить отзыв]",

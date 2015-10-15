@@ -13,7 +13,8 @@
 			"TheGabrielZaum",
 			"Tuliouel",
 			"555",
-			"Rillke"
+			"Rillke",
+			"Almondega"
 		]
 	},
 	"uploadwizard": "Assistente de envios",
@@ -277,6 +278,7 @@
 	"mwe-upwiz-license-external": "Este arquivo está sujeito à seguinte licença no site \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "O arquivo está sob a seguinte licença no site de origem \"$1\": $2. Infelizmente, esta wiki não permite o uso desta licença.",
 	"mwe-upwiz-license-photoset-invalid": "Infelizmente, nenhum das imagem possui uma licença apropriada para ser usada nesse site.",
+	"mwe-upwiz-license-pd-old-70-1923": "Publicado pela primeira vez antes de 1923 e o autor faleceu há mais de 70 anos",
 	"mwe-upwiz-url-invalid": "O URL inserido não é suportado ou aponta para uma imagem ou galeria de $1 inválida ou restrita e não pode ser utilizada.",
 	"mwe-upwiz-categories": "Categorias",
 	"mwe-upwiz-thumbnail-failed": "O upload correu bem, mas o servidor não conseguiu obter uma miniatura de previsualização.",
