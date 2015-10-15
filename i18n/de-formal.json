@@ -28,8 +28,6 @@
 	"mwe-upwiz-thanks-url": "Um in HTML auf die Datei zu verlinken, kopieren Sie folgende URL in den Code:",
 	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Sie möchten eine Videodatei in einem Format hochladen, das lizenzrechtlich nicht frei verwendbar ist.\nSie können nun [$1 Firefogg], ein Add-on zu Firefox installieren, das die Datei automatisch in ein frei verwendbares Format konvertiert. Sie können auch andere [$2 Konvertierungsmöglichkeiten] nutzen, um das Video in ein frei verwendbares Format umzuwandeln.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Sie sind bereits dabei die Datei „$1“ hochzuladen.",
-	"mwe-upwiz-fileexists-replace": "Eine Datei mit dem Titel „$1“ existiert bereits. Bitte ändern Sie ihn zu einem bislang nicht vorhandenen Titel.",
-	"mwe-upwiz-fileexists": "Eine Datei dieses Namens ist bereits vorhanden. Bitte prüfen Sie $1, sofern Sie sich nicht sicher sind, ob Sie sie ersetzen möchten.",
 	"mwe-upwiz-fileexists-replace-on-page": "Eine Datei dieses Namens ist bereits vorhanden. Sofern Sie sie ersetzen möchten, gehen Sie zur Seite für [$2 $1] und erledigen dies dort.",
 	"mwe-prevent-close": "Das Verlassen dieser Seite führt dazu, dass alle Ihre Änderungen verloren gehen.",
 	"mwe-upwiz-tooltip-skiptutorial": "Sie können dieses Tutorial erneut in [$1 Ihren Benutzereinstellungen] unter „$2“ → „$3“ aktivieren.",
@@ -54,6 +52,5 @@
 	"mwe-upwiz-too-many-files-text": "Sie können nur {{PLURAL:$1|eine Datei|$1 Dateien}} auf einmal hochladen. Sie versuchten {{PLURAL:$2|eine Datei|$2 Dateien}} hochzuladen, so dass {{PLURAL:$3|eine Datei|$3 Dateien}} entfernt wurden.",
 	"mwe-upwiz-file-too-large-text": "Sie können nur Dateien mit einer Größe von bis zu $1 hochladen. Sie haben versucht, eine Datei mit $2 hochzuladen.",
 	"mwe-upwiz-license-confirm-remove": "Sind Sie sicher, dass Sie diese {{PLURAL:$1|hochgeladene Datei|hochgeladenen Dateien}} entfernen möchten?",
-	"uploadcampaign-text": "Sie modifizieren gerade eine Kampagne.",
-	"mw-coolcats-confirm-new": "Es scheint, dass Sie die neue Kategorie „$1“ anzulegen versuchen. Beachten Sie dabei bitte:<ul><li>Kategorien sollten in der Regel auf Englisch sein.</li><li>Die meisten neuen Kategorien sollten eine Unterkategorie einer bereits bestehenden Kategorie sein.</li></ul>Im Allgemeinen sollten nur Experten eine neue Kategorie anlegen."
+	"uploadcampaign-text": "Sie modifizieren gerade eine Kampagne."
 }

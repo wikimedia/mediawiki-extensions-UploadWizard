@@ -27,6 +27,5 @@
 	"mwe-upwiz-file-all-failed": "ለመላክ ከተሞከሩት ማናቸውም አልተሳኩም።",
 	"mwe-upwiz-upload-count": "ከ$2 ውስጥ $1 {{PLURAL:$2|ፋይል ተላከ።|ፋይሎች ተላኩ።}}",
 	"mwe-upwiz-progressbar-uploading": "በመላክ ላይ ነው",
-	"mwe-upwiz-finished": "ተጨረሸ!",
-	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|ሴኮንድ ይቀራል|ሴኮንዶች ይቀራሉ}}"
+	"mwe-upwiz-finished": "ተጨረሸ!"
 }

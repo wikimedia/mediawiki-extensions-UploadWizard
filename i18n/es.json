@@ -310,6 +310,7 @@
 	"mwe-upwiz-unparseable-title": "Este título no es válido. Asegúrate de quitar caracteres como corchetes, dos puntos, operadores de comparación, barras verticales y llaves.",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemas conocidos]",
 	"mwe-upwiz-subhead-alt-upload": "Volver al formulario anterior",
+	"mwe-upwiz-subhead-alternatives": "Métodos de subida alternativos",
 	"mwe-upwiz-feedback-prompt": "Dejar comentarios",
 	"mwe-upwiz-feedback-title": "Dejar comentarios sobre el Asistente de subidas",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Enviar comentarios]",

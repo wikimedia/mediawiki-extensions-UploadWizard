@@ -51,7 +51,6 @@
 	"mwe-upwiz-file-some-failed": "Чамдык чүдүрүглер күүсеттинмээн.",
 	"mwe-upwiz-skip-tutorial-future": "Бо базымны келир үеде эрттириптер",
 	"mwe-upwiz-finished": "Доозулган!",
-	"mwe-upwiz-cancel": "Ойталал",
 	"mwe-upwiz-next": "Улаштыр",
 	"mwe-upwiz-dialog-no": "Чок",
 	"mwe-upwiz-dialog-title": "Кичээңгейлиг",
@@ -64,10 +63,6 @@
 	"mwe-upwiz-license-none-head": "Четкиден тып алдым — Ынанып шыдавас мен",
 	"mwe-upwiz-license-confirm-remove-title": "Казыырын бадыткаар",
 	"mwe-upwiz-categories": "Аңгылалдар",
-	"mwe-upwiz-categories-add": "Немей аңгылал",
-	"mwe-upwiz-category-will-be-added": "Ук аңгылал ажыглатынмайн турар.",
-	"mwe-upwiz-category-remove": "Ук аңгылалды ап каавыттар",
-	"mwe-upwiz-image-preview": "Чижеглей көөр",
 	"mwe-upwiz-subhead-alt-upload": "Эрги хевиринче эглир",
 	"mwe-upwiz-feedback-prompt": "Санал арттырар",
 	"mwe-upload-campaigns-pagination-next": "Дараазында арын"

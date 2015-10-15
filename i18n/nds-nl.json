@@ -51,9 +51,6 @@
 	"mwe-upwiz-next-file-despite-failures": "Toch verdan gaon",
 	"mwe-upwiz-skip-tutorial-future": "Disse stap de volgende keer overslaon",
 	"mwe-upwiz-finished": "Klaor!",
-	"mwe-upwiz-secs-remaining": "$1 {{PLURAL:$1|sekonde|sekonden}} te gaon",
-	"mwe-upwiz-mins-secs-remaining": "$1 {{PLURAL:$1|minuut|minuten}} en $2 {{PLURAL:$2|sekonde|sekonden}} {{PLURAL:$3|te gaon}}",
-	"mwe-upwiz-hrs-mins-secs-remaining": "$1 {{PLURAL:$1|uur}}, $2 {{PLURAL:$2|minuut|minuten}} en $3 {{PLURAL:$3|sekonde|sekonden}} te gaon",
 	"mwe-upwiz-deeds-macro-prompt": "Disse webstee stelt t verplicht dat {{GENDER:$2|jie}} auteursrechteninformasie opgeven veur {{PLURAL:$1|t bovenstaonde bestaand|de bovenstaonde bestaanden}} zodat zeker esteld wördt dat {{PLURAL:$1|t hergebruukt kan|ze hergebruukt kunnen}} wörden.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Dit bestaand is|Disse bestaanden bin}} mien eigen wark.",
 	"mwe-upwiz-source-ownwork-assert-any-license": "Ik, $2, de auteursrechtenhouwer van {{PLURAL:$1|dit wark|disse warken}}, geef hierbie onherreupelik toestemming an iederene t recht um {{PLURAL:$1|dit wark|disse warken}} te gebruken, te wiezigen en te verspreien veur ieder doel en daorumme publiseer ik {{PLURAL:$1|t|ze}} onder de volgende veurweerden:",
@@ -100,9 +97,6 @@
 	"mwe-upwiz-allowed-filename-extensions": "De toe-estaone extensies bin:",
 	"mwe-upwiz-upload-error-unknown-filename-error": "De bestaandsnaam \"$1\" is um onbekende redens niet te lezen of te begriepen.",
 	"mwe-upwiz-ok": "Okee",
-	"mwe-upwiz-cancel": "Aofbreken",
-	"mwe-upwiz-fileexists-replace": "n Bestaand mit de naam \"$1\" besteet al. Pas joew bestaandsnaam an.",
-	"mwe-upwiz-fileexists": "Der besteet al n bestaand mit disse naam.\nKiek eerst $1 effen nao a'j der niet wisse van bin o'j dit bestaand overschrieven willen.",
 	"mwe-upwiz-fileexists-replace-on-page": "Der besteet al n bestaand mit disse naam. A'j t vervangen willen, gao dan naor de zied veur [$2 $1] en vervang t daor.",
 	"mwe-upwiz-fileexists-replace-no-link": "Der besteet al n bestaand mit disse naam.",
 	"mwe-upwiz-blacklisted": "Kies n aandere, beschrievende naam.",
@@ -115,8 +109,6 @@
 	"mwe-upwiz-deeds-need-license": "Kies n lisensie.",
 	"mwe-upwiz-license-show-all": "n Aandere lisensie gebruken",
 	"mwe-upwiz-license-show-recommended": "De anbeveulen lisensie gebruken",
-	"mwe-upwiz-too-many-files-ok": "Okee",
-	"mwe-upwiz-file-too-large-ok": "Okee",
 	"mwe-upwiz-dialog-yes": "Ja",
 	"mwe-upwiz-dialog-no": "Nee",
 	"mwe-upwiz-dialog-title": "Waorschuwing",
@@ -127,6 +119,5 @@
 	"mwe-upwiz-categories": "Kategorieën",
 	"mwe-upwiz-subhead-alt-upload": "Weerumme naor t ouwe formulier",
 	"mwe-upwiz-feedback-prompt": "Kommentaar geven",
-	"mwe-upwiz-errordialog-ok": "Okee",
-	"mw-coolcats-confirm-new-cancel": "Laot mer"
+	"mwe-upwiz-errordialog-ok": "Okee"
 }
