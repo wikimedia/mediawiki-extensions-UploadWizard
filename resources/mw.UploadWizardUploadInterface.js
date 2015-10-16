@@ -141,27 +141,6 @@
 	};
 
 	/**
-	 * Things to do to this interface once we start uploading
-	 */
-	mw.UploadWizardUploadInterface.prototype.start = function () {
-		// remove hovering
-		$( this.div )
-			.unbind( 'mouseenter mouseover mouseleave mouseout' );
-
-		// remove delete control
-		$( this.visibleFilenameDiv )
-			.find( '.mwe-upwiz-remove-ctrl' )
-			.unbind( 'mouseenter mouseover mouseleave mouseout' )
-			.remove();
-
-		// remove thumb control
-		$( this.visibleFilenameDiv )
-			.find( '.mwe-upwiz-show-thumb-ctrl' )
-			.unbind( 'mouseenter mouseover mouseleave mouseout' )
-			.remove();
-	};
-
-	/**
 	 * change the graphic indicator at the far end of the row for this file
 	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */
