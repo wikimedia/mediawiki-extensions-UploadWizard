@@ -300,7 +300,7 @@
 				'mwe-upwiz-remove',
 				'mwe-upwiz-remove-upload',
 				function () { details.upload.remove(); }
-			).addClass( 'mwe-upwiz-file-status-line-item' );
+			);
 
 		this.submittingDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( this.$removeCtrl );
