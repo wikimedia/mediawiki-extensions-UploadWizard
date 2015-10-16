@@ -195,7 +195,7 @@
 	"mwe-upwiz-tooltip-date": "この作品の作成日または初版の発行日(YYYY-MM-DD 形式)",
 	"mwe-upwiz-tooltip-categories": "ファイルが見つかりやすくなるように、[$1 カテゴリ]に入れてください。",
 	"mwe-upwiz-tooltip-other": "地理座標やリンク、その他のバージョンなど、この作品に含めたいその他の情報",
-	"mwe-upwiz-tooltip-location": "このメディアファイルが作成された場所の緯度経度。",
+	"mwe-upwiz-tooltip-location": "メディアが作成された場所を特定するために、[$1 このファイルを地域別分類]してください (メディアの種類ごとに場所を必ずしも入力する必要はありません)。",
 	"mwe-upwiz-tooltip-more-info": "詳細。",
 	"mwe-upwiz-file-need-file": "最初にアップロードを追加してください。",
 	"mwe-upwiz-deeds-need-license": "ライセンスを選択してください。",
