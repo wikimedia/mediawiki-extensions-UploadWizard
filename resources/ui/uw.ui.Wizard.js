@@ -88,10 +88,10 @@
 		if ( typeof configAltUploadForm === 'object' ) {
 			userLanguage = mw.config.get( 'wgUserLanguage' );
 
-			if ( configAltUploadForm[userLanguage] ) {
-				altUploadForm = configAltUploadForm[userLanguage];
-			} else if ( configAltUploadForm['default'] ) {
-				altUploadForm = configAltUploadForm['default'];
+			if ( configAltUploadForm[ userLanguage ] ) {
+				altUploadForm = configAltUploadForm[ userLanguage ];
+			} else if ( configAltUploadForm[ 'default' ] ) {
+				altUploadForm = configAltUploadForm[ 'default' ];
 			}
 		} else {
 			altUploadForm = configAltUploadForm;

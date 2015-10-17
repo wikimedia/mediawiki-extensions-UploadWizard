@@ -81,17 +81,17 @@
 				groupPoolMatches || userGalleryMatches || userFavoritesMatches ) {
 				$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 				this.imageUploads = [];
-				if ( albumIdMatches && albumIdMatches[1] > 0 ) {
+				if ( albumIdMatches && albumIdMatches[ 1 ] > 0 ) {
 					this.getPhotoset( albumIdMatches );
-				} else if ( photoIdMatches && photoIdMatches[1] > 0 ) {
+				} else if ( photoIdMatches && photoIdMatches[ 1 ] > 0 ) {
 					this.getPhoto( photoIdMatches );
 				} else if ( userCollectionMatches ) {
 					this.getCollection( userCollectionMatches );
-				} else if ( userFavoritesMatches && userFavoritesMatches[1] ) {
+				} else if ( userFavoritesMatches && userFavoritesMatches[ 1 ] ) {
 					this.getPhotostream( 'favorites', userPhotostreamMatches );
-				} else if ( userGalleryMatches && userGalleryMatches[1] ) {
+				} else if ( userGalleryMatches && userGalleryMatches[ 1 ] ) {
 					this.getGallery();
-				} else if ( userPhotostreamMatches && userPhotostreamMatches[1] ) {
+				} else if ( userPhotostreamMatches && userPhotostreamMatches[ 1 ] ) {
 					this.getPhotostream( 'stream' );
 				} else if ( groupPoolMatches ) {
 					this.getGroupPool( groupPoolMatches );
@@ -117,7 +117,7 @@
 
 			if ( title === '' ) {
 				fileName = ownername + ' - ' + id + '.jpg';
-			} else if ( mw.FlickrChecker.fileNames[title + '.jpg'] ) {
+			} else if ( mw.FlickrChecker.fileNames[ title + '.jpg' ] ) {
 				fileName = title + ' - ' + id + '.jpg';
 			} else {
 				fileName = title + '.jpg';
@@ -133,7 +133,7 @@
 		 * @param {string} fileName
 		 */
 		reserveFileName: function ( fileName ) {
-			mw.FlickrChecker.fileNames[fileName] = true;
+			mw.FlickrChecker.fileNames[ fileName ] = true;
 		},
 
 		/**
@@ -186,10 +186,10 @@
 				url: this.url
 			} ).done( function ( data ) {
 				var gid = data.group.id;
-				if ( groupPoolMatches[1] ) { // URL contains a user ID
+				if ( groupPoolMatches[ 1 ] ) { // URL contains a user ID
 					that.flickrRequest( {
 						method: 'flickr.urls.lookupUser',
-						url: 'http://www.flickr.com/photos/' + groupPoolMatches[1]
+						url: 'http://www.flickr.com/photos/' + groupPoolMatches[ 1 ]
 					} ).done( function ( data ) {
 						that.getPhotos( 'photos', {
 							method: 'flickr.groups.pools.getPhotos',
@@ -262,8 +262,8 @@
 					extras: 'license, url_sq, owner_name, original_format, date_taken, geo',
 					user_id: data.user.id
 				};
-				if ( userCollectionMatches[1] ) {
-					req.collection_id = userCollectionMatches[1];
+				if ( userCollectionMatches[ 1 ] ) {
+					req.collection_id = userCollectionMatches[ 1 ];
 				}
 				that.flickrRequest( req ).done( function ( data ) {
 					$( '#mwe-upwiz-files' ).append( that.buildCollectionLinks( true, data.collections ) );
@@ -296,7 +296,7 @@
 		getPhotoset: function ( albumIdMatches ) {
 			this.getPhotos( 'photoset', {
 				method: 'flickr.photosets.getPhotos',
-				photoset_id: albumIdMatches[1]
+				photoset_id: albumIdMatches[ 1 ]
 			} );
 		},
 
@@ -389,7 +389,7 @@
 						index: i
 					};
 					// Adding all the Photoset files which have a valid license with the required info to an array so that they can be referenced later
-					checker.imageUploads[i] = flickrUpload;
+					checker.imageUploads[ i ] = flickrUpload;
 					checker.reserveFileName( fileName );
 
 					// setting up the thumbnail previews in the Selection list
@@ -427,8 +427,8 @@
 					$( '#mwe-upwiz-upload-ctrls' ).show();
 					$( '.ui-selected' ).each( function ( index, image ) {
 						image = $( this ).attr( 'id' );
-						image = image.split( '-' )[1];
-						checker.setUploadDescription( checker.imageUploads[image] );
+						image = image.split( '-' )[ 1 ];
+						checker.setUploadDescription( checker.imageUploads[ image ] );
 						checker.setImageURL( image );
 					} );
 				} );
@@ -447,7 +447,7 @@
 		getPhoto: function ( photoIdMatches ) {
 			var fileName, photoAuthor, sourceURL,
 				checker = this,
-				photoId = photoIdMatches[1];
+				photoId = photoIdMatches[ 1 ];
 
 			this.flickrRequest( {
 				method: 'flickr.photos.getInfo',
@@ -553,7 +553,7 @@
 					var blacklist = {};
 					if ( data.flickrblacklist && data.flickrblacklist.list ) {
 						$.each( data.flickrblacklist.list, function ( i, username ) {
-							blacklist[username] = true;
+							blacklist[ username ] = true;
 						} );
 					}
 					return blacklist;
@@ -573,7 +573,7 @@
 			} ).done( function ( data ) {
 				if ( typeof data.licenses !== 'undefined' ) {
 					$.each( data.licenses.license, function ( index, value ) {
-						mw.FlickrChecker.prototype.licenseList[value.id] = value.name;
+						mw.FlickrChecker.prototype.licenseList[ value.id ] = value.name;
 					} );
 				}
 				$( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
@@ -610,7 +610,7 @@
 		setImageURL: function ( index ) {
 			var largestSize,
 				checker = this,
-				upload = this.imageUploads[index],
+				upload = this.imageUploads[ index ],
 				photoId = upload.photoId;
 
 			this.flickrRequest( {
@@ -649,9 +649,9 @@
 		checkLicense: function ( licenseId ) {
 			var licenseMessage, license,
 				// The returned data.photo.license is just an ID that we use to look up the license name
-				licenseName = mw.FlickrChecker.prototype.licenseList[licenseId],
+				licenseName = mw.FlickrChecker.prototype.licenseList[ licenseId ],
 				// Use the license name to retrieve the template values
-				licenseValue = mw.FlickrChecker.prototype.licenseMaps[licenseName];
+				licenseValue = mw.FlickrChecker.prototype.licenseMaps[ licenseName ];
 
 			// Set the license message to show the user.
 			if ( licenseValue === 'invalid' ) {

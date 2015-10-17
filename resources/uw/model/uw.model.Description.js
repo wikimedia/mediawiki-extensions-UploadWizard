@@ -75,8 +75,8 @@
 			fix = this.languageTemplateFixups;
 		}
 
-		if ( fix && fix[language] ) {
-			language = fix[language];
+		if ( fix && fix[ language ] ) {
+			language = fix[ language ];
 		}
 
 		this.language = language;

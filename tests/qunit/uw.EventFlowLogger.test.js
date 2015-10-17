@@ -29,10 +29,10 @@
 		logger.logSkippedStep( 'bar' );
 		logger.logEvent( 'baz' );
 		assert.ok( eventLog.logEvent.calledThrice, 'all steps were logged' );
-		assert.strictEqual( eventLog.logEvent.firstCall.args[1].flowPosition, 1, 'first event has position 1' );
-		assert.strictEqual( eventLog.logEvent.thirdCall.args[1].flowPosition, 3, 'third event has position 3' );
-		assert.ok( eventLog.logEvent.firstCall.args[1].flowId, 'events have a flowId' );
-		assert.strictEqual( eventLog.logEvent.firstCall.args[1].flowId,
-			eventLog.logEvent.thirdCall.args[1].flowId, 'flowId is constant' );
+		assert.strictEqual( eventLog.logEvent.firstCall.args[ 1 ].flowPosition, 1, 'first event has position 1' );
+		assert.strictEqual( eventLog.logEvent.thirdCall.args[ 1 ].flowPosition, 3, 'third event has position 3' );
+		assert.ok( eventLog.logEvent.firstCall.args[ 1 ].flowId, 'events have a flowId' );
+		assert.strictEqual( eventLog.logEvent.firstCall.args[ 1 ].flowId,
+			eventLog.logEvent.thirdCall.args[ 1 ].flowId, 'flowId is constant' );
 	} );
 } ( mediaWiki, mediaWiki.uploadWizard ) );

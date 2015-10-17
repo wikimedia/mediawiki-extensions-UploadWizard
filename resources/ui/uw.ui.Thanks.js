@@ -100,7 +100,7 @@
 		var thumbWikiText = '[[' + [
 				upload.title.toText(),
 				'thumb',
-				upload.details.descriptions[0].getDescriptionText()
+				upload.details.descriptions[ 0 ].getDescriptionText()
 			].join( '|' ) + ']]',
 
 			$thanksDiv = $( '<div>' )
@@ -180,11 +180,11 @@
 	 * @return {Object|undefined}
 	 */
 	uw.ui.Thanks.prototype.getButtonConfig = function ( buttonName, configField ) {
-		if ( !this.config || !this.config.display || !this.config.display[buttonName] ) {
+		if ( !this.config || !this.config.display || !this.config.display[ buttonName ] ) {
 			return;
 		}
 
-		return this.config.display[buttonName][configField];
+		return this.config.display[ buttonName ][ configField ];
 	};
 
 	/**
@@ -197,8 +197,8 @@
 	uw.ui.Thanks.prototype.dropParameterFromURL = function ( url, paramName ) {
 		var newUrl = new mw.Uri( url );
 		if ( newUrl.query ) {
-			delete newUrl.query[paramName];
-			delete newUrl.query[paramName + '[]'];
+			delete newUrl.query[ paramName ];
+			delete newUrl.query[ paramName + '[]' ];
 		}
 		return newUrl.toString();
 	};

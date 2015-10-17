@@ -297,7 +297,7 @@
 			transport = this,
 			retryDeferred = $.Deferred(),
 			retry = function () {
-				transport[methodName]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
+				transport[ methodName ]( file, offset ).then( retryDeferred.resolve, retryDeferred.reject );
 			};
 
 		if ( this.config.useRetryTimeout !== false ) {
@@ -325,7 +325,7 @@
 			this.firstPoll = ( new Date() ).getTime();
 		}
 		$.each(this.formData, function (key, value) {
-			params[key] = value;
+			params[ key ] = value;
 		});
 		params.checkstatus =  true;
 		params.filekey =  this.filekey;

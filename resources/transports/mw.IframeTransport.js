@@ -68,7 +68,7 @@
 	 */
 	mw.IframeTransport.prototype.processIframeResult = function ( iframe ) {
 		var response, json,
-			doc = iframe.contentDocument || frames[iframe.id].document;
+			doc = iframe.contentDocument || frames[ iframe.id ].document;
 
 		// Fix for Opera 9.26
 		if ( doc.readyState && doc.readyState !== 'complete' ) {

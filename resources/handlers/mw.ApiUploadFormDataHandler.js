@@ -22,7 +22,7 @@
 		} );
 
 		this.transport = new mw.FormDataTransport(
-			this.$form[0].action,
+			this.$form[ 0 ].action,
 			this.formData
 		).on( 'update-stage', function ( stage ) {
 			upload.ui.setStatus( 'mwe-upwiz-' + stage );

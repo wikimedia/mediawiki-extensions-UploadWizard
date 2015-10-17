@@ -23,7 +23,7 @@
 		// Helper function to see if a language is in the list.
 		checkForLang: function ( lang ) {
 			for ( var langIndex in mw.LanguageUpWiz.languages ) {
-				if ( mw.LanguageUpWiz.languages[langIndex].code === lang ) {
+				if ( mw.LanguageUpWiz.languages[ langIndex ].code === lang ) {
 					return true;
 				}
 			}
@@ -45,7 +45,7 @@
 			mw.LanguageUpWiz.languages = [];
 			langs = mw.UploadWizard.config.uwLanguages;
 			for ( langcode in langs ) {
-				mw.LanguageUpWiz.languages.push( { code: langcode, text: langs[langcode] } );
+				mw.LanguageUpWiz.languages.push( { code: langcode, text: langs[ langcode ] } );
 			}
 
 			// If a descriptionlang param is passed in the query string, use that,
@@ -60,7 +60,7 @@
 			} else if ( mw.LanguageUpWiz.checkForLang( 'en' ) ) {
 				mw.LanguageUpWiz.defaultCode = 'en';
 			} else {
-				mw.LanguageUpWiz.defaultCode = mw.LanguageUpWiz.languages[0].code;
+				mw.LanguageUpWiz.defaultCode = mw.LanguageUpWiz.languages[ 0 ].code;
 			}
 
 			mw.LanguageUpWiz.codes = {};
@@ -74,7 +74,7 @@
 				$select.append( $opt );
 
 				// add each language into dictionary
-				mw.LanguageUpWiz.codes[language.code] = language.text;
+				mw.LanguageUpWiz.codes[ language.code ] = language.text;
 			} );
 
 			mw.LanguageUpWiz.$select = $select;
@@ -138,7 +138,7 @@
 			}
 			if ( code === 'nan' || code === 'minnan' ) {
 				return 'zh-min-nan';
-			} else if ( mw.LanguageUpWiz.codes[code] !== undefined ) {
+			} else if ( mw.LanguageUpWiz.codes[ code ] !== undefined ) {
 				return code;
 			}
 			return mw.LanguageUpWiz.getClosest( code.substring( 0, code.indexOf( '-' )) );
