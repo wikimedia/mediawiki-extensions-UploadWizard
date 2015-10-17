@@ -759,9 +759,9 @@
 
 		var requestedTitle = this.title.getPrefixedText(),
 			params = {
-				prop:'imageinfo',
-				titles:requestedTitle,
-				iiprop:props.join( '|' )
+				prop: 'imageinfo',
+				titles: requestedTitle,
+				iiprop: props.join( '|' )
 			};
 
 		if ( width !== undefined || height !== undefined ) {

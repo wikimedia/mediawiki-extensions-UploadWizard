@@ -161,7 +161,7 @@
 	 */
 	mw.FirefoggTransport.prototype.getEncodeSettings = function () {
 		if ( this.isUploadFormat() ) {
-			return { passthrough:true };
+			return { passthrough: true };
 		}
 		// Get the default encode settings:
 		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
