@@ -5,7 +5,8 @@
 			"DzWiki",
 			"Palapa",
 			"KWiki",
-			"Semso98"
+			"Semso98",
+			"Srdjan m"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -36,6 +37,7 @@
 	"mwe-upwiz-published": "Objavljeno!",
 	"mwe-upwiz-failed": "Neuspjelo.",
 	"mwe-upwiz-remove": "Ukloni",
+	"mwe-upwiz-override": "Svejedno postavi.",
 	"mwe-upwiz-remove-upload": "Uklonite ovu datoteku iz spiska datoteka za postavljanje",
 	"mwe-upwiz-remove-description": "Ukloni ovaj opis",
 	"mwe-upwiz-upload": "Slanje datoteke",
@@ -52,6 +54,7 @@
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Ova datoteka je|Ove datoteke su}} moje vlastito djelo.",
 	"mwe-upwiz-source-ownwork-assert-any-license": "Ja, $2, vlasnik autorskog prava {{PLURAL:$1|ovog|ovih}} djela, ovdje neopozivo dajem pravo bilo kome da može koristiti, mijenjati i dalje dijeliti  {{PLURAL:$1|ovo djelo|ova djela}} u bilo koju svrhu te {{PLURAL:$1|ga|ih}} ja objavljujem pod ovim uslovima:",
 	"mwe-upwiz-source-ownwork-assert": "Ja, $2, vlasnik autorskog prava {{PLURAL:$1|ovog|ovih}} djela, ovim neopozivo dajem pravo svima da koristi {{PLURAL:$1|ovo djelo|ova djela}} u bilo koje svrhe, sve dok se navodi moje ime kao autora a sva izvedena djela se moraju objaviti pod istim uslovima.",
+	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(Svako može koristiti, dijeliti ili mijenjati {{PLURAL:$1|ovo djelo|ova djela}}, sve dok me navode kao autora i dijele izvedena djela pod ovom licencom.)",
 	"mwe-upwiz-source-ownwork-assert-custom": "Ja, $2, vlasnik autorskog prava {{PLURAL:$1|ovog rada|ovih radova}}, ovim objavljujem {{PLURAL:$1|ovaj rad|ove radove}} pod slijedećom/im licencom(ama):",
 	"mwe-upwiz-source-ownwork-assert-note": "Ovo znači da ste vi objavili vaš rad pod Creative Commons \"Navođenje autorstva pod istim uslovima\" licencom.",
 	"mwe-upwiz-source-permission": "Njegov autor je dao izričitu dozvolu da ih postavite",

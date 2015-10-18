@@ -300,6 +300,7 @@
 	"mwe-upwiz-unparseable-title": "Este título é inválido. Certifique-se que removeu caracteres como parênteses retos, dois-pontos, operadores de comparação, barras verticais e chavetas.",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemas conhecidos]",
 	"mwe-upwiz-subhead-alt-upload": "Voltar ao formulário antigo",
+	"mwe-upwiz-subhead-alternatives": "Métodos de carregamento alternativos",
 	"mwe-upwiz-feedback-prompt": "Deixar um comentário",
 	"mwe-upwiz-feedback-title": "Deixe um comentário sobre o Assistente de Envio de Ficheiros",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Enviar Comentário]",
