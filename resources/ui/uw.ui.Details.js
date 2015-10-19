@@ -159,7 +159,7 @@
 		if ( errorCount > 0 ) {
 			this.$errorCount.msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
 			// Scroll to the first error
-			$( 'html, body' ).animate( { scrollTop: $( $errorElements[0] ).offset().top - 50 }, 'slow' );
+			$( 'html, body' ).animate( { scrollTop: $( $errorElements[ 0 ] ).offset().top - 50 }, 'slow' );
 		} else {
 			this.$errorCount.empty();
 		}

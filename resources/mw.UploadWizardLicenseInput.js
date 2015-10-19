@@ -90,10 +90,10 @@
 
 		this.defaults = [];
 
-		if ( config.defaults && config.defaults[0] ) {
+		if ( config.defaults && config.defaults[ 0 ] ) {
 			this.defaults = config.defaults;
-		} else if ( config.licenses && config.licenses[0] ) {
-			this.defaults = [ config.licenses[0] ];
+		} else if ( config.licenses && config.licenses[ 0 ] ) {
+			this.defaults = [ config.licenses[0 ] ];
 		}
 
 		mw.UploadWizardLicenseInput.prototype.count++;
@@ -181,9 +181,9 @@
 			}
 
 			$.each( config.licenses, function ( i, licenseName ) {
-				if ( mw.UploadWizard.config.licenses[licenseName] !== undefined ) {
+				if ( mw.UploadWizard.config.licenses[ licenseName ] !== undefined ) {
 					var $customDiv,
-						license = { name: licenseName, props: mw.UploadWizard.config.licenses[licenseName] },
+						license = { name: licenseName, props: mw.UploadWizard.config.licenses[ licenseName ] },
 						templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice(0),
 						$input = input.createInputElement( templates, config ),
 						$label = input.createInputElementLabel( license, $input );
@@ -357,7 +357,7 @@
 			var input = this;
 			$.each( this.inputs, function ( i, $input ) {
 				var licenseName = $input.data( 'licenseName' );
-				input.setInput( $input, values[licenseName] );
+				input.setInput( $input, values[ licenseName ] );
 			} );
 		},
 
@@ -414,7 +414,7 @@
 		setDefaultValues: function () {
 			var values = {};
 			$.each( this.defaults, function ( i, lic ) {
-				values[lic] = true;
+				values[ lic ] = true;
 			} );
 			this.setValues( values );
 		},
@@ -506,8 +506,8 @@
 			} else {
 				// show the errors
 				$.each( errors, function ( i, err ) {
-					var $el = err[0],
-						msg = err[1];
+					var $el = err[ 0 ],
+						msg = err[ 1 ];
 					$el.msg( msg ).show();
 				} );
 

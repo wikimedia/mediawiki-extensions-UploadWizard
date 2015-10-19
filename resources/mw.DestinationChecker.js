@@ -29,13 +29,13 @@
 		this.api = options.api;
 
 		$.each( [ 'preprocess', 'delay', 'events' ], function ( i, option ) {
-			if ( options[option] ) {
-				checker[option] = options[option];
+			if ( options[ option ] ) {
+				checker[ option ] = options[ option ];
 			}
 		} );
 
 		$.each( this.events, function ( i, eventName ) {
-			$( checker.selector )[eventName]( check );
+			$( checker.selector )[ eventName ]( check );
 		} );
 
 	};
@@ -156,7 +156,7 @@
 					};
 				}
 
-				checker.cachedBlacklist[title] = result;
+				checker.cachedBlacklist[ title ] = result;
 				callback( { blacklist:result } );
 			}
 
@@ -164,8 +164,8 @@
 				return;
 			}
 
-			if ( this.cachedBlacklist[title] !== undefined ) {
-				callback( { blacklist:this.cachedBlacklist[title] } );
+			if ( this.cachedBlacklist[ title ] !== undefined ) {
+				callback( { blacklist:this.cachedBlacklist[ title ] } );
 				return;
 			}
 
@@ -212,8 +212,8 @@
 				// If no file found: a page with a key of -1 and no imageinfo
 				// If file found on another repository, such as when the wiki is using InstantCommons: page with a key of -1, plus imageinfo
 				// If file found on this repository: page with some positive numeric key
-				if ( data.query.pages[-1] && !data.query.pages[-1].imageinfo ) {
-					protection = data.query.pages[-1].protection;
+				if ( data.query.pages[ -1 ] && !data.query.pages[ -1 ].imageinfo ) {
+					protection = data.query.pages[ -1 ].protection;
 					if ( protection && protection.length > 0 ) {
 						$.each( protection, function ( i, val ) {
 							if ( $.inArray( val.level, mw.config.get( 'wgUserGroups' ) ) === -1 ) {
@@ -231,7 +231,7 @@
 					for ( pageId in data.query.pages ) {
 						// Conflict found, this filename is NOT unique
 						if ( data.query.normalized ) {
-							ntitle = data.query.normalized[0].to;
+							ntitle = data.query.normalized[ 0 ].to;
 						} else {
 							ntitle = data.query.pages[ pageId ].title;
 						}
@@ -249,7 +249,7 @@
 							continue;
 						}
 
-						img = data.query.pages[ pageId ].imageinfo[0];
+						img = data.query.pages[ pageId ].imageinfo[ 0 ];
 
 						result = {
 							isUnique: false,
@@ -262,7 +262,7 @@
 					}
 				}
 
-				checker.cachedResult[title] = result;
+				checker.cachedResult[ title ] = result;
 				callback( { unique:result } );
 			}
 
@@ -286,8 +286,8 @@
 				return;
 			}
 
-			if ( this.cachedResult[title] !== undefined ) {
-				callback( { unique:this.cachedResult[title] } );
+			if ( this.cachedResult[ title ] !== undefined ) {
+				callback( { unique:this.cachedResult[ title ] } );
 				return;
 			}
 

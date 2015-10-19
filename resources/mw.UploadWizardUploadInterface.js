@@ -300,7 +300,7 @@
 		var files = [];
 		if ( mw.fileApi.isAvailable() ) {
 			if ( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
-				files[0] = this.providedFile;
+				files[ 0 ] = this.providedFile;
 			} else {
 				$.each( this.$fileInputCtrl.get(0).files, function ( i, file ) {
 					files.push( file );
@@ -327,8 +327,8 @@
 			var input = this.$fileInputCtrl.get(0);
 			// On IE 11, input.value is incorrect for <input type=file multiple>, like we're using here;
 			// the input.files interface is reliable. (T88223#1595320)
-			if ( input.files && input.files[0] && input.files[0].name ) {
-				return input.files[0].name;
+			if ( input.files && input.files[ 0 ] && input.files[ 0 ].name ) {
+				return input.files[ 0 ].name;
 			}
 			return input.value;
 		}

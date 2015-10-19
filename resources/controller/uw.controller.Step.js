@@ -182,7 +182,7 @@
 			// cases this will be the next upload.
 			while ( uploadsQueued.length > 0 ) {
 				ix = uploadsQueued.shift();
-				upload = step.uploads[ix];
+				upload = step.uploads[ ix ];
 
 				if ( step.canTransition( upload ) ) {
 					return step.transitionOne( upload ).then( startNextUpload );

@@ -111,7 +111,7 @@
 		transport.upload( fakeFile );
 
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
-		request = this.sandbox.server.requests[0];
+		request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
 		assert.strictEqual( request.url, '/w/api.php' );
 		assert.ok( request.async );
@@ -138,7 +138,7 @@
 		transport.uploadChunk( fakeFile, 0 );
 
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
-		request = this.sandbox.server.requests[0];
+		request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
 		assert.strictEqual( request.url, '/w/api.php' );
 		assert.ok( request.async );

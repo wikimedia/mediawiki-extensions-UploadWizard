@@ -165,7 +165,7 @@
 	 * Resume the upload, assume that whatever error(s) we got were benign.
 	 */
 	mw.UploadWizardUpload.prototype.removeErrors = function ( code ) {
-		this.ignoreWarning[code] = true;
+		this.ignoreWarning[ code ] = true;
 		this.start();
 	};
 
@@ -193,7 +193,7 @@
 				if ( this.api.badToken ) {
 					this.api.badToken( 'edit' );
 					// Try again once
-					if ( !this.ignoreWarning[code] ) {
+					if ( !this.ignoreWarning[ code ] ) {
 						this.removeErrors( code );
 						return;
 					}
@@ -219,7 +219,7 @@
 		result.upload.warnings = result.upload.warnings || {};
 
 		for ( warnCode in result.upload.warnings ) {
-			if ( !this.ignoreWarning[warnCode] && this.state !== 'error' ) {
+			if ( !this.ignoreWarning[ warnCode ] && this.state !== 'error' ) {
 				switch ( warnCode ) {
 					case 'page-exists':
 					case 'exists':
@@ -231,16 +231,16 @@
 					case 'duplicate':
 					case 'duplicate-archive':
 						code = warnCode;
-						this.setDuplicateError( warnCode, result.upload.warnings[warnCode] );
+						this.setDuplicateError( warnCode, result.upload.warnings[ warnCode ] );
 						break;
 					default:
 						// we have an unknown warning, so let's say what we know
 						code = 'unknown-warning';
-						if ( typeof result.upload.warnings[warnCode] === 'string' ) {
+						if ( typeof result.upload.warnings[ warnCode ] === 'string' ) {
 							// tack the original error code onto the warning info
-							info = warnCode + mw.message( 'colon-separator' ).escaped() + result.upload.warnings[warnCode];
+							info = warnCode + mw.message( 'colon-separator' ).escaped() + result.upload.warnings[ warnCode ];
 						} else {
-							info = result.upload.warnings[warnCode];
+							info = result.upload.warnings[ warnCode ];
 						}
 						this.setError( code, info );
 						break;
@@ -460,7 +460,7 @@
 					// So, when multiple files are provided (via select multiple), add the first file to this UploadWizardUpload
 					// and create new UploadWizardUpload objects and corresponding interfaces for the rest.
 
-					this.file = files[0];
+					this.file = files[ 0 ];
 
 					// If chunked uploading is enabled, we can transfer any file that MediaWiki
 					// will accept. Otherwise we're bound by PHP's limits.
@@ -508,7 +508,7 @@
 								arr = new Uint8Array( binReader.result );
 								binStr = '';
 								for ( i = 0; i < arr.byteLength; i++ ) {
-									binStr += String.fromCharCode( arr[i] );
+									binStr += String.fromCharCode( arr[ i ] );
 								}
 							}
 							try {
@@ -612,10 +612,10 @@
 					pixelWidthDim = 'height';
 				}
 				if ( meta.general.pixelHeight ) {
-					this.imageinfo[pixelHeightDim] = meta.general.pixelHeight.value;
+					this.imageinfo[ pixelHeightDim ] = meta.general.pixelHeight.value;
 				}
 				if ( meta.general.pixelWidth ) {
-					this.imageinfo[pixelWidthDim] = meta.general.pixelWidth.value;
+					this.imageinfo[ pixelWidthDim ] = meta.general.pixelWidth.value;
 				}
 			}
 		}
@@ -651,7 +651,7 @@
 
 		function setMetadata( i, pair ) {
 			if ( pair !== undefined ) {
-				upload.imageinfo.metadata[pair.name.toLowerCase()] = pair.value;
+				upload.imageinfo.metadata[ pair.name.toLowerCase() ] = pair.value;
 			}
 		}
 
@@ -665,7 +665,7 @@
 					$.each( imageinfo.metadata, setMetadata );
 				}
 			} else {
-				this.imageinfo[key] = imageinfo[key];
+				this.imageinfo[ key ] = imageinfo[ key ];
 			}
 		}
 	};
@@ -798,7 +798,7 @@
 			if ( this.fromURL ) {
 				constructor = 'ApiUploadPostHandler';
 			}
-			this.uploadHandler = new mw[constructor]( this, this.api );
+			this.uploadHandler = new mw[ constructor ]( this, this.api );
 		}
 		return this.uploadHandler;
 	};
@@ -815,8 +815,8 @@
 		var deferred,
 			key = width + '|' + height;
 
-		if ( this.thumbnailPublishers[key] ) {
-			return this.thumbnailPublishers[key];
+		if ( this.thumbnailPublishers[ key ] ) {
+			return this.thumbnailPublishers[ key ];
 		}
 
 		deferred = $.Deferred();
@@ -881,8 +881,8 @@
 			this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
 		}
 
-		this.thumbnailPublishers[key] = deferred.promise();
-		return this.thumbnailPublishers[key];
+		this.thumbnailPublishers[ key ] = deferred.promise();
+		return this.thumbnailPublishers[ key ];
 	};
 
 	/**
@@ -925,8 +925,8 @@
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;
 		$.each( [ 'width', 'height' ], function ( i, dim ) {
-			if ( constraints[dim] && image[dim] > constraints[dim] ) {
-				var s = constraints[dim] / image[dim];
+			if ( constraints[ dim ] && image[ dim ] > constraints[ dim ] ) {
+				var s = constraints[ dim ] / image[ dim ];
 				if ( s < scaling ) {
 					scaling = s;
 				}
@@ -1000,7 +1000,7 @@
 		}
 
 		$canvas = $( '<canvas></canvas>' ).attr( constraints );
-		ctx = $canvas[0].getContext( '2d' );
+		ctx = $canvas[ 0 ].getContext( '2d' );
 		ctx.clearRect( 0, 0, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
 		ctx.drawImage( image, x, y, width, height );

@@ -72,7 +72,7 @@
 
 			// Show toggler to copy selected metadata if there's more than one successful upload
 			if ( successes > 1 ) {
-				uploads[0].details.buildAndShowCopyMetadata();
+				uploads[ 0 ].details.buildAndShowCopyMetadata();
 			}
 		} );
 
@@ -121,13 +121,13 @@
 				title = upload.title.getName() + '.' + mw.Title.normalizeExtension( upload.title.getExtension() );
 
 				// Seen this title before?
-				if ( titles[title] ) {
+				if ( titles[ title ] ) {
 
 					// Don't submit. Instead, set an error in details step.
 					upload.details.setDuplicateTitleError();
 					return;
 				} else {
-					titles[title] = true;
+					titles[ title ] = true;
 				}
 				valid += 1;
 

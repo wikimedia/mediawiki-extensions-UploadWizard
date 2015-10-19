@@ -28,7 +28,7 @@
 		var tostub, promise,
 			donestub = this.sandbox.stub(),
 			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],
-			ps = [ ds[0].promise(), ds[1].promise(), ds[2].promise() ],
+			ps = [ ds[0 ].promise(), ds[ 1 ].promise(), ds[ 2 ].promise() ],
 			calls = [],
 			step = new uw.controller.Step( { on: $.noop }, {
 				maxSimultaneousConnections: 3
@@ -42,23 +42,23 @@
 		];
 
 		tostub = this.sandbox.stub( step, 'transitionOne' );
-		tostub.onFirstCall().returns( ps[0] );
-		tostub.onSecondCall().returns( ps[1] );
-		tostub.onThirdCall().returns( ps[2] );
+		tostub.onFirstCall().returns( ps[ 0 ] );
+		tostub.onSecondCall().returns( ps[ 1 ] );
+		tostub.onThirdCall().returns( ps[ 2 ] );
 
 		this.sandbox.stub( step, 'canTransition' ).returns( true );
 
 		promise = step.transitionAll().done( donestub );
 		calls = [ tostub.getCall( 0 ), tostub.getCall( 1 ), tostub.getCall( 2 ) ];
 
-		assert.strictEqual( calls[0].args[0].id, 15 );
-		assert.strictEqual( calls[1].args[0].id, 21 );
+		assert.strictEqual( calls[ 0 ].args[ 0 ].id, 15 );
+		assert.strictEqual( calls[ 1 ].args[ 0 ].id, 21 );
 
-		ds[0].resolve();
-		ds[1].resolve();
+		ds[ 0 ].resolve();
+		ds[ 1 ].resolve();
 		assert.strictEqual( donestub.called, false );
 
-		ds[2].resolve();
+		ds[ 2 ].resolve();
 		assert.ok( donestub.called );
 	} );
 }( mediaWiki.uploadWizard, jQuery ) );

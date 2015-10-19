@@ -374,7 +374,7 @@
 			!(
 				mw.UploadWizard.config.fields &&
 				mw.UploadWizard.config.fields.length &&
-				mw.UploadWizard.config.fields[0].wikitext
+				mw.UploadWizard.config.fields[ 0 ].wikitext
 			),
 			mw.LanguageUpWiz.UNKNOWN,
 			false,
@@ -625,7 +625,7 @@
 				i, sourceMode,
 				details = this,
 				uploads = this.upload.wizard.uploads,
-				sourceId = uploads[0].index;
+				sourceId = uploads[ 0 ].index;
 
 			// In the simplest case, we can use this self-explanatory vanilla loop.
 			function simpleCopy( id, tag ) {
@@ -647,13 +647,13 @@
 
 			function oouiCopy( property, methods ) {
 				var i,
-					sourceUpload = uploads[0],
+					sourceUpload = uploads[ 0 ],
 					getMethod = methods && methods.get || 'getValue',
 					setMethod = methods && methods.set || 'setValue',
-					sourceValue = sourceUpload.details[property][getMethod]();
+					sourceValue = sourceUpload.details[ property ][ getMethod ]();
 
 				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[i].details[property][setMethod]( sourceValue );
+					uploads[ i ].details[ property ][ setMethod ]( sourceValue );
 				}
 			}
 
@@ -705,10 +705,10 @@
 
 			} else if ( metadataType === 'date' ) {
 
-				sourceMode = uploads[0].details.dateInputWidgetMode;
+				sourceMode = uploads[ 0 ].details.dateInputWidgetMode;
 
 				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[i].details.setupDateInput( sourceMode );
+					uploads[ i ].details.setupDateInput( sourceMode );
 				}
 
 				oouiCopy( 'dateInputWidget' );
@@ -786,7 +786,7 @@
 					selected: defaultStatus
 				} );
 
-				copyTypes[metadataName] = checkbox;
+				copyTypes[ metadataName ] = checkbox;
 
 				field = new OO.ui.FieldLayout( checkbox, {
 					label: copyMetadataMsg,
@@ -805,7 +805,7 @@
 				flags: [ 'constructive' ]
 			} ).on( 'click', function () {
 				$.each( details.copyMetadataTypes, function ( metadataType ) {
-					if ( copyTypes[metadataType].isSelected() ) {
+					if ( copyTypes[ metadataType ].isSelected() ) {
 						details.copyMetadata( metadataType );
 					}
 				} );
@@ -1119,7 +1119,7 @@
 		error: function () {
 			// copies arguments into a real array
 			var args = Array.prototype.slice.call( arguments ),
-				msg = 'mwe-upwiz-upload-error-' + args[0];
+				msg = 'mwe-upwiz-upload-error-' + args[ 0 ];
 
 			$( this.errorDiv ).append( $( '<p class="mwe-upwiz-upload-error"></p>' ).text( mw.message( msg, args.slice( 1 ) ).text() ) );
 			// apply a error style to entire did
@@ -1175,22 +1175,22 @@
 				metadata = this.upload.imageinfo.metadata;
 				$.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function ( i, propName ) {
 					var matches, timeMatches,
-						dateInfo = metadata[propName];
+						dateInfo = metadata[ propName ];
 					if ( !mw.isEmpty( dateInfo ) ) {
 						matches = $.trim( dateInfo ).match( yyyyMmDdRegex );
 						if ( !mw.isEmpty( matches ) ) {
 							timeMatches = $.trim( dateInfo ).match( timeRegex );
 							if ( !mw.isEmpty( timeMatches ) ) {
-								dateObj = new Date( parseInt( matches[1], 10 ),
-											parseInt( matches[2], 10 ) - 1,
-											parseInt( matches[3], 10 ),
-											parseInt( timeMatches[1], 10 ),
-											parseInt( timeMatches[2], 10 ),
-											parseInt( timeMatches[3], 10 ) );
+								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
+											parseInt( matches[ 2 ], 10 ) - 1,
+											parseInt( matches[ 3 ], 10 ),
+											parseInt( timeMatches[ 1 ], 10 ),
+											parseInt( timeMatches[ 2 ], 10 ),
+											parseInt( timeMatches[ 3 ], 10 ) );
 							} else {
-								dateObj = new Date( parseInt( matches[1], 10 ),
-											parseInt( matches[2], 10 ) - 1,
-											parseInt( matches[3], 10 ) );
+								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
+											parseInt( matches[ 2 ], 10 ) - 1,
+											parseInt( matches[ 3 ], 10 ) );
 							}
 							return false; // break from $.each
 						}
@@ -1252,14 +1252,14 @@
 		 */
 		prefillDescription: function () {
 			if (
-				this.descriptions[0].getDescriptionText() === '' &&
+				this.descriptions[ 0 ].getDescriptionText() === '' &&
 				this.upload.file !== undefined
 			) {
 				var m = this.upload.imageinfo.metadata,
-					desc = this.descriptions[0],
+					desc = this.descriptions[ 0 ],
 					descText = this.upload.file.description ||
 						( m && m.imagedescription &&
-						m.imagedescription[0] && m.imagedescription[0].value );
+						m.imagedescription[ 0 ] && m.imagedescription[ 0 ].value );
 
 				if ( descText ) {
 					desc.setText( descText );
@@ -1290,7 +1290,7 @@
 						// Apparently it can take the form "x/y" instead of
 						// a decimal value. Mighty silly, but let's save it.
 						dir = dir.split( '/' );
-						dir = parseInt( dir[0], 10 ) / parseInt( dir[1], 10 );
+						dir = parseInt( dir[ 0 ], 10 ) / parseInt( dir[ 1 ], 10 );
 					}
 
 					this.$headingInput.val( dir );
@@ -1355,7 +1355,7 @@
 		makeLocationField: function ( name, $container ) {
 			var fieldId = 'location-' + name + this.upload.index,
 				fieldClass = 'loc-' + name,
-				$input = this.makeTextInput( fieldId, fieldClass, 10, undefined, mw.UploadWizard.config.defaults[name] );
+				$input = this.makeTextInput( fieldId, fieldClass, 10, undefined, mw.UploadWizard.config.defaults[ name ] );
 
 			$( '<div>' )
 				.addClass( 'mwe-location-' + name )
@@ -1428,7 +1428,7 @@
 				info = '';
 
 				for ( key in information ) {
-					info += '|' + key.replace( /:/g, '_' ) + '=' + information[key] + '\n';
+					info += '|' + key.replace( /:/g, '_' ) + '=' + information[ key ] + '\n';
 				}
 
 				wikiText += '=={{int:filedesc}}==\n';
@@ -1625,18 +1625,18 @@
 			}
 			if ( warnings && warnings.exists ) {
 				existingFile = warnings.exists;
-			} else if ( warnings && warnings['exists-normalized'] ) {
-				existingFile = warnings['exists-normalized'];
+			} else if ( warnings && warnings[ 'exists-normalized' ] ) {
+				existingFile = warnings[ 'exists-normalized' ];
 				existingFileExt = mw.Title.normalizeExtension( existingFile.split( '.' ).pop() );
 				ourFileExt = mw.Title.normalizeExtension( this.upload.title.getExtension() );
 
 				if ( existingFileExt !== ourFileExt ) {
-					delete warnings['exists-normalized'];
+					delete warnings[ 'exists-normalized' ];
 					ignoreTheseWarnings = true;
 				}
 			}
-			if ( warnings && warnings['was-deleted'] ) {
-				delete warnings['was-deleted'];
+			if ( warnings && warnings[ 'was-deleted' ] ) {
+				delete warnings[ 'was-deleted' ];
 				ignoreTheseWarnings = true;
 			}
 			for ( wx in warnings ) {
@@ -1660,20 +1660,20 @@
 					return $.Deferred().reject( code, info );
 				} );
 			} else if ( result && result.upload.warnings ) {
-				if ( warnings.thumb || warnings['thumb-name'] ) {
+				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text(), 'error-title-thumbnail' );
 				} else if ( warnings.badfilename ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text(), 'title-badchars' );
-				} else if ( warnings['bad-prefix'] ) {
+				} else if ( warnings[ 'bad-prefix' ] ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text(), 'title-senselessimagename' );
 				} else if ( existingFile ) {
 					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, NS_FILE ).getUrl();
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
 				} else if ( warnings.duplicate ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
-				} else if ( warnings['duplicate-archive'] !== undefined ) {
-					// warnings['duplicate-archive'] may be '' (empty string) for revdeleted files
-					if ( this.upload.ignoreWarning['duplicate-archive'] ) {
+				} else if ( warnings[ 'duplicate-archive' ] !== undefined ) {
+					// warnings[ 'duplicate-archive' ] may be '' (empty string) for revdeleted files
+					if ( this.upload.ignoreWarning[ 'duplicate-archive' ] ) {
 						// We already told the interface to ignore this warning, so
 						// let's steamroll over it and re-call this handler.
 						params.ignorewarnings = true;
@@ -1756,8 +1756,8 @@
 			}
 
 			if ( result && result.error && result.error.code ) {
-				if ( titleErrorMap[code] ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[code] ).escaped(), 'title-' + titleErrorMap[code] );
+				if ( titleErrorMap[ code ] ) {
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ).escaped(), 'title-' + titleErrorMap[ code ] );
 					return;
 				} else {
 					statusKey = 'api-error-' + code;

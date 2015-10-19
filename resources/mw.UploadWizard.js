@@ -549,7 +549,7 @@
 				.css( { height: 0 } )
 				.insertAfter( $this );
 
-			scrollHeight = $clone[0].scrollHeight;
+			scrollHeight = $clone[ 0 ].scrollHeight;
 			// Remove inline height property to measure natural heights
 			$clone.css( 'height', '' );
 			innerHeight = $clone.innerHeight();
@@ -559,7 +559,7 @@
 			maxInnerHeight = $clone.innerHeight();
 			// Difference between reported innerHeight and scrollHeight with no scrollbars present
 			// Equals 1 on Blink-based browsers and 0 everywhere else
-			measurementError = maxInnerHeight - $clone[0].scrollHeight;
+			measurementError = maxInnerHeight - $clone[ 0 ].scrollHeight;
 			$clone.remove();
 			idealHeight = Math.min( maxInnerHeight, scrollHeight + measurementError );
 			// Only apply inline height when expansion beyond natural height is needed

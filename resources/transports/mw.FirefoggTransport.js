@@ -96,7 +96,7 @@
 			return false;
 		}
 
-		if ( info.video && info.video.length > 0 && info.video[0].duration > 0.04 ) {
+		if ( info.video && info.video.length > 0 && info.video[ 0 ].duration > 0.04 ) {
 			return true;
 		}
 

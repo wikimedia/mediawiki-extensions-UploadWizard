@@ -118,9 +118,9 @@
 					defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
-					defaultLicense = config.licensing.ownWork.defaults[0];
+					defaultLicense = config.licensing.ownWork.defaults[ 0 ];
 				} else {
-					defaultLicense = config.licensing.ownWork.licenses[0];
+					defaultLicense = config.licensing.ownWork.licenses[ 0 ];
 				}
 
 				if ( this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
@@ -164,14 +164,14 @@
 					defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
-					defaultLicense = config.licensing.ownWork.defaults[0];
+					defaultLicense = config.licensing.ownWork.defaults[ 0 ];
 				} else {
-					defaultLicense = config.licensing.ownWork.licenses[0];
+					defaultLicense = config.licensing.ownWork.licenses[ 0 ];
 				}
 
-				defaultLicenseURL = config.licenses[defaultLicense].url === undefined ?
+				defaultLicenseURL = config.licenses[ defaultLicense ].url === undefined ?
 						'#missing license URL' :
-						config.licenses[defaultLicense].url + 'deed.' + languageCode;
+						config.licenses[ defaultLicense ].url + 'deed.' + languageCode;
 				defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 				defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
 				defaultLicenseLink = $( '<a>' ).attr( { target:'_blank', href:defaultLicenseURL } );
@@ -404,7 +404,7 @@
 				$selector.append( this.$form );
 
 				if ( defaultType === 'thirdparty' ) {
-					defaultLicense = config.licensing.thirdParty.defaults[0];
+					defaultLicense = config.licensing.thirdParty.defaults[ 0 ];
 
 					defaultLicenseNum = findLicenseRecursively( config, defaultLicense );
 
