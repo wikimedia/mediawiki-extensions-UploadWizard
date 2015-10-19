@@ -192,7 +192,7 @@
 
 	/**
 	 * Set status line directly with a string
-	 * @param {String}
+	 * @param {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( s ) {
 		$( this.div ).find( '.mwe-upwiz-file-status' ).html( s ).show();
@@ -249,7 +249,7 @@
 	/**
 	 * Show that transport has failed
 	 * @param String code: error code from API
-	 * @param {String|Object} info: extra info
+	 * @param {string|Object} info: extra info
 	 * @param {jQuery} [$additionalStatus]
 	 */
 	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
@@ -313,7 +313,7 @@
 
 	/**
 	 * Get just the filename.
-	 * @return {String}
+	 * @return {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
 		if ( this.providedFile && !this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.

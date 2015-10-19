@@ -68,7 +68,7 @@
 
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
-	 * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
+	 * @param {number} integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api object - useful for doing previews
 	 * @param {Object} config The UW config
 	 */
@@ -306,7 +306,7 @@
 
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are the work of a third party.
-	 * @param {Number} integer count of uploads that this deed refers to (useful for message pluralization)
+	 * @param {number} integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api object - useful for doing previews
 	 * @param {Object} config The UW config
 	 */
@@ -439,7 +439,7 @@
 	/**
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
 	 * @param {Object} config The UW config
-	 * @param {String|jQuery} selector where to put this deed chooser
+	 * @param {string|jQuery} selector where to put this deed chooser
 	 * @param {Array[UploadWizardDeed]} deeds
 	 * @param {Array[UploadWizardUpload]} uploads that this applies to (this is just to make deleting and plurals work)
 	 */

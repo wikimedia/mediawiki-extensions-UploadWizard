@@ -2,14 +2,14 @@
  * Create a group of radio buttons for licenses. N.b. the licenses are named after the templates they invoke.
  * Note that this is very anti-MVC. The values are held only in the actual form elements themselves.
  *
- * @param {String|jQuery} selector to place license input
+ * @param {string|jQuery} selector to place license input
  * @param {Array|undefined} license key name(s) to activate by default
  * @param {Object} configuration of licenseInput. Must have following properties
  *				'type' = ("and"|"or") -- whether inclusive or exclusive license allowed
  *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
  *				optional: 'licenseGroups' => groups of licenses, with more explanation
  *				optional: 'special' => String -- indicates, don't put licenses here, instead use a special widget
- * @param {Number} count of the things we are licensing (it matters to some texts)
+ * @param {number} count of the things we are licensing (it matters to some texts)
  * @param {mw.Api} api object; useful for previews
  */
 
@@ -213,7 +213,7 @@
 		 * such as wrapping templates in an outer "self" template for own-work
 		 * @param {Array} of license template names
 		 * @param {Object}, license input configuration
-		 * @return {String} of wikitext
+		 * @return {string} of wikitext
 		 */
 		createInputValueFromTemplateConfig: function ( templates, config ) {
 			if ( config.prependTemplates !== undefined ) {
@@ -443,7 +443,7 @@
 
 		/**
 		 * Get the value of the associated textarea, if any
-		 * @return {String}
+		 * @return {string}
 		 */
 		getInputTextAreaVal: function ( $input ) {
 			var extra = '';
@@ -531,7 +531,7 @@
 
 		/**
 		 * Preview wikitext in a popup window
-		 * @param {String} wikitext
+		 * @param {string} wikitext
 		 */
 		showPreview: function ( wikiText ) {
 			this.previewDialog.setLoading( true );

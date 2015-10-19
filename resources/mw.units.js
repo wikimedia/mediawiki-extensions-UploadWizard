@@ -10,8 +10,8 @@
 		 *
 		 * Units above K get 2 fixed decimal places.
 		 *
-		 * @param {Number} size, positive integer
-		 * @return {String} formatted size
+		 * @param {number} size, positive integer
+		 * @return {string} formatted size
 		 */
 		bytes: function ( size ) {
 			var i = 0;

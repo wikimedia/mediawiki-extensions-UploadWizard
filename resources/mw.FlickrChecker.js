@@ -107,10 +107,10 @@
 		 * Returns a suggested filename for the image.
 		 * Usually the filename is just the Flickr title plus an extension, but in case of name conflicts
 		 * or empty title a unique filename is generated.
-		 * @param {String} title image title on Flickr
+		 * @param {string} title image title on Flickr
 		 * @param {number} id image id on Flickr
-		 * @param {String} ownername owner name on Flickr
-		 * @return {String}
+		 * @param {string} ownername owner name on Flickr
+		 * @return {string}
 		 */
 		getFilenameFromItem: function ( title, id, ownername ) {
 			var fileName;
@@ -130,7 +130,7 @@
 		 * Reserves a filename; used by `mw.FlickrChecker.getFileNameFromItem()` which tries to
 		 * avoid returning a filename which is already reserved.
 		 * This works even when the filename was reserved in a different FlickrChecker instance.
-		 * @param {String} fileName
+		 * @param {string} fileName
 		 */
 		reserveFileName: function ( fileName ) {
 			mw.FlickrChecker.fileNames[fileName] = true;
@@ -302,7 +302,7 @@
 
 		/**
 		 * Retrieves a list of photos and displays it.
-		 * @param {String} mode may be: 'photoset' - for use with photosets,
+		 * @param {string} mode may be: 'photoset' - for use with photosets,
 		 *	 or 'photos' - for use with everything else (the parameter is used
 		 *	 to determine how the properties in retrieved JSON are named)
 		 * @param {Object} options options to pass to the API call; especially API method
@@ -522,8 +522,8 @@
 		 * path_alias in the beginning, and must set it manually; if it does not exist, it can be left
 		 * undefined, or an empty string can be supplied (which is what the Flickr API usually returns
 		 * as the path_alias for such users).
-		 * @param {String} nsid Flickr NSID of the author
-		 * @param {String} [path_alias] Flickr username of the author (the unchangeable one, in the URL)
+		 * @param {string} nsid Flickr NSID of the author
+		 * @param {string} [path_alias] Flickr username of the author (the unchangeable one, in the URL)
 		 * @return {jQuery.Promise} a promise which resolves to a boolean - true if the user is blacklisted
 		 */
 		isBlacklisted: function ( nsid, path_alias ) {
