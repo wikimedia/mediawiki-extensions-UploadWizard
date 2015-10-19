@@ -5,7 +5,8 @@
 			"Vogone",
 			"Albertas",
 			"Salpusnis",
-			"Zygimantus"
+			"Zygimantus",
+			"Hugo.arg"
 		]
 	},
 	"uploadwizard": "Įkėlimo vedlys",
@@ -296,7 +297,7 @@
 	"mwe-upwiz-unparseable-title": "Šis pavadinimas nėra tinkamas. Įsitikinkite, kad pašalinote tokius simbolius kaip laužtiniai skliausteliai, kabliataškiai, palyginimo operatoriai, vertikalūs brūkšniai ir riestiniai skliausteliai.",
 	"mwe-upwiz-subhead-bugs": "[$1 Žinomos problemos]",
 	"mwe-upwiz-subhead-alt-upload": "Grįžti prie ankstesnės formos",
-	"mwe-upwiz-subhead-alternatives": "Alternatyvūs įkėlimo metodai",
+	"mwe-upwiz-subhead-alternatives": "Kitoniški įkėlimo būdai",
 	"mwe-upwiz-feedback-prompt": "Pasidalinkite atsiliepimais",
 	"mwe-upwiz-feedback-title": "Palikti atsiliepimus apie įkėlimo vedlį",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Siųsti atsiliepimą]",
