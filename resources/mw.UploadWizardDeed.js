@@ -174,13 +174,13 @@
 						config.licenses[ defaultLicense ].url + 'deed.' + languageCode;
 				defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 				defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
-				defaultLicenseLink = $( '<a>' ).attr( { target:'_blank', href:defaultLicenseURL } );
+				defaultLicenseLink = $( '<a>' ).attr( { target: '_blank', href: defaultLicenseURL } );
 
 				this.$form = $( '<form>' );
 				this.$authorInput2 = $( '<input type="text" />' ).attr( { name: 'author2' } ).addClass( 'mwe-upwiz-sign' );
 
 				$standardDiv = $( '<div />' ).append(
-					$( '<label for="author2" generated="true" class="mwe-validator-error" style="display:block;" />' ),
+					$( '<label for="author2" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 					$( '<p></p>' ).msg(
 							defaultLicenseMsg,
 							uploadCount,
@@ -196,7 +196,7 @@
 
 				if ( this.showCustomDiv ) {
 					$customDiv = $('<div />').append(
-						$( '<label for="author" generated="true" class="mwe-validator-error" style="display:block;" />' ),
+						$( '<label for="author" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
 							this.authorInput ),
@@ -349,7 +349,7 @@
 
 				$formFields.append (
 					$( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-					$( '<label generated="true" class="mwe-validator-error" style="display:block;" />' )
+					$( '<label generated="true" class="mwe-validator-error" style="display: block;" />' )
 						.attr( 'for', 'mwe-source-' + this.getInstanceCount() ),
 					$( '<div class="mwe-upwiz-thirdparty-fields" />' )
 						.append( $( '<label>' )
@@ -358,7 +358,7 @@
 								.addHint( 'source' )
 								.requiredFieldLabel(),
 							this.sourceInput ),
-					$( '<label generated="true" class="mwe-validator-error" style="display:block;" />' )
+					$( '<label generated="true" class="mwe-validator-error" style="display: block;" />' )
 						.attr( 'for', 'mwe-author-' + this.getInstanceCount() ),
 					$( '<div class="mwe-upwiz-thirdparty-fields" />' )
 						.append( $( '<label>' )
