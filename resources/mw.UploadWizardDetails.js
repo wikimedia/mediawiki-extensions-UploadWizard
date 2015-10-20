@@ -322,7 +322,7 @@
 		this.$form.validate();
 		this.setupDateInput();
 
-		$list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon ' )
+		$list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon' )
 			.on( 'input keyup change cut paste', function () {
 				var link = details.osmMapLink();
 				if (  $list.valid() ) {

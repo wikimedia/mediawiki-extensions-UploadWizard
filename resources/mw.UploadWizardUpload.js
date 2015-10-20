@@ -687,7 +687,7 @@
 
 		function ok( data ) {
 			if ( !data || !data.query || !data.query.stashimageinfo ) {
-				mw.log.warn( 'mw.UploadWizardUpload::getStashImageInfo> No data? ' );
+				mw.log.warn( 'mw.UploadWizardUpload::getStashImageInfo> No data?' );
 				callback( null );
 				return;
 			}
@@ -743,7 +743,7 @@
 				}
 			}
 
-			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> No data matching ' + requestedTitle + ' ? ' );
+			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> No data matching ' + requestedTitle + ' ?' );
 			callback( null );
 		}
 

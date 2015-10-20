@@ -610,7 +610,7 @@
 	 * XXX this should be changed to something Theme compatible
 	 */
 	mw.UploadWizardUploadInterface.prototype.clearErrors = function () {
-		$( this.div ).removeClass( 'mwe-upwiz-upload-error ' );
+		$( this.div ).removeClass( 'mwe-upwiz-upload-error' );
 		$( this.errorDiv ).hide().empty();
 	};
 
