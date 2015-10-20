@@ -2,7 +2,6 @@
 	"preset": "wikimedia",
 
 	"jsDoc": null,
-	"requireVarDeclFirst": null,
 
 	"excludeFiles": [ "resources/jquery/**" ]
 }

@@ -174,14 +174,14 @@
 	 * @param result	the API result in parsed JSON form
 	 */
 	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
-		if ( this.state === 'aborted' ) {
-			return;
-		}
-
 		// default error state
 		var comma, warnCode,
 			code = 'unknown',
 			info = 'unknown';
+
+		if ( this.state === 'aborted' ) {
+			return;
+		}
 
 		if ( result.error ) {
 			// If there was an error, we can't really do anything else, so let's get out while we can.
@@ -590,6 +590,8 @@
 	 * @param {Object} (as returned by jpegmeta)
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function ( meta ) {
+		var pixelHeightDim, pixelWidthDim, degrees;
+
 		if ( meta !== undefined && meta !== null && typeof meta === 'object' ) {
 			if ( this.imageinfo === undefined ) {
 				this.imageinfo = {};
@@ -601,10 +603,10 @@
 				this.imageinfo.metadata.orientation = meta.tiff.Orientation.value;
 			}
 			if ( meta.general ) {
-				var pixelHeightDim = 'height',
-					pixelWidthDim = 'width',
-					// this must be called after orientation is set above. If no orientation set, defaults to 0
-					degrees = this.getOrientationDegrees();
+				pixelHeightDim = 'height';
+				pixelWidthDim = 'width';
+				// this must be called after orientation is set above. If no orientation set, defaults to 0
+				degrees = this.getOrientationDegrees();
 
 				// jpegmeta reports pixelHeight & width
 				if ( degrees === 90 || degrees === 270 ) {
@@ -728,9 +730,13 @@
 	 * @param {number} optional, height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getImageInfo = function ( callback, props, width, height ) {
+		var requestedTitle, params;
+
 		function ok( data ) {
+			var found;
+
 			if ( data && data.query && data.query.pages ) {
-				var found = false;
+				found = false;
 				$.each( data.query.pages, function ( pageId, page ) {
 					if ( page.title && page.title === requestedTitle && page.imageinfo ) {
 						found = true;
@@ -756,12 +762,12 @@
 			props = [];
 		}
 
-		var requestedTitle = this.title.getPrefixedText(),
-			params = {
-				prop: 'imageinfo',
-				titles: requestedTitle,
-				iiprop: props.join( '|' )
-			};
+		requestedTitle = this.title.getPrefixedText();
+		params = {
+			prop: 'imageinfo',
+			titles: requestedTitle,
+			iiprop: props.join( '|' )
+		};
 
 		if ( width !== undefined || height !== undefined ) {
 			if ( !$.inArray( 'url', props ) ) {
@@ -783,8 +789,9 @@
 	 * @return upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
+		var constructor;  // must be the name of a function in 'mw' namespace
+
 		if ( !this.uploadHandler ) {
-			var constructor;  // must be the name of a function in 'mw' namespace
 			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
 			} else if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable() ) {
@@ -831,6 +838,8 @@
 				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 				// the event with a null.
 				$.each( thumbnails, function ( i, thumb ) {
+					var timeoutMs, image;
+
 					if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
 						mw.log.warn( 'mw.UploadWizardUpload::getThumbnail> Thumbnail error or missing information' );
 						deferred.resolve( null );
@@ -839,8 +848,8 @@
 
 					// try to load this image with exponential backoff
 					// if the delay goes past 8 seconds, it gives up and publishes the event with null
-					var timeoutMs = 100,
-						image = document.createElement( 'img' );
+					timeoutMs = 100;
+					image = document.createElement( 'img' );
 					image.width = thumb.thumbwidth;
 					image.height = thumb.thumbheight;
 					$( image )
@@ -925,8 +934,9 @@
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;
 		$.each( [ 'width', 'height' ], function ( i, dim ) {
+			var s;
 			if ( constraints[ dim ] && image[ dim ] > constraints[ dim ] ) {
-				var s = constraints[ dim ] / image[ dim ];
+				s = constraints[ dim ] / image[ dim ];
 				if ( s < scaling ) {
 					scaling = s;
 				}
@@ -1035,10 +1045,11 @@
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
+		var constraints;
 		if ( width === undefined || width === null || width <= 0 ) {
 			width = mw.UploadWizard.config.thumbnailWidth;
 		}
-		var constraints = {
+		constraints = {
 			width: parseInt( width, 10 ),
 			height: ( height === undefined ? null : parseInt( height, 10 ) )
 		};

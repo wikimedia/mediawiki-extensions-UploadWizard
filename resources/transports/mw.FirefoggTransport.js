@@ -133,6 +133,7 @@
 
 	// Get the filename
 	mw.FirefoggTransport.prototype.getFileName = function () {
+		var ext;
 		// If file is in a supported format don't change extension
 		if ( this.isUploadFormat() ) {
 			return this.fogg.sourceFilename;
@@ -141,7 +142,7 @@
 				return this.fogg.sourceFilename.split( '.' ).slice( 0, -1 ).join( '.' ) + '.oga';
 			}
 			if ( this.isSourceVideo() ) {
-				var ext = this.getEncodeExt();
+				ext = this.getEncodeExt();
 				return this.fogg.sourceFilename.split( '.' ).slice( 0, -1 ).join( '.' ) + '.' + ext;
 			}
 		}
@@ -160,11 +161,12 @@
 	 * Get the encode settings from configuration and the current selected video type
 	 */
 	mw.FirefoggTransport.prototype.getEncodeSettings = function () {
+		var encodeSettings;
 		if ( this.isUploadFormat() ) {
 			return { passthrough: true };
 		}
 		// Get the default encode settings:
-		var encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
+		encodeSettings = mw.UploadWizard.config.firefoggEncodeSettings;
 		// Update the format:
 		this.fogg.setFormat( ( this.getEncodeExt() === 'webm' ) ? 'webm' : 'ogg' );
 

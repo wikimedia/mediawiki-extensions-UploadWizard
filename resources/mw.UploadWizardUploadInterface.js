@@ -182,11 +182,12 @@
 	 * @param Array args: array of values, in case any need to be fed to the image.
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatus = function ( msgKey, args ) {
+		var $s;
 		if ( args === undefined ) {
 			args = [];
 		}
 		// get the status line for our upload
-		var $s = $( this.div ).find( '.mwe-upwiz-file-status' );
+		$s = $( this.div ).find( '.mwe-upwiz-file-status' );
 		$s.msg( msgKey, args ).show();
 	};
 
@@ -253,9 +254,10 @@
 	 * @param {jQuery} [$additionalStatus]
 	 */
 	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
+		var msgKey, args;
+
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
-		var msgKey, args;
 
 		if ( code === 'http' && info.textStatus === 'timeout' ) {
 			code = 'timeout';
@@ -316,6 +318,7 @@
 	 * @return {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
+		var input;
 		if ( this.providedFile && !this.$fileInputCtrl.get( 0 ).value ) {  // default to the fileinput if it's defined.
 			if ( this.providedFile.fileName ) {
 				return this.providedFile.fileName;
@@ -324,7 +327,7 @@
 				return this.providedFile.name;
 			}
 		} else {
-			var input = this.$fileInputCtrl.get( 0 );
+			input = this.$fileInputCtrl.get( 0 );
 			// On IE 11, input.value is incorrect for <input type=file multiple>, like we're using here;
 			// the input.files interface is reliable. (T88223#1595320)
 			if ( input.files && input.files[ 0 ] && input.files[ 0 ].name ) {

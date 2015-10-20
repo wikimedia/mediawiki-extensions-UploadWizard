@@ -183,12 +183,18 @@
 			}
 
 			$.each( config.licenses, function ( i, licenseName ) {
+				var $customDiv, license, templates, $input, $label;
+
 				if ( mw.UploadWizard.config.licenses[ licenseName ] !== undefined ) {
-					var $customDiv,
-						license = { name: licenseName, props: mw.UploadWizard.config.licenses[ licenseName ] },
-						templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice( 0 ),
-						$input = input.createInputElement( templates, config ),
-						$label = input.createInputElementLabel( license, $input );
+					license = {
+						name: licenseName,
+						props: mw.UploadWizard.config.licenses[ licenseName ]
+					};
+					templates = license.props.templates === undefined ?
+						[ license.name ] :
+						license.props.templates.slice( 0 );
+					$input = input.createInputElement( templates, config );
+					$label = input.createInputElementLabel( license, $input );
 
 					input.inputs.push( $input );
 					$el.append( $input, $label, $( '<br/>' ) );
@@ -219,6 +225,7 @@
 		 * @return {string} of wikitext
 		 */
 		createInputValueFromTemplateConfig: function ( templates, config ) {
+			var wikiTexts;
 			if ( config.prependTemplates !== undefined ) {
 				$.each( config.prependTemplates, function ( i, template ) {
 					templates.unshift( template );
@@ -228,7 +235,7 @@
 				templates.unshift( config.template );
 				templates = [ templates.join( '|' ) ];
 			}
-			var wikiTexts = $.map( templates, function ( t ) { return '{{' + t + '}}'; } );
+			wikiTexts = $.map( templates, function ( t ) { return '{{' + t + '}}'; } );
 			return wikiTexts.join( '' );
 		},
 
@@ -485,13 +492,15 @@
 				// But also check that associated textareas are filled for if the input is selected, and that
 				// they are the appropriate size.
 				$.each( selectedInputs, function ( i, $input ) {
+					var textAreaName, $errorEl, text;
+
 					if ( !$input.data( 'textarea' ) ) {
 						return;
 					}
 
-					var textAreaName = $input.data( 'textarea' ).attr( 'name' ),
-						$errorEl = $( 'label[for=' + textAreaName + '].mwe-error' ),
-						text = input.getInputTextAreaVal( $input );
+					textAreaName = $input.data( 'textarea' ).attr( 'name' );
+					$errorEl = $( 'label[for=' + textAreaName + '].mwe-error' );
+					text = input.getInputTextAreaVal( $input );
 
 					if ( text === '' ) {
 						errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-missing' ] );
@@ -537,10 +546,12 @@
 		 * @param {string} wikitext
 		 */
 		showPreview: function ( wikiText ) {
+			var input;
+
 			this.previewDialog.setLoading( true );
 			this.windowManager.openWindow( this.previewDialog );
 
-			var input = this;
+			input = this;
 
 			function show( html ) {
 				input.previewDialog.setPreview( html );

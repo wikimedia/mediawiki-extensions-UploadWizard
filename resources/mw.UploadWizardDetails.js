@@ -241,9 +241,10 @@
 
 		this.fields = [];
 		$.each( mw.UploadWizard.config.fields, function ( i, field ) {
+			var $fieldInput, fieldInputId;
+
 			if ( field.wikitext ) {
-				var $fieldInput,
-					fieldInputId = 'field_' + i + '_' + ( details.upload.index ).toString();
+				fieldInputId = 'field_' + i + '_' + ( details.upload.index ).toString();
 
 				if ( !( 'type' in field ) ) {
 					field.type = 'text';
@@ -633,15 +634,18 @@
 
 			// In the simplest case, we can use this self-explanatory vanilla loop.
 			function simpleCopy( id, tag ) {
+				var moreInfo,
+					firstId = '#' + id + sourceId,
+					firstValue = $( firstId ).val();
 				if ( tag === undefined ) {
 					tag = 'input';
 				}
-				var firstId = '#' + id + sourceId,
-					firstValue = $( firstId ).val();
 				$( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
 					$( this ).val( firstValue );
 					if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
-						var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
+						moreInfo = $( this )
+							.parents( '.detailsForm' )
+							.find( '.mwe-upwiz-details-more-options a' );
 						if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
 							moreInfo.click();
 						}
@@ -1162,6 +1166,10 @@
 		 * (which we should actually be using, such as time and timezone)
 		 */
 		prefillDate: function () {
+			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
+				yyyyMmDdRegex = /^(\d\d\d\d)[:\/\-](\d\d)[:\/\-](\d\d)\D.*/,
+				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
+
 			// XXX surely we have this function somewhere already
 			function pad( n ) {
 				return ( n < 10 ? '0' : '' ) + String( n );
@@ -1176,10 +1184,6 @@
 
 				return str;
 			}
-
-			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
-				yyyyMmDdRegex = /^(\d\d\d\d)[:\/\-](\d\d)[:\/\-](\d\d)\D.*/,
-				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
 			if ( this.upload.imageinfo.metadata ) {
 				metadata = this.upload.imageinfo.metadata;
@@ -1261,15 +1265,16 @@
 		 * or from the metadata.
 		 */
 		prefillDescription: function () {
+			var m, desc, descText;
+
 			if (
 				this.descriptions[ 0 ].getDescriptionText() === '' &&
 				this.upload.file !== undefined
 			) {
-				var m = this.upload.imageinfo.metadata,
-					desc = this.descriptions[ 0 ],
-					descText = this.upload.file.description ||
-						( m && m.imagedescription &&
-						m.imagedescription[ 0 ] && m.imagedescription[ 0 ].value );
+				m = this.upload.imageinfo.metadata;
+				desc = this.descriptions[ 0 ];
+				descText = this.upload.file.description ||
+					( m && m.imagedescription && m.imagedescription[ 0 ] && m.imagedescription[ 0 ].value );
 
 				if ( descText ) {
 					desc.setText( descText );
@@ -1817,6 +1822,8 @@
 		 *		(with mwe-upwiz- prefix for UploadWizard messages)
 		 */
 		makeToggler: function ( $toggleDiv, $moreDiv, msg ) {
+			var $toggleLink, actualMsg;
+
 			function toggle() {
 				var isOpen = $toggleLink.hasClass( 'mwe-upwiz-toggler-open' );
 				if ( isOpen ) {
@@ -1831,8 +1838,6 @@
 					$toggleLink.addClass( 'mwe-upwiz-toggler-open' );
 				}
 			}
-
-			var $toggleLink, actualMsg;
 
 			if ( typeof msg === 'object' ) {
 				actualMsg = mw.message.apply( this, msg ).text();

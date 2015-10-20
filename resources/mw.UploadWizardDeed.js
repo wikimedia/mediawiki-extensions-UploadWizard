@@ -75,11 +75,11 @@
 	 * @param {Object} config The UW config
 	 */
 	mw.UploadWizardDeedOwnWork = function ( uploadCount, api, config ) {
-		uploadCount = uploadCount ? uploadCount : 1;
-
 		var licenseInputDiv,
 			deed = new mw.UploadWizardDeed(),
 			ownWork = config.licensing.ownWork;
+
+		uploadCount = uploadCount ? uploadCount : 1;
 
 		deed.authorInput = $( '<input type="text" />' )
 			.attr( { name: 'author' } )
@@ -158,13 +158,14 @@
 			},
 
 			setFormFields: function ( $selector ) {
-				this.$selector = $selector;
 				var $customDiv, $formFields, $toggler, rules, messages, defaultLicense,
 					defaultLicenseURL, defaultLicenseMsg, defaultLicenseExplainMsg,
-					defaultLicenseLink, $standardDiv, $crossfader,
-					thisDeed = this,
-					languageCode = mw.config.get( 'wgUserLanguage' ),
-					defaultType = config.licensing.defaultType;
+					defaultLicenseLink, $standardDiv, $crossfader, thisDeed, languageCode, defaultType;
+
+				this.$selector = $selector;
+				thisDeed = this;
+				languageCode = mw.config.get( 'wgUserLanguage' );
+				defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
 					defaultLicense = config.licensing.ownWork.defaults[ 0 ];

@@ -1,8 +1,6 @@
 ( function ( mw, $ ) {
 	'use strict';
 
-	QUnit.module( 'ext.uploadWizard/mw.UploadWizardDetails.test.js', QUnit.newMwEnvironment() );
-
 	var makeTitleInFileNSCases = [ {
 		filename: 'foo.png',
 		prefixedText: 'File:Foo.png',
@@ -28,6 +26,8 @@
 		prefixedText: 'File:Foo bar.jpg',
 		desc: 'filename starting with file:'
 	} ];
+
+	QUnit.module( 'ext.uploadWizard/mw.UploadWizardDetails.test.js', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'makeTitleInFileNS()', makeTitleInFileNSCases.length, function () {
 		var makeTitleInFileNS = mw.UploadWizardDetails.makeTitleInFileNS;

@@ -93,30 +93,32 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.ui.Thanks.prototype.addUpload = function ( upload ) {
+		var thumbWikiText, $thanksDiv, $thumbnailWrapDiv, $thumbnailDiv, $thumbnailCaption, $thumbnailLink;
+
 		if ( upload === undefined ) {
 			return;
 		}
 
-		var thumbWikiText = '[[' + [
+		thumbWikiText = '[[' + [
 				upload.title.toText(),
 				'thumb',
 				upload.details.descriptions[ 0 ].getDescriptionText()
-			].join( '|' ) + ']]',
+			].join( '|' ) + ']]';
 
-			$thanksDiv = $( '<div>' )
-				.addClass( 'mwe-upwiz-thanks ui-helper-clearfix' ),
-			$thumbnailWrapDiv = $( '<div>' )
-				.addClass( 'mwe-upwiz-thumbnail-side' )
-				.appendTo( $thanksDiv ),
-			$thumbnailDiv = $( '<div>' )
-				.addClass( 'mwe-upwiz-thumbnail' )
-				.appendTo( $thumbnailWrapDiv ),
-			$thumbnailCaption = $( '<div>' )
-				.css( { 'text-align': 'center', 'font-size': 'small' } )
-				.appendTo( $thumbnailWrapDiv ),
-			$thumbnailLink = $( '<a>' )
-				.text( upload.title.getMainText() )
-				.appendTo( $thumbnailCaption );
+		$thanksDiv = $( '<div>' )
+			.addClass( 'mwe-upwiz-thanks ui-helper-clearfix' );
+		$thumbnailWrapDiv = $( '<div>' )
+			.addClass( 'mwe-upwiz-thumbnail-side' )
+			.appendTo( $thanksDiv );
+		$thumbnailDiv = $( '<div>' )
+			.addClass( 'mwe-upwiz-thumbnail' )
+			.appendTo( $thumbnailWrapDiv );
+		$thumbnailCaption = $( '<div>' )
+			.css( { 'text-align': 'center', 'font-size': 'small' } )
+			.appendTo( $thumbnailWrapDiv );
+		$thumbnailLink = $( '<a>' )
+			.text( upload.title.getMainText() )
+			.appendTo( $thumbnailCaption );
 
 		$( '<div>' )
 			.addClass( 'mwe-upwiz-data' )

@@ -419,8 +419,9 @@
 				builder += dashdash + boundary + crlf;
 			},
 			appendBlob: function ( name, blob, filename ) {
+				var reader;
 				chunksRemaining++;
-				var reader = new FileReader();
+				reader = new FileReader();
 				reader.onload = function ( e ) {
 					formData.appendFile( name, e.target.result,
 										blob.type, filename );

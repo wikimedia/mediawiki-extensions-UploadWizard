@@ -148,8 +148,9 @@
 
 		// Open "more info" if that part of the form has errors
 		$errorElements.each( function () {
+			var moreInfo;
 			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
-				var moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
+				moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
 				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
 					moreInfo.click();
 				}

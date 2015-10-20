@@ -22,7 +22,8 @@
 
 		// Helper function to see if a language is in the list.
 		checkForLang: function ( lang ) {
-			for ( var langIndex in mw.LanguageUpWiz.languages ) {
+			var langIndex;
+			for ( langIndex in mw.LanguageUpWiz.languages ) {
 				if ( mw.LanguageUpWiz.languages[ langIndex ].code === lang ) {
 					return true;
 				}
@@ -89,13 +90,15 @@
 		 * @return HTML	select element configured as desired
 		 */
 		getMenu: function ( name, code ) {
+			var $select;
+
 			mw.LanguageUpWiz.initialize();
 			/* If we did not request a specific selected language code, see if we have a default. */
 			if ( mw.LanguageUpWiz.defaultCode !== null && code === mw.LanguageUpWiz.UNKNOWN ) {
 				code = mw.LanguageUpWiz.defaultCode;
 			}
 
-			var $select = mw.LanguageUpWiz.$select
+			$select = mw.LanguageUpWiz.$select
 				.clone()
 				.prop( 'name', name );
 

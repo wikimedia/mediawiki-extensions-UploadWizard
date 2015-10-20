@@ -5,17 +5,19 @@
 ( function ( mw, uw, $, OO ) {
 
 	mw.UploadWizard = function ( config ) {
+		var maxSimPref, wizard;
+
 		this.uploads = [];
 		this.api = new mw.Api( { ajax: { timeout: 0 } } );
 
-		// making a sort of global for now, should be done by passing in config or fragments of config when needed
-		// elsewhere
+		// making a sort of global for now, should be done by passing in config or fragments of config
+		// when needed elsewhere
 		mw.UploadWizard.config = config;
 		// Shortcut for local references
 		this.config = config;
 
-		var maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' ),
-			wizard = this;
+		maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
+		wizard = this;
 
 		if ( maxSimPref !== 'default' ) {
 			if ( maxSimPref > 0 ) {

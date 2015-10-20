@@ -65,14 +65,17 @@
 		 * @param upload - the upload object to set the deed for
 		 */
 		checkFlickr: function ( flickrInputUrl ) {
+			var photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
+
 			this.url = flickrInputUrl;
-			var photoIdMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/ ),
-				albumIdMatches = this.url.match( /flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/ ),
-				userCollectionMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/ ),
-				userPhotostreamMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/ ),
-				groupPoolMatches = this.url.match( /flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/ ),
-				userGalleryMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/ ),
-				userFavoritesMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/ );
+			photoIdMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/ );
+			albumIdMatches = this.url.match( /flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/ );
+			userCollectionMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/ );
+			userPhotostreamMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/ );
+			groupPoolMatches = this.url.match( /flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/ );
+			userGalleryMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/ );
+			userFavoritesMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/ );
+
 			if ( photoIdMatches === null ) {
 				// try static urls
 				photoIdMatches = this.url.match( /static\.?flickr\.com\/[^\/]+\/([0-9]+)_/ );

@@ -6,17 +6,19 @@
 	 * @param required -- boolean -- the first description is required and should be validated and displayed a bit differently
 	 */
 	mw.UploadWizardDescription = function ( languageCode, required, initialValue ) {
+		var errorLabelDiv, fieldnameDiv;
+
 		mw.UploadWizardDescription.prototype.count++;
 		this.id = 'description' + mw.UploadWizardDescription.prototype.count;
 		this.isRequired = required;
 
 		// XXX for some reason this display:block is not making it into HTML
-		var errorLabelDiv = $(
+		errorLabelDiv = $(
 				'<div class="mwe-upwiz-details-input-error">' +
 					'<label generated="true" class="mwe-validator-error" for="' + this.id + '" />' +
 				'</div>'
-			),
-			fieldnameDiv = $( '<div class="mwe-upwiz-details-fieldname" />' );
+			);
+		fieldnameDiv = $( '<div class="mwe-upwiz-details-fieldname" />' );
 
 		fieldnameDiv.text( mw.message( 'mwe-upwiz-desc' ).text() ).addHint( 'description' );
 
