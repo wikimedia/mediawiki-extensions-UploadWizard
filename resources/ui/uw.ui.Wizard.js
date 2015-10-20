@@ -88,11 +88,14 @@
 		if ( typeof configAltUploadForm === 'object' ) {
 			userLanguage = mw.config.get( 'wgUserLanguage' );
 
+			// Not using .default for ES3 support (IE8)
+			// jscs: disable requireDotNotation
 			if ( configAltUploadForm[ userLanguage ] ) {
 				altUploadForm = configAltUploadForm[ userLanguage ];
 			} else if ( configAltUploadForm[ 'default' ] ) {
 				altUploadForm = configAltUploadForm[ 'default' ];
 			}
+			// jscs: enable requireDotNotation
 		} else {
 			altUploadForm = configAltUploadForm;
 		}

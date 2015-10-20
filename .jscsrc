@@ -1,10 +1,7 @@
 {
 	"preset": "wikimedia",
 
-	"disallowImplicitTypeConversion": null,
-	"disallowNewlineBeforeBlockStatements": null,
 	"jsDoc": null,
-	"requireDotNotation": null,
 	"requireVarDeclFirst": null,
 
 	"excludeFiles": [ "resources/jquery/**" ]
