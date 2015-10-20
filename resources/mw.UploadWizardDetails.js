@@ -130,7 +130,7 @@
 		categoriesHinter = function () { return categoriesHint; };
 		$categoriesDiv
 			.find( '.mwe-upwiz-details-fieldname' )
-			.append( mw.message( 'mwe-upwiz-categories' ).escaped() )
+			.text( mw.message( 'mwe-upwiz-categories' ).text() )
 			.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 
 		dateInputId = 'dateInput' + ( this.upload.index ).toString();
@@ -191,8 +191,8 @@
 		};
 
 		locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
-			.append( $ ('<div class="mwe-location-label"></div>' )
-				.append( mw.message( 'mwe-upwiz-location' ).escaped() )
+			.append( $( '<div class="mwe-location-label"></div>' )
+				.text( mw.message( 'mwe-upwiz-location' ).text() )
 				.addHint( 'location', locationHinter )
 			)
 			.append(
@@ -206,8 +206,8 @@
 		this.$longitudeInput = this.makeLocationField( 'lon', locationDiv );
 		this.$headingInput = this.makeLocationField( 'heading', locationDiv );
 
-		showMap = $( '<a></a>' )
-			.append( mw.message( 'mwe-upwiz-location-button' ).text() )
+		showMap = $( '<a>' )
+			.text( mw.message( 'mwe-upwiz-location-button' ).text() )
 			.hide();
 
 		linkDiv = $( '<div class="mwe-loc-link"></div>' )
