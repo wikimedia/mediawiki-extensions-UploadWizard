@@ -629,8 +629,11 @@
 			} ).done( function ( data ) {
 				var nameParts, newUpload;
 
-				if ( typeof data.sizes !== 'undefined' && typeof data.sizes.size !== 'undefined' && data.sizes.size.length > 0 )
-				{
+				if (
+					typeof data.sizes !== 'undefined' &&
+					typeof data.sizes.size !== 'undefined' &&
+					data.sizes.size.length > 0
+				) {
 					// Flickr always returns the largest version as the final size.
 					// TODO: Make this less fragile by actually comparing sizes.
 					largestSize = data.sizes.size.pop();

@@ -680,7 +680,7 @@
 					var currentTitle = $( this ).val();
 					currentTitle = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 						function ( str, m1, m2, m3 ) {
-							var newstr = ( +m2 + i + 1 ) + '';
+							var newstr = String( +m2 + i + 1 );
 							return m1 + new Array( m2.length + 1 - newstr.length )
 								.join( '0' ) + newstr + m3;
 						}
@@ -1164,7 +1164,7 @@
 		prefillDate: function () {
 			// XXX surely we have this function somewhere already
 			function pad( n ) {
-				return n < 10 ? '0' + n : '' + n;
+				return ( n < 10 ? '0' : '' ) + String( n );
 			}
 
 			function getSaneTime( date ) {
