@@ -322,7 +322,7 @@
 		 * When an upload is filled with a real file, accept it in the wizard's list of uploads
 		 * and set up some other interfaces
 		 *
-		 * @param UploadWizardUpload
+		 * @param {UploadWizardUpload} upload
 		 */
 		setUploadFilled: function ( upload ) {
 			this.uploads.push( upload );
@@ -337,7 +337,7 @@
 		 * We need to grep through the array of uploads, since we don't know the current index.
 		 * We need to update file counts for obvious reasons.
 		 *
-		 * @param upload
+		 * @param {UploadWizardUpload} upload
 		 */
 		removeUpload: function ( upload ) {
 			// remove the div that passed along the trigger
@@ -394,7 +394,7 @@
 		 * This is useful to clean out file inputs that we don't want for some reason (error, empty...)
 		 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
 		 *
-		 * @param Function criterion: function to test the upload, returns boolean; true if should be removed
+		 * @param {function} criterion Function to test the upload, returns boolean; true if should be removed
 		 */
 		removeMatchingUploads: function ( criterion ) {
 			var toRemove = [];
@@ -506,8 +506,8 @@
 	 * or with function and id -- function will be called to generate the hint every time
 	 * TODO v1.1 split into two plugins?
 	 *
-	 * @param key {string}  -- will base the tooltip on a message found with this key
-	 * @param fn {function} optional -- call this function every time tip is created to generate message. If present HTML element gets an id of the exact key specified
+	 * @param {string} key Will base the tooltip on a message found with this key
+	 * @param {function} [fn] Call this function every time tip is created to generate message. If present, HTML element gets an id of the exact key specified
 	 */
 	$.fn.addHint = function ( key, fn ) {
 		var attrs, contentSource, html = false;

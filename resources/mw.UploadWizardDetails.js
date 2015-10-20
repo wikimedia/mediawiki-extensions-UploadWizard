@@ -1,15 +1,14 @@
-/**
- * Object that represents the Details (step 2) portion of the UploadWizard
- * n.b. each upload gets its own details.
- *
- * @param UploadWizardUpload
- * @param API
- * @param containerDiv	The div to put the interface into
- */
 ( function ( mw, uw, $, OO ) {
 
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
+	/**
+	 * Object that represents the Details (step 2) portion of the UploadWizard
+	 * n.b. each upload gets its own details.
+	 *
+	 * @param {UploadWizardUpload} upload
+	 * @param {HTML} containerDiv The div to put the interface into
+	 */
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,
 			categoriesHinter,
@@ -963,7 +962,7 @@
 		/**
 		 * show file destination field as "busy" while checking
 		 *
-		 * @param busy boolean true = show busy-ness, false = remove
+		 * @param {boolean} busy True = show busy-ness, false = remove
 		 */
 		toggleDestinationBusy: function ( busy ) {
 			if ( busy ) {
@@ -980,7 +979,7 @@
 		 * XXX would be simpler if we created all these divs in the DOM and had a more jquery-friendly way of selecting
 		 * attrs. Instead we create & destroy whole interface each time. Won't someone think of the DOM elements?
 		 *
-		 * @param result
+		 * @param {Object} result Result to process
 		 */
 		processDestinationCheck: function ( result ) {
 			var titleString, errHtml, completeErrorLink,
@@ -1104,9 +1103,9 @@
 		/**
 		 * Remove a description
 		 *
-		 * @param description
+		 * @param {jQuery} description Description HTML from which to remove the `div`
 		 */
-		removeDescription: function ( description  ) {
+		removeDescription: function ( description ) {
 			$( description.div ).remove();
 
 			this.descriptions = $.grep(
@@ -1144,7 +1143,7 @@
 		/**
 		 * Given the API result pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 *
-		 * @param result	Upload API result object
+		 * @param {Object} result Upload API result object
 		 */
 		populate: function () {
 			this.upload.setThumbnail(

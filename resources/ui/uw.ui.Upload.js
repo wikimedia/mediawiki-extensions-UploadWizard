@@ -281,7 +281,7 @@
 	/**
 	 * Shows an error dialog informing the user that some uploads have been omitted
 	 * since they went over the max files limit.
-	 * @param filesUploaded integer - the number of files that have been attempted to upload
+	 * @param {number} filesUploaded The number of files that have been attempted to upload
 	 */
 	uw.ui.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
 		var dialog = new mw.ErrorDialog(

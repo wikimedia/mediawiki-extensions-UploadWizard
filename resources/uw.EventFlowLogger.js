@@ -21,7 +21,7 @@
 	 * Event logging helper for funnel analysis. Should be instantiated at the very beginning; uses internal state
 	 * to link events together.
 	 * @constructor
-	 * @param eventLog mw.eventLog object, for dependency injection
+	 * @param {Object} eventLog mw.eventLog object, for dependency injection
 	 */
 	uw.EventFlowLogger = function UWEventFlowLogger( eventLog ) {
 		this.eventLog = eventLog;

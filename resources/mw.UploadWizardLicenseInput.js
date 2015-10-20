@@ -126,8 +126,8 @@
 		/**
 		 * Creates the license input interface in toggleable groups.
 		 *
-		 * @param jQuery selector
-		 * @param license input configuration groups
+		 * @param {jQuery} $el Selector
+		 * @param {Object} configGroups License input configuration groups
 		 */
 		createGroupedInputs: function ( $el, configGroups ) {
 			var input = this;
@@ -374,7 +374,7 @@
 		/**
 		 * Sets the value(s) of a license input. This is a little bit klugey because it relies on an inverted dict, and in some
 		 * cases we are now letting license inputs create multiple templates.
-		 * @param object of license-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
+		 * @param {object} values License-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
 		 */
 		setValues: function ( values ) {
 			var trueCount, trueLicenseName,

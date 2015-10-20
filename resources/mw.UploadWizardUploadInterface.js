@@ -5,8 +5,8 @@
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param upload
-	 * @param div to insert file interface
+	 * @param {object} upload …
+	 * @param {jQuery} filesDiv DIV into which to insert file interface
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload, filesDiv ) {
 		var $preview,
@@ -142,7 +142,7 @@
 
 	/**
 	 * change the graphic indicator at the far end of the row for this file
-	 * @param String statusClass: corresponds to a class mwe-upwiz-status which changes style of indicator.
+	 * @param {string} statusClass Corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */
 	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( statusClass ) {
 		this.clearIndicator();
@@ -164,7 +164,7 @@
 
 	/**
 	 * Set the preview image on the file page for this upload.
-	 * @param HTMLImageElement
+	 * @param {HTMLImageElement} image
 	 */
 	mw.UploadWizardUploadInterface.prototype.setPreview = function ( image ) {
 		var $preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
@@ -178,8 +178,8 @@
 
 	/**
 	 * Set the status line for this upload with an internationalized message string.
-	 * @param String msgKey: key for the message
-	 * @param Array args: array of values, in case any need to be fed to the image.
+	 * @param {string} msgKey Key for the message
+	 * @param {array} args Array of values, in case any need to be fed to the image.
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatus = function ( msgKey, args ) {
 		var $s;
@@ -223,7 +223,7 @@
 
 	/**
 	 * Put the visual state of an individual upload into "progress"
-	 * @param fraction	The fraction of progress. Float between 0 and 1
+	 * @param {number} fraction The fraction of progress. Float between 0 and 1
 	 */
 	mw.UploadWizardUploadInterface.prototype.showTransportProgress = function () {
 		// if fraction available, update individual progress bar / estimates, etc.
@@ -249,8 +249,8 @@
 
 	/**
 	 * Show that transport has failed
-	 * @param String code: error code from API
-	 * @param {string|Object} info: extra info
+	 * @param {string} code Error code from API
+	 * @param {string|Object} info Extra info
 	 * @param {jQuery} [$additionalStatus]
 	 */
 	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
@@ -473,8 +473,8 @@
 	 * or otherwise get it to do what you want.
 	 * It is helpful to sometimes move them to cover certain elements on the page, and
 	 * even to pass events like hover
-	 * @param selector jquery-compatible selector, for a single element
-	 * @param positionTracking string, optional, whether to do position-polling ('poll')
+	 * @param {string} selector A jQuery-compatible selector, for a single element
+	 * @param {string} [positionTracking] Whether to do position-polling ('poll')
 	 *	 on the selected element or whether to listen to window-resize events ('resize')
 	 */
 	mw.UploadWizardUploadInterface.prototype.moveFileInputToCover = function ( selector, positionTracking ) {
@@ -619,9 +619,9 @@
 
 	/**
 	* Create a checkbox to process the object reference parameter
-	* @param index number of the file for which the field is being created
-	* @param setDisabled disable in case there already is an image in the referring list
-	* @return {jQuery} div containing a checkbox, label, and optional notice
+	* @param {number} index Number of the file for which the field is being created
+	* @param {boolean} setDisabled Disable in case there already is an image in the referring list
+	* @return {jQuery} A `div` containing a checkbox, label, and optional notice
 	*/
 	mw.UploadWizardUploadInterface.prototype.createImagePickerField = function ( index, setDisabled ) {
 		var $fieldContainer = $( '<div>' ).attr( {

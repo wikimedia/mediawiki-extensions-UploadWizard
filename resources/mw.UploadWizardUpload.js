@@ -135,7 +135,7 @@
 
 	/**
 	 * Wear our current progress, for observing processes to see
-	 * @param fraction
+	 * @param {number} fraction
 	 */
 	mw.UploadWizardUpload.prototype.setTransportProgress = function ( fraction ) {
 		if ( this.state === 'aborted' ) {
@@ -171,7 +171,7 @@
 
 	/**
 	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details
-	 * @param result	the API result in parsed JSON form
+	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
 		// default error state
@@ -569,8 +569,8 @@
 
 	/**
 	 * Shows an error dialog informing the user that the selected file is to large
-	 * @param size integer - the size of the file in bytes
-	 * @param maxSize integer - the maximum file size
+	 * @param {number} size Size of the file in bytes
+	 * @param {number} maxSize Maximum file size
 	 */
 	mw.UploadWizardUpload.prototype.showMaxSizeWarning = function ( size, maxSize ) {
 		var ed = new mw.ErrorDialog(
@@ -626,7 +626,7 @@
 	/**
 	 * Accept the result from a successful API upload transport, and fill our own info
 	 *
-	 * @param result The JSON object from a successful API upload result.
+	 * @param {Object} result The JSON object from a successful API upload result.
 	 */
 	mw.UploadWizardUpload.prototype.extractUploadInfo = function ( resultUpload ) {
 		if ( resultUpload.filekey ) {
@@ -645,7 +645,7 @@
 	 * Extract image info into our upload object
 	 * Image info is obtained from various different API methods
 	 * This may overwrite metadata obtained from FileReader.
-	 * @param imageinfo JSON object obtained from API result.
+	 * @param {Object} imageinfo JSON object obtained from API result.
 	 */
 	mw.UploadWizardUpload.prototype.extractImageInfo = function ( imageinfo ) {
 		var key,
@@ -1062,9 +1062,9 @@
 	 * Given a jQuery selector, subscribe to the "ready" event that fills the thumbnail
 	 * This will trigger if the thumbnail is added in the future or if it already has been
 	 *
-	 * @param selector
-	 * @param width  Width constraint
-	 * @param height Height constraint (optional)
+	 * @param {string} selector String representing a jQuery selector
+	 * @param {number} width Width constraint
+	 * @param {number} [height] Height constraint
 	 */
 	mw.UploadWizardUpload.prototype.setThumbnail = function ( selector, width, height ) {
 		var upload = this,

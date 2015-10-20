@@ -117,7 +117,7 @@
 		 * sets the beginning time (useful for figuring out estimated time remaining)
 		 * if time parameter omitted, will set beginning time to now
 		 *
-		 * @param time  optional; the time this bar is presumed to have started (epoch milliseconds)
+		 * @param {number} [time] The time this bar is presumed to have started (epoch milliseconds)
 		 */
 		setBeginTime: function ( time ) {
 			this.beginTime = time ? time : ( new Date() ).getTime();
@@ -129,7 +129,7 @@
 		 * We did some tricky calculations in startUploads to try to weight each individual file's progress against
 		 * the overall progress.
 		 *
-		 * @param fraction the amount of whatever it is that's done whatever it's done
+		 * @param {number} fraction The amount of whatever it is that's done whatever it's done
 		 */
 		showProgress: function ( fraction ) {
 			var t, timeString,
@@ -154,8 +154,8 @@
 		/**
 		 * Calculate remaining time for all uploads to complete.
 		 *
-		 * @param fraction	fraction of progress to show
-		 * @return {number} estimated time remaining (in milliseconds)
+		 * @param {number} fraction Fraction of progress to show
+		 * @return {number} Estimated time remaining (in milliseconds)
 		 */
 		getRemainingTime: function ( fraction ) {
 			var elapsedTime, rate;
@@ -172,7 +172,7 @@
 		/**
 		 * Show the overall count as we upload
 		 *
-		 * @param count  -- the number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
+		 * @param {number} count The number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 		 */
 		showCount: function ( count ) {
 			this.$selector

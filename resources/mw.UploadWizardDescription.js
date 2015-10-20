@@ -2,8 +2,9 @@
 	/**
 	 * Object that represents an indvidual language description, in the details portion of Upload Wizard
 	 *
-	 * @param languageCode -- string
-	 * @param required -- boolean -- the first description is required and should be validated and displayed a bit differently
+	 * @param {string} languageCode
+	 * @param {boolean} required The first description is required and should be validated and displayed a bit differently
+	 * @param {string} [initialValue] If set, an initial value to which to set the language.
 	 */
 	mw.UploadWizardDescription = function ( languageCode, required, initialValue ) {
 		var errorLabelDiv, fieldnameDiv;

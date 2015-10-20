@@ -60,9 +60,9 @@
 		 * retrieved, do nothing. Note that the license look-up system is fragile on purpose. If Flickr
 		 * changes the name associated with a license ID, it's better for the lookup to fail than to use
 		 * an incorrect license.
-		 * @param url - the source URL to check
-		 * @param $selector - the element to insert the license name into
-		 * @param upload - the upload object to set the deed for
+		 * @param {string} url The source URL to check
+		 * @param {string} $selector The element to insert the license name into
+		 * @param {UploadWizardUpload} upload The upload object to set the deed for
 		 */
 		checkFlickr: function ( flickrInputUrl ) {
 			var photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
@@ -182,7 +182,7 @@
 		/**
 		 * Retrieves a list of photos in group pool and displays it.
 		 *
-		 * @param groupPoolMatches result of `this.url.match`
+		 * @param {object} groupPoolMatches Result of `this.url.match`
 		 * @see {@link getPhotos}
 		 */
 		getGroupPool: function ( groupPoolMatches ) {
@@ -215,9 +215,9 @@
 		/**
 		 * Constructs an unordered list of sets in the collection.
 		 *
-		 * @param appendId true if you want to append
+		 * @param {boolean} appendId True if you want to append
 		 * id="mwe-upwiz-files-collection-chooser"; false otherwise
-		 * @param data the retrieved data
+		 * @param {Object} data The retrieved data
 		 * @see {@link getCollection}
 		 */
 		buildCollectionLinks: function ( appendId, data ) {
@@ -257,7 +257,7 @@
 		/**
 		 * Retrieves a list of sets in a collection and displays it.
 		 *
-		 * @param userCollectionMatches result of this.url.match
+		 * @param {Object} userCollectionMatches Result of this.url.match
 		 */
 		getCollection: function ( userCollectionMatches ) {
 			var that = this;
@@ -300,7 +300,7 @@
 		/**
 		 * Retrieves a list of photos in photoset and displays it.
 		 *
-		 * @param albumIdMatches result of this.url.match
+		 * @param {Object} albumIdMatches Result of this.url.match
 		 * @see {@link getPhotos}
 		 */
 		getPhotoset: function ( albumIdMatches ) {
@@ -618,7 +618,7 @@
 		/**
 		 * Retrieve the URL of the largest version available on Flickr and set that
 		 * as the upload URL.
-		 * @param index Index of the image we need to set the URL for
+		 * @param {number} index Index of the image for which we need to set the URL
 		 */
 		setImageURL: function ( index ) {
 			var largestSize,

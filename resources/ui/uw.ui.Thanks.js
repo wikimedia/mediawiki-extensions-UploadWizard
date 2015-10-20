@@ -191,8 +191,8 @@
 
 	/**
 	 * Drops a parameter from the given url
-	 * @param url
-	 * @param paramName parameter to be dropped
+	 * @param {string} url URL from which to drop a parameter
+	 * @param {string} paramName parameter to be dropped
 	 * @return {string}
 	 * @private
 	 */
