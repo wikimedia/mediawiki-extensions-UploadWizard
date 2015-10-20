@@ -10,9 +10,6 @@
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
-	 * @class mw.UploadWizardUpload
-	 * @mixins OO.EventEmitter
-	 * @constructor
 	 * Constructor for objects representing uploads. The workhorse of this entire extension.
 	 *
 	 * The upload knows nothing of other uploads. It manages its own interface, and transporting its own data, to
@@ -22,6 +19,9 @@
 	 * There is an "empty" fileInput which is invisibly floating above certain buttons in the interface, like "Add a file". When
 	 * this fileInput gets a file, this upload becomes 'filled'.
 	 *
+	 * @class mw.UploadWizardUpload
+	 * @mixins OO.EventEmitter
+	 * @constructor
 	 * @param {UploadWizard} wizard
 	 * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads
 	 */

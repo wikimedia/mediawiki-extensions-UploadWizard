@@ -60,7 +60,7 @@
 
 		assert.ok( xhr );
 
-		// @TODO there may not be a good way to test events on the XHR,
+		// TODO there may not be a good way to test events on the XHR,
 		// but if such a way crops up later, test 'progress' and 'abort' here.
 	} );
 
@@ -70,7 +70,7 @@
 
 		assert.ok( fd );
 
-		// @TODO ARGH APPARENTLY there is no way to access the properties of a
+		// TODO ARGH APPARENTLY there is no way to access the properties of a
 		// FormData object, so until we can figure THAT out, this is incomplete.
 	} );
 

@@ -1,10 +1,10 @@
 ( function ( mw, uw, $, OO ) {
 
 	/**
+	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 * @param upload
 	 * @param div to insert file interface
 	 */

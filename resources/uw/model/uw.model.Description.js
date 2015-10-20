@@ -51,7 +51,7 @@
 
 	/**
 	 * Gets the wikitext value of the description.
-	 * @returns {string}
+	 * @return {string}
 	 */
 	uw.model.Description.prototype.getValue = function () {
 		// Assume that form validation has already told the user to

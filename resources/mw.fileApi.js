@@ -15,8 +15,8 @@
 		 * Check if this is a recognizable image type...
 		 * Also excludes files over 10M to avoid going insane on memory usage.
 		 *
-		 * @todo is there a way we can ask the browser what's supported in <img>s?
-		 * @todo put SVG back after working around Firefox 7 bug <https://bugzilla.wikimedia.org/show_bug.cgi?id=31643>
+		 * TODO is there a way we can ask the browser what's supported in <img>s?
+		 * TODO put SVG back after working around Firefox 7 bug <https://bugzilla.wikimedia.org/show_bug.cgi?id=31643>
 		 *
 		 * @param {File} file
 		 * @return boolean

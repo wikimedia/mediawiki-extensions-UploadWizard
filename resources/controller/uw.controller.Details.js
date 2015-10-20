@@ -87,7 +87,7 @@
 
 	/**
 	 * Start details submit.
-	 * @TODO move the rest of the logic here from mw.UploadWizard
+	 * TODO move the rest of the logic here from mw.UploadWizard
 	 */
 	uw.controller.Details.prototype.startDetails = function () {
 		var details = this;

@@ -77,8 +77,8 @@
 	};
 
 	/**
-	 * @protected
 	 * Logs arbitrary data. This is for internal use, you should call one of the more specific functions.
+	 * @protected
 	 * @param {string} schema EventLogger schema name
 	 * @param {object} data event data (without flowId)
 	 */

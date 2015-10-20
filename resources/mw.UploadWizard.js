@@ -541,7 +541,7 @@
 	 * jQuery extension. Makes a textarea automatically grow if you enter overflow
 	 * Stolen implementation from OOJS-UI. Thanks guys.
 	 *
-	 * @TODO Just use OOJS-UI for this instead of copying their code.
+	 * TODO Just use OOJS-UI for this instead of copying their code.
 	 */
 	jQuery.fn.growTextArea = function () {
 		function resizeIfNeeded() {
