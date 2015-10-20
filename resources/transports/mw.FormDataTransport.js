@@ -56,7 +56,7 @@
 	/**
 	 * Creates an XHR and sets some generic event handlers on it.
 	 * @param {jQuery.Deferred} deferred Object to send events to.
-	 * @return XMLHttpRequest
+	 * @return {XMLHttpRequest}
 	 */
 	mw.FormDataTransport.prototype.createXHR = function ( deferred ) {
 		var xhr = new XMLHttpRequest(),
@@ -77,7 +77,7 @@
 	 * Creates a FormData object suitable for upload.
 	 * @param {string} filename
 	 * @param {number} [offset] For chunked uploads
-	 * @return FormData
+	 * @return {FormData}
 	 */
 	mw.FormDataTransport.prototype.createFormData = function ( filename, offset ) {
 		var formData;

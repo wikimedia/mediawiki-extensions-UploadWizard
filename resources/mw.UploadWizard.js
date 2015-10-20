@@ -248,7 +248,7 @@
 		 *   and UI for the upload itself and the "details" at the second step of the wizard.
 		 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
 		 *
-		 * @return the new upload
+		 * @return {UploadWizardUpload|false} the new upload
 		 */
 		newUpload: function () {
 			var upload,

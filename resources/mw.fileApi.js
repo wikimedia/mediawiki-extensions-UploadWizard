@@ -19,7 +19,7 @@
 		 * TODO put SVG back after working around Firefox 7 bug <https://bugzilla.wikimedia.org/show_bug.cgi?id=31643>
 		 *
 		 * @param {File} file
-		 * @return boolean
+		 * @return {boolean}
 		 */
 		isPreviewableFile: function ( file ) {
 			var	known = [ 'image/png', 'image/gif', 'image/jpeg' ],
@@ -31,7 +31,7 @@
 		 * Check if this is a recognizable video type...
 		 *
 		 * @param {File} file
-		 * @return boolean
+		 * @return {boolean}
 		 */
 		isPreviewableVideo: function ( file ) {
 			var video = document.createElement( 'video' );

@@ -122,7 +122,7 @@
 		/**
 		 * defer adding rules until it's in a form
 		 *
-		 * @return validator
+		 * @return {Object|false} validator
 		 */
 		addValidationRules: function ( required ) {
 			// Make sure the keyup event doesn't bubble...we don't care

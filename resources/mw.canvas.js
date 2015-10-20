@@ -2,7 +2,7 @@
 
 	mw.canvas = {
 		/**
-		 * @return boolean
+		 * @return {boolean}
 		 */
 		isAvailable: function () {
 			return !!( document.createElement( 'canvas' ).getContext );

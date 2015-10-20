@@ -155,7 +155,7 @@
 		 * Calculate remaining time for all uploads to complete.
 		 *
 		 * @param fraction	fraction of progress to show
-		 * @return estimated time remaining (in milliseconds)
+		 * @return {number} estimated time remaining (in milliseconds)
 		 */
 		getRemainingTime: function ( fraction ) {
 			var elapsedTime, rate;

@@ -59,7 +59,7 @@
 		/**
 		 * Get wikitext representing the licenses selected in the license object
 		 *
-		 * @return wikitext of all applicable license templates.
+		 * @return {string} wikitext of all applicable license templates.
 		 */
 		getLicenseWikiText: function () {
 			return this.licenseInput.getWikiText();
@@ -106,7 +106,7 @@
 			/**
 			 * Is this correctly set, with side effects of causing errors to show in interface.
 			 *
-			 * @return boolean true if valid, false if not
+			 * @return {boolean} true if valid, false if not
 			 */
 			valid: function () {
 				// n.b. valid() has side effects and both should be called every time the function is called.
@@ -429,7 +429,7 @@
 			 * this is exactly the same as the ownwork valid() function... hopefully we can reduce these to nothing if we make
 			 * all validators work the same.
 			 *
-			 * @return boolean true if valid, false if not
+			 * @return {boolean} true if valid, false if not
 			 */
 			valid: function () {
 				// n.b. valid() has side effects and both should be called every time the function is called.
@@ -519,7 +519,7 @@
 		/**
 		 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
 		 *
-		 * @return boolean; true if valid, false if not
+		 * @return {boolean} true if valid, false if not
 		 */
 		valid: function () {
 			// we assume there is always a deed available, even if it's just the null deed.

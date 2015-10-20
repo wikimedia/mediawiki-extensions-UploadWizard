@@ -431,7 +431,7 @@
 
 		/**
 		 * Gets the wikitext associated with all selected inputs. Some inputs also have associated textareas so we append their contents too.
-		 * @return string of wikitext (empty string if no inputs set)
+		 * @return {string} of wikitext (empty string if no inputs set)
 		 */
 		getWikiText: function () {
 			var input = this,
@@ -477,7 +477,7 @@
 		 * Side effect: if no valid value, add error notices to the interface. Add listeners to interface, to revalidate and remove notices
 		 * If I was sufficiently clever, most of these could just be dynamically added & subtracted validation rules.
 		 * Instead this is a bit of a recapitulation of jquery.validate
-		 * @return boolean; true if a value set and all is well, false otherwise
+		 * @return {boolean} true if a value set and all is well, false otherwise
 		 */
 		valid: function () {
 			var input = this,
@@ -535,7 +535,7 @@
 
 		/**
 		 * Returns true if any license is set
-		 * @return boolean
+		 * @return {boolean}
 		 */
 		isSet: function () {
 			return this.getSelectedInputs().length > 0;

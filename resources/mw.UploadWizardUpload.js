@@ -786,7 +786,7 @@
 
 	/**
 	 * Get the upload handler per browser capabilities
-	 * @return upload handler object
+	 * @return {ApiUploadHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
 		var constructor;  // must be the name of a function in 'mw' namespace

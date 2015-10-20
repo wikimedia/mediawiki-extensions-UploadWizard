@@ -87,7 +87,7 @@
 		 *
 		 * @param name	desired name of select element
 		 * @param code	selected language code
-		 * @return HTML	select element configured as desired
+		 * @return {HTML} select element configured as desired
 		 */
 		getMenu: function ( name, code ) {
 			var $select;
@@ -133,7 +133,7 @@
 		 *
 		 * @param code	A string representing a language code, which we may or may not have.
 		 *				Expected to be separated with dashes as codes from ISO 639, e.g. "zh-tw" for Chinese ( Traditional )
-		 * @return a language code which is close to the supplied parameter, or fall back to mw.LanguageUpWiz.defaultCode
+		 * @return {string} a language code which is close to the supplied parameter, or fall back to mw.LanguageUpWiz.defaultCode
 		 */
 		getClosest: function ( code ) {
 			mw.LanguageUpWiz.initialize();
