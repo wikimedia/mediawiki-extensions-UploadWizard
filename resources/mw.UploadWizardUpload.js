@@ -110,7 +110,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.start = function () {
-		this.setTransportProgress(0.0);
+		this.setTransportProgress( 0.0 );
 
 		// handler -- usually ApiUploadHandler
 		this.handler = this.getUploadHandler();
@@ -405,7 +405,7 @@
 			totalSize = 0;
 			$.each( files, function ( i, file ) {
 				totalSize += file.size;
-			});
+			} );
 
 			toobig = totalSize > 10000000;
 
@@ -743,7 +743,7 @@
 				}
 			}
 
-			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> No data matching ' + requestedTitle + ' ? ');
+			mw.log.warn( 'mw.UploadWizardUpload::getImageInfo> No data matching ' + requestedTitle + ' ? ' );
 			callback( null );
 		}
 
@@ -787,7 +787,7 @@
 			var constructor;  // must be the name of a function in 'mw' namespace
 			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
-			} else if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable()) {
+			} else if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable() ) {
 				constructor = 'ApiUploadFormDataHandler';
 			} else {
 				constructor = 'ApiUploadHandler';
@@ -973,8 +973,8 @@
 		height = image.height * scaling;
 
 		// Determine the offset required to center the image
-		dx = (constraints.width - width) / 2;
-		dy = (constraints.height - height) / 2;
+		dx = ( constraints.width - width ) / 2;
+		dy = ( constraints.height - height ) / 2;
 
 		switch ( rotation ) {
 			// If a rotation is applied, the direction of the axis
@@ -1145,12 +1145,12 @@
 				first = true;
 				video = document.createElement( 'video' );
 
-				video.addEventListener('loadedmetadata', function () {
-					//seek 2 seconds into video or to half if shorter
+				video.addEventListener( 'loadedmetadata', function () {
+					// seek 2 seconds into video or to half if shorter
 					video.currentTime = Math.min( 2, video.duration / 2 );
 					video.volume = 0;
-				});
-				video.addEventListener('seeked', function () {
+				} );
+				video.addEventListener( 'seeked', function () {
 					// Firefox 16 sometimes does not work on first seek, seek again
 					if ( first ) {
 						first = false;
@@ -1159,7 +1159,7 @@
 					} else {
 						// Chrome sometimes shows black frames if grabbing right away.
 						// wait 500ms before grabbing frame
-						setTimeout(function () {
+						setTimeout( function () {
 							var context,
 								canvas = document.createElement( 'canvas' );
 							canvas.width = 100;
@@ -1168,9 +1168,9 @@
 							context.drawImage( video, 0, 0, canvas.width, canvas.height );
 							upload.loadImage( canvas.toDataURL() );
 							upload.URL().revokeObjectURL( video.url );
-						}, 500);
+						}, 500 );
 					}
-				});
+				} );
 				url = this.URL().createObjectURL( this.file );
 				video.src = url;
 			} else {

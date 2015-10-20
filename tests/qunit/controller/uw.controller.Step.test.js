@@ -28,7 +28,7 @@
 		var tostub, promise,
 			donestub = this.sandbox.stub(),
 			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],
-			ps = [ ds[0 ].promise(), ds[ 1 ].promise(), ds[ 2 ].promise() ],
+			ps = [ ds[ 0 ].promise(), ds[ 1 ].promise(), ds[ 2 ].promise() ],
 			calls = [],
 			step = new uw.controller.Step( { on: $.noop }, {
 				maxSimultaneousConnections: 3

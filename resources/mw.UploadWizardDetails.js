@@ -47,9 +47,9 @@
 			);
 
 		// Commons specific help for titles
-		//	https://commons.wikimedia.org/wiki/Commons:File_naming
-		//	https://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
-		//	XXX make sure they can't use ctrl characters or returns or any other bad stuff.
+		//  https://commons.wikimedia.org/wiki/Commons:File_naming
+		//  https://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
+		// XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 		this.titleId = 'title' + this.upload.index;
 		this.titleInput = this.makeTextInput( this.titleId, 'title', undefined, 250 )
 			.keyup( function () {
@@ -57,7 +57,7 @@
 			} )
 			.destinationChecked( {
 				api: this.upload.api,
-				spinner: function (bool) { details.toggleDestinationBusy(bool); },
+				spinner: function ( bool ) { details.toggleDestinationBusy( bool ); },
 				preprocess: function ( name ) {
 					var cleanTitle;
 
@@ -100,7 +100,7 @@
 		makeAndAppendTitleErrorLabel( 'mwe-upwiz-error-title-unique mwe-upwiz-validation-delayed' );
 		makeAndAppendTitleErrorLabel( 'mwe-upwiz-error-recovery mwe-upwiz-validation-delayed' );
 
-		titleContainerDiv = $('<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>')
+		titleContainerDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
 			.append(
 				this.titleErrorDiv,
 				$( '<div class="mwe-upwiz-details-fieldname"></div>' )
@@ -112,7 +112,7 @@
 
 		this.deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
 
-		this.copyrightInfoFieldset = $('<fieldset class="mwe-fieldset mwe-upwiz-copyright-info"></fieldset>')
+		this.copyrightInfoFieldset = $( '<fieldset class="mwe-fieldset mwe-upwiz-copyright-info"></fieldset>' )
 			.hide()
 			.append(
 				$( '<legend class="mwe-legend">' ).text( mw.message( 'mwe-upwiz-copyright-info' ).text() ),
@@ -139,7 +139,7 @@
 
 		dateInputId = 'dateInput' + ( this.upload.index ).toString();
 
-		dateErrorDiv = $('<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>');
+		dateErrorDiv = $( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>' );
 
 		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'
 		this.dateInputWidgetToggler = new OO.ui.ButtonSelectWidget( {
@@ -172,7 +172,7 @@
 
 		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
 
-		moreDetailsDiv = $('<div class="mwe-more-details"></div>');
+		moreDetailsDiv = $( '<div class="mwe-more-details"></div>' );
 
 		otherInformationId = 'otherInformation' + this.upload.index;
 		this.otherInformationInput = $( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea" rows="2" cols="36"></textarea>' )
@@ -182,7 +182,7 @@
 				return false;
 			} );
 
-		otherInformationDiv = $('<div>')
+		otherInformationDiv = $( '<div>' )
 			.append( $( '<div class="mwe-upwiz-details-more-label"></div>' ).text( mw.message( 'mwe-upwiz-other' ).text() ).addHint( 'other' ) )
 			.append( this.otherInformationInput );
 
@@ -336,7 +336,7 @@
 			$fieldInput.rules( 'add', {
 				required: $fieldInput.data( 'field' ).required,
 				messages: {
-					required: mw.message( 'mwe-upwiz-error-blank').escaped()
+					required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
 				}
 			} );
 		} );
@@ -646,7 +646,7 @@
 							moreInfo.click();
 						}
 					}
-				});
+				} );
 			}
 
 			function oouiCopy( property, methods ) {
@@ -676,7 +676,7 @@
 				// number in the title. Note: We ignore numbers with more than three digits, because these
 				// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
 				// numbers.
-				$( 'input[id^=title]:not(#title' + sourceId + ')' ).each( function (i) {
+				$( 'input[id^=title]:not(#title' + sourceId + ')' ).each( function ( i ) {
 					var currentTitle = $( this ).val();
 					currentTitle = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 						function ( str, m1, m2, m3 ) {
@@ -702,7 +702,7 @@
 								languageCode = srcDescription.getLanguage(),
 								allowRemoval = !isRequired,
 								descriptionText = srcDescription.getDescriptionText();
-							upload.details.addDescription ( isRequired, languageCode, allowRemoval, descriptionText );
+							upload.details.addDescription( isRequired, languageCode, allowRemoval, descriptionText );
 						} );
 					}
 				} );
@@ -749,7 +749,7 @@
 					if ( field.wikitext ) {
 						simpleCopy( 'field_' + i + '_', elementType );
 					}
-				});
+				} );
 
 			} else {
 				throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
@@ -1301,7 +1301,7 @@
 				}
 
 				// Prefill useful stuff only
-				if ( Number( m.gpslatitude ) && Number ( m.gpslongitude ) ) {
+				if ( Number( m.gpslatitude ) && Number( m.gpslongitude ) ) {
 					this.$latitudeInput.val( m.gpslatitude );
 					this.$longitudeInput.val( m.gpslongitude );
 				} else if (
@@ -1407,7 +1407,7 @@
 				// sanity check the descriptions -- do not have two in the same lang
 				// all should be a known lang
 				if ( this.descriptions.length === 0 ) {
-					window.alert('something has gone horribly wrong, unimplemented error check for zero descriptions');
+					window.alert( 'something has gone horribly wrong, unimplemented error check for zero descriptions' );
 					// XXX ruh roh
 					// we should not even allow them to press the button ( ? ) but then what about the queue...
 				}
@@ -1442,7 +1442,7 @@
 				longitude = $.trim( this.$longitudeInput.val() );
 				heading = $.trim( this.$headingInput.val() );
 
-				if ( Number( latitude ) && Number ( longitude ) ) {
+				if ( Number( latitude ) && Number( longitude ) ) {
 					locationThings = [ '{{Location dec', latitude, longitude ];
 
 					if ( Number( heading ) ) {
@@ -1536,7 +1536,7 @@
 			var params, wikiText,
 				details = this;
 
-			$('form', this.containerDiv).submit();
+			$( 'form', this.containerDiv ).submit();
 
 			this.upload.state = 'submitting-details';
 			this.setStatus( mw.message( 'mwe-upwiz-submitting-details' ).text() );
@@ -1601,10 +1601,10 @@
 					if ( result.upload.stage === undefined && window.console ) {
 						return $.Deferred().reject( 'no-stage', 'Unable to check file\'s status' );
 					} else {
-						//Messages that can be returned:
-						// *mwe-upwiz-queued
-						// *mwe-upwiz-publish
-						// *mwe-upwiz-assembling
+						// Messages that can be returned:
+						// * mwe-upwiz-queued
+						// * mwe-upwiz-publish
+						// * mwe-upwiz-assembling
 						this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
 						setTimeout( function () {
 							if ( details.upload.state !== 'aborted' ) {
@@ -1850,7 +1850,7 @@
 		setCleanTitle: function ( s ) {
 			var ext = this.upload.title.getExtension(),
 				re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' ),
-				cleaned = $.trim( s.replace( re, '').replace( /\.+$/g, '' ) );
+				cleaned = $.trim( s.replace( re, '' ).replace( /\.+$/g, '' ) );
 			this.upload.title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + ext ) || this.upload.title;
 			return this.upload.title;
 		},
@@ -1866,4 +1866,4 @@
 		return this.optional( elem ) || mw.Title.newFromText( $.trim( s ) );
 	} );
 
-}) ( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

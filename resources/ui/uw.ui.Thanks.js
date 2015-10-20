@@ -128,7 +128,7 @@
 						$( '<br />' ),
 						this.makeReadOnlyInput( thumbWikiText )
 					),
-				$('<p/>').text( mw.message( 'mwe-upwiz-thanks-url' ).text() )
+				$( '<p/>' ).text( mw.message( 'mwe-upwiz-thanks-url' ).text() )
 					.append(
 						$( '<br />' ),
 						this.makeReadOnlyInput( upload.imageinfo.descriptionurl )

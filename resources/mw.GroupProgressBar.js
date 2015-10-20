@@ -76,9 +76,9 @@
 					if ( $.inArray( upload.state, bar.errorStates ) !== -1 ) {
 						errorStateCount++;
 					}
-					if (upload[ bar.progressProperty ] !== undefined) {
+					if ( upload[ bar.progressProperty ] !== undefined ) {
 						fraction += upload[ bar.progressProperty ] * ( upload[ bar.weightProperty ] / totalWeight );
-						if (upload[ bar.progressProperty ] > 0 ) {
+						if ( upload[ bar.progressProperty ] > 0 ) {
 							hasData = true;
 						}
 					}

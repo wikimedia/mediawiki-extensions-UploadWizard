@@ -66,16 +66,16 @@
 		 */
 		checkFlickr: function ( flickrInputUrl ) {
 			this.url = flickrInputUrl;
-			var photoIdMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/),
-				albumIdMatches = this.url.match(/flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/),
-				userCollectionMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/),
-				userPhotostreamMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/),
-				groupPoolMatches = this.url.match(/flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/),
-				userGalleryMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/),
-				userFavoritesMatches = this.url.match(/flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/);
+			var photoIdMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/ ),
+				albumIdMatches = this.url.match( /flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/ ),
+				userCollectionMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/ ),
+				userPhotostreamMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/ ),
+				groupPoolMatches = this.url.match( /flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/ ),
+				userGalleryMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/ ),
+				userFavoritesMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/ );
 			if ( photoIdMatches === null ) {
 				// try static urls
-				photoIdMatches = this.url.match(/static\.?flickr\.com\/[^\/]+\/([0-9]+)_/);
+				photoIdMatches = this.url.match( /static\.?flickr\.com\/[^\/]+\/([0-9]+)_/ );
 			}
 			if ( albumIdMatches || photoIdMatches || userCollectionMatches || userPhotostreamMatches ||
 				groupPoolMatches || userGalleryMatches || userFavoritesMatches ) {

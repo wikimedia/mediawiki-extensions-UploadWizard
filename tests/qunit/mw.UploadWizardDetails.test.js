@@ -40,4 +40,4 @@
 			);
 		} );
 	} );
-} ( mediaWiki, jQuery ) );
+}( mediaWiki, jQuery ) );

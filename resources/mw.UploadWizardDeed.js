@@ -195,7 +195,7 @@
 				$crossfader = $( '<div />' ).append( $standardDiv );
 
 				if ( this.showCustomDiv ) {
-					$customDiv = $('<div />').append(
+					$customDiv = $( '<div />' ).append(
 						$( '<label for="author" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
@@ -214,7 +214,7 @@
 						.msg( 'mwe-upwiz-license-show-all' )
 						.click( function () {
 							thisDeed.formValidator.resetForm();
-							if ( $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0) ) {
+							if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
 								thisDeed.licenseInput.setDefaultValues();
 								$crossfader.morphCrossfade( $standardDiv );
 								$( this ).msg( 'mwe-upwiz-license-show-all' );
@@ -240,7 +240,7 @@
 						var thisInput = this,
 							thisVal = $( thisInput ).val();
 						$.each( $formFields.find( '.mwe-upwiz-sign' ), function ( i, input ) {
-							if (thisInput !== input) {
+							if ( thisInput !== input ) {
 								$( input ).val( thisVal );
 							}
 						} );
@@ -254,7 +254,7 @@
 				rules = {
 					author2: {
 						required: function () {
-							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $standardDiv.get(0);
+							return $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $standardDiv.get( 0 );
 						},
 						minlength: config.minAuthorLength,
 						maxlength: config.maxAuthorLength
@@ -275,7 +275,7 @@
 
 					rules.author = {
 						required: function () {
-							return $crossfader.data( 'crossfadeDisplay' ).get(0) === $customDiv.get(0);
+							return $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 );
 						},
 						minlength: config.minAuthorLength,
 						maxlength: config.maxAuthorLength
@@ -315,10 +315,10 @@
 			deed = new mw.UploadWizardDeed();
 
 		deed.uploadCount = uploadCount ? uploadCount : 1;
-		deed.sourceInput = $('<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
+		deed.sourceInput = $( '<textarea class="mwe-source mwe-long-textarea" name="source" rows="1" cols="40"></textarea>' )
 					.attr( 'id', 'mwe-source-' + deed.getInstanceCount() )
 					.growTextArea();
-		deed.authorInput = $('<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
+		deed.authorInput = $( '<textarea class="mwe-author mwe-long-textarea" name="author" rows="1" cols="40"></textarea>' )
 					.attr( 'id', 'mwe-author-' + deed.getInstanceCount() )
 					.growTextArea();
 		licenseInputDiv = $( '<div class="mwe-upwiz-deed-license-groups"></div>' );
@@ -347,7 +347,7 @@
 					$formFields.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
 				}
 
-				$formFields.append (
+				$formFields.append(
 					$( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
 					$( '<label generated="true" class="mwe-validator-error" style="display: block;" />' )
 						.attr( 'for', 'mwe-source-' + this.getInstanceCount() ),
@@ -518,7 +518,7 @@
 			var valid = this.deed.valid();
 			// the only time we need to set an error message is if the null deed is selected.
 			// otherwise, we can assume that the widgets have already added error messages.
-			if (valid) {
+			if ( valid ) {
 				this.hideError();
 			}
 			return valid;
@@ -562,8 +562,8 @@
 			$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
 				var $form = $( form ),
 					originalResetForm = $.fn.resetForm;
-				$.each( $form.find('.mwe-upwiz-hint'), function ( i, hint ) {
-					$( hint ).tipsy('hide');
+				$.each( $form.find( '.mwe-upwiz-hint' ), function ( i, hint ) {
+					$( hint ).tipsy( 'hide' );
 				} );
 				// Remove errors
 				if ( originalResetForm ) {
@@ -607,7 +607,7 @@
 		},
 
 		remove: function () {
-			this.$selector.html('');
+			this.$selector.html( '' );
 		}
 
 	}; // end UploadWizardDeed.prototype

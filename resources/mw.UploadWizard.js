@@ -519,10 +519,10 @@
 				.attr( attrs )
 				.click( function () {
 					if ( !this.displayed ) {
-						$ ( this ).tipsy( 'show' );
+						$( this ).tipsy( 'show' );
 						this.displayed = true;
 					} else {
-						$ ( this ).tipsy( 'hide' );
+						$( this ).tipsy( 'hide' );
 						this.displayed = false;
 					}
 					return false;
@@ -539,7 +539,7 @@
 	 */
 	jQuery.fn.growTextArea = function () {
 		function resizeIfNeeded() {
-		// Begin stolen code from OOJS-UI's TextInputWidget.prototype.adjustSize
+			// Begin stolen code from OOJS-UI's TextInputWidget.prototype.adjustSize
 			var $clone, scrollHeight, innerHeight, outerHeight, maxInnerHeight, measurementError, idealHeight,
 				$this = $( this );
 

@@ -18,13 +18,13 @@
 
 		// may need to collaborate with the particular upload type sometimes
 		// for the interface, as well as the uploadwizard. OY.
-		this.$div = $('<div class="mwe-upwiz-file"></div>');
-		this.div = this.$div.get(0);
+		this.$div = $( '<div class="mwe-upwiz-file"></div>' );
+		this.div = this.$div.get( 0 );
 
 		this.isFilled = false;
 
 		this.$fileInputCtrl = $( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
-		if (mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
+		if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
 			mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
 			// Multiple uploads requires the FormData transport
 			this.$fileInputCtrl.attr( 'multiple', '1' );
@@ -34,7 +34,7 @@
 
 		this.$indicator = $( '<div class="mwe-upwiz-file-indicator"></div>' );
 
-		this.visibleFilenameDiv = $('<div class="mwe-upwiz-visible-file"></div>')
+		this.visibleFilenameDiv = $( '<div class="mwe-upwiz-visible-file"></div>' )
 			.append( this.$indicator )
 			.append(
 				'<div class="mwe-upwiz-visible-file-filename">' +
@@ -71,14 +71,14 @@
 
 		// Add show thumbnail control
 
-		//this.errorDiv = $('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
+		// this.errorDiv = $('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
 
-		this.filenameCtrl = $('<input type="hidden" name="filename" value=""/>').get(0);
+		this.filenameCtrl = $( '<input type="hidden" name="filename" value=""/>' ).get( 0 );
 
 		// this file Ctrl container is placed over other interface elements, intercepts clicks and gives them to the file input control.
 		// however, we want to pass hover events to interface elements that we are over, hence the bindings.
 		// n.b. not using toggleClass because it often gets this event wrong -- relies on previous state to know what to do
-		this.fileCtrlContainer = $('<div class="mwe-upwiz-file-ctrl-container">');
+		this.fileCtrlContainer = $( '<div class="mwe-upwiz-file-ctrl-container">' );
 
 		// the css trickery (along with css)
 		// here creates a giant size file input control which is contained within a div and then
@@ -302,7 +302,7 @@
 			if ( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
 				files[ 0 ] = this.providedFile;
 			} else {
-				$.each( this.$fileInputCtrl.get(0).files, function ( i, file ) {
+				$.each( this.$fileInputCtrl.get( 0 ).files, function ( i, file ) {
 					files.push( file );
 				} );
 			}
@@ -316,7 +316,7 @@
 	 * @return {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
-		if ( this.providedFile && !this.$fileInputCtrl.get(0).value ) {  // default to the fileinput if it's defined.
+		if ( this.providedFile && !this.$fileInputCtrl.get( 0 ).value ) {  // default to the fileinput if it's defined.
 			if ( this.providedFile.fileName ) {
 				return this.providedFile.fileName;
 			} else {
@@ -324,7 +324,7 @@
 				return this.providedFile.name;
 			}
 		} else {
-			var input = this.$fileInputCtrl.get(0);
+			var input = this.$fileInputCtrl.get( 0 );
 			// On IE 11, input.value is incorrect for <input type=file multiple>, like we're using here;
 			// the input.files interface is reliable. (T88223#1595320)
 			if ( input.files && input.files[ 0 ] && input.files[ 0 ].name ) {
@@ -416,7 +416,7 @@
 		if ( mw.UploadWizard.config.enableFirefogg &&
 			$.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
 		) {
-			$errorMessage = $( '<p>' ).msg('mwe-upwiz-upload-error-bad-extension-video-firefogg',
+			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-extension-video-firefogg',
 					mw.Firefogg.getFirefoggInstallUrl(),
 					'https://commons.wikimedia.org/wiki/Help:Converting_video'
 				);
@@ -552,7 +552,7 @@
 			ui = this,
 			path = this.getFilename();
 		// get basename of file; some browsers do this C:\fakepath\something
-		path = path.replace(/\w:.*\\(.*)$/, '$1');
+		path = path.replace( /\w:.*\\(.*)$/, '$1' );
 
 		// visible filename
 		$( this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).text( mw.UploadWizard.sanitizeFilename( path ) );
@@ -593,7 +593,7 @@
 				$( '#mwe-upwiz-filelist' )
 					.children()
 					.filter( function () { return this !== ui.div; } )
-					.removeClass('hover');
+					.removeClass( 'hover' );
 			} );
 			$div.bind( 'mouseleave mouseout', function () {
 				$div.removeClass( 'hover' );
@@ -610,7 +610,7 @@
 	 * XXX this should be changed to something Theme compatible
 	 */
 	mw.UploadWizardUploadInterface.prototype.clearErrors = function () {
-		$( this.div ).removeClass( 'mwe-upwiz-upload-error ');
+		$( this.div ).removeClass( 'mwe-upwiz-upload-error ' );
 		$( this.errorDiv ).hide().empty();
 	};
 
@@ -645,7 +645,7 @@
 					.siblings()
 					.find( '.imgPicker' )
 					.prop( 'checked', false );
-				} ),
+			} ),
 
 			$( '<label>' ).attr( {
 				'for': 'imgPicker' + index

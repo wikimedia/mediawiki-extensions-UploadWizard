@@ -35,4 +35,4 @@
 		assert.strictEqual( eventLog.logEvent.firstCall.args[ 1 ].flowId,
 			eventLog.logEvent.thirdCall.args[ 1 ].flowId, 'flowId is constant' );
 	} );
-} ( mediaWiki, mediaWiki.uploadWizard ) );
+}( mediaWiki, mediaWiki.uploadWizard ) );

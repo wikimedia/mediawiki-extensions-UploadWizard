@@ -66,7 +66,7 @@
 		 * @param something
 		 * @return that same thing
 		 */
-		preprocess: function (x) { return x; },
+		preprocess: function ( x ) { return x; },
 
 		/**
 		 * fire when the input changes value or keypress
@@ -113,7 +113,7 @@
 					status.blacklist = result.blacklist;
 				}
 
-				//$.extend( status, result );
+				// $.extend( status, result );
 				if ( status.unique !== null && status.blacklist !== null ) {
 					status.title = title;
 					checker.processResult( status );

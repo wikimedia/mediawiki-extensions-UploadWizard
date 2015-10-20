@@ -10,8 +10,8 @@
 	function getInstance() {
 		var wizard = new mw.UploadWizard( {} ),
 		// FlickrChecker doesn't actually do much with the upload so we can omit some of its dependencies
-			upload = new mw.UploadWizardUpload( wizard);
-		return new mw.FlickrChecker(wizard, upload);
+			upload = new mw.UploadWizardUpload( wizard );
+		return new mw.FlickrChecker( wizard, upload );
 	}
 
 	QUnit.test( 'getFilenameFromItem() simple case', 1, function () {
@@ -90,4 +90,4 @@
 		assert.ok( !sidstub.called );
 		assert.strictEqual( upload.description, '' );
 	} );
-} ( mediaWiki ) );
+}( mediaWiki ) );

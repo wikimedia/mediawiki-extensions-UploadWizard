@@ -132,9 +132,9 @@
 		// use timestamp + filename to avoid conflicts on server
 		this.tempname = ( new Date() ).getTime().toString() + mw.UploadWizard.sanitizeFilename( file.name );
 		// remove unicode characters, tempname is only used during upload
-		this.tempname = this.tempname.split('').map(function (c) {
-			return c.charCodeAt(0) > 128 ? '_' : c;
-		}).join('');
+		this.tempname = this.tempname.split( '' ).map( function ( c ) {
+			return c.charCodeAt( 0 ) > 128 ? '_' : c;
+		} ).join( '' );
 		// Also limit length to 240 bytes (limit hardcoded in UploadBase.php).
 		if ( this.tempname.length > 240 ) {
 			ext = this.tempname.split( '.' ).pop();
@@ -148,10 +148,10 @@
 			this.xhr = this.createXHR( deferred );
 			this.xhr.addEventListener( 'load', function ( evt ) {
 				deferred.resolve( transport.parseResponse( evt ) );
-			}, false);
+			}, false );
 			this.xhr.addEventListener( 'error', function ( evt ) {
 				deferred.reject( transport.parseResponse( evt ) );
-			}, false);
+			}, false );
 
 			formData = this.createFormData( this.tempname );
 			formData.append( 'file', file );
@@ -181,14 +181,14 @@
 			}
 			return;
 		}
-		//Slice API was changed and has vendor prefix for now
-		//new version now require start/end and not start/length
-		if (file.mozSlice) {
-			chunk = file.mozSlice(offset, offset + this.chunkSize, file.type);
-		} else if (file.webkitSlice) {
-			chunk = file.webkitSlice(offset, offset + this.chunkSize, file.type);
+		// Slice API was changed and has vendor prefix for now
+		// new version now require start/end and not start/length
+		if ( file.mozSlice ) {
+			chunk = file.mozSlice( offset, offset + this.chunkSize, file.type );
+		} else if ( file.webkitSlice ) {
+			chunk = file.webkitSlice( offset, offset + this.chunkSize, file.type );
 		} else {
-			chunk = file.slice(offset, offset + this.chunkSize, file.type);
+			chunk = file.slice( offset, offset + this.chunkSize, file.type );
 		}
 
 		this.xhr = this.createXHR( deferred );
@@ -202,14 +202,14 @@
 			formData.append( 'async', true );
 		}
 
-		if (this.filekey) {
-			formData.append('filekey', this.filekey);
+		if ( this.filekey ) {
+			formData.append( 'filekey', this.filekey );
 		}
-		formData.append('filesize', bytesAvailable);
-		if (this.insufficientFormDataSupport) {
-			formData.appendBlob('chunk', chunk, 'chunk.bin');
+		formData.append( 'filesize', bytesAvailable );
+		if ( this.insufficientFormDataSupport ) {
+			formData.appendBlob( 'chunk', chunk, 'chunk.bin' );
 		} else {
-			formData.append('chunk', chunk);
+			formData.append( 'chunk', chunk );
 		}
 
 		this.sendData( this.xhr, formData );
@@ -321,18 +321,18 @@
 			return;
 		}
 
-		if (!this.firstPoll) {
+		if ( !this.firstPoll ) {
 			this.firstPoll = ( new Date() ).getTime();
 		}
-		$.each(this.formData, function (key, value) {
+		$.each( this.formData, function ( key, value ) {
 			params[ key ] = value;
-		});
+		} );
 		params.checkstatus =  true;
 		params.filekey =  this.filekey;
 		return this.api.post( params )
 			.then( function ( response ) {
 				if ( response.upload && response.upload.result === 'Poll' ) {
-					//If concatenation takes longer than 10 minutes give up
+					// If concatenation takes longer than 10 minutes give up
 					if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
 						return $.Deferred().reject( {
 							code: 'server-error',
@@ -343,7 +343,7 @@
 							window.console.log( 'Unable to check file\'s status' );
 							return $.Deferred().reject();
 						} else {
-							//Statuses that can be returned:
+							// Statuses that can be returned:
 							// * queued
 							// * publish
 							// * assembling
@@ -366,7 +366,7 @@
 		var response;
 
 		try {
-			response = $.parseJSON(evt.target.responseText);
+			response = $.parseJSON( evt.target.responseText );
 		} catch ( e ) {
 			response = {
 				error: {
@@ -390,7 +390,7 @@
 		builder += dashdash + boundary + crlf;
 
 		formData = {
-			append: function (name, data) {
+			append: function ( name, data ) {
 				// Generate headers.
 				builder += 'Content-Disposition: form-data; name="' + name + '"';
 				builder += crlf;
@@ -403,7 +403,7 @@
 				// Write boundary.
 				builder += dashdash + boundary + crlf;
 			},
-			appendFile: function (name, data, type, filename) {
+			appendFile: function ( name, data, type, filename ) {
 				builder += 'Content-Disposition: form-data; name="' + name + '"';
 				builder += '; filename="' + filename + '"';
 				builder += crlf;
@@ -418,23 +418,23 @@
 				// Write boundary.
 				builder += dashdash + boundary + crlf;
 			},
-			appendBlob: function (name, blob, filename) {
+			appendBlob: function ( name, blob, filename ) {
 				chunksRemaining++;
 				var reader = new FileReader();
-				reader.onload = function (e) {
-					formData.appendFile(name, e.target.result,
-										blob.type, filename);
+				reader.onload = function ( e ) {
+					formData.appendFile( name, e.target.result,
+										blob.type, filename );
 					// Call onload after last Blob
 					chunksRemaining--;
-					if (!chunksRemaining && formData.xhr) {
+					if ( !chunksRemaining && formData.xhr ) {
 						onload();
 					}
 				};
-				reader.readAsBinaryString(blob);
+				reader.readAsBinaryString( blob );
 			},
-			send: function (xhr) {
+			send: function ( xhr ) {
 				formData.xhr = xhr;
-				if (!chunksRemaining) {
+				if ( !chunksRemaining ) {
 					onload();
 				}
 			}
@@ -448,7 +448,7 @@
 				'Content-type',
 				'multipart/form-data; boundary=' + boundary
 			);
-			formData.xhr.sendAsBinary(builder);
+			formData.xhr.sendAsBinary( builder );
 		};
 		return formData;
 	};

@@ -93,7 +93,7 @@
 		if ( config.defaults && config.defaults[ 0 ] ) {
 			this.defaults = config.defaults;
 		} else if ( config.licenses && config.licenses[ 0 ] ) {
-			this.defaults = [ config.licenses[0 ] ];
+			this.defaults = [ config.licenses[ 0 ] ];
 		}
 
 		mw.UploadWizardLicenseInput.prototype.count++;
@@ -184,7 +184,7 @@
 				if ( mw.UploadWizard.config.licenses[ licenseName ] !== undefined ) {
 					var $customDiv,
 						license = { name: licenseName, props: mw.UploadWizard.config.licenses[ licenseName ] },
-						templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice(0),
+						templates = license.props.templates === undefined ? [ license.name ] : license.props.templates.slice( 0 ),
 						$input = input.createInputElement( templates, config ),
 						$label = input.createInputElementLabel( license, $input );
 
@@ -225,7 +225,7 @@
 				templates.unshift( config.template );
 				templates = [ templates.join( '|' ) ];
 			}
-			var wikiTexts = $.map( templates, function (t) { return '{{' + t + '}}'; } );
+			var wikiTexts = $.map( templates, function ( t ) { return '{{' + t + '}}'; } );
 			return wikiTexts.join( '' );
 		},
 
@@ -285,7 +285,7 @@
 				} );
 			}
 			return $( '<label />' )
-				.attr( { 'for': $input.attr('id') } )
+				.attr( { 'for': $input.attr( 'id' ) } )
 				.msg( messageKey, this.count || 0, licenseLink )
 				.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
 		},
@@ -437,8 +437,8 @@
 		/**
 		 * Get the value of a particular input
 		 */
-		getInputWikiText: function ( $input) {
-			return $input.val() + '\n' + this.getInputTextAreaVal($input);
+		getInputWikiText: function ( $input ) {
+			return $input.val() + '\n' + this.getInputTextAreaVal( $input );
 		},
 
 		/**
@@ -459,7 +459,7 @@
 		 */
 		getSelectedInputs: function () {
 			// not sure why filter(':checked') doesn't work
-			return $( this.inputs ).filter( function (i, $x) { return $x.is(':checked'); } );
+			return $( this.inputs ).filter( function ( i, $x ) { return $x.is( ':checked' ); } );
 		},
 
 		/**
@@ -481,7 +481,7 @@
 				// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 				// But also check that associated textareas are filled for if the input is selected, and that
 				// they are the appropriate size.
-				$.each( selectedInputs, function (i, $input) {
+				$.each( selectedInputs, function ( i, $input ) {
 					if ( !$input.data( 'textarea' ) ) {
 						return;
 					}

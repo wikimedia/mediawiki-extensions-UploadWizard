@@ -126,7 +126,7 @@
 		this.log( 'UploadWizardErrorFlowEvent', {
 			step: step,
 			code: data.code,
-			message: String(data.message) // could be a function which kills EventLogging
+			message: String( data.message ) // could be a function which kills EventLogging
 		} );
 	};
 

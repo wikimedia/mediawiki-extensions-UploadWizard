@@ -111,7 +111,7 @@
 
 			/* Pre select the 'code' language */
 			if ( code !== undefined && mw.LanguageUpWiz.checkForLang( code ) ) {
-				$select.val( mw.LanguageUpWiz.getClosest( code ));
+				$select.val( mw.LanguageUpWiz.getClosest( code ) );
 			}
 
 			return $select.get( 0 );
@@ -141,7 +141,7 @@
 			} else if ( mw.LanguageUpWiz.codes[ code ] !== undefined ) {
 				return code;
 			}
-			return mw.LanguageUpWiz.getClosest( code.substring( 0, code.indexOf( '-' )) );
+			return mw.LanguageUpWiz.getClosest( code.substring( 0, code.indexOf( '-' ) ) );
 		}
 	};
 }( mediaWiki, jQuery ) );

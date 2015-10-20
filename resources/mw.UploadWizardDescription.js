@@ -25,10 +25,10 @@
 
 		// Logic copied from MediaWiki:UploadForm.js
 		// Per request from Portuguese and Brazilian users, treat Brazilian Portuguese as Portuguese.
-		if (languageCode === 'pt-br') {
+		if ( languageCode === 'pt-br' ) {
 			languageCode = 'pt';
 		// this was also in UploadForm.js, but without the heartwarming justification
-		} else if (languageCode === 'en-gb') {
+		} else if ( languageCode === 'en-gb' ) {
 			languageCode = 'en';
 		}
 
@@ -50,7 +50,7 @@
 		}
 
 		// descriptions
-		this.div = $('<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
+		this.div = $( '<div class="mwe-upwiz-details-descriptions-container ui-helper-clearfix"></div>' )
 				.append( errorLabelDiv, fieldnameDiv, this.languageMenu, this.input );
 
 		this.description = new uw.model.Description( languageCode, initialValue, mw.UploadWizard.config.languageTemplateFixups );
@@ -98,7 +98,7 @@
 		 * @param {string} ietfLanguageTag the selector should be set to
 		 */
 		setLanguage: function ( ietfLanguageTag ) {
-			$( this.languageMenu ).val( ietfLanguageTag.replace(/_/g, '-').toLowerCase() );
+			$( this.languageMenu ).val( ietfLanguageTag.replace( /_/g, '-' ).toLowerCase() );
 		},
 
 		/**

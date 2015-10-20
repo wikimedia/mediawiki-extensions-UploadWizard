@@ -67,7 +67,7 @@
 			if ( this.upload.file ) {
 				this.getFogg().setInput( this.upload.file );
 
-				//This is required to get the right requestedTitle in UploadWizardUpload
+				// This is required to get the right requestedTitle in UploadWizardUpload
 				title = this.getTransport().getFileName();
 
 				this.upload.setTitle( title );

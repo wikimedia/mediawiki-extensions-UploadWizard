@@ -3,16 +3,9 @@
 
 	"disallowImplicitTypeConversion": null,
 	"disallowNewlineBeforeBlockStatements": null,
-	"disallowSpacesInCallExpression": null,
 	"jsDoc": null,
 	"requireDotNotation": null,
-	"requireSpaceAfterLineComment": null,
-	"requireSpaceBeforeKeywords": null,
-	"requireSpaceBeforeObjectValues": null,
-	"requireSpacesInsideBrackets": null,
-	"requireSpacesInsideParentheses": null,
 	"requireVarDeclFirst": null,
-	"validateIndentation": null,
 
 	"excludeFiles": [ "resources/jquery/**" ]
 }

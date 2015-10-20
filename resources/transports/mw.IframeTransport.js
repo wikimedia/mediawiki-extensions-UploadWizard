@@ -24,7 +24,7 @@
 
 		this.iframeId = 'f_' + ( $( 'iframe' ).length + 1 );
 
-		//IE only works if you "create element with the name" ( not jquery style )
+		// IE only works if you "create element with the name" ( not jquery style )
 		try {
 			iframe = document.createElement( '<iframe name="' + this.iframeId + '">' );
 		} catch ( ex ) {
@@ -92,7 +92,7 @@
 
 			// check that the JSON is not an XML error message
 			// (this happens when user aborts upload, we get the API docs in XML wrapped in HTML)
-			if ( json && json.substring(0, 5) !== '<?xml' ) {
+			if ( json && json.substring( 0, 5 ) !== '<?xml' ) {
 				response = $.parseJSON( json );
 			} else {
 				response = {};

@@ -21,7 +21,7 @@
 		var fileToUpload = this.fileToUpload,
 			deferred = $.Deferred();
 
-		//Encode or passthrough Firefogg before upload
+		// Encode or passthrough Firefogg before upload
 		if ( this.isUploadFormat() ) {
 			return $.Deferred().resolve( fileToUpload );
 		}
@@ -30,12 +30,12 @@
 
 		this.fogg.encode( JSON.stringify( this.getEncodeSettings() ),
 			function ( result, file ) {
-				result = JSON.parse(result);
+				result = JSON.parse( result );
 				if ( result.progress === 1 ) {
-					//encoding done
+					// encoding done
 					deferred.resolve( file );
 				} else {
-					//encoding failed
+					// encoding failed
 					deferred.reject( {
 						error: {
 							code: 500,
@@ -107,11 +107,11 @@
 		var contentType = this.getSourceFileInfo().contentType;
 		return contentType.indexOf( 'video/ogg' ) !== -1 ||
 			contentType.indexOf( 'application/ogg' ) !== -1 ||
-			contentType.indexOf( 'audio/ogg') !== -1;
+			contentType.indexOf( 'audio/ogg' ) !== -1;
 	};
 
 	mw.FirefoggTransport.prototype.isWebMFormat = function () {
-		return ( this.getSourceFileInfo().contentType.indexOf('webm') !== -1 );
+		return ( this.getSourceFileInfo().contentType.indexOf( 'webm' ) !== -1 );
 	};
 
 	/**
@@ -138,11 +138,11 @@
 			return this.fogg.sourceFilename;
 		} else {
 			if ( this.isSourceAudio() ) {
-				return this.fogg.sourceFilename.split('.').slice(0, -1).join('.') + '.oga';
+				return this.fogg.sourceFilename.split( '.' ).slice( 0, -1 ).join( '.' ) + '.oga';
 			}
 			if ( this.isSourceVideo() ) {
 				var ext = this.getEncodeExt();
-				return this.fogg.sourceFilename.split('.').slice(0, -1).join('.') + '.' + ext;
+				return this.fogg.sourceFilename.split( '.' ).slice( 0, -1 ).join( '.' ) + '.' + ext;
 			}
 		}
 	};
