@@ -32,6 +32,7 @@
 	 * Since UploadWizard is currently implemented as a single-page application, this is just
 	 * a number regenerated on every pageview. It's stored as a string to avoid overflow problems
 	 * on the backend.
+	 *
 	 * @private
 	 * @return {string}
 	 */
@@ -49,6 +50,7 @@
 	 * Returns a number identifying this event's position in the event flow.
 	 * (I.e. (flowId, flowPosition) will uniquely identify an event, with the positions for a given
 	 * flowId going 1..N.)
+	 *
 	 * @private
 	 * @return {number}
 	 */
@@ -59,6 +61,7 @@
 
 	/**
 	 * Does the work of logging a step.
+	 *
 	 * @private
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
 	 * @param {boolean} [skipped=false]
@@ -78,6 +81,7 @@
 
 	/**
 	 * Logs arbitrary data. This is for internal use, you should call one of the more specific functions.
+	 *
 	 * @protected
 	 * @param {string} schema EventLogger schema name
 	 * @param {object} data event data (without flowId)
@@ -93,6 +97,7 @@
 
 	/**
 	 * Logs entering into a given step of the upload process.
+	 *
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
 	 * @param {Object} [extraData] Extra data to pass along in the log.
 	 */
@@ -102,6 +107,7 @@
 
 	/**
 	 * Logs skipping a given step of the upload process.
+	 *
 	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
 	 */
 	uw.EventFlowLogger.prototype.logSkippedStep = function ( step ) {
@@ -110,6 +116,7 @@
 
 	/**
 	 * Logs an event.
+	 *
 	 * @param {string} name Event name. Recognized names:
 	 *  - upload-button-clicked
 	 *  - flickr-upload-button-clicked
@@ -132,6 +139,7 @@
 
 	/**
 	 * Logs an upload event.
+	 *
 	 * @param {string} name Event name. Recognized names:
 	 *  - upload-started
 	 *  - upload-succeeded

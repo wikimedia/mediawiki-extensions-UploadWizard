@@ -79,6 +79,7 @@
 
 	/**
 	 * Manually fill the file input with a file.
+	 *
 	 * @param {File} providedFile
 	 */
 	mw.UploadWizardUpload.prototype.fill = function ( providedFile ) {
@@ -107,6 +108,7 @@
 
 	/**
 	 * start
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.start = function () {
@@ -135,6 +137,7 @@
 
 	/**
 	 * Wear our current progress, for observing processes to see
+	 *
 	 * @param {number} fraction
 	 */
 	mw.UploadWizardUpload.prototype.setTransportProgress = function ( fraction ) {
@@ -171,6 +174,7 @@
 
 	/**
 	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details
+	 *
 	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
@@ -266,6 +270,7 @@
 	/**
 	 * Helper function to generate duplicate errors in a possibly collapsible list.
 	 * Works with existing duplicates and deleted dupes.
+	 *
 	 * @param {string} code Error code, should have matching strings in .i18n.php
 	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
 	 * @return {jQuery}
@@ -319,6 +324,7 @@
 
 	/**
 	 * Called from any upload success condition
+	 *
 	 * @param {Mixed} result -- result of AJAX call
 	 */
 	mw.UploadWizardUpload.prototype.setSuccess = function ( result ) {
@@ -358,6 +364,7 @@
 
 	/**
 	 * Shows a filename error in the UI.
+	 *
 	 * @param {string} code Short code for i18n strings
 	 * @param {string} info More information
 	 */
@@ -554,6 +561,7 @@
 
 	/**
 	 * Sanitize and set the title of the upload.
+	 *
 	 * @param {string} title Unsanitized title.
 	 */
 	mw.UploadWizardUpload.prototype.setTitle = function ( title ) {
@@ -569,6 +577,7 @@
 
 	/**
 	 * Shows an error dialog informing the user that the selected file is to large
+	 *
 	 * @param {number} size Size of the file in bytes
 	 * @param {number} maxSize Maximum file size
 	 */
@@ -587,6 +596,7 @@
 
 	/**
 	 * Map fields from jpegmeta's metadata return into our format (which is more like the imageinfo returned from the API
+	 *
 	 * @param {Object} (as returned by jpegmeta)
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function ( meta ) {
@@ -645,6 +655,7 @@
 	 * Extract image info into our upload object
 	 * Image info is obtained from various different API methods
 	 * This may overwrite metadata obtained from FileReader.
+	 *
 	 * @param {Object} imageinfo JSON object obtained from API result.
 	 */
 	mw.UploadWizardUpload.prototype.extractImageInfo = function ( imageinfo ) {
@@ -674,7 +685,9 @@
 
 	/**
 	 * Get information about stashed images
+	 *
 	 * See API documentation for prop=stashimageinfo for what 'props' can contain
+	 *
 	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
 	 * @param {Array} properties to extract
 	 * @param {number} optional, width of thumbnail. Will force 'url' to be added to props
@@ -724,6 +737,7 @@
 	 * Get information about published images
 	 * (There is some overlap with getStashedImageInfo, but it's different at every stage so it's clearer to have separate functions)
 	 * See API documentation for prop=imageinfo for what 'props' can contain
+	 *
 	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
 	 * @param {Array} properties to extract
 	 * @param {number} optional, width of thumbnail. Will force 'url' to be added to props
@@ -786,6 +800,7 @@
 
 	/**
 	 * Get the upload handler per browser capabilities
+	 *
 	 * @return {ApiUploadHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
@@ -897,6 +912,7 @@
 	/**
 	 * Return the orientation of the image in degrees. Relies on metadata that
 	 * may have been extracted at filereader stage, or after the upload when we fetch metadata. Default returns 0.
+	 *
 	 * @return {Integer} orientation in degrees: 0, 90, 180 or 270
 	 */
 	mw.UploadWizardUpload.prototype.getOrientationDegrees = function () {
@@ -927,6 +943,7 @@
 
 	/**
 	 * Fit an image into width & height constraints with scaling factor
+	 *
 	 * @param {HTMLImageElement}
 	 * @param {Object} with width & height properties
 	 * @return {number}
@@ -948,6 +965,7 @@
 	/**
 	 * Given an image (already loaded), dimension constraints
 	 * return canvas object scaled & transformedi ( & rotated if metadata indicates it's needed )
+	 *
 	 * @param {HTMLImageElement}
 	 * @param {Object} containing width & height constraints
 	 * @return {HTMLCanvasElement}
@@ -1020,6 +1038,7 @@
 
 	/**
 	 * Return a browser-scaled image element, given an image and constraints.
+	 *
 	 * @param {HTMLImageElement}
 	 * @param {Object} with width and height properties
 	 * @return {HTMLImageElement} with same src, but different attrs
@@ -1039,6 +1058,7 @@
 
 	/**
 	 * Return an element suitable for the preview of a certain size. Uses canvas when possible
+	 *
 	 * @param {HTMLImageElement}
 	 * @param {Integer} width
 	 * @param {Integer} height
@@ -1072,6 +1092,7 @@
 
 		/**
 		 * This callback will add an image to the selector, using in-browser scaling if necessary
+		 *
 		 * @param {HTMLImageElement|null}
 		 */
 		function placeImageCallback( image ) {

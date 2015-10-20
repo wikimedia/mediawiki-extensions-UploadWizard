@@ -18,6 +18,7 @@
 ( function ( $, uw ) {
 	/**
 	 * Represents the UI for a thumbnail in the Deed step.
+	 *
 	 * @class uw.ui.DeedPreview
 	 * @constructor
 	 * @param {mw.UploadWizardUpload} upload

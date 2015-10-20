@@ -18,6 +18,7 @@
 ( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents a generic UI for a step.
+	 *
 	 * @class mw.uw.ui.Step
 	 * @mixins OO.EventEmitter
 	 * @constructor
@@ -35,6 +36,7 @@
 
 	/**
 	 * Move to the step.
+	 *
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.ui.Step.prototype.moveTo = function ( uploads ) {

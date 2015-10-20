@@ -60,6 +60,7 @@
 		 * retrieved, do nothing. Note that the license look-up system is fragile on purpose. If Flickr
 		 * changes the name associated with a license ID, it's better for the lookup to fail than to use
 		 * an incorrect license.
+		 *
 		 * @param {string} url The source URL to check
 		 * @param {string} $selector The element to insert the license name into
 		 * @param {UploadWizardUpload} upload The upload object to set the deed for
@@ -618,6 +619,7 @@
 		/**
 		 * Retrieve the URL of the largest version available on Flickr and set that
 		 * as the upload URL.
+		 *
 		 * @param {number} index Index of the image for which we need to set the URL
 		 */
 		setImageURL: function ( index ) {

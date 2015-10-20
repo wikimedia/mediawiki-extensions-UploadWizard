@@ -54,6 +54,7 @@
 
 	/**
 	 * Accessor function
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	mw.IframeTransport.prototype.getSetUpStatus = function () {
@@ -108,6 +109,7 @@
 
 	/**
 	 * Start the upload.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	mw.IframeTransport.prototype.upload = function () {

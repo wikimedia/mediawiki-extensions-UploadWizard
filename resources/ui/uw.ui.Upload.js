@@ -18,6 +18,7 @@
 ( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Upload step.
+	 *
 	 * @class uw.ui.Upload
 	 * @extends uw.ui.Step
 	 * @constructor
@@ -140,6 +141,7 @@
 
 	/**
 	 * Updates the interface based on the number of uploads.
+	 *
 	 * @param {boolean} haveUploads Whether there are any uploads at all.
 	 * @param {boolean} fewerThanMax Whether we can add more uploads.
 	 */
@@ -281,6 +283,7 @@
 	/**
 	 * Shows an error dialog informing the user that some uploads have been omitted
 	 * since they went over the max files limit.
+	 *
 	 * @param {number} filesUploaded The number of files that have been attempted to upload
 	 */
 	uw.ui.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
@@ -298,6 +301,7 @@
 
 	/**
 	 * Checks whether flickr import is enabled and the current user has the rights to use it
+	 *
 	 * @return {Boolean}
 	 */
 	uw.ui.Upload.prototype.isFlickrImportEnabled = function () {

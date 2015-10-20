@@ -51,6 +51,7 @@
 
 	/**
 	 * Gets the wikitext value of the description.
+	 *
 	 * @return {string}
 	 */
 	uw.model.Description.prototype.getValue = function () {
@@ -66,6 +67,7 @@
 
 	/**
 	 * Sets the language.
+	 *
 	 * @param {string} language
 	 */
 	uw.model.Description.prototype.setLanguage = function ( language ) {
@@ -84,6 +86,7 @@
 
 	/**
 	 * Sets the text.
+	 *
 	 * @param {string} text
 	 */
 	uw.model.Description.prototype.setText = function ( text ) {

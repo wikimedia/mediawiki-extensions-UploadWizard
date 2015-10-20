@@ -241,6 +241,7 @@
 
 		/**
 		 * Return a radio button or checkbox with appropriate values, depending on config
+		 *
 		 * @param {Array} of template strings
 		 * @param {Object} config for this license input
 		 * @return {jQuery} wrapped input
@@ -270,6 +271,7 @@
 
 		/**
 		 * Get a label for the form element
+		 *
 		 * @param {Object} license definition from global config. Will tell us the messages, and maybe icons.
 		 * @param {jQuery} wrapped input
 		 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
@@ -303,6 +305,7 @@
 		/**
 		 * Given an input, return another textarea to be appended below.
 		 * When text entered here, auto-selects the input.
+		 *
 		 * @param {jQuery} wrapped input
 		 * @return {jQuery} wrapped textarea
 		 */
@@ -374,6 +377,7 @@
 		/**
 		 * Sets the value(s) of a license input. This is a little bit klugey because it relies on an inverted dict, and in some
 		 * cases we are now letting license inputs create multiple templates.
+		 *
 		 * @param {object} values License-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
 		 */
 		setValues: function ( values ) {
@@ -431,6 +435,7 @@
 
 		/**
 		 * Gets the wikitext associated with all selected inputs. Some inputs also have associated textareas so we append their contents too.
+		 *
 		 * @return {string} of wikitext (empty string if no inputs set)
 		 */
 		getWikiText: function () {
@@ -453,6 +458,7 @@
 
 		/**
 		 * Get the value of the associated textarea, if any
+		 *
 		 * @return {string}
 		 */
 		getInputTextAreaVal: function ( $input ) {
@@ -465,6 +471,7 @@
 
 		/**
 		 * Gets which inputs have user-entered values
+		 *
 		 * @return {jQuery Array} of inputs
 		 */
 		getSelectedInputs: function () {
@@ -477,6 +484,7 @@
 		 * Side effect: if no valid value, add error notices to the interface. Add listeners to interface, to revalidate and remove notices
 		 * If I was sufficiently clever, most of these could just be dynamically added & subtracted validation rules.
 		 * Instead this is a bit of a recapitulation of jquery.validate
+		 *
 		 * @return {boolean} true if a value set and all is well, false otherwise
 		 */
 		valid: function () {
@@ -535,6 +543,7 @@
 
 		/**
 		 * Returns true if any license is set
+		 *
 		 * @return {boolean}
 		 */
 		isSet: function () {
@@ -543,6 +552,7 @@
 
 		/**
 		 * Preview wikitext in a popup window
+		 *
 		 * @param {string} wikitext
 		 */
 		showPreview: function ( wikiText ) {

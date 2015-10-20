@@ -1,10 +1,10 @@
 ( function ( mw, $, OO ) {
 	/**
-	 * @class mw.FormDataTransport
 	 * Represents a "transport" for files to upload; using HTML5 FormData.
-	 * @mixins OO.EventEmitter
 	 *
 	 * @constructor
+	 * @class mw.FormDataTransport
+	 * @mixins OO.EventEmitter
 	 * @param {string} postUrl URL to post to.
 	 * @param {Object} formData Additional form fields required for upload api call
 	 * @param {Object} [config]
@@ -55,6 +55,7 @@
 
 	/**
 	 * Creates an XHR and sets some generic event handlers on it.
+	 *
 	 * @param {jQuery.Deferred} deferred Object to send events to.
 	 * @return {XMLHttpRequest}
 	 */
@@ -75,6 +76,7 @@
 
 	/**
 	 * Creates a FormData object suitable for upload.
+	 *
 	 * @param {string} filename
 	 * @param {number} [offset] For chunked uploads
 	 * @return {FormData}
@@ -108,6 +110,7 @@
 
 	/**
 	 * Sends data in a FormData object through an XHR.
+	 *
 	 * @param {XMLHttpRequest} xhr
 	 * @param {FormData} formData
 	 */
@@ -123,6 +126,7 @@
 
 	/**
 	 * Start the upload with the provided file.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.upload = function ( file ) {
@@ -164,6 +168,7 @@
 
 	/**
 	 * Upload a single chunk.
+	 *
 	 * @param {File} file
 	 * @param {number} offset Offset in bytes.
 	 * @return {jQuery.Promise}
@@ -258,6 +263,7 @@
 
 	/**
 	 * Handle possible retry event - rejected if maximum retries already fired.
+	 *
 	 * @param {string} contextMsg
 	 * @param {Object} response
 	 * @param {string} retryMethod
@@ -279,6 +285,7 @@
 
 	/**
 	 * Have we retried too many times already?
+	 *
 	 * @return {boolean}
 	 */
 	mw.FormDataTransport.prototype.tooManyRetries = function () {
@@ -287,6 +294,7 @@
 
 	/**
 	 * Either retry uploading or checking the status.
+	 *
 	 * @param {'uploadChunk'|'checkStatus'} methodName
 	 * @param {File} [file]
 	 * @param {number} [offset]
@@ -311,6 +319,7 @@
 
 	/**
 	 * Check the status of the upload.
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.checkStatus = function () {
@@ -359,6 +368,7 @@
 
 	/**
 	 * Parse response from the server.
+	 *
 	 * @param {Event} evt
 	 * @return {Object}
 	 */

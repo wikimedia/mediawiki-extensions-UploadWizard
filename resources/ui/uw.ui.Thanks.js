@@ -18,6 +18,7 @@
 ( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Thanks step.
+	 *
 	 * @class uw.ui.Thanks
 	 * @extends mw.uw.ui.Step
 	 * @constructor
@@ -90,6 +91,7 @@
 
 	/**
 	 * Adds an upload to the Thanks interface.
+	 *
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.ui.Thanks.prototype.addUpload = function ( upload ) {
@@ -154,6 +156,7 @@
 
 	/**
 	 * Make a read only text input, which self-selects on gaining focus
+	 *
 	 * @param {string} text it will contain
 	 * @return {jQuery}
 	 */
@@ -177,6 +180,7 @@
 
 	/**
 	 * Get button configuration options from a campaign definition
+	 *
 	 * @param {string} buttonName name of the button as defined in campaign configuration
 	 * @param {string} configField name of the button's attributes
 	 * @return {Object|undefined}
@@ -191,6 +195,7 @@
 
 	/**
 	 * Drops a parameter from the given url
+	 *
 	 * @param {string} url URL from which to drop a parameter
 	 * @param {string} paramName parameter to be dropped
 	 * @return {string}

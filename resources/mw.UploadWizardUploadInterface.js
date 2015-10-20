@@ -2,6 +2,7 @@
 
 	/**
 	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
+	 *
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
 	 * @constructor
@@ -129,6 +130,7 @@
 
 	/**
 	 * Manually fill the file input with a file.
+	 *
 	 * @param {File} providedFile
 	 */
 	mw.UploadWizardUploadInterface.prototype.fill = function ( providedFile ) {
@@ -141,7 +143,8 @@
 	};
 
 	/**
-	 * change the graphic indicator at the far end of the row for this file
+	 * Change the graphic indicator at the far end of the row for this file
+	 *
 	 * @param {string} statusClass Corresponds to a class mwe-upwiz-status which changes style of indicator.
 	 */
 	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( statusClass ) {
@@ -164,6 +167,7 @@
 
 	/**
 	 * Set the preview image on the file page for this upload.
+	 *
 	 * @param {HTMLImageElement} image
 	 */
 	mw.UploadWizardUploadInterface.prototype.setPreview = function ( image ) {
@@ -178,6 +182,7 @@
 
 	/**
 	 * Set the status line for this upload with an internationalized message string.
+	 *
 	 * @param {string} msgKey Key for the message
 	 * @param {array} args Array of values, in case any need to be fed to the image.
 	 */
@@ -193,6 +198,7 @@
 
 	/**
 	 * Set status line directly with a string
+	 *
 	 * @param {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( s ) {
@@ -201,6 +207,7 @@
 
 	/**
 	 * Set additional status information
+	 *
 	 * @param {jQuery} [$status] If not given or null, additional status is cleared
 	 */
 	mw.UploadWizardUploadInterface.prototype.setAdditionalStatus = function ( $status ) {
@@ -223,6 +230,7 @@
 
 	/**
 	 * Put the visual state of an individual upload into "progress"
+	 *
 	 * @param {number} fraction The fraction of progress. Float between 0 and 1
 	 */
 	mw.UploadWizardUploadInterface.prototype.showTransportProgress = function () {
@@ -249,6 +257,7 @@
 
 	/**
 	 * Show that transport has failed
+	 *
 	 * @param {string} code Error code from API
 	 * @param {string|Object} info Extra info
 	 * @param {jQuery} [$additionalStatus]
@@ -296,6 +305,7 @@
 
 	/**
 	 * Get a list of the files from this file input, defaulting to the value from the input form
+	 *
 	 * @return {Array} of File objects
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFiles = function () {
@@ -315,6 +325,7 @@
 
 	/**
 	 * Get just the filename.
+	 *
 	 * @return {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
@@ -341,6 +352,7 @@
 	 * Run this when the value of the file input has changed and we know it's acceptable -- this
 	 * will update interface to show as much info as possible, including preview.
 	 * n.b. in older browsers we only will know the filename
+	 *
 	 * @param {Object} imageinfo
 	 * @param {File} file
 	 * @param {boolean} fromURL
@@ -473,6 +485,7 @@
 	 * or otherwise get it to do what you want.
 	 * It is helpful to sometimes move them to cover certain elements on the page, and
 	 * even to pass events like hover
+	 *
 	 * @param {string} selector A jQuery-compatible selector, for a single element
 	 * @param {string} [positionTracking] Whether to do position-polling ('poll')
 	 *	 on the selected element or whether to listen to window-resize events ('resize')
@@ -619,6 +632,7 @@
 
 	/**
 	* Create a checkbox to process the object reference parameter
+	*
 	* @param {number} index Number of the file for which the field is being created
 	* @param {boolean} setDisabled Disable in case there already is an image in the referring list
 	* @return {jQuery} A `div` containing a checkbox, label, and optional notice

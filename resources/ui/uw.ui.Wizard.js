@@ -18,6 +18,7 @@
 ( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard.
+	 *
 	 * @class mw.uw.ui.Wizard
 	 * @mixins OO.EventEmitter
 	 * @constructor
@@ -80,6 +81,7 @@
 
 	/**
 	 * Initializes a link to the alternate upload form, if any.
+	 *
 	 * @param {Object|string} configAltUploadForm A link or map of languages to links, pointing at an alternate form.
 	 */
 	uw.ui.Wizard.prototype.initAltUploadForm = function ( configAltUploadForm ) {

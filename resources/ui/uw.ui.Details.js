@@ -18,6 +18,7 @@
 ( function ( mw, $, uw, OO ) {
 	/**
 	 * Represents the UI for the wizard's Details step.
+	 *
 	 * @class uw.ui.Details
 	 * @extends uw.ui.Step
 	 * @constructor

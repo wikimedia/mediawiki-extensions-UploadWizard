@@ -1,6 +1,7 @@
 ( function ( mw, $ ) {
 	/**
 	 * Represents a "transport" for files to upload; in this case using Firefogg.
+	 *
 	 * @class mw.FirefoggTransport
 	 * @constructor
 	 * @param {File} file
@@ -15,6 +16,7 @@
 
 	/**
 	 * Do an upload
+	 *
 	 * @return {jQuery.Promise}
 	 */
 	mw.FirefoggTransport.prototype.upload = function () {
