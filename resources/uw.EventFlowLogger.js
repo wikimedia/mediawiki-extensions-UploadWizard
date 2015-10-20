@@ -84,7 +84,7 @@
 	 *
 	 * @protected
 	 * @param {string} schema EventLogger schema name
-	 * @param {object} data event data (without flowId)
+	 * @param {Object} data event data (without flowId)
 	 */
 	uw.EventFlowLogger.prototype.log = function ( schema, data ) {
 		if ( !this.eventLog ) {
@@ -146,7 +146,7 @@
 	 *  - upload-failed
 	 *  - upload-removed
 	 *  - uploads-added
-	 * @param {object} data
+	 * @param {Object} data
 	 * @param {string} data.extension file extension
 	 * @param {number} data.quantity number of files added
 	 * @param {number} data.size file size in bytes (will be anonymized)

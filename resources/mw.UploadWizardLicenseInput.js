@@ -164,15 +164,16 @@
 		 *
 		 * Abstracts out simple lists of licenses, more complex groups with layout
 		 *
-		 * @param {jQuery} selector to add inputs to
-		 * @param {Array} license configuration, which must have a 'licenses' property, which is an array of license names
-		 *			it may also have: 'prependTemplates' or 'template', which alter the final wikitext value
-		 *			'prependTemplates' will prepend Templates. If prependTemplates were [ 'pre', 'pended' ], then...
-		 *				[ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
-		 *			'template' will filter Templates, as in "own work". If 'filterTemplate' was 'filter', then...
-		 *				[ 'fooLicense', 'barLicense' ] -> {{filter|fooLicense|barLicense}}
-		 * @param {jQuery} optional - jquery-wrapped element created by $.fn.collapseToggle(), which has 'close' and 'open'
-		 *			methods in its data.
+		 * @param {jQuery} $el Selector to which to add inputs
+		 * @param {Array} config License configuration, which must have a 'licenses' property, which is
+		 *   an array of license names. It may also have:
+		 *  * 'prependTemplates' or 'template', which alter the final wikitext value
+		 *	* 'prependTemplates' will prepend Templates. If prependTemplates were [ 'pre', 'pended' ],
+		 *    then [ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
+		 *  * 'template' will filter Templates, as in "own work". If 'filterTemplate' was 'filter',
+		 *    then  [ 'fooLicense', 'barLicense' ] -> {{filter|fooLicense|barLicense}}
+		 * @param {jQuery} [$groupToggler] A jquery-wrapped element created by $.fn.collapseToggle(),
+		 *   which has 'close' and 'open' methods in its data.
 		 *
 		 */
 		createInputs: function ( $el, config, $groupToggler ) {
@@ -220,8 +221,8 @@
 		 * However, configuration for a particular option can add other templates or transform the templates,
 		 * such as wrapping templates in an outer "self" template for own-work
 		 *
-		 * @param {Array} of license template names
-		 * @param {Object}, license input configuration
+		 * @param {Array} templates Array of license template names
+		 * @param {Object} config License input configuration
 		 * @return {string} of wikitext
 		 */
 		createInputValueFromTemplateConfig: function ( templates, config ) {
@@ -242,7 +243,7 @@
 		/**
 		 * Return a radio button or checkbox with appropriate values, depending on config
 		 *
-		 * @param {Array} of template strings
+		 * @param {Array} templates Array of template strings
 		 * @param {Object} config for this license input
 		 * @return {jQuery} wrapped input
 		 */
@@ -272,12 +273,15 @@
 		/**
 		 * Get a label for the form element
 		 *
-		 * @param {Object} license definition from global config. Will tell us the messages, and maybe icons.
-		 * @param {jQuery} wrapped input
+		 * @param {Object} license License definition from global config. Will tell us the messages, and
+		 *   maybe icons.
+		 * @param {jQuery} $input Wrapped input
 		 * @return {jQuery} wrapped label referring to that input, with appropriate HTML, decorations, etc.
 		 */
 		createInputElementLabel: function ( license, $input ) {
-			var messageKey = license.props.msg === undefined ? '[missing msg for ' + license.name + ']' : license.props.msg,
+			var messageKey = license.props.msg === undefined ?
+					'[missing msg for ' + license.name + ']' :
+					license.props.msg,
 				languageCode = mw.config.get( 'wgUserLanguage' ),
 
 				// The URL is optional, but if the message includes it as $2, we surface the fact
@@ -306,7 +310,7 @@
 		 * Given an input, return another textarea to be appended below.
 		 * When text entered here, auto-selects the input.
 		 *
-		 * @param {jQuery} wrapped input
+		 * @param {jQuery} $input Wrapped input
 		 * @return {jQuery} wrapped textarea
 		 */
 		createCustomWikiTextInterface: function ( $input ) {
@@ -378,7 +382,7 @@
 		 * Sets the value(s) of a license input. This is a little bit klugey because it relies on an inverted dict, and in some
 		 * cases we are now letting license inputs create multiple templates.
 		 *
-		 * @param {object} values License-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
+		 * @param {Object} values License-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
 		 */
 		setValues: function ( values ) {
 			var trueCount, trueLicenseName,
@@ -472,7 +476,7 @@
 		/**
 		 * Gets which inputs have user-entered values
 		 *
-		 * @return {jQuery Array} of inputs
+		 * @return {jQuery} Array of inputs
 		 */
 		getSelectedInputs: function () {
 			// not sure why filter(':checked') doesn't work
@@ -553,7 +557,7 @@
 		/**
 		 * Preview wikitext in a popup window
 		 *
-		 * @param {string} wikitext
+		 * @param {string} wikiText
 		 */
 		showPreview: function ( wikiText ) {
 			var input;

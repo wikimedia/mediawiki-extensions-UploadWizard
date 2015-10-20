@@ -215,7 +215,6 @@
 	/**
 	 * Check if upload is able to be put through this step's changes.
 	 *
-	 * @param {mw.UploadWizardUpload}
 	 * @return {boolean}
 	 */
 	uw.controller.Step.prototype.canTransition = function () {

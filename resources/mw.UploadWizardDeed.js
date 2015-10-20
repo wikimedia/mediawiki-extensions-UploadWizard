@@ -70,8 +70,8 @@
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
 	 *
-	 * @param {number} integer count of uploads that this deed refers to (useful for message pluralization)
-	 * @param {mw.Api} api object - useful for doing previews
+	 * @param {number} uploadCount Integer count of uploads that this deed refers to (useful for message pluralization)
+	 * @param {mw.Api} api API object - useful for doing previews
 	 * @param {Object} config The UW config
 	 */
 	mw.UploadWizardDeedOwnWork = function ( uploadCount, api, config ) {
@@ -311,8 +311,8 @@
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are the work of a third party.
 	 *
-	 * @param {number} integer count of uploads that this deed refers to (useful for message pluralization)
-	 * @param {mw.Api} api object - useful for doing previews
+	 * @param {number} uploadCount Integer count of uploads that this deed refers to (useful for message pluralization)
+	 * @param {mw.Api} api API object - useful for doing previews
 	 * @param {Object} config The UW config
 	 */
 	mw.UploadWizardDeedThirdParty = function ( uploadCount, api, config ) {
@@ -447,8 +447,8 @@
 	 *
 	 * @param {Object} config The UW config
 	 * @param {string|jQuery} selector where to put this deed chooser
-	 * @param {Array[UploadWizardDeed]} deeds
-	 * @param {Array[UploadWizardUpload]} uploads that this applies to (this is just to make deleting and plurals work)
+	 * @param {UploadWizardDeed[]} deeds
+	 * @param {UploadWizardUpload[]} uploads that this applies to (this is just to make deleting and plurals work)
 	 */
 	mw.UploadWizardDeedChooser = function ( config, selector, deeds, uploads ) {
 		var chooser = this;

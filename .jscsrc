@@ -8,6 +8,9 @@
 				"see": true
 			}
 		},
+		"checkParamNames": true,
+		"checkRedundantAccess": true,
+		"checkRedundantReturns": true,
 		"requireNewlineAfterDescription": true,
 		"requireParamTypes": true,
 		"requireReturnTypes": true

@@ -273,7 +273,6 @@
 	 *
 	 * @param {string} code Error code, should have matching strings in .i18n.php
 	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
-	 * @return {jQuery}
 	 */
 	mw.UploadWizardUpload.prototype.setDuplicateError = function ( code, resultDuplicate ) {
 		var duplicates, $ul, $override, $extra;
@@ -384,9 +383,9 @@
 	 * case where an error should be ignored, you can simply find that error
 	 * and delete it from the third parameter of the error callback. The end.
 	 *
-	 * @param {string} the filename
-	 * @param {Array} of Files.  usually one, can be more for multi-file select.
-	 * @param {function ()} callback when ok, and upload object is ready
+	 * @param {string} filename The filename
+	 * @param {Array} files Array of files, usually one; can be more for multi-file select.
+	 * @param {Function} fileNameOk Callback to use when ok, and upload object is ready
 	 */
 	mw.UploadWizardUpload.prototype.checkFile = function ( filename, files, fileNameOk ) {
 		var totalSize, duplicate, extension, toobig,
@@ -597,7 +596,7 @@
 	/**
 	 * Map fields from jpegmeta's metadata return into our format (which is more like the imageinfo returned from the API
 	 *
-	 * @param {Object} (as returned by jpegmeta)
+	 * @param {Object} meta As returned by jpegmeta
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function ( meta ) {
 		var pixelHeightDim, pixelWidthDim, degrees;
@@ -636,7 +635,7 @@
 	/**
 	 * Accept the result from a successful API upload transport, and fill our own info
 	 *
-	 * @param {Object} result The JSON object from a successful API upload result.
+	 * @param {Object} resultUpload The JSON object from a successful API upload result.
 	 */
 	mw.UploadWizardUpload.prototype.extractUploadInfo = function ( resultUpload ) {
 		if ( resultUpload.filekey ) {
@@ -688,10 +687,10 @@
 	 *
 	 * See API documentation for prop=stashimageinfo for what 'props' can contain
 	 *
-	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
-	 * @param {Array} properties to extract
-	 * @param {number} optional, width of thumbnail. Will force 'url' to be added to props
-	 * @param {number} optional, height of thumbnail. Will force 'url' to be added to props
+	 * @param {Function} callback Called with null if failure, with imageinfo data structure if success
+	 * @param {Array} props Properties to extract
+	 * @param {number} [width] Width of thumbnail. Will force 'url' to be added to props
+	 * @param {number} [height] Height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getStashImageInfo = function ( callback, props, width, height ) {
 		var params = {
@@ -738,10 +737,10 @@
 	 * (There is some overlap with getStashedImageInfo, but it's different at every stage so it's clearer to have separate functions)
 	 * See API documentation for prop=imageinfo for what 'props' can contain
 	 *
-	 * @param {Function} callback -- called with null if failure, with imageinfo data structure if success
-	 * @param {Array} properties to extract
-	 * @param {number} optional, width of thumbnail. Will force 'url' to be added to props
-	 * @param {number} optional, height of thumbnail. Will force 'url' to be added to props
+	 * @param {Function} callback Called with null if failure, with imageinfo data structure if success
+	 * @param {Array} props Properties to extract
+	 * @param {number} [width] Width of thumbnail. Will force 'url' to be added to props
+	 * @param {number} [height] Height of thumbnail. Will force 'url' to be added to props
 	 */
 	mw.UploadWizardUpload.prototype.getImageInfo = function ( callback, props, width, height ) {
 		var requestedTitle, params;
@@ -944,8 +943,8 @@
 	/**
 	 * Fit an image into width & height constraints with scaling factor
 	 *
-	 * @param {HTMLImageElement}
-	 * @param {Object} with width & height properties
+	 * @param {HTMLImageElement} image
+	 * @param {Object} constraints Width & height properties
 	 * @return {number}
 	 */
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
@@ -966,8 +965,8 @@
 	 * Given an image (already loaded), dimension constraints
 	 * return canvas object scaled & transformedi ( & rotated if metadata indicates it's needed )
 	 *
-	 * @param {HTMLImageElement}
-	 * @param {Object} containing width & height constraints
+	 * @param {HTMLImageElement} image
+	 * @param {Object} constraints Width & height constraints
 	 * @return {HTMLCanvasElement}
 	 */
 	mw.UploadWizardUpload.prototype.getTransformedCanvasElement = function ( image, constraints ) {
@@ -1039,8 +1038,8 @@
 	/**
 	 * Return a browser-scaled image element, given an image and constraints.
 	 *
-	 * @param {HTMLImageElement}
-	 * @param {Object} with width and height properties
+	 * @param {HTMLImageElement} image
+	 * @param {Object} constraints Width and height properties
 	 * @return {HTMLImageElement} with same src, but different attrs
 	 */
 	mw.UploadWizardUpload.prototype.getBrowserScaledImageElement = function ( image, constraints ) {
@@ -1059,7 +1058,7 @@
 	/**
 	 * Return an element suitable for the preview of a certain size. Uses canvas when possible
 	 *
-	 * @param {HTMLImageElement}
+	 * @param {HTMLImageElement} image
 	 * @param {Integer} width
 	 * @param {Integer} height
 	 * @return {HTMLCanvasElement|HTMLImageElement}
@@ -1093,7 +1092,7 @@
 		/**
 		 * This callback will add an image to the selector, using in-browser scaling if necessary
 		 *
-		 * @param {HTMLImageElement|null}
+		 * @param {HTMLImageElement|null} image
 		 */
 		function placeImageCallback( image ) {
 			var elm;

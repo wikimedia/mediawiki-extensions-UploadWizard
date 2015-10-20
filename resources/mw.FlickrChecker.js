@@ -61,9 +61,7 @@
 		 * changes the name associated with a license ID, it's better for the lookup to fail than to use
 		 * an incorrect license.
 		 *
-		 * @param {string} url The source URL to check
-		 * @param {string} $selector The element to insert the license name into
-		 * @param {UploadWizardUpload} upload The upload object to set the deed for
+		 * @param {string} flickrInputUrl The source URL to check
 		 */
 		checkFlickr: function ( flickrInputUrl ) {
 			var photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
@@ -183,7 +181,7 @@
 		/**
 		 * Retrieves a list of photos in group pool and displays it.
 		 *
-		 * @param {object} groupPoolMatches Result of `this.url.match`
+		 * @param {Object} groupPoolMatches Result of `this.url.match`
 		 * @see {@link getPhotos}
 		 */
 		getGroupPool: function ( groupPoolMatches ) {

@@ -394,7 +394,7 @@
 		 * This is useful to clean out file inputs that we don't want for some reason (error, empty...)
 		 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
 		 *
-		 * @param {function} criterion Function to test the upload, returns boolean; true if should be removed
+		 * @param {Function} criterion Function to test the upload, returns boolean; true if should be removed
 		 */
 		removeMatchingUploads: function ( criterion ) {
 			var toRemove = [];
@@ -507,7 +507,7 @@
 	 * TODO v1.1 split into two plugins?
 	 *
 	 * @param {string} key Will base the tooltip on a message found with this key
-	 * @param {function} [fn] Call this function every time tip is created to generate message. If present, HTML element gets an id of the exact key specified
+	 * @param {Function} [fn] Call this function every time tip is created to generate message. If present, HTML element gets an id of the exact key specified
 	 */
 	$.fn.addHint = function ( key, fn ) {
 		var attrs, contentSource, html = false;

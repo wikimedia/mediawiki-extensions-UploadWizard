@@ -302,7 +302,7 @@
 	/**
 	 * Checks whether flickr import is enabled and the current user has the rights to use it
 	 *
-	 * @return {Boolean}
+	 * @return {boolean}
 	 */
 	uw.ui.Upload.prototype.isFlickrImportEnabled = function () {
 		return mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '';

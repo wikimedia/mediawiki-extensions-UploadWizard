@@ -157,7 +157,7 @@
 	/**
 	 * Make a read only text input, which self-selects on gaining focus
 	 *
-	 * @param {string} text it will contain
+	 * @param {string} s Text it will contain
 	 * @return {jQuery}
 	 */
 	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( s ) {

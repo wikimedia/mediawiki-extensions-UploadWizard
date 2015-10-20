@@ -1740,8 +1740,8 @@
 		/**
 		 * Show error state, possibly using a recoverable error form
 		 *
-		 * @param {string} error code
-		 * @param {string} status line
+		 * @param {string} code Error code
+		 * @param {string} statusLine Status line
 		 */
 		showError: function ( code, statusLine ) {
 			uw.eventFlowLogger.logError( 'details', { code: code, message: statusLine } );
@@ -1752,8 +1752,8 @@
 		/**
 		 * Decide how to treat various errors
 		 *
-		 * @param {string} error code
-		 * @param {Mixed} result from ajax call
+		 * @param {string} code Error code
+		 * @param {Mixed} result Result from ajax call
 		 */
 		processError: function ( code, result ) {
 			var statusKey, comma,
@@ -1862,7 +1862,7 @@
 		 * Apply some special cleanups for titles before adding to model. These cleanups are not reflected in what the user sees in the title input field.
 		 * For example, we remove an extension in the title if it matches the extension we're going to add anyway. (bug #30676)
 		 *
-		 * @param {string} title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
+		 * @param {string} s Title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
 		 * @return {mw.Title} cleaned title with prefix and extension, stringified.
 		 */
 		setCleanTitle: function ( s ) {

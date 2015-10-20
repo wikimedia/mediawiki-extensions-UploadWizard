@@ -6,7 +6,7 @@
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {object} upload …
+	 * @param {Object} upload …
 	 * @param {jQuery} filesDiv DIV into which to insert file interface
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload, filesDiv ) {
@@ -184,7 +184,7 @@
 	 * Set the status line for this upload with an internationalized message string.
 	 *
 	 * @param {string} msgKey Key for the message
-	 * @param {array} args Array of values, in case any need to be fed to the image.
+	 * @param {Array} args Array of values, in case any need to be fed to the image.
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatus = function ( msgKey, args ) {
 		var $s;
@@ -199,7 +199,7 @@
 	/**
 	 * Set status line directly with a string
 	 *
-	 * @param {string}
+	 * @param {string} s
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( s ) {
 		$( this.div ).find( '.mwe-upwiz-file-status' ).html( s ).show();
