@@ -4,10 +4,14 @@
 	"disallowImplicitTypeConversion": null,
 	"disallowNewlineBeforeBlockStatements": null,
 	"disallowSpacesInCallExpression": null,
+	"jsDoc": null,
+	"requireDotNotation": null,
 	"requireSpaceAfterLineComment": null,
-	"requireSpaceBeforeObjectValues": null,
 	"requireSpaceBeforeKeywords": null,
+	"requireSpaceBeforeObjectValues": null,
+	"requireSpacesInsideBrackets": null,
 	"requireSpacesInsideParentheses": null,
+	"requireVarDeclFirst": null,
 	"validateIndentation": null,
 
 	"excludeFiles": [ "resources/jquery/**" ]
