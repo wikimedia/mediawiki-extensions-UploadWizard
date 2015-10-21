@@ -444,6 +444,16 @@
 		};
 		this.categoriesWidget.setItemsFromData( categories );
 
+		this.categoriesWidgetItems = this.categoriesWidget.getItems();
+		this.categoriesWidget.on( 'change', function () {
+			var i;
+			// Kill any active tipsies, they like to get stuck
+			for ( i = 0; i < this.categoriesWidgetItems.length; i++ ) {
+				this.categoriesWidgetItems[ i ].$element.tipsy( 'hide' );
+			}
+			this.categoriesWidgetItems = this.categoriesWidget.getItems();
+		}.bind( this ) );
+
 		$categoriesDiv.find( '.mwe-upwiz-details-input' )
 			.append( this.categoriesWidget.$element );
 	};
@@ -853,6 +863,11 @@
 		// side effect: add error text to the page for fields in an incorrect state.
 		// we must call EVERY valid() function due to side effects; do not short-circuit.
 		valid: function () {
+			var i;
+			// Kill any active tipsies, they like to get stuck
+			for ( i = 0; i < this.categoriesWidgetItems.length; i++ ) {
+				this.categoriesWidgetItems[ i ].$element.tipsy( 'hide' );
+			}
 			// all the descriptions -- check min & max length
 			// categories are assumed valid
 			// pop open the 'more-options' if the date is bad
