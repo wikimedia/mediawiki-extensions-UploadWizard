@@ -6,8 +6,8 @@
 	 * Object that represents the Details (step 2) portion of the UploadWizard
 	 * n.b. each upload gets its own details.
 	 *
-	 * @param {UploadWizardUpload} upload
-	 * @param {HTML} containerDiv The div to put the interface into
+	 * @param {mw.UploadWizardUpload} upload
+	 * @param {jQuery} containerDiv The `div` to put the interface into
 	 */
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,

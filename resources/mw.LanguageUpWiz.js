@@ -87,7 +87,7 @@
 		 *
 		 * @param {string} name Desired name of select element
 		 * @param {string} code Selected language code
-		 * @return {HTML} The `select` element configured as desired
+		 * @return {HTMLSelectElement} The `select` element configured as desired
 		 */
 		getMenu: function ( name, code ) {
 			var $select;

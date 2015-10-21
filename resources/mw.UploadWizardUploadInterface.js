@@ -6,8 +6,8 @@
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {Object} upload …
-	 * @param {jQuery} filesDiv DIV into which to insert file interface
+	 * @param {mw.UploadWizardUpload} upload
+	 * @param {string} filesDiv Selector for the `div` into which to insert file interface
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload, filesDiv ) {
 		var $preview,

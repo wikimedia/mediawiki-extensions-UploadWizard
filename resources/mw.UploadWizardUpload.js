@@ -23,7 +23,7 @@
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {UploadWizard} wizard
-	 * @param {HTMLDivElement} filesDiv - where we will dump our the interfaces for uploads
+	 * @param {string} filesDiv Selector for the `div` where we will dump the interfaces for uploads
 	 */
 	mw.UploadWizardUpload = function MWUploadWizardUpload( wizard, filesDiv ) {
 		var upload = this;
