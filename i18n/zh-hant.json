@@ -308,7 +308,7 @@
 	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 更多資訊]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "已符合的標題黑名單項目：\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "我上傳的標題，已禁止使用 \"$1\"。",
-	"mwe-upwiz-errordialog-title": "您的送交的內容發生錯誤",
+	"mwe-upwiz-errordialog-title": "您在送出時發生錯誤",
 	"mwe-upwiz-errordialog-ok": "確定",
 	"mwe-upwiz-error-nosuchcampaign": "名稱為 \"$1\" 的活動不存在。",
 	"mwe-upwiz-error-campaigndisabled": "活動 \"$1\" 尚未開啟。",

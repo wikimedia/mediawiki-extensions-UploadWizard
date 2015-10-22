@@ -38,6 +38,7 @@
 	"mwe-upwiz-progressbar-uploading": "bar dikê",
 	"mwe-upwiz-finished": "Xilas!",
 	"mwe-upwiz-source-thirdparty-accept": "Baş e",
+	"mwe-upwiz-copy-metadata-button": "Kopî bike",
 	"mwe-upwiz-copy-date": "Dîrokê kopî bike",
 	"mwe-upwiz-copy-categories": "Kategoriyan kopî bike",
 	"mwe-upwiz-copy-location": "Cih kopî bike",
@@ -72,5 +73,6 @@
 	"mwe-upwiz-license-pd-old": "Xwedî bêhtirî 70 sal berê miriye",
 	"mwe-upwiz-license-custom-preview": "Pêşdîtin",
 	"mwe-upwiz-categories": "Kategorî",
-	"mwe-upwiz-errordialog-ok": "Baş e"
+	"mwe-upwiz-errordialog-ok": "Baş e",
+	"mwe-upload-campaigns-pagination-next": "Rûpela pêş"
 }
