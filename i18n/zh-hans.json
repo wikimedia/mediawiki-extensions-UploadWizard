@@ -328,7 +328,7 @@
 	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 更多信息]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "这是它对应的标题黑名单条目：\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "我的上传标题，“$1”已被禁止。",
-	"mwe-upwiz-errordialog-title": "你的提交中有错误",
+	"mwe-upwiz-errordialog-title": "您提交的内容中有错误",
 	"mwe-upwiz-errordialog-ok": "确定",
 	"mwe-upwiz-error-nosuchcampaign": "没有名称为“$1”的运动。",
 	"mwe-upwiz-error-campaigndisabled": "运动“$1”还没有启用。",
