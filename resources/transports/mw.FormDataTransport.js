@@ -64,7 +64,13 @@
 			transport = this;
 
 		xhr.upload.addEventListener( 'progress', function ( evt ) {
-			deferred.notify( evt, xhr );
+			var fraction;
+			if ( evt.lengthComputable ) {
+				fraction = parseFloat( evt.loaded / evt.total );
+			} else {
+				fraction = null;
+			}
+			deferred.notify( fraction );
 		}, false );
 
 		xhr.addEventListener( 'abort', function ( evt ) {
@@ -130,7 +136,8 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.upload = function ( file ) {
-		var formData, deferred, ext,
+		var formData, deferred, ext, totalUploaded,
+			chunkSize = this.chunkSize,
 			transport = this;
 
 		// use timestamp + filename to avoid conflicts on server
@@ -145,8 +152,18 @@
 			this.tempname = this.tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
 		}
 
-		if ( this.config.enableChunked && file.size > this.chunkSize ) {
-			return this.uploadChunk( file, 0 );
+		if ( this.config.enableChunked && file.size > chunkSize ) {
+			totalUploaded = 0;
+			// The progress notifications give us per-chunk progress, filter them to get progress
+			// for the whole file
+			return this.uploadChunk( file, 0 ).then( null, null, function ( fraction ) {
+				if ( fraction === 1 ) {
+					// We completed a chunk
+					totalUploaded += chunkSize;
+					fraction = 0;
+				}
+				return ( totalUploaded + fraction * chunkSize ) / file.size;
+			} );
 		} else {
 			deferred = $.Deferred();
 			this.xhr = this.createXHR( deferred );

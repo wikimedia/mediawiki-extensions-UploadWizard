@@ -58,16 +58,13 @@
 				handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 				handler.upload.ui.showTransportProgress();
 				return handler.transport.upload( handler.upload.file )
-					.progress( function ( evt, xhr ) {
-						var fraction;
-
+					.progress( function ( fraction ) {
 						if ( handler.upload.state === 'aborted' ) {
-							xhr.abort();
+							handler.transport.xhr.abort();
 							return;
 						}
 
-						if ( evt.lengthComputable ) {
-							fraction = parseFloat( evt.loaded / evt.total );
+						if ( fraction !== null ) {
 							handler.upload.setTransportProgress( fraction );
 						}
 					} ).then( function ( result ) {
