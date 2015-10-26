@@ -10,7 +10,7 @@
 	 * @param {string} filesDiv Selector for the `div` into which to insert file interface
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload, filesDiv ) {
-		var $preview,
+		var
 			ui = this;
 
 		OO.EventEmitter.call( this );
@@ -116,14 +116,6 @@
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
 		$( this.div ).bind( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
-
-		// XXX feature envy
-		$preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
-		this.upload.setThumbnail(
-			$preview,
-			mw.UploadWizard.config.thumbnailWidth,
-			mw.UploadWizard.config.thumbnailMaxHeight
-		);
 	};
 
 	OO.mixinClass( mw.UploadWizardUploadInterface, OO.EventEmitter );
@@ -358,6 +350,12 @@
 
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
+
+		if ( this.upload.generatePreview ) {
+			this.showThumbnail();
+		} else {
+			this.makeShowThumbCtrl();
+		}
 	};
 
 	/**
@@ -368,13 +366,28 @@
 
 		// add a control for showing the preview if the user needs it
 		this.$showThumbCtrl = $.fn.showThumbCtrl(
-				'mwe-upwiz-show-thumb',
-				'mwe-upwiz-show-thumb-tip',
-				function () { ui.emit( 'show-preview' ); }
-			);
+			'mwe-upwiz-show-thumb',
+			'mwe-upwiz-show-thumb-tip',
+			function () {
+				ui.showThumbnail();
+			}
+		);
 
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( '<br>' ).append( this.$showThumbCtrl );
+	};
+
+	/**
+	 * Display thumbnail preview.
+	 */
+	mw.UploadWizardUploadInterface.prototype.showThumbnail = function () {
+		var $preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
+		this.upload.getThumbnail(
+			mw.UploadWizard.config.thumbnailWidth,
+			mw.UploadWizard.config.thumbnailMaxHeight
+		).done( function ( thumb ) {
+			mw.UploadWizard.placeThumbnail( $preview, thumb );
+		} );
 	};
 
 	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {

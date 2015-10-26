@@ -45,7 +45,7 @@
 		this.file = undefined;
 		this.ignoreWarning = {};
 		this.fromURL = false;
-		this.previewLoaded = false;
+		this.previewPromise = null;
 		this.generatePreview = true;
 
 		this.fileKey = undefined;
@@ -58,8 +58,7 @@
 		this.ui = new mw.UploadWizardUploadInterface( this, filesDiv )
 			.connect( this, {
 				'file-changed': [ 'emit', 'file-changed', upload ],
-				'filename-accepted': [ 'emit', 'filename-accepted' ],
-				'show-preview': 'makePreview'
+				'filename-accepted': [ 'emit', 'filename-accepted' ]
 			} )
 
 			.on( 'upload-filled', function () {
@@ -336,8 +335,10 @@
 			this.extractUploadInfo( result.upload );
 			this.state = 'stashed';
 			this.ui.showStashed();
-			$.publishReady( 'thumbnails.' + this.index, 'api' );
+
+			this.emit( 'success' );
 			// check all uploads, if they're complete, show the next button
+			// TODO Make wizard connect to 'success' event
 			this.wizard.steps.file.showNext();
 		} else {
 			this.setError( 'noimageinfo' );
@@ -832,7 +833,7 @@
 	 * @return {jQuery.Promise} Promise resolved with a HTMLImageElement, or null if thumbnail
 	 *     couldn't be generated
 	 */
-	mw.UploadWizardUpload.prototype.getAndPublishApiThumbnail = function ( width, height ) {
+	mw.UploadWizardUpload.prototype.getApiThumbnail = function ( width, height ) {
 		var deferred,
 			key = width + '|' + height;
 
@@ -1073,69 +1074,53 @@
 			height: ( height === undefined ? null : parseInt( height, 10 ) )
 		};
 
-		return mw.canvas.isAvailable() ? this.getTransformedCanvasElement( image, constraints )
-							: this.getBrowserScaledImageElement( image, constraints );
+		return mw.canvas.isAvailable()
+			? this.getTransformedCanvasElement( image, constraints )
+			: this.getBrowserScaledImageElement( image, constraints );
 	};
 
 	/**
-	 * Given a jQuery selector, subscribe to the "ready" event that fills the thumbnail
-	 * This will trigger if the thumbnail is added in the future or if it already has been
+	 * Acquire a thumbnail of given dimensions for this upload.
 	 *
-	 * @param {string} selector String representing a jQuery selector
 	 * @param {number} width Width constraint
 	 * @param {number} [height] Height constraint
+	 * @return {jQuery.Promise} Promise resolved with the HTMLImageElement or HTMLCanvasElement
+	 *   containing a thumbnail, or resolved with `null` when one can't be produced
 	 */
-	mw.UploadWizardUpload.prototype.setThumbnail = function ( selector, width, height ) {
+	mw.UploadWizardUpload.prototype.getThumbnail = function ( width, height ) {
 		var upload = this,
-			placed = false;
+			deferred = $.Deferred();
 
 		/**
-		 * This callback will add an image to the selector, using in-browser scaling if necessary
-		 *
 		 * @param {HTMLImageElement|null} image
 		 */
-		function placeImageCallback( image ) {
-			var elm;
-
+		function imageCallback( image ) {
 			if ( image === null ) {
-				$( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
 				upload.ui.setStatus( 'mwe-upwiz-thumbnail-failed' );
+				deferred.resolve( image );
 				return;
 			}
 
-			elm = upload.getScaledImageElement( image, width, height );
-			// add the image to the DOM, finally
-			$( selector )
-				.css( { background: 'none' } )
-				.html(
-					$( '<a/></a>' )
-						.addClass( 'mwe-upwiz-thumbnail-link' )
-						.append( elm )
-				);
-			placed = true;
+			image = upload.getScaledImageElement( image, width, height );
+			deferred.resolve( image );
 		}
 
-		// Listen for even which says some kind of thumbnail is available.
-		// The argument is an either an ImageHtmlElement ( if we could get the thumbnail locally ) or the string 'api' indicating you
-		// now need to get the scaled thumbnail via the API
-		$.subscribeReady(
-			'thumbnails.' + this.index,
-			function ( x ) {
-				if ( !placed ) {
-					if ( x === 'api' ) {
-						// get the thumbnail via API. Queries are cached, so if this thumbnail was already
-						// fetched for some reason, we'll get it immediately
-						upload.getAndPublishApiThumbnail( width, height ).done( placeImageCallback );
-					} else if ( x instanceof HTMLImageElement ) {
-						placeImageCallback( x );
-					} else {
-						// something else went wrong, place broken image
-						mw.log.warn( 'Unexpected argument to thumbnails event: ' + x );
-						placeImageCallback( null );
-					}
+		this.makePreview()
+			.done( imageCallback )
+			.fail( function () {
+				// Can't generate the thumbnail locally, get the thumbnail via API after
+				// the file is uploaded. Queries are cached, so if this thumbnail was
+				// already fetched for some reason, we'll get it immediately.
+				if ( upload.state !== 'new' && upload.state !== 'transporting' ) {
+					upload.getApiThumbnail( width, height ).done( imageCallback );
+				} else {
+					upload.once( 'success', function () {
+						upload.getApiThumbnail( width, height ).done( imageCallback );
+					} );
 				}
-			}
-		);
+			} );
+
+		return deferred.promise();
 	};
 
 	mw.UploadWizardUpload.prototype.createDetails = function () {
@@ -1149,12 +1134,6 @@
 	 */
 	mw.UploadWizardUpload.prototype.fileChangedOk = function () {
 		this.ui.fileChangedOk( this.imageinfo, this.file, this.fromURL );
-
-		if ( this.generatePreview ) {
-			this.makePreview();
-		} else {
-			this.ui.makeShowThumbCtrl();
-		}
 	};
 
 	/**
@@ -1162,12 +1141,14 @@
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function () {
 		var first, video, url, dataUrlReader,
+			deferred = $.Deferred(),
 			upload = this;
 
 		// don't run this repeatedly.
-		if ( this.previewLoaded ) {
-			return;
+		if ( this.previewPromise ) {
+			return this.previewPromise;
 		}
+		this.previewPromise = deferred.promise();
 
 		// do preview if we can
 		if ( this.isPreviewable() ) {
@@ -1197,7 +1178,7 @@
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							context = canvas.getContext( '2d' );
 							context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							upload.loadImage( canvas.toDataURL() );
+							upload.loadImage( canvas.toDataURL(), deferred );
 							upload.URL().revokeObjectURL( video.url );
 						}, 500 );
 					}
@@ -1209,22 +1190,27 @@
 				dataUrlReader.onload = function () {
 					// this step (inserting image-as-dataurl into image object) is slow for large images, which
 					// is why this is optional and has a control attached to it to load the preview.
-					upload.loadImage( dataUrlReader.result );
+					upload.loadImage( dataUrlReader.result, deferred );
 				};
 				dataUrlReader.readAsDataURL( this.file );
 			}
+		} else {
+			deferred.reject();
 		}
+
+		return this.previewPromise;
 	};
 
 	/**
 	 * Loads an image preview.
 	 */
-	mw.UploadWizardUpload.prototype.loadImage = function ( url ) {
-		var image = document.createElement( 'img' ),
-			upload = this;
+	mw.UploadWizardUpload.prototype.loadImage = function ( url, deferred ) {
+		var image = document.createElement( 'img' );
 		image.onload = function () {
-			$.publishReady( 'thumbnails.' + upload.index, image );
-			upload.previewLoaded = true;
+			deferred.resolve( image );
+		};
+		image.onerror = function () {
+			deferred.reject();
 		};
 		image.src = url;
 	};

@@ -139,11 +139,12 @@
 					)
 			);
 
-		upload.setThumbnail(
-			$thumbnailDiv,
+		upload.getThumbnail(
 			mw.UploadWizard.config.thumbnailWidth,
 			mw.UploadWizard.config.thumbnailMaxHeight
-		);
+		).done( function ( thumb ) {
+			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
+		} );
 
 		// Set the thumbnail links so that they point to the image description page
 		$thumbnailLink.add( $thumbnailDiv.find( '.mwe-upwiz-thumbnail-link' ) ).attr( {
