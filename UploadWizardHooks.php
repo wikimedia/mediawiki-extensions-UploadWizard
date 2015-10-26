@@ -960,8 +960,7 @@ class UploadWizardHooks {
 				'',
 				$licenseConfig[$licenseName]['url']
 			)->parse();
-		}
-		else {
+		} else {
 			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
 		}
 	}
