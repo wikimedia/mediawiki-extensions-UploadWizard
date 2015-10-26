@@ -166,21 +166,6 @@
 	};
 
 	/**
-	 * Set the preview image on the file page for this upload.
-	 *
-	 * @param {HTMLImageElement} image
-	 */
-	mw.UploadWizardUploadInterface.prototype.setPreview = function ( image ) {
-		var $preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
-		if ( image === null ) {
-			$preview.addClass( 'mwe-upwiz-file-preview-broken' );
-		} else {
-			// encoding for url here?
-			$preview.css( 'background-image', 'url(' + image.src + ')' );
-		}
-	};
-
-	/**
 	 * Set the status line for this upload with an internationalized message string.
 	 *
 	 * @param {string} msgKey Key for the message
