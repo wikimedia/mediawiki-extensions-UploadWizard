@@ -857,25 +857,26 @@
 
 		/**
 		 * check entire form for validity
+		 * side effect: add error text to the page for fields in an incorrect state.
 		 *
 		 * @return {boolean} Whether the form is valid.
 		 */
-		// side effect: add error text to the page for fields in an incorrect state.
-		// we must call EVERY valid() function due to side effects; do not short-circuit.
 		valid: function () {
-			var i;
+			var i, deedValid, formValid;
+
 			// Kill any active tipsies, they like to get stuck
 			for ( i = 0; i < this.categoriesWidgetItems.length; i++ ) {
 				this.categoriesWidgetItems[ i ].$element.tipsy( 'hide' );
 			}
-			// all the descriptions -- check min & max length
-			// categories are assumed valid
-			// pop open the 'more-options' if the date is bad
-			// location?
-			return (
-				this.upload.deedChooser.valid() &&
-				this.$form.valid()
-			);
+
+			// make sure licenses are valid (needed for multi-file deed selection)
+			deedValid = this.upload.deedChooser.valid();
+
+			// all other fields validated with validator js
+			formValid = this.$form.valid();
+
+			// we must call EVERY valid() function due to side effects; do not short-circuit.
+			return deedValid && formValid;
 		},
 
 		/**
