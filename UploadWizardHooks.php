@@ -68,6 +68,11 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.lazyload.js',
 
+				// OOjs UI interface elements
+				'resources/uw.DetailsWidget.js',
+				'resources/uw.FieldLayout.js',
+				'resources/details/uw.DateDetailsWidget.js',
+
 				// common utilities
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
@@ -111,6 +116,8 @@ class UploadWizardHooks {
 			'styles' => array(
 				'resources/uploadWizard.css',
 				'resources/jquery/jquery.showThumbCtrl.css',
+				// OOjs UI interface elements
+				'resources/details/uw.DateDetailsWidget.less',
 			),
 			'messages' => array(
 				'comma-separator',

@@ -426,11 +426,6 @@ form.mwe-upwiz-form {
 	padding-top:  0.3em;
 }
 
-/* HACK Until T97631 is fixed, otherwise the icons look awful */
-.mwe-upwiz-details-input .oo-ui-buttonOptionWidget.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-	width: 24px;
-}
-
 .mwe-upwiz-desc-lang-select {
 	width: 11.5em;
 	font-family: sans-serif;
@@ -583,15 +578,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 .mwe-readonly {
 	background-color: #ffffff;
 	padding: 0.25em;
-}
-
-.mwe-date {
-	display: inline-block;
-	/* Force width matching the date input for the text input */
-	width: 21em;
-	/* Date input has different margins */
-	margin-top: 0;
-	margin-bottom: 0;
 }
 
 .mwe-upwiz-hint {
