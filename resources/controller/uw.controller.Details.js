@@ -107,8 +107,7 @@
 	uw.controller.Details.prototype.valid = function () {
 		var
 			validityPromises = [],
-			necessary = 0,
-			total = 0,
+			warningValidityPromises = [],
 			titles = {};
 
 		$.each( this.uploads, function ( i, upload ) {
@@ -117,12 +116,19 @@
 			}
 
 			// Update any error/warning messages about all DetailsWidgets
-			upload.details.dateDetailsField.checkValidity();
+			upload.details.checkValidity();
 
-			validityPromises.push( $.when(
-				upload.details.dateDetails.getErrors()
-				// Other DetailsWidgets errors go here...
-			).then( function () {
+			warningValidityPromises.push( upload.details.getWarnings().then( function () {
+				var i;
+				for ( i = 0; i < arguments.length; i++ ) {
+					if ( arguments[ i ].length ) {
+						// One of the DetailsWidgets has warnings
+						return $.Deferred().reject();
+					}
+				}
+			} ) );
+
+			validityPromises.push( upload.details.getErrors().then( function () {
 				var i, title, hasErrors = false;
 
 				for ( i = 0; i < arguments.length; i++ ) {
@@ -148,27 +154,25 @@
 					titles[ title ] = true;
 				}
 
-				if ( upload.details.necessaryFilled() ) {
-					necessary += 1;
-				}
-
 				if ( hasErrors ) {
 					return $.Deferred().reject();
 				}
 			} ) );
-
-			total += 1;
 		} );
 
 		// If not all uploads are valid, $.when will reject this
 		return $.when.apply( $, validityPromises ).then( function () {
-			if ( necessary === total ) {
-				// All uploads valid, all necessary fields filled
-				return $.Deferred().resolve();
-			} else {
-				// Valid, but recommended fields missing, ask for confirmation
-				return this.confirmationDialog();
-			}
+			// If not all uploads are warning-free, $.when will reject this too
+			return $.when.apply( $, warningValidityPromises ).then(
+				// All uploads valid, no warnings
+				function () {
+					return $.Deferred().resolve();
+				},
+				function () {
+					// Valid, but with warnings, ask for confirmation
+					return this.confirmationDialog();
+				}.bind( this )
+			);
 		}.bind( this ) );
 	};
 
@@ -181,6 +185,8 @@
 
 		return windowManager.openWindow( confirmationDialog, {
 			title: mw.message( 'mwe-upwiz-dialog-title' ).text(),
+			// FIXME We currently only have one kind of warning, ever, and this message has the
+			// appropriate text "hard-coded". It should be generated dynamically.
 			message: mw.message( 'mwe-upwiz-necessary-confirm' ).text(),
 			verbose: true,
 			actions: [

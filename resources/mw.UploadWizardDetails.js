@@ -10,12 +10,11 @@
 	 * @param {jQuery} containerDiv The `div` to put the interface into
 	 */
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
-		var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,
+		var descriptionAdderDiv, titleContainerDiv,
 			categoriesHinter,
-			categoriesId,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
 			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
-			showMap, linkDiv, locationHinter, locationDiv, categories,
+			showMap, linkDiv, locationHinter, locationDiv,
 			$list,
 			details = this;
 
@@ -112,12 +111,10 @@
 				this.deedDiv
 			);
 
-		$categoriesDiv = $(
-			'<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix">' +
-				'<div class="mwe-upwiz-details-fieldname"></div>' +
-				'<div class="mwe-upwiz-details-input"></div>' +
-			'</div>'
-		);
+		this.categoriesDetails = new uw.CategoriesDetailsWidget();
+		this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
+			label: mw.message( 'mwe-upwiz-categories' ).text()
+		} );
 		categoriesHinter = function () {
 			var commonsCategoriesLink = $( '<a>' ).attr( {
 				target: '_blank',
@@ -125,10 +122,8 @@
 			} );
 			return mw.message( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).parse();
 		};
-		$categoriesDiv
-			.find( '.mwe-upwiz-details-fieldname' )
-			.text( mw.message( 'mwe-upwiz-categories' ).text() )
-			.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
+		// TODO Rethink hints
+		this.categoriesDetailsField.$label.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 
 		this.dateDetails = new uw.DateDetailsWidget();
 		this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
@@ -199,7 +194,7 @@
 			descriptionAdderDiv,
 			this.copyrightInfoFieldset,
 			this.dateDetailsField.$element,
-			$categoriesDiv
+			this.categoriesDetailsField.$element
 		);
 
 		this.$form.on( 'submit', function ( e ) {
@@ -388,46 +383,6 @@
 					}
 				} );
 		}
-
-		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( function ( cat ) {
-			// Keep only valid titles
-			return !!mw.Title.newFromText( 'Category:' + cat );
-		} );
-
-		categoriesId = 'categories' + this.upload.index;
-		this.categoriesWidget = new mw.widgets.CategorySelector( {
-			id: categoriesId
-		} );
-
-		this.categoriesWidget.createItemWidget = function ( data ) {
-			var widget = this.constructor.prototype.createItemWidget.call( this, data );
-			widget.setMissing = function ( missing ) {
-				this.constructor.prototype.setMissing.call( this, missing );
-				if ( !missing ) {
-					this.$element.removeAttr( 'title' );
-				} else {
-					this.$element
-						.attr( 'title', mw.msg( 'mwe-upwiz-categories-missing' ) )
-						.tipsy()
-						.tipsy( 'show' );
-				}
-			};
-			return widget;
-		};
-		this.categoriesWidget.setItemsFromData( categories );
-
-		this.categoriesWidgetItems = this.categoriesWidget.getItems();
-		this.categoriesWidget.on( 'change', function () {
-			var i;
-			// Kill any active tipsies, they like to get stuck
-			for ( i = 0; i < this.categoriesWidgetItems.length; i++ ) {
-				this.categoriesWidgetItems[ i ].$element.tipsy( 'hide' );
-			}
-			this.categoriesWidgetItems = this.categoriesWidget.getItems();
-		}.bind( this ) );
-
-		$categoriesDiv.find( '.mwe-upwiz-details-input' )
-			.append( this.categoriesWidget.$element );
 	};
 
 	/**
@@ -643,9 +598,9 @@
 
 			} else if ( metadataType === 'categories' ) {
 
-				oouiCopy( 'categoriesWidget', {
-					get: 'getItemsData',
-					set: 'setItemsFromData'
+				oouiCopy( 'categoriesDetails', {
+					get: 'getSerialized',
+					set: 'setSerialized'
 				} );
 
 			} else if ( metadataType === 'location' ) {
@@ -767,18 +722,15 @@
 		},
 
 		/**
-		 * check entire form for validity
-		 * side effect: add error text to the page for fields in an incorrect state.
+		 * Check the fields using the legacy jquery.validate system for validity. You must also call
+		 * #getErrors to check validity of fields using the new OOUI system.
+		 *
+		 * Side effect: add error text to the page for fields in an incorrect state.
 		 *
 		 * @return {boolean} Whether the form is valid.
 		 */
 		valid: function () {
-			var i, deedValid, formValid;
-
-			// Kill any active tipsies, they like to get stuck
-			for ( i = 0; i < this.categoriesWidgetItems.length; i++ ) {
-				this.categoriesWidgetItems[ i ].$element.tipsy( 'hide' );
-			}
+			var deedValid, formValid;
 
 			// make sure licenses are valid (needed for multi-file deed selection)
 			deedValid = this.upload.deedChooser.valid();
@@ -791,16 +743,43 @@
 		},
 
 		/**
-		 * check if we have all the *must have* but not mandatory fields filled in
-		 * Currently this tests for the following:
-		 * 1) Empty category
+		 * Check the fields using the new OOjs UI system for validity. You must also call #valid to
+		 * check validity of fields using the legacy jquery.validate system.
 		 *
-		 * @return {boolean}
+		 * @return {jQuery.Promise} Promise resolved with multiple array arguments, each containing a
+		 *   list of error messages for a single field. If API requests necessary to check validity
+		 *   fail, the promise may be rejected. The form is valid if the promise is resolved with all
+		 *   empty arrays.
 		 */
-		necessaryFilled: function () {
-			// check for empty category input
-			return !mw.UploadWizard.config.enableCategoryCheck ||
-				this.categoriesWidget.getItemsData().length > 0;
+		getErrors: function () {
+			return $.when(
+				this.dateDetails.getErrors(),
+				this.categoriesDetails.getErrors()
+				// More fields will go here as we convert things to the new system...
+			);
+		},
+
+		/**
+		 * Check the fields using the new OOjs UI system for warnings.
+		 *
+		 * @return {jQuery.Promise} Same as #getErrors
+		 */
+		getWarnings: function () {
+			return $.when(
+				this.dateDetails.getWarnings(),
+				this.categoriesDetails.getWarnings()
+				// More fields will go here as we convert things to the new system...
+			);
+		},
+
+		/**
+		 * Check the fields using the new OOjs UI system for errors and warnings and display them in the
+		 * UI.
+		 */
+		checkValidity: function () {
+			this.dateDetailsField.checkValidity();
+			this.categoriesDetailsField.checkValidity();
+			// More fields will go here as we convert things to the new system...
 		},
 
 		/**
@@ -1318,7 +1297,6 @@
 		 */
 		getWikiText: function () {
 			var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
-				hiddenCats, missingCatsWikiText, categories,
 				locationThings, information,
 				wikiText = '';
 
@@ -1413,45 +1391,7 @@
 				}
 
 				// categories
-
-				hiddenCats = [];
-				if ( mw.UploadWizard.config.autoAdd.categories ) {
-					hiddenCats = hiddenCats.concat( mw.UploadWizard.config.autoAdd.categories );
-				}
-				if ( mw.UploadWizard.config.trackingCategory ) {
-					if ( mw.UploadWizard.config.trackingCategory.all ) {
-						hiddenCats.push( mw.UploadWizard.config.trackingCategory.all );
-					}
-					if ( mw.UploadWizard.config.trackingCategory.campaign ) {
-						hiddenCats.push( mw.UploadWizard.config.trackingCategory.campaign );
-					}
-				}
-				hiddenCats = hiddenCats.filter( function ( cat ) {
-					// Keep only valid titles
-					return !!mw.Title.newFromText( 'Category:' + cat );
-				} );
-
-				missingCatsWikiText = null;
-				if (
-					typeof mw.UploadWizard.config.missingCategoriesWikiText === 'string' &&
-					mw.UploadWizard.config.missingCategoriesWikiText.length > 0
-				) {
-					missingCatsWikiText = mw.UploadWizard.config.missingCategoriesWikiText;
-				}
-
-				categories = this.categoriesWidget.getItemsData();
-
-				// add all categories
-				wikiText += '\n' + categories.concat( hiddenCats )
-					.map( function ( cat ) {
-						return '[[' + mw.Title.newFromText( 'Category:' + cat ).getPrefixedText() + ']]';
-					} )
-					.join( '\n' ) + '\n';
-
-				// if so configured, and there are no user-visible categories, add warning
-				if ( missingCatsWikiText !== null && categories.length === 0 ) {
-					wikiText += '\n' + missingCatsWikiText;
-				}
+				wikiText += '\n' + this.categoriesDetails.getWikiText();
 
 				// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
 				if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {

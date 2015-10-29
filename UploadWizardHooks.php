@@ -72,6 +72,7 @@ class UploadWizardHooks {
 				'resources/uw.DetailsWidget.js',
 				'resources/uw.FieldLayout.js',
 				'resources/details/uw.DateDetailsWidget.js',
+				'resources/details/uw.CategoriesDetailsWidget.js',
 
 				// common utilities
 				'resources/mw.fileApi.js',
@@ -118,6 +119,7 @@ class UploadWizardHooks {
 				'resources/jquery/jquery.showThumbCtrl.css',
 				// OOjs UI interface elements
 				'resources/details/uw.DateDetailsWidget.less',
+				'resources/details/uw.CategoriesDetailsWidget.less',
 			),
 			'messages' => array(
 				'comma-separator',
@@ -353,6 +355,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-license-wikitext-missing',
 				'mwe-upwiz-error-license-wikitext-too-short',
 				'mwe-upwiz-error-license-wikitext-too-long',
+				'mwe-upwiz-warning-categories-missing',
 				'mwe-upwiz-details-error-count',
 				'mwe-upwiz-license-cc-by-sa-4.0',
 				'mwe-upwiz-license-cc-by-sa-3.0',
