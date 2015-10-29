@@ -319,6 +319,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-tooltip-location',
 				'mwe-upwiz-tooltip-more-info',
 				'mwe-upwiz-file-need-file',
+				'mwe-upwiz-deeds-need-deed',
 				'mwe-upwiz-deeds-need-license',
 				'mwe-upwiz-license-show-all',
 				'mwe-upwiz-license-show-recommended',
