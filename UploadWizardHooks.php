@@ -764,23 +764,23 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
-		$dbfile = dirname( __FILE__ ) . '/UploadWizard.' . $updater->getDB()->getType() . '.sql';
+		$dbfile = __DIR__ . '/UploadWizard.' . $updater->getDB()->getType() . '.sql';
 		if ( !file_exists( $dbfile ) ) {
-			$dbfile = dirname( __FILE__ ) . '/UploadWizard.sql';
+			$dbfile = __DIR__ . '/UploadWizard.sql';
 		}
 		$updater->addExtensionTable( 'uw_campaigns', $dbfile );
 		$updater->addExtensionUpdate( array(
 			'addIndex',
 			'uw_campaigns',
 			'uw_campaigns_name',
-			dirname( __FILE__ ) . '/sql/UW_IndexCampaignsName.sql',
+			__DIR__ . '/sql/UW_IndexCampaignsName.sql',
 			true
 		) );
 		$updater->addExtensionUpdate( array(
 			'addIndex',
 			'uw_campaigns',
 			'uw_campaigns_enabled',
-			dirname( __FILE__ ) . '/sql/UW_IndexCampaignsEnabled.sql',
+			__DIR__ . '/sql/UW_IndexCampaignsEnabled.sql',
 			true
 		) );
 
