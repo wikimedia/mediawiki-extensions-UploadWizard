@@ -136,12 +136,10 @@ class SpecialUploadWizard extends SpecialPage {
 
 			if ( $campaign === false ) {
 				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->text() );
-			}
-			else {
+			} else {
 				if ( $campaign->getIsEnabled() ) {
 					$this->campaign = $campaignName;
-				}
-				else {
+				} else {
 					$this->displayError( $this->msg( 'mwe-upwiz-error-campaigndisabled', $campaignName )->text() );
 				}
 			}

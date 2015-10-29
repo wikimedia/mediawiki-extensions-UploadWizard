@@ -48,7 +48,7 @@ class UploadWizardConfig {
 					$newArray[$key] = $array1[$key];
 					break;
 				}
-			}  else {
+			} else {
 				$newArray[$key] = $array[$key];
 			}
 		}
