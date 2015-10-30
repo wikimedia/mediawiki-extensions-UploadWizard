@@ -10,8 +10,6 @@
 
 		initialized: false,
 
-		UNKNOWN: 'unknown',
-
 		/**
 		 * List of default languages
 		 * Make sure you have language templates set up for each of these on your wiki, e.g. {{en}}
@@ -86,7 +84,7 @@
 		 * Get an HTML select menu of all our languages.
 		 *
 		 * @param {string} name Desired name of select element
-		 * @param {string} code Selected language code
+		 * @param {string} [code] Selected language code
 		 * @return {HTMLSelectElement} The `select` element configured as desired
 		 */
 		getMenu: function ( name, code ) {
@@ -94,7 +92,7 @@
 
 			mw.LanguageUpWiz.initialize();
 			/* If we did not request a specific selected language code, see if we have a default. */
-			if ( mw.LanguageUpWiz.defaultCode !== null && code === mw.LanguageUpWiz.UNKNOWN ) {
+			if ( !code ) {
 				code = mw.LanguageUpWiz.defaultCode;
 			}
 
@@ -102,19 +100,8 @@
 				.clone()
 				.prop( 'name', name );
 
-			if ( code === mw.LanguageUpWiz.UNKNOWN ) {
-				// n.b. MediaWiki LanguageHandler has ability to add custom label for 'Unknown'; possibly as pseudo-label
-				$select
-					.prepend(
-						$( '<option>' )
-							.prop( 'value', mw.LanguageUpWiz.UNKNOWN )
-							.text( mw.message( 'mwe-upwiz-code-unknown' ).text() )
-					)
-					.val( mw.LanguageUpWiz.UNKNOWN );
-			}
-
 			/* Pre select the 'code' language */
-			if ( code !== undefined && mw.LanguageUpWiz.checkForLang( code ) ) {
+			if ( mw.LanguageUpWiz.checkForLang( code ) ) {
 				$select.val( mw.LanguageUpWiz.getClosest( code ) );
 			}
 
