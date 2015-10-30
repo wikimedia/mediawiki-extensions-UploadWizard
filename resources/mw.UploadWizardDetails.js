@@ -10,7 +10,8 @@
 	 * @param {jQuery} containerDiv The `div` to put the interface into
 	 */
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
-		var descriptionAdderDiv, titleContainerDiv,
+		var titleContainerDiv,
+			descriptionRequired, uri,
 			categoriesHinter,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
 			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
@@ -22,8 +23,6 @@
 		this.containerDiv = containerDiv;
 		this.api = upload.api;
 
-		this.descriptions = [];
-
 		this.div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
 
 		this.thumbnailDiv = $( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
@@ -31,18 +30,22 @@
 		this.dataDiv = $( '<div class="mwe-upwiz-data"></div>' );
 
 		// descriptions
-		this.descriptionsDiv = $( '<div class="mwe-upwiz-details-descriptions"></div>' );
-
-		this.descriptionAdder = $( '<a class="mwe-upwiz-more-options"></a>' )
-						.text( mw.message( 'mwe-upwiz-desc-add-0' ).text() )
-						.click( function ( ) { details.addDescription(); } );
-
-		descriptionAdderDiv =
-			$( '<div>' ).append(
-				$( '<div class="mwe-upwiz-details-fieldname"></div>' ),
-				$( '<div class="mwe-upwiz-details-descriptions-add"></div>' )
-						.append( this.descriptionAdder )
-			);
+		// Description is not required if a campaign provides alternative wikitext fields,
+		// which are assumed to function like a description
+		descriptionRequired = !(
+			mw.UploadWizard.config.fields &&
+			mw.UploadWizard.config.fields.length &&
+			mw.UploadWizard.config.fields[ 0 ].wikitext
+		);
+		this.descriptionsDetails = new uw.DescriptionsDetailsWidget( {
+			required: descriptionRequired
+		} );
+		this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsDetails, {
+			label: mw.message( 'mwe-upwiz-desc' ).text(),
+			required: descriptionRequired
+		} );
+		// TODO Rethink hints
+		this.descriptionsDetailsField.$label.addHint( 'description' );
 
 		// Commons specific help for titles
 		//  https://commons.wikimedia.org/wiki/Commons:File_naming
@@ -190,8 +193,7 @@
 		this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 		this.$form.append(
 			titleContainerDiv,
-			this.descriptionsDiv,
-			descriptionAdderDiv,
+			this.descriptionsDetailsField.$element,
 			this.copyrightInfoFieldset,
 			this.dateDetailsField.$element,
 			this.categoriesDetailsField.$element
@@ -341,16 +343,17 @@
 			'mwe-upwiz-more-options'
 		);
 
-		this.addDescription(
-			!(
-				mw.UploadWizard.config.fields &&
-				mw.UploadWizard.config.fields.length &&
-				mw.UploadWizard.config.fields[ 0 ].wikitext
-			),
-			undefined,
-			false,
-			mw.UploadWizard.config.defaults.description
-		);
+		uri = new mw.Uri( location.href, { overrideKeys: true } );
+		if ( mw.UploadWizard.config.defaults.description ) {
+			this.descriptionsDetails.setSerialized( {
+				descriptions: [
+					{
+						language: uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ),
+						description: mw.UploadWizard.config.defaults.description
+					}
+				]
+			} );
+		}
 
 		if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
 			// less strict checking, since TitleBlacklist checks should catch most errors.
@@ -506,7 +509,6 @@
 		 */
 		copyMetadata: function ( metadataType ) {
 			var titleZero, matches,
-				details = this,
 				uploads = this.upload.wizard.uploads,
 				sourceId = uploads[ 0 ].index;
 
@@ -531,15 +533,13 @@
 				} );
 			}
 
-			function oouiCopy( property, methods ) {
+			function oouiCopy( property ) {
 				var i,
 					sourceUpload = uploads[ 0 ],
-					getMethod = methods && methods.get || 'getValue',
-					setMethod = methods && methods.set || 'setValue',
-					sourceValue = sourceUpload.details[ property ][ getMethod ]();
+					sourceValue = sourceUpload.details[ property ].getSerialized();
 
 				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[ i ].details[ property ][ setMethod ]( sourceValue );
+					uploads[ i ].details[ property ].setSerialized( sourceValue );
 				}
 			}
 
@@ -571,37 +571,16 @@
 
 				} );
 			} else if ( metadataType === 'description' ) {
-				$.each( uploads, function ( uploadIndex, upload ) {
-					if ( upload !== undefined && upload.index !== sourceId ) {
 
-						// We could merge, but it's unlikely that the user wants to do anything other
-						// than just having the same descriptions across all files, so rather than
-						// create unintended consequences, we nuke any existing descriptions first.
-						upload.details.removeAllDescriptions();
-
-						$.each( details.descriptions, function ( srcDescriptionIndex, srcDescription ) {
-							var isRequired = srcDescription.isRequired,
-								languageCode = srcDescription.getLanguage(),
-								allowRemoval = !isRequired,
-								descriptionText = srcDescription.getDescriptionText();
-							upload.details.addDescription( isRequired, languageCode, allowRemoval, descriptionText );
-						} );
-					}
-				} );
+				oouiCopy( 'descriptionsDetails' );
 
 			} else if ( metadataType === 'date' ) {
 
-				oouiCopy( 'dateDetails', {
-					get: 'getSerialized',
-					set: 'setSerialized'
-				} );
+				oouiCopy( 'dateDetails' );
 
 			} else if ( metadataType === 'categories' ) {
 
-				oouiCopy( 'categoriesDetails', {
-					get: 'getSerialized',
-					set: 'setSerialized'
-				} );
+				oouiCopy( 'categoriesDetails' );
 
 			} else if ( metadataType === 'location' ) {
 
@@ -753,6 +732,7 @@
 		 */
 		getErrors: function () {
 			return $.when(
+				this.descriptionsDetails.getErrors(),
 				this.dateDetails.getErrors(),
 				this.categoriesDetails.getErrors()
 				// More fields will go here as we convert things to the new system...
@@ -766,6 +746,7 @@
 		 */
 		getWarnings: function () {
 			return $.when(
+				this.descriptionsDetails.getWarnings(),
 				this.dateDetails.getWarnings(),
 				this.categoriesDetails.getWarnings()
 				// More fields will go here as we convert things to the new system...
@@ -777,9 +758,17 @@
 		 * UI.
 		 */
 		checkValidity: function () {
+			this.descriptionsDetailsField.checkValidity();
 			this.dateDetailsField.checkValidity();
 			this.categoriesDetailsField.checkValidity();
 			// More fields will go here as we convert things to the new system...
+		},
+
+		/**
+		 * Get a thumbnail caption for this upload (basically, the first description).
+		 */
+		getThumbnailCaption: function () {
+			return this.descriptionsDetails.getSerialized().descriptions[ 0 ].description.trim();
 		},
 
 		/**
@@ -962,79 +951,6 @@
 		},
 
 		/**
-		 * Do anything related to a change in the number of descriptions
-		 */
-		recountDescriptions: function () {
-			// if there is some maximum number of descriptions, deal with that here
-			$( this.descriptionAdder ).text( mw.message( 'mwe-upwiz-desc-add-' + ( this.descriptions.length === 0 ? '0' : 'n' ) ).text() );
-		},
-
-		/**
-		 * Add a new description
-		 */
-		addDescription: function ( required, languageCode, allowRemove, initialValue ) {
-			var description,
-				details = this;
-
-			if ( required === undefined ) {
-				required = false;
-			}
-			if ( allowRemove === undefined ) {
-				allowRemove = true;
-			}
-
-			description = new mw.UploadWizardDescription( languageCode, required, initialValue );
-
-			if ( !required && allowRemove ) {
-				$( description.div  ).prepend(
-					new OO.ui.ButtonWidget( {
-						label: '',
-						title: mw.message( 'mwe-upwiz-remove-description' ).escaped(),
-						flags: 'destructive',
-						classes: 'mwe-upwiz-remove-ctrl',
-						icon: 'remove',
-						framed: false
-					} ).on( 'click', function () {
-						details.removeDescription( description );
-					} ).$element
-				);
-			}
-
-			$( this.descriptionsDiv ).append( description.div  );
-
-			// must defer adding rules until it's in a form
-			// sigh, this would be simpler if we refactored to be more jquery style, passing DOM element downward
-			description.addValidationRules( required );
-
-			this.descriptions.push( description );
-			this.recountDescriptions();
-		},
-
-		/**
-		 * Remove a description
-		 *
-		 * @param {jQuery} description Description HTML from which to remove the `div`
-		 */
-		removeDescription: function ( description ) {
-			$( description.div ).remove();
-
-			this.descriptions = $.grep(
-				this.descriptions,
-				function ( d ) {
-					return d !== description;
-				}
-			);
-
-			this.recountDescriptions();
-		},
-
-		removeAllDescriptions: function () {
-			$( this.descriptionsDiv ).children().remove();
-			this.descriptions = [];
-			this.recountDescriptions();
-		},
-
-		/**
 		 * Given the API result pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 *
 		 * @param {Object} result Upload API result object
@@ -1169,25 +1085,31 @@
 		 * or from the metadata.
 		 */
 		prefillDescription: function () {
-			var m, desc, descText;
+			var m, descText;
 
 			if (
-				this.descriptions[ 0 ].getDescriptionText() === '' &&
+				this.descriptionsDetails.getWikiText() === '' &&
 				this.upload.file !== undefined
 			) {
 				m = this.upload.imageinfo.metadata;
-				desc = this.descriptions[ 0 ];
 				descText = this.upload.file.description ||
 					( m && m.imagedescription && m.imagedescription[ 0 ] && m.imagedescription[ 0 ].value );
 
 				if ( descText ) {
-					desc.setText( descText );
+					// strip out any HTML tags
+					descText = descText.replace( /<[^>]+>/g, '' );
+					// & and " are escaped by Flickr, so we need to unescape
+					descText = descText.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
 
-					// In future, when using a AJAX service for language detection
-					// use `desc.lockLanguageMenu();` and `desc.unlockLanguageMenu();`
-					// to prevent interaction by the user.
-					// For now, stick to the content language.
-					desc.setLanguage( mw.config.get( 'wgContentLanguage' ) );
+					this.descriptionsDetails.setSerialized( {
+						descriptions: [
+							{
+								// The language is probably wrong in many cases...
+								language: mw.config.get( 'wgContentLanguage' ),
+								description: descText.trim()
+							}
+						]
+					} );
 				}
 			}
 		},
@@ -1320,16 +1242,7 @@
 					'other versions': ''
 				};
 
-				// sanity check the descriptions -- do not have two in the same lang
-				// all should be a known lang
-				if ( this.descriptions.length === 0 ) {
-					window.alert( 'something has gone horribly wrong, unimplemented error check for zero descriptions' );
-					// XXX ruh roh
-					// we should not even allow them to press the button ( ? ) but then what about the queue...
-				}
-				$.each( this.descriptions, function ( i, desc ) {
-					information.description += desc.getWikiText();
-				} );
+				information.description = this.descriptionsDetails.getWikiText();
 
 				$.each( this.fields, function ( i, $field ) {
 					if ( !mw.isEmpty( $field.val() ) ) {

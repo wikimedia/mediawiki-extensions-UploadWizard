@@ -51,7 +51,6 @@ class UploadWizardHooks {
 				'uw.controller.Thanks',
 				'uw.controller.Tutorial',
 				'uw.controller.Upload',
-				'uw.model.Description',
 
 				'es5-shim',
 				'oojs',
@@ -73,6 +72,8 @@ class UploadWizardHooks {
 				'resources/uw.FieldLayout.js',
 				'resources/details/uw.DateDetailsWidget.js',
 				'resources/details/uw.CategoriesDetailsWidget.js',
+				'resources/details/uw.DescriptionDetailsWidget.js',
+				'resources/details/uw.DescriptionsDetailsWidget.js',
 
 				// common utilities
 				'resources/mw.fileApi.js',
@@ -82,9 +83,6 @@ class UploadWizardHooks {
 
 				// wikimedia-comons specific title checker
 				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
-
-				// language menus
-				'resources/mw.LanguageUpWiz.js',
 
 				// workhorse libraries
 				'resources/mw.DestinationChecker.js',
@@ -110,7 +108,6 @@ class UploadWizardHooks {
 				// main library components:
 				'resources/mw.UploadWizardUpload.js',
 				'resources/mw.UploadWizardDeed.js',
-				'resources/mw.UploadWizardDescription.js',
 				'resources/mw.UploadWizardDetails.js',
 				'resources/mw.UploadWizardUploadInterface.js',
 			),
@@ -120,6 +117,8 @@ class UploadWizardHooks {
 				// OOjs UI interface elements
 				'resources/details/uw.DateDetailsWidget.less',
 				'resources/details/uw.CategoriesDetailsWidget.less',
+				'resources/details/uw.DescriptionDetailsWidget.less',
+				'resources/details/uw.DescriptionsDetailsWidget.less',
 			),
 			'messages' => array(
 				'comma-separator',
@@ -341,6 +340,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-blank',
 				'mwe-upwiz-error-too-long',
 				'mwe-upwiz-error-too-short',
+				'mwe-upwiz-error-bad-descriptions',
 				'mwe-upwiz-error-bad-chars',
 				'mwe-upwiz-error-title-blacklisted',
 				'mwe-upwiz-error-title-badchars',
@@ -664,26 +664,6 @@ class UploadWizardHooks {
 			),
 		),
 
-		'uw.model.base' => array(
-			'scripts' => array(
-				'resources/uw/model/uw.model.base.js',
-			),
-
-			'dependencies' => array(
-				'uw.base',
-			),
-		),
-
-		'uw.model.Description' => array(
-			'scripts' => array(
-				'resources/uw/model/uw.model.Description.js',
-			),
-
-			'dependencies' => array(
-				'uw.model.base',
-			),
-		),
-
 		'uw.ui.Tutorial' => array(
 			'scripts' => array(
 				'resources/ui/uw.ui.Tutorial.js',
@@ -927,7 +907,6 @@ class UploadWizardHooks {
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
-				'tests/qunit/mw.uw.model.Description.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',
 				'tests/qunit/mw.UploadWizardDetails.test.js',
 				'tests/qunit/mw.fileApi.test.js',
