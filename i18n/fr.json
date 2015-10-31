@@ -41,7 +41,8 @@
 			"Element303",
 			"Framafan",
 			"Mattho69",
-			"Orlodrim"
+			"Orlodrim",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -169,8 +170,8 @@
 	"mwe-upwiz-copy-other": "Copier les autres informations",
 	"mwe-upwiz-desc": "Description",
 	"mwe-upwiz-desc-placeholder": "Décrire l'image",
-	"mwe-upwiz-desc-add-n": "ajouter une description dans une autre langue",
-	"mwe-upwiz-desc-add-0": "ajouter une description",
+	"mwe-upwiz-desc-add-n": "Ajouter une description dans une autre langue",
+	"mwe-upwiz-desc-add-0": "Ajouter une description",
 	"mwe-upwiz-title": "Titre",
 	"mwe-upwiz-date-created": "Date de création",
 	"mwe-upwiz-location": "Emplacement",

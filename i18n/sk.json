@@ -3,7 +3,8 @@
 		"authors": [
 			"Helix84",
 			"KuboF",
-			"Teslaton"
+			"Teslaton",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Sprievodca nahrávaním",
@@ -89,8 +90,8 @@
 	"mwe-upwiz-copy-location": "Skopírovať polohu",
 	"mwe-upwiz-copy-other": "Skopírovať ďalšie informácie",
 	"mwe-upwiz-desc": "Popis",
-	"mwe-upwiz-desc-add-n": "pridať popis v inom jazyku",
-	"mwe-upwiz-desc-add-0": "pridať popis",
+	"mwe-upwiz-desc-add-n": "Pridať popis v inom jazyku",
+	"mwe-upwiz-desc-add-0": "Pridať popis",
 	"mwe-upwiz-title": "Názov",
 	"mwe-upwiz-date-created": "Dátum vytvorenia",
 	"mwe-upwiz-location": "Miesto",

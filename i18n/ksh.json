@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Purodha"
+			"Purodha",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "et frünndlejje Projramm för et Huhlaade",
@@ -130,7 +131,7 @@
 	"mwe-upwiz-desc": "Beschrevve als",
 	"mwe-upwiz-desc-placeholder": "Schrihv jädd övver dat Beld.",
 	"mwe-upwiz-desc-add-n": "{{int:mwe-upwiz-desc-add-0}} en en ander Schprohch",
-	"mwe-upwiz-desc-add-0": "donn jät drövver schrieve",
+	"mwe-upwiz-desc-add-0": "Donn jät drövver schrieve",
 	"mwe-upwiz-title": "Tėttel",
 	"mwe-upwiz-date-created": "Jemaat aam",
 	"mwe-upwiz-location": "Plaz",

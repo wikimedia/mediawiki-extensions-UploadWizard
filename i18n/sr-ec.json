@@ -6,7 +6,8 @@
 			"Rancher",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Чаробњак за слање",
@@ -118,8 +119,8 @@
 	"mwe-upwiz-copy-other": "Копирај остале информације",
 	"mwe-upwiz-desc": "Опис",
 	"mwe-upwiz-desc-placeholder": "Опишите слику",
-	"mwe-upwiz-desc-add-n": "додај опис на другом језику",
-	"mwe-upwiz-desc-add-0": "додајте опис",
+	"mwe-upwiz-desc-add-n": "Додај опис на другом језику",
+	"mwe-upwiz-desc-add-0": "Додајте опис",
 	"mwe-upwiz-title": "Наслов",
 	"mwe-upwiz-date-created": "Датум стварања",
 	"mwe-upwiz-location": "Место",

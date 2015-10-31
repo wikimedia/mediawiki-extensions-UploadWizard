@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"HalanTul"
+			"HalanTul",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Киллэрии маастара",
@@ -77,8 +78,8 @@
 	"mwe-upwiz-source-custom": "Хас биирдии билэҕэ бас билиитин туругун аныгыскы сирэйгэ суруй.",
 	"mwe-upwiz-more-options": "өссө туруоруулар...",
 	"mwe-upwiz-desc": "Быһаарыыта",
-	"mwe-upwiz-desc-add-n": "бу туһунан атын тылынан",
-	"mwe-upwiz-desc-add-0": "эбии бу туһунан",
+	"mwe-upwiz-desc-add-n": "Бу туһунан атын тылынан",
+	"mwe-upwiz-desc-add-0": "Эбии бу туһунан",
 	"mwe-upwiz-title": "Баһа",
 	"mwe-upwiz-date-created": "Айыллыбыт кэмэ",
 	"mwe-upwiz-location": "Ханната",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrisportelli",
 			"පසිඳු කාවින්ද",
-			"Leli Forte"
+			"Leli Forte",
+			"Matma Rex"
 		]
 	},
 	"mwe-upwiz-js-off": "It-tlugħ ta' fajls iggwidat juża l-JavaScript sabiex joffri interfaċċa aħjar. Il-browżer jew ma jsostnix il-JavaScript jew għandu l-JavaScript mitfi, għalhekk qed nuru l-formola s-sempliċi għat-tlugħ ta' fajls.",
@@ -82,7 +83,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Issa għidilna għaliex inti ċert li għandek id-dritt li tippubblika {{PLURAL:$1|dan ix-xogħol|dawn ix-xogħlijiet}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Ipprovdi informazzjoni dwar il-copyright għal kull fajl individwali fil-paġna li jmiss.",
-	"mwe-upwiz-more-options": "żid kategoriji u aktar informazzjoni...",
+	"mwe-upwiz-more-options": "Żid kategoriji u aktar informazzjoni...",
 	"mwe-upwiz-copy-metadata": "Ikkopja l-informazzjoni fil-fajls kollha mtellgħa hawn taħt...",
 	"mwe-upwiz-copy-metadata-button": "Ikkopja",
 	"mwe-upwiz-copy-title": "Ikkopja t-titlu (b'numerazzjoni awtomatika)",
@@ -90,8 +91,8 @@
 	"mwe-upwiz-copy-date": "Ikkopja d-data",
 	"mwe-upwiz-copy-categories": "Ikkopja l-kategoriji",
 	"mwe-upwiz-desc": "Deskrizzjoni",
-	"mwe-upwiz-desc-add-n": "żid deskrizzjoni f'lingwa oħra",
-	"mwe-upwiz-desc-add-0": "żid deskrizzjoni",
+	"mwe-upwiz-desc-add-n": "Żid deskrizzjoni f'lingwa oħra",
+	"mwe-upwiz-desc-add-0": "Żid deskrizzjoni",
 	"mwe-upwiz-title": "Titlu",
 	"mwe-upwiz-date-created": "Data ta' ħolqien",
 	"mwe-upwiz-location": "Post",

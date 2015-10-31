@@ -3,7 +3,8 @@
 		"authors": [
 			"FatosMorina",
 			"Olsi",
-			"Kosovastar"
+			"Kosovastar",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Eksperti për ngarkim",
@@ -76,7 +77,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Tani na tregoni pse jeni të sigurt që ju keni të drejtën për të publikuar {{PLURAL:$1|këtë skedë|këto skeda}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Në rregull",
 	"mwe-upwiz-source-custom": "Siguroni informacion për të drejtat e autorit për çdo skedë individualisht në faqen tjetër.",
-	"mwe-upwiz-more-options": "shto kategori dhe më shumë informacion...",
+	"mwe-upwiz-more-options": "Shto kategori dhe më shumë informacion...",
 	"mwe-upwiz-copy-metadata": "Kopjo informacionin tek të gjitha ngarkesat ...",
 	"mwe-upwiz-copy-metadata-button": "Kopjo",
 	"mwe-upwiz-copy-title": "Kopjo titullin (me numërimin automatik)",
@@ -86,8 +87,8 @@
 	"mwe-upwiz-copy-location": "Kopjo vendndodhjen",
 	"mwe-upwiz-copy-other": "Kopjo ndonjë informacion tjetër",
 	"mwe-upwiz-desc": "Përshkrimi",
-	"mwe-upwiz-desc-add-n": "shto një përshkrim në një gjuhë tjetër",
-	"mwe-upwiz-desc-add-0": "shto një përshkrim",
+	"mwe-upwiz-desc-add-n": "Shto një përshkrim në një gjuhë tjetër",
+	"mwe-upwiz-desc-add-0": "Shto një përshkrim",
 	"mwe-upwiz-title": "Titulli",
 	"mwe-upwiz-date-created": "Data e krijimit",
 	"mwe-upwiz-location": "Vendndodhja",

@@ -14,7 +14,8 @@
 			"Vitorvicentevalente",
 			"Waldir",
 			"Rillke",
-			"Fúlvio"
+			"Fúlvio",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Assistente de envio de ficheiros",
@@ -142,8 +143,8 @@
 	"mwe-upwiz-copy-other": "Copiar outra informação",
 	"mwe-upwiz-desc": "Descrição",
 	"mwe-upwiz-desc-placeholder": "Descreva a imagem",
-	"mwe-upwiz-desc-add-n": "adicionar uma descrição noutra língua",
-	"mwe-upwiz-desc-add-0": "adicionar uma descrição",
+	"mwe-upwiz-desc-add-n": "Adicionar uma descrição noutra língua",
+	"mwe-upwiz-desc-add-0": "Adicionar uma descrição",
 	"mwe-upwiz-title": "Título",
 	"mwe-upwiz-date-created": "Data de criação",
 	"mwe-upwiz-location": "Localidade",

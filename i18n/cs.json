@@ -10,7 +10,8 @@
 			"Palu",
 			"Ragimiri",
 			"Utar",
-			"Cvanca"
+			"Cvanca",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -126,7 +127,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Vysvětlete, proč jste si jisti, že máte právo zveřejnit {{PLURAL:$1|toto dílo|tato díla}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Na další stránce poskytnout informace o autorských právech pro každý soubor zvlášť.",
-	"mwe-upwiz-more-options": "přidat umístění a další informace…",
+	"mwe-upwiz-more-options": "Přidat umístění a další informace…",
 	"mwe-upwiz-copy-metadata": "Kopírovat informace ke všem následujícím souborům…",
 	"mwe-upwiz-copy-metadata-button": "Okopírovat",
 	"mwe-upwiz-copied-metadata-button": "Úspěšně zkopírováno",
@@ -138,8 +139,8 @@
 	"mwe-upwiz-copy-other": "Okopírovat další informace",
 	"mwe-upwiz-desc": "Popis",
 	"mwe-upwiz-desc-placeholder": "Popište obrázek",
-	"mwe-upwiz-desc-add-n": "přidat popis v dalším jazyce",
-	"mwe-upwiz-desc-add-0": "přidat popis",
+	"mwe-upwiz-desc-add-n": "Přidat popis v dalším jazyce",
+	"mwe-upwiz-desc-add-0": "Přidat popis",
 	"mwe-upwiz-title": "Název",
 	"mwe-upwiz-date-created": "Datum vytvoření",
 	"mwe-upwiz-location": "Místo",

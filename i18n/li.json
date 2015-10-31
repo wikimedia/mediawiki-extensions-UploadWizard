@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ooswesthoesbes"
+			"Ooswesthoesbes",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Uploadwizzerd",
@@ -92,7 +93,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Gaef hie aan wiezo se zeker wits des toe 't rech haet óm {{PLURAL:$1|dit wirk|dees wirke}} oet te bringe:",
 	"mwe-upwiz-source-thirdparty-accept": "Klaor",
 	"mwe-upwiz-source-custom": "Lever óppe volgendje pagina veur eder bestandj epaart sjrieversinfo.",
-	"mwe-upwiz-more-options": "veug categorieë en mier informatie toe...",
+	"mwe-upwiz-more-options": "Veug categorieë en mier informatie toe...",
 	"mwe-upwiz-copy-metadata": "Kopieer info op alle uploads ónger...",
 	"mwe-upwiz-copy-metadata-button": "Kopieer",
 	"mwe-upwiz-copy-title": "Kopieer titel (mit autematisse nómmering)",
@@ -102,8 +103,8 @@
 	"mwe-upwiz-copy-location": "Kopieer plaats",
 	"mwe-upwiz-copy-other": "Kopieer anger gegaeves",
 	"mwe-upwiz-desc": "Besjrieving",
-	"mwe-upwiz-desc-add-n": "veug besjrieving in 'n anger sjpraok toe",
-	"mwe-upwiz-desc-add-0": "veug besjrieving toe",
+	"mwe-upwiz-desc-add-n": "Veug besjrieving in 'n anger sjpraok toe",
+	"mwe-upwiz-desc-add-0": "Veug besjrieving toe",
 	"mwe-upwiz-title": "Naam",
 	"mwe-upwiz-date-created": "Aangemaak op",
 	"mwe-upwiz-location": "Locatie",

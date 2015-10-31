@@ -13,7 +13,8 @@
 			"Tgr",
 			"Csega",
 			"Tacsipacsi",
-			"Adam78"
+			"Adam78",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Feltöltésvarázsló",
@@ -122,7 +123,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Mondd el, hogy miért vagy biztos abban, hogy a jogod van közzétenni {{PLURAL:$1|ezt a művet|ezeket a műveket}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "A következő oldalon add meg a szerzői jogi adatokat az egyes fájlokhoz.",
-	"mwe-upwiz-more-options": "helyszín és további adatok megadása…",
+	"mwe-upwiz-more-options": "Helyszín és további adatok megadása…",
 	"mwe-upwiz-copy-metadata": "Információk másolása az alábbi {{PLURAL:$1|fájl|fájlok}} leírásába …",
 	"mwe-upwiz-copy-metadata-button": "Másolás",
 	"mwe-upwiz-copied-metadata-button": "Sikeresen másolva.",
@@ -133,8 +134,8 @@
 	"mwe-upwiz-copy-location": "Helyszín másolása",
 	"mwe-upwiz-copy-other": "További információk másolása",
 	"mwe-upwiz-desc": "Leírás",
-	"mwe-upwiz-desc-add-n": "leírás hozzáadása más nyelven is",
-	"mwe-upwiz-desc-add-0": "leírás hozzáadása",
+	"mwe-upwiz-desc-add-n": "Leírás hozzáadása más nyelven is",
+	"mwe-upwiz-desc-add-0": "Leírás hozzáadása",
 	"mwe-upwiz-title": "Cím",
 	"mwe-upwiz-date-created": "Készítés dátuma",
 	"mwe-upwiz-location": "Helyszín",

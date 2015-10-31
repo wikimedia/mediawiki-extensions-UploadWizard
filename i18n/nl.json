@@ -11,7 +11,8 @@
 			"Wiki13",
 			"Wouterhagens",
 			"Robin0van0der0vliet",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -132,8 +133,8 @@
 	"mwe-upwiz-copy-location": "Locatie kopiëren",
 	"mwe-upwiz-copy-other": "Andere gegevens kopiëren",
 	"mwe-upwiz-desc": "Beschrijving",
-	"mwe-upwiz-desc-add-n": "beschrijving in een andere taal toevoegen",
-	"mwe-upwiz-desc-add-0": "beschrijving toevoegen",
+	"mwe-upwiz-desc-add-n": "Beschrijving in een andere taal toevoegen",
+	"mwe-upwiz-desc-add-0": "Beschrijving toevoegen",
 	"mwe-upwiz-title": "Naam",
 	"mwe-upwiz-date-created": "Aangemaakt op",
 	"mwe-upwiz-location": "Locatie",

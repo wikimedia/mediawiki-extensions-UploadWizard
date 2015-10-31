@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gazeb"
+			"Gazeb",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Спроваджаня начітанём файлів",
@@ -92,7 +93,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Поясните нам, чом сьте певны, же мать тот сервер право публіковати {{PLURAL:$1|тото дїло|тоты дїла}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "На далшій сторінцї додати інформації о авторьскый правах про каждый файл окремо.",
-	"mwe-upwiz-more-options": "придати катеґорії тай далшы інформації...",
+	"mwe-upwiz-more-options": "Придати катеґорії тай далшы інформації...",
 	"mwe-upwiz-copy-metadata": "Копіровати інформації то вшыткы наладованя ниже ...",
 	"mwe-upwiz-copy-metadata-button": "Окопіровати",
 	"mwe-upwiz-copy-title": "Окопіровати назву (з автоматічнов нумераціов)",
@@ -102,8 +103,8 @@
 	"mwe-upwiz-copy-location": "Окопіровати локацію",
 	"mwe-upwiz-copy-other": "Окопіровати далшы інформації",
 	"mwe-upwiz-desc": "Попис",
-	"mwe-upwiz-desc-add-n": "придати попис в іншім языку",
-	"mwe-upwiz-desc-add-0": "придати попис",
+	"mwe-upwiz-desc-add-n": "Придати попис в іншім языку",
+	"mwe-upwiz-desc-add-0": "Придати попис",
 	"mwe-upwiz-title": "Назва",
 	"mwe-upwiz-date-created": "Датум створїня",
 	"mwe-upwiz-location": "Місце",

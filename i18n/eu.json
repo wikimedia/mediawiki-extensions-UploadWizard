@@ -5,7 +5,8 @@
 			"Joxemai",
 			"පසිඳු කාවින්ද",
 			"Subi",
-			"Sator"
+			"Sator",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Igoera Laguntzailea",
@@ -66,8 +67,8 @@
 	"mwe-upwiz-copy-other": "Kopiatu bestelako informazioa",
 	"mwe-upwiz-desc": "Deskribapena",
 	"mwe-upwiz-desc-placeholder": "Irudia deskribatu",
-	"mwe-upwiz-desc-add-n": "deskribapena gehitu beste hizkuntza batean",
-	"mwe-upwiz-desc-add-0": "deskribapena gehitu",
+	"mwe-upwiz-desc-add-n": "Deskribapena gehitu beste hizkuntza batean",
+	"mwe-upwiz-desc-add-0": "Deskribapena gehitu",
 	"mwe-upwiz-title": "Izenburua",
 	"mwe-upwiz-date-created": "Sorrera data",
 	"mwe-upwiz-location": "Kokapena",

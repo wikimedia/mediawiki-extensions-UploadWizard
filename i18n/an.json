@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Juanpabl"
+			"Juanpabl",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Asistent ta cargar fichers",
@@ -72,10 +73,10 @@
 	"mwe-upwiz-source-thirdparty-cases": "Agora indique, por favor, por qué ye seguro que tiene o dreito ta {{PLURAL:$1|iste treballo|istos treballos}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Confirmar",
 	"mwe-upwiz-source-custom": "Dé información de copyright ta cada fichero individualment en a pachina siguient.",
-	"mwe-upwiz-more-options": "adhibir categorías y mas información...",
+	"mwe-upwiz-more-options": "Adhibir categorías y mas información...",
 	"mwe-upwiz-desc": "Descripción",
-	"mwe-upwiz-desc-add-n": "adhibir una descripción en unatro idioma",
-	"mwe-upwiz-desc-add-0": "adhibir una descripción",
+	"mwe-upwiz-desc-add-n": "Adhibir una descripción en unatro idioma",
+	"mwe-upwiz-desc-add-0": "Adhibir una descripción",
 	"mwe-upwiz-title": "Titol",
 	"mwe-upwiz-date-created": "Calendata de creyación",
 	"mwe-upwiz-location": "Ubicación",

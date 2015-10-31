@@ -4,7 +4,8 @@
 			"DCLXVI",
 			"Spiritia",
 			"Stanqo",
-			"Vladimir Penov"
+			"Vladimir Penov",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -77,8 +78,8 @@
 	"mwe-upwiz-copy-location": "Копиране на местоположението",
 	"mwe-upwiz-copy-other": "Копиране на друга информация",
 	"mwe-upwiz-desc": "Описание",
-	"mwe-upwiz-desc-add-n": "добавяне на описание на друг език",
-	"mwe-upwiz-desc-add-0": "добавяне на описание",
+	"mwe-upwiz-desc-add-n": "Добавяне на описание на друг език",
+	"mwe-upwiz-desc-add-0": "Добавяне на описание",
 	"mwe-upwiz-title": "Заглавие",
 	"mwe-upwiz-date-created": "Дата на създаване",
 	"mwe-upwiz-location": "Местоположение",

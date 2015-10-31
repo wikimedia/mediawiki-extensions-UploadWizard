@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Harald Khan",
-			"Njardarlogar"
+			"Njardarlogar",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Opplastingsvegvisar",
@@ -68,8 +69,8 @@
 	"mwe-upwiz-copy-other": "Kopier annan informasjon",
 	"mwe-upwiz-desc": "Skildring",
 	"mwe-upwiz-desc-placeholder": "Skildra biletet",
-	"mwe-upwiz-desc-add-n": "legg til ei skildring på eit anna mål",
-	"mwe-upwiz-desc-add-0": "legg til ei skildring",
+	"mwe-upwiz-desc-add-n": "Legg til ei skildring på eit anna mål",
+	"mwe-upwiz-desc-add-0": "Legg til ei skildring",
 	"mwe-upwiz-title": "Namn",
 	"mwe-upwiz-date-created": "Oppretta dato",
 	"mwe-upwiz-location": "Stad",

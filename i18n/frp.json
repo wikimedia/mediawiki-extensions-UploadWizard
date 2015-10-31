@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"ChrisPtDe"
+			"ChrisPtDe",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Assistent d’importacion",
@@ -73,7 +74,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Ora, déte-nos porquè vos éte de sûr que vos avéd lo drêt de publeyér {{PLURAL:$1|cela ôvra|celes ôvres}} :",
 	"mwe-upwiz-source-thirdparty-accept": "D’acôrd",
 	"mwe-upwiz-source-custom": "Balyéd des enformacions de drêt d’ôtor por châque fichiér en particuliér sur ceta pâge.",
-	"mwe-upwiz-more-options": "apondre des catègories et més d’enformacions...",
+	"mwe-upwiz-more-options": "Apondre des catègories et més d’enformacions...",
 	"mwe-upwiz-copy-metadata-button": "Copiyér",
 	"mwe-upwiz-copy-title": "Copiyér lo titro (avouéc numerotacion ôtomatica)",
 	"mwe-upwiz-copy-description": "Copiyér la(les) dèscripcion(s)",
@@ -82,8 +83,8 @@
 	"mwe-upwiz-copy-location": "Copiyér la localisacion",
 	"mwe-upwiz-copy-other": "Copiyér les ôtres enformacions",
 	"mwe-upwiz-desc": "Dèscripcion",
-	"mwe-upwiz-desc-add-n": "apondre una dèscripcion dens una ôtra lengoua",
-	"mwe-upwiz-desc-add-0": "apondre una dèscripcion",
+	"mwe-upwiz-desc-add-n": "Apondre una dèscripcion dens una ôtra lengoua",
+	"mwe-upwiz-desc-add-0": "Apondre una dèscripcion",
 	"mwe-upwiz-title": "Titro",
 	"mwe-upwiz-date-created": "Dâta de crèacion",
 	"mwe-upwiz-location": "Emplacement",

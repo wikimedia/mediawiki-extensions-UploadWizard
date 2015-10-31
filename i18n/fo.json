@@ -3,7 +3,8 @@
 		"authors": [
 			"Diupwijk",
 			"EileenSanda",
-			"Snævar"
+			"Snævar",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Leiðbeining til at leggja út fílur",
@@ -64,8 +65,8 @@
 	"mwe-upwiz-copy-metadata-button": "Avrita",
 	"mwe-upwiz-copied-metadata-button": "Avritingin eydnaðist væl",
 	"mwe-upwiz-desc": "Frágreiðing",
-	"mwe-upwiz-desc-add-n": "skriva eina frágreiðing á einum øðrum máli",
-	"mwe-upwiz-desc-add-0": "skriva eina frágreiðing",
+	"mwe-upwiz-desc-add-n": "Skriva eina frágreiðing á einum øðrum máli",
+	"mwe-upwiz-desc-add-0": "Skriva eina frágreiðing",
 	"mwe-upwiz-title": "Heiti",
 	"mwe-upwiz-date-created": "Upprættað dag",
 	"mwe-upwiz-location": "Staður",

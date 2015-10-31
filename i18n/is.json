@@ -3,7 +3,8 @@
 		"authors": [
 			"Bjarki S",
 			"Snævar",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Upphlaðs álfurinn",
@@ -102,8 +103,8 @@
 	"mwe-upwiz-copy-location": "Afrita staðsetningu",
 	"mwe-upwiz-copy-other": "Afrita aðrar upplýsingar",
 	"mwe-upwiz-desc": "Lýsing",
-	"mwe-upwiz-desc-add-n": "bættu við lýsingu á öðru tungumáli",
-	"mwe-upwiz-desc-add-0": "bættu við lýsingu",
+	"mwe-upwiz-desc-add-n": "Bættu við lýsingu á öðru tungumáli",
+	"mwe-upwiz-desc-add-0": "Bættu við lýsingu",
 	"mwe-upwiz-title": "Titill",
 	"mwe-upwiz-date-created": "Upprunaleg dagsetning",
 	"mwe-upwiz-location": "Staðsetning",

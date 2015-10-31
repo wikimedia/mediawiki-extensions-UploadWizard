@@ -6,7 +6,8 @@
 			"Palapa",
 			"KWiki",
 			"Semso98",
-			"Srdjan m"
+			"Srdjan m",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -66,8 +67,8 @@
 	"mwe-upwiz-source-custom": "Navedite podatke o autorskim pravima pojedinačno za svaku datoteku na slijedećoj stranici.",
 	"mwe-upwiz-more-options": "Dodaj lokaciju i više informacija...",
 	"mwe-upwiz-desc": "Opis",
-	"mwe-upwiz-desc-add-n": "dodaj opis na drugom jeziku",
-	"mwe-upwiz-desc-add-0": "dodaj opis",
+	"mwe-upwiz-desc-add-n": "Dodaj opis na drugom jeziku",
+	"mwe-upwiz-desc-add-0": "Dodaj opis",
 	"mwe-upwiz-title": "Naslov",
 	"mwe-upwiz-date-created": "Datum pravljenja",
 	"mwe-upwiz-location": "Lokacija",

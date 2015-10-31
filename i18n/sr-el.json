@@ -3,7 +3,8 @@
 		"authors": [
 			"Milicevic01",
 			"Rancher",
-			"Жељко Тодоровић"
+			"Жељко Тодоровић",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Čarobnjak za slanje",
@@ -92,8 +93,8 @@
 	"mwe-upwiz-copy-location": "Preuzmi mesto",
 	"mwe-upwiz-copy-other": "Preuzmi druge podatke",
 	"mwe-upwiz-desc": "Opis",
-	"mwe-upwiz-desc-add-n": "dodaj opis na drugom jeziku",
-	"mwe-upwiz-desc-add-0": "dodaj opis",
+	"mwe-upwiz-desc-add-n": "Dodaj opis na drugom jeziku",
+	"mwe-upwiz-desc-add-0": "Dodaj opis",
 	"mwe-upwiz-title": "Naslov",
 	"mwe-upwiz-date-created": "Datum stvaranja",
 	"mwe-upwiz-location": "Mesto",

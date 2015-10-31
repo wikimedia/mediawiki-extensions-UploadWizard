@@ -5,7 +5,8 @@
 			"Fulup",
 			"Gwendal",
 			"Gwenn-Ael",
-			"Y-M D"
+			"Y-M D",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Ameiler enporzhiañ",
@@ -86,7 +87,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Lavarit deomp perak oc'h sur emañ ar gwir ganeoc'h da embann {{PLURAL:$1|an oberenn-mañ|an oberennoù-mañ}} :",
 	"mwe-upwiz-source-thirdparty-accept": "Mat eo",
 	"mwe-upwiz-source-custom": "Pourchas titouroù war ar gwirioù aozer evit pep restr, hini ha hini, er bajenn war-lerc'h.",
-	"mwe-upwiz-more-options": "ouzhpennañ rummadoù ha muioc'h a ditouroù...",
+	"mwe-upwiz-more-options": "Ouzhpennañ rummadoù ha muioc'h a ditouroù...",
 	"mwe-upwiz-copy-metadata-button": "Eilañ",
 	"mwe-upwiz-copy-title": "Eilañ an titl (gant un niveradur emgefre)",
 	"mwe-upwiz-copy-description": "Eilañ an deskrivadur{{PLURAL:$1||ioù}}",
@@ -95,8 +96,8 @@
 	"mwe-upwiz-copy-location": "Eilañ al lec'hiadur",
 	"mwe-upwiz-copy-other": "Eilañ titouroù all",
 	"mwe-upwiz-desc": "Deskrivadur",
-	"mwe-upwiz-desc-add-n": "ouzhpennañ un deskrivadur en ur yezh all",
-	"mwe-upwiz-desc-add-0": "ouzhpennañ un deskrivadur",
+	"mwe-upwiz-desc-add-n": "Ouzhpennañ un deskrivadur en ur yezh all",
+	"mwe-upwiz-desc-add-0": "Ouzhpennañ un deskrivadur",
 	"mwe-upwiz-title": "Titl",
 	"mwe-upwiz-date-created": "Deiziad krouiñ",
 	"mwe-upwiz-location": "Lec'hiadur",

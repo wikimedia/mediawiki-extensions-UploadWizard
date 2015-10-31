@@ -12,7 +12,8 @@
 			"Koc61",
 			"Suelnur",
 			"Szoszv",
-			"Captantrips"
+			"Captantrips",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Yükleme sihirbazı",
@@ -73,7 +74,7 @@
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Bu dosya|Bu dosyalar}} kendi çalışmam değil.",
 	"mwe-upwiz-source-thirdparty-intro": "Lütfen her dosya için onları bulduğunuz adresleri girin.",
 	"mwe-upwiz-source-thirdparty-accept": "Tamam",
-	"mwe-upwiz-more-options": "kategoriler ve daha fazla bilgi ekleyin...",
+	"mwe-upwiz-more-options": "Kategoriler ve daha fazla bilgi ekleyin...",
 	"mwe-upwiz-desc": "Açıklama",
 	"mwe-upwiz-desc-placeholder": "Görüntüyü betimleyiniz",
 	"mwe-upwiz-desc-add-n": "Başka bir dilde açıklama ekle",

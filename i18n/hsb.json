@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Michawiki",
-			"J budissin"
+			"J budissin",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Asistent za nahraća",
@@ -94,8 +95,8 @@
 	"mwe-upwiz-copy-location": "Městno kopěrować",
 	"mwe-upwiz-copy-other": "Druhe informacije kopěrować",
 	"mwe-upwiz-desc": "Wopisanje",
-	"mwe-upwiz-desc-add-n": "wopisanje w druhej rěči přidać",
-	"mwe-upwiz-desc-add-0": "wopisanje přidać",
+	"mwe-upwiz-desc-add-n": "Wopisanje w druhej rěči přidać",
+	"mwe-upwiz-desc-add-0": "Wopisanje přidać",
 	"mwe-upwiz-title": "Titul",
 	"mwe-upwiz-date-created": "Datum wutworjenja",
 	"mwe-upwiz-location": "Městno",

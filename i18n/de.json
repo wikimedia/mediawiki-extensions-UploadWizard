@@ -17,7 +17,8 @@
 			"TMg",
 			"The Evil IP address",
 			"✓",
-			"Umherirrender"
+			"Umherirrender",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -144,7 +145,7 @@
 	"mwe-upwiz-desc": "Beschreibung",
 	"mwe-upwiz-desc-placeholder": "Beschreibe das Bild",
 	"mwe-upwiz-desc-add-n": "Füge eine Beschreibung in einer anderen Sprache hinzu",
-	"mwe-upwiz-desc-add-0": "eine Beschreibung hinzufügen",
+	"mwe-upwiz-desc-add-0": "Eine Beschreibung hinzufügen",
 	"mwe-upwiz-title": "Name",
 	"mwe-upwiz-date-created": "Erstellungdatum",
 	"mwe-upwiz-location": "Standort",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bjankuloski06",
-			"Rancher"
+			"Rancher",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Помошник за подигање",
@@ -130,8 +131,8 @@
 	"mwe-upwiz-copy-other": "Преземи други информации",
 	"mwe-upwiz-desc": "Опис",
 	"mwe-upwiz-desc-placeholder": "Опишете ја сликата",
-	"mwe-upwiz-desc-add-n": "додај опис на друг јазик",
-	"mwe-upwiz-desc-add-0": "додај опис",
+	"mwe-upwiz-desc-add-n": "Додај опис на друг јазик",
+	"mwe-upwiz-desc-add-0": "Додај опис",
 	"mwe-upwiz-title": "Наслов",
 	"mwe-upwiz-date-created": "Создадена на",
 	"mwe-upwiz-location": "Место",

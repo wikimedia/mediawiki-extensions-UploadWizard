@@ -27,7 +27,8 @@
 			"Дмитрий",
 			"Translatobecomer",
 			"INS Pirat",
-			"Краснорядцева Елена"
+			"Краснорядцева Елена",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -153,8 +154,8 @@
 	"mwe-upwiz-copy-other": "Скопировать остальную информацию",
 	"mwe-upwiz-desc": "Описание",
 	"mwe-upwiz-desc-placeholder": "Описать изображение",
-	"mwe-upwiz-desc-add-n": "добавить описание на другом языке",
-	"mwe-upwiz-desc-add-0": "добавить описание",
+	"mwe-upwiz-desc-add-n": "Добавить описание на другом языке",
+	"mwe-upwiz-desc-add-0": "Добавить описание",
 	"mwe-upwiz-title": "Заголовок",
 	"mwe-upwiz-date-created": "Дата создания",
 	"mwe-upwiz-location": "Местонахождение",

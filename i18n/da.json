@@ -8,7 +8,8 @@
 			"Jan Friberg",
 			"Kaare",
 			"Palnatoke",
-			"Peter Alberti"
+			"Peter Alberti",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Vejviser til oplægning af filer",
@@ -128,8 +129,8 @@
 	"mwe-upwiz-copy-location": "Kopier sted",
 	"mwe-upwiz-copy-other": "Kopier øvrige oplysninger",
 	"mwe-upwiz-desc": "Beskrivelse",
-	"mwe-upwiz-desc-add-n": "tilføj en beskrivelse på et andet sprog",
-	"mwe-upwiz-desc-add-0": "tilføj en beskrivelse",
+	"mwe-upwiz-desc-add-n": "Tilføj en beskrivelse på et andet sprog",
+	"mwe-upwiz-desc-add-0": "Tilføj en beskrivelse",
 	"mwe-upwiz-title": "Titel",
 	"mwe-upwiz-date-created": "Oprettet dato",
 	"mwe-upwiz-location": "Sted",

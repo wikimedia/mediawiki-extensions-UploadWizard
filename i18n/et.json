@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pikne"
+			"Pikne",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "Üleslaadimisviisard",
@@ -127,7 +128,7 @@
 	"mwe-upwiz-desc": "Kirjeldus",
 	"mwe-upwiz-desc-placeholder": "Kirjelda pilti",
 	"mwe-upwiz-desc-add-n": "Lisa muus keeles kirjeldus",
-	"mwe-upwiz-desc-add-0": "lisa kirjeldus",
+	"mwe-upwiz-desc-add-0": "Lisa kirjeldus",
 	"mwe-upwiz-title": "Pealkiri",
 	"mwe-upwiz-date-created": "Valmistamiskuupäev",
 	"mwe-upwiz-location": "Asukoht",
