@@ -300,6 +300,7 @@
 	"mwe-upwiz-unparseable-title": "Tittelen er ugyldig. Sørg for å fjerne tegn som klammeparenteser, kolon, sammenligningsoperatorer, loddrette streker og krøllparenteser.",
 	"mwe-upwiz-subhead-bugs": "[$1 Kjente problemer]",
 	"mwe-upwiz-subhead-alt-upload": "Tilbake til det gamle skjemaet",
+	"mwe-upwiz-subhead-alternatives": "Alternative opplastingsmetoder",
 	"mwe-upwiz-feedback-prompt": "Gi tilbakemelding",
 	"mwe-upwiz-feedback-title": "Gi tilbakemelding på opplastningsveiviser",
 	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Send tilbakemelding]",
