@@ -51,36 +51,30 @@
 		// XXX make sure they can't use ctrl characters or returns or any other bad stuff.
 		this.titleId = 'title' + this.upload.index;
 		this.titleInput = this.makeTextInput( this.titleId, 'title', undefined, 250 )
-			.keyup( function () {
-				details.setCleanTitle( $( details.titleInput ).val() );
-			} )
-			.destinationChecked( {
-				api: this.upload.api,
-				spinner: function ( bool ) { details.toggleDestinationBusy( bool ); },
-				preprocess: function ( name ) {
-					var cleanTitle;
-
-					// First, clear out any existing errors, to prevent strange visual effects.
-					// Fixes bug 32469. But introduced a new bug: Some validator methods run immediately
-					// and this cleared out any error set by the validator if no titleblacklist
-					// is installed (where validation is done entirely remotely) because that second type
-					// of validation had a delay.
-					// Now only clearing errors from the delayed methods.
-					// TLDR; FIXME: `clearTitleErrors` should not be in a function called "preprocess"
-					// It's simply counter-intuitive.
-					details.clearTitleErrors();
-
-					if ( name !== '' ) {
-						// turn the contents of the input into a MediaWiki title ("File:foo bar.jpg") to look up
-						// side effect -- also sets this as our current title
-						cleanTitle = details.setCleanTitle( name );
-						return cleanTitle && cleanTitle.getPrefixedText() || '';
-					} else {
-						return name;
-					}
-				},
-				processResult: function ( result ) { details.processDestinationCheck( result ); }
-			} );
+			.on( 'change keyup', OO.ui.debounce( function () {
+				var title, cleanTitle;
+				// First, clear out any existing errors, to prevent strange visual effects.
+				details.clearTitleErrors();
+				title = $( details.titleInput ).val().trim();
+				if ( !title ) {
+					return;
+				}
+				// turn the contents of the input into a MediaWiki title ("File:foo bar.jpg") to look up
+				// side effect -- also sets this as our current title
+				cleanTitle = details.setCleanTitle( title );
+				cleanTitle = cleanTitle && cleanTitle.getPrefixedText() || '';
+				if ( !cleanTitle ) {
+					return;
+				}
+				details.toggleDestinationBusy( true );
+				mw.DestinationChecker.checkTitle( cleanTitle )
+					.done( function ( result ) {
+						details.processDestinationCheck( result );
+					} )
+					.always( function () {
+						details.toggleDestinationBusy( false );
+					} );
+			}, 500 ) );
 
 		this.titleErrorDiv = $( '<div>' ).addClass( 'mwe-upwiz-details-input-error' );
 
@@ -1278,7 +1272,9 @@
 		 * Note: the interface's notion of "filename" versus "title" is the opposite of MediaWiki
 		 */
 		prefillTitle: function () {
-			$( this.titleInput ).val( this.upload.title.getNameText() );
+			$( this.titleInput )
+				.val( this.upload.title.getNameText() )
+				.trigger( 'change' );
 		},
 
 		/**

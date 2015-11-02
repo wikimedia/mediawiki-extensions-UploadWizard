@@ -70,8 +70,6 @@
 				upload.details.useCustomDeedChooser();
 			}
 
-			upload.details.titleInput.checkTitle();
-
 			// Show toggler to copy selected metadata if there's more than one successful upload
 			if ( successes > 1 ) {
 				uploads[ 0 ].details.buildAndShowCopyMetadata();

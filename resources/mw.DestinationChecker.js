@@ -1,147 +1,55 @@
 ( function ( mw, $ ) {
-	/**
-	 * Object to attach to a file name input, to be run on its change() event
-	 * Largely derived from wgUploadWarningObj in old upload.js
-	 * Perhaps this could be a jQuery ext
-	 *
-	 * @param {Object} options dictionary of options
-	 *		selector  required, the selector for the input to check
-	 *		processResult   required, function to execute on results. accepts two args:
-	 *			1) filename that invoked this request -- should check if this is still current filename
-	 *			2) an object with the following fields
-	 *				isUnique: boolean
-	 *				img: thumbnail image src (if not unique)
-	 *				href: the url of the full image (if not unique)
-	 *				title: normalized title of file (if not unique)
-	 *		spinner	required, closure to execute to show progress: accepts true to start, false to stop
-	 *		apiUrl	 optional url to call for api. falls back to local api url
-	 *		delay	  optional how long to delay after a change in ms. falls back to configured default
-	 *		preprocess optional: function to apply to the contents of selector before testing
-	 *		events	 what events on the input trigger a check.
-	 */
-	mw.DestinationChecker = function ( options ) {
 
-		var checker = this,
-			check = this.getDelayedChecker();
+	mw.DestinationChecker = {
 
-		this.selector = options.selector;
-		this.spinner = options.spinner;
-		this.processResult = options.processResult;
-		this.api = options.api;
-
-		$.each( [ 'preprocess', 'delay', 'events' ], function ( i, option ) {
-			if ( options[ option ] ) {
-				checker[ option ] = options[ option ];
-			}
-		} );
-
-		$.each( this.events, function ( i, eventName ) {
-			$( checker.selector )[ eventName ]( check );
-		} );
-
-	};
-
-	mw.DestinationChecker.prototype = {
-
-		// events that the input undergoes which fire off a check
-		events: [ 'change', 'keyup' ],
-
-		// how long the input muse be "idle" before doing call (don't want to check on each key press)
-		delay: 500, // ms;
-
-		// what tracks the wait
-		timeoutId: null,
+		api: new mw.Api(),
 
 		// cached results from uniqueness api calls
 		cachedResult: {},
-
 		cachedBlacklist: {},
 
 		/**
-		 * There is an option to preprocess the name (in order to perhaps convert it from
-		 * title to path, e.g. spaces to underscores, or to add the "File:" part.) Depends on
-		 * exactly what your input field represents.
-		 * In the event that the invoker doesn't supply a name preprocessor, use this identity function
-		 * as default
-		 */
-		preprocess: function ( x ) { return x; },
-
-		/**
-		 * fire when the input changes value or keypress
-		 * will trigger a check of the name if the field has been idle for delay ms.
-		 */
-		getDelayedChecker: function () {
-			var checker = this;
-
-			return function () {
-				// if we changed before the old timeout ran, clear that timeout.
-				if ( checker.timeoutId ) {
-					window.clearTimeout( checker.timeoutId );
-				}
-
-				// and start another, hoping this time we'll be idle for delay ms.
-				checker.timeoutId = window.setTimeout(
-					function () {
-						checker.spinner( true );
-						checker.checkTitle();
-					},
-					checker.delay
-				);
-			};
-		},
-
-		/**
-		 * the backend of getDelayedChecker, and the title checker jQuery extension
-		 * dispatches title check requests in parallel, aggregates results
-		 */
-		checkTitle: function () {
-			var checker = this,
-				title = this.getTitle(),
-				status = {
-					unique: null,
-					blacklist: null
-				};
-
-			function checkerStatus( result ) {
-				if ( result.unique ) {
-					status.unique = result.unique;
-				}
-
-				if ( result.blacklist ) {
-					status.blacklist = result.blacklist;
-				}
-
-				// $.extend( status, result );
-				if ( status.unique !== null && status.blacklist !== null ) {
-					status.title = title;
-					checker.processResult( status );
-				}
-
-				checker.spinner( status.unique === null || status.blacklist === null );
-			}
-
-			this.checkUnique( checkerStatus, title );
-			this.checkBlacklist( checkerStatus, title );
-		},
-
-		/**
-		 * Get the current value of the input, with optional preprocessing
+		 * Check title for validity.
 		 *
-		 * @return {string} the current input value, with optional processing
+		 * @param {string} title Title to check
+		 * @return {jQuery.Promise}
+		 * @return {Function} return.done
+		 * @return {string} return.done.title The title that was passed in
+		 * @return {Object|boolean} return.done.blacklist See #checkBlacklist
+		 * @return {Object|boolean} return.done.unique See #checkUnique
 		 */
-		getTitle: function () {
-			return this.preprocess( $( this.selector ).val() );
+		checkTitle: function ( title ) {
+			return $.when(
+				this.checkUnique( title ),
+				this.checkBlacklist( title )
+			).then( function ( unique, blacklist ) {
+				return {
+					unique: unique,
+					blacklist: blacklist,
+					title: title
+				};
+			} );
 		},
 
 		/**
 		 * Async check if a title is in the titleblacklist.
 		 *
-		 * @param {Function} callback takes object, like { blacklist:result }
-		 * @param {string} title the blacklist should be checked against
+		 * @param {string} title Title to check against the blacklist
+		 * @return {jQuery.Promise}
+		 * @return {Function} return.done
+		 * @return {boolean} return.done.notBlacklisted
+		 * @return {string} [return.done.blacklistReason] See mw.Api#isBlacklisted
+		 * @return {string} [return.done.blacklistMessage] See mw.Api#isBlacklisted
+		 * @return {string} [return.done.blacklistLine] See mw.Api#isBlacklisted
 		 */
-		checkBlacklist: function ( callback, title ) {
+		checkBlacklist: function ( title ) {
 			var checker = this;
 
+			/**
+			 * Processes result of a TitleBlacklist api call
+			 *
+			 * @param {Object|boolean} blacklistResult `false` if not blacklisted, object if blacklisted
+			 */
 			function blacklistResultProcessor( blacklistResult ) {
 				var result;
 
@@ -157,28 +65,18 @@
 				}
 
 				checker.cachedBlacklist[ title ] = result;
-				callback( { blacklist: result } );
-			}
-
-			if ( title === '' ) {
-				return;
+				return result;
 			}
 
 			if ( this.cachedBlacklist[ title ] !== undefined ) {
-				callback( { blacklist: this.cachedBlacklist[ title ] } );
-				return;
+				return $.Deferred().resolve( this.cachedBlacklist[ title ] );
 			}
 
-			/**
-			 * Processes result of a TitleBlacklist api call with callback()
-			 *
-			 * @param mixed - false if not blacklisted, object if blacklisted
-			 */
 			if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
-				this.api.isBlacklisted( title, blacklistResultProcessor );
+				return this.api.isBlacklisted( title ).then( blacklistResultProcessor );
 			} else {
 				// it's not blacklisted, because the API isn't even available
-				blacklistResultProcessor( false );
+				return $.Deferred().resolve( { notBlacklisted: true } );
 			}
 		},
 
@@ -186,28 +84,24 @@
 		 * Async check if a filename is unique. Can be attached to a field's change() event
 		 * This is a more abstract version of AddMedia/UploadHandler.js::doDestCheck
 		 *
-		 * @param {Function} callback takes object, like { unique:result }
-		 * @param {string} title the uniqueness should be checked for
+		 * @param {string} title Title to check for uniqueness
+		 * @return {jQuery.Promise}
+		 * @return {Function} return.done
+		 * @return {boolean} return.done.isUnique
+		 * @return {boolean} [return.done.isProtected]
+		 * @return {Object} [return.done.img] Image info
+		 * @return {string} [return.done.href] URL to file description page
 		 */
-		checkUnique: function ( callback, title ) {
-			var params,
-				checker = this;
+		checkUnique: function ( title ) {
+			var checker = this;
 
-			function ok( data ) {
+			function checkUniqueProcessor( data ) {
 				var result, protection, pageId, ntitle, img;
-
-				// Remove spinner
-				checker.spinner( false );
-
-				// if the name's changed in the meantime, our result is useless
-				if ( title !== checker.getTitle() ) {
-					return;
-				}
 
 				if ( !data || !data.query || !data.query.pages ) {
 					// Ignore a null result
 					mw.log( 'mw.DestinationChecker::checkUnique> No data in checkUnique result' );
-					return;
+					return $.Deferred().reject();
 				}
 
 				// The API will check for files with that filename.
@@ -265,52 +159,24 @@
 				}
 
 				checker.cachedResult[ title ] = result;
-				callback( { unique: result } );
+				return result;
 			}
 
-			function err( code ) {
-				checker.spinner( false );
-				mw.log( 'mw.DestinationChecker::checkUnique> Error in checkUnique result: ' + code );
+			if ( this.cachedResult[ title ] !== undefined ) {
+				return $.Deferred().resolve( this.cachedResult[ title ] );
 			}
 
 			// Setup the request -- will return thumbnail data if it finds one
 			// XXX do not use iiurlwidth as it will create a thumbnail
-			params = {
+			return this.api.get( {
 				titles: title,
 				prop: 'info|imageinfo',
 				inprop: 'protection',
 				iiprop: 'url|mime|size',
 				iiurlwidth: 150
-			};
-
-			// if input is empty or invalid, don't bother.
-			if ( title === '' ) {
-				return;
-			}
-
-			if ( this.cachedResult[ title ] !== undefined ) {
-				callback( { unique: this.cachedResult[ title ] } );
-				return;
-			}
-
-			// set the spinner to spin
-			this.spinner( true );
-
-			// Do the destination check
-			this.api.get( params ).done( ok ).fail( err );
+			} ).then( checkUniqueProcessor );
 		}
 
 	};
 
-	/**
-	 * jQuery extension to make a field upload-checkable
-	 */
-	$.fn.destinationChecked = function ( options ) {
-		var checker;
-		options.selector = this;
-		checker = new mw.DestinationChecker( options );
-		// this should really be done with triggers
-		this.checkTitle = function () { checker.checkTitle(); };
-		return this;
-	};
 }( mediaWiki, jQuery ) );

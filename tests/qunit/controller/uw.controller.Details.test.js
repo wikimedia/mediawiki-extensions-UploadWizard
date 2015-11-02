@@ -22,7 +22,6 @@
 		var stubs = {
 			bascm: sandbox.stub(),
 			cd: sandbox.stub(),
-			ct: sandbox.stub(),
 			ucdc: sandbox.stub()
 		};
 
@@ -35,10 +34,6 @@
 
 			details: {
 				buildAndShowCopyMetadata: stubs.bascm,
-
-				titleInput: {
-					checkTitle: stubs.ct
-				},
 
 				useCustomDeedChooser: stubs.ucdc
 			},
