@@ -1025,13 +1025,13 @@
 
 			if ( !result.unique.isUnique ) {
 				// result is NOT unique
-				if ( result.href ) {
-					errHtml = mw.message( 'mwe-upwiz-fileexists-replace-on-page', titleString, $( '<a>' ).attr( { href: result.href, target: '_blank' } ) ).parse();
+				if ( result.unique.href ) {
+					errHtml = mw.message( 'mwe-upwiz-fileexists-replace-on-page', titleString, $( '<a>' ).attr( { href: result.unique.href, target: '_blank' } ) ).parse();
 				} else {
-					errHtml = mw.message( 'mwe-upwiz-fileexists-replace-no-link', titleString ).text();
+					errHtml = mw.message( 'mwe-upwiz-fileexists-replace-no-link', titleString ).escaped();
 				}
 
-				$errorEl.text( errHtml );
+				$errorEl.html( errHtml );
 			} else if ( result.unique.isProtected ) {
 				errHtml = mw.message( 'mwe-upwiz-error-title-protected' ).text();
 				$errorEl.text( errHtml );
