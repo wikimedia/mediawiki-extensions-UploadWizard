@@ -522,17 +522,17 @@
 		 * @return {boolean} true if valid, false if not
 		 */
 		valid: function () {
-			// we assume there is always a deed available, even if it's just the null deed.
-			var valid = this.deed.valid();
-			// the only time we need to set an error message is if the null deed is selected.
+			var valid = this.deed && this.deed.valid();
+			// the only time we need to set an error message is if no deed is selected.
 			// otherwise, we can assume that the widgets have already added error messages.
 			if ( valid ) {
 				this.hideError();
+			} else if ( !this.deed ) {
+				this.showError( mw.message( 'mwe-upwiz-deeds-need-deed' ).parse() );
 			}
 			return valid;
 		},
 
-		// FIXME does not seem to be used
 		showError: function ( error ) {
 			uw.eventFlowLogger.logError( 'deeds', { message: error } );
 			this.$errorEl.html( error );

@@ -212,6 +212,7 @@
 	"mwe-upwiz-tooltip-location": "A tooltip documenting the location picker for UploadWizard, currently three coordinate text fields.",
 	"mwe-upwiz-tooltip-more-info": "{{Identical|Learn more}}",
 	"mwe-upwiz-file-need-file": "Requests that the user add a file to the form before proceeding.",
+	"mwe-upwiz-deeds-need-deed": "Informs the user that they must provide the source and author of a file before proceeding.",
 	"mwe-upwiz-deeds-need-license": "Informs the user that they must choose a license before proceeding.",
 	"mwe-upwiz-license-show-all": "Used as action link text.\n\nSee also:\n* {{msg-mw|Mwe-upwiz-license-show-recommended}}",
 	"mwe-upwiz-license-show-recommended": "Used as action link text.\n\nSee also:\n* {{msg-mw|Mwe-upwiz-license-show-all}}",
