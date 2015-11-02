@@ -115,8 +115,6 @@
 			}
 
 			this.showDeed = false;
-			$.purgeReadyEvents();
-			$.purgeSubscriptions();
 			this.removeMatchingUploads( function () { return true; } );
 			this.hasLoadedBefore = true;
 		},
@@ -478,6 +476,27 @@
 		}
 
 		return deeds;
+	};
+
+	/**
+	 * Helper method to put a thumbnail somewhere.
+	 *
+	 * @param {string|jQuery} selector String representing a jQuery selector, or a jQuery object
+	 * @param {HTMLCanvasElement|HTMLImageElement|null} image
+	 */
+	mw.UploadWizard.placeThumbnail = function ( selector, image ) {
+		if ( image === null ) {
+			$( selector ).addClass( 'mwe-upwiz-file-preview-broken' );
+			return;
+		}
+
+		$( selector )
+			.css( { background: 'none' } )
+			.html(
+				$( '<a>' )
+					.addClass( 'mwe-upwiz-thumbnail-link' )
+					.append( image )
+			);
 	};
 
 	/**

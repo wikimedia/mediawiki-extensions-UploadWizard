@@ -65,7 +65,6 @@ class UploadWizardHooks {
 				// jquery interface helpers
 				'resources/jquery/jquery.morphCrossfade.js',
 				'resources/jquery/jquery.showThumbCtrl.js',
-				'resources/jquery/jquery.pubsub.js',
 				'resources/jquery/jquery.lazyload.js',
 
 				// common utilities

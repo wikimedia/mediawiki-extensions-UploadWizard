@@ -1174,11 +1174,13 @@
 		 * @param {Object} result Upload API result object
 		 */
 		populate: function () {
-			this.upload.setThumbnail(
-				this.thumbnailDiv,
+			var thumbnailDiv = this.thumbnailDiv;
+			this.upload.getThumbnail(
 				mw.UploadWizard.config.thumbnailWidth,
 				mw.UploadWizard.config.thumbnailMaxHeight
-			);
+			).done( function ( thumb ) {
+				mw.UploadWizard.placeThumbnail( thumbnailDiv, thumb );
+			} );
 			this.prefillDate();
 			this.prefillAuthor();
 			this.prefillTitle();

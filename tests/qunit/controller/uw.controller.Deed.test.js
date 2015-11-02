@@ -15,7 +15,7 @@
  * along with DeedWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw ) {
+( function ( $, mw, uw ) {
 	QUnit.module( 'mw.uw.controller.Deed', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
@@ -30,12 +30,12 @@
 				new mw.Api(),
 				{ licensing: { thirdParty: { type: 'test', licenses: [] } } }
 			),
-			ststub = this.sandbox.stub(),
+			ststub = this.sandbox.stub().returns( $.Deferred().promise() ),
 			uploads = [
-				{ fromURL: true, setThumbnail: ststub },
-				{ setThumbnail: ststub },
-				{ fromURL: true, setThumbnail: ststub },
-				{ setThumbnail: ststub }
+				{ fromURL: true, getThumbnail: ststub },
+				{ getThumbnail: ststub },
+				{ fromURL: true, getThumbnail: ststub },
+				{ getThumbnail: ststub }
 			];
 
 		this.sandbox.stub( step.ui, 'moveTo' );
@@ -43,4 +43,4 @@
 
 		assert.strictEqual( ststub.callCount, 2 );
 	} );
-}( mediaWiki, mediaWiki.uploadWizard ) );
+}( jQuery, mediaWiki, mediaWiki.uploadWizard ) );
