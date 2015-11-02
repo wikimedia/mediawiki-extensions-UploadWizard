@@ -107,6 +107,7 @@
 	"mwe-upwiz-tooltip-other": "Svi drugi podaci koje želite uključiti u ovaj rad - geografske koordinate, linkovi prema drugim verzijama itd.",
 	"mwe-upwiz-tooltip-more-info": "Pročitajte više.",
 	"mwe-upwiz-file-need-file": "Molimo prvo dodajte datoteku.",
+	"mwe-upwiz-deeds-need-deed": "Molimo objasnite gdje ste našli {{PLURAL:$1|ovu datoteku|ove datoteke}} i kako ste {{PLURAL:$1|ona|one}} mogu koristiti na ovoj stranici, tako što ćete odabrati jednu od opcija.",
 	"mwe-upwiz-deeds-need-license": "Molimo odaberite licencu.",
 	"mwe-upwiz-license-show-all": "Koristite drugačiju licencu",
 	"mwe-upwiz-license-show-recommended": "Koristite preporučenu licencu",

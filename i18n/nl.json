@@ -186,6 +186,7 @@
 	"mwe-upwiz-tooltip-location": "Coördinaten van de locatie waar dit mediabestand is gemaakt.",
 	"mwe-upwiz-tooltip-more-info": "Meer lezen.",
 	"mwe-upwiz-file-need-file": "Voeg eerst een upload toe.",
+	"mwe-upwiz-deeds-need-deed": "Geef aan hoe u aan {{PLURAL:$1|dit bestand|deze bestanden}} bent gekomen en hoe deze site {{PLURAL:$1|het|ze}} kan gebruiken door een van de volgende opties te selecteren.",
 	"mwe-upwiz-deeds-need-license": "Selecteer een licentie.",
 	"mwe-upwiz-license-show-all": "Een andere licentie gebruiken",
 	"mwe-upwiz-license-show-recommended": "De aanbevolen licentie gebruiken",

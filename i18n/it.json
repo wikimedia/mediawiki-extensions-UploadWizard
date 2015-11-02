@@ -196,6 +196,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Geo-codifica il file] per identificare dove è stato registrato (non è sempre utile inserire una posizione per ogni tipo di media).",
 	"mwe-upwiz-tooltip-more-info": "Per saperne di più.",
 	"mwe-upwiz-file-need-file": "Prima carica qualcosa.",
+	"mwe-upwiz-deeds-need-deed": "Spiega dove ti sei procurato {{PLURAL:$1|questo|questi}} file, e a quali condizioni questo sito può {{PLURAL:$1|utilizzarlo|utilizzarli}}, selezionando opportunamente una delle opzioni proposte.",
 	"mwe-upwiz-deeds-need-license": "Seleziona una licenza.",
 	"mwe-upwiz-license-show-all": "Usa una licenza diversa",
 	"mwe-upwiz-license-show-recommended": "Usa la licenza raccomandata dal sito",

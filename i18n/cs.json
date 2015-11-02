@@ -192,6 +192,7 @@
 	"mwe-upwiz-tooltip-location": "Souřadnice místa, na kterém tento soubor vznikl.",
 	"mwe-upwiz-tooltip-more-info": "Další informace.",
 	"mwe-upwiz-file-need-file": "Prosím přidejte nejprve nahrávání.",
+	"mwe-upwiz-deeds-need-deed": "Výběrem jedné z možností uveďte, kde jste {{PLURAL:$1|tento soubor|tyto soubory}} {{gender:|získal|získala|získali}} a jak {{PLURAL:$1|jej|je}} tato wiki může používat.",
 	"mwe-upwiz-deeds-need-license": "Vyberte licenci.",
 	"mwe-upwiz-license-show-all": "Použít jinou licenci",
 	"mwe-upwiz-license-show-recommended": "Použít doporučenou licenci",

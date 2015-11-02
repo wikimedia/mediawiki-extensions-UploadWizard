@@ -175,6 +175,7 @@
 	"mwe-upwiz-tooltip-location": "Cyfesurynnau'r man lle gwnaethpwyd y ffeil gyfrwng hon.",
 	"mwe-upwiz-tooltip-more-info": "Dysgu mwy.",
 	"mwe-upwiz-file-need-file": "Ychwanegwch uwchlwythiad yn gyntaf.",
+	"mwe-upwiz-deeds-need-deed": "Esboniwch ymhle ddaethoch o hyd i'r {{PLURAL:$1||ffeil hon|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn}} a sut y gall y safle hwn {{PLURAL:$1||ei defnyddio|eu defnyddio|eu defnyddio|eu defnyddio|eu defnyddio}}, drwy ddewis un o'r opsiynau.",
 	"mwe-upwiz-deeds-need-license": "Dewiswch drwydded.",
 	"mwe-upwiz-license-show-all": "Defnyddiwch drwydded arall",
 	"mwe-upwiz-license-show-recommended": "Defnyddiwch y drwydded a argymhellir",

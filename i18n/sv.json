@@ -199,6 +199,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Geokoda din fil] för att identifiera var media skapades (för vissa typer av media är det dock inte relevant att ange en plats ).",
 	"mwe-upwiz-tooltip-more-info": "Läs mer.",
 	"mwe-upwiz-file-need-file": "Lägg till en uppladdning först.",
+	"mwe-upwiz-deeds-need-deed": "Beskriv var du fick {{PLURAL:$1|denna fil|dessa filer}} och hur denna webbplats får använda {{PLURAL:$1|den|dem}}, genom att välja ett av alternativen.",
 	"mwe-upwiz-deeds-need-license": "Välj en licens.",
 	"mwe-upwiz-license-show-all": "Använd en annan licens",
 	"mwe-upwiz-license-show-recommended": "Använd den rekommenderade licensen",

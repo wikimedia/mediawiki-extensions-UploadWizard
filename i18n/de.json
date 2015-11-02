@@ -202,6 +202,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Geokodiere deine Datei], um zu bestimmen, wo das Medium aufgenommen wurde (es ist nicht immer nützlich, einen Standort für jede Medienart anzugeben).",
 	"mwe-upwiz-tooltip-more-info": "Weitere Informationen.",
 	"mwe-upwiz-file-need-file": "Füge zuerst eine Datei zum Hochladen hinzu.",
+	"mwe-upwiz-deeds-need-deed": "Erläutere bitte, woher die {{PLURAL:$1|Datei|Dateien}} stammen und wie sie auf dieser Website genutzt werden können, indem du eine der Optionen auswählst.",
 	"mwe-upwiz-deeds-need-license": "Bitte wähle eine Lizenz aus.",
 	"mwe-upwiz-license-show-all": "Eine andere Lizenz verwenden.",
 	"mwe-upwiz-license-show-recommended": "Die empfohlene Lizenz der Website verwenden",

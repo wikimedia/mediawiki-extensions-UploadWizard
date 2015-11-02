@@ -173,6 +173,7 @@
 	"mwe-upwiz-tooltip-location": "Coordinatas del loco de creation de iste file multimedia.",
 	"mwe-upwiz-tooltip-more-info": "Lege plus.",
 	"mwe-upwiz-file-need-file": "Per favor adde primo un file a incargar.",
+	"mwe-upwiz-deeds-need-deed": "Per favor explica ubi tu obteneva iste {{PLURAL:$1|file|files}} e como iste sito pote usar {{PLURAL:$1|lo|los}}, per seliger un del optiones.",
 	"mwe-upwiz-deeds-need-license": "Per favor selige un licentia.",
 	"mwe-upwiz-license-show-all": "Usar un altere licentia",
 	"mwe-upwiz-license-show-recommended": "Usar le licentia recommendate",

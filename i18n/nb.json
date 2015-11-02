@@ -192,6 +192,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Geokod filen din] for å identifisere hvor den ble tatt opp (for noen typer filer er ikke dette nødvendigvis relevant)",
 	"mwe-upwiz-tooltip-more-info": "Lær mer.",
 	"mwe-upwiz-file-need-file": "Legg til en opplasting først.",
+	"mwe-upwiz-deeds-need-deed": "Forklar hvor du fikk {{PLURAL:$1|denne filen|disse filene}} og hvordan dette nettstedet kan bruke {{PLURAL:$1|den|dem}} ved å velge ett av alternativene.",
 	"mwe-upwiz-deeds-need-license": "Velg en lisens.",
 	"mwe-upwiz-license-show-all": "Bruk en annen lisens",
 	"mwe-upwiz-license-show-recommended": "Bruk nettstedets anbefalte lisens",

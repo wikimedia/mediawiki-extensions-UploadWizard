@@ -189,6 +189,7 @@
 	"mwe-upwiz-tooltip-location": "Mediatiedoston luontipaikan koordinaatit.",
 	"mwe-upwiz-tooltip-more-info": "Lisätietoja.",
 	"mwe-upwiz-file-need-file": "Lisää tiedosto ensin.",
+	"mwe-upwiz-deeds-need-deed": "Selitä, mistä sait {{PLURAL:$1|tämän tiedoston|nämä tiedostot}}. Lisäksi määritä kuinka sivusto voi käyttää {{PLURAL:$1|tiedostoa|tiedostoja}} valitsemalla jokin seuraavista vaihtoehdoista.",
 	"mwe-upwiz-deeds-need-license": "Valitse lisenssi.",
 	"mwe-upwiz-license-show-all": "Käytä eri lisenssiä",
 	"mwe-upwiz-license-show-recommended": "Käytä suositeltua lisenssiä",

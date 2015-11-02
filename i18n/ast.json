@@ -187,6 +187,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Xeocodifica'l ficheru] pa identificar ónde se rexistró'l conteníu multimedia (non siempres ye útil escribir un allugamientu pa cada tipu de mediu).",
 	"mwe-upwiz-tooltip-more-info": "Más información.",
 	"mwe-upwiz-file-need-file": "Amiesta primero un ficheru pa xubir.",
+	"mwe-upwiz-deeds-need-deed": "Esplica ónde consiguisti {{PLURAL:$1|esti ficheru|estos ficheros}} y cómo pue {{PLURAL:$1|usalu|usalos}} esti sitiu, seleicionando una de les opciones.",
 	"mwe-upwiz-deeds-need-license": "Por favor seleiciona una llicencia.",
 	"mwe-upwiz-license-show-all": "Usar una llicencia distinta",
 	"mwe-upwiz-license-show-recommended": "Usar la llicencia encamentada del sitiu",

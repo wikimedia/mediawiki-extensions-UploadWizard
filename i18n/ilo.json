@@ -177,6 +177,7 @@
 	"mwe-upwiz-tooltip-location": "Dagiti nagsasabtan iti lokasion nga ayan a nakaaramidan daytoy a papeles.",
 	"mwe-upwiz-tooltip-more-info": "Agadal pay ti adu.",
 	"mwe-upwiz-file-need-file": "Pangngaasi nga umuna nga agnayon ti maysa a maikarga.",
+	"mwe-upwiz-deeds-need-deed": "Pangngaasi nga ipalawag sadinom a naala {{PLURAL:$1|daytoy a papeles|dagitoy a papeles}} ken kasano nga usaren daytoy a pagsaadan iti {{PLURAL:$1|dayta|dagita}}, babaen ti panagpili kadagiti maysa a pagpilian.",
 	"mwe-upwiz-deeds-need-license": "Pangngaasi nga agpili iti lisensia.",
 	"mwe-upwiz-license-show-all": "Agusar ti sabali a lisensia",
 	"mwe-upwiz-license-show-recommended": "Usaren ti naisingasing a lisensia",

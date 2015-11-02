@@ -185,6 +185,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Mã hóa địa lý tập tin của bạn] để phát hiện vị trí mà phương tiện được ghi. (Việc đặt vị trí không nhất thiết có ích cho mọi loại phương tiện.)",
 	"mwe-upwiz-tooltip-more-info": "Tìm hiểu thêm.",
 	"mwe-upwiz-file-need-file": "Trước tiên, xin hãy thêm một tập tin để tải lên.",
+	"mwe-upwiz-deeds-need-deed": "Xin hãy cho biết {{PLURAL:$1|tập tin|các tập tin}} này được lấy từ đâu và {{PLURAL:$1|nó|chúng}} có thể được sử dụng thế nào.",
 	"mwe-upwiz-deeds-need-license": "Xin hãy chọn một giấy phép.",
 	"mwe-upwiz-license-show-all": "Sử dụng một giấy phép khác",
 	"mwe-upwiz-license-show-recommended": "Sử dụng giấy phép khuyến khích",

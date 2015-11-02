@@ -171,6 +171,7 @@
 	"mwe-upwiz-tooltip-location": "Coordonatele locului unde acest fișier media a fost creat.",
 	"mwe-upwiz-tooltip-more-info": "Învaţă mai multe.",
 	"mwe-upwiz-file-need-file": "Vă rugăm mai întâi să adăugați un fișier pentru încărcare.",
+	"mwe-upwiz-deeds-need-deed": "Vă rugăm să explicați de unde aveți {{PLURAL:$1|acest fișier|aceste fișiere}} și cum acest site {{PLURAL:$1|îl|le}} poate utiliza, selectând una dintre opțiuni.",
 	"mwe-upwiz-deeds-need-license": "Vă rugăm alegeţi o licenţă.",
 	"mwe-upwiz-license-show-all": "Utilizați o altă licență",
 	"mwe-upwiz-license-show-recommended": "Utilizați licența recomandată",

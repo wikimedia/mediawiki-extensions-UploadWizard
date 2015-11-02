@@ -228,6 +228,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Géocoder votre fichier] pour identifier où le média a été enregistré (il n’est pas toujours utile de saisir un emplacement pour chaque sorte de média).",
 	"mwe-upwiz-tooltip-more-info": "En savoir plus.",
 	"mwe-upwiz-file-need-file": "Veuillez ajouter d’abord un fichier à importer.",
+	"mwe-upwiz-deeds-need-deed": "Veuillez expliquer d’où {{PLURAL:$1|provient ce fichier|proviennent ces fichiers}}  et comment ce site peut {{PLURAL:$1|l’|les }}utiliser, en choisissant une des options.",
 	"mwe-upwiz-deeds-need-license": "Veuillez choisir une licence.",
 	"mwe-upwiz-license-show-all": "Utiliser une licence différente",
 	"mwe-upwiz-license-show-recommended": "Utiliser les licences recommandées par le site",

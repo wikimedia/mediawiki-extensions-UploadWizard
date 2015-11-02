@@ -187,6 +187,7 @@
 	"mwe-upwiz-tooltip-location": "Koordinat lokasi tempat berkas media ini dibuat.",
 	"mwe-upwiz-tooltip-more-info": "Pelajari lebih lanjut.",
 	"mwe-upwiz-file-need-file": "Silakan tambahkan berkas unduhan terlebih dahulu.",
+	"mwe-upwiz-deeds-need-deed": "Mohon jelaskan di mana Anda mendapatkan {{PLURAL:$1|berkas ini|berkas-berkas ini}} dan bagaimana situs ini dapat {{PLURAL:$1|menggunakannya|menggunakannya}} dengan memilih salah satu pilihan.",
 	"mwe-upwiz-deeds-need-license": "Silakan pilih lisensi.",
 	"mwe-upwiz-license-show-all": "Gunakan lisensi yang berbeda",
 	"mwe-upwiz-license-show-recommended": "Gunakan lisensi yang disarankan",

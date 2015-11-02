@@ -114,6 +114,7 @@
 	"mwe-upwiz-tooltip-location": "Koordinate mjesta gdje je datoteka nastala.",
 	"mwe-upwiz-tooltip-more-info": "Saznajte više.",
 	"mwe-upwiz-file-need-file": "Molimo prvo dodajte datoteku.",
+	"mwe-upwiz-deeds-need-deed": "Molimo objasnite gdje ste našli {{PLURAL:$1|ovu datoteku|ove datoteke|ove datoteke}} i kako se {{PLURAL:$1|ona|one|one}} mogu rabiti na ovoj stranici, tako što ćete odabrati jednu od opcija.",
 	"mwe-upwiz-deeds-need-license": "Molimo vas da izaberete licenciju.",
 	"mwe-upwiz-license-show-all": "Rabite drugačiju licenciju",
 	"mwe-upwiz-license-show-recommended": "Rabite preporučenu licenciju",

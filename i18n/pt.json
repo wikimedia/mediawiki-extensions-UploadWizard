@@ -200,6 +200,7 @@
 	"mwe-upwiz-tooltip-location": "Coordenadas da localização onde este ficheiro multimédia foi criado.",
 	"mwe-upwiz-tooltip-more-info": "Saiba mais.",
 	"mwe-upwiz-file-need-file": "Primeiro adicione um envio, por favor.",
+	"mwe-upwiz-deeds-need-deed": "Explique onde obteve {{PLURAL:$1|este ficheiro|estes ficheiros}} e como este site pode {{PLURAL:$1|utilizá-lo|utilizá-los}}, seleccionando uma das opções, por favor.",
 	"mwe-upwiz-deeds-need-license": "Escolha uma licença, por favor.",
 	"mwe-upwiz-license-show-all": "Usar uma licença diferente",
 	"mwe-upwiz-license-show-recommended": "Usar a licença recomendada do sítio",

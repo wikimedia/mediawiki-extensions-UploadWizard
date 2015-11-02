@@ -154,6 +154,7 @@
 	"mwe-upwiz-tooltip-location": "Hnit staðsetningarinnar þar sem þessi skrá var tekin.",
 	"mwe-upwiz-tooltip-more-info": "Læra meira.",
 	"mwe-upwiz-file-need-file": "Vinsamlegast veldu upphlað fyrst.",
+	"mwe-upwiz-deeds-need-deed": "Vinsamlegast útskýrðu hvaðan {{PLURAL:$1|skráin|skrárnar}} eru og hvernig þessi vefsíða getur notað {{PLURAL:$1|hana|þær}}, með því að velja einn af eftirfarandi möguleikum.",
 	"mwe-upwiz-deeds-need-license": "Vinsamlegast veldu leyfi.",
 	"mwe-upwiz-license-show-all": "Nota annað leyfi",
 	"mwe-upwiz-license-show-recommended": "Nota leyfi sem er mælt með.",

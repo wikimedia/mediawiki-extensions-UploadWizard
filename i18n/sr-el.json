@@ -145,6 +145,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 Geokodirajte vašu datoteku] da bi znali gde je datoteka napravljena, jednostavnije je nego da unosite lokaciju za svaku pojedinačnu datoteku.",
 	"mwe-upwiz-tooltip-more-info": "Saznajte više.",
 	"mwe-upwiz-file-need-file": "Prvo naznačite datoteku za otpremanje.",
+	"mwe-upwiz-deeds-need-deed": "Navedite odakle vam {{PLURAL:$1|ova datoteka|ove datoteke}} i kako sajt može da {{PLURAL:$1|je koristi|ih koristi}}.",
 	"mwe-upwiz-deeds-need-license": "Izaberite licencu.",
 	"mwe-upwiz-license-show-all": "Koristi drugačiju licencu",
 	"mwe-upwiz-license-show-recommended": "Koristi podrazumevanu licencu",

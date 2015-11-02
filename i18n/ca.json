@@ -194,6 +194,7 @@
 	"mwe-upwiz-tooltip-location": "Coordenades del lloc on s'ha creat aquest fitxer multimèdia.",
 	"mwe-upwiz-tooltip-more-info": "Apreneu-ne més.",
 	"mwe-upwiz-file-need-file": "Afegiu primer un fitxer a carregar.",
+	"mwe-upwiz-deeds-need-deed": "Expliqueu on heu aconseguit {{PLURAL:$1|aquest fitxer|aquests fitxers}} i com aquest lloc pot utilitzar-{{PLURAL:$1|lo|los}}, seleccionant una de les opcions.",
 	"mwe-upwiz-deeds-need-license": "Seleccioneu una llicència.",
 	"mwe-upwiz-license-show-all": "Utilitza una llicència diferent",
 	"mwe-upwiz-license-show-recommended": "Utilitza la llicència recomanada",

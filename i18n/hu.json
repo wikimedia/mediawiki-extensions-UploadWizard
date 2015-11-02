@@ -185,6 +185,7 @@
 	"mwe-upwiz-tooltip-location": "A média készítés helyének koordinátái.",
 	"mwe-upwiz-tooltip-more-info": "Tudj meg többet.",
 	"mwe-upwiz-file-need-file": "Kérlek, először add meg a feltöltendő fájlt.",
+	"mwe-upwiz-deeds-need-deed": "Kérlek, az egyik opció kiválasztásával magyarázd el, honnan {{PLURAL:$1|származik a fájl|származnak a fájlok}} és ez a webszájt hogyan használhatja{{PLURAL:$1||&nbsp;őket}}.",
 	"mwe-upwiz-deeds-need-license": "Kérlek válassz licencet.",
 	"mwe-upwiz-license-show-all": "Más licenc használata",
 	"mwe-upwiz-license-show-recommended": "Ajánlott licenc használata",
