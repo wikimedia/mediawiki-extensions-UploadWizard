@@ -32,7 +32,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Tallennusvelhon kampanjoiden muokkaajat",
 	"mwe-upwiz-js-off": "Tallennusvelhon käyttöliittymä on toteutettu JavaScriptin avulla. Selaimesi ei tue JavaScriptiä tai se ei ole käytössä. Tämän takia käytössäsi on yksinkertainen tallennuslomake.",
 	"mwe-upwiz-extension-disabled": "Tämä sivu on väliaikaisesti poissa käytöstä. Tällä välin kokeile normaalia tallennuslomaketta.",
-	"mwe-upwiz-code-unknown": "Tuntematon kieli",
 	"mwe-upwiz-step-tutorial": "Opi",
 	"mwe-upwiz-step-file": "Tallenna",
 	"mwe-upwiz-step-deeds": "Käyttöoikeudet",

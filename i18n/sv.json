@@ -31,7 +31,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampanjredigerare för uppladdningsguiden",
 	"mwe-upwiz-js-off": "Uppladdningsguiden använder JavaScript för ett bättre gränssnitt. Din webbläsare stöder antingen inte JavaScript eller har JavaScript avslaget. Därför visar vi dig ett enkelt uppladdningsformulär i stället.",
 	"mwe-upwiz-extension-disabled": "Den här sidan har inaktiverats på grund av tillfälliga tekniska problem. Försök med standardformuläret för uppladdning under tiden.",
-	"mwe-upwiz-code-unknown": "Okänt språk",
 	"mwe-upwiz-step-tutorial": "Lär dig",
 	"mwe-upwiz-step-file": "Ladda upp",
 	"mwe-upwiz-step-deeds": "Utgivningsrättigheter",

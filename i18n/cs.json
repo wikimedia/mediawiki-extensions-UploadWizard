@@ -27,7 +27,6 @@
 	"group-upwizcampeditors.js": "/* Zde uvedený JavaScript bude použit pouze pro editory kampaní pro Průvodce načítáním souborů */",
 	"mwe-upwiz-js-off": "Průvodce načítáním souborů využívá pro vylepšené rozhraní JavaScript. Váš prohlížeč buď JavaScript nepodporuje, nebo je JavaScript zakázán, takže vám ukazujeme základní formulář pro načtení.",
 	"mwe-upwiz-extension-disabled": "Tato stránka byla vypnuta kvůli dočasným technickým potížím. Prozatím zkuste použít standardní načítací formulář.",
-	"mwe-upwiz-code-unknown": "Neznámý jazyk",
 	"mwe-upwiz-step-tutorial": "Poučit se",
 	"mwe-upwiz-step-file": "Načíst",
 	"mwe-upwiz-step-deeds": "Uvolnit práva",

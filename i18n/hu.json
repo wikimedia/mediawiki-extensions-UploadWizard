@@ -28,7 +28,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Feltöltés varázsló kampány szerkesztők",
 	"mwe-upwiz-js-off": "A FeltöltésVarázsló korszerűsített felhasználói felülete JavaScriptet használ. A böngésződ nem támogatja a JavaScriptet, vagy a JavaScript ki van kapcsolva, ezért az egyszerűsített űrlapot látod.",
 	"mwe-upwiz-extension-disabled": "Az oldal le van tiltva ideiglenes technikai problémák miatt. Ez idő alatt használd a hagyományos feltöltőűrlapot!",
-	"mwe-upwiz-code-unknown": "Ismeretlen nyelv",
 	"mwe-upwiz-step-tutorial": "Ismerd meg",
 	"mwe-upwiz-step-file": "Feltöltés",
 	"mwe-upwiz-step-deeds": "Felhasználási jogok",

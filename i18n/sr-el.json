@@ -20,7 +20,6 @@
 	"group-upwizcampeditors.js": "/* Ovde postavljen JS će se primenjivati samo na urednike kampanje Pomoćnika za otpremanje */",
 	"mwe-upwiz-js-off": "Vodič za otpremanje koristi javaskript za poboljšano sučelje. Vaš pregledač ne podržava javaskript ili je on onemogućen, zato je prikazan jednostavan obrazac za otpremanje datoteka.",
 	"mwe-upwiz-extension-disabled": "Ova stranica je onemogućena zbog privremenih tehničkih problema. U međuvremenu probajte standardan način za otpremanje.",
-	"mwe-upwiz-code-unknown": "Nepoznati jezik",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Slanje",
 	"mwe-upwiz-step-deeds": "Izdavanje prava",

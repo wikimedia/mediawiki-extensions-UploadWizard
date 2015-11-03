@@ -16,7 +16,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Üleslaadimiskampaania muutjad",
 	"mwe-upwiz-js-off": "Täiustatud liidese jaoks kasutab üleslaadimisviisard JavaScripti. Sinu veebilehitsejal kas puudub JavaScripti tugi või see on välja lülitatud. Seetõttu näed lihtsat üleslaadimisvormi.",
 	"mwe-upwiz-extension-disabled": "See lehekülg on ajutiste tehniliste probleemide tõttu keelatud. Seni kasuta harilikku üleslaadimisvormi.",
-	"mwe-upwiz-code-unknown": "Teadmata keel",
 	"mwe-upwiz-step-tutorial": "Õppimine",
 	"mwe-upwiz-step-file": "Üleslaadimine",
 	"mwe-upwiz-step-deeds": "Litsentsi valimine",

@@ -30,7 +30,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Upload Wizard - Editors de campanya",
 	"mwe-upwiz-js-off": "L'assistent de càrregues UploadWizard utilitza JavaScript per a la seva interfície millorada. El vostre navegador no admet JavaScript o no té activada aquesta funcionalitat, i per això us mostrem un formulari de càrregues simplificat.",
 	"mwe-upwiz-extension-disabled": "Aquesta pàgina està desactivada per problemes tècnics temporals. Mentrestant podeu provar el formulari de càrregues estàndard.",
-	"mwe-upwiz-code-unknown": "Llengua desconeguda",
 	"mwe-upwiz-step-tutorial": "Apreneu-ne",
 	"mwe-upwiz-step-file": "Carregueu",
 	"mwe-upwiz-step-deeds": "Allibereu els drets",

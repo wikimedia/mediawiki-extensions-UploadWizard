@@ -23,7 +23,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampagneredaktører for vejviseren til oplægning af filer",
 	"mwe-upwiz-js-off": "Vejviseren brugeren JavaScript for at kunne lave en forbedret brugerflade. Enten understøtter din browser ikke JavaScript eller den har JavaScript slået fra, så vi viser dig en mere primitiv formular til filoplægning istedet.",
 	"mwe-upwiz-extension-disabled": "Denne side er slået fra på grund af midlertidige tekniske problemer. Prøv at bruge standardformularen til filoplægning i mellemtiden.",
-	"mwe-upwiz-code-unknown": "Ukendt sprog",
 	"mwe-upwiz-step-tutorial": "Lær",
 	"mwe-upwiz-step-file": "Læg op",
 	"mwe-upwiz-step-deeds": "Udgivelsesrettigheder",

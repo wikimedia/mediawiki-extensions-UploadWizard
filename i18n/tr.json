@@ -27,7 +27,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Yükleme Sihirbazı kampanyası editörleri",
 	"mwe-upwiz-js-off": "Yükleme Sihirbazı geliştirilmiş arayüzünde JavaScript kullanılmaktadır. Tarayıcınız JavaScript desteklemiyor veya JavaScript ayarlarınız kapatılmış ise, bu nedenle size basit bir yükleme formu gösterilmektedir.",
 	"mwe-upwiz-extension-disabled": "Bu sayfa geçici teknik sorunlar nedeniyle devre dışı bırakıldı. Bu süre içerisinde standart yükleme formunu deneyin.",
-	"mwe-upwiz-code-unknown": "Bilinmeyen dil",
 	"mwe-upwiz-step-tutorial": "Öğrenin",
 	"mwe-upwiz-step-file": "Yükle",
 	"mwe-upwiz-step-deeds": "Yayın hakları",

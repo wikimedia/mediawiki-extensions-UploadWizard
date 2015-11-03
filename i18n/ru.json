@@ -42,7 +42,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Редакторы кампании Мастера загрузок",
 	"mwe-upwiz-js-off": "Мастер загрузки использует в своём интерфейсе JavaScript. Либо ваш браузер не поддерживает JavaScript, либо JavaScript отключён, поэтому мы показываем вам простую форму загрузки.",
 	"mwe-upwiz-extension-disabled": "Эта страница была отключена из-за временных технических проблем. Воспользуйтесь пока стандартной формой загрузки.",
-	"mwe-upwiz-code-unknown": "Неизвестный язык",
 	"mwe-upwiz-step-tutorial": "Ознакомление",
 	"mwe-upwiz-step-file": "Загрузка",
 	"mwe-upwiz-step-deeds": "Авторские права",
