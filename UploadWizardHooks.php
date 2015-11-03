@@ -53,6 +53,7 @@ class UploadWizardHooks {
 				'uw.controller.Upload',
 				'uw.model.Description',
 
+				'es5-shim',
 				'oojs',
 				'oojs-ui',
 				'oojs-ui.styles.icons',
