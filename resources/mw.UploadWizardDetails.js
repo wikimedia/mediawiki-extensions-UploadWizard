@@ -384,7 +384,7 @@
 				mw.UploadWizard.config.fields.length &&
 				mw.UploadWizard.config.fields[ 0 ].wikitext
 			),
-			mw.LanguageUpWiz.UNKNOWN,
+			undefined,
 			false,
 			mw.UploadWizard.config.defaults.description
 		);
@@ -1093,11 +1093,6 @@
 			if ( required === undefined ) {
 				required = false;
 			}
-
-			if ( languageCode === undefined ) {
-				languageCode = mw.LanguageUpWiz.UNKNOWN;
-			}
-
 			if ( allowRemove === undefined ) {
 				allowRemove = true;
 			}

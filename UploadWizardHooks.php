@@ -116,7 +116,6 @@ class UploadWizardHooks {
 				'uploadwizard',
 				'uploadwizard-desc',
 				'mwe-upwiz-js-off',
-				'mwe-upwiz-code-unknown',
 				'mwe-upwiz-step-tutorial',
 				'mwe-upwiz-step-file',
 				'mwe-upwiz-step-deeds',
