@@ -596,9 +596,7 @@ label.mwe-upwiz-copyright-info {
 
 .mwe-upwiz-buttons {
 	margin-top: 1em;
-	padding-top: 10px;
-	border-top: 1px solid #e0e0e0;
-	text-align: right;  /* works for now, only one 'next' button */
+	text-align: right;
 }
 
 a.mwe-upwiz-tooltip-link {
