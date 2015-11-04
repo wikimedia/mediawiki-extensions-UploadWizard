@@ -509,10 +509,6 @@
 		return v === undefined || v === null || v === '';
 	};
 
-	$.fn.readonly = function () {
-		return this.attr( 'readonly', 'readonly' ).addClass( 'mwe-readonly' );
-	};
-
 	/* will change in RTL, but I can't think of an easy way to do this with only CSS */
 	$.fn.requiredFieldLabel = function () {
 		this.addClass( 'mwe-upwiz-required-field' );
