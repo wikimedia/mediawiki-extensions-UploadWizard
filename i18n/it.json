@@ -35,7 +35,7 @@
 	"mwe-upwiz-step-deeds": "Diritti di pubblicazione",
 	"mwe-upwiz-step-details": "Descrivi",
 	"mwe-upwiz-step-thanks": "Usa",
-	"mwe-upwiz-campaign-name-duplicate": "Esiste già una campagna con questo nome.",
+	"mwe-upwiz-campaign-name-duplicate": "Una campagna con quel nome esiste già.",
 	"mwe-upwiz-campaign-unknown-error": "Si è verificato un errore sconosciuto.",
 	"mwe-upwiz-api-warning-exists": "Nella wiki c'è già [$1 un altro file] con lo stesso nome",
 	"mwe-upwiz-api-warning-was-deleted": "C'era già un file chiamato \"$1\", ma è stato cancellato. Se il tuo file è diverso, prova a rinominarlo.",
