@@ -1795,11 +1795,8 @@
 				};
 
 			if ( code === 'badtoken' ) {
-				// mw.Api#badToken is new in MW 1.26, stay compatible with older versions
-				if ( this.api.badToken ) {
-					this.api.badToken( 'edit' );
-					// TODO Automatically try again instead of requiring the user to bonk the button
-				}
+				this.api.badToken( 'edit' );
+				// TODO Automatically try again instead of requiring the user to bonk the button
 			}
 
 			if ( result && result.error && result.error.code ) {
