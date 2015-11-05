@@ -102,7 +102,7 @@
 		}
 
 		thumbWikiText = '[[' + [
-				upload.title.toText(),
+				upload.details.getTitle().getPrefixedText(),
 				'thumb',
 				upload.details.getThumbnailCaption()
 			].join( '|' ) + ']]';
@@ -119,7 +119,7 @@
 			.css( { 'text-align': 'center', 'font-size': 'small' } )
 			.appendTo( $thumbnailWrapDiv );
 		$thumbnailLink = $( '<a>' )
-			.text( upload.title.getMainText() )
+			.text( upload.details.getTitle().getMainText() )
 			.appendTo( $thumbnailCaption );
 
 		$( '<div>' )

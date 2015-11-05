@@ -70,6 +70,7 @@ class UploadWizardHooks {
 				// OOjs UI interface elements
 				'resources/uw.DetailsWidget.js',
 				'resources/uw.FieldLayout.js',
+				'resources/details/uw.TitleDetailsWidget.js',
 				'resources/details/uw.DateDetailsWidget.js',
 				'resources/details/uw.CategoriesDetailsWidget.js',
 				'resources/details/uw.DescriptionDetailsWidget.js',
@@ -81,11 +82,9 @@ class UploadWizardHooks {
 				'resources/mw.canvas.js',
 				'resources/mw.ErrorDialog.js',
 
-				// wikimedia-comons specific title checker
-				'resources/jquery/jquery.validate.wmCommonsBlacklist.js',
-
-				// workhorse libraries
+				// title validity checks
 				'resources/mw.DestinationChecker.js',
+				'resources/mw.QuickTitleChecker.js',
 
 				// firefogg support libraries
 				'resources/mw.Firefogg.js',

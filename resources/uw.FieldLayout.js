@@ -55,6 +55,7 @@
 	 */
 	uw.FieldLayout.prototype.checkValidity = function () {
 		var layout = this;
+		this.fieldWidget.pushPending();
 		$.when(
 			this.fieldWidget.getWarnings(),
 			this.fieldWidget.getErrors()
@@ -62,6 +63,8 @@
 			// this.notices and this.errors are arrays of mw.Messages and not strings in this subclass
 			layout.setNotices( warnings );
 			layout.setErrors( errors );
+		} ).always( function () {
+			layout.fieldWidget.popPending();
 		} );
 	};
 

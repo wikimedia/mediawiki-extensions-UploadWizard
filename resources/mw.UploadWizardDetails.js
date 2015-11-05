@@ -10,7 +10,7 @@
 	 * @param {jQuery} containerDiv The `div` to put the interface into
 	 */
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
-		var titleContainerDiv,
+		var
 			descriptionRequired, uri,
 			categoriesHinter,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
@@ -47,63 +47,15 @@
 		// TODO Rethink hints
 		this.descriptionsDetailsField.$label.addHint( 'description' );
 
-		// Commons specific help for titles
-		//  https://commons.wikimedia.org/wiki/Commons:File_naming
-		//  https://commons.wikimedia.org/wiki/MediaWiki:Filename-prefix-blacklist
-		// XXX make sure they can't use ctrl characters or returns or any other bad stuff.
-		this.titleId = 'title' + this.upload.index;
-		this.titleInput = this.makeTextInput( this.titleId, 'title', undefined, 250 )
-			.on( 'change keyup', OO.ui.debounce( function () {
-				var title, cleanTitle;
-				// First, clear out any existing errors, to prevent strange visual effects.
-				details.clearTitleErrors();
-				title = $( details.titleInput ).val().trim();
-				if ( !title ) {
-					return;
-				}
-				// turn the contents of the input into a MediaWiki title ("File:foo bar.jpg") to look up
-				// side effect -- also sets this as our current title
-				cleanTitle = details.setCleanTitle( title );
-				cleanTitle = cleanTitle && cleanTitle.getPrefixedText() || '';
-				if ( !cleanTitle ) {
-					return;
-				}
-				details.toggleDestinationBusy( true );
-				mw.DestinationChecker.checkTitle( cleanTitle )
-					.done( function ( result ) {
-						details.processDestinationCheck( result );
-					} )
-					.always( function () {
-						details.toggleDestinationBusy( false );
-					} );
-			}, 500 ) );
-
-		this.titleErrorDiv = $( '<div>' ).addClass( 'mwe-upwiz-details-input-error' );
-
-		function makeAndAppendTitleErrorLabel( labelClass ) {
-			$( '<label>' )
-				.attr( {
-					'for': details.titleId,
-					generated: 'true'
-				} )
-				.addClass( 'mwe-error ' + labelClass )
-				.appendTo( details.titleErrorDiv );
-		}
-
-		makeAndAppendTitleErrorLabel( 'mwe-validator-error mwe-upwiz-validation-immediate' );
-		makeAndAppendTitleErrorLabel( 'mwe-upwiz-duplicate-title mwe-upwiz-validation-immediate' );
-		makeAndAppendTitleErrorLabel( 'mwe-upwiz-error-title-unique mwe-upwiz-validation-delayed' );
-		makeAndAppendTitleErrorLabel( 'mwe-upwiz-error-recovery mwe-upwiz-validation-delayed' );
-
-		titleContainerDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
-			.append(
-				this.titleErrorDiv,
-				$( '<div class="mwe-upwiz-details-fieldname"></div>' )
-					.msg( 'mwe-upwiz-title' )
-					.requiredFieldLabel()
-					.addHint( 'title' ),
-				$( '<div class="mwe-upwiz-details-input"></div>' ).append( this.titleInput )
-			);
+		this.titleDetails = new uw.TitleDetailsWidget( {
+			extension: this.upload.title.getExtension()
+		} );
+		this.titleDetailsField = new uw.FieldLayout( this.titleDetails, {
+			label: mw.message( 'mwe-upwiz-title' ).text(),
+			required: true
+		} );
+		// TODO Rethink hints
+		this.titleDetailsField.$label.addHint( 'title' );
 
 		this.deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
 
@@ -192,7 +144,7 @@
 		/* Build the form for the file upload */
 		this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 		this.$form.append(
-			titleContainerDiv,
+			this.titleDetailsField.$element,
 			this.descriptionsDetailsField.$element,
 			this.copyrightInfoFieldset,
 			this.dateDetailsField.$element,
@@ -354,38 +306,6 @@
 				]
 			} );
 		}
-
-		if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
-			// less strict checking, since TitleBlacklist checks should catch most errors.
-			this.$form.find( '.mwe-title' )
-				.rules( 'add', {
-					required: true,
-					titleParsability: true,
-					messages: {
-						required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-						titleParsability: mw.message( 'mwe-upwiz-unparseable-title' ).escaped()
-					}
-				} );
-		} else {
-			// make the title field required, and non-blacklisted
-			this.$form.find( '.mwe-title' )
-				.rules( 'add', {
-					required: true,
-					titleBadchars: true,
-					titleSenselessimagename: true,
-					titleThumbnail: true,
-					titleExtension: true,
-					titleParsability: true,
-					messages: {
-						required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-						titleBadchars: mw.message( 'mwe-upwiz-error-title-badchars' ).escaped(),
-						titleSenselessimagename: mw.message( 'mwe-upwiz-error-title-senselessimagename' ).escaped(),
-						titleThumbnail: mw.message( 'mwe-upwiz-error-title-thumbnail' ).escaped(),
-						titleExtension: mw.message( 'mwe-upwiz-error-title-extension' ).escaped(),
-						titleParsability: mw.message( 'mwe-upwiz-unparseable-title' ).escaped()
-					}
-				} );
-		}
 	};
 
 	/**
@@ -436,65 +356,23 @@
 			other: true
 		},
 
-		/*
-		 * Get a reference to the error labels
+		/**
+		 * Get file page title for this upload.
 		 *
-		 * @return {jQuery} reference to error labels
+		 * @return {mw.Title|null}
 		 */
-		$getTitleErrorLabels: function () {
-			if ( !this.$titleErrorLabels || this.$titleErrorLabels.length === 0 ) {
-				this.$titleErrorLabels = this.$form
-					.find( 'label[for=' + this.titleId + '].mwe-upwiz-validation-delayed' );
-			}
-			return this.$titleErrorLabels;
+		getTitle: function () {
+			return this.titleDetails.getTitle();
 		},
 
-		/*
-		 * Clears errors shown in UI
-		 *
-		 * @chainable
-		 */
-		clearTitleErrors: function () {
-			var $labels = this.$getTitleErrorLabels();
-
-			$labels.empty();
-
-			return this;
-		},
-
-		/*
+		/**
 		 * Display error message about multiple uploaded files with the same title specified
 		 *
 		 * @chainable
 		 */
 		setDuplicateTitleError: function () {
-			var $duplicateTitleLabel = this.$form
-				.find( 'label[for=' + this.titleId + '].mwe-upwiz-duplicate-title' );
-
-			$duplicateTitleLabel.text( mw.message( 'mwe-upwiz-error-title-duplicate' ).text() );
-
-			// Clear error as soon as the value changed
-			// The input event is not implemented in all browsers we support but
-			// it's sufficient to clear the error upon form submit and when this happens
-			// the change event is fired anyway
-			// keyup would clear the error when pressing meta keys, adding leading spaces, ...
-			this.titleInput.one( 'input change', function () {
-				$duplicateTitleLabel.empty();
-			} );
-
-			return this;
-		},
-
-		/*
-		 * Empties the error message about multiple uploaded files with the same title specified
-		 *
-		 * @chainable
-		 */
-		clearDuplicateTitleError: function () {
-			this.$form
-				.find( 'label[for=' + this.titleId + '].mwe-upwiz-duplicate-title' )
-				.empty();
-
+			// TODO This should give immediate response, not only when submitting the form
+			this.titleDetailsField.setErrors( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ] );
 			return this;
 		},
 
@@ -508,8 +386,9 @@
 		 * @param String metadataType One of the types defined in the copyMetadataTypes property
 		 */
 		copyMetadata: function ( metadataType ) {
-			var titleZero, matches,
+			var titleZero, matches, i, currentTitle,
 				uploads = this.upload.wizard.uploads,
+				sourceUpload = uploads[ 0 ],
 				sourceId = uploads[ 0 ].index;
 
 			// In the simplest case, we can use this self-explanatory vanilla loop.
@@ -535,7 +414,6 @@
 
 			function oouiCopy( property ) {
 				var i,
-					sourceUpload = uploads[ 0 ],
 					sourceValue = sourceUpload.details[ property ].getSerialized();
 
 				for ( i = 1; i < uploads.length; i++ ) {
@@ -546,30 +424,30 @@
 			if ( metadataType === 'title' ) {
 
 				// Add number suffix to first title if no numbering present
-				titleZero = $( '#title' + sourceId ).val();
+				titleZero = sourceUpload.details.titleDetails.getSerialized().title;
 				matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
 				if ( matches === null ) {
 					titleZero = titleZero + ' 01';
-					// After setting the value, we must trigger input processing for the change to take effect
-					$( '#title' + sourceId ).val( titleZero ).keyup();
 				}
 
 				// Overwrite remaining title inputs with first title + increment of rightmost
 				// number in the title. Note: We ignore numbers with more than three digits, because these
 				// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
 				// numbers.
-				$( 'input[id^=title]:not(#title' + sourceId + ')' ).each( function ( i ) {
-					var currentTitle = $( this ).val();
+
+				// This loop starts from 0 and not 1 - we want to overwrite the source upload too!
+				for ( i = 0; i < uploads.length; i++ ) {
+					/*jshint loopfunc:true */
 					currentTitle = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
 						function ( str, m1, m2, m3 ) {
-							var newstr = String( +m2 + i + 1 );
+							var newstr = String( +m2 + i );
 							return m1 + new Array( m2.length + 1 - newstr.length )
 								.join( '0' ) + newstr + m3;
 						}
 					);
-					$( this ).val( currentTitle ).keyup();
+					uploads[ i ].details.titleDetails.setSerialized( { title: currentTitle } );
+				}
 
-				} );
 			} else if ( metadataType === 'description' ) {
 
 				oouiCopy( 'descriptionsDetails' );
@@ -732,6 +610,7 @@
 		 */
 		getErrors: function () {
 			return $.when(
+				this.titleDetails.getErrors(),
 				this.descriptionsDetails.getErrors(),
 				this.dateDetails.getErrors(),
 				this.categoriesDetails.getErrors()
@@ -746,6 +625,7 @@
 		 */
 		getWarnings: function () {
 			return $.when(
+				this.titleDetails.getWarnings(),
 				this.descriptionsDetails.getWarnings(),
 				this.dateDetails.getWarnings(),
 				this.categoriesDetails.getWarnings()
@@ -758,6 +638,7 @@
 		 * UI.
 		 */
 		checkValidity: function () {
+			this.titleDetailsField.checkValidity();
 			this.descriptionsDetailsField.checkValidity();
 			this.dateDetailsField.checkValidity();
 			this.categoriesDetailsField.checkValidity();
@@ -852,102 +733,6 @@
 					return details.upload.providedFile.licenseValue;
 				}
 			}, overrides );
-		},
-
-		/**
-		 * show file destination field as "busy" while checking
-		 *
-		 * @param {boolean} busy True = show busy-ness, false = remove
-		 */
-		toggleDestinationBusy: function ( busy ) {
-			if ( busy ) {
-				this.titleInput.addClass( 'mwe-upwiz-busy' );
-				$( this.titleInput ).data( 'valid', undefined );
-			} else {
-				this.titleInput.removeClass( 'mwe-upwiz-busy' );
-			}
-		},
-
-		/**
-		 * Process the result of a destination filename check.
-		 * See mw.DestinationChecker.js for documentation of result format
-		 * XXX would be simpler if we created all these divs in the DOM and had a more jquery-friendly way of selecting
-		 * attrs. Instead we create & destroy whole interface each time. Won't someone think of the DOM elements?
-		 *
-		 * @param {Object} result Result to process
-		 */
-		processDestinationCheck: function ( result ) {
-			var titleString, errHtml, completeErrorLink,
-				feedback, feedbackLink,
-				$errorEl = this.$form
-					.find( 'label[for=' + this.titleId + '].mwe-upwiz-error-title-unique' );
-
-			if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
-				$( this.titleInput ).data( 'valid', true );
-				$errorEl.hide().empty();
-				this.ignoreWarningsInput = undefined;
-				return;
-			}
-
-			// something is wrong with this title.
-			$( this.titleInput ).data( 'valid', false );
-
-			try {
-				titleString = mw.UploadWizardDetails.makeTitleInFileNS( result.title ).toString();
-			} catch ( e ) {
-				// unparseable result from unique test?
-				titleString = '[unparseable name]';
-			}
-
-			if ( !result.unique.isUnique ) {
-				// result is NOT unique
-				if ( result.unique.href ) {
-					errHtml = mw.message( 'mwe-upwiz-fileexists-replace-on-page', titleString, $( '<a>' ).attr( { href: result.unique.href, target: '_blank' } ) ).parse();
-				} else {
-					errHtml = mw.message( 'mwe-upwiz-fileexists-replace-no-link', titleString ).escaped();
-				}
-
-				$errorEl.html( errHtml );
-			} else if ( result.unique.isProtected ) {
-				errHtml = mw.message( 'mwe-upwiz-error-title-protected' ).text();
-				$errorEl.text( errHtml );
-			} else {
-				errHtml = mw.message( 'mwe-upwiz-blacklisted', titleString ).text();
-				$errorEl.text( errHtml );
-
-				completeErrorLink = $( '<span class="contentSubLink"></span>' ).msg(
-					'mwe-upwiz-feedback-blacklist-info-prompt',
-					function () {
-						var errorDialog = new mw.ErrorDialog( result.blacklist.blacklistReason );
-						errorDialog.open();
-						return false;
-					}
-				);
-
-				$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( completeErrorLink );
-
-				// feedback request for titleblacklist
-				if ( mw.UploadWizard.config.blacklistIssuesPage !== undefined && mw.UploadWizard.config.blacklistIssuesPage !== '' ) {
-					feedback = new mw.Feedback( {
-						title: new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
-						dialogTitleMessageKey: 'mwe-upwiz-feedback-title'
-					} );
-
-					feedbackLink = $( '<span class="contentSubLink"></span>' ).msg(
-						'mwe-upwiz-feedback-blacklist-report-prompt',
-						function () {
-							feedback.launch( {
-								message: mw.message( 'mwe-upwiz-feedback-blacklist-line-intro', result.blacklist.blacklistLine ).escaped(),
-								subject: mw.message( 'mwe-upwiz-feedback-blacklist-subject', titleString ).escaped()
-							} );
-							return false;
-						}
-					);
-
-					$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( feedbackLink );
-				}
-			}
-			$errorEl.show();
 		},
 
 		/**
@@ -1068,12 +853,11 @@
 
 		/**
 		 * Set the title of the thing we just uploaded, visibly
-		 * Note: the interface's notion of "filename" versus "title" is the opposite of MediaWiki
 		 */
 		prefillTitle: function () {
-			$( this.titleInput )
-				.val( this.upload.title.getNameText() )
-				.trigger( 'change' );
+			this.titleDetails.setSerialized( {
+				title: this.upload.title.getNameText()
+			} );
 		},
 
 		/**
@@ -1330,6 +1114,7 @@
 
 			$( 'form', this.containerDiv ).submit();
 
+			this.upload.title = this.getTitle();
 			this.upload.state = 'submitting-details';
 			this.setStatus( mw.message( 'mwe-upwiz-submitting-details' ).text() );
 			this.showIndicator( 'progress' );
@@ -1339,7 +1124,7 @@
 			params = {
 				action: 'upload',
 				filekey: this.upload.fileKey,
-				filename: this.upload.title.getMain(),
+				filename: this.getTitle().getMain(),
 				comment: 'User created page with ' + mw.UploadWizard.userAgent
 			};
 
@@ -1425,7 +1210,7 @@
 			} else if ( warnings && warnings[ 'exists-normalized' ] ) {
 				existingFile = warnings[ 'exists-normalized' ];
 				existingFileExt = mw.Title.normalizeExtension( existingFile.split( '.' ).pop() );
-				ourFileExt = mw.Title.normalizeExtension( this.upload.title.getExtension() );
+				ourFileExt = mw.Title.normalizeExtension( this.getTitle().getExtension() );
 
 				if ( existingFileExt !== ourFileExt ) {
 					delete warnings[ 'exists-normalized' ];
@@ -1458,16 +1243,16 @@
 				} );
 			} else if ( result && result.upload.warnings ) {
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-thumbnail' ).text(), 'error-title-thumbnail' );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-thumbnail' ), 'error-title-thumbnail' );
 				} else if ( warnings.badfilename ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-badchars' ).text(), 'title-badchars' );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-badchars' ), 'title-badchars' );
 				} else if ( warnings[ 'bad-prefix' ] ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-senselessimagename' ).text(), 'title-senselessimagename' );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-senselessimagename' ), 'title-senselessimagename' );
 				} else if ( existingFile ) {
 					existingFileUrl = mw.config.get( 'wgServer' ) + new mw.Title( existingFile, NS_FILE ).getUrl();
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
+					this.recoverFromError( mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse(), 'api-warning-exists' );
 				} else if ( warnings.duplicate ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate' ).text(), 'upload-error-duplicate' );
+					this.recoverFromError( mw.message( 'mwe-upwiz-upload-error-duplicate' ), 'upload-error-duplicate' );
 				} else if ( warnings[ 'duplicate-archive' ] !== undefined ) {
 					// warnings[ 'duplicate-archive' ] may be '' (empty string) for revdeleted files
 					if ( this.upload.ignoreWarning[ 'duplicate-archive' ] ) {
@@ -1481,7 +1266,7 @@
 						} );
 					} else {
 						// This should _never_ happen, but just in case....
-						this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).text(), 'upload-error-duplicate-archive' );
+						this.recoverFromError( mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ), 'upload-error-duplicate-archive' );
 					}
 				} else {
 					warningsKeys = [];
@@ -1489,7 +1274,7 @@
 						warningsKeys.push( key );
 					} );
 					this.upload.state = 'error';
-					this.recoverFromError( this.titleId, mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).text(), 'api-error-unknown-warning' );
+					this.recoverFromError( mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ), 'api-error-unknown-warning' );
 				}
 
 				return $.Deferred().resolve();
@@ -1499,21 +1284,16 @@
 		},
 
 		/**
-		 * Create a recoverable error -- show the form again, and highlight the problematic field. Go to error state but do not block submission
+		 * Create a recoverable error -- show the form again, and highlight the problematic field.
 		 *
-		 * @param {string} fieldId id of input field -- presumed to be within this upload's details form.
-		 * @param {string} errorMessage HTML error message to show. Make sure escaping text properly.
+		 * @param {mw.Message} errorMessage Error message to show.
 		 * @param {string} errorCode
 		 */
-		recoverFromError: function ( fieldId, errorMessage, errorCode ) {
+		recoverFromError: function ( errorMessage, errorCode ) {
 			uw.eventFlowLogger.logError( 'details', { code: errorCode || 'details.recoverFromError.unknown', message: errorMessage } );
 			this.upload.state = 'error';
 			this.dataDiv.morphCrossfade( '.detailsForm' );
-			$( '#' + fieldId ).addClass( 'mwe-error' );
-			this.$form
-				.find( 'label[for=' + fieldId + '].mwe-upwiz-error-recovery' )
-				.html( errorMessage )
-				.show();
+			this.titleDetailsField.setErrors( [ errorMessage ] );
 		},
 
 		/**
@@ -1556,7 +1336,7 @@
 
 			if ( result && result.error && result.error.code ) {
 				if ( titleErrorMap[ code ] ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ).escaped(), 'title-' + titleErrorMap[ code ] );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ), 'title-' + titleErrorMap[ code ] );
 					return;
 				} else if ( code === 'titleblacklist-forbidden' ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message ] ).escaped(), 'title-' + titleBlacklistMessageMap[ result.error.message ] );
@@ -1639,30 +1419,11 @@
 			$moreDiv.addClass( 'mwe-upwiz-toggled' );
 		},
 
-		/**
-		 * Apply some special cleanups for titles before adding to model. These cleanups are not reflected in what the user sees in the title input field.
-		 * For example, we remove an extension in the title if it matches the extension we're going to add anyway. (bug #30676)
-		 *
-		 * @param {string} s Title in human-readable form, e.g. "Foo bar", rather than "File:Foo_bar.jpg"
-		 * @return {mw.Title} cleaned title with prefix and extension, stringified.
-		 */
-		setCleanTitle: function ( s ) {
-			var ext = this.upload.title.getExtension(),
-				re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' ),
-				cleaned = s.replace( re, '' ).replace( /\.+$/g, '' ).trim();
-			this.upload.title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + ext ) || this.upload.title;
-			return this.upload.title;
-		},
-
 		setVisibleTitle: function ( s ) {
 			$( this.submittingDiv )
 				.find( '.mwe-upwiz-visible-file-filename-text' )
 				.text( s );
 		}
 	};
-
-	$.validator.addMethod( 'titleParsability', function ( s, elem ) {
-		return this.optional( elem ) || mw.Title.newFromText( s.trim() );
-	} );
 
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

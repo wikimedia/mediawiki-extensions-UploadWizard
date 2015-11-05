@@ -21,6 +21,20 @@
 	 */
 
 	/**
+	 * @inheritdoc OO.ui.mixin.PendingElement#pushPending
+	 */
+	uw.DetailsWidget.prototype.pushPending = function () {
+		// Do nothing by default
+	};
+
+	/**
+	 * @inheritdoc OO.ui.mixin.PendingElement#popPending
+	 */
+	uw.DetailsWidget.prototype.popPending = function () {
+		// Do nothing by default
+	};
+
+	/**
 	 * Get the list of errors about the current state of the widget.
 	 *
 	 * @return {jQuery.Promise} Promise resolved with an array of mw.Message objects

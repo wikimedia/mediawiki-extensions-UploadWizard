@@ -12,13 +12,15 @@
  *   - noedit, moveonly, repuload is irrelevant
  *   - we can't check autoconfirmed-ness of users here, so we ignore it
  *   - Javascript doesn't have a standard way to access unicode character properties in regexes, so \p{PROPERTY}, \P{PROPERTY}, and [[:PROPERTY:]] have been changed when possible
- *	 or the associated regex removed
+ *     or the associated regex removed
 */
-( function ( $ ) {
+( function ( mw, $ ) {
 
-	var regexSets = {
+	mw.QuickTitleChecker = {};
 
-		titleBadchars: [
+	mw.QuickTitleChecker.regexSets = {
+
+		badchars: [
 			/[\u00A0\u1680\u180E\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/, // NBSP and other unusual spaces
 			/[\u202A-\u202E]/, // BiDi overrides
 			/[\x00-\x1f]/, // Control characters
@@ -30,7 +32,7 @@
 		],
 
 		// note lack of extension, since we test title without extension.
-		titleSenselessimagename: [
+		senselessimagename: [
 			/^DCP[\d\s]+$/i, //  Kodak
 			/^DSC.[\d\s]+$/i, //  [[w:Design rule for Camera File system]] (Nikon, Fuji, Polaroid)
 			/^MVC-?[\d\s]+$/i, //  Sony Mavica
@@ -49,31 +51,33 @@
 			/^SANY[\d\s]+$/ //  Sanyo
 		],
 
-		titleThumbnail: [
+		thumbnail: [
 			/^\d+px-.*/
 		],
 
-		titleExtension: [
+		extension: [
 			/\.(jpe?g|png|gif|svg|ogg|ogv|oga)$/
 		]
 
 	};
 
-	$.each( regexSets, function ( name, regexes ) {
-		var tester = ( function ( regexes ) {
-			return function ( value ) {
-				var ok = true;
-				$.each( regexes, function ( i, regex ) {
-					// if we make a mistake with commas in the above list, IE sometimes gives us an undefined regex, causes nastiness
-					if ( typeof regex !== undefined && value.match( regex ) ) {
-						ok = false;
-						return false;
-					}
-				} );
-				return ok;
-			};
-		} )( regexes );
-		$.validator.addMethod( name, tester, 'This title is not allowed' );
-	} );
+	/**
+	 * Check title for validity, without relying on TitleBlacklist extension or API requests.
+	 *
+	 * @param {string} title
+	 * @return {string[]} Array of error codes; if it's empty, the title is acceptable.
+	 *   Possible error codes are 'badchars', 'senselessimagename', 'thumbnail', 'extension'.
+	 */
+	mw.QuickTitleChecker.checkTitle = function ( title ) {
+		var errors = [];
+		$.each( mw.QuickTitleChecker.regexSets, function ( setName, regexes ) {
+			$.each( regexes, function ( i, regex ) {
+				if ( title.match( regex ) ) {
+					errors.push( setName );
+				}
+			} );
+		} );
+		return errors;
+	};
 
-} )( jQuery );
+} )( mediaWiki, jQuery );

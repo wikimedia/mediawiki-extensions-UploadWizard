@@ -138,14 +138,14 @@
 					}
 				}
 
-				upload.details.clearDuplicateTitleError();
 				// This also updates legacy error messages
 				if ( !upload.details.valid() ) {
 					hasErrors = true;
 				}
 
 				// Seen this title before?
-				title = upload.title.getName() + '.' + mw.Title.normalizeExtension( upload.title.getExtension() );
+				title = upload.details.getTitle();
+				title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
 				if ( titles[ title ] ) {
 					// Don't submit. Instead, set an error in details step.
 					upload.details.setDuplicateTitleError();
@@ -246,7 +246,7 @@
 			}
 
 			// Set details view to have correct title
-			upload.details.setVisibleTitle( upload.title.getMain() );
+			upload.details.setVisibleTitle( upload.details.getTitle().getMain() );
 		} );
 
 		// Disable edit interface
