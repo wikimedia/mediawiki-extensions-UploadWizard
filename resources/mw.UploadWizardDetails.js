@@ -1784,13 +1784,15 @@
 		processError: function ( code, result ) {
 			var statusKey, comma,
 				statusLine = mw.message( 'api-error-unclassified' ).text(),
-				titleErrorMap = {
-					senselessimagename: 'senselessimagename',
-					'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
+				titleBlacklistMessageMap = {
+					senselessimagename: 'senselessimagename', // TODO This is probably never hit?
 					'titleblacklist-custom-filename': 'hosting',
 					'titleblacklist-custom-SVG-thumbnail': 'thumbnail',
 					'titleblacklist-custom-thumbnail': 'thumbnail',
-					'titleblacklist-custom-double-apostrophe': 'double-apostrophe',
+					'titleblacklist-custom-double-apostrophe': 'double-apostrophe'
+				},
+				titleErrorMap = {
+					'fileexists-shared-forbidden': 'fileexists-shared-forbidden',
 					protectedpage: 'protected'
 				};
 
@@ -1805,6 +1807,9 @@
 			if ( result && result.error && result.error.code ) {
 				if ( titleErrorMap[ code ] ) {
 					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ).escaped(), 'title-' + titleErrorMap[ code ] );
+					return;
+				} else if ( code === 'titleblacklist-forbidden' ) {
+					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message ] ).escaped(), 'title-' + titleBlacklistMessageMap[ result.error.message ] );
 					return;
 				} else {
 					statusKey = 'api-error-' + code;
