@@ -12,11 +12,9 @@
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var
 			descriptionRequired, uri,
-			categoriesHinter,
+			categoriesHinter, locationHinter,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
-			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
-			showMap, linkDiv, locationHinter, locationDiv,
-			$list,
+			otherInformationDiv,
 			details = this;
 
 		this.upload = upload;
@@ -112,32 +110,15 @@
 			return mw.message( 'mwe-upwiz-tooltip-location', location ).parse();
 		};
 
-		locationDiv = $( '<div class="mwe-location mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
-			.append( $( '<div class="mwe-location-label"></div>' )
-				.text( mw.message( 'mwe-upwiz-location' ).text() )
-				.addHint( 'location', locationHinter )
-			)
-			.append(
-				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lat' + this.upload.index + '" generated="true"/></div>' ),
-				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-lon' + this.upload.index + '" generated="true"/></div>' ),
-				$( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + 'location-heading' + this.upload.index + '" generated="true"/></div>' ),
-				latitudeDiv, longitudeDiv, headingDiv, linkDiv
-			);
+		this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
+		this.locationInputField = new uw.FieldLayout( this.locationInput, {
+			label: mw.message( 'mwe-upwiz-location' ).text()
+		} );
 
-		this.$latitudeInput = this.makeLocationField( 'lat', locationDiv );
-		this.$longitudeInput = this.makeLocationField( 'lon', locationDiv );
-		this.$headingInput = this.makeLocationField( 'heading', locationDiv );
-
-		showMap = $( '<a>' )
-			.text( mw.message( 'mwe-upwiz-location-button' ).text() )
-			.hide();
-
-		linkDiv = $( '<div class="mwe-loc-link"></div>' )
-			.append( showMap )
-			.appendTo( locationDiv );
+		this.locationInputField.$label.addHint( 'location', locationHinter );
 
 		$( moreDetailsDiv ).append(
-			locationDiv,
+			this.locationInputField.$element,
 			otherInformationDiv
 		);
 
@@ -243,16 +224,6 @@
 
 		this.$form.validate();
 
-		$list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon' )
-			.on( 'input keyup change cut paste', function () {
-				var link = details.osmMapLink();
-				if (  $list.valid() ) {
-					showMap.attr( { href: link, target: '_blank' } ).show();
-				} else {
-					showMap.hide();
-				}
-			} );
-
 		$.each( this.fields, function ( i, $fieldInput ) {
 			$fieldInput.rules( 'add', {
 				required: $fieldInput.data( 'field' ).required,
@@ -260,33 +231,6 @@
 					required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
 				}
 			} );
-		} );
-
-		this.$latitudeInput.rules( 'add', {
-			min: -90,
-			max: 90,
-			messages: {
-				min: mw.message( 'mwe-upwiz-error-latitude' ).escaped(),
-				max: mw.message( 'mwe-upwiz-error-latitude' ).escaped()
-			}
-		} );
-
-		this.$longitudeInput.rules( 'add', {
-			min: -180,
-			max: 180,
-			messages: {
-				min: mw.message( 'mwe-upwiz-error-longitude' ).escaped(),
-				max: mw.message( 'mwe-upwiz-error-longitude' ).escaped()
-			}
-		} );
-
-		this.$headingInput.rules( 'add', {
-			min: 0,
-			max: 360,
-			messages: {
-				min: mw.message( 'mwe-upwiz-error-heading' ).escaped(),
-				max: mw.message( 'mwe-upwiz-error-heading' ).escaped()
-			}
 		} );
 
 		this.makeToggler(
@@ -462,9 +406,7 @@
 
 			} else if ( metadataType === 'location' ) {
 
-				simpleCopy( 'location-lat' );
-				simpleCopy( 'location-lon' );
-				simpleCopy( 'location-heading' );
+				oouiCopy( 'locationInput' );
 
 			} else if ( metadataType === 'other' ) {
 
@@ -570,15 +512,6 @@
 		},
 
 		/**
-		 * Open OSM map
-		 */
-		osmMapLink: function () {
-			var mapLink = new mw.Uri( 'https://www.openstreetmap.org/' )
-				.extend( { zoom: 9, mlat: this.$latitudeInput.val(), mlon: this.$longitudeInput.val() } );
-			return mapLink.toString();
-		},
-
-		/**
 		 * Check the fields using the legacy jquery.validate system for validity. You must also call
 		 * #getErrors to check validity of fields using the new OOUI system.
 		 *
@@ -613,7 +546,8 @@
 				this.titleDetails.getErrors(),
 				this.descriptionsDetails.getErrors(),
 				this.dateDetails.getErrors(),
-				this.categoriesDetails.getErrors()
+				this.categoriesDetails.getErrors(),
+				this.locationInput.getErrors()
 				// More fields will go here as we convert things to the new system...
 			);
 		},
@@ -628,7 +562,8 @@
 				this.titleDetails.getWarnings(),
 				this.descriptionsDetails.getWarnings(),
 				this.dateDetails.getWarnings(),
-				this.categoriesDetails.getWarnings()
+				this.categoriesDetails.getWarnings(),
+				this.locationInput.getWarnings()
 				// More fields will go here as we convert things to the new system...
 			);
 		},
@@ -642,6 +577,7 @@
 			this.descriptionsDetailsField.checkValidity();
 			this.dateDetailsField.checkValidity();
 			this.categoriesDetailsField.checkValidity();
+			this.locationInputField.checkValidity();
 			// More fields will go here as we convert things to the new system...
 		},
 
@@ -899,13 +835,24 @@
 		},
 
 		/**
-		 * Prefill location inputs (and/or scroll to position on map) from image info and metadata
+		 * Prefill location input from image info and metadata
 		 *
 		 * As of MediaWiki 1.18, the exif parser translates the rational GPS data tagged by the camera
 		 * to decimal format.  Let's just use that.
 		 */
 		prefillLocation: function () {
-			var dir, m = this.upload.imageinfo.metadata;
+			var dir, m = this.upload.imageinfo.metadata,
+				values = {};
+
+			if ( mw.UploadWizard.config.defaults.lat ) {
+				values.latitude = mw.UploadWizard.config.defaults.lat;
+			}
+			if ( mw.UploadWizard.config.defaults.lon ) {
+				values.longitude = mw.UploadWizard.config.defaults.lon;
+			}
+			if ( mw.UploadWizard.config.defaults.heading ) {
+				values.heading = mw.UploadWizard.config.defaults.heading;
+			}
 
 			if ( m ) {
 				dir = m.gpsimgdirection || m.gpsdestbearing;
@@ -918,23 +865,25 @@
 						dir = parseInt( dir[ 0 ], 10 ) / parseInt( dir[ 1 ], 10 );
 					}
 
-					this.$headingInput.val( dir );
+					values.heading = dir;
 				}
 
 				// Prefill useful stuff only
 				if ( Number( m.gpslatitude ) && Number( m.gpslongitude ) ) {
-					this.$latitudeInput.val( m.gpslatitude );
-					this.$longitudeInput.val( m.gpslongitude );
+					values.latitude = m.gpslatitude;
+					values.longitude = m.gpslongitude;
 				} else if (
 					this.upload.file &&
 					this.upload.file.location &&
 					this.upload.file.location.latitude &&
 					this.upload.file.location.longitude
 				) {
-					this.$latitudeInput.val( this.upload.file.location.latitude );
-					this.$longitudeInput.val( this.upload.file.location.longitude );
+					values.latitude = this.upload.file.location.latitude;
+					values.longitude = this.upload.file.location.longitude;
 				}
 			}
+
+			this.locationInput.setSerialized( values );
 		},
 
 		/**
@@ -976,34 +925,13 @@
 		},
 
 		/**
-		 * Shortcut for creating location fields.
-		 */
-		makeLocationField: function ( name, $container ) {
-			var fieldId = 'location-' + name + this.upload.index,
-				fieldClass = 'loc-' + name,
-				$input = this.makeTextInput( fieldId, fieldClass, 10, undefined, mw.UploadWizard.config.defaults[ name ] );
-
-			$( '<div>' )
-				.addClass( 'mwe-location-' + name )
-				.append(
-					$( '<div>' )
-						.addClass( 'mwe-location-' + name + '-label' )
-						.text( mw.message( 'mwe-upwiz-location-' + name ).text() ),
-					$input
-				)
-				.appendTo( $container );
-
-			return $input;
-		},
-
-		/**
 		 * Convert entire details for this file into wikiText, which will then be posted to the file
 		 *
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
-			var deed, info, key, latitude, longitude, otherInfoWikiText, heading,
-				locationThings, information,
+			var deed, info, key, otherInfoWikiText,
+				information,
 				wikiText = '';
 
 			// if invalid, should produce side effects in the form
@@ -1051,19 +979,7 @@
 				wikiText += '=={{int:filedesc}}==\n';
 				wikiText += '{{Information\n' + info + '}}\n';
 
-				latitude = this.$latitudeInput.val().trim();
-				longitude = this.$longitudeInput.val().trim();
-				heading = this.$headingInput.val().trim();
-
-				if ( Number( latitude ) && Number( longitude ) ) {
-					locationThings = [ '{{Location dec', latitude, longitude ];
-
-					if ( Number( heading ) ) {
-						locationThings.push( 'heading:' + heading );
-					}
-
-					wikiText += locationThings.join( '|' ) + '}}\n';
-				}
+				wikiText += this.locationInput.getWikiText() + '\n';
 
 				// add an "anything else" template if needed
 				otherInfoWikiText = $( this.otherInformationInput ).val().trim();

@@ -75,6 +75,7 @@ class UploadWizardHooks {
 				'resources/details/uw.CategoriesDetailsWidget.js',
 				'resources/details/uw.DescriptionDetailsWidget.js',
 				'resources/details/uw.DescriptionsDetailsWidget.js',
+				'resources/details/uw.LocationDetailsWidget.js',
 
 				// common utilities
 				'resources/mw.fileApi.js',
@@ -118,6 +119,7 @@ class UploadWizardHooks {
 				'resources/details/uw.CategoriesDetailsWidget.less',
 				'resources/details/uw.DescriptionDetailsWidget.less',
 				'resources/details/uw.DescriptionsDetailsWidget.less',
+				'resources/details/uw.LocationDetailsWidget.less',
 			),
 			'messages' => array(
 				'comma-separator',
