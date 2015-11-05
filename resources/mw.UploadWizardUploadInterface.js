@@ -72,10 +72,6 @@
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( this.removeCtrl.$element );
 
-		// Add show thumbnail control
-
-		// this.errorDiv = $('<div class="mwe-upwiz-upload-error mwe-upwiz-file-indicator" style="display: none;"></div>').get(0);
-
 		this.filenameCtrl = $( '<input type="hidden" name="filename" value=""/>' ).get( 0 );
 
 		// this file Ctrl container is placed over other interface elements, intercepts clicks and gives them to the file input control.
@@ -627,7 +623,6 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.clearErrors = function () {
 		$( this.div ).removeClass( 'mwe-upwiz-upload-error' );
-		$( this.errorDiv ).hide().empty();
 	};
 
 	/**
