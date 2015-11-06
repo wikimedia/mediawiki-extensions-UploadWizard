@@ -13,13 +13,14 @@
 		var
 			descriptionRequired, uri,
 			categoriesHinter, locationHinter,
-			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
-			otherInformationDiv,
+			moreDetailsCtrlDiv, moreDetailsDiv,
 			details = this;
 
 		this.upload = upload;
 		this.containerDiv = containerDiv;
 		this.api = upload.api;
+
+		this.mainFields = [];
 
 		this.div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
 
@@ -44,6 +45,7 @@
 		} );
 		// TODO Rethink hints
 		this.descriptionsDetailsField.$label.addHint( 'description' );
+		this.mainFields.push( this.descriptionsDetailsField );
 
 		this.titleDetails = new uw.TitleDetailsWidget( {
 			extension: this.upload.title.getExtension()
@@ -54,6 +56,7 @@
 		} );
 		// TODO Rethink hints
 		this.titleDetailsField.$label.addHint( 'title' );
+		this.mainFields.push( this.titleDetailsField );
 
 		this.deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
 
@@ -77,6 +80,7 @@
 		};
 		// TODO Rethink hints
 		this.categoriesDetailsField.$label.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
+		this.mainFields.push( this.categoriesDetailsField );
 
 		this.dateDetails = new uw.DateDetailsWidget();
 		this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
@@ -85,22 +89,17 @@
 		} );
 		// TODO Rethink hints
 		this.dateDetailsField.$label.addHint( 'date' );
+		this.mainFields.push( this.dateDetailsField );
 
 		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
-
 		moreDetailsDiv = $( '<div class="mwe-more-details"></div>' );
 
-		otherInformationId = 'otherInformation' + this.upload.index;
-		this.otherInformationInput = $( '<textarea id="' + otherInformationId + '" name="' + otherInformationId + '" class="mwe-upwiz-other-textarea" rows="2" cols="36"></textarea>' )
-			.growTextArea()
-			.on( 'keyup', function ( e ) {
-				e.stopPropagation();
-				return false;
-			} );
-
-		otherInformationDiv = $( '<div>' )
-			.append( $( '<div class="mwe-upwiz-details-more-label"></div>' ).text( mw.message( 'mwe-upwiz-other' ).text() ).addHint( 'other' ) )
-			.append( this.otherInformationInput );
+		this.otherDetails = new uw.OtherDetailsWidget();
+		this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
+			label: mw.message( 'mwe-upwiz-other' ).text()
+		} );
+		this.otherDetailsField.$label.addHint( 'other' );
+		this.mainFields.push( this.otherDetailsField );
 
 		locationHinter = function () {
 			var location = $( '<a>' ).attr( {
@@ -116,10 +115,11 @@
 		} );
 
 		this.locationInputField.$label.addHint( 'location', locationHinter );
+		this.mainFields.push( this.locationInputField );
 
 		$( moreDetailsDiv ).append(
 			this.locationInputField.$element,
-			otherInformationDiv
+			this.otherDetailsField.$element
 		);
 
 		/* Build the form for the file upload */
@@ -410,7 +410,7 @@
 
 			} else if ( metadataType === 'other' ) {
 
-				simpleCopy( 'otherInformation', 'textarea' );
+				oouiCopy( 'otherDetails' );
 
 				// Copy fields added though campaigns
 				$.each( mw.UploadWizard.config.fields, function ( i, field ) {
@@ -533,6 +533,13 @@
 		},
 
 		/**
+		 * @private
+		 */
+		getAllFields: function () {
+			return this.mainFields;
+		},
+
+		/**
 		 * Check the fields using the new OOjs UI system for validity. You must also call #valid to
 		 * check validity of fields using the legacy jquery.validate system.
 		 *
@@ -542,14 +549,9 @@
 		 *   empty arrays.
 		 */
 		getErrors: function () {
-			return $.when(
-				this.titleDetails.getErrors(),
-				this.descriptionsDetails.getErrors(),
-				this.dateDetails.getErrors(),
-				this.categoriesDetails.getErrors(),
-				this.locationInput.getErrors()
-				// More fields will go here as we convert things to the new system...
-			);
+			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
+				return fieldLayout.fieldWidget.getErrors();
+			} ) );
 		},
 
 		/**
@@ -558,14 +560,9 @@
 		 * @return {jQuery.Promise} Same as #getErrors
 		 */
 		getWarnings: function () {
-			return $.when(
-				this.titleDetails.getWarnings(),
-				this.descriptionsDetails.getWarnings(),
-				this.dateDetails.getWarnings(),
-				this.categoriesDetails.getWarnings(),
-				this.locationInput.getWarnings()
-				// More fields will go here as we convert things to the new system...
-			);
+			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
+				return fieldLayout.fieldWidget.getWarnings();
+			} ) );
 		},
 
 		/**
@@ -573,12 +570,9 @@
 		 * UI.
 		 */
 		checkValidity: function () {
-			this.titleDetailsField.checkValidity();
-			this.descriptionsDetailsField.checkValidity();
-			this.dateDetailsField.checkValidity();
-			this.categoriesDetailsField.checkValidity();
-			this.locationInputField.checkValidity();
-			// More fields will go here as we convert things to the new system...
+			this.getAllFields().forEach( function ( fieldLayout ) {
+				fieldLayout.checkValidity();
+			} );
 		},
 
 		/**
@@ -930,7 +924,7 @@
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
-			var deed, info, key, otherInfoWikiText,
+			var deed, info, key,
 				information,
 				wikiText = '';
 
@@ -982,10 +976,7 @@
 				wikiText += this.locationInput.getWikiText() + '\n';
 
 				// add an "anything else" template if needed
-				otherInfoWikiText = $( this.otherInformationInput ).val().trim();
-				if ( !mw.isEmpty( otherInfoWikiText ) ) {
-					wikiText += otherInfoWikiText + '\n\n';
-				}
+				wikiText += this.otherDetails.getWikiText() + '\n\n';
 
 				// add licensing information
 				wikiText += '\n=={{int:license-header}}==\n';
@@ -1010,6 +1001,9 @@
 				if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {
 					wikiText = window.TextCleaner.sanitizeWikiText( wikiText, true );
 				}
+
+				// remove too many newlines in a row
+				wikiText = wikiText.replace( /\n{3,}/g, '\n\n' );
 
 				return wikiText;
 			}

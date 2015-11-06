@@ -76,6 +76,7 @@ class UploadWizardHooks {
 				'resources/details/uw.DescriptionDetailsWidget.js',
 				'resources/details/uw.DescriptionsDetailsWidget.js',
 				'resources/details/uw.LocationDetailsWidget.js',
+				'resources/details/uw.OtherDetailsWidget.js',
 
 				// common utilities
 				'resources/mw.fileApi.js',
