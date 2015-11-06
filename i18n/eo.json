@@ -10,7 +10,8 @@
 			"Michawiki",
 			"ThomasPusch",
 			"Yekrats",
-			"Matma Rex"
+			"Matma Rex",
+			"Tlustulimu"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -285,7 +286,7 @@
 	"mwe-upwiz-error-campaigndisabled": "Kampanjo \"$1\" ne estis ŝalta.",
 	"uploadcampaign-legend": "konfigurigo de alŝutaj kampanjoj",
 	"uploadcampaign-text": "Vi estas ŝanĝante kampanjo de Alŝutada Asistilo",
-	"prefs-uploads": "Alŝutoj",
+	"prefs-uploads": "Alŝutado",
 	"prefs-upwiz-licensing": "Permesiloj:",
 	"prefs-upwiz-experimental": "Testataj opcioj",
 	"prefs-upwiz-interface": "Uzula interfaco",
