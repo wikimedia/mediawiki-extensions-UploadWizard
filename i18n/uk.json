@@ -33,7 +33,7 @@
 	"mwe-upwiz-uploadcampaign": "Конфігурація кампанії по завантаженням",
 	"right-upwizcampaigns": "налаштування кампаній майстра завантажень",
 	"action-upwizcampaigns": "налаштування кампаній завантажень",
-	"group-upwizcampeditors": "редактори кампаній майстра завантажень",
+	"group-upwizcampeditors": "Редактори кампаній майстра завантажень",
 	"group-upwizcampeditors-member": "{{GENDER:$1|редактор майстра кампанії завантажень}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Upload Wizard campaign editors",
 	"mwe-upwiz-js-off": "Майстер завантажень використовує JavaScript в інтерфейсі. Або ваш браузер не підтримує JavaScript або JavaScript вимкнено, тому вам запропоновано просту форму завантаження.",
