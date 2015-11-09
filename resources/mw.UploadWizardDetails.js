@@ -1216,9 +1216,9 @@
 					var matches, timeMatches,
 						dateInfo = metadata[ propName ];
 					if ( !mw.isEmpty( dateInfo ) ) {
-						matches = $.trim( dateInfo ).match( yyyyMmDdRegex );
+						matches = dateInfo.trim().match( yyyyMmDdRegex );
 						if ( !mw.isEmpty( matches ) ) {
-							timeMatches = $.trim( dateInfo ).match( timeRegex );
+							timeMatches = dateInfo.trim().match( timeRegex );
 							if ( !mw.isEmpty( timeMatches ) ) {
 								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
 											parseInt( matches[ 2 ], 10 ) - 1,
@@ -1476,9 +1476,9 @@
 				wikiText += '=={{int:filedesc}}==\n';
 				wikiText += '{{Information\n' + info + '}}\n';
 
-				latitude = $.trim( this.$latitudeInput.val() );
-				longitude = $.trim( this.$longitudeInput.val() );
-				heading = $.trim( this.$headingInput.val() );
+				latitude = this.$latitudeInput.val().trim();
+				longitude = this.$longitudeInput.val().trim();
+				heading = this.$headingInput.val().trim();
 
 				if ( Number( latitude ) && Number( longitude ) ) {
 					locationThings = [ '{{Location dec', latitude, longitude ];
@@ -1491,7 +1491,7 @@
 				}
 
 				// add an "anything else" template if needed
-				otherInfoWikiText = $.trim( $( this.otherInformationInput ).val() );
+				otherInfoWikiText = $( this.otherInformationInput ).val().trim();
 				if ( !mw.isEmpty( otherInfoWikiText ) ) {
 					wikiText += otherInfoWikiText + '\n\n';
 				}
@@ -1899,7 +1899,7 @@
 		setCleanTitle: function ( s ) {
 			var ext = this.upload.title.getExtension(),
 				re = new RegExp( '\\.' + this.upload.title.getExtension() + '$', 'i' ),
-				cleaned = $.trim( s.replace( re, '' ).replace( /\.+$/g, '' ) );
+				cleaned = s.replace( re, '' ).replace( /\.+$/g, '' ).trim();
 			this.upload.title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + ext ) || this.upload.title;
 			return this.upload.title;
 		},
@@ -1912,7 +1912,7 @@
 	};
 
 	$.validator.addMethod( 'titleParsability', function ( s, elem ) {
-		return this.optional( elem ) || mw.Title.newFromText( $.trim( s ) );
+		return this.optional( elem ) || mw.Title.newFromText( s.trim() );
 	} );
 
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

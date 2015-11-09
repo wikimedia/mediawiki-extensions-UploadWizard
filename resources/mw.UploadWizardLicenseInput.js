@@ -468,7 +468,7 @@
 		getInputTextAreaVal: function ( $input ) {
 			var extra = '';
 			if ( $input.data( 'textarea' ) ) {
-				extra = $.trim( $input.data( 'textarea' ).val() );
+				extra = $input.data( 'textarea' ).val().trim();
 			}
 			return extra;
 		},

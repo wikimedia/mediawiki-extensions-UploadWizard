@@ -70,7 +70,7 @@
 			text = text.replace( /<[^>]+>/g, '' );
 			// & and " are escaped by Flickr, so we need to unescape
 			text = text.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
-			$( this.input ).val( $.trim( text ) );
+			$( this.input ).val( text.trim() );
 		},
 
 		getWikiText: function () {
@@ -86,15 +86,15 @@
 		},
 
 		updateDescriptionText: function () {
-			this.description.setText( $.trim( $( this.input ).val() ) );
+			this.description.setText( $( this.input ).val().trim() );
 		},
 
 		updateDescriptionLanguage: function () {
-			this.description.setLanguage( $.trim( $( this.languageMenu ).val() ) );
+			this.description.setLanguage( $( this.languageMenu ).val().trim() );
 		},
 
 		getLanguage: function () {
-			return $.trim( $( this.languageMenu ).val() );
+			return $( this.languageMenu ).val().trim();
 		},
 
 		/**
