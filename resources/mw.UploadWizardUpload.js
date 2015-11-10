@@ -192,14 +192,11 @@
 				code = result.error.code;
 			}
 			if ( code === 'badtoken' ) {
-				// mw.Api#badToken is new in MW 1.26, stay compatible with older versions
-				if ( this.api.badToken ) {
-					this.api.badToken( 'edit' );
-					// Try again once
-					if ( !this.ignoreWarning[ code ] ) {
-						this.removeErrors( code );
-						return;
-					}
+				this.api.badToken( 'edit' );
+				// Try again once
+				if ( !this.ignoreWarning[ code ] ) {
+					this.removeErrors( code );
+					return;
 				}
 			}
 			if ( code === 'filetype-banned' && result.error.blacklisted ) {

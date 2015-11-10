@@ -122,38 +122,8 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			),
 			'continue' => array(
-				/** @todo Once support for MediaWiki < 1.25 is dropped,
-				 just use ApiBase::PARAM_HELP_MSG directly */
-				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-continue',
+				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			),
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'enabledonly' => 'Only list campaigns that are enabled',
-			'limit' => 'Number of campaigns to return',
-			'continue' => 'When more results are available, use this paramter to continue'
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Enumerate all Campaigns';
-	}
-
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action=query&list=allcampaigns&uwcenabledonly=' => 'Enumerate enabled campaigns'
 		);
 	}
 
@@ -171,4 +141,3 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 		return 'https://www.mediawiki.org/wiki/Extension:UploadWizard/API';
 	}
 }
-

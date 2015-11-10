@@ -48,37 +48,6 @@ class ApiFlickrBlacklist extends ApiBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'url' => 'The flickr url to be tested',
-			'list' => 'When set, the complete blacklist is returned. '
-				. '(Cannot be used together with the url parameter.)',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Validate a flickr URL by using its NSID for blacklisting. When used '
-			. 'with the list option, return all blacklisted NSIDs.';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-			// @codingStandardsIgnoreStart
-			'api.php?action=flickrblacklist&url=http%3A//farm1.staticflickr.com/44/147426941_98baf36fd1_o.jpg',
-			'api.php?action=flickrblacklist&list',
-			// @codingStandardsIgnoreEnd
-		);
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
