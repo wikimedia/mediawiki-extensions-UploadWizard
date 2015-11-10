@@ -1143,22 +1143,6 @@
 		},
 
 		/**
-		 * Display an error with details
-		 * XXX this is a lot like upload ui's error -- should merge
-		 */
-		error: function () {
-			// copies arguments into a real array
-			var args = Array.prototype.slice.call( arguments ),
-				msg = 'mwe-upwiz-upload-error-' + args[ 0 ];
-
-			$( this.errorDiv ).append( $( '<p class="mwe-upwiz-upload-error"></p>' ).text( mw.message( msg, args.slice( 1 ) ).text() ) );
-			// apply a error style to entire did
-			$( this.div ).addClass( 'mwe-upwiz-upload-error' );
-			$( this.dataDiv ).hide();
-			$( this.errorDiv ).show();
-		},
-
-		/**
 		 * Given the API result pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 *
 		 * @param {Object} result Upload API result object
