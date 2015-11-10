@@ -163,8 +163,8 @@
 	 */
 	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( s ) {
 		return $( '<input>' )
-			.addClass( 'mwe-title ui-corner-all' )
-			.readonly()
+			.attr( 'readonly', 'readonly' )
+			.addClass( 'mwe-title mwe-readonly ui-corner-all' )
 			.val( s )
 			.click( function () {
 				this.focus();
