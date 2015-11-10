@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"NoiX180",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Anggoro"
 		]
 	},
 	"uploadwizard": "Wisaya Pangunggahan",
@@ -16,7 +17,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:panyunting kampanye Wisaya Unggah",
 	"mwe-upwiz-js-off": "Wisaya Unggah nganggo JavaScript kanggo antarmuka sing wis apik. Pramban Sampéyan bisa dadi ora nyengkuyung JavaScript utawa JavaScripté dipatèni, dadi sing katon namung formulir unggah sing biasa.",
 	"mwe-upwiz-extension-disabled": "Kaca iki dipatèni amarga masalah tehnis sawetara. Kanggo sawetara, jajal anggo pormulir unggah gawan dhisik.",
-	"mwe-upwiz-code-unknown": "Basa ora dingertèni",
 	"mwe-upwiz-step-tutorial": "Sinau",
 	"mwe-upwiz-step-file": "Unggah",
 	"mwe-upwiz-step-deeds": "Hak nerbitaké",
@@ -118,6 +118,7 @@
 	"mwe-upwiz-tooltip-location": "Koordinat panggon berkas media iki digawé.",
 	"mwe-upwiz-tooltip-more-info": "Sinau luwih.",
 	"mwe-upwiz-file-need-file": "Mangga tambah unggahan dhisik.",
+	"mwe-upwiz-deeds-need-deed": "Wedharaké saka ngendi Sampéyan éntuk berkas iki lan piyé situs iki bisa migunakaké kanthi milih sawiji pilihan.",
 	"mwe-upwiz-deeds-need-license": "Mangga pilih lisènsi.",
 	"mwe-upwiz-license-show-all": "Anggo lisènsi béda",
 	"mwe-upwiz-license-show-recommended": "Anggo lisènsi éguhaké",
@@ -213,7 +214,7 @@
 	"mwe-upwiz-error-campaigndisabled": "Kampanye \"$1\" durung diurubaké.",
 	"uploadcampaign-legend": "Unggah pangaturan kampanye",
 	"uploadcampaign-text": "Sampéyan ngowah kampanye Wisaya Unggah.",
-	"prefs-uploads": "Unggahan",
+	"prefs-uploads": "Saweg ngunggah",
 	"prefs-upwiz-licensing": "Palisènsian",
 	"prefs-upwiz-experimental": "Piranti panjajalan",
 	"prefs-upwiz-interface": "Antarmuka panganggo",
