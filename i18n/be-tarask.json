@@ -161,7 +161,7 @@
 	"mwe-upwiz-deeds-need-license": "Калі ласка, выберыце ліцэнзію.",
 	"mwe-upwiz-license-show-all": "Выбраць іншую ліцэнзію",
 	"mwe-upwiz-license-show-recommended": "Ужыць прапанаваную сайтам ліцэнзію",
-	"mwe-upwiz-error-signature-blank": "Вы павінны падпісацца ў радку ніжэй Вашым іменем удзельніка ці сапраўдным іменем.",
+	"mwe-upwiz-error-signature-blank": "Вы павінны падпісацца Вашым іменем удзельніка ці сапраўдным іменем у адпаведным полі.",
 	"mwe-upwiz-error-latitude": "Шырата павінна мець значэньне паміж -90 і 90.",
 	"mwe-upwiz-error-longitude": "Даўгата павінна мець значэньне паміж -180 і 180.",
 	"mwe-upwiz-error-altitude": "Вышыня павінна быць лікам.",
