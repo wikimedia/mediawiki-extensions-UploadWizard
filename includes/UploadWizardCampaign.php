@@ -221,6 +221,7 @@ class UploadWizardCampaign {
 		$parserOptions->setInterfaceMessage( true );
 		$parserOptions->setUserLang( $lang );
 		$parserOptions->setTargetLanguage( $lang );
+		$parserOptions->setTidy( true );
 
 		$output = $wgParser->parse( $value, $this->getTitle(),
 									$parserOptions );
