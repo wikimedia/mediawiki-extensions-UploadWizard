@@ -4,7 +4,8 @@
 			"Lloffiwr",
 			"Pwyll",
 			"Xxglennxx",
-			"Matma Rex"
+			"Matma Rex",
+			"Robin Owain"
 		]
 	},
 	"uploadwizard": "Dewin Uwchlwytho",
@@ -174,7 +175,7 @@
 	"mwe-upwiz-tooltip-location": "Cyfesurynnau'r man lle gwnaethpwyd y ffeil gyfrwng hon.",
 	"mwe-upwiz-tooltip-more-info": "Dysgu mwy.",
 	"mwe-upwiz-file-need-file": "Ychwanegwch uwchlwythiad yn gyntaf.",
-	"mwe-upwiz-deeds-need-deed": "Esboniwch ymhle ddaethoch o hyd i'r {{PLURAL:$1||ffeil hon|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn|ffeiliau hyn}} a sut y gall y safle hwn {{PLURAL:$1||ei defnyddio|eu defnyddio|eu defnyddio|eu defnyddio|eu defnyddio}}, drwy ddewis un o'r opsiynau.",
+	"mwe-upwiz-deeds-need-deed": "Esboniwch ymhle ddaethoch o hyd i'r ffeil hon a sut y gall y safle hon ei defnyddio, drwy ddewis un o'r opsiynau.",
 	"mwe-upwiz-deeds-need-license": "Dewiswch drwydded.",
 	"mwe-upwiz-license-show-all": "Defnyddiwch drwydded arall",
 	"mwe-upwiz-license-show-recommended": "Defnyddiwch y drwydded a argymhellir",
@@ -287,7 +288,7 @@
 	"mwe-upwiz-error-campaigndisabled": "Nid yw'r ymgyrch \"$1\" wedi cael ei galluogi.",
 	"uploadcampaign-legend": "Ffurfweddiad yr ymgyrch uwchlwytho",
 	"uploadcampaign-text": "Rydych yn addasu ymgyrch y Dewin Uwchlwytho.",
-	"prefs-uploads": "Uwchlwythiadau",
+	"prefs-uploads": "Uwchlwytho",
 	"prefs-upwiz-licensing": "Trwyddedu",
 	"prefs-upwiz-experimental": "Nodweddion arbrofol",
 	"prefs-upwiz-interface": "Y rhyngwyneb",

@@ -46,7 +46,7 @@
 	"mwe-upwiz-select-flickr": "Last opp valgte bilder",
 	"mwe-upwiz-flickr-disclaimer1": "Dette skjemaet vil hente inn innhold fra flickr.com underlagt Flickrs [https://www.flickr.com/help/terms/ bruksvilkår] og [https://www.flickr.com/help/privacy-policy/ personvernpolicy].",
 	"mwe-upwiz-flickr-disclaimer2": "Merk at når du bruker dette verktøyet vil IP-adressen din og forespørselsinformasjonen være tilgjengelig for Flickr.",
-	"mwe-upwiz-error-no-image-retrieved": "Vi kunne ikke hente filen fra $1.",
+	"mwe-upwiz-error-no-image-retrieved": "Fant ikke filen fra $1.",
 	"mwe-upwiz-multi-file-select": "Tegn opp en boks med markøren rundt filene du vil laste opp. Du kan holde nede Ctrl/Kommando-tasten for å gjøre flere markeringer av filer som ikke ligger ved siden av hverandre. Du kan markere opptil $1 {{PLURAL:$1|fil|filer}} som skal lastes opp.",
 	"mwe-upwiz-transport-started": "Starter...",
 	"mwe-upwiz-encoding": "Koder...",
