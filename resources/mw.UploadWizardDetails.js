@@ -12,7 +12,6 @@
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var
 			descriptionRequired, uri,
-			categoriesHinter, locationHinter,
 			moreDetailsCtrlDiv, moreDetailsDiv,
 			details = this;
 
@@ -41,10 +40,9 @@
 		} );
 		this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsDetails, {
 			label: mw.message( 'mwe-upwiz-desc' ).text(),
+			help: mw.message( 'mwe-upwiz-tooltip-description' ).text(),
 			required: descriptionRequired
 		} );
-		// TODO Rethink hints
-		this.descriptionsDetailsField.$label.addHint( 'description' );
 		this.mainFields.push( this.descriptionsDetailsField );
 
 		this.titleDetails = new uw.TitleDetailsWidget( {
@@ -52,10 +50,9 @@
 		} );
 		this.titleDetailsField = new uw.FieldLayout( this.titleDetails, {
 			label: mw.message( 'mwe-upwiz-title' ).text(),
+			help: mw.message( 'mwe-upwiz-tooltip-title' ).text(),
 			required: true
 		} );
-		// TODO Rethink hints
-		this.titleDetailsField.$label.addHint( 'title' );
 		this.mainFields.push( this.titleDetailsField );
 
 		this.deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
@@ -69,26 +66,22 @@
 
 		this.categoriesDetails = new uw.CategoriesDetailsWidget();
 		this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
-			label: mw.message( 'mwe-upwiz-categories' ).text()
+			label: mw.message( 'mwe-upwiz-categories' ).text(),
+			help: new OO.ui.HtmlSnippet(
+				mw.message( 'mwe-upwiz-tooltip-categories', $( '<a>' ).attr( {
+					target: '_blank',
+					href: 'https://commons.wikimedia.org/wiki/Commons:Categories'
+				} ) ).parse()
+			)
 		} );
-		categoriesHinter = function () {
-			var commonsCategoriesLink = $( '<a>' ).attr( {
-				target: '_blank',
-				href: 'https://commons.wikimedia.org/wiki/Commons:Categories'
-			} );
-			return mw.message( 'mwe-upwiz-tooltip-categories', commonsCategoriesLink ).parse();
-		};
-		// TODO Rethink hints
-		this.categoriesDetailsField.$label.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 		this.mainFields.push( this.categoriesDetailsField );
 
 		this.dateDetails = new uw.DateDetailsWidget();
 		this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
 			label: mw.message( 'mwe-upwiz-date-created' ).text(),
+			help: mw.message( 'mwe-upwiz-tooltip-date' ).text(),
 			required: true
 		} );
-		// TODO Rethink hints
-		this.dateDetailsField.$label.addHint( 'date' );
 		this.mainFields.push( this.dateDetailsField );
 
 		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
@@ -96,25 +89,21 @@
 
 		this.otherDetails = new uw.OtherDetailsWidget();
 		this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
-			label: mw.message( 'mwe-upwiz-other' ).text()
+			label: mw.message( 'mwe-upwiz-other' ).text(),
+			help: mw.message( 'mwe-upwiz-tooltip-other' ).text()
 		} );
-		this.otherDetailsField.$label.addHint( 'other' );
 		this.mainFields.push( this.otherDetailsField );
-
-		locationHinter = function () {
-			var location = $( '<a>' ).attr( {
-				target: '_blank',
-				href: '//commons.wikimedia.org/wiki/Commons:Geocoding'
-			} );
-			return mw.message( 'mwe-upwiz-tooltip-location', location ).parse();
-		};
 
 		this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
 		this.locationInputField = new uw.FieldLayout( this.locationInput, {
-			label: mw.message( 'mwe-upwiz-location' ).text()
+			label: mw.message( 'mwe-upwiz-location' ).text(),
+			help: new OO.ui.HtmlSnippet(
+				mw.message( 'mwe-upwiz-tooltip-location', $( '<a>' ).attr( {
+					target: '_blank',
+					href: '//commons.wikimedia.org/wiki/Commons:Geocoding'
+				} ) ).parse()
+			)
 		} );
-
-		this.locationInputField.$label.addHint( 'location', locationHinter );
 		this.mainFields.push( this.locationInputField );
 
 		$( moreDetailsDiv ).append(
