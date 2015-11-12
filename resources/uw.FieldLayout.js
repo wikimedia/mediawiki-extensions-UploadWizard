@@ -73,7 +73,7 @@
 	 */
 	uw.FieldLayout.prototype.makeMessage = function ( kind, msg ) {
 		var
-			content = new OO.ui.HtmlSnippet( msg.parse() ),
+			content = msg.parseDom(),
 			$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, content );
 		$listItem.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + msg.key );
 		return $listItem;

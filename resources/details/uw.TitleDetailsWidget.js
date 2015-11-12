@@ -107,7 +107,7 @@
 	 * @return {mw.Message[]} Error messages
 	 */
 	uw.TitleDetailsWidget.prototype.processDestinationCheck = function ( result ) {
-		var errors, titleString;
+		var messageParams, errors, titleString;
 
 		if ( result.unique.isUnique && result.blacklist.notBlacklisted && !result.unique.isProtected ) {
 			return [];
@@ -138,41 +138,31 @@
 		} else if ( result.unique.isProtected ) {
 			errors.push( mw.message( 'mwe-upwiz-error-title-protected' ) );
 		} else {
-			errors.push( mw.message( 'mwe-upwiz-blacklisted', titleString ) );
-			// TODO Handle this
-			/*
-			completeErrorLink = $( '<span class="contentSubLink"></span>' ).msg(
-				'mwe-upwiz-feedback-blacklist-info-prompt',
+			messageParams = [
+				'mwe-upwiz-blacklisted-details',
+				titleString,
 				function () {
 					var errorDialog = new mw.ErrorDialog( result.blacklist.blacklistReason );
 					errorDialog.open();
-					return false;
 				}
-			);
-
-			$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( completeErrorLink );
+			];
 
 			// feedback request for titleblacklist
 			if ( mw.UploadWizard.config.blacklistIssuesPage !== undefined && mw.UploadWizard.config.blacklistIssuesPage !== '' ) {
-				feedback = new mw.Feedback( {
-					title: new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
-					dialogTitleMessageKey: 'mwe-upwiz-feedback-title'
+				messageParams[ 0 ] = 'mwe-upwiz-blacklisted-details-feedback';
+				messageParams.push( function () {
+					var feedback = new mw.Feedback( {
+						title: new mw.Title( mw.UploadWizard.config.blacklistIssuesPage ),
+						dialogTitleMessageKey: 'mwe-upwiz-feedback-title'
+					} );
+					feedback.launch( {
+						message: mw.message( 'mwe-upwiz-feedback-blacklist-line-intro', result.blacklist.blacklistLine ).text(),
+						subject: mw.message( 'mwe-upwiz-feedback-blacklist-subject', titleString ).text()
+					} );
 				} );
-
-				feedbackLink = $( '<span class="contentSubLink"></span>' ).msg(
-					'mwe-upwiz-feedback-blacklist-report-prompt',
-					function () {
-						feedback.launch( {
-							message: mw.message( 'mwe-upwiz-feedback-blacklist-line-intro', result.blacklist.blacklistLine ).escaped(),
-							subject: mw.message( 'mwe-upwiz-feedback-blacklist-subject', titleString ).escaped()
-						} );
-						return false;
-					}
-				);
-
-				$errorEl.append( '&nbsp;&middot;&nbsp;' ).append( feedbackLink );
 			}
-			*/
+
+			errors.push( mw.message.apply( mw, messageParams ) );
 		}
 
 		return errors;
