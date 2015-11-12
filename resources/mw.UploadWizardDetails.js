@@ -137,50 +137,24 @@
 			e.preventDefault();
 		} );
 
-		this.fields = [];
+		this.campaignDetailsFields = [];
 		$.each( mw.UploadWizard.config.fields, function ( i, field ) {
-			var $fieldInput, fieldInputId;
+			var customDetails, customDetailsField;
 
 			if ( field.wikitext ) {
-				fieldInputId = 'field_' + i + '_' + ( details.upload.index ).toString();
+				customDetails = new uw.CampaignDetailsWidget( field );
+				customDetailsField = new uw.FieldLayout( customDetails, {
+					label: field.label,
+					required: !!field.required
+				} );
 
-				if ( !( 'type' in field ) ) {
-					field.type = 'text';
+				if ( field.initialValue ) {
+					customDetails.setSerialized( { value: field.initialValue } );
 				}
 
-				if ( field.type === 'select' ) {
-					$fieldInput = $( '<select>' ).attr( {
-						id: fieldInputId,
-						name: fieldInputId,
-						'class': 'mwe-idfield'
-					} ).data( 'field', field );
-
-					if ( 'options' in field ) {
-						$.each( field.options, function ( val, label ) {
-							$fieldInput.append( $( '<option>' )
-							.val( val )
-							.text( label ) );
-						} );
-					}
-				} else {
-					$fieldInput = details.makeTextInput( fieldInputId, 'idfield', undefined, field.maxLength, field.initialValue )
-						.data( 'field', field );
-				}
-
-				details.$form.append(
-					$( '<div>' ).attr( 'class', 'mwe-upwiz-details-input-error' )
-						.append( $( '<label>' ).attr( { 'class': 'mwe-validator-error', 'for': fieldInputId, generated: 'true' } ) )
-				);
-				if ( field.required ) {
-					details.$form.append( $( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ).requiredFieldLabel() );
-				} else {
-					details.$form.append( $( '<div>' ).attr( 'class', 'mwe-upwiz-details-fieldname' ).html( field.label ) );
-				}
-				details.$form.append(
-					$( '<div>' ).attr( 'class', 'mwe-id-field' ).append( $fieldInput )
-				);
-
-				details.fields.push( $fieldInput );
+				details.$form.append( customDetailsField.$element );
+				details.campaignDetailsFields.push( customDetailsField );
+				details.oouiFields.push( customDetailsField );
 			}
 		} );
 
@@ -223,15 +197,6 @@
 		);
 
 		this.$form.validate();
-
-		$.each( this.fields, function ( i, $fieldInput ) {
-			$fieldInput.rules( 'add', {
-				required: $fieldInput.data( 'field' ).required,
-				messages: {
-					required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
-				}
-			} );
-		} );
 
 		this.makeToggler(
 			moreDetailsCtrlDiv,
@@ -330,36 +295,16 @@
 		 * @param String metadataType One of the types defined in the copyMetadataTypes property
 		 */
 		copyMetadata: function ( metadataType ) {
-			var titleZero, matches, i, currentTitle,
+			var titleZero, matches, i, j, currentTitle,
 				uploads = this.upload.wizard.uploads,
-				sourceUpload = uploads[ 0 ],
-				sourceId = uploads[ 0 ].index;
-
-			// In the simplest case, we can use this self-explanatory vanilla loop.
-			function simpleCopy( id, tag ) {
-				var moreInfo,
-					firstId = '#' + id + sourceId,
-					firstValue = $( firstId ).val();
-				if ( tag === undefined ) {
-					tag = 'input';
-				}
-				$( tag + '[id^=' + id + ']:not(' + firstId + ')' ).each( function () {
-					$( this ).val( firstValue );
-					if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
-						moreInfo = $( this )
-							.parents( '.detailsForm' )
-							.find( '.mwe-upwiz-details-more-options a' );
-						if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-							moreInfo.click();
-						}
-					}
-				} );
-			}
+				moreInfo,
+				sourceValue,
+				sourceUpload = uploads[ 0 ];
 
 			function oouiCopy( property ) {
-				var i,
-					sourceValue = sourceUpload.details[ property ].getSerialized();
+				var i;
 
+				sourceValue = sourceUpload.details[ property ].getSerialized();
 				for ( i = 1; i < uploads.length; i++ ) {
 					uploads[ i ].details[ property ].setSerialized( sourceValue );
 				}
@@ -413,24 +358,25 @@
 				oouiCopy( 'otherDetails' );
 
 				// Copy fields added though campaigns
-				$.each( mw.UploadWizard.config.fields, function ( i, field ) {
-					var elementType = field.type;
-
-					switch ( elementType ) {
-						case 'select':
-							// Field type equals HTML element type
-							break;
-						default:
-							// Element type must be adjusted to match the selector
-							elementType = 'input';
+				for ( j = 0; j < sourceUpload.details.campaignDetailsFields.length; j++ ) {
+					sourceValue = sourceUpload.details.campaignDetailsFields[ j ].fieldWidget.getSerialized();
+					for ( i = 1; i < uploads.length; i++ ) {
+						uploads[ i ].details.campaignDetailsFields[ j ].fieldWidget.setSerialized( sourceValue );
 					}
-					if ( field.wikitext ) {
-						simpleCopy( 'field_' + i + '_', elementType );
-					}
-				} );
+				}
 
 			} else {
 				throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
+			}
+
+			if ( metadataType === 'location' || metadataType === 'other' ) {
+				// Expand collapsed sections if we changed the fields within
+				for ( i = 1; i < uploads.length; i++ ) {
+					moreInfo = uploads[ i ].details.$form.find( '.mwe-upwiz-details-more-options a' );
+					if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
+						moreInfo.click();
+					}
+				}
 			}
 		},
 
@@ -536,7 +482,10 @@
 		 * @private
 		 */
 		getAllFields: function () {
-			return this.mainFields;
+			return [].concat(
+				this.mainFields,
+				this.campaignDetailsFields
+			);
 		},
 
 		/**
@@ -891,34 +840,6 @@
 		},
 
 		/**
-		 * Shortcut to create a text input element.
-		 *
-		 * @param {string} id ID for the element, also used as its name.
-		 * @param {string} [className] Class to add to the element. Automatically namespaced by prefixing 'mwe-' to it.
-		 * @param {number} [size] Size - default leaves the size attribute unset.
-		 * @param {number} [maxlength] Maximum length of the field.
-		 * @param {Mixed} [defaultValue] Default value for the field.
-		 * @return {jQuery} New text input element
-		 */
-		makeTextInput: function ( id, className, size, maxlength, defaultValue ) {
-			var $newInput = $( '<input>' )
-				.attr( {
-					type: 'text',
-					id: id,
-					name: id,
-					size: size,
-					maxlength: maxlength
-				} );
-
-			if ( className ) {
-				$newInput.addClass( 'mwe-' + className );
-			}
-
-			return $newInput
-				.val( defaultValue );
-		},
-
-		/**
 		 * Convert entire details for this file into wikiText, which will then be posted to the file
 		 *
 		 * @return {string} wikitext representing all details
@@ -950,10 +871,8 @@
 
 				information.description = this.descriptionsDetails.getWikiText();
 
-				$.each( this.fields, function ( i, $field ) {
-					if ( !mw.isEmpty( $field.val() ) ) {
-						information.description += $field.data( 'field' ).wikitext.replace( '$1', $field.val() );
-					}
+				$.each( this.campaignDetailsFields, function ( i, layout ) {
+					information.description += layout.fieldWidget.getWikiText();
 				} );
 
 				information.date = this.dateDetails.getWikiText();
