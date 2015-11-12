@@ -475,8 +475,8 @@ class UploadWizardCampaign {
 		$customizableButtons = array( 'homeButton', 'beginButton' );
 
 		foreach ( $customizableButtons as $button ) {
-			if ( array_key_exists( $button, $this->parsedConfig['display'] ) &&
-				 $this->parsedConfig['display'][$button]['target'] === 'useObjref'
+			if ( isset( $this->parsedConfig['display'][$button]['target'] ) &&
+				$this->parsedConfig['display'][$button]['target'] === 'useObjref'
 			) {
 				$validUrl = $this->getButtonHrefByObjectReference( $objRef );
 				if ( $validUrl ) {
