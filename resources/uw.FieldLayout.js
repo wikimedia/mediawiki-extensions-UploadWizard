@@ -17,7 +17,13 @@
 		uw.FieldLayout.parent.call( this, fieldWidget, config );
 
 		this.required = null;
-		this.$requiredMarker = $( '<span>' ).addClass( 'mwe-upwiz-required-marker' ).text( '*' );
+		this.requiredMarker = new OO.ui.IndicatorWidget( {
+			classes: [ 'mwe-upwiz-fieldLayout-indicator' ],
+			indicator: 'required',
+			title: mw.msg( 'mwe-upwiz-error-blank' )
+		} );
+
+		this.$element.addClass( 'mwe-upwiz-fieldLayout' );
 
 		this.$element.addClass( 'mwe-upwiz-details-fieldname-input' );
 		this.$label.addClass( 'mwe-upwiz-details-fieldname' );
@@ -44,9 +50,9 @@
 	uw.FieldLayout.prototype.setRequired = function ( required ) {
 		this.required = !!required;
 		if ( this.required ) {
-			this.$body.prepend( this.$requiredMarker );
+			this.$label.after( this.requiredMarker.$element );
 		} else {
-			this.$requiredMarker.remove();
+			this.requiredMarker.$element.remove();
 		}
 	};
 

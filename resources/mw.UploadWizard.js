@@ -512,7 +512,12 @@
 	/* will change in RTL, but I can't think of an easy way to do this with only CSS */
 	$.fn.requiredFieldLabel = function () {
 		this.addClass( 'mwe-upwiz-required-field' );
-		return this.prepend( $( '<span/>' ).append( '*' ).addClass( 'mwe-upwiz-required-marker' ) );
+		return this.prepend(
+			$( '<span/>' )
+				.append( '*' )
+				.addClass( 'mwe-upwiz-required-marker' )
+				.attr( 'title', mw.msg( 'mwe-upwiz-error-blank' ) )
+		);
 	};
 
 	/**

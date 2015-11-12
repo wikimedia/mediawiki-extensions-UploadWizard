@@ -117,6 +117,7 @@ class UploadWizardHooks {
 				'resources/uploadWizard.css',
 				'resources/jquery/jquery.showThumbCtrl.css',
 				// OOjs UI interface elements
+				'resources/uw.FieldLayout.less',
 				'resources/details/uw.DateDetailsWidget.less',
 				'resources/details/uw.CategoriesDetailsWidget.less',
 				'resources/details/uw.DescriptionDetailsWidget.less',

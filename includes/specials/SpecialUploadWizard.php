@@ -436,9 +436,6 @@ class SpecialUploadWizard extends SpecialPage {
 					'</div>' .
 
 					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds" style="display:none;">' .
-						'<div id="mwe-upwiz-reqd-field-explain-container">' .
-							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->escaped() .
-						'</div>' .
 						'<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>' .
 						'<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>' .
 						'<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>' .
@@ -446,9 +443,6 @@ class SpecialUploadWizard extends SpecialPage {
 					'</div>' .
 
 					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">' .
-						'<div id="mwe-upwiz-reqd-field-explain-container">' .
-							'<span class="mwe-upwiz-required-marker">*</span> = ' . $this->msg( "mwe-upwiz-error-blank" )->escaped() .
-						'</div>' .
 						'<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>' .
 						'<div class="mwe-upwiz-buttons">' .
 							'<div id="mwe-upwiz-details-error-count" class="mwe-upwiz-file-endchoice mwe-error"></div>' .
