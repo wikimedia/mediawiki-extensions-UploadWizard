@@ -11,7 +11,8 @@
 			"Ragimiri",
 			"Utar",
 			"Cvanca",
-			"Matma Rex"
+			"Matma Rex",
+			"Matěj Suchánek"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -191,7 +192,7 @@
 	"mwe-upwiz-tooltip-location": "Souřadnice místa, na kterém tento soubor vznikl.",
 	"mwe-upwiz-tooltip-more-info": "Další informace.",
 	"mwe-upwiz-file-need-file": "Prosím přidejte nejprve nahrávání.",
-	"mwe-upwiz-deeds-need-deed": "Výběrem jedné z možností uveďte, kde jste {{PLURAL:$1|tento soubor|tyto soubory}} {{gender:|získal|získala|získali}} a jak {{PLURAL:$1|jej|je}} tato wiki může používat.",
+	"mwe-upwiz-deeds-need-deed": "Výběrem jedné z možností uveďte, kde jste tento soubor {{GENDER:|získal|získala|získali}} a jak jej tato wiki může používat.",
 	"mwe-upwiz-deeds-need-license": "Vyberte licenci.",
 	"mwe-upwiz-license-show-all": "Použít jinou licenci",
 	"mwe-upwiz-license-show-recommended": "Použít doporučenou licenci",
@@ -312,7 +313,7 @@
 	"mwe-upwiz-error-campaigndisabled": "Kampaň „$1“ není povolena.",
 	"uploadcampaign-legend": "Konfigurace nahrávací kampaně",
 	"uploadcampaign-text": "Měníte kampaň nahrávacího průvodce.",
-	"prefs-uploads": "Nahrávání",
+	"prefs-uploads": "Načítání",
 	"prefs-upwiz-licensing": "Licencování",
 	"prefs-upwiz-experimental": "Experimentální funkce",
 	"prefs-upwiz-interface": "Uživatelské rozhraní",
