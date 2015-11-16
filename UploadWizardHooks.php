@@ -102,6 +102,9 @@ class UploadWizardHooks {
 
 				// UploadWizard specific abstractions
 				'resources/mw.UploadWizardDeed.js',
+				'resources/mw.UploadWizardDeedOwnWork.js',
+				'resources/mw.UploadWizardDeedThirdParty.js',
+				'resources/mw.UploadWizardDeedChooser.js',
 				'resources/mw.UploadWizardLicenseInput.js',
 
 				// main library
@@ -109,7 +112,6 @@ class UploadWizardHooks {
 
 				// main library components:
 				'resources/mw.UploadWizardUpload.js',
-				'resources/mw.UploadWizardDeed.js',
 				'resources/mw.UploadWizardDetails.js',
 				'resources/mw.UploadWizardUploadInterface.js',
 			),
