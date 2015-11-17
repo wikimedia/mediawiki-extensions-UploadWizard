@@ -228,10 +228,6 @@
 					this.licenseInput.setDefaultValues();
 				}
 
-				// This does nothing, but removing it causes errors elsewhere;
-				// to be killed when we remove jquery.validate
-				this.$form.validate();
-
 				$.each( config.licensing.ownWork.licenses, function ( i, license ) {
 					if ( license === defaultLicense ) {
 						$( '#license1_' + i ).prop( 'checked', true );

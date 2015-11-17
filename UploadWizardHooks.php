@@ -23,7 +23,6 @@ class UploadWizardHooks {
 				'jquery.placeholder',
 				'jquery.suggestions',
 				'jquery.tipsy',
-				'jquery.validate',
 				'jquery.makeCollapsible',
 				'mediawiki.Uri',
 				'mediawiki.util',

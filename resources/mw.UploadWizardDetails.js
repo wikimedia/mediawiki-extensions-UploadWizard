@@ -184,8 +184,6 @@
 			this.dataDiv
 		);
 
-		this.$form.validate();
-
 		this.makeToggler(
 			moreDetailsCtrlDiv,
 			moreDetailsDiv,
@@ -446,24 +444,6 @@
 		},
 
 		/**
-		 * Check the fields using the legacy jquery.validate system for validity. You must also call
-		 * #getErrors to check validity of fields using the new OOUI system.
-		 *
-		 * Side effect: add error text to the page for fields in an incorrect state.
-		 *
-		 * @return {boolean} Whether the form is valid.
-		 */
-		valid: function () {
-			var formValid;
-
-			// all other fields validated with validator js
-			formValid = this.$form.valid();
-
-			// we must call EVERY valid() function due to side effects; do not short-circuit.
-			return formValid;
-		},
-
-		/**
 		 * @private
 		 */
 		getAllFields: function () {
@@ -475,8 +455,7 @@
 		},
 
 		/**
-		 * Check the fields using the new OOjs UI system for validity. You must also call #valid to
-		 * check validity of fields using the legacy jquery.validate system.
+		 * Check all the fields for validity.
 		 *
 		 * @return {jQuery.Promise} Promise resolved with multiple array arguments, each containing a
 		 *   list of error messages for a single field. If API requests necessary to check validity
@@ -490,7 +469,7 @@
 		},
 
 		/**
-		 * Check the fields using the new OOjs UI system for warnings.
+		 * Check all the fields for warnings.
 		 *
 		 * @return {jQuery.Promise} Same as #getErrors
 		 */
@@ -501,8 +480,7 @@
 		},
 
 		/**
-		 * Check the fields using the new OOjs UI system for errors and warnings and display them in the
-		 * UI.
+		 * Check all the fields for errors and warnings and display them in the UI.
 		 */
 		checkValidity: function () {
 			this.getAllFields().forEach( function ( fieldLayout ) {
@@ -753,6 +731,8 @@
 		/**
 		 * Convert entire details for this file into wikiText, which will then be posted to the file
 		 *
+		 * This function assumes that all input is valid.
+		 *
 		 * @return {string} wikitext representing all details
 		 */
 		getWikiText: function () {
@@ -760,91 +740,88 @@
 				information,
 				wikiText = '';
 
-			// if invalid, should produce side effects in the form
-			// instructing user to fix.
-			if ( this.valid() ) {
-				// https://commons.wikimedia.org/wiki/Template:Information
-				// can we be more slick and do this with maps, applys, joins?
-				information = {
-					// {{lang|description in lang}}*   required
-					description: '',
-					// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
-					date: '',
-					// {{own}} or wikitext	optional
-					source: '',
-					// any wikitext, but particularly {{Creator:Name Surname}}   required
-					author: '',
-					// leave blank unless OTRS pending; by default will be "see below"   optional
-					permission: '',
-					// pipe separated list, other versions	 optional
-					'other versions': ''
-				};
+			// https://commons.wikimedia.org/wiki/Template:Information
+			// can we be more slick and do this with maps, applys, joins?
+			information = {
+				// {{lang|description in lang}}*   required
+				description: '',
+				// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
+				date: '',
+				// {{own}} or wikitext	optional
+				source: '',
+				// any wikitext, but particularly {{Creator:Name Surname}}   required
+				author: '',
+				// leave blank unless OTRS pending; by default will be "see below"   optional
+				permission: '',
+				// pipe separated list, other versions	 optional
+				'other versions': ''
+			};
 
-				information.description = this.descriptionsDetails.getWikiText();
+			information.description = this.descriptionsDetails.getWikiText();
 
-				$.each( this.campaignDetailsFields, function ( i, layout ) {
-					information.description += layout.fieldWidget.getWikiText();
-				} );
+			$.each( this.campaignDetailsFields, function ( i, layout ) {
+				information.description += layout.fieldWidget.getWikiText();
+			} );
 
-				information.date = this.dateDetails.getWikiText();
+			information.date = this.dateDetails.getWikiText();
 
-				deed = this.upload.deedChooser.deed;
+			deed = this.upload.deedChooser.deed;
 
-				information.source = deed.getSourceWikiText();
+			information.source = deed.getSourceWikiText();
 
-				information.author = deed.getAuthorWikiText();
+			information.author = deed.getAuthorWikiText();
 
-				info = '';
+			info = '';
 
-				for ( key in information ) {
-					info += '|' + key.replace( /:/g, '_' ) + '=' + information[ key ] + '\n';
-				}
-
-				wikiText += '=={{int:filedesc}}==\n';
-				wikiText += '{{Information\n' + info + '}}\n';
-
-				wikiText += this.locationInput.getWikiText() + '\n';
-
-				// add an "anything else" template if needed
-				wikiText += this.otherDetails.getWikiText() + '\n\n';
-
-				// add licensing information
-				wikiText += '\n=={{int:license-header}}==\n';
-				wikiText += deed.getLicenseWikiText() + '\n\n';
-
-				if ( mw.UploadWizard.config.autoAdd.wikitext !== undefined ) {
-					wikiText += mw.UploadWizard.config.autoAdd.wikitext + '\n';
-				}
-
-				// add parameters for list callback bot
-				// this cue will be used to supplement a wiki page with an image thumbnail
-				if ( $( '#imgPicker' + this.upload.index ).prop( 'checked' ) ) {
-					wikiText += '\n<!-- WIKIPAGE_UPDATE_PARAMS ' +
-						mw.UploadWizard.config.defaults.objref +
-						' -->\n';
-				}
-
-				// categories
-				wikiText += '\n' + this.categoriesDetails.getWikiText();
-
-				// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
-				if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {
-					wikiText = window.TextCleaner.sanitizeWikiText( wikiText, true );
-				}
-
-				// remove too many newlines in a row
-				wikiText = wikiText.replace( /\n{3,}/g, '\n\n' );
-
-				return wikiText;
+			for ( key in information ) {
+				info += '|' + key.replace( /:/g, '_' ) + '=' + information[ key ] + '\n';
 			}
 
-			return false;
+			wikiText += '=={{int:filedesc}}==\n';
+			wikiText += '{{Information\n' + info + '}}\n';
+
+			wikiText += this.locationInput.getWikiText() + '\n';
+
+			// add an "anything else" template if needed
+			wikiText += this.otherDetails.getWikiText() + '\n\n';
+
+			// add licensing information
+			wikiText += '\n=={{int:license-header}}==\n';
+			wikiText += deed.getLicenseWikiText() + '\n\n';
+
+			if ( mw.UploadWizard.config.autoAdd.wikitext !== undefined ) {
+				wikiText += mw.UploadWizard.config.autoAdd.wikitext + '\n';
+			}
+
+			// add parameters for list callback bot
+			// this cue will be used to supplement a wiki page with an image thumbnail
+			if ( $( '#imgPicker' + this.upload.index ).prop( 'checked' ) ) {
+				wikiText += '\n<!-- WIKIPAGE_UPDATE_PARAMS ' +
+					mw.UploadWizard.config.defaults.objref +
+					' -->\n';
+			}
+
+			// categories
+			wikiText += '\n' + this.categoriesDetails.getWikiText();
+
+			// sanitize wikitext if TextCleaner is defined (MediaWiki:TextCleaner.js)
+			if ( typeof window.TextCleaner !== 'undefined' && typeof window.TextCleaner.sanitizeWikiText === 'function' ) {
+				wikiText = window.TextCleaner.sanitizeWikiText( wikiText, true );
+			}
+
+			// remove too many newlines in a row
+			wikiText = wikiText.replace( /\n{3,}/g, '\n\n' );
+
+			return wikiText;
 		},
 
 		/**
 		 * Post wikitext as edited here, to the file
 		 * XXX This should be split up -- one part should get wikitext from the interface here, and the ajax call
 		 * should be be part of upload
+		 *
+		 * This function is only called if all input seems valid (which doesn't mean that we can't get
+		 * an error, see #processError).
 		 *
 		 * @return {jQuery.Promise}
 		 */
@@ -873,8 +850,6 @@
 				params.async = true;
 			}
 
-			// XXX check state of details for okayness ( license selected, at least one desc, sane filename )
-			// validation does MOST of this already
 			wikiText = this.getWikiText();
 
 			if ( wikiText !== false ) {

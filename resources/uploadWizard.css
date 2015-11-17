@@ -456,22 +456,6 @@ a.mwe-upwiz-tooltip-link {
 	cursor: pointer;
 }
 
-.mwe-error, .mwe-validator-error {
-	color: #ff0000;
-}
-
-.mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-error,
-.mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-form-internal label.mwe-validator-error {
-	margin-left: 0;
-}
-
-/* XXX fix this later -- we get non-rounded corners somehow */
-input[type='text'].mwe-error, textarea.mwe-error,
-input[type='text'].mwe-validator-error, textarea.mwe-validator-error {
-	color: black;
-	border-color: #ff0000;
-}
-
 input[type='radio'].mwe-upwiz-copyright-info-radio {
 	vertical-align: top;
 }

@@ -145,10 +145,6 @@
 						.append( this.licenseInputField.$element )
 				);
 
-				// This does nothing, but removing it causes errors elsewhere;
-				// to be killed when we remove jquery.validate
-				this.$form.validate();
-
 				this.$form.append( $formFields );
 
 				$selector.append( this.$form );

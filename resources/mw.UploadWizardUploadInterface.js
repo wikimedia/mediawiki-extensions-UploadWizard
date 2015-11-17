@@ -95,7 +95,6 @@
 		if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
 			$( '#mwe-upwiz-stepdiv-file' ).replaceWith(
 				$( '<span/>' )
-				.addClass( 'mwe-error' )
 				.msg( 'mwe-upwiz-file-upload-notcapable' )
 			);
 			$( '#mwe-upwiz-add-file' ).hide();

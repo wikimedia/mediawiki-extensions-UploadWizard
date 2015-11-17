@@ -120,30 +120,16 @@
 	};
 
 	/**
-	 * Hide validation errors.
-	 */
-	uw.ui.Details.prototype.hideErrors = function () {
-		this.$div
-			.find( 'label.mwe-error' )
-			.hide().empty();
-
-		this.$div
-			.find( 'input.mwe-error' )
-			.removeClass( 'mwe-error' );
-	};
-
-	/**
 	 * Show errors in the form.
 	 * The details page can be vertically long so sometimes it is not obvious there are errors above. This counts them and puts the count
 	 * right next to the submit button, so it should be obvious to the user they need to fix things.
-	 * This is a bit of a hack. The validator library actually already has a way to count errors but some errors are generated
-	 * outside of that library. So we are going to just look for any visible inputs in an error state.
+	 * This is a bit of a hack. We should already know how many errors there are, and where.
 	 * This method also opens up "more info" if the form has errors.
 	 */
 	uw.ui.Details.prototype.showErrors = function () {
 		var $errorElements = this.$div
 				// TODO Evil
-				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error, .oo-ui-fieldLayout-messages-error' ),
+				.find( '.oo-ui-fieldLayout-messages-error' ),
 			errorCount = $errorElements.length;
 
 		// Open "more info" if that part of the form has errors

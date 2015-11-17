@@ -544,15 +544,4 @@
 		return this;
 	};
 
-	$.validator.setDefaults( {
-		errorClass: 'mwe-validator-error',
-		errorPlacement: function ( $errorLabel, $element ) {
-			var $placement = $element.data( 'mwe-error-placement' );
-			if ( $placement ) {
-				$placement.append( $errorLabel );
-			} else {
-				$errorLabel.insertAfter( $element );
-			}
-		}
-	} );
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

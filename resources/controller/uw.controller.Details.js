@@ -138,11 +138,6 @@
 					}
 				}
 
-				// This also updates legacy error messages
-				if ( !upload.details.valid() ) {
-					hasErrors = true;
-				}
-
 				// Seen this title before?
 				title = upload.details.getTitle();
 				title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
@@ -251,9 +246,6 @@
 
 		// Disable edit interface
 		this.ui.disableEdits();
-
-		// Hide errors (maybe this submission fixes them)
-		this.ui.hideErrors();
 
 		return this.transitionAll().then( function () {
 			details.showErrors();

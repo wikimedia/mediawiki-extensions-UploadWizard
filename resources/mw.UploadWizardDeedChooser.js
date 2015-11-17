@@ -104,20 +104,7 @@
 		deselectDeedInterface: function ( $deedSelector ) {
 			$deedSelector.removeClass( 'selected' );
 			$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
-				var $form = $( form ),
-					originalResetForm = $.fn.resetForm;
-				// Remove errors
-				if ( originalResetForm ) {
-					// Make sure that $validator.resetForm() resets only the errors, not the form fields!
-					$.fn.resetForm = function () { };
-				}
-				$.each( $form.find( 'form' ), function ( i, form ) {
-					var $validator = $( form ).data( 'validator' );
-					if ( $validator ) {
-						$validator.resetForm(); // Clear out all errors in the form
-					}
-				} );
-				$.fn.resetForm = originalResetForm;
+				var $form = $( form );
 				// Prevent validation of deselected deeds by disabling all form inputs
 				$form.find( ':input' ).prop( 'disabled', true );
 				if ( $form.parents().is( ':hidden' ) ) {
