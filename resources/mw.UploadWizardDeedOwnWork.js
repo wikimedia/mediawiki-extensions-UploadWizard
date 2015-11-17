@@ -1,5 +1,18 @@
 ( function ( mw, uw, $ ) {
 
+	function swapNodes( a, b ) {
+		var
+			parentA = a.parentNode,
+			parentB = b.parentNode,
+			nextA = a.nextSibling,
+			nextB = b.nextSibling;
+
+		// This is not correct if a and b are siblings, or if one is a child of the
+		// other, or if they're detached, or maybe in other cases, but we don't care
+		parentA[ nextA ? 'insertBefore' : 'appendChild' ]( b, nextA );
+		parentB[ nextB ? 'insertBefore' : 'appendChild' ]( a, nextB );
+	}
+
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
 	 *
@@ -19,6 +32,14 @@
 			title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
 			value: mw.config.get( 'wgUserName' ),
 			classes: [ 'mwe-upwiz-sign' ]
+		} );
+		deed.fakeAuthorInput = new OO.ui.TextInputWidget( {
+			readOnly: true,
+			value: mw.config.get( 'wgUserName' ),
+			classes: [ 'mwe-upwiz-sign' ]
+		} );
+		deed.authorInput.on( 'change', function () {
+			deed.fakeAuthorInput.setValue( deed.authorInput.getValue() );
 		} );
 
 		deed.showCustomDiv = ownWork.licenses.length > 1;
@@ -82,10 +103,6 @@
 			getAuthorWikiText: function () {
 				var author = this.authorInput.getValue();
 
-				if ( author === '' ) {
-					author = this.$authorInput2.val();
-				}
-
 				if ( author.indexOf( '[' ) >= 0 || author.indexOf( '{' ) >= 0 ) {
 					return author;
 				}
@@ -117,19 +134,12 @@
 				defaultLicenseLink = $( '<a>' ).attr( { target: '_blank', href: defaultLicenseURL } );
 
 				this.$form = $( '<form>' );
-				this.authorInput2 = new OO.ui.TextInputWidget( {
-					name: 'author2',
-					classes: [ 'mwe-upwiz-sign' ],
-					title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
-					value: mw.config.get( 'wgUserName' )
-				} );
 
 				$standardDiv = $( '<div />' ).append(
-					$( '<label for="author2" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 					$( '<p></p>' ).msg(
 							defaultLicenseMsg,
 							uploadCount,
-							this.authorInput2.$element,
+							this.authorInput.$element,
 							defaultLicenseLink
 					),
 					$( '<p class="mwe-small-print"></p>' ).msg(
@@ -141,10 +151,9 @@
 
 				if ( this.showCustomDiv ) {
 					$customDiv = $( '<div />' ).append(
-						$( '<label for="author" generated="true" class="mwe-validator-error" style="display: block;" />' ),
 						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
-							this.authorInput.$element ),
+							this.fakeAuthorInput.$element ),
 						licenseInputDiv
 					);
 
@@ -152,7 +161,10 @@
 				}
 
 				$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' )
-					.append( $crossfader );
+					.append(
+						$( '<label for="author" generated="true" class="mwe-validator-error" style="display: block;" />' ),
+						$crossfader
+					);
 
 				$toggler = $( '<p class="mwe-more-options" style="text-align: right"></p>' )
 					.append( $( '<a />' )
@@ -161,10 +173,16 @@
 							thisDeed.formValidator.resetForm();
 							if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
 								thisDeed.licenseInput.setDefaultValues();
-								$crossfader.morphCrossfade( $standardDiv );
+								$crossfader.morphCrossfade( $standardDiv )
+									.promise().done( function () {
+										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
+									} );
 								$( this ).msg( 'mwe-upwiz-license-show-all' );
 							} else {
-								$crossfader.morphCrossfade( $customDiv );
+								$crossfader.morphCrossfade( $customDiv )
+									.promise().done( function () {
+										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
+									} );
 								$( this ).msg( 'mwe-upwiz-license-show-recommended' );
 							}
 						} ) );
@@ -173,30 +191,15 @@
 					$formFields.append( $toggler );
 				}
 
-				// synchronize both username signatures
-				// set initial value to configured username
-				// if one changes all the others change (keyup event)
-				$formFields.find( '.mwe-upwiz-sign input' )
-					.keyup( function () {
-						var thisInput = this,
-							thisVal = $( thisInput ).val();
-						$.each( $formFields.find( '.mwe-upwiz-sign input' ), function ( i, input ) {
-							if ( thisInput !== input ) {
-								$( input ).val( thisVal );
-								$( input ).trigger( 'change' );
-							}
-						} );
-					} );
-
 				this.$form.append( $formFields ).appendTo( $selector );
 
 				// done after added to the DOM, so there are true heights
 				$crossfader.morphCrossfader();
 
 				rules = {
-					author2: {
+					author: {
 						required: function () {
-							return $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $standardDiv.get( 0 );
+							return true;
 						},
 						minlength: config.minAuthorLength,
 						maxlength: config.maxAuthorLength
@@ -204,7 +207,7 @@
 				};
 
 				messages = {
-					author2: {
+					author: {
 						required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
 						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', config.minAuthorLength ).escaped(),
 						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', config.maxAuthorLength ).escaped()
@@ -214,20 +217,6 @@
 				if ( this.showCustomDiv ) {
 					// choose default licenses
 					this.licenseInput.setDefaultValues();
-
-					rules.author = {
-						required: function () {
-							return $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 );
-						},
-						minlength: config.minAuthorLength,
-						maxlength: config.maxAuthorLength
-					};
-
-					messages.author = {
-						required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
-						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', config.minAuthorLength ).escaped(),
-						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', config.maxAuthorLength ).escaped()
-					};
 				}
 
 				// and finally, make it validatable
