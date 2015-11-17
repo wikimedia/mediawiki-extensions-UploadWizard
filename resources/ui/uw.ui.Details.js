@@ -88,7 +88,9 @@
 			} ).$element
 		);
 
-		this.$errorCount = this.$div.find( '#mwe-upwiz-details-error-count' );
+		this.$errorCount = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-details-error-count' );
+		this.$div.find( '.mwe-upwiz-buttons' ).prepend( this.$errorCount );
 	};
 
 	OO.inheritClass( uw.ui.Details, uw.ui.Step );
@@ -107,6 +109,7 @@
 	 * Hide buttons for moving to the next step.
 	 */
 	uw.ui.Details.prototype.hideEndButtons = function () {
+		this.$errorCount.empty();
 		this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
 			.hide();
@@ -160,7 +163,10 @@
 		} );
 
 		if ( errorCount > 0 ) {
-			this.$errorCount.msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length );
+			this.$errorCount
+				.msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length )
+				// TODO The IconWidget and 'warning' flag is specific to MediaWiki theme, looks weird in Apex
+				.prepend( new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element, ' ' );
 			// Scroll to the first error
 			$( 'html, body' ).animate( { scrollTop: $( $errorElements[ 0 ] ).offset().top - 50 }, 'slow' );
 		} else {
