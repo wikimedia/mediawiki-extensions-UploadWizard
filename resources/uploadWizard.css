@@ -293,14 +293,14 @@ form.mwe-upwiz-form {
 	background: url('images/24px-spinner-0645ad.gif') no-repeat center center;
 }
 
-.mwe-upwiz-file.hover .mwe-upwiz-status-progress {
-	/* @embed */
-	background: url('images/24px-spinner-0645ad-e0f0ff.gif') no-repeat center center;
-}
-
 .mwe-upwiz-file.odd .mwe-upwiz-status-progress {
 	/* @embed */
 	background: url('images/24px-spinner-0645ad-f5f5f5.gif') no-repeat center center;
+}
+
+.mwe-upwiz-file.hover .mwe-upwiz-status-progress {
+	/* @embed */
+	background: url('images/24px-spinner-0645ad-e0f0ff.gif') no-repeat center center;
 }
 
 .mwe-upwiz-status-stashed, .mwe-upwiz-status-uploaded {
