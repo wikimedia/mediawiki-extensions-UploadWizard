@@ -79,11 +79,6 @@
 			label: mw.message( 'mwe-upwiz-next' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', function () {
-			$( '.mwe-upwiz-hint' ).each( function () {
-				// Close tipsy help balloons
-				$( this ).tipsy( 'hide' );
-			} );
-
 			ui.emit( 'next-step' );
 		} );
 

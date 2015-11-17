@@ -27,11 +27,6 @@
 		var details = this;
 
 		function startDetails() {
-			// close tipsy help balloons
-			$( '.mwe-upwiz-hint' ).each( function () {
-				$( this ).tipsy( 'hide' );
-			} );
-
 			details.emit( 'start-details' );
 		}
 

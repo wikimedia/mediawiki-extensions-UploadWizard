@@ -509,54 +509,6 @@
 		return v === undefined || v === null || v === '';
 	};
 
-	/* will change in RTL, but I can't think of an easy way to do this with only CSS */
-	$.fn.requiredFieldLabel = function () {
-		this.addClass( 'mwe-upwiz-required-field' );
-		return this.prepend(
-			$( '<span/>' )
-				.append( '*' )
-				.addClass( 'mwe-upwiz-required-marker' )
-				.attr( 'title', mw.msg( 'mwe-upwiz-error-blank' ) )
-		);
-	};
-
-	/**
-	 * Adds a tipsy pop-up help button to the field. Can be called in two ways -- with simple string id, which identifies
-	 * the string as 'mwe-upwiz-tooltip-' plus that id, and creates the hint with a similar id
-	 * or with function and id -- function will be called to generate the hint every time
-	 * TODO v1.1 split into two plugins?
-	 *
-	 * @param {string} key Will base the tooltip on a message found with this key
-	 * @param {Function} [fn] Call this function every time tip is created to generate message. If present, HTML element gets an id of the exact key specified
-	 */
-	$.fn.addHint = function ( key, fn ) {
-		var attrs, contentSource, html = false;
-		if ( typeof fn === 'function' ) {
-			attrs = { id: key };
-			contentSource = fn;
-			html = true;
-		} else {
-			attrs = { title: mw.message( 'mwe-upwiz-tooltip-' + key ).text() };
-			contentSource = 'title';
-		}
-		return this.append(
-			$( '<span/>' )
-				.addClass( 'mwe-upwiz-hint' )
-				.attr( attrs )
-				.click( function () {
-					if ( !this.displayed ) {
-						$( this ).tipsy( 'show' );
-						this.displayed = true;
-					} else {
-						$( this ).tipsy( 'hide' );
-						this.displayed = false;
-					}
-					return false;
-				} )
-				.tipsy( { title: contentSource, html: html, opacity: 1.0, gravity: 'sw', trigger: 'manual' } )
-		);
-	};
-
 	/**
 	 * jQuery plugin - collapse toggle
 	 * Given an element, makes contained elements of class mw-collapsible-toggle clickable to show/reveal

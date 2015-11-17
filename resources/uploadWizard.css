@@ -500,27 +500,9 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	margin-bottom: 2em;
 }
 
-.mwe-upwiz-required-marker {
-	color: #ff0000;
-}
-
 .mwe-readonly {
 	background-color: #ffffff;
 	padding: 0.25em;
-}
-
-.mwe-upwiz-hint {
-	/* @embed */
-	background: url('images/question.png') no-repeat;
-	display: inline-block;
-	height: 11px;
-	width: 11px;
-	margin-left: 4px;
-}
-
-.mwe-upwiz-hint:hover {
-	/* @embed */
-	background: url('images/question-hover.png') no-repeat;
 }
 
 #upload-wizard .ui-corner-tl {

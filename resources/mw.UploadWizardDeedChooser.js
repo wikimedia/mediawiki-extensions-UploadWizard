@@ -106,9 +106,6 @@
 			$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
 				var $form = $( form ),
 					originalResetForm = $.fn.resetForm;
-				$.each( $form.find( '.mwe-upwiz-hint' ), function ( i, hint ) {
-					$( hint ).tipsy( 'hide' );
-				} );
 				// Remove errors
 				if ( originalResetForm ) {
 					// Make sure that $validator.resetForm() resets only the errors, not the form fields!
