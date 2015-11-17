@@ -528,7 +528,6 @@
 				details = this;
 
 			this.copyrightInfoFieldset.show();
-			this.upload.wizardDeedChooser = this.upload.deedChooser;
 
 			// Defining own deedChooser for uploads coming from external service
 			if ( this.upload.fromURL ) {

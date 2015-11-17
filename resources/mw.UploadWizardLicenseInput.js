@@ -546,15 +546,6 @@
 		},
 
 		/**
-		 * Returns true if any license is set
-		 *
-		 * @return {boolean}
-		 */
-		isSet: function () {
-			return this.getSelectedInputs().length > 0;
-		},
-
-		/**
 		 * Preview wikitext in a popup window
 		 *
 		 * @param {string} wikiText
