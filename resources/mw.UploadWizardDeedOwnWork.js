@@ -21,7 +21,7 @@
 	 * @param {Object} config The UW config
 	 */
 	mw.UploadWizardDeedOwnWork = function ( uploadCount, api, config ) {
-		var licenseInputDiv,
+		var
 			deed = new mw.UploadWizardDeed(),
 			ownWork = config.licensing.ownWork;
 
@@ -45,15 +45,14 @@
 		deed.showCustomDiv = ownWork.licenses.length > 1;
 
 		if ( deed.showCustomDiv ) {
-			licenseInputDiv = $( '<div class="mwe-upwiz-deed-license"></div>' );
-
 			deed.licenseInput = new mw.UploadWizardLicenseInput(
-				licenseInputDiv,
 				undefined,
 				config.licensing.ownWork,
 				deed.uploadCount,
 				api
 			);
+			deed.licenseInput.$element.addClass( 'mwe-upwiz-deed-license' );
+			deed.licenseInputField = new uw.FieldLayout( deed.licenseInput );
 		}
 
 		return $.extend( deed, {
@@ -61,16 +60,14 @@
 			name: 'ownwork',
 
 			/**
-			 * Is this correctly set, with side effects of causing errors to show in interface.
-			 *
-			 * @return {boolean} true if valid, false if not
+			 * @return {uw.FieldLayout[]} Fields that need validation
 			 */
-			valid: function () {
-				// n.b. valid() has side effects and both should be called every time the function is called.
-				// do not short-circuit.
-				var formValid = this.$form.valid(),
-					licenseInputValid = !this.showCustomDiv || this.licenseInput.valid();
-				return formValid && licenseInputValid;
+			getFields: function () {
+				var fields = [ this.authorInputField ];
+				if ( this.showCustomDiv ) {
+					fields.push( this.licenseInputField );
+				}
+				return fields;
 			},
 
 			getLicenseWikiText: function () {
@@ -111,7 +108,7 @@
 			},
 
 			setFormFields: function ( $selector ) {
-				var $customDiv, $formFields, $toggler, rules, messages, defaultLicense,
+				var $customDiv, $formFields, $toggler, crossfaderWidget, defaultLicense,
 					defaultLicenseURL, defaultLicenseMsg, defaultLicenseExplainMsg,
 					defaultLicenseLink, $standardDiv, $crossfader, thisDeed, languageCode, defaultType;
 
@@ -153,36 +150,66 @@
 					$customDiv = $( '<div />' ).append(
 						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
-							this.fakeAuthorInput.$element ),
-						licenseInputDiv
+							this.fakeAuthorInput.$element )
 					);
 
 					$crossfader.append( $customDiv );
 				}
 
+				crossfaderWidget = new OO.ui.Widget();
+				crossfaderWidget.$element.append( $crossfader );
+				// See uw.DetailsWidget
+				crossfaderWidget.getErrors = function () {
+					var
+						errors = [],
+						minLength = config.minAuthorLength,
+						maxLength = config.maxAuthorLength,
+						text = thisDeed.authorInput.getValue().trim();
+
+					if ( text === '' ) {
+						errors.push( mw.message( 'mwe-upwiz-error-signature-blank' ) );
+					} else if ( text.length < minLength ) {
+						errors.push( mw.message( 'mwe-upwiz-error-signature-too-short', minLength ) );
+					} else if ( text.length > maxLength ) {
+						errors.push( mw.message( 'mwe-upwiz-error-signature-too-long', maxLength ) );
+					}
+
+					return $.Deferred().resolve( errors ).promise();
+				};
+				// See uw.DetailsWidget
+				crossfaderWidget.getWarnings = function () {
+					return $.Deferred().resolve( [] ).promise();
+				};
+				this.authorInputField = new uw.FieldLayout( crossfaderWidget );
+				// Aggregate 'change' event
+				this.authorInput.on( 'change', OO.ui.debounce( function () {
+					crossfaderWidget.emit( 'change' );
+				}, 500 ) );
+
 				$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' )
 					.append(
-						$( '<label for="author" generated="true" class="mwe-validator-error" style="display: block;" />' ),
-						$crossfader
+						this.authorInputField.$element,
+						this.showCustomDiv ? this.licenseInputField.$element.hide() : ''
 					);
 
 				$toggler = $( '<p class="mwe-more-options" style="text-align: right"></p>' )
 					.append( $( '<a />' )
 						.msg( 'mwe-upwiz-license-show-all' )
 						.click( function () {
-							thisDeed.formValidator.resetForm();
 							if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
 								thisDeed.licenseInput.setDefaultValues();
 								$crossfader.morphCrossfade( $standardDiv )
 									.promise().done( function () {
 										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
 									} );
+								deed.licenseInputField.$element.slideUp().fadeOut( { queue: false } );
 								$( this ).msg( 'mwe-upwiz-license-show-all' );
 							} else {
 								$crossfader.morphCrossfade( $customDiv )
 									.promise().done( function () {
 										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
 									} );
+								deed.licenseInputField.$element.fadeIn().slideDown( { queue: false } );
 								$( this ).msg( 'mwe-upwiz-license-show-recommended' );
 							}
 						} ) );
@@ -196,34 +223,14 @@
 				// done after added to the DOM, so there are true heights
 				$crossfader.morphCrossfader();
 
-				rules = {
-					author: {
-						required: function () {
-							return true;
-						},
-						minlength: config.minAuthorLength,
-						maxlength: config.maxAuthorLength
-					}
-				};
-
-				messages = {
-					author: {
-						required: mw.message( 'mwe-upwiz-error-signature-blank' ).escaped(),
-						minlength: mw.message( 'mwe-upwiz-error-signature-too-short', config.minAuthorLength ).escaped(),
-						maxlength: mw.message( 'mwe-upwiz-error-signature-too-long', config.maxAuthorLength ).escaped()
-					}
-				};
-
 				if ( this.showCustomDiv ) {
 					// choose default licenses
 					this.licenseInput.setDefaultValues();
 				}
 
-				// and finally, make it validatable
-				this.formValidator = this.$form.validate( {
-					rules: rules,
-					messages: messages
-				} );
+				// This does nothing, but removing it causes errors elsewhere;
+				// to be killed when we remove jquery.validate
+				this.$form.validate();
 
 				$.each( config.licensing.ownWork.licenses, function ( i, license ) {
 					if ( license === defaultLicense ) {

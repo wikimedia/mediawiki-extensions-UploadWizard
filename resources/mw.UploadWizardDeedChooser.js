@@ -13,9 +13,6 @@
 		this.$selector = $( selector );
 		this.uploads = uploads === undefined ? [] : uploads;
 
-		this.$errorEl = $( '<div class="mwe-error"></div>' );
-		this.$selector.append( this.$errorEl );
-
 		// name for radio button set
 		mw.UploadWizardDeedChooser.prototype.widgetCount++;
 		this.name = 'deedChooser' + mw.UploadWizardDeedChooser.prototype.widgetCount.toString();
@@ -75,31 +72,12 @@
 		widgetCount: 0,
 
 		/**
-		 * Check if this form is filled out correctly, with side effects of showing error messages if invalid
+		 * Check if this form is filled out correctly.
 		 *
 		 * @return {boolean} true if valid, false if not
 		 */
 		valid: function () {
-			var valid = this.deed && this.deed.valid();
-			// the only time we need to set an error message is if no deed is selected.
-			// otherwise, we can assume that the widgets have already added error messages.
-			if ( valid ) {
-				this.hideError();
-			} else if ( !this.deed ) {
-				this.showError( mw.message( 'mwe-upwiz-deeds-need-deed' ).parse() );
-			}
-			return valid;
-		},
-
-		showError: function ( error ) {
-			uw.eventFlowLogger.logError( 'deeds', { message: error } );
-			this.$errorEl.html( error );
-			this.$errorEl.fadeIn();
-		},
-
-		hideError: function () {
-			this.$errorEl.fadeOut();
-			this.$errorEl.empty();
+			return !!this.deed;
 		},
 
 		/**

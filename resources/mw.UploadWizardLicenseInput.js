@@ -71,7 +71,12 @@
 		this.updateSize();
 	};
 
-	mw.UploadWizardLicenseInput = function ( selector, values, config, count, api ) {
+	/**
+	 * @extends OO.ui.Widget
+	 */
+	mw.UploadWizardLicenseInput = function ( values, config, count, api ) {
+		mw.UploadWizardLicenseInput.parent.call( this );
+
 		this.count = count;
 
 		this.api = api;
@@ -83,8 +88,7 @@
 			throw new Error( 'improper initialization' );
 		}
 
-		this.$selector = $( selector );
-		this.$selector.append( $( '<div class="mwe-error mwe-error-head"></div>' ) );
+		this.$selector = this.$element;
 
 		this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
@@ -119,8 +123,9 @@
 		this.previewDialog = new LicensePreviewDialog();
 		this.windowManager.addWindows( [ this.previewDialog ] );
 	};
+	OO.inheritClass( mw.UploadWizardLicenseInput, OO.ui.Widget );
 
-	mw.UploadWizardLicenseInput.prototype = {
+	$.extend( mw.UploadWizardLicenseInput.prototype, {
 		count: 0,
 
 		/**
@@ -266,7 +271,7 @@
 			// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
 			// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded
 			return $( inputHtml ).click( function () {
-				input.$selector.trigger( 'changeLicenses' );
+				input.emit( 'change' );
 			} );
 		},
 
@@ -331,7 +336,7 @@
 				.keydown( function () {
 					window.clearTimeout( keydownTimeout );
 					keydownTimeout = window.setTimeout(
-						function () { input.$selector.trigger( 'changeLicenses' ); },
+						function () { input.emit( 'change' ); },
 						2000
 					);
 				} )
@@ -347,7 +352,6 @@
 			} );
 
 			return $( '<div></div>' ).css( { width: '100%' } ).append(
-				$( '<div><label for="' + nameId + '" class="mwe-error mwe-error-textarea"></label></div>' ),
 				$( '<div></div>' ).css( { float: 'right', width: '9em', 'padding-left': '1em' } ).append( button.$element ),
 				$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( textarea.$element ),
 				$( '<div></div>' ).css( { clear: 'both' } )
@@ -365,7 +369,7 @@
 				$input.prop( 'checked', false );
 			}
 			if ( val !== oldVal ) { // loose comparison on purpose
-				this.$selector.trigger( 'changeLicenses' );
+				this.emit( 'change' );
 			}
 
 			// pop open the 'toggle' group if is now on. Do nothing if it is now off.
@@ -428,7 +432,7 @@
 				mw.log.warn( 'Impossible? UploadWizardLicenseInput type neither radio nor checkbox' );
 			}
 			// we use the selector because events can't be unbound unless they're in the DOM.
-			this.$selector.trigger( 'changeLicenses' );
+			this.emit( 'change' );
 		},
 
 		/**
@@ -489,65 +493,48 @@
 		},
 
 		/**
-		 * Check if a valid value is set, also look for incompatible choices.
-		 * Side effect: if no valid value, add error notices to the interface. Add listeners to interface, to revalidate and remove notices
-		 * If I was sufficiently clever, most of these could just be dynamically added & subtracted validation rules.
-		 * Instead this is a bit of a recapitulation of jquery.validate
-		 *
-		 * @return {boolean} true if a value set and all is well, false otherwise
+		 * See uw.DetailsWidget
 		 */
-		valid: function () {
+		getErrors: function () {
 			var input = this,
 				errors = [],
 				selectedInputs = this.getSelectedInputs();
 
 			if ( selectedInputs.length === 0 ) {
-				errors.push( [ this.$selector.find( '.mwe-error-head' ), 'mwe-upwiz-deeds-need-license' ] );
+				errors.push( mw.message( 'mwe-upwiz-deeds-need-license' ) );
 
 			} else {
 				// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 				// But also check that associated textareas are filled for if the input is selected, and that
 				// they are the appropriate size.
 				$.each( selectedInputs, function ( i, $input ) {
-					var textAreaName, $errorEl, text;
+					var textAreaName, text;
 
 					if ( !$input.data( 'textarea' ) ) {
 						return;
 					}
 
 					textAreaName = $input.data( 'textarea' ).attr( 'name' );
-					$errorEl = $( 'label[for=' + textAreaName + '].mwe-error' );
 					text = input.getInputTextAreaVal( $input );
 
 					if ( text === '' ) {
-						errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-missing' ] );
+						errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-missing' ) );
 					} else if ( text.length < mw.UploadWizard.config.minCustomLicenseLength ) {
-						errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-short' ] );
+						errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-too-short' ) );
 					} else if ( text.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
-						errors.push( [ $errorEl, 'mwe-upwiz-error-license-wikitext-too-long' ] );
+						errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-too-long' ) );
 					}
 				} );
 			}
 
-			// clear out the errors if we are now valid
-			if ( errors.length === 0 ) {
-				this.$selector.find( '.mwe-error' ).fadeOut();
-			} else {
-				// show the errors
-				$.each( errors, function ( i, err ) {
-					var $el = err[ 0 ],
-						msg = err[ 1 ];
-					$el.msg( msg ).show();
-				} );
+			return $.Deferred().resolve( errors ).promise();
+		},
 
-				// and watch for any change at all in the license to revalidate.
-				this.$selector.bind( 'changeLicenses.valid', function () {
-					input.$selector.unbind( 'changeLicenses.valid' );
-					input.valid();
-				} );
-			}
-
-			return errors.length === 0;
+		/**
+		 * See uw.DetailsWidget
+		 */
+		getWarnings: function () {
+			return $.Deferred().resolve( [] ).promise();
 		},
 
 		/**
@@ -581,6 +568,6 @@
 			this.api.parse( wikiText ).done( show ).fail( error );
 		}
 
-	};
+	} );
 
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

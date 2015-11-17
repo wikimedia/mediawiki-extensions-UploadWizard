@@ -37,16 +37,39 @@
 	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
 
 	uw.controller.Deed.prototype.moveFrom = function () {
-		var valid = true;
+		var
+			deedController = this,
+			valid = true,
+			fields;
 
-		if ( this.deedChooser ) {
-			valid = this.deedChooser.valid();
+		if ( !this.deedChooser ) {
+			uw.controller.Step.prototype.moveFrom.call( this );
+			return;
 		}
 
-		// validate has the side effect of notifying the user of problems, or removing existing notifications.
-		// if returns false, you can assume there are notifications in the interface.
+		valid = this.deedChooser.valid();
 		if ( valid ) {
-			uw.controller.Step.prototype.moveFrom.call( this );
+			fields = this.deedChooser.deed.getFields();
+
+			// Update any error/warning messages
+			fields.forEach( function ( fieldLayout ) {
+				fieldLayout.checkValidity();
+			} );
+
+			// TODO Handle warnings with a confirmation dialog
+			$.when.apply( $, fields.map( function ( fieldLayout ) {
+				return fieldLayout.fieldWidget.getErrors();
+			} ) ).done( function () {
+				var i;
+				for ( i = 0; i < arguments.length; i++ ) {
+					if ( arguments[ i ].length ) {
+						// One of the fields has errors
+						return;
+					}
+				}
+
+				uw.controller.Step.prototype.moveFrom.call( deedController );
+			} );
 		}
 	};
 
@@ -80,7 +103,6 @@
 		// licenses individually
 		if ( this.uploads.length > 1 && this.shouldShowIndividualDeed( this.config ) ) {
 			customDeed = $.extend( new mw.UploadWizardDeed(), {
-				valid: function () { return true; },
 				name: 'custom'
 			} );
 			deeds.push( customDeed );

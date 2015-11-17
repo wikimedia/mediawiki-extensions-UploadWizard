@@ -13,8 +13,11 @@
 	mw.UploadWizardDeed.prototype = {
 		instanceCount: 0,
 
-		valid: function () {
-			return false;
+		/**
+		 * @return {uw.FieldLayout[]} Fields that need validation
+		 */
+		getFields: function () {
+			return [];
 		},
 
 		getInstanceCount: function () {

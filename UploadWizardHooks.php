@@ -73,6 +73,7 @@ class UploadWizardHooks {
 				'resources/details/uw.TitleDetailsWidget.js',
 				'resources/details/uw.DateDetailsWidget.js',
 				'resources/details/uw.CategoriesDetailsWidget.js',
+				'resources/details/uw.DeedChooserDetailsWidget.js',
 				'resources/details/uw.DescriptionDetailsWidget.js',
 				'resources/details/uw.DescriptionsDetailsWidget.js',
 				'resources/details/uw.LocationDetailsWidget.js',

@@ -61,7 +61,13 @@
 	 */
 	uw.FieldLayout.prototype.checkValidity = function () {
 		var layout = this;
-		this.fieldWidget.pushPending();
+		if ( !this.fieldWidget.getWarnings || !this.fieldWidget.getErrors ) {
+			// Don't do anything for non-Details widgets
+			return;
+		}
+		if ( this.fieldWidget.pushPending ) {
+			this.fieldWidget.pushPending();
+		}
 		$.when(
 			this.fieldWidget.getWarnings(),
 			this.fieldWidget.getErrors()
@@ -70,7 +76,9 @@
 			layout.setNotices( warnings );
 			layout.setErrors( errors );
 		} ).always( function () {
-			layout.fieldWidget.popPending();
+			if ( layout.fieldWidget.popPending ) {
+				layout.fieldWidget.popPending();
+			}
 		} );
 	};
 

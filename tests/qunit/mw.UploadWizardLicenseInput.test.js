@@ -19,7 +19,8 @@
 			config = { type: 'or', licenses: [] },
 			uwLicenseInput;
 
-		uwLicenseInput = new mw.UploadWizardLicenseInput( '#qunit-fixture', values, config );
+		uwLicenseInput = new mw.UploadWizardLicenseInput( values, config );
+		$( '#qunit-fixture' ).append( uwLicenseInput.$element );
 		assert.ok( uwLicenseInput, 'LicenseInput object created !' );
 	} );
 
@@ -28,7 +29,8 @@
 			config = { type: 'or', licenses: [ 'cc-by-sa-3.0' ] },
 			uwLicenseInput;
 
-		uwLicenseInput = new mw.UploadWizardLicenseInput( '#qunit-fixture', values, config );
+		uwLicenseInput = new mw.UploadWizardLicenseInput( values, config );
+		$( '#qunit-fixture' ).append( uwLicenseInput.$element );
 
 		// Check radio button is there
 		assert.strictEqual( $( '.mwe-upwiz-copyright-info-radio' ).length, 1, 'Radio button created.' );
@@ -51,7 +53,8 @@
 			},
 			uwLicenseInput;
 
-		uwLicenseInput = new mw.UploadWizardLicenseInput( '#qunit-fixture', values, config );
+		uwLicenseInput = new mw.UploadWizardLicenseInput( values, config );
+		$( '#qunit-fixture' ).append( uwLicenseInput.$element );
 
 		// Check license group is there
 		assert.strictEqual( $( '.mwe-upwiz-deed-license-group' ).length, 1, 'License group created.' );

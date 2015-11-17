@@ -33,10 +33,11 @@
 	 * @param {Object} config The UW config
 	 */
 	mw.UploadWizardDeedThirdParty = function ( uploadCount, api, config ) {
-		var licenseInputDiv,
+		var
 			deed = new mw.UploadWizardDeed();
 
 		deed.uploadCount = uploadCount ? uploadCount : 1;
+
 		deed.sourceInput = new OO.ui.TextInputWidget( {
 			multiline: true,
 			autosize: true,
@@ -44,6 +45,33 @@
 			name: 'source'
 		} );
 		deed.sourceInput.$input.attr( 'id', 'mwe-source-' + deed.getInstanceCount() );
+		// See uw.DetailsWidget
+		deed.sourceInput.getErrors = function () {
+			var
+				errors = [],
+				minLength = config.minSourceLength,
+				maxLength = config.maxSourceLength,
+				text = this.getValue().trim();
+
+			if ( text === '' ) {
+				errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
+			} else if ( text.length < minLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
+			} else if ( text.length > maxLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
+			}
+
+			return $.Deferred().resolve( errors ).promise();
+		};
+		// See uw.DetailsWidget
+		deed.sourceInput.getWarnings = function () {
+			return $.Deferred().resolve( [] ).promise();
+		};
+		deed.sourceInputField = new uw.FieldLayout( deed.sourceInput, {
+			label: mw.message( 'mwe-upwiz-source' ).text(),
+			help: mw.message( 'mwe-upwiz-tooltip-source' ).text(),
+			required: true
+		} );
 
 		deed.authorInput = new OO.ui.TextInputWidget( {
 			multiline: true,
@@ -52,17 +80,45 @@
 			name: 'author'
 		} );
 		deed.authorInput.$input.attr( 'id', 'mwe-author-' + deed.getInstanceCount() );
+		// See uw.DetailsWidget
+		deed.authorInput.getErrors = function () {
+			var
+				errors = [],
+				minLength = config.minAuthorLength,
+				maxLength = config.maxAuthorLength,
+				text = this.getValue().trim();
 
-		licenseInputDiv = $( '<div class="mwe-upwiz-deed-license-groups"></div>' );
+			if ( text === '' ) {
+				errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
+			} else if ( text.length < minLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
+			} else if ( text.length > maxLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
+			}
+
+			return $.Deferred().resolve( errors ).promise();
+		};
+		// See uw.DetailsWidget
+		deed.authorInput.getWarnings = function () {
+			return $.Deferred().resolve( [] ).promise();
+		};
+		deed.authorInputField = new uw.FieldLayout( deed.authorInput, {
+			label: mw.message( 'mwe-upwiz-author' ).text(),
+			help: mw.message( 'mwe-upwiz-tooltip-author' ).text(),
+			required: true
+		} );
 
 		deed.licenseInput = new mw.UploadWizardLicenseInput(
-			licenseInputDiv,
 			undefined,
 			config.licensing.thirdParty,
 			deed.uploadCount,
 			api
 		);
+		deed.licenseInput.$element.addClass( 'mwe-upwiz-deed-license-groups' );
 		deed.licenseInput.setDefaultValues();
+		deed.licenseInputField = new uw.FieldLayout( deed.licenseInput, {
+			label: mw.message( 'mwe-upwiz-source-thirdparty-cases', deed.uploadCount ).text()
+		} );
 
 		return $.extend( deed, mw.UploadWizardDeed.prototype, {
 			name: 'thirdparty',
@@ -81,55 +137,17 @@
 
 				$formFields.append(
 					$( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-					$( '<label generated="true" class="mwe-validator-error" style="display: block;" />' )
-						.attr( 'for', 'mwe-source-' + this.getInstanceCount() ),
 					$( '<div class="mwe-upwiz-thirdparty-fields" />' )
-						.append( $( '<label>' )
-								.text( mw.message( 'mwe-upwiz-source' ).text() )
-								.attr( 'for', 'mwe-source-' + this.getInstanceCount() )
-								.addHint( 'source' )
-								.requiredFieldLabel(),
-							this.sourceInput.$element ),
-					$( '<label generated="true" class="mwe-validator-error" style="display: block;" />' )
-						.attr( 'for', 'mwe-author-' + this.getInstanceCount() ),
+						.append( this.sourceInputField.$element ),
 					$( '<div class="mwe-upwiz-thirdparty-fields" />' )
-						.append( $( '<label>' )
-								.text( mw.message( 'mwe-upwiz-author' ).text() )
-								.attr( 'for', 'mwe-author-' + this.getInstanceCount() )
-								.addHint( 'author' )
-								.requiredFieldLabel(),
-							this.authorInput.$element ),
+						.append( this.authorInputField.$element ),
 					$( '<div class="mwe-upwiz-thirdparty-license" />' )
-						.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-cases', this.uploadCount ) )
-						.append( licenseInputDiv )
+						.append( this.licenseInputField.$element )
 				);
 
-				this.$form.validate( {
-					rules: {
-						source: {
-							required: true,
-							minlength: config.minSourceLength,
-							maxlength: config.maxSourceLength
-						},
-						author: {
-							required: true,
-							minlength: config.minAuthorLength,
-							maxlength: config.maxAuthorLength
-						}
-					},
-					messages: {
-						source: {
-							required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-							minlength: mw.message( 'mwe-upwiz-error-too-short', config.minSourceLength ).escaped(),
-							maxlength: mw.message( 'mwe-upwiz-error-too-long', config.maxSourceLength ).escaped()
-						},
-						author: {
-							required: mw.message( 'mwe-upwiz-error-blank' ).escaped(),
-							minlength: mw.message( 'mwe-upwiz-error-too-short', config.minAuthorLength ).escaped(),
-							maxlength: mw.message( 'mwe-upwiz-error-too-long', config.maxAuthorLength ).escaped()
-						}
-					}
-				} );
+				// This does nothing, but removing it causes errors elsewhere;
+				// to be killed when we remove jquery.validate
+				this.$form.validate();
 
 				this.$form.append( $formFields );
 
@@ -152,19 +170,10 @@
 			},
 
 			/**
-			 * Is this correctly set, with side effects of causing errors to show in interface.
-			 * this is exactly the same as the ownwork valid() function... hopefully we can reduce these to nothing if we make
-			 * all validators work the same.
-			 *
-			 * @return {boolean} true if valid, false if not
+			 * @return {uw.FieldLayout[]} Fields that need validation
 			 */
-			valid: function () {
-				// n.b. valid() has side effects and both should be called every time the function is called.
-				// do not short-circuit.
-				var formValid = this.$form.valid(),
-					licenseInputValid = this.licenseInput.valid();
-
-				return formValid && licenseInputValid;
+			getFields: function () {
+				return [ this.authorInputField, this.sourceInputField, this.licenseInputField ];
 			}
 		} );
 	};

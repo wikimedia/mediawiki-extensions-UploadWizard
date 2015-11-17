@@ -55,14 +55,13 @@
 		} );
 		this.mainFields.push( this.titleDetailsField );
 
-		this.deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
-
-		this.copyrightInfoFieldset = $( '<fieldset class="mwe-fieldset mwe-upwiz-copyright-info"></fieldset>' )
-			.hide()
-			.append(
-				$( '<legend class="mwe-legend">' ).text( mw.message( 'mwe-upwiz-copyright-info' ).text() ),
-				this.deedDiv
-			);
+		this.deedChooserDetails = new uw.DeedChooserDetailsWidget();
+		this.deedChooserDetailsField = new uw.FieldLayout( this.deedChooserDetails, {
+			label: mw.message( 'mwe-upwiz-copyright-info' ).text(),
+			required: true
+		} );
+		this.deedChooserDetailsField.toggle( false ); // See useCustomDeedChooser()
+		this.mainFields.push( this.deedChooserDetailsField );
 
 		this.categoriesDetails = new uw.CategoriesDetailsWidget();
 		this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
@@ -116,7 +115,7 @@
 		this.$form.append(
 			this.titleDetailsField.$element,
 			this.descriptionsDetailsField.$element,
-			this.copyrightInfoFieldset,
+			this.deedChooserDetailsField.$element,
 			this.dateDetailsField.$element,
 			this.categoriesDetailsField.$element
 		);
@@ -455,16 +454,13 @@
 		 * @return {boolean} Whether the form is valid.
 		 */
 		valid: function () {
-			var deedValid, formValid;
-
-			// make sure licenses are valid (needed for multi-file deed selection)
-			deedValid = this.upload.deedChooser.valid();
+			var formValid;
 
 			// all other fields validated with validator js
 			formValid = this.$form.valid();
 
 			// we must call EVERY valid() function due to side effects; do not short-circuit.
-			return deedValid && formValid;
+			return formValid;
 		},
 
 		/**
@@ -473,6 +469,7 @@
 		getAllFields: function () {
 			return [].concat(
 				this.mainFields,
+				this.upload.deedChooser.deed ? this.upload.deedChooser.deed.getFields() : [],
 				this.campaignDetailsFields
 			);
 		},
@@ -524,82 +521,8 @@
 		 * toggles whether we use the 'macro' deed or our own
 		 */
 		useCustomDeedChooser: function () {
-			var config, deed,
-				details = this;
-
-			this.copyrightInfoFieldset.show();
-
-			// Defining own deedChooser for uploads coming from external service
-			if ( this.upload.fromURL ) {
-				// XXX can be made a seperate class as mw.UploadFromUrlDeedChooser
-				this.upload.deedChooser = { valid: function () { return this.deed.valid(); } };
-
-				if ( this.upload.providedFile.license ) {
-					// XXX need to add code in the remaining functions
-					this.upload.deedChooser.deed = this.getDeed();
-				} else {
-					config = { type: 'or', licenses: [ 'custom' ], special: 'custom' };
-					deed = {};
-
-					deed.licenseInput = new mw.UploadWizardLicenseInput(
-						this.deedDiv,
-						undefined,
-						config,
-						1,
-						this.api
-					);
-
-					deed.licenseInput.setDefaultValues();
-
-					this.upload.deedChooser.deed = this.getDeed( deed, {
-						valid: function () {
-							return this.licenseInput.valid();
-						},
-						getLicenseWikiText: function () {
-							if ( details.upload.providedFile.licenseValue ) {
-								return details.upload.providedFile.licenseValue + this.licenseInput.getWikiText();
-							} else {
-								return this.licenseInput.getWikiText();
-							}
-						}
-					} );
-				}
-			} else {
-				this.upload.deedChooser = new mw.UploadWizardDeedChooser(
-					mw.UploadWizard.config,
-					this.deedDiv,
-					mw.UploadWizard.getLicensingDeeds( 1, mw.UploadWizard.config ),
-					[ this.upload ] );
-				this.upload.deedChooser.onLayoutReady();
-			}
-		},
-
-		getDeed: function ( deed, overrides ) {
-			var details = this;
-
-			// Need to add tipsy tips here
-			$( this.deedDiv ).append( this.upload.providedFile.licenseMessage );
-
-			deed = deed || {};
-			overrides = overrides || {};
-
-			// XXX need to add code in the remaining functions
-			return $.extend( deed, {
-				valid: function () { return true; },
-				getSourceWikiText: function () {
-					if ( typeof details.upload.providedFile.sourceURL !== 'undefined' ) {
-						return details.upload.providedFile.sourceURL;
-					} else {
-						return details.upload.providedFile.url;
-					}
-				},
-				getAuthorWikiText: function () {
-					return details.upload.providedFile.author;
-				},
-				getLicenseWikiText: function () {
-					return details.upload.providedFile.licenseValue;
-				}
-			}, overrides );
+			this.deedChooserDetailsField.toggle( true );
+			this.deedChooserDetails.useCustomDeedChooser( this.upload );
 		},
 
 		/**
