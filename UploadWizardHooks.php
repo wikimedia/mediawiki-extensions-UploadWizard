@@ -21,7 +21,6 @@ class UploadWizardHooks {
 				'jquery.spinner',
 				'jquery.ui.selectable',
 				'jquery.placeholder',
-				'jquery.suggestions',
 				'jquery.tipsy',
 				'jquery.validate',
 				'jquery.makeCollapsible',
