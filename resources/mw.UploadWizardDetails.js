@@ -12,7 +12,7 @@
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var descriptionAdderDiv, titleContainerDiv, $categoriesDiv,
 			categoriesHinter,
-			categoriesId, dateInputId, dateErrorDiv, dateInputDiv,
+			categoriesId,
 			moreDetailsCtrlDiv, moreDetailsDiv, otherInformationId,
 			otherInformationDiv, latitudeDiv, longitudeDiv, headingDiv,
 			showMap, linkDiv, locationHinter, locationDiv, categories,
@@ -130,38 +130,13 @@
 			.text( mw.message( 'mwe-upwiz-categories' ).text() )
 			.addHint( 'mwe-upwiz-categories-hint', categoriesHinter );
 
-		dateInputId = 'dateInput' + ( this.upload.index ).toString();
-
-		dateErrorDiv = $( '<div class="mwe-upwiz-details-input-error"><label class="mwe-validator-error" for="' + dateInputId + '" generated="true"/></div>' );
-
-		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'
-		this.dateInputWidgetToggler = new OO.ui.ButtonSelectWidget( {
-			items: [
-				new OO.ui.ButtonOptionWidget( {
-					data: 'calendar',
-					icon: 'calendar',
-					title: mw.msg( 'mwe-upwiz-calendar-date' )
-				} ),
-				new OO.ui.ButtonOptionWidget( {
-					data: 'arbitrary',
-					icon: 'edit',
-					title: mw.msg( 'mwe-upwiz-custom-date' )
-				} )
-			]
-		} )
-			.selectItemByData( 'calendar' )
-			.on( 'choose', function ( selectedItem ) {
-				details.setupDateInput( selectedItem.getData() );
-				details.dateInputWidget.focus();
-			} );
-
-		dateInputDiv = $( '<div class="mwe-upwiz-details-fieldname-input ui-helper-clearfix"></div>' )
-			.append(
-				dateErrorDiv,
-				$( '<div class="mwe-upwiz-details-fieldname"></div>' ).text( mw.message( 'mwe-upwiz-date-created' ).text() ).requiredFieldLabel().addHint( 'date' ),
-				new OO.ui.HorizontalLayout( { classes: [ 'mwe-upwiz-details-input' ] } ).$element
-					.append( this.dateInputWidgetToggler.$element )
-			);
+		this.dateDetails = new uw.DateDetailsWidget();
+		this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
+			label: mw.message( 'mwe-upwiz-date-created' ).text(),
+			required: true
+		} );
+		// TODO Rethink hints
+		this.dateDetailsField.$label.addHint( 'date' );
 
 		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
 
@@ -223,7 +198,7 @@
 			this.descriptionsDiv,
 			descriptionAdderDiv,
 			this.copyrightInfoFieldset,
-			dateInputDiv,
+			this.dateDetailsField.$element,
 			$categoriesDiv
 		);
 
@@ -318,7 +293,6 @@
 		);
 
 		this.$form.validate();
-		this.setupDateInput();
 
 		$list = this.$form.find( '.mwe-loc-lat, .mwe-loc-lon' )
 			.on( 'input keyup change cut paste', function () {
@@ -531,62 +505,6 @@
 		},
 
 		/*
-		 * Set up the date input field, or switch between 'calendar' and 'arbitrary' mode.
-		 * @param {string} [mode] Mode to switch to, 'calendar' or 'arbitrary'
-		 */
-		setupDateInput: function ( mode ) {
-			var
-				oldDateInputWidget = this.dateInputWidget,
-				dateInputId = 'dateInput' + ( this.upload.index ).toString();
-
-			if ( mode === undefined ) {
-				mode = this.dateInputWidgetMode === 'calendar' ? 'arbitrary' : 'calendar';
-			}
-			this.dateInputWidgetMode = mode;
-			this.dateInputWidgetToggler.selectItemByData( mode );
-
-			if ( mode === 'arbitrary' ) {
-				this.dateInputWidget = new OO.ui.TextInputWidget( {
-					classes: [ 'mwe-date' ],
-					id: dateInputId
-				} );
-			} else {
-				this.dateInputWidget = new mw.widgets.DateInputWidget( {
-					classes: [ 'mwe-date' ],
-					id: dateInputId
-				} );
-				// If the user types '{{', assume that they are trying to input template wikitext and switch
-				// to 'arbitrary' mode. This might help confused power-users (T110026#1567714).
-				this.dateInputWidget.textInput.on( 'change', function ( value ) {
-					if ( value === '{{' ) {
-						this.setupDateInput( 'arbitrary' );
-						this.dateInputWidget.setValue( '{{' );
-						this.dateInputWidget.moveCursorToEnd();
-					}
-				}.bind( this ) );
-			}
-
-			if ( oldDateInputWidget ) {
-				this.dateInputWidget.setValue( oldDateInputWidget.getValue() );
-				oldDateInputWidget.$element.replaceWith( this.dateInputWidget.$element );
-			} else {
-				this.dateInputWidgetToggler.$element.after( this.dateInputWidget.$element );
-			}
-
-			this.dateInputWidget.$input.data( 'mwe-error-placement', this.dateInputWidget.$element.parent() );
-			this.$form.validate(); // this might not be necessary here
-			// jQuery validate requires a name, otherwise these rules would get applied to all inputs with no name
-			this.dateInputWidget.$input.attr( 'name', dateInputId );
-			// FIXME Shouldn't abuse jQuery validate for this
-			this.dateInputWidget.$input.rules( 'add', {
-				required: true,
-				messages: {
-					required: mw.message( 'mwe-upwiz-error-blank' ).escaped()
-				}
-			} );
-		},
-
-		/*
 		 * Display error message about multiple uploaded files with the same title specified
 		 *
 		 * @chainable
@@ -632,9 +550,7 @@
 		 * @param String metadataType One of the types defined in the copyMetadataTypes property
 		 */
 		copyMetadata: function ( metadataType ) {
-
 			var titleZero, matches,
-				i, sourceMode,
 				details = this,
 				uploads = this.upload.wizard.uploads,
 				sourceId = uploads[ 0 ].index;
@@ -720,13 +636,10 @@
 
 			} else if ( metadataType === 'date' ) {
 
-				sourceMode = uploads[ 0 ].details.dateInputWidgetMode;
-
-				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[ i ].details.setupDateInput( sourceMode );
-				}
-
-				oouiCopy( 'dateInputWidget' );
+				oouiCopy( 'dateDetails', {
+					get: 'getSerialized',
+					set: 'setSerialized'
+				} );
 
 			} else if ( metadataType === 'categories' ) {
 
@@ -1170,6 +1083,7 @@
 		 */
 		prefillDate: function () {
 			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
+				dateMode = 'calendar',
 				yyyyMmDdRegex = /^(\d\d\d\d)[:\/\-](\d\d)[:\/\-](\d\d)\D.*/,
 				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
@@ -1220,7 +1134,10 @@
 				dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
 				matches = this.upload.file.date.match( dateTimeRegex );
 				if ( !mw.isEmpty( matches ) ) {
-					this.dateInputWidget.setValue( this.upload.file.date );
+					this.dateDetails.setSerialized( {
+						mode: dateMode,
+						value: this.upload.file.date
+					} );
 					return;
 				}
 			}
@@ -1244,11 +1161,14 @@
 				dateStr += ' ' + saneTime;
 
 				// Switch to freeform date field. DateInputWidget (with calendar) handles dates only, not times.
-				this.setupDateInput( 'arbitrary' );
+				dateMode = 'arbitrary';
 			}
 
 			// ok by now we should definitely have a dateObj and a date string
-			this.dateInputWidget.setValue( dateStr );
+			this.dateDetails.setSerialized( {
+				mode: dateMode,
+				value: dateStr
+			} );
 		},
 
 		/**
@@ -1439,7 +1359,7 @@
 					}
 				} );
 
-				information.date = this.dateInputWidget.getValue();
+				information.date = this.dateDetails.getWikiText();
 
 				deed = this.upload.deedChooser.deed;
 

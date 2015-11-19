@@ -105,8 +105,8 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.valid = function () {
-		var windowManager, confirmationDialog, title,
-			valid = 0,
+		var
+			validityPromises = [],
 			necessary = 0,
 			total = 0,
 			titles = {};
@@ -116,38 +116,66 @@
 				return;
 			}
 
-			total += 1;
+			// Update any error/warning messages about all DetailsWidgets
+			upload.details.dateDetailsField.checkValidity();
 
-			if ( upload.details.clearDuplicateTitleError().valid() ) {
-				title = upload.title.getName() + '.' + mw.Title.normalizeExtension( upload.title.getExtension() );
+			validityPromises.push( $.when(
+				upload.details.dateDetails.getErrors()
+				// Other DetailsWidgets errors go here...
+			).then( function () {
+				var i, title, hasErrors = false;
+
+				for ( i = 0; i < arguments.length; i++ ) {
+					if ( arguments[ i ].length ) {
+						// One of the DetailsWidgets has errors
+						hasErrors = true;
+					}
+				}
+
+				upload.details.clearDuplicateTitleError();
+				// This also updates legacy error messages
+				if ( !upload.details.valid() ) {
+					hasErrors = true;
+				}
 
 				// Seen this title before?
+				title = upload.title.getName() + '.' + mw.Title.normalizeExtension( upload.title.getExtension() );
 				if ( titles[ title ] ) {
-
 					// Don't submit. Instead, set an error in details step.
 					upload.details.setDuplicateTitleError();
-					return;
+					hasErrors = true;
 				} else {
 					titles[ title ] = true;
 				}
-				valid += 1;
 
 				if ( upload.details.necessaryFilled() ) {
 					necessary += 1;
 				}
-			}
+
+				if ( hasErrors ) {
+					return $.Deferred().reject();
+				}
+			} ) );
+
+			total += 1;
 		} );
 
-		if ( valid !== total ) {
-			// Not all uploads valid, reject
-			return $.Deferred().reject();
-		} else if ( necessary === total ) {
-			// All uploads valid, all necessary fields filled
-			return $.Deferred().resolve();
-		}
+		// If not all uploads are valid, $.when will reject this
+		return $.when.apply( $, validityPromises ).then( function () {
+			if ( necessary === total ) {
+				// All uploads valid, all necessary fields filled
+				return $.Deferred().resolve();
+			} else {
+				// Valid, but recommended fields missing, ask for confirmation
+				return this.confirmationDialog();
+			}
+		}.bind( this ) );
+	};
 
-		windowManager = new OO.ui.WindowManager();
-		confirmationDialog = new OO.ui.MessageDialog();
+	uw.controller.Details.prototype.confirmationDialog = function () {
+		var
+			windowManager = new OO.ui.WindowManager(),
+			confirmationDialog = new OO.ui.MessageDialog();
 		windowManager.addWindows( [ confirmationDialog ] );
 		$( 'body' ).append( windowManager.$element );
 

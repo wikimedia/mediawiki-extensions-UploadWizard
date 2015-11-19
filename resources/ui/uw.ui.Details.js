@@ -144,7 +144,8 @@
 	 */
 	uw.ui.Details.prototype.showErrors = function () {
 		var $errorElements = this.$div
-				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error' ),
+				// TODO Evil
+				.find( '.mwe-error:not(:empty):not(#mwe-upwiz-details-error-count), input.mwe-validator-error, textarea.mwe-validator-error, .oo-ui-fieldLayout-messages-error' ),
 			errorCount = $errorElements.length;
 
 		// Open "more info" if that part of the form has errors
