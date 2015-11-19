@@ -86,7 +86,7 @@
 	"mwe-upwiz-file-all-failed": "アップロードはすべて失敗しました。",
 	"mwe-upwiz-upload-count": "$2 {{PLURAL:$2|ファイル}}中 $1 ファイルをアップロードしました",
 	"mwe-upwiz-progressbar-uploading": "アップロード中",
-	"mwe-upwiz-almost-finished": "処理ファイル...",
+	"mwe-upwiz-almost-finished": "ファイルを処理中...",
 	"mwe-upwiz-finished": "完了しました!",
 	"mwe-upwiz-deeds-macro-prompt": "このウェブサイトは{{PLURAL:$2|}}{{PLURAL:$1|この作品|これらの作品}}についての著作権情報を提供するよう要求しています。これは、{{PLURAL:$1|その|それらの}}作品を合法的に誰もが再利用できることを確実にするためです。",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|このファイル|これらのファイル}}は、自分自身による作品です。",
