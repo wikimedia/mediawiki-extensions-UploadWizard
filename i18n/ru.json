@@ -28,7 +28,8 @@
 			"Translatobecomer",
 			"INS Pirat",
 			"Краснорядцева Елена",
-			"Matma Rex"
+			"Matma Rex",
+			"Frhdkazan"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -186,7 +187,6 @@
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Файл с этим именем уже существует. Если вы хотите его заменить, перейдите на страницу [$2 $1] и замените его там.",
 	"mwe-upwiz-fileexists-replace-no-link": "Пожалуйста, выберите другое название, потому что это название уже используется другим файлом.",
-	"mwe-upwiz-blacklisted": "Пожалуйста, выберите другое, более понятное название.",
 	"mwe-upwiz-next": "Далее",
 	"mwe-upwiz-next-file": "Продолжить",
 	"mwe-upwiz-next-deeds": "Далее",
@@ -224,6 +224,7 @@
 	"mwe-upwiz-error-nologin": "Вы должны <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} представиться системе]</span>, чтобы получить возможность загружать файлы.",
 	"mwe-upwiz-error-too-long": "Эта запись слишком длинная.\nСделайте так, чтобы она была короче $1 {{PLURAL:$1|символа|символов}}.",
 	"mwe-upwiz-error-too-short": "Эта запись слишком короткая.\nОна должна быть длиннее $1 {{PLURAL:$1|символа|символов}}.",
+	"mwe-upwiz-error-bad-descriptions": "С некоторыми описаниями есть проблемы.",
 	"mwe-upwiz-error-bad-chars": "Это запись содержит недопустимые символы.\nПожалуйста, не используйте здесь викитекст или HTML.",
 	"mwe-upwiz-error-title-blacklisted": "Это название содержит некоторый нежелательный текст. Просьба пересмотреть и изменить его.",
 	"mwe-upwiz-error-title-badchars": "Это название содержит некоторые нежелательные символы. Пожалуйста, удалите их.",
@@ -319,8 +320,6 @@
 	"mwe-upwiz-subhead-alternatives": "Альтернативные методы загрузки",
 	"mwe-upwiz-feedback-prompt": "Оставить отзыв",
 	"mwe-upwiz-feedback-title": "Оставьте отзыв о Мастере загрузок",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Отправить отзыв]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Подробнее]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Это запись из чёрного списка названий,  которая соответствует:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Мой заголовок загрузки «$1» был запрещён.",
 	"mwe-upwiz-errordialog-title": "Произошла ошибка во время отправки",

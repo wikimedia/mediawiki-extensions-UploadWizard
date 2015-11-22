@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Тест",
-			"Хомелка"
+			"Хомелка",
+			"Дзяніс Тутэйшы"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
 	"uploadwizard-desc": "Майстар загрузак, зручная прылада для загрузкі мульцімедыйных файлаў",
-	"mwe-upwiz-code-unknown": "Неваядомая мова",
 	"mwe-upwiz-add-file-n": "Дадаць яшчэ адзін файл",
 	"mwe-upwiz-add-file-flickr": "Дадаць выявы з Флікра",
 	"mwe-upwiz-add-flickr-or": "Ці",
@@ -54,9 +54,10 @@
 	"mwe-upwiz-error-blank": "Гэтае значэнне неабходнае",
 	"mwe-upwiz-error-title-double-apostrophe": "Гэтая назва ўтрымлівае падвоены апостраф; калі ласка, прыбярыце яго",
 	"mwe-upwiz-file-too-large": "Файл надта вялікі",
-	"mwe-upwiz-license-pd-old-100": "Аўтар памёр больш чым 100 гадоў таму",
-	"mwe-upwiz-license-pd-old": "Аўтар памёр больш чым 70 гадоў таму",
+	"mwe-upwiz-license-pd-old-100": "Аўтар памёр больш чым 100 гадоў назад",
+	"mwe-upwiz-license-pd-old": "Аўтар памёр больш чым 70 гадоў назад",
 	"mwe-upwiz-license-pd-usgov-nasa": "Арыгінальная праца NASA",
+	"mwe-upwiz-license-custom-head": "Іншая прычына, не названая вышэй",
 	"mwe-upwiz-license-custom-preview": "Перадпаказ",
 	"mwe-upwiz-license-none-head": "Я знайшоў яго ў Інтэрнэце -- Я не ўпэўнены",
 	"mwe-upwiz-categories": "Катэгорыі"

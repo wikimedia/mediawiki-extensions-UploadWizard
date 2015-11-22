@@ -174,6 +174,8 @@
 	"mwe-upwiz-ok": "אישור",
 	"mwe-upwiz-fileexists-replace-on-page": "קובץ בשם הזה כבר קיים. אם אתם רוצים להחליף אותו, לכו לדף עבור [$2 $1] והחליפו אותו שם.",
 	"mwe-upwiz-fileexists-replace-no-link": "נא לבחור שם אחר, כי השם הזה כבר בשימוש על־ידי קובץ אחר.",
+	"mwe-upwiz-blacklisted-details": "נא לבחור כותרת שונה, מתארת יותר ([$2 מידע נוסף]).",
+	"mwe-upwiz-blacklisted-details-feedback": "נא לבחור כותרת שונה, מתארת יותר ([$2 מידע נוסף]). • [$3 שליחת משוב]",
 	"mwe-upwiz-next": "הבא",
 	"mwe-upwiz-next-file": "להמשיך",
 	"mwe-upwiz-next-deeds": "הבא",
