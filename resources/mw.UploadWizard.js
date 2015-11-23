@@ -79,7 +79,7 @@
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
 			message: function () {
-				return mw.message( 'mwe-upwiz-prevent-close', wizard.uploads.length ).escaped();
+				return mw.message( 'mwe-upwiz-prevent-close' ).escaped();
 			},
 
 			test: function () {
