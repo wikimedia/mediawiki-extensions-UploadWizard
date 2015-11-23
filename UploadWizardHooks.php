@@ -671,6 +671,9 @@ class UploadWizardHooks {
 			'scripts' => array(
 				'resources/ui/uw.ui.Tutorial.js',
 			),
+			'styles' => array(
+				'resources/ui/uw.ui.Tutorial.css',
+			),
 
 			'dependencies' => array(
 				'oojs',

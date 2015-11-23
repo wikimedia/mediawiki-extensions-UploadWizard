@@ -17,6 +17,31 @@
 
 ( function ( mw, $, uw, OO ) {
 	/**
+	 * Checkbox with popup information.
+	 */
+	function PopupCheckboxInputWidget( config ) {
+		// Parent constructor
+		PopupCheckboxInputWidget.parent.call( this, config );
+
+		// Mixin constructors
+		OO.ui.mixin.PopupElement.call( this, config );
+
+		// Events
+		this.connect( this, { change: 'onChange' } );
+
+		// Initialization
+		this.$element
+			.addClass( 'oo-ui-popupCheckboxInputWidget' )
+			.attr( 'aria-haspopup', 'true' )
+			.append( this.popup.$element );
+	}
+	OO.inheritClass( PopupCheckboxInputWidget, OO.ui.CheckboxInputWidget );
+	OO.mixinClass( PopupCheckboxInputWidget, OO.ui.mixin.PopupElement );
+	PopupCheckboxInputWidget.prototype.onChange = function () {
+		this.popup.toggle( this.isSelected() );
+	};
+
+	/**
 	 * Represents the UI for the wizard's Tutorial step.
 	 *
 	 * @class uw.ui.Tutorial
@@ -33,38 +58,27 @@
 		);
 
 		// 'Skip tutorial' checkbox
-		this.skipCheckbox = new OO.ui.CheckboxInputWidget( {
-			id: 'mwe-upwiz-skip'
+		this.skipCheckbox = new PopupCheckboxInputWidget( {
+			id: 'mwe-upwiz-skip',
+			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
+			popup: {
+				$content: $( '<p>' ).msg(
+					'mwe-upwiz-tooltip-skiptutorial',
+					mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
+					mw.message( 'prefs-uploads' ).escaped(),
+					mw.message( 'prefs-upwiz-interface' ).escaped()
+				),
+				autoClose: false,
+				padded: true
+			}
 		} );
 		this.skipCheckboxLabel = new OO.ui.LabelWidget( {
 			input: this.skipCheckbox,
 			label: mw.message( 'mwe-upwiz-skip-tutorial-future' ).text()
 		} );
 
-		this.skipCheckbox.$element
-			// Add a friendly "Here's how to get it back" tooltip for users who check the "Skip next time" checkbox
-			.tipsy( {
-				title: function () {
-					return mw.message(
-						'mwe-upwiz-tooltip-skiptutorial',
-						mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
-						mw.message( 'prefs-uploads' ).escaped(),
-						mw.message( 'prefs-upwiz-interface' ).escaped()
-					).parse();
-				},
-				delayIn: 0,
-				html: true,
-				trigger: 'manual'
-			} );
-
 		this.skipCheckbox.on( 'change', function () {
 			ui.emit( 'skip-tutorial-click', ui.skipCheckbox.isSelected() );
-
-			if ( ui.skipCheckbox.isSelected() ) {
-				ui.skipCheckbox.$element.tipsy( 'show' );
-			} else {
-				ui.skipCheckbox.$element.tipsy( 'hide' );
-			}
 		} );
 
 		// Helpdesk link click
@@ -73,10 +87,6 @@
 		} );
 
 		this.addNextButton();
-
-		this.nextButton.on( 'click', function () {
-			ui.skipCheckbox.$element.tipsy( 'hide' );
-		} );
 
 		this.$div.find( '.mwe-upwiz-buttons' ).append(
 			new OO.ui.HorizontalLayout( {
