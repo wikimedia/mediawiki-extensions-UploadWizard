@@ -120,7 +120,6 @@ class UploadWizardHooks {
 				// OOjs UI interface elements
 				'resources/uw.FieldLayout.less',
 				'resources/details/uw.DateDetailsWidget.less',
-				'resources/details/uw.CategoriesDetailsWidget.less',
 				'resources/details/uw.DescriptionDetailsWidget.less',
 				'resources/details/uw.DescriptionsDetailsWidget.less',
 				'resources/details/uw.LocationDetailsWidget.less',
