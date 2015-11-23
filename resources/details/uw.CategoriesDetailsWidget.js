@@ -6,7 +6,7 @@
 	 * @extends uw.DetailsWidget
 	 */
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget() {
-		var categories;
+		var categories, catDetails = this;
 
 		uw.CategoriesDetailsWidget.parent.call( this );
 
@@ -16,14 +16,8 @@
 			var widget = this.constructor.prototype.createItemWidget.call( this, data );
 			widget.setMissing = function ( missing ) {
 				this.constructor.prototype.setMissing.call( this, missing );
-				if ( !missing ) {
-					this.$element.removeAttr( 'title' );
-				} else {
-					this.$element
-						.attr( 'title', mw.msg( 'mwe-upwiz-categories-missing' ) )
-						.tipsy()
-						.tipsy( 'show' );
-				}
+				// Aggregate 'change' event
+				catDetails.emit( 'change' );
 			};
 			return widget;
 		};
@@ -33,16 +27,6 @@
 			return !!mw.Title.newFromText( 'Category:' + cat );
 		} );
 		this.categoriesWidget.setItemsFromData( categories );
-
-		this.categoriesWidgetPrevItems = this.categoriesWidget.getItems();
-		this.categoriesWidget.on( 'change', function () {
-			var i;
-			// Kill any active tipsies, they like to get stuck
-			for ( i = 0; i < this.categoriesWidgetPrevItems.length; i++ ) {
-				this.categoriesWidgetPrevItems[ i ].$element.tipsy( 'hide' );
-			}
-			this.categoriesWidgetPrevItems = this.categoriesWidget.getItems();
-		}.bind( this ) );
 
 		this.$element.addClass( 'mwe-upwiz-categoriesDetailsWidget' );
 		this.$element.append( this.categoriesWidget.$element );
@@ -56,14 +40,6 @@
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getErrors = function () {
-		var i;
-		// Kill any active tipsies, they like to get stuck.
-		// TODO This is a really stupid place to put this.
-		// It's here to ensure we clear them when we advance to next step.
-		for ( i = 0; i < this.categoriesWidgetPrevItems.length; i++ ) {
-			this.categoriesWidgetPrevItems[ i ].$element.tipsy( 'hide' );
-		}
-
 		return $.Deferred().resolve( [] ).promise();
 	};
 
@@ -74,6 +50,9 @@
 		var warnings = [];
 		if ( mw.UploadWizard.config.enableCategoryCheck && this.categoriesWidget.getItemsData().length === 0 ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-categories-missing' ) );
+		}
+		if ( this.categoriesWidget.getItems().some( function ( item ) { return item.missing; } ) ) {
+			warnings.push( mw.message( 'mwe-upwiz-categories-missing' ) );
 		}
 		return $.Deferred().resolve( warnings ).promise();
 	};
