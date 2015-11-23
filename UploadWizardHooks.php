@@ -21,7 +21,6 @@ class UploadWizardHooks {
 				'jquery.spinner',
 				'jquery.ui.selectable',
 				'jquery.placeholder',
-				'jquery.tipsy',
 				'jquery.makeCollapsible',
 				'mediawiki.Uri',
 				'mediawiki.util',
