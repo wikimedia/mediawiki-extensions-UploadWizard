@@ -205,6 +205,8 @@
 	"mwe-upwiz-ok": "Valider",
 	"mwe-upwiz-fileexists-replace-on-page": "Un fichier avec ce nom existe déjà. Si vous souhaitez le remplacer, allez sur la page pour [$2 $1] et remplacez-le là-bas.",
 	"mwe-upwiz-fileexists-replace-no-link": "Veuillez choisir un titre différent, car ce titre est déjà utilisé par un autre fichier.",
+	"mwe-upwiz-blacklisted-details": "Veuillez choisir un autre titre descriptif ([$2 plus d’information]).",
+	"mwe-upwiz-blacklisted-details-feedback": "Veuillez choisir un autre titre descriptif ([$2 plus d’information]). • [$3 Envoyer un avis]",
 	"mwe-upwiz-next": "Suivant",
 	"mwe-upwiz-next-file": "Continuer",
 	"mwe-upwiz-next-deeds": "Suivant",
