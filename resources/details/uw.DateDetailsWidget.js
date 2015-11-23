@@ -36,9 +36,6 @@
 			// this.dateInputWidget.$element goes here after setupDateInput() runs
 		);
 		this.setupDateInput();
-
-		// Aggregate 'change' event
-		this.dateInputWidgetToggler.connect( this, { choose: [ 'emit', 'change' ] } );
 	};
 	OO.inheritClass( uw.DateDetailsWidget, uw.DetailsWidget );
 
@@ -86,6 +83,11 @@
 
 		// Aggregate 'change' event
 		this.dateInputWidget.connect( this, { change: [ 'emit', 'change' ] } );
+
+		// Also emit if the value was changed to fit the new widget
+		if ( oldDateInputWidget && oldDateInputWidget.getValue() !== this.dateInputWidget.getValue() ) {
+			this.emit( 'change' );
+		}
 	};
 
 	/**
