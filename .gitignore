@@ -8,3 +8,5 @@ tests/browser/.gem
 tests/browser/.bundle
 node_modules
 .tox
+vendor/
+composer.lock
