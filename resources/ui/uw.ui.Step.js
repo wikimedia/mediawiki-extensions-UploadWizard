@@ -22,14 +22,23 @@
 	 * @class mw.uw.ui.Step
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {jQuery} $div The div that contains the step.
 	 * @param {string} name The name of this step
 	 */
-	uw.ui.Step = function UWUIStep( $div, name ) {
+	uw.ui.Step = function UWUIStep( name ) {
 		OO.EventEmitter.call( this );
 
 		this.name = name;
-		this.$div = $div;
+
+		this.$buttons = $( '<div>' ).addClass( 'mwe-upwiz-buttons' );
+
+		this.$div = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-stepdiv-' + this.name )
+			.addClass( 'mwe-upwiz-stepdiv' )
+			.hide()
+			.append( this.$buttons );
+
+		$( '#mwe-upwiz-content' ).append( this.$div );
+
 		this.$arrow = $( '<li>' )
 			.attr( 'id', 'mwe-upwiz-step-' + this.name )
 			.append(

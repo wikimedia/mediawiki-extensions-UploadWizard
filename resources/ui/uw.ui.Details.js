@@ -32,16 +32,27 @@
 
 		uw.ui.Step.call(
 			this,
-			$( '#mwe-upwiz-stepdiv-details' ),
 			'details'
 		);
+
+		this.$div.prepend(
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-macro-files' )
+				.addClass( 'mwe-upwiz-filled-filelist ui-corner-all' )
+		);
+
+		this.$errorCount = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-details-error-count' );
+		this.$buttons.append( this.$errorCount );
 
 		this.nextButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-details' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
-		this.$div.find( '.mwe-upwiz-start-next' ).append( this.nextButton.$element );
+		this.$buttons.append(
+			$( '<div>' ).addClass( 'mwe-upwiz-start-next mwe-upwiz-file-endchoice' ).append( this.nextButton.$element )
+		);
 
 		this.nextButtonDespiteFailures = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
@@ -55,16 +66,20 @@
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
-		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append(
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
-					} ),
-					this.nextButtonDespiteFailures,
-					this.retryButtonSomeFailed
-				]
-			} ).$element
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+							} ),
+							this.nextButtonDespiteFailures,
+							this.retryButtonSomeFailed
+						]
+					} ).$element
+				)
 		);
 
 		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
@@ -72,20 +87,20 @@
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
-		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append(
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
-					} ),
-					this.retryButtonAllFailed
-				]
-			} ).$element
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+							} ),
+							this.retryButtonAllFailed
+						]
+					} ).$element
+				)
 		);
-
-		this.$errorCount = $( '<div>' )
-			.attr( 'id', 'mwe-upwiz-details-error-count' );
-		this.$div.find( '.mwe-upwiz-buttons' ).prepend( this.$errorCount );
 	};
 
 	OO.inheritClass( uw.ui.Details, uw.ui.Step );

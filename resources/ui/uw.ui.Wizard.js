@@ -22,12 +22,18 @@
 	 * @class mw.uw.ui.Wizard
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {mw.UploadWizard} wizard
+	 * @param {string} selector Where to put all of the wizard interface.
 	 */
-	uw.ui.Wizard = function UWUIWizard( wizard ) {
+	uw.ui.Wizard = function UWUIWizard( selector ) {
 		OO.EventEmitter.call( this );
 
-		this.wizard = wizard;
+		this.$div = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-content' );
+
+		$( selector ).append(
+			this.$div,
+			$( '<div>' ).addClass( 'mwe-upwiz-clearing' )
+		);
 
 		this.initHeader( mw.UploadWizard.config );
 	};

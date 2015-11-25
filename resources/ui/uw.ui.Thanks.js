@@ -32,8 +32,11 @@
 
 		uw.ui.Step.call(
 			this,
-			$( '#mwe-upwiz-stepdiv-thanks' ),
 			'thanks'
+		);
+
+		this.$div.prepend(
+			$( '<div>' ).attr( 'id', 'mwe-upwiz-thanks' )
 		);
 
 		if ( this.isObjectReferenceGiven() ) {
@@ -54,8 +57,6 @@
 		} else {
 			$header.html( mw.UploadWizard.config.display.thanksLabel );
 		}
-
-		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
 
 		this.homeButton = new OO.ui.ButtonWidget( {
 			label: this.getButtonConfig( 'homeButton', 'label' ) || mw.message( 'mwe-upwiz-home' ).text(),

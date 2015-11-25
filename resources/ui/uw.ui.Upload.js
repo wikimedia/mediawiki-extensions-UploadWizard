@@ -31,22 +31,56 @@
 
 		uw.ui.Step.call(
 			this,
-			$( '#mwe-upwiz-stepdiv-file' ),
 			'file'
 		);
 
-		this.$uploadCtrl = $( '#mwe-upwiz-upload-ctrls' );
-		this.$uploadCtrlContainer = $( '#mwe-upwiz-upload-ctrl-container' );
-		this.$uploadCenterDivide = $( '#mwe-upwiz-upload-ctr-divide' );
-		this.$uploadStepButtons = $( '#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons' );
+		this.$uploadCenterDivide = $( '<p>' )
+			.attr( 'id', 'mwe-upwiz-upload-ctr-divide' )
+			.text( mw.message( 'mwe-upwiz-add-flickr-or' ).text() );
+
+		this.$flickrAddFileContainer = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-upload-ctrl-flickr-container' )
+			.append( this.$uploadCenterDivide );
+
+		this.$addFileContainer = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-add-file-container' )
+			.addClass( 'mwe-upwiz-add-files-0' )
+			.append( this.$flickrAddFileContainer );
+
+		this.$uploadCtrl = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-upload-ctrls' )
+			.addClass( 'mwe-upwiz-file ui-helper-clearfix' )
+			.append( this.$addFileContainer );
+
+		this.$flickrSelectList = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-flickr-select-list' );
+
+		this.$flickrSelectListContainer = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-flickr-select-list-container' )
+			.addClass( 'ui-corner-all' )
+			.append(
+				$( '<div>' )
+					.text( mw.message( 'mwe-upwiz-multi-file-select', config.maxUploads ) ),
+				this.$flickrSelectList
+			);
+
+		this.$div.prepend(
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-files' )
+				.append(
+					this.$flickrSelectListContainer,
+					$( '<div>' )
+						.attr( 'id', 'mwe-upwiz-filelist' )
+						.addClass( 'ui-corner-all' ),
+					this.$uploadCtrl
+				)
+		);
 
 		this.addFile = new OO.ui.ButtonWidget( {
 			id: 'mwe-upwiz-add-file',
 			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
 			flags: [ 'constructive', 'primary' ]
 		} );
-
-		this.$addFileContainer = $( '#mwe-upwiz-add-file-container' );
 
 		this.$addFileContainer.prepend( this.addFile.$element );
 
@@ -59,13 +93,9 @@
 				upload.emit( 'flickr-ui-init' );
 			} );
 
-			this.$flickrAddFileContainer = $( '#mwe-upwiz-upload-ctrl-flickr-container' );
-
 			this.$flickrAddFileContainer.append( this.addFlickrFile.$element );
 
 			this.$flickrSelect = $( '#mwe-upwiz-select-flickr' );
-			this.$flickrSelectList = $( '#mwe-upwiz-flickr-select-list' );
-			this.$flickrSelectListContainer = $( '#mwe-upwiz-flickr-select-list-container' );
 		}
 
 		this.nextStepButtonAllOk = new OO.ui.ButtonWidget( {
@@ -75,15 +105,19 @@
 			upload.emit( 'next-step' );
 		} );
 
-		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).append(
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
-					} ),
-					this.nextStepButtonAllOk
-				]
-			} ).$element
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
+							} ),
+							this.nextStepButtonAllOk
+						]
+					} ).$element
+				)
 		);
 
 		this.retryButtonSomeFailed = new OO.ui.ButtonWidget( {
@@ -101,16 +135,20 @@
 			upload.emit( 'next-step' );
 		} );
 
-		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).append(
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
-					} ),
-					this.retryButtonSomeFailed,
-					this.nextStepButtonSomeFailed
-				]
-			} ).$element
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+							} ),
+							this.retryButtonSomeFailed,
+							this.nextStepButtonSomeFailed
+						]
+					} ).$element
+				)
 		);
 
 		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
@@ -121,15 +159,19 @@
 			upload.emit( 'retry' );
 		} );
 
-		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).append(
-			new OO.ui.HorizontalLayout( {
-				items: [
-					new OO.ui.LabelWidget( {
-						label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
-					} ),
-					this.retryButtonAllFailed
-				]
-			} ).$element
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+							} ),
+							this.retryButtonAllFailed
+						]
+					} ).$element
+				)
 		);
 
 		this.$fileList = $( '#mwe-upwiz-filelist' );
@@ -155,7 +197,7 @@
 
 		if ( haveUploads ) {
 			// we have uploads ready to go, so allow us to proceed
-			this.$uploadCtrlContainer.add( this.$uploadStepButtons ).show();
+			this.$addFileContainer.add( this.$buttons ).show();
 			this.$uploadCenterDivide.hide();
 
 			if ( mw.UploadWizard.config.enableMultipleFiles !== true ) {
@@ -182,7 +224,7 @@
 			this.$fileListings.filter( ':odd' ).addClass( 'odd' );
 			this.$fileListings.filter( ':even' ).removeClass( 'odd' );
 		} else {
-			this.$uploadStepButtons.hide();
+			this.$buttons.hide();
 
 			if ( this.isFlickrImportEnabled() ) {
 				this.$uploadCenterDivide.show();
@@ -226,8 +268,8 @@
 	 * Empties the upload list.
 	 */
 	uw.ui.Upload.prototype.empty = function () {
-		this.$uploadCtrlContainer
-			.add( this.$uploadStepButtons )
+		this.$addFileContainer
+			.add( this.$buttons )
 			.add( this.$progress )
 			.hide();
 
