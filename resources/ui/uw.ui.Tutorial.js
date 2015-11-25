@@ -54,7 +54,7 @@
 		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-tutorial' ),
-			$( '#mwe-upwiz-step-tutorial' )
+			'tutorial'
 		);
 
 		// 'Skip tutorial' checkbox

@@ -32,7 +32,7 @@
 		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-file' ),
-			$( '#mwe-upwiz-step-file' )
+			'file'
 		);
 
 		this.$uploadCtrl = $( '#mwe-upwiz-upload-ctrls' );

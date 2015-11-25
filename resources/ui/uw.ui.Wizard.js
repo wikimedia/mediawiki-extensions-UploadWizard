@@ -122,10 +122,10 @@
 	 * Initializes the arrow steps above the wizard.
 	 */
 	uw.ui.Wizard.prototype.initArrowSteps = function () {
-		$( '#mwe-upwiz-steps' )
+		$( '<ul>' )
+			.attr( 'id', 'mwe-upwiz-steps' )
 			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
-			.arrowSteps()
-			.show();
+			.insertBefore( '#mwe-upwiz-content' );
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

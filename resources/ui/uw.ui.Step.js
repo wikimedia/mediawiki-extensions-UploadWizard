@@ -23,13 +23,20 @@
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {jQuery} $div The div that contains the step.
-	 * @param {jQuery} $arrow The arrow that represents the step.
+	 * @param {string} name The name of this step
 	 */
-	uw.ui.Step = function UWUIStep( $div, $arrow ) {
+	uw.ui.Step = function UWUIStep( $div, name ) {
 		OO.EventEmitter.call( this );
 
+		this.name = name;
 		this.$div = $div;
-		this.$arrow = $arrow;
+		this.$arrow = $( '<li>' )
+			.attr( 'id', 'mwe-upwiz-step-' + this.name )
+			.append(
+				$( '<div>' ).text( mw.message( 'mwe-upwiz-step-' + this.name ).text() )
+			);
+
+		$( '#mwe-upwiz-steps' ).append( this.$arrow );
 	};
 
 	OO.mixinClass( uw.ui.Step, OO.EventEmitter );

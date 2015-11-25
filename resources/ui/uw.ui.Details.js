@@ -33,7 +33,7 @@
 		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-details' ),
-			$( '#mwe-upwiz-step-details' )
+			'details'
 		);
 
 		this.nextButton = new OO.ui.ButtonWidget( {

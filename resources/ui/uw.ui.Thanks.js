@@ -33,7 +33,7 @@
 		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-thanks' ),
-			$( '#mwe-upwiz-step-thanks' )
+			'thanks'
 		);
 
 		if ( this.isObjectReferenceGiven() ) {

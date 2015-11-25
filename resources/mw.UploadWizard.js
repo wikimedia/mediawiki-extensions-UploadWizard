@@ -5,7 +5,7 @@
 ( function ( mw, uw, $, OO ) {
 
 	mw.UploadWizard = function ( config ) {
-		var maxSimPref, wizard;
+		var maxSimPref, wizard = this;
 
 		this.uploads = [];
 		this.api = new mw.Api( { ajax: { timeout: 0 } } );
@@ -16,8 +16,9 @@
 		// Shortcut for local references
 		this.config = config;
 
+		this.steps = {};
+
 		maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
-		wizard = this;
 
 		if ( maxSimPref !== 'default' ) {
 			if ( maxSimPref > 0 ) {
@@ -28,54 +29,6 @@
 		}
 
 		this.maxSimultaneousConnections = config.maxSimultaneousConnections;
-
-		this.steps = {
-			tutorial: new uw.controller.Tutorial( this.api ),
-
-			file: new uw.controller.Upload( config )
-				.on( 'flickr-ui-init', function () {
-					wizard.flickrInterfaceInit();
-					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
-				} )
-
-				.on( 'load', function () {
-					wizard.reset();
-					wizard.resetFileStepUploads();
-				} ),
-
-			deeds: new uw.controller.Deed( this.api, config )
-				.on( 'load', function () {
-					wizard.removeErrorUploads();
-				} ),
-
-			details: new uw.controller.Details( config )
-				.on( 'details-error', function () {
-					wizard.steps.details.showErrors();
-				} )
-
-				.on( 'finalize-details-after-removal', function () {
-					wizard.removeErrorUploads();
-					wizard.steps.details.moveFrom();
-				} ),
-
-			thanks: new uw.controller.Thanks( config )
-				.on( 'reset-wizard', function () {
-					wizard.reset();
-				} )
-		};
-
-		$.each( this.steps, function ( name, step ) {
-			step
-				.on( 'no-uploads', function () {
-					wizard.bailAndMoveToFile();
-				} );
-		} );
-
-		this.steps.tutorial.setNextStep( this.steps.file );
-		this.steps.file.setNextStep( this.steps.deeds );
-		this.steps.deeds.setNextStep( this.steps.details );
-		this.steps.details.setNextStep( this.steps.thanks );
-		this.steps.thanks.setNextStep( this.steps.file );
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
 			message: function () {
@@ -138,8 +91,67 @@
 		createInterface: function () {
 			this.ui = new uw.ui.Wizard( this );
 
+			this.initialiseSteps();
+
 			// "select" the first step - highlight, make it visible, hide all others
 			this.steps.tutorial.moveTo();
+		},
+
+		/**
+		 * Initialise the steps in the wizard
+		 */
+		initialiseSteps: function () {
+			var wizard = this;
+
+			this.steps = {
+				tutorial: new uw.controller.Tutorial( this.api ),
+
+				file: new uw.controller.Upload( this.config )
+					.on( 'flickr-ui-init', function () {
+						wizard.flickrInterfaceInit();
+						uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
+					} )
+
+					.on( 'load', function () {
+						wizard.reset();
+						wizard.resetFileStepUploads();
+					} ),
+
+				deeds: new uw.controller.Deed( this.api, this.config )
+					.on( 'load', function () {
+						wizard.removeErrorUploads();
+					} ),
+
+				details: new uw.controller.Details( this.config )
+					.on( 'details-error', function () {
+						wizard.steps.details.showErrors();
+					} )
+
+					.on( 'finalize-details-after-removal', function () {
+						wizard.removeErrorUploads();
+						wizard.steps.details.moveFrom();
+					} ),
+
+				thanks: new uw.controller.Thanks( this.config )
+					.on( 'reset-wizard', function () {
+						wizard.reset();
+					} )
+			};
+
+			$.each( this.steps, function ( name, step ) {
+				step
+					.on( 'no-uploads', function () {
+						wizard.bailAndMoveToFile();
+					} );
+			} );
+
+			this.steps.tutorial.setNextStep( this.steps.file );
+			this.steps.file.setNextStep( this.steps.deeds );
+			this.steps.deeds.setNextStep( this.steps.details );
+			this.steps.details.setNextStep( this.steps.thanks );
+			this.steps.thanks.setNextStep( this.steps.file );
+
+			$( '#mwe-upwiz-steps' ).arrowSteps();
 		},
 
 		/**

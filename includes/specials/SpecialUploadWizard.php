@@ -392,15 +392,6 @@ class SpecialUploadWizard extends SpecialPage {
 					'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;' .
 				'</div>' .
 
-				// the arrow steps - hide until styled
-				'<ul id="mwe-upwiz-steps" style="display:none;">' .
-					'<li id="mwe-upwiz-step-tutorial"><div>' . $this->msg( 'mwe-upwiz-step-tutorial' )->escaped() . '</div></li>' .
-					'<li id="mwe-upwiz-step-file"><div>' . $this->msg( 'mwe-upwiz-step-file' )->escaped() . '</div></li>' .
-					'<li id="mwe-upwiz-step-deeds"><div>' . $this->msg( 'mwe-upwiz-step-deeds' )->escaped() . '</div></li>' .
-					'<li id="mwe-upwiz-step-details"><div>' . $this->msg( 'mwe-upwiz-step-details' )->escaped() . '</div></li>' .
-					'<li id="mwe-upwiz-step-thanks"><div>' . $this->msg( 'mwe-upwiz-step-thanks' )->escaped() . '</div></li>' .
-				'</ul>' .
-
 				// the individual steps, all at once - hide until needed
 				'<div id="mwe-upwiz-content">' .
 

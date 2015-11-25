@@ -27,7 +27,7 @@
 		uw.ui.Step.call(
 			this,
 			$( '#mwe-upwiz-stepdiv-deeds' ),
-			$( '#mwe-upwiz-step-deeds' )
+			'deeds'
 		);
 
 		this.addNextButton();
