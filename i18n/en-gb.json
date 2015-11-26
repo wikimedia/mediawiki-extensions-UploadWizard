@@ -3,7 +3,8 @@
 		"authors": [
 			"Reedy",
 			"Shirayuki",
-			"Caliburn"
+			"Caliburn",
+			"Sator"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
@@ -56,7 +57,7 @@
 	"mwe-upwiz-next-deeds": "Next",
 	"mwe-upwiz-next-details": "Next",
 	"mwe-upwiz-tooltip-more-info": "Learn more.",
-	"mwe-upwiz-deeds-need-license": "Please select a licence.",
+	"mwe-upwiz-deeds-need-license": "Aukeratu mesedez lizentzia bat.",
 	"mwe-upwiz-license-show-all": "Use a different licence",
 	"mwe-upwiz-license-show-recommended": "Use the recommended licence",
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a licence",
