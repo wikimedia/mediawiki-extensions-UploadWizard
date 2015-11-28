@@ -200,8 +200,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Шира агӀоне гӀо",
 	"mwe-upwiz-subhead-alternatives": "Чуяхаран альтернативан методаш",
 	"mwe-upwiz-feedback-prompt": "Язде хьайна хетарг",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Дахьийта хетарг]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Ма-дарра]",
 	"mwe-upwiz-errordialog-ok": "ХӀаъ",
 	"mwe-upwiz-error-nosuchcampaign": "Яц кампани «$1»",
 	"prefs-uploads": "Чуйаьхарш",
@@ -212,6 +210,7 @@
 	"mwe-upwiz-prefs-def-license-def": "Лелае Ӏад йитарца ерг",
 	"mwe-upwiz-prefs-license-own": "Сан произведени -- $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Хирачера произведени -- $1",
+	"mwe-upwiz-prefs-skiptutorial": "Лицензех лаьцна юкъабало хьехам тергал ца бар",
 	"campaigns": "Чуяхаран говзанчийн компанеш",
 	"mwe-upload-campaigns-pagination-next": "ТӀаьхьа йогӀу агӀо",
 	"mwe-upload-campaigns-list-title": "Чуйоху компанийн могӀам"
