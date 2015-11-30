@@ -13,7 +13,8 @@
 			"Suelnur",
 			"Szoszv",
 			"Captantrips",
-			"Matma Rex"
+			"Matma Rex",
+			"Sayginer"
 		]
 	},
 	"uploadwizard": "Yükleme sihirbazı",
@@ -99,6 +100,7 @@
 	"mwe-upwiz-next-details": "Sonraki",
 	"mwe-upwiz-home": "Viki ana sayfasına git",
 	"mwe-upwiz-upload-another": "Daha fazla dosya yükle",
+	"mwe-upwiz-prevent-close": "Henüz yükleme işlemini tamamlamadınız!",
 	"mwe-upwiz-tooltip-more-info": "Daha fazla bilgi edinin.",
 	"mwe-upwiz-file-need-file": "Lütfen ilk önce bir yükleme ekleyin.",
 	"mwe-upwiz-deeds-need-license": "Bir lisans seçiniz.",
@@ -130,7 +132,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Eski biçime geri dön",
 	"mwe-upwiz-feedback-prompt": "Geribildirim bırak",
 	"mwe-upwiz-feedback-title": "Yükleme Sihirbazı hakkında geribildirimde bulunun",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Geribildirim Gönder]",
 	"mwe-upwiz-errordialog-ok": "TAMAM",
 	"prefs-upwiz-licensing": "Lisanslama",
 	"prefs-upwiz-experimental": "Deneysel özellikler",
