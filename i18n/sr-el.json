@@ -241,7 +241,7 @@
 	"mwe-upwiz-feedback-title": "Dajte svoje mišljenje o Pomoćniku za otpremanje",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Ovo je naslovni zapis na crnom spisku koji odgovara:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Naslov „$1“ je zabranjen.",
-	"mwe-upwiz-errordialog-title": "Došlo je do greške u podnošenju",
+	"mwe-upwiz-errordialog-title": "Došlo je do greške u slanju",
 	"mwe-upwiz-errordialog-ok": "U redu",
 	"mwe-upwiz-error-nosuchcampaign": "Nema kampanje pod nazivom „$1“.",
 	"mwe-upwiz-error-campaigndisabled": "Kampanja „$1“ nije omogućena.",

@@ -185,7 +185,7 @@
 	"mwe-upwiz-tooltip-sign": "Můžete použít své uživatelské jméno na wiki nebo své skutečné jméno.\nV obou případech odtud povede odkaz na vaši stránku na wiki.",
 	"mwe-upwiz-tooltip-title": "Krátký unikátní nadpis tohoto souboru, který bude sloužit jako jeho název. Můžete použít běžný jazyk i s mezerami. Nevkládejte příponu souboru.",
 	"mwe-upwiz-tooltip-description": "Stručně popište všechny důležité informace o díle.\nU fotografií zmiňte hlavní zobrazené objekty, příležitost, při které fotografie vznikla, nebo místo.",
-	"mwe-upwiz-tooltip-date": "Datum, kdy bylo toto dílo vytvořeno nebo prvně zveřejněno (ve formátu RRRR-MM-DD).",
+	"mwe-upwiz-tooltip-date": "Vyberte z kalendáře datum, kdy bylo toto dílo vytvořeno nebo prvně zveřejněno, nebo ho zadejte ve formátu RRRR-MM-DD.",
 	"mwe-upwiz-tooltip-categories": "Přidejte soubor do [$1 kategorií], aby šel snáze najít.",
 	"mwe-upwiz-tooltip-other": "Libovolné další informace, které k tomuto dílu chcete přidat – zeměpisné souřadnice, odkazy na jiné verze atd.",
 	"mwe-upwiz-tooltip-location": "Souřadnice místa, na kterém tento soubor vznikl.",

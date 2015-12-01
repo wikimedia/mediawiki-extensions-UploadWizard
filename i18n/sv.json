@@ -17,7 +17,8 @@
 			"WikiPhoenix",
 			"Jenniesarina",
 			"Josve05a",
-			"Matma Rex"
+			"Matma Rex",
+			"Fader"
 		]
 	},
 	"uploadwizard": "Uppladdningsguiden",
@@ -213,6 +214,7 @@
 	"mwe-upwiz-error-nologin": "Du måste vara <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} inloggad]</span> för att ladda upp filer.",
 	"mwe-upwiz-error-too-long": "Detta värde är för långt.\nGör det kortare än $1 {{PLURAL:$1|tecken}}.",
 	"mwe-upwiz-error-too-short": "Detta värde är för kort.\nGör det längre än $1 {{PLURAL:$1|tecken}}.",
+	"mwe-upwiz-error-bad-descriptions": "Det finns problem med några av de beskrivningar.",
 	"mwe-upwiz-error-bad-chars": "Detta objekt innehåller symboler som inte är tillåtna.\nAnvänd inte wikitext eller HTML här.",
 	"mwe-upwiz-error-title-blacklisted": "Denna titel innehåller en del oönskade text. Vänligen se över den",
 	"mwe-upwiz-error-title-badchars": "Denna titel innehåller några oönskade tecken. Ta bort dem.",

@@ -125,6 +125,7 @@
 	"mwe-upwiz-error-signature-too-short": "Vaš potpis je prekratak.\nUčinite ga duljim od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Vaš potpis sadrži simbole koji nisu dozvoljeni.\nMolimo vas ne rabite wikitext ili HTML ovdje, samo vaše suradničko ime ili pravo ime.",
 	"mwe-upwiz-error-blank": "Ovo polje je obvezno.",
+	"mwe-upwiz-error-nologin": "Ako želite postavljati datoteke, morate biti <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} prijavljeni]</span>.",
 	"mwe-upwiz-error-too-long": "Tekst u ovom polju je predug.\nSkratite ga da bude manje od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-too-short": "Tekst u ovom polju je prekratak.\nProdužite ga da bude dulji od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-bad-chars": "Ovo polje sadrži znakove koji nisu dopušteni.\nMolimo ne rabite ovdje wikitekst ili HTML.",

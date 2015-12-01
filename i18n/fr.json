@@ -222,7 +222,7 @@
 	"mwe-upwiz-tooltip-sign": "Vous pouvez utiliser votre nom d’utilisateur du wiki ou votre vrai nom. Dans les deux cas, ce sera lié à votre page utilisateur du wiki",
 	"mwe-upwiz-tooltip-title": "Un titre court et unique pour le fichier, qui servira de nom de fichier. Utilisez un langage simple avec des espaces. N’inscrivez pas l’extension du fichier.",
 	"mwe-upwiz-tooltip-description": "Décrivez brièvement tout ce qui est remarquable à propos de cette œuvre.\nPour une photo, mentionnez les principaux éléments représentés, l’événement ou le lieu.",
-	"mwe-upwiz-tooltip-date": "Date de la création ou de la première publication de cette œuvre (format « aaaa-mm-jj »).",
+	"mwe-upwiz-tooltip-date": "Choisir la date de la création ou de la première publication de cette œuvre avec le calendrier, ou la saisir au format AAAA-MM-JJ.",
 	"mwe-upwiz-tooltip-categories": "Ajoutez votre fichier aux [$1 catégories] pour le rendre plus facile à trouver.",
 	"mwe-upwiz-tooltip-other": "Toute autre information que vous souhaitez inclure à propos de ce travail — coordonnées géographiques, liens vers d’autres versions, …",
 	"mwe-upwiz-tooltip-location": "[$1 Géocoder votre fichier] pour identifier où le média a été enregistré (il n’est pas toujours utile de saisir un emplacement pour chaque sorte de média).",
