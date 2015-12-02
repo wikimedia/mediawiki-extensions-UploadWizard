@@ -163,7 +163,7 @@
 	"mwe-upwiz-tooltip-sign": "Uporabite lahko vaše uporabniško ime na wikiju ali vaše pravo ime.\nV obeh primerih bo vpisano ime povezano na vašo uporabniško stran na wikiju.",
 	"mwe-upwiz-tooltip-title": "Kratek edinstven naslov datoteke, ki bo slušil kot ime datoteke. Uporabljate lahko navaden jezik s presledki. Ne vključujte datotečne končnice.",
 	"mwe-upwiz-tooltip-description": "Na kratko opišite vse opaznejše o delu.\nPri fotografiji omenite glavne stvari, ki so upodobljene, priložnost ali kraj.",
-	"mwe-upwiz-tooltip-date": "Datum, ko je bilo to delo ustvarjeno ali prvič objavljeno (v obliki »llll-mm-dd«).",
+	"mwe-upwiz-tooltip-date": "Izberite datum, ko je bilo to delo ustvarjeno ali prvič objavljeno, s koledarja ali ga vnesite v obliki LLLL-MM-DD.",
 	"mwe-upwiz-tooltip-categories": "Svojo datoteko dodajte v [$1 kategorije], da jo bo lažje najti.",
 	"mwe-upwiz-tooltip-other": "Vse druge informacije o tem delu, ki jih želite vključiti – geografske koordinate, povezave do drugih različic idr.",
 	"mwe-upwiz-tooltip-location": "[$1 Geokodirajte svojo datoteko], da navedete, kje je bila predstavnostna datoteka posneta (včasih ni koristno navesti lokacije za vsako vrsto predstavnosti).",

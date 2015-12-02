@@ -207,7 +207,7 @@
 	"mwe-upwiz-tooltip-sign": "你可以使用你的维基用户名或你的真实姓名。两种情况下，它都会链接至你的维基用户页面。",
 	"mwe-upwiz-tooltip-title": "将用作该文件文件名的唯一的描述性的标题。你可以使用有空格的简明语言。请不要包含文件扩展名。",
 	"mwe-upwiz-tooltip-description": "请简单说明有关该作品的重要信息。例如对照片来说，请说明照片中的主体物体、场景或拍摄地点。",
-	"mwe-upwiz-tooltip-date": "该作品的创作日期或首次发表日期（“年-月-日”格式）。",
+	"mwe-upwiz-tooltip-date": "从日历中选择该作品的创作日期或首次发表日期，或以“年-月-日”格式输入。",
 	"mwe-upwiz-tooltip-categories": "添加你的文件至[$1 分类]使其更容易被找到。",
 	"mwe-upwiz-tooltip-other": "你想要包含的有关该作品的任何其他信息 — 如地理坐标，其他版本链接等。",
 	"mwe-upwiz-tooltip-location": "[$1 定位您的文件]以识别记录媒体的地方（输入位置不总是对任何媒体类型有用）。",
