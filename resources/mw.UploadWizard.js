@@ -209,8 +209,7 @@
 		 */
 		flickrChecker: function ( checker ) {
 			var flickrInputUrl = $( '#mwe-upwiz-flickr-input' ).val();
-			checker.getLicenses();
-			$( '#mwe-upwiz-flickr-select-list-container' ).bind( 'licenselistfilled', function () {
+			checker.getLicenses().done( function () {
 				checker.checkFlickr( flickrInputUrl );
 			} );
 		},

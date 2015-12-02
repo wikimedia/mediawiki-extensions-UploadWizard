@@ -34,25 +34,35 @@
 	 */
 	mw.FlickrChecker.blacklist = null;
 
-	mw.FlickrChecker.prototype = {
-		licenseList: [],
-		// Map each Flickr license name to the equivalent templates.
-		// These are the current Flickr license names as of April 26, 2011.
-		// Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=...
-		licenseMaps: {
-			'All Rights Reserved': 'invalid',
-			'Attribution License': '{{FlickrVerifiedByUploadWizard|cc-by-2.0}}{{cc-by-2.0}}',
-			'Attribution-NoDerivs License': 'invalid',
-			'Attribution-NonCommercial-NoDerivs License': 'invalid',
-			'Attribution-NonCommercial License': 'invalid',
-			'Attribution-NonCommercial-ShareAlike License': 'invalid',
-			'Attribution-ShareAlike License': '{{FlickrVerifiedByUploadWizard|cc-by-sa-2.0}}{{cc-by-sa-2.0}}',
-			'No known copyright restrictions': '{{FlickrVerifiedByUploadWizard|Flickr-no known copyright restrictions}}{{Flickr-no known copyright restrictions}}',
-			'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}',
-			'Public Domain Dedication (CC0)': '{{FlickrVerifiedByUploadWizard|cc-zero}}{{cc-zero}}',
-			'Public Domain Mark': '{{FlickrVerifiedByUploadWizard|Public Domain Mark}}' // T105629
-		},
+	/**
+	 * Cache for Flickr license lookups.
+	 * @type {jQuery.Promise}
+	 */
+	mw.FlickrChecker.licensePromise = null;
 
+	/**
+	 * Flickr licenses.
+	 */
+	mw.FlickrChecker.licenseList = [];
+
+	// Map each Flickr license name to the equivalent templates.
+	// These are the current Flickr license names as of April 26, 2011.
+	// Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=...
+	mw.FlickrChecker.licenseMaps = {
+		'All Rights Reserved': 'invalid',
+		'Attribution License': '{{FlickrVerifiedByUploadWizard|cc-by-2.0}}{{cc-by-2.0}}',
+		'Attribution-NoDerivs License': 'invalid',
+		'Attribution-NonCommercial-NoDerivs License': 'invalid',
+		'Attribution-NonCommercial License': 'invalid',
+		'Attribution-NonCommercial-ShareAlike License': 'invalid',
+		'Attribution-ShareAlike License': '{{FlickrVerifiedByUploadWizard|cc-by-sa-2.0}}{{cc-by-sa-2.0}}',
+		'No known copyright restrictions': '{{FlickrVerifiedByUploadWizard|Flickr-no known copyright restrictions}}{{Flickr-no known copyright restrictions}}',
+		'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}',
+		'Public Domain Dedication (CC0)': '{{FlickrVerifiedByUploadWizard|cc-zero}}{{cc-zero}}',
+		'Public Domain Mark': '{{FlickrVerifiedByUploadWizard|Public Domain Mark}}' // T105629
+	};
+
+	mw.FlickrChecker.prototype = {
 		/**
 		 * If a photo is from Flickr, retrieve its license. If the license is valid, display the license
 		 * to the user, hide the normal license selection interface, and set it as the deed for the upload.
@@ -576,20 +586,27 @@
 
 		/**
 		 * Retrieve the list of all current Flickr licenses and store it in an array (`mw.FlickrChecker.licenseList`)
+		 *
+		 * @return {jQuery.Promise}
 		 */
 		getLicenses: function () {
+			if ( mw.FlickrChecker.licensePromise ) {
+				return mw.FlickrChecker.licensePromise;
+			}
+
 			// Workaround for http://bugs.jquery.com/ticket/8283
 			jQuery.support.cors = true;
-			this.flickrRequest( {
+			mw.FlickrChecker.licensePromise = this.flickrRequest( {
 				method: 'flickr.photos.licenses.getInfo'
-			} ).done( function ( data ) {
+			} ).then( function ( data ) {
 				if ( typeof data.licenses !== 'undefined' ) {
 					$.each( data.licenses.license, function ( index, value ) {
-						mw.FlickrChecker.prototype.licenseList[ value.id ] = value.name;
+						mw.FlickrChecker.licenseList[ value.id ] = value.name;
 					} );
 				}
-				$( '#mwe-upwiz-flickr-select-list-container' ).trigger( 'licenselistfilled' );
 			} );
+
+			return mw.FlickrChecker.licensePromise;
 		},
 
 		setUploadDescription: function ( upload, description ) {
@@ -665,9 +682,9 @@
 		checkLicense: function ( licenseId ) {
 			var licenseMessage, license,
 				// The returned data.photo.license is just an ID that we use to look up the license name
-				licenseName = mw.FlickrChecker.prototype.licenseList[ licenseId ],
+				licenseName = mw.FlickrChecker.licenseList[ licenseId ],
 				// Use the license name to retrieve the template values
-				licenseValue = mw.FlickrChecker.prototype.licenseMaps[ licenseName ];
+				licenseValue = mw.FlickrChecker.licenseMaps[ licenseName ];
 
 			// Set the license message to show the user.
 			if ( licenseValue === 'invalid' ) {
