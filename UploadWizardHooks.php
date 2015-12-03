@@ -476,6 +476,12 @@ class UploadWizardHooks {
 			),
 		),
 
+		'uw.base' => array(
+			'scripts' => array(
+				'resources/uw/uw.base.js',
+			),
+		),
+
 		'uw.controller.base' => array(
 			'scripts' => array(
 				'resources/controller/uw.controller.base.js',
@@ -601,7 +607,7 @@ class UploadWizardHooks {
 
 		'uw.ui.Deed' => array(
 			'scripts' => array(
-				'resources/ui/uw.ui.Deed.js',
+				'resources/ui/steps/uw.ui.Deed.js',
 			),
 
 			'dependencies' => array(
@@ -622,7 +628,7 @@ class UploadWizardHooks {
 
 		'uw.ui.Details' => array(
 			'scripts' => array(
-				'resources/ui/uw.ui.Details.js',
+				'resources/ui/steps/uw.ui.Details.js',
 			),
 
 			'dependencies' => array(
@@ -638,11 +644,11 @@ class UploadWizardHooks {
 
 		'uw.ui.Thanks' => array(
 			'scripts' => array(
-				'resources/ui/uw.ui.Thanks.js',
+				'resources/ui/steps/uw.ui.Thanks.js',
 			),
 
 			'styles' => array(
-				'resources/ui/uw.ui.Thanks.less',
+				'resources/ui/steps/uw.ui.Thanks.less',
 			),
 
 			'dependencies' => array(
@@ -660,18 +666,12 @@ class UploadWizardHooks {
 			),
 		),
 
-		'uw.base' => array(
-			'scripts' => array(
-				'resources/uw/uw.base.js',
-			),
-		),
-
 		'uw.ui.Tutorial' => array(
 			'scripts' => array(
-				'resources/ui/uw.ui.Tutorial.js',
+				'resources/ui/steps/uw.ui.Tutorial.js',
 			),
 			'styles' => array(
-				'resources/ui/uw.ui.Tutorial.css',
+				'resources/ui/steps/uw.ui.Tutorial.css',
 			),
 
 			'dependencies' => array(
@@ -690,7 +690,7 @@ class UploadWizardHooks {
 
 		'uw.ui.Upload' => array(
 			'scripts' => array(
-				'resources/ui/uw.ui.Upload.js',
+				'resources/ui/steps/uw.ui.Upload.js',
 			),
 
 			'dependencies' => array(
