@@ -76,37 +76,36 @@
 		checkFlickr: function ( flickrInputUrl ) {
 			var photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
 
-			this.url = flickrInputUrl;
-			photoIdMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/ );
-			albumIdMatches = this.url.match( /flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/ );
-			userCollectionMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/ );
-			userPhotostreamMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/ );
-			groupPoolMatches = this.url.match( /flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/ );
-			userGalleryMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/ );
-			userFavoritesMatches = this.url.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/ );
+			photoIdMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/ );
+			albumIdMatches = flickrInputUrl.match( /flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/ );
+			userCollectionMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/ );
+			userPhotostreamMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/ );
+			groupPoolMatches = flickrInputUrl.match( /flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/ );
+			userGalleryMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/ );
+			userFavoritesMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/ );
 
 			if ( photoIdMatches === null ) {
 				// try static urls
-				photoIdMatches = this.url.match( /static\.?flickr\.com\/[^\/]+\/([0-9]+)_/ );
+				photoIdMatches = flickrInputUrl.match( /static\.?flickr\.com\/[^\/]+\/([0-9]+)_/ );
 			}
 			if ( albumIdMatches || photoIdMatches || userCollectionMatches || userPhotostreamMatches ||
 				groupPoolMatches || userGalleryMatches || userFavoritesMatches ) {
 				$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 				this.imageUploads = [];
 				if ( albumIdMatches && albumIdMatches[ 1 ] > 0 ) {
-					this.getPhotoset( albumIdMatches );
+					this.getPhotoset( albumIdMatches, flickrInputUrl );
 				} else if ( photoIdMatches && photoIdMatches[ 1 ] > 0 ) {
-					this.getPhoto( photoIdMatches );
+					this.getPhoto( photoIdMatches, flickrInputUrl );
 				} else if ( userCollectionMatches ) {
-					this.getCollection( userCollectionMatches );
+					this.getCollection( userCollectionMatches, flickrInputUrl );
 				} else if ( userFavoritesMatches && userFavoritesMatches[ 1 ] ) {
-					this.getPhotostream( 'favorites', userPhotostreamMatches );
+					this.getPhotostream( 'favorites', userPhotostreamMatches, flickrInputUrl );
 				} else if ( userGalleryMatches && userGalleryMatches[ 1 ] ) {
-					this.getGallery();
+					this.getGallery( flickrInputUrl );
 				} else if ( userPhotostreamMatches && userPhotostreamMatches[ 1 ] ) {
-					this.getPhotostream( 'stream' );
+					this.getPhotostream( 'stream', flickrInputUrl );
 				} else if ( groupPoolMatches ) {
-					this.getGroupPool( groupPoolMatches );
+					this.getGroupPool( groupPoolMatches, flickrInputUrl );
 				}
 			} else {
 				// XXX show user the message that the URL entered was not valid
@@ -165,23 +164,25 @@
 
 		/*
 		 * Retrieves a list of photos in photostream and displays it.
+		 * @see {@link getPhotos}
 		 * @param {string} mode may be: 'favorites' - user's favorites are retrieved,
 		 * or 'stream' - user's photostream is retrieved
-		 * @see {@link getPhotos}
+		 * @param {string} url URL to get the user from.
+		 * @return {jQuery.Promise}
 		 */
-		getPhotostream: function ( mode ) {
-			var that = this;
-			this.flickrRequest( {
+		getPhotostream: function ( mode, url ) {
+			var checker = this;
+			return this.flickrRequest( {
 				method: 'flickr.urls.lookupUser',
-				url: this.url
-			} ).done( function ( data ) {
+				url: url
+			} ).then( function ( data ) {
 				var method;
 				if ( mode === 'stream' ) {
 					method = 'flickr.people.getPublicPhotos';
 				} else if ( mode === 'favorites' ) {
 					method = 'flickr.favorites.getPublicList';
 				}
-				that.getPhotos( 'photos', {
+				return checker.getPhotos( 'photos', {
 					method: method,
 					user_id: data.user.id
 				} );
@@ -191,33 +192,37 @@
 		/**
 		 * Retrieves a list of photos in group pool and displays it.
 		 *
-		 * @param {Object} groupPoolMatches Result of `this.url.match`
+		 * @param {Object} groupPoolMatches Groups in the input URL
+		 * @param {string} url The URL from which to get the group.
 		 * @see {@link getPhotos}
+		 * @return {jQuery.Promise}
 		 */
-		getGroupPool: function ( groupPoolMatches ) {
-			var that = this;
-			this.flickrRequest( {
+		getGroupPool: function ( groupPoolMatches, url ) {
+			var checker = this;
+
+			return this.flickrRequest( {
 				method: 'flickr.urls.lookupGroup',
-				url: this.url
-			} ).done( function ( data ) {
+				url: url
+			} ).then( function ( data ) {
 				var gid = data.group.id;
+
 				if ( groupPoolMatches[ 1 ] ) { // URL contains a user ID
-					that.flickrRequest( {
+					return checker.flickrRequest( {
 						method: 'flickr.urls.lookupUser',
 						url: 'http://www.flickr.com/photos/' + groupPoolMatches[ 1 ]
-					} ).done( function ( data ) {
-						that.getPhotos( 'photos', {
+					} ).then( function ( data ) {
+						return checker.getPhotos( 'photos', {
 							method: 'flickr.groups.pools.getPhotos',
 							group_id: gid,
 							user_id: data.user.id
 						} );
 					} );
-				} else {
-					that.getPhotos( 'photos', {
-						method: 'flickr.groups.pools.getPhotos',
-						group_id: gid
-					} );
 				}
+
+				return checker.getPhotos( 'photos', {
+					method: 'flickr.groups.pools.getPhotos',
+					group_id: gid
+				} );
 			} );
 		},
 
@@ -267,23 +272,28 @@
 		 * Retrieves a list of sets in a collection and displays it.
 		 *
 		 * @param {Object} userCollectionMatches Result of this.url.match
+		 * @param {string} url URL with which to look up the user.
+		 * @return {jQuery.Promise}
 		 */
-		getCollection: function ( userCollectionMatches ) {
-			var that = this;
-			this.flickrRequest( {
+		getCollection: function ( userCollectionMatches, url ) {
+			var checker = this;
+
+			return checker.flickrRequest( {
 				method: 'flickr.urls.lookupUser',
-				url: this.url
-			} ).done( function ( data ) {
+				url: url
+			} ).then( function ( data ) {
 				var req = {
 					method: 'flickr.collections.getTree',
 					extras: 'license, url_sq, owner_name, original_format, date_taken, geo',
 					user_id: data.user.id
 				};
+
 				if ( userCollectionMatches[ 1 ] ) {
 					req.collection_id = userCollectionMatches[ 1 ];
 				}
-				that.flickrRequest( req ).done( function ( data ) {
-					$( '#mwe-upwiz-files' ).append( that.buildCollectionLinks( true, data.collections ) );
+
+				return checker.flickrRequest( req ).then( function ( data ) {
+					$( '#mwe-upwiz-files' ).append( checker.buildCollectionLinks( true, data.collections ) );
 				} );
 			} );
 		},
@@ -292,14 +302,17 @@
 		 * Retrieves a list of photos in gallery and displays it.
 		 *
 		 * @see {@link getPhotos}
+		 * @param {string} url URL with which to look up the gallery information.
+		 * @return {jQuery.Promise}
 		 */
-		getGallery: function () {
-			var that = this;
-			this.flickrRequest( {
+		getGallery: function ( url ) {
+			var checker = this;
+
+			return this.flickrRequest( {
 				method: 'flickr.urls.lookupGallery',
-				url: this.url
-			} ).done( function ( data ) {
-				that.getPhotos( 'photos', {
+				url: url
+			} ).then( function ( data ) {
+				return checker.getPhotos( 'photos', {
 					method: 'flickr.galleries.getPhotos',
 					gallery_id: data.gallery.id
 				} );
@@ -309,11 +322,12 @@
 		/**
 		 * Retrieves a list of photos in photoset and displays it.
 		 *
-		 * @param {Object} albumIdMatches Result of this.url.match
 		 * @see {@link getPhotos}
+		 * @param {Object} albumIdMatches Result of this.url.match
+		 * @return {jQuery.Promise}
 		 */
 		getPhotoset: function ( albumIdMatches ) {
-			this.getPhotos( 'photoset', {
+			return this.getPhotos( 'photoset', {
 				method: 'flickr.photosets.getPhotos',
 				photoset_id: albumIdMatches[ 1 ]
 			} );
@@ -327,6 +341,7 @@
 		 *	 to determine how the properties in retrieved JSON are named)
 		 * @param {Object} options options to pass to the API call; especially API method
 		 *	 and some "***_id"s (photoset_id, etc.)
+		 * @return {jQuery.Promise}
 		 */
 		getPhotos: function ( mode, options ) {
 			var checker = this,
@@ -355,7 +370,7 @@
 			} );
 
 			// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
-			$.when( flickrPromise, this.getBlacklist() ).then( function ( photoset, blacklist ) {
+			return $.when( flickrPromise, this.getBlacklist() ).then( function ( photoset, blacklist ) {
 				var fileName, sourceURL,
 					imagesHTML = '',
 					x = 0;
@@ -465,12 +480,19 @@
 			} );
 		},
 
+		/**
+		 * Get a single photo from Flickr.
+		 *
+		 * @param {Object} photoIdMatches Result of matching input URL against a regex
+		 *   for photo IDs.
+		 * @return {jQuery.Promise}
+		 */
 		getPhoto: function ( photoIdMatches ) {
 			var fileName, photoAuthor, sourceURL,
 				checker = this,
 				photoId = photoIdMatches[ 1 ];
 
-			this.flickrRequest( {
+			return this.flickrRequest( {
 				method: 'flickr.photos.getInfo',
 				photo_id: photoId
 			} ).then( function ( data ) {
