@@ -114,6 +114,13 @@ class UploadWizardTutorial {
 			$helpDeskHref = $helpDeskUrl;
 		} else {
 			$helpDeskTitle = Title::newFromText( $helpDeskUrl );
+			if ( !$helpDeskTitle || !$helpDeskTitle->exists() ) {
+				// Fall back to the wiki's content language...if that page
+				// doesn't exist, we can't help.
+				$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->inContentLanguage()->text();
+				$helpDeskTitle = Title::newFromText( $helpDeskUrl );
+			}
+
 			$helpDeskHref = $helpDeskTitle ? $helpDeskTitle->getLocalURL() : '#';
 		}
 
