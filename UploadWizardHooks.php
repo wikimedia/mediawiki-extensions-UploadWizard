@@ -848,7 +848,9 @@ class UploadWizardHooks {
 					'type' => 'check',
 					'label-message' => array(
 						'mwe-upwiz-prefs-chunked',
-						$wgLang->formatSize( UploadWizardConfig::getSetting( 'chunkSize' ) )
+						$wgLang->formatSize( UploadWizardConfig::getSetting( 'chunkSize' ) ),
+						$wgLang->formatSize( UploadWizardConfig::getSetting( 'maxPhpUploadSize' ) ),
+						$wgLang->formatSize( UploadWizardConfig::getSetting( 'maxMwUploadSize' ) )
 					),
 					'section' => 'uploads/upwiz-experimental'
 				);

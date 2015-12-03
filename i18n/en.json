@@ -321,7 +321,7 @@
 	"mwe-upwiz-prefs-def-license-def": "Use whatever the default is",
 	"mwe-upwiz-prefs-license-own": "Own work - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Someone else's work - $1",
-	"mwe-upwiz-prefs-chunked": "Chunked uploads for files over $1 in Upload Wizard",
+	"mwe-upwiz-prefs-chunked": "Chunked uploads for files over $1 in Upload Wizard - Increases maximum file upload size from $2 to $3",
 	"mwe-upwiz-prefs-skiptutorial": "Skip introductory licensing tutorial",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximum number of concurrent uploads",
 	"campaigns": "Upload Wizard campaigns",
