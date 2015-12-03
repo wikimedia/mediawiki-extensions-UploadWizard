@@ -384,6 +384,9 @@ class SpecialUploadWizard extends SpecialPage {
 		return
 		// @codingStandardsIgnoreStart
 			'<div id="upload-wizard" class="upload-section">' .
+				'<div id="mwe-upwiz-tutorial-html" style="display:none;">' .
+					$tutorialHtml .
+				'</div>' .
 
 				// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
 				// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
@@ -391,66 +394,6 @@ class SpecialUploadWizard extends SpecialPage {
 				'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">' .
 					'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;' .
 				'</div>' .
-
-				// the individual steps, all at once - hide until needed
-				'<div id="mwe-upwiz-content">' .
-
-					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-tutorial" style="display:none;">' .
-						'<div id="mwe-upwiz-tutorial">' .
-							$tutorialHtml .
-						'</div>' .
-						'<div class="mwe-upwiz-buttons"></div>' .
-					'</div>' .
-
-					'<div class="mwe-upwiz-stepdiv ui-helper-clearfix" id="mwe-upwiz-stepdiv-file" style="display:none;">' .
-						'<div id="mwe-upwiz-files">' .
-							'<div id="mwe-upwiz-flickr-select-list-container" class="ui-corner-all">' .
-								'<div>' . $this->msg( 'mwe-upwiz-multi-file-select', $config['maxUploads'] )->escaped() . '</div>' .
-								'<div id="mwe-upwiz-flickr-select-list"></div>' .
-							'</div>' .
-							'<div id="mwe-upwiz-filelist" class="ui-corner-all"></div>' .
-							'<div id="mwe-upwiz-upload-ctrls" class="mwe-upwiz-file ui-helper-clearfix">' .
-								'<div id="mwe-upwiz-add-file-container" class="mwe-upwiz-add-files-0">' .
-									'<div id="mwe-upwiz-upload-ctrl-flickr-container">' .
-										'<p id="mwe-upwiz-upload-ctr-divide">' . $this->msg( "mwe-upwiz-add-flickr-or" )->escaped() . '</p>' .
-									'</div>' .
-								'</div>' .
-							'</div>' .
-							'<div class="mwe-upwiz-buttons">' .
-								'<div class="mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice"></div>' .
-								'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice"></div>' .
-								'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice"></div>' .
-								'<div id="mwe-upwiz-progress" class="ui-helper-clearfix"></div>' .
-								'<div id="mwe-upwiz-continue" class="ui-helper-clearfix"></div>' .
-							'</div>' .
-						'</div>' .
-					'</div>' .
-
-					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-deeds" style="display:none;">' .
-						'<div id="mwe-upwiz-deeds-thumbnails" class="ui-helper-clearfix"></div>' .
-						'<div id="mwe-upwiz-deeds" class="ui-helper-clearfix"></div>' .
-						'<div id="mwe-upwiz-deeds-custom" class="ui-helper-clearfix"></div>' .
-						'<div class="mwe-upwiz-buttons"></div>' .
-					'</div>' .
-
-					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-details" style="display:none;">' .
-						'<div id="mwe-upwiz-macro-files" class="mwe-upwiz-filled-filelist ui-corner-all"></div>' .
-						'<div class="mwe-upwiz-buttons">' .
-							'<div class="mwe-upwiz-start-next mwe-upwiz-file-endchoice"></div>' .
-							'<div class="mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice"></div>' .
-							'<div class="mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice"></div>' .
-						'</div>' .
-					'</div>' .
-
-					'<div class="mwe-upwiz-stepdiv" id="mwe-upwiz-stepdiv-thanks" style="display:none;">' .
-						'<div id="mwe-upwiz-thanks"></div>' .
-						'<div class="mwe-upwiz-buttons"></div>' .
-					'</div>' .
-
-				'</div>' .
-
-				'<div class="mwe-upwiz-clearing"></div>' .
-
 			'</div>';
 		// @codingStandardsIgnoreEnd
 	}

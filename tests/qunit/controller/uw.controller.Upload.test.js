@@ -61,7 +61,7 @@
 		var upload = {
 				start: this.sandbox.stub()
 			},
-			step = new uw.controller.Upload();
+			step = new uw.controller.Upload( {} );
 
 		this.sandbox.stub( step, 'maybeStartProgressBar' );
 		assert.strictEqual( upload.start.called, false );

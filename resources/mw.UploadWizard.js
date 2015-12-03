@@ -86,10 +86,10 @@
 		},
 
 		/**
-		 * create the basic interface to make an upload in this div
+		 * Create the basic interface to make an upload in this div
 		 */
-		createInterface: function () {
-			this.ui = new uw.ui.Wizard( this );
+		createInterface: function ( selector ) {
+			this.ui = new uw.ui.Wizard( selector );
 
 			this.initialiseSteps();
 

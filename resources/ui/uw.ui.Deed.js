@@ -26,8 +26,19 @@
 	uw.ui.Deed = function UWUIDeed() {
 		uw.ui.Step.call(
 			this,
-			$( '#mwe-upwiz-stepdiv-deeds' ),
 			'deeds'
+		);
+
+		this.$div.prepend(
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-deeds-thumbnails' )
+				.addClass( 'ui-helper-clearfix' ),
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-deeds' )
+				.addClass( 'ui-helper-clearfix' ),
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-deeds-custom' )
+				.addClass( 'ui-helper-clearfix' )
 		);
 
 		this.addNextButton();
