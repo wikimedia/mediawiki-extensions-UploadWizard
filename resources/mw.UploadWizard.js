@@ -231,7 +231,7 @@
 			$( '#mwe-upwiz-flickr-input' ).val( '' );
 			$( '#mwe-upwiz-flickr-select-list' ).empty();
 			$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
-			$( '#mwe-upwiz-select-flickr' ).unbind();
+			$( '#mwe-upwiz-select-flickr' ).remove();
 			$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 			$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', true );

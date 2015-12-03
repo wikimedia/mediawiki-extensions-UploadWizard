@@ -10,7 +10,7 @@
 
 		this.selectButton = new OO.ui.ButtonWidget( {
 			id: 'mwe-upwiz-select-flickr',
-			label: mw.message( 'mwe-upwiz-add-file-0-free' ),
+			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
 			flags: [ 'constructive', 'primary' ]
 		} );
 
@@ -451,6 +451,7 @@
 						checker.setUploadDescription( checker.imageUploads[ image ] );
 						checker.setImageURL( image );
 					} );
+					checker.wizard.flickrInterfaceDestroy();
 				} );
 
 				if ( checker.imageUploads.length === 0 ) {

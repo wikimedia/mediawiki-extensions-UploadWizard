@@ -260,7 +260,8 @@
 		if ( this.isFlickrImportEnabled() ) {
 			// changes the flickr add button to "add more files from flickr" if necessary.
 			this.addFlickrFile.setLabel( mw.message( fmsg ).text() );
-			this.$flickrAddFileContainer.show();
+			// jQuery likes to restore the wrong 'display' value when doing .show()
+			this.$flickrAddFileContainer.css( 'display', '' );
 		}
 	};
 
