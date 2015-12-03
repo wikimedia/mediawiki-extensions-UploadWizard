@@ -187,7 +187,7 @@
 	"mwe-upwiz-tooltip-sign": "Pode empregar o nome de usuario que ten no wiki ou o seu nome real.\nEn calquera caso, haberá unha ligazón cara a súa páxina de usuario do wiki.",
 	"mwe-upwiz-tooltip-title": "Un título curto e único que servirá para dar nome ao ficheiro. Sería bo utilizar unha lingua sinxela con espazos. Non inclúa a extensión do ficheiro.",
 	"mwe-upwiz-tooltip-description": "Describa brevemente calquera cousa salientable da obra.\nPara unha foto, mencione as principais cousas que están representadas, a ocasión ou o lugar.",
-	"mwe-upwiz-tooltip-date": "Data de creación ou primeira publicación da obra (en formato \"aaaa-mm-dd\").",
+	"mwe-upwiz-tooltip-date": "Escolla a data na que foi creada ou da primeira publicación da obra no calendario, ou indíquea no formato \"AAAA-MM-DD\".",
 	"mwe-upwiz-tooltip-categories": "Engada [$1 categorías] ao seu ficheiro para facelo máis doado de atopar.",
 	"mwe-upwiz-tooltip-other": "Calquera outra información que desexe incluír sobre a obra (coordenadas xeográficas, ligazóns a outras versións etc.)",
 	"mwe-upwiz-tooltip-location": "[$1 Xeocodifica o teu ficheiro] para identificar onde se rexistrou o contido multimedia (non sempre é útil escribir unha localización para todo tipo de multimedia).",

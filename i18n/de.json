@@ -334,7 +334,7 @@
 	"mwe-upwiz-prefs-def-license-def": "Den Standard verwenden, gleich was ihm entspricht",
 	"mwe-upwiz-prefs-license-own": "Eigenes Werk – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Fremdes Werk – $1",
-	"mwe-upwiz-prefs-chunked": "Hochladen von Dateien, die größer als $1 sind, in mehreren Teilen",
+	"mwe-upwiz-prefs-chunked": "Hochladen von Dateien, die größer als $1 sind, in mehreren Teilen – vergrößert die maximale Dateihochladegröße von $2 auf $3",
 	"mwe-upwiz-prefs-skiptutorial": "Einführendes Tutorial zu Lizenzen auslassen",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximale Anzahl gleichzeitiger Uploads",
 	"campaigns": "Kampagnen des Hochladeassistenten",

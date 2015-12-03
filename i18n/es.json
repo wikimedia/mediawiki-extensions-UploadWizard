@@ -18,7 +18,8 @@
 			"Savh",
 			"TheBITLINK",
 			"Vivaelcelta",
-			"Macofe"
+			"Macofe",
+			"SinNovedades"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -179,7 +180,6 @@
 	"mwe-upwiz-ok": "Aceptar",
 	"mwe-upwiz-fileexists-replace-on-page": "Ya existe un archivo con este nombre. Si quieres reemplazarlo, ve a la página de [$2 $1] y reemplázalo allí.",
 	"mwe-upwiz-fileexists-replace-no-link": "Elige un título diferente, porque ya existe un archivo con este título.",
-	"mwe-upwiz-blacklisted": "Elige un título diferente, más descriptivo.",
 	"mwe-upwiz-next": "Siguiente",
 	"mwe-upwiz-next-file": "Continuar",
 	"mwe-upwiz-next-deeds": "Siguiente",
@@ -195,7 +195,7 @@
 	"mwe-upwiz-tooltip-sign": "Puedes usar tu nombre de usuario de wiki o tu nombre real.\nEn ambos casos, esto vinculará a tu página de usuario del wiki.",
 	"mwe-upwiz-tooltip-title": "Un título único descriptivo para el archivo, que servirá como un nombre de archivo. Puede usar un lenguaje claro con espacios. No incluyas la extensión del archivo.",
 	"mwe-upwiz-tooltip-description": "Describe brevemente todo lo destacable acerca del trabajo.\nPara una foto, menciona las cosas principales que se representan, la ocasión o el lugar.",
-	"mwe-upwiz-tooltip-date": "La fecha en que este trabajo se creó o publicó por primera vez (AAAA-MM-DD).",
+	"mwe-upwiz-tooltip-date": "Elige la fecha en que este trabajo se creó o publicó por primera vez en el calendario (AAAA-MM-DD).",
 	"mwe-upwiz-tooltip-categories": "Añade tu archivo a [$1 categorías] para facilitar su búsqueda.",
 	"mwe-upwiz-tooltip-other": "Alguna otra información que desees incluir acerca de este trabajo, como coordenadas geográficas, enlaces a otras versiones, etc.",
 	"mwe-upwiz-tooltip-location": "[$1 Geocodifica tu archivo] para identificar dónde se registró el contenido multimedia (no siempre es útil escribir una ubicación para todo tipo de multimedia).",
@@ -313,8 +313,6 @@
 	"mwe-upwiz-subhead-alternatives": "Métodos de subida alternativos",
 	"mwe-upwiz-feedback-prompt": "Dejar comentarios",
 	"mwe-upwiz-feedback-title": "Dejar comentarios sobre el Asistente de subidas",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Enviar comentarios]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Más información]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Esta es la entrada permanente a la lista negra de títulos que tuvieron una correspondencia:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "El  título de mi archivo, «$1» no está permitido.",
 	"mwe-upwiz-errordialog-title": "Hubo un error en tu envío",
