@@ -193,6 +193,9 @@
 			$disclaimer = $( '<div id="mwe-upwiz-flickr-disclaimer"></div>' ).html( $disclaimer );
 			$( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
 
+			// Save temporarily
+			this.flickrButton = flickrButton;
+
 			// Insert input field into the form and set up submit action
 			$flickrForm.prepend( $flickrInput ).submit( function () {
 				flickrButton.setDisabled( true );
@@ -220,6 +223,7 @@
 		flickrInterfaceReset: function () {
 			// first destroy it completely, then reshow the add button
 			this.flickrInterfaceDestroy();
+			this.flickrButton.setDisabled( false );
 			$( '#mwe-upwiz-upload-add-flickr-container' ).show();
 			$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', false );
 		},
