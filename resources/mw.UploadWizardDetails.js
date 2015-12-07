@@ -132,7 +132,7 @@
 			if ( field.wikitext ) {
 				customDetails = new uw.CampaignDetailsWidget( field );
 				customDetailsField = new uw.FieldLayout( customDetails, {
-					label: field.label,
+					label: $( $.parseHTML( field.label ) ),
 					required: !!field.required
 				} );
 
