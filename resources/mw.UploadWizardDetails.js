@@ -142,7 +142,6 @@
 
 				details.$form.append( customDetailsField.$element );
 				details.campaignDetailsFields.push( customDetailsField );
-				details.oouiFields.push( customDetailsField );
 			}
 		} );
 
