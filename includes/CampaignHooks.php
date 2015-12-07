@@ -111,19 +111,19 @@ class CampaignHooks {
 	/**
 	 * Update campaign names when the Campaign page moves
 	 */
-	public static function onTitleMoveComplete( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
+	public static function onTitleMoveComplete(
+		Title $oldTitle, Title $newTitle, $user, $pageid, $redirid
+	) {
 		if ( !$oldTitle->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
 		$success = $dbw->update(
 			'uw_campaigns',
 			array( 'campaign_name' => $newTitle->getDBKey() ),
 			array( 'campaign_name' => $oldTitle->getDBKey() )
 		);
-		$dbw->commit();
 
 		return $success;
 	}
