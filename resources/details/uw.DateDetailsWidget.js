@@ -93,6 +93,19 @@
 	/**
 	 * @inheritdoc
 	 */
+	uw.DateDetailsWidget.prototype.getWarnings = function () {
+		var warnings = [],
+			dateVal = Date.parse( this.dateInputWidget.getValue().trim() );
+		if ( this.dateInputWidgetMode === 'calendar' &&
+			dateVal > ( new Date() ).getTime() ) {
+			warnings.push( mw.message( 'mwe-upwiz-warning-postdate' ) );
+		}
+		return $.Deferred().resolve( warnings ).promise();
+	};
+
+	/**
+	 * @inheritdoc
+	 */
 	uw.DateDetailsWidget.prototype.getErrors = function () {
 		var errors = [];
 		if ( this.dateInputWidget.getValue().trim() === '' ) {

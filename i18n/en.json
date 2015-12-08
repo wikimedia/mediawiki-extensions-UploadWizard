@@ -221,6 +221,7 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a license",
 	"mwe-upwiz-error-license-wikitext-too-long": "The wikitext you entered is too long.",
 	"mwe-upwiz-warning-categories-missing": "It is recommended that you fill in some categories for your uploads.",
+	"mwe-upwiz-warning-postdate": "The date that you selected is in the future.",
 	"mwe-upwiz-details-error-count": "There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the {{PLURAL:$1|error|errors}}, and try submitting again.",
 	"mwe-upwiz-details-warning-count": "There {{PLURAL:$1|is one warning|are $1 warnings}} with the {{PLURAL:$2|form|forms}} above. We recommend correcting {{PLURAL:$1|it|them}} before continuing.",
 	"mwe-upwiz-too-many-files-text": "You can only upload $1 {{PLURAL:$1|file|files}} at once but you tried to upload $2 {{PLURAL:$2|file|files}} in total. Please try again with fewer files!",

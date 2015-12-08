@@ -360,6 +360,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-error-license-wikitext-too-short',
 				'mwe-upwiz-error-license-wikitext-too-long',
 				'mwe-upwiz-warning-categories-missing',
+				'mwe-upwiz-warning-postdate',
 				'mwe-upwiz-details-error-count',
 				'mwe-upwiz-details-warning-count',
 				'mwe-upwiz-license-cc-by-sa-4.0',
