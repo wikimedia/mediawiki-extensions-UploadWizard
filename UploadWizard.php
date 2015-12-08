@@ -153,7 +153,6 @@ $wgEventLoggingSchemas[ 'UploadWizardErrorFlowEvent' ] = 11772725;
 $wgEventLoggingSchemas[ 'UploadWizardUploadFlowEvent' ] = 11772717;
 
 // Campaign hook handlers
-$wgHooks[ 'BeforePageDisplay' ][] = 'CampaignHooks::onBeforePageDisplay';
 $wgHooks[ 'EditFilterMerged' ][] = 'CampaignHooks::onEditFilterMerged';
 $wgHooks[ 'CodeEditorGetPageLanguage' ][] = 'CampaignHooks::onCodeEditorGetPageLanguage';
 $wgHooks[ 'PageContentSaveComplete' ][] = 'CampaignHooks::onPageContentSaveComplete';

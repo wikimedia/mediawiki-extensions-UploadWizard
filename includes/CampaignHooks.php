@@ -144,18 +144,4 @@ class CampaignHooks {
 
 		return true;
 	}
-
-	/**
-	 * Adds CSS for pretty-printing schema on NS_CAMPAIGN pages.
-	 * @param OutputPage &$out
-	 * @param Skin &$skin
-	 * @return bool
-	 */
-	static function onBeforePageDisplay( &$out, &$skin ) {
-		$title = $out->getTitle();
-		if ( $title && $title->inNamespace( NS_CAMPAIGN ) ) {
-			$out->addModules( 'ext.uploadWizard.uploadCampaign.display' );
-		}
-		return true;
-	}
 }
