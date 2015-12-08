@@ -37,7 +37,7 @@ class UploadWizardCampaign {
 
 	/**
 	 * Array of templates used in this campaign.
-	 * Each item is an array with ( namespace, tempalte_title )
+	 * Each item is an array with ( namespace, template_title )
 	 * Stored without deduplication
 	 *
 	 * @since 1.2
