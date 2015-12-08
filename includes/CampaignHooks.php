@@ -26,7 +26,6 @@ class CampaignHooks {
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
 
 		$campaignData = $content->getJsonData();
 		$insertData = array(
@@ -42,10 +41,9 @@ class CampaignHooks {
 		);
 
 		$campaign = new UploadWizardCampaign( $article->getTitle(), $content->getJsonData() );
-
-		$dbw->commit();
-
-		$campaign->invalidateCache();
+		$dbw->onTransactionPreCommitOrIdle( function () use ( $campaign ) {
+			$campaign->invalidateCache();
+		} );
 
 		return $success;
 	}
