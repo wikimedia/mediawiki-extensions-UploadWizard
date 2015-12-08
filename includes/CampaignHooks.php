@@ -12,6 +12,8 @@
 class CampaignHooks {
 
 	/**
+	 * FIXME: This should be done as a DataUpdate
+	 *
 	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
 	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
 	 */
@@ -19,7 +21,7 @@ class CampaignHooks {
 		$article, $user, $content, $summary, $isMinor, $isWatch,
 		$section, $flags, $revision, $status, $baseRevId
 	) {
-		if ( !$article->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+		if ( !$content instanceof CampaignContent ) {
 			return true;
 		}
 
@@ -40,28 +42,6 @@ class CampaignHooks {
 		);
 
 		$campaign = new UploadWizardCampaign( $article->getTitle(), $content->getJsonData() );
-
-		// Track the templates being used in the wikitext in this campaign, and add the campaign page
-		// as a dependency on those templates, via the templatelinks table. This triggers an update
-		// for the Campaign page when LinksUpdate runs due to an edit to any of the templates in
-		// the dependency chain - and hence we can invalidate caches when any page that the
-		// Campaign depends on changes!
-		$templates = $campaign->getTemplates();
-
-		$insertions = array();
-
-		foreach ( $templates as $template ) {
-			$insertions[] = array(
-				'tl_from' => $article->getId(),
-				'tl_namespace' => $template[0],
-				'tl_title' => $template[1]
-			);
-		}
-
-		$success = $success && $dbw->delete( 'templatelinks', array( 'tl_from' => $article->getId() ) );
-		$success = $success && $dbw->insert(
-			'templatelinks', $insertions, __METHOD__, array( 'IGNORE' )
-		);
 
 		$dbw->commit();
 

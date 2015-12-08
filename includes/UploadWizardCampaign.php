@@ -196,9 +196,10 @@ class UploadWizardCampaign {
 	 * @param ParserOutput $parserOutput
 	 */
 	private function updateTemplates( ParserOutput $parserOutput ) {
+		$templateIds = $parserOutput->getTemplateIds();
 		foreach ( $parserOutput->getTemplates() as $ns => $templates ) {
 			foreach ( $templates as $dbk => $id ) {
-				$this->templates[ "$ns:$dbk" ] = array( $ns, $dbk );
+				$this->templates[$ns][$dbk] = array( $id, $templateIds[$ns][$dbk] );
 			}
 		}
 	}
@@ -388,13 +389,13 @@ class UploadWizardCampaign {
 	/**
 	 * Returns the templates used in this Campaign's config
 	 *
-	 * @return array with items of form array( ns, title )
+	 * @return array [ns => [ dbk => [page_id, rev_id ] ] ]
 	 */
 	public function getTemplates() {
 		if ( $this->parsedConfig === null ) {
 			$this->getParsedConfig();
 		}
-		return array_values( $this->templates );
+		return $this->templates;
 	}
 
 

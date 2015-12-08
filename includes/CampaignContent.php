@@ -69,16 +69,25 @@ class CampaignContent extends JsonContent {
 		ParserOptions $otpions = null, $generateHtml = true
 	) {
 		$po = new ParserOutput();
+		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
 
 		if ( $generateHtml ) {
-			$po->setText( $this->generateHtml( $title ) );
+			$po->setText( $this->generateHtml( $campaign ) );
+		}
+
+		// Register template usage
+		// FIXME: should we be registering other stuff??
+		foreach ( $campaign->getTemplates() as $ns => $templates ) {
+			foreach ( $templates as $dbk => $ids ) {
+				$title = Title::makeTitle( $ns, $dbk );
+				$po->addTemplate( $title, $ids[0], $ids[1] );
+			}
 		}
 
 		return $po;
 	}
 
-	function generateHtml( $title ) {
-		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
+	function generateHtml( $campaign ) {
 
 		$formatter = new CampaignPageFormatter( $campaign );
 
