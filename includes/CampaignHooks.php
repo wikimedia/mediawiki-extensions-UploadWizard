@@ -98,14 +98,14 @@ class CampaignHooks {
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
-		$success = $dbw->delete(
-			'uw_campaigns',
-			array( 'campaign_name' => $article->getTitle()->getDBKey() )
-		);
-		$dbw->commit();
+		$dbw->onTransactionPreCommitOrIdle( function () use ( $dbw, $article ) {
+			$dbw->delete(
+				'uw_campaigns',
+				array( 'campaign_name' => $article->getTitle()->getDBKey() )
+			);
+		} );
 
-		return $success;
+		return true;
 	}
 
 	/**
