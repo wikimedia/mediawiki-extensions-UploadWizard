@@ -14,7 +14,9 @@
  * Helper class to produce formatted HTML output for Campaigns
  */
 class CampaignPageFormatter {
+	/** @var UploadWizardCampaign|null $campaign */
 	protected $campaign = null;
+	/** @var IContextSource|null $context */
 	protected $context = null;
 
 	public function __construct( $campaign, $context = null ) {
