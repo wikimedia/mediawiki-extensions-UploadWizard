@@ -43,7 +43,9 @@
 
 		this.$errorCount = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-details-error-count' );
-		this.$buttons.append( this.$errorCount );
+		this.$warningCount = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-details-warning-count' );
+		this.$buttons.append( this.$errorCount, this.$warningCount );
 
 		this.nextButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-details' ).text(),
@@ -120,6 +122,7 @@
 	 */
 	uw.ui.Details.prototype.hideEndButtons = function () {
 		this.$errorCount.empty();
+		this.$warningCount.empty();
 		this.$div
 			.find( '.mwe-upwiz-buttons .mwe-upwiz-file-endchoice' )
 			.hide();
@@ -159,6 +162,9 @@
 		} );
 
 		if ( errorCount > 0 ) {
+			// Errors supersede warnings, so stop any animating to the warnings before we animate to the errors
+			$( 'html, body' ).stop();
+
 			this.$errorCount
 				.msg( 'mwe-upwiz-details-error-count', errorCount, this.uploads.length )
 				// TODO The IconWidget and 'warning' flag is specific to MediaWiki theme, looks weird in Apex
@@ -167,6 +173,39 @@
 			$( 'html, body' ).animate( { scrollTop: $( $errorElements[ 0 ] ).offset().top - 50 }, 'slow' );
 		} else {
 			this.$errorCount.empty();
+		}
+	};
+
+	/**
+	 * Show warnings in the form.
+	 * See #showErrors for details.
+	 */
+	uw.ui.Details.prototype.showWarnings = function () {
+		var $warningElements = this.$div
+				// TODO Evil
+				.find( '.oo-ui-fieldLayout-messages-notice' ),
+			warningCount = $warningElements.length;
+
+		// Open "more info" if that part of the form has warnings
+		$warningElements.each( function () {
+			var moreInfo;
+			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
+				moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
+				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
+					moreInfo.click();
+				}
+			}
+		} );
+
+		if ( warningCount > 0 ) {
+			this.$warningCount
+				.msg( 'mwe-upwiz-details-warning-count', warningCount, this.uploads.length )
+				// TODO The IconWidget is specific to MediaWiki theme, looks weird in Apex
+				.prepend( new OO.ui.IconWidget( { icon: 'info' } ).$element, ' ' );
+			// Scroll to the first warning
+			$( 'html, body' ).animate( { scrollTop: $( $warningElements[ 0 ] ).offset().top - 50 }, 'slow' );
+		} else {
+			this.$warningCount.empty();
 		}
 	};
 

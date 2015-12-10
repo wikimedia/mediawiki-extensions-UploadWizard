@@ -165,6 +165,7 @@
 				},
 				function () {
 					// Valid, but with warnings, ask for confirmation
+					this.showErrors(); // Update warning count before dialog
 					return this.confirmationDialog();
 				}.bind( this )
 			);
@@ -180,9 +181,7 @@
 
 		return windowManager.openWindow( confirmationDialog, {
 			title: mw.message( 'mwe-upwiz-dialog-title' ).text(),
-			// FIXME We currently only have one kind of warning, ever, and this message has the
-			// appropriate text "hard-coded". It should be generated dynamically.
-			message: mw.message( 'mwe-upwiz-necessary-confirm' ).text(),
+			message: mw.message( 'mwe-upwiz-dialog-warning' ).text(),
 			verbose: true,
 			actions: [
 				{
@@ -257,10 +256,11 @@
 	};
 
 	/**
-	 * Show errors in the form.
+	 * Show warnings and errors in the form.
 	 * See UI class for more.
 	 */
 	uw.controller.Details.prototype.showErrors = function () {
+		this.ui.showWarnings(); // Scroll to the warning first so that any errors will have precedence
 		this.ui.showErrors();
 	};
 
