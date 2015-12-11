@@ -1,12 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lakzon"
+			"Lakzon",
+			"Hosseinblue"
 		]
 	},
 	"mwe-upwiz-flickr-disclaimer1": "این فرم محتویات نگهداری‌شده توسط فلیکر را بارگیری می‌کند و شرایط آن در فلیکر در [https://www.flickr.com/help/terms/ شرایط استفاده] و [https://www.flickr.com/help/privacy-policy/ سیاست حریم خصوصی] موجود است.",
 	"mwe-upwiz-remove-description": "حذف این توضیحات",
 	"mwe-upwiz-desc": "توضیح",
 	"mwe-upwiz-desc-add-n": "افزودن توضیحةل وة زوونێ تر",
-	"mwe-upwiz-desc-add-0": "افزودن توضیحةل"
+	"mwe-upwiz-desc-add-0": "افزودن توضیحةل",
+	"mwe-upwiz-source": "بِنچۀک/مۀنبۀع",
+	"mwe-upwiz-tooltip-skiptutorial": "می‌توانید این آموزش را در [$1 صفحهٔ ترجیحات کاربری‌تان] فعال کنید، در $2 → $3."
 }
