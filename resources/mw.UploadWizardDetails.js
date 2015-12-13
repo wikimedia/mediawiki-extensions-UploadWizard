@@ -194,7 +194,9 @@
 			this.descriptionsDetails.setSerialized( {
 				descriptions: [
 					{
-						language: uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ),
+						language: uri.query.descriptionlang ?
+							uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ) :
+							uw.DescriptionDetailsWidget.static.getDefaultLanguage(),
 						description: mw.UploadWizard.config.defaults.description
 					}
 				]
