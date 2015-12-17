@@ -15,14 +15,12 @@
 #   bundle exec cucumber
 #
 mw-vagrant-host:
+  user_factory: true
   mediawiki_url: http://127.0.0.1:8080/wiki/
-  mediawiki_user: Selenium_user
-  mediawiki_password: vagrant
 
 mw-vagrant-guest:
+  user_factory: true
   mediawiki_url: http://127.0.0.1/wiki/
-  mediawiki_user: Selenium_user
-  mediawiki_password: vagrant
 
 beta:
   mediawiki_url: http://commons.wikimedia.beta.wmflabs.org/wiki/
@@ -38,3 +36,7 @@ default:
   mediawiki_url: http://localhost/wiki/
   # mediawiki_user: SET THIS IN THE ENVIRONMENT!
   # mediawiki_password: SET THIS IN THE ENVIRONMENT!
+
+integration:
+  user_factory: true
+  # mediawiki_url: THIS WILL BE SET BY JENKINS
