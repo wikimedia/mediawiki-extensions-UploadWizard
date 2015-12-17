@@ -176,10 +176,19 @@
 
 		this.$fileList = $( '#mwe-upwiz-filelist' );
 
-		this.$progress = $( '#mwe-upwiz-progress' );
+		this.$progress = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-progress' )
+			.addClass( 'ui-helper-clearfix' );
+
+		// Apparently this makes sense.
+		this.$buttons.append( this.$progress );
 	};
 
 	OO.inheritClass( uw.ui.Upload, uw.ui.Step );
+
+	uw.ui.Upload.prototype.showProgressBar = function () {
+		this.$progress.show();
+	};
 
 	/**
 	 * Updates the interface based on the number of uploads.

@@ -7,7 +7,7 @@
 		// XXX need to figure out a way to put text inside bar
 		this.$selector = $( selector );
 		this.$selector.html(
-			'<div class="mwe-upwiz-progress">' +
+			'<div class="mwe-upwiz-progress-inner">' +
 				'<div class="mwe-upwiz-progress-bar-etr-container">' +
 					'<div class="mwe-upwiz-progress-bar-etr" style="display: none">' +
 						'<div class="mwe-upwiz-etr"></div>' +
