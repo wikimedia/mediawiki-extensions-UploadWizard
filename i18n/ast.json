@@ -181,7 +181,7 @@
 	"mwe-upwiz-tooltip-sign": "Pues usar el nome d'usuariu de la wiki o'l to nome real.\nN'ambos casos, esti s'enllazará cola to páxina d'usuariu de la wiki.",
 	"mwe-upwiz-tooltip-title": "Un títulu descriptivu únicu que sirvirá para da-y nome al ficheru. Se pue usar llinguax normal con espacios. Nun amiestes la estensión del ficheru.",
 	"mwe-upwiz-tooltip-description": "Describi de mou curtiu cualesquier cosa notable de la obra.\nPa una semeya, cuenta les principales coses qu'apaecen, la ocasión o'l sitiu.",
-	"mwe-upwiz-tooltip-date": "Escueye la data que se creó o s'asoleyó por vez primera la obra dende'l calendariu, o escríbela'n formatu AAAA-MM-DD).",
+	"mwe-upwiz-tooltip-date": "Escueye nel calendariu la fecha en qu'esti trabayu se creó o espublizó por primera vegada, o escríbela en formatu AAAA-MM-DD.",
 	"mwe-upwiz-tooltip-categories": "Amiesta'l to ficheru a [$1 categoríes] pa facelu más fácil d'alcontrar.",
 	"mwe-upwiz-tooltip-other": "Cualesquier otra información que quieras incluir sobro la obra (coordenaes xeográfiques, enllaces a otres versiones, etc.)",
 	"mwe-upwiz-tooltip-location": "[$1 Xeocodifica'l ficheru] pa identificar ónde se rexistró'l conteníu multimedia (non siempres ye útil escribir un allugamientu pa cada tipu de mediu).",
