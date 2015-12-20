@@ -234,7 +234,6 @@
 	"mwe-upwiz-too-many-files": "För många filer.",
 	"mwe-upwiz-file-too-large-text": "Du kan endast skicka filer med en storlek på upp till  $1. Du försökte ladda upp en fil som är  $2.",
 	"mwe-upwiz-file-too-large": "Filen är för stor.",
-	"mwe-upwiz-necessary-confirm": "Det rekommenderas att du anger några kategorier för dina uppladdningar. Vill du fortsätta utan att fylla i alla fält?",
 	"mwe-upwiz-dialog-yes": "Ja",
 	"mwe-upwiz-dialog-no": "Nej",
 	"mwe-upwiz-dialog-title": "Varning",

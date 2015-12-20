@@ -252,7 +252,6 @@
 	"mwe-upwiz-too-many-files": "文件过多。",
 	"mwe-upwiz-file-too-large-text": "您只能上传大小不超过 $1 的文件。您试图上传的文件大小为 $2。",
 	"mwe-upwiz-file-too-large": "文件太大",
-	"mwe-upwiz-necessary-confirm": "建议您为您上传的文件添加一些分类。确定不填这些表格继续吗？",
 	"mwe-upwiz-dialog-yes": "是",
 	"mwe-upwiz-dialog-no": "否",
 	"mwe-upwiz-dialog-title": "警告",
