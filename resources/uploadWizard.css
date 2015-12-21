@@ -64,11 +64,6 @@ form.mwe-upwiz-form {
 	font-size: large;
 }
 
-/* NOT a pseudoclass */
-#mwe-upwiz-add-file:hover {
-	text-decoration: underline;
-}
-
 /* perhaps a general class for links that are actually "buttons" */
 #mwe-upwiz-add-file, .mwe-upwiz-more-options {
 	outline: none;
