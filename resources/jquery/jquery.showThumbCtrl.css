@@ -3,7 +3,7 @@
 	cursor: pointer;
 }
 
-.mwe-upwiz-show-thumb-ctrl.hover .mwe-upwiz-show-thumb-ctrl-msg {
+.mwe-upwiz-show-thumb-ctrl:hover .mwe-upwiz-show-thumb-ctrl-msg {
 	text-decoration: underline;
 }
 

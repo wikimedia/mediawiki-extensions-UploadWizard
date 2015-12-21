@@ -1,5 +1,4 @@
-( function ( mw, uw, $, OO ) {
-
+	( function ( mw, uw, $, OO ) {
 	/**
 	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 *
@@ -560,7 +559,6 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
 		var $div,
-			ui = this,
 			path = this.getFilename();
 		// get basename of file; some browsers do this C:\fakepath\something
 		path = path.replace( /\w:.*\\(.*)$/, '$1' );
@@ -588,28 +586,6 @@
 			this.moveFileInputToCover(
 				$div.find( '.mwe-upwiz-visible-file-filename-text' )
 			);
-
-			// Highlight the file on mouseover (and also show controls like the remove control).
-			//
-			// On Firefox there are bugs related to capturing mouse events on inputs, so we seem to miss the
-			// mouseenter or mouseleave events randomly. It's only really bad if we miss mouseleave,
-			// and have two highlights visible. so we add another call to REALLY make sure that other highlights
-			// are deactivated.
-			// http://code.google.com/p/fbug/issues/detail?id=2075
-			//
-			// ALSO: When file inputs are adjacent, Firefox misses the "mouseenter" and "mouseleave" events.
-			// Consequently we have to bind to "mouseover" and "mouseout" as well even though that's not as efficient.
-			$div.bind( 'mouseenter mouseover', function () {
-				$div.addClass( 'hover' );
-				$( '#mwe-upwiz-filelist' )
-					.children()
-					.filter( function () { return this !== ui.div; } )
-					.removeClass( 'hover' );
-			} );
-			$div.bind( 'mouseleave mouseout', function () {
-				$div.removeClass( 'hover' );
-			} );
-
 			this.emit( 'upload-filled' );
 		} else {
 			this.emit( 'filename-accepted' );
