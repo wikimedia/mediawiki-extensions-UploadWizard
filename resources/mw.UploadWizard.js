@@ -322,7 +322,7 @@
 				} );
 
 			// we explicitly move the file input to cover the upload button
-			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
+			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file' );
 
 			upload.connect( this, {
 				'remove-upload': [ 'removeUpload', upload ]

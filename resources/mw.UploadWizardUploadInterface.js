@@ -481,56 +481,42 @@
 	 * even to pass events like hover
 	 *
 	 * @param {string} selector A jQuery-compatible selector, for a single element
-	 * @param {string} [positionTracking] Whether to do position-polling ('poll')
-	 *	 on the selected element or whether to listen to window-resize events ('resize')
 	 */
-	mw.UploadWizardUploadInterface.prototype.moveFileInputToCover = function ( selector, positionTracking ) {
-		var iv, to, onResize, $win,
-			ui = this;
+	mw.UploadWizardUploadInterface.prototype.moveFileInputToCover = function ( selector ) {
+		var $win,
+			ui = this,
+			update = $.debounce( 250, function () {
+				var $covered = $( selector );
 
-		function update() {
-			var $covered = $( selector );
+				ui.fileCtrlContainer
+					.css( $covered.position() )
+					.css( 'marginTop', $covered.css( 'marginTop' ) )
+					.css( 'marginRight', $covered.css( 'marginRight' ) )
+					.css( 'marginBottom', $covered.css( 'marginBottom' ) )
+					.css( 'marginLeft', $covered.css( 'marginLeft' ) )
+					.width( $covered.outerWidth() )
+					.height( $covered.outerHeight() );
 
-			ui.fileCtrlContainer
-				.css( $covered.position() )
-				.css( 'marginTop', $covered.css( 'marginTop' ) )
-				.css( 'marginRight', $covered.css( 'marginRight' ) )
-				.css( 'marginBottom', $covered.css( 'marginBottom' ) )
-				.css( 'marginLeft', $covered.css( 'marginLeft' ) )
-				.width( $covered.outerWidth() )
-				.height( $covered.outerHeight() );
+				ui.fileCtrlContainer.css( { 'z-index': 1 } );
 
-			ui.fileCtrlContainer.css( { 'z-index': 1 } );
-
-			// shift the file input over with negative margins,
-			// internal to the overflow-containing div, so the div shows all button
-			// and none of the textfield-like input
-			ui.$fileInputCtrl.css( {
-				'margin-left': '-' + ( ui.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
-				'margin-top': '-' + ( ui.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
+				// shift the file input over with negative margins,
+				// internal to the overflow-containing div, so the div shows all button
+				// and none of the textfield-like input
+				ui.$fileInputCtrl.css( {
+					'margin-left': '-' + ( ui.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
+					'margin-top': '-' + ( ui.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
+				} );
 			} );
-		}
 
 		this.cancelPositionTracking();
-		if ( positionTracking === 'poll' ) {
-			iv = window.setInterval( update, 500 );
-			this.stopTracking = function () {
-				window.clearInterval( iv );
-			};
-		} else if ( positionTracking === 'resize' ) {
-			$win = $( window );
-			onResize = function () {
-				// ensure resizing works smoothly
-				if ( to ) {
-					window.clearTimeout( to );
-				}
-				to = window.setTimeout( update, 200 );
-			};
-			$win.resize( onResize );
-			this.stopTracking = function () {
-				$win.off( 'resize', onResize );
-			};
-		}
+		$win = $( window );
+		$win.resize( update );
+		$win.scroll( update );
+		this.stopTracking = function () {
+			$win.off( 'resize', update );
+			$win.off( 'scroll', update );
+		};
+
 		// Show file input (possibly hidden by .hideFileInput())
 		this.$fileInputCtrl.show();
 		update();
