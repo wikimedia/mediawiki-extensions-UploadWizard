@@ -289,7 +289,7 @@
 					$a.addClass( 'new' );
 					params = { action: 'edit', redlink: '1' };
 				}
-				href = new mw.Title( filename, NS_FILE ).getUrl( params );
+				href = mw.Title.makeTitle( NS_FILE, filename ).getUrl( params );
 				$a.attr( { href: href, target: '_blank' } );
 			} catch ( e ) {
 				// For example, if the file was revdeleted
