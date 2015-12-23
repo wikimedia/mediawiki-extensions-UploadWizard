@@ -247,6 +247,7 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "这里的维基文字过短，不是授权协议",
 	"mwe-upwiz-error-license-wikitext-too-long": "你输入的维基文字过长。",
 	"mwe-upwiz-warning-categories-missing": "建议您为您上传的文件填写一些分类。",
+	"mwe-upwiz-warning-postdate": "您选择的日期是在将来。",
 	"mwe-upwiz-details-error-count": "上面的{{PLURAL:$2|表格}}中有$1个错误。请更正错误，并尝试再次提交。",
 	"mwe-upwiz-too-many-files-text": "你一次只能上传$1个文件，但是你尝试上传共$2个文件，请尝试上传更少的文件。",
 	"mwe-upwiz-too-many-files": "文件过多。",
