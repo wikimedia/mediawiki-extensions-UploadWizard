@@ -90,12 +90,14 @@
 	uw.controller.Details.prototype.startDetails = function () {
 		var details = this;
 
-		this.valid().done( function () {
-			details.ui.hideEndButtons();
-			details.submit();
-			details.emit( 'start-details' );
-		} ).fail( function () {
-			details.emit( 'details-error' );
+		this.valid().done( function ( valid ) {
+			if ( valid ) {
+				details.ui.hideEndButtons();
+				details.submit();
+				details.emit( 'start-details' );
+			} else {
+				details.emit( 'details-error' );
+			}
 		} );
 	};
 
@@ -161,7 +163,7 @@
 			return $.when.apply( $, warningValidityPromises ).then(
 				// All uploads valid, no warnings
 				function () {
-					return $.Deferred().resolve();
+					return $.Deferred().resolve( true );
 				},
 				function () {
 					// Valid, but with warnings, ask for confirmation
@@ -169,44 +171,15 @@
 					return this.confirmationDialog();
 				}.bind( this )
 			);
-		}.bind( this ) );
+		}.bind( this ),
+		function () {
+			return $.Deferred().resolve( false );
+		}
+		);
 	};
 
 	uw.controller.Details.prototype.confirmationDialog = function () {
-		var
-			windowManager = new OO.ui.WindowManager(),
-			confirmationDialog = new OO.ui.MessageDialog();
-		windowManager.addWindows( [ confirmationDialog ] );
-		$( 'body' ).append( windowManager.$element );
-
-		return windowManager.openWindow( confirmationDialog, {
-			title: mw.message( 'mwe-upwiz-dialog-title' ).text(),
-			message: mw.message( 'mwe-upwiz-dialog-warning' ).text(),
-			verbose: true,
-			actions: [
-				{
-					label: mw.message( 'mwe-upwiz-dialog-no' ).text(),
-					action: 'reject',
-					flags: [ 'safe' ]
-				},
-
-				{
-					label: mw.message( 'mwe-upwiz-dialog-yes' ).text(),
-					action: 'accept',
-					flags: [ 'constructive', 'primary' ]
-				}
-			]
-		} ).then( function ( opened ) {
-			return opened.then( function ( closing ) {
-				return closing.then( function ( data ) {
-					if ( data.action === 'accept' ) {
-						return $.Deferred().resolve();
-					}
-
-					return $.Deferred().reject();
-				} );
-			} );
-		} );
+		return OO.ui.confirm( mw.message( 'mwe-upwiz-dialog-warning' ).text(), { title: mw.message( 'mwe-upwiz-dialog-title' ).text() } );
 	};
 
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
