@@ -109,7 +109,7 @@
 				}
 			} else {
 				// XXX show user the message that the URL entered was not valid
-				this.showErrorDialog( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
+				mw.errorDialog( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
 				this.wizard.flickrInterfaceReset();
 			}
 		},
@@ -475,7 +475,7 @@
 					$( '#mwe-upwiz-flickr-select-list-container' ).show();
 				}
 			} ).fail( function ( message ) {
-				checker.showErrorDialog( message );
+				mw.errorDialog( message );
 				checker.wizard.flickrInterfaceReset();
 			} );
 		},
@@ -554,7 +554,7 @@
 				checker.setImageURL( 0, checker );
 				checker.reserveFileName( fileName );
 			} ).fail( function ( message ) {
-				checker.showErrorDialog( message );
+				mw.errorDialog( message );
 				checker.wizard.flickrInterfaceReset();
 			} );
 		},
@@ -696,7 +696,7 @@
 
 					newUpload.fill( upload );
 				} else {
-					checker.showErrorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
+					mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();
 				}
 			} );
@@ -723,13 +723,7 @@
 			};
 
 			return license;
-		},
-
-		showErrorDialog: function ( errorMsg ) {
-			var errorDialog = new mw.ErrorDialog( errorMsg );
-			errorDialog.open();
 		}
-
 	};
 
 } )( mediaWiki, jQuery, OO );

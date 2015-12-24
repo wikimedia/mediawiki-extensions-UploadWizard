@@ -579,16 +579,14 @@
 	 * @param {number} maxSize Maximum file size
 	 */
 	mw.UploadWizardUpload.prototype.showMaxSizeWarning = function ( size, maxSize ) {
-		var ed = new mw.ErrorDialog(
-				mw.message(
-					'mwe-upwiz-file-too-large-text',
-					mw.units.bytes( maxSize ),
-					mw.units.bytes( size )
-				).text(),
-				mw.message( 'mwe-upwiz-file-too-large' ).text()
-			);
-
-		ed.open();
+		mw.errorDialog(
+			mw.message(
+				'mwe-upwiz-file-too-large-text',
+				mw.units.bytes( maxSize ),
+				mw.units.bytes( size )
+			).text(),
+			mw.message( 'mwe-upwiz-file-too-large' ).text()
+		);
 	};
 
 	/**
