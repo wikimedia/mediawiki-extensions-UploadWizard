@@ -271,7 +271,7 @@
 	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
 	 */
 	mw.UploadWizardUpload.prototype.setDuplicateError = function ( code, resultDuplicate ) {
-		var duplicates, $ul, $override, $extra;
+		var duplicates, $ul, $extra, uploadDuplicate;
 
 		if ( typeof resultDuplicate === 'object' ) {
 			duplicates = resultDuplicate;
@@ -305,13 +305,15 @@
 
 		$extra = $ul;
 		if ( code === 'duplicate-archive' ) {
-			$override = $( '<a>' )
-				.attr( 'href', '#' )
-				.text( mw.message( 'mwe-upwiz-override' ).text() )
-				.click( function () {
-					this.removeErrors( 'duplicate-archive' );
-				}.bind( this ) );
-			$extra = $extra.add( $override );
+			uploadDuplicate = new OO.ui.ButtonWidget( {
+				label: mw.message( 'mwe-upwiz-override' ).text(),
+				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
+				flags: 'progressive',
+				framed: false
+			} ).on( 'click', function () {
+				this.removeErrors( 'duplicate-archive' );
+			}.bind( this ) );
+			$extra = $extra.add( uploadDuplicate.$element );
 		}
 
 		this.setError( code, [ duplicates.length ], $extra );
