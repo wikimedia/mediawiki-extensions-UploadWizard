@@ -138,9 +138,9 @@
 
 			if ( remainingTime !== null ) {
 				if ( remainingTime === 0 ) {
-					timeString = mw.message( 'mwe-upwiz-finished' ).escaped();
+					timeString = mw.message( 'mwe-upwiz-finished' ).text();
 				} else if ( remainingTime < 1000 ) {
-					timeString = mw.message( 'mwe-upwiz-almost-finished' ).escaped();
+					timeString = mw.message( 'mwe-upwiz-almost-finished' ).text();
 				} else {
 					t = moment.duration( remainingTime );
 					timeString = t.humanize();

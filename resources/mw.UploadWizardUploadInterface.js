@@ -49,8 +49,8 @@
 			);
 
 		this.removeCtrl = new OO.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-remove' ).escaped(),
-			title: mw.message( 'mwe-upwiz-remove-upload' ).escaped(),
+			label: mw.message( 'mwe-upwiz-remove' ).text(),
+			title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
 			flags: 'destructive',
 			icon: 'remove',
 			framed: false
@@ -175,7 +175,7 @@
 	 * @param {string} s
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( s ) {
-		$( this.div ).find( '.mwe-upwiz-file-status' ).html( s ).show();
+		$( this.div ).find( '.mwe-upwiz-file-status' ).text( s ).show();
 	};
 
 	/**

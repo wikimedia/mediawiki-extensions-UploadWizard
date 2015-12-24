@@ -32,7 +32,7 @@
 
 		this.allowCloseWindow = mw.confirmCloseWindow( {
 			message: function () {
-				return mw.message( 'mwe-upwiz-prevent-close' ).escaped();
+				return mw.message( 'mwe-upwiz-prevent-close' ).text();
 			},
 
 			test: function () {
@@ -182,7 +182,7 @@
 			$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
 
 			// Add placeholder text to the Flickr URL input field
-			$flickrInput.placeholder( mw.message( 'mwe-upwiz-flickr-input-placeholder' ).escaped() );
+			$flickrInput.placeholder( mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text() );
 
 			// Insert form into the page
 			$( '#mwe-upwiz-files' ).prepend( $flickrContainer );

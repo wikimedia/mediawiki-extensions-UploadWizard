@@ -161,8 +161,8 @@
 
 		// Add in remove control to submittingDiv
 		this.removeCtrl = new OO.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-remove' ).escaped(),
-			title: mw.message( 'mwe-upwiz-remove-upload' ).escaped(),
+			label: mw.message( 'mwe-upwiz-remove' ).text(),
+			title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
 			flags: 'destructive',
 			icon: 'remove',
 			framed: false
@@ -1076,7 +1076,7 @@
 				} else {
 					statusKey = 'api-error-' + code;
 					if ( code === 'filetype-banned' && result.error.blacklisted ) {
-						comma = mw.message( 'comma-separator' ).escaped();
+						comma = mw.message( 'comma-separator' ).text();
 						code = 'filetype-banned-type';
 						statusLine = mw.message( 'api-error-filetype-banned-type',
 							result.error.blacklisted.join( comma ),
