@@ -142,8 +142,7 @@
 				'mwe-upwiz-blacklisted-details',
 				titleString,
 				function () {
-					var errorDialog = new mw.ErrorDialog( result.blacklist.blacklistReason );
-					errorDialog.open();
+					mw.errorDialog( result.blacklist.blacklistReason );
 				}
 			];
 

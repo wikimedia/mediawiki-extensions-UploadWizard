@@ -81,7 +81,7 @@ class UploadWizardHooks {
 				'resources/mw.fileApi.js',
 				'resources/mw.units.js',
 				'resources/mw.canvas.js',
-				'resources/mw.ErrorDialog.js',
+				'resources/mw.errorDialog.js',
 
 				// title validity checks
 				'resources/mw.DestinationChecker.js',
