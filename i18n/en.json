@@ -59,6 +59,7 @@
 	"mwe-upwiz-failed": "Failed.",
 	"mwe-upwiz-remove": "Remove",
 	"mwe-upwiz-override": "Upload anyway.",
+	"mwe-upwiz-override-upload": "Upload this file anyway.",
 	"mwe-upwiz-remove-upload": "Remove this file from the list of files to upload",
 	"mwe-upwiz-show-thumb": "Show thumbnail",
 	"mwe-upwiz-show-thumb-tip": "Load a thumbnail image for this file",

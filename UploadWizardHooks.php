@@ -308,6 +308,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-thumbnail-more',
 				'mwe-upwiz-overwrite',
 				'mwe-upwiz-override',
+				'mwe-upwiz-override-upload',
 				'mwe-upwiz-next',
 				'mwe-upwiz-next-file',
 				'mwe-upwiz-next-deeds',
