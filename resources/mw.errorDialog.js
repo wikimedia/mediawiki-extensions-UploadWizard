@@ -11,7 +11,6 @@
 			errorMessage,
 			{
 				title: title || mw.message( 'mwe-upwiz-errordialog-title' ).text(),
-				message: errorMessage,
 				verbose: true,
 				actions: [
 					{
