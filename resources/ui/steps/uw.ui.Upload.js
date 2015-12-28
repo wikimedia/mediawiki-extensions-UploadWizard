@@ -60,7 +60,12 @@
 			.addClass( 'ui-corner-all' )
 			.append(
 				$( '<div>' )
-					.text( mw.message( 'mwe-upwiz-multi-file-select', config.maxUploads ) ),
+					.text( mw.message(
+						'mwe-upwiz-multi-file-select',
+						config.maxUploads,
+						// Command key on Mac, Ctrl basically everywhere else
+						$.client.profile().platform === 'mac' ? 'Command' : 'Ctrl'
+					) ),
 				this.$flickrSelectList
 			);
 
