@@ -98,6 +98,7 @@
 	"mwe-upwiz-failed": "Échec",
 	"mwe-upwiz-remove": "Enlever",
 	"mwe-upwiz-override": "Téléverser malgré tout.",
+	"mwe-upwiz-override-upload": "Télécharger quand même ce fichier.",
 	"mwe-upwiz-remove-upload": "Enlever ce fichier de la liste des fichiers à importer",
 	"mwe-upwiz-show-thumb": "Afficher la miniature",
 	"mwe-upwiz-show-thumb-tip": "Charger une image miniature pour ce fichier",

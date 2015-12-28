@@ -18,7 +18,8 @@
 			"Wix",
 			"Yaamboo",
 			"Pitke",
-			"Matma Rex"
+			"Matma Rex",
+			"McSalama"
 		]
 	},
 	"uploadwizard": "Ohjattu tiedoston tallentaminen",
@@ -72,6 +73,7 @@
 	"mwe-upwiz-failed": "Epäonnistui.",
 	"mwe-upwiz-remove": "Poista",
 	"mwe-upwiz-override": "Tallenna silti.",
+	"mwe-upwiz-override-upload": "Lataa tämä tiedosto silti.",
 	"mwe-upwiz-remove-upload": "Poista tämä tiedosto tallennettavien tiedostojen listasta",
 	"mwe-upwiz-show-thumb": "Näytä pienoiskuva",
 	"mwe-upwiz-show-thumb-tip": "Lataa esikatselukuva tästä tiedostosta",
