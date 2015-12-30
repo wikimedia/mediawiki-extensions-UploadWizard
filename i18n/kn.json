@@ -2,18 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Nayvik",
-			"VASANTH S.N."
+			"VASANTH S.N.",
+			"Omshivaprakash"
 		]
 	},
+	"uploadwizard": "ಅಪ್ಲೋಡ್ ವಿಸಾರ್ಡ್",
 	"mwe-upwiz-step-file": "ನಕಲೇರಿಸು",
 	"mwe-upwiz-step-thanks": "ಉಪಯೋಗ",
 	"mwe-upwiz-campaign-unknown-error": "ಅಪರಿಚಿತ ತಪ್ಪು ಸಂಭವಿಸಿದೆ",
 	"mwe-upwiz-api-warning-exists": "ಇದೇ ಹೆಸರಿನ[$1 ಇನ್ನೊಂದು]ಕಡತ ವಿಕಿಯಲ್ಲಿದೆ",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "ಕ್ಷಮಿಸಿ,ನಿಮ್ಮಭಾಷೆಯಲ್ಲಿ ವಿವರಣೆ ಸಿಗುತ್ತಿಲ್ಲ. ಬದಲಾಗಿ $1 ತೋರಿಸಲ್ಪಟ್ಟಿದೆ.",
 	"mwe-upwiz-help-desk": "ಸಹಾಯ ವಿಭಾಗ",
-	"mwe-upwiz-add-file-n": "ಇನ್ನೊಂದು ಕಡತ ಸೇರಿಸಿ",
-	"mwe-upwiz-add-file-0-free": "ಹಂಚಲು ಒಂದು ಸಮೂಹ ಮಾದ್ಯಮ ಕಡತವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
-	"mwe-upwiz-add-file-flickr": "ಪ್ಲಿಕರ್‍ನಿಂದ ಚಿತ್ರಗಳನ್ನು ಸೇರಿಸಿ",
+	"mwe-upwiz-add-file-n": "ಮತ್ತಷ್ಟು ಕಡತಗಳನ್ನು ಸೇರಿಸಿ",
+	"mwe-upwiz-add-file-0-free": "ಹಂಚಲು ಮಾದ್ಯಮ ಕಡತಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
+	"mwe-upwiz-add-file-flickr": "ಪ್ಲಿಕರ್‍ನಿಂದ ಚಿತ್ರಗಳನ್ನು ಹಂಚಿ",
 	"mwe-upwiz-add-flickr-or": "ಅಥವಾ",
 	"mwe-upwiz-add-flickr": "ಫ್ಲಿಕರ್‍ನಿಂದ ಪಡೆಯಿರಿ",
 	"mwe-upwiz-select-flickr": "ಆಯ್ಕೆಮಾಡಿದ ಚಿತ್ರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
@@ -29,7 +31,10 @@
 	"mwe-upwiz-remove": "ತೆಗೆ",
 	"mwe-upwiz-upload": "ನಕಲೇರಿಸು",
 	"mwe-upwiz-progressbar-uploading": "ನಕಲೇರಿಸಲಾಗುತ್ತಿದೆ",
+	"mwe-upwiz-source-thirdparty-accept": "ಸರಿ",
 	"mwe-upwiz-copy-metadata-button": "ನಕಲಿಸಿ",
+	"mwe-upwiz-copy-date": "ದಿನಾಂಕ ನಕಲಿಸು",
+	"mwe-upwiz-copy-categories": "ವರ್ಗಗಳನ್ನು ನಕಲಿಸು",
 	"mwe-upwiz-title": "ಶೀರ್ಷಿಕೆ",
 	"mwe-upwiz-location": "ಪ್ರದೇಶ",
 	"mwe-upwiz-location-lat": "ಅಕ್ಷಾಂಶ",
