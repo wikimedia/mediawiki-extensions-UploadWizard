@@ -4,7 +4,8 @@
 			"Bjarki S",
 			"Snævar",
 			"Sveinn í Felli",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Upphlaðs álfurinn",
@@ -42,7 +43,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Þetta eyðublað mun hlaða inn efni frá flickr.com sem er háð [https://www.flickr.com/help/terms/ notkunarskilmálum] og [https://www.flickr.com/help/privacy-policy/ friðhelgis stefnu] flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Vinsamlegast athugaðu að með þessu smáforriti mun ip-talan þín og upplýsingar um fyrirspurnina vera aðgengilegar flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Við gátum ekki sótt skránna frá $1.",
-	"mwe-upwiz-multi-file-select": "Teiknaðu kassa með músinni yfir skrárnar sem þú vilt hlaða inn. Haltu niðri Ctrl/Command takkanum til að velja skrár sem eru ekki hliðin á hverri annari. Þú getur valið allt að $1 {{PLURAL:$1|skrá|skrár}} til að hlaða inn.",
+	"mwe-upwiz-multi-file-select": "Teiknaðu kassa með músinni yfir skrárnar sem þú vilt hlaða inn. Haltu niðri $2 takkanum til að velja skrár sem eru ekki hliðin á hverri annari. Þú getur valið allt að $1 {{PLURAL:$1|skrá|skrár}} til að hlaða inn.",
 	"mwe-upwiz-transport-started": "Byrja...",
 	"mwe-upwiz-encoding": "Kóta...",
 	"mwe-upwiz-uploading": "Hleð inn skrá....",
@@ -184,7 +185,6 @@
 	"mwe-upwiz-too-many-files": "Of margar skrár.",
 	"mwe-upwiz-file-too-large-text": "Þú mátt eingöngu hlaða inn myndum sem eru allt að $1, en þú reyndir að hlaða inn skrá sem er $2.",
 	"mwe-upwiz-file-too-large": "Skráin er of stór",
-	"mwe-upwiz-necessary-confirm": "Það er mælt með því að þú fyllir út nokkra flokka fyrir upphölin þín. Viltu halda áfram án þess að fylla út í alla reiti?",
 	"mwe-upwiz-dialog-yes": "Já",
 	"mwe-upwiz-dialog-no": "Nei",
 	"mwe-upwiz-dialog-title": "Viðvörun",

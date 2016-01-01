@@ -7,7 +7,8 @@
 			"MetalBrasil",
 			"Toliño",
 			"Vivaelcelta",
-			"Banjo"
+			"Banjo",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Asistente de cargas",
@@ -48,7 +49,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Este formulario cargará contidos aloxados en flickr.com e suxeitos aos [https://www.flickr.com/help/terms/ termos de uso] e á [https://www.flickr.com/help/privacy-policy/ política de protección de datos] de Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Teña en conta que ao utilizar esta ferramenta, o Flickr terá á súa disposición o seu enderezo IP e os detalles da súa solicitude.",
 	"mwe-upwiz-error-no-image-retrieved": "Non podemos recuperar o ficheiro desde $1.",
-	"mwe-upwiz-multi-file-select": "Debuxe unha caixa co cursor do rato sobre os ficheiros que queira cargar. Prema a tecla Ctrl/Command para facer seleccións múltiples non adxacentes. Pode seleccionar ata $1 {{PLURAL:$1|ficheiro|ficheiros}} para subir.",
+	"mwe-upwiz-multi-file-select": "Debuxe unha caixa co cursor do rato sobre os ficheiros que queira cargar. Prema a tecla $2 para facer seleccións múltiples non adxacentes. Pode seleccionar ata $1 {{PLURAL:$1|ficheiro|ficheiros}} para subir.",
 	"mwe-upwiz-transport-started": "Comezando...",
 	"mwe-upwiz-encoding": "Codificando...",
 	"mwe-upwiz-uploading": "Subindo...",

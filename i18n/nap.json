@@ -3,7 +3,8 @@
 		"authors": [
 			"C.R.",
 			"Candalua",
-			"Chelin"
+			"Chelin",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Carrecamiente guidate",
@@ -42,7 +43,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Stu modulo carreca cuntenute ca se songo arrepigliate 'e flickr.com e so' soggetto 'e [https://www.flickr.com/help/terms/ condeziune d'uso] e 'a [https://www.flickr.com/help/privacy-policy/ puliteca ncopp' 'a privacy] 'e Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Pe' piacere, nutate ca ausanno sta vunziona, l'indirizzo IP vuosto e tuttuquante 'e ddettaglie d' 'a richiesta sarranno mise a disposizione 'e Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Nun putimm'arepiglià 'o file 'a $1.",
-	"mwe-upwiz-multi-file-select": "Disegna na caasciulella c' 'o curzóre d' 'o mouse ncopp' 'o file ca vulite carrecà. Tenite premuto 'o buttóne Ctrl/Comando pe' puté scegliere cchiù file nun-adiacente.\nPutite scegliere nfin'a $1 {{PLURAL:$1|file}} 'a se carrecà.",
+	"mwe-upwiz-multi-file-select": "Disegna na caasciulella c' 'o curzóre d' 'o mouse ncopp' 'o file ca vulite carrecà. Tenite premuto 'o buttóne $2 pe' puté scegliere cchiù file nun-adiacente. Putite scegliere nfin'a $1 {{PLURAL:$1|file}} 'a se carrecà.",
 	"mwe-upwiz-transport-started": "Accummenciann...",
 	"mwe-upwiz-encoding": "Facenn' 'a codifeca...",
 	"mwe-upwiz-uploading": "Carrecanno...",

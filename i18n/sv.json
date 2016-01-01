@@ -18,7 +18,8 @@
 			"Jenniesarina",
 			"Josve05a",
 			"Matma Rex",
-			"Fader"
+			"Fader",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Uppladdningsguiden",
@@ -57,7 +58,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Detta formulär kommer att läsa in innehåll som hålls i av flickr.com enligt\nFlickrs [https://www.flickr.com/help/terms/ användarvillkor] och [https://www.flickr.com/help/privacy-policy/ integritetspolicy].",
 	"mwe-upwiz-flickr-disclaimer2": "Observera att genom att använda detta verktyg kommer din IP-adress och detaljer om din begäran att vara tillgänglig för Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Vi kunde inte hämta filen från $1.",
-	"mwe-upwiz-multi-file-select": "Rita en ruta med din markör över de filer som du vill ladda upp. Håll ned Ctrl/Command för att markera flera filer som inte är angränsande. Du kan markera upp till $1 {{PLURAL:$1|fil|filer}} att ladda upp.",
+	"mwe-upwiz-multi-file-select": "Rita en ruta med din markör över de filer som du vill ladda upp. Håll ned $2 för att markera flera filer som inte är angränsande. Du kan markera upp till $1 {{PLURAL:$1|fil|filer}} att ladda upp.",
 	"mwe-upwiz-transport-started": "Startar...",
 	"mwe-upwiz-encoding": "Avkodar...",
 	"mwe-upwiz-uploading": "Laddar upp...",
