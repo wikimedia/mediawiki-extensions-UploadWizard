@@ -181,7 +181,7 @@
 	"mwe-upwiz-thanks-update-delay": "插入图片至列表页面会花费最多5分钟。",
 	"mwe-upwiz-thanks-url": "HTML链接至该文件，请复制该URL地址：",
 	"mwe-upwiz-upload-error-bad-filename-extension": "本维基不接受扩展名为“.$1”的文件名。",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "你选择上传的视频文件不是自由格式。你可以安装Firefox扩展程序[$1 Firefogg]自动转换你的文件，或使用其他[$2 转换选项]将视频转换为自由格式。",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "您选择上传的视频文件不是自由格式。\n在Mozilla Firefox浏览器上，您可以安装[$1 Firefogg]扩展程序自动转换您的文件。否则，您可以使用其他的[$2 转换选项]以将视频转换为自由格式。",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "本维基需要文件有扩展名 — 如文件名末尾的“.JPG”。",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "您已经在上传文件“$1”。",
 	"mwe-upwiz-allowed-filename-extensions": "允许的扩展名为：",

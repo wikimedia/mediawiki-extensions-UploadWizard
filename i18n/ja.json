@@ -165,7 +165,7 @@
 	"mwe-upwiz-thanks-update-delay": "一覧ページに画像を挿入すると、5分程度かかる場合があります。",
 	"mwe-upwiz-thanks-url": "HTML でリンクするには、この URL をコピーしてださい:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "このウィキは、「.$1」という拡張子を持つファイル名を受け入れていません。",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "あなたがアップロードするために選択した動画ファイルはフリーな形式ではありません。\nFirefox の拡張機能 [$1 Firefogg] をインストールして自動的に変換してください。またはその他の[$2 変換方法]を使用して動画をフリーな形式に変換してください。",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "あなたがアップロードするために選択した動画ファイルはフリーな形式ではありません。\nMozilla Firefox ブラウザの拡張機能 [$1 Firefogg] をインストールして自動的に変換してください。さもなければ、その他の[$2 変換方法]を使用して動画をフリーな形式に変換してください。",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "このウィキでは、ファイル名の末尾に、例えば「.JPG」のような拡張子を付ける必要があります。",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "あなたは既にファイル「$1」をアップロードしています。",
 	"mwe-upwiz-allowed-filename-extensions": "許可された拡張子:",

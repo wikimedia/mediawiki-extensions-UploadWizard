@@ -168,7 +168,7 @@
 	"mwe-upwiz-thanks-update-delay": "Das Einfügen des Bildes in die Listenseite kann bis zu fünf Minuten in Anspruch nehmen.",
 	"mwe-upwiz-thanks-url": "Um in HTML auf die Datei zu verlinken, kopiere folgende URL in den Code:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Auf diesem Wiki sind Dateien mit der Endung „.$1“ nicht zulässig.",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Du möchtest eine Videodatei in einem Format hochladen, das lizenzrechtlich nicht frei verwendbar ist.\nDu kannst nun [$1 Firefogg], ein Add-on zu Firefox installieren, das die Datei automatisch in ein frei verwendbares Format konvertiert. Du  kannst auch andere [$2 Konvertierungsmöglichkeiten] nutzen, um das Video in ein frei verwendbares Format umzuwandeln.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Du möchtest eine Videodatei in einem Format hochladen, das lizenzrechtlich nicht frei verwendbar ist.\nMit dem Browser Mozilla Firefox kannst du das Add-on [$1 Firefogg] installieren, das die Datei automatisch in ein frei verwendbares Format konvertiert. Anderenfalls kannst du auch andere [$2 Konvertierungsmöglichkeiten] nutzen, um das Video in ein frei verwendbares Format umzuwandeln.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Es ist erforderlich, dass hochgeladene Dateien über eine Dateiendung wie beispielsweise .JPG verfügen.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Du bist bereits dabei die Datei „$1“ hochzuladen.",
 	"mwe-upwiz-allowed-filename-extensions": "Die zulässigen Dateiendungen lauten:",
