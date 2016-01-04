@@ -108,6 +108,7 @@
 	 */
 	uw.controller.Details.prototype.valid = function () {
 		var
+			detailsController = this,
 			validityPromises = [],
 			warningValidityPromises = [],
 			titles = {};
@@ -157,29 +158,31 @@
 			} ) );
 		} );
 
-		// If not all uploads are valid, $.when will reject this
-		return $.when.apply( $, validityPromises ).then( function () {
-			// If not all uploads are warning-free, $.when will reject this too
-			return $.when.apply( $, warningValidityPromises ).then(
-				// All uploads valid, no warnings
-				function () {
-					return $.Deferred().resolve( true );
-				},
-				function () {
+		return $.when.apply( $, validityPromises ).then(
+			function () {
+				return $.when.apply( $, warningValidityPromises ).then(
+					// All uploads valid, no warnings
+					function () {
+						return $.Deferred().resolve( true );
+					},
 					// Valid, but with warnings, ask for confirmation
-					this.showErrors(); // Update warning count before dialog
-					return this.confirmationDialog();
-				}.bind( this )
-			);
-		}.bind( this ),
-		function () {
-			return $.Deferred().resolve( false );
-		}
+					function () {
+						// Update warning count before dialog
+						detailsController.showErrors();
+						return detailsController.confirmationDialog();
+					}
+				);
+			},
+			function () {
+				return $.Deferred().resolve( false );
+			}
 		);
 	};
 
 	uw.controller.Details.prototype.confirmationDialog = function () {
-		return OO.ui.confirm( mw.message( 'mwe-upwiz-dialog-warning' ).text(), { title: mw.message( 'mwe-upwiz-dialog-title' ).text() } );
+		return OO.ui.confirm( mw.message( 'mwe-upwiz-dialog-warning' ).text(), {
+			title: mw.message( 'mwe-upwiz-dialog-title' ).text()
+		} );
 	};
 
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
