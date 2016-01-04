@@ -194,7 +194,7 @@
 	"mwe-upwiz-thanks-update-delay": "L’insertion de l’image dans la page de liste peut prendre jusqu’à cinq minutes.",
 	"mwe-upwiz-thanks-url": "Pour faire un lien vers lui en HTML, copiez cette URL :",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ce wiki n’accepte pas les noms de fichiers avec l’extension « .$1 ».",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Vous avez sélectionné un fichier vidéo pour le téléversement qui n’est pas dans un format libre.\nVous pouvez installer [$1 Firefogg], une extension Firefox pour le convertir automatiquement, ou utiliser d’autres [$2 systèmes de conversion] pour convertir la vidéo dans un format libre.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Vous avez sélectionné un fichier vidéo pour le téléchargement qui n’est pas dans un format libre.\nSur un navigateur Mozilla Firefox, vous pouvez installer l’extension [$1 Firefogg] pour le convertir automatiquement. Sinon, vous pouvez utiliser d’autres [$2 systèmes de conversion] pour convertir la vidéo dans un format libre.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Ce wiki requiert que les fichiers aient une extension — comme « .JPG » à la fin du nom de fichier.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Vous avez déjà téléversé le fichier « $1 ».",
 	"mwe-upwiz-allowed-filename-extensions": "Les extensions autorisées sont :",

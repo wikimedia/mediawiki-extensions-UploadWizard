@@ -163,7 +163,7 @@
 	"mwe-upwiz-thanks-update-delay": "הוספת התמונה לדף הרשימה יכולה לקחת עד חמש דקות.",
 	"mwe-upwiz-thanks-url": "כדי לקשר אליו ב־HTML, העתיקו את הכתובת הזאת:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "ויקי זה אינו מקבל קבצים עם הסיומת \"‎.$1\".",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "בחרת להעלות קובץ וידאו מסוג שאינו חופשי.\nאפשר [$1 להתקין את Firefogg], הרחבת פיירפוקס שתמיר אוטומטית את הקובץ שלך. או להשתמש ב־[$2 אפשרויות המרה אחרות] כדי להמיר את הווידאו לסוג חופשי.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "בחרת להעלות קובץ וידאו מסוג שאינו חופשי.\nבדפדפן מוזילה פיירפוקס אפשר [$1 להתקין את הרחבה Firefogg] כדי להמיר אוטומטית את הקובץ שלך. אפשר גם להשתמש ב[$2 אפשרויות המרה אחרות] כדי להמיר את הווידאו לסוג חופשי.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "הוויקי הזה דורש שלקבצים תהיה סיומת, כגון \"&lrm;.JPG\", בסוף שם הקובץ.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "הקובץ \"$1\" כבר מועלה.",
 	"mwe-upwiz-allowed-filename-extensions": "הסיומות המותרות הן:",

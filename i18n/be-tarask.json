@@ -125,7 +125,7 @@
 	"mwe-upwiz-thanks-wikitext": "Для выкарыстаньня файла ў вікі скапіюйце гэты тэкст на старонку:",
 	"mwe-upwiz-thanks-url": "Для даданьня HTML-спасылкі скапіюйце наступны URL-адрас:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Гэтая вікі не прымае назвы файлаў з пашырэньнем «.$1».",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Абранае відэа мае фармат, які не зьяўляецца вольным.\nВы можаце [$1 усталяваць Firefogg], пашырэньне для Firefox для аўтаматычнага канвэртаваньня файлаў, ці выкарыстоўваць іншыя [$2 налады канвэртацыі], каб канвэртаваць відэа ў вольны фармат.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Абранае відэа мае фармат, які не зьяўляецца вольным.\nУ браўзэры Mozilla Firefox Вы можаце [$1 ўсталяваць Firefogg], пашырэньне для аўтаматычнага канвэртаваньня файлаў. Або вы можаце выкарыстаць іншыя [$2 налады], каб канвэртаваць відэа ў вольны фармат.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Гэтая вікі патрабуе наяўнасьці пашырэньня ў назьве, напрыклад, «.JPG» на канцы.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Вы ўжо загружаеце файл «$1».",
 	"mwe-upwiz-allowed-filename-extensions": "Дазволеныя пашырэньні файлаў:",

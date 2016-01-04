@@ -163,7 +163,7 @@
 	"mwe-upwiz-thanks-wikitext": "Per usare il file in un wiki, copia questo testo in una pagina:",
 	"mwe-upwiz-thanks-url": "Per creare un collegamento in HTML, copia questo URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Questo wiki non accetta nomi di file con estensione \".$1\".",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Hai selezionato per il caricamento un file video che non è in un formato libero.\nPuoi installare [$1 Firefogg], un'estensione di Firefox per convertire automaticamente i tuoi file. Oppure usare altre [$2 opzioni di conversione] per convertire il video in un formato libero.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Hai selezionato per il caricamento un file video che non è in un formato libero.\nNel browser Mozilla Firefox, puoi installare l'estensione [$1 Firefogg] per convertire automaticamente i tuoi file. Altrimenti, puoi usare altre [$2 opzioni di conversione] per convertire il video in un formato libero.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Questa wiki richiede che i file abbiano un'estensione – ad esempio \".JPG\" – alla fine del nome.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Stai già caricando il file \"$1\".",
 	"mwe-upwiz-allowed-filename-extensions": "Le estensioni consentite sono:",

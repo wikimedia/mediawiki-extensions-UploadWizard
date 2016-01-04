@@ -145,7 +145,7 @@
 	"mwe-upwiz-thanks-wikitext": "Fir de Fichier an enger Wiki ze benotzen, kopéiert dësen Text an eng Säit:",
 	"mwe-upwiz-thanks-url": "Fir een HTML-Link op dëse Fichier ze maachen, kopéiert dës URL-Adress :",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun \".$1\".",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Dir hutt e Videosfichier fir d'Eroplueden erausgesicht deen an engem net-fräie Format ass.\nDir kënnt [$1 Firefogg] oder eng Firefox Erweiderung installéieren fir Äre Fichier automatesch ëmzewandelen. Oder benotzt aner [$2 Ëmwandlungsoptiounen] fir de Video an e fräie Format ëmzewandelen.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Dir hutt e Videosfichier fir d'Eroplueden erausgesicht deen an engem net-fräie Format ass.\nAn engem Mozilla Firefox Browser kënnt Dir d'[$1 Firefogg] Erweiderung installéieren fir Äre Fichier automatesch ëmzewandelen. Soss, kënnt Dir aner [$2 Ëmwandlungsoptioune] benotze fir de Video an e fräie Format ëmzewandelen.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Dës Wiki verlaangt datt d'Fichieren eng Erweiderung  - wéi z. Bsp. \".JPG\" um Enn vum Fichiersnumm hunn.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Dir hutt de Fichier \"$1\" schonn eropgelueden.",
 	"mwe-upwiz-allowed-filename-extensions": "Déi erlaabten Erweiderunge sinn:",
