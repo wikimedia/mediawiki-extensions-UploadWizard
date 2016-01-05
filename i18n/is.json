@@ -122,7 +122,7 @@
 	"mwe-upwiz-thanks-wikitext": "Til þess að nota skránna á wiki, afritaðu þennan texta á síðuna:",
 	"mwe-upwiz-thanks-url": "Til þess að tengja í skránna með HTML, afritaðu þessa vefslóð:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Þessi wiki styður ekki skráarnöfn sem enda með skráartegundinni \".$1\".",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Þú hefur valið myndbandskrá til að hlaða inn sem er ekki geymd á frjálsu skráarsniði.\nÞú getur sett inn [$1 Firefogg], sem er Firefox viðbót, til að umskrifa skrána þína. Eða þú getur notað [$2 aðra umskriftarmöguleika] til að breyta skránni yfir á frjálst skráarsnið.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Þú hefur valið myndbandskrá til að hlaða inn sem er ekki geymd á frjálsu skráarsniði.\nÍ Mozilla Firefox vafranum, getur þú sett inn [$1 Firefogg] viðbótina til að umskrifa skrána þína. Annars getur þú notað [$2 aðra umskriftarmöguleika] til að breyta skránni yfir á frjálst skráarsnið.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Þessi wiki gerir kröfu um að skrárnar hafi skráarsnið - eins og til dæmis \".JPG\", í enda skráarnafnsins.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Þú ert þegar að hlaða inn skránni \"$1\".",
 	"mwe-upwiz-allowed-filename-extensions": "Leyfð skráarsnið eru:",

@@ -154,7 +154,7 @@
 	"mwe-upwiz-thanks-update-delay": "A nzertà ll'immaggene int' 'a paggena 'elenco ce vulessero nfin'a cinche minute",
 	"mwe-upwiz-thanks-url": "Pe' puté cullegà cu l'HTML cupiate stu nnerizzo URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Sta wiki nun accettasse 'e nomme 'e file ca fernissero int'a estensione \".$1\".",
-	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Avite scigliuto nu file video pe' ffà 'a carreca ca nun fosse dint'a nu formatto libbero. Putite installà 'a stensione [$1 Firefogg] 'e Firefox ca scagnasse automaticamente 'e file vuoste. Pure putite ausà ati [$2 opziune 'e conversione] pe' puté scagnà 'o file a nu furmato libbero.",
+	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "Avite scigliuto nu file video pe' ffà 'a carreca ca nun fosse dint'a nu formatto libbero.\nInt'a Mozilla Firefox, putite installà 'a stensione [$1 Firefogg] ca scagnasse automaticamente 'e file vuoste. Sinò putite ausà ll'ati [$2 opziune 'e conversione] pe' puté scagnà 'o file a nu furmato libbero.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Sta wiki vulesse ca 'e file tenessero na estensione — p'esempie \".JPG\" a fine 'e nomme.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Vuje state già carrecann' 'o file \"$1\".",
 	"mwe-upwiz-allowed-filename-extensions": "L'estenziune premmesse songo:",
