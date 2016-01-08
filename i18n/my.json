@@ -2,23 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Erikoo",
-			"Lionslayer"
+			"Lionslayer",
+			"Ninjastrikers"
 		]
 	},
 	"uploadwizard": "ဖိုင်တင်သည့် အဆောက်အဦ",
-	"mwe-upwiz-code-unknown": "အမည်မသိ ဘာသာစကား",
 	"mwe-upwiz-step-tutorial": "လေ့လာရန်",
 	"mwe-upwiz-step-file": "Upload တင်ရန်",
 	"mwe-upwiz-step-deeds": "ထုတ်ဝေသည့် ခွင့်ပြုချက်များ",
 	"mwe-upwiz-step-details": "ဖော်ပြရန်",
 	"mwe-upwiz-step-thanks": "သုံးရန်",
 	"mwe-upwiz-help-desk": "အကူအညီပေးရာနေရာ",
-	"mwe-upwiz-add-file-n": "နောက်ဖိုင်တစ်ခု ထပ်ထည့်ရန်",
-	"mwe-upwiz-add-file-0-free": "လှူဒါန်းရန် မီဒီယာဖိုင်တစ်ခုကို ရွေးချယ်ပါ",
+	"mwe-upwiz-add-file-n": "နောက်ထပ် ဖိုင်များ ထပ်ပေါင်းရန်",
+	"mwe-upwiz-add-file-0-free": "မျှဝေရန် မီဒီယာဖိုင်များကို ရွေးချယ်ရန်",
 	"mwe-upwiz-transport-started": "စပြီ...",
 	"mwe-upwiz-uploading": "ဖိုင်တင်နေသည်...",
 	"mwe-upwiz-transported": "ဖိုင်တင်ပြီးပြီ...",
-	"mwe-upwiz-stashed-upload": "အိုကေ",
+	"mwe-upwiz-stashed-upload": "Upload ပြီးပြီ",
 	"mwe-upwiz-getting-metadata": "ဖိုင်အချက်အလက်နှင့် နမူနာပုံငယ်တို့ကို ရယူနေသည်...",
 	"mwe-upwiz-submitting-details": "အသေးစိတ်တို့ကို တင်သွင်းနေပြီး ထုတ်ဝေနေသည်...",
 	"mwe-upwiz-published": "ထုတ်ဝေပြီးပြီ!",
@@ -43,5 +43,6 @@
 	"mwe-upwiz-copyright-info": "ထုတ်ဝေသည့် ခွင့်ပြုချက်များ",
 	"mwe-upwiz-author": "မူလဖန်တီးသူ(များ)",
 	"mwe-upwiz-autoconverted": "ဤဖိုင်ကို $1 ဖောမတ်သို့ အလိုအလျောက် ပြောင်းလိုက်သည်",
-	"mwe-upwiz-other": "အခြားသတင်းအချက်အလက်များ"
+	"mwe-upwiz-other": "အခြားသတင်းအချက်အလက်များ",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|ဆောင်ရွက်သူ|ဆောင်ရွက်သူများ}}"
 }
