@@ -127,10 +127,10 @@
 
 		if ( descriptionText.length !== 0 && descriptionText.length < minLength ) {
 			// Empty description is allowed
-			errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength - 1 ) );
+			errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
 		}
 		if ( descriptionText.length > maxLength ) {
-			errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength + 1 ) );
+			errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
 		}
 
 		return $.Deferred().resolve( errors ).promise();
