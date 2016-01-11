@@ -88,7 +88,6 @@
 	uw.controller.Upload.prototype.startProgressBar = function () {
 		this.ui.showProgressBar();
 		this.progressBar = new mw.GroupProgressBar( this.ui.$progress,
-			mw.message( 'mwe-upwiz-uploading' ).escaped(),
 			this.uploads,
 			[ 'stashed' ],
 			[ 'error' ],

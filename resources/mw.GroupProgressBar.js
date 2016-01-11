@@ -3,8 +3,7 @@
 	/**
 	 * this is a progress bar for monitoring multiple objects, giving summary view
 	 */
-	mw.GroupProgressBar = function ( selector, text, uploads, successStates, errorStates, progressProperty, weightProperty ) {
-		// XXX need to figure out a way to put text inside bar
+	mw.GroupProgressBar = function ( selector, uploads, successStates, errorStates, progressProperty, weightProperty ) {
 		this.$selector = $( selector );
 		this.$selector.html(
 			'<div class="mwe-upwiz-progress-inner">' +
