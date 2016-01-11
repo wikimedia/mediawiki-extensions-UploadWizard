@@ -201,7 +201,7 @@
 			}
 			if ( code === 'filetype-banned' && result.error.blacklisted ) {
 				code = 'filetype-banned-type';
-				comma = mw.message( 'comma-separator' ).escaped();
+				comma = mw.message( 'comma-separator' ).text();
 				info = [
 					result.error.blacklisted.join( comma ),
 					result.error.allowed.join( comma ),
@@ -238,7 +238,7 @@
 						code = 'unknown-warning';
 						if ( typeof result.upload.warnings[ warnCode ] === 'string' ) {
 							// tack the original error code onto the warning info
-							info = warnCode + mw.message( 'colon-separator' ).escaped() + result.upload.warnings[ warnCode ];
+							info = warnCode + mw.message( 'colon-separator' ).text() + result.upload.warnings[ warnCode ];
 						} else {
 							info = result.upload.warnings[ warnCode ];
 						}

@@ -5,7 +5,7 @@
 	$.fn.showThumbCtrl = function ( msgKey, tooltipMsgKey, callback ) {
 		var msg = (msgKey === null) ? '' : mw.message( msgKey ).escaped();
 		return $( '<div class="mwe-upwiz-show-thumb-ctrl ui-corner-all" />' )
-			.attr( 'title', mw.message( tooltipMsgKey ).escaped() )
+			.attr( 'title', mw.message( tooltipMsgKey ).text() )
 			.click( function () {
 				$( this )
 					.addClass( 'disabled' )

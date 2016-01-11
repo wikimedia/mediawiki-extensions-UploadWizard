@@ -73,8 +73,8 @@
 				$content: $( '<p>' ).msg(
 					'mwe-upwiz-tooltip-skiptutorial',
 					mw.config.get( 'wgServer' ) + mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-uploads',
-					mw.message( 'prefs-uploads' ).escaped(),
-					mw.message( 'prefs-upwiz-interface' ).escaped()
+					mw.message( 'prefs-uploads' ).text(),
+					mw.message( 'prefs-upwiz-interface' ).text()
 				),
 				autoClose: false,
 				padded: true
