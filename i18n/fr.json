@@ -243,7 +243,7 @@
 	"mwe-upwiz-error-signature-bad-chars": "Votre signature contient des symboles qui ne sont pas autorisés.\nVeuillez ne pas utiliser de code wiki ni de HTML ici, juste votre nom d’utilisateur ou votre vrai nom.",
 	"mwe-upwiz-error-blank": "Ce champ est obligatoire.",
 	"mwe-upwiz-error-nologin": "Vous devez être <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} connecté]</span> pour téléverser des fichiers.",
-	"mwe-upwiz-error-too-long": "Cette entrée est trop longue.\nVeuillez faire ne sorte qu’elle ne dépasse pas $1 {{PLURAL:$1|caractère|caractères}}.",
+	"mwe-upwiz-error-too-long": "Cette entrée est trop longue.\nVeuillez faire en sorte qu’elle ne dépasse pas $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-too-short": "Cette entrée est trop courte.\nVeuillez faire en sorte qu’elle contienne au moins $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-bad-descriptions": "Il y a des problèmes avec certaines descriptions.",
 	"mwe-upwiz-error-bad-chars": "Cette entrée contient des symboles qui ne sont pas autorisés.\nVeuillez ne pas utiliser de wikitexte ni de HTML ici.",
