@@ -5,7 +5,8 @@
 			"Spiritia",
 			"Stanqo",
 			"Vladimir Penov",
-			"Matma Rex"
+			"Matma Rex",
+			"Vodnokon4e"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -27,11 +28,12 @@
 	"mwe-upwiz-tutorial-error-cannot-transform": "Неуспешно извличане на изображение на наръчника, мащабирано в съответствие с размерите на вашия екран. Възможно е това да е временен проблем на Общомедия; опитайте отново по-късно.",
 	"mwe-upwiz-help-desk": "Помощен център",
 	"mwe-upwiz-help-desk-url": "Commons:Разговори",
-	"mwe-upwiz-add-file-n": "Добавяне на друг файл",
-	"mwe-upwiz-add-file-0-free": "Избиране на файл за даряване",
-	"mwe-upwiz-add-file-flickr": "Добавяне на снимки от Flickr",
+	"mwe-upwiz-add-file-n": "Добавете още файлове",
+	"mwe-upwiz-add-file-0-free": "Избиране на медийни файлове за споделяне",
+	"mwe-upwiz-add-file-flickr": "Споделяне на снимки от Flickr",
 	"mwe-upwiz-add-flickr-or": "Или",
-	"mwe-upwiz-add-flickr": "Добавяне на снимки от Flickr",
+	"mwe-upwiz-add-flickr": "Добавяне от Flickr",
+	"mwe-upwiz-flickr-input-placeholder": "URL на Flickr",
 	"mwe-upwiz-select-flickr": "Качване на избраните изображения",
 	"mwe-upwiz-transport-started": "Начало...",
 	"mwe-upwiz-uploading": "Качване...",
@@ -104,7 +106,6 @@
 	"mwe-upwiz-ok": "Добре",
 	"mwe-upwiz-fileexists-replace-on-page": "Файл с това име вече съществува. Ако искате да го замените, отидете на страницата [$2 $1] и качете вашия файл като нова версия на съществуващия.",
 	"mwe-upwiz-fileexists-replace-no-link": "Файл с това име вече съществува.",
-	"mwe-upwiz-blacklisted": "Моля, изберете различно, описателно заглавие.",
 	"mwe-upwiz-next": "Следваща стъпка",
 	"mwe-upwiz-next-file": "Следваща стъпка",
 	"mwe-upwiz-next-deeds": "Следваща стъпка",
@@ -155,7 +156,9 @@
 	"mwe-upwiz-too-many-files": "Твърде много файлове.",
 	"mwe-upwiz-file-too-large-text": "Можете да качите файлове с размер от до $1. Опитахте се да качите файл, който е $2.",
 	"mwe-upwiz-file-too-large": "Файлът е твърде голям.",
-	"mwe-upwiz-dialog-title": "Файловете могат да се качват с имена на всякакви езици и на всякакви писмени системи (кодирани в UTF-8). Заглавията на мултимедийните файлове следва да носят смисъл на съответния език и да подпомагат намираемостта на файла при търсене.",
+	"mwe-upwiz-dialog-yes": "Да",
+	"mwe-upwiz-dialog-no": "Не",
+	"mwe-upwiz-dialog-title": "Предупреждение",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Криейтив Комънс - Признание - Споделяне на споделеното - 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Криейтив Комънс - Признание - Споделяне на споделеното - 3.0 Австрия",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Криейтив Комънс - Признание - Споделяне на споделеното - 3.0 Германия",
@@ -211,8 +214,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Връщане към стария формуляр за качване",
 	"mwe-upwiz-feedback-prompt": "Оставете коментар",
 	"mwe-upwiz-feedback-title": "Оставете мнението си за Помощника за качванията",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Изпращане на обратна връзка]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Още информация]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Открито е съвпадение със следния запис от черния списък на заглавията:\n$1",
 	"mwe-upwiz-errordialog-ok": "ОК",
 	"mwe-upwiz-error-nosuchcampaign": "Няма кампания на име \"$1\".",
@@ -226,5 +227,6 @@
 	"mwe-upwiz-prefs-def-license": "Лиценз по подразбиране",
 	"mwe-upwiz-prefs-def-license-def": "Използвайте каквото е по подразбиране",
 	"mwe-upwiz-prefs-license-own": "Собствена творба - $1",
-	"mwe-upwiz-prefs-license-thirdparty": "Чужда творба - $1"
+	"mwe-upwiz-prefs-license-thirdparty": "Чужда творба - $1",
+	"mwe-upload-campaigns-pagination-next": "Следваща страница"
 }
