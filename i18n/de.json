@@ -18,7 +18,8 @@
 			"The Evil IP address",
 			"✓",
 			"Umherirrender",
-			"Matma Rex"
+			"Matma Rex",
+			"Predatorix"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -344,6 +345,7 @@
 	"mwe-upload-campaigns-pagination-next": "Nächste Seite",
 	"mwe-upload-campaigns-list-title": "Liste der Hochladekampagnen",
 	"apihelp-flickrblacklist-param-url": "Die zu testende Flickr-URL.",
+	"apihelp-flickrblacklist-param-list": "Wenn eingestellt, wird die gesamte Schwarze Liste zurückgegeben. Darf nicht zusammen mit $1url verwendet werden.",
 	"apihelp-flickrblacklist-example-1": "Überprüft eine URL gegen die Blacklist",
 	"apihelp-flickrblacklist-example-2": "Gibt die ganze Blacklist zurück",
 	"apihelp-query+allcampaigns-description": "Führt alle Kampagnen des Hochladeassistenten auf.",
