@@ -658,7 +658,7 @@
 						descriptions: [
 							{
 								// The language is probably wrong in many cases...
-								language: mw.config.get( 'wgContentLanguage' ),
+								language: uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) ),
 								description: descText.trim()
 							}
 						]
