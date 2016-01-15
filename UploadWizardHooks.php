@@ -276,6 +276,7 @@ class UploadWizardHooks {
 				'mwe-upwiz-categories-another',
 				'mwe-upwiz-media-type',
 				'mwe-upwiz-date-created',
+				'mwe-upwiz-select-date',
 				'mwe-upwiz-location',
 				'mwe-upwiz-location-button',
 				'mwe-upwiz-location-lat',
