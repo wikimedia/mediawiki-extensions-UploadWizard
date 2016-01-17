@@ -434,6 +434,7 @@ return array(
 		'ownWork' => array(
 			'type' => 'or',
 			'template' => 'self',
+			'defaults' => 'cc-by-sa-4.0',
 			'licenses' => array(
 				'cc-by-sa-4.0',
 				'cc-by-sa-3.0',
@@ -446,6 +447,7 @@ return array(
 		// checkbox selection of all licenses
 		'thirdParty' => array(
 			'type' => 'or',
+			'defaults' => 'cc-by-sa-4.0',
 			'licenseGroups' => array(
 				array(
 					// This should be a list of all CC licenses we can reasonably expect to find around the web

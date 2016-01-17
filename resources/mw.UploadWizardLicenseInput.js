@@ -94,7 +94,7 @@
 
 		this.defaults = [];
 
-		if ( config.defaults && config.defaults[ 0 ] ) {
+		if ( config.defaults ) {
 			this.defaults = config.defaults;
 		} else if ( config.licenses && config.licenses[ 0 ] ) {
 			this.defaults = [ config.licenses[ 0 ] ];
@@ -442,9 +442,7 @@
 		 */
 		setDefaultValues: function () {
 			var values = {};
-			$.each( this.defaults, function ( i, lic ) {
-				values[ lic ] = true;
-			} );
+			values[ this.defaults ] = true;
 			this.setValues( values );
 		},
 

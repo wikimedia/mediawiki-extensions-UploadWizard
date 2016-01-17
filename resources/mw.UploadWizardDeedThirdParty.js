@@ -150,7 +150,7 @@
 				$selector.append( this.$form );
 
 				if ( defaultType === 'thirdparty' ) {
-					defaultLicense = config.licensing.thirdParty.defaults[ 0 ];
+					defaultLicense = config.licensing.thirdParty.defaults;
 
 					defaultLicenseNum = findLicenseRecursively( config, defaultLicense );
 

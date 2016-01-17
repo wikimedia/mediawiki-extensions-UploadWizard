@@ -75,7 +75,7 @@
 					defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
-					defaultLicense = config.licensing.ownWork.defaults[ 0 ];
+					defaultLicense = config.licensing.ownWork.defaults;
 				} else {
 					defaultLicense = config.licensing.ownWork.licenses[ 0 ];
 				}
@@ -118,7 +118,7 @@
 				defaultType = config.licensing.defaultType;
 
 				if ( defaultType === 'ownwork' ) {
-					defaultLicense = config.licensing.ownWork.defaults[ 0 ];
+					defaultLicense = config.licensing.ownWork.defaults;
 				} else {
 					defaultLicense = config.licensing.ownWork.licenses[ 0 ];
 				}
