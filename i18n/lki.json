@@ -155,11 +155,11 @@
 	"mwe-upwiz-license-confirm-remove": "آیا مطمئن هستید که می‌خواهید این {{PLURAL:$1|بارگذاری|بارگذاری‌ها}} را حذف کنید؟",
 	"mwe-upwiz-license-confirm-remove-title": "تأیید حذف",
 	"mwe-upwiz-license-external": "این پرونده تجت این اجازه‌نامه در وب‌گاه مبدأ «$1» منتشر شده‌است: $2.",
-	"mwe-upwiz-categories": "رده ها/ڕِزگةل",
+	"mwe-upwiz-categories": "ڕزگەل",
 	"mwe-upwiz-errordialog-ok": "خوو/ باشد",
 	"mwe-upwiz-error-nosuchcampaign": "هیچ کمپینی با نام «$1» وجود ندارد.",
 	"prefs-uploads": "در حال بارنیائن",
 	"prefs-upwiz-licensing": "اجازه‌نامه",
 	"prefs-upwiz-experimental": "قابلیت‌های آزمایشی",
-	"mwe-upload-campaigns-pagination-next": "وةڵگة تِر/بعدی"
+	"mwe-upload-campaigns-pagination-next": "وەڵگە تِر(هەنی)"
 }
