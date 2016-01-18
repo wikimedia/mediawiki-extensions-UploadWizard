@@ -368,7 +368,7 @@
 			} else {
 				$input.prop( 'checked', false );
 			}
-			if ( val !== oldVal ) { // loose comparison on purpose
+			if ( val !== oldVal ) {
 				this.emit( 'change' );
 			}
 
@@ -417,7 +417,6 @@
 					// set just one of the radio inputs and don't touch anything else
 					$.each( this.inputs, function ( i, $input ) {
 						var licenseName = $input.data( 'licenseName' );
-						// !!to ensure boolean.
 						if ( licenseName === trueLicenseName ) {
 							input.setInput( $input, true );
 						}
