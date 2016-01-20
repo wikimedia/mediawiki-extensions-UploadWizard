@@ -824,11 +824,15 @@ class UploadWizardHooks {
 				$licenses[$licenseKey] = 'ownwork-' . $license;
 			}
 
-			foreach ( UploadWizardConfig::getThirdPartyLicenses() as $license ) {
+			$thirdParty = UploadWizardConfig::getThirdPartyLicenses();
+			$hasCustom = false;
+			foreach ( $thirdParty as $license ) {
 				if ( $license !== 'custom' ) {
 					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 					$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text();
 					$licenses[$licenseKey] = 'thirdparty-' . $license;
+				} else {
+					$hasCustom = true;
 				}
 			}
 
@@ -839,12 +843,29 @@ class UploadWizardHooks {
 				$licenses
 			);
 
+			if ( $hasCustom ) {
+				// The "custom license" option must be last, otherwise the text referring to "following
+				// wikitext" and "last option above" makes no sense.
+				$licenseMessage = self::getLicenseMessage( 'custom', $licenseConfig );
+				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text();
+				$licenses[$licenseKey] = 'thirdparty-custom';
+			};
+
 			$preferences['upwiz_deflicense'] = array(
 				'type' => 'radio',
 				'label-message' => 'mwe-upwiz-prefs-def-license',
 				'section' => 'uploads/upwiz-licensing',
 				'options' => $licenses
 			);
+
+			if ( $hasCustom ) {
+				$preferences['upwiz_deflicense_custom'] = array(
+					'type' => 'text',
+					'label-message' => 'mwe-upwiz-prefs-def-license-custom',
+					'help-message' => 'mwe-upwiz-prefs-def-license-custom-help',
+					'section' => 'uploads/upwiz-licensing',
+				);
+			}
 
 			if ( UploadWizardConfig::getSetting( 'enableChunked' ) === 'opt-in' ) {
 				$preferences['upwiz-chunked'] = array(

@@ -322,6 +322,8 @@
 	"prefs-upwiz-interface": "User interface",
 	"mwe-upwiz-prefs-def-license": "Default license",
 	"mwe-upwiz-prefs-def-license-def": "Use whatever the default is",
+	"mwe-upwiz-prefs-def-license-custom": "Custom default license",
+	"mwe-upwiz-prefs-def-license-custom-help": "This field is only used if you choose the last option above.",
 	"mwe-upwiz-prefs-license-own": "Own work - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Someone else's work - $1",
 	"mwe-upwiz-prefs-chunked": "Chunked uploads for files over $1 in Upload Wizard - Increases maximum file upload size from $2 to $3",
