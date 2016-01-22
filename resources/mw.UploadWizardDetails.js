@@ -217,7 +217,7 @@
 		var mwTitle = mw.Title.newFromText( filename, NS_FILE );
 		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
 			// Force file namespace
-			mwTitle = mw.Title.newFromText( 'File:' + filename );
+			mwTitle = mw.Title.makeTitle( NS_FILE, filename );
 		}
 		return mwTitle;
 	};

@@ -1,5 +1,7 @@
 ( function ( mw, uw, $, OO ) {
 
+	var NS_CATEGORY = mw.config.get( 'wgNamespaceIds' ).category;
+
 	/**
 	 * A categories field in UploadWizard's "Details" step form.
 	 *
@@ -24,7 +26,7 @@
 
 		categories = ( mw.UploadWizard.config.defaults.categories || [] ).filter( function ( cat ) {
 			// Keep only valid titles
-			return !!mw.Title.newFromText( 'Category:' + cat );
+			return !!mw.Title.makeTitle( NS_CATEGORY, cat );
 		} );
 		this.categoriesWidget.setItemsFromData( categories );
 
@@ -77,7 +79,7 @@
 		}
 		hiddenCats = hiddenCats.filter( function ( cat ) {
 			// Keep only valid titles
-			return !!mw.Title.newFromText( 'Category:' + cat );
+			return !!mw.Title.makeTitle( NS_CATEGORY, cat );
 		} );
 
 		missingCatsWikiText = null;
@@ -93,7 +95,7 @@
 		// add all categories
 		wikiText = categories.concat( hiddenCats )
 			.map( function ( cat ) {
-				return '[[' + mw.Title.newFromText( 'Category:' + cat ).getPrefixedText() + ']]';
+				return '[[' + mw.Title.makeTitle( NS_CATEGORY, cat ).getPrefixedText() + ']]';
 			} )
 			.join( '\n' );
 
