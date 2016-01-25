@@ -189,7 +189,7 @@
 			}
 
 			$.each( config.licenses, function ( i, licenseName ) {
-				var $customDiv, license, templates, $input, $label;
+				var $customDiv, license, templates, $input, $label, customDefault;
 
 				if ( mw.UploadWizard.config.licenses[ licenseName ] !== undefined ) {
 					license = {
@@ -213,7 +213,8 @@
 					$input.data( 'groupToggler', $groupToggler );
 
 					if ( config.special === 'custom' ) {
-						$customDiv = input.createCustomWikiTextInterface( $input );
+						customDefault = mw.UploadWizard.config.licenses[ licenseName ].defaultText;
+						$customDiv = input.createCustomWikiTextInterface( $input, customDefault );
 						$el.append( $customDiv );
 						$input.data( 'textarea', $customDiv.find( 'textarea' ) );
 					}
@@ -316,15 +317,17 @@
 		 * When text entered here, auto-selects the input.
 		 *
 		 * @param {jQuery} $input Wrapped input
-		 * @return {jQuery} wrapped textarea
+		 * @param {string} [customDefault] Default custom license text
+		 * @return {jQuery} Wrapped textarea
 		 */
-		createCustomWikiTextInterface: function ( $input ) {
+		createCustomWikiTextInterface: function ( $input, customDefault ) {
 			var keydownTimeout,
 				input = this,
 				nameId = $input.attr( 'id' ) + '_custom',
 				textarea, button;
 
 			textarea = new OO.ui.TextInputWidget( {
+				value: customDefault,
 				name: nameId,
 				multiline: true,
 				autosize: true

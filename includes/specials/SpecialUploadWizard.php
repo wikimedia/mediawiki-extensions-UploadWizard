@@ -233,6 +233,11 @@ class SpecialUploadWizard extends SpecialPage {
 				}
 				$config['licensing'][$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
 				$config['licensing']['defaultType'] = $userLicenseType;
+
+				if ( $userDefaultLicense === 'custom' ) {
+					$config['licenses']['custom']['defaultText'] =
+						$this->getUser()->getOption( 'upwiz_deflicense_custom' );
+				}
 			}
 		}
 
