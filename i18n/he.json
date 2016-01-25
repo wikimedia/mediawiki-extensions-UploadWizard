@@ -330,6 +330,8 @@
 	"prefs-upwiz-interface": "ממשק משתמש",
 	"mwe-upwiz-prefs-def-license": "רישיון ברירת המחדל",
 	"mwe-upwiz-prefs-def-license-def": "להשתמש בברירת המחדל",
+	"mwe-upwiz-prefs-def-license-custom": "רישיון רגיל מותאם",
+	"mwe-upwiz-prefs-def-license-custom-help": "השדה הזה משמש רק אם נבחרה האפשרות האחרונה לעיל.",
 	"mwe-upwiz-prefs-license-own": "יצירה עצמית – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "יצירה של אדם אחר – $1",
 	"mwe-upwiz-prefs-chunked": "העלאה מקוטעת עבור קבצים גדולים מ־$1 באשף ההעלאה – העלאת הגודל המרבי של הקובת המועלה מ־$2 ל־$3",

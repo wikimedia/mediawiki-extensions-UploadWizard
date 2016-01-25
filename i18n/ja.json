@@ -226,6 +226,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "ウィキテキストの入力が必要なオプションを選択しました。",
 	"mwe-upwiz-error-license-wikitext-too-short": "このウィキ文はライセンスとしては短すぎます",
 	"mwe-upwiz-error-license-wikitext-too-long": "入力したウィキ文が長すぎます。",
+	"mwe-upwiz-warning-categories-missing": "アップロードに際して、カテゴリをいくつか入力することを推奨します。",
 	"mwe-upwiz-warning-postdate": "未来の日付が選択されています。",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|エラー|$1 個のエラー}}が上の{{PLURAL:$2|フォーム|複数フォーム}}にあります。{{PLURAL:$1|エラー}}を訂正してから送信を再度試してください。",
 	"mwe-upwiz-details-warning-count": "上記の{{PLURAL:$2|入力欄}}に{{PLURAL:$1|$1個の警告}}があります。処理を続行する前に、{{PLURAL:$1|これ|これら}}を修正することを推奨します。",

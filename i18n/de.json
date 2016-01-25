@@ -336,6 +336,8 @@
 	"prefs-upwiz-interface": "Benutzeroberfläche",
 	"mwe-upwiz-prefs-def-license": "Standardlizenz",
 	"mwe-upwiz-prefs-def-license-def": "Den Standard verwenden, gleich was ihm entspricht",
+	"mwe-upwiz-prefs-def-license-custom": "Benutzerdefinierte Standardlizenz",
+	"mwe-upwiz-prefs-def-license-custom-help": "Dieses Feld wird nur verwendet, wenn du oben die letzte Option auswählst.",
 	"mwe-upwiz-prefs-license-own": "Eigenes Werk – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Fremdes Werk – $1",
 	"mwe-upwiz-prefs-chunked": "Hochladen von Dateien, die größer als $1 sind, in mehreren Teilen – vergrößert die maximale Dateihochladegröße von $2 auf $3",
