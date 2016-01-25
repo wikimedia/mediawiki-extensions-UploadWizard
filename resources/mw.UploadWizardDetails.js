@@ -190,14 +190,14 @@
 		);
 
 		uri = new mw.Uri( location.href, { overrideKeys: true } );
-		if ( mw.UploadWizard.config.defaults.description ) {
+		if ( mw.UploadWizard.config.defaults.description || uri.query.descriptionlang ) {
 			this.descriptionsDetails.setSerialized( {
 				descriptions: [
 					{
 						language: uri.query.descriptionlang ?
 							uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ) :
 							uw.DescriptionDetailsWidget.static.getDefaultLanguage(),
-						description: mw.UploadWizard.config.defaults.description
+						description: mw.UploadWizard.config.defaults.description || ''
 					}
 				]
 			} );
