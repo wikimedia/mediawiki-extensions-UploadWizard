@@ -103,7 +103,7 @@
 			headnum = parseFloat( heading );
 
 		if ( !isNaN( latnum ) && !isNaN( longnum ) ) {
-			locationParts = [ '{{Location dec', latitude, longitude ];
+			locationParts = [ '{{Location', latitude, longitude ];
 
 			if ( !isNaN( headnum ) ) {
 				locationParts.push( 'heading:' + heading );
