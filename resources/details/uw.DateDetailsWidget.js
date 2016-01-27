@@ -57,11 +57,13 @@
 
 		if ( mode === 'arbitrary' ) {
 			this.dateInputWidget = new OO.ui.TextInputWidget( {
-				classes: [ 'mwe-date', 'mwe-upwiz-dateDetailsWidget-date' ]
+				classes: [ 'mwe-date', 'mwe-upwiz-dateDetailsWidget-date' ],
+				placeholder: mw.msg( 'mwe-upwiz-select-date' )
 			} );
 		} else {
 			this.dateInputWidget = new mw.widgets.DateInputWidget( {
-				classes: [ 'mwe-date', 'mwe-upwiz-dateDetailsWidget-date' ]
+				classes: [ 'mwe-date', 'mwe-upwiz-dateDetailsWidget-date' ],
+				placeholderLabel: mw.msg( 'mwe-upwiz-select-date' )
 			} );
 			// If the user types '{{', assume that they are trying to input template wikitext and switch
 			// to 'arbitrary' mode. This might help confused power-users (T110026#1567714).

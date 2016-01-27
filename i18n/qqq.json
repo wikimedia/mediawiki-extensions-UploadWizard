@@ -159,6 +159,7 @@
 	"mwe-upwiz-desc-add-0": "The button for adding the first description to an image.",
 	"mwe-upwiz-title": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n\n\n{{Identical|Title}}",
 	"mwe-upwiz-date-created": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n{{Identical|Date created}}",
+	"mwe-upwiz-select-date": "Placeholder text for date selection field",
 	"mwe-upwiz-location": "The location the media exists on the planet, further described by lat and lon.\n{{Identical|Location}}",
 	"mwe-upwiz-location-button": "Label for button which opens location on OpenStreetMap using entered input coordinates.",
 	"mwe-upwiz-location-lat": "Latitude - the GPS coordinate, expressed in signed decimal degrees.\n{{Identical|Latitude}}",
