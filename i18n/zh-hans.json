@@ -348,6 +348,8 @@
 	"prefs-upwiz-interface": "用户界面",
 	"mwe-upwiz-prefs-def-license": "默认授权协议",
 	"mwe-upwiz-prefs-def-license-def": "使用默认",
+	"mwe-upwiz-prefs-def-license-custom": "自定义默认许可协议",
+	"mwe-upwiz-prefs-def-license-custom-help": "此字段只当您在上方选择最后一个选项时会被使用。",
 	"mwe-upwiz-prefs-license-own": "自己的作品 - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "他人的作品 - $1",
 	"mwe-upwiz-prefs-chunked": "在上传向导中对于超过$1的文件使用分块上传 - 将最大文件上传大小从$2增加至$3",

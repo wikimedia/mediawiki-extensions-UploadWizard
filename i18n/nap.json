@@ -320,6 +320,8 @@
 	"prefs-upwiz-interface": "Interfaccia utente",
 	"mwe-upwiz-prefs-def-license": "Licenza predefinita",
 	"mwe-upwiz-prefs-def-license-def": "Aùsa, nun mporta 'o predefinito comme fosse",
+	"mwe-upwiz-prefs-def-license-custom": "Licienza predeterminata arricettata",
+	"mwe-upwiz-prefs-def-license-custom-help": "Stu campo s'ausase surtanto quann'avite scigliuta ll'urdema opzione ncoppa.",
 	"mwe-upwiz-prefs-license-own": "Fatica propria - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Fatia 'e coccherun'ato - $1",
 	"mwe-upwiz-prefs-chunked": "'E carreche a blocche p' 'e file pe' copp' 'e $1 dint'a l'Upload Wizard - Aumenta 'o grannezza d' 'o file a 'o massimo 'e $2 a $3",

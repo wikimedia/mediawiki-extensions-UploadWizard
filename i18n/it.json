@@ -328,6 +328,8 @@
 	"prefs-upwiz-interface": "Interfaccia utente",
 	"mwe-upwiz-prefs-def-license": "Licenza predefinita",
 	"mwe-upwiz-prefs-def-license-def": "Usa la scelta predefinita, qualsiasi cosa sia",
+	"mwe-upwiz-prefs-def-license-custom": "Licenza predefinita personalizzata",
+	"mwe-upwiz-prefs-def-license-custom-help": "Questo campo viene utilizzato solo se si sceglie l'ultima opzione sopra.",
 	"mwe-upwiz-prefs-license-own": "Opera propria - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Opera di qualcun altro - $1",
 	"mwe-upwiz-prefs-chunked": "Carica a blocchi i file di oltre $1 in Upload Wizard - Aumenta la dimensione massima di caricamento da $2 a $3",

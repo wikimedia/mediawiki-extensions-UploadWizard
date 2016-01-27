@@ -42,7 +42,8 @@
 			"Framafan",
 			"Mattho69",
 			"Orlodrim",
-			"Matma Rex"
+			"Matma Rex",
+			"Wladek92"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -361,6 +362,8 @@
 	"prefs-upwiz-interface": "Interface utilisateur",
 	"mwe-upwiz-prefs-def-license": "Licence par défaut",
 	"mwe-upwiz-prefs-def-license-def": "Utiliser la valeur par défaut",
+	"mwe-upwiz-prefs-def-license-custom": "Licence de douane par défaut",
+	"mwe-upwiz-prefs-def-license-custom-help": "Ce champ n'est utilisé que si vous choisissez la dernière option ci-dessus.",
 	"mwe-upwiz-prefs-license-own": "Travail personnel - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Travail de quelqu’un d’autre - $1",
 	"mwe-upwiz-prefs-chunked": "Versements fragmentés pour les fichiers de plus de $1 dans l’Assistant de téléchargement — Augmente la taille maximale du fichier téléchargeable de $2 à $3",
