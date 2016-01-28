@@ -139,6 +139,7 @@
 	"mwe-upwiz-desc-add-0": "Beschrijving toevoegen",
 	"mwe-upwiz-title": "Naam",
 	"mwe-upwiz-date-created": "Aangemaakt op",
+	"mwe-upwiz-select-date": "Een datum selecteren",
 	"mwe-upwiz-location": "Locatie",
 	"mwe-upwiz-location-button": "Op kaart weergeven",
 	"mwe-upwiz-location-lat": "Breedtegraad",
@@ -300,6 +301,8 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Er is geen campagne met de naam \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "De campagne \"$1\" is niet ingeschakeld.",
+	"mwe-upwiz-calendar-date": "Datum via kalender kiezen",
+	"mwe-upwiz-custom-date": "Aangepast datumformaat gebruiken",
 	"uploadcampaign-legend": "Instellingen uploadcampagne",
 	"uploadcampaign-text": "U bent een campagne van de Wizard Uploaden aan het wijzigen.",
 	"prefs-uploads": "Uploaden",
@@ -316,5 +319,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximale aantal gelijktijdige uploads",
 	"campaigns": "Campagnes voor Uploadwizard",
 	"mwe-upload-campaigns-pagination-next": "Volgende pagina",
-	"mwe-upload-campaigns-list-title": "Lijst met uploadcampagnes"
+	"mwe-upload-campaigns-list-title": "Lijst met uploadcampagnes",
+	"apihelp-flickrblacklist-example-2": "De volledige zwarte lijst ophalen",
+	"apihelp-query+allcampaigns-description": "Alle UploadWizard-campagnes inventariseren."
 }
