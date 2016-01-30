@@ -137,7 +137,8 @@
 							defaultLicenseMsg,
 							uploadCount,
 							this.authorInput.$element,
-							defaultLicenseLink
+							defaultLicenseLink,
+							mw.user
 					),
 					$( '<p class="mwe-small-print"></p>' ).msg(
 						defaultLicenseExplainMsg,
