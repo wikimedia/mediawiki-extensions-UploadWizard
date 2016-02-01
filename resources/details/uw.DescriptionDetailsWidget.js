@@ -42,9 +42,11 @@
 	 *
 	 * @private
 	 * @param {string} code Language code
+	 * @param {string} [fallback] Language code to use when there's nothing close,
+	 *   defaults to result of #getDefaultLanguage
 	 * @return {string|null}
 	 */
-	uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage = function ( code ) {
+	uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage = function ( code, fallback ) {
 		// Is this still needed?
 		if ( code === 'nan' || code === 'minnan' ) {
 			code = 'zh-min-nan';
@@ -55,7 +57,7 @@
 		if ( code.lastIndexOf( '-' ) !== -1 ) {
 			return this.getClosestAllowedLanguage( code.substring( 0, code.lastIndexOf( '-' ) ) );
 		}
-		return this.getDefaultLanguage();
+		return arguments.length > 1 ? fallback : this.getDefaultLanguage();
 	};
 
 	/**
@@ -72,11 +74,11 @@
 			return this.defaultLanguage;
 		}
 
-		if ( this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ) ) ) {
+		if ( this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ), null ) ) {
 			defaultLanguage = this.getClosestAllowedLanguage( mw.config.get( 'wgUserLanguage' ) );
-		} else if ( this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) ) ) {
+		} else if ( this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ), null ) ) {
 			defaultLanguage = this.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) );
-		} else if ( this.getClosestAllowedLanguage( 'en' ) ) {
+		} else if ( this.getClosestAllowedLanguage( 'en', null ) ) {
 			defaultLanguage = this.getClosestAllowedLanguage( 'en' );
 		} else {
 			defaultLanguage = Object.keys( mw.UploadWizard.config.uwLanguages )[ 0 ];
