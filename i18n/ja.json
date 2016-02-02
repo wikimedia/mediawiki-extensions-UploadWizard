@@ -234,7 +234,7 @@
 	"mwe-upwiz-too-many-files": "ファイルが多すぎます。",
 	"mwe-upwiz-file-too-large-text": "サイズが $1までのファイルのみをアップロードできます。サイズが $2のファイルをアップロードしようとしました。",
 	"mwe-upwiz-file-too-large": "ファイルが大きすぎます。",
-	"mwe-upwiz-dialog-warning": "全てのフィールドを適切に入力することを推奨します。警告の修正をせずに、処理を続行しますか？",
+	"mwe-upwiz-dialog-warning": "全ての入力欄に、適切に入力することを推奨します。警告の修正をせずに、処理を続行しますか？",
 	"mwe-upwiz-dialog-yes": "はい",
 	"mwe-upwiz-dialog-no": "いいえ",
 	"mwe-upwiz-dialog-title": "警告",
