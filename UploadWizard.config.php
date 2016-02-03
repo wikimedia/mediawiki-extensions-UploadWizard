@@ -55,7 +55,7 @@ if ( !$uwLanguages ) {
 		}
 	}
 	// Sort the list by the language name
-	natsort( $uwLanguages );
+	natcasesort( $uwLanguages );
 	// Cache the list for 1 day
 	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
 }
