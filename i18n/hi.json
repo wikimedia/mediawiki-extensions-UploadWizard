@@ -9,7 +9,8 @@
 			"Siddhartha Ghai",
 			"Vibhijain",
 			"NehalDaveND",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"Upendradutt93"
 		]
 	},
 	"uploadwizard": "अपलोड विज़ार्ड",
@@ -23,7 +24,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:अपलोड विज़ार्ड अभियान संपादक",
 	"mwe-upwiz-js-off": "UploadWizard एक बेहतर इंटरफ़ेस के लिए जावास्क्रिप्ट का उपयोग करता है. या तो आपका ब्राउज़र जावास्क्रिप्ट का समर्थन नहीं करता है या  जावास्क्रिप्ट बंद कर दिया, तो हम आपको एक सरल अपलोड फार्म दिखा रहे हैं",
 	"mwe-upwiz-extension-disabled": "यह पृष्ठ अस्थायी तकनीकी समस्याओं के कारण निष्क्रिय कर दिया गया. बीच में मानक अपलोड फार्म का प्रयास करें",
-	"mwe-upwiz-code-unknown": "अज्ञात भाषा",
 	"mwe-upwiz-step-tutorial": "जानें",
 	"mwe-upwiz-step-file": "अपलोड करें",
 	"mwe-upwiz-step-deeds": "रिलीज अधिकार",
@@ -76,6 +76,7 @@
 	"mwe-upwiz-desc-add-0": "एक वर्णन जोड़ें",
 	"mwe-upwiz-title": "शीर्षक",
 	"mwe-upwiz-date-created": "बनाया गया दिनांक",
+	"mwe-upwiz-select-date": "एक दिनाँक चुने",
 	"mwe-upwiz-location": "स्थान",
 	"mwe-upwiz-location-lat": "अक्षांश",
 	"mwe-upwiz-location-lon": "देशान्तर",
@@ -176,8 +177,6 @@
 	"mwe-upwiz-subhead-alt-upload": "पुराने फार्म को वापस",
 	"mwe-upwiz-feedback-prompt": "प्रतिक्रिया छोड़",
 	"mwe-upwiz-feedback-title": "अपलोड विज़ार्ड के बारे में प्रतिक्रिया दो",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 प्रतिक्रिया भेजें]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1  अधिक जानकारी]",
 	"mwe-upwiz-errordialog-title": "आप की दाखिला में त्रुटि हैं",
 	"mwe-upwiz-errordialog-ok": "ठीक है",
 	"mwe-upwiz-error-nosuchcampaign": "वहाँ कोई अभियान इस नाम पे नहीं \"$1\" ।",
