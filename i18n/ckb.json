@@ -3,7 +3,8 @@
 		"authors": [
 			"Calak",
 			"Ckb-kushared",
-			"Pirehelokan"
+			"Pirehelokan",
+			"Asoxor"
 		]
 	},
 	"uploadwizard": "بارکەری جادوویی",
@@ -12,7 +13,6 @@
 	"right-upwizcampaigns": "ڕێکخستنی کۆمپەینی بارکەری جادوویی",
 	"action-upwizcampaigns": "ڕێکخستنی بارکردنی کۆمپەین",
 	"group-upwizcampeditors": "دەستکاریکەر و کۆمپەینی بارکەری جادوویی",
-	"mwe-upwiz-code-unknown": "زمانی نەناسراو",
 	"mwe-upwiz-step-tutorial": "فێرکاری",
 	"mwe-upwiz-step-file": "بارکردن",
 	"mwe-upwiz-step-deeds": "مۆڵەتی بدێ",
@@ -67,7 +67,7 @@
 	"mwe-upwiz-copy-metadata": "لەبەرگرتنەوەی زانیاری {{PLURAL:$1|بارکراوی تر|هەموو بارکراوەکان}}لەژێرەوە",
 	"mwe-upwiz-copy-metadata-button": "لەبەرگرتنەوە",
 	"mwe-upwiz-copied-metadata-button": "لەبەرگرتنەوە سەرکەوتوو بوو",
-	"mwe-upwiz-copy-title": "لەبەرگرتنەوەی ناونیشان(with automatic numbering)",
+	"mwe-upwiz-copy-title": "کۆپی کردنی ناونیشان (بە ژمارە پێدانی ئۆتۆماتیکی)",
 	"mwe-upwiz-copy-description": "لەبەرگرتنەوە{{PLURAL:$1|شیکردنەوە|شیکردنەوەکان}}",
 	"mwe-upwiz-copy-date": "لەبەرگرتنەوەی مێژوو",
 	"mwe-upwiz-copy-categories": "لەبەرگرتنەوە {{PLURAL:$1|پۆل|پۆلەکان}}",
@@ -95,7 +95,6 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "بارکردن بەهەرشێوەیەک؟",
 	"mwe-upwiz-ok": "باشە",
 	"mwe-upwiz-fileexists-replace-no-link": "تکایە ناونیشانی دیکە هەڵبژێرە ، چوونکە پێشتر ئەو ناونیشانە بەکارهاتووە لە پەڕگەی تر.",
-	"mwe-upwiz-blacklisted": "هەڵبژێرە ناونیشانی جیاوازتر و واتادارتر.",
 	"mwe-upwiz-next": "دواتر",
 	"mwe-upwiz-next-file": "درێژە بدە",
 	"mwe-upwiz-next-deeds": "دواتر",
@@ -158,8 +157,6 @@
 	"mwe-upwiz-subhead-alt-upload": "گەڕانەوە بۆ شێوەی پێشوو",
 	"mwe-upwiz-feedback-prompt": "جێهێشتنی بۆچوونەکان",
 	"mwe-upwiz-feedback-title": "بەجێ هێشتنی تێبینییەکان دەربارەی بارکەری جادوویی",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1  ناردنی تێبینییەکان]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 زۆرکردنی زانیارییەکان]",
 	"mwe-upwiz-feedback-blacklist-subject": "ناونیشانی بارکردن، \"$1\" قەدەغەکراوە.",
 	"mwe-upwiz-errordialog-title": "کێشەیەک هەیە لە ناردن",
 	"mwe-upwiz-errordialog-ok": "باشە",

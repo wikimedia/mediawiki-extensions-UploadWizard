@@ -327,6 +327,7 @@
 	"prefs-upwiz-interface": "Användargränssnitt",
 	"mwe-upwiz-prefs-def-license": "Standardlicens",
 	"mwe-upwiz-prefs-def-license-def": "Använd standarden oavsett vad den är",
+	"mwe-upwiz-prefs-def-license-custom": "Anpassad standardlicens",
 	"mwe-upwiz-prefs-license-own": "Eget arbete - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Någon annans verk - $1",
 	"mwe-upwiz-prefs-chunked": "Bitvis överföringar för filer över $1 i uppladdningsguiden",
