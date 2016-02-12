@@ -670,7 +670,7 @@
 				method: 'flickr.photos.getSizes',
 				photo_id: photoId
 			} ).done( function ( data ) {
-				var nameParts, newUpload;
+				var nameParts;
 
 				if (
 					typeof data.sizes !== 'undefined' &&
@@ -691,10 +691,8 @@
 						upload.name = nameParts.join( '.' ) + '.' + upload.originalFormat;
 					}
 					upload.url = largestSize.source;
-					// Need to call the newUpload here, otherwise some code would have to be written to detect the completion of the API call.
-					newUpload = checker.wizard.newUpload();
-
-					newUpload.fill( upload );
+					// Need to call the addUpload here, otherwise some code would have to be written to detect the completion of the API call.
+					checker.wizard.addUpload( upload );
 				} else {
 					mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();

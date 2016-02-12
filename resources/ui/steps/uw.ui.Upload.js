@@ -251,7 +251,7 @@
 			this.addFlickrFile.setDisabled( !fewerThanMax );
 		}
 
-		this.$fileList.find( '.mwe-upwiz-file:not(.filled) .mwe-upwiz-file-input' ).prop( 'disabled', !fewerThanMax );
+		this.addFile.$element.find( '.mwe-upwiz-file-input' ).prop( 'disabled', !fewerThanMax );
 	};
 
 	/**

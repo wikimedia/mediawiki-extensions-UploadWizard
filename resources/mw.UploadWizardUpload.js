@@ -82,16 +82,16 @@
 	 * @param {File} providedFile
 	 */
 	mw.UploadWizardUpload.prototype.fill = function ( providedFile ) {
-		// check to see if the File is being uplaoded from a 3rd party URL.
-		if ( providedFile ) {
+		if ( providedFile && !( providedFile instanceof jQuery ) ) {
 			this.providedFile = providedFile;
 
+			// check to see if the File is being uploaded from a 3rd party URL.
 			if ( providedFile.fromURL ) {
 				this.fromURL = true;
 			}
-
-			this.ui.fill( providedFile );
 		}
+
+		this.ui.fill( providedFile );
 	};
 
 	mw.UploadWizardUpload.prototype.acceptDeed = function () {
@@ -377,11 +377,11 @@
 	 * and delete it from the third parameter of the error callback. The end.
 	 *
 	 * @param {string} filename The filename
-	 * @param {Array} files Array of files, usually one; can be more for multi-file select.
+	 * @param {Object} file File, if available
 	 * @param {Function} fileNameOk Callback to use when ok, and upload object is ready
 	 */
-	mw.UploadWizardUpload.prototype.checkFile = function ( filename, files, fileNameOk ) {
-		var totalSize, duplicate, extension, toobig,
+	mw.UploadWizardUpload.prototype.checkFile = function ( filename, file, fileNameOk ) {
+		var duplicate, extension,
 			actualMaxSize, binReader,
 			upload = this,
 
@@ -399,21 +399,6 @@
 
 		// Eternal optimism
 		this.hasError = false;
-
-		if ( files.length > 1 ) {
-			totalSize = 0;
-			$.each( files, function ( i, file ) {
-				totalSize += file.size;
-			} );
-
-			toobig = totalSize > 10000000;
-
-			// Local previews are slow due to the data URI insertion into the DOM; for batches we
-			// don't generate them if the size of the batch exceeds 10 MB
-			if ( toobig ) {
-				this.disablePreview();
-			}
-		}
 
 		// check to see if the file has already been selected for upload.
 		duplicate = false;
@@ -455,12 +440,7 @@
 				// we want to still trudge forward.
 				// if the JavaScript FileReader is available, extract more info via fileAPI
 				if ( mw.fileApi.isAvailable() ) {
-
-					// An UploadWizardUpload object already exists (us) when we add a file.
-					// So, when multiple files are provided (via select multiple), add the first file to this UploadWizardUpload
-					// and create new UploadWizardUpload objects and corresponding interfaces for the rest.
-
-					this.file = files[ 0 ];
+					this.file = file;
 
 					// If chunked uploading is enabled, we can transfer any file that MediaWiki
 					// will accept. Otherwise we're bound by PHP's limits.
@@ -539,9 +519,6 @@
 						}
 					}
 
-					// Now that first file has been prepared, process remaining files
-					// in case of a multi-file upload.
-					this.emit( 'extra-files', files.slice( 1 ), toobig );
 				} else {
 					this.filename = filename;
 					if ( this.hasError === false ) {

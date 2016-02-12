@@ -70,6 +70,71 @@
 			this.showDeed = false;
 			this.removeMatchingUploads( function () { return true; } );
 			this.hasLoadedBefore = true;
+			this.$fileInputCtrl = this.setupFileInputCtrl();
+
+			// hide flickr uploading button if user doesn't have permissions
+			if ( !mw.UploadWizard.config.UploadFromUrl || mw.UploadWizard.config.flickrApiKey === '' ) {
+				$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
+			}
+		},
+
+		/**
+		 * Set up the "Add files" button (#mwe-upwiz-add-file) to open a file selection dialog on click
+		 * by means of a hidden `<input type="file">`.
+		 *
+		 * @return {jQuery} The input field
+		 */
+		setupFileInputCtrl: function () {
+			var
+				$fileInputCtrl,
+				wizard = this;
+
+			$fileInputCtrl = $( '<input type="file" name="file" class="mwe-upwiz-file-input" />' );
+			if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
+				mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
+				// Multiple uploads requires the FormData transport
+				$fileInputCtrl.attr( 'multiple', '1' );
+			}
+
+			// #mwe-upwiz-add-file is a ButtonWidget constructed somewhere else, so this is hacky.
+			// But it's less bad than how this was done before.
+			$( '#mwe-upwiz-add-file .oo-ui-buttonElement-button' ).append( $fileInputCtrl )
+				// Suppress the title on the <input>, which makes no sense here
+				.add( $fileInputCtrl ).attr( 'title', '\u00a0' );
+
+			$fileInputCtrl.on( 'change', function () {
+				var
+					totalSize,
+					files = mw.fileApi.isAvailable() && $fileInputCtrl[ 0 ].files,
+					totalFiles = ( files ? files.length : 1 ) + wizard.uploads.length,
+					tooManyFiles = totalFiles > wizard.config.maxUploads;
+
+				if ( tooManyFiles ) {
+					wizard.steps.file.showTooManyFilesWarning( totalFiles );
+					return;
+				}
+
+				if ( mw.fileApi.isAvailable() ) {
+					totalSize = 0;
+					$.each( files, function ( i, file ) {
+						totalSize += file.size;
+					} );
+
+					// Now that first file has been prepared, process remaining files
+					// in case of a multi-file upload.
+					$.each( files, function ( i, file ) {
+						wizard.addUpload( file, totalSize > 10000000 );
+					} );
+				} else {
+					wizard.addUpload( $fileInputCtrl.off( 'change' ).detach(), false );
+					// The new upload owns this $fileInputCtrl now. Create a new one.
+					wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
+				}
+
+				uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
+			} );
+
+			return $fileInputCtrl;
 		},
 
 		/**
@@ -114,7 +179,6 @@
 
 					.on( 'load', function () {
 						wizard.reset();
-						wizard.resetFileStepUploads();
 					} ),
 
 				deeds: new uw.controller.Deed( this.api, this.config )
@@ -242,28 +306,12 @@
 		},
 
 		/**
-		 * If there are no uploads, make a new one
-		 */
-		resetFileStepUploads: function () {
-			if ( this.uploads.length === 0 ) {
-				// add one upload field to start (this is the big one that asks you to upload something)
-				this.newUpload();
-				// hide flickr uploading button if user doesn't have permissions
-				if ( !mw.UploadWizard.config.UploadFromUrl || mw.UploadWizard.config.flickrApiKey === '' ) {
-					$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
-				}
-			}
-		},
-
-		/**
-		 * Add an Upload
-		 *   we create the upload interface, a handler to transport it to the server,
-		 *   and UI for the upload itself and the "details" at the second step of the wizard.
-		 *   we don't yet add it to the list of uploads; that only happens when it gets a real file.
+		 * Create the upload interface, a handler to transport it to the server, and UI for the upload
+		 * itself; and immediately fill it with a file and add it to the list of uploads.
 		 *
-		 * @return {UploadWizardUpload|false} the new upload
+		 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
 		 */
-		newUpload: function () {
+		addUpload: function ( fileLike, disablePreview ) {
 			var upload,
 				wizard = this;
 
@@ -272,44 +320,8 @@
 			}
 
 			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist' )
-				.on( 'file-changed', function ( upload, files ) {
-					var totalFiles = files.length + wizard.uploads.length,
-						tooManyFiles = totalFiles > wizard.config.maxUploads;
-
-					if ( tooManyFiles ) {
-						wizard.steps.file.showTooManyFilesWarning( totalFiles );
-						return;
-					}
-
-					upload.checkFile(
-						upload.ui.getFilename(),
-						files,
-						function () { upload.fileChangedOk(); }
-					);
-
-					uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
-				} )
-
 				.on( 'filled', function () {
 					wizard.setUploadFilled( upload );
-				} )
-
-				.on( 'extra-files', function ( files, toobig ) {
-					$.each( files, function ( i, file ) {
-						// NOTE: By running newUpload we will end up calling checkfile() again.
-						var newUpload = wizard.newUpload();
-
-						if ( toobig ) {
-							newUpload.disablePreview();
-						}
-
-						newUpload.fill( file );
-					} );
-
-					// Add a new upload to cover the button
-					wizard.newUpload();
-
-					wizard.steps.file.updateFileCounts( wizard.uploads );
 				} )
 
 				.on( 'filename-accepted', function () {
@@ -320,12 +332,23 @@
 					uw.eventFlowLogger.logError( 'file', { code: code, message: message } );
 				} );
 
-			// we explicitly move the file input to cover the upload button
-			upload.ui.moveFileInputToCover( '#mwe-upwiz-add-file', 'poll' );
-
 			upload.connect( this, {
 				'remove-upload': [ 'removeUpload', upload ]
 			} );
+
+			// Local previews are slow due to the data URI insertion into the DOM; for batches we
+			// don't generate them if the size of the batch exceeds 10 MB
+			if ( disablePreview ) {
+				upload.disablePreview();
+			}
+
+			upload.fill( fileLike );
+
+			upload.checkFile(
+				upload.ui.getFilename(),
+				mw.fileApi.isAvailable() ? fileLike : null,
+				function () { upload.fileChangedOk(); }
+			);
 
 			return upload;
 		},
@@ -372,8 +395,6 @@
 				// check all uploads, if they're complete, show the next button
 				this.steps.file.showNext();
 			}
-
-			this.resetFileStepUploads();
 		},
 
 		/**

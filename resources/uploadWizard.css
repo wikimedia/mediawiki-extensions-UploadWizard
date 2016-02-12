@@ -64,40 +64,32 @@ form.mwe-upwiz-form {
 	font-size: large;
 }
 
-/* perhaps a general class for links that are actually "buttons" */
-#mwe-upwiz-add-file, .mwe-upwiz-more-options {
+.mwe-upwiz-more-options {
 	outline: none;
 	cursor: pointer;
-}
-
-.mwe-upwiz-more-options {
 	display: inline-block;
 	margin-top: 10px;
 }
 
-/* CSS styling hack for file inputs - http://www.quirksmode.org/dom/inputfile.html */
-.mwe-upwiz-file-ctrl-container {
-	position: absolute;
+#mwe-upwiz-add-file {
+	position: relative;
 	overflow: hidden;
 }
 
-.mwe-upwiz-file-input, .mwe-upwiz-visible-file {
-	cursor: pointer;
-}
-
-#mwe-upwiz-stepdiv-file .mwe-upwiz-visible-file {
-	cursor: auto !important;
-}
-
-/* file inputs are freakishly large to overflow the containing div -- we get a div
-   that can act as a more styleable single-click file input */
-.mwe-upwiz-file-input {
-	font-size: 100px;
+#mwe-upwiz-add-file .oo-ui-buttonElement-button .mwe-upwiz-file-input {
+	position: absolute;
+	margin: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	width: 100%;
-	-moz-opacity: 0.3;
-	filter:alpha(opacity = 0);
+	height: 100%;
 	opacity: 0;
-	z-index: 2;
+	z-index: 1;
+	cursor: pointer;
+	/* Push the button part of the native control out of view, as it changes the cursor */
+	padding-top: 100px;
 }
 
 .mwe-upwiz-file.filled {

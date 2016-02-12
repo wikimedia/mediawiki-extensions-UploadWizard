@@ -23,15 +23,6 @@
 
 		this.isFilled = false;
 
-		this.$fileInputCtrl = $( '<input size="1" class="mwe-upwiz-file-input" name="file" type="file"/>' );
-		if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
-			mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
-			// Multiple uploads requires the FormData transport
-			this.$fileInputCtrl.attr( 'multiple', '1' );
-		}
-
-		this.initFileInputCtrl();
-
 		this.$indicator = $( '<div class="mwe-upwiz-file-indicator"></div>' );
 
 		this.visibleFilenameDiv = $( '<div class="mwe-upwiz-visible-file"></div>' )
@@ -56,7 +47,6 @@
 			framed: false
 		} ).on( 'click', function () {
 			ui.upload.remove();
-			ui.cancelPositionTracking();
 		} );
 
 		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {
@@ -73,21 +63,9 @@
 
 		this.filenameCtrl = $( '<input type="hidden" name="filename" value=""/>' ).get( 0 );
 
-		// this file Ctrl container is placed over other interface elements, intercepts clicks and gives them to the file input control.
-		// however, we want to pass hover events to interface elements that we are over, hence the bindings.
-		// n.b. not using toggleClass because it often gets this event wrong -- relies on previous state to know what to do
-		this.fileCtrlContainer = $( '<div class="mwe-upwiz-file-ctrl-container">' );
-
-		// the css trickery (along with css)
-		// here creates a giant size file input control which is contained within a div and then
-		// clipped for overflow. The effect is that we have a div (ctrl-container) we can position anywhere
-		// which works as a file input. It will be set to opacity:0 and then we can do whatever we want with
-		// interface "below".
-		// XXX caution -- if the add file input changes size we won't match, unless we add some sort of event to catch this.
 		this.form = $( '<form method="POST" encType="multipart/form-data" class="mwe-upwiz-form"></form>' )
 				.attr( { action: this.upload.api.defaults.ajax.url } )
 				.append( this.visibleFilenameDiv )
-				.append( this.fileCtrlContainer )
 				.append( this.filenameCtrl )
 				.get( 0 );
 
@@ -101,9 +79,6 @@
 			return;
 		}
 
-		if ( !this.upload.fromURL ) {
-			$( this.fileCtrlContainer ).append( this.$fileInputCtrl );
-		}
 		$( this.div ).append( this.form );
 
 		// XXX evil hardcoded
@@ -123,12 +98,13 @@
 	 * @param {File} providedFile
 	 */
 	mw.UploadWizardUploadInterface.prototype.fill = function ( providedFile ) {
-		if ( providedFile ) {
+		if ( providedFile instanceof jQuery ) {
+			this.$fileInputCtrl = providedFile;
+			this.form.append( this.$fileInputCtrl );
+		} else if ( providedFile ) {
 			this.providedFile = providedFile;
-
-			// if a file is already present, trigger the change event immediately.
-			this.$fileInputCtrl.trigger( 'change' );
 		}
+		this.clearErrors();
 	};
 
 	/**
@@ -218,8 +194,6 @@
 	 * Show that upload is transported
 	 */
 	mw.UploadWizardUploadInterface.prototype.showStashed = function () {
-		this.$fileInputCtrl.detach();
-
 		this.showIndicator( 'stashed' );
 		this.setStatus( 'mwe-upwiz-stashed-upload' );
 		this.setAdditionalStatus( null );
@@ -256,36 +230,6 @@
 		this.setAdditionalStatus( $additionalStatus );
 	};
 
-	mw.UploadWizardUploadInterface.prototype.initFileInputCtrl = function () {
-		var ui = this;
-
-		this.$fileInputCtrl.change( function () {
-			ui.emit( 'file-changed', ui.getFiles() );
-
-			ui.clearErrors();
-		} );
-	};
-
-	/**
-	 * Get a list of the files from this file input, defaulting to the value from the input form
-	 *
-	 * @return {Array} of File objects
-	 */
-	mw.UploadWizardUploadInterface.prototype.getFiles = function () {
-		var files = [];
-		if ( mw.fileApi.isAvailable() ) {
-			if ( this.providedFile ) {
-				files[ 0 ] = this.providedFile;
-			} else {
-				$.each( this.$fileInputCtrl.get( 0 ).files, function ( i, file ) {
-					files.push( file );
-				} );
-			}
-		}
-
-		return files;
-	};
-
 	/**
 	 * Get just the filename.
 	 *
@@ -293,7 +237,7 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
 		var input;
-		if ( this.providedFile && !this.$fileInputCtrl.get( 0 ).value ) {  // default to the fileinput if it's defined.
+		if ( this.providedFile ) {
 			if ( this.providedFile.fileName ) {
 				return this.providedFile.fileName;
 			} else {
@@ -382,17 +326,12 @@
 	};
 
 	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {
-		var filename = this.getFilename(),
+		var filename = this.getFilename();
 
-			// ok we now have a fileInputCtrl with a "bad" file in it
-			// you cannot blank a file input ctrl in all browsers, so we
-			// replace existing file input with empty clone
-			$newFileInput = this.$fileInputCtrl.clone();
-
-		this.$fileInputCtrl.replaceWith( $newFileInput );
-		this.$fileInputCtrl = $newFileInput;
-		this.initFileInputCtrl();
-
+		if ( this.$fileInputCtrl ) {
+			this.$fileInputCtrl.remove();
+			delete this.$fileInputCtrl;
+		}
 		if ( this.providedFile ) {
 			this.providedFile = null;
 		}
@@ -468,75 +407,6 @@
 	};
 
 	/**
-	 * Move the file input to cover a certain element on the page.
-	 * We use invisible file inputs because this is the only way to style a file input
-	 * or otherwise get it to do what you want.
-	 * It is helpful to sometimes move them to cover certain elements on the page, and
-	 * even to pass events like hover
-	 *
-	 * @param {string} selector A jQuery-compatible selector, for a single element
-	 * @param {string} [positionTracking] Whether to do position-polling ('poll')
-	 *	 on the selected element or whether to listen to window-resize events ('resize')
-	 */
-	mw.UploadWizardUploadInterface.prototype.moveFileInputToCover = function ( selector, positionTracking ) {
-		var iv, to, onResize, $win,
-			ui = this;
-
-		function update() {
-			var $covered = $( selector );
-
-			ui.fileCtrlContainer
-				.css( $covered.position() )
-				.css( 'marginTop', $covered.css( 'marginTop' ) )
-				.css( 'marginRight', $covered.css( 'marginRight' ) )
-				.css( 'marginBottom', $covered.css( 'marginBottom' ) )
-				.css( 'marginLeft', $covered.css( 'marginLeft' ) )
-				.width( $covered.outerWidth() )
-				.height( $covered.outerHeight() );
-
-			ui.fileCtrlContainer.css( { 'z-index': 1 } );
-
-			// shift the file input over with negative margins,
-			// internal to the overflow-containing div, so the div shows all button
-			// and none of the textfield-like input
-			ui.$fileInputCtrl.css( {
-				'margin-left': '-' + ( ui.$fileInputCtrl.width() - $covered.outerWidth() - 10 ) + 'px',
-				'margin-top': '-' + ( ui.$fileInputCtrl.height() - $covered.outerHeight() - 10 ) + 'px'
-			} );
-		}
-
-		this.cancelPositionTracking();
-		if ( positionTracking === 'poll' ) {
-			iv = window.setInterval( update, 500 );
-			this.stopTracking = function () {
-				window.clearInterval( iv );
-			};
-		} else if ( positionTracking === 'resize' ) {
-			$win = $( window );
-			onResize = function () {
-				// ensure resizing works smoothly
-				if ( to ) {
-					window.clearTimeout( to );
-				}
-				to = window.setTimeout( update, 200 );
-			};
-			$win.resize( onResize );
-			this.stopTracking = function () {
-				$win.off( 'resize', onResize );
-			};
-		}
-		this.$fileInputCtrl.show();
-		update();
-	};
-
-	mw.UploadWizardUploadInterface.prototype.cancelPositionTracking = function () {
-		if ( $.isFunction( this.stopTracking ) ) {
-			this.stopTracking();
-			this.stopTracking = null;
-		}
-	};
-
-	/**
 	 * this does two things:
 	 *   1 ) since the file input has been hidden with some clever CSS ( to avoid x-browser styling issues ),
 	 *	  update the visible filename
@@ -565,14 +435,6 @@
 			$div = $( this.div );
 			this.isFilled = true;
 			$div.addClass( 'filled' );
-
-			// cover the div with the file input.
-			// we use the visible-file div because it has the same offsetParent as the file input
-			// the second argument offsets the fileinput to the right so there's room for the close icon to get mouse events
-			// TODO Why do we care for this element at all and do not just hide it, once we have a valid file in it?
-			this.moveFileInputToCover(
-				$div.find( '.mwe-upwiz-visible-file-filename-text' )
-			);
 			this.emit( 'upload-filled' );
 		} else {
 			this.emit( 'filename-accepted' );
