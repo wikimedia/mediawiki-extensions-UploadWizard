@@ -426,6 +426,7 @@
 
 		if ( duplicate ) {
 			this.fileNameErr( 'dup', basename );
+			return;
 		}
 
 		this.setTitle( basename );
