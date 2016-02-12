@@ -99,13 +99,6 @@
 	};
 
 	/**
-	 * Reset file input.
-	 */
-	mw.UploadWizardUpload.prototype.resetFileInput = function () {
-		this.ui.resetFileInput();
-	};
-
-	/**
 	 * start
 	 *
 	 * @return {jQuery.Promise}

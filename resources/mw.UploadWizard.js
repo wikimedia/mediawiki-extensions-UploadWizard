@@ -278,7 +278,6 @@
 
 					if ( tooManyFiles ) {
 						wizard.steps.file.showTooManyFilesWarning( totalFiles );
-						upload.resetFileInput();
 						return;
 					}
 

@@ -271,13 +271,6 @@
 	};
 
 	/**
-	 * Reset file input to have no value.
-	 */
-	mw.UploadWizardUploadInterface.prototype.resetFileInput = function () {
-		this.$fileInputCtrl.get( 0 ).value = '';
-	};
-
-	/**
 	 * Get a list of the files from this file input, defaulting to the value from the input form
 	 *
 	 * @return {Array} of File objects
@@ -285,7 +278,7 @@
 	mw.UploadWizardUploadInterface.prototype.getFiles = function () {
 		var files = [];
 		if ( mw.fileApi.isAvailable() ) {
-			if ( this.providedFile && !this.$fileInputCtrl.first().value ) {  // default to the fileinput if it's defined.
+			if ( this.providedFile ) {
 				files[ 0 ] = this.providedFile;
 			} else {
 				$.each( this.$fileInputCtrl.get( 0 ).files, function ( i, file ) {
@@ -531,7 +524,6 @@
 				$win.off( 'resize', onResize );
 			};
 		}
-		// Show file input (possibly hidden by .hideFileInput())
 		this.$fileInputCtrl.show();
 		update();
 	};
@@ -541,12 +533,6 @@
 			this.stopTracking();
 			this.stopTracking = null;
 		}
-	};
-
-	mw.UploadWizardUploadInterface.prototype.hideFileInput = function () {
-		this.cancelPositionTracking();
-		// Hide file input so it does not interfere with other interface elements
-		this.$fileInputCtrl.hide();
 	};
 
 	/**
