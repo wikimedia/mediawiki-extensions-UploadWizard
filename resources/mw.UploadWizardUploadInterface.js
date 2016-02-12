@@ -220,10 +220,6 @@
 	mw.UploadWizardUploadInterface.prototype.showStashed = function () {
 		this.$fileInputCtrl.detach();
 
-		if ( this.$showThumbCtrl ) {
-			this.$showThumbCtrl.detach();
-		}
-
 		this.showIndicator( 'stashed' );
 		this.setStatus( 'mwe-upwiz-stashed-upload' );
 		this.setAdditionalStatus( null );
@@ -371,12 +367,17 @@
 	 * Display thumbnail preview.
 	 */
 	mw.UploadWizardUploadInterface.prototype.showThumbnail = function () {
-		var $preview = $( this.div ).find( '.mwe-upwiz-file-preview' );
+		var
+			$preview = $( this.div ).find( '.mwe-upwiz-file-preview' ),
+			$showThumbCtrl = this.$showThumbCtrl;
 		this.upload.getThumbnail(
 			mw.UploadWizard.config.thumbnailWidth,
 			mw.UploadWizard.config.thumbnailMaxHeight
 		).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
+			if ( $showThumbCtrl ) {
+				$showThumbCtrl.remove();
+			}
 		} );
 	};
 
