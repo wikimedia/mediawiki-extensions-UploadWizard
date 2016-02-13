@@ -10,7 +10,8 @@
 			"관인생략",
 			"아라",
 			"Revi",
-			"Hwangjy9"
+			"Hwangjy9",
+			"SeoJeongHo"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -138,6 +139,7 @@
 	"mwe-upwiz-desc-add-0": "설명 추가",
 	"mwe-upwiz-title": "제목",
 	"mwe-upwiz-date-created": "창작한 날짜",
+	"mwe-upwiz-select-date": "날짜 선택",
 	"mwe-upwiz-location": "위치",
 	"mwe-upwiz-location-button": "지도에 보이기",
 	"mwe-upwiz-location-lat": "위도",

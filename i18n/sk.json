@@ -109,7 +109,7 @@
 	"mwe-upwiz-location-lon": "Zemepisná dĺžka",
 	"mwe-upwiz-location-alt": "Nadmorská výška",
 	"mwe-upwiz-location-heading": "Smer",
-	"mwe-upwiz-copyright-info": "Práva na vydanie",
+	"mwe-upwiz-copyright-info": "Autorské práva",
 	"mwe-upwiz-author": "Autor(i)",
 	"mwe-upwiz-autoconverted": "Tento súbor bol automaticky konvertovaný do formátu $1",
 	"mwe-upwiz-other": "Ďalšie informácie",
@@ -164,6 +164,8 @@
 	"mwe-upwiz-unparseable-filename": "Názov súboru „$1“ je nezrozumiteľný.",
 	"mwe-upwiz-subhead-bugs": "[$1  Známe problémy]",
 	"mwe-upwiz-subhead-alt-upload": "Späť na starý formulár",
+	"mwe-upwiz-subhead-alternatives": "Iné spôsoby nahrania súborov",
+	"mwe-upwiz-feedback-prompt": "Napíšte Váš názor",
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-calendar-date": "Zvoľte dátum z kalendára"
 }
