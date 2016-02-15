@@ -1,5 +1,0 @@
-inherit_from: .rubocop_todo.yml
-
-AllCops:
-  # Only enforce rules that have an entry in the style guide
-  StyleGuideCopsOnly: true
