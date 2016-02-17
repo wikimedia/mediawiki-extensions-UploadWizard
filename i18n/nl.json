@@ -302,7 +302,7 @@
 	"mwe-upwiz-error-nosuchcampaign": "Er is geen campagne met de naam \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "De campagne \"$1\" is niet ingeschakeld.",
 	"mwe-upwiz-calendar-date": "Datum via kalender kiezen",
-	"mwe-upwiz-custom-date": "Aangepast datumformaat gebruiken",
+	"mwe-upwiz-custom-date": "Aangepaste datumopmaak gebruiken",
 	"uploadcampaign-legend": "Instellingen uploadcampagne",
 	"uploadcampaign-text": "U bent een campagne van de Wizard Uploaden aan het wijzigen.",
 	"prefs-uploads": "Uploaden",
@@ -320,6 +320,6 @@
 	"campaigns": "Campagnes voor Uploadwizard",
 	"mwe-upload-campaigns-pagination-next": "Volgende pagina",
 	"mwe-upload-campaigns-list-title": "Lijst met uploadcampagnes",
-	"apihelp-flickrblacklist-example-2": "De volledige zwarte lijst ophalen",
-	"apihelp-query+allcampaigns-description": "Alle UploadWizard-campagnes inventariseren."
+	"apihelp-flickrblacklist-example-2": "Volledige zwarte lijst ophalen",
+	"apihelp-query+allcampaigns-description": "Alle UploadWizardcampagnes inventariseren."
 }
