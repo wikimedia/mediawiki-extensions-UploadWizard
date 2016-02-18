@@ -87,7 +87,7 @@
 		 */
 		addFormInputIfMissing: function ( name, value ) {
 			if ( this.$form.find( '[name="' + name + '"]' ).length === 0 ) {
-				this.$form.append( $( '<input type="hidden" />' ) .attr( { name: name, value: value } ) );
+				this.$form.append( $( '<input>' ) .attr( { type: 'hidden', name: name, value: value } ) );
 			}
 		},
 

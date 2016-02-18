@@ -261,17 +261,9 @@
 					name: this.name, // name of input, shared among all checkboxes or radio buttons.
 					type: this.type, // kind of input
 					value: this.createInputValueFromTemplateConfig( templates, config )
-				},
+				};
 
-				inputHtml = '<input ' +
-					$.map( attrs, function ( val, key ) {
-						return key + '="' + val.toString().replace( '"', '' ) + '"';
-					} ).join( ' ' ) +
-				' />';
-
-			// Note we aren't using $('<input>').attr( { ... } ) .  We construct a string of HTML.
-			// IE6 is idiotic about radio buttons; you have to create them as HTML or clicks aren't recorded
-			return $( inputHtml ).click( function () {
+			return $( '<input>' ).attr( attrs ).click( function () {
 				input.emit( 'change' );
 			} );
 		},

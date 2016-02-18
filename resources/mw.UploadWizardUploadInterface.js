@@ -599,6 +599,7 @@
 			'class': 'mwe-upwiz-objref-pick-image'
 		} ),
 		attributes = {
+			type: 'checkbox',
 			'class': 'imgPicker',
 			id: 'imgPicker' + index,
 			disabled: false,
@@ -612,7 +613,7 @@
 		}
 
 		$fieldContainer.append(
-			$( '<input type="checkbox">' ).attr( attributes ).on( 'click', function () {
+			$( '<input>' ).attr( attributes ).on( 'click', function () {
 				$( this )
 					.prop( 'checked', true )
 					.closest( '.mwe-upwiz-file' )
