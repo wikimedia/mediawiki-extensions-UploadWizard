@@ -361,8 +361,7 @@
 
 			upload.checkFile(
 				upload.ui.getFilename(),
-				mw.fileApi.isAvailable() ? fileLike : null,
-				function () { upload.fileChangedOk(); }
+				mw.fileApi.isAvailable() ? fileLike : null
 			);
 
 			return upload;

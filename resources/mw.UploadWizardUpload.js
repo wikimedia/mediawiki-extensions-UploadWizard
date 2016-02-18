@@ -369,15 +369,14 @@
 	 * Proceed to thumbnail extraction and image info if acceptable
 	 *
 	 * We changed the behavior here to be a little more sane. Now any errors
-	 * will cause the fileNameOk not to be called, and if you have a special
+	 * will cause the fileChangedOk not to be called, and if you have a special
 	 * case where an error should be ignored, you can simply find that error
 	 * and delete it from the third parameter of the error callback. The end.
 	 *
 	 * @param {string} filename The filename
 	 * @param {Object} file File, if available
-	 * @param {Function} fileNameOk Callback to use when ok, and upload object is ready
 	 */
-	mw.UploadWizardUpload.prototype.checkFile = function ( filename, file, fileNameOk ) {
+	mw.UploadWizardUpload.prototype.checkFile = function ( filename, file ) {
 		var duplicate, extension,
 			actualMaxSize, binReader,
 			upload = this,
@@ -388,7 +387,7 @@
 
 		function finishCallback() {
 			if ( upload && upload.ui ) {
-				fileNameOk();
+				upload.fileChangedOk();
 			} else {
 				setTimeout( finishCallback, 200 );
 			}
@@ -468,7 +467,7 @@
 
 					// For JPEGs, we use the JsJpegMeta library in core to extract metadata,
 					// including EXIF tags. This is done asynchronously once each file has been
-					// read. Only then is the file properly added to UploadWizard via fileNameOk().
+					// read. Only then is the file properly added to UploadWizard via fileChangedOk().
 					//
 					// For all other file types, we don't need or want to run this.
 					//
