@@ -197,6 +197,11 @@
 			return $.Deferred().resolve();
 		}
 
+		if ( this.transitioningPromise ) {
+			this.needsTransitionRecheck = true;
+			return this.transitioningPromise;
+		}
+
 		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
@@ -209,7 +214,21 @@
 			transpromises.push( startNextUpload() );
 		}
 
-		return $.when.apply( $, transpromises );
+		this.transitioningPromise = $.when.apply( $, transpromises );
+		this.transitioningPromise = this.transitioningPromise.then( function () {
+			step.transitioningPromise = null;
+			if ( step.needsTransitionRecheck ) {
+				// Whoops, we're not actually done. Someone called transitionAll() again while we were
+				// working. Re-run again, and don't resolve the original promise until then.
+				step.needsTransitionRecheck = false;
+				return step.transitionAll();
+			} else {
+				// We're all done!
+				return $.Deferred().resolve();
+			}
+		} );
+
+		return this.transitioningPromise;
 	};
 
 	/**
