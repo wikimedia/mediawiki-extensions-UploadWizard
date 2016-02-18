@@ -6,9 +6,8 @@
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {mw.UploadWizardUpload} upload
-	 * @param {string} filesDiv Selector for the `div` into which to insert file interface
 	 */
-	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload, filesDiv ) {
+	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload ) {
 		var
 			ui = this;
 
@@ -70,10 +69,6 @@
 				.get( 0 );
 
 		$( this.div ).append( this.form );
-
-		// XXX evil hardcoded
-		// we don't really need filesdiv if we do it this way?
-		$( filesDiv ).append( this.div );
 
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since unbind doesn't work for non-DOM objects

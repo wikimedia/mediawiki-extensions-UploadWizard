@@ -23,9 +23,8 @@
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {UploadWizard} wizard
-	 * @param {string} filesDiv Selector for the `div` where we will dump the interfaces for uploads
 	 */
-	mw.UploadWizardUpload = function MWUploadWizardUpload( wizard, filesDiv ) {
+	mw.UploadWizardUpload = function MWUploadWizardUpload( wizard ) {
 		var upload = this;
 
 		OO.EventEmitter.call( this );
@@ -55,7 +54,7 @@
 		this.detailsWeight = 1; // default all same
 
 		// details
-		this.ui = new mw.UploadWizardUploadInterface( this, filesDiv )
+		this.ui = new mw.UploadWizardUploadInterface( this )
 			.connect( this, {
 				'file-changed': [ 'emit', 'file-changed', upload ],
 				'filename-accepted': [ 'emit', 'filename-accepted' ]

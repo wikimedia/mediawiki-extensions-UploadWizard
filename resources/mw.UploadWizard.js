@@ -104,7 +104,8 @@
 
 			$fileInputCtrl.on( 'change', function () {
 				var
-					totalSize,
+					totalSize, uploadObj,
+					uploadInterfaceDivs = [],
 					files = mw.fileApi.isAvailable() && $fileInputCtrl[ 0 ].files,
 					totalFiles = ( files ? files.length : 1 ) + wizard.uploads.length,
 					tooManyFiles = totalFiles > wizard.config.maxUploads;
@@ -121,13 +122,20 @@
 					} );
 
 					$.each( files, function ( i, file ) {
-						wizard.addUpload( file, totalSize > 10000000 );
+						uploadObj = wizard.addUpload( file, totalSize > 10000000 );
+						// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
+						// performance
+						uploadInterfaceDivs.push( uploadObj.ui.div );
 					} );
 				} else {
-					wizard.addUpload( $fileInputCtrl.off( 'change' ).detach(), false );
+					uploadObj = wizard.addUpload( $fileInputCtrl.off( 'change' ).detach(), false );
+					uploadInterfaceDivs.push( uploadObj.ui.div );
 					// The new upload owns this $fileInputCtrl now. Create a new one.
 					wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
 				}
+
+				// Attach all interfaces to the DOM
+				$( '#mwe-upwiz-filelist' ).append( $( uploadInterfaceDivs ) );
 
 				uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 			} );
@@ -326,7 +334,7 @@
 				return false;
 			}
 
-			upload = new mw.UploadWizardUpload( this, '#mwe-upwiz-filelist' )
+			upload = new mw.UploadWizardUpload( this )
 				.on( 'filled', function () {
 					wizard.setUploadFilled( upload );
 				} )
