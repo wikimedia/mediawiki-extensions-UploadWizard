@@ -69,16 +69,6 @@
 				.append( this.filenameCtrl )
 				.get( 0 );
 
-		// While this looks extremely unlikely to be right, it actually is. Blame Apple. T34328#364508
-		if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
-			$( '#mwe-upwiz-stepdiv-file' ).replaceWith(
-				$( '<span/>' )
-				.msg( 'mwe-upwiz-file-upload-notcapable' )
-			);
-			$( '#mwe-upwiz-add-file' ).hide();
-			return;
-		}
-
 		$( this.div ).append( this.form );
 
 		// XXX evil hardcoded
