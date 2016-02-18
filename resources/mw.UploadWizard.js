@@ -120,8 +120,6 @@
 						totalSize += file.size;
 					} );
 
-					// Now that first file has been prepared, process remaining files
-					// in case of a multi-file upload.
 					$.each( files, function ( i, file ) {
 						wizard.addUpload( file, totalSize > 10000000 );
 					} );
