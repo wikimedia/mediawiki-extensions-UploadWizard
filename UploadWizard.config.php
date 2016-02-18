@@ -619,7 +619,7 @@ return array(
 	// If you want to use a wiki page, set this to a falsy value,
 	// and set feedbackPage to the name of the wiki page.
 	// @codingStandardsIgnoreStart
-	'feedbackLink' => 'https://phabricator.wikimedia.org/maniphest/task/create/?projects=MediaWiki-extensions-UploadWizard',
+	'feedbackLink' => 'https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=MediaWiki-extensions-UploadWizard',
 	// @codingStandardsIgnoreEnd
 
 	// [deprecated] Wiki page for leaving Upload Wizard feedback,
