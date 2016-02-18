@@ -694,6 +694,7 @@
 					// Need to call the addUpload here, otherwise some code would have to be written to detect the completion of the API call.
 					uploadObj = checker.wizard.addUpload( upload );
 					$( '#mwe-upwiz-filelist' ).append( uploadObj.ui.div );
+					uploadObj.ui.showThumbnail();
 				} else {
 					mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();

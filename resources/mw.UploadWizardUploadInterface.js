@@ -265,49 +265,26 @@
 
 		this.clearStatus();
 		this.setStatusString( statusItems.join( ' \u00b7 ' ) );
-
-		if ( this.upload.generatePreview ) {
-			this.showThumbnail();
-		} else {
-			this.makeShowThumbCtrl();
-		}
-	};
-
-	/**
-	 * Show a link that will show the thumbnail preview.
-	 */
-	mw.UploadWizardUploadInterface.prototype.makeShowThumbCtrl = function () {
-		var ui = this;
-
-		// add a control for showing the preview if the user needs it
-		this.$showThumbCtrl = $.fn.showThumbCtrl(
-			'mwe-upwiz-show-thumb',
-			'mwe-upwiz-show-thumb-tip',
-			function () {
-				ui.showThumbnail();
-			}
-		);
-
-		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
-			.append( '<br>' ).append( this.$showThumbCtrl );
 	};
 
 	/**
 	 * Display thumbnail preview.
+	 *
+	 * @return {jQuery.Promise} Promise resolved when the thumbnail is displayed or when displaying it
+	 *     fails
 	 */
 	mw.UploadWizardUploadInterface.prototype.showThumbnail = function () {
 		var
 			$preview = $( this.div ).find( '.mwe-upwiz-file-preview' ),
-			$showThumbCtrl = this.$showThumbCtrl;
+			deferred = $.Deferred();
 		this.upload.getThumbnail(
 			mw.UploadWizard.config.thumbnailWidth,
 			mw.UploadWizard.config.thumbnailMaxHeight
 		).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
-			if ( $showThumbCtrl ) {
-				$showThumbCtrl.remove();
-			}
+			deferred.resolve();
 		} );
+		return deferred.promise();
 	};
 
 	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {

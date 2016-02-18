@@ -61,7 +61,6 @@ class UploadWizardHooks {
 			'scripts' => array(
 				// jquery interface helpers
 				'resources/jquery/jquery.morphCrossfade.js',
-				'resources/jquery/jquery.showThumbCtrl.js',
 				'resources/jquery/jquery.lazyload.js',
 
 				// OOjs UI interface elements
@@ -115,7 +114,6 @@ class UploadWizardHooks {
 			),
 			'styles' => array(
 				'resources/uploadWizard.css',
-				'resources/jquery/jquery.showThumbCtrl.css',
 				// OOjs UI interface elements
 				'resources/uw.FieldLayout.less',
 				'resources/details/uw.DateDetailsWidget.less',
@@ -203,8 +201,6 @@ class UploadWizardHooks {
 				'mwe-upwiz-remove-upload',
 				'mwe-upwiz-remove-description',
 				'mwe-upwiz-deleted-duplicate-unknown-filename',
-				'mwe-upwiz-show-thumb',
-				'mwe-upwiz-show-thumb-tip',
 				'mwe-upwiz-upload',
 				'mwe-upwiz-file-upload-notcapable',
 				'mwe-upwiz-file-retry',

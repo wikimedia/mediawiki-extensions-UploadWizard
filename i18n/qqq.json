@@ -85,8 +85,6 @@
 	"mwe-upwiz-override": "Message for a button to steamroll over some errors. The only use right now is for overriding duplicate-archive errors, where the file was uploaded and deleted before.",
 	"mwe-upwiz-override-upload": "Used as hint for the action link which is labeled {{msg-mw|Mwe-upwiz-override}}.",
 	"mwe-upwiz-remove-upload": "Used as hint for the action link which is labeled {{msg-mw|Mwe-upwiz-remove}}.",
-	"mwe-upwiz-show-thumb": "Link text for the control that displays a thumbnail manually, when automatic client-side thumbs are disabled for performance",
-	"mwe-upwiz-show-thumb-tip": "The tooltip for the {{msg-mw|mwe-upwiz-show-thumb}} link.",
 	"mwe-upwiz-remove-description": "Used as action link text.\n\nPreceded by the description.",
 	"mwe-upwiz-upload": "{{Identical|Upload}}",
 	"mwe-upwiz-file-upload-notcapable": "The message a user will see when their browser cannot be used to upload an image.",

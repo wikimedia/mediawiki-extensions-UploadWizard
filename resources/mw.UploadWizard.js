@@ -104,7 +104,8 @@
 
 			$fileInputCtrl.on( 'change', function () {
 				var
-					totalSize, uploadObj,
+					totalSize, uploadObj, thumbPromise,
+					uploadObjs = [],
 					uploadInterfaceDivs = [],
 					files = mw.fileApi.isAvailable() && $fileInputCtrl[ 0 ].files,
 					totalFiles = ( files ? files.length : 1 ) + wizard.uploads.length,
@@ -123,12 +124,14 @@
 
 					$.each( files, function ( i, file ) {
 						uploadObj = wizard.addUpload( file, totalSize > 10000000 );
+						uploadObjs.push( uploadObj );
 						// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
 						// performance
 						uploadInterfaceDivs.push( uploadObj.ui.div );
 					} );
 				} else {
 					uploadObj = wizard.addUpload( $fileInputCtrl.off( 'change' ).detach(), false );
+					uploadObjs.push( uploadObj );
 					uploadInterfaceDivs.push( uploadObj.ui.div );
 					// The new upload owns this $fileInputCtrl now. Create a new one.
 					wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
@@ -136,6 +139,25 @@
 
 				// Attach all interfaces to the DOM
 				$( '#mwe-upwiz-filelist' ).append( $( uploadInterfaceDivs ) );
+
+				// Display thumbnails, but not all at once because they're somewhat expensive to generate.
+				// This will wait for each thumbnail to be complete before starting the next one.
+				thumbPromise = $.Deferred().resolve();
+				$.each( uploadObjs, function ( i, uploadObj ) {
+					thumbPromise = thumbPromise.then( function () {
+						var deferred = $.Deferred();
+						setTimeout( function () {
+							if ( wizard.steps.file.movedFrom ) {
+								// We're no longer displaying any of these thumbnails, stop
+								deferred.reject();
+							}
+							uploadObj.ui.showThumbnail().done( function () {
+								deferred.resolve();
+							} );
+						} );
+						return deferred.promise();
+					} );
+				} );
 
 				uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 			} );
@@ -326,7 +348,7 @@
 		 *
 		 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
 		 */
-		addUpload: function ( fileLike, disablePreview ) {
+		addUpload: function ( fileLike ) {
 			var upload,
 				wizard = this;
 
@@ -350,12 +372,6 @@
 			upload.connect( this, {
 				'remove-upload': [ 'removeUpload', upload ]
 			} );
-
-			// Local previews are slow due to the data URI insertion into the DOM; for batches we
-			// don't generate them if the size of the batch exceeds 10 MB
-			if ( disablePreview ) {
-				upload.disablePreview();
-			}
 
 			upload.fill( fileLike );
 

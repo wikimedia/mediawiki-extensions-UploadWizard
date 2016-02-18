@@ -45,7 +45,6 @@
 		this.ignoreWarning = {};
 		this.fromURL = false;
 		this.previewPromise = null;
-		this.generatePreview = true;
 
 		this.fileKey = undefined;
 
@@ -532,13 +531,6 @@
 	 */
 	mw.UploadWizardUpload.prototype.setTitle = function ( title ) {
 		this.title = mw.Title.newFromFileName( mw.UploadWizard.sanitizeFilename( title ) );
-	};
-
-	/**
-	 * Disable preview thumbnail for this upload.
-	 */
-	mw.UploadWizardUpload.prototype.disablePreview = function () {
-		this.generatePreview = false;
 	};
 
 	/**
