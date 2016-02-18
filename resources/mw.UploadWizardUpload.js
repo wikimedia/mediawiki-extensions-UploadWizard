@@ -62,8 +62,6 @@
 			} )
 
 			.on( 'upload-filled', function () {
-				upload.details = new mw.UploadWizardDetails( upload, $( '#mwe-upwiz-macro-files' ) );
-
 				upload.emit( 'filled' );
 			} );
 	};
