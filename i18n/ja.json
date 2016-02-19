@@ -73,8 +73,6 @@
 	"mwe-upwiz-remove": "除去",
 	"mwe-upwiz-override": "無視してアップロードする。",
 	"mwe-upwiz-remove-upload": "アップロードするファイルの一覧からこのファイルを除去",
-	"mwe-upwiz-show-thumb": "サムネイルを表示",
-	"mwe-upwiz-show-thumb-tip": "このファイルのサムネイルを読み込む",
 	"mwe-upwiz-remove-description": "この説明を除去",
 	"mwe-upwiz-upload": "アップロード",
 	"mwe-upwiz-file-upload-notcapable": "残念ながら、ご使用中のブラウザーではファイルをアップロードできません。\n別のブラウザーを試してください。",
