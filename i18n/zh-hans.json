@@ -29,7 +29,8 @@
 			"Impersonator 1",
 			"Kuailong",
 			"凡人丶",
-			"Shizhao"
+			"Shizhao",
+			"飞舞回堂前"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -283,7 +284,7 @@
 	"mwe-upwiz-license-cc-by-sa-2.0": "知识共享“署名-相同方式共享 2.0”（[$2 法律文件]）",
 	"mwe-upwiz-license-cc-by-2.0": "知识共享“署名 2.0”（[$2 法律文件]）",
 	"mwe-upwiz-license-cc-zero": "知识共享“公共领域贡献宣告” （放弃所有权利，类似公共领域：[$2 法律文件]）",
-	"mwe-upwiz-license-custom": "授权协议用以下维基文字说明（必需含有有效的[$2 著作权标签]）：",
+	"mwe-upwiz-license-custom": "授权协议用以下维基文字说明（必须含有有效的[$2 著作权标签]）：",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:著作权标签",
 	"mwe-upwiz-license-fal": "自由艺术授权协议",
 	"mwe-upwiz-license-own-pd": "以知识共享“公共领域贡献宣告”放弃所有权利（类似公共领域）",
