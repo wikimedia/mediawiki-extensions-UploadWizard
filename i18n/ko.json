@@ -11,7 +11,8 @@
 			"아라",
 			"Revi",
 			"Hwangjy9",
-			"SeoJeongHo"
+			"SeoJeongHo",
+			"HDNua"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -125,7 +126,7 @@
 	"mwe-upwiz-more-options": "위치와 자세한 정보 추가하기...",
 	"mwe-upwiz-copy-metadata": "다음의 모든 올리기 정보를 복사 ...",
 	"mwe-upwiz-copy-metadata-button": "복사",
-	"mwe-upwiz-copied-metadata-button": "성공적으로 복사함",
+	"mwe-upwiz-copied-metadata-button": "복사 완료",
 	"mwe-upwiz-copy-title": "(자동으로 번호를 매겨서) 제목 복사",
 	"mwe-upwiz-copy-description": "설명 복사",
 	"mwe-upwiz-copy-date": "날짜 복사",
