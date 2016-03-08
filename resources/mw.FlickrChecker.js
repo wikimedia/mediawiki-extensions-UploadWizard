@@ -77,7 +77,7 @@
 			var photoIdMatches, albumIdMatches, userCollectionMatches, userPhotostreamMatches, groupPoolMatches, userGalleryMatches, userFavoritesMatches;
 
 			photoIdMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/([0-9]+)/ );
-			albumIdMatches = flickrInputUrl.match( /flickr\.com\/photos\/[^\/]+\/sets\/([0-9]+)/ );
+			albumIdMatches = flickrInputUrl.match( /flickr\.com\/photos\/[^\/]+\/(sets|albums)\/([0-9]+)/ );
 			userCollectionMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/collections\/?([0-9]+)?/ );
 			userPhotostreamMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)/ );
 			groupPoolMatches = flickrInputUrl.match( /flickr\.com\/groups\/[^\/]+(?:\/pool\/([^\/]+))?/ );
@@ -92,7 +92,7 @@
 				groupPoolMatches || userGalleryMatches || userFavoritesMatches ) {
 				$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 				this.imageUploads = [];
-				if ( albumIdMatches && albumIdMatches[ 1 ] > 0 ) {
+				if ( albumIdMatches && albumIdMatches[ 2 ] > 0 ) {
 					this.getPhotoset( albumIdMatches, flickrInputUrl );
 				} else if ( photoIdMatches && photoIdMatches[ 1 ] > 0 ) {
 					this.getPhoto( photoIdMatches, flickrInputUrl );
@@ -329,7 +329,7 @@
 		getPhotoset: function ( albumIdMatches ) {
 			return this.getPhotos( 'photoset', {
 				method: 'flickr.photosets.getPhotos',
-				photoset_id: albumIdMatches[ 1 ]
+				photoset_id: albumIdMatches[ 2 ]
 			} );
 		},
 
