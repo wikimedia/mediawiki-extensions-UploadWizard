@@ -144,7 +144,7 @@
 	"mwe-upwiz-more-options": "Text for a 'more options' toggle that opens more of a form so a user can make more detailed descriptions/add more properties for uploaded images.",
 	"mwe-upwiz-copy-metadata": "Toggler which expands/collapses a selection of checkboxes vertically which allow the user to selectively copy metadata from the first upload to other uploads.",
 	"mwe-upwiz-copy-metadata-button": "Label of the button which executes a copy operation of selected metadata from the first upload to all other uploads.\n{{Identical|Copy}}",
-	"mwe-upwiz-copied-metadata-button": "Label of the button which executes a copy operation of selected metadata from the first upload to all other uploads after successfully completing the operation.",
+	"mwe-upwiz-copied-metadata-button": "Label of the button which executes a copy operation of selected metadata from the first upload to all other uploads after successfully completing the operation.\n{{Identical|Copied}}",
 	"mwe-upwiz-copy-title": "Label for the checkbox to copy title from the first upload to other uploads, with an automatically added or increased unique numeric identifier.",
 	"mwe-upwiz-copy-description": "Label for checkbox to copy selected metadata from the first upload to other uploads.",
 	"mwe-upwiz-copy-date": "Label for checkbox to copy selected metadata from the first upload to other uploads.",
