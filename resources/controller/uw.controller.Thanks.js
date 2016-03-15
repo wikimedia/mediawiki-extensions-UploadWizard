@@ -28,7 +28,8 @@
 			new uw.ui.Thanks( config )
 				.connect( this, {
 					'reset-wizard': [ 'emit', 'reset-wizard' ]
-				} )
+				} ),
+			config
 		);
 
 		this.stepName = 'thanks';

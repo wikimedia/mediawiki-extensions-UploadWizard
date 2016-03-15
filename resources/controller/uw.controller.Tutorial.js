@@ -16,7 +16,7 @@
  */
 
 ( function ( mw, uw, $, OO ) {
-	uw.controller.Tutorial = function UWControllerTutorial( api ) {
+	uw.controller.Tutorial = function UWControllerTutorial( api, config ) {
 		var controller = this;
 		this.shouldSkipTutorial = false;
 		this.api = api;
@@ -35,7 +35,8 @@
 
 				.on( 'helpdesk-click', function () {
 					( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
-				} )
+				} ),
+			config
 		);
 
 		this.stepName = 'tutorial';

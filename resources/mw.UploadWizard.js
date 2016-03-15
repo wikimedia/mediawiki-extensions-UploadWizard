@@ -197,7 +197,7 @@
 			var wizard = this;
 
 			this.steps = {
-				tutorial: new uw.controller.Tutorial( this.api ),
+				tutorial: new uw.controller.Tutorial( this.api, this.config ),
 
 				file: new uw.controller.Upload( this.config )
 					.on( 'flickr-ui-init', function () {
