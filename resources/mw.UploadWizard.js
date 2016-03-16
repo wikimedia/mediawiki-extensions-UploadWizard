@@ -428,23 +428,6 @@
 		},
 
 		/**
-		 * This is useful to clean out unused upload file inputs if the user hits GO.
-		 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
-		 */
-		removeEmptyUploads: function () {
-
-			// First remove array keys that don't have an assigned upload object
-			this.uploads = $.grep( this.uploads,
-				function ( v ) { return v !== undefined; }
-			);
-
-			// Now remove upload objects that exist but are empty
-			this.removeMatchingUploads( function ( upload ) {
-				return mw.isEmpty( upload.filename );
-			} );
-		},
-
-		/**
 		 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
 		 */
 		removeErrorUploads: function () {
