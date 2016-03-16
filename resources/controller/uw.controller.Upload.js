@@ -146,19 +146,6 @@
 
 		this.ui.hideEndButtons();
 
-		// reset any uploads in error state back to be shiny & new
-		$.each( this.uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-
-			if ( upload.state === 'error' ) {
-				upload.state = 'new';
-				upload.ui.clearIndicator();
-				upload.ui.clearStatus();
-			}
-		} );
-
 		// remove ability to change files
 		// ideally also hide the "button"... but then we require styleable file input CSS trickery
 		// although, we COULD do this just for files already in progress...
@@ -173,6 +160,20 @@
 
 	uw.controller.Upload.prototype.retry = function () {
 		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
+
+		// reset any uploads in error state back to be shiny & new
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
+
+			if ( upload.state === 'error' ) {
+				upload.state = 'new';
+				upload.ui.clearIndicator();
+				upload.ui.clearStatus();
+			}
+		} );
+
 		this.startUploads();
 	};
 
