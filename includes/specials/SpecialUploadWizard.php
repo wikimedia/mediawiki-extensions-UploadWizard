@@ -108,7 +108,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// fallback for non-JS
 		$out->addHTML( '<div class="mwe-upwiz-unavailable">' );
-		$out->addHTML( '<p class="errorbox">' . $this->msg( 'mwe-upwiz-js-off' )->escaped() . '</p>' );
+		$out->addHTML( '<p class="errorbox">' . $this->msg( 'mwe-upwiz-unavailable' )->parse() . '</p>' );
 		$this->simpleForm->show();
 		$out->addHTML( '</div>' );
 

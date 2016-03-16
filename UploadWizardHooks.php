@@ -125,7 +125,6 @@ class UploadWizardHooks {
 				'comma-separator',
 				'uploadwizard',
 				'uploadwizard-desc',
-				'mwe-upwiz-js-off',
 				'mwe-upwiz-step-tutorial',
 				'mwe-upwiz-step-file',
 				'mwe-upwiz-step-deeds',

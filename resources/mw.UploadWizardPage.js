@@ -17,8 +17,17 @@
 		// Default configuration value that cannot be removed
 		config.maxUploads = config.maxUploads || 10;
 
+		// Remove the initial spinner
+		$( '#mwe-first-spinner' ).remove();
+
 		if ( $( '#upload-wizard' ).length === 0 ) {
 			mw.log( 'UploadWizard is disabled, nothing to do.' );
+			return;
+		}
+
+		if ( !mw.fileApi.isAvailable() || !mw.fileApi.isFormDataAvailable() ) {
+			// Display the same error message as for grade-C browsers
+			$( '.mwe-upwiz-unavailable' ).show();
 			return;
 		}
 

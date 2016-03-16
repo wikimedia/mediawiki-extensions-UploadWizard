@@ -59,8 +59,6 @@
 		var offset = $( 'h1:first' ).offset();
 
 		this.uploads = uploads;
-		// Remove the initial spinner if it's still present
-		$( '#mwe-first-spinner' ).remove();
 		this.$div.show();
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( this.$arrow );
 
