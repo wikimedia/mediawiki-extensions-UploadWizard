@@ -135,14 +135,6 @@
 	};
 
 	/**
-	 * Make sure the window doesn't get closed accidentally during upload.
-	 */
-	uw.controller.Upload.prototype.transitionAll = function () {
-		this.emit( 'prevent-close' );
-		return uw.controller.Step.prototype.transitionAll.call( this );
-	};
-
-	/**
 	 * Kick off the upload processes.
 	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
 	 * and kicks off a thread which will take from the queue.
