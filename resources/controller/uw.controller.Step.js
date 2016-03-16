@@ -82,6 +82,10 @@
 
 		this.movedFrom = false;
 
+		// Through some very convoluted route, this reached code in mw.UploadWizard that can
+		// remove items from the `uploads` array here.
+		this.emit( 'load' );
+
 		this.uploads = uploads || [];
 
 		// Keep the uploads sorted in the order they were created in initially.
@@ -105,7 +109,6 @@
 		this.ui.moveTo( uploads );
 		( new mw.UploadWizardTutorialEvent( 'load' ) ).dispatch();
 		uw.eventFlowLogger.logStep( this.stepName );
-		this.emit( 'load' );
 
 		this.updateFileCounts( this.uploads );
 	};
