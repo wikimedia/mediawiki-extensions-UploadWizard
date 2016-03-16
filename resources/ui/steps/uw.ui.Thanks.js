@@ -52,10 +52,10 @@
 			.addClass( 'mwe-upwiz-thanks-header' )
 			.prependTo( this.$div );
 
-		if ( !mw.UploadWizard.config || !mw.UploadWizard.config.display || !mw.UploadWizard.config.display.thanksLabel ) {
+		if ( !this.config.display || !this.config.display.thanksLabel ) {
 			$header.text( mw.message( 'mwe-upwiz-thanks-intro' ).text() );
 		} else {
-			$header.html( mw.UploadWizard.config.display.thanksLabel );
+			$header.html( this.config.display.thanksLabel );
 		}
 
 		this.homeButton = new OO.ui.ButtonWidget( {
@@ -141,8 +141,8 @@
 			);
 
 		upload.getThumbnail(
-			mw.UploadWizard.config.thumbnailWidth,
-			mw.UploadWizard.config.thumbnailMaxHeight
+			this.config.thumbnailWidth,
+			this.config.thumbnailMaxHeight
 		).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
@@ -188,7 +188,7 @@
 	 * @return {Object|undefined}
 	 */
 	uw.ui.Thanks.prototype.getButtonConfig = function ( buttonName, configField ) {
-		if ( !this.config || !this.config.display || !this.config.display[ buttonName ] ) {
+		if ( !this.config.display || !this.config.display[ buttonName ] ) {
 			return;
 		}
 
@@ -217,14 +217,14 @@
 			.addClass( 'mwe-upwiz-thanks-update-delay' )
 			.msg( 'mwe-upwiz-objref-notice-update-delay' );
 
-		if ( mw.UploadWizard.config && mw.UploadWizard.config.display && mw.UploadWizard.config.display.noticeUpdateDelay ) {
-			$delayNotice.html( mw.UploadWizard.config.display.noticeUpdateDelay );
+		if ( this.config.display && this.config.display.noticeUpdateDelay ) {
+			$delayNotice.html( this.config.display.noticeUpdateDelay );
 		}
 		return $delayNotice;
 	};
 
 	uw.ui.Thanks.prototype.isObjectReferenceGiven = function () {
-		return mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '';
+		return this.config.defaults && this.config.defaults.objref !== '';
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
