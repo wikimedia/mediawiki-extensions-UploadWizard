@@ -7,7 +7,8 @@
 			"Sm faysal",
 			"Wikitanvir",
 			"Aftabuzzaman",
-			"Sayma Jahan"
+			"Sayma Jahan",
+			"Bodhisattwa"
 		]
 	},
 	"uploadwizard": "আপলোড উইজার্ড",
@@ -50,6 +51,8 @@
 	"mwe-upwiz-published": "প্রকাশিত!",
 	"mwe-upwiz-failed": "ব্যর্থ।",
 	"mwe-upwiz-remove": "অপসারণ",
+	"mwe-upwiz-override": "যে কোন উপায়ে আপলোড করুন।",
+	"mwe-upwiz-override-upload": "এই ফাইল যে কোন উপায়ে আপলোড করুন।",
 	"mwe-upwiz-remove-upload": "আপলোড করার জন্য ফাইলের তালিকা থেকে এই ফাইলটি অপসারণ করো",
 	"mwe-upwiz-remove-description": "এই বিবরণটি অপসারণ করো",
 	"mwe-upwiz-upload": "আপলোড",
@@ -113,11 +116,13 @@
 	"mwe-upwiz-desc-add-0": "বিবরণ যোগ",
 	"mwe-upwiz-title": "শিরোনাম",
 	"mwe-upwiz-date-created": "তৈরির তারিখ",
+	"mwe-upwiz-select-date": "একটি তারিখ নির্বাচন করুন",
 	"mwe-upwiz-location": "অবস্থান",
 	"mwe-upwiz-location-button": "মানচিত্রে দেখাও",
 	"mwe-upwiz-location-lat": "অক্ষাংশ",
 	"mwe-upwiz-location-lon": "দ্রাঘিমাংশ",
 	"mwe-upwiz-location-alt": "উচ্চতা",
+	"mwe-upwiz-location-heading": "শিরোনাম",
 	"mwe-upwiz-copyright-info": "প্রকাশের অধিকার",
 	"mwe-upwiz-author": "লেখক",
 	"mwe-upwiz-autoconverted": "এই ফাইলটি স্বয়ংক্রিয় ভাবে $1 ফরমেটে রূপান্তরিত হবে",
