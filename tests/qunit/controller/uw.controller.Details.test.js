@@ -15,7 +15,7 @@
  * along with DetailsWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw ) {
+( function ( uw, $ ) {
 	QUnit.module( 'mw.uw.controller.Details', QUnit.newMwEnvironment() );
 
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
@@ -45,14 +45,18 @@
 	}
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step = new uw.controller.Details();
+		var step = new uw.controller.Details( {
+			maxSimultaneousConnections: 1
+		} );
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
 	QUnit.test( 'moveTo', 16, function ( assert ) {
-		var step = new uw.controller.Details(),
+		var step = new uw.controller.Details( {
+				maxSimultaneousConnections: 1
+			} ),
 			testUpload = createTestUpload( this.sandbox ),
 			stepUiStub = this.sandbox.stub( step.ui, 'moveTo' );
 
@@ -88,7 +92,7 @@
 		assert.ok( stepUiStub.called );
 	} );
 
-	QUnit.test( 'canTransition', 4, function ( assert ) {
+	QUnit.test( 'canTransition', 3, function ( assert ) {
 		var upload = {},
 			step = new uw.controller.Details( {
 				maxSimultaneousConnections: 1
@@ -97,10 +101,56 @@
 		assert.strictEqual( step.canTransition( upload ), false );
 		upload.state = 'details';
 		assert.strictEqual( step.canTransition( upload ), true );
-		step.uploadsTransitioning = 1;
-		assert.strictEqual( step.canTransition( upload ), false );
-		step.uploadsTransitioning = 0;
 		upload.state = 'complete';
 		assert.strictEqual( step.canTransition( upload ), false );
 	} );
-}( mediaWiki.uploadWizard ) );
+
+	QUnit.asyncTest( 'transitionAll', 4, function ( assert ) {
+		var tostub, promise,
+			donestub = this.sandbox.stub(),
+			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],
+			ps = [ ds[ 0 ].promise(), ds[ 1 ].promise(), ds[ 2 ].promise() ],
+			calls = [],
+			step;
+
+		tostub = this.sandbox.stub( uw.controller.Details.prototype, 'transitionOne' );
+		tostub.onFirstCall().returns( ps[ 0 ] );
+		tostub.onSecondCall().returns( ps[ 1 ] );
+		tostub.onThirdCall().returns( ps[ 2 ] );
+
+		this.sandbox.stub( uw.controller.Details.prototype, 'canTransition' ).returns( true );
+
+		step = new uw.controller.Details( {
+			maxSimultaneousConnections: 3
+		} );
+
+		step.uploads = [
+			{ id: 15 },
+			undefined,
+			{ id: 21 },
+			{ id: 'aoeu' }
+		];
+
+		promise = step.transitionAll().done( donestub );
+		setTimeout( function () {
+			calls = [ tostub.getCall( 0 ), tostub.getCall( 1 ), tostub.getCall( 2 ) ];
+
+			assert.strictEqual( calls[ 0 ].args[ 0 ].id, 15 );
+			assert.strictEqual( calls[ 1 ].args[ 0 ].id, 21 );
+
+			ds[ 0 ].resolve();
+			ds[ 1 ].resolve();
+			setTimeout( function () {
+				assert.strictEqual( donestub.called, false );
+
+				ds[ 2 ].resolve();
+				setTimeout( function () {
+					assert.ok( donestub.called );
+
+					QUnit.start();
+				} );
+			} );
+		} );
+	} );
+
+}( mediaWiki.uploadWizard, jQuery ) );

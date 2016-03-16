@@ -38,6 +38,12 @@
 
 		this.stepName = 'file';
 		this.finishState = 'stashed';
+
+		this.queue = new uw.ConcurrentQueue( {
+			count: this.config.maxSimultaneousConnections,
+			action: this.transitionOne.bind( this )
+		} );
+		this.queue.on( 'complete', this.showNext.bind( this ) );
 	};
 
 	OO.inheritClass( uw.controller.Upload, uw.controller.Step );
@@ -128,6 +134,11 @@
 		);
 	};
 
+	/**
+	 * Perform this step's changes on one upload.
+	 *
+	 * @return {jQuery.Promise}
+	 */
 	uw.controller.Upload.prototype.transitionOne = function ( upload ) {
 		var promise = upload.start();
 		this.maybeStartProgressBar();
@@ -135,46 +146,43 @@
 	};
 
 	/**
-	 * Kick off the upload processes.
-	 * Does some precalculations, changes the interface to be less mutable, moves the uploads to a queue,
-	 * and kicks off a thread which will take from the queue.
+	 * Queue an upload object to be uploaded.
 	 *
-	 * @return {jQuery.Promise}
+	 * @param {mw.UploadWizardUpload} upload
 	 */
-	uw.controller.Upload.prototype.startUploads = function () {
-		var step = this;
+	uw.controller.Upload.prototype.queueUpload = function ( upload ) {
+		if ( this.canTransition( upload ) ) {
+			this.queue.addItem( upload );
+		}
+	};
 
-		this.ui.hideEndButtons();
-
-		// remove ability to change files
-		// ideally also hide the "button"... but then we require styleable file input CSS trickery
-		// although, we COULD do this just for files already in progress...
-
-		// it might be interesting to just make this creational -- attach it to the dom element representing
-		// the progress bar and elapsed time
-
-		return this.transitionAll().done( function () {
-			step.showNext();
-		} );
+	/**
+	 * Kick off the upload processes.
+	 */
+	uw.controller.Upload.prototype.startQueuedUploads = function () {
+		this.queue.startExecuting();
 	};
 
 	uw.controller.Upload.prototype.retry = function () {
+		var controller = this;
 		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 
-		// reset any uploads in error state back to be shiny & new
 		$.each( this.uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
 				return;
 			}
 
 			if ( upload.state === 'error' ) {
+				// reset any uploads in error state back to be shiny & new
 				upload.state = 'new';
 				upload.ui.clearIndicator();
 				upload.ui.clearStatus();
+				// and queue them
+				controller.queueUpload( upload );
 			}
 		} );
 
-		this.startUploads();
+		this.startQueuedUploads();
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
