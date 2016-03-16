@@ -377,7 +377,7 @@
 	 */
 	mw.UploadWizardUpload.prototype.checkFile = function ( filename, file ) {
 		var duplicate, extension,
-			actualMaxSize, binReader,
+			actualMaxSize,
 			upload = this,
 
 			// Check if filename is acceptable
@@ -463,55 +463,8 @@
 						this.imageinfo = {};
 					}
 					this.filename = filename;
-
-					// For JPEGs, we use the JsJpegMeta library in core to extract metadata,
-					// including EXIF tags. This is done asynchronously once each file has been
-					// read. Only then is the file properly added to UploadWizard via fileChangedOk().
-					//
-					// For all other file types, we don't need or want to run this.
-					//
-					// TODO: This should be refactored.
-
-					if ( this.file.type === 'image/jpeg' ) {
-						binReader = new FileReader();
-						binReader.onload = function () {
-							var binStr, arr, i, meta;
-							if ( typeof binReader.result === 'string' ) {
-								binStr = binReader.result;
-							} else {
-								// Array buffer; convert to binary string for the library.
-								arr = new Uint8Array( binReader.result );
-								binStr = '';
-								for ( i = 0; i < arr.byteLength; i++ ) {
-									binStr += String.fromCharCode( arr[ i ] );
-								}
-							}
-							try {
-								meta = mw.libs.jpegmeta( binStr, upload.file.fileName );
-								// jscs:disable requireCamelCaseOrUpperCaseIdentifiers, disallowDanglingUnderscores
-								meta._binary_data = null;
-								// jscs:enable
-							} catch ( e ) {
-								meta = null;
-							}
-							upload.extractMetadataFromJpegMeta( meta );
-							upload.filename = filename;
-							if ( upload.hasError === false ) {
-								finishCallback();
-							}
-						};
-						if ( 'readAsBinaryString' in binReader ) {
-							binReader.readAsBinaryString( upload.file );
-						} else if ( 'readAsArrayBuffer' in binReader ) {
-							binReader.readAsArrayBuffer( upload.file );
-						} else {
-							// We should never get here. :P
-							throw new Error( 'Cannot read thumbnail as binary string or array buffer.' );
-						}
-					} else {
-						if ( this.hasError === false ) {
-							finishCallback();
-						}
+					if ( this.hasError === false ) {
+						finishCallback();
 					}
 
 				} else {
@@ -551,11 +504,62 @@
 	};
 
 	/**
+	 * Extract some JPEG metadata that we need to render thumbnails (EXIF rotation mostly).
+	 *
+	 * For JPEGs, we use the JsJpegMeta library in core to extract metadata,
+	 * including EXIF tags. This is done asynchronously once each file has been
+	 * read.
+	 *
+	 * For all other file types, we don't need or want to run this, and this function does nothing.
+	 *
+	 * @return {jQuery.Promise} A promise, resolved when we're done
+	 */
+	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function () {
+		var binReader,
+			deferred = $.Deferred(),
+			upload = this;
+		if ( this.file.type === 'image/jpeg' ) {
+			binReader = new FileReader();
+			binReader.onload = function () {
+				var binStr, arr, i, meta;
+				if ( typeof binReader.result === 'string' ) {
+					binStr = binReader.result;
+				} else {
+					// Array buffer; convert to binary string for the library.
+					arr = new Uint8Array( binReader.result );
+					binStr = '';
+					for ( i = 0; i < arr.byteLength; i++ ) {
+						binStr += String.fromCharCode( arr[ i ] );
+					}
+				}
+				try {
+					meta = mw.libs.jpegmeta( binStr, upload.file.fileName );
+					// jscs:disable requireCamelCaseOrUpperCaseIdentifiers, disallowDanglingUnderscores
+					meta._binary_data = null;
+					// jscs:enable
+				} catch ( e ) {
+					meta = null;
+				}
+				upload.extractMetadataFromJpegMetaCallback( meta );
+				deferred.resolve();
+			};
+			if ( 'readAsBinaryString' in binReader ) {
+				binReader.readAsBinaryString( upload.file );
+			} else if ( 'readAsArrayBuffer' in binReader ) {
+				binReader.readAsArrayBuffer( upload.file );
+			}
+		} else {
+			deferred.resolve();
+		}
+		return deferred.promise();
+	};
+
+	/**
 	 * Map fields from jpegmeta's metadata return into our format (which is more like the imageinfo returned from the API
 	 *
 	 * @param {Object} meta As returned by jpegmeta
 	 */
-	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function ( meta ) {
+	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMetaCallback = function ( meta ) {
 		var pixelHeightDim, pixelWidthDim, degrees;
 
 		if ( meta !== undefined && meta !== null && typeof meta === 'object' ) {
@@ -1061,7 +1065,8 @@
 			deferred.resolve( image );
 		}
 
-		this.makePreview()
+		this.extractMetadataFromJpegMeta()
+			.then( upload.makePreview.bind( upload ) )
 			.done( imageCallback )
 			.fail( function () {
 				// Can't generate the thumbnail locally, get the thumbnail via API after

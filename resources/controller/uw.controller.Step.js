@@ -88,18 +88,6 @@
 
 		this.uploads = uploads || [];
 
-		// Keep the uploads sorted in the order they were created in initially.
-		this.uploads = this.uploads.sort( function ( uploadA, uploadB ) {
-			// Can the uploads be undefined? Code below would imply they can, no idea how.
-			if ( !uploadA ) {
-				return 1;
-			}
-			if ( !uploadB ) {
-				return -1;
-			}
-			return uploadA.index - uploadB.index;
-		} );
-
 		$.each( this.uploads, function ( i, upload ) {
 			if ( upload !== undefined ) {
 				upload.state = step.stepName;
