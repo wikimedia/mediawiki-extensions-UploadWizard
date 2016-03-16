@@ -422,7 +422,7 @@
 
 		// Check if extension is acceptable
 		extension = this.title.getExtension();
-		if ( mw.isEmpty( extension ) ) {
+		if ( !extension ) {
 			this.fileNameErr( 'noext', null );
 		} else {
 			if (
@@ -855,7 +855,9 @@
 			}
 		}
 
-		if ( mw.isEmpty( height ) ) {
+		if ( !height ) {
+			// For action=query&prop=stashimageinfo / action=query&prop=imageinfo,
+			// height of '-1' is the same as not given, while '0' gives a one-pixel-wide thumbnail
 			height = -1;
 		}
 

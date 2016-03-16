@@ -182,7 +182,7 @@
 		countEmpties: function () {
 			var count = 0;
 			$.each( this.uploads, function ( i, upload ) {
-				if ( mw.isEmpty( upload ) || upload.state === 'aborted' ) {
+				if ( !upload || upload.state === 'aborted' ) {
 					count += 1;
 				}
 			} );
