@@ -648,12 +648,6 @@ return array(
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
 
-	// should File API uploads be available?  Required for chunked uploading and multi-file select
-	'enableFormData' => true,
-
-	// should multi-file select be available in supporting browsers?
-	'enableMultiFileSelect' => true,
-
 	// should chunked uploading be enabled? false for now since the backend isn't really ready.
 	// set to "opt-in" to control via experimental user preference under 'Uploads' tab
 	'enableChunked' => false,
@@ -663,9 +657,6 @@ return array(
 
 	// Should feature to copy metadata across a batch of uploads be enabled?
 	'copyMetadataFeature' => true,
-
-	// Should we allow multiple files in a form?
-	'enableMultipleFiles' => true,
 
 	// Should we pester the user with a confirmation step when submitting a file without assigning it
 	// to any categories?

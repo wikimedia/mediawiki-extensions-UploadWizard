@@ -769,7 +769,7 @@
 		if ( !this.uploadHandler ) {
 			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
-			} else if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable() ) {
+			} else if ( mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable() ) {
 				constructor = 'ApiUploadFormDataHandler';
 			} else {
 				constructor = 'ApiUploadHandler';

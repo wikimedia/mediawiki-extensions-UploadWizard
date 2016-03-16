@@ -202,29 +202,15 @@
 	 * @param {boolean} fewerThanMax Whether we can add more uploads.
 	 */
 	uw.ui.Upload.prototype.updateFileCounts = function ( haveUploads, fewerThanMax ) {
-		var $needToHide;
-
 		this.$fileList.toggleClass( 'mwe-upwiz-filled-filelist', haveUploads );
 		this.$addFileContainer.toggleClass( 'mwe-upwiz-add-files-0', !haveUploads );
 
-		this.setAddButtonText( haveUploads && this.config.enableMultipleFiles === true );
+		this.setAddButtonText( haveUploads );
 
 		if ( haveUploads ) {
 			// we have uploads ready to go, so allow us to proceed
 			this.$addFileContainer.add( this.$buttons ).show();
 			this.$uploadCenterDivide.hide();
-
-			if ( this.config.enableMultipleFiles !== true ) {
-				$needToHide = $( '.mwe-upwiz-file-input' )
-					.add( this.$addFileContainer );
-
-				if ( this.isFlickrImportEnabled() ) {
-					$needToHide.add( this.$flickrAddFileContainer )
-						.add( this.$flickrSelectListContainer );
-				}
-
-				$needToHide.hide();
-			}
 
 			// fix the rounded corners on file elements.
 			// we want them to be rounded only when their edge touched the top or bottom of the filelist.

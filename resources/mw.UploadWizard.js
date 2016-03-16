@@ -90,8 +90,7 @@
 				wizard = this;
 
 			$fileInputCtrl = $( '<input type="file" name="file" class="mwe-upwiz-file-input" />' );
-			if ( mw.UploadWizard.config.enableFormData && mw.fileApi.isFormDataAvailable() &&
-				mw.UploadWizard.config.enableMultiFileSelect && mw.UploadWizard.config.enableMultipleFiles ) {
+			if ( mw.fileApi.isFormDataAvailable() ) {
 				// Multiple uploads requires the FormData transport
 				$fileInputCtrl.attr( 'multiple', '1' );
 			}
