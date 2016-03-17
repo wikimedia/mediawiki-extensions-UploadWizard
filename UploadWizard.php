@@ -134,6 +134,10 @@ $wgResourceModules['ext.uploadWizard.page'] = array(
 	'dependencies' => 'ext.uploadWizard'
 ) + $uploadWizardModuleInfo;
 
+$wgResourceModules['ext.uploadWizard.page.styles'] = array(
+	'styles' => 'uploadWizard.noWizard.css',
+) + $uploadWizardModuleInfo;
+
 $wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
 	'styles' => 'ext.uploadWizard.uploadCampaign.display.css',
 	'position' => 'top',

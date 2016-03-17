@@ -107,16 +107,17 @@ class SpecialUploadWizard extends SpecialPage {
 		$out = $this->getOutput();
 
 		// fallback for non-JS
-		$out->addHTML( '<noscript>' );
+		$out->addHTML( '<div class="mwe-upwiz-unavailable">' );
 		$out->addHTML( '<p class="errorbox">' . $this->msg( 'mwe-upwiz-js-off' )->escaped() . '</p>' );
 		$this->simpleForm->show();
-		$out->addHTML( '</noscript>' );
+		$out->addHTML( '</div>' );
 
 		// global javascript variables
 		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
 		$out->addModules( 'ext.uploadWizard.page' );
+		$out->addModuleStyles( 'ext.uploadWizard.page.styles' );
 
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
