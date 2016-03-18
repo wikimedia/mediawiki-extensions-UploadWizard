@@ -83,12 +83,7 @@
 	 * @param {File} providedFile
 	 */
 	mw.UploadWizardUploadInterface.prototype.fill = function ( providedFile ) {
-		if ( providedFile instanceof jQuery ) {
-			this.$fileInputCtrl = providedFile;
-			this.form.append( this.$fileInputCtrl );
-		} else if ( providedFile ) {
-			this.providedFile = providedFile;
-		}
+		this.providedFile = providedFile;
 		this.clearErrors();
 	};
 
@@ -221,22 +216,11 @@
 	 * @return {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
-		var input;
-		if ( this.providedFile ) {
-			if ( this.providedFile.fileName ) {
-				return this.providedFile.fileName;
-			} else {
-				// this property has a different name in FF vs Chrome.
-				return this.providedFile.name;
-			}
+		if ( this.providedFile.fileName ) {
+			return this.providedFile.fileName;
 		} else {
-			input = this.$fileInputCtrl.get( 0 );
-			// On IE 11, input.value is incorrect for <input type=file multiple>, like we're using here;
-			// the input.files interface is reliable. (T88223#1595320)
-			if ( input.files && input.files[ 0 ] && input.files[ 0 ].name ) {
-				return input.files[ 0 ].name;
-			}
-			return input.value;
+			// this property has a different name in FF vs Chrome.
+			return this.providedFile.name;
 		}
 	};
 
@@ -290,13 +274,7 @@
 	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {
 		var filename = this.getFilename();
 
-		if ( this.$fileInputCtrl ) {
-			this.$fileInputCtrl.remove();
-			delete this.$fileInputCtrl;
-		}
-		if ( this.providedFile ) {
-			this.providedFile = null;
-		}
+		this.providedFile = null;
 
 		if ( code === 'ext' ) {
 			this.showBadExtensionError( filename, info );

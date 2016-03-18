@@ -9,6 +9,15 @@
 // Create UploadWizard
 ( function ( mw, $ ) {
 
+	function isCompatible() {
+		return !!(
+			window.FileReader &&
+			window.FormData &&
+			window.File &&
+			window.File.prototype.slice
+		);
+	}
+
 	mw.UploadWizardPage = function () {
 
 		var uploadWizard,
@@ -25,7 +34,7 @@
 			return;
 		}
 
-		if ( !mw.fileApi.isAvailable() || !mw.fileApi.isFormDataAvailable() ) {
+		if ( !isCompatible() ) {
 			// Display the same error message as for grade-C browsers
 			$( '.mwe-upwiz-unavailable' ).show();
 			return;

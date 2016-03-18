@@ -24,12 +24,9 @@
 
 		getTransport: function () {
 			var file, transport,
-				upload = this.upload,
-				$fileInput = upload.ui.$fileInputCtrl[ 0 ];
+				upload = this.upload;
 
-			if ( $fileInput.files && $fileInput.files.length ) {
-				file = $fileInput.files[ 0 ];
-			} else if ( upload.file ) {
+			if ( upload.file ) {
 				file = upload.file;
 			} else if ( upload.providedFile ) {
 				file = upload.providedFile;

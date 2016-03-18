@@ -89,11 +89,7 @@
 				$fileInputCtrl,
 				wizard = this;
 
-			$fileInputCtrl = $( '<input type="file" name="file" class="mwe-upwiz-file-input" />' );
-			if ( mw.fileApi.isFormDataAvailable() ) {
-				// Multiple uploads requires the FormData transport
-				$fileInputCtrl.attr( 'multiple', '1' );
-			}
+			$fileInputCtrl = $( '<input type="file" multiple name="file" class="mwe-upwiz-file-input" />' );
 
 			// #mwe-upwiz-add-file is a ButtonWidget constructed somewhere else, so this is hacky.
 			// But it's less bad than how this was done before.
@@ -104,7 +100,7 @@
 					totalSize, uploadObj, thumbPromise,
 					uploadObjs = [],
 					uploadInterfaceDivs = [],
-					files = mw.fileApi.isAvailable() && $fileInputCtrl[ 0 ].files,
+					files = $fileInputCtrl[ 0 ].files,
 					totalFiles = ( files ? files.length : 1 ) + wizard.uploads.length,
 					tooManyFiles = totalFiles > wizard.config.maxUploads;
 
@@ -113,24 +109,18 @@
 					return;
 				}
 
-				if ( mw.fileApi.isAvailable() ) {
-					totalSize = 0;
-					$.each( files, function ( i, file ) {
-						totalSize += file.size;
-					} );
+				totalSize = 0;
+				$.each( files, function ( i, file ) {
+					totalSize += file.size;
+				} );
 
-					$.each( files, function ( i, file ) {
-						uploadObj = wizard.addUpload( file, totalSize > 10000000 );
-						uploadObjs.push( uploadObj );
-						// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
-						// performance
-						uploadInterfaceDivs.push( uploadObj.ui.div );
-					} );
-				} else {
-					uploadObj = wizard.addUpload( $fileInputCtrl.off( 'change' ).detach(), false );
+				$.each( files, function ( i, file ) {
+					uploadObj = wizard.addUpload( file, totalSize > 10000000 );
 					uploadObjs.push( uploadObj );
+					// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
+					// performance
 					uploadInterfaceDivs.push( uploadObj.ui.div );
-				}
+				} );
 
 				// Attach all interfaces to the DOM
 				$( '#mwe-upwiz-filelist' ).append( $( uploadInterfaceDivs ) );
@@ -344,9 +334,10 @@
 		 * Create the upload interface, a handler to transport it to the server, and UI for the upload
 		 * itself; and immediately fill it with a file and add it to the list of uploads.
 		 *
+		 * @param {File} file
 		 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
 		 */
-		addUpload: function ( fileLike ) {
+		addUpload: function ( file ) {
 			var upload,
 				wizard = this;
 
@@ -371,12 +362,8 @@
 				'remove-upload': [ 'removeUpload', upload ]
 			} );
 
-			upload.fill( fileLike );
-
-			upload.checkFile(
-				upload.ui.getFilename(),
-				mw.fileApi.isAvailable() ? fileLike : null
-			);
+			upload.fill( file );
+			upload.checkFile( upload.ui.getFilename(), file );
 
 			return upload;
 		},

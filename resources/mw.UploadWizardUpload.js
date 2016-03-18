@@ -78,13 +78,11 @@
 	 * @param {File} providedFile
 	 */
 	mw.UploadWizardUpload.prototype.fill = function ( providedFile ) {
-		if ( providedFile && !( providedFile instanceof jQuery ) ) {
-			this.providedFile = providedFile;
+		this.providedFile = providedFile;
 
-			// check to see if the File is being uploaded from a 3rd party URL.
-			if ( providedFile.fromURL ) {
-				this.fromURL = true;
-			}
+		// check to see if the File is being uploaded from a 3rd party URL.
+		if ( providedFile.fromURL ) {
+			this.fromURL = true;
 		}
 
 		this.ui.fill( providedFile );
@@ -102,7 +100,7 @@
 	mw.UploadWizardUpload.prototype.start = function () {
 		this.setTransportProgress( 0.0 );
 
-		// handler -- usually ApiUploadHandler
+		// handler -- usually ApiUploadFormDataHandler
 		this.handler = this.getUploadHandler();
 		return this.handler.start();
 	};
@@ -433,45 +431,36 @@
 			} else {
 				// Split this into a separate case, if the error above got ignored,
 				// we want to still trudge forward.
-				// if the JavaScript FileReader is available, extract more info via fileAPI
-				if ( mw.fileApi.isAvailable() ) {
-					this.file = file;
 
-					// If chunked uploading is enabled, we can transfer any file that MediaWiki
-					// will accept. Otherwise we're bound by PHP's limits.
-					// NOTE: Because we don't know until runtime if the browser supports chunked
-					// uploading, we can't determine this server-side.
-					if ( mw.UploadWizard.config.enableChunked && mw.fileApi.isFormDataAvailable() ) {
-						actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
-					} else {
-						actualMaxSize = Math.min(
-							mw.UploadWizard.config.maxMwUploadSize,
-							mw.UploadWizard.config.maxPhpUploadSize
-						);
-					}
+				// Extract more info via File API
+				this.file = file;
 
-					// make sure the file isn't too large
-					// XXX need a way to find the size of the Flickr image
-					if ( !this.fromURL ) {
-						this.transportWeight = this.file.size;
-						if ( this.transportWeight > actualMaxSize ) {
-							this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
-							return;
-						}
-					}
-					if ( this.imageinfo === undefined ) {
-						this.imageinfo = {};
-					}
-					this.filename = filename;
-					if ( this.hasError === false ) {
-						finishCallback();
-					}
-
+				// If chunked uploading is enabled, we can transfer any file that MediaWiki
+				// will accept. Otherwise we're bound by PHP's limits.
+				if ( mw.UploadWizard.config.enableChunked ) {
+					actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
 				} else {
-					this.filename = filename;
-					if ( this.hasError === false ) {
-						finishCallback();
+					actualMaxSize = Math.min(
+						mw.UploadWizard.config.maxMwUploadSize,
+						mw.UploadWizard.config.maxPhpUploadSize
+					);
+				}
+
+				// make sure the file isn't too large
+				// XXX need a way to find the size of the Flickr image
+				if ( !this.fromURL ) {
+					this.transportWeight = this.file.size;
+					if ( this.transportWeight > actualMaxSize ) {
+						this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
+						return;
 					}
+				}
+				if ( this.imageinfo === undefined ) {
+					this.imageinfo = {};
+				}
+				this.filename = filename;
+				if ( this.hasError === false ) {
+					finishCallback();
 				}
 			}
 		}
@@ -761,7 +750,7 @@
 	/**
 	 * Get the upload handler per browser capabilities
 	 *
-	 * @return {ApiUploadHandler} upload handler object
+	 * @return {FirefoggHandler|ApiUploadFormDataHandler|ApiUploadPostHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
 		var constructor;  // must be the name of a function in 'mw' namespace
@@ -769,10 +758,8 @@
 		if ( !this.uploadHandler ) {
 			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 				constructor = 'FirefoggHandler';
-			} else if ( mw.fileApi.isAvailable() && mw.fileApi.isFormDataAvailable() ) {
-				constructor = 'ApiUploadFormDataHandler';
 			} else {
-				constructor = 'ApiUploadHandler';
+				constructor = 'ApiUploadFormDataHandler';
 			}
 			if ( mw.UploadWizard.config.debug ) {
 				mw.log( 'mw.UploadWizard::getUploadHandler> ' + constructor );
@@ -1184,7 +1171,7 @@
 	 * Check if the file is previewable.
 	 */
 	mw.UploadWizardUpload.prototype.isPreviewable = function () {
-		return mw.fileApi.isAvailable() && this.file && mw.fileApi.isPreviewableFile( this.file );
+		return this.file && mw.fileApi.isPreviewableFile( this.file );
 	};
 
 	/**
@@ -1198,7 +1185,7 @@
 	 * Checks if this upload is a video.
 	 */
 	mw.UploadWizardUpload.prototype.isVideo = function () {
-		return mw.fileApi.isAvailable() && mw.fileApi.isPreviewableVideo( this.file );
+		return mw.fileApi.isPreviewableVideo( this.file );
 	};
 
 } )( mediaWiki, jQuery, OO );

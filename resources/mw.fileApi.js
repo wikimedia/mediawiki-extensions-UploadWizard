@@ -5,13 +5,6 @@
 	mw.fileApi = {
 
 		/**
-		 * Is the FileAPI available with sufficient functionality?
-		 */
-		isAvailable: function () {
-			return typeof window.FileReader !== 'undefined';
-		},
-
-		/**
 		 * Check if this is a recognizable image type...
 		 * Also excludes files over 10M to avoid going insane on memory usage.
 		 *
@@ -36,10 +29,7 @@
 		isPreviewableVideo: function ( file ) {
 			var video = document.createElement( 'video' );
 			return video.canPlayType && video.canPlayType( file.type ).replace( 'no', '' ) !== '';
-		},
-
-		isFormDataAvailable: function () {
-			return window.FormData !== undefined && window.File !== undefined && window.File.prototype.slice !== undefined;
 		}
+
 	};
 }( mediaWiki, jQuery ) );

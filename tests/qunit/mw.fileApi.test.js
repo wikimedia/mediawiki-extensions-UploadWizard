@@ -18,18 +18,6 @@
 ( function ( mw ) {
 	QUnit.module( 'mw.fileApi', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'isAvailable', 2, function ( assert ) {
-		var oldFileReader = window.FileReader;
-
-		window.FileReader = undefined;
-		assert.strictEqual( mw.fileApi.isAvailable(), false );
-
-		window.FileReader = {};
-		assert.strictEqual( mw.fileApi.isAvailable(), true );
-
-		window.FileReader = oldFileReader;
-	} );
-
 	QUnit.test( 'isPreviewableFile', 6, function ( assert ) {
 		var testFile = {};
 
@@ -76,40 +64,4 @@
 		assert.strictEqual( fakeVideo.canPlayType.callCount, 1 );
 	} );
 
-	QUnit.test( 'isFormDataAvailable', 6, function ( assert ) {
-		var oldfd = window.FormData,
-			oldf = window.File;
-
-		window.FormData = undefined;
-		window.File = undefined;
-
-		assert.strictEqual( mw.fileApi.isFormDataAvailable(), false );
-
-		window.File = { prototype: {} };
-		assert.strictEqual( mw.fileApi.isFormDataAvailable(), false );
-
-		window.FormData = {};
-		assert.strictEqual( mw.fileApi.isFormDataAvailable(), false );
-
-		window.File = {
-			prototype: {
-				slice: function () {}
-			}
-		};
-		assert.strictEqual( mw.fileApi.isFormDataAvailable(), true );
-
-		window.File = undefined;
-		assert.strictEqual( mw.fileApi.isFormDataAvailable(), false );
-
-		window.FormData = undefined;
-		window.File = {
-			prototype: {
-				slice: function () {}
-			}
-		};
-		assert.strictEqual( mw.fileApi.isFormDataAvailable(), false );
-
-		window.FormData = oldfd;
-		window.File = oldf;
-	} );
 }( mediaWiki ) );

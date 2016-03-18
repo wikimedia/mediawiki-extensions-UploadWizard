@@ -104,19 +104,6 @@ $wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
 	),
 ) + $uploadWizardModuleInfo;
 
-$wgResourceModules['ext.uploadWizard.iFrameTransport'] = array(
-	'scripts' => 'transports/mw.IframeTransport.js',
-	'dependencies' => array(
-		'oojs',
-	),
-) + $uploadWizardModuleInfo;
-
-$wgResourceModules['ext.uploadWizard.apiUploadHandler'] = array(
-	'scripts' => 'handlers/mw.ApiUploadHandler.js',
-	'dependencies' => 'ext.uploadWizard.iFrameTransport',
-	'messages' => 'mwe-upwiz-transport-started',
-) + $uploadWizardModuleInfo;
-
 $wgResourceModules['ext.uploadWizard.apiUploadPostHandler'] = array(
 	'scripts' => 'handlers/mw.ApiUploadPostHandler.js',
 	'messages' => 'mwe-upwiz-transport-started',
