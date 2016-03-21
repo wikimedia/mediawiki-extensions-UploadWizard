@@ -4,10 +4,10 @@
 			"Comp1089",
 			"Haqmar",
 			"Roustammr",
-			"ҒатаУлла"
+			"ҒатаУлла",
+			"Айсар"
 		]
 	},
-	"mwe-upwiz-code-unknown": "Билдәһеҙ тел",
 	"mwe-upwiz-step-tutorial": "Танытыу",
 	"mwe-upwiz-step-file": "Тейәү",
 	"mwe-upwiz-step-deeds": "Сығарыу хоҡуҡтары",
@@ -25,6 +25,7 @@
 	"mwe-upwiz-upload": "Тейәргә",
 	"mwe-upwiz-source-thirdparty-accept": "Тамам",
 	"mwe-upwiz-copy-metadata-button": "Күсермәһен алырға",
+	"mwe-upwiz-copied-metadata-button": "Күсермә эшләнде",
 	"mwe-upwiz-title": "Исем",
 	"mwe-upwiz-location-lat": "Киңлек",
 	"mwe-upwiz-location-lon": "Оҙонлоҡ",
@@ -63,8 +64,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Иҫке формаға ҡайтырға",
 	"mwe-upwiz-feedback-prompt": "Баһалама ҡалдырырға",
 	"mwe-upwiz-feedback-title": "Тейәү Оҫтаһы тураһында баһалама яҙығыҙ",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Баһаламаны ебәрергә]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Ентеклерәк]",
 	"mwe-upwiz-errordialog-ok": "Тамам",
 	"prefs-uploads": "Тейәүҙәр",
 	"mwe-upwiz-prefs-def-license": "Ғәҙәттәге рөхсәтнәмә",
