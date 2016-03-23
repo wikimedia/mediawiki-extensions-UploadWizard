@@ -518,7 +518,7 @@
 		var binReader,
 			deferred = $.Deferred(),
 			upload = this;
-		if ( this.file.type === 'image/jpeg' ) {
+		if ( this.file && this.file.type === 'image/jpeg' ) {
 			binReader = new FileReader();
 			binReader.onload = function () {
 				var binStr, arr, i, meta;
