@@ -19,18 +19,14 @@
 	QUnit.module( 'mw.uw.controller.Thanks', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step;
-
-		mw.UploadWizard.config = { display: { thanksLabel: 'Thanks!' } };
-
-		step = new uw.controller.Thanks();
+		var step = new uw.controller.Thanks( { display: { thanksLabel: 'Thanks!' } } );
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
 	QUnit.test( 'moveTo', 1, function ( assert ) {
-		var step = new uw.controller.Thanks(),
+		var step = new uw.controller.Thanks( {} ),
 			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
 		this.sandbox.stub( step.ui, 'moveTo' );
@@ -81,7 +77,7 @@
 	} );
 
 	QUnit.test( 'Method drops the given parameter', 1, function ( assert ) {
-		var uiThanks = new uw.ui.Thanks(),
+		var uiThanks = new uw.ui.Thanks( {} ),
 			locationHref = 'https://commons.wikimedia.org/wiki/Special:UploadWizard?campaign=somecampaign&objref=testRef|MyPage|342&updateList=1&somevar=someval';
 
 		assert.equal(
@@ -89,6 +85,6 @@
 			'https://commons.wikimedia.org/wiki/Special:UploadWizard?campaign=somecampaign&objref=testRef%7CMyPage%7C342&somevar=someval',
 			'The href of the begin button does not contain the updateList parameter.'
 		);
-
 	} );
+
 }( mediaWiki, mediaWiki.uploadWizard ) );

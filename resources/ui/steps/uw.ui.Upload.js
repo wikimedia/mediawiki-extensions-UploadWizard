@@ -214,7 +214,7 @@
 			this.$addFileContainer.add( this.$buttons ).show();
 			this.$uploadCenterDivide.hide();
 
-			if ( mw.UploadWizard.config.enableMultipleFiles !== true ) {
+			if ( this.config.enableMultipleFiles !== true ) {
 				$needToHide = $( '.mwe-upwiz-file-input' )
 					.add( this.$addFileContainer );
 
@@ -360,7 +360,7 @@
 	 * @return {boolean}
 	 */
 	uw.ui.Upload.prototype.isFlickrImportEnabled = function () {
-		return mw.UploadWizard.config.UploadFromUrl && mw.UploadWizard.config.flickrApiKey !== '';
+		return this.config.UploadFromUrl && this.config.flickrApiKey !== '';
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
