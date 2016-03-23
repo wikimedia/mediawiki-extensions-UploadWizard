@@ -846,7 +846,9 @@
 
 					// executing this should cause a .load() or .error() event on the image
 					function setSrc() {
-						image.src = thumb.thumburl;
+						// IE 11 and Opera 12 will not, ever, re-request an image that they have already loaded
+						// once, regardless of caching headers. Append bogus stuff to the URL to make it work.
+						image.src = thumb.thumburl + '?' + Math.random();
 					}
 
 					// and, go!
