@@ -548,16 +548,6 @@
 	};
 
 	/**
-	 * Check if a value is null, undefined, or the empty string.
-	 *
-	 * @param {mixed} v Variable to be checked
-	 * @return {boolean}
-	 */
-	mw.isEmpty = function ( v ) {
-		return v === undefined || v === null || v === '';
-	};
-
-	/**
 	 * jQuery plugin - collapse toggle
 	 * Given an element, makes contained elements of class mw-collapsible-toggle clickable to show/reveal
 	 * contained element(s) of class mw-collapsible-content.

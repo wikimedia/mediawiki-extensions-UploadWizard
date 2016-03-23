@@ -556,11 +556,11 @@
 				$.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function ( i, propName ) {
 					var matches, timeMatches,
 						dateInfo = metadata[ propName ];
-					if ( !mw.isEmpty( dateInfo ) ) {
+					if ( dateInfo ) {
 						matches = dateInfo.trim().match( yyyyMmDdRegex );
-						if ( !mw.isEmpty( matches ) ) {
+						if ( matches ) {
 							timeMatches = dateInfo.trim().match( timeRegex );
-							if ( !mw.isEmpty( timeMatches ) ) {
+							if ( timeMatches ) {
 								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
 											parseInt( matches[ 2 ], 10 ) - 1,
 											parseInt( matches[ 3 ], 10 ),
@@ -582,7 +582,7 @@
 			if ( dateObj === undefined && this.upload.file !== undefined && this.upload.file.date !== undefined ) {
 				dateTimeRegex = /^\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d/;
 				matches = this.upload.file.date.match( dateTimeRegex );
-				if ( !mw.isEmpty( matches ) ) {
+				if ( matches ) {
 					this.dateDetails.setSerialized( {
 						mode: dateMode,
 						value: this.upload.file.date

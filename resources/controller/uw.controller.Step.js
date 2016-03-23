@@ -129,7 +129,7 @@
 		var count = 0;
 
 		$.each( this.uploads, function ( i, upload ) {
-			if ( mw.isEmpty( upload ) ) {
+			if ( !upload ) {
 				count += 1;
 			}
 		} );
