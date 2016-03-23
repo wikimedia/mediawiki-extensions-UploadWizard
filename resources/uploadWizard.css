@@ -159,8 +159,6 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-file-preview-broken {
-	height: 60px !important;
-	width: 60px !important;
 	/* @embed */
 	background: url('images/32px-Blank-document-broken.svg.png') no-repeat center center !important;
 }
