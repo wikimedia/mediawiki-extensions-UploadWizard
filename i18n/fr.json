@@ -43,7 +43,8 @@
 			"Mattho69",
 			"Orlodrim",
 			"Matma Rex",
-			"Wladek92"
+			"Wladek92",
+			"Manaviko"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -98,7 +99,7 @@
 	"mwe-upwiz-published": "Publié !",
 	"mwe-upwiz-failed": "Échec",
 	"mwe-upwiz-remove": "Enlever",
-	"mwe-upwiz-override": "Téléverser malgré tout.",
+	"mwe-upwiz-override": "Importez le malgré tout.",
 	"mwe-upwiz-override-upload": "Télécharger quand même ce fichier.",
 	"mwe-upwiz-remove-upload": "Enlever ce fichier de la liste des fichiers à importer",
 	"mwe-upwiz-remove-description": "Enlever cette description",

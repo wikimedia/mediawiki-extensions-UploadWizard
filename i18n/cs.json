@@ -12,7 +12,8 @@
 			"Utar",
 			"Cvanca",
 			"Matma Rex",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Urbanecm"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -67,7 +68,7 @@
 	"mwe-upwiz-published": "Zveřejněno!",
 	"mwe-upwiz-failed": "Chyba.",
 	"mwe-upwiz-remove": "Odebrat",
-	"mwe-upwiz-override": "Přesto načíst.",
+	"mwe-upwiz-override": "Přesto načíst",
 	"mwe-upwiz-override-upload": "Soubor přesto načíst.",
 	"mwe-upwiz-remove-upload": "Odebrat tento soubor ze seznamu načítaných souborů",
 	"mwe-upwiz-remove-description": "Odstranit tento popis",
