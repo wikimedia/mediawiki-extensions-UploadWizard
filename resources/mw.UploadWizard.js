@@ -97,9 +97,7 @@
 
 			// #mwe-upwiz-add-file is a ButtonWidget constructed somewhere else, so this is hacky.
 			// But it's less bad than how this was done before.
-			$( '#mwe-upwiz-add-file .oo-ui-buttonElement-button' ).append( $fileInputCtrl )
-				// Suppress the title on the <input>, which makes no sense here
-				.add( $fileInputCtrl ).attr( 'title', '\u00a0' );
+			$( '#mwe-upwiz-add-file .oo-ui-buttonElement-button' ).append( $fileInputCtrl );
 
 			$fileInputCtrl.on( 'change', function () {
 				var
@@ -132,8 +130,6 @@
 					uploadObj = wizard.addUpload( $fileInputCtrl.off( 'change' ).detach(), false );
 					uploadObjs.push( uploadObj );
 					uploadInterfaceDivs.push( uploadObj.ui.div );
-					// The new upload owns this $fileInputCtrl now. Create a new one.
-					wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
 				}
 
 				// Attach all interfaces to the DOM
@@ -157,6 +153,9 @@
 						return deferred.promise();
 					} );
 				} );
+
+				// We can't clear the value of a file input, so replace the whole thing with a new one.
+				wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
 
 				uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 			} );
