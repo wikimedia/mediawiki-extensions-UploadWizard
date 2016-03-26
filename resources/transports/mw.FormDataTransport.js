@@ -14,8 +14,6 @@
 	 * @param {Object} [config.useRetryTimeout]
 	 */
 	mw.FormDataTransport = function ( postUrl, formData, config ) {
-		var profile = $.client.profile();
-
 		this.config = config || mw.UploadWizard.config;
 
 		OO.EventEmitter.call( this );
@@ -31,16 +29,6 @@
 		this.maxRetries = 2;
 		this.retries = 0;
 		this.firstPoll = false;
-
-		// Workaround for Firefox < 7.0 sending an empty string
-		// as filename for Blobs in FormData requests, something PHP does not like
-		// https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-		// From version 7.0 to 22.0, Firefox sends "blob" as the file name
-		// which seems to be accepted by the server
-		// https://bugzilla.mozilla.org/show_bug.cgi?id=690659
-		// https://developer.mozilla.org/en-US/docs/Web/API/FormData#Browser_compatibility
-
-		this.insufficientFormDataSupport = profile.name === 'firefox' && profile.versionNumber < 7;
 	};
 
 	OO.mixinClass( mw.FormDataTransport, OO.EventEmitter );
@@ -88,13 +76,7 @@
 	 * @return {FormData}
 	 */
 	mw.FormDataTransport.prototype.createFormData = function ( filename, offset ) {
-		var formData;
-
-		if ( this.insufficientFormDataSupport ) {
-			formData = this.geckoFormData();
-		} else {
-			formData = new FormData();
-		}
+		var formData = new FormData();
 
 		$.each( this.formData, function ( key, value ) {
 			formData.append( key, value );
@@ -122,12 +104,7 @@
 	 */
 	mw.FormDataTransport.prototype.sendData = function ( xhr, formData ) {
 		xhr.open( 'POST', this.postUrl, true );
-
-		if ( this.insufficientFormDataSupport ) {
-			formData.send( xhr );
-		} else {
-			xhr.send( formData );
-		}
+		xhr.send( formData );
 	};
 
 	/**
@@ -228,11 +205,7 @@
 			formData.append( 'filekey', this.filekey );
 		}
 		formData.append( 'filesize', bytesAvailable );
-		if ( this.insufficientFormDataSupport ) {
-			formData.appendBlob( 'chunk', chunk, 'chunk.bin' );
-		} else {
-			formData.append( 'chunk', chunk );
-		}
+		formData.append( 'chunk', chunk );
 
 		this.sendData( this.xhr, formData );
 
@@ -406,78 +379,4 @@
 		return response;
 	};
 
-	mw.FormDataTransport.prototype.geckoFormData = function () {
-		var formData, onload,
-			boundary = '------XX' + Math.random(),
-			dashdash = '--',
-			crlf = '\r\n',
-			builder = '', // Build RFC2388 string.
-			chunksRemaining = 0;
-
-		builder += dashdash + boundary + crlf;
-
-		formData = {
-			append: function ( name, data ) {
-				// Generate headers.
-				builder += 'Content-Disposition: form-data; name="' + name + '"';
-				builder += crlf;
-				builder += crlf;
-
-				// Write data.
-				builder += data;
-				builder += crlf;
-
-				// Write boundary.
-				builder += dashdash + boundary + crlf;
-			},
-			appendFile: function ( name, data, type, filename ) {
-				builder += 'Content-Disposition: form-data; name="' + name + '"';
-				builder += '; filename="' + filename + '"';
-				builder += crlf;
-				builder += 'Content-Type: ' + type;
-				builder += crlf;
-				builder += crlf;
-
-				// Write binary data.
-				builder += data;
-				builder += crlf;
-
-				// Write boundary.
-				builder += dashdash + boundary + crlf;
-			},
-			appendBlob: function ( name, blob, filename ) {
-				var reader;
-				chunksRemaining++;
-				reader = new FileReader();
-				reader.onload = function ( e ) {
-					formData.appendFile( name, e.target.result,
-										blob.type, filename );
-					// Call onload after last Blob
-					chunksRemaining--;
-					if ( !chunksRemaining && formData.xhr ) {
-						onload();
-					}
-				};
-				reader.readAsBinaryString( blob );
-			},
-			send: function ( xhr ) {
-				formData.xhr = xhr;
-				if ( !chunksRemaining ) {
-					onload();
-				}
-			}
-		};
-		onload = function () {
-			// Mark end of the request.
-			builder += dashdash + boundary + dashdash + crlf;
-
-			// Send to server
-			formData.xhr.setRequestHeader(
-				'Content-type',
-				'multipart/form-data; boundary=' + boundary
-			);
-			formData.xhr.sendAsBinary( builder );
-		};
-		return formData;
-	};
 }( mediaWiki, jQuery, OO ) );

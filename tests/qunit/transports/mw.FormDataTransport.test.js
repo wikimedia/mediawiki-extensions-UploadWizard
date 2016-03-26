@@ -74,27 +74,13 @@
 		// FormData object, so until we can figure THAT out, this is incomplete.
 	} );
 
-	QUnit.test( 'sendData', 6, function ( assert ) {
+	QUnit.test( 'sendData', 2, function ( assert ) {
 		var transport = createTransport( false, 10 ),
-			fakexhr = { open: this.sandbox.stub(), send: this.sandbox.stub() },
-			fakefd = { send: this.sandbox.stub() };
+			fakexhr = { open: this.sandbox.stub(), send: this.sandbox.stub() };
 
-		transport.insufficientFormDataSupport = true;
-
-		transport.sendData( fakexhr, fakefd );
-		assert.ok( fakexhr.open.called );
-		assert.ok( !fakexhr.send.called );
-		assert.ok( fakefd.send.called );
-
-		transport.insufficientFormDataSupport = false;
-		fakexhr.send.reset();
-		fakexhr.open.reset();
-		fakefd.send.reset();
-
-		transport.sendData( fakexhr, fakefd );
+		transport.sendData( fakexhr, {} );
 		assert.ok( fakexhr.open.called );
 		assert.ok( fakexhr.send.called );
-		assert.ok( !fakefd.send.called );
 	} );
 
 	QUnit.test( 'upload', 4, function ( assert ) {
@@ -218,13 +204,4 @@
 		} );
 	} );
 
-	QUnit.test( 'geckoFormData', 4, function ( assert ) {
-		var transport = createTransport( false, 10 ),
-			fd = transport.geckoFormData();
-
-		assert.ok( $.isFunction( fd.append ) );
-		assert.ok( $.isFunction( fd.appendFile ) );
-		assert.ok( $.isFunction( fd.appendBlob ) );
-		assert.ok( $.isFunction( fd.send ) );
-	} );
 }( mediaWiki, jQuery ) );
