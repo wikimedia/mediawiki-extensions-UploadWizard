@@ -23,7 +23,8 @@
 			"Woytecr",
 			"WTM",
 			"Matma Rex",
-			"Expert3222"
+			"Expert3222",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
@@ -76,7 +77,7 @@
 	"mwe-upwiz-published": "Opublikowano!",
 	"mwe-upwiz-failed": "Nie udało się.",
 	"mwe-upwiz-remove": "Usuń",
-	"mwe-upwiz-override": "Prześlij mimo wszystko.",
+	"mwe-upwiz-override": "Prześlij mimo wszystko",
 	"mwe-upwiz-override-upload": "Prześlij ten plik mimo to.",
 	"mwe-upwiz-remove-upload": "Usuń ten plik z listy plików do przesłania",
 	"mwe-upwiz-remove-description": "Usuń ten opis",

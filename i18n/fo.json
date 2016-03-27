@@ -4,7 +4,8 @@
 			"Diupwijk",
 			"EileenSanda",
 			"Snævar",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Leiðbeining til at leggja út fílur",
@@ -42,10 +43,8 @@
 	"mwe-upwiz-published": "Útgivið!",
 	"mwe-upwiz-failed": "Miseydnaðist.",
 	"mwe-upwiz-remove": "Tak burtur",
-	"mwe-upwiz-override": "Legg út álíkavæl.",
+	"mwe-upwiz-override": "Legg út álíkavæl",
 	"mwe-upwiz-remove-upload": "Tak burtur hesa fíluna frá listanum yvir fílur sum skulu leggjast út",
-	"mwe-upwiz-show-thumb": "Vís lítla mynd",
-	"mwe-upwiz-show-thumb-tip": "Innlesur eina lítla mynd til hesa fíluna",
 	"mwe-upwiz-remove-description": "Tak burtur hesa frágreiðingina",
 	"mwe-upwiz-upload": "Legg út",
 	"mwe-upwiz-file-upload-notcapable": "Tíverri ber tað ikki til hjá tínum internetkaga at leggja fílur út.\nVinarliga royn eitt annað slag av internetkaga (brovsara).",
@@ -91,7 +90,6 @@
 	"mwe-upwiz-ok": "Í lagi",
 	"mwe-upwiz-fileexists-replace-on-page": "Ein fíla við hesum navninum er longu til. Um tú ynskir at seta hesa í staðin, far so til síðuna fyri [$2 $1] og skift fíluna út har.",
 	"mwe-upwiz-fileexists-replace-no-link": "Vinarliga vel eitt annað heiti, tí hetta heiti er longu í brúk av einari aðrari fílu.",
-	"mwe-upwiz-blacklisted": "Vinarliga vel ein annarleiðis tittul, sum lýsir fíluna betri.",
 	"mwe-upwiz-next": "Næsta",
 	"mwe-upwiz-next-file": "Halt fram",
 	"mwe-upwiz-next-deeds": "Næsta",
@@ -128,7 +126,5 @@
 	"mwe-upwiz-license-none-head": "Eg fann tað á netinum -- Eg veit ikki rættiliga",
 	"mwe-upwiz-categories": "Bólkar",
 	"mwe-upwiz-feedback-prompt": "Gev afturmelding",
-	"mwe-upwiz-feedback-title": "Gev afturmelding um Leiðbeiningina um tað at leggja fílur út",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Send afturmelding]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Meira kunning]"
+	"mwe-upwiz-feedback-title": "Gev afturmelding um Leiðbeiningina um tað at leggja fílur út"
 }

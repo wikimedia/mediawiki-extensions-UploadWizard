@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Assistent fir eropzelueden",
@@ -53,7 +54,7 @@
 	"mwe-upwiz-published": "Verëffentlecht!",
 	"mwe-upwiz-failed": "Huet net funktionéiert",
 	"mwe-upwiz-remove": "Ewechhuelen",
-	"mwe-upwiz-override": "Trotzdeem eroplueden.",
+	"mwe-upwiz-override": "Trotzdeem eroplueden",
 	"mwe-upwiz-override-upload": "Dëse Fichier trotzdem eroplueden.",
 	"mwe-upwiz-remove-upload": "Dëse Fichier vun der Lëscht vun de Fichieren, déi eropgeluede solle ginn, erofhuelen",
 	"mwe-upwiz-remove-description": "Dës Beschreiwung ewechhuelen",

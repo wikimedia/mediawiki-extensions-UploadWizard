@@ -5,7 +5,8 @@
 			"Minh Nguyen",
 			"Trần Nguyễn Minh Huy",
 			"Matma Rex",
-			"Nguyên Lê"
+			"Nguyên Lê",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Trình thuật sĩ tải lên",
@@ -60,7 +61,7 @@
 	"mwe-upwiz-published": "Xuất bản xong!",
 	"mwe-upwiz-failed": "Đã thất bại.",
 	"mwe-upwiz-remove": "Dời",
-	"mwe-upwiz-override": "Cố tải lên.",
+	"mwe-upwiz-override": "Cố tải lên",
 	"mwe-upwiz-remove-upload": "Dời tập tin này khỏi danh sách các tập tin để tải lên",
 	"mwe-upwiz-remove-description": "Dời miêu tả này",
 	"mwe-upwiz-upload": "Tải lên",

@@ -6,7 +6,8 @@
 			"Gwendal",
 			"Gwenn-Ael",
 			"Y-M D",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Ameiler enporzhiañ",
@@ -50,10 +51,8 @@
 	"mwe-upwiz-published": "Embannet !",
 	"mwe-upwiz-failed": "C'hwitet",
 	"mwe-upwiz-remove": "Dilemel",
-	"mwe-upwiz-override": "Pellgargañ daoust da bep tra.",
+	"mwe-upwiz-override": "Pellgargañ daoust da bep tra",
 	"mwe-upwiz-remove-upload": "Dilemel ar restr-mañ eus roll ar restroù da gargañ",
-	"mwe-upwiz-show-thumb": "Diskouez ar munud",
-	"mwe-upwiz-show-thumb-tip": "Kargañ ur skeudenn vunut evit ar restr-mañ",
 	"mwe-upwiz-remove-description": "Dilemel an deskrivadur-mañ",
 	"mwe-upwiz-upload": "Enporzhiañ",
 	"mwe-upwiz-file-all-ok": "Aet eo da benn an enporzhiadennoù !",

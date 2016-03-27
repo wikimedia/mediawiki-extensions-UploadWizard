@@ -10,7 +10,8 @@
 			"Александр Сигачёв",
 			"Глеб Бераставы",
 			"Red Winged Duck",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -61,10 +62,8 @@
 	"mwe-upwiz-published": "Апублікаваны!",
 	"mwe-upwiz-failed": "Памылка",
 	"mwe-upwiz-remove": "Выдаліць",
-	"mwe-upwiz-override": "Усё роўна загрузіць.",
+	"mwe-upwiz-override": "Усё роўна загрузіць",
 	"mwe-upwiz-remove-upload": "Выдаліць гэты файл са сьпісу файлаў на загрузку",
-	"mwe-upwiz-show-thumb": "Паказаць мініятуру",
-	"mwe-upwiz-show-thumb-tip": "Загрузіць мініятуру выявы для гэтага файла",
 	"mwe-upwiz-remove-description": "Выдаліць гэтае апісаньне",
 	"mwe-upwiz-upload": "Загрузіць",
 	"mwe-upwiz-file-upload-notcapable": "На жаль, ваш браўзэр ня здольны да загрузкі файлаў.\nПаспрабуйце іншы браўзэр.",

@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Bonevarluri",
-			"Mogoeilor"
+			"Mogoeilor",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "جادو سوارکرد",
-	"mwe-upwiz-code-unknown": "زون ناشناس",
 	"mwe-upwiz-step-tutorial": "یا بگریت",
 	"mwe-upwiz-step-file": "سوارکرد",
 	"mwe-upwiz-step-details": "توضی دئن",
@@ -35,10 +35,8 @@
 	"mwe-upwiz-published": "پلا بیه!",
 	"mwe-upwiz-failed": "شکست حرده.",
 	"mwe-upwiz-remove": "ؤرداشتن",
-	"mwe-upwiz-override": "د هر شلکی سوار کرد نه انجوم به.",
+	"mwe-upwiz-override": "د هر شلکی سوار کرد نه انجوم به",
 	"mwe-upwiz-remove-upload": "ای جانیا نه د نوم گه جانیایا سی سوار کرد جا وه جا کو",
-	"mwe-upwiz-show-thumb": "نشو دئن بن کلکی",
-	"mwe-upwiz-show-thumb-tip": "یه گل عسگ ثامبنیل سی ای جانیا سوار بکید",
 	"mwe-upwiz-upload": "سوار کرد",
 	"mwe-upwiz-file-all-ok": "همه سوارکردیا خو بینه!",
 	"mwe-upwiz-file-some-failed": "یه قرئ د سوارکردیا انجوم نبی.",
@@ -111,8 +109,6 @@
 	"mwe-upwiz-unparseable-filename": "نوم جانیا \"$1\" فئمسنی نئ.",
 	"mwe-upwiz-subhead-alt-upload": "ؤرئشتن د شکل و بارت دماتر",
 	"mwe-upwiz-feedback-prompt": "نیائن بازحرد",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 یه گل بازحرد کل کرد]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 دونسمنیا هنی]",
 	"mwe-upwiz-errordialog-ok": "خوئه",
 	"prefs-uploads": "سوارکردیا",
 	"prefs-upwiz-licensing": "د حال وبال ليسانس دار بيئن",

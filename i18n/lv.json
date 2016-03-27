@@ -4,7 +4,8 @@
 			"Edgars2007",
 			"GreenZeb",
 			"Kikos",
-			"Papuass"
+			"Papuass",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Augšupielādes vednis",
@@ -42,7 +43,7 @@
 	"mwe-upwiz-published": "Publicēts!",
 	"mwe-upwiz-failed": "Neizdevās.",
 	"mwe-upwiz-remove": "Noņemt",
-	"mwe-upwiz-override": "Augšupielādēt tāpat.",
+	"mwe-upwiz-override": "Augšupielādēt tāpat",
 	"mwe-upwiz-remove-upload": "Noņemt šo failu no augšupielādes failu saraksta",
 	"mwe-upwiz-remove-description": "Noņemt šo aprakstu",
 	"mwe-upwiz-upload": "Augšupielādēt",

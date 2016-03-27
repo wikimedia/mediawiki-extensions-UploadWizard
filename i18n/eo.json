@@ -11,7 +11,8 @@
 			"ThomasPusch",
 			"Yekrats",
 			"Matma Rex",
-			"Tlustulimu"
+			"Tlustulimu",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -61,10 +62,8 @@
 	"mwe-upwiz-published": "Publikigita",
 	"mwe-upwiz-failed": "Malsukcesis.",
 	"mwe-upwiz-remove": "Forigi",
-	"mwe-upwiz-override": "Alŝuti malgraŭ.",
+	"mwe-upwiz-override": "Alŝuti malgraŭ",
 	"mwe-upwiz-remove-upload": "Forigi ĉi tiun dosieron el la listo de alŝutendaj dosieroj",
-	"mwe-upwiz-show-thumb": "Montri bildeton",
-	"mwe-upwiz-show-thumb-tip": "Ŝargi bildeton por ĉi tiu dosiero",
 	"mwe-upwiz-remove-description": "Forigi ĉi tiun priskribon",
 	"mwe-upwiz-upload": "Alŝuti",
 	"mwe-upwiz-file-all-ok": "Ĉiuj alŝutoj estis sukcesaj!",
@@ -156,7 +155,6 @@
 	"mwe-upwiz-ok": "Ek!",
 	"mwe-upwiz-fileexists-replace-on-page": "Dosiero kun tiu nomo jam ekzistas. Se vi volas anstataŭi ĝin, iru al la paĝo por [$2 $1] kaj anstataŭu ĝin tie.",
 	"mwe-upwiz-fileexists-replace-no-link": "Bonvolu elekti malsaman titolon, ĉar ĉi tiu titolo jam estas uzata per alia dosiero.",
-	"mwe-upwiz-blacklisted": "Bonvolu elekti alian, priskriban titolon.",
 	"mwe-upwiz-next": "Sekven",
 	"mwe-upwiz-next-file": "Pli...",
 	"mwe-upwiz-next-deeds": "Sekven",
@@ -276,8 +274,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Al la malnova formularo",
 	"mwe-upwiz-feedback-prompt": "Bonvolu sendi vian opinion pri la Asistilo de Alŝutado",
 	"mwe-upwiz-feedback-title": "Sendi mesaĝon pri Asistilo de Alŝutado",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Sendu komenton]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Pli da informo]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Jen la kongrua linio en la titola nigralisto:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Mia titolo por la alŝuto, \"$1\", estis malpermesita.",
 	"mwe-upwiz-errordialog-title": "Estis eraro en via alŝuto",

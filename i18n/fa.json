@@ -21,7 +21,8 @@
 			"پسر یاس",
 			"Alirezaaa",
 			"Bersam",
-			"Mehran"
+			"Mehran",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "جادوگر بارگذاری",
@@ -74,7 +75,7 @@
 	"mwe-upwiz-published": "منتشر شد!",
 	"mwe-upwiz-failed": "ناموفق بود.",
 	"mwe-upwiz-remove": "حذف",
-	"mwe-upwiz-override": "با این وجود بارگذاری شود.",
+	"mwe-upwiz-override": "با این وجود بارگذاری شود",
 	"mwe-upwiz-override-upload": "بارگذاری پرونده به هرصورت ممکن.",
 	"mwe-upwiz-remove-upload": "حذف این پرونده از فهرست پرونده‌هایی که قرار است بارگذاری شوند",
 	"mwe-upwiz-remove-description": "حذف این توضیحات",

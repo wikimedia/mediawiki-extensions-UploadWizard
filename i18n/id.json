@@ -10,7 +10,8 @@
 			"Kenrick95",
 			"Bonaditya",
 			"Matma Rex",
-			"Arief"
+			"Arief",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Wisaya Pengunggahan",
@@ -63,10 +64,8 @@
 	"mwe-upwiz-published": "Telah diterbitkan!",
 	"mwe-upwiz-failed": "Gagal.",
 	"mwe-upwiz-remove": "Hapus",
-	"mwe-upwiz-override": "Unggah saja.",
+	"mwe-upwiz-override": "Unggah saja",
 	"mwe-upwiz-remove-upload": "Hapus berkas ini dari daftar berkas yang ingin diunggah",
-	"mwe-upwiz-show-thumb": "Tampilkan miniatur",
-	"mwe-upwiz-show-thumb-tip": "Muat gambar mini untuk berkas ini",
 	"mwe-upwiz-remove-description": "Hapus deskripsi ini",
 	"mwe-upwiz-upload": "Unggah",
 	"mwe-upwiz-file-upload-notcapable": "Sayangnya peramban Anda tidak dapat mengunggah berkas ini. Silakan pakai peramban lainnya.",

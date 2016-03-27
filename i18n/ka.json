@@ -7,7 +7,8 @@
 			"ITshnik",
 			"Tokoko",
 			"გიორგიმელა",
-			"MIKHEIL"
+			"MIKHEIL",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "ფაილთა ატვირთვის ასისტენტი",
@@ -57,7 +58,7 @@
 	"mwe-upwiz-published": "გამოქვეყნდა!",
 	"mwe-upwiz-failed": "წარუმატებელია.",
 	"mwe-upwiz-remove": "წაშლა",
-	"mwe-upwiz-override": "ნეისმიერ შემთხვევაში ატვირთვა.",
+	"mwe-upwiz-override": "ნეისმიერ შემთხვევაში ატვირთვა",
 	"mwe-upwiz-override-upload": "ფაილის ატვირთვა.",
 	"mwe-upwiz-remove-upload": "მოაშორეთ ეს ფაილი ფაილთა სიას ატვირთვისთვის.",
 	"mwe-upwiz-remove-description": "მოაშორეთ ეს აღწერა.",

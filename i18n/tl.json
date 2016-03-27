@@ -5,7 +5,8 @@
 			"Jojit fb",
 			"Sky Harbor",
 			"Matma Rex",
-			"Leeheonjin"
+			"Leeheonjin",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Salamangkero ng Pagkarga",
@@ -44,10 +45,8 @@
 	"mwe-upwiz-published": "Nailathala na!",
 	"mwe-upwiz-failed": "Nabigo.",
 	"mwe-upwiz-remove": "Alisin",
-	"mwe-upwiz-override": "Ikargang paitaas pa rin.",
+	"mwe-upwiz-override": "Ikargang paitaas pa rin",
 	"mwe-upwiz-remove-upload": "Alisin ang talaksang ito mula sa talaan ng mga talaksang ikakarga",
-	"mwe-upwiz-show-thumb": "Ipakita ang kagyat",
-	"mwe-upwiz-show-thumb-tip": "Magkarga ng isang larawang kagyat para sa talaksang ito",
 	"mwe-upwiz-remove-description": "Alisin ang paglalarawang ito",
 	"mwe-upwiz-upload": "Ikargang paitaas",
 	"mwe-upwiz-file-all-ok": "Matagumpay ang lahat ng mga pagkakarga!",

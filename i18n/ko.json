@@ -12,7 +12,8 @@
 			"Revi",
 			"Hwangjy9",
 			"SeoJeongHo",
-			"HDNua"
+			"HDNua",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -67,7 +68,7 @@
 	"mwe-upwiz-published": "배포되었습니다!",
 	"mwe-upwiz-failed": "실패했습니다.",
 	"mwe-upwiz-remove": "제거",
-	"mwe-upwiz-override": "아무튼 올렸습니다.",
+	"mwe-upwiz-override": "아무튼 올렸습니다",
 	"mwe-upwiz-override-upload": "무시하고 업로드",
 	"mwe-upwiz-remove-upload": "이 파일을 올릴 파일의 목록에서 빼기",
 	"mwe-upwiz-remove-description": "이 설명을 제거합니다",

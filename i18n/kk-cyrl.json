@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Arystanbek",
-			"Amankel'dy"
+			"Amankel'dy",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Жүктеу шебері",
@@ -46,11 +47,9 @@
 	"mwe-upwiz-published": "Жарияланды!",
 	"mwe-upwiz-failed": "Сәтсіз аяқталды.",
 	"mwe-upwiz-remove": "Аластау",
-	"mwe-upwiz-override": "Қалайда жүктеу.",
+	"mwe-upwiz-override": "Қалайда жүктеу",
 	"mwe-upwiz-override-upload": "Бұл файлды қалайда жүктеу.",
 	"mwe-upwiz-remove-upload": "Бұл файлды жүктелген файлдар тізімінен аластау",
-	"mwe-upwiz-show-thumb": "Нобайын көрсет",
-	"mwe-upwiz-show-thumb-tip": "Бұл файл үшін нобай суретін жүктеу",
 	"mwe-upwiz-remove-description": "Бұл сипаттаманы аластау",
 	"mwe-upwiz-upload": "Жүктеу",
 	"mwe-upwiz-file-upload-notcapable": "Өкінішке орай броузеріңіз файлдарды жүктеуге қабілетті емес. Басқа броузермен қайта байқап көріңіз.",

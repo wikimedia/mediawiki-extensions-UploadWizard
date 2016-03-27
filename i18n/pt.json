@@ -16,7 +16,8 @@
 			"Rillke",
 			"Fúlvio",
 			"Matma Rex",
-			"Imperadeiro90"
+			"Imperadeiro90",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Assistente de envio de ficheiros",
@@ -71,7 +72,7 @@
 	"mwe-upwiz-published": "Publicado!",
 	"mwe-upwiz-failed": "Falhou.",
 	"mwe-upwiz-remove": "Remover",
-	"mwe-upwiz-override": "Carregar na mesma.",
+	"mwe-upwiz-override": "Carregar na mesma",
 	"mwe-upwiz-override-upload": "Carregar este ficheiro de qualquer maneira.",
 	"mwe-upwiz-remove-upload": "Remover este ficheiro da lista de ficheiros para enviar",
 	"mwe-upwiz-remove-description": "Remover esta descrição",

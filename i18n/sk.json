@@ -5,7 +5,8 @@
 			"KuboF",
 			"Teslaton",
 			"Matma Rex",
-			"LacoR"
+			"LacoR",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Sprievodca nahrávaním",
@@ -37,7 +38,7 @@
 	"mwe-upwiz-published": "Uverejnené!",
 	"mwe-upwiz-failed": "Zlyhalo.",
 	"mwe-upwiz-remove": "Odstrániť",
-	"mwe-upwiz-override": "Aj tak nahrať.",
+	"mwe-upwiz-override": "Aj tak nahrať",
 	"mwe-upwiz-override-upload": "Aj tak nahrať súbor.",
 	"mwe-upwiz-remove-upload": "Odstrániť tento súbor zo zoznamu súborov, ktoré sa majú nahrať",
 	"mwe-upwiz-remove-description": "Odstrániť tento popis",

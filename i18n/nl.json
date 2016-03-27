@@ -13,7 +13,8 @@
 			"Robin0van0der0vliet",
 			"Sjoerddebruin",
 			"Matma Rex",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -66,7 +67,7 @@
 	"mwe-upwiz-published": "Gepubliceerd.",
 	"mwe-upwiz-failed": "Mislukt",
 	"mwe-upwiz-remove": "Verwijderen",
-	"mwe-upwiz-override": "Toch uploaden.",
+	"mwe-upwiz-override": "Toch uploaden",
 	"mwe-upwiz-override-upload": "Dit bestand toch uploaden.",
 	"mwe-upwiz-remove-upload": "Dit bestand uit de lijst met te uploaden bestanden verwijderen",
 	"mwe-upwiz-remove-description": "Deze beschrijving verwijderen",

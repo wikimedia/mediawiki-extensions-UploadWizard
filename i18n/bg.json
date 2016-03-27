@@ -6,7 +6,8 @@
 			"Stanqo",
 			"Vladimir Penov",
 			"Matma Rex",
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -44,10 +45,8 @@
 	"mwe-upwiz-published": "Публикувано!",
 	"mwe-upwiz-failed": "Неуспех.",
 	"mwe-upwiz-remove": "Премахване",
-	"mwe-upwiz-override": "Качи все пак.",
+	"mwe-upwiz-override": "Качи все пак",
 	"mwe-upwiz-remove-upload": "Премахване на този файл от списъка с файлове за качване",
-	"mwe-upwiz-show-thumb": "Покажи миникартинка",
-	"mwe-upwiz-show-thumb-tip": "Зареди миниатюрно изображение за този файл",
 	"mwe-upwiz-remove-description": "Премахване на описанието",
 	"mwe-upwiz-upload": "Качване",
 	"mwe-upwiz-file-upload-notcapable": "За съжаление вашия браузър не може да качва файлове.\nМоля опитайте алтернативен браузър.",

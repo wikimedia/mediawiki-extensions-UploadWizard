@@ -18,7 +18,8 @@
 			"2nd-player",
 			"Sujiniku",
 			"Otokoume",
-			"W.CC"
+			"W.CC",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -72,7 +73,7 @@
 	"mwe-upwiz-published": "公開が完了しました!",
 	"mwe-upwiz-failed": "失敗しました。",
 	"mwe-upwiz-remove": "除去",
-	"mwe-upwiz-override": "無視してアップロードする。",
+	"mwe-upwiz-override": "無視してアップロードする",
 	"mwe-upwiz-remove-upload": "アップロードするファイルの一覧からこのファイルを除去",
 	"mwe-upwiz-remove-description": "この説明を除去",
 	"mwe-upwiz-upload": "アップロード",

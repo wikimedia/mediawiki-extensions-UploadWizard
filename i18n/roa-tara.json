@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Joetaras",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Careche 'u wizard",
@@ -46,7 +47,7 @@
 	"mwe-upwiz-published": "Pubblecate!",
 	"mwe-upwiz-failed": "Fallite.",
 	"mwe-upwiz-remove": "Live",
-	"mwe-upwiz-override": "Careche 'u stesse.",
+	"mwe-upwiz-override": "Careche 'u stesse",
 	"mwe-upwiz-remove-upload": "Live stu file da l'elenghe de le file da carecà",
 	"mwe-upwiz-remove-description": "Live sta descrizione",
 	"mwe-upwiz-upload": "Careche",

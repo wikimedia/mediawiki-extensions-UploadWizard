@@ -9,7 +9,8 @@
 			"Nghtwlkr",
 			"Simny",
 			"Wilander",
-			"SuperPotato"
+			"SuperPotato",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Opplastingsveiviser",
@@ -62,7 +63,7 @@
 	"mwe-upwiz-published": "Publisert!",
 	"mwe-upwiz-failed": "Mislyktes.",
 	"mwe-upwiz-remove": "Fjern",
-	"mwe-upwiz-override": "Last opp uansett.",
+	"mwe-upwiz-override": "Last opp uansett",
 	"mwe-upwiz-override-upload": "Last opp filen uansett.",
 	"mwe-upwiz-remove-upload": "Fjern denne filen fra opplastingslisten",
 	"mwe-upwiz-remove-description": "Fjern denne beskrivelsen",
@@ -124,7 +125,7 @@
 	"mwe-upwiz-more-options": "Legg til sted og mer informasjon …",
 	"mwe-upwiz-copy-metadata": "Kopier informasjonen til alle følgende opplastinger ...",
 	"mwe-upwiz-copy-metadata-button": "Kopier",
-	"mwe-upwiz-copied-metadata-button": "Kopieringen var vellykket",
+	"mwe-upwiz-copied-metadata-button": "Kopiert",
 	"mwe-upwiz-copy-title": "Kopier tittel (med automatisk nummerering)",
 	"mwe-upwiz-copy-description": "Kopier beskrivelser",
 	"mwe-upwiz-copy-date": "Kopier dato",

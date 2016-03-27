@@ -5,7 +5,8 @@
 			"Als-Holder",
 			"Imbericle",
 			"Geitost",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Assischtänt zum Uffelade",
@@ -42,10 +43,8 @@
 	"mwe-upwiz-published": "Vereffentligt!",
 	"mwe-upwiz-failed": "Fählgschlaa.",
 	"mwe-upwiz-remove": "Useneh",
-	"mwe-upwiz-override": "Einewäg uffelade.",
+	"mwe-upwiz-override": "Einewäg uffelade",
 	"mwe-upwiz-remove-upload": "Nimm die Datei uuse us dr Lischt vu dr Dateie, wu uffeglede wäre solle",
-	"mwe-upwiz-show-thumb": "Miniaturaasicht aazeige",
-	"mwe-upwiz-show-thumb-tip": "E Miniaturaasicht für die Datei lade",
 	"mwe-upwiz-remove-description": "Nimm die Bschryybig uuse",
 	"mwe-upwiz-upload": "Uffelade",
 	"mwe-upwiz-file-upload-notcapable": "Mit Dyym Browser chasch leider kei Dateie uffelade.\nBitte nimm en alternative Browser.",
@@ -136,7 +135,6 @@
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Es git scho e Datei mit däm Name. Wänn du die Datei ersetze wottsch, no gang bitte uff d Syte für [$2 $1] un due si dört ersetze.",
 	"mwe-upwiz-fileexists-replace-no-link": "Es git scho e Datei mit däm Name.",
-	"mwe-upwiz-blacklisted": "Bitte due en andre, ussagechräftigere Titel usswääle.",
 	"mwe-upwiz-next": "Negschti",
 	"mwe-upwiz-next-file": "Wytermache",
 	"mwe-upwiz-next-deeds": "Negschti",
@@ -249,8 +247,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Zrugg zum alte Formular",
 	"mwe-upwiz-feedback-prompt": "Ruggmäldig gee",
 	"mwe-upwiz-feedback-title": "E Ruggmäldig über s Uffelade-Helferli gee",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Ruggmäldig gee]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Mee Infos]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Des isch de Blacklist-Yytrag mit em Treffer:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "De Titel „$1“ isch nit zuelässig.",
 	"mwe-upwiz-errordialog-title": "Bi dr Übertragig het's en Fääler gee",

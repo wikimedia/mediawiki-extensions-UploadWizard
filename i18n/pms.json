@@ -3,7 +3,8 @@
 		"authors": [
 			"Borichèt",
 			"Dragonòt",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Assistent d'amportassion",
@@ -56,10 +57,8 @@
 	"mwe-upwiz-published": "Publicà!",
 	"mwe-upwiz-failed": "Falì.",
 	"mwe-upwiz-remove": "Gava",
-	"mwe-upwiz-override": "Carié comsëssìa.",
+	"mwe-upwiz-override": "Carié comsëssìa",
 	"mwe-upwiz-remove-upload": "Gavé s'archivi da la lista dj'archivi da carié",
-	"mwe-upwiz-show-thumb": "Mostré la miniadura",
-	"mwe-upwiz-show-thumb-tip": "Carié na figura miniadura për cost'archivi",
 	"mwe-upwiz-remove-description": "Scancelé costa descrission",
 	"mwe-upwiz-upload": "Carié",
 	"mwe-upwiz-file-upload-notcapable": "Belavans sò navigador a peul pa carié d'archivi.\nPër piasì, ch'a preuva con n'àutr navigador.",
@@ -152,7 +151,6 @@
 	"mwe-upwiz-ok": "Va bin",
 	"mwe-upwiz-fileexists-replace-on-page": "N'archivi con ës nòm a esist già. S'a veule rimpiasselo, ch'a vada a la pàgina për [$2 $1] e ch'a lo rampiassa ambelelà.",
 	"mwe-upwiz-fileexists-replace-no-link": "Për piasì, ch'a serna n'àutr tìtol, përchè cost tìtol-sì a l'é già dovrà da n'àutr archivi.",
-	"mwe-upwiz-blacklisted": "Për piasì sern un tìtol diferent, descritiv.",
 	"mwe-upwiz-next": "Apress",
 	"mwe-upwiz-next-file": "Continua",
 	"mwe-upwiz-next-deeds": "Apress",
@@ -206,7 +204,6 @@
 	"mwe-upwiz-too-many-files": "Tròpi archivi.",
 	"mwe-upwiz-file-too-large-text": "It peule mach carié d'archivi con na dimension fin a $1. It l'has provà a carié n'archivi ch'a l'é $2.",
 	"mwe-upwiz-file-too-large": "Archivi tròp gròss.",
-	"mwe-upwiz-necessary-confirm": "A l'é arcomandà ëd buté na categorìa pr'ij sò cariagi. Veul-lo andé anans sensa compilé tuti ij camp?",
 	"mwe-upwiz-dialog-yes": "Sì",
 	"mwe-upwiz-dialog-no": "Nò",
 	"mwe-upwiz-dialog-title": "Avertensa",
@@ -277,8 +274,6 @@
 	"mwe-upwiz-subhead-alt-upload": "André al vej formolari",
 	"mwe-upwiz-feedback-prompt": "Ch'an daga 'd sugeriment",
 	"mwe-upwiz-feedback-title": "Ch'a scriva ij sò coment an sl'assistent ëd càrigh",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Mandé soa opinion]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Pi d'anformassion]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Costa-sì a l'é la vos ëd la lista nèira dij tìtoj ch'a l'ha sporzù na corëspondensa:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Mè tìtol ëd cariament, «$1», a l'era proibì.",
 	"mwe-upwiz-errordialog-title": "A-i era n'eror an toa spedission",

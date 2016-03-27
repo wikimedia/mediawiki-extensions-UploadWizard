@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"GatoSelvadego"
+			"GatoSelvadego",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Cargamento guidà",
@@ -16,7 +17,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Modifegatori de łe inisiative pa'l cargamento guidà",
 	"mwe-upwiz-js-off": "El cargamento guidà el dopara JavaScript par ofrir n'interfacia mejorà. El to browser nó suporta JavaScript o el ga JavaScript dixativà, donca te vien mostrà un senplise moduło de cargamento.",
 	"mwe-upwiz-extension-disabled": "Sta pàjina ła xe sta dixativa a cauxa de problemi tenisi tenporanei. Intanto dopara el moduło de cargamento normal.",
-	"mwe-upwiz-code-unknown": "Léngua sconosùa",
 	"mwe-upwiz-step-tutorial": "Inpara",
 	"mwe-upwiz-step-file": "Carga",
 	"mwe-upwiz-step-deeds": "Diriti de publicasion",
@@ -56,10 +56,8 @@
 	"mwe-upwiz-published": "Publicà!",
 	"mwe-upwiz-failed": "Nó riusio.",
 	"mwe-upwiz-remove": "Cava",
-	"mwe-upwiz-override": "Carga isteso.",
+	"mwe-upwiz-override": "Carga isteso",
 	"mwe-upwiz-remove-upload": "Cava sto file dal elenco de i file da cargar",
-	"mwe-upwiz-show-thumb": "Varda anteprima",
-	"mwe-upwiz-show-thumb-tip": "Verxe n'imaxene de anteprima pa' sto file",
 	"mwe-upwiz-remove-description": "Cava sta descrision",
 	"mwe-upwiz-upload": "Carga",
 	"mwe-upwiz-file-upload-notcapable": "Purtropo el to browser nó 'l xe in grado de cargar i file.\nRipróva có 'n altro browser.",
@@ -151,7 +149,6 @@
 	"mwe-upwiz-ok": "Va ben",
 	"mwe-upwiz-fileexists-replace-on-page": "Existe xà un file có sto nome. Se te vui sostituirlo, va a ła pàjina [$2 $1] e sostituisiło là, altrimenti siełi un nome difarente.",
 	"mwe-upwiz-fileexists-replace-no-link": "Par piaser siegli un titolo difarente, parché sto titolo qua el xe xà ciapà da n'altro file.",
-	"mwe-upwiz-blacklisted": "Par piaser siełi un titoło difarente e descritivo.",
 	"mwe-upwiz-next": "Cuełe dopo",
 	"mwe-upwiz-next-file": "Và vanti",
 	"mwe-upwiz-next-deeds": "Cuełe dopo",
@@ -172,6 +169,7 @@
 	"mwe-upwiz-tooltip-location": "Coordinae del liogo in cui xe sta creà sto file multimediałe.",
 	"mwe-upwiz-tooltip-more-info": "Par saverghine de pì.",
 	"mwe-upwiz-file-need-file": "Prima carga calcosa.",
+	"mwe-upwiz-deeds-need-deed": "Spiega 'ndove te te si procurà {{PLURAL:$1|sto|sti}} file, e a cuali condision sto sito pol {{PLURAL:$1|dopararlo|dopararli}}, sełesionando oportunamente una de łe opsion proposte.",
 	"mwe-upwiz-deeds-need-license": "Sełesiona na licensa.",
 	"mwe-upwiz-license-show-all": "Dopara na licensa difarente",
 	"mwe-upwiz-license-show-recommended": "Dopara ła licensa racomandà",
@@ -263,8 +261,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Torna al vecio moduło",
 	"mwe-upwiz-feedback-prompt": "Łasa un comento",
 	"mwe-upwiz-feedback-title": "Łasa un comento so'l Cargamento guidà",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Invia comento]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Altre informasion]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Sta cuà ła xe ła voxe inte ła lista nera de i titoło de cui xe sta trovà na corispondensa:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "El titoło del me cargamento, \"$1\", el xe sta rifiutà.",
 	"mwe-upwiz-errordialog-title": "Ghe xe sta un eror inte ła to dimanda",

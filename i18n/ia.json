@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"McDutchie",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Assistente de incargamento",
@@ -55,10 +56,8 @@
 	"mwe-upwiz-published": "Publicate!",
 	"mwe-upwiz-failed": "Fallite",
 	"mwe-upwiz-remove": "Remover",
-	"mwe-upwiz-override": "Incargar totevia.",
+	"mwe-upwiz-override": "Incargar totevia",
 	"mwe-upwiz-remove-upload": "Remover iste file del lista de files a incargar",
-	"mwe-upwiz-show-thumb": "Monstrar miniatura",
-	"mwe-upwiz-show-thumb-tip": "Cargar un imagine de miniatura pro iste file",
 	"mwe-upwiz-remove-description": "Remover iste description",
 	"mwe-upwiz-upload": "Incargar",
 	"mwe-upwiz-file-upload-notcapable": "Regrettabilemente tu navigator non es capace de incargar files. Per favor tenta con un altere navigator.",
@@ -151,7 +150,6 @@
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Un file con iste nomine existe jam. Si tu vole reimplaciar lo, tu pote facer lo desde le pagina pro [$2 $1].",
 	"mwe-upwiz-fileexists-replace-no-link": "Per favor elige un altere titulo, perque iste titulo es jam usate per un altere file.",
-	"mwe-upwiz-blacklisted": "Per favor elige un altere titulo, plus descriptive.",
 	"mwe-upwiz-next": "Sequente",
 	"mwe-upwiz-next-file": "Continuar",
 	"mwe-upwiz-next-deeds": "Sequente",
@@ -205,7 +203,6 @@
 	"mwe-upwiz-too-many-files": "Troppo de files.",
 	"mwe-upwiz-file-too-large-text": "Tu pote solmente incargar files con un dimension maxime de $1. Tu tentava incargar un file de $2.",
 	"mwe-upwiz-file-too-large": "File troppo grande.",
-	"mwe-upwiz-necessary-confirm": "Es recommendate specificar un categoria pro files incargate. Vole tu continuar sin completar tote le campos?",
 	"mwe-upwiz-dialog-yes": "Si",
 	"mwe-upwiz-dialog-no": "No",
 	"mwe-upwiz-dialog-title": "Advertimento",
@@ -276,8 +273,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Retornar al formulario ancian",
 	"mwe-upwiz-feedback-prompt": "Dar nos tu opinion",
 	"mwe-upwiz-feedback-title": "Da nos tu opinion super le assistente de incargamento",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Inviar evalutation]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Plus info]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Iste es le entrata correspondente del lista nigre de titulos:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Le titulo de mi file incargate, \"$1\", esseva prohibite.",
 	"mwe-upwiz-errordialog-title": "Il habeva un error in tu submission",

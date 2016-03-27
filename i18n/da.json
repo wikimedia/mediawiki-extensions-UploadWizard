@@ -9,7 +9,8 @@
 			"Kaare",
 			"Palnatoke",
 			"Peter Alberti",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Vejviser til oplægning af filer",
@@ -62,7 +63,7 @@
 	"mwe-upwiz-published": "Offentliggjort!",
 	"mwe-upwiz-failed": "Mislykkedes.",
 	"mwe-upwiz-remove": "Fjern",
-	"mwe-upwiz-override": "Læg op alligevel.",
+	"mwe-upwiz-override": "Læg op alligevel",
 	"mwe-upwiz-remove-upload": "Fjern denne fil fra listen af filer, der skal lægges op",
 	"mwe-upwiz-remove-description": "Fjern denne beskrivelse",
 	"mwe-upwiz-upload": "Læg op",

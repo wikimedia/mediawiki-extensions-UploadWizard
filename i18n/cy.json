@@ -6,7 +6,8 @@
 			"Xxglennxx",
 			"Matma Rex",
 			"Robin Owain",
-			"Diafol"
+			"Diafol",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Dewin Uwchlwytho",
@@ -59,10 +60,8 @@
 	"mwe-upwiz-published": "Cyhoeddwyd!",
 	"mwe-upwiz-failed": "Wedi methu.",
 	"mwe-upwiz-remove": "Tynnu",
-	"mwe-upwiz-override": "Uwchlwytho ta beth.",
+	"mwe-upwiz-override": "Uwchlwytho ta beth",
 	"mwe-upwiz-remove-upload": "Tynnu'r ffeil hon oddi ar restr y ffeiliau i'w huwchlwytho",
-	"mwe-upwiz-show-thumb": "Dangoser mân-lun",
-	"mwe-upwiz-show-thumb-tip": "Llwytho mân-lun o'r ffeil hon",
 	"mwe-upwiz-remove-description": "Tynnu'r disgrifiad hwn",
 	"mwe-upwiz-upload": "Uwchlwyther",
 	"mwe-upwiz-file-upload-notcapable": "Yn anffodus nid yw'ch porwr yn gallu uwchlwytho ffeiliau.\nCeisiwch eto gyda phorwr arall.",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Lakzon",
-			"Hosseinblue"
+			"Hosseinblue",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "جادوگر/سینگةر بارگذاری",
@@ -54,10 +55,8 @@
 	"mwe-upwiz-published": "پخش بیۀسا/منتشر بی!",
 	"mwe-upwiz-failed": "ناموفق بی",
 	"mwe-upwiz-remove": "پاکاکردن/حةذف کردن",
-	"mwe-upwiz-override": "با این وجود بارگذاری شود.",
+	"mwe-upwiz-override": "با این وجود بارگذاری شود",
 	"mwe-upwiz-remove-upload": "حذف این پرونده از فهرست پرونده‌هایی که قرار است بارگذاری شوند",
-	"mwe-upwiz-show-thumb": "نمایش بندانگشتی",
-	"mwe-upwiz-show-thumb-tip": "بارگیری تصویر بندانگشتی برای این پرونده",
 	"mwe-upwiz-remove-description": "حذف این توضیحات",
 	"mwe-upwiz-upload": "بارگذاری",
 	"mwe-upwiz-file-upload-notcapable": "متأسفانه مرورگرتان قابلیت بارگذاری پرونده‌ها را ندارد.\nلطفاً از مرورگر دیگری استفاده کنید.",

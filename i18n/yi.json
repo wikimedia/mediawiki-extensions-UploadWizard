@@ -6,7 +6,6 @@
 		]
 	},
 	"uploadwizard": "ארויפֿלאָדן קונצנמאַכער",
-	"mwe-upwiz-code-unknown": "אומבאַקאַנטע שפּראַך",
 	"mwe-upwiz-step-tutorial": "לערנען",
 	"mwe-upwiz-step-file": "אַרויפֿלאָדן",
 	"mwe-upwiz-step-deeds": "באַפֿרייען רעכטן",
@@ -34,10 +33,8 @@
 	"mwe-upwiz-published": "פֿאַרעפֿנטלעכט!",
 	"mwe-upwiz-failed": "דורכגעפֿאַלן.",
 	"mwe-upwiz-remove": "אַראָפּנעמען",
-	"mwe-upwiz-override": "ארויפלאדירן סייווי.",
+	"mwe-upwiz-override": "ארויפֿלאדן סייווי",
 	"mwe-upwiz-remove-upload": "אַראָפּנעמען די טעקע פון ​​דער רשימה פון טעקעס אַרויפֿצולאָדן",
-	"mwe-upwiz-show-thumb": "ווײַזן פֿאַרקלענערט בילד",
-	"mwe-upwiz-show-thumb-tip": "ארויפֿלאָדן א קליינבילד פאר דער טעקע",
 	"mwe-upwiz-remove-description": "אַראָפּנעמען די באַשרייַבונג",
 	"mwe-upwiz-upload": "אַרויפֿלאָדן",
 	"mwe-upwiz-file-upload-notcapable": "ליידער קען אייער בלעטערער נישט ארויפלאדן טעקעס. זייט אזוי גוט ניצן אן אנדער בלעטערער.",
@@ -101,8 +98,6 @@
 	"mwe-upwiz-subhead-alt-upload": "צוריק צו דער אלטער פֿאָרעם",
 	"mwe-upwiz-feedback-prompt": "איבערלאזן פֿידבעק",
 	"mwe-upwiz-feedback-title": "איבערלאזן פֿידבעק וועגן אַרויפֿלאָדן קונצנמאַכער",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 שיקן פֿידבעק]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 נאך אינפא]",
 	"mwe-upwiz-errordialog-ok": "יאָ",
 	"mwe-upwiz-prefs-license-own": "אייגענע ארבעט - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "יענעמס ארבעט - $1"

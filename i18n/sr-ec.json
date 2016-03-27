@@ -7,7 +7,8 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Чаробњак за слање",
@@ -48,11 +49,9 @@
 	"mwe-upwiz-published": "Објављено.",
 	"mwe-upwiz-failed": "Није успело.",
 	"mwe-upwiz-remove": "Уклони",
-	"mwe-upwiz-override": "Свеједно отпреми.",
+	"mwe-upwiz-override": "Свеједно отпреми",
 	"mwe-upwiz-override-upload": "Свеједно отпреми.",
 	"mwe-upwiz-remove-upload": "Уклоните ову датотеку са списка за отпремање",
-	"mwe-upwiz-show-thumb": "Прикажи минијатуру",
-	"mwe-upwiz-show-thumb-tip": "Учитај минијатуру ове слике",
 	"mwe-upwiz-remove-description": "Уклони овај опис",
 	"mwe-upwiz-upload": "Пошаљи",
 	"mwe-upwiz-file-all-ok": "Све датотеке су отпремљене.",

@@ -4,7 +4,8 @@
 			"Milicevic01",
 			"Rancher",
 			"Жељко Тодоровић",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Čarobnjak za slanje",
@@ -44,11 +45,9 @@
 	"mwe-upwiz-published": "Objavljeno.",
 	"mwe-upwiz-failed": "Neuspelo.",
 	"mwe-upwiz-remove": "Ukloni",
-	"mwe-upwiz-override": "Svejedno otpremi.",
+	"mwe-upwiz-override": "Svejedno otpremi",
 	"mwe-upwiz-override-upload": "Svejedno otpremi.",
 	"mwe-upwiz-remove-upload": "Uklonite ovu datoteku sa spiska za otpremanje",
-	"mwe-upwiz-show-thumb": "Prikaži minijaturu",
-	"mwe-upwiz-show-thumb-tip": "Učitaj minijaturu ove slike",
 	"mwe-upwiz-remove-description": "Ukloni ovaj opis",
 	"mwe-upwiz-upload": "Pošalji",
 	"mwe-upwiz-file-all-ok": "Sve datoteke su otpremljene.",

@@ -5,7 +5,8 @@
 			"පසිඳු කාවින්ද",
 			"Tahir mq",
 			"Obaid Raza",
-			"عثمان خان شاہ"
+			"عثمان خان شاہ",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "مددگار اپ لوڈ کریں",
@@ -19,7 +20,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}: مدیرانِ مہم برائے نگارِ اثقال",
 	"mwe-upwiz-js-off": "نگار اثقال  ایک بہتر انٹرفیس جاوا اسکرپٹ استعمال کرتا ہے ۔  آپ کا براؤزر یا تو جاوا سکرپٹ معاونت نہیں کرتا یا  جاوا اسکرپٹ بند ہے ، تو ہم آپ کو اثقال سادہ شکل دکھا رہے ۔",
 	"mwe-upwiz-extension-disabled": "یہ صفحہ عارضی تکنیکی مسائل کی وجہ سے معطل ہے ۔ دریں اثنا معیاری اثقال کا طریقہ استعمال کریں ۔",
-	"mwe-upwiz-code-unknown": "نامعلوم زبان",
 	"mwe-upwiz-step-tutorial": "جانیں",
 	"mwe-upwiz-step-file": "اپ لوڈ کریں",
 	"mwe-upwiz-step-deeds": "حقوق کی رہائی",
@@ -59,10 +59,8 @@
 	"mwe-upwiz-published": "شائع!",
 	"mwe-upwiz-failed": "ناکام  ۔",
 	"mwe-upwiz-remove": "حذف کریں",
-	"mwe-upwiz-override": "ویسے بھی اپ لوڈ کریں ۔",
+	"mwe-upwiz-override": "ویسے بھی اپ لوڈ کریں",
 	"mwe-upwiz-remove-upload": "یہ مسل اپ لوڈ کرنے کے لئے فائلوں کی فہرست سے خارج",
-	"mwe-upwiz-show-thumb": "پورنہ نمایش کریں",
-	"mwe-upwiz-show-thumb-tip": "اس فائل کے لئے ایک پورنا تصویر لوڈ",
 	"mwe-upwiz-remove-description": "اس کی وضاحت کو حذف کریں",
 	"mwe-upwiz-upload": "اپ لوڈ کریں",
 	"mwe-upwiz-file-upload-notcapable": "بدقسمتی سے آپ کا براؤزر فائلوں کو اثقال کرنے کے قابل نہیں ہے ۔ازراہ مہربانی کسی اور براؤزر سے کوشش کریں ۔",

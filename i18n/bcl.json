@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geopoet"
+			"Geopoet",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Ikarga an Salamangkero",
@@ -15,7 +16,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Ikarga an Salamangkero sa kampanya nin mga paraliwat",
 	"mwe-upwiz-js-off": "An UploadWizard naggagamit nin JavaScript para sa pinagpapakarahay na olay-panlaog. An saimong pangilyaw baya dae minasuporta kan JavaScript o pinagsarado an JavaScript, kaya kami minapahiling saimo nin sarong simplehong porma nin pagkakarga.",
 	"mwe-upwiz-extension-disabled": "Ining pahina dae pinagpapagana nguna nin huli sa temporaryong problema teknikal. Sa ngunyan prubaran an istandard na porma nin pagkakarga.",
-	"mwe-upwiz-code-unknown": "Bako bistadong lengguwahe",
 	"mwe-upwiz-step-tutorial": "Makanuod",
 	"mwe-upwiz-step-file": "Magkarga",
 	"mwe-upwiz-step-deeds": "Binuhian na mga katanosan",
@@ -55,10 +55,8 @@
 	"mwe-upwiz-published": "Publisado!",
 	"mwe-upwiz-failed": "Nagpalya.",
 	"mwe-upwiz-remove": "Tangkason",
-	"mwe-upwiz-override": "Ikarga dawa paanuhon.",
+	"mwe-upwiz-override": "Ikarga dawa paanuhon",
 	"mwe-upwiz-remove-upload": "Tangkason ining sagunson gikan sa listahan kan mga sagunson na ikakarga",
-	"mwe-upwiz-show-thumb": "Ipahiling an imaheng sadit",
-	"mwe-upwiz-show-thumb-tip": "Ikarga an sarong sadit na imahe para kaining sagunson",
 	"mwe-upwiz-remove-description": "Tangkason ining deskripsyon",
 	"mwe-upwiz-upload": "Ikarga",
 	"mwe-upwiz-file-upload-notcapable": "Sa dae tinutuyo an saimong kilyawan bakong kapable na magkakarga nin mga sagunson.\nPaki-prubari tabi nin sarong alternatibong pangilyaw.",
@@ -150,7 +148,6 @@
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Sarong sagunson na igwa kaining pangaran yaon na. Kung boot mo na ribayan ini, magduman ka sa pahina para sa [$2 $1] asin ribayi ini duman.",
 	"mwe-upwiz-fileexists-replace-no-link": "Pakipili tabi nin sarong nalalaen na titulo, nin huli ta ining titulo nagagamit na sa ibang sagunson.",
-	"mwe-upwiz-blacklisted": "Pakipili tabi nin sarong nalalaen, deskriptibong titulo.",
 	"mwe-upwiz-next": "Masunod",
 	"mwe-upwiz-next-file": "Padagusa",
 	"mwe-upwiz-next-deeds": "Masunod",
@@ -203,7 +200,6 @@
 	"mwe-upwiz-too-many-files": "Grabe kadakol na mga sagunson.",
 	"mwe-upwiz-file-too-large-text": "Ika makakarga nin mga sagunson na igwang sukol na sagkod $1 sana. Ika nagprubar na magkarga nin sarong sagunson na igwang $2.",
 	"mwe-upwiz-file-too-large": "Grabe kadakula an sagunson.",
-	"mwe-upwiz-necessary-confirm": "Ini pinagrerekomenda na ika magkaag nin sarong katergorya para sa saimong mga pagkakarga. Boot mong magpadagos na dae mo nakaagan an gabos na mga kaaganan?",
 	"mwe-upwiz-dialog-yes": "Iyo",
 	"mwe-upwiz-dialog-no": "Dae",
 	"mwe-upwiz-dialog-title": "Patanid",

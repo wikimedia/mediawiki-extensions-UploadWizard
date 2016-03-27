@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Lam-ang",
-			"Matma Rex"
+			"Matma Rex",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
@@ -55,10 +56,8 @@
 	"mwe-upwiz-published": "Naipablaaken!",
 	"mwe-upwiz-failed": "Napaay.",
 	"mwe-upwiz-remove": "Ikkaten",
-	"mwe-upwiz-override": "Ikarga latta.",
+	"mwe-upwiz-override": "Ikarga latta",
 	"mwe-upwiz-remove-upload": "Ikkaten daytoy a papeles manipud ti listaan dagiti papeles nga ikarga.",
-	"mwe-upwiz-show-thumb": "Ipakita ti bassit a ladawan",
-	"mwe-upwiz-show-thumb-tip": "Agikarga ti bassit a ladawan para iti daytoy a papeles",
 	"mwe-upwiz-remove-description": "Ikkaten daytoy a deskripsion",
 	"mwe-upwiz-upload": "Agikarga",
 	"mwe-upwiz-file-upload-notcapable": "Daksanggasat a ti pagbasabasam ket saan a makabael nga agikaraga kadagiti papeles.\nPangngaasi a padasem ti sabali a pagbasabasa.",
@@ -155,7 +154,6 @@
 	"mwe-upwiz-ok": "Sige",
 	"mwe-upwiz-fileexists-replace-on-page": "Addaan iti papeles nga agnagan iti kastoy. No kayatmo a sukatan, mapanka iti panid para iti [$2 $1] ken sukatam idiay.",
 	"mwe-upwiz-fileexists-replace-no-link": "Pangngaasi nga agpili iti sabali a titulo, gaputa daytoy a titulo ket inus-usaren babaen ti sabali a papeles.",
-	"mwe-upwiz-blacklisted": "Pangngaasi nga agpili iti sabali, a mangipalpalawag a titulo.",
 	"mwe-upwiz-next": "Sumaruno",
 	"mwe-upwiz-next-file": "Agtuloy",
 	"mwe-upwiz-next-deeds": "Sumaruno",
@@ -210,7 +208,6 @@
 	"mwe-upwiz-too-many-files": "Adu unay dagiti papeles.",
 	"mwe-upwiz-file-too-large-text": "Mabalinmo ti agikarga kadagiti papeles iti kadakkel aginggana iti $1. Pinadasmo ti agikarga ti papeles a $2.",
 	"mwe-upwiz-file-too-large": "Dakkel unay ti papeles.",
-	"mwe-upwiz-necessary-confirm": "Maisingasing a punuem ti kategoria para kadagiti ikargam. Kayatmo kadi ti agtuloy  a saan nga agpunno kadagiti amin a pagikabilan?",
 	"mwe-upwiz-dialog-yes": "Wen",
 	"mwe-upwiz-dialog-no": "Saan",
 	"mwe-upwiz-dialog-title": "Ballaag",
@@ -285,8 +282,6 @@
 	"mwe-upwiz-subhead-alt-upload": "Agsubli iti daan a porma",
 	"mwe-upwiz-feedback-prompt": "Mangibati ti feedback",
 	"mwe-upwiz-feedback-title": "Mangibati ti feedback a maipanggep iti Upload Wizard",
-	"mwe-upwiz-feedback-blacklist-report-prompt": "[$1 Agipatulod iti Feedback]",
-	"mwe-upwiz-feedback-blacklist-info-prompt": "[$1 Adu pay a pakaammo]",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Daytoy ti naikabil a blacklist a titulo a naipada:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Ti titulo ti inkargak, \"$1\" ket naiparit.",
 	"mwe-upwiz-errordialog-title": "Adda biddut iti panagitedmo",

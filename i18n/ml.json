@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Praveenp",
-			"Vssun"
+			"Vssun",
+			"Macofe"
 		]
 	},
 	"uploadwizard": "അപ്‌ലോഡ് സഹായി",
@@ -55,11 +56,9 @@
 	"mwe-upwiz-published": "പ്രസിദ്ധീകരിച്ചു!",
 	"mwe-upwiz-failed": "പരാജയപ്പെട്ടു",
 	"mwe-upwiz-remove": "നീക്കം ചെയ്യുക",
-	"mwe-upwiz-override": "എന്തായാലും അപ്‌ലോഡ് ചെയ്യുക.",
+	"mwe-upwiz-override": "എന്തായാലും അപ്‌ലോഡ് ചെയ്യുക",
 	"mwe-upwiz-override-upload": "എന്തായാലും ഈ പ്രമാണം അപ്‌ലോഡ് ചെയ്യുക",
 	"mwe-upwiz-remove-upload": "അപ്‌ലോഡ് ചെയ്യാനുള്ള പ്രമാണങ്ങളുടെ പട്ടികയിൽ നിന്ന് ഈ പ്രമാണം നീക്കം ചെയ്യുക",
-	"mwe-upwiz-show-thumb": "ലഘുചിത്രം പ്രദർശിപ്പിക്കുക",
-	"mwe-upwiz-show-thumb-tip": "ഈ പ്രമാണത്തിന്റെ ലഘുചിത്രം എടുക്കുക",
 	"mwe-upwiz-remove-description": "ഈ വിവരണം നീക്കം ചെയ്യുക",
 	"mwe-upwiz-upload": "അപ്‌‌ലോഡ്",
 	"mwe-upwiz-file-upload-notcapable": "നിർഭാഗ്യവശാൽ, താങ്കളുടെ ബ്രൗസർ പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ ശേഷിയുള്ളതല്ല.\nദയവായി മറ്റൊരു ബ്രൗസർ പരീക്ഷിക്കുക.",
