@@ -19,14 +19,20 @@
 	QUnit.module( 'mw.uw.controller.Upload', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step = new uw.controller.Upload( { maxUploads: 10 } );
+		var step = new uw.controller.Upload( {
+			maxUploads: 10,
+			maxSimultaneousConnections: 3
+		} );
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
 	QUnit.test( 'updateFileCounts', 3, function ( assert ) {
-		var step = new uw.controller.Upload( { maxUploads: 5 } ),
+		var step = new uw.controller.Upload( {
+			maxUploads: 5,
+			maxSimultaneousConnections: 3
+		} ),
 			ufcStub = this.sandbox.stub( step.ui, 'updateFileCounts' );
 
 		step.updateFileCounts( [ 1, 2 ] );
@@ -41,7 +47,7 @@
 		assert.ok( ufcStub.calledWith( true, false ) );
 	} );
 
-	QUnit.test( 'canTransition', 4, function ( assert ) {
+	QUnit.test( 'canTransition', 3, function ( assert ) {
 		var upload = {},
 			step = new uw.controller.Upload( {
 				maxSimultaneousConnections: 1
@@ -50,9 +56,6 @@
 		assert.strictEqual( step.canTransition( upload ), false );
 		upload.state = 'new';
 		assert.strictEqual( step.canTransition( upload ), true );
-		step.uploadsTransitioning = 1;
-		assert.strictEqual( step.canTransition( upload ), false );
-		step.uploadsTransitioning = 0;
 		upload.state = 'stashed';
 		assert.strictEqual( step.canTransition( upload ), false );
 	} );
@@ -61,7 +64,9 @@
 		var upload = {
 				start: this.sandbox.stub()
 			},
-			step = new uw.controller.Upload( {} );
+			step = new uw.controller.Upload( {
+				maxSimultaneousConnections: 1
+			} );
 
 		this.sandbox.stub( step, 'maybeStartProgressBar' );
 		assert.strictEqual( upload.start.called, false );

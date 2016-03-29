@@ -36,11 +36,6 @@
 		 */
 		this.config = config;
 
-		/**
-		 * @property {number} uploadsTransitioning The number of uploads currently in this step and in transition.
-		 */
-		this.uploadsTransitioning = 0;
-
 		this.ui = ui;
 
 		this.ui.on( 'next-step', function () {
@@ -160,65 +155,12 @@
 	};
 
 	/**
-	 * Perform this step's changes on all uploads. Replaces makeTransitioner
-	 * in the UploadWizard class.
-	 *
-	 * @return {jQuery.Promise}
-	 */
-	uw.controller.Step.prototype.transitionAll = function () {
-		var i,
-			step = this,
-			transpromises = [],
-			uploadsQueued = [];
-
-		function startNextUpload() {
-			var ix, upload;
-
-			// Run through uploads looking for one we can transition. In most
-			// cases this will be the next upload.
-			while ( uploadsQueued.length > 0 ) {
-				ix = uploadsQueued.shift();
-				upload = step.uploads[ ix ];
-
-				if ( step.canTransition( upload ) ) {
-					return step.transitionOne( upload ).then( startNextUpload );
-				}
-			}
-
-			return $.Deferred().resolve();
-		}
-
-		$.each( this.uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-
-			uploadsQueued.push( i );
-		} );
-
-		for ( i = 0; i < this.config.maxSimultaneousConnections; i++ ) {
-			transpromises.push( startNextUpload() );
-		}
-
-		return $.when.apply( $, transpromises );
-	};
-
-	/**
 	 * Check if upload is able to be put through this step's changes.
 	 *
 	 * @return {boolean}
 	 */
 	uw.controller.Step.prototype.canTransition = function () {
-		return this.uploadsTransitioning < this.config.maxSimultaneousConnections;
-	};
-
-	/**
-	 * Perform this step's changes on one upload.
-	 *
-	 * @return {jQuery.Promise}
-	 */
-	uw.controller.Step.prototype.transitionOne = function () {
-		return $.Deferred().reject( 'Using default transitioner is not supported' );
+		return true;
 	};
 
 	/**

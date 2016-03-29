@@ -500,6 +500,7 @@ class UploadWizardHooks {
 
 		'uw.controller.Step' => array(
 			'scripts' => array(
+				'resources/uw.ConcurrentQueue.js',
 				'resources/controller/uw.controller.Step.js',
 			),
 
@@ -911,6 +912,7 @@ class UploadWizardHooks {
 				'tests/qunit/transports/mw.FormDataTransport.test.js',
 				'tests/qunit/transports/mw.IframeTransport.test.js',
 				'tests/qunit/uw.EventFlowLogger.test.js',
+				'tests/qunit/uw.ConcurrentQueue.test.js',
 				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',

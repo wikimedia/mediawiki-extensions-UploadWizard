@@ -36,6 +36,11 @@
 
 		this.stepName = 'details';
 		this.finishState = 'complete';
+
+		this.queue = new uw.ConcurrentQueue( {
+			count: this.config.maxSimultaneousConnections,
+			action: this.transitionOne.bind( this )
+		} );
 	};
 
 	OO.inheritClass( uw.controller.Details, uw.controller.Step );
@@ -192,8 +197,38 @@
 		);
 	};
 
+	/**
+	 * Perform this step's changes on one upload.
+	 *
+	 * @return {jQuery.Promise}
+	 */
 	uw.controller.Details.prototype.transitionOne = function ( upload ) {
 		return upload.details.submit();
+	};
+
+	/**
+	 * Perform this step's changes on all uploads.
+	 *
+	 * @return {jQuery.Promise}
+	 */
+	uw.controller.Details.prototype.transitionAll = function () {
+		var
+			deferred = $.Deferred(),
+			details = this;
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
+			if ( details.canTransition( upload ) ) {
+				details.queue.addItem( upload );
+			}
+		} );
+
+		this.queue.on( 'complete', deferred.resolve );
+		this.queue.startExecuting();
+
+		return deferred.promise();
 	};
 
 	/**

@@ -391,7 +391,8 @@
 			this.uploads.push( upload );
 			this.steps.file.updateFileCounts( this.uploads );
 			// Start uploads now, no reason to wait--leave the remove button alone
-			this.steps.file.startUploads();
+			this.steps.file.queueUpload( upload );
+			this.steps.file.startQueuedUploads();
 		},
 
 		/**
@@ -416,6 +417,10 @@
 			if ( index !== -1 ) {
 				this.uploads.splice( index, 1 );
 			}
+
+			// TODO We should only be doing this for whichever step is currently active
+			this.steps.file.queue.removeItem( upload );
+			this.steps.details.queue.removeItem( upload );
 
 			this.steps.file.updateFileCounts( this.uploads );
 
