@@ -15,7 +15,6 @@
 	"group-upwizcampeditors": "Redactores de campanias del Assistente de Incargamento",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Redactor|Redactrice}} de campanias del Assistente de Incargamento",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Redactores de campanias del Assistente de Incargamento",
-	"mwe-upwiz-js-off": "Le assistente de incargamento usa JavaScript pro effectuar un melior interfacie. Tu navigator non supporta JavaScript o lo ha disactivate, dunque nos te monstra un formulario de incargamento simple.",
 	"mwe-upwiz-extension-disabled": "Iste pagina ha essite disactivate a causa de problemas technic temporari. Interim, proba le formulario de incargamento standard.",
 	"mwe-upwiz-step-tutorial": "Apprender",
 	"mwe-upwiz-step-file": "Incargar",

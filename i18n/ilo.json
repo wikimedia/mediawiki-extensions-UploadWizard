@@ -15,7 +15,6 @@
 	"group-upwizcampeditors": "Dagiti editor ti kampania ti Upload Wizard",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Editor ti kampania ti Upload Wizard}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Dagiti editor ti kampania ti Upload Wizard",
-	"mwe-upwiz-js-off": "Ti UploadWizard ket agus-usar ti JavaScript para iti napasayaat nga interface. Ti pagbasabasam ket mabalin a saan a mangsuporta iti JavaScript wenno naiddep ti JavaScript, isu nga agiparangkami ti nalaka a porma ti panangikarga.",
 	"mwe-upwiz-extension-disabled": "Nabaldado daytoy a panid gapu kadagiti temporario a teknikal a pakirut. Iti kabayatan padasen ti pagalagadan a porma ti panangikarga.",
 	"mwe-upwiz-step-tutorial": "Agadal",
 	"mwe-upwiz-step-file": "Agikarga",

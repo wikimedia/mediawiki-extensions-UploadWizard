@@ -58,7 +58,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}: éditeurs de campagne de l’Assistant d’import",
 	"group-upwizcampeditors.css": "/* Le CSS placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
 	"group-upwizcampeditors.js": "/* Le Javascript placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
-	"mwe-upwiz-js-off": "L’assistant d’import utilise JavaScript pour améliorer l’interface. Puisque votre navigateur ne supporte pas JavaScript ou que JavaScript y a été désactivé, nous vous montrons un formulaire d’import simplifié.",
 	"mwe-upwiz-extension-disabled": "Cette page a été désactivée en raison de problèmes techniques temporaires. En attendant, essayez avec le formulaire d’import standard.",
 	"mwe-upwiz-step-tutorial": "Apprendre",
 	"mwe-upwiz-step-file": "Importer",

@@ -13,7 +13,6 @@
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
 	"uploadwizard-desc": "Čarobnjak za postavljanje, razvijen pomoću sredstava za multimedijsku upotrebljivost",
-	"mwe-upwiz-js-off": "Čarobnjak za postavljanje koristi JavaScript za poboljšani interfejs. Vaš preglednik ili ne podržava JavaScript ili mu je JavaScript ugašena, pa tako mi prikazujemo jednostavni obrazac za postavljanje.",
 	"mwe-upwiz-extension-disabled": "Ova stranica je onemogućena zbog privremenih tehničkih problema. U međuvremenu pokušajte sa uobičajenim obrascem za postavljanje.",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Postavi",

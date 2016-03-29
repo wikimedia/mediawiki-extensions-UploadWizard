@@ -36,7 +36,6 @@
 	"group-upwizcampeditors": "Operatorzy inicjatyw kreatora przesyłania plików",
 	"group-upwizcampeditors-member": "{{GENDER:$1|operator|operatorka}} inicjatyw kreatora przesyłania plików",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Operatorzy inicjatyw kreatora przesyłania plików",
-	"mwe-upwiz-js-off": "Kreator przesyłania plików do realizacji udoskonalonego interfejsu korzysta z JavaScript. Twoja przeglądarka nie obsługuje lub ma wyłączoną obsługę JavaScript i dlatego wyświetlany jest zwykły formularz przesyłania.",
 	"mwe-upwiz-extension-disabled": "Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.",
 	"mwe-upwiz-step-tutorial": "Jak skorzystać",
 	"mwe-upwiz-step-file": "Prześlij",

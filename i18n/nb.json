@@ -22,7 +22,6 @@
 	"group-upwizcampeditors": "Kampanjeredaktør for opplastningsveiviseren",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampanjeredaktør for opplastningsveiviseren}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampanjeredaktør for opplastningsveiviseren",
-	"mwe-upwiz-js-off": "UploadWizard bruker JavaScript for et forbedret grensesnitt. Nettleseren din støtter ikke JavaScript eller har JavaScript slått av, så vi viser deg et enkelt opplastingsskjema istedet.",
 	"mwe-upwiz-extension-disabled": "Denne siden har blitt deaktivert på grunn av midlertidige tekniske problemer. I mellomtiden kan du prøve det vanlige opplastningsskjemaet.",
 	"mwe-upwiz-step-tutorial": "Lær",
 	"mwe-upwiz-step-file": "Last opp",

@@ -16,7 +16,6 @@
 	"group-upwizcampeditors": "Editor ëd campagna ëd l'Assistent ëd cariament",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Editor ëd campagna ëd l'Assistent ëd cariament}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editor ëd campagne Upload Wizard",
-	"mwe-upwiz-js-off": "UploadWizard a deuvra JavaScript për n'antërfacia ameliorà. Sò navigador o a manten pa JavaScript opura a l'ha JavaScript disabilità, parèj i soma an camin ch'i-j mostroma un formolari për carié sempi.",
 	"mwe-upwiz-extension-disabled": "Costa pàgina a l'é stàita disativà për dij problema técnich temporani. Antratant, ch'a preuva ël formolari ëd cariament ëstàndard.",
 	"mwe-upwiz-step-tutorial": "Amprende",
 	"mwe-upwiz-step-file": "Carié",

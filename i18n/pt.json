@@ -31,7 +31,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores de campanhas do Assistente de Envio de Ficheiros",
 	"group-upwizcampeditors.css": "/* O CSS colocado aqui afectará somente os editores de campanhas do Assistente de Envio de Ficheiros */",
 	"group-upwizcampeditors.js": "/* O JS colocado aqui afectará somente os editores de campanhas do Assistente de Envio de Ficheiros */",
-	"mwe-upwiz-js-off": "O Assistente de Envio de Ficheiros usa JavaScript para melhorar a interface. Ou o seu navegador não suporta JavaScript, ou o JavaScript foi desligado, por isso será apresentado um formulário de envio simplificado.",
 	"mwe-upwiz-extension-disabled": "Esta página foi desactivada devido a problemas técnicos temporários. Por agora, tente usar o formulário padrão para envios.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Enviar",

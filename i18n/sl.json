@@ -16,7 +16,6 @@
 	"group-upwizcampeditors": "Uredniki kampanj čarovnika nalaganja",
 	"group-upwizcampeditors-member": "{{GENDER:$1|urednik|urednica}} kampanj čarovnika nalaganja",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Uredniki kampanj čarovnika nalaganja",
-	"mwe-upwiz-js-off": "ČarovnikNalaganja za izboljšan vmesnik uporablja JavaScript. Vaš brskalnik ali ne podpira JavaScripta ali pa je JavaScript izklopljen, zato vam prikazujemo preprost obrazec za nalaganje.",
 	"mwe-upwiz-extension-disabled": "Stran je bila onemogočena zaradi začasnih tehničnih težav. V tem času poskusite uporabiti standardni obrazec za nalaganje.",
 	"mwe-upwiz-step-tutorial": "Naučite se",
 	"mwe-upwiz-step-file": "Naložite",

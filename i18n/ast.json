@@ -16,7 +16,6 @@
 	"group-upwizcampeditors": "Editores de la campaña del Asistente de xubíes",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Editor|Editora}} de la campaña del Asistente de xubíes",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores de la campaña del Asistente de xubíes",
-	"mwe-upwiz-js-off": "L'asistente de xubíes usa JavaScript pa una interfaz ameyorada. El to restolador o nun tien sofitu pa JavaScript o bien lu tien desactiváu, de manera que verás un formulariu de xubíes cenciellu.",
 	"mwe-upwiz-extension-disabled": "Esta páxina se desactivó por problemes téunicos temporales. Mentanto, pues probar el formulariu de xubíes estándar.",
 	"mwe-upwiz-step-tutorial": "Deprender",
 	"mwe-upwiz-step-file": "Xubir",

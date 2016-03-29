@@ -19,7 +19,6 @@
 	"group-upwizcampeditors": "Editori de campanii de încărcare",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Editor de campanii de încărcare|Editoare de campanii de încărcare|Editor de campanii de încărcare}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editori de campanii expert de încărcare",
-	"mwe-upwiz-js-off": "Expertul de încărcare folosește JavaScript pentru o interfață îmbunătățită. Browserul dumneavoastră nu suportă JavaScript sau ați dezactivat această funcție, de aceea vă arătăm formularul de încărcare simplificat.",
 	"mwe-upwiz-extension-disabled": "Această pagină a fost dezactivată datorită unor probleme tehnice temporare. Între timp, folosiți formularul simplificat de încărcare.",
 	"mwe-upwiz-step-tutorial": "Învățați",
 	"mwe-upwiz-step-file": "Încărcare",

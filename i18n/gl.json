@@ -22,7 +22,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores da campaña do asistente de cargas",
 	"group-upwizcampeditors.css": "/* O CSS que se coloque aquí afectará soamente aos editores da campaña do asistente de cargas */",
 	"group-upwizcampeditors.js": "/* O JS que se coloque aquí afectará soamente aos editores da campaña do asistente de cargas */",
-	"mwe-upwiz-js-off": "O asistente de cargas emprega JavaScript para mellorar a súa interface. O seu navegador ou ben non soporta o JavaScript ou ben ten o JavaScript desactivado, de modo que está a ver o formulario de cargas sinxelo.",
 	"mwe-upwiz-extension-disabled": "Esta páxina foi desactivada debido a problemas técnicos temporais. Entrementres, pode empregar o formulario de cargas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Subir",

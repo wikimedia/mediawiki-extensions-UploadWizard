@@ -28,7 +28,6 @@
 	"group-upwizcampeditors": "Editores de campanhas do Assistente de Envio",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Editor|Editora}} de campanha do Assistente de Envio",
 	"grouppage-upwizcampeditors": "{{ns:project}}: Editores de campanhas do Assistente de Envio",
-	"mwe-upwiz-js-off": "O Assistente de Envio usa JavaScript para melhorar a interface. O seu navegador não suporta JavaScript ou o JavaScript foi desativado; portanto, será apresentado um formulário de envio simplificado.",
 	"mwe-upwiz-extension-disabled": "Esta página foi desativada devido a problemas técnicos temporários. Por enquanto, tente usar o formulário padrão para envios.",
 	"mwe-upwiz-step-tutorial": "Aprenda",
 	"mwe-upwiz-step-file": "Envio",

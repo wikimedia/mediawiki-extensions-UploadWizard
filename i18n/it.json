@@ -29,7 +29,6 @@
 	"group-upwizcampeditors": "Modificatori delle campagne del caricamento guidato",
 	"group-upwizcampeditors-member": "{{GENDER:$1|modificatore delle campagne del caricamento guidato|modificatrice delle campagne del caricamento guidato|modificatore/trice delle campagne del caricamento guidato}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Modificatori delle iniziative per il caricamento guidato",
-	"mwe-upwiz-js-off": "Il caricamento guidato usa JavaScript per offrire un'interfaccia migliorata. Il tuo browser non supporta JavaScript o ha JavaScript disattivato, per cui ti viene mostrato un semplice modulo di caricamento.",
 	"mwe-upwiz-extension-disabled": "Questa pagina è stata disattivata a causa di problemi tecnici temporanei. Nel frattempo usa il modulo di caricamento normale.",
 	"mwe-upwiz-step-tutorial": "Impara",
 	"mwe-upwiz-step-file": "Carica",

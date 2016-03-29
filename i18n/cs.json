@@ -27,7 +27,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editoři kampaní pro Průvodce načítáním souborů",
 	"group-upwizcampeditors.css": "/* Zde uvedené CSS bude ovlivňovat pouze editory kampaní pro Průvodce načítáním souborů */",
 	"group-upwizcampeditors.js": "/* Zde uvedený JavaScript bude použit pouze pro editory kampaní pro Průvodce načítáním souborů */",
-	"mwe-upwiz-js-off": "Průvodce načítáním souborů využívá pro vylepšené rozhraní JavaScript. Váš prohlížeč buď JavaScript nepodporuje, nebo je JavaScript zakázán, takže vám ukazujeme základní formulář pro načtení.",
 	"mwe-upwiz-extension-disabled": "Tato stránka byla vypnuta kvůli dočasným technickým potížím. Prozatím zkuste použít standardní načítací formulář.",
 	"mwe-upwiz-step-tutorial": "Poučit se",
 	"mwe-upwiz-step-file": "Načíst",

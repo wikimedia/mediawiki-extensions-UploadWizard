@@ -14,7 +14,6 @@
 	"group-upwizcampeditors": "Ikarga an Salamangkero sa kampanya nin mga paraliwat",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Ikarga an Salamangkero sa kampanya nin paraliwat}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Ikarga an Salamangkero sa kampanya nin mga paraliwat",
-	"mwe-upwiz-js-off": "An UploadWizard naggagamit nin JavaScript para sa pinagpapakarahay na olay-panlaog. An saimong pangilyaw baya dae minasuporta kan JavaScript o pinagsarado an JavaScript, kaya kami minapahiling saimo nin sarong simplehong porma nin pagkakarga.",
 	"mwe-upwiz-extension-disabled": "Ining pahina dae pinagpapagana nguna nin huli sa temporaryong problema teknikal. Sa ngunyan prubaran an istandard na porma nin pagkakarga.",
 	"mwe-upwiz-step-tutorial": "Makanuod",
 	"mwe-upwiz-step-file": "Magkarga",

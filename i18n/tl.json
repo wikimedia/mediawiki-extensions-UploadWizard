@@ -20,7 +20,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Mga patnugot ng kampanyang gumagamit ng Salamangkero ng Pagkarga",
 	"group-upwizcampeditors.css": "/* Ang Mga Pilas ng Estilong Lumalagaslas (Cascading Style Sheets o CSS) na inilagay dito ay makakaapekto lamang sa mga patnugot ng kampanya ng masalamangkang paitaas na pagkakarga */",
 	"group-upwizcampeditors.js": "/* Ang JavaScript o JS na inilagay dito ay makakaapekto lamang sa mga patnugot ng kampanya ng masalamangkang paitaas na pagkakarga */",
-	"mwe-upwiz-js-off": "Ang UploadWizard ay gumagamit ng JavaScript para sa isang napainam na ugnayang-mukha. Ang iyong pantingin-tingin ay maaaring hindi tumatangkilik ng JavaScript o nakapatay ang JavaScript, kaya't nagpapakita kami ng isang payak na pormularyo ng pagkarga.",
 	"mwe-upwiz-extension-disabled": "Hindi pinapagana ang pahinang ito dahil sa pansamantalang mga suliraning teknikal. Sa pansamantala subukan ang pampamantayang pormularyo ng pagkakargang papaitaas.",
 	"mwe-upwiz-step-tutorial": "Matuto",
 	"mwe-upwiz-step-file": "Ikargang paitaas",

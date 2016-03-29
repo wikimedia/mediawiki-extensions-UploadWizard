@@ -44,7 +44,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:上传向导活动编辑",
 	"group-upwizcampeditors.css": "/* 这里放置的CSS将只影响上传向导活动编辑 */",
 	"group-upwizcampeditors.js": "/* 这里放置的JS将只影响上传向导活动编辑 */",
-	"mwe-upwiz-js-off": "上传向导使用JavaScript改善界面。您的浏览器不支持JavaScript或关闭了JavaScript，所以我们给您显示简单上传表格。",
 	"mwe-upwiz-extension-disabled": "因暂时的技术问题，本页面已停用。在此期间，请使用标准上传表格。",
 	"mwe-upwiz-step-tutorial": "教程",
 	"mwe-upwiz-step-file": "上传",

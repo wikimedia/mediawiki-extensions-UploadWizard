@@ -20,7 +20,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Biên tập viên chiến dịch Trình thuật sĩ tải lên",
 	"group-upwizcampeditors.css": "/* Mã CSS đặt ở đây sẽ chỉ có ảnh hưởng đến các biên tập viên chiến dịch Trình thuật sĩ tải lên */",
 	"group-upwizcampeditors.js": "/* Mã JS đặt ở đây sẽ chỉ có ảnh hưởng đến các biên tập viên chiến dịch Trình thuật sĩ tải lên */",
-	"mwe-upwiz-js-off": "Giao diện nâng cao của Trình thuật sĩ tải lên cần JavaScript. Dưới đây là biểu mẫu tải lên đơn giản vì trình duyệt của bạn không hỗ trợ JavaScript hoặc JavaScript đã bị tắt.",
 	"mwe-upwiz-extension-disabled": "Trang này đã bị tắt tạm thời do trục trặc kỹ thuật. Trong khi chờ đợi, hãy thử biểu mẫu tải lên thường.",
 	"mwe-upwiz-step-tutorial": "Tìm hiểu",
 	"mwe-upwiz-step-file": "Tải lên",

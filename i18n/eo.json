@@ -24,7 +24,6 @@
 	"group-upwizcampeditors": "redaktantoj de kampanjo pri la Asistilo de alŝutado",
 	"group-upwizcampeditors-member": "Redaktant{{GENDER:$1||in|}}o de kampanjo pri la Asistilo de alŝutado",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Upload Wizard - redaktantoj de donaco-kampanjo",
-	"mwe-upwiz-js-off": "La Asistilo de alŝutado uzas ''JavaScript'' por plibonigita interfaco. Via retumilo aŭ ne subtenas ''JavaScript''-on aŭ tie elŝaltiĝis ''JavaScript'', do anstataŭe vi ricevos simplan alŝutan formularon.",
 	"mwe-upwiz-extension-disabled": "Tiu ĉi paĝo momente malŝaltiĝis pro dumtempaj teknikaj problemoj. Intertempe bonvolu provi la normalan alŝutan formularon.",
 	"mwe-upwiz-step-tutorial": "Lerni",
 	"mwe-upwiz-step-file": "Alŝuti",

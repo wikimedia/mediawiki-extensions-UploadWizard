@@ -27,7 +27,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:올리기 마법사 캠페인 편집자",
 	"group-upwizcampeditors.css": "/* 이 CSS 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */",
 	"group-upwizcampeditors.js": "/* 이 자바스크립트 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */",
-	"mwe-upwiz-js-off": "올리기 마법사는 향상된 인터페이스를 제공하기 위해 자바스크립트를 이용합니다. 브라우저가 자바스크립트를 지원하지 않거나 자바스크립트가 꺼져 있어 단순한 올리기 마법사를 표시합니다.",
 	"mwe-upwiz-extension-disabled": "이 문서는 일시적인 기술적 문제로 인해 비활성화되었습니다. 그 동안 표준 양식을 통해 올리기를 시도하세요.",
 	"mwe-upwiz-step-tutorial": "알아보기",
 	"mwe-upwiz-step-file": "올리기",

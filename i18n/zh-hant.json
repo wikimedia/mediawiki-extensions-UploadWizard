@@ -29,7 +29,6 @@
 	"group-upwizcampeditors": "上傳精靈活動編輯器",
 	"group-upwizcampeditors-member": "{{GENDER:$1|上傳精靈活動編輯器}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:上傳精靈活動編輯器",
-	"mwe-upwiz-js-off": "UploadWizard 使用了 JavaScript 改善使用者介面。 您的瀏覽器不支援或未開啟 JavaScript，因此改顯示簡易的上傳表單。",
 	"mwe-upwiz-extension-disabled": "因暫時的技術性問題，此頁面已停用。 在此期間請嘗試使用標準表單上傳。",
 	"mwe-upwiz-step-tutorial": "學習",
 	"mwe-upwiz-step-file": "上傳",

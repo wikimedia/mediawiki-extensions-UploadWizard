@@ -20,7 +20,6 @@
 	"group-upwizcampeditors": "Įkėlimo vedlio kampanijos redaktoriai",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Įkėlimo vedlio kampanijos redaktorius}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Įkėlimo vedlio kampanijos redaktoriai",
-	"mwe-upwiz-js-off": "Įkėlimo vedlys naudoja JavaScript, kad būtų pagerintas interfeisas. Jūsų naršyklė arba nepalaiko JavaScript arba JavaScript yra išjungtas, todėl paprasta įkėlimo forma negali būti parodyta.",
 	"mwe-upwiz-extension-disabled": "Šis puslapis buvo deaktyvuotas dėl laikinų techninių problemų. Todėl siūlome pabandyti standartinę įkėlimo formą.",
 	"mwe-upwiz-step-tutorial": "Sužinokite",
 	"mwe-upwiz-step-file": "Įkelti",

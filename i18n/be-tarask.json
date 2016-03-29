@@ -23,7 +23,6 @@
 	"group-upwizcampeditors": "Рэдактары кампаній Майстра загрузак",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Рэдактар кампаній Майстра загрузак|Рэдактарка кампаній Майстра загрузак}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Рэдактары кампаній Майстра загрузак",
-	"mwe-upwiz-js-off": "UploadWizard выкарыстоўвае JavaScript для паляпшэньня інтэрфэйсу. Магчыма Ваш браўзэр не падтрымлівае JavaScript ці JavaScript выключаны, таму паказваецца простая форма загрузкі.",
 	"mwe-upwiz-extension-disabled": "Гэтая старонка была адключана з-за часовых тэхнічных праблемаў. Выкарыстоўвайце пакуль стандартную форму загрузкі.",
 	"mwe-upwiz-step-tutorial": "Даведайцеся",
 	"mwe-upwiz-step-file": "Загрузіце",

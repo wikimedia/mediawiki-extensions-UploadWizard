@@ -33,7 +33,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:キャンペーン編集者",
 	"group-upwizcampeditors.css": "/* ここに記述したCSSはキャンペーン編集者へのみ影響します */",
 	"group-upwizcampeditors.js": "/* ここに記述したJSはキャンペーン編集者へのみ影響します */",
-	"mwe-upwiz-js-off": "アップロードウィザードはインターフェイス改善のためにJavaScriptを使用しています。ご使用中のブラウザーはJavaScriptに未対応か、JavaScriptが無効になっています。そのため、簡易版のアップロードフォームを表示します。",
 	"mwe-upwiz-extension-disabled": "このページは、一時的な技術的な問題のために無効になっています。復旧するまで、通常のアップロードフォームjを使ってみてください。",
 	"mwe-upwiz-step-tutorial": "詳細",
 	"mwe-upwiz-step-file": "アップロード",

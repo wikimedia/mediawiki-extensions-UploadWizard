@@ -33,7 +33,6 @@
 	"group-upwizcampeditors": "Editores de la campaña del Asistente de subidas",
 	"group-upwizcampeditors-member": "{{GENDER:$1|editor|editora}} de la campaña del Asistente de subidas",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores de la campaña del Asistente de subidas",
-	"mwe-upwiz-js-off": "El asistente de subidas utiliza JavaScript para una interfaz mejorada. Tu navegador no admite JavaScript o está desactivado, por lo que estamos mostrando un formulario de subida más simple.",
 	"mwe-upwiz-extension-disabled": "Esta página ha sido desactivada temporalmente debido a problemas técnicos. Mientras tanto puedes usar el formulario de subidas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Subir",

@@ -15,7 +15,6 @@
 	"group-upwizcampeditors": "Жүктеу шебері науқан өңдеушілері",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Жүктеу шебері науқан өңдеушісі}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Жүктеу шебері науқан өңдеушілері",
-	"mwe-upwiz-js-off": "Тілдесуді жақсарту үшін Жүктеу шеберінде JavaScript қолданылады. Сіздің шолғышыңыз JavaScript қолдамайды немесе JavaScript өшірілген, сондықтан сізге қарапайым жүктеу пішімін көрсетудеміз.",
 	"mwe-upwiz-extension-disabled": "Бұл бет уақытша техникалық мәселелерге байланысты өшірілген. Солай бола тұра стандарт жүктеу пішімін сынап көріңіз.",
 	"mwe-upwiz-step-tutorial": "Үйрену",
 	"mwe-upwiz-step-file": "Жүктеу",

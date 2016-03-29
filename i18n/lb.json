@@ -14,7 +14,6 @@
 	"right-upwizcampaigns": "Konfiguréieren vum Assistent fir d'Eropluede vu Campagnen.",
 	"group-upwizcampeditors": "Campagnen-Editeure vum Assistent fir eropzelueden (upload wizard)",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Campagnen-Editeur (Upload Wizard)",
-	"mwe-upwiz-js-off": "Den Assistent fir d'Eropluede vu Fichiere benotzt JavaScript fir d'Benotzen duerch Benotzer ze vereinfachen. Äre Browser ënnerstëtzt entweder kee JavaScript oder JavaScript gouf ausgeschalt. Dofir gëtt den einfache Formulaire fir d'Eropluede vu Fichiere benotzt.",
 	"mwe-upwiz-extension-disabled": "Dës Säit gouf wéint temporären technesche Problemer ausgeschalt. Probéiert et an der Zwëschenzäit mam Standard-Formulaire fir eropzelueden.",
 	"mwe-upwiz-step-tutorial": "Léieren",
 	"mwe-upwiz-step-file": "Eroplueden",
