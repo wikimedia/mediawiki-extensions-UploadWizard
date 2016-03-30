@@ -18,7 +18,7 @@
  * @author Ankur Anand <drecodeam@gmail.com>
  * @author Yuvi Panda <yuvipanda@gmail.com>
  * @license GPL v2 or later
- * @version 1.3
+ * @version 1.5
  */
 
 /* Configuration */
@@ -37,7 +37,7 @@ $wgExtensionCredits['other'][] = array(
 		'Nischay Nahata',
 		'Yuvi Panda'
 	),
-	'version' => '1.4.0',
+	'version' => '1.5.0',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard',
 	'license-name' => 'GPL-2.0+'
