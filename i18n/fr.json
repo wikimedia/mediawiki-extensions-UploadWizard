@@ -58,6 +58,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}: éditeurs de campagne de l’Assistant d’import",
 	"group-upwizcampeditors.css": "/* Le CSS placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
 	"group-upwizcampeditors.js": "/* Le Javascript placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
+	"mwe-upwiz-unavailable": "Votre navigateur n’est pas compatible avec UploadWizard ou a désactivé JavaScript ; nous vous affichons donc un formulaire de téléchargement simplifié. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Afficher les exigences de compatibilité].)",
 	"mwe-upwiz-extension-disabled": "Cette page a été désactivée en raison de problèmes techniques temporaires. En attendant, essayez avec le formulaire d’import standard.",
 	"mwe-upwiz-step-tutorial": "Apprendre",
 	"mwe-upwiz-step-file": "Importer",

@@ -44,6 +44,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:上传向导活动编辑",
 	"group-upwizcampeditors.css": "/* 这里放置的CSS将只影响上传向导活动编辑 */",
 	"group-upwizcampeditors.js": "/* 这里放置的JS将只影响上传向导活动编辑 */",
+	"mwe-upwiz-unavailable": "您的浏览器与上传向导不兼容，或已关闭JavaScript，因此我们正在向您显示一个简化的上传表单。（参见[https://www.mediawiki.org/wiki/UploadWizard#Compatibility 兼容性要求]。）",
 	"mwe-upwiz-extension-disabled": "因暂时的技术问题，本页面已停用。在此期间，请使用标准上传表格。",
 	"mwe-upwiz-step-tutorial": "教程",
 	"mwe-upwiz-step-file": "上传",

@@ -33,6 +33,7 @@
 	"group-upwizcampeditors": "Editores de la campaña del Asistente de subidas",
 	"group-upwizcampeditors-member": "{{GENDER:$1|editor|editora}} de la campaña del Asistente de subidas",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores de la campaña del Asistente de subidas",
+	"mwe-upwiz-unavailable": "Tu navegador no es compatible con UploadWizard o tienes JavaScript desactivado, por lo que te mostramos un formulario sencillo de carga. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidad].)",
 	"mwe-upwiz-extension-disabled": "Esta página ha sido desactivada temporalmente debido a problemas técnicos. Mientras tanto puedes usar el formulario de subidas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Subir",

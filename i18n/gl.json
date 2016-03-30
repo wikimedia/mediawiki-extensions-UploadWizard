@@ -22,6 +22,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores da campaña do asistente de cargas",
 	"group-upwizcampeditors.css": "/* O CSS que se coloque aquí afectará soamente aos editores da campaña do asistente de cargas */",
 	"group-upwizcampeditors.js": "/* O JS que se coloque aquí afectará soamente aos editores da campaña do asistente de cargas */",
+	"mwe-upwiz-unavailable": "O seu navegador non é compatible con UploadWizard ou ten o JavaScript desactivado, polo que lle amosamos un formulario sencillo de subida. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidade].)",
 	"mwe-upwiz-extension-disabled": "Esta páxina foi desactivada debido a problemas técnicos temporais. Entrementres, pode empregar o formulario de cargas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Subir",
