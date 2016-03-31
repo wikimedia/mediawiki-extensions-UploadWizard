@@ -540,6 +540,12 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	font-weight: bold;
 }
 
+/* This is basically a custom widget, ugh */
+.mwe-upwiz-metadata-copier .oo-ui-fieldsetLayout {
+	padding-top: 0.25em;
+	padding-bottom: 0.5em;
+}
+
 .mwe-upwiz-metadata-copier .oo-ui-fieldLayout {
 	margin-bottom: 0;
 }
