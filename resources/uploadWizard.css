@@ -527,12 +527,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	padding: 0.5em;
 }
 
-/* Refer ---> http://stackoverflow.com/questions/17047694/add-line-break-to-before-or-after-pseudo-element-content */
-.mwe-loc-link:before {
-	content: '\a';
-	white-space: pre;
-}
-
 .mwe-upwiz-objref-pick-image {
 	font-weight: bold;
 }
