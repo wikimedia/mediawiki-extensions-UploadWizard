@@ -152,12 +152,9 @@
 
 		// Open "more info" if that part of the form has errors
 		$errorElements.each( function () {
-			var moreInfo;
-			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
-				moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
-				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-					moreInfo.click();
-				}
+			var $collapsibleWrapper = $( this ).closest( '.mwe-more-details' );
+			if ( $collapsibleWrapper.length ) {
+				$collapsibleWrapper.data( 'mw-collapsible' ).expand();
 			}
 		} );
 
@@ -188,12 +185,9 @@
 
 		// Open "more info" if that part of the form has warnings
 		$warningElements.each( function () {
-			var moreInfo;
-			if ( $( this ).parents( '.mwe-more-details' ).length === 1 ) {
-				moreInfo = $( this ).parents( '.detailsForm' ).find( '.mwe-upwiz-details-more-options a' );
-				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-					moreInfo.click();
-				}
+			var $collapsibleWrapper = $( this ).closest( '.mwe-more-details' );
+			if ( $collapsibleWrapper.length ) {
+				$collapsibleWrapper.data( 'mw-collapsible' ).expand();
 			}
 		} );
 

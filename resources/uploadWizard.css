@@ -64,13 +64,6 @@ form.mwe-upwiz-form {
 	font-size: large;
 }
 
-.mwe-upwiz-more-options {
-	outline: none;
-	cursor: pointer;
-	display: inline-block;
-	margin-top: 10px;
-}
-
 #mwe-upwiz-add-file {
 	position: relative;
 	overflow: hidden;
@@ -366,7 +359,6 @@ form.mwe-upwiz-form {
 .mwe-upwiz-data {
 	float: left;
 	width: 46em;
-	margin-bottom: 1em;
 	padding-right: 1em; /* fix for 100% width textareas in mwe-upwiz-data */
 }
 
@@ -445,24 +437,28 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	vertical-align: top;
 }
 
-.mwe-upwiz-toggler {
-	margin-bottom: 0;
+.mwe-upwiz-details-more-options,
+.mwe-upwiz-details-copy-metadata,
+.mwe-upwiz-deed-license-group-head {
+	margin-top: 10px;
 	padding-left: 1.5em;
-	/* @embed */
-	background: url('images/toggle-ltr.png') no-repeat left center;
+	cursor: pointer;
+	outline: none;
+	display: block;
 }
 
-.mwe-upwiz-toggler-open {
-	/* @embed */
-	background: url('images/toggle-open.png') no-repeat left center;
+.mwe-upwiz-details-more-options.mw-collapsible-toggle,
+.mwe-upwiz-details-copy-metadata.mw-collapsible-toggle,
+.mwe-upwiz-deed-license-group-head.mw-collapsible-toggle {
+	/* Override jquery.makeCollapsible styles */
+	float: none;
+	/* Override mediawiki.icon styles */
+	background-position: left center;
 }
 
-.mwe-upwiz-toggler-content {
+.mwe-upwiz-deed-license-group-body {
+	margin-bottom: 1em;
 	padding-left: 1.5em;
-}
-
-.mwe-upwiz-toggled {
-	margin-top: 0.5em;
 }
 
 .mwe-upwiz-thanks {
@@ -472,6 +468,11 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 .mwe-readonly {
 	background-color: #ffffff;
 	padding: 0.25em;
+}
+
+.mwe-upwiz-metadata-copier .mw-collapsible-content,
+.mwe-more-details .mw-collapsible-content {
+	margin-bottom: 1em;
 }
 
 #upload-wizard .ui-corner-tl {

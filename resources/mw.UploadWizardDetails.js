@@ -12,7 +12,7 @@
 	mw.UploadWizardDetails = function ( upload, containerDiv ) {
 		var
 			descriptionRequired, uri,
-			moreDetailsCtrlDiv, moreDetailsDiv,
+			$moreDetailsWrapperDiv, $moreDetailsDiv,
 			details = this;
 
 		this.upload = upload;
@@ -83,8 +83,8 @@
 		} );
 		this.mainFields.push( this.dateDetailsField );
 
-		moreDetailsCtrlDiv = $( '<div class="mwe-upwiz-details-more-options"></div>' );
-		moreDetailsDiv = $( '<div class="mwe-more-details"></div>' );
+		$moreDetailsWrapperDiv = $( '<div class="mwe-more-details">' );
+		$moreDetailsDiv = $( '<div></div>' );
 
 		this.otherDetails = new uw.OtherDetailsWidget();
 		this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
@@ -105,7 +105,7 @@
 		} );
 		this.mainFields.push( this.locationInputField );
 
-		$( moreDetailsDiv ).append(
+		$moreDetailsDiv.append(
 			this.locationInputField.$element,
 			this.otherDetailsField.$element
 		);
@@ -145,9 +145,16 @@
 			}
 		} );
 
+		$moreDetailsWrapperDiv
+			.append(
+				$( '<a>' ).text( mw.msg( 'mwe-upwiz-more-options' ) )
+					.addClass( 'mwe-upwiz-details-more-options mw-collapsible-toggle mw-collapsible-arrow' ),
+				$moreDetailsDiv.addClass( 'mw-collapsible-content' )
+			)
+			.makeCollapsible( { collapsed: true } );
+
 		this.$form.append(
-			moreDetailsCtrlDiv,
-			moreDetailsDiv
+			$moreDetailsWrapperDiv
 		);
 
 		this.submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
@@ -181,12 +188,6 @@
 		$( this.div ).append(
 			this.thumbnailDiv,
 			this.dataDiv
-		);
-
-		this.makeToggler(
-			moreDetailsCtrlDiv,
-			moreDetailsDiv,
-			'mwe-upwiz-more-options'
 		);
 
 		uri = new mw.Uri( location.href, { overrideKeys: true } );
@@ -284,7 +285,6 @@
 		copyMetadata: function ( metadataType ) {
 			var titleZero, matches, i, j, currentTitle,
 				uploads = this.upload.wizard.uploads,
-				moreInfo,
 				sourceValue,
 				sourceUpload = uploads[ 0 ];
 
@@ -359,10 +359,8 @@
 			if ( metadataType === 'location' || metadataType === 'other' ) {
 				// Expand collapsed sections if we changed the fields within
 				for ( i = 1; i < uploads.length; i++ ) {
-					moreInfo = uploads[ i ].details.$form.find( '.mwe-upwiz-details-more-options a' );
-					if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-						moreInfo.click();
-					}
+					uploads[ i ].details.$form.find( '.mwe-more-details' )
+						.data( 'mw-collapsible' ).expand();
 				}
 			}
 		},
@@ -378,14 +376,14 @@
 				copyTypes = {},
 				fieldset = new OO.ui.FieldsetLayout(),
 				details = this,
-				$copyMetadataDiv = $( '<div class="mwe-upwiz-metadata-copier"></div>' );
+				$copyMetadataDiv = $( '<div>' );
 
 			if ( mw.UploadWizard.config.copyMetadataFeature !== true ||
-				this.copyMetadataCtrlDiv !== undefined ) {
+				this.$copyMetadataWrapperDiv !== undefined ) {
 				return;
 			}
 
-			this.copyMetadataCtrlDiv = $( '<div class="mwe-upwiz-details-copy-metadata"></div>' );
+			this.$copyMetadataWrapperDiv = $( '<div>' ).addClass( 'mwe-upwiz-metadata-copier' );
 
 			$copyMetadataDiv.append( fieldset.$element );
 
@@ -434,14 +432,16 @@
 
 			$copyMetadataDiv.append( copyButton.$element );
 
-			this.makeToggler(
-				this.copyMetadataCtrlDiv,
-				$copyMetadataDiv,
-				'mwe-upwiz-copy-metadata'
-			);
+			this.$copyMetadataWrapperDiv
+				.append(
+					$( '<a>' ).text( mw.msg( 'mwe-upwiz-copy-metadata' ) )
+						.addClass( 'mwe-upwiz-details-copy-metadata mw-collapsible-toggle mw-collapsible-arrow' ),
+					$copyMetadataDiv.addClass( 'mw-collapsible-content' )
+				)
+				.makeCollapsible( { collapsed: true } );
 
-			this.$form.append( this.copyMetadataCtrlDiv, $copyMetadataDiv );
-			this.copyMetadataCtrlDiv.show();
+			this.$form.append( this.$copyMetadataWrapperDiv );
+			this.$copyMetadataWrapperDiv.show();
 		},
 
 		/**
@@ -674,7 +674,7 @@
 		 * to decimal format.  Let's just use that.
 		 */
 		prefillLocation: function () {
-			var dir, moreInfo,
+			var dir,
 				m = this.upload.imageinfo.metadata,
 				modified = false,
 				values = {};
@@ -728,10 +728,8 @@
 			this.locationInput.setSerialized( values );
 
 			if ( modified ) {
-				moreInfo = this.$form.find( '.mwe-upwiz-details-more-options a' );
-				if ( !moreInfo.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-					moreInfo.click();
-				}
+				this.$form.find( '.mwe-more-details' )
+					.data( 'mw-collapsible' ).expand();
 			}
 		},
 
@@ -1103,52 +1101,6 @@
 				.show()
 				.removeClass( 'mwe-upwiz-status-progress mwe-upwiz-status-error mwe-upwiz-status-uploaded' )
 				.addClass( 'mwe-upwiz-status-' + statusStr );
-		},
-
-		/**
-		 * Simple 'more options' toggle that opens more of a form.
-		 *
-		 * @param {jQuery} $toggleDiv the div which has the control to open and shut custom options
-		 * @param {jQuery} $moreDiv the div containing the custom options
-		 * @param {string} msg the UI message key to use for the toggler
-		 *		(with mwe-upwiz- prefix for UploadWizard messages)
-		 */
-		makeToggler: function ( $toggleDiv, $moreDiv, msg ) {
-			var $toggleLink, actualMsg;
-
-			function toggle() {
-				var isOpen = $toggleLink.hasClass( 'mwe-upwiz-toggler-open' );
-				if ( isOpen ) {
-					// hide the extra options
-					$moreDiv.slideUp( 250 );
-					/* when closed, show control to open */
-					$toggleLink.removeClass( 'mwe-upwiz-toggler-open' );
-				} else {
-					// show the extra options
-					$moreDiv.slideDown( 250 );
-					/* when open, show control to close */
-					$toggleLink.addClass( 'mwe-upwiz-toggler-open' );
-				}
-			}
-
-			if ( typeof msg === 'object' ) {
-				actualMsg = mw.message.apply( this, msg ).text();
-			} else {
-				actualMsg = mw.message( msg ).text();
-			}
-			$toggleLink = $( '<a>' )
-				.addClass( 'mwe-upwiz-toggler mwe-upwiz-more-options' )
-				.text( actualMsg );
-			$toggleDiv.append( $toggleLink );
-
-			$moreDiv.hide();
-
-			$toggleLink.click( function ( e ) {
-				e.stopPropagation();
-				toggle();
-			} );
-
-			$moreDiv.addClass( 'mwe-upwiz-toggled' );
 		},
 
 		setVisibleTitle: function ( s ) {

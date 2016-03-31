@@ -533,39 +533,4 @@
 			);
 	};
 
-	/**
-	 * jQuery plugin - collapse toggle
-	 * Given an element, makes contained elements of class mw-collapsible-toggle clickable to show/reveal
-	 * contained element(s) of class mw-collapsible-content.
-	 *
-	 * Somewhat recapitulates mw.UploadWizardUtil.makeToggler,
-	 * toggle() in vector.collapsibleNav.js, not to mention jquery.collapsible
-	 * but none of those do what we want, or are inaccessible to us
-	 *
-	 * TODO: needs to iterate through elements, if we want to apply toggling behavior to many elements at once
-	 * TODO: add a method to open and close besides clicking
-	 */
-	jQuery.fn.collapseToggle = function () {
-		var $el = this,
-			$contents = $el.find( '.mwe-upwiz-toggler-content' ).hide(),
-			$toggle = $el.find( '.mwe-upwiz-toggler' ).addClass( 'mwe-upwiz-more-options' );
-		$el.data( 'open', function () {
-			$contents.slideDown( 250 );
-			$toggle.addClass( 'mwe-upwiz-toggler-open' );
-		} );
-		$el.data( 'close', function () {
-			$contents.slideUp( 250 );
-			$toggle.removeClass( 'mwe-upwiz-toggler-open' );
-		} );
-		$toggle.click( function ( e ) {
-			e.stopPropagation();
-			if ( $toggle.hasClass( 'mwe-upwiz-toggler-open' ) ) {
-				$el.data( 'close' )();
-			} else {
-				$el.data( 'open' )();
-			}
-		} );
-		return this;
-	};
-
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
