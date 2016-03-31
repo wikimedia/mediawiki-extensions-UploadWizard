@@ -203,14 +203,18 @@
 									.promise().done( function () {
 										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
 									} );
-								deed.licenseInputField.$element.slideUp().fadeOut( { queue: false } );
+								deed.licenseInputField.$element
+									.slideUp()
+									.animate( { opacity: 0 }, { queue: false, easing: 'linear' } );
 								$( this ).msg( 'mwe-upwiz-license-show-all' );
 							} else {
 								$crossfader.morphCrossfade( $customDiv )
 									.promise().done( function () {
 										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
 									} );
-								deed.licenseInputField.$element.fadeIn().slideDown( { queue: false } );
+								deed.licenseInputField.$element
+									.slideDown()
+									.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );
 								$( this ).msg( 'mwe-upwiz-license-show-recommended' );
 							}
 						} ) );
