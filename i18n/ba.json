@@ -8,7 +8,8 @@
 			"Айсар",
 			"Азат Хәлилов",
 			"Гизатуллина",
-			"Янмурза Баки"
+			"Янмурза Баки",
+			"Вильданова Гюзель"
 		]
 	},
 	"mwe-upwiz-uploadcampaigns": "Тейәү кампаниялары",
@@ -40,7 +41,7 @@
 	"mwe-upwiz-transport-started": "Башлана...",
 	"mwe-upwiz-uploading": "Серверға тейәү...",
 	"mwe-upwiz-transported": "Тамам",
-	"mwe-upwiz-stashed-upload": "Тамам",
+	"mwe-upwiz-stashed-upload": "Тейәлде",
 	"mwe-upwiz-published": "Баҫтырылды",
 	"mwe-upwiz-remove": "Юйырға",
 	"mwe-upwiz-override": "Бар осраҡта ла йөкләргә",
@@ -87,7 +88,7 @@
 	"mwe-upwiz-feedback-prompt": "Баһалама ҡалдырырға",
 	"mwe-upwiz-feedback-title": "Тейәү Оҫтаһы тураһында баһалама яҙығыҙ",
 	"mwe-upwiz-errordialog-ok": "Тамам",
-	"prefs-uploads": "Тейәүҙәр",
+	"prefs-uploads": "Күсереү",
 	"mwe-upwiz-prefs-def-license": "Ғәҙәттәге рөхсәтнәмә",
 	"mwe-upwiz-prefs-def-license-def": "Ғәҙәттәгене ҡулланырға"
 }
