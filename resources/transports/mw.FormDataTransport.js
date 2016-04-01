@@ -10,7 +10,6 @@
 	 * @param {Object} [config]
 	 * @param {Object} [config.chunkSize]
 	 * @param {Object} [config.maxPhpUploadSize]
-	 * @param {Object} [config.enableChunked]
 	 * @param {Object} [config.useRetryTimeout]
 	 */
 	mw.FormDataTransport = function ( postUrl, formData, config ) {
@@ -129,7 +128,7 @@
 			this.tempname = this.tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
 		}
 
-		if ( this.config.enableChunked && file.size > chunkSize ) {
+		if ( file.size > chunkSize ) {
 			totalUploaded = 0;
 			// The progress notifications give us per-chunk progress, filter them to get progress
 			// for the whole file

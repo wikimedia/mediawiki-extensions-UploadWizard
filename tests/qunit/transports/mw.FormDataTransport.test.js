@@ -18,17 +18,15 @@
 ( function ( mw, $ ) {
 	QUnit.module( 'mw.FormDataTransport', QUnit.newMwEnvironment() );
 
-	function createTransport( enableChunked, chunkSize ) {
+	function createTransport( chunkSize ) {
 		var config;
 
-		enableChunked = ( enableChunked === undefined ) ? false : enableChunked;
 		chunkSize = chunkSize || 0;
 
 		config = {
 			useRetryTimeout: false,
 			chunkSize: chunkSize,
-			enableChunked: enableChunked,
-			maxPhpUploadSize: 0
+			maxPhpUploadSize: chunkSize
 		};
 
 		return new mw.FormDataTransport( '/w/api.php', {}, config );
@@ -55,7 +53,7 @@
 	} );
 
 	QUnit.test( 'createXHR', 1, function ( assert ) {
-		var transport = createTransport( false, 10 ),
+		var transport = createTransport( 10 ),
 			xhr = transport.createXHR();
 
 		assert.ok( xhr );
@@ -65,7 +63,7 @@
 	} );
 
 	QUnit.test( 'createFormData', 1, function ( assert ) {
-		var transport = createTransport( false, 10 ),
+		var transport = createTransport( 10 ),
 			fd = transport.createFormData( 'foobar.jpg', 0 );
 
 		assert.ok( fd );
@@ -75,7 +73,7 @@
 	} );
 
 	QUnit.test( 'sendData', 2, function ( assert ) {
-		var transport = createTransport( false, 10 ),
+		var transport = createTransport( 10 ),
 			fakexhr = { open: this.sandbox.stub(), send: this.sandbox.stub() };
 
 		transport.sendData( fakexhr, {} );
@@ -85,7 +83,7 @@
 
 	QUnit.test( 'upload', 4, function ( assert ) {
 		var request,
-			transport = createTransport( false, 10 ),
+			transport = createTransport( 10 ),
 			fakeFile = {
 				name: 'test file for fdt.jpg',
 				size: 5
@@ -105,7 +103,7 @@
 
 	QUnit.test( 'uploadChunk', 4, function ( assert ) {
 		var request,
-			transport = createTransport( true, 10 ),
+			transport = createTransport( 10 ),
 			fakeFile = {
 				name: 'test file for fdt.jpg',
 				size: 20,
@@ -131,7 +129,7 @@
 	} );
 
 	QUnit.test( 'checkStatus', 8, function ( assert ) {
-		var transport = createTransport( false, 10 ),
+		var transport = createTransport( 10 ),
 			usstub = this.sandbox.stub(),
 			tstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
@@ -186,7 +184,7 @@
 	} );
 
 	QUnit.test( 'parseResponse', 2, function ( assert ) {
-		var transport = createTransport( false, 10 ),
+		var transport = createTransport( 10 ),
 			response = {
 				target: {
 					responseText: '{"testing": "testing"}'

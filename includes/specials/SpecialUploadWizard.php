@@ -242,11 +242,6 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 		}
 
-		if ( $config['enableChunked'] === 'opt-in' ) {
-			// Respect individual user's opt-in settings
-			$config['enableChunked'] = (bool)$this->getUser()->getOption( 'upwiz-chunked' );
-		}
-
 		$bitmapHandler = new BitmapHandler();
 		$this->getOutput()->addJsConfigVars(
 			array(
