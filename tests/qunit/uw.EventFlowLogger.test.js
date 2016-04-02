@@ -19,8 +19,8 @@
 	QUnit.module( 'uw.EventFlowLogger', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'sanity test', 5, function ( assert ) {
-		var eventLog = { logEvent: this.sandbox.stub() },
-			logger = new uw.EventFlowLogger( eventLog );
+		var logger = new uw.EventFlowLogger();
+		this.sandbox.stub( mw, 'track' );
 
 		delete uw.EventFlowLogger.flowId;
 		delete uw.EventFlowLogger.flowPosition;
@@ -28,11 +28,11 @@
 		logger.logStep( 'foo' );
 		logger.logSkippedStep( 'bar' );
 		logger.logEvent( 'baz' );
-		assert.ok( eventLog.logEvent.calledThrice, 'all steps were logged' );
-		assert.strictEqual( eventLog.logEvent.firstCall.args[ 1 ].flowPosition, 1, 'first event has position 1' );
-		assert.strictEqual( eventLog.logEvent.thirdCall.args[ 1 ].flowPosition, 3, 'third event has position 3' );
-		assert.ok( eventLog.logEvent.firstCall.args[ 1 ].flowId, 'events have a flowId' );
-		assert.strictEqual( eventLog.logEvent.firstCall.args[ 1 ].flowId,
-			eventLog.logEvent.thirdCall.args[ 1 ].flowId, 'flowId is constant' );
+		assert.ok( mw.track.calledThrice, 'all steps were logged' );
+		assert.strictEqual( mw.track.firstCall.args[ 1 ].flowPosition, 1, 'first event has position 1' );
+		assert.strictEqual( mw.track.thirdCall.args[ 1 ].flowPosition, 3, 'third event has position 3' );
+		assert.ok( mw.track.firstCall.args[ 1 ].flowId, 'events have a flowId' );
+		assert.strictEqual( mw.track.firstCall.args[ 1 ].flowId,
+			mw.track.thirdCall.args[ 1 ].flowId, 'flowId is constant' );
 	} );
 }( mediaWiki, mediaWiki.uploadWizard ) );

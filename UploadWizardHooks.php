@@ -697,22 +697,6 @@ class UploadWizardHooks {
 	 * @return bool
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
-		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
-			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
-				'ext.eventLogging',
-				'schema.UploadWizardTutorialActions',
-				'schema.UploadWizardUploadActions',
-			);
-
-			self::$modules['uw.EventFlowLogger']['dependencies'] += array(
-				'ext.eventLogging',
-				'schema.UploadWizardStep',
-				'schema.UploadWizardFlowEvent',
-				'schema.UploadWizardErrorFlowEvent',
-				'schema.UploadWizardUploadFlowEvent',
-			);
-		}
-
 		foreach ( self::$modules as $name => $resources ) {
 			$resourceLoader->register(
 				$name,

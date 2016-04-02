@@ -21,10 +21,8 @@
 	 * Event logging helper for funnel analysis. Should be instantiated at the very beginning; uses internal state
 	 * to link events together.
 	 * @constructor
-	 * @param {Object} eventLog mw.eventLog object, for dependency injection
 	 */
-	uw.EventFlowLogger = function UWEventFlowLogger( eventLog ) {
-		this.eventLog = eventLog;
+	uw.EventFlowLogger = function UWEventFlowLogger() {
 	};
 
 	/**
@@ -87,12 +85,9 @@
 	 * @param {Object} data event data (without flowId)
 	 */
 	uw.EventFlowLogger.prototype.log = function ( schema, data ) {
-		if ( !this.eventLog ) {
-			return;
-		}
 		data.flowId = this.getFlowId();
 		data.flowPosition = this.getFlowPosition();
-		this.eventLog.logEvent( schema, data );
+		mw.track( 'event.' + schema, data );
 	};
 
 	/**
@@ -165,5 +160,5 @@
 	};
 
 	// FIXME
-	uw.eventFlowLogger = new uw.EventFlowLogger( mw.eventLog );
+	uw.eventFlowLogger = new uw.EventFlowLogger();
 }( mediaWiki, mediaWiki.uploadWizard ) );
