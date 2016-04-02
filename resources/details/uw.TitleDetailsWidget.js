@@ -64,6 +64,7 @@
 		var
 			errors = [],
 			value = this.titleInput.getValue().trim(),
+			processDestinationCheck = this.processDestinationCheck,
 			title = this.getTitle();
 
 		if ( value === '' ) {
@@ -76,21 +77,22 @@
 			return $.Deferred().resolve( errors ).promise();
 		}
 
-		// If we have access to a title blacklist, assume it knows better.
-		// Otherwise check for some likely undesirable patterns.
-		if ( !mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
-			errors = errors.concat(
-				mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( function ( errorCode ) {
-					// Messages:
-					// mwe-upwiz-error-title-badchars, mwe-upwiz-error-title-senselessimagename,
-					// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
-					return mw.message( 'mwe-upwiz-error-title-' + errorCode );
-				} )
-			);
-		}
-
 		return mw.DestinationChecker.checkTitle( title.getPrefixedText() )
-			.then( this.processDestinationCheck )
+			.then( function ( result ) {
+				var moreErrors = processDestinationCheck( result );
+				if ( result.blacklist.unavailable ) {
+					// We don't have a title blacklist, so just check for some likely undesirable patterns.
+					moreErrors = moreErrors.concat(
+						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( function ( errorCode ) {
+							// Messages:
+							// mwe-upwiz-error-title-badchars, mwe-upwiz-error-title-senselessimagename,
+							// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
+							return mw.message( 'mwe-upwiz-error-title-' + errorCode );
+						} )
+					);
+				}
+				return moreErrors;
+			} )
 			.then( function ( moreErrors ) {
 				return [].concat( errors, moreErrors );
 			}, function () {

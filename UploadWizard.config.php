@@ -642,9 +642,6 @@ return array(
 	// Wiki page that lists alternative ways to upload
 	'alternativeUploadToolsPage' => 'Commons:Upload_tools',
 
-	// Is titleBlacklist API even available?
-	'useTitleBlacklistApi' => array_key_exists( 'titleblacklist', $wgAPIModules ),
-
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
 

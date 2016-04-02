@@ -72,12 +72,21 @@
 				return $.Deferred().resolve( this.cachedBlacklist[ title ] );
 			}
 
-			if ( mw.config.get( 'UploadWizardConfig' ).useTitleBlacklistApi ) {
-				return this.api.isBlacklisted( title ).then( blacklistResultProcessor );
-			} else {
-				// it's not blacklisted, because the API isn't even available
-				return $.Deferred().resolve( { notBlacklisted: true } );
+			// This shouldn't be needed. T131612
+			function safeUsing( modules ) {
+				try {
+					return mw.loader.using( modules );
+				} catch ( err ) {
+					return $.Deferred().reject( err );
+				}
 			}
+
+			return safeUsing( 'mediawiki.api.titleblacklist' ).then( function () {
+				return checker.api.isBlacklisted( title ).then( blacklistResultProcessor );
+			}, function () {
+				// it's not blacklisted, because the API isn't even available
+				return $.Deferred().resolve( { notBlacklisted: true, unavailable: true } );
+			} );
 		},
 
 		/**

@@ -697,10 +697,6 @@ class UploadWizardHooks {
 	 * @return bool
 	 */
 	public static function resourceLoaderRegisterModules( &$resourceLoader ) {
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'TitleBlacklist' ) ) {
-			self::$modules['ext.uploadWizard']['dependencies'][] = 'mediawiki.api.titleblacklist';
-		}
-
 		if ( class_exists( 'ResourceLoaderSchemaModule' ) ) {
 			self::$modules['ext.uploadWizard.events']['dependencies'] = array(
 				'ext.eventLogging',
