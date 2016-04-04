@@ -7,7 +7,8 @@
 			"Vladimir Penov",
 			"Matma Rex",
 			"Vodnokon4e",
-			"Macofe"
+			"Macofe",
+			"V111P"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -44,7 +45,7 @@
 	"mwe-upwiz-published": "Публикувано!",
 	"mwe-upwiz-failed": "Неуспех.",
 	"mwe-upwiz-remove": "Премахване",
-	"mwe-upwiz-override": "Качи все пак",
+	"mwe-upwiz-override": "Качи въпреки това",
 	"mwe-upwiz-remove-upload": "Премахване на този файл от списъка с файлове за качване",
 	"mwe-upwiz-remove-description": "Премахване на описанието",
 	"mwe-upwiz-upload": "Качване",
