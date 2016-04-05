@@ -38,6 +38,7 @@
 	"group-upwizcampeditors": "Редактори кампаній майстра завантажень",
 	"group-upwizcampeditors-member": "{{GENDER:$1|редактор майстра кампанії завантажень}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Upload Wizard campaign editors",
+	"mwe-upwiz-unavailable": "Ваш браузер несумісний з Майстром завантажень, або в ньому вимкнена підтримка JavaScript, через що ми показуємо Вам просту форму завантаження. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Див. вимоги для сумісності].)",
 	"mwe-upwiz-extension-disabled": "Ця сторінка була відключена через тимчасові технічні проблеми. Використайте стандартну форму завантаження.",
 	"mwe-upwiz-step-tutorial": "Вступ",
 	"mwe-upwiz-step-file": "Завантажити",
