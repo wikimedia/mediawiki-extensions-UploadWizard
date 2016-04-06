@@ -187,7 +187,7 @@
 	"mwe-upwiz-warning-categories-missing": "Iminumungkahi na lagyan ng iba pang mga kategoriya para sa iyong mga ikinarga",
 	"mwe-upwiz-details-error-count": "Mayroong {{PLURAL:$1|isang kamalian|mga $1 mga kamalian}} sa {{PLURAL:$2|pormularyo|mga pormularyo}}ng nasa itaas. Iwasto ang mga kamalian, at subukang magpasa ulit.",
 	"mwe-upwiz-too-many-files-text": "Isang ulit mo lamang na maikakargang papaitaas ang $1 {{PLURAL:$1|talaksan|mga talaksan}}. Sa kabuuan tinangka mong ikargang papaitaas ang $2 {{PLURAL:$2|talaksan|mga talaksan}}, kung kaya't tinanggal ang {{PLURAL:$3|talaksan|mga talaksan}}.",
-	"mwe-upwiz-too-many-files": "Napakaraming mga talaksan.",
+	"mwe-upwiz-too-many-files": "Labis na maraming mga file.",
 	"mwe-upwiz-file-too-large-text": "Maaari kang papaitaas na magkarga ng mga talaksang mayroong isang sukat na magpahanggang sa $1. Sinubukan mong magkargang papaitaas ng isang talaksan na $2.",
 	"mwe-upwiz-file-too-large": "Napakalaki ng talaksan.",
 	"mwe-upwiz-dialog-title": "Maikakarga ang mga talaksan na may mga pangalan sa anumang wika sa anumang panitik (naikodigo bilang UTF-8).  Ang mga pamagat ng mga talaksan ng midya ay dapat na makahulugan at makakatulong sa napiling wika.",
