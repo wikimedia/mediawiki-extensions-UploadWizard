@@ -252,6 +252,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-source-ownwork-cc-by-3.0-explain',
 				'mwe-upwiz-source-ownwork-assert-cc-zero',
 				'mwe-upwiz-source-ownwork-cc-zero-explain',
+				'mwe-upwiz-source-ownwork-assert-generic',
+				'mwe-upwiz-source-ownwork-generic-explain',
 				'mwe-upwiz-source-permission',
 				'mwe-upwiz-source-thirdparty',
 				'mwe-upwiz-source-thirdparty-intro',
@@ -411,6 +413,8 @@ class UploadWizardHooks {
 				'mwe-upwiz-license-custom-preview',
 				'mwe-upwiz-license-none',
 				'mwe-upwiz-license-none-head',
+				'mwe-upwiz-license-generic',
+				'mwe-upwiz-license-generic-head',
 				'mwe-upwiz-license-confirm-remove',
 				'mwe-upwiz-license-confirm-remove-title',
 				'mwe-upwiz-license-external',
@@ -690,7 +694,7 @@ class UploadWizardHooks {
 				'uw.model.base',
 			),
 		),
-		
+
 		'uw.ui.Tutorial' => array(
 			'scripts' => array(
 				'resources/ui/uw.ui.Tutorial.js',
