@@ -8,3 +8,4 @@ tests/browser/.gem
 tests/browser/.bundle
 node_modules
 .tox
+.DS_Store
