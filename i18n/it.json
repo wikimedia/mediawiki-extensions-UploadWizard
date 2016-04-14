@@ -313,7 +313,7 @@
 	"mwe-upwiz-feedback-title": "Lascia un commento sul Caricamento guidato",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Questa è la voce nella lista nera dei titoli di cui è stata trovata una corrispondenza:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Il titolo del mio caricamento, \"$1\", è stato rifiutato.",
-	"mwe-upwiz-errordialog-title": "C'è stato un errore nella tua richiesta",
+	"mwe-upwiz-errordialog-title": "Si è verificato un errore nella tua richiesta",
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Non c'è alcuna iniziativa con nome \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "L'iniziativa \"$1\" non è stata attivata.",
