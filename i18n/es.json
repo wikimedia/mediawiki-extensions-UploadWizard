@@ -303,6 +303,7 @@
 	"mwe-upwiz-license-custom-preview": "Vista previa",
 	"mwe-upwiz-license-none-head": "La encontré en Internet; no estoy seguro",
 	"mwe-upwiz-license-none": "Creo que {{PLURAL:$1|esta obra tiene|estas obras tienen}} una licencia libre o legalmente {{PLURAL:$1|está|están}} en el dominio público. Entiendo que si no añado la información de licencia necesaria a tiempo {{PLURAL:$1|el archivo puede ser eliminado|los archivos pueden ser eliminados}}.",
+	"mwe-upwiz-license-generic": "He revisado [[Project:General disclaimer|el descargo de este wiki]] y a mi entender {{PLURAL:$1|esta obra no tiene|estas obras no tienen}} niveles de protección de datos superiores a los de este wiki.",
 	"mwe-upwiz-license-confirm-remove": "¿Estás seguro de que quieres eliminar {{PLURAL:$1|esta subida|estas subidas}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmar la eliminación",
 	"mwe-upwiz-license-external": "Este archivo está bajo la siguiente licencia en el sitio de origen \"$1\": $2.",
