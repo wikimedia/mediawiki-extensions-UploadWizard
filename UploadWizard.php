@@ -378,6 +378,7 @@ $wgResourceModules += array(
 			'mwe-upwiz-source-ownwork-cc-zero-explain',
 			'mwe-upwiz-source-ownwork-assert-generic',
 			'mwe-upwiz-source-ownwork-generic-explain',
+			'disclaimerpage',
 			'mwe-upwiz-source-permission',
 			'mwe-upwiz-source-thirdparty',
 			'mwe-upwiz-source-thirdparty-intro',
