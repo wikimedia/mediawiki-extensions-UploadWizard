@@ -2,7 +2,7 @@
 	/**
 	 * Represents an object which configures a form to upload its files via an firefogg talking to the MediaWiki API.
 	 *
-	 * @param an UploadInterface object, which contains a .form property which points to a real HTML form in the DOM
+	 * @param {mw.UploadWizardUploadInterface} upload
 	 */
 
 	mw.FirefoggHandler = function ( upload, api ) {
