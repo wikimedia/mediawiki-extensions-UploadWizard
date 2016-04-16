@@ -163,7 +163,6 @@
 	"mwe-upwiz-upload-error-duplicate": "This file was previously uploaded to this wiki.",
 	"mwe-upwiz-upload-error-duplicate-archive": "This file was previously uploaded to this wiki, but later deleted.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Upload anyway?",
-	"mwe-upwiz-upload-error-unknown-filename-error": "We could not read or understand the filename \"$1\" for unknown reasons.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Unknown filename",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "A file with this name exists already. If you want to replace it, go to the page for [$2 $1] and replace it there.",
