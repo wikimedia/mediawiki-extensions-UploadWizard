@@ -21,7 +21,8 @@
 			"Macofe",
 			"SinNovedades",
 			"Yllelder",
-			"YoViajo"
+			"YoViajo",
+			"Lemondoge"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -124,6 +125,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, siempre que me citen como el autor)",
 	"mwe-upwiz-source-ownwork-assert-cc-zero": "Yo, $2, el titular de los derechos de autor de {{PLURAL:$1|esta obra|estas obras}}, cedo de forma irrevocable a cualquiera el derecho a utilizar {{PLURAL:$1|esta obra|estas obras}} bajo la licencia \"Creative Commons Zero Public Domain Dedication\" (dominio público) ([$3 código legal]).",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, sin ninguna clase de restricción)",
+	"mwe-upwiz-source-ownwork-generic-explain": "({{PLURAL:$1|Este trabajo es|Estas obras son}} aceptable para subir a este wiki)",
 	"mwe-upwiz-source-ownwork-assert-custom": "Yo, $2, el propietario de los derechos de {{PLURAL:$1|esta obra|estas obras}}, cedo de forma irrevocable a cualquiera el derecho a utilizar {{PLURAL:$1|esta obra|estas obras}} bajo la siguiente licencia:",
 	"mwe-upwiz-source-ownwork-assert-note": "Yo, el titular del copyright de {{PLURAL:$2|esta obra|estas obras}}, publico {{PLURAL:$2|esta obra|estas obras}} bajo la licencia $1.",
 	"mwe-upwiz-source-permission": "Su autor te dio permiso explícito para subirlos",
@@ -303,6 +305,7 @@
 	"mwe-upwiz-license-custom-preview": "Vista previa",
 	"mwe-upwiz-license-none-head": "La encontré en Internet; no estoy seguro",
 	"mwe-upwiz-license-none": "Creo que {{PLURAL:$1|esta obra tiene|estas obras tienen}} una licencia libre o legalmente {{PLURAL:$1|está|están}} en el dominio público. Entiendo que si no añado la información de licencia necesaria a tiempo {{PLURAL:$1|el archivo puede ser eliminado|los archivos pueden ser eliminados}}.",
+	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Este trabajo es|Estas obras son}} aceptable para subir a este wiki",
 	"mwe-upwiz-license-generic": "He revisado [[Project:General disclaimer|el descargo de este wiki]] y a mi entender {{PLURAL:$1|esta obra no tiene|estas obras no tienen}} niveles de protección de datos superiores a los de este wiki.",
 	"mwe-upwiz-license-confirm-remove": "¿Estás seguro de que quieres eliminar {{PLURAL:$1|esta subida|estas subidas}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmar la eliminación",
