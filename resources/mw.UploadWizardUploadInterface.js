@@ -309,10 +309,6 @@
 		this.showExtensionError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) );
 	};
 
-	mw.UploadWizardUploadInterface.prototype.showUnknownFilenameError = function ( filename ) {
-		this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-unknown-filename-error', filename ) );
-	};
-
 	mw.UploadWizardUploadInterface.prototype.showExtensionError = function ( $errorMessage ) {
 		this.showFilenameError(
 			$( '<div></div>' ).append(

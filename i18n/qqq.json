@@ -187,7 +187,6 @@
 	"mwe-upwiz-upload-error-duplicate": "Error shown when the file chosen by the user already exists on the wiki.",
 	"mwe-upwiz-upload-error-duplicate-archive": "Error shown when the file chosen by the user existed on the wiki before, but was deleted.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Confirmation message.",
-	"mwe-upwiz-upload-error-unknown-filename-error": "Used as error message. Parameters:\n* $1 - filename",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Text displayed instead of a file name in a list when it is not available.",
 	"mwe-upwiz-ok": "{{Identical|OK}}",
 	"mwe-upwiz-fileexists-replace-on-page": "Parameters:\n* $1 is an image name.\n* $2 is an URL.",
