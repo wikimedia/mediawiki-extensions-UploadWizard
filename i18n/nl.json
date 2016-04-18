@@ -161,7 +161,6 @@
 	"mwe-upwiz-upload-error-duplicate": "Dit bestand is eerder geüpload naar deze wiki.",
 	"mwe-upwiz-upload-error-duplicate-archive": "Dit bestand is eerder geüpload naar deze wiki, maar is later verwijderd.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Toch uploaden?",
-	"mwe-upwiz-upload-error-unknown-filename-error": "De bestandsnaam \"$1\" is om onbekende redenen niet te lezen of te begrijpen.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Onbekende bestandsnaam",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Er bestaat al een bestand met deze naam. Als u het wilt vervangen, ga dan naar de pagina voor [$2 $1] en vervang het daar.",

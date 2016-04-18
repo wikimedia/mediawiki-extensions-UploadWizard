@@ -175,7 +175,6 @@
 	"mwe-upwiz-upload-error-duplicate": "Ten plik został wcześniej przesłany do tej wiki.",
 	"mwe-upwiz-upload-error-duplicate-archive": "Ten plik został już załadowany na tą wiki wcześniej, ale później został usunięty.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Przesłać mimo to?",
-	"mwe-upwiz-upload-error-unknown-filename-error": "Nie można odczytać i zrozumieć nazwy pliku „$1“ z nieznanego powodu.",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nieznana nazwa pliku",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Plik o tej nazwie już istnieje. Jeśli chcesz go zastąpić, przejdź do strony [$2 $1] na której możesz to zrobić.",

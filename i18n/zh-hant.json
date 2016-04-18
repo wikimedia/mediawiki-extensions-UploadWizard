@@ -166,7 +166,6 @@
 	"mwe-upwiz-upload-error-duplicate": "此檔案先前已上傳到本 Wiki。",
 	"mwe-upwiz-upload-error-duplicate-archive": "此檔案曾上傳至此 Wiki，但後來被刪除。",
 	"mwe-upwiz-upload-error-stashed-anyway": "繼續上傳？",
-	"mwe-upwiz-upload-error-unknown-filename-error": "我們無法讀取或辨識檔案名稱 \"$1\"，原因不明。",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "未知檔案名稱",
 	"mwe-upwiz-ok": "確定",
 	"mwe-upwiz-fileexists-replace-on-page": "使用此名稱的檔案已經存在。若您想要取代該檔案，請至頁面 [$2 $1] 進行取代。",
