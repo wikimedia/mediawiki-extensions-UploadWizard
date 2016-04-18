@@ -119,7 +119,8 @@
 		errors = [];
 
 		try {
-			titleString = mw.UploadWizardDetails.makeTitleInFileNS( result.title ).getPrefixedText();
+			titleString = result.unique.title || result.title;
+			titleString = mw.UploadWizardDetails.makeTitleInFileNS( titleString ).getPrefixedText();
 		} catch ( e ) {
 			// Unparseable result? This shouldn't happen, we checked for that earlier...
 			errors.push( mw.message( 'mwe-upwiz-unparseable-title' ) );
