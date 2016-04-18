@@ -5,7 +5,7 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-( function ( mw, $, OO ) {
+( function ( mw, uw, $, OO ) {
 
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -147,7 +147,7 @@
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, info, additionalStatus );
-		this.emit( 'error', code, info );
+		uw.eventFlowLogger.logError( 'file', { code: code, message: info } );
 	};
 
 	/**
@@ -1188,4 +1188,4 @@
 		return mw.fileApi.isPreviewableVideo( this.file );
 	};
 
-} )( mediaWiki, jQuery, OO );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

@@ -352,10 +352,6 @@
 
 				.on( 'filename-accepted', function () {
 					wizard.steps.file.updateFileCounts( wizard.uploads );
-				} )
-
-				.on( 'error', function ( code, message ) {
-					uw.eventFlowLogger.logError( 'file', { code: code, message: message } );
 				} );
 
 			upload.connect( this, {

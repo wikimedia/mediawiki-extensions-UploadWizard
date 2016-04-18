@@ -1022,7 +1022,7 @@
 		 * @param {string} errorCode
 		 */
 		recoverFromError: function ( errorMessage, errorCode ) {
-			uw.eventFlowLogger.logError( 'details', { code: errorCode || 'details.recoverFromError.unknown', message: errorMessage } );
+			uw.eventFlowLogger.logError( 'details', { code: errorCode, message: errorMessage } );
 			this.upload.state = 'error';
 			this.dataDiv.morphCrossfade( '.detailsForm' );
 			this.titleDetailsField.setErrors( [ errorMessage ] );
