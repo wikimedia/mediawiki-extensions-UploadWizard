@@ -1062,7 +1062,7 @@
 				};
 
 			if ( code === 'badtoken' ) {
-				this.api.badToken( 'edit' );
+				this.api.badToken( 'csrf' );
 				// TODO Automatically try again instead of requiring the user to bonk the button
 			}
 

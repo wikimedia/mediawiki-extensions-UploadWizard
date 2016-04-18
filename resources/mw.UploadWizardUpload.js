@@ -179,7 +179,7 @@
 				code = result.error.code;
 			}
 			if ( code === 'badtoken' ) {
-				this.api.badToken( 'edit' );
+				this.api.badToken( 'csrf' );
 				// Try again once
 				if ( !this.ignoreWarning[ code ] ) {
 					this.removeErrors( code );
