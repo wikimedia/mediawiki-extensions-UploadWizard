@@ -60,15 +60,11 @@
 		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( this.removeCtrl.$element );
 
-		this.filenameCtrl = $( '<input type="hidden" name="filename" value=""/>' ).get( 0 );
+		this.$form = $( '<form>' )
+				.addClass( 'mwe-upwiz-form' )
+				.append( this.visibleFilenameDiv );
 
-		this.form = $( '<form method="POST" encType="multipart/form-data" class="mwe-upwiz-form"></form>' )
-				.attr( { action: this.upload.api.defaults.ajax.url } )
-				.append( this.visibleFilenameDiv )
-				.append( this.filenameCtrl )
-				.get( 0 );
-
-		$( this.div ).append( this.form );
+		$( this.div ).append( this.$form );
 
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
@@ -361,16 +357,9 @@
 		path = path.replace( /\w:.*\\(.*)$/, '$1' );
 
 		// visible filename
-		$( this.form ).find( '.mwe-upwiz-visible-file-filename-text' ).text( mw.UploadWizard.sanitizeFilename( path ) );
+		this.$form.find( '.mwe-upwiz-visible-file-filename-text' )
+			.text( mw.UploadWizard.sanitizeFilename( path ) );
 
-		// Set the filename we tell to the API to be the current timestamp + the filename
-		// This is because we don't actually care what the filename is at this point, we just want it to be unique for this session and have the
-		// proper file extension.
-		// Also, it avoids a problem -- the API only returns one error at a time and it thinks that the same-filename error is more important than same-content.
-		// But for UploadWizard, at this stage, it's the reverse. We want to stop same-content dead, but for now we ignore same-filename
-		$( this.filenameCtrl ).val( ( new Date() ).getTime().toString() + path );
-
-		// deal with styling the file inputs and making it react to mouse
 		if ( !this.isFilled ) {
 			$div = $( this.div );
 			this.isFilled = true;

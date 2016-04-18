@@ -1,9 +1,9 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 	/**
 	 * Represents an object which configures an html5 FormData object to upload.
 	 * Large files are uploaded in chunks.
 	 *
-	 * @param {mw.UploadWizardUploadInterface} upload Contains a .form property which points to a real HTML form in the DOM
+	 * @param {mw.UploadWizardUploadInterface} upload
 	 */
 	mw.ApiUploadFormDataHandler = function ( upload, api ) {
 		var handler = this;
@@ -11,7 +11,6 @@
 		this.upload = upload;
 		this.api = api;
 
-		this.$form = $( this.upload.ui.form );
 		this.formData = {
 			action: 'upload',
 			stash: 1,
@@ -23,7 +22,7 @@
 		} );
 
 		this.transport = new mw.FormDataTransport(
-			this.$form[ 0 ].action,
+			this.api.defaults.ajax.url,
 			this.formData
 		).on( 'update-stage', function ( stage ) {
 			upload.ui.setStatus( 'mwe-upwiz-' + stage );
@@ -75,4 +74,4 @@
 			} );
 		}
 	};
-}( mediaWiki, jQuery ) );
+}( mediaWiki ) );
