@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, uw ) {
 	/**
 	 * Represents an object which send a direct request to the MediaWiki API.
 	 * This is used when there is no actual file payload (eg. Flickr import)
@@ -25,12 +25,16 @@
 				url: this.upload.providedFile.url,
 				filename: this.beginTime.toString() + this.upload.filename
 			} )
-			.fail( function ( code, result ) {
-				handler.upload.setError( result.error.code, result.error.info );
+			.fail( function ( code, info, result ) {
+				uw.eventFlowLogger.logApiError( 'file', result );
+				handler.upload.setError( code, info );
 			} )
 			.done( function ( result ) {
+				if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+					uw.eventFlowLogger.logApiError( 'file', result );
+				}
 				handler.upload.setTransported( result );
 			} );
 		}
 	};
-}( mediaWiki ) );
+}( mediaWiki, mediaWiki.uploadWizard ) );

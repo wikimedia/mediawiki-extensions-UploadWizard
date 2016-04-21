@@ -874,10 +874,13 @@
 				return details.upload.api.postWithEditToken( params )
 					.then(
 						function ( result ) {
+							if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+								uw.eventFlowLogger.logApiError( 'details', result );
+							}
 							return details.handleSubmitResult( result, params );
 						},
-
-						function ( code, info ) {
+						function ( code, info, result ) {
+							uw.eventFlowLogger.logApiError( 'details', result );
 							details.upload.state = 'error';
 							details.processError( code, info );
 							return $.Deferred().reject( code, info );
@@ -923,8 +926,14 @@
 									checkstatus: true,
 									filekey: details.upload.fileKey
 								} ).then( function ( result ) {
+									if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+										uw.eventFlowLogger.logApiError( 'details', result );
+									}
 									return details.handleSubmitResult( result ).then( deferred.resolve, deferred.reject );
-								}, deferred.reject );
+								}, function ( code, info, result ) {
+									uw.eventFlowLogger.logApiError( 'details', result );
+									deferred.reject( code, info );
+								} );
 							} else {
 								deferred.resolve( 'aborted' );
 							}
@@ -969,8 +978,12 @@
 			} else if ( ignoreTheseWarnings ) {
 				params.ignorewarnings = 1;
 				return this.upload.api.postWithEditToken( params ).then( function ( result ) {
+					if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+						uw.eventFlowLogger.logApiError( 'details', result );
+					}
 					return details.handleSubmitResult( result );
 				}, function ( code, info ) {
+					uw.eventFlowLogger.logApiError( 'details', result );
 					return $.Deferred().reject( code, info );
 				} );
 			} else if ( result && result.upload.warnings ) {
@@ -992,8 +1005,12 @@
 						// let's steamroll over it and re-call this handler.
 						params.ignorewarnings = true;
 						return this.upload.api.postWithEditToken( params ).then( function ( result ) {
+							if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+								uw.eventFlowLogger.logApiError( 'details', result );
+							}
 							return details.handleSubmitResult( result );
 						}, function ( code, info ) {
+							uw.eventFlowLogger.logApiError( 'details', result );
 							return $.Deferred().reject( code, info );
 						} );
 					} else {

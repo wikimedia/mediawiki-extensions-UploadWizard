@@ -132,6 +132,35 @@
 		} );
 	};
 
+	uw.EventFlowLogger.prototype.logApiError = function ( step, result ) {
+		var code, message;
+		if ( !result ) {
+			code = 'api/empty';
+		} else if ( result.error ) {
+			code = 'api/error/' + result.error.code;
+		} else if ( result.upload ) {
+			code = 'api/warning/' + Object.keys( result.upload.warnings || {} ).sort().join( ',' );
+		} else {
+			code = '???';
+		}
+		if ( result && result.upload && result.upload.imageinfo ) {
+			// This can contain stupid amounts of data and exceed the length of what EventLogging can log.
+			// Let's hope we won't need to look at anything in there.
+			result = OO.copy( result );
+			delete result.upload.imageinfo;
+		}
+		try {
+			message = JSON.stringify( result );
+		} catch ( er ) {
+			message = String( result );
+		}
+		this.log( 'UploadWizardErrorFlowEvent', {
+			step: step,
+			code: code,
+			message: message
+		} );
+	};
+
 	/**
 	 * Logs an upload event.
 	 *
