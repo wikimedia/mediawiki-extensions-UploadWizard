@@ -142,6 +142,9 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'uw.base',
+			'json',
+			'es5-shim',
+			'oojs',
 		),
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',

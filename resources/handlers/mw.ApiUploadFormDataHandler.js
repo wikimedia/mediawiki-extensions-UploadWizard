@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, uw ) {
 	/**
 	 * Represents an object which configures an html5 FormData object to upload.
 	 * Large files are uploaded in chunks.
@@ -67,11 +67,15 @@
 							handler.upload.setTransportProgress( fraction );
 						}
 					} ).then( function ( result ) {
+						if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+							uw.eventFlowLogger.logApiError( 'file', result );
+						}
 						handler.upload.setTransported( result );
 					} );
-			}, function ( code, info ) {
+			}, function ( code, info, result ) {
+				uw.eventFlowLogger.logApiError( 'file', result );
 				handler.upload.setError( code, info );
 			} );
 		}
 	};
-}( mediaWiki ) );
+}( mediaWiki, mediaWiki.uploadWizard ) );
