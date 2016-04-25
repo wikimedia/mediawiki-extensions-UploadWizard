@@ -124,7 +124,7 @@
 			name: 'thirdparty',
 
 			setFormFields: function ( $selector ) {
-				var $defaultLicense, defaultLicense, defaultLicenseNum, defaultType,
+				var $defaultLicense, defaultLicense, defaultLicenseNum, defaultType, collapsible,
 					$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
 
 				this.$form = $( '<form>' );
@@ -156,10 +156,12 @@
 
 					if ( defaultLicenseNum ) {
 						$defaultLicense = $( '#license' + defaultLicenseNum );
-						$defaultLicense
+						collapsible = $defaultLicense
 							.closest( '.mwe-upwiz-deed-license-group' )
-							.find( '.mwe-upwiz-toggler' )
-							.click();
+							.data( 'mw-collapsible' );
+						if ( collapsible ) {
+							collapsible.expand();
+						}
 						$defaultLicense.prop( 'checked', true );
 					}
 				}

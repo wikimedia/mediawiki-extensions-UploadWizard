@@ -158,6 +158,7 @@ $wgResourceModules += array(
 			'jquery.ui.selectable',
 			'jquery.placeholder',
 			'jquery.makeCollapsible',
+			'mediawiki.icon',
 			'mediawiki.Uri',
 			'mediawiki.util',
 			'mediawiki.libs.jpegmeta',

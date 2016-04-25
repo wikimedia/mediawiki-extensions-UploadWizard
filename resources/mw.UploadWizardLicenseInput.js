@@ -137,27 +137,24 @@
 		createGroupedInputs: function ( $el, configGroups ) {
 			var input = this;
 			$.each( configGroups, function ( i, group ) {
-				var $body, $toggler, $head, $licensesDiv,
+				var $body, $head, $licensesDiv,
 					$group = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
 				if ( group.head === undefined ) {
 					// if there is no header, just append licenses to the group div.
 					$body = $group;
 				} else {
 					// if there is a header, make a toggle-to-expand div and append inputs there.
-					$head = $( '<div></div>' ).append(
-						$( '<a>' )
-							.addClass( 'mwe-upwiz-deed-license-group-head mwe-upwiz-toggler' )
-							.msg( group.head, input.count )
-					);
-					$body = $( '<div></div>' ).addClass( 'mwe-upwiz-toggler-content' ).css( { marginBottom: '1em' } );
-					$toggler = $group.append( $head, $body ).collapseToggle();
-
+					$head = $( '<a>' )
+						.addClass( 'mwe-upwiz-deed-license-group-head mw-collapsible-toggle mw-collapsible-arrow' )
+						.msg( group.head, input.count );
+					$body = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-body mw-collapsible-content' );
+					$group.append( $head, $body ).makeCollapsible( { collapsed: true } );
 				}
 				if ( group.subhead !== undefined ) {
 					$body.append( $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, input.count ) );
 				}
 				$licensesDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
-				input.createInputs( $licensesDiv, group, $toggler );
+				input.createInputs( $licensesDiv, group );
 				$body.append( $licensesDiv );
 				input.$selector.append( $group );
 			} );
@@ -177,11 +174,8 @@
 		 *    then [ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
 		 *  * 'template' will filter Templates, as in "own work". If 'filterTemplate' was 'filter',
 		 *    then  [ 'fooLicense', 'barLicense' ] -> {{filter|fooLicense|barLicense}}
-		 * @param {jQuery} [$groupToggler] A jquery-wrapped element created by $.fn.collapseToggle(),
-		 *   which has 'close' and 'open' methods in its data.
-		 *
 		 */
-		createInputs: function ( $el, config, $groupToggler ) {
+		createInputs: function ( $el, config ) {
 			var input = this;
 
 			if ( config.licenses === undefined || typeof config.licenses !== 'object' ) {
@@ -208,9 +202,6 @@
 					$input.addClass( 'mwe-upwiz-copyright-info-radio' );
 					// this is so we can tell if a particular license ought to be set in setValues()
 					$input.data( 'licenseName', licenseName );
-
-					// this is so if a single input in a group changes, we open the entire "toggler" that was hiding them
-					$input.data( 'groupToggler', $groupToggler );
 
 					if ( config.special === 'custom' ) {
 						customDefault = mw.UploadWizard.config.licenses[ licenseName ].defaultText;
@@ -357,7 +348,8 @@
 
 		// Set the input value. If it is part of a group, and this is being turned on, pop open the group so we can see this input.
 		setInput: function ( $input, val ) {
-			var oldVal = $input.is( ':checked' );
+			var collapsible,
+				oldVal = $input.is( ':checked' );
 			if ( val ) {
 				$input.prop( 'checked', true );
 			} else {
@@ -368,8 +360,13 @@
 			}
 
 			// pop open the 'toggle' group if is now on. Do nothing if it is now off.
-			if ( val && $input.data( 'groupToggler' ) ) {
-				$input.data( 'groupToggler' ).data( 'open' )();
+			if ( val ) {
+				collapsible = $input
+					.closest( '.mwe-upwiz-deed-license-group' )
+					.data( 'mw-collapsible' );
+				if ( collapsible ) {
+					collapsible.expand();
+				}
 			}
 		},
 
