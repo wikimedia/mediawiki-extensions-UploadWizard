@@ -21,6 +21,7 @@
 		this.queued = [];
 		this.running = [];
 		this.done = [];
+		this.runningPromises = [];
 
 		this.completed = false;
 		this.executing = false;
@@ -88,7 +89,13 @@
 
 		index = this.running.indexOf( item );
 		if ( index !== -1 ) {
+			// Try aborting the promise if possible
+			if ( this.runningPromises[ index ].abort ) {
+				this.runningPromises[ index ].abort();
+			}
 			this.running.splice( index, 1 );
+			this.runningPromises.splice( index, 1 );
+			// Ensure we're still using as many threads as requested
 			this.executeNext();
 			found = true;
 		}
@@ -107,9 +114,10 @@
 	uw.ConcurrentQueue.prototype.promiseComplete = function ( item ) {
 		var index;
 		index = this.running.indexOf( item );
-		// Check if this item was removed while it was being executed
+		// Check that this item wasn't removed while it was being executed
 		if ( index !== -1 ) {
 			this.running.splice( index, 1 );
+			this.runningPromises.splice( index, 1 );
 			this.done.push( item );
 			this.emit( 'progress' );
 		}
@@ -123,7 +131,8 @@
 	 * @private
 	 */
 	uw.ConcurrentQueue.prototype.executeNext = function () {
-		var item, promise, execute, callback;
+		var item, execute, callback,
+			queue = this;
 		if ( this.running.length === this.count || !this.executing ) {
 			return;
 		}
@@ -132,12 +141,20 @@
 			return;
 		}
 		this.running.push( item );
+		this.runningPromises.push( {} );
 		callback = this.promiseComplete.bind( this, item );
 		execute = this.action.bind( null, item );
 		// We don't want to accidentally recurse if the promise completes immediately
 		setTimeout( function () {
-			promise = execute();
-			promise.always( callback );
+			var index, promise;
+			// We have to check the index again, one of the running items might have completed
+			index = queue.running.indexOf( item );
+			// If we're not in the array at all, it means that execution was aborted, do nothing
+			if ( index !== -1 ) {
+				promise = execute();
+				queue.runningPromises[ index ] = promise;
+				promise.always( callback );
+			}
 		} );
 	};
 
@@ -158,6 +175,18 @@
 		}
 		// In case the queue was empty
 		setTimeout( this.checkIfComplete.bind( this ) );
+	};
+
+	/**
+	 * Abort executing the queue. Remove all queued items and abort running ones.
+	 */
+	uw.ConcurrentQueue.prototype.abortExecuting = function () {
+		while ( this.queued.length > 0 ) {
+			this.removeItem( this.queued[ 0 ] );
+		}
+		while ( this.running.length > 0 ) {
+			this.removeItem( this.running[ 0 ] );
+		}
 	};
 
 	/**
