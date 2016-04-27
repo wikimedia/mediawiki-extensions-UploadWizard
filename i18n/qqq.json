@@ -227,7 +227,6 @@
 	"mwe-upwiz-error-signature-too-short": "Used as error message. Parameters:\n* $1 - minimum number of characters for the signature\n{{Related|Mwe-upwiz-error-signature}}",
 	"mwe-upwiz-error-signature-bad-chars": "Used as error message.\n{{Related|Mwe-upwiz-error-signature}}",
 	"mwe-upwiz-error-blank": "{{Identical|Required}}",
-	"mwe-upwiz-error-nologin": "{{doc-important|Do not translate <code><nowiki><span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}}</nowiki></code>.}}\nError shown when user is not logged in, returns them to the upload form.\n\nParameters:\n* $1 - page title",
 	"mwe-upwiz-error-too-long": "Used as error message. Parameters:\n* $1 - maximum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-short}}",
 	"mwe-upwiz-error-too-short": "Used as error message. Parameters:\n* $1 - minimum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-long}}",
 	"mwe-upwiz-error-bad-descriptions": "Used as error message.",
