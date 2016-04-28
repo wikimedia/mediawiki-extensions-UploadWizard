@@ -105,13 +105,17 @@ $wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
 
 $wgResourceModules['ext.uploadWizard.apiUploadPostHandler'] = array(
 	'scripts' => 'handlers/mw.ApiUploadPostHandler.js',
+	'dependencies' => 'uw.EventFlowLogger',
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;
 
 // upload using FormData, large files in chunks
 $wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
 	'scripts' => 'handlers/mw.ApiUploadFormDataHandler.js',
-	'dependencies' => 'ext.uploadWizard.formDataTransport',
+	'dependencies' => [
+		'uw.EventFlowLogger',
+		'ext.uploadWizard.formDataTransport',
+	],
 	'messages' => 'mwe-upwiz-transport-started',
 ) + $uploadWizardModuleInfo;
 
