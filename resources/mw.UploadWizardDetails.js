@@ -250,17 +250,6 @@
 			}
 		},
 
-		// Metadata which we can copy over to other details objects
-		// objects with key:metadata name and value:boolean value indicating default checked status
-		copyMetadataTypes: {
-			title: true,
-			description: true,
-			date: false,
-			categories: true,
-			location: false,
-			other: true
-		},
-
 		/**
 		 * Get file page title for this upload.
 		 *
@@ -279,169 +268,6 @@
 			// TODO This should give immediate response, not only when submitting the form
 			this.titleDetailsField.setErrors( [ mw.message( 'mwe-upwiz-error-title-duplicate' ) ] );
 			return this;
-		},
-
-		/*
-		 * Copy metadata from the first upload to other uploads.
-		 *
-		 * We don't worry too much about validation here since all input is validated prior to
-		 * submission, and the user will be alerted about validation errors in the first upload
-		 * description.
-		 *
-		 * @param String metadataType One of the types defined in the copyMetadataTypes property
-		 */
-		copyMetadata: function ( metadataType ) {
-			var titleZero, matches, i, j, currentTitle,
-				uploads = this.upload.wizard.uploads,
-				sourceValue,
-				sourceUpload = uploads[ 0 ];
-
-			function oouiCopy( property ) {
-				var i;
-
-				sourceValue = sourceUpload.details[ property ].getSerialized();
-				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[ i ].details[ property ].setSerialized( sourceValue );
-				}
-			}
-
-			if ( metadataType === 'title' ) {
-
-				// Add number suffix to first title if no numbering present
-				titleZero = sourceUpload.details.titleDetails.getSerialized().title;
-				matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
-				if ( matches === null ) {
-					titleZero = titleZero + ' 01';
-				}
-
-				// Overwrite remaining title inputs with first title + increment of rightmost
-				// number in the title. Note: We ignore numbers with more than three digits, because these
-				// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
-				// numbers.
-
-				// This loop starts from 0 and not 1 - we want to overwrite the source upload too!
-				for ( i = 0; i < uploads.length; i++ ) {
-					/*jshint loopfunc:true */
-					currentTitle = titleZero.replace( /(\D+)(\d{1,3})(\D*)$/,
-						function ( str, m1, m2, m3 ) {
-							var newstr = String( +m2 + i );
-							return m1 + new Array( m2.length + 1 - newstr.length )
-								.join( '0' ) + newstr + m3;
-						}
-					);
-					uploads[ i ].details.titleDetails.setSerialized( { title: currentTitle } );
-				}
-
-			} else if ( metadataType === 'description' ) {
-
-				oouiCopy( 'descriptionsDetails' );
-
-			} else if ( metadataType === 'date' ) {
-
-				oouiCopy( 'dateDetails' );
-
-			} else if ( metadataType === 'categories' ) {
-
-				oouiCopy( 'categoriesDetails' );
-
-			} else if ( metadataType === 'location' ) {
-
-				oouiCopy( 'locationInput' );
-
-			} else if ( metadataType === 'other' ) {
-
-				oouiCopy( 'otherDetails' );
-
-				// Copy fields added though campaigns
-				for ( j = 0; j < sourceUpload.details.campaignDetailsFields.length; j++ ) {
-					sourceValue = sourceUpload.details.campaignDetailsFields[ j ].fieldWidget.getSerialized();
-					for ( i = 1; i < uploads.length; i++ ) {
-						uploads[ i ].details.campaignDetailsFields[ j ].fieldWidget.setSerialized( sourceValue );
-					}
-				}
-
-			} else {
-				throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
-			}
-		},
-
-		/*
-		 * Construct and display the widget to copy metadata
-		 *
-		 * Call before showing the Details step. Builds, adds and displays
-		 * a metadata copy widget for the details view of this specific upload
-		 */
-		buildAndShowCopyMetadata: function () {
-			var copyButton,
-				copyTypes = {},
-				fieldset = new OO.ui.FieldsetLayout(),
-				details = this,
-				$copyMetadataDiv = $( '<div>' );
-
-			if ( mw.UploadWizard.config.copyMetadataFeature !== true ||
-				this.$copyMetadataWrapperDiv !== undefined ) {
-				return;
-			}
-
-			this.$copyMetadataWrapperDiv = $( '<div>' ).addClass( 'mwe-upwiz-metadata-copier' );
-
-			$copyMetadataDiv.append( fieldset.$element );
-
-			$.each( this.copyMetadataTypes, function ( metadataName, defaultStatus ) {
-				var copyMetadataMsg, checkbox, field,
-					// mwe-upwiz-copy-title, mwe-upwiz-copy-description, mwe-upwiz-copy-date,
-					// mwe-upwiz-copy-categories, mwe-upwiz-copy-location, mwe-upwiz-copy-other
-					copyMessage = 'mwe-upwiz-copy-' + metadataName;
-
-				copyMetadataMsg = mw.message( copyMessage ).text();
-
-				checkbox = new OO.ui.CheckboxInputWidget( {
-					selected: defaultStatus
-				} );
-
-				copyTypes[ metadataName ] = checkbox;
-
-				field = new OO.ui.FieldLayout( checkbox, {
-					label: copyMetadataMsg,
-					align: 'inline'
-				} );
-
-				fieldset.addItems( [ field ] );
-			} ) ;
-
-			// Keep our checkboxShiftClick behaviour alive
-			$copyMetadataDiv.find( 'input[type=checkbox]' ).checkboxShiftClick();
-
-			copyButton = new OO.ui.ButtonWidget( {
-				id: 'mwe-upwiz-copy-metadata-button',
-				label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
-				flags: [ 'constructive' ]
-			} ).on( 'click', function () {
-				$.each( details.copyMetadataTypes, function ( metadataType ) {
-					if ( copyTypes[ metadataType ].isSelected() ) {
-						details.copyMetadata( metadataType );
-					}
-				} );
-
-				copyButton.setLabel( mw.message( 'mwe-upwiz-copied-metadata-button' ).text() );
-
-				setTimeout( function () {
-					copyButton.setLabel( mw.message( 'mwe-upwiz-copy-metadata-button' ).text() );
-				}, 1000 );
-			} );
-
-			$copyMetadataDiv.append( copyButton.$element );
-
-			this.$copyMetadataWrapperDiv
-				.append(
-					$( '<a>' ).text( mw.msg( 'mwe-upwiz-copy-metadata' ) )
-						.addClass( 'mwe-upwiz-details-copy-metadata mw-collapsible-toggle mw-collapsible-arrow' ),
-					$copyMetadataDiv.addClass( 'mw-collapsible-content' )
-				)
-				.makeCollapsible( { collapsed: true } );
-
-			this.$form.append( this.$copyMetadataWrapperDiv );
-			this.$copyMetadataWrapperDiv.show();
 		},
 
 		/**
@@ -740,6 +566,64 @@
 		prefillAuthor: function () {
 			if ( this.upload.imageinfo.metadata && this.upload.imageinfo.metadata.author ) {
 				$( this.authorInput ).val( this.upload.imageinfo.metadata.author );
+			}
+		},
+
+		/**
+		 * Get a machine-readable representation of the current state of the upload details. It can be
+		 * passed to #setSerialized to restore this state (or to set it for another instance of the same
+		 * class).
+		 *
+		 * Note that this doesn't include custom deed's state.
+		 *
+		 * @return {Object.<string,Object>}
+		 */
+		getSerialized: function () {
+			return {
+				title: this.titleDetails.getSerialized(),
+				description: this.descriptionsDetails.getSerialized(),
+				date: this.dateDetails.getSerialized(),
+				categories: this.categoriesDetails.getSerialized(),
+				location: this.locationInput.getSerialized(),
+				other: this.otherDetails.getSerialized(),
+				campaigns: this.campaignDetailsFields.map( function ( field ) {
+					return field.fieldWidget.getSerialized();
+				} )
+			};
+		},
+
+		/**
+		 * Set the state of this widget from machine-readable representation, as returned by
+		 * #getSerialized.
+		 *
+		 * Fields from the representation can be omitted to keep the current value.
+		 *
+		 * @param {Object.<string,Object>} serialized
+		 */
+		setSerialized: function ( serialized ) {
+			var i;
+			if ( serialized.title ) {
+				this.titleDetails.setSerialized( serialized.title );
+			}
+			if ( serialized.description ) {
+				this.descriptionsDetails.setSerialized( serialized.description );
+			}
+			if ( serialized.date ) {
+				this.dateDetails.setSerialized( serialized.date );
+			}
+			if ( serialized.categories ) {
+				this.categoriesDetails.setSerialized( serialized.categories );
+			}
+			if ( serialized.location ) {
+				this.locationInput.setSerialized( serialized.location );
+			}
+			if ( serialized.other ) {
+				this.otherDetails.setSerialized( serialized.other );
+			}
+			if ( serialized.campaigns ) {
+				for ( i = 0; i < this.campaignDetailsFields.length; i++ ) {
+					this.campaignDetailsFields[ i ].fieldWidget.setSerialized( serialized.campaigns[ i ] );
+				}
 			}
 		},
 

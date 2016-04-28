@@ -440,7 +440,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 .mwe-upwiz-details-more-options,
 .mwe-upwiz-details-copy-metadata,
 .mwe-upwiz-deed-license-group-head {
-	margin-top: 10px;
 	padding-left: 1.5em;
 	cursor: pointer;
 	outline: none;
@@ -454,6 +453,10 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	float: none;
 	/* Override mediawiki.icon styles */
 	background-position: left center;
+}
+
+.mwe-upwiz-deed-license-group-head {
+	margin-top: 10px;
 }
 
 .mwe-upwiz-deed-license-group-body {
@@ -470,7 +473,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	padding: 0.25em;
 }
 
-.mwe-upwiz-metadata-copier .mw-collapsible-content,
 .mwe-more-details .mw-collapsible-content {
 	margin-bottom: 1em;
 }
@@ -539,16 +541,6 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 
 .mwe-upwiz-objref-notice-existing-image {
 	font-weight: bold;
-}
-
-/* This is basically a custom widget, ugh */
-.mwe-upwiz-metadata-copier .oo-ui-fieldsetLayout {
-	padding-top: 0.25em;
-	padding-bottom: 0.5em;
-}
-
-.mwe-upwiz-metadata-copier .oo-ui-fieldLayout {
-	margin-bottom: 0;
 }
 
 .mwe-upwiz-sign {
