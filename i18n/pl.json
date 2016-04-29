@@ -213,7 +213,6 @@
 	"mwe-upwiz-error-signature-too-short": "Twój podpis jest za krótki.\nWydłuż go do więcej niż $1 {{PLURAL:$1|znaku|znaków}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Podpis zawiera niedozwolone znaki.\nNie wolno korzystać z formatowania wiki lub HTML. Należy wpisać swoją nazwę użytkownika lub imię i nazwisko.",
 	"mwe-upwiz-error-blank": "Wypełnienie tego pola jest obowiązkowe.",
-	"mwe-upwiz-error-nologin": "Musisz się <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} zalogować]</span> by przesyłać pliki.",
 	"mwe-upwiz-error-too-long": "Ten wpis jest zbyt długi.\nUpewnij się, że ten wpis ma co najwyżej $1 {{PLURAL:$1|znak|znaki|znaków}}.",
 	"mwe-upwiz-error-too-short": "Ten wpis jest za krótki.\nUpewnij się, że ten wpis ma co najmniej $1 {{PLURAL:$1|znak|znaki|znaków}}.",
 	"mwe-upwiz-error-bad-descriptions": "Występują problemy z niektórymi opisami.",
