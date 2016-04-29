@@ -291,26 +291,10 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @return boolean -- true if can upload
 	 */
 	private function isUserUploadAllowed( $user ) {
-		global $wgGroupPermissions;
-
-		if ( !$user->isAllowed( 'upload' ) ) {
-			if ( !$user->isLoggedIn() && ( $wgGroupPermissions['user']['upload']
-				|| $wgGroupPermissions['autoconfirmed']['upload'] ) ) {
-				// Custom message if logged-in users without any special rights can upload
-				$returnstr = $this->getPageTitle();
-				$values = $this->getRequest()->getValues();
-				if ( isset( $values['title'] ) ) {
-					unset( $values['title'] );
-				}
-				$rtq = wfArrayToCgi( $values );
-				if ( $rtq && $rtq != '' ) {
-					$returnstr .= '&returntoquery=' . urlencode( $rtq );
-				}
-				$this->getOutput()->showErrorPage( 'uploadnologin', 'mwe-upwiz-error-nologin', $returnstr );
-			} else {
-				throw new PermissionsError( 'upload' );
-			}
-			return false;
+		// Check permissions
+		$permissionRequired = UploadBase::isAllowed( $user );
+		if ( $permissionRequired !== true ) {
+			throw new PermissionsError( $permissionRequired );
 		}
 
 		// Check blocks
