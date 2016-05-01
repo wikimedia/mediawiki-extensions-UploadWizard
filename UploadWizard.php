@@ -643,7 +643,9 @@ $wgResourceModules += array(
 		'messages' => array(
 			'mwe-upwiz-copy-metadata',
 			'mwe-upwiz-copy-metadata-button',
-			'mwe-upwiz-copied-metadata-button',
+			'mwe-upwiz-copy-metadata-button-undo',
+			'mwe-upwiz-copied-metadata',
+			'mwe-upwiz-undid-metadata',
 			'mwe-upwiz-copy-title',
 			'mwe-upwiz-copy-description',
 			'mwe-upwiz-copy-date',
