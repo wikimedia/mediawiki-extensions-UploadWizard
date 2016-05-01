@@ -4,9 +4,15 @@
 	 * A description field in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
+	 * @constructor
+	 * @param {Object} [config]
+	 * @param {boolean} [config.canBeRemoved=true]
 	 */
-	uw.DescriptionDetailsWidget = function UWDescriptionDetailsWidget() {
+	uw.DescriptionDetailsWidget = function UWDescriptionDetailsWidget( config ) {
+		config = config || {};
+
 		uw.DescriptionDetailsWidget.parent.call( this );
+		uw.ValidationMessageElement.call( this );
 
 		this.languageDropdown = new OO.ui.DropdownWidget( {
 			menu: { items: this.getLanguageDropdownOptions() },
@@ -18,6 +24,17 @@
 			multiline: true,
 			autosize: true,
 			rows: 2
+		} );
+		this.removeButton = new OO.ui.ButtonWidget( {
+			classes: [ 'mwe-upwiz-remove-ctrl', 'mwe-upwiz-descriptionDetailsWidget-removeItem' ],
+			icon: 'remove',
+			framed: false,
+			flags: [ 'destructive' ],
+			title: mw.message( 'mwe-upwiz-remove-description' ).text()
+		} );
+
+		this.removeButton.connect( this, {
+			click: 'onRemoveClick'
 		} );
 
 		this.languageDropdown.getMenu()
@@ -33,8 +50,28 @@
 			this.languageDropdown.$element,
 			this.descriptionInput.$element
 		);
+		// HACK: ValidationMessageElement will append messages after this.$body
+		this.$body = this.descriptionInput.$element;
+		if ( config.canBeRemoved !== false ) {
+			this.$element.append( this.removeButton.$element );
+			this.$body = this.removeButton.$element; // HACK
+		}
 	};
 	OO.inheritClass( uw.DescriptionDetailsWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.DescriptionDetailsWidget, uw.ValidationMessageElement );
+
+	/**
+	 * Handle remove button click events.
+	 *
+	 * @private
+	 */
+	uw.DescriptionDetailsWidget.prototype.onRemoveClick = function () {
+		var element = this.getElementGroup();
+
+		if ( element && $.isFunction( element.removeItems ) ) {
+			element.removeItems( [ this ] );
+		}
+	};
 
 	/**
 	 * Check if the given language code can be used for descriptions.
