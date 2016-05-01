@@ -290,7 +290,7 @@
 	"mwe-upwiz-license-misc": "Różne przyczyny",
 	"mwe-upwiz-license-custom-head": "Inny powód nie wyszczególniony powyżej",
 	"mwe-upwiz-license-custom-preview": "Podgląd",
-	"mwe-upwiz-license-none-head": "Znalazłem to w internecie - nie jestem pewien",
+	"mwe-upwiz-license-none-head": "Znalazłem to w internecie – nie jestem pewien",
 	"mwe-upwiz-license-none": "Jestem przekonany, że {{PLURAL:$1|ta praca jest swobodnie licencjonowana lub znajduje|te prace są swobodnie licencjonowane lub znajdują}} się w domenie publicznej. Rozumiem, że jeśli nie podam w odpowiednim czasie niezbędnych informacji licencyjnych, {{PLURAL:$1|ten plik może zostać usunięty|te pliki mogą zostać usunięte}}.",
 	"mwe-upwiz-license-confirm-remove": "Czy na pewno chcesz usunąć {{PLURAL:$1|ten przesłany plik|te przesłane pliki}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Potwierdzenie usunięcia",
