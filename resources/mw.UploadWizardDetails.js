@@ -841,7 +841,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			var params, wikiText,
+			var params, wikiText, apiPromise,
 				details = this;
 
 			$( 'form', this.containerDiv ).submit();
@@ -869,7 +869,8 @@
 
 			if ( wikiText !== false ) {
 				params.text = wikiText;
-				return details.upload.api.postWithEditToken( params )
+				apiPromise = details.upload.api.postWithEditToken( params );
+				return apiPromise
 					.then(
 						function ( result ) {
 							if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
@@ -883,8 +884,8 @@
 							details.processError( code, info );
 							return $.Deferred().reject( code, info );
 						}
-					);
-
+					)
+					.promise( { abort: apiPromise.abort } );
 			}
 
 			return $.Deferred().reject();
@@ -1081,7 +1082,18 @@
 				// TODO Automatically try again instead of requiring the user to bonk the button
 			}
 
-			if ( result && result.error && result.error.code ) {
+			if ( code === 'ratelimited' ) {
+				// None of the remaining uploads is going to succeed, and every failed one is going to
+				// ping the rate limiter again.
+				this.upload.wizard.steps.details.queue.abortExecuting();
+			} else if ( code === 'http' && result && result.exception === 'abort' ) {
+				// This upload has just been aborted because an earlier one got the 'ratelimited' error.
+				// This could potentially also come up when an upload is removed by the user, but in that
+				// case the UI is invisible anyway, so whatever.
+				code = 'ratelimited';
+			}
+
+			if ( result && code ) {
 				if ( titleErrorMap[ code ] ) {
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ), 'title-' + titleErrorMap[ code ] );
 					return;
@@ -1099,7 +1111,7 @@
 							result.error.allowed.length,
 							result.error.blacklisted.length
 						).text();
-					} else if ( result.error.info ) {
+					} else if ( result.error && result.error.info ) {
 						statusLine = mw.message( statusKey, result.error.info ).text();
 					} else {
 						statusLine = mw.message( statusKey, '[no error info]' ).text();

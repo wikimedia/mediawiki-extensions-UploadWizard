@@ -277,6 +277,7 @@ $wgResourceModules += array(
 			'api-error-nomodule',
 			'api-error-mustbeposted',
 			'api-error-badaccess-groups',
+			'api-error-ratelimited',
 			'api-error-stashfailed',
 			'api-error-missingresult',
 			'api-error-missingparam',
