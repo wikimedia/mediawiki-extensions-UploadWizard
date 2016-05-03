@@ -270,6 +270,8 @@ $wgResourceModules += array(
 			'mwe-upwiz-step-deeds',
 			'mwe-upwiz-step-details',
 			'mwe-upwiz-step-thanks',
+			'api-error-autoblocked',
+			'api-error-blocked',
 			'api-error-http',
 			'api-error-ok-but-empty',
 			'api-error-unknown-code',
