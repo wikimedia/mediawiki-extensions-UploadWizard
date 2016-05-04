@@ -15,24 +15,27 @@
 
 		this.$element.addClass( 'mwe-upwiz-locationDetailsWidget' );
 
-		this.latitudeInput = new OO.ui.TextInputWidget( {
-			label: mw.message( 'mwe-upwiz-location-lat' ).text()
-		} );
-		this.longitudeInput = new OO.ui.TextInputWidget( {
-			label: mw.message( 'mwe-upwiz-location-lon' ).text()
-		} );
-		this.headingInput = new OO.ui.TextInputWidget( {
-			label: mw.message( 'mwe-upwiz-location-heading' ).text()
-		} );
+		this.latitudeInput = new OO.ui.TextInputWidget();
+		this.longitudeInput = new OO.ui.TextInputWidget();
+		this.headingInput = new OO.ui.TextInputWidget();
 
 		this.$element.append(
-			this.latitudeInput.$element,
-			this.longitudeInput.$element
+			new OO.ui.FieldLayout( this.latitudeInput, {
+				align: 'top',
+				label: mw.message( 'mwe-upwiz-location-lat' ).text()
+			} ).$element,
+			new OO.ui.FieldLayout( this.longitudeInput, {
+				align: 'top',
+				label: mw.message( 'mwe-upwiz-location-lon' ).text()
+			} ).$element
 		);
 
 		if ( this.config.showHeading ) {
 			this.$element.append(
-				this.headingInput.$element
+				new OO.ui.FieldLayout( this.headingInput, {
+					align: 'top',
+					label: mw.message( 'mwe-upwiz-location-heading' ).text()
+				} ).$element
 			);
 		}
 

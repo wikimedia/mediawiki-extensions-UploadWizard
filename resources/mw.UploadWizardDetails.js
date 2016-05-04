@@ -95,7 +95,7 @@
 
 		this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
 		this.locationInputField = new uw.FieldLayout( this.locationInput, {
-			label: mw.message( 'mwe-upwiz-location' ).text(),
+			// No 'label', labels are included in this widget
 			help: new OO.ui.HtmlSnippet(
 				mw.message( 'mwe-upwiz-tooltip-location', $( '<a>' ).attr( {
 					target: '_blank',
