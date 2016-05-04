@@ -46,8 +46,6 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgLang;
-
 		$config = UploadWizardConfig::getConfig();
 
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
@@ -113,19 +111,6 @@ class UploadWizardHooks {
 					'label-message' => 'mwe-upwiz-prefs-def-license-custom',
 					'help-message' => 'mwe-upwiz-prefs-def-license-custom-help',
 					'section' => 'uploads/upwiz-licensing',
-				);
-			}
-
-			if ( UploadWizardConfig::getSetting( 'enableChunked' ) === 'opt-in' ) {
-				$preferences['upwiz-chunked'] = array(
-					'type' => 'check',
-					'label-message' => array(
-						'mwe-upwiz-prefs-chunked',
-						$wgLang->formatSize( UploadWizardConfig::getSetting( 'chunkSize' ) ),
-						$wgLang->formatSize( UploadWizardConfig::getSetting( 'maxPhpUploadSize' ) ),
-						$wgLang->formatSize( UploadWizardConfig::getSetting( 'maxMwUploadSize' ) )
-					),
-					'section' => 'uploads/upwiz-experimental'
 				);
 			}
 		}

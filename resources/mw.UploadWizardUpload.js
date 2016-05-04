@@ -435,16 +435,7 @@
 				// Extract more info via File API
 				this.file = file;
 
-				// If chunked uploading is enabled, we can transfer any file that MediaWiki
-				// will accept. Otherwise we're bound by PHP's limits.
-				if ( mw.UploadWizard.config.enableChunked ) {
-					actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
-				} else {
-					actualMaxSize = Math.min(
-						mw.UploadWizard.config.maxMwUploadSize,
-						mw.UploadWizard.config.maxPhpUploadSize
-					);
-				}
+				actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
 
 				// make sure the file isn't too large
 				// XXX need a way to find the size of the Flickr image

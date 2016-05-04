@@ -649,11 +649,7 @@ return array(
 	// Wiki page for reporting issues with the blacklist
 	'blacklistIssuesPage' => '',
 
-	// should chunked uploading be enabled? false for now since the backend isn't really ready.
-	// set to "opt-in" to control via experimental user preference under 'Uploads' tab
-	'enableChunked' => false,
-
-	// If chunked uploads are enabled, what size, in bytes, should each chunk be?
+	// When using chunked upload, what size, in bytes, should each chunk be?
 	'chunkSize' => 5 * 1024 * 1024,
 
 	// Should feature to copy metadata across a batch of uploads be enabled?
