@@ -54,17 +54,20 @@
 		var errors = [],
 			lat = this.latitudeInput.getValue(),
 			lon = this.longitudeInput.getValue(),
-			head = this.headingInput.getValue();
+			head = this.headingInput.getValue(),
+			latNum = parseInt( lat, 10 ),
+			lonNum = parseInt( lon, 10 ),
+			headNum = parseInt( head, 10 );
 
-		if ( lat > 90 || lat < -90 ) {
+		if ( lat !== '' && ( lat > 90 || lat < -90 || isNaN( latNum ) ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-latitude' ) );
 		}
 
-		if ( lon > 180 || lon < -180 ) {
+		if ( lon !== '' && ( lon > 180 || lon < -180 || isNaN( lonNum ) ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-longitude' ) );
 		}
 
-		if ( head > 360 || head < 0 ) {
+		if ( head !== '' && ( head > 360 || head < 0 || isNaN( headNum ) ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-heading' ) );
 		}
 
