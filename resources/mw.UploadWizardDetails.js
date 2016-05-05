@@ -83,9 +83,6 @@
 		} );
 		this.mainFields.push( this.dateDetailsField );
 
-		$moreDetailsWrapperDiv = $( '<div class="mwe-more-details">' );
-		$moreDetailsDiv = $( '<div></div>' );
-
 		this.otherDetails = new uw.OtherDetailsWidget();
 		this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
 			label: mw.message( 'mwe-upwiz-other' ).text(),
@@ -104,11 +101,6 @@
 			)
 		} );
 		this.mainFields.push( this.locationInputField );
-
-		$moreDetailsDiv.append(
-			this.locationInputField.$element,
-			this.otherDetailsField.$element
-		);
 
 		/* Build the form for the file upload */
 		this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
@@ -145,6 +137,14 @@
 			}
 		} );
 
+		$moreDetailsWrapperDiv = $( '<div class="mwe-more-details">' );
+		$moreDetailsDiv = $( '<div>' );
+
+		$moreDetailsDiv.append(
+			this.locationInputField.$element,
+			this.otherDetailsField.$element
+		);
+
 		$moreDetailsWrapperDiv
 			.append(
 				$( '<a>' ).text( mw.msg( 'mwe-upwiz-more-options' ) )
@@ -152,6 +152,14 @@
 				$moreDetailsDiv.addClass( 'mw-collapsible-content' )
 			)
 			.makeCollapsible( { collapsed: true } );
+
+		// Expand collapsed sections if the fields within were changed (e.g. by metadata copier)
+		this.locationInput.on( 'change', function () {
+			$moreDetailsWrapperDiv.data( 'mw-collapsible' ).expand();
+		} );
+		this.otherDetails.on( 'change', function () {
+			$moreDetailsWrapperDiv.data( 'mw-collapsible' ).expand();
+		} );
 
 		this.$form.append(
 			$moreDetailsWrapperDiv
@@ -354,14 +362,6 @@
 
 			} else {
 				throw new Error( 'Attempted to copy unsupported metadata type: ' + metadataType );
-			}
-
-			if ( metadataType === 'location' || metadataType === 'other' ) {
-				// Expand collapsed sections if we changed the fields within
-				for ( i = 1; i < uploads.length; i++ ) {
-					uploads[ i ].details.$form.find( '.mwe-more-details' )
-						.data( 'mw-collapsible' ).expand();
-				}
 			}
 		},
 
