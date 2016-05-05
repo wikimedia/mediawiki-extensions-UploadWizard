@@ -20,6 +20,7 @@
 		this.copyFrom = config.copyFrom;
 		this.copyTo = config.copyTo;
 		this.checkboxes = {};
+		this.savedSerializedData = [];
 
 		for ( metadataType in uw.CopyMetadataWidget.static.copyMetadataTypes ) {
 			defaultStatus = uw.CopyMetadataWidget.static.copyMetadataTypes[ metadataType ];
@@ -44,18 +45,28 @@
 		// Keep our checkboxShiftClick behaviour alive
 		fieldset.$element.find( 'input[type=checkbox]' ).checkboxShiftClick();
 
+		this.$success = $( '<span>' );
 		this.copyButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
 			flags: [ 'constructive' ]
+		} );
+		this.undoButton = new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-copy-metadata-button-undo' ).text()
 		} );
 
 		this.copyButton.connect( this, {
 			click: 'onCopyClick'
 		} );
+		this.undoButton.connect( this, {
+			click: 'onUndoClick'
+		} );
 
+		this.undoButton.toggle( false );
 		$copyMetadataDiv.append(
 			fieldset.$element,
-			this.copyButton.$element
+			this.copyButton.$element,
+			this.undoButton.$element,
+			this.$success
 		);
 
 		$copyMetadataWrapperDiv
@@ -91,6 +102,8 @@
 
 	/**
 	 * Button click event handler.
+	 *
+	 * @private
 	 */
 	uw.CopyMetadataWidget.prototype.onCopyClick = function () {
 		var metadataType,
@@ -102,11 +115,27 @@
 		}
 
 		this.copyMetadata( metadataTypes );
-		this.copyButton.setLabel( mw.message( 'mwe-upwiz-copied-metadata-button' ).text() );
 
-		setTimeout( function () {
-			this.copyButton.setLabel( mw.message( 'mwe-upwiz-copy-metadata-button' ).text() );
-		}.bind( this ), 1000 );
+		this.undoButton.toggle( true );
+		this.$success
+			.text( mw.message( 'mwe-upwiz-copied-metadata' ).text() )
+			.show()
+			.fadeOut( 5000, 'linear' );
+	};
+
+	/**
+	 * Button click event handler.
+	 *
+	 * @private
+	 */
+	uw.CopyMetadataWidget.prototype.onUndoClick = function () {
+		this.restoreMetadata();
+
+		this.undoButton.toggle( false );
+		this.$success
+			.text( mw.message( 'mwe-upwiz-undid-metadata' ).text() )
+			.show()
+			.fadeOut( 5000, 'linear' );
 	};
 
 	/**
@@ -160,7 +189,20 @@
 				);
 			}
 
+			this.savedSerializedData[ i ] = uploads[ i ].details.getSerialized();
 			uploads[ i ].details.setSerialized( sourceValue );
+		}
+	};
+
+	/**
+	 * Restore previously saved metadata that we backed up when copying.
+	 */
+	uw.CopyMetadataWidget.prototype.restoreMetadata = function () {
+		var i,
+			uploads = this.copyTo;
+
+		for ( i = 0; i < uploads.length; i++ ) {
+			uploads[ i ].details.setSerialized( this.savedSerializedData[ i ] );
 		}
 	};
 
