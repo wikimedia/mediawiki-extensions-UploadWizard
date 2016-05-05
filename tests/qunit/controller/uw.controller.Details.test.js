@@ -20,7 +20,6 @@
 
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
 		var stubs = {
-			bascm: sandbox.stub(),
 			cd: sandbox.stub(),
 			ucdc: sandbox.stub()
 		};
@@ -33,8 +32,6 @@
 			createDetails: stubs.cd,
 
 			details: {
-				buildAndShowCopyMetadata: stubs.bascm,
-
 				useCustomDeedChooser: stubs.ucdc
 			},
 
@@ -53,7 +50,7 @@
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'moveTo', 16, function ( assert ) {
+	QUnit.test( 'moveTo', 12, function ( assert ) {
 		var step = new uw.controller.Details( {
 				maxSimultaneousConnections: 1
 			} ),
@@ -62,7 +59,6 @@
 
 		step.moveTo( [ testUpload ] );
 
-		assert.strictEqual( testUpload.stubs.bascm.called, false );
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
@@ -70,7 +66,6 @@
 		testUpload = createTestUpload( this.sandbox, true );
 		step.moveTo( [ testUpload ] );
 
-		assert.strictEqual( testUpload.stubs.bascm.called, false );
 		assert.ok( testUpload.stubs.ucdc.called );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
@@ -78,7 +73,6 @@
 		testUpload = createTestUpload( this.sandbox );
 		step.moveTo( [ testUpload, createTestUpload( this.sandbox ) ] );
 
-		assert.ok( testUpload.stubs.bascm.called );
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
@@ -86,7 +80,6 @@
 		testUpload = createTestUpload( this.sandbox );
 		step.moveTo( [ testUpload, createTestUpload( this.sandbox, false, true ) ] );
 
-		assert.strictEqual( testUpload.stubs.bascm.called, false );
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );

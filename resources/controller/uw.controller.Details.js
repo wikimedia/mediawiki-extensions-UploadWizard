@@ -74,12 +74,17 @@
 			if ( upload.fromURL || upload.chosenDeed.name === 'custom' ) {
 				upload.details.useCustomDeedChooser();
 			}
-
-			// Show toggler to copy selected metadata if there's more than one successful upload
-			if ( successes > 1 ) {
-				uploads[ 0 ].details.buildAndShowCopyMetadata();
-			}
 		} );
+
+		// Show the widget allowing to copy selected metadata if there's more than one successful upload
+		if ( successes > 1 && this.config.copyMetadataFeature ) {
+			this.copyMetadataWidget = new uw.CopyMetadataWidget( {
+				copyFrom: uploads[ 0 ],
+				// Include the "source" upload in the targets too
+				copyTo: uploads
+			} );
+			$( uploads[ 0 ].details.div ).after( this.copyMetadataWidget.$element );
+		}
 
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
 	};
@@ -256,6 +261,8 @@
 
 		// Disable edit interface
 		this.ui.disableEdits();
+		// No way to restore this later... We don't handle partially-successful uploads very well
+		this.copyMetadataWidget.remove();
 
 		return this.transitionAll().then( function () {
 			details.showErrors();
