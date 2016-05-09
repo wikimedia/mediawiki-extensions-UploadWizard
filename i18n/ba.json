@@ -9,7 +9,8 @@
 			"Азат Хәлилов",
 			"Гизатуллина",
 			"Янмурза Баки",
-			"Вильданова Гюзель"
+			"Вильданова Гюзель",
+			"Ilmira"
 		]
 	},
 	"mwe-upwiz-uploadcampaigns": "Тейәү кампаниялары",
@@ -48,7 +49,8 @@
 	"mwe-upwiz-upload": "Тейәргә",
 	"mwe-upwiz-source-thirdparty-accept": "Тамам",
 	"mwe-upwiz-copy-metadata-button": "Күсермәһен алырға",
-	"mwe-upwiz-copied-metadata-button": "Күсермә эшләнде",
+	"mwe-upwiz-copy-metadata-button-undo": "Кире алырға",
+	"mwe-upwiz-copied-metadata": "Күсермә эшләнде",
 	"mwe-upwiz-title": "Исем",
 	"mwe-upwiz-location-lat": "Киңлек",
 	"mwe-upwiz-location-lon": "Оҙонлоҡ",
