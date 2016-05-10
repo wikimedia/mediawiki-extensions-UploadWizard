@@ -55,15 +55,15 @@ class SpecialUploadWizard extends SpecialPage {
 		// if query string includes 'skiptutorial=true' set config variable to true
 		$skipTutorial = $req->getCheck( 'skiptutorial' );
 		if ( $skipTutorial ) {
-			$skip = in_array( $skipTutorial, array( '1', 'true' ) );
+			$skip = in_array( $skipTutorial, [ '1', 'true' ] );
 			if ( $skip === true ) {
-				UploadWizardConfig::setUrlSetting( 'tutorial', array() );
+				UploadWizardConfig::setUrlSetting( 'tutorial', [] );
 			}
 		}
 
-		$urlArgs = array( 'description', 'lat', 'lon', 'alt' );
+		$urlArgs = [ 'description', 'lat', 'lon', 'alt' ];
 
-		$urlDefaults = array();
+		$urlDefaults = [];
 		foreach ( $urlArgs as $arg ) {
 			$value = $req->getText( $arg );
 			if ( $value ) {
@@ -82,7 +82,7 @@ class SpecialUploadWizard extends SpecialPage {
 		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
 
 		$fields = $req->getArray( 'fields' );
-		$fieldDefaults = array();
+		$fieldDefaults = [];
 
 		# Support id and id2 for field0 and field1
 		# Legacy support for old URL structure. They override fields[]
@@ -157,7 +157,7 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function displayError( $message ) {
 		$this->getOutput()->addHTML( Html::element(
 			'span',
-			array( 'class' => 'errorbox' ),
+			[ 'class' => 'errorbox' ],
 			$message
 		) . '<br /><br /><br />' );
 	}
@@ -232,7 +232,7 @@ class SpecialUploadWizard extends SpecialPage {
 				} else {
 					$userLicenseGroup = 'thirdParty';
 				}
-				$config['licensing'][$userLicenseGroup]['defaults'] = array( $userDefaultLicense );
+				$config['licensing'][$userLicenseGroup]['defaults'] = [ $userDefaultLicense ];
 				$config['licensing']['defaultType'] = $userLicenseType;
 
 				if ( $userDefaultLicense === 'custom' ) {
@@ -244,14 +244,14 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$bitmapHandler = new BitmapHandler();
 		$this->getOutput()->addJsConfigVars(
-			array(
+			[
 				'UploadWizardConfig' => $config,
 
 				// Site name is a true global not specific to Upload Wizard
 				'wgSiteName' => $wgSitename,
 				'wgFileCanRotate' => $bitmapHandler->canRotate(),
 				'wgIllegalFileChars' => $wgIllegalFileChars . '#',
-			)
+			]
 		);
 	}
 
@@ -330,8 +330,8 @@ class SpecialUploadWizard extends SpecialPage {
 			$linkHtml = '';
 			$altUploadForm = Title::newFromText( $config[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
-				$linkHtml = Html::rawElement( 'p', array( 'style' => 'text-align: center;' ),
-					Html::rawElement( 'a', array( 'href' => $altUploadForm->getLocalURL() ),
+				$linkHtml = Html::rawElement( 'p', [ 'style' => 'text-align: center;' ],
+					Html::rawElement( 'a', [ 'href' => $altUploadForm->getLocalURL() ],
 						$config['altUploadForm']
 					)
 				);
@@ -340,10 +340,10 @@ class SpecialUploadWizard extends SpecialPage {
 			return
 				Html::rawElement(
 					'div',
-					array(),
+					[],
 					Html::rawElement(
 						'p',
-						array( 'style' => 'text-align: center' ),
+						[ 'style' => 'text-align: center' ],
 						wfMessage( 'mwe-upwiz-extension-disabled' )->text()
 					) . $linkHtml
 				);
@@ -352,7 +352,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$tutorialHtml = '';
 		// only load the tutorial HTML if we aren't skipping the first step
 		if ( !$this->getUser()->getBoolOption( 'upwiz_skiptutorial' ) &&
-			$config['tutorial'] !== null && $config['tutorial'] !== array() &&
+			$config['tutorial'] !== null && $config['tutorial'] !== [] &&
 			$config['tutorial']['skip'] !== true
 		) {
 			$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
@@ -381,7 +381,6 @@ class SpecialUploadWizard extends SpecialPage {
 		return 'media';
 	}
 }
-
 
 /**
  * This is a hack on UploadForm, to make one that works from UploadWizard when JS is not available.

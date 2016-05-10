@@ -36,26 +36,26 @@ class ApiFlickrBlacklist extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'url' => array(
+		return [
+			'url' => [
 				ApiBase::PARAM_TYPE => 'string',
-			),
-			'list' => array(
+			],
+			'list' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=flickrblacklist&url=http%3A//farm1.staticflickr.com/44/147426941_98baf36fd1_o.jpg'
 				=> 'apihelp-flickrblacklist-example-1',
 			'action=flickrblacklist&list='
 				=> 'apihelp-flickrblacklist-example-2',
-		);
+		];
 	}
 }

@@ -9,7 +9,6 @@
  * @author Ori Livneh <ori@wikimedia.org>
  */
 
-
 /**
  * Represents the configuration of an Upload Campaign
  */
@@ -38,7 +37,7 @@ class CampaignContent extends JsonContent {
 
 		$fullConfig = UploadWizardConfig::getConfig();
 
-		$defaultCampaignConfig = array();
+		$defaultCampaignConfig = [];
 
 		foreach ( $fullConfig as $key => $value ) {
 			if ( in_array( $key, $campaignFields ) ) {

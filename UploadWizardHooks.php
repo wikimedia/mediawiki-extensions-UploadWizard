@@ -16,20 +16,20 @@ class UploadWizardHooks {
 			$dbfile = __DIR__ . '/UploadWizard.sql';
 		}
 		$updater->addExtensionTable( 'uw_campaigns', $dbfile );
-		$updater->addExtensionUpdate( array(
+		$updater->addExtensionUpdate( [
 			'addIndex',
 			'uw_campaigns',
 			'uw_campaigns_name',
 			__DIR__ . '/sql/UW_IndexCampaignsName.sql',
 			true
-		) );
-		$updater->addExtensionUpdate( array(
+		] );
+		$updater->addExtensionUpdate( [
 			'addIndex',
 			'uw_campaigns',
 			'uw_campaigns_enabled',
 			__DIR__ . '/sql/UW_IndexCampaignsEnabled.sql',
 			true
-		) );
+		] );
 
 		return true;
 	}
@@ -49,18 +49,18 @@ class UploadWizardHooks {
 		$config = UploadWizardConfig::getConfig();
 
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
-		if ( UploadWizardConfig::getSetting( 'tutorial' ) != array() ) {
-			$preferences['upwiz_skiptutorial'] = array(
+		if ( UploadWizardConfig::getSetting( 'tutorial' ) != [] ) {
+			$preferences['upwiz_skiptutorial'] = [
 				'type' => 'check',
 				'label-message' => 'mwe-upwiz-prefs-skiptutorial',
 				'section' => 'uploads/upwiz-interface'
-			);
+			];
 		}
 
 		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
 			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
 
-			$licenses = array();
+			$licenses = [];
 
 			$licensingOptions = UploadWizardConfig::getSetting( 'licensing' );
 
@@ -84,9 +84,9 @@ class UploadWizardHooks {
 			}
 
 			$licenses = array_merge(
-				array(
+				[
 					wfMessage( 'mwe-upwiz-prefs-def-license-def' )->text() => 'default'
-				),
+				],
 				$licenses
 			);
 
@@ -98,20 +98,20 @@ class UploadWizardHooks {
 				$licenses[$licenseKey] = 'thirdparty-custom';
 			};
 
-			$preferences['upwiz_deflicense'] = array(
+			$preferences['upwiz_deflicense'] = [
 				'type' => 'radio',
 				'label-message' => 'mwe-upwiz-prefs-def-license',
 				'section' => 'uploads/upwiz-licensing',
 				'options' => $licenses
-			);
+			];
 
 			if ( $hasCustom ) {
-				$preferences['upwiz_deflicense_custom'] = array(
+				$preferences['upwiz_deflicense_custom'] = [
 					'type' => 'text',
 					'label-message' => 'mwe-upwiz-prefs-def-license-custom',
 					'help-message' => 'mwe-upwiz-prefs-def-license-custom-help',
 					'section' => 'uploads/upwiz-licensing',
-				);
+				];
 			}
 		}
 
@@ -121,12 +121,12 @@ class UploadWizardHooks {
 			$range = range( 0, $config[ 'maxSimultaneousConnections' ] );
 			$range[0] = 'default';
 
-			$preferences['upwiz_maxsimultaneous'] = array(
+			$preferences['upwiz_maxsimultaneous'] = [
 				'type' => 'select',
 				'label-message' => 'mwe-upwiz-prefs-maxsimultaneous-upload',
 				'section' => 'uploads/upwiz-experimental',
 				'options' => $range
-			);
+			];
 		}
 
 		return true;
@@ -158,8 +158,8 @@ class UploadWizardHooks {
 		array &$testModules,
 		ResourceLoader &$resourceLoader
 	) {
-		$testModules['qunit']['ext.uploadWizard.unit.tests'] = array(
-			'scripts' => array(
+		$testModules['qunit']['ext.uploadWizard.unit.tests'] = [
+			'scripts' => [
 				'tests/qunit/controller/uw.controller.Deed.test.js',
 				'tests/qunit/controller/uw.controller.Details.test.js',
 				'tests/qunit/controller/uw.controller.Step.test.js',
@@ -175,13 +175,13 @@ class UploadWizardHooks {
 				'tests/qunit/mw.FlickrChecker.test.js',
 				'tests/qunit/mw.UploadWizardDetails.test.js',
 				'tests/qunit/mw.fileApi.test.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.uploadWizard',
-			),
+			],
 			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'UploadWizard',
-		);
+		];
 	}
 
 	/**

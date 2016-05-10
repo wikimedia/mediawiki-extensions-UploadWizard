@@ -8,28 +8,28 @@
 class UploadWizardConfigTest extends MediaWikiTestCase {
 
 	public function objRefProvider() {
-		return array(
-			array(
+		return [
+			[
 				'',
 				false
-			),
-			array(
+			],
+			[
 				'JustSomeString',
 				false
-			),
-			array(
+			],
+			[
 				'notawiki|Page Title',
 				false
-			),
-			array(
+			],
+			[
 				'es|Page Title',
 				'http://es.wikipedia.org/wiki/Page Title'
-			),
-			array(
+			],
+			[
 				'es|Page Title|id12345',
 				'http://es.wikipedia.org/wiki/Page Title'
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -41,11 +41,11 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 		global $wgUploadWizardConfig;
 		ParserTest::setupInterwikis();
 
-		$this->setMwGlobals( array(
-			'wgUploadWizardConfig' => array_merge( $wgUploadWizardConfig, array(
-				'defaults' => array( 'objref' => $objRef ),
-			) ),
-		) );
+		$this->setMwGlobals( [
+			'wgUploadWizardConfig' => array_merge( $wgUploadWizardConfig, [
+				'defaults' => [ 'objref' => $objRef ],
+			] ),
+		] );
 
 		$this->assertEquals(
 			$expectedResult,
@@ -55,15 +55,15 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 
 	private function getHomeButtonHref() {
 		$campaign = new UploadWizardCampaign( Title::newFromText( 'uw-test-campaign', NS_CAMPAIGN ),
-			array(
+			[
 				'enabled' => true,
-				'display' => array(
-					'homeButton' => array(
+				'display' => [
+					'homeButton' => [
 						'label' => 'Back to that list page',
 						'target' => 'useObjref'
-					)
-				)
-			)
+					]
+				]
+			]
 		);
 
 		$config = $campaign->getParsedConfig();

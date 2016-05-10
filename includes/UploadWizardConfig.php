@@ -33,7 +33,7 @@ class UploadWizardConfig {
 	 * @return Array: Yet another array, sanely replacing contents of $array with $array1
 	 */
 	public static function array_replace_sanely( $array, $array1 ) {
-		$newArray = array();
+		$newArray = [];
 
 		foreach ( $array as $key => $value ) {
 			if ( array_key_exists( $key, $array1 ) ) {
@@ -62,7 +62,7 @@ class UploadWizardConfig {
 	 * @since 1.2
 	 * @var array
 	 */
-	protected static $urlConfig = array();
+	protected static $urlConfig = [];
 
 	/**
 	 * Returns the globally configuration, optionaly combined with campaign sepcific
@@ -133,7 +133,7 @@ class UploadWizardConfig {
 	 */
 	protected static function getDefaultConfig() {
 		$configPath =  dirname( __DIR__ ) . '/UploadWizard.config.php';
-		return is_file( $configPath ) ? include ( $configPath ) : array();
+		return is_file( $configPath ) ? include ( $configPath ) : [];
 	}
 
 	/**
@@ -155,7 +155,7 @@ class UploadWizardConfig {
 			}
 		}
 
-		return array();
+		return [];
 	}
 
 	/**
@@ -168,7 +168,7 @@ class UploadWizardConfig {
 	public static function getThirdPartyLicenses() {
 		$licensing = self::getSetting( 'licensing' );
 		$thirdParty = $licensing['thirdParty'];
-		$licenses = array();
+		$licenses = [];
 
 		foreach ( $thirdParty['licenseGroups'] as $group ) {
 			$licenses = array_merge( $licenses, $group['licenses'] );

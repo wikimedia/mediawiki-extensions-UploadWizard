@@ -28,15 +28,15 @@ class CampaignHooks {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$campaignData = $content->getJsonData();
-		$insertData = array(
+		$insertData = [
 			'campaign_enabled' => $campaignData['enabled'] ? 1 : 0
-		);
+		];
 		$success = $dbw->upsert(
 			'uw_campaigns',
-			array_merge( array(
+			array_merge( [
 				'campaign_name' => $article->getTitle()->getDBkey()
-			), $insertData ),
-			array( 'campaign_name' ),
+			], $insertData ),
+			[ 'campaign_name' ],
 			$insertData
 		);
 
@@ -79,7 +79,7 @@ class CampaignHooks {
 		$dbw->onTransactionPreCommitOrIdle( function () use ( $dbw, $article ) {
 			$dbw->delete(
 				'uw_campaigns',
-				array( 'campaign_name' => $article->getTitle()->getDBKey() )
+				[ 'campaign_name' => $article->getTitle()->getDBKey() ]
 			);
 		} );
 
@@ -99,8 +99,8 @@ class CampaignHooks {
 		$dbw = wfGetDB( DB_MASTER );
 		$success = $dbw->update(
 			'uw_campaigns',
-			array( 'campaign_name' => $newTitle->getDBKey() ),
-			array( 'campaign_name' => $oldTitle->getDBKey() )
+			[ 'campaign_name' => $newTitle->getDBKey() ],
+			[ 'campaign_name' => $oldTitle->getDBKey() ]
 		);
 
 		return $success;

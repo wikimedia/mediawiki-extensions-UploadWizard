@@ -24,10 +24,10 @@
 /* Configuration */
 
 // Credits
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'Upload Wizard',
-	'author' => array(
+	'author' => [
 		'Neil Kandalgaonkar',
 		'Jeroen De Dauw',
 		'Mark Holmquist',
@@ -36,18 +36,18 @@ $wgExtensionCredits['other'][] = array(
 		'Ankur Anand',
 		'Nischay Nahata',
 		'Yuvi Panda'
-	),
+	],
 	'version' => '1.5.0',
 	'descriptionmsg' => 'uploadwizard-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UploadWizard',
 	'license-name' => 'GPL-2.0+'
-);
+];
 
 $wgMessagesDirs['UploadWizard'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['UploadWizardAlias'] = __DIR__ . '/UploadWizard.alias.php';
 
 # Require modules
-$wgAutoloadClasses += array(
+$wgAutoloadClasses += [
 	// Hooks
 	'UploadWizardHooks' => __DIR__ . '/UploadWizardHooks.php',
 
@@ -73,7 +73,7 @@ $wgAutoloadClasses += array(
 
 	// Appease the tests
 	'UploadWizardSimpleForm' => __DIR__ . '/includes/specials/SpecialUploadWizard.php',
-);
+];
 
 $wgAPIListModules['allcampaigns'] = 'ApiQueryAllCampaigns';
 // $wgAPIModules['titlecheck'] = 'ApiTitleCheck';
@@ -90,71 +90,71 @@ $wgHooks['IsUploadAllowedFromUrl'][] = 'UploadWizardHooks::onIsUploadAllowedFrom
 $wgHooks['ResourceLoaderTestModules'][] = 'UploadWizardHooks::onResourceLoaderTestModules';
 $wgHooks['UnitTestsList'][] = 'UploadWizardHooks::onUnitTestsList';
 
-$uploadWizardModuleInfo = array(
+$uploadWizardModuleInfo = [
 	'localBasePath' => __DIR__ . '/resources',
 	'remoteExtPath' => 'UploadWizard/resources',
-);
+];
 
-$wgResourceModules['ext.uploadWizard.formDataTransport'] = array(
+$wgResourceModules['ext.uploadWizard.formDataTransport'] = [
 	'scripts' => 'transports/mw.FormDataTransport.js',
 
-	'dependencies' => array(
+	'dependencies' => [
 		'oojs',
-	),
-) + $uploadWizardModuleInfo;
+	],
+] + $uploadWizardModuleInfo;
 
-$wgResourceModules['ext.uploadWizard.apiUploadPostHandler'] = array(
+$wgResourceModules['ext.uploadWizard.apiUploadPostHandler'] = [
 	'scripts' => 'handlers/mw.ApiUploadPostHandler.js',
 	'dependencies' => 'uw.EventFlowLogger',
 	'messages' => 'mwe-upwiz-transport-started',
-) + $uploadWizardModuleInfo;
+] + $uploadWizardModuleInfo;
 
 // upload using FormData, large files in chunks
-$wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = array(
+$wgResourceModules['ext.uploadWizard.apiUploadFormDataHandler'] = [
 	'scripts' => 'handlers/mw.ApiUploadFormDataHandler.js',
 	'dependencies' => [
 		'uw.EventFlowLogger',
 		'ext.uploadWizard.formDataTransport',
 	],
 	'messages' => 'mwe-upwiz-transport-started',
-) + $uploadWizardModuleInfo;
+] + $uploadWizardModuleInfo;
 
-$wgResourceModules['ext.uploadWizard.page'] = array(
+$wgResourceModules['ext.uploadWizard.page'] = [
 	'scripts' => 'mw.UploadWizardPage.js',
 	'dependencies' => 'ext.uploadWizard'
-) + $uploadWizardModuleInfo;
+] + $uploadWizardModuleInfo;
 
-$wgResourceModules['ext.uploadWizard.page.styles'] = array(
+$wgResourceModules['ext.uploadWizard.page.styles'] = [
 	'styles' => 'uploadWizard.noWizard.css',
-) + $uploadWizardModuleInfo;
+] + $uploadWizardModuleInfo;
 
-$wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = array(
+$wgResourceModules['ext.uploadWizard.uploadCampaign.display'] = [
 	'styles' => 'ext.uploadWizard.uploadCampaign.display.css',
 	'position' => 'top',
 	'dependencies' => 'mediawiki.ui.button'
-) + $uploadWizardModuleInfo;
+] + $uploadWizardModuleInfo;
 
-$wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = array(
+$wgResourceModules['ext.uploadWizard.uploadCampaign.list'] = [
 	'styles' => 'ext.uploadWizard.uploadCampaign.list.css',
 	'position' => 'top'
-) + $uploadWizardModuleInfo;
+] + $uploadWizardModuleInfo;
 
-$wgResourceModules += array(
-	'uw.EventFlowLogger' => array(
-		'scripts' => array(
+$wgResourceModules += [
+	'uw.EventFlowLogger' => [
+		'scripts' => [
 			'resources/uw.EventFlowLogger.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'uw.base',
 			'json',
 			'es5-shim',
 			'oojs',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'ext.uploadWizard' => array(
-		'dependencies' => array(
+	],
+	'ext.uploadWizard' => [
+		'dependencies' => [
 			'jquery.arrowSteps',
 			'jquery.checkboxShiftClick',
 			'jquery.client',
@@ -197,8 +197,8 @@ $wgResourceModules += array(
 			'oojs-ui.styles.icons-editing-advanced',
 			'mediawiki.widgets.DateInputWidget',
 			'mediawiki.widgets.CategorySelector',
-		),
-		'scripts' => array(
+		],
+		'scripts' => [
 			// jquery interface helpers
 			'resources/jquery/jquery.morphCrossfade.js',
 			'resources/jquery/jquery.lazyload.js',
@@ -251,8 +251,8 @@ $wgResourceModules += array(
 			'resources/mw.UploadWizardUpload.js',
 			'resources/mw.UploadWizardDetails.js',
 			'resources/mw.UploadWizardUploadInterface.js',
-		),
-		'styles' => array(
+		],
+		'styles' => [
 			'resources/uploadWizard.css',
 			// OOjs UI interface elements
 			'resources/uw.FieldLayout.less',
@@ -260,8 +260,8 @@ $wgResourceModules += array(
 			'resources/details/uw.DescriptionDetailsWidget.less',
 			'resources/details/uw.DescriptionsDetailsWidget.less',
 			'resources/details/uw.LocationDetailsWidget.less',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'comma-separator',
 			'uploadwizard',
 			'uploadwizard-desc',
@@ -584,66 +584,66 @@ $wgResourceModules += array(
 			'mwe-upwiz-dialog-no',
 			'mwe-upwiz-dialog-title',
 			'colon-separator',
-		),
+		],
 		'group' => 'ext.uploadWizard',
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'ext.uploadWizard.events' => array(
-		'scripts' => array(
+	],
+	'ext.uploadWizard.events' => [
+		'scripts' => [
 			'resources/ext.UploadWizardEvent.js',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.base' => array(
-		'scripts' => array(
+	],
+	'uw.base' => [
+		'scripts' => [
 			'resources/uw/uw.base.js',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.base' => array(
-		'scripts' => array(
+	],
+	'uw.controller.base' => [
+		'scripts' => [
 			'resources/controller/uw.controller.base.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'uw.base',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.Deed' => array(
-		'scripts' => array(
+	],
+	'uw.controller.Deed' => [
+		'scripts' => [
 			'resources/controller/uw.controller.Deed.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.controller.Step',
 			'uw.controller.base',
 			'uw.ui.Deed',
 			'uw.ui.DeedPreview',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.Details' => array(
-		'scripts' => array(
+	],
+	'uw.controller.Details' => [
+		'scripts' => [
 			'resources/uw.CopyMetadataWidget.js',
 			'resources/controller/uw.controller.Details.js',
-		),
-		'styles' => array(
+		],
+		'styles' => [
 			'resources/uw.CopyMetadataWidget.less',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.controller.base',
 			'uw.controller.Step',
 			'uw.ui.Details',
 			'jquery.makeCollapsible',
 			'mediawiki.icon',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'mwe-upwiz-copy-metadata',
 			'mwe-upwiz-copy-metadata-button',
 			'mwe-upwiz-copy-metadata-button-undo',
@@ -655,184 +655,184 @@ $wgResourceModules += array(
 			'mwe-upwiz-copy-categories',
 			'mwe-upwiz-copy-location',
 			'mwe-upwiz-copy-other',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.Step' => array(
-		'scripts' => array(
+	],
+	'uw.controller.Step' => [
+		'scripts' => [
 			'resources/uw.ConcurrentQueue.js',
 			'resources/controller/uw.controller.Step.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.controller.base',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.Thanks' => array(
-		'scripts' => array(
+	],
+	'uw.controller.Thanks' => [
+		'scripts' => [
 			'resources/controller/uw.controller.Thanks.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.controller.Step',
 			'uw.controller.base',
 			'uw.ui.Thanks',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.Tutorial' => array(
-		'scripts' => array(
+	],
+	'uw.controller.Tutorial' => [
+		'scripts' => [
 			'resources/controller/uw.controller.Tutorial.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.controller.Step',
 			'uw.controller.base',
 			'uw.ui.Tutorial',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'mwe-upwiz-prevent-close-wait',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.controller.Upload' => array(
-		'scripts' => array(
+	],
+	'uw.controller.Upload' => [
+		'scripts' => [
 			'resources/controller/uw.controller.Upload.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.controller.Step',
 			'uw.ui.Upload',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.base' => array(
-		'scripts' => array(
+	],
+	'uw.ui.base' => [
+		'scripts' => [
 			'resources/ui/uw.ui.base.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'uw.base',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Wizard' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Wizard' => [
+		'scripts' => [
 			'resources/ui/uw.ui.Wizard.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.ui.base',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Step' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Step' => [
+		'scripts' => [
 			'resources/ui/uw.ui.Step.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'oojs-ui',
 			'uw.ui.base',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Deed' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Deed' => [
+		'scripts' => [
 			'resources/ui/steps/uw.ui.Deed.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.ui.Step',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.DeedPreview' => array(
-		'scripts' => array(
+	],
+	'uw.ui.DeedPreview' => [
+		'scripts' => [
 			'resources/ui/uw.ui.DeedPreview.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'uw.ui.base',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Details' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Details' => [
+		'scripts' => [
 			'resources/ui/steps/uw.ui.Details.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.ui.Step',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'mwe-upwiz-file-some-failed',
 			'mwe-upwiz-file-all-failed',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Thanks' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Thanks' => [
+		'scripts' => [
 			'resources/ui/steps/uw.ui.Thanks.js',
-		),
-		'styles' => array(
+		],
+		'styles' => [
 			'resources/ui/steps/uw.ui.Thanks.less',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.ui.base',
 			'uw.ui.Step',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'mwe-upwiz-thanks-intro',
 			'mwe-upwiz-thanks-explain',
 			'mwe-upwiz-thanks-wikitext',
 			'mwe-upwiz-objref-notice-update-delay',
 			'mwe-upwiz-thanks-url',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Tutorial' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Tutorial' => [
+		'scripts' => [
 			'resources/ui/steps/uw.ui.Tutorial.js',
-		),
-		'styles' => array(
+		],
+		'styles' => [
 			'resources/ui/steps/uw.ui.Tutorial.css',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.ui.base',
 			'uw.ui.Step',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'mwe-upwiz-skip-tutorial-future',
 			'mwe-upwiz-tooltip-skiptutorial',
 			'prefs-uploads',
 			'prefs-upwiz-interface',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-	'uw.ui.Upload' => array(
-		'scripts' => array(
+	],
+	'uw.ui.Upload' => [
+		'scripts' => [
 			'resources/ui/steps/uw.ui.Upload.js',
-		),
-		'dependencies' => array(
+		],
+		'dependencies' => [
 			'oojs',
 			'uw.ui.Step',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'mwe-upwiz-add-file-n',
 			'mwe-upwiz-add-file-0-free',
 			'mwe-upwiz-add-file-flickr-n',
@@ -840,11 +840,11 @@ $wgResourceModules += array(
 			'mwe-upwiz-file-all-ok',
 			'mwe-upwiz-file-some-failed',
 			'mwe-upwiz-file-all-failed',
-		),
+		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
-	),
-);
+	],
+];
 
 $wgEventLoggingSchemas[ 'UploadWizardTutorialActions' ] = 5803466;
 $wgEventLoggingSchemas[ 'UploadWizardUploadActions' ] = 5811620;
@@ -879,7 +879,7 @@ $wgDefaultUserOptions['upwiz_maxsimultaneous'] = 'default';
 
 // Init the upload wizard config array
 // UploadWizard.config.php includes default configuration
-$wgUploadWizardConfig = array();
+$wgUploadWizardConfig = [];
 
 /* Define and configure default namespaces, as defined on Mediawiki.org
  * https://www.mediawiki.org/wiki/Extension_default_namespaces#UploadWizard
@@ -889,7 +889,7 @@ define( 'NS_CAMPAIGN_TALK', 461 );
 $wgExtraNamespaces[ NS_CAMPAIGN ] = 'Campaign';
 $wgExtraNamespaces[ NS_CAMPAIGN_TALK ] = 'Campaign_talk';
 
-$wgNamespaceProtection[ NS_CAMPAIGN ] = array( 'upwizcampaigns' );
+$wgNamespaceProtection[ NS_CAMPAIGN ] = [ 'upwizcampaigns' ];
 
 $wgNamespaceContentModels[ NS_CAMPAIGN ] = 'Campaign';
 $wgContentHandlers[ 'Campaign' ] = 'CampaignContentHandler';

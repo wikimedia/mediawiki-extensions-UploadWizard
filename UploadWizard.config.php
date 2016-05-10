@@ -13,9 +13,9 @@ $cacheKey = wfMemcKey( 'uploadwizard', 'language-templates', $userLangCode );
 // Try to get a cached version of the list
 $uwLanguages = $wgMemc->get( $cacheKey );
 // Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
-$uwDefaultLanguageFixups = array( 'tl' => 'tgl' );
+$uwDefaultLanguageFixups = [ 'tl' => 'tgl' ];
 if ( !$uwLanguages ) {
-	$uwLanguages = array();
+	$uwLanguages = [];
 
 	// First, get a list of languages we support.
 	$baseLangs = Language::fetchLanguageNames( $userLangCode, 'all' );
@@ -26,7 +26,7 @@ if ( !$uwLanguages ) {
 	) {
 		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'];
 		if ( !is_array( $languageFixups ) ) {
-			$languageFixups = array();
+			$languageFixups = [];
 		}
 	} else {
 		$languageFixups = $uwDefaultLanguageFixups;
@@ -60,7 +60,7 @@ if ( !$uwLanguages ) {
 	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
 }
 
-return array(
+return [
 	// Upload wizard has an internal debug flag
 	'debug' => false,
 
@@ -97,20 +97,20 @@ return array(
 	'flickrBlacklistPage' => '',
 
 	// Settings about things that get automatically (and silently) added to uploads
-	'autoAdd' => array(
+	'autoAdd' => [
 		// Categories to automatically (and silently) add all uploaded images into.
-		'categories' => array(),
+		'categories' => [],
 
 		// WikiText to automatically (and silently) add to all uploaded images.
 		'wikitext' => '',
-	),
+	],
 
 	// If the user didn't add categories, or removed the default categories, add this wikitext.
 	// Use this to indicate that some human should categorize this file.
 	// Does not consider autoAdd.categories, which are hidden.
 	'missingCategoriesWikiText' => '',
 
-	'display' => array(
+	'display' => [
 		// wikitext to display above the UploadWizard UI.
 		'headerLabel' => '',
 
@@ -131,11 +131,11 @@ return array(
 		// wikitext to display on top of the "use" page if an image was marked with an object reference
 		// When not provided, the message mwe-upwiz-objref-notice-update-delay will be used.
 		'noticeUpdateDelay' => ''
-	),
+	],
 
 	// Settings for the tutorial to be shown.
 	// Empty array if we want to skip
-	'tutorial' => array(
+	'tutorial' => [
 		// Set to true to skip the tutorial
 		'skip' => false,
 
@@ -148,10 +148,10 @@ return array(
 		// Imagemap coordinates of the "helpdesk" button at the bottom, which is supposed to be clickable.
 		// Empty string or false to not have an imagemap linked to the helpdesk.
 		'helpdeskCoords' => '27, 1319, 691, 1384',
-	),
+	],
 
 	// Tracking categories for various scenarios
-	'trackingCategory' => array(
+	'trackingCategory' => [
 		// Category added no matter what
 		// Default to none because we don't know what categories
 		// exist or not on local wikis.
@@ -163,11 +163,11 @@ return array(
 
 		// Tracking category added for campaigns. $1 is replaced with campaign page name
 		'campaign' => 'Uploaded via Campaign:$1'
-	),
+	],
 
-	'fields' => array(
+	'fields' => [
 		// Field via which an ID can be provided.
-		array(
+		[
 			// When non empty, this field will be shown, and $1 will be replaced by it's value.
 			'wikitext' => '',
 
@@ -189,13 +189,13 @@ return array(
 
 			// If the type above is select, provide a dictionary of
 			// value -> label associations to display as options
-			'options' => array( /* 'value' => 'label' */ )
-		)
-	),
+			'options' => [ /* 'value' => 'label' */ ]
+		]
+	],
 
-	'defaults' => array(
+	'defaults' => [
 		// Categories to list by default in the list of cats to add.
-		'categories' => array(),
+		'categories' => [],
 
 		// Initial value for the description field.
 		'description' => '',
@@ -221,11 +221,11 @@ return array(
 		//'heading' => 0,
 
 		// @codingStandardsIgnoreEnd
-	),
+	],
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
 	// See the definition of $uwLanguages above. If empty we'll just set a default.
-	'uwLanguages' => empty( $uwLanguages ) ? array( 'en' => 'English' ) : $uwLanguages,
+	'uwLanguages' => empty( $uwLanguages ) ? [ 'en' => 'English' ] : $uwLanguages,
 
 	// 'licenses' is a list of licenses you could possibly use elsewhere, for instance in
 	// licensesOwnWork or licensesThirdParty.
@@ -233,199 +233,199 @@ return array(
 	// a menu of license choices. There probably isn't any reason to delete any entry here.
 	// Under normal circumstances, the license name is the name of the wikitext template to insert.
 	// For those that aren't, there is a "templates" property.
-	'licenses' => array(
-		'cc-by-sa-4.0' => array(
+	'licenses' => [
+		'cc-by-sa-4.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-4.0',
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/4.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0' => array(
+		],
+		'cc-by-sa-3.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0',
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-gfdl' => array(
+		],
+		'cc-by-sa-3.0-gfdl' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-gfdl',
-			'templates' => array( 'GFDL', 'cc-by-sa-3.0' ),
-			'icons' => array( 'cc-by', 'cc-sa' )
-		),
-		'cc-by-sa-3.0-at' => array(
+			'templates' => [ 'GFDL', 'cc-by-sa-3.0' ],
+			'icons' => [ 'cc-by', 'cc-sa' ]
+		],
+		'cc-by-sa-3.0-at' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-at',
-			'templates' => array( 'cc-by-sa-3.0-at' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-at' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/at/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-de' => array(
+		],
+		'cc-by-sa-3.0-de' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-de',
-			'templates' => array( 'cc-by-sa-3.0-de' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-de' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/de/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-ee' => array(
+		],
+		'cc-by-sa-3.0-ee' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-ee',
-			'templates' => array( 'cc-by-sa-3.0-ee' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-ee' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/ee/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-es' => array(
+		],
+		'cc-by-sa-3.0-es' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-es',
-			'templates' => array( 'cc-by-sa-3.0-es' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-es' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/es/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-hr' => array(
+		],
+		'cc-by-sa-3.0-hr' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-hr',
-			'templates' => array( 'cc-by-sa-3.0-hr' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-hr' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/hr/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-lu' => array(
+		],
+		'cc-by-sa-3.0-lu' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-lu',
-			'templates' => array( 'cc-by-sa-3.0-lu' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-lu' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/lu/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-nl' => array(
+		],
+		'cc-by-sa-3.0-nl' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-nl',
-			'templates' => array( 'cc-by-sa-3.0-nl' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-nl' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/nl/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-no' => array(
+		],
+		'cc-by-sa-3.0-no' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-no',
-			'templates' => array( 'cc-by-sa-3.0-no' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-no' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/no/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-pl' => array(
+		],
+		'cc-by-sa-3.0-pl' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-pl',
-			'templates' => array( 'cc-by-sa-3.0-pl' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-pl' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/pl/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-3.0-ro' => array(
+		],
+		'cc-by-sa-3.0-ro' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-3.0-ro',
-			'templates' => array( 'cc-by-sa-3.0-ro' ),
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'templates' => [ 'cc-by-sa-3.0-ro' ],
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/3.0/ro/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-4.0' => array(
+		],
+		'cc-by-4.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-4.0',
-			'icons' => array( 'cc-by' ),
+			'icons' => [ 'cc-by' ],
 			'url' => '//creativecommons.org/licenses/by/4.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-3.0' => array(
+		],
+		'cc-by-3.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-3.0',
-			'icons' => array( 'cc-by' ),
+			'icons' => [ 'cc-by' ],
 			'url' => '//creativecommons.org/licenses/by/3.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-zero' => array(
+		],
+		'cc-zero' => [
 			'msg' => 'mwe-upwiz-license-cc-zero',
-			'icons' => array( 'cc-zero' ),
+			'icons' => [ 'cc-zero' ],
 			'url' => '//creativecommons.org/publicdomain/zero/1.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'own-pd' => array(
+		],
+		'own-pd' => [
 			'msg' => 'mwe-upwiz-license-own-pd',
-			'icons' => array( 'cc-zero' ),
-			'templates' => array( 'cc-zero' )
-		),
-		'cc-by-sa-2.5' => array(
+			'icons' => [ 'cc-zero' ],
+			'templates' => [ 'cc-zero' ]
+		],
+		'cc-by-sa-2.5' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.5',
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/2.5/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-2.5' => array(
+		],
+		'cc-by-2.5' => [
 			'msg' => 'mwe-upwiz-license-cc-by-2.5',
-			'icons' => array( 'cc-by' ),
+			'icons' => [ 'cc-by' ],
 			'url' => '//creativecommons.org/licenses/by/2.5/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-sa-2.0' => array(
+		],
+		'cc-by-sa-2.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-sa-2.0',
-			'icons' => array( 'cc-by', 'cc-sa' ),
+			'icons' => [ 'cc-by', 'cc-sa' ],
 			'url' => '//creativecommons.org/licenses/by-sa/2.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'cc-by-2.0' => array(
+		],
+		'cc-by-2.0' => [
 			'msg' => 'mwe-upwiz-license-cc-by-2.0',
-			'icons' => array( 'cc-by' ),
+			'icons' => [ 'cc-by' ],
 			'url' => '//creativecommons.org/licenses/by/2.0/',
 			'languageCodePrefix' => 'deed.'
-		),
-		'fal' => array(
+		],
+		'fal' => [
 			'msg' => 'mwe-upwiz-license-fal',
-			'templates' => array( 'FAL' )
-		),
-		'pd-old-100' => array(
+			'templates' => [ 'FAL' ]
+		],
+		'pd-old-100' => [
 			'msg' => 'mwe-upwiz-license-pd-old-100',
-			'templates' => array( 'PD-old-100' )
-		),
-		'pd-old' => array(
+			'templates' => [ 'PD-old-100' ]
+		],
+		'pd-old' => [
 			'msg' => 'mwe-upwiz-license-pd-old',
-			'templates' => array( 'PD-old' )
-		),
-		'pd-art' => array(
+			'templates' => [ 'PD-old' ]
+		],
+		'pd-art' => [
 			'msg' => 'mwe-upwiz-license-pd-art',
-			'templates' => array( 'PD-Art' )
-		),
-		'pd-us' => array(
+			'templates' => [ 'PD-Art' ]
+		],
+		'pd-us' => [
 			'msg' => 'mwe-upwiz-license-pd-us',
-			'templates' => array( 'PD-US' )
-		),
-		'pd-usgov' => array(
+			'templates' => [ 'PD-US' ]
+		],
+		'pd-usgov' => [
 			'msg' => 'mwe-upwiz-license-pd-usgov',
-			'templates' => array( 'PD-USGov' )
-		),
-		'pd-usgov-nasa' => array(
+			'templates' => [ 'PD-USGov' ]
+		],
+		'pd-usgov-nasa' => [
 			'msg' => 'mwe-upwiz-license-pd-usgov-nasa',
-			'templates' => array( 'PD-USGov-NASA' )
-		),
-		'pd-ineligible' => array(
+			'templates' => [ 'PD-USGov-NASA' ]
+		],
+		'pd-ineligible' => [
 			'msg' => 'mwe-upwiz-license-pd-ineligible'
-		),
-		'pd-textlogo' => array(
+		],
+		'pd-textlogo' => [
 			'msg' => 'mwe-upwiz-license-pd-textlogo',
-			'templates' => array( 'trademarked', 'PD-textlogo' )
-		),
-		'attribution' => array(
+			'templates' => [ 'trademarked', 'PD-textlogo' ]
+		],
+		'attribution' => [
 			'msg' => 'mwe-upwiz-license-attribution'
-		),
-		'gfdl' => array(
+		],
+		'gfdl' => [
 			'msg' => 'mwe-upwiz-license-gfdl',
-			'templates' => array( 'GFDL' )
-		),
-		'none' => array(
+			'templates' => [ 'GFDL' ]
+		],
+		'none' => [
 			'msg' => 'mwe-upwiz-license-none',
-			'templates' => array( 'subst:uwl' )
-		),
-		'custom' => array(
+			'templates' => [ 'subst:uwl' ]
+		],
+		'custom' => [
 			'msg' => 'mwe-upwiz-license-custom',
-			'templates' => array( 'subst:Custom license marker added by UW' ),
+			'templates' => [ 'subst:Custom license marker added by UW' ],
 			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse()
-		),
-		'generic' => array(
+		],
+		'generic' => [
 			'msg' => 'mwe-upwiz-license-generic',
-			'templates' => array( 'Generic' )
-		)
-	),
+			'templates' => [ 'Generic' ]
+		]
+	],
 
-	'licensing' => array(
+	'licensing' => [
 		// Default license type.
 		// Possible values: ownwork, thirdparty, choice.
 		'defaultType' => 'choice',
@@ -435,29 +435,29 @@ return array(
 		'ownWorkDefault' => 'choice',
 
 		// radio button selection of some licenses
-		'ownWork' => array(
+		'ownWork' => [
 			'type' => 'or',
 			'template' => 'self',
 			'defaults' => 'cc-by-sa-4.0',
-			'licenses' => array(
+			'licenses' => [
 				'cc-by-sa-4.0',
 				'cc-by-sa-3.0',
 				'cc-by-4.0',
 				'cc-by-3.0',
 				'cc-zero'
-			)
-		),
+			]
+		],
 
 		// checkbox selection of all licenses
-		'thirdParty' => array(
+		'thirdParty' => [
 			'type' => 'or',
 			'defaults' => 'cc-by-sa-4.0',
-			'licenseGroups' => array(
-				array(
+			'licenseGroups' => [
+				[
 					// This should be a list of all CC licenses we can reasonably expect to find around the web
 					'head' => 'mwe-upwiz-license-cc-head',
 					'subhead' => 'mwe-upwiz-license-cc-subhead',
-					'licenses' => array(
+					'licenses' => [
 						'cc-by-sa-4.0',
 						'cc-by-sa-3.0',
 						'cc-by-sa-2.5',
@@ -465,48 +465,48 @@ return array(
 						'cc-by-3.0',
 						'cc-by-2.5',
 						'cc-zero'
-					)
-				),
-				array(
+					]
+				],
+				[
 					// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
 					// The White House also has an account there, hence the Public Domain US Government license
 					'head' => 'mwe-upwiz-license-flickr-head',
 					'subhead' => 'mwe-upwiz-license-flickr-subhead',
-					'prependTemplates' => array( 'flickrreview' ),
-					'licenses' => array(
+					'prependTemplates' => [ 'flickrreview' ],
+					'licenses' => [
 						'cc-by-sa-2.0',
 						'cc-by-2.0',
 						'pd-usgov',
-					)
-				),
-				array(
+					]
+				],
+				[
 					'head' => 'mwe-upwiz-license-public-domain-usa-head',
 					'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
-					'licenses' => array(
+					'licenses' => [
 						'pd-us',
 						'pd-art',
-					)
-				),
-				array(
+					]
+				],
+				[
 					// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
 					'head' => 'mwe-upwiz-license-usgov-head',
-					'licenses' => array(
+					'licenses' => [
 						'pd-usgov',
 						'pd-usgov-nasa'
-					)
-				),
-				array(
+					]
+				],
+				[
 					'head' => 'mwe-upwiz-license-custom-head',
 					'special' => 'custom',
-					'licenses' => array( 'custom' ),
-				),
-				array(
+					'licenses' => [ 'custom' ],
+				],
+				[
 					'head' => 'mwe-upwiz-license-none-head',
-					'licenses' => array( 'none' )
-				),
-			)
-		)
-	),
+					'licenses' => [ 'none' ]
+				],
+			]
+		]
+	],
 
 	// Default thumbnail width
 	'thumbnailWidth' => 100,
@@ -604,19 +604,19 @@ return array(
 	'enableFirefogg' => true,
 
 	// Setup list of video extensions for recomending firefogg.
-	'transcodeExtensionList' => array(
+	'transcodeExtensionList' => [
 		'avi', 'asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
 		'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg', 'mts'
-	),
+	],
 
 	// Firefogg encode settings copied from TimedMediHandler high end webm.
-	'firefoggEncodeSettings' => array(
+	'firefoggEncodeSettings' => [
 		'maxSize'           => '1920x1080',
 		'videoQuality'      => 7,
 		'audioQuality'      => 3,
 		'noUpscaling'       => 'true',
 		'videoCodec'        => 'vp8',
-	),
+	],
 
 	// Link to page where users can leave feedback or bug reports.
 	// Defaults to UploadWizard's bug tracker.
@@ -658,4 +658,4 @@ return array(
 	// Should we pester the user with a confirmation step when submitting a file without assigning it
 	// to any categories?
 	'enableCategoryCheck' => true,
-);
+];
