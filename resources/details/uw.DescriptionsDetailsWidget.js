@@ -149,7 +149,9 @@
 			layout.fieldWidget.setSerialized( serialized );
 			return layout;
 		}.bind( this ) );
-		this.clearItems().addItems( items );
+		this.clearItems();
+		this.$group.empty(); // Kill the stupid "Remove" buttons
+		this.addItems( items );
 		if ( this.required ) {
 			// Hide the "Remove" button for first description if this field is required
 			this.items[ 0 ].$element.next().hide();
