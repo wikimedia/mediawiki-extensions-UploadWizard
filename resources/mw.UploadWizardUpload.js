@@ -88,10 +88,6 @@
 		this.ui.fill( providedFile );
 	};
 
-	mw.UploadWizardUpload.prototype.acceptDeed = function () {
-		this.deed.applyDeed( this );
-	};
-
 	/**
 	 * start
 	 *
