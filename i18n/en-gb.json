@@ -5,7 +5,8 @@
 			"Shirayuki",
 			"Caliburn",
 			"Sator",
-			"Usandaru555"
+			"Usandaru555",
+			"Codynguyen1116"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
@@ -50,9 +51,9 @@
 	"mwe-upwiz-source-ownwork-assert-note": "I, copyright holder of {{PLURAL:$2|this work|these works}}, publish {{PLURAL:$2|this work|these works}} under the $1 licence.",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-copy-metadata-button": "Copy",
-	"mwe-upwiz-copy-metadata-button-undo": "නිෂ්ප්‍රභ කරනවා",
-	"mwe-upwiz-copied-metadata": "පිටපත් කරන ලදී.",
-	"mwe-upwiz-undid-metadata": "පිටපත් කිරීම සිදු නොවුනි",
+	"mwe-upwiz-copy-metadata-button-undo": "Undo",
+	"mwe-upwiz-copied-metadata": "Copied!",
+	"mwe-upwiz-undid-metadata": "Copy undone.",
 	"mwe-upwiz-title": "Title",
 	"mwe-upwiz-location": "Location",
 	"mwe-upwiz-ok": "OK",

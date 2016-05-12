@@ -10,7 +10,8 @@
 			"Vibhijain",
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
-			"Upendradutt93"
+			"Upendradutt93",
+			"Sfic"
 		]
 	},
 	"uploadwizard": "अपलोड विज़ार्ड",
@@ -22,7 +23,6 @@
 	"group-upwizcampeditors": "अपलोड विज़ार्ड अभियान संपादक",
 	"group-upwizcampeditors-member": "{{GENDER:$1|अपलोड विज़ार्ड अभियान संपादक}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:अपलोड विज़ार्ड अभियान संपादक",
-	"mwe-upwiz-js-off": "UploadWizard एक बेहतर इंटरफ़ेस के लिए जावास्क्रिप्ट का उपयोग करता है. या तो आपका ब्राउज़र जावास्क्रिप्ट का समर्थन नहीं करता है या  जावास्क्रिप्ट बंद कर दिया, तो हम आपको एक सरल अपलोड फार्म दिखा रहे हैं",
 	"mwe-upwiz-extension-disabled": "यह पृष्ठ अस्थायी तकनीकी समस्याओं के कारण निष्क्रिय कर दिया गया. बीच में मानक अपलोड फार्म का प्रयास करें",
 	"mwe-upwiz-step-tutorial": "जानें",
 	"mwe-upwiz-step-file": "अपलोड करें",
@@ -49,8 +49,6 @@
 	"mwe-upwiz-failed": "विफल रहे।",
 	"mwe-upwiz-remove": "हटायें",
 	"mwe-upwiz-remove-upload": "इस फाइल अपलोड करने के लिए फ़ाइलों की सूची से निकालें",
-	"mwe-upwiz-show-thumb": "थंबनेल दिखाएँ",
-	"mwe-upwiz-show-thumb-tip": "इस फ़ाइल के लिए एक थंबनेल इमेज लोड करें",
 	"mwe-upwiz-remove-description": "इस वर्णन को निकालें",
 	"mwe-upwiz-upload": "अपलोड करें",
 	"mwe-upwiz-file-all-ok": "सभी अपलोड सफल रहे",
@@ -70,6 +68,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "ठीक है",
 	"mwe-upwiz-more-options": "अधिक विकल्प...",
 	"mwe-upwiz-copy-metadata-button": "प्रतिलिपि बनाएँ",
+	"mwe-upwiz-copy-metadata-button-undo": "पूर्ववत करें",
 	"mwe-upwiz-copy-date": "दिनांक की प्रतिलिपि बनाएँ",
 	"mwe-upwiz-desc": "विवरण",
 	"mwe-upwiz-desc-add-n": "किसी अन्य भाषा में वर्णन जोड़ें",

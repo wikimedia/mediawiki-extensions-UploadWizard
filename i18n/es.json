@@ -22,7 +22,8 @@
 			"SinNovedades",
 			"Yllelder",
 			"YoViajo",
-			"Lemondoge"
+			"Lemondoge",
+			"Codynguyen1116"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -140,7 +141,7 @@
 	"mwe-upwiz-copy-metadata": "Copiar información a todas las subidas a continuación...",
 	"mwe-upwiz-copy-metadata-button": "Copiar",
 	"mwe-upwiz-copy-metadata-button-undo": "Deshacer",
-	"mwe-upwiz-copied-metadata": "Copiado",
+	"mwe-upwiz-copied-metadata": "¡Copiado!",
 	"mwe-upwiz-undid-metadata": "Copia deshecha.",
 	"mwe-upwiz-copy-title": "Copiar título (con numeración automática)",
 	"mwe-upwiz-copy-description": "Copiar descripciones",
