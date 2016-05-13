@@ -262,7 +262,9 @@
 		// Disable edit interface
 		this.ui.disableEdits();
 		// No way to restore this later... We don't handle partially-successful uploads very well
-		this.copyMetadataWidget.$element.remove();
+		if ( this.copyMetadataWidget ) {
+			this.copyMetadataWidget.$element.remove();
+		}
 
 		return this.transitionAll().then( function () {
 			details.showErrors();
