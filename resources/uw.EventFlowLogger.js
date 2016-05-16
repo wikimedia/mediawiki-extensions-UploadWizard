@@ -184,6 +184,16 @@
 				stack: undefined // T91347
 			} );
 		} );
+
+		mw.trackSubscribe( 'mediawiki.jqueryMsg', function ( topic, data ) {
+			self.log( 'UploadWizardExceptionFlowEvent', {
+				message: data.errorMessage,
+				url: 'jqueryMsg://' + data.messageKey, // Yeah, we're abusing the schema
+				line: 0,
+				column: 0,
+				stack: undefined
+			} );
+		} );
 	};
 
 	/**
