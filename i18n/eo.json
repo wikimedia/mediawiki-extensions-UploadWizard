@@ -12,7 +12,8 @@
 			"Yekrats",
 			"Matma Rex",
 			"Tlustulimu",
-			"Macofe"
+			"Macofe",
+			"Robin van der Vliet"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -116,7 +117,8 @@
 	"mwe-upwiz-more-options": "Aldoni lokon kaj pliajn informojn...",
 	"mwe-upwiz-copy-metadata": "Kopii informon al {{PLURAL:$1|la alia alŝuto|ĉiuj alŝutoj}} jene ...",
 	"mwe-upwiz-copy-metadata-button": "Kopii",
-	"mwe-upwiz-copied-metadata-button": "Sukcese kopiita",
+	"mwe-upwiz-copy-metadata-button-undo": "Malfari",
+	"mwe-upwiz-copied-metadata": "Sukcese kopiita",
 	"mwe-upwiz-copy-title": "Kopii titolon (kun aŭtomata nombrado)",
 	"mwe-upwiz-copy-description": "Kopii {{PLURAL:$1|priskribon|priskribojn}}",
 	"mwe-upwiz-copy-date": "Kopii la daton",
@@ -150,7 +152,6 @@
 	"mwe-upwiz-upload-error-duplicate": "Ĉi tiu dosiero estis antaŭe alŝutita al ĉi tiu vikio.",
 	"mwe-upwiz-upload-error-duplicate-archive": "Ĉi tiu dosiero estis antaŭe alŝutita al ĉi tiu vikio, se poste forigita.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Ĉu alŝuti malgraŭ?",
-	"mwe-upwiz-upload-error-unknown-filename-error": "Ne eblis legi aŭ kompreni la dosieran nomon \"$1\" pro nekonata kialo.",
 	"mwe-upwiz-ok": "Ek!",
 	"mwe-upwiz-fileexists-replace-on-page": "Dosiero kun tiu nomo jam ekzistas. Se vi volas anstataŭi ĝin, iru al la paĝo por [$2 $1] kaj anstataŭu ĝin tie.",
 	"mwe-upwiz-fileexists-replace-no-link": "Bonvolu elekti malsaman titolon, ĉar ĉi tiu titolo jam estas uzata per alia dosiero.",
@@ -186,7 +187,6 @@
 	"mwe-upwiz-error-signature-too-short": "Via subskribo tro mallongas. Ampleksigu ĝin al pli ol {{PLURAL:$1|karaktro|karaktroj}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Via subskribo enhavas simbolojn ne permesatajn.\nBonvolu ne uzi vikian tekston aux HTML-kodon ĉi-tie, nur vian vikian uzantonomon aŭ vian veran nomon.",
 	"mwe-upwiz-error-blank": "Ĉi tiu kampo estas deviga.",
-	"mwe-upwiz-error-nologin": "Vi devas esti <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ensalutita]</span> por alŝuti dosierojn.",
 	"mwe-upwiz-error-too-long": "Tiu ĉi noto estas tro longa. Koncizigu ĝin al malpli ol $1  {{PLURAL:$1|signo|signoj}}.",
 	"mwe-upwiz-error-too-short": "Tiu ĉi noto tro mallongas. \nAmpleksigu ĝin al pli ol {{PLURAL:$1|signo|signoj}}.",
 	"mwe-upwiz-error-bad-chars": "Tiu ĉi enigo enhavas simbolojn ne permesatajn.\nBonvolu ne uzi vikian tekston aux HTML-kodon ĉi tie.",
