@@ -112,7 +112,7 @@
 			prefix = titleObj.getNameText();
 
 			function checkUniqueProcessor( data ) {
-				var result, protection, pageId, ntitle, img;
+				var result, protection, pageId, ntitle, ntitleObj, img;
 
 				result = { isUnique: true };
 
@@ -138,12 +138,18 @@
 						}
 					} else {
 						for ( pageId in data.query.pages ) {
-							// Conflict found, this filename is NOT unique
 							ntitle = data.query.pages[ pageId ].title;
-							if ( ext !== mw.Title.newFromText( ntitle ).getExtension() ) {
-								// Unless it's a different extension, that's fine (e.g. to upload a SVG version of a PNG file)
+							ntitleObj = mw.Title.newFromText( ntitle );
+							if ( ntitleObj.getNameText() !== prefix ) {
+								// It's a different file name entirely
 								continue;
 							}
+							if ( ext !== mw.Title.normalizeExtension( ntitleObj.getExtension() ) ) {
+								// It's a different extension, that's fine (e.g. to upload a SVG version of a PNG file)
+								continue;
+							}
+
+							// Conflict found, this filename is NOT unique
 
 							if ( !data.query.pages[ pageId ].imageinfo ) {
 								// This means that there's a page, but it's not a file. Well,
