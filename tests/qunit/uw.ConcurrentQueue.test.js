@@ -22,14 +22,14 @@
 	// each call of the returned function, the Promise it returns will take 10 ms longer to resolve.
 	// This ensures that actions in ConcurrentQueue don't all finish at the same instant, which would
 	// break tests (they make stronger assumptions about the order than ConcurrentQueue guarantees).
-	function incrementallyDelayedPromise() {
-		var delay = 20;
+	function incrementallyDelayedPromise( multiplier ) {
+		var delay = 20 * ( multiplier || 1 );
 		return function () {
 			var deferred = $.Deferred();
 			setTimeout( function () {
 				deferred.resolve();
 			}, delay );
-			delay += 10;
+			delay += 10 * ( multiplier || 1 );
 			return deferred.promise();
 		};
 	}
@@ -371,7 +371,8 @@
 	QUnit.test( 'Adding a new item when almost done', function ( assert ) {
 		var done, action, changeHandler, progressHandler, completeHandler, queue, onProgress;
 		done = assert.async();
-		action = sinon.spy( incrementallyDelayedPromise() );
+		// This test seems extra flaky and was occasionally failing, double the delays
+		action = sinon.spy( incrementallyDelayedPromise( 2 ) );
 		changeHandler = sinon.stub();
 		progressHandler = sinon.stub();
 		completeHandler = sinon.stub();
