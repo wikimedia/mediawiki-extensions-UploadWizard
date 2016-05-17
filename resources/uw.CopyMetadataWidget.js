@@ -166,15 +166,18 @@
 			sourceValue.campaigns = serialized.campaigns;
 		}
 
+		if ( copyingTitle ) {
+			titleZero = sourceValue.title.title;
+			// Add number suffix to first title if no numbering present
+			matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
+			if ( matches === null ) {
+				titleZero = titleZero + ' 01';
+			}
+		}
+
 		// And apply
 		for ( i = 0; i < uploads.length; i++ ) {
 			if ( copyingTitle ) {
-				// Add number suffix to first title if no numbering present
-				titleZero = sourceValue.title.title;
-				matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
-				if ( matches === null ) {
-					titleZero = titleZero + ' 01';
-				}
 				// Overwrite remaining title inputs with first title + increment of rightmost
 				// number in the title. Note: We ignore numbers with more than three digits, because these
 				// are more likely to be years ("Wikimania 2011 Celebration") or other non-sequence
