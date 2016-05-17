@@ -6,7 +6,8 @@
 			"Caliburn",
 			"Sator",
 			"Usandaru555",
-			"Codynguyen1116"
+			"Codynguyen1116",
+			"Andibing"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
@@ -64,7 +65,7 @@
 	"mwe-upwiz-tooltip-more-info": "Learn more.",
 	"mwe-upwiz-deeds-need-license": "Aukeratu mesedez lizentzia bat.",
 	"mwe-upwiz-license-show-all": "Use a different licence",
-	"mwe-upwiz-license-show-recommended": "Use the recommended licence",
+	"mwe-upwiz-license-show-recommended": "Use the site's recommended licence",
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a licence",
 	"mwe-upwiz-dialog-yes": "Yes",
 	"mwe-upwiz-dialog-no": "No",
