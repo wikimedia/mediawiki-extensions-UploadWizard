@@ -124,7 +124,7 @@
 	"mwe-upwiz-more-options": "Adicionar localização e mais informações...",
 	"mwe-upwiz-copy-metadata": "Copie a informação para {{PLURAL:$1|o outro envio|os outros envios}} abaixo...",
 	"mwe-upwiz-copy-metadata-button": "Copiar",
-	"mwe-upwiz-copied-metadata-button": "Copiado",
+	"mwe-upwiz-copied-metadata": "Copiado",
 	"mwe-upwiz-copy-title": "Copiar título (com numeração automática)",
 	"mwe-upwiz-copy-description": "Copiar descrições",
 	"mwe-upwiz-copy-date": "Copiar a data",
