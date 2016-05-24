@@ -4,12 +4,12 @@
 
 /*jshint node:true */
 module.exports = function ( grunt ) {
-	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
+	grunt.loadNpmTasks( 'grunt-stylelint' );
 
 	grunt.initConfig( {
 		jshint: {
@@ -24,20 +24,20 @@ module.exports = function ( grunt ) {
 		jscs: {
 			src: '<%= jshint.all %>'
 		},
-		csslint: {
+		stylelint: {
 			options: {
-				csslintrc: '.csslintrc'
+				syntax: 'less'
 			},
-			all: 'resources/**/*.css'
+			all: 'resources/{**/,}*.{css,less}'
 		},
 		banana: {
 			all: 'i18n/'
 		},
 		watch: {
 			files: [
-				'.{csslintrc,jscsrc,jshintignore,jshintrc}',
+				'.{stylelintrc,jscsrc,jshintignore,jshintrc}',
 				'<%= jshint.all %>',
-				'<%= csslint.all %>'
+				'<%= stylelint.all %>'
 			],
 			tasks: 'test'
 		},
@@ -49,6 +49,6 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'jshint', 'jscs', 'stylelint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
 };
