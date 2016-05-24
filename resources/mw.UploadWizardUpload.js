@@ -1012,9 +1012,9 @@
 			height: ( height === undefined ? null : parseInt( height, 10 ) )
 		};
 
-		return mw.canvas.isAvailable()
-			? this.getTransformedCanvasElement( image, constraints )
-			: this.getBrowserScaledImageElement( image, constraints );
+		return mw.canvas.isAvailable() ?
+			this.getTransformedCanvasElement( image, constraints ) :
+			this.getBrowserScaledImageElement( image, constraints );
 	};
 
 	/**

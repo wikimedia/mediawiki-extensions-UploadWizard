@@ -1,18 +1,3 @@
-/**
- * Create a group of radio buttons for licenses. N.b. the licenses are named after the templates they invoke.
- * Note that this is very anti-MVC. The values are held only in the actual form elements themselves.
- *
- * @param {string|jQuery} selector to place license input
- * @param {Array|undefined} license key name(s) to activate by default
- * @param {Object} configuration of licenseInput. Must have following properties
- *				'type' = ("and"|"or") -- whether inclusive or exclusive license allowed
- *				'licenses' => array of template string names (matching keys in mw.UploadWizard.config.licenses)
- *				optional: 'licenseGroups' => groups of licenses, with more explanation
- *				optional: 'special' => String -- indicates, don't put licenses here, instead use a special widget
- * @param {number} count of the things we are licensing (it matters to some texts)
- * @param {mw.Api} api object; useful for previews
- */
-
 ( function ( mw, uw, $, OO ) {
 	function LicensePreviewDialog( config ) {
 		LicensePreviewDialog.parent.call( this, config );
@@ -72,7 +57,18 @@
 	};
 
 	/**
+	 * Create a group of radio buttons for licenses. N.B. the licenses are named after the templates they invoke.
+	 * Note that this is very anti-MVC. The values are held only in the actual form elements themselves.
+	 *
 	 * @extends OO.ui.Widget
+	 * @param {Array|undefined} values License key name(s) to activate by default
+	 * @param {Object} config Configuration. Must have following properties:
+	 * @param {string} config.type Whether inclusive or exclusive license allowed ("and"|"or")
+	 * @param {string[]} config.licenses Template string names (matching keys in mw.UploadWizard.config.licenses)
+	 * @param {string[]} [config.licenseGroups] Groups of licenses, with more explanation
+	 * @param {string} [config.special] Indicates, don't put licenses here, instead use a special widget
+	 * @param {Number} count Number of the things we are licensing (it matters to some texts)
+	 * @param {mw.Api} api API object, used for wikitext previews
 	 */
 	mw.UploadWizardLicenseInput = function ( values, config, count, api ) {
 		mw.UploadWizardLicenseInput.parent.call( this );
