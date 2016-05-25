@@ -20,7 +20,8 @@
 			"Pitke",
 			"Matma Rex",
 			"McSalama",
-			"Macofe"
+			"Macofe",
+			"BiscuitMan"
 		]
 	},
 	"uploadwizard": "Ohjattu tiedoston tallentaminen",
@@ -343,5 +344,5 @@
 	"campaigns": "Tallennuskampanjat",
 	"mwe-upload-campaigns-pagination-next": "Seuraava sivu",
 	"mwe-upload-campaigns-list-title": "Luettelo tallennuskampanjoista",
-	"apihelp-flickrblacklist-param-url": "Testattava Flicker-osoite."
+	"apihelp-flickrblacklist-param-url": "Testattava Flickr-osoite."
 }
