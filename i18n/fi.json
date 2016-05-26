@@ -60,7 +60,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Tämä lomake lataa tietoja flickr.com:sta, jotka ovat Flickr:n [https://www.flickr.com/help/terms/ käyttöehtojen] ja [https://www.flickr.com/help/privacy-policy/ tietosuojakäytännön] alaisia.",
 	"mwe-upwiz-flickr-disclaimer2": "Huomaa, että käyttämällä tätä työkalua IP-osoitteesi ja haun tiedot tulevat olemaan saatavissa Flickr:ssä.",
 	"mwe-upwiz-error-no-image-retrieved": "Tiedoston lataaminen palvelusta $1 epäonnistui.",
-	"mwe-upwiz-multi-file-select": "Piirrä kursorilla laatikko tallennettavien tiedostojen päälle. Valitse useita yksittäisiä tiedostoja pitämällä $2-näppäintä pohjassa. Tallennettavien tiedostojen enimmäismäärä $1.",
+	"mwe-upwiz-multi-file-select": "Piirrä kursorilla laatikko tallennettavien tiedostojen päälle. Valitse useita yksittäisiä tiedostoja pitämällä $2-näppäintä pohjassa. Voit valita enintään $1 {{PLURAL:$1|tiedoston|tiedostoa}}",
 	"mwe-upwiz-transport-started": "Aloitetaan...",
 	"mwe-upwiz-encoding": "Koodataan...",
 	"mwe-upwiz-uploading": "Lähetetään...",
