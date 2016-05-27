@@ -116,6 +116,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
+		$out->addModules( 'uw.EventFlowLogger' );
 		$out->addModules( 'ext.uploadWizard.page' );
 		$out->addModuleStyles( 'ext.uploadWizard.page.styles' );
 

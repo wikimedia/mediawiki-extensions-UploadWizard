@@ -185,6 +185,16 @@
 			} );
 		} );
 
+		mw.trackSubscribe( 'resourceloader.exception', function ( topic, data ) {
+			self.log( 'UploadWizardExceptionFlowEvent', {
+				message: data.exception.message,
+				url: 'resourceLoader://' + data.source + '/' + data.module, // Bleh
+				line: 0,
+				column: 0,
+				stack: undefined // T91347
+			} );
+		} );
+
 		mw.trackSubscribe( 'mediawiki.jqueryMsg', function ( topic, data ) {
 			self.log( 'UploadWizardExceptionFlowEvent', {
 				message: data.errorMessage,
