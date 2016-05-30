@@ -10,8 +10,8 @@
 	 * @cfg {mw.UploadWizardUpload[]} copyTo Uploads to copy the details to
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
-		var metadataType, defaultStatus, copyMetadataMsg, checkbox, field,
-			fieldset = new OO.ui.FieldsetLayout(),
+		var metadataType, defaultStatus, copyMetadataMsg,
+			checkboxes = [],
 			$copyMetadataWrapperDiv = $( '<div>' ),
 			$copyMetadataDiv = $( '<div>' );
 
@@ -19,7 +19,6 @@
 
 		this.copyFrom = config.copyFrom;
 		this.copyTo = config.copyTo;
-		this.checkboxes = {};
 		this.savedSerializedData = [];
 
 		for ( metadataType in uw.CopyMetadataWidget.static.copyMetadataTypes ) {
@@ -28,24 +27,17 @@
 			// mwe-upwiz-copy-categories, mwe-upwiz-copy-location, mwe-upwiz-copy-other
 			copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType ).text();
 
-			checkbox = new OO.ui.CheckboxInputWidget( {
-				selected: defaultStatus
-			} );
-
-			this.checkboxes[ metadataType ] = checkbox;
-
-			field = new OO.ui.FieldLayout( checkbox, {
+			checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
+				data: metadataType,
 				label: copyMetadataMsg,
-				align: 'inline'
-			} );
-
-			fieldset.addItems( [ field ] );
+				selected: defaultStatus
+			} ) );
 		}
 
-		// Keep our checkboxShiftClick behaviour alive
-		fieldset.$element.find( 'input[type=checkbox]' ).checkboxShiftClick();
-
 		this.$success = $( '<span>' );
+		this.checkboxesWidget = new OO.ui.CheckboxMultiselectWidget( {
+			items: checkboxes
+		} );
 		this.copyButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
 			flags: [ 'constructive' ]
@@ -63,7 +55,7 @@
 
 		this.undoButton.toggle( false );
 		$copyMetadataDiv.append(
-			fieldset.$element,
+			this.checkboxesWidget.$element,
 			this.copyButton.$element,
 			this.undoButton.$element,
 			this.$success
@@ -106,14 +98,7 @@
 	 * @private
 	 */
 	uw.CopyMetadataWidget.prototype.onCopyClick = function () {
-		var metadataType,
-			metadataTypes = [];
-		for ( metadataType in uw.CopyMetadataWidget.static.copyMetadataTypes ) {
-			if ( this.checkboxes[ metadataType ].isSelected() ) {
-				metadataTypes.push( metadataType );
-			}
-		}
-
+		var metadataTypes = this.checkboxesWidget.getSelectedItemsData();
 		this.copyMetadata( metadataTypes );
 
 		this.undoButton.toggle( true );

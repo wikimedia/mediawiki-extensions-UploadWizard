@@ -156,7 +156,6 @@ $wgResourceModules += [
 	'ext.uploadWizard' => [
 		'dependencies' => [
 			'jquery.arrowSteps',
-			'jquery.checkboxShiftClick',
 			'jquery.client',
 			'jquery.spinner',
 			'jquery.ui.selectable',
