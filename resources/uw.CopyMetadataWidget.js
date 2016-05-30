@@ -46,6 +46,9 @@
 			label: mw.message( 'mwe-upwiz-copy-metadata-button-undo' ).text()
 		} );
 
+		this.checkboxesWidget.connect( this, {
+			select: 'onCheckboxesSelect'
+		} );
 		this.copyButton.connect( this, {
 			click: 'onCopyClick'
 		} );
@@ -90,6 +93,15 @@
 		categories: true,
 		location: false,
 		other: true
+	};
+
+	/**
+	 * Checkbox multiselect widget select event handler.
+	 *
+	 * @private
+	 */
+	uw.CopyMetadataWidget.prototype.onCheckboxesSelect = function () {
+		this.copyButton.setDisabled( this.checkboxesWidget.getSelectedItemsData().length === 0 );
 	};
 
 	/**
