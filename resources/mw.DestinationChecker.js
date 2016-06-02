@@ -107,7 +107,7 @@
 				titleObj, prefix, ext;
 
 			titleObj = mw.Title.newFromText( title );
-			ext = mw.Title.normalizeExtension( titleObj.getExtension() );
+			ext = mw.Title.normalizeExtension( titleObj.getExtension() || '' );
 			// Strip namespace and file extension
 			prefix = titleObj.getNameText();
 
@@ -144,7 +144,7 @@
 								// It's a different file name entirely
 								continue;
 							}
-							if ( ext !== mw.Title.normalizeExtension( ntitleObj.getExtension() ) ) {
+							if ( ext !== mw.Title.normalizeExtension( ntitleObj.getExtension() || '' ) ) {
 								// It's a different extension, that's fine (e.g. to upload a SVG version of a PNG file)
 								continue;
 							}
