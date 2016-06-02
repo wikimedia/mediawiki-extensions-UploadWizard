@@ -150,6 +150,7 @@ $wgResourceModules += [
 			'es5-shim',
 			'oojs',
 		],
+		'group' => 'uw.EventFlowLogger',
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
 	],
