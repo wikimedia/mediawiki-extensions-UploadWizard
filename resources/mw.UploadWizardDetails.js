@@ -320,7 +320,12 @@
 		 * Get a thumbnail caption for this upload (basically, the first description).
 		 */
 		getThumbnailCaption: function () {
-			return this.descriptionsDetails.getSerialized().descriptions[ 0 ].description.trim();
+			var descriptions = this.descriptionsDetails.getSerialized().descriptions;
+			if ( descriptions.length > 0 ) {
+				return descriptions[ 0 ].description.trim();
+			} else {
+				return '';
+			}
 		},
 
 		/**
