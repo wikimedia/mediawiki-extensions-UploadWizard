@@ -47,8 +47,7 @@
 	 * @return {XMLHttpRequest}
 	 */
 	mw.FormDataTransport.prototype.createXHR = function ( deferred ) {
-		var xhr = new XMLHttpRequest(),
-			transport = this;
+		var xhr = new XMLHttpRequest();
 
 		xhr.upload.addEventListener( 'progress', function ( evt ) {
 			var fraction;
@@ -58,10 +57,6 @@
 				fraction = null;
 			}
 			deferred.notify( fraction );
-		}, false );
-
-		xhr.addEventListener( 'abort', function ( evt ) {
-			deferred.reject( transport.parseResponse( evt ) );
 		}, false );
 
 		return xhr;
@@ -149,6 +144,9 @@
 			this.xhr.addEventListener( 'error', function ( evt ) {
 				deferred.reject( transport.parseResponse( evt ) );
 			}, false );
+			this.xhr.addEventListener( 'abort', function ( evt ) {
+				deferred.reject( transport.parseResponse( evt ) );
+			}, false );
 
 			formData = this.createFormData( this.tempname );
 			formData.append( 'file', file );
@@ -192,6 +190,7 @@
 		this.xhr = this.createXHR( deferred );
 		this.xhr.addEventListener( 'load', deferred.resolve, false );
 		this.xhr.addEventListener( 'error', deferred.reject, false );
+		this.xhr.addEventListener( 'abort', deferred.reject, false );
 
 		formData = this.createFormData( this.tempname, offset );
 
