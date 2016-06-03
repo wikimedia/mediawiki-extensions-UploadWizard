@@ -265,6 +265,8 @@
 		if ( this.tooManyRetries() ) {
 			mw.log.warn( 'Max retries exceeded ' + contextMsg );
 			return $.Deferred().reject( response );
+		} else if ( this.aborted ) {
+			return $.Deferred().reject( response );
 		} else {
 			mw.log( 'Retry #' + this.retries + ' ' + contextMsg );
 			return this.retryWithMethod( retryMethod, file, offset );
