@@ -60,6 +60,13 @@
 				handler = this,
 				upload = this.upload;
 
+			// Bail on non-ASCII filenames
+			if ( !this.upload.title || !( /^[\x00-\x7F]*$/.test( this.upload.title.getMain() ) ) ) {
+				this.upload.setError( 'firefogg-nonascii', '' );
+				this.upload.ui.setStatus( 'mwe-upwiz-firefogg-nonascii' );
+				return $.Deferred().reject();
+			}
+
 			mw.log( 'mw.FirefoggHandler::start> Upload start!' );
 
 			// pass file to Firefogg

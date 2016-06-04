@@ -328,6 +328,7 @@ $wgResourceModules += [
 			'mwe-upwiz-select-flickr',
 			'mwe-upwiz-flickr-disclaimer1',
 			'mwe-upwiz-flickr-disclaimer2',
+			'mwe-upwiz-firefogg-nonascii',
 			'mwe-upwiz-encoding',
 			'mwe-upwiz-uploading',
 			'mwe-upwiz-queued',
