@@ -86,6 +86,7 @@
 	"mwe-upwiz-flickr-disclaimer2": "Veuillez noter qu’en utilisant cet outil, votre adresse IP et les détails des requêtes seront disponibles pour Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Nous ne pouvons pas récupérer le fichier depuis $1.",
 	"mwe-upwiz-multi-file-select": "Dessinez un rectangle avec votre curseur autour des fichiers que vous voudriez télécharger. Maintenez enfoncée la touche $2 pour faire des sélections multiples non contiguës. Vous pouvez sélectionner jusqu’à $1 {{PLURAL:$1|fichier|fichiers}}.",
+	"mwe-upwiz-firefogg-nonascii": "Firefogg ne supporte pas les noms de fichier contenant des caractères accentués, comme 'é' ou 'ä'. Veuillez renommer le fichier en les supprimant et réessayer. Vous pourrez corriger le nom du fichier plus tard.",
 	"mwe-upwiz-transport-started": "Démarrage…",
 	"mwe-upwiz-encoding": "Encodage...",
 	"mwe-upwiz-uploading": "Téléversement en cours…",
