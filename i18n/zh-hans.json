@@ -72,6 +72,7 @@
 	"mwe-upwiz-flickr-disclaimer2": "请注意，使用此工具您的IP地址和请求详情将提供给Flickr。",
 	"mwe-upwiz-error-no-image-retrieved": "我们无法从$1获取文件。",
 	"mwe-upwiz-multi-file-select": "使用光标框选您想上传的文件。按下$2键以选择多个不相邻的文件。您可以选择最多$1个{{PLURAL:$1|文件}}上传。",
+	"mwe-upwiz-firefogg-nonascii": "Firefogg不支持包含重音符（例如“é”或“ä”）的文件名。请重命名文件以将其全部移除，并重试。稍后您将可以更正文件名。",
 	"mwe-upwiz-transport-started": "开始...",
 	"mwe-upwiz-encoding": "编码中…",
 	"mwe-upwiz-uploading": "正在上传...",
