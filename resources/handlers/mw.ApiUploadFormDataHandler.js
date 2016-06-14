@@ -71,6 +71,11 @@
 							uw.eventFlowLogger.logApiError( 'file', result );
 						}
 						handler.upload.setTransported( result );
+					}, function ( result ) {
+						if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+							uw.eventFlowLogger.logApiError( 'file', result );
+						}
+						handler.upload.setTransported( result );
 					} );
 			}, function ( code, info, result ) {
 				uw.eventFlowLogger.logApiError( 'file', result );
