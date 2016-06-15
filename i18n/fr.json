@@ -367,7 +367,7 @@
 	"prefs-upwiz-interface": "Interface utilisateur",
 	"mwe-upwiz-prefs-def-license": "Licence par défaut",
 	"mwe-upwiz-prefs-def-license-def": "Utiliser la valeur par défaut",
-	"mwe-upwiz-prefs-def-license-custom": "Licence de douane par défaut",
+	"mwe-upwiz-prefs-def-license-custom": "Licence personnalisée par défaut",
 	"mwe-upwiz-prefs-def-license-custom-help": "Ce champ n'est utilisé que si vous choisissez la dernière option ci-dessus.",
 	"mwe-upwiz-prefs-license-own": "Travail personnel - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Travail de quelqu’un d’autre - $1",

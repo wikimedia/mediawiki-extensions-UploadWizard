@@ -151,6 +151,8 @@
 	"mwe-upwiz-ok": "У реду",
 	"mwe-upwiz-fileexists-replace-on-page": "Датотека с тим називом већ постоји. Ако желите да је замените, идите на страницу за [$2 $1] и замените је тамо.",
 	"mwe-upwiz-fileexists-replace-no-link": "Датотека с тим називом већ постоји. Изаберите други.",
+	"mwe-upwiz-blacklisted-details": "Изаберите другачији, описан назив ([$2 више информација]).",
+	"mwe-upwiz-blacklisted-details-feedback": "Изаберите другачији, описан назив ([$2 више информација]). • [$3 Повратне информације]",
 	"mwe-upwiz-next": "Следеће",
 	"mwe-upwiz-next-file": "Настави",
 	"mwe-upwiz-next-deeds": "Следеће",
