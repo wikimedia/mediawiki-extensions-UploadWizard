@@ -240,7 +240,7 @@
 	"mwe-upwiz-error-title-blacklisted": "该标题含有一些不良文字。请修改。",
 	"mwe-upwiz-error-title-badchars": "该标题含有一些不被接受的字符。请移除后再试。",
 	"mwe-upwiz-error-title-senselessimagename": "请使该标题更有意义。",
-	"mwe-upwiz-error-title-hosting": "这似乎是从其他图片库获得的文件。请使标题更有意义，并且请再次确认你有权利将其发表至本网站。",
+	"mwe-upwiz-error-title-hosting": "这似乎是从其他图片库获得的文件。请使标题更有意义，并且请再次确认您有权利将其发表至本网站。",
 	"mwe-upwiz-error-title-thumbnail": "这似乎是缩略图标题。请不要将缩略图上传回相同的维基。否则，请修改文件名，使其更有意义并且没有缩略图前缀。",
 	"mwe-upwiz-error-title-fileexists-shared-forbidden": "该标题为其他共享库的文件所保留。请更换文件名。",
 	"mwe-upwiz-error-title-double-apostrophe": "该标题含有双撇号，请删除。",
