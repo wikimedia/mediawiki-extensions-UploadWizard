@@ -161,9 +161,10 @@
 	 */
 	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
 		// default error state
-		var comma, warnCode,
+		var comma, warnCode, promise,
 			code = 'unknown',
-			info = 'unknown';
+			info = 'unknown',
+			$extra;
 
 		if ( this.state === 'aborted' ) {
 			return;
@@ -191,6 +192,30 @@
 					result.error.allowed.length,
 					result.error.blacklisted.length
 				];
+			} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' ) {
+				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ] );
+				info = [
+					function () {
+						promise.done( function () {
+							mw.errorDialog( $( '<div>' ).msg(
+								result.error.message.key,
+								result.error.message.params
+							) );
+						} );
+					}
+				];
+
+				if ( code === 'abusefilter-warning' ) {
+					$extra = new OO.ui.ButtonWidget( {
+						label: mw.message( 'mwe-upwiz-override' ).text(),
+						title: mw.message( 'mwe-upwiz-override-upload' ).text(),
+						flags: 'progressive',
+						framed: false
+					} ).on( 'click', function () {
+						// No need to ignore the error, AbuseFilter will only return it once
+						this.start();
+					}.bind( this ) ).$element;
+				}
 			} else if ( result.error.info ) {
 				info = result.error.info;
 			}
