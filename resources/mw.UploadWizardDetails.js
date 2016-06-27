@@ -988,7 +988,7 @@
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ), 'title-' + titleErrorMap[ code ] );
 					return;
 				} else if ( code === 'titleblacklist-forbidden' ) {
-					this.recoverFromError( this.titleId, mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message ] ), 'title-' + titleBlacklistMessageMap[ result.error.message ] );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message ] ), 'title-' + titleBlacklistMessageMap[ result.error.message ] );
 					return;
 				} else {
 					statusKey = 'api-error-' + code;
