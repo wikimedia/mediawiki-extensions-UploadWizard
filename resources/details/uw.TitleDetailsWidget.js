@@ -141,11 +141,12 @@
 		} else if ( result.unique.isProtected ) {
 			errors.push( mw.message( 'mwe-upwiz-error-title-protected' ) );
 		} else {
+			mw.messages.set( result.blacklist.blacklistMessage, result.blacklist.blacklistReason );
 			messageParams = [
 				'mwe-upwiz-blacklisted-details',
 				titleString,
 				function () {
-					mw.errorDialog( result.blacklist.blacklistReason );
+					mw.errorDialog( $( '<div>' ).msg( result.blacklist.blacklistMessage ) );
 				}
 			];
 
