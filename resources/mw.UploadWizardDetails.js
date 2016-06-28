@@ -871,7 +871,7 @@
 						uw.eventFlowLogger.logApiError( 'details', result );
 					}
 					return details.handleSubmitResult( result );
-				}, function ( code, info ) {
+				}, function ( code, info, result ) {
 					uw.eventFlowLogger.logApiError( 'details', result );
 					return $.Deferred().reject( code, info );
 				} );
@@ -898,7 +898,7 @@
 								uw.eventFlowLogger.logApiError( 'details', result );
 							}
 							return details.handleSubmitResult( result );
-						}, function ( code, info ) {
+						}, function ( code, info, result ) {
 							uw.eventFlowLogger.logApiError( 'details', result );
 							return $.Deferred().reject( code, info );
 						} );
