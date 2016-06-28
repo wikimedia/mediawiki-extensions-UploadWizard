@@ -40,7 +40,7 @@
 					// encoding failed
 					deferred.reject( {
 						error: {
-							code: 500,
+							code: 'firefogg',
 							info: 'Encoding failed'
 						}
 					} );

@@ -370,7 +370,7 @@
 		} catch ( e ) {
 			response = {
 				error: {
-					code: evt.target.code,
+					code: 'parsererror',
 					info: evt.target.responseText
 				}
 			};
