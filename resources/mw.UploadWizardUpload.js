@@ -502,7 +502,15 @@
 					binStr = binReader.result;
 				} else {
 					// Array buffer; convert to binary string for the library.
-					arr = new Uint8Array( binReader.result );
+					try {
+						arr = new Uint8Array( binReader.result );
+					} catch ( err ) {
+						throw new Error(
+							err.message +
+							' result=' + String( binReader.result ) +
+							' error=' + String( binReader.error )
+						);
+					}
 					binStr = '';
 					for ( i = 0; i < arr.byteLength; i++ ) {
 						binStr += String.fromCharCode( arr[ i ] );
