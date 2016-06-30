@@ -178,7 +178,6 @@ $wgResourceModules += [
 			'uw.base',
 			'ext.uploadWizard.apiUploadPostHandler',
 			'ext.uploadWizard.apiUploadFormDataHandler',
-			'ext.uploadWizard.events',
 
 			'uw.EventFlowLogger',
 			'uw.ui.Wizard',
@@ -587,13 +586,6 @@ $wgResourceModules += [
 			'colon-separator',
 		],
 		'group' => 'ext.uploadWizard',
-		'localBasePath' => __DIR__,
-		'remoteExtPath' => 'UploadWizard',
-	],
-	'ext.uploadWizard.events' => [
-		'scripts' => [
-			'resources/ext.UploadWizardEvent.js',
-		],
 		'localBasePath' => __DIR__,
 		'remoteExtPath' => 'UploadWizard',
 	],

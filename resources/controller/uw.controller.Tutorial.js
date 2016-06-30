@@ -27,14 +27,14 @@
 				.on( 'skip-tutorial-click', function ( skipped ) {
 					controller.shouldSkipTutorial = skipped;
 					if ( skipped ) {
-						( new mw.UploadWizardTutorialEvent( 'skip-check' ) ).dispatch();
+						uw.eventFlowLogger.logTutorialAction( 'skip-check' );
 					} else {
-						( new mw.UploadWizardTutorialEvent( 'skip-uncheck' ) ).dispatch();
+						uw.eventFlowLogger.logTutorialAction( 'skip-uncheck' );
 					}
 				} )
 
 				.on( 'helpdesk-click', function () {
-					( new mw.UploadWizardTutorialEvent( 'helpdesk-click' ) ).dispatch();
+					uw.eventFlowLogger.logTutorialAction( 'helpdesk-click' );
 				} ),
 			config
 		);
@@ -77,7 +77,7 @@
 	};
 
 	uw.controller.Tutorial.prototype.moveFrom = function () {
-		( new mw.UploadWizardTutorialEvent( 'continue' ) ).dispatch();
+		uw.eventFlowLogger.logTutorialAction( 'continue' );
 
 		// if the skip checkbox is checked, set the skip user preference
 		if ( this.shouldSkipTutorial ) {

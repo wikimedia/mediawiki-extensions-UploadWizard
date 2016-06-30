@@ -90,7 +90,7 @@
 		} );
 
 		this.ui.moveTo( uploads );
-		( new mw.UploadWizardTutorialEvent( 'load' ) ).dispatch();
+		uw.eventFlowLogger.logTutorialAction( 'load' );
 		uw.eventFlowLogger.logStep( this.stepName );
 
 		this.updateFileCounts( this.uploads );
