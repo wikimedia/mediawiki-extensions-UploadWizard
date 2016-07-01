@@ -31,7 +31,8 @@
 			"Matma Rex",
 			"Frhdkazan",
 			"Macofe",
-			"Ядерный Трамвай"
+			"Ядерный Трамвай",
+			"Mailman"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -145,6 +146,7 @@
 	"mwe-upwiz-more-options": "Добавить местоположение и другую информацию…",
 	"mwe-upwiz-copy-metadata": "Копировать информацию для всех следующих загрузок…",
 	"mwe-upwiz-copy-metadata-button": "Копировать",
+	"mwe-upwiz-copy-metadata-button-undo": "Отменить",
 	"mwe-upwiz-copied-metadata": "Скопировано",
 	"mwe-upwiz-copy-title": "Скопировать название (с автонумерацией)",
 	"mwe-upwiz-copy-description": "Скопировать описания",
@@ -183,7 +185,7 @@
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Вы уже загрузили файл «$1».",
 	"mwe-upwiz-allowed-filename-extensions": "Допустимые расширения:",
 	"mwe-upwiz-upload-error-duplicate": "Этот файл был ранее загружен в эту вики.",
-	"mwe-upwiz-upload-error-duplicate-archive": "Этот файл был ранее загружен на этой вики, но позже удален.",
+	"mwe-upwiz-upload-error-duplicate-archive": "Этот файл ранее уже загружался в эту вики, но позже был удален.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Всё равно загрузить?",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Неизвестное имя файла",
 	"mwe-upwiz-ok": "OK",

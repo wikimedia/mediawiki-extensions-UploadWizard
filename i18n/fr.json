@@ -44,7 +44,8 @@
 			"Orlodrim",
 			"Matma Rex",
 			"Wladek92",
-			"Manaviko"
+			"Manaviko",
+			"Trial"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -161,7 +162,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Dites-nous maintenant pourquoi vous êtes certain que vous avez le droit de publier {{PLURAL:$1|cette œuvre| ces œuvres}} :",
 	"mwe-upwiz-source-thirdparty-accept": "Valider",
 	"mwe-upwiz-source-custom": "Choisir des licences pour chaque fichier individuellement sur la page suivante.",
-	"mwe-upwiz-more-options": "Ajoutez emplacement et plus d’informations…",
+	"mwe-upwiz-more-options": "Ajoutez l'emplacement et d'autres informations …",
 	"mwe-upwiz-copy-metadata": "Copier les informations dans tous les téléversements suivants…",
 	"mwe-upwiz-copy-metadata-button": "Copier",
 	"mwe-upwiz-copy-metadata-button-undo": "Annuler",
