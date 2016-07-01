@@ -875,7 +875,7 @@
 					uw.eventFlowLogger.logApiError( 'details', result );
 					return $.Deferred().reject( code, info );
 				} );
-			} else if ( result && result.upload.warnings ) {
+			} else if ( result && result.upload && result.upload.warnings ) {
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-thumbnail' ), 'error-title-thumbnail' );
 				} else if ( warnings.badfilename ) {
