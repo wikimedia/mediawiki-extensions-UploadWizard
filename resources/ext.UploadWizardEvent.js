@@ -30,7 +30,7 @@
 
 		this.payload = {};
 
-		this.payload.username = mw.user.getName();
+		this.payload.username = mw.config.get( 'wgUserName' );
 		this.payload.language = mw.config.get( 'wgUserLanguage' );
 
 		thisUri = new mw.Uri( window.location.href, { overrideKeys: true } );
