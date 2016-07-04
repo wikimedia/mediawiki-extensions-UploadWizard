@@ -16,6 +16,9 @@
 
 		this.categoriesWidget.createItemWidget = function ( data ) {
 			var widget = this.constructor.prototype.createItemWidget.call( this, data );
+			if ( !widget ) {
+				return null;
+			}
 			widget.setMissing = function ( missing ) {
 				this.constructor.prototype.setMissing.call( this, missing );
 				// Aggregate 'change' event
