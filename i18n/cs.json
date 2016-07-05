@@ -13,7 +13,8 @@
 			"Cvanca",
 			"Matma Rex",
 			"Matěj Suchánek",
-			"Urbanecm"
+			"Urbanecm",
+			"Dvorapa"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -57,11 +58,11 @@
 	"mwe-upwiz-multi-file-select": "Pomocí kurzoru myši nakreslete rámeček přes soubory, které chcete načíst. Několik nesouvislých výběrů můžete vytvořit podržením klávesy $2. Můžete vybrat nejvýše $1 {{PLURAL:$1|načítaný soubor|načítané soubory|načítaných souborů}}.",
 	"mwe-upwiz-transport-started": "Spouští se…",
 	"mwe-upwiz-encoding": "Kódování…",
-	"mwe-upwiz-uploading": "načítání…",
+	"mwe-upwiz-uploading": "Načítání…",
 	"mwe-upwiz-queued": "Ve frontě...",
 	"mwe-upwiz-assembling": "Sestavuje se…",
 	"mwe-upwiz-publish": "Zveřejňuje se…",
-	"mwe-upwiz-transported": "Načítání dokončeno…",
+	"mwe-upwiz-transported": "Nahrávání dokončeno…",
 	"mwe-upwiz-stashed-upload": "Načteno",
 	"mwe-upwiz-getting-metadata": "Načítají se informace o souborech a náhledy…",
 	"mwe-upwiz-submitting-details": "Odesílají se podrobnosti a probíhá zveřejnění…",
@@ -82,7 +83,7 @@
 	"mwe-upwiz-file-all-failed": "Nepodařilo se načíst ani jeden soubor.",
 	"mwe-upwiz-upload-count": "{{PLURAL:$2|{{PLURAL:$1|Načten soubor $1 z $2|Načteno $1 souborů}}|{{PLURAL:$1|Načten $1|Načteny $1|Načteno $1}} z $2 souborů}}",
 	"mwe-upwiz-progressbar-uploading": "načítání",
-	"mwe-upwiz-almost-finished": "Zpracování souborů…",
+	"mwe-upwiz-almost-finished": "Zpracovávání souborů…",
 	"mwe-upwiz-finished": "Hotovo!",
 	"mwe-upwiz-deeds-macro-prompt": "Tento server vyžaduje, abyste pro {{PLURAL:$1|tento soubor|tyto soubory}} {{GENDER:$2|uvedl|uvedla|uvedli}} autorskoprávní údaje, aby bylo jisté, že {{PLURAL:$1|jej|je}} může každý legálně užívat.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Tento soubor je|Tyto soubory jsou}} mé vlastní dílo.",
