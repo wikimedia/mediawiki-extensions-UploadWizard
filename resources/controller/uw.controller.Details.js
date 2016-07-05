@@ -153,13 +153,15 @@
 
 				// Seen this title before?
 				title = upload.details.getTitle();
-				title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
-				if ( titles[ title ] ) {
-					// Don't submit. Instead, set an error in details step.
-					upload.details.setDuplicateTitleError();
-					hasErrors = true;
-				} else {
-					titles[ title ] = true;
+				if ( title ) {
+					title = title.getName() + '.' + mw.Title.normalizeExtension( title.getExtension() );
+					if ( titles[ title ] ) {
+						// Don't submit. Instead, set an error in details step.
+						upload.details.setDuplicateTitleError();
+						hasErrors = true;
+					} else {
+						titles[ title ] = true;
+					}
 				}
 
 				if ( hasErrors ) {
