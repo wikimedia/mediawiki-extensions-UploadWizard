@@ -107,8 +107,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	mw.FormDataTransport.prototype.upload = function ( file ) {
-		var formData, deferred, ext, totalUploaded,
-			chunkSize = this.chunkSize,
+		var formData, deferred, ext,
 			transport = this;
 
 		// use timestamp + filename to avoid conflicts on server
@@ -123,18 +122,8 @@
 			this.tempname = this.tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
 		}
 
-		if ( file.size > chunkSize ) {
-			totalUploaded = 0;
-			// The progress notifications give us per-chunk progress, filter them to get progress
-			// for the whole file
-			return this.uploadChunk( file, 0 ).then( null, null, function ( fraction ) {
-				if ( fraction === 1 ) {
-					// We completed a chunk
-					totalUploaded += chunkSize;
-					fraction = 0;
-				}
-				return ( totalUploaded + fraction * chunkSize ) / file.size;
-			} );
+		if ( file.size > this.chunkSize ) {
+			return this.chunkedUpload( file );
 		} else {
 			deferred = $.Deferred();
 			this.xhr = this.createXHR( deferred );
@@ -155,6 +144,53 @@
 
 			return deferred.promise();
 		}
+	};
+
+	/**
+	 * This function exists to safely chain several hundred promises without using .then() or nested
+	 * promises. We might divide a 4 GB file into 800 chunks of 5 MB each.
+	 *
+	 * In jQuery 2.x, nested promises result in nested call stacks when resolving/rejecting/notifying
+	 * the last promise in the chain and listening on the first one, and browsers have call stack
+	 * limits low enough that we previously ran into them for files around a couple hundred megabytes
+	 * (the worst is Firefox 47 with a limit of 1024 calls).
+	 *
+	 * @param {File} file
+	 * @return {jQuery.Promise} Promise which behaves identically to a regular non-chunked upload
+	 *   promise from #upload
+	 */
+	mw.FormDataTransport.prototype.chunkedUpload = function ( file ) {
+		var
+			offset,
+			prevPromise = $.Deferred().resolve(),
+			deferred = $.Deferred(),
+			fileSize = file.size,
+			chunkSize = this.chunkSize,
+			transport = this;
+
+		for ( offset = 0; offset < fileSize; offset += chunkSize ) {
+			/*jshint loopfunc:true */
+			// Capture offset in a closure
+			( function ( offset ) {
+				var
+					newPromise = $.Deferred(),
+					isLastChunk = offset + chunkSize >= fileSize,
+					thisChunkSize = isLastChunk ? ( fileSize % chunkSize ) : chunkSize;
+				prevPromise.done( function () {
+					transport.uploadChunk( file, offset )
+						.done( isLastChunk ? deferred.resolve : newPromise.resolve )
+						.fail( deferred.reject )
+						.progress( function ( fraction ) {
+							// The progress notifications give us per-chunk progress.
+							// Calculate progress for the whole file.
+							deferred.notify( ( offset + fraction * thisChunkSize ) / fileSize );
+						} );
+				} );
+				prevPromise = newPromise;
+			} )( offset );
+		}
+
+		return deferred.promise();
 	};
 
 	/**
@@ -221,8 +257,7 @@
 					case 'Continue':
 						// Reset retry counter
 						transport.retries = 0;
-						// Start uploading next chunk
-						return transport.uploadChunk( file, response.upload.offset );
+						/* falls through */
 					case 'Success':
 						// Just pass the response through.
 						return response;
