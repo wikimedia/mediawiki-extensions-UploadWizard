@@ -110,6 +110,27 @@
 	};
 
 	/**
+	 * Logs user action on the tutorial page for UploadWizard.
+	 *
+	 * @param {'load'|'helpdesk-click'|'skip-check'|'skip-uncheck'|'continue'} type
+	 */
+	uw.EventFlowLogger.prototype.logTutorialAction = function ( type ) {
+		var payload, thisUri;
+
+		payload = {};
+		payload.username = mw.config.get( 'wgUserName' );
+		payload.language = mw.config.get( 'wgUserLanguage' );
+
+		thisUri = new mw.Uri( window.location.href, { overrideKeys: true } );
+		if ( thisUri.query.uselang ) {
+			payload.language = thisUri.query.uselang;
+		}
+
+		payload.action = type;
+		this.log( 'UploadWizardTutorialActions', payload );
+	};
+
+	/**
 	 * Logs an event.
 	 *
 	 * @param {string} name Event name. Recognized names:
