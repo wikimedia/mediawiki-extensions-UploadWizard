@@ -86,10 +86,19 @@
 	 * @inheritdoc
 	 */
 	uw.FieldLayout.prototype.makeMessage = function ( kind, msg ) {
-		var
-			content = msg.parseDom(),
-			$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, content );
-		$listItem.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + msg.key );
+		var content, $listItem;
+		if ( !msg ) {
+			throw new Error(
+				'makeMessage called with no msg' +
+				' widget=' + this.fieldWidget.constructor.name +
+				' value=' + ( this.fieldWidget.getSerialized ?
+					JSON.stringify( this.fieldWidget.getSerialized() ) :
+					this.fieldWidget.getValue() )
+			);
+		}
+		content = msg.parseDom();
+		$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, content )
+			.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + msg.key );
 		return $listItem;
 	};
 
