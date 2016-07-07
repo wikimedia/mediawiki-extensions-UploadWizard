@@ -20,12 +20,12 @@
 	/**
 	 * Upload step controller.
 	 *
-	 * @class uw.controller.Upload
+	 * @class
 	 * @extends uw.controller.Step
-	 * @constructor
+	 * @param {mw.Api} api
 	 * @param {Object} config UploadWizard config object.
 	 */
-	uw.controller.Upload = function UWControllerUpload( config ) {
+	uw.controller.Upload = function UWControllerUpload( api, config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Upload( config )
@@ -33,6 +33,7 @@
 					retry: 'retry',
 					'flickr-ui-init': [ 'emit', 'flickr-ui-init' ]
 				} ),
+			api,
 			config
 		);
 

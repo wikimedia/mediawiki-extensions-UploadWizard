@@ -15,8 +15,8 @@
  * along with DetailsWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $ ) {
-	QUnit.module( 'mw.uw.controller.Details', QUnit.newMwEnvironment() );
+( function ( $, mw, uw ) {
+	QUnit.module( 'uw.controller.Details', QUnit.newMwEnvironment() );
 
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
 		var stubs = {
@@ -42,7 +42,7 @@
 	}
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step = new uw.controller.Details( {
+		var step = new uw.controller.Details( new mw.Api(), {
 			maxSimultaneousConnections: 1
 		} );
 		assert.ok( step );
@@ -51,7 +51,7 @@
 	} );
 
 	QUnit.test( 'moveTo', 12, function ( assert ) {
-		var step = new uw.controller.Details( {
+		var step = new uw.controller.Details( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} ),
 			testUpload = createTestUpload( this.sandbox ),
@@ -87,7 +87,7 @@
 
 	QUnit.test( 'canTransition', 3, function ( assert ) {
 		var upload = {},
-			step = new uw.controller.Details( {
+			step = new uw.controller.Details( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} );
 
@@ -113,7 +113,7 @@
 
 		this.sandbox.stub( uw.controller.Details.prototype, 'canTransition' ).returns( true );
 
-		step = new uw.controller.Details( {
+		step = new uw.controller.Details( new mw.Api(), {
 			maxSimultaneousConnections: 3
 		} );
 
@@ -146,4 +146,4 @@
 		} );
 	} );
 
-}( mediaWiki.uploadWizard, jQuery ) );
+}( jQuery, mediaWiki, mediaWiki.uploadWizard ) );

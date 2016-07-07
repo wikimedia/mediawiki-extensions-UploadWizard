@@ -187,7 +187,7 @@
 			this.steps = {
 				tutorial: new uw.controller.Tutorial( this.api, this.config ),
 
-				file: new uw.controller.Upload( this.config )
+				file: new uw.controller.Upload( this.api, this.config )
 					.on( 'flickr-ui-init', function () {
 						wizard.flickrInterfaceInit();
 						uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
@@ -211,7 +211,7 @@
 						wizard.removeErrorUploads();
 					} ),
 
-				details: new uw.controller.Details( this.config )
+				details: new uw.controller.Details( this.api, this.config )
 					.on( 'details-error', function () {
 						wizard.steps.details.showErrors();
 					} )
@@ -221,7 +221,7 @@
 						wizard.steps.details.moveFrom();
 					} ),
 
-				thanks: new uw.controller.Thanks( this.config )
+				thanks: new uw.controller.Thanks( this.api, this.config )
 					.on( 'reset-wizard', function () {
 						wizard.reset();
 					} )

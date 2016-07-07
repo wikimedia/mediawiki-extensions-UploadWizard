@@ -19,7 +19,7 @@
 	/**
 	 * Represents the UI for the wizard.
 	 *
-	 * @class mw.uw.ui.Wizard
+	 * @class uw.ui.Wizard
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {string} selector Where to put all of the wizard interface.

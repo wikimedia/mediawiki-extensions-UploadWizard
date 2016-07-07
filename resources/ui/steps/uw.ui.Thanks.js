@@ -20,7 +20,7 @@
 	 * Represents the UI for the wizard's Thanks step.
 	 *
 	 * @class uw.ui.Thanks
-	 * @extends mw.uw.ui.Step
+	 * @extends uw.ui.Step
 	 * @constructor
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {

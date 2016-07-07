@@ -16,10 +16,18 @@
  */
 
 ( function ( mw, uw, $, OO ) {
+
+	/**
+	 * Tutorial step controller.
+	 *
+	 * @class
+	 * @extends uw.controller.Step
+	 * @param {mw.Api} api
+	 * @param {Object} config UploadWizard config object.
+	 */
 	uw.controller.Tutorial = function UWControllerTutorial( api, config ) {
 		var controller = this;
 		this.shouldSkipTutorial = false;
-		this.api = api;
 
 		uw.controller.Step.call(
 			this,
@@ -36,6 +44,7 @@
 				.on( 'helpdesk-click', function () {
 					uw.eventFlowLogger.logTutorialAction( 'helpdesk-click' );
 				} ),
+			api,
 			config
 		);
 

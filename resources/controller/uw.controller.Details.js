@@ -19,11 +19,12 @@
 	/**
 	 * Represents the details step in the wizard.
 	 *
-	 * @class mw.uw.controller.Details
-	 * @extends mw.uw.controller.Step
-	 * @constructor
+	 * @class
+	 * @extends uw.controller.Step
+	 * @param {mw.Api} api
+	 * @param {Object} config UploadWizard config object.
 	 */
-	uw.controller.Details = function UWControllerDetails( config ) {
+	uw.controller.Details = function UWControllerDetails( api, config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Details()
@@ -31,6 +32,7 @@
 					'start-details': 'startDetails',
 					'finalize-details-after-removal': [ 'emit', 'finalize-details-after-removal' ]
 				} ),
+			api,
 			config
 		);
 

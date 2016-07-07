@@ -15,11 +15,11 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw ) {
-	QUnit.module( 'mw.uw.controller.Upload', QUnit.newMwEnvironment() );
+( function ( $, mw, uw ) {
+	QUnit.module( 'uw.controller.Upload', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step = new uw.controller.Upload( {
+		var step = new uw.controller.Upload( new mw.Api(), {
 			maxUploads: 10,
 			maxSimultaneousConnections: 3
 		} );
@@ -29,7 +29,7 @@
 	} );
 
 	QUnit.test( 'updateFileCounts', 3, function ( assert ) {
-		var step = new uw.controller.Upload( {
+		var step = new uw.controller.Upload( new mw.Api(), {
 			maxUploads: 5,
 			maxSimultaneousConnections: 3
 		} ),
@@ -49,7 +49,7 @@
 
 	QUnit.test( 'canTransition', 3, function ( assert ) {
 		var upload = {},
-			step = new uw.controller.Upload( {
+			step = new uw.controller.Upload( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} );
 
@@ -64,7 +64,7 @@
 		var upload = {
 				start: this.sandbox.stub()
 			},
-			step = new uw.controller.Upload( {
+			step = new uw.controller.Upload( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} );
 
@@ -73,4 +73,4 @@
 		step.transitionOne( upload );
 		assert.ok( upload.start.called );
 	} );
-}( mediaWiki.uploadWizard ) );
+}( jQuery, mediaWiki, mediaWiki.uploadWizard ) );

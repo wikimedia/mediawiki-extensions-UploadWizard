@@ -15,18 +15,18 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw ) {
-	QUnit.module( 'mw.uw.controller.Thanks', QUnit.newMwEnvironment() );
+( function ( $, mw, uw ) {
+	QUnit.module( 'uw.controller.Thanks', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
-		var step = new uw.controller.Thanks( { display: { thanksLabel: 'Thanks!' } } );
+		var step = new uw.controller.Thanks( new mw.Api(), { display: { thanksLabel: 'Thanks!' } } );
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
 	QUnit.test( 'moveTo', 1, function ( assert ) {
-		var step = new uw.controller.Thanks( {} ),
+		var step = new uw.controller.Thanks( new mw.Api(), {} ),
 			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
 		this.sandbox.stub( step.ui, 'moveTo' );
@@ -87,4 +87,4 @@
 		);
 	} );
 
-}( mediaWiki, mediaWiki.uploadWizard ) );
+}( jQuery, mediaWiki, mediaWiki.uploadWizard ) );

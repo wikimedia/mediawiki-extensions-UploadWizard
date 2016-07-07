@@ -19,15 +19,16 @@
 	/**
 	 * Deed step controller.
 	 *
+	 * @class
+	 * @extends uw.controller.Step
 	 * @param {mw.Api} api
-	 * @param {Object} config Only the licensing section of the UploadWizard config.
+	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Deed = function UWControllerDeed( api, config ) {
-		this.api = api;
-
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Deed(),
+			api,
 			config
 		);
 

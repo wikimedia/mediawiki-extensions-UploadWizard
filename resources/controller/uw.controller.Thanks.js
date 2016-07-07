@@ -20,15 +20,18 @@
 	 * The thanks step.
 	 *
 	 * @class
-	 * @constructor
+	 * @extends uw.controller.Step
+	 * @param {mw.Api} api
+	 * @param {Object} config UploadWizard config object.
 	 */
-	uw.controller.Thanks = function UWControllerThanks( config ) {
+	uw.controller.Thanks = function UWControllerThanks( api, config ) {
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Thanks( config )
 				.connect( this, {
 					'reset-wizard': [ 'emit', 'reset-wizard' ]
 				} ),
+			api,
 			config
 		);
 

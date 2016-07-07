@@ -16,7 +16,7 @@
  */
 
 ( function ( $, mw, uw ) {
-	QUnit.module( 'mw.uw.controller.Deed', QUnit.newMwEnvironment() );
+	QUnit.module( 'uw.controller.Deed', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
 		var step = new uw.controller.Deed();

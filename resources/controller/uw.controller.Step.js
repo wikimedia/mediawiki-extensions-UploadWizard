@@ -19,14 +19,14 @@
 	/**
 	 * Represents a step in the wizard.
 	 *
-	 * @class mw.uw.controller.Step
+	 * @class
 	 * @mixins OO.EventEmitter
 	 * @abstract
-	 * @constructor
-	 * @param {mw.uw.ui.Step} ui The UI object that controls this step.
-	 * @param {Object} config The UW config object, or relevant subset.
+	 * @param {uw.ui.Step} ui The UI object that controls this step.
+	 * @param {mw.Api} api
+	 * @param {Object} config UploadWizard config object.
 	 */
-	uw.controller.Step = function UWControllerStep( ui, config ) {
+	uw.controller.Step = function UWControllerStep( ui, api, config ) {
 		var step = this;
 
 		OO.EventEmitter.call( this );
@@ -35,6 +35,10 @@
 		 * @property {Object} config
 		 */
 		this.config = config;
+		/**
+		 * @property {mw.Api} api
+		 */
+		this.api = api;
 
 		this.ui = ui;
 
@@ -43,7 +47,7 @@
 		} );
 
 		/**
-		 * @property {mw.uw.controller.Step} nextStep
+		 * @property {uw.controller.Step} nextStep
 		 * The next step in the process.
 		 */
 		this.nextStep = null;
@@ -61,7 +65,7 @@
 	/**
 	 * Set the next step in the process.
 	 *
-	 * @param {mw.uw.controller.Step} step
+	 * @param {uw.controller.Step} step
 	 */
 	uw.controller.Step.prototype.setNextStep = function ( step ) {
 		this.nextStep = step;

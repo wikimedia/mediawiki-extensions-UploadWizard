@@ -19,7 +19,7 @@
 	/**
 	 * Represents a generic UI for a step.
 	 *
-	 * @class mw.uw.ui.Step
+	 * @class uw.ui.Step
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {string} name The name of this step
