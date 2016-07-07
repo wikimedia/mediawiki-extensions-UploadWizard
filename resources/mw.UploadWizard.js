@@ -97,7 +97,7 @@
 
 			$fileInputCtrl.on( 'change', function () {
 				var
-					totalSize, uploadObj, thumbPromise,
+					uploadObj, thumbPromise,
 					uploadObjs = [],
 					uploadInterfaceDivs = [],
 					files = $fileInputCtrl[ 0 ].files,
@@ -109,13 +109,8 @@
 					return;
 				}
 
-				totalSize = 0;
 				$.each( files, function ( i, file ) {
-					totalSize += file.size;
-				} );
-
-				$.each( files, function ( i, file ) {
-					uploadObj = wizard.addUpload( file, totalSize > 10000000 );
+					uploadObj = wizard.addUpload( file );
 					uploadObjs.push( uploadObj );
 					// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
 					// performance
