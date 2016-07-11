@@ -31,6 +31,8 @@
 	"group-upwizcampeditors": "Kampagnenbearbeiter (Hochladeassistent)",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampagnenbearbeiter|Kampagnenbearbeiterin}} (Hochladeassistent)",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampagnenbearbeiter (Hochladeassistent)",
+	"api-error-abusefilter-warning": "Diese Aktion wurde automatisch als schädlich identifiziert ([$1 weitere Informationen]).\nUnkonstruktive Bearbeitungen werden schnell zurückgesetzt\nund ungeheuerliche oder wiederholte unkonstruktive Bearbeitungen enden in der Sperre deines Benutzerkontos oder deiner IP-Adresse.",
+	"api-error-abusefilter-disallowed": "Diese Aktion wurde automatisch als schädlich identifiziert und ist deshalb nicht erlaubt ([$1 weitere Informationen]).",
 	"mwe-upwiz-unavailable": "Dein Browser ist mit dem Hochladeassistenten nicht kompatibel oder JavaScript ist ausgeschaltet, so dass wir dir ein einfaches Hochladeformular zeigen ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Kompatibilitätsanforderungen ansehen]).",
 	"mwe-upwiz-extension-disabled": "Diese Seite wurde aufgrund technischer Probleme vorübergehend deaktiviert. In der Zwischenzeit kann das Standardformular zum Hochladen genutzt werden.",
 	"mwe-upwiz-step-tutorial": "Lernen",

@@ -26,6 +26,8 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:עורכי מבצעי קידום העלאות",
 	"group-upwizcampeditors.css": "/* הסגנונות הנכתבים כאן ישפיעו על עורכי מבצעי קידום העלאות בלבד */",
 	"group-upwizcampeditors.js": "/* כל הסקריפטים הנכתבים כאן ייטענו עבור עורכי מבצעי קידום העלאות בלבד */",
+	"api-error-abusefilter-warning": "פעולה זו זוהתה באופן אוטומטי כמזיקה ([$1 מידע נוסף]).\nעריכות שאינן מועילות ישוחזרו במהרה,\nועריכות גסות או חזרה על עריכות לא מועילות תגרומנה לחסימה של החשבון או של כתובת ה־IP שלך.",
+	"api-error-abusefilter-disallowed": "פעולה זו זוהתה באופן אוטומטי כמזיקה, ולכן לא אופשרה ([$1 מידע נוסף]).",
 	"mwe-upwiz-unavailable": "הדפדפן שלך אינו מתאים לאשף ההעלאה או שהרצת JavaScript כבויה, אז אנחנו מראים לך טופס העלאה פשוט ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility הצגת דרישות תאימות].)",
 	"mwe-upwiz-extension-disabled": "דף זה אינו פעיל זמנית עקב בעיות טכניות. בינתיים נסו את דף ההעלאות הרגיל.",
 	"mwe-upwiz-step-tutorial": "הסברים",
