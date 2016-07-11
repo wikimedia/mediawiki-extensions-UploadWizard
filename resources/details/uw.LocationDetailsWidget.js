@@ -52,22 +52,25 @@
 	 */
 	uw.LocationDetailsWidget.prototype.getErrors = function () {
 		var errors = [],
-			lat = this.latitudeInput.getValue(),
-			lon = this.longitudeInput.getValue(),
-			head = this.headingInput.getValue(),
-			latNum = parseInt( lat, 10 ),
-			lonNum = parseInt( lon, 10 ),
-			headNum = parseInt( head, 10 );
+			latInput = this.latitudeInput.getValue(),
+			lonInput = this.longitudeInput.getValue(),
+			headInput = this.headingInput.getValue(),
+			latNum = this.normalizeCoordinate( latInput ),
+			lonNum = this.normalizeCoordinate( lonInput ),
+			headNum = parseFloat( headInput );
 
-		if ( lat !== '' && ( lat > 90 || lat < -90 || isNaN( latNum ) ) ) {
+		// input is invalid if the coordinates are out of bounds, or if the
+		// coordinates that were derived from the input are 0, without a 0 even
+		// being present in the input
+		if ( latNum > 90 || latNum < -90 || ( latNum === 0 && latInput.indexOf( '0' ) < 0 ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-latitude' ) );
 		}
 
-		if ( lon !== '' && ( lon > 180 || lon < -180 || isNaN( lonNum ) ) ) {
+		if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && lonInput.indexOf( '0' ) < 0 ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-longitude' ) );
 		}
 
-		if ( head !== '' && ( head > 360 || head < 0 || isNaN( headNum ) ) ) {
+		if ( headInput !== '' && ( headInput > 360 || headInput < 0 || isNaN( headNum ) ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-heading' ) );
 		}
 
@@ -101,18 +104,21 @@
 	 */
 	uw.LocationDetailsWidget.prototype.getWikiText = function () {
 		var locationParts,
-			latitude = this.latitudeInput.getValue(),
-			longitude = this.longitudeInput.getValue(),
-			heading = this.headingInput.getValue(),
-			latnum = parseFloat( latitude ),
-			longnum = parseFloat( longitude ),
-			headnum = parseFloat( heading );
+			latInput = this.latitudeInput.getValue(),
+			lonInput = this.longitudeInput.getValue(),
+			headInput = this.headingInput.getValue(),
+			latNum = this.normalizeCoordinate( latInput ),
+			lonNum = this.normalizeCoordinate( lonInput ),
+			headNum = parseFloat( headInput );
 
-		if ( !isNaN( latnum ) && !isNaN( longnum ) ) {
-			locationParts = [ '{{Location', latitude, longitude ];
+		// input is invalid if the coordinates are out of bounds, or if the
+		// coordinates that were derived from the input are 0, without a 0 even
+		// being present in the input
+		if ( latNum !== 0 || latInput.indexOf( '0' ) >= 0 || lonNum !== 0 || lonInput.indexOf( '0' ) >= 0 ) {
+			locationParts = [ '{{Location', latNum, lonNum ];
 
-			if ( !isNaN( headnum ) ) {
-				locationParts.push( 'heading:' + heading );
+			if ( !isNaN( headNum ) ) {
+				locationParts.push( 'heading:' + headNum );
 			}
 
 			return locationParts.join( '|' ) + '}}';
@@ -142,6 +148,53 @@
 	 */
 	uw.LocationDetailsWidget.prototype.setSerialized = function ( serialized ) {
 		this.setupInputs( serialized.latitude, serialized.longitude, serialized.heading );
+	};
+
+	/**
+	 * Interprets a wide variety of coordinate input formats, it'll return the
+	 * coordinate in decimal degrees.
+	 *
+	 * Formats understood include:
+	 * * degrees minutes seconds: 40° 26' 46" S
+	 * * degrees decimal minutes: 40° 26.767' S
+	 * * decimal degrees: 40.446° S
+	 * * decimal degrees exact value: -40.446
+	 *
+	 * @param {string} coordinate
+	 * @return {number}
+     */
+	uw.LocationDetailsWidget.prototype.normalizeCoordinate = function ( coordinate ) {
+		var sign = coordinate.match( /[sw]/i ) ? -1 : 1,
+			parts, value;
+
+		// fix commonly used character alternatives
+		coordinate = coordinate.replace( ',', '.' );
+
+		// convert degrees, minutes, seconds (or degrees & decimal minutes) to
+		// decimal degrees
+		// there's can be a lot of variation in the notation, so let's only
+		// focus on "groups of digits" (and not whether e.g. ″ or " is used)
+		parts = coordinate.match( /(-?[0-9\.]+)[^0-9\.]+([0-9\.]+)(?:[^0-9\.]+([0-9\.]+))?/ );
+		if ( parts ) {
+			value = this.dmsToDecimal( parts[ 1 ], parts[ 2 ], parts[ 3 ] || 0 );
+		} else {
+			value = coordinate.replace( /[^\-0-9\.]/g, '' ) * 1;
+		}
+
+		// round to 6 decimal places
+		return Math.round( sign * value * 1000000 ) / 1000000;
+	};
+
+	/**
+	 * Convert degrees, minutes & seconds to decimal.
+	 *
+	 * @param {number} degrees
+	 * @param {number} minutes
+	 * @param {number} seconds
+	 * @return {number}
+	 */
+	uw.LocationDetailsWidget.prototype.dmsToDecimal = function ( degrees, minutes, seconds ) {
+		return ( degrees * 1 ) + ( minutes / 60.0 ) + ( seconds / 3600.0 );
 	};
 
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
