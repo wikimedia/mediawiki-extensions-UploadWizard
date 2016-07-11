@@ -183,7 +183,11 @@
 	 * @param {jQuery} [$additionalStatus]
 	 */
 	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
-		var msgKey, args;
+		var msgKey, args, moreErrorCodes = [
+			'unknown-warning',
+			'abusefilter-disallowed',
+			'abusefilter-warning'
+		];
 
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
@@ -192,11 +196,8 @@
 			code = 'timeout';
 		}
 
-		if ( $.inArray( code, mw.Api.errors ) !== -1 ) {
+		if ( $.inArray( code, mw.Api.errors ) !== -1 || $.inArray( code, moreErrorCodes ) !== -1 ) {
 			msgKey = 'api-error-' + code;
-			args = $.makeArray( info );
-		} else if ( code === 'unknown-warning' ) {
-			msgKey = 'api-error-unknown-warning';
 			args = $.makeArray( info );
 		} else {
 			msgKey = 'api-error-unknown-code';

@@ -953,7 +953,7 @@
 		 * @param {Mixed} result Result from ajax call
 		 */
 		processError: function ( code, result ) {
-			var statusKey, comma,
+			var statusKey, comma, promise,
 				statusLine = mw.message( 'api-error-unclassified' ).text(),
 				titleBlacklistMessageMap = {
 					senselessimagename: 'senselessimagename', // TODO This is probably never hit?
@@ -972,6 +972,19 @@
 				// TODO Automatically try again instead of requiring the user to bonk the button
 			}
 
+			if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' ) {
+				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ] );
+				this.recoverFromError( mw.message( 'api-error-' + code, function () {
+					promise.done( function () {
+						mw.errorDialog( $( '<div>' ).msg(
+							result.error.message.key,
+							result.error.message.params
+						) );
+					} );
+				} ), code );
+				return;
+			}
+
 			if ( code === 'ratelimited' ) {
 				// None of the remaining uploads is going to succeed, and every failed one is going to
 				// ping the rate limiter again.
@@ -988,7 +1001,7 @@
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ), 'title-' + titleErrorMap[ code ] );
 					return;
 				} else if ( code === 'titleblacklist-forbidden' ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message ] ), 'title-' + titleBlacklistMessageMap[ result.error.message ] );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message.key ] ), 'title-' + titleBlacklistMessageMap[ result.error.message.key ] );
 					return;
 				} else {
 					statusKey = 'api-error-' + code;
