@@ -181,5 +181,7 @@
 	"mwe-upwiz-errordialog-ok": "Greitt",
 	"mwe-upwiz-error-nosuchcampaign": "Det finst ingen kampanje som heiter «$1».",
 	"mwe-upwiz-error-campaigndisabled": "Kampanjen «$1» er ikkje gjord verksam.",
+	"mwe-upwiz-calendar-date": "Vel dato frå kalender",
+	"mwe-upwiz-custom-date": "Bruk eige datoformat",
 	"uploadcampaign-text": "Du brigdar ein opplastingsvegvisarkampanje."
 }
