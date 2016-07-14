@@ -4,9 +4,11 @@
 			"Dantman",
 			"Shirayuki",
 			"Nemo bis",
-			"Paladox"
+			"Paladox",
+			"Zachyoung6969"
 		]
 	},
+	"api-error-abusefilter-disallowed": "This action has been automatically identified as harmful, and therefore disallowed ([$1 more info]).$1",
 	"mwe-upwiz-source-ownwork-assert-custom": "I, $2, the copyright holder of {{PLURAL:$1|this work|these works}}, hereby publish {{PLURAL:$1|this work|these works}} under the following licence:",
 	"mwe-upwiz-source-ownwork-assert-note": "This means you release your work under the following licence: $1",
 	"mwe-upwiz-deeds-need-license": "Please select a licence.",
