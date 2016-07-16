@@ -130,7 +130,7 @@
 	uw.ui.Wizard.prototype.initArrowSteps = function () {
 		$( '<ul>' )
 			.attr( 'id', 'mwe-upwiz-steps' )
-			.addClass( 'ui-helper-clearfix ui-state-default ui-widget ui-helper-reset ui-helper-clearfix' )
+			.addClass( 'ui-helper-clearfix' )
 			.insertBefore( '#mwe-upwiz-content' );
 	};
 
