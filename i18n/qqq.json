@@ -70,7 +70,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "This is a legal disclaimer to let the user know that the Flickr terms of use and privacy policy apply to all content loaded from Flickr. Please try to keep the wording similar to the approved version in English.",
 	"mwe-upwiz-flickr-disclaimer2": "This is a legal disclaimer to let the user know that their IP address will be sent to Flickr when they submit the form. Please try to keep the wording similar to the approved version in English.",
 	"mwe-upwiz-error-no-image-retrieved": "Error message shown when UploadWizard is not able to retrieve an image from a remote source. $1 is the name of the remote source, for example, Flickr.",
-	"mwe-upwiz-multi-file-select": "Instructions that appear when the user can select multiple files to upload. See http://jqueryui.com/demos/selectable/#display-grid for how this works.\n* $1 - the maximum number of files that can be selected\n* $2 - either Command or Ctrl, depending on the user's detected operating system",
+	"mwe-upwiz-multi-file-select2": "Instructions that appear when the user can select multiple files to upload.\n* $1 - the maximum number of files that can be selected",
 	"mwe-upwiz-firefogg-nonascii": "Error message shown when the user chooses a video file that Firefogg can't handle.\n\nFeel free to replace 'é' and 'ä' with characters specific to your language, if any.",
 	"mwe-upwiz-transport-started": "Status message when upload starts",
 	"mwe-upwiz-encoding": "Status message while encoding with Firefogg",

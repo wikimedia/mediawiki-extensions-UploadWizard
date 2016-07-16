@@ -372,7 +372,8 @@
 			// would be better to use isBlacklisted(), but didn't find a nice way of combining it with $.each
 			return $.when( flickrPromise, this.getBlacklist() ).then( function ( photoset, blacklist ) {
 				var fileName, sourceURL,
-					imagesHTML = '',
+					checkboxes = [],
+					checkboxesWidget = new OO.ui.CheckboxMultiselectWidget(),
 					x = 0;
 
 				$.each( photoset.photo, function ( i, item ) {
@@ -429,10 +430,14 @@
 
 					// setting up the thumbnail previews in the Selection list
 					if ( item.url_sq ) {
-						imagesHTML += '<li id="upload-' + i + '" class="ui-state-default"><img class="lazy-thumbnail" data-original="' + item.url_sq + '"></li>';
+						checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
+							data: i,
+							label: $( '<img class="lazy-thumbnail" data-original="' + item.url_sq + '">' )
+						} ) );
 					}
 				} );
-				$( '#mwe-upwiz-flickr-select-list' ).append( imagesHTML );
+				checkboxesWidget.addItems( checkboxes );
+				$( '#mwe-upwiz-flickr-select-list' ).append( checkboxesWidget.$element );
 				// Lazy-load images
 				$( 'img.lazy-thumbnail' ).lazyload( {
 					// jQuery considers all images without 'src' to not be ':visible'
@@ -442,27 +447,23 @@
 				setTimeout( function () {
 					$( window ).triggerHandler( 'resize' );
 				} );
-				// Calling jquery ui selectable
-				$( '#mwe-upwiz-flickr-select-list' ).selectable( {
-					filter: 'li',
-					stop: function () {
-						// If at least one item is selected, activate the upload button
-						checker.selectButton.setDisabled( $( '.ui-selected' ).length === 0 );
-					},
-					selecting: function ( event, ui ) {
-						// Limit the number of selectable images
-						if ( $( '.ui-selected, .ui-selecting' ).length > mw.UploadWizard.config.maxUploads ) {
-							$( ui.selecting ).removeClass( 'ui-selecting' );
+				// Set up checkboxes
+				checkboxesWidget.on( 'select', function () {
+					var selectedCount = checkboxesWidget.getSelectedItems().length;
+					// If at least one item is selected, activate the upload button
+					checker.selectButton.setDisabled( selectedCount === 0 );
+					// Limit the number of selectable images
+					checkboxesWidget.getItems().forEach( function ( checkbox ) {
+						if ( !checkbox.isSelected() ) {
+							checkbox.setDisabled( selectedCount >= mw.UploadWizard.config.maxUploads );
 						}
-					}
+					} );
 				} );
 				// Set up action for 'Upload selected images' button
 				checker.selectButton.on( 'click', function () {
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
-					$( '.ui-selected' ).each( function ( index, image ) {
-						image = $( this ).attr( 'id' );
-						image = image.split( '-' )[ 1 ];
+					checkboxesWidget.getSelectedItemsData().forEach( function ( image ) {
 						checker.setUploadDescription( checker.imageUploads[ image ] );
 						checker.setImageURL( image );
 					} );

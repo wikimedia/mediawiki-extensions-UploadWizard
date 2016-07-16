@@ -61,10 +61,8 @@
 			.append(
 				$( '<div>' )
 					.text( mw.message(
-						'mwe-upwiz-multi-file-select',
-						config.maxUploads,
-						// Command key on Mac, Ctrl basically everywhere else
-						$.client.profile().platform === 'mac' ? 'Command' : 'Ctrl'
+						'mwe-upwiz-multi-file-select2',
+						config.maxUploads
 					) ),
 				this.$flickrSelectList
 			);

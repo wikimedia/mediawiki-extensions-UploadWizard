@@ -200,34 +200,27 @@ form.mwe-upwiz-form {
 }
 
 #mwe-upwiz-flickr-select-list-container {
-	width: 580px; /* based on values in #mwe-upwiz-flickrSelectlist li */
 	margin: 0 auto;
 	display: none;
 	text-align: center;
 }
+
 #mwe-upwiz-flickr-select-list {
-	list-style: none;
 	clear: both;
 	overflow: hidden;
 	margin-bottom: 1em;
 }
 
-#mwe-upwiz-flickr-select-list .ui-selecting {
-	background: #feca40;
-}
-
-#mwe-upwiz-flickr-select-list .ui-selected {
-	background: #0f0;
-}
-
-#mwe-upwiz-flickr-select-list li {
+#mwe-upwiz-flickr-select-list .oo-ui-checkboxMultioptionWidget {
 	margin: 6px;
 	padding: 1px;
 	float: left;
 	display: block;
-	width: 100px;
-	height: 100px;
-	background: none;
+}
+
+#mwe-upwiz-flickr-select-list img {
+	width: 75px;
+	height: 75px;
 }
 
 #mwe-upwiz-flickr-disclaimer {
@@ -235,12 +228,6 @@ form.mwe-upwiz-form {
 	margin: 1em 0;
 	padding: 0.5em;
 	background-color: #dfeffa;
-}
-
-#mwe-upwiz-flickr-select-list li img {
-	margin: 12.5px;
-	display: block;
-	position: relative;
 }
 
 .filled + .filled {
@@ -264,7 +251,7 @@ form.mwe-upwiz-form {
 	width: 40px;
 }
 
-#mwe-upwiz-flickr-select-list li,
+#mwe-upwiz-flickr-select-list img,
 .mwe-upwiz-status-progress {
 	/* @embed */
 	background: url( images/24px-spinner-0645ad.gif ) no-repeat center center;
