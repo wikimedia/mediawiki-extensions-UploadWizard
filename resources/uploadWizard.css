@@ -552,3 +552,18 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	margin-right: 0;
 	vertical-align: baseline;
 }
+
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: '';
+	display: table;
+	border-collapse: collapse;
+}
+
+.ui-helper-clearfix:after {
+	clear: both;
+}
+
+.ui-helper-clearfix {
+	zoom: 1;
+}
