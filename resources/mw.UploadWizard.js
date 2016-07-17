@@ -252,7 +252,7 @@
 				wizard = this,
 				checker = new mw.FlickrChecker( this, this.upload ),
 				// The input that will hold a flickr URL entered by the user; will be appended to a form
-				$flickrInput = $( '<input id="mwe-upwiz-flickr-input" class="ui-helper-center-fix" type="text" />' ),
+				$flickrInput = $( '<input id="mwe-upwiz-flickr-input" type="text" />' ),
 				// A container holding a form
 				$flickrContainer = $( '<div id="mwe-upwiz-upload-add-flickr-container"></div>' ),
 				// Form whose submit event will be listened to and prevented

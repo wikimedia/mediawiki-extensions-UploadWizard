@@ -182,17 +182,14 @@ form.mwe-upwiz-form {
 
 /* Flickr Interface CSS*/
 
-.ui-helper-center-fix {
-	display: inline-block;
-	position: relative;
-}
-
 #mwe-upwiz-upload-ctr-divide {
 	display: block;
 	font-size: 1.3em;
 }
 
 #mwe-upwiz-flickr-input {
+	display: inline-block;
+	position: relative;
 	font-size: 1.2em;
 	width: 250px;
 	padding: 4px;
