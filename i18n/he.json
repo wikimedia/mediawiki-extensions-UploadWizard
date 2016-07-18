@@ -55,7 +55,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "הטופס הזה יטען תוכן שמאוחסן באתר flickr.com ומפורסם לפי [https://www.flickr.com/help/terms/ תנאי השימוש] ולפי [https://www.flickr.com/help/privacy-policy/ מדיניות הפרטיות] של פליקר.",
 	"mwe-upwiz-flickr-disclaimer2": "לידיעתך שימוש בכלי זה חושף את כתובת ה-IP שלך ופרטי הבקשה בפני Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "לא הצלחנו לאחזר את הקובץ מ{{GRAMMAR:תחילית|$1}}.",
-	"mwe-upwiz-multi-file-select": "יש לסמן את הקבצים שברצונך להעלות או להחזיק את מקש $2 כדי לבחור מספר תמונות. אפשר לבחור עד {{PLURAL:$1|קובץ אחד|$1 קבצים}} להעלאה.",
+	"mwe-upwiz-multi-file-select2": "{{GENDER:|בחר|בחרי|בחרו}} את הקבצים ש{{GENDER:|ברצונך|ברצונך|ברצונכם}} להעלות. ניתן להחזיק את המקש Shift כדי לבחור מספר קבצים ביחד. ב{{GENDER:|אפשרותך|אפשרותך|אפשרותכם}} להעלות {{PLURAL:$1|קובץ אחד|$1 קבצים}} לכל היותר.",
 	"mwe-upwiz-firefogg-nonascii": "Firefogg אינו תומך בשמות קבצים שמכילים תווים עם אקצנטים כמו 'é' או 'ä'. נא לשנות את שם הקובץ ולהסיר אותם ולנסות שוב. יהיה אפשר לתקן את שם הקובץ אחר־כך.",
 	"mwe-upwiz-transport-started": "בהליכי הפעלה...",
 	"mwe-upwiz-encoding": "מקודד...",

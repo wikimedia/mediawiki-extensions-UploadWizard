@@ -39,7 +39,6 @@
 	"mwe-upwiz-flickr-disclaimer1": "See vorm laadib võrgukohas flickr.org avaldatud sisu, mille kohta käivad Flickri [https://www.flickr.com/help/terms/ kasutustingimused] ja [https://www.flickr.com/help/privacy-policy/ privaatsuspõhimõtted].",
 	"mwe-upwiz-flickr-disclaimer2": "Pane tähele, et kui kasutad seda tööriista, saadetakse Flickrile sinu IP-aadress ja päringu üksikasjad.",
 	"mwe-upwiz-error-no-image-retrieved": "Allikast $1 ei õnnestunud faili kätte saada.",
-	"mwe-upwiz-multi-file-select": "Joonista kursoriga kast üle failide, mida soovid üles laadida. Hoia all $2-klahvi, et teha mitu üksteisest eemal olevat valikut. Saad valida üleslaadimiseks kuni {{PLURAL:$1|ühe|$1}} faili.",
 	"mwe-upwiz-transport-started": "Alustamine...",
 	"mwe-upwiz-encoding": "Kodeerimine...",
 	"mwe-upwiz-uploading": "Üleslaadimine...",

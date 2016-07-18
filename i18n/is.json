@@ -44,7 +44,6 @@
 	"mwe-upwiz-flickr-disclaimer1": "Þetta eyðublað mun hlaða inn efni frá flickr.com sem er háð [https://www.flickr.com/help/terms/ notkunarskilmálum] og [https://www.flickr.com/help/privacy-policy/ friðhelgis stefnu] flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Vinsamlegast athugaðu að með þessu smáforriti mun ip-talan þín og upplýsingar um fyrirspurnina vera aðgengilegar flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Við gátum ekki sótt skránna frá $1.",
-	"mwe-upwiz-multi-file-select": "Teiknaðu kassa með músinni yfir skrárnar sem þú vilt hlaða inn. Haltu niðri $2 takkanum til að velja skrár sem eru ekki hliðin á hverri annari. Þú getur valið allt að $1 {{PLURAL:$1|skrá|skrár}} til að hlaða inn.",
 	"mwe-upwiz-transport-started": "Byrja...",
 	"mwe-upwiz-encoding": "Kóta...",
 	"mwe-upwiz-uploading": "Hleð inn skrá....",

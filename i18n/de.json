@@ -60,7 +60,6 @@
 	"mwe-upwiz-flickr-disclaimer1": "Dieses Formular lädt Inhalt, der auf flickr.com gespeichert ist und den Flickr-[https://www.flickr.com/help/terms/ Nutzungsbedingungen] sowie der [https://www.flickr.com/help/privacy-policy/ Datenschutzerklärung] unterliegt.",
 	"mwe-upwiz-flickr-disclaimer2": "Bitte beachte beim Verwenden dieses Werkzeugs, dass deine IP-Adresse und Suchanfragen für Flickr verfügbar sind.",
 	"mwe-upwiz-error-no-image-retrieved": "Wir konnten die Datei von $1 nicht abrufen.",
-	"mwe-upwiz-multi-file-select": "Zeichne mit deinem Mauszeiger einen Kasten über die hochzuladenden Dateien. Halte die Taste $2 gedrückt, um mehrfache nichtbenachbarte Auswahlen zu treffen. Du kannst {{PLURAL:$1|eine Datei|bis zu $1 Dateien}} zum Hochladen auswählen.",
 	"mwe-upwiz-firefogg-nonascii": "Firefogg unterstützt keine Dateinamen, die akzentierte Zeichen enthalten, wie „é“ oder „ä“. Bitte benenne die Datei um und versuche es erneut. Du wirst in der Lage sein, den Dateinamen später zu korrigieren.",
 	"mwe-upwiz-transport-started": "Starte …",
 	"mwe-upwiz-encoding": "Umwandlung …",
