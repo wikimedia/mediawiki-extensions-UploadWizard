@@ -98,8 +98,12 @@
 	uw.DateDetailsWidget.prototype.getWarnings = function () {
 		var warnings = [],
 			dateVal = Date.parse( this.dateInputWidget.getValue().trim() );
+		// We don't really know what timezone this datetime is in. It could be the user's timezone, or
+		// it could be the camera's timezone for data imported from EXIF, and we don't know what
+		// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
+		// avoid giving false warnings.
 		if ( this.dateInputWidgetMode === 'calendar' &&
-			dateVal > ( new Date() ).getTime() ) {
+			dateVal > ( new Date() ).getTime() + 14 * 60 * 60 ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-postdate' ) );
 		}
 		return $.Deferred().resolve( warnings ).promise();
