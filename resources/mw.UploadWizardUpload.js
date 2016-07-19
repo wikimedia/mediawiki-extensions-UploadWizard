@@ -521,21 +521,21 @@
 			upload = this;
 		if ( this.file && this.file.type === 'image/jpeg' ) {
 			binReader = new FileReader();
+			binReader.onerror = function () {
+				deferred.resolve();
+			};
 			binReader.onload = function () {
 				var binStr, arr, i, meta;
+				if ( binReader.result === null ) {
+					// Contrary to documentation, this sometimes fires for unsuccessful loads (T136235)
+					deferred.resolve();
+					return;
+				}
 				if ( typeof binReader.result === 'string' ) {
 					binStr = binReader.result;
 				} else {
 					// Array buffer; convert to binary string for the library.
-					try {
-						arr = new Uint8Array( binReader.result );
-					} catch ( err ) {
-						throw new Error(
-							err.message +
-							' result=' + String( binReader.result ) +
-							' error=' + String( binReader.error )
-						);
-					}
+					arr = new Uint8Array( binReader.result );
 					binStr = '';
 					for ( i = 0; i < arr.byteLength; i++ ) {
 						binStr += String.fromCharCode( arr[ i ] );
