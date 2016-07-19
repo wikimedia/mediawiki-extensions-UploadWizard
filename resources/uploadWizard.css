@@ -67,7 +67,7 @@ form.mwe-upwiz-form {
 	font-size: large;
 }
 
-#mwe-upwiz-add-file {
+#mwe-upwiz-add-file .oo-ui-buttonElement-button {
 	position: relative;
 	overflow: hidden;
 }

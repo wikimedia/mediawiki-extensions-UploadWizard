@@ -230,7 +230,7 @@
 	 * @param {File} file
 	 * @param {boolean} fromURL
 	 */
-	mw.UploadWizardUploadInterface.prototype.fileChangedOk = function ( imageinfo, file, fromURL ) {
+	mw.UploadWizardUploadInterface.prototype.fileChangedOk = function ( imageinfo, file ) {
 		var statusItems = [];
 
 		this.updateFilename();
@@ -240,7 +240,7 @@
 			statusItems.push( imageinfo.width + '\u00d7' + imageinfo.height );
 		}
 
-		if ( file && !fromURL ) {
+		if ( file && file.size ) {
 			statusItems.push( mw.units.bytes( file.size ) );
 		}
 

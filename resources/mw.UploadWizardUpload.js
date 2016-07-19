@@ -38,7 +38,6 @@
 		this.thumbnailPublishers = {};
 		this.imageinfo = {};
 		this.title = undefined;
-		this.mimetype = undefined;
 		this.extension = undefined;
 		this.filename = undefined;
 		this.file = undefined;
@@ -56,11 +55,8 @@
 		this.ui = new mw.UploadWizardUploadInterface( this )
 			.connect( this, {
 				'file-changed': [ 'emit', 'file-changed', upload ],
-				'filename-accepted': [ 'emit', 'filename-accepted' ]
-			} )
-
-			.on( 'upload-filled', function () {
-				upload.emit( 'filled' );
+				'filename-accepted': [ 'emit', 'filename-accepted' ],
+				'upload-filled': [ 'emit', 'filled' ]
 			} );
 	};
 
@@ -460,7 +456,7 @@
 
 				// make sure the file isn't too large
 				// XXX need a way to find the size of the Flickr image
-				if ( !this.fromURL ) {
+				if ( this.file.size ) {
 					this.transportWeight = this.file.size;
 					if ( this.transportWeight > actualMaxSize ) {
 						this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
@@ -1105,7 +1101,7 @@
 	 * Notification that the file input has changed and it's fine...set info.
 	 */
 	mw.UploadWizardUpload.prototype.fileChangedOk = function () {
-		this.ui.fileChangedOk( this.imageinfo, this.file, this.fromURL );
+		this.ui.fileChangedOk( this.imageinfo, this.file );
 	};
 
 	/**

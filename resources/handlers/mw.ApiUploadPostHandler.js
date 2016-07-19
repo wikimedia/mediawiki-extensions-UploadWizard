@@ -25,16 +25,16 @@
 				url: this.upload.providedFile.url,
 				filename: this.beginTime.toString() + this.upload.filename
 			} )
-			.fail( function ( code, info, result ) {
-				uw.eventFlowLogger.logApiError( 'file', result );
-				handler.upload.setError( code, info );
-			} )
-			.done( function ( result ) {
-				if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+				.fail( function ( code, info, result ) {
 					uw.eventFlowLogger.logApiError( 'file', result );
-				}
-				handler.upload.setTransported( result );
-			} );
+					handler.upload.setError( code, info );
+				} )
+				.done( function ( result ) {
+					if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+						uw.eventFlowLogger.logApiError( 'file', result );
+					}
+					handler.upload.setTransported( result );
+				} );
 		}
 	};
 }( mediaWiki, mediaWiki.uploadWizard ) );
