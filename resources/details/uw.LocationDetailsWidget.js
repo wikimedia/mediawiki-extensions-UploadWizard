@@ -162,7 +162,7 @@
 	 *
 	 * @param {string} coordinate
 	 * @return {number}
-     */
+	 */
 	uw.LocationDetailsWidget.prototype.normalizeCoordinate = function ( coordinate ) {
 		var sign = coordinate.match( /[sw]/i ) ? -1 : 1,
 			parts, value;
