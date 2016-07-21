@@ -55,7 +55,6 @@
 	"mwe-upwiz-flickr-disclaimer1": "此表格讀取的內容由 flickr.com 保管，需遵循 Flickr 的[https://www.flickr.com/help/terms/ 使用條款] 及 [https://www.flickr.com/help/privacy-policy/ 隱私政策]。",
 	"mwe-upwiz-flickr-disclaimer2": "請注意，使用此工具時您的 IP 位址及請求詳細資訊將會提供給 Flickr。",
 	"mwe-upwiz-error-no-image-retrieved": "我們無法從 $1 取得檔案。",
-	"mwe-upwiz-multi-file-select": "使用您的滑鼠游標框選您要上傳的檔案。 按住 $2 鍵來以選擇多個不相鄰的檔案。您最多可以選擇 $1 {{PLURAL:$1|個檔案|個檔案}}上傳。",
 	"mwe-upwiz-transport-started": "啟動中...",
 	"mwe-upwiz-encoding": "編碼中...",
 	"mwe-upwiz-uploading": "上傳中...",
