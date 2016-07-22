@@ -14,7 +14,8 @@
 			"Sjoerddebruin",
 			"Matma Rex",
 			"Robin van der Vliet",
-			"Macofe"
+			"Macofe",
+			"Dinosaur918"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -52,7 +53,6 @@
 	"mwe-upwiz-flickr-disclaimer1": "Via dit formulier wordt inhoud geladen die wordt gehost door flickr.com en waarop de [https://www.flickr.com/help/terms/ gebruiksvoorwaarden] en het [https://www.flickr.com/help/privacy-policy/ privacybeleid] van Flickr van toepassing zijn.",
 	"mwe-upwiz-flickr-disclaimer2": "Door dit hulpmiddel te gebruiken zijn uw IP-adres en verzoekgegevens beschikbaar voor Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "We kunnen het bestand van $1 niet ophalen.",
-	"mwe-upwiz-multi-file-select": "Trek een kader over de bestanden die u wilt uploaden. Houd \"Ctrl\" of \"Command\" ingedrukt om meerdere, niet aan elkaar grenzende selecties te maken.",
 	"mwe-upwiz-transport-started": "Beginnen...",
 	"mwe-upwiz-encoding": "Bezig met coderen...",
 	"mwe-upwiz-uploading": "bezig met uploaden...",
@@ -124,7 +124,7 @@
 	"mwe-upwiz-more-options": "Locatie en meer informatie toevoegen...",
 	"mwe-upwiz-copy-metadata": "Gegevens op alle onderstaande uploads toepassen...",
 	"mwe-upwiz-copy-metadata-button": "Kopiëren",
-	"mwe-upwiz-copied-metadata-button": "Kopiëren afgerond",
+	"mwe-upwiz-copied-metadata": "Kopiëren afgerond",
 	"mwe-upwiz-copy-title": "Titel kopiëren (met automatische nummering)",
 	"mwe-upwiz-copy-description": "Beschrijvingen kopiëren",
 	"mwe-upwiz-copy-date": "Datum kopiëren",
@@ -165,6 +165,7 @@
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Er bestaat al een bestand met deze naam. Als u het wilt vervangen, ga dan naar de pagina voor [$2 $1] en vervang het daar.",
 	"mwe-upwiz-fileexists-replace-no-link": "Er bestaat al een bestand met deze naam.",
+	"mwe-upwiz-blacklisted-details-feedback": "Kies een andere, beschrijvende titel ([$2 meer info] • [$3 verzend feedback])",
 	"mwe-upwiz-next": "Volgende",
 	"mwe-upwiz-next-file": "Doorgaan",
 	"mwe-upwiz-next-deeds": "Volgende",
@@ -197,7 +198,6 @@
 	"mwe-upwiz-error-signature-too-short": "Uw handtekening is te kort.\nMaak deze langer dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-signature-bad-chars": "Uw handtekening bevat symbolen die niet zijn toegestaan.\nGebruik geen wikitext of HTML, alleen uw gebruikersnaam of echte naam.",
 	"mwe-upwiz-error-blank": "Dit is een verplicht veld.",
-	"mwe-upwiz-error-nologin": "U moet <span class=\"plainlinks\">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} aangemeld zijn]</span> om bestanden te kunnen uploaden.",
 	"mwe-upwiz-error-too-long": "De invoer voor dit veld is te lang.\nMaak het korter dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-too-short": "De invoer voor dit veld is te kort.\nMaak het langer dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-bad-chars": "De invoer voor dit veld bevat symbolen die niet zijn toegestaan.\nGebruik hier geen wikitekst of HTML.",
