@@ -56,7 +56,7 @@
 				handler.beginTime = ( new Date() ).getTime();
 				handler.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 				handler.upload.ui.showTransportProgress();
-				return handler.transport.upload( handler.upload.file )
+				return handler.transport.upload( handler.upload.file, handler.upload.title.getMainText() )
 					.progress( function ( fraction ) {
 						if ( handler.upload.state === 'aborted' ) {
 							handler.transport.xhr.abort();

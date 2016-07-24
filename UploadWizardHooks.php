@@ -169,7 +169,6 @@ class UploadWizardHooks {
 				'tests/qunit/transports/mw.FormDataTransport.test.js',
 				'tests/qunit/uw.EventFlowLogger.test.js',
 				'tests/qunit/uw.ConcurrentQueue.test.js',
-				'tests/qunit/mw.UploadWizard.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',

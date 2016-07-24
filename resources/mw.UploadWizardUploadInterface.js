@@ -353,7 +353,7 @@
 
 		// visible filename
 		this.$form.find( '.mwe-upwiz-visible-file-filename-text' )
-			.text( mw.UploadWizard.sanitizeFilename( path ) );
+			.text( path );
 
 		if ( !this.isFilled ) {
 			$div = $( this.div );

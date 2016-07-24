@@ -480,7 +480,7 @@
 	 * @param {string} title Unsanitized title.
 	 */
 	mw.UploadWizardUpload.prototype.setTitle = function ( title ) {
-		this.title = mw.Title.newFromFileName( mw.UploadWizard.sanitizeFilename( title ) );
+		this.title = mw.Title.newFromFileName( title );
 	};
 
 	/**
