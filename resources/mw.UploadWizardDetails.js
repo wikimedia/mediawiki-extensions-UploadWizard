@@ -861,7 +861,7 @@
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-thumbnail' ), 'error-title-thumbnail' );
 				} else if ( warnings.badfilename ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-badchars' ), 'title-badchars' );
+					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-invalid' ), 'title-invalid' );
 				} else if ( warnings[ 'bad-prefix' ] ) {
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-senselessimagename' ), 'title-senselessimagename' );
 				} else if ( existingFile ) {

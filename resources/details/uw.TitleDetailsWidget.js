@@ -100,7 +100,7 @@
 		}
 
 		if ( !title ) {
-			errors.push( mw.message( 'mwe-upwiz-unparseable-title' ) );
+			errors.push( mw.message( 'mwe-upwiz-error-title-invalid' ) );
 			return $.Deferred().resolve( errors ).promise();
 		}
 
@@ -112,7 +112,7 @@
 					moreErrors = moreErrors.concat(
 						mw.QuickTitleChecker.checkTitle( title.getNameText() ).map( function ( errorCode ) {
 							// Messages:
-							// mwe-upwiz-error-title-badchars, mwe-upwiz-error-title-senselessimagename,
+							// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
 							// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
 							return mw.message( 'mwe-upwiz-error-title-' + errorCode );
 						} )
@@ -150,7 +150,7 @@
 			titleString = uw.TitleDetailsWidget.static.makeTitleInFileNS( titleString ).getPrefixedText();
 		} catch ( e ) {
 			// Unparseable result? This shouldn't happen, we checked for that earlier...
-			errors.push( mw.message( 'mwe-upwiz-unparseable-title' ) );
+			errors.push( mw.message( 'mwe-upwiz-error-title-invalid' ) );
 			return errors;
 		}
 
