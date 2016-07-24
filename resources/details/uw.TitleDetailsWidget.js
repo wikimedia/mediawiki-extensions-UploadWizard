@@ -29,19 +29,26 @@
 	OO.inheritClass( uw.TitleDetailsWidget, uw.DetailsWidget );
 
 	/**
-	 * Reliably turn input into a MediaWiki title that is located in the File: namespace
+	 * Reliably turn input into a MediaWiki title that is located in the 'File:' namespace.
+	 * Also applies file-specific checks ($wgIllegalFileChars).
 	 *
 	 *     var title = uw.TitleDetailsWidget.static.makeTitleInFileNS( 'filename.ext' );
 	 *
 	 * @static
-	 * @param {string} filename Desired file name; optionally with File: namespace prefixed
+	 * @param {string} filename Desired file name; optionally with 'File:' namespace prefixed
 	 * @return {mw.Title|null}
 	 */
 	uw.TitleDetailsWidget.static.makeTitleInFileNS = function ( filename ) {
-		var mwTitle = mw.Title.newFromText( filename, NS_FILE );
+		var
+			mwTitle = mw.Title.newFromText( filename, NS_FILE ),
+			illegalFileChars = new RegExp( '[' + mw.config.get( 'wgIllegalFileChars', '' ) + ']' );
 		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
 			// Force file namespace
 			mwTitle = mw.Title.makeTitle( NS_FILE, filename );
+		}
+		if ( mwTitle && illegalFileChars.test( mwTitle.getMainText() ) ) {
+			// Consider the title invalid if it contains characters disallowed in file names
+			mwTitle = null;
 		}
 		return mwTitle;
 	};

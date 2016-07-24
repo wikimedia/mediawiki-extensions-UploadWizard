@@ -10,13 +10,9 @@
 		prefixedText: 'File:Foo bar-baz.jpg',
 		desc: 'filename without namespace with space in it'
 	}, {
-		filename: 'Media:foo_bar.jpg',
-		prefixedText: 'File:Media:foo bar.jpg',
-		desc: 'filename starting with Media:'
-	}, {
 		filename: 'MediaWiki:foo_bar.jpg',
-		prefixedText: 'File:MediaWiki:foo bar.jpg',
-		desc: 'filename starting with MediaWiki:'
+		prefixedText: null,
+		desc: 'filename starting with MediaWiki: (colons are disallowed)'
 	}, {
 		filename: 'File:foo_bar.jpg',
 		prefixedText: 'File:Foo bar.jpg',
@@ -25,6 +21,10 @@
 		filename: 'file:foo_bar.jpg',
 		prefixedText: 'File:Foo bar.jpg',
 		desc: 'filename starting with file:'
+	}, {
+		filename: 'Foo part 1/2.jpg',
+		prefixedText: null,
+		desc: 'filename with characters disallowed in file names'
 	} ];
 
 	QUnit.module( 'uw.TitleDetailsWidget', QUnit.newMwEnvironment() );
@@ -33,8 +33,9 @@
 		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
 		$.each( makeTitleInFileNSCases, function ( i, test ) {
+			var title = makeTitleInFileNS( test.filename );
 			QUnit.equal(
-				makeTitleInFileNS( test.filename ).getPrefixedText(),
+				title ? title.getPrefixedText() : title,
 				test.prefixedText,
 				test.desc
 			);

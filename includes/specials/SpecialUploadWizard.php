@@ -173,8 +173,6 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		global $wgIllegalFileChars;
-
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
 		if ( array_key_exists( 'trackingCategory', $config ) ) {
@@ -248,7 +246,6 @@ class SpecialUploadWizard extends SpecialPage {
 			[
 				'UploadWizardConfig' => $config,
 				'wgFileCanRotate' => $bitmapHandler->canRotate(),
-				'wgIllegalFileChars' => $wgIllegalFileChars,
 			]
 		);
 	}
