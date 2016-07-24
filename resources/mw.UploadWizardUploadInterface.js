@@ -350,8 +350,6 @@
 	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
 		var $div,
 			path = this.getFilename();
-		// get basename of file; some browsers do this C:\fakepath\something
-		path = path.replace( /\w:.*\\(.*)$/, '$1' );
 
 		// visible filename
 		this.$form.find( '.mwe-upwiz-visible-file-filename-text' )

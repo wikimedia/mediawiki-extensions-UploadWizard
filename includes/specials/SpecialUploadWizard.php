@@ -248,7 +248,7 @@ class SpecialUploadWizard extends SpecialPage {
 			[
 				'UploadWizardConfig' => $config,
 				'wgFileCanRotate' => $bitmapHandler->canRotate(),
-				'wgIllegalFileChars' => $wgIllegalFileChars . '#',
+				'wgIllegalFileChars' => $wgIllegalFileChars,
 			]
 		);
 	}

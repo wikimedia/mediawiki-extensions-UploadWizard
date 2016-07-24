@@ -3,7 +3,7 @@
 	 * Represents an object which configures an html5 FormData object to upload.
 	 * Large files are uploaded in chunks.
 	 *
-	 * @param {mw.UploadWizardUploadInterface} upload
+	 * @param {mw.UploadWizardUpload} upload
 	 */
 	mw.ApiUploadFormDataHandler = function ( upload, api ) {
 		var handler = this;
