@@ -10,7 +10,8 @@
 			"Гизатуллина",
 			"Янмурза Баки",
 			"Вильданова Гюзель",
-			"Ilmira"
+			"Ilmira",
+			"Ләйсән"
 		]
 	},
 	"mwe-upwiz-uploadcampaigns": "Тейәү кампаниялары",
@@ -65,7 +66,7 @@
 	"mwe-upwiz-next-details": "Киләһе",
 	"mwe-upwiz-home": "Викиның төп битенә күсергә",
 	"mwe-upwiz-upload-another": "Тағы файлдар тейәргә",
-	"mwe-upwiz-deeds-need-license": "Зинһар, рөхсәтнәмә һайлағыҙ.",
+	"mwe-upwiz-deeds-need-license": "Рөхсәтнамәне һайлағыҙ.",
 	"mwe-upwiz-error-signature-too-long": "Бигерәк оҙон имза. Имза оҙонлоғо $1 {{PLURAL:$1|символдан}} артыҡ булмаҫҡа тейеш.",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 кодекс])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Австрия ([$2 кодекс])",
@@ -91,6 +92,6 @@
 	"mwe-upwiz-feedback-title": "Тейәү Оҫтаһы тураһында баһалама яҙығыҙ",
 	"mwe-upwiz-errordialog-ok": "Тамам",
 	"prefs-uploads": "Күсереү",
-	"mwe-upwiz-prefs-def-license": "Ғәҙәттәге рөхсәтнәмә",
+	"mwe-upwiz-prefs-def-license": "Ғәҙәттәге рөхсәтнамә",
 	"mwe-upwiz-prefs-def-license-def": "Ғәҙәттәгене ҡулланырға"
 }
