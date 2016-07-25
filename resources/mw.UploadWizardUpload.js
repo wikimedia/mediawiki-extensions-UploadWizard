@@ -1145,14 +1145,32 @@
 							canvas.width = 100;
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							context = canvas.getContext( '2d' );
-							context.drawImage( video, 0, 0, canvas.width, canvas.height );
-							upload.loadImage( canvas.toDataURL(), deferred );
+							try {
+								context.drawImage( video, 0, 0, canvas.width, canvas.height );
+								upload.loadImage( canvas.toDataURL(), deferred );
+							} catch ( err ) {
+								if ( err.name === 'NS_ERROR_NOT_AVAILABLE' ) {
+									// (T136831) Firefox doesn't like it when we draw many <video>s to <canvas> in
+									// quick succession. This seems to mostly happen when impatient users proceed to
+									// "deed" step before all thumbnails are loaded in "upload" step. Just ignore it
+									// and render a "broken" thumbnail.
+									deferred.reject();
+								} else {
+									throw err;
+								}
+							}
 							upload.URL().revokeObjectURL( video.url );
 						}, 500 );
 					}
 				} );
 				url = this.URL().createObjectURL( this.file );
 				video.src = url;
+				// If we can't get a frame within 10 seconds, something is probably seriously wrong.
+				// This can happen for broken files where we can't actually seek to the time we wanted.
+				setTimeout( function () {
+					deferred.reject();
+					upload.URL().revokeObjectURL( video.url );
+				}, 10000 );
 			} else {
 				dataUrlReader = new FileReader();
 				dataUrlReader.onload = function () {
