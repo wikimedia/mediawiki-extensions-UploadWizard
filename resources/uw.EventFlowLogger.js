@@ -127,7 +127,7 @@
 		}
 
 		payload.action = type;
-		this.log( 'UploadWizardTutorialActions', payload );
+		mw.track( 'event.UploadWizardTutorialActions', payload );
 	};
 
 	/**
