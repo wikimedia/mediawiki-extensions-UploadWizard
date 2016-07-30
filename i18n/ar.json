@@ -57,7 +57,6 @@
 	"mwe-upwiz-flickr-disclaimer1": "سيُحمّل هذا النموذج المحتويات التي يستضيفها flickr.com والتي تخضع ل[https://www.flickr.com/help/terms/ شروط استخدام فلِكر] و[https://www.flickr.com/help/privacy-policy/ سياسة خصوصيته].",
 	"mwe-upwiz-flickr-disclaimer2": "لاحظ أنه باستخدامك هذه الأداة، سيصير طلبك وعنوان الآيبي متاحا لفلِكر.",
 	"mwe-upwiz-error-no-image-retrieved": "تعذر جلب الملف من $1.",
-	"mwe-upwiz-multi-file-select": "ارسم بالمؤشر مربعًا على الملفات التي تود رفعها. اضغط مفتاح Ctrl/Command لتختار ملفات عديدة غير متجاورة.",
 	"mwe-upwiz-transport-started": "يبدأ...",
 	"mwe-upwiz-encoding": "يُرمّز...",
 	"mwe-upwiz-uploading": "جاري الرفع...",
