@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function ( mw, uw, $ ) {
 	'use strict';
 
 	var makeTitleInFileNSCases = [ {
@@ -27,10 +27,10 @@
 		desc: 'filename starting with file:'
 	} ];
 
-	QUnit.module( 'ext.uploadWizard/mw.UploadWizardDetails.test.js', QUnit.newMwEnvironment() );
+	QUnit.module( 'uw.TitleDetailsWidget', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'makeTitleInFileNS()', makeTitleInFileNSCases.length, function () {
-		var makeTitleInFileNS = mw.UploadWizardDetails.makeTitleInFileNS;
+	QUnit.test( '.static.makeTitleInFileNS()', makeTitleInFileNSCases.length, function () {
+		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
 		$.each( makeTitleInFileNSCases, function ( i, test ) {
 			QUnit.equal(
@@ -40,4 +40,4 @@
 			);
 		} );
 	} );
-}( mediaWiki, jQuery ) );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery );

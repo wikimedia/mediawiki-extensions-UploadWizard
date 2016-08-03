@@ -1,5 +1,7 @@
 ( function ( mw, uw, $, OO ) {
 
+	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
+
 	/**
 	 * A title field in UploadWizard's "Details" step form.
 	 *
@@ -25,6 +27,24 @@
 		);
 	};
 	OO.inheritClass( uw.TitleDetailsWidget, uw.DetailsWidget );
+
+	/**
+	 * Reliably turn input into a MediaWiki title that is located in the File: namespace
+	 *
+	 *     var title = uw.TitleDetailsWidget.static.makeTitleInFileNS( 'filename.ext' );
+	 *
+	 * @static
+	 * @param {string} filename Desired file name; optionally with File: namespace prefixed
+	 * @return {mw.Title|null}
+	 */
+	uw.TitleDetailsWidget.static.makeTitleInFileNS = function ( filename ) {
+		var mwTitle = mw.Title.newFromText( filename, NS_FILE );
+		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
+			// Force file namespace
+			mwTitle = mw.Title.makeTitle( NS_FILE, filename );
+		}
+		return mwTitle;
+	};
 
 	/**
 	 * @inheritdoc
@@ -53,7 +73,7 @@
 		}
 		extRegex = new RegExp( '\\.' + this.extension + '$', 'i' );
 		cleaned = value.replace( extRegex, '' ).replace( /\.+$/g, '' ).trim();
-		title = mw.UploadWizardDetails.makeTitleInFileNS( cleaned + '.' + this.extension );
+		title = uw.TitleDetailsWidget.static.makeTitleInFileNS( cleaned + '.' + this.extension );
 		return title;
 	};
 
@@ -120,7 +140,7 @@
 
 		try {
 			titleString = result.unique.title || result.title;
-			titleString = mw.UploadWizardDetails.makeTitleInFileNS( titleString ).getPrefixedText();
+			titleString = uw.TitleDetailsWidget.static.makeTitleInFileNS( titleString ).getPrefixedText();
 		} catch ( e ) {
 			// Unparseable result? This shouldn't happen, we checked for that earlier...
 			errors.push( mw.message( 'mwe-upwiz-unparseable-title' ) );

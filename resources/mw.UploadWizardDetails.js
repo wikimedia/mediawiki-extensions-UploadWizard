@@ -214,24 +214,6 @@
 		}
 	};
 
-	/**
-	 * Reliably turn input into a MediaWiki title that is located in the File: namespace
-	 *
-	 *     var title = mw.UploadWizardDetails.makeTitleInFileNS( 'filename.ext' );
-	 *
-	 * @static
-	 * @param {string} filename Desired file name; optionally with File: namespace prefixed
-	 * @return {mw.Title|null}
-	 */
-	mw.UploadWizardDetails.makeTitleInFileNS = function ( filename ) {
-		var mwTitle = mw.Title.newFromText( filename, NS_FILE );
-		if ( mwTitle && mwTitle.getNamespaceId() !== NS_FILE ) {
-			// Force file namespace
-			mwTitle = mw.Title.makeTitle( NS_FILE, filename );
-		}
-		return mwTitle;
-	};
-
 	mw.UploadWizardDetails.prototype = {
 
 		// Has this details object been attached to the DOM already?
