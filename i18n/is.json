@@ -181,7 +181,6 @@
 	"mwe-upwiz-error-too-short": "Þessi færsla er of stutt.\nVinsamlegast sjáðu til þess að færslan sé lengri en $1 {{PLURAL:$1|stafur|stafir}}.",
 	"mwe-upwiz-error-bad-descriptions": "Það eru vandamál við sumar lýsinganna.",
 	"mwe-upwiz-error-title-blacklisted": "Þessi titill inniheldur óæskilegan texta. Vinsamlegast endurorðaðu hann.",
-	"mwe-upwiz-error-title-badchars": "Þessi titill inniheldur óæskileg tákn. Vinsamlegast fjarlægðu tákn úr textanum.",
 	"mwe-upwiz-error-title-senselessimagename": "Vinsamlegast gerðu titilinn merkingarmeiri.",
 	"mwe-upwiz-error-title-hosting": "Titill skráarinnar er eins og þú hafir sótt skránna frá öðru myndasafni. Gerðu titillinn merkingarmeiri og athugaðu aftur hvort þú hafir leyfi til þess að gefa skrána út á þessari vefsíðu.",
 	"mwe-upwiz-error-title-thumbnail": "Titillinn bendir til þess að myndin sé smámynd. Vinsamlegast ekki hlaða inn smámyndum aftur á sama wiki og þær komu frá. Annars, ef það er ekki tilfellið, lagaðu skráarnafnið svo það hafi merkingu og hafi ekki forskeyti smámynda.",
