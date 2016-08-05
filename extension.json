@@ -823,7 +823,6 @@
 		"GetPreferences": "UploadWizardHooks::onGetPreferences",
 		"IsUploadAllowedFromUrl": "UploadWizardHooks::onIsUploadAllowedFromUrl",
 		"ResourceLoaderTestModules": "UploadWizardHooks::onResourceLoaderTestModules",
-		"UnitTestsList": "UploadWizardHooks::onUnitTestsList",
 		"EditFilterMerged": "CampaignHooks::onEditFilterMerged",
 		"CodeEditorGetPageLanguage": "CampaignHooks::onCodeEditorGetPageLanguage",
 		"PageContentSaveComplete": "CampaignHooks::onPageContentSaveComplete",
