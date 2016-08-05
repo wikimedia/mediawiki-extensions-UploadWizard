@@ -1198,7 +1198,13 @@
 		image.onerror = function () {
 			deferred.reject();
 		};
-		image.src = url;
+		try {
+			image.src = url;
+		} catch ( er ) {
+			// On Internet Explorer 10-11 and Edge, this occasionally causes an exception (possibly
+			// localised) like "Not enough storage is available to complete this operation". (T136239)
+			deferred.reject();
+		}
 	};
 
 	/**
