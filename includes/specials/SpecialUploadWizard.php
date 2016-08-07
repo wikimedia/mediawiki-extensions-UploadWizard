@@ -272,10 +272,12 @@ class SpecialUploadWizard extends SpecialPage {
 	/**
 	 * Check if the user can upload
 	 * Side effect: will print error page to wgOut if cannot upload.
-	 * @param User
+	 * @param User $user
+	 * @throws PermissionsError
+	 * @throws UserBlockedError
 	 * @return boolean -- true if can upload
 	 */
-	private function isUserUploadAllowed( $user ) {
+	private function isUserUploadAllowed( User $user ) {
 		// Check permissions
 		$permissionRequired = UploadBase::isAllowed( $user );
 		if ( $permissionRequired !== true ) {
