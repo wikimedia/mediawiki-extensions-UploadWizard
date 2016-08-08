@@ -10,9 +10,6 @@
  */
 
 class SpecialUploadWizard extends SpecialPage {
-	// the HTML form without javascript
-	private $simpleForm;
-
 	/**
 	 * The name of the upload wizard campaign, or null when none is specified.
 	 *
@@ -25,14 +22,6 @@ class SpecialUploadWizard extends SpecialPage {
 	// $par is everything in the URL after Special:UploadWizard. Not sure what we can use it for
 	public function __construct( $request = null, $par = null ) {
 		parent::__construct( 'UploadWizard', 'upload' );
-
-		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
-		// at some point, if we completely subsume its functionality, change that to point here again,
-		// but then we'll need to process non-JS uploads in the same way Special:Upload does.
-		$this->simpleForm = new UploadWizardSimpleForm();
-		$this->simpleForm->setTitle(
-			SpecialPage::getTitleFor( 'Upload' )
-		);
 	}
 
 	/**
@@ -109,7 +98,13 @@ class SpecialUploadWizard extends SpecialPage {
 		// fallback for non-JS
 		$out->addHTML( '<div class="mwe-upwiz-unavailable">' );
 		$out->addHTML( '<p class="errorbox">' . $this->msg( 'mwe-upwiz-unavailable' )->parse() . '</p>' );
-		$this->simpleForm->show();
+		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
+		// at some point, if we completely subsume its functionality, change that to point here again,
+		// but then we'll need to process non-JS uploads in the same way Special:Upload does.
+		$derivativeContext = new DerivativeContext( $this->getContext() );
+		$derivativeContext->setTitle( SpecialPage::getTitleFor( 'Upload' ) );
+		$simpleForm = new UploadWizardSimpleForm( [], $derivativeContext, $this->getLinkRenderer() );
+		$simpleForm->show();
 		$out->addHTML( '</div>' );
 
 		// global javascript variables
