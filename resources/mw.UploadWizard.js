@@ -283,6 +283,7 @@
 		 * Removes the flickr interface.
 		 */
 		flickrInterfaceDestroy: function () {
+			$( '.mw-spinner' ).remove();
 			$( '#mwe-upwiz-flickr-input' ).val( '' );
 			$( '#mwe-upwiz-flickr-select-list' ).empty();
 			$( '#mwe-upwiz-flickr-select-list-container' ).unbind();

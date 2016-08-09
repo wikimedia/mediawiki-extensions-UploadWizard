@@ -134,6 +134,11 @@ form.mwe-upwiz-form {
 	overflow: hidden;
 }
 
+#mwe-upwiz-filelist {
+	/* We rely on the margin collapsing with that on #mwe-upwiz-files */
+	margin-top: 3em;
+}
+
 .mwe-upwiz-filled-filelist {
 	border: 1px solid #d8d8d8;
 }
