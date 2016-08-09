@@ -438,15 +438,6 @@
 				} );
 				checkboxesWidget.addItems( checkboxes );
 				$( '#mwe-upwiz-flickr-select-list' ).append( checkboxesWidget.$element );
-				// Lazy-load images
-				$( 'img.lazy-thumbnail' ).lazyload( {
-					// jQuery considers all images without 'src' to not be ':visible'
-					skip_invisible: false
-				} );
-				// Trigger initial update (HACK)
-				setTimeout( function () {
-					$( window ).triggerHandler( 'resize' );
-				} );
 				// Set up checkboxes
 				checkboxesWidget.on( 'select', function () {
 					var selectedCount = checkboxesWidget.getSelectedItems().length;
@@ -482,6 +473,15 @@
 					return $.Deferred().reject( mw.message( 'mwe-upwiz-license-photoset-invalid' ).escaped() );
 				} else {
 					$( '#mwe-upwiz-flickr-select-list-container' ).show();
+					// Lazy-load images
+					$( 'img.lazy-thumbnail' ).lazyload( {
+						// jQuery considers all images without 'src' to not be ':visible'
+						skip_invisible: false
+					} );
+					// Trigger initial update (HACK)
+					setTimeout( function () {
+						$( window ).triggerHandler( 'resize' );
+					} );
 				}
 			} ).fail( function ( message ) {
 				mw.errorDialog( message );
