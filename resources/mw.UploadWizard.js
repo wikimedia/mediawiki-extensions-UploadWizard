@@ -97,9 +97,6 @@
 
 			$fileInputCtrl.on( 'change', function () {
 				var
-					uploadObj, thumbPromise,
-					uploadObjs = [],
-					uploadInterfaceDivs = [],
 					files = $fileInputCtrl[ 0 ].files,
 					totalFiles = ( files ? files.length : 1 ) + wizard.uploads.length,
 					tooManyFiles = totalFiles > wizard.config.maxUploads;
@@ -109,40 +106,10 @@
 					return;
 				}
 
-				$.each( files, function ( i, file ) {
-					uploadObj = wizard.addUpload( file );
-					uploadObjs.push( uploadObj );
-					// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
-					// performance
-					uploadInterfaceDivs.push( uploadObj.ui.div );
-				} );
-
-				// Attach all interfaces to the DOM
-				$( '#mwe-upwiz-filelist' ).append( $( uploadInterfaceDivs ) );
-
-				// Display thumbnails, but not all at once because they're somewhat expensive to generate.
-				// This will wait for each thumbnail to be complete before starting the next one.
-				thumbPromise = $.Deferred().resolve();
-				$.each( uploadObjs, function ( i, uploadObj ) {
-					thumbPromise = thumbPromise.then( function () {
-						var deferred = $.Deferred();
-						setTimeout( function () {
-							if ( wizard.steps.file.movedFrom ) {
-								// We're no longer displaying any of these thumbnails, stop
-								deferred.reject();
-							}
-							uploadObj.ui.showThumbnail().done( function () {
-								deferred.resolve();
-							} );
-						} );
-						return deferred.promise();
-					} );
-				} );
+				wizard.addUploads( files );
 
 				// We can't clear the value of a file input, so replace the whole thing with a new one.
 				wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
-
-				uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 			} );
 
 			return $fileInputCtrl;
@@ -357,6 +324,52 @@
 			upload.checkFile( upload.ui.getFilename(), file );
 
 			return upload;
+		},
+
+		/**
+		 * Do everything that needs to be done to start uploading a file. Calls #addUpload, then appends
+		 * each mw.UploadWizardUploadInterface to the DOM and queues thumbnails to be generated.
+		 *
+		 * @param {File[]} files
+		 */
+		addUploads: function ( files ) {
+			var
+				uploadObj, thumbPromise,
+				uploadObjs = [],
+				uploadInterfaceDivs = [],
+				wizard = this;
+
+			$.each( files, function ( i, file ) {
+				uploadObj = wizard.addUpload( file );
+				uploadObjs.push( uploadObj );
+				// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
+				// performance
+				uploadInterfaceDivs.push( uploadObj.ui.div );
+			} );
+
+			// Attach all interfaces to the DOM
+			$( '#mwe-upwiz-filelist' ).append( $( uploadInterfaceDivs ) );
+
+			// Display thumbnails, but not all at once because they're somewhat expensive to generate.
+			// This will wait for each thumbnail to be complete before starting the next one.
+			thumbPromise = $.Deferred().resolve();
+			$.each( uploadObjs, function ( i, uploadObj ) {
+				thumbPromise = thumbPromise.then( function () {
+					var deferred = $.Deferred();
+					setTimeout( function () {
+						if ( wizard.steps.file.movedFrom ) {
+							// We're no longer displaying any of these thumbnails, stop
+							deferred.reject();
+						}
+						uploadObj.ui.showThumbnail().done( function () {
+							deferred.resolve();
+						} );
+					} );
+					return deferred.promise();
+				} );
+			} );
+
+			uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 		},
 
 		/**
