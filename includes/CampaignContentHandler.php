@@ -21,6 +21,6 @@ class CampaignContentHandler extends JsonContentHandler {
 	}
 
 	protected function getContentClass() {
-		return 'CampaignContent';
+		return CampaignContent::class;
 	}
 }
