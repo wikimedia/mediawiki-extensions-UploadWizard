@@ -461,11 +461,19 @@
 				} );
 				// Set up action for 'Upload selected images' button
 				checker.selectButton.on( 'click', function () {
+					var uploads = [];
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
-					checkboxesWidget.getSelectedItemsData().forEach( function ( image ) {
-						checker.setUploadDescription( checker.imageUploads[ image ] );
-						checker.setImageURL( image );
+					$.when.apply( $, checkboxesWidget.getSelectedItemsData().map( function ( image ) {
+						uploads.push( checker.imageUploads[ image ] );
+						// For each image, load the description and URL to upload from
+						return $.when(
+							checker.setUploadDescription( checker.imageUploads[ image ] ),
+							checker.setImageURL( image )
+						);
+					} ) ).done( function () {
+						// Once this is done for all images, add them to the wizard
+						checker.wizard.addUploads( uploads );
 					} );
 					checker.wizard.flickrInterfaceDestroy();
 				} );
@@ -550,10 +558,16 @@
 					photoId: photo.id,
 					sourceURL: sourceURL
 				};
-				checker.setUploadDescription( flickrUpload, photo.description._content );
+
 				checker.imageUploads.push( flickrUpload );
-				checker.setImageURL( 0, checker );
 				checker.reserveFileName( fileName );
+
+				$.when(
+					checker.setUploadDescription( flickrUpload, photo.description._content ),
+					checker.setImageURL( 0 )
+				).done( function () {
+					checker.wizard.addUploads( [ flickrUpload ] );
+				} );
 			} ).fail( function ( message ) {
 				mw.errorDialog( message );
 				checker.wizard.flickrInterfaceReset();
@@ -633,24 +647,31 @@
 			return mw.FlickrChecker.licensePromise;
 		},
 
+		/**
+		 * @return {jQuery.Promise}
+		 */
 		setUploadDescription: function ( upload, description ) {
 			if ( description !== undefined ) {
 				// If a Flickr description has a | character in it, it will
 				// mess up the MediaWiki description. Escape them.
 				upload.description = description.replace( /\|/g, '&#124;' );
+				return $.Deferred().resolve();
 			} else {
-				this.setImageDescription( upload );
+				return this.setImageDescription( upload );
 			}
 		},
 
+		/**
+		 * @return {jQuery.Promise}
+		 */
 		setImageDescription: function ( upload ) {
 			var checker = this,
 				photoId = upload.photoId;
 
-			this.flickrRequest( {
+			return this.flickrRequest( {
 				method: 'flickr.photos.getInfo',
 				photo_id: photoId
-			} ).done( function ( data ) {
+			} ).then( function ( data ) {
 				checker.setUploadDescription( upload, data.photo.description._content );
 			} );
 		},
@@ -667,11 +688,11 @@
 				upload = this.imageUploads[ index ],
 				photoId = upload.photoId;
 
-			this.flickrRequest( {
+			return this.flickrRequest( {
 				method: 'flickr.photos.getSizes',
 				photo_id: photoId
-			} ).done( function ( data ) {
-				var nameParts, uploadObj;
+			} ).then( function ( data ) {
+				var nameParts;
 
 				if (
 					typeof data.sizes !== 'undefined' &&
@@ -692,13 +713,10 @@
 						upload.name = nameParts.join( '.' ) + '.' + upload.originalFormat;
 					}
 					upload.url = largestSize.source;
-					// Need to call the addUpload here, otherwise some code would have to be written to detect the completion of the API call.
-					uploadObj = checker.wizard.addUpload( upload );
-					$( '#mwe-upwiz-filelist' ).append( uploadObj.ui.div );
-					uploadObj.ui.showThumbnail();
 				} else {
 					mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
 					checker.wizard.flickrInterfaceReset();
+					return $.Deferred().reject();
 				}
 			} );
 		},
