@@ -84,6 +84,9 @@
 			userGalleryMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/[^\/]+\/galleries\/([0-9]+)/ );
 			userFavoritesMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^\/]+\/)?photos\/([^\/]+)\/favorites/ );
 
+			this.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
+			$( '#mwe-upwiz-flickr-select-list-container' ).after( this.$spinner );
+
 			if ( photoIdMatches === null ) {
 				// try static urls
 				photoIdMatches = flickrInputUrl.match( /static\.?flickr\.com\/[^\/]+\/([0-9]+)_/ );
@@ -376,6 +379,8 @@
 					checkboxesWidget = new OO.ui.CheckboxMultiselectWidget(),
 					x = 0;
 
+				checker.$spinner.remove();
+
 				$.each( photoset.photo, function ( i, item ) {
 					var flickrUpload, license, licenseValue, ownerId;
 
@@ -453,8 +458,10 @@
 				// Set up action for 'Upload selected images' button
 				checker.selectButton.on( 'click', function () {
 					var uploads = [];
+					checker.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
+					$( '#mwe-upwiz-flickr-select-list-container' ).after( checker.$spinner );
 					$.when.apply( $, checkboxesWidget.getSelectedItemsData().map( function ( image ) {
 						uploads.push( checker.imageUploads[ image ] );
 						// For each image, load the description and URL to upload from
@@ -465,8 +472,10 @@
 					} ) ).done( function () {
 						// Once this is done for all images, add them to the wizard
 						checker.wizard.addUploads( uploads );
+					} ).always( function () {
+						checker.$spinner.remove();
+						checker.wizard.flickrInterfaceDestroy();
 					} );
-					checker.wizard.flickrInterfaceDestroy();
 				} );
 
 				if ( checker.imageUploads.length === 0 ) {
@@ -567,6 +576,9 @@
 					checker.setImageURL( 0 )
 				).done( function () {
 					checker.wizard.addUploads( [ flickrUpload ] );
+				} ).always( function () {
+					checker.$spinner.remove();
+					checker.wizard.flickrInterfaceDestroy();
 				} );
 			} ).fail( function ( message ) {
 				mw.errorDialog( message );
