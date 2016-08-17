@@ -188,7 +188,7 @@
 					result.error.allowed.length,
 					result.error.blacklisted.length
 				];
-			} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' ) {
+			} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' || code === 'spamblacklist' ) {
 				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ] );
 				info = [
 					function () {

@@ -186,7 +186,8 @@
 		var msgKey, args, moreErrorCodes = [
 			'unknown-warning',
 			'abusefilter-disallowed',
-			'abusefilter-warning'
+			'abusefilter-warning',
+			'spamblacklist'
 		];
 
 		this.showIndicator( 'error' );
