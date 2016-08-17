@@ -271,7 +271,19 @@
 						return transport.retryWithMethod( 'checkStatus' );
 				}
 			} else {
+				// Ain't this some great machine readable output eh
+				if (
+					response.error &&
+					response.error.code === 'stashfailed' &&
+					response.error.info === 'Chunked upload is already completed, check status for details'
+				) {
+					return transport.retryWithMethod( 'checkStatus' );
+				}
+
 				// Failed to upload, try again in 3 seconds
+				// This is really dumb, we should only do this for cases where retrying has a chance to work
+				// (so basically, network failures). If your upload was blocked by AbuseFilter you're
+				// shafted anyway. But some server-side errors really are temporary...
 				return transport.maybeRetry(
 					'on unknown response',
 					response,
