@@ -237,7 +237,10 @@
 			formData.append( 'async', true );
 		}
 
-		if ( this.filekey ) {
+		// If offset is 0, we're uploading the file from scratch. filekey may be set if we're retrying
+		// the first chunk. The API errors out if a filekey is given with zero offset (as it's
+		// nonsensical). TODO Why do we need to retry in this case, if we managed to upload something?
+		if ( this.filekey && offset !== 0 ) {
 			formData.append( 'filekey', this.filekey );
 		}
 		formData.append( 'filesize', bytesAvailable );
