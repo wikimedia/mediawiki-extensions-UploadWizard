@@ -1079,7 +1079,7 @@
 				// Can't generate the thumbnail locally, get the thumbnail via API after
 				// the file is uploaded. Queries are cached, so if this thumbnail was
 				// already fetched for some reason, we'll get it immediately.
-				if ( upload.state !== 'new' && upload.state !== 'transporting' ) {
+				if ( upload.state !== 'new' && upload.state !== 'transporting' && upload.state !== 'error' ) {
 					upload.getApiThumbnail( width, height ).done( imageCallback );
 				} else {
 					upload.once( 'success', function () {
