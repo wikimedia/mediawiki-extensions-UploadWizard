@@ -954,7 +954,7 @@
 				// TODO Automatically try again instead of requiring the user to bonk the button
 			}
 
-			if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' ) {
+			if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' || code === 'spamblacklist' ) {
 				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ] );
 				this.recoverFromError( mw.message( 'api-error-' + code, function () {
 					promise.done( function () {
