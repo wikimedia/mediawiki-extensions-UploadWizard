@@ -393,6 +393,8 @@
 				}
 
 				return response;
+			}, function ( code, info, response ) {
+				return $.Deferred().reject( response );
 			} );
 	};
 

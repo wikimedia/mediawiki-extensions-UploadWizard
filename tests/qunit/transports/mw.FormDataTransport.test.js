@@ -178,8 +178,8 @@
 		tstub.reset();
 		usstub.reset();
 		transport.checkStatus().fail( tstub );
-		postd.reject( 500, 'testing' );
-		assert.ok( tstub.calledWith( 500, 'testing' ) );
+		postd.reject( 500, 'testing', { error: 'testing' } );
+		assert.ok( tstub.calledWith( { error: 'testing' } ) );
 		assert.ok( !usstub.called );
 	} );
 
