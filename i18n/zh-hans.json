@@ -46,6 +46,7 @@
 	"group-upwizcampeditors.js": "/* 这里放置的JS将只影响上传向导活动编辑 */",
 	"api-error-abusefilter-warning": "此操作已被自动识别为有害（[$1 更多信息]）。非建设性的编辑将会很快被回退，并且过分或反复的非建设性编辑将导致您的账户或IP地址被封禁。",
 	"api-error-abusefilter-disallowed": "此操作已被自动识别为有害，并因此不被允许（[$1 更多信息]）。",
+	"api-error-spamblacklist": "您要保存的文字被垃圾信息过滤器拦截。这可能是由黑名单内外部网站链接引发的。",
 	"mwe-upwiz-unavailable": "您的浏览器与上传向导不兼容，或已关闭JavaScript，因此我们正在向您显示一个简化的上传表单。（参见[https://www.mediawiki.org/wiki/UploadWizard#Compatibility 兼容性要求]。）",
 	"mwe-upwiz-extension-disabled": "因暂时的技术问题，本页面已停用。在此期间，请使用标准上传表格。",
 	"mwe-upwiz-step-tutorial": "教程",
