@@ -254,6 +254,33 @@
 		this.log( 'UploadWizardUploadFlowEvent', data );
 	};
 
+	/**
+	 * If `err` is a Firefox 'NS_ERROR_NOT_AVAILABLE' exception, such as those occasionally spuriously
+	 * throw when calling `canvas.getContext( '2d' ).drawImage( … )`, log it for future debugging
+	 * along with more data about the image that failed to be drawn. See T136831.
+	 *
+	 * @param {Error} err
+	 * @param {Object} img
+	 * @throws {Error} Re-throws `err` if it's not a 'NS_ERROR_NOT_AVAILABLE' exception
+	 */
+	uw.EventFlowLogger.prototype.maybeLogFirefoxCanvasException = function ( err, img ) {
+		if ( err.name !== 'NS_ERROR_NOT_AVAILABLE' ) {
+			throw err;
+		}
+
+		this.log( 'UploadWizardExceptionFlowEvent', {
+			message: ( err.message || '' ),
+			url: 'debug://NS_ERROR_NOT_AVAILABLE',
+			stack: JSON.stringify( {
+				type: img.tagName,
+				url: String( img.src ).slice( 0, 100 ),
+				// Both of these should be truthy if the image is actually loaded
+				complete: img.complete,
+				naturalWidth: img.naturalWidth
+			} )
+		} );
+	};
+
 	// FIXME
 	uw.eventFlowLogger = new uw.EventFlowLogger();
 	uw.eventFlowLogger.installExceptionLogger();
