@@ -998,7 +998,11 @@
 		ctx = $canvas[ 0 ].getContext( '2d' );
 		ctx.clearRect( 0, 0, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
-		ctx.drawImage( image, x, y, width, height );
+		try {
+			ctx.drawImage( image, x, y, width, height );
+		} catch ( err ) {
+			uw.eventFlowLogger.maybeLogFirefoxCanvasException( err, image );
+		}
 
 		return $canvas;
 	};
@@ -1147,18 +1151,11 @@
 							context = canvas.getContext( '2d' );
 							try {
 								context.drawImage( video, 0, 0, canvas.width, canvas.height );
-								upload.loadImage( canvas.toDataURL(), deferred );
 							} catch ( err ) {
-								if ( err.name === 'NS_ERROR_NOT_AVAILABLE' ) {
-									// (T136831) Firefox doesn't like it when we draw many <video>s to <canvas> in
-									// quick succession. This seems to mostly happen when impatient users proceed to
-									// "deed" step before all thumbnails are loaded in "upload" step. Just ignore it
-									// and render a "broken" thumbnail.
-									deferred.reject();
-								} else {
-									throw err;
-								}
+								uw.eventFlowLogger.maybeLogFirefoxCanvasException( err, video );
+								deferred.reject();
 							}
+							upload.loadImage( canvas.toDataURL(), deferred );
 							upload.URL().revokeObjectURL( video.url );
 						}, 500 );
 					}
