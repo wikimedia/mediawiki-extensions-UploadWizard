@@ -21,6 +21,8 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Biên tập viên chiến dịch Trình thuật sĩ tải lên",
 	"group-upwizcampeditors.css": "/* Mã CSS đặt ở đây sẽ chỉ có ảnh hưởng đến các biên tập viên chiến dịch Trình thuật sĩ tải lên */",
 	"group-upwizcampeditors.js": "/* Mã JS đặt ở đây sẽ chỉ có ảnh hưởng đến các biên tập viên chiến dịch Trình thuật sĩ tải lên */",
+	"api-error-abusefilter-warning": "Tác vụ này đã được tự động xác định là gây hại ([$1 tìm hiểu thêm]).\nCác sửa đổi không có tính xây dựng sẽ được lùi lại nhanh chóng. Nếu thực hiện các sửa đổi quá xấu thường xuyên, tài khoản hoặc địa chỉ IP của bạn sẽ bị cấm.",
+	"api-error-abusefilter-disallowed": "Tác vụ này đã được tự động xác định là gây hại nên được chặn ([$1 tìm hiểu thêm]).",
 	"mwe-upwiz-unavailable": "Trình duyệt của bạn không tương thích với Trình thuật sĩ tải lên hoặc JavaScript đang tắt, nên bạn đang sử dụng biểu mẫu tải lên đơn giản. ([https://www.mediawiki.org/wiki/UploadWizard?uselang=vi#Compatibility Xem yêu cầu trình duyệt].)",
 	"mwe-upwiz-extension-disabled": "Trang này đã bị tắt tạm thời do trục trặc kỹ thuật. Trong khi chờ đợi, hãy thử biểu mẫu tải lên thường.",
 	"mwe-upwiz-step-tutorial": "Tìm hiểu",
