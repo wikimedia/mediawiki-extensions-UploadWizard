@@ -304,7 +304,7 @@
 		getThumbnailCaption: function () {
 			var descriptions = this.descriptionsDetails.getSerialized().descriptions;
 			if ( descriptions.length > 0 ) {
-				return descriptions[ 0 ].description.trim();
+				return mw.Escaper.escapeForTemplate( descriptions[ 0 ].description.trim() );
 			} else {
 				return '';
 			}
@@ -661,7 +661,8 @@
 			info = '';
 
 			for ( key in information ) {
-				info += '|' + key.replace( /:/g, '_' ) + '=' + information[ key ] + '\n';
+				info += '|' + key.replace( /:/g, '_' );
+				info += '=' + mw.Escaper.escapeForTemplate( information[ key ] ) + '\n';
 			}
 
 			wikiText += '=={{int:filedesc}}==\n';
