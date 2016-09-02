@@ -213,7 +213,7 @@
 			if ( this.xhr ) {
 				this.xhr.abort();
 			}
-			return;
+			return deferred.reject();
 		}
 		// Slice API was changed and has vendor prefix for now
 		// new version now require start/end and not start/length
@@ -369,7 +369,7 @@
 			params = {};
 
 		if ( this.aborted ) {
-			return;
+			return $.Deferred().reject();
 		}
 
 		if ( !this.firstPoll ) {
