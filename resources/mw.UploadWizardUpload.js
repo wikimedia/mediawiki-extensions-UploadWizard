@@ -189,7 +189,9 @@
 					result.error.blacklisted.length
 				];
 			} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' || code === 'spamblacklist' ) {
-				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ] );
+				// 'amenableparser' will expand templates and parser functions server-side.
+				// We still do the rest of wikitext parsing here (throught jqueryMsg).
+				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ], { amenableparser: true } );
 				info = [
 					function () {
 						promise.done( function () {
