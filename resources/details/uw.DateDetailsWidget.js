@@ -4,10 +4,14 @@
 	 * A date field in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
+	 * @constructor
+	 * @param {Object} config Configuration options
+	 * @cfg {mw.UploadWizardUpload} upload
 	 */
-	uw.DateDetailsWidget = function UWDateDetailsWidget() {
+	uw.DateDetailsWidget = function UWDateDetailsWidget( config ) {
 		uw.DateDetailsWidget.parent.call( this );
 
+		this.upload = config.upload;
 		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'
 		this.dateInputWidgetToggler = new OO.ui.ButtonSelectWidget( {
 			classes: [ 'mwe-upwiz-dateDetailsWidget-toggler' ],
@@ -93,19 +97,56 @@
 	};
 
 	/**
+	 * Gets the selected license(s). The returned value will be a license
+	 * key => license props map, as defined in UploadWizard.config.php.
+	 *
+	 * @return {Object}
+	 */
+	uw.DateDetailsWidget.prototype.getLicenses = function () {
+		if ( this.upload.deedChooser.deed && this.upload.deedChooser.deed.licenseInput ) {
+			return this.upload.deedChooser.deed.licenseInput.getLicenses();
+		}
+
+		// no license has been selected yet
+		// this could happen when uploading multiple files and selecting to
+		// provide copyright information for each file individually
+		return {};
+	};
+
+	/**
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getWarnings = function () {
-		var warnings = [],
-			dateVal = Date.parse( this.dateInputWidget.getValue().trim() );
+		var i,
+			warnings = [],
+			dateVal = Date.parse( this.dateInputWidget.getValue().trim() ),
+			licenses = this.getLicenses(),
+			// licenses that likely mean the image date is some time in the past
+			warnLicenses = [ 'pd-usgov', 'pd-usgov-nasa', 'pd-art' ],
+			now = new Date(),
+			date = new Date( this.dateInputWidget.getValue() );
+
 		// We don't really know what timezone this datetime is in. It could be the user's timezone, or
 		// it could be the camera's timezone for data imported from EXIF, and we don't know what
 		// timezone that is. UTC+14 is the highest timezone that currently exists, so assume that to
 		// avoid giving false warnings.
 		if ( this.dateInputWidgetMode === 'calendar' &&
-			dateVal > ( new Date() ).getTime() + 14 * 60 * 60 ) {
+			dateVal > now.getTime() + 14 * 60 * 60 ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-postdate' ) );
 		}
+
+		// doublecheck that we've actually selected a valid date
+		if ( !isNaN( date.getTime() ) ) {
+			// it's unlikely for public domain images to have been published today
+			if ( now.toISOString().slice( 0, 10 ) === date.toISOString().slice( 0, 10 ) ) {
+				for ( i in warnLicenses ) {
+					if ( warnLicenses[ i ] in licenses ) {
+						warnings.push( mw.message( 'mwe-upwiz-error-date-license-unlikely', mw.message( licenses[ warnLicenses[ i ] ].msg ).parse() ) );
+					}
+				}
+			}
+		}
+
 		return $.Deferred().resolve( warnings ).promise();
 	};
 
@@ -113,10 +154,27 @@
 	 * @inheritdoc
 	 */
 	uw.DateDetailsWidget.prototype.getErrors = function () {
-		var errors = [];
+		var errors = [],
+			licenses = this.getLicenses(),
+			now = new Date(),
+			old = new Date( now.getFullYear() - 70, now.getMonth(), now.getDate() ),
+			old100 = new Date( now.getFullYear() - 100, now.getMonth(), now.getDate() ),
+			date = new Date( this.dateInputWidget.getValue() );
+
 		if ( this.dateInputWidget.getValue().trim() === '' ) {
 			errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
+		} else if ( 'pd-us' in licenses && date.getFullYear() >= 1923 ) {
+			// if the license stated the work is public domain, it must've been
+			// created a really long time ago
+			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-us' ].msg ).parse() ) );
+		} else if ( 'pd-old' in licenses && date > old ) {
+			// if the author died 70 years ago, the timestamp should reflect that
+			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-old' ].msg ).parse() ) );
+		} else if ( 'pd-old-100' in licenses && date > old100 ) {
+			// if the author died 100 years ago, the timestamp should reflect that
+			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-old-100' ].msg ).parse() ) );
 		}
+
 		return $.Deferred().resolve( errors ).promise();
 	};
 
