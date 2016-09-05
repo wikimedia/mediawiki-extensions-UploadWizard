@@ -127,6 +127,9 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	protected function handleCampaign() {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
+		if ( is_null( $campaignName ) ) {
+			$campaignName = UploadWizardConfig::getSetting( 'defaultCampaign' );
+		}
 
 		if ( !is_null( $campaignName ) && $campaignName !== '' ) {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName );
