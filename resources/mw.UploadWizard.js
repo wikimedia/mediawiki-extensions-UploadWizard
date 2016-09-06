@@ -137,7 +137,7 @@
 			this.initialiseSteps();
 
 			// "select" the first step - highlight, make it visible, hide all others
-			this.steps.tutorial.moveTo();
+			this.steps.firstStep.moveTo();
 		},
 
 		/**
@@ -146,48 +146,54 @@
 		initialiseSteps: function () {
 			var wizard = this;
 
-			this.steps = {
-				tutorial: new uw.controller.Tutorial( this.api, this.config ),
+			if ( !this.config.tutorial.skip ) {
+				this.steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
+			}
+			this.steps.file = new uw.controller.Upload( this.api, this.config )
+				.on( 'flickr-ui-init', function () {
+					wizard.flickrInterfaceInit();
+					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
+				} )
 
-				file: new uw.controller.Upload( this.api, this.config )
-					.on( 'flickr-ui-init', function () {
-						wizard.flickrInterfaceInit();
-						uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
-					} )
+				.on( 'load', function () {
+					wizard.reset();
 
-					.on( 'load', function () {
-						wizard.reset();
+					// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
+					// While this looks extremely unlikely to be right, it actually is. Blame Apple.
+					if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
+						$( '#mwe-upwiz-stepdiv-file' ).replaceWith(
+							$( '<span>' ).msg( 'mwe-upwiz-file-upload-notcapable' )
+						);
+						$( '#mwe-upwiz-add-file' ).hide();
+					}
+				} );
 
-						// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
-						// While this looks extremely unlikely to be right, it actually is. Blame Apple.
-						if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
-							$( '#mwe-upwiz-stepdiv-file' ).replaceWith(
-								$( '<span>' ).msg( 'mwe-upwiz-file-upload-notcapable' )
-							);
-							$( '#mwe-upwiz-add-file' ).hide();
-						}
-					} ),
+			this.steps.deeds = new uw.controller.Deed( this.api, this.config )
+				.on( 'load', function () {
+					wizard.removeErrorUploads();
+				} );
 
-				deeds: new uw.controller.Deed( this.api, this.config )
-					.on( 'load', function () {
-						wizard.removeErrorUploads();
-					} ),
+			this.steps.details = new uw.controller.Details( this.api, this.config )
+				.on( 'details-error', function () {
+					wizard.steps.details.showErrors();
+				} )
 
-				details: new uw.controller.Details( this.api, this.config )
-					.on( 'details-error', function () {
-						wizard.steps.details.showErrors();
-					} )
+				.on( 'finalize-details-after-removal', function () {
+					wizard.removeErrorUploads();
+					wizard.steps.details.moveFrom();
+				} );
 
-					.on( 'finalize-details-after-removal', function () {
-						wizard.removeErrorUploads();
-						wizard.steps.details.moveFrom();
-					} ),
+			this.steps.thanks = new uw.controller.Thanks( this.api, this.config )
+				.on( 'reset-wizard', function () {
+					wizard.reset();
+				} );
 
-				thanks: new uw.controller.Thanks( this.api, this.config )
-					.on( 'reset-wizard', function () {
-						wizard.reset();
-					} )
-			};
+			if ( !this.config.tutorial.skip ) {
+				this.steps.tutorial.setNextStep( this.steps.file );
+				this.steps.firstStep = this.steps.tutorial;
+			} else {
+				this.steps.firstStep = this.steps.file;
+			}
 
 			$.each( this.steps, function ( name, step ) {
 				step
@@ -196,7 +202,6 @@
 					} );
 			} );
 
-			this.steps.tutorial.setNextStep( this.steps.file );
 			this.steps.file.setNextStep( this.steps.deeds );
 			this.steps.deeds.setNextStep( this.steps.details );
 			this.steps.details.setNextStep( this.steps.thanks );

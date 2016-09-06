@@ -24,11 +24,11 @@ form.mwe-upwiz-form {
 	border-bottom: solid 1px #a7d7f9;
 }
 
-#mwe-upwiz-step-tutorial {
+#mwe-upwiz-steps li:first-child {
 	border-left: solid 1px #a7d7f9;
 }
 
-#mwe-upwiz-step-thanks {
+#mwe-upwiz-steps li:last-child {
 	border-right: solid 1px #a7d7f9;
 }
 
