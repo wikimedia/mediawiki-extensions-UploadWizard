@@ -64,6 +64,9 @@ return [
 	// Upload wizard has an internal debug flag
 	'debug' => false,
 
+	// The default campaign to use.
+	'defaultCampaign' => '',
+
 	// Enable or disable the default upload license user preference
 	'enableLicensePreference' => true,
 
