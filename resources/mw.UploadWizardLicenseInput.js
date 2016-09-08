@@ -118,6 +118,10 @@
 		$( 'body' ).append( this.windowManager.$element );
 		this.previewDialog = new LicensePreviewDialog();
 		this.windowManager.addWindows( [ this.previewDialog ] );
+
+		// [wikitext => list of templates used in wikitext] map, used in
+		// getUsedTemplates to reduce amount of API calls
+		this.templateCache = {};
 	};
 	OO.inheritClass( mw.UploadWizardLicenseInput, OO.ui.Widget );
 
@@ -478,41 +482,100 @@
 		},
 
 		/**
+		 * Returns a list of templates used & transcluded in given wikitext
+		 *
+		 * @param {string} wikitext
+		 * @return {$.Promise} Promise that resolves with an array of template names
+		 */
+		getUsedTemplates: function ( wikitext ) {
+			var input = this;
+
+			if ( wikitext in this.templateCache ) {
+				return $.Deferred().resolve( this.templateCache[ wikitext ] ).promise();
+			}
+
+			return this.api.get( {
+				action: 'parse',
+				prop: 'templates',
+				text: wikitext
+			} ).then( function ( result ) {
+				var templates = [],
+					template, title, i;
+
+				for ( i in result.parse.templates ) {
+					template = result.parse.templates[ i ];
+
+					// normalize templates to mw.Title.getPrefixedDb() format
+					title = new mw.Title( template[ '*' ], template.ns );
+					templates.push( title.getPrefixedDb() );
+				}
+
+				// cache result so we won't have to fire another API request
+				// for the same content
+				input.templateCache[ wikitext ] = templates;
+
+				return templates;
+			} );
+		},
+
+		/**
 		 * See uw.DetailsWidget
 		 */
 		getErrors: function () {
 			var input = this,
-				errors = [],
+				errors = $.Deferred().resolve( [] ).promise(),
+				addError = function ( message ) {
+					errors = errors.then( function ( errors ) {
+						errors.push( mw.message( message ) );
+						return errors;
+					} );
+				},
 				selectedInputs = this.getSelectedInputs();
 
 			if ( selectedInputs.length === 0 ) {
-				errors.push( mw.message( 'mwe-upwiz-deeds-need-license' ) );
-
+				addError( 'mwe-upwiz-deeds-need-license' );
 			} else {
 				// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 				// But also check that associated textareas are filled for if the input is selected, and that
 				// they are the appropriate size.
 				$.each( selectedInputs, function ( i, $input ) {
-					var textAreaName, text;
+					var wikitext;
 
 					if ( !$input.data( 'textarea' ) ) {
 						return;
 					}
 
-					textAreaName = $input.data( 'textarea' ).attr( 'name' );
-					text = input.getInputTextAreaVal( $input );
+					wikitext = input.getInputTextAreaVal( $input );
 
-					if ( text === '' ) {
-						errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-missing' ) );
-					} else if ( text.length < mw.UploadWizard.config.minCustomLicenseLength ) {
-						errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-too-short' ) );
-					} else if ( text.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
-						errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-too-long' ) );
+					if ( wikitext === '' ) {
+						addError( 'mwe-upwiz-error-license-wikitext-missing' );
+					} else if ( wikitext.length < mw.UploadWizard.config.minCustomLicenseLength ) {
+						addError( 'mwe-upwiz-error-license-wikitext-too-short' );
+					} else if ( wikitext.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
+						addError( 'mwe-upwiz-error-license-wikitext-too-long' );
+					} else if ( wikitext.match( /\{\{(.+?)\}\}/g ) === null ) {
+						// if text doesn't contain a template, we don't even
+						// need to validate it any further...
+						addError( 'mwe-upwiz-error-license-wikitext-missing-template' );
+					} else if ( mw.UploadWizard.config.customLicenseTemplate !== false ) {
+						// now do a thorough test to see if the text actually
+						// includes a license template
+						errors = $.when(
+							errors, // array of existing errors
+							input.getUsedTemplates( wikitext )
+						).then( function ( errors, usedTemplates ) {
+							if ( usedTemplates.indexOf( mw.UploadWizard.config.customLicenseTemplate ) < 0 ) {
+								// no license template found, add another error
+								errors.push( mw.message( 'mwe-upwiz-error-license-wikitext-missing-template' ) );
+							}
+
+							return errors;
+						} );
 					}
 				} );
 			}
 
-			return $.Deferred().resolve( errors ).promise();
+			return errors;
 		},
 
 		/**
