@@ -155,9 +155,18 @@
 			"targets": [ "desktop", "mobile" ],
 			"group": "uw.EventFlowLogger"
 		},
+		"ext.uploadWizard.jquery.arrowSteps": {
+			"scripts": [
+				"resources/jquery.arrowSteps/jquery.arrowSteps.js"
+			],
+			"styles": [
+				"resources/jquery.arrowSteps/jquery.arrowSteps.css"
+			],
+			"targets": [ "desktop", "mobile" ]
+		},
 		"ext.uploadWizard": {
 			"dependencies": [
-				"jquery.arrowSteps",
+				"ext.uploadWizard.jquery.arrowSteps",
 				"jquery.client",
 				"jquery.spinner",
 				"jquery.placeholder",
