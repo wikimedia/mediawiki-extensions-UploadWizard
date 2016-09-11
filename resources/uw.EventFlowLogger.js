@@ -261,11 +261,10 @@
 	 *
 	 * @param {Error} err
 	 * @param {Object} img
-	 * @throws {Error} Re-throws `err` if it's not a 'NS_ERROR_NOT_AVAILABLE' exception
 	 */
 	uw.EventFlowLogger.prototype.maybeLogFirefoxCanvasException = function ( err, img ) {
 		if ( err.name !== 'NS_ERROR_NOT_AVAILABLE' ) {
-			throw err;
+			return;
 		}
 
 		this.log( 'UploadWizardExceptionFlowEvent', {

@@ -937,7 +937,7 @@
 	 *
 	 * @param {HTMLImageElement} image
 	 * @param {Object} constraints Width & height constraints
-	 * @return {HTMLCanvasElement}
+	 * @return {HTMLCanvasElement|null}
 	 */
 	mw.UploadWizardUpload.prototype.getTransformedCanvasElement = function ( image, constraints ) {
 		var angle, scaleConstraints, scaling, width, height,
@@ -1001,9 +1001,18 @@
 		ctx.clearRect( 0, 0, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
 		try {
+			// Calling #drawImage likes to throw all kinds of ridiculous exceptions in various browsers,
+			// including but not limited to:
+			// * (Firefox) NS_ERROR_NOT_AVAILABLE:
+			// * (Internet Explorer / Edge) Not enough storage is available to complete this operation.
+			// * (Internet Explorer / Edge) Unspecified error.
+			// * (Internet Explorer / Edge) The GPU device instance has been suspended. Use GetDeviceRemovedReason to determine the appropriate action.
+			// * (Safari) IndexSizeError: Index or size was negative, or greater than the allowed value.
+			// There is nothing we can do about this. It's okay though, there just won't be a thumbnail.
 			ctx.drawImage( image, x, y, width, height );
 		} catch ( err ) {
 			uw.eventFlowLogger.maybeLogFirefoxCanvasException( err, image );
+			return null;
 		}
 
 		return $canvas;
@@ -1038,7 +1047,7 @@
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
-		var constraints;
+		var constraints, transform;
 		if ( width === undefined || width === null || width <= 0 ) {
 			width = mw.UploadWizard.config.thumbnailWidth;
 		}
@@ -1047,9 +1056,14 @@
 			height: ( height === undefined ? null : parseInt( height, 10 ) )
 		};
 
-		return mw.canvas.isAvailable() ?
-			this.getTransformedCanvasElement( image, constraints ) :
-			this.getBrowserScaledImageElement( image, constraints );
+		if ( mw.canvas.isAvailable() ) {
+			transform = this.getTransformedCanvasElement( image, constraints );
+			if ( transform ) {
+				return transform;
+			}
+		}
+		// No canvas support or canvas drawing failed mysteriously, fall back
+		return this.getBrowserScaledImageElement( image, constraints );
 	};
 
 	/**
@@ -1152,6 +1166,7 @@
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							context = canvas.getContext( '2d' );
 							try {
+								// More ridiculous exceptions, see the comment in #getTransformedCanvasElement
 								context.drawImage( video, 0, 0, canvas.width, canvas.height );
 							} catch ( err ) {
 								uw.eventFlowLogger.maybeLogFirefoxCanvasException( err, video );
