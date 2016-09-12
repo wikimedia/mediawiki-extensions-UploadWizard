@@ -271,6 +271,8 @@
 		this.log( 'UploadWizardExceptionFlowEvent', {
 			message: ( err.message || '' ),
 			url: 'debug://NS_ERROR_NOT_AVAILABLE',
+			line: 0,
+			column: 0,
 			stack: JSON.stringify( {
 				type: img.tagName,
 				url: String( img.src ).slice( 0, 100 ),
