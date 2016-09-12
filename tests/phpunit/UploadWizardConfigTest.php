@@ -6,6 +6,34 @@
  */
 
 class UploadWizardConfigTest extends MediaWikiTestCase {
+	public function setUp() {
+		parent::setUp();
+
+		// insert a interwiki prefixes for testing inter-language links.
+		// This is based on ParserTestRunner::setupInterwikis, which does
+		// exactly the same (but with more prefixes) for parser tests.
+		Hooks::register( 'InterwikiLoadPrefix', function ( $prefix, &$iwData ) {
+			static $testInterwikis = [
+				'es' => [
+					'iw_url' => 'http://es.wikipedia.org/wiki/$1',
+					'iw_api' => '',
+					'iw_wikiid' => '',
+					'iw_local' => 1 ],
+			];
+			if ( array_key_exists( $prefix, $testInterwikis ) ) {
+				$iwData = $testInterwikis[$prefix];
+			}
+
+			// We only want to rely on the above fixtures
+			return false;
+		} );
+	}
+
+	public function tearDown() {
+		parent::tearDown();
+
+		Hooks::clear( 'InterwikiLoadPrefix' );
+	}
 
 	public function objRefProvider() {
 		return [
@@ -39,7 +67,6 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 		$objRef, $expectedResult
 	) {
 		global $wgUploadWizardConfig;
-		ParserTest::setupInterwikis();
 
 		$this->setMwGlobals( [
 			'wgUploadWizardConfig' => array_merge( $wgUploadWizardConfig, [
