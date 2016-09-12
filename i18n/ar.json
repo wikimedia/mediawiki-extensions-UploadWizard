@@ -156,6 +156,8 @@
 	"mwe-upwiz-location-heading": "الوجهة",
 	"mwe-upwiz-copyright-info": "حقوق الإصدار",
 	"mwe-upwiz-objref-pick-image": "إضافة مرجع الكائن إلى هذه الصورة.",
+	"mwe-upwiz-objref-notice-existing-image": "هناك صورة موجودة بالفعل للكائن المرجعي.",
+	"mwe-upwiz-objref-notice-update-delay": "تحديث الصفحة المرجعية ربما يستغرق بعض الوقت.",
 	"mwe-upwiz-author": "المؤلف(ون)",
 	"mwe-upwiz-autoconverted": "حُوّل هذا الملف تلقائيا إلى النسق $1",
 	"mwe-upwiz-other": "معلومات أخرى",
