@@ -11,7 +11,8 @@
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
 			"Upendradutt93",
-			"Sfic"
+			"Sfic",
+			"Matma Rex"
 		]
 	},
 	"uploadwizard": "अपलोड विज़ार्ड",
@@ -29,7 +30,7 @@
 	"mwe-upwiz-step-deeds": "रिलीज अधिकार",
 	"mwe-upwiz-step-details": "वर्णन",
 	"mwe-upwiz-step-thanks": "प्रयोग करें",
-	"mwe-upwiz-api-warning-exists": "वहाँ पहले से ही समान फ़ाइल नाम के साथ [$1]  [$1 दूसरी फ़ाइल] मौजूद है",
+	"mwe-upwiz-api-warning-exists": "वहाँ पहले से ही समान फ़ाइल नाम के साथ [$1 दूसरी फ़ाइल] मौजूद है",
 	"mwe-upwiz-api-warning-was-deleted": "इस नाम से एक फ़ाइल \" $1 \" है , लेकिन इसे नष्ट कर दिया गया है और आप फ़ाइल reupload नहीं कर सकते, यदि आपकी फ़ाइल अलग है तो इसका नाम बदल कर इसे अपलोड करे",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "क्षमा करे हमें आपकी भाषा में सामग्री नहीं मिली, कृपया $1 भाषा की सहायता ले",
 	"mwe-upwiz-tutorial-error-file-missing": "क्षमा करें, हम हम ऐसे किसी भी को खोजने में असमर्थ रहें जिसकी अपेक्षा आपको यहाँ हैं कृपया सिस्टम व्यवस्थापक से संपर्क करें।",
@@ -109,9 +110,7 @@
 	"mwe-upwiz-error-signature-too-long": "आपका हस्ताक्षर बहुत लंबा है! यह $1 से कम से करो {{PLURAL:$1| चरित्र | अक्षर}}.",
 	"mwe-upwiz-error-blank": "इस फ़ील्ड की आवश्यकता है।",
 	"mwe-upwiz-error-too-short": "यह क्षेत्र बहुत छोटा है कृपाअ इसको $1 {{PLURAL:$1|अक्षरों}} से बढा़ करे",
-	"mwe-upwiz-error-bad-chars": "यह क्षेत्र वह संकेत लिये है जिनकी अनुमति नहीं है, कृपया विकिपाठ या HTML का प्रयाग मत करे",
 	"mwe-upwiz-error-title-blacklisted": "यह शीर्षक में कुछ अवांछनीय पाठ शामिल हैं. कृपया यह संशोधन करे",
-	"mwe-upwiz-error-title-badchars": "यह शीर्षक कुछ अवांछनीय वर्ण हैं. कृपया उन्हें निकालें",
 	"mwe-upwiz-error-title-senselessimagename": "कृपया इस शीर्षक को अधिक अर्थपूर्ण बनाने।",
 	"mwe-upwiz-error-title-thumbnail": "यह एक थंबनेल शीर्षक की तरह लग रहा है। कृपया थंबनेल  वापस विकि पर अपलोड न करें। अन्यथा, कृपया फ़ाइल नाम ठीक करें",
 	"mwe-upwiz-error-title-fileexists-shared-forbidden": "यह शीर्षक एक दूरस्थ साझा भण्डार पर एक फ़ाइल द्वारा आरक्षित है। कोई अन्य नाम चुनें।",
