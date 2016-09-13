@@ -23,4 +23,9 @@ class CampaignContentHandler extends JsonContentHandler {
 	protected function getContentClass() {
 		return CampaignContent::class;
 	}
+
+	public function makeEmptyContent() {
+		$class = $this->getContentClass();
+		return new $class( '{"enabled":false}' );
+	}
 }
