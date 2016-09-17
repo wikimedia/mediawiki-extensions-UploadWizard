@@ -147,6 +147,7 @@
 	"mwe-upwiz-copy-metadata-button": "Копировать",
 	"mwe-upwiz-copy-metadata-button-undo": "Отменить",
 	"mwe-upwiz-copied-metadata": "Скопировано",
+	"mwe-upwiz-undid-metadata": "Копирование отменено.",
 	"mwe-upwiz-copy-title": "Скопировать название (с автонумерацией)",
 	"mwe-upwiz-copy-description": "Скопировать описания",
 	"mwe-upwiz-copy-date": "Скопировать дату",
