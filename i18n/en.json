@@ -231,7 +231,7 @@
 	"mwe-upwiz-too-many-files": "Too many files.",
 	"mwe-upwiz-file-too-large-text": "You can only upload files with a size of up to $1. You tried to upload a file that is $2.",
 	"mwe-upwiz-file-too-large": "File too large.",
-	"mwe-upwiz-dialog-warning": "We recommend that you properly fill in all the fields. Do you want to continue without correcting warnings?",
+	"mwe-upwiz-dialog-warning": "We recommend that you properly fill in all the fields. Do you want to continue without correcting these warnings?",
 	"mwe-upwiz-dialog-yes": "Yes",
 	"mwe-upwiz-dialog-no": "No",
 	"mwe-upwiz-dialog-title": "Warning",

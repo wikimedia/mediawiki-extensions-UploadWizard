@@ -134,12 +134,16 @@
 			upload.details.checkValidity();
 
 			warningValidityPromises.push( upload.details.getWarnings().then( function () {
-				var i;
-				for ( i = 0; i < arguments.length; i++ ) {
-					if ( arguments[ i ].length ) {
-						// One of the DetailsWidgets has warnings
-						return $.Deferred().reject();
-					}
+				// iterate all arguments (which is an array of arrays of
+				// warnings) and turn it into a one-dimensional warnings array
+				var args = Array.prototype.slice.call( arguments ),
+					warnings = args.reduce( function ( result, warnings ) {
+					return result.concat( warnings );
+				}, [] );
+
+				if ( warnings.length ) {
+					// One of the DetailsWidgets has warnings
+					return $.Deferred().reject( warnings );
 				}
 			} ) );
 
@@ -174,16 +178,58 @@
 
 		return $.when.apply( $, validityPromises ).then(
 			function () {
-				return $.when.apply( $, warningValidityPromises ).then(
-					// All uploads valid, no warnings
-					function () {
-						return $.Deferred().resolve( true );
-					},
-					// Valid, but with warnings, ask for confirmation
-					function () {
+				var i,
+					warningPromises = [],
+					combinedWarningPromise = $.Deferred();
+
+				/*
+				 * warningValidityPromises will be fail as soon as one of the
+				 * promises is rejected. However, we want to know about *all*
+				 * rejected promises, since they include the warning messages,
+				 * and we'll want to show all of those warnings at once.
+				 * Since we can't use warningValidityPromises's failure callback,
+				 * we'll create other promises that will always resolve (with
+				 * the rejected's warning messages).
+				 */
+				for ( i = 0; i < warningValidityPromises.length; i++ ) {
+					warningPromises[ i ] = $.Deferred();
+					warningValidityPromises[ i ].always( warningPromises[ i ].resolve );
+				}
+
+				/*
+				 * warningPromises will now always resolve (see comment above)
+				 * with a bunch of warnings (or undefined, for successful
+				 * uploads)
+				 * Now we can just wait for all of these to resolve, combine all
+				 * warnings, and display the warning dialog!
+				 */
+				combinedWarningPromise = $.when.apply( $, warningPromises ).then( function () {
+					// iterate all arguments (which is an array of arrays of
+					// warnings) and turn it into a one-dimensional warnings array
+					var args = Array.prototype.slice.call( arguments ),
+						// args also includes `undefined`s, from uploads that
+						// successfully resolved - we don't need those!
+						filtered = args.filter( Array.isArray ),
+						warnings = filtered.reduce( function ( result, warnings ) {
+							return result.concat( warnings );
+						}, [] );
+
+					if ( warnings ) {
 						// Update warning count before dialog
 						detailsController.showErrors();
-						return detailsController.confirmationDialog();
+						return detailsController.confirmationDialog( warnings );
+					}
+				} );
+
+				return $.when.apply( $, warningValidityPromises ).then(
+					function () {
+						// All uploads valid, no warnings
+						return $.Deferred().resolve( true );
+					},
+					function () {
+						// There were issues & they are being handled in this
+						// other promise :)
+						return combinedWarningPromise;
 					}
 				);
 			},
@@ -193,8 +239,26 @@
 		);
 	};
 
-	uw.controller.Details.prototype.confirmationDialog = function () {
-		return OO.ui.confirm( mw.message( 'mwe-upwiz-dialog-warning' ).text(), {
+	uw.controller.Details.prototype.confirmationDialog = function ( warnings ) {
+		var i,
+			$message = $( '<p>' ).text( mw.message( 'mwe-upwiz-dialog-warning' ).text() ),
+			$ul = $( '<ul>' );
+
+		// parse warning messages
+		warnings = warnings.map( function ( warning ) {
+			return warning.text();
+		} );
+
+		// omit duplicates
+		warnings = warnings.filter( function ( warning, i, warnings ) {
+			return warnings.indexOf( warning ) === i;
+		} );
+
+		for ( i = 0; i < warnings.length; i++ ) {
+			$ul.append( $( '<li>' ).text( warnings[ i ] ) );
+		}
+
+		return OO.ui.confirm( $message.append( $ul ), {
 			title: mw.message( 'mwe-upwiz-dialog-title' ).text()
 		} );
 	};
