@@ -62,11 +62,11 @@
 		// input is invalid if the coordinates are out of bounds, or if the
 		// coordinates that were derived from the input are 0, without a 0 even
 		// being present in the input
-		if ( latNum > 90 || latNum < -90 || ( latNum === 0 && latInput.indexOf( '0' ) < 0 && latInput !== '' ) ) {
+		if ( latNum > 90 || latNum < -90 || ( latNum === 0 && latInput.indexOf( '0' ) < 0 && latInput !== '' ) || isNaN( latNum ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-latitude' ) );
 		}
 
-		if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && lonInput.indexOf( '0' ) < 0 && lonInput !== '' ) ) {
+		if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && lonInput.indexOf( '0' ) < 0 && lonInput !== '' ) || isNaN( lonNum ) ) {
 			errors.push( mw.message( 'mwe-upwiz-error-longitude' ) );
 		}
 
@@ -168,11 +168,11 @@
 			parts, value;
 
 		// fix commonly used character alternatives
-		coordinate = coordinate.replace( ',', '.' );
+		coordinate = coordinate.replace( /\s*[,\.]\s*/, '.' );
 
 		// convert degrees, minutes, seconds (or degrees & decimal minutes) to
 		// decimal degrees
-		// there's can be a lot of variation in the notation, so let's only
+		// there can be a lot of variation in the notation, so let's only
 		// focus on "groups of digits" (and not whether e.g. ″ or " is used)
 		parts = coordinate.match( /(-?[0-9\.]+)[^0-9\.]+([0-9\.]+)(?:[^0-9\.]+([0-9\.]+))?/ );
 		if ( parts ) {
