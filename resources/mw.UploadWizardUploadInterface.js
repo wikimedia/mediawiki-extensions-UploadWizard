@@ -187,7 +187,8 @@
 			'unknown-warning',
 			'abusefilter-disallowed',
 			'abusefilter-warning',
-			'spamblacklist'
+			'spamblacklist',
+			'parsererror' // Debugging, try to figure out why this happens
 		];
 
 		this.showIndicator( 'error' );
