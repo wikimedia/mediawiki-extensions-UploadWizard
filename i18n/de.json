@@ -237,6 +237,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Du wähltest eine Option, die eine Eingabe in Wikitext erforderlich macht.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Die Eingabe in Wikitext ist zu kurz, um eine Lizenz sein zu können.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Die Eingabe in Wikitext ist zu lang.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Der eingegebene Wikitext enthält keine gültige Lizenzvorlage.",
 	"mwe-upwiz-warning-categories-missing": "Es wird empfohlen, dass du einige Kategorien für deine hochgeladenen Dateien ausfüllst.",
 	"mwe-upwiz-warning-postdate": "Das ausgewählte Datum liegt in der Zukunft.",
 	"mwe-upwiz-details-error-count": "Beim Ausfüllen {{PLURAL:$2|des Formulars|der Formulare}} {{PLURAL:$1|ist ein Fehler|sind $1 Fehler}} aufgetreten. Bitte {{PLURAL:$1|den Fehler|die Fehler}} berichtigen und erneut speichern.",
