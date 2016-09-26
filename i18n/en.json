@@ -223,6 +223,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "You selected an option which requires you to enter wikitext.",
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a license",
 	"mwe-upwiz-error-license-wikitext-too-long": "The wikitext you entered is too long.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "The wikitext you entered doesn't contain a valid license template.",
 	"mwe-upwiz-warning-categories-missing": "It is recommended that you fill in some categories for your uploads.",
 	"mwe-upwiz-warning-postdate": "The date that you selected is in the future.",
 	"mwe-upwiz-details-error-count": "There {{PLURAL:$1|is one error|are $1 errors}} with the {{PLURAL:$2|form|forms}} above. Correct the {{PLURAL:$1|error|errors}}, and try submitting again.",

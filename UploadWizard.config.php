@@ -571,6 +571,11 @@ return [
 	// Maximum length of custom wikitext for a license
 	'maxCustomLicenseLength' => 10000,
 
+	// License template custom licenses should transclude (if any)
+	// This is the prefixed db key (e.g. Template:License_template_tag), or
+	// false to disable this check
+	'customLicenseTemplate' => false,
+
 	// @codingStandardsIgnoreStart
 	// The UploadWizard allows users to provide file descriptions in multiple languages. For each description, the user
 	// can choose the language. The UploadWizard wraps each description in a "language template". A language template is

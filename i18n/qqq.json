@@ -247,6 +247,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Informs the user that they must input wikitext before the form can be submitted.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Message for a failed minimum length validation on the license form.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Message for a failed maximum length validation on the license form.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Message for when the wikitext doesn't contain a valid license template.",
 	"mwe-upwiz-warning-categories-missing": "Warning message displayed when the user has not selected any categories.",
 	"mwe-upwiz-warning-postdate": "Warning message displayed when the user selects a file creation date that is in the future.",
 	"mwe-upwiz-details-error-count": "Used as error message. Parameters:\n* $1 - number of errors\n* $2 - number of forms. i.e. number of uploads",
