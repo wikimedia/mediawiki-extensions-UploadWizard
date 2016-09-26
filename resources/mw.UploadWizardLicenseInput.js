@@ -497,6 +497,7 @@
 			return this.api.get( {
 				action: 'parse',
 				prop: 'templates',
+				title: 'File:UploadWizard license verification.png',
 				text: wikitext
 			} ).then( function ( result ) {
 				var templates = [],
