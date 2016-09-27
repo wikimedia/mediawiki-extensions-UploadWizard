@@ -228,6 +228,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Cómpre inserir texto wiki para a opción que seleccionou.",
 	"mwe-upwiz-error-license-wikitext-too-short": "O texto wiki é curto de máis para ser unha licenza",
 	"mwe-upwiz-error-license-wikitext-too-long": "O texto wiki que inseriu é longo de máis.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "O wikitexto que engadiu non contén un modelo de licenza válido.",
 	"mwe-upwiz-warning-categories-missing": "É recomendable que encha algunhas categorías nas súas subas.",
 	"mwe-upwiz-warning-postdate": "A data que seleccionou está no futuro.",
 	"mwe-upwiz-details-error-count": "Hai {{PLURAL:$1|un erro|$1 erros}} {{PLURAL:$2|no formulario anterior|nos formularios anteriores}}. Corrixa {{PLURAL:$1|o erro|os erros}} e intente realizar o envío de novo.",

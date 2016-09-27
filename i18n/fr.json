@@ -265,6 +265,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Vous avez sélectionné une option qui requiert que vous entriez du wikitexte.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Le wikitexte ici est trop court pour être une licence",
 	"mwe-upwiz-error-license-wikitext-too-long": "Le wikitexte que vous avez saisi est trop long.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Le wikitexte que vous avez saisi ne contient pas de modèle de licence valide.",
 	"mwe-upwiz-warning-categories-missing": "Il est recommandé de remplir certaines catégories pour vos téléchargements.",
 	"mwe-upwiz-warning-postdate": "La date que vous avez sélectionnée est située dans le futur.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Une erreur est présente|$1 erreurs sont présentes}} dans {{PLURAL:$2|le formulaire|les formulaires}} ci-dessus. Corrigez {{PLURAL:$1|l'erreur|les erreurs}}, et essayez d’importer à nouveau.",

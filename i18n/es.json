@@ -238,6 +238,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Es necesario escribir wikitexto para la opción que has seleccionado.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Este texto wiki es demasiado corto para ser una licencia",
 	"mwe-upwiz-error-license-wikitext-too-long": "El texto wiki que has escrito es demasiado largo.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "El wikitexto que escribiste no contiene una licencia de plantilla válida.",
 	"mwe-upwiz-warning-categories-missing": "Se recomienda seleccionar algunas categorías para tus subidas.",
 	"mwe-upwiz-warning-postdate": "La fecha que seleccionaste es en el futuro.",
 	"mwe-upwiz-details-error-count": "Hay {{PLURAL:$1|un error|$1 errores}} en {{PLURAL:$2|el formulario|los formularios}} de arriba. Corrígelo{{PLURAL:$1||s}} e intenta realizar el envío de nuevo.",

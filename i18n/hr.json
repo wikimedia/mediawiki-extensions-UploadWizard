@@ -125,6 +125,7 @@
 	"mwe-upwiz-error-blank": "Ovo polje je obvezno.",
 	"mwe-upwiz-error-too-long": "Tekst u ovom polju je predug.\nSkratite ga da bude manje od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-too-short": "Tekst u ovom polju je prekratak.\nProdužite ga da bude dulji od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Wikitekst koji ste unijeli ne sadrži valjani predložak licencije.",
 	"mwe-upwiz-too-many-files-text": "Možete postavljati samo $1 {{PLURAL:$1|datoteku|datoteke|datoteka}} istovremeno, a pokušali ste postaviti ukupno $2 {{PLURAL:$2|datoteku|datoteke|datoteka}}. Molimo, probajte opet s manje datoteka!",
 	"mwe-upwiz-too-many-files": "Previše datoteka.",
 	"mwe-upwiz-file-too-large": "Datoteka prevelika.",
