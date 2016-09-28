@@ -274,7 +274,7 @@
 	"mwe-upwiz-too-many-files": "Trop de fichiers.",
 	"mwe-upwiz-file-too-large-text": "Vous pouvez téléverser uniquement des fichiers d’une taille maximale de $1. Vous avez essayé de téléverser un fichier d’une taille de $2.",
 	"mwe-upwiz-file-too-large": "Fichier trop gros.",
-	"mwe-upwiz-dialog-warning": "Nous vous recommandons de remplir correctement tous les champs. Voulez-vous continuer en ignorant les avertissements ?",
+	"mwe-upwiz-dialog-warning": "Nous vous recommandons de remplir correctement tous les champs. Voulez-vous continuer en ignorant ces avertissements ?",
 	"mwe-upwiz-dialog-yes": "Oui",
 	"mwe-upwiz-dialog-no": "Non",
 	"mwe-upwiz-dialog-title": "Avertissement",

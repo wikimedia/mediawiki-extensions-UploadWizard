@@ -237,7 +237,7 @@
 	"mwe-upwiz-too-many-files": "Demasiados ficheiros.",
 	"mwe-upwiz-file-too-large-text": "Unicamente pode cargar ficheiros cun tamaño de ata $1. Intentou cargar un ficheiro de $2.",
 	"mwe-upwiz-file-too-large": "O ficheiro é grande de máis.",
-	"mwe-upwiz-dialog-warning": "Recomendamos que encha correctamente todos os campos. Quere continuar sen amañar os avisos?",
+	"mwe-upwiz-dialog-warning": "Recomendamos que encha correctamente todos os campos. Quere continuar sen amañar estes avisos?",
 	"mwe-upwiz-dialog-yes": "Si",
 	"mwe-upwiz-dialog-no": "Non",
 	"mwe-upwiz-dialog-title": "Aviso",

@@ -208,6 +208,7 @@
 	"mwe-upwiz-too-many-files": "Ze vill Fichieren.",
 	"mwe-upwiz-file-too-large-text": "Dir kënnt nëmme Fichiere mat enger maximaler Gréisst vu(n) $1 eroplueden. Dir hutt probéiert e Fichier deen d'$Gréisst $2 huet eropzelueden.",
 	"mwe-upwiz-file-too-large": "De Fichier ass ze grouss.",
+	"mwe-upwiz-dialog-warning": "Mir recommandéieren datt Dir all Felder gewëssenhaft ausfëllt. Wëllt Dir virufueren ouni d'Felder all auszefëllen?",
 	"mwe-upwiz-dialog-yes": "Jo",
 	"mwe-upwiz-dialog-no": "Neen",
 	"mwe-upwiz-dialog-title": "Warnung",
