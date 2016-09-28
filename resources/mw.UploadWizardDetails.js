@@ -166,6 +166,26 @@
 			$moreDetailsWrapperDiv
 		);
 
+		// Add in remove control to form
+		this.removeCtrl = new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-remove' ).text(),
+			title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
+			classes: [ 'mwe-upwiz-remove-upload' ],
+			flags: 'destructive',
+			icon: 'remove',
+			framed: false
+		} ).on( 'click', function () {
+			OO.ui.confirm( mw.message( 'mwe-upwiz-license-confirm-remove' ).text(), {
+				title: mw.message( 'mwe-upwiz-license-confirm-remove-title' ).text()
+			} ).done( function ( confirmed ) {
+				if ( confirmed ) {
+					details.upload.remove();
+				}
+			} );
+		} );
+
+		this.$form.append( this.removeCtrl.$element );
+
 		this.submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
 			.append(
 				$( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ),
@@ -174,20 +194,6 @@
 					$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' )
 				)
 			);
-
-		// Add in remove control to submittingDiv
-		this.removeCtrl = new OO.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-remove' ).text(),
-			title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
-			flags: 'destructive',
-			icon: 'remove',
-			framed: false
-		} ).on( 'click', function () {
-			details.upload.remove();
-		} );
-
-		this.submittingDiv.find( '.mwe-upwiz-file-status-line' )
-			.append( this.removeCtrl.$element );
 
 		$( this.dataDiv ).append(
 			this.$form,
