@@ -12,6 +12,23 @@
 class CampaignHooks {
 
 	/**
+	 * 'Campaign' content model must be used in, and only in, the 'Campaign' namespace.
+	 *
+	 * @param string $contentModel
+	 * @param Title $title
+	 * @param bool &$ok
+	 */
+	public static function onContentModelCanBeUsedOn( $contentModel, Title $title, &$ok ) {
+		$isCampaignModel = $contentModel === 'Campaign';
+		$isCampaignNamespace = $title->inNamespace( NS_CAMPAIGN );
+		if ( $isCampaignModel !== $isCampaignNamespace ) {
+			$ok = false;
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * FIXME: This should be done as a DataUpdate
 	 *
 	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
