@@ -51,6 +51,7 @@ class CampaignPageFormatter {
 			UploadWizardConfig::getSetting( 'campaignSquidMaxAge' )
 		);
 		$this->context->getOutput()->setHTMLTitle( $this->context->msg( 'pagetitle', $campaignTitle ) );
+		$this->context->getOutput()->enableOOUI();
 
 		$images = $this->campaign->getUploadedMedia();
 
@@ -62,20 +63,20 @@ class CampaignPageFormatter {
 				$urlParams['campaign'] = str_replace( '$1', $this->campaign->getName(), $campaignTemplate );
 			}
 			$createAccountUrl = Skin::makeSpecialUrlSubpage( 'UserLogin', 'signup', $urlParams );
-			$uploadLink =
-						Html::element( 'a',
-							[ 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $createAccountUrl ],
-							wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text()
-						);
+			$uploadLink = new OOUI\ButtonWidget( [
+				'label' => wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text(),
+				'flags' => [ 'progressive', 'primary' ],
+				'href' => $createAccountUrl
+			] );
 		} else {
 			$uploadUrl = Skin::makeSpecialUrl(
 				'UploadWizard', [ 'campaign' => $this->campaign->getName() ]
 			);
-			$uploadLink =
-						Html::element( 'a',
-							[ 'class' => 'mw-ui-big mw-ui-button mw-ui-primary', 'href' => $uploadUrl ],
-							wfMessage( 'mwe-upwiz-campaign-upload-button' )->text()
-						);
+			$uploadLink = new OOUI\ButtonWidget( [
+				'label' => wfMessage( 'mwe-upwiz-campaign-upload-button' )->text(),
+				'flags' => [ 'progressive', 'primary' ],
+				'href' => $uploadUrl
+			] );
 		}
 
 		if ( count( $images ) === 0 ) {
