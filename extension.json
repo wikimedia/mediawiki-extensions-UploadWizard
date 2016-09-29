@@ -126,15 +126,11 @@
 		},
 		"ext.uploadWizard.page.styles": {
 			"styles": "resources/uploadWizard.noWizard.css",
-			"targets": [ "desktop", "mobile" ],
-			"group": "ext.uploadWizard"
+			"targets": [ "desktop", "mobile" ]
 		},
 		"ext.uploadWizard.uploadCampaign.display": {
 			"styles": "resources/ext.uploadWizard.uploadCampaign.display.css",
-			"position": "top",
-			"dependencies": "mediawiki.ui.button",
-			"targets": [ "desktop", "mobile" ],
-			"group": "ext.uploadWizard"
+			"targets": [ "desktop", "mobile" ]
 		},
 		"ext.uploadWizard.uploadCampaign.list": {
 			"styles": "resources/ext.uploadWizard.uploadCampaign.list.css",
