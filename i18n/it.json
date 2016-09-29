@@ -18,7 +18,8 @@
 			"The Polish",
 			"Matma Rex",
 			"Fringio",
-			"Walter Raffoni"
+			"Walter Raffoni",
+			"Anto"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -228,6 +229,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "È stata selezionata un'opzione che richiede di inserire del wikitesto.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Il wikitesto inserito è troppo breve per essere una licenza.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Il wikitesto che hai inserito è troppo lungo.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Il wikitext che hai inserito non contiene un modello di licenza valido.",
 	"mwe-upwiz-warning-categories-missing": "Si consiglia di indicare alcune categorie per i caricamenti.",
 	"mwe-upwiz-warning-postdate": "La data selezionata è nel futuro.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|C'è un errore|Ci sono $1 errori}} {{PLURAL:$2|nel modulo precedente|nei moduli precedenti}}. Correggi {{PLURAL:$1|l'errore|gli errori}} e riprova.",

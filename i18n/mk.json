@@ -224,6 +224,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Избравте можност што бара да внесете викитекст.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Овој викитекст е прекраток за да може да биде лиценца",
 	"mwe-upwiz-error-license-wikitext-too-long": "Викитекстот што го внесовте е предолг.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Викитекстот што го внесовте не содржи важечки лиценцен шаблон.",
 	"mwe-upwiz-warning-categories-missing": "Се препорачува да ставите некои категории во подигањето.",
 	"mwe-upwiz-warning-postdate": "Избраниот датум е во иднината.",
 	"mwe-upwiz-details-error-count": "Во {{PLURAL:$2|образецот|обрасците}} погоре има {{PLURAL:$1|една грешка|$1 грешки}}. Исправете {{PLURAL:$2|ја|ги}} и поднесете повторно.",
