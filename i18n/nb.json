@@ -10,7 +10,8 @@
 			"Simny",
 			"Wilander",
 			"SuperPotato",
-			"Macofe"
+			"Macofe",
+			"Jon Harald Søby"
 		]
 	},
 	"uploadwizard": "Opplastingsveiviser",
@@ -194,7 +195,7 @@
 	"mwe-upwiz-tooltip-description": "Beskriv kortfattet alt notabelt om arbeidet.\nFor et bilde, nevn hovedtingene som er avbildet, anledningen eller stedet.",
 	"mwe-upwiz-tooltip-date": "Angi datoen da dette arbeidet ble opprettet eller først publisert, på formatet YYYY-MM-DD.",
 	"mwe-upwiz-tooltip-categories": "Legg til fila i [$1 kategorier] så den blir lettere å finne.",
-	"mwe-upwiz-tooltip-other": "!Tilleggsinformasjon du vil ta med om dette arbeidet, slik som geografiske koordinater, lenker til andre versjoner etc.",
+	"mwe-upwiz-tooltip-other": "Tilleggsinformasjon du vil ta med om dette arbeidet, slik som geografiske koordinater, lenker til andre versjoner osv.",
 	"mwe-upwiz-tooltip-location": "[$1 Geokod filen din] for å identifisere hvor den ble tatt opp (for noen typer filer er ikke dette nødvendigvis relevant)",
 	"mwe-upwiz-tooltip-more-info": "Lær mer.",
 	"mwe-upwiz-file-need-file": "Legg til en opplasting først.",

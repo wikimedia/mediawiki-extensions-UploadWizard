@@ -214,6 +214,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "위키텍스트를 직접 입력하는 것을 선택했습니다.",
 	"mwe-upwiz-error-license-wikitext-too-short": "위키텍스트가 저작물에 대한 라이선스를 선언하기에는 너무 짧습니다.",
 	"mwe-upwiz-error-license-wikitext-too-long": "입력한 위키텍스트가 너무 깁니다.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "입력한 위키텍스트에 유효한 라이선스 틀이 포함되어 있지 않습니다.",
 	"mwe-upwiz-details-error-count": "위 {{PLURAL:$2|양식}}에 {{PLURAL:$1|오류 하나|오류 $1개}}가 있습니다. {{PLURAL:$1|오류}}를 수정한 후 다시 시도하세요.",
 	"mwe-upwiz-too-many-files-text": "한 번에 {{PLURAL:$1|파일}} $1개만 올릴 수 있지만 총 {{PLURAL:$2|파일}} $2개을 올리려 했습니다. 파일을 적게 다시 올리세요!",
 	"mwe-upwiz-too-many-files": "파일이 너무 많습니다.",

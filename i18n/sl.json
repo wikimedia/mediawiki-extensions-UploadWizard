@@ -4,7 +4,8 @@
 			"Dbc334",
 			"Eleassar",
 			"Irena Plahuta",
-			"Yerpo"
+			"Yerpo",
+			"Pickle12"
 		]
 	},
 	"uploadwizard": "Čarovnik nalaganja",
@@ -175,13 +176,10 @@
 	"mwe-upwiz-error-altitude": "Nadmorska višina mora biti število.",
 	"mwe-upwiz-error-signature-too-long": "Vaš podpis je predolg.\nSkrajšajte ga na $1 {{PLURAL:$1|znak|znaka|znake|znakov}}.",
 	"mwe-upwiz-error-signature-too-short": "Vaš podpis je prekratek.\nPodaljšajte ga na $1 {{PLURAL:$1|znak|znaka|znake|znakov}}.",
-	"mwe-upwiz-error-signature-bad-chars": "Vaš podpis vsebuje znake, ki niso dovoljeni.\nProsimo, da tukaj ne uporabljate wikibesedila ali HTML, samo vaše uporabniško ali pravo ime.",
 	"mwe-upwiz-error-blank": "Polje je obvezno.",
 	"mwe-upwiz-error-too-long": "Vnos je predolg.\nProsimo, prepričajte se, da je vnos dolg največ $1 {{PLURAL:$1|znak|znaka|znake|znakov}}.",
 	"mwe-upwiz-error-too-short": "Vnos je prekratek.\nProsimo, prepričajte se, da je vnos dolg najmanj $1 {{PLURAL:$1|znak|znaka|znake|znakov}}.",
-	"mwe-upwiz-error-bad-chars": "Vnos vsebuje znake, ki niso dovoljeni.\nProsimo, da tukaj ne uporabljate wikibesedila ali HTML.",
 	"mwe-upwiz-error-title-blacklisted": "Naslov vsebuje nekaj neželenega besedila. Prosimo, preglejte ga.",
-	"mwe-upwiz-error-title-badchars": "Naslov vsebuje nekaj neželenih znakov. Prosimo, odstranite jih.",
 	"mwe-upwiz-error-title-senselessimagename": "Prosimo, naredite ta naslov bolj smiseln.",
 	"mwe-upwiz-error-title-hosting": "To izgleda kot datoteka, ki ste jo pridobili od drugega gostitelja slik. Prosimo, naredite naslov bolj smiseln. Prav tako ponovno preverite, ali imate pravice za objavo na tej strani.",
 	"mwe-upwiz-error-title-thumbnail": "To izgleda kot naslov predogledne sličice. Prosimo, ne nalagajte sličic nazaj na isti wiki. V nasprotnem primeru popravite ime datoteke, da bo bolj smiselno in da ne bo imelo predpone predoglednih sličic.",
@@ -197,6 +195,7 @@
 	"mwe-upwiz-too-many-files": "Preveč datotek.",
 	"mwe-upwiz-file-too-large-text": "Naložite lahko samo datoteke, ki so velike do $1. Poskusili ste naložiti datoteko velikosti $2.",
 	"mwe-upwiz-file-too-large": "Datoteka je prevelika.",
+	"mwe-upwiz-dialog-warning": "Priporočamo, da pravilno izpolnite vsa polja. Želite nadaljevati brez popravljanja?",
 	"mwe-upwiz-dialog-yes": "Da",
 	"mwe-upwiz-dialog-no": "Ne",
 	"mwe-upwiz-dialog-title": "Opozorilo",
