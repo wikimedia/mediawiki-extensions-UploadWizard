@@ -422,6 +422,10 @@
 		try {
 			response = $.parseJSON( evt.target.responseText );
 		} catch ( e ) {
+			if ( window.console ) {
+				// Let's check what caused this, too.
+				window.console.error( 'parsererror', evt );
+			}
 			response = {
 				error: {
 					code: 'parsererror',
