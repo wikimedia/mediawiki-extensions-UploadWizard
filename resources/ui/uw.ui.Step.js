@@ -45,6 +45,10 @@
 			);
 
 		$( '#mwe-upwiz-steps' ).append( this.$arrow );
+
+		// this will make sure that button will only be added if it's been
+		// set in the controller, otherwise there's nowhere to go...
+		this.nextButtonPromise = $.Deferred();
 	};
 
 	OO.mixinClass( uw.ui.Step, OO.EventEmitter );
@@ -79,6 +83,10 @@
 	 */
 	uw.ui.Step.prototype.empty = function () {};
 
+	uw.ui.Step.prototype.enableNextButton = function () {
+		this.nextButtonPromise.resolve();
+	};
+
 	/**
 	 * Add a 'next' button to the step's button container
 	 */
@@ -93,7 +101,9 @@
 			ui.emit( 'next-step' );
 		} );
 
-		this.$buttons.append( this.nextButton.$element );
+		this.nextButtonPromise.done( function () {
+			ui.$buttons.append( ui.nextButton.$element );
+		} );
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

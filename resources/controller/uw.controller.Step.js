@@ -69,6 +69,7 @@
 	 */
 	uw.controller.Step.prototype.setNextStep = function ( step ) {
 		this.nextStep = step;
+		this.ui.enableNextButton();
 	};
 
 	/**

@@ -51,8 +51,14 @@
 	};
 
 	uw.ui.Deed.prototype.addNextButton = function () {
+		var ui = this;
+
 		uw.ui.Step.prototype.addNextButton.call( this );
 
-		this.nextButton.$element.hide();
+		this.nextButtonPromise.done( function () {
+			// hide "next" button, controller will only show it once license has
+			// been selected
+			ui.nextButton.$element.hide();
+		} );
 	};
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

@@ -117,10 +117,12 @@
 			ui.emit( 'next-step' );
 		} );
 
-		this.$buttons.append(
-			new OO.ui.HorizontalLayout( {
-				items: [ this.skipCheckbox, this.skipCheckboxLabel, this.nextButton ]
-			} ).$element
-		);
+		this.nextButtonPromise.done( function () {
+			ui.$buttons.append(
+				new OO.ui.HorizontalLayout( {
+					items: [ ui.skipCheckbox, ui.skipCheckboxLabel, ui.nextButton ]
+				} ).$element
+			);
+		} );
 	};
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

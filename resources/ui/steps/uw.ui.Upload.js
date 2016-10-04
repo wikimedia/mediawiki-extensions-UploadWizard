@@ -291,53 +291,57 @@
 	};
 
 	uw.ui.Upload.prototype.addNextButton = function () {
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
-							} ),
-							this.nextStepButtonAllOk
-						]
-					} ).$element
-				)
-		);
+		var ui = this;
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
-							} ),
-							this.retryButtonSomeFailed,
-							this.nextStepButtonSomeFailed
-						]
-					} ).$element
-				)
-		);
+		this.nextButtonPromise.done( function () {
+			ui.$buttons.append(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
+					.append(
+						new OO.ui.HorizontalLayout( {
+							items: [
+								new OO.ui.LabelWidget( {
+									label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
+								} ),
+								ui.nextStepButtonAllOk
+							]
+						} ).$element
+					)
+			);
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
-							} ),
-							this.retryButtonAllFailed
-						]
-					} ).$element
-				)
-		);
+			ui.$buttons.append(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
+					.append(
+						new OO.ui.HorizontalLayout( {
+							items: [
+								new OO.ui.LabelWidget( {
+									label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+								} ),
+								ui.retryButtonSomeFailed,
+								ui.nextStepButtonSomeFailed
+							]
+						} ).$element
+					)
+			);
 
-		this.$buttons.append( this.$progress );
+			ui.$buttons.append(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
+					.append(
+						new OO.ui.HorizontalLayout( {
+							items: [
+								new OO.ui.LabelWidget( {
+									label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+								} ),
+								ui.retryButtonAllFailed
+							]
+						} ).$element
+					)
+			);
+
+			ui.$buttons.append( ui.$progress );
+		} );
 	};
 
 	/**

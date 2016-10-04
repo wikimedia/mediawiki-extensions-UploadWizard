@@ -83,43 +83,48 @@
 	};
 
 	uw.ui.Details.prototype.addNextButton = function () {
-		this.$buttons.append( this.$errorCount, this.$warningCount );
+		var ui = this;
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
-				.append( this.nextButton.$element )
-		);
+		this.nextButtonPromise.done( function () {
+			ui.$buttons.append( ui.$errorCount, ui.$warningCount );
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
-							} ),
-							this.nextButtonDespiteFailures,
-							this.retryButtonSomeFailed
-						]
-					} ).$element
-				)
-		);
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
-							} ),
-							this.retryButtonAllFailed
-						]
-					} ).$element
-				)
-		);
+			ui.$buttons.append(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
+					.append( ui.nextButton.$element )
+			);
+
+			ui.$buttons.append(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
+					.append(
+						new OO.ui.HorizontalLayout( {
+							items: [
+								new OO.ui.LabelWidget( {
+									label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+								} ),
+								ui.nextButtonDespiteFailures,
+								ui.retryButtonSomeFailed
+							]
+						} ).$element
+					)
+			);
+
+			ui.$buttons.append(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
+					.append(
+						new OO.ui.HorizontalLayout( {
+							items: [
+								new OO.ui.LabelWidget( {
+									label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+								} ),
+								ui.retryButtonAllFailed
+							]
+						} ).$element
+					)
+			);
+		} );
 	};
 
 	/**
