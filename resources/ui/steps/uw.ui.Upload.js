@@ -131,6 +131,7 @@
 			.attr( 'id', 'mwe-upwiz-progress' )
 			.addClass( 'ui-helper-clearfix' );
 
+		this.addPreviousButton();
 		this.addNextButton();
 	};
 
@@ -194,7 +195,7 @@
 			this.$fileListings.filter( ':odd' ).addClass( 'odd' );
 			this.$fileListings.filter( ':even' ).removeClass( 'odd' );
 		} else {
-			this.$buttons.hide();
+			this.hideEndButtons();
 
 			if ( this.isFlickrImportEnabled() ) {
 				this.$uploadCenterDivide.show();
@@ -241,8 +242,9 @@
 	uw.ui.Upload.prototype.empty = function () {
 		this.$addFileContainer
 			.add( this.$buttons )
-			.add( this.$progress )
-			.hide();
+			.add( this.$progress );
+
+		this.hideEndButtons();
 
 		this.$addFileContainer
 			.add( this.$uploadCenterDivide )
@@ -274,10 +276,12 @@
 		this.$flickrSelect.unbind();
 	};
 
-	uw.ui.Upload.prototype.moveTo = function () {
-		uw.ui.Step.prototype.moveTo.call( this );
+	uw.ui.Upload.prototype.moveTo = function ( uploads ) {
+		uw.ui.Step.prototype.moveTo.call( this, uploads );
 
-		this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
+		if ( uploads.length === 0 ) {
+			this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
+		}
 
 		this.$div.prepend(
 			$( '<div>' )

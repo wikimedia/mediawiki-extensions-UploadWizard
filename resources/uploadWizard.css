@@ -243,10 +243,6 @@ form.mwe-upwiz-form {
 	margin-top: 1em;
 }
 
-#mwe-upwiz-stepdiv-file .mwe-upwiz-buttons {
-	display: none;
-}
-
 #mwe-upwiz-stepdiv-file .mwe-upwiz-buttons .mwe-upwiz-file-endchoice {
 	display: none;
 }
@@ -430,6 +426,10 @@ label.mwe-upwiz-copyright-info {
 .mwe-upwiz-buttons {
 	margin-top: 1em;
 	text-align: right;
+}
+
+.mwe-upwiz-button-previous {
+	float: left;
 }
 
 a.mwe-upwiz-tooltip-link {

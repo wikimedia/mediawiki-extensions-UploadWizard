@@ -54,15 +54,12 @@
 	 */
 	uw.controller.Details.prototype.moveTo = function ( uploads ) {
 		var details = this,
-			successes = 0;
+			failures, successes;
 
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
 
-		$.each( uploads, function ( i, upload ) {
-			if ( upload && upload.state !== 'aborted' && upload.state !== 'error' ) {
-				successes++;
-			}
-		} );
+		failures = this.getUploadStatesCount( [ 'aborted', 'error' ] ) + this.countEmpties();
+		successes = uploads.length - failures;
 
 		$.each( uploads, function ( i, upload ) {
 			if ( upload === undefined ) {
@@ -82,22 +79,36 @@
 		}
 		if ( successes > 0 ) {
 			$.each( uploads, function ( i, upload ) {
-				upload.on( 'remove-upload', function () {
-					details.removeCopyMetadataFeature();
-
-					// Make sure we still have more multiple uploads adding the
-					// copy feature again
-					successes--;
-					if ( successes > 1 && details.config.copyMetadataFeature ) {
-						details.addCopyMetadataFeature( uploads );
-					} else if ( successes < 1 ) {
-						// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
-						// which will skip itself in moveTo() because there are no uploads left.)
-						details.moveFrom();
-					}
-				} );
+				upload.on( 'remove-upload', details.removeUpload.bind( details ) );
 			} );
 		}
+	};
+
+	uw.controller.Details.prototype.moveNext = function () {
+		var controller = this;
+
+		$.each( this.uploads, function ( i, upload ) {
+			upload.off( 'remove-upload', controller.removeUpload.bind( controller ) );
+		} );
+
+		uw.controller.Step.prototype.moveNext.call( this );
+	};
+
+	uw.controller.Details.prototype.movePrevious = function () {
+		var controller = this;
+
+		$.each( this.uploads, function ( i, upload ) {
+			// reset step name: if upload was attempted and failed, step name
+			// would be an error, and upload would be removed when moving back
+			upload.state = controller.stepName;
+
+			// get rid of remove handler, this handler only makes sense in this
+			// exact step - having it bound while in other steps could cause
+			// unexpected issues
+			upload.off( 'remove-upload', controller.removeUpload.bind( controller ) );
+		} );
+
+		uw.controller.Step.prototype.movePrevious.call( this );
 	};
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function ( uploads ) {
@@ -291,7 +302,7 @@
 	uw.controller.Details.prototype.canTransition = function ( upload ) {
 		return (
 			uw.controller.Step.prototype.canTransition.call( this, upload ) &&
-			upload.state === 'details'
+			upload.state === this.stepName
 		);
 	};
 
@@ -345,7 +356,7 @@
 
 			// Clear error state
 			if ( upload.state === 'error' ) {
-				upload.state = 'details';
+				upload.state = details.stepName;
 			}
 
 			// Set details view to have correct title
@@ -354,6 +365,7 @@
 
 		// Disable edit interface
 		this.ui.disableEdits();
+		this.ui.previousButton.$element.hide();
 		// No way to restore this later... We don't handle partially-successful uploads very well
 		this.removeCopyMetadataFeature();
 
@@ -361,7 +373,7 @@
 			details.showErrors();
 
 			if ( details.showNext() ) {
-				details.moveFrom();
+				details.moveNext();
 			}
 		} );
 	};
@@ -371,8 +383,30 @@
 	 * See UI class for more.
 	 */
 	uw.controller.Details.prototype.showErrors = function () {
+		this.ui.previousButton.$element.show();
+
 		this.ui.showWarnings(); // Scroll to the warning first so that any errors will have precedence
 		this.ui.showErrors();
+	};
+
+	/**
+	 * Handler for when an upload is removed.
+	 */
+	uw.controller.Details.prototype.removeUpload = function () {
+		var failures = this.getUploadStatesCount( [ 'aborted', 'error' ] ) + this.countEmpties(),
+			successes = this.uploads.length - failures;
+
+		this.removeCopyMetadataFeature();
+
+		// Make sure we still have more multiple uploads adding the
+		// copy feature again
+		if ( successes > 1 && this.config.copyMetadataFeature ) {
+			this.addCopyMetadataFeature( this.uploads );
+		} else if ( successes < 1 ) {
+			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
+			// which will skip itself in moveTo() because there are no uploads left.)
+			this.moveNext();
+		}
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

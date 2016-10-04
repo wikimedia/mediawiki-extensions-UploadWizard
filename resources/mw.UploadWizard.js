@@ -112,18 +112,19 @@
 			} );
 
 			// "select" the first step - highlight, make it visible, hide all others
-			this.steps.firstStep.moveTo();
+			this.steps.firstStep.moveTo( [] );
 		},
 
 		/**
 		 * Initialise the steps in the wizard
 		 */
 		initialiseSteps: function () {
-			var wizard = this;
+			var wizard = this,
+				skipTutorial = this.config.tutorial.skip ||
+					mw.user.options.get( 'upwiz_skiptutorial' ) ||
+					( this.config.tutorial && this.config.tutorial.skip );
 
-			if ( !this.config.tutorial.skip ) {
-				this.steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
-			}
+			this.steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
 			this.steps.file = new uw.controller.Upload( this.api, this.config )
 				.on( 'flickr-ui-init', function () {
 					wizard.flickrInterfaceInit();
@@ -131,8 +132,6 @@
 				} )
 
 				.on( 'load', function () {
-					wizard.reset();
-
 					// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
 					// While this looks extremely unlikely to be right, it actually is. Blame Apple.
 					if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
@@ -155,7 +154,7 @@
 
 				.on( 'finalize-details-after-removal', function () {
 					wizard.removeErrorUploads();
-					wizard.steps.details.moveFrom();
+					wizard.steps.details.moveNext();
 				} );
 
 			this.steps.thanks = new uw.controller.Thanks( this.api, this.config )
@@ -163,11 +162,10 @@
 					wizard.reset();
 				} );
 
-			if ( !this.config.tutorial.skip ) {
-				this.steps.tutorial.setNextStep( this.steps.file );
-				this.steps.firstStep = this.steps.tutorial;
-			} else {
+			if ( skipTutorial ) {
 				this.steps.firstStep = this.steps.file;
+			} else {
+				this.steps.firstStep = this.steps.tutorial;
 			}
 
 			$.each( this.steps, function ( name, step ) {
@@ -177,9 +175,18 @@
 					} );
 			} );
 
+			this.steps.tutorial.setNextStep( this.steps.file );
+
+			this.steps.file.setPreviousStep( this.steps.tutorial );
 			this.steps.file.setNextStep( this.steps.deeds );
+
+			this.steps.deeds.setPreviousStep( this.steps.file );
 			this.steps.deeds.setNextStep( this.steps.details );
+
+			this.steps.details.setPreviousStep( this.steps.deeds );
 			this.steps.details.setNextStep( this.steps.thanks );
+
+			// thanks doesn't need a "previous" step, there's no undoing uploads!
 			this.steps.thanks.setNextStep( this.steps.file );
 
 			$( '#mwe-upwiz-steps' ).arrowSteps();

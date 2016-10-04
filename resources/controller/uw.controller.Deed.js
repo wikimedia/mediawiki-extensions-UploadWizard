@@ -37,14 +37,14 @@
 
 	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
 
-	uw.controller.Deed.prototype.moveFrom = function () {
+	uw.controller.Deed.prototype.moveNext = function () {
 		var
 			deedController = this,
 			valid = true,
 			fields;
 
 		if ( !this.deedChooser ) {
-			uw.controller.Step.prototype.moveFrom.call( this );
+			uw.controller.Step.prototype.moveNext.call( this );
 			return;
 		}
 
@@ -69,7 +69,7 @@
 					}
 				}
 
-				uw.controller.Step.prototype.moveFrom.call( deedController );
+				uw.controller.Step.prototype.moveNext.call( deedController );
 			} );
 		}
 	};
@@ -94,7 +94,7 @@
 		// If all of the uploads are from URLs, then we know the licenses
 		// already, we don't need this step.
 		if ( !showDeed ) {
-			this.moveFrom();
+			this.moveNext();
 			return;
 		}
 

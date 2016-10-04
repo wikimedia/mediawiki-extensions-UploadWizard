@@ -36,7 +36,7 @@
 		this.sandbox.stub( mw, 'confirmCloseWindow' ).returns( acwStub );
 		this.sandbox.stub( api, 'postWithToken' ).returns( pwtd.promise() );
 
-		step.setSkipPreference();
+		step.setSkipPreference( true );
 
 		assert.ok( mw.confirmCloseWindow.called );
 		assert.ok( api.postWithToken.calledWithExactly( 'options', {
@@ -55,7 +55,7 @@
 
 		this.sandbox.stub( api, 'postWithToken' ).returns( pwtd.promise() );
 
-		step.setSkipPreference();
+		step.setSkipPreference( true );
 		assert.ok( !acwStub.release.called );
 
 		pwtd.reject( 'http', { textStatus: 'Foo bar' } );
