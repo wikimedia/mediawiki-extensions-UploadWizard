@@ -6,7 +6,8 @@
 			"Marmase",
 			"Mirzali",
 			"Olvörg",
-			"Kumkumuk"
+			"Kumkumuk",
+			"Asmen"
 		]
 	},
 	"uploadwizard": "Sihirbazê Barkerdışi",
@@ -257,7 +258,7 @@
 	"mwe-upwiz-thumbnail-failed": "Barkerdış temamya, lakin wasteri verqaytê resmê qıckeki nêşa bıgiro.",
 	"mwe-upwiz-unparseable-filename": "Ma namey dosya da \"$1\" fahm nêkerde.",
 	"mwe-upwiz-subhead-bugs": "[Merselê $1 ]",
-	"mwe-upwiz-subhead-alt-upload": "Peyser şo terz dë verëni",
+	"mwe-upwiz-subhead-alt-upload": "Peyser şo terzê verêni",
 	"mwe-upwiz-feedback-prompt": "Peydrıştı vırad cırê",
 	"mwe-upwiz-feedback-title": "Heqa Sêrbazê Barkerdışi de peyserrıştış caverde",
 	"mwe-upwiz-feedback-blacklist-line-intro": "No sernameyê lista siyayo ke cıkewtışê cı esto: $1",
