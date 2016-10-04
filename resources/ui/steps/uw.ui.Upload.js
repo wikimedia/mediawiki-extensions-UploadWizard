@@ -274,7 +274,7 @@
 
 		this.$addFileContainer
 			.add( this.$uploadCenterDivide )
-			.add( this.$uploadCtrls )
+			.add( this.$uploadCtrl )
 			.show();
 
 		if ( this.isFlickrImportEnabled() ) {
