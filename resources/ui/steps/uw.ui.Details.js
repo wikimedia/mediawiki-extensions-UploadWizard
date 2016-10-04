@@ -53,7 +53,7 @@
 		} ).on( 'click', startDetails );
 
 		this.$buttons.append(
-			$( '<div>' ).addClass( 'mwe-upwiz-start-next mwe-upwiz-file-endchoice' ).append( this.nextButton.$element )
+			$( '<div>' ).addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' ).append( this.nextButton.$element )
 		);
 
 		this.nextButtonDespiteFailures = new OO.ui.ButtonWidget( {
@@ -114,7 +114,7 @@
 		// reset buttons on the details page
 		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).hide();
 		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).hide();
-		this.$div.find( '.mwe-upwiz-start-next' ).show();
+		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).show();
 	};
 
 	/**
