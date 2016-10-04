@@ -34,8 +34,7 @@
 		this.$div = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-stepdiv-' + this.name )
 			.addClass( 'mwe-upwiz-stepdiv' )
-			.hide()
-			.append( this.$buttons );
+			.hide();
 
 		$( '#mwe-upwiz-content' ).append( this.$div );
 
@@ -59,7 +58,7 @@
 		var offset = $( 'h1:first' ).offset();
 
 		this.uploads = uploads;
-		this.$div.show();
+		this.$div.append( this.$buttons ).show();
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( this.$arrow );
 
 		$( 'html, body' ).animate( {
@@ -72,7 +71,7 @@
 	 * Move out of the step.
 	 */
 	uw.ui.Step.prototype.moveFrom = function () {
-		this.$div.hide();
+		this.$div.children().detach();
 	};
 
 	/**
@@ -85,8 +84,6 @@
 	 */
 	uw.ui.Step.prototype.addNextButton = function () {
 		var ui = this;
-
-		this.$buttons = this.$div.find( '.mwe-upwiz-buttons' );
 
 		this.nextButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-button-next' ],

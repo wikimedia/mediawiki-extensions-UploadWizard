@@ -35,26 +35,15 @@
 			'details'
 		);
 
-		this.$div.prepend(
-			$( '<div>' )
-				.attr( 'id', 'mwe-upwiz-macro-files' )
-				.addClass( 'mwe-upwiz-filled-filelist ui-corner-all' )
-		);
-
 		this.$errorCount = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-details-error-count' );
 		this.$warningCount = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-details-warning-count' );
-		this.$buttons.append( this.$errorCount, this.$warningCount );
 
 		this.nextButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-details' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
-
-		this.$buttons.append(
-			$( '<div>' ).addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' ).append( this.nextButton.$element )
-		);
 
 		this.nextButtonDespiteFailures = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-next-file-despite-failures' ).text(),
@@ -67,6 +56,40 @@
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
+
+		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', startDetails );
+
+		this.addNextButton();
+	};
+
+	OO.inheritClass( uw.ui.Details, uw.ui.Step );
+
+	uw.ui.Details.prototype.moveTo = function ( uploads ) {
+		uw.ui.Step.prototype.moveTo.call( this, uploads );
+
+		this.$div.prepend(
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-macro-files' )
+				.addClass( 'mwe-upwiz-filled-filelist ui-corner-all' )
+		);
+
+		// set default buttons visibility (can be altered in controller later)
+		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).hide();
+		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).hide();
+		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).show();
+	};
+
+	uw.ui.Details.prototype.addNextButton = function () {
+		this.$buttons.append( this.$errorCount, this.$warningCount );
+
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
+				.append( this.nextButton.$element )
+		);
 
 		this.$buttons.append(
 			$( '<div>' )
@@ -83,12 +106,6 @@
 					} ).$element
 				)
 		);
-
-		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
-			flags: [ 'progressive', 'primary' ]
-		} ).on( 'click', startDetails );
-
 		this.$buttons.append(
 			$( '<div>' )
 				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
@@ -104,8 +121,6 @@
 				)
 		);
 	};
-
-	OO.inheritClass( uw.ui.Details, uw.ui.Step );
 
 	/**
 	 * Empty out all upload information.

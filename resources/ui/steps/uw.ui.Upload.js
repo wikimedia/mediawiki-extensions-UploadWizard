@@ -67,26 +67,11 @@
 				this.$flickrSelectList
 			);
 
-		this.$div.prepend(
-			$( '<div>' )
-				.attr( 'id', 'mwe-upwiz-files' )
-				.append(
-					this.$flickrSelectListContainer,
-					$( '<div>' )
-						.attr( 'id', 'mwe-upwiz-filelist' )
-						.addClass( 'ui-corner-all' ),
-					this.$uploadCtrl
-				)
-		);
-
 		this.addFile = new OO.ui.ButtonWidget( {
 			id: 'mwe-upwiz-add-file',
 			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
 			flags: [ 'constructive', 'primary' ]
 		} );
-
-		// append <input type="file"> to button
-		this.setupFileInputCtrl( this.addFile.$element.find( '.oo-ui-buttonElement-button' ) );
 
 		this.$addFileContainer.prepend( this.addFile.$element );
 
@@ -111,21 +96,6 @@
 			upload.emit( 'next-step' );
 		} );
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
-							} ),
-							this.nextStepButtonAllOk
-						]
-					} ).$element
-				)
-		);
-
 		this.retryButtonSomeFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive' ]
@@ -141,22 +111,6 @@
 			upload.emit( 'next-step' );
 		} );
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
-							} ),
-							this.retryButtonSomeFailed,
-							this.nextStepButtonSomeFailed
-						]
-					} ).$element
-				)
-		);
-
 		this.retryButtonAllFailed = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-file-retry' ).text(),
 			flags: [ 'progressive' ]
@@ -165,29 +119,15 @@
 			upload.emit( 'retry' );
 		} );
 
-		this.$buttons.append(
-			$( '<div>' )
-				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
-				.append(
-					new OO.ui.HorizontalLayout( {
-						items: [
-							new OO.ui.LabelWidget( {
-								label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
-							} ),
-							this.retryButtonAllFailed
-						]
-					} ).$element
-				)
-		);
-
-		this.$fileList = $( '#mwe-upwiz-filelist' );
+		this.$fileList = $( '<div>' )
+			.attr( 'id', 'mwe-upwiz-filelist' )
+			.addClass( 'ui-corner-all' );
 
 		this.$progress = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-progress' )
 			.addClass( 'ui-helper-clearfix' );
 
-		// Apparently this makes sense.
-		this.$buttons.append( this.$progress );
+		this.addNextButton();
 	};
 
 	OO.inheritClass( uw.ui.Upload, uw.ui.Step );
@@ -332,9 +272,72 @@
 
 		this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );
 
+		this.$div.prepend(
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-files' )
+				.append(
+					this.$flickrSelectListContainer,
+					this.$fileList,
+					this.$uploadCtrl
+				)
+		);
+
+		// append <input type="file"> to button
+		this.setupFileInputCtrl( this.addFile.$element.find( '.oo-ui-buttonElement-button' ) );
+
 		// Show the upload button, and the add file button
 		$( '#mwe-upwiz-upload-ctrls' ).show();
 		$( '#mwe-upwiz-add-file' ).show();
+	};
+
+	uw.ui.Upload.prototype.addNextButton = function () {
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-all-ok' ).text()
+							} ),
+							this.nextStepButtonAllOk
+						]
+					} ).$element
+				)
+		);
+
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-some-failed mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-some-failed' ).text()
+							} ),
+							this.retryButtonSomeFailed,
+							this.nextStepButtonSomeFailed
+						]
+					} ).$element
+				)
+		);
+
+		this.$buttons.append(
+			$( '<div>' )
+				.addClass( 'mwe-upwiz-file-next-all-failed mwe-upwiz-file-endchoice' )
+				.append(
+					new OO.ui.HorizontalLayout( {
+						items: [
+							new OO.ui.LabelWidget( {
+								label: mw.message( 'mwe-upwiz-file-all-failed' ).text()
+							} ),
+							this.retryButtonAllFailed
+						]
+					} ).$element
+				)
+		);
+
+		this.$buttons.append( this.$progress );
 	};
 
 	/**

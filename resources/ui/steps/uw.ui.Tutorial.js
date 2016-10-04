@@ -56,15 +56,6 @@
 			'tutorial'
 		);
 
-		this.$div.prepend(
-			$( '<div>' )
-				.attr( 'id', 'mwe-upwiz-tutorial' )
-				.append(
-					// TODO move this to JavaScript, too.
-					$( '#mwe-upwiz-tutorial-html' ).show()
-				)
-		);
-
 		// 'Skip tutorial' checkbox
 		this.skipCheckbox = new PopupCheckboxInputWidget( {
 			id: 'mwe-upwiz-skip',
@@ -89,20 +80,47 @@
 			ui.emit( 'skip-tutorial-click', ui.skipCheckbox.isSelected() );
 		} );
 
+		// grab the tutorial HTML that was injected into this document
+		this.tutorialHtml = $( '#mwe-upwiz-tutorial-html' );
+
 		// Helpdesk link click
 		$( '#mwe-upwiz-tutorial-helpdesk' ).click( function () {
 			ui.emit( 'helpdesk-click' );
 		} );
 
 		this.addNextButton();
+	};
 
-		this.$div.find( '.mwe-upwiz-buttons' ).append(
+	OO.inheritClass( uw.ui.Tutorial, uw.ui.Step );
+
+	uw.ui.Tutorial.prototype.moveTo = function ( uploads ) {
+		uw.ui.Step.prototype.moveTo.call( this, uploads );
+
+		this.$div.prepend(
+			$( '<div>' )
+				.attr( 'id', 'mwe-upwiz-tutorial' )
+				.append(
+					// TODO move this to JavaScript, too.
+					this.tutorialHtml.show()
+				)
+		);
+	};
+
+	uw.ui.Tutorial.prototype.addNextButton = function () {
+		var ui = this;
+
+		this.nextButton = new OO.ui.ButtonWidget( {
+			classes: [ 'mwe-upwiz-button-next' ],
+			label: mw.message( 'mwe-upwiz-next' ).text(),
+			flags: [ 'progressive', 'primary' ]
+		} ).on( 'click', function () {
+			ui.emit( 'next-step' );
+		} );
+
+		this.$buttons.append(
 			new OO.ui.HorizontalLayout( {
 				items: [ this.skipCheckbox, this.skipCheckboxLabel, this.nextButton ]
 			} ).$element
 		);
 	};
-
-	OO.inheritClass( uw.ui.Tutorial, uw.ui.Step );
-
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

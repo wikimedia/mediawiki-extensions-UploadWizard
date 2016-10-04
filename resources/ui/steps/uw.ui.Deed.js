@@ -29,6 +29,14 @@
 			'deeds'
 		);
 
+		this.addNextButton();
+	};
+
+	OO.inheritClass( uw.ui.Deed, uw.ui.Step );
+
+	uw.ui.Deed.prototype.moveTo = function ( uploads ) {
+		uw.ui.Step.prototype.moveTo.call( this, uploads );
+
 		this.$div.prepend(
 			$( '<div>' )
 				.attr( 'id', 'mwe-upwiz-deeds-thumbnails' )
@@ -40,11 +48,11 @@
 				.attr( 'id', 'mwe-upwiz-deeds-custom' )
 				.addClass( 'ui-helper-clearfix' )
 		);
+	};
 
-		this.addNextButton();
+	uw.ui.Deed.prototype.addNextButton = function () {
+		uw.ui.Step.prototype.addNextButton.call( this );
 
 		this.nextButton.$element.hide();
 	};
-
-	OO.inheritClass( uw.ui.Deed, uw.ui.Step );
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

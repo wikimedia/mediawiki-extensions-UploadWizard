@@ -56,6 +56,8 @@
 		var details = this,
 			successes = 0;
 
+		uw.controller.Step.prototype.moveTo.call( this, uploads );
+
 		$.each( uploads, function ( i, upload ) {
 			if ( upload && upload.state !== 'aborted' && upload.state !== 'error' ) {
 				successes++;
@@ -96,8 +98,6 @@
 				} );
 			} );
 		}
-
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
 	};
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function ( uploads ) {
