@@ -19,6 +19,7 @@
 	"api-error-abusefilter-warning": "Esta aición identificóse automáticamente como perxudicial ([$1 más información]).\nLes ediciones non constructives se revertirán en poco tiempu, y repetíes ediciones malintencionaes darán como resultáu el bloquéu de la to cuenta o direición IP.",
 	"api-error-abusefilter-disallowed": "Esta aición identificóse automáticamente como perxudicial, y por eso nun se permite ([$1 más información]).",
 	"api-error-spamblacklist": "El testu que queríes guardar foi bloquiáu pol filtru de spam.\nProbablemente tea causao por un enllaz a un sitiu esternu de la llista prieta.",
+	"api-error-parsererror": "El sirvidor respondió con un documentu JSON inválidu. Esto puede ser por un problema cola API, o podríes tar usando un sirvidor proxy que te torga xubir ficheros.",
 	"mwe-upwiz-unavailable": "El restolador nun ye compatible con UploadWizard o tienes JavaScript desactiváu, de mou que t'amosamos un formulariu de carga cenciellu. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidá].)",
 	"mwe-upwiz-extension-disabled": "Esta páxina se desactivó por problemes téunicos temporales. Mentanto, pues probar el formulariu de xubíes estándar.",
 	"mwe-upwiz-step-tutorial": "Deprender",
