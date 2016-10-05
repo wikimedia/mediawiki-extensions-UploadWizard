@@ -43,6 +43,12 @@
 	uw.controller.Thanks.prototype.moveTo = function ( uploads ) {
 		var thanks = this;
 
+		if ( uploads.length === 0 ) {
+			// We got here after the user removed all uploads; just restart from "Upload" step
+			this.skip();
+			return;
+		}
+
 		uw.controller.Step.prototype.moveTo.call( this );
 
 		$.each( uploads, function ( i, upload ) {

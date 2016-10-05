@@ -53,16 +53,12 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Details.prototype.moveTo = function ( uploads ) {
-		var successes = 0;
+		var details = this,
+			successes = 0;
 
 		$.each( uploads, function ( i, upload ) {
 			if ( upload && upload.state !== 'aborted' && upload.state !== 'error' ) {
 				successes++;
-
-				if ( successes > 1 ) {
-					// Break out of the loop, we have enough.
-					return false;
-				}
 			}
 		} );
 
@@ -80,15 +76,43 @@
 
 		// Show the widget allowing to copy selected metadata if there's more than one successful upload
 		if ( successes > 1 && this.config.copyMetadataFeature ) {
-			this.copyMetadataWidget = new uw.CopyMetadataWidget( {
-				copyFrom: uploads[ 0 ],
-				// Include the "source" upload in the targets too
-				copyTo: uploads
+			this.addCopyMetadataFeature( uploads );
+
+			$.each( uploads, function ( i, upload ) {
+				upload.on( 'remove-upload', function () {
+					details.removeCopyMetadataFeature();
+
+					// Make sure we still have more multiple uploads adding the
+					// copy feature again
+					successes--;
+					if ( successes > 1 ) {
+						details.addCopyMetadataFeature( uploads );
+					} else if ( successes < 1 ) {
+						// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
+						// which will skip itself in moveTo() because there are no uploads left.)
+						details.moveFrom();
+					}
+				} );
 			} );
-			$( uploads[ 0 ].details.div ).after( this.copyMetadataWidget.$element );
 		}
 
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
+	};
+
+	uw.controller.Details.prototype.addCopyMetadataFeature = function ( uploads ) {
+		this.copyMetadataWidget = new uw.CopyMetadataWidget( {
+			copyFrom: uploads[ 0 ],
+			// Include the "source" upload in the targets too
+			copyTo: uploads
+		} );
+
+		$( uploads[ 0 ].details.div ).after( this.copyMetadataWidget.$element );
+	};
+
+	uw.controller.Details.prototype.removeCopyMetadataFeature = function () {
+		if ( this.copyMetadataWidget ) {
+			this.copyMetadataWidget.$element.remove();
+		}
 	};
 
 	uw.controller.Details.prototype.empty = function () {
@@ -330,9 +354,7 @@
 		// Disable edit interface
 		this.ui.disableEdits();
 		// No way to restore this later... We don't handle partially-successful uploads very well
-		if ( this.copyMetadataWidget ) {
-			this.copyMetadataWidget.$element.remove();
-		}
+		this.removeCopyMetadataFeature();
 
 		return this.transitionAll().then( function () {
 			details.showErrors();

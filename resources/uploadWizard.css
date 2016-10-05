@@ -335,6 +335,15 @@ form.mwe-upwiz-form {
 	width: 116px; /* see .mwe-upwiz-thumbnail, 100 + 8 + 8 */
 }
 
+.mwe-upwiz-remove-upload {
+	/* Positioned below the thumbnail. All the floats make it more difficult than it seems
+	   to do this in a less hacky way. */
+	position: absolute;
+	left: -132px;
+	margin-left: -1em;
+	top: 132px;
+}
+
 #mwe-upwiz-deeds-thumbnails {
 	text-align: center;
 	margin: 1em 0;
