@@ -29,6 +29,8 @@
 				name: customDeedChooser ? 'custom' : 'cc-by-sa-4.0'
 			},
 
+			on: $.noop,
+
 			createDetails: stubs.cd,
 
 			details: {

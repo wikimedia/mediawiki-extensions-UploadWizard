@@ -77,7 +77,8 @@
 		// Show the widget allowing to copy selected metadata if there's more than one successful upload
 		if ( successes > 1 && this.config.copyMetadataFeature ) {
 			this.addCopyMetadataFeature( uploads );
-
+		}
+		if ( successes > 0 ) {
 			$.each( uploads, function ( i, upload ) {
 				upload.on( 'remove-upload', function () {
 					details.removeCopyMetadataFeature();
@@ -85,7 +86,7 @@
 					// Make sure we still have more multiple uploads adding the
 					// copy feature again
 					successes--;
-					if ( successes > 1 ) {
+					if ( successes > 1 && details.config.copyMetadataFeature ) {
 						details.addCopyMetadataFeature( uploads );
 					} else if ( successes < 1 ) {
 						// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
