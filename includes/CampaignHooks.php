@@ -130,7 +130,7 @@ class CampaignHooks {
 	 * @param string &$lang Page language.
 	 * @return bool
 	 */
-	static function onCodeEditorGetPageLanguage( $title, &$lang ) {
+	public static function onCodeEditorGetPageLanguage( $title, &$lang ) {
 		if ( $title->inNamespace( NS_CAMPAIGN ) ) {
 			$lang = 'json';
 		}
@@ -140,23 +140,27 @@ class CampaignHooks {
 	/**
 	 * Validates that the revised contents are valid JSON.
 	 * If not valid, rejects edit with error message.
-	 * @param EditPage $editor
-	 * @param string $text Content of the revised article.
-	 * @param string &$error Error message to return.
-	 * @param string $summary Edit summary provided for edit.
+	 * @param IContextSource $context
+	 * @param Content $content
+	 * @param Status $status
+	 * @param string $summary
+	 * @param User $user
+	 * @param bool $minoredit
 	 * @return True
 	 */
-	static function onEditFilterMerged( $editor, $text, &$error, $summary ) {
-		if ( !$editor->getTitle()->inNamespace( NS_CAMPAIGN ) ) {
+	public static function onEditFilterMergedContent( $context, $content, $status, $summary,
+		$user, $minoredit
+	) {
+		if ( !$context->getTitle()->inNamespace( NS_CAMPAIGN )
+			|| !$content instanceof CampaignContent
+		) {
 			return true;
 		}
-
-		$content = new CampaignContent( $text );
 
 		try {
 			$content->validate();
 		} catch ( JsonSchemaException $e ) {
-			$error = $e->getMessage();
+			$status->fatal( $context->msg( $e->getCode(), $e->args ) );
 		}
 
 		return true;

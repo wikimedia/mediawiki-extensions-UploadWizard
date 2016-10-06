@@ -834,7 +834,7 @@
 		"IsUploadAllowedFromUrl": "UploadWizardHooks::onIsUploadAllowedFromUrl",
 		"ResourceLoaderTestModules": "UploadWizardHooks::onResourceLoaderTestModules",
 		"ContentModelCanBeUsedOn": "CampaignHooks::onContentModelCanBeUsedOn",
-		"EditFilterMerged": "CampaignHooks::onEditFilterMerged",
+		"EditFilterMergedContent": "CampaignHooks::onEditFilterMergedContent",
 		"CodeEditorGetPageLanguage": "CampaignHooks::onCodeEditorGetPageLanguage",
 		"PageContentSaveComplete": "CampaignHooks::onPageContentSaveComplete",
 		"ArticleDeleteComplete": "CampaignHooks::onArticleDeleteComplete",
