@@ -79,7 +79,6 @@
 
 		$.each( this, function ( i, container ) {
 			var $container = $( container ),
-				oldOverflow = $container.css( 'overflow' ),
 				$oldPanel = $( $container.data( 'crossfadeDisplay' ) ),
 				$newPanel = ( typeof newPanelSelector === 'string' ) ?
 					$container.find( newPanelSelector ) : $( newPanelSelector );
@@ -90,13 +89,11 @@
 					// make doubly sure that the container height is equal to oldPanel,
 					// and prevent now-oversized panels from sticking out
 					$container.css( { height: $oldPanel.outerHeight() } );
-					$container.css( { overflow: 'hidden' } );
 					// take it out of the flow
 					$oldPanel.css( { position: 'absolute' } );
 					// fade WITHOUT hiding when opacity = 0
 					$oldPanel.stop().animate( { opacity: 0 }, speed, 'linear', function () {
 						$oldPanel.css( { visibility: 'hidden' } );
-						$container.css( { overflow: oldOverflow } );
 					} );
 				}
 				$container.data( 'crossfadeDisplay', $newPanel );
