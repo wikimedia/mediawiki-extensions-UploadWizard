@@ -85,6 +85,9 @@
 			flags: [ 'constructive', 'primary' ]
 		} );
 
+		// append <input type="file"> to button
+		this.setupFileInputCtrl( this.addFile.$element.find( '.oo-ui-buttonElement-button' ) );
+
 		this.$addFileContainer.prepend( this.addFile.$element );
 
 		if ( this.isFlickrImportEnabled() ) {
@@ -188,6 +191,28 @@
 	};
 
 	OO.inheritClass( uw.ui.Upload, uw.ui.Step );
+
+	/**
+	 * Set up the "Add files" button (#mwe-upwiz-add-file) to open a file selection dialog on click
+	 * by means of a hidden `<input type="file">`.
+	 *
+	 * @param {jQuery} $element The element to append to
+	 */
+	uw.ui.Upload.prototype.setupFileInputCtrl = function ( $element ) {
+		var $fileInputCtrl = $( '<input type="file" multiple name="file" class="mwe-upwiz-file-input" />' ),
+			ui = this;
+
+		$element.find( '.mwe-upwiz-file-input' ).remove();
+		$element.append( $fileInputCtrl );
+
+		$fileInputCtrl.on( 'change', function () {
+			ui.emit( 'files-added', $fileInputCtrl[ 0 ].files );
+
+			// We can't clear the value of a file input, so replace the whole
+			// thing with a new one
+			ui.setupFileInputCtrl( $element );
+		} );
+	};
 
 	uw.ui.Upload.prototype.showProgressBar = function () {
 		this.$progress.show();

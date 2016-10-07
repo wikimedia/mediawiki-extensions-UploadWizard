@@ -70,49 +70,11 @@
 			this.showDeed = false;
 			this.removeMatchingUploads( function () { return true; } );
 			this.hasLoadedBefore = true;
-			this.$fileInputCtrl = this.setupFileInputCtrl();
 
 			// hide flickr uploading button if user doesn't have permissions
 			if ( !mw.UploadWizard.config.UploadFromUrl || mw.UploadWizard.config.flickrApiKey === '' ) {
 				$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
 			}
-		},
-
-		/**
-		 * Set up the "Add files" button (#mwe-upwiz-add-file) to open a file selection dialog on click
-		 * by means of a hidden `<input type="file">`.
-		 *
-		 * @return {jQuery} The input field
-		 */
-		setupFileInputCtrl: function () {
-			var
-				$fileInputCtrl,
-				wizard = this;
-
-			$fileInputCtrl = $( '<input type="file" multiple name="file" class="mwe-upwiz-file-input" />' );
-
-			// #mwe-upwiz-add-file is a ButtonWidget constructed somewhere else, so this is hacky.
-			// But it's less bad than how this was done before.
-			$( '#mwe-upwiz-add-file .oo-ui-buttonElement-button' ).append( $fileInputCtrl );
-
-			$fileInputCtrl.on( 'change', function () {
-				var
-					files = $fileInputCtrl[ 0 ].files,
-					totalFiles = ( files ? files.length : 1 ) + wizard.uploads.length,
-					tooManyFiles = totalFiles > wizard.config.maxUploads;
-
-				if ( tooManyFiles ) {
-					wizard.steps.file.showTooManyFilesWarning( totalFiles );
-					return;
-				}
-
-				wizard.addUploads( files );
-
-				// We can't clear the value of a file input, so replace the whole thing with a new one.
-				wizard.$fileInputCtrl = wizard.setupFileInputCtrl();
-			} );
-
-			return $fileInputCtrl;
 		},
 
 		/**
@@ -132,9 +94,22 @@
 		 * Create the basic interface to make an upload in this div
 		 */
 		createInterface: function ( selector ) {
+			var wizard = this;
+
 			this.ui = new uw.ui.Wizard( selector );
 
 			this.initialiseSteps();
+
+			this.steps.file.ui.on( 'files-added', function ( files ) {
+				var totalFiles = files.length + wizard.uploads.length,
+					tooManyFiles = totalFiles > wizard.config.maxUploads;
+
+				if ( tooManyFiles ) {
+					wizard.steps.file.showTooManyFilesWarning( totalFiles );
+				} else {
+					wizard.addUploads( files );
+				}
+			} );
 
 			// "select" the first step - highlight, make it visible, hide all others
 			this.steps.firstStep.moveTo();
