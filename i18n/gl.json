@@ -25,6 +25,7 @@
 	"api-error-abusefilter-warning": "Esta acción identificouse automáticamente como prexudicial ([$1 máis información]).\nAs edicións non construtivas serán revertidas en pouco tempo, e as edicións mal intencionadas ou repetitivas e prexudiciais poden dar como resultado o bloqueo da túa conta ou enderezo IP.",
 	"api-error-abusefilter-disallowed": "Esta acción identificouse automáticamente como prexudicial, e polo tanto non está permitida ([$1 máis información]).",
 	"api-error-spamblacklist": "A páxina que quixo gardar foi bloqueada polo filtro antispam.\nIsto, probabelmente, se debe a unha ligazón cara a un sitio externo que está na lista negra.",
+	"api-error-parsererror": "O servidor respondeu cun documento JSON incorrecto. Esto pode ser un problema coa API, ou pode ser que estea a usar un servidor proxy que impide que vostede suba ficheiros.",
 	"mwe-upwiz-unavailable": "O seu navegador non é compatible con UploadWizard ou ten o JavaScript desactivado, polo que lle amosamos un formulario sencillo de subida. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidade].)",
 	"mwe-upwiz-extension-disabled": "Esta páxina foi desactivada debido a problemas técnicos temporais. Entrementres, pode empregar o formulario de cargas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",
