@@ -239,7 +239,7 @@
 							return result.concat( warnings );
 						}, [] );
 
-					if ( warnings ) {
+					if ( warnings.length > 0 ) {
 						// Update warning count before dialog
 						detailsController.showErrors();
 						return detailsController.confirmationDialog( warnings );
