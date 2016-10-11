@@ -322,40 +322,16 @@
 		 */
 		addUploads: function ( files ) {
 			var
-				uploadObj, thumbPromise,
+				uploadObj,
 				uploadObjs = [],
-				uploadInterfaceDivs = [],
 				wizard = this;
 
 			$.each( files, function ( i, file ) {
 				uploadObj = wizard.addUpload( file );
 				uploadObjs.push( uploadObj );
-				// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
-				// performance
-				uploadInterfaceDivs.push( uploadObj.ui.div );
 			} );
 
-			// Attach all interfaces to the DOM
-			$( '#mwe-upwiz-filelist' ).append( $( uploadInterfaceDivs ) );
-
-			// Display thumbnails, but not all at once because they're somewhat expensive to generate.
-			// This will wait for each thumbnail to be complete before starting the next one.
-			thumbPromise = $.Deferred().resolve();
-			$.each( uploadObjs, function ( i, uploadObj ) {
-				thumbPromise = thumbPromise.then( function () {
-					var deferred = $.Deferred();
-					setTimeout( function () {
-						if ( wizard.steps.file.movedFrom ) {
-							// We're no longer displaying any of these thumbnails, stop
-							deferred.reject();
-						}
-						uploadObj.ui.showThumbnail().done( function () {
-							deferred.resolve();
-						} );
-					} );
-					return deferred.promise();
-				} );
-			} );
+			this.steps.file.ui.displayUploads( uploadObjs );
 
 			uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 		},
