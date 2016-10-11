@@ -314,6 +314,7 @@
 	"mwe-upwiz-prefs-license-own": "নিজের কাজ - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "অন্য কারও কাজ - $1",
 	"mwe-upwiz-prefs-skiptutorial": "পরিচায়ক লাইসেন্সকরণ টিউটোরিয়াল এড়িয়ে যান",
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "একসাথে আপলোডের সর্বাধিক সংখ্যা",
 	"campaigns": "আপলোড উইজার্ড ক্যাম্পেইন",
 	"mwe-upload-campaigns-pagination-next": "পরবর্তী পাতা",
 	"mwe-upload-campaigns-list-title": "আপলোড ক্যাম্পেইনের তালিকা"
