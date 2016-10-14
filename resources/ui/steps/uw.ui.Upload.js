@@ -34,38 +34,14 @@
 			'file'
 		);
 
-		this.$uploadCenterDivide = $( '<p>' )
-			.attr( 'id', 'mwe-upwiz-upload-ctr-divide' )
-			.text( mw.message( 'mwe-upwiz-add-flickr-or' ).text() );
-
-		this.$flickrAddFileContainer = $( '<div>' )
-			.attr( 'id', 'mwe-upwiz-upload-ctrl-flickr-container' )
-			.append( this.$uploadCenterDivide );
-
 		this.$addFileContainer = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-add-file-container' )
-			.addClass( 'mwe-upwiz-add-files-0' )
-			.append( this.$flickrAddFileContainer );
+			.addClass( 'mwe-upwiz-add-files-0' );
 
 		this.$uploadCtrl = $( '<div>' )
 			.attr( 'id', 'mwe-upwiz-upload-ctrls' )
 			.addClass( 'mwe-upwiz-file ui-helper-clearfix' )
 			.append( this.$addFileContainer );
-
-		this.$flickrSelectList = $( '<div>' )
-			.attr( 'id', 'mwe-upwiz-flickr-select-list' );
-
-		this.$flickrSelectListContainer = $( '<div>' )
-			.attr( 'id', 'mwe-upwiz-flickr-select-list-container' )
-			.addClass( 'ui-corner-all' )
-			.append(
-				$( '<div>' )
-					.text( mw.message(
-						'mwe-upwiz-multi-file-select2',
-						config.maxUploads
-					) ),
-				this.$flickrSelectList
-			);
 
 		this.addFile = new OO.ui.ButtonWidget( {
 			id: 'mwe-upwiz-add-file',
@@ -73,9 +49,16 @@
 			flags: [ 'constructive', 'primary' ]
 		} );
 
-		this.$addFileContainer.prepend( this.addFile.$element );
+		this.$addFileContainer.append( this.addFile.$element );
 
 		if ( this.isFlickrImportEnabled() ) {
+			this.$flickrAddFileContainer = $( '<div>' )
+				.attr( 'id', 'mwe-upwiz-upload-ctrl-flickr-container' );
+
+			this.$uploadCenterDivide = $( '<p>' )
+				.attr( 'id', 'mwe-upwiz-upload-ctr-divide' )
+				.text( mw.message( 'mwe-upwiz-add-flickr-or' ).text() );
+
 			this.addFlickrFile = new OO.ui.ButtonWidget( {
 				id: 'mwe-upwiz-add-flickr-file',
 				label: mw.message( 'mwe-upwiz-add-file-flickr' ).text(),
@@ -84,7 +67,28 @@
 				upload.emit( 'flickr-ui-init' );
 			} );
 
-			this.$flickrAddFileContainer.append( this.addFlickrFile.$element );
+			this.$flickrAddFileContainer.append(
+				this.$uploadCenterDivide,
+				this.addFlickrFile.$element
+			);
+
+			this.$addFileContainer
+				.append( this.$flickrAddFileContainer );
+
+			this.$flickrSelectList = $( '<div>' )
+				.attr( 'id', 'mwe-upwiz-flickr-select-list' );
+
+			this.$flickrSelectListContainer = $( '<div>' )
+				.attr( 'id', 'mwe-upwiz-flickr-select-list-container' )
+				.addClass( 'ui-corner-all' )
+				.append(
+					$( '<div>' )
+						.text( mw.message(
+							'mwe-upwiz-multi-file-select2',
+							config.maxUploads
+						) ),
+					this.$flickrSelectList
+				);
 
 			this.$flickrSelect = $( '#mwe-upwiz-select-flickr' );
 		}
@@ -173,7 +177,10 @@
 		if ( haveUploads ) {
 			// we have uploads ready to go, so allow us to proceed
 			this.$addFileContainer.add( this.$buttons ).show();
-			this.$uploadCenterDivide.hide();
+
+			if ( this.isFlickrImportEnabled() ) {
+				this.$uploadCenterDivide.hide();
+			}
 
 			// fix the rounded corners on file elements.
 			// we want them to be rounded only when their edge touched the top or bottom of the filelist.
