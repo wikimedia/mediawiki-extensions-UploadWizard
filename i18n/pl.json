@@ -180,6 +180,8 @@
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-fileexists-replace-on-page": "Plik o tej nazwie już istnieje. Jeśli chcesz go zastąpić, przejdź do strony [$2 $1] na której możesz to zrobić.",
 	"mwe-upwiz-fileexists-replace-no-link": "Wybierz inny tytuł, ponieważ ten jest już używany przez inny plik.",
+	"mwe-upwiz-blacklisted-details": "Proszę wybrać inny, opisowy tytuł ([$2 więcej informacji]).",
+	"mwe-upwiz-blacklisted-details-feedback": "Proszę wybrać inny, opisowy tytuł ([$2 więcej informacji]). • [$3 Wyślij opinię]",
 	"mwe-upwiz-next": "Dalej",
 	"mwe-upwiz-next-file": "Kontynuuj",
 	"mwe-upwiz-next-deeds": "Dalej",
