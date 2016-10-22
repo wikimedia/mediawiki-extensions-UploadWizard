@@ -212,6 +212,7 @@
 	"mwe-upwiz-error-heading": "A posição deve ser um número entre 0 e 360.",
 	"mwe-upwiz-error-signature-too-long": "A assinatura é demasiado longa.\nUse no máximo $1 {{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-signature-too-short": "A assinatura é demasiado curta.\nUse no mínimo $1 {{PLURAL:$1|carácter|caracteres}}.",
+	"mwe-upwiz-error-date-license-mismatch": "A data selecionada não é compatível com a licença ($1).",
 	"mwe-upwiz-error-blank": "Este campo é obrigatório.",
 	"mwe-upwiz-error-too-long": "Este campo é demasiado longo.\nPor favor, mantenha esta entrada com pelo menos $1\n{{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-too-short": "Este campo é demasiado curto.\nPor favor, mantenha esta entrada com pelo menos $1\n{{PLURAL:$1|carácter|caracteres}}.",

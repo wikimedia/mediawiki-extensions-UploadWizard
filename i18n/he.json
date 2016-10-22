@@ -217,6 +217,7 @@
 	"mwe-upwiz-error-heading": "הכיוון צריך להיות מספר בין 0 לבין 360.",
 	"mwe-upwiz-error-signature-too-long": "חתימתך ארוכה מדי.\nהיא חייבת להיות קצרה מ{{PLURAL:$1|תו אחד|־$1 תווים}}.",
 	"mwe-upwiz-error-signature-too-short": "חתימתך קצרה מדי.\nהיא חייבת להיות ארוכה מ{{PLURAL:$1|תו אחד|־$1 תווים}}.",
+	"mwe-upwiz-error-date-license-mismatch": "התאריך שנבחר אינו תואם לרישיון ($1).",
 	"mwe-upwiz-error-blank": "חובה למלא שדה זה.",
 	"mwe-upwiz-error-too-long": "העיול הזה ארוך מדי.\nנא לוודא שבעיול הזה יש {{PLURAL:$1|תו אחד|$1 תווים}} לכל היותר.",
 	"mwe-upwiz-error-too-short": "העיול הזה קצר מדי.\nנא לוודא שבעיול הזה יש {{PLURAL:$1|תו אחד|$1 תווים}} לפחות.",

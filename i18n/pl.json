@@ -214,6 +214,8 @@
 	"mwe-upwiz-error-heading": "Kierunek musi być liczbą z zakresu od 0 do 360.",
 	"mwe-upwiz-error-signature-too-long": "Twój podpis jest zbyt długi.\nSkróć go do mniej niż $1 {{PLURAL:$1|znaku|znaków}}.",
 	"mwe-upwiz-error-signature-too-short": "Twój podpis jest za krótki.\nWydłuż go do więcej niż $1 {{PLURAL:$1|znaku|znaków}}.",
+	"mwe-upwiz-error-date-license-mismatch": "Wybrana data nie pasuje do licencji ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "Wybrana data prawdopodobnie nie jest poprawna, ze względu na licencję ($1).",
 	"mwe-upwiz-error-blank": "Wypełnienie tego pola jest obowiązkowe.",
 	"mwe-upwiz-error-too-long": "Ten wpis jest zbyt długi.\nUpewnij się, że ten wpis ma co najwyżej $1 {{PLURAL:$1|znak|znaki|znaków}}.",
 	"mwe-upwiz-error-too-short": "Ten wpis jest za krótki.\nUpewnij się, że ten wpis ma co najmniej $1 {{PLURAL:$1|znak|znaki|znaków}}.",

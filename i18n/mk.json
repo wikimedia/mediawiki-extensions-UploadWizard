@@ -209,6 +209,8 @@
 	"mwe-upwiz-error-heading": "Правецот на сликање мора да биде број од 0 до 360.",
 	"mwe-upwiz-error-signature-too-long": "Потписот ви е предолг.\nМора да биде пократок од $1 {{PLURAL:$1|знак|знаци}}.",
 	"mwe-upwiz-error-signature-too-short": "Потписот ви е прекраток.\nМора да биде подолг од $1 {{PLURAL:$1|знак|знаци}}.",
+	"mwe-upwiz-error-date-license-mismatch": "Ибзраниот дадум не одговара на лиценцата ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "Избраниот датум веројатно не е точен, со осглед на лиценцата ($1).",
 	"mwe-upwiz-error-blank": "Ова поле е задолжително.",
 	"mwe-upwiz-error-too-long": "Записов е предолг.\nСкратете го на не повеќе од {{PLURAL:$1|еден знак|$1 знаци}}.",
 	"mwe-upwiz-error-too-short": "Записов е прекраток.\nДополнете го за да има барем {{PLURAL:$1|еден знак|$1 знаци}}.",

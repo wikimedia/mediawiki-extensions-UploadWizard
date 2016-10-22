@@ -222,6 +222,8 @@
 	"mwe-upwiz-error-heading": "Die Richtung muss eine Zahl zwischen 0 und 360 sein.",
 	"mwe-upwiz-error-signature-too-long": "Deine Signatur ist zu lang.\nKürze sie auf weniger als $1 {{PLURAL:$1|Zeichen}}.",
 	"mwe-upwiz-error-signature-too-short": "Deine Signatur ist zu kurz.\nVerlängere sie auf mehr als $1 {{PLURAL:$1|Zeichen}}.",
+	"mwe-upwiz-error-date-license-mismatch": "Das ausgewählte Datum entspricht nicht der Lizenz ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "Das ausgewählte Datum ist wahrscheinlich nicht korrekt. Es wurde die Lizenz $1 angegeben.",
 	"mwe-upwiz-error-blank": "Dies ist ein Pflichtfeld.",
 	"mwe-upwiz-error-too-long": "Dieser Eintrag ist zu lang.\nBitte stelle sicher, dass er maximal {{PLURAL:$1|ein Zeichen|$1 Zeichen}} lang ist.",
 	"mwe-upwiz-error-too-short": "Dieser Eintrag ist zu kurz.\nBitte stelle sicher, dass er mindestens {{PLURAL:$1|ein Zeichen|$1 Zeichen}} lang ist.",
