@@ -389,7 +389,7 @@ return [
 		],
 		'pd-us' => [
 			'msg' => 'mwe-upwiz-license-pd-us',
-			'templates' => [ 'PD-US' ]
+			'templates' => [ 'PD-1923' ]
 		],
 		'pd-usgov' => [
 			'msg' => 'mwe-upwiz-license-pd-usgov',
