@@ -274,7 +274,7 @@
 				languageCode = mw.config.get( 'wgUserLanguage' ),
 
 				// The URL is optional, but if the message includes it as $2, we surface the fact
-				// that it's misisng.
+				// that it's missing.
 				licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url,
 
 				licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } ),
@@ -433,6 +433,23 @@
 			var values = {};
 			values[ this.defaults ] = true;
 			this.setValues( values );
+		},
+
+		/**
+		 * Gets the selected license(s). The returned value will be a license
+		 * key => license props map, as defined in UploadWizard.config.php.
+		 *
+		 * @return {Object}
+		 */
+		getLicenses: function () {
+			var licenses = {};
+
+			this.getSelectedInputs().each( function () {
+				var licenseName = this.data( 'licenseName' );
+				licenses[ licenseName ] = mw.UploadWizard.config.licenses[ licenseName ] || {};
+			} );
+
+			return licenses;
 		},
 
 		/**
