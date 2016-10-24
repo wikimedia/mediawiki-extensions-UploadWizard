@@ -213,6 +213,8 @@
 	"mwe-upwiz-error-heading": "O ángulo acimutal debe ser un número entre 0 e 360.",
 	"mwe-upwiz-error-signature-too-long": "A súa sinatura é longa de máis.\nNon pode conter máis {{PLURAL:$1|dun carácter|de $1 caracteres}}.",
 	"mwe-upwiz-error-signature-too-short": "A súa sinatura é curta de máis.\nDebe conter un mínimo {{PLURAL:$1|dun carácter|de $1 caracteres}}.",
+	"mwe-upwiz-error-date-license-mismatch": "A data seleccionada non é compatible coa licenza ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "A data seleccionada non parece correcta, dada a licenza ($1).",
 	"mwe-upwiz-error-blank": "Este campo é obrigatorio.",
 	"mwe-upwiz-error-too-long": "Esta entrada é longa de máis.\nPor favor, asegúrese de que a entrada non ten máis {{PLURAL:$1|dun carácter|de $1 caracteres}}.",
 	"mwe-upwiz-error-too-short": "Esta entrada é curta de máis.\nPor favor, asegúrese de que a entrada ten polo menos {{PLURAL:$1|un carácter|$1 caracteres}}.",

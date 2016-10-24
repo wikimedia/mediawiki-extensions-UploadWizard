@@ -250,6 +250,8 @@
 	"mwe-upwiz-error-heading": "L’entête doit être un nombre entre 0 et 360.",
 	"mwe-upwiz-error-signature-too-long": "Votre signature est trop longue.\nElle ne doit pas dépasser $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-signature-too-short": "Votre signature est trop courte.\nElle doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.",
+	"mwe-upwiz-error-date-license-mismatch": "La date sélectionnée ne correspond pas à la licence ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "La date sélectionnée ne semble pas correcte, étant donné la licence ($1).",
 	"mwe-upwiz-error-blank": "Ce champ est obligatoire.",
 	"mwe-upwiz-error-too-long": "Cette entrée est trop longue.\nVeuillez faire en sorte qu’elle ne dépasse pas $1 {{PLURAL:$1|caractère|caractères}}.",
 	"mwe-upwiz-error-too-short": "Cette entrée est trop courte.\nVeuillez faire en sorte qu’elle contienne au moins $1 {{PLURAL:$1|caractère|caractères}}.",

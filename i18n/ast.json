@@ -207,6 +207,8 @@
 	"mwe-upwiz-error-heading": "La orientación tien de ser un númberu ente 0 y 360.",
 	"mwe-upwiz-error-signature-too-long": "La to robla ye demasiao llarga.\nFaila menor de $1 {{PLURAL:$1|caráuter|carauteres}}.",
 	"mwe-upwiz-error-signature-too-short": "La to robla ye demasiao curtia.\nFaila mayor de $1 {{PLURAL:$1|caráuter|carauteres}}.",
+	"mwe-upwiz-error-date-license-mismatch": "La data seleicionada nun casa cola llicencia ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "La data seleicionada posiblemente nun ye correuta, teniendo en cuenta la llicencia ($1).",
 	"mwe-upwiz-error-blank": "Esti campu ye obligatoriu.",
 	"mwe-upwiz-error-too-long": "Esta entrada ye demasiao llarga.\nAsegúrate de que la entrada tien, como muncho, $1 {{PLURAL:$1|caráuter|caráuteres}}.",
 	"mwe-upwiz-error-too-short": "Esta entrada ye demasiao curtia.\nAsegúrate de que tien polo menos $1 {{PLURAL:$1|caráuter|caráuteres}}.",
