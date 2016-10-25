@@ -471,7 +471,7 @@
 						);
 					} ) ).done( function () {
 						// Once this is done for all images, add them to the wizard
-						checker.wizard.addUploads( uploads );
+						checker.wizard.steps.file.addUploads( uploads );
 					} ).always( function () {
 						checker.$spinner.remove();
 						checker.wizard.flickrInterfaceDestroy();
@@ -575,7 +575,7 @@
 					checker.setUploadDescription( flickrUpload, photo.description._content ),
 					checker.setImageURL( 0 )
 				).done( function () {
-					checker.wizard.addUploads( [ flickrUpload ] );
+					checker.wizard.steps.file.addUploads( [ flickrUpload ] );
 				} ).always( function () {
 					checker.$spinner.remove();
 					checker.wizard.flickrInterfaceDestroy();

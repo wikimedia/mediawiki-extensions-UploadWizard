@@ -22,9 +22,9 @@
 	 * @class mw.UploadWizardUpload
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {UploadWizard} wizard
+	 * @param {Step} controller
 	 */
-	mw.UploadWizardUpload = function MWUploadWizardUpload( wizard ) {
+	mw.UploadWizardUpload = function MWUploadWizardUpload( controller ) {
 		var upload = this;
 
 		OO.EventEmitter.call( this );
@@ -32,8 +32,8 @@
 		this.index = mw.UploadWizardUpload.prototype.count;
 		mw.UploadWizardUpload.prototype.count++;
 
-		this.wizard = wizard;
-		this.api = wizard.api;
+		this.controller = controller;
+		this.api = controller.api;
 		this.state = 'new';
 		this.thumbnailPublishers = {};
 		this.imageinfo = {};
@@ -49,7 +49,6 @@
 
 		// this should be moved to the interface, if we even keep this
 		this.transportWeight = 1; // default all same
-		this.detailsWeight = 1; // default all same
 
 		// details
 		this.ui = new mw.UploadWizardUploadInterface( this )
@@ -344,7 +343,7 @@
 			this.emit( 'success' );
 			// check all uploads, if they're complete, show the next button
 			// TODO Make wizard connect to 'success' event
-			this.wizard.steps.file.showNext();
+			this.controller.showNext();
 		} else {
 			this.setError( 'noimageinfo' );
 		}
@@ -414,7 +413,7 @@
 
 		// check to see if the file has already been selected for upload.
 		duplicate = false;
-		$.each( this.wizard.uploads, function ( i, thisupload ) {
+		$.each( this.controller.uploads, function ( i, thisupload ) {
 			if ( thisupload !== undefined && upload !== thisupload && filename === thisupload.filename ) {
 				duplicate = true;
 				return false;
