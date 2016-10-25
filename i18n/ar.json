@@ -225,6 +225,8 @@
 	"mwe-upwiz-error-heading": "يجب أن تكون الوجهة رقما ما بين 0 و 360.",
 	"mwe-upwiz-error-signature-too-long": "توقيعك طويل جدا.\nيجب أن يكون أقل من $1 {{PLURAL:$1|حرف|حروف}}.",
 	"mwe-upwiz-error-signature-too-short": "توقيعك طويل جدا.\nيجب أن يكون أقل من $1 {{PLURAL:$1|حرف|حروف}}.",
+	"mwe-upwiz-error-date-license-mismatch": "التاريخ المختار لا يطابق الترخيص ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "التاريخ المختار غالبا ليس صحيحا، مع إعطاء الرخصة ($1).",
 	"mwe-upwiz-error-blank": "هذا الحقل مطلوب.",
 	"mwe-upwiz-error-too-long": "هذا الحقل طويل جداً.\nالرجاء جعل هذا الإدخال أقصر من $1 {{PLURAL:$1|حرف|حروف}}.",
 	"mwe-upwiz-error-too-short": "هذه المدخلة أقصر مما ينبغي.\nمن فضلك اجعل هذه المدخلة أطول من $1 {{PLURAL:$1|حرفا|أحرف}}.",
