@@ -103,7 +103,7 @@
 	 * @return {Object}
 	 */
 	uw.DateDetailsWidget.prototype.getLicenses = function () {
-		if ( this.upload.deedChooser.deed && this.upload.deedChooser.deed.licenseInput ) {
+		if ( this.upload.deedChooser && this.upload.deedChooser.deed && this.upload.deedChooser.deed.licenseInput ) {
 			return this.upload.deedChooser.deed.licenseInput.getLicenses();
 		}
 
