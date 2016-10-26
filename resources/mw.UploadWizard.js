@@ -94,17 +94,6 @@
 				.on( 'flickr-ui-init', function () {
 					wizard.flickrInterfaceInit();
 					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
-				} )
-
-				.on( 'load', function () {
-					// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
-					// While this looks extremely unlikely to be right, it actually is. Blame Apple.
-					if ( $( '<input type="file">' ).prop( 'disabled' ) ) {
-						$( '#mwe-upwiz-stepdiv-file' ).replaceWith(
-							$( '<span>' ).msg( 'mwe-upwiz-file-upload-notcapable' )
-						);
-						$( '#mwe-upwiz-add-file' ).hide();
-					}
 				} );
 
 			this.steps.deeds = new uw.controller.Deed( this.api, this.config );

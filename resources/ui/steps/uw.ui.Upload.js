@@ -147,6 +147,16 @@
 		var $fileInputCtrl = $( '<input type="file" multiple name="file" class="mwe-upwiz-file-input" />' ),
 			ui = this;
 
+		// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
+		// While this looks extremely unlikely to be right, it actually is. Blame Apple.
+		if ( $fileInputCtrl.prop( 'disabled' ) ) {
+			$element.replaceWith(
+				$( '<span>' ).msg( 'mwe-upwiz-file-upload-notcapable' )
+			);
+
+			return;
+		}
+
 		$element.find( '.mwe-upwiz-file-input' ).remove();
 		$element.append( $fileInputCtrl );
 
