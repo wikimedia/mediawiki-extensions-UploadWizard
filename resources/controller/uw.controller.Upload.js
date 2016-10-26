@@ -121,6 +121,12 @@
 		}
 	};
 
+	uw.controller.Upload.prototype.moveNext = function () {
+		this.removeErrorUploads();
+
+		uw.controller.Step.prototype.moveNext.call( this );
+	};
+
 	/**
 	 * Starts the upload progress bar.
 	 */

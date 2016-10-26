@@ -279,4 +279,21 @@
 		return this.uploads === undefined || this.uploads.length === 0 || this.movedFrom;
 	};
 
+	/**
+	 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
+	 */
+	uw.controller.Step.prototype.removeErrorUploads = function () {
+		// We must not remove items from an array while iterating over it with $.each (it causes the
+		// next item to be skipped). Find and queue them first, then remove them.
+		var toRemove = [];
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload !== undefined && upload.state === 'error' ) {
+				toRemove.push( upload );
+			}
+		} );
+		$.each( toRemove, function ( i, upload ) {
+			upload.remove();
+		} );
+	};
+
 }( mediaWiki, mediaWiki.uploadWizard, OO, jQuery ) );

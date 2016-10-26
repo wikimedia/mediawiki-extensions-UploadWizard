@@ -28,10 +28,8 @@
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Details()
-				.connect( this, {
-					'start-details': 'startDetails',
-					'finalize-details-after-removal': [ 'emit', 'finalize-details-after-removal' ]
-				} ),
+				.on( 'start-details', this.startDetails.bind( this ) )
+				.on( 'finalize-details-after-removal', this.moveNext.bind( this ) ),
 			api,
 			config
 		);
@@ -102,6 +100,8 @@
 			upload.off( 'remove-upload', controller.removeUpload.bind( controller, upload ) );
 		} );
 
+		this.removeErrorUploads();
+
 		uw.controller.Step.prototype.moveNext.call( this );
 	};
 
@@ -109,10 +109,6 @@
 		var controller = this;
 
 		$.each( this.uploads, function ( i, upload ) {
-			// reset step name: if upload was attempted and failed, step name
-			// would be an error, and upload would be removed when moving back
-			upload.state = controller.stepName;
-
 			// get rid of remove handler, this handler only makes sense in this
 			// exact step - having it bound while in other steps could cause
 			// unexpected issues
@@ -153,9 +149,8 @@
 			if ( valid ) {
 				details.ui.hideEndButtons();
 				details.submit();
-				details.emit( 'start-details' );
 			} else {
-				details.emit( 'details-error' );
+				details.showErrors();
 			}
 		} );
 	};

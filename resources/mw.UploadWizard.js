@@ -56,26 +56,6 @@
 		stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
 
 		/**
-		 * Reset the entire interface so we can upload more stuff
-		 * (depends on updateFileCounts to reset the interface when uploads go down to 0)
-		 * Depending on whether we split uploading / detailing, it may actually always be as simple as loading a URL
-		 */
-		reset: function () {
-			if ( this.hasLoadedBefore ) {
-				// this is counterintuitive, but the count needs to start at -1 to allow for the empty upload created on the first step.
-				mw.UploadWizardUpload.prototype.count = -1;
-			}
-
-			this.removeMatchingUploads( function () { return true; } );
-			this.hasLoadedBefore = true;
-
-			// hide flickr uploading button if user doesn't have permissions
-			if ( !mw.UploadWizard.config.UploadFromUrl || mw.UploadWizard.config.flickrApiKey === '' ) {
-				$( '#mwe-upwiz-upload-ctrl-flickr-container, #mwe-upwiz-flickr-select-list-container' ).hide();
-			}
-		},
-
-		/**
 		 * Resets wizard state and moves to the file step.
 		 */
 		bailAndMoveToFile: function () {
@@ -127,25 +107,9 @@
 					}
 				} );
 
-			this.steps.deeds = new uw.controller.Deed( this.api, this.config )
-				.on( 'load', function () {
-					wizard.removeErrorUploads();
-				} );
-
-			this.steps.details = new uw.controller.Details( this.api, this.config )
-				.on( 'details-error', function () {
-					wizard.steps.details.showErrors();
-				} )
-
-				.on( 'finalize-details-after-removal', function () {
-					wizard.removeErrorUploads();
-					wizard.steps.details.moveNext();
-				} );
-
-			this.steps.thanks = new uw.controller.Thanks( this.api, this.config )
-				.on( 'reset-wizard', function () {
-					wizard.reset();
-				} );
+			this.steps.deeds = new uw.controller.Deed( this.api, this.config );
+			this.steps.details = new uw.controller.Details( this.api, this.config );
+			this.steps.thanks = new uw.controller.Thanks( this.api, this.config );
 
 			if ( skipTutorial ) {
 				this.steps.firstStep = this.steps.file;
@@ -263,44 +227,6 @@
 			$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 			$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', true );
-		},
-
-		/**
-		 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
-		 */
-		removeErrorUploads: function () {
-			this.removeMatchingUploads( function ( upload ) {
-				return upload.state === 'error';
-			} );
-		},
-
-		/**
-		 * This is useful to clean out file inputs that we don't want for some reason (error, empty...)
-		 * We are using a second array to iterate, because we will be splicing the main one, _this.uploads
-		 *
-		 * @param {Function} criterion Function to test the upload, returns boolean; true if should be removed
-		 */
-		removeMatchingUploads: function ( criterion ) {
-			var toRemove = [];
-
-			// @todo: for now, we'll have to reach into one of the controllers
-			// to manipulate the uploads array that is shared between them, but
-			// we should also move this method away from this class
-			$.each( this.steps.file.uploads, function ( i, upload ) {
-				if ( upload === undefined ) {
-					return;
-				}
-				if ( criterion( upload ) ) {
-					toRemove.push( upload );
-				}
-			} );
-
-			$.each( toRemove, function ( i, upload ) {
-				if ( upload === undefined ) {
-					return;
-				}
-				upload.remove();
-			} );
 		},
 
 		/**
