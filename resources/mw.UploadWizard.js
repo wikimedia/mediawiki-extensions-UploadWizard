@@ -1,8 +1,7 @@
 /**
-* Object that reperesents the entire multi-step Upload Wizard
-*/
-
-( function ( mw, uw, $, OO ) {
+ * Object that represents the entire multi-step Upload Wizard
+ */
+( function ( mw, uw, $ ) {
 
 	mw.UploadWizard = function ( config ) {
 		var maxSimPref, wizard = this;
@@ -60,7 +59,7 @@
 		 */
 		bailAndloadFile: function () {
 			// destroy the flickr interface if it exists
-			this.flickrInterfaceDestroy();
+			this.steps.file.ui.flickrInterfaceDestroy();
 		},
 
 		/**
@@ -85,12 +84,7 @@
 					( this.config.tutorial && this.config.tutorial.skip );
 
 			this.steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
-			this.steps.file = new uw.controller.Upload( this.api, this.config )
-				.on( 'flickr-ui-init', function () {
-					wizard.flickrInterfaceInit();
-					uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
-				} );
-
+			this.steps.file = new uw.controller.Upload( this.api, this.config );
 			this.steps.deeds = new uw.controller.Deed( this.api, this.config );
 			this.steps.details = new uw.controller.Details( this.api, this.config );
 			this.steps.thanks = new uw.controller.Thanks( this.api, this.config );
@@ -123,94 +117,6 @@
 			this.steps.thanks.setNextStep( this.steps.file );
 
 			$( '#mwe-upwiz-steps' ).arrowSteps();
-		},
-
-		/**
-		 * Initiates the Interface to upload media from Flickr.
-		 * Called when the user clicks on the 'Add images from Flickr' button.
-		 */
-		flickrInterfaceInit: function () {
-			var $disclaimer,
-				wizard = this,
-				checker = new mw.FlickrChecker( this, this.upload ),
-				// The input that will hold a flickr URL entered by the user; will be appended to a form
-				$flickrInput = $( '<input id="mwe-upwiz-flickr-input" type="text" />' ),
-				// A container holding a form
-				$flickrContainer = $( '<div id="mwe-upwiz-upload-add-flickr-container"></div>' ),
-				// Form whose submit event will be listened to and prevented
-				$flickrForm = $( '<form id="mwe-upwiz-flickr-url-form"></form>' )
-					.appendTo( $flickrContainer ),
-				flickrButton = new OO.ui.ButtonInputWidget( {
-					id: 'mwe-upwiz-upload-ctrl-flickr',
-					label: mw.message( 'mwe-upwiz-add-flickr' ).text(),
-					flags: [ 'progressive', 'primary' ],
-					type: 'submit'
-				} );
-
-			$flickrForm.append( flickrButton.$element );
-
-			// Hide containers for selecting files
-			$( '#mwe-upwiz-add-file-container, #mwe-upwiz-upload-ctrl-flickr-container' ).hide();
-
-			// Add placeholder text to the Flickr URL input field
-			$flickrInput.placeholder( mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text() );
-
-			// Insert form into the page
-			$( '#mwe-upwiz-files' ).prepend( $flickrContainer );
-
-			// Add disclaimer
-			$disclaimer = mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
-				'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse();
-			$disclaimer = $( '<div id="mwe-upwiz-flickr-disclaimer"></div>' ).html( $disclaimer );
-			$( '#mwe-upwiz-upload-add-flickr-container' ).append( $disclaimer );
-
-			// Save temporarily
-			this.flickrButton = flickrButton;
-
-			// Insert input field into the form and set up submit action
-			$flickrForm.prepend( $flickrInput ).submit( function () {
-				flickrButton.setDisabled( true );
-				wizard.flickrChecker( checker );
-				// TODO Any particular reason to stopPropagation ?
-				return false;
-			} );
-
-			$flickrInput.focus();
-		},
-
-		/**
-		 * Responsible for fetching license of the provided media.
-		 */
-		flickrChecker: function ( checker ) {
-			var flickrInputUrl = $( '#mwe-upwiz-flickr-input' ).val();
-			checker.getLicenses().done( function () {
-				checker.checkFlickr( flickrInputUrl );
-			} );
-		},
-
-		/**
-		 * Reset the interface if there is a problem while fetching the images from the URL entered by the user.
-		 */
-		flickrInterfaceReset: function () {
-			// first destroy it completely, then reshow the add button
-			this.flickrInterfaceDestroy();
-			this.flickrButton.setDisabled( false );
-			$( '#mwe-upwiz-upload-add-flickr-container' ).show();
-			$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', false );
-		},
-
-		/**
-		 * Removes the flickr interface.
-		 */
-		flickrInterfaceDestroy: function () {
-			$( '.mw-spinner' ).remove();
-			$( '#mwe-upwiz-flickr-input' ).val( '' );
-			$( '#mwe-upwiz-flickr-select-list' ).empty();
-			$( '#mwe-upwiz-flickr-select-list-container' ).unbind();
-			$( '#mwe-upwiz-select-flickr' ).remove();
-			$( '#mwe-upwiz-flickr-select-list-container' ).hide();
-			$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
-			$( '#mwe-upwiz-upload-add-flickr' ).prop( 'disabled', true );
 		},
 
 		/**
@@ -289,4 +195,4 @@
 			);
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+} )( mediaWiki, mediaWiki.uploadWizard, jQuery );

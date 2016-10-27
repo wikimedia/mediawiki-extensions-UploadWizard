@@ -1,20 +1,12 @@
 // Only turning these jscs options off for ''this file''
 /* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
 ( function ( mw, $, OO ) {
-	mw.FlickrChecker = function ( wizard, upload ) {
-		this.wizard = wizard;
-		this.upload = upload;
+	mw.FlickrChecker = function ( ui, selectButton ) {
+		this.ui = ui;
 		this.imageUploads = [];
 		this.apiUrl = mw.UploadWizard.config.flickrApiUrl;
 		this.apiKey = mw.UploadWizard.config.flickrApiKey;
-
-		this.selectButton = new OO.ui.ButtonWidget( {
-			id: 'mwe-upwiz-select-flickr',
-			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
-			flags: [ 'constructive', 'primary' ]
-		} );
-
-		$( '#mwe-upwiz-flickr-select-list-container' ).append( this.selectButton.$element );
+		this.selectButton = selectButton;
 	};
 
 	/**
@@ -113,7 +105,8 @@
 			} else {
 				// XXX show user the message that the URL entered was not valid
 				mw.errorDialog( mw.message( 'mwe-upwiz-url-invalid', 'Flickr' ).escaped() );
-				this.wizard.flickrInterfaceReset();
+				this.$spinner.remove();
+				this.ui.flickrInterfaceReset();
 			}
 		},
 
@@ -470,11 +463,13 @@
 							checker.setImageURL( image )
 						);
 					} ) ).done( function () {
-						// Once this is done for all images, add them to the wizard
-						checker.wizard.steps.file.addUploads( uploads );
+						checker.ui.emit( 'files-added', uploads );
 					} ).always( function () {
+						// We'll only bind this once, since that selectButton could be
+						// reused later, with a different flickr set (it is not destroyed)
+						checker.selectButton.off( 'click' );
 						checker.$spinner.remove();
-						checker.wizard.flickrInterfaceDestroy();
+						checker.ui.flickrInterfaceDestroy();
 					} );
 				} );
 
@@ -494,7 +489,8 @@
 				}
 			} ).fail( function ( message ) {
 				mw.errorDialog( message );
-				checker.wizard.flickrInterfaceReset();
+				checker.$spinner.remove();
+				checker.ui.flickrInterfaceReset();
 			} );
 		},
 
@@ -575,14 +571,15 @@
 					checker.setUploadDescription( flickrUpload, photo.description._content ),
 					checker.setImageURL( 0 )
 				).done( function () {
-					checker.wizard.steps.file.addUploads( [ flickrUpload ] );
+					checker.ui.emit( 'files-added', [ flickrUpload ] );
 				} ).always( function () {
 					checker.$spinner.remove();
-					checker.wizard.flickrInterfaceDestroy();
+					checker.ui.flickrInterfaceDestroy();
 				} );
 			} ).fail( function ( message ) {
 				mw.errorDialog( message );
-				checker.wizard.flickrInterfaceReset();
+				checker.$spinner.remove();
+				checker.ui.flickrInterfaceReset();
 			} );
 		},
 
@@ -727,7 +724,8 @@
 					upload.url = largestSize.source;
 				} else {
 					mw.errorDialog( mw.message( 'mwe-upwiz-error-no-image-retrieved', 'Flickr' ).escaped() );
-					checker.wizard.flickrInterfaceReset();
+					checker.$spinner.remove();
+					checker.ui.flickrInterfaceReset();
 					return $.Deferred().reject();
 				}
 			} );
