@@ -332,7 +332,7 @@
 	"mwe-upwiz-prefs-def-license-def": "Usar o valor por omissão",
 	"mwe-upwiz-prefs-license-own": "Trabalho do próprio - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Trabalho de outros - $1",
-	"mwe-upwiz-prefs-chunked": "Carregamento por segmentos para ficheiros com mais de $1 no Assistente de Carregamento de Ficheiros",
+	"mwe-upwiz-prefs-chunked": "Carregamento por segmentos para ficheiros com mais de $1 no Assistente de Carregamento de Ficheiros - Aumenta o tamanho máximo dos ficheiros carregados de $2 para $3",
 	"mwe-upwiz-prefs-skiptutorial": "Saltar o guia prático de introdução ao licenciamento",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de uploads concorrentes",
 	"campaigns": "Campanhas do Assistente de Carregamento",
