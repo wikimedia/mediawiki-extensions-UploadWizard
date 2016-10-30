@@ -16,7 +16,8 @@
 			"Robin van der Vliet",
 			"Macofe",
 			"Dinosaur918",
-			"Romaine"
+			"Romaine",
+			"Hex"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -199,6 +200,8 @@
 	"mwe-upwiz-error-altitude": "De hoogte moet een getal zijn.",
 	"mwe-upwiz-error-signature-too-long": "Uw handtekening is te lang.\nMaak deze korter dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-signature-too-short": "Uw handtekening is te kort.\nMaak deze langer dan $1 {{PLURAL:$1|teken|tekens}}.",
+	"mwe-upwiz-error-date-license-mismatch": "De gekozen datum komt niet overeen met de licentie ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "De gekozen datum is waarschijnlijk niet juist, gegeven de licentie ($1).",
 	"mwe-upwiz-error-blank": "Dit is een verplicht veld.",
 	"mwe-upwiz-error-too-long": "De invoer voor dit veld is te lang.\nMaak het korter dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-too-short": "De invoer voor dit veld is te kort.\nMaak het langer dan $1 {{PLURAL:$1|teken|tekens}}.",
