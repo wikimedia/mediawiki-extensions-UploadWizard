@@ -206,6 +206,7 @@
 	"mwe-upwiz-error-title-double-apostrophe": "Este título contém um apóstrofo duplo; remova-o, por favor.",
 	"mwe-upwiz-error-title-extension": "Não é necessário adicionar uma extensão. Crie simplesmente um título que seja compreensível e a aplicação tratará do resto.",
 	"mwe-upwiz-error-title-protected": "Este título corresponde a uma página protegida nesta wiki. Por favor escolha uma diferente.",
+	"mwe-upwiz-error-title-duplicate": "Este título foi atribuído a mais que um dos arquivos que você vai carregar. Note que \"underscores\" são tratados como espaços, e uma extensão é adicionada automaticamente.",
 	"mwe-upwiz-error-license-wikitext-missing": "Você selecionou uma opção que requer que você digite wikitexto.",
 	"mwe-upwiz-error-license-wikitext-too-short": "O wikitexto digitado é muito curto para ser uma licença",
 	"mwe-upwiz-error-license-wikitext-too-long": "O wikitexto digitado é muito longo.",

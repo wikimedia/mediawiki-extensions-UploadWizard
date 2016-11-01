@@ -222,6 +222,8 @@
 	"mwe-upwiz-error-heading": "El rumbo debe ser un número entre 0 y 360.",
 	"mwe-upwiz-error-signature-too-long": "Tu firma es demasiada larga.\nHazla más corta que $1 {{PLURAL:$1|carácter|caracteres}}.",
 	"mwe-upwiz-error-signature-too-short": "Tu firma es demasiado corta.\nHazla más larga que $1 {{PLURAL:$1|carácter|caracteres}}.",
+	"mwe-upwiz-error-date-license-mismatch": "La fecha seleccionada no es compatible con la licencia ($1).",
+	"mwe-upwiz-error-date-license-unlikely": "Es probable que la fecha seleccionada no sea correcta, a juzgar por la licencia ($1).",
 	"mwe-upwiz-error-blank": "Este campo es obligatorio.",
 	"mwe-upwiz-error-too-long": "Esta entrada es demasiado larga.\nAsegúrate de que sea de $1 {{PLURAL:$1|carácter|caracteres}} a lo sumo.",
 	"mwe-upwiz-error-too-short": "Esta entrada es demasiado corta.\nAsegúrate de que sea al menos de $1 {{PLURAL:$1|carácter|caracteres}}.",
