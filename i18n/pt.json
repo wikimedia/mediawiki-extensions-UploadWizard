@@ -165,7 +165,7 @@
 	"mwe-upwiz-thanks-explain": "Agora pode usar {{PLURAL:$1|este ficheiro|estes ficheiros}} em sítios como a Wikipédia, ou criar ligações para {{PLURAL:$1|ele|eles}} na Internet.",
 	"mwe-upwiz-thanks-wikitext": "Para usar o ficheiro numa wiki, copie este texto para uma página:",
 	"mwe-upwiz-thanks-update-delay": "A inserção da imagem na página da lista pode demorar até cinco minutos.",
-	"mwe-upwiz-thanks-url": "Para criar uma ligação para o ficheiro em HTML, copie este URL do endereço:",
+	"mwe-upwiz-thanks-url": "Para criar um link para o ficheiro em HTML, copie este URL do endereço:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Esta wiki não aceita nomes de ficheiros com a extensão \".$1\".",
 	"mwe-upwiz-upload-error-bad-extension-video-firefogg": "O ficheiro de vídeo que selecionou para carregar não está num formato livre.\nNum navegador Mozilla Firefox, pode instalar o [$1 Firefogg], uma extensão que converte o ficheiro automaticamente. Caso contrário, pode usar outras [$2 opções de conversão] para converter o vídeo para um formato livre.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Esta wiki requer que os ficheiros tenham uma extensão - como \".JPG\" no fim do nome.",
