@@ -308,7 +308,7 @@
 	"mwe-upwiz-categories-missing": "Uma das categorias não possui uma página de descrição. Tem a certeza de que digitou o nome corretamente?",
 	"mwe-upwiz-thumbnail-failed": "O envio correu bem, mas o servidor não conseguiu obter uma miniatura para antevisão.",
 	"mwe-upwiz-unparseable-filename": "O nome de ficheiro \"$1\" não foi compreendido",
-	"mwe-upwiz-error-title-invalid": "Este título é inválido. Certifique-se que removeu caracteres como parênteses retos, dois-pontos, operadores de comparação, barras verticais e chavetas.",
+	"mwe-upwiz-error-title-invalid": "Este título é inválido. Certifique-se de que removeu caracteres como parênteses retos, dois-pontos, operadores de comparação, barras verticais e chavetas.",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemas conhecidos]",
 	"mwe-upwiz-subhead-alt-upload": "Voltar ao formulário antigo",
 	"mwe-upwiz-subhead-alternatives": "Métodos de carregamento alternativos",
