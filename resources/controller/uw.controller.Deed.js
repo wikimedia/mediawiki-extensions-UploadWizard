@@ -33,6 +33,8 @@
 		);
 
 		this.stepName = 'deeds';
+
+		this.deeds = {};
 	};
 
 	OO.inheritClass( uw.controller.Deed, uw.controller.Step );
@@ -40,8 +42,7 @@
 	uw.controller.Deed.prototype.moveNext = function () {
 		var
 			deedController = this,
-			valid = true,
-			fields;
+			valid, fields;
 
 		if ( !this.deedChooser ) {
 			uw.controller.Step.prototype.moveNext.call( this );
@@ -78,27 +79,40 @@
 	 * Move to this step.
 	 */
 	uw.controller.Deed.prototype.moveTo = function ( uploads ) {
-		var customDeed, deeds,
+		var customDeed, previousDeed, fromStepName,
 			showDeed = false,
 			step = this;
 
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
-
-		$.each( this.uploads, function ( i, upload ) {
+		$.each( uploads, function ( i, upload ) {
+			fromStepName = upload.state;
 			if ( !upload.fromURL ) {
 				showDeed = true;
 				return false;
 			}
 		} );
 
+		uw.controller.Step.prototype.moveTo.call( this, uploads );
+
 		// If all of the uploads are from URLs, then we know the licenses
 		// already, we don't need this step.
 		if ( !showDeed ) {
-			this.moveNext();
+			// this is a bit of a hack: when images from flickr are uploaded, we
+			// don't get to choose the license anymore, and this step will be
+			// skipped ... but we could reach this step from either direction
+			if ( fromStepName === 'details' ) {
+				this.movePrevious();
+			} else {
+				this.moveNext();
+			}
 			return;
 		}
 
-		deeds = mw.UploadWizard.getLicensingDeeds( this.uploads.length, this.config );
+		// grab a serialized copy of previous deeds' details (if any)
+		if ( this.deedChooser ) {
+			previousDeed = this.deedChooser.getSerialized();
+		}
+
+		this.deeds = mw.UploadWizard.getLicensingDeeds( this.uploads.length, this.config );
 
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
@@ -106,13 +120,13 @@
 			customDeed = $.extend( new mw.UploadWizardDeed(), {
 				name: 'custom'
 			} );
-			deeds.push( customDeed );
+			this.deeds[ customDeed.name ] = customDeed;
 		}
 
 		this.deedChooser = new mw.UploadWizardDeedChooser(
 			this.config,
 			'#mwe-upwiz-deeds',
-			deeds,
+			this.deeds,
 			this.uploads
 		);
 
@@ -128,6 +142,11 @@
 		} );
 
 		this.deedChooser.onLayoutReady();
+
+		// restore the previous input (if any) for all deeds
+		if ( previousDeed ) {
+			this.deedChooser.setSerialized( previousDeed );
+		}
 	};
 
 	/**

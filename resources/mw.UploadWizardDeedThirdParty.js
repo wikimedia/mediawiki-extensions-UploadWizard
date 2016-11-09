@@ -172,6 +172,34 @@
 			 */
 			getFields: function () {
 				return [ this.authorInputField, this.sourceInputField, this.licenseInputField ];
+			},
+
+			/**
+			 * @return {Object}
+			 */
+			getSerialized: function () {
+				return $.extend( mw.UploadWizardDeed.prototype.getSerialized.call( this ), {
+					source: this.sourceInput.getValue(),
+					author: this.authorInput.getValue(),
+					license: this.licenseInput.getSerialized()
+				} );
+			},
+
+			/**
+			 * @param {Object} serialized
+			 */
+			setSerialized: function ( serialized ) {
+				mw.UploadWizardDeed.prototype.setSerialized.call( this, serialized );
+
+				if ( serialized.source ) {
+					this.sourceInput.setValue( serialized.source );
+				}
+				if ( serialized.author ) {
+					this.authorInput.setValue( serialized.author );
+				}
+				if ( serialized.license ) {
+					this.licenseInput.setSerialized( serialized.license );
+				}
 			}
 		} );
 	};

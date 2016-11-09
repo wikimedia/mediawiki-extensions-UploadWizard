@@ -374,8 +374,16 @@
 		setInputsIndividually: function ( values ) {
 			var input = this;
 			$.each( this.inputs, function ( i, $input ) {
-				var licenseName = $input.data( 'licenseName' );
-				input.setInput( $input, values[ licenseName ] );
+				var licenseName = $input.data( 'licenseName' ),
+					value = licenseName in values && values[ licenseName ] !== false;
+
+				input.setInput( $input, value );
+
+				// if value was a string, it doesn't just mean that we should
+				// select the checkbox, but also fill out the textarea it comes with
+				if ( value && typeof values[ licenseName ] === 'string' ) {
+					$input.data( 'textarea' ).val( values[ licenseName ] );
+				}
 			} );
 		},
 
@@ -632,6 +640,28 @@
 			}
 
 			this.api.parse( wikiText ).done( show ).fail( error );
+		},
+
+		/**
+		 * @return {Object}
+		 */
+		getSerialized: function () {
+			var i,
+				values = {},
+				$inputs = this.getSelectedInputs();
+
+			for ( i = 0; i < $inputs.length; i++ ) {
+				values[ $inputs[ i ].data( 'licenseName' ) ] = this.getInputTextAreaVal( $inputs[ i ] ) || true;
+			}
+
+			return values;
+		},
+
+		/**
+		 * @param {Object} serialized
+		 */
+		setSerialized: function ( serialized ) {
+			this.setValues( serialized );
 		}
 
 	} );

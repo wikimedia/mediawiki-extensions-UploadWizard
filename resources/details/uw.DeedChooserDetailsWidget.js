@@ -22,7 +22,20 @@
 		// Defining own deedChooser for uploads coming from external service
 		if ( upload.fromURL ) {
 			// XXX can be made a seperate class as mw.UploadFromUrlDeedChooser
-			this.deedChooser = upload.deedChooser = { valid: function () { return true; } };
+			this.deedChooser = upload.deedChooser = {
+				deed: {},
+				valid: function () {
+					return true;
+				},
+				getSerialized: function () {
+					return this.deed ? this.deed.getSerialized() : {};
+				},
+				setSerialized: function ( serialized ) {
+					if ( this.deed.setSerialized ) {
+						this.deed.setSerialized( serialized );
+					}
+				}
+			};
 
 			if ( upload.providedFile.license ) {
 				// XXX need to add code in the remaining functions
@@ -86,6 +99,12 @@
 			},
 			getLicenseWikiText: function () {
 				return upload.providedFile.licenseValue;
+			},
+			getSerialized: function () {
+				return {};
+			},
+			setSerialized: function ( serialized ) {
+				/* jshint unused:false */
 			}
 		}, overrides );
 	};
@@ -101,6 +120,26 @@
 			}
 		}
 		return $.Deferred().resolve( errors ).promise();
+	};
+
+	/**
+	 * @return {Object}
+	 */
+	uw.DeedChooserDetailsWidget.prototype.getSerialized = function () {
+		if ( this.deedChooser ) {
+			return this.deedChooser.getSerialized();
+		}
+
+		return {};
+	};
+
+	/**
+	 * @param {Object} serialized
+	 */
+	uw.DeedChooserDetailsWidget.prototype.setSerialized = function ( serialized ) {
+		if ( this.deedChooser ) {
+			this.deedChooser.setSerialized( serialized );
+		}
 	};
 
 } )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );

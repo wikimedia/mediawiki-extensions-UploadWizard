@@ -582,7 +582,8 @@
 				other: this.otherDetails.getSerialized(),
 				campaigns: this.campaignDetailsFields.map( function ( field ) {
 					return field.fieldWidget.getSerialized();
-				} )
+				} ),
+				deed: this.deedChooserDetails.getSerialized()
 			};
 		},
 
@@ -618,6 +619,9 @@
 				for ( i = 0; i < this.campaignDetailsFields.length; i++ ) {
 					this.campaignDetailsFields[ i ].fieldWidget.setSerialized( serialized.campaigns[ i ] );
 				}
+			}
+			if ( serialized.deed ) {
+				this.deedChooserDetails.setSerialized( serialized.deed );
 			}
 		},
 

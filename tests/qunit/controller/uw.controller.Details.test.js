@@ -21,20 +21,22 @@
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
 		var stubs = {
 			cd: sandbox.stub(),
-			ucdc: sandbox.stub()
+			ucdc: sandbox.stub(),
+			getSerialized: sandbox.stub(),
+			SetSerialized: sandbox.stub()
 		};
 
 		return {
-			chosenDeed: {
-				name: customDeedChooser ? 'custom' : 'cc-by-sa-4.0'
-			},
+			deedChooser: { deed: { name: customDeedChooser ? 'custom' : 'cc-by-sa-4.0' } },
 
 			on: $.noop,
 
 			createDetails: stubs.cd,
 
 			details: {
-				useCustomDeedChooser: stubs.ucdc
+				useCustomDeedChooser: stubs.ucdc,
+				getSerialized: stubs.getSerialized,
+				SetSerialized: stubs.setSerialized
 			},
 
 			state: aborted ? 'aborted' : 'stashed',

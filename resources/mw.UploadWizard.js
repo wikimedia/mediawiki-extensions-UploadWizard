@@ -472,7 +472,8 @@
 	 * @return {mw.UploadWizardDeed[]}
 	 */
 	mw.UploadWizard.getLicensingDeeds = function ( uploadsLength, config ) {
-		var deeds = [],
+		var deed,
+			deeds = {},
 			doOwnWork = false,
 			doThirdParty = false;
 
@@ -487,10 +488,12 @@
 		}
 
 		if ( doOwnWork ) {
-			deeds.push( new mw.UploadWizardDeedOwnWork( uploadsLength, this.api, config ) );
+			deed = new mw.UploadWizardDeedOwnWork( uploadsLength, this.api, config );
+			deeds[ deed.name ] = deed;
 		}
 		if ( doThirdParty ) {
-			deeds.push( new mw.UploadWizardDeedThirdParty( uploadsLength, this.api, config ) );
+			deed = new mw.UploadWizardDeedThirdParty( uploadsLength, this.api, config );
+			deeds[ deed.name ] = deed;
 		}
 
 		return deeds;
