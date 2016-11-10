@@ -202,6 +202,7 @@
 	"mwe-upwiz-error-heading": "Antraštė turi būti skaičius tarp 0 ir 360.",
 	"mwe-upwiz-error-signature-too-long": "Jūsų parašas yra per ilgas.\nSutrumpinkite jį iki mažiau nei $1 {{PLURAL:$1|simbolis|simbolių}}.",
 	"mwe-upwiz-error-signature-too-short": "Jūsų parašas yra per trumpas.\nPailginkite jį iki bent $1 {{PLURAL:$1|simbolio|simbolių}}.",
+	"mwe-upwiz-error-date-license-mismatch": "Pasirinkti data nesutampa su licencija ($1).",
 	"mwe-upwiz-error-blank": "Šis laukas būtinas.",
 	"mwe-upwiz-error-too-long": "Šis įrašas yra per ilgas.\nPrašome sutrumpinti jį iki bent $1 {{PLURAL:$1|simbolio|simbolių}}.",
 	"mwe-upwiz-error-too-short": "Šis įrašas yra per ilgas.\nPrašome jį pailginti iki bent $1 {{PLURAL:$1|simbolio|simbolių}}.",
