@@ -5,6 +5,8 @@
 
 	OO.inheritClass( LicensePreviewDialog, OO.ui.Dialog );
 
+	LicensePreviewDialog.static.name = 'licensePreviewDialog';
+
 	LicensePreviewDialog.prototype.initialize = function () {
 		var dialog = this;
 
