@@ -12,6 +12,7 @@
 		var chooser = this;
 		this.$selector = $( selector );
 		this.uploads = uploads === undefined ? [] : uploads;
+		this.deeds = deeds;
 
 		// name for radio button set
 		mw.UploadWizardDeedChooser.prototype.widgetCount++;
@@ -19,7 +20,7 @@
 
 		this.onLayoutReady = function () {};
 
-		$.each( deeds, function ( i, deed ) {
+		$.each( this.deeds, function ( i, deed ) {
 			var id = chooser.name + '-' + deed.name,
 				$deedInterface = $(
 					'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">' +
@@ -39,22 +40,15 @@
 
 			deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
 
-			function selectDeedFunction() {
-				chooser.choose( deed );
-				chooser.selectDeedInterface( $deedInterface );
-				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).prop( 'checked', true );
-			}
-
 			if ( deeds.length === 1 ) {
-				chooser.onLayoutReady = selectDeedFunction;
+				chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 			} else {
 				if ( config.licensing.defaultType === deed.name ) {
-					chooser.onLayoutReady = selectDeedFunction;
+					chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 				}
 				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function () {
 					if ( $( this ).is( ':checked' )  ) {
-						chooser.choose( deed );
-						chooser.selectDeedInterface( $deedInterface );
+						chooser.selectDeed( deed );
 					}
 				} );
 			}
@@ -65,7 +59,6 @@
 	};
 
 	mw.UploadWizardDeedChooser.prototype = {
-
 		/**
 		 * How many deed choosers there are (important for creating unique ids, element names)
 		 */
@@ -85,13 +78,20 @@
 		 */
 		uploads: [],
 
+		selectDeed: function ( deed ) {
+			var $deedInterface = this.$selector.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deed.name );
+
+			this.choose( deed );
+			this.selectDeedInterface( $deedInterface );
+			$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).prop( 'checked', true );
+		},
+
 		choose: function ( deed ) {
 			var chooser = this;
 
 			this.deed = deed;
 
 			$.each( this.uploads, function ( i, upload ) {
-				upload.chosenDeed = deed;
 				upload.deedChooser = chooser;
 			} );
 
@@ -136,6 +136,26 @@
 
 		remove: function () {
 			this.$selector.html( '' );
+		},
+
+		/**
+		 * @return {Object}
+		 */
+		getSerialized: function () {
+			return this.valid() ? this.deed.getSerialized() : {};
+		},
+
+		/**
+		 * @param {Object} serialized
+		 */
+		setSerialized: function ( serialized ) {
+			var deed;
+
+			if ( serialized.name && serialized.name in this.deeds ) {
+				deed = this.deeds[ serialized.name ];
+				deed.setSerialized( serialized );
+				this.selectDeed( deed );
+			}
 		}
 
 	};

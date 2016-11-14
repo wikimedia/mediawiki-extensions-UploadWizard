@@ -62,14 +62,25 @@
 		successes = uploads.length - failures;
 
 		$.each( uploads, function ( i, upload ) {
+			var serialized;
+
 			if ( upload === undefined ) {
 				return;
 			}
 
+			// get existing details
+			serialized = upload.details ? upload.details.getSerialized() : null;
+
 			upload.createDetails();
 
-			if ( upload.fromURL || upload.chosenDeed.name === 'custom' ) {
+			if ( upload.fromURL || ( upload.deedChooser && upload.deedChooser.deed.name === 'custom' ) ) {
 				upload.details.useCustomDeedChooser();
+			}
+
+			// restore earlier details (user may have started inputting details,
+			// then went back some steps, and now got here again)
+			if ( serialized ) {
+				upload.details.setSerialized( serialized );
 			}
 		} );
 

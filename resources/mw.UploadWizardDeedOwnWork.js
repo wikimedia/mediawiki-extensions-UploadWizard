@@ -70,23 +70,22 @@
 				return fields;
 			},
 
-			getLicenseWikiText: function () {
-				var defaultLicense,
-					defaultType = config.licensing.defaultType;
-
-				if ( defaultType === 'ownwork' ) {
-					defaultLicense = config.licensing.ownWork.defaults;
+			getDefaultLicense: function () {
+				if ( config.licensing.defaultType === 'ownwork' ) {
+					return config.licensing.ownWork.defaults;
 				} else {
-					defaultLicense = config.licensing.ownWork.licenses[ 0 ];
+					return config.licensing.ownWork.licenses[ 0 ];
 				}
+			},
 
+			getLicenseWikiText: function () {
 				if ( this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
 					return this.licenseInput.getWikiText();
 				} else {
 					return '{{' +
 								config.licensing.ownWork.template +
 							'|' +
-								defaultLicense +
+								this.getDefaultLicense() +
 							'}}';
 				}
 			},
@@ -110,18 +109,13 @@
 			setFormFields: function ( $selector ) {
 				var $customDiv, $formFields, $toggler, crossfaderWidget, defaultLicense,
 					defaultLicenseURL, defaultLicenseMsg, defaultLicenseExplainMsg,
-					defaultLicenseLink, $standardDiv, $crossfader, thisDeed, languageCode, defaultType;
+					defaultLicenseLink, $standardDiv, $crossfader, thisDeed, languageCode;
 
 				this.$selector = $selector;
 				thisDeed = this;
 				languageCode = mw.config.get( 'wgUserLanguage' );
-				defaultType = config.licensing.defaultType;
 
-				if ( defaultType === 'ownwork' ) {
-					defaultLicense = config.licensing.ownWork.defaults;
-				} else {
-					defaultLicense = config.licensing.ownWork.licenses[ 0 ];
-				}
+				defaultLicense = this.getDefaultLicense();
 
 				defaultLicenseURL = config.licenses[ defaultLicense ].url === undefined ?
 						'#missing license URL' :
@@ -132,7 +126,7 @@
 
 				this.$form = $( '<form>' );
 
-				$standardDiv = $( '<div />' ).append(
+				$standardDiv = $( '<div class="mwe-upwiz-standard" />' ).append(
 					$( '<p></p>' ).msg(
 							defaultLicenseMsg,
 							uploadCount,
@@ -145,10 +139,10 @@
 						uploadCount
 					)
 				);
-				$crossfader = $( '<div />' ).append( $standardDiv );
+				$crossfader = $( '<div class="mwe-upwiz-crossfader" />' ).append( $standardDiv );
 
 				if ( this.showCustomDiv ) {
-					$customDiv = $( '<div />' ).append(
+					$customDiv = $( '<div class="mwe-upwiz-custom" />' ).append(
 						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
 							this.fakeAuthorInput.$element )
@@ -198,24 +192,9 @@
 						.msg( 'mwe-upwiz-license-show-all' )
 						.click( function () {
 							if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
-								thisDeed.licenseInput.setDefaultValues();
-								$crossfader.morphCrossfade( $standardDiv )
-									.promise().done( function () {
-										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
-									} );
-								deed.licenseInputField.$element
-									.slideUp()
-									.animate( { opacity: 0 }, { queue: false, easing: 'linear' } );
-								$( this ).msg( 'mwe-upwiz-license-show-all' );
+								thisDeed.standardLicense();
 							} else {
-								$crossfader.morphCrossfade( $customDiv )
-									.promise().done( function () {
-										swapNodes( thisDeed.authorInput.$element[ 0 ], thisDeed.fakeAuthorInput.$element[ 0 ] );
-									} );
-								deed.licenseInputField.$element
-									.slideDown()
-									.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );
-								$( this ).msg( 'mwe-upwiz-license-show-recommended' );
+								thisDeed.customLicense();
 							}
 						} ) );
 
@@ -239,6 +218,79 @@
 						return false;
 					}
 				} );
+			},
+
+			standardLicense: function () {
+				var deed = this,
+					$crossfader = this.$selector.find( '.mwe-upwiz-crossfader' ),
+					$standardDiv = this.$selector.find( '.mwe-upwiz-standard' ),
+					$toggler = this.$selector.find( '.mwe-more-options a' );
+
+				this.licenseInput.setDefaultValues();
+
+				$crossfader.morphCrossfade( $standardDiv )
+					.promise().done( function () {
+						swapNodes( deed.authorInput.$element[ 0 ], deed.fakeAuthorInput.$element[ 0 ] );
+					} );
+
+				this.licenseInputField.$element
+					.slideUp()
+					.animate( { opacity: 0 }, { queue: false, easing: 'linear' } );
+
+				$toggler.msg( 'mwe-upwiz-license-show-all' );
+			},
+
+			customLicense: function () {
+				var deed = this,
+					$crossfader = this.$selector.find( '.mwe-upwiz-crossfader' ),
+					$customDiv = this.$selector.find( '.mwe-upwiz-custom' ),
+					$toggler = this.$selector.find( '.mwe-more-options a' );
+
+				$crossfader.morphCrossfade( $customDiv )
+					.promise().done( function () {
+						swapNodes( deed.authorInput.$element[ 0 ], deed.fakeAuthorInput.$element[ 0 ] );
+					} );
+
+				this.licenseInputField.$element
+					.slideDown()
+					.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );
+
+				$toggler.msg( 'mwe-upwiz-license-show-recommended' );
+			},
+
+			/**
+			 * @return {Object}
+			 */
+			getSerialized: function () {
+				var serialized = $.extend( mw.UploadWizardDeed.prototype.getSerialized.call( this ), {
+					author: this.authorInput.getValue()
+				} );
+
+				if ( this.showCustomDiv ) {
+					serialized.license = this.licenseInput.getSerialized();
+				}
+
+				return serialized;
+			},
+
+			/**
+			 * @param {Object} serialized
+			 */
+			setSerialized: function ( serialized ) {
+				mw.UploadWizardDeed.prototype.setSerialized.call( this, serialized );
+
+				if ( serialized.author ) {
+					this.authorInput.setValue( serialized.author );
+				}
+
+				if ( this.showCustomDiv && serialized.license ) {
+					// only need to set license if it's not the default license
+					if ( !( this.getDefaultLicense() in serialized.license ) ) {
+						// expand licenses container
+						this.customLicense();
+						this.licenseInput.setSerialized( serialized.license );
+					}
+				}
 			}
 		} );
 	};

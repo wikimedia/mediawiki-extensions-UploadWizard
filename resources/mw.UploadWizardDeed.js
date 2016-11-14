@@ -41,6 +41,24 @@
 		 */
 		getLicenseWikiText: function () {
 			return this.licenseInput.getWikiText();
+		},
+
+		/**
+		 * @return {Object}
+		 */
+		getSerialized: function () {
+			return {
+				name: this.name
+			};
+		},
+
+		/**
+		 * @param {Object} serialized
+		 */
+		setSerialized: function ( serialized ) {
+			if ( serialized.name ) {
+				this.name = serialized.name;
+			}
 		}
 	};
 
