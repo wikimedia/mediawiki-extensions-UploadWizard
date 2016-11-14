@@ -80,6 +80,11 @@
 		} );
 	};
 
+	uw.controller.Tutorial.prototype.moveTo = function ( uploads ) {
+		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		uw.eventFlowLogger.logTutorialAction( 'load' );
+	};
+
 	uw.controller.Tutorial.prototype.moveNext = function () {
 		uw.eventFlowLogger.logTutorialAction( 'continue' );
 

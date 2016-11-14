@@ -115,7 +115,6 @@
 		} );
 
 		this.ui.moveTo( uploads );
-		uw.eventFlowLogger.logTutorialAction( 'load' );
 		uw.eventFlowLogger.logStep( this.stepName );
 
 		this.updateFileCounts( this.uploads );
