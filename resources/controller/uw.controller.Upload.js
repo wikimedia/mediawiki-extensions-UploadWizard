@@ -56,12 +56,11 @@
 		var fewerThanMax, haveUploads,
 			max = this.config.maxUploads;
 
-		this.ui.hideEndButtons();
-
 		haveUploads = uw.controller.Step.prototype.updateFileCounts.call( this, uploads );
 
 		fewerThanMax = this.uploads.length < max;
 
+		this.updateProgressBarCount( this.uploads.length );
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
 
 		if ( !haveUploads ) {
@@ -83,10 +82,30 @@
 		this.ui.empty();
 	};
 
-	uw.controller.Upload.prototype.moveTo = function () {
-		this.updateFileCounts( [] );
-		uw.controller.Step.prototype.moveTo.call( this );
-		this.progressBar = undefined;
+	uw.controller.Upload.prototype.moveTo = function ( uploads ) {
+		var controller = this;
+
+		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		this.startProgressBar();
+
+		if ( uploads.length > 0 ) {
+			/*
+			 * If we have uploads, we're coming back from a later step.
+			 * In order to be able to reliably use showNext() (used to determine
+			 * which 'next' buttons to show), we should reset the upload's state
+			 * to the desired finish state for this step.
+			 * Having already completed this step, it's safe to continue with
+			 * these current files.
+			 * If other files are to be added, the showNext() callback will deal
+			 * with new uploads, and still understand the existing files that
+			 * we've just reset the state for.
+			 */
+			$.each( uploads, function ( i, upload ) {
+				upload.state = controller.finishState;
+			} );
+
+			this.showNext();
+		}
 	};
 
 	/**

@@ -62,6 +62,8 @@
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
+		this.$buttons.append( this.$errorCount, this.$warningCount );
+		this.addPreviousButton();
 		this.addNextButton();
 	};
 
@@ -86,8 +88,6 @@
 		var ui = this;
 
 		this.nextButtonPromise.done( function () {
-			ui.$buttons.append( ui.$errorCount, ui.$warningCount );
-
 			ui.$buttons.append(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-file-next-all-ok mwe-upwiz-file-endchoice' )

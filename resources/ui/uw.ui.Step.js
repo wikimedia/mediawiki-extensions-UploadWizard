@@ -46,9 +46,10 @@
 
 		$( '#mwe-upwiz-steps' ).append( this.$arrow );
 
-		// this will make sure that button will only be added if it's been
+		// this will make sure that buttons will only be added if they've been
 		// set in the controller, otherwise there's nowhere to go...
 		this.nextButtonPromise = $.Deferred();
+		this.previousButtonPromise = $.Deferred();
 	};
 
 	OO.mixinClass( uw.ui.Step, OO.EventEmitter );
@@ -72,9 +73,16 @@
 	};
 
 	/**
-	 * Move out of the step.
+	 * Move to the next step.
 	 */
-	uw.ui.Step.prototype.moveFrom = function () {
+	uw.ui.Step.prototype.moveNext = function () {
+		this.$div.children().detach();
+	};
+
+	/**
+	 * Move to the previous step.
+	 */
+	uw.ui.Step.prototype.movePrevious = function () {
 		this.$div.children().detach();
 	};
 
@@ -85,6 +93,10 @@
 
 	uw.ui.Step.prototype.enableNextButton = function () {
 		this.nextButtonPromise.resolve();
+	};
+
+	uw.ui.Step.prototype.enablePreviousButton = function () {
+		this.previousButtonPromise.resolve();
 	};
 
 	/**
@@ -106,4 +118,21 @@
 		} );
 	};
 
+	/**
+	 * Add a 'previous' button to the step's button container
+	 */
+	uw.ui.Step.prototype.addPreviousButton = function () {
+		var ui = this;
+
+		this.previousButton = new OO.ui.ButtonWidget( {
+			classes: [ 'mwe-upwiz-button-previous' ],
+			label: mw.message( 'mwe-upwiz-previous' ).text()
+		} ).on( 'click', function () {
+			ui.emit( 'previous-step' );
+		} );
+
+		this.previousButtonPromise.done( function () {
+			ui.$buttons.append( ui.previousButton.$element );
+		} );
+	};
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

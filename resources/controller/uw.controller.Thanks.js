@@ -45,17 +45,23 @@
 
 		if ( uploads.length === 0 ) {
 			// We got here after the user removed all uploads; just restart from "Upload" step
-			this.skip();
+			this.moveNext();
 			return;
 		}
 
-		uw.controller.Step.prototype.moveTo.call( this );
+		uw.controller.Step.prototype.moveTo.call( this, uploads );
 
 		$.each( uploads, function ( i, upload ) {
 			thanks.ui.addUpload( upload );
 		} );
 
-		this.uploads = undefined;
+		this.uploads = [];
+	};
+
+	uw.controller.Thanks.prototype.moveNext = function () {
+		uw.controller.Step.prototype.moveNext.call( this );
+
+		this.emit( 'reset-wizard' );
 	};
 
 	uw.controller.Thanks.prototype.isComplete = function () {

@@ -88,10 +88,15 @@
 			ui.emit( 'helpdesk-click' );
 		} );
 
+		this.addPreviousButton();
 		this.addNextButton();
 	};
 
 	OO.inheritClass( uw.ui.Tutorial, uw.ui.Step );
+
+	uw.ui.Tutorial.prototype.setSelected = function ( selected ) {
+		this.skipCheckbox.setSelected( selected );
+	};
 
 	uw.ui.Tutorial.prototype.moveTo = function ( uploads ) {
 		uw.ui.Step.prototype.moveTo.call( this, uploads );
@@ -104,6 +109,8 @@
 					this.tutorialHtml.show()
 				)
 		);
+
+		this.skipCheckbox.popup.updateDimensions();
 	};
 
 	uw.ui.Tutorial.prototype.addNextButton = function () {

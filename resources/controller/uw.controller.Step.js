@@ -42,8 +42,14 @@
 
 		this.ui = ui;
 
+		this.uploads = [];
+
 		this.ui.on( 'next-step', function () {
-			step.moveFrom();
+			step.moveNext();
+		} );
+
+		this.ui.on( 'previous-step', function () {
+			step.movePrevious();
 		} );
 
 		/**
@@ -51,6 +57,12 @@
 		 * The next step in the process.
 		 */
 		this.nextStep = null;
+
+		/**
+		 * @property {uw.controller.Step} previousStep
+		 * The previous step in the process.
+		 */
+		this.previousStep = null;
 	};
 
 	OO.mixinClass( uw.controller.Step, OO.EventEmitter );
@@ -73,6 +85,16 @@
 	};
 
 	/**
+	 * Set the previous step in the process.
+	 *
+	 * @param {uw.controller.Step} step
+	 */
+	uw.controller.Step.prototype.setPreviousStep = function ( step ) {
+		this.previousStep = step;
+		this.ui.enablePreviousButton();
+	};
+
+	/**
 	 * Move to this step.
 	 *
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
@@ -82,8 +104,6 @@
 
 		this.movedFrom = false;
 
-		// Through some very convoluted route, this reached code in mw.UploadWizard that can
-		// remove items from the `uploads` array here.
 		this.emit( 'load' );
 
 		this.uploads = uploads || [];
@@ -102,10 +122,10 @@
 	};
 
 	/**
-	 * Move out of this step.
+	 * Move to the next step.
 	 */
-	uw.controller.Step.prototype.moveFrom = function () {
-		this.ui.moveFrom( this.uploads );
+	uw.controller.Step.prototype.moveNext = function () {
+		this.ui.moveNext( this.uploads );
 
 		this.movedFrom = true;
 
@@ -115,11 +135,16 @@
 	};
 
 	/**
-	 * Skip this step.
+	 * Move to the previous step.
 	 */
-	uw.controller.Step.prototype.skip = function () {
-		uw.eventFlowLogger.logSkippedStep( this.stepName );
-		this.moveFrom();
+	uw.controller.Step.prototype.movePrevious = function () {
+		this.ui.movePrevious( this.uploads );
+
+		this.movedFrom = true;
+
+		if ( this.previousStep ) {
+			this.previousStep.moveTo( this.uploads );
+		}
 	};
 
 	/**
@@ -184,30 +209,13 @@
 	 * @return {boolean} Whether all of the uploads are in a successful state.
 	 */
 	uw.controller.Step.prototype.showNext = function () {
-		var errorCount = 0,
-			okCount = 0,
-			stillGoing = 0,
-			allOk = false,
-			desiredState = this.finishState,
+		var okCount = this.getUploadStatesCount( this.finishState ),
 			$buttons;
 
 		// abort if all uploads have been removed
 		if ( this.uploads.length === 0 ) {
 			return false;
 		}
-
-		$.each( this.uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-			if ( upload.state === 'error' ) {
-				errorCount++;
-			} else if ( upload.state === desiredState ) {
-				okCount++;
-			} else if ( upload.state === 'transporting' ) {
-				stillGoing += 1;
-			}
-		} );
 
 		this.updateProgressBarCount( okCount );
 
@@ -219,17 +227,40 @@
 		$buttons.find( '.mwe-upwiz-file-next-all-failed' ).hide();
 
 		if ( okCount === ( this.uploads.length - this.countEmpties() ) ) {
-			allOk = true;
 			$buttons.find( '.mwe-upwiz-file-next-all-ok' ).show();
-		} else if ( errorCount === ( this.uploads.length - this.countEmpties() ) ) {
+			return true;
+		}
+
+		if ( this.getUploadStatesCount( 'error' ) === ( this.uploads.length - this.countEmpties() ) ) {
 			$buttons.find( '.mwe-upwiz-file-next-all-failed' ).show();
-		} else if ( stillGoing !== 0 ) {
-			return false;
-		} else {
+		} else if ( this.getUploadStatesCount( 'transporting' ) === 0 ) {
 			$buttons.find( '.mwe-upwiz-file-next-some-failed' ).show();
 		}
 
-		return allOk;
+		return false;
+	};
+
+	/**
+	 * @param {string|string[]} states List of upload states we want the count for
+	 * @return {number}
+	 */
+	uw.controller.Step.prototype.getUploadStatesCount = function ( states ) {
+		var count = 0;
+
+		// normalize to array of states, even though input can be 1 string
+		states = Array.isArray( states ) ? states : [ states ];
+
+		$.each( this.uploads, function ( i, upload ) {
+			if ( upload === undefined ) {
+				return;
+			}
+
+			if ( states.indexOf( upload.state ) > -1 ) {
+				count++;
+			}
+		} );
+
+		return count;
 	};
 
 	/**

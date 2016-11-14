@@ -27,6 +27,9 @@
 	 */
 	uw.controller.Tutorial = function UWControllerTutorial( api, config ) {
 		var controller = this;
+
+		this.skipPreference = Boolean( mw.user.options.get( 'upwiz_skiptutorial' ) );
+
 		this.shouldSkipTutorial = false;
 
 		uw.controller.Step.call(
@@ -49,51 +52,43 @@
 		);
 
 		this.stepName = 'tutorial';
+
+		this.ui.setSelected( this.skipPreference || ( config && config.tutorial && config.tutorial.skip ) );
 	};
 
 	OO.inheritClass( uw.controller.Tutorial, uw.controller.Step );
 
 	/**
 	 * Set the skip tutorial user preference via the options API
+	 *
+	 * @param {boolean} skip
 	 */
-	uw.controller.Tutorial.prototype.setSkipPreference = function () {
-		var api = this.api,
+	uw.controller.Tutorial.prototype.setSkipPreference = function ( skip ) {
+		var controller = this,
 			allowCloseWindow = mw.confirmCloseWindow( {
 				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); }
 			} );
 
-		api.postWithToken( 'options', {
+		this.api.postWithToken( 'options', {
 			action: 'options',
-			change: 'upwiz_skiptutorial=1'
+			change: skip ? 'upwiz_skiptutorial=1' : 'upwiz_skiptutorial'
 		} ).done( function () {
 			allowCloseWindow.release();
+			controller.skipPreference = controller.shouldSkipTutorial;
 		} ).fail( function ( code, err ) {
 			mw.notify( err.textStatus );
 		} );
 	};
 
-	uw.controller.Tutorial.prototype.moveTo = function () {
-		var tconf = mw.config.get( 'UploadWizardConfig' ).tutorial;
-
-		if (
-			mw.user.options.get( 'upwiz_skiptutorial' ) ||
-			( tconf && tconf.skip )
-		) {
-			this.skip();
-		} else {
-			uw.controller.Step.prototype.moveTo.call( this );
-		}
-	};
-
-	uw.controller.Tutorial.prototype.moveFrom = function () {
+	uw.controller.Tutorial.prototype.moveNext = function () {
 		uw.eventFlowLogger.logTutorialAction( 'continue' );
 
 		// if the skip checkbox is checked, set the skip user preference
-		if ( this.shouldSkipTutorial ) {
-			this.setSkipPreference();
+		if ( this.shouldSkipTutorial !== this.skipPreference ) {
+			this.setSkipPreference( this.shouldSkipTutorial );
 		}
 
-		uw.controller.Step.prototype.moveFrom.call( this );
+		uw.controller.Step.prototype.moveNext.call( this );
 	};
 
 	uw.controller.Tutorial.prototype.isComplete = function () {
