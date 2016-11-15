@@ -103,18 +103,17 @@
 
 		if ( uploads.length > 0 ) {
 			/*
-			 * If we have uploads, we're coming back from a later step.
-			 * In order to be able to reliably use showNext() (used to determine
-			 * which 'next' buttons to show), we should reset the upload's state
-			 * to the desired finish state for this step.
-			 * Having already completed this step, it's safe to continue with
-			 * these current files.
+			 * If we have uploads already, we'll want to to update the "next"
+			 * buttons accordingly. showNext() does that, but relies on upload
+			 * state being set correctly.
+			 * Since every step overwrites the upload state, we'll need to reset
+			 * it to reflect the correct upload success state.
 			 * If other files are to be added, the showNext() callback will deal
 			 * with new uploads, and still understand the existing files that
 			 * we've just reset the state for.
 			 */
 			$.each( uploads, function ( i, upload ) {
-				upload.state = controller.finishState;
+				upload.state = upload.fileKey === undefined ? 'error' : controller.finishState;
 			} );
 
 			this.showNext();
