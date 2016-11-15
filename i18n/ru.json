@@ -32,7 +32,8 @@
 			"Frhdkazan",
 			"Macofe",
 			"Ядерный Трамвай",
-			"Mailman"
+			"Mailman",
+			"Kareyac"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -197,6 +198,7 @@
 	"mwe-upwiz-next-file": "Продолжить",
 	"mwe-upwiz-next-deeds": "Далее",
 	"mwe-upwiz-next-details": "Далее",
+	"mwe-upwiz-previous": "Назад",
 	"mwe-upwiz-home": "Перейти на заглавную страницу вики-проекта",
 	"mwe-upwiz-upload-another": "Загрузить ещё файлы",
 	"mwe-prevent-close": "Покидая эту страницу вы можете потерять все сделанные вами изменения.",
