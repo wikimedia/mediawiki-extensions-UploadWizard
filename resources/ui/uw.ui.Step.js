@@ -62,6 +62,8 @@
 	uw.ui.Step.prototype.moveTo = function ( uploads ) {
 		var offset = $( 'h1:first' ).offset();
 
+		this.movedFrom = false;
+
 		this.uploads = uploads;
 		this.$div.append( this.$buttons ).show();
 		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( this.$arrow );
@@ -76,6 +78,8 @@
 	 * Move to the next step.
 	 */
 	uw.ui.Step.prototype.moveNext = function () {
+		this.movedFrom = true;
+
 		this.$div.children().detach();
 	};
 
@@ -83,6 +87,8 @@
 	 * Move to the previous step.
 	 */
 	uw.ui.Step.prototype.movePrevious = function () {
+		this.movedFrom = true;
+
 		this.$div.children().detach();
 	};
 

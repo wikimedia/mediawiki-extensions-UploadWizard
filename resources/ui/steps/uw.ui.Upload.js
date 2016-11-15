@@ -301,6 +301,40 @@
 		$( '#mwe-upwiz-add-file' ).show();
 	};
 
+	uw.ui.Upload.prototype.displayUploads = function ( uploads ) {
+		var
+			thumbPromise,
+			uploadInterfaceDivs = [];
+
+		$.each( uploads, function ( i, upload ) {
+			// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
+			// performance
+			uploadInterfaceDivs.push( upload.ui.div );
+		} );
+
+		// Attach all interfaces to the DOM
+		this.$fileList.append( $( uploadInterfaceDivs ) );
+
+		// Display thumbnails, but not all at once because they're somewhat expensive to generate.
+		// This will wait for each thumbnail to be complete before starting the next one.
+		thumbPromise = $.Deferred().resolve();
+		$.each( uploads, function ( i, upload ) {
+			thumbPromise = thumbPromise.then( function () {
+				var deferred = $.Deferred();
+				setTimeout( function () {
+					if ( this.movedFrom ) {
+						// We're no longer displaying any of these thumbnails, stop
+						deferred.reject();
+					}
+					upload.ui.showThumbnail().done( function () {
+						deferred.resolve();
+					} );
+				} );
+				return deferred.promise();
+			} );
+		} );
+	};
+
 	uw.ui.Upload.prototype.addNextButton = function () {
 		var ui = this;
 
