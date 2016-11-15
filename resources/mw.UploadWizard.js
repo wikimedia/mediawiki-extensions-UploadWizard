@@ -7,7 +7,6 @@
 	mw.UploadWizard = function ( config ) {
 		var maxSimPref, wizard = this;
 
-		this.uploads = [];
 		this.api = new mw.Api( { ajax: { timeout: 0 } } );
 
 		// making a sort of global for now, should be done by passing in config or fragments of config
@@ -67,7 +66,6 @@
 				mw.UploadWizardUpload.prototype.count = -1;
 			}
 
-			this.showDeed = false;
 			this.removeMatchingUploads( function () { return true; } );
 			this.hasLoadedBefore = true;
 
@@ -94,22 +92,9 @@
 		 * Create the basic interface to make an upload in this div
 		 */
 		createInterface: function ( selector ) {
-			var wizard = this;
-
 			this.ui = new uw.ui.Wizard( selector );
 
 			this.initialiseSteps();
-
-			this.steps.file.ui.on( 'files-added', function ( files ) {
-				var totalFiles = files.length + wizard.uploads.length,
-					tooManyFiles = totalFiles > wizard.config.maxUploads;
-
-				if ( tooManyFiles ) {
-					wizard.steps.file.showTooManyFilesWarning( totalFiles );
-				} else {
-					wizard.addUploads( files );
-				}
-			} );
 
 			// "select" the first step - highlight, make it visible, hide all others
 			this.steps.firstStep.moveTo( [] );
@@ -281,111 +266,6 @@
 		},
 
 		/**
-		 * Create the upload interface, a handler to transport it to the server, and UI for the upload
-		 * itself; and immediately fill it with a file and add it to the list of uploads.
-		 *
-		 * @param {File} file
-		 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
-		 */
-		addUpload: function ( file ) {
-			var upload,
-				wizard = this;
-
-			if ( this.uploads.length >= this.config.maxUploads ) {
-				return false;
-			}
-
-			upload = new mw.UploadWizardUpload( this )
-				.on( 'filled', function () {
-					wizard.setUploadFilled( upload );
-				} )
-
-				.on( 'filename-accepted', function () {
-					wizard.steps.file.updateFileCounts( wizard.uploads );
-				} );
-
-			upload.connect( this, {
-				'remove-upload': [ 'removeUpload', upload ]
-			} );
-
-			upload.fill( file );
-			upload.checkFile( upload.ui.getFilename(), file );
-
-			return upload;
-		},
-
-		/**
-		 * Do everything that needs to be done to start uploading a file. Calls #addUpload, then appends
-		 * each mw.UploadWizardUploadInterface to the DOM and queues thumbnails to be generated.
-		 *
-		 * @param {File[]} files
-		 */
-		addUploads: function ( files ) {
-			var
-				uploadObj,
-				uploadObjs = [],
-				wizard = this;
-
-			$.each( files, function ( i, file ) {
-				uploadObj = wizard.addUpload( file );
-				uploadObjs.push( uploadObj );
-			} );
-
-			this.steps.file.ui.displayUploads( uploadObjs );
-
-			uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
-		},
-
-		/**
-		 * When an upload is filled with a real file, accept it in the wizard's list of uploads
-		 * and set up some other interfaces
-		 *
-		 * @param {UploadWizardUpload} upload
-		 */
-		setUploadFilled: function ( upload ) {
-			this.uploads.push( upload );
-			this.steps.file.updateFileCounts( this.uploads );
-			// Start uploads now, no reason to wait--leave the remove button alone
-			this.steps.file.queueUpload( upload );
-			this.steps.file.startQueuedUploads();
-		},
-
-		/**
-		 * Remove an upload from our array of uploads, and the HTML UI
-		 * We can remove the HTML UI directly, as jquery will just get the parent.
-		 * We need to grep through the array of uploads, since we don't know the current index.
-		 * We need to update file counts for obvious reasons.
-		 *
-		 * @param {UploadWizardUpload} upload
-		 */
-		removeUpload: function ( upload ) {
-			// remove the div that passed along the trigger
-			var $div = $( upload.ui.div ),
-				index;
-
-			$div.unbind(); // everything
-			$div.remove();
-			// and do what we in the wizard need to do after an upload is removed
-			// Remove the upload from the uploads array (modify in-place, as this is shared among various
-			// things that rely on having current information).
-			index = this.uploads.indexOf( upload );
-			if ( index !== -1 ) {
-				this.uploads.splice( index, 1 );
-			}
-
-			// TODO We should only be doing this for whichever step is currently active
-			this.steps.file.queue.removeItem( upload );
-			this.steps.details.queue.removeItem( upload );
-
-			this.steps.file.updateFileCounts( this.uploads );
-
-			if ( this.uploads && this.uploads.length !== 0 ) {
-				// check all uploads, if they're complete, show the next button
-				this.steps.file.showNext();
-			}
-		},
-
-		/**
 		 * Clear out uploads that are in error mode, perhaps before proceeding to the next step
 		 */
 		removeErrorUploads: function () {
@@ -403,7 +283,10 @@
 		removeMatchingUploads: function ( criterion ) {
 			var toRemove = [];
 
-			$.each( this.uploads, function ( i, upload ) {
+			// @todo: for now, we'll have to reach into one of the controllers
+			// to manipulate the uploads array that is shared between them, but
+			// we should also move this method away from this class
+			$.each( this.steps.file.uploads, function ( i, upload ) {
 				if ( upload === undefined ) {
 					return;
 				}

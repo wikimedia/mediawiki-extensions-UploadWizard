@@ -90,7 +90,7 @@
 		}
 		if ( successes > 0 ) {
 			$.each( uploads, function ( i, upload ) {
-				upload.on( 'remove-upload', details.removeUpload.bind( details ) );
+				upload.on( 'remove-upload', details.removeUpload.bind( details, upload ) );
 			} );
 		}
 	};
@@ -99,7 +99,7 @@
 		var controller = this;
 
 		$.each( this.uploads, function ( i, upload ) {
-			upload.off( 'remove-upload', controller.removeUpload.bind( controller ) );
+			upload.off( 'remove-upload', controller.removeUpload.bind( controller, upload ) );
 		} );
 
 		uw.controller.Step.prototype.moveNext.call( this );
@@ -116,7 +116,7 @@
 			// get rid of remove handler, this handler only makes sense in this
 			// exact step - having it bound while in other steps could cause
 			// unexpected issues
-			upload.off( 'remove-upload', controller.removeUpload.bind( controller ) );
+			upload.off( 'remove-upload', controller.removeUpload.bind( controller, upload ) );
 		} );
 
 		uw.controller.Step.prototype.movePrevious.call( this );
@@ -402,11 +402,14 @@
 
 	/**
 	 * Handler for when an upload is removed.
+	 *
+	 * @param {mw.UploadWizardUpload} upload
 	 */
-	uw.controller.Details.prototype.removeUpload = function () {
+	uw.controller.Details.prototype.removeUpload = function ( upload ) {
 		var failures = this.getUploadStatesCount( [ 'aborted', 'error' ] ) + this.countEmpties(),
 			successes = this.uploads.length - failures;
 
+		this.queue.removeItem( upload );
 		this.removeCopyMetadataFeature();
 
 		// Make sure we still have more multiple uploads adding the

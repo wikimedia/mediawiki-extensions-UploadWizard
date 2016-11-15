@@ -26,6 +26,8 @@
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.controller.Upload = function UWControllerUpload( api, config ) {
+		var step = this;
+
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Upload( config )
@@ -45,6 +47,17 @@
 			action: this.transitionOne.bind( this )
 		} );
 		this.queue.on( 'complete', this.showNext.bind( this ) );
+
+		this.ui.on( 'files-added', function ( files ) {
+			var totalFiles = files.length + step.uploads.length,
+				tooManyFiles = totalFiles > step.config.maxUploads;
+
+			if ( tooManyFiles ) {
+				step.showTooManyFilesWarning( totalFiles );
+			} else {
+				step.addUploads( files );
+			}
+		} );
 	};
 
 	OO.inheritClass( uw.controller.Upload, uw.controller.Step );
@@ -202,6 +215,107 @@
 			}
 		} );
 
+		this.startQueuedUploads();
+	};
+
+	/**
+	 * Create the upload interface, a handler to transport it to the server, and UI for the upload
+	 * itself; and immediately fill it with a file and add it to the list of uploads.
+	 *
+	 * @param {File} file
+	 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
+	 */
+	uw.controller.Upload.prototype.addUpload = function ( file ) {
+		var upload,
+			controller = this;
+
+		if ( this.uploads.length >= this.config.maxUploads ) {
+			return false;
+		}
+
+		upload = new mw.UploadWizardUpload( this )
+			.on( 'filled', function () {
+				controller.setUploadFilled( upload );
+			} )
+
+			.on( 'filename-accepted', function () {
+				controller.updateFileCounts( controller.uploads );
+			} )
+
+			.on( 'remove-upload', function () {
+				controller.removeUpload( upload );
+			} );
+
+		upload.fill( file );
+		upload.checkFile( upload.ui.getFilename(), file );
+
+		return upload;
+	};
+
+	/**
+	 * Do everything that needs to be done to start uploading a file. Calls #addUpload, then appends
+	 * each mw.UploadWizardUploadInterface to the DOM and queues thumbnails to be generated.
+	 *
+	 * @param {File[]} files
+	 */
+	uw.controller.Upload.prototype.addUploads = function ( files ) {
+		var
+			uploadObj,
+			uploadObjs = [],
+			controller = this;
+
+		$.each( files, function ( i, file ) {
+			uploadObj = controller.addUpload( file );
+			uploadObjs.push( uploadObj );
+		} );
+
+		this.ui.displayUploads( uploadObjs );
+
+		uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
+	};
+
+	/**
+	 * Remove an upload from our array of uploads, and the HTML UI
+	 * We can remove the HTML UI directly, as jquery will just get the parent.
+	 * We need to grep through the array of uploads, since we don't know the current index.
+	 * We need to update file counts for obvious reasons.
+	 *
+	 * @param {UploadWizardUpload} upload
+	 */
+	uw.controller.Upload.prototype.removeUpload = function ( upload ) {
+		// remove the div that passed along the trigger
+		var $div = $( upload.ui.div ),
+			index;
+
+		$div.unbind(); // everything
+		$div.remove();
+
+		// Remove the upload from the uploads array (modify in-place, as this is
+		// shared among various things that rely on having current information).
+		index = this.uploads.indexOf( upload );
+		if ( index !== -1 ) {
+			this.uploads.splice( index, 1 );
+		}
+
+		this.queue.removeItem( upload );
+
+		this.updateFileCounts( this.uploads );
+
+		// check all uploads, if they're complete, show the next button
+		this.showNext();
+	};
+
+	/**
+	 * When an upload is filled with a real file, accept it in the list of uploads
+	 * and set up some other interfaces
+	 *
+	 * @param {UploadWizardUpload} upload
+	 */
+	uw.controller.Upload.prototype.setUploadFilled = function ( upload ) {
+		this.uploads.push( upload );
+		this.updateFileCounts( this.uploads );
+		// Start uploads now, no reason to wait--leave the remove button alone
+		this.queueUpload( upload );
 		this.startQueuedUploads();
 	};
 

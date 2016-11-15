@@ -54,14 +54,12 @@
 		$.each( uploads, function ( i, upload ) {
 			thanks.ui.addUpload( upload );
 		} );
-
-		this.uploads = [];
 	};
 
 	uw.controller.Thanks.prototype.moveNext = function () {
-		uw.controller.Step.prototype.moveNext.call( this );
-
 		this.emit( 'reset-wizard' );
+
+		uw.controller.Step.prototype.moveNext.call( this );
 	};
 
 	uw.controller.Thanks.prototype.isComplete = function () {
