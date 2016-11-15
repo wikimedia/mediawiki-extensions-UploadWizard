@@ -922,7 +922,7 @@
 		 */
 		recoverFromError: function ( errorMessage, errorCode ) {
 			uw.eventFlowLogger.logError( 'details', { code: errorCode, message: errorMessage } );
-			this.upload.state = 'error';
+			this.upload.state = 'recoverable-error';
 			this.dataDiv.morphCrossfade( '.detailsForm' );
 			this.titleDetailsField.setErrors( [ errorMessage ] );
 		},

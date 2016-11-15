@@ -51,13 +51,9 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Details.prototype.moveTo = function ( uploads ) {
-		var details = this,
-			failures, successes;
+		var details = this;
 
 		uw.controller.Step.prototype.moveTo.call( this, uploads );
-
-		failures = this.getUploadStatesCount( [ 'aborted', 'error' ] ) + this.countEmpties();
-		successes = uploads.length - failures;
 
 		$.each( uploads, function ( i, upload ) {
 			var serialized;
@@ -83,14 +79,13 @@
 		} );
 
 		// Show the widget allowing to copy selected metadata if there's more than one successful upload
-		if ( successes > 1 && this.config.copyMetadataFeature ) {
+		if ( this.config.copyMetadataFeature ) {
 			this.addCopyMetadataFeature( uploads );
 		}
-		if ( successes > 0 ) {
-			$.each( uploads, function ( i, upload ) {
-				upload.on( 'remove-upload', details.removeUpload.bind( details, upload ) );
-			} );
-		}
+
+		$.each( uploads, function ( i, upload ) {
+			upload.on( 'remove-upload', details.removeUpload.bind( details, upload ) );
+		} );
 	};
 
 	uw.controller.Details.prototype.moveNext = function () {
@@ -119,13 +114,42 @@
 	};
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function ( uploads ) {
+		var first,
+			// uploads can only be edited when they're in a certain state:
+			// a flat out upload failure or a completed upload can not be edited
+			invalidStates = [ 'aborted', 'error', 'complete' ],
+			invalids = this.getUploadStatesCount( invalidStates ) + this.countEmpties(),
+			valids = uploads.length - invalids;
+
+		// no point in having this feature if there's no target to copy to
+		if ( valids < 2 ) {
+			return;
+		}
+
+		// The first upload is not necessarily the one we want to copy from
+		// E.g. the first upload could've gone through successfully, but the
+		// rest failed because of abusefilter (or another recoverable error), in
+		// which case we'll want the "copy" feature to appear below the 2nd
+		// upload (or the first not-yet-completed not flat-out-failed upload)
+		$.each( uploads, function ( i, upload ) {
+			if ( upload && invalidStates.indexOf( upload.state ) === -1 ) {
+				first = upload;
+				return false;
+			}
+		} );
+
+		// could not find a source upload to copy from
+		if ( !first ) {
+			return;
+		}
+
 		this.copyMetadataWidget = new uw.CopyMetadataWidget( {
-			copyFrom: uploads[ 0 ],
+			copyFrom: first,
 			// Include the "source" upload in the targets too
 			copyTo: uploads
 		} );
 
-		$( uploads[ 0 ].details.div ).after( this.copyMetadataWidget.$element );
+		$( first.details.div ).after( this.copyMetadataWidget.$element );
 	};
 
 	uw.controller.Details.prototype.removeCopyMetadataFeature = function () {
@@ -361,7 +385,7 @@
 			}
 
 			// Clear error state
-			if ( upload.state === 'error' ) {
+			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
 				upload.state = details.stepName;
 			}
 
@@ -372,7 +396,6 @@
 		// Disable edit interface
 		this.ui.disableEdits();
 		this.ui.previousButton.$element.hide();
-		// No way to restore this later... We don't handle partially-successful uploads very well
 		this.removeCopyMetadataFeature();
 
 		return this.transitionAll().then( function () {
@@ -391,6 +414,9 @@
 	uw.controller.Details.prototype.showErrors = function () {
 		this.ui.previousButton.$element.show();
 
+		this.removeCopyMetadataFeature();
+		this.addCopyMetadataFeature( this.uploads );
+
 		this.ui.showWarnings(); // Scroll to the warning first so that any errors will have precedence
 		this.ui.showErrors();
 	};
@@ -401,17 +427,14 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Details.prototype.removeUpload = function ( upload ) {
-		var failures = this.getUploadStatesCount( [ 'aborted', 'error' ] ) + this.countEmpties(),
-			successes = this.uploads.length - failures;
-
 		this.queue.removeItem( upload );
 		this.removeCopyMetadataFeature();
 
 		// Make sure we still have more multiple uploads adding the
 		// copy feature again
-		if ( successes > 1 && this.config.copyMetadataFeature ) {
+		if ( this.config.copyMetadataFeature ) {
 			this.addCopyMetadataFeature( this.uploads );
-		} else if ( successes < 1 ) {
+		} else if ( this.uploads.length === 0 ) {
 			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
 			// which will skip itself in moveTo() because there are no uploads left.)
 			this.moveNext();
