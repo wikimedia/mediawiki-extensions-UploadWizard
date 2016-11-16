@@ -230,7 +230,7 @@
 			return true;
 		}
 
-		if ( this.getUploadStatesCount( 'error' ) === ( this.uploads.length - this.countEmpties() ) ) {
+		if ( this.getUploadStatesCount( [ 'error', 'recoverable-error' ] ) === ( this.uploads.length - this.countEmpties() ) ) {
 			$buttons.find( '.mwe-upwiz-file-next-all-failed' ).show();
 		} else if ( this.getUploadStatesCount( 'transporting' ) === 0 ) {
 			$buttons.find( '.mwe-upwiz-file-next-some-failed' ).show();
@@ -287,7 +287,7 @@
 		// next item to be skipped). Find and queue them first, then remove them.
 		var toRemove = [];
 		$.each( this.uploads, function ( i, upload ) {
-			if ( upload !== undefined && upload.state === 'error' ) {
+			if ( upload !== undefined && ( upload.state === 'error' || upload.state === 'recoverable-error' ) ) {
 				toRemove.push( upload );
 			}
 		} );
