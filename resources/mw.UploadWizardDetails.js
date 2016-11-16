@@ -724,8 +724,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			var params, wikiText, apiPromise,
-				details = this;
+			var params, wikiText;
 
 			$( 'form', this.containerDiv ).submit();
 
@@ -752,26 +751,39 @@
 
 			if ( wikiText !== false ) {
 				params.text = wikiText;
-				apiPromise = details.upload.api.postWithEditToken( params );
-				return apiPromise
-					.then(
-						function ( result ) {
-							if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
-								uw.eventFlowLogger.logApiError( 'details', result );
-							}
-							return details.handleSubmitResult( result, params );
-						},
-						function ( code, info, result ) {
-							uw.eventFlowLogger.logApiError( 'details', result );
-							details.upload.state = 'error';
-							details.processError( code, info );
-							return $.Deferred().reject( code, info );
-						}
-					)
-					.promise( { abort: apiPromise.abort } );
+				return this.submitInternal( params );
 			}
 
 			return $.Deferred().reject();
+		},
+
+		/**
+		 * Perform the API call with given parameters (which is expected to publish this file) and
+		 * handle the result.
+		 *
+		 * @param {Object} params API call parameters
+		 * @return {jQuery.Promise}
+		 */
+		submitInternal: function ( params ) {
+			var
+				details = this,
+				apiPromise = details.upload.api.postWithEditToken( params );
+			return apiPromise
+				.then(
+					function ( result ) {
+						if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+							uw.eventFlowLogger.logApiError( 'details', result );
+						}
+						return details.handleSubmitResult( result, params );
+					},
+					function ( code, info, result ) {
+						uw.eventFlowLogger.logApiError( 'details', result );
+						details.upload.state = 'error';
+						details.processError( code, info );
+						return $.Deferred().reject( code, info );
+					}
+				)
+				.promise( { abort: apiPromise.abort } );
 		},
 
 		/**
@@ -803,19 +815,11 @@
 						this.setStatus( mw.message( 'mwe-upwiz-' + result.upload.stage ).text() );
 						setTimeout( function () {
 							if ( details.upload.state !== 'aborted' ) {
-								details.upload.api.postWithEditToken( {
+								details.submitInternal( {
 									action: 'upload',
 									checkstatus: true,
 									filekey: details.upload.fileKey
-								} ).then( function ( result ) {
-									if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
-										uw.eventFlowLogger.logApiError( 'details', result );
-									}
-									return details.handleSubmitResult( result ).then( deferred.resolve, deferred.reject );
-								}, function ( code, info, result ) {
-									uw.eventFlowLogger.logApiError( 'details', result );
-									deferred.reject( code, info );
-								} );
+								} ).then( deferred.resolve, deferred.reject );
 							} else {
 								deferred.resolve( 'aborted' );
 							}
@@ -859,15 +863,7 @@
 				return $.Deferred().resolve();
 			} else if ( ignoreTheseWarnings ) {
 				params.ignorewarnings = 1;
-				return this.upload.api.postWithEditToken( params ).then( function ( result ) {
-					if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
-						uw.eventFlowLogger.logApiError( 'details', result );
-					}
-					return details.handleSubmitResult( result );
-				}, function ( code, info, result ) {
-					uw.eventFlowLogger.logApiError( 'details', result );
-					return $.Deferred().reject( code, info );
-				} );
+				return this.submitInternal( params );
 			} else if ( result && result.upload && result.upload.warnings ) {
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
 					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-thumbnail' ), 'error-title-thumbnail' );
@@ -886,15 +882,7 @@
 						// We already told the interface to ignore this warning, so
 						// let's steamroll over it and re-call this handler.
 						params.ignorewarnings = true;
-						return this.upload.api.postWithEditToken( params ).then( function ( result ) {
-							if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
-								uw.eventFlowLogger.logApiError( 'details', result );
-							}
-							return details.handleSubmitResult( result );
-						}, function ( code, info, result ) {
-							uw.eventFlowLogger.logApiError( 'details', result );
-							return $.Deferred().reject( code, info );
-						} );
+						return this.submitInternal( params );
 					} else {
 						// This should _never_ happen, but just in case....
 						this.recoverFromError( mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ), 'upload-error-duplicate-archive' );
