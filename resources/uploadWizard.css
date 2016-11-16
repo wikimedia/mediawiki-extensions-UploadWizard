@@ -467,6 +467,26 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 	padding-left: 1.5em;
 }
 
+.mwe-upwiz-license-custom {
+	overflow: hidden;
+}
+
+.mwe-upwiz-license-custom .oo-ui-buttonElement {
+	float: right;
+	width: 9em;
+	padding-left: 1em;
+	margin-right: 0;
+}
+
+.mwe-upwiz-license-custom .oo-ui-textInputWidget {
+	width: auto;
+	margin-right: 10em;
+}
+
+.mwe-upwiz-license-custom .oo-ui-textInputWidget textarea {
+	font-family: monospace, monospace;
+}
+
 .mwe-upwiz-thanks {
 	margin-bottom: 2em;
 }
