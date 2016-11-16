@@ -168,7 +168,8 @@ class UploadWizardHooks {
 				'tests/qunit/controller/uw.controller.Upload.test.js',
 				'tests/qunit/transports/mw.FormDataTransport.test.js',
 				'tests/qunit/uw.EventFlowLogger.test.js',
-				'tests/qunit/uw.ConcurrentQueue.test.js',
+				// Too unreliable. T150854
+				// 'tests/qunit/uw.ConcurrentQueue.test.js',
 				'tests/qunit/mw.UploadWizardUpload.test.js',
 				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
 				'tests/qunit/mw.FlickrChecker.test.js',
