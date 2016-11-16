@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( uw, $, OO ) {
+( function ( mw, uw, $, OO ) {
 	/**
 	 * The thanks step.
 	 *
@@ -27,10 +27,7 @@
 	uw.controller.Thanks = function UWControllerThanks( api, config ) {
 		uw.controller.Step.call(
 			this,
-			new uw.ui.Thanks( config )
-				.connect( this, {
-					'reset-wizard': [ 'emit', 'reset-wizard' ]
-				} ),
+			new uw.ui.Thanks( config ),
 			api,
 			config
 		);
@@ -57,7 +54,15 @@
 	};
 
 	uw.controller.Thanks.prototype.moveNext = function () {
-		this.emit( 'reset-wizard' );
+		// remove all existing uploads before moving on
+		mw.UploadWizardUpload.prototype.count = 0;
+		while ( this.uploads.length > 0 ) {
+			// instead of iterating the array with $.each, I'll wrap it in a
+			// while loop and shift stuff from it: this will allow us to iterate
+			// over it reliably even though the source array is being modified
+			// while being looped (as a result of .remove)
+			this.uploads.shift().remove();
+		}
 
 		uw.controller.Step.prototype.moveNext.call( this );
 	};
@@ -66,4 +71,4 @@
 		return true;
 	};
 
-}( mediaWiki.uploadWizard, jQuery, OO ) );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
