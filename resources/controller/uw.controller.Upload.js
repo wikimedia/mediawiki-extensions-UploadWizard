@@ -91,10 +91,6 @@
 		this.ui.showTooManyFilesWarning( filesUploaded );
 	};
 
-	uw.controller.Upload.prototype.empty = function () {
-		this.ui.empty();
-	};
-
 	uw.controller.Upload.prototype.load = function ( uploads ) {
 		var controller = this;
 

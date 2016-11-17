@@ -152,10 +152,6 @@
 		}
 	};
 
-	uw.controller.Details.prototype.empty = function () {
-		this.ui.empty();
-	};
-
 	/**
 	 * Start details submit.
 	 * TODO move the rest of the logic here from mw.UploadWizard

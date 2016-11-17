@@ -68,13 +68,6 @@
 	OO.mixinClass( uw.controller.Step, OO.EventEmitter );
 
 	/**
-	 * Empty the step of all data.
-	 */
-	uw.controller.Step.prototype.empty = function () {
-		this.ui.empty();
-	};
-
-	/**
 	 * Set the next step in the process.
 	 *
 	 * @param {uw.controller.Step} step
