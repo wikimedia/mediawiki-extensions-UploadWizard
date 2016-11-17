@@ -84,15 +84,15 @@
 		}
 
 		$.each( uploads, function ( i, upload ) {
-			upload.on( 'remove-upload', details.removeUpload.bind( details, upload ) );
+			upload.removeCallback = details.removeUpload.bind( details, upload );
+			upload.on( 'remove-upload', upload.removeCallback );
 		} );
 	};
 
 	uw.controller.Details.prototype.moveNext = function () {
-		var controller = this;
-
 		$.each( this.uploads, function ( i, upload ) {
-			upload.off( 'remove-upload', controller.removeUpload.bind( controller, upload ) );
+			upload.off( 'remove-upload', upload.removeCallback );
+			delete upload.removeCallback;
 		} );
 
 		this.removeErrorUploads();
@@ -101,13 +101,12 @@
 	};
 
 	uw.controller.Details.prototype.movePrevious = function () {
-		var controller = this;
-
 		$.each( this.uploads, function ( i, upload ) {
 			// get rid of remove handler, this handler only makes sense in this
 			// exact step - having it bound while in other steps could cause
 			// unexpected issues
-			upload.off( 'remove-upload', controller.removeUpload.bind( controller, upload ) );
+			upload.off( 'remove-upload', upload.removeCallback );
+			delete upload.removeCallback;
 		} );
 
 		uw.controller.Step.prototype.movePrevious.call( this );
