@@ -95,10 +95,10 @@
 		this.ui.empty();
 	};
 
-	uw.controller.Upload.prototype.moveTo = function ( uploads ) {
+	uw.controller.Upload.prototype.load = function ( uploads ) {
 		var controller = this;
 
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		uw.controller.Step.prototype.load.call( this, uploads );
 		this.startProgressBar();
 
 		if ( uploads.length > 0 ) {

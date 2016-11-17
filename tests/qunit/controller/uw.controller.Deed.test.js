@@ -25,7 +25,7 @@
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'moveTo', 1, function ( assert ) {
+	QUnit.test( 'load', 1, function ( assert ) {
 		var step = new uw.controller.Deed(
 				new mw.Api(),
 				{ licensing: { thirdParty: { type: 'test', licenses: [] } } }
@@ -38,8 +38,8 @@
 				{ getThumbnail: ststub }
 			];
 
-		this.sandbox.stub( step.ui, 'moveTo' );
-		step.moveTo( uploads );
+		this.sandbox.stub( step.ui, 'load' );
+		step.load( uploads );
 
 		assert.strictEqual( ststub.callCount, 2 );
 	} );

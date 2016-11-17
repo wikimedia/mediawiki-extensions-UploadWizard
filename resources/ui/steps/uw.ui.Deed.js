@@ -35,10 +35,10 @@
 
 	OO.inheritClass( uw.ui.Deed, uw.ui.Step );
 
-	uw.ui.Deed.prototype.moveTo = function ( uploads ) {
+	uw.ui.Deed.prototype.load = function ( uploads ) {
 		var ui = this;
 
-		uw.ui.Step.prototype.moveTo.call( this, uploads );
+		uw.ui.Step.prototype.load.call( this, uploads );
 
 		this.$div.prepend(
 			$( '<div>' )

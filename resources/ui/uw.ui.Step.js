@@ -55,11 +55,11 @@
 	OO.mixinClass( uw.ui.Step, OO.EventEmitter );
 
 	/**
-	 * Move to the step.
+	 * Initialize this step.
 	 *
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
-	uw.ui.Step.prototype.moveTo = function ( uploads ) {
+	uw.ui.Step.prototype.load = function ( uploads ) {
 		var offset = $( 'h1:first' ).offset();
 
 		this.movedFrom = false;
@@ -75,18 +75,9 @@
 	};
 
 	/**
-	 * Move to the next step.
+	 * Cleanup this step.
 	 */
-	uw.ui.Step.prototype.moveNext = function () {
-		this.movedFrom = true;
-
-		this.$div.children().detach();
-	};
-
-	/**
-	 * Move to the previous step.
-	 */
-	uw.ui.Step.prototype.movePrevious = function () {
+	uw.ui.Step.prototype.unload = function () {
 		this.movedFrom = true;
 
 		this.$div.children().detach();

@@ -95,11 +95,11 @@
 	};
 
 	/**
-	 * Move to this step.
+	 * Initialize this step.
 	 *
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
-	uw.controller.Step.prototype.moveTo = function ( uploads ) {
+	uw.controller.Step.prototype.load = function ( uploads ) {
 		var step = this;
 
 		this.movedFrom = false;
@@ -114,22 +114,31 @@
 			}
 		} );
 
-		this.ui.moveTo( uploads );
+		this.ui.load( uploads );
 		uw.eventFlowLogger.logStep( this.stepName );
 
 		this.updateFileCounts( this.uploads );
 	};
 
 	/**
+	 * Cleanup this step.
+	 */
+	uw.controller.Step.prototype.unload = function () {
+		this.movedFrom = true;
+
+		this.ui.unload();
+
+		this.emit( 'unload' );
+	};
+
+	/**
 	 * Move to the next step.
 	 */
 	uw.controller.Step.prototype.moveNext = function () {
-		this.ui.moveNext( this.uploads );
-
-		this.movedFrom = true;
+		this.unload();
 
 		if ( this.nextStep ) {
-			this.nextStep.moveTo( this.uploads );
+			this.nextStep.load( this.uploads );
 		}
 	};
 
@@ -137,12 +146,10 @@
 	 * Move to the previous step.
 	 */
 	uw.controller.Step.prototype.movePrevious = function () {
-		this.ui.movePrevious( this.uploads );
-
-		this.movedFrom = true;
+		this.unload();
 
 		if ( this.previousStep ) {
-			this.previousStep.moveTo( this.uploads );
+			this.previousStep.load( this.uploads );
 		}
 	};
 

@@ -286,8 +286,8 @@
 		this.$flickrSelect.unbind();
 	};
 
-	uw.ui.Upload.prototype.moveTo = function ( uploads ) {
-		uw.ui.Step.prototype.moveTo.call( this, uploads );
+	uw.ui.Upload.prototype.load = function ( uploads ) {
+		uw.ui.Step.prototype.load.call( this, uploads );
 
 		if ( uploads.length === 0 ) {
 			this.$fileList.removeClass( 'mwe-upwiz-filled-filelist' );

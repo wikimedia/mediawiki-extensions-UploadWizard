@@ -78,7 +78,7 @@
 	/**
 	 * Move to this step.
 	 */
-	uw.controller.Deed.prototype.moveTo = function ( uploads ) {
+	uw.controller.Deed.prototype.load = function ( uploads ) {
 		var customDeed, previousDeed, fromStepName,
 			showDeed = false,
 			step = this;
@@ -91,7 +91,7 @@
 			}
 		} );
 
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		uw.controller.Step.prototype.load.call( this, uploads );
 
 		// If all of the uploads are from URLs, then we know the licenses
 		// already, we don't need this step.
