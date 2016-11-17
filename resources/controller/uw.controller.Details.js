@@ -427,16 +427,19 @@
 	 */
 	uw.controller.Details.prototype.removeUpload = function ( upload ) {
 		this.queue.removeItem( upload );
-		this.removeCopyMetadataFeature();
 
+		if ( this.uploads.length === 0 ) {
+			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
+			// which will skip itself in moveTo() because there are no uploads left.)
+			this.moveNext();
+			return;
+		}
+
+		this.removeCopyMetadataFeature();
 		// Make sure we still have more multiple uploads adding the
 		// copy feature again
 		if ( this.config.copyMetadataFeature ) {
 			this.addCopyMetadataFeature( this.uploads );
-		} else if ( this.uploads.length === 0 ) {
-			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
-			// which will skip itself in moveTo() because there are no uploads left.)
-			this.moveNext();
 		}
 	};
 
