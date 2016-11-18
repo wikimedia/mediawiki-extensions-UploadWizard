@@ -100,6 +100,9 @@
 		this.emit( 'load' );
 
 		this.uploads = uploads || [];
+		if ( this.uploads.length - this.countEmpties() <= 0 ) {
+			this.uploads = [];
+		}
 
 		$.each( this.uploads, function ( i, upload ) {
 			if ( upload !== undefined ) {
@@ -109,8 +112,6 @@
 
 		this.ui.load( uploads );
 		uw.eventFlowLogger.logStep( this.stepName );
-
-		this.updateFileCounts( this.uploads );
 	};
 
 	/**
@@ -159,28 +160,6 @@
 		} );
 
 		return count;
-	};
-
-	/**
-	 * Update file counts for the step.
-	 *
-	 * @param {mw.UploadWizardUpload[]} uploads
-	 * @return {boolean} Whether there are uploads present in the list
-	 */
-	uw.controller.Step.prototype.updateFileCounts = function ( uploads ) {
-		if ( uploads ) {
-			this.uploads = uploads;
-		} else {
-			this.uploads = [];
-		}
-
-		if ( uploads.length - this.countEmpties() <= 0 ) {
-			this.uploads = [];
-			this.emit( 'no-uploads' );
-			return false;
-		}
-
-		return true;
 	};
 
 	/**

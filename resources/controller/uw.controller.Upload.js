@@ -64,20 +64,15 @@
 	/**
 	 * Updates the upload step data when a file is added or removed.
 	 */
-	uw.controller.Upload.prototype.updateFileCounts = function ( uploads ) {
+	uw.controller.Upload.prototype.updateFileCounts = function () {
 		var fewerThanMax, haveUploads,
 			max = this.config.maxUploads;
 
-		haveUploads = uw.controller.Step.prototype.updateFileCounts.call( this, uploads );
-
+		haveUploads = this.uploads.length > 0;
 		fewerThanMax = this.uploads.length < max;
 
 		this.updateProgressBarCount( this.uploads.length );
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
-
-		if ( !haveUploads ) {
-			this.emit( 'no-uploads' );
-		}
 	};
 
 	/**
@@ -94,6 +89,7 @@
 		var controller = this;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
+		this.updateFileCounts();
 		this.startProgressBar();
 
 		if ( uploads.length > 0 ) {
