@@ -45,7 +45,7 @@
 			icon: 'remove',
 			framed: false
 		} ).on( 'click', function () {
-			ui.upload.remove();
+			ui.emit( 'upload-removed' );
 		} );
 
 		if ( mw.UploadWizard.config.defaults && mw.UploadWizard.config.defaults.objref !== '' ) {

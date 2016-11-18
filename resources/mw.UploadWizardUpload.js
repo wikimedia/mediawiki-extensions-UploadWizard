@@ -47,7 +47,22 @@
 		this.transportWeight = 1; // default all same
 
 		// details
-		this.ui = new mw.UploadWizardUploadInterface( this );
+		this.ui = new mw.UploadWizardUploadInterface( this )
+			.connect( this, {
+				/*
+				 * This may be confusing!
+				 * This object also has a `remove` method, which will also be
+				 * called when an upload is removed. But an upload can be
+				 * removed for multiple reasons (one being clicking the "remove"
+				 * button, which triggers this event - but another could be
+				 * removing faulty uploads).
+				 * To simplify things, we'll always initiate the remove from the
+				 * controllers, so we'll relay this event to the controllers,
+				 * which will then eventually come back to call `remove` on this
+				 * object.
+				 */
+				'upload-removed': [ 'emit', 'remove-upload' ]
+			} );
 	};
 
 	OO.mixinClass( mw.UploadWizardUpload, OO.EventEmitter );
@@ -72,19 +87,15 @@
 	};
 
 	/**
-	 *  remove this upload. n.b. we trigger a removeUpload this is usually triggered from
+	 * Remove this upload. n.b. we trigger a removeUpload this is usually triggered from
 	 */
 	mw.UploadWizardUpload.prototype.remove = function () {
+		// remove the div that passed along the trigger
+		var $div = $( this.ui.div );
+		$div.unbind(); // everything
+		$div.remove();
+
 		this.state = 'aborted';
-		if ( this.deedPreview ) {
-			this.deedPreview.remove();
-		}
-		if ( this.details && this.details.div ) {
-			this.details.div.remove();
-		}
-		// we signal to the wizard to update itself, which has to delete the
-		// final vestige of this upload
-		this.emit( 'remove-upload' );
 	};
 
 	/**
@@ -969,12 +980,6 @@
 			} );
 
 		return deferred.promise();
-	};
-
-	mw.UploadWizardUpload.prototype.createDetails = function () {
-		this.details = new mw.UploadWizardDetails( this, $( '#mwe-upwiz-macro-files' ) );
-		this.details.populate();
-		this.details.attach();
 	};
 
 	/**

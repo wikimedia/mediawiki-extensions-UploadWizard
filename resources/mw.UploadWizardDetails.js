@@ -179,7 +179,7 @@
 				title: mw.message( 'mwe-upwiz-license-confirm-remove-title' ).text()
 			} ).done( function ( confirmed ) {
 				if ( confirmed ) {
-					details.upload.remove();
+					details.upload.emit( 'remove-upload' );
 				}
 			} );
 		} );

@@ -54,7 +54,7 @@
 			if ( tooManyFiles ) {
 				step.ui.showTooManyFilesError( totalFiles );
 			} else {
-				step.addUploads( files );
+				step.addFiles( files );
 			}
 		} );
 	};
@@ -81,6 +81,9 @@
 		uw.controller.Step.prototype.load.call( this, uploads );
 		this.updateFileCounts();
 		this.startProgressBar();
+
+		// make sure queue is empty before starting this step
+		this.queue.abortExecuting();
 
 		if ( uploads.length > 0 ) {
 			/*
@@ -187,10 +190,6 @@
 		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 
 		$.each( this.uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-
 			if ( upload.state === 'error' ) {
 				// reset any uploads in error state back to be shiny & new
 				upload.state = 'new';
@@ -211,43 +210,43 @@
 	 * @param {File} file
 	 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
 	 */
-	uw.controller.Upload.prototype.addUpload = function ( file ) {
-		var upload,
-			controller = this;
+	uw.controller.Upload.prototype.addFile = function ( file ) {
+		var upload;
 
 		if ( this.uploads.length >= this.config.maxUploads ) {
 			return false;
 		}
 
-		upload = new mw.UploadWizardUpload( this, file )
-			.on( 'remove-upload', function () {
-				controller.removeUpload( upload );
-			} );
+		upload = new mw.UploadWizardUpload( this, file );
 
 		if ( !this.validateFile( upload ) ) {
 			return false;
 		}
 
-		controller.setUploadFilled( upload );
+		// attach controller-specific event handlers (they're automatically
+		// bound on load already, but we've only just added these files...)
+		this.bindUploadHandlers( upload );
+
+		this.setUploadFilled( upload );
 		upload.fileChangedOk();
 
 		return upload;
 	};
 
 	/**
-	 * Do everything that needs to be done to start uploading a file. Calls #addUpload, then appends
+	 * Do everything that needs to be done to start uploading a file. Calls #addFile, then appends
 	 * each mw.UploadWizardUploadInterface to the DOM and queues thumbnails to be generated.
 	 *
 	 * @param {File[]} files
 	 */
-	uw.controller.Upload.prototype.addUploads = function ( files ) {
+	uw.controller.Upload.prototype.addFiles = function ( files ) {
 		var
 			uploadObj,
 			uploadObjs = [],
 			controller = this;
 
 		$.each( files, function ( i, file ) {
-			uploadObj = controller.addUpload( file );
+			uploadObj = controller.addFile( file );
 			if ( uploadObj ) {
 				uploadObjs.push( uploadObj );
 			}
@@ -267,23 +266,11 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Upload.prototype.removeUpload = function ( upload ) {
-		// remove the div that passed along the trigger
-		var $div = $( upload.ui.div ),
-			index;
-
-		$div.unbind(); // everything
-		$div.remove();
-
-		// Remove the upload from the uploads array (modify in-place, as this is
-		// shared among various things that rely on having current information).
-		index = this.uploads.indexOf( upload );
-		if ( index !== -1 ) {
-			this.uploads.splice( index, 1 );
-		}
+		uw.controller.Step.prototype.removeUpload.call( this, upload );
 
 		this.queue.removeItem( upload );
 
-		this.updateFileCounts( this.uploads );
+		this.updateFileCounts();
 
 		// check all uploads, if they're complete, show the next button
 		this.showNext();
@@ -296,8 +283,8 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Upload.prototype.setUploadFilled = function ( upload ) {
-		this.uploads.push( upload );
-		this.updateFileCounts( this.uploads );
+		this.addUpload( upload );
+		this.updateFileCounts();
 		// Start uploads now, no reason to wait--leave the remove button alone
 		this.queueUpload( upload );
 		this.startQueuedUploads();

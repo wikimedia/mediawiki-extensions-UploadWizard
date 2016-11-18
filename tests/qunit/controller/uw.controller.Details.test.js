@@ -20,7 +20,6 @@
 
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
 		var stubs = {
-			cd: sandbox.stub(),
 			ucdc: sandbox.stub(),
 			getSerialized: sandbox.stub(),
 			SetSerialized: sandbox.stub()
@@ -32,8 +31,6 @@
 			deedChooser: { deed: { name: customDeedChooser ? 'custom' : 'cc-by-sa-4.0' } },
 
 			on: $.noop,
-
-			createDetails: stubs.cd,
 
 			details: {
 				useCustomDeedChooser: stubs.ucdc,
@@ -63,31 +60,35 @@
 			testUpload = createTestUpload( this.sandbox ),
 			stepUiStub = this.sandbox.stub( step.ui, 'load' );
 
+		// replace createDetails with a stub; UploadWizardDetails needs way too
+		// much setup to actually be able to create it
+		step.createDetails = this.sandbox.stub();
+
 		step.load( [ testUpload ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
-		assert.ok( testUpload.stubs.cd.called );
+		assert.strictEqual( step.createDetails.callCount, 1 );
 		assert.ok( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox, true );
 		step.load( [ testUpload ] );
 
 		assert.ok( testUpload.stubs.ucdc.called );
-		assert.ok( testUpload.stubs.cd.called );
+		assert.strictEqual( step.createDetails.callCount, 2 );
 		assert.ok( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
 		step.load( [ testUpload, createTestUpload( this.sandbox ) ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
-		assert.ok( testUpload.stubs.cd.called );
+		assert.strictEqual( step.createDetails.callCount, 4 );
 		assert.ok( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
 		step.load( [ testUpload, createTestUpload( this.sandbox, false, true ) ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
-		assert.ok( testUpload.stubs.cd.called );
+		assert.strictEqual( step.createDetails.callCount, 6 );
 		assert.ok( stepUiStub.called );
 	} );
 

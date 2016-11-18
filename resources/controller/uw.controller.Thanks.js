@@ -56,13 +56,7 @@
 	uw.controller.Thanks.prototype.moveNext = function () {
 		// remove all existing uploads before moving on
 		mw.UploadWizardUpload.prototype.count = 0;
-		while ( this.uploads.length > 0 ) {
-			// instead of iterating the array with $.each, I'll wrap it in a
-			// while loop and shift stuff from it: this will allow us to iterate
-			// over it reliably even though the source array is being modified
-			// while being looped (as a result of .remove)
-			this.uploads.shift().remove();
-		}
+		this.removeUploads( this.uploads );
 
 		uw.controller.Step.prototype.moveNext.call( this );
 	};

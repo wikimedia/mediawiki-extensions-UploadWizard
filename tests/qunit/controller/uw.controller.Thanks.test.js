@@ -30,7 +30,11 @@
 			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
 		this.sandbox.stub( step.ui, 'load' );
-		step.load( [ 1, 2, 3 ] );
+		step.load( [
+			{ on: $.noop },
+			{ on: $.noop },
+			{ on: $.noop }
+		] );
 
 		assert.strictEqual( auStub.callCount, 3 );
 	} );

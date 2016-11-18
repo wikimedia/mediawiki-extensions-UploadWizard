@@ -11,7 +11,7 @@
 	mw.UploadWizardDeedChooser = function ( config, selector, deeds, uploads ) {
 		var chooser = this;
 		this.$selector = $( selector );
-		this.uploads = uploads === undefined ? [] : uploads;
+		this.uploads = uploads;
 		this.deeds = deeds;
 
 		// name for radio button set

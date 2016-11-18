@@ -98,10 +98,6 @@
 	uw.ui.Thanks.prototype.addUpload = function ( upload ) {
 		var thumbWikiText, $thanksDiv, $thumbnailWrapDiv, $thumbnailDiv, $thumbnailCaption, $thumbnailLink;
 
-		if ( upload === undefined ) {
-			return;
-		}
-
 		thumbWikiText = '[[' + [
 				upload.details.getTitle().getPrefixedText(),
 				'thumb',

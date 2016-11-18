@@ -168,4 +168,15 @@
 		}
 	};
 
+	/**
+	 * @param {UploadWizardUpload} upload
+	 */
+	uw.controller.Deed.prototype.removeUpload = function ( upload ) {
+		uw.controller.Step.prototype.removeUpload.call( this, upload );
+
+		if ( upload.deedPreview ) {
+			upload.deedPreview.remove();
+		}
+	};
+
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

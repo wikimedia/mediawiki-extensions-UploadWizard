@@ -51,21 +51,20 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Details.prototype.load = function ( uploads ) {
-		var details = this;
+		var controller = this;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
-		$.each( uploads, function ( i, upload ) {
-			var serialized;
+		// make sure queue is empty before starting this step
+		this.queue.abortExecuting();
 
-			if ( upload === undefined ) {
-				return;
-			}
+		$.each( this.uploads, function ( i, upload ) {
+			var serialized;
 
 			// get existing details
 			serialized = upload.details ? upload.details.getSerialized() : null;
 
-			upload.createDetails();
+			controller.createDetails( upload );
 
 			if ( upload.file.fromURL || ( upload.deedChooser && upload.deedChooser.deed.name === 'custom' ) ) {
 				upload.details.useCustomDeedChooser();
@@ -80,25 +79,8 @@
 
 		// Show the widget allowing to copy selected metadata if there's more than one successful upload
 		if ( this.config.copyMetadataFeature ) {
-			this.addCopyMetadataFeature( uploads );
+			this.addCopyMetadataFeature();
 		}
-
-		$.each( uploads, function ( i, upload ) {
-			upload.removeCallback = details.removeUpload.bind( details, upload );
-			upload.on( 'remove-upload', upload.removeCallback );
-		} );
-	};
-
-	uw.controller.Details.prototype.unload = function () {
-		$.each( this.uploads, function ( i, upload ) {
-			// get rid of remove handler, this handler only makes sense in this
-			// exact step - having it bound while in other steps could cause
-			// unexpected issues
-			upload.off( 'remove-upload', upload.removeCallback );
-			delete upload.removeCallback;
-		} );
-
-		uw.controller.Step.prototype.unload.call( this );
 	};
 
 	uw.controller.Details.prototype.moveNext = function () {
@@ -107,13 +89,13 @@
 		uw.controller.Step.prototype.moveNext.call( this );
 	};
 
-	uw.controller.Details.prototype.addCopyMetadataFeature = function ( uploads ) {
+	uw.controller.Details.prototype.addCopyMetadataFeature = function () {
 		var first,
 			// uploads can only be edited when they're in a certain state:
 			// a flat out upload failure or a completed upload can not be edited
 			invalidStates = [ 'aborted', 'error', 'complete' ],
-			invalids = this.getUploadStatesCount( invalidStates ) + this.countEmpties(),
-			valids = uploads.length - invalids;
+			invalids = this.getUploadStatesCount( invalidStates ),
+			valids = this.uploads.length - invalids;
 
 		// no point in having this feature if there's no target to copy to
 		if ( valids < 2 ) {
@@ -125,7 +107,7 @@
 		// rest failed because of abusefilter (or another recoverable error), in
 		// which case we'll want the "copy" feature to appear below the 2nd
 		// upload (or the first not-yet-completed not flat-out-failed upload)
-		$.each( uploads, function ( i, upload ) {
+		$.each( this.uploads, function ( i, upload ) {
 			if ( upload && invalidStates.indexOf( upload.state ) === -1 ) {
 				first = upload;
 				return false;
@@ -140,7 +122,7 @@
 		this.copyMetadataWidget = new uw.CopyMetadataWidget( {
 			copyFrom: first,
 			// Include the "source" upload in the targets too
-			copyTo: uploads
+			copyTo: this.uploads
 		} );
 
 		$( first.details.div ).after( this.copyMetadataWidget.$element );
@@ -150,6 +132,15 @@
 		if ( this.copyMetadataWidget ) {
 			this.copyMetadataWidget.$element.remove();
 		}
+	};
+
+	/**
+	 * @param {mw.UploadWizardUpload} upload
+	 */
+	uw.controller.Details.prototype.createDetails = function ( upload ) {
+		upload.details = new mw.UploadWizardDetails( upload, $( '#mwe-upwiz-macro-files' ) );
+		upload.details.populate();
+		upload.details.attach();
 	};
 
 	/**
@@ -182,10 +173,6 @@
 			titles = {};
 
 		$.each( this.uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
-
 			// Update any error/warning messages about all DetailsWidgets
 			upload.details.checkValidity();
 
@@ -346,9 +333,6 @@
 			details = this;
 
 		$.each( this.uploads, function ( i, upload ) {
-			if ( upload === undefined ) {
-				return;
-			}
 			if ( details.canTransition( upload ) ) {
 				details.queue.addItem( upload );
 			}
@@ -369,11 +353,6 @@
 		var details = this;
 
 		$.each( this.uploads, function ( i, upload ) {
-			// Skip empty uploads
-			if ( upload === undefined ) {
-				return;
-			}
-
 			// Clear error state
 			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
 				upload.state = details.stepName;
@@ -405,7 +384,7 @@
 		this.ui.previousButton.$element.show();
 
 		this.removeCopyMetadataFeature();
-		this.addCopyMetadataFeature( this.uploads );
+		this.addCopyMetadataFeature();
 
 		this.ui.showWarnings(); // Scroll to the warning first so that any errors will have precedence
 		this.ui.showErrors();
@@ -417,7 +396,13 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Details.prototype.removeUpload = function ( upload ) {
+		uw.controller.Step.prototype.removeUpload.call( this, upload );
+
 		this.queue.removeItem( upload );
+
+		if ( upload.details && upload.details.div ) {
+			upload.details.div.remove();
+		}
 
 		if ( this.uploads.length === 0 ) {
 			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
@@ -430,7 +415,7 @@
 		// Make sure we still have more multiple uploads adding the
 		// copy feature again
 		if ( this.config.copyMetadataFeature ) {
-			this.addCopyMetadataFeature( this.uploads );
+			this.addCopyMetadataFeature();
 		}
 	};
 
