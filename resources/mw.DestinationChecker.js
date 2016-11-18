@@ -72,16 +72,7 @@
 				return $.Deferred().resolve( this.cachedBlacklist[ title ] );
 			}
 
-			// This shouldn't be needed. T131612
-			function safeUsing( modules ) {
-				try {
-					return mw.loader.using( modules );
-				} catch ( err ) {
-					return $.Deferred().reject( err );
-				}
-			}
-
-			return safeUsing( 'mediawiki.api.titleblacklist' ).then( function () {
+			return mw.loader.using( 'mediawiki.api.titleblacklist' ).then( function () {
 				return checker.api.isBlacklisted( title ).then( blacklistResultProcessor );
 			}, function () {
 				// it's not blacklisted, because the API isn't even available
