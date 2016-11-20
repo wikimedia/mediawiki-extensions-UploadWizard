@@ -7,7 +7,8 @@
 			"Matma Rex",
 			"Nguyên Lê",
 			"Macofe",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Yue Ling"
 		]
 	},
 	"uploadwizard": "Trình thuật sĩ tải lên",
@@ -181,6 +182,7 @@
 	"mwe-upwiz-next-file": "Tiếp",
 	"mwe-upwiz-next-deeds": "Tiếp",
 	"mwe-upwiz-next-details": "Tiếp",
+	"mwe-upwiz-previous": "Quay lại",
 	"mwe-upwiz-home": "Vào trang đầu wiki",
 	"mwe-upwiz-upload-another": "Tải lên thêm tập tin",
 	"mwe-prevent-close": "Rời khỏi trang này có thể làm bạn mất những thay đổi của bạn.",
