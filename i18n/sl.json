@@ -5,7 +5,8 @@
 			"Eleassar",
 			"Irena Plahuta",
 			"Yerpo",
-			"Pickle12"
+			"Pickle12",
+			"Janezdrilc"
 		]
 	},
 	"uploadwizard": "Čarovnik nalaganja",
@@ -261,6 +262,7 @@
 	"mwe-upwiz-unparseable-filename": "Ne morem razumeti imena datoteke »$1«",
 	"mwe-upwiz-subhead-bugs": "[$1 Znane težave]",
 	"mwe-upwiz-subhead-alt-upload": "Nazaj na staro obliko",
+	"mwe-upwiz-subhead-alternatives": "Drugi načini nalaganja",
 	"mwe-upwiz-feedback-prompt": "Pustite povratne informacije",
 	"mwe-upwiz-feedback-title": "Pustite povratno informacijo o čarovniku za nalaganje",
 	"mwe-upwiz-feedback-blacklist-line-intro": "To je vnos črnega seznama naslovov, s katerim se je ujemal:\n$1",
