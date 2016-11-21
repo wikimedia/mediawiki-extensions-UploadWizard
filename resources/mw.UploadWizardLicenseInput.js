@@ -530,7 +530,7 @@
 				var templates = [],
 					template, title, i;
 
-				for ( i in result.parse.templates ) {
+				for ( i = 0; i < result.parse.templates.length; i++ ) {
 					template = result.parse.templates[ i ];
 
 					// normalize templates to mw.Title.getPrefixedDb() format
