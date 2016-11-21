@@ -55,14 +55,6 @@
 		stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
 
 		/**
-		 * Resets wizard state and moves to the file step.
-		 */
-		bailAndloadFile: function () {
-			// destroy the flickr interface if it exists
-			this.steps.file.ui.flickrInterfaceDestroy();
-		},
-
-		/**
 		 * Create the basic interface to make an upload in this div
 		 */
 		createInterface: function ( selector ) {
@@ -78,8 +70,7 @@
 		 * Initialise the steps in the wizard
 		 */
 		initialiseSteps: function () {
-			var wizard = this,
-				skipTutorial = this.config.tutorial.skip ||
+			var skipTutorial = this.config.tutorial.skip ||
 					mw.user.options.get( 'upwiz_skiptutorial' ) ||
 					( this.config.tutorial && this.config.tutorial.skip );
 
@@ -94,13 +85,6 @@
 			} else {
 				this.steps.firstStep = this.steps.tutorial;
 			}
-
-			$.each( this.steps, function ( name, step ) {
-				step
-					.on( 'no-uploads', function () {
-						wizard.bailAndloadFile();
-					} );
-			} );
 
 			this.steps.tutorial.setNextStep( this.steps.file );
 

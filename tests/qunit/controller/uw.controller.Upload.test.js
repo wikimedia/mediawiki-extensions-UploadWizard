@@ -30,20 +30,23 @@
 
 	QUnit.test( 'updateFileCounts', 3, function ( assert ) {
 		var step = new uw.controller.Upload( new mw.Api(), {
-			maxUploads: 5,
-			maxSimultaneousConnections: 3
-		} ),
+				maxUploads: 5,
+				maxSimultaneousConnections: 3
+			} ),
 			ufcStub = this.sandbox.stub( step.ui, 'updateFileCounts' );
 
-		step.updateFileCounts( [ 1, 2 ] );
+		step.uploads = [ 1, 2 ];
+		step.updateFileCounts();
 		assert.ok( ufcStub.calledWith( true, true ) );
 
 		ufcStub.reset();
-		step.updateFileCounts( [] );
+		step.uploads = [];
+		step.updateFileCounts();
 		assert.ok( ufcStub.calledWith( false, true ) );
 
 		ufcStub.reset();
-		step.updateFileCounts( [ 1, 2, 3, 4, 5, 6 ] );
+		step.uploads = [ 1, 2, 3, 4, 5, 6 ];
+		step.updateFileCounts();
 		assert.ok( ufcStub.calledWith( true, false ) );
 	} );
 
