@@ -128,16 +128,6 @@
 	};
 
 	/**
-	 * Empty out all upload information.
-	 */
-	uw.ui.Details.prototype.empty = function () {
-		// reset buttons on the details page
-		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).hide();
-		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).hide();
-		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).show();
-	};
-
-	/**
 	 * Hide buttons for moving to the next step.
 	 */
 	uw.ui.Details.prototype.hideEndButtons = function () {

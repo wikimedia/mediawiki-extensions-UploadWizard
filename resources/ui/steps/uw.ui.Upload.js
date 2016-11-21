@@ -246,46 +246,6 @@
 		}
 	};
 
-	/**
-	 * Empties the upload list.
-	 */
-	uw.ui.Upload.prototype.empty = function () {
-		this.$addFileContainer
-			.add( this.$buttons )
-			.add( this.$progress );
-
-		this.hideEndButtons();
-
-		this.$addFileContainer
-			.add( this.$uploadCenterDivide )
-			.add( this.$uploadCtrl )
-			.show();
-
-		if ( this.isFlickrImportEnabled() ) {
-			this.$flickrAddFileContainer
-				.add( this.$uploadCenterDivide )
-				.show();
-
-			// changes the button back from "add more files from flickr" to the initial text
-			this.addFlickrFile.setLabel( mw.message( 'mwe-upwiz-add-file-flickr' ).text() );
-
-			this.emptyFlickrLists();
-		}
-
-		// changes the button back from "add another file" to the initial centered invitation button
-		this.addFile.setLabel( mw.message( 'mwe-upwiz-add-file-0-free' ).text() );
-	};
-
-	/**
-	 * Empties the Flickr selection lists.
-	 */
-	uw.ui.Upload.prototype.emptyFlickrLists = function () {
-		// empty the flickr lists
-		this.$flickrSelectList.empty();
-		this.$flickrSelectListContainer.unbind();
-		this.$flickrSelect.unbind();
-	};
-
 	uw.ui.Upload.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
 

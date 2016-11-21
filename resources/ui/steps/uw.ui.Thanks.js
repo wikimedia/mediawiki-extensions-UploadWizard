@@ -174,13 +174,6 @@
 	};
 
 	/**
-	 * Empty out all upload information.
-	 */
-	uw.ui.Thanks.prototype.empty = function () {
-		this.$div.find( '.mwe-upwiz-thanks' ).remove();
-	};
-
-	/**
 	 * Get button configuration options from a campaign definition
 	 *
 	 * @param {string} buttonName name of the button as defined in campaign configuration

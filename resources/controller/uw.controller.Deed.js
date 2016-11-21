@@ -168,13 +168,4 @@
 		}
 	};
 
-	/**
-	 * Empty out all upload information.
-	 */
-	uw.controller.Deed.prototype.empty = function () {
-		if ( this.deedChooser !== undefined ) {
-			this.deedChooser.remove();
-		}
-	};
-
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

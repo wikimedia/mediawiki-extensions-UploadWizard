@@ -83,11 +83,6 @@
 		this.$div.children().detach();
 	};
 
-	/**
-	 * Empty data from the step.
-	 */
-	uw.ui.Step.prototype.empty = function () {};
-
 	uw.ui.Step.prototype.enableNextButton = function () {
 		this.nextButtonPromise.resolve();
 	};

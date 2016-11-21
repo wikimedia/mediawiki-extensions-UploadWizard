@@ -61,11 +61,6 @@
 		bailAndloadFile: function () {
 			// destroy the flickr interface if it exists
 			this.flickrInterfaceDestroy();
-
-			// fix various other pages that may have state
-			$.each( this.steps, function ( i, step ) {
-				step.empty();
-			} );
 		},
 
 		/**
