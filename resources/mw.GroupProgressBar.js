@@ -94,7 +94,7 @@
 				}
 				bar.showCount( successStateCount );
 
-				if ( successStateCount + errorStateCount < bar.uploads.length - bar.countEmpties() ) {
+				if ( successStateCount + errorStateCount < bar.uploads.length - bar.countRemoved() ) {
 					setTimeout( displayer, 200 );
 				} else {
 					bar.showProgress( 1.0 );
@@ -171,15 +171,18 @@
 		/**
 		 * Show the overall count as we upload
 		 *
-		 * @param {number} count The number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
+		 * @param {number} completed The number of items that have done whatever has been done e.g. in "uploaded 2 of 5", this is the 2
 		 */
-		showCount: function ( count ) {
+		showCount: function ( completed ) {
+			var total = this.uploads.length - this.countRemoved();
 			this.$selector
 				.find( '.mwe-upwiz-count' )
-				.html( mw.message( 'mwe-upwiz-upload-count', count, this.uploads.length - this.countEmpties() ).escaped() );
+				// Hide if there are no uploads, show otherwise
+				.toggle( total !== 0 )
+				.html( mw.message( 'mwe-upwiz-upload-count', completed, total ).escaped() );
 		},
 
-		countEmpties: function () {
+		countRemoved: function () {
 			var count = 0;
 			$.each( this.uploads, function ( i, upload ) {
 				if ( !upload || upload.state === 'aborted' ) {
