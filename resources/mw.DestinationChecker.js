@@ -129,6 +129,9 @@
 						}
 					} else {
 						for ( pageId in data.query.pages ) {
+							if ( !data.query.pages.hasOwnProperty( pageId ) ) {
+								continue;
+							}
 							ntitle = data.query.pages[ pageId ].title;
 							ntitleObj = mw.Title.newFromText( ntitle );
 							if ( ntitleObj.getNameText() !== prefix ) {

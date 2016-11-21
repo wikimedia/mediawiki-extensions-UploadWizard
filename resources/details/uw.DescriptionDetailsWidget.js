@@ -108,11 +108,13 @@
 
 		options = [];
 		for ( code in mw.UploadWizard.config.uwLanguages ) {
-			language = mw.UploadWizard.config.uwLanguages[ code ];
-			options.push( new OO.ui.MenuOptionWidget( {
-				data: code,
-				label: language
-			} ) );
+			if ( mw.UploadWizard.config.uwLanguages.hasOwnProperty( code ) ) {
+				language = mw.UploadWizard.config.uwLanguages[ code ];
+				options.push( new OO.ui.MenuOptionWidget( {
+					data: code,
+					label: language
+				} ) );
+			}
 		}
 		return options;
 	};
