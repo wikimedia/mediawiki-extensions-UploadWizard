@@ -32,8 +32,7 @@
 			this,
 			new uw.ui.Upload( config )
 				.connect( this, {
-					retry: 'retry',
-					'flickr-ui-init': [ 'emit', 'flickr-ui-init' ]
+					retry: 'retry'
 				} ),
 			api,
 			config

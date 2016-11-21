@@ -64,7 +64,8 @@
 				label: mw.message( 'mwe-upwiz-add-file-flickr' ).text(),
 				flags: 'constructive'
 			} ).on( 'click', function () {
-				upload.emit( 'flickr-ui-init' );
+				upload.flickrInterfaceInit();
+				uw.eventFlowLogger.logEvent( 'flickr-upload-button-clicked' );
 			} );
 
 			this.$flickrAddFileContainer.append(
@@ -90,7 +91,47 @@
 					this.$flickrSelectList
 				);
 
-			this.$flickrSelect = $( '#mwe-upwiz-select-flickr' );
+			// Button to move on & upload the files that were selected
+			this.flickrSelectButton = new OO.ui.ButtonWidget( {
+				id: 'mwe-upwiz-select-flickr',
+				label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
+				flags: [ 'constructive', 'primary' ]
+			} );
+			this.$flickrSelectListContainer.append( this.flickrSelectButton.$element );
+
+			// A container holding a form
+			this.$flickrContainer = $( '<div id="mwe-upwiz-upload-add-flickr-container"></div>' );
+
+			// Form whose submit event will be listened to and prevented
+			this.$flickrForm = $( '<form id="mwe-upwiz-flickr-url-form"></form>' )
+				.appendTo( this.$flickrContainer )
+				.on( 'submit', function () {
+					var checker = new mw.FlickrChecker( upload, upload.flickrSelectButton );
+					upload.flickrButton.setDisabled( true );
+					upload.flickrChecker( checker );
+					// TODO Any particular reason to stopPropagation ?
+					return false;
+				} );
+
+			// The input that will hold a flickr URL entered by the user; will be appended to a form
+			this.$flickrInput = $( '<input id="mwe-upwiz-flickr-input" type="text" />' )
+				.prependTo( this.$flickrForm );
+
+			this.flickrButton = new OO.ui.ButtonInputWidget( {
+				id: 'mwe-upwiz-upload-ctrl-flickr',
+				label: mw.message( 'mwe-upwiz-add-flickr' ).text(),
+				flags: [ 'progressive', 'primary' ],
+				type: 'submit'
+			} );
+			this.$flickrForm.append( this.flickrButton.$element );
+
+			// Add disclaimer
+			$( '<div id="mwe-upwiz-flickr-disclaimer"></div>' )
+				.html(
+					mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
+					'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse()
+				)
+				.appendTo( this.$flickrContainer );
 		}
 
 		this.nextStepButtonAllOk = new OO.ui.ButtonWidget( {
@@ -392,6 +433,65 @@
 	 */
 	uw.ui.Upload.prototype.isFlickrImportEnabled = function () {
 		return this.config.UploadFromUrl && this.config.flickrApiKey !== '';
+	};
+
+	/**
+	 * Initiates the Interface to upload media from Flickr.
+	 * Called when the user clicks on the 'Add images from Flickr' button.
+	 */
+	uw.ui.Upload.prototype.flickrInterfaceInit = function () {
+		// Hide containers for selecting files, and show the flickr interface instead
+		this.$addFileContainer.hide();
+		this.$flickrAddFileContainer.hide();
+		this.$flickrContainer.show();
+		this.flickrSelectButton.$element.show();
+		this.flickrButton.setDisabled( false );
+
+		// Add placeholder text to the Flickr URL input field
+		this.$flickrInput.placeholder( mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text() );
+
+		// Insert form into the page
+		this.$div.find( '#mwe-upwiz-files' ).prepend( this.$flickrContainer );
+
+		this.$flickrInput.focus();
+	};
+
+	/**
+	 * Responsible for fetching license of the provided media.
+	 *
+	 * @param {mw.FlickrChecker} checker
+	 */
+	uw.ui.Upload.prototype.flickrChecker = function ( checker ) {
+		var flickrInputUrl = this.$flickrInput.val();
+
+		checker.getLicenses().done( function () {
+			checker.checkFlickr( flickrInputUrl );
+		} );
+	};
+
+	/**
+	 * Reset the interface if there is a problem while fetching the images from
+	 * the URL entered by the user.
+	 */
+	uw.ui.Upload.prototype.flickrInterfaceReset = function () {
+		// first destroy it completely, then reshow the add button
+		this.flickrInterfaceDestroy();
+		this.flickrButton.setDisabled( false );
+		this.$flickrContainer.show();
+		this.flickrSelectButton.$element.show();
+	};
+
+	/**
+	 * Removes the flickr interface.
+	 */
+	uw.ui.Upload.prototype.flickrInterfaceDestroy = function () {
+		this.$flickrInput.val( '' );
+		this.$flickrSelectList.empty();
+		this.$flickrSelectListContainer.unbind();
+		this.$flickrSelectListContainer.hide();
+		this.$flickrContainer.hide();
+		this.flickrButton.setDisabled( true );
+		this.flickrSelectButton.$element.hide();
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
