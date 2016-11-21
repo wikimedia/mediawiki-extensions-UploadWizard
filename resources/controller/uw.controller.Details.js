@@ -50,10 +50,10 @@
 	 *
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
-	uw.controller.Details.prototype.moveTo = function ( uploads ) {
+	uw.controller.Details.prototype.load = function ( uploads ) {
 		var details = this;
 
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		uw.controller.Step.prototype.load.call( this, uploads );
 
 		$.each( uploads, function ( i, upload ) {
 			var serialized;
@@ -89,18 +89,7 @@
 		} );
 	};
 
-	uw.controller.Details.prototype.moveNext = function () {
-		$.each( this.uploads, function ( i, upload ) {
-			upload.off( 'remove-upload', upload.removeCallback );
-			delete upload.removeCallback;
-		} );
-
-		this.removeErrorUploads();
-
-		uw.controller.Step.prototype.moveNext.call( this );
-	};
-
-	uw.controller.Details.prototype.movePrevious = function () {
+	uw.controller.Details.prototype.unload = function () {
 		$.each( this.uploads, function ( i, upload ) {
 			// get rid of remove handler, this handler only makes sense in this
 			// exact step - having it bound while in other steps could cause
@@ -109,7 +98,13 @@
 			delete upload.removeCallback;
 		} );
 
-		uw.controller.Step.prototype.movePrevious.call( this );
+		uw.controller.Step.prototype.unload.call( this );
+	};
+
+	uw.controller.Details.prototype.moveNext = function () {
+		this.removeErrorUploads();
+
+		uw.controller.Step.prototype.moveNext.call( this );
 	};
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function ( uploads ) {
@@ -430,7 +425,7 @@
 
 		if ( this.uploads.length === 0 ) {
 			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
-			// which will skip itself in moveTo() because there are no uploads left.)
+			// which will skip itself in load() because there are no uploads left.)
 			this.moveNext();
 			return;
 		}

@@ -58,7 +58,7 @@
 		/**
 		 * Resets wizard state and moves to the file step.
 		 */
-		bailAndMoveToFile: function () {
+		bailAndloadFile: function () {
 			// destroy the flickr interface if it exists
 			this.flickrInterfaceDestroy();
 
@@ -77,7 +77,7 @@
 			this.initialiseSteps();
 
 			// "select" the first step - highlight, make it visible, hide all others
-			this.steps.firstStep.moveTo( [] );
+			this.steps.firstStep.load( [] );
 		},
 
 		/**
@@ -109,7 +109,7 @@
 			$.each( this.steps, function ( name, step ) {
 				step
 					.on( 'no-uploads', function () {
-						wizard.bailAndMoveToFile();
+						wizard.bailAndloadFile();
 					} );
 			} );
 

@@ -98,8 +98,8 @@
 		this.skipCheckbox.setSelected( selected );
 	};
 
-	uw.ui.Tutorial.prototype.moveTo = function ( uploads ) {
-		uw.ui.Step.prototype.moveTo.call( this, uploads );
+	uw.ui.Tutorial.prototype.load = function ( uploads ) {
+		uw.ui.Step.prototype.load.call( this, uploads );
 
 		this.$div.prepend(
 			$( '<div>' )

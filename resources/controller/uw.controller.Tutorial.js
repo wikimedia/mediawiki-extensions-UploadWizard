@@ -80,20 +80,23 @@
 		} );
 	};
 
-	uw.controller.Tutorial.prototype.moveTo = function ( uploads ) {
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+	uw.controller.Tutorial.prototype.load = function ( uploads ) {
+		uw.controller.Step.prototype.load.call( this, uploads );
 		uw.eventFlowLogger.logTutorialAction( 'load' );
 	};
 
 	uw.controller.Tutorial.prototype.moveNext = function () {
 		uw.eventFlowLogger.logTutorialAction( 'continue' );
+		uw.controller.Step.prototype.moveNext.call( this );
+	};
 
+	uw.controller.Tutorial.prototype.unload = function () {
 		// if the skip checkbox is checked, set the skip user preference
 		if ( this.shouldSkipTutorial !== this.skipPreference ) {
 			this.setSkipPreference( this.shouldSkipTutorial );
 		}
 
-		uw.controller.Step.prototype.moveNext.call( this );
+		uw.controller.Step.prototype.unload.call( this );
 	};
 
 	uw.controller.Tutorial.prototype.isComplete = function () {

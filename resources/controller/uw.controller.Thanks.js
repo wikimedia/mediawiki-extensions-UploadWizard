@@ -37,7 +37,7 @@
 
 	OO.inheritClass( uw.controller.Thanks, uw.controller.Step );
 
-	uw.controller.Thanks.prototype.moveTo = function ( uploads ) {
+	uw.controller.Thanks.prototype.load = function ( uploads ) {
 		var thanks = this;
 
 		if ( uploads.length === 0 ) {
@@ -46,7 +46,7 @@
 			return;
 		}
 
-		uw.controller.Step.prototype.moveTo.call( this, uploads );
+		uw.controller.Step.prototype.load.call( this, uploads );
 
 		$.each( uploads, function ( i, upload ) {
 			thanks.ui.addUpload( upload );

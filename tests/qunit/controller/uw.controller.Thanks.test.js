@@ -25,12 +25,12 @@
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'moveTo', 1, function ( assert ) {
+	QUnit.test( 'load', 1, function ( assert ) {
 		var step = new uw.controller.Thanks( new mw.Api(), {} ),
 			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
-		this.sandbox.stub( step.ui, 'moveTo' );
-		step.moveTo( [ 1, 2, 3 ] );
+		this.sandbox.stub( step.ui, 'load' );
+		step.load( [ 1, 2, 3 ] );
 
 		assert.strictEqual( auStub.callCount, 3 );
 	} );

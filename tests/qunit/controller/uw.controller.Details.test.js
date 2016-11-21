@@ -54,35 +54,35 @@
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'moveTo', 12, function ( assert ) {
+	QUnit.test( 'load', 12, function ( assert ) {
 		var step = new uw.controller.Details( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} ),
 			testUpload = createTestUpload( this.sandbox ),
-			stepUiStub = this.sandbox.stub( step.ui, 'moveTo' );
+			stepUiStub = this.sandbox.stub( step.ui, 'load' );
 
-		step.moveTo( [ testUpload ] );
+		step.load( [ testUpload ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox, true );
-		step.moveTo( [ testUpload ] );
+		step.load( [ testUpload ] );
 
 		assert.ok( testUpload.stubs.ucdc.called );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
-		step.moveTo( [ testUpload, createTestUpload( this.sandbox ) ] );
+		step.load( [ testUpload, createTestUpload( this.sandbox ) ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.ok( testUpload.stubs.cd.called );
 		assert.ok( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
-		step.moveTo( [ testUpload, createTestUpload( this.sandbox, false, true ) ] );
+		step.load( [ testUpload, createTestUpload( this.sandbox, false, true ) ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.ok( testUpload.stubs.cd.called );
