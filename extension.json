@@ -147,7 +147,6 @@
 			],
 			"dependencies": [
 				"uw.base",
-				"json",
 				"es5-shim",
 				"oojs"
 			],
