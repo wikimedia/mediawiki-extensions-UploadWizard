@@ -671,8 +671,10 @@
 			info = '';
 
 			for ( key in information ) {
-				info += '|' + key.replace( /:/g, '_' );
-				info += '=' + mw.Escaper.escapeForTemplate( information[ key ] ) + '\n';
+				if ( information.hasOwnProperty( key ) ) {
+					info += '|' + key.replace( /:/g, '_' );
+					info += '=' + mw.Escaper.escapeForTemplate( information[ key ] ) + '\n';
+				}
 			}
 
 			wikiText += '=={{int:filedesc}}==\n';

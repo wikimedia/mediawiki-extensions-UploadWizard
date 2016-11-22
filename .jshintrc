@@ -9,6 +9,7 @@
 	"nonew": true,
 	"undef": true,
 	"unused": true,
+	"forin": true,
 
 	"strict": false,
 
