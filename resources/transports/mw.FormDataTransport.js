@@ -420,7 +420,7 @@
 		var response;
 
 		try {
-			response = $.parseJSON( evt.target.responseText );
+			response = JSON.parse( evt.target.responseText );
 		} catch ( e ) {
 			if ( window.console ) {
 				// Let's check what caused this, too.
