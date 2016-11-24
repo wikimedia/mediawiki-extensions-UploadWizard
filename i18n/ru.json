@@ -243,6 +243,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Вы выбрали вариант, требующий ввода викитекста.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Приведённый викитекст слишком короток, чтобы быть лицензией",
 	"mwe-upwiz-error-license-wikitext-too-long": "Приведённый викитекст слишком длинный",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Викитекст, который вы ввели, не содержит действительного шаблона лицензий.",
 	"mwe-upwiz-warning-categories-missing": "Желательно, чтобы вы указали несколько категорий для ваших загрузок.",
 	"mwe-upwiz-warning-postdate": "Дата, выбранная вами, относится к будущему.",
 	"mwe-upwiz-details-error-count": "В {{PLURAL:$2|1=форме|формах}} {{PLURAL:$1|присутствует $1 ошибка|присутствуют $1 ошибки|присутствуют $1 ошибок|1=присутствует ошибка}}. Исправьте {{PLURAL:$1|1=ошибку|ошибки}} и попробуйте записать снова.",
