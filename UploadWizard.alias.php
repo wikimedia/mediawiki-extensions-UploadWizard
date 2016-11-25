@@ -270,9 +270,9 @@ $specialPageAliases['tyv'] = array(
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
 	'Campaigns' => array( 'Кампанії' ),
-	'UploadWizard' => array( 'Майстер_завантаження' ),
-	'UploadCampaigns' => array( 'Масові_завантаження' ),
-	'UploadCampaign' => array( 'Масове_завантаження' ),
+	'UploadWizard' => array( 'Майстер_завантаження', 'Мастер_загрузки' ),
+	'UploadCampaigns' => array( 'Масові_завантаження', 'Кампании_по_загрузке' ),
+	'UploadCampaign' => array( 'Масове_завантаження', 'Кампания_по_загрузке' ),
 );
 
 /** Vietnamese (Tiếng Việt) */
