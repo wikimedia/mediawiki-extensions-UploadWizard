@@ -327,9 +327,6 @@
 						function () { input.emit( 'change' ); },
 						2000
 					);
-				} )
-				.css( {
-					'font-family': 'monospace'
 				} );
 
 			button = new OO.ui.ButtonWidget( {
@@ -339,10 +336,9 @@
 				input.showPreview( textarea.getValue() );
 			} );
 
-			return $( '<div></div>' ).css( { width: '100%' } ).append(
-				$( '<div></div>' ).css( { float: 'right', width: '9em', 'padding-left': '1em' } ).append( button.$element ),
-				$( '<div></div>' ).css( { 'margin-right': '10em' } ).append( textarea.$element ),
-				$( '<div></div>' ).css( { clear: 'both' } )
+			return $( '<div>' ).addClass( 'mwe-upwiz-license-custom' ).append(
+				button.$element,
+				textarea.$element
 			);
 		},
 
