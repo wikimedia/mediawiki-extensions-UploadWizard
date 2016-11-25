@@ -306,7 +306,7 @@
 		 * @return {jQuery} Wrapped textarea
 		 */
 		createCustomWikiTextInterface: function ( $input, customDefault ) {
-			var keydownTimeout,
+			var
 				input = this,
 				nameId = $input.attr( 'id' ) + '_custom',
 				textarea, button;
@@ -319,15 +319,10 @@
 			} );
 			textarea.$input.attr( 'id', nameId );
 
-			textarea.$input
-				.focus( function () { input.setInput( $input, true ); } )
-				.keydown( function () {
-					window.clearTimeout( keydownTimeout );
-					keydownTimeout = window.setTimeout(
-						function () { input.emit( 'change' ); },
-						2000
-					);
-				} );
+			// Select this radio when the user clicks on the text field
+			textarea.$input.focus( function () { input.setInput( $input, true ); } );
+			// Update displayed errors as the user is typing
+			textarea.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
 
 			button = new OO.ui.ButtonWidget( {
 				label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
