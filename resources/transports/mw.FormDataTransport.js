@@ -428,7 +428,7 @@
 			}
 			response = {
 				error: {
-					code: 'parsererror',
+					code: evt.target.status !== 0 ? 'parsererror' : 'offline',
 					info: evt.target.responseText
 				}
 			};

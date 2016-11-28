@@ -304,6 +304,7 @@
 				"api-error-abusefilter-warning",
 				"api-error-abusefilter-disallowed",
 				"api-error-spamblacklist",
+				"api-error-offline",
 				"api-error-parsererror",
 				"mwe-upwiz-api-warning-was-deleted",
 				"mwe-upwiz-api-warning-exists",

@@ -18,6 +18,7 @@
 	"api-error-abusefilter-warning": "This action has been automatically identified as harmful ([$1 more info]).\nUnconstructive edits will be quickly reverted,\nand egregious or repeated unconstructive editing will result in your account or IP address being blocked.",
 	"api-error-abusefilter-disallowed": "This action has been automatically identified as harmful, and therefore disallowed ([$1 more info]).",
 	"api-error-spamblacklist": "The text you wanted to save was blocked by the spam filter.\nThis is probably caused by a link to a blacklisted external site.",
+	"api-error-offline": "Could not proceed due to network connectivity issues. Make sure you have a working internet connection and try again.",
 	"api-error-parsererror": "The server responded with an invalid JSON document. This could be a problem with the API, or you could be using a proxy server that prevents you from uploading files.",
 	"mwe-upwiz-unavailable": "Your browser is not compatible with UploadWizard or has JavaScript turned off, so we are showing you a simple upload form. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility View compatibility requirements].)",
 	"mwe-upwiz-extension-disabled": "This page has been disabled due to temporary technical problems. In the meantime try the standard upload form.",
