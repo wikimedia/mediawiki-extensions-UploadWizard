@@ -55,6 +55,14 @@ $specialPageAliases['bgn'] = array(
 	'UploadWizard' => array( 'جاوگرین_بُرز_کنۆک' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'Campaigns' => array( 'ক্যাম্পেইন' ),
+	'UploadWizard' => array( 'আপলোড_উইজার্ড' ),
+	'UploadCampaigns' => array( 'আপলোড_ক্যাম্পেইনসমূহ' ),
+	'UploadCampaign' => array( 'আপলোড_ক্যাম্পেইন' ),
+);
+
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = array(
 	'UploadWizard' => array( 'Ашаалха_Зэмсэг' ),
