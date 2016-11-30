@@ -979,6 +979,9 @@
 				// This could potentially also come up when an upload is removed by the user, but in that
 				// case the UI is invisible anyway, so whatever.
 				code = 'ratelimited';
+			} else if ( code === 'http' && result && result.xhr && result.xhr.status === 0 ) {
+				// Failed to even connect to server
+				code = 'offline';
 			}
 
 			if ( result && code ) {

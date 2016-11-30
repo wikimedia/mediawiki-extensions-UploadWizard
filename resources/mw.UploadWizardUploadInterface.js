@@ -188,7 +188,8 @@
 			'abusefilter-disallowed',
 			'abusefilter-warning',
 			'spamblacklist',
-			'parsererror' // Debugging, try to figure out why this happens
+			'offline',
+			'parsererror'
 		];
 
 		this.showIndicator( 'error' );
