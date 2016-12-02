@@ -95,8 +95,6 @@
 			}
 			this.running.splice( index, 1 );
 			this.runningPromises.splice( index, 1 );
-			// Ensure we're still using as many threads as requested
-			this.executeNext();
 			found = true;
 		}
 
@@ -104,6 +102,9 @@
 			this.emit( 'change' );
 			this.checkIfComplete();
 		}
+
+		// Ensure we're still using as many threads as requested
+		this.executeNext();
 
 		return found;
 	};
@@ -131,8 +132,7 @@
 	 * @private
 	 */
 	uw.ConcurrentQueue.prototype.executeNext = function () {
-		var item, execute, callback,
-			queue = this;
+		var item, promise;
 		if ( this.running.length === this.count || !this.executing ) {
 			return;
 		}
@@ -140,22 +140,11 @@
 		if ( !item ) {
 			return;
 		}
+
 		this.running.push( item );
-		this.runningPromises.push( {} );
-		callback = this.promiseComplete.bind( this, item );
-		execute = this.action.bind( null, item );
-		// We don't want to accidentally recurse if the promise completes immediately
-		setTimeout( function () {
-			var index, promise;
-			// We have to check the index again, one of the running items might have completed
-			index = queue.running.indexOf( item );
-			// If we're not in the array at all, it means that execution was aborted, do nothing
-			if ( index !== -1 ) {
-				promise = execute();
-				queue.runningPromises[ index ] = promise;
-				promise.always( callback );
-			}
-		} );
+		promise = this.action.call( null, item );
+		this.runningPromises.push( promise );
+		promise.always( this.promiseComplete.bind( this, item ) );
 	};
 
 	/**
@@ -174,7 +163,7 @@
 			this.executeNext();
 		}
 		// In case the queue was empty
-		setTimeout( this.checkIfComplete.bind( this ) );
+		this.checkIfComplete();
 	};
 
 	/**
@@ -193,7 +182,7 @@
 	 * @private
 	 */
 	uw.ConcurrentQueue.prototype.checkIfComplete = function () {
-		if ( this.running.length === 0 ) {
+		if ( this.running.length === 0 && this.queued.length === 0 ) {
 			if ( !this.completed ) {
 				this.completed = true;
 				this.executing = false;
