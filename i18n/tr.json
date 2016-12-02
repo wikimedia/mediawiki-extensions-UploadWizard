@@ -15,18 +15,18 @@
 			"Captantrips",
 			"Matma Rex",
 			"Sayginer",
-			"Hbseren"
+			"Hbseren",
+			"Alikaan"
 		]
 	},
 	"uploadwizard": "Yükleme sihirbazı",
 	"uploadwizard-desc": "Yükleme sihirbazı, çoklu medya kullanılabilirliğini arttırmak için geliştirildi.",
-	"mwe-upwiz-uploadcampaigns": "Kampanyaları yükle",
-	"mwe-upwiz-uploadcampaign": "Yükleme kampanyası yapılandırması",
 	"right-upwizcampaigns": "Yükleme Sihirbazı kampanyası yapılandırması",
 	"action-upwizcampaigns": "yükleme kampanyaları yapılandırması",
 	"group-upwizcampeditors": "Yükleme Sihirbazı kampanyası editörleri",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Yükleme Sihirbazı kampanyası editörü}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Yükleme Sihirbazı kampanyası editörleri",
+	"api-error-offline": "Ağ bağlantısı sorunları nedeniyle devam edilemedi. Çalışan bir internet bağlantınız olduğundan emin olun ve tekrar deneyin.",
 	"mwe-upwiz-unavailable": "Tarayıcınız UploadWizard ile uyumlu değil veya JavaScript devre dışı, bu nedenle size basit bir yükleme formu gösteriyoruz. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Uyumluluk gereksinimlerini göster].)",
 	"mwe-upwiz-extension-disabled": "Bu sayfa geçici teknik sorunlar nedeniyle devre dışı bırakıldı. Bu süre içerisinde standart yükleme formunu deneyin.",
 	"mwe-upwiz-step-tutorial": "Öğrenin",
