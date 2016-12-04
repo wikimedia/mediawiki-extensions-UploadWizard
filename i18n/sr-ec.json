@@ -11,10 +11,8 @@
 			"Macofe"
 		]
 	},
-	"uploadwizard": "Чаробњак за отпремање",
+	"uploadwizard": "Водич за отпремање",
 	"uploadwizard-desc": "Чаробњак за отпремање, згодна алатка за отпремање мултимедијалних садржаја",
-	"mwe-upwiz-uploadcampaigns": "Кампање за отпремање",
-	"mwe-upwiz-uploadcampaign": "Поставке кампање за отпремање",
 	"right-upwizcampaigns": "Поставке кампања Чаробњака за отпремање",
 	"action-upwizcampaigns": "поставке кампања за отпремање",
 	"group-upwizcampeditors": "Уредници кампање – Помоћник за отпремање",
@@ -275,8 +273,6 @@
 	"mwe-upwiz-error-campaigndisabled": "Кампања „$1“ није омогућена.",
 	"mwe-upwiz-calendar-date": "Датум из календара",
 	"mwe-upwiz-custom-date": "Ручно уношење датума",
-	"uploadcampaign-legend": "Отпреми поставку за кампању",
-	"uploadcampaign-text": "Мењате кампању Помоћника за отпремање.",
 	"prefs-uploads": "Отпремање",
 	"prefs-upwiz-licensing": "Лиценцирање",
 	"prefs-upwiz-experimental": "Пробне функције",

@@ -9,10 +9,8 @@
 			"Сербијана"
 		]
 	},
-	"uploadwizard": "Čarobnjak za otpremanje",
+	"uploadwizard": "Vodič za otpremanje",
 	"uploadwizard-desc": "Čarobnjak za otpremanje, zgodna alatka za otpremanje multimedijalnih sadržaja",
-	"mwe-upwiz-uploadcampaigns": "Kampanje za otpremanje",
-	"mwe-upwiz-uploadcampaign": "Postavke kampanje za otpremanje",
 	"right-upwizcampaigns": "Postavke kampanja Čarobnjaka za otpremanje",
 	"action-upwizcampaigns": "postavke kampanja za otpremanje",
 	"group-upwizcampeditors": "Urednici kampanje za otpremanje",
@@ -266,8 +264,6 @@
 	"mwe-upwiz-error-campaigndisabled": "Kampanja „$1“ nije omogućena.",
 	"mwe-upwiz-calendar-date": "Datum iz kalendara",
 	"mwe-upwiz-custom-date": "Ručno unošenje datuma",
-	"uploadcampaign-legend": "Otpremi postavku za kampanju",
-	"uploadcampaign-text": "Menjate kampanju Pomoćnika za otpremanje.",
 	"prefs-uploads": "Otpremanja",
 	"prefs-upwiz-licensing": "Licenciranje",
 	"prefs-upwiz-experimental": "Probne funkcije",

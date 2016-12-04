@@ -4,16 +4,15 @@
 			"Vadgt",
 			"Xelgen",
 			"Աշոտ1997",
-			"Vahe Gharakhanyan"
+			"Vahe Gharakhanyan",
+			"Kareyac"
 		]
 	},
 	"uploadwizard": "Վերբեռնման օգնական",
 	"uploadwizard-desc": "Վերբեռնման օգնական, տեսանյութերի վերբեռնումը հեշտացնող գործիք։",
-	"mwe-upwiz-uploadcampaigns": "Վերբեռնման արշավներ",
-	"mwe-upwiz-uploadcampaign": "Վերբեռնման արշավի կարգավորումներ",
 	"right-upwizcampaigns": "Կարգավորել Վերբեռնման օգնականի արշավները",
+	"api-error-offline": "Անհնար է շարունակել խնդիրների պատճառով ցանցային փոխկապակցման: Համոզվեք, որ դուք ունեք ինտերնետ կապ և կրկին փորձեք:",
 	"mwe-upwiz-extension-disabled": "Այս էջը ժամանակվորապես անհասանելի է տեխնիկակակն խնդիրների պատճառով։ Դուք կարող եք օգտագործել վերբեռնման ստանդարտ ձևից։",
-	"mwe-upwiz-code-unknown": "Անհայտ լեզու",
 	"mwe-upwiz-step-tutorial": "Իմացեք",
 	"mwe-upwiz-step-file": "Վերբեռնեք",
 	"mwe-upwiz-step-deeds": "Ազատ թողարկեք",
@@ -30,7 +29,6 @@
 	"mwe-upwiz-published": "Հրապարակվա՛ծ է։",
 	"mwe-upwiz-failed": "Ձախողվեց։",
 	"mwe-upwiz-remove": "Ջնջել",
-	"mwe-upwiz-show-thumb": "Ցուցադրել մանրապատկերը",
 	"mwe-upwiz-upload": "Վերբեռնել",
 	"mwe-upwiz-file-all-ok": "Ամենը բարեհաջող վերբեռնվե՛ց։",
 	"mwe-upwiz-file-some-failed": "Որոշ վերբեռնումներ ձախողվեցին",
