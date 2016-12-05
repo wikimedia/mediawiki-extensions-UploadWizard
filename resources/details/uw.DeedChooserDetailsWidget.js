@@ -37,9 +37,9 @@
 				}
 			};
 
-			if ( upload.providedFile.license ) {
+			if ( upload.file.license ) {
 				// XXX need to add code in the remaining functions
-				this.$element.append( upload.providedFile.licenseMessage );
+				this.$element.append( upload.file.licenseMessage );
 				this.deedChooser.deed = this.getDeed( upload );
 			} else {
 				config = { type: 'or', licenses: [ 'custom' ], special: 'custom' };
@@ -56,12 +56,12 @@
 				this.$element.append( deed.licenseInputField.$element );
 				deed.licenseInput.setDefaultValues();
 
-				this.$element.append( upload.providedFile.licenseMessage );
+				this.$element.append( upload.file.licenseMessage );
 				this.deedChooser.deed = this.getDeed( upload, deed, {
 					getFields: function () { return [ this.licenseInputField ]; },
 					getLicenseWikiText: function () {
-						if ( upload.providedFile.licenseValue ) {
-							return upload.providedFile.licenseValue + this.licenseInput.getWikiText();
+						if ( upload.file.licenseValue ) {
+							return upload.file.licenseValue + this.licenseInput.getWikiText();
 						} else {
 							return this.licenseInput.getWikiText();
 						}
@@ -88,17 +88,17 @@
 		return $.extend( deed, {
 			getFields: function () { return []; },
 			getSourceWikiText: function () {
-				if ( typeof upload.providedFile.sourceURL !== 'undefined' ) {
-					return upload.providedFile.sourceURL;
+				if ( typeof upload.file.sourceURL !== 'undefined' ) {
+					return upload.file.sourceURL;
 				} else {
-					return upload.providedFile.url;
+					return upload.file.url;
 				}
 			},
 			getAuthorWikiText: function () {
-				return upload.providedFile.author;
+				return upload.file.author;
 			},
 			getLicenseWikiText: function () {
-				return upload.providedFile.licenseValue;
+				return upload.file.licenseValue;
 			},
 			getSerialized: function () {
 				return {};

@@ -28,8 +28,6 @@
 
 			if ( upload.file ) {
 				file = upload.file;
-			} else if ( upload.providedFile ) {
-				file = upload.providedFile;
 			} else {
 				mw.log.warn( 'Firefogg tried to upload a file but was unable to find one.' );
 				return false;

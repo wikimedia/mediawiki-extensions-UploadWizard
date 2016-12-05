@@ -74,16 +74,6 @@
 	OO.mixinClass( mw.UploadWizardUploadInterface, OO.EventEmitter );
 
 	/**
-	 * Manually fill the file input with a file.
-	 *
-	 * @param {File} providedFile
-	 */
-	mw.UploadWizardUploadInterface.prototype.fill = function ( providedFile ) {
-		this.providedFile = providedFile;
-		this.clearErrors();
-	};
-
-	/**
 	 * Change the graphic indicator at the far end of the row for this file
 	 *
 	 * @param {string} statusClass Corresponds to a class mwe-upwiz-status which changes style of indicator.
@@ -216,11 +206,11 @@
 	 * @return {string}
 	 */
 	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
-		if ( this.providedFile.fileName ) {
-			return this.providedFile.fileName;
+		if ( this.upload.file.fileName ) {
+			return this.upload.file.fileName;
 		} else {
 			// this property has a different name in FF vs Chrome.
-			return this.providedFile.name;
+			return this.upload.file.name;
 		}
 	};
 
@@ -231,7 +221,6 @@
 	 *
 	 * @param {Object} imageinfo
 	 * @param {File} file
-	 * @param {boolean} fromURL
 	 */
 	mw.UploadWizardUploadInterface.prototype.fileChangedOk = function ( imageinfo, file ) {
 		var statusItems = [];
@@ -273,8 +262,6 @@
 
 	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {
 		var filename = this.getFilename();
-
-		this.providedFile = null;
 
 		if ( code === 'ext' ) {
 			this.showBadExtensionError( filename, info );
