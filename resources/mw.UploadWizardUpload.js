@@ -26,8 +26,6 @@
 	 * @param {File} file
 	 */
 	mw.UploadWizardUpload = function MWUploadWizardUpload( controller, file ) {
-		var upload = this;
-
 		OO.EventEmitter.call( this );
 
 		this.index = mw.UploadWizardUpload.prototype.count;
@@ -40,8 +38,6 @@
 		this.thumbnailPublishers = {};
 		this.imageinfo = {};
 		this.title = undefined;
-		this.extension = undefined;
-		this.filename = undefined;
 		this.ignoreWarning = {};
 		this.previewPromise = null;
 
@@ -51,12 +47,7 @@
 		this.transportWeight = 1; // default all same
 
 		// details
-		this.ui = new mw.UploadWizardUploadInterface( this )
-			.connect( this, {
-				'file-changed': [ 'emit', 'file-changed', upload ],
-				'filename-accepted': [ 'emit', 'filename-accepted' ],
-				'upload-filled': [ 'emit', 'filled' ]
-			} );
+		this.ui = new mw.UploadWizardUploadInterface( this );
 	};
 
 	OO.mixinClass( mw.UploadWizardUpload, OO.EventEmitter );
@@ -334,13 +325,28 @@
 	};
 
 	/**
+	 * Get just the filename.
+	 *
+	 * @return {string}
+	 */
+	mw.UploadWizardUpload.prototype.getFilename = function () {
+		if ( this.file.fileName ) {
+			return this.file.fileName;
+		} else {
+			// this property has a different name in FF vs Chrome.
+			return this.file.name;
+		}
+	};
+
+	/**
 	 * Get the basename of a path.
 	 * For error conditions, returns the empty string.
 	 *
-	 * @param {string} path
 	 * @return {string} basename
 	 */
-	mw.UploadWizardUpload.prototype.getBasename = function ( path ) {
+	mw.UploadWizardUpload.prototype.getBasename = function () {
+		var path = this.getFilename();
+
 		if ( path === undefined || path === null ) {
 			return '';
 		}
@@ -351,136 +357,12 @@
 	};
 
 	/**
-	 * Shows a filename error in the UI.
-	 *
-	 * @param {string} code Short code for i18n strings
-	 * @param {string} info More information
-	 */
-	mw.UploadWizardUpload.prototype.fileNameErr = function ( code, info ) {
-		this.hasError = true;
-		this.ui.fileChangedError( code, info );
-	};
-
-	/**
-	 * Called when the file is entered into the file input, bound to its change() event.
-	 * Checks for file validity, then extracts metadata.
-	 * Error out if filename or its contents are determined to be unacceptable
-	 * Proceed to thumbnail extraction and image info if acceptable
-	 *
-	 * We changed the behavior here to be a little more sane. Now any errors
-	 * will cause the fileChangedOk not to be called, and if you have a special
-	 * case where an error should be ignored, you can simply find that error
-	 * and delete it from the third parameter of the error callback. The end.
-	 *
-	 * @param {string} filename The filename
-	 */
-	mw.UploadWizardUpload.prototype.checkFile = function ( filename ) {
-		var duplicate, extension,
-			actualMaxSize,
-			upload = this,
-
-			// Check if filename is acceptable
-			// TODO sanitize filename
-			basename = this.getBasename( filename );
-
-		function finishCallback() {
-			if ( upload && upload.ui ) {
-				upload.fileChangedOk();
-			} else {
-				setTimeout( finishCallback, 200 );
-			}
-		}
-
-		// Eternal optimism
-		this.hasError = false;
-
-		// check to see if the file has already been selected for upload.
-		duplicate = false;
-		$.each( this.controller.uploads, function ( i, thisupload ) {
-			if ( thisupload !== undefined && upload !== thisupload && filename === thisupload.filename ) {
-				duplicate = true;
-				return false;
-			}
-		} );
-
-		if ( duplicate ) {
-			this.fileNameErr( 'dup', basename );
-			return;
-		}
-
-		this.setTitle( basename );
-
-		if ( !this.title ) {
-			if ( basename.indexOf( '.' ) === -1 ) {
-				this.fileNameErr( 'noext', null );
-			} else {
-				this.fileNameErr( 'unparseable', null );
-			}
-			return;
-		}
-
-		// Check if extension is acceptable
-		extension = this.title.getExtension();
-		if ( !extension ) {
-			this.fileNameErr( 'noext', null );
-		} else {
-			if (
-				mw.UploadWizard.config.fileExtensions !== null &&
-				$.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1
-			) {
-				this.fileNameErr( 'ext', extension );
-			} else {
-				// Split this into a separate case, if the error above got ignored,
-				// we want to still trudge forward.
-
-				// Extract more info via File API
-
-				actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
-
-				// make sure the file isn't too large
-				// XXX need a way to find the size of the Flickr image
-				if ( this.file.size ) {
-					this.transportWeight = this.file.size;
-					if ( this.transportWeight > actualMaxSize ) {
-						this.showMaxSizeWarning( this.transportWeight, actualMaxSize );
-						return;
-					}
-				}
-				if ( this.imageinfo === undefined ) {
-					this.imageinfo = {};
-				}
-				this.filename = filename;
-				if ( this.hasError === false ) {
-					finishCallback();
-				}
-			}
-		}
-	};
-
-	/**
 	 * Sanitize and set the title of the upload.
 	 *
 	 * @param {string} title Unsanitized title.
 	 */
 	mw.UploadWizardUpload.prototype.setTitle = function ( title ) {
 		this.title = mw.Title.newFromFileName( title );
-	};
-
-	/**
-	 * Shows an error dialog informing the user that the selected file is to large
-	 *
-	 * @param {number} size Size of the file in bytes
-	 * @param {number} maxSize Maximum file size
-	 */
-	mw.UploadWizardUpload.prototype.showMaxSizeWarning = function ( size, maxSize ) {
-		mw.errorDialog(
-			mw.message(
-				'mwe-upwiz-file-too-large-text',
-				mw.units.bytes( maxSize ),
-				mw.units.bytes( size )
-			).text(),
-			mw.message( 'mwe-upwiz-file-too-large' ).text()
-		);
 	};
 
 	/**
@@ -551,9 +433,6 @@
 		var pixelHeightDim, pixelWidthDim, degrees;
 
 		if ( meta !== undefined && meta !== null && typeof meta === 'object' ) {
-			if ( this.imageinfo === undefined ) {
-				this.imageinfo = {};
-			}
 			if ( this.imageinfo.metadata === undefined ) {
 				this.imageinfo.metadata = {};
 			}

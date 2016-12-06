@@ -52,7 +52,7 @@
 				tooManyFiles = totalFiles > step.config.maxUploads;
 
 			if ( tooManyFiles ) {
-				step.showTooManyFilesWarning( totalFiles );
+				step.ui.showTooManyFilesError( totalFiles );
 			} else {
 				step.addUploads( files );
 			}
@@ -73,16 +73,6 @@
 
 		this.updateProgressBarCount( this.uploads.length );
 		this.ui.updateFileCounts( haveUploads, fewerThanMax );
-	};
-
-	/**
-	 * Shows an error dialog informing the user that some uploads have been omitted
-	 * since they went over the max files limit.
-	 *
-	 * @param {number} filesUploaded integer - the number of files that have been attempted to upload
-	 */
-	uw.controller.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
-		this.ui.showTooManyFilesWarning( filesUploaded );
 	};
 
 	uw.controller.Upload.prototype.load = function ( uploads ) {
@@ -230,19 +220,16 @@
 		}
 
 		upload = new mw.UploadWizardUpload( this, file )
-			.on( 'filled', function () {
-				controller.setUploadFilled( upload );
-			} )
-
-			.on( 'filename-accepted', function () {
-				controller.updateFileCounts( controller.uploads );
-			} )
-
 			.on( 'remove-upload', function () {
 				controller.removeUpload( upload );
 			} );
 
-		upload.checkFile( upload.ui.getFilename() );
+		if ( !this.validateFile( upload ) ) {
+			return false;
+		}
+
+		controller.setUploadFilled( upload );
+		upload.fileChangedOk();
 
 		return upload;
 	};
@@ -261,7 +248,9 @@
 
 		$.each( files, function ( i, file ) {
 			uploadObj = controller.addUpload( file );
-			uploadObjs.push( uploadObj );
+			if ( uploadObj ) {
+				uploadObjs.push( uploadObj );
+			}
 		} );
 
 		this.ui.displayUploads( uploadObjs );
@@ -312,6 +301,70 @@
 		// Start uploads now, no reason to wait--leave the remove button alone
 		this.queueUpload( upload );
 		this.startQueuedUploads();
+	};
+
+	/**
+	 * Checks for file validity.
+	 *
+	 * @param {mw.UploadWizardUpload} upload
+	 * @return {boolean} Error in [code, info] format, or empty [] for no errors
+	 */
+	uw.controller.Upload.prototype.validateFile = function ( upload ) {
+		var extension,
+			i,
+			actualMaxSize = mw.UploadWizard.config.maxMwUploadSize,
+
+			// Check if filename is acceptable
+			// TODO sanitize filename
+			filename = upload.getFilename(),
+			basename = upload.getBasename();
+
+		// check to see if this file has already been selected for upload
+		for ( i = 0; i < this.uploads.length; i++ ) {
+			if ( upload !== this.uploads[ i ] && filename === this.uploads[ i ].getFilename() ) {
+				this.ui.showDuplicateError( filename, basename );
+				return false;
+			}
+		}
+
+		// check if the filename is valid
+		upload.setTitle( basename );
+		if ( !upload.title ) {
+			if ( basename.indexOf( '.' ) === -1 ) {
+				this.ui.showMissingExtensionError( filename );
+				return false;
+			} else {
+				this.ui.showUnparseableFilenameError( filename );
+				return false;
+			}
+		}
+
+		// check if extension is acceptable
+		extension = upload.title.getExtension();
+		if ( !extension ) {
+			this.ui.showMissingExtensionError( filename );
+			return false;
+		}
+
+		if (
+			mw.UploadWizard.config.fileExtensions !== null &&
+			$.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1
+		) {
+			this.ui.showBadExtensionError( filename, extension );
+			return false;
+		}
+
+		// make sure the file isn't too large
+		// TODO need a way to find the size of the Flickr image
+		if ( upload.file.size ) {
+			upload.transportWeight = upload.file.size;
+			if ( upload.transportWeight > actualMaxSize ) {
+				this.ui.showFileTooLargeError( actualMaxSize, upload.transportWeight );
+				return false;
+			}
+		}
+
+		return true;
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

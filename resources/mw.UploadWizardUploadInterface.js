@@ -201,20 +201,6 @@
 	};
 
 	/**
-	 * Get just the filename.
-	 *
-	 * @return {string}
-	 */
-	mw.UploadWizardUploadInterface.prototype.getFilename = function () {
-		if ( this.upload.file.fileName ) {
-			return this.upload.file.fileName;
-		} else {
-			// this property has a different name in FF vs Chrome.
-			return this.upload.file.name;
-		}
-	};
-
-	/**
 	 * Run this when the value of the file input has changed and we know it's acceptable -- this
 	 * will update interface to show as much info as possible, including preview.
 	 * n.b. in older browsers we only will know the filename
@@ -233,7 +219,7 @@
 		}
 
 		if ( file && file.size ) {
-			statusItems.push( mw.units.bytes( file.size ) );
+			statusItems.push( uw.units.bytes( file.size ) );
 		}
 
 		this.clearStatus();
@@ -260,75 +246,6 @@
 		return deferred.promise();
 	};
 
-	mw.UploadWizardUploadInterface.prototype.fileChangedError = function ( code, info ) {
-		var filename = this.getFilename();
-
-		if ( code === 'ext' ) {
-			this.showBadExtensionError( filename, info );
-		} else if ( code === 'noext' ) {
-			this.showMissingExtensionError( filename );
-		} else if ( code === 'dup' ) {
-			this.showDuplicateError( filename, info );
-		} else if ( code === 'unparseable' ) {
-			this.showUnparseableFilenameError( filename );
-		} else {
-			this.showUnknownError( code, filename );
-		}
-	};
-
-	mw.UploadWizardUploadInterface.prototype.showUnparseableFilenameError = function ( filename ) {
-		this.showFilenameError( mw.message( 'mwe-upwiz-unparseable-filename', filename ).escaped() );
-	};
-
-	mw.UploadWizardUploadInterface.prototype.showBadExtensionError = function ( filename, extension ) {
-		var $errorMessage;
-		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
-		if ( mw.UploadWizard.config.enableFirefogg &&
-			$.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
-		) {
-			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-extension-video-firefogg',
-					mw.Firefogg.getFirefoggInstallUrl(),
-					'https://commons.wikimedia.org/wiki/Help:Converting_video'
-				);
-		} else {
-			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
-		}
-		this.showFilenameError( $errorMessage );
-	};
-
-	mw.UploadWizardUploadInterface.prototype.showMissingExtensionError = function () {
-		this.showExtensionError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' ) );
-	};
-
-	mw.UploadWizardUploadInterface.prototype.showExtensionError = function ( $errorMessage ) {
-		this.showFilenameError(
-			$( '<div></div>' ).append(
-				$errorMessage,
-				$( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
-				$( '<blockquote>' ).append( $( '<tt>' ).append(
-					mw.UploadWizard.config.fileExtensions.join( ' ' )
-				) )
-			)
-		);
-	};
-
-	mw.UploadWizardUploadInterface.prototype.showDuplicateError = function ( filename, basename ) {
-		this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-duplicate-filename-error', basename ) );
-	};
-
-	mw.UploadWizardUploadInterface.prototype.showFilenameError = function ( $text ) {
-		var msgText;
-
-		if ( $text instanceof jQuery ) {
-			msgText = $text.text();
-		} else {
-			msgText = $text;
-		}
-
-		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: msgText } );
-		mw.errorDialog( $text );
-	};
-
 	/**
 	 * this does two things:
 	 *   1 ) since the file input has been hidden with some clever CSS ( to avoid x-browser styling issues ),
@@ -339,7 +256,7 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
 		var $div,
-			path = this.getFilename();
+			path = this.upload.getFilename();
 
 		// visible filename
 		this.$form.find( '.mwe-upwiz-visible-file-filename-text' )
@@ -349,18 +266,7 @@
 			$div = $( this.div );
 			this.isFilled = true;
 			$div.addClass( 'filled' );
-			this.emit( 'upload-filled' );
-		} else {
-			this.emit( 'filename-accepted' );
 		}
-	};
-
-	/**
-	 * Remove any complaints we had about errors and such
-	 * XXX this should be changed to something Theme compatible
-	 */
-	mw.UploadWizardUploadInterface.prototype.clearErrors = function () {
-		$( this.div ).removeClass( 'mwe-upwiz-upload-error' );
 	};
 
 	/**
