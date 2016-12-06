@@ -67,7 +67,7 @@
 
 			upload.createDetails();
 
-			if ( upload.fromURL || ( upload.deedChooser && upload.deedChooser.deed.name === 'custom' ) ) {
+			if ( upload.file.fromURL || ( upload.deedChooser && upload.deedChooser.deed.name === 'custom' ) ) {
 				upload.details.useCustomDeedChooser();
 			}
 

@@ -85,7 +85,7 @@
 
 		$.each( uploads, function ( i, upload ) {
 			fromStepName = upload.state;
-			if ( !upload.fromURL ) {
+			if ( !upload.file.fromURL ) {
 				showDeed = true;
 				return false;
 			}
@@ -136,7 +136,7 @@
 
 		$.each( uploads, function ( i, upload ) {
 			// Add previews and details to the DOM
-			if ( !upload.fromURL ) {
+			if ( !upload.file.fromURL ) {
 				upload.deedPreview = new uw.ui.DeedPreview( upload, step.config );
 			}
 		} );

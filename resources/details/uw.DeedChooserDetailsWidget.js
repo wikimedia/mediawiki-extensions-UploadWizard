@@ -20,7 +20,7 @@
 		var config, deed, deedDiv;
 
 		// Defining own deedChooser for uploads coming from external service
-		if ( upload.fromURL ) {
+		if ( upload.file.fromURL ) {
 			// XXX can be made a seperate class as mw.UploadFromUrlDeedChooser
 			this.deedChooser = upload.deedChooser = {
 				deed: {},

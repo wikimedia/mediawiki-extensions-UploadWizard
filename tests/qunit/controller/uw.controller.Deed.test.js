@@ -32,10 +32,10 @@
 			),
 			ststub = this.sandbox.stub().returns( $.Deferred().promise() ),
 			uploads = [
-				{ fromURL: true, getThumbnail: ststub },
-				{ getThumbnail: ststub },
-				{ fromURL: true, getThumbnail: ststub },
-				{ getThumbnail: ststub }
+				{ file: { fromURL: true }, getThumbnail: ststub },
+				{ file: {}, getThumbnail: ststub },
+				{ file: { fromURL: true }, getThumbnail: ststub },
+				{ file: {}, getThumbnail: ststub }
 			];
 
 		this.sandbox.stub( step.ui, 'load' );
