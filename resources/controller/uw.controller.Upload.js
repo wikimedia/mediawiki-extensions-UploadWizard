@@ -229,7 +229,7 @@
 			return false;
 		}
 
-		upload = new mw.UploadWizardUpload( this )
+		upload = new mw.UploadWizardUpload( this, file )
 			.on( 'filled', function () {
 				controller.setUploadFilled( upload );
 			} )
@@ -242,8 +242,7 @@
 				controller.removeUpload( upload );
 			} );
 
-		upload.fill( file );
-		upload.checkFile( upload.ui.getFilename(), file );
+		upload.checkFile( upload.ui.getFilename() );
 
 		return upload;
 	};
@@ -276,7 +275,7 @@
 	 * We need to grep through the array of uploads, since we don't know the current index.
 	 * We need to update file counts for obvious reasons.
 	 *
-	 * @param {UploadWizardUpload} upload
+	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Upload.prototype.removeUpload = function ( upload ) {
 		// remove the div that passed along the trigger
@@ -305,7 +304,7 @@
 	 * When an upload is filled with a real file, accept it in the list of uploads
 	 * and set up some other interfaces
 	 *
-	 * @param {UploadWizardUpload} upload
+	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Upload.prototype.setUploadFilled = function ( upload ) {
 		this.uploads.push( upload );

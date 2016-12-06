@@ -22,7 +22,7 @@
 				action: 'upload',
 				stash: 1,
 				ignorewarnings: 1,
-				url: this.upload.providedFile.url,
+				url: this.upload.file.url,
 				filename: this.beginTime.toString() + this.upload.filename
 			} )
 				.fail( function ( code, info, result ) {

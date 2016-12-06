@@ -23,8 +23,9 @@
 	 * @mixins OO.EventEmitter
 	 * @constructor
 	 * @param {Step} controller
+	 * @param {File} file
 	 */
-	mw.UploadWizardUpload = function MWUploadWizardUpload( controller ) {
+	mw.UploadWizardUpload = function MWUploadWizardUpload( controller, file ) {
 		var upload = this;
 
 		OO.EventEmitter.call( this );
@@ -34,15 +35,14 @@
 
 		this.controller = controller;
 		this.api = controller.api;
+		this.file = file;
 		this.state = 'new';
 		this.thumbnailPublishers = {};
 		this.imageinfo = {};
 		this.title = undefined;
 		this.extension = undefined;
 		this.filename = undefined;
-		this.file = undefined;
 		this.ignoreWarning = {};
-		this.fromURL = false;
 		this.previewPromise = null;
 
 		this.fileKey = undefined;
@@ -66,22 +66,6 @@
 
 	// increments with each upload
 	mw.UploadWizardUpload.prototype.count = 0;
-
-	/**
-	 * Manually fill the file input with a file.
-	 *
-	 * @param {File} providedFile
-	 */
-	mw.UploadWizardUpload.prototype.fill = function ( providedFile ) {
-		this.providedFile = providedFile;
-
-		// check to see if the File is being uploaded from a 3rd party URL.
-		if ( providedFile.fromURL ) {
-			this.fromURL = true;
-		}
-
-		this.ui.fill( providedFile );
-	};
 
 	/**
 	 * start
@@ -389,9 +373,8 @@
 	 * and delete it from the third parameter of the error callback. The end.
 	 *
 	 * @param {string} filename The filename
-	 * @param {Object} file File, if available
 	 */
-	mw.UploadWizardUpload.prototype.checkFile = function ( filename, file ) {
+	mw.UploadWizardUpload.prototype.checkFile = function ( filename ) {
 		var duplicate, extension,
 			actualMaxSize,
 			upload = this,
@@ -451,7 +434,6 @@
 				// we want to still trudge forward.
 
 				// Extract more info via File API
-				this.file = file;
 
 				actualMaxSize = mw.UploadWizard.config.maxMwUploadSize;
 
@@ -781,7 +763,7 @@
 			if ( mw.UploadWizard.config.debug ) {
 				mw.log( 'mw.UploadWizard::getUploadHandler> ' + constructor );
 			}
-			if ( this.fromURL ) {
+			if ( this.file.fromURL ) {
 				constructor = 'ApiUploadPostHandler';
 			}
 			this.uploadHandler = new mw[ constructor ]( this, this.api );
