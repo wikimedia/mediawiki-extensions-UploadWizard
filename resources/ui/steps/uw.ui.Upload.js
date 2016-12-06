@@ -415,7 +415,7 @@
 	 *
 	 * @param {number} filesUploaded The number of files that have been attempted to upload
 	 */
-	uw.ui.Upload.prototype.showTooManyFilesWarning = function ( filesUploaded ) {
+	uw.ui.Upload.prototype.showTooManyFilesError = function ( filesUploaded ) {
 		mw.errorDialog(
 			mw.message(
 				'mwe-upwiz-too-many-files-text',
@@ -424,6 +424,91 @@
 			).text(),
 			mw.message( 'mwe-upwiz-too-many-files' ).text()
 		);
+	};
+
+	/**
+	 * Shows an error dialog informing the user that an upload omitted because
+	 * it is too large.
+	 *
+	 * @param {number} maxSize The max upload file size
+	 * @param {number} size The actual upload file size
+	 */
+	uw.ui.Upload.prototype.showFileTooLargeError = function ( maxSize, size ) {
+		mw.errorDialog(
+			mw.message(
+				'mwe-upwiz-file-too-large-text',
+				uw.units.bytes( maxSize ),
+				uw.units.bytes( size )
+			).text(),
+			mw.message( 'mwe-upwiz-file-too-large' ).text()
+		);
+	};
+
+	/**
+	 * @param {string} filename
+	 * @param {string} extension
+	 */
+	uw.ui.Upload.prototype.showBadExtensionError = function ( filename, extension ) {
+		var $errorMessage;
+		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
+		if ( mw.UploadWizard.config.enableFirefogg &&
+			$.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
+		) {
+			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-extension-video-firefogg',
+				mw.Firefogg.getFirefoggInstallUrl(),
+				'https://commons.wikimedia.org/wiki/Help:Converting_video'
+			);
+		} else {
+			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
+		}
+		this.showFilenameError( $errorMessage );
+	};
+
+	uw.ui.Upload.prototype.showMissingExtensionError = function () {
+		var $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' );
+		this.showFilenameError(
+			$( '<div></div>' ).append(
+				$errorMessage,
+				$( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
+				$( '<blockquote>' ).append( $( '<tt>' ).append(
+					mw.UploadWizard.config.fileExtensions.join( ' ' )
+				) )
+			)
+		);
+	};
+
+	/**
+	 * @param {string} filename
+	 * @param {string} basename
+	 */
+	uw.ui.Upload.prototype.showDuplicateError = function ( filename, basename ) {
+		this.showFilenameError( $( '<p>' ).msg( 'mwe-upwiz-upload-error-duplicate-filename-error', basename ) );
+	};
+
+	/**
+	 * @param {string} filename
+	 */
+	uw.ui.Upload.prototype.showUnparseableFilenameError = function ( filename ) {
+		this.showFilenameError( mw.message( 'mwe-upwiz-unparseable-filename', filename ).escaped() );
+	};
+
+	/**
+	 * Shows an error dialog informing the user that an upload has been omitted
+	 * over its filename.
+	 *
+	 * @param {jQuery} $text The error message
+	 */
+	uw.ui.Upload.prototype.showFilenameError = function ( $text ) {
+		var msgText;
+
+		if ( $text instanceof jQuery ) {
+			msgText = $text.text();
+		} else {
+			msgText = $text;
+		}
+
+		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: msgText } );
+		mw.errorDialog( $text );
 	};
 
 	/**

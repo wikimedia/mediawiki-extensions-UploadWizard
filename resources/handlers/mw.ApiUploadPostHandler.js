@@ -23,7 +23,7 @@
 				stash: 1,
 				ignorewarnings: 1,
 				url: this.upload.file.url,
-				filename: this.beginTime.toString() + this.upload.filename
+				filename: this.beginTime.toString() + this.upload.getFilename()
 			} )
 				.fail( function ( code, info, result ) {
 					uw.eventFlowLogger.logApiError( 'file', result );

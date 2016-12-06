@@ -1,8 +1,8 @@
-( function ( mw ) {
+( function ( mw, uw ) {
 
 	var scaleMsgKeys = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes' ];
 
-	mw.units = {
+	uw.units = {
 		/**
 		 * Format a size in bytes for output, using an appropriate
 		 * unit (bytes, K, MB, GB, or TB) according to the magnitude in question
@@ -22,4 +22,4 @@
 		}
 	};
 
-} )( mediaWiki );
+} )( mediaWiki, mediaWiki.uploadWizard );

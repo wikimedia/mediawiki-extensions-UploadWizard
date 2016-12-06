@@ -194,6 +194,7 @@
 				"uw.controller.Thanks",
 				"uw.controller.Tutorial",
 				"uw.controller.Upload",
+				"uw.units",
 				"es5-shim",
 				"oojs",
 				"oojs-ui",
@@ -218,7 +219,6 @@
 				"resources/details/uw.OtherDetailsWidget.js",
 				"resources/details/uw.CampaignDetailsWidget.js",
 				"resources/mw.fileApi.js",
-				"resources/mw.units.js",
 				"resources/mw.canvas.js",
 				"resources/mw.errorDialog.js",
 				"resources/mw.Escaper.js",
@@ -554,10 +554,6 @@
 				"mwe-upwiz-errordialog-ok",
 				"mwe-upwiz-calendar-date",
 				"mwe-upwiz-custom-date",
-				"size-gigabytes",
-				"size-megabytes",
-				"size-kilobytes",
-				"size-bytes",
 				"wm-license-cc-by-sa-3.0-at-text",
 				"wm-license-cc-by-sa-3.0-de-text",
 				"wm-license-cc-by-sa-3.0-ee-text",
@@ -815,7 +811,8 @@
 			],
 			"dependencies": [
 				"oojs",
-				"uw.ui.Step"
+				"uw.ui.Step",
+				"uw.units"
 			],
 			"messages": [
 				"mwe-upwiz-add-file-n",
@@ -825,6 +822,19 @@
 				"mwe-upwiz-file-all-ok",
 				"mwe-upwiz-file-some-failed",
 				"mwe-upwiz-file-all-failed"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.units": {
+			"scripts": [
+				"resources/uw.units.js"
+			],
+			"messages": [
+				"size-gigabytes",
+				"size-megabytes",
+				"size-kilobytes",
+				"size-bytes"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
