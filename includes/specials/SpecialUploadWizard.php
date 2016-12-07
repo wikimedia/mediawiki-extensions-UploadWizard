@@ -41,15 +41,6 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$req = $this->getRequest();
 
-		// if query string includes 'skiptutorial=true' set config variable to true
-		$skipTutorial = $req->getCheck( 'skiptutorial' );
-		if ( $skipTutorial ) {
-			$skip = in_array( $skipTutorial, [ '1', 'true' ] );
-			if ( $skip === true ) {
-				UploadWizardConfig::setUrlSetting( 'tutorial', [] );
-			}
-		}
-
 		$urlArgs = [ 'description', 'lat', 'lon', 'alt' ];
 
 		$urlDefaults = [];
