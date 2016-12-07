@@ -4,7 +4,7 @@
 ( function ( mw, uw, $ ) {
 
 	mw.UploadWizard = function ( config ) {
-		var maxSimPref, wizard = this;
+		var maxSimPref;
 
 		this.api = new mw.Api( { ajax: { timeout: 0 } } );
 
@@ -27,16 +27,6 @@
 		}
 
 		this.maxSimultaneousConnections = config.maxSimultaneousConnections;
-
-		this.allowCloseWindow = mw.confirmCloseWindow( {
-			message: function () {
-				return mw.message( 'mwe-upwiz-prevent-close' ).text();
-			},
-
-			test: function () {
-				return !wizard.isComplete();
-			}
-		} );
 
 		if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
 			// update the "valid" extension to include firefogg transcode extensions:
@@ -91,23 +81,6 @@
 			this.steps.thanks.setNextStep( this.steps.file );
 
 			$( '#mwe-upwiz-steps' ).arrowSteps();
-		},
-
-		/**
-		 * Helper function to check whether the upload process is totally
-		 * complete and we can safely leave the window.
-		 */
-		isComplete: function () {
-			var complete = true;
-
-			$.each( this.steps, function ( i, step ) {
-				if ( !step.isComplete() ) {
-					complete = false;
-					return false;
-				}
-			} );
-
-			return complete;
 		}
 	};
 

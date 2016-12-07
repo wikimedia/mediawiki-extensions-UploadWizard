@@ -62,8 +62,8 @@
 		uw.controller.Step.prototype.moveNext.call( this );
 	};
 
-	uw.controller.Thanks.prototype.isComplete = function () {
-		return true;
+	uw.controller.Thanks.prototype.hasData = function () {
+		return false;
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

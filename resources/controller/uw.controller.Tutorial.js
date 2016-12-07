@@ -112,8 +112,8 @@
 		uw.controller.Step.prototype.unload.call( this );
 	};
 
-	uw.controller.Tutorial.prototype.isComplete = function () {
-		return true;
+	uw.controller.Tutorial.prototype.hasData = function () {
+		return false;
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

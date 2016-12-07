@@ -110,11 +110,15 @@
 	uw.controller.Step.prototype.load = function ( uploads ) {
 		var step = this;
 
-		this.movedFrom = false;
-
 		this.emit( 'load' );
 
 		this.uploads = uploads || [];
+
+		// prevent the window from being closed as long as we have data
+		this.allowCloseWindow = mw.confirmCloseWindow( {
+			message: mw.message( 'mwe-upwiz-prevent-close' ).text(),
+			test: step.hasData.bind( this )
+		} );
 
 		$.each( this.uploads, function ( i, upload ) {
 			upload.state = step.stepName;
@@ -136,8 +140,7 @@
 			step.unbindUploadHandlers( upload );
 		} );
 
-		this.movedFrom = true;
-
+		this.allowCloseWindow.release();
 		this.ui.unload();
 
 		this.emit( 'unload' );
@@ -273,14 +276,13 @@
 	uw.controller.Step.prototype.updateProgressBarCount = function () {};
 
 	/**
-	 * Check whether this step has been completed, or is in progress.
-	 * The default check is for the three middle steps - tutorial and
-	 * thanks have their own.
+	 * Check if this step has data, to test if the window can be close (i.e. if
+	 * content is going to be lost)
 	 *
 	 * @return {boolean}
 	 */
-	uw.controller.Step.prototype.isComplete = function () {
-		return this.uploads.length === 0 || this.movedFrom;
+	uw.controller.Step.prototype.hasData = function () {
+		return this.uploads.length !== 0;
 	};
 
 	/**

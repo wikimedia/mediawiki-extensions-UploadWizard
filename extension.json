@@ -432,9 +432,6 @@
 				"mwe-upwiz-previous",
 				"mwe-upwiz-home",
 				"mwe-upwiz-upload-another",
-				"mwe-prevent-close",
-				"mwe-upwiz-prevent-close",
-				"mwe-upwiz-prevent-close-wait",
 				"mwe-upwiz-tooltip-author",
 				"mwe-upwiz-tooltip-source",
 				"mwe-upwiz-tooltip-sign",
@@ -648,6 +645,9 @@
 			"dependencies": [
 				"oojs",
 				"uw.controller.base"
+			],
+			"messages": [
+				"mwe-upwiz-prevent-close"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
