@@ -63,28 +63,18 @@
 			this.initialiseSteps();
 
 			// "select" the first step - highlight, make it visible, hide all others
-			this.steps.firstStep.load( [] );
+			this.steps.tutorial.load( [] );
 		},
 
 		/**
 		 * Initialise the steps in the wizard
 		 */
 		initialiseSteps: function () {
-			var skipTutorial = this.config.tutorial.skip ||
-					mw.user.options.get( 'upwiz_skiptutorial' ) ||
-					( this.config.tutorial && this.config.tutorial.skip );
-
 			this.steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
 			this.steps.file = new uw.controller.Upload( this.api, this.config );
 			this.steps.deeds = new uw.controller.Deed( this.api, this.config );
 			this.steps.details = new uw.controller.Details( this.api, this.config );
 			this.steps.thanks = new uw.controller.Thanks( this.api, this.config );
-
-			if ( skipTutorial ) {
-				this.steps.firstStep = this.steps.file;
-			} else {
-				this.steps.firstStep = this.steps.tutorial;
-			}
 
 			this.steps.tutorial.setNextStep( this.steps.file );
 

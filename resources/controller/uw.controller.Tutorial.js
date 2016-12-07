@@ -29,14 +29,16 @@
 		var controller = this;
 
 		this.skipPreference = Boolean( mw.user.options.get( 'upwiz_skiptutorial' ) );
-
-		this.shouldSkipTutorial = false;
+		this.newSkipPreference = this.skipPreference;
+		this.skipped = false;
 
 		uw.controller.Step.call(
 			this,
 			new uw.ui.Tutorial()
 				.on( 'skip-tutorial-click', function ( skipped ) {
-					controller.shouldSkipTutorial = skipped;
+					// indicate that the skip preference has changed, so we can
+					// alter the preference when we move to another step
+					controller.newSkipPreference = skipped;
 					if ( skipped ) {
 						uw.eventFlowLogger.logTutorialAction( 'skip-check' );
 					} else {
@@ -53,7 +55,7 @@
 
 		this.stepName = 'tutorial';
 
-		this.ui.setSelected( this.skipPreference || ( config && config.tutorial && config.tutorial.skip ) );
+		this.ui.setSelected( this.skipPreference );
 	};
 
 	OO.inheritClass( uw.controller.Tutorial, uw.controller.Step );
@@ -74,15 +76,27 @@
 			change: skip ? 'upwiz_skiptutorial=1' : 'upwiz_skiptutorial'
 		} ).done( function () {
 			allowCloseWindow.release();
-			controller.skipPreference = controller.shouldSkipTutorial;
+			controller.skipPreference = skip;
 		} ).fail( function ( code, err ) {
 			mw.notify( err.textStatus );
 		} );
 	};
 
 	uw.controller.Tutorial.prototype.load = function ( uploads ) {
+		// tutorial can be skipped via preference, or config (e.g. campaign config)
+		var shouldSkipTutorial = this.skipPreference || ( this.config.tutorial && this.config.tutorial.skip );
+
 		uw.controller.Step.prototype.load.call( this, uploads );
+
 		uw.eventFlowLogger.logTutorialAction( 'load' );
+
+		// we only want to skip the tutorial once - if we come back to it, we
+		// don't want it to get auto-skipped again
+		if ( !this.skipped && shouldSkipTutorial ) {
+			this.skipped = true;
+			uw.eventFlowLogger.logSkippedStep( this.stepName );
+			this.moveNext();
+		}
 	};
 
 	uw.controller.Tutorial.prototype.moveNext = function () {
@@ -91,9 +105,8 @@
 	};
 
 	uw.controller.Tutorial.prototype.unload = function () {
-		// if the skip checkbox is checked, set the skip user preference
-		if ( this.shouldSkipTutorial !== this.skipPreference ) {
-			this.setSkipPreference( this.shouldSkipTutorial );
+		if ( this.skipPreference !== this.newSkipPreference ) {
+			this.setSkipPreference( this.newSkipPreference );
 		}
 
 		uw.controller.Step.prototype.unload.call( this );
