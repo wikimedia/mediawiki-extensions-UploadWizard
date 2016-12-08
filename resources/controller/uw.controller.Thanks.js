@@ -40,13 +40,14 @@
 	uw.controller.Thanks.prototype.load = function ( uploads ) {
 		var thanks = this;
 
+		uw.controller.Step.prototype.load.call( this, uploads );
+
 		if ( uploads.length === 0 ) {
 			// We got here after the user removed all uploads; just restart from "Upload" step
+			uw.eventFlowLogger.logSkippedStep( this.stepName );
 			this.moveNext();
 			return;
 		}
-
-		uw.controller.Step.prototype.load.call( this, uploads );
 
 		$.each( uploads, function ( i, upload ) {
 			thanks.ui.addUpload( upload );
