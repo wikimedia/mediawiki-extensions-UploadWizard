@@ -7,13 +7,12 @@
 			"Mirzali",
 			"Olvörg",
 			"Kumkumuk",
-			"Asmen"
+			"Asmen",
+			"Gırd"
 		]
 	},
 	"uploadwizard": "Sihirbazê Barkerdışi",
 	"uploadwizard-desc": "Şêxê barkerden, karkerina madyayan de zafınan gırd kerê deye vıraziyaya.",
-	"mwe-upwiz-uploadcampaigns": "Qampanyaya barke",
-	"mwe-upwiz-uploadcampaign": "Barkerdışê kampanya bıvurne",
 	"right-upwizcampaigns": "Seherbaze Kampanya Barkerdışi Timar ke",
 	"action-upwizcampaigns": "kampanya barkerdışi timar ke",
 	"group-upwizcampeditors": "Editorê kampanya da Barkeri",
@@ -159,7 +158,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "Enê derzan şıma  [$1 tercihan de xoye karberi] ra şenê aktiv kerê, $2 → bındê $3 deyo.",
 	"mwe-upwiz-tooltip-author": "Nameyê merdımiyo ke no fotraf anto ya zi no resım vıraşto, no resım kerdo hazır, ûzn.",
 	"mwe-upwiz-tooltip-source": "Ena dicital dosya kon cara amê- yew URL beno yana kıtabe yana peseroke.",
-	"mwe-upwiz-tooltip-sign": "Şıma şenê wa nameyê xoyê raşti ya zi nameyê xoyê karberi bıgurenê.\nHerdımêna weziyet de, gırê bena be pela wikiyê şıma ra.",
+	"mwe-upwiz-tooltip-sign": "Şıma şenê wa namey xoyê raşti ya zi namey xoyê karberi bıgurenê.\nHerdımêna weziyet de, gırê bena be pela wikiyê şıma ra.",
 	"mwe-upwiz-tooltip-title": "Dosyaya ke xızmet bıdo qande a dosyayer yew sernameyo orcinal defiye de. Wa name zaf zelal bo. Derganeya dosya de mefiye",
 	"mwe-upwiz-tooltip-description": "Heqde gurenayışa mare tay malumat bıde.\nQande fotrafa, tay vatena qısan, fırsenan yana cayan ra bahs kerê.",
 	"mwe-upwiz-tooltip-date": "Tarixê ena gurenayışi vıraziyayo  yana ya sıfte hesreyayo (formatê SSSS-AA-RR).",
@@ -267,8 +266,6 @@
 	"mwe-upwiz-errordialog-ok": "TEMAM",
 	"mwe-upwiz-error-nosuchcampaign": "\"$1\" yew kampanya rê name nêbeno.",
 	"mwe-upwiz-error-campaigndisabled": "Kampanyay \"$1\" nêaktivyaya.",
-	"uploadcampaign-legend": "Barkerdışê kampanya bıvurne",
-	"uploadcampaign-text": "Şıma yew kampanyayê sihiroğ barkerdışi vuriyayo.",
 	"prefs-uploads": "Barkerdışi",
 	"prefs-upwiz-licensing": "Lisansdayış",
 	"prefs-upwiz-experimental": "Xısusiyetê cerbnayışi",

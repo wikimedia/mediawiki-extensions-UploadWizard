@@ -24,6 +24,7 @@
 	"api-error-abusefilter-warning": "Denne handlingen ble automatisk identifisert som skadelig ([$1 mer info]).\nUkonstruktive redigeringer vil raskt bli tilbakestilt,\nog gjentatt ukonstruktiv redigering vil føre til at kontoen eller IP-adressen din blir blokkert.",
 	"api-error-abusefilter-disallowed": "Denne handlingen ble ikke gjennomført fordi den automatisk ble identifisert som skadelig ([$1 mer info]).",
 	"api-error-spamblacklist": "Teksten du ville lagre ble blokkert av spamfilteret.\nDette forårsakes vanligvis av en lenke til et svartelistet eksternt nettsted.",
+	"api-error-offline": "Kunne ikke fortsette på grunn av tilkoblingsproblemer. Sjekk at internettforbindelsen din virker og prøv igjen.",
 	"api-error-parsererror": "Tjeneren svarte med et ugyldig JSON-dokument. Dette kan være et problem med API-et, eller du bruker kanskje en mellomtjener som hindrer deg fra å laste opp filer.",
 	"mwe-upwiz-unavailable": "Nettleseren din er ikke kompatibel med UploadWizard eller har JavaScript avslått, derfor vises et enkelt opplastingsskjema i stedet ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Vis kompatibilitetskrav].)",
 	"mwe-upwiz-extension-disabled": "Denne siden har blitt deaktivert på grunn av midlertidige tekniske problemer. I mellomtiden kan du prøve det vanlige opplastningsskjemaet.",
