@@ -835,7 +835,7 @@
 			};
 		}
 
-		scaling = this.getScalingFromConstraints( image, constraints );
+		scaling = this.getScalingFromConstraints( image, scaleConstraints );
 
 		width = image.width * scaling;
 		height = image.height * scaling;
