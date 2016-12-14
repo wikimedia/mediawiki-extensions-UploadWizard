@@ -275,7 +275,7 @@
 				if (
 					response.error &&
 					response.error.code === 'stashfailed' &&
-					response.error.info === 'Chunked upload is already completed, check status for details'
+					response.error.info === 'Chunked upload is already completed, check status for details.'
 				) {
 					return transport.retryWithMethod( 'checkStatus' );
 				}
