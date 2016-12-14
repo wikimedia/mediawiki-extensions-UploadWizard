@@ -112,8 +112,7 @@
 		var formData, deferred, ext,
 			transport = this;
 
-		// use timestamp + filename to avoid conflicts on server
-		this.tempname = ( new Date() ).getTime().toString() + tempFileName;
+		this.tempname = tempFileName;
 		// remove unicode characters, tempname is only used during upload
 		this.tempname = this.tempname.split( '' ).map( function ( c ) {
 			return c.charCodeAt( 0 ) > 128 ? '_' : c;

@@ -92,7 +92,7 @@
 		this.sandbox.useFakeXMLHttpRequest();
 		this.sandbox.useFakeServer();
 
-		transport.upload( fakeFile );
+		transport.upload( fakeFile, 'test file for fdt.jpg' );
 
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
 		request = this.sandbox.server.requests[ 0 ];
