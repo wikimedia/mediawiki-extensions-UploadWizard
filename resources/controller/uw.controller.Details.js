@@ -139,7 +139,6 @@
 	 */
 	uw.controller.Details.prototype.createDetails = function ( upload ) {
 		upload.details = new mw.UploadWizardDetails( upload, $( '#mwe-upwiz-macro-files' ) );
-		upload.details.populate();
 		upload.details.attach();
 	};
 
