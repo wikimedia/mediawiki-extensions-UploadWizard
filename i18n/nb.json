@@ -188,7 +188,6 @@
 	"mwe-upwiz-previous": "Tilbake",
 	"mwe-upwiz-home": "Gå til wikihjemmeside",
 	"mwe-upwiz-upload-another": "Last opp flere filer",
-	"mwe-prevent-close": "Å forlate denne siden kan forårsake at du eventuelle endringer du har gjort.",
 	"mwe-upwiz-prevent-close-wait": "Ved å forlate denne siden nå kan du miste endringer du har gjort. Vennligst vent et par sekunder.",
 	"mwe-upwiz-prevent-close": "Opplastingsprosessen er ikke ferdig enda!",
 	"mwe-upwiz-tooltip-skiptutorial": "Du kan aktivere opplastingsveiledningen igjen i [$1 dine innstillinger], under $2 → $3.",
