@@ -1,7 +1,16 @@
 /* global moment */
 ( function ( mw, $, moment ) {
 	/**
-	 * this is a progress bar for monitoring multiple objects, giving summary view
+	 * This is a progress bar for monitoring multiple objects, giving summary view
+	 *
+	 * @class mw.GroupProgressbar
+	 * @constructor
+	 * @param {string} selector
+	 * @param {Array} uploads
+	 * @param {string[]} successStates
+	 * @param {string[]} errorStates
+	 * @param {string} progressProperty
+	 * @param {string} weightProperty
 	 */
 	mw.GroupProgressBar = function ( selector, uploads, successStates, errorStates, progressProperty, weightProperty ) {
 		this.$selector = $( selector );

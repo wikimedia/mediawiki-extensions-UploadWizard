@@ -3,8 +3,11 @@
 	/**
 	 * A descriptions field in UploadWizard's "Details" step form.
 	 *
+	 * @class uw.DescriptionsDetailsWidgets
 	 * @extends uw.DetailsWidget
 	 * @mixins OO.ui.mixin.GroupElement
+	 * @constructor
+	 * @param {Object} [config]
 	 */
 	uw.DescriptionsDetailsWidget = function UWDescriptionsDetailsWidget( config ) {
 		config = $.extend( { required: true }, config );

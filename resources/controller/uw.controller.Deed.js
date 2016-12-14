@@ -77,6 +77,8 @@
 
 	/**
 	 * Move to this step.
+	 *
+	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.load = function ( uploads ) {
 		var customDeed, previousDeed, fromStepName,
@@ -155,6 +157,8 @@
 	 * individual files on the details step.
 	 *
 	 * @private
+	 * @param {Object} config
+	 * @return {boolean}
 	 */
 	uw.controller.Deed.prototype.shouldShowIndividualDeed = function ( config ) {
 		var ownWork;

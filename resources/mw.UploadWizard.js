@@ -46,6 +46,8 @@
 
 		/**
 		 * Create the basic interface to make an upload in this div
+		 *
+		 * @param {string} selector
 		 */
 		createInterface: function ( selector ) {
 			this.ui = new uw.ui.Wizard( selector );

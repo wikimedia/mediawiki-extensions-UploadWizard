@@ -111,6 +111,7 @@
 
 	/**
 	 * @private
+	 * @param {Object} item
 	 */
 	uw.ConcurrentQueue.prototype.promiseComplete = function ( item ) {
 		var index;

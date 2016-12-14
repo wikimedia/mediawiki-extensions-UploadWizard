@@ -264,6 +264,8 @@
 
 	/**
 	 * Changes the initial centered invitation button to something like "add another file"
+	 *
+	 * @param {boolean} more
 	 */
 	uw.ui.Upload.prototype.setAddButtonText = function ( more ) {
 		var msg = 'mwe-upwiz-add-file-',

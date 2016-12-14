@@ -10,9 +10,11 @@
 
 		/**
 		 * Get the URL for installing firefogg on the client OS
+		 *
+		 * @return {string}
 		 */
 		getFirefoggInstallUrl: function () {
-			var osLink = false;
+			var osLink = '';
 			if ( $.client.profile().name !== 'firefox' ) {
 				return 'http://firefogg.org/';
 			}

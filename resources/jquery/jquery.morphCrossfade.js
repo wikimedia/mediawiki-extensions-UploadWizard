@@ -42,6 +42,8 @@
 ( function ( $ ) {
 	/**
 	 * Initialize crossfading of the children of an element
+	 *
+	 * @return {jQuery}
 	 */
 	$.fn.morphCrossfader = function () {
 		// the elements that are immediate children are the crossfadables
@@ -69,8 +71,10 @@
 
 	/**
 	 * Initialize crossfading of the children of an element
-	 * @param selector of new thing to show; should be an immediate child of the crossfader element
-	 * @param speed (optional) how fast to crossfade, in milliseconds
+	 *
+	 * @param {string} newPanelSelector Selector of new thing to show; should be an immediate child of the crossfader element
+	 * @param {number} [speed] How fast to crossfade, in milliseconds
+	 * @return {jQuery}
 	 */
 	$.fn.morphCrossfade = function ( newPanelSelector, speed ) {
 		if ( typeof speed === 'undefined' ) {

@@ -316,6 +316,7 @@
 	/**
 	 * Perform this step's changes on one upload.
 	 *
+	 * @param {mw.UploadWizardUpload} upload
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.transitionOne = function ( upload ) {

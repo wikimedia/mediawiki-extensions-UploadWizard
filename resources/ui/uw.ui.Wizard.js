@@ -42,6 +42,8 @@
 
 	/**
 	 * Initializes the static stuff above the wizard.
+	 *
+	 * @param {Object} config
 	 */
 	uw.ui.Wizard.prototype.initHeader = function ( config ) {
 		var feedbackLink;

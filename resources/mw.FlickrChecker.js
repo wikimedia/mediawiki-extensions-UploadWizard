@@ -225,16 +225,17 @@
 		 * Constructs an unordered list of sets in the collection.
 		 *
 		 * @param {boolean} appendId True if you want to append
-		 * id="mwe-upwiz-files-collection-chooser"; false otherwise
+		 *  id="mwe-upwiz-files-collection-chooser"; false otherwise
 		 * @param {Object} data The retrieved data
 		 * @see {@link getCollection}
+		 * @return {jQuery}
 		 */
 		buildCollectionLinks: function ( appendId, data ) {
-			var elem = $( '<ul>' ),
+			var $elem = $( '<ul>' ),
 				that = this,
 				li, ul;
 			if ( appendId ) {
-				elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
+				$elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
 			}
 			$.each( data.collection, function ( index, value ) {
 				li = $( '<li>' );
@@ -258,9 +259,9 @@
 					} );
 					li.append( ul );
 				}
-				elem.append( li );
+				$elem.append( li );
 			} );
-			return elem;
+			return $elem;
 		},
 
 		/**
@@ -656,6 +657,8 @@
 		},
 
 		/**
+		 * @param {Object} upload
+		 * @param {string} description
 		 * @return {jQuery.Promise}
 		 */
 		setUploadDescription: function ( upload, description ) {
@@ -670,6 +673,7 @@
 		},
 
 		/**
+		 * @param {Object} upload
 		 * @return {jQuery.Promise}
 		 */
 		setImageDescription: function ( upload ) {
@@ -689,6 +693,7 @@
 		 * as the upload URL.
 		 *
 		 * @param {number} index Index of the image for which we need to set the URL
+		 * @return {jQuery.Promise}
 		 */
 		setImageURL: function ( index ) {
 			var largestSize,

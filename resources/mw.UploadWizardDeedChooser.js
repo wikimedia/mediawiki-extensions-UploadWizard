@@ -100,6 +100,8 @@
 
 		/**
 		 * From the deed choices, make a choice fade to the background a bit, hide the extended form
+		 *
+		 * @param {jQuery} $deedSelector
 		 */
 		deselectDeedInterface: function ( $deedSelector ) {
 			$deedSelector.removeClass( 'selected' );
@@ -117,6 +119,8 @@
 
 		/**
 		 * From the deed choice page, show a particular deed
+		 *
+		 * @param {jQuery} $deedSelector
 		 */
 		selectDeedInterface: function ( $deedSelector ) {
 			var $otherDeeds = $deedSelector.siblings().filter( '.mwe-upwiz-deed' );

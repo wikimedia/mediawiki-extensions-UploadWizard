@@ -67,6 +67,8 @@
 
 	/**
 	 * Check if the asset is in a format that can be upload without encoding.
+	 *
+	 * @return {boolean}
 	 */
 	mw.FirefoggTransport.prototype.isUploadFormat = function () {
 		// Check if the server supports webm uploads:
@@ -130,6 +132,8 @@
 
 	/**
 	 * Get the source file info for the current file selected into this.fogg
+	 *
+	 * @return {Object}
 	 */
 	mw.FirefoggTransport.prototype.getSourceFileInfo = function () {
 		if ( !this.fogg.sourceInfo ) {
@@ -169,6 +173,8 @@
 
 	/**
 	 * Get the encode settings from configuration and the current selected video type
+	 *
+	 * @return {Object}
 	 */
 	mw.FirefoggTransport.prototype.getEncodeSettings = function () {
 		var encodeSettings;

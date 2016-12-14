@@ -5,7 +5,10 @@
 	/**
 	 * A title field in UploadWizard's "Details" step form.
 	 *
+	 * @class uw.TitleDetailsWidget
 	 * @extends uw.DetailsWidget
+	 * @constructor
+	 * @param {Object} [config]
 	 */
 	uw.TitleDetailsWidget = function UWTitleDetailsWidget( config ) {
 		config = config || {};

@@ -471,6 +471,9 @@
 
 		/**
 		 * Get the value of a particular input
+		 *
+		 * @param {jQuery} $input
+		 * @return {string}
 		 */
 		getInputWikiText: function ( $input ) {
 			return $input.val() + '\n' + this.getInputTextAreaVal( $input );
@@ -479,6 +482,7 @@
 		/**
 		 * Get the value of the associated textarea, if any
 		 *
+		 * @param {jQuery} $input
 		 * @return {string}
 		 */
 		getInputTextAreaVal: function ( $input ) {
@@ -539,6 +543,8 @@
 
 		/**
 		 * See uw.DetailsWidget
+		 *
+		 * @return {jQuery.Promise}
 		 */
 		getErrors: function () {
 			var input = this,
@@ -599,6 +605,8 @@
 
 		/**
 		 * See uw.DetailsWidget
+		 *
+		 * @return {jQuery.Promise}
 		 */
 		getWarnings: function () {
 			return $.Deferred().resolve( [] ).promise();

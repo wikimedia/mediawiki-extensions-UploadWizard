@@ -2,12 +2,12 @@
 
 	/**
 	 * Sort of an abstract class for deeds
+	 *
+	 * @class mw.UploadWizardDeed
+	 * @abstract
 	 */
 	mw.UploadWizardDeed = function () {
 		mw.UploadWizardDeed.prototype.instanceCount++;
-
-		// prevent from instantiating directly?
-		return false;
 	};
 
 	mw.UploadWizardDeed.prototype = {

@@ -17,9 +17,9 @@
 
 ( function ( mw, uw ) {
 	/**
-	 * @class uw.EventFlowLogger
 	 * Event logging helper for funnel analysis. Should be instantiated at the very beginning; uses internal state
 	 * to link events together.
+	 * @class uw.EventFlowLogger
 	 * @constructor
 	 */
 	uw.EventFlowLogger = function UWEventFlowLogger() {
