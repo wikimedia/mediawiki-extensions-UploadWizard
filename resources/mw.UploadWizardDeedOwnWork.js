@@ -25,7 +25,7 @@
 			deed = new mw.UploadWizardDeed(),
 			ownWork = config.licensing.ownWork;
 
-		uploadCount = uploadCount ? uploadCount : 1;
+		uploadCount = uploadCount || 1;
 
 		deed.authorInput = new OO.ui.TextInputWidget( {
 			name: 'author',
@@ -295,4 +295,4 @@
 		} );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );

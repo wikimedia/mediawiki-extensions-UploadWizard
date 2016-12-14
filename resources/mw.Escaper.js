@@ -148,4 +148,4 @@
 			return wikitext.replace( searchRegex, callback );
 		}
 	};
-} )( mediaWiki, OO );
+}( mediaWiki, OO ) );

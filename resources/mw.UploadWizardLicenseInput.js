@@ -15,7 +15,7 @@
 		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 		this.$body.append( this.content.$element );
 		this.$spinner = $.createSpinner( { size: 'large', type: 'block' } )
-			.css( { width: 200, padding: 20, float: 'none', margin: '0 auto' } );
+			.css( { width: 200, padding: 20, 'float': 'none', margin: '0 auto' } );
 
 		$( 'body' ).on( 'click', function ( e ) {
 			if ( !$.contains( dialog.$body.get( 0 ), e.target ) ) {
@@ -250,7 +250,7 @@
 			var input = this,
 
 				attrs = {
-					id:  this.name + '_' + this.inputs.length, // unique id
+					id: this.name + '_' + this.inputs.length, // unique id
 					name: this.name, // name of input, shared among all checkboxes or radio buttons.
 					type: this.type, // kind of input
 					value: this.createInputValueFromTemplateConfig( templates, config )
@@ -659,4 +659,4 @@
 
 	} );
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

@@ -1,4 +1,4 @@
-/*global moment*/
+/* global moment */
 ( function ( mw, $, moment ) {
 	/**
 	 * this is a progress bar for monitoring multiple objects, giving summary view
@@ -119,7 +119,7 @@
 		 * @param {number} [time] The time this bar is presumed to have started (epoch milliseconds)
 		 */
 		setBeginTime: function ( time ) {
-			this.beginTime = time ? time : ( new Date() ).getTime();
+			this.beginTime = time || ( new Date() ).getTime();
 		},
 
 		/**

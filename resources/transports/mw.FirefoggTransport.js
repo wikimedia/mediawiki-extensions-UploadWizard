@@ -180,7 +180,7 @@
 		// Update the format:
 		this.fogg.setFormat( ( this.getEncodeExt() === 'webm' ) ? 'webm' : 'ogg' );
 
-		mw.log( 'FirefoggTransport::getEncodeSettings> ' +  JSON.stringify(  encodeSettings ) );
+		mw.log( 'FirefoggTransport::getEncodeSettings> ' + JSON.stringify( encodeSettings ) );
 		return encodeSettings;
 	};
 }( mediaWiki, jQuery ) );

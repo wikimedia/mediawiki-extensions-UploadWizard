@@ -414,6 +414,7 @@
 					binStr = binReader.result;
 				} else {
 					// Array buffer; convert to binary string for the library.
+					/* global Uint8Array */
 					arr = new Uint8Array( binReader.result );
 					binStr = '';
 					for ( i = 0; i < arr.byteLength; i++ ) {
@@ -422,9 +423,8 @@
 				}
 				try {
 					meta = mw.libs.jpegmeta( binStr, upload.file.fileName );
-					// jscs:disable requireCamelCaseOrUpperCaseIdentifiers, disallowDanglingUnderscores
+					// eslint-disable-next-line camelcase, no-underscore-dangle
 					meta._binary_data = null;
-					// jscs:enable
 				} catch ( e ) {
 					meta = null;
 				}
@@ -704,6 +704,13 @@
 						return;
 					}
 
+					// executing this should cause a .load() or .error() event on the image
+					function setSrc() {
+						// IE 11 and Opera 12 will not, ever, re-request an image that they have already loaded
+						// once, regardless of caching headers. Append bogus stuff to the URL to make it work.
+						image.src = thumb.thumburl + '?' + Math.random();
+					}
+
 					// try to load this image with exponential backoff
 					// if the delay goes past 8 seconds, it gives up and publishes the event with null
 					timeoutMs = 100;
@@ -726,13 +733,6 @@
 								deferred.resolve( null );
 							}
 						} );
-
-					// executing this should cause a .load() or .error() event on the image
-					function setSrc() {
-						// IE 11 and Opera 12 will not, ever, re-request an image that they have already loaded
-						// once, regardless of caching headers. Append bogus stuff to the URL to make it work.
-						image.src = thumb.thumburl + '?' + Math.random();
-					}
 
 					// and, go!
 					setSrc();
@@ -907,7 +907,7 @@
 		var scaling = this.getScalingFromConstraints( image, constraints );
 		return $( '<img/>' )
 			.attr( {
-				width:  parseInt( image.width * scaling, 10 ),
+				width: parseInt( image.width * scaling, 10 ),
 				height: parseInt( image.height * scaling, 10 ),
 				src:	image.src
 			} )
@@ -1114,4 +1114,4 @@
 		return mw.fileApi.isPreviewableVideo( this.file );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

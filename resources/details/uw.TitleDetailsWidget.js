@@ -225,4 +225,4 @@
 		this.titleInput.setValue( serialized.title );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

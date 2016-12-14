@@ -207,4 +207,4 @@
 		this.dateInputWidget.setValue( serialized.value );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

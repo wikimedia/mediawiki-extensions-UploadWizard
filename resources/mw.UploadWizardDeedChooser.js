@@ -47,7 +47,7 @@
 					chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 				}
 				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function () {
-					if ( $( this ).is( ':checked' )  ) {
+					if ( $( this ).is( ':checked' ) ) {
 						chooser.selectDeed( deed );
 					}
 				} );
@@ -160,4 +160,4 @@
 
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );

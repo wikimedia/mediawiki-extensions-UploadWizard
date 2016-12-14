@@ -181,8 +181,8 @@
 				// warnings) and turn it into a one-dimensional warnings array
 				var args = Array.prototype.slice.call( arguments ),
 					warnings = args.reduce( function ( result, warnings ) {
-					return result.concat( warnings );
-				}, [] );
+						return result.concat( warnings );
+					}, [] );
 
 				if ( warnings.length ) {
 					// One of the DetailsWidgets has warnings

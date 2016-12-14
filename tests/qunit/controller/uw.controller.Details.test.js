@@ -106,7 +106,7 @@
 	} );
 
 	QUnit.asyncTest( 'transitionAll', 4, function ( assert ) {
-		var tostub, promise,
+		var tostub,
 			donestub = this.sandbox.stub(),
 			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],
 			ps = [ ds[ 0 ].promise(), ds[ 1 ].promise(), ds[ 2 ].promise() ],
@@ -131,7 +131,7 @@
 			{ id: 'aoeu' }
 		];
 
-		promise = step.transitionAll().done( donestub );
+		step.transitionAll().done( donestub );
 		setTimeout( function () {
 			calls = [ tostub.getCall( 0 ), tostub.getCall( 1 ), tostub.getCall( 2 ) ];
 

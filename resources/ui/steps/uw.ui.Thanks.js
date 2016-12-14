@@ -64,7 +64,7 @@
 		} );
 
 		this.beginButton = new OO.ui.ButtonWidget( {
-			label: this.getButtonConfig( 'beginButton', 'label' ) ||  mw.message( 'mwe-upwiz-upload-another' ).text(),
+			label: this.getButtonConfig( 'beginButton', 'label' ) || mw.message( 'mwe-upwiz-upload-another' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} );
 
@@ -99,10 +99,10 @@
 		var thumbWikiText, $thanksDiv, $thumbnailWrapDiv, $thumbnailDiv, $thumbnailCaption, $thumbnailLink;
 
 		thumbWikiText = '[[' + [
-				upload.details.getTitle().getPrefixedText(),
-				'thumb',
-				upload.details.getThumbnailCaption()
-			].join( '|' ) + ']]';
+			upload.details.getTitle().getPrefixedText(),
+			'thumb',
+			upload.details.getThumbnailCaption()
+		].join( '|' ) + ']]';
 
 		$thanksDiv = $( '<div>' )
 			.addClass( 'mwe-upwiz-thanks ui-helper-clearfix' );
