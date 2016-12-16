@@ -137,10 +137,7 @@
 					)
 			);
 
-		upload.getThumbnail(
-			this.config.thumbnailWidth,
-			this.config.thumbnailMaxHeight
-		).done( function ( thumb ) {
+		upload.getThumbnail().done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
 

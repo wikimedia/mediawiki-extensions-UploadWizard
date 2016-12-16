@@ -82,8 +82,7 @@
 	 */
 	uw.controller.Deed.prototype.load = function ( uploads ) {
 		var customDeed, previousDeed, fromStepName,
-			showDeed = false,
-			step = this;
+			showDeed = false;
 
 		$.each( uploads, function ( i, upload ) {
 			fromStepName = upload.state;
@@ -140,7 +139,7 @@
 		$.each( uploads, function ( i, upload ) {
 			// Add previews and details to the DOM
 			if ( !upload.file.fromURL ) {
-				upload.deedPreview = new uw.ui.DeedPreview( upload, step.config );
+				upload.deedPreview = new uw.ui.DeedPreview( upload );
 			}
 		} );
 

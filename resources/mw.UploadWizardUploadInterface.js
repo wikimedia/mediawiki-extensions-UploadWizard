@@ -236,10 +236,7 @@
 		var
 			$preview = $( this.div ).find( '.mwe-upwiz-file-preview' ),
 			deferred = $.Deferred();
-		this.upload.getThumbnail(
-			mw.UploadWizard.config.thumbnailWidth,
-			mw.UploadWizard.config.thumbnailMaxHeight
-		).done( function ( thumb ) {
+		this.upload.getThumbnail().done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
 			deferred.resolve();
 		} );

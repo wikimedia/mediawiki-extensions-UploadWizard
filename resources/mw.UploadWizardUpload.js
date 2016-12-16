@@ -677,8 +677,8 @@
 	/**
 	 * Explicitly fetch a thumbnail for a stashed upload of the desired width.
 	 *
-	 * @param {number} width desired width of thumbnail (height will scale to match, if not given)
-	 * @param {number} [height] maximum height of thumbnail
+	 * @param {number} width Desired width of thumbnail
+	 * @param {number} height Maximum height of thumbnail
 	 * @return {jQuery.Promise} Promise resolved with a HTMLImageElement, or null if thumbnail
 	 *     couldn't be generated
 	 */
@@ -744,12 +744,6 @@
 					setSrc();
 				} );
 			}
-		}
-
-		if ( !height ) {
-			// For action=query&prop=stashimageinfo / action=query&prop=imageinfo,
-			// height of '-1' is the same as not given, while '0' gives a one-pixel-wide thumbnail
-			height = -1;
 		}
 
 		if ( this.state !== 'complete' ) {
@@ -932,12 +926,9 @@
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
 		var constraints, transform;
-		if ( width === undefined || width === null || width <= 0 ) {
-			width = mw.UploadWizard.config.thumbnailWidth;
-		}
 		constraints = {
-			width: parseInt( width, 10 ),
-			height: ( height === undefined ? null : parseInt( height, 10 ) )
+			width: width,
+			height: height
 		};
 
 		if ( mw.canvas.isAvailable() ) {
@@ -951,15 +942,16 @@
 	};
 
 	/**
-	 * Acquire a thumbnail of given dimensions for this upload.
+	 * Acquire a thumbnail for this upload.
 	 *
-	 * @param {number} width Width constraint
-	 * @param {number} [height] Height constraint
 	 * @return {jQuery.Promise} Promise resolved with the HTMLImageElement or HTMLCanvasElement
 	 *   containing a thumbnail, or resolved with `null` when one can't be produced
 	 */
-	mw.UploadWizardUpload.prototype.getThumbnail = function ( width, height ) {
+	mw.UploadWizardUpload.prototype.getThumbnail = function () {
 		var upload = this,
+			// This must match the CSS dimensions of .mwe-upwiz-file-preview and .mwe-upwiz-thumbnail
+			width = 100,
+			height = 100,
 			deferred = $.Deferred();
 
 		/**
