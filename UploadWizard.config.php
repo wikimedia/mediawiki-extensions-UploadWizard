@@ -517,12 +517,6 @@ return [
 	// Max thumbnail height:
 	'thumbnailMaxHeight' => 100,
 
-	// Large thumbnail width
-	'largeThumbnailWidth' => 500,
-
-	// Large thumbnail max height
-	'largeThumbnailMaxHeight' => 500,
-
 	// Max author string length
 	'maxAuthorLength' => 10000,
 
