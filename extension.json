@@ -207,6 +207,7 @@
 			"scripts": [
 				"resources/jquery/jquery.morphCrossfade.js",
 				"resources/jquery/jquery.lazyload.js",
+				"resources/uw.ValidationMessageElement.js",
 				"resources/uw.DetailsWidget.js",
 				"resources/uw.FieldLayout.js",
 				"resources/details/uw.TitleDetailsWidget.js",
