@@ -35,11 +35,10 @@
 		this.api = controller.api;
 		this.file = file;
 		this.state = 'new';
-		this.thumbnailPublishers = {};
 		this.imageinfo = {};
 		this.title = undefined;
+		this.thumbnailPromise = null;
 		this.ignoreWarning = {};
-		this.previewPromise = null;
 
 		this.fileKey = undefined;
 
@@ -398,6 +397,7 @@
 	 *
 	 * For all other file types, we don't need or want to run this, and this function does nothing.
 	 *
+	 * @private
 	 * @return {jQuery.Promise} A promise, resolved when we're done
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function () {
@@ -677,20 +677,14 @@
 	/**
 	 * Explicitly fetch a thumbnail for a stashed upload of the desired width.
 	 *
+	 * @private
 	 * @param {number} width Desired width of thumbnail
 	 * @param {number} height Maximum height of thumbnail
 	 * @return {jQuery.Promise} Promise resolved with a HTMLImageElement, or null if thumbnail
 	 *     couldn't be generated
 	 */
 	mw.UploadWizardUpload.prototype.getApiThumbnail = function ( width, height ) {
-		var deferred,
-			key = width + '|' + height;
-
-		if ( this.thumbnailPublishers[ key ] ) {
-			return this.thumbnailPublishers[ key ];
-		}
-
-		deferred = $.Deferred();
+		var deferred = $.Deferred();
 
 		function thumbnailPublisher( thumbnails ) {
 			if ( thumbnails === null ) {
@@ -752,8 +746,7 @@
 			this.getImageInfo( thumbnailPublisher, [ 'url' ], width, height );
 		}
 
-		this.thumbnailPublishers[ key ] = deferred.promise();
-		return this.thumbnailPublishers[ key ];
+		return deferred.promise();
 	};
 
 	/**
@@ -791,6 +784,7 @@
 	/**
 	 * Fit an image into width & height constraints with scaling factor
 	 *
+	 * @private
 	 * @param {HTMLImageElement} image
 	 * @param {Object} constraints Width & height properties
 	 * @return {number}
@@ -813,6 +807,7 @@
 	 * Given an image (already loaded), dimension constraints
 	 * return canvas object scaled & transformedi ( & rotated if metadata indicates it's needed )
 	 *
+	 * @private
 	 * @param {HTMLImageElement} image
 	 * @param {Object} constraints Width & height constraints
 	 * @return {HTMLCanvasElement|null}
@@ -899,6 +894,7 @@
 	/**
 	 * Return a browser-scaled image element, given an image and constraints.
 	 *
+	 * @private
 	 * @param {HTMLImageElement} image
 	 * @param {Object} constraints Width and height properties
 	 * @return {HTMLImageElement} with same src, but different attrs
@@ -919,6 +915,7 @@
 	/**
 	 * Return an element suitable for the preview of a certain size. Uses canvas when possible
 	 *
+	 * @private
 	 * @param {HTMLImageElement} image
 	 * @param {Integer} width
 	 * @param {Integer} height
@@ -954,6 +951,11 @@
 			height = 100,
 			deferred = $.Deferred();
 
+		if ( this.thumbnailPromise ) {
+			return this.thumbnailPromise;
+		}
+		this.thumbnailPromise = deferred.promise();
+
 		/**
 		 * @param {HTMLImageElement|null} image
 		 */
@@ -984,7 +986,7 @@
 				}
 			} );
 
-		return deferred.promise();
+		return this.thumbnailPromise;
 	};
 
 	/**
@@ -997,18 +999,13 @@
 	/**
 	 * Make a preview for the file.
 	 *
+	 * @private
 	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function () {
 		var first, video, url, dataUrlReader,
 			deferred = $.Deferred(),
 			upload = this;
-
-		// don't run this repeatedly.
-		if ( this.previewPromise ) {
-			return this.previewPromise;
-		}
-		this.previewPromise = deferred.promise();
 
 		// do preview if we can
 		if ( this.isPreviewable() ) {
@@ -1070,7 +1067,7 @@
 			deferred.reject();
 		}
 
-		return this.previewPromise;
+		return deferred.promise();
 	};
 
 	/**
