@@ -1116,7 +1116,7 @@
 	/**
 	 * Finds the right URL object to use.
 	 *
-	 * @return {string}
+	 * @return {URL}
 	 */
 	mw.UploadWizardUpload.prototype.URL = function () {
 		return window.URL || window.webkitURL || window.mozURL;

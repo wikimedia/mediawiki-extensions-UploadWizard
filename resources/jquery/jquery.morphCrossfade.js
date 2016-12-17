@@ -21,9 +21,9 @@
  * one parent, e.g.
  *
  *  <div id="container">
- *	<div id="panel1"/>
- *	<div id="panel2"/>
- *	<div id="panel3"/>
+ *    <div id="panel1"/>
+ *    <div id="panel2"/>
+ *    <div id="panel3"/>
  *  </div>
  *
  * Initialize the crossfader:
@@ -44,6 +44,7 @@
 	 * Initialize crossfading of the children of an element
 	 *
 	 * @return {jQuery}
+	 * @chainable
 	 */
 	$.fn.morphCrossfader = function () {
 		// the elements that are immediate children are the crossfadables
@@ -75,6 +76,7 @@
 	 * @param {string} newPanelSelector Selector of new thing to show; should be an immediate child of the crossfader element
 	 * @param {number} [speed] How fast to crossfade, in milliseconds
 	 * @return {jQuery}
+	 * @chainable
 	 */
 	$.fn.morphCrossfade = function ( newPanelSelector, speed ) {
 		if ( typeof speed === 'undefined' ) {
