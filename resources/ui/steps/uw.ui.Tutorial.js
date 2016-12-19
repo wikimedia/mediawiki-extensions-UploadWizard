@@ -18,6 +18,8 @@
 ( function ( mw, $, uw, OO ) {
 	/**
 	 * Checkbox with popup information.
+	 *
+	 * @param {Object} config
 	 */
 	function PopupCheckboxInputWidget( config ) {
 		// Parent constructor

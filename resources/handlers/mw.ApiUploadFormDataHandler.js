@@ -4,6 +4,7 @@
 	 * Large files are uploaded in chunks.
 	 *
 	 * @param {mw.UploadWizardUpload} upload
+	 * @param {mw.Api} api
 	 */
 	mw.ApiUploadFormDataHandler = function ( upload, api ) {
 		var handler = this;

@@ -135,6 +135,8 @@
 
 	/**
 	 * Check if there is a vacancy for a new progress bar.
+	 *
+	 * @return {boolean}
 	 */
 	uw.controller.Upload.prototype.progressBarEmptyOrFinished = function () {
 		return !this.progressBar || this.progressBar.finished === true;
@@ -142,6 +144,8 @@
 
 	/**
 	 * Update success count on the progress bar.
+	 *
+	 * @param {number} okCount
 	 */
 	uw.controller.Upload.prototype.updateProgressBarCount = function ( okCount ) {
 		if ( this.progressBar ) {
@@ -159,6 +163,7 @@
 	/**
 	 * Perform this step's changes on one upload.
 	 *
+	 * @param {mw.UploadWizardUpload} upload
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Upload.prototype.transitionOne = function ( upload ) {

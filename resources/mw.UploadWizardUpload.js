@@ -115,20 +115,26 @@
 
 	/**
 	 * Stop the upload -- we have failed for some reason
+	 *
+	 * @param {string} code Error code from API
+	 * @param {string|Object} info Extra info
+	 * @param {jQuery} [$additionalStatus]
 	 */
-	mw.UploadWizardUpload.prototype.setError = function ( code, info, additionalStatus ) {
+	mw.UploadWizardUpload.prototype.setError = function ( code, info, $additionalStatus ) {
 		if ( this.state === 'aborted' ) {
 			// There's no point in reporting an error anymore.
 			return;
 		}
 		this.state = 'error';
 		this.transportProgress = 0;
-		this.ui.showError( code, info, additionalStatus );
+		this.ui.showError( code, info, $additionalStatus );
 		uw.eventFlowLogger.logError( 'file', { code: code, message: info } );
 	};
 
 	/**
 	 * Resume the upload, assume that whatever error(s) we got were benign.
+	 *
+	 * @param {string} code
 	 */
 	mw.UploadWizardUpload.prototype.removeErrors = function ( code ) {
 		this.ignoreWarning[ code ] = true;
@@ -998,6 +1004,8 @@
 
 	/**
 	 * Make a preview for the file.
+	 *
+	 * @return {jQuery.Promise}
 	 */
 	mw.UploadWizardUpload.prototype.makePreview = function () {
 		var first, video, url, dataUrlReader,
@@ -1075,6 +1083,9 @@
 
 	/**
 	 * Loads an image preview.
+	 *
+	 * @param {string} url
+	 * @param {jQuery.Deferred} deferred
 	 */
 	mw.UploadWizardUpload.prototype.loadImage = function ( url, deferred ) {
 		var image = document.createElement( 'img' );
@@ -1095,6 +1106,8 @@
 
 	/**
 	 * Check if the file is previewable.
+	 *
+	 * @return {boolean}
 	 */
 	mw.UploadWizardUpload.prototype.isPreviewable = function () {
 		return this.file && mw.fileApi.isPreviewableFile( this.file );
@@ -1102,6 +1115,8 @@
 
 	/**
 	 * Finds the right URL object to use.
+	 *
+	 * @return {string}
 	 */
 	mw.UploadWizardUpload.prototype.URL = function () {
 		return window.URL || window.webkitURL || window.mozURL;
@@ -1109,6 +1124,8 @@
 
 	/**
 	 * Checks if this upload is a video.
+	 *
+	 * @return {boolean}
 	 */
 	mw.UploadWizardUpload.prototype.isVideo = function () {
 		return mw.fileApi.isPreviewableVideo( this.file );

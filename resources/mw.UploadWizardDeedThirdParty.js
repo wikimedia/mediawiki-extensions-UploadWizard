@@ -31,10 +31,10 @@
 	 * @param {number} uploadCount Integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api API object - useful for doing previews
 	 * @param {Object} config The UW config
+	 * @return {mw.UploadWizrdDeed}
 	 */
 	mw.UploadWizardDeedThirdParty = function ( uploadCount, api, config ) {
-		var
-			deed = new mw.UploadWizardDeed();
+		var deed = new mw.UploadWizardDeed();
 
 		deed.uploadCount = uploadCount || 1;
 

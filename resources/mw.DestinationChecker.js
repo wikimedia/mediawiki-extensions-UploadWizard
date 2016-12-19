@@ -49,6 +49,7 @@
 			 * Processes result of a TitleBlacklist api call
 			 *
 			 * @param {Object|boolean} blacklistResult `false` if not blacklisted, object if blacklisted
+			 * @return {Object}
 			 */
 			function blacklistResultProcessor( blacklistResult ) {
 				var result;

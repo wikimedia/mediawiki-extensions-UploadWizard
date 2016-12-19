@@ -248,6 +248,7 @@
 			return this.titleDetails.getTitle();
 		},
 
+		// eslint-disable-next-line valid-jsdoc
 		/**
 		 * Display error message about multiple uploaded files with the same title specified
 		 *
@@ -261,6 +262,8 @@
 
 		/**
 		 * @private
+		 *
+		 * @return {Array}
 		 */
 		getAllFields: function () {
 			return [].concat(
@@ -306,6 +309,8 @@
 
 		/**
 		 * Get a thumbnail caption for this upload (basically, the first description).
+		 *
+		 * @return {string}
 		 */
 		getThumbnailCaption: function () {
 			var descriptions = this.descriptionsDetails.getSerialized().descriptions;

@@ -14,7 +14,9 @@
 	OO.inheritClass( uw.DeedChooserDetailsWidget, uw.DetailsWidget );
 
 	/**
-	 * toggles whether we use the 'macro' deed or our own
+	 * Toggles whether we use the 'macro' deed or our own
+	 *
+	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.DeedChooserDetailsWidget.prototype.useCustomDeedChooser = function ( upload ) {
 		var config, deed, deedDiv;
