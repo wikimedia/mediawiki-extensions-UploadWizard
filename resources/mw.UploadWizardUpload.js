@@ -142,73 +142,16 @@
 	};
 
 	/**
-	 * To be executed when an individual upload finishes. Processes the result and updates step 2's details
+	 * To be executed when an individual upload finishes. Processes the result
+	 * and updates step 2's details
 	 *
 	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
 		// default error state
-		var comma, warnCode, promise,
-			code = 'unknown',
-			info = 'unknown',
-			$extra;
+		var warnCode, info;
 
 		if ( this.state === 'aborted' ) {
-			return;
-		}
-
-		if ( result.error ) {
-			// If there was an error, we can't really do anything else, so let's get out while we can.
-			if ( result.error.code ) {
-				code = result.error.code;
-			}
-			if ( code === 'badtoken' ) {
-				this.api.badToken( 'csrf' );
-				// Try again once
-				if ( !this.ignoreWarning[ code ] ) {
-					this.removeErrors( code );
-					return;
-				}
-			}
-			if ( code === 'filetype-banned' && result.error.blacklisted ) {
-				code = 'filetype-banned-type';
-				comma = mw.message( 'comma-separator' ).text();
-				info = [
-					result.error.blacklisted.join( comma ),
-					result.error.allowed.join( comma ),
-					result.error.allowed.length,
-					result.error.blacklisted.length
-				];
-			} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' || code === 'spamblacklist' ) {
-				// 'amenableparser' will expand templates and parser functions server-side.
-				// We still do the rest of wikitext parsing here (throught jqueryMsg).
-				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ], { amenableparser: true } );
-				info = [
-					function () {
-						promise.done( function () {
-							mw.errorDialog( $( '<div>' ).msg(
-								result.error.message.key,
-								result.error.message.params
-							) );
-						} );
-					}
-				];
-
-				if ( code === 'abusefilter-warning' ) {
-					$extra = new OO.ui.ButtonWidget( {
-						label: mw.message( 'mwe-upwiz-override' ).text(),
-						title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-						flags: 'progressive',
-						framed: false
-					} ).on( 'click', function () {
-						// No need to ignore the error, AbuseFilter will only return it once
-						this.start();
-					}.bind( this ) ).$element;
-				}
-			} else if ( result.error.info ) {
-				info = result.error.info;
-			}
-			this.setError( code, info, $extra );
 			return;
 		}
 
@@ -227,51 +170,110 @@
 						break;
 					case 'duplicate':
 					case 'duplicate-archive':
-						code = warnCode;
 						this.setDuplicateError( warnCode, result.upload.warnings[ warnCode ] );
-						break;
+						return;
 					case 'nochange':
 						// This is like 'duplicate', but also the filename is the same, which doesn't matter
 						if ( result.upload.warnings.exists ) {
-							code = warnCode;
 							this.setDuplicateError( 'duplicate', result.upload.warnings.exists );
 						}
-						break;
+						return;
 					default:
 						// we have an unknown warning, so let's say what we know
-						code = 'unknown-warning';
 						if ( typeof result.upload.warnings[ warnCode ] === 'string' ) {
 							// tack the original error code onto the warning info
 							info = warnCode + mw.message( 'colon-separator' ).text() + result.upload.warnings[ warnCode ];
 						} else {
 							info = result.upload.warnings[ warnCode ];
 						}
-						this.setError( code, info );
-						break;
+						this.setError( 'unknown-warning', info );
+						return;
 				}
 			}
 		}
 
-		if ( this.state !== 'error' ) {
-			if ( result.upload && result.upload.result === 'Success' ) {
-				if ( result.upload.imageinfo ) {
-					this.setSuccess( result );
-				} else {
-					this.setError( 'noimageinfo', info );
-				}
-			} else if ( result.upload && result.upload.result === 'Warning' ) {
-				throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
+		if ( result.upload && result.upload.result === 'Success' ) {
+			if ( result.upload.imageinfo ) {
+				this.setSuccess( result );
 			} else {
-				this.setError( code, info );
+				this.setError( 'noimageinfo', 'unknown' );
+			}
+		} else if ( result.upload && result.upload.result === 'Warning' ) {
+			throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
+		} else {
+			this.setError( 'unknown', 'unknown' );
+		}
+	};
+
+	/**
+	 * To be executed when an individual upload fails
+	 *
+	 * @param {string} code The API error code
+	 * @param {Object} result The API result in parsed JSON form
+	 */
+	mw.UploadWizardUpload.prototype.setTransportError = function ( code, result ) {
+		var comma, promise,
+			info = result.error.info,
+			$extra;
+
+		if ( this.state === 'aborted' ) {
+			return;
+		}
+
+		if ( code === 'badtoken' ) {
+			this.api.badToken( 'csrf' );
+			// Try again once
+			if ( !this.ignoreWarning[ code ] ) {
+				this.removeErrors( code );
+				return;
 			}
 		}
+
+		if ( code === 'filetype-banned' && result.error.blacklisted ) {
+			code = 'filetype-banned-type';
+			comma = mw.message( 'comma-separator' ).text();
+			info = [
+				result.error.blacklisted.join( comma ),
+				result.error.allowed.join( comma ),
+				result.error.allowed.length,
+				result.error.blacklisted.length
+			];
+		} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' || code === 'spamblacklist' ) {
+			// 'amenableparser' will expand templates and parser functions server-side.
+			// We still do the rest of wikitext parsing here (throught jqueryMsg).
+			promise = this.api.loadMessagesIfMissing( [ result.error.message.key ], { amenableparser: true } );
+			info = [
+				function () {
+					promise.done( function () {
+						mw.errorDialog( $( '<div>' ).msg(
+							result.error.message.key,
+							result.error.message.params
+						) );
+					} );
+				}
+			];
+
+			if ( code === 'abusefilter-warning' ) {
+				$extra = new OO.ui.ButtonWidget( {
+					label: mw.message( 'mwe-upwiz-override' ).text(),
+					title: mw.message( 'mwe-upwiz-override-upload' ).text(),
+					flags: 'progressive',
+					framed: false
+				} ).on( 'click', function () {
+					// No need to ignore the error, AbuseFilter will only return it once
+					this.start();
+				}.bind( this ) ).$element;
+			}
+		}
+
+		this.setError( code, info, $extra );
 	};
 
 	/**
 	 * Helper function to generate duplicate errors in a possibly collapsible list.
 	 * Works with existing duplicates and deleted dupes.
 	 *
-	 * @param {string} code Error code, should have matching strings in .i18n.php
+	 * @param {string} code Warning code, should have matching strings in .i18n.php
 	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
 	 */
 	mw.UploadWizardUpload.prototype.setDuplicateError = function ( code, resultDuplicate ) {
@@ -326,7 +328,7 @@
 	/**
 	 * Called from any upload success condition
 	 *
-	 * @param {Mixed} result -- result of AJAX call
+	 * @param {Object} result -- result of AJAX call
 	 */
 	mw.UploadWizardUpload.prototype.setSuccess = function ( result ) {
 		this.state = 'transported';
@@ -334,18 +336,14 @@
 
 		this.ui.setStatus( 'mwe-upwiz-getting-metadata' );
 
-		if ( result.upload ) {
-			this.extractUploadInfo( result.upload );
-			this.state = 'stashed';
-			this.ui.showStashed();
+		this.extractUploadInfo( result.upload );
+		this.state = 'stashed';
+		this.ui.showStashed();
 
-			this.emit( 'success' );
-			// check all uploads, if they're complete, show the next button
-			// TODO Make wizard connect to 'success' event
-			this.controller.showNext();
-		} else {
-			this.setError( 'noimageinfo' );
-		}
+		this.emit( 'success' );
+		// check all uploads, if they're complete, show the next button
+		// TODO Make wizard connect to 'success' event
+		this.controller.showNext();
 	};
 
 	/**

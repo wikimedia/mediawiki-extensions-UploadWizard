@@ -731,7 +731,7 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			var params, wikiText;
+			var params;
 
 			$( 'form', this.containerDiv ).submit();
 
@@ -754,14 +754,8 @@
 				params.async = true;
 			}
 
-			wikiText = this.getWikiText();
-
-			if ( wikiText !== false ) {
-				params.text = wikiText;
-				return this.submitInternal( params );
-			}
-
-			return $.Deferred().reject();
+			params.text = this.getWikiText();
+			return this.submitInternal( params );
 		},
 
 		/**
@@ -774,7 +768,7 @@
 		submitInternal: function ( params ) {
 			var
 				details = this,
-				apiPromise = details.upload.api.postWithEditToken( params );
+				apiPromise = this.upload.api.postWithEditToken( params );
 			return apiPromise
 				.then(
 					function ( result ) {
@@ -783,11 +777,11 @@
 						}
 						return details.handleSubmitResult( result, params );
 					},
-					function ( code, info, result ) {
+					function ( code, result ) {
 						uw.eventFlowLogger.logApiError( 'details', result );
 						details.upload.state = 'error';
-						details.processError( code, info );
-						return $.Deferred().reject( code, info );
+						details.processError( code, result );
+						return $.Deferred().reject( code, result );
 					}
 				)
 				.promise( { abort: apiPromise.abort } );
@@ -810,10 +804,16 @@
 			if ( result && result.upload && result.upload.result === 'Poll' ) {
 				// if async publishing takes longer than 10 minutes give up
 				if ( ( ( new Date() ).getTime() - this.firstPoll ) > 10 * 60 * 1000 ) {
-					return $.Deferred().reject( 'server-error', 'unknown server error' );
+					return deferred.reject( 'server-error', { error: {
+						code: 'server-error',
+						info: 'unknown server error'
+					} } );
 				} else {
 					if ( result.upload.stage === undefined && window.console ) {
-						return $.Deferred().reject( 'no-stage', 'Unable to check file\'s status' );
+						return deferred.reject( 'no-stage', { error: {
+							code: 'no-stage',
+							info: 'Unable to check file\'s status'
+						} } );
 					} else {
 						// Messages that can be returned:
 						// * mwe-upwiz-queued
@@ -873,16 +873,16 @@
 				return this.submitInternal( params );
 			} else if ( result && result.upload && result.upload.warnings ) {
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-thumbnail' ), 'error-title-thumbnail' );
+					this.recoverFromError( 'error-title-thumbnail', mw.message( 'mwe-upwiz-error-title-thumbnail' ) );
 				} else if ( warnings.badfilename ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-invalid' ), 'title-invalid' );
+					this.recoverFromError( 'title-invalid', mw.message( 'mwe-upwiz-error-title-invalid' ) );
 				} else if ( warnings[ 'bad-prefix' ] ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-senselessimagename' ), 'title-senselessimagename' );
+					this.recoverFromError( 'title-senselessimagename', mw.message( 'mwe-upwiz-error-title-senselessimagename' ) );
 				} else if ( existingFile ) {
 					existingFileUrl = mw.config.get( 'wgServer' ) + mw.Title.makeTitle( NS_FILE, existingFile ).getUrl();
-					this.recoverFromError( mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ), 'api-warning-exists' );
+					this.recoverFromError( 'api-warning-exists', mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ) );
 				} else if ( warnings.duplicate ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-upload-error-duplicate' ), 'upload-error-duplicate' );
+					this.recoverFromError( 'upload-error-duplicate', mw.message( 'mwe-upwiz-upload-error-duplicate' ) );
 				} else if ( warnings[ 'duplicate-archive' ] !== undefined ) {
 					// warnings[ 'duplicate-archive' ] may be '' (empty string) for revdeleted files
 					if ( this.upload.ignoreWarning[ 'duplicate-archive' ] ) {
@@ -892,7 +892,7 @@
 						return this.submitInternal( params );
 					} else {
 						// This should _never_ happen, but just in case....
-						this.recoverFromError( mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ), 'upload-error-duplicate-archive' );
+						this.recoverFromError( 'upload-error-duplicate-archive', mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ) );
 					}
 				} else {
 					warningsKeys = [];
@@ -900,7 +900,7 @@
 						warningsKeys.push( key );
 					} );
 					this.upload.state = 'error';
-					this.recoverFromError( mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ), 'api-error-unknown-warning' );
+					this.recoverFromError( 'api-error-unknown-warning', mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ));
 				}
 
 				return $.Deferred().resolve();
@@ -912,14 +912,14 @@
 		/**
 		 * Create a recoverable error -- show the form again, and highlight the problematic field.
 		 *
-		 * @param {mw.Message} errorMessage Error message to show.
-		 * @param {string} errorCode
+		 * @param {string} code
+		 * @param {mw.Message} message Error message to show.
 		 */
-		recoverFromError: function ( errorMessage, errorCode ) {
-			uw.eventFlowLogger.logError( 'details', { code: errorCode, message: errorMessage } );
+		recoverFromError: function ( code, message ) {
+			uw.eventFlowLogger.logError( 'details', { code: code, message: message } );
 			this.upload.state = 'recoverable-error';
 			this.dataDiv.morphCrossfade( '.detailsForm' );
-			this.titleDetailsField.setErrors( [ errorMessage ] );
+			this.titleDetailsField.setErrors( [ message ] );
 		},
 
 		/**
@@ -964,14 +964,14 @@
 				// 'amenableparser' will expand templates and parser functions server-side.
 				// We still do the rest of wikitext parsing here (throught jqueryMsg).
 				promise = this.api.loadMessagesIfMissing( [ result.error.message.key ], { amenableparser: true } );
-				this.recoverFromError( mw.message( 'api-error-' + code, function () {
+				this.recoverFromError( code, mw.message( 'api-error-' + code, function () {
 					promise.done( function () {
 						mw.errorDialog( $( '<div>' ).msg(
 							result.error.message.key,
 							result.error.message.params
 						) );
 					} );
-				} ), code );
+				} ) );
 				return;
 			}
 
@@ -984,17 +984,14 @@
 				// This could potentially also come up when an upload is removed by the user, but in that
 				// case the UI is invisible anyway, so whatever.
 				code = 'ratelimited';
-			} else if ( code === 'http' && result && result.xhr && result.xhr.status === 0 ) {
-				// Failed to even connect to server
-				code = 'offline';
 			}
 
 			if ( result && code ) {
 				if ( titleErrorMap[ code ] ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ), 'title-' + titleErrorMap[ code ] );
+					this.recoverFromError( 'title-' + titleErrorMap[ code ], mw.message( 'mwe-upwiz-error-title-' + titleErrorMap[ code ] ) );
 					return;
 				} else if ( code === 'titleblacklist-forbidden' ) {
-					this.recoverFromError( mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message.key ] ), 'title-' + titleBlacklistMessageMap[ result.error.message.key ] );
+					this.recoverFromError( 'title-' + titleBlacklistMessageMap[ result.error.message.key ], mw.message( 'mwe-upwiz-error-title-' + titleBlacklistMessageMap[ result.error.message.key ] ) );
 					return;
 				} else {
 					statusKey = 'api-error-' + code;

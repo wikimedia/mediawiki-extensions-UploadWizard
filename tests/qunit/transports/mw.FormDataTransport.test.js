@@ -144,10 +144,10 @@
 		transport.checkStatus().fail( tstub );
 		transport.firstPoll = 0;
 		postd.resolve( { upload: { result: 'Poll' } } );
-		assert.ok( tstub.calledWith( {
+		assert.ok( tstub.calledWith( 'server-error', { error: {
 			code: 'server-error',
-			info: 'unknown server error'
-		} ) );
+			info: 'Unknown server error'
+		} } ) );
 
 		postd = $.Deferred();
 		postd2 = $.Deferred();
@@ -180,8 +180,8 @@
 		tstub.reset();
 		usstub.reset();
 		transport.checkStatus().fail( tstub );
-		postd.reject( 500, 'testing', { error: 'testing' } );
-		assert.ok( tstub.calledWith( { error: 'testing' } ) );
+		postd.reject( 'testing', { error: 'testing' } );
+		assert.ok( tstub.calledWith( 'testing', { error: 'testing' } ) );
 		assert.ok( !usstub.called );
 	} );
 

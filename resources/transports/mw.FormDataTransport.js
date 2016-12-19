@@ -198,7 +198,12 @@
 
 		if ( this.aborted ) {
 			this.api.abort();
-			return $.Deferred().reject();
+			return $.Deferred().reject( 'aborted', {
+				error: {
+					code: 'aborted',
+					info: 'Aborted'
+				}
+			} );
 		}
 
 		// Slice API was changed and has vendor prefix for now
@@ -259,15 +264,17 @@
 				// shafted anyway. But some server-side errors really are temporary...
 				return transport.maybeRetry(
 					'on unknown response',
+					response.error ? response.error.code : 'unknown-error',
 					response,
 					'uploadChunk',
 					file, offset
 				);
 			}
-		}, function ( response ) {
+		}, function ( code, result ) {
 			return transport.maybeRetry(
 				'on error event',
-				response,
+				code,
+				result,
 				'uploadChunk',
 				file, offset
 			);
@@ -278,20 +285,21 @@
 	 * Handle possible retry event - rejected if maximum retries already fired.
 	 *
 	 * @param {string} contextMsg
+	 * @param {string} code
 	 * @param {Object} response
 	 * @param {string} retryMethod
 	 * @param {File} [file]
 	 * @param {number} [offset]
 	 * @return {jQuery.Promise}
 	 */
-	mw.FormDataTransport.prototype.maybeRetry = function ( contextMsg, response, retryMethod, file, offset ) {
+	mw.FormDataTransport.prototype.maybeRetry = function ( contextMsg, code, response, retryMethod, file, offset ) {
 		this.retries++;
 
 		if ( this.tooManyRetries() ) {
 			mw.log.warn( 'Max retries exceeded ' + contextMsg );
-			return $.Deferred().reject( response );
+			return $.Deferred().reject( code, response );
 		} else if ( this.aborted ) {
-			return $.Deferred().reject( response );
+			return $.Deferred().reject( code, response );
 		} else {
 			mw.log( 'Retry #' + this.retries + ' ' + contextMsg );
 			return this.retryWithMethod( retryMethod, file, offset );
@@ -342,7 +350,12 @@
 			params = OO.cloneObject( this.formData );
 
 		if ( this.aborted ) {
-			return $.Deferred().reject();
+			return $.Deferred().reject( 'aborted', {
+				error: {
+					code: 'aborted',
+					info: 'Aborted'
+				}
+			} );
 		}
 
 		if ( !this.firstPoll ) {
@@ -358,14 +371,17 @@
 				if ( response.upload && response.upload.result === 'Poll' ) {
 					// If concatenation takes longer than 10 minutes give up
 					if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
-						return $.Deferred().reject( {
+						return $.Deferred().reject( 'server-error', { error: {
 							code: 'server-error',
-							info: 'unknown server error'
-						} );
+							info: 'Unknown server error'
+						} } );
 					} else {
 						if ( response.upload.stage === undefined && window.console ) {
 							window.console.log( 'Unable to check file\'s status' );
-							return $.Deferred().reject();
+							return $.Deferred().reject( 'server-error', { error: {
+								code: 'server-error',
+								info: 'Unknown server error'
+							} } );
 						} else {
 							// Statuses that can be returned:
 							// * queued
@@ -378,8 +394,8 @@
 				}
 
 				return response;
-			}, function ( code, info, response ) {
-				return $.Deferred().reject( response );
+			}, function ( code, result ) {
+				return $.Deferred().reject( code, result );
 			} );
 	};
 
