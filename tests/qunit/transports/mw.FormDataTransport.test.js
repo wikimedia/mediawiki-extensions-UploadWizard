@@ -18,10 +18,11 @@
 ( function ( mw, $ ) {
 	QUnit.module( 'mw.FormDataTransport', QUnit.newMwEnvironment() );
 
-	function createTransport( chunkSize ) {
+	function createTransport( chunkSize, api ) {
 		var config;
 
 		chunkSize = chunkSize || 0;
+		api = api || {};
 
 		config = {
 			useRetryTimeout: false,
@@ -29,7 +30,7 @@
 			maxPhpUploadSize: chunkSize
 		};
 
-		return new mw.FormDataTransport( '/w/api.php', {}, config );
+		return new mw.FormDataTransport( api, {}, config );
 	}
 
 	QUnit.test( 'Constructor sanity test', 1, function ( assert ) {
@@ -39,51 +40,48 @@
 	} );
 
 	QUnit.test( 'abort', 3, function ( assert ) {
-		var abortStub = this.sandbox.stub(),
-			transport = createTransport();
+		var transport = createTransport( 0, { abort: this.sandbox.stub() } );
 
-		transport.xhr = { abort: abortStub };
-
-		assert.ok( abortStub.notCalled );
+		assert.ok( transport.api.abort.notCalled );
 
 		transport.abort();
 
-		assert.ok( abortStub.called );
+		assert.ok( transport.api.abort.called );
 		assert.ok( transport.aborted );
 	} );
 
-	QUnit.test( 'createXHR', 1, function ( assert ) {
+	QUnit.test( 'createParams', 3, function ( assert ) {
 		var transport = createTransport( 10 ),
-			xhr = transport.createXHR();
+			params = transport.createParams( 'foobar.jpg', 0 );
 
-		assert.ok( xhr );
+		assert.ok( params );
 
-		// TODO there may not be a good way to test events on the XHR,
-		// but if such a way crops up later, test 'progress' and 'abort' here.
+		assert.strictEqual( params.filename, 'foobar.jpg' );
+		assert.strictEqual( params.offset, 0 );
 	} );
 
-	QUnit.test( 'createFormData', 1, function ( assert ) {
-		var transport = createTransport( 10 ),
-			fd = transport.createFormData( 'foobar.jpg', 0 );
+	QUnit.test( 'post', 2, function ( assert ) {
+		var stub = this.sandbox.stub(),
+		// post() works on a promise and binds .then, so we have to make
+		// sure it actually is a promise, but also that it calls our stub
+			transport = createTransport( 10, { post: function () {
+				stub();
+				return $.Deferred().resolve();
+			} } );
 
-		assert.ok( fd );
+		this.sandbox.useFakeXMLHttpRequest();
+		this.sandbox.useFakeServer();
 
-		// TODO ARGH APPARENTLY there is no way to access the properties of a
-		// FormData object, so until we can figure THAT out, this is incomplete.
-	} );
+		assert.ok( stub.notCalled );
 
-	QUnit.test( 'sendData', 2, function ( assert ) {
-		var transport = createTransport( 10 ),
-			fakexhr = { open: this.sandbox.stub(), send: this.sandbox.stub() };
+		transport.post( {} );
 
-		transport.sendData( fakexhr, {} );
-		assert.ok( fakexhr.open.called );
-		assert.ok( fakexhr.send.called );
+		assert.ok( stub.called );
 	} );
 
 	QUnit.test( 'upload', 4, function ( assert ) {
 		var request,
-			transport = createTransport( 10 ),
+			transport = createTransport( 10, new mw.Api() ),
 			fakeFile = {
 				name: 'test file for fdt.jpg',
 				size: 5
@@ -97,13 +95,15 @@
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
 		request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
-		assert.strictEqual( request.url, '/w/api.php' );
+		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
 		assert.ok( request.async );
+
+		transport.abort();
 	} );
 
 	QUnit.test( 'uploadChunk', 4, function ( assert ) {
 		var request,
-			transport = createTransport( 10 ),
+			transport = createTransport( 10, new mw.Api() ),
 			fakeFile = {
 				name: 'test file for fdt.jpg',
 				size: 20,
@@ -124,12 +124,14 @@
 		assert.strictEqual( this.sandbox.server.requests.length, 1 );
 		request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
-		assert.strictEqual( request.url, '/w/api.php' );
+		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
 		assert.ok( request.async );
+
+		transport.abort();
 	} );
 
 	QUnit.test( 'checkStatus', 8, function ( assert ) {
-		var transport = createTransport( 10 ),
+		var transport = createTransport( 10, new mw.Api() ),
 			usstub = this.sandbox.stub(),
 			tstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
@@ -181,25 +183,6 @@
 		postd.reject( 500, 'testing', { error: 'testing' } );
 		assert.ok( tstub.calledWith( { error: 'testing' } ) );
 		assert.ok( !usstub.called );
-	} );
-
-	QUnit.test( 'parseResponse', 2, function ( assert ) {
-		var transport = createTransport( 10 ),
-			response = {
-				target: {
-					responseText: '{"testing": "testing"}'
-				}
-			};
-
-		assert.ok( transport.parseResponse( response ), { testing: 'testing' } );
-
-		response = { target: { code: 'test', responseText: 'a test error' } };
-		assert.ok( transport.parseResponse( response ), {
-			error: {
-				code: 'test',
-				info: 'a test error'
-			}
-		} );
 	} );
 
 }( mediaWiki, jQuery ) );

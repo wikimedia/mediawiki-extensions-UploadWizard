@@ -96,7 +96,7 @@
 					upload.file = file;
 					transport.uploadHandler = new mw.ApiUploadFormDataHandler( upload, handler.api );
 					return transport.uploadHandler.start();
-				}, function ( result ) {
+				}, function ( code, info, result ) {
 					mw.log( 'FirefoggTransport::getTransport> Transport done ' + JSON.stringify( result ) );
 					upload.setTransported( result );
 				} );
