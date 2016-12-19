@@ -202,7 +202,7 @@
 			} else if ( result.error.info ) {
 				info = result.error.info;
 			}
-			this.setError( code, info );
+			this.setError( code, info, $extra );
 			return;
 		}
 
@@ -223,6 +223,13 @@
 					case 'duplicate-archive':
 						code = warnCode;
 						this.setDuplicateError( warnCode, result.upload.warnings[ warnCode ] );
+						break;
+					case 'nochange':
+						// This is like 'duplicate', but also the filename is the same, which doesn't matter
+						if ( result.upload.warnings.exists ) {
+							code = warnCode;
+							this.setDuplicateError( 'duplicate', result.upload.warnings.exists );
+						}
 						break;
 					default:
 						// we have an unknown warning, so let's say what we know
