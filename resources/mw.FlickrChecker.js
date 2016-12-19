@@ -1,5 +1,4 @@
-// Only turning these jscs options off for ''this file''
-/* jscs:disable disallowDanglingUnderscores, requireCamelCaseOrUpperCaseIdentifiers */
+/* eslint-disable camelcase, no-underscore-dangle */
 ( function ( mw, $, OO ) {
 	mw.FlickrChecker = function ( ui, selectButton ) {
 		this.ui = ui;
@@ -755,4 +754,4 @@
 		}
 	};
 
-} )( mediaWiki, jQuery, OO );
+}( mediaWiki, jQuery, OO ) );

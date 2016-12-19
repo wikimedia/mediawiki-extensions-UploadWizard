@@ -91,7 +91,7 @@
 	 * @param {Object|string} configAltUploadForm A link or map of languages to links, pointing at an alternate form.
 	 */
 	uw.ui.Wizard.prototype.initAltUploadForm = function ( configAltUploadForm ) {
-		var altUploadForm, userLanguage, title, $altLink;
+		var altUploadForm, userLanguage, title;
 
 		if ( typeof configAltUploadForm === 'object' ) {
 			userLanguage = mw.config.get( 'wgUserLanguage' );
@@ -110,7 +110,7 @@
 			try {
 				title = new mw.Title( altUploadForm );
 
-				$altLink = $( '<a>' )
+				$( '<a>' )
 					.msg( 'mwe-upwiz-subhead-alt-upload' )
 					.addClass( 'contentSubLink' )
 					.attr( 'href', title.getUrl() )

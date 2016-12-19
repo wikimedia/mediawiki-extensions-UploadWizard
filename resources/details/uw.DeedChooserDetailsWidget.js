@@ -103,8 +103,7 @@
 			getSerialized: function () {
 				return {};
 			},
-			setSerialized: function ( serialized ) {
-				/* jshint unused:false */
+			setSerialized: function () {
 			}
 		}, overrides );
 	};
@@ -142,4 +141,4 @@
 		}
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

@@ -170,8 +170,8 @@
 			transport = this;
 
 		for ( offset = 0; offset < fileSize; offset += chunkSize ) {
-			/*jshint loopfunc:true */
 			// Capture offset in a closure
+			// eslint-disable-next-line no-loop-func
 			( function ( offset ) {
 				var
 					newPromise = $.Deferred(),
@@ -188,7 +188,7 @@
 						} );
 				} );
 				prevPromise = newPromise;
-			} )( offset );
+			}( offset ) );
 		}
 
 		return deferred.promise();
@@ -377,8 +377,8 @@
 		$.each( this.formData, function ( key, value ) {
 			params[ key ] = value;
 		} );
-		params.checkstatus =  true;
-		params.filekey =  this.filekey;
+		params.checkstatus = true;
+		params.filekey = this.filekey;
 		return this.api.post( params )
 			.then( function ( response ) {
 				if ( response.upload && response.upload.result === 'Poll' ) {

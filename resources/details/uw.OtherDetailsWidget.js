@@ -52,4 +52,4 @@
 		this.textInput.setValue( serialized.other );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

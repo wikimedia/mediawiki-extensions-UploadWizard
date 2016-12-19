@@ -22,4 +22,4 @@
 		}
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard );
+}( mediaWiki, mediaWiki.uploadWizard ) );

@@ -197,4 +197,4 @@
 		return ( degrees * 1 ) + ( minutes / 60.0 ) + ( seconds / 3600.0 );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

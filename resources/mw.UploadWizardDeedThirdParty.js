@@ -36,7 +36,7 @@
 		var
 			deed = new mw.UploadWizardDeed();
 
-		deed.uploadCount = uploadCount ? uploadCount : 1;
+		deed.uploadCount = uploadCount || 1;
 
 		deed.sourceInput = new OO.ui.TextInputWidget( {
 			multiline: true,
@@ -204,4 +204,4 @@
 		} );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );

@@ -56,4 +56,4 @@
 		mw.UploadWizardPage();
 	} );
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

@@ -1,4 +1,4 @@
-	( function ( mw, uw, $, OO ) {
+( function ( mw, uw, $, OO ) {
 	/**
 	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 *
@@ -174,13 +174,13 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
 		var msgKey, args, moreErrorCodes = [
-			'unknown-warning',
-			'abusefilter-disallowed',
-			'abusefilter-warning',
-			'spamblacklist',
-			'offline',
-			'parsererror'
-		];
+				'unknown-warning',
+				'abusefilter-disallowed',
+				'abusefilter-warning',
+				'spamblacklist',
+				'offline',
+				'parsererror'
+			];
 
 		this.showIndicator( 'error' );
 		// is this an error that we expect to have a message for?
@@ -278,15 +278,15 @@
 	*/
 	mw.UploadWizardUploadInterface.prototype.createImagePickerField = function ( index, setDisabled ) {
 		var $fieldContainer = $( '<div>' ).attr( {
-			'class': 'mwe-upwiz-objref-pick-image'
-		} ),
-		attributes = {
-			type: 'checkbox',
-			'class': 'imgPicker',
-			id: 'imgPicker' + index,
-			disabled: false,
-			checked: false
-		};
+				'class': 'mwe-upwiz-objref-pick-image'
+			} ),
+			attributes = {
+				type: 'checkbox',
+				'class': 'imgPicker',
+				id: 'imgPicker' + index,
+				disabled: false,
+				checked: false
+			};
 
 		if ( setDisabled ) {
 			attributes.disabled = 'disabled';

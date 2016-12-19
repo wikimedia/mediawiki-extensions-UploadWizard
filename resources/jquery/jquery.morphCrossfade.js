@@ -83,7 +83,7 @@
 				$newPanel = ( typeof newPanelSelector === 'string' ) ?
 					$container.find( newPanelSelector ) : $( newPanelSelector );
 
-			if ( $oldPanel.get(0) !== $newPanel.get(0) ) {
+			if ( $oldPanel.get( 0 ) !== $newPanel.get( 0 ) ) {
 				if ( $oldPanel.length ) {
 					// remove auto setting of height from container, and
 					// make doubly sure that the container height is equal to oldPanel,
@@ -112,4 +112,4 @@
 		return this;
 	};
 
-} )( jQuery );
+}( jQuery ) );

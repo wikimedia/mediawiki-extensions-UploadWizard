@@ -129,4 +129,4 @@
 		this.categoriesWidget.setItemsFromData( serialized.value );
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery, OO );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

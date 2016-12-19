@@ -59,6 +59,7 @@
 				upload = this.upload;
 
 			// Bail on non-ASCII filenames
+			// eslint-disable-next-line no-control-regex
 			if ( !this.upload.title || !( /^[\x00-\x7F]*$/.test( this.upload.title.getMain() ) ) ) {
 				this.upload.setError( 'firefogg-nonascii', '' );
 				this.upload.ui.setStatus( 'mwe-upwiz-firefogg-nonascii' );

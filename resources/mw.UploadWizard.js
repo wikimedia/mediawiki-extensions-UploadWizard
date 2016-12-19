@@ -142,4 +142,4 @@
 			);
 	};
 
-} )( mediaWiki, mediaWiki.uploadWizard, jQuery );
+}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );
