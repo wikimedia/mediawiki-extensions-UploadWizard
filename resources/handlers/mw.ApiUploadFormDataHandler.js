@@ -68,14 +68,12 @@
 							handler.upload.setTransportProgress( fraction );
 						}
 					} ).then( function ( result ) {
-						if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+						if ( result.upload && result.upload.warnings ) {
 							uw.eventFlowLogger.logApiError( 'file', result );
 						}
 						handler.upload.setTransported( result );
 					}, function ( code, result ) {
-						if ( result.upload && result.upload.warnings ) {
-							uw.eventFlowLogger.logApiError( 'file', result );
-						}
+						uw.eventFlowLogger.logApiError( 'file', result );
 						handler.upload.setTransportError( code, result );
 					} );
 			}, function ( code, result ) {

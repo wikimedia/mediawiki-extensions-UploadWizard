@@ -86,6 +86,13 @@
 		},
 
 		/**
+		 * mw.Api's ajax calls are not very consistent in their error handling.
+		 * As long as the response comes back, the response will be fine: it'll
+		 * get rejected with the error details there. However, if no response
+		 * comes back for whatever reason, things can get confusing.
+		 * I'll monkeypatch around such cases so that we can always rely on the
+		 * error response the way we want it to be.
+		 *
 		 * @param {Object} options
 		 * @return {mw.Api}
 		 */
@@ -93,25 +100,30 @@
 			var api = new mw.Api( options );
 
 			api.ajax = function ( parameters, ajaxOptions ) {
+				$.extend( parameters, {
+					errorformat: 'html',
+					errorlang: mw.config.get( 'wgUserLanguage' ),
+					errorsuselocal: 1,
+					formatversion: 2
+				} );
+
 				return mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] ).then(
 					null, // done handler - doesn't need overriding
 					function ( code, result ) { // fail handler
-						var response = { error: {
+						var response = { errors: [ {
 							code: code,
-							info: result.textStatus || 'unknown'
-						} };
+							html: result.textStatus || mw.message( 'apierror-unknownerror' ).parse()
+						} ] };
 
-						if ( result.error && result.error.info ) {
+						if ( result.errors && result.errors[ 0 ] ) {
 							// in case of success-but-has-errors, we have a valid result
 							response = result;
-						} else if ( result.textStatus && result.textStatus === 'timeout' ) {
-							code = 'timeout';
-							response.error.code = 'timeout';
-							response.error.info = 'timeout';
-						} else if ( code === 'http' && result.xhr && result.xhr.status === 0 ) {
-							code = 'offline';
-							response.error.code = 'offline';
-							response.error.info = 'offline';
+						} else if ( result && result.textStatus === 'timeout' ) {
+							// in case of $.ajax.fail(), there is no response json
+							response.errors[ 0 ].html = mw.message( 'api-error-timeout' ).parse();
+						} else if ( code === 'http' && result && result.xhr && result.xhr.status === 0 ) {
+							// failed to even connect to server
+							response.errors[ 0 ].html = mw.message( 'api-error-offline' ).parse();
 						}
 
 						return $.Deferred().reject( code, response, response );

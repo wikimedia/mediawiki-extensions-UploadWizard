@@ -117,18 +117,18 @@
 	 * Stop the upload -- we have failed for some reason
 	 *
 	 * @param {string} code Error code from API
-	 * @param {string|Object} info Extra info
+	 * @param {string} html Error message
 	 * @param {jQuery} [$additionalStatus]
 	 */
-	mw.UploadWizardUpload.prototype.setError = function ( code, info, $additionalStatus ) {
+	mw.UploadWizardUpload.prototype.setError = function ( code, html, $additionalStatus ) {
 		if ( this.state === 'aborted' ) {
 			// There's no point in reporting an error anymore.
 			return;
 		}
 		this.state = 'error';
 		this.transportProgress = 0;
-		this.ui.showError( code, info, $additionalStatus );
-		uw.eventFlowLogger.logError( 'file', { code: code, message: info } );
+		this.ui.showError( code, html, $additionalStatus );
+		uw.eventFlowLogger.logError( 'file', { code: code, message: html } );
 	};
 
 	/**
@@ -148,8 +148,7 @@
 	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
-		// default error state
-		var warnCode, info;
+		var warnCode, param;
 
 		if ( this.state === 'aborted' ) {
 			return;
@@ -179,14 +178,14 @@
 						}
 						return;
 					default:
-						// we have an unknown warning, so let's say what we know
+						param = warnCode;
 						if ( typeof result.upload.warnings[ warnCode ] === 'string' ) {
-							// tack the original error code onto the warning info
-							info = warnCode + mw.message( 'colon-separator' ).text() + result.upload.warnings[ warnCode ];
-						} else {
-							info = result.upload.warnings[ warnCode ];
+							// tack the original error code onto the warning message
+							param += mw.message( 'colon-separator' ).text() + result.upload.warnings[ warnCode ];
 						}
-						this.setError( 'unknown-warning', info );
+
+						// we have an unknown warning, so let's say what we know
+						this.setError( warnCode, mw.message( 'api-error-unknown-warning', param ).parse() );
 						return;
 				}
 			}
@@ -196,12 +195,12 @@
 			if ( result.upload.imageinfo ) {
 				this.setSuccess( result );
 			} else {
-				this.setError( 'noimageinfo', 'unknown' );
+				this.setError( 'noimageinfo', mw.message( 'api-error-noimageinfo' ).parse() );
 			}
 		} else if ( result.upload && result.upload.result === 'Warning' ) {
 			throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
 		} else {
-			this.setError( 'unknown', 'unknown' );
+			this.setError( 'unknown', mw.message( 'unknown-error' ).parse() );
 		}
 	};
 
@@ -212,9 +211,7 @@
 	 * @param {Object} result The API result in parsed JSON form
 	 */
 	mw.UploadWizardUpload.prototype.setTransportError = function ( code, result ) {
-		var comma, promise,
-			info = result.error.info,
-			$extra;
+		var $extra;
 
 		if ( this.state === 'aborted' ) {
 			return;
@@ -229,44 +226,19 @@
 			}
 		}
 
-		if ( code === 'filetype-banned' && result.error.blacklisted ) {
-			code = 'filetype-banned-type';
-			comma = mw.message( 'comma-separator' ).text();
-			info = [
-				result.error.blacklisted.join( comma ),
-				result.error.allowed.join( comma ),
-				result.error.allowed.length,
-				result.error.blacklisted.length
-			];
-		} else if ( code === 'abusefilter-disallowed' || code === 'abusefilter-warning' || code === 'spamblacklist' ) {
-			// 'amenableparser' will expand templates and parser functions server-side.
-			// We still do the rest of wikitext parsing here (throught jqueryMsg).
-			promise = this.api.loadMessagesIfMissing( [ result.error.message.key ], { amenableparser: true } );
-			info = [
-				function () {
-					promise.done( function () {
-						mw.errorDialog( $( '<div>' ).msg(
-							result.error.message.key,
-							result.error.message.params
-						) );
-					} );
-				}
-			];
-
-			if ( code === 'abusefilter-warning' ) {
-				$extra = new OO.ui.ButtonWidget( {
-					label: mw.message( 'mwe-upwiz-override' ).text(),
-					title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-					flags: 'progressive',
-					framed: false
-				} ).on( 'click', function () {
-					// No need to ignore the error, AbuseFilter will only return it once
-					this.start();
-				}.bind( this ) ).$element;
-			}
+		if ( code === 'abusefilter-warning' ) {
+			$extra = new OO.ui.ButtonWidget( {
+				label: mw.message( 'mwe-upwiz-override' ).text(),
+				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
+				flags: 'progressive',
+				framed: false
+			} ).on( 'click', function () {
+				// No need to ignore the error, AbuseFilter will only return it once
+				this.start();
+			}.bind( this ) ).$element;
 		}
 
-		this.setError( code, info, $extra );
+		this.setError( code, result.errors[ 0 ].html, $extra );
 	};
 
 	/**
@@ -322,7 +294,8 @@
 			$extra = $extra.add( uploadDuplicate.$element );
 		}
 
-		this.setError( code, [ duplicates.length ], $extra );
+		// possible messages: api-error-duplicate & api-error-duplicate-archive
+		this.setError( code, mw.message( 'api-error-' + code, duplicates.length ).parse(), $extra );
 	};
 
 	/**

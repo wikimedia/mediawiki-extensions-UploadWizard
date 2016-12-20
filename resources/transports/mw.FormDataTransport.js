@@ -201,7 +201,7 @@
 			return $.Deferred().reject( 'aborted', {
 				error: {
 					code: 'aborted',
-					info: 'Aborted'
+					html: mw.message( 'api-error-aborted' ).parse()
 				}
 			} );
 		}
@@ -251,9 +251,9 @@
 			} else {
 				// Ain't this some great machine readable output eh
 				if (
-					response.error &&
-					response.error.code === 'stashfailed' &&
-					response.error.info === 'Chunked upload is already completed, check status for details.'
+					response.errors &&
+					response.errors[ 0 ].code === 'stashfailed' &&
+					response.errors[ 0 ].html === mw.message( 'apierror-stashfailed-complete' ).parse()
 				) {
 					return transport.retryWithMethod( 'checkStatus' );
 				}
@@ -353,7 +353,7 @@
 			return $.Deferred().reject( 'aborted', {
 				error: {
 					code: 'aborted',
-					info: 'Aborted'
+					html: mw.message( 'api-error-aborted' ).parse()
 				}
 			} );
 		}
@@ -373,14 +373,14 @@
 					if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
 						return $.Deferred().reject( 'server-error', { error: {
 							code: 'server-error',
-							info: 'Unknown server error'
+							html: mw.message( 'apierror-unknownerror' ).parse()
 						} } );
 					} else {
 						if ( response.upload.stage === undefined && window.console ) {
 							window.console.log( 'Unable to check file\'s status' );
 							return $.Deferred().reject( 'server-error', { error: {
 								code: 'server-error',
-								info: 'Unknown server error'
+								html: mw.message( 'apierror-unknownerror' ).parse()
 							} } );
 						} else {
 							// Statuses that can be returned:

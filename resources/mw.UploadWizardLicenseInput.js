@@ -631,7 +631,7 @@
 			}
 
 			function error( code, result ) {
-				var message = result.error.info;
+				var message = result.errors[ 0 ].html;
 
 				uw.eventFlowLogger.logError( 'license', { code: code, message: message } );
 				show( $( '<div></div>' ).append(
