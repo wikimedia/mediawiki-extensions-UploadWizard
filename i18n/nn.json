@@ -8,7 +8,6 @@
 	},
 	"uploadwizard": "Opplastingsvegvisar",
 	"uploadwizard-desc": "Opplastingsvegvisar, utvikla med Multimedia Usability-stipendet",
-	"mwe-upwiz-uploadcampaigns": "Opplastingskampanjar",
 	"mwe-upwiz-step-tutorial": "Lær",
 	"mwe-upwiz-step-file": "Last opp",
 	"mwe-upwiz-step-deeds": "Utgjevingsrettar",
@@ -105,9 +104,9 @@
 	"mwe-upwiz-next-file": "Hald fram",
 	"mwe-upwiz-next-deeds": "Neste",
 	"mwe-upwiz-next-details": "Neste",
+	"mwe-upwiz-previous": "Attende",
 	"mwe-upwiz-home": "Gå til heimesida åt wikien",
 	"mwe-upwiz-upload-another": "Last opp fleire flier",
-	"mwe-prevent-close": "Fer du bort frå sida kan du mista brigde du mogelegvis har gjort.",
 	"mwe-upwiz-prevent-close": "Du er ikkje ferdig med å lasta opp og gje ut {{PLURAL:$1|fila|filene}} enno.",
 	"mwe-upwiz-tooltip-author": "Namnet på personen som tok eller måla biletet, teikna teikninga osb.",
 	"mwe-upwiz-tooltip-source": "Kvar den digitale fila kjem frå - kan vera ei vevadresse, ei bok eller ein publikasjon.",
@@ -126,7 +125,6 @@
 	"mwe-upwiz-error-too-long": "Feltet er for langt.\nGjer det stuttare enn {{PLURAL:$1|eitt teikn|$1 teikn}}.",
 	"mwe-upwiz-error-too-short": "Feltet er for stutt.\nGjer det lengre enn $1 {{PLURAL:$1|teikn|teikn}}.",
 	"mwe-upwiz-error-title-blacklisted": "Namnet innheld uynskt tekst, du lyt brigda på dette.",
-	"mwe-upwiz-error-title-badchars": "Namnet inneheld uynskte teikn. Du lyt fjerna desse.",
 	"mwe-upwiz-error-title-senselessimagename": "Gjer namnet meir meiningsfullt.",
 	"mwe-upwiz-error-title-hosting": "Det ser ut til at du har henta fila frå ein annan stad på veven; gjer filnamnet meir meiningsfullt. Sjå dessutan etter endå ein gong at du har rettane til å gje ut fila her.",
 	"mwe-upwiz-warning-categories-missing": "Det er tilrådt at du legg inn nokre kategoriar for opplastingane dine.",
@@ -188,6 +186,5 @@
 	"mwe-upwiz-error-nosuchcampaign": "Det finst ingen kampanje som heiter «$1».",
 	"mwe-upwiz-error-campaigndisabled": "Kampanjen «$1» er ikkje gjord verksam.",
 	"mwe-upwiz-calendar-date": "Vel dato frå kalender",
-	"mwe-upwiz-custom-date": "Bruk eige datoformat",
-	"uploadcampaign-text": "Du brigdar ein opplastingsvegvisarkampanje."
+	"mwe-upwiz-custom-date": "Bruk eige datoformat"
 }
