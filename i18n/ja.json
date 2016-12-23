@@ -319,6 +319,8 @@
 	"prefs-upwiz-interface": "ユーザーインターフェイス",
 	"mwe-upwiz-prefs-def-license": "既定のライセンス",
 	"mwe-upwiz-prefs-def-license-def": "常に既定値を使用",
+	"mwe-upwiz-prefs-def-license-custom": "既定のカスタムライセンス",
+	"mwe-upwiz-prefs-def-license-custom-help": "この欄は上記の最後のオプションを選択した場合のみ使用されます。",
 	"mwe-upwiz-prefs-license-own": "自分の作品 - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "他人の作品 - $1",
 	"mwe-upwiz-prefs-skiptutorial": "ライセンスのチュートリアルをスキップする",
