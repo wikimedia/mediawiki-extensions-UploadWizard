@@ -23,7 +23,7 @@
 		} );
 
 		this.transport = new mw.FormDataTransport(
-			this.api.defaults.ajax.url,
+			this.api,
 			this.formData
 		).on( 'update-stage', function ( stage ) {
 			upload.ui.setStatus( 'mwe-upwiz-' + stage );
@@ -60,7 +60,7 @@
 				return handler.transport.upload( handler.upload.file, handler.upload.title.getMainText() )
 					.progress( function ( fraction ) {
 						if ( handler.upload.state === 'aborted' ) {
-							handler.transport.xhr.abort();
+							handler.transport.api.abort();
 							return;
 						}
 
@@ -72,7 +72,7 @@
 							uw.eventFlowLogger.logApiError( 'file', result );
 						}
 						handler.upload.setTransported( result );
-					}, function ( result ) {
+					}, function ( code, info, result ) {
 						if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
 							uw.eventFlowLogger.logApiError( 'file', result );
 						}

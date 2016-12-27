@@ -6,7 +6,7 @@
 	mw.UploadWizard = function ( config ) {
 		var maxSimPref;
 
-		this.api = new mw.Api( { ajax: { timeout: 0 } } );
+		this.api = this.getApi( { ajax: { timeout: 0 } } );
 
 		// making a sort of global for now, should be done by passing in config or fragments of config
 		// when needed elsewhere
@@ -83,6 +83,38 @@
 			this.steps.thanks.setNextStep( this.steps.file );
 
 			$( '#mwe-upwiz-steps' ).arrowSteps();
+		},
+
+		/**
+		 * @param {Object} options
+		 * @return {mw.Api}
+		 */
+		getApi: function ( options ) {
+			var api = new mw.Api( options );
+
+			api.ajax = function ( parameters, ajaxOptions ) {
+				return mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] ).then(
+					null, // done handler - doesn't need overriding
+					function ( code, result ) { // fail handler
+						if ( code === 'http' && result ) {
+							if ( result.xhr && result.xhr.status === 0 ) {
+								code = 'offline';
+							}
+
+							result = {
+								error: {
+									code: code,
+									info: result.textStatus
+								}
+							};
+						}
+
+						return $.Deferred().reject( code, result, result );
+					}
+				);
+			};
+
+			return api;
 		}
 	};
 
