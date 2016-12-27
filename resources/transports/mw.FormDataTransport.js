@@ -249,19 +249,6 @@
 						return transport.retryWithMethod( 'checkStatus' );
 				}
 			} else {
-				// Ain't this some great machine readable output eh
-				if (
-					response.errors &&
-					response.errors[ 0 ].code === 'stashfailed' &&
-					response.errors[ 0 ].html === mw.message( 'apierror-stashfailed-complete' ).parse()
-				) {
-					return transport.retryWithMethod( 'checkStatus' );
-				}
-
-				// Failed to upload, try again in 3 seconds
-				// This is really dumb, we should only do this for cases where retrying has a chance to work
-				// (so basically, network failures). If your upload was blocked by AbuseFilter you're
-				// shafted anyway. But some server-side errors really are temporary...
 				return transport.maybeRetry(
 					'on unknown response',
 					response.error ? response.error.code : 'unknown-error',
@@ -271,6 +258,19 @@
 				);
 			}
 		}, function ( code, result ) {
+			// Ain't this some great machine readable output eh
+			if (
+				result.errors &&
+				result.errors[ 0 ].code === 'stashfailed' &&
+				result.errors[ 0 ].html === mw.message( 'apierror-stashfailed-complete' ).parse()
+			) {
+				return transport.retryWithMethod( 'checkStatus' );
+			}
+
+			// Failed to upload, try again in 3 seconds
+			// This is really dumb, we should only do this for cases where retrying has a chance to work
+			// (so basically, network failures). If your upload was blocked by AbuseFilter you're
+			// shafted anyway. But some server-side errors really are temporary...
 			return transport.maybeRetry(
 				'on error event',
 				code,
@@ -361,9 +361,6 @@
 		if ( !this.firstPoll ) {
 			this.firstPoll = ( new Date() ).getTime();
 		}
-		$.each( this.formData, function ( key, value ) {
-			params[ key ] = value;
-		} );
 		params.checkstatus = true;
 		params.filekey = this.filekey;
 		return this.api.post( params )
@@ -376,8 +373,8 @@
 							html: mw.message( 'apierror-unknownerror' ).parse()
 						} } );
 					} else {
-						if ( response.upload.stage === undefined && window.console ) {
-							window.console.log( 'Unable to check file\'s status' );
+						if ( response.upload.stage === undefined ) {
+							mw.log.warn( 'Unable to check file\'s status' );
 							return $.Deferred().reject( 'server-error', { error: {
 								code: 'server-error',
 								html: mw.message( 'apierror-unknownerror' ).parse()

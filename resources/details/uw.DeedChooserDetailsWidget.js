@@ -51,7 +51,7 @@
 					undefined,
 					config,
 					1,
-					new mw.Api()
+					upload.api
 				);
 				deed.licenseInput.$element.addClass( 'mwe-upwiz-custom-deed' );
 				deed.licenseInputField = new uw.FieldLayout( deed.licenseInput );

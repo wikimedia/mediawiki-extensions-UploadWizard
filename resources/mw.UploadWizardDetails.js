@@ -809,7 +809,7 @@
 						html: 'Unknown server error'
 					} } );
 				} else {
-					if ( result.upload.stage === undefined && window.console ) {
+					if ( result.upload.stage === undefined ) {
 						return deferred.reject( 'no-stage', { error: {
 							code: 'no-stage',
 							html: 'Unable to check file\'s status'
