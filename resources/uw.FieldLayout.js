@@ -83,13 +83,17 @@
 	};
 
 	/**
-	 * @inheritdoc
+	 * @protected
+	 * @param {string} kind 'error' or 'notice'
+	 * @param {Object} error Object in { key: ..., html: ... } format
+	 * @return {jQuery}
 	 */
-	uw.FieldLayout.prototype.makeMessage = function ( kind, msg ) {
+	uw.FieldLayout.prototype.makeMessage = function ( kind, error ) {
 		var
-			content = msg.parseDom(),
-			$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, content );
-		$listItem.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + msg.key );
+			code = error.code,
+			html = error.html,
+			$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, html );
+		$listItem.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
 		return $listItem;
 	};
 

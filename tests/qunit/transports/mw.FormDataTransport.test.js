@@ -146,7 +146,7 @@
 		postd.resolve( { upload: { result: 'Poll' } } );
 		assert.ok( tstub.calledWith( 'server-error', { error: {
 			code: 'server-error',
-			info: 'Unknown server error'
+			html: mw.message( 'apierror-unknownerror' ).parse()
 		} } ) );
 
 		postd = $.Deferred();

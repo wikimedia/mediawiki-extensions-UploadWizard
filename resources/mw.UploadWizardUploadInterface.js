@@ -115,10 +115,10 @@
 	/**
 	 * Set status line directly with a string
 	 *
-	 * @param {string} s
+	 * @param {string} html
 	 */
-	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( s ) {
-		$( this.div ).find( '.mwe-upwiz-file-status' ).text( s ).show();
+	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( html ) {
+		$( this.div ).find( '.mwe-upwiz-file-status' ).html( html ).show();
 	};
 
 	/**
@@ -169,30 +169,12 @@
 	 * Show that transport has failed
 	 *
 	 * @param {string} code Error code from API
-	 * @param {string|Object} info Extra info
+	 * @param {string} html Error message
 	 * @param {jQuery} [$additionalStatus]
 	 */
-	mw.UploadWizardUploadInterface.prototype.showError = function ( code, info, $additionalStatus ) {
-		var msgKey, args, moreErrorCodes = [
-				'unknown-warning',
-				'abusefilter-disallowed',
-				'abusefilter-warning',
-				'spamblacklist',
-				'offline',
-				'parsererror'
-			];
-
+	mw.UploadWizardUploadInterface.prototype.showError = function ( code, html, $additionalStatus ) {
 		this.showIndicator( 'error' );
-
-		// is this an error that we expect to have a message for?
-		if ( $.inArray( code, mw.Api.errors ) !== -1 || $.inArray( code, moreErrorCodes ) !== -1 ) {
-			msgKey = 'api-error-' + code;
-			args = $.makeArray( info );
-		} else {
-			msgKey = 'api-error-unknown-code';
-			args = [ code ].concat( $.makeArray( info ) );
-		}
-		this.setStatus( msgKey, args );
+		this.setStatusString( html );
 		this.setAdditionalStatus( $additionalStatus );
 	};
 

@@ -66,7 +66,7 @@
 				return $.Deferred().reject( 'firefogg', {
 					error: {
 						code: 'firefogg',
-						info: 'Encoding failed: non-ASCII filename'
+						html: mw.message( 'api-error-firefogg' ).parse()
 					}
 				} );
 			}

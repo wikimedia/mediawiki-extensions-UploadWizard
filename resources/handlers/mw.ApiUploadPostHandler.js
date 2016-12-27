@@ -25,15 +25,15 @@
 				url: this.upload.file.url,
 				filename: this.beginTime.toString() + this.upload.getFilename()
 			} )
-				.fail( function ( code, result ) {
-					uw.eventFlowLogger.logApiError( 'file', result );
-					handler.upload.setTransportError( code, result );
-				} )
 				.done( function ( result ) {
 					if ( result.upload && result.upload.warnings ) {
 						uw.eventFlowLogger.logApiError( 'file', result );
 					}
 					handler.upload.setTransported( result );
+				} )
+				.fail( function ( code, result ) {
+					uw.eventFlowLogger.logApiError( 'file', result );
+					handler.upload.setTransportError( code, result );
 				} );
 		}
 	};
