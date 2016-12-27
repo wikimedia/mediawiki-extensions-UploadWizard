@@ -72,15 +72,15 @@
 							uw.eventFlowLogger.logApiError( 'file', result );
 						}
 						handler.upload.setTransported( result );
-					}, function ( code, info, result ) {
-						if ( !result || result.error || ( result.upload && result.upload.warnings ) ) {
+					}, function ( code, result ) {
+						if ( result.upload && result.upload.warnings ) {
 							uw.eventFlowLogger.logApiError( 'file', result );
 						}
-						handler.upload.setTransported( result );
+						handler.upload.setTransportError( code, result );
 					} );
-			}, function ( code, info, result ) {
+			}, function ( code, result ) {
 				uw.eventFlowLogger.logApiError( 'file', result );
-				handler.upload.setError( code, info );
+				handler.upload.setTransportError( code, result );
 			} );
 		}
 	};

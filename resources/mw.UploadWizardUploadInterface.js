@@ -183,12 +183,8 @@
 			];
 
 		this.showIndicator( 'error' );
+
 		// is this an error that we expect to have a message for?
-
-		if ( code === 'http' && info.textStatus === 'timeout' ) {
-			code = 'timeout';
-		}
-
 		if ( $.inArray( code, mw.Api.errors ) !== -1 || $.inArray( code, moreErrorCodes ) !== -1 ) {
 			msgKey = 'api-error-' + code;
 			args = $.makeArray( info );

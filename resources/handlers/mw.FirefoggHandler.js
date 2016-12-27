@@ -63,7 +63,12 @@
 			if ( !this.upload.title || !( /^[\x00-\x7F]*$/.test( this.upload.title.getMain() ) ) ) {
 				this.upload.setError( 'firefogg-nonascii', '' );
 				this.upload.ui.setStatus( 'mwe-upwiz-firefogg-nonascii' );
-				return $.Deferred().reject();
+				return $.Deferred().reject( 'firefogg', {
+					error: {
+						code: 'firefogg',
+						info: 'Encoding failed: non-ASCII filename'
+					}
+				} );
 			}
 
 			mw.log( 'mw.FirefoggHandler::start> Upload start!' );
@@ -96,9 +101,9 @@
 					upload.file = file;
 					transport.uploadHandler = new mw.ApiUploadFormDataHandler( upload, handler.api );
 					return transport.uploadHandler.start();
-				}, function ( code, info, result ) {
+				}, function ( code, result ) {
 					mw.log( 'FirefoggTransport::getTransport> Transport done ' + JSON.stringify( result ) );
-					upload.setTransported( result );
+					upload.setTransportError( code, result );
 				} );
 		}
 	};

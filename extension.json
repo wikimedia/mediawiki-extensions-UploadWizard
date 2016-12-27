@@ -306,6 +306,8 @@
 				"api-error-spamblacklist",
 				"api-error-offline",
 				"api-error-parsererror",
+				"api-error-firefogg",
+				"api-error-aborted",
 				"mwe-upwiz-api-warning-was-deleted",
 				"mwe-upwiz-api-warning-exists",
 				"mwe-upwiz-tutorial-error-localized-file-missing",

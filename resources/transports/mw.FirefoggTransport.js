@@ -40,7 +40,7 @@
 						deferred.resolve( file );
 					} else {
 						// encoding failed
-						deferred.reject( {
+						deferred.reject( 'firefogg', {
 							error: {
 								code: 'firefogg',
 								info: 'Encoding failed'

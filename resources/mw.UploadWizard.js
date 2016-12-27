@@ -96,20 +96,25 @@
 				return mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] ).then(
 					null, // done handler - doesn't need overriding
 					function ( code, result ) { // fail handler
-						if ( code === 'http' && result ) {
-							if ( result.xhr && result.xhr.status === 0 ) {
-								code = 'offline';
-							}
+						var response = { error: {
+							code: code,
+							info: result.textStatus || 'unknown'
+						} };
 
-							result = {
-								error: {
-									code: code,
-									info: result.textStatus
-								}
-							};
+						if ( result.error && result.error.info ) {
+							// in case of success-but-has-errors, we have a valid result
+							response = result;
+						} else if ( result.textStatus && result.textStatus === 'timeout' ) {
+							code = 'timeout';
+							response.error.code = 'timeout';
+							response.error.info = 'timeout';
+						} else if ( code === 'http' && result.xhr && result.xhr.status === 0 ) {
+							code = 'offline';
+							response.error.code = 'offline';
+							response.error.info = 'offline';
 						}
 
-						return $.Deferred().reject( code, result, result );
+						return $.Deferred().reject( code, response, response );
 					}
 				);
 			};
