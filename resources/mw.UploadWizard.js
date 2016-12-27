@@ -121,6 +121,8 @@
 						} else if ( result && result.textStatus === 'timeout' ) {
 							// in case of $.ajax.fail(), there is no response json
 							response.errors[ 0 ].html = mw.message( 'api-error-timeout' ).parse();
+						} else if ( result && result.textStatus === 'parsererror' ) {
+							response.errors[ 0 ].html = mw.message( 'api-error-parsererror' ).parse();
 						} else if ( code === 'http' && result && result.xhr && result.xhr.status === 0 ) {
 							// failed to even connect to server
 							response.errors[ 0 ].html = mw.message( 'api-error-offline' ).parse();
@@ -145,12 +147,12 @@
 	 * @return {mw.UploadWizardDeed[]}
 	 */
 	mw.UploadWizard.getLicensingDeeds = function ( uploadsLength, config ) {
-		var deed,
+		var deed, api,
 			deeds = {},
 			doOwnWork = false,
 			doThirdParty = false;
 
-		this.api = this.api || new mw.Api( { ajax: { timeout: 0 } } );
+		api = this.prototype.getApi( { ajax: { timeout: 0 } } );
 
 		if ( config.licensing.ownWorkDefault === 'choice' ) {
 			doOwnWork = doThirdParty = true;
@@ -161,11 +163,11 @@
 		}
 
 		if ( doOwnWork ) {
-			deed = new mw.UploadWizardDeedOwnWork( uploadsLength, this.api, config );
+			deed = new mw.UploadWizardDeedOwnWork( uploadsLength, api, config );
 			deeds[ deed.name ] = deed;
 		}
 		if ( doThirdParty ) {
-			deed = new mw.UploadWizardDeedThirdParty( uploadsLength, this.api, config );
+			deed = new mw.UploadWizardDeedThirdParty( uploadsLength, api, config );
 			deeds[ deed.name ] = deed;
 		}
 

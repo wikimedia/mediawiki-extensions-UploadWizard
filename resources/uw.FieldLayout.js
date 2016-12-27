@@ -85,15 +85,20 @@
 	/**
 	 * @protected
 	 * @param {string} kind 'error' or 'notice'
-	 * @param {Object} error Object in { key: ..., html: ... } format
+	 * @param {mw.Message|Object} error Message, or an object in { key: ..., html: ... } format
 	 * @return {jQuery}
 	 */
 	uw.FieldLayout.prototype.makeMessage = function ( kind, error ) {
-		var
+		var code, content, $listItem;
+		if ( error.parseDom ) {
+			code = error.key;
+			content = error.parseDom();
+		} else {
 			code = error.code,
-			html = error.html,
-			$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, html );
-		$listItem.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
+			content = $( $.parseHTML( error.html ) );
+		}
+		$listItem = uw.FieldLayout.parent.prototype.makeMessage.call( this, kind, content )
+			.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
 		return $listItem;
 	};
 

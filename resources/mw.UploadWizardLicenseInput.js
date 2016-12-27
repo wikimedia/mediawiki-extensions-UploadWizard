@@ -529,7 +529,7 @@
 					template = result.parse.templates[ i ];
 
 					// normalize templates to mw.Title.getPrefixedDb() format
-					title = new mw.Title( template[ '*' ], template.ns );
+					title = new mw.Title( template.title, template.ns );
 					templates.push( title.getPrefixedDb() );
 				}
 
