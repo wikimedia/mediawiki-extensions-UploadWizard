@@ -39,7 +39,7 @@
 	"api-error-duplicate-archive": "Ya {{PLURAL:$1|existía otro archivo|existían otros archivos}} en el sitio con el mismo contenido, pero {{PLURAL:$1|fue eliminado|fueron eliminados}}.",
 	"api-error-noimageinfo": "La carga se realizó correctamente, pero el servidor no nos dio ninguna información sobre el archivo.",
 	"api-error-timeout": "El servidor no respondió en el plazo previsto.",
-	"api-error-unknown-warning": "Advertencia desconocida: $1",
+	"api-error-unknown-warning": "Advertencia desconocida: «$1».",
 	"mwe-upwiz-unavailable": "Tu navegador no es compatible con UploadWizard o tienes JavaScript desactivado, por lo que te mostramos un formulario sencillo de carga. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidad].)",
 	"mwe-upwiz-extension-disabled": "Esta página ha sido desactivada temporalmente debido a problemas técnicos. Mientras tanto puedes usar el formulario de subidas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",
