@@ -25,7 +25,8 @@
 			"Lemondoge",
 			"Codynguyen1116",
 			"Dgstranz",
-			"-jem-"
+			"-jem-",
+			"Fortega"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -35,8 +36,10 @@
 	"group-upwizcampeditors": "Editores de la campaña del Asistente de subidas",
 	"group-upwizcampeditors-member": "{{GENDER:$1|editor|editora}} de la campaña del Asistente de subidas",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores de la campaña del Asistente de subidas",
+	"api-error-aborted": "Subida cancelada.",
 	"api-error-duplicate": "Ya {{PLURAL:$1|existe otro archivo|existen otros archivos}} en el sitio con el mismo contenido.",
 	"api-error-duplicate-archive": "Ya {{PLURAL:$1|existía otro archivo|existían otros archivos}} en el sitio con el mismo contenido, pero {{PLURAL:$1|fue eliminado|fueron eliminados}}.",
+	"api-error-firefogg": "Codificación fallida.",
 	"api-error-noimageinfo": "La carga se realizó correctamente, pero el servidor no nos dio ninguna información sobre el archivo.",
 	"api-error-timeout": "El servidor no respondió en el plazo previsto.",
 	"api-error-unknown-warning": "Advertencia desconocida: «$1».",
