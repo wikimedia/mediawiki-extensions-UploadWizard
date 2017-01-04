@@ -195,7 +195,7 @@
 	"mwe-upwiz-fileexists-replace-on-page": "Ya existe un archivo con este nombre. Si quieres reemplazarlo, ve a la página de [$2 $1] y reemplázalo allí.",
 	"mwe-upwiz-fileexists-replace-no-link": "Elige un título diferente, porque ya existe un archivo con este título.",
 	"mwe-upwiz-blacklisted-details": "Elige un título más descriptivo ([$2 más información]).",
-	"mwe-upwiz-blacklisted-details-feedback": "Elije un título diferente y más descriptivo ([$2 más información]). • [$3 Enviar comentarios]",
+	"mwe-upwiz-blacklisted-details-feedback": "Elige un título diferente y más descriptivo ([$2 más información]). • [$3 Enviar comentarios]",
 	"mwe-upwiz-next": "Siguiente",
 	"mwe-upwiz-next-file": "Continuar",
 	"mwe-upwiz-next-deeds": "Siguiente",

@@ -39,7 +39,7 @@
 	"api-error-duplicate-archive": "{{PLURAL:$1|Był już inny plik|Były już inne pliki}} na tej stronie o takiej samej zawartości, ale {{PLURAL:$1|został usunięty|zostały usunięte}}.",
 	"api-error-noimageinfo": "Plik przesłano pomyślnie, ale serwer nie zwrócił informacji na jego temat.",
 	"api-error-timeout": "Serwer nie odpowiedział w spodziewanym czasie.",
-	"api-error-unknown-warning": "Nieznane ostrzeżenie: \"$1\"",
+	"api-error-unknown-warning": "Nieznane ostrzeżenie: „$1”.",
 	"mwe-upwiz-extension-disabled": "Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.",
 	"mwe-upwiz-step-tutorial": "Jak skorzystać",
 	"mwe-upwiz-step-file": "Prześlij",
