@@ -6,7 +6,7 @@
 	 * @class mw.GroupProgressbar
 	 * @constructor
 	 * @param {string} selector
-	 * @param {Array} uploads
+	 * @param {mw.UploadWizardUpload[]} uploads
 	 * @param {string[]} successStates
 	 * @param {string[]} errorStates
 	 * @param {string} progressProperty

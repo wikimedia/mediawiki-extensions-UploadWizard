@@ -16,10 +16,11 @@
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
 	 *
+	 * @class mw.UploadWizardDeedOwnWork
+	 * @constructor
 	 * @param {number} uploadCount Integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api API object - useful for doing previews
 	 * @param {Object} config The UW config
-	 * @return {mw.UploadWizardDeed}
 	 */
 	mw.UploadWizardDeedOwnWork = function ( uploadCount, api, config ) {
 		var deed = new mw.UploadWizardDeed(),

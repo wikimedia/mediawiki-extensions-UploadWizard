@@ -46,8 +46,9 @@
 			var checker = this;
 
 			/**
-			 * Processes result of a TitleBlacklist api call
+			 * Process result of a TitleBlacklist API call.
 			 *
+			 * @private
 			 * @param {Object|boolean} blacklistResult `false` if not blacklisted, object if blacklisted
 			 * @return {Object}
 			 */
@@ -103,6 +104,13 @@
 			// Strip namespace and file extension
 			prefix = titleObj.getNameText();
 
+			/**
+			 * Process result of a an imageinfo API call.
+			 *
+			 * @private
+			 * @param {Object} data API result
+			 * @return {Object}
+			 */
 			function checkUniqueProcessor( data ) {
 				var result, protection, pageId, ntitle, ntitleObj, img;
 

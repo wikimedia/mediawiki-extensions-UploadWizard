@@ -28,10 +28,11 @@
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are the work of a third party.
 	 *
+	 * @class mw.UploadWizardDeedThirdParty
+	 * @constructor
 	 * @param {number} uploadCount Integer count of uploads that this deed refers to (useful for message pluralization)
 	 * @param {mw.Api} api API object - useful for doing previews
 	 * @param {Object} config The UW config
-	 * @return {mw.UploadWizrdDeed}
 	 */
 	mw.UploadWizardDeedThirdParty = function ( uploadCount, api, config ) {
 		var deed = new mw.UploadWizardDeed();

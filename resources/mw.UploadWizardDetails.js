@@ -248,10 +248,10 @@
 			return this.titleDetails.getTitle();
 		},
 
-		// eslint-disable-next-line valid-jsdoc
 		/**
 		 * Display error message about multiple uploaded files with the same title specified
 		 *
+		 * @return {mw.UploadWizardDetails}
 		 * @chainable
 		 */
 		setDuplicateTitleError: function () {
@@ -263,7 +263,7 @@
 		/**
 		 * @private
 		 *
-		 * @return {Array}
+		 * @return {uw.FieldLayout[]}
 		 */
 		getAllFields: function () {
 			return [].concat(

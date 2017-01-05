@@ -8,6 +8,7 @@
 	 * @mixins OO.ui.mixin.GroupElement
 	 * @constructor
 	 * @param {Object} [config]
+	 * @cfg {boolean} [required=true]
 	 */
 	uw.DescriptionsDetailsWidget = function UWDescriptionsDetailsWidget( config ) {
 		config = $.extend( { required: true }, config );
