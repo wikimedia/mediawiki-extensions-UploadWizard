@@ -67,15 +67,11 @@
 					hasData = false;
 
 				$.each( bar.uploads, function ( i, upload ) {
-					if ( upload === undefined ) {
-						return;
-					}
-
 					totalWeight += upload[ bar.weightProperty ];
 				} );
 
 				$.each( bar.uploads, function ( i, upload ) {
-					if ( upload === undefined || upload.state === 'aborted' ) {
+					if ( upload.state === 'aborted' ) {
 						return;
 					}
 					if ( $.inArray( upload.state, bar.successStates ) !== -1 ) {
