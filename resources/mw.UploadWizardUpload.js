@@ -165,6 +165,7 @@
 					case 'exists-normalized':
 					case 'was-deleted':
 					case 'badfilename':
+					case 'bad-prefix':
 						// we ignore these warnings, because the title is not our final title.
 						break;
 					case 'duplicate':
