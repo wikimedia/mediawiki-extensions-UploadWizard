@@ -51,7 +51,7 @@
 		uploadWizard.createInterface( '#upload-wizard' );
 	};
 
-	$( document ).ready( function () {
+	$( function () {
 		// show page.
 		mw.UploadWizardPage();
 	} );
