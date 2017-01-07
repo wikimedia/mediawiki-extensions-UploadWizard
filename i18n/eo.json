@@ -14,7 +14,8 @@
 			"Tlustulimu",
 			"Macofe",
 			"Robin van der Vliet",
-			"Psychoslave"
+			"Psychoslave",
+			"Rafaneta"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -27,7 +28,7 @@
 	"api-error-duplicate": "Jam estas {{PLURAL:$1|alia dosiero|pluraj aliaj dosieroj}} en la retejo kun la sama enhavo.",
 	"api-error-duplicate-archive": "Jam estis {{PLURAL:$1|alia dosiero|pluraj aliaj dosieroj}} de sama enhavo en la retejo, sed {{PLURAL:$1|ĝi estis forigita|ili estis forigitaj}}.",
 	"api-error-noimageinfo": "La alŝuto sukcesis, sed la servilo ne donis ajnan informon pri la dosiero.",
-	"api-error-timeout": "La servilo ne respondis ene de la antaŭvidita tempo.",
+	"api-error-timeout": "La servilo ne respondis ene de la atendita tempo.",
 	"api-error-unknown-warning": "Nekonata averto: \"$1\".",
 	"mwe-upwiz-extension-disabled": "Tiu ĉi paĝo momente malŝaltiĝis pro dumtempaj teknikaj problemoj. Intertempe bonvolu provi la normalan alŝutan formularon.",
 	"mwe-upwiz-step-tutorial": "Lerni",
