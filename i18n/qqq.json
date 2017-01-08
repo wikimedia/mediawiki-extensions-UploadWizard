@@ -41,8 +41,6 @@
 	"group-upwizcampeditors.js": "{{doc-group|upwizcampeditors|js}}",
 	"api-error-parsererror": "Error message for when, for an unknown reason, the server sent the client an invalid response.",
 	"api-error-aborted": "Error message for when an upload was aborted.",
-	"api-error-duplicate": "API error message that can be used for client side localisation of API errors. Parameters:\n* $1 - a number of files",
-	"api-error-duplicate-archive": "API error message that can be used for client side localisation of API errors. Parameters:\n* $1 - a number of files",
 	"api-error-firefogg": "Error message for when encoding of ogg files fails.",
 	"api-error-noimageinfo": "API error message that can be used for client side localisation of API errors.",
 	"api-error-offline": "Error message for when files could not be uploaded as a result of bad/lost internet connection.",

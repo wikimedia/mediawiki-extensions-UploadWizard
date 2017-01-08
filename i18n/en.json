@@ -15,8 +15,6 @@
 	"group-upwizcampeditors.js": "/* JS placed here will affect upload wizard campaign editors only */",
 	"api-error-parsererror": "The server responded with an invalid JSON document. This could be a problem with the API, or you could be using a proxy server that prevents you from uploading files.",
 	"api-error-aborted": "Upload aborted.",
-	"api-error-duplicate": "There {{PLURAL:$1|is another file|are some other files}} already on the site with the same content.",
-	"api-error-duplicate-archive": "There {{PLURAL:$1|was another file|were some other files}} already on the site with the same content, but {{PLURAL:$1|it was|they were}} deleted.",
 	"api-error-firefogg": "Encoding failed.",
 	"api-error-noimageinfo": "The upload succeeded, but the server did not give us any information about the file.",
 	"api-error-offline": "Could not proceed due to network connectivity issues. Make sure you have a working internet connection and try again.",
