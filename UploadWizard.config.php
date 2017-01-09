@@ -511,12 +511,6 @@ return [
 		]
 	],
 
-	// Default thumbnail width
-	'thumbnailWidth' => 100,
-
-	// Max thumbnail height:
-	'thumbnailMaxHeight' => 100,
-
 	// Max author string length
 	'maxAuthorLength' => 10000,
 
