@@ -117,10 +117,6 @@
 		var params, ext;
 
 		this.tempname = tempFileName;
-		// remove unicode characters, tempname is only used during upload
-		this.tempname = this.tempname.split( '' ).map( function ( c ) {
-			return c.charCodeAt( 0 ) > 128 ? '_' : c;
-		} ).join( '' );
 		// Also limit length to 240 bytes (limit hardcoded in UploadBase.php).
 		if ( this.tempname.length > 240 ) {
 			ext = this.tempname.split( '.' ).pop();
