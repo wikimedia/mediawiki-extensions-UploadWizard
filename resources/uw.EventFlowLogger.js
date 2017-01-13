@@ -207,6 +207,15 @@
 		} );
 
 		mw.trackSubscribe( 'resourceloader.exception', function ( topic, data ) {
+			// Ignore noise about 'localStorage' being undefined or module store exceeding the quota
+			if (
+				data.source === 'store-localstorage-init' ||
+				data.source === 'store-localstorage-json' ||
+				data.source === 'store-localstorage-update'
+			) {
+				return;
+			}
+
 			self.log( 'UploadWizardExceptionFlowEvent', {
 				message: data.exception.message,
 				url: 'resourceLoader://' + data.source + '/' + data.module, // Bleh
