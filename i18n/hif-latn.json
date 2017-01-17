@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Karthi.dr"
+			"Karthi.dr",
+			"Smcnarayan"
 		]
 	},
+	"api-error-duplicate": "There {{PLURAL:$1|is another file|are some other files}} already on the site with the same content.",
+	"api-error-duplicate-archive": "There {{PLURAL:$1|was another file|were some other files}} already on the site with the same content, but {{PLURAL:$1|it was|they were}} deleted.",
 	"mwe-upwiz-source-thirdparty-accept": "Thik hae",
 	"mwe-upwiz-ok": "Thik hae",
 	"mwe-upwiz-errordialog-ok": "Thik hae"
