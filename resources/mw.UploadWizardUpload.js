@@ -168,7 +168,6 @@
 						// we ignore these warnings, because the title is not our final title.
 						break;
 					case 'duplicate':
-					case 'duplicate-archive':
 						this.setDuplicateError( warnCode, result.upload.warnings[ warnCode ] );
 						return;
 					case 'nochange':
@@ -176,6 +175,9 @@
 						if ( result.upload.warnings.exists ) {
 							this.setDuplicateError( 'duplicate', result.upload.warnings.exists );
 						}
+						return;
+					case 'duplicate-archive':
+						this.setDuplicateArchiveError( warnCode, result.upload.warnings[ warnCode ] );
 						return;
 					default:
 						param = warnCode;
@@ -249,25 +251,13 @@
 	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
 	 */
 	mw.UploadWizardUpload.prototype.setDuplicateError = function ( code, resultDuplicate ) {
-		var duplicates, $ul, $extra, uploadDuplicate;
-
-		if ( typeof resultDuplicate === 'object' ) {
-			duplicates = resultDuplicate;
-		} else if ( typeof resultDuplicate === 'string' ) {
-			duplicates = [ resultDuplicate ];
-		}
-
-		$ul = $( '<ul>' );
-		$.each( duplicates, function ( i, filename ) {
-			var href, $a, params = {};
+		var $ul = $( '<ul>' );
+		$.each( resultDuplicate, function ( i, filename ) {
+			var href, $a;
 
 			try {
 				$a = $( '<a>' ).text( filename );
-				if ( code === 'duplicate-archive' ) {
-					$a.addClass( 'new' );
-					params = { action: 'edit', redlink: '1' };
-				}
-				href = mw.Title.makeTitle( NS_FILE, filename ).getUrl( params );
+				href = mw.Title.makeTitle( NS_FILE, filename ).getUrl( {} );
 				$a.attr( { href: href, target: '_blank' } );
 			} catch ( e ) {
 				// For example, if the file was revdeleted
@@ -277,12 +267,22 @@
 			$ul.append( $( '<li>' ).append( $a ) );
 		} );
 
-		if ( duplicates.length > 1 ) {
+		if ( resultDuplicate.length > 1 ) {
 			$ul.makeCollapsible( { collapsed: true } );
 		}
 
-		$extra = $ul;
-		if ( code === 'duplicate-archive' ) {
+		this.setError( code, mw.message( 'file-exists-duplicate', resultDuplicate.length ).parse(), $ul );
+	};
+
+	/**
+	 * Helper function to generate duplicate errors in a possibly collapsible list.
+	 * Works with existing duplicates and deleted dupes.
+	 *
+	 * @param {string} code Warning code, should have matching strings in .i18n.php
+	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
+	 */
+	mw.UploadWizardUpload.prototype.setDuplicateArchiveError = function ( code, resultDuplicate ) {
+		var filename = mw.Title.makeTitle( NS_FILE, resultDuplicate ).getPrefixedText(),
 			uploadDuplicate = new OO.ui.ButtonWidget( {
 				label: mw.message( 'mwe-upwiz-override' ).text(),
 				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
@@ -291,11 +291,8 @@
 			} ).on( 'click', function () {
 				this.removeErrors( 'duplicate-archive' );
 			}.bind( this ) );
-			$extra = $extra.add( uploadDuplicate.$element );
-		}
 
-		// possible messages: api-error-duplicate & api-error-duplicate-archive
-		this.setError( code, mw.message( 'api-error-' + code, duplicates.length ).parse(), $extra );
+		this.setError( code, mw.message( 'file-deleted-duplicate', filename ).parse(), uploadDuplicate.$element );
 	};
 
 	/**
