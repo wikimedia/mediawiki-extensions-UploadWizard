@@ -18,6 +18,16 @@
 		this.latitudeInput = new OO.ui.TextInputWidget();
 		this.longitudeInput = new OO.ui.TextInputWidget();
 		this.headingInput = new OO.ui.TextInputWidget();
+		this.$map = $( '<div>' ).css( { width: 500, height: 300 } );
+		this.mapButton = new OO.ui.PopupButtonWidget( {
+			icon: 'mapPin',
+			title: mw.message( 'mwe-upwiz-location-button' ).text(),
+			popup: {
+				$content: this.$map,
+				width: 500,
+				height: 300
+			}
+		} );
 
 		this.$element.append(
 			new OO.ui.FieldLayout( this.latitudeInput, {
@@ -39,13 +49,58 @@
 			);
 		}
 
+		this.mapButton.setDisabled( true );
+		this.$element.append( this.mapButton.$element );
+
 		// Aggregate 'change' events
 		this.latitudeInput.connect( this, { change: [ 'emit', 'change' ] } );
 		this.longitudeInput.connect( this, { change: [ 'emit', 'change' ] } );
 		this.headingInput.connect( this, { change: [ 'emit', 'change' ] } );
+
+		this.mapButton.connect( this, { click: 'onMapButtonClick' } );
+		this.connect( this, { change: 'onChange' } );
+
+		this.mapButton.toggle( false );
+		mw.loader.using( [ 'ext.kartographer.box', 'ext.kartographer.editing' ] ).done( function () {
+			// Kartographer is installed and we'll be able to show the map. Display the button.
+			this.mapButton.toggle( true );
+		}.bind( this ) );
 	};
 
 	OO.inheritClass( uw.LocationDetailsWidget, uw.DetailsWidget );
+
+	/**
+	 * @private
+	 */
+	uw.LocationDetailsWidget.prototype.onChange = function () {
+		var widget = this;
+		this.getErrors().done( function ( errors ) {
+			widget.mapButton.setDisabled( !( errors.length === 0 && widget.getWikiText() !== '' ) );
+		} );
+	};
+
+	/**
+	 * @private
+	 */
+	uw.LocationDetailsWidget.prototype.onMapButtonClick = function () {
+		var latitude = this.latitudeInput.getValue(),
+			longitude = this.longitudeInput.getValue();
+
+		// Disable clipping because it doesn't play nicely with the map
+		this.mapButton.getPopup().toggleClipping( false );
+
+		if ( !this.map ) {
+			this.map = mw.loader.require( 'ext.kartographer.box' ).map( {
+				container: this.$map[ 0 ]
+			} );
+		}
+		mw.loader.require( 'ext.kartographer.editing' ).getKartographerLayer( this.map ).setGeoJSON( {
+			type: 'Feature',
+			properties: {},
+			geometry: { type: 'Point', coordinates: [ longitude, latitude ] }
+		} );
+		this.map.setView( [ latitude, longitude ], 9 );
+	};
 
 	/**
 	 * @inheritdoc
