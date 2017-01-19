@@ -62,12 +62,14 @@
 		// input is invalid if the coordinates are out of bounds, or if the
 		// coordinates that were derived from the input are 0, without a 0 even
 		// being present in the input
-		if ( latNum > 90 || latNum < -90 || ( latNum === 0 && latInput.indexOf( '0' ) < 0 && latInput !== '' ) || isNaN( latNum ) ) {
-			errors.push( mw.message( 'mwe-upwiz-error-latitude' ) );
-		}
+		if ( latInput || lonInput ) {
+			if ( latNum > 90 || latNum < -90 || ( latNum === 0 && latInput.indexOf( '0' ) < 0 ) || isNaN( latNum ) ) {
+				errors.push( mw.message( 'mwe-upwiz-error-latitude' ) );
+			}
 
-		if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && lonInput.indexOf( '0' ) < 0 && lonInput !== '' ) || isNaN( lonNum ) ) {
-			errors.push( mw.message( 'mwe-upwiz-error-longitude' ) );
+			if ( lonNum > 180 || lonNum < -180 || ( lonNum === 0 && lonInput.indexOf( '0' ) < 0 ) || isNaN( lonNum ) ) {
+				errors.push( mw.message( 'mwe-upwiz-error-longitude' ) );
+			}
 		}
 
 		if ( headInput !== '' && ( headInput > 360 || headInput < 0 || isNaN( headNum ) ) ) {
