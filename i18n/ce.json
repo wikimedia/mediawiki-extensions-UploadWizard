@@ -12,7 +12,6 @@
 	"group-upwizcampeditors": "Чуяхаран говзанча таераш",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Чуяхаран говзанча таераш}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Чуяхаран говзанча таераш",
-	"api-error-duplicate": "Иштта чулацам болу {{PLURAL:$1|кхин файл|кхин файлаш}} йолуш ю.",
 	"api-error-noimageinfo": "Кхиамца чуяьккхина, амма серверо файлахь лаьцна цхьаа хаам битина бац.",
 	"api-error-timeout": "Хьоьжу хана серверо жоп цало.",
 	"api-error-unknown-warning": "Доьвзуш доцу дӀахьедар: $1",

@@ -21,8 +21,6 @@
 	"group-upwizcampeditors": "Kampagneredaktører for vejviseren til oplægning af filer",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampagneredaktør for vejviseren til oplægning af filer}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampagneredaktører for vejviseren til oplægning af filer",
-	"api-error-duplicate": "Der er allerede {{PLURAL:$1|en anden fil|nogle andre filer}} med samme indhold på webstedet.",
-	"api-error-duplicate-archive": "Der var allerede {{PLURAL:$1|en anden fil|nogle andre filer}} med samme indhold på webstedet, men {{PLURAL:$1|den|de}} blev slettet.",
 	"api-error-noimageinfo": "Oplægningen lykkedes, men serveren gav os ikke nogen oplysninger om filen.",
 	"api-error-timeout": "Serveren svarede ikke tilbage inden for den forventede tid.",
 	"api-error-unknown-warning": "Ukendt advarsel: \"$1\".",

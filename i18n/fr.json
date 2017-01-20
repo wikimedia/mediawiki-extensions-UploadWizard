@@ -59,8 +59,6 @@
 	"group-upwizcampeditors.js": "/* Le Javascript placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
 	"api-error-parsererror": "Le serveur a répondu avec un document JSON non valide. Cela peut être dû à un problème avec l’API, ou bien vous utilisez un serveur mandataire qui vous empêche de télécharger des fichiers.",
 	"api-error-aborted": "Téléchargement annulé.",
-	"api-error-duplicate": "Il y a déjà {{PLURAL:$1|un autre fichier présent|d’autres fichiers présents}} sur le site avec le même contenu.",
-	"api-error-duplicate-archive": "Il y avait déjà {{PLURAL:$1|un autre fichier présent|d’autres fichiers présents}} sur le site avec le même contenu, mais {{PLURAL:$1|il a été supprimé|ils ont été supprimés}}.",
 	"api-error-firefogg": "Échec de l’encodage.",
 	"api-error-noimageinfo": "Le téléchargement a réussi, mais le serveur n’a pas fourni d’information sur le fichier.",
 	"api-error-offline": "Impossible de continuer du fait de problèmes de connexion au réseau. Assurez-vous d’avoir une connexion internet active et réessayez.",

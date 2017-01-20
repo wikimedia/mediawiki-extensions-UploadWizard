@@ -5,8 +5,6 @@
 			"Smcnarayan"
 		]
 	},
-	"api-error-duplicate": "There {{PLURAL:$1|is another file|are some other files}} already on the site with the same content.",
-	"api-error-duplicate-archive": "There {{PLURAL:$1|was another file|were some other files}} already on the site with the same content, but {{PLURAL:$1|it was|they were}} deleted.",
 	"api-error-noimageinfo": "Upload hoe gais, lekin server file ke baare me koi jaankari nai diis.",
 	"api-error-timeout": "Server, expected time, me nai respond karis.",
 	"api-error-unknown-warning": "Unknown warning: \"$1\".",

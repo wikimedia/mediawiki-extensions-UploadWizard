@@ -27,8 +27,6 @@
 	"group-upwizcampeditors": "Feltöltés varázsló kampány szerkesztők",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Feltöltés varázsló kampány szerkesztő}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Feltöltés varázsló kampány szerkesztők",
-	"api-error-duplicate": "Már van {{PLURAL:$1|egy|néhány}} másik fájl az oldalon ugyanilyen tartalommal.",
-	"api-error-duplicate-archive": "Az oldalon {{PLURAL:$1|szerepelt|szerepeltek}} más {{PLURAL:$1|fájl|fájlok}} is ugyanezzel a tartalommal, de törölve {{PLURAL:$1|lett|lettek}}.",
 	"api-error-noimageinfo": "A feltöltés sikerült, de a szerver nem szolgáltatott semmilyen információt a fájlról.",
 	"api-error-timeout": "A kiszolgáló nem adott választ a várt időn belül.",
 	"api-error-unknown-warning": "Ismeretlen figyelmeztetés: „$1”.",
