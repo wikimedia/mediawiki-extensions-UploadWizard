@@ -13,9 +13,15 @@
 
 	mw.ApiUploadPostHandler.prototype = {
 		start: function () {
-			var handler = this;
+			var handler = this,
+				tempname = this.upload.getFilename(),
+				ext = tempname.split( '.' ).pop();
 
-			this.beginTime = ( new Date() ).getTime();
+			// Limit filename length to 240 bytes (limit hardcoded in UploadBase.php).
+			if ( tempname.length > 240 ) {
+				tempname = tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
+			}
+
 			this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
 
 			return this.api.postWithToken( 'csrf', {
@@ -23,7 +29,7 @@
 				stash: 1,
 				ignorewarnings: 1,
 				url: this.upload.file.url,
-				filename: this.beginTime.toString() + this.upload.getFilename()
+				filename: tempname
 			} )
 				.done( function ( result ) {
 					if ( result.upload && result.upload.warnings ) {

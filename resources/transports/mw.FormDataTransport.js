@@ -117,7 +117,7 @@
 		var params, ext;
 
 		this.tempname = tempFileName;
-		// Also limit length to 240 bytes (limit hardcoded in UploadBase.php).
+		// Limit length to 240 bytes (limit hardcoded in UploadBase.php).
 		if ( this.tempname.length > 240 ) {
 			ext = this.tempname.split( '.' ).pop();
 			this.tempname = this.tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
