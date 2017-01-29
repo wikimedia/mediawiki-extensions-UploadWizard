@@ -26,22 +26,27 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
-		var deed = this;
+		var deed = this,
+			prefAuthName = mw.user.options.get( 'upwiz_licensename' );
 
 		uw.deed.Abstract.call( this, 'ownwork', config );
 
 		this.uploadCount = uploads.length;
 
+		if ( !prefAuthName ) {
+			prefAuthName = mw.config.get( 'wgUserName' );
+		}
+
 		// copyright holder
 		this.authorInput = new OO.ui.TextInputWidget( {
 			name: 'author',
 			title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
-			value: mw.config.get( 'wgUserName' ),
+			value: prefAuthName,
 			classes: [ 'mwe-upwiz-sign' ]
 		} );
 		this.fakeAuthorInput = new OO.ui.TextInputWidget( {
 			readOnly: true,
-			value: mw.config.get( 'wgUserName' ),
+			value: prefAuthName,
 			classes: [ 'mwe-upwiz-sign' ]
 		} );
 		this.authorInput.on( 'change', function () {

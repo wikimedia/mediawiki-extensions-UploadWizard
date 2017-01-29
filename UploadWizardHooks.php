@@ -57,6 +57,13 @@ class UploadWizardHooks {
 			];
 		}
 
+		$preferences['upwiz_licensename'] = [
+			'type' => 'text',
+			'label-message' => 'mwe-upwiz-prefs-license-name',
+			'help-message' => 'mwe-upwiz-prefs-license-name-help',
+			'section' => 'uploads/upwiz-licensing'
+		];
+
 		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
 			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
 

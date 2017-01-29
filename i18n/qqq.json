@@ -350,6 +350,8 @@
 	"mwe-upwiz-prefs-def-license-def": "Radio button option",
 	"mwe-upwiz-prefs-def-license-custom": "Label of preference used to input wikitext for custom license, if selected.",
 	"mwe-upwiz-prefs-def-license-custom-help": "Additional label of preference used to input wikitext for custom license, if selected. The text of 'last option above' is {{msg-mw|mwe-upwiz-license-custom}}",
+	"mwe-upwiz-prefs-license-name": "Label of preference used to input default name to use for licensing own work.",
+	"mwe-upwiz-prefs-license-name-help": "Additional label of preference used to input default name to use for licensing own work. This indicates the default name if the preference field is empty.",
 	"mwe-upwiz-prefs-license-own": "Parameters:\n* $1 - license message. e.g. {{msg-mw|Mwe-upwiz-license-cc-by-sa-3.0}}\nSee also:\n* {{msg-mw|Mwe-upwiz-prefs-license-thirdparty}}",
 	"mwe-upwiz-prefs-license-thirdparty": "Parameters:\n* $1 - license message. e.g. {{msg-mw|Mwe-upwiz-license-cc-by-sa-3.0}}\nSee also:\n* {{msg-mw|Mwe-upwiz-prefs-license-own}}",
 	"mwe-upwiz-prefs-chunked": "Preference that enables chunked uploading. Parameters:\n* $1 - size of each chunk, as configured on this wiki\n* $2 - maximum upload size without preference\n* $3 - maximum upload size with preference enabled",
