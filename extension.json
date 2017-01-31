@@ -104,9 +104,21 @@
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
 		},
+		"ext.uploadWizard.apiUploadHandler": {
+			"scripts": "resources/handlers/mw.ApiUploadHandler.js",
+			"dependencies": [
+				"uw.EventFlowLogger"
+			],
+			"messages": "mwe-upwiz-transport-started",
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
 		"ext.uploadWizard.apiUploadPostHandler": {
 			"scripts": "resources/handlers/mw.ApiUploadPostHandler.js",
-			"dependencies": "uw.EventFlowLogger",
+			"dependencies": [
+				"ext.uploadWizard.apiUploadHandler",
+				"oojs"
+			],
 			"messages": "mwe-upwiz-transport-started",
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
@@ -114,8 +126,9 @@
 		"ext.uploadWizard.apiUploadFormDataHandler": {
 			"scripts": "resources/handlers/mw.ApiUploadFormDataHandler.js",
 			"dependencies": [
-				"uw.EventFlowLogger",
-				"ext.uploadWizard.formDataTransport"
+				"ext.uploadWizard.apiUploadHandler",
+				"ext.uploadWizard.formDataTransport",
+				"oojs"
 			],
 			"messages": "mwe-upwiz-transport-started",
 			"targets": [ "desktop", "mobile" ],

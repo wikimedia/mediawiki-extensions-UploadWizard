@@ -6,9 +6,6 @@
  * should fork this into two -- local and remote, e.g. filename
  */
 ( function ( mw, uw, $, OO ) {
-
-	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
-
 	/**
 	 * Constructor for objects representing uploads. The workhorse of this entire extension.
 	 *
@@ -38,7 +35,6 @@
 		this.imageinfo = {};
 		this.title = undefined;
 		this.thumbnailPromise = null;
-		this.ignoreWarning = {};
 
 		this.fileKey = undefined;
 
@@ -128,171 +124,6 @@
 		this.transportProgress = 0;
 		this.ui.showError( code, html, $additionalStatus );
 		uw.eventFlowLogger.logError( 'file', { code: code, message: html } );
-	};
-
-	/**
-	 * Resume the upload, assume that whatever error(s) we got were benign.
-	 *
-	 * @param {string} code
-	 */
-	mw.UploadWizardUpload.prototype.removeErrors = function ( code ) {
-		this.ignoreWarning[ code ] = true;
-		this.start();
-	};
-
-	/**
-	 * To be executed when an individual upload finishes. Processes the result
-	 * and updates step 2's details
-	 *
-	 * @param {Object} result The API result in parsed JSON form
-	 */
-	mw.UploadWizardUpload.prototype.setTransported = function ( result ) {
-		var warnCode, param;
-
-		if ( this.state === 'aborted' ) {
-			return;
-		}
-
-		result.upload = result.upload || {};
-		result.upload.warnings = result.upload.warnings || {};
-
-		for ( warnCode in result.upload.warnings ) {
-			if ( !this.ignoreWarning[ warnCode ] && this.state !== 'error' ) {
-				switch ( warnCode ) {
-					case 'page-exists':
-					case 'exists':
-					case 'exists-normalized':
-					case 'was-deleted':
-					case 'badfilename':
-					case 'bad-prefix':
-						// we ignore these warnings, because the title is not our final title.
-						break;
-					case 'duplicate':
-						this.setDuplicateError( warnCode, result.upload.warnings[ warnCode ] );
-						return;
-					case 'nochange':
-						// This is like 'duplicate', but also the filename is the same, which doesn't matter
-						if ( result.upload.warnings.exists ) {
-							this.setDuplicateError( warnCode, [ result.upload.warnings.exists ] );
-						}
-						return;
-					case 'duplicate-archive':
-						this.setDuplicateArchiveError( warnCode, result.upload.warnings[ warnCode ] );
-						return;
-					default:
-						param = warnCode;
-						if ( typeof result.upload.warnings[ warnCode ] === 'string' ) {
-							// tack the original error code onto the warning message
-							param += mw.message( 'colon-separator' ).text() + result.upload.warnings[ warnCode ];
-						}
-
-						// we have an unknown warning, so let's say what we know
-						this.setError( warnCode, mw.message( 'api-error-unknown-warning', param ).parse() );
-						return;
-				}
-			}
-		}
-
-		if ( result.upload && result.upload.result === 'Success' ) {
-			if ( result.upload.imageinfo ) {
-				this.setSuccess( result );
-			} else {
-				this.setError( 'noimageinfo', mw.message( 'api-error-noimageinfo' ).parse() );
-			}
-		} else if ( result.upload && result.upload.result === 'Warning' ) {
-			throw new Error( 'Your browser got back a Warning result from the server. Please file a bug.' );
-		} else {
-			this.setError( 'unknown', mw.message( 'unknown-error' ).parse() );
-		}
-	};
-
-	/**
-	 * To be executed when an individual upload fails
-	 *
-	 * @param {string} code The API error code
-	 * @param {Object} result The API result in parsed JSON form
-	 */
-	mw.UploadWizardUpload.prototype.setTransportError = function ( code, result ) {
-		var $extra;
-
-		if ( this.state === 'aborted' ) {
-			return;
-		}
-
-		if ( code === 'badtoken' ) {
-			this.api.badToken( 'csrf' );
-			// Try again once
-			if ( !this.ignoreWarning[ code ] ) {
-				this.removeErrors( code );
-				return;
-			}
-		}
-
-		if ( code === 'abusefilter-warning' ) {
-			$extra = new OO.ui.ButtonWidget( {
-				label: mw.message( 'mwe-upwiz-override' ).text(),
-				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-				flags: 'progressive',
-				framed: false
-			} ).on( 'click', function () {
-				// No need to ignore the error, AbuseFilter will only return it once
-				this.start();
-			}.bind( this ) ).$element;
-		}
-
-		this.setError( code, result.errors[ 0 ].html, $extra );
-	};
-
-	/**
-	 * Helper function to generate duplicate errors in a possibly collapsible list.
-	 * Works with existing duplicates and deleted dupes.
-	 *
-	 * @param {string} code Warning code, should have matching strings in .i18n.php
-	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
-	 */
-	mw.UploadWizardUpload.prototype.setDuplicateError = function ( code, resultDuplicate ) {
-		var $ul = $( '<ul>' );
-		$.each( resultDuplicate, function ( i, filename ) {
-			var href, $a;
-
-			try {
-				$a = $( '<a>' ).text( filename );
-				href = mw.Title.makeTitle( NS_FILE, filename ).getUrl( {} );
-				$a.attr( { href: href, target: '_blank' } );
-			} catch ( e ) {
-				// For example, if the file was revdeleted
-				$a = $( '<em>' )
-					.text( mw.msg( 'mwe-upwiz-deleted-duplicate-unknown-filename' ) );
-			}
-			$ul.append( $( '<li>' ).append( $a ) );
-		} );
-
-		if ( resultDuplicate.length > 1 ) {
-			$ul.makeCollapsible( { collapsed: true } );
-		}
-
-		this.setError( code, mw.message( 'file-exists-duplicate', resultDuplicate.length ).parse(), $ul );
-	};
-
-	/**
-	 * Helper function to generate duplicate errors in a possibly collapsible list.
-	 * Works with existing duplicates and deleted dupes.
-	 *
-	 * @param {string} code Warning code, should have matching strings in .i18n.php
-	 * @param {Object} resultDuplicate Portion of the API error result listing duplicates
-	 */
-	mw.UploadWizardUpload.prototype.setDuplicateArchiveError = function ( code, resultDuplicate ) {
-		var filename = mw.Title.makeTitle( NS_FILE, resultDuplicate ).getPrefixedText(),
-			uploadDuplicate = new OO.ui.ButtonWidget( {
-				label: mw.message( 'mwe-upwiz-override' ).text(),
-				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-				flags: 'progressive',
-				framed: false
-			} ).on( 'click', function () {
-				this.removeErrors( 'duplicate-archive' );
-			}.bind( this ) );
-
-		this.setError( code, mw.message( 'file-deleted-duplicate', filename ).parse(), uploadDuplicate.$element );
 	};
 
 	/**

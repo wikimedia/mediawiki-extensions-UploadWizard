@@ -228,12 +228,13 @@
 			return false;
 		}
 
+		upload.fileChangedOk();
+
 		// attach controller-specific event handlers (they're automatically
 		// bound on load already, but we've only just added these files...)
 		this.bindUploadHandlers( upload );
 
 		this.setUploadFilled( upload );
-		upload.fileChangedOk();
 
 		return upload;
 	};
