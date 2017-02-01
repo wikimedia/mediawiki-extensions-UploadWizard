@@ -173,7 +173,7 @@
 					case 'nochange':
 						// This is like 'duplicate', but also the filename is the same, which doesn't matter
 						if ( result.upload.warnings.exists ) {
-							this.setDuplicateError( 'duplicate', result.upload.warnings.exists );
+							this.setDuplicateError( warnCode, [ result.upload.warnings.exists ] );
 						}
 						return;
 					case 'duplicate-archive':
