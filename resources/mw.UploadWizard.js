@@ -92,6 +92,8 @@
 			var api = new mw.Api( options );
 
 			api.ajax = function ( parameters, ajaxOptions ) {
+				var original, override;
+
 				$.extend( parameters, {
 					errorformat: 'html',
 					errorlang: mw.config.get( 'wgUserLanguage' ),
@@ -99,7 +101,11 @@
 					formatversion: 2
 				} );
 
-				return mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] ).then(
+				original = mw.Api.prototype.ajax.apply( this, [ parameters, ajaxOptions ] );
+
+				// we'll attach a default error handler that makes sure error
+				// output is always, reliably, in the same format
+				override = original.then(
 					null, // done handler - doesn't need overriding
 					function ( code, result ) { // fail handler
 						var response = { errors: [ {
@@ -123,6 +129,13 @@
 						return $.Deferred().reject( code, response, response );
 					}
 				);
+
+				/*
+				 * After attaching (.then) our error handler, a new promise is
+				 * returned. The original promise had an 'abort' method, which
+				 * we'll also want to make use of...
+				 */
+				return override.promise( { abort: original.abort } );
 			};
 
 			return api;

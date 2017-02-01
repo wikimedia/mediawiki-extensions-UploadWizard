@@ -40,13 +40,16 @@
 	} );
 
 	QUnit.test( 'abort', 3, function ( assert ) {
-		var transport = createTransport( 0, { abort: this.sandbox.stub() } );
+		var transport = createTransport( 0 ),
+			request = $.Deferred().promise( { abort: this.sandbox.stub() } );
 
-		assert.ok( transport.api.abort.notCalled );
+		transport.request = request;
+
+		assert.ok( request.abort.notCalled );
 
 		transport.abort();
 
-		assert.ok( transport.api.abort.called );
+		assert.ok( request.abort.called );
 		assert.ok( transport.aborted );
 	} );
 
