@@ -859,16 +859,16 @@
 			if ( result && result.upload && result.upload.result === 'Poll' ) {
 				// if async publishing takes longer than 10 minutes give up
 				if ( ( ( new Date() ).getTime() - this.firstPoll ) > 10 * 60 * 1000 ) {
-					return deferred.reject( 'server-error', { error: {
+					return deferred.reject( 'server-error', { errors: [ {
 						code: 'server-error',
 						html: 'Unknown server error'
-					} } );
+					} ] } );
 				} else {
 					if ( result.upload.stage === undefined ) {
-						return deferred.reject( 'no-stage', { error: {
+						return deferred.reject( 'no-stage', { errors: [ {
 							code: 'no-stage',
 							html: 'Unable to check file\'s status'
-						} } );
+						} ] } );
 					} else {
 						// Messages that can be returned:
 						// * mwe-upwiz-queued

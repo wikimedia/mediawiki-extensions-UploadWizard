@@ -195,10 +195,10 @@
 		if ( this.aborted ) {
 			this.api.abort();
 			return $.Deferred().reject( 'aborted', {
-				error: {
+				errors: [ {
 					code: 'aborted',
 					html: mw.message( 'api-error-aborted' ).parse()
-				}
+				} ]
 			} );
 		}
 
@@ -347,10 +347,10 @@
 
 		if ( this.aborted ) {
 			return $.Deferred().reject( 'aborted', {
-				error: {
+				errors: [ {
 					code: 'aborted',
 					html: mw.message( 'api-error-aborted' ).parse()
-				}
+				} ]
 			} );
 		}
 
@@ -364,17 +364,17 @@
 				if ( response.upload && response.upload.result === 'Poll' ) {
 					// If concatenation takes longer than 10 minutes give up
 					if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
-						return $.Deferred().reject( 'server-error', { error: {
+						return $.Deferred().reject( 'server-error', { errors: [ {
 							code: 'server-error',
 							html: mw.message( 'apierror-unknownerror' ).parse()
-						} } );
+						} ] } );
 					} else {
 						if ( response.upload.stage === undefined ) {
 							mw.log.warn( 'Unable to check file\'s status' );
-							return $.Deferred().reject( 'server-error', { error: {
+							return $.Deferred().reject( 'server-error', { errors: [ {
 								code: 'server-error',
 								html: mw.message( 'apierror-unknownerror' ).parse()
-							} } );
+							} ] } );
 						} else {
 							// Statuses that can be returned:
 							// * queued

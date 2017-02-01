@@ -144,10 +144,10 @@
 
 		// call tstub upon checkStatus failure, and verify it got called correctly
 		transport.checkStatus().fail( tstub, function () {
-			assert.ok( tstub.calledWith( 'server-error', { error: {
+			assert.ok( tstub.calledWith( 'server-error', { errors: [ {
 				code: 'server-error',
 				html: mw.message( 'apierror-unknownerror' ).parse()
-			} } ) );
+			} ] } ) );
 			done();
 		} );
 	} );
