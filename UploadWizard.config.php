@@ -597,7 +597,7 @@ return [
 	//		transcodeExtensionList
 	// 2) Once the user installs firefogg it is used for encoding videos that are not in supported formats before handing it off to mw.ApiUploadFormDataHandler for upload
 	// @codingStandardsIgnoreEnd
-	'enableFirefogg' => true,
+	'enableFirefogg' => false,
 
 	// Setup list of video extensions for recomending firefogg.
 	'transcodeExtensionList' => [
