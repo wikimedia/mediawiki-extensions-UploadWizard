@@ -451,18 +451,7 @@
 	 * @param {string} extension
 	 */
 	uw.ui.Upload.prototype.showBadExtensionError = function ( filename, extension ) {
-		var $errorMessage;
-		// Check if firefogg should be recommended to be installed ( user selects an extension that can be converted)
-		if ( mw.UploadWizard.config.enableFirefogg &&
-			$.inArray( extension.toLowerCase(), mw.UploadWizard.config.transcodeExtensionList ) !== -1
-		) {
-			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-extension-video-firefogg',
-				mw.Firefogg.getFirefoggInstallUrl(),
-				'https://commons.wikimedia.org/wiki/Help:Converting_video'
-			);
-		} else {
-			$errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
-		}
+		var $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-extension', extension );
 		this.showFilenameError( $errorMessage );
 	};
 

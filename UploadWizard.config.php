@@ -591,29 +591,6 @@ return [
 		// ]
 		// @codingStandardsIgnoreEnd
 
-	// @codingStandardsIgnoreStart
-	// Check if we want to enable firefogg, will result in
-	// 1) firefogg install recommendation when users try to upload media asset with an extension in the
-	//		transcodeExtensionList
-	// 2) Once the user installs firefogg it is used for encoding videos that are not in supported formats before handing it off to mw.ApiUploadFormDataHandler for upload
-	// @codingStandardsIgnoreEnd
-	'enableFirefogg' => false,
-
-	// Setup list of video extensions for recomending firefogg.
-	'transcodeExtensionList' => [
-		'avi', 'asf','asx','wmv','wmx','dv','rm','ra','3gp','mkv',
-		'mp4','m4v','mov','qt','mpeg','mpeg2','mp2','mpg', 'mts'
-	],
-
-	// Firefogg encode settings copied from TimedMediHandler high end webm.
-	'firefoggEncodeSettings' => [
-		'maxSize'           => '1920x1080',
-		'videoQuality'      => 7,
-		'audioQuality'      => 3,
-		'noUpscaling'       => 'true',
-		'videoCodec'        => 'vp8',
-	],
-
 	// Link to page where users can leave feedback or bug reports.
 	// Defaults to UploadWizard's bug tracker.
 	// If you want to use a wiki page, set this to a falsy value,

@@ -621,17 +621,13 @@
 	/**
 	 * Get the upload handler per browser capabilities
 	 *
-	 * @return {FirefoggHandler|ApiUploadFormDataHandler|ApiUploadPostHandler} upload handler object
+	 * @return {ApiUploadFormDataHandler|ApiUploadPostHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
 		var constructor;  // must be the name of a function in 'mw' namespace
 
 		if ( !this.uploadHandler ) {
-			if ( mw.UploadWizard.config.enableFirefogg && mw.Firefogg.isInstalled() ) {
-				constructor = 'FirefoggHandler';
-			} else {
-				constructor = 'ApiUploadFormDataHandler';
-			}
+			constructor = 'ApiUploadFormDataHandler';
 			if ( mw.UploadWizard.config.debug ) {
 				mw.log( 'mw.UploadWizard::getUploadHandler> ' + constructor );
 			}
