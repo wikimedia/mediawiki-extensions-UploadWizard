@@ -50,6 +50,7 @@
 	"mwe-upwiz-next-file": "Contunhar",
 	"mwe-upwiz-next-deeds": "Seguent",
 	"mwe-upwiz-next-details": "Seguent",
+	"mwe-upwiz-tooltip-skiptutorial": "Podètz reactivar aqueste didacticial dins [$1  vòstras preferéncias personalas], jos $2 → $3.",
 	"mwe-upwiz-file-need-file": "D'en primièr, apondre un fichièr d'importar.",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Bendèls de licéncia",
 	"mwe-upwiz-license-fal": "Licéncia Art Liura",
@@ -57,5 +58,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribucion requesida (GFDL, CC BY-SA-3.0)",
 	"mwe-upwiz-license-custom-preview": "Apercebut",
 	"mwe-upwiz-categories": "Categorias",
+	"mwe-upwiz-subhead-alt-upload": "Retorn a l’ancian formulari",
+	"mwe-upwiz-feedback-prompt": "Daissar un comentari",
 	"mwe-upwiz-errordialog-ok": "D'acòrdi"
 }
