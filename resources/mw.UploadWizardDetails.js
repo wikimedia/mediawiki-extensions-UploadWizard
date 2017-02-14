@@ -728,7 +728,8 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			var params;
+			var params,
+				tags = [ 'uploadwizard' ];
 
 			$( 'form', this.containerDiv ).submit();
 
@@ -739,11 +740,16 @@
 
 			this.firstPoll = ( new Date() ).getTime();
 
+			if ( this.upload.file.source ) {
+				tags.push( 'uploadwizard-' + this.upload.file.source );
+			}
+
 			params = {
 				action: 'upload',
 				filekey: this.upload.fileKey,
 				filename: this.getTitle().getMain(),
-				comment: 'User created page with ' + mw.UploadWizard.userAgent
+				comment: 'User created page with ' + mw.UploadWizard.userAgent,
+				tags: mw.UploadWizard.config.CanAddTags ? tags : []
 			};
 
 			// Only enable async publishing if file is larger than 10MiB

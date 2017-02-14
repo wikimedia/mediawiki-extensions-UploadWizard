@@ -204,4 +204,17 @@ class UploadWizardHooks {
 			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
 		}
 	}
+
+	/**
+	 * Lists tags used by UploadWizard (via ListDefinedTags,
+	 * ListExplicitlyDefinedTags & ChangeTagsListActive hooks)
+	 *
+	 * @param array $tags
+	 * @return bool true
+	 */
+	public static function onListDefinedTags( &$tags ) {
+		$tags[] = 'uploadwizard';
+		$tags[] = 'uploadwizard-flickr';
+		return true;
+	}
 }

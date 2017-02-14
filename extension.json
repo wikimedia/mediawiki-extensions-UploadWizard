@@ -809,6 +809,10 @@
 		"GetPreferences": "UploadWizardHooks::onGetPreferences",
 		"IsUploadAllowedFromUrl": "UploadWizardHooks::onIsUploadAllowedFromUrl",
 		"ResourceLoaderTestModules": "UploadWizardHooks::onResourceLoaderTestModules",
+		"ListDefinedTags": "UploadWizardHooks::onListDefinedTags",
+		"ChangeTagsListActive": "UploadWizardHooks::onListDefinedTags",
+		"ChangeTagsAllowedAdd": "UploadWizardHooks::onListDefinedTags",
+
 		"ContentModelCanBeUsedOn": "CampaignHooks::onContentModelCanBeUsedOn",
 		"EditFilterMergedContent": "CampaignHooks::onEditFilterMergedContent",
 		"CodeEditorGetPageLanguage": "CampaignHooks::onCodeEditorGetPageLanguage",
