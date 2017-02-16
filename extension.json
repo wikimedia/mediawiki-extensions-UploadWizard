@@ -790,6 +790,9 @@
 			"scripts": [
 				"resources/uw.units.js"
 			],
+			"dependencies": [
+				"uw.base"
+			],
 			"messages": [
 				"size-gigabytes",
 				"size-megabytes",
