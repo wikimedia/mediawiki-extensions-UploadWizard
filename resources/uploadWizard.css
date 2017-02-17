@@ -445,7 +445,7 @@ input[type='radio'].mwe-upwiz-copyright-info-radio {
 .mwe-upwiz-deed-license-group-head {
 	padding-left: 1.5em;
 	cursor: pointer;
-	outline: none;
+	outline: 0;
 	display: block;
 }
 
