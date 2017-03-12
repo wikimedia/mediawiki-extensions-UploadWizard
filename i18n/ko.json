@@ -15,7 +15,8 @@
 			"HDNua",
 			"Macofe",
 			"Jonghaya",
-			"Ykhwong"
+			"Ykhwong",
+			"Jerrykim306"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -28,12 +29,9 @@
 	"group-upwizcampeditors.css": "/* 이 CSS 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */",
 	"group-upwizcampeditors.js": "/* 이 자바스크립트 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */",
 	"api-error-aborted": "업로드가 중단되었습니다.",
-	"api-error-duplicate": "이 위키에 내용이 똑같은 {{PLURAL:$1|다른 파일}}이 있습니다.",
-	"api-error-duplicate-archive": "같은 내용을 담고 있던 {{PLURAL:$1|다른 파일}}이 있었지만 이 {{PLURAL:$1|파일}}은 삭제되었습니다.",
 	"api-error-firefogg": "인코딩이 실패했습니다.",
 	"api-error-noimageinfo": "업로드는 성공했지만 서버가 파일에 대해 어떠한 정보도 제공하지 않았습니다.",
 	"api-error-timeout": "서버가 예측된 시간 내에 응답하지 않았습니다.",
-	"api-error-unknown-warning": "알 수 없는 경고: \"$1\".",
 	"mwe-upwiz-extension-disabled": "이 문서는 일시적인 기술적 문제로 인해 비활성화되었습니다. 그 동안 표준 양식을 통해 올리기를 시도하세요.",
 	"mwe-upwiz-step-tutorial": "알아보기",
 	"mwe-upwiz-step-file": "올리기",
@@ -134,6 +132,7 @@
 	"mwe-upwiz-more-options": "위치와 자세한 정보 추가하기...",
 	"mwe-upwiz-copy-metadata": "다음의 모든 올리기 정보를 복사 ...",
 	"mwe-upwiz-copy-metadata-button": "복사",
+	"mwe-upwiz-copy-metadata-button-undo": "되돌리기",
 	"mwe-upwiz-copied-metadata": "복사 완료",
 	"mwe-upwiz-copy-title": "(자동으로 번호를 매겨서) 제목 복사",
 	"mwe-upwiz-copy-description": "설명 복사",
