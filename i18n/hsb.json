@@ -107,7 +107,7 @@
 	"mwe-upwiz-other": "Druhe informacije",
 	"mwe-upwiz-source": "Žórło",
 	"mwe-upwiz-thanks-intro": "Dźakujemy so za nahraće!",
-	"mwe-upwiz-thanks-explain": "Móžeš nětko {{PLURAL:$1|tutu dataju|tutej dataji|tute dataje}} na wikijach wužiwać abo na {{PLURAL:$1|nju|njej|nje}} we webje wotkazać.",
+	"mwe-upwiz-thanks-explain": "Móžeš nětko {{PLURAL:$1|tutu dataju|tutej dataji|tute dataje}} na wikijach wužiwać abo na {{PLURAL:$1|nju|njej|nje}} w syći wotkazać.",
 	"mwe-upwiz-thanks-wikitext": "Zo by dataju we wikiju wužiwał, kopěruj tutón tekst do strony:",
 	"mwe-upwiz-thanks-url": "Zo by na nju w HTML wotkazował, kopěruj tutu URL-adresu:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Tutón wiki njeakceptuje datajowe mjena ze sufiksom \".$1\".",
