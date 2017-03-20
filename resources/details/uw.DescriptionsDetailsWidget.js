@@ -134,7 +134,7 @@
 		items = this.getItems();
 		if ( items.length > serialized.descriptions.length ) {
 			// Remove any additional, no longer needed descriptions
-			this.removeItems( items.slice( /*start=*/serialized.descriptions.length ) );
+			this.removeItems( items.slice( /* start= */ serialized.descriptions.length ) );
 		} else if ( items.length < serialized.descriptions.length ) {
 			// Add more descriptions if we had too few
 			this.addDescriptions( serialized.descriptions.length - items.length );

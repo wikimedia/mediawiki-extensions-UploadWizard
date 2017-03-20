@@ -62,7 +62,7 @@
 			 * out how much of the upload has already gone out, so let's add it!
 			 */
 			xhr: function () {
-				var xhr = $.ajaxSettings.xhr() ;
+				var xhr = $.ajaxSettings.xhr();
 				xhr.upload.addEventListener( 'progress', function ( evt ) {
 					var fraction = null;
 					if ( evt.lengthComputable ) {
@@ -70,7 +70,7 @@
 					}
 					deferred.notify( fraction );
 				}, false );
-				return xhr ;
+				return xhr;
 			}
 		} );
 

@@ -15,9 +15,6 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		eslint: {
-			options: {
-				fix: true
-			},
 			all: [
 				'*.js',
 				'{resources,docs,tests}/**/*.js',

@@ -939,13 +939,13 @@
 		 */
 		processError: function ( code, result ) {
 			var recoverable = [
-					'abusefilter-disallowed',
-					'abusefilter-warning',
-					'spamblacklist',
-					'fileexists-shared-forbidden',
-					'protectedpage',
-					'titleblacklist-forbidden'
-				];
+				'abusefilter-disallowed',
+				'abusefilter-warning',
+				'spamblacklist',
+				'fileexists-shared-forbidden',
+				'protectedpage',
+				'titleblacklist-forbidden'
+			];
 
 			if ( code === 'badtoken' ) {
 				this.api.badToken( 'csrf' );
