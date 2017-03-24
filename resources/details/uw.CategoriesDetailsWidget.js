@@ -12,7 +12,7 @@
 
 		uw.CategoriesDetailsWidget.parent.call( this );
 
-		this.categoriesWidget = new mw.widgets.CategorySelector();
+		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget();
 
 		this.categoriesWidget.createItemWidget = function ( data ) {
 			var widget = this.constructor.prototype.createItemWidget.call( this, data );
