@@ -203,7 +203,7 @@
 				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-location",
 				"mediawiki.widgets.DateInputWidget",
-				"mediawiki.widgets.CategorySelector"
+				"mediawiki.widgets.CategoryMultiselectWidget"
 			],
 			"scripts": [
 				"resources/jquery/jquery.morphCrossfade.js",
