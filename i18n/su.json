@@ -1,21 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kandar"
+			"Kandar",
+			"Uchup19"
 		]
 	},
-	"uploadwizard": "Sulap Pamuatan",
-	"uploadwizard-desc": "Sulap Pamuatan, parabot pikeun muat multimédia",
-	"mwe-upwiz-uploadcampaigns": "Kampanyeu pamuatan",
-	"mwe-upwiz-uploadcampaign": "Setélan kampanyeu pamuatan",
-	"right-upwizcampaigns": "Setél kampanyeu Sulap Pamuatan",
-	"action-upwizcampaigns": "setél kampanyeu pamuatan",
-	"group-upwizcampeditors": "Editor kampanyeu Sulap Pamuatan",
-	"group-upwizcampeditors-member": "{{GENDER:$1|Editor kampanyeu Sulap Pamuatan}}",
-	"grouppage-upwizcampeditors": "{{ns:project}}:Editor kampanyeu Sulap Pamuatan",
-	"mwe-upwiz-js-off": "Ngarah antarmukana hadé, UploadWizard migunakeun JavaScript. Browser anjeun henteu ngadukung JavaScript atawa ditumpurkeun, ku kituna maké formulir pamuatan anu basajan.",
-	"mwe-upwiz-extension-disabled": "Ieu kaca ditumpurkun kusabab aya masalah téknis. Mangga cobi formulir pamuatan baku.",
-	"mwe-upwiz-code-unknown": "Basa teu dipikawanoh",
+	"uploadwizard": "Purah ngunjalkeun",
+	"uploadwizard-desc": "Purah Ngunjalkeun, parabot pikeun ngunjal multimédia",
+	"right-upwizcampaigns": "Setél kampanyeu purah ngunjalkeun",
+	"action-upwizcampaigns": "setél kampanyeu ngunjalkeun",
+	"group-upwizcampeditors": "Éditor kampanyeu purah ngunjalkeun",
+	"group-upwizcampeditors-member": "{{GENDER:$1|Editor kampanyeu purah ngunjalkeun}}",
+	"grouppage-upwizcampeditors": "{{ns:project}}:Editor kampanyeu purah ngunjalkeun",
+	"mwe-upwiz-extension-disabled": "Ieu kaca ditumpurkun kusabab aya masalah téknis. Mangga cobi formulir unjalan baku.",
 	"mwe-upwiz-step-tutorial": "Lenyepan",
 	"mwe-upwiz-step-file": "Muat",
 	"mwe-upwiz-step-deeds": "Hak medal",
