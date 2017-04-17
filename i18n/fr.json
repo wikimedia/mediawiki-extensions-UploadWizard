@@ -45,7 +45,8 @@
 			"Matma Rex",
 			"Wladek92",
 			"Manaviko",
-			"Trial"
+			"Trial",
+			"The RedBurn"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -190,7 +191,7 @@
 	"mwe-upwiz-location-lat": "Latitude",
 	"mwe-upwiz-location-lon": "Longitude",
 	"mwe-upwiz-location-alt": "Altitude",
-	"mwe-upwiz-location-heading": "Titre",
+	"mwe-upwiz-location-heading": "Orientation",
 	"mwe-upwiz-copyright-info": "Libérer des droits",
 	"mwe-upwiz-objref-pick-image": "Ajouter la référence de l’objet à cette image.",
 	"mwe-upwiz-objref-notice-existing-image": "Une image existe déjà pour l’objet référencé.",

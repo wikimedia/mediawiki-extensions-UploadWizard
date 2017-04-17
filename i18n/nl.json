@@ -18,7 +18,8 @@
 			"Dinosaur918",
 			"Romaine",
 			"Hex",
-			"Mainframe98"
+			"Mainframe98",
+			"Multichill"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -282,7 +283,7 @@
 	"mwe-upwiz-license-misc": "Diverse redenen",
 	"mwe-upwiz-license-custom-head": "Een andere reden dan hierboven genoemd",
 	"mwe-upwiz-license-custom-preview": "Voorvertoning",
-	"mwe-upwiz-license-none-head": "Ik heb het bestond op Internet gevonden. Ik weet het niet zeker",
+	"mwe-upwiz-license-none-head": "Ik heb het bestand op Internet gevonden. Ik weet het niet zeker",
 	"mwe-upwiz-license-none": "Ik ben van mening dat {{PLURAL:$1|dit werk|deze werken}} een vrije licentie {{PLURAL:$1|heeft|hebben}} of juridisch in het publieke domein {{PLURAL:$1|valt|vallen}}. Ik begrijp dat als ik de licentiegegevens niet tijdig toevoeg, {{PLURAL:$1|het bestand|de bestanden}} verwijderd {{PLURAL:$1|kan|kunnen}} worden.",
 	"mwe-upwiz-license-confirm-remove": "Weet u zeker dat u deze {{PLURAL:$1|upload|uploads}} wilt verwijderen?",
 	"mwe-upwiz-license-confirm-remove-title": "Verwijderen bevestigen",
