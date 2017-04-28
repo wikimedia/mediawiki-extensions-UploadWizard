@@ -130,59 +130,96 @@
 		transport.abort();
 	} );
 
-	QUnit.test( 'checkStatus', 8, function ( assert ) {
-		var transport = createTransport( 10, new mw.Api() ),
-			usstub = this.sandbox.stub(),
+	// test invalid server response (in missing 'stage' param)
+	QUnit.test( 'checkStatus invalid API response', 1, function ( assert ) {
+		var done = assert.async(),
+			transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
-			postd, postd2;
+			postd = $.Deferred();
+
+		// prepare a bogus invalid API result
+		poststub.returns( postd.promise() );
+		postd.resolve( { upload: { result: 'Poll' } } );
+
+		// call tstub upon checkStatus failure, and verify it got called correctly
+		transport.checkStatus().fail( tstub, function () {
+			assert.ok( tstub.calledWith( 'server-error', { error: {
+				code: 'server-error',
+				html: mw.message( 'apierror-unknownerror' ).parse()
+			} } ) );
+			done();
+		} );
+	} );
+
+	// test retry after server responds upload is still incomplete
+	QUnit.test( 'checkStatus retry', 2, function ( assert ) {
+		var transport = createTransport( 10, new mw.Api() ),
+			usstub = this.sandbox.stub(),
+			poststub = this.sandbox.stub( transport.api, 'post' ),
+			postd = $.Deferred(),
+			postd2 = $.Deferred();
 
 		transport.on( 'update-stage', usstub );
 
-		postd = $.Deferred();
-		poststub.returns( postd.promise() );
-		transport.checkStatus().fail( tstub );
-		transport.firstPoll = 0;
-		postd.resolve( { upload: { result: 'Poll' } } );
-		assert.ok( tstub.calledWith( 'server-error', { error: {
-			code: 'server-error',
-			html: mw.message( 'apierror-unknownerror' ).parse()
-		} } ) );
-
-		postd = $.Deferred();
-		postd2 = $.Deferred();
-		poststub.reset();
+		// prepare a first API call that responds with 'Poll' (upload
+		// concatenation is not yet complete) followed by a second call that
+		// marks the upload successful
 		poststub
 			.onFirstCall().returns( postd.promise() )
 			.onSecondCall().returns( postd2.promise() );
-		tstub.reset();
-		transport.checkStatus();
-		postd.resolve( { upload: { result: 'Poll', stage: 'test' } } );
-		assert.ok( !tstub.called );
-		assert.ok( usstub.calledWith( 'test' ) );
+
+		// resolve 3 API calls, where server first responds upload is not yet
+		// assembled, and second says it's published
+		postd.resolve( { upload: { result: 'Poll', stage: 'queued' } } );
 		postd2.resolve( { upload: { result: 'Success' } } );
-		assert.ok( poststub.calledTwice );
-		poststub.resetBehavior();
 
-		postd = $.Deferred();
-		poststub.reset();
+		// confirm that, once second API call was successful, status resolves,
+		// 2 API calls have gone out & the failed call updates stage accordingly
+		return transport.checkStatus().done( function () {
+			assert.ok( poststub.calledTwice );
+			assert.ok( usstub.firstCall.calledWith( 'queued' ) );
+		} );
+	} );
+
+	QUnit.test( 'checkStatus success', 2, function ( assert ) {
+		var transport = createTransport( 10, new mw.Api() ),
+			tstub = this.sandbox.stub(),
+			usstub = this.sandbox.stub(),
+			poststub = this.sandbox.stub( transport.api, 'post' ),
+			postd = $.Deferred();
+
+		transport.on( 'update-stage', usstub );
+
+		// prepare a bogus valid API result
 		poststub.returns( postd.promise() );
-		tstub.reset();
-		usstub.reset();
-		transport.checkStatus().done( tstub );
 		postd.resolve( 'testing' );
-		assert.ok( tstub.calledWith( 'testing' ) );
-		assert.ok( !usstub.called );
 
-		postd = $.Deferred();
-		poststub.reset();
+		return transport.checkStatus().done( tstub, function () {
+			assert.ok( tstub.calledWith( 'testing' ) );
+			assert.ok( !usstub.called );
+		} );
+	} );
+
+	QUnit.test( 'checkStatus error API response', 2, function ( assert ) {
+		var done = assert.async(),
+			transport = createTransport( 10, new mw.Api() ),
+			tstub = this.sandbox.stub(),
+			usstub = this.sandbox.stub(),
+			poststub = this.sandbox.stub( transport.api, 'post' ),
+			postd = $.Deferred();
+
+		transport.on( 'update-stage', usstub );
+
+		// prepare an error API response
 		poststub.returns( postd.promise() );
-		tstub.reset();
-		usstub.reset();
-		transport.checkStatus().fail( tstub );
 		postd.reject( 'testing', { error: 'testing' } );
-		assert.ok( tstub.calledWith( 'testing', { error: 'testing' } ) );
-		assert.ok( !usstub.called );
+
+		transport.checkStatus().fail( tstub, function () {
+			assert.ok( tstub.calledWith( 'testing', { error: 'testing' } ) );
+			assert.ok( !usstub.called );
+			done();
+		} );
 	} );
 
 }( mediaWiki, jQuery ) );
