@@ -68,7 +68,7 @@
 
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since unbind doesn't work for non-DOM objects
-		$( this.div ).bind( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
+		$( this.div ).on( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
 	};
 
 	OO.mixinClass( mw.UploadWizardUploadInterface, OO.EventEmitter );
