@@ -1,13 +1,15 @@
 ( function ( mw, uw, $ ) {
 	'use strict';
 
-	var makeTitleInFileNSCases = [ {
+	var fileNs, makeTitleInFileNSCases;
+	fileNs = mw.config.get( 'wgFormattedNamespaces' )[ 6 ];
+	makeTitleInFileNSCases = [ {
 		filename: 'foo.png',
-		prefixedText: 'File:Foo.png',
+		prefixedText: fileNs + ':Foo.png',
 		desc: 'filename without namespace starting with a lower case letter'
 	}, {
 		filename: 'foo_bar-baz.jpg',
-		prefixedText: 'File:Foo bar-baz.jpg',
+		prefixedText: fileNs + ':Foo bar-baz.jpg',
 		desc: 'filename without namespace with space in it'
 	}, {
 		filename: 'MediaWiki:foo_bar.jpg',
@@ -15,11 +17,11 @@
 		desc: 'filename starting with MediaWiki: (colons are disallowed)'
 	}, {
 		filename: 'File:foo_bar.jpg',
-		prefixedText: 'File:Foo bar.jpg',
+		prefixedText: fileNs + ':Foo bar.jpg',
 		desc: 'filename starting with File:'
 	}, {
 		filename: 'file:foo_bar.jpg',
-		prefixedText: 'File:Foo bar.jpg',
+		prefixedText: fileNs + ':Foo bar.jpg',
 		desc: 'filename starting with file:'
 	}, {
 		filename: 'Foo part 1/2.jpg',
