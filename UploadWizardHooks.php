@@ -158,6 +158,19 @@ class UploadWizardHooks {
 		array &$testModules,
 		ResourceLoader &$resourceLoader
 	) {
+		$dependencies = [ 'ext.uploadWizard' ];
+
+		// Add our EventLogging schemas (normally lazy-loaded) to dependencies to avoid issues with
+		// tests failing intermittently due to "Pending AJAX requests".
+		$dependencies[] = 'ext.eventLogging';
+		$schemas = array_keys( ExtensionRegistry::getInstance()->getAttribute( 'EventLoggingSchemas' ) );
+		$ourSchemas = array_filter( $schemas, function ( $schema ) {
+			return substr( $schema, 0, 12 ) === 'UploadWizard';
+		} );
+		foreach ( $ourSchemas as $schema ) {
+			$dependencies[] = "schema.$schema";
+		}
+
 		$testModules['qunit']['ext.uploadWizard.unit.tests'] = [
 			'scripts' => [
 				'tests/qunit/controller/uw.controller.Deed.test.js',
@@ -175,9 +188,7 @@ class UploadWizardHooks {
 				'tests/qunit/uw.TitleDetailsWidget.test.js',
 				'tests/qunit/mw.fileApi.test.js',
 			],
-			'dependencies' => [
-				'ext.uploadWizard',
-			],
+			'dependencies' => $dependencies,
 			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'UploadWizard',
 		];
