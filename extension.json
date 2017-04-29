@@ -147,7 +147,6 @@
 			],
 			"dependencies": [
 				"uw.base",
-				"es5-shim",
 				"oojs"
 			],
 			"targets": [ "desktop", "mobile" ],
@@ -167,7 +166,6 @@
 				"ext.uploadWizard.jquery.arrowSteps",
 				"jquery.client",
 				"jquery.spinner",
-				"jquery.placeholder",
 				"jquery.makeCollapsible",
 				"mediawiki.icon",
 				"mediawiki.Uri",
@@ -195,7 +193,6 @@
 				"uw.controller.Tutorial",
 				"uw.controller.Upload",
 				"uw.units",
-				"es5-shim",
 				"oojs",
 				"oojs-ui",
 				"oojs-ui.styles.icons",

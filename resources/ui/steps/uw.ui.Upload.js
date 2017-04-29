@@ -115,6 +115,7 @@
 
 			// The input that will hold a flickr URL entered by the user; will be appended to a form
 			this.$flickrInput = $( '<input id="mwe-upwiz-flickr-input" type="text" />' )
+				.attr( 'placeholder', mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text() )
 				.prependTo( this.$flickrForm );
 
 			this.flickrButton = new OO.ui.ButtonInputWidget( {
@@ -522,9 +523,6 @@
 		this.$flickrContainer.show();
 		this.flickrSelectButton.$element.show();
 		this.flickrButton.setDisabled( false );
-
-		// Add placeholder text to the Flickr URL input field
-		this.$flickrInput.placeholder( mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text() );
 
 		// Insert form into the page
 		this.$div.find( '#mwe-upwiz-files' ).prepend( this.$flickrContainer );
