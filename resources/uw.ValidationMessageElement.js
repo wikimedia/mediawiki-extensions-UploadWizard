@@ -72,7 +72,7 @@
 			code = error.key;
 			content = error.parseDom();
 		} else {
-			code = error.code,
+			code = error.code;
 			content = $( $.parseHTML( error.html ) );
 		}
 		$listItem = OO.ui.FieldLayout.prototype.makeMessage.call( this, kind, content )
