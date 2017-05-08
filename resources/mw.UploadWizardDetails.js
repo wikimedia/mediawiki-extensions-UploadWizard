@@ -940,7 +940,7 @@
 					this.recoverFromError( 'upload-error-duplicate', mw.message( 'mwe-upwiz-upload-error-duplicate' ).parse() );
 				} else if ( warnings[ 'duplicate-archive' ] !== undefined ) {
 					// warnings[ 'duplicate-archive' ] may be '' (empty string) for revdeleted files
-					if ( this.upload.ignoreWarning[ 'duplicate-archive' ] ) {
+					if ( this.upload.handler.isIgnoredWarning( 'duplicate-archive' ) ) {
 						// We already told the interface to ignore this warning, so
 						// let's steamroll over it and re-call this handler.
 						params.ignorewarnings = true;
