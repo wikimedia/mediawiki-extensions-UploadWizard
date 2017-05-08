@@ -60,7 +60,7 @@
 				return handler.transport.upload( handler.upload.file, handler.upload.title.getMainText() )
 					.progress( function ( fraction ) {
 						if ( handler.upload.state === 'aborted' ) {
-							handler.transport.api.abort();
+							handler.transport.abort();
 							return;
 						}
 
