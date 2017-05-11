@@ -181,7 +181,7 @@
 	"mwe-upwiz-errordialog-ok": "ठीक है",
 	"mwe-upwiz-error-nosuchcampaign": "वहाँ कोई अभियान इस नाम पे नहीं \"$1\" ।",
 	"mwe-upwiz-error-campaigndisabled": "अभियान \"$1\" सुरू नहीं हुआ है ।",
-	"prefs-uploads": "अपलोड",
+	"prefs-uploads": "अपलोड हो रही है",
 	"prefs-upwiz-licensing": "लाइसेन्सिंग",
 	"mwe-upwiz-prefs-def-license": "डिफ़ॉल्ट लाइसेंस",
 	"mwe-upwiz-prefs-def-license-def": "जो भी डिफ़ॉल्ट है उसे उपयोग करें",

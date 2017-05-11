@@ -31,6 +31,8 @@
 	},
 	"uploadwizard": "Asistente de subidas",
 	"uploadwizard-desc": "Asistente de subidas, una herramienta fácil de usar para subir archivos multimedia",
+	"tag-uploadwizard": "Asistente de subidas",
+	"tag-uploadwizard-description": "Subidas realizadas con el asistente de subidas",
 	"right-upwizcampaigns": "Configurar las campañas del Asistente de subidas",
 	"action-upwizcampaigns": "configurar campañas de subidas",
 	"group-upwizcampeditors": "Editores de la campaña del Asistente de subidas",
