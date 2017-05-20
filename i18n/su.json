@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Kandar",
-			"Uchup19"
+			"Uchup19",
+			"Dipusparaga"
 		]
 	},
 	"uploadwizard": "Purah ngunjalkeun",
 	"uploadwizard-desc": "Purah Ngunjalkeun, parabot pikeun ngunjal multimédia",
+	"tag-uploadwizard": "Purah ngunjalkeun",
 	"right-upwizcampaigns": "Setél kampanyeu purah ngunjalkeun",
 	"action-upwizcampaigns": "setél kampanyeu ngunjalkeun",
 	"group-upwizcampeditors": "Éditor kampanyeu purah ngunjalkeun",
