@@ -65,10 +65,10 @@
 			serialized = upload.details ? upload.details.getSerialized() : null;
 
 			controller.createDetails( upload );
-
 			if ( upload.file.fromURL || ( upload.deedChooser && upload.deedChooser.deed.name === 'custom' ) ) {
 				upload.details.useCustomDeedChooser();
 			}
+			upload.details.attach();
 
 			// restore earlier details (user may have started inputting details,
 			// then went back some steps, and now got here again)
@@ -139,7 +139,6 @@
 	 */
 	uw.controller.Details.prototype.createDetails = function ( upload ) {
 		upload.details = new mw.UploadWizardDetails( upload, $( '#mwe-upwiz-macro-files' ) );
-		upload.details.attach();
 	};
 
 	/**

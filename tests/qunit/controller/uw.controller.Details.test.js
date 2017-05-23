@@ -22,7 +22,8 @@
 		var stubs = {
 			ucdc: sandbox.stub(),
 			getSerialized: sandbox.stub(),
-			SetSerialized: sandbox.stub()
+			setSerialized: sandbox.stub(),
+			attach: sandbox.stub()
 		};
 
 		return {
@@ -35,7 +36,8 @@
 			details: {
 				useCustomDeedChooser: stubs.ucdc,
 				getSerialized: stubs.getSerialized,
-				SetSerialized: stubs.setSerialized
+				setSerialized: stubs.setSerialized,
+				attach: stubs.attach
 			},
 
 			state: aborted ? 'aborted' : 'stashed',

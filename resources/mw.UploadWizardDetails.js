@@ -16,6 +16,9 @@
 
 		this.mainFields = [];
 
+		this.deedChooserDetails = new uw.DeedChooserDetailsWidget();
+		this.customDeedChooser = false;
+
 		this.div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
 	};
 
@@ -65,12 +68,11 @@
 			} );
 			this.mainFields.push( this.titleDetailsField );
 
-			this.deedChooserDetails = new uw.DeedChooserDetailsWidget();
 			this.deedChooserDetailsField = new uw.FieldLayout( this.deedChooserDetails, {
 				label: mw.message( 'mwe-upwiz-copyright-info' ).text(),
 				required: true
 			} );
-			this.deedChooserDetailsField.toggle( false ); // See useCustomDeedChooser()
+			this.deedChooserDetailsField.toggle( this.customDeedChooser ); // See useCustomDeedChooser()
 			this.mainFields.push( this.deedChooserDetailsField );
 
 			this.categoriesDetails = new uw.CategoriesDetailsWidget();
@@ -355,14 +357,12 @@
 		 * toggles whether we use the 'macro' deed or our own
 		 */
 		useCustomDeedChooser: function () {
-			this.deedChooserDetailsField.toggle( true );
+			this.customDeedChooser = true;
 			this.deedChooserDetails.useCustomDeedChooser( this.upload );
 		},
 
 		/**
-		 * Given the API result pull some info into the form ( for instance, extracted from EXIF, desired filename )
-		 *
-		 * @param {Object} result Upload API result object
+		 * Pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 */
 		populate: function () {
 			var thumbnailDiv = this.thumbnailDiv;
