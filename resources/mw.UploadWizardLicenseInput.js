@@ -140,7 +140,7 @@
 			var input = this;
 			$.each( configGroups, function ( i, group ) {
 				var $body, $head, $licensesDiv,
-					$group = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group' );
+					$group = $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group' );
 				if ( group.head === undefined ) {
 					// if there is no header, just append licenses to the group div.
 					$body = $group;
@@ -149,13 +149,13 @@
 					$head = $( '<a>' )
 						.addClass( 'mwe-upwiz-deed-license-group-head mw-collapsible-toggle mw-collapsible-arrow' )
 						.msg( group.head, input.count );
-					$body = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-body mw-collapsible-content' );
+					$body = $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group-body mw-collapsible-content' );
 					$group.append( $head, $body ).makeCollapsible( { collapsed: true } );
 				}
 				if ( group.subhead !== undefined ) {
-					$body.append( $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, input.count ) );
+					$body.append( $( '<div>' ).addClass( 'mwe-upwiz-deed-license-group-subhead' ).msg( group.subhead, input.count ) );
 				}
-				$licensesDiv = $( '<div></div>' ).addClass( 'mwe-upwiz-deed-license' );
+				$licensesDiv = $( '<div>' ).addClass( 'mwe-upwiz-deed-license' );
 				input.createInputs( $licensesDiv, group );
 				$body.append( $licensesDiv );
 				input.$selector.append( $group );
@@ -281,14 +281,14 @@
 
 				licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } ),
 
-				$icons = $( '<span></span>' );
+				$icons = $( '<span>' );
 
 			if ( license.props.languageCodePrefix !== undefined ) {
 				licenseURL += license.props.languageCodePrefix + languageCode;
 			}
 			if ( license.props.icons !== undefined ) {
 				$.each( license.props.icons, function ( i, icon ) {
-					$icons.append( $( '<span></span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
+					$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
 				} );
 			}
 			return $( '<label />' )
@@ -634,9 +634,9 @@
 				var message = result.errors[ 0 ].html;
 
 				uw.eventFlowLogger.logError( 'license', { code: code, message: message } );
-				show( $( '<div></div>' ).append(
-					$( '<h3></h3>' ).append( code ),
-					$( '<p></p>' ).append( message )
+				show( $( '<div>' ).append(
+					$( '<h3>' ).append( code ),
+					$( '<p>' ).append( message )
 				) );
 			}
 

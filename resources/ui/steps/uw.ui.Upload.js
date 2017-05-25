@@ -459,7 +459,7 @@
 	uw.ui.Upload.prototype.showMissingExtensionError = function () {
 		var $errorMessage = $( '<p>' ).msg( 'mwe-upwiz-upload-error-bad-filename-no-extension' );
 		this.showFilenameError(
-			$( '<div></div>' ).append(
+			$( '<div>' ).append(
 				$errorMessage,
 				$( '<p>' ).msg( 'mwe-upwiz-allowed-filename-extensions' ),
 				$( '<blockquote>' ).append( $( '<tt>' ).append(

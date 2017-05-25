@@ -665,7 +665,7 @@
 				break;
 		}
 
-		$canvas = $( '<canvas></canvas>' ).attr( constraints );
+		$canvas = $( '<canvas>' ).attr( constraints );
 		ctx = $canvas[ 0 ].getContext( '2d' );
 		ctx.clearRect( 0, 0, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
