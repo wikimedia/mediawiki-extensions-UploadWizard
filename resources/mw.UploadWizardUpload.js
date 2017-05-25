@@ -87,7 +87,7 @@
 	mw.UploadWizardUpload.prototype.remove = function () {
 		// remove the div that passed along the trigger
 		var $div = $( this.ui.div );
-		$div.unbind(); // everything
+		$div.off(); // unbind everything
 		$div.remove();
 
 		this.state = 'aborted';
