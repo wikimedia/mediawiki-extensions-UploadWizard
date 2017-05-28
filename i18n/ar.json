@@ -68,7 +68,7 @@
 	"mwe-upwiz-error-no-image-retrieved": "تعذر جلب الملف من $1.",
 	"mwe-upwiz-multi-file-select2": "اختر الملفات التي تود رفعها. أمسك مفتاح Shift واضغط لاختيار ملفات متعددة معا. أنت يمكنك الاختيار حتى $1 {{PLURAL:$1|ملف|ملفات}} للرفع.",
 	"mwe-upwiz-transport-started": "يبدأ...",
-	"mwe-upwiz-uploading": "جاري الرفع...",
+	"mwe-upwiz-uploading": "جارٍ الرفع...",
 	"mwe-upwiz-queued": "ينظر...",
 	"mwe-upwiz-assembling": "يُجمِّع...",
 	"mwe-upwiz-publish": "ينشر...",
