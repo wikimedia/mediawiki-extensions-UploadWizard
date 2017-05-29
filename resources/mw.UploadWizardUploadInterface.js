@@ -67,7 +67,8 @@
 		$( this.div ).append( this.$form );
 
 		// this.progressBar = ( no progress bar for individual uploads yet )
-		// we bind to the ui div since unbind doesn't work for non-DOM objects
+		// we bind to the ui div since .off() doesn't work for non-DOM objects
+		// TODO Convert this to an OO.EventEmitter, and use OOjs events
 		$( this.div ).on( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
 	};
 

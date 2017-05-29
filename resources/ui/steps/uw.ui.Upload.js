@@ -561,7 +561,7 @@
 	uw.ui.Upload.prototype.flickrInterfaceDestroy = function () {
 		this.$flickrInput.val( '' );
 		this.$flickrSelectList.empty();
-		this.$flickrSelectListContainer.unbind();
+		this.$flickrSelectListContainer.off();
 		this.$flickrSelectListContainer.hide();
 		this.$flickrContainer.hide();
 		this.flickrButton.setDisabled( true );
