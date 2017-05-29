@@ -128,7 +128,7 @@
 				this.$form = $( '<form>' );
 
 				$standardDiv = $( '<div class="mwe-upwiz-standard" />' ).append(
-					$( '<p></p>' ).msg(
+					$( '<p>' ).msg(
 							defaultLicenseMsg,
 							uploadCount,
 							this.authorInput.$element,
@@ -144,7 +144,7 @@
 
 				if ( this.showCustomDiv ) {
 					$customDiv = $( '<div class="mwe-upwiz-custom" />' ).append(
-						$( '<p></p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
+						$( '<p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 							uploadCount,
 							this.fakeAuthorInput.$element )
 					);
