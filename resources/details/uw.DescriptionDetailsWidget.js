@@ -27,7 +27,7 @@
 		} );
 		this.removeButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-remove-ctrl', 'mwe-upwiz-descriptionDetailsWidget-removeItem' ],
-			icon: 'remove',
+			icon: 'trash',
 			framed: false,
 			flags: [ 'destructive' ],
 			title: mw.message( 'mwe-upwiz-remove-description' ).text()

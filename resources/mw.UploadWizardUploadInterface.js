@@ -42,7 +42,7 @@
 			label: mw.message( 'mwe-upwiz-remove' ).text(),
 			title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
 			flags: 'destructive',
-			icon: 'remove',
+			icon: 'trash',
 			framed: false
 		} ).on( 'click', function () {
 			ui.emit( 'upload-removed' );
