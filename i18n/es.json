@@ -67,7 +67,7 @@
 	"mwe-upwiz-add-flickr": "Obtener de Flickr",
 	"mwe-upwiz-flickr-input-placeholder": "URL de Flickr",
 	"mwe-upwiz-select-flickr": "Subir imágenes seleccionadas",
-	"mwe-upwiz-flickr-disclaimer1": "Este formulario cargará contenidos alojados en flickr.com y sujetos a los [https://www.flickr.com/help/terms/ términos de uso] y la [https://www.flickr.com/help/privacy-policy/ política de privacidad] de Flickr.",
+	"mwe-upwiz-flickr-disclaimer1": "Este formulario cargará contenidos alojados en flickr.com y sujetos a los [https://www.flickr.com/help/terms/ términos de uso] y la [https://www.flickr.com/help/privacy-policy/ normativa de privacidad] de Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Ten en cuenta que al utilizar esta herramienta, Flickr tendrá a su disposición tu dirección IP y los detalles de la solicitud.",
 	"mwe-upwiz-error-no-image-retrieved": "No pudimos recuperar el archivo de $1.",
 	"mwe-upwiz-multi-file-select2": "Selecciona los archivos que desees cargar. Mantén presionada la tecla Mayús y haz clic para seleccionar varios archivos a la vez. Puedes seleccionar hasta $1 {{PLURAL:$1|archivo|archivos}} para subir.",
