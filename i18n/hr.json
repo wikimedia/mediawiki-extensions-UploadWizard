@@ -5,11 +5,17 @@
 			"Roberta F.",
 			"SpeedyGonsales",
 			"MaGa",
-			"Matma Rex"
+			"Matma Rex",
+			"Bugoslav"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje datoteka",
 	"uploadwizard-desc": "Čarobnjak za postavljanje datoteka, razvijen pomoću sredstava za multimedijsku uporabljivost",
+	"group-upwizcampeditors": "Uređivači pothvata Čarobnjaka za postavljanje datoteka",
+	"group-upwizcampeditors-member": "{{GENDER:$1|uređivač|uređivačica}} pothvata Čarobnjaka za postavljanje datoteka",
+	"grouppage-upwizcampeditors": "{{ns:project}}:Uređivači pothvata Čarobnjaka za postavljanje datoteka",
+	"api-error-noimageinfo": "Postavljanje je uspjelo, ali poslužitelj nije vratio nikakvu informaciju o datoteci.",
+	"api-error-timeout": "Poslužitelj nije odgovorio unutar očekivanog vrjemena.",
 	"mwe-upwiz-extension-disabled": "Ova je stranica zbog tehničkih problema trenutačno onemogućena. Probajte sa standardnim obrascem za postavljanje.",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Postavi",
@@ -99,7 +105,6 @@
 	"mwe-upwiz-next-details": "Sljedeće",
 	"mwe-upwiz-home": "Idi na početnu stranicu wiki",
 	"mwe-upwiz-upload-another": "Pošalji još datoteka",
-	"mwe-prevent-close": "Vaše datoteke se još uvijek šalju.\nJeste li sigurni da želite otići s ove stranice?",
 	"mwe-upwiz-prevent-close": "Niste završili postavljanje i objavu {{PLURAL:$1|datoteke|datoteka}}.",
 	"mwe-upwiz-tooltip-author": "Ime osobe koja je snimila fotografiju, ili naslikala sliku ili nacrtala crtež, itd.",
 	"mwe-upwiz-tooltip-source": "Odakle je došla ova digitalna datoteka -- može biti URL, knjiga ili publikacija",
