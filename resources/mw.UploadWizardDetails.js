@@ -183,7 +183,7 @@
 				title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
 				classes: [ 'mwe-upwiz-remove-upload' ],
 				flags: 'destructive',
-				icon: 'remove',
+				icon: 'trash',
 				framed: false
 			} ).on( 'click', function () {
 				OO.ui.confirm( mw.message( 'mwe-upwiz-license-confirm-remove' ).text(), {
