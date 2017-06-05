@@ -11,6 +11,7 @@
 	},
 	"uploadwizard": "Čarobnjak za postavljanje datoteka",
 	"uploadwizard-desc": "Čarobnjak za postavljanje datoteka, razvijen pomoću sredstava za multimedijsku uporabljivost",
+	"tag-uploadwizard": "Čarobnjak za postavljanje datoteka",
 	"group-upwizcampeditors": "Uređivači pothvata Čarobnjaka za postavljanje datoteka",
 	"group-upwizcampeditors-member": "{{GENDER:$1|uređivač|uređivačica}} pothvata Čarobnjaka za postavljanje datoteka",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Uređivači pothvata Čarobnjaka za postavljanje datoteka",
@@ -193,5 +194,6 @@
 	"mwe-upwiz-prefs-license-thirdparty": "Tuđe djelo - $1",
 	"mwe-upwiz-prefs-chunked": "Postavljanje datoteka iz dijelova za datoteke veće od $1 uz pomoć čarobnjaka za postavljanje.",
 	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič o licenciranju.",
-	"mwe-upwiz-prefs-maxsimultaneous-upload": "Najveći broj istovremenih postavljanja"
+	"mwe-upwiz-prefs-maxsimultaneous-upload": "Najveći broj istovremenih postavljanja",
+	"campaigns": "Pothvati projekta Čarobnjaka za postavljanje datoteka"
 }
