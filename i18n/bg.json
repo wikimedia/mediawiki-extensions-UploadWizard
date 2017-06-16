@@ -258,7 +258,7 @@
 	"mwe-upwiz-license-misc": "Други причини",
 	"mwe-upwiz-license-custom-head": "Само за експерти: Въведете с уики код лиценз, който не се съдържа измежду посочените",
 	"mwe-upwiz-license-custom-preview": "Преглеждане",
-	"mwe-upwiz-license-none-head": "Открито в Интернет -- не съм сигурен",
+	"mwe-upwiz-license-none-head": "Открито в Интернет – не съм сигурен",
 	"mwe-upwiz-license-confirm-remove": "Сигурни ли сте, че искате да отстраните {{PLURAL:$1|този файл|тези файлове}} от опашката за качване?",
 	"mwe-upwiz-license-confirm-remove-title": "Потвърждаване на премахването",
 	"mwe-upwiz-license-external": "В $1 този файл е публикуван под следния лиценз: $2.",
