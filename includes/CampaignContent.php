@@ -30,7 +30,7 @@ class CampaignContent extends JsonContent {
 			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
 		}
 
-		$schema = include ( __DIR__ . '/CampaignSchema.php' );
+		$schema = include __DIR__ . '/CampaignSchema.php';
 
 		// Only validate fields we care about
 		$campaignFields = array_keys( $schema['properties'] );
@@ -90,7 +90,6 @@ class CampaignContent extends JsonContent {
 	}
 
 	function generateHtml( $campaign ) {
-
 		$formatter = new CampaignPageFormatter( $campaign );
 
 		return $formatter->generateReadHtml();

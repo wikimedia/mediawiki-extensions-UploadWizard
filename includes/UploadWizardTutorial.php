@@ -51,7 +51,7 @@ class UploadWizardTutorial {
 			// XXX TODO if the client can handle SVG, we could also just send it the unscaled thumb,
 			// client-scaled into a DIV or something.
 			// if ( client can handle SVG ) {
-			//   $tutorialThumbnailImage->getUnscaledThumb();
+			// $tutorialThumbnailImage->getUnscaledThumb();
 			// }
 			// put it into a div of appropriate dimensions.
 
@@ -81,7 +81,6 @@ class UploadWizardTutorial {
 		}
 
 		return $errorHtml . $tutorialHtml;
-
 	}
 
 	/**

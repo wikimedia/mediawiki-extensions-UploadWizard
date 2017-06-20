@@ -379,6 +379,5 @@ class UploadWizardSimpleForm extends UploadForm {
 	 * So, we make the addUploadJS a no-op.
 	 */
 	protected function addUploadJS() {
-
 	}
 }
