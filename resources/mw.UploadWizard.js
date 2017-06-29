@@ -118,12 +118,12 @@
 							response = result;
 						} else if ( result && result.textStatus === 'timeout' ) {
 							// in case of $.ajax.fail(), there is no response json
-							response.errors[ 0 ].html = mw.message( 'api-error-timeout' ).parse();
+							response.errors[ 0 ].html = mw.message( 'apierror-timeout' ).parse();
 						} else if ( result && result.textStatus === 'parsererror' ) {
 							response.errors[ 0 ].html = mw.message( 'api-error-parsererror' ).parse();
 						} else if ( code === 'http' && result && result.xhr && result.xhr.status === 0 ) {
 							// failed to even connect to server
-							response.errors[ 0 ].html = mw.message( 'api-error-offline' ).parse();
+							response.errors[ 0 ].html = mw.message( 'apierror-offline' ).parse();
 						}
 
 						return $.Deferred().reject( code, response, response );
