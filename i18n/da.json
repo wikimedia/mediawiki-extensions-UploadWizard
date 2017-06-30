@@ -24,7 +24,6 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampagneredaktør for vejviseren til oplægning af filer}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampagneredaktører for vejviseren til oplægning af filer",
 	"api-error-noimageinfo": "Oplægningen lykkedes, men serveren gav os ikke nogen oplysninger om filen.",
-	"api-error-timeout": "Serveren svarede ikke tilbage inden for den forventede tid.",
 	"mwe-upwiz-extension-disabled": "Denne side er slået fra på grund af midlertidige tekniske problemer. Prøv at bruge standardformularen til filoplægning i mellemtiden.",
 	"mwe-upwiz-step-tutorial": "Lær",
 	"mwe-upwiz-step-file": "Læg op",

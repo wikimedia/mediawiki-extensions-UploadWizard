@@ -14,7 +14,6 @@
 	"action-upwizcampaigns": "kampaņu konfigurācija un augšupielāde",
 	"group-upwizcampeditors": "Augšupielādes vedņa kampaņas redaktors",
 	"api-error-aborted": "Augšupielāde pārtraukta.",
-	"api-error-timeout": "Serveris neatbildēja paredzētajā laikā.",
 	"mwe-upwiz-step-tutorial": "Uzziniet",
 	"mwe-upwiz-step-file": "Augšupielādējiet",
 	"mwe-upwiz-step-deeds": "Atbrīvojiet tiesības",

@@ -20,7 +20,6 @@
 	"group-upwizcampeditors.css": "/* Ovde postavljen CSS će se primenjivati samo na urednike kampanje Pomoćnika za otpremanje */",
 	"group-upwizcampeditors.js": "/* Ovde postavljen JS će se primenjivati samo na urednike kampanje Pomoćnika za otpremanje */",
 	"api-error-noimageinfo": "Otpremanje je uspelo, ali server nije dao nikakav podatak o datoteci.",
-	"api-error-timeout": "Server nije odgovorio u očekivano vreme.",
 	"mwe-upwiz-extension-disabled": "Ova stranica je onemogućena zbog privremenih tehničkih problema. U međuvremenu probajte standardan način za otpremanje.",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Slanje",

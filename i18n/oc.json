@@ -10,7 +10,6 @@
 	"action-upwizcampaigns": "configurar las campanhas d’impòrt",
 	"group-upwizcampeditors": "Editors de campanha de l’Assistent d’impòrt",
 	"api-error-noimageinfo": "Lo mandadís a capitat, mas lo servidor a pas donat cap d'informacions sul fichièr.",
-	"api-error-timeout": "Lo servidor a pas respondut dins lo relambi previst.",
 	"mwe-upwiz-step-tutorial": "Aprendre",
 	"mwe-upwiz-step-file": "Importar",
 	"mwe-upwiz-step-deeds": "Dreits acordats",

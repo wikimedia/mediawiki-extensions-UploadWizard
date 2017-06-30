@@ -14,8 +14,6 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|Wobdźěłar|Wobdźěłarka}} nahrawanskeje kamapanje",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampanjowi wobdźěłarjo (Upload Wizard)",
 	"api-error-noimageinfo": "Nahraće je so poradźiło, ale serwer njeje nam žane informacije wo dataji dał.",
-	"api-error-offline": "Dla problemow ze zwiskom k syći njemóžeš dale činić. Přepruwuj, zo maš fungowacy zwisk do interneta a spytaj znowa.",
-	"api-error-timeout": "Serwer njeje znutřka wočakowaneho časa wotmołwił.",
 	"mwe-upwiz-extension-disabled": "Tuta strona je so nachwilnych techniskich problemow dla znjemóžniła. Wužij mjeztym standardny nahrawanski formular.",
 	"mwe-upwiz-step-tutorial": "Wuknyć",
 	"mwe-upwiz-step-file": "Nahrać",

@@ -27,7 +27,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:अपलोड विज़ार्ड अभियान संपादक",
 	"api-error-aborted": "अपलोड रोका गया",
 	"api-error-noimageinfo": "अपलोड सफल रहा, लेकिन सर्वर ने फ़ाइल के बारे में हमें कोई जानकारी नहीं दी।",
-	"api-error-timeout": "सर्वर ने अपेक्षित समय के भीतर जवाब नहीं दिया",
 	"mwe-upwiz-extension-disabled": "यह पृष्ठ अस्थायी तकनीकी समस्याओं के कारण निष्क्रिय कर दिया गया. बीच में मानक अपलोड फार्म का प्रयास करें",
 	"mwe-upwiz-step-tutorial": "जानें",
 	"mwe-upwiz-step-file": "अपलोड करें",

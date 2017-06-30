@@ -14,7 +14,6 @@
 	"uploadwizard": "Čarobnjak za postavljanje",
 	"uploadwizard-desc": "Čarobnjak za postavljanje, razvijen pomoću sredstava za multimedijsku upotrebljivost",
 	"api-error-noimageinfo": "Postavljanje je uspjelo, ali server nam nije dao nikakvu informaciju o datoteci.",
-	"api-error-timeout": "Server nije odgovorio unutar očekivanog vremena.",
 	"mwe-upwiz-extension-disabled": "Ova stranica je onemogućena zbog privremenih tehničkih problema. U međuvremenu pokušajte sa uobičajenim obrascem za postavljanje.",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Postavi",

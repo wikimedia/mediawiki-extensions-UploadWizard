@@ -13,7 +13,6 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|Чуяхаран говзанча таераш}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Чуяхаран говзанча таераш",
 	"api-error-noimageinfo": "Кхиамца чуяьккхина, амма серверо файлахь лаьцна цхьаа хаам битина бац.",
-	"api-error-timeout": "Хьоьжу хана серверо жоп цало.",
 	"mwe-upwiz-extension-disabled": "ХӀара агӀо техникин белхаш беш болу дела дӀаяйина ю. Лелае стандартан чуяккхаран форма.",
 	"mwe-upwiz-step-tutorial": "Довзийтар",
 	"mwe-upwiz-step-file": "Чуйолуш",

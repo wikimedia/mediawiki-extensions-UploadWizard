@@ -31,7 +31,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Campagnebeheerders van de Uploadwizard",
 	"api-error-aborted": "Upload afgebroken.",
 	"api-error-noimageinfo": "De upload is afgerond, maar de server heeft geen gegevens over het bestand verstrekt.",
-	"api-error-timeout": "De server heeft niet binnen de verwachte tijd geantwoord.",
 	"mwe-upwiz-extension-disabled": "Deze pagina is uitgeschakeld vanwege tijdelijke technische problemen. In de tussentijd kunt u het standaard uploadformulier gebruiken.",
 	"mwe-upwiz-step-tutorial": "Leren",
 	"mwe-upwiz-step-file": "Uploaden",

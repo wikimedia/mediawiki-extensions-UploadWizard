@@ -41,8 +41,6 @@
 	"api-error-parsererror": "El servidor ha respondido con un documento JSON no válido. Esto podría ser un problema con la API, o puede que estés utilizando un servidor proxy que te impide subir archivos.",
 	"api-error-aborted": "Subida cancelada.",
 	"api-error-noimageinfo": "La carga se realizó correctamente, pero el servidor no nos dio ninguna información sobre el archivo.",
-	"api-error-offline": "No se puede continuar debido a problemas de conectividad de la red. Asegúrate de que tienes una conexión activa a internet e inténtalo de nuevo.",
-	"api-error-timeout": "El servidor no respondió en el plazo previsto.",
 	"mwe-upwiz-unavailable": "Tu navegador no es compatible con UploadWizard o tienes JavaScript desactivado, por lo que te mostramos un formulario sencillo de carga. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidad].)",
 	"mwe-upwiz-extension-disabled": "Esta página ha sido desactivada temporalmente debido a problemas técnicos. Mientras tanto puedes usar el formulario de subidas estándar.",
 	"mwe-upwiz-step-tutorial": "Aprender",

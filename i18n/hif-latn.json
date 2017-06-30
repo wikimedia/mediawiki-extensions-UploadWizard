@@ -6,7 +6,6 @@
 		]
 	},
 	"api-error-noimageinfo": "Upload hoe gais, lekin server file ke baare me koi jaankari nai diis.",
-	"api-error-timeout": "Server, expected time, me nai respond karis.",
 	"mwe-upwiz-source-thirdparty-accept": "Thik hae",
 	"mwe-upwiz-ok": "Thik hae",
 	"mwe-upwiz-errordialog-ok": "Thik hae"

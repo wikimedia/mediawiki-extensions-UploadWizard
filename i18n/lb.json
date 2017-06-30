@@ -17,7 +17,6 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Campagnen-Editeur (Upload Wizard)",
 	"api-error-aborted": "Eroplueden ofgebrach.",
 	"api-error-noimageinfo": "D'Eroplueden huet funktionéiert, awer de Server huet eis keng Informatiounen iwwer de Fichier ginn.",
-	"api-error-timeout": "De Server huet net bannen där Zäit geäntwert déi virgesinn ass.",
 	"mwe-upwiz-extension-disabled": "Dës Säit gouf wéint temporären technesche Problemer ausgeschalt. Probéiert et an der Zwëschenzäit mam Standard-Formulaire fir eropzelueden.",
 	"mwe-upwiz-step-tutorial": "Léieren",
 	"mwe-upwiz-step-file": "Eroplueden",
