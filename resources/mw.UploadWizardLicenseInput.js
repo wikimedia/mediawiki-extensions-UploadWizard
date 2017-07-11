@@ -311,10 +311,9 @@
 				nameId = $input.attr( 'id' ) + '_custom',
 				textarea, button;
 
-			textarea = new OO.ui.TextInputWidget( {
+			textarea = new OO.ui.MultilineTextInputWidget( {
 				value: customDefault,
 				name: nameId,
-				multiline: true,
 				autosize: true
 			} );
 			textarea.$input.attr( 'id', nameId );

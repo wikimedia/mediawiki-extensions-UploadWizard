@@ -18,10 +18,9 @@
 			menu: { items: this.getLanguageDropdownOptions() },
 			classes: [ 'mwe-upwiz-desc-lang-select', 'mwe-upwiz-descriptionDetailsWidget-language' ]
 		} );
-		this.descriptionInput = new OO.ui.TextInputWidget( {
+		this.descriptionInput = new OO.ui.MultilineTextInputWidget( {
 			classes: [ 'mwe-upwiz-desc-lang-text', 'mwe-upwiz-descriptionDetailsWidget-description' ],
 			placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ).text(),
-			multiline: true,
 			autosize: true,
 			rows: 2
 		} );

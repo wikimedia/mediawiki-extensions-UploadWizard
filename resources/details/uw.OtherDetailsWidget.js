@@ -8,9 +8,8 @@
 	uw.OtherDetailsWidget = function UWOtherDetailsWidget() {
 		uw.OtherDetailsWidget.parent.call( this );
 
-		this.textInput = new OO.ui.TextInputWidget( {
+		this.textInput = new OO.ui.MultilineTextInputWidget( {
 			classes: [ 'mwe-upwiz-other-textarea', 'mwe-upwiz-otherDetailsWidget-other' ],
-			multiline: true,
 			autosize: true,
 			rows: 2
 		} );

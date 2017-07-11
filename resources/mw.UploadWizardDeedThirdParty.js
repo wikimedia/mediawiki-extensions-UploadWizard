@@ -39,8 +39,7 @@
 
 		deed.uploadCount = uploadCount || 1;
 
-		deed.sourceInput = new OO.ui.TextInputWidget( {
-			multiline: true,
+		deed.sourceInput = new OO.ui.MultilineTextInputWidget( {
 			autosize: true,
 			classes: [ 'mwe-source' ],
 			name: 'source'
@@ -74,8 +73,7 @@
 			required: true
 		} );
 
-		deed.authorInput = new OO.ui.TextInputWidget( {
-			multiline: true,
+		deed.authorInput = new OO.ui.MultilineTextInputWidget( {
 			autosize: true,
 			classes: [ 'mwe-author' ],
 			name: 'author'
