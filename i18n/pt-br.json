@@ -290,6 +290,7 @@
 	"mwe-upwiz-unparseable-filename": "O nome do arquivo \"$1\" não foi compreendido.",
 	"mwe-upwiz-subhead-bugs": "[$1 Problemas conhecidos]",
 	"mwe-upwiz-subhead-alt-upload": "Voltar ao formulário antigo",
+	"mwe-upwiz-subhead-alternatives": "Métodos alternativos de upload",
 	"mwe-upwiz-feedback-prompt": "Deixar um comentário",
 	"mwe-upwiz-feedback-title": "Deixe um comentário sobre o Assistente de Envio de Arquivos",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Esta é a entrada da lista negra que corresponde: $1",
@@ -298,6 +299,7 @@
 	"mwe-upwiz-errordialog-ok": "OK",
 	"mwe-upwiz-error-nosuchcampaign": "Não há nenhuma campanha com o nome \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "A campanha \" $1 \"não está ativa.",
+	"mwe-upwiz-calendar-date": "Escolha a data do calendário",
 	"mwe-upwiz-custom-date": "Use o formato de data personalizado",
 	"prefs-uploads": "Enviando",
 	"prefs-upwiz-licensing": "Licenciamento",
@@ -311,6 +313,7 @@
 	"mwe-upwiz-prefs-chunked": "Transferências fragmentadas para arquivos com mais de $1 no Upload Wizard - Aumenta o tamanho máximo do upload de arquivos de $2 para $3",
 	"mwe-upwiz-prefs-skiptutorial": "Pular tutorial de introdução a licenciamento",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de envios concorrentes",
+	"campaigns": "Campanhas do Assistente de Envios",
 	"mwe-upload-campaigns-pagination-next": "Próxima página",
 	"mwe-upload-campaigns-list-title": "Lista de campanhas enviadas"
 }
