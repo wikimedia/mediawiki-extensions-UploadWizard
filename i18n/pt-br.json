@@ -121,6 +121,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(Qualquer um pode usar, compartilhar ou remixar {{PLURAL:$1|este trabalho|estes trabalhos}}, contanto que me seja dado crédito.)",
 	"mwe-upwiz-source-ownwork-assert-cc-zero": "Eu, $2, o detentor dos direitos autorais {{PLURAL:$1|deste trabalho|destes trabalhos}}, concedo irrevogavelmente a qualquer um o direito de utilizar {{PLURAL:$1|este trabalho|estes trabalhos}} sob a licença Creative Commons Dedicação ao Domínio Público 3.0 ([$3 código legal]).",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(Qualquer um pode usar, compartilhar ou remixar {{PLURAL:$1|este trabalho|estes trabalhos}}, sem nenhuma restrição.)",
+	"mwe-upwiz-source-ownwork-assert-generic": "Eu revisei [[{{int:disclaimerpage}}|o aviso legal para esta wiki]] e para o meu melhor conhecimento {{PLURAL:$1|este trabalho não esta|estes trabalhos não estão}} em níveis de proteção de dados superiores aos dessa wiki.",
 	"mwe-upwiz-source-ownwork-assert-custom": "Eu, $2, o titular dos direitos autorais {{PLURAL:$1|desta obra|destas obras}}, irrevogavelmente garanto à qualquer um o direito de {{PLURAL:$1|utilizá-la|utilizá-las}} sob a seguinte licença:",
 	"mwe-upwiz-source-ownwork-assert-note": "Eu, o detentor dos direitos autorais {{PLURAL:$2|desta obra, publico-a|destas obras, publico-as}} nos termos da licença $1.",
 	"mwe-upwiz-source-permission": "O autor deu-lhe permissão explícita para enviá-los",
@@ -278,6 +279,7 @@
 	"mwe-upwiz-license-custom-preview": "Visualizar",
 	"mwe-upwiz-license-none-head": "Encontrei na Internet - não tenho certeza",
 	"mwe-upwiz-license-none": "Acredito que {{PLURAL:$1|esta obra é|estas obras são}} livremente {{PLURAL:$1|licenciado|licenciados}} ou legalmente no domínio público. Eu entendo que se eu não adicionar as informações de licenciamento necessárias em tempo hábil {{PLURAL:$1|o arquivos pode ser excluído|os arquivos podemser excluídos}}.",
+	"mwe-upwiz-license-generic": "Eu revisei [[{{int:disclaimerpage}}|o aviso legal para esta wiki]] e para o meu melhor conhecimento {{PLURAL:$1|este trabalho não esta|estes trabalhos não estão}} em níveis de proteção de dados superiores aos dessa wiki.",
 	"mwe-upwiz-license-confirm-remove": "Você tem certeza de que pretende eliminar {{PLURAL:$1|este envio|estes envios}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Confirmar a remoção",
 	"mwe-upwiz-license-external": "Este arquivo está sujeito à seguinte licença no site \"$1\": $2.",
@@ -315,5 +317,11 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de envios concorrentes",
 	"campaigns": "Campanhas do Assistente de Envios",
 	"mwe-upload-campaigns-pagination-next": "Próxima página",
-	"mwe-upload-campaigns-list-title": "Lista de campanhas enviadas"
+	"mwe-upload-campaigns-list-title": "Lista de campanhas enviadas",
+	"apihelp-flickrblacklist-param-url": "O URL do Flickr a ser testado.",
+	"apihelp-flickrblacklist-example-2": "Retorna a lista negra inteira",
+	"apihelp-query+allcampaigns-description": "Enumerar todas as campanhas do UploadWizard.",
+	"apihelp-query+allcampaigns-summary": "Enumerar todas as campanhas do UploadWizard.",
+	"apihelp-query+allcampaigns-param-limit": "Número de campanhas para retornar.",
+	"apihelp-query+allcampaigns-example-1": "Enumerar todas as campanhas"
 }
