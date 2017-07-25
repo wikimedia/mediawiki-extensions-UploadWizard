@@ -517,6 +517,7 @@
 
 			return this.api.get( {
 				action: 'parse',
+				pst: true,
 				prop: 'templates',
 				title: 'File:UploadWizard license verification.png',
 				text: wikitext
@@ -639,7 +640,7 @@
 				) );
 			}
 
-			this.api.parse( wikiText ).done( show ).fail( error );
+			this.api.parse( wikiText, { pst: true } ).done( show ).fail( error );
 		},
 
 		/**
