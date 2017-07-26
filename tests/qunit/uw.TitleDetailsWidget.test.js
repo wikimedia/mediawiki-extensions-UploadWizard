@@ -31,12 +31,12 @@
 
 	QUnit.module( 'uw.TitleDetailsWidget', QUnit.newMwEnvironment() );
 
-	QUnit.test( '.static.makeTitleInFileNS()', function () {
+	QUnit.test( '.static.makeTitleInFileNS()', function ( assert ) {
 		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
 		$.each( makeTitleInFileNSCases, function ( i, test ) {
 			var title = makeTitleInFileNS( test.filename );
-			QUnit.equal(
+			assert.equal(
 				title ? title.getPrefixedText() : title,
 				test.prefixedText,
 				test.desc

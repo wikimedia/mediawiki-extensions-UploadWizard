@@ -107,8 +107,9 @@
 		assert.strictEqual( step.canTransition( upload ), false );
 	} );
 
-	QUnit.asyncTest( 'transitionAll', function ( assert ) {
+	QUnit.test( 'transitionAll', function ( assert ) {
 		var tostub,
+			done = assert.async(),
 			donestub = this.sandbox.stub(),
 			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],
 			ps = [ ds[ 0 ].promise(), ds[ 1 ].promise(), ds[ 2 ].promise() ],
@@ -149,7 +150,7 @@
 				setTimeout( function () {
 					assert.ok( donestub.called );
 
-					QUnit.start();
+					done();
 				} );
 			} );
 		} );
