@@ -18,7 +18,7 @@
 ( function ( $, mw, uw ) {
 	QUnit.module( 'uw.controller.Step', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Constructor sanity test', 2, function ( assert ) {
+	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Step( { on: $.noop }, new mw.Api(), {} );
 		assert.ok( step );
 		assert.ok( step.ui );

@@ -46,7 +46,7 @@
 		};
 	}
 
-	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
+	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Details( new mw.Api(), {
 			maxSimultaneousConnections: 1
 		} );
@@ -55,7 +55,7 @@
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'load', 12, function ( assert ) {
+	QUnit.test( 'load', function ( assert ) {
 		var step = new uw.controller.Details( new mw.Api(), {
 				maxSimultaneousConnections: 1
 			} ),
@@ -94,7 +94,7 @@
 		assert.ok( stepUiStub.called );
 	} );
 
-	QUnit.test( 'canTransition', 3, function ( assert ) {
+	QUnit.test( 'canTransition', function ( assert ) {
 		var upload = {},
 			step = new uw.controller.Details( new mw.Api(), {
 				maxSimultaneousConnections: 1
@@ -107,7 +107,7 @@
 		assert.strictEqual( step.canTransition( upload ), false );
 	} );
 
-	QUnit.asyncTest( 'transitionAll', 4, function ( assert ) {
+	QUnit.asyncTest( 'transitionAll', function ( assert ) {
 		var tostub,
 			donestub = this.sandbox.stub(),
 			ds = [ $.Deferred(), $.Deferred(), $.Deferred() ],

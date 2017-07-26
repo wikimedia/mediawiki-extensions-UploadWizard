@@ -33,13 +33,13 @@
 		return new mw.FormDataTransport( api, {}, config );
 	}
 
-	QUnit.test( 'Constructor sanity test', 1, function ( assert ) {
+	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var transport = createTransport();
 
 		assert.ok( transport );
 	} );
 
-	QUnit.test( 'abort', 3, function ( assert ) {
+	QUnit.test( 'abort', function ( assert ) {
 		var transport = createTransport( 0 ),
 			request = $.Deferred().promise( { abort: this.sandbox.stub() } );
 
@@ -53,7 +53,7 @@
 		assert.ok( transport.aborted );
 	} );
 
-	QUnit.test( 'createParams', 3, function ( assert ) {
+	QUnit.test( 'createParams', function ( assert ) {
 		var transport = createTransport( 10 ),
 			params = transport.createParams( 'foobar.jpg', 0 );
 
@@ -63,7 +63,7 @@
 		assert.strictEqual( params.offset, 0 );
 	} );
 
-	QUnit.test( 'post', 2, function ( assert ) {
+	QUnit.test( 'post', function ( assert ) {
 		var stub = this.sandbox.stub(),
 		// post() works on a promise and binds .then, so we have to make
 		// sure it actually is a promise, but also that it calls our stub
@@ -82,7 +82,7 @@
 		assert.ok( stub.called );
 	} );
 
-	QUnit.test( 'upload', 4, function ( assert ) {
+	QUnit.test( 'upload', function ( assert ) {
 		var request,
 			transport = createTransport( 10, new mw.Api() ),
 			fakeFile = {
@@ -104,7 +104,7 @@
 		transport.abort();
 	} );
 
-	QUnit.test( 'uploadChunk', 4, function ( assert ) {
+	QUnit.test( 'uploadChunk', function ( assert ) {
 		var request,
 			transport = createTransport( 10, new mw.Api() ),
 			fakeFile = {
@@ -134,7 +134,7 @@
 	} );
 
 	// test invalid server response (in missing 'stage' param)
-	QUnit.test( 'checkStatus invalid API response', 1, function ( assert ) {
+	QUnit.test( 'checkStatus invalid API response', function ( assert ) {
 		var done = assert.async(),
 			transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),
@@ -156,7 +156,7 @@
 	} );
 
 	// test retry after server responds upload is still incomplete
-	QUnit.test( 'checkStatus retry', 2, function ( assert ) {
+	QUnit.test( 'checkStatus retry', function ( assert ) {
 		var transport = createTransport( 10, new mw.Api() ),
 			usstub = this.sandbox.stub(),
 			poststub = this.sandbox.stub( transport.api, 'post' ),
@@ -185,7 +185,7 @@
 		} );
 	} );
 
-	QUnit.test( 'checkStatus success', 2, function ( assert ) {
+	QUnit.test( 'checkStatus success', function ( assert ) {
 		var transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),
 			usstub = this.sandbox.stub(),
@@ -204,7 +204,7 @@
 		} );
 	} );
 
-	QUnit.test( 'checkStatus error API response', 2, function ( assert ) {
+	QUnit.test( 'checkStatus error API response', function ( assert ) {
 		var done = assert.async(),
 			transport = createTransport( 10, new mw.Api() ),
 			tstub = this.sandbox.stub(),

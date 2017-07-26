@@ -31,7 +31,7 @@
 
 	QUnit.module( 'uw.TitleDetailsWidget', QUnit.newMwEnvironment() );
 
-	QUnit.test( '.static.makeTitleInFileNS()', makeTitleInFileNSCases.length, function () {
+	QUnit.test( '.static.makeTitleInFileNS()', function () {
 		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
 		$.each( makeTitleInFileNSCases, function ( i, test ) {

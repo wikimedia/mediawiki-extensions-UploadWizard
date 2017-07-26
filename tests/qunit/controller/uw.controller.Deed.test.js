@@ -18,14 +18,14 @@
 ( function ( $, mw, uw ) {
 	QUnit.module( 'uw.controller.Deed', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
+	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Deed();
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'load', 1, function ( assert ) {
+	QUnit.test( 'load', function ( assert ) {
 		var step = new uw.controller.Deed(
 				new mw.Api(),
 				{ licensing: { thirdParty: { type: 'test', licenses: [] } } }

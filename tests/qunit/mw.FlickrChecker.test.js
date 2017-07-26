@@ -14,7 +14,7 @@
 		return new mw.FlickrChecker( wizard, upload );
 	}
 
-	QUnit.test( 'getFilenameFromItem() simple case', 1, function () {
+	QUnit.test( 'getFilenameFromItem() simple case', function () {
 		var flickrChecker = getInstance();
 		QUnit.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
@@ -22,7 +22,7 @@
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() with empty title', 1, function () {
+	QUnit.test( 'getFilenameFromItem() with empty title', function () {
 		var flickrChecker = getInstance();
 		QUnit.equal(
 			flickrChecker.getFilenameFromItem( '', 123, 'johndoe' ),
@@ -30,7 +30,7 @@
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict within instance', 2, function () {
+	QUnit.test( 'getFilenameFromItem() name conflict within instance', function () {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		QUnit.equal(
@@ -44,7 +44,7 @@
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict between different instances', 2, function () {
+	QUnit.test( 'getFilenameFromItem() name conflict between different instances', function () {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		QUnit.equal(
@@ -59,7 +59,7 @@
 		);
 	} );
 
-	QUnit.test( 'setUploadDescription', 9, function ( assert ) {
+	QUnit.test( 'setUploadDescription', function ( assert ) {
 		var flickrChecker = getInstance(),
 			upload = {},
 			sidstub = this.sandbox.stub( flickrChecker, 'setImageDescription' );

@@ -39,13 +39,13 @@
 		return upload;
 	}
 
-	QUnit.test( 'constructor sanity test', 1, function ( assert ) {
+	QUnit.test( 'constructor sanity test', function ( assert ) {
 		var upload = createUpload();
 
 		assert.ok( upload );
 	} );
 
-	QUnit.test( 'getBasename', 3, function ( assert ) {
+	QUnit.test( 'getBasename', function ( assert ) {
 		var upload;
 
 		upload = createUpload( 'path/to/filename.png' );

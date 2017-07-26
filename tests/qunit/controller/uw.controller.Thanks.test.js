@@ -18,14 +18,14 @@
 ( function ( $, mw, uw ) {
 	QUnit.module( 'uw.controller.Thanks', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Constructor sanity test', 3, function ( assert ) {
+	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Thanks( new mw.Api(), { display: { thanksLabel: 'Thanks!' } } );
 		assert.ok( step );
 		assert.ok( step instanceof uw.controller.Step );
 		assert.ok( step.ui );
 	} );
 
-	QUnit.test( 'load', 1, function ( assert ) {
+	QUnit.test( 'load', function ( assert ) {
 		var step = new uw.controller.Thanks( new mw.Api(), {} ),
 			auStub = this.sandbox.stub( step.ui, 'addUpload' );
 
@@ -39,7 +39,7 @@
 		assert.strictEqual( auStub.callCount, 3 );
 	} );
 
-	QUnit.test( 'Custom button configuration', 4, function ( assert ) {
+	QUnit.test( 'Custom button configuration', function ( assert ) {
 		var config = {
 				display: {
 					homeButton: {
@@ -80,7 +80,7 @@
 
 	} );
 
-	QUnit.test( 'Method drops the given parameter', 1, function ( assert ) {
+	QUnit.test( 'Method drops the given parameter', function ( assert ) {
 		var uiThanks = new uw.ui.Thanks( {} ),
 			locationHref = 'https://commons.wikimedia.org/wiki/Special:UploadWizard?campaign=somecampaign&objref=testRef|MyPage|342&updateList=1&somevar=someval';
 
