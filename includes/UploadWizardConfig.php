@@ -79,7 +79,7 @@ class UploadWizardConfig {
 		static $mergedConfig = false;
 
 		if ( !$mergedConfig ) {
-			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely(
+			$wgUploadWizardConfig = self::array_replace_sanely(
 				self::getDefaultConfig(),
 				$wgUploadWizardConfig
 			);
@@ -87,7 +87,7 @@ class UploadWizardConfig {
 		}
 
 		if ( !is_null( $campaignName ) ) {
-			$wgUploadWizardConfig = UploadWizardConfig::array_replace_sanely(
+			$wgUploadWizardConfig = self::array_replace_sanely(
 				$wgUploadWizardConfig,
 				self::getCampaignConfig( $campaignName )
 			);

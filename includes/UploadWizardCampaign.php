@@ -93,7 +93,7 @@ class UploadWizardCampaign {
 	 *
 	 * @since 1.4
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getIsEnabled() {
 		return $this->config['enabled'];
