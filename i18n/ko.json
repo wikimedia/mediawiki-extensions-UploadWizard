@@ -290,6 +290,7 @@
 	"mwe-upwiz-error-title-invalid": "이 제목은 올바르지 않습니다. 네모 괄호, 콜론, 비교 연산자, 파이프와 중괄호와 같은 문자를 제거해야 합니다.",
 	"mwe-upwiz-subhead-bugs": "[$1 알려진 문제점]",
 	"mwe-upwiz-subhead-alt-upload": "이전의 양식으로 돌아가기",
+	"mwe-upwiz-subhead-alternatives": "다른 업로드 방식",
 	"mwe-upwiz-feedback-prompt": "피드백 남기기",
 	"mwe-upwiz-feedback-title": "파일 올리기 마법사에 대해 피드백 남기기",
 	"mwe-upwiz-feedback-blacklist-line-intro": "파일 이름과 일치한 블랙리스트 내용입니다:\n$1",
