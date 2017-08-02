@@ -55,7 +55,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Ipak nastavi",
 	"mwe-upwiz-skip-tutorial-future": "Preskoči ovaj korak ubuduće",
 	"mwe-upwiz-file-all-failed": "Nijedna datoteka nije otpremljena.",
-	"mwe-upwiz-upload-count": "$1 od $2 {{PLURAL:$2|datoteka otpremljena|datoteke otpremljene|datoteka otpremljeno}}",
+	"mwe-upwiz-upload-count": "{{PLURAL:$1|Otpremljena je $1 od $2 {{PLURAL:$2|datoteke|datoteke|datoteka}}|Otpremljene su $1 od $2 {{PLURAL:$2|datoteke|datoteke|datoteka}}|Otpremljeno je $1 od $2 {{PLURAL:$2|datoteke|datoteke|datoteka}}}}",
 	"mwe-upwiz-progressbar-uploading": "šalje se",
 	"mwe-upwiz-almost-finished": "Obrađujem datoteke...",
 	"mwe-upwiz-finished": "Završeno!",

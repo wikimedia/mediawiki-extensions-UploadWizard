@@ -82,7 +82,7 @@
 	"mwe-upwiz-file-upload-notcapable": "Niestety, twoja przeglądarka nie jest w stanie przesyłać plików.\nSpróbuj proszę użyć innej przeglądarki.",
 	"mwe-upwiz-file-all-ok": "Przesłano wszystkie pliki.",
 	"mwe-upwiz-file-some-failed": "Niektórych plików nie przesłano.",
-	"mwe-upwiz-file-retry": "Prześlij ponownie nieudane",
+	"mwe-upwiz-file-retry": "Prześlij ponownie",
 	"mwe-upwiz-next-file-despite-failures": "Kontynuuj mimo wszystko",
 	"mwe-upwiz-skip-tutorial-future": "Pomiń ten krok w przyszłości",
 	"mwe-upwiz-file-all-failed": "Nie udało się przesłać żadnego pliku.",

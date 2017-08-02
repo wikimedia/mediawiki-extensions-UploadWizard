@@ -61,7 +61,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Ипак настави",
 	"mwe-upwiz-skip-tutorial-future": "Прескочи овај корак убудуће",
 	"mwe-upwiz-file-all-failed": "Ниједна датотека није отпремљена.",
-	"mwe-upwiz-upload-count": "{{PLURAL:$1|Отпремљена је $1 датотека|Отпремљене су $1 датотеке|Отпремљено је $1 датотеки}} од $2",
+	"mwe-upwiz-upload-count": "{{PLURAL:$1|Отпремљена је $1 од $2 {{PLURAL:$2|датотеке|датотеке|датотека}}|Отпремљене су $1 од $2 {{PLURAL:$2|датотеке|датотеке|датотека}}|Отпремљено је $1 од $2 {{PLURAL:$2|датотеке|датотеке|датотека}}}}",
 	"mwe-upwiz-progressbar-uploading": "отпремам",
 	"mwe-upwiz-almost-finished": "Обрађујем датотеке...",
 	"mwe-upwiz-finished": "Завршено!",
