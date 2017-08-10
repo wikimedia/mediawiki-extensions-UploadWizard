@@ -348,7 +348,7 @@
 	"campaigns": "حملات معالج الرفع",
 	"mwe-upload-campaigns-pagination-next": "الصفحة التالية",
 	"mwe-upload-campaigns-list-title": "قائمة حملات الرفع",
-	"apihelp-flickrblacklist-description": "تحقق من مسار Flickr عن طريق استخدام رقم المستخدم (NSID) للقائمة السوداء.\n\nعند الاستخدام مع خيار list، فسيرجع كل الأرقام في القائمة السوداء.",
+	"apihelp-flickrblacklist-description": "تحقق من مسار فلكر عن طريق استخدام رقم المستخدم (NSID) للقائمة السوداء.\n\nعند الاستخدام مع خيار <var>list</var>، فسيرجع كل الأرقام في القائمة السوداء.",
 	"apihelp-flickrblacklist-param-url": "مسار Flickr للاختبار.",
 	"apihelp-flickrblacklist-param-list": "عندما تكون مضبوطة، يتم إرجاع القائمة السوداء الكاملة. لا يمكن استخدامها مع $1url.",
 	"apihelp-flickrblacklist-example-1": "تحقق من الرابط في قائمة السوداء",
