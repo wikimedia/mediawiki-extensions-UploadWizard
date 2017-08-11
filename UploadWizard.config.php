@@ -574,7 +574,7 @@ return [
 	// exceptions used at Wikimedia Commons: the language template for Tagalog (ISO 646 code 'tl') is not named 'tl'
 	// but 'tgl' for historical reasons.
 	// @codingStandardsIgnoreEnd
-	'languageTemplateFixups' =>  $uwDefaultLanguageFixups,
+	'languageTemplateFixups' => $uwDefaultLanguageFixups,
 
 		// @codingStandardsIgnoreStart
 		// XXX this is horribly confusing -- some file restrictions are client side, others are server side
