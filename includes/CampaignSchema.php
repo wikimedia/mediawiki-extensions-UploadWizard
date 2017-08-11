@@ -71,7 +71,7 @@ return [
 		],
 		"defaults" => [
 			"type" => "object",
-			"properties" =>[
+			"properties" => [
 				"alt" => [
 					"type" => "number"
 				],
@@ -96,7 +96,7 @@ return [
 		],
 		"display" => [
 			"type" => "object",
-			"properties" =>[
+			"properties" => [
 				"headerLabel" => [
 					"type" => "string"
 				],
@@ -138,7 +138,7 @@ return [
 		],
 		"licensing" => [
 			"type" => "object",
-			"properties" =>[
+			"properties" => [
 				"defaultType" => [
 					"type" => "string"
 				],
@@ -147,14 +147,14 @@ return [
 				],
 				"ownWork" => [
 					"type" => "object",
-					"properties" =>[
+					"properties" => [
 						"default" => [
 							"type" => "string",
 							"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
 						],
 						"licenses" => [
 							"type" => "array",
-							"items" =>[
+							"items" => [
 								[
 									"type" => "string",
 									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
@@ -172,23 +172,23 @@ return [
 				],
 				"thirdParty" => [
 					"type" => "object",
-					"properties" =>[
+					"properties" => [
 						"defaults" => [
 							"type" => "string",
 							"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
 						],
 						"licenseGroups" => [
 							"type" => "array",
-							"items" =>[
+							"items" => [
 								[
 									"type" => "object",
-									"properties" =>[
+									"properties" => [
 										"head" => [
 											"type" => "string"
 										],
 										"licenses" => [
 											"type" => "array",
-											"items" =>[
+											"items" => [
 												[
 													"type" => "string",
 													"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
@@ -213,7 +213,7 @@ return [
 		],
 		"tutorial" => [
 			"type" => "object",
-			"properties" =>[
+			"properties" => [
 				"skip" => [
 					"type" => "boolean"
 				],
@@ -233,7 +233,7 @@ return [
 			"properties" => [
 				"display" => [
 					"type" => "object",
-					"properties" =>[
+					"properties" => [
 						"headerLabel" => [
 							"type" => "string"
 						],
@@ -266,7 +266,7 @@ return [
 			"properties" => [
 				"display" => [
 					"type" => "object",
-					"properties" =>[
+					"properties" => [
 						"headerLabel" => [
 							"type" => "string"
 						],
@@ -282,7 +282,7 @@ return [
 			"properties" => [
 				"display" => [
 					"type" => "object",
-					"properties" =>[
+					"properties" => [
 						"headerLabel" => [
 							"type" => "string"
 						],

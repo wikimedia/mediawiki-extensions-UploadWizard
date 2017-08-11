@@ -132,7 +132,7 @@ class UploadWizardConfig {
 	 * @return array
 	 */
 	protected static function getDefaultConfig() {
-		$configPath =  dirname( __DIR__ ) . '/UploadWizard.config.php';
+		$configPath = dirname( __DIR__ ) . '/UploadWizard.config.php';
 		return is_file( $configPath ) ? include $configPath : [];
 	}
 
