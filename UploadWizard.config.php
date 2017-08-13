@@ -9,7 +9,8 @@ global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
 
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
-$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates', $userLangCode );
+// Increase the number below to invalidate the cache if this code changes.
+$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates2', $userLangCode );
 // Try to get a cached version of the list
 $uwLanguages = $wgMemc->get( $cacheKey );
 // Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
@@ -54,6 +55,14 @@ if ( !$uwLanguages ) {
 			}
 		}
 	}
+
+	// Skip the duplicate deprecated language codes if the new one is okay to use.
+	foreach ( LanguageCode::getDeprecatedCodeMapping() as $oldKey => $newKey ) {
+		if ( isset( $uwLanguages[$newKey] ) && isset( $uwLanguages[$oldKey] ) ) {
+			unset( $uwLanguages[$oldKey] );
+		}
+	}
+
 	// Sort the list by the language name
 	natcasesort( $uwLanguages );
 	// Cache the list for 1 day
