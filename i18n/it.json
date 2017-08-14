@@ -19,7 +19,8 @@
 			"Matma Rex",
 			"Fringio",
 			"Walter Raffoni",
-			"Anto"
+			"Anto",
+			"Greis"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -145,7 +146,7 @@
 	"mwe-upwiz-copy-location": "Copia posizione",
 	"mwe-upwiz-copy-other": "Copia altre informazioni",
 	"mwe-upwiz-desc": "Descrizione",
-	"mwe-upwiz-desc-placeholder": "Descrivi l'immagine",
+	"mwe-upwiz-desc-placeholder": "Descrivere il file",
 	"mwe-upwiz-desc-add-n": "Aggiungi una descrizione in un'altra lingua",
 	"mwe-upwiz-desc-add-0": "Aggiungi una descrizione",
 	"mwe-upwiz-title": "Titolo",

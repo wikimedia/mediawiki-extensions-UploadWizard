@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sahran"
+			"Sahran",
+			"Uzdil"
 		]
 	},
 	"api-error-noimageinfo": "مۇۋەپپەقىيەتلىك يۈكلەندى ئەمما مۇلازىمېتىر ھۆججەتكە مۇناسىۋەتلىك ئۇچۇر بەرمىدى.",
@@ -16,6 +17,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "جەزملە",
 	"mwe-upwiz-copy-metadata-button": "كۆچۈر",
 	"mwe-upwiz-desc": "چۈشەندۈرۈش",
+	"mwe-upwiz-desc-placeholder": "ھۆججەت ئىزاھلاش",
 	"mwe-upwiz-title": "ماۋزۇ",
 	"mwe-upwiz-location": "ئورنى",
 	"mwe-upwiz-location-lat": "كەڭلىك",
