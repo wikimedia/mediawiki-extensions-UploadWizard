@@ -10,7 +10,7 @@ global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
 // Increase the number below to invalidate the cache if this code changes.
-$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates2', $userLangCode );
+$cacheKey = wfMemcKey( 'uploadwizard', 'language-templates3', $userLangCode );
 // Try to get a cached version of the list
 $uwLanguages = $wgMemc->get( $cacheKey );
 // Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
@@ -66,7 +66,7 @@ if ( !$uwLanguages ) {
 	// Sort the list by the language name. (If a specific collation is not available
 	// for the user's language, this falls back to a generic 'root' one.)
 	$collator = Collator::create( $userLangCode );
-	$collator->sort( $uwLanguages );
+	$collator->asort( $uwLanguages );
 	// Cache the list for 1 day
 	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
 }
