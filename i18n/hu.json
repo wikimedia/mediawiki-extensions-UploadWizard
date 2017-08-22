@@ -17,7 +17,8 @@
 			"Matma Rex",
 			"Dorgan",
 			"Macofe",
-			"Máté"
+			"Máté",
+			"Bencemac"
 		]
 	},
 	"uploadwizard": "Feltöltésvarázsló",
@@ -134,7 +135,7 @@
 	"mwe-upwiz-copy-location": "Helyszín másolása",
 	"mwe-upwiz-copy-other": "További információk másolása",
 	"mwe-upwiz-desc": "Leírás",
-	"mwe-upwiz-desc-placeholder": "Írd le, mit ábrázol a kép",
+	"mwe-upwiz-desc-placeholder": "Írd le, mit ábrázol a fájl",
 	"mwe-upwiz-desc-add-n": "Leírás hozzáadása más nyelven is",
 	"mwe-upwiz-desc-add-0": "Leírás hozzáadása",
 	"mwe-upwiz-title": "Cím",
