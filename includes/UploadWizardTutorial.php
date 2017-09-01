@@ -86,7 +86,7 @@ class UploadWizardTutorial {
 	/**
 	 * Get tutorial file for a particular language, or false if not available.
 	 *
-	 * @param String $langCode: language Code
+	 * @param String $langCode language Code
 	 * @param String|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
 	 *
 	 * @return File|false

@@ -22,7 +22,7 @@ class CampaignContent extends JsonContent {
 	 * Checks user input JSON to make sure that it produces a valid campaign object
 	 *
 	 * @throws JsonSchemaException: If invalid.
-	 * @return bool: True if valid.
+	 * @return bool True if valid.
 	 */
 	function validate() {
 		$campaign = $this->getJsonData();
@@ -50,7 +50,7 @@ class CampaignContent extends JsonContent {
 	}
 
 	/**
-	 * @return bool: Whether content is valid JSON Schema.
+	 * @return bool Whether content is valid JSON Schema.
 	 */
 	function isValid() {
 		try {
