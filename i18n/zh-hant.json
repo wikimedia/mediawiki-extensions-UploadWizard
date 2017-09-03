@@ -17,7 +17,8 @@
 			"LNDDYL",
 			"Cwlin0416",
 			"EagerLin",
-			"Black9869184"
+			"Black9869184",
+			"Wwycheuk"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -211,7 +212,7 @@
 	"mwe-upwiz-error-title-blacklisted": "此標題含有部份己封鎖的文字，請修正。",
 	"mwe-upwiz-error-title-senselessimagename": "請使用一個更具意義的標題。",
 	"mwe-upwiz-error-title-thumbnail": "這似乎是一個縮圖的標題。請勿將縮圖上傳回相同的維基。否則，請修改標題，使其更有意義且不含縮圖字首。",
-	"mwe-upwiz-error-title-extension": "您無需新增副檔名，只需吏用一個能讓他人理解的標題。程式會完成其它事項。",
+	"mwe-upwiz-error-title-extension": "無需加入副檔名，只需使用一個能讓他人理解的標題。程式會完成其它事項。",
 	"mwe-upwiz-error-title-protected": "此標題對應至此 Wiki 的受保護頁面，請選擇其標題。",
 	"mwe-upwiz-error-title-duplicate": "這個標題已指定為您上傳的多個檔案。底線將視為空格並自動加入檔案副檔名。",
 	"mwe-upwiz-error-license-wikitext-missing": "您選擇的選項需要輸入 WikiText。",
