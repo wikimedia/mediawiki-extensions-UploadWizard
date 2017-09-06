@@ -1,12 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
-			"Translatealcd"
+			"Translatealcd",
+			"Hitaypayan"
 		]
 	},
+	"action-upwizcampaigns": "syaniy pptzyuwaw na ppawsa’ na kktan",
+	"mwe-upwiz-add-file-n": "Twangiy pzyux na’ na Tang’an",
+	"mwe-upwiz-queued": "Wayal spgluw sa gaga’ na paybkgan",
+	"mwe-upwiz-finished": "Wal tmasuq la!",
+	"mwe-upwiz-desc-add-n": "Misan tnwang inblaqan kmal",
+	"mwe-upwiz-location-button": "Pkt’aniy sa babaw na cizu’",
 	"mwe-upwiz-location-lon": "Cingtu’",
+	"mwe-upwiz-thanks-intro": "Mhway su’ balay na snatu’ su’ sa kktan!",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "Ini’ baqiy na’ lalu’ na Tang’an",
 	"mwe-upwiz-previous": "’bzinah",
+	"mwe-upwiz-upload-another": "Pawsa’ pzyux na’ na Tang’an",
 	"mwe-upwiz-dialog-yes": "Aw’",
 	"mwe-upwiz-dialog-no": "Iyat",
-	"mwe-upwiz-dialog-title": "Cingkaw"
+	"mwe-upwiz-dialog-title": "Cingkaw",
+	"mwe-upwiz-subhead-alternatives": "Ppawsa’ na ppawsa’ bzinah",
+	"mwe-upwiz-feedback-prompt": "Sbiliy miru’ sa bniq na kay’",
+	"mwe-upwiz-prefs-def-license": "Pinnama’ smi’ biru’ na gaga’ na snwayal miq sa kinri’",
+	"campaigns": "Pawsa’ sa kktan quw hotung na Wizard (praw)",
+	"mwe-upload-campaigns-list-title": "Pawsa’ sa kktan quw binzyagan sa kktan na hotung"
 }
