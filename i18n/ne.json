@@ -145,7 +145,7 @@
 	"mwe-upwiz-errordialog-ok": "हुन्छ",
 	"mwe-upwiz-error-nosuchcampaign": "\"$1\"नाम गरेको अभियान छैन",
 	"mwe-upwiz-error-campaigndisabled": "अभियान \"$1\" अहिले सक्रिय भएको छैन",
-	"prefs-uploads": "अपलोड गर्ने",
+	"prefs-uploads": "अपलोड गरिँदै",
 	"prefs-upwiz-licensing": "अनुज्ञा प्राप्त गर्दै",
 	"prefs-upwiz-experimental": "प्रायोगिक सुविधाहरु",
 	"prefs-upwiz-interface": "प्रयोगकर्ता इन्टरफेस",

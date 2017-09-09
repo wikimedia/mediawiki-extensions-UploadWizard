@@ -42,7 +42,7 @@
 	"mwe-upwiz-file-some-failed": "Nokre opplastingar gjekk ikkje gjennom.",
 	"mwe-upwiz-file-retry": "Freist om att på opplastingane som ikkje gjekk",
 	"mwe-upwiz-next-file-despite-failures": "Hald fram likevel",
-	"mwe-upwiz-skip-tutorial-future": "Hoppa over dette steget i framtida",
+	"mwe-upwiz-skip-tutorial-future": "Hopp over dette steget i framtida",
 	"mwe-upwiz-file-all-failed": "Ingen av opplastingane gjekk gjennom.",
 	"mwe-upwiz-upload-count": "$1 av $2 {{PLURAL:$2|fil|filer}} lasta opp",
 	"mwe-upwiz-progressbar-uploading": "lastar opp",
