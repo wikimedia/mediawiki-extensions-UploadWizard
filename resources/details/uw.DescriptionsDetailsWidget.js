@@ -40,11 +40,29 @@
 
 		// Add empty non-removable description if this field is required
 		if ( this.required ) {
-			this.addItems( [ new uw.DescriptionDetailsWidget( { canBeRemoved: false } ) ] );
+			this.addItems( [
+				new uw.DescriptionDetailsWidget( {
+					canBeRemoved: false
+				} )
+			] );
 		}
 	};
 	OO.inheritClass( uw.DescriptionsDetailsWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.DescriptionsDetailsWidget, OO.ui.mixin.GroupElement );
+
+	/**
+	 * Initialise a ULS for language selection within the DescriptionDetailsWidget(s)
+	 *
+	 * Not called from the constructor because we don't want the ULS to be in its default position,
+	 * and in order to know where to re-position to we must wait until the widgets have been
+	 * attached to the DOM
+	 */
+	uw.DescriptionsDetailsWidget.prototype.initialiseUls = function () {
+		var i;
+		for ( i = 0; i < this.items.length; i++ ) {
+			this.items[ i ].initialiseUls();
+		}
+	};
 
 	/**
 	 * Add multiple descriptions in another language.
@@ -52,11 +70,14 @@
 	 * @param {number} n Number of descriptions
 	 */
 	uw.DescriptionsDetailsWidget.prototype.addDescriptions = function ( n ) {
-		var items = [];
+		var i, items = [];
 		while ( n-- ) {
 			items.push( new uw.DescriptionDetailsWidget() );
 		}
 		this.addItems( items );
+		for ( i = 0; i < items.length; i++ ) {
+			items[ i ].initialiseUls();
+		}
 	};
 
 	/**

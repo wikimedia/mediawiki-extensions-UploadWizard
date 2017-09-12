@@ -230,6 +230,7 @@
 				} );
 			}
 
+			this.descriptionsDetails.initialiseUls();
 			this.populate();
 
 			this.interfaceBuilt = true;
@@ -414,15 +415,15 @@
 							timeMatches = dateInfo.trim().match( timeRegex );
 							if ( timeMatches ) {
 								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
-											parseInt( matches[ 2 ], 10 ) - 1,
-											parseInt( matches[ 3 ], 10 ),
-											parseInt( timeMatches[ 1 ], 10 ),
-											parseInt( timeMatches[ 2 ], 10 ),
-											parseInt( timeMatches[ 3 ], 10 ) );
+									parseInt( matches[ 2 ], 10 ) - 1,
+									parseInt( matches[ 3 ], 10 ),
+									parseInt( timeMatches[ 1 ], 10 ),
+									parseInt( timeMatches[ 2 ], 10 ),
+									parseInt( timeMatches[ 3 ], 10 ) );
 							} else {
 								dateObj = new Date( parseInt( matches[ 1 ], 10 ),
-											parseInt( matches[ 2 ], 10 ) - 1,
-											parseInt( matches[ 3 ], 10 ) );
+									parseInt( matches[ 2 ], 10 ) - 1,
+									parseInt( matches[ 3 ], 10 ) );
 							}
 							return false; // break from $.each
 						}

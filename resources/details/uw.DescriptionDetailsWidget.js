@@ -9,15 +9,27 @@
 	 * @param {boolean} [config.canBeRemoved=true]
 	 */
 	uw.DescriptionDetailsWidget = function UWDescriptionDetailsWidget( config ) {
+		var languageOptions = this.getLanguageOptions(),
+			defaultLanguage = this.constructor.static.getDefaultLanguage();
+
 		config = config || {};
 
 		uw.DescriptionDetailsWidget.parent.call( this );
 		uw.ValidationMessageElement.call( this );
 
-		this.languageDropdown = new OO.ui.DropdownWidget( {
-			menu: { items: this.getLanguageDropdownOptions() },
-			classes: [ 'mwe-upwiz-desc-lang-select', 'mwe-upwiz-descriptionDetailsWidget-language' ]
-		} );
+		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
+			this.languageSelector = new uw.UlsWidget( {
+				languages: languageOptions,
+				defaultLanguage: defaultLanguage,
+				classes: [ 'mwe-upwiz-desc-lang-select', 'mwe-upwiz-descriptionDetailsWidget-language' ]
+			} );
+		} else {
+			this.languageSelector = new uw.LanguageDropdownWidget( {
+				menuOptionWidgets: this.getLanguageMenuOptionWidgets( languageOptions ),
+				classes: [ 'mwe-upwiz-desc-lang-select', 'mwe-upwiz-descriptionDetailsWidget-language' ]
+			} );
+		}
+
 		this.descriptionInput = new OO.ui.MultilineTextInputWidget( {
 			classes: [ 'mwe-upwiz-desc-lang-text', 'mwe-upwiz-descriptionDetailsWidget-description' ],
 			placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ).text(),
@@ -36,17 +48,15 @@
 			click: 'onRemoveClick'
 		} );
 
-		this.languageDropdown.getMenu()
-			.selectItemByData( this.constructor.static.getDefaultLanguage() );
+		this.languageSelector.setValue( defaultLanguage );
 
 		// Aggregate 'change' event
-		this.languageDropdown.connect( this, { change: [ 'emit', 'change' ] } );
 		// (but do not flash warnings in the user's face while they're typing)
 		this.descriptionInput.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
 
 		this.$element.addClass( 'mwe-upwiz-descriptionDetailsWidget' );
 		this.$element.append(
-			this.languageDropdown.$element,
+			this.languageSelector.getElement(),
 			this.descriptionInput.$element
 		);
 		// HACK: ValidationMessageElement will append messages after this.$body
@@ -58,6 +68,21 @@
 	};
 	OO.inheritClass( uw.DescriptionDetailsWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.DescriptionDetailsWidget, uw.ValidationMessageElement );
+
+	/**
+	 * Initialise a ULS for language selection
+	 *
+	 * Not called from the constructor because we don't want the ULS to be in its default position,
+	 * and in order to know where to re-position to we must wait until the widgets have been
+	 * attached to the DOM
+	 *
+	 * Called from containing widget (DescriptionsDetailsWidget)
+	 */
+	uw.DescriptionDetailsWidget.prototype.initialiseUls = function () {
+		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
+			this.languageSelector.initialiseUls();
+		}
+	};
 
 	/**
 	 * Handle remove button click events.
@@ -137,22 +162,37 @@
 	 * Get options for the dropdown list of all allowed languages.
 	 *
 	 * @private
+	 * @param {Object} languages
 	 * @return {OO.ui.MenuOptionWidget[]}
 	 */
-	uw.DescriptionDetailsWidget.prototype.getLanguageDropdownOptions = function () {
-		var options, code, language;
+	uw.DescriptionDetailsWidget.prototype.getLanguageMenuOptionWidgets = function ( languages ) {
+		var options;
 
 		options = [];
-		for ( code in mw.UploadWizard.config.uwLanguages ) {
-			if ( mw.UploadWizard.config.uwLanguages.hasOwnProperty( code ) ) {
-				language = mw.UploadWizard.config.uwLanguages[ code ];
-				options.push( new OO.ui.MenuOptionWidget( {
+		$.each( languages, function ( code, language ) {
+			options.push(
+				new OO.ui.MenuOptionWidget( {
 					data: code,
 					label: language
-				} ) );
+				} )
+			);
+		} );
+		return options;
+	};
+
+	/**
+	 * @return {Object}
+	 */
+	uw.DescriptionDetailsWidget.prototype.getLanguageOptions = function () {
+		var languages, code;
+
+		languages = {};
+		for ( code in mw.UploadWizard.config.uwLanguages ) {
+			if ( mw.UploadWizard.config.uwLanguages.hasOwnProperty( code ) ) {
+				languages[ code ] = mw.UploadWizard.config.uwLanguages[ code ];
 			}
 		}
-		return options;
+		return languages;
 	};
 
 	/**
@@ -181,7 +221,7 @@
 	 */
 	uw.DescriptionDetailsWidget.prototype.getWikiText = function () {
 		var
-			language = this.languageDropdown.getMenu().getSelectedItem().getData(),
+			language = this.languageSelector.getValue(),
 			description = this.descriptionInput.getValue().trim();
 
 		if ( !description ) {
@@ -201,7 +241,7 @@
 	 */
 	uw.DescriptionDetailsWidget.prototype.getSerialized = function () {
 		return {
-			language: this.languageDropdown.getMenu().getSelectedItem().getData(),
+			language: this.languageSelector.getValue(),
 			description: this.descriptionInput.getValue()
 		};
 	};
@@ -213,7 +253,7 @@
 	 * @param {string} serialized.description Description text
 	 */
 	uw.DescriptionDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		this.languageDropdown.getMenu().selectItemByData( serialized.language );
+		this.languageSelector.setValue( serialized.language );
 		this.descriptionInput.setValue( serialized.description );
 	};
 

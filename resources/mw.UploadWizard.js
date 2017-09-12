@@ -27,6 +27,8 @@
 		}
 
 		this.maxSimultaneousConnections = config.maxSimultaneousConnections;
+
+		mw.loader.load( 'ext.uls.mediawiki' );
 	};
 
 	mw.UploadWizard.DEBUG = true;

@@ -228,6 +228,8 @@
 				"resources/details/uw.CategoriesDetailsWidget.js",
 				"resources/details/uw.DeedChooserDetailsWidget.js",
 				"resources/details/uw.DescriptionDetailsWidget.js",
+				"resources/details/uw.LanguageDropdownWidget.js",
+				"resources/details/uw.UlsWidget.js",
 				"resources/details/uw.DescriptionsDetailsWidget.js",
 				"resources/details/uw.LocationDetailsWidget.js",
 				"resources/details/uw.OtherDetailsWidget.js",
