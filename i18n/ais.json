@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Benel",
-			"Bunukwiki"
+			"Bunukwiki",
+			"Tokoabibi"
 		]
 	},
 	"uploadwizard": "patapabaw miedapay",
@@ -10,7 +11,7 @@
 	"action-upwizcampaigns": "setin patapabaway a matagengil nu saungay nu binawlan",
 	"mwe-upwiz-step-file": "patapabaw",
 	"mwe-upwiz-step-deeds": "patiyak a kinli",
-	"mwe-upwiz-step-details": "sapuelac",
+	"mwe-upwiz-step-details": "patahkal",
 	"mwe-upwiz-help-desk": "miedap a kuwanan",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:miedap a kuwanan",
 	"mwe-upwiz-add-file-n": "micunus sayadah a tangan",
@@ -30,6 +31,7 @@
 	"mwe-upwiz-next-file-despite-failures": "uyzatu palalid",
 	"mwe-upwiz-progressbar-uploading": "patapabaw henay ayza",
 	"mwe-upwiz-almost-finished": "tangan misakawaw henay ayza...",
+	"mwe-upwiz-finished": "malaheci tuway!",
 	"mwe-upwiz-source-thirdparty-accept": "malucekay",
 	"mwe-upwiz-copy-metadata-button-undo": "patiku",
 	"mwe-upwiz-copied-metadata": "makopi tuway!",
