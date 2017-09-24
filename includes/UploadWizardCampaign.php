@@ -132,7 +132,7 @@ class UploadWizardCampaign {
 		$data = $wgMemc->get( $key );
 		if ( $data === false ) {
 			wfDebug( __METHOD__ . ' cache miss for key ' . $key );
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$result = $dbr->select(
 				[ 'categorylinks', 'page', 'image' ],
 				[ 'count' => 'COUNT(DISTINCT img_user)' ],
@@ -156,7 +156,7 @@ class UploadWizardCampaign {
 	}
 
 	public function getUploadedMedia( $limit = 24 ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$result = $dbr->select(
 			[ 'categorylinks', 'page' ],
 			[ 'cl_from', 'page_namespace', 'page_title' ],

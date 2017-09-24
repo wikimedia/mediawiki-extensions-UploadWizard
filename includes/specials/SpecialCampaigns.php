@@ -8,7 +8,7 @@ class SpecialCampaigns extends SpecialPage {
 
 	public function execute( $subPage ) {
 		$request = $this->getRequest();
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$start = (int)$request->getVal( 'start' );
 
