@@ -807,7 +807,12 @@
 				filekey: this.upload.fileKey,
 				filename: this.getTitle().getMain(),
 				comment: 'User created page with ' + mw.UploadWizard.userAgent,
-				tags: mw.UploadWizard.config.CanAddTags ? tags : []
+				tags: mw.UploadWizard.config.CanAddTags ? tags : [],
+				// we can ignore upload warnings here, we've already checked
+				// when stashing the file
+				// not ignoring warnings would prevent us from uploading a file
+				// that is a duplicate of something in a foreign repo
+				ignorewarnings: true
 			};
 
 			// Only enable async publishing if file is larger than 10MiB
