@@ -42,7 +42,7 @@
 		} );
 		this.copyButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-copy-metadata-button' ).text(),
-			flags: [ 'constructive' ]
+			flags: [ 'progressive' ]
 		} );
 		this.undoButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-copy-metadata-button-undo' ).text()

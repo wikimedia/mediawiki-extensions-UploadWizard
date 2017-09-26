@@ -19,7 +19,7 @@
 		this.addDescriptionButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-details-descriptions-add' ],
 			framed: false,
-			flags: [ 'constructive' ],
+			flags: [ 'progressive' ],
 			// Messages: mwe-upwiz-desc-add-0, mwe-upwiz-desc-add-n
 			label: mw.msg( 'mwe-upwiz-desc-add-' + ( !this.required ? '0' : 'n' ) )
 		} );
