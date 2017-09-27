@@ -14,46 +14,46 @@
 		return new mw.FlickrChecker( wizard, upload );
 	}
 
-	QUnit.test( 'getFilenameFromItem() simple case', function () {
+	QUnit.test( 'getFilenameFromItem() simple case', function ( assert ) {
 		var flickrChecker = getInstance();
-		QUnit.equal(
+		assert.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo.jpg'
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() with empty title', function () {
+	QUnit.test( 'getFilenameFromItem() with empty title', function ( assert ) {
 		var flickrChecker = getInstance();
-		QUnit.equal(
+		assert.equal(
 			flickrChecker.getFilenameFromItem( '', 123, 'johndoe' ),
 			'johndoe - 123.jpg'
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict within instance', function () {
+	QUnit.test( 'getFilenameFromItem() name conflict within instance', function ( assert ) {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
-		QUnit.equal(
+		assert.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo.jpg'
 		);
 		flickrChecker.reserveFileName( fileName );
-		QUnit.equal(
+		assert.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo - 123.jpg'
 		);
 	} );
 
-	QUnit.test( 'getFilenameFromItem() name conflict between different instances', function () {
+	QUnit.test( 'getFilenameFromItem() name conflict between different instances', function ( assert ) {
 		var flickrChecker = getInstance(),
 			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
-		QUnit.equal(
+		assert.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo.jpg'
 		);
 		flickrChecker.reserveFileName( fileName );
 		flickrChecker = getInstance();
-		QUnit.equal(
+		assert.equal(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo - 123.jpg'
 		);
