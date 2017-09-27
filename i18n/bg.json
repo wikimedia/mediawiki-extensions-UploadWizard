@@ -289,7 +289,7 @@
 	"mwe-upwiz-prefs-def-license-custom-help": "Това поле се използва само, ако изберете последната опция по-горе.",
 	"mwe-upwiz-prefs-license-own": "Собствена творба - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Чужда творба - $1",
-	"mwe-upwiz-prefs-skiptutorial": "Пропусни встъпителното ръководство по лицензиране",
+	"mwe-upwiz-prefs-skiptutorial": "Пропускане на встъпителното ръководство по лицензиране",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимален брой едновременни качвания",
 	"mwe-upload-campaigns-pagination-next": "Следваща страница"
 }
