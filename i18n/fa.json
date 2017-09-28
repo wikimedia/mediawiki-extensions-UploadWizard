@@ -22,18 +22,21 @@
 			"Alirezaaa",
 			"Bersam",
 			"Mehran",
-			"Macofe"
+			"Macofe",
+			"Ladsgroup"
 		]
 	},
 	"uploadwizard": "جادوگر بارگذاری",
 	"uploadwizard-desc": "جادوگر بارگذاری ابزاری‌است کاربرپسند برای بارگذاری پرونده‌های چندرسانه‌ای.",
 	"tag-uploadwizard": "جادوگر بارگذاری",
+	"tag-uploadwizard-description": "بارگذاری‌های انجام شده توسط جادوگر بارگذاری",
 	"tag-uploadwizard-flickr": "فلیکر",
 	"right-upwizcampaigns": "کمپین‌های جادوگر بارگذاری را تنظیم کنید",
 	"action-upwizcampaigns": "پیکربندی کمپین‌های بارگذاری",
 	"group-upwizcampeditors": "ویرایشگران کمپین جادوگر بارگذاری",
 	"group-upwizcampeditors-member": "{{GENDER:$1|ویرایشگر کمپین جادوگر بارگذاری}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:ویرایشگران کمپین جادوگر بارگذاری",
+	"api-error-aborted": "بارگذاری متوقف شد",
 	"api-error-noimageinfo": "بارگذاری موفق بود، ولی کارساز هیچ اطلاعاتی دربارهٔ پرونده به ما نداد.",
 	"mwe-upwiz-extension-disabled": "به علت مشکلات فنی این صفحه غیرفعال شده‌است. می‌توانید موقتاً از فرم عادی بارگذاری استفاده کنید.",
 	"mwe-upwiz-step-tutorial": "یادگیری",
