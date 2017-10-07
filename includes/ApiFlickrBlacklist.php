@@ -48,7 +48,7 @@ class ApiFlickrBlacklist extends ApiBase {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [

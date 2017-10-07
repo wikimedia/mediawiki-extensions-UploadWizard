@@ -62,6 +62,11 @@ class CampaignContent extends JsonContent {
 
 	/**
 	 * Override getParserOutput, since we require $title to generate our output
+	 * @param Title $title
+	 * @param int|null $revId
+	 * @param ParserOptions $otpions
+	 * @param bool $generateHtml
+	 * @return ParserOutput
 	 */
 	function getParserOutput( Title $title,
 		$revId = null,

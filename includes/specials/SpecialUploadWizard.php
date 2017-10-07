@@ -18,8 +18,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	protected $campaign = null;
 
-	// $request is the request (usually wgRequest)
-	// $par is everything in the URL after Special:UploadWizard. Not sure what we can use it for
+	/**
+	 * @param WebRequest $request the request (usually wgRequest)
+	 * @param string|null $par everything in the URL after Special:UploadWizard.
+	 *   Not sure what we can use it for
+	 */
 	public function __construct( $request = null, $par = null ) {
 		parent::__construct( 'UploadWizard', 'upload' );
 	}
@@ -27,7 +30,7 @@ class SpecialUploadWizard extends SpecialPage {
 	/**
 	 * Replaces default execute method
 	 * Checks whether uploading enabled, user permissions okay,
-	 * @param $subPage, e.g. the "foo" in Special:UploadWizard/foo.
+	 * @param string|null $subPage subpage, e.g. the "foo" in Special:UploadWizard/foo.
 	 */
 	public function execute( $subPage ) {
 		// side effects: if we can't upload, will print error page to wgOut
@@ -159,7 +162,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * is fixed we should package configuration with the upload wizard instead of
 	 * in uploadWizard output page.
 	 *
-	 * @param subpage, e.g. the "foo" in Special:UploadWizard/foo
+	 * @param string $subPage subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
 		$config = UploadWizardConfig::getConfig( $this->campaign );
@@ -373,7 +376,7 @@ class SpecialUploadWizard extends SpecialPage {
  */
 class UploadWizardSimpleForm extends UploadForm {
 
-	/*
+	/**
 	 * Normally, UploadForm adds its own Javascript.
 	 * We wish to prevent this, because we want to control the case where we have Javascript.
 	 * So, we make the addUploadJS a no-op.

@@ -207,8 +207,8 @@ class UploadWizardCampaign {
 	/**
 	 * Wrapper around OutputPage::parseInline
 	 *
-	 * @param $value String Wikitext to parse
-	 * @param $lang Language
+	 * @param string $value Wikitext to parse
+	 * @param Language $lang
 	 *
 	 * @since 1.3
 	 *
@@ -242,8 +242,8 @@ class UploadWizardCampaign {
 	/**
 	 * Parses the values in an assoc array as wikitext
 	 *
-	 * @param $array Array
-	 * @param $forKeys Array: Array of keys whose values should be parsed
+	 * @param array $array
+	 * @param array $forKeys Array of keys whose values should be parsed
 	 *
 	 * @since 1.3
 	 *
@@ -274,6 +274,7 @@ class UploadWizardCampaign {
 	 *
 	 * @since 1.3
 	 *
+	 * @param Language|null $lang
 	 * @return array
 	 */
 	public function getParsedConfig( $lang = null ) {

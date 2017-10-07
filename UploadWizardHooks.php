@@ -41,7 +41,7 @@ class UploadWizardHooks {
 	 * @since 1.2
 	 *
 	 * @param User $user
-	 * @param array $preferences
+	 * @param array &$preferences
 	 *
 	 * @return true
 	 */
@@ -134,6 +134,9 @@ class UploadWizardHooks {
 
 	/**
 	 * Hook to blacklist flickr images by intercepting upload from url
+	 * @param string $url
+	 * @param bool &$allowed
+	 * @return true
 	 */
 	public static function onIsUploadAllowedFromUrl( $url, &$allowed ) {
 		if ( $allowed ) {
@@ -150,8 +153,8 @@ class UploadWizardHooks {
 
 	/**
 	 * Get JavaScript test modules
-	 * @param array $testModules
-	 * @param ResourceLoader resourceLoader
+	 * @param array &$testModules
+	 * @param ResourceLoader &$resourceLoader
 	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules(
@@ -220,7 +223,7 @@ class UploadWizardHooks {
 	 * Lists tags used by UploadWizard (via ListDefinedTags,
 	 * ListExplicitlyDefinedTags & ChangeTagsListActive hooks)
 	 *
-	 * @param array $tags
+	 * @param array &$tags
 	 * @return bool true
 	 */
 	public static function onListDefinedTags( &$tags ) {
