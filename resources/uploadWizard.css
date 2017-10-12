@@ -230,10 +230,10 @@ form.mwe-upwiz-form {
 }
 
 #mwe-upwiz-flickr-disclaimer {
+	background-color: #eaf3ff;
 	font-size: 92%;
 	margin: 1em 0;
 	padding: 0.5em;
-	background-color: #dfeffa;
 }
 
 .filled + .filled {
