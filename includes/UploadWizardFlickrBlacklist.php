@@ -133,7 +133,7 @@ class UploadWizardFlickrBlacklist {
 				'nojsoncallback' => 1,
 			],
 		];
-		$response = HTTP::post( $this->flickrApiUrl, $params );
+		$response = Http::post( $this->flickrApiUrl, $params );
 		if ( $response !== false ) {
 			$response = json_decode( $response, true );
 		}
