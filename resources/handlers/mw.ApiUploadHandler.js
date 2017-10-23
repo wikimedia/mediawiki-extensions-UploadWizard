@@ -30,7 +30,7 @@
 	/**
 	 * @return {jQuery.Promise}
 	 */
-	/* eslint-enablevalid-jsdoc */
+	/* eslint-enable valid-jsdoc */
 	mw.ApiUploadHandler.prototype.submit = function () {
 		throw new Error( 'Not implemented.' );
 	};

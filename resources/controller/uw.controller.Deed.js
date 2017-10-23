@@ -114,14 +114,12 @@
 			previousDeed = this.deedChooser.getSerialized();
 		}
 
-		this.deeds = mw.UploadWizard.getLicensingDeeds( this.uploads.length, this.config );
+		this.deeds = mw.UploadWizard.getLicensingDeeds( this.uploads, this.config );
 
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
 		if ( this.uploads.length > 1 && this.shouldShowIndividualDeed( this.config ) ) {
-			customDeed = $.extend( new mw.UploadWizardDeed(), {
-				name: 'custom'
-			} );
+			customDeed = new uw.deed.Custom( this.config );
 			this.deeds[ customDeed.name ] = customDeed;
 		}
 

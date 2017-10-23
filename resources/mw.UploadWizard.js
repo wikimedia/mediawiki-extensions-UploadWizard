@@ -149,11 +149,11 @@
 	 *
 	 * @static
 	 * @since 1.2
-	 * @param {number} uploadsLength
+	 * @param {mw.UploadWizardUpload[]} uploads
 	 * @param {Object} config The UW config object.
-	 * @return {mw.UploadWizardDeed[]}
+	 * @return {mw.deed.Abstract[]}
 	 */
-	mw.UploadWizard.getLicensingDeeds = function ( uploadsLength, config ) {
+	mw.UploadWizard.getLicensingDeeds = function ( uploads, config ) {
 		var deed, api,
 			deeds = {},
 			doOwnWork = false,
@@ -170,11 +170,11 @@
 		}
 
 		if ( doOwnWork ) {
-			deed = new mw.UploadWizardDeedOwnWork( uploadsLength, api, config );
+			deed = new uw.deed.OwnWork( config, uploads, api );
 			deeds[ deed.name ] = deed;
 		}
 		if ( doThirdParty ) {
-			deed = new mw.UploadWizardDeedThirdParty( uploadsLength, api, config );
+			deed = new uw.deed.ThirdParty( config, uploads, api );
 			deeds[ deed.name ] = deed;
 		}
 

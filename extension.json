@@ -205,6 +205,10 @@
 				"uw.controller.Thanks",
 				"uw.controller.Tutorial",
 				"uw.controller.Upload",
+				"uw.deed.OwnWork",
+				"uw.deed.ThirdParty",
+				"uw.deed.Custom",
+				"uw.deed.External",
 				"uw.units",
 				"oojs",
 				"oojs-ui",
@@ -242,9 +246,6 @@
 				"resources/mw.QuickTitleChecker.js",
 				"resources/mw.FlickrChecker.js",
 				"resources/mw.GroupProgressBar.js",
-				"resources/mw.UploadWizardDeed.js",
-				"resources/mw.UploadWizardDeedOwnWork.js",
-				"resources/mw.UploadWizardDeedThirdParty.js",
 				"resources/mw.UploadWizardDeedChooser.js",
 				"resources/mw.UploadWizardLicenseInput.js",
 				"resources/mw.UploadWizard.js",
@@ -316,49 +317,9 @@
 				"mwe-upwiz-finished",
 				"mwe-upwiz-deeds-macro-prompt",
 				"mwe-upwiz-source-ownwork",
-				"mwe-upwiz-source-ownwork-assert-any-license",
-				"mwe-upwiz-source-ownwork-assert",
-				"mwe-upwiz-source-ownwork-assert-custom",
-				"mwe-upwiz-source-ownwork-assert-note",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-4.0",
-				"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro",
-				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-4.0",
-				"mwe-upwiz-source-ownwork-cc-by-4.0-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-by-3.0",
-				"mwe-upwiz-source-ownwork-cc-by-3.0-explain",
-				"mwe-upwiz-source-ownwork-assert-cc-zero",
-				"mwe-upwiz-source-ownwork-cc-zero-explain",
-				"mwe-upwiz-source-ownwork-assert-generic",
-				"mwe-upwiz-source-ownwork-generic-explain",
 				"disclaimerpage",
 				"mwe-upwiz-source-permission",
 				"mwe-upwiz-source-thirdparty",
-				"mwe-upwiz-source-thirdparty-intro",
-				"mwe-upwiz-source-thirdparty-custom-multiple-intro",
-				"mwe-upwiz-source-thirdparty-cases",
-				"mwe-upwiz-source-thirdparty-accept",
 				"mwe-upwiz-source-custom",
 				"mwe-upwiz-more-options",
 				"mwe-upwiz-desc",
@@ -377,10 +338,8 @@
 				"mwe-upwiz-copyright-info",
 				"mwe-upwiz-objref-pick-image",
 				"mwe-upwiz-objref-notice-existing-image",
-				"mwe-upwiz-author",
 				"mwe-upwiz-autoconverted",
 				"mwe-upwiz-other",
-				"mwe-upwiz-source",
 				"mwe-upwiz-upload-error-bad-filename-extension",
 				"mwe-upwiz-upload-error-bad-filename-no-extension",
 				"mwe-upwiz-upload-error-duplicate-filename-error",
@@ -402,9 +361,6 @@
 				"mwe-upwiz-previous",
 				"mwe-upwiz-home",
 				"mwe-upwiz-upload-another",
-				"mwe-upwiz-tooltip-author",
-				"mwe-upwiz-tooltip-source",
-				"mwe-upwiz-tooltip-sign",
 				"mwe-upwiz-tooltip-title",
 				"mwe-upwiz-tooltip-description",
 				"mwe-upwiz-tooltip-date",
@@ -415,15 +371,10 @@
 				"mwe-upwiz-file-need-file",
 				"mwe-upwiz-deeds-need-deed",
 				"mwe-upwiz-deeds-need-license",
-				"mwe-upwiz-license-show-all",
-				"mwe-upwiz-license-show-recommended",
-				"mwe-upwiz-error-signature-blank",
 				"mwe-upwiz-error-latitude",
 				"mwe-upwiz-error-longitude",
 				"mwe-upwiz-error-altitude",
 				"mwe-upwiz-error-heading",
-				"mwe-upwiz-error-signature-too-long",
-				"mwe-upwiz-error-signature-too-short",
 				"mwe-upwiz-error-blank",
 				"mwe-upwiz-error-date-license-mismatch",
 				"mwe-upwiz-error-date-license-unlikely",
@@ -789,6 +740,127 @@
 				"mwe-upwiz-file-all-ok",
 				"mwe-upwiz-file-some-failed",
 				"mwe-upwiz-file-all-failed"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.base": {
+			"scripts": [
+				"resources/deed/uw.deed.base.js"
+			],
+			"dependencies": [
+				"uw.base"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.Abstract": {
+			"scripts": [
+				"resources/deed/uw.deed.Abstract.js"
+			],
+			"dependencies": [
+				"uw.deed.base"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.OwnWork": {
+			"scripts": [
+				"resources/deed/uw.deed.OwnWork.js"
+			],
+			"dependencies": [
+				"oojs",
+				"uw.deed.Abstract"
+			],
+			"messages": [
+				"mwe-upwiz-tooltip-sign",
+				"mwe-upwiz-source-ownwork-assert-any-license",
+				"mwe-upwiz-source-ownwork-assert",
+				"mwe-upwiz-source-ownwork-assert-custom",
+				"mwe-upwiz-source-ownwork-assert-note",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-4.0",
+				"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro",
+				"mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-4.0",
+				"mwe-upwiz-source-ownwork-cc-by-4.0-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-by-3.0",
+				"mwe-upwiz-source-ownwork-cc-by-3.0-explain",
+				"mwe-upwiz-source-ownwork-assert-cc-zero",
+				"mwe-upwiz-source-ownwork-cc-zero-explain",
+				"mwe-upwiz-source-ownwork-assert-generic",
+				"mwe-upwiz-source-ownwork-generic-explain",
+				"mwe-upwiz-error-signature-blank",
+				"mwe-upwiz-error-signature-too-long",
+				"mwe-upwiz-error-signature-too-short",
+				"mwe-upwiz-license-show-all",
+				"mwe-upwiz-license-show-recommended"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.ThirdParty": {
+			"scripts": [
+				"resources/deed/uw.deed.ThirdParty.js"
+			],
+			"dependencies": [
+				"oojs",
+				"uw.deed.Abstract"
+			],
+			"messages": [
+				"mwe-upwiz-error-blank",
+				"mwe-upwiz-error-too-short",
+				"mwe-upwiz-error-too-long",
+				"mwe-upwiz-source",
+				"mwe-upwiz-author",
+				"mwe-upwiz-tooltip-author",
+				"mwe-upwiz-tooltip-source",
+				"mwe-upwiz-source-thirdparty-cases",
+				"mwe-upwiz-source-thirdparty-custom-multiple-intro",
+				"mwe-upwiz-source-thirdparty-intro",
+				"mwe-upwiz-source-thirdparty-accept"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.Custom": {
+			"scripts": [
+				"resources/deed/uw.deed.Custom.js"
+			],
+			"dependencies": [
+				"oojs",
+				"uw.deed.Abstract"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.External": {
+			"scripts": [
+				"resources/deed/uw.deed.External.js"
+			],
+			"dependencies": [
+				"oojs",
+				"uw.deed.Custom"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
