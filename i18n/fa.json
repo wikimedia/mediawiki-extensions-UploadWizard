@@ -31,6 +31,7 @@
 	"tag-uploadwizard": "جادوگر بارگذاری",
 	"tag-uploadwizard-description": "بارگذاری‌های انجام شده توسط جادوگر بارگذاری",
 	"tag-uploadwizard-flickr": "فلیکر",
+	"tag-uploadwizard-flickr-description": "بارگذاری تصویر فلیکر با جادوگر بارگذاری",
 	"right-upwizcampaigns": "کمپین‌های جادوگر بارگذاری را تنظیم کنید",
 	"action-upwizcampaigns": "پیکربندی کمپین‌های بارگذاری",
 	"group-upwizcampeditors": "ویرایشگران کمپین جادوگر بارگذاری",
@@ -140,6 +141,7 @@
 	"mwe-upwiz-copy-metadata-button": "رونوشت",
 	"mwe-upwiz-copy-metadata-button-undo": "واگردانی",
 	"mwe-upwiz-copied-metadata": "با موفقیت کپی شد",
+	"mwe-upwiz-undid-metadata": "کپی انجام نشده.",
 	"mwe-upwiz-copy-title": "رونویسی عنوان (با شماره‌گذاری خودکار)",
 	"mwe-upwiz-copy-description": "رونویسی شرح‌ها",
 	"mwe-upwiz-copy-date": "رونویسی تاریخ",
@@ -226,6 +228,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "شما گزینه ای را انتخاب کردید که نیاز است به ویکی‌متن وارد شوید.",
 	"mwe-upwiz-error-license-wikitext-too-short": "ویکی‌متن موجود، برای مجوز بودن خیلی کوتاه است",
 	"mwe-upwiz-error-license-wikitext-too-long": "متنی که وارد کردید بییش از حد طولانی است.",
+	"mwe-upwiz-warning-postdate": "تاریخی که انتخاب کردید مربوط به آینده است.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|یک خطا|$1 خطا}} برای {{PLURAL:$2|موردد}} بالا وجود دارد. {{PLURAL:$1|خطا|خطاها}} را تصحیح کنید، و دوباره سعی به ثبت آن کنید.",
 	"mwe-upwiz-too-many-files-text": "شما فقط می توانید   $1   {{PLURAL:$1| پرونده|پرونده‌ها}} را در یک بار بارگذاری کنید، ولی شما  برای بارگذاری $2   {{PLURAL:$2| پرونده|پرونده‌ها}}  تلاش کردید. لطفاً با پرونده های کمتر دوباره سعی کنید!",
 	"mwe-upwiz-too-many-files": "پرونده‌های زیاد.",
@@ -328,5 +331,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "حداکثر تعداد بارگذاری همزمان",
 	"campaigns": "کمپین جادوگر بارگذاری",
 	"mwe-upload-campaigns-pagination-next": "صفحهٔ بعدی",
-	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها"
+	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها",
+	"apihelp-flickrblacklist-param-url": "نشانی فلیکر بررسی شد.",
+	"apihelp-query+allcampaigns-param-limit": "تعداد کمپین‌ها برای ارائه"
 }
