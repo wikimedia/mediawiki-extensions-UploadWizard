@@ -164,39 +164,27 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.valid = function () {
-		var
-			detailsController = this,
-			validityPromises = [],
-			warningValidityPromises = [],
-			titles = {};
+		var detailsController = this,
+			// validityPromises will hold all promises for all uploads;
+			// prefilling with a bogus promise (no warnings & errors) to
+			// ensure $.when always resolves with an array of multiple
+			// results (if there's just 1, it would otherwise have just
+			// that one's arguments, instead of a multi-dimensional array
+			// of upload warnings & failures)
+			validityPromises = [ $.Deferred().resolve( [], [] ).promise() ],
+			titles = [];
 
 		$.each( this.uploads, function ( i, upload ) {
 			// Update any error/warning messages about all DetailsWidgets
-			upload.details.checkValidity();
+			var promise = upload.details.checkValidity( true ).then( function () {
+				var warnings = [],
+					errors = [],
+					title;
 
-			warningValidityPromises.push( upload.details.getWarnings().then( function () {
-				// iterate all arguments (which is an array of arrays of
-				// warnings) and turn it into a one-dimensional warnings array
-				var args = Array.prototype.slice.call( arguments ),
-					warnings = args.reduce( function ( result, warnings ) {
-						return result.concat( warnings );
-					}, [] );
-
-				if ( warnings.length ) {
-					// One of the DetailsWidgets has warnings
-					return $.Deferred().reject( warnings );
-				}
-			} ) );
-
-			validityPromises.push( upload.details.getErrors().then( function () {
-				var i, title, hasErrors = false;
-
-				for ( i = 0; i < arguments.length; i++ ) {
-					if ( arguments[ i ].length ) {
-						// One of the DetailsWidgets has errors
-						hasErrors = true;
-					}
-				}
+				$.each( arguments, function ( i, result ) {
+					warnings = warnings.concat( result[ 0 ] );
+					errors = errors.concat( result[ 1 ] );
+				} );
 
 				// Seen this title before?
 				title = upload.details.getTitle();
@@ -205,79 +193,42 @@
 					if ( titles[ title ] ) {
 						// Don't submit. Instead, set an error in details step.
 						upload.details.setDuplicateTitleError();
-						hasErrors = true;
+						errors.push( mw.message( 'mwe-upwiz-error-title-duplicate' ) );
 					} else {
 						titles[ title ] = true;
 					}
 				}
 
-				if ( hasErrors ) {
-					return $.Deferred().reject();
-				}
-			} ) );
+				return $.Deferred().resolve( warnings, errors ).promise();
+			} );
+
+			// Will hold an array of validation promises, one for each upload
+			validityPromises.push( promise );
 		} );
 
-		return $.when.apply( $, validityPromises ).then(
-			function () {
-				var i,
-					warningPromises = [],
-					combinedWarningPromise = $.Deferred();
+		// validityPromises is an array of promises that each resolve with [warnings, errors]
+		// for each upload - now iterate them all to figure out if we can proceed
+		return $.when.apply( $, validityPromises ).then( function () {
+			var warnings = [],
+				errors = [];
 
-				/*
-				 * warningValidityPromises will be fail as soon as one of the
-				 * promises is rejected. However, we want to know about *all*
-				 * rejected promises, since they include the warning messages,
-				 * and we'll want to show all of those warnings at once.
-				 * Since we can't use warningValidityPromises's failure callback,
-				 * we'll create other promises that will always resolve (with
-				 * the rejected's warning messages).
-				 */
-				for ( i = 0; i < warningValidityPromises.length; i++ ) {
-					warningPromises[ i ] = $.Deferred();
-					warningValidityPromises[ i ].always( warningPromises[ i ].resolve );
-				}
+			$.each( arguments, function ( i, result ) {
+				warnings = warnings.concat( result[ 0 ] );
+				errors = errors.concat( result[ 1 ] );
+			} );
 
-				/*
-				 * warningPromises will now always resolve (see comment above)
-				 * with a bunch of warnings (or undefined, for successful
-				 * uploads)
-				 * Now we can just wait for all of these to resolve, combine all
-				 * warnings, and display the warning dialog!
-				 */
-				combinedWarningPromise = $.when.apply( $, warningPromises ).then( function () {
-					// iterate all arguments (which is an array of arrays of
-					// warnings) and turn it into a one-dimensional warnings array
-					var args = Array.prototype.slice.call( arguments ),
-						// args also includes `undefined`s, from uploads that
-						// successfully resolved - we don't need those!
-						filtered = args.filter( Array.isArray ),
-						warnings = filtered.reduce( function ( result, warnings ) {
-							return result.concat( warnings );
-						}, [] );
-
-					if ( warnings.length > 0 ) {
-						// Update warning count before dialog
-						detailsController.showErrors();
-						return detailsController.confirmationDialog( warnings );
-					}
-				} );
-
-				return $.when.apply( $, warningValidityPromises ).then(
-					function () {
-						// All uploads valid, no warnings
-						return $.Deferred().resolve( true );
-					},
-					function () {
-						// There were issues & they are being handled in this
-						// other promise :)
-						return combinedWarningPromise;
-					}
-				);
-			},
-			function () {
+			if ( errors.length > 0 ) {
 				return $.Deferred().resolve( false );
 			}
-		);
+
+			if ( warnings.length > 0 ) {
+				// Update warning count before dialog
+				detailsController.showErrors();
+				return detailsController.confirmationDialog( warnings );
+			}
+
+			return $.Deferred().resolve( true );
+		} );
 	};
 
 	uw.controller.Details.prototype.confirmationDialog = function ( warnings ) {

@@ -53,19 +53,20 @@
 		if ( valid ) {
 			fields = this.deedChooser.deed.getFields();
 
-			// Update any error/warning messages
-			fields.forEach( function ( fieldLayout ) {
-				fieldLayout.checkValidity();
-			} );
-
-			// TODO Handle warnings with a confirmation dialog
 			$.when.apply( $, fields.map( function ( fieldLayout ) {
-				return fieldLayout.fieldWidget.getErrors();
-			} ) ).done( function () {
+				// Update any error/warning messages
+				return fieldLayout.checkValidity( true );
+			} ) ).then( function () {
+				// `arguments` will be an array of all fields, with their warnings & errors
+				// e.g. `[[something], []], [[], [something]]` for 2 fields, where the first one has
+				// a warning and the last one an error
+
+				// TODO Handle warnings with a confirmation dialog
+
 				var i;
 				for ( i = 0; i < arguments.length; i++ ) {
-					if ( arguments[ i ].length ) {
-						// One of the fields has errors
+					if ( arguments[ i ][ 1 ].length ) {
+						// One of the fields has errors; refuse to proceed!
 						return;
 					}
 				}
