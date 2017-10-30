@@ -314,7 +314,6 @@
 
 		// Disable edit interface
 		this.ui.disableEdits();
-		this.ui.previousButton.$element.hide();
 		this.removeCopyMetadataFeature();
 
 		return this.transitionAll().then( function () {
@@ -331,7 +330,7 @@
 	 * See UI class for more.
 	 */
 	uw.controller.Details.prototype.showErrors = function () {
-		this.ui.previousButton.$element.show();
+		this.ui.enableEdits();
 
 		this.removeCopyMetadataFeature();
 		this.addCopyMetadataFeature();

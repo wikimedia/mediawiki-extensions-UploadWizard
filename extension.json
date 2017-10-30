@@ -675,7 +675,9 @@
 			],
 			"messages": [
 				"mwe-upwiz-file-some-failed",
-				"mwe-upwiz-file-all-failed"
+				"mwe-upwiz-file-all-failed",
+				"mwe-upwiz-patent-weapon-policy",
+				"mwe-upwiz-patent-weapon-policy-link"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
@@ -761,6 +763,9 @@
 			"dependencies": [
 				"uw.deed.base"
 			],
+			"messages": [
+				"mwe-upwiz-patent-dialog-title-filename"
+			],
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
 		},
@@ -770,7 +775,8 @@
 			],
 			"dependencies": [
 				"oojs",
-				"uw.deed.Abstract"
+				"uw.deed.Abstract",
+				"uw.deed.dialog.PatentDialog"
 			],
 			"messages": [
 				"mwe-upwiz-tooltip-sign",
@@ -810,6 +816,8 @@
 				"mwe-upwiz-source-ownwork-cc-zero-explain",
 				"mwe-upwiz-source-ownwork-assert-generic",
 				"mwe-upwiz-source-ownwork-generic-explain",
+				"mwe-upwiz-patent",
+				"mwe-upwiz-error-patent-disagree",
 				"mwe-upwiz-error-signature-blank",
 				"mwe-upwiz-error-signature-too-long",
 				"mwe-upwiz-error-signature-too-short",
@@ -861,6 +869,42 @@
 			"dependencies": [
 				"oojs",
 				"uw.deed.Custom"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.dialog.base": {
+			"scripts": [
+				"resources/deed/dialog/uw.deed.dialog.base.js"
+			],
+			"dependencies": [
+				"uw.deed.base"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"group": "ext.uploadWizard"
+		},
+		"uw.deed.dialog.PatentDialog": {
+			"scripts": [
+				"resources/deed/dialog/uw.deed.dialog.PatentDialog.js"
+			],
+			"dependencies": [
+				"mediawiki.language",
+				"oojs",
+				"oojs-ui-core",
+				"oojs-ui-windows",
+				"uw.deed.dialog.base"
+			],
+			"messages": [
+				"mwe-upwiz-patent-dialog-title",
+				"mwe-upwiz-patent-dialog-button-back",
+				"mwe-upwiz-patent-dialog-button-next",
+				"mwe-upwiz-patent-dialog-title-warranty",
+				"mwe-upwiz-patent-dialog-text-warranty",
+				"mwe-upwiz-patent-dialog-link-warranty",
+				"mwe-upwiz-patent-dialog-title-license",
+				"mwe-upwiz-patent-dialog-text-license",
+				"mwe-upwiz-patent-dialog-link-license",
+				"mwe-upwiz-patent-dialog-checkbox-label"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"

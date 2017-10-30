@@ -186,6 +186,26 @@ form.mwe-upwiz-form {
 	width: 300px;
 }
 
+.mwe-upwiz-patent-rights .oo-ui-panelLayout .oo-ui-panelLayout:not(:last-child) {
+	box-shadow: 0 1em 1px -1em #bbb;
+}
+
+.mwe-upwiz-patent-rights-filelist {
+	display: block;
+	text-align: center;
+	box-shadow: 0 0 1px 0 #bbb;
+}
+
+.mwe-upwiz-patent-weapon-policy {
+	margin-top: 1em;
+	padding: 0 1em 0 calc( 32px + 2em );
+	border: 1px solid #c8ccd1;
+	white-space: pre-wrap;
+	/* @embed */
+	background: #f2f4f7 url( images/no-weapons.svg ) no-repeat 1em 1em;
+	background-size: 32px 32px;
+}
+
 /* Flickr Interface CSS*/
 
 #mwe-upwiz-upload-ctr-divide {

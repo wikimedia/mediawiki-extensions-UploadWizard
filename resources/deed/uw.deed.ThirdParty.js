@@ -31,6 +31,7 @@
 		uw.deed.Abstract.call( this, 'thirdparty', config );
 
 		this.uploadCount = uploads.length;
+		this.threeDCount = this.get3DCount( uploads );
 
 		this.sourceInput = new OO.ui.MultilineTextInputWidget( {
 			autosize: true,
@@ -111,6 +112,10 @@
 		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {
 			label: mw.message( 'mwe-upwiz-source-thirdparty-cases', this.uploadCount ).text()
 		} );
+
+		if ( this.threeDCount > 0 ) {
+			this.patentAgreementField = this.getPatentAgreementField( uploads );
+		}
 	};
 
 	OO.inheritClass( uw.deed.ThirdParty, uw.deed.Abstract );
@@ -119,7 +124,11 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.ThirdParty.prototype.getFields = function () {
-		return [ this.authorInputField, this.sourceInputField, this.licenseInputField ];
+		var fields = [ this.authorInputField, this.sourceInputField, this.licenseInputField ];
+		if ( this.threeDCount > 0 ) {
+			fields.push( this.patentAgreementField );
+		}
+		return fields;
 	};
 
 	uw.deed.ThirdParty.prototype.setFormFields = function ( $selector ) {
@@ -143,6 +152,10 @@
 			$( '<div class="mwe-upwiz-thirdparty-license" />' )
 				.append( this.licenseInputField.$element )
 		);
+
+		if ( this.threeDCount > 0 ) {
+			$formFields.append( this.patentAgreementField.$element );
+		}
 
 		this.$form.append( $formFields );
 
