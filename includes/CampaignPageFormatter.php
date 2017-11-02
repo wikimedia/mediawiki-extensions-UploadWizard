@@ -47,7 +47,7 @@ class CampaignPageFormatter {
 		$gallery->setHeights( 180 );
 		$gallery->setShowBytes( false );
 
-		$this->context->getOutput()->setSquidMaxage(
+		$this->context->getOutput()->setCdnMaxage(
 			UploadWizardConfig::getSetting( 'campaignSquidMaxAge' )
 		);
 		$this->context->getOutput()->setHTMLTitle( $this->context->msg( 'pagetitle', $campaignTitle ) );
