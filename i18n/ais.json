@@ -24,6 +24,7 @@
 	"mwe-upwiz-api-warning-exists": "tina Wiki izaw ku [$1 zumaay] malecaday a kalungangan a tangan",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "ahicanaca，inayi’ kami matepa pasubana’ tu kumu nu misu. misumad paazih $1 kamu.",
 	"mwe-upwiz-tutorial-error-file-missing": "ahicanaca, inayi’ kami matepa amahicahica kya izaway a subana’ mahizaay tangan. pitakus sisetyimo mikuwanay.",
+	"mwe-upwiz-tutorial-error-cannot-transform": "ahicanaca, la’cus kamimiala tu matatungusay tina a monitel tabakiay adidi’ay a sapasubana’ pisukep tu zunga.\ntina hakay u Wiki kapasimel katahkalan nu kalisiw pacalcal mapatut munday, kasawsawni miliyaw.",
 	"mwe-upwiz-help-desk": "miedap a kuwanan",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:miedap a kuwanan",
 	"mwe-upwiz-add-file-n": "micunus sayadah a tangan",
