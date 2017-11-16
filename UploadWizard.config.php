@@ -395,8 +395,9 @@ return [
 			'templates' => [ 'PD-old' ]
 		],
 		'pd-art' => [
-			'msg' => 'mwe-upwiz-license-pd-art',
-			'templates' => [ 'PD-Art' ]
+			'msg' => 'mwe-upwiz-license-pd-art-70',
+			'templates' => [ 'PD-Art|PD-old-70' ],
+			'url' => '//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
 		],
 		'pd-us' => [
 			'msg' => 'mwe-upwiz-license-pd-us',
