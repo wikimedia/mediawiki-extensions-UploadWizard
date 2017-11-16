@@ -68,13 +68,14 @@
 	 */
 	uw.ValidationMessageElement.prototype.makeMessage = function ( kind, error ) {
 		var code, content, $listItem;
-		if ( error.parseDom ) {
+		if ( error.parse ) {
 			code = error.key;
-			content = error.parseDom();
+			content = new OO.ui.HtmlSnippet( error.parse() );
 		} else {
 			code = error.code;
 			content = $( $.parseHTML( error.html ) );
 		}
+
 		$listItem = OO.ui.FieldLayout.prototype.makeMessage.call( this, kind, content )
 			.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
 		return $listItem;

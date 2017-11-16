@@ -118,6 +118,8 @@
 	 */
 	uw.DateDetailsWidget.prototype.getWarnings = function () {
 		var i,
+			license,
+			licenseMsg,
 			warnings = [],
 			dateVal = Date.parse( this.dateInputWidget.getValue().trim() ),
 			licenses = this.getLicenses(),
@@ -141,7 +143,9 @@
 			if ( now.toISOString().slice( 0, 10 ) === date.toISOString().slice( 0, 10 ) ) {
 				for ( i in warnLicenses ) {
 					if ( warnLicenses[ i ] in licenses ) {
-						warnings.push( mw.message( 'mwe-upwiz-error-date-license-unlikely', mw.message( licenses[ warnLicenses[ i ] ].msg ).parse() ) );
+						license = licenses[ warnLicenses[ i ] ];
+						licenseMsg = mw.message( license.msg, 0, license.url ? license.url : '#missing license URL' );
+						warnings.push( mw.message( 'mwe-upwiz-error-date-license-unlikely', licenseMsg.parse() ) );
 					}
 				}
 			}
