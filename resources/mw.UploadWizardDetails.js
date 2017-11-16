@@ -333,11 +333,17 @@
 
 		/**
 		 * Check all the fields for errors and warnings and display them in the UI.
+		 *
+		 * @param {boolean} thorough True to perform a thorough validity check. Defaults to false for a fast on-change check.
+		 * @return {jQuery.Promise} Combined promise of all fields' validation results.
 		 */
-		checkValidity: function () {
-			this.getAllFields().forEach( function ( fieldLayout ) {
-				fieldLayout.checkValidity();
-			} );
+		checkValidity: function ( thorough ) {
+			var fields = this.getAllFields();
+
+			return $.when.apply( $, fields.map( function ( fieldLayout ) {
+				// Update any error/warning messages
+				return fieldLayout.checkValidity( thorough );
+			} ) );
 		},
 
 		/**
