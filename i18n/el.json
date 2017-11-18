@@ -12,7 +12,8 @@
 			"ZaDiak",
 			"Macofe",
 			"Stam.nikos",
-			"Matma Rex"
+			"Matma Rex",
+			"KATRINE1992"
 		]
 	},
 	"uploadwizard": "Οδηγός Ανεβάσματος",
@@ -232,7 +233,7 @@
 	"mwe-upwiz-license-own-pd": "Παραίτηση από όλα τα δικαιώματα με την άδεια χρήσης Creative Commons Μηδέν (παρόμοια με κοινό κτήμα)",
 	"mwe-upwiz-license-pd-old-100": "Ο δημιουργός πέθανε πριν από περισσότερα από 100 χρόνια",
 	"mwe-upwiz-license-pd-old": "Ο δημιουργός πέθανε πριν από περισσότερα από 70 χρόνια",
-	"mwe-upwiz-license-pd-art": "Πιστή αναπαραγωγή ενός πίνακα ζωγραφικής που είναι κοινό κτήμα",
+	"mwe-upwiz-license-pd-art-70": "Reproduction fidèle d'un tableau de peinture dans le domaine publique car l'artiste est mort il y a 70 ans({$2 en savoir plus})",
 	"mwe-upwiz-license-pd-us": "Δημοσιεύτηκε για πρώτη φορά στις Ηνωμένες Πολιτείες πριν από το 1923",
 	"mwe-upwiz-license-pd-usgov": "Πρωτότυπο έργο της ομοσπονδιακής κυβέρνησης των ΗΠΑ",
 	"mwe-upwiz-license-pd-usgov-nasa": "Πρωτότυπο έργο της NASA",
@@ -284,6 +285,8 @@
 	"prefs-upwiz-interface": "Διεπαφή χρήστη",
 	"mwe-upwiz-prefs-def-license": "Προεπιλεγμένη άδεια",
 	"mwe-upwiz-prefs-def-license-def": "Χρησιμοποιήσε όποια και αν είναι η προεπιλογή",
+	"mwe-upwiz-prefs-license-name": "Nom d'auteur",
+	"mwe-upwiz-prefs-license-name-help": "Nom d'utilisateur par défaut si le champ est laissé vide",
 	"mwe-upwiz-prefs-license-own": "Δικό σας έργο - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Έργο κάποιου άλλου - $1",
 	"mwe-upwiz-prefs-chunked": "Κατατμημένα ανεβάσματα για αρχεία πάνω από $1 στον Οδηγό Ανεβάσματος",

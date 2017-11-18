@@ -31,7 +31,8 @@
 			"凡人丶",
 			"Shizhao",
 			"飞舞回堂前",
-			"Wmr"
+			"Wmr",
+			"NeverBehave"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -292,7 +293,7 @@
 	"mwe-upwiz-license-own-pd": "以知识共享“公共领域贡献宣告”放弃所有权利（类似公共领域）",
 	"mwe-upwiz-license-pd-old-100": "作者在超过100年前去世",
 	"mwe-upwiz-license-pd-old": "作者在超过70年前去世",
-	"mwe-upwiz-license-pd-art-70": "公有领域绘画的忠实复制品，因为其作者已逝世超过70年（[$2 了解更多]）",
+	"mwe-upwiz-license-pd-art-70": "由于艺术家70多年前去世，所以在公共领域中对绘画进行了忠实的再现（[$2 了解更多]）",
 	"mwe-upwiz-license-pd-us": "最早在1923年前在美国发表",
 	"mwe-upwiz-license-pd-usgov": "美国联邦政府的原创作品",
 	"mwe-upwiz-license-pd-usgov-nasa": "美国宇航局的原创作品",
@@ -352,6 +353,8 @@
 	"mwe-upwiz-prefs-def-license-def": "使用默认",
 	"mwe-upwiz-prefs-def-license-custom": "自定义默认许可协议",
 	"mwe-upwiz-prefs-def-license-custom-help": "此字段只当您在上方选择最后一个选项时会被使用。",
+	"mwe-upwiz-prefs-license-name": "作者名",
+	"mwe-upwiz-prefs-license-name-help": "如果字段保持为空，默认为用户名",
 	"mwe-upwiz-prefs-license-own": "自己的作品 - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "他人的作品 - $1",
 	"mwe-upwiz-prefs-chunked": "在上传向导中对于超过$1的文件使用分块上传 - 将最大文件上传大小从$2增加至$3",
