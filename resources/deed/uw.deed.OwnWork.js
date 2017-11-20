@@ -32,6 +32,7 @@
 		uw.deed.Abstract.call( this, 'ownwork', config );
 
 		this.uploadCount = uploads.length;
+		this.threeDCount = this.get3DCount( uploads );
 
 		if ( !prefAuthName ) {
 			prefAuthName = mw.config.get( 'wgUserName' );
@@ -65,6 +66,26 @@
 			this.licenseInput.$element.addClass( 'mwe-upwiz-deed-license' );
 			this.licenseInputField = new uw.FieldLayout( this.licenseInput );
 		}
+
+		// grant patent license
+		if ( this.threeDCount > 0 ) {
+			this.patentAuthorInput = new OO.ui.TextInputWidget( {
+				name: 'patent-author',
+				title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
+				value: prefAuthName,
+				classes: [ 'mwe-upwiz-sign' ]
+			} );
+			// keep authors in sync!
+			this.patentAuthorInput.on( 'change', function () {
+				deed.authorInput.setValue( deed.patentAuthorInput.getValue() );
+				deed.fakeAuthorInput.setValue( deed.patentAuthorInput.getValue() );
+			} );
+			this.authorInput.on( 'change', function () {
+				deed.patentAuthorInput.setValue( deed.authorInput.getValue() );
+			} );
+
+			this.patentAgreementField = this.getPatentAgreementField( uploads );
+		}
 	};
 
 	OO.inheritClass( uw.deed.OwnWork, uw.deed.Abstract );
@@ -77,13 +98,18 @@
 		if ( this.showCustomDiv ) {
 			fields.push( this.licenseInputField );
 		}
+		if ( this.threeDCount > 0 ) {
+			fields.push( this.patentAuthorInputField );
+			fields.push( this.patentAgreementField );
+		}
 		return fields;
 	};
 
 	uw.deed.OwnWork.prototype.setFormFields = function ( $selector ) {
 		var $customDiv, $formFields, $toggler, crossfaderWidget, defaultLicense,
 			defaultLicenseURL, defaultLicenseMsg, defaultLicenseExplainMsg,
-			defaultLicenseLink, $standardDiv, $crossfader, deed, languageCode;
+			defaultLicenseLink, $standardDiv, $crossfader, deed, languageCode,
+			patentMsg, patentLink, $patentDiv, patentWidget;
 
 		this.$selector = $selector;
 		deed = this;
@@ -128,27 +154,9 @@
 		crossfaderWidget = new OO.ui.Widget();
 		crossfaderWidget.$element.append( $crossfader );
 		// See uw.DetailsWidget
-		crossfaderWidget.getErrors = function () {
-			var
-				errors = [],
-				minLength = deed.config.minAuthorLength,
-				maxLength = deed.config.maxAuthorLength,
-				text = deed.authorInput.getValue().trim();
+		crossfaderWidget.getErrors = this.getAuthorErrors.bind( this, this.authorInput );
+		crossfaderWidget.getWarnings = this.getAuthorWarnings.bind( this, this.authorInput );
 
-			if ( text === '' ) {
-				errors.push( mw.message( 'mwe-upwiz-error-signature-blank' ) );
-			} else if ( text.length < minLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-signature-too-short', minLength ) );
-			} else if ( text.length > maxLength ) {
-				errors.push( mw.message( 'mwe-upwiz-error-signature-too-long', maxLength ) );
-			}
-
-			return $.Deferred().resolve( errors ).promise();
-		};
-		// See uw.DetailsWidget
-		crossfaderWidget.getWarnings = function () {
-			return $.Deferred().resolve( [] ).promise();
-		};
 		this.authorInputField = new uw.FieldLayout( crossfaderWidget );
 		// Aggregate 'change' event
 		this.authorInput.on( 'change', OO.ui.debounce( function () {
@@ -156,24 +164,51 @@
 		}, 500 ) );
 
 		$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' )
-			.append(
-				this.authorInputField.$element,
-				this.showCustomDiv ? this.licenseInputField.$element.hide() : ''
-		);
-
-		$toggler = $( '<p class="mwe-more-options" style="text-align: right"></p>' )
-			.append( $( '<a />' )
-				.msg( 'mwe-upwiz-license-show-all' )
-				.click( function () {
-					if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
-						deed.standardLicense();
-					} else {
-						deed.customLicense();
-					}
-				} ) );
+			.append( this.authorInputField.$element );
 
 		if ( this.showCustomDiv ) {
-			$formFields.append( $toggler );
+			$toggler = $( '<p class="mwe-more-options" style="text-align: right"></p>' )
+				.append( $( '<a />' )
+					.msg( 'mwe-upwiz-license-show-all' )
+					.click( function () {
+						if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
+							deed.standardLicense();
+						} else {
+							deed.customLicense();
+						}
+					} ) );
+
+			$formFields.append( this.licenseInputField.$element.hide(), $toggler );
+		}
+
+		if ( this.threeDCount > 0 ) {
+			patentMsg = 'mwe-upwiz-patent';
+			patentLink = $( '<a>' ).attr( { target: '_blank', href: this.config.patents.url.legalcode } );
+
+			$patentDiv = $( '<div class="mwe-upwiz-patent" />' ).append(
+				$( '<p>' ).msg(
+					patentMsg,
+					this.threeDCount,
+					this.patentAuthorInput.$element,
+					patentLink,
+					mw.user
+				)
+			);
+
+			patentWidget = new OO.ui.Widget();
+			patentWidget.$element.append( $patentDiv );
+
+			// See uw.DetailsWidget
+			patentWidget.getErrors = this.getAuthorErrors.bind( this, this.patentAuthorInput );
+			patentWidget.getWarnings = this.getAuthorWarnings.bind( this, this.patentAuthorInput );
+
+			this.patentAuthorInputField = new uw.FieldLayout( patentWidget );
+			deed.patentAuthorInput.on( 'change', OO.ui.debounce( function () {
+				patentWidget.emit( 'change' );
+			}, 500 ) );
+
+			$formFields.append( this.patentAuthorInputField.$element );
+			$formFields.append( this.patentAgreementField.$element );
 		}
 
 		this.$form.append( $formFields ).appendTo( $selector );
@@ -234,6 +269,10 @@
 			serialized.license = this.licenseInput.getSerialized();
 		}
 
+		if ( this.threeDCount > 0 ) {
+			serialized.patentAuthor = this.patentAuthorInput.getValue();
+		}
+
 		return serialized;
 	};
 
@@ -254,6 +293,10 @@
 				this.customLicense();
 				this.licenseInput.setSerialized( serialized.license );
 			}
+		}
+
+		if ( this.threeDCount > 0 && serialized.patentAuthor ) {
+			this.patentAuthorInput.setValue( serialized.patentAuthor );
 		}
 	};
 
@@ -314,5 +357,49 @@
 			.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );
 
 		$toggler.msg( 'mwe-upwiz-license-show-recommended' );
+	};
+
+	/**
+	 * @param {OO.ui.InputWidget} input
+	 * @return {jQuery.Promise}
+	 */
+	uw.deed.OwnWork.prototype.getAuthorErrors = function ( input ) {
+		var
+			errors = [],
+			minLength = this.config.minAuthorLength,
+			maxLength = this.config.maxAuthorLength,
+			text = input.getValue().trim();
+
+		if ( text === '' ) {
+			errors.push( mw.message( 'mwe-upwiz-error-signature-blank' ) );
+		} else if ( text.length < minLength ) {
+			errors.push( mw.message( 'mwe-upwiz-error-signature-too-short', minLength ) );
+		} else if ( text.length > maxLength ) {
+			errors.push( mw.message( 'mwe-upwiz-error-signature-too-long', maxLength ) );
+		}
+
+		return $.Deferred().resolve( errors ).promise();
+	};
+
+	/**
+	 * @return {jQuery.Promise}
+	 */
+	uw.deed.OwnWork.prototype.getAuthorWarnings = function () {
+		return $.Deferred().resolve( [] ).promise();
+	};
+
+	/**
+	 * @param {mw.UploadWizardUpload[]} uploads
+	 * @return {uw.PatentDialog}
+	 */
+	uw.deed.OwnWork.prototype.getPatentDialog = function ( uploads ) {
+		var config = { panels: [ 'warranty', 'license' ] };
+
+		// Only show filename list when in "details" step & we're showing the dialog for individual files
+		if ( uploads[ 0 ] && uploads[ 0 ].state === 'details' ) {
+			config.panels.unshift( 'filelist' );
+		}
+
+		return new uw.PatentDialog( config, this.config, uploads );
 	};
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

@@ -37,7 +37,7 @@
 	uw.deed.Abstract.prototype.instanceCount = 0;
 
 	/**
-	 * @returns {number}
+	 * @return {number}
 	 */
 	uw.deed.Abstract.prototype.getInstanceCount = function () {
 		return this.instanceCount;
@@ -101,6 +101,88 @@
 	uw.deed.Abstract.prototype.setSerialized = function ( serialized ) {
 		if ( serialized.name ) {
 			this.name = serialized.name;
+		}
+	};
+
+	/**
+	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads
+	 * @return {number}
+	 */
+	uw.deed.Abstract.prototype.get3DCount = function ( uploads ) {
+		var extensions = this.config.patents ? this.config.patents.extensions : [],
+			threeDCount = 0;
+
+		$.each( uploads, function ( i, upload ) {
+			if ( $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0 ) {
+				threeDCount++;
+			}
+		} );
+
+		return threeDCount;
+	};
+
+	/**
+	 * @param {mw.UploadWizardUpload[]} uploads
+	 * @return {uw.FieldLayout}
+	 */
+	uw.deed.Abstract.prototype.getPatentAgreementField = function ( uploads ) {
+		var field = new OO.ui.HiddenInputWidget();
+		field.getErrors = this.getPatentAgreementErrors.bind( this, field, uploads );
+		field.getWarnings = $.Deferred().resolve( [] ).promise.bind();
+
+		return new uw.FieldLayout( field );
+	};
+
+	/**
+	 * @param {mw.UploadWizardUpload[]} uploads
+	 * @return {uw.PatentDialog}
+	 */
+	uw.deed.Abstract.prototype.getPatentDialog = function ( uploads ) {
+		var config = { panels: [ 'warranty' ] };
+
+		// Only show filename list when in "details" step & we're showing the dialog for individual files
+		if ( uploads[ 0 ] && uploads[ 0 ].state === 'details' ) {
+			config.panels.unshift( 'filelist' );
+		}
+
+		return new uw.PatentDialog( config, this.config, uploads );
+	};
+
+	/**
+	 * @param {OO.ui.InputWidget} input
+	 * @param {mw.UploadWizardUpload[]} uploads
+	 * @param {boolean} thorough
+	 * @return {jQuery.Promise}
+	 */
+	uw.deed.Abstract.prototype.getPatentAgreementErrors = function ( input, uploads, thorough ) {
+		var deed = this,
+			windowManager, dialog, deferred;
+
+		// We only want to test this on submit
+		if ( !thorough ) {
+			return $.Deferred().resolve( [] ).promise();
+		}
+
+		if ( this.patentAgreed !== true ) {
+			deferred = $.Deferred();
+			windowManager = new OO.ui.WindowManager();
+			dialog = this.getPatentDialog( uploads );
+
+			$( 'body' ).append( windowManager.$element );
+			windowManager.addWindows( [ dialog ] );
+			windowManager.openWindow( dialog );
+
+			dialog.on( 'disagree', function () {
+				deferred.resolve( [ mw.message( 'mwe-upwiz-error-patent-disagree' ) ] );
+			} );
+			dialog.on( 'agree', function () {
+				deed.patentAgreed = true;
+				deferred.resolve( [] );
+			} );
+
+			return deferred.promise();
+		} else {
+			return $.Deferred().resolve( [] ).promise();
 		}
 	};
 }( mediaWiki, mediaWiki.uploadWizard ) );

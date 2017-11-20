@@ -72,6 +72,21 @@
 	uw.ui.Details.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
 
+		if ( this.get3DCount( uploads ) > 0 ) {
+			this.$div.prepend(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-patent-weapon-policy ui-corner-all' )
+					.append(
+						$( '<p>' ).append( mw.msg( 'mwe-upwiz-patent-weapon-policy' ) ),
+						$( '<p>' ).append(
+							$( '<a>' )
+								.text( mw.msg( 'mwe-upwiz-patent-weapon-policy-link' ) )
+								.attr( { target: '_blank', href: mw.UploadWizard.config.patents.url.weapons } )
+						)
+					)
+			);
+		}
+
 		this.$div.prepend(
 			$( '<div>' )
 				.attr( 'id', 'mwe-upwiz-macro-files' )
@@ -145,6 +160,17 @@
 		this.$div
 			.find( '.mwe-upwiz-data' )
 			.morphCrossfade( '.mwe-upwiz-submitting' );
+
+		this.previousButton.$element.hide();
+		this.$div.find( '.mwe-upwiz-patent-weapon-policy' ).hide();
+	};
+
+	/**
+	 * Re-enabled edits to the details.
+	 */
+	uw.ui.Details.prototype.enableEdits = function () {
+		this.previousButton.$element.show();
+		this.$div.find( '.mwe-upwiz-patent-weapon-policy' ).show();
 	};
 
 	/**
@@ -211,6 +237,23 @@
 		} else {
 			this.$warningCount.empty();
 		}
+	};
+
+	/**
+	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads
+	 * @return {number}
+	 */
+	uw.ui.Details.prototype.get3DCount = function ( uploads ) {
+		var extensions = mw.UploadWizard.config.patents.extensions,
+			threeDCount = 0;
+
+		$.each( uploads, function ( i, upload ) {
+			if ( $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0 ) {
+				threeDCount++;
+			}
+		} );
+
+		return threeDCount;
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
