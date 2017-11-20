@@ -224,6 +224,13 @@
 				checker.cachedResult[ title ] = result;
 				return result;
 			} );
+		},
+
+		/**
+		 * Clears the result cache
+		 */
+		clearCache: function () {
+			this.cachedResult = {};
 		}
 
 	};

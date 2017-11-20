@@ -81,6 +81,9 @@
 			}
 			this.beginButton.setHref( beginButtonTarget );
 		}
+		this.beginButton.on( 'click', function () {
+			mw.DestinationChecker.clearCache();
+		} );
 
 		this.buttonGroup = new OO.ui.HorizontalLayout( {
 			items: [ this.homeButton, this.beginButton ]
