@@ -218,7 +218,9 @@ class UploadWizardCampaign {
 		global $wgParser;
 
 		$parserOptions = ParserOptions::newFromContext( $this->context );
-		$parserOptions->setEditSection( false );
+		if ( !defined( 'ParserOutput::SUPPORTS_STATELESS_TRANSFORMS' ) ) {
+			$parserOptions->setEditSection( false );
+		}
 		$parserOptions->setInterfaceMessage( true );
 		$parserOptions->setUserLang( $lang );
 		$parserOptions->setTargetLanguage( $lang );
@@ -226,7 +228,9 @@ class UploadWizardCampaign {
 
 		$output = $wgParser->parse( $value, $this->getTitle(),
 									$parserOptions );
-		$parsed = $output->getText();
+		$parsed = $output->getText( [
+			'enableSectionEditLinks' => false,
+		] );
 
 		// Strip out the surrounding <p> tags
 		$m = [];
