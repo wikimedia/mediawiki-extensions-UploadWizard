@@ -23,7 +23,8 @@
 			"Bersam",
 			"Mehran",
 			"Macofe",
-			"Ladsgroup"
+			"Ladsgroup",
+			"Ommmmid"
 		]
 	},
 	"uploadwizard": "جادوگر بارگذاری",
@@ -136,6 +137,11 @@
 	"mwe-upwiz-source-thirdparty-cases": "حال مشخص کنید که چرا مطمئن هستید که شما اجازهٔ انتشار این {{PLURAL:$1|اثر|آثار}} را دارید:",
 	"mwe-upwiz-source-thirdparty-accept": "تأیید",
 	"mwe-upwiz-source-custom": "برای هر پرونده به طور جداگانه در صفحهٔ بعد اطلاعات حق تکثیر را ارائه کنید.",
+	"mwe-upwiz-patent-dialog-button-back": "بازگشت",
+	"mwe-upwiz-patent-dialog-button-next": "بعدی",
+	"mwe-upwiz-patent-dialog-link-warranty": "اطلاعات بیشتر",
+	"mwe-upwiz-patent-dialog-checkbox-label": "با این شرایط موافقم.",
+	"mwe-upwiz-patent-weapon-policy-link": "خواندن جزئیات خط مشی",
 	"mwe-upwiz-more-options": "افزودن موقعیت و اطلاعات بیشتر...",
 	"mwe-upwiz-copy-metadata": "رونویسی اطلاعات در تمام بارگذاری‌های زیر...",
 	"mwe-upwiz-copy-metadata-button": "رونوشت",
