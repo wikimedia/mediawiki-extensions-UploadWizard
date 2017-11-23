@@ -70,21 +70,6 @@
 	OO.mixinClass( uw.DescriptionDetailsWidget, uw.ValidationMessageElement );
 
 	/**
-	 * Initialise a ULS for language selection
-	 *
-	 * Not called from the constructor because we don't want the ULS to be in its default position,
-	 * and in order to know where to re-position to we must wait until the widgets have been
-	 * attached to the DOM
-	 *
-	 * Called from containing widget (DescriptionsDetailsWidget)
-	 */
-	uw.DescriptionDetailsWidget.prototype.initialiseUls = function () {
-		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
-			this.languageSelector.initialiseUls();
-		}
-	};
-
-	/**
 	 * Handle remove button click events.
 	 *
 	 * @private

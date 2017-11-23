@@ -32,28 +32,30 @@
 		}
 
 		this.languages = config.languages;
+
+		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
+			this.initialiseUls();
+		}
 	};
 
-	/**
-	 * Initialise the ULS
-	 *
-	 * Not called from the constructor because we don't want the ULS to be in its default position,
-	 * and in order to know where to re-position to we must wait until the widgets have been
-	 * attached to the DOM
-	 *
-	 * Called from containing widget (DescriptionsDetailsWidget)
-	 */
 	uw.UlsWidget.prototype.initialiseUls = function () {
-		var ulsWidget = this,
-			offset = this.$element.offset();
+		var ulsWidget = this;
 		this.uls = $( this.$element ).uls( {
 			onSelect: function ( language ) {
 				ulsWidget.setValue( language );
 				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).focus();
 			},
 			languages: ulsWidget.languages,
-			top: offset.top,
-			left: offset.left
+			onVisible: function () {
+				// Re-position the ULS *after* the widget has been rendered, so that we can be
+				// sure it's in the right place
+				var offset = ulsWidget.$element.offset();
+				if ( this.$menu.css( 'direction' ) === 'rtl' ) {
+					offset.left =
+						offset.left - parseInt( this.$menu.css( 'width' ) ) + ulsWidget.$element.width();
+				}
+				this.$menu.css( offset );
+			}
 		} );
 		// Show the ULS when a user tabs into the language selection field
 		this.$element.find( '.oo-ui-dropdownWidget-handle' ).on( 'focus', function () {

@@ -230,7 +230,6 @@
 				} );
 			}
 
-			this.descriptionsDetails.initialiseUls();
 			this.populate();
 
 			this.interfaceBuilt = true;
