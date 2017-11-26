@@ -22,7 +22,8 @@
 			"McSalama",
 			"Macofe",
 			"BiscuitMan",
-			"Valtlait"
+			"Valtlait",
+			"BriskyBlizzard"
 		]
 	},
 	"uploadwizard": "Ohjattu tiedoston tallentaminen",
@@ -131,6 +132,9 @@
 	"mwe-upwiz-source-thirdparty-cases": "Kerro meille, miksi olet varma, että sinulla on oikeus julkaista {{PLURAL:$1|tämä teos|nämä teokset}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Voit antaa tiedostoille tekijänoikeustiedot yksitellen seuraavalla sivulla.",
+	"mwe-upwiz-patent-dialog-title": "Patenttioikeudet",
+	"mwe-upwiz-patent-dialog-button-back": "Takaisin",
+	"mwe-upwiz-patent-dialog-button-next": "Seuraava",
 	"mwe-upwiz-more-options": "Lisää sijainti ja lisätietoja...",
 	"mwe-upwiz-copy-metadata": "Kopioi tiedot kaikkiin seuraaviin tallennuksiin...",
 	"mwe-upwiz-copy-metadata-button": "Kopioi",
@@ -265,7 +269,6 @@
 	"mwe-upwiz-license-own-pd": "Kaikista oikeuksista luovuttu Creative Commons Zero -lisenssillä (kuten public domain)",
 	"mwe-upwiz-license-pd-old-100": "Tekijä kuoli yli 100 vuotta sitten",
 	"mwe-upwiz-license-pd-old": "Tekijä kuoli yli 70 vuotta sitten",
-	"mwe-upwiz-license-pd-art": "Luotettava tuotos maalauksesta, joka on public domainia",
 	"mwe-upwiz-license-pd-us": "Ensijulkaisu tapahtunut Yhdysvalloissa ennen vuotta 1923",
 	"mwe-upwiz-license-pd-usgov": "Yhdysvaltain hallituksen luoma teos",
 	"mwe-upwiz-license-pd-usgov-nasa": "Nasan tekemä teos",
