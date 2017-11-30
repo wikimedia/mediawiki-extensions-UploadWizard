@@ -39,10 +39,14 @@
 			"upwizcampaigns": false
 		},
 		"sysop": {
-			"upwizcampaigns": true
+			"upwizcampaigns": true,
+			"mass-upload": true
 		},
 		"upwizcampeditors": {
 			"upwizcampaigns": true
+		},
+		"Image-reviewer": {
+			"mass-upload": true
 		}
 	},
 	"AddGroups": {
@@ -56,7 +60,8 @@
 		]
 	},
 	"AvailableRights": [
-		"upwizcampaigns"
+		"upwizcampaigns",
+		"mass-upload"
 	],
 	"ContentHandlers": {
 		"Campaign": "CampaignContentHandler"

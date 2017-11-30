@@ -5,7 +5,7 @@
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
-	$wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions;
+	$wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions, $wgUser;
 
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
@@ -564,7 +564,7 @@ return [
 	'maxSimultaneousConnections' => 3,
 
 	// Max number of uploads for a given form
-	'maxUploads' => 50,
+	'maxUploads' => $wgUser->isAllowed( 'mass-upload' ) ? 500 : 50,
 
 	// Max file size that is allowed by PHP (may be higher/lower than MediaWiki file size limit).
 	// When using chunked uploading, these limits can be ignored.
