@@ -42,7 +42,7 @@
 	uw.controller.Deed.prototype.moveNext = function () {
 		var
 			deedController = this,
-			valid, fields;
+			valid, fields, validityPromises;
 
 		if ( !this.deedChooser ) {
 			uw.controller.Step.prototype.moveNext.call( this );
@@ -52,11 +52,21 @@
 		valid = this.deedChooser.valid();
 		if ( valid ) {
 			fields = this.deedChooser.deed.getFields();
-
-			$.when.apply( $, fields.map( function ( fieldLayout ) {
+			validityPromises = fields.map( function ( fieldLayout ) {
 				// Update any error/warning messages
 				return fieldLayout.checkValidity( true );
-			} ) ).then( function () {
+			} );
+			if ( validityPromises.length === 1 ) {
+				// validityPromises will hold all promises for all uploads;
+				// adding a bogus promise (no warnings & errors) to
+				// ensure $.when always resolves with an array of multiple
+				// results (if there's just 1, it would otherwise have just
+				// that one's arguments, instead of a multi-dimensional array
+				// of upload warnings & failures)
+				validityPromises.push( $.Deferred().resolve( [], [] ).promise() );
+			}
+
+			$.when.apply( $, validityPromises ).then( function () {
 				// `arguments` will be an array of all fields, with their warnings & errors
 				// e.g. `[[something], []], [[], [something]]` for 2 fields, where the first one has
 				// a warning and the last one an error
