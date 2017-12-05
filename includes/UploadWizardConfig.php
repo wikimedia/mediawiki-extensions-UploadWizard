@@ -68,7 +68,7 @@ class UploadWizardConfig {
 	protected static $urlConfig = [];
 
 	/**
-	 * Returns the globally configuration, optionaly combined with campaign sepcific
+	 * Returns the globally configuration, optionally combined with campaign specific
 	 * configuration.
 	 *
 	 * @since 1.2
