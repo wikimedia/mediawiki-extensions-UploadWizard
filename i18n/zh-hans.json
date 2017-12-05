@@ -40,6 +40,7 @@
 	"tag-uploadwizard": "上传向导",
 	"tag-uploadwizard-description": "使用上传向导进行的上传",
 	"tag-uploadwizard-flickr-description": "使用上传向导进行的Flickr上传",
+	"right-mass-upload": "通过上传向导，一次大量上传更多文件",
 	"right-upwizcampaigns": "配置上传向导活动",
 	"action-upwizcampaigns": "配置上传活动",
 	"group-upwizcampeditors": "上传向导活动编辑者",

@@ -46,7 +46,8 @@
 			"Wladek92",
 			"Manaviko",
 			"Trial",
-			"The RedBurn"
+			"The RedBurn",
+			"KATRINE1992"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -54,6 +55,7 @@
 	"tag-uploadwizard": "Assistant d’import",
 	"tag-uploadwizard-description": "Imports réalisés avec l'assistant d'import",
 	"tag-uploadwizard-flickr-description": "Imports Flickr fait avec l'assistant d'import",
+	"right-mass-upload": "Envoyer des lots-charges lors Upload Wizard",
 	"right-upwizcampaigns": "Configurer les campagnes de l’Assistant d’import",
 	"action-upwizcampaigns": "configurer les campagnes d’import",
 	"group-upwizcampeditors": "Éditeurs de campagne de l’Assistant d’import",

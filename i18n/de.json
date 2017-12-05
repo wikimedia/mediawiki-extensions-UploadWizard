@@ -27,6 +27,7 @@
 	"tag-uploadwizard": "Hochladeassistent",
 	"tag-uploadwizard-description": "Hochgeladene Dateien, die mit dem Hochladeassistenten hochgeladen wurden.",
 	"tag-uploadwizard-flickr-description": "Flickr-Uploads, die mit dem Hochladeassistenten hochgeladen wurden.",
+	"right-mass-upload": "Mehrere Dateien gleichzeitig mit dem Hochladeassistenten hochladen",
 	"right-upwizcampaigns": "Konfigurieren von Kampagnen",
 	"action-upwizcampaigns": "Kampagnen zu konfigurieren",
 	"group-upwizcampeditors": "Kampagnenbearbeiter (Hochladeassistent)",
