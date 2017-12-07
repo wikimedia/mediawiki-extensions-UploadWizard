@@ -19,6 +19,7 @@
 	"tag-uploadwizard": "Opplastingsveiviser",
 	"tag-uploadwizard-description": "Opplastinger gjort med veiviseren",
 	"tag-uploadwizard-flickr-description": "Flickr-opplastinger gjort med opplastingsveiviseren",
+	"right-mass-upload": "Laste opp flere filer av gangen med UploadWizard",
 	"right-upwizcampaigns": "Konfigurer kampanjer til filopplastningsveiviseren",
 	"action-upwizcampaigns": "konfigurer opplastingskampanjer",
 	"group-upwizcampeditors": "Kampanjeredaktør for opplastningsveiviseren",
