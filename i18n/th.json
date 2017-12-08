@@ -254,7 +254,7 @@
 	"mwe-upwiz-errordialog-ok": "ตกลง",
 	"mwe-upwiz-error-nosuchcampaign": "ไม่มีแคมเปญชื่อ \"$1\"",
 	"mwe-upwiz-error-campaigndisabled": "แคมเปญ \"$1\" ยังไม่เปิดใช้งาน",
-	"prefs-uploads": "อัปโหลด",
+	"prefs-uploads": "การอัปโหลด",
 	"prefs-upwiz-licensing": "สัญญาอนุญาต",
 	"prefs-upwiz-experimental": "คุณลักษณะรุ่นทดลอง",
 	"prefs-upwiz-interface": "ส่วนติดต่อผู้ใช้",
