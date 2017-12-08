@@ -34,7 +34,8 @@ class CampaignHooks {
 	 *
 	 * Sets up appropriate entries in the uc_campaigns table for each Campaign
 	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
-	 * @param Article $article
+	 *
+	 * @param WikiPage $wikiPage
 	 * @param User $user
 	 * @param Content $content
 	 * @param string $summary
@@ -45,10 +46,11 @@ class CampaignHooks {
 	 * @param Revision $revision
 	 * @param Status $status
 	 * @param int $baseRevId
+	 *
 	 * @return bool
 	 */
 	public static function onPageContentSaveComplete(
-		$article, $user, $content, $summary, $isMinor, $isWatch,
+		WikiPage $wikiPage, $user, $content, $summary, $isMinor, $isWatch,
 		$section, $flags, $revision, $status, $baseRevId
 	) {
 		if ( !$content instanceof CampaignContent ) {
@@ -64,13 +66,13 @@ class CampaignHooks {
 		$success = $dbw->upsert(
 			'uw_campaigns',
 			array_merge( [
-				'campaign_name' => $article->getTitle()->getDBkey()
+				'campaign_name' => $wikiPage->getTitle()->getDBkey()
 			], $insertData ),
 			[ 'campaign_name' ],
 			$insertData
 		);
 
-		$campaign = new UploadWizardCampaign( $article->getTitle(), $content->getJsonData() );
+		$campaign = new UploadWizardCampaign( $wikiPage->getTitle(), $content->getJsonData() );
 		$dbw->onTransactionPreCommitOrIdle( function () use ( $campaign ) {
 			$campaign->invalidateCache();
 		} );
