@@ -46,7 +46,7 @@
 	};
 
 	/**
-	 * @return {uw.FieldLayout[]} Fields that need validation
+	 * @inheritdoc
 	 */
 	uw.deed.External.prototype.getLicenseWikiText = function () {
 		if ( this.upload.file.licenseValue ) {

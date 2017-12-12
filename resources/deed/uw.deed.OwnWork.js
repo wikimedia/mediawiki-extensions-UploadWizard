@@ -32,7 +32,7 @@
 		uw.deed.Abstract.call( this, 'ownwork', config );
 
 		this.uploadCount = uploads.length;
-		this.threeDCount = this.get3DCount( uploads );
+		this.threeDCount = uploads.filter( this.needsPatentAgreement.bind( this ) ).length;
 
 		if ( !prefAuthName ) {
 			prefAuthName = mw.config.get( 'wgUserName' );
@@ -229,12 +229,16 @@
 		} );
 	};
 
+	/**
+	 * @inheritdoc
+	 */
 	uw.deed.OwnWork.prototype.getSourceWikiText = function () {
 		return '{{own}}';
 	};
 
-	// XXX do we need to escape authorInput, or is wikitext a feature here?
-	// what about scripts?
+	/**
+	 * @inheritdoc
+	 */
 	uw.deed.OwnWork.prototype.getAuthorWikiText = function () {
 		var author = this.authorInput.getValue();
 
@@ -245,16 +249,27 @@
 		return '[[User:' + mw.config.get( 'wgUserName' ) + '|' + author + ']]';
 	};
 
-	uw.deed.OwnWork.prototype.getLicenseWikiText = function () {
+	/**
+	 * @inheritdoc
+	 */
+	uw.deed.OwnWork.prototype.getLicenseWikiText = function ( upload ) {
+		var wikitext = '';
+
 		if ( this.showCustomDiv && this.licenseInput.getWikiText() !== '' ) {
-			return this.licenseInput.getWikiText();
+			wikitext += this.licenseInput.getWikiText();
 		} else {
-			return '{{' +
+			wikitext += '{{' +
 				this.config.licensing.ownWork.template +
 				'|' +
 				this.getDefaultLicense() +
 				'}}';
 		}
+
+		if ( this.needsPatentAgreement( upload ) ) {
+			wikitext += '\n{{' + this.config.patents.template + '|ownwork}}';
+		}
+
+		return wikitext;
 	};
 
 	/**
