@@ -27,6 +27,7 @@
 	"tag-uploadwizard": "Assistente de envio de ficheiros",
 	"tag-uploadwizard-description": "Carregamentos feitos com o Assistente de Envio de Ficheiros",
 	"tag-uploadwizard-flickr-description": "Carregamentos Flickr feitos com o Assistente de Envio de Ficheiros",
+	"right-mass-upload": "Carregue mais ficheiros de uma só vez em segundo plano, com o Assistente de Envio de Ficheiros",
 	"right-upwizcampaigns": "Configurar campanhas do Assistente de Envio de Ficheiros",
 	"action-upwizcampaigns": "configurar campanhas de envio de ficheiros",
 	"group-upwizcampeditors": "Editores de campanhas do Assistente de Envio de Ficheiros",
