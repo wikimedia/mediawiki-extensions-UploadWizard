@@ -190,7 +190,7 @@
 	"mwe-upwiz-thanks-explain": "Agora pode usar {{PLURAL:$1|este ficheiro|estes ficheiros}} em wikis, ou criar ''links'' para {{PLURAL:$1|ele|eles}} na Internet.",
 	"mwe-upwiz-thanks-wikitext": "Para usar o ficheiro numa wiki, copie este texto para uma página:",
 	"mwe-upwiz-thanks-update-delay": "A inserção da imagem na página da lista pode demorar até cinco minutos.",
-	"mwe-upwiz-thanks-url": "Para criar um ''link'' para o ficheiro em HTML, copie este URL do endereço:",
+	"mwe-upwiz-thanks-url": "Para criar uma hiperligação para o ficheiro em HTML, copie este URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Esta wiki não aceita nomes de ficheiros com a extensão \".$1\".",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Esta wiki requer que os ficheiros tenham uma extensão como \".JPG\" no fim do nome.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Já está a enviar o ficheiro \"$1\".",
