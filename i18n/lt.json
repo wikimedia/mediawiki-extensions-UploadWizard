@@ -9,7 +9,8 @@
 			"Hugo.arg",
 			"Matma Rex",
 			"Macofe",
-			"Garas"
+			"Garas",
+			"Manvydasz"
 		]
 	},
 	"uploadwizard": "Įkėlimo vedlys",
@@ -130,7 +131,7 @@
 	"mwe-upwiz-copy-location": "Kopijuoti vietovę",
 	"mwe-upwiz-copy-other": "Kopijuoti kitą informaciją",
 	"mwe-upwiz-desc": "Aprašymas",
-	"mwe-upwiz-desc-placeholder": "Aprašyti paveikslėlį",
+	"mwe-upwiz-desc-placeholder": "Aprašyti rinkmeną",
 	"mwe-upwiz-desc-add-n": "Pridėti aprašymą kita kalba",
 	"mwe-upwiz-desc-add-0": "Pridėti aprašymą",
 	"mwe-upwiz-title": "Pavadinimas",
