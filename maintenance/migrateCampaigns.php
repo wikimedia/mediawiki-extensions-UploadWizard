@@ -41,7 +41,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class MigrateCampaigns extends Maintenance {
 
 	/**
-	 * @var DatabaseBase
+	 * @var \Wikimedia\Rdbms\IDatabase
 	 */
 	private $dbr = null;
 
