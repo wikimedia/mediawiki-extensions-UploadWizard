@@ -216,7 +216,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "Pode reativar este guia nas [$1 suas preferências de utilizador], em $2 → $3.",
 	"mwe-upwiz-tooltip-author": "O nome da pessoa que tirou a fotografia, pintou o quadro, fez o desenho, etc.",
 	"mwe-upwiz-tooltip-source": "De onde veio este ficheiro digital; pode ser um URL, ou um livro ou publicação",
-	"mwe-upwiz-tooltip-sign": "Pode usar o seu nome de utilizador na wiki ou o seu nome verdadeiro.\nEm ambos os casos, existirá um ''link'' para a sua página de utilizador da wiki.",
+	"mwe-upwiz-tooltip-sign": "Pode usar o seu nome de utilizador na wiki ou o seu nome verdadeiro.\nEm ambos os casos, ele será uma hiperligação para a sua página de utilizador da wiki.",
 	"mwe-upwiz-tooltip-title": "Um título curto e único, que servirá de nome do ficheiro. Pode usar linguagem simples com espaços. Não inclua a extensão do ficheiro.",
 	"mwe-upwiz-tooltip-description": "Descreva de forma breve todos os elementos de nota sobre o trabalho.\nPara uma fotografia, mencione os principais motivos fotografados, a ocasião, ou o lugar.",
 	"mwe-upwiz-tooltip-date": "Escolha a data da criação ou primeira publicação deste trabalho a partir do calendário, ou escreva-a no formato \"AAAA-mm-dd\".",
