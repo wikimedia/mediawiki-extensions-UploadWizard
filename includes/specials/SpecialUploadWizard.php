@@ -331,16 +331,15 @@ class SpecialUploadWizard extends SpecialPage {
 				);
 			}
 
-			return
+			return Html::rawElement(
+				'div',
+				[],
 				Html::rawElement(
-					'div',
-					[],
-					Html::rawElement(
-						'p',
-						[ 'style' => 'text-align: center' ],
-						wfMessage( 'mwe-upwiz-extension-disabled' )->text()
-					) . $linkHtml
-				);
+					'p',
+					[ 'style' => 'text-align: center' ],
+					wfMessage( 'mwe-upwiz-extension-disabled' )->text()
+				) . $linkHtml
+			);
 		}
 
 		// always load the html: even if the tutorial is skipped, users can
@@ -349,20 +348,18 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )
-		return
 		// @codingStandardsIgnoreStart
-			'<div id="upload-wizard" class="upload-section">' .
-				'<div id="mwe-upwiz-tutorial-html" style="display:none;">' .
-					$tutorialHtml .
-				'</div>' .
-
-				// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
-				// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
-				// the min-width & max-width is copied from the #uploadWizard properties, so in nice browsers the spinner is right where the button will go.
-				'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">' .
-					'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;' .
-				'</div>' .
-			'</div>';
+		return '<div id="upload-wizard" class="upload-section">' .
+			'<div id="mwe-upwiz-tutorial-html" style="display:none;">' .
+				$tutorialHtml .
+			'</div>' .
+			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
+			// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
+			// the min-width & max-width is copied from the #uploadWizard properties, so in nice browsers the spinner is right where the button will go.
+			'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">' .
+				'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;' .
+			'</div>' .
+		'</div>';
 		// @codingStandardsIgnoreEnd
 	}
 
