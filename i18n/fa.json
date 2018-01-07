@@ -340,5 +340,6 @@
 	"mwe-upload-campaigns-pagination-next": "صفحهٔ بعدی",
 	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها",
 	"apihelp-flickrblacklist-param-url": "نشانی فلیکر بررسی شد.",
+	"apihelp-flickrblacklist-example-2": "کل فهرست سیاه را برگردان",
 	"apihelp-query+allcampaigns-param-limit": "تعداد کمپین‌ها برای ارائه"
 }
