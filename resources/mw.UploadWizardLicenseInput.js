@@ -464,8 +464,9 @@
 						return input.getInputWikiText( this );
 					}
 				);
+
 			// need to use makeArray because a jQuery-returned set of things won't have .join
-			return $.makeArray( wikiTexts ).join( '' );
+			return $.makeArray( wikiTexts ).join( '' ).trim();
 		},
 
 		/**

@@ -730,9 +730,9 @@
 
 			deed = this.upload.deedChooser.deed;
 
-			information.source = deed.getSourceWikiText();
+			information.source = deed.getSourceWikiText( this.upload );
 
-			information.author = deed.getAuthorWikiText();
+			information.author = deed.getAuthorWikiText( this.upload );
 
 			info = '';
 
@@ -753,7 +753,7 @@
 
 			// add licensing information
 			wikiText += '\n=={{int:license-header}}==\n';
-			wikiText += deed.getLicenseWikiText() + '\n\n';
+			wikiText += deed.getLicenseWikiText( this.upload ) + '\n\n';
 
 			if ( mw.UploadWizard.config.autoAdd.wikitext !== undefined ) {
 				wikiText += mw.UploadWizard.config.autoAdd.wikitext + '\n';

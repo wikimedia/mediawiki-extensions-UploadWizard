@@ -59,32 +59,41 @@
 
 	/* eslint-disable valid-jsdoc */
 	/**
+	 * @param {mw.UploadWizardUpload} upload
 	 * @return {string}
 	 */
 	/* eslint-enable valid-jsdoc */
-	uw.deed.Abstract.prototype.getSourceWikiText = function () {
+	/* eslint-disable no-unused-vars */
+	uw.deed.Abstract.prototype.getSourceWikiText = function ( upload ) {
 		throw new Error( 'Not implemented.' );
 	};
+	/* eslint-enable no-unused-vars */
 
 	/* eslint-disable valid-jsdoc */
 	/**
+	 * @param {mw.UploadWizardUpload} upload
 	 * @return {string}
 	 */
 	/* eslint-enable valid-jsdoc */
-	uw.deed.Abstract.prototype.getAuthorWikiText = function () {
+	/* eslint-disable no-unused-vars */
+	uw.deed.Abstract.prototype.getAuthorWikiText = function ( upload ) {
 		throw new Error( 'Not implemented.' );
 	};
+	/* eslint-enableno-unused-vars */
 
 	/* eslint-disable valid-jsdoc */
 	/**
 	 * Get wikitext representing the licenses selected in the license object
 	 *
+	 * @param {mw.UploadWizardUpload} upload
 	 * @return {string} wikitext of all applicable license templates.
 	 */
 	/* eslint-enable valid-jsdoc */
-	uw.deed.Abstract.prototype.getLicenseWikiText = function () {
+	/* eslint-disable no-unused-vars */
+	uw.deed.Abstract.prototype.getLicenseWikiText = function ( upload ) {
 		throw new Error( 'Not implemented.' );
 	};
+	/* eslint-enableno-unused-vars */
 
 	/**
 	 * @return {Object}
@@ -105,20 +114,13 @@
 	};
 
 	/**
-	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads
-	 * @return {number}
+	 * @param {mw.UploadWizardUpload} upload
+	 * @returns {boolean}
 	 */
-	uw.deed.Abstract.prototype.get3DCount = function ( uploads ) {
-		var extensions = this.config.patents ? this.config.patents.extensions : [],
-			threeDCount = 0;
+	uw.deed.Abstract.prototype.needsPatentAgreement = function ( upload ) {
+		var extensions = this.config.patents ? this.config.patents.extensions : [];
 
-		$.each( uploads, function ( i, upload ) {
-			if ( $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0 ) {
-				threeDCount++;
-			}
-		} );
-
-		return threeDCount;
+		return $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0;
 	};
 
 	/**

@@ -525,6 +525,7 @@ return [
 
 	'patents' => [
 		'extensions' => [ 'stl' ],
+		'template' => '3dpatent',
 		'url' => [
 			'legalcode' => '//wikimediafoundation.org/wiki/Wikimedia_3D_file_patent_license',
 			'warranty' => '//meta.wikimedia.org/wiki/Wikilegal/3D_files_and_3D_printing',

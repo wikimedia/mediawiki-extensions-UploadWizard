@@ -31,7 +31,7 @@
 		uw.deed.Abstract.call( this, 'thirdparty', config );
 
 		this.uploadCount = uploads.length;
-		this.threeDCount = this.get3DCount( uploads );
+		this.threeDCount = uploads.filter( this.needsPatentAgreement.bind( this ) ).length;
 
 		this.sourceInput = new OO.ui.MultilineTextInputWidget( {
 			autosize: true,
@@ -180,26 +180,30 @@
 	};
 
 	/**
-	 * @return {string}
+	 * @inheritdoc
 	 */
 	uw.deed.Abstract.prototype.getSourceWikiText = function () {
 		return this.sourceInput.getValue();
 	};
 
 	/**
-	 * @return {string}
+	 * @inheritdoc
 	 */
 	uw.deed.Abstract.prototype.getAuthorWikiText = function () {
 		return this.authorInput.getValue();
 	};
 
 	/**
-	 * Get wikitext representing the licenses selected in the license object
-	 *
-	 * @return {string} wikitext of all applicable license templates.
+	 * @inheritdoc
 	 */
-	uw.deed.Abstract.prototype.getLicenseWikiText = function () {
-		return this.licenseInput.getWikiText();
+	uw.deed.Abstract.prototype.getLicenseWikiText = function ( upload ) {
+		var wikitext = this.licenseInput.getWikiText();
+
+		if ( this.needsPatentAgreement( upload ) ) {
+			wikitext += '\n{{' + this.config.patents.template + '}}';
+		}
+
+		return wikitext;
 	};
 
 	/**

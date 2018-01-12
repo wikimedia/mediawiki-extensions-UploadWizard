@@ -72,7 +72,7 @@
 	uw.ui.Details.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
 
-		if ( this.get3DCount( uploads ) > 0 ) {
+		if ( uploads.filter( this.needsPatentAgreement.bind( this ) ).length > 0 ) {
 			this.$div.prepend(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-patent-weapon-policy ui-corner-all' )
@@ -240,20 +240,13 @@
 	};
 
 	/**
-	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads
-	 * @return {number}
+	 * @param {mw.UploadWizardUpload} upload
+	 * @returns {boolean}
 	 */
-	uw.ui.Details.prototype.get3DCount = function ( uploads ) {
-		var extensions = mw.UploadWizard.config.patents.extensions,
-			threeDCount = 0;
+	uw.ui.Details.prototype.needsPatentAgreement = function ( upload ) {
+		var extensions = mw.UploadWizard.config.patents.extensions;
 
-		$.each( uploads, function ( i, upload ) {
-			if ( $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0 ) {
-				threeDCount++;
-			}
-		} );
-
-		return threeDCount;
+		return $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0;
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );

@@ -31,7 +31,7 @@
 	OO.inheritClass( uw.deed.Custom, uw.deed.Abstract );
 
 	/**
-	 * @return {string}
+	 * @inheritdoc
 	 */
 	uw.deed.Custom.prototype.getSourceWikiText = function () {
 		if ( typeof this.upload.file.sourceURL !== 'undefined' ) {
@@ -42,14 +42,14 @@
 	};
 
 	/**
-	 * @return {string}
+	 * @inheritdoc
 	 */
 	uw.deed.Custom.prototype.getAuthorWikiText = function () {
 		return this.upload.file.author;
 	};
 
 	/**
-	 * @return {string}
+	 * @inheritdoc
 	 */
 	uw.deed.Custom.prototype.getLicenseWikiText = function () {
 		return this.upload.file.licenseValue;
