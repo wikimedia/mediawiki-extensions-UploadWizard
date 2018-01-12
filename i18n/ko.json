@@ -16,7 +16,8 @@
 			"Macofe",
 			"Jonghaya",
 			"Ykhwong",
-			"Jerrykim306"
+			"Jerrykim306",
+			"Bluemersen"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
@@ -164,7 +165,7 @@
 	"mwe-upwiz-location-alt": "고도",
 	"mwe-upwiz-copyright-info": "배포 권한",
 	"mwe-upwiz-author": "저작자",
-	"mwe-upwiz-autoconverted": "이 파일은 자동적으로 $1 포맷으로 변환되었습니다.",
+	"mwe-upwiz-autoconverted": "이 파일은 자동으로 $1 포맷으로 변환되었습니다.",
 	"mwe-upwiz-other": "추가 정보",
 	"mwe-upwiz-source": "출처",
 	"mwe-upwiz-thanks-intro": "파일을 업로드해주셔서 감사합니다!",
