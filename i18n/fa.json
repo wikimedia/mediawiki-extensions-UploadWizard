@@ -137,6 +137,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "حال مشخص کنید که چرا مطمئن هستید که شما اجازهٔ انتشار این {{PLURAL:$1|اثر|آثار}} را دارید:",
 	"mwe-upwiz-source-thirdparty-accept": "تأیید",
 	"mwe-upwiz-source-custom": "برای هر پرونده به طور جداگانه در صفحهٔ بعد اطلاعات حق تکثیر را ارائه کنید.",
+	"mwe-upwiz-patent-dialog-title-filename": "حقوق حقوقی برای: $1",
 	"mwe-upwiz-patent-dialog-button-back": "بازگشت",
 	"mwe-upwiz-patent-dialog-button-next": "بعدی",
 	"mwe-upwiz-patent-dialog-link-warranty": "اطلاعات بیشتر",
