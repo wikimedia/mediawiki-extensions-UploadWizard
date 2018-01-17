@@ -56,14 +56,11 @@
 	 * @param {number} n Number of descriptions
 	 */
 	uw.DescriptionsDetailsWidget.prototype.addDescriptions = function ( n ) {
-		var i, items = [];
+		var items = [];
 		while ( n-- ) {
 			items.push( new uw.DescriptionDetailsWidget() );
 		}
 		this.addItems( items );
-		for ( i = 0; i < items.length; i++ ) {
-			items[ i ].initialiseUls();
-		}
 	};
 
 	/**
