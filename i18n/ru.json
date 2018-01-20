@@ -348,6 +348,7 @@
 	"mwe-upwiz-prefs-def-license": "Лицензионное соглашение по умолчанию",
 	"mwe-upwiz-prefs-def-license-def": "Использовать то, что задано по умолчанию",
 	"mwe-upwiz-prefs-def-license-custom": "Пользовательская лицензия по умолчанию",
+	"mwe-upwiz-prefs-license-name": "Имя автора",
 	"mwe-upwiz-prefs-license-own": "Собственное произведение -- $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Чужое произведение -- $1",
 	"mwe-upwiz-prefs-chunked": "Поблочная загрузка файлов свыше $1 в Мастере загрузок — увеличивает максимальный размер загружаемых файлов с $2 до $3",
