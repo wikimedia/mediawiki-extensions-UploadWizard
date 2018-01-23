@@ -128,6 +128,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "現在請告訴我們，您為什麼確定您有權發佈{{PLURAL:$1|此|這些}}作品：",
 	"mwe-upwiz-source-thirdparty-accept": "確定",
 	"mwe-upwiz-source-custom": "於下一頁分別提供每個檔案的版權資訊。",
+	"mwe-upwiz-patent-dialog-button-next": "下一項",
 	"mwe-upwiz-more-options": "加入地點及更多資訊 ...",
 	"mwe-upwiz-copy-metadata": "複製資訊至下列所有上傳的檔案...",
 	"mwe-upwiz-copy-metadata-button": "複製",
