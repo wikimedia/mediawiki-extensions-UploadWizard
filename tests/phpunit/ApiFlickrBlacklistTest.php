@@ -7,6 +7,7 @@
  *
  * @group API
  * @group medium
+ * @covers ApiFlickrBlacklist
  */
 class ApiFlickrBlacklistTest extends ApiTestCase {
 	/**
