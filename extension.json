@@ -98,7 +98,7 @@
 		"SpecialCampaigns": "includes/specials/SpecialCampaigns.php",
 		"ApiQueryAllCampaigns": "includes/ApiQueryAllCampaigns.php",
 		"ApiFlickrBlacklist": "includes/ApiFlickrBlacklist.php",
-		"UploadWizardSimpleForm": "includes/specials/SpecialUploadWizard.php"
+		"UploadWizardSimpleForm": "includes/specials/UploadWizardSimpleForm.php"
 	},
 	"ResourceModules": {
 		"ext.uploadWizard.formDataTransport": {
