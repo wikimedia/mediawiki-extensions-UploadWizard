@@ -47,6 +47,8 @@ class MigrateCampaigns extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
+
+		$this->requireExtension( 'Upload Wizard' );
 		$this->mDescription = "Migrate UploadCampaigns from database storage to pages";
 		$this->addOption( 'user', 'The user to perform the migration as', false, true, 'u' );
 	}
