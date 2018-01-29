@@ -7,13 +7,14 @@
 			"Matma Rex",
 			"Macofe",
 			"Сербијана",
-			"Obsuser"
+			"Obsuser",
+			"Zoranzoki21"
 		]
 	},
 	"uploadwizard": "Vodič za otpremanje",
 	"uploadwizard-desc": "Čarobnjak za otpremanje, zgodna alatka za otpremanje multimedijalnih sadržaja",
 	"right-upwizcampaigns": "Postavke kampanja Čarobnjaka za otpremanje",
-	"action-upwizcampaigns": "postavke kampanja za otpremanje",
+	"action-upwizcampaigns": "podešavanja kampanja za otpremanje",
 	"group-upwizcampeditors": "Urednici kampanje za otpremanje",
 	"group-upwizcampeditors-member": "{{GENDER:$1|urednik|urednica|urednik}} kampanje za otpremanje",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Urednici kampanje – Čarobnjak za otpremanje",
