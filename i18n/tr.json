@@ -19,7 +19,8 @@
 			"Alikaan",
 			"Bulgu",
 			"Hedda Gabler",
-			"Hedda"
+			"Hedda",
+			"Rapsar"
 		]
 	},
 	"uploadwizard": "Yükleme sihirbazı",
@@ -81,7 +82,7 @@
 	"mwe-upwiz-remove-upload": "Bu dosyayı yüklenecek dosyalar listesinden kaldır",
 	"mwe-upwiz-remove-description": "Bu açıklamayı kaldır",
 	"mwe-upwiz-upload": "Yükle",
-	"mwe-upwiz-file-upload-notcapable": "Ne yazık ki tarayıcınız dosyaları yükleyemez.\nLütfen başka bir tarayıcıyı deneyin.",
+	"mwe-upwiz-file-upload-notcapable": "Maalesef tarayıcınız dosyaları yükleyemez.\nLütfen başka bir tarayıcıyı deneyin.",
 	"mwe-upwiz-file-all-ok": "Tüm yüklemeler başarılı oldu!",
 	"mwe-upwiz-file-some-failed": "Bazı yüklemeler başarısız oldu.",
 	"mwe-upwiz-file-retry": "Başarısız olan yüklemeleri yeniden dene",
