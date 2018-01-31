@@ -10,7 +10,8 @@
 			"Matma Rex",
 			"Macofe",
 			"Obsuser",
-			"Zoranzoki21"
+			"Zoranzoki21",
+			"Acamicamacaraca"
 		]
 	},
 	"uploadwizard": "Водич за отпремање",
@@ -18,7 +19,7 @@
 	"tag-uploadwizard": "Водич за отпремање",
 	"tag-uploadwizard-description": "Отпремања направљена преко Водича за отпремање",
 	"tag-uploadwizard-flickr-description": "Фликер отпремања направљена преко Водича за отпремање",
-	"right-upwizcampaigns": "Поставке кампања Чаробњака за отпремање",
+	"right-upwizcampaigns": "Подешавања кампања Чаробњака за отпремање",
 	"action-upwizcampaigns": "подешавања кампања за отпремање",
 	"group-upwizcampeditors": "Уредници кампање – Помоћник за отпремање",
 	"group-upwizcampeditors-member": "{{GENDER:$1|уредник|уредница|уредник}} кампање – Помоћник за отпремање",
