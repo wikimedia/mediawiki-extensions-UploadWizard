@@ -28,7 +28,7 @@
 	};
 
 	// Hack: Steal methods from OO.ui.FieldLayout.
-	// TODO: Upstream ValidationMessageElement to OOjs UI, make FieldLayout use it.
+	// TODO: Upstream ValidationMessageElement to OOUI, make FieldLayout use it.
 	uw.ValidationMessageElement.prototype.makeMessage = OO.ui.FieldLayout.prototype.makeMessage;
 	uw.ValidationMessageElement.prototype.setErrors = OO.ui.FieldLayout.prototype.setErrors;
 	uw.ValidationMessageElement.prototype.setNotices = OO.ui.FieldLayout.prototype.setNotices;
