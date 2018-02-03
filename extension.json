@@ -155,7 +155,6 @@
 		},
 		"ext.uploadWizard.uploadCampaign.list": {
 			"styles": "resources/ext.uploadWizard.uploadCampaign.list.css",
-			"position": "top",
 			"targets": [ "desktop", "mobile" ],
 			"group": "ext.uploadWizard"
 		},
