@@ -162,7 +162,7 @@
 	 * @param {string} code
 	 * @param {Object} result
 	 * @param {string[] }duplicates
-	 * @returns {$.Promise}
+	 * @return {$.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.processDuplicateError = function ( code, result, duplicates ) {
 		var files = this.getFileLinks( duplicates ),
@@ -307,7 +307,7 @@
 	 * Convert an array of non-prefixed filenames into a [filename => url] map.
 	 *
 	 * @param {string[]} filenames Array of non-prefixed filenames
-	 * @returns {Object} Map of [prefixed filename => url]
+	 * @return {Object} Map of [prefixed filename => url]
 	 */
 	mw.ApiUploadHandler.prototype.getFileLinks = function ( filenames ) {
 		var files = [];

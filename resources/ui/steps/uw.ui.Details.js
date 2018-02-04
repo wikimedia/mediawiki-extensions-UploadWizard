@@ -241,7 +241,7 @@
 
 	/**
 	 * @param {mw.UploadWizardUpload} upload
-	 * @returns {boolean}
+	 * @return {boolean}
 	 */
 	uw.ui.Details.prototype.needsPatentAgreement = function ( upload ) {
 		var extensions = mw.UploadWizard.config.patents.extensions;

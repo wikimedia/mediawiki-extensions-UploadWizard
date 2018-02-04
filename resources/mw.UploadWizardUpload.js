@@ -455,7 +455,7 @@
 	 * @return {ApiUploadFormDataHandler|ApiUploadPostHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
-		var constructor;  // must be the name of a function in 'mw' namespace
+		var constructor; // must be the name of a function in 'mw' namespace
 
 		if ( !this.uploadHandler ) {
 			constructor = 'ApiUploadFormDataHandler';
