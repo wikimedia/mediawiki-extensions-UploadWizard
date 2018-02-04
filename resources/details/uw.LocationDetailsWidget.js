@@ -225,17 +225,17 @@
 			parts, value;
 
 		// fix commonly used character alternatives
-		coordinate = coordinate.replace( /\s*[,\.]\s*/, '.' );
+		coordinate = coordinate.replace( /\s*[,.]\s*/, '.' );
 
 		// convert degrees, minutes, seconds (or degrees & decimal minutes) to
 		// decimal degrees
 		// there can be a lot of variation in the notation, so let's only
 		// focus on "groups of digits" (and not whether e.g. ″ or " is used)
-		parts = coordinate.match( /(-?[0-9\.]+)[^0-9\.]+([0-9\.]+)(?:[^0-9\.]+([0-9\.]+))?/ );
+		parts = coordinate.match( /(-?[0-9.]+)[^0-9.]+([0-9.]+)(?:[^0-9.]+([0-9.]+))?/ );
 		if ( parts ) {
 			value = this.dmsToDecimal( parts[ 1 ], parts[ 2 ], parts[ 3 ] || 0 );
 		} else {
-			value = coordinate.replace( /[^\-0-9\.]/g, '' ) * 1;
+			value = coordinate.replace( /[^\-0-9.]/g, '' ) * 1;
 		}
 
 		// round to 6 decimal places

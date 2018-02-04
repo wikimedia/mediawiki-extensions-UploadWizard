@@ -391,7 +391,7 @@
 		prefillDate: function () {
 			var dateObj, metadata, dateTimeRegex, matches, dateStr, saneTime,
 				dateMode = 'calendar',
-				yyyyMmDdRegex = /^(\d\d\d\d)[:\/\-](\d\d)[:\/\-](\d\d)\D.*/,
+				yyyyMmDdRegex = /^(\d\d\d\d)[:/-](\d\d)[:/-](\d\d)\D.*/,
 				timeRegex = /\D(\d\d):(\d\d):(\d\d)/;
 
 			// XXX surely we have this function somewhere already

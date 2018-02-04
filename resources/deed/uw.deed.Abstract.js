@@ -115,7 +115,7 @@
 
 	/**
 	 * @param {mw.UploadWizardUpload} upload
-	 * @returns {boolean}
+	 * @return {boolean}
 	 */
 	uw.deed.Abstract.prototype.needsPatentAgreement = function ( upload ) {
 		var extensions = this.config.patents ? this.config.patents.extensions : [];

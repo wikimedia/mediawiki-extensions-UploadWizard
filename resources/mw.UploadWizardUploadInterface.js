@@ -61,8 +61,8 @@
 			.append( this.removeCtrl.$element );
 
 		this.$form = $( '<form>' )
-				.addClass( 'mwe-upwiz-form' )
-				.append( this.visibleFilenameDiv );
+			.addClass( 'mwe-upwiz-form' )
+			.append( this.visibleFilenameDiv );
 
 		$( this.div ).append( this.$form );
 

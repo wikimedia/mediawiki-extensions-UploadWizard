@@ -65,8 +65,8 @@
 
 	QUnit.test( 'post', function ( assert ) {
 		var stub = this.sandbox.stub(),
-		// post() works on a promise and binds .then, so we have to make
-		// sure it actually is a promise, but also that it calls our stub
+			// post() works on a promise and binds .then, so we have to make
+			// sure it actually is a promise, but also that it calls our stub
 			transport = createTransport( 10, { post: function () {
 				stub();
 				return $.Deferred().resolve();

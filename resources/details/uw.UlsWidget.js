@@ -79,7 +79,7 @@
 	};
 
 	/**
-	 * @returns {uw.UlsWidget}
+	 * @return {uw.UlsWidget}
 	 */
 	uw.UlsWidget.prototype.getElement = function () {
 		return this.$element;
