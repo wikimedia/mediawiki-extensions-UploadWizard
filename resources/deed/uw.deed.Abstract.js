@@ -79,7 +79,7 @@
 	uw.deed.Abstract.prototype.getAuthorWikiText = function ( upload ) {
 		throw new Error( 'Not implemented.' );
 	};
-	/* eslint-enableno-unused-vars */
+	/* eslint-enable no-unused-vars */
 
 	/* eslint-disable valid-jsdoc */
 	/**
@@ -93,7 +93,7 @@
 	uw.deed.Abstract.prototype.getLicenseWikiText = function ( upload ) {
 		throw new Error( 'Not implemented.' );
 	};
-	/* eslint-enableno-unused-vars */
+	/* eslint-enable no-unused-vars */
 
 	/**
 	 * @return {Object}
