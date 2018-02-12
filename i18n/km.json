@@ -9,6 +9,7 @@
 	"mwe-upwiz-step-details": "បរិយាយ",
 	"mwe-upwiz-progressbar-uploading": "កំពុង​ផ្ទុកឡើង​",
 	"mwe-upwiz-finished": "បាន​បញ្ចាប់!",
+	"mwe-upwiz-source-thirdparty-accept": "យល់ព្រម",
 	"mwe-upwiz-desc-add-n": "សរសេរការពណ៌នាជាភាសាមួយទៀត",
 	"mwe-upwiz-desc-add-0": "សរសេរការពណ៌នា",
 	"mwe-upwiz-date-created": "កាលបរិច្ជេទបង្កើត",
@@ -69,6 +70,7 @@
 	"mwe-upwiz-error-title-senselessimagename": "សូមធ្វើអោយចំណងជើងនេះមានន័យជាងនេះ។",
 	"mwe-upwiz-dialog-title": "ឯកសារអាចផ្ទុកឡើងដោយប្រើឈ្មោះជាភាសាឬអក្សរណាក៏បាន។ ចំណងជើងរបស់ឯកសារមេឌាគួរតែមានន័យពេញលេញ​និងអាចយល់បានក្នុងភាសាដែលអ្នកជ្រើសរើស។",
 	"mwe-upwiz-categories": "ចំណាត់ថ្នាក់ក្រុម",
+	"mwe-upwiz-errordialog-ok": "យល់ព្រម",
 	"mwe-upwiz-prefs-license-own": "ស្នាដៃផ្ទាល់ខ្លួន- $1",
 	"mwe-upwiz-prefs-license-thirdparty": "ស្នាដៃអ្នកដទៃ - $1"
 }
