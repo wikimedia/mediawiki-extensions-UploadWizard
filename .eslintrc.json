@@ -6,6 +6,7 @@
 		"qunit": true
 	},
 	"globals": {
+		"require": false,
 		"OO": false,
 		"mediaWiki": false,
 		"sinon": false

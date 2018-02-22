@@ -90,11 +90,11 @@
 		this.mapButton.getPopup().toggleClipping( false );
 
 		if ( !this.map ) {
-			this.map = mw.loader.require( 'ext.kartographer.box' ).map( {
+			this.map = require( 'ext.kartographer.box' ).map( {
 				container: this.$map[ 0 ]
 			} );
 		}
-		mw.loader.require( 'ext.kartographer.editing' ).getKartographerLayer( this.map ).setGeoJSON( {
+		require( 'ext.kartographer.editing' ).getKartographerLayer( this.map ).setGeoJSON( {
 			type: 'Feature',
 			properties: {},
 			geometry: { type: 'Point', coordinates: [ longitude, latitude ] }
