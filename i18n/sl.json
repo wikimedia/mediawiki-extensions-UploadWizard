@@ -6,7 +6,8 @@
 			"Irena Plahuta",
 			"Yerpo",
 			"Pickle12",
-			"Janezdrilc"
+			"Janezdrilc",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Čarovnik nalaganja",
@@ -233,7 +234,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Avtorsko zaščiteno, vendar se lahko uporablja za katerikoli namen, vključno s komercialnim",
 	"mwe-upwiz-license-attribution": "Lahko se uporablja za kateri koli namen, vključno komercialno, če je imetnik avtorskih pravic pravilno naveden.",
 	"mwe-upwiz-license-gfdl": "Licenca GNU za rabo proste dokumentacije",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, potreben je pripis avtorstva (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, potreben je pripis avtorstva (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Imetnik avtorskih pravic je {{PLURAL:$1|to delo|ti deli|ta dela}} objavil z ustrezno licenco Creative Commons.",
 	"mwe-upwiz-license-cc-subhead": "Za to spletišče vse licence Creative Commons niso primerne. Prepričajte se, da je imetnik avtorskih pravic uporabil eno od naslednjih licenc.",
 	"mwe-upwiz-license-flickr-head": "Imetnik avtorskih pravic je {{PLURAL:$1|svojo sliko ali video|svoji sliki ali videa|svoje slike ali videe}} objavil v Flickru s pravo licenco.",

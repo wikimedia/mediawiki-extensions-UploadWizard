@@ -18,7 +18,8 @@
 			"Dorgan",
 			"Macofe",
 			"Máté",
-			"Bencemac"
+			"Bencemac",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Feltöltésvarázsló",
@@ -293,7 +294,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Szerzői jog védi, de bármilyen célra felhasználható, kereskedelmi forgalomban is",
 	"mwe-upwiz-license-attribution": "Bármilyen célra felhasználható, beleértve kereskedelmi forgalomban is, ha a szerzői jog tulajdonosa megfelelően fel van tüntetve",
 	"mwe-upwiz-license-gfdl": "GNU Szabad Dokumentációs Licenc",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, a szerző megjelölése szükséges (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, a szerző megjelölése szükséges (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "A szerzői jog tulajdonosa megfelelő Creative Commons licenc alatt tette közzé a {{PLURAL:$1|művet|műveket}}",
 	"mwe-upwiz-license-cc-subhead": "Nem minden Creative Commons licenc megfelelő ezen honlap számára – ellenőrizd, hogy a szerzői jog tulajdonosa a megfelelő licencek egyikét használja.",
 	"mwe-upwiz-license-flickr-head": "A szerzői jog tulajdonosa megfelelő licenccel tette közzé a {{PLURAL:$1|képet vagy videót|képeit vagy videóit}} a Flickrön.",

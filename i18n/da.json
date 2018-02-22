@@ -11,7 +11,8 @@
 			"Peter Alberti",
 			"Matma Rex",
 			"Macofe",
-			"Ribewiki"
+			"Ribewiki",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Vejviser til oplægning af filer",
@@ -256,7 +257,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Ophavsretligt beskyttet, men kan anvendes til ethvert formål, herunder kommercielle",
 	"mwe-upwiz-license-attribution": "Kan anvendes til ethvert formål, herunder kommercielle, hvis indehaveren af ​​ophavsretten tilskrives korrekt",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Del på samme vilkår, navngivelse kræves (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Del på samme vilkår, navngivelse kræves (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Indehaveren af ophavsretten har offentliggjort {{PLURAL:$1|dette værk|disse værker}} under den rigtige Creative Commons-licens",
 	"mwe-upwiz-license-cc-subhead": "Ikke alle Creative Commons-licenser er egnede til brug på denne hjemmeside. Sikr dig at indehaveren af ophavsretten har brugt en af disse licenser.",
 	"mwe-upwiz-license-flickr-head": "Indehaveren af ophavsretten har offentliggjort {{PLURAL:$1|sit fotografi eller sin video|sine fotografier eller videoer}} på Flickr under den rigtige licens",

@@ -21,7 +21,8 @@
 			"W.CC",
 			"Macofe",
 			"Darklanlan",
-			"Omotecho"
+			"Omotecho",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -282,7 +283,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "著作権で保護されていますが、商用利用を含むどのような目的のためにも使用可能です。",
 	"mwe-upwiz-license-attribution": "著作権者が適切に表示されている場合、商用利用を含むどのような目的のためにも使用可能です",
 	"mwe-upwiz-license-gfdl": "GNUフリー文書利用許諾契約書 (GNU Free Documentation License)",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "コピーレフト、帰属必須 (GFDL、CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "コピーレフト、帰属必須 (GFDL、CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "著作権者が、{{PLURAL:$1|この作品|これらの作品}}を適切なクリエイティブ・コモンズのライセンスのもとで公開しました",
 	"mwe-upwiz-license-cc-subhead": "すべてのクリエイティブ・コモンズ・ライセンスがこのウェブサイトに適しているわけではありません。著作権者が以下のライセンスのいずれかを使用していることを確認してください。",
 	"mwe-upwiz-license-flickr-head": "著作権者は、Flickr で自身の{{PLURAL:$1|写真または動画}}を適切なライセンスで公開しました",

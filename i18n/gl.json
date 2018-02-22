@@ -8,7 +8,8 @@
 			"Toliño",
 			"Vivaelcelta",
 			"Banjo",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Asistente de cargas",
@@ -296,7 +297,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Suxeito a dereitos de autor, pero pode empregarse para calquera fin, incluído o comercial",
 	"mwe-upwiz-license-attribution": "Pode empregarse para calquera fin, incluído o comercial, se o propietario dos dereitos de autor está recoñecido correctamente",
 	"mwe-upwiz-license-gfdl": "Licenza de documentación libre de GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, recoñecemento necesario (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, recoñecemento necesario (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "O propietario dos dereitos de autor publicou {{PLURAL:$1|esta obra|estas obras}} baixo a licenza Creative Commons correcta",
 	"mwe-upwiz-license-cc-subhead": "Non todas as licenzas Creative Commons son axeitadas para este sitio. Asegúrese de que o propietario dos dereitos de autor empregou unha destas licenzas.",
 	"mwe-upwiz-license-flickr-head": "O propietario dos dereitos de autor publicou {{PLURAL:$1|a súa foto ou o seu vídeo|as súas fotos ou os seus vídeos}} en Flickr baixo a licenza correcta",

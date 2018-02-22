@@ -27,7 +27,8 @@
 			"Dgstranz",
 			"-jem-",
 			"Fortega",
-			"KATRINE1992"
+			"KATRINE1992",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -313,7 +314,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Con derechos de autor, pero puede usarse para cualquier propósito, incluido el comercial",
 	"mwe-upwiz-license-attribution": "Puede utilizarse para cualquier propósito, incluyendo el comercio, si se atribuye apropiadamente al titular del derecho de autor",
 	"mwe-upwiz-license-gfdl": "Licencia de documentación libre de GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribución necesaria (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribución necesaria (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "El propietario de los derechos de autor publicó {{PLURAL:$1|esta obra|estas obras}} con la derecha licencia de Creative Commons correcta",
 	"mwe-upwiz-license-cc-subhead": "No todas las licencias Creative Commons son adecuadas para este sitio. Asegúrese de que el propietario de los derechos de autor utiliza una de estas licencias.",
 	"mwe-upwiz-license-flickr-head": "El propietario de los derechos de autor publicó {{PLURAL:$1|su foto o vídeo|sus fotos o vídeos}} en Flickr con la licencia correcta",

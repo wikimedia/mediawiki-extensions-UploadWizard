@@ -14,7 +14,8 @@
 			"Macofe",
 			"Rachmat.Wahidi",
 			"Rachmat04",
-			"Gombang"
+			"Gombang",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Wisaya Pengunggahan",
@@ -282,7 +283,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Berhak cipta, tetapi dapat digunakan untuk tujuan apa pun, termasuk komersial",
 	"mwe-upwiz-license-attribution": "Dapat digunakan untuk tujuan apa pun, termasuk komersial, jika pemegang hak cipta diatribusikan sepantasnya",
 	"mwe-upwiz-license-gfdl": "Lisensi Dokumentasi Bebas GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "''Copyleft'', perlu atribusi (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "''Copyleft'', perlu atribusi (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Pemegang hak cipta menerbitkan {{PLURAL:$1|karya|karya-karya}} ini dengan lisensi Creative Commons yang tepat",
 	"mwe-upwiz-license-cc-subhead": "Tidak semua lisensi Creative Commons cocok untuk situs ini. Pastikan pemegang hak cipta menggunakan salah satu dari lisensi berikut.",
 	"mwe-upwiz-license-flickr-head": "Pemegang hak cipta menerbitkan {{PLURAL:$1|foto atau video}} mereka di Flickr dengan lisensi yang benar",

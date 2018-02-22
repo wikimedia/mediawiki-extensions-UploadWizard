@@ -23,7 +23,8 @@
 			"Macofe",
 			"BiscuitMan",
 			"Valtlait",
-			"BriskyBlizzard"
+			"BriskyBlizzard",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Ohjattu tiedoston tallentaminen",
@@ -279,7 +280,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Tekijänoikeuden alainen, mutta voidaan käyttää mihin tahansa tarkoitukseen, myös kaupallisesti.",
 	"mwe-upwiz-license-attribution": "Voidaan käyttää mihin tahansa tarkoitukseen, myös kaupallisesti, jos tekijänoikeuden haltija mainitaan asianmukaisesti",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, tekijä mainittava (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, tekijä mainittava (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Tekijänoikeuden haltija julkaisi {{PLURAL:$1|tämän teoksen|nämä teokset}} oikealla Creative Commons -lisenssillä",
 	"mwe-upwiz-license-cc-subhead": "Kaikki Creative Commons -lisenssit eivät kelpaa tällä sivustolla. Varmista, että tekijänoikeuden haltija käytti jotain seuraavista lisensseistä.",
 	"mwe-upwiz-license-flickr-head": "Tekijänoikeuden haltija julkaisi {{PLURAL:$1|valokuvan tai videon|valokuvat tai videot}} Flickr-sivustolla oikealla lisenssillä",

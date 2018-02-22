@@ -20,7 +20,8 @@
 			"Macofe",
 			"Jkb8",
 			"McDutchie",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Assistente de envio de ficheiros",
@@ -307,7 +308,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Sujeita a direitos de autor, mas pode ser usada para qualquer fim, incluindo fins comerciais",
 	"mwe-upwiz-license-attribution": "Pode ser usada para qualquer fim, incluindo fins comerciais, desde que seja feita a devida atribuição da autoria ao titular dos direitos de autor",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuição necessária (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuição necessária (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "O titular dos direitos de autor publicou {{PLURAL:$1|este trabalho|estes trabalhos}} com a licença Creative Commons correta",
 	"mwe-upwiz-license-cc-subhead": "Nem todas as licenças da Creative Commons são apropriadas para este sítio. Certifique-se de que o titular dos direitos de autor usou uma destas licenças.",
 	"mwe-upwiz-license-flickr-head": "O titular dos direitos de autor publicou {{PLURAL:$1|a fotografia ou vídeo|as fotografias ou vídeos}} no Flickr, com a licença correta",

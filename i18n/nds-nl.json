@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Servien",
-			"Matma Rex"
+			"Matma Rex",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Oplaoiwegwiezer",
@@ -108,7 +109,7 @@
 	"mwe-upwiz-dialog-title": "Waorschuwing",
 	"mwe-upwiz-license-fal": "Vrieje Artistieke Lisensie (FAL)",
 	"mwe-upwiz-license-gfdl": "GNU-lisensie veur vrieje dokementasie",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, naamsvermelding vereist (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, naamsvermelding vereist (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-custom-preview": "Naokieken",
 	"mwe-upwiz-categories": "Kategorieën",
 	"mwe-upwiz-subhead-alt-upload": "Weerumme naor t ouwe formulier",

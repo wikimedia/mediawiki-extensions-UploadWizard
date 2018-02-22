@@ -36,7 +36,8 @@
 			"Kareyac",
 			"Redredsonia",
 			"Wirbel78",
-			"Smigles"
+			"Smigles",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -303,7 +304,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Защищено авторским правом, но может использоваться для любых целей, включая коммерческие",
 	"mwe-upwiz-license-attribution": "Может быть использовано для любых целей, в том числе в коммерческих, если правильно указан владелец авторских прав",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, требуется указание автора (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, требуется указание автора (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Владелец авторских прав опубликовал {{PLURAL:$1|1=это произведение|эти произведения}} на условиях лицензии Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Не все лицензии Creative Commons подходят для этого сайта. Убедитесь, что владелец авторских прав указал одну из этих лицензий.",
 	"mwe-upwiz-license-flickr-head": "Владелец авторских прав опубликовал {{PLURAL:$1|1=это фото или видео|эти фото или видео}} на Flickr на условиях лицензии",

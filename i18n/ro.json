@@ -7,7 +7,8 @@
 			"Strainu",
 			"XXN",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Expert de încărcare",
@@ -231,7 +232,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Supus drepturilor de autor, dar poate fi utilizat în orice scop, inclusiv comercial",
 	"mwe-upwiz-license-attribution": "Poate fi utilizat în orice scop, inclusiv comercial, dacă atribuirea către deținătorul drepturilor de autor este corespunzătoare",
 	"mwe-upwiz-license-gfdl": "Licența GNU pentru Documentare Liberă",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuire necesară (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuire necesară (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Deținătorul drepturilor de autor a publicat {{PLURAL:$1|această lucrare|aceste lucrări}} sub licența Creative Commons potrivită",
 	"mwe-upwiz-license-cc-subhead": "Nu toate licențele Creative Commons sunt potrivite pentru acest site. Asigurați-vă că deținătorul drepturilor de autor a utilizat una din aceste licențe.",
 	"mwe-upwiz-license-flickr-head": "Deținătorul drepturilor de autor și-a publicat {{PLURAL:$1|fotografia sau filmul|fotografiile sau filmele}} pe Flickr sub licența potrivită",

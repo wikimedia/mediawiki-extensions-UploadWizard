@@ -26,7 +26,8 @@
 			"NickK",
 			"Matma Rex",
 			"Macofe",
-			"Piramidion"
+			"Piramidion",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Майстер завантаження",
@@ -295,7 +296,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Захищено авторським правом, але може бути використано для будь-яких цілей, для комерційних також",
 	"mwe-upwiz-license-attribution": "Може бути використаний для будь-яких цілей, у тому числі й комерційних, якщо правильно зазначено правовласника",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Копілефт, потрібно зазначати авторів (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Копілефт, потрібно зазначати авторів (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Власник авторських прав опублікував {{PLURAL:$1|1=цей твір|ці твори}} на умовах ліцензії Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Не всі ліцензії Creative Commons підходять для цього сайту. Переконайтеся, що правовласник використовував одну з наступних ліцензій.",
 	"mwe-upwiz-license-flickr-head": "Власника авторських прав опублікував {{PLURAL:$1|1=це фото або відео|ці фото або відео}} на Flickr під ліцензією",

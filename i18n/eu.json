@@ -9,7 +9,8 @@
 			"Matma Rex",
 			"Macofe",
 			"Theklan",
-			"Mikel Ibaiba"
+			"Mikel Ibaiba",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Igoera Laguntzailea",
@@ -162,7 +163,7 @@
 	"mwe-upwiz-license-pd-ineligible": "Sinpleegia copyrighta izateko",
 	"mwe-upwiz-license-pd-textlogo": "Logoa testu sinplearekin bakarrik (marka)",
 	"mwe-upwiz-license-gfdl": "GNU Dokumentazio Askeko Lizentzia",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuzioa beharrezkoa (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuzioa beharrezkoa (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-public-domain-usa-head": "Egile eskubideak iraungi dute AEBetan",
 	"mwe-upwiz-license-misc": "Bestelako arrazoiak",
 	"mwe-upwiz-license-custom-head": "Aipatu ez den beste arrazoi bat",

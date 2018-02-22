@@ -8,7 +8,8 @@
 			"Semso98",
 			"Srdjan m",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -139,7 +140,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Zaštićeno autorskim pravom, ali se može koristiti u bilo koju svrhu, ukljujući komercijalnu",
 	"mwe-upwiz-license-attribution": "Može se koristiti u bilo koju svrhu, ukljujući komercijalnu, ako je pravilno naveden vlasnik autorskog prava",
 	"mwe-upwiz-license-gfdl": "GNU licenca za slobodnu dokumentaciju",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, neophodno navođenje autorstva (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, neophodno navođenje autorstva (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Vlasnik autorskog prava je objavio {{PLURAL:$1|ovaj rad|ove radove}} pod Creative Commons licencom",
 	"mwe-upwiz-license-cc-subhead": "Nisu sve Creative Commons licence pogodne za ovaj sajt. Provjerite je li nosilac autorskog prava izabrao jednu od ovih licenci.",
 	"mwe-upwiz-license-flickr-head": "Vlasnik autorskog prava je objavio {{PLURAL:$1|svoju sliku ili video|svoje slike ili video}} na Flickr sa pravom licencom",

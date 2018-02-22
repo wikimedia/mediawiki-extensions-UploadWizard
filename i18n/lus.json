@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"RMizo",
-			"Shirayuki"
+			"Shirayuki",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Hlànkàina kháwlrelh",
@@ -156,7 +157,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Lâkchhàwn phalna hauh, mahsé duh duh anga hman thiang, sumdàwnna atán tiamin",
 	"mwe-upwiz-license-attribution": "Lâkchhàwn phalna vawngtu sawilan a nih zël dáwn phawt chuan duh duh anga hman theih a ni, sumdàwn nan tiamin",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, sawilanna ngái (GFDL, CC BY-SA--3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, sawilanna ngái (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Lâkchhàwn phalna neituin {{PLURAL:$1|hë kutchhuak|hêng kutchhuakte}} hi Creative Commons phalphung dik takin a tlángzarh.",
 	"mwe-upwiz-license-cc-subhead": "Creative Commons phalphung zawng zawng hetah hian a hman theih kher loh. Lâkchhawn phalna neituin a hnuaia eng phalphung emaw ber hmang hian a tlángzarh tih finfiah ang che.",
 	"mwe-upwiz-license-flickr-head": "Phalphung dik tak hmangin lâkchhawn phalna neituin Flickr-ah {{PLURAL:$1|hë thlalâk emaw thlachë|hêng thlalâk emaw thlachëte}} hi a tlángzarh tawh.",

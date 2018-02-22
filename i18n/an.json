@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Juanpabl",
-			"Matma Rex"
+			"Matma Rex",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Asistent ta cargar fichers",
@@ -171,7 +172,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Con copyright, pero puede fer servir ta qualsiquier proposito, mesmo o comercial",
 	"mwe-upwiz-license-attribution": "Se puede fer servir ta qualsiquier proposito, mesmo o comercial, siempre que s'atribuiga a o titular d'o copyright apropiadament",
 	"mwe-upwiz-license-gfdl": "Licencia de documentación libre de GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribución requiesta (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribución requiesta (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "O propietario d'os dreitos d'autor publicó {{PLURAL:$1|ista obra|istas obras}} con a licencia de Creative Commons correcta",
 	"mwe-upwiz-license-cc-subhead": "No todas as licencias Creative Commons son adequadas ta iste puesto. Asegure-se que o propietario d'os dreitos d'autor emplega una d'istas licencias.",
 	"mwe-upwiz-license-flickr-head": "O propietario d'os dreitos d'autor publicó {{PLURAL:$1|a suyas foto u video|as suyas fotos u videos}} en Flickr con a licencia correcta",

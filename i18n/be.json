@@ -5,7 +5,8 @@
 			"Хомелка",
 			"Дзяніс Тутэйшы",
 			"Liashko",
-			"Mechanizatar"
+			"Mechanizatar",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -230,7 +231,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Ахоўваецца аўтарскім правам, але можа выкарыстоўвацца ў любых мэтах, у тым ліку камерцыйных",
 	"mwe-upwiz-license-attribution": "Можа быць выкарыстана ў любых мэтах, у тым ліку ў камерцыйных, калі пазначаны ўладальнік аўтарскіх правоў",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Свабодная ліцэнзія, патрабуецца пазначэнне аўтара (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Свабодная ліцэнзія, патрабуецца пазначэнне аўтара (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Уладальнік аўтарскіх правоў апублікаваў {{PLURAL:$1|1=гэтую працу|гэтыя працы}} на ўмовах ліцэнзіі Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Не ўсе ліцэнзіі Creative Commons дапушчальныя на гэтым сайце. Пераканайцеся, што ўладальнік аўтарскіх правоў выбраў адну з гэтых ліцэнзій.",
 	"mwe-upwiz-license-flickr-head": "Уладальнік аўтарскіх правоў апублікаваў {{PLURAL:$1|1=гэтае фота ці відэа|гэтыя фота ці відэа}} на Flickr на ўмовах ліцэнзіі",

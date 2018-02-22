@@ -11,7 +11,8 @@
 			"Глеб Бераставы",
 			"Red Winged Duck",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -213,7 +214,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Ахоўваецца аўтарскім правам, але можа выкарыстоўвацца ў любых мэтах, у тым ліку камэрцыйных",
 	"mwe-upwiz-license-attribution": "Можа быць выкарыстана ў любых мэтах, у тым ліку ў камэрцыйных, калі пазначаны ўладальнік аўтарскіх правоў",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Вольная ліцэнзія, патрабуецца пазначэньне аўтара (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Вольная ліцэнзія, патрабуецца пазначэньне аўтара (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Уладальнік аўтарскіх правоў апублікаваў {{PLURAL:$1|1=гэтую працу|гэтыя працы}} на ўмовах слушнай ліцэнзіі Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Ня ўсе ліцэнзіі Creative Commons дапушчальныя на гэтым сайце. Пераканайцеся, што ўладальнік аўтарскіх правоў выбраў адну з гэтых ліцэнзіяў.",
 	"mwe-upwiz-license-flickr-head": "Уладальнік аўтарскіх правоў апублікаваў {{PLURAL:$1|1=гэтае фота ці відэа|гэтыя фота ці відэа}} на Flickr на ўмовах дапушчальнай ліцэнзіі",

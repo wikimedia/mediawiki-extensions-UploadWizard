@@ -32,7 +32,8 @@
 			"Shizhao",
 			"飞舞回堂前",
 			"Wmr",
-			"NeverBehave"
+			"NeverBehave",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -320,7 +321,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "有著作权，但是可以以任何目的使用（包括商业目的）",
 	"mwe-upwiz-license-attribution": "在适当地提供著作权持有人署名的前提下，可以以任何目的使用（包括商业目的）",
 	"mwe-upwiz-license-gfdl": "GNU自由文件授权协议",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "非营利著作权，需要署名（GFDL，CC BY-SA-3.0）",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "非营利著作权，需要署名（GFDL，CC BY-SA 3.0）",
 	"mwe-upwiz-license-cc-head": "著作权持有人以适当的知识共享许可协议发表了{{PLURAL:$1|该|这些}}作品",
 	"mwe-upwiz-license-cc-subhead": "并非所有知识共享许可协议适合本网站。请确认著作权持有人使用了这些授权协议之一。",
 	"mwe-upwiz-license-flickr-head": "著作权持有人以适当的授权协议在Flickr发表了他们的{{PLURAL:$1|照片或视频}}",

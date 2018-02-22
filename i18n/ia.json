@@ -3,7 +3,8 @@
 		"authors": [
 			"McDutchie",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Assistente de incargamento",
@@ -245,7 +246,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Sub copyright, ma pote esser usate pro omne fin, includente scopos commercial",
 	"mwe-upwiz-license-attribution": "Pote esser usate pro omne fin, includente scopos commercial, si le titular del copyright es attribuite appropriatemente",
 	"mwe-upwiz-license-gfdl": "Licentia GNU pro Documentation Libere",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribution obligatori (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribution obligatori (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Le titular del copyright ha publicate iste {{PLURAL:$1|obra|obras}} con le licentia Creative Commons correcte",
 	"mwe-upwiz-license-cc-subhead": "Non tote le licentias de Creative Commons es bon pro iste sito. Assecura que le titular del copyright ha usate un de iste licentias.",
 	"mwe-upwiz-license-flickr-head": "Le titular del copyright ha publicate lor {{PLURAL:$1|photo o video|photos o videos}} in Flickr con le licentia correcte",

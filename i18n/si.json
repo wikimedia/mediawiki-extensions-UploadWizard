@@ -8,7 +8,8 @@
 			"Susith Chandira Gts",
 			"Macofe",
 			"SusithCM",
-			1100100
+			1100100,
+			"Envlh"
 		]
 	},
 	"uploadwizard": "උඩුගත කිරීමේ මායා අඳුන",
@@ -181,7 +182,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "කතෘහිමිකම් කල, නමුත් වානිජ්‍ය ඇතුළු, ඕනෑම අරමුණක් සඳහා භාවිතා කල හැක",
 	"mwe-upwiz-license-attribution": "කතුහිමිකම් දරන්නා හරියටම ආරෝපිත නම්, වානිජ්‍ය ඇතුළුව, ඕනෑම අරමුණක් සඳහා භාවිතා කල හැක",
 	"mwe-upwiz-license-gfdl": "GNU නිදහස් ප්‍රලේඛන බලපත්‍රය",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribution required (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribution required (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-public-domain-usa-head": "කතුහිමිකම ඒ.ජනපදයේදී  ඒකාන්තයෙන්ම කල් ඉකුත් වී ඇත",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|මෙම නිර්මාණය|මෙම නිර්මාණයන්}} එක්සත් ජනපද ආණ්ඩුව විසින් තනන ලදී",
 	"mwe-upwiz-license-misc": "විවිධ හේතුන්",

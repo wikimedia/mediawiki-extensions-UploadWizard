@@ -4,7 +4,8 @@
 			"Bishnu Saikia",
 			"Chaipau",
 			"Gitartha.bordoloi",
-			"Nilamdyuti"
+			"Nilamdyuti",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "আপল'ড প্ৰক্ৰিয়া",
@@ -215,7 +216,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "স্বতাধিকাৰ আছে, কিন্তু যিকোনো কাৰ্যত ইয়াক ব্যৱহাৰ কৰিব পাৰে, আনকি বানিজ্যিক দিশটো",
 	"mwe-upwiz-license-attribution": "স্বত্বাধিকাৰীৰ নাম উল্লেখ কৰিলে বাণিজ্যিকসহ সকলো উদ্দেশ্যতে ব্যৱহাৰ কৰিব পাৰি",
 	"mwe-upwiz-license-gfdl": "জিএনইউ মুক্ত নথি অনুজ্ঞাপত্ৰ",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "কপিলেফট, স্বীকৃতিৰ প্ৰয়োজন (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "কপিলেফট, স্বীকৃতিৰ প্ৰয়োজন (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "কপিৰাইট অধিকৰ্তাজনে {{PLURAL:$1| এই কাম|এই কামসমূহক}} সঠিক কমন্সৰ অনুজ্ঞাপত্ৰৰ সৈতে প্ৰকাশ কৰিছে",
 	"mwe-upwiz-license-cc-subhead": "এই ছাইটৰ বাবে সকলো Creative Commons অনুজ্ঞা সঠিক নহয়। স্বত্বাধিকাৰীজনে এই অনুজ্ঞাসমূহৰ এটা ব্যৱহাৰ কৰিছিল বুলি সুনিশ্চিত হওক।",
 	"mwe-upwiz-license-flickr-head": "স্বাতাধিকাৰীয়ে তেওঁলোকৰ {{PLURAL:$1|চিত্ৰ বা ভিডিঅ’|চিত্ৰসমূহ বা ভিডিঅ’সমূহ}} ফ্লিকাৰত সঠিক অনুজ্ঞাপত্ৰযোগে দিছে",

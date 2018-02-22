@@ -8,7 +8,8 @@
 			"Olvörg",
 			"Kumkumuk",
 			"Asmen",
-			"Gırd"
+			"Gırd",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Sihirbazê Barkerdışi",
@@ -230,7 +231,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Lisansyayo, feqet ticari meqseda nêkarêno.",
 	"mwe-upwiz-license-attribution": "Qande ticari zi daxil, herg çi de ke şeno karkero, tabi wayır de lisanser re name bo se.",
 	"mwe-upwiz-license-gfdl": "GNU Pelekerdışê xoseri lisansa",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Bêlisanso, attribution required (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Bêlisanso, attribution required (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Wayırê {{PLURAL:$1|na dosya|nê dosyaya}} heqê xo Lisans da Creative Commons bınde kerda vıla",
 	"mwe-upwiz-license-cc-subhead": "Lisanse Creative Commons pêro ena sita re hewlo. Emel bıkere ke wayıre lisanser ninara zeweri keno kar.",
 	"mwe-upwiz-license-flickr-head": "Wayıre ena {{PLURAL:$1|resim yana video|resiman yana videoya}} Flick'i desteya.",

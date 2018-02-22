@@ -5,7 +5,8 @@
 			"Olsi",
 			"Kosovastar",
 			"Matma Rex",
-			"Liridon"
+			"Liridon",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Eksperti për ngarkim",
@@ -187,7 +188,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "E mbrojtur nga e drejta e autorit, por mund të përdoret për çdo qëllim, duke përfshirë edhe atë reklamues",
 	"mwe-upwiz-license-attribution": "Mund të përdoret për çdo qëllim, duke përfshirë atë reklamues, nëse mbajtësi ligjor atribuohet si duhet",
 	"mwe-upwiz-license-gfdl": "Licenca GNU për Dokumentim të Lirë",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuimi i kërkuar (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribuimi i kërkuar (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Mbajtësi ligjor publikoi {{PLURAL:$1|këtë punë|këto punë}} me licencën e përshtatshme Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Jo të gjitha licencat Creative Commons janë të mira për këtë sajt. Sigurohuni që mbajtësi ligjor përdori një nga këto licenca.",
 	"mwe-upwiz-license-flickr-head": "Mbajtësi ligjor publikoi {{PLURAL:$1|fotografinë ose videon|fotografitë ose videot}} në Flickr me licencën e përshtatshme",

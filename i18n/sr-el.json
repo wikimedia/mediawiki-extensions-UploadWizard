@@ -8,7 +8,8 @@
 			"Macofe",
 			"Сербијана",
 			"Obsuser",
-			"Zoranzoki21"
+			"Zoranzoki21",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Vodič za otpremanje",
@@ -228,7 +229,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Zaštićeno, ali se može koristiti u bilo koje svrhe, uključujući i komercijalne",
 	"mwe-upwiz-license-attribution": "Može se koristiti u bilo koje svrhe, uključujući i komercijalne, ako je pravilno naveden nosilac autorskog prava",
 	"mwe-upwiz-license-gfdl": "GNU-ova licenca za slobodnu dokumentaciju",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Kopileft, obavezno navođenje (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Kopileft, obavezno navođenje (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Nosilac autorskog prava je objavio {{PLURAL:$1|1=ovo delo|ova dela}} pod licencom Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Nisu sve licence Krijejtiv komonsa pogodne za ovaj sajt. Proverite da li je nosilac autorskog prava izabrao jednu od ovih licenci.",
 	"mwe-upwiz-license-flickr-head": "Nosilac autorskog prava je objavio {{PLURAL:$1|1=ovu sliku ili video-snimak|ove slike ili video-snimke}} na Flickr-u pod odgovarajućom licencom",

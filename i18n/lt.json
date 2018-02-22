@@ -10,7 +10,8 @@
 			"Matma Rex",
 			"Macofe",
 			"Garas",
-			"Manvydasz"
+			"Manvydasz",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Įkėlimo vedlys",
@@ -268,7 +269,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Autorinėmis teisėmis apsaugotas, bet gali būti naudojamas bet kokiais tikslais, įskaitant komerciniais",
 	"mwe-upwiz-license-attribution": "Gali būti naudojama bet kokiais tikslais, įskaitant komerciniais, jeigu autorinių teisių savininkas yra tinkamai nurodytas",
 	"mwe-upwiz-license-gfdl": "GNU Laisvos dokumentacijos licencija",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Nesaugomos autorinės teisės, reikalingas autorystės nurodymas (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Nesaugomos autorinės teisės, reikalingas autorystės nurodymas (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Autorinių teisių savininkas publikavo {{PLURAL:$1|šį darbą|šiuos darbus}} su tinkama Creative Commons licencija",
 	"mwe-upwiz-license-cc-subhead": "Ne visos Creative Commons licencijos yra tinkamos šiam tinklapiui. Įsitikinkite, kad autorinių teisių savininkas naudotų vieną iš tinkamų licencijų.",
 	"mwe-upwiz-license-flickr-head": "Autorinių teisių savininkas publikavo savo {{PLURAL:$1|nuotrauką ar video|nuotrauką ar video failus}} Flickr tinklapyje su tinkama licencija",

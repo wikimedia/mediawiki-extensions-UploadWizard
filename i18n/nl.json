@@ -20,7 +20,8 @@
 			"Hex",
 			"Mainframe98",
 			"Multichill",
-			"Mar(c)"
+			"Mar(c)",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -277,7 +278,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Auteursrechtelijk beschermd, maar kan worden gebruikt voor enig doel, ook commercieel.",
 	"mwe-upwiz-license-attribution": "Kan worden gebruikt voor enig doel, ook commercieel, als de auteursrechthouder correct wordt genoemd.",
 	"mwe-upwiz-license-gfdl": "GNU-licentie voor vrije documentatie",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, naamsvermelding vereist (GFDL, CC BY-SA-3.0).",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, naamsvermelding vereist (GFDL, CC BY-SA 3.0).",
 	"mwe-upwiz-license-cc-head": "De rechthebbende heeft {{PLURAL:$1|dit werk|deze werken}} gepubliceerd onder een Creative Commons-licentie",
 	"mwe-upwiz-license-cc-subhead": "Niet alle Creative Commons-licenties zijn geschikt voor deze site. Zorg dat de rechthebbende een van de geschikte licenties gebruikt.",
 	"mwe-upwiz-license-flickr-head": "De rechthebbende heeft zijn {{PLURAL:$1|afbeelding of video|afbeeldingen of video's}} op Flickr gepubliceerd met een geschikte licentie",

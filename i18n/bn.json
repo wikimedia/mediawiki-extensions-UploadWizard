@@ -9,7 +9,8 @@
 			"Aftabuzzaman",
 			"Sayma Jahan",
 			"Bodhisattwa",
-			"Rasal Lia"
+			"Rasal Lia",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "আপলোড উইজার্ড",
@@ -280,7 +281,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "কপিরাইটযুক্ত, কিন্তু বাণিজ্যিক ব্যবহারসহ, যেকোনো উদ্দেশ্যে ব্যবহার করা যেতে পারে",
 	"mwe-upwiz-license-attribution": "কোন উদ্দেশ্যে ব্যবহার করা যেতে পারে, বাণিজ্যিক ব্যবহারসহ, যদি স্বত্বাধিকারীকে সঠিকভাবে আরোপিত করা হয়",
 	"mwe-upwiz-license-gfdl": "গনু ফ্রি ডকুমেন্টেশন লাইসেন্স",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "কপিলেফট, স্বীকৃতি প্রয়োজন (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "কপিলেফট, স্বীকৃতি প্রয়োজন (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "স্বত্বাধিকারী {{PLURAL:$1|এই কাজ|এই কাজগুলি}} সঠিক ক্রিয়েটিভ কমন্স লাইসেন্সে প্রকাশ করেছে",
 	"mwe-upwiz-license-cc-subhead": "সব ক্রিয়েটিভ কমন্স লাইসেন্স এই সাইটের জন্য ভাল নয়। নিশ্চিত করুন যে স্বত্বাধিকারী এই লাইসেন্সগুলির একটি ব্যবহার করেছে।",
 	"mwe-upwiz-license-flickr-head": "স্বত্বাধিকারী তাঁদের {{PLURAL:$1|ছবি বা ভিডিও|ছবিগুলি ও ভিডিওগুলি}} ফ্লিকারে সঠিক লাইসেন্স সহকারে প্রকাশ করেছে",

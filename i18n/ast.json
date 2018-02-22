@@ -4,7 +4,8 @@
 			"Xuacu",
 			"Fitoschido",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Asistente de xubíes",
@@ -290,7 +291,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Con drechos d'autor, pero pue emplegase con cualesquier fin, incluyendo'l comercial",
 	"mwe-upwiz-license-attribution": "Pue emplegase pa cualesquier fin, incluyendo'l comercial, si s'atribuye al propietariu de los drechos d'autor correutamente",
 	"mwe-upwiz-license-gfdl": "Llicencia de documentación llibre de GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, reconocimientu necesariu (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, reconocimientu necesariu (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "El propietariu de los drechos d'autor asoleyó {{PLURAL:$1|esta obra|estes obres}} cola llicencia Creative Commons correuta",
 	"mwe-upwiz-license-cc-subhead": "Non toles llicencies Creative Commons son afayadices pa esti sitiu. Comprueba que'l propietariu de los drechos d'autor emplegó una d'estes llicencies.",
 	"mwe-upwiz-license-flickr-head": "El titular de los drechos d'autor asoleyó {{PLURAL:$1|la semeya o videu|les semeyes o videos}} en Flickr cola llicencia correuta.",

@@ -12,7 +12,8 @@
 			"Ypnypn",
 			"ערן",
 			"Yona b",
-			"פוילישער"
+			"פוילישער",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "אשף ההעלאה",
@@ -300,7 +301,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "מוגן בזכויות יוצרים, אבל יכול לשמש לכל מטרה, כולל למטרות מסחריות",
 	"mwe-upwiz-license-attribution": "יכול לשמש לכל מטרה, כולל למטרות מסחריות, עם ניתן ייחוס ראוי לבעל הזכויות",
 	"mwe-upwiz-license-gfdl": "הרישיון לשימוש חופשי במסמכים של גנו",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "\"יוצרים זכויות\" (copyleft), חובה לתת ייחוס (GFDL‏, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "\"יוצרים זכויות\" (copyleft), חובה לתת ייחוס (GFDL‏, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "בעל הזכויות פרסם את {{PLURAL:$1|היצירה הזאת|היצירות האלו}} עם רישיון Creative Commons מתאים",
 	"mwe-upwiz-license-cc-subhead": "לא כל הרישיונות של Creative Commons טובים לאתר {{SITENAME}} – נא לוודא שבעל הזכויות השתמש באחד הרישיונות המתאימים.",
 	"mwe-upwiz-license-flickr-head": "בעל הזכויות פרסם את {{PLURAL:$1|התמונה או את הסרט|התמונות או את הסרטים}} באתר Flickr עם רישיון מתאים",

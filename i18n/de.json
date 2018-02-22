@@ -19,7 +19,8 @@
 			"✓",
 			"Umherirrender",
 			"Matma Rex",
-			"Predatorix"
+			"Predatorix",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -305,7 +306,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Urheberrechtlich geschützt, darf aber für jeden – auch kommerziellen – Zweck genutzt werden",
 	"mwe-upwiz-license-attribution": "Darf für jeden – auch kommerziellen – Zweck genutzt werden, sofern der Urheberrechtsinhaber richtig genannt wird.",
 	"mwe-upwiz-license-gfdl": "GNU-Lizenz für freie Dokumentation",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, Namensnennung erforderlich (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, Namensnennung erforderlich (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Der Urheberrechtsinhaber hat {{PLURAL:$1|dieses Werk|diese Werke}} gemäß der richtigen „Creative Commons“-Lizenz lizenziert.",
 	"mwe-upwiz-license-cc-subhead": "Nicht alle „Creative Commons“-Lizenzen sind für diese Website geeignet. Es muss sichergestellt werden, dass der Urheberrechtsinhaber eine dieser Lizenzen nutzte.",
 	"mwe-upwiz-license-flickr-head": "Der Urheberrechtsinhaber hat {{PLURAL:$1|sein Foto oder Video|seine Fotos oder Videos}} auf Flickr gemäß der richtigen Lizenz veröffentlicht.",

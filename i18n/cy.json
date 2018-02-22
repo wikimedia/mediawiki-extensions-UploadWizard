@@ -7,7 +7,8 @@
 			"Matma Rex",
 			"Robin Owain",
 			"Diafol",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Dewin Uwchlwytho",
@@ -236,7 +237,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Mae hawlfraint arno, ond gall gael ei ddefnyddio at unrhyw bwrpas, gan gynnwys masnach.",
 	"mwe-upwiz-license-attribution": "Caniateir ei defnyddio at unrhyw ddiben, gan gynnwys masnach, cyhyd a'i bod yn cael ei dadogi'n gywir i ddeilydd yr hawlfraint",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Haelfraint, rhaid tadogi (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Haelfraint, rhaid tadogi (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Cyhoeddodd deilydd yr hawlfraint y {{PLURAL:$1||gwaith hwn|gweithiau hyn}} gyda'r drwydded Creative Commons cywir",
 	"mwe-upwiz-license-cc-subhead": "Nid yw pob trwydded Creative Commons yn addas i'r wefan hon. Sicrhewch bod deilydd yr hawlfraint wedi defnyddio un o'r trwyddedi addas.",
 	"mwe-upwiz-license-flickr-head": "Cyhoeddodd deilydd yr hawlfraint ei  {{PLURAL:$1||lun neu ei fideo|ei luniau neu ei fideos}} ar Flickr gyda'r drwydded cywir arnynt",

@@ -15,7 +15,8 @@
 			"Macofe",
 			"Robin van der Vliet",
 			"Psychoslave",
-			"Rafaneta"
+			"Rafaneta",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -240,7 +241,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Havas kopirajton, sed povas esti uzata por iu ajn kialon, inkluzivante komercan uzon.",
 	"mwe-upwiz-license-attribution": "Uzebla por iu ajn kialo, inkluzivante por komerco, se la kopirajto-posedanto estas ĝuste atribuita.",
 	"mwe-upwiz-license-gfdl": "Permesilo de GNU por Liberaj Dokumentoj",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Rajtocedo \"Copyleft\", kun deviga atributado (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Rajtocedo \"Copyleft\", kun deviga atributado (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "La kopirajt-posedanto eldonis {{PLURAL:$1|ĉi tiun verkon|ĉi tiujn verkojn}} kun la ĝusta permesilo Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Ne ĉiu permesilo de Cretive Commons taŭgas en {{SITENAME}}. Certigu ke la kopirajto-posedanto uzis unu el ĉi tiuj permesiloj.",
 	"mwe-upwiz-license-flickr-head": "La kopirajtposedanto eldonis sian {{PLURAL:$1|foton aŭ videon|fotojn aŭ vedeojn}} en Flickr kun la ĝusta permesilo",

@@ -4,7 +4,8 @@
 			"Borichèt",
 			"Dragonòt",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Assistent d'amportassion",
@@ -232,7 +233,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Sota drit d'autor, ma a peul esse dovrà për qualsëssìa but, comprèis comersialment",
 	"mwe-upwiz-license-attribution": "A peul esse dovrà për qualsëssìa but, comprèis comersialment, se ël padron dij drit d'autor a l'é arconossù ëd fasson precisa",
 	"mwe-upwiz-license-gfdl": "Licensa ëd documentassion lìbera GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribussion necessaria (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribussion necessaria (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Ël padron dij drit d'autor a l'ha publicà {{PLURAL:$1|cost travaj|costi travaj}} con la licensa ëd drit Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Pa tute le license Creative Commons a son bon-e për {{SITENAME}} -- ch'a sia sigur che ël padron dij drit d'autor a l'abia dovrà un-a ëd coste license.",
 	"mwe-upwiz-license-flickr-head": "Ël padron dij drit d'autor a l'ha publicà {{PLURAL:$1|sò fòto o video|sò fòto o video}} ansima a Flickr con la licensa giusta",

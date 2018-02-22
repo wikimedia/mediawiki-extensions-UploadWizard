@@ -16,7 +16,8 @@
 			"Macofe",
 			"Annamerida",
 			"F3RaN",
-			"Matma Rex"
+			"Matma Rex",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Auxiliar de càrrega",
@@ -255,7 +256,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Amb copyright, però es pot fer servir per a qualsevol propòsit, incloent-hi el comercial.",
 	"mwe-upwiz-license-attribution": "Pot ser utilitzat per a qualsevol propòsit, inclòs comercialment, si el titular dels drets és atribuït correctament",
 	"mwe-upwiz-license-gfdl": "Llicència de Documentació Lliure de GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribució requerida (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, atribució requerida (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "El titular dels drets d'autor ha publicat {{PLURAL:$1|aquesta obra|aquestes obres}} amb la llicència Creative Commons correcta",
 	"mwe-upwiz-license-cc-subhead": "No totes les llicències Creative Commons són adients per aquest lloc web. Assegureu-vos que el titular dels drets d'autor utilitza una d'aquestes llicències.",
 	"mwe-upwiz-license-flickr-head": "El titular dels drets va publicar {{PLURAL:$1|la seva foto o vídeo|les seves fotos o vídeos}} a Flickr amb la llicència apropiada.",

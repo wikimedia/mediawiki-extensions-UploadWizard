@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gazeb",
-			"Matma Rex"
+			"Matma Rex",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Спроваджаня начітанём файлів",
@@ -201,7 +202,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Хранене авторьскым правом, але може быти ужыте за хоцьякым цілём, і комерчно",
 	"mwe-upwiz-license-attribution": "Годен хосновати про хоцьякы цілї, в тім чіслї комерчных, покы є властник авторьскый прав рядно уведеный",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, выжадоване уведжіня автора (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, выжадоване уведжіня автора (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Властник авторьскый прав публіковав {{PLURAL:$1|тото дїло|тоты дїла}} під хосновательнов ліценціов Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Не вшыткы Creative Commons ліценції суть добры про тот сайт. Упевните ся же властник прав хосновав дакотру з тых ліценцій.",
 	"mwe-upwiz-license-flickr-head": "Властник авторьскый прав публіковав {{PLURAL:$1|своє фото ці відео|свої фоткы ці відеа}} на Flickr-і під хосновательнов ліценціов",

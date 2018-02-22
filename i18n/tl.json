@@ -6,7 +6,8 @@
 			"Sky Harbor",
 			"Matma Rex",
 			"Leeheonjin",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Salamangkero ng Pagkarga",
@@ -213,7 +214,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Nakakarapatang-ari, subalit maaaring gamitin para sa anumang layunin, kasama na ang pangkalakalan",
 	"mwe-upwiz-license-attribution": "Maaaring gamitin para sa anumang layunin, kasama ang pangkalakalan, kung ang tagapaghawak ng karapatang-ari ay maaayos na binabanggit",
 	"mwe-upwiz-license-gfdl": "Lisensiyang GNU para sa Malayang Dokumentasyon",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft o siping pakaliwa, kailangan ang pagbanggit (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft o siping pakaliwa, kailangan ang pagbanggit (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Inilathala ng tagapaghawak ng karapatang-ari ang {{PLURAL:$1|akdang ito|mga akdang ito}} na may tamang lisensiya ng Malikhaing mga Pangkaraniwan",
 	"mwe-upwiz-license-cc-subhead": "Hindi lahat ng mga lisensiya ng Creative Commons ay mabuti para sa pook na ito. Tiyakin na ginamit ng tagapaghawak ng karapatang-ari ang isa ganitong mga lisensiya.",
 	"mwe-upwiz-license-flickr-head": "Inilathala ng may hawak ng karapatang ari ang kanilang {{PLURAL:$1|larawan o bidyo|mga larawan o mga bidyo}} sa Flickr na may tamang lisensiya",

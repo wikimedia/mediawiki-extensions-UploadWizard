@@ -3,7 +3,8 @@
 		"authors": [
 			"Lam-ang",
 			"Matma Rex",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
@@ -238,7 +239,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Nakarbenagan ti kopia, ngem mabalin nga usaren iti ania man a panggep, a mairaman ti komersial",
 	"mwe-upwiz-license-attribution": "Mabalin nga usaren iti ania man a panggep, a mairaman ti komersial, no ti nagtengngel ti karbengan ti kopia ket umiso a mapadayawan",
 	"mwe-upwiz-license-gfdl": "GNU Nawaya a Dokumentasion a Lisensia",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, masapul ti pammadayaw (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, masapul ti pammadayaw (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Ti nagtengngel ti karbengan ti kopia ket nagipablaak ti  {{PLURAL:$1|daytoy nga obra|dagitoy nga obra}} nga addaan ti husto a Creative Commons a lisensia",
 	"mwe-upwiz-license-cc-subhead": "Saan amin a dagiti Creative Commons a lisensia ket mabalin ditoy a pagsaadan. Seguraduem a ti nagtengngel ti karbengan ti kopia ket nagusar kadagitoy a lisensia.",
 	"mwe-upwiz-license-flickr-head": "Ti nagtengngel ti karbengan ti kopia ket nagipablaak {{PLURAL:$1|ti retrato wenno mabuya|kadagiti retrato wenno mabuya}} idiay Flickr nga addaan ti huto a lisensia",

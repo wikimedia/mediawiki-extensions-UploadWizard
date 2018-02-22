@@ -11,7 +11,8 @@
 			"Wilander",
 			"SuperPotato",
 			"Macofe",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Opplastingsveiviser",
@@ -297,7 +298,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Opphavsrettsbeskyttet, men kan brukes for alle formål, inkludert markedsføring",
 	"mwe-upwiz-license-attribution": "Kan brukes for ethvert formål, også kommersielt, hvis rettighetshaveren oppgis på en ordentlig måte",
 	"mwe-upwiz-license-gfdl": "GNU fri dokumentasjonslisens",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribusjon kreves (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribusjon kreves (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Opphavsrettsinnehaveren utga {{PLURAL:$1|dette verket|disse verkene}} med rett Creative Commons-lisens",
 	"mwe-upwiz-license-cc-subhead": "Ikke alle Creative Commons-lisenser er gode for denne siden. Forsikre deg om at opphavsrettsinnehaveren brukte én av disse lisensene.",
 	"mwe-upwiz-license-flickr-head": "Opphavsrettsinnehaveren utga {{PLURAL:$1|bildet eller videoen sin|bildene eller videoene sine}} på Flickr med rett lisens",

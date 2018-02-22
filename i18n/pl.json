@@ -24,7 +24,8 @@
 			"WTM",
 			"Matma Rex",
 			"Expert3222",
-			"Macofe"
+			"Macofe",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
@@ -283,7 +284,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Chronione prawem autorskim, ale może zostać wykorzystane w dowolnym celu, nawet komercyjnie",
 	"mwe-upwiz-license-attribution": "Może być użyte w dowolnym celu (w tym komercyjnym), pod warunkiem odpowiedniego oznaczenia autorstwa.",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, wymagane wskazanie autora (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, wymagane wskazanie autora (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Właściciel autorskich praw majątkowych opublikował {{PLURAL:$1|ten utwór|te utwory}} na prawidłowej licencji Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Nie wszystkie licencje Creative Commons są właściwe dla tej witryny. Upewnij się, że właściciel praw autorskich użył jednej z tych licencji.",
 	"mwe-upwiz-license-flickr-head": "Właściciel autorskich praw majątkowych opublikował {{PLURAL:$1|zdjęcie lub film|zdjęcia lub filmy}} w serwisie Flickr z odpowiednią licencją",

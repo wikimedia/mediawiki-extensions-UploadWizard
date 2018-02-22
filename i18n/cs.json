@@ -16,7 +16,8 @@
 			"Urbanecm",
 			"Dvorapa",
 			"Martin Urbanec",
-			"Ilimanaq29"
+			"Ilimanaq29",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -272,7 +273,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Chráněno autorským právem, ale smí být užito za libovolným účelem, i komerčně",
 	"mwe-upwiz-license-attribution": "Lze použít pro libovolné účely, včetně komerčních, pokud je držitel autorských práv řádně uveden.",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, vyžadováno uvedení autora (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, vyžadováno uvedení autora (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Držitel autorských práv zveřejnil {{PLURAL:$1|toto dílo|tato díla}} pod použitelnou licencí Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Ne každá licence Creative Commons je na tomto serveru přijatelná. Ujistěte se, že držitel autorských práv použil jednu z těchto licencí.",
 	"mwe-upwiz-license-flickr-head": "Držitel autorských práv zveřejnil {{PLURAL:$1|svou fotografii či video|své fotografie či videa}} na Flickru pod použitelnou licencí",

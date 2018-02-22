@@ -7,7 +7,8 @@
 			"Geitost",
 			"Matma Rex",
 			"Macofe",
-			"Regemeitli"
+			"Regemeitli",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Assischtänt zum Uffelade",
@@ -213,7 +214,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Urheberrächtlich gschützt, derf aber für alli – au kommerzielli – Zweck bruucht werde",
 	"mwe-upwiz-license-attribution": "Derf für jede - au kommerzielle - Zweck bruucht werden, wänn de Urheberrächtsinhaber richtig gnännt wird",
 	"mwe-upwiz-license-gfdl": "GNU-Lizänz fir freji Dokumäntation",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, Namensnännig erforderlich (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, Namensnännig erforderlich (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "De Urheberrächtsinhaber het {{PLURAL:$1|des Werch|die Wercher}} mit de richtige ''Creative-Commons''-Lizänz lizenziert.",
 	"mwe-upwiz-license-cc-subhead": "Nit alli ''Creative-Commons''-Lizänze sin für {{SITENAME}} geignet. Bitte due dich vergewissre, dass de Urheberrächtsinhaber eini vo dänne Lizänze bruucht het.",
 	"mwe-upwiz-license-flickr-head": "De Urheberrächtsinhaber het {{PLURAL:$1|syn Foti oder Video|syni Fotis oder Videos}} uff Flickr mit de richtige Lizönz veröffentlicht",

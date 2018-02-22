@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"ChrisPtDe",
-			"Matma Rex"
+			"Matma Rex",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Assistent d’importacion",
@@ -180,7 +181,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Somês u drêt d’ôtor, mas pôt étre utilisâ a tota fin, comèrcialament avouéc",
 	"mwe-upwiz-license-attribution": "Pôt étre utilisâ a tota fin, comèrcialament avouéc, se lo titulèro du drêt d’ôtor est bien atribuâ",
 	"mwe-upwiz-license-gfdl": "Licence de documentacion libra GNU",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, patèrnitât nècèssèra (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, patèrnitât nècèssèra (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Lo titulèro du drêt d’ôtor at publeyê {{PLURAL:$1|cela ôvra|celes ôvres}} avouéc la licence Creative Commons justa",
 	"mwe-upwiz-license-cc-subhead": "Totes les licences Creative Commons sont pas bônes por ceti seto. Assurâd-vos que lo dètentor du drêt d’ôtor at utilisâ yona de celes licences.",
 	"mwe-upwiz-license-flickr-head": "Lo titulèro du drêt d’ôtor at publeyê {{PLURAL:$1|sa fotô ou ben vidèô|ses fotôs ou ben vidèôs}} dessus Flickr avouéc la licence justa",

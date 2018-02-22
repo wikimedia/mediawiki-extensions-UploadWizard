@@ -20,7 +20,8 @@
 			"Fringio",
 			"Walter Raffoni",
 			"Anto",
-			"Greis"
+			"Greis",
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -283,7 +284,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "Protetta da copyright ma utilizzabile per qualsiasi scopo, anche commerciale",
 	"mwe-upwiz-license-attribution": "Può essere usata per qualsiasi scopo, anche commercialmente, se la paternità dell'opera è correttamente attribuita",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation License",
-	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribuzione richiesta (GFDL, CC BY-SA-3.0)",
+	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, attribuzione richiesta (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Il detentore del copyright ha pubblicato {{PLURAL:$1|questa opera|queste opere}} con la corretta licenza Creative Commons",
 	"mwe-upwiz-license-cc-subhead": "Non tutte le licenze Creative Commons sono adatte per questo sito. Assicurati che il detentore del copyright abbia usato una di queste licenze.",
 	"mwe-upwiz-license-flickr-head": "Il detentore del copyright ha pubblicato {{PLURAL:$1|la propria|le proprie}} foto o video su Flickr con la licenza corretta",
