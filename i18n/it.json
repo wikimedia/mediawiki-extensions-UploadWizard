@@ -21,7 +21,8 @@
 			"Walter Raffoni",
 			"Anto",
 			"Greis",
-			"Envlh"
+			"Envlh",
+			"S4b1nuz E.656"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -34,6 +35,7 @@
 	"group-upwizcampeditors": "Modificatori delle campagne del caricamento guidato",
 	"group-upwizcampeditors-member": "{{GENDER:$1|modificatore delle campagne del caricamento guidato|modificatrice delle campagne del caricamento guidato|modificatore/trice delle campagne del caricamento guidato}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Modificatori delle iniziative per il caricamento guidato",
+	"api-error-aborted": "Caricamento annullato.",
 	"api-error-noimageinfo": "Il caricamento è riuscito, ma il server non ci ha restituito alcuna informazione sul file.",
 	"mwe-upwiz-unavailable": "Il tuo browser non è compatibile con UploadWizard o ha JavaScript disattivato, quindi ti stiamo mostrando un semplice modulo di caricamento. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Vedi i requisiti di compatibilità].)",
 	"mwe-upwiz-extension-disabled": "Questa pagina è stata disattivata a causa di problemi tecnici temporanei. Nel frattempo usa il modulo di caricamento normale.",
@@ -333,6 +335,7 @@
 	"mwe-upwiz-prefs-def-license-def": "Usa la scelta predefinita, qualsiasi cosa sia",
 	"mwe-upwiz-prefs-def-license-custom": "Licenza predefinita personalizzata",
 	"mwe-upwiz-prefs-def-license-custom-help": "Questo campo viene utilizzato solo se si sceglie l'ultima opzione sopra.",
+	"mwe-upwiz-prefs-license-name": "Nome dell'autore",
 	"mwe-upwiz-prefs-license-own": "Opera propria - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Opera di qualcun altro - $1",
 	"mwe-upwiz-prefs-chunked": "Carica a blocchi i file di oltre $1 in Upload Wizard - Aumenta la dimensione massima di caricamento da $2 a $3",
