@@ -26,7 +26,7 @@
 	 * @return {string}
 	 */
 	uw.LanguageDropdownWidget.prototype.getValue = function () {
-		return this.languageDropdown.getMenu().getSelectedItem().getData();
+		return this.languageDropdown.getMenu().findSelectedItem().getData();
 	};
 
 	/**
