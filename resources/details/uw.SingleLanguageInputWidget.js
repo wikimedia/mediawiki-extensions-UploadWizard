@@ -1,47 +1,56 @@
 ( function ( mw, uw, $, OO ) {
 
 	/**
-	 * A description field in UploadWizard's "Details" step form.
+	 * A single language input field in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
 	 * @constructor
 	 * @param {Object} [config]
 	 * @param {boolean} [config.canBeRemoved=true]
+	 * @param {mw.Message} [config.placeholder] Placeholder text for input field
+	 * @param {mw.Message} [config.remove] Title text for remove icon
+	 * @param {number} [config.minLength=0] Minimum input length
+	 * @param {number} [config.maxLength=99999] Maximum input length
 	 */
-	uw.DescriptionDetailsWidget = function UWDescriptionDetailsWidget( config ) {
+	uw.SingleLanguageInputWidget = function UWSingleLanguageInputWidget( config ) {
 		var languageOptions = this.getLanguageOptions(),
 			defaultLanguage = this.constructor.static.getDefaultLanguage();
 
-		config = config || {};
+		this.config = $.extend( {
+			placeholder: mw.message( '' ),
+			remove: mw.message( '' ),
+			minLength: 0,
+			maxLength: 99999
+		}, config );
 
-		uw.DescriptionDetailsWidget.parent.call( this );
+		uw.SingleLanguageInputWidget.parent.call( this );
 		uw.ValidationMessageElement.call( this );
 
 		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
 			this.languageSelector = new uw.UlsWidget( {
 				languages: languageOptions,
 				defaultLanguage: defaultLanguage,
-				classes: [ 'mwe-upwiz-desc-lang-select', 'mwe-upwiz-descriptionDetailsWidget-language' ]
+				classes: [ 'mwe-upwiz-singleLanguageInputWidget-language' ]
 			} );
 		} else {
 			this.languageSelector = new uw.LanguageDropdownWidget( {
 				menuOptionWidgets: this.getLanguageMenuOptionWidgets( languageOptions ),
-				classes: [ 'mwe-upwiz-desc-lang-select', 'mwe-upwiz-descriptionDetailsWidget-language' ]
+				classes: [ 'mwe-upwiz-singleLanguageInputWidget-language' ]
 			} );
 		}
 
-		this.descriptionInput = new OO.ui.MultilineTextInputWidget( {
-			classes: [ 'mwe-upwiz-desc-lang-text', 'mwe-upwiz-descriptionDetailsWidget-description' ],
-			placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ).text(),
+		this.textInput = new OO.ui.MultilineTextInputWidget( {
+			classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ],
+			placeholder: this.config.placeholder.exists() ? this.config.placeholder.text() : '',
 			autosize: true,
 			rows: 2
 		} );
 		this.removeButton = new OO.ui.ButtonWidget( {
-			classes: [ 'mwe-upwiz-remove-ctrl', 'mwe-upwiz-descriptionDetailsWidget-removeItem' ],
+			classes: [ 'mwe-upwiz-singleLanguageInputWidget-removeItem' ],
 			icon: 'trash',
 			framed: false,
 			flags: [ 'destructive' ],
-			title: mw.message( 'mwe-upwiz-remove-description' ).text()
+			title: this.config.remove.exists() ? this.config.remove.text() : ''
 		} );
 
 		this.removeButton.connect( this, {
@@ -52,29 +61,29 @@
 
 		// Aggregate 'change' event
 		// (but do not flash warnings in the user's face while they're typing)
-		this.descriptionInput.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
+		this.textInput.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
 
-		this.$element.addClass( 'mwe-upwiz-descriptionDetailsWidget' );
+		this.$element.addClass( 'mwe-upwiz-singleLanguageInputWidget' );
 		this.$element.append(
 			this.languageSelector.getElement(),
-			this.descriptionInput.$element
+			this.textInput.$element
 		);
 		// HACK: ValidationMessageElement will append messages after this.$body
-		this.$body = this.descriptionInput.$element;
-		if ( config.canBeRemoved !== false ) {
+		this.$body = this.textInput.$element;
+		if ( this.config.canBeRemoved !== false ) {
 			this.$element.append( this.removeButton.$element );
 			this.$body = this.removeButton.$element; // HACK
 		}
 	};
-	OO.inheritClass( uw.DescriptionDetailsWidget, uw.DetailsWidget );
-	OO.mixinClass( uw.DescriptionDetailsWidget, uw.ValidationMessageElement );
+	OO.inheritClass( uw.SingleLanguageInputWidget, uw.DetailsWidget );
+	OO.mixinClass( uw.SingleLanguageInputWidget, uw.ValidationMessageElement );
 
 	/**
 	 * Handle remove button click events.
 	 *
 	 * @private
 	 */
-	uw.DescriptionDetailsWidget.prototype.onRemoveClick = function () {
+	uw.SingleLanguageInputWidget.prototype.onRemoveClick = function () {
 		var element = this.getElementGroup();
 
 		if ( element && $.isFunction( element.removeItems ) ) {
@@ -83,7 +92,7 @@
 	};
 
 	/**
-	 * Check if the given language code can be used for descriptions.
+	 * Check if the given language code can be used for inputs.
 	 * If not, try finding a similar language code that can be.
 	 *
 	 * @private
@@ -92,7 +101,7 @@
 	 *   defaults to result of #getDefaultLanguage
 	 * @return {string|null}
 	 */
-	uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage = function ( code, fallback ) {
+	uw.SingleLanguageInputWidget.static.getClosestAllowedLanguage = function ( code, fallback ) {
 		// Is this still needed?
 		if ( code === 'nan' || code === 'minnan' ) {
 			code = 'zh-min-nan';
@@ -107,13 +116,13 @@
 	};
 
 	/**
-	 * Get the default language to use for descriptions.
+	 * Get the default language to use for inputs.
 	 * Choose a sane default based on user preferences and wiki config.
 	 *
 	 * @private
 	 * @return {string}
 	 */
-	uw.DescriptionDetailsWidget.static.getDefaultLanguage = function () {
+	uw.SingleLanguageInputWidget.static.getDefaultLanguage = function () {
 		var defaultLanguage;
 
 		if ( this.defaultLanguage !== undefined ) {
@@ -150,7 +159,7 @@
 	 * @param {Object} languages
 	 * @return {OO.ui.MenuOptionWidget[]}
 	 */
-	uw.DescriptionDetailsWidget.prototype.getLanguageMenuOptionWidgets = function ( languages ) {
+	uw.SingleLanguageInputWidget.prototype.getLanguageMenuOptionWidgets = function ( languages ) {
 		var options;
 
 		options = [];
@@ -168,7 +177,7 @@
 	/**
 	 * @return {Object}
 	 */
-	uw.DescriptionDetailsWidget.prototype.getLanguageOptions = function () {
+	uw.SingleLanguageInputWidget.prototype.getLanguageOptions = function () {
 		var languages, code;
 
 		languages = {};
@@ -183,19 +192,17 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.DescriptionDetailsWidget.prototype.getErrors = function () {
+	uw.SingleLanguageInputWidget.prototype.getErrors = function () {
 		var
 			errors = [],
-			minLength = mw.UploadWizard.config.minDescriptionLength,
-			maxLength = mw.UploadWizard.config.maxDescriptionLength,
-			descriptionText = this.descriptionInput.getValue().trim();
+			text = this.textInput.getValue().trim();
 
-		if ( descriptionText.length !== 0 && descriptionText.length < minLength ) {
-			// Empty description is allowed
-			errors.push( mw.message( 'mwe-upwiz-error-too-short', minLength ) );
+		if ( text.length !== 0 && text.length < this.config.minLength ) {
+			// Empty input is allowed
+			errors.push( mw.message( 'mwe-upwiz-error-too-short', this.config.minLength ) );
 		}
-		if ( descriptionText.length > maxLength ) {
-			errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
+		if ( text.length > this.config.maxLength ) {
+			errors.push( mw.message( 'mwe-upwiz-error-too-long', this.config.maxLength ) );
 		}
 
 		return $.Deferred().resolve( errors ).promise();
@@ -204,12 +211,12 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.DescriptionDetailsWidget.prototype.getWikiText = function () {
+	uw.SingleLanguageInputWidget.prototype.getWikiText = function () {
 		var
 			language = this.languageSelector.getValue(),
-			description = this.descriptionInput.getValue().trim();
+			text = this.textInput.getValue().trim();
 
-		if ( !description ) {
+		if ( !text ) {
 			return '';
 		}
 
@@ -217,29 +224,29 @@
 			language = mw.UploadWizard.config.languageTemplateFixups[ language ];
 		}
 
-		return '{{' + language + '|1=' + mw.Escaper.escapeForTemplate( description ) + '}}';
+		return '{{' + language + '|1=' + mw.Escaper.escapeForTemplate( text ) + '}}';
 	};
 
 	/**
 	 * @inheritdoc
 	 * @return {Object} See #setSerialized
 	 */
-	uw.DescriptionDetailsWidget.prototype.getSerialized = function () {
+	uw.SingleLanguageInputWidget.prototype.getSerialized = function () {
 		return {
 			language: this.languageSelector.getValue(),
-			description: this.descriptionInput.getValue()
+			text: this.textInput.getValue()
 		};
 	};
 
 	/**
 	 * @inheritdoc
 	 * @param {Object} serialized
-	 * @param {string} serialized.language Description language code
-	 * @param {string} serialized.description Description text
+	 * @param {string} serialized.language Language code
+	 * @param {string} serialized.text Text
 	 */
-	uw.DescriptionDetailsWidget.prototype.setSerialized = function ( serialized ) {
+	uw.SingleLanguageInputWidget.prototype.setSerialized = function ( serialized ) {
 		this.languageSelector.setValue( serialized.language );
-		this.descriptionInput.setValue( serialized.description );
+		this.textInput.setValue( serialized.text );
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

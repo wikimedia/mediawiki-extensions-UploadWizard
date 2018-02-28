@@ -39,24 +39,6 @@
 
 			this.dataDiv = $( '<div class="mwe-upwiz-data"></div>' );
 
-			// descriptions
-			// Description is not required if a campaign provides alternative wikitext fields,
-			// which are assumed to function like a description
-			descriptionRequired = !(
-				mw.UploadWizard.config.fields &&
-				mw.UploadWizard.config.fields.length &&
-				mw.UploadWizard.config.fields[ 0 ].wikitext
-			);
-			this.descriptionsDetails = new uw.DescriptionsDetailsWidget( {
-				required: descriptionRequired
-			} );
-			this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsDetails, {
-				label: mw.message( 'mwe-upwiz-desc' ).text(),
-				help: mw.message( 'mwe-upwiz-tooltip-description' ).text(),
-				required: descriptionRequired
-			} );
-			this.mainFields.push( this.descriptionsDetailsField );
-
 			this.titleDetails = new uw.TitleDetailsWidget( {
 				// Normalize file extension, e.g. 'JPEG' to 'jpg'
 				extension: mw.Title.normalizeExtension( this.upload.title.getExtension() )
@@ -67,6 +49,31 @@
 				required: true
 			} );
 			this.mainFields.push( this.titleDetailsField );
+
+			// descriptions
+			// Description is not required if a campaign provides alternative wikitext fields,
+			// which are assumed to function like a description
+			descriptionRequired = !(
+				mw.UploadWizard.config.fields &&
+				mw.UploadWizard.config.fields.length &&
+				mw.UploadWizard.config.fields[ 0 ].wikitext
+			);
+			this.descriptionsDetails = new uw.MultipleLanguageInputWidget( {
+				required: descriptionRequired,
+				// Messages: mwe-upwiz-desc-add-0, mwe-upwiz-desc-add-n
+				label: mw.message( 'mwe-upwiz-desc-add' ),
+				error: mw.message( 'mwe-upwiz-error-bad-descriptions' ),
+				placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ),
+				remove: mw.message( 'mwe-upwiz-remove-description' ),
+				minLength: mw.UploadWizard.config.minDescriptionLength,
+				maxLength: mw.UploadWizard.config.maxDescriptionLength
+			} );
+			this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsDetails, {
+				required: descriptionRequired,
+				label: mw.message( 'mwe-upwiz-desc' ).text(),
+				help: mw.message( 'mwe-upwiz-tooltip-description' ).text()
+			} );
+			this.mainFields.push( this.descriptionsDetailsField );
 
 			this.deedChooserDetailsField = new uw.FieldLayout( this.deedChooserDetails, {
 				label: mw.message( 'mwe-upwiz-copyright-info' ).text(),
@@ -219,12 +226,12 @@
 			uri = new mw.Uri( location.href, { overrideKeys: true } );
 			if ( mw.UploadWizard.config.defaults.description || uri.query.descriptionlang ) {
 				this.descriptionsDetails.setSerialized( {
-					descriptions: [
+					inputs: [
 						{
 							language: uri.query.descriptionlang ?
-								uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ) :
-								uw.DescriptionDetailsWidget.static.getDefaultLanguage(),
-							description: mw.UploadWizard.config.defaults.description || ''
+								uw.SingleLanguageInputWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ) :
+								uw.SingleLanguageInputWidget.static.getDefaultLanguage(),
+							text: mw.UploadWizard.config.defaults.description || ''
 						}
 					]
 				} );
@@ -351,9 +358,9 @@
 		 * @return {string}
 		 */
 		getThumbnailCaption: function () {
-			var descriptions = this.descriptionsDetails.getSerialized().descriptions;
+			var descriptions = this.descriptionsDetails.getSerialized().inputs;
 			if ( descriptions.length > 0 ) {
-				return mw.Escaper.escapeForTemplate( descriptions[ 0 ].description.trim() );
+				return mw.Escaper.escapeForTemplate( descriptions[ 0 ].text.trim() );
 			} else {
 				return '';
 			}
@@ -513,11 +520,11 @@
 					descText = descText.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
 
 					this.descriptionsDetails.setSerialized( {
-						descriptions: [
+						inputs: [
 							{
 								// The language is probably wrong in many cases...
 								language: uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) ),
-								description: descText.trim()
+								text: descText.trim()
 							}
 						]
 					} );
