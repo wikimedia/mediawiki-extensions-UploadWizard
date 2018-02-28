@@ -44,7 +44,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		$req = $this->getRequest();
 
-		$urlArgs = [ 'description', 'lat', 'lon', 'alt' ];
+		$urlArgs = [ 'caption', 'description', 'lat', 'lon', 'alt' ];
 
 		$urlDefaults = [];
 		foreach ( $urlArgs as $arg ) {

@@ -42,14 +42,12 @@
 			this.addButton.$element
 		);
 
-		// Add empty non-removable input if this field is required
-		if ( this.required ) {
-			this.addItems( [
-				new uw.SingleLanguageInputWidget(
-					$.extend( { canBeRemoved: false }, this.config )
-				)
-			] );
-		}
+		// Add empty input (non-removable if this field is required)
+		this.addItems( [
+			new uw.SingleLanguageInputWidget(
+				$.extend( { canBeRemoved: !this.required }, this.config )
+			)
+		] );
 	};
 	OO.inheritClass( uw.MultipleLanguageInputWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.MultipleLanguageInputWidget, OO.ui.mixin.GroupElement );
@@ -120,6 +118,28 @@
 			// TODO Check for duplicate languages
 			return errors;
 		}.bind( this ) );
+	};
+
+	/**
+	 * @return {object} Object where the properties are language codes & values are input
+	 */
+	uw.MultipleLanguageInputWidget.prototype.getValues = function () {
+		var values = {},
+			widgets = this.getItems(),
+			language,
+			text,
+			i;
+
+		for ( i = 0; i < widgets.length; i++ ) {
+			language = widgets[ i ].getLanguage();
+			text = widgets[ i ].getText();
+
+			if ( text !== '' ) {
+				values[ language ] = text;
+			}
+		}
+
+		return values;
 	};
 
 	/**

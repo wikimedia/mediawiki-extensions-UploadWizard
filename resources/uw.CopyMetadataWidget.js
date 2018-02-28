@@ -24,8 +24,9 @@
 		for ( metadataType in uw.CopyMetadataWidget.static.copyMetadataTypes ) {
 			if ( uw.CopyMetadataWidget.static.copyMetadataTypes.hasOwnProperty( metadataType ) ) {
 				defaultStatus = uw.CopyMetadataWidget.static.copyMetadataTypes[ metadataType ];
-				// mwe-upwiz-copy-title, mwe-upwiz-copy-description, mwe-upwiz-copy-date,
-				// mwe-upwiz-copy-categories, mwe-upwiz-copy-location, mwe-upwiz-copy-other
+				// mwe-upwiz-copy-title, mwe-upwiz-copy-caption, mwe-upwiz-copy-description,
+				// mwe-upwiz-copy-date, mwe-upwiz-copy-categories, mwe-upwiz-copy-location,
+				// mwe-upwiz-copy-other
 				copyMetadataMsg = mw.message( 'mwe-upwiz-copy-' + metadataType ).text();
 
 				checkboxes.push( new OO.ui.CheckboxMultioptionWidget( {
@@ -90,6 +91,7 @@
 	 */
 	uw.CopyMetadataWidget.static.copyMetadataTypes = {
 		title: true,
+		caption: true,
 		description: true,
 		date: false,
 		categories: true,
