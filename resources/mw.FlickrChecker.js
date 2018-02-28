@@ -456,7 +456,7 @@
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
 					$( '#mwe-upwiz-flickr-select-list-container' ).after( checker.$spinner );
-					$.when.apply( $, checkboxesWidget.getSelectedItemsData().map( function ( image ) {
+					$.when.apply( $, checkboxesWidget.findSelectedItemsData().map( function ( image ) {
 						uploads.push( checker.imageUploads[ image ] );
 						// For each image, load the description and URL to upload from
 						return $.when(
