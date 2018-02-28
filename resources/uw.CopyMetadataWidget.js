@@ -103,7 +103,7 @@
 	 * @private
 	 */
 	uw.CopyMetadataWidget.prototype.onCheckboxesSelect = function () {
-		this.copyButton.setDisabled( this.checkboxesWidget.getSelectedItemsData().length === 0 );
+		this.copyButton.setDisabled( this.checkboxesWidget.findSelectedItemsData().length === 0 );
 	};
 
 	/**
@@ -112,7 +112,7 @@
 	 * @private
 	 */
 	uw.CopyMetadataWidget.prototype.onCopyClick = function () {
-		var metadataTypes = this.checkboxesWidget.getSelectedItemsData();
+		var metadataTypes = this.checkboxesWidget.findSelectedItemsData();
 		this.copyMetadata( metadataTypes );
 
 		this.undoButton.toggle( true );

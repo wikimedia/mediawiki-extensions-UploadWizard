@@ -439,7 +439,7 @@
 				$( '#mwe-upwiz-flickr-select-list' ).append( checkboxesWidget.$element );
 				// Set up checkboxes
 				checkboxesWidget.on( 'select', function () {
-					var selectedCount = checkboxesWidget.getSelectedItems().length;
+					var selectedCount = checkboxesWidget.findSelectedItems().length;
 					// If at least one item is selected, activate the upload button
 					checker.selectButton.setDisabled( selectedCount === 0 );
 					// Limit the number of selectable images
@@ -456,7 +456,7 @@
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
 					$( '#mwe-upwiz-upload-ctrls' ).show();
 					$( '#mwe-upwiz-flickr-select-list-container' ).after( checker.$spinner );
-					$.when.apply( $, checkboxesWidget.getSelectedItemsData().map( function ( image ) {
+					$.when.apply( $, checkboxesWidget.findSelectedItemsData().map( function ( image ) {
 						uploads.push( checker.imageUploads[ image ] );
 						// For each image, load the description and URL to upload from
 						return $.when(
