@@ -259,6 +259,7 @@
 		} );
 
 		this.ui.displayUploads( uploadObjs );
+		this.updateFileCounts();
 
 		uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 	};
@@ -290,7 +291,6 @@
 	 */
 	uw.controller.Upload.prototype.setUploadFilled = function ( upload ) {
 		this.addUpload( upload );
-		this.updateFileCounts();
 		// Start uploads now, no reason to wait--leave the remove button alone
 		this.queueUpload( upload );
 		this.startQueuedUploads();

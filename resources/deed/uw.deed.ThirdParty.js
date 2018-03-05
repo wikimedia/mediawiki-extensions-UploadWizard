@@ -110,7 +110,8 @@
 		this.licenseInput.$element.addClass( 'mwe-upwiz-deed-license-groups' );
 		this.licenseInput.setDefaultValues();
 		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {
-			label: mw.message( 'mwe-upwiz-source-thirdparty-cases', this.uploadCount ).text()
+			label: mw.message( 'mwe-upwiz-source-thirdparty-cases', this.uploadCount ).text(),
+			required: true
 		} );
 
 		if ( this.threeDCount > 0 ) {

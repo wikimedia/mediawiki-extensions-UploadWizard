@@ -43,7 +43,7 @@ form.mwe-upwiz-form {
 }
 
 #mwe-upwiz-content {
-	padding: 1em;
+	margin-top: 1em;
 }
 
 #mwe-upwiz-upload-ctrl-flickr-container {
@@ -130,7 +130,7 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-visible-file-filename {
-	padding: 0.5em;
+	padding: 1.5em;
 	margin-right: 40px;
 	overflow: hidden;
 }
@@ -138,10 +138,6 @@ form.mwe-upwiz-form {
 #mwe-upwiz-filelist {
 	/* We rely on the margin collapsing with that on #mwe-upwiz-files */
 	margin-top: 3em;
-}
-
-.mwe-upwiz-filled-filelist {
-	border: 1px solid #c8ccd1;
 }
 
 .mwe-upwiz-file-status {
@@ -156,11 +152,14 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-file-preview {
 	float: left;
-	height: 100px;
-	width: 100px;
-	padding: 0.5em;
-	border: 1px solid #eaecf0;
-	margin-right: 1em;
+	width: 120px;
+	/*
+	 * min-height ensures the reserved space for a thumbnail gets preserved
+	 * while the thumb gets generated (when there is no content in this div yet)
+	 */
+	min-height: 1px;
+	max-height: 120px;
+	margin-right: 1.5em;
 	text-align: center;
 	/* @embed */
 	background: url( images/32px-Blank-document.svg.png ) no-repeat center center;
@@ -338,28 +337,43 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-thumbnail {
 	background-color: #fff;
-	border: 1px solid #c8ccd1;
-	border-radius: 2px;
 	text-align: center;
-	width: 100px;
-	height: 100px;
-	padding: 8px;
+}
+
+/* thumbs in deed & thanks should not grow too high */
+#mwe-upwiz-stepdiv-deeds .mwe-upwiz-thumbnail,
+#mwe-upwiz-stepdiv-thanks .mwe-upwiz-thumbnail {
+	max-width: 230px;
+	max-height: 230px;
+}
+
+/*
+ * thumbs in details step can grow as high as they need, it's more important to display
+ * them with a uniform width in the left column; it doesn't matter too much if they're
+ * tall, there's plenty of content on the right hand side...
+ */
+#mwe-upwiz-stepdiv-details .mwe-upwiz-thumbnail {
+	text-align: left;
+	max-width: 230px;
 }
 
 .mwe-upwiz-thumbnail-side {
 	float: left;
 	margin-bottom: 1em;
-	margin-right: 1em;
-	width: 116px; /* see .mwe-upwiz-thumbnail, 100 + 8 + 8 */
+	margin-right: 2.5em;
+}
+
+#mwe-upwiz-stepdiv-details .mwe-upwiz-thumbnail-side {
+	width: 230px;
+}
+
+#mwe-upwiz-stepdiv-thanks .mwe-upwiz-thumbnail-side {
+	width: 120px;
 }
 
 .mwe-upwiz-remove-upload {
-	/* Positioned below the thumbnail. All the floats make it more difficult than it seems
-	   to do this in a less hacky way. */
-	position: absolute;
-	left: -132px;
-	margin-left: -1em;
-	top: 132px;
+	margin-left: -0.5em;
+	margin-top: 0.5em;
 }
 
 #mwe-upwiz-deeds-thumbnails {
@@ -375,11 +389,25 @@ form.mwe-upwiz-form {
 	vertical-align: middle;
 }
 
-/* I don't like that this has to have width, to ensure that all the floats work out correctly.*/
+.mwe-upwiz-thumbnail-link canvas,
+.mwe-upwiz-thumbnail-link img {
+	box-shadow: 1px 1px 5px #999;
+}
+
 .mwe-upwiz-data {
 	float: left;
-	width: 46em;
-	padding-right: 1em; /* fix for 100% width textareas in mwe-upwiz-data */
+}
+
+/* I don't like that this has to have width, to ensure that all the floats work out correctly.*/
+#mwe-upwiz-stepdiv-details .mwe-upwiz-data {
+	/* 230px + 2.5em is width of thumbnail on the left */
+	width: calc( 100% - 230px - 2.5em );
+}
+
+#mwe-upwiz-stepdiv-thanks .mwe-upwiz-data {
+	/* 120px + 2.5em is width of thumbnail on the left */
+	/* 0.5em is padding inside text input (2 * 0.25), 4px is border (2 x 2px) */
+	width: calc( 100% - 120px - 2.5em - 0.5em - 4px );
 }
 
 .mwe-upwiz-stepdiv {
@@ -409,11 +437,17 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-info-file {
-	padding: 1em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.mwe-upwiz-info-file .oo-ui-fieldLayout-body {
+	margin-bottom: 1em;
 }
 
 .mwe-upwiz-details-fieldname {
-	padding-top: 0.3em;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .mwe-title {
@@ -520,6 +554,7 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 }
 
 .mwe-more-details .mw-collapsible-content {
+	margin-top: 1em;
 	margin-bottom: 1em;
 }
 

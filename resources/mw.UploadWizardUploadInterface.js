@@ -208,7 +208,8 @@
 	mw.UploadWizardUploadInterface.prototype.showThumbnail = function () {
 		var $preview = this.$div.find( '.mwe-upwiz-file-preview' ),
 			deferred = $.Deferred();
-		this.upload.getThumbnail().done( function ( thumb ) {
+		// This must match the CSS dimensions of .mwe-upwiz-file-preview
+		this.upload.getThumbnail( 120, 120 ).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
 			deferred.resolve();
 		} );

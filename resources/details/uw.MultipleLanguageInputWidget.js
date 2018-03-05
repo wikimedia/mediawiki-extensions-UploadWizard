@@ -28,7 +28,9 @@
 
 		this.required = !!this.config.required;
 		this.addButton = new OO.ui.ButtonWidget( {
-			framed: false,
+			classes: [ 'mwe-upwiz-multipleLanguageInputWidget-addItem' ],
+			framed: true,
+			icon: 'add',
 			flags: [ 'progressive' ],
 			label: this.getLabelText()
 		} );

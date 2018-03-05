@@ -128,13 +128,7 @@
 
 			this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
 			this.locationInputField = new uw.FieldLayout( this.locationInput, {
-				// No 'label', labels are included in this widget
-				help: new OO.ui.HtmlSnippet(
-					mw.message( 'mwe-upwiz-tooltip-location', $( '<a>' ).attr( {
-						target: '_blank',
-						href: '//commons.wikimedia.org/wiki/Commons:Geocoding'
-					} ) ).parse()
-				)
+				label: mw.message( 'mwe-upwiz-location' ).text()
 			} );
 			this.mainFields.push( this.locationInputField );
 
@@ -220,7 +214,7 @@
 				} );
 			} );
 
-			this.$form.append( this.removeCtrl.$element );
+			this.$thumbnailDiv.append( this.removeCtrl.$element );
 
 			this.submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
 				.append(
@@ -420,7 +414,8 @@
 		 */
 		populate: function () {
 			var $thumbnailDiv = this.$thumbnailDiv;
-			this.upload.getThumbnail().done( function ( thumb ) {
+			// This must match the CSS dimensions of .mwe-upwiz-thumbnail
+			this.upload.getThumbnail( 230 ).done( function ( thumb ) {
 				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 			} );
 			this.prefillDate();
