@@ -279,13 +279,14 @@
 				// that it's missing.
 				licenseURL = license.props.url === undefined ? '#missing license URL' : license.props.url,
 
-				licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } ),
+				licenseLink,
 
 				$icons = $( '<span>' );
 
 			if ( license.props.languageCodePrefix !== undefined ) {
 				licenseURL += license.props.languageCodePrefix + languageCode;
 			}
+			licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
 			if ( license.props.icons !== undefined ) {
 				$.each( license.props.icons, function ( i, icon ) {
 					$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
