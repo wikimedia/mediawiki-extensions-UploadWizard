@@ -343,6 +343,7 @@
 	"mwe-upwiz-prefs-def-license-def": "استفاده از هر چه پیش‌فرض است",
 	"mwe-upwiz-prefs-def-license-custom": "مجوز پیش‌فرض شخصی",
 	"mwe-upwiz-prefs-license-name": "نام نویسنده",
+	"mwe-upwiz-prefs-license-name-help": "اگر این فیلد خالی باشد به صورت پیش‌فرض از نان کاربری استفاده می‌شود",
 	"mwe-upwiz-prefs-license-own": "اثر شخصی - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "اثر کسی دیگر - $1",
 	"mwe-upwiz-prefs-chunked": "انتقالات تکه‌شده برای پوشه‌های بالا $1 در  جادوگر انتقال افزایش حداکثر اندازه پرونده از  $2 به $3",
@@ -351,7 +352,11 @@
 	"campaigns": "کمپین جادوگر بارگذاری",
 	"mwe-upload-campaigns-pagination-next": "صفحهٔ بعدی",
 	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها",
+	"apihelp-flickrblacklist-extended-description": "وقتی با گزینهٔ <var>list</var> استفاده شود، تمامی شناسه‌های مشمول در فهرست سیاه رابرمی‌گرداند.",
 	"apihelp-flickrblacklist-param-url": "نشانی فلیکر بررسی شد.",
+	"apihelp-flickrblacklist-param-list": "وفتی که تنظیم شود تمام فهرست سیاه  به صورت کامل برگردانده می‌شود. نمی‌توان همطمان با $1url از آن استفاده کرد",
+	"apihelp-flickrblacklist-example-1": "آزمایش یک  پیوند در برابر فهرست سیاه",
 	"apihelp-flickrblacklist-example-2": "کل فهرست سیاه را برگردان",
-	"apihelp-query+allcampaigns-param-limit": "تعداد کمپین‌ها برای ارائه"
+	"apihelp-query+allcampaigns-param-limit": "تعداد کمپین‌ها برای ارائه",
+	"apihelp-query+allcampaigns-example-1": "آوردن تمام کمپین‌های فعال"
 }
