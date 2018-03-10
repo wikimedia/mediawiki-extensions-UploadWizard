@@ -3,8 +3,8 @@
 /**
  * Test the Upload Wizard Configuration
  * @group Upload
+ * @covers UploadWizardConfig
  */
-
 class UploadWizardConfigTest extends MediaWikiTestCase {
 	public function setUp() {
 		parent::setUp();
