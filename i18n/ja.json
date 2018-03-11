@@ -22,7 +22,8 @@
 			"Macofe",
 			"Darklanlan",
 			"Omotecho",
-			"Envlh"
+			"Envlh",
+			"Yusuke1109"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -202,7 +203,7 @@
 	"mwe-upwiz-tooltip-sign": "あなたのウィキでの名前や、本名を使うことができます。\nどちらの場合でも、ウィキの利用者ページへリンクされます。",
 	"mwe-upwiz-tooltip-title": "ファイル固有の説明的な表題。ファイル名として使われます。平易な言葉を使い、空白を入れることができます。拡張子は含めないでください。",
 	"mwe-upwiz-tooltip-description": "この作品に対して特筆すべきことをすべて説明します。\n写真であれば、主に何が写っているのか、いつ、どこで撮ったものなのかについて述べてください。",
-	"mwe-upwiz-tooltip-date": "この作品の作成日または初版の発行日(YYYY-MM-DD 形式)",
+	"mwe-upwiz-tooltip-date": "この作品が作成された日付、または最初に公開された日付をカレンダーから選択するか、YYYY-MM-DD 形式で入力します。",
 	"mwe-upwiz-tooltip-categories": "ファイルが見つかりやすくなるように、[$1 カテゴリ]に入れてください。",
 	"mwe-upwiz-tooltip-other": "地理座標やリンク、その他のバージョンなど、この作品に含めたいその他の情報",
 	"mwe-upwiz-tooltip-location": "メディアが作成された場所を特定するために、[$1 このファイルを地域別分類]してください (メディアの種類ごとに場所を必ずしも入力する必要はありません)。",
@@ -238,7 +239,7 @@
 	"mwe-upwiz-too-many-files": "ファイルが多すぎます。",
 	"mwe-upwiz-file-too-large-text": "サイズが $1までのファイルのみをアップロードできます。サイズが $2のファイルをアップロードしようとしました。",
 	"mwe-upwiz-file-too-large": "ファイルが大きすぎます。",
-	"mwe-upwiz-dialog-warning": "全ての入力欄に、適切に入力することを推奨します。警告の修正をせずに、処理を続行しますか？",
+	"mwe-upwiz-dialog-warning": "全ての入力欄に、適切に入力することを推奨します。これらの警告の修正をせずに、処理を続行しますか?",
 	"mwe-upwiz-dialog-yes": "はい",
 	"mwe-upwiz-dialog-no": "いいえ",
 	"mwe-upwiz-dialog-title": "警告",
@@ -334,7 +335,7 @@
 	"campaigns": "アップロードウィザードのキャンペーン",
 	"mwe-upload-campaigns-pagination-next": "次のページ",
 	"mwe-upload-campaigns-list-title": "アップロード キャンペーン一覧",
-	"apihelp-flickrblacklist-description": "flickr URL のユーザー ID (NSID) を使用してその URL がブラックリストに登録されているか検証します。\n\nlist オプション付きで使用した場合は、ブラックリストに登録されている ID をすべて返します。",
+	"apihelp-flickrblacklist-description": "Flickr URL のユーザー ID (NSID) を使用してその URL がブラックリストに登録されているか検証します。\n\n<var>list</var> オプション付きで使用した場合は、ブラックリストに登録されている ID をすべて返します。",
 	"apihelp-flickrblacklist-param-url": "テストする Flickr URL です。",
 	"apihelp-flickrblacklist-param-list": "設定すると、ブラックリスト全体を返します。$1url とは同時に使用できません。",
 	"apihelp-flickrblacklist-example-1": "URL をブラックリストで検証",
