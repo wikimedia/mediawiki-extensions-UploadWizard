@@ -792,7 +792,8 @@
 		 * @return {jQuery.Promise}
 		 */
 		submit: function () {
-			var params,
+			var details = this,
+				params,
 				tags = [ 'uploadwizard' ];
 
 			$( 'form', this.containerDiv ).submit();
@@ -827,7 +828,10 @@
 			}
 
 			params.text = this.getWikiText();
-			return this.submitInternal( params );
+			return this.submitInternal( params ).then( function () {
+				details.showIndicator( 'uploaded' );
+				details.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
+			} );
 		},
 
 		/**
@@ -838,36 +842,43 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitInternal: function ( params ) {
-			var
-				details = this,
+			var details = this,
 				apiPromise = this.upload.api.postWithEditToken( params );
+
 			return apiPromise
-				.then(
-					function ( result ) {
-						if ( result.upload && result.upload.warnings ) {
-							uw.eventFlowLogger.logApiError( 'details', result );
-						}
-						return details.handleSubmitResult( result, params );
-					},
-					function ( code, result ) {
-						uw.eventFlowLogger.logApiError( 'details', result );
-						details.upload.state = 'error';
-						details.processError( code, result );
-						return $.Deferred().reject( code, result );
-					}
-				)
+				// process the successful (in terms of HTTP status...) API call first:
+				// there may be warnings or other issues with the upload that need
+				// to be dealt with
+				.then( this.validateSubmitResult.bind( this, params ) )
+				// making it here means the upload is a success, or it would've been
+				// rejected by now (either by HTTP status code, or in validateSubmitResult)
+				.then( function ( result ) {
+					details.upload.extractImageInfo( result.upload.imageinfo );
+					details.upload.thisProgress = 1.0;
+					details.upload.state = 'complete';
+					return result;
+				} )
+				// uh-oh - something went wrong!
+				.catch( function ( code, result ) {
+					uw.eventFlowLogger.logApiError( 'details', result );
+					details.upload.state = 'error';
+					details.processError( code, result );
+					return $.Deferred().reject( code, result );
+				} )
 				.promise( { abort: apiPromise.abort } );
 		},
 
 		/**
-		 * Handles the result of a submission.
+		 * Validates the result of a submission & returns a resolved promise with
+		 * the API response if all went well, or rejects with error code & error
+		 * message as you would expect from failed mediawiki API calls.
 		 *
-		 * @param {Object} result API result of an upload or status check.
 		 * @param {Object} params What we passed to the API that caused this response.
+		 * @param {Object} result API result of an upload or status check.
 		 * @return {jQuery.Promise}
 		 */
-		handleSubmitResult: function ( result, params ) {
-			var wx, warningsKeys, existingFile, existingFileUrl, existingFileExt, ourFileExt,
+		validateSubmitResult: function ( params, result ) {
+			var wx, warningsKeys, existingFile, existingFileUrl, existingFileExt, ourFileExt, code, message,
 				details = this,
 				warnings = null,
 				ignoreTheseWarnings = false,
@@ -934,27 +945,27 @@
 				}
 			}
 			if ( result && result.upload && result.upload.imageinfo ) {
-				this.upload.extractImageInfo( result.upload.imageinfo );
-				this.upload.thisProgress = 1.0;
-				this.upload.state = 'complete';
-				this.showIndicator( 'uploaded' );
-				this.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
-				return $.Deferred().resolve();
+				return $.Deferred().resolve( result );
 			} else if ( ignoreTheseWarnings ) {
 				params.ignorewarnings = 1;
 				return this.submitInternal( params );
 			} else if ( result && result.upload && result.upload.warnings ) {
 				if ( warnings.thumb || warnings[ 'thumb-name' ] ) {
-					this.recoverFromError( 'error-title-thumbnail', mw.message( 'mwe-upwiz-error-title-thumbnail' ).parse() );
+					code = 'error-title-thumbnail';
+					message = mw.message( 'mwe-upwiz-error-title-thumbnail' ).parse();
 				} else if ( warnings.badfilename ) {
-					this.recoverFromError( 'title-invalid', mw.message( 'mwe-upwiz-error-title-invalid' ).parse() );
+					code = 'title-invalid';
+					message = mw.message( 'mwe-upwiz-error-title-invalid' ).parse();
 				} else if ( warnings[ 'bad-prefix' ] ) {
-					this.recoverFromError( 'title-senselessimagename', mw.message( 'mwe-upwiz-error-title-senselessimagename' ).parse() );
+					code = 'title-senselessimagename';
+					message = mw.message( 'mwe-upwiz-error-title-senselessimagename' ).parse();
 				} else if ( existingFile ) {
 					existingFileUrl = mw.config.get( 'wgServer' ) + mw.Title.makeTitle( NS_FILE, existingFile ).getUrl();
-					this.recoverFromError( 'api-warning-exists', mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse() );
+					code = 'api-warning-exists';
+					message = mw.message( 'mwe-upwiz-api-warning-exists', existingFileUrl ).parse();
 				} else if ( warnings.duplicate ) {
-					this.recoverFromError( 'upload-error-duplicate', mw.message( 'mwe-upwiz-upload-error-duplicate' ).parse() );
+					code = 'upload-error-duplicate';
+					message = mw.message( 'mwe-upwiz-upload-error-duplicate' ).parse();
 				} else if ( warnings[ 'duplicate-archive' ] !== undefined ) {
 					// warnings[ 'duplicate-archive' ] may be '' (empty string) for revdeleted files
 					if ( this.upload.handler.isIgnoredWarning( 'duplicate-archive' ) ) {
@@ -964,18 +975,19 @@
 						return this.submitInternal( params );
 					} else {
 						// This should _never_ happen, but just in case....
-						this.recoverFromError( 'upload-error-duplicate-archive', mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).parse() );
+						code = 'upload-error-duplicate-archive';
+						message = mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).parse();
 					}
 				} else {
 					warningsKeys = [];
 					$.each( warnings, function ( key ) {
 						warningsKeys.push( key );
 					} );
-					this.upload.state = 'error';
-					this.recoverFromError( 'unknown-warning', mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).parse() );
+					code = 'unknown-warning';
+					message = mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).parse();
 				}
 
-				return $.Deferred().resolve();
+				return $.Deferred().reject( code, { errors: [ { html: message } ] } );
 			} else {
 				return $.Deferred().reject( 'this-info-missing', result );
 			}
@@ -1019,7 +1031,19 @@
 				'spamblacklist',
 				'fileexists-shared-forbidden',
 				'protectedpage',
-				'titleblacklist-forbidden'
+				'titleblacklist-forbidden',
+
+				// below are not actual API errors, but recoverable warnings that have
+				// been discovered in validateSubmitResult and fabricated to resemble
+				// API errors and end up here to be dealt with
+				'error-title-thumbnail',
+				'title-invalid',
+				'title-senselessimagename',
+				'api-warning-exists',
+				'upload-error-duplicate',
+				'upload-error-duplicate',
+				'upload-error-duplicate-archive',
+				'unknown-warning'
 			];
 
 			if ( code === 'badtoken' ) {
