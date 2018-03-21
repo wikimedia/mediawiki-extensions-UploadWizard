@@ -46,6 +46,7 @@
 				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).focus();
 			},
 			languages: ulsWidget.languages,
+			ulsPurpose: 'upload-wizard-description',
 			onVisible: function () {
 				// Re-position the ULS *after* the widget has been rendered, so that we can be
 				// sure it's in the right place
