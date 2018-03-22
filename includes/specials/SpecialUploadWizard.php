@@ -259,8 +259,6 @@ class SpecialUploadWizard extends SpecialPage {
 			return false;
 		}
 
-		// XXX does wgEnableAPI affect all uploads too?
-
 		// Check whether we actually want to allow changing stuff
 		if ( wfReadOnly() ) {
 			throw new ReadOnlyError;
