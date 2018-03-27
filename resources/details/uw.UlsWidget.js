@@ -17,6 +17,7 @@
 				$( '<span>' )
 					.attr( 'tabindex', 0 )
 					.addClass( 'oo-ui-dropdownWidget-handle' )
+					.addClass( 'oo-ui-widget' )
 					.addClass( 'oo-ui-indicatorElement' )
 					.append(
 						$( '<span>' ).addClass( 'oo-ui-labelElement-label' ),
