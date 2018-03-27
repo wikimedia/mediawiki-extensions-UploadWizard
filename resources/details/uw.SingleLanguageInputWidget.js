@@ -5,7 +5,9 @@
 	 *
 	 * @extends uw.DetailsWidget
 	 * @constructor
-	 * @param {Object} [config]
+	 * @param {Object} config
+	 * @param {Object} config.languages { langcode: text } map of languages
+	 * @param {Object} [config.defaultLanguage]
 	 * @param {boolean} [config.canBeRemoved=true]
 	 * @param {mw.Message} [config.placeholder] Placeholder text for input field
 	 * @param {mw.Message} [config.remove] Title text for remove icon
@@ -13,9 +15,6 @@
 	 * @param {number} [config.maxLength=99999] Maximum input length
 	 */
 	uw.SingleLanguageInputWidget = function UWSingleLanguageInputWidget( config ) {
-		var languageOptions = this.getLanguageOptions(),
-			defaultLanguage = this.constructor.static.getDefaultLanguage();
-
 		this.config = $.extend( {
 			placeholder: mw.message( '' ),
 			remove: mw.message( '' ),
@@ -28,16 +27,16 @@
 
 		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
 			this.languageSelector = new uw.UlsWidget( {
-				languages: languageOptions,
-				defaultLanguage: defaultLanguage,
+				languages: config.languages,
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-language' ]
 			} );
 		} else {
 			this.languageSelector = new uw.LanguageDropdownWidget( {
-				menuOptionWidgets: this.getLanguageMenuOptionWidgets( languageOptions ),
+				languages: config.languages,
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-language' ]
 			} );
 		}
+		this.languageSelector.setValue( config.defaultLanguage || this.getDefaultLanguage() );
 
 		this.textInput = new OO.ui.MultilineTextInputWidget( {
 			classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ],
@@ -57,8 +56,7 @@
 			click: 'onRemoveClick'
 		} );
 
-		this.languageSelector.setValue( defaultLanguage );
-
+		this.languageSelector.connect( this, { select: [ 'emit', 'select' ] } );
 		// Aggregate 'change' event
 		// (but do not flash warnings in the user's face while they're typing)
 		this.textInput.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
@@ -101,12 +99,12 @@
 	 *   defaults to result of #getDefaultLanguage
 	 * @return {string|null}
 	 */
-	uw.SingleLanguageInputWidget.static.getClosestAllowedLanguage = function ( code, fallback ) {
+	uw.SingleLanguageInputWidget.prototype.getClosestAllowedLanguage = function ( code, fallback ) {
 		// Is this still needed?
 		if ( code === 'nan' || code === 'minnan' ) {
 			code = 'zh-min-nan';
 		}
-		if ( mw.UploadWizard.config.uwLanguages[ code ] ) {
+		if ( this.config.languages[ code ] ) {
 			return code;
 		}
 		if ( code.lastIndexOf( '-' ) !== -1 ) {
@@ -122,7 +120,7 @@
 	 * @private
 	 * @return {string}
 	 */
-	uw.SingleLanguageInputWidget.static.getDefaultLanguage = function () {
+	uw.SingleLanguageInputWidget.prototype.getDefaultLanguage = function () {
 		var defaultLanguage;
 
 		if ( this.defaultLanguage !== undefined ) {
@@ -136,7 +134,7 @@
 		} else if ( this.getClosestAllowedLanguage( 'en', null ) ) {
 			defaultLanguage = this.getClosestAllowedLanguage( 'en' );
 		} else {
-			defaultLanguage = Object.keys( mw.UploadWizard.config.uwLanguages )[ 0 ];
+			defaultLanguage = Object.keys( this.config.languages )[ 0 ];
 		}
 
 		// Logic copied from MediaWiki:UploadForm.js
@@ -150,43 +148,6 @@
 
 		this.defaultLanguage = defaultLanguage;
 		return defaultLanguage;
-	};
-
-	/**
-	 * Get options for the dropdown list of all allowed languages.
-	 *
-	 * @private
-	 * @param {Object} languages
-	 * @return {OO.ui.MenuOptionWidget[]}
-	 */
-	uw.SingleLanguageInputWidget.prototype.getLanguageMenuOptionWidgets = function ( languages ) {
-		var options;
-
-		options = [];
-		$.each( languages, function ( code, language ) {
-			options.push(
-				new OO.ui.MenuOptionWidget( {
-					data: code,
-					label: language
-				} )
-			);
-		} );
-		return options;
-	};
-
-	/**
-	 * @return {Object}
-	 */
-	uw.SingleLanguageInputWidget.prototype.getLanguageOptions = function () {
-		var languages, code;
-
-		languages = {};
-		for ( code in mw.UploadWizard.config.uwLanguages ) {
-			if ( mw.UploadWizard.config.uwLanguages.hasOwnProperty( code ) ) {
-				languages[ code ] = mw.UploadWizard.config.uwLanguages[ code ];
-			}
-		}
-		return languages;
 	};
 
 	/**
@@ -209,6 +170,13 @@
 	};
 
 	/**
+	 * @param {object} languages
+	 */
+	uw.SingleLanguageInputWidget.prototype.updateLanguages = function ( languages ) {
+		this.languageSelector.updateLanguages( languages );
+	};
+
+	/**
 	 * @return {string} language code
 	 */
 	uw.SingleLanguageInputWidget.prototype.getLanguage = function () {
@@ -216,10 +184,24 @@
 	};
 
 	/**
+	 * @param {string} value language code
+	 */
+	uw.SingleLanguageInputWidget.prototype.setLanguage = function ( value ) {
+		this.languageSelector.setValue( value );
+	};
+
+	/**
 	 * @return {string} text input
 	 */
 	uw.SingleLanguageInputWidget.prototype.getText = function () {
 		return this.textInput.getValue().trim();
+	};
+
+	/**
+	 * @param {string} value text input
+	 */
+	uw.SingleLanguageInputWidget.prototype.setText = function ( value ) {
+		this.textInput.setValue( value );
 	};
 
 	/**
@@ -259,8 +241,8 @@
 	 * @param {string} serialized.text Text
 	 */
 	uw.SingleLanguageInputWidget.prototype.setSerialized = function ( serialized ) {
-		this.languageSelector.setValue( serialized.language );
-		this.textInput.setValue( serialized.text );
+		this.setLanguage( serialized.language );
+		this.setText( serialized.text );
 	};
 
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );

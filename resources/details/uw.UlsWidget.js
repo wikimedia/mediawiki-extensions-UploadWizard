@@ -1,16 +1,17 @@
-( function ( mw, uw, $ ) {
+( function ( mw, uw, $, OO ) {
 
 	/**
 	 * A ULS within a description field in UploadWizard's "Details" step form.
 	 *
 	 * @constructor
 	 * @param {Object} [config]
-	 * @cfg {string} [defaultLanguage] 2-letter language code
 	 * @cfg {Object} [languages] Keys are 2-letter language codes, values are language autonyms
 	 * @cfg {Array} [classes] Classes to apply to the ULS container div
 	 */
 	uw.UlsWidget = function UWUlsWidget( config ) {
 		var i;
+
+		uw.UlsWidget.parent.call( this );
 
 		this.$element = $( '<div>' )
 			.append(
@@ -32,21 +33,24 @@
 			this.$element.addClass( config.classes[ i ] );
 		}
 
-		this.languages = config.languages;
-
 		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
-			this.initialiseUls();
+			this.initialiseUls( config.languages );
 		}
 	};
+	OO.inheritClass( uw.UlsWidget, OO.ui.Widget );
+	OO.mixinClass( uw.UlsWidget, OO.EventEmitter );
 
-	uw.UlsWidget.prototype.initialiseUls = function () {
+	uw.UlsWidget.prototype.initialiseUls = function ( languages ) {
 		var ulsWidget = this;
+
+		this.languages = languages;
+
 		this.uls = $( this.$element ).uls( {
 			onSelect: function ( language ) {
 				ulsWidget.setValue( language );
 				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).focus();
 			},
-			languages: ulsWidget.languages,
+			languages: languages,
 			ulsPurpose: 'upload-wizard-description',
 			onVisible: function () {
 				// Re-position the ULS *after* the widget has been rendered, so that we can be
@@ -66,11 +70,23 @@
 	};
 
 	/**
+	 * @param {object} languages
+	 */
+	uw.UlsWidget.prototype.updateLanguages = function ( languages ) {
+		this.uls.off().removeData( 'uls' );
+		this.initialiseUls( languages );
+	};
+
+	/**
 	 * @param {string} value
 	 */
 	uw.UlsWidget.prototype.setValue = function ( value ) {
+		var current = this.languageValue;
 		this.languageValue = value;
 		this.$element.find( '.oo-ui-labelElement-label' ).text( this.languages[ value ] );
+		if ( current !== value ) {
+			this.emit( 'select' );
+		}
 	};
 
 	/**
