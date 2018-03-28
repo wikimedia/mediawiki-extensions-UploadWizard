@@ -63,10 +63,15 @@ if ( !$uwLanguages ) {
 		}
 	}
 
-	// Sort the list by the language name. (If a specific collation is not available
-	// for the user's language, this falls back to a generic 'root' one.)
-	$collator = Collator::create( $userLangCode );
-	$collator->asort( $uwLanguages );
+	// Sort the list by the language name.
+	if ( class_exists( 'Collator' ) ) {
+		// If a specific collation is not available for the user's language,
+		// this falls back to a generic 'root' one.
+		$collator = Collator::create( $userLangCode );
+		$collator->asort( $uwLanguages );
+	} else {
+		natcasesort( $uwLanguages );
+	}
 	// Cache the list for 1 day
 	$wgMemc->set( $cacheKey, $uwLanguages, 60 * 60 * 24 );
 }
