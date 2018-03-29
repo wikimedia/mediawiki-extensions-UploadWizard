@@ -9,7 +9,7 @@
  * @ingroup Upload
  * @ingroup API
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Nischay Nahata <nischayn22@gmail.com>
  */
 class ApiFlickrBlacklist extends ApiBase {
