@@ -33,7 +33,7 @@
 	"right-upwizcampaigns": "Configurar campanhas do Assistente de Envio de Ficheiros",
 	"action-upwizcampaigns": "configurar campanhas de envio de ficheiros",
 	"group-upwizcampeditors": "Editores de campanhas do Assistente de Envio de Ficheiros",
-	"group-upwizcampeditors-member": "{{GENDER:$1|Editor|Editora}} de campanhas do Assistente de Envio de Ficheiros",
+	"group-upwizcampeditors-member": "{{GENDER:$1|editor|editora}} de campanhas do assistente de envio de ficheiros",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editores de campanhas do Assistente de Envio de Ficheiros",
 	"group-upwizcampeditors.css": "/* O CSS colocado aqui afectará somente os editores de campanhas do Assistente de Envio de Ficheiros */",
 	"group-upwizcampeditors.js": "/* O JS colocado aqui afectará somente os editores de campanhas do Assistente de Envio de Ficheiros */",
