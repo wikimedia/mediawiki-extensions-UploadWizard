@@ -31,7 +31,7 @@ class UploadWizardCampaign {
 	 * The campaign configuration, after wikitext properties have been parsed.
 	 *
 	 * @since 1.2
-	 * @var array
+	 * @var array|null
 	 */
 	protected $parsedConfig = null;
 
@@ -49,7 +49,7 @@ class UploadWizardCampaign {
 	 * The Title representing the current campaign
 	 *
 	 * @since 1.4
-	 * @var Title
+	 * @var Title|null
 	 */
 	protected $title = null;
 
@@ -57,7 +57,7 @@ class UploadWizardCampaign {
 	 * The RequestContext to use for operations performed from this object
 	 *
 	 * @since 1.4
-	 * @var RequestContext
+	 * @var RequestContext|null
 	 */
 	protected $context = null;
 

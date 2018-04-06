@@ -21,7 +21,7 @@ class CampaignContent extends JsonContent {
 	/**
 	 * Checks user input JSON to make sure that it produces a valid campaign object
 	 *
-	 * @throws JsonSchemaException: If invalid.
+	 * @throws JsonSchemaException If invalid.
 	 * @return bool True if valid.
 	 */
 	function validate() {
@@ -64,7 +64,7 @@ class CampaignContent extends JsonContent {
 	 * Override getParserOutput, since we require $title to generate our output
 	 * @param Title $title
 	 * @param int|null $revId
-	 * @param ParserOptions $otpions
+	 * @param ParserOptions|null $otpions
 	 * @param bool $generateHtml
 	 * @return ParserOutput
 	 */

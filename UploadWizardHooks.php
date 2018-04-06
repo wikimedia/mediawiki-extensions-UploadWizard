@@ -162,7 +162,6 @@ class UploadWizardHooks {
 	 * Get JavaScript test modules
 	 * @param array &$testModules
 	 * @param ResourceLoader &$resourceLoader
-	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules(
 		array &$testModules,
