@@ -9,7 +9,8 @@
 			"Vivaelcelta",
 			"Banjo",
 			"Macofe",
-			"Envlh"
+			"Envlh",
+			"Navhy"
 		]
 	},
 	"uploadwizard": "Asistente de cargas",
@@ -163,7 +164,7 @@
 	"mwe-upwiz-date-created": "Data de creación",
 	"mwe-upwiz-select-date": "Selecione unha data",
 	"mwe-upwiz-location": "Localización",
-	"mwe-upwiz-location-button": "Mostrar no mapa",
+	"mwe-upwiz-location-button": "Amosar no mapa",
 	"mwe-upwiz-location-lat": "Latitude",
 	"mwe-upwiz-location-lon": "Lonxitude",
 	"mwe-upwiz-location-alt": "Altitude",
@@ -259,7 +260,7 @@
 	"mwe-upwiz-campaign-upload-button": "Cargar!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Carga|Cargas}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Colaborador|Colaboradores}}",
-	"mwe-upwiz-campaign-view-all-media": "Mostrar todos os ficheiros multimedia cargados",
+	"mwe-upwiz-campaign-view-all-media": "Amosar todos os ficheiros multimedia cargados",
 	"mwe-upwiz-campaign-no-uploads-yet": "Aínda non cargou ningún ficheiro!",
 	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons recoñecemento compartir igual 4.0 ([$2 texto legal])",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons recoñecemento compartir igual 3.0 ([$2 texto legal])",
@@ -301,7 +302,7 @@
 	"mwe-upwiz-license-cc-head": "O propietario dos dereitos de autor publicou {{PLURAL:$1|esta obra|estas obras}} baixo a licenza Creative Commons correcta",
 	"mwe-upwiz-license-cc-subhead": "Non todas as licenzas Creative Commons son axeitadas para este sitio. Asegúrese de que o propietario dos dereitos de autor empregou unha destas licenzas.",
 	"mwe-upwiz-license-flickr-head": "O propietario dos dereitos de autor publicou {{PLURAL:$1|a súa foto ou o seu vídeo|as súas fotos ou os seus vídeos}} en Flickr baixo a licenza correcta",
-	"mwe-upwiz-license-flickr-subhead": "Comprobe a sección \"Licenza\" no lateral da páxina en Flickr. A icona e mais o nome da licenza que empregan deben coincidir cunha das opcións mostradas aquí.",
+	"mwe-upwiz-license-flickr-subhead": "Comprobe a sección \"Licenza\" no lateral da páxina en Flickr. A icona e mais o nome da licenza que empregan deben coincidir cunha das opcións amosadas aquí.",
 	"mwe-upwiz-license-public-domain-usa-head": "Os dereitos de autor caducaron definitivamente nos EUA.",
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} está aloxado nos EUA, de modo que a obra debe estar libre de dereitos de autor nese país.",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|Esta obra foi feita|Estas obras foron feitas}} polo goberno dos Estados Unidos de América",
