@@ -6,7 +6,8 @@
 			"Дзяніс Тутэйшы",
 			"Liashko",
 			"Mechanizatar",
-			"Envlh"
+			"Envlh",
+			"Artsiom91"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -219,8 +220,8 @@
 	"mwe-upwiz-license-custom": "Ліцэнзія апісваецца наступным вікі-тэкстам (павінен утрымоўваць карэктную [$2 пазнаку капірайта]):",
 	"mwe-upwiz-license-fal": "Free Art License",
 	"mwe-upwiz-license-own-pd": "Адмова ад усіх праў згодна з ліцэнзіяй Creative Commons Zero (як грамадскі набытак)",
-	"mwe-upwiz-license-pd-old-100": "Аўтар памёр больш чым 100 гадоў назад",
-	"mwe-upwiz-license-pd-old": "Аўтар памёр больш чым 70 гадоў назад",
+	"mwe-upwiz-license-pd-old-100": "Аўтар памёр больш чым за 100 гадоў таму",
+	"mwe-upwiz-license-pd-old": "Аўтар памёр больш чым за 70 гадоў назадтаму",
 	"mwe-upwiz-license-pd-us": "Упершыню апублікавана ў ЗША да 1923 года",
 	"mwe-upwiz-license-pd-usgov": "Арыгінальная праца федэральнага ўрада ЗША",
 	"mwe-upwiz-license-pd-usgov-nasa": "Арыгінальная праца NASA",
