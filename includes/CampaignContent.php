@@ -64,13 +64,13 @@ class CampaignContent extends JsonContent {
 	 * Override getParserOutput, since we require $title to generate our output
 	 * @param Title $title
 	 * @param int|null $revId
-	 * @param ParserOptions|null $otpions
+	 * @param ParserOptions|null $options
 	 * @param bool $generateHtml
 	 * @return ParserOutput
 	 */
 	function getParserOutput( Title $title,
 		$revId = null,
-		ParserOptions $otpions = null, $generateHtml = true
+		ParserOptions $options = null, $generateHtml = true
 	) {
 		$po = new ParserOutput();
 		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
