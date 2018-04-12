@@ -133,9 +133,20 @@ class UploadWizardCampaign {
 		if ( $data === false ) {
 			wfDebug( __METHOD__ . ' cache miss for key ' . $key );
 			$dbr = wfGetDB( DB_REPLICA );
+
+			if ( class_exists( ActorMigration::class ) ) {
+				$actorQuery = ActorMigration::newMigration()->getJoin( 'img_user' );
+			} else {
+				$actorQuery = [
+					'tables' => [],
+					'fields' => [ 'img_user' => 'img_user' ],
+					'joins' => [],
+				];
+			}
+
 			$result = $dbr->select(
-				[ 'categorylinks', 'page', 'image' ],
-				[ 'count' => 'COUNT(DISTINCT img_user)' ],
+				[ 'categorylinks', 'page', 'image' ] + $actorQuery['tables'],
+				[ 'count' => 'COUNT(DISTINCT ' . $actorQuery['fields']['img_user'] . ')' ],
 				[ 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ],
 				__METHOD__,
 				[
@@ -144,7 +155,7 @@ class UploadWizardCampaign {
 				[
 					'page' => [ 'INNER JOIN', 'cl_from=page_id' ],
 					'image' => [ 'INNER JOIN', 'page_title=img_name' ]
-				]
+				] + $actorQuery['joins']
 			);
 
 			$data = $result->current()->count;
