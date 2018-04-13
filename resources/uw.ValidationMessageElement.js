@@ -77,9 +77,11 @@
 	uw.ValidationMessageElement.prototype.makeMessage = function ( kind, error ) {
 		var code, content, $listItem;
 		if ( error.parse ) {
+			// mw.Message object
 			code = error.key;
 			content = new OO.ui.HtmlSnippet( error.parse() );
 		} else {
+			// { key: ..., html: ... } object (= formatted API error responses)
 			code = error.code;
 			content = $( $.parseHTML( error.html ) );
 		}
