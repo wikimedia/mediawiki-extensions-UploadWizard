@@ -17,7 +17,8 @@
 			"Dvorapa",
 			"Martin Urbanec",
 			"Ilimanaq29",
-			"Envlh"
+			"Envlh",
+			"Patriccck"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -68,7 +69,7 @@
 	"mwe-upwiz-transported": "Nahrávání dokončeno…",
 	"mwe-upwiz-stashed-upload": "Načteno",
 	"mwe-upwiz-getting-metadata": "Načítají se informace o souborech a náhledy…",
-	"mwe-upwiz-submitting-details": "Odesílají se podrobnosti a probíhá zveřejnění…",
+	"mwe-upwiz-submitting-details": "Odesílání podrobností ...",
 	"mwe-upwiz-published": "Zveřejněno!",
 	"mwe-upwiz-failed": "Chyba.",
 	"mwe-upwiz-remove": "Odebrat",
@@ -143,9 +144,7 @@
 	"mwe-upwiz-copy-location": "Okopírovat místo",
 	"mwe-upwiz-copy-other": "Okopírovat další informace",
 	"mwe-upwiz-desc": "Popis",
-	"mwe-upwiz-desc-placeholder": "Popište soubor",
-	"mwe-upwiz-desc-add-n": "Přidat popis v dalším jazyce",
-	"mwe-upwiz-desc-add-0": "Přidat popis",
+	"mwe-upwiz-desc-placeholder": "'''!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!PLEASE DELETE THIS EMPTY TEXT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n'''PROSÍM SMAŽTE TENTO PRÁZDNÝ TEXT!!!!!!!!!!!!!!!!! '''\n'''",
 	"mwe-upwiz-title": "Název",
 	"mwe-upwiz-date-created": "Datum vytvoření",
 	"mwe-upwiz-select-date": "Vyberte datum",
@@ -191,7 +190,7 @@
 	"mwe-upwiz-tooltip-source": "Odkud tento soubor pochází – může to být URL nebo kniha či publikace",
 	"mwe-upwiz-tooltip-sign": "Můžete použít své uživatelské jméno na wiki nebo své skutečné jméno.\nV obou případech odtud povede odkaz na vaši stránku na wiki.",
 	"mwe-upwiz-tooltip-title": "Krátký unikátní nadpis tohoto souboru, který bude sloužit jako jeho název. Můžete použít běžný jazyk i s mezerami. Nevkládejte příponu souboru.",
-	"mwe-upwiz-tooltip-description": "Stručně popište všechny důležité informace o díle.\nU fotografií zmiňte hlavní zobrazené objekty, příležitost, při které fotografie vznikla, nebo místo.",
+	"mwe-upwiz-tooltip-description": "Popište, co je významného o souboru.",
 	"mwe-upwiz-tooltip-date": "Vyberte z kalendáře datum, kdy bylo toto dílo vytvořeno nebo prvně zveřejněno, nebo ho zadejte ve formátu RRRR-MM-DD.",
 	"mwe-upwiz-tooltip-categories": "Přidejte soubor do [$1 kategorií], aby šel snáze najít.",
 	"mwe-upwiz-tooltip-other": "Libovolné další informace, které k tomuto dílu chcete přidat – zeměpisné souřadnice, odkazy na jiné verze atd.",
