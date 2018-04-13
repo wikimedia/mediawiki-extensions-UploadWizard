@@ -209,12 +209,26 @@
 	};
 
 	/**
+	 * @return {string} language code
+	 */
+	uw.SingleLanguageInputWidget.prototype.getLanguage = function () {
+		return this.languageSelector.getValue();
+	};
+
+	/**
+	 * @return {string} text input
+	 */
+	uw.SingleLanguageInputWidget.prototype.getText = function () {
+		return this.textInput.getValue().trim();
+	};
+
+	/**
 	 * @inheritdoc
 	 */
 	uw.SingleLanguageInputWidget.prototype.getWikiText = function () {
 		var
-			language = this.languageSelector.getValue(),
-			text = this.textInput.getValue().trim();
+			language = this.getLanguage(),
+			text = this.getText();
 
 		if ( !text ) {
 			return '';

@@ -216,6 +216,9 @@ return [
 		// Categories to list by default in the list of cats to add.
 		'categories' => [],
 
+		// Initial value for the caption field.
+		'caption' => '',
+
 		// Initial value for the description field.
 		'description' => '',
 
@@ -557,6 +560,12 @@ return [
 	// Min file title string length
 	'minTitleLength' => 5,
 
+	// Max file caption length
+	'maxCaptionLength' => 255,
+
+	// Min file caption length
+	'minCaptionLength' => 0,
+
 	// Max file description length
 	'maxDescriptionLength' => 10000,
 
@@ -659,4 +668,11 @@ return [
 	// Should we pester the user with a confirmation step when submitting a file without assigning it
 	// to any categories?
 	'enableCategoryCheck' => true,
+
+	// enable structured data to go into a wikibase repository
+	'wikibase' => [
+		'enabled' => false,
+		// url to wikibase repo API
+		'api' => $wgScriptPath. '/api.php',
+	],
 ];
