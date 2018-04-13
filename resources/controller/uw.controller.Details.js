@@ -125,7 +125,7 @@
 			copyTo: this.uploads
 		} );
 
-		$( first.details.div ).after( this.copyMetadataWidget.$element );
+		first.details.$div.after( this.copyMetadataWidget.$element );
 	};
 
 	uw.controller.Details.prototype.removeCopyMetadataFeature = function () {
@@ -349,8 +349,8 @@
 
 		this.queue.removeItem( upload );
 
-		if ( upload.details && upload.details.div ) {
-			upload.details.div.remove();
+		if ( upload.details && upload.details.$div ) {
+			upload.details.$div.remove();
 		}
 
 		if ( this.uploads.length === 0 ) {
