@@ -150,6 +150,8 @@
 	"mwe-upwiz-copy-other": "Kopioi muut tiedot",
 	"mwe-upwiz-desc": "Kuvaus",
 	"mwe-upwiz-desc-placeholder": "Kuvaile kuvan ominaisuuksia ja sisältöä",
+	"mwe-upwiz-desc-add-n": "Lisää kuvaus toisella kielellä",
+	"mwe-upwiz-desc-add-0": "Lisää kuvaus",
 	"mwe-upwiz-title": "Otsikko",
 	"mwe-upwiz-date-created": "Luontiajankohta",
 	"mwe-upwiz-select-date": "Valitse päivämäärä",

@@ -14,8 +14,7 @@
 			"Stam.nikos",
 			"Matma Rex",
 			"KATRINE1992",
-			"Envlh",
-			"Nikosgranturismogt"
+			"Envlh"
 		]
 	},
 	"uploadwizard": "Οδηγός Ανεβάσματος",
@@ -126,9 +125,10 @@
 	"mwe-upwiz-copy-categories": "Αντιγραφή κατηγοριών",
 	"mwe-upwiz-copy-location": "Αντιγραφή τοποθεσίας",
 	"mwe-upwiz-copy-other": "Αντιγραφή άλλων πληροφοριών",
-	"mwe-upwiz-caption": "Λεζάντα",
 	"mwe-upwiz-desc": "Περιγραφή",
-	"mwe-upwiz-desc-placeholder": "",
+	"mwe-upwiz-desc-placeholder": "Περιγράψτε το αρχείο",
+	"mwe-upwiz-desc-add-n": "Προσθήκη περιγραφής σε άλλη γλώσσα",
+	"mwe-upwiz-desc-add-0": "Προσθήκη περιγραφής",
 	"mwe-upwiz-title": "Τίτλος",
 	"mwe-upwiz-date-created": "Ημερομηνία δημιουργίας",
 	"mwe-upwiz-location": "Τοποθεσία",
