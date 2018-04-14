@@ -13,7 +13,7 @@
  *
  * @since 1.2
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Yuvi Panda <yuvipanda@gmail.com>
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
