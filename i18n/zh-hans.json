@@ -40,6 +40,7 @@
 	"uploadwizard-desc": "上传向导，一个易于使用的多媒体文件上传工具",
 	"tag-uploadwizard": "上传向导",
 	"tag-uploadwizard-description": "使用上传向导进行的上传",
+	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "使用上传向导进行的Flickr上传",
 	"right-mass-upload": "通过上传向导，一次大量上传更多文件",
 	"right-upwizcampaigns": "配置上传向导活动",
