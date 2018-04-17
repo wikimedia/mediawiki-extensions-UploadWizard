@@ -156,6 +156,7 @@
 	"mwe-upwiz-copy-location": "Copia posizione",
 	"mwe-upwiz-copy-other": "Copia altre informazioni",
 	"mwe-upwiz-caption": "Didascalia",
+	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Aggiungi una didascalia|Aggiungi una didascalia in un'altra lingua}}",
 	"mwe-upwiz-desc": "Descrizione",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Aggiungi una descrizione|Aggiungi una descrizione in un'altra lingua}}",
 	"mwe-upwiz-title": "Titolo",
