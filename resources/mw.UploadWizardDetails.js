@@ -55,7 +55,6 @@
 				// Messages: mwe-upwiz-caption-add-0, mwe-upwiz-caption-add-n
 				label: mw.message( 'mwe-upwiz-caption-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-captions' ),
-				placeholder: mw.message( 'mwe-upwiz-caption-placeholder' ),
 				remove: mw.message( 'mwe-upwiz-remove-caption' ),
 				minLength: mw.UploadWizard.config.minCaptionLength,
 				maxLength: mw.UploadWizard.config.maxCaptionLength
@@ -82,7 +81,6 @@
 				// Messages: mwe-upwiz-desc-add-0, mwe-upwiz-desc-add-n
 				label: mw.message( 'mwe-upwiz-desc-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-descriptions' ),
-				placeholder: mw.message( 'mwe-upwiz-desc-placeholder' ),
 				remove: mw.message( 'mwe-upwiz-remove-description' ),
 				minLength: mw.UploadWizard.config.minDescriptionLength,
 				maxLength: mw.UploadWizard.config.maxDescriptionLength
