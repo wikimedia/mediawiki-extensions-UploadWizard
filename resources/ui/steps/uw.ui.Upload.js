@@ -209,6 +209,14 @@
 			// thing with a new one
 			ui.setupFileInputCtrl( $element );
 		} );
+
+		$fileInputCtrl.on( 'focus', function () {
+			// In IE 11, focussing a file input (by clicking on it) displays a text cursor and scrolls
+			// the cursor into view (in this case, it scrolls the button, which has 'overflow: hidden').
+			// Since this messes with our custom styling (the file input has large dimensions and this
+			// causes the label to scroll out of view), scroll the button back to top. (T192131)
+			$element.prop( 'scrollTop', 0 );
+		} );
 	};
 
 	uw.ui.Upload.prototype.showProgressBar = function () {
