@@ -246,26 +246,30 @@
 				this.captionsDetails.setSerialized( {
 					inputs: [
 						{
-							language: uri.query.captionlang ?
-								uw.SingleLanguageInputWidget.static.getClosestAllowedLanguage( uri.query.captionlang ) :
-								uw.SingleLanguageInputWidget.static.getDefaultLanguage(),
 							text: mw.UploadWizard.config.defaults.caption || ''
 						}
 					]
 				} );
+				this.captionsDetails.getItems()[ 0 ].setLanguage(
+					uri.query.captionlang ?
+						this.captionsDetails.getItems()[ 0 ].getClosestAllowedLanguage( uri.query.captionlang ) :
+						this.captionsDetails.getItems()[ 0 ].getDefaultLanguage()
+				);
 			}
 
 			if ( mw.UploadWizard.config.defaults.description || uri.query.descriptionlang ) {
 				this.descriptionsDetails.setSerialized( {
 					inputs: [
 						{
-							language: uri.query.descriptionlang ?
-								uw.SingleLanguageInputWidget.static.getClosestAllowedLanguage( uri.query.descriptionlang ) :
-								uw.SingleLanguageInputWidget.static.getDefaultLanguage(),
 							text: mw.UploadWizard.config.defaults.description || ''
 						}
 					]
 				} );
+				this.descriptionsDetails.getItems()[ 0 ].setLanguage(
+					uri.query.descriptionlang ?
+						this.descriptionsDetails.getItems()[ 0 ].getClosestAllowedLanguage( uri.query.descriptionlang ) :
+						this.descriptionsDetails.getItems()[ 0 ].getDefaultLanguage()
+				);
 			}
 
 			this.populate();
@@ -559,12 +563,14 @@
 					this.descriptionsDetails.setSerialized( {
 						inputs: [
 							{
-								// The language is probably wrong in many cases...
-								language: uw.DescriptionDetailsWidget.static.getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) ),
 								text: descText.trim()
 							}
 						]
 					} );
+					// The language is probably wrong in many cases...
+					this.descriptionsDetails.getItems()[ 0 ].setLanguage(
+						this.descriptionsDetails.getItems()[ 0 ].getClosestAllowedLanguage( mw.config.get( 'wgContentLanguage' ) )
+					);
 				}
 			}
 		},
