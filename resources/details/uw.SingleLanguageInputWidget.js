@@ -93,7 +93,7 @@
 	 * Check if the given language code can be used for inputs.
 	 * If not, try finding a similar language code that can be.
 	 *
-	 * @private
+	 * @public
 	 * @param {string} code Language code
 	 * @param {string} [fallback] Language code to use when there's nothing close,
 	 *   defaults to result of #getDefaultLanguage
@@ -117,7 +117,7 @@
 	 * Get the default language to use for inputs.
 	 * Choose a sane default based on user preferences and wiki config.
 	 *
-	 * @private
+	 * @public
 	 * @return {string}
 	 */
 	uw.SingleLanguageInputWidget.prototype.getDefaultLanguage = function () {
