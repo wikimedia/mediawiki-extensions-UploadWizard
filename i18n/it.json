@@ -22,7 +22,8 @@
 			"Anto",
 			"Greis",
 			"Envlh",
-			"S4b1nuz E.656"
+			"S4b1nuz E.656",
+			"Sarah Bernabei"
 		]
 	},
 	"uploadwizard": "Caricamento guidato",
@@ -238,6 +239,9 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Il wikitesto inserito è troppo breve per essere una licenza.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Il wikitesto che hai inserito è troppo lungo.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Il wikitesto che hai inserito non contiene un template di licenza valido.",
+	"mwe-upwiz-error-pageprops-missing-page": "Impossibile consultare le proprietà della pagina: la pagina non esiste (ancora).",
+	"mwe-upwiz-error-pageprops-missing-prop": "Impossibile consultare le proprietà della pagina: la proprietà non esiste (ancora).",
+	"mwe-upwiz-error-submit-captions": "L'immagine è stata caricata con successo, ma c'è stato un problema nel presentare il {{PLURAL:$3|caption|captions}}. Visita [[$1]] per aggiornare qui le annotazioni. Dettagli dell'errore: $2",
 	"mwe-upwiz-warning-categories-missing": "Si consiglia di indicare alcune categorie per i caricamenti.",
 	"mwe-upwiz-warning-postdate": "La data selezionata è nel futuro.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|C'è un errore|Ci sono $1 errori}} {{PLURAL:$2|nel modulo precedente|nei moduli precedenti}}. Correggi {{PLURAL:$1|l'errore|gli errori}} e riprova.",
