@@ -35,14 +35,14 @@
 	 * @chainable
 	 */
 	$.fn.arrowSteps = function () {
-		var $steps, width, arrowWidth, $stepDiv,
+		var $steps, width, $stepDiv,
 			$el = this,
-			paddingSide = $( 'body' ).hasClass( 'rtl' ) ? 'padding-left' : 'padding-right';
+			paddingSide = $( 'body' ).css( 'direction' ) === 'rtl' ? 'padding-left' : 'padding-right';
 
 		$el.addClass( 'arrowSteps' );
 		$steps = $el.find( 'li' );
 
-		width = parseInt( 100 / $steps.length, 10 );
+		width = Math.floor( 100 / $steps.length );
 		$steps.css( 'width', width + '%' );
 
 		// Every step except the last one has an arrow pointing forward:
@@ -50,11 +50,7 @@
 		// Also add in the padding for the calculated arrow width.
 		$stepDiv = $steps.filter( ':not(:last-child)' ).addClass( 'arrow' ).find( 'div' );
 
-		// Execute when complete page is fully loaded, including all frames, objects and images
-		$( window ).on( 'load', function () {
-			arrowWidth = parseInt( $el.outerHeight(), 10 );
-			$stepDiv.css( paddingSide, arrowWidth.toString() + 'px' );
-		} );
+		$stepDiv.css( paddingSide, $el.outerHeight() );
 
 		$el.data( 'arrowSteps', $steps );
 
