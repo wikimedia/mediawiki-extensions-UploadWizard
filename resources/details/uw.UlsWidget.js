@@ -33,6 +33,13 @@
 			this.$element.addClass( config.classes[ i ] );
 		}
 
+		// Show the ULS when a user tabs into the language selection field
+		this.$element.find( '.oo-ui-dropdownWidget-handle' ).on( 'keyup', function ( e ) {
+			if ( e.key === 'Tab' ) {
+				$( this ).click();
+			}
+		} );
+
 		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {
 			this.initialiseUls( config.languages );
 		}
@@ -45,7 +52,7 @@
 
 		this.languages = languages;
 
-		this.uls = $( this.$element ).uls( {
+		this.uls = this.$element.uls( {
 			onSelect: function ( language ) {
 				ulsWidget.setValue( language );
 				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).focus();
@@ -62,10 +69,6 @@
 				}
 				this.$menu.css( offset );
 			}
-		} );
-		// Show the ULS when a user tabs into the language selection field
-		this.$element.find( '.oo-ui-dropdownWidget-handle' ).on( 'focus', function () {
-			$( this ).click();
 		} );
 	};
 
