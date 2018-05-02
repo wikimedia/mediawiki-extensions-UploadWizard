@@ -424,7 +424,6 @@
 				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 			} );
 			this.prefillDate();
-			this.prefillAuthor();
 			this.prefillTitle();
 			this.prefillDescription();
 			this.prefillLocation();
@@ -638,16 +637,6 @@
 			if ( modified ) {
 				this.$form.find( '.mwe-more-details' )
 					.data( 'mw-collapsible' ).expand();
-			}
-		},
-
-		/**
-		 * Prefill author (such as can be determined) from image info and metadata
-		 * XXX user pref?
-		 */
-		prefillAuthor: function () {
-			if ( this.upload.imageinfo.metadata && this.upload.imageinfo.metadata.author ) {
-				$( this.authorInput ).val( this.upload.imageinfo.metadata.author );
 			}
 		},
 
