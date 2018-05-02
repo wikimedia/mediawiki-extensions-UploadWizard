@@ -8,8 +8,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload ) {
-		var
-			ui = this;
+		var ui = this;
 
 		OO.EventEmitter.call( this );
 
@@ -18,7 +17,6 @@
 		// may need to collaborate with the particular upload type sometimes
 		// for the interface, as well as the uploadwizard. OY.
 		this.$div = $( '<div class="mwe-upwiz-file"></div>' );
-		this.div = this.$div.get( 0 );
 
 		this.isFilled = false;
 
@@ -64,12 +62,12 @@
 			.addClass( 'mwe-upwiz-form' )
 			.append( this.visibleFilenameDiv );
 
-		$( this.div ).append( this.$form );
+		this.$div.append( this.$form );
 
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since .off() doesn't work for non-DOM objects
 		// TODO Convert this to an OO.EventEmitter, and use OOjs events
-		$( this.div ).on( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
+		this.$div.on( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
 	};
 
 	OO.mixinClass( mw.UploadWizardUploadInterface, OO.EventEmitter );
@@ -101,16 +99,12 @@
 	 * Set the status line for this upload with an internationalized message string.
 	 *
 	 * @param {string} msgKey Key for the message
-	 * @param {Array} args Array of values, in case any need to be fed to the image.
+	 * @param {Array} [args] Array of values, in case any need to be fed to the image.
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatus = function ( msgKey, args ) {
-		var $s;
-		if ( args === undefined ) {
-			args = [];
-		}
 		// get the status line for our upload
-		$s = $( this.div ).find( '.mwe-upwiz-file-status' );
-		$s.msg( msgKey, args ).show();
+		var $status = this.$div.find( '.mwe-upwiz-file-status' );
+		$status.msg( msgKey, args || [] ).show();
 	};
 
 	/**
@@ -119,7 +113,7 @@
 	 * @param {string} html
 	 */
 	mw.UploadWizardUploadInterface.prototype.setStatusString = function ( html ) {
-		$( this.div ).find( '.mwe-upwiz-file-status' ).html( html ).show();
+		this.$div.find( '.mwe-upwiz-file-status' ).html( html ).show();
 	};
 
 	/**
@@ -133,7 +127,7 @@
 		}
 		this.$additionalStatus = $status;
 		if ( this.$additionalStatus ) {
-			$( this.div ).find( '.mwe-upwiz-file-status' ).after( this.$additionalStatus );
+			this.$div.find( '.mwe-upwiz-file-status' ).after( this.$additionalStatus );
 		}
 	};
 
@@ -141,7 +135,7 @@
 	 * Clear the status line for this upload (hide it, in case there are paddings and such which offset other things.)
 	 */
 	mw.UploadWizardUploadInterface.prototype.clearStatus = function () {
-		$( this.div ).find( '.mwe-upwiz-file-status' ).hide();
+		this.$div.find( '.mwe-upwiz-file-status' ).hide();
 		this.setAdditionalStatus( null );
 	};
 
@@ -212,8 +206,7 @@
 	 *     fails
 	 */
 	mw.UploadWizardUploadInterface.prototype.showThumbnail = function () {
-		var
-			$preview = $( this.div ).find( '.mwe-upwiz-file-preview' ),
+		var $preview = this.$div.find( '.mwe-upwiz-file-preview' ),
 			deferred = $.Deferred();
 		this.upload.getThumbnail().done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $preview, thumb );
@@ -231,17 +224,15 @@
 	 *	  TODO silently fix to have unique filename? unnecessary at this point...
 	 */
 	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
-		var $div,
-			path = this.upload.getFilename();
+		var path = this.upload.getFilename();
 
 		// visible filename
 		this.$form.find( '.mwe-upwiz-visible-file-filename-text' )
 			.text( path );
 
 		if ( !this.isFilled ) {
-			$div = $( this.div );
 			this.isFilled = true;
-			$div.addClass( 'filled' );
+			this.$div.addClass( 'filled' );
 		}
 	};
 

@@ -7,11 +7,11 @@
 	 * n.b. each upload gets its own details.
 	 *
 	 * @param {mw.UploadWizardUpload} upload
-	 * @param {jQuery} containerDiv The `div` to put the interface into
+	 * @param {jQuery} $containerDiv The `div` to put the interface into
 	 */
-	mw.UploadWizardDetails = function ( upload, containerDiv ) {
+	mw.UploadWizardDetails = function ( upload, $containerDiv ) {
 		this.upload = upload;
-		this.containerDiv = containerDiv;
+		this.$containerDiv = $containerDiv;
 		this.api = upload.api;
 
 		this.mainFields = [];
@@ -19,7 +19,7 @@
 		this.deedChooserDetails = new uw.DeedChooserDetailsWidget();
 		this.customDeedChooser = false;
 
-		this.div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
+		this.$div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
 	};
 
 	mw.UploadWizardDetails.prototype = {
@@ -35,9 +35,9 @@
 				$moreDetailsWrapperDiv, $moreDetailsDiv,
 				details = this;
 
-			this.thumbnailDiv = $( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
+			this.$thumbnailDiv = $( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
 
-			this.dataDiv = $( '<div class="mwe-upwiz-data"></div>' );
+			this.$dataDiv = $( '<div class="mwe-upwiz-data"></div>' );
 
 			this.titleDetails = new uw.TitleDetailsWidget( {
 				// Normalize file extension, e.g. 'JPEG' to 'jpg'
@@ -231,14 +231,14 @@
 					)
 				);
 
-			$( this.dataDiv ).append(
+			this.$dataDiv.append(
 				this.$form,
 				this.submittingDiv
 			).morphCrossfader();
 
-			$( this.div ).append(
-				this.thumbnailDiv,
-				this.dataDiv
+			this.$div.append(
+				this.$thumbnailDiv,
+				this.$dataDiv
 			);
 
 			uri = new mw.Uri( location.href, { overrideKeys: true } );
@@ -294,16 +294,16 @@
 				details = this;
 
 			function maybeBuild() {
-				if ( !this.interfaceBuilt && $window.scrollTop() + $window.height() + 1000 >= details.div.offset().top ) {
+				if ( !this.interfaceBuilt && $window.scrollTop() + $window.height() + 1000 >= details.$div.offset().top ) {
 					details.buildInterface();
 					$window.off( 'scroll', maybeBuild );
 				}
 			}
 
 			if ( !this.isAttached ) {
-				$( this.containerDiv ).append( this.div );
+				this.$containerDiv.append( this.$div );
 
-				if ( $window.scrollTop() + $window.height() + 1000 >= this.div.offset().top ) {
+				if ( $window.scrollTop() + $window.height() + 1000 >= this.$div.offset().top ) {
 					this.buildInterface();
 				} else {
 					$window.on( 'scroll', maybeBuild );
@@ -419,9 +419,9 @@
 		 * Pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 */
 		populate: function () {
-			var thumbnailDiv = this.thumbnailDiv;
+			var $thumbnailDiv = this.$thumbnailDiv;
 			this.upload.getThumbnail().done( function ( thumb ) {
-				mw.UploadWizard.placeThumbnail( thumbnailDiv, thumb );
+				mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 			} );
 			this.prefillDate();
 			this.prefillAuthor();
@@ -842,7 +842,7 @@
 			var details = this,
 				wikitext, captions, promise;
 
-			$( 'form', this.containerDiv ).submit();
+			$( 'form', this.$containerDiv ).submit();
 
 			this.upload.title = this.getTitle();
 			this.upload.state = 'submitting-details';
@@ -1225,7 +1225,7 @@
 		recoverFromError: function ( code, html ) {
 			uw.eventFlowLogger.logError( 'details', { code: code, message: html } );
 			this.upload.state = 'recoverable-error';
-			this.dataDiv.morphCrossfade( '.detailsForm' );
+			this.$dataDiv.morphCrossfade( '.detailsForm' );
 			this.titleDetailsField.setErrors( [ { code: code, html: html } ] );
 		},
 
@@ -1294,11 +1294,11 @@
 		},
 
 		setStatus: function ( s ) {
-			this.div.find( '.mwe-upwiz-file-status-line' ).html( s ).show();
+			this.$div.find( '.mwe-upwiz-file-status-line' ).html( s ).show();
 		},
 
 		showIndicator: function ( statusStr ) {
-			this.div.find( '.mwe-upwiz-file-indicator' )
+			this.$div.find( '.mwe-upwiz-file-indicator' )
 				.show()
 				.removeClass( 'mwe-upwiz-status-progress mwe-upwiz-status-error mwe-upwiz-status-uploaded' )
 				.addClass( 'mwe-upwiz-status-' + statusStr );

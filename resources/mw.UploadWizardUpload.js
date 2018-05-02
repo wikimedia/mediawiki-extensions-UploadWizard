@@ -86,9 +86,7 @@
 	 */
 	mw.UploadWizardUpload.prototype.remove = function () {
 		// remove the div that passed along the trigger
-		var $div = $( this.ui.div );
-		$div.off(); // unbind everything
-		$div.remove();
+		this.ui.$div.remove();
 
 		this.state = 'aborted';
 	};
@@ -105,7 +103,7 @@
 		}
 		this.state = 'transporting';
 		this.transportProgress = fraction;
-		$( this.ui.div ).trigger( 'transportProgressEvent' );
+		this.ui.$div.trigger( 'transportProgressEvent' );
 	};
 
 	/**
@@ -883,7 +881,7 @@
 		try {
 			image.src = url;
 		} catch ( er ) {
-			// On Internet Explorer 10-11 and Edge, this occasionally causes an exception (possibly
+			// On Internet Explorer 11 and Edge, this occasionally causes an exception (possibly
 			// localised) like "Not enough storage is available to complete this operation". (T136239)
 			deferred.reject();
 		}
