@@ -209,6 +209,7 @@
 	"mwe-upwiz-tooltip-source": "O lugar de procedencia deste ficheiro dixital; pode ser un URL, un libro ou unha publicación",
 	"mwe-upwiz-tooltip-sign": "Pode empregar o nome de usuario que ten no wiki ou o seu nome real.\nEn calquera caso, haberá unha ligazón cara a súa páxina de usuario do wiki.",
 	"mwe-upwiz-tooltip-title": "Un título curto e único que servirá para dar nome ao ficheiro. Sería bo utilizar unha lingua sinxela con espazos. Non inclúa a extensión do ficheiro.",
+	"mwe-upwiz-tooltip-caption": "Engada unha pequena lenda ó ficheiro.",
 	"mwe-upwiz-tooltip-description": "Describa brevemente calquera cousa salientable da obra.\nPara unha foto, mencione as principais cousas que están representadas, a ocasión ou o lugar.",
 	"mwe-upwiz-tooltip-date": "Escolla a data na que foi creada ou da primeira publicación da obra no calendario, ou indíquea no formato \"AAAA-MM-DD\".",
 	"mwe-upwiz-tooltip-categories": "Engada [$1 categorías] ao seu ficheiro para facelo máis doado de atopar.",
