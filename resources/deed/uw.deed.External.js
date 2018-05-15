@@ -26,7 +26,6 @@
 		uw.deed.Custom.call( this, config, upload );
 
 		this.licenseInput = new mw.UploadWizardLicenseInput(
-			undefined,
 			config,
 			1,
 			upload.api
@@ -37,6 +36,10 @@
 	};
 
 	OO.inheritClass( uw.deed.External, uw.deed.Custom );
+
+	uw.deed.External.prototype.unload = function () {
+		this.licenseInput.unload();
+	};
 
 	/**
 	 * @return {uw.FieldLayout[]} Fields that need validation

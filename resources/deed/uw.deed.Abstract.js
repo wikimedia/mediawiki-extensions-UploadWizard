@@ -36,6 +36,8 @@
 	 */
 	uw.deed.Abstract.prototype.instanceCount = 0;
 
+	uw.deed.Abstract.prototype.unload = function () {};
+
 	/**
 	 * @return {number}
 	 */

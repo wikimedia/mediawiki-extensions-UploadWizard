@@ -86,6 +86,14 @@
 		}
 	};
 
+	uw.controller.Deed.prototype.unload = function () {
+		uw.controller.Step.prototype.unload.call( this );
+
+		$.each( this.deeds, function ( name, deed ) {
+			deed.unload();
+		} );
+	};
+
 	/**
 	 * Move to this step.
 	 *
