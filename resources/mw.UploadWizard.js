@@ -28,7 +28,9 @@
 
 		this.maxSimultaneousConnections = config.maxSimultaneousConnections;
 
-		mw.loader.load( 'ext.uls.mediawiki' );
+		if ( mw.loader.getState( 'ext.uls.mediawiki' ) !== null ) {
+			mw.loader.load( 'ext.uls.mediawiki' );
+		}
 	};
 
 	mw.UploadWizard.DEBUG = true;
