@@ -387,6 +387,7 @@
 	"apihelp-flickrblacklist-example-1": "Verificar la URL contra la lista negra",
 	"apihelp-flickrblacklist-example-2": "Devolver la lista negra completa",
 	"apihelp-query+allcampaigns-description": "Enumerar todas las campañas de UploadWizard.",
+	"apihelp-query+allcampaigns-summary": "Enumerar todas las campañas de UploadWizard",
 	"apihelp-query+allcampaigns-param-enabledonly": "Solo listar las campañas que están activadas.",
 	"apihelp-query+allcampaigns-param-limit": "Número de campañas que devolver.",
 	"apihelp-query+allcampaigns-example-1": "Enumerar campañas activadas"
