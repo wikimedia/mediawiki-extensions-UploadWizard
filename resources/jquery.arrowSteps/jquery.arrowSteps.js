@@ -35,9 +35,8 @@
 	 * @chainable
 	 */
 	$.fn.arrowSteps = function () {
-		var $steps, width, $stepDiv,
-			$el = this,
-			paddingSide = $( 'body' ).css( 'direction' ) === 'rtl' ? 'padding-left' : 'padding-right';
+		var $steps, width,
+			$el = this;
 
 		$el.addClass( 'arrowSteps' );
 		$steps = $el.find( 'li' );
@@ -47,10 +46,7 @@
 
 		// Every step except the last one has an arrow pointing forward:
 		// at the right hand side in LTR languages, and at the left hand side in RTL.
-		// Also add in the padding for the calculated arrow width.
-		$stepDiv = $steps.filter( ':not(:last-child)' ).addClass( 'arrow' ).find( 'div' );
-
-		$stepDiv.css( paddingSide, $el.outerHeight() );
+		$steps.filter( ':not(:last-child)' ).addClass( 'arrow' );
 
 		$el.data( 'arrowSteps', $steps );
 
