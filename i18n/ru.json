@@ -37,7 +37,8 @@
 			"Redredsonia",
 			"Wirbel78",
 			"Smigles",
-			"Envlh"
+			"Envlh",
+			"Ole Yves"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -45,6 +46,7 @@
 	"tag-uploadwizard": "Мастер загрузки",
 	"tag-uploadwizard-description": "Загрузки, сделанные с помощью Мастера загрузки",
 	"tag-uploadwizard-flickr-description": "Загрузки с Flickr, сделанные с помощью Мастера загрузки",
+	"right-mass-upload": "Загружать файлы пачками за раз с «Мастером загрузки»",
 	"right-upwizcampaigns": "Настроить кампании Мастера загрузок",
 	"action-upwizcampaigns": "настроить кампании загрузок",
 	"group-upwizcampeditors": "редакторы кампании Мастера загрузок",
