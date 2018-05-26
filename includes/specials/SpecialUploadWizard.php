@@ -19,7 +19,7 @@ class SpecialUploadWizard extends SpecialPage {
 	protected $campaign = null;
 
 	/**
-	 * @param WebRequest $request the request (usually wgRequest)
+	 * @param WebRequest|null $request the request (usually wgRequest)
 	 * @param string|null $par everything in the URL after Special:UploadWizard.
 	 *   Not sure what we can use it for
 	 */

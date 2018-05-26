@@ -6,7 +6,7 @@ class UploadWizardHooks {
 	 *
 	 * @since 1.2
 	 *
-	 * @param DatabaseUpdater $updater
+	 * @param DatabaseUpdater|null $updater
 	 *
 	 * @return true
 	 */
