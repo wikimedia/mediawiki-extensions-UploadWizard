@@ -5,7 +5,8 @@
 			"Candalua",
 			"Chelin",
 			"Macofe",
-			"Envlh"
+			"Envlh",
+			"Ruthven"
 		]
 	},
 	"uploadwizard": "Carrecamiente guidate",
@@ -16,7 +17,7 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|Editore 'e ll'iniziative 'e càrreca 'e file}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Cagnatore 'e ll'iniziative p' 'a carreca 'uidata",
 	"api-error-noimageinfo": "A carreca ngarraje, ma 'o server nun ce ha pututo dà nisciuna nformazione ncopp' 'o file.",
-	"mwe-upwiz-extension-disabled": "Sta paggena è stata stutata pe' bbìa 'e prubbleme tecniche 'e mò mò. Pe' tramente ausate 'o modulo 'e carreca normale.",
+	"mwe-upwiz-extension-disabled": "Sta paggena è stata stutata pe vvìa 'e prubbleme tecniche. Pe tramente ausate 'o modulo 'e carreca normale.",
 	"mwe-upwiz-step-tutorial": "Mpara",
 	"mwe-upwiz-step-file": "Carreca",
 	"mwe-upwiz-step-deeds": "Deritte de rilasce",
@@ -28,7 +29,7 @@
 	"mwe-upwiz-api-warning-was-deleted": "Nce steva già nu file cu stu nomme,  \"$1\", ma è stato scancellato. Si 'o file vuosto è differente tentate d' 'o dà n'atu nomme",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Scusate tanto, nun se pò truvà nu tutorial dint'a lengua vosta. Mmece putite vedé chesto ccà, dint'a $1.",
 	"mwe-upwiz-tutorial-error-file-missing": "Scusate tanto, nun avimmo truvato nisciuno file p' 'o tutorial ca s'avesse 'e vedé. Pe' piacere cuntattate ll'ammenistature d' 'o sistema.",
-	"mwe-upwiz-tutorial-error-cannot-transform": "Scusate tanto, nun ce simmo riuscite a truvà n'immaggene d' 'o tutorial a diminziona bona p' 'o schermo vuosto. Chesto fosse nu problema 'e mò mò dint'a Wikimedia Commons, tentate cchiù tarde.",
+	"mwe-upwiz-tutorial-error-cannot-transform": "Scusate tanto, nun simmo riuscite a truvà na fiùra d' 'o tutorial c'â diminziona bona p' 'o schermo vuosto. Chesto fosse nu problema 'e mo 'e Wikimedia Commons, tentate cchiù tarde.",
 	"mwe-upwiz-help-desk": "Spurtiello nfurmaziune",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Spurtiello nfurmaziune",
 	"mwe-upwiz-add-file-n": "Jogne cchiù file",
