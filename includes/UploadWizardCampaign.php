@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class that represents a single upload campaign.
  * An upload campaign is stored as a row in the uw_campaigns table,
@@ -476,8 +478,9 @@ class UploadWizardCampaign {
 		$arrObjRef = explode( '|', $objRef );
 		if ( count( $arrObjRef ) > 1 ) {
 			list( $wiki, $title ) = $arrObjRef;
-			if ( Interwiki::isValidInterwiki( $wiki ) ) {
-				return str_replace( '$1', $title, Interwiki::fetch( $wiki )->getURL() );
+			$lookup = MediaWikiServices::getInstance()->getInterwikiLookup();
+			if ( $lookup->isValidInterwiki( $wiki ) ) {
+				return str_replace( '$1', $title, $lookup->fetch( $wiki )->getURL() );
 			}
 		}
 		return false;
