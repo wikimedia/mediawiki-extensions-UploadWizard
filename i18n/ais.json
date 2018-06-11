@@ -4,7 +4,8 @@
 			"Benel",
 			"Bunukwiki",
 			"Tokoabibi",
-			"Envlh"
+			"Envlh",
+			"Matěj Suchánek"
 		]
 	},
 	"uploadwizard": "patapabaw miedapay",
@@ -200,7 +201,7 @@
 	"mwe-upwiz-warning-categories-missing": "patahkal nizateng kisu patapabaw tangan nu misu micunus kakuniza.",
 	"mwe-upwiz-warning-postdate": "mipili’ demiad nu misu i anucila.",
 	"mwe-upwiz-details-error-count": "ipabaway a {{PLURAL:$2|aazihan cudad}} {{PLURAL:$1|izaw $1}} mungangaw. pasumad mungangaw izikuz sa kinacacay aca mitanam patayzaan.",
-	"mwe-upwiz-too-many-files-text": "kinacacay a dada’ kisu patapabaw tu {{PLURAL:$1|tangan}} nika kisu mitanam patapabaw tu {{PLURAL$2|tangan}}.\nkapisipu tu zuma a tangan mitanamen aca!",
+	"mwe-upwiz-too-many-files-text": "kinacacay a dada’ kisu patapabaw tu {{PLURAL:$1|tangan}} nika kisu mitanam patapabaw tu {{PLURAL:$2|tangan}}.\nkapisipu tu zuma a tangan mitanamen aca!",
 	"mwe-upwiz-too-many-files": "tangan mangasiw.",
 	"mwe-upwiz-file-too-large-text": "patapabaw dada’ kisu caay mangasiw $1 a tangan. mitanam kisu patapabaw a tangan pinalu hacica tabaki ku $2.",
 	"mwe-upwiz-file-too-large": "tangan mangasiw.",

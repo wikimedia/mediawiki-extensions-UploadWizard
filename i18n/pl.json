@@ -133,6 +133,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Określ na jakiej podstawie masz pewność, że masz prawo do publikowania {{PLURAL:$1|pliku|plików:}}",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Podaj na następnej stronie informacje o prawach autorskich dla każdego pliku z osobna.",
+	"mwe-upwiz-patent-dialog-title": "Prawa patentowe",
 	"mwe-upwiz-patent-dialog-button-back": "Wstecz",
 	"mwe-upwiz-patent-dialog-button-next": "Dalej",
 	"mwe-upwiz-patent-dialog-link-warranty": "Dowiedz się więcej",

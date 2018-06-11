@@ -201,6 +201,7 @@
 	"mwe-upwiz-ok": "تأیید",
 	"mwe-upwiz-fileexists-replace-on-page": "در حال حاضر پرونده‌ای با این نام وجود دارد. اگر می‌خواهید آن را جایگزین کنید، به صفحه بروید برای [$2 $1] و آن را آنجا جایگزین کنید.",
 	"mwe-upwiz-fileexists-replace-no-link": "لطفاً نام متفاوتی انتخاب کنید، زیرا این نام از پیش توسط پروندهٔ دیگری استفاده می‌شود.",
+	"mwe-upwiz-blacklisted-details": "یک عنوان متفاوت و واضح‌تر انتخاب کنید ([$2 اطلاعات بیشتر])",
 	"mwe-upwiz-next": "بعدی",
 	"mwe-upwiz-next-file": "ادامه",
 	"mwe-upwiz-next-deeds": "بعدی",
