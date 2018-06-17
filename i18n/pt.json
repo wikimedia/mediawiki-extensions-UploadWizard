@@ -53,7 +53,7 @@
 	"mwe-upwiz-api-warning-was-deleted": "Existia um ficheiro com este nome, \"$1\", mas foi eliminado e não pode voltar a colocá-lo na wiki. Se o seu ficheiro é diferente, tente dar-lhe outro nome.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Desculpe, não foi encontrado nenhum guia na sua língua. Será usado o de $1.",
 	"mwe-upwiz-tutorial-error-file-missing": "Não foram encontrados os ficheiros do guia que devia ser apresentado aqui. Contacte os administradores do sistema, por favor.",
-	"mwe-upwiz-tutorial-error-cannot-transform": "Não foi possível obter uma imagem do guia, dimensionada para este ecrã. Este problema no Wikimedia Commons pode ser temporário; tente novamente mais tarde.",
+	"mwe-upwiz-tutorial-error-cannot-transform": "Não foi possível obter uma imagem do guia, dimensionada para este ecrã. Este problema na wiki Wikimedia Commons pode ser temporário; tente novamente mais tarde.",
 	"mwe-upwiz-help-desk": "Apoio técnico",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Apoio técnico",
 	"mwe-upwiz-add-file-n": "Adicionar mais ficheiros",
