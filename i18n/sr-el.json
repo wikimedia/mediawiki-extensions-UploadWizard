@@ -239,7 +239,7 @@
 	"mwe-upwiz-license-custom-preview": "Pretpregled",
 	"mwe-upwiz-license-none-head": "Našao sam na internetu – ne znam",
 	"mwe-upwiz-license-none": "Verujem da {{PLURAL:$1|1=je ovo delo dostupno pod slobodnom licencom ili je|su ova dela dostupna pod slobodnom licencom ili su}} u javnom vlasništvu. Razumem da {{PLURAL:$1|1=datoteka može da bude obrisana|datoteke mogu da budu obrisane}} ako se na vreme ne navedu neophodne informacije o autorstvu.",
-	"mwe-upwiz-license-confirm-remove": "Želite li da uklonite {{PLURAL:$1|1=otpremljenu datoteku|otpremljene datoteke}}?",
+	"mwe-upwiz-license-confirm-remove": "Želite li da uklonite {{PLURAL:$1|otpremljenu datoteku|otpremljene datoteke}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Potvrdi uklanjanje",
 	"mwe-upwiz-license-external": "Ova datoteka je pod sledećom licencom $2, na sajtu „$1“.",
 	"mwe-upwiz-license-external-invalid": "Datoteka je pod sledećom licencom na $1: $2. Nažalost, ova licenca nije odgovarajuća za korišćenje na ovom sajtu.",
