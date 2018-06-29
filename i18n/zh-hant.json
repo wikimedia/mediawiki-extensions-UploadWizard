@@ -20,7 +20,8 @@
 			"Black9869184",
 			"Wwycheuk",
 			"Hello903hello",
-			"Envlh"
+			"Envlh",
+			"Kly"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -67,7 +68,7 @@
 	"mwe-upwiz-transported": "已完成上傳...",
 	"mwe-upwiz-stashed-upload": "已上傳",
 	"mwe-upwiz-getting-metadata": "正在取得檔案資訊與預覽...",
-	"mwe-upwiz-submitting-details": "正在傳送詳細資料並發佈...",
+	"mwe-upwiz-submitting-details": "正在提交詳細資料...",
 	"mwe-upwiz-published": "已發佈！",
 	"mwe-upwiz-failed": "失敗。",
 	"mwe-upwiz-remove": "移除",
@@ -189,7 +190,7 @@
 	"mwe-upwiz-tooltip-source": "此數位檔案的來源 － 可為 URL、書籍或出版物。",
 	"mwe-upwiz-tooltip-sign": "您可以使用您的維基使用者名稱或真實姓名。兩種情況下皆會連至你的維基使用者頁面",
 	"mwe-upwiz-tooltip-title": "用於本檔案的唯一描述性標題。您可以使用有空格簡明語言，切勿包括副檔名。",
-	"mwe-upwiz-tooltip-description": "請簡單說明有關此作品的重要訊息。\n以照片為例，請說明照片中的主體、場景或拍攝地點。",
+	"mwe-upwiz-tooltip-description": "描述有關檔案的顯要內容。",
 	"mwe-upwiz-tooltip-date": "從日曆中選擇此作品建立或首次發佈日期，或按照YYYY-MM-DD格式輸入。",
 	"mwe-upwiz-tooltip-categories": "將您的檔案新增到[$1 分類]以便於尋找。",
 	"mwe-upwiz-tooltip-other": "有關此作品任何想額外說明的其他資訊 — 如地理座標、其他版本的連結⋯等。",
