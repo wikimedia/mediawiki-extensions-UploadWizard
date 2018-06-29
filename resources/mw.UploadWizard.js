@@ -197,7 +197,7 @@
 
 		$( selector )
 			.css( { background: 'none' } )
-			.html(
+			.prepend(
 				$( '<a>' )
 					.addClass( 'mwe-upwiz-thumbnail-link' )
 					.append( image )

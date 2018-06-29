@@ -140,7 +140,8 @@
 					)
 			);
 
-		upload.getThumbnail().done( function ( thumb ) {
+		// This must match the CSS dimensions of .mwe-upwiz-thumbnail
+		upload.getThumbnail( 120, 120 ).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
 

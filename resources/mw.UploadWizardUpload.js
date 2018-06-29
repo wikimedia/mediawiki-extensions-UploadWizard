@@ -34,7 +34,7 @@
 		this.state = 'new';
 		this.imageinfo = {};
 		this.title = undefined;
-		this.thumbnailPromise = null;
+		this.thumbnailPromise = {};
 
 		this.fileKey = undefined;
 
@@ -585,10 +585,10 @@
 	 */
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;
-		$.each( [ 'width', 'height' ], function ( i, dim ) {
+		$.each( constraints, function ( dim, constraint ) {
 			var s;
-			if ( constraints[ dim ] && image[ dim ] > constraints[ dim ] ) {
-				s = constraints[ dim ] / image[ dim ];
+			if ( constraint && image[ dim ] > constraint ) {
+				s = constraint / image[ dim ];
 				if ( s < scaling ) {
 					scaling = s;
 				}
@@ -599,7 +599,7 @@
 
 	/**
 	 * Given an image (already loaded), dimension constraints
-	 * return canvas object scaled & transformedi ( & rotated if metadata indicates it's needed )
+	 * return canvas object scaled & transformed ( & rotated if metadata indicates it's needed )
 	 *
 	 * @private
 	 * @param {HTMLImageElement} image
@@ -607,8 +607,9 @@
 	 * @return {HTMLCanvasElement|null}
 	 */
 	mw.UploadWizardUpload.prototype.getTransformedCanvasElement = function ( image, constraints ) {
-		var angle, scaleConstraints, scaling, width, height,
-			dx, dy, x, y, $canvas, ctx,
+		var angle, scaling, width, height,
+			dimensions, dx, dy, x, y, $canvas, ctx,
+			scaleConstraints = constraints,
 			rotation = 0;
 
 		// if this wiki can rotate images to match their EXIF metadata,
@@ -620,15 +621,13 @@
 
 		// swap scaling constraints if needed by rotation...
 		if ( rotation === 90 || rotation === 270 ) {
-			scaleConstraints = {
-				width: constraints.height,
-				height: constraints.width
-			};
-		} else {
-			scaleConstraints = {
-				width: constraints.width,
-				height: constraints.height
-			};
+			scaleConstraints = {};
+			if ( 'height' in constraints ) {
+				scaleConstraints.width = constraints.height;
+			}
+			if ( 'width' in constraints ) {
+				scaleConstraints.height = constraints.width;
+			}
 		}
 
 		scaling = this.getScalingFromConstraints( image, scaleConstraints );
@@ -636,9 +635,14 @@
 		width = image.width * scaling;
 		height = image.height * scaling;
 
-		// Determine the offset required to center the image
-		dx = ( constraints.width - width ) / 2;
-		dy = ( constraints.height - height ) / 2;
+		dimensions = { width: width, height: height };
+		if ( rotation === 90 || rotation === 270 ) {
+			dimensions = { width: height, height: width };
+		}
+
+		// Start drawing at offset 0,0
+		dx = 0;
+		dy = 0;
 
 		switch ( rotation ) {
 			// If a rotation is applied, the direction of the axis
@@ -647,14 +651,14 @@
 			// where the positive axis direction is
 			case 90:
 				x = dx;
-				y = dy - constraints.height;
+				y = dy - height;
 				break;
 			case 180:
-				x = dx - constraints.width;
-				y = dy - constraints.height;
+				x = dx - width;
+				y = dy - height;
 				break;
 			case 270:
-				x = dx - constraints.width;
+				x = dx - width;
 				y = dy;
 				break;
 			default:
@@ -663,9 +667,9 @@
 				break;
 		}
 
-		$canvas = $( '<canvas>' ).attr( constraints );
+		$canvas = $( '<canvas>' ).attr( dimensions );
 		ctx = $canvas[ 0 ].getContext( '2d' );
-		ctx.clearRect( 0, 0, width, height );
+		ctx.clearRect( dx, dy, width, height );
 		ctx.rotate( rotation / 180 * Math.PI );
 		try {
 			// Calling #drawImage likes to throw all kinds of ridiculous exceptions in various browsers,
@@ -699,10 +703,7 @@
 			.attr( {
 				width: parseInt( image.width * scaling, 10 ),
 				height: parseInt( image.height * scaling, 10 ),
-				src:	image.src
-			} )
-			.css( {
-				'margin-top': ( parseInt( ( constraints.height - image.height * scaling ) / 2, 10 ) ).toString() + 'px'
+				src: image.src
 			} );
 	};
 
@@ -716,11 +717,15 @@
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
-		var constraints, transform;
-		constraints = {
-			width: width,
-			height: height
-		};
+		var constraints = {},
+			transform;
+
+		if ( width ) {
+			constraints.width = width;
+		}
+		if ( height ) {
+			constraints.height = height;
+		}
 
 		if ( mw.canvas.isAvailable() ) {
 			transform = this.getTransformedCanvasElement( image, constraints );
@@ -728,6 +733,7 @@
 				return transform;
 			}
 		}
+
 		// No canvas support or canvas drawing failed mysteriously, fall back
 		return this.getBrowserScaledImageElement( image, constraints );
 	};
@@ -735,20 +741,19 @@
 	/**
 	 * Acquire a thumbnail for this upload.
 	 *
+	 * @param {number} width
+	 * @param {number} height
 	 * @return {jQuery.Promise} Promise resolved with the HTMLImageElement or HTMLCanvasElement
 	 *   containing a thumbnail, or resolved with `null` when one can't be produced
 	 */
-	mw.UploadWizardUpload.prototype.getThumbnail = function () {
+	mw.UploadWizardUpload.prototype.getThumbnail = function ( width, height ) {
 		var upload = this,
-			// This must match the CSS dimensions of .mwe-upwiz-file-preview and .mwe-upwiz-thumbnail
-			width = 100,
-			height = 100,
 			deferred = $.Deferred();
 
-		if ( this.thumbnailPromise ) {
-			return this.thumbnailPromise;
+		if ( this.thumbnailPromise[ width + 'x' + height ] ) {
+			return this.thumbnailPromise[ width + 'x' + height ];
 		}
-		this.thumbnailPromise = deferred.promise();
+		this.thumbnailPromise[ width + 'x' + height ] = deferred.promise();
 
 		/**
 		 * @param {HTMLImageElement|null} image
@@ -765,7 +770,7 @@
 		}
 
 		this.extractMetadataFromJpegMeta()
-			.then( upload.makePreview.bind( upload ) )
+			.then( upload.makePreview.bind( upload, width ) )
 			.done( imageCallback )
 			.fail( function () {
 				// Can't generate the thumbnail locally, get the thumbnail via API after
@@ -780,7 +785,7 @@
 				}
 			} );
 
-		return this.thumbnailPromise;
+		return this.thumbnailPromise[ width + 'x' + height ];
 	};
 
 	/**
@@ -794,9 +799,10 @@
 	 * Make a preview for the file.
 	 *
 	 * @private
+	 * @param {number} width
 	 * @return {jQuery.Promise}
 	 */
-	mw.UploadWizardUpload.prototype.makePreview = function () {
+	mw.UploadWizardUpload.prototype.makePreview = function ( width ) {
 		var first, video, url, dataUrlReader,
 			deferred = $.Deferred(),
 			upload = this;
@@ -825,7 +831,7 @@
 						setTimeout( function () {
 							var context,
 								canvas = document.createElement( 'canvas' );
-							canvas.width = 100;
+							canvas.width = width;
 							canvas.height = Math.round( canvas.width * video.videoHeight / video.videoWidth );
 							context = canvas.getContext( '2d' );
 							try {

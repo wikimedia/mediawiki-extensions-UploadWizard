@@ -62,16 +62,15 @@
 		this.textInput.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
 
 		this.$element.addClass( 'mwe-upwiz-singleLanguageInputWidget' );
-		this.$element.append(
-			this.languageSelector.getElement(),
-			this.textInput.$element
-		);
+		this.$element.append( this.languageSelector.getElement() );
 		// HACK: ValidationMessageElement will append messages after this.$body
 		this.$body = this.textInput.$element;
 		if ( this.config.canBeRemoved !== false ) {
 			this.$element.append( this.removeButton.$element );
 			this.$body = this.removeButton.$element; // HACK
 		}
+		this.$element.append( this.textInput.$element );
+
 	};
 	OO.inheritClass( uw.SingleLanguageInputWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.SingleLanguageInputWidget, uw.ValidationMessageElement );
