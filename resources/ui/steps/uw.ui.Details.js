@@ -41,7 +41,7 @@
 			.attr( 'id', 'mwe-upwiz-details-warning-count' );
 
 		this.nextButton = new OO.ui.ButtonWidget( {
-			label: mw.message( 'mwe-upwiz-next-details' ).text(),
+			label: mw.message( 'mwe-upwiz-publish-details' ).text(),
 			flags: [ 'progressive', 'primary' ]
 		} ).on( 'click', startDetails );
 
