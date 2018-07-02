@@ -337,6 +337,11 @@ form.mwe-upwiz-form {
 	max-width: 230px;
 }
 
+.mwe-upwiz-thumbnail-link {
+	display: block;
+	margin: 0 auto;
+}
+
 .mwe-upwiz-thumbnail-side {
 	float: left;
 	margin-bottom: 1em;
