@@ -185,7 +185,7 @@
 	"mwe-upwiz-desc": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n\nThis is followed by a language name in a drop-down language selector.\n{{Identical|Description}}",
 	"mwe-upwiz-desc-add": "The button for adding a description to an image.\n\nParameters:\n* $1 - the number of descriptions for PLURAL",
 	"mwe-upwiz-title": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n\n\n{{Identical|Title}}",
-	"mwe-upwiz-date-created": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n{{Identical|Date created}}",
+	"mwe-upwiz-date-created": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n{{Identical|Date}}",
 	"mwe-upwiz-select-date": "Placeholder text for date selection field",
 	"mwe-upwiz-location": "The location the media exists on the planet, further described by lat and lon.\n{{Identical|Location}}",
 	"mwe-upwiz-location-button": "Label for button which opens location on OpenStreetMap using entered input coordinates.",

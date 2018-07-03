@@ -26,7 +26,8 @@
 			"Expert3222",
 			"Macofe",
 			"Envlh",
-			"Railfail536"
+			"Railfail536",
+			"DeRudySoulStorm"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
@@ -155,8 +156,8 @@
 	"mwe-upwiz-copy-other": "Kopiuj inne informacje",
 	"mwe-upwiz-caption": "Podpis",
 	"mwe-upwiz-desc": "Opis",
-	"mwe-upwiz-title": "Tytuł",
-	"mwe-upwiz-date-created": "Data utworzenia",
+	"mwe-upwiz-title": "Tytuł lub opis obrazu",
+	"mwe-upwiz-date-created": "Data",
 	"mwe-upwiz-select-date": "Wybierz datę",
 	"mwe-upwiz-location": "Położenie",
 	"mwe-upwiz-location-button": "Pokaż na mapie",
@@ -193,6 +194,7 @@
 	"mwe-upwiz-next": "Dalej",
 	"mwe-upwiz-next-file": "Kontynuuj",
 	"mwe-upwiz-next-deeds": "Dalej",
+	"mwe-upwiz-publish-details": "Opublikuj",
 	"mwe-upwiz-previous": "Wstecz",
 	"mwe-upwiz-home": "Przejdź do strony głównej wiki",
 	"mwe-upwiz-upload-another": "Prześlij więcej plików",
@@ -215,6 +217,7 @@
 	"mwe-upwiz-deeds-need-license": "Wybierz licencję.",
 	"mwe-upwiz-license-show-all": "Użyj innej licencji",
 	"mwe-upwiz-license-show-recommended": "Użyj zalecanej licencji",
+	"mwe-upwiz-label-optional": "Opcjonalny",
 	"mwe-upwiz-error-signature-blank": "Musisz podpisać się w odpowiednim polu swoją nazwą użytkownika lub prawdziwym imieniem i nazwiskiem.",
 	"mwe-upwiz-error-latitude": "Szerokość geograficzna musi być liczbą pomiędzy -90 a 90.",
 	"mwe-upwiz-error-longitude": "Długość geograficzna musi być liczbą pomiędzy -180 a 180.",
