@@ -39,7 +39,8 @@
 			"Smigles",
 			"Envlh",
 			"Ole Yves",
-			"Stjn"
+			"Stjn",
+			"Vlad5250"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -171,8 +172,8 @@
 	"mwe-upwiz-copy-location": "Скопировать расположение",
 	"mwe-upwiz-copy-other": "Скопировать остальную информацию",
 	"mwe-upwiz-desc": "Описание",
-	"mwe-upwiz-title": "Заголовок",
-	"mwe-upwiz-date-created": "Дата создания",
+	"mwe-upwiz-title": "Название изображения",
+	"mwe-upwiz-date-created": "Дата",
 	"mwe-upwiz-select-date": "Выберите дату",
 	"mwe-upwiz-location": "Местонахождение",
 	"mwe-upwiz-location-button": "Показать на карте",
@@ -208,6 +209,7 @@
 	"mwe-upwiz-next": "Далее",
 	"mwe-upwiz-next-file": "Продолжить",
 	"mwe-upwiz-next-deeds": "Далее",
+	"mwe-upwiz-publish-details": "Опубликовать",
 	"mwe-upwiz-previous": "Назад",
 	"mwe-upwiz-home": "Перейти на заглавную страницу вики-проекта",
 	"mwe-upwiz-upload-another": "Загрузить ещё файлы",
@@ -229,6 +231,7 @@
 	"mwe-upwiz-deeds-need-license": "Пожалуйста, выберите лицензию.",
 	"mwe-upwiz-license-show-all": "Воспользуйтесь другой лицензией",
 	"mwe-upwiz-license-show-recommended": "Воспользуйтесь рекомендованной лицензией",
+	"mwe-upwiz-label-optional": "Необязательно",
 	"mwe-upwiz-error-signature-blank": "Вы должны указать в соответствующем поле ваше имя участника или настоящее имя.",
 	"mwe-upwiz-error-latitude": "Широта должна быть числом от -90 до 90.",
 	"mwe-upwiz-error-longitude": "Долгота должна быть числом от -180 до 180.",

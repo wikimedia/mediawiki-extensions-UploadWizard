@@ -10,7 +10,8 @@
 			"Macofe",
 			"V111P",
 			"StanProg",
-			"Envlh"
+			"Envlh",
+			"Iliev"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -130,7 +131,7 @@
 	"mwe-upwiz-location-lat": "Географска ширина",
 	"mwe-upwiz-location-lon": "Географска дължина",
 	"mwe-upwiz-location-alt": "Надморска височина",
-	"mwe-upwiz-location-heading": "Заглавие",
+	"mwe-upwiz-location-heading": "Азимут",
 	"mwe-upwiz-copyright-info": "Отказ от права",
 	"mwe-upwiz-author": "Автор(и)",
 	"mwe-upwiz-autoconverted": "Файлът беше автоматично конвертиран до формат $1.",
