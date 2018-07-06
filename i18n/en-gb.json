@@ -7,7 +7,8 @@
 			"Sator",
 			"Usandaru555",
 			"Codynguyen1116",
-			"Andibing"
+			"Andibing",
+			"Pasianssi"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
@@ -55,15 +56,18 @@
 	"mwe-upwiz-copied-metadata": "Copied!",
 	"mwe-upwiz-undid-metadata": "Copy undone.",
 	"mwe-upwiz-title": "Title",
+	"mwe-upwiz-date-created": "Päivämäärä",
 	"mwe-upwiz-location": "Location",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-next": "Next",
 	"mwe-upwiz-next-file": "Continue",
 	"mwe-upwiz-next-deeds": "Next",
+	"mwe-upwiz-publish-details": "Julkaise",
 	"mwe-upwiz-tooltip-more-info": "Learn more.",
 	"mwe-upwiz-deeds-need-license": "Aukeratu mesedez lizentzia bat.",
 	"mwe-upwiz-license-show-all": "Use a different licence",
 	"mwe-upwiz-license-show-recommended": "Use the site's recommended licence",
+	"mwe-upwiz-label-optional": "Vapaaehtoinen",
 	"mwe-upwiz-error-license-wikitext-too-short": "The wikitext here is too short to be a licence",
 	"mwe-upwiz-dialog-yes": "Yes",
 	"mwe-upwiz-dialog-no": "No",
