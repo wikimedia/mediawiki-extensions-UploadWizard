@@ -2,15 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Mehtab ahmed",
-			"Aursani"
+			"Aursani",
+			"Tweety"
 		]
 	},
+	"mwe-upwiz-patent-dialog-button-next": "اڳيون",
 	"mwe-upwiz-location-heading": "سرخي",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "اڻڄاتل فائيل‌نانءُ",
 	"mwe-upwiz-next": "اڳيون",
+	"mwe-upwiz-next-file": "جاري",
 	"mwe-upwiz-next-deeds": "اڳيون",
 	"mwe-upwiz-license-show-recommended": "سرزمين جو سفارش ڪيل لائيسنس استعمال ڪريو",
 	"mwe-upwiz-subhead-alternatives": "ڄاڙهڻ جا متبادل طريقا",
 	"mwe-upwiz-calendar-date": "ڪئلينڊر مان تاريخ چونڊيو",
-	"prefs-uploads": "چاڙهيندي"
+	"prefs-uploads": "چاڙهيندي",
+	"mwe-upload-campaigns-pagination-next": "اڳيون صفحو"
 }
