@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Geopoet",
-			"Macofe"
+			"Macofe",
+			"ShimunUfesoj"
 		]
 	},
 	"uploadwizard": "Ikarga an Salamangkero",
@@ -115,8 +116,8 @@
 	"mwe-upwiz-copy-location": "Kopyahon an lokasyon",
 	"mwe-upwiz-copy-other": "Kopyahon an ibang impormasyon",
 	"mwe-upwiz-desc": "Deskripsyon",
-	"mwe-upwiz-title": "Titulo",
-	"mwe-upwiz-date-created": "Petsa nin pagkamukna",
+	"mwe-upwiz-title": "Titulo kan retrato",
+	"mwe-upwiz-date-created": "Petsa",
 	"mwe-upwiz-location": "Lokasyon",
 	"mwe-upwiz-location-lat": "Kahalaghagan",
 	"mwe-upwiz-location-lon": "Kahalabaghanan",
@@ -151,8 +152,8 @@
 	"mwe-upwiz-tooltip-source": "Kun saen ining dihital na sagunson naggikan --- mapuwedeng sarong URL, o sarong libro o publikasyon.",
 	"mwe-upwiz-tooltip-sign": "Ika makakagamit kan saimong pangaran sa wiki o an tunay mong pangaran.\nSa kaparehong kaso, ini ipagkikilyaw sa saimong wiking pahina nin paragamit.",
 	"mwe-upwiz-tooltip-title": "Sarong nalalaen na deskriptibong titulo para sa sagunson, na iyo an magsisirbeng pangaran nin sagunson. Ika mapuwedeng makagamit nin yanong lengguwahe na igwang mga espasyo. Dae tabi ipagbali an ekstensyon kan sagunson.",
-	"mwe-upwiz-tooltip-description": "Halipot na ipagladawan an mga bagay na matatandaan mapanungod sa gibo.\nPara sa sarong litrato, sambiton an pangenot na mga bagay na ipinagpahiling, an okasyon, o an lugar.",
-	"mwe-upwiz-tooltip-date": "An petsa na ining gibo pinagmukna o enot na pinagpublikar (TTTT-BB-AA na pormat).",
+	"mwe-upwiz-tooltip-description": "Magtao nin gabos na impormasyon na matabang sa iba na maintindihan kun ano an kinakatawan ng sagunson na ini.",
+	"mwe-upwiz-tooltip-date": "Pilion an petsa na piggibo an gibuhong ini o enot na piglathala.",
 	"mwe-upwiz-tooltip-categories": "Idugang an saimong sagunson sa [$1 mga kategoriya] na tanganing baya mahimo ining masayonon na manunumpungan.",
 	"mwe-upwiz-tooltip-other": "Arinman na iba pang impormasyon na boot mong balihon mapanungod sa gibong ini --- heograpikong mga kasumpungan, mga kilyawan sa iba pang mga bersyon, ibpa.",
 	"mwe-upwiz-tooltip-location": "Mga kasumpungan kan mga lokasyon kun saen ining sagunson nin midya ipinagmukna.",
