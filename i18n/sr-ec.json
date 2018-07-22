@@ -12,7 +12,8 @@
 			"Obsuser",
 			"Zoranzoki21",
 			"Acamicamacaraca",
-			"Envlh"
+			"Envlh",
+			"BadDog"
 		]
 	},
 	"uploadwizard": "Водич за отпремање",
@@ -118,7 +119,7 @@
 	"mwe-upwiz-copied-metadata": "Успешно копирано",
 	"mwe-upwiz-undid-metadata": "Успешно опозвано.",
 	"mwe-upwiz-copy-title": "Копирај наслов (са аутоматским нумерисањем)",
-	"mwe-upwiz-copy-caption": "Копирај опис",
+	"mwe-upwiz-copy-caption": "Копирај натпис",
 	"mwe-upwiz-copy-description": "Копирај описе",
 	"mwe-upwiz-copy-date": "Копирај датум",
 	"mwe-upwiz-copy-categories": "Копирај категорије",
