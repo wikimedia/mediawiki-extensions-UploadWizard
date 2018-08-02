@@ -2,7 +2,9 @@
 
 /**
  * Test the Upload Wizard Configuration
+ *
  * @group Upload
+ * @covers UploadWizardCampaign
  * @covers UploadWizardConfig
  */
 class UploadWizardConfigTest extends MediaWikiTestCase {
