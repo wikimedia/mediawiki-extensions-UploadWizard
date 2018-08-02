@@ -168,6 +168,11 @@ class UploadWizardCampaign {
 		return $data;
 	}
 
+	/**
+	 * @param int $limit
+	 *
+	 * @return Title[]
+	 */
 	public function getUploadedMedia( $limit = 24 ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$result = $dbr->select(

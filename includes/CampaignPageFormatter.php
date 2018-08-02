@@ -79,7 +79,7 @@ class CampaignPageFormatter {
 			] );
 		}
 
-		if ( count( $images ) === 0 ) {
+		if ( $images === [] ) {
 			$body = Html::element(
 				'div',
 				[ 'id' => 'mw-campaign-no-uploads-yet' ],
