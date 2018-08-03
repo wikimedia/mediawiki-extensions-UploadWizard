@@ -200,6 +200,8 @@
 				"resources/uw.ValidationMessageElement.js",
 				"resources/uw.DetailsWidget.js",
 				"resources/uw.FieldLayout.js",
+				"resources/uw.LicenseGroup.js",
+				"resources/uw.LicensePreviewDialog.js",
 				"resources/details/uw.TitleDetailsWidget.js",
 				"resources/details/uw.DateDetailsWidget.js",
 				"resources/details/uw.CategoriesDetailsWidget.js",

@@ -13,6 +13,12 @@
 	};
 	OO.inheritClass( uw.DeedChooserDetailsWidget, uw.DetailsWidget );
 
+	uw.DeedChooserDetailsWidget.prototype.unload = function () {
+		if ( this.deedChooser.deed ) {
+			this.deedChooser.deed.unload();
+		}
+	};
+
 	/**
 	 * Toggles whether we use the 'macro' deed or our own
 	 *

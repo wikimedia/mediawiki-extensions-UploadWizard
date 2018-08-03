@@ -58,7 +58,6 @@
 		this.showCustomDiv = this.config.licensing.ownWork.licenses.length > 1;
 		if ( this.showCustomDiv ) {
 			this.licenseInput = new mw.UploadWizardLicenseInput(
-				undefined,
 				this.config.licensing.ownWork,
 				this.uploadCount,
 				api
@@ -89,6 +88,10 @@
 	};
 
 	OO.inheritClass( uw.deed.OwnWork, uw.deed.Abstract );
+
+	uw.deed.OwnWork.prototype.unload = function () {
+		this.licenseInput.unload();
+	};
 
 	/**
 	 * @return {uw.FieldLayout[]} Fields that need validation
@@ -220,13 +223,6 @@
 			// choose default licenses
 			this.licenseInput.setDefaultValues();
 		}
-
-		$.each( this.config.licensing.ownWork.licenses, function ( i, license ) {
-			if ( license === defaultLicense ) {
-				$( '#license1_' + i ).prop( 'checked', true );
-				return false;
-			}
-		} );
 	};
 
 	/**

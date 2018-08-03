@@ -491,6 +491,7 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 	display: block;
 }
 
+.mwe-upwiz-deed-license-group-head.mw-collapsible-arrow,
 .mwe-upwiz-details-more-options.mw-collapsible-toggle,
 .mwe-upwiz-details-copy-metadata.mw-collapsible-toggle,
 .mwe-upwiz-deed-license-group-head.mw-collapsible-toggle {
@@ -505,8 +506,7 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 }
 
 .mwe-upwiz-deed-license-group-body {
-	margin-bottom: 1em;
-	padding-left: 1.5em;
+	padding-left: 3em;
 }
 
 .mwe-upwiz-license-custom {
@@ -561,6 +561,7 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 	color: #72777d;
 	margin-top: 0;
 	margin-bottom: 0;
+	margin-left: 1.5em;
 }
 
 .mwe-upwiz-details-texts {

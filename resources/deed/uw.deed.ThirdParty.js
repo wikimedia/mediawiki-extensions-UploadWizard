@@ -102,7 +102,6 @@
 		} );
 
 		this.licenseInput = new mw.UploadWizardLicenseInput(
-			undefined,
 			this.config.licensing.thirdParty,
 			this.uploadCount,
 			api
@@ -121,6 +120,10 @@
 
 	OO.inheritClass( uw.deed.ThirdParty, uw.deed.Abstract );
 
+	uw.deed.ThirdParty.prototype.unload = function () {
+		this.licenseInput.unload();
+	};
+
 	/**
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
@@ -133,12 +136,9 @@
 	};
 
 	uw.deed.ThirdParty.prototype.setFormFields = function ( $selector ) {
-		var $defaultLicense, defaultLicense, defaultLicenseNum, defaultType, collapsible,
-			$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
+		var $formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
 
 		this.$form = $( '<form>' );
-
-		defaultType = this.config.licensing.defaultType;
 
 		if ( this.uploadCount > 1 ) {
 			$formFields.append( $( '<div>' ).msg( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ) );
@@ -161,23 +161,6 @@
 		this.$form.append( $formFields );
 
 		$selector.append( this.$form );
-
-		if ( defaultType === 'thirdparty' ) {
-			defaultLicense = this.config.licensing.thirdParty.defaults;
-
-			defaultLicenseNum = this.findLicenseRecursively( this.config, defaultLicense );
-
-			if ( defaultLicenseNum ) {
-				$defaultLicense = $( '#license' + defaultLicenseNum );
-				collapsible = $defaultLicense
-					.closest( '.mwe-upwiz-deed-license-group' )
-					.data( 'mw-collapsible' );
-				if ( collapsible ) {
-					collapsible.expand();
-				}
-				$defaultLicense.prop( 'checked', true );
-			}
-		}
 	};
 
 	/**
@@ -233,36 +216,5 @@
 		if ( serialized.license ) {
 			this.licenseInput.setSerialized( serialized.license );
 		}
-	};
-
-	/**
-	 * Runs through the third-party license groups and finds the
-	 * relevant ID for that license. Probably really hacky.
-	 * TODO do this properly once we build the license links properly
-	 *
-	 * @param {Object} config
-	 * @param {string} license
-	 * @return {string|false}
-	 */
-	uw.deed.ThirdParty.prototype.findLicenseRecursively = function ( config, license ) {
-		var val,
-			count = 0;
-
-		$.each( this.config.licensing.thirdParty.licenseGroups, function ( i, licenseGroup ) {
-			$.each( licenseGroup.licenses, function ( j, licenseCandidate ) {
-				if ( licenseCandidate === license ) {
-					val = '2_' + count;
-					return false;
-				}
-
-				count++;
-			} );
-
-			if ( val !== undefined ) {
-				return false;
-			}
-		} );
-
-		return val;
 	};
 }( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
