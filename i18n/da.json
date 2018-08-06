@@ -12,7 +12,8 @@
 			"Matma Rex",
 			"Macofe",
 			"Ribewiki",
-			"Envlh"
+			"Envlh",
+			"Saederup92"
 		]
 	},
 	"uploadwizard": "Vejviser til oplægning af filer",
@@ -118,6 +119,10 @@
 	"mwe-upwiz-source-thirdparty-cases": "Fortæl os nu, hvorfor du er sikker på, at du har tilladelse til at offentliggøre {{PLURAL:$1|dette værk|disse værker}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Angiv ophavsretlig information for hver enkelt fil på den næste side.",
+	"mwe-upwiz-patent-dialog-button-back": "Tilbage",
+	"mwe-upwiz-patent-dialog-button-next": "Næste",
+	"mwe-upwiz-patent-dialog-link-warranty": "Lær mere",
+	"mwe-upwiz-patent-dialog-link-license": "Lær mere",
 	"mwe-upwiz-more-options": "Tilføj placering eller yderligere oplysninger ...",
 	"mwe-upwiz-copy-metadata": "Kopier oplysninger til alle følgende filer …",
 	"mwe-upwiz-copy-metadata-button": "Kopier",
