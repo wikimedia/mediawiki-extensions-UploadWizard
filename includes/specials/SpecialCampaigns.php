@@ -6,6 +6,10 @@ class SpecialCampaigns extends SpecialPage {
 		parent::__construct( "Campaigns" );
 	}
 
+	/**
+	 * @param string|null $subPage
+	 * @suppress SecurityCheck-XSS Return of getHtmlForCampaign seems safe for use in html
+	 */
 	public function execute( $subPage ) {
 		$request = $this->getRequest();
 		$dbr = wfGetDB( DB_REPLICA );
