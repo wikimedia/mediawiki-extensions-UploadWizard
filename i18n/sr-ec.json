@@ -22,7 +22,7 @@
 	"tag-uploadwizard-description": "Отпремања направљена преко Водича за отпремање",
 	"tag-uploadwizard-flickr-description": "Фликер отпремања направљена преко Водича за отпремање",
 	"right-upwizcampaigns": "Подешавања кампања Чаробњака за отпремање",
-	"action-upwizcampaigns": "подешавања кампања за отпремање",
+	"action-upwizcampaigns": "подесите кампање за отпремање",
 	"group-upwizcampeditors": "Уредници кампање – Помоћник за отпремање",
 	"group-upwizcampeditors-member": "{{GENDER:$1|уредник|уредница|уредник}} кампање – Помоћник за отпремање",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Уредници кампање – Чаробњак за отпремање",
