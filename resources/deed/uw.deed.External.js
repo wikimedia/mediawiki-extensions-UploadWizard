@@ -26,7 +26,7 @@
 		uw.deed.Custom.call( this, config, upload );
 
 		this.licenseInput = new mw.UploadWizardLicenseInput(
-			config,
+			config.licensing.thirdParty,
 			1,
 			upload.api
 		);
