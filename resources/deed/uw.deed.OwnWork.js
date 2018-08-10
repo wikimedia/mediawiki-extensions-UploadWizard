@@ -90,7 +90,10 @@
 	OO.inheritClass( uw.deed.OwnWork, uw.deed.Abstract );
 
 	uw.deed.OwnWork.prototype.unload = function () {
-		this.licenseInput.unload();
+		// No licenseInput is present if there's no custom licenses allowed (e.g. campaigns)
+		if ( this.licenseInput !== undefined ) {
+			this.licenseInput.unload();
+		}
 	};
 
 	/**
