@@ -331,7 +331,7 @@ class SpecialUploadWizard extends SpecialPage {
 			return Html::rawElement(
 				'div',
 				[],
-				Html::rawElement(
+				Html::element(
 					'p',
 					[ 'style' => 'text-align: center' ],
 					wfMessage( 'mwe-upwiz-extension-disabled' )->text()
