@@ -27,7 +27,8 @@
 			"Matma Rex",
 			"Macofe",
 			"Piramidion",
-			"Envlh"
+			"Envlh",
+			"Vlad5250"
 		]
 	},
 	"uploadwizard": "Майстер завантаження",
@@ -40,6 +41,8 @@
 	"group-upwizcampeditors": "Редактори кампаній майстра завантажень",
 	"group-upwizcampeditors-member": "{{GENDER:$1|редактор майстра кампанії завантажень}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Upload Wizard campaign editors",
+	"group-upwizcampeditors.css": "/* CSS, прописані тут, вплинуть лише на редакторів кампаній майстра завантажень */",
+	"group-upwizcampeditors.js": "/* JS, прописана тут, вплине лише на редакторів кампаній майстра звавнтажень */",
 	"api-error-parsererror": "Сервер відповів за допомогою недійсного JSON-документа. Це може свідчити про проблему з API, або ж, ймовірно, Ви використовуєте проксі-сервер, який не дозволяє Вам вантажити файли.",
 	"api-error-aborted": "Завантаження перервано.",
 	"api-error-noimageinfo": "Завантаження завершено, але сервер не надав ніякої інформації про файл.",
