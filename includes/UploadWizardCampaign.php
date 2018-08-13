@@ -250,15 +250,9 @@ class UploadWizardCampaign {
 			'enableSectionEditLinks' => false,
 		] );
 
-		// Strip out the surrounding <p> tags
-		$m = [];
-		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?/sU', $parsed, $m ) ) {
-			$parsed = $m[1];
-		}
-
 		$this->updateTemplates( $output );
 
-		return $parsed;
+		return Parser::stripOuterParagraph( $parsed );
 	}
 
 	/**
