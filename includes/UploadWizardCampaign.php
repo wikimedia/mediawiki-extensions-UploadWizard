@@ -230,7 +230,7 @@ class UploadWizardCampaign {
 	 *
 	 * @since 1.3
 	 *
-	 * @return String parsed wikitext
+	 * @return String HTML
 	 */
 	private function parseValue( $value, Language $lang ) {
 		global $wgParser;
