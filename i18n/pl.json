@@ -27,18 +27,22 @@
 			"Macofe",
 			"Envlh",
 			"Railfail536",
-			"DeRudySoulStorm"
+			"DeRudySoulStorm",
+			"Vlad5250"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
 	"uploadwizard-desc": "Kreator przesyłania plików, przyjazne użytkownikowi narzędzie do przesyłania multimediów",
 	"tag-uploadwizard": "Kreator przesyłania plików",
 	"tag-uploadwizard-description": "Pliki przesłane za pomocą Kreatora Przesyłania",
+	"right-mass-upload": "Przesyłanie wielu plików jednocześnie za pomocą kreatora przesyłania plików",
 	"right-upwizcampaigns": "Konfigurowanie kreatora sesji przesyłania plików",
 	"action-upwizcampaigns": "konfigurowanie sesji przesyłania",
 	"group-upwizcampeditors": "Operatorzy inicjatyw kreatora przesyłania plików",
 	"group-upwizcampeditors-member": "{{GENDER:$1|operator|operatorka}} inicjatyw kreatora przesyłania plików",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Operatorzy inicjatyw kreatora przesyłania plików",
+	"group-upwizcampeditors.css": "/* Umieszczony tutaj kod CSS dotyczyć będzie tylko operatorów inicjatyw kreatora przesyłania plików */",
+	"group-upwizcampeditors.js": "/* Umieszczony tutaj kod JavaScript dotyczyć będzie tylko operatorów inicjatyw kreatora przesyłania plików */",
 	"api-error-aborted": "Przesyłanie przerwane.",
 	"api-error-noimageinfo": "Plik przesłano pomyślnie, ale serwer nie zwrócił informacji na jego temat.",
 	"mwe-upwiz-extension-disabled": "Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.",
