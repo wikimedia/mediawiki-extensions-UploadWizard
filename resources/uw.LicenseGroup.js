@@ -193,6 +193,15 @@
 	};
 
 	/**
+	 * Returns a string unique to the group (if defined)
+	 *
+	 * @return {string}
+	 */
+	uw.LicenseGroup.prototype.getGroup = function () {
+		return this.config.head || '';
+	};
+
+	/**
 	 * @return {Object} map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.getValue = function () {

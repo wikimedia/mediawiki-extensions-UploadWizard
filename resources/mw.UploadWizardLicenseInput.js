@@ -57,8 +57,9 @@
 				// sure they're updated accordingly, deselecting previously selected items
 				if ( self.type === 'radio' ) {
 					group.on( 'change', function ( currentGroup ) {
-						var value = currentGroup.getValue();
-						self.setValues( value );
+						var value = currentGroup.getValue(),
+							group = currentGroup.getGroup();
+						self.setValues( value, group );
 					} );
 				}
 			} );
@@ -87,10 +88,19 @@
 		 * cases we are now letting license inputs create multiple templates.
 		 *
 		 * @param {Object} values License-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
+		 * @param {string} [groupName] Name of group, when values are only relevant to this group
 		 */
-		setValues: function ( values ) {
+		setValues: function ( values, groupName ) {
+			var self = this;
+
 			this.getItems().forEach( function ( group ) {
-				group.setValue( values );
+				if ( groupName === undefined || group.getGroup() === groupName ) {
+					group.setValue( values );
+				} else if ( self.type === 'radio' ) {
+					// when we're dealing with radio buttons and there are changes in another
+					// group, then we'll need to clear out this group...
+					group.setValue( {} );
+				}
 			} );
 		},
 
@@ -247,20 +257,30 @@
 		 * @return {Object}
 		 */
 		getSerialized: function () {
-			var selected = {};
+			var values = {};
 
 			this.getItems().forEach( function ( group ) {
-				selected = $.extend( {}, selected, group.getValue() );
+				var groupName = group.getGroup(),
+					value = group.getValue();
+
+				if ( Object.keys( value ).length > 0 ) {
+					// $.extend just in case there are multiple groups with the same name...
+					values[ groupName ] = $.extend( {}, values[ groupName ] || {}, value );
+				}
 			} );
 
-			return selected;
+			return values;
 		},
 
 		/**
 		 * @param {Object} serialized
 		 */
 		setSerialized: function ( serialized ) {
-			this.setValues( serialized );
+			var self = this;
+
+			$.each( serialized, function ( group, values ) {
+				self.setValues( values, group );
+			} );
 		}
 
 	} );
