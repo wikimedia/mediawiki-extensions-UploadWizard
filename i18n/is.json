@@ -6,7 +6,8 @@
 			"Sveinn í Felli",
 			"Matma Rex",
 			"Macofe",
-			"Envlh"
+			"Envlh",
+			"Sveinki"
 		]
 	},
 	"uploadwizard": "Innsendingarleiðarvísir",
@@ -158,8 +159,8 @@
 	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Bæta við skýringatexta|Bæta við skýringatexta á öðru tungumáli}}",
 	"mwe-upwiz-desc": "Lýsing",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Bæta við lýsingu|Bæta við lýsingu á öðru tungumáli}}",
-	"mwe-upwiz-title": "Titill",
-	"mwe-upwiz-date-created": "Upprunaleg dagsetning",
+	"mwe-upwiz-title": "Titill myndar",
+	"mwe-upwiz-date-created": "Dagsetning",
 	"mwe-upwiz-select-date": "Veldu dagsetningu",
 	"mwe-upwiz-location": "Staðsetning",
 	"mwe-upwiz-location-button": "Sýna á korti",
