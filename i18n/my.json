@@ -4,7 +4,8 @@
 			"Erikoo",
 			"Lionslayer",
 			"Ninjastrikers",
-			"9.sinistra"
+			"9.sinistra",
+			"Dr Lotus Black"
 		]
 	},
 	"uploadwizard": "ဖိုင်တင်သည့် အဆောက်အဦ",
@@ -43,5 +44,7 @@
 	"mwe-upwiz-author": "မူလဖန်တီးသူ(များ)",
 	"mwe-upwiz-autoconverted": "ဤဖိုင်ကို $1 ဖောမတ်သို့ အလိုအလျောက် ပြောင်းလိုက်သည်",
 	"mwe-upwiz-other": "အခြားသတင်းအချက်အလက်များ",
-	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|ဆောင်ရွက်သူ|ဆောင်ရွက်သူများ}}"
+	"mwe-upwiz-ok": "အိုကေ",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|ဆောင်ရွက်သူ|ဆောင်ရွက်သူများ}}",
+	"mwe-upwiz-errordialog-ok": "အိုကေ"
 }
