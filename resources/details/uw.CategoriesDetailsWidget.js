@@ -31,7 +31,7 @@
 			// Keep only valid titles
 			return !!mw.Title.makeTitle( NS_CATEGORY, cat );
 		} );
-		this.categoriesWidget.addItems( categories );
+		this.categoriesWidget.setValue( categories );
 
 		this.$element.addClass( 'mwe-upwiz-categoriesDetailsWidget' );
 		this.$element.append( this.categoriesWidget.$element );
