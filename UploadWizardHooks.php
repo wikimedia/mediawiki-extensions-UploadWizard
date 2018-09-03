@@ -74,7 +74,8 @@ class UploadWizardHooks {
 			$ownWork = $licensingOptions['ownWork'];
 			foreach ( $ownWork['licenses'] as $license ) {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
-				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-own', $licenseMessage )->text();
+				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-own' )
+					->rawParams( $licenseMessage )->escaped();
 				$licenses[$licenseKey] = 'ownwork-' . $license;
 			}
 
@@ -83,7 +84,8 @@ class UploadWizardHooks {
 			foreach ( $thirdParty as $license ) {
 				if ( $license !== 'custom' ) {
 					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
-					$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text();
+					$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty' )
+						->rawParams( $licenseMessage )->escaped();
 					$licenses[$licenseKey] = 'thirdparty-' . $license;
 				} else {
 					$hasCustom = true;
@@ -92,7 +94,7 @@ class UploadWizardHooks {
 
 			$licenses = array_merge(
 				[
-					wfMessage( 'mwe-upwiz-prefs-def-license-def' )->text() => 'default'
+					wfMessage( 'mwe-upwiz-prefs-def-license-def' )->escaped() => 'default'
 				],
 				$licenses
 			);
@@ -101,7 +103,8 @@ class UploadWizardHooks {
 				// The "custom license" option must be last, otherwise the text referring to "following
 				// wikitext" and "last option above" makes no sense.
 				$licenseMessage = self::getLicenseMessage( 'custom', $licenseConfig );
-				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty', $licenseMessage )->text();
+				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty' )
+					->rawParams( $licenseMessage )->escaped();
 				$licenses[$licenseKey] = 'thirdparty-custom';
 			};
 
@@ -221,7 +224,7 @@ class UploadWizardHooks {
 				$licenseConfig[$licenseName]['url']
 			)->parse();
 		} else {
-			return wfMessage( $licenseConfig[$licenseName]['msg'] )->text();
+			return wfMessage( $licenseConfig[$licenseName]['msg'] )->escaped();
 		}
 	}
 
