@@ -169,7 +169,7 @@
 	};
 
 	/**
-	 * @param {object} languages
+	 * @param {Object} languages
 	 */
 	uw.SingleLanguageInputWidget.prototype.updateLanguages = function ( languages ) {
 		this.languageSelector.updateLanguages( languages );

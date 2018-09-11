@@ -775,7 +775,7 @@
 			info = '';
 
 			for ( key in information ) {
-				if ( information.hasOwnProperty( key ) ) {
+				if ( Object.prototype.hasOwnProperty.call( information, key ) ) {
 					info += '|' + key.replace( /:/g, '_' );
 					info += '=' + mw.Escaper.escapeForTemplate( information[ key ] ) + '\n';
 				}
@@ -887,7 +887,7 @@
 		/**
 		 * Attempt to resolve a promise (a couple of times, with an increasing delay).
 		 *
-		 * @param {function} callable
+		 * @param {Function} callable
 		 * @param {number} attempts
 		 * @return {jQuery.Promise}
 		 */
@@ -992,7 +992,7 @@
 		},
 
 		/**
-		 * @param {object} captions {<languagecode>: <caption text>} map
+		 * @param {Object} captions {<languagecode>: <caption text>} map
 		 * @param {string} entityId
 		 * @return {jQuery.Promise}
 		 */
@@ -1146,7 +1146,7 @@
 				ignoreTheseWarnings = true;
 			}
 			for ( wx in warnings ) {
-				if ( warnings.hasOwnProperty( wx ) ) {
+				if ( Object.prototype.hasOwnProperty.call( warnings, wx ) ) {
 					// if there are other warnings, deal with those first
 					ignoreTheseWarnings = false;
 				}

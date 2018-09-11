@@ -73,7 +73,7 @@
 	};
 
 	/**
-	 * @param {object} languages
+	 * @param {Object} languages
 	 */
 	uw.UlsWidget.prototype.updateLanguages = function ( languages ) {
 		this.uls.off().removeData( 'uls' );

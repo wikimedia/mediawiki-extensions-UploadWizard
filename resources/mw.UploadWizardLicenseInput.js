@@ -10,7 +10,7 @@
 	 * @param {string[]} config.licenses Template string names (matching keys in mw.UploadWizard.config.licenses)
 	 * @param {string[]} [config.licenseGroups] Groups of licenses, with more explanation
 	 * @param {string} [config.special] Indicates, don't put licenses here, instead use a special widget
-	 * @param {Number} count Number of the things we are licensing (it matters to some texts)
+	 * @param {number} count Number of the things we are licensing (it matters to some texts)
 	 * @param {mw.Api} api API object, used for wikitext previews
 	 */
 	mw.UploadWizardLicenseInput = function ( config, count, api ) {

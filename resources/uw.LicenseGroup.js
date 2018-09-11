@@ -17,7 +17,7 @@
 	 *   were [ 'pre', 'pended' ], then [ 'fooLicense' ] -> "{{pre}}{{pended}}{{fooLicense}}"
 	 * @param {string} type 'radio' or 'checkbox'
 	 * @param {mw.Api} api API object, used for wikitext previews
-	 * @param {Number} count Number of the things we are licensing (it matters to some texts)
+	 * @param {number} count Number of the things we are licensing (it matters to some texts)
 	 */
 	uw.LicenseGroup = function UWLicenseGroup( config, type, api, count ) {
 		var self = this;

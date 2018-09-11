@@ -21,7 +21,7 @@
 	OO.mixinClass( uw.LanguageDropdownWidget, OO.EventEmitter );
 
 	/**
-	 * @param {object} languages
+	 * @param {Object} languages
 	 */
 	uw.LanguageDropdownWidget.prototype.updateLanguages = function ( languages ) {
 		var menu = this.languageDropdown.getMenu(),

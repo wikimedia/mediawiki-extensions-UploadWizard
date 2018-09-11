@@ -48,7 +48,7 @@
 		 * replacements back into this.restoreExtracts.
 		 *
 		 * @param {string} wikitext
-		 * @return {array} [{string} wikitext, {Object} replacements]
+		 * @return {Array} [{string} wikitext, {Object} replacements]
 		 */
 		extractTemplates: function ( wikitext ) {
 			var extracts = {},
@@ -93,7 +93,7 @@
 		 * replacements back into this.restoreExtracts.
 		 *
 		 * @param {string} wikitext
-		 * @return {array} [{string} wikitext, {Object} replacements]
+		 * @return {Array} [{string} wikitext, {Object} replacements]
 		 */
 		extractLinks: function ( wikitext ) {
 			var extracts = {};

@@ -22,7 +22,7 @@
 		this.savedSerializedData = [];
 
 		for ( metadataType in uw.CopyMetadataWidget.static.copyMetadataTypes ) {
-			if ( uw.CopyMetadataWidget.static.copyMetadataTypes.hasOwnProperty( metadataType ) ) {
+			if ( Object.prototype.hasOwnProperty.call( uw.CopyMetadataWidget.static.copyMetadataTypes, metadataType ) ) {
 				defaultStatus = uw.CopyMetadataWidget.static.copyMetadataTypes[ metadataType ];
 				// mwe-upwiz-copy-title, mwe-upwiz-copy-caption, mwe-upwiz-copy-description,
 				// mwe-upwiz-copy-date, mwe-upwiz-copy-categories, mwe-upwiz-copy-location,

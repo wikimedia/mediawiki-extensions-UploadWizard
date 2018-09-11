@@ -36,7 +36,7 @@
 
 		$.each( makeTitleInFileNSCases, function ( i, test ) {
 			var title = makeTitleInFileNS( test.filename );
-			assert.equal(
+			assert.strictEqual(
 				title ? title.getPrefixedText() : title,
 				test.prefixedText,
 				test.desc

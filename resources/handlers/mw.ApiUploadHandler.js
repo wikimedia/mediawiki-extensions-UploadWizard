@@ -48,7 +48,7 @@
 	/**
 	 * Process a successful upload.
 	 *
-	 * @param {object} result
+	 * @param {Object} result
 	 */
 	mw.ApiUploadHandler.prototype.setTransported = function ( result ) {
 		var code;

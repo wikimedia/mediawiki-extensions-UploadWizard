@@ -138,7 +138,7 @@
 						}
 					} else {
 						for ( pageId in data.query.pages ) {
-							if ( !data.query.pages.hasOwnProperty( pageId ) ) {
+							if ( !Object.prototype.hasOwnProperty.call( data.query.pages, pageId ) ) {
 								continue;
 							}
 							ntitle = data.query.pages[ pageId ].title;
