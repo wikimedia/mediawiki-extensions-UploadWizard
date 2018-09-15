@@ -33,7 +33,8 @@
 			"飞舞回堂前",
 			"Wmr",
 			"NeverBehave",
-			"Envlh"
+			"Envlh",
+			"A2093064"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -235,7 +236,7 @@
 	"mwe-upwiz-tooltip-author": "摄影人、绘画人等创作人的姓名。",
 	"mwe-upwiz-tooltip-source": "该数字文件的来源 — 可以是一个URL、一本书或一份报刊。",
 	"mwe-upwiz-tooltip-sign": "您可以使用您的维基用户名或您的真实姓名。两种情况下，它都会链接至您的维基用户页面。",
-	"mwe-upwiz-tooltip-title": "使用纯语言（无空格）创建独一无二的描述性标题。如果有文件扩展名请省略之。",
+	"mwe-upwiz-tooltip-title": "使用带空格且简单明了的语言创建独一无二的描述性标题。如果有文件扩展名请省略之。",
 	"mwe-upwiz-tooltip-caption": "添加单行此文件表现的解释，只包含最相关的信息。",
 	"mwe-upwiz-tooltip-description": "提供所有帮助其他用户理解此文件表现什么的信息。",
 	"mwe-upwiz-tooltip-date": "选择此作品创建或首次发布的日期。",

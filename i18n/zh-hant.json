@@ -21,7 +21,8 @@
 			"Wwycheuk",
 			"Hello903hello",
 			"Envlh",
-			"Kly"
+			"Kly",
+			"A2093064"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -220,7 +221,7 @@
 	"mwe-upwiz-tooltip-author": "攝影、繪畫等創作者的姓名。",
 	"mwe-upwiz-tooltip-source": "此數位檔案的來源 － 可為 URL、書籍或出版物。",
 	"mwe-upwiz-tooltip-sign": "您可以使用您的維基使用者名稱或真實姓名。兩種情況下皆會連至你的維基使用者頁面",
-	"mwe-upwiz-tooltip-title": "使用不帶空格的純文字來建立唯一描述性標題。若有副檔名請排除之。",
+	"mwe-upwiz-tooltip-title": "使用帶空格且簡單明瞭的語言來建立唯一描述性標題。若有副檔名請省略。",
 	"mwe-upwiz-tooltip-caption": "添加有關此檔案呈現內容的單行解釋，採用最貼近涵意的訊息。",
 	"mwe-upwiz-tooltip-description": "提供所有可協助其他人了解此檔案所呈現內容的資訊。",
 	"mwe-upwiz-tooltip-date": "選擇此作品創建或首次發佈的日期。",
