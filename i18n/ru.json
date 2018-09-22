@@ -154,6 +154,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Теперь расскажите нам, почему вы уверены, что имеете право публиковать {{PLURAL:$1|1=это произведение|эти произведения}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.",
+	"mwe-upwiz-patent-dialog-title": "Патентные права",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",
 	"mwe-upwiz-patent-dialog-button-next": "Далее",
 	"mwe-upwiz-patent-dialog-link-warranty": "Узнать больше",
