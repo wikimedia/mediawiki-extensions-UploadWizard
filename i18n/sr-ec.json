@@ -285,7 +285,7 @@
 	"prefs-upwiz-interface": "Кориснички интерфејс",
 	"mwe-upwiz-prefs-def-license": "Подразумевана лиценца",
 	"mwe-upwiz-prefs-def-license-def": "Користи подразумевано",
-	"mwe-upwiz-prefs-license-own": "Сопствено дело – $1",
+	"mwe-upwiz-prefs-license-own": "Сопствено дело — $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Туђе дело – $1",
 	"mwe-upwiz-prefs-chunked": "Отпремање из делова за датотеке изнад $1 са Помоћником за отпремање - повећава максималну величину отпремања датотеке од $2 на $3",
 	"mwe-upwiz-prefs-skiptutorial": "Прескочи уводно упутство о лиценцирању",
