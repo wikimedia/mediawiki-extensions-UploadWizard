@@ -76,7 +76,8 @@ class UploadWizardHooks {
 				$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-own' )
 					->rawParams( $licenseMessage )->escaped();
-				$licenses[$licenseKey] = 'ownwork-' . $license;
+				$licenseValue = htmlspecialchars( 'ownwork-' . $license, ENT_QUOTES, 'UTF-8', false );
+				$licenses[$licenseKey] = $licenseValue;
 			}
 
 			$thirdParty = UploadWizardConfig::getThirdPartyLicenses();
@@ -86,7 +87,8 @@ class UploadWizardHooks {
 					$licenseMessage = self::getLicenseMessage( $license, $licenseConfig );
 					$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty' )
 						->rawParams( $licenseMessage )->escaped();
-					$licenses[$licenseKey] = 'thirdparty-' . $license;
+					$licenseValue = htmlspecialchars( 'thirdparty-' . $license, ENT_QUOTES, 'UTF-8', false );
+					$licenses[$licenseKey] = $licenseValue;
 				} else {
 					$hasCustom = true;
 				}

@@ -35,9 +35,8 @@
 		this.type = config.type === 'or' ? 'radio' : 'checkbox';
 
 		this.defaults = [];
-
 		if ( config.defaults ) {
-			this.defaults = config.defaults;
+			this.defaults = config.defaults instanceof Array ? config.defaults : [ config.defaults ];
 		} else if ( config.licenses && config.licenses[ 0 ] ) {
 			this.defaults = [ config.licenses[ 0 ] ];
 		}
@@ -91,17 +90,36 @@
 		 * @param {string} [groupName] Name of group, when values are only relevant to this group
 		 */
 		setValues: function ( values, groupName ) {
-			var self = this;
+			var self = this,
+				selectedGroups = [];
 
 			this.getItems().forEach( function ( group ) {
 				if ( groupName === undefined || group.getGroup() === groupName ) {
 					group.setValue( values );
+					if ( Object.values( group.getValue() ).length > 0 ) {
+						selectedGroups.push( group );
+					}
 				} else if ( self.type === 'radio' ) {
 					// when we're dealing with radio buttons and there are changes in another
 					// group, then we'll need to clear out this group...
 					group.setValue( {} );
 				}
 			} );
+
+			if ( selectedGroups.length > 1 && this.type === 'radio' ) {
+				// leave the last one alone - that one can remain selected
+				selectedGroups.pop();
+
+				// if we've selected things in multiple groups (= when the group was not defined,
+				// which is basically only when dealing with defaults, from config or user
+				// preferences), we need to make sure we're left with only 1 selected radio in
+				// 1 group
+				// in that case, we're only going to select the *last* occurrence, which is what
+				// a browser would do when trying to find/select a radio that occurs twice
+				selectedGroups.forEach( function ( group ) {
+					group.setValue( {} );
+				} );
+			}
 		},
 
 		/**
@@ -109,7 +127,9 @@
 		 */
 		setDefaultValues: function () {
 			var values = {};
-			values[ this.defaults ] = true;
+			this.defaults.forEach( function ( license ) {
+				values[ license ] = true;
+			} );
 			this.setValues( values );
 		},
 

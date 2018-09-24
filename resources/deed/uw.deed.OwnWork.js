@@ -222,9 +222,19 @@
 		// done after added to the DOM, so there are true heights
 		$crossfader.morphCrossfader();
 
+		this.setDefaultLicense();
+	};
+
+	/**
+	 * OwnWork's default value is different than the default LicenseInput defaults...
+	 * LicenseInput supports multiple default values, but this one does not, because
+	 * it may not even display a selection at first, just the 1 default value.
+	 */
+	uw.deed.OwnWork.prototype.setDefaultLicense = function () {
+		var defaultLicense = {};
 		if ( this.showCustomDiv ) {
-			// choose default licenses
-			this.licenseInput.setDefaultValues();
+			defaultLicense[ this.getDefaultLicense() ] = true;
+			this.licenseInput.setValues( defaultLicense );
 		}
 	};
 
@@ -328,8 +338,10 @@
 	};
 
 	uw.deed.OwnWork.prototype.getDefaultLicense = function () {
+		var license;
 		if ( this.config.licensing.defaultType === 'ownwork' ) {
-			return this.config.licensing.ownWork.defaults;
+			license = this.config.licensing.ownWork.defaults;
+			return license instanceof Array ? license[ 0 ] : license;
 		} else {
 			return this.config.licensing.ownWork.licenses[ 0 ];
 		}
@@ -341,7 +353,7 @@
 			$standardDiv = this.$selector.find( '.mwe-upwiz-standard' ),
 			$toggler = this.$selector.find( '.mwe-more-options a' );
 
-		this.licenseInput.setDefaultValues();
+		this.setDefaultLicense();
 
 		$crossfader.morphCrossfade( $standardDiv )
 			.promise().done( function () {
