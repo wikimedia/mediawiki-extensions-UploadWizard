@@ -96,7 +96,7 @@
 			this.getItems().forEach( function ( group ) {
 				if ( groupName === undefined || group.getGroup() === groupName ) {
 					group.setValue( values );
-					if ( Object.values( group.getValue() ).length > 0 ) {
+					if ( Object.keys( group.getValue() ).length > 0 ) {
 						selectedGroups.push( group );
 					}
 				} else if ( self.type === 'radio' ) {
