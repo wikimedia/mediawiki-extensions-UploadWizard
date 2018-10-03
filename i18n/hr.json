@@ -190,6 +190,7 @@
 	"mwe-upwiz-too-many-files-text": "Možete postavljati samo $1 {{PLURAL:$1|datoteku|datoteke|datoteka}} istovremeno, a pokušali ste postaviti ukupno $2 {{PLURAL:$2|datoteku|datoteke|datoteka}}. Molimo, probajte opet s manje datoteka!",
 	"mwe-upwiz-too-many-files": "Previše datoteka.",
 	"mwe-upwiz-file-too-large": "Datoteka prevelika.",
+	"mwe-upwiz-dialog-warning": "Preporučamo da ispunite sva predviđena polja. Želite li nastaviti bez ispravljanja upozorenja?",
 	"mwe-upwiz-dialog-yes": "Da",
 	"mwe-upwiz-dialog-no": "Ne",
 	"mwe-upwiz-dialog-title": "Upozorenje",
