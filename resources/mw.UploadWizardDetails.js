@@ -997,38 +997,37 @@
 		 * @return {jQuery.Promise}
 		 */
 		submitCaptions: function ( captions, entityId ) {
-			var languages = Object.keys( captions ),
-				// `promises` will hold all promises for all captions;
-				// prefilling with a bogus promise to ensure $.when always
-				// resolves with an array of multiple results (if there's
-				// just 1, it would otherwise have just that one's arguments,
-				// instead of a multi-dimensional array of results)
-				promises = [ $.Deferred().resolve().promise() ],
-				callable, promise, language, text, i;
+			var self = this,
+				languages = Object.keys( captions ),
+				promise = $.Deferred().resolve().promise(),
+				callable = function ( language, result ) {
+					var text = captions[ language ],
+						baseRevId = result && result.entity && result.entity.lastrevid || null,
+						callable = self.submitCaption.bind( self, entityId, baseRevId, language, text );
+					return self.attemptExecute( callable, 3 );
+				},
+				i;
 
 			for ( i = 0; i < languages.length; i++ ) {
-				language = languages[ i ];
-				text = captions[ language ];
-				callable = this.submitCaption.bind( this, entityId, language, text );
-
-				promise = this.attemptExecute( callable, 3 );
-				promises.push( promise );
+				promise = promise.then( callable.bind( promise, languages[ i ] ) );
 			}
 
-			return $.when.apply( $, promises );
+			return promise;
 		},
 
 		/**
 		 * @param {string} id
+		 * @param {number|null} baseRevId
 		 * @param {string} language
 		 * @param {string} value
 		 * @return {jQuery.Promise}
 		 */
-		submitCaption: function ( id, language, value ) {
+		submitCaption: function ( id, baseRevId, language, value ) {
 			var config = mw.UploadWizard.config.wikibase,
 				params = {
 					action: 'wbsetlabel',
 					id: id,
+					baserevid: baseRevId,
 					language: language,
 					value: value
 				},
