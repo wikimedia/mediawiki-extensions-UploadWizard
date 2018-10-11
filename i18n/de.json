@@ -20,7 +20,8 @@
 			"Umherirrender",
 			"Matma Rex",
 			"Predatorix",
-			"Envlh"
+			"Envlh",
+			"Creepario"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -374,7 +375,9 @@
 	"campaigns": "Kampagnen des Hochladeassistenten",
 	"mwe-upload-campaigns-pagination-next": "Nächste Seite",
 	"mwe-upload-campaigns-list-title": "Liste der Hochladekampagnen",
+	"apihelp-flickrblacklist-description": "Bestätige eine Flickr-URL, indem du die Nutzer-ID (NSID) für das Blacklisting benutzt.\n\nWenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle IDs, welche in der Blacklist stehen, wieder.",
 	"apihelp-flickrblacklist-summary": "Validiert eine Flickr-URL durch die Verwendung der Benutzerkennung (NSID) für die Schwarzlistung.",
+	"apihelp-flickrblacklist-extended-description": "Wenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle IDs, welche in der Blacklist stehen, wieder.",
 	"apihelp-flickrblacklist-param-url": "Die zu testende Flickr-URL.",
 	"apihelp-flickrblacklist-param-list": "Wenn eingestellt, wird die gesamte Schwarze Liste zurückgegeben. Darf nicht zusammen mit $1url verwendet werden.",
 	"apihelp-flickrblacklist-example-1": "Überprüft eine URL gegen die Blacklist",
