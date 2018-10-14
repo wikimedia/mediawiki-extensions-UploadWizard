@@ -29,7 +29,8 @@
 			"Fortega",
 			"KATRINE1992",
 			"Envlh",
-			"Jelou"
+			"Jelou",
+			"Tiberius1701"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -59,7 +60,7 @@
 	"mwe-upwiz-api-warning-exists": "Ya existe [$1 otro archivo] en este wiki con el mismo nombre",
 	"mwe-upwiz-api-warning-was-deleted": "Existió un archivo con este nombre, «$1», pero fue eliminado y no puedes volver a subir el archivo. Si el archivo es diferente, intenta cambiarle el nombre.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Lo sentimos, no hemos podido encontrar un tutorial en tu idioma. En su lugar se muestra el tutorial en $1.",
-	"mwe-upwiz-tutorial-error-file-missing": "Lo sentimos, no pudimos encontrar ningún archivo para el tutorial que se supone que debe ir aquí. Contacta a los administradores del sistema.",
+	"mwe-upwiz-tutorial-error-file-missing": "Lo sentimos, no pudimos encontrar ningún archivo para el tutorial que se supone que debe ir aquí. Contacta con los administradores del sistema.",
 	"mwe-upwiz-tutorial-error-cannot-transform": "Lo sentimos, no pudimos obtener una imagen escalada del tutorial para adaptarse a esta pantalla. Esto puede ser un problema temporal con Wikimedia Commons; inténtalo de nuevo más tarde.",
 	"mwe-upwiz-help-desk": "Ayuda",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Ayuda",
