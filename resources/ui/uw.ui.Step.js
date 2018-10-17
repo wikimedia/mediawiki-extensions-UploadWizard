@@ -38,14 +38,6 @@
 
 		$( '#mwe-upwiz-content' ).append( this.$div );
 
-		this.$arrow = $( '<li>' )
-			.attr( 'id', 'mwe-upwiz-step-' + this.name )
-			.append(
-				$( '<div>' ).text( mw.message( 'mwe-upwiz-step-' + this.name ).text() )
-			);
-
-		$( '#mwe-upwiz-steps' ).append( this.$arrow );
-
 		// this will make sure that buttons will only be added if they've been
 		// set in the controller, otherwise there's nowhere to go...
 		this.nextButtonPromise = $.Deferred();
@@ -66,7 +58,6 @@
 
 		this.uploads = uploads;
 		this.$div.append( this.$buttons ).show();
-		$( '#mwe-upwiz-steps' ).arrowStepsHighlight( this.$arrow );
 
 		$( 'html, body' ).animate( {
 			scrollTop: offset.top,

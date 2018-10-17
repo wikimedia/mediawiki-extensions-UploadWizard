@@ -82,9 +82,6 @@
 
 		// Separate each link in the header with a dot.
 		$( '#contentSub .contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
-
-		// construct the arrow steps from the UL in the HTML
-		this.initArrowSteps();
 	};
 
 	/**
@@ -125,12 +122,60 @@
 
 	/**
 	 * Initializes the arrow steps above the wizard.
+	 *
+	 * @param {Object.<uw.controller.Step>} steps
 	 */
-	uw.ui.Wizard.prototype.initArrowSteps = function () {
-		$( '<ul>' )
-			.attr( 'id', 'mwe-upwiz-steps' )
-			.addClass( 'ui-helper-clearfix' )
-			.insertBefore( '#mwe-upwiz-content' );
+	uw.ui.Wizard.prototype.initialiseSteps = function ( steps ) {
+		var $steps = $( '<ul>' )
+				.attr( 'id', 'mwe-upwiz-steps' )
+				.addClass( 'ui-helper-clearfix' )
+				.insertBefore( '#mwe-upwiz-content' ),
+			sortedSteps = this.sortSteps( Object.keys( steps ).map( function ( key ) {
+				return steps[ key ];
+			} ) );
+
+		sortedSteps.forEach( function ( step ) {
+			var $arrow = $( '<li>' )
+				.attr( 'id', 'mwe-upwiz-step-' + step.stepName )
+				.append(
+					$( '<div>' ).text( mw.message( 'mwe-upwiz-step-' + step.stepName ).text() )
+				);
+			$steps.append( $arrow );
+
+			// once a (new) step loads, highlight it
+			step.on( 'load', function ( $arrow ) {
+				$steps.arrowStepsHighlight( $arrow );
+			}.bind( step, $arrow ) );
+		} );
+
+		$steps.arrowSteps();
+	};
+
+	/**
+	 * Sorts the steps in the order they'll actually be used.
+	 *
+	 * @param {uw.controller.Step[]} steps
+	 * @return {uw.controller.Step[]}
+	 */
+	uw.ui.Wizard.prototype.sortSteps = function ( steps ) {
+		var first = steps[ 0 ],
+			sorted,
+			i;
+
+		// find the very first step (element at position [0] is not guaranteed
+		// to be first (it was just added first)
+		// The actual internal relationship is defined in previousStep & nextStep
+		// properties ...)
+		while ( first.previousStep !== null ) {
+			first = first.previousStep;
+		}
+
+		sorted = [ first ];
+		for ( i = 1; i < steps.length; i++ ) {
+			sorted.push( sorted[ i - 1 ].nextStep );
+		}
+
+		return sorted;
 	};
 
 }( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
