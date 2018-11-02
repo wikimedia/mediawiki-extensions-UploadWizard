@@ -72,7 +72,7 @@ class UploadWizardCampaign {
 		return new UploadWizardCampaign( $campaignTitle );
 	}
 
-	function __construct( $title, $config = null, $context = null ) {
+	public function __construct( $title, $config = null, $context = null ) {
 		$this->title = $title;
 		if ( $config === null ) {
 			$content = WikiPage::factory( $title )->getContent();
