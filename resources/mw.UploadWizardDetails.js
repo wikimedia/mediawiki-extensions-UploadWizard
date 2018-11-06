@@ -845,7 +845,7 @@
 						// so try at least 20 times...
 						var status = mw.message( 'mwe-upwiz-submitting-captions', Object.keys( captions ).length ),
 							title = mw.Title.makeTitle( 6, result.upload.filename ),
-							callable = details.getPageProp.bind( details, title, 'mediainfo_entity' );
+							callable = details.getMediaInfoEntityId.bind( details, title ); // (T208545)
 						details.setStatus( status.text() );
 						return details.attemptExecute( callable, 20 );
 					} )
@@ -917,6 +917,30 @@
 			retry();
 
 			return deferred.promise();
+		},
+
+		/**
+		 * @param {mw.Title} title
+		 * @param {string} prop
+		 * @return {jQuery.Promise}
+		 */
+		getMediaInfoEntityId: function ( title ) {
+			return this.upload.api.get( {
+				action: 'query',
+				prop: 'info',
+				titles: title.getPrefixedDb()
+			} ).then( function ( result ) {
+				var message;
+
+				if ( result.query.pages[ 0 ].missing ) {
+					// page doesn't exist (yet)
+					message = mw.message( 'mwe-upwiz-error-pageprops-missing-page' ).parse();
+					return $.Deferred().reject( 'pageprops-missing-page', { errors: [ { html: message } ] } ).promise();
+				}
+
+				// FIXME: This just fetches the pageid and then hard-codes knowing that M+pageid is what we need
+				return 'M' + result.query.pages[ 0 ].pageid;
+			} );
 		},
 
 		/**
