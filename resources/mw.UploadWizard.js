@@ -46,37 +46,68 @@
 		createInterface: function ( selector ) {
 			this.ui = new uw.ui.Wizard( selector );
 
-			this.initialiseSteps();
-
-			// "select" the first step - highlight, make it visible, hide all others
-			this.steps.tutorial.load( [] );
+			this.initialiseSteps().then( function ( steps ) {
+				// "select" the first step - highlight, make it visible, hide all others
+				steps.tutorial.load( [] );
+			} );
 		},
 
 		/**
 		 * Initialise the steps in the wizard
+		 *
+		 * @return {jQuery.Promise}
 		 */
 		initialiseSteps: function () {
-			this.steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
-			this.steps.file = new uw.controller.Upload( this.api, this.config );
-			this.steps.deeds = new uw.controller.Deed( this.api, this.config );
-			this.steps.details = new uw.controller.Details( this.api, this.config );
-			this.steps.thanks = new uw.controller.Thanks( this.api, this.config );
+			var self = this,
+				steps = {};
 
-			this.steps.tutorial.setNextStep( this.steps.file );
+			steps.tutorial = new uw.controller.Tutorial( this.api, this.config );
+			steps.file = new uw.controller.Upload( this.api, this.config );
+			steps.deeds = new uw.controller.Deed( this.api, this.config );
+			steps.details = new uw.controller.Details( this.api, this.config );
+			steps.thanks = new uw.controller.Thanks( this.api, this.config );
 
-			this.steps.file.setPreviousStep( this.steps.tutorial );
-			this.steps.file.setNextStep( this.steps.deeds );
+			steps.tutorial.setNextStep( steps.file );
 
-			this.steps.deeds.setPreviousStep( this.steps.file );
-			this.steps.deeds.setNextStep( this.steps.details );
+			steps.file.setPreviousStep( steps.tutorial );
+			steps.file.setNextStep( steps.deeds );
 
-			this.steps.details.setPreviousStep( this.steps.deeds );
-			this.steps.details.setNextStep( this.steps.thanks );
+			steps.deeds.setPreviousStep( steps.file );
+			steps.deeds.setNextStep( steps.details );
+
+			steps.details.setPreviousStep( steps.deeds );
+			steps.details.setNextStep( steps.thanks );
 
 			// thanks doesn't need a "previous" step, there's no undoing uploads!
-			this.steps.thanks.setNextStep( this.steps.file );
+			steps.thanks.setNextStep( steps.file );
 
-			this.ui.initialiseSteps( this.steps );
+			return $.Deferred().resolve( steps ).promise()
+				.then( function ( steps ) {
+					if ( self.config.wikibase.enabled && self.config.wikibase.depicts ) {
+						// mediainfo has a couple of widgets that we'll be using, but they're not
+						// necessarily a hard dependency for UploadWizard
+						// let's just attempt to load it - if it's not available, we just won't
+						// have that extra step then...
+						return mw.loader.using( 'wikibase.mediainfo.statements' ).then(
+							function () {
+								// interject metadata step in between details & thanks
+								steps.metadata = new uw.controller.Metadata( self.api, self.config );
+
+								steps.details.setNextStep( steps.metadata );
+								// metadata has no "previous" step - the file has already been uploaded at this point
+								steps.metadata.setNextStep( steps.thanks );
+
+								return steps;
+							},
+							function () { return steps; /* just move on without metadata... */ }
+						);
+					}
+					return steps;
+				} )
+				.always( function ( steps ) {
+					self.steps = steps;
+					self.ui.initialiseSteps( steps );
+				} );
 		},
 
 		/**

@@ -61,7 +61,7 @@
 	 * Does the work of logging a step.
 	 *
 	 * @private
-	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
+	 * @param {'tutorial'|'file'|'deeds'|'details'|'metadata'|'thanks'} step
 	 * @param {boolean} [skipped=false]
 	 * @param {Object} [extraData] Extra data passed to the log.
 	 */
@@ -93,7 +93,7 @@
 	/**
 	 * Logs entering into a given step of the upload process.
 	 *
-	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
+	 * @param {'tutorial'|'file'|'deeds'|'details'|'metadata'|'thanks'} step
 	 * @param {Object} [extraData] Extra data to pass along in the log.
 	 */
 	uw.EventFlowLogger.prototype.logStep = function ( step, extraData ) {
@@ -103,7 +103,7 @@
 	/**
 	 * Logs skipping a given step of the upload process.
 	 *
-	 * @param {'tutorial'|'file'|'deeds'|'details'|'thanks'} step
+	 * @param {'tutorial'|'file'|'deeds'|'details'|'metadata'|'thanks'} step
 	 */
 	uw.EventFlowLogger.prototype.logSkippedStep = function ( step ) {
 		this.performStepLog( step, true );

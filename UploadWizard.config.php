@@ -672,6 +672,8 @@ return [
 	// enable structured data to go into a wikibase repository
 	'wikibase' => [
 		'enabled' => false,
+		'captions' => true,
+		'depicts' => false,
 		// url to wikibase repo API
 		'api' => $wgScriptPath . '/api.php',
 	],
