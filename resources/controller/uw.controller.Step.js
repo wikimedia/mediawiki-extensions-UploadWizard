@@ -44,6 +44,9 @@
 
 		this.uploads = [];
 
+		// children are expected to override this with the actual step name
+		this.stepName = new Error( 'Undefined stepName' );
+
 		/**
 		 * Upload object event handlers to be bound on load & unbound on unload.
 		 * This is an object literal where the keys are callback names, and

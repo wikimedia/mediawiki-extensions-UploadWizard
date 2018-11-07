@@ -38,8 +38,6 @@
 	mw.UploadWizard.userAgent = 'UploadWizard';
 
 	mw.UploadWizard.prototype = {
-		stepNames: [ 'tutorial', 'file', 'deeds', 'details', 'thanks' ],
-
 		/**
 		 * Create the basic interface to make an upload in this div
 		 *
@@ -78,7 +76,7 @@
 			// thanks doesn't need a "previous" step, there's no undoing uploads!
 			this.steps.thanks.setNextStep( this.steps.file );
 
-			$( '#mwe-upwiz-steps' ).arrowSteps();
+			this.ui.initialiseSteps( this.steps );
 		},
 
 		/**
