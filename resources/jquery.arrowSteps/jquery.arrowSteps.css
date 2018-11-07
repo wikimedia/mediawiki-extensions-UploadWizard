@@ -17,7 +17,8 @@
 }
 
 .arrowSteps li div {
-	padding: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
@@ -43,7 +44,7 @@
 
 .arrowSteps li.arrow:after {
 	border-left-color: #eaecf0;
-	/* half the hight of .arrowSteps li */
+	/* half the height of .arrowSteps li */
 	border-width: 25px;
 	margin-top: -25px;
 	z-index: 1;
@@ -51,7 +52,7 @@
 
 .arrowSteps li.arrow:before {
 	border-left-color: #fff;
-	/* half the hight of .arrowSteps li + width of the arrow border */
+	/* half the height of .arrowSteps li + width of the arrow border */
 	border-width: 30px;
 	margin-top: -30px;
 	z-index: 1;
@@ -63,17 +64,23 @@
 
 /*
  * Arrow is added *after* the div with the content, so we need to push
- * the content slightly to the right to make sure it remains balanced.
+ * the content slightly to the right (the previous one's arrow is
+ * overlapped on this element) to make sure it remains balanced.
  */
-.arrowSteps li.arrow:not( :first-child ):not( :last-child ) div {
-	/* half the hight of .arrowSteps li, which becomes the width of the arrow */
-	padding-left: 25px;
+.arrowSteps li:not( :first-child ):not( :last-child ) div {
+	padding-left: 30px;
 }
 
 /*
- * Steps with only an arrow on 1 side should be moved less to remain centered.
+ * First item: nothing on the left, arrow on the right, and 25px wide
+ * (+5px separation).
+ * If we want this one to appear centered, we're going to have to push
+ * it slightly to the right, so that it closer to the right hand side,
+ * which is extended because of the the arrow.
+ * Last item: previous arrow is poking into the element (25 + 5 = 30px),
+ * so let's also move it slightly to the right to appear centered.
  */
-.arrowSteps li.arrow:first-child div,
-.arrowSteps li.arrow:last-child div {
-	padding-left: 12px;
+.arrowSteps li:first-child div,
+.arrowSteps li:last-child div {
+	padding-left: 15px;
 }
