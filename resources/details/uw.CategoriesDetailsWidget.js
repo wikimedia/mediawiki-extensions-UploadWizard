@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	var NS_CATEGORY = mw.config.get( 'wgNamespaceIds' ).category;
 
@@ -133,4 +133,4 @@
 		this.categoriesWidget.setValue( serialized.value );
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

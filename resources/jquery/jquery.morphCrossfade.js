@@ -39,7 +39,7 @@
  *
  */
 
-( function ( $ ) {
+( function () {
 	/**
 	 * Initialize crossfading of the children of an element
 	 *
@@ -118,4 +118,4 @@
 		return this;
 	};
 
-}( jQuery ) );
+}() );

@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * A language dropdown within a description field in UploadWizard's "Details" step form.
@@ -80,4 +80,4 @@
 		return options;
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

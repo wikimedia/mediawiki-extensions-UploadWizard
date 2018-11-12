@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * A date field in UploadWizard's "Details" step form.
@@ -211,4 +211,4 @@
 		this.dateInputWidget.setValue( serialized.value );
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

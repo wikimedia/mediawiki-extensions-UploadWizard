@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	uw.LicensePreviewDialog = function UWLicensePreviewDialog( config ) {
 		uw.LicensePreviewDialog.parent.call( this, config );
 	};
@@ -57,4 +57,4 @@
 		this.updateSize();
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

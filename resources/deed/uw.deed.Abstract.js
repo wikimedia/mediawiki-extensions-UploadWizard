@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw ) {
+( function ( uw ) {
 	/**
 	 * Represents a generic deed.
 	 *
@@ -189,4 +189,4 @@
 			return $.Deferred().resolve( [] ).promise();
 		}
 	};
-}( mediaWiki, mediaWiki.uploadWizard ) );
+}( mw.uploadWizard ) );

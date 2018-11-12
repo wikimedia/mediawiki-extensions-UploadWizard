@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	/**
 	 * @param {Object} config The UW config
 	 * @param {mw.UploadWizardUpload} upload Uploads that this deed refers to
@@ -78,4 +78,4 @@
 			this.licenseInput.setSerialized( serialized.license );
 		}
 	};
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

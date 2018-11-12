@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
@@ -1318,4 +1318,4 @@
 		}
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

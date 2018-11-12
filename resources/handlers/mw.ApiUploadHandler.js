@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
@@ -359,4 +359,4 @@
 	mw.ApiUploadHandler.prototype.isIgnoredWarning = function ( code ) {
 		return this.ignoreWarnings.indexOf( code ) > -1;
 	};
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

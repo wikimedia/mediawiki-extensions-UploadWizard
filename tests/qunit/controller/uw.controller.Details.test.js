@@ -15,7 +15,7 @@
  * along with DetailsWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( $, mw, uw ) {
+( function ( uw ) {
 	QUnit.module( 'uw.controller.Details', QUnit.newMwEnvironment() );
 
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
@@ -156,4 +156,4 @@
 		} );
 	} );
 
-}( jQuery, mediaWiki, mediaWiki.uploadWizard ) );
+}( mw.uploadWizard ) );

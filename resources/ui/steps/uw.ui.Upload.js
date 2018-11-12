@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, uw, OO ) {
+( function ( uw ) {
 	/**
 	 * Represents the UI for the wizard's Upload step.
 	 *
@@ -500,7 +500,7 @@
 	uw.ui.Upload.prototype.showFilenameError = function ( $text ) {
 		var msgText;
 
-		if ( $text instanceof jQuery ) {
+		if ( $text instanceof $ ) {
 			msgText = $text.text();
 		} else {
 			msgText = $text;
@@ -575,4 +575,4 @@
 		this.flickrSelectButton.$element.hide();
 	};
 
-}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
+}( mw.uploadWizard ) );

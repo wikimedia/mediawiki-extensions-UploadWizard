@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	QUnit.module( 'ext.uploadWizardLicenseInput', QUnit.newMwEnvironment( {
 		setup: function () {
 			mw.UploadWizard.config = {
@@ -70,4 +70,4 @@
 		assert.strictEqual( $fixture.find( '.mwe-upwiz-deed-license-group .oo-ui-fieldsetLayout-group' ).length, 1, 'License created.' );
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

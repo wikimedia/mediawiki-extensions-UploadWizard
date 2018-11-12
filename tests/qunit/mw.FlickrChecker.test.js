@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	'use strict';
 
 	QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', QUnit.newMwEnvironment( {
@@ -90,4 +90,4 @@
 		assert.notOk( sidstub.called );
 		assert.strictEqual( upload.description, '' );
 	} );
-}( mediaWiki ) );
+}() );

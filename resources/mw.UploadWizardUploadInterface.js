@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	/**
 	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 *
@@ -304,4 +304,4 @@
 		}
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

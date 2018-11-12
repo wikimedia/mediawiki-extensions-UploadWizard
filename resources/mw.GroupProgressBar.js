@@ -1,5 +1,5 @@
 /* global moment */
-( function ( mw, $, moment ) {
+( function () {
 	/**
 	 * This is a progress bar for monitoring multiple objects, giving summary view
 	 *
@@ -197,4 +197,4 @@
 			return count;
 		}
 	};
-}( mediaWiki, jQuery, moment ) );
+}() );

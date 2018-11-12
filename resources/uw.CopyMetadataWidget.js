@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * Metadata copier in UploadWizard's "Details" step form.
@@ -210,4 +210,4 @@
 		}
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

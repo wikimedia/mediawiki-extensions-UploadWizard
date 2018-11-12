@@ -1,4 +1,4 @@
-( function ( mw, uw, $ ) {
+( function () {
 
 	/**
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
@@ -164,4 +164,4 @@
 
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );
+}() );

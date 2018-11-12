@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( $, mw, uw ) {
+( function ( uw ) {
 	/**
 	 * Represents the UI for a thumbnail in the Deed step.
 	 *
@@ -39,4 +39,4 @@
 		}
 	};
 
-}( jQuery, mediaWiki, mediaWiki.uploadWizard ) );
+}( mw.uploadWizard ) );

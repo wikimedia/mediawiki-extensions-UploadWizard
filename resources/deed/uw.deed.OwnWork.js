@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
 	 *
@@ -428,4 +428,4 @@
 
 		return new uw.PatentDialog( config, this.config, uploads );
 	};
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

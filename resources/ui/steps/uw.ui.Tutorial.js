@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, uw, OO ) {
+( function ( uw ) {
 	/**
 	 * Checkbox with popup information.
 	 *
@@ -134,4 +134,4 @@
 			);
 		} );
 	};
-}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
+}( mw.uploadWizard ) );

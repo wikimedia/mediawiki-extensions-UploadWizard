@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, uw, OO ) {
+( function ( uw ) {
 	/**
 	 * Represents a generic UI for a step.
 	 *
@@ -118,4 +118,4 @@
 			ui.$buttons.append( ui.previousButton.$element );
 		} );
 	};
-}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
+}( mw.uploadWizard ) );

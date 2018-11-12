@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * A multi-language input field in UploadWizard's "Details" step form.
@@ -298,4 +298,4 @@
 		}
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

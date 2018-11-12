@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	/**
 	 * Represents the details step in the wizard.
 	 *
@@ -369,4 +369,4 @@
 		}
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

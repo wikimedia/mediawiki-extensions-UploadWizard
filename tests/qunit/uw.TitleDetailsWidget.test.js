@@ -1,4 +1,4 @@
-( function ( mw, uw, $ ) {
+( function ( uw ) {
 	'use strict';
 
 	var fileNs, makeTitleInFileNSCases;
@@ -43,4 +43,4 @@
 			);
 		} );
 	} );
-}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );
+}( mw.uploadWizard ) );

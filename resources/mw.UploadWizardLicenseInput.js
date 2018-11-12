@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * Create a group of radio buttons for licenses. N.B. the licenses are named after the templates they invoke.
@@ -305,4 +305,4 @@
 
 	} );
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

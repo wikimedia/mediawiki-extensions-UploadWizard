@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw ) {
+( function ( uw ) {
 	/**
 	 * Event logging helper for funnel analysis. Should be instantiated at the very beginning; uses internal state
 	 * to link events together.
@@ -294,4 +294,4 @@
 	// FIXME
 	uw.eventFlowLogger = new uw.EventFlowLogger();
 	uw.eventFlowLogger.installExceptionLogger();
-}( mediaWiki, mediaWiki.uploadWizard ) );
+}( mw.uploadWizard ) );

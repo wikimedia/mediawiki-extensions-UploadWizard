@@ -2,13 +2,13 @@
 	"extends": "wikimedia",
 	"env": {
 		"browser": true,
-		"jquery": true,
 		"qunit": true
 	},
 	"globals": {
 		"require": false,
 		"OO": false,
-		"mediaWiki": false,
+		"mw": false,
+		"$": false,
 		"sinon": false
 	},
 	"rules": {

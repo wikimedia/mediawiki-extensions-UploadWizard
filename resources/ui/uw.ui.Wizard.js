@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, uw, OO ) {
+( function ( uw ) {
 	/**
 	 * Represents the UI for the wizard.
 	 *
@@ -178,4 +178,4 @@
 		return sorted;
 	};
 
-}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
+}( mw.uploadWizard ) );

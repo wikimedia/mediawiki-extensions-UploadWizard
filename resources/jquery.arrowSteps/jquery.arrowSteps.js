@@ -12,7 +12,7 @@
 /**
  * @class jQuery.plugin.arrowSteps
  */
-( function ( $ ) {
+( function () {
 	/**
 	 * Show users their progress through a series of steps, via a row of items that fit
 	 * together like arrows. One item can be highlighted at a time.
@@ -87,4 +87,4 @@
 	 * @class jQuery
 	 * @mixins jQuery.plugin.arrowSteps
 	 */
-}( jQuery ) );
+}() );

@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	/**
 	 * @param {Object} config Dialog config
 	 * @param {Object} uwConfig UploadWizard config
@@ -169,4 +169,4 @@
 	uw.PatentDialog.prototype.getBodyHeight = function () {
 		return this.content.$element.outerHeight( true );
 	};
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

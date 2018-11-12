@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * A single language input field in UploadWizard's "Details" step form.
@@ -244,4 +244,4 @@
 		this.setText( serialized.text );
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

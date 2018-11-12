@@ -1,5 +1,5 @@
 /* eslint-disable camelcase, no-underscore-dangle */
-( function ( mw, $, OO ) {
+( function () {
 	mw.FlickrChecker = function ( ui, selectButton ) {
 		this.ui = ui;
 		this.imageUploads = [];
@@ -644,7 +644,7 @@
 			}
 
 			// Workaround for http://bugs.jquery.com/ticket/8283
-			jQuery.support.cors = true;
+			$.support.cors = true;
 			mw.FlickrChecker.licensePromise = this.flickrRequest( {
 				method: 'flickr.photos.licenses.getInfo'
 			} ).then( function ( data ) {
@@ -761,4 +761,4 @@
 		}
 	};
 
-}( mediaWiki, jQuery, OO ) );
+}() );

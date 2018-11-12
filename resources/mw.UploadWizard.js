@@ -1,7 +1,7 @@
 /**
  * Object that represents the entire multi-step Upload Wizard
  */
-( function ( mw, uw, $ ) {
+( function ( uw ) {
 
 	mw.UploadWizard = function ( config ) {
 		var maxSimPref;
@@ -202,4 +202,4 @@
 			);
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery ) );
+}( mw.uploadWizard ) );

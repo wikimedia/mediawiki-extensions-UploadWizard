@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $ ) {
+( function () {
 	QUnit.module( 'mw.FormDataTransport', QUnit.newMwEnvironment() );
 
 	function createTransport( chunkSize, api ) {
@@ -225,4 +225,4 @@
 		} );
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

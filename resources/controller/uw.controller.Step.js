@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, OO, $ ) {
+( function ( uw ) {
 	/**
 	 * Represents a step in the wizard.
 	 *
@@ -346,4 +346,4 @@
 		this.removeUploads( toRemove );
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, OO, jQuery ) );
+}( mw.uploadWizard ) );

@@ -7,7 +7,7 @@
  */
 
 // Create UploadWizard
-( function ( mw, $ ) {
+( function () {
 
 	function isCompatible() {
 		var
@@ -56,4 +56,4 @@
 		mw.UploadWizardPage();
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

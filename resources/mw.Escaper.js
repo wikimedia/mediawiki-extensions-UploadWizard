@@ -1,4 +1,4 @@
-( function ( mw, OO ) {
+( function () {
 	mw.Escaper = {
 		/**
 		 * Escapes wikitext for use inside {{templates}}.
@@ -148,4 +148,4 @@
 			return wikitext.replace( searchRegex, callback );
 		}
 	};
-}( mediaWiki, OO ) );
+}() );

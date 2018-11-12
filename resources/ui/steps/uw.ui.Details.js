@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, $, uw, OO ) {
+( function ( uw ) {
 	/**
 	 * Represents the UI for the wizard's Details step.
 	 *
@@ -249,4 +249,4 @@
 		return $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0;
 	};
 
-}( mediaWiki, jQuery, mediaWiki.uploadWizard, OO ) );
+}( mw.uploadWizard ) );

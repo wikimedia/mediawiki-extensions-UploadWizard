@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 
 	mw.DestinationChecker = {
 
@@ -235,4 +235,4 @@
 
 	};
 
-}( mediaWiki, jQuery ) );
+}() );

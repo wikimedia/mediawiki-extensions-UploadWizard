@@ -15,7 +15,7 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * Upload step controller.
@@ -360,4 +360,4 @@
 		return true;
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

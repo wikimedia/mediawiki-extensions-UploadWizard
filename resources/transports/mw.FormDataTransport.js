@@ -1,4 +1,4 @@
-( function ( mw, $, OO ) {
+( function () {
 	/**
 	 * Represents a "transport" for files to upload; using HTML5 FormData.
 	 *
@@ -397,4 +397,4 @@
 
 		return this.request;
 	};
-}( mediaWiki, jQuery, OO ) );
+}() );

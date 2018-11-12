@@ -5,7 +5,7 @@
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
  */
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 	/**
 	 * Constructor for objects representing uploads. The workhorse of this entire extension.
 	 *
@@ -920,4 +920,4 @@
 		return mw.fileApi.isPreviewableVideo( this.file );
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

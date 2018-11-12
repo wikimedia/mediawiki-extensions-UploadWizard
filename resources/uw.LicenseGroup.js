@@ -1,4 +1,4 @@
-( function ( mw, uw, $, OO ) {
+( function ( uw ) {
 
 	/**
 	 * @extends OO.ui.LicenseGroup
@@ -420,4 +420,4 @@
 		this.api.parse( wikiText, { pst: true } ).done( show ).fail( error );
 	};
 
-}( mediaWiki, mediaWiki.uploadWizard, jQuery, OO ) );
+}( mw.uploadWizard ) );

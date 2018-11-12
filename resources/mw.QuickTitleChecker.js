@@ -14,7 +14,7 @@
  *   - Javascript doesn't have a standard way to access unicode character properties in regexes, so \p{PROPERTY}, \P{PROPERTY}, and [[:PROPERTY:]] have been changed when possible
  *     or the associated regex removed
 */
-( function ( mw, $ ) {
+( function () {
 
 	mw.QuickTitleChecker = {};
 
@@ -81,4 +81,4 @@
 		return errors;
 	};
 
-}( mediaWiki, jQuery ) );
+}() );
