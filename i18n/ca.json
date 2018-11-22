@@ -124,6 +124,8 @@
 	"mwe-upwiz-source-thirdparty-cases": "Ara digueu-nos perquè esteu segur que teniu els drets per publicar {{PLURAL:$1|aquesta obra|aquestes obres}}:",
 	"mwe-upwiz-source-thirdparty-accept": "D'acord",
 	"mwe-upwiz-source-custom": "Proporcioneu les llicències concedides per a cada fitxer individualment en la pàgina següent.",
+	"mwe-upwiz-patent-dialog-link-warranty": "Més informació",
+	"mwe-upwiz-patent-dialog-link-license": "Més informació",
 	"mwe-upwiz-more-options": "Afegeix la ubicació i més informació ...",
 	"mwe-upwiz-copy-metadata": "Copiar la informació a {{PLURAL:$1|l'altra càrrega|totes les càrregues}} a continuació...",
 	"mwe-upwiz-copy-metadata-button": "Copia",
