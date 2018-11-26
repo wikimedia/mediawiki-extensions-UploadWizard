@@ -28,13 +28,15 @@
 			"Envlh",
 			"Railfail536",
 			"DeRudySoulStorm",
-			"Vlad5250"
+			"Vlad5250",
+			"CiaPan"
 		]
 	},
 	"uploadwizard": "Kreator przesyłania plików",
 	"uploadwizard-desc": "Kreator przesyłania plików, przyjazne użytkownikowi narzędzie do przesyłania multimediów",
 	"tag-uploadwizard": "Kreator przesyłania plików",
 	"tag-uploadwizard-description": "Pliki przesłane za pomocą Kreatora Przesyłania",
+	"tag-uploadwizard-flickr-description": "Pliki z serwisu Flickr przesłane Kreatorem Przesyłania",
 	"right-mass-upload": "Przesyłanie wielu plików jednocześnie za pomocą kreatora przesyłania plików",
 	"right-upwizcampaigns": "Konfigurowanie kreatora sesji przesyłania plików",
 	"action-upwizcampaigns": "konfigurowanie sesji przesyłania",
@@ -43,8 +45,10 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Operatorzy inicjatyw kreatora przesyłania plików",
 	"group-upwizcampeditors.css": "/* Umieszczony tutaj kod CSS dotyczyć będzie tylko operatorów inicjatyw kreatora przesyłania plików */",
 	"group-upwizcampeditors.js": "/* Umieszczony tutaj kod JavaScript dotyczyć będzie tylko operatorów inicjatyw kreatora przesyłania plików */",
+	"api-error-parsererror": "Serwer odpowiedział nieprawidłowym dokumentem JSON. To może być problem z API, albo korzystasz z serwera proxy, który uniemożliwia przesyłanie plików.",
 	"api-error-aborted": "Przesyłanie przerwane.",
 	"api-error-noimageinfo": "Plik przesłano pomyślnie, ale serwer nie zwrócił informacji na jego temat.",
+	"mwe-upwiz-unavailable": "Twoja przeglądarka jest niezgodna z Kreatorem Przesyłania albo ma wyłączoną obsługę JavaScript-u, wobec czego udostępniamy Ci uproszczony formularz przesyłania. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Zobacz wymagania zgodności].)",
 	"mwe-upwiz-extension-disabled": "Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.",
 	"mwe-upwiz-step-tutorial": "Jak skorzystać",
 	"mwe-upwiz-step-file": "Prześlij",
