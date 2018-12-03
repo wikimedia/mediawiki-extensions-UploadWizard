@@ -245,7 +245,7 @@
 	"mwe-upwiz-error-patent-disagree": "Tienes d'aceptar los términos.",
 	"mwe-upwiz-error-pageprops-missing-page": "Nun pudieron recuperase les propiedaes de la páxina: la páxina (entá) nun esiste.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Nun pudieron recuperase les propiedaes de la páxina: la propiedá (entá) nun esiste.",
-	"mwe-upwiz-error-submit-captions": "La imaxe xubióse correutamente, pero hebo un problema al unviar {{PLURAL:$3|la lleenda|les lleendes}}. Visita [[$1]] p'anovar les lleendes. Detalles del error: $2",
+	"mwe-upwiz-error-submit-captions": "La imaxe xubióse correutamente, pero hebo un problema al unviar {{PLURAL:$1|la lleenda|les lleendes}}. Visita [[$1]] p'anovar les lleendes. Detalles del error: $2",
 	"mwe-upwiz-warning-categories-missing": "Encaméntase amestar delles categoríes a les cargues.",
 	"mwe-upwiz-warning-postdate": "La data que seleicionasti ta nel futuru.",
 	"mwe-upwiz-details-error-count": "Hai {{PLURAL:$1|un error|$1 errores}} {{PLURAL:$2|nel formulariu|nos formularios}} d'arriba. Corrixi {{PLURAL:$1|l'error|los errores}} ya intenta unvialu otra vuelta.",

@@ -277,7 +277,7 @@
 	"mwe-upwiz-error-patent-disagree": "您需要同意条款。",
 	"mwe-upwiz-error-pageprops-missing-page": "无法检索页面属性：页面（尚）不存在。",
 	"mwe-upwiz-error-pageprops-missing-prop": "无法检索页面属性：属性（尚）不存在。",
-	"mwe-upwiz-error-submit-captions": "图片已上传成功，但提交{{PLURAL:$3|字幕}}时出现问题。请访问[[$1]]以更新字幕。错误详情：$2",
+	"mwe-upwiz-error-submit-captions": "图片已上传成功，但提交{{PLURAL:$1|字幕}}时出现问题。请访问[[$1]]以更新字幕。错误详情：$2",
 	"mwe-upwiz-warning-categories-missing": "建议您为您上传的文件填写一些分类。",
 	"mwe-upwiz-warning-postdate": "您选择的日期是在将来。",
 	"mwe-upwiz-details-error-count": "上面的{{PLURAL:$2|表格}}中有$1个错误。请更正错误，并尝试再次提交。",

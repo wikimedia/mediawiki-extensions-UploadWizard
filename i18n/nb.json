@@ -252,7 +252,7 @@
 	"mwe-upwiz-error-patent-disagree": "Du må samtykke i betingelsene.",
 	"mwe-upwiz-error-pageprops-missing-page": "Kunne ikke hente sideegenskaper: siden finnes ikke (ennå).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Kunne ikke hente sideegenskaper: egenskapen finnes ikke (ennå).",
-	"mwe-upwiz-error-submit-captions": "Bildet ble lastet opp, men noe gikk galt under sendingen av {{PLURAL:$3|bildeteksten|bildetekstene}}. Gå til [[$1]] for å oppdatere bildetekstene der. Feildetaljer: $2",
+	"mwe-upwiz-error-submit-captions": "Bildet ble lastet opp, men noe gikk galt under sendingen av {{PLURAL:$1|bildeteksten|bildetekstene}}. Gå til [[$1]] for å oppdatere bildetekstene der. Feildetaljer: $2",
 	"mwe-upwiz-warning-categories-missing": "Det anbefales at du angir noen kategorier for opplastingene.",
 	"mwe-upwiz-warning-postdate": "Datoen du har valgt er i fremtiden",
 	"mwe-upwiz-details-error-count": "Det er {{PLURAL:$1|én|$1}} feil med {{PLURAL:$2|skjemaet|skjemaene}} ovenfor. Vennligst rett opp {{PLURAL:$1|feilen|feilene}}, og prøv å sende inn igjen.",

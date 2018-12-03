@@ -259,7 +259,7 @@
 	"mwe-upwiz-error-patent-disagree": "Du måste samtycka till villkoren.",
 	"mwe-upwiz-error-pageprops-missing-page": "Misslyckades att hämta sidegenskaper: Sidan finns inte (ännu).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Misslyckades att hämta sidegenskaper: Egenskapen finns inte (ännu).",
-	"mwe-upwiz-error-submit-captions": "Bilden laddades upp, men någonting gick fel när {{PLURAL:$3|bildtexten|bildtexterna}} skickades. Besök [[$1]] för att uppdatera bildtexterna där. Feldetaljer: $2",
+	"mwe-upwiz-error-submit-captions": "Bilden laddades upp, men någonting gick fel när {{PLURAL:$1|bildtexten|bildtexterna}} skickades. Besök [[$1]] för att uppdatera bildtexterna där. Feldetaljer: $2",
 	"mwe-upwiz-warning-categories-missing": "Det rekommenderas att du anger några kategorier för dina uppladdningar.",
 	"mwe-upwiz-warning-postdate": "Datumet som du har valt är i framtiden.",
 	"mwe-upwiz-details-error-count": "Det finns {{PLURAL:$1|ett fel|$1 fel}} i {{PLURAL:$2|formuläret|formulären}} ovan. Korrigera {{PLURAL:$1|felet|felen}} och försök att skicka igen.",

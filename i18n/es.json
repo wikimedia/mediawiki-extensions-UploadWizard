@@ -271,7 +271,7 @@
 	"mwe-upwiz-error-patent-disagree": "Debes aceptar los términos.",
 	"mwe-upwiz-error-pageprops-missing-page": "No se pudieron recuperar las propiedades de la página: la página no existe (aún).",
 	"mwe-upwiz-error-pageprops-missing-prop": "No se pudieron recuperar las propiedades de la página: la propiedad no existe (aún).",
-	"mwe-upwiz-error-submit-captions": "Se cargó la imagen correctamente, pero se produjo un problema al enviar {{PLURAL:$3|la leyenda|las leyendas}}. Visita [[$1]] para actualizar las leyendas. Detalles del error: $2",
+	"mwe-upwiz-error-submit-captions": "Se cargó la imagen correctamente, pero se produjo un problema al enviar {{PLURAL:$1|la leyenda|las leyendas}}. Visita [[$1]] para actualizar las leyendas. Detalles del error: $2",
 	"mwe-upwiz-warning-categories-missing": "Se recomienda seleccionar algunas categorías para tus subidas.",
 	"mwe-upwiz-warning-postdate": "La fecha que seleccionaste es en el futuro.",
 	"mwe-upwiz-details-error-count": "Hay {{PLURAL:$1|un error|$1 errores}} en {{PLURAL:$2|el formulario|los formularios}} de arriba. Corrígelo{{PLURAL:$1||s}} e intenta realizar el envío de nuevo.",

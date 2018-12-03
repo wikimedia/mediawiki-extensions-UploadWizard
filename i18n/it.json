@@ -241,7 +241,7 @@
 	"mwe-upwiz-error-license-wikitext-missing-template": "Il wikitesto che hai inserito non contiene un template di licenza valido.",
 	"mwe-upwiz-error-pageprops-missing-page": "Impossibile consultare le proprietà della pagina: la pagina non esiste (ancora).",
 	"mwe-upwiz-error-pageprops-missing-prop": "Impossibile consultare le proprietà della pagina: la proprietà non esiste (ancora).",
-	"mwe-upwiz-error-submit-captions": "L'immagine è stata caricata con successo, ma c'è stato un problema nell'inviare {{PLURAL:$3|la didascalia|le didascalie}}. Vedi [[$1]] per aggiornare le didascalie. Dettagli dell'errore: $2",
+	"mwe-upwiz-error-submit-captions": "L'immagine è stata caricata con successo, ma c'è stato un problema nell'inviare {{PLURAL:$1|la didascalia|le didascalie}}. Vedi [[$1]] per aggiornare le didascalie. Dettagli dell'errore: $2",
 	"mwe-upwiz-warning-categories-missing": "Si consiglia di indicare alcune categorie per i caricamenti.",
 	"mwe-upwiz-warning-postdate": "La data selezionata è nel futuro.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|C'è un errore|Ci sono $1 errori}} {{PLURAL:$2|nel modulo precedente|nei moduli precedenti}}. Correggi {{PLURAL:$1|l'errore|gli errori}} e riprova.",

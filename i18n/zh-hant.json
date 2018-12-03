@@ -262,7 +262,7 @@
 	"mwe-upwiz-error-patent-disagree": "您需要同意條款",
 	"mwe-upwiz-error-pageprops-missing-page": "檢索頁面屬性失敗：頁面（尚）不存在。",
 	"mwe-upwiz-error-pageprops-missing-prop": "檢索頁面屬性失敗：屬性（尚）不存在。",
-	"mwe-upwiz-error-submit-captions": "圖片已上傳成功，但提交{{PLURAL:$3|說明文字|說明文字}}時出現問題。請訪問 [[$1]] 來更新說明文字。錯誤詳情：$2",
+	"mwe-upwiz-error-submit-captions": "圖片已上傳成功，但提交{{PLURAL:$1|說明文字|說明文字}}時出現問題。請訪問 [[$1]] 來更新說明文字。錯誤詳情：$2",
 	"mwe-upwiz-warning-categories-missing": "建議您為您上傳的檔案加入分類。",
 	"mwe-upwiz-warning-postdate": "您選擇的日期是在將來。",
 	"mwe-upwiz-details-error-count": "上方的{{PLURAL:$2|表單}}中{{PLURAL:$1|有 1 項|有 $1 項}}錯誤。請修正錯誤後再嘗試送出。",
