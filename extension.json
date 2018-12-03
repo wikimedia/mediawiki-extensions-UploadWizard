@@ -145,6 +145,7 @@
 				"mediawiki.RegExp",
 				"mediawiki.Title",
 				"mediawiki.user",
+				"mediawiki.notify",
 				"mediawiki.feedback",
 				"mediawiki.language",
 				"moment",
