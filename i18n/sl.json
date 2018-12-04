@@ -229,7 +229,7 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "Vnešeno wikibesedilo je predolgo.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Wikibesedilo, ki si ga vnesel, ne vsebuje veljavne predloge za dovoljenje.",
 	"mwe-upwiz-error-patent-disagree": "S temi pogoji se je potrebno strinjati.",
-	"mwe-upwiz-error-submit-captions": "Slika je bila naložena uspešno, vendar se je zalomilo pri pošiljanju {{PLURAL:$1|podnapisa|podnapisov}}. Podnapise lahko spremeniš na [[$1]]. Napaka: $2",
+	"mwe-upwiz-error-submit-captions": "Slika je bila naložena uspešno, vendar se je zalomilo pri pošiljanju {{PLURAL:$1|podnapisa|podnapisov}}.",
 	"mwe-upwiz-warning-categories-missing": "Naloženim datotekam je priporočljivo dodati kategorije.",
 	"mwe-upwiz-warning-postdate": "Izbrani datum je iz prihodnosti.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Obstaja ena težava|Obstajata dve težavi|Obstajajo $1 težave|Obstaja $1 težav}} z {{PLURAL:$2|zgornjim obrazec|zgornjima obrazcema|zgornjimi obrazci}}. Odpravite {{PLURAL:$1|jo|ju|jih}} in poskusi poslati ponovno.",

@@ -15,7 +15,8 @@
 			"Matma Rex",
 			"KATRINE1992",
 			"Envlh",
-			"Nikosgranturismogt"
+			"Nikosgranturismogt",
+			"KATRINE1993"
 		]
 	},
 	"uploadwizard": "Οδηγός Ανεβάσματος",
@@ -200,6 +201,8 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Το βικικείμενο εδώ είναι πολύ σύντομο για να είναι άδεια",
 	"mwe-upwiz-error-license-wikitext-too-long": "Το βικικείμενο που έχετε εισάγει είναι πολύ μεγάλο.",
 	"mwe-upwiz-error-patent-disagree": "Πρέπει να συμφωνήσετε με τους όρους.",
+	"mwe-upwiz-error-submit-captions": "Η εικόνα φορτώθηκε με επιτυχία, αλλά κάτι συνέβη στην αποστολή {{PLURAL:$1|caption|captions}}.",
+	"mwe-upwiz-error-submit-captions-remedy": "Για να διορθώσετε αυτό: επίσκεψη [[$1]] για ενημέρωση υποτίτλων εκεί.",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Υπάρχει ένα σφάλμα|Υπάρχουν $1 σφάλματα}} με {{PLURAL:$2|τη μορφή|τις μορφές}} παραπάνω. Διορθώστε {{PLURAL:$1|το σφάλμα|τα σφάλματα}} και προσπαθήστε να κάνετε ξανά υποβολή.",
 	"mwe-upwiz-too-many-files-text": "Μπορείτε να ανεβάσετε $1 {{PLURAL:$1|αρχείο|αρχεία}} ταυτόχρονα αλλά προσπαθήσατε να ανεβάσετε $2 {{PLURAL:$2|αρχείο|αρχεία}} συνολικά. Παρακαλούμε δοκιμάστε ξανά με λιγότερα αρχεία!",
 	"mwe-upwiz-too-many-files": "Πάρα πολλά αρχεία.",

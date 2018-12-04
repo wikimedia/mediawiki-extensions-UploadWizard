@@ -246,7 +246,7 @@
 	"mwe-upwiz-error-patent-disagree": "조건에 동의해야 합니다.",
 	"mwe-upwiz-error-pageprops-missing-page": "문서 속성 가져오기를 실패했습니다: 문서가 (아직) 존재하지 않습니다.",
 	"mwe-upwiz-error-pageprops-missing-prop": "문서 속성 가져오기를 실패했습니다: 속성이 (아직) 존재하지 않습니다.",
-	"mwe-upwiz-error-submit-captions": "이 그림은 성공적으로 업로드되었으나 {{PLURAL:$1|제목}} 제출에 문제가 있었습니다. 제목을 수정하려면 [[$1]]을(를) 방문하십시오. 오류 상세 내용: $2",
+	"mwe-upwiz-error-submit-captions": "이 그림은 성공적으로 업로드되었으나 {{PLURAL:$1|제목}} 제출에 문제가 있었습니다.",
 	"mwe-upwiz-warning-categories-missing": "업로드 항목에 일부 분류를 넣는 것을 권장합니다.",
 	"mwe-upwiz-warning-postdate": "선택한 날짜는 미래입니다.",
 	"mwe-upwiz-details-error-count": "위 {{PLURAL:$2|양식}}에 {{PLURAL:$1|오류 하나|오류 $1개}}가 있습니다. {{PLURAL:$1|오류}}를 수정한 후 다시 시도하세요.",
