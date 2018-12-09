@@ -197,6 +197,8 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Изабрали сте могућност која захтева да унесете викитекст.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Овај викитекст је прекратак да би могао да буде лиценца",
 	"mwe-upwiz-error-license-wikitext-too-long": "Викитекст који сте унели је предугачак.",
+	"mwe-upwiz-error-submit-captions": "Слика је успешно отпремљена, али нешто није у реду са слањем  {{PLURAL:$1|натписа|натписâ}}.",
+	"mwe-upwiz-error-submit-captions-remedy": "Да бисте ово поправили: посетите [[$1]] за ажурирање натписа.",
 	"mwe-upwiz-warning-categories-missing": "Препоручује се да унесете неколико категорија за своја отпремања.",
 	"mwe-upwiz-warning-postdate": "Датум који сте одабрали је у будућности (у односу на UTC).",
 	"mwe-upwiz-details-error-count": "{{PLURAL:$1|Постоји једна грешка|Постоје $1 грешке|Постоји $1 грешака}} у {{PLURAL:$2|обрасцу|обрасцима}} изнад. Исправите {{PLURAL:$1|грешку|грешке}} и покушајте поново.",
