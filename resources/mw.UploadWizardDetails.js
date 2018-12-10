@@ -745,17 +745,17 @@
 			// https://commons.wikimedia.org/wiki/Template:Information
 			// can we be more slick and do this with maps, applys, joins?
 			information = {
-				// {{lang|description in lang}}*   required
+				// {{lang|description in lang}}* (required)
 				description: '',
-				// YYYY, YYYY-MM, or YYYY-MM-DD	 required  - use jquery but allow editing, then double check for sane date.
+				// YYYY, YYYY-MM, or YYYY-MM-DD (required) use jquery but allow editing, then double check for sane date.
 				date: '',
-				// {{own}} or wikitext	optional
+				// {{own}} or wikitext (optional)
 				source: '',
-				// any wikitext, but particularly {{Creator:Name Surname}}   required
+				// any wikitext, but particularly {{Creator:Name Surname}} (required)
 				author: '',
-				// leave blank unless OTRS pending; by default will be "see below"   optional
+				// leave blank unless OTRS pending; by default will be "see below" (optional)
 				permission: '',
-				// pipe separated list, other versions	 optional
+				// pipe separated list, other versions (optional)
 				'other versions': ''
 			};
 

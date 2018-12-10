@@ -67,7 +67,9 @@
 		// this.progressBar = ( no progress bar for individual uploads yet )
 		// we bind to the ui div since .off() doesn't work for non-DOM objects
 		// TODO Convert this to an OO.EventEmitter, and use OOjs events
-		this.$div.on( 'transportProgressEvent', function () { ui.showTransportProgress(); } );
+		this.$div.on( 'transportProgressEvent', function () {
+			ui.showTransportProgress();
+		} );
 	};
 
 	OO.mixinClass( mw.UploadWizardUploadInterface, OO.EventEmitter );
@@ -219,10 +221,10 @@
 	/**
 	 * this does two things:
 	 *   1 ) since the file input has been hidden with some clever CSS ( to avoid x-browser styling issues ),
-	 *	  update the visible filename
+	 *       update the visible filename
 	 *
 	 *   2 ) update the underlying "title" which we are targeting to add to mediawiki.
-	 *	  TODO silently fix to have unique filename? unnecessary at this point...
+	 *       TODO silently fix to have unique filename? unnecessary at this point...
 	 */
 	mw.UploadWizardUploadInterface.prototype.updateFilename = function () {
 		var path = this.upload.getFilename();

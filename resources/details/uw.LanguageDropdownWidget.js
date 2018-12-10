@@ -30,7 +30,9 @@
 
 		// remove all items except the one currently selected (don't want
 		// to trigger another select by removing it)
-		menu.removeItems( currentMenuItems.filter( function ( item ) { return !item.isSelected(); } ) );
+		menu.removeItems( currentMenuItems.filter( function ( item ) {
+			return !item.isSelected();
+		} ) );
 
 		// and add the rest of the languages back in there
 		delete languages[ currentValue ];

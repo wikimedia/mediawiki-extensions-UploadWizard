@@ -312,7 +312,9 @@
 			templates = [ templates.join( '|' ) ];
 		}
 
-		wikiTexts = $.map( templates, function ( t ) { return '{{' + t + '}}'; } );
+		wikiTexts = $.map( templates, function ( t ) {
+			return '{{' + t + '}}';
+		} );
 		return wikiTexts.join( '' );
 	};
 

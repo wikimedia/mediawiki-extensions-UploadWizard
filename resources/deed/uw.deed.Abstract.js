@@ -122,7 +122,7 @@
 	uw.deed.Abstract.prototype.needsPatentAgreement = function ( upload ) {
 		var extensions = this.config.patents ? this.config.patents.extensions : [];
 
-		return $.inArray( upload.title.getExtension().toLowerCase(), extensions ) >= 0;
+		return extensions.indexOf( upload.title.getExtension().toLowerCase() ) !== -1;
 	};
 
 	/**

@@ -125,7 +125,7 @@
 						protection = data.query.pages[ -1 ].protection;
 						if ( protection && protection.length > 0 ) {
 							$.each( protection, function ( i, val ) {
-								if ( $.inArray( val.level, mw.config.get( 'wgUserGroups' ) ) === -1 ) {
+								if ( mw.config.get( 'wgUserGroups' ).indexOf( val.level ) === -1 ) {
 									result = {
 										isUnique: true,
 										isProtected: true

@@ -74,10 +74,10 @@
 					if ( upload.state === 'aborted' ) {
 						return;
 					}
-					if ( $.inArray( upload.state, bar.successStates ) !== -1 ) {
+					if ( bar.successStates.indexOf( upload.state ) !== -1 ) {
 						successStateCount++;
 					}
-					if ( $.inArray( upload.state, bar.errorStates ) !== -1 ) {
+					if ( bar.errorStates.indexOf( upload.state ) !== -1 ) {
 						errorStateCount++;
 					}
 					if ( upload[ bar.progressProperty ] !== undefined ) {
@@ -104,7 +104,9 @@
 				} else {
 					bar.showProgress( 1.0 );
 					bar.finished = true;
-					setTimeout( function () { bar.hideBar(); }, 500 );
+					setTimeout( function () {
+						bar.hideBar();
+					}, 500 );
 				}
 			}
 			displayer();

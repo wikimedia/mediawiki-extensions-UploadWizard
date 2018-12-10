@@ -56,7 +56,9 @@
 		if ( mw.UploadWizard.config.enableCategoryCheck && this.categoriesWidget.getItems().length === 0 ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-categories-missing' ) );
 		}
-		if ( this.categoriesWidget.getItems().some( function ( item ) { return item.missing; } ) ) {
+		if ( this.categoriesWidget.getItems().some( function ( item ) {
+			return item.missing;
+		} ) ) {
 			warnings.push( mw.message( 'mwe-upwiz-categories-missing' ) );
 		}
 		return $.Deferred().resolve( warnings ).promise();

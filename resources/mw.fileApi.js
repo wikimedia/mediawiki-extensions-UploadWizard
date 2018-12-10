@@ -15,9 +15,9 @@
 		 * @return {boolean}
 		 */
 		isPreviewableFile: function ( file ) {
-			var	known = [ 'image/png', 'image/gif', 'image/jpeg' ],
+			var known = [ 'image/png', 'image/gif', 'image/jpeg' ],
 				tooHuge = 10 * 1024 * 1024;
-			return this.isPreviewableVideo( file ) || ( $.inArray( file.type, known ) !== -1 ) && file.size > 0 && file.size < tooHuge;
+			return this.isPreviewableVideo( file ) || ( known.indexOf( file.type ) !== -1 ) && file.size > 0 && file.size < tooHuge;
 		},
 
 		/**

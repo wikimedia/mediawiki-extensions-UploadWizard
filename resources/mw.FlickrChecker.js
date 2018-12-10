@@ -333,10 +333,10 @@
 		 * Retrieves a list of photos and displays it.
 		 *
 		 * @param {string} mode may be: 'photoset' - for use with photosets,
-		 *	 or 'photos' - for use with everything else (the parameter is used
-		 *	 to determine how the properties in retrieved JSON are named)
+		 *  or 'photos' - for use with everything else (the parameter is used
+		 *  to determine how the properties in retrieved JSON are named)
 		 * @param {Object} options options to pass to the API call; especially API method
-		 *	 and some "***_id"s (photoset_id, etc.)
+		 *  and some "***_id"s (photoset_id, etc.)
 		 * @return {jQuery.Promise}
 		 */
 		getPhotos: function ( mode, options ) {

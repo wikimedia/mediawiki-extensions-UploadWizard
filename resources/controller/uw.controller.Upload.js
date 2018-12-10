@@ -341,7 +341,7 @@
 
 		if (
 			mw.UploadWizard.config.fileExtensions !== null &&
-			$.inArray( extension.toLowerCase(), mw.UploadWizard.config.fileExtensions ) === -1
+			mw.UploadWizard.config.fileExtensions.indexOf( extension.toLowerCase() ) === -1
 		) {
 			this.ui.showBadExtensionError( filename, extension );
 			return false;

@@ -83,7 +83,7 @@
 	uw.SingleLanguageInputWidget.prototype.onRemoveClick = function () {
 		var element = this.getElementGroup();
 
-		if ( element && $.isFunction( element.removeItems ) ) {
+		if ( element && typeof element.removeItems === 'function' ) {
 			element.removeItems( [ this ] );
 		}
 	};
