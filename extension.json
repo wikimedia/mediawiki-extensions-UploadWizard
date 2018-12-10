@@ -161,7 +161,8 @@
 				"oojs-ui.styles.icons-location",
 				"oojs-ui.styles.icons-moderation",
 				"mediawiki.widgets.DateInputWidget",
-				"mediawiki.widgets.CategoryMultiselectWidget"
+				"mediawiki.widgets.CategoryMultiselectWidget",
+				"user.options"
 			],
 			"scripts": [
 				"resources/jquery.arrowSteps/jquery.arrowSteps.js",
