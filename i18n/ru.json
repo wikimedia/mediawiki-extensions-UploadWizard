@@ -40,7 +40,8 @@
 			"Envlh",
 			"Ole Yves",
 			"Stjn",
-			"Vlad5250"
+			"Vlad5250",
+			"Nk88"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -155,8 +156,10 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.",
 	"mwe-upwiz-patent-dialog-title": "Патентные права",
+	"mwe-upwiz-patent-dialog-title-filename": "Юридические права на: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",
 	"mwe-upwiz-patent-dialog-button-next": "Далее",
+	"mwe-upwiz-patent-dialog-title-warranty": "Гарантия на патенты",
 	"mwe-upwiz-patent-dialog-link-warranty": "Узнать больше",
 	"mwe-upwiz-patent-dialog-link-license": "Узнать больше",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Я согласен с этими условиями",
@@ -172,6 +175,7 @@
 	"mwe-upwiz-copy-categories": "Скопировать категории",
 	"mwe-upwiz-copy-location": "Скопировать расположение",
 	"mwe-upwiz-copy-other": "Скопировать остальную информацию",
+	"mwe-upwiz-caption": "Подпись",
 	"mwe-upwiz-desc": "Описание",
 	"mwe-upwiz-title": "Название изображения",
 	"mwe-upwiz-date-created": "Дата",
@@ -256,6 +260,8 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Введённый вики-текст слишком короткий, чтобы быть лицензией",
 	"mwe-upwiz-error-license-wikitext-too-long": "Введённый вики-текст слишком длинный.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Вики-текст, который вы ввели, не содержит действительного шаблона лицензий.",
+	"mwe-upwiz-error-patent-disagree": "Вы должны согласиться с условиями.",
+	"mwe-upwiz-error-pageprops-missing-page": "Не удалось узнать свойства страницы: страница еще не существует.",
 	"mwe-upwiz-error-submit-captions": "Изображение успешно загружено, но произошли проблемы при загрузке {{PLURAL:$1|1=надписи|надписей}}.",
 	"mwe-upwiz-error-submit-captions-remedy": "Чтобы исправить это: посетите [[$1]], чтобы изменить надписи.",
 	"mwe-upwiz-warning-categories-missing": "Желательно, чтобы вы указали несколько категорий для ваших загрузок.",
