@@ -208,6 +208,18 @@ $specialPageAliases['si'] = [
 	'UploadWizard' => [ 'උඩුගත_කිරීමේ_මාය_අඳුන' ],
 ];
 
+/** Serbian Cyrillic (српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = [
+	'Campaigns' => [ 'Кампање' ],
+	'UploadWizard' => [ 'Чаробњак_за_отпремање' ],
+];
+
+/** Serbian Latin (srpski (latinica)) */
+$specialPageAliases['sr-el'] = [
+	'Campaigns' => [ 'Kampanje' ],
+	'UploadWizard' => [ 'Čarobnjak_za_otpremanje' ],
+];
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
 	'Campaigns' => [ 'Kampanjer' ],
