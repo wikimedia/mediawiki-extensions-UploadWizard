@@ -11,9 +11,9 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
-		$dbfile = __DIR__ . '/UploadWizard.' . $updater->getDB()->getType() . '.sql';
+		$dbfile = __DIR__ . '/sql/UploadWizard.' . $updater->getDB()->getType() . '.sql';
 		if ( !file_exists( $dbfile ) ) {
-			$dbfile = __DIR__ . '/UploadWizard.sql';
+			$dbfile = __DIR__ . '/sql/UploadWizard.sql';
 		}
 		$updater->addExtensionTable( 'uw_campaigns', $dbfile );
 		$updater->addExtensionUpdate( [
