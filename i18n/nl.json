@@ -337,7 +337,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximale aantal gelijktijdige uploads",
 	"campaigns": "Campagnes voor Uploadwizard",
 	"mwe-upload-campaigns-pagination-next": "Volgende pagina",
-	"mwe-upload-campaigns-list-title": "Lijst met uploadcampagnes",
-	"apihelp-flickrblacklist-example-2": "Volledige zwarte lijst ophalen",
-	"apihelp-query+allcampaigns-description": "Alle UploadWizardcampagnes inventariseren."
+	"mwe-upload-campaigns-list-title": "Lijst met uploadcampagnes"
 }

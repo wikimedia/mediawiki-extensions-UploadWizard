@@ -358,7 +358,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maksymalna liczba równoczesnych załadowań",
 	"campaigns": "Inicjatywy kreatora przesyłania plików",
 	"mwe-upload-campaigns-pagination-next": "Następna strona",
-	"mwe-upload-campaigns-list-title": "Lista inicjatyw",
-	"apihelp-flickrblacklist-param-url": "Adres URL na Flickr do sprawdzenia.",
-	"apihelp-flickrblacklist-example-1": "Sprawdź adres URL pod kątem obecności na czarnej liście"
+	"mwe-upload-campaigns-list-title": "Lista inicjatyw"
 }

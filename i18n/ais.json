@@ -295,9 +295,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "makelec nikayadah nu patapabaw imahiniay",
 	"campaigns": "patapabaw tu miedapay saugnay nu binawlan",
 	"mwe-upload-campaigns-pagination-next": "zikuzan a belih",
-	"mwe-upload-campaigns-list-title": "patapabaw piazihan tu sulit nu saungay nu binawlan",
-	"apihelp-flickrblacklist-param-url": "amitanam a Flickr URL.",
-	"apihelp-flickrblacklist-example-1": "kinsa URL namalangat ilabu nu piazihan-tu-sulit haw?",
-	"apihelp-flickrblacklist-example-2": "tatiku leku malangat piazihan-tu-sulit",
-	"apihelp-query+allcampaigns-param-limit": "nikayadah atatikuay a saungay nu binawlan."
+	"mwe-upload-campaigns-list-title": "patapabaw piazihan tu sulit nu saungay nu binawlan"
 }

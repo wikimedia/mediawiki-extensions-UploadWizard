@@ -1,7 +1,5 @@
 {
-	"@metadata": {
-		"authors": []
-	},
+	"@metadata": [],
 	"apihelp-flickrblacklist-description": "{{doc-apihelp-description|flickrblacklist}}",
 	"apihelp-flickrblacklist-summary": "{{doc-apihelp-summary|flickrblacklist}}",
 	"apihelp-flickrblacklist-extended-description": "{{doc-apihelp-extended-description|flickrblacklist}}",

@@ -325,8 +325,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximal Zuel vun Uploaden de selwechten Ament",
 	"campaigns": "Campagnen vum Assistent fir eropzelueden",
 	"mwe-upload-campaigns-pagination-next": "Nächst Säit",
-	"mwe-upload-campaigns-list-title": "Lëscht vun de Campagne fir Eropzelueden",
-	"apihelp-flickrblacklist-param-url": "D'Flickr-URL déi getest gi soll",
-	"apihelp-flickrblacklist-example-1": "Nokucken ob eng URL op der schwaarzer Lëscht steet",
-	"apihelp-flickrblacklist-example-2": "Déi komplett schwaarz Lëscht zréckschécken"
+	"mwe-upload-campaigns-list-title": "Lëscht vun de Campagne fir Eropzelueden"
 }

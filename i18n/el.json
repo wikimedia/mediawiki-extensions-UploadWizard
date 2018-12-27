@@ -302,9 +302,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Μέγιστος αριθμός ταυτόχρονων ανεβασμάτων",
 	"campaigns": "Εκστρατείες Οδηγού Ανεβάσματος",
 	"mwe-upload-campaigns-pagination-next": "Επόμενη σελίδα",
-	"mwe-upload-campaigns-list-title": "Λίστα εκστρατειών ανεβάσματος",
-	"apihelp-flickrblacklist-param-url": "Η προς δοκιμή διεύθυνση URL του Flickr.",
-	"apihelp-flickrblacklist-example-1": "Έλεγχος διεύθυνσης URL στη μαύρη λίστα",
-	"apihelp-flickrblacklist-example-2": "Επιστροφή ολόκληρης της μαύρης λίστας",
-	"apihelp-query+allcampaigns-description": "Απαρίθμηση όλων των εκστρατειών του Οδηγού Ανεβάσματος."
+	"mwe-upload-campaigns-list-title": "Λίστα εκστρατειών ανεβάσματος"
 }

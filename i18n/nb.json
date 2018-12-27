@@ -365,17 +365,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maks antall samtidige opplastinger",
 	"campaigns": "Kampanjer for opplastningsveiviseren",
 	"mwe-upload-campaigns-pagination-next": "Neste side",
-	"mwe-upload-campaigns-list-title": "Liste over opplastingskampanjer",
-	"apihelp-flickrblacklist-description": "Valider en Flickr-URL ved å angi bruker-ID (NSID) for sjekk mot svarteliste.\n\nNår den brukes med valget <var>list</var> returneres alle svartelistede ID-er.",
-	"apihelp-flickrblacklist-summary": "Valider en Flickr-URL ved å sjekke bruker-ID-en (NSID) for svartelisting.",
-	"apihelp-flickrblacklist-extended-description": "Når den brukes med valget <var>list</var> returneres alle svartelistede ID-er.",
-	"apihelp-flickrblacklist-param-url": "Flickr-URL som skal testes.",
-	"apihelp-flickrblacklist-param-list": "Returnerer den fullstendige svartelisten. Kan ikke brukes sammen med $1url.",
-	"apihelp-flickrblacklist-example-1": "Sjekk en URL mot svartelisten",
-	"apihelp-flickrblacklist-example-2": "Returner hele svartelisten",
-	"apihelp-query+allcampaigns-description": "List opp alle UploadWizard-kampanjer.",
-	"apihelp-query+allcampaigns-summary": "List opp alle opplastingsveiviserkampanjer.",
-	"apihelp-query+allcampaigns-param-enabledonly": "Bare list opp kampanjer som er aktivert.",
-	"apihelp-query+allcampaigns-param-limit": "Antall kampanjer som skal returneres.",
-	"apihelp-query+allcampaigns-example-1": "List opp aktiverte kampanjer"
+	"mwe-upload-campaigns-list-title": "Liste over opplastingskampanjer"
 }
