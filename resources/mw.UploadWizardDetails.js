@@ -52,6 +52,9 @@
 			this.mainFields.push( this.titleDetailsField );
 
 			this.captionsDetails = new uw.MultipleLanguageInputWidget( {
+				inputWidget: new OO.ui.TextInputWidget( {
+					classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ]
+				} ),
 				required: false,
 				// Messages: mwe-upwiz-caption-add-0, mwe-upwiz-caption-add-n
 				label: mw.message( 'mwe-upwiz-caption-add' ),
