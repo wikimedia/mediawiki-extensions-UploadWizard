@@ -52,7 +52,7 @@
 			this.mainFields.push( this.titleDetailsField );
 
 			this.captionsDetails = new uw.MultipleLanguageInputWidget( {
-				inputWidget: new OO.ui.TextInputWidget( {
+				inputWidgetConstructor: OO.ui.TextInputWidget.bind( null, {
 					classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ]
 				} ),
 				required: false,

@@ -15,7 +15,7 @@
 	 */
 	uw.SingleLanguageInputWidget = function UWSingleLanguageInputWidget( config ) {
 		this.config = $.extend( {
-			inputWidget: new OO.ui.MultilineTextInputWidget( {
+			inputWidgetConstructor: OO.ui.MultilineTextInputWidget.bind( null, {
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ],
 				autosize: true,
 				rows: 2
@@ -41,7 +41,8 @@
 		}
 		this.languageSelector.setValue( config.defaultLanguage || this.getDefaultLanguage() );
 
-		this.textInput = this.config.inputWidget;
+		// eslint-disable-next-line new-cap
+		this.textInput = new this.config.inputWidgetConstructor();
 		this.removeButton = new OO.ui.ButtonWidget( {
 			classes: [ 'mwe-upwiz-singleLanguageInputWidget-removeItem' ],
 			icon: 'trash',
