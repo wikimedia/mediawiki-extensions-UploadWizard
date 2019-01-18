@@ -41,16 +41,16 @@
 	// Live list at http://api.flickr.com/services/rest/?&method=flickr.photos.licenses.getInfo&api_key=...
 	mw.FlickrChecker.licenseMaps = {
 		'All Rights Reserved': 'invalid',
-		'Attribution License': '{{FlickrVerifiedByUploadWizard|cc-by-2.0}}{{cc-by-2.0}}',
+		'Attribution License': '{{cc-by-2.0}}{{flickrreview}}',
 		'Attribution-NoDerivs License': 'invalid',
 		'Attribution-NonCommercial-NoDerivs License': 'invalid',
 		'Attribution-NonCommercial License': 'invalid',
 		'Attribution-NonCommercial-ShareAlike License': 'invalid',
-		'Attribution-ShareAlike License': '{{FlickrVerifiedByUploadWizard|cc-by-sa-2.0}}{{cc-by-sa-2.0}}',
-		'No known copyright restrictions': '{{FlickrVerifiedByUploadWizard|Flickr-no known copyright restrictions}}{{Flickr-no known copyright restrictions}}',
-		'United States Government Work': '{{FlickrVerifiedByUploadWizard|PD-USGov}}{{PD-USGov}}',
-		'Public Domain Dedication (CC0)': '{{FlickrVerifiedByUploadWizard|cc-zero}}{{cc-zero}}',
-		'Public Domain Mark': '{{FlickrVerifiedByUploadWizard|Public Domain Mark}}' // T105629
+		'Attribution-ShareAlike License': '{{cc-by-sa-2.0}}{{flickrreview}}',
+		'No known copyright restrictions': '{{Flickr-no known copyright restrictions}}{{flickrreview}}',
+		'United States Government Work': '{{PD-USGov}}{{flickrreview}}',
+		'Public Domain Dedication (CC0)': '{{cc-zero}}{{flickrreview}}',
+		'Public Domain Mark': '{{flickrreview}}' // T105629, user needs to add a valid PD license
 	};
 
 	mw.FlickrChecker.prototype = {
