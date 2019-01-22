@@ -61,7 +61,7 @@
 		if ( feedbackLink ) {
 			this.$feedbackLink = $( '<a>' )
 				.addClass( 'contentSubLink' )
-				.prop( 'href', config.feedbackLink )
+				.prop( 'href', feedbackLink )
 				.msg( 'mwe-upwiz-feedback-prompt' );
 
 			$( '#contentSub' ).append( this.$feedbackLink );
