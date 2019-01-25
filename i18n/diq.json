@@ -107,6 +107,8 @@
 	"mwe-upwiz-source-thirdparty-cases": "Nıka ma rê bıwane qay qay qandê wayerê çapkerdışi ra emin niyo\n{{PLURAL:$1|in kar|kari}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Temam",
 	"mwe-upwiz-source-custom": "Perer da biner de her dosya re ayrı ayrı heqane telifiyan defiye de",
+	"mwe-upwiz-patent-dialog-link-warranty": "Tayêna bımuse",
+	"mwe-upwiz-patent-dialog-link-license": "Tayêna bımuse",
 	"mwe-upwiz-more-options": "Herun u zewbi malumat dekerê de ...",
 	"mwe-upwiz-copy-metadata": "Malumatê bıniya {{PLURAL:$1|zewbi barkerdena|barkerdışane cı}} pêron kopya ke ...",
 	"mwe-upwiz-copy-metadata-button": "kopya",
@@ -161,7 +163,7 @@
 	"mwe-upwiz-tooltip-categories": "Dosyaya xo rê [$1 kategoriyan] bar ke, ke ê asan bıvêniyê.",
 	"mwe-upwiz-tooltip-other": "Heqa ena gurenayış de şıma qayıle ke çıçi dekere de  — koordinatê coğrafyayan, gran de versiyon dê binan, vs.",
 	"mwe-upwiz-tooltip-location": "Lokasyona koordinatan de dosya ena wiki de esto.",
-	"mwe-upwiz-tooltip-more-info": "Zêde bımuse.",
+	"mwe-upwiz-tooltip-more-info": "Tayêna bımuse.",
 	"mwe-upwiz-file-need-file": "Reca kemê veror yew barkerdış dekerê de.",
 	"mwe-upwiz-deeds-need-deed": "Reca keme şıma de {{PLURAL:$1|ena dosya|enê dosyaya}} berê koti u kanci sita de {{PLURAL:$1|in|nina}} karfiyê se, şırê ey weçinê.",
 	"mwe-upwiz-deeds-need-license": "Şımara reca jew lisans weçinê.",
@@ -268,5 +270,5 @@
 	"mwe-upwiz-prefs-license-thirdparty": "Karê yewê bini - $1",
 	"mwe-upwiz-prefs-chunked": "Şexê barkerden $1 ra vêşi istif nêbena",
 	"mwe-upwiz-prefs-skiptutorial": "Şınasiya mısnayış de lisansi ser çek",
-	"mwe-upload-campaigns-pagination-next": "Pela peyêne"
+	"mwe-upload-campaigns-pagination-next": "Pela peyco"
 }
