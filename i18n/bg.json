@@ -11,7 +11,8 @@
 			"V111P",
 			"StanProg",
 			"Envlh",
-			"Iliev"
+			"Iliev",
+			"Vlad5250"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -53,6 +54,7 @@
 	"mwe-upwiz-remove": "Премахване",
 	"mwe-upwiz-override": "Качи въпреки това",
 	"mwe-upwiz-remove-upload": "Премахване на този файл от списъка с файлове за качване",
+	"mwe-upwiz-remove-caption": "Премахване на описанието",
 	"mwe-upwiz-remove-description": "Премахване на описанието",
 	"mwe-upwiz-upload": "Качване",
 	"mwe-upwiz-file-upload-notcapable": "За съжаление Вашият браузър не може да качва файлове.\nМоля, опитайте с друг браузър.",

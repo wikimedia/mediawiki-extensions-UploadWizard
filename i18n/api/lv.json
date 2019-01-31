@@ -4,5 +4,6 @@
 			"Papuass"
 		]
 	},
-	"apihelp-flickrblacklist-param-url": "Pārbaudāmais Flickr URL."
+	"apihelp-flickrblacklist-param-url": "Pārbaudāmais Flickr URL.",
+	"apihelp-flickrblacklist-example-2": "Atgriezt visu melno sarakstu"
 }
