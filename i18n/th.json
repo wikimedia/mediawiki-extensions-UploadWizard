@@ -11,6 +11,8 @@
 	},
 	"uploadwizard": "ตัวช่วยการอัปโหลด",
 	"uploadwizard-desc": "ตัวช่วยการอัปโหลด เครื่องมือสำหรับการอัปโหลดมัลติมีเดียอย่างง่าย",
+	"tag-uploadwizard": "ตัวช่วยการอัปโหลด",
+	"tag-uploadwizard-description": "การอัปโหลดที่ผ่านตัวช่วยการอัปโหลด",
 	"right-upwizcampaigns": "กำหนดค่าตัวช่วยแคมเปญการอัปโหลด",
 	"action-upwizcampaigns": "กำหนดค่าแคมเปญการอัปโหลด",
 	"group-upwizcampeditors": "ตัวแก้ไขตัวช่วยแคมเปญการอัปโหลด",
