@@ -199,7 +199,7 @@
 	 * @return {jQuery.Promise} A promise, resolved when we're done
 	 */
 	mw.UploadWizardUpload.prototype.extractMetadataFromJpegMeta = function () {
-		var binReader,
+		var binReader, jpegmeta,
 			deferred = $.Deferred(),
 			upload = this;
 		if ( this.file && this.file.type === 'image/jpeg' ) {
@@ -226,7 +226,8 @@
 					}
 				}
 				try {
-					meta = mw.libs.jpegmeta( binStr, upload.file.fileName );
+					jpegmeta = require( 'mediawiki.libs.jpegmeta' );
+					meta = jpegmeta( binStr, upload.file.fileName );
 					// eslint-disable-next-line camelcase, no-underscore-dangle
 					meta._binary_data = null;
 				} catch ( e ) {
