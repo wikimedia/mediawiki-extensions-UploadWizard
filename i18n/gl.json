@@ -354,7 +354,6 @@
 	"mwe-upwiz-prefs-license-name-help": "É o nome de usuario de maneira predeterminada se se deixa baleiro",
 	"mwe-upwiz-prefs-license-own": "Obra propia - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Obra doutra persoa - $1",
-	"mwe-upwiz-prefs-chunked": "Cargas fragmentadas para ficheiros que ocupen máis de $1 no asistente de cargas - Aumenta o tamaño máximo do ficheiro a cargar de $2 a $3",
 	"mwe-upwiz-prefs-skiptutorial": "Saltar a guía coa introdución ás licenzas",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de cargas simultáneas",
 	"campaigns": "Campañas do asistente de cargas",

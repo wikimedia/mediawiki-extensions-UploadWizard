@@ -357,7 +357,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Ако е празно, по основно се дава корисничкото име",
 	"mwe-upwiz-prefs-license-own": "Сопствено дело - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Туѓо дело - $1",
-	"mwe-upwiz-prefs-chunked": "Подигај на делови кај податотеки преку $1 со Помошникот за подигање — Ја зголемува најголемата допуштена зафатнина на податотеката што се подига од $2 на $3",
 	"mwe-upwiz-prefs-skiptutorial": "Прескокни го воведното запознавање со лиценците",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Највеќе истовремени преземања",
 	"campaigns": "Походи со Помошникот за подигање",

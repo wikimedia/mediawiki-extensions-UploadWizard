@@ -371,7 +371,6 @@
 	"mwe-upwiz-prefs-license-name-help": "若欄位留空預設為使用者名稱",
 	"mwe-upwiz-prefs-license-own": "自己的作品 - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "他人的作品 - $1",
-	"mwe-upwiz-prefs-chunked": "在上傳精靈中切割上傳超過 $1 的檔案 - 將最大檔案上傳大小從 $2 增加至 $3",
 	"mwe-upwiz-prefs-skiptutorial": "略過授權條款介紹教學",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "同時上傳的數量上限",
 	"campaigns": "上傳精靈行動",

@@ -333,7 +333,6 @@
 	"mwe-upwiz-prefs-license-name": "Naam auteur",
 	"mwe-upwiz-prefs-license-own": "Eigen werk - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Andermans werk - $1",
-	"mwe-upwiz-prefs-chunked": "Uploaden in delen in Upload Wizard voor bestanden groter dan $1 – verhoogt de maximale uploadgrootte van bestanden van $2 naar $3",
 	"mwe-upwiz-prefs-skiptutorial": "Inleidende licentietutorial overslaan",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximale aantal gelijktijdige uploads",
 	"campaigns": "Campagnes voor Uploadwizard",

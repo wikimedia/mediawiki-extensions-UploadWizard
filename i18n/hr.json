@@ -264,7 +264,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Ako je polje prazno, uporabljuje se suradničko ime",
 	"mwe-upwiz-prefs-license-own": "Vlastito djelo - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Tuđe djelo - $1",
-	"mwe-upwiz-prefs-chunked": "Postavljanje datoteka iz dijelova za datoteke veće od $1 uz pomoć čarobnjaka povećava najveću veličinu postavljanja datoteke s $2 na $3",
 	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič o licenciranju.",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Najveći broj istovremenih postavljanja",
 	"campaigns": "Pothvati projekta Čarobnjaka za postavljanje datoteka",

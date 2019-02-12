@@ -364,7 +364,6 @@
 	"mwe-upwiz-prefs-license-name-help": "ברירת המחדל היא שם משתמש אם השדה הושאר ריק",
 	"mwe-upwiz-prefs-license-own": "יצירה עצמית – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "יצירה של אדם אחר – $1",
-	"mwe-upwiz-prefs-chunked": "העלאה מקוטעת עבור קבצים גדולים מ־$1 באשף ההעלאה – העלאת הגודל המרבי של הקובת המועלה מ־$2 ל־$3",
 	"mwe-upwiz-prefs-skiptutorial": "לדלג על מדריך הרישוי למתחילים",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "מספר מרבי של העלאות בו־זמנית",
 	"campaigns": "מבצעי פרסום של אשף ההעלאות",

@@ -385,7 +385,6 @@
 	"mwe-upwiz-prefs-license-name-help": "如果字段保持为空，默认为用户名",
 	"mwe-upwiz-prefs-license-own": "自己的作品 - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "他人的作品 - $1",
-	"mwe-upwiz-prefs-chunked": "在上传向导中对于超过$1的文件使用分块上传 - 将最大文件上传大小从$2增加至$3",
 	"mwe-upwiz-prefs-skiptutorial": "跳过授权协议教程",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "并行上传的最大数目",
 	"campaigns": "上传向导运动",

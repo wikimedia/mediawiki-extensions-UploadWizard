@@ -333,7 +333,6 @@
 	"mwe-upwiz-prefs-def-license-custom-help": "Tätä kenttää käytetään vain, jos yläpuolelta valitaan viimeinen vaihtoehto.",
 	"mwe-upwiz-prefs-license-own": "Oma teos - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Jonkun muun teos - $1",
-	"mwe-upwiz-prefs-chunked": "Ohjatussa tiedoston tallentamisessa yli $1 kokoisten tiedostojen tallennukset osissa",
 	"mwe-upwiz-prefs-skiptutorial": "Ohita esittelevä lisensointiopas",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Enimmäismäärä samanaikaisia latauksia",
 	"campaigns": "Tallennuskampanjat",

@@ -332,7 +332,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Prazno polje nastavi uporabniško ime",
 	"mwe-upwiz-prefs-license-own": "Lastno delo - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Delo nekoga drugega - $1",
-	"mwe-upwiz-prefs-chunked": "Nalaganje po delih za datoteke, večje od $1, v Čarovniku za nalaganje – Poveča največjo velikost datoteke za nalaganje z $2 na $3",
 	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič po dovoljenjih",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Največje število sočasnih nalaganj",
 	"campaigns": "Kampanje čarovnika za nalaganje",

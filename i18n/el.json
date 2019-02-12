@@ -297,7 +297,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Nom d'utilisateur par défaut si le champ est laissé vide",
 	"mwe-upwiz-prefs-license-own": "Δικό σας έργο - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Έργο κάποιου άλλου - $1",
-	"mwe-upwiz-prefs-chunked": "Κατατμημένα ανεβάσματα για αρχεία πάνω από $1 στον Οδηγό Ανεβάσματος - Αυξάνει το μέγιστο μέγεθος αρχείων από $2 σε $3",
 	"mwe-upwiz-prefs-skiptutorial": "Παράλειψη εισαγωγικού οδηγού εκμάθησης γύρω από τις αδειοδοτήσεις",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Μέγιστος αριθμός ταυτόχρονων ανεβασμάτων",
 	"campaigns": "Εκστρατείες Οδηγού Ανεβάσματος",

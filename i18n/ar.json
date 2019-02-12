@@ -374,7 +374,6 @@
 	"mwe-upwiz-prefs-license-name-help": "القيمة الافتراضية هي اسم المستخدم لو تم ترك هذا الحقل فارغا",
 	"mwe-upwiz-prefs-license-own": "عمل شخصي - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "عمل شخص آخر-$1",
-	"mwe-upwiz-prefs-chunked": "رفع مقسم للملفات أكبر من $1 في ساحر الرفع - يزيد حجم رفع الملف الأقصى من $2 إلى $3",
 	"mwe-upwiz-prefs-skiptutorial": "تخط تعليمات الترخيص في المقدمة",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "العدد الأقصى لعمليات الرفع المتزامنة",
 	"campaigns": "حملات معالج الرفع",

@@ -371,7 +371,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Se o campo for deixado vazio será usado o nome do utilizador",
 	"mwe-upwiz-prefs-license-own": "Trabalho do próprio - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Trabalho de outros - $1",
-	"mwe-upwiz-prefs-chunked": "Carregamento por segmentos, para ficheiros com mais de $1 no Assistente de Envio de Ficheiros. Aumenta o tamanho máximo dos ficheiros carregados de $2 para $3",
 	"mwe-upwiz-prefs-skiptutorial": "Saltar o guia prático de introdução ao licenciamento",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de envios paralelos",
 	"campaigns": "Campanhas do assistente de envio de ficheiros",

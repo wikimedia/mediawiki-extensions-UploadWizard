@@ -360,7 +360,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Mặc định là tên người dùng nếu trường được bỏ trống",
 	"mwe-upwiz-prefs-license-own": "Tác phẩm của tôi – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Tác phẩm của người khác – $1",
-	"mwe-upwiz-prefs-chunked": "Tải lên từng khúc các tập tin quá $1 trong Trình thuật sĩ tải lên – tăng lên kích thước tập tin tải lên tối đa từ $2 tới $3",
 	"mwe-upwiz-prefs-skiptutorial": "Bỏ qua hướng dẫn cấp phép",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Số tập tin tối đa có thể tải lên cùng lúc",
 	"campaigns": "Chiến dịch Trình thuật sĩ tải lên",

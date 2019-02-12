@@ -347,7 +347,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Alapértelmezetten a szerkesztőnév, ha üresen hagyod",
 	"mwe-upwiz-prefs-license-own": "Saját munka – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Valaki más munkája – $1",
-	"mwe-upwiz-prefs-chunked": "$1-nál nagyobb méretű fájlok darabolt feltöltése a Feltöltésvarázslóval – a maximális fájlméretet $2-ról $3-ra növeli",
 	"mwe-upwiz-prefs-skiptutorial": "Bevezető licencoktatás kihagyása",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Egyidejű feltöltések maximális száma",
 	"campaigns": "Feltöltésvarázsló kampányok",

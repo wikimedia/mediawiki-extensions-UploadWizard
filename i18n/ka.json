@@ -283,7 +283,6 @@
 	"mwe-upwiz-prefs-def-license-def": "იმის გამოყენება, რაც ნაგულისხმევია",
 	"mwe-upwiz-prefs-license-own": "საკუთარი ნამუშევარი - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "სხვისი ნამუშევარი - $1",
-	"mwe-upwiz-prefs-chunked": "ფაილების ატვირთვა, რომელთა ზომაც აღემატება 1მბ",
 	"mwe-upwiz-prefs-skiptutorial": "ლიცენზირების გაცნობითი სახელმძღვანელო გამოტოვება",
 	"mwe-upload-campaigns-pagination-next": "შემდეგი გვერდი"
 }

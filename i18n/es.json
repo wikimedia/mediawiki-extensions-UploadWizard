@@ -379,7 +379,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Es el nombre de usuario de manera predeterminada si se deja vacío",
 	"mwe-upwiz-prefs-license-own": "Trabajo propio - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Trabajo de otra persona - $1",
-	"mwe-upwiz-prefs-chunked": "Subidas fragmentadas para archivos que ocupen más de $1 en el Asistente de subidas. Incrementa el tamaño máximo de archivos de subidas de $2 a $3",
 	"mwe-upwiz-prefs-skiptutorial": "Saltar la guía con la introducción a las licencias",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de subidas simultáneas",
 	"campaigns": "Campañas del Asistente de subidas",

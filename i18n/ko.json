@@ -350,7 +350,6 @@
 	"mwe-upwiz-prefs-license-name-help": "칸이 비어있으면 기본값은 사용자 이름입니다",
 	"mwe-upwiz-prefs-license-own": "자작 - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "다른 사람의 저작물 - $1",
-	"mwe-upwiz-prefs-chunked": "업로드 마법사를 통해 $1를 초과하는 큰 용량의 파일 올리기 - 최대 파일 업로드 크기를 $2에서 $3으로 증가시킵니다",
 	"mwe-upwiz-prefs-skiptutorial": "입문 라이선스 자습서 건너뛰기",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "동시 올리기의 최대 수",
 	"campaigns": "올리기 마법사 캠페인",

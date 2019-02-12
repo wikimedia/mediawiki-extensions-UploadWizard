@@ -374,7 +374,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Se o campo for deixado vazio será usado o nome do usuário",
 	"mwe-upwiz-prefs-license-own": "Trabalho próprio - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Trabalho de outra pessoa - $1",
-	"mwe-upwiz-prefs-chunked": "Transferências fragmentadas para arquivos com mais de $1 no Upload Wizard - Aumenta o tamanho máximo do upload de arquivos de $2 para $3",
 	"mwe-upwiz-prefs-skiptutorial": "Pular tutorial de introdução a licenciamento",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de envios concorrentes",
 	"campaigns": "Campanhas do Assistente de Envios",

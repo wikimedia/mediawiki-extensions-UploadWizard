@@ -284,7 +284,6 @@
 	"mwe-upwiz-prefs-def-license-def": "Usar le option predefinite",
 	"mwe-upwiz-prefs-license-own": "Obra proprie - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Obra de altere persona - $1",
-	"mwe-upwiz-prefs-chunked": "Incargamento in partes pro files plus grande que $1 in le Assistente de incargamento – augmenta le dimension maxime de files incargate de $2 a $3",
 	"mwe-upwiz-prefs-skiptutorial": "Saltar le tutorial introductive sur le licentias",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Numero maxime de incargamentos simultanee",
 	"campaigns": "Campanias del Assistente de Incargamento",

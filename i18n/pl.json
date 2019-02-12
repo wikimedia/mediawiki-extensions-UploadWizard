@@ -353,7 +353,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Jest domyślną nazwą użytkownika, jeżeli pole pozostanie puste",
 	"mwe-upwiz-prefs-license-own": "Praca własna - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Praca kogoś innego - $1",
-	"mwe-upwiz-prefs-chunked": "Pakietowe przesyłanie plików większych niż $1 w Kreatorze Przesyłania – zwiększa maksymalny rozmiar przesyłanych plików z $2 do $3",
 	"mwe-upwiz-prefs-skiptutorial": "Pomiń wstępny samouczek licencjonowania",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maksymalna liczba równoczesnych załadowań",
 	"campaigns": "Inicjatywy kreatora przesyłania plików",

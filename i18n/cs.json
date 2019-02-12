@@ -334,7 +334,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Pokud je pole ponecháno prázdné, implicitní hodnotou je uživatelské jméno",
 	"mwe-upwiz-prefs-license-own": "Vlastní dílo – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Dílo někoho jiného – $1",
-	"mwe-upwiz-prefs-chunked": "Blokové načítání souborů přes $1 v Průvodci načítáním souborů – zvyšuje maximální velikost načítaného souboru z $2 na $3",
 	"mwe-upwiz-prefs-skiptutorial": "Přeskočit úvodního průvodce licencováním",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximální počet souběžných odesílání obrázků",
 	"campaigns": "Kampaně nástroje Upload Wizard",

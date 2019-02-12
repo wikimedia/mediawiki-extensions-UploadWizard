@@ -342,7 +342,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Verður sjálfgefið að notandanafni ef reiturinn er skilinn eftir auður",
 	"mwe-upwiz-prefs-license-own": "Eigið verk - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Verk annara - $1",
-	"mwe-upwiz-prefs-chunked": "Senda inn skrár stærri en $1 í smærri bútum í innsendingarleiðarvísinum - hækkar hámarksstærð skráa úr $2 í $3",
 	"mwe-upwiz-prefs-skiptutorial": "Sleppa kynningu á leyfum",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Hámarksfjöldi innsendinga í einu",
 	"campaigns": "Innsendingaherferðir",

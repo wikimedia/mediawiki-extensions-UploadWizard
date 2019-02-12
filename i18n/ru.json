@@ -366,7 +366,6 @@
 	"mwe-upwiz-prefs-license-name": "Имя автора",
 	"mwe-upwiz-prefs-license-own": "Собственное произведение -- $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Чужое произведение -- $1",
-	"mwe-upwiz-prefs-chunked": "Поблочная загрузка файлов свыше $1 в Мастере загрузок — увеличивает максимальный размер загружаемых файлов с $2 до $3",
 	"mwe-upwiz-prefs-skiptutorial": "Пропустить вводное руководство по лицензированию",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимальное количество одновременных закачек",
 	"campaigns": "Кампании мастера загрузок",

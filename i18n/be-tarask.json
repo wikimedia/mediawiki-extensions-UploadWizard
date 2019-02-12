@@ -251,7 +251,6 @@
 	"mwe-upwiz-prefs-def-license-def": "Выкарыстоўваць тое, што па змоўчваньні",
 	"mwe-upwiz-prefs-license-own": "Уласная праца — $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Чыясьці праца — $1",
-	"mwe-upwiz-prefs-chunked": "Загрузка файлаў кавалкамі па $1 праз майстар загрузкі — павялічвае масымальны  дазволены памер файлу для загрузкі з $2 да $3",
 	"mwe-upwiz-prefs-skiptutorial": "Прапускаць уступную даведку па ліцэнзіях",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максымальная колькасьць аднолькавых загрузак"
 }

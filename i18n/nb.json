@@ -360,7 +360,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Om feltet er tomt er standardverdien brukerens brukernavn",
 	"mwe-upwiz-prefs-license-own": "Eget verk - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Andres verk - $1",
-	"mwe-upwiz-prefs-chunked": "Del opp opplastinger større enn $1 i mindre biter i opplastingsveiviseren – dette øker maks filstørrelse fra $2 til $3",
 	"mwe-upwiz-prefs-skiptutorial": "Hopp over innføringen i lisensiering",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maks antall samtidige opplastinger",
 	"campaigns": "Kampanjer for opplastningsveiviseren",

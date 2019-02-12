@@ -321,7 +321,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Vaikimisi kasutajanimi, kui väli on jäetud tühjaks.",
 	"mwe-upwiz-prefs-license-own": "Enda looming – $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Kellegi teise looming – $1",
-	"mwe-upwiz-prefs-chunked": "Failid, mis on suuremad kui $1, laadi viisardiga üles tükikaupa. Võimaldab üles laadida kuni $2 asemel kuni $3 suuruse faili.",
 	"mwe-upwiz-prefs-skiptutorial": "Jäta sissejuhatav litsentsiõpe vahele",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Konkureerivate üleslaadimiste ülemmäär",
 	"campaigns": "Üleslaadimisviisardi kampaaniad",

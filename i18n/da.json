@@ -308,7 +308,6 @@
 	"mwe-upwiz-prefs-license-name": "Ophavpersonens navn",
 	"mwe-upwiz-prefs-license-own": "Eget værk - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "En andens værk - $1",
-	"mwe-upwiz-prefs-chunked": "Stykvis overførsel af filer større end $1 i vejviseren — dette øger den maksimalt tilladte filstørrelse fra $2 til $3",
 	"mwe-upwiz-prefs-skiptutorial": "Spring introduktionen til licenser over",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maksimale antal samtidige oplægninger",
 	"campaigns": "Kampagner for vejviseren til oplægning af filer",

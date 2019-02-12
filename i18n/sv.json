@@ -368,7 +368,6 @@
 	"mwe-upwiz-prefs-license-name-help": "Om fältet är tomt används användarnamnet som standard",
 	"mwe-upwiz-prefs-license-own": "Eget arbete - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Någon annans verk - $1",
-	"mwe-upwiz-prefs-chunked": "Bitvis överföringar för filer över $1 i uppladdningsguiden - ökar maximala filstorleken från $2 till $3",
 	"mwe-upwiz-prefs-skiptutorial": "Hoppa över introduktionen för licensieringsguiden",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximalt antal samtidiga uppladdningar",
 	"campaigns": "Kampanjer för uppladdningsguiden",

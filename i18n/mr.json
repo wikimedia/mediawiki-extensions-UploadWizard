@@ -205,6 +205,5 @@
 	"mwe-upwiz-prefs-def-license": "डिफॉल्ट परवाना",
 	"mwe-upwiz-prefs-def-license-def": "जे काही अविचल (डिफॉल्ट) असेल ते वापरा",
 	"mwe-upwiz-prefs-license-own": "स्वतःची निर्मिती - $1",
-	"mwe-upwiz-prefs-license-thirdparty": "दुसऱ्या कोणाचीतरी निर्मिती - $1",
-	"mwe-upwiz-prefs-chunked": "$1 पेक्षा जास्त असलेल्या संचिका तुकडे करून अपभारणासाठी असलेला अपभारण जादूगार(विझार्ड) - $2 पासून $3 असा संचिकाआकार वाढविते"
+	"mwe-upwiz-prefs-license-thirdparty": "दुसऱ्या कोणाचीतरी निर्मिती - $1"
 }

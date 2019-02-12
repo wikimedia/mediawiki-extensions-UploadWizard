@@ -326,7 +326,6 @@
 	"mwe-upwiz-prefs-license-name": "Autoriaus vardas",
 	"mwe-upwiz-prefs-license-own": "Nuosavas darbas - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Kitų darbas - $1",
-	"mwe-upwiz-prefs-chunked": "Failų, didesnių nei $1, įkėlimas dalimis per Įkėlimų vedlį",
 	"mwe-upwiz-prefs-skiptutorial": "Praleisti įžanginę licencijavimo pamoką",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maksimalus lygiagrečių įkėlimų skaičius",
 	"campaigns": "Įkėlimo vedlio kampanijos",

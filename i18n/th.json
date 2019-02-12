@@ -263,7 +263,6 @@
 	"mwe-upwiz-prefs-def-license-def": "ใช้สิ่งที่เป็นค่าเริ่มต้น",
 	"mwe-upwiz-prefs-license-own": "งานของตนเอง - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "งานของคนอื่น - $1",
-	"mwe-upwiz-prefs-chunked": "อัพโหลดเป็นชิ้นส่วนกว่า $1 ในตัวช่วยการอัปโหลดไฟล์ - เพิ่มขนาดการอัปโหลดไฟล์สูงสุดจาก $2 เป็น $3",
 	"mwe-upwiz-prefs-skiptutorial": "ข้ามคำแนะนำเกี่ยวกับสัญญาอนุญาตและลิขสิทธิ์",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "จำนวนสูงสุดที่อัปโหลดพร้อมกัน"
 }

@@ -320,7 +320,6 @@
 	"mwe-upwiz-prefs-def-license-custom": "Llicència per defecte personalitzada",
 	"mwe-upwiz-prefs-license-own": "Obra pròpia - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Obra d'algú altre - $1",
-	"mwe-upwiz-prefs-chunked": "Càrrega fragmentada per a fitxers de més de $1 amb l'Auxiliar de càrrega",
 	"mwe-upwiz-prefs-skiptutorial": "Salta la guia d'introducció sobre llicències",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Nombre màxim de càrregues simultànies",
 	"campaigns": "Campanyes de l'Auxiliar de càrrega",

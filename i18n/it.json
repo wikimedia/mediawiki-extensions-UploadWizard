@@ -347,7 +347,6 @@
 	"mwe-upwiz-prefs-license-name": "Nome dell'autore",
 	"mwe-upwiz-prefs-license-own": "Opera propria - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Opera di qualcun altro - $1",
-	"mwe-upwiz-prefs-chunked": "Carica a blocchi i file di oltre $1 in Upload Wizard - Aumenta la dimensione massima di caricamento da $2 a $3",
 	"mwe-upwiz-prefs-skiptutorial": "Salta il tutorial introduttivo sulle license",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Numero massimo di caricamenti simultanei",
 	"campaigns": "Campagne di caricamento guidato",

@@ -353,7 +353,6 @@
 	"mwe-upwiz-prefs-license-name-help": "اگر این فیلد خالی باشد به صورت پیش‌فرض از نان کاربری استفاده می‌شود",
 	"mwe-upwiz-prefs-license-own": "اثر شخصی - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "اثر کسی دیگر - $1",
-	"mwe-upwiz-prefs-chunked": "انتقالات تکه‌شده برای پوشه‌های بالا $1 در  جادوگر انتقال افزایش حداکثر اندازه پرونده از  $2 به $3",
 	"mwe-upwiz-prefs-skiptutorial": "پرش از آموزش مقدماتی صدور مجوز",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "حداکثر تعداد بارگذاری همزمان",
 	"campaigns": "کمپین جادوگر بارگذاری",
