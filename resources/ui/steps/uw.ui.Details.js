@@ -72,6 +72,17 @@
 	uw.ui.Details.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
 
+		if ( mw.UploadWizard.config.wikibase.enabled ) {
+			this.$div.prepend(
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-license-metadata ui-corner-all' )
+					.append(
+						$( '<h4>' ).append( mw.msg( 'mwe-upwiz-license-metadata-title' ) ),
+						$( '<p>' ).append( mw.message( 'mwe-upwiz-license-metadata-content' ).parse() )
+					)
+			);
+		}
+
 		if ( uploads.filter( this.needsPatentAgreement.bind( this ) ).length > 0 ) {
 			this.$div.prepend(
 				$( '<div>' )

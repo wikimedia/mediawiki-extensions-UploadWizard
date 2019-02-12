@@ -185,6 +185,17 @@ form.mwe-upwiz-form {
 	background-size: 32px 32px;
 }
 
+.mwe-upwiz-license-metadata {
+	margin-top: 1em;
+	padding: 0 1em 0 calc( 64px + 2.5em );
+	border: 1px solid #c8ccd1;
+	white-space: pre-wrap;
+	/* @embed */
+	background: url( images/cc.svg ) no-repeat 1em 1em, url( images/zero.svg ) no-repeat calc( 1.5em + 32px ) 1em;
+	background-size: 32px 32px;
+	background-color: #f2f4f7;
+}
+
 /* Flickr Interface CSS*/
 
 #mwe-upwiz-upload-ctr-divide {

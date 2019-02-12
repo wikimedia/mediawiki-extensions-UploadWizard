@@ -167,6 +167,8 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Label for the checbox to agree with the patent terms.",
 	"mwe-upwiz-patent-weapon-policy": "Text to instruct users not to upload 3D models that could be viewed as a weapon or \"defense article\".",
 	"mwe-upwiz-patent-weapon-policy-link": "Link text to the policy details",
+	"mwe-upwiz-license-metadata-title": "Title for instructions about metadata (e.g. captions) licensing",
+	"mwe-upwiz-license-metadata-content": "Content for instructions about metadata (e.g. captions) licensing",
 	"mwe-upwiz-more-options": "Text for a 'more options' toggle that opens more of a form so a user can make more detailed descriptions/add more properties for uploaded images.",
 	"mwe-upwiz-copy-metadata": "Toggler which expands/collapses a selection of checkboxes vertically which allow the user to selectively copy metadata from the first upload to other uploads.",
 	"mwe-upwiz-copy-metadata-button": "Label of the button which copies the selected metadata from the first upload to all other uploads.\n{{Identical|Copy}}",
