@@ -79,6 +79,9 @@
 					.append(
 						$( '<h4>' ).append( mw.msg( 'mwe-upwiz-license-metadata-title' ) ),
 						$( '<p>' ).append( mw.message( 'mwe-upwiz-license-metadata-content' ).parse() )
+							// wikitext links in i18n messages don't support target=_blank, but we
+							// really don't want to take people away from their uploads...
+							.find( 'a' ).attr( 'target', '_blank' ).end()
 					)
 			);
 		}
