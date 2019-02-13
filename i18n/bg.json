@@ -112,6 +112,8 @@
 	"mwe-upwiz-source-thirdparty-cases": "Обосновете защо смятате, че имате право да публикувате {{PLURAL:$1|тази творба|тези творби}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Добре",
 	"mwe-upwiz-source-custom": "Добавяне на информация за авторските права за всеки файл поотделно.",
+	"mwe-upwiz-license-metadata-title": "Лиценз само за описания",
+	"mwe-upwiz-license-metadata-content": "С натискане на „публикуване“ се съгласявате с [[wmf:Terms_of_Use|условията за ползване]] и се съгласявате безвъзвратно да обявявате своите приноси под лиценза [https://creativecommons.org/publicdomain/zero/1.0/ Криейтив Комънс CC0].",
 	"mwe-upwiz-more-options": "Добавете местоположение и допълнителна информация...",
 	"mwe-upwiz-copy-metadata": "Копирайте информацията в описанията на всички файлове, които следват...",
 	"mwe-upwiz-copy-metadata-button": "Копиране",
