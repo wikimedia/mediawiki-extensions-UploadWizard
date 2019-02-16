@@ -1,14 +1,8 @@
 {
-  "name": "UploadWizard",
-  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "test": "grunt test"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard.git"
-  },
-  "license": "GPL-2.0-or-later",
   "devDependencies": {
     "eslint-config-wikimedia": "0.9.0",
     "grunt": "1.0.3",
