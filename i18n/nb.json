@@ -12,7 +12,8 @@
 			"SuperPotato",
 			"Macofe",
 			"Jon Harald Søby",
-			"Envlh"
+			"Envlh",
+			"AnB"
 		]
 	},
 	"uploadwizard": "Opplastingsveiviser",
@@ -146,6 +147,7 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Jeg samtykker i disse betingelsene",
 	"mwe-upwiz-patent-weapon-policy": "Brukere bør unngå å laste opp 3D-modeller som kan anses som våpen eller «forsvarsartikler».\nBrukerfellesskapet på Commons kan fjerne slike elementer når de blir moderert.",
 	"mwe-upwiz-patent-weapon-policy-link": "Les detaljene i policyen",
+	"mwe-upwiz-license-metadata-title": "Lisens kun for bidrag av bildetekster",
 	"mwe-upwiz-more-options": "Legg til sted og mer informasjon …",
 	"mwe-upwiz-copy-metadata": "Kopier informasjonen til alle følgende opplastinger ...",
 	"mwe-upwiz-copy-metadata-button": "Kopier",

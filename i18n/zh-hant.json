@@ -22,7 +22,8 @@
 			"Hello903hello",
 			"Envlh",
 			"Kly",
-			"A2093064"
+			"A2093064",
+			"WQL"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -173,7 +174,7 @@
 	"mwe-upwiz-copy-other": "複製其他資訊",
 	"mwe-upwiz-caption": "說明文字",
 	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=添加一段說明文字|以其它語言來添加一段說明文字}}",
-	"mwe-upwiz-desc": "描述",
+	"mwe-upwiz-desc": "具體描述",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=添加一段描述|以其它語言來添加一段描述}}",
 	"mwe-upwiz-title": "圖片標題",
 	"mwe-upwiz-date-created": "日期",
