@@ -42,7 +42,7 @@
 	"api-error-parsererror": "الخادم رد بوثيقة JSON غير صحيحة. هذه ربما تكون مشكلة في API، أو أنك ربما تكون تستخدم خادم بروكسي يمنعك من رفع الملفات.",
 	"api-error-aborted": "عملية الرفع أجهضت.",
 	"api-error-noimageinfo": "نجح الرفع، ولكن الخادم لم يقدم لنا أي معلومات حول الملف.",
-	"mwe-upwiz-unavailable": "متصفحك ليس متوافقا مع UploadWizard أو لديه الجافا سكريبت معطلة، لذا فنحن نعرض لك إستمارة رفع مبسطة. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility عرض متطلبات التوافق].)",
+	"mwe-upwiz-unavailable": "متصفحك ليس متوافقا مع UploadWizard أو لديه الجافا سكريبت معطلة، لذا فنحن نعرض لك استمارة رفع مبسطة. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility عرض متطلبات التوافق].)",
 	"mwe-upwiz-extension-disabled": "تم تعطيل هذه الصفحة لأسباب فنية مؤقتة. حاول في هذه الأثناء استخدام نموذج الرفع العادي.",
 	"mwe-upwiz-step-tutorial": "تعلم",
 	"mwe-upwiz-step-file": "رفع",
