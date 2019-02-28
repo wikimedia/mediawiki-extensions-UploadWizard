@@ -3,7 +3,8 @@
 		"authors": [
 			"Harald Khan",
 			"Njardarlogar",
-			"Matma Rex"
+			"Matma Rex",
+			"Ranveig"
 		]
 	},
 	"uploadwizard": "Opplastingsvegvisar",
@@ -65,6 +66,8 @@
 	"mwe-upwiz-source-thirdparty-cases": "Sei oss kvifor du er viss på at du har løyve til å gje ut {{PLURAL:$1|arbeidet|arbeida}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Greitt",
 	"mwe-upwiz-source-custom": "Gjev informasjon om opphavsretten for kvar fil kvar for seg på neste side.",
+	"mwe-upwiz-patent-dialog-link-warranty": "Lær meir",
+	"mwe-upwiz-patent-dialog-link-license": "Lær meir",
 	"mwe-upwiz-more-options": "Legg til stad og meir informasjon …",
 	"mwe-upwiz-copy-metadata": "Kopier informasjon til {{PLURAL:$1|den andre opplastinga|alle opplastingane}} som fylgjer …",
 	"mwe-upwiz-copy-metadata-button": "Kopier",
