@@ -179,7 +179,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		] );
 
 		// clear blacklist cache
-		$reflection = new ReflectionClass( 'UploadWizardFlickrBlacklist' );
+		$reflection = new ReflectionClass( UploadWizardFlickrBlacklist::class );
 		$property = $reflection->getProperty( 'blacklist' );
 		$property->setAccessible( true );
 		$property->setValue( null, null );

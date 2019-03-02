@@ -64,7 +64,7 @@ if ( !$uwLanguages ) {
 	}
 
 	// Sort the list by the language name.
-	if ( class_exists( 'Collator' ) ) {
+	if ( class_exists( Collator::class ) ) {
 		// If a specific collation is not available for the user's language,
 		// this falls back to a generic 'root' one.
 		$collator = Collator::create( $userLangCode );

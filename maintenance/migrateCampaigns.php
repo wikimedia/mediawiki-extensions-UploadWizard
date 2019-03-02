@@ -284,5 +284,5 @@ class MigrateCampaigns extends Maintenance {
 	}
 }
 
-$maintClass = "MigrateCampaigns";
+$maintClass = MigrateCampaigns::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
