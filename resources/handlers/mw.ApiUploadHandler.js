@@ -22,18 +22,18 @@
 		this.upload.on( 'remove-upload', this.abort.bind( this ) );
 	};
 
-	mw.ApiUploadHandler.prototype.abort = function () {
-		throw new Error( 'Not implemented.' );
-	};
-
-	/* eslint-disable valid-jsdoc */
 	/**
+	 * @method
+	 * @abstract
+	 */
+	mw.ApiUploadHandler.prototype.abort = null;
+
+	/**
+	 * @method
+	 * @abstract
 	 * @return {jQuery.Promise}
 	 */
-	/* eslint-enable valid-jsdoc */
-	mw.ApiUploadHandler.prototype.submit = function () {
-		throw new Error( 'Not implemented.' );
-	};
+	mw.ApiUploadHandler.prototype.submit = null;
 
 	/**
 	 * @return {jQuery.Promise}
