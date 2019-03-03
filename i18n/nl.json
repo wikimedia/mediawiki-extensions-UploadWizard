@@ -69,6 +69,7 @@
 	"mwe-upwiz-stashed-upload": "Geüpload",
 	"mwe-upwiz-getting-metadata": "Bestandsgegevens en miniaturen worden opgehaald...",
 	"mwe-upwiz-submitting-details": "Bezig met het opslaan van de gegevens en publiceren...",
+	"mwe-upwiz-submitting-captions": "Invoegen {{PLURAL:$1|bijschrift|bijschriften}}…",
 	"mwe-upwiz-published": "Gepubliceerd.",
 	"mwe-upwiz-failed": "Mislukt",
 	"mwe-upwiz-remove": "Verwijderen",
