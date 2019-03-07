@@ -11,6 +11,10 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 	public function setUp() {
 		parent::setUp();
 
+		// Test expects empty defaults; otheriwse they will override the
+		// parameters passed in by the test.
+		UploadWizardConfig::setUrlSetting( 'defaults', [] );
+
 		// insert a interwiki prefixes for testing inter-language links.
 		// This is based on ParserTestRunner::setupInterwikis, which does
 		// exactly the same (but with more prefixes) for parser tests.
