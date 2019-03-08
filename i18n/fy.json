@@ -3,7 +3,8 @@
 		"authors": [
 			"Kening Aldgilles",
 			"Robin0van0der0vliet",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"PiefPafPier"
 		]
 	},
 	"uploadwizard": "Wizard uploade",
@@ -14,7 +15,7 @@
 	"mwe-upwiz-step-thanks": "Brûke",
 	"mwe-upwiz-help-desk": "Helpdesk",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Helpdesk",
-	"mwe-upwiz-add-file-n": "Mear triemmen tafoegje",
+	"mwe-upwiz-add-file-n": "Mear bestannen tafoegje",
 	"mwe-upwiz-add-flickr-or": "Of",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr-URL",
 	"mwe-upwiz-remove": "Fuortsmite",
