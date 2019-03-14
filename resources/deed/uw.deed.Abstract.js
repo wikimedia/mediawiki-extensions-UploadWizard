@@ -55,47 +55,33 @@
 	/**
 	 * @param {jQuery} $selector
 	 */
-	/* eslint-disable no-unused-vars */
-	uw.deed.Abstract.prototype.setFormFields = function ( $selector ) {};
-	/* eslint-enable no-unused-vars */
+	uw.deed.Abstract.prototype.setFormFields = function () {};
 
-	/* eslint-disable valid-jsdoc */
 	/**
+	 * @method
+	 * @abstract
 	 * @param {mw.UploadWizardUpload} upload
 	 * @return {string}
 	 */
-	/* eslint-enable valid-jsdoc */
-	/* eslint-disable no-unused-vars */
-	uw.deed.Abstract.prototype.getSourceWikiText = function ( upload ) {
-		throw new Error( 'Not implemented.' );
-	};
-	/* eslint-enable no-unused-vars */
+	uw.deed.Abstract.prototype.getSourceWikiText = null;
 
-	/* eslint-disable valid-jsdoc */
 	/**
+	 * @method
+	 * @abstract
 	 * @param {mw.UploadWizardUpload} upload
 	 * @return {string}
 	 */
-	/* eslint-enable valid-jsdoc */
-	/* eslint-disable no-unused-vars */
-	uw.deed.Abstract.prototype.getAuthorWikiText = function ( upload ) {
-		throw new Error( 'Not implemented.' );
-	};
-	/* eslint-enable no-unused-vars */
+	uw.deed.Abstract.prototype.getAuthorWikiText = null;
 
-	/* eslint-disable valid-jsdoc */
 	/**
 	 * Get wikitext representing the licenses selected in the license object
 	 *
+	 * @method
+	 * @abstract
 	 * @param {mw.UploadWizardUpload} upload
 	 * @return {string} wikitext of all applicable license templates.
 	 */
-	/* eslint-enable valid-jsdoc */
-	/* eslint-disable no-unused-vars */
-	uw.deed.Abstract.prototype.getLicenseWikiText = function ( upload ) {
-		throw new Error( 'Not implemented.' );
-	};
-	/* eslint-enable no-unused-vars */
+	uw.deed.Abstract.prototype.getLicenseWikiText = null;
 
 	/**
 	 * @return {Object}
