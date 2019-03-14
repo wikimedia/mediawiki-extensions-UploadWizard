@@ -392,14 +392,14 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-thumbnail-link canvas,
 .mwe-upwiz-thumbnail-link img {
-	box-shadow: 1px 1px 5px #999;
+	box-shadow: 0 0 5px #999;
 }
 
 .mwe-upwiz-data {
 	float: left;
 }
 
-/* I don't like that this has to have width, to ensure that all the floats work out correctly.*/
+/* I don't like that this has to have width, to ensure that all the floats work out correctly. */
 #mwe-upwiz-stepdiv-details .mwe-upwiz-data {
 	/* 230px + 2.5em is width of thumbnail on the left */
 	width: calc( 100% - 230px - 2.5em );
