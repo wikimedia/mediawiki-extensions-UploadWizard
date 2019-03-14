@@ -48,6 +48,10 @@ form.mwe-upwiz-form {
 	font-size: large;
 }
 
+.mwe-upwiz-add-files-0 .oo-ui-buttonElement {
+	margin-right: 0;
+}
+
 #mwe-upwiz-add-file .oo-ui-buttonElement-button {
 	position: relative;
 	overflow: hidden;
