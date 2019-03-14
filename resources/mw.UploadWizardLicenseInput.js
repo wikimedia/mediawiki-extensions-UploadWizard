@@ -224,8 +224,9 @@
 				// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
 				// But also check that associated textareas are filled for if the input is selected, and that
 				// they are the appropriate size.
-				$.each( selectedInputs, function ( name, data ) {
-					var wikitext;
+				Object.keys( selectedInputs ).forEach( function ( name ) {
+					var wikitext,
+						data = selectedInputs[ name ];
 
 					if ( typeof data !== 'string' ) {
 						return;
@@ -298,8 +299,8 @@
 		setSerialized: function ( serialized ) {
 			var self = this;
 
-			$.each( serialized, function ( group, values ) {
-				self.setValues( values, group );
+			Object.keys( serialized ).forEach( function ( group ) {
+				self.setValues( serialized[ group ], group );
 			} );
 		}
 

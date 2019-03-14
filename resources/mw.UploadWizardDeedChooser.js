@@ -4,9 +4,9 @@
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
 	 *
 	 * @param {Object} config The UW config
-	 * @param {string|jQuery} selector where to put this deed chooser
-	 * @param {UploadWizardDeed[]} deeds
-	 * @param {UploadWizardUpload[]} uploads that this applies to (this is just to make deleting and plurals work)
+	 * @param {string|jQuery} selector Where to put this deed chooser
+	 * @param {Object} deeds Keyed object of UploadWizardDeed items
+	 * @param {UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
 	 */
 	mw.UploadWizardDeedChooser = function ( config, selector, deeds, uploads ) {
 		var chooser = this;
@@ -20,8 +20,9 @@
 
 		this.onLayoutReady = function () {};
 
-		$.each( this.deeds, function ( i, deed ) {
-			var id = chooser.name + '-' + deed.name,
+		Object.keys( this.deeds ).forEach( function ( name ) {
+			var deed = chooser.deeds[ name ],
+				id = chooser.name + '-' + deed.name,
 				$deedInterface = $(
 					'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">' +
 						'<div class="mwe-upwiz-deed-option-title">' +
@@ -46,7 +47,7 @@
 				if ( config.licensing.defaultType === deed.name ) {
 					chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 				}
-				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).click( function () {
+				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).on( 'click', function () {
 					if ( $( this ).is( ':checked' ) ) {
 						chooser.selectDeed( deed );
 					}
@@ -91,10 +92,11 @@
 
 			this.deed = deed;
 
-			$.each( this.uploads, function ( i, upload ) {
+			this.uploads.forEach( function ( upload ) {
 				upload.deedChooser = chooser;
 			} );
 
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next' ).show();
 		},
 
@@ -105,13 +107,15 @@
 		 */
 		deselectDeedInterface: function ( $deedSelector ) {
 			$deedSelector.removeClass( 'selected' );
-			$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
-				var $form = $( form );
+			$deedSelector.find( '.mwe-upwiz-deed-form' ).each( function () {
+				var $form = $( this );
 				// Prevent validation of deselected deeds by disabling all form inputs
 				$form.find( ':input' ).prop( 'disabled', true );
 				if ( $form.parents().is( ':hidden' ) ) {
 					$form.hide();
 				} else {
+					// FIXME: Use CSS transition
+					// eslint-disable-next-line no-jquery/no-slide
 					$form.slideUp( 500 );
 				}
 			} );
@@ -125,15 +129,21 @@
 		selectDeedInterface: function ( $deedSelector ) {
 			var $otherDeeds = $deedSelector.siblings().filter( '.mwe-upwiz-deed' );
 			this.deselectDeedInterface( $otherDeeds );
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line no-jquery/no-fade
 			$deedSelector.addClass( 'selected' ).fadeTo( 'fast', 1.0 );
-			$.each( $deedSelector.find( '.mwe-upwiz-deed-form' ), function ( i, form ) {
-				var $form = $( form );
+			$deedSelector.find( '.mwe-upwiz-deed-form' ).each( function () {
+				var $form = $( this );
 				// (Re-)enable all form inputs
 				$form.find( ':input' ).prop( 'disabled', false );
 				if ( $form.is( ':hidden' ) ) {
 					// if the form was hidden, set things up so a slide-down works
+					// FIXME: Use CSS transition
+					// eslint-disable-next-line no-jquery/no-slide
 					$form.show().slideUp( 0 );
 				}
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line no-jquery/no-slide
 				$form.slideDown( 500 );
 			} );
 		},

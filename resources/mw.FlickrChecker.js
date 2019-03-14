@@ -76,6 +76,7 @@
 			userFavoritesMatches = flickrInputUrl.match( /flickr\.com\/(?:x\/t\/[^/]+\/)?photos\/([^/]+)\/favorites/ );
 
 			this.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( '#mwe-upwiz-flickr-select-list-container' ).after( this.$spinner );
 
 			if ( photoIdMatches === null ) {
@@ -84,6 +85,7 @@
 			}
 			if ( albumIdMatches || photoIdMatches || userCollectionMatches || userPhotostreamMatches ||
 				groupPoolMatches || userGalleryMatches || userFavoritesMatches ) {
+				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-upload-add-flickr-container' ).hide();
 				this.imageUploads = [];
 				if ( albumIdMatches && albumIdMatches[ 2 ] > 0 ) {
@@ -237,7 +239,7 @@
 			if ( appendId ) {
 				$elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
 			}
-			$.each( data.collection, function ( index, value ) {
+			data.collection.forEach( function ( value ) {
 				li = $( '<li>' );
 				li.append( value.title );
 				if ( value.collection !== undefined ) {
@@ -245,10 +247,11 @@
 				}
 				if ( value.set !== undefined ) {
 					ul = $( '<ul>' );
-					$.each( value.set, function ( index2, value2 ) {
+					value.set.forEach( function ( value2 ) {
 						var link = $( '<a>', { href: '#', role: 'button', 'data-id': value2.id } );
 						link.append( value2.title );
 						link.click( function () {
+							// eslint-disable-next-line no-jquery/no-global-selector
 							$( '#mwe-upwiz-files-collection-chooser' ).remove();
 							that.getPhotos( 'photoset', {
 								method: 'flickr.photosets.getPhotos',
@@ -289,6 +292,7 @@
 				}
 
 				return checker.flickrRequest( req ).then( function ( data ) {
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-files' ).append( checker.buildCollectionLinks( true, data.collections ) );
 				} );
 			} );
@@ -374,10 +378,10 @@
 
 				checker.$spinner.remove();
 
-				$.each( photoset.photo, function ( i, item ) {
+				photoset.photo.forEach( function ( item, i ) {
 					var flickrUpload, license, licenseValue, ownerId;
 
-					license = checker.checkLicense( item.license, i );
+					license = checker.checkLicense( item.license );
 					licenseValue = license.licenseValue;
 					if ( licenseValue === 'invalid' ) {
 						return;
@@ -436,6 +440,7 @@
 					}
 				} );
 				checkboxesWidget.addItems( checkboxes );
+				// eslint-disable-next-line no-jquery/no-global-selector
 				$( '#mwe-upwiz-flickr-select-list' ).append( checkboxesWidget.$element );
 				// Set up checkboxes
 				checkboxesWidget.on( 'select', function () {
@@ -453,8 +458,11 @@
 				checker.selectButton.on( 'click', function () {
 					var uploads = [];
 					checker.$spinner = $.createSpinner( { size: 'large', type: 'block' } );
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-flickr-select-list-container' ).hide();
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-upload-ctrls' ).show();
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-flickr-select-list-container' ).after( checker.$spinner );
 					$.when.apply( $, checkboxesWidget.findSelectedItemsData().map( function ( image ) {
 						uploads.push( checker.imageUploads[ image ] );
@@ -477,8 +485,10 @@
 				if ( checker.imageUploads.length === 0 ) {
 					return $.Deferred().reject( mw.message( 'mwe-upwiz-license-photoset-invalid' ).escaped() );
 				} else {
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-flickr-select-list-container' ).show();
 					// Lazy-load images
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( 'img.lazy-thumbnail' ).lazyload( {
 						// jQuery considers all images without 'src' to not be ':visible'
 						skip_invisible: false
@@ -542,7 +552,7 @@
 					photoAuthor = photo.owner.username;
 				}
 				// get the URL of the photo page
-				$.each( photo.urls.url, function ( index, url ) {
+				photo.urls.url.forEach( function ( url ) {
 					if ( url.type === 'photopage' ) {
 						sourceURL = url._content;
 						// break each loop
@@ -623,7 +633,7 @@
 				} ).then( function ( data ) {
 					var blacklist = {};
 					if ( data.flickrblacklist && data.flickrblacklist.list ) {
-						$.each( data.flickrblacklist.list, function ( i, username ) {
+						data.flickrblacklist.list.forEach( function ( username ) {
 							blacklist[ username ] = true;
 						} );
 					}
@@ -644,12 +654,13 @@
 			}
 
 			// Workaround for http://bugs.jquery.com/ticket/8283
+			// eslint-disable-next-line no-jquery/no-support
 			$.support.cors = true;
 			mw.FlickrChecker.licensePromise = this.flickrRequest( {
 				method: 'flickr.photos.licenses.getInfo'
 			} ).then( function ( data ) {
 				if ( typeof data.licenses !== 'undefined' ) {
-					$.each( data.licenses.license, function ( index, value ) {
+					data.licenses.license.forEach( function ( value ) {
 						mw.FlickrChecker.licenseList[ value.id ] = value.name;
 					} );
 				}

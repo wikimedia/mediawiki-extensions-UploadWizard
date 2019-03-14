@@ -30,6 +30,7 @@
 		upload.getThumbnail( 120, 120 ).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mwe-upwiz-deeds-thumbnails' ).append( this.$thumbnailDiv );
 	};
 

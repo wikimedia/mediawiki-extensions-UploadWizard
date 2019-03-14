@@ -100,10 +100,10 @@
 			this.$flickrSelectListContainer.append( this.flickrSelectButton.$element );
 
 			// A container holding a form
-			this.$flickrContainer = $( '<div id="mwe-upwiz-upload-add-flickr-container"></div>' );
+			this.$flickrContainer = $( '<div>' ).attr( 'id', 'mwe-upwiz-upload-add-flickr-container' );
 
 			// Form whose submit event will be listened to and prevented
-			this.$flickrForm = $( '<form id="mwe-upwiz-flickr-url-form"></form>' )
+			this.$flickrForm = $( '<form>' ).attr( 'id', 'mwe-upwiz-flickr-url-form' )
 				.appendTo( this.$flickrContainer )
 				.on( 'submit', function () {
 					var checker = new mw.FlickrChecker( upload, upload.flickrSelectButton );
@@ -114,8 +114,12 @@
 				} );
 
 			// The input that will hold a flickr URL entered by the user; will be appended to a form
-			this.$flickrInput = $( '<input id="mwe-upwiz-flickr-input" type="text" />' )
-				.attr( 'placeholder', mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text() )
+			this.$flickrInput = $( '<input>' )
+				.attr( {
+					id: 'mwe-upwiz-flickr-input',
+					type: 'text',
+					placeholder: mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text()
+				} )
 				.prependTo( this.$flickrForm );
 
 			this.flickrButton = new OO.ui.ButtonInputWidget( {
@@ -127,7 +131,7 @@
 			this.$flickrForm.append( this.flickrButton.$element );
 
 			// Add disclaimer
-			$( '<div id="mwe-upwiz-flickr-disclaimer"></div>' )
+			$( '<div>' ).attr( 'id', 'mwe-upwiz-flickr-disclaimer' )
 				.html(
 					mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
 					'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse()
@@ -186,7 +190,13 @@
 	 * @param {jQuery} $element The element to append to
 	 */
 	uw.ui.Upload.prototype.setupFileInputCtrl = function ( $element ) {
-		var $fileInputCtrl = $( '<input type="file" multiple name="file" class="mwe-upwiz-file-input" />' ),
+		var $fileInputCtrl = $( '<input>' )
+				.attr( {
+					type: 'file',
+					name: 'file',
+					multiple: ''
+				} )
+				.addClass( 'mwe-upwiz-file-input' ),
 			ui = this;
 
 		// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
@@ -319,7 +329,9 @@
 		this.setupFileInputCtrl( this.addFile.$element.find( '.oo-ui-buttonElement-button' ) );
 
 		// Show the upload button, and the add file button
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mwe-upwiz-upload-ctrls' ).show();
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mwe-upwiz-add-file' ).show();
 	};
 
@@ -327,7 +339,7 @@
 		var thumbPromise,
 			$uploadInterfaceDivs = $( [] );
 
-		$.each( uploads, function ( i, upload ) {
+		uploads.forEach( function ( upload ) {
 			// We'll attach all interfaces to the DOM at once rather than one-by-one, for better
 			// performance
 			$uploadInterfaceDivs = $uploadInterfaceDivs.add( upload.ui.$div );
@@ -339,7 +351,7 @@
 		// Display thumbnails, but not all at once because they're somewhat expensive to generate.
 		// This will wait for each thumbnail to be complete before starting the next one.
 		thumbPromise = $.Deferred().resolve();
-		$.each( uploads, function ( i, upload ) {
+		uploads.forEach( function ( upload ) {
 			thumbPromise = thumbPromise.then( function () {
 				var deferred = $.Deferred();
 				setTimeout( function () {
@@ -534,7 +546,7 @@
 		// Insert form into the page
 		this.$div.find( '#mwe-upwiz-files' ).prepend( this.$flickrContainer );
 
-		this.$flickrInput.focus();
+		this.$flickrInput.trigger( 'focus' );
 	};
 
 	/**

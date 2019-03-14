@@ -49,7 +49,7 @@
 			return;
 		}
 
-		$.each( uploads, function ( i, upload ) {
+		uploads.forEach( function ( upload ) {
 			thanks.ui.addUpload( upload );
 		} );
 	};

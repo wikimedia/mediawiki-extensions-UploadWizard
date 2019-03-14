@@ -58,7 +58,7 @@
 		// make sure queue is empty before starting this step
 		this.queue.abortExecuting();
 
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			var serialized;
 
 			// get existing details
@@ -107,7 +107,7 @@
 		// rest failed because of abusefilter (or another recoverable error), in
 		// which case we'll want the "copy" feature to appear below the 2nd
 		// upload (or the first not-yet-completed not flat-out-failed upload)
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			if ( upload && invalidStates.indexOf( upload.state ) === -1 ) {
 				first = upload;
 				return false;
@@ -138,6 +138,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Details.prototype.createDetails = function ( upload ) {
+		// eslint-disable-next-line no-jquery/no-global-selector
 		upload.details = new mw.UploadWizardDetails( upload, $( '#mwe-upwiz-macro-files' ) );
 	};
 
@@ -174,14 +175,14 @@
 			validityPromises = [ $.Deferred().resolve( [], [] ).promise() ],
 			titles = [];
 
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			// Update any error/warning messages about all DetailsWidgets
 			var promise = upload.details.checkValidity( true ).then( function () {
 				var warnings = [],
 					errors = [],
 					title;
 
-				$.each( arguments, function ( i, result ) {
+				Array.prototype.forEach.call( arguments, function ( result ) {
 					warnings = warnings.concat( result[ 0 ] );
 					errors = errors.concat( result[ 1 ] );
 				} );
@@ -212,7 +213,7 @@
 			var warnings = [],
 				errors = [];
 
-			$.each( arguments, function ( i, result ) {
+			Array.prototype.forEach.call( arguments, function ( result ) {
 				warnings = warnings.concat( result[ 0 ] );
 				errors = errors.concat( result[ 1 ] );
 			} );
@@ -282,7 +283,7 @@
 			deferred = $.Deferred(),
 			details = this;
 
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			if ( details.canTransition( upload ) ) {
 				details.queue.addItem( upload );
 			}
@@ -302,7 +303,7 @@
 	uw.controller.Details.prototype.submit = function () {
 		var details = this;
 
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			// Clear error state
 			if ( upload.state === 'error' || upload.state === 'recoverable-error' ) {
 				upload.state = details.stepName;

@@ -172,7 +172,7 @@
 			windowManager = new OO.ui.WindowManager();
 			dialog = this.getPatentDialog( uploads );
 
-			$( 'body' ).append( windowManager.$element );
+			$( document.body ).append( windowManager.$element );
 			windowManager.addWindows( [ dialog ] );
 			windowManager.openWindow( dialog );
 

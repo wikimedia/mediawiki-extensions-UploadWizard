@@ -34,7 +34,7 @@
 	QUnit.test( '.static.makeTitleInFileNS()', function ( assert ) {
 		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;
 
-		$.each( makeTitleInFileNSCases, function ( i, test ) {
+		makeTitleInFileNSCases.forEach( function ( test ) {
 			var title = makeTitleInFileNS( test.filename );
 			assert.strictEqual(
 				title ? title.getPrefixedText() : title,

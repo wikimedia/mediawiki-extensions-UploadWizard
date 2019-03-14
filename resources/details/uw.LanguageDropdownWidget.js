@@ -68,18 +68,12 @@
 	 * @return {OO.ui.MenuOptionWidget[]}
 	 */
 	uw.LanguageDropdownWidget.prototype.getLanguageMenuOptionWidgets = function ( languages ) {
-		var options;
-
-		options = [];
-		$.each( languages, function ( code, language ) {
-			options.push(
-				new OO.ui.MenuOptionWidget( {
-					data: code,
-					label: language
-				} )
-			);
+		return Object.keys( languages ).map( function ( code ) {
+			return new OO.ui.MenuOptionWidget( {
+				data: code,
+				label: languages[ code ]
+			} );
 		} );
-		return options;
 	};
 
 }( mw.uploadWizard ) );

@@ -14,15 +14,15 @@
 
 		this.upload = upload;
 
-		// may need to collaborate with the particular upload type sometimes
+		// May need to collaborate with the particular upload type sometimes
 		// for the interface, as well as the uploadwizard. OY.
-		this.$div = $( '<div class="mwe-upwiz-file"></div>' );
+		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-file' );
 
 		this.isFilled = false;
 
-		this.$indicator = $( '<div class="mwe-upwiz-file-indicator"></div>' );
+		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' );
 
-		this.visibleFilenameDiv = $( '<div class="mwe-upwiz-visible-file"></div>' )
+		this.visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' )
 			.append( this.$indicator )
 			.append(
 				'<div class="mwe-upwiz-visible-file-filename">' +
@@ -90,7 +90,7 @@
 	 */
 	mw.UploadWizardUploadInterface.prototype.clearIndicator = function () {
 		var ui = this;
-		$.each( this.$indicator.attr( 'class' ).split( /\s+/ ), function ( i, className ) {
+		this.$indicator.attr( 'class' ).split( /\s+/ ).forEach( function ( className ) {
 			if ( className.match( /^mwe-upwiz-status/ ) ) {
 				ui.$indicator.removeClass( className );
 			}
@@ -247,12 +247,10 @@
 	* @return {jQuery} A `div` containing a checkbox, label, and optional notice
 	*/
 	mw.UploadWizardUploadInterface.prototype.createImagePickerField = function ( index, setDisabled ) {
-		var $fieldContainer = $( '<div>' ).attr( {
-				'class': 'mwe-upwiz-objref-pick-image'
-			} ),
+		var $fieldContainer = $( '<div>' ).addClass( 'mwe-upwiz-objref-pick-image' ),
 			attributes = {
 				type: 'checkbox',
-				'class': 'imgPicker',
+				class: 'imgPicker',
 				id: 'imgPicker' + index,
 				disabled: false,
 				checked: false
@@ -275,15 +273,15 @@
 			} ),
 
 			$( '<label>' ).attr( {
-				'for': 'imgPicker' + index
+				for: 'imgPicker' + index
 			} ).text( this.getPickImageLabel() )
 		);
 
 		if ( setDisabled ) {
 			$fieldContainer.append(
-				$( '<div>' ).attr( {
-					'class': 'mwe-upwiz-objref-notice-existing-image'
-				} ).text( this.getExistingImageNotice() )
+				$( '<div>' )
+					.addClass( 'mwe-upwiz-objref-notice-existing-image' )
+					.text( this.getExistingImageNotice() )
 			);
 		}
 

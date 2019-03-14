@@ -124,7 +124,7 @@
 					if ( data.query.pages[ -1 ] && !data.query.pages[ -1 ].imageinfo ) {
 						protection = data.query.pages[ -1 ].protection;
 						if ( protection && protection.length > 0 ) {
-							$.each( protection, function ( i, val ) {
+							protection.forEach( function ( val ) {
 								if ( mw.config.get( 'wgUserGroups' ).indexOf( val.level ) === -1 ) {
 									result = {
 										isUnique: true,

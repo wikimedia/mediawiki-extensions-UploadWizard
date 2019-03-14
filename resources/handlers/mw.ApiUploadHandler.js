@@ -195,12 +195,13 @@
 			}
 
 			// map of normalized titles, so we can find original title
-			$.each( result.query.normalized, function ( i, data ) {
+			result.query.normalized.forEach( function ( data ) {
 				normalized[ data.to ] = data.from;
 			} );
 
-			$.each( result.query.pages, function ( i, page ) {
-				var title = page.title in normalized ? normalized[ page.title ] : page.title;
+			Object.keys( result.query.pages ).forEach( function ( pageId ) {
+				var page = result.query.pages[ pageId ],
+					title = page.title in normalized ? normalized[ page.title ] : page.title;
 				if ( page.imagerepository === 'local' ) {
 					local[ title ] = page.imageinfo[ 0 ].descriptionurl;
 				} else if ( page.imagerepository !== '' ) {
@@ -231,7 +232,8 @@
 
 		unknownAmount = unknownAmount || 0;
 
-		$.each( allDuplicates, function ( filename, href ) {
+		Object.keys( allDuplicates ).forEach( function ( filename ) {
+			var href = allDuplicates[ filename ];
 			$a = $( '<a>' ).text( filename );
 			$a.attr( { href: href, target: '_blank' } );
 			$ul.append( $( '<li>' ).append( $a ) );
@@ -312,7 +314,7 @@
 	mw.ApiUploadHandler.prototype.getFileLinks = function ( filenames ) {
 		var files = [];
 
-		$.each( filenames, function ( i, filename ) {
+		filenames.forEach( function ( filename ) {
 			var title;
 			try {
 				title = mw.Title.makeTitle( NS_FILE, filename );

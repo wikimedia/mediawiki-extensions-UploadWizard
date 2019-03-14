@@ -87,10 +87,11 @@
 	};
 
 	uw.controller.Deed.prototype.unload = function () {
+		var deedController = this;
 		uw.controller.Step.prototype.unload.call( this );
 
-		$.each( this.deeds, function ( name, deed ) {
-			deed.unload();
+		Object.keys( this.deeds ).forEach( function ( name ) {
+			deedController.deeds[ name ].unload();
 		} );
 	};
 
@@ -100,15 +101,11 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.controller.Deed.prototype.load = function ( uploads ) {
-		var customDeed, previousDeed, fromStepName,
-			showDeed = false;
+		var customDeed, previousDeed, fromStepName, showDeed;
 
-		$.each( uploads, function ( i, upload ) {
+		showDeed = uploads.some( function ( upload ) {
 			fromStepName = upload.state;
-			if ( !upload.file.fromURL ) {
-				showDeed = true;
-				return false;
-			}
+			return !upload.file.fromURL;
 		} );
 
 		uw.controller.Step.prototype.load.call( this, uploads );
@@ -153,7 +150,7 @@
 			.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
 			.msg( 'mwe-upwiz-deeds-macro-prompt', this.uploads.length, mw.user );
 
-		$.each( uploads, function ( i, upload ) {
+		uploads.forEach( function ( upload ) {
 			// Add previews and details to the DOM
 			if ( !upload.file.fromURL ) {
 				upload.deedPreview = new uw.ui.DeedPreview( upload );

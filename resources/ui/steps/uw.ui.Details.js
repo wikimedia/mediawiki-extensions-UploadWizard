@@ -210,6 +210,7 @@
 
 		if ( errorCount > 0 ) {
 			// Errors supersede warnings, so stop any animating to the warnings before we animate to the errors
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'html, body' ).stop();
 
 			this.$errorCount
@@ -217,6 +218,7 @@
 				// TODO The IconWidget and 'warning' flag is specific to MediaWiki theme, looks weird in Apex
 				.prepend( new OO.ui.IconWidget( { icon: 'alert', flags: [ 'warning' ] } ).$element, ' ' );
 			// Scroll to the first error
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'html, body' ).animate( { scrollTop: $( $errorElements[ 0 ] ).offset().top - 50 }, 'slow' );
 		} else {
 			this.$errorCount.empty();
@@ -247,6 +249,7 @@
 				// TODO The IconWidget is specific to MediaWiki theme, looks weird in Apex
 				.prepend( new OO.ui.IconWidget( { icon: 'info' } ).$element, ' ' );
 			// Scroll to the first warning
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'html, body' ).animate( { scrollTop: $( $warningElements[ 0 ] ).offset().top - 50 }, 'slow' );
 		} else {
 			this.$warningCount.empty();

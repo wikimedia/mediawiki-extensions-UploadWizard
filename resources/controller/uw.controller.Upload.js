@@ -96,7 +96,7 @@
 			 * with new uploads, and still understand the existing files that
 			 * we've just reset the state for.
 			 */
-			$.each( uploads, function ( i, upload ) {
+			uploads.forEach( function ( upload ) {
 				upload.state = upload.fileKey === undefined ? 'error' : controller.finishState;
 			} );
 
@@ -194,7 +194,7 @@
 		var controller = this;
 		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			if ( upload.state === 'error' ) {
 				// reset any uploads in error state back to be shiny & new
 				upload.state = 'new';
@@ -251,7 +251,7 @@
 			uploadObjs = [],
 			controller = this;
 
-		$.each( files, function ( i, file ) {
+		files.forEach( function ( file ) {
 			uploadObj = controller.addFile( file );
 			if ( uploadObj ) {
 				uploadObjs.push( uploadObj );

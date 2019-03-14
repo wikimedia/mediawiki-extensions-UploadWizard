@@ -36,6 +36,7 @@
 			.addClass( 'mwe-upwiz-stepdiv' )
 			.hide();
 
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mwe-upwiz-content' ).append( this.$div );
 
 		// this will make sure that buttons will only be added if they've been
@@ -52,6 +53,7 @@
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 */
 	uw.ui.Step.prototype.load = function ( uploads ) {
+		// eslint-disable-next-line no-jquery/no-global-selector
 		var offset = $( 'h1:first' ).offset();
 
 		this.movedFrom = false;
@@ -59,6 +61,7 @@
 		this.uploads = uploads;
 		this.$div.append( this.$buttons ).show();
 
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( 'html, body' ).animate( {
 			scrollTop: offset.top,
 			scrollLeft: offset.left

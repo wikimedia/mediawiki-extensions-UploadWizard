@@ -132,7 +132,7 @@
 
 		this.$form = $( '<form>' );
 
-		$standardDiv = $( '<div class="mwe-upwiz-standard" />' ).append(
+		$standardDiv = $( '<div>' ).addClass( 'mwe-upwiz-standard' ).append(
 			$( '<p>' ).msg(
 				defaultLicenseMsg,
 				this.uploadCount,
@@ -140,15 +140,15 @@
 				defaultLicenseLink,
 				mw.user
 			),
-			$( '<p class="mwe-small-print"></p>' ).msg(
+			$( '<p>' ).addClass( 'mwe-small-print' ).msg(
 				defaultLicenseExplainMsg,
 				this.uploadCount
 			)
 		);
-		$crossfader = $( '<div class="mwe-upwiz-crossfader" />' ).append( $standardDiv );
+		$crossfader = $( '<div>' ).addClass( 'mwe-upwiz-crossfader' ).append( $standardDiv );
 
 		if ( this.showCustomDiv ) {
-			$customDiv = $( '<div class="mwe-upwiz-custom" />' ).append(
+			$customDiv = $( '<div>' ).addClass( 'mwe-upwiz-custom' ).append(
 				$( '<p>' ).msg( 'mwe-upwiz-source-ownwork-assert-custom',
 					this.uploadCount,
 					this.fakeAuthorInput.$element )
@@ -169,14 +169,15 @@
 			crossfaderWidget.emit( 'change' );
 		}, 500 ) );
 
-		$formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' )
+		$formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' )
 			.append( this.authorInputField.$element );
 
 		if ( this.showCustomDiv ) {
-			$toggler = $( '<p class="mwe-more-options" style="text-align: right"></p>' )
-				.append( $( '<a />' )
+			// FIXME: Move CSS rule to CSS file
+			$toggler = $( '<p>' ).addClass( 'mwe-more-options' ).css( 'text-align', 'right' )
+				.append( $( '<a>' )
 					.msg( 'mwe-upwiz-license-show-all' )
-					.click( function () {
+					.on( 'click', function () {
 						if ( $crossfader.data( 'crossfadeDisplay' ).get( 0 ) === $customDiv.get( 0 ) ) {
 							deed.standardLicense();
 						} else {
@@ -191,7 +192,7 @@
 			patentMsg = 'mwe-upwiz-patent';
 			patentLink = $( '<a>' ).attr( { target: '_blank', href: this.config.patents.url.legalcode } );
 
-			$patentDiv = $( '<div class="mwe-upwiz-patent" />' ).append(
+			$patentDiv = $( '<div>' ).addClass( 'mwe-upwiz-patent' ).append(
 				$( '<p>' ).msg(
 					patentMsg,
 					this.threeDCount,
@@ -360,6 +361,8 @@
 				deed.swapNodes( deed.authorInput.$element[ 0 ], deed.fakeAuthorInput.$element[ 0 ] );
 			} );
 
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line no-jquery/no-slide, no-jquery/no-animate
 		this.licenseInputField.$element
 			.slideUp()
 			.animate( { opacity: 0 }, { queue: false, easing: 'linear' } );
@@ -378,6 +381,8 @@
 				deed.swapNodes( deed.authorInput.$element[ 0 ], deed.fakeAuthorInput.$element[ 0 ] );
 			} );
 
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line no-jquery/no-slide, no-jquery/no-animate
 		this.licenseInputField.$element
 			.slideDown()
 			.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );

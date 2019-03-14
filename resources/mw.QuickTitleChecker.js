@@ -71,8 +71,9 @@
 	 */
 	mw.QuickTitleChecker.checkTitle = function ( title ) {
 		var errors = [];
-		$.each( mw.QuickTitleChecker.regexSets, function ( setName, regexes ) {
-			$.each( regexes, function ( i, regex ) {
+		Object.keys( mw.QuickTitleChecker.regexSets ).forEach( function ( setName ) {
+			var regexes = mw.QuickTitleChecker.regexSets[ setName ];
+			regexes.forEach( function ( regex ) {
 				if ( title.match( regex ) ) {
 					errors.push( setName );
 				}

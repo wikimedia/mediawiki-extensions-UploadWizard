@@ -59,7 +59,7 @@
 				this.$element.append( upload.file.licenseMessage );
 			}
 		} else {
-			deedDiv = $( '<div class="mwe-upwiz-custom-deed" />' );
+			deedDiv = $( '<div>' ).addClass( 'mwe-upwiz-custom-deed' );
 			this.$element.append( deedDiv );
 			this.deedChooser = upload.deedChooser = new mw.UploadWizardDeedChooser(
 				mw.UploadWizard.config,

@@ -41,7 +41,7 @@
 		this.previewDialog = new uw.LicensePreviewDialog();
 		this.windowManager = new OO.ui.WindowManager();
 		this.windowManager.addWindows( [ this.previewDialog ] );
-		$( 'body' ).append( this.windowManager.$element );
+		$( document.body ).append( this.windowManager.$element );
 
 		if ( this.type === 'radio' ) {
 			this.group = this.createRadioGroup( [ 'mwe-upwiz-deed-license-group-body' ] );
@@ -176,17 +176,18 @@
 	 * @return {string}
 	 */
 	uw.LicenseGroup.prototype.getWikiText = function () {
-		var self = this,
-			wikiTexts = [],
+		var wikiTexts,
+			self = this,
 			values = this.getValue();
 
-		$.each( values, function ( name, data ) {
-			var wikiText = self.getLicenceWikiText( name );
-			if ( typeof data === 'string' ) {
-				// `data` is custom input
-				wikiText += '\n' + data.trim();
+		wikiTexts = Object.keys( values ).map( function ( name ) {
+			var wikiText = self.getLicenceWikiText( name ),
+				value = values[ name ];
+			if ( typeof value === 'string' ) {
+				// `value` is custom input
+				wikiText += '\n' + value.trim();
 			}
-			wikiTexts.push( wikiText );
+			return wikiText;
 		} );
 
 		return wikiTexts.join( '' ).trim();
@@ -202,7 +203,7 @@
 	};
 
 	/**
-	 * @return {Object} map of { licenseName: true }, or { licenseName: "custom input" }
+	 * @return {Object} Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.getValue = function () {
 		var self = this,
@@ -228,14 +229,15 @@
 	};
 
 	/**
-	 * @param {Array} values
+	 * @param {Object} values Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.setValue = function ( values ) {
 		var self = this,
 			selectArray = [],
 			selected;
 
-		$.each( values, function ( name, value ) {
+		Object.keys( values ).forEach( function ( name ) {
+			var value = values[ name ];
 			if ( typeof value === 'string' && self.textareas[ name ] ) {
 				self.textareas[ name ].setValue( value );
 				// add to list of items to select
@@ -279,7 +281,7 @@
 	/**
 	 * @private
 	 * @param {string} name
-	 * @return {Object}
+	 * @return {string[]}
 	 */
 	uw.LicenseGroup.prototype.getTemplates = function ( name ) {
 		var licenseInfo = this.getLicenseInfo( name );
@@ -312,7 +314,7 @@
 			templates = [ templates.join( '|' ) ];
 		}
 
-		wikiTexts = $.map( templates, function ( t ) {
+		wikiTexts = templates.map( function ( t ) {
 			return '{{' + t + '}}';
 		} );
 		return wikiTexts.join( '' );

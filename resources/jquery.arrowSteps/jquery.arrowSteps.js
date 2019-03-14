@@ -69,8 +69,8 @@
 	$.fn.arrowStepsHighlight = function ( selector ) {
 		var $previous,
 			$steps = this.data( 'arrowSteps' );
-		$.each( $steps, function ( i, step ) {
-			var $step = $( step );
+		$steps.each( function () {
+			var $step = $( this );
 			if ( $step.is( selector ) ) {
 				if ( $previous ) {
 					$previous.addClass( 'tail' );

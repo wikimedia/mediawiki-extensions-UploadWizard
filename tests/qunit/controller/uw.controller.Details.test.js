@@ -31,7 +31,7 @@
 
 			deedChooser: { deed: { name: customDeedChooser ? 'custom' : 'cc-by-sa-4.0' } },
 
-			on: $.noop,
+			on: function () {},
 
 			details: {
 				useCustomDeedChooser: stubs.ucdc,

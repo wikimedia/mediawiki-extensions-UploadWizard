@@ -36,7 +36,7 @@
 		// Show the ULS when a user tabs into the language selection field
 		this.$element.find( '.oo-ui-dropdownWidget-handle' ).on( 'keyup', function ( e ) {
 			if ( e.key === 'Tab' ) {
-				$( this ).click();
+				$( this ).trigger( 'click' );
 			}
 		} );
 
@@ -55,7 +55,7 @@
 		this.uls = this.$element.uls( {
 			onSelect: function ( language ) {
 				ulsWidget.setValue( language );
-				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).focus();
+				ulsWidget.$element.parent().find( '.oo-ui-inputWidget-input' ).trigger( 'focus' );
 			},
 			languages: languages,
 			ulsPurpose: 'upload-wizard-description',

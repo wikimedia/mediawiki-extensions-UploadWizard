@@ -46,7 +46,9 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Wizard.prototype.initHeader = function ( config ) {
-		var feedbackLink;
+		var feedbackLink,
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$contentSub = $( '#contentSub' );
 
 		if ( config.feedbackLink ) {
 			// Preferred. Send user to bug tracker (defaults to UW's own
@@ -64,7 +66,7 @@
 				.prop( 'href', feedbackLink )
 				.msg( 'mwe-upwiz-feedback-prompt' );
 
-			$( '#contentSub' ).append( this.$feedbackLink );
+			$contentSub.append( this.$feedbackLink );
 		}
 
 		if ( config.alternativeUploadToolsPage ) {
@@ -73,7 +75,7 @@
 				.prop( 'href', new mw.Title( config.alternativeUploadToolsPage ).getUrl() )
 				.msg( 'mwe-upwiz-subhead-alternatives' );
 
-			$( '#contentSub' ).append( this.$alternativeUploads );
+			$contentSub.append( this.$alternativeUploads );
 		}
 
 		if ( config.altUploadForm ) {
@@ -81,7 +83,7 @@
 		}
 
 		// Separate each link in the header with a dot.
-		$( '#contentSub .contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
+		$contentSub.find( '.contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
 	};
 
 	/**

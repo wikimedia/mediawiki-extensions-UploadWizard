@@ -31,9 +31,9 @@
 
 		this.sandbox.stub( step.ui, 'load' );
 		step.load( [
-			{ on: $.noop },
-			{ on: $.noop },
-			{ on: $.noop }
+			{ on: function () {} },
+			{ on: function () {} },
+			{ on: function () {} }
 		] );
 
 		assert.strictEqual( auStub.callCount, 3 );

@@ -136,7 +136,7 @@
 	};
 
 	uw.deed.ThirdParty.prototype.setFormFields = function ( $selector ) {
-		var $formFields = $( '<div class="mwe-upwiz-deed-form-internal" />' );
+		var $formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' );
 
 		this.$form = $( '<form>' );
 
@@ -145,12 +145,12 @@
 		}
 
 		$formFields.append(
-			$( '<div class="mwe-upwiz-source-thirdparty-custom-multiple-intro" />' ),
-			$( '<div class="mwe-upwiz-thirdparty-fields" />' )
+			$( '<div>' ).addClass( 'mwe-upwiz-source-thirdparty-custom-multiple-intro' ),
+			$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
 				.append( this.sourceInputField.$element ),
-			$( '<div class="mwe-upwiz-thirdparty-fields" />' )
+			$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
 				.append( this.authorInputField.$element ),
-			$( '<div class="mwe-upwiz-thirdparty-license" />' )
+			$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-license' )
 				.append( this.licenseInputField.$element )
 		);
 

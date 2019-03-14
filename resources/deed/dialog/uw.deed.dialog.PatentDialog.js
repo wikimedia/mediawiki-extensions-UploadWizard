@@ -57,7 +57,7 @@
 
 		uw.PatentDialog.super.prototype.initialize.apply( this, arguments );
 
-		$.each( this.uploads, function ( i, upload ) {
+		this.uploads.forEach( function ( upload ) {
 			filenames.push(
 				// use given title (if available already) or fall back to filename
 				upload.details ? upload.details.getTitle().getMainText() : upload.title.getMainText()

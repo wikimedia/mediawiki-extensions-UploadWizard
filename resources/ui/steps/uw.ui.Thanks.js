@@ -165,7 +165,7 @@
 			.attr( 'readonly', 'readonly' )
 			.addClass( 'mwe-title mwe-readonly ui-corner-all' )
 			.val( s )
-			.click( function () {
+			.on( 'click', function () {
 				this.focus();
 				this.select();
 			} );

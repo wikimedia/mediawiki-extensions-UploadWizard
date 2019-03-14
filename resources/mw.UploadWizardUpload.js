@@ -312,12 +312,6 @@
 		var key,
 			upload = this;
 
-		function setMetadata( i, pair ) {
-			if ( pair !== undefined ) {
-				upload.imageinfo.metadata[ pair.name.toLowerCase() ] = pair.value;
-			}
-		}
-
 		for ( key in imageinfo ) {
 			// we get metadata as list of key-val pairs; convert to object for easier lookup. Assuming that EXIF fields are unique.
 			if ( key === 'metadata' ) {
@@ -325,7 +319,11 @@
 					this.imageinfo.metadata = {};
 				}
 				if ( imageinfo.metadata && imageinfo.metadata.length ) {
-					$.each( imageinfo.metadata, setMetadata );
+					imageinfo.metadata.forEach( function ( pair ) {
+						if ( pair !== undefined ) {
+							upload.imageinfo.metadata[ pair.name.toLowerCase() ] = pair.value;
+						}
+					} );
 				}
 			} else {
 				this.imageinfo[ key ] = imageinfo[ key ];
@@ -401,7 +399,8 @@
 
 			if ( data && data.query && data.query.pages ) {
 				found = false;
-				$.each( data.query.pages, function ( pageId, page ) {
+				Object.keys( data.query.pages ).forEach( function ( pageId ) {
+					var page = data.query.pages[ pageId ];
 					if ( page.title && page.title === requestedTitle && page.imageinfo ) {
 						found = true;
 						callback( page.imageinfo );
@@ -490,7 +489,7 @@
 				// they are actually there yet. Keep trying to set the source ( which should trigger "error" or "load" event )
 				// on the image. If it loads publish the event with the image. If it errors out too many times, give up and publish
 				// the event with a null.
-				$.each( thumbnails, function ( i, thumb ) {
+				thumbnails.forEach( function ( thumb ) {
 					var timeoutMs, image;
 
 					if ( thumb.thumberror || ( !( thumb.thumburl && thumb.thumbwidth && thumb.thumbheight ) ) ) {
@@ -586,8 +585,9 @@
 	 */
 	mw.UploadWizardUpload.prototype.getScalingFromConstraints = function ( image, constraints ) {
 		var scaling = 1;
-		$.each( constraints, function ( dim, constraint ) {
-			var s;
+		Object.keys( constraints ).forEach( function ( dim ) {
+			var s,
+				constraint = constraints[ dim ];
 			if ( constraint && image[ dim ] > constraint ) {
 				s = constraint / image[ dim ];
 				if ( s < scaling ) {

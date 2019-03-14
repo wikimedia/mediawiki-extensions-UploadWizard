@@ -83,10 +83,12 @@
 		} );
 
 		// grab the tutorial HTML that was injected into this document
+		// eslint-disable-next-line no-jquery/no-global-selector
 		this.tutorialHtml = $( '#mwe-upwiz-tutorial-html' );
 
 		// Helpdesk link click
-		$( '#mwe-upwiz-tutorial-helpdesk' ).click( function () {
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$( '#mwe-upwiz-tutorial-helpdesk' ).on( 'click', function () {
 			ui.emit( 'helpdesk-click' );
 		} );
 

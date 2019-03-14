@@ -47,6 +47,8 @@
 		 * Show the progress bar
 		 */
 		showBar: function () {
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line no-jquery/no-fade
 			this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeIn( 200 );
 		},
 
@@ -66,11 +68,11 @@
 					errorStateCount = 0,
 					hasData = false;
 
-				$.each( bar.uploads, function ( i, upload ) {
+				bar.uploads.forEach( function ( upload ) {
 					totalWeight += upload[ bar.weightProperty ];
 				} );
 
-				$.each( bar.uploads, function ( i, upload ) {
+				bar.uploads.forEach( function ( upload ) {
 					if ( upload.state === 'aborted' ) {
 						return;
 					}
@@ -116,6 +118,8 @@
 		 * Hide the progress bar with a slideup motion
 		 */
 		hideBar: function () {
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line no-jquery/no-fade
 			this.$selector.find( '.mwe-upwiz-progress-bar-etr' ).fadeOut( 200 );
 		},
 
@@ -191,7 +195,7 @@
 
 		countRemoved: function () {
 			var count = 0;
-			$.each( this.uploads, function ( i, upload ) {
+			this.uploads.forEach( function ( upload ) {
 				if ( !upload || upload.state === 'aborted' ) {
 					count += 1;
 				}

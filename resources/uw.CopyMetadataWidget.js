@@ -118,6 +118,8 @@
 		this.copyMetadata( metadataTypes );
 
 		this.undoButton.toggle( true );
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line no-jquery/no-fade
 		this.$success
 			.text( mw.message( 'mwe-upwiz-copied-metadata' ).text() )
 			.show()
@@ -133,6 +135,8 @@
 		this.restoreMetadata();
 
 		this.undoButton.toggle( false );
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line no-jquery/no-fade
 		this.$success
 			.text( mw.message( 'mwe-upwiz-undid-metadata' ).text() )
 			.show()

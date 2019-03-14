@@ -20,7 +20,7 @@
 		this.customDeedChooser = false;
 		this.captionSubmissionErrors = {};
 
-		this.$div = $( '<div class="mwe-upwiz-info-file ui-helper-clearfix filled"></div>' );
+		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-info-file ui-helper-clearfix filled' );
 	};
 
 	mw.UploadWizardDetails.prototype = {
@@ -36,9 +36,9 @@
 				$moreDetailsWrapperDiv, $moreDetailsDiv,
 				details = this;
 
-			this.$thumbnailDiv = $( '<div class="mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side"></div>' );
+			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side' );
 
-			this.$dataDiv = $( '<div class="mwe-upwiz-data"></div>' );
+			this.$dataDiv = $( '<div>' ).addClass( 'mwe-upwiz-data' );
 
 			this.titleDetails = new uw.TitleDetailsWidget( {
 				// Normalize file extension, e.g. 'JPEG' to 'jpg'
@@ -153,7 +153,7 @@
 			} );
 
 			this.campaignDetailsFields = [];
-			$.each( mw.UploadWizard.config.fields, function ( i, field ) {
+			mw.UploadWizard.config.fields.forEach( function ( field ) {
 				var customDetails, customDetailsField;
 
 				if ( field.wikitext ) {
@@ -172,7 +172,7 @@
 				}
 			} );
 
-			$moreDetailsWrapperDiv = $( '<div class="mwe-more-details">' );
+			$moreDetailsWrapperDiv = $( '<div>' ).addClass( 'mwe-more-details' );
 			$moreDetailsDiv = $( '<div>' );
 
 			$moreDetailsDiv.append(
@@ -457,7 +457,7 @@
 
 			if ( this.upload.imageinfo.metadata ) {
 				metadata = this.upload.imageinfo.metadata;
-				$.each( [ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ], function ( i, propName ) {
+				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].forEach( function ( propName ) {
 					var matches, timeMatches,
 						dateInfo = metadata[ propName ];
 					if ( dateInfo ) {
@@ -764,7 +764,7 @@
 
 			information.description = this.descriptionsDetails.getWikiText();
 
-			$.each( this.campaignDetailsFields, function ( i, layout ) {
+			this.campaignDetailsFields.forEach( function ( layout ) {
 				information.description += layout.fieldWidget.getWikiText();
 			} );
 
@@ -830,7 +830,7 @@
 			var details = this,
 				wikitext, captions, promise, languageCodes, allLanguages, errorString;
 
-			$( 'form', this.$containerDiv ).submit();
+			this.$containerDiv.find( 'form' ).trigger( 'submit' );
 
 			this.upload.title = this.getTitle();
 			this.upload.state = 'submitting-details';
@@ -872,8 +872,9 @@
 						languageCodes.length
 					).parse() + '</strong>';
 
-					$.each( details.captionSubmissionErrors, function ( langCode, error ) {
-						var msgs = [];
+					Object.keys( details.captionSubmissionErrors ).forEach( function ( langCode ) {
+						var msgs = [],
+							error = details.captionSubmissionErrors[ langCode ];
 						error.result.errors.forEach( function ( errorObject ) {
 							var newMsg = '<p>' + errorObject.html + '</p>';
 							if ( msgs.indexOf( newMsg ) === -1 ) {
@@ -899,7 +900,9 @@
 					);
 					// If there is a captions error, then details for how to deal with it are
 					// in the errorString above, no need to show anything else
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '#mwe-upwiz-details-warning-count' ).hide();
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$( '.mwe-upwiz-remove-upload' ).hide();
 					// Remove the beforeunload warning, as the image is now as uploaded
 					// as it's going to get
@@ -1245,10 +1248,7 @@
 						message = mw.message( 'mwe-upwiz-upload-error-duplicate-archive' ).parse();
 					}
 				} else {
-					warningsKeys = [];
-					$.each( warnings, function ( key ) {
-						warningsKeys.push( key );
-					} );
+					warningsKeys = Object.keys( warnings );
 					code = 'unknown-warning';
 					message = mw.message( 'api-error-unknown-warning', warningsKeys.join( ', ' ) ).parse();
 				}
