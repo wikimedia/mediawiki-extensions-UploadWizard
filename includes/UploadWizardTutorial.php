@@ -87,7 +87,7 @@ class UploadWizardTutorial {
 	 * Get tutorial file for a particular language, or false if not available.
 	 *
 	 * @param String $langCode language Code
-	 * @param String|null $tutorial Upload Wizard campaign for which the tutorial should be displayed.
+	 * @param String[] $tutorial Upload Wizard campaign for which the tutorial should be displayed.
 	 *
 	 * @return File|false
 	 */
@@ -101,7 +101,7 @@ class UploadWizardTutorial {
 	 * including an imagemap for the clickable "Help desk" button.
 	 *
 	 * @param MediaTransformOutput $thumb
-	 * @param String|null $tutorial Upload Wizard campaign for which the tutorial should be displayed.
+	 * @param String[] $tutorial Upload Wizard campaign for which the tutorial should be displayed.
 	 *
 	 * @return String HTML representing the image, with clickable helpdesk button
 	 */
