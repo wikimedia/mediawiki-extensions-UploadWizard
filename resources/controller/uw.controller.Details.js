@@ -91,6 +91,8 @@
 
 	uw.controller.Details.prototype.addCopyMetadataFeature = function () {
 		var first,
+			upload,
+			i,
 			// uploads can only be edited when they're in a certain state:
 			// a flat out upload failure or a completed upload can not be edited
 			invalidStates = [ 'aborted', 'error', 'complete' ],
@@ -107,12 +109,13 @@
 		// rest failed because of abusefilter (or another recoverable error), in
 		// which case we'll want the "copy" feature to appear below the 2nd
 		// upload (or the first not-yet-completed not flat-out-failed upload)
-		this.uploads.forEach( function ( upload ) {
+		for ( i = 0; i < this.uploads.length; i++ ) {
+			upload = this.uploads[ i ];
 			if ( upload && invalidStates.indexOf( upload.state ) === -1 ) {
 				first = upload;
-				return false;
+				break;
 			}
-		} );
+		}
 
 		// could not find a source upload to copy from
 		if ( !first ) {
