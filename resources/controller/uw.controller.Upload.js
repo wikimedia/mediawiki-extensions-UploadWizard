@@ -243,20 +243,23 @@
 	 * Do everything that needs to be done to start uploading a file. Calls #addFile, then appends
 	 * each mw.UploadWizardUploadInterface to the DOM and queues thumbnails to be generated.
 	 *
-	 * @param {File[]} files
+	 * @param {FileList} files
 	 */
 	uw.controller.Upload.prototype.addFiles = function ( files ) {
 		var
 			uploadObj,
+			i,
+			file,
 			uploadObjs = [],
 			controller = this;
 
-		files.forEach( function ( file ) {
+		for ( i = 0; i < files.length; i++ ) {
+			file = files[ i ];
 			uploadObj = controller.addFile( file );
 			if ( uploadObj ) {
 				uploadObjs.push( uploadObj );
 			}
-		} );
+		}
 
 		this.ui.displayUploads( uploadObjs );
 		this.updateFileCounts();
