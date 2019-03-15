@@ -17,6 +17,8 @@
 		this.$messages = $( '<ul>' );
 
 		this.errors = [];
+		this.warnings = [];
+		this.successMessages = [];
 		this.notices = [];
 
 		this.validatedWidget.connect( this, {
