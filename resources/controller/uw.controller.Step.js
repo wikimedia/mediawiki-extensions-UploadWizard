@@ -179,8 +179,8 @@
 	uw.controller.Step.prototype.bindUploadHandlers = function ( upload ) {
 		var controller = this;
 
-		Object.keys( this.uploadHandlers ).forEach( function ( name ) {
-			var callback = controller.uploadHandlers[ name ];
+		Object.keys( this.uploadHandlers ).forEach( function ( event ) {
+			var callback = controller.uploadHandlers[ event ];
 			upload.on( event, callback, [ upload ], controller );
 		} );
 	};
@@ -193,8 +193,8 @@
 	uw.controller.Step.prototype.unbindUploadHandlers = function ( upload ) {
 		var controller = this;
 
-		Object.keys( this.uploadHandlers ).forEach( function ( name ) {
-			var callback = controller.uploadHandlers[ name ];
+		Object.keys( this.uploadHandlers ).forEach( function ( event ) {
+			var callback = controller.uploadHandlers[ event ];
 			upload.off( event, callback, controller );
 		} );
 	};
