@@ -18,7 +18,8 @@
 			"Martin Urbanec",
 			"Ilimanaq29",
 			"Envlh",
-			"Patriccck"
+			"Patriccck",
+			"Michaelbrabec"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -57,7 +58,7 @@
 	"mwe-upwiz-add-file-0-free": "Vyberte soubory, které chcete sdílet",
 	"mwe-upwiz-add-file-flickr": "Přidat obrázky z Flickru",
 	"mwe-upwiz-add-file-flickr-n": "Přidat další obrázky z Flickru",
-	"mwe-upwiz-add-flickr-or": "Nebo",
+	"mwe-upwiz-add-flickr-or": "nebo",
 	"mwe-upwiz-add-flickr": "Získat z Flickru",
 	"mwe-upwiz-flickr-input-placeholder": "URL na Flickru",
 	"mwe-upwiz-select-flickr": "Načíst zvolené obrázky",
@@ -137,7 +138,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Vysvětlete, proč jste si jisti, že máte právo zveřejnit {{PLURAL:$1|toto dílo|tato díla}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Na další stránce poskytnout informace o autorských právech pro každý soubor zvlášť.",
-	"mwe-upwiz-license-metadata-title": "Licence jen pro vkládání popisků",
+	"mwe-upwiz-license-metadata-title": "Licence jen pro vkládání popisků (toto se týká pouze textu popisku, NIKOLIV souboru)",
 	"mwe-upwiz-license-metadata-content": "Kliknutím na „Zveřejnit“ souhlasíte s [[wmf:Terms_of_Use|podmínkami užití]] a neodvolatelně svůj příspěvek uvolňujete pod licencí [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-more-options": "Přidat umístění a další informace…",
 	"mwe-upwiz-copy-metadata": "Kopírovat informace ke všem následujícím souborům…",
