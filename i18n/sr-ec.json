@@ -13,7 +13,8 @@
 			"Zoranzoki21",
 			"Acamicamacaraca",
 			"Envlh",
-			"BadDog"
+			"BadDog",
+			"Милан Јелисавчић"
 		]
 	},
 	"uploadwizard": "Водич за отпремање",
@@ -44,6 +45,7 @@
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Help desk",
 	"mwe-upwiz-add-file-n": "Додај још датотека",
 	"mwe-upwiz-add-file-0-free": "Изаберите датотеку коју желите да поклоните",
+	"mwe-upwiz-add-flickr-or": "или",
 	"mwe-upwiz-transport-started": "Почињем…",
 	"mwe-upwiz-uploading": "Отпремам…",
 	"mwe-upwiz-publish": "Објављујем...",
