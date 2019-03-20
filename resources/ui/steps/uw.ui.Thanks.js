@@ -127,17 +127,8 @@
 			.addClass( 'mwe-upwiz-data' )
 			.appendTo( $thanksDiv )
 			.append(
-				$( '<p>' )
-					.text( mw.message( 'mwe-upwiz-thanks-wikitext' ).text() )
-					.append(
-						$( '<br />' ),
-						this.makeReadOnlyInput( thumbWikiText )
-					),
-				$( '<p/>' ).text( mw.message( 'mwe-upwiz-thanks-url' ).text() )
-					.append(
-						$( '<br />' ),
-						this.makeReadOnlyInput( upload.imageinfo.descriptionurl )
-					)
+				this.makeReadOnlyInput( thumbWikiText, mw.message( 'mwe-upwiz-thanks-wikitext' ).text() ),
+				this.makeReadOnlyInput( upload.imageinfo.descriptionurl, mw.message( 'mwe-upwiz-thanks-url' ).text() )
 			);
 
 		// This must match the CSS dimensions of .mwe-upwiz-thumbnail
@@ -157,18 +148,28 @@
 	/**
 	 * Make a read only text input, which self-selects on gaining focus
 	 *
-	 * @param {string} s Text it will contain
+	 * @param {string} value Text it will contain
+	 * @param {string} label Label
 	 * @return {jQuery}
 	 */
-	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( s ) {
-		return $( '<input>' )
-			.attr( 'readonly', 'readonly' )
-			.addClass( 'mwe-title mwe-readonly ui-corner-all' )
-			.val( s )
-			.on( 'click', function () {
-				this.focus();
-				this.select();
-			} );
+	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( value, label ) {
+		var widget = new OO.ui.TextInputWidget( {
+				readOnly: true,
+				value: value
+			} ),
+			field = new OO.ui.FieldLayout(
+				widget,
+				{
+					align: 'top',
+					label: label
+				}
+			);
+
+		widget.$input.on( 'click', function () {
+			widget.select();
+		} );
+
+		return field.$element;
 	};
 
 	/**
