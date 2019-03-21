@@ -23,18 +23,16 @@
 		Object.keys( this.deeds ).forEach( function ( name ) {
 			var deed = chooser.deeds[ name ],
 				id = chooser.name + '-' + deed.name,
-				$deedInterface = $(
-					'<div class="mwe-upwiz-deed mwe-upwiz-deed-' + deed.name + '">' +
-						'<div class="mwe-upwiz-deed-option-title">' +
-							'<span class="mwe-upwiz-deed-header">' +
-								'<input id="' + id + '" name="' + chooser.name + '" type="radio" value="' + deed.name + ' /">' +
-								'<label for="' + id + '" class="mwe-upwiz-deed-name">' +
-									mw.message( 'mwe-upwiz-source-' + deed.name, chooser.uploads.length ).escaped() +
-								'</label>' +
-							'</span>' +
-						'</div>' +
-						'<div class="mwe-upwiz-deed-form"></div>' +
-					'</div>'
+				$deedInterface = $( '<div>' ).addClass( 'mwe-upwiz-deed mwe-upwiz-deed-' + deed.name ).append(
+					$( '<div>' ).addClass( 'mwe-upwiz-deed-option-title' ).append(
+						$( '<span>' ).addClass( 'mwe-upwiz-deed-header' ).append(
+							$( '<input>' ).attr( { id: id, name: chooser.name, type: 'radio', value: deed.name } ),
+							$( '<label>' ).attr( { for: id } ).addClass( 'mwe-upwiz-deed-name' ).html(
+								mw.message( 'mwe-upwiz-source-' + deed.name, chooser.uploads.length ).escaped()
+							)
+						)
+					),
+					$( '<div>' ).addClass( 'mwe-upwiz-deed-form' ).hide()
 				);
 
 			chooser.$selector.append( $deedInterface );
