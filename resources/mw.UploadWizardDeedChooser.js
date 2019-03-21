@@ -22,18 +22,24 @@
 
 		Object.keys( this.deeds ).forEach( function ( name ) {
 			var deed = chooser.deeds[ name ],
-				id = chooser.name + '-' + deed.name,
+				radio = new OO.ui.RadioSelectWidget( {
+					items: [ new OO.ui.RadioOptionWidget( {
+						label: mw.message( 'mwe-upwiz-source-' + deed.name, chooser.uploads.length ).text()
+					} ) ]
+				} ),
 				$deedInterface = $( '<div>' ).addClass( 'mwe-upwiz-deed mwe-upwiz-deed-' + deed.name ).append(
 					$( '<div>' ).addClass( 'mwe-upwiz-deed-option-title' ).append(
 						$( '<span>' ).addClass( 'mwe-upwiz-deed-header' ).append(
-							$( '<input>' ).attr( { id: id, name: chooser.name, type: 'radio', value: deed.name } ),
-							$( '<label>' ).attr( { for: id } ).addClass( 'mwe-upwiz-deed-name' ).html(
-								mw.message( 'mwe-upwiz-source-' + deed.name, chooser.uploads.length ).escaped()
-							)
+							radio.$element
 						)
 					),
 					$( '<div>' ).addClass( 'mwe-upwiz-deed-form' ).hide()
 				);
+
+			// Set the name attribute manually. We can't use RadioInputWidget which has
+			// a name config because they don't emit change events. Ideally we would use
+			// one RadioSelectWidget and not have to set this property.
+			radio.items[ 0 ].radio.$input.attr( 'name', chooser.name );
 
 			chooser.$selector.append( $deedInterface );
 
@@ -45,10 +51,8 @@
 				if ( config.licensing.defaultType === deed.name ) {
 					chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 				}
-				$deedInterface.find( 'span.mwe-upwiz-deed-header input' ).on( 'click', function () {
-					if ( $( this ).is( ':checked' ) ) {
-						chooser.selectDeed( deed );
-					}
+				radio.on( 'choose', function () {
+					chooser.selectDeed( deed );
 				} );
 			}
 		} );
