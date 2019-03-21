@@ -39,7 +39,7 @@
 
 			deed.setFormFields( $deedInterface.find( '.mwe-upwiz-deed-form' ) );
 
-			if ( deeds.length === 1 ) {
+			if ( Object.keys( chooser.deeds ).length === 1 ) {
 				chooser.onLayoutReady = chooser.selectDeed.bind( chooser, deed );
 			} else {
 				if ( config.licensing.defaultType === deed.name ) {
