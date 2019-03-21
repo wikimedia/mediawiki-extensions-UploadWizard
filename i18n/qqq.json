@@ -99,7 +99,6 @@
 	"mwe-upwiz-remove-caption": "Used as action link text to remove a caption.\n\nPreceded by the caption.",
 	"mwe-upwiz-remove-description": "Used as action link text to remove a description.\n\nPreceded by the description.",
 	"mwe-upwiz-upload": "{{Identical|Upload}}",
-	"mwe-upwiz-file-upload-notcapable": "The message a user will see when their browser cannot be used to upload an image.",
 	"mwe-upwiz-file-all-ok": "Displayed when an upload session succeeds with no errors.",
 	"mwe-upwiz-file-some-failed": "Displayed when an upload session is completed, but there are some errors or warnings.",
 	"mwe-upwiz-file-retry": "This is the text on a button. If any uploads failed, this button can be clicked to retry uploading the files that failed the previous time.\n\nThe button may be followed by another button which is labeled {{msg-mw|Mwe-upwiz-next-file-despite-failures}}.",

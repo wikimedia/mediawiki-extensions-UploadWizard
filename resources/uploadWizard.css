@@ -30,6 +30,12 @@ form.mwe-upwiz-form {
 	display: inline-block;
 }
 
+.mwe-upwiz-add-file {
+	/* TODO: Upstream to OOUI for SelectFileWidget[buttonOnly=true] */
+	display: inline-block;
+	width: auto;
+}
+
 .mwe-upwiz-add-files-0 #mwe-upwiz-upload-ctrl-flickr-container {
 	display: block;
 }
@@ -44,33 +50,12 @@ form.mwe-upwiz-form {
 	text-align: center;
 }
 
-.mwe-upwiz-add-files-0 #mwe-upwiz-add-file {
+.mwe-upwiz-add-files-0 .mwe-upwiz-add-file {
 	font-size: large;
 }
 
 .mwe-upwiz-add-files-0 .oo-ui-buttonElement {
 	margin-right: 0;
-}
-
-#mwe-upwiz-add-file .oo-ui-buttonElement-button {
-	position: relative;
-	overflow: hidden;
-}
-
-#mwe-upwiz-add-file .oo-ui-buttonElement-button .mwe-upwiz-file-input {
-	position: absolute;
-	margin: 0;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	z-index: 1;
-	cursor: pointer;
-	/* Push the button part of the native control out of view, as it changes the cursor */
-	padding-top: 100px;
 }
 
 .mwe-upwiz-file.filled {

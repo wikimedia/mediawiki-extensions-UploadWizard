@@ -43,10 +43,14 @@
 			.addClass( 'mwe-upwiz-file ui-helper-clearfix' )
 			.append( this.$addFileContainer );
 
-		this.addFile = new OO.ui.ButtonWidget( {
-			id: 'mwe-upwiz-add-file',
-			label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
-			flags: [ 'progressive', 'primary' ]
+		this.addFile = new OO.ui.SelectFileWidget( {
+			classes: [ 'mwe-upwiz-add-file' ],
+			buttonOnly: true,
+			multiple: true,
+			button: {
+				label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
+				flags: [ 'progressive', 'primary' ]
+			}
 		} );
 
 		this.$addFileContainer.append( this.addFile.$element );
@@ -186,52 +190,6 @@
 
 	OO.inheritClass( uw.ui.Upload, uw.ui.Step );
 
-	/**
-	 * Set up the "Add files" button (#mwe-upwiz-add-file) to open a file selection dialog on click
-	 * by means of a hidden `<input type="file">`.
-	 *
-	 * @param {jQuery} $element The element to append to
-	 */
-	uw.ui.Upload.prototype.setupFileInputCtrl = function ( $element ) {
-		var $fileInputCtrl = $( '<input>' )
-				.attr( {
-					type: 'file',
-					name: 'file',
-					multiple: ''
-				} )
-				.addClass( 'mwe-upwiz-file-input' ),
-			ui = this;
-
-		// Check for iOS 5 Safari's lack of file uploads (T34328#364508).
-		// While this looks extremely unlikely to be right, it actually is. Blame Apple.
-		if ( $fileInputCtrl.prop( 'disabled' ) ) {
-			$element.replaceWith(
-				$( '<span>' ).msg( 'mwe-upwiz-file-upload-notcapable' )
-			);
-
-			return;
-		}
-
-		$element.find( '.mwe-upwiz-file-input' ).remove();
-		$element.append( $fileInputCtrl );
-
-		$fileInputCtrl.on( 'change', function () {
-			ui.emit( 'files-added', $fileInputCtrl[ 0 ].files );
-
-			// We can't clear the value of a file input, so replace the whole
-			// thing with a new one
-			ui.setupFileInputCtrl( $element );
-		} );
-
-		$fileInputCtrl.on( 'focus', function () {
-			// In IE 11, focussing a file input (by clicking on it) displays a text cursor and scrolls
-			// the cursor into view (in this case, it scrolls the button, which has 'overflow: hidden').
-			// Since this messes with our custom styling (the file input has large dimensions and this
-			// causes the label to scroll out of view), scroll the button back to top. (T192131)
-			$element.prop( 'scrollTop', 0 );
-		} );
-	};
-
 	uw.ui.Upload.prototype.showProgressBar = function () {
 		this.$progress.show();
 	};
@@ -280,8 +238,6 @@
 		if ( this.isFlickrImportEnabled() ) {
 			this.addFlickrFile.setDisabled( !fewerThanMax );
 		}
-
-		this.addFile.$element.find( '.mwe-upwiz-file-input' ).prop( 'disabled', !fewerThanMax );
 	};
 
 	/**
@@ -300,7 +256,7 @@
 			msg += '0-free';
 		}
 
-		this.addFile.setLabel( mw.message( msg ).text() );
+		this.addFile.selectButton.setLabel( mw.message( msg ).text() );
 
 		// if Flickr uploading is available to this user, show the "add more files from flickr" button
 		if ( this.isFlickrImportEnabled() ) {
@@ -312,6 +268,8 @@
 	};
 
 	uw.ui.Upload.prototype.load = function ( uploads ) {
+		var ui = this;
+
 		uw.ui.Step.prototype.load.call( this, uploads );
 
 		if ( uploads.length === 0 ) {
@@ -328,14 +286,9 @@
 				)
 		);
 
-		// append <input type="file"> to button
-		this.setupFileInputCtrl( this.addFile.$element.find( '.oo-ui-buttonElement-button' ) );
-
-		// Show the upload button, and the add file button
-		// eslint-disable-next-line no-jquery/no-global-selector
-		$( '#mwe-upwiz-upload-ctrls' ).show();
-		// eslint-disable-next-line no-jquery/no-global-selector
-		$( '#mwe-upwiz-add-file' ).show();
+		this.addFile.on( 'change', function () {
+			ui.emit( 'files-added', ui.addFile.getValue() );
+		} );
 	};
 
 	uw.ui.Upload.prototype.displayUploads = function ( uploads ) {
