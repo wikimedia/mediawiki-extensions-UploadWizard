@@ -41,7 +41,8 @@
 			"Ole Yves",
 			"Stjn",
 			"Vlad5250",
-			"Nk88"
+			"Nk88",
+			"Diralik"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -66,7 +67,7 @@
 	"mwe-upwiz-campaign-name-duplicate": "Кампания с этим именем уже существует.",
 	"mwe-upwiz-campaign-unknown-error": "Произошла неизвестная ошибка",
 	"mwe-upwiz-api-warning-exists": "Уже существует [$1 другой файл] с таким же именем",
-	"mwe-upwiz-api-warning-was-deleted": "Существовал файл с таким именем, «$1», но он был удален, и вы не можете загрузить файл вновь. Если ваш файл отличается, попробуйте переименовать его.",
+	"mwe-upwiz-api-warning-was-deleted": "Существовал файл с таким именем, «$1», но он был удалён, и вы не можете загрузить файл вновь. Если ваш файл отличается, попробуйте переименовать его.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "К сожалению, мы не смогли найти руководство на вашем языке. Отображается $1 версия.",
 	"mwe-upwiz-tutorial-error-file-missing": "К сожалению, не обнаружено никаких файлов учебника, который должен был бы здесь находиться. Пожалуйста, обратитесь к системному администратору.",
 	"mwe-upwiz-tutorial-error-cannot-transform": "К сожалению, не удалось получить иллюстрации для руководства, масштабированные по размеру этого экрана. Возможно, это временная проблема с Викискладом. Повторите попытку позже.",
@@ -203,7 +204,7 @@
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Вы уже загрузили файл «$1».",
 	"mwe-upwiz-allowed-filename-extensions": "Допустимые расширения:",
 	"mwe-upwiz-upload-error-duplicate": "Этот файл был ранее загружен в эту вики.",
-	"mwe-upwiz-upload-error-duplicate-archive": "Этот файл ранее уже загружался в эту вики, но позже был удален.",
+	"mwe-upwiz-upload-error-duplicate-archive": "Этот файл ранее уже загружался в эту вики, но позже был удалён.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Всё равно загрузить?",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Неизвестное имя файла",
 	"mwe-upwiz-ok": "OK",
@@ -261,7 +262,7 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "Введённый вики-текст слишком длинный.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Вики-текст, который вы ввели, не содержит действительного шаблона лицензий.",
 	"mwe-upwiz-error-patent-disagree": "Вы должны согласиться с условиями.",
-	"mwe-upwiz-error-pageprops-missing-page": "Не удалось узнать свойства страницы: страница еще не существует.",
+	"mwe-upwiz-error-pageprops-missing-page": "Не удалось узнать свойства страницы: страница ещё не существует.",
 	"mwe-upwiz-error-submit-captions": "Изображение успешно загружено, но произошли проблемы при загрузке {{PLURAL:$1|1=надписи|надписей}}.",
 	"mwe-upwiz-error-submit-captions-remedy": "Чтобы исправить это: посетите [[$1]], чтобы изменить надписи.",
 	"mwe-upwiz-warning-categories-missing": "Желательно, чтобы вы указали несколько категорий для ваших загрузок.",
