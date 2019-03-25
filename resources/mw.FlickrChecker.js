@@ -389,10 +389,10 @@
 
 					if ( mode === 'photoset' ) {
 						ownerId = photoset.owner;
-						sourceURL = 'http://www.flickr.com/photos/' + photoset.owner + '/' + item.id + '/';
+						sourceURL = 'https://www.flickr.com/photos/' + photoset.owner + '/' + item.id + '/';
 					} else if ( mode === 'photos' ) {
 						ownerId = item.owner;
-						sourceURL = 'http://www.flickr.com/photos/' + item.owner + '/' + item.id + '/';
+						sourceURL = 'https://www.flickr.com/photos/' + item.owner + '/' + item.id + '/';
 					}
 
 					if ( ownerId in blacklist || item.pathalias in blacklist ) {
