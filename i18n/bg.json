@@ -12,7 +12,8 @@
 			"StanProg",
 			"Envlh",
 			"Iliev",
-			"Vlad5250"
+			"Vlad5250",
+			"Ted Masters"
 		]
 	},
 	"uploadwizard": "Помощник за качванията",
@@ -37,7 +38,7 @@
 	"mwe-upwiz-add-file-0-free": "Избиране на медийни файлове за споделяне",
 	"mwe-upwiz-add-file-flickr": "Споделяне на снимки от Flickr",
 	"mwe-upwiz-add-file-flickr-n": "Добавяне на още изображения от Flickr",
-	"mwe-upwiz-add-flickr-or": "Или",
+	"mwe-upwiz-add-flickr-or": "или",
 	"mwe-upwiz-add-flickr": "Добавяне от Flickr",
 	"mwe-upwiz-flickr-input-placeholder": "URL адрес с домейн Flickr",
 	"mwe-upwiz-select-flickr": "Качване на избраните изображения",
