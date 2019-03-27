@@ -35,7 +35,7 @@
 
 		// Remove the initial spinner
 		// eslint-disable-next-line no-jquery/no-global-selector
-		$( '#mwe-first-spinner' ).remove();
+		$( '.mwe-first-spinner' ).remove();
 
 		// eslint-disable-next-line no-jquery/no-global-selector
 		if ( $( '#upload-wizard' ).length === 0 ) {

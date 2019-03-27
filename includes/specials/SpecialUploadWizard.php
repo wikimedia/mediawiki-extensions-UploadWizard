@@ -108,6 +108,8 @@ class SpecialUploadWizard extends SpecialPage {
 		$out->addModules( 'uw.EventFlowLogger' );
 		$out->addModules( 'ext.uploadWizard.page' );
 		$out->addModuleStyles( 'ext.uploadWizard.page.styles' );
+		// load spinner styles early
+		$out->addModuleStyles( 'jquery.spinner.styles' );
 
 		// where the uploadwizard will go
 		// TODO import more from UploadWizard's createInterface call.
@@ -307,8 +309,6 @@ class SpecialUploadWizard extends SpecialPage {
 	 *   it is wikitext, but all *label are used as html
 	 */
 	protected function getWizardHtml() {
-		global $wgExtensionAssetsPath;
-
 		$config = UploadWizardConfig::getConfig( $this->campaign );
 
 		if ( array_key_exists(
@@ -354,11 +354,8 @@ class SpecialUploadWizard extends SpecialPage {
 			'<div id="mwe-upwiz-tutorial-html" style="display:none;">' .
 				$tutorialHtml .
 			'</div>' .
-			// if loading takes > 2 seconds display spinner. Note we are evading Resource Loader here, and linking directly. Because we want an image to appear if RL's package is late.
-			// using some &nbsp;'s which is a bit of superstition, to make sure jQuery will hide this (it seems that it doesn't sometimes, when it has no content)
-			// the min-width & max-width is copied from the #uploadWizard properties, so in nice browsers the spinner is right where the button will go.
-			'<div id="mwe-first-spinner" style="min-width:750px; max-width:900px; height:200px; line-height:200px; text-align:center;">' .
-				'&nbsp;<img src="' . $wgExtensionAssetsPath . '/UploadWizard/resources/images/24px-spinner-0645ad.gif" width="24" height="24" />&nbsp;' .
+			'<div class="mwe-first-spinner">' .
+				new \MediaWiki\Widget\SpinnerWidget( [ 'size' => 'large' ] ) .
 			'</div>' .
 		'</div>';
 		// @codingStandardsIgnoreEnd
