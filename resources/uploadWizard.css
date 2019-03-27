@@ -92,6 +92,13 @@ form.mwe-upwiz-form {
 	visibility: hidden;
 }
 
+.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-stashed,
+.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-uploaded,
+.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-progress,
+.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-error {
+	visibility: visible;
+}
+
 .mwe-upwiz-visible-file {
 	display: none;
 	position: relative;
@@ -238,6 +245,8 @@ form.mwe-upwiz-form {
 #mwe-upwiz-flickr-select-list img {
 	width: 75px;
 	height: 75px;
+	/* @embed */
+	background: url( images/24px-spinner-0645ad.gif ) no-repeat center center;
 }
 
 #mwe-upwiz-flickr-disclaimer {
@@ -264,20 +273,8 @@ form.mwe-upwiz-form {
 	width: 40px;
 }
 
-#mwe-upwiz-flickr-select-list img,
-.mwe-upwiz-status-progress {
-	/* @embed */
-	background: url( images/24px-spinner-0645ad.gif ) no-repeat center center;
-}
-
-.mwe-upwiz-file.odd .mwe-upwiz-status-progress {
-	/* @embed */
-	background: url( images/24px-spinner-0645ad-f5f5f5.gif ) no-repeat center center;
-}
-
-.mwe-upwiz-file:hover .mwe-upwiz-status-progress {
-	/* @embed */
-	background: url( images/24px-spinner-0645ad-e0f0ff.gif ) no-repeat center center;
+.mwe-upwiz-file-indicator:not( .mwe-upwiz-status-progress ) .mw-spinner {
+	display: none;
 }
 
 .mwe-upwiz-status-stashed,
