@@ -114,21 +114,24 @@
 				} );
 
 			// The input that will hold a flickr URL entered by the user; will be appended to a form
-			this.$flickrInput = $( '<input>' )
-				.attr( {
-					id: 'mwe-upwiz-flickr-input',
-					type: 'text',
-					placeholder: mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text()
-				} )
-				.prependTo( this.$flickrForm );
+			this.flickrInput = new OO.ui.TextInputWidget( {
+				placeholder: mw.message( 'mwe-upwiz-flickr-input-placeholder' ).text()
+			} );
 
 			this.flickrButton = new OO.ui.ButtonInputWidget( {
-				id: 'mwe-upwiz-upload-ctrl-flickr',
 				label: mw.message( 'mwe-upwiz-add-flickr' ).text(),
 				flags: [ 'progressive', 'primary' ],
 				type: 'submit'
 			} );
-			this.$flickrForm.append( this.flickrButton.$element );
+
+			this.flickrField = new OO.ui.ActionFieldLayout(
+				this.flickrInput, this.flickrButton, {
+					align: 'top',
+					classes: [ 'mwe-upwiz-flickr-field' ]
+				}
+			);
+
+			this.$flickrForm.append( this.flickrField.$element );
 
 			// Add disclaimer
 			$( '<div>' ).attr( 'id', 'mwe-upwiz-flickr-disclaimer' )
@@ -546,7 +549,7 @@
 		// Insert form into the page
 		this.$div.find( '#mwe-upwiz-files' ).prepend( this.$flickrContainer );
 
-		this.$flickrInput.trigger( 'focus' );
+		this.flickrInput.focus();
 	};
 
 	/**
@@ -555,7 +558,7 @@
 	 * @param {mw.FlickrChecker} checker
 	 */
 	uw.ui.Upload.prototype.flickrChecker = function ( checker ) {
-		var flickrInputUrl = this.$flickrInput.val();
+		var flickrInputUrl = this.flickrInput.getValue();
 
 		checker.getLicenses().done( function () {
 			checker.checkFlickr( flickrInputUrl );
@@ -578,7 +581,7 @@
 	 * Removes the flickr interface.
 	 */
 	uw.ui.Upload.prototype.flickrInterfaceDestroy = function () {
-		this.$flickrInput.val( '' );
+		this.flickrInput.setValue( '' );
 		this.$flickrSelectList.empty();
 		this.$flickrSelectListContainer.off();
 		this.$flickrSelectListContainer.hide();
