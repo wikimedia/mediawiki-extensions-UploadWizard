@@ -20,7 +20,8 @@
 
 		this.isFilled = false;
 
-		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' );
+		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append( $.createSpinner( { size: 'large', type: 'block' } ) );
+		this.lastStatus = null;
 
 		this.visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' )
 			.append( this.$indicator )
@@ -77,24 +78,17 @@
 	/**
 	 * Change the graphic indicator at the far end of the row for this file
 	 *
-	 * @param {string} statusClass Corresponds to a class mwe-upwiz-status which changes style of indicator.
+	 * @param {string} [statusClass] Corresponds to a class mwe-upwiz-status-[statusClass]
+	 *  which changes style of indicator. Omit to unset.
 	 */
 	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( statusClass ) {
-		this.clearIndicator();
-		// add the desired class and make it visible, if it wasn't already.
-		this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass ).css( 'visibility', 'visible' );
-	};
-
-	/**
-	 * Reset the graphic indicator
-	 */
-	mw.UploadWizardUploadInterface.prototype.clearIndicator = function () {
-		var ui = this;
-		this.$indicator.attr( 'class' ).split( /\s+/ ).forEach( function ( className ) {
-			if ( className.match( /^mwe-upwiz-status/ ) ) {
-				ui.$indicator.removeClass( className );
-			}
-		} );
+		if ( this.lastStatus ) {
+			this.$indicator.removeClass( 'mwe-upwiz-status-' + this.lastStatus );
+		}
+		if ( statusClass ) {
+			this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass );
+		}
+		this.lastStatus = statusClass;
 	};
 
 	/**

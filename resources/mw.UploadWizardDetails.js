@@ -222,7 +222,9 @@
 
 			this.submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
 				.append(
-					$( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ),
+					$( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append(
+						$.createSpinner( { size: 'large', type: 'block' } )
+					),
 					$( '<div>' ).addClass( 'mwe-upwiz-details-texts' ).append(
 						$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
 						$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' )
