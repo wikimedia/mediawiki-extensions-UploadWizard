@@ -200,19 +200,15 @@ form.mwe-upwiz-form {
 	background-color: #f2f4f7;
 }
 
-/* Flickr Interface CSS*/
+/* Flickr Interface CSS */
 
 #mwe-upwiz-upload-ctr-divide {
 	display: block;
 	font-size: 1.3em;
 }
 
-#mwe-upwiz-flickr-input {
-	display: inline-block;
-	position: relative;
-	font-size: 1.2em;
-	width: 250px;
-	padding: 4px;
+.mwe-upwiz-flickr-field {
+	margin: 0 6em;
 }
 
 #mwe-upwiz-upload-add-flickr-container {
