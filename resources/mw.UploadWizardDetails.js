@@ -457,7 +457,7 @@
 
 			if ( this.upload.imageinfo.metadata ) {
 				metadata = this.upload.imageinfo.metadata;
-				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].forEach( function ( propName ) {
+				[ 'datetimeoriginal', 'datetimedigitized', 'datetime', 'date' ].some( function ( propName ) {
 					var matches, timeMatches,
 						dateInfo = metadata[ propName ];
 					if ( dateInfo ) {
@@ -476,7 +476,7 @@
 									parseInt( matches[ 2 ], 10 ) - 1,
 									parseInt( matches[ 3 ], 10 ) );
 							}
-							return false; // break from $.each
+							return true; // break from Array.some
 						}
 					}
 				} );
