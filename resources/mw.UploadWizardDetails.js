@@ -34,7 +34,8 @@
 		buildInterface: function () {
 			var descriptionRequired, uri,
 				$moreDetailsWrapperDiv, $moreDetailsDiv,
-				details = this;
+				details = this,
+				config = mw.UploadWizard.config;
 
 			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side' );
 
@@ -60,15 +61,15 @@
 				label: mw.message( 'mwe-upwiz-caption-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-captions' ),
 				remove: mw.message( 'mwe-upwiz-remove-caption' ),
-				minLength: mw.UploadWizard.config.minCaptionLength,
-				maxLength: mw.UploadWizard.config.maxCaptionLength
+				minLength: config.minCaptionLength,
+				maxLength: config.maxCaptionLength
 			} );
 			this.captionsDetailsField = new uw.FieldLayout( this.captionsDetails, {
 				required: false,
 				label: mw.message( 'mwe-upwiz-caption' ).text(),
 				help: mw.message( 'mwe-upwiz-tooltip-caption' ).text()
 			} );
-			if ( mw.UploadWizard.config.wikibase.enabled ) {
+			if ( config.wikibase.enabled && config.wikibase.captions ) {
 				this.mainFields.push( this.captionsDetailsField );
 			}
 
@@ -76,9 +77,9 @@
 			// Description is not required if a campaign provides alternative wikitext fields,
 			// which are assumed to function like a description
 			descriptionRequired = !(
-				mw.UploadWizard.config.fields &&
-				mw.UploadWizard.config.fields.length &&
-				mw.UploadWizard.config.fields[ 0 ].wikitext
+				config.fields &&
+				config.fields.length &&
+				config.fields[ 0 ].wikitext
 			);
 			this.descriptionsDetails = new uw.MultipleLanguageInputWidget( {
 				required: descriptionRequired,
@@ -86,8 +87,8 @@
 				label: mw.message( 'mwe-upwiz-desc-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-descriptions' ),
 				remove: mw.message( 'mwe-upwiz-remove-description' ),
-				minLength: mw.UploadWizard.config.minDescriptionLength,
-				maxLength: mw.UploadWizard.config.maxDescriptionLength
+				minLength: config.minDescriptionLength,
+				maxLength: config.maxDescriptionLength
 			} );
 			this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsDetails, {
 				required: descriptionRequired,
@@ -140,7 +141,7 @@
 			this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 			this.$form.append(
 				this.titleDetailsField.$element,
-				mw.UploadWizard.config.wikibase.enabled ? this.captionsDetailsField.$element : null,
+				config.wikibase.enabled && config.wikibase.captions ? this.captionsDetailsField.$element : null,
 				this.descriptionsDetailsField.$element,
 				this.deedChooserDetailsField.$element,
 				this.dateDetailsField.$element,
@@ -153,7 +154,7 @@
 			} );
 
 			this.campaignDetailsFields = [];
-			mw.UploadWizard.config.fields.forEach( function ( field ) {
+			config.fields.forEach( function ( field ) {
 				var customDetails, customDetailsField;
 
 				if ( field.wikitext ) {
@@ -242,11 +243,11 @@
 			);
 
 			uri = new mw.Uri( location.href, { overrideKeys: true } );
-			if ( mw.UploadWizard.config.defaults.caption || uri.query.captionlang ) {
+			if ( config.defaults.caption || uri.query.captionlang ) {
 				this.captionsDetails.setSerialized( {
 					inputs: [
 						{
-							text: mw.UploadWizard.config.defaults.caption || ''
+							text: config.defaults.caption || ''
 						}
 					]
 				} );
@@ -257,11 +258,11 @@
 				);
 			}
 
-			if ( mw.UploadWizard.config.defaults.description || uri.query.descriptionlang ) {
+			if ( config.defaults.description || uri.query.descriptionlang ) {
 				this.descriptionsDetails.setSerialized( {
 					inputs: [
 						{
-							text: mw.UploadWizard.config.defaults.description || ''
+							text: config.defaults.description || ''
 						}
 					]
 				} );
@@ -319,7 +320,14 @@
 		 * @return {mw.Title|null}
 		 */
 		getTitle: function () {
-			return this.titleDetails.getTitle();
+			// title will not be set until we've actually submitted the file
+			if ( this.title === undefined ) {
+				return this.titleDetails.getTitle();
+			}
+
+			// once the file has been submitted, we'll have confirmation on
+			// the filename and trust the authoritative source over own input
+			return this.title;
 		},
 
 		/**
@@ -394,7 +402,7 @@
 		 */
 		getThumbnailCaption: function () {
 			var captions = [];
-			if ( mw.UploadWizard.config.wikibase.enabled ) {
+			if ( mw.UploadWizard.config.wikibase.enabled && mw.UploadWizard.config.wikibase.captions ) {
 				captions = this.captionsDetails.getSerialized().inputs;
 			} else {
 				captions = this.descriptionsDetails.getSerialized().inputs;
@@ -843,22 +851,18 @@
 			promise = this.submitWikiText( wikitext );
 
 			captions = this.captionsDetails.getValues();
-			if ( mw.UploadWizard.config.wikibase.enabled && Object.keys( captions ).length > 0 ) {
+			if (
+				mw.UploadWizard.config.wikibase.enabled &&
+				mw.UploadWizard.config.wikibase.captions &&
+				Object.keys( captions ).length > 0
+			) {
 				promise = promise
-					.then( function ( result ) {
-						// THIS USED TO READ:
-						//
-						// after having submitted the upload, fetch the entity id from page_props
-						// we might fail to retrieve the prop if it has not yet been created,
-						// so try at least 20 times...
-						//
-						// BUT NOW we just work out the mediainfo entity id from the page id
+					.then( function () {
+						// just work out the mediainfo entity id from the page id
 						// @todo FIXME clean this up
-						var status = mw.message( 'mwe-upwiz-submitting-captions', Object.keys( captions ).length ),
-							title = mw.Title.makeTitle( 6, result.upload.filename ),
-							callable = details.getMediaInfoEntityId.bind( details, title ); // (T208545)
+						var status = mw.message( 'mwe-upwiz-submitting-captions', Object.keys( captions ).length );
 						details.setStatus( status.text() );
-						return details.attemptExecute( callable, 1 );
+						return details.getMediaInfoEntityId(); // (T208545)
 					} )
 					// submit captions to wikibase
 					.then( this.submitCaptions.bind( this, captions ) );
@@ -917,50 +921,19 @@
 		},
 
 		/**
-		 * Attempt to resolve a promise (a couple of times, with an increasing delay).
-		 *
-		 * @param {Function} callable
-		 * @param {number} attempts
 		 * @return {jQuery.Promise}
 		 */
-		attemptExecute: function ( callable, attempts ) {
-			var deferred = $.Deferred(),
-				attempt = 0,
-				retry;
+		getMediaInfoEntityId: function () {
+			var self = this;
 
-			attempts = attempts || 10;
-			retry = function () {
-				callable().then(
-					deferred.resolve,
-					function () {
-						attempt++;
-						if ( attempt >= attempts ) {
-							// don't keep trying forever; just give up if we fail a few times
-							deferred.reject.apply( deferred, arguments );
-						} else {
-							// try again on failure, with an increasing timeout...
-							setTimeout( retry, 2000 * attempt );
-						}
+			if ( this.mediaInfoEntityId !== undefined ) {
+				return $.Deferred().resolve( this.mediaInfoEntityId ).promise();
+			}
 
-					}
-				);
-			};
-
-			retry();
-
-			return deferred.promise();
-		},
-
-		/**
-		 * @param {mw.Title} title
-		 * @param {string} prop
-		 * @return {jQuery.Promise}
-		 */
-		getMediaInfoEntityId: function ( title ) {
 			return this.upload.api.get( {
 				action: 'query',
 				prop: 'info',
-				titles: title.getPrefixedDb()
+				titles: this.getTitle().getPrefixedDb()
 			} ).then( function ( result ) {
 				var message;
 
@@ -971,37 +944,8 @@
 				}
 
 				// FIXME: This just fetches the pageid and then hard-codes knowing that M+pageid is what we need
-				return 'M' + result.query.pages[ 0 ].pageid;
-			} );
-		},
-
-		/**
-		 * @param {mw.Title} title
-		 * @param {string} prop
-		 * @return {jQuery.Promise}
-		 */
-		getPageProp: function ( title, prop ) {
-			return this.upload.api.get( {
-				action: 'query',
-				prop: 'pageprops',
-				titles: title.getPrefixedDb()
-			} ).then( function ( result ) {
-				var props, message;
-
-				if ( result.query.pages[ 0 ].missing ) {
-					// page doesn't exist (yet)
-					message = mw.message( 'mwe-upwiz-error-pageprops-missing-page' ).parse();
-					return $.Deferred().reject( 'pageprops-missing-page', { errors: [ { html: message } ] } ).promise();
-				}
-
-				props = result.query.pages[ 0 ].pageprops;
-				if ( !props || !( prop in props ) ) {
-					// prop doesn't exist (yet)
-					message = mw.message( 'mwe-upwiz-error-pageprops-missing-prop' ).parse();
-					return $.Deferred().reject( 'pageprops-missing-prop', { errors: [ { html: message } ] } ).promise();
-				}
-
-				return props[ prop ];
+				self.mediaInfoEntityId = 'M' + result.query.pages[ 0 ].pageid;
+				return self.mediaInfoEntityId;
 			} );
 		},
 
@@ -1058,9 +1002,8 @@
 				promise = $.Deferred().resolve().promise(),
 				callable = function ( language, result ) {
 					var text = captions[ language ],
-						baseRevId = result && result.entity && result.entity.lastrevid || null,
-						callable = self.submitCaption.bind( self, entityId, baseRevId, language, text );
-					return self.attemptExecute( callable, 1 );
+						baseRevId = result && result.entity && result.entity.lastrevid || null;
+					return self.submitCaption.bind( self, entityId, baseRevId, language, text );
 				},
 				i;
 
@@ -1080,7 +1023,7 @@
 		 */
 		submitCaption: function ( id, baseRevId, language, value ) {
 			var self = this,
-				config = mw.UploadWizard.config.wikibase,
+				config = mw.UploadWizard.config,
 				params = {
 					action: 'wbsetlabel',
 					id: id,
@@ -1088,9 +1031,9 @@
 					language: language,
 					value: value
 				},
-				ajaxOptions = { url: config.api };
+				ajaxOptions = { url: config.wikibase.api };
 
-			if ( !config.enabled ) {
+			if ( !config.wikibase.enabled && config.wikibase.captions ) {
 				return $.Deferred().reject().promise();
 			}
 
@@ -1124,6 +1067,7 @@
 				// making it here means the upload is a success, or it would've been
 				// rejected by now (either by HTTP status code, or in validateWikiTextSubmitResult)
 				.then( function ( result ) {
+					details.title = mw.Title.makeTitle( 6, result.upload.filename );
 					details.upload.extractImageInfo( result.upload.imageinfo );
 					details.upload.thisProgress = 1.0;
 					details.upload.state = 'complete';

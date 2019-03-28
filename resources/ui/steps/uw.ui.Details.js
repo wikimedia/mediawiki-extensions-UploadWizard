@@ -72,7 +72,7 @@
 	uw.ui.Details.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
 
-		if ( mw.UploadWizard.config.wikibase.enabled ) {
+		if ( mw.UploadWizard.config.wikibase.enabled && mw.UploadWizard.config.wikibase.captions ) {
 			this.$div.prepend(
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-license-metadata ui-corner-all' )
