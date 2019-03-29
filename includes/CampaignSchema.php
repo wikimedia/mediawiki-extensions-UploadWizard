@@ -293,5 +293,19 @@ return [
 				],
 			],
 		],
+		"wikibase" => [
+			"type" => "object",
+			"properties" => [
+				'enabled' => [
+					"type" => "boolean",
+				],
+				'captions' => [
+					"type" => "boolean",
+				],
+				'depicts' => [
+					"type" => "boolean",
+				],
+			]
+		],
 	]
 ];
