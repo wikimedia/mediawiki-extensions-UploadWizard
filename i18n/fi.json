@@ -25,7 +25,8 @@
 			"Valtlait",
 			"BriskyBlizzard",
 			"Envlh",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Susannaanas"
 		]
 	},
 	"uploadwizard": "Ohjattu tiedoston tallentaminen",
@@ -132,7 +133,7 @@
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Tämä tiedosto ei ole itse tekemäni|Nämä tiedostot eivät ole itse tekemiäni}}.",
 	"mwe-upwiz-source-thirdparty-intro": "Anna osoite, josta löisit jokaisen kuvan.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Jos kaikilla tiedostoilla on sama lähde, tekijä ja tekijänoikeudellinen asema, voit antaa tiedot kerralla.",
-	"mwe-upwiz-source-thirdparty-cases": "Kerro meille, miksi olet varma, että sinulla on oikeus julkaista {{PLURAL:$1|tämä teos|nämä teokset}}:",
+	"mwe-upwiz-source-thirdparty-cases": "Kerro, miksi olet varma, että sinulla on oikeus julkaista {{PLURAL:$1|tämä teos|nämä teokset}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Voit antaa tiedostoille tekijänoikeustiedot yksitellen seuraavalla sivulla.",
 	"mwe-upwiz-patent-dialog-title": "Patenttioikeudet",
