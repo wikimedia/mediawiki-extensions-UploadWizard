@@ -622,9 +622,9 @@
 	"EventLoggingSchemas": {
 		"UploadWizardTutorialActions": 5803466,
 		"UploadWizardUploadActions": 5811620,
-		"UploadWizardStep": 11772724,
+		"UploadWizardStep": 18973101,
 		"UploadWizardFlowEvent": 11772723,
-		"UploadWizardErrorFlowEvent": 11772725,
+		"UploadWizardErrorFlowEvent": 18973100,
 		"UploadWizardExceptionFlowEvent": 11772722,
 		"UploadWizardUploadFlowEvent": 11772717
 	},
