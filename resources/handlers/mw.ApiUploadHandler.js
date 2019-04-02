@@ -195,9 +195,11 @@
 			}
 
 			// map of normalized titles, so we can find original title
-			result.query.normalized.forEach( function ( data ) {
-				normalized[ data.to ] = data.from;
-			} );
+			if ( result.query.normalized ) {
+				result.query.normalized.forEach( function ( data ) {
+					normalized[ data.to ] = data.from;
+				} );
+			}
 
 			Object.keys( result.query.pages ).forEach( function ( pageId ) {
 				var page = result.query.pages[ pageId ],
