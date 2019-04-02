@@ -167,7 +167,7 @@
 
 		if ( this.dateInputWidget.getValue().trim() === '' ) {
 			errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
-		} else if ( 'pd-us' in licenses && date.getFullYear() >= 1923 ) {
+		} else if ( 'pd-us' in licenses && date.getFullYear() >= new Date().getFullYear() - 95 ) {
 			// if the license stated the work is public domain, it must've been
 			// created a really long time ago
 			errors.push( mw.message( 'mwe-upwiz-error-date-license-mismatch', mw.message( licenses[ 'pd-us' ].msg ).parse() ) );
