@@ -41,7 +41,7 @@
 		$el.addClass( 'arrowSteps' );
 		$steps = $el.find( 'li' );
 
-		width = Math.floor( 100 / $steps.length );
+		width = Math.floor( 100 / $steps.length * 100 ) / 100;
 		$steps.css( 'width', width + '%' );
 
 		// Every step except the last one has an arrow pointing forward:
