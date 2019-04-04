@@ -1027,9 +1027,18 @@
 				params = {
 					action: 'wbsetlabel',
 					id: id,
-					baserevid: baseRevId,
 					language: language,
-					value: value
+					value: value,
+					// baserevid is intentionally left blank: captions can be submitted
+					// without baserevid just fine, it just won't prevent all edit conflicts
+					// (though it still somewhat prevent against it)
+					// if we were to set the correct baserevid, we might fail to submit
+					// some captions because of bots making edits immediately after upload
+					// (e.g. https://phabricator.wikimedia.org/T219677)
+					// this is a brand new upload, this is *supposed* to be the very
+					// first content, entered at time of upload; the only edit conflict
+					// that could happen would be caused by bots...
+					baserevid: undefined
 				},
 				ajaxOptions = { url: config.wikibase.api };
 
