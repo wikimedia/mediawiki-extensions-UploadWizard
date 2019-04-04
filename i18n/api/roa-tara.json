@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"apihelp-flickrblacklist-example-1": "Condrolle 'n'URL jndr'à lista gnore",
+	"apihelp-flickrblacklist-example-2": "Tuèrne totte 'a lista gnore",
+	"apihelp-query+allcampaigns-description": "Numere tutte le cambagne UploadWizard.",
+	"apihelp-query+allcampaigns-summary": "Numere tutte le cambagne UploadWizard.",
+	"apihelp-query+allcampaigns-example-1": "Numere le cambagne attive"
+}

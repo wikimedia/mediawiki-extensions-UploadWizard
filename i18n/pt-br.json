@@ -22,7 +22,8 @@
 			"Macofe",
 			"Felipe L. Ewald",
 			"Trigonometria87",
-			"Envlh"
+			"Envlh",
+			"Uinichi"
 		]
 	},
 	"uploadwizard": "Assistente de Envios",
@@ -197,7 +198,7 @@
 	"mwe-upwiz-autoconverted": "Este arquivo foi convertido automaticamente para o formato $1",
 	"mwe-upwiz-other": "Outras informações",
 	"mwe-upwiz-source": "Fonte",
-	"mwe-upwiz-depicts-title": "Itens descritos neste arquivo",
+	"mwe-upwiz-depicts-title": "Itens retratados neste arquivo",
 	"mwe-upwiz-thanks-intro": "Obrigado por enviar!",
 	"mwe-upwiz-thanks-explain": "Agora você pode usar {{PLURAL:$1|este arquivo|estes arquivos}} em wikis, ou criar links para {{PLURAL:$1|ele|eles}} na internet.",
 	"mwe-upwiz-thanks-wikitext": "Para usar o arquivo numa wiki, copie este texto para uma página:",
@@ -318,7 +319,7 @@
 	"mwe-upwiz-license-pd-old-100": "Autor morreu há mais de 100 anos",
 	"mwe-upwiz-license-pd-old": "Autor morreu há mais de 70 anos",
 	"mwe-upwiz-license-pd-art-70": "Reprodução fiel de uma pintura no domínio público porque o artista faleceu há mais de 70 anos ([$2 saiba mais])",
-	"mwe-upwiz-license-pd-us": "Primeira publicação nos Estados Unidos anterior a 1923",
+	"mwe-upwiz-license-pd-us": "Primeira publicação nos Estados Unidos antes de 1924",
 	"mwe-upwiz-license-pd-usgov": "Obra original do Governo Federal dos Estados Unidos",
 	"mwe-upwiz-license-pd-usgov-nasa": "Obra original da NASA",
 	"mwe-upwiz-license-pd-usgov-military-navy": "Obra original da Marinha Militar dos Estados Unidos",
@@ -348,7 +349,7 @@
 	"mwe-upwiz-license-external": "Este arquivo está sujeito à seguinte licença no site \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "O arquivo está sob a seguinte licença no site de origem \"$1\": $2. Infelizmente, esta wiki não permite o uso desta licença.",
 	"mwe-upwiz-license-photoset-invalid": "Infelizmente, nenhum das imagem possui uma licença apropriada para ser usada nesse site.",
-	"mwe-upwiz-license-pd-old-70-1923": "Publicado pela primeira vez antes de 1923 e o autor faleceu há mais de 70 anos",
+	"mwe-upwiz-license-pd-old-70-1923": "Publicado pela primeira vez antes de 1924 e o autor faleceu há mais de 70 anos",
 	"mwe-upwiz-url-invalid": "O URL inserido não é suportado ou aponta para uma imagem ou galeria de $1 inválida ou restrita e não pode ser utilizada.",
 	"mwe-upwiz-user-blacklisted": "Infelizmente, nenhuma imagem desta $1 pode ser carregada neste site.",
 	"mwe-upwiz-categories": "Categorias",
