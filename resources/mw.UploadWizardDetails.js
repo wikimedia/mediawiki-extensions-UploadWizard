@@ -1003,7 +1003,7 @@
 				callable = function ( language, result ) {
 					var text = captions[ language ],
 						baseRevId = result && result.entity && result.entity.lastrevid || null;
-					return self.submitCaption.bind( self, entityId, baseRevId, language, text );
+					return self.submitCaption( entityId, baseRevId, language, text );
 				},
 				i;
 
