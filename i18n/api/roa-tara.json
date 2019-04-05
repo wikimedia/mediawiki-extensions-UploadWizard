@@ -4,6 +4,10 @@
 			"Joetaras"
 		]
 	},
+	"apihelp-flickrblacklist-description": "Valide 'na URL de Flickr ausanne l'ID de l'utende (NSID) pa lista gnore.\n\nQuanne jè ausate cu l'opzione <var>list</var>, torne tutte le ID jndr'à lista gnore.",
+	"apihelp-flickrblacklist-summary": "Valide 'na URL de Flickr ausanne l'ID de l'utende (NSID) pa lista gnore.",
+	"apihelp-flickrblacklist-extended-description": "Quanne jè ausate cu l'opzione <var>list</var>, torne tutte le ID jndr'à lista gnore.",
+	"apihelp-flickrblacklist-param-url": "L'URL Flickr da pruvà.",
 	"apihelp-flickrblacklist-example-1": "Condrolle 'n'URL jndr'à lista gnore",
 	"apihelp-flickrblacklist-example-2": "Tuèrne totte 'a lista gnore",
 	"apihelp-query+allcampaigns-description": "Numere tutte le cambagne UploadWizard.",
