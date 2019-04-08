@@ -54,14 +54,24 @@
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
-		this.depicts = [];
+		this.statements = {};
 		uploads.forEach( function ( upload ) {
 			upload.details.getMediaInfoEntityId().then( function ( entityId ) {
-				var depicts = new mw.mediaInfo.statements.DepictsWidget( { entityId: entityId } ),
-					content = new uw.MetadataContent( upload, depicts ),
-					page = new uw.MetadataPage( upload, { expanded: false, content: [ content ] } );
+				var statements = [],
+					content, page;
 
-				self.depicts.push( depicts );
+				Object.keys( mw.config.get( 'wbmiProperties' ) ).forEach( function ( propertyId ) {
+					var statement = new mw.mediaInfo.statements.StatementWidget( {
+						entityId: entityId,
+						propertyId: propertyId
+					} );
+					statements.push( statement );
+				} );
+
+				content = new uw.MetadataContent( upload, statements );
+				page = new uw.MetadataPage( upload, { expanded: false, content: [ content ] } );
+
+				self.statements[ entityId ] = statements;
 				booklet.addPages( [ page ] );
 			} );
 		} );
@@ -70,8 +80,20 @@
 	};
 
 	uw.controller.Metadata.prototype.onSubmit = function () {
-		$.when.apply( $, this.depicts.map( function ( widget ) {
-			return widget.submit();
+		var self = this;
+
+		$.when.apply( $, Object.keys( this.statements ).map( function ( entityId ) {
+			// we can start submitting statements for multiple files at the time
+			// time, but multiple statements per entity need to be submitted sequentially
+			// (to avoid them being considered edit conflicts)
+			var promise = $.Deferred().resolve().promise(),
+				statements = self.statements[ entityId ];
+
+			statements.forEach( function ( statement ) {
+				promise = promise.then( statement.submit.bind( statement ) );
+			} );
+
+			return promise;
 		} ) ).then( this.moveNext.bind( this ) );
 	};
 

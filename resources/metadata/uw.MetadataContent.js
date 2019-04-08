@@ -5,10 +5,10 @@
 	/**
 	 * @constructor
 	 * @param {mw.UploadWizardUpload} upload
-	 * @param {mw.mediaInfo.statements.DepictsWidget} depicts
+	 * @param {mw.mediaInfo.statements.StatementWidget[]} statements
 	 * @param {Object} [config] Configuration options
 	 */
-	uw.MetadataContent = function UWMetadataContent( upload, depicts, config ) {
+	uw.MetadataContent = function UWMetadataContent( upload, statements, config ) {
 		var $titleDiv = $( '<h2>' )
 				.addClass( 'mwe-upwiz-metadata-content-caption' )
 				.text( upload.details.getThumbnailCaption() ),
@@ -16,10 +16,7 @@
 				.addClass( 'mwe-upwiz-metadata-content-filename' )
 				.text( upload.details.getTitle().getMain() ),
 			$thumbnailDiv = $( '<div>' )
-				.addClass( 'mwe-upwiz-metadata-content-thumbnail' ),
-			$depictsTitle = $( '<h3>' )
-				.addClass( 'mwe-upwiz-metadata-content-depicts-title' )
-				.text( mw.message( 'mwe-upwiz-depicts-title' ).text() );
+				.addClass( 'mwe-upwiz-metadata-content-thumbnail' );
 
 		uw.MetadataContent.parent.call( this, $.extend( { classes: [ 'mwe-upwiz-metadata-content' ] }, config ) );
 
@@ -31,8 +28,9 @@
 			$titleDiv,
 			$filenameDiv,
 			$thumbnailDiv,
-			$depictsTitle,
-			depicts.$element
+			statements.map( function ( statement ) {
+				return statement.$element;
+			} )
 		);
 	};
 	OO.inheritClass( uw.MetadataContent, OO.ui.Widget );

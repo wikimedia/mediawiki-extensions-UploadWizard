@@ -302,7 +302,7 @@ return [
 				'captions' => [
 					"type" => "boolean",
 				],
-				'depicts' => [
+				'statements' => [
 					"type" => "boolean",
 				],
 			]

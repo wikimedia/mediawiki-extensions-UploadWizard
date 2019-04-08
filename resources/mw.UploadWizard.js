@@ -83,7 +83,11 @@
 
 			return $.Deferred().resolve( steps ).promise()
 				.then( function ( steps ) {
-					if ( self.config.wikibase.enabled && self.config.wikibase.depicts ) {
+					if (
+						self.config.wikibase.enabled &&
+						// .depicts is for backward compatibility - this config var used to be called differently...
+						( self.config.wikibase.statements || self.config.wikibase.depicts )
+					) {
 						// mediainfo has a couple of widgets that we'll be using, but they're not
 						// necessarily a hard dependency for UploadWizard
 						// let's just attempt to load it - if it's not available, we just won't

@@ -206,7 +206,6 @@
 	"mwe-upwiz-autoconverted": "Unused at this time.\n\nParameters:\n* $1 - ...",
 	"mwe-upwiz-other": "[[File:Commons-uw-L52P.png|right|thumb|Screenshot showing a sample of this message]]\n\n{{Identical|Other information}}",
 	"mwe-upwiz-source": "{{Identical|Source}}",
-	"mwe-upwiz-depicts-title": "Title for the section to add depicts statements in the metadata step",
 	"mwe-upwiz-thanks-intro": "[[file:commons-uw-L52R.png|The beginning of the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page|thumb|right]]\n\nThis is used in the beginning of the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].",
 	"mwe-upwiz-thanks-explain": "[[file:commons-uw-L52R.png|The beginning of the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page|thumb|right]]\n\nThis is used in the beginning of the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].\n\nParameters:\n* $1 - number of files (number of uploads)",
 	"mwe-upwiz-thanks-wikitext": "{| align=\"right\"\n| [[file:commons-uw-L52R.png|The beginning of the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page|thumb|right]]\n| [[file:commons-uw-L52S.png|The end of the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page|thumb|right]]\n|} This is used for each field in the \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]].",
