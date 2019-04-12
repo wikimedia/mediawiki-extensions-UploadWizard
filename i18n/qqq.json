@@ -38,6 +38,7 @@
 	"tag-uploadwizard-flickr": "Display name for 'uploadwizard-flickr' tag (= Flickr files uploaded with Upload Wizard)",
 	"tag-uploadwizard-flickr-description": "Description for 'uploadwizard-flickr' tag (= Flickr files uploaded with Upload Wizard)",
 	"right-mass-upload": "{{doc-right|mass-upload}}",
+	"action-mass-upload": "{{doc-action|mass-upload}}",
 	"right-upwizcampaigns": "{{doc-right|upwizcampaigns}}\n\n\"Upload campaign\" can also be worded as \"a campaign for the promotion of uploading\".",
 	"action-upwizcampaigns": "{{doc-action|upwizcampaigns}}",
 	"group-upwizcampeditors": "{{doc-group|upwizcampeditors}}",

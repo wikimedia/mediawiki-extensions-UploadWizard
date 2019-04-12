@@ -9,6 +9,7 @@
 	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Flickr uploads made with Upload Wizard",
 	"right-mass-upload": "Batch-upload more files at once with Upload Wizard",
+	"action-mass-upload": "batch-upload more files at once with Upload Wizard",
 	"right-upwizcampaigns": "Configure Upload Wizard campaigns",
 	"action-upwizcampaigns": "configure upload campaigns",
 	"group-upwizcampeditors": "Upload Wizard campaign editors",
