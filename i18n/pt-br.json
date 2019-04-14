@@ -33,6 +33,7 @@
 	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Carregamentos do Flickr feitos com Upload Wizard",
 	"right-mass-upload": "Carregue mais arquivos de uma só vez em segundo plano, com o Assistente de Envio de Arquivos",
+	"action-mass-upload": "carregue mais arquivos de uma só vez em segundo plano, com o Assistente de Envio de Arquivos",
 	"right-upwizcampaigns": "Configurar campanhas do Assistente de Envio",
 	"action-upwizcampaigns": "configurar campanhas de envio",
 	"group-upwizcampeditors": "Editores de campanhas do Assistente de Envio",

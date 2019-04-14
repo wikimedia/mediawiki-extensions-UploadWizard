@@ -32,6 +32,7 @@
 	"tag-uploadwizard-description": "採用上傳精靈的上傳模式",
 	"tag-uploadwizard-flickr-description": "採用上傳精靈的 Flickr 上傳模式",
 	"right-mass-upload": "以上傳精靈來一次批次上傳多個檔案",
+	"action-mass-upload": "以上傳精靈來一次批次上傳多個檔案",
 	"right-upwizcampaigns": "設定上傳精靈行動",
 	"action-upwizcampaigns": "設定上傳行動",
 	"group-upwizcampeditors": "上傳精靈行動編輯器",

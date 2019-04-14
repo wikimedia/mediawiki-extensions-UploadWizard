@@ -135,6 +135,7 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "ТӀакха а чуяккха?",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Йоьвзуш йоцу файлан цӀе",
 	"mwe-upwiz-ok": "OK",
+	"mwe-upwiz-fileexists-replace-on-page": "Иштта цӀарца файл йолуш ю. Хьайна иза хийца лаахь, [$2 $1] агӀона тӀе гӀой хийца иза.",
 	"mwe-upwiz-next": "Кхин дӀа",
 	"mwe-upwiz-next-file": "Кхин дӀа",
 	"mwe-upwiz-next-deeds": "Кхин дӀа",
