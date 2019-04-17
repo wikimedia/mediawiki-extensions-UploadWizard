@@ -226,7 +226,6 @@
 	"mwe-upwiz-autoconverted": "Ce fichier a été automatiquement converti au format de $1",
 	"mwe-upwiz-other": "Autres informations",
 	"mwe-upwiz-source": "Source",
-	"mwe-upwiz-depicts-title": "Éléments décrits dans ce fichier",
 	"mwe-upwiz-thanks-intro": "Merci d’avoir téléversé vos œuvres !",
 	"mwe-upwiz-thanks-explain": "Vous pouvez maintenant utiliser {{PLURAL:$1|ce fichier|ces fichiers}} sur des wikis, ou {{PLURAL:$1|le|les}} lier sur le web.",
 	"mwe-upwiz-thanks-wikitext": "Afin d’utiliser le fichier sur un wiki, vous pouvez copier ce texte dans une page :",
