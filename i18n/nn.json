@@ -68,6 +68,7 @@
 	"mwe-upwiz-source-custom": "Gjev informasjon om opphavsretten for kvar fil kvar for seg på neste side.",
 	"mwe-upwiz-patent-dialog-link-warranty": "Lær meir",
 	"mwe-upwiz-patent-dialog-link-license": "Lær meir",
+	"mwe-upwiz-license-metadata-title": "Lisens for bilettekstar (dette gjeld berre bilettekstar, IKKJE fila)",
 	"mwe-upwiz-more-options": "Legg til stad og meir informasjon …",
 	"mwe-upwiz-copy-metadata": "Kopier informasjon til {{PLURAL:$1|den andre opplastinga|alle opplastingane}} som fylgjer …",
 	"mwe-upwiz-copy-metadata-button": "Kopier",
