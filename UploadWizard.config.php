@@ -673,7 +673,7 @@ return [
 	'wikibase' => [
 		'enabled' => false,
 		'captions' => true,
-		'statements' => false,
+		'statements' => true,
 		// url to wikibase repo API
 		'api' => $wgScriptPath . '/api.php',
 	],
