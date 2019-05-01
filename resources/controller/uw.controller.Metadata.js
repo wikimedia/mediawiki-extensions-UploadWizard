@@ -103,11 +103,14 @@
 			return $.when.apply( $, [].slice.call( arguments ).map( function ( statements ) {
 				var promise = $.Deferred().resolve().promise();
 
-				// we can start submitting statements for multiple files at the time
+				// we can start submitting statements for multiple files at the same
 				// time, but multiple statements per entity need to be submitted sequentially
 				// (to avoid them being considered edit conflicts)
 				statements.forEach( function ( statement ) {
 					promise = promise.then( statement.submit.bind( statement ) );
+					// submit statements, then make sure they remain in a mode
+					// where they can't be edited
+					promise.then( statement.setDisabled.bind( statement, true ) );
 				} );
 
 				return promise;
