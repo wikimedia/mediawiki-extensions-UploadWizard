@@ -86,7 +86,7 @@
 		"UploadWizardAlias": "UploadWizard.alias.php"
 	},
 	"AutoloadClasses": {
-		"UploadWizardHooks": "UploadWizardHooks.php",
+		"UploadWizardHooks": "includes/UploadWizardHooks.php",
 		"UploadWizardConfig": "includes/UploadWizardConfig.php",
 		"UploadWizardTutorial": "includes/UploadWizardTutorial.php",
 		"UploadWizardCampaign": "includes/UploadWizardCampaign.php",
