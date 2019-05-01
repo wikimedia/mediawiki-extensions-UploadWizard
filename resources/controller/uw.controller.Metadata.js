@@ -16,6 +16,7 @@
  */
 
 ( function ( uw ) {
+
 	/**
 	 * Represents the metadata step in the wizard.
 	 *
@@ -93,11 +94,15 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Metadata.prototype.getStatementWidgetsForUpload = function ( upload ) {
-		return upload.details.getMediaInfoEntityId().then( function ( entityId ) {
-			var statements = [];
+		return $.when(
+			mw.loader.using( 'wikibase.mediainfo.statements' ),
+			upload.details.getMediaInfoEntityId()
+		).then( function ( require, entityId ) {
+			var StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
+				statements = [];
 
 			Object.keys( mw.config.get( 'wbmiProperties' ) ).forEach( function ( propertyId ) {
-				var statement = new mw.mediaInfo.statements.StatementWidget( {
+				var statement = new StatementWidget( {
 					entityId: entityId,
 					propertyId: propertyId
 				} );
