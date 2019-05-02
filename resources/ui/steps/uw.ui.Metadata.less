@@ -1,3 +1,5 @@
+@menu-width: 270px;
+
 h3.mwe-upwiz-metadata-title {
 	float: left;
 	font-size: 1.4em;
@@ -11,14 +13,36 @@ h3.mwe-upwiz-metadata-title {
 }
 
 .mwe-upwiz-metadata-booklet.oo-ui-bookletLayout {
+	display: flex;
+
 	> .oo-ui-menuLayout-menu {
 		border-right: 0;
+		display: block;
+		width: auto;
+
+		.mwe-upwiz-metadata-page {
+			// menu width, minus padding on both sides and margin on the right
+			width: ~'calc( @{menu-width} - 3em )';
+			padding: 1em;
+			margin-right: 1em;
+
+			// if we only have 1 image, 1 entry in the menu, we don't even want
+			// to show it: a standalone menu entry might be a little confusing
+			// @see https://phabricator.wikimedia.org/T222196
+			&:only-child {
+				display: none;
+			}
+		}
 	}
 
-	// the booklet's content panels become .oo-ui-panelLayout-scrollable,
-	// which set an `overflow: auto;` - we want to make sure overflow remains
-	// visible, though, so that the shadow around images doesn't get cut off
-	> .oo-ui-menuLayout-content .oo-ui-panelLayout-scrollable {
-		overflow: visible;
+	> .oo-ui-menuLayout-content {
+		width: ~'calc( 100% - @{menu-width} )'; // ~ is required to disable LESS auto-calculation...
+
+		// the booklet's content panels become .oo-ui-panelLayout-scrollable,
+		// which set an `overflow: auto;` - we want to make sure overflow remains
+		// visible, though, so that the shadow around images doesn't get cut off
+		.oo-ui-panelLayout-scrollable {
+			overflow: visible;
+		}
 	}
 }
