@@ -48,7 +48,7 @@
 		this.addPreviousButton();
 		this.addNextButton();
 
-		this.$content = $( '<div>' );
+		this.$content = $( '<div>' ).addClass( 'ui-helper-clearfix' );
 		this.$div.append( this.$content );
 	};
 
@@ -60,10 +60,25 @@
 	uw.ui.Metadata.prototype.load = function ( uploads ) {
 		uw.ui.Step.prototype.load.call( this, uploads );
 
-		// in addition to the progress buttons at the button, we'll also want to display
-		// these on top, to "facilitate" skipping this step for people who are not
-		// interested in filling out metadata
-		this.$content.before( this.$buttons.clone( true ) ).show();
+		this.$content.before(
+			$( '<h3>' ).addClass( 'mwe-upwiz-metadata-title' ).text( mw.msg( 'mwe-upwiz-metadata-title' ) ),
+			new OO.ui.PopupButtonWidget( {
+				classes: [ 'mwe-upwiz-metadata-help' ],
+				icon: 'info',
+				framed: false,
+				popup: {
+					padded: true,
+					$content: $( '<div>' ).append(
+						$( '<p>' ).text( mw.msg( 'mwe-upwiz-metadata-help-title' ) ),
+						$( '<p>' ).text( mw.msg( 'mwe-upwiz-metadata-help-content' ) )
+					)
+				}
+			} ).$element,
+			// in addition to the progress buttons at the bottom, we'll also want to display
+			// these on top, to "facilitate" skipping this step for people who are not
+			// interested in filling out metadata
+			this.$buttons.clone( true )
+		).show();
 
 		this.$content.after(
 			$( '<div>' )
