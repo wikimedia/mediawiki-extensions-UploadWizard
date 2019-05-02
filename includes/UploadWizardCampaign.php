@@ -233,8 +233,6 @@ class UploadWizardCampaign {
 	 * @return String HTML
 	 */
 	private function parseValue( $value, Language $lang ) {
-		global $wgParser;
-
 		$parserOptions = ParserOptions::newFromContext( $this->context );
 		if ( !defined( 'ParserOutput::SUPPORTS_STATELESS_TRANSFORMS' ) ) {
 			$parserOptions->setEditSection( false );
@@ -244,8 +242,9 @@ class UploadWizardCampaign {
 		$parserOptions->setTargetLanguage( $lang );
 		$parserOptions->setTidy( true );
 
-		$output = $wgParser->parse( $value, $this->getTitle(),
-									$parserOptions );
+		$output = MediaWikiServices::getInstance()->getParser()->parse(
+			$value, $this->getTitle(), $parserOptions
+		);
 		$parsed = $output->getText( [
 			'enableSectionEditLinks' => false,
 		] );
