@@ -49,7 +49,6 @@
 		this.addNextButton();
 
 		this.$content = $( '<div>' ).addClass( 'ui-helper-clearfix' );
-		this.$div.append( this.$content );
 	};
 
 	OO.inheritClass( uw.ui.Metadata, uw.ui.Step );
@@ -58,6 +57,8 @@
 	 * @inheritdoc
 	 */
 	uw.ui.Metadata.prototype.load = function ( uploads ) {
+		this.$div.empty().append( this.$content );
+
 		uw.ui.Step.prototype.load.call( this, uploads );
 
 		this.$content.before(
