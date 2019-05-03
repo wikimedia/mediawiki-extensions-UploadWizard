@@ -20,7 +20,8 @@
 
 		uw.MetadataContent.parent.call( this, $.extend( { classes: [ 'mwe-upwiz-metadata-content' ] }, config ) );
 
-		upload.getThumbnail( 625 ).done( function ( thumb ) {
+		// get a thumbnail that doesn't exceed a width of 630px, or a height of 360px
+		upload.getThumbnail( 630, 360 ).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
 
