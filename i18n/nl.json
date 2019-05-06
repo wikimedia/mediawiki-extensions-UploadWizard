@@ -21,7 +21,8 @@
 			"Mainframe98",
 			"Multichill",
 			"Mar(c)",
-			"Envlh"
+			"Envlh",
+			"Rots61"
 		]
 	},
 	"uploadwizard": "Wizard uploaden",
@@ -191,7 +192,8 @@
 	"mwe-upwiz-next": "Volgende",
 	"mwe-upwiz-next-file": "Doorgaan",
 	"mwe-upwiz-next-deeds": "Volgende",
-	"mwe-upwiz-publish-details": "Publiceren",
+	"mwe-upwiz-publish-details": "Publiceer bestanden",
+	"mwe-upwiz-publish-metadata": "Pagina publiceren",
 	"mwe-upwiz-previous": "Terug",
 	"mwe-upwiz-home": "Ga naar de hoofdpagina van de wiki",
 	"mwe-upwiz-upload-another": "Meer bestanden uploaden",
