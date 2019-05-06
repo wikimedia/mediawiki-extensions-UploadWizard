@@ -61,6 +61,16 @@
 
 		this.statementPromises = uploads.map( this.getStatementWidgetsForUpload );
 
+		// disable submit button until changes have been made
+		this.enableSubmitIfHasChanges();
+		this.statementPromises.forEach( function ( statementPromise ) {
+			statementPromise.then( function ( statements ) {
+				statements.forEach( function ( statement ) {
+					statement.on( 'change', self.enableSubmitIfHasChanges.bind( self ) );
+				} );
+			} );
+		} );
+
 		// don't render the booklet until the first page is ready
 		this.statementPromises[ 0 ].then( function () {
 			self.statementPromises.forEach( function ( statementPromise, i ) {
@@ -96,6 +106,39 @@
 
 			return statements;
 		} );
+	};
+
+	uw.controller.Metadata.prototype.enableSubmitIfHasChanges = function () {
+		var promise = $.Deferred().resolve().promise();
+
+		// chain all statement promise and resolve them if they have no changes,
+		// reject them if they do
+		// as soon as one is rejected (= has a change), the others will be cut
+		// & we'll skip right enabling the button
+		this.statementPromises.forEach( function ( statementPromise ) {
+			promise = promise.then( function () {
+				return statementPromise.then(
+					function ( statements ) {
+						var hasChanges = statements.some( function ( statement ) {
+							var changes = statement.getChanges(),
+								removals = statement.getRemovals();
+
+							return changes.length > 0 || removals.length > 0;
+						} );
+
+						if ( hasChanges ) {
+							return $.Deferred().reject().promise();
+						}
+					} );
+			} );
+		} );
+
+		promise.then(
+			// promises resolved = no change anywhere = disable button
+			this.ui.disableNextButton.bind( this.ui, true ),
+			// promises rejected = changes = enable button
+			this.ui.disableNextButton.bind( this.ui, false )
+		);
 	};
 
 	uw.controller.Metadata.prototype.onSubmit = function () {
