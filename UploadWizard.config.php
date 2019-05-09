@@ -561,7 +561,7 @@ return [
 	'minTitleLength' => 5,
 
 	// Max file caption length
-	'maxCaptionLength' => 255,
+	'maxCaptionLength' => $wgWBRepoSettings[ 'string-limits' ][ 'multilang' ] ?? 250,
 
 	// Min file caption length
 	'minCaptionLength' => 0,
