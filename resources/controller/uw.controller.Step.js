@@ -246,13 +246,6 @@
 			return true;
 		}
 
-		// Can't continue from an error uploading (for example) captions via XHR after the main
-		// content has been uploaded, so keep all next buttons hidden
-		if ( this.getUploadStatesCount( [ 'sdc-api-error' ] ) > 0 ) {
-			$buttons.hide();
-			return false;
-		}
-
 		if ( this.getUploadStatesCount( [ 'error', 'recoverable-error' ] ) === this.uploads.length ) {
 			$buttons.find( '.mwe-upwiz-file-next-all-failed' ).show();
 		} else if ( this.getUploadStatesCount( 'transporting' ) === 0 ) {
