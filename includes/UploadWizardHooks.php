@@ -11,23 +11,23 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
-		$dbfile = __DIR__ . '/sql/UploadWizard.' . $updater->getDB()->getType() . '.sql';
+		$dbfile = __DIR__ . '/../sql/UploadWizard.' . $updater->getDB()->getType() . '.sql';
 		if ( !file_exists( $dbfile ) ) {
-			$dbfile = __DIR__ . '/sql/UploadWizard.sql';
+			$dbfile = __DIR__ . '/../sql/UploadWizard.sql';
 		}
 		$updater->addExtensionTable( 'uw_campaigns', $dbfile );
 		$updater->addExtensionUpdate( [
 			'addIndex',
 			'uw_campaigns',
 			'uw_campaigns_name',
-			__DIR__ . '/sql/UW_IndexCampaignsName.sql',
+			__DIR__ . '/../sql/UW_IndexCampaignsName.sql',
 			true
 		] );
 		$updater->addExtensionUpdate( [
 			'addIndex',
 			'uw_campaigns',
 			'uw_campaigns_enabled',
-			__DIR__ . '/sql/UW_IndexCampaignsEnabled.sql',
+			__DIR__ . '/../sql/UW_IndexCampaignsEnabled.sql',
 			true
 		] );
 
@@ -203,7 +203,7 @@ class UploadWizardHooks {
 				'tests/qunit/mw.fileApi.test.js',
 			],
 			'dependencies' => $dependencies,
-			'localBasePath' => __DIR__,
+			'localBasePath' => dirname( __DIR__ ),
 			'remoteExtPath' => 'UploadWizard',
 		];
 	}
