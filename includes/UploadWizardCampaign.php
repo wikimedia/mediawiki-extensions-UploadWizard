@@ -76,7 +76,7 @@ class UploadWizardCampaign {
 		$this->title = $title;
 		if ( $config === null ) {
 			$content = WikiPage::factory( $title )->getContent();
-			if ( $content->getModel() !== 'Campaign' ) {
+			if ( !$content instanceof CampaignContent ) {
 				throw new MWException( 'Wrong content model' );
 			}
 			$this->config = $content->getJsonData();
@@ -488,6 +488,7 @@ class UploadWizardCampaign {
 	 * Apply given object reference to buttons configured to use it as href
 	 *
 	 * @param string $objRef
+	 * @suppress PhanTypeArraySuspiciousNullable The if is to complex for phan
 	 */
 	private function applyObjectReferenceToButtons( $objRef ) {
 		$customizableButtons = [ 'homeButton', 'beginButton' ];
