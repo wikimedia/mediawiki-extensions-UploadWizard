@@ -60,7 +60,6 @@
 	"mwe-upwiz-remove-upload": "यो फाइल अपलोड गर्ने फाइलहरूको सूचीबाट हटाउने",
 	"mwe-upwiz-remove-description": "यो विवरण हटाउने",
 	"mwe-upwiz-upload": "अपलोड गर्ने",
-	"mwe-upwiz-file-upload-notcapable": "तपाईंले प्रयोग गरिरहेको ब्राउजरले फाइल अपलोड गर्न सकेन तसर्थ कृपया अन्य ब्राउजर प्रयोग गर्नुहोला",
 	"mwe-upwiz-file-all-ok": "सबै अपलोडहरू सफल भए!",
 	"mwe-upwiz-file-some-failed": "केही अपलोड असफल।",
 	"mwe-upwiz-file-retry": "असफल अपलोडहरुको पुनः प्रयास गर्ने",

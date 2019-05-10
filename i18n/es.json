@@ -96,7 +96,6 @@
 	"mwe-upwiz-remove-caption": "Quitar esta leyenda",
 	"mwe-upwiz-remove-description": "Retirar esta descripción",
 	"mwe-upwiz-upload": "Subir",
-	"mwe-upwiz-file-upload-notcapable": "Desgraciadamente tu navegador no es capaz de subir archivos.\nInténtalo con otro navegador.",
 	"mwe-upwiz-file-all-ok": "Todos los archivos se subieron correctamente.",
 	"mwe-upwiz-file-some-failed": "Hubo un error en algunas subidas.",
 	"mwe-upwiz-file-retry": "Reintentar subidas fallidas",

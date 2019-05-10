@@ -119,7 +119,6 @@
 	"mwe-upwiz-remove-caption": "Supprimer cette légende",
 	"mwe-upwiz-remove-description": "Enlever cette description",
 	"mwe-upwiz-upload": "Importer",
-	"mwe-upwiz-file-upload-notcapable": "Malheureusement, votre navigateur n’est pas capable de téléverser des fichiers.\nVeuillez essayer avec un autre navigateur.",
 	"mwe-upwiz-file-all-ok": "Tous les téléversements ont réussi !",
 	"mwe-upwiz-file-some-failed": "Certains téléversements ont échoué.",
 	"mwe-upwiz-file-retry": "Reprendre les téléversements ratés",

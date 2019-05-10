@@ -91,7 +91,6 @@
 	"mwe-upwiz-remove-caption": "أزل هذا الشرح",
 	"mwe-upwiz-remove-description": "أزل هذا الوصف",
 	"mwe-upwiz-upload": "رفع",
-	"mwe-upwiz-file-upload-notcapable": "للأسف لا يمكن لمتصفحك رفع الملفات.\nجرّب متصفحا بديلا.",
 	"mwe-upwiz-file-all-ok": "رُفِعت كل الملفات بنجاح!",
 	"mwe-upwiz-file-some-failed": "فشلت بعض المرفوعات.",
 	"mwe-upwiz-file-retry": "أعد محاولة رفع الملفات الفاشلة",

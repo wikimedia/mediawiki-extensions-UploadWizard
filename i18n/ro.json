@@ -58,7 +58,6 @@
 	"mwe-upwiz-remove-upload": "Eliminați acest fișier din lista de fișiere de încărcat",
 	"mwe-upwiz-remove-description": "Elimină această descriere",
 	"mwe-upwiz-upload": "Încarcă",
-	"mwe-upwiz-file-upload-notcapable": "Din păcate, navigatorul dumneavoastră nu poate încărca fișiere.\nVă rugăm să încercați cu un alt navigator.",
 	"mwe-upwiz-file-all-ok": "Toate încărcările s-au finalizat cu succes!",
 	"mwe-upwiz-file-some-failed": "Unele încărcări au eșuat.",
 	"mwe-upwiz-file-retry": "Reîncearcă încărcările eșuate",

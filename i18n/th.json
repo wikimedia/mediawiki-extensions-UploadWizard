@@ -60,7 +60,6 @@
 	"mwe-upwiz-remove-upload": "เอาไฟล์นี้ออกจากรายการไฟล์ที่จะอัปโหลด",
 	"mwe-upwiz-remove-description": "เอาคำอธิบายนี้ออก",
 	"mwe-upwiz-upload": "อัปโหลด",
-	"mwe-upwiz-file-upload-notcapable": "เบราว์เซอร์ของคุณไม่สามารถอัปโหลดไฟล์ได้\nโปรดลองใช้เบราว์เซอร์อื่น",
 	"mwe-upwiz-file-all-ok": "อัปโหลดทั้งหมดเสร็จสมบูรณ์",
 	"mwe-upwiz-file-some-failed": "อัปโหลดบางส่วนล้มเหลว",
 	"mwe-upwiz-file-retry": "อัปโหลดที่ล้มเหลวใหม่อีกครั้ง",

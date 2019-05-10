@@ -81,7 +81,6 @@
 	"mwe-upwiz-remove-upload": "Fájl eltávolítása a feltöltésre váró fájlok listájából",
 	"mwe-upwiz-remove-description": "Leírás eltávolítása",
 	"mwe-upwiz-upload": "Feltöltés",
-	"mwe-upwiz-file-upload-notcapable": "Sajnos a böngésződ nem alkalmas a fájlok feltöltésére. Próbáld meg másik böngészőről.",
 	"mwe-upwiz-file-all-ok": "Az összes feltöltés sikeres volt!",
 	"mwe-upwiz-file-some-failed": "Néhány feltöltés sikertelen.",
 	"mwe-upwiz-file-retry": "Újrapróbálkozás a sikertelen feltöltésekkel",

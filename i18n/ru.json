@@ -103,7 +103,6 @@
 	"mwe-upwiz-remove-upload": "Удалить этот файл из списка файлов для загрузки",
 	"mwe-upwiz-remove-description": "Удалить это описание",
 	"mwe-upwiz-upload": "Загрузить",
-	"mwe-upwiz-file-upload-notcapable": "К сожалению, ваш браузер не умеет загружать файлы.\nПожалуйста, попробуйте другой браузер.",
 	"mwe-upwiz-file-all-ok": "Все загрузки завершены успешно!",
 	"mwe-upwiz-file-some-failed": "Некоторые загрузки выполнить не удалось.",
 	"mwe-upwiz-file-retry": "Повторить неудавшиеся загрузки",

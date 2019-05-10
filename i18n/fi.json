@@ -83,7 +83,6 @@
 	"mwe-upwiz-remove-upload": "Poista tämä tiedosto tallennettavien tiedostojen listasta",
 	"mwe-upwiz-remove-description": "Poista tämä kuvaus",
 	"mwe-upwiz-upload": "Tallenna",
-	"mwe-upwiz-file-upload-notcapable": "Valitettavasti selaimesi ei kykene lataamaan tiedostoja.\nKokeile toista selainta.",
 	"mwe-upwiz-file-all-ok": "Kaikki tallennukset onnistuivat.",
 	"mwe-upwiz-file-some-failed": "Osa tallennuksista epäonnistui.",
 	"mwe-upwiz-file-retry": "Yritä epäonnistuinden tallennusten tallentamista uudestaan",

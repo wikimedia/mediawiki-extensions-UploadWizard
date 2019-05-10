@@ -54,7 +54,6 @@
 	"mwe-upwiz-remove-upload": "আপল'ড কৰিবলগীয়া ফাইলৰ তালিকাৰ পৰা এই ফাইলটো আঁতৰাওক",
 	"mwe-upwiz-remove-description": "এই বিৱৰণ বাতিল কৰক",
 	"mwe-upwiz-upload": "আপলোড",
-	"mwe-upwiz-file-upload-notcapable": "আপোনাৰ ব্ৰাউজাৰে চিত্ৰ আপল’ড কৰিবলৈ সক্ষম নহয়, অনুগ্ৰহ কৰি অন্য ব্ৰাউজাৰ ব্যৱহাৰ কৰি পুণৰ চেষ্টা কৰক",
 	"mwe-upwiz-file-all-ok": "সকলো আপলোড সফলভাৱে সম্পন্ন হৈছে!",
 	"mwe-upwiz-file-some-failed": "কিছু আপলোড বিফল হৈছে।",
 	"mwe-upwiz-file-retry": "বিফল হোৱা আপলোডসমূহ পুনৰ চেষ্টা কৰক",

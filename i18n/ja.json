@@ -82,7 +82,6 @@
 	"mwe-upwiz-remove-caption": "このキャプションを除去",
 	"mwe-upwiz-remove-description": "この説明を除去",
 	"mwe-upwiz-upload": "アップロード",
-	"mwe-upwiz-file-upload-notcapable": "残念ながら、ご使用中のブラウザーではファイルをアップロードできません。\n別のブラウザーを試してください。",
 	"mwe-upwiz-file-all-ok": "すべてアップロードしました!",
 	"mwe-upwiz-file-some-failed": "失敗したアップロードがあります。",
 	"mwe-upwiz-file-retry": "失敗したアップロードを再試行",

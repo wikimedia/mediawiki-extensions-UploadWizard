@@ -90,7 +90,6 @@
 	"mwe-upwiz-remove-caption": "Diese Medienlegende entfernen",
 	"mwe-upwiz-remove-description": "Entferne diese Beschreibung",
 	"mwe-upwiz-upload": "Hochladen",
-	"mwe-upwiz-file-upload-notcapable": "Dein Browser kann leider nicht zum Hochladen von Dateien verwendet werden.\nBitte nutze einen alternativen Browser.",
 	"mwe-upwiz-file-all-ok": "Das Hochladen aller Dateien war erfolgreich!",
 	"mwe-upwiz-file-some-failed": "Das Hochladen einiger Dateien ist fehlgeschlagen.",
 	"mwe-upwiz-file-retry": "Das Hochladen der nicht hochgeladenen Dateien erneut versuchen.",

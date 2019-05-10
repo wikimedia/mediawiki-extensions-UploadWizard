@@ -49,7 +49,6 @@
 	"mwe-upwiz-remove-upload": "Бұл файлды жүктелген файлдар тізімінен аластау",
 	"mwe-upwiz-remove-description": "Бұл сипаттаманы аластау",
 	"mwe-upwiz-upload": "Жүктеу",
-	"mwe-upwiz-file-upload-notcapable": "Өкінішке орай броузеріңіз файлдарды жүктеуге қабілетті емес. Басқа броузермен қайта байқап көріңіз.",
 	"mwe-upwiz-file-all-ok": "Барлығы сәтті жүктелді!",
 	"mwe-upwiz-file-some-failed": "Кейбір жүктеулер сәтсіздікке ұшырады.",
 	"mwe-upwiz-file-retry": "Орындалмаған жүктеулерді қайталау",
