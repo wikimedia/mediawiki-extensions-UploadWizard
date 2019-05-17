@@ -267,6 +267,8 @@
 	"mwe-upwiz-error-blank": "{{Identical|Required}}",
 	"mwe-upwiz-error-too-long": "Used as error message. Parameters:\n* $1 - maximum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-short}}",
 	"mwe-upwiz-error-too-short": "Used as error message. Parameters:\n* $1 - minimum number of characters\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-long}}",
+	"mwe-upwiz-error-title-too-long": "Used as error message. Parameters:\n* $1 - maximum number of bytes\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-short}}",
+	"mwe-upwiz-error-title-too-short": "Used as error message. Parameters:\n* $1 - minimum number of bytes\nSee also:\n* {{msg-mw|Mwe-upwiz-error-too-long}}",
 	"mwe-upwiz-error-bad-captions": "Used as error message when something is wrong with one (or more) of the captions.",
 	"mwe-upwiz-error-bad-descriptions": "Used as error message when something is wrong with one (or more) of the descriptions.",
 	"mwe-upwiz-error-title-blacklisted": "Error message shown to the user when they have entered a file name that matches the 'blacklist' of banned words.",

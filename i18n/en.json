@@ -238,6 +238,8 @@
 	"mwe-upwiz-error-blank": "This field is required.",
 	"mwe-upwiz-error-too-long": "This entry is too long.\nPlease make sure this entry is at most $1 {{PLURAL:$1|character|characters}}.",
 	"mwe-upwiz-error-too-short": "This entry is too short.\nPlease make sure this entry is at least $1 {{PLURAL:$1|character|characters}}.",
+	"mwe-upwiz-error-title-too-long": "This title is too long.\nPlease make sure this title is at most $1 {{PLURAL:$1|byte|bytes}}.",
+	"mwe-upwiz-error-title-too-short": "This title is too short.\nPlease make sure this title is at least $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-bad-captions": "There are problems with some of the captions.",
 	"mwe-upwiz-error-bad-descriptions": "There are problems with some of the descriptions.",
 	"mwe-upwiz-error-title-blacklisted": "This title contains some undesirable text. Please revise it.",
