@@ -18,10 +18,6 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	]
 );
 
-// TODO Remove on new version of phan-config
-$cfg['directory_list'][] = '.phan/stubs/';
-$cfg['exclude_analysis_directory_list'][] = '.phan/stubs/';
-
 // T191666
 $cfg['suppress_issue_types'][] = 'PhanParamTooMany';
 
