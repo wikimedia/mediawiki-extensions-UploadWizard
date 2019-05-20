@@ -24,7 +24,8 @@
 			"Omotecho",
 			"Envlh",
 			"Yusuke1109",
-			"Suyama"
+			"Suyama",
+			"Aefgh39622"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -44,6 +45,7 @@
 	"mwe-upwiz-step-file": "アップロード",
 	"mwe-upwiz-step-deeds": "許可する権利",
 	"mwe-upwiz-step-details": "説明",
+	"mwe-upwiz-step-metadata": "データを追加",
 	"mwe-upwiz-step-thanks": "使用する",
 	"mwe-upwiz-campaign-name-duplicate": "同じ名前のキャンペーンが既に存在します。",
 	"mwe-upwiz-campaign-unknown-error": "不明なエラーが発生しました。",
