@@ -146,30 +146,19 @@
 	};
 
 	/**
-	 * Make a read only text input, which self-selects on gaining focus
+	 * Make an mw.widgets.CopyTextLayout, which features a button
+	 * to copy the text provided.
 	 *
 	 * @param {string} value Text it will contain
 	 * @param {string} label Label
 	 * @return {jQuery}
 	 */
 	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( value, label ) {
-		var widget = new OO.ui.TextInputWidget( {
-				readOnly: true,
-				value: value
-			} ),
-			field = new OO.ui.FieldLayout(
-				widget,
-				{
-					align: 'top',
-					label: label
-				}
-			);
-
-		widget.$input.on( 'click', function () {
-			widget.select();
-		} );
-
-		return field.$element;
+		return new mw.widgets.CopyTextLayout( {
+			align: 'top',
+			label: label,
+			copyText: value
+		} ).$element;
 	};
 
 	/**

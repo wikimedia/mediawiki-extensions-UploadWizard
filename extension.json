@@ -162,6 +162,7 @@
 				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-location",
 				"oojs-ui.styles.icons-moderation",
+				"mediawiki.widgets",
 				"mediawiki.widgets.DateInputWidget",
 				"mediawiki.widgets.CategoryMultiselectWidget",
 				"user.options"
