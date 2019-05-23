@@ -227,6 +227,8 @@
 	"mwe-upwiz-publish-metadata": "Опублікувати дані",
 	"mwe-upwiz-skip-metadata": "Пропустити це",
 	"mwe-upwiz-metadata-title": "Додати метадані",
+	"mwe-upwiz-metadata-help-title": "Додавання необов'язкових метаданих",
+	"mwe-upwiz-metadata-help-content": "Зараз Ваші файли завантажено і потрібно розмістити метадані до них, щоб іншим користувачам було легше їх знайти.",
 	"mwe-upwiz-previous": "Назад",
 	"mwe-upwiz-home": "Перейти на домашню сторінку вікі",
 	"mwe-upwiz-upload-another": "Додати ще файли",
