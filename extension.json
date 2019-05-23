@@ -149,6 +149,7 @@
 				"mediawiki.notify",
 				"mediawiki.feedback",
 				"mediawiki.language",
+				"mediawiki.editfont.styles",
 				"moment",
 				"uw.EventFlowLogger",
 				"oojs",

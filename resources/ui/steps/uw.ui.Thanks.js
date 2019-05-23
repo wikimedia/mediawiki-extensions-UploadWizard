@@ -127,7 +127,7 @@
 			.addClass( 'mwe-upwiz-data' )
 			.appendTo( $thanksDiv )
 			.append(
-				this.makeReadOnlyInput( thumbWikiText, mw.message( 'mwe-upwiz-thanks-wikitext' ).text() ),
+				this.makeReadOnlyInput( thumbWikiText, mw.message( 'mwe-upwiz-thanks-wikitext' ).text(), true ),
 				this.makeReadOnlyInput( upload.imageinfo.descriptionurl, mw.message( 'mwe-upwiz-thanks-url' ).text() )
 			);
 
@@ -151,14 +151,21 @@
 	 *
 	 * @param {string} value Text it will contain
 	 * @param {string} label Label
+	 * @param {string} [useEditFont] Use edit font (for wikitext values)
 	 * @return {jQuery}
 	 */
-	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( value, label ) {
-		return new mw.widgets.CopyTextLayout( {
+	uw.ui.Thanks.prototype.makeReadOnlyInput = function ( value, label, useEditFont ) {
+		var copyText = new mw.widgets.CopyTextLayout( {
 			align: 'top',
 			label: label,
 			copyText: value
-		} ).$element;
+		} );
+
+		if ( useEditFont ) {
+			copyText.textInput.$element.addClass( 'mw-editfont-' + mw.user.options.get( 'editfont' ) );
+		}
+
+		return copyText.$element;
 	};
 
 	/**
