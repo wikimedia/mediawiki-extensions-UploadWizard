@@ -5,7 +5,7 @@
 	/**
 	 * @constructor
 	 * @param {mw.UploadWizardUpload} upload
-	 * @param {mw.mediaInfo.statements.StatementWidget[]} statements
+	 * @param {StatementWidget[]} statements
 	 * @param {Object} [config] Configuration options
 	 */
 	uw.MetadataContent = function UWMetadataContent( upload, statements, config ) {
