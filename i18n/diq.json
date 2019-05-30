@@ -9,7 +9,8 @@
 			"Kumkumuk",
 			"Asmen",
 			"Gırd",
-			"Envlh"
+			"Envlh",
+			"Orbot707"
 		]
 	},
 	"uploadwizard": "Sihirbazê Barkerdışi",
@@ -263,7 +264,7 @@
 	"mwe-upwiz-error-nosuchcampaign": "\"$1\" yew kampanya rê name nêbeno.",
 	"mwe-upwiz-error-campaigndisabled": "Kampanyay \"$1\" nêaktivyaya.",
 	"prefs-uploads": "Bar beno",
-	"prefs-upwiz-licensing": "Lisansdayış",
+	"prefs-upwiz-licensing": "Lisans",
 	"prefs-upwiz-experimental": "Xısusiyetê cerbnayışi",
 	"prefs-upwiz-interface": "Rıasayışe karberi",
 	"mwe-upwiz-prefs-def-license": "Lisanso hesebiyaye",

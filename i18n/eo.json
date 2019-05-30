@@ -17,7 +17,8 @@
 			"Psychoslave",
 			"Rafaneta",
 			"Envlh",
-			"YvesNevelsteen"
+			"YvesNevelsteen",
+			"Mirin"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -119,6 +120,8 @@
 	"mwe-upwiz-source-thirdparty-accept": "Ek!",
 	"mwe-upwiz-source-custom": "Bonvolu provizi informojn pri la aŭtorrajto de ĉiu unuopa dosiero sur la sekva paĝo.",
 	"mwe-upwiz-patent-dialog-button-next": "Sekva",
+	"mwe-upwiz-patent-dialog-link-warranty": "Lerni plu",
+	"mwe-upwiz-patent-dialog-link-license": "Lerni plu",
 	"mwe-upwiz-more-options": "Aldoni lokon kaj pliajn informojn...",
 	"mwe-upwiz-copy-metadata": "Kopii informon al {{PLURAL:$1|la alia alŝuto|ĉiuj alŝutoj}} jene ...",
 	"mwe-upwiz-copy-metadata-button": "Kopii",
