@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Block\DatabaseBlock;
+
 /**
  * @group Database
  */
@@ -26,7 +28,7 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 		] );
 
 		$user = $this->getTestUser()->getUser();
-		$block = new Block( [
+		$block = new DatabaseBlock( [
 			'expiry' => 'infinite',
 			'sitewide' => $sitewide,
 		] );
