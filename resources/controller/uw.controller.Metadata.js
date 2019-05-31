@@ -147,6 +147,8 @@
 	};
 
 	uw.controller.Metadata.prototype.onSubmit = function () {
+		this.setPending();
+
 		return $.when.apply( $, this.statementPromises ).then( function () {
 			return $.when.apply( $, [].slice.call( arguments ).map( function ( statements ) {
 				var promise = $.Deferred().resolve().promise();
@@ -163,7 +165,33 @@
 
 				return promise;
 			} ) );
-		} ).then( this.moveNext.bind( this ) );
+		} ).then( this.moveNext.bind( this ) )
+			.always( this.removePending.bind( this ) );
+	};
+
+	/**
+	 * Display an indicator element (spinner + overlay) after the user has
+	 * submitted data.
+	 */
+	uw.controller.Metadata.prototype.setPending = function () {
+		var $div = this.ui.$div;
+		this.$overlay = $( '<div>', { class: 'mwe-upwiz-metadata-pendingOverlay' } );
+		this.$spinner = $.createSpinner( {
+			size: 'large',
+			type: 'block',
+			id: 'mwe-upwiz-metadata-pendingSpinner',
+			class: 'mwe-upwiz-metadata-pendingSpinner'
+		} );
+
+		this.$spinner.appendTo( this.$overlay );
+		this.$overlay.appendTo( $div );
+	};
+
+	/**
+	 * Remove the pending indicator (overlay + spinner) from the page.
+	 */
+	uw.controller.Metadata.prototype.removePending = function () {
+		this.$overlay.remove();
 	};
 
 }( mw.uploadWizard ) );
