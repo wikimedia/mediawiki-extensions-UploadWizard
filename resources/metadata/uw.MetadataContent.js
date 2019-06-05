@@ -16,7 +16,14 @@
 				.addClass( 'mwe-upwiz-metadata-content-filename' )
 				.text( upload.details.getTitle().getMain() ),
 			$thumbnailDiv = $( '<div>' )
-				.addClass( 'mwe-upwiz-metadata-content-thumbnail' );
+				.addClass( 'mwe-upwiz-metadata-content-thumbnail' ),
+			StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
+			AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget,
+			addPropertyWidget,
+			propertyIds = [],
+			entityId,
+			self = this,
+			propertiesInfo = mw.config.get( 'wbmiProperties' ) || {};
 
 		uw.MetadataContent.parent.call( this, $.extend( { classes: [ 'mwe-upwiz-metadata-content' ] }, config ) );
 
@@ -30,9 +37,30 @@
 			$filenameDiv,
 			$thumbnailDiv,
 			statements.map( function ( statement ) {
+				propertyIds.push( statement.propertyId );
+				entityId = statement.entityId;
 				return statement.$element;
 			} )
 		);
+
+		if ( mw.config.get( 'wbmiEnableOtherStatements', false ) ) {
+			addPropertyWidget = new AddPropertyWidget( { propertyIds: propertyIds } );
+			addPropertyWidget.on( 'choose', function ( data ) {
+				var statement;
+				// TODO this ought to read the datatype from the wbsearchentities call instead
+				propertiesInfo[ data.id ] = 'wikibase-entityid';
+				statement = new StatementWidget( {
+					entityId: entityId,
+					propertyId: data.id,
+					properties: propertiesInfo
+				} );
+				self.emit( 'statementSectionAdded', statement );
+				propertyIds.push( data.id );
+				statements.push( statement );
+				addPropertyWidget.$element.before( statement.$element );
+			} );
+			this.$element.append( addPropertyWidget.$element );
+		}
 	};
 	OO.inheritClass( uw.MetadataContent, OO.ui.Widget );
 

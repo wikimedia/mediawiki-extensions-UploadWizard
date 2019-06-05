@@ -79,6 +79,9 @@
 					var upload = uploads[ i ],
 						content = new uw.MetadataContent( upload, statements ),
 						page = new uw.MetadataPage( upload, { expanded: false, content: [ content ] } );
+					content.on( 'statementSectionAdded', function ( statement ) {
+						statement.on( 'change', self.enableSubmitIfHasChanges.bind( self ) );
+					} );
 
 					booklet.addPages( [ page ], i );
 				} );
