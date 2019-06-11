@@ -23,7 +23,8 @@
 			propertyIds = [],
 			entityId,
 			self = this,
-			propertiesInfo = mw.config.get( 'wbmiProperties' ) || {};
+			propertiesInfo = mw.config.get( 'wbmiProperties', {} ),
+			dataTypeMap = mw.config.get( 'wbDataTypes', {} );
 
 		uw.MetadataContent.parent.call( this, $.extend( { classes: [ 'mwe-upwiz-metadata-content' ] }, config ) );
 
@@ -47,8 +48,7 @@
 			addPropertyWidget = new AddPropertyWidget( { propertyIds: propertyIds } );
 			addPropertyWidget.on( 'choose', function ( item, data ) {
 				var statement;
-				// TODO this ought to read the datatype from the wbsearchentities call instead
-				propertiesInfo[ data.id ] = 'wikibase-entityid';
+				propertiesInfo[ data.id ] = dataTypeMap[ data.datatype ].dataValueType;
 				statement = new StatementWidget( {
 					entityId: entityId,
 					propertyId: data.id,
