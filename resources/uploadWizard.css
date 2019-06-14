@@ -596,8 +596,3 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 .ui-helper-clearfix {
 	zoom: 1;
 }
-
-.wbmi-entityview-add-statement-property-button,
-.wbmi-entityview-add-statement-property {
-	margin-top: 1em;
-}
