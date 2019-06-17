@@ -315,7 +315,7 @@
 	"mwe-upwiz-error-nosuchcampaign": "No hi ha cap campanya amb el nom «$1».",
 	"mwe-upwiz-error-campaigndisabled": "La campanya «$1» no està activada.",
 	"mwe-upwiz-custom-date": "Utilitza un format de dates personalitzat",
-	"prefs-uploads": "S'està carregant",
+	"prefs-uploads": "Càrregues",
 	"prefs-upwiz-licensing": "Llicències",
 	"prefs-upwiz-experimental": "Funcions experimentals",
 	"prefs-upwiz-interface": "Interfície d'usuari",

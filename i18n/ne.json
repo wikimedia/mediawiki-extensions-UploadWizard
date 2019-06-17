@@ -7,7 +7,8 @@
 			"Nirjal stha",
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
-			"Nirajan pant"
+			"Nirajan pant",
+			"पर्वत सुबेदी"
 		]
 	},
 	"uploadwizard": "अपलोड विजार्ड",
@@ -73,6 +74,8 @@
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|यो फाइल आफैले बनाएको हो|यी फाइलहरू आफैले बनाएका हुन्}}।",
 	"mwe-upwiz-source-thirdparty-accept": "ठीक",
 	"mwe-upwiz-source-custom": "प्रत्येक फाइलको कपी राइट सूचना  अर्को पृष्ठमा दिनुहोस्।",
+	"mwe-upwiz-patent-dialog-link-warranty": "अधिक जानकारी",
+	"mwe-upwiz-patent-dialog-link-license": "अधिक जानकारी",
 	"mwe-upwiz-more-options": "स्थान र अरु विवरण थप्ने...",
 	"mwe-upwiz-copy-metadata-button": "प्रतिलिपी",
 	"mwe-upwiz-copied-metadata": "सफलतापुर्वक प्रतिलिपी गरियो",
