@@ -234,9 +234,6 @@ class UploadWizardCampaign {
 	 */
 	private function parseValue( $value, Language $lang ) {
 		$parserOptions = ParserOptions::newFromContext( $this->context );
-		if ( !defined( 'ParserOutput::SUPPORTS_STATELESS_TRANSFORMS' ) ) {
-			$parserOptions->setEditSection( false );
-		}
 		$parserOptions->setInterfaceMessage( true );
 		$parserOptions->setUserLang( $lang );
 		$parserOptions->setTargetLanguage( $lang );
