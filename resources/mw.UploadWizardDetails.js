@@ -43,7 +43,9 @@
 
 			this.titleDetails = new uw.TitleDetailsWidget( {
 				// Normalize file extension, e.g. 'JPEG' to 'jpg'
-				extension: mw.Title.normalizeExtension( this.upload.title.getExtension() )
+				extension: mw.Title.normalizeExtension( this.upload.title.getExtension() ),
+				minLength: config.minTitleLength,
+				maxLength: config.maxTitleLength
 			} );
 			this.titleDetailsField = new uw.FieldLayout( this.titleDetails, {
 				label: mw.message( 'mwe-upwiz-title' ).text(),

@@ -555,7 +555,7 @@ return [
 	'minSourceLength' => 5,
 
 	// Max file title string length
-	'maxTitleLength' => 500,
+	'maxTitleLength' => 240,
 
 	// Min file title string length
 	'minTitleLength' => 5,
