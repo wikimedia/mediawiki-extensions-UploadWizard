@@ -12,7 +12,8 @@
 			"ערן",
 			"Yona b",
 			"פוילישער",
-			"Envlh"
+			"Envlh",
+			"Steeve815"
 		]
 	},
 	"uploadwizard": "אשף ההעלאה",
@@ -249,6 +250,8 @@
 	"mwe-upwiz-error-blank": "חובה למלא שדה זה.",
 	"mwe-upwiz-error-too-long": "העיול הזה ארוך מדי.\nנא לוודא שבעיול הזה יש {{PLURAL:$1|תו אחד|$1 תווים}} לכל היותר.",
 	"mwe-upwiz-error-too-short": "העיול הזה קצר מדי.\nנא לוודא שבעיול הזה יש {{PLURAL:$1|תו אחד|$1 תווים}} לפחות.",
+	"mwe-upwiz-error-title-too-long": "כותרת זו ארוכה מדי.\nנא לוודא שבכותרת הזאת יש {{PLURAL:$1|בית אחד|$1 בתים}} לכל היותר.",
+	"mwe-upwiz-error-title-too-short": "כותרת זו קצרה מדי.\nנא לוודא שבכותרת הזאת יש {{PLURAL:$1|בית אחד|$1 בתים}} לכל הפחות.",
 	"mwe-upwiz-error-bad-captions": "יש בעיות עם חלק מהכיתובים.",
 	"mwe-upwiz-error-bad-descriptions": "יש בעיות עם חלק מהתיאורים.",
 	"mwe-upwiz-error-title-blacklisted": "השם הזה מכיל מילים לא רצויות. נא לערוך אותו",

@@ -234,6 +234,8 @@
 	"mwe-upwiz-error-blank": "이 칸은 반드시 입력해야 합니다.",
 	"mwe-upwiz-error-too-long": "이 엔트리가 너무 깁니다.\n이 엔트리가 최대 $1{{PLURAL:$1|자}}인지 확인해 주십시오.",
 	"mwe-upwiz-error-too-short": "이 엔트리가 너무 짧습니다.\n이 엔트리가 적어도 $1{{PLURAL:$1|자}}가 맞는지 확인해 주십시오.",
+	"mwe-upwiz-error-title-too-long": "이 제목이 너무 깁니다.\n이 제목이 최대 $1 {{PLURAL:$1|바이트}}인지 확인해 주십시오.",
+	"mwe-upwiz-error-title-too-short": "이 제목이 너무 짧습니다.\n이 제목이 적어도 $1 {{PLURAL:$1|바이트}}인지 확인해 주십시오.",
 	"mwe-upwiz-error-bad-captions": "설명 중 일부에 문제가 있습니다.",
 	"mwe-upwiz-error-bad-descriptions": "설명 중 일부에 문제가 있습니다.",
 	"mwe-upwiz-error-title-blacklisted": "제목에 부적절한 글자가 포함되어 있습니다. 글자를 수정하세요.",

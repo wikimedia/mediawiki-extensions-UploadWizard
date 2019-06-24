@@ -259,6 +259,8 @@
 	"mwe-upwiz-error-blank": "هذا الحقل مطلوب.",
 	"mwe-upwiz-error-too-long": "هذا الحقل طويل جداً.\nالرجاء جعل هذا الإدخال أقصر من $1 {{PLURAL:$1|حرف|حروف}}.",
 	"mwe-upwiz-error-too-short": "هذه المدخلة أقصر مما ينبغي.\nمن فضلك اجعل هذه المدخلة أطول من $1 {{PLURAL:$1|حرفا|أحرف}}.",
+	"mwe-upwiz-error-title-too-long": "هذا العنوان طويل جدا،\nيُرجَى التأكد من أن هذا العنوان $1 {{PLURAL:$1|بايت}} على الأكثر.",
+	"mwe-upwiz-error-title-too-short": "هذا العنوان قصير جدا،\nيُرجَى التأكد من أن هذا العنوان $1 {{PLURAL:$1|بايت}} على الأقل.",
 	"mwe-upwiz-error-bad-captions": "هناك مشكلات في بعض الأوصاف.",
 	"mwe-upwiz-error-bad-descriptions": "هناك مشكلات مع بعض الأوصاف.",
 	"mwe-upwiz-error-title-blacklisted": "يحتوي هذا الكتاب على بعض النص غير المرغوب فيها. الرجاء إعادة النظر فيه",

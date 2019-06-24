@@ -242,6 +242,8 @@
 	"mwe-upwiz-error-blank": "Ова поле е задолжително.",
 	"mwe-upwiz-error-too-long": "Записов е предолг.\nСкратете го на не повеќе од {{PLURAL:$1|еден знак|$1 знаци}}.",
 	"mwe-upwiz-error-too-short": "Записов е прекраток.\nДополнете го за да има барем {{PLURAL:$1|еден знак|$1 знаци}}.",
+	"mwe-upwiz-error-title-too-long": "Насловов е предолг.\nСкратете го на не повеќе од $1 {{PLURAL:$1|бајт|бајти}}.",
+	"mwe-upwiz-error-title-too-short": "Насловов е прекраток.\nДополнете го за да има барем $1 {{PLURAL:$1|бајт|бајти}}.",
 	"mwe-upwiz-error-bad-captions": "Се јавија проблеми со некои од описите.",
 	"mwe-upwiz-error-bad-descriptions": "Се јавија проблеми со некои од описите.",
 	"mwe-upwiz-error-title-blacklisted": "Овој наслов содржи непожелен текст. Изменете го.",

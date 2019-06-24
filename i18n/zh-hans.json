@@ -35,7 +35,8 @@
 			"NeverBehave",
 			"Envlh",
 			"A2093064",
-			"WQL"
+			"WQL",
+			"佛壁灯"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -265,6 +266,8 @@
 	"mwe-upwiz-error-blank": "本栏必填。",
 	"mwe-upwiz-error-too-long": "此记录过长。请确保该记录最多$1个{{PLURAL:$1|字符}}。",
 	"mwe-upwiz-error-too-short": "此记录过短。请确保该记录最少$1个{{PLURAL:$1|字符}}。",
+	"mwe-upwiz-error-title-too-long": "此标题过长。\n请确保标题最多为 $1 字节长。",
+	"mwe-upwiz-error-title-too-short": "此标题过短。\n请确保标题至少为 $1 字节长。",
 	"mwe-upwiz-error-bad-captions": "部分字幕存在问题。",
 	"mwe-upwiz-error-bad-descriptions": "部分说明上存在问题。",
 	"mwe-upwiz-error-title-blacklisted": "该标题含有一些不良文字。请修改。",

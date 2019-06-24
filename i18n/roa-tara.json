@@ -159,6 +159,8 @@
 	"mwe-upwiz-error-blank": "Stu cambe jè obbligatorie.",
 	"mwe-upwiz-error-too-long": "Stu cambe jè troppe luènghe.\nPe piacere falle cchiù curte de $1 {{PLURAL:$1|carattere}}.",
 	"mwe-upwiz-error-too-short": "Stu cambe jè troppe curte.\nPe piacere falle cchiù luènghe de $1 {{PLURAL:$1|carattere}}.",
+	"mwe-upwiz-error-title-too-long": "Stu titole jè troppe luènghe.\nPe piacere falle mene luènghe de $1 {{PLURAL:$1|byte}}.",
+	"mwe-upwiz-error-title-too-short": "Stu titole jè troppe curte.\nPe piacere falle cchiù luènghe de $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-title-senselessimagename": "Pe piacere fa 'nu titele ca tène 'nu significate megghie.",
 	"mwe-upwiz-error-license-wikitext-too-short": "'U uicchiteste aqquà jè troppe curte pe essere 'na licenze",
 	"mwe-upwiz-error-license-wikitext-too-long": "'U uicchiteste ca è mise jè troppe luènghe.",
