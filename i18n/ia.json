@@ -187,6 +187,8 @@
 	"mwe-upwiz-error-blank": "Iste campo es obligatori.",
 	"mwe-upwiz-error-too-long": "Iste entrata es troppo longe.\nAssecura te que illo non ha plus de $1 {{PLURAL:$1|character|characteres}}.",
 	"mwe-upwiz-error-too-short": "Iste entrata es troppo curte.\nAssecura te que illo non ha minus de $1 {{PLURAL:$1|character|characteres}}.",
+	"mwe-upwiz-error-title-too-long": "Iste titulo es troppo longe.\nAssecura te que illo non ha plus de $1 {{PLURAL:$1|byte|bytes}}.",
+	"mwe-upwiz-error-title-too-short": "Iste titulo es troppo curte.\nAssecura te que illo non ha minus de $1 {{PLURAL:$1|byte|bytes}}.",
 	"mwe-upwiz-error-title-blacklisted": "Iste titulo contine texto indesirabile. Per favor revide lo.",
 	"mwe-upwiz-error-title-senselessimagename": "Per favor rende iste titulo plus significative.",
 	"mwe-upwiz-error-title-thumbnail": "Isto pare como un titulo de miniatura. Per favor non re-incarga miniaturas in le mesme wiki. Alteremente, per favor modifica le nomine del file pro render lo plus significative, e non ha le prefixo de miniatura.",

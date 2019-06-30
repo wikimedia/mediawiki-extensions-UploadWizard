@@ -258,6 +258,8 @@
 	"mwe-upwiz-error-blank": "Este campo é obrigatório.",
 	"mwe-upwiz-error-too-long": "Este campo é demasiado longo.\nLimite a entrada a um máximo de $1\n{{PLURAL:$1|carácter|caracteres}}, por favor.",
 	"mwe-upwiz-error-too-short": "Este campo é demasiado curto.\nIntroduza um número mínimo de $1\n{{PLURAL:$1|carácter|caracteres}}, por favor.",
+	"mwe-upwiz-error-title-too-long": "Este título é demasiado longo.\nCertifique-se de que o título tem no máximo $1\n{{PLURAL:$1|byte|bytes}}, por favor.",
+	"mwe-upwiz-error-title-too-short": "Este título é demasiado curto.\nCertifique-se de que o título tem no mínimo $1\n{{PLURAL:$1|byte|bytes}}, por favor.",
 	"mwe-upwiz-error-bad-captions": "Algumas das legendas têm problemas.",
 	"mwe-upwiz-error-bad-descriptions": "Existem problemas com algumas das descrições.",
 	"mwe-upwiz-error-title-blacklisted": "Este título contém algum texto indesejável. Reveja-o, por favor.",

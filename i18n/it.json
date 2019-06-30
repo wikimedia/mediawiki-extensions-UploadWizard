@@ -228,6 +228,8 @@
 	"mwe-upwiz-error-blank": "Questo campo è obbligatorio.",
 	"mwe-upwiz-error-too-long": "Questo elemento è troppo lungo.\nAssicurati che sia al massimo $1 {{PLURAL:$1|carattere|caratteri}}.",
 	"mwe-upwiz-error-too-short": "Questo elemento è troppo breve.\nAssicurati che sia almeno $1 {{PLURAL:$1|carattere|caratteri}}.",
+	"mwe-upwiz-error-title-too-long": "Questo titolo è troppo lungo.\nAssicurati che sia al massimo $1 {{PLURAL:$1|byte}}.",
+	"mwe-upwiz-error-title-too-short": "Questo titolo è troppo breve.\nAssicurati che sia almeno $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-bad-captions": "Ci sono problemi con alcune delle didascalie.",
 	"mwe-upwiz-error-bad-descriptions": "Ci sono problemi con alcune delle descrizioni.",
 	"mwe-upwiz-error-title-blacklisted": "Questo titolo contiene parole non opportune. Rivedilo.",

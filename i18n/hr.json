@@ -6,7 +6,8 @@
 			"SpeedyGonsales",
 			"MaGa",
 			"Matma Rex",
-			"Bugoslav"
+			"Bugoslav",
+			"Astrind"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje datoteka",
@@ -187,6 +188,8 @@
 	"mwe-upwiz-error-blank": "Ovo polje je obvezno.",
 	"mwe-upwiz-error-too-long": "Unos u ovom polju je predug.\nVodite računa da ne bude dulji od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
 	"mwe-upwiz-error-too-short": "Unos u ovom polju je prekratak.\nVodite računa da sadrži najmanje $1 {{PLURAL:$1|znak|znaka|znakova}}.",
+	"mwe-upwiz-error-title-too-long": "Ovaj naslov je predug.\nVodite računa da ne bude dulji od $1 {{PLURAL:$1|znaka|znaka|znakova}}.",
+	"mwe-upwiz-error-title-too-short": "Ovaj naslov je prekratak.\nVodite računa da sadrži najmanje $1 {{PLURAL:$1|znak|znaka|znakova}}.",
 	"mwe-upwiz-error-license-wikitext-missing": "Označili ste mogućnost koja zahtijeva unos wikiteksta.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Wikitekst je prekratak za licenciju",
 	"mwe-upwiz-error-license-wikitext-too-long": "Unešeni wikitekst je predug.",
