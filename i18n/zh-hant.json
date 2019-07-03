@@ -257,6 +257,8 @@
 	"mwe-upwiz-error-blank": "此欄位為必填欄位。",
 	"mwe-upwiz-error-too-long": "此項目過長。\n請使此項目最多有 $1 個{{PLURAL:$1|字元|字元}}。",
 	"mwe-upwiz-error-too-short": "此項目過短。\n請使此項目最少有 $1 個{{PLURAL:$1|字元|字元}}。",
+	"mwe-upwiz-error-title-too-long": "此標題過長。\n請使此標題最多有 $1 個{{PLURAL:$1|位元組}}。",
+	"mwe-upwiz-error-title-too-short": "此標題過短。\n請使此標題最少有 $1 個{{PLURAL:$1|位元組}}。",
 	"mwe-upwiz-error-bad-captions": "部份說明文字存在問題。",
 	"mwe-upwiz-error-bad-descriptions": "部份說明存在問題。",
 	"mwe-upwiz-error-title-blacklisted": "此標題含有部份己封鎖的文字，請修正。",
