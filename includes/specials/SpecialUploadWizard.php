@@ -324,7 +324,7 @@ class SpecialUploadWizard extends SpecialPage {
 			$altUploadForm = Title::newFromText( $config[ 'altUploadForm' ] );
 			if ( $altUploadForm instanceof Title ) {
 				$linkHtml = Html::rawElement( 'p', [ 'style' => 'text-align: center;' ],
-					Html::rawElement( 'a', [ 'href' => $altUploadForm->getLocalURL() ],
+					Html::element( 'a', [ 'href' => $altUploadForm->getLocalURL() ],
 						$config['altUploadForm']
 					)
 				);
