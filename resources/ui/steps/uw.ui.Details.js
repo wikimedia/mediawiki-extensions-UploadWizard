@@ -77,8 +77,8 @@
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-license-metadata ui-corner-all' )
 					.append(
-						$( '<h4>' ).append( mw.msg( 'mwe-upwiz-license-metadata-title' ) ),
-						$( '<p>' ).append( mw.message( 'mwe-upwiz-license-metadata-content' ).parse() )
+						$( '<h4>' ).text( mw.msg( 'mwe-upwiz-license-metadata-title' ) ),
+						$( '<p>' ).append( mw.message( 'mwe-upwiz-license-metadata-content' ).parseDom() )
 							// wikitext links in i18n messages don't support target=_blank, but we
 							// really don't want to take people away from their uploads...
 							.find( 'a' ).attr( 'target', '_blank' ).end()
@@ -91,7 +91,7 @@
 				$( '<div>' )
 					.addClass( 'mwe-upwiz-patent-weapon-policy ui-corner-all' )
 					.append(
-						$( '<p>' ).append( mw.msg( 'mwe-upwiz-patent-weapon-policy' ) ),
+						$( '<p>' ).text( mw.msg( 'mwe-upwiz-patent-weapon-policy' ) ),
 						$( '<p>' ).append(
 							$( '<a>' )
 								.text( mw.msg( 'mwe-upwiz-patent-weapon-policy-link' ) )

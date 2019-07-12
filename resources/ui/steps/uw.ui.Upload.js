@@ -139,9 +139,9 @@
 
 			// Add disclaimer
 			$( '<div>' ).attr( 'id', 'mwe-upwiz-flickr-disclaimer' )
-				.html(
-					mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parse() +
-					'<br/>' + mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parse()
+				.append(
+					mw.message( 'mwe-upwiz-flickr-disclaimer1' ).parseDom(),
+					$( '<br>' ), mw.message( 'mwe-upwiz-flickr-disclaimer2' ).parseDom()
 				)
 				.appendTo( this.$flickrContainer );
 		}
