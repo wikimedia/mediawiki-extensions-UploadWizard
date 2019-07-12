@@ -112,7 +112,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Все равно продолжить",
 	"mwe-upwiz-skip-tutorial-future": "Пропустить этот шаг в будущем",
 	"mwe-upwiz-file-all-failed": "Ни одна из загрузок не удалась.",
-	"mwe-upwiz-upload-count": "{{PLURAL:$1|Передан $1|Передано $1|Передано $1}} из $2 {{PLURAL:$2|файла|файлов|файлов}}",
+	"mwe-upwiz-upload-count": "{{PLURAL:$1|Передан|Передано}} $1 из $2 {{PLURAL:$2|файла|файлов}}",
 	"mwe-upwiz-progressbar-uploading": "загрузка на сервер",
 	"mwe-upwiz-almost-finished": "Обработка файлов…",
 	"mwe-upwiz-finished": "Готово!",
