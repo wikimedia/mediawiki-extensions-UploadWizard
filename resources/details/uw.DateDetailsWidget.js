@@ -145,7 +145,7 @@
 					if ( warnLicenses[ i ] in licenses ) {
 						license = licenses[ warnLicenses[ i ] ];
 						licenseMsg = mw.message( license.msg, 0, license.url ? license.url : '#missing license URL' );
-						warnings.push( mw.message( 'mwe-upwiz-error-date-license-unlikely', licenseMsg.parse() ) );
+						warnings.push( mw.message( 'mwe-upwiz-error-date-license-unlikely', licenseMsg.parseDom() ) );
 					}
 				}
 			}
