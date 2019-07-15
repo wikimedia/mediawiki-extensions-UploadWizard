@@ -44,9 +44,6 @@
 		},
 		"upwizcampeditors": {
 			"upwizcampaigns": true
-		},
-		"Image-reviewer": {
-			"mass-upload": true
 		}
 	},
 	"AddGroups": {
