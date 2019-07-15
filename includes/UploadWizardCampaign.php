@@ -298,7 +298,7 @@ class UploadWizardCampaign {
 		// we then check to make sure that it is the latest version - by verifying that its
 		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
 		// issued.
-		$cache = ObjectCache::getMainWANInstance();
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$memKey = wfMemcKey(
 			'uploadwizard', 'campaign', $this->getName(), 'parsed-config', $lang->getCode()
 		);
@@ -419,7 +419,7 @@ class UploadWizardCampaign {
 	 * for the campaign will be regenerated the next time there is a read.
 	 */
 	public function invalidateCache() {
-		$cache = ObjectCache::getMainWANInstance();
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$cache->touchCheckKey( $this->makeInvalidateTimestampKey() );
 	}
 
