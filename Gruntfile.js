@@ -19,12 +19,7 @@ module.exports = function ( grunt ) {
 				extensions: [ '.js', '.json' ],
 				cache: true
 			},
-			all: [
-				'**/*.js{,on}',
-				// TODO: Move to a /lib folder
-				'!resources/jquery/jquery.lazyload.js',
-				'!{vendor,node_modules}/**'
-			]
+			all: '.'
 		},
 		stylelint: {
 			options: {
