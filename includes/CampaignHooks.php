@@ -99,6 +99,7 @@ class CampaignHooks {
 
 		return true;
 	}
+
 	/**
 	 * Deletes entries from uc_campaigns table when a Campaign is deleted
 	 * @param Article $article

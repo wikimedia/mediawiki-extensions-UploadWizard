@@ -165,6 +165,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 			$this->markTestSkipped( $wgUploadWizardConfig['flickrApiUrl'] . ' is unreachable.' );
 		}
 	}
+
 	/**
 	 * Changes global parameter for blacklist page in such a way that the change can be
 	 * unrolled after the test. Also clears the cache for the blacklist.
