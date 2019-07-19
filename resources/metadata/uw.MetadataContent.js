@@ -52,7 +52,9 @@
 				statement = new StatementWidget( {
 					entityId: entityId,
 					propertyId: data.id,
-					properties: propertiesInfo
+					properties: propertiesInfo,
+					isDefaultProperty: false,
+					helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {}
 				} );
 				self.emit( 'statementSectionAdded', statement );
 				propertyIds.push( data.id );
