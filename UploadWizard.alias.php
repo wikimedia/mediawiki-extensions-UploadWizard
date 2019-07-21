@@ -193,6 +193,12 @@ $specialPageAliases['pa'] = [
 	'UploadWizard' => [ 'ਅੱਪਲੋਡ_ਵਿਜ਼ਾਰਡ' ],
 ];
 
+/** Polish (polski) */
+$specialPageAliases['pl'] = [
+	'Campaigns' => [ 'Inicjatywy' ],
+	'UploadWizard' => [ 'Kreator_przesyłania' ],
+];
+
 /** Russian (русский) */
 $specialPageAliases['ru'] = [
 	'UploadWizard' => [ 'Мастер_загрузки' ],
