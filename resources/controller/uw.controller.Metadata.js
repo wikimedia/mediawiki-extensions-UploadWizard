@@ -107,7 +107,9 @@
 			Object.keys( mw.config.get( 'wbmiProperties' ) ).forEach( function ( propertyId ) {
 				var statement = new StatementWidget( {
 					entityId: entityId,
-					propertyId: propertyId
+					propertyId: propertyId,
+					isDefaultProperty: true,
+					helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {}
 				} );
 				statements.push( statement );
 			} );
