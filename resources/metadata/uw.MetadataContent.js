@@ -23,7 +23,8 @@
 			propertyIds = [],
 			entityId,
 			self = this,
-			propertiesInfo = mw.config.get( 'wbmiProperties', {} ),
+			// clone wbmiProperties
+			propertiesInfo = JSON.parse( JSON.stringify( mw.config.get( 'wbmiProperties', {} ) ) ),
 			dataTypeMap = mw.config.get( 'wbDataTypes', {} );
 
 		uw.MetadataContent.parent.call( this, $.extend( { classes: [ 'mwe-upwiz-metadata-content' ] }, config ) );

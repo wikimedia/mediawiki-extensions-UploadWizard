@@ -156,7 +156,8 @@
 
 		return $.when.apply( $, this.statementPromises ).then( function () {
 			return $.when.apply( $, [].slice.call( arguments ).map( function ( statements ) {
-				var promise = $.Deferred().resolve().promise();
+				var promise = $.Deferred().resolve().promise(),
+					defaultPropertyIds = Object.keys( mw.config.get( 'wbmiProperties' ) ) || [];
 
 				// we can start submitting statements for multiple files at the same
 				// time, but multiple statements per entity need to be submitted sequentially
@@ -166,11 +167,18 @@
 					// submit statements, then make sure they remain in a mode
 					// where they can't be edited
 					promise.then( statement.setDisabled.bind( statement, true ) );
+					// remove statements with non-default properties from the DOM
+					promise.then( function () {
+						if ( defaultPropertyIds.indexOf( statement.propertyId ) < 0 ) {
+							statement.$element.remove();
+						}
+					} );
 				} );
 
 				return promise;
 			} ) );
-		} ).then( this.moveNext.bind( this ) )
+		} )
+			.then( this.moveNext.bind( this ) )
 			.always( this.removePending.bind( this ) );
 	};
 
