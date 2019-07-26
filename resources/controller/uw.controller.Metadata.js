@@ -78,7 +78,10 @@
 				statementPromise.then( function ( statements ) {
 					var upload = uploads[ i ],
 						content = new uw.MetadataContent( upload, statements ),
-						page = new uw.MetadataPage( upload, { expanded: false, content: [ content ] } );
+						page = new uw.MetadataPage( upload, {
+							expanded: false,
+							content: [ content ]
+						} );
 					content.on( 'statementSectionAdded', function ( statement ) {
 						statement.on( 'change', self.enableSubmitIfHasChanges.bind( self ) );
 					} );
@@ -106,6 +109,7 @@
 
 			Object.keys( mw.config.get( 'wbmiProperties' ) ).forEach( function ( propertyId ) {
 				var statement = new StatementWidget( {
+					editing: true,
 					entityId: entityId,
 					propertyId: propertyId,
 					isDefaultProperty: true,
