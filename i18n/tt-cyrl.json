@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Zahidulla",
-			"Ильнар"
+			"Ильнар",
+			"Ерней"
 		]
 	},
 	"uploadwizard": "Йөкләү җиһазы",
@@ -31,7 +32,7 @@
 	"mwe-upwiz-add-file-0-free": "Бүлешү өчен медиафайллар сайлагыз",
 	"mwe-upwiz-add-file-flickr": "Flickr белән рәсемнәрне бүлешү",
 	"mwe-upwiz-add-file-flickr-n": "Flickr сәхифәсеннән күбрәк рәсемнәр йөкләү",
-	"mwe-upwiz-add-flickr-or": "ЯИСӘ",
+	"mwe-upwiz-add-flickr-or": "яки",
 	"mwe-upwiz-add-flickr": "Flickr сәхифәсеннән алу",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr сәхифәсенә URL",
 	"mwe-upwiz-select-flickr": "Сайланган рәсемнәрне йөкләү",
@@ -43,7 +44,7 @@
 	"mwe-upwiz-transported": "Йөкләүне тәмамлау...",
 	"mwe-upwiz-stashed-upload": "Йөкләнде",
 	"mwe-upwiz-getting-metadata": "Файл турында мәгълүмат алу һәм алдан карау...",
-	"mwe-upwiz-submitting-details": "Мәгълүматны җибәрү һәм публикацияләү...",
+	"mwe-upwiz-submitting-details": "Тәфсиләт җибәрү…",
 	"mwe-upwiz-published": "Бастырылды!",
 	"mwe-upwiz-failed": "Йөкләүдә хата.",
 	"mwe-upwiz-remove": "Бетерү",
@@ -72,8 +73,8 @@
 	"mwe-upwiz-copy-location": "Урнашуын күчермәләү",
 	"mwe-upwiz-copy-other": "Башка мәгълүматны күчермәләү",
 	"mwe-upwiz-desc": "Тасвирлау",
-	"mwe-upwiz-title": "Исем",
-	"mwe-upwiz-date-created": "Ясау датасы",
+	"mwe-upwiz-title": "Сурәт исеме",
+	"mwe-upwiz-date-created": "Дата",
 	"mwe-upwiz-location": "Урнашуы",
 	"mwe-upwiz-location-button": "Харитада күрсәтү",
 	"mwe-upwiz-location-lat": "Киңлек",

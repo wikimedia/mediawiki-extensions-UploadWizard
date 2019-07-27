@@ -24,7 +24,8 @@
 			"Creepario",
 			"AKlapper",
 			"Herzi Pinki",
-			"Speravir"
+			"Speravir",
+			"Stepro"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -60,8 +61,8 @@
 	"mwe-upwiz-help-desk": "Hilfe und Information",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:Hilfe und Information",
 	"mwe-upwiz-add-file-n": "Mehr Dateien hinzufügen",
-	"mwe-upwiz-add-file-0-free": "Mediendateien zum Teilen auswählen",
-	"mwe-upwiz-add-file-flickr": "Bilder von Flickr teilen",
+	"mwe-upwiz-add-file-0-free": "Mediendateien zum Hochladen auswählen",
+	"mwe-upwiz-add-file-flickr": "Bilder von Flickr hochladen",
 	"mwe-upwiz-add-file-flickr-n": "Weitere Bilder von Flickr hinzufügen",
 	"mwe-upwiz-add-flickr-or": "oder",
 	"mwe-upwiz-add-flickr": "Von Flickr holen",
