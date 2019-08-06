@@ -18,19 +18,24 @@
 			mw.UploadWizard.placeThumbnail( self.$thumbnailDiv, thumb );
 		} );
 	};
+
 	OO.inheritClass( uw.MetadataPage, OO.ui.PageLayout );
 
 	/**
 	 * @inheritdoc
 	 */
 	uw.MetadataPage.prototype.setupOutlineItem = function ( outlineItem ) {
-		var filename = this.upload.details ? this.upload.details.getTitle().getMain() : this.upload.getFilename();
+		var filename = this.upload.details ?
+			this.upload.details.getTitle().getMain() :
+			this.upload.getFilename();
 
 		uw.MetadataPage.parent.prototype.setupOutlineItem.call( this, outlineItem );
 
 		this.outlineItem.$element.addClass( 'mwe-upwiz-metadata-page' );
 		this.outlineItem.setLabel(
-			this.$thumbnailDiv.append( $( '<span>' ).addClass( 'mwe-upwiz-thumbnail-filename' ).text( filename ) )
+			this.$thumbnailDiv.append(
+				$( '<span>' ).addClass( 'mwe-upwiz-thumbnail-filename' ).text( filename )
+			)
 		);
 	};
 
