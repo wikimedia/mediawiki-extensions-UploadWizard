@@ -3,7 +3,8 @@
 		"authors": [
 			"Geopoet",
 			"Macofe",
-			"ShimunUfesoj"
+			"ShimunUfesoj",
+			"Brazal.dang"
 		]
 	},
 	"uploadwizard": "Ikarga an Salamangkero",
@@ -105,13 +106,13 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Magtao nin impormasyon sa katanosan nin pagsasadire para sa kada sarong sagunson lambang saro sa masunod na pahina.",
 	"mwe-upwiz-more-options": "Magdugang nin lokasyon asin dagdag na impormasyon...",
-	"mwe-upwiz-copy-metadata": "Kopyahon an impormasyon pasiring sa {{PLURAL:$1|iba pang ikinakarga|gabos na mga ikinakarga}} sa minasunod...",
+	"mwe-upwiz-copy-metadata": "Kopyahon an impormasyon pasiring sa gabos na mga ikinakarga sa minasunod...",
 	"mwe-upwiz-copy-metadata-button": "Kopyahon",
 	"mwe-upwiz-copied-metadata": "Matrayumpong pinagkopya",
 	"mwe-upwiz-copy-title": "Kopyahon an titulo (igwang awtomatikong pagnunumero)",
-	"mwe-upwiz-copy-description": "Kopyahon an  {{PLURAL:$1|deskripsyon|mga deskripsyon}}",
+	"mwe-upwiz-copy-description": "Kopyahon an mga deskripsyon",
 	"mwe-upwiz-copy-date": "Kopyahon an petsa",
-	"mwe-upwiz-copy-categories": "Kopyahon an {{PLURAL:$1|kategoriya|mga kategoriya}}",
+	"mwe-upwiz-copy-categories": "Kopyahon an mga kategoriya",
 	"mwe-upwiz-copy-location": "Kopyahon an lokasyon",
 	"mwe-upwiz-copy-other": "Kopyahon an ibang impormasyon",
 	"mwe-upwiz-desc": "Deskripsyon",
@@ -145,7 +146,7 @@
 	"mwe-upwiz-next-deeds": "Masunod",
 	"mwe-upwiz-home": "Magduman sa gikanang pahina kan wiki",
 	"mwe-upwiz-upload-another": "Magkarga nin kadakulong mga sagunson",
-	"mwe-upwiz-prevent-close": "Ika dae pa tabi nakapagtapos sa pagkakarga asin pagpupublikar {{PLURAL:$1|kaining sagunson|kaining mga sagunson}}.",
+	"mwe-upwiz-prevent-close": "Ika dae pa tabi nakapagtapos sa pagkakarga asin pagpupublikar kaining mga sagunson.",
 	"mwe-upwiz-tooltip-skiptutorial": "Ika makakapagpaandar kaining tutoryal sa [$1 saimong paragamit na mga kamuyahan], sa lindong kan $2 → $3.",
 	"mwe-upwiz-tooltip-author": "An pangaran kan tawo na nagkua kan litrato, o nagpintura kan ladawan, nagdrowing kan drowing, ibpa.",
 	"mwe-upwiz-tooltip-source": "Kun saen ining dihital na sagunson naggikan --- mapuwedeng sarong URL, o sarong libro o publikasyon.",
