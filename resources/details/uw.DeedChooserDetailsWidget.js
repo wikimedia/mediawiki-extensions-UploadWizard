@@ -47,7 +47,7 @@
 
 			if ( upload.file.license ) {
 				// XXX need to add code in the remaining functions
-				this.$element.append( upload.file.licenseMessage );
+				this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
 				this.deedChooser.deed = new uw.deed.Custom( mw.UploadWizard.config, upload );
 			} else {
 				this.deedChooser.deed = new uw.deed.External(
@@ -56,7 +56,7 @@
 					{ type: 'or', licenses: [ 'custom' ], special: 'custom' }
 				);
 				this.$element.append( this.deedChooser.deed.licenseInputField.$element );
-				this.$element.append( upload.file.licenseMessage );
+				this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
 			}
 		} else {
 			deedDiv = $( '<div>' ).addClass( 'mwe-upwiz-custom-deed' );
