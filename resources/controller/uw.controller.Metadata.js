@@ -34,7 +34,6 @@
 		);
 
 		this.stepName = 'metadata';
-
 		this.ui.connect( this, { submit: 'onSubmit' } );
 	};
 
@@ -46,216 +45,79 @@
 	 * @param {mw.UploadWizardUpload[]} uploads List of uploads being carried forward.
 	 */
 	uw.controller.Metadata.prototype.load = function ( uploads ) {
-		var self = this,
-			booklet = new OO.ui.BookletLayout( {
-				expanded: false,
-				outlined: true,
-				classes: [ 'mwe-upwiz-metadata-booklet' ]
-			} );
+		var pages;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
-		// show a spinner while the statement widgets are being created
-		// (this could take a little time as it might involve API calls
-		// to figure out the new pages' relevant entityIDs)
-		this.ui.renderContent( $.createSpinner( { size: 'large', type: 'block' } ) );
-
-		this.statementPromises = uploads.map( this.getStatementWidgetsForUpload.bind( this ) );
-
-		// disable submit button until changes have been made
-		this.enableSubmitIfHasChanges();
-		this.statementPromises.forEach( function ( statementPromise ) {
-			statementPromise.then( function ( statements ) {
-				statements.forEach( function ( statement ) {
-					statement.on( 'change', self.enableSubmitIfHasChanges.bind( self ) );
-				} );
-			} );
+		this.booklet = new OO.ui.BookletLayout( {
+			expanded: false,
+			outlined: true,
+			classes: [ 'mwe-upwiz-metadata-booklet' ]
 		} );
 
-		// don't render the booklet until the first page is ready
-		this.statementPromises[ 0 ].then( function () {
-			self.statementPromises.forEach( function ( statementPromise, i ) {
-				statementPromise.then( function ( statementWidgets ) {
-					var upload = uploads[ i ],
-						content = new uw.MetadataContent( upload, statementWidgets ),
-						page = new uw.MetadataPage( upload, {
-							expanded: false,
-							content: [ content ]
-						} );
-					content.on( 'statementSectionAdded', function ( statement ) {
-						statement.on( 'change', self.enableSubmitIfHasChanges.bind( self ) );
-					} );
-					booklet.addPages( [ page ], i );
-				} );
-			} );
+		pages = this.generateBookletPages( uploads );
+		this.booklet.addPages( pages );
 
-			booklet.selectFirstSelectablePage();
-			self.ui.renderContent( booklet.$element );
+		this.disableSubmit();
+		this.booklet.selectFirstSelectablePage();
+		this.ui.renderContent( this.booklet.$element );
+	};
+
+	/**
+	 * Generate MetadataPage and MetadataContent objects for each file being uploaded.
+	 *
+	 * @param {mw.UploadWizardUpload[]} uploads array of files being uploaded
+	 * @return {uw.MetadataPage[]} array of MetadataPages for use in BookletLayout widget
+	 */
+	uw.controller.Metadata.prototype.generateBookletPages = function ( uploads ) {
+		var self = this;
+
+		return uploads.map( function ( upload ) {
+			var content = new uw.MetadataContent( upload );
+			content.connect( self, { change: 'enableSubmit' } );
+
+			return new uw.MetadataPage( upload, {
+				expanded: false,
+				content: [ content ]
+			} );
 		} );
 	};
 
 	/**
-	 * @return {Object}
+	 * Enable the "publish data" button.
 	 */
-	uw.controller.Metadata.prototype.getWikibaseProperties = function () {
-		var properties = mw.config.get( 'wbmiProperties' ) || {};
-		if ( mw.UploadWizard.config.defaults.statements ) {
-			properties = {};
-			mw.UploadWizard.config.defaults.statements.forEach( function ( defaultStatement ) {
-				// Only entity ids are supported atm
-				if (
-					defaultStatement.dataType === 'wikibase-entityid' &&
-					defaultStatement.propertyId
-				) {
-					properties[ defaultStatement.propertyId ] = defaultStatement.dataType;
-				}
-			} );
-		}
-		return properties;
+	uw.controller.Metadata.prototype.enableSubmit = function () {
+		this.ui.disableNextButton( false );
 	};
 
 	/**
-	 * @param {string} entityId The id of the MediaInfo item
-	 * @param {string} propertyId
-	 * @return {wb.datamodel.Statement[]}
+	 * Disable the "publish data" button.
 	 */
-	uw.controller.Metadata.prototype.getDefaultDataForProperty = function ( entityId, propertyId ) {
-		var statements = [];
-
-		if ( mw.UploadWizard.config.defaults.statements ) {
-
-			mw.loader.using( 'wikibase' ).then( function ( require ) {
-				var wb = require( 'wikibase' ),
-					guidGenerator = new wb.utilities.ClaimGuidGenerator( entityId );
-
-				mw.UploadWizard.config.defaults.statements.forEach( function ( defaultStatement ) {
-					if ( defaultStatement.propertyId === propertyId && defaultStatement.values ) {
-						// Only entity ids are supported atm
-						if ( defaultStatement.dataType === 'wikibase-entityid' ) {
-							defaultStatement.values.forEach( function ( itemId ) {
-								statements.push(
-									new wb.datamodel.Statement(
-										new wb.datamodel.Claim(
-											new wb.datamodel.PropertyValueSnak( propertyId, new wb.datamodel.EntityId( itemId ) ),
-											null,
-											guidGenerator.newGuid()
-										)
-									)
-								);
-							} );
-						}
-					}
-				} );
-
-			} );
-		}
-
-		return statements;
+	uw.controller.Metadata.prototype.disableSubmit = function () {
+		this.ui.disableNextButton( true );
 	};
 
 	/**
-	 * @param {mw.UploadWizardUpload} upload
-	 * @return {jQuery.Promise}
+	 * Submit the data for all pages/files
 	 */
-	uw.controller.Metadata.prototype.getStatementWidgetsForUpload = function ( upload ) {
-		var self = this,
-			properties = this.getWikibaseProperties();
-		return $.when(
-			mw.loader.using( 'wikibase.mediainfo.statements' ),
-			upload.details.getMediaInfoEntityId()
-		).then( function ( require, entityId ) {
-			var StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
-				statementWidgets = [];
-
-			Object.keys( properties ).forEach( function ( propertyId ) {
-				var statementWidget = new StatementWidget( {
-					editing: true,
-					entityId: entityId,
-					propertyId: propertyId,
-					isDefaultProperty: true,
-					helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {},
-					properties: properties
-				} );
-				self.getDefaultDataForProperty( entityId, statementWidget.propertyId ).forEach(
-					function ( statement ) {
-						var mainSnak = statement.getClaim().getMainSnak(),
-							itemWidget;
-						if ( mainSnak.getPropertyId() === propertyId ) {
-							itemWidget = statementWidget.createItem(
-								mainSnak.getValue()
-							);
-							itemWidget.setData( statement );
-							statementWidget.insertItem( itemWidget );
-						}
-					}
-				);
-				statementWidgets.push( statementWidget );
-			} );
-
-			return statementWidgets;
-		} );
-	};
-
-	uw.controller.Metadata.prototype.enableSubmitIfHasChanges = function () {
-		var promise = $.Deferred().resolve().promise();
-
-		// chain all statement promise and resolve them if they have no changes,
-		// reject them if they do
-		// as soon as one is rejected (= has a change), the others will be cut
-		// & we'll skip right enabling the button
-		this.statementPromises.forEach( function ( statementPromise ) {
-			promise = promise.then( function () {
-				return statementPromise.then(
-					function ( statements ) {
-						var hasChanges = statements.some( function ( statement ) {
-							var changes = statement.getChanges(),
-								removals = statement.getRemovals();
-
-							return changes.length > 0 || removals.length > 0;
-						} );
-
-						if ( hasChanges ) {
-							return $.Deferred().reject().promise();
-						}
-					} );
-			} );
-		} );
-
-		promise.then(
-			// promises resolved = no change anywhere = disable button
-			this.ui.disableNextButton.bind( this.ui, true ),
-			// promises rejected = changes = enable button
-			this.ui.disableNextButton.bind( this.ui, false )
-		);
-	};
-
 	uw.controller.Metadata.prototype.onSubmit = function () {
-		var defaultPropertyIds = Object.keys( this.getWikibaseProperties() );
+		var queue = $.Deferred().resolve().promise(),
+			uploads = Object.keys( this.booklet.pages ),
+			self = this;
+
 		this.setPending();
 
-		return $.when.apply( $, this.statementPromises ).then( function () {
-			return $.when.apply( $, [].slice.call( arguments ).map( function ( statements ) {
-				var promise = $.Deferred().resolve().promise();
+		// Collect each statement from each page into a single array
+		uploads.forEach( function ( upload ) {
+			self.booklet.pages[ upload ].getStatements().forEach( function ( statement ) {
+				queue = queue.then( statement.submit.bind( statement ) );
+			} );
+		} );
 
-				// we can start submitting statements for multiple files at the same
-				// time, but multiple statements per entity need to be submitted sequentially
-				// (to avoid them being considered edit conflicts)
-				statements.forEach( function ( statement ) {
-					promise = promise.then( statement.submit.bind( statement ) );
-					// submit statements, then make sure they remain in a mode
-					// where they can't be edited
-					promise.then( statement.setDisabled.bind( statement, true ) );
-					// remove statements with non-default properties from the DOM
-					promise.then( function () {
-						if ( defaultPropertyIds.indexOf( statement.propertyId ) < 0 ) {
-							statement.$element.remove();
-						}
-					} );
-				} );
-
-				return promise;
-			} ) );
-		} )
+		// Wait until all requests are finished, and move forward if successful;
+		// Always remove the pending overlay so that user can attempt to
+		// re-submit if something goes wrong.
+		queue
 			.then( this.moveNext.bind( this ) )
 			.always( this.removePending.bind( this ) );
 	};

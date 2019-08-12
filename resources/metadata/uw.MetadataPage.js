@@ -13,7 +13,11 @@
 		uw.MetadataPage.parent.call( this, upload.getFilename(), config );
 
 		this.upload = upload;
+		this.metadataContent = config.content.filter( function ( content ) {
+			return content instanceof uw.MetadataContent;
+		} ).shift();
 		this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-metadata-page-thumbnail' );
+
 		this.upload.getThumbnail( 30, 30 ).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( self.$thumbnailDiv, thumb );
 		} );
@@ -37,6 +41,16 @@
 				$( '<span>' ).addClass( 'mwe-upwiz-thumbnail-filename' ).text( filename )
 			)
 		);
+	};
+
+	/**
+	 * Get the statementWidgets within the page's MetadataContent child
+	 * element.
+	 *
+	 * @return {StatementWidget[]} Statement widgets
+	 */
+	uw.MetadataPage.prototype.getStatements = function () {
+		return this.metadataContent.getStatements();
 	};
 
 }( mw.uploadWizard ) );
