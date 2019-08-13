@@ -305,6 +305,9 @@ return [
 				'statements' => [
 					"type" => "boolean",
 				],
+				'nonDefaultStatements' => [
+					"type" => "boolean",
+				]
 			]
 		],
 	]
