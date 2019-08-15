@@ -60,7 +60,7 @@
 		// to figure out the new pages' relevant entityIDs)
 		this.ui.renderContent( $.createSpinner( { size: 'large', type: 'block' } ) );
 
-		this.statementPromises = uploads.map( this.getStatementWidgetsForUpload );
+		this.statementPromises = uploads.map( this.getStatementWidgetsForUpload.bind( this ) );
 
 		// disable submit button until changes have been made
 		this.enableSubmitIfHasChanges();
@@ -96,10 +96,31 @@
 	};
 
 	/**
+	 * @return {Object}
+	 */
+	uw.controller.Metadata.prototype.getWikibaseProperties = function () {
+		var properties = mw.config.get( 'wbmiProperties' ) || {};
+		if ( mw.UploadWizard.config.defaults.statements ) {
+			properties = {};
+			mw.UploadWizard.config.defaults.statements.forEach( function ( defaultStatement ) {
+				// Only entity ids are supported atm
+				if (
+					defaultStatement.dataType === 'wikibase-entityid' &&
+					defaultStatement.propertyId
+				) {
+					properties[ defaultStatement.propertyId ] = defaultStatement.dataType;
+				}
+			} );
+		}
+		return properties;
+	};
+
+	/**
 	 * @param {mw.UploadWizardUpload} upload
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Metadata.prototype.getStatementWidgetsForUpload = function ( upload ) {
+		var properties = this.getWikibaseProperties();
 		return $.when(
 			mw.loader.using( 'wikibase.mediainfo.statements' ),
 			upload.details.getMediaInfoEntityId()
@@ -107,13 +128,14 @@
 			var StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
 				statements = [];
 
-			Object.keys( mw.config.get( 'wbmiProperties' ) ).forEach( function ( propertyId ) {
+			Object.keys( properties ).forEach( function ( propertyId ) {
 				var statement = new StatementWidget( {
 					editing: true,
 					entityId: entityId,
 					propertyId: propertyId,
 					isDefaultProperty: true,
-					helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {}
+					helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {},
+					properties: properties
 				} );
 				statements.push( statement );
 			} );
@@ -156,12 +178,12 @@
 	};
 
 	uw.controller.Metadata.prototype.onSubmit = function () {
+		var defaultPropertyIds = Object.keys( this.getWikibaseProperties() );
 		this.setPending();
 
 		return $.when.apply( $, this.statementPromises ).then( function () {
 			return $.when.apply( $, [].slice.call( arguments ).map( function ( statements ) {
-				var promise = $.Deferred().resolve().promise(),
-					defaultPropertyIds = Object.keys( mw.config.get( 'wbmiProperties' ) ) || [];
+				var promise = $.Deferred().resolve().promise();
 
 				// we can start submitting statements for multiple files at the same
 				// time, but multiple statements per entity need to be submitted sequentially
