@@ -71,7 +71,10 @@
 			} )
 		);
 
-		if ( mw.config.get( 'wbmiEnableOtherStatements', false ) ) {
+		if (
+			mw.config.get( 'wbmiEnableOtherStatements', false ) &&
+			mw.UploadWizard.config.wikibase.nonDefaultStatements !== false
+		) {
 			addPropertyWidget = new AddPropertyWidget( { propertyIds: propertyIds } );
 			addPropertyWidget.on( 'choose', function ( item, data ) {
 				var statement;
