@@ -7,7 +7,8 @@
 	"globals": {
 		"require": false,
 		"OO": false,
-		"mw": false
+		"mw": false,
+		"wikibase": false
 	},
 	"rules": {
 		"max-len": 0,

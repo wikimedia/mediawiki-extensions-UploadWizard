@@ -75,9 +75,9 @@
 		// don't render the booklet until the first page is ready
 		this.statementPromises[ 0 ].then( function () {
 			self.statementPromises.forEach( function ( statementPromise, i ) {
-				statementPromise.then( function ( statements ) {
+				statementPromise.then( function ( statementWidgets ) {
 					var upload = uploads[ i ],
-						content = new uw.MetadataContent( upload, statements ),
+						content = new uw.MetadataContent( upload, statementWidgets ),
 						page = new uw.MetadataPage( upload, {
 							expanded: false,
 							content: [ content ]
@@ -85,7 +85,6 @@
 					content.on( 'statementSectionAdded', function ( statement ) {
 						statement.on( 'change', self.enableSubmitIfHasChanges.bind( self ) );
 					} );
-
 					booklet.addPages( [ page ], i );
 				} );
 			} );
@@ -116,20 +115,60 @@
 	};
 
 	/**
+	 * @param {string} entityId The id of the MediaInfo item
+	 * @param {string} propertyId
+	 * @return {wb.datamodel.Statement[]}
+	 */
+	uw.controller.Metadata.prototype.getDefaultDataForProperty = function ( entityId, propertyId ) {
+		var statements = [];
+
+		if ( mw.UploadWizard.config.defaults.statements ) {
+
+			mw.loader.using( 'wikibase' ).then( function ( require ) {
+				var wb = require( 'wikibase' ),
+					guidGenerator = new wb.utilities.ClaimGuidGenerator( entityId );
+
+				mw.UploadWizard.config.defaults.statements.forEach( function ( defaultStatement ) {
+					if ( defaultStatement.propertyId === propertyId && defaultStatement.values ) {
+						// Only entity ids are supported atm
+						if ( defaultStatement.dataType === 'wikibase-entityid' ) {
+							defaultStatement.values.forEach( function ( itemId ) {
+								statements.push(
+									new wb.datamodel.Statement(
+										new wb.datamodel.Claim(
+											new wb.datamodel.PropertyValueSnak( propertyId, new wb.datamodel.EntityId( itemId ) ),
+											null,
+											guidGenerator.newGuid()
+										)
+									)
+								);
+							} );
+						}
+					}
+				} );
+
+			} );
+		}
+
+		return statements;
+	};
+
+	/**
 	 * @param {mw.UploadWizardUpload} upload
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Metadata.prototype.getStatementWidgetsForUpload = function ( upload ) {
-		var properties = this.getWikibaseProperties();
+		var self = this,
+			properties = this.getWikibaseProperties();
 		return $.when(
 			mw.loader.using( 'wikibase.mediainfo.statements' ),
 			upload.details.getMediaInfoEntityId()
 		).then( function ( require, entityId ) {
 			var StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
-				statements = [];
+				statementWidgets = [];
 
 			Object.keys( properties ).forEach( function ( propertyId ) {
-				var statement = new StatementWidget( {
+				var statementWidget = new StatementWidget( {
 					editing: true,
 					entityId: entityId,
 					propertyId: propertyId,
@@ -137,10 +176,23 @@
 					helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {},
 					properties: properties
 				} );
-				statements.push( statement );
+				self.getDefaultDataForProperty( entityId, statementWidget.propertyId ).forEach(
+					function ( statement ) {
+						var mainSnak = statement.getClaim().getMainSnak(),
+							itemWidget;
+						if ( mainSnak.getPropertyId() === propertyId ) {
+							itemWidget = statementWidget.createItem(
+								mainSnak.getValue()
+							);
+							itemWidget.setData( statement );
+							statementWidget.insertItem( itemWidget );
+						}
+					}
+				);
+				statementWidgets.push( statementWidget );
 			} );
 
-			return statements;
+			return statementWidgets;
 		} );
 	};
 
