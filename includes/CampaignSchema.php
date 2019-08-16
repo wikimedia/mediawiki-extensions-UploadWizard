@@ -107,6 +107,14 @@ return [
 										// are supported
 										"type" => "string"
 									],
+									"values" => [
+										"type" => "array",
+										"items" => [
+											[
+												"value" => "string"
+											]
+										]
+									]
 								]
 						]
 					]
