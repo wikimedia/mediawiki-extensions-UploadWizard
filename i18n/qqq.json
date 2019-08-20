@@ -61,7 +61,7 @@
 	"mwe-upwiz-step-thanks": "{| align=\"right\"\n| [[file:commons-uw-L52G.png|Initial \"{{MediaWiki:mwe-upwiz-step-metadata/en}}\" page|thumb|right]]\n| [[file:commons-uw-L52X.png|Initial \"{{MediaWiki:mwe-upwiz-step-thanks/en}}\" page|thumb|right]]\n|} This is a short greyed or bolded label, in the top bar of all pages of the [[:mw:Extension:UploadWizard|MediaWiki Upload Wizard]]. Use the verb for this message.\n{{Identical|Use}}",
 	"mwe-upwiz-campaign-name-duplicate": "Error message shown when saving a campaign with a name that is already taken",
 	"mwe-upwiz-campaign-unknown-error": "Error message shown when saving a campaign fails for an unknown reason",
-	"mwe-upwiz-api-warning-exists": "Used as warning. Paramters:\n* $1 - full URL of the file",
+	"mwe-upwiz-api-warning-exists": "Used as warning. Parameters:\n* $1 - full URL of the file",
 	"mwe-upwiz-api-warning-was-deleted": "Unused at this time.\n\nUsed as warning. Parameters:\n* $1 - filename",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Shown when a tutorial file in a fallback language for user's interface language is used instead.\n\nParameters:\n* $1 - the name of the fallback language",
 	"mwe-upwiz-tutorial-error-file-missing": "Shown in the place of a tutorial image if we cannot find the configured image on the wiki.",
