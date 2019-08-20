@@ -247,6 +247,8 @@
 	"mwe-upwiz-error-blank": "Dette feltet er obligatorisk.",
 	"mwe-upwiz-error-too-long": "Denne verdien er for lang.\nKort ned teksten så den ikke er lenger enn $1 {{PLURAL:$1|tegn}}.",
 	"mwe-upwiz-error-too-short": "Denne verdien er for kort.\nUtvid teksten så den er på minst $1 {{PLURAL:$1|tegn}}.",
+	"mwe-upwiz-error-title-too-long": "Denne tittelen er for lang.\nSjekk at tittelen er maksimalt $1 {{PLURAL:$1|byte}}.",
+	"mwe-upwiz-error-title-too-short": "Denne tittelen er for kort.\nSjekk at tittelen er minst $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-bad-captions": "Det er problemer med noen av bildetekstene.",
 	"mwe-upwiz-error-bad-descriptions": "Det er problemer med noen av beskrivelsene.",
 	"mwe-upwiz-error-title-blacklisted": "Denne tittelen inneholder uønsket tekst. Vennligst endre på dette.",
