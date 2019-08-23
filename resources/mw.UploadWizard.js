@@ -85,20 +85,22 @@
 				.then( function ( steps ) {
 					if (
 						self.config.wikibase.enabled &&
-						// .depicts is for backward compatibility - this config var used to be called differently...
+						// .depicts is for backward compatibility - this config
+						// var used to be called differently...
 						( self.config.wikibase.statements || self.config.wikibase.depicts )
 					) {
 						// mediainfo has a couple of widgets that we'll be using, but they're not
 						// necessarily a hard dependency for UploadWizard
 						// let's just attempt to load it - if it's not available, we just won't
 						// have that extra step then...
-						return mw.loader.using( 'wikibase.mediainfo.statements' ).then(
+						return mw.loader.using( [ 'wikibase', 'wikibase.mediainfo.statements' ] ).then(
 							function () {
 								// interject metadata step in between details & thanks
 								steps.metadata = new uw.controller.Metadata( self.api, self.config );
 
 								steps.details.setNextStep( steps.metadata );
-								// metadata has no "previous" step - the file has already been uploaded at this point
+								// metadata has no "previous" step - the file
+								// has already been uploaded at this point
 								steps.metadata.setNextStep( steps.thanks );
 
 								return steps;
