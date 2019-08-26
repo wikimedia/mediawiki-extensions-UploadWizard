@@ -27,7 +27,7 @@ class CampaignContent extends JsonContent {
 	public function validate() {
 		$campaign = $this->getJsonData();
 		if ( !is_array( $campaign ) ) {
-			throw new JsonSchemaException( wfMessage( 'eventlogging-invalid-json' )->parse() );
+			throw new JsonSchemaException( 'eventlogging-invalid-json' );
 		}
 
 		$schema = include __DIR__ . '/CampaignSchema.php';
