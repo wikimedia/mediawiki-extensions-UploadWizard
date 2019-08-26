@@ -154,10 +154,7 @@
 	 */
 	uw.MetadataContent.prototype.createAddPropertyWidgetIfNecessary = function () {
 		var AddPropertyWidget;
-		if (
-			mw.config.get( 'wbmiEnableOtherStatements', false ) &&
-			mw.UploadWizard.config.wikibase.nonDefaultStatements !== false
-		) {
+		if ( mw.UploadWizard.config.wikibase.nonDefaultStatements !== false ) {
 			AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
 			this.addPropertyWidget = new AddPropertyWidget( { propertyIds: this.propertyIds } );
 			this.$element.append( this.addPropertyWidget.$element );
