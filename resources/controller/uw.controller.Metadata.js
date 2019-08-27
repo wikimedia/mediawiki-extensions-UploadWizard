@@ -110,7 +110,7 @@
 		// Collect each statement from each page into a single array
 		uploads.forEach( function ( upload ) {
 			self.booklet.pages[ upload ].getStatements().forEach( function ( statement ) {
-				queue = queue.then( statement.submit.bind( statement ) );
+				queue = queue.then( statement.submit.bind( statement, undefined ) );
 			} );
 		} );
 
