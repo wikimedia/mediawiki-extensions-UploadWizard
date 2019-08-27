@@ -20,9 +20,8 @@
 		// Set up widget data
 		this.upload = upload;
 		this.entityId = undefined;
-		this.propertyIds = [];
-		this.statementWidgets = [];
-		this.properties = this.getWikibaseProperties();
+		this.statementWidgets = {};
+		this.properties = $.extend( {}, this.getDefaultProperties() );
 		this.dataTypeMap = mw.config.get( 'wbDataTypes', {} );
 
 		// Build the UI
@@ -34,6 +33,17 @@
 			.text( upload.details.getTitle().getMain() );
 		$thumbnailDiv = $( '<div>' )
 			.addClass( 'mwe-upwiz-metadata-content-thumbnail' );
+		this.$statementsDiv = $( '<div>' )
+			.addClass( 'mwe-upwiz-metadata-content-statements' );
+
+		// Copy all button
+		this.copyAllStatementsButton = new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-copy-statements-button' ).text(),
+			disabled: true,
+			classes: [ 'mwe-upwiz-metadata-content-copy-all' ]
+		} );
+
+		this.copyAllStatementsButton.connect( this, { click: 'copyStatementsToAllFiles' } );
 
 		// Load thumbnail and append elements to page once ready
 		upload.getThumbnail( 630, 360 ).then( function ( thumb ) {
@@ -46,11 +56,18 @@
 		} );
 
 		// Call the setup method and append statementWidgets once ready
+		this.$element.append( this.$statementsDiv );
 		self.setup().then( function () {
-			self.statementWidgets.forEach( function ( sw ) {
-				self.$element.append( sw.$element );
+			Object.keys( self.statementWidgets ).forEach( function ( propertyId ) {
+				var statementWidget = self.statementWidgets[ propertyId ];
+				self.$statementsDiv.append( statementWidget.$element );
 			} );
+
 			self.createAddPropertyWidgetIfNecessary();
+
+			if ( config.allowCopy ) {
+				self.$element.append( self.copyAllStatementsButton.$element );
+			}
 		} );
 	};
 
@@ -73,24 +90,15 @@
 
 			// Create a statement widget for each default property
 			Object.keys( self.properties ).forEach( function ( propertyId ) {
-				var statementWidget = self.createStatementWidget( propertyId, true ),
-					defaultData = self.getDefaultDataForProperty( propertyId );
+				var defaultData = self.getDefaultDataForProperty( propertyId );
+
+				self.createStatementWidget( propertyId, defaultData );
 
 				// pre-populate statements with data if necessary (campaigns only)
-				if ( defaultData ) {
-					defaultData.forEach( function ( statement ) {
-						var mainSnak = statement.getClaim().getMainSnak(),
-							itemWidget;
-
-						if ( mainSnak.getPropertyId() === propertyId ) {
-							itemWidget = statementWidget.createItem( mainSnak.getValue() );
-							itemWidget.setData( statement );
-							statementWidget.insertItem( itemWidget );
-							// treat pre-populated statement the same as a user-provided one
-							// and emit a "change" event to enable publication
-							self.emit( 'change' );
-						}
-					} );
+				if ( !defaultData.isEmpty() ) {
+					// treat pre-populated statement the same as a user-provided one
+					// and emit a "change" event to enable publication
+					self.emit( 'change' );
 				}
 			} );
 		} );
@@ -99,7 +107,7 @@
 	/**
 	 * @return {Object} properties map
 	 */
-	uw.MetadataContent.prototype.getWikibaseProperties = function () {
+	uw.MetadataContent.prototype.getDefaultProperties = function () {
 		var properties = mw.config.get( 'wbmiProperties' ) || {};
 
 		if ( mw.UploadWizard.config.defaults.statements ) {
@@ -116,15 +124,14 @@
 
 	/**
 	 * @param {string} propertyId
-	 * @return {wikibase.datamodel.Statement[]|null}
+	 * @return {wikibase.datamodel.StatementList}
 	 */
 	uw.MetadataContent.prototype.getDefaultDataForProperty = function ( propertyId ) {
 		var defaultStatements = mw.UploadWizard.config.defaults.statements,
-			guidGenerator = new wikibase.utilities.ClaimGuidGenerator( this.entityId ),
 			defaultData;
 
 		if ( !defaultStatements ) {
-			return null;
+			return new wikibase.datamodel.StatementList();
 		}
 
 		defaultData = defaultStatements.filter( function ( statement ) {
@@ -132,33 +139,37 @@
 		} )[ 0 ];
 
 		if ( !defaultData || !defaultData.values ) {
-			return null;
+			return new wikibase.datamodel.StatementList();
 		}
 
-		return defaultData.values.map( function ( itemId ) {
-			return new wikibase.datamodel.Statement(
-				new wikibase.datamodel.Claim(
-					new wikibase.datamodel.PropertyValueSnak(
-						propertyId,
-						new wikibase.datamodel.EntityId( itemId )
-					),
-					null,
-					guidGenerator.newGuid()
-				)
-			);
-		} );
+		return new wikibase.datamodel.StatementList(
+			defaultData.values.map( function ( itemId ) {
+				return new wikibase.datamodel.Statement(
+					new wikibase.datamodel.Claim(
+						new wikibase.datamodel.PropertyValueSnak(
+							propertyId,
+							new wikibase.datamodel.EntityId( itemId )
+						),
+						null,
+						null
+					)
+				);
+			} )
+		);
 	};
 
 	/**
 	 * Creates and sets up the AddPropertyWidget if other statements are enabled.
 	 */
 	uw.MetadataContent.prototype.createAddPropertyWidgetIfNecessary = function () {
-		var AddPropertyWidget;
+		// let's always create the widget, that way we don't have to check for its
+		// existence everywhere - but we won't add it to DOM if it's not wanted
+		var AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
+		this.addPropertyWidget = new AddPropertyWidget( { propertyIds: Object.keys( this.statementWidgets ) } );
+		this.addPropertyWidget.connect( this, { choose: 'onPropertyAdded' } );
+
 		if ( mw.UploadWizard.config.wikibase.nonDefaultStatements !== false ) {
-			AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
-			this.addPropertyWidget = new AddPropertyWidget( { propertyIds: this.propertyIds } );
 			this.$element.append( this.addPropertyWidget.$element );
-			this.addPropertyWidget.connect( this, { choose: 'onPropertyAdded' } );
 		}
 	};
 
@@ -167,32 +178,77 @@
 	 * attached. Also stashes the statement's property ID.
 	 *
 	 * @param {string} propertyId P123, etc.
-	 * @param {bool} [isDefault] Whether or not this is a default property (non-removable)
+	 * @param {wikibase.datamodel.Statement} [data]
 	 * @return {Object} StatementWidget
 	 */
-	uw.MetadataContent.prototype.createStatementWidget = function ( propertyId, isDefault ) {
-		var StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
+	uw.MetadataContent.prototype.createStatementWidget = function ( propertyId, data ) {
+		var self = this,
+			StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
+			defaultProperties = this.getDefaultProperties(),
 			widget;
 
-		// Add the propertyID to the collection if it is not present already
-		if ( this.propertyIds.indexOf( propertyId ) === -1 ) {
-			this.propertyIds.push( propertyId );
-		}
+		data = data || new wikibase.datamodel.StatementList();
 
 		widget = new StatementWidget( {
 			editing: true,
 			entityId: this.entityId,
 			propertyId: propertyId,
 			properties: this.properties,
-			isDefaultProperty: isDefault || false,
+			isDefaultProperty: propertyId in defaultProperties,
 			helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {}
 		} );
 
-		widget.connect( this, { widgetRemoved: 'onStatementWidgetRemoved' } );
-		widget.connect( this, { change: 'checkForChanges' } );
+		// don't start subscribing to events until statementwidget has been
+		// pre-populated with initial data
+		widget.setData( data ).then( function () {
+			widget.connect( self, { widgetRemoved: 'onStatementWidgetRemoved' } );
+			widget.connect( self, { change: 'enableCopyAllButton' } );
+			widget.connect( self, { change: [ 'emit', 'change' ] } );
+		} );
 
-		this.statementWidgets.push( widget );
+		this.statementWidgets[ propertyId ] = widget;
 		return widget;
+	};
+
+	/**
+	 * @param {Object.<StatementWidget>} statementWidgets Map of { property id: StatementWidget }
+	 */
+	uw.MetadataContent.prototype.applyCopiedStatements = function ( statementWidgets ) {
+		var self = this;
+
+		// 1. remove all existing statementWidgets
+		Object.keys( this.statementWidgets ).forEach( function ( propId ) {
+			self.onStatementWidgetRemoved( propId );
+		} );
+
+		// 2. re-create statement widgets for each PID in the statementWidgets array
+		// NOTE: this currently loses "default-ness"
+		Object.keys( statementWidgets ).forEach( function ( propertyId ) {
+			var statementWidget = statementWidgets[ propertyId ],
+				// construct a new StatementList which is a copy of the existing list,
+				// just a new instance (like, different GUID)
+				data = new wikibase.datamodel.StatementList(
+					statementWidget.getData().toArray().map( function ( statement ) {
+						return new wikibase.datamodel.Statement(
+							new wikibase.datamodel.Claim(
+								statement.getClaim().getMainSnak(),
+								statement.getClaim().getQualifiers(),
+								null
+							),
+							statement.getReferences(),
+							statement.getRank()
+						);
+					} )
+				);
+
+			self.createStatementWidget( propertyId, data );
+		} );
+
+		// 3. Append newly-copied statementWidgets to the page
+		Object.keys( this.statementWidgets ).forEach( function ( propertyId ) {
+			var statementWidget = self.statementWidgets[ propertyId ];
+			self.$statementsDiv.append( statementWidget.$element );
+		} );
 	};
 
 	/**
@@ -209,68 +265,71 @@
 			statementWidget;
 
 		this.properties[ propertyId ] = this.dataTypeMap[ propertyDataType ].dataValueType;
-		statementWidget = this.createStatementWidget( propertyId, false );
+		statementWidget = this.createStatementWidget( propertyId );
 		this.addPropertyWidget.$element.before( statementWidget.$element );
-		// emit an event here?
 	};
 
 	/**
-	 * Handles the removal of non-default StatementWidgets by the user.
+	 * Handles the removal of StatementWidgets.
 	 * Also cleans up the propertyID and statementWidget arrays.
 	 *
 	 * @param {string} propertyId
 	 * @throws {Error} Raises error if any item to remove is not found
 	 */
 	uw.MetadataContent.prototype.onStatementWidgetRemoved = function ( propertyId ) {
-		var removeFromArray,
-			removedWidget;
+		var removedWidget;
 
-		// This function mutates the original array in-place rather than
-		// returning a new one
-		removeFromArray = function ( itemToRemove, array ) {
-			var removedIndex;
-
-			if ( array.indexOf( itemToRemove ) === -1 ) {
-				throw new Error( 'item' + itemToRemove + ' not found in array' );
-			}
-
-			removedIndex = array.indexOf( itemToRemove );
-			array.splice( removedIndex, 1 );
-		};
-
-		removedWidget = this.statementWidgets.filter( function ( sw ) {
-			return sw.propertyId === propertyId;
-		} )[ 0 ];
-
-		removeFromArray( propertyId, this.propertyIds );
-		removeFromArray( removedWidget, this.statementWidgets );
+		if ( !( propertyId in this.statementWidgets ) ) {
+			throw new Error( 'Statement widget for property ' + propertyId + ' not found' );
+		}
+		removedWidget = this.statementWidgets[ propertyId ];
 
 		removedWidget.$element.remove();
+		delete this.statementWidgets[ propertyId ];
 		this.addPropertyWidget.onStatementPanelRemoved( propertyId );
 	};
 
-	/**
-	 * Check all the statement widgets associated with the given file;
-	 * Returns true if any changes or removals are detected from any
-	 * StatementWidget;
-	 *
-	 * @fires change
-	 */
-	uw.MetadataContent.prototype.checkForChanges = function () {
-		var hasChanges;
+	uw.MetadataContent.prototype.copyStatementsToAllFiles = function () {
+		var self = this;
 
-		hasChanges = this.statementWidgets.some( function ( sw ) {
-			var changes = sw.getChanges(),
-				removals = sw.getRemovals();
-
-			return changes.length > 0 || removals.length > 0;
+		OO.ui.confirm(
+			mw.msg( 'mwe-upwiz-copy-statements-dialog' ),
+			{
+				actions: [
+					{
+						action: 'accept',
+						label: mw.msg( 'mwe-upwiz-copy-statements-dialog-accept' ),
+						flags: [ 'primary', 'progressive' ]
+					},
+					{
+						action: 'reject',
+						label: mw.msg( 'ooui-dialog-message-reject' ),
+						flags: 'safe'
+					}
+				]
+			}
+		).then( function ( confirmed ) {
+			var statements = self.getStatements();
+			if ( confirmed ) {
+				self.emit( 'copyToAll', statements, self.upload.file.name );
+				self.disableCopyAllButton();
+			}
 		} );
-
-		if ( hasChanges ) {
-			this.emit( 'change' );
-		}
 	};
 
+	uw.MetadataContent.prototype.enableCopyAllButton = function () {
+		this.copyAllStatementsButton.setLabel( mw.message( 'mwe-upwiz-copy-statements-button' ).text() );
+		this.copyAllStatementsButton.setDisabled( false );
+	};
+
+	uw.MetadataContent.prototype.disableCopyAllButton = function () {
+		this.copyAllStatementsButton.setLabel( mw.message( 'mwe-upwiz-copy-statements-button-done' ).text() );
+		this.copyAllStatementsButton.setDisabled( true );
+	};
+
+	/**
+	 * @return {Object.<StatementWidget>} Map of { property id: StatementWidget }
+	 */
 	uw.MetadataContent.prototype.getStatements = function () {
 		return this.statementWidgets;
 	};

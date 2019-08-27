@@ -675,6 +675,7 @@ return [
 		'captions' => true,
 		'statements' => true,
 		'nonDefaultStatements' => true,
+		'allowCopy' => false,
 		// url to wikibase repo API
 		'api' => $wgScriptPath . '/api.php',
 	],

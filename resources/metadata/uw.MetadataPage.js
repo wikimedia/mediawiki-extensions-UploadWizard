@@ -53,4 +53,8 @@
 		return this.metadataContent.getStatements();
 	};
 
+	uw.MetadataPage.prototype.applyCopiedStatements = function ( statements ) {
+		this.metadataContent.applyCopiedStatements( statements );
+	};
+
 }( mw.uploadWizard ) );
