@@ -134,6 +134,6 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 	}
 
 	public function getHelpUrls() {
-		return 'https://www.mediawiki.org/wiki/Extension:UploadWizard/API';
+		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:UploadWizard';
 	}
 }
