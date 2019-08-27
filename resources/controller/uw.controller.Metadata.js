@@ -73,8 +73,11 @@
 		var self = this;
 
 		return uploads.map( function ( upload ) {
-			var content = new uw.MetadataContent( upload );
+			var content = new uw.MetadataContent( upload, {
+				allowCopy: mw.UploadWizard.config.wikibase.allowCopy !== false && uploads.length > 1
+			} );
 			content.connect( self, { change: 'enableSubmit' } );
+			content.connect( self, { copyToAll: 'applyToAll' } );
 
 			return new uw.MetadataPage( upload, {
 				expanded: false,
@@ -98,6 +101,24 @@
 	};
 
 	/**
+	 * Handle when the user clicks the "copy statements to all files" button on
+	 * a given file.
+	 *
+	 * @param {Object.<StatementWidget>} statements Map of { property id: StatementWidget }
+	 * @param {string} file filename key
+	 */
+	uw.controller.Metadata.prototype.applyToAll = function ( statements, file ) {
+		var uploads = Object.keys( this.booklet.pages ),
+			self = this;
+
+		uploads.forEach( function ( upload ) {
+			if ( upload !== file ) {
+				self.booklet.pages[ upload ].applyCopiedStatements( statements );
+			}
+		} );
+	};
+
+	/**
 	 * Submit the data for all pages/files
 	 */
 	uw.controller.Metadata.prototype.onSubmit = function () {
@@ -109,8 +130,10 @@
 
 		// Collect each statement from each page into a single array
 		uploads.forEach( function ( upload ) {
-			self.booklet.pages[ upload ].getStatements().forEach( function ( statement ) {
-				queue = queue.then( statement.submit.bind( statement, undefined ) );
+			var statementWidgets = self.booklet.pages[ upload ].getStatements();
+			Object.keys( statementWidgets ).forEach( function ( propertyId ) {
+				var statementWidget = statementWidgets[ propertyId ];
+				queue = queue.then( statementWidget.submit.bind( statementWidget, undefined ) );
 			} );
 		} );
 
