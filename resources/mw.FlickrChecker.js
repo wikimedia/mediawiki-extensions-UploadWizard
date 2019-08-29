@@ -757,9 +757,9 @@
 
 			// Set the license message to show the user.
 			if ( licenseValue === 'invalid' ) {
-				licenseMessage = mw.message( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName ).escaped();
+				licenseMessage = mw.msg( 'mwe-upwiz-license-external-invalid', 'Flickr', licenseName );
 			} else {
-				licenseMessage = mw.message( 'mwe-upwiz-license-external', 'Flickr', licenseName ).escaped();
+				licenseMessage = mw.msg( 'mwe-upwiz-license-external', 'Flickr', licenseName );
 			}
 
 			license = {
