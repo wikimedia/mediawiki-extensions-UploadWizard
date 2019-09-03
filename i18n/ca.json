@@ -135,6 +135,8 @@
 	"mwe-upwiz-patent-dialog-link-warranty": "Més informació",
 	"mwe-upwiz-patent-dialog-link-license": "Més informació",
 	"mwe-upwiz-more-options": "Afegeix la ubicació i més informació ...",
+	"mwe-upwiz-copy-statements-dialog": "Les metadades dels altres fitxers d’aquest lot se sobstituiran amb les d’aquest fitxer.\nSegur que voleu continuar?",
+	"mwe-upwiz-copy-statements-dialog-accept": "Sí, copia",
 	"mwe-upwiz-copy-metadata": "Copiar la informació a {{PLURAL:$1|l'altra càrrega|totes les càrregues}} a continuació...",
 	"mwe-upwiz-copy-metadata-button": "Copia",
 	"mwe-upwiz-copy-metadata-button-undo": "Desfés",

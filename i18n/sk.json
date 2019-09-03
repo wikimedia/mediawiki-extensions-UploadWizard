@@ -6,7 +6,8 @@
 			"Teslaton",
 			"Matma Rex",
 			"LacoR",
-			"Macofe"
+			"Macofe",
+			"Luky001"
 		]
 	},
 	"uploadwizard": "Sprievodca nahrávaním",
@@ -16,6 +17,7 @@
 	"mwe-upwiz-step-file": "Nahrať",
 	"mwe-upwiz-step-deeds": "Autorské práva",
 	"mwe-upwiz-step-details": "Popísať",
+	"mwe-upwiz-step-metadata": "Pridanie dát",
 	"mwe-upwiz-step-thanks": "Používať",
 	"mwe-upwiz-campaign-unknown-error": "Vyskytla sa neznáma chyba.",
 	"mwe-upwiz-api-warning-exists": "Na tejto wiki je [$1 iný súbor] s rovnakým názvom",
@@ -128,6 +130,7 @@
 	"mwe-upwiz-next-deeds": "Ďalší",
 	"mwe-upwiz-home": "Prejsť na hlavnú stránku wiki",
 	"mwe-upwiz-upload-another": "Nahrať viac súborov",
+	"mwe-upwiz-tooltip-skiptutorial": "Tohto sprievodcu môžete znovu aktivovať v [$1 nastaveniach] pod $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Meno osoby, ktorá vytvorila fotografiu, namaľovala obraz, nakreslila výkres a pod.",
 	"mwe-upwiz-tooltip-date": "Zvoľte dátum, kedy bolo toto dielo vytvorené alebo prvý krát zverejnené, alebo ho zadajte vo formáte RRRR-MM-DD.",
 	"mwe-upwiz-tooltip-more-info": "Dalšie informácie.",

@@ -38,7 +38,8 @@
 			"WQL",
 			"佛壁灯",
 			"神樂坂秀吉",
-			"予弦"
+			"予弦",
+			"A Chinese Wikipedian"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -180,6 +181,7 @@
 	"mwe-upwiz-license-metadata-statements-title": "所有结构化数据的授权协议",
 	"mwe-upwiz-license-metadata-content": "点击“发布”按钮后，表示您同意[[wmf:Terms_of_Use|使用条款]]，并不可撤销地同意以[https://creativecommons.org/publicdomain/zero/1.0/deed.zh 知识共享 CC0 授权协议]发布您的贡献。",
 	"mwe-upwiz-more-options": "添加地点和更多的信息…",
+	"mwe-upwiz-copy-statements-button-done": "已复制！",
 	"mwe-upwiz-copy-metadata": "复制信息至下方的所有上传…",
 	"mwe-upwiz-copy-metadata-button": "复制",
 	"mwe-upwiz-copy-metadata-button-undo": "撤销",

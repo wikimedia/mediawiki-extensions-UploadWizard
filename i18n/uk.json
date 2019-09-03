@@ -29,7 +29,8 @@
 			"Piramidion",
 			"Envlh",
 			"Vlad5250",
-			"Gzhegozh"
+			"Gzhegozh",
+			"Movses"
 		]
 	},
 	"uploadwizard": "Майстер завантаження",
@@ -170,6 +171,7 @@
 	"mwe-upwiz-license-metadata-statements-title": "Ліцензія для всіх структурованих метаданих",
 	"mwe-upwiz-license-metadata-content": "Натискаючи «опублікувати», ви погоджуєтеся з [[wmf:Terms_of_Use|умовами використання]] і невідклично погоджуєтеся розмістити свій внесок на умовах [https://creativecommons.org/publicdomain/zero/1.0/ ліцензії Creative Commons CC0].",
 	"mwe-upwiz-more-options": "Додати розташування та більше інформації...",
+	"mwe-upwiz-copy-statements-button-done": "Скопійовано",
 	"mwe-upwiz-copy-metadata": "Копіювати інформацію до всіх завантажень далі…",
 	"mwe-upwiz-copy-metadata-button": "Копіювати",
 	"mwe-upwiz-copy-metadata-button-undo": "Повернути",
