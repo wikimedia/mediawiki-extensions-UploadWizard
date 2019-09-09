@@ -140,7 +140,6 @@
 				"mediawiki.jqueryMsg",
 				"mediawiki.api",
 				"mediawiki.confirmCloseWindow",
-				"mediawiki.RegExp",
 				"mediawiki.Title",
 				"mediawiki.user",
 				"mediawiki.notify",

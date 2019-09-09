@@ -117,7 +117,7 @@
 		restoreExtracts: function ( wikitext, replacements ) {
 			// turn search keys into a regular expression, allowing us to match
 			// all of them at once
-			var searchValues = Object.keys( replacements ).map( mw.RegExp.escape ),
+			var searchValues = Object.keys( replacements ).map( mw.util.escapeRegExp ),
 				searchRegex = new RegExp( '(' + searchValues.join( '|' ) + ')', 'g' ),
 				callback = function ( match ) {
 					var replacement = replacements[ match ];
