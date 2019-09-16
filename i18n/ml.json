@@ -4,7 +4,8 @@
 			"Praveenp",
 			"Vssun",
 			"Macofe",
-			"Jinoytommanjaly"
+			"Jinoytommanjaly",
+			"Adithyak1997"
 		]
 	},
 	"uploadwizard": "അപ്‌ലോഡ് സഹായി",
@@ -143,6 +144,8 @@
 	"mwe-upwiz-license-metadata-statements-title": "വ്യന്യാസപ്രകാരമുള്ള മെറ്റാഡേറ്റയുടെ ഉപയോഗാനുമതി",
 	"mwe-upwiz-license-metadata-content": "\"പ്രസിദ്ധീകരിക്കുക\" ഞെക്കുമ്പോൾ [[wmf:Terms_of_Use|ഉപയോഗനിബന്ധനകൾ]] താങ്കൾ അംഗീകരിക്കുന്നുണ്ട്, ഒപ്പം താങ്കളുടെ സംഭാവനകൾ [https://creativecommons.org/publicdomain/zero/1.0/ ക്രിയേറ്റീവ് കോമൺസ് CC0 ഉപയോഗാനുമതിയിൽ] ആണ് പ്രസിദ്ധീകരിക്കുന്നതെന്നും താങ്കൾ അംഗീകരിക്കുന്നുണ്ട്.",
 	"mwe-upwiz-more-options": "സ്ഥാനവും കൂടുതൽ വിവരങ്ങളും ചേർക്കുക...",
+	"mwe-upwiz-copy-statements-dialog-accept": "അതെ, പകർത്തുക",
+	"mwe-upwiz-copy-statements-button-done": "വിജയകരമായി പകർത്തിയിരിക്കുന്നു",
 	"mwe-upwiz-copy-metadata": "ഇനിവരുന്ന എല്ലാ അപ്‌ലോഡുകളിലേയ്ക്കും വിവരങ്ങൾ പകർത്തുക ...",
 	"mwe-upwiz-copy-metadata-button": "പകർത്തുക",
 	"mwe-upwiz-copy-metadata-button-undo": "തിരസ്ക്കരിക്കുക",
