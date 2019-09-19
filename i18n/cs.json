@@ -19,7 +19,8 @@
 			"Ilimanaq29",
 			"Envlh",
 			"Patriccck",
-			"Michaelbrabec"
+			"Michaelbrabec",
+			"Blahma"
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -159,7 +160,7 @@
 	"mwe-upwiz-copy-categories": "Okopírovat kategorie",
 	"mwe-upwiz-copy-location": "Okopírovat místo",
 	"mwe-upwiz-copy-other": "Okopírovat další informace",
-	"mwe-upwiz-caption": "Titulek",
+	"mwe-upwiz-caption": "Popisek",
 	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Přidat titulek|Přidat titulek v dalším jazyce}}",
 	"mwe-upwiz-desc": "Popis",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Přidat popis|Přidat popis v dalším jazyce}}",
