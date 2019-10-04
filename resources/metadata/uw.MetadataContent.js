@@ -1,11 +1,15 @@
 ( function ( uw ) {
 	'use strict';
 
-	/**
-	 * This contains what used to be accessible via wikibase.datamodel globally and is loaded lazily via
-	 * `mw.loader.using` further down.
-	 */
-	var wikibaseDatamodel;
+	var defaultProperties = mw.config.get( 'wbmiDefaultProperties' ) || [],
+		propertyTypes = mw.config.get( 'wbmiPropertyTypes' ) || {},
+		/**
+		 * This contains what used to be accessible via wikibase.datamodel globally and is loaded lazily via
+		 * `mw.loader.using` further down.
+		 */
+		wikibaseDatamodel;
+
+	Object.freeze( defaultProperties );
 
 	/**
 	 * @constructor
@@ -27,8 +31,6 @@
 		this.upload = upload;
 		this.entityId = undefined;
 		this.statementWidgets = {};
-		this.properties = $.extend( {}, this.getDefaultProperties() );
-		this.dataTypeMap = mw.config.get( 'wbDataTypes', {} );
 
 		// Build the UI
 		$titleDiv = $( '<h2>' )
@@ -96,38 +98,19 @@
 		return this.upload.details.getMediaInfoEntityId().then( function ( entityId ) {
 			self.entityId = entityId;
 
-			// Create a statement widget for each default property
-			Object.keys( self.properties ).forEach( function ( propertyId ) {
+			// Create a statement widget for each default property and set its datatype
+			defaultProperties.forEach( function ( propertyId ) {
 				var defaultData = self.getDefaultDataForProperty( propertyId );
 
-				self.createStatementWidget( propertyId, defaultData );
+				self.createStatementWidget( propertyId, propertyTypes[ propertyId ], defaultData );
 
-				// pre-populate statements with data if necessary (campaigns only)
+				// pre-populate statements with data if necessary (campaigns only);
+				// default values are still considered "changes" to be published
 				if ( !defaultData.isEmpty() ) {
-					// treat pre-populated statement the same as a user-provided one
-					// and emit a "change" event to enable publication
 					self.emit( 'change' );
 				}
 			} );
 		} );
-	};
-
-	/**
-	 * @return {Object} properties map
-	 */
-	uw.MetadataContent.prototype.getDefaultProperties = function () {
-		var properties = mw.config.get( 'wbmiProperties' ) || {};
-
-		if ( mw.UploadWizard.config.defaults.statements ) {
-			mw.UploadWizard.config.defaults.statements.forEach( function ( statement ) {
-				// Only entity ids are currently supported
-				if ( statement.dataType === 'wikibase-entityid' && statement.propertyId ) {
-					properties[ statement.propertyId ] = statement.dataType;
-				}
-			} );
-		}
-
-		return properties;
 	};
 
 	/**
@@ -173,7 +156,11 @@
 		// let's always create the widget, that way we don't have to check for its
 		// existence everywhere - but we won't add it to DOM if it's not wanted
 		var AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
-		this.addPropertyWidget = new AddPropertyWidget( { propertyIds: Object.keys( this.statementWidgets ) } );
+
+		this.addPropertyWidget = new AddPropertyWidget( {
+			propertyIds: Object.keys( this.statementWidgets )
+		} );
+
 		this.addPropertyWidget.connect( this, { choose: 'onPropertyAdded' } );
 
 		if ( mw.UploadWizard.config.wikibase.nonDefaultStatements !== false ) {
@@ -185,14 +172,14 @@
 	 * Creates and returns a new StatementWidget, with appropriate event handlers
 	 * attached. Also stashes the statement's property ID.
 	 *
-	 * @param {string} propertyId P123, etc.
-	 * @param {wikibaseDatamodel.Statement} [data]
+	 * @param {string} propId P123, etc.
+	 * @param {string} propertyType Property datatype (e.g. 'wikibase-item', 'url', 'string', ...)
+	 * @param {wikibase.datamodel.Statement} [data]
 	 * @return {Object} StatementWidget
 	 */
-	uw.MetadataContent.prototype.createStatementWidget = function ( propertyId, data ) {
+	uw.MetadataContent.prototype.createStatementWidget = function ( propId, propertyType, data ) {
 		var self = this,
 			StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
-			defaultProperties = this.getDefaultProperties(),
 			widget;
 
 		data = data || new wikibaseDatamodel.StatementList();
@@ -200,9 +187,9 @@
 		widget = new StatementWidget( {
 			editing: true,
 			entityId: this.entityId,
-			propertyId: propertyId,
-			properties: this.properties,
-			isDefaultProperty: propertyId in defaultProperties,
+			propertyId: propId,
+			propertyType: propertyType,
+			isDefaultProperty: defaultProperties.indexOf( propId ) >= 0,
 			helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {}
 		} );
 
@@ -214,7 +201,7 @@
 			widget.connect( self, { change: [ 'emit', 'change' ] } );
 		} );
 
-		this.statementWidgets[ propertyId ] = widget;
+		this.statementWidgets[ propId ] = widget;
 		return widget;
 	};
 
@@ -269,11 +256,9 @@
 	 */
 	uw.MetadataContent.prototype.onPropertyAdded = function ( item, data ) {
 		var propertyId = data.id,
-			propertyDataType = data.datatype,
 			statementWidget;
 
-		this.properties[ propertyId ] = this.dataTypeMap[ propertyDataType ].dataValueType;
-		statementWidget = this.createStatementWidget( propertyId );
+		statementWidget = this.createStatementWidget( propertyId, data.datatype );
 		this.addPropertyWidget.$element.before( statementWidget.$element );
 	};
 
