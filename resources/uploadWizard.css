@@ -592,7 +592,3 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 .ui-helper-clearfix:after {
 	clear: both;
 }
-
-.ui-helper-clearfix {
-	zoom: 1;
-}
