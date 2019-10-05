@@ -18,7 +18,4 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	]
 );
 
-// T191666
-$cfg['suppress_issue_types'][] = 'PhanParamTooMany';
-
 return $cfg;
