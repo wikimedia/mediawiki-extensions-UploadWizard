@@ -23,19 +23,19 @@
 		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append( $.createSpinner( { size: 'large', type: 'block' } ) );
 		this.lastStatus = null;
 
-		this.visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' )
-			.append( this.$indicator )
-			.append(
-				'<div class="mwe-upwiz-visible-file-filename">' +
-					'<div class="mwe-upwiz-file-preview"/>' +
-						'<div class="mwe-upwiz-file-texts">' +
-							'<div class="mwe-upwiz-visible-file-filename-text"/>' +
-							'<div class="mwe-upwiz-file-status-line">' +
-								'<div class="mwe-upwiz-file-status"></div>' +
-							'</div>' +
-						'</div>' +
-					'</div>'
-			);
+		this.visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' ).append(
+			this.$indicator,
+			$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename' ).append(
+				$( '<div>' ).addClass( 'mwe-upwiz-file-preview' ).append(
+					$( '<div>' ).addClass( 'mwe-upwiz-file-texts' ).append(
+						$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
+						$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' ).append(
+							$( '<div>' ).addClass( 'mwe-upwiz-file-status' )
+						)
+					)
+				)
+			)
+		);
 
 		this.removeCtrl = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-remove' ).text(),

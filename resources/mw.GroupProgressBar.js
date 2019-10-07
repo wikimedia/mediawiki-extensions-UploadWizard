@@ -14,15 +14,15 @@
 	 */
 	mw.GroupProgressBar = function ( selector, uploads, successStates, errorStates, progressProperty, weightProperty ) {
 		this.$selector = $( selector );
-		this.$selector.html(
-			'<div class="mwe-upwiz-progress-inner">' +
-				'<div class="mwe-upwiz-progress-bar-etr-container">' +
-					'<div class="mwe-upwiz-progress-bar-etr" style="display: none">' +
-						'<div class="mwe-upwiz-etr"></div>' +
-					'</div>' +
-				'</div>' +
-				'<div class="mwe-upwiz-count"></div>' +
-			'</div>'
+		this.$selector.empty().append(
+			$( '<div>' ).addClass( 'mwe-upwiz-progress-inner' ).append(
+				$( '<div>' ).addClass( 'mwe-upwiz-progress-bar-etr-container' ).append(
+					$( '<div>' ).addClass( 'mwe-upwiz-progress-bar-etr' ).hide().append(
+						$( '<div>' ).addClass( 'mwe-upwiz-etr' )
+					)
+				),
+				$( '<div>' ).addClass( 'mwe-upwiz-count' )
+			)
 		);
 
 		this.progressBarWidget = new OO.ui.ProgressBarWidget( {

@@ -248,7 +248,7 @@
 				if ( value.set !== undefined ) {
 					ul = $( '<ul>' );
 					value.set.forEach( function ( value2 ) {
-						var link = $( '<a>', { href: '#', role: 'button', 'data-id': value2.id } );
+						var link = $( '<a>' ).attr( { href: '#', role: 'button', 'data-id': value2.id } );
 						link.append( value2.title );
 						link.click( function () {
 							// eslint-disable-next-line no-jquery/no-global-selector

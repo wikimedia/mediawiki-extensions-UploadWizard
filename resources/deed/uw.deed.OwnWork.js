@@ -382,7 +382,7 @@
 			} );
 
 		// FIXME: Use CSS transition
-		// eslint-disable-next-line no-jquery/no-slide, no-jquery/no-animate
+		// eslint-disable-next-line no-jquery/no-slide
 		this.licenseInputField.$element
 			.slideDown()
 			.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );

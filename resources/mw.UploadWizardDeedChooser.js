@@ -112,7 +112,10 @@
 			$deedSelector.find( '.mwe-upwiz-deed-form' ).each( function () {
 				var $form = $( this );
 				// Prevent validation of deselected deeds by disabling all form inputs
+				// TODO: Use a tag selector
+				// eslint-disable-next-line no-jquery/no-sizzle
 				$form.find( ':input' ).prop( 'disabled', true );
+				// eslint-disable-next-line no-jquery/no-sizzle
 				if ( $form.parents().is( ':hidden' ) ) {
 					$form.hide();
 				} else {
@@ -137,7 +140,10 @@
 			$deedSelector.find( '.mwe-upwiz-deed-form' ).each( function () {
 				var $form = $( this );
 				// (Re-)enable all form inputs
+				// TODO: Use a tag selector
+				// eslint-disable-next-line no-jquery/no-sizzle
 				$form.find( ':input' ).prop( 'disabled', false );
+				// eslint-disable-next-line no-jquery/no-sizzle
 				if ( $form.is( ':hidden' ) ) {
 					// if the form was hidden, set things up so a slide-down works
 					// FIXME: Use CSS transition

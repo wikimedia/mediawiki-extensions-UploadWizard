@@ -223,7 +223,9 @@
 			this.$visibleFileListings.first().addClass( 'ui-corner-top' );
 			this.$visibleFileListings.last().addClass( 'ui-corner-bottom' );
 
+			// eslint-disable-next-line no-jquery/no-sizzle
 			this.$fileListings.filter( ':odd' ).addClass( 'odd' );
+			// eslint-disable-next-line no-jquery/no-sizzle
 			this.$fileListings.filter( ':even' ).removeClass( 'odd' );
 		} else {
 			this.hideEndButtons();

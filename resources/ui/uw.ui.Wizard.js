@@ -83,6 +83,7 @@
 		}
 
 		// Separate each link in the header with a dot.
+		// eslint-disable-next-line no-jquery/no-sizzle
 		$contentSub.find( '.contentSubLink:not(:last)' ).after( '&nbsp;&middot;&nbsp;' );
 	};
 

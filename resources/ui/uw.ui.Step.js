@@ -54,7 +54,7 @@
 	 */
 	uw.ui.Step.prototype.load = function ( uploads ) {
 		// eslint-disable-next-line no-jquery/no-global-selector
-		var offset = $( 'h1:first' ).offset();
+		var offset = $( 'h1' ).first().offset();
 
 		this.movedFrom = false;
 

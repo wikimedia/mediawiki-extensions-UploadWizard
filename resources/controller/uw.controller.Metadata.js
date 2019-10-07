@@ -151,7 +151,7 @@
 	 */
 	uw.controller.Metadata.prototype.setPending = function () {
 		var $div = this.ui.$div;
-		this.$overlay = $( '<div>', { class: 'mwe-upwiz-metadata-pendingOverlay' } );
+		this.$overlay = $( '<div>' ).addClass( 'mwe-upwiz-metadata-pendingOverlay' );
 		this.$spinner = $.createSpinner( {
 			size: 'large',
 			type: 'block',
