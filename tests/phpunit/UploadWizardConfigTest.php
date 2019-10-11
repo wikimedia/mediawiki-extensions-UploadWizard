@@ -8,7 +8,7 @@
  * @covers UploadWizardConfig
  */
 class UploadWizardConfigTest extends MediaWikiTestCase {
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		// Test expects empty defaults; otheriwse they will override the
