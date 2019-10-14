@@ -2,6 +2,12 @@
 	'use strict';
 
 	/**
+	 * This contains what used to be accessible via wikibase.datamodel globally and is loaded lazily via
+	 * `mw.loader.using` further down.
+	 */
+	var wikibaseDatamodel;
+
+	/**
 	 * @constructor
 	 * @param {mw.UploadWizardUpload} upload
 	 * @param {Object} [config] Configuration options
@@ -57,7 +63,9 @@
 
 		// Call the setup method and append statementWidgets once ready
 		this.$element.append( this.$statementsDiv );
-		self.setup().then( function () {
+		mw.loader.using( [ 'wikibase.datamodel' ] ).then( function ( require ) {
+			wikibaseDatamodel = require( 'wikibase.datamodel' );
+		} ).then( self.setup() ).then( function () {
 			Object.keys( self.statementWidgets ).forEach( function ( propertyId ) {
 				var statementWidget = self.statementWidgets[ propertyId ];
 				self.$statementsDiv.append( statementWidget.$element );
@@ -124,14 +132,14 @@
 
 	/**
 	 * @param {string} propertyId
-	 * @return {wikibase.datamodel.StatementList}
+	 * @return {wikibaseDatamodel.StatementList}
 	 */
 	uw.MetadataContent.prototype.getDefaultDataForProperty = function ( propertyId ) {
 		var defaultStatements = mw.UploadWizard.config.defaults.statements,
 			defaultData;
 
 		if ( !defaultStatements ) {
-			return new wikibase.datamodel.StatementList();
+			return new wikibaseDatamodel.StatementList();
 		}
 
 		defaultData = defaultStatements.filter( function ( statement ) {
@@ -139,16 +147,16 @@
 		} )[ 0 ];
 
 		if ( !defaultData || !defaultData.values ) {
-			return new wikibase.datamodel.StatementList();
+			return new wikibaseDatamodel.StatementList();
 		}
 
-		return new wikibase.datamodel.StatementList(
+		return new wikibaseDatamodel.StatementList(
 			defaultData.values.map( function ( itemId ) {
-				return new wikibase.datamodel.Statement(
-					new wikibase.datamodel.Claim(
-						new wikibase.datamodel.PropertyValueSnak(
+				return new wikibaseDatamodel.Statement(
+					new wikibaseDatamodel.Claim(
+						new wikibaseDatamodel.PropertyValueSnak(
 							propertyId,
-							new wikibase.datamodel.EntityId( itemId )
+							new wikibaseDatamodel.EntityId( itemId )
 						),
 						null,
 						null
@@ -178,7 +186,7 @@
 	 * attached. Also stashes the statement's property ID.
 	 *
 	 * @param {string} propertyId P123, etc.
-	 * @param {wikibase.datamodel.Statement} [data]
+	 * @param {wikibaseDatamodel.Statement} [data]
 	 * @return {Object} StatementWidget
 	 */
 	uw.MetadataContent.prototype.createStatementWidget = function ( propertyId, data ) {
@@ -187,7 +195,7 @@
 			defaultProperties = this.getDefaultProperties(),
 			widget;
 
-		data = data || new wikibase.datamodel.StatementList();
+		data = data || new wikibaseDatamodel.StatementList();
 
 		widget = new StatementWidget( {
 			editing: true,
@@ -227,10 +235,10 @@
 			var statementWidget = statementWidgets[ propertyId ],
 				// construct a new StatementList which is a copy of the existing list,
 				// just a new instance (like, different GUID)
-				data = new wikibase.datamodel.StatementList(
+				data = new wikibaseDatamodel.StatementList(
 					statementWidget.getData().toArray().map( function ( statement ) {
-						return new wikibase.datamodel.Statement(
-							new wikibase.datamodel.Claim(
+						return new wikibaseDatamodel.Statement(
+							new wikibaseDatamodel.Claim(
 								statement.getClaim().getMainSnak(),
 								statement.getClaim().getQualifiers(),
 								null
