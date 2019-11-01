@@ -26,12 +26,11 @@
 		this.visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' ).append(
 			this.$indicator,
 			$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename' ).append(
-				$( '<div>' ).addClass( 'mwe-upwiz-file-preview' ).append(
-					$( '<div>' ).addClass( 'mwe-upwiz-file-texts' ).append(
-						$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
-						$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' ).append(
-							$( '<div>' ).addClass( 'mwe-upwiz-file-status' )
-						)
+				$( '<div>' ).addClass( 'mwe-upwiz-file-preview' ),
+				$( '<div>' ).addClass( 'mwe-upwiz-file-texts' ).append(
+					$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
+					$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' ).append(
+						$( '<div>' ).addClass( 'mwe-upwiz-file-status' )
 					)
 				)
 			)
