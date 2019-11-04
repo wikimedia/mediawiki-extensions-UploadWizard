@@ -143,7 +143,7 @@
 	"mwe-upwiz-patent-dialog-button-back": "Назад",
 	"mwe-upwiz-patent-dialog-button-next": "Следваща",
 	"mwe-upwiz-patent-dialog-title-warranty": "Гаранция за патенти",
-	"mwe-upwiz-patent-dialog-text-warranty": "Употребата на {{PLURAL:$1|този файл|тези файлове}} и други обекти визуализирани във {{PLURAL:$1|файла|файловете}} няма съзнателно или несъзнателно наруши каквито и да е било патенти.",
+	"mwe-upwiz-patent-dialog-text-warranty": "Употребата на {{PLURAL:$1|този файл|тези файлове}} и други обекти, визуализирани във {{PLURAL:$1|файла|файловете}}, няма съзнателно или несъзнателно да нарушат каквито и да е било патенти.",
 	"mwe-upwiz-patent-dialog-link-warranty": "Научете повече",
 	"mwe-upwiz-patent-dialog-title-license": "Патентен лиценз",
 	"mwe-upwiz-patent-dialog-text-license": "Всички триизмерни обекти показани във {{PLURAL:$1|файла|файловете}} са мое собствено дело.",

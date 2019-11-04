@@ -330,7 +330,7 @@
 	"mwe-upwiz-license-flickr-head": "Opphavsrettsinnehaveren utga {{PLURAL:$1|bildet eller videoen sin|bildene eller videoene sine}} på Flickr med rett lisens",
 	"mwe-upwiz-license-flickr-subhead": "Sjekk «License»-rubrikken på siden av Flickr-siden. Både ikonene og lisensnavnet de brukte må stemme overens med ett av valgene her.",
 	"mwe-upwiz-license-public-domain-usa-head": "Opphavsretten har med sikkerhet utløpt i USA.",
-	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} ligger i USA, så landet må være opphavsrettsfritt i det landet.",
+	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} ligger i USA, så verket må være opphavsrettsfritt i det landet.",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|Dette verket|Disse verkene}} ble lagt av USAs regjering.",
 	"mwe-upwiz-license-misc": "Ymse årsaker",
 	"mwe-upwiz-license-custom-head": "Annen grunn som ikke er nevnt ovenfor",
