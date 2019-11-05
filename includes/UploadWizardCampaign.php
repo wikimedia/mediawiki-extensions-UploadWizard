@@ -98,7 +98,7 @@ class UploadWizardCampaign {
 	 * @return bool
 	 */
 	public function getIsEnabled() {
-		return $this->config['enabled'];
+		return $this->config !== null && $this->config['enabled'];
 	}
 
 	/**
@@ -392,6 +392,7 @@ class UploadWizardCampaign {
 							$this->parsedConfig[$cnf] = [];
 						}
 
+						// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 						$this->parsedConfig[$cnf] = array_merge( $this->parsedConfig[$cnf], $modifier );
 						break;
 				}

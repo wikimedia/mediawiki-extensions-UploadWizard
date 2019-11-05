@@ -5,7 +5,7 @@
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
-	$wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions, $wgUser;
+	$wgMemc, $wgUploadWizardConfig, $wgCheckFileExtensions, $wgUser, $wgWBRepoSettings;
 
 $userLangCode = $wgLang->getCode();
 // We need to get a list of languages for the description dropdown.
@@ -561,7 +561,7 @@ return [
 	'minTitleLength' => 5,
 
 	// Max file caption length
-	'maxCaptionLength' => $wgWBRepoSettings[ 'string-limits' ][ 'multilang' ] ?? 250,
+	'maxCaptionLength' => $wgWBRepoSettings['string-limits']['multilang']['length'] ?? 250,
 
 	// Min file caption length
 	'minCaptionLength' => 5,
