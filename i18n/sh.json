@@ -3,7 +3,8 @@
 		"authors": [
 			"Conquistador",
 			"OC Ripper",
-			"Vlad5250"
+			"Vlad5250",
+			"Obsuser"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje",
@@ -85,7 +86,7 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Ako sve datoteke imaju isti izvor, autor i pravno stanje, onda unesite te podatke samo jednom.",
 	"mwe-upwiz-source-thirdparty-cases": "Sada nam recite zašto ste sigurni imate pravo da objavite {{PLURAL:$1|ovo djelo|ova djela}}:",
 	"mwe-upwiz-source-thirdparty-accept": "U redu",
-	"mwe-upwiz-source-custom": "Na slijedećoj stranici navešću podatke o autorskima pravima na svaku datoteku zasebno.",
+	"mwe-upwiz-source-custom": "Na sljedećoj stranici navešću podatke o autorskima pravima na svaku datoteku zasebno.",
 	"mwe-upwiz-patent-dialog-title": "Patentna prava",
 	"mwe-upwiz-patent-dialog-title-filename": "Zakonska prava: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Nazad",
@@ -200,7 +201,7 @@
 	"mwe-upwiz-campaign-no-uploads-yet": "Još uvijek niste ništa postavili!",
 	"mwe-upwiz-license-custom-preview": "Pregled",
 	"mwe-upwiz-license-confirm-remove-title": "Potvrdite uklanjanje",
-	"mwe-upwiz-license-external": "Datoteka je pod slijedećom licencom na izvornom sajtu \"$1\": $2.",
+	"mwe-upwiz-license-external": "Datoteka je pod sljedećom licencom na izvornom sajtu \"$1\": $2.",
 	"mwe-upwiz-categories": "Kategorije",
 	"mwe-upwiz-feedback-blacklist-subject": "Naslov „$1“ je zabranjen.",
 	"mwe-upwiz-errordialog-title": "Došlo je do greške u poslanome:",
