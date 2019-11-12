@@ -372,5 +372,13 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximum number of concurrent uploads",
 	"campaigns": "Upload Wizard campaigns",
 	"mwe-upload-campaigns-pagination-next": "Next page",
-	"mwe-upload-campaigns-list-title": "List of upload campaigns"
+	"mwe-upload-campaigns-list-title": "List of upload campaigns",
+	"mwe-upwiz-mv-cta-heading": "Help make images more findable for everyone",
+	"mwe-upwiz-mv-cta-description": "Commons has a [[c:Commons:Structured_data/Computer-aided_tagging|new tool]] that will suggest tags for images you upload if you haven't already added tags. When you confirm accurate tags, you're helping make images easier for everyone to search for.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Yes, I'd like to get notifications when my uploads have tags that are ready for my review",
+	"mwe-upwiz-mv-cta-final-cta": "Ready to start tagging right away? [[c:Special:Suggested_Tags|Give the tool a try]] by tagging popular images now!",
+	"mwe-upwiz-mv-cta-dismiss": "Dismiss",
+	"mwe-upwiz-mv-cta-user-preference-set": "Great! You can change this setting any time in your [[c:Special:Preferences#mw-prefsection-echo|Preferences]].",
+	"mwe-upwiz-mv-cta-user-preference-unset": "You will no longer receive notifications to tag your uploads.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "We couldn't save your preference at this time. Please visit your [[c:Special:Preferences#mw-prefsection-echo|Preferences]] to opt into notifications."
 }
