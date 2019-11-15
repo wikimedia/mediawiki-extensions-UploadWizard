@@ -384,5 +384,9 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимален брой едновременни качвания",
 	"campaigns": "Кампании на Помощник за качванията",
 	"mwe-upload-campaigns-pagination-next": "Следваща страница",
-	"mwe-upload-campaigns-list-title": "Списък на кампаниите за качване"
+	"mwe-upload-campaigns-list-title": "Списък на кампаниите за качване",
+	"mwe-upwiz-mv-cta-heading": "Помогнете да направим изображенията по-откриваеми за всички",
+	"mwe-upwiz-mv-cta-checkbox-label": "Да, бих искал да получавам известия, когато моите качвания имат етикети, които са готови за преглед",
+	"mwe-upwiz-mv-cta-dismiss": "Затваряне",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Вече няма да получавате известия за поставяне на етикети на вашите качвания."
 }

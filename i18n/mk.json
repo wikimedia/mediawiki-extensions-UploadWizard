@@ -376,5 +376,13 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Највеќе истовремени преземања",
 	"campaigns": "Походи со Помошникот за подигање",
 	"mwe-upload-campaigns-pagination-next": "Следна страница",
-	"mwe-upload-campaigns-list-title": "Список на походи за подигање"
+	"mwe-upload-campaigns-list-title": "Список на походи за подигање",
+	"mwe-upwiz-mv-cta-heading": "Помогнете ни да ги направиме сликите полесно пронаодливи за секого",
+	"mwe-upwiz-mv-cta-description": "Ризницата има [[c:Commons:Structured_data/Computer-aided_tagging|нов алатка]] која предлага ознаки за сликите што ги подигате, ако веќе не сте ги ставиле самите. Потврдувајќи ги точните ознаки, сликите стануваат полесни за наоѓање за сите други корисници.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Да, сакам да добивам известувања кога моите подигања ќе добијат ознаки спремни за проверка",
+	"mwe-upwiz-mv-cta-final-cta": "Спремни сте да означувате уште сега? [[c:Special:Suggested_Tags|Пробајте ја алатката]] — означете некои популарни слики!",
+	"mwe-upwiz-mv-cta-dismiss": "Тргни",
+	"mwe-upwiz-mv-cta-user-preference-set": "Одлично! Поставката можете да ја измените во секое време во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]].",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Повеќе нема да добивате известувања за означување на подигнатото.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Во мигов не можев да ја зачувам поставката. Појдете во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]] за да се пријавите за известувања."
 }

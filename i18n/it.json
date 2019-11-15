@@ -357,5 +357,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Numero massimo di caricamenti simultanei",
 	"campaigns": "Campagne di caricamento guidato",
 	"mwe-upload-campaigns-pagination-next": "Pagina successiva",
-	"mwe-upload-campaigns-list-title": "Elenco delle iniziative per il caricamento guidato"
+	"mwe-upload-campaigns-list-title": "Elenco delle iniziative per il caricamento guidato",
+	"mwe-upwiz-mv-cta-dismiss": "Nascondi"
 }
