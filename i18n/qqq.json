@@ -406,7 +406,7 @@
 	"mwe-upwiz-mv-cta-description": "Description of the machine vision tool",
 	"mwe-upwiz-mv-cta-checkbox-label": "Label for the checkbox that toggles user preference to be notified when their uploads are available for tagging",
 	"mwe-upwiz-mv-cta-final-cta": "Call to action encouraging the user to visit the machine vision tool and add tags to popular images",
-	"mwe-upwiz-mv-cta-dismiss": "Label for dismiss button",
+	"mwe-upwiz-mv-cta-dismiss": "Label for dismiss button\n{{Identical|Dismiss}}",
 	"mwe-upwiz-mv-cta-user-preference-set": "Confirmation message when user opts into notifications for machine vision",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Confirmation message when user opts out of notifications for machine vision",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Message to show if preference save fails"
