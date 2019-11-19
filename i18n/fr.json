@@ -421,5 +421,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Nombre maximal de téléversements simultanés",
 	"campaigns": "Campagnes de l’assistant de téléversement",
 	"mwe-upload-campaigns-pagination-next": "Page suivante",
-	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléversement"
+	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléversement",
+	"mwe-upwiz-mv-cta-dismiss": "Ignorer",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Vous ne recevrez plus de notifications pour marquer vos téléversements."
 }
