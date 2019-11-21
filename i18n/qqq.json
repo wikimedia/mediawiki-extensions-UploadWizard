@@ -401,13 +401,5 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Preference which sets the maximum number of concurrent upload requests",
 	"campaigns": "{{doc-special|Campaigns}}\nThe UploadWizard campaign page provides a list of Upload Wizard campaigns.\nFor more information, see [[:mw:Extension:UploadWizard/Campaigns]].",
 	"mwe-upload-campaigns-pagination-next": "Link to next page of upload campaigns.\n{{Identical|Next page}}",
-	"mwe-upload-campaigns-list-title": "Title of page that has list of upload campaigns",
-	"mwe-upwiz-mv-cta-heading": "Heading for the machine vision call to action on the final step of Upload Wizard",
-	"mwe-upwiz-mv-cta-description": "Description of the machine vision tool",
-	"mwe-upwiz-mv-cta-checkbox-label": "Label for the checkbox that toggles user preference to be notified when their uploads are available for tagging",
-	"mwe-upwiz-mv-cta-final-cta": "Call to action encouraging the user to visit the machine vision tool and add tags to popular images",
-	"mwe-upwiz-mv-cta-dismiss": "Label for dismiss button",
-	"mwe-upwiz-mv-cta-user-preference-set": "Confirmation message when user opts into notifications for machine vision",
-	"mwe-upwiz-mv-cta-user-preference-unset": "Confirmation message when user opts out of notifications for machine vision",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Message to show if preference save fails"
+	"mwe-upload-campaigns-list-title": "Title of page that has list of upload campaigns"
 }
