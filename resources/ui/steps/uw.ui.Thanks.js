@@ -27,7 +27,9 @@
 	uw.ui.Thanks = function UWUIThanks( config ) {
 		var $header,
 			beginButtonTarget,
-			thanks = this;
+			thanks = this,
+			machineVisionConfig = mw.config.get( 'MachineVision' ),
+			userGroups = mw.config.get( 'wgUserGroups' );
 
 		this.config = config;
 
@@ -91,8 +93,12 @@
 
 		this.$buttons.append( this.buttonGroup.$element );
 
-		// Add dismissable Machine Vision CTA above content.
-		if ( mw.loader.getState( 'ext.MachineVision' ) === 'registered' ) {
+		// If appropriate, add a dismissable Machine Vision CTA above content.
+		if ( machineVisionConfig && userGroups &&
+			machineVisionConfig.showComputerAidedTaggingCallToAction === true &&
+			userGroups.indexOf( 'autoconfirmed' ) !== -1 &&
+			( machineVisionConfig.testersOnly === false ||
+				userGroups.indexOf( 'machinevision-tester' ) !== -1 ) ) {
 			this.mvCtaCheckbox = new OO.ui.CheckboxInputWidget( { value: 'Notify me' } )
 				.connect( this, { change: this.onMvCtaCheckboxChange } );
 			this.addMachineVisionCta();
@@ -163,7 +169,7 @@
 			$mvCtaCheckboxSection,
 			mvCtaCheckboxField;
 
-		// If the user has already opted into notificates, don't show this.
+		// If the user has already opted into notifications, don't show this.
 		if ( Number( mw.user.options.get( 'echo-subscriptions-web-machinevision' ) ) === 1 ) {
 			return;
 		}
