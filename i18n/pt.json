@@ -23,7 +23,8 @@
 			"Athena in Wonderland",
 			"Envlh",
 			"CaiusSPQR",
-			"Waldyrious"
+			"Waldyrious",
+			"Mansil alfalb"
 		]
 	},
 	"uploadwizard": "Assistente de envio de ficheiros",
@@ -392,5 +393,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Número máximo de envios paralelos",
 	"campaigns": "Campanhas do assistente de envio de ficheiros",
 	"mwe-upload-campaigns-pagination-next": "Página seguinte",
-	"mwe-upload-campaigns-list-title": "Lista de campanhas de envio de ficheiros"
+	"mwe-upload-campaigns-list-title": "Lista de campanhas de envio de ficheiros",
+	"mwe-upwiz-mv-cta-dismiss": "Ignorar"
 }

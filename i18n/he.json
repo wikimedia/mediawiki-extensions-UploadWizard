@@ -388,7 +388,7 @@
 	"mwe-upwiz-mv-cta-heading": "{{GENDER:|עזור|עזרי}} לגרום לתמונות להיות קלות יותר למציאה בשביל כולם",
 	"mwe-upwiz-mv-cta-description": "בוויקישיתוף יש [[c:Commons:Structured_data/Computer-aided_tagging|כלי חדש]] שיציע תגים לתמונות {{GENDER:|שאתה|שאת}} מעלה אם לא הוספת להם כבר תגים. אם {{GENDER:|תאשר|תאשרי}} תגים מדויקים, {{GENDER:|תעזור|תעזרי}} לכולם לחפש תמונות.",
 	"mwe-upwiz-mv-cta-checkbox-label": "כן, אני כן, אני רוצה לקבל התראות כשלהעלאות שלי יש תגים שמוכנים לסקירה שלי",
-	"mwe-upwiz-mv-cta-final-cta": "{{GENDER:|מוכן|מוכנה}} להתחיל לתייג מייד? [[c:Special:Suggested_Tags|{{GENDER:|נסה|נסי}} את הכלי]] באמצעות תיוג תמונות מבוקשות עכשיו!",
+	"mwe-upwiz-mv-cta-final-cta": "{{GENDER:|מוכן|מוכנה}} להתחיל לתייג מייד? [[c:Special:SuggestedTags|{{GENDER:|נסה|נסי}} את הכלי]] באמצעות תיוג תמונות מבוקשות עכשיו!",
 	"mwe-upwiz-mv-cta-dismiss": "סגירה",
 	"mwe-upwiz-mv-cta-user-preference-set": "גדול! {{GENDER:|אתה יכול|את יכולה}} לשנות את ההגדרה הזאת בכל זמן ב[[c:Special:Preferences#mw-prefsection-echo|העדפות]] שלך.",
 	"mwe-upwiz-mv-cta-user-preference-unset": "לא {{GENDER:|תקבל|תקבלי}} עוד התראות לתייג את ההעלאות שלך.",

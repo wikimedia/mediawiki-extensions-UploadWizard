@@ -385,7 +385,7 @@
 	"mwe-upwiz-mv-cta-heading": "Hjelp til å gjøre bilder enklere å finne for alle",
 	"mwe-upwiz-mv-cta-description": "Commons har et [[c:Commons:Structured_data/Computer-aided_tagging|nytt verktøy]] som foreslår tagger for bildene du laster opp hvis du ikke legger til noen. Når du bekrefter taggene hjelper du til med å gjøre bilder lettere å søke etter for alle.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Ja, jeg ønsker å bli varslet når opplastingene mine har tagger som er klare for gjennomgang",
-	"mwe-upwiz-mv-cta-final-cta": "Er du klar til å tagge med en gang? [[c:Special:Suggested_Tags|Prøv verktøyet]] ved å tagge populære bilder nå!",
+	"mwe-upwiz-mv-cta-final-cta": "Er du klar til å tagge med en gang? [[c:Special:SuggestedTags|Prøv verktøyet]] ved å tagge populære bilder nå!",
 	"mwe-upwiz-mv-cta-dismiss": "Lukk",
 	"mwe-upwiz-mv-cta-user-preference-set": "Flott! Du kan endre denne innstillingen når som helst i [[c:Special:Preferences#mw-prefsection-echo|innstillingene dine]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Du vil ikke lenger bli varslet for å tagge opplastingene dine.",

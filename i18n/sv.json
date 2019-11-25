@@ -391,7 +391,7 @@
 	"mwe-upwiz-mv-cta-heading": "Hjälp till att göra bilder lättare att hitta för allihopa",
 	"mwe-upwiz-mv-cta-description": "Commons har ett [[c:Commons:Structured_data/Computer-aided_tagging|nytt verktyg]] som föreslår taggar för bilder du har laddat upp om du inte har lagt till taggar. När du bekräftar lämpliga taggar hjälper du till att göra det lättare för allihopa att söka efter dem.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Ja, jag vill få aviseringar när mina uppladdningar har taggar som är redo att granskas",
-	"mwe-upwiz-mv-cta-final-cta": "Redo att börja tagga direkt? [[c:Special:Suggested_Tags|Prova på verktyget]] genom att tagga populära bilder nu!",
+	"mwe-upwiz-mv-cta-final-cta": "Redo att börja tagga direkt? [[c:Special:SuggestedTags|Prova på verktyget]] genom att tagga populära bilder nu!",
 	"mwe-upwiz-mv-cta-dismiss": "Stäng",
 	"mwe-upwiz-mv-cta-user-preference-set": "Toppen! Du kan ändra denna inställning när som helst i dina [[c:Special:Preferences#mw-prefsection-echo|inställningar]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Du kommer inte längre få aviseringar om att tagga dina uppladdningar.",

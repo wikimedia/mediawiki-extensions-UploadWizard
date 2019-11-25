@@ -380,7 +380,7 @@
 	"mwe-upwiz-mv-cta-heading": "Помогнете ни да ги направиме сликите полесно пронаодливи за секого",
 	"mwe-upwiz-mv-cta-description": "Ризницата има [[c:Commons:Structured_data/Computer-aided_tagging|нов алатка]] која предлага ознаки за сликите што ги подигате, ако веќе не сте ги ставиле самите. Потврдувајќи ги точните ознаки, сликите стануваат полесни за наоѓање за сите други корисници.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Да, сакам да добивам известувања кога моите подигања ќе добијат ознаки спремни за проверка",
-	"mwe-upwiz-mv-cta-final-cta": "Спремни сте да означувате уште сега? [[c:Special:Suggested_Tags|Пробајте ја алатката]] — означете некои популарни слики!",
+	"mwe-upwiz-mv-cta-final-cta": "Спремни сте да означувате уште сега? [[c:Special:SuggestedTags|Пробајте ја алатката]] — означете некои популарни слики!",
 	"mwe-upwiz-mv-cta-dismiss": "Тргни",
 	"mwe-upwiz-mv-cta-user-preference-set": "Одлично! Поставката можете да ја измените во секое време во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Повеќе нема да добивате известувања за означување на подигнатото.",

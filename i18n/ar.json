@@ -397,7 +397,7 @@
 	"mwe-upwiz-mv-cta-heading": "ساعد في جعل الصور أكثر قابلية للبحث عن الجميع",
 	"mwe-upwiz-mv-cta-description": "يحتوي كومنز على [[c:Commons:Structured_data/Computer-aided_tagging|أداة جديدة]] من شأنها أن تقترح وسوما للصور التي ترفعها إذا لم تقم بإضافة وسوم بالفعل، عندما تؤكد الوسوم الدقيقة، فإنك تساعد في جعل الصور أسهل للجميع للبحث عنها.",
 	"mwe-upwiz-mv-cta-checkbox-label": "نعم، أرغب في الحصول على إشعارات عندما تحتوي مرفوعاتي على وسوم جاهزة لمراجعتي",
-	"mwe-upwiz-mv-cta-final-cta": "هل أنت جاهز لبدء الوسم العلامات على الفور [[c:Special:Suggested_Tags|جرب الأداة]] بوسم الصور الشعبية الآن!",
+	"mwe-upwiz-mv-cta-final-cta": "هل أنت جاهز لبدء الوسم العلامات على الفور [[c:Special:SuggestedTags|جرب الأداة]] بوسم الصور الشعبية الآن!",
 	"mwe-upwiz-mv-cta-dismiss": "تجاهل",
 	"mwe-upwiz-mv-cta-user-preference-set": "عظيم! يمكنك تغيير هذا الإعداد في أي وقت في [[c:Special:Preferences#mw-prefsection-echo| تفصيلاتي]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "لن تتلقى إشعارات بعد الآن لوسم مرفوعاتي.",

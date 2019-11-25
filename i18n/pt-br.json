@@ -398,7 +398,7 @@
 	"mwe-upwiz-mv-cta-heading": "Ajude a tornar as imagens mais acessíveis para todos",
 	"mwe-upwiz-mv-cta-description": "Commons tem uma [[c:Commons:Structured_data/Computer-aided_tagging|nova ferramenta]] que sugerirá etiquetas para as imagens que você enviar se ainda não tiver adicionado tags. Ao confirmar tags precisas, você ajuda a tornar as imagens mais fáceis de serem pesquisadas por todos.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Sim, gostaria de receber notificações quando meus envios tiverem tags prontas para minha revisão",
-	"mwe-upwiz-mv-cta-final-cta": "Pronto para começar a marcar imediatamente? [[c:Special:Suggested_Tags|Experimente a ferramenta]] marcando imagens populares agora!",
+	"mwe-upwiz-mv-cta-final-cta": "Pronto para começar a marcar imediatamente? [[c:Special:SuggestedTags|Experimente a ferramenta]] marcando imagens populares agora!",
 	"mwe-upwiz-mv-cta-dismiss": "Ignorar",
 	"mwe-upwiz-mv-cta-user-preference-set": "Ótimo! Você pode alterar essa configuração a qualquer momento nas suas  [[c:Special:Preferences#mw-prefsection-echo|preferências]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Você não receberá mais notificações para marcar seus envios.",
