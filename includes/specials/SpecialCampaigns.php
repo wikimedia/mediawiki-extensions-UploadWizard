@@ -14,15 +14,14 @@ class SpecialCampaigns extends SpecialPage {
 		$request = $this->getRequest();
 		$dbr = wfGetDB( DB_REPLICA );
 
-		$start = (int)$request->getVal( 'start' );
+		$start = $request->getIntOrNull( 'start' );
 
 		$limit = 50;
 
 		$cond = [ 'campaign_enabled = 1' ];
 
 		if ( $start !== null ) {
-			// Not SQL Injection, since $start is cast to (int)
-			$cond[] = "campaign_id > $start";
+			$cond[] = 'campaign_id > ' . $start;
 		}
 
 		$res = $dbr->select(
