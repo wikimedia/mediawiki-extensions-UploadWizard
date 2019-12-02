@@ -425,11 +425,11 @@
 	"mwe-upload-campaigns-pagination-next": "Page suivante",
 	"mwe-upload-campaigns-list-title": "Liste des campagnes de téléversement",
 	"mwe-upwiz-mv-cta-heading": "Aider à rendre les images plus faciles à trouver pour tout le monde",
-	"mwe-upwiz-mv-cta-description": "Commons a un [[c:Commons:Structured_data/Computer-aided_tagging|nouvel outil]] qui suggèrera des étiquettes pour les images que vous mettez en ligne si vous n’avez pas encore ajouté d’étiquettes. Lorsque vous confirmez des étiquettes précises, vous aidez à rendre les images plus faciles à trouver pour quiconque les recherche.",
-	"mwe-upwiz-mv-cta-checkbox-label": "Oui, je souhaite recevoir des notifications quand les fichiers que j’ai mis en ligne ont des étiquettes que je peux relire.",
-	"mwe-upwiz-mv-cta-final-cta": "Prêt à étiqueter dès maintenant ? [[c:Special:SuggestedTags|Essayez l’outil]] en étiquetant des images populaires maintenant !",
+	"mwe-upwiz-mv-cta-description": "Commons a un [[c:Commons:Structured_data/Computer-aided_tagging|nouvel outil]] qui suggérera des étiquettes pour les images que vous avez téléversées mais pas encore étiquetées. Lorsque vous confirmez des étiquettes précises, vous aidez à rendre les images plus faciles à trouver pour quiconque les recherche.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Oui, je souhaite recevoir des notifications quand les fichiers que j’ai téléversés ont des étiquettes prête pour ma relecture.",
+	"mwe-upwiz-mv-cta-final-cta": "Prêt à étiqueter dès maintenant ? [[c:Special:SuggestedTags|Essayez l’outil]] en étiquetant des images populaires maintenant !",
 	"mwe-upwiz-mv-cta-dismiss": "Ignorer",
-	"mwe-upwiz-mv-cta-user-preference-set": "Super ! Vous pouvez changer ce paramètre à tout moment dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]].",
+	"mwe-upwiz-mv-cta-user-preference-set": "Super ! Vous pouvez changer ce paramètre à tout moment dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Vous ne recevrez plus de notifications pour marquer vos téléversements.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nous n’avons pas pu sauvegarder vos préférences. Veuillez vous rendre dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]] pour vous inscrire aux notifications."
 }
