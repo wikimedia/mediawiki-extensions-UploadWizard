@@ -392,5 +392,6 @@
 	"campaigns": "Campañas del Asistente de subidas",
 	"mwe-upload-campaigns-pagination-next": "Página siguiente",
 	"mwe-upload-campaigns-list-title": "Lista de campañas de subida",
-	"mwe-upwiz-mv-cta-checkbox-label": "Sí, quiero recibir notificaciones cuando mis cargas tengan etiquetas pendientes de revisión"
+	"mwe-upwiz-mv-cta-checkbox-label": "Sí, quiero recibir notificaciones cuando mis cargas tengan etiquetas pendientes de revisión",
+	"mwe-upwiz-mv-cta-dismiss": "Descartar"
 }
