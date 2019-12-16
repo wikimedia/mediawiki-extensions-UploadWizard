@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"John Reid",
-			"Envlh"
+			"Envlh",
+			"MJL"
 		]
 	},
 	"api-error-noimageinfo": "The uplaid succeeded, bit the server didna gie us onie information aneat the file.",
+	"mwe-upwiz-desc": "Descreeption",
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Capiecair, attreebution needit (GFDL, CC BY-SA 3.0)"
 }
