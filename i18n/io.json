@@ -17,6 +17,7 @@
 	"mwe-upwiz-skip-tutorial-future": "Ne montrez ica etapo future",
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(Irgu povas uzar, partigar od adaptar {{PLURAL:$1|ica laboro|ici labori}}, se mencionez me kom lua kreinto.)",
 	"mwe-upwiz-source-thirdparty-intro": "Mencionez l'adreso interretala ube vu trovis singla arkivo.",
+	"mwe-upwiz-source-thirdparty-accept": "O.K.",
 	"mwe-upwiz-more-options": "Adjuntez loko, e plusa informi ...",
 	"mwe-upwiz-desc": "Deskripto",
 	"mwe-upwiz-location-button": "Montrez sur mapo",
@@ -31,5 +32,6 @@
 	"mwe-upwiz-too-many-files-text": "Vu povas sendar nur $1 {{PLURAL:$1|arkivo|arkivi}} quik, ma vu probis sendar entote $2 {{PLURAL:$2|arkivo|arkivi}} quik. Probez itere sendar min artikli per foyo!",
 	"mwe-upwiz-license-custom": "La permiso deskriptesas per la sequanta wikitexto (mustas kontenar valida [$2 informo pri autoroyuro]):",
 	"mwe-upwiz-subhead-alt-upload": "Retroirar a l'anciena formulario",
-	"mwe-upwiz-feedback-prompt": "Sendez komenti pri l'instrukturi"
+	"mwe-upwiz-feedback-prompt": "Sendez komenti pri l'instrukturi",
+	"mwe-upwiz-errordialog-ok": "O.K."
 }
