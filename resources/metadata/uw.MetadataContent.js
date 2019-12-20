@@ -1,15 +1,17 @@
 ( function ( uw ) {
 	'use strict';
 
-	var defaultProperties = mw.config.get( 'wbmiDefaultProperties' ) || [],
-		propertyTypes = mw.config.get( 'wbmiPropertyTypes' ) || {},
-		/**
-		 * This contains what used to be accessible via wikibase.datamodel globally and is loaded lazily via
-		 * `mw.loader.using` further down.
-		 */
+	/*
+	 * External dependencies (WikibaseMediaInfo, Wikibase datamodel & config vars) are a
+	 * soft dependency and may not be available here. We'll attempt to lazy-load them from
+	 * uw.MetadataContent constructor and will then populate these vars on success.
+	 */
+	var AddPropertyWidget,
+		StatementWidget,
+		dataTypesMap,
+		defaultProperties,
+		propertyTypes,
 		wikibaseDatamodel;
-
-	Object.freeze( defaultProperties );
 
 	/**
 	 * @constructor
@@ -65,8 +67,17 @@
 
 		// Call the setup method and append statementWidgets once ready
 		this.$element.append( this.$statementsDiv );
-		mw.loader.using( [ 'wikibase.datamodel' ] ).then( function ( require ) {
+		mw.loader.using( [
+			'wikibase.mediainfo.statements',
+			'wikibase.datamodel'
+		] ).then( function ( require ) {
+			AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
+			StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget;
 			wikibaseDatamodel = require( 'wikibase.datamodel' );
+			dataTypesMap = mw.config.get( 'wbDataTypes' );
+			defaultProperties = mw.config.get( 'wbmiDefaultProperties' ) || [];
+			propertyTypes = mw.config.get( 'wbmiPropertyTypes' ) || {};
+			Object.freeze( defaultProperties );
 		} ).then( self.setup() ).then( function () {
 			Object.keys( self.statementWidgets ).forEach( function ( propertyId ) {
 				var statementWidget = self.statementWidgets[ propertyId ];
@@ -102,7 +113,11 @@
 			defaultProperties.forEach( function ( propertyId ) {
 				var defaultData = self.getDefaultDataForProperty( propertyId );
 
-				self.createStatementWidget( propertyId, propertyTypes[ propertyId ], defaultData );
+				self.createStatementWidget(
+					propertyId,
+					dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType,
+					defaultData
+				);
 
 				// pre-populate statements with data if necessary (campaigns only);
 				// default values are still considered "changes" to be published
@@ -155,8 +170,6 @@
 	uw.MetadataContent.prototype.createAddPropertyWidgetIfNecessary = function () {
 		// let's always create the widget, that way we don't have to check for its
 		// existence everywhere - but we won't add it to DOM if it's not wanted
-		var AddPropertyWidget = require( 'wikibase.mediainfo.statements' ).AddPropertyWidget;
-
 		this.addPropertyWidget = new AddPropertyWidget( {
 			propertyIds: Object.keys( this.statementWidgets )
 		} );
@@ -173,13 +186,12 @@
 	 * attached. Also stashes the statement's property ID.
 	 *
 	 * @param {string} propId P123, etc.
-	 * @param {string} propertyType Property datatype (e.g. 'wikibase-item', 'url', 'string', ...)
-	 * @param {wikibase.datamodel.Statement} [data]
+	 * @param {string} valueType 'wikibase-entityid', 'string', etc.
+	 * @param {wikibaseDatamodel.Statement} [data]
 	 * @return {Object} StatementWidget
 	 */
-	uw.MetadataContent.prototype.createStatementWidget = function ( propId, propertyType, data ) {
+	uw.MetadataContent.prototype.createStatementWidget = function ( propId, valueType, data ) {
 		var self = this,
-			StatementWidget = require( 'wikibase.mediainfo.statements' ).StatementWidget,
 			widget;
 
 		data = data || new wikibaseDatamodel.StatementList();
@@ -188,7 +200,7 @@
 			editing: true,
 			entityId: this.entityId,
 			propertyId: propId,
-			propertyType: propertyType,
+			valueType: valueType,
 			isDefaultProperty: defaultProperties.indexOf( propId ) >= 0,
 			helpUrls: mw.config.get( 'wbmiHelpUrls' ) || {}
 		} );
@@ -220,23 +232,34 @@
 		// NOTE: this currently loses "default-ness"
 		Object.keys( statementWidgets ).forEach( function ( propertyId ) {
 			var statementWidget = statementWidgets[ propertyId ],
-				// construct a new StatementList which is a copy of the existing list,
-				// just a new instance (like, different GUID)
-				data = new wikibaseDatamodel.StatementList(
-					statementWidget.getData().toArray().map( function ( statement ) {
-						return new wikibaseDatamodel.Statement(
-							new wikibaseDatamodel.Claim(
-								statement.getClaim().getMainSnak(),
-								statement.getClaim().getQualifiers(),
-								null
-							),
-							statement.getReferences(),
-							statement.getRank()
-						);
-					} )
-				);
+				sourceData = statementWidget.getData(),
+				targetData,
+				valueType;
 
-			self.createStatementWidget( propertyId, data );
+			if ( sourceData.isEmpty() ) {
+				// skip empty widgets
+				return;
+			}
+
+			// construct a new StatementList which is a copy of the existing list,
+			// just a new instance (like, different GUID)
+			targetData = new wikibaseDatamodel.StatementList(
+				sourceData.toArray().map( function ( statement ) {
+					return new wikibaseDatamodel.Statement(
+						new wikibaseDatamodel.Claim(
+							statement.getClaim().getMainSnak(),
+							statement.getClaim().getQualifiers(),
+							null
+						),
+						statement.getReferences(),
+						statement.getRank()
+					);
+				} )
+			);
+
+			valueType = sourceData.toArray()[ 0 ].getClaim().getMainSnak().getValue().getType();
+
+			self.createStatementWidget( propertyId, valueType, targetData );
 		} );
 
 		// 3. Append newly-copied statementWidgets to the page
@@ -258,7 +281,7 @@
 		var propertyId = data.id,
 			statementWidget;
 
-		statementWidget = this.createStatementWidget( propertyId, data.datatype );
+		statementWidget = this.createStatementWidget( propertyId, dataTypesMap[ data.datatype ].dataValueType );
 		this.addPropertyWidget.$element.before( statementWidget.$element );
 	};
 
