@@ -43,8 +43,8 @@ class CampaignPageFormatter {
 
 		$gallery = ImageGalleryBase::factory( 'packed-hover' );
 		$gallery->setContext( $this->context );
-		$gallery->setWidths( 180 );
-		$gallery->setHeights( 180 );
+		$gallery->setWidths( '180' );
+		$gallery->setHeights( '180' );
 		$gallery->setShowBytes( false );
 
 		$this->context->getOutput()->setCdnMaxage(

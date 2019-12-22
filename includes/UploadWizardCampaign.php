@@ -392,7 +392,6 @@ class UploadWizardCampaign {
 							$this->parsedConfig[$cnf] = [];
 						}
 
-						// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 						$this->parsedConfig[$cnf] = array_merge( $this->parsedConfig[$cnf], $modifier );
 						break;
 				}
@@ -486,7 +485,6 @@ class UploadWizardCampaign {
 	 * Apply given object reference to buttons configured to use it as href
 	 *
 	 * @param string $objRef
-	 * @suppress PhanTypeArraySuspiciousNullable The if is to complex for phan
 	 */
 	private function applyObjectReferenceToButtons( $objRef ) {
 		$customizableButtons = [ 'homeButton', 'beginButton' ];
