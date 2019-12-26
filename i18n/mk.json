@@ -259,7 +259,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Избравте можност што бара да внесете викитекст.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Овој викитекст е прекраток за да може да биде лиценца",
 	"mwe-upwiz-error-license-wikitext-too-long": "Викитекстот што го внесовте е предолг.",
-	"mwe-upwiz-error-license-wikitext-missing-template": "Викитекстот што го внесовте не содржи важечки лиценцен шаблон.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Викитекстот што го внесовте не содржи важечка лиценцна предлошка.",
 	"mwe-upwiz-error-patent-disagree": "Ќе мора да се согласите со условите.",
 	"mwe-upwiz-error-pageprops-missing-page": "Не можев да ги добијам својствата на страницата: страницата (сè уште) не постои.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Не можев да ги добијам својствата на страницата: својството (сè уште) не постои.",
