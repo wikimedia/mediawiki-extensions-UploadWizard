@@ -6,7 +6,8 @@
 			"Pirehelokan",
 			"Asoxor",
 			"Sarchia",
-			"Kushared"
+			"Kushared",
+			"ئارام بکر"
 		]
 	},
 	"uploadwizard": "بارکەری جادوویی",
@@ -42,7 +43,7 @@
 	"mwe-upwiz-transported": "بارکردن تەواو بوو...",
 	"mwe-upwiz-stashed-upload": "بارکرا",
 	"mwe-upwiz-getting-metadata": "بەدەستهێنانی زانیاری پەڕگە و پێشبینیکردن",
-	"mwe-upwiz-submitting-details": "ناردنی وردەکارییەکان و بڵاوکردنەوەی...",
+	"mwe-upwiz-submitting-details": "ناردنی وردەکارییەکان...",
 	"mwe-upwiz-published": "بڵاوکرایەوە!",
 	"mwe-upwiz-failed": "سەرکەوتوو نەبوو.",
 	"mwe-upwiz-remove": "لایبدە",
@@ -74,8 +75,8 @@
 	"mwe-upwiz-copy-location": "لەبەرگرتنەوەی شوێن",
 	"mwe-upwiz-copy-other": "لەبەرگرتنەوەی هەندێ زانیاری",
 	"mwe-upwiz-desc": "تێبینی",
-	"mwe-upwiz-title": "سەردێڕ",
-	"mwe-upwiz-date-created": "ڕۆژی دروستکردن",
+	"mwe-upwiz-title": "سەردێڕی وێنە",
+	"mwe-upwiz-date-created": "ڕێکەوت",
 	"mwe-upwiz-location": "شوێن",
 	"mwe-upwiz-location-lat": "هێڵی پانیی",
 	"mwe-upwiz-location-lon": "هێڵی درێژی",
@@ -155,7 +156,7 @@
 	"mwe-upwiz-errordialog-ok": "باشە",
 	"mwe-upwiz-error-nosuchcampaign": "لێرە کۆمپەین نییە بەو ناوە \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "\"$1\" کۆمپەین چالاک نەکراوە.",
-	"prefs-uploads": "بارکردنەکان",
+	"prefs-uploads": "بارکردن",
 	"prefs-upwiz-licensing": "مۆڵەتنامە",
 	"prefs-upwiz-interface": "ڕووکاری بەکارھێنەر",
 	"mwe-upwiz-prefs-def-license": "بڕوانامەی بنەڕەت",

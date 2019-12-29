@@ -165,7 +165,9 @@
 	"mwe-upwiz-license-metadata-statements-title": "Lizenz für alle strukturierten Metadaten",
 	"mwe-upwiz-license-metadata-content": "Durch das Anklicken von „Veröffentlichen“ stimmst du den [[wmf:Terms_of_Use|Nutzungsbedingungen]] und der unwiderruflichen Veröffentlichung deines beigetragenen Inhalts unter der Lizenz [https://creativecommons.org/publicdomain/zero/1.0/deed.de „CC0 1.0 Universell (CC0 1.0) – Public Domain Dedication“] zu.",
 	"mwe-upwiz-more-options": "Ort und weitere Informationen hinzufügen …",
+	"mwe-upwiz-copy-statements-dialog": "Metadaten der anderen Dateien in diesem Stapel werden durch die Metadaten dieser Datei ersetzt. Bist du sicher?",
 	"mwe-upwiz-copy-statements-dialog-accept": "Ja, kopieren",
+	"mwe-upwiz-copy-statements-button": "Kopiere Aussagen zu allen Dateien ...",
 	"mwe-upwiz-copy-statements-button-done": "Kopiert!",
 	"mwe-upwiz-copy-metadata": "Informationen zu allen folgenden hochzuladenden Dateien kopieren …",
 	"mwe-upwiz-copy-metadata-button": "Kopieren",
@@ -262,6 +264,8 @@
 	"mwe-upwiz-error-blank": "Dies ist ein Pflichtfeld.",
 	"mwe-upwiz-error-too-long": "Dieser Eintrag ist zu lang.\nBitte stelle sicher, dass er maximal {{PLURAL:$1|ein Zeichen|$1 Zeichen}} lang ist.",
 	"mwe-upwiz-error-too-short": "Dieser Eintrag ist zu kurz.\nBitte stelle sicher, dass er mindestens {{PLURAL:$1|ein Zeichen|$1 Zeichen}} lang ist.",
+	"mwe-upwiz-error-title-too-long": "Dieser Titel ist zu lang.\nBitte stelle sicher, dass dieser Titel höchstens $1 {{PLURAL:$1|Zeichen}} lang ist.",
+	"mwe-upwiz-error-title-too-short": "Dieser Titel ist zu kurz.\nBitte stelle sicher, dass dieser Titel mindestens $1 {{PLURAL:$1|Zeichen}} lang ist.",
 	"mwe-upwiz-error-bad-captions": "Es gibt Probleme mit einigen Beschreibungen.",
 	"mwe-upwiz-error-bad-descriptions": "Es gibt Probleme mit einigen Beschreibungen.",
 	"mwe-upwiz-error-title-blacklisted": "Der Name enthält unerwünschten Text. Bitte den Namen überarbeiten.",
@@ -391,5 +395,12 @@
 	"campaigns": "Kampagnen des Hochladeassistenten",
 	"mwe-upload-campaigns-pagination-next": "Nächste Seite",
 	"mwe-upload-campaigns-list-title": "Liste der Hochladekampagnen",
-	"mwe-upwiz-mv-cta-dismiss": "Ausblenden"
+	"mwe-upwiz-mv-cta-heading": "Hilf mit, Bilder für alle leichter auffindbar zu machen",
+	"mwe-upwiz-mv-cta-description": "Commons hat ein [[c:Commons:Structured_data/Computer-aided_tagging|neues Tool]], das Tags für Bilder vorschlägt, die du hochlädst, wenn du noch keine Tags hinzugefügt habst. Wenn du treffende Tags bestätigst, erleichterst du die Suche nach Bildern für alle.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Ja, ich möchte benachrichtigt werden, wenn meine Uploads Tags enthalten, die für die Überprüfung bereit sind",
+	"mwe-upwiz-mv-cta-final-cta": "Bereit, sofort mit dem Taggen zu beginnen? [[c:Special:SuggestedTags|Probiere das Tool aus]], indem du jetzt beliebte Bilder markierst!",
+	"mwe-upwiz-mv-cta-dismiss": "Ausblenden",
+	"mwe-upwiz-mv-cta-user-preference-set": "Toll! Du kannst diese Einstellung jederzeit in deinen [[c:Special:Preferences#mw-prefsection-echo|Benutzereinstellungen]] ändern.",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Du erhältst keine Benachrichtigungen mehr, um deine Uploads zu markieren.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Wir konnten deine Präferenz zu diesem Zeitpunkt nicht speichern. Bitte rufe deine [[c:Special:Preferences#mw-prefsection-echo|Benutzereinstellungen]] auf, um Benachrichtigungen zu aktivieren."
 }
