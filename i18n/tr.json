@@ -20,7 +20,8 @@
 			"Bulgu",
 			"Hedda Gabler",
 			"Hedda",
-			"Rapsar"
+			"Rapsar",
+			"BaRaN6161 TURK"
 		]
 	},
 	"uploadwizard": "Yükleme sihirbazı",
@@ -129,7 +130,7 @@
 	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Bir altyazı ekle|Başka bir dilde bir altyazı ekle}}",
 	"mwe-upwiz-desc": "Açıklama",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Bir açıklama ekle|Başka bir dilde bir açıklama ekle}}",
-	"mwe-upwiz-title": "Resim adı",
+	"mwe-upwiz-title": "Resim başlığı",
 	"mwe-upwiz-date-created": "Tarih",
 	"mwe-upwiz-select-date": "Tarih seç",
 	"mwe-upwiz-location": "Konum",
