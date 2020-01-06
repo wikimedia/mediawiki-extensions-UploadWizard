@@ -13,7 +13,8 @@
 			"Macofe",
 			"Ribewiki",
 			"Envlh",
-			"Saederup92"
+			"Saederup92",
+			"Dipsacus fullonum"
 		]
 	},
 	"uploadwizard": "Vejviser til oplægning af filer",
@@ -57,7 +58,7 @@
 	"mwe-upwiz-uploading": "Overfører...",
 	"mwe-upwiz-queued": "I kø...",
 	"mwe-upwiz-assembling": "Samler...",
-	"mwe-upwiz-publish": "Offentliggører...",
+	"mwe-upwiz-publish": "Offentliggør...",
 	"mwe-upwiz-transported": "Færdig med at overføre...",
 	"mwe-upwiz-stashed-upload": "Overførsel lykkedes",
 	"mwe-upwiz-getting-metadata": "Læser filoplysninger og forhåndsvisninger...",
