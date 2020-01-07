@@ -394,5 +394,12 @@
 	"campaigns": "Campanhas do assistente de envio de ficheiros",
 	"mwe-upload-campaigns-pagination-next": "Página seguinte",
 	"mwe-upload-campaigns-list-title": "Lista de campanhas de envio de ficheiros",
-	"mwe-upwiz-mv-cta-dismiss": "Ignorar"
+	"mwe-upwiz-mv-cta-heading": "Ajude a tornar as imagens mais fáceis de encontrar por todos",
+	"mwe-upwiz-mv-cta-description": "A wiki Commons tem uma [[c:Commons:Structured_data/Computer-aided_tagging|ferramenta nova]] que sugere etiquetas para as imagens que você carregar se ainda não adicionou nenhuma etiqueta. Se confirmar as etiquetas corretas, estará a ajudar a tornar as imagens mais fáceis de encontrar por todos.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Sim, gostaria de receber notificações quando os meus carregamentos tiverem etiquetas prontas para minha revisão",
+	"mwe-upwiz-mv-cta-final-cta": "Pronto para começar já a etiquetar? [[c:Special:SuggestedTags|Experimente a ferramenta]], etiquetando imagens populares agora!",
+	"mwe-upwiz-mv-cta-dismiss": "Ignorar",
+	"mwe-upwiz-mv-cta-user-preference-set": "Ótimo! Pode alterar esta configuração a qualquer altura nas suas [[c:Special:Preferences#mw-prefsection-echo|preferências]].",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Deixará de receber notificações para etiquetar os seus carregamentos.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Não foi possível gravar a sua preferência nesta altura. Visite as suas [[c:Special:Preferences#mw-prefsection-echo|preferências]] para optar por receber notificações, por favor."
 }
