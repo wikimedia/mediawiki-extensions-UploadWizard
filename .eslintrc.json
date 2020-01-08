@@ -13,6 +13,8 @@
 	"rules": {
 		"max-len": 0,
 		"jquery/no-each-util": 0,
-		"jquery/no-map-util": 0
+		"jquery/no-map-util": 0,
+		"no-jquery/no-animate": "warn",
+		"no-jquery/variable-pattern": "warn"
 	}
 }

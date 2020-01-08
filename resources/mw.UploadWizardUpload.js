@@ -700,7 +700,7 @@
 	 */
 	mw.UploadWizardUpload.prototype.getBrowserScaledImageElement = function ( image, constraints ) {
 		var scaling = this.getScalingFromConstraints( image, constraints );
-		return $( '<img/>' )
+		return $( '<img>' )
 			.attr( {
 				width: parseInt( image.width * scaling, 10 ),
 				height: parseInt( image.height * scaling, 10 ),
