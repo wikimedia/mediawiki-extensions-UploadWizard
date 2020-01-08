@@ -84,7 +84,7 @@
 
 		// grab the tutorial HTML that was injected into this document
 		// eslint-disable-next-line no-jquery/no-global-selector
-		this.tutorialHtml = $( '#mwe-upwiz-tutorial-html' );
+		this.$tutorialHtml = $( '#mwe-upwiz-tutorial-html' );
 
 		// Helpdesk link click
 		// eslint-disable-next-line no-jquery/no-global-selector
@@ -110,7 +110,7 @@
 				.attr( 'id', 'mwe-upwiz-tutorial' )
 				.append(
 					// TODO move this to JavaScript, too.
-					this.tutorialHtml.show()
+					this.$tutorialHtml.show()
 				)
 		);
 

@@ -11,10 +11,8 @@
 		"wikibase": false
 	},
 	"rules": {
-		"max-len": 0,
-		"jquery/no-each-util": 0,
-		"jquery/no-map-util": 0,
-		"no-jquery/no-animate": "warn",
-		"no-jquery/variable-pattern": "warn"
+		"max-len": "off",
+		"jquery/no-each-util": "off",
+		"jquery/no-map-util": "off"
 	}
 }
