@@ -188,6 +188,8 @@
 	"mwe-upwiz-error-date-license-mismatch": "Izvēlētais datums neatbilst licencei ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "Izvēlētais datums, visticamāk, nav pareizs, ņemot vērā licenci ($1).",
 	"mwe-upwiz-error-blank": "Šis lauks jāaizpilda obligāti.",
+	"mwe-upwiz-error-title-too-long": "Šis nosaukums ir par garu.\nLūdzu, saīsini to vismaz līdz $1 {{PLURAL:$1|baitiem|baitam|baitiem}}.",
+	"mwe-upwiz-error-title-too-short": "Šis nosaukums ir par īsu.\nLūdzu, pagarini to vismaz līdz $1 {{PLURAL:$1|baitiem|baitam|baitiem}}.",
 	"mwe-upwiz-error-title-blacklisted": "Nosaukums satur nevēlamu tekstu. Lūdzu, pārveido to.",
 	"mwe-upwiz-error-title-senselessimagename": "Lūdzu, padari šo nosaukumu jēgpilnāku.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Ievadītais vikiteksts ir par īsu, lai būtu licence",
