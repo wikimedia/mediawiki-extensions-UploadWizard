@@ -149,7 +149,7 @@
 		transport.checkStatus().fail( tstub, function () {
 			assert.ok( tstub.calledWith( 'server-error', { errors: [ {
 				code: 'server-error',
-				html: mw.message( 'apierror-unknownerror' ).parse()
+				html: mw.message( 'api-clientside-error-invalidresponse' ).parse()
 			} ] } ) );
 			done();
 		} );

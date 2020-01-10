@@ -370,14 +370,14 @@
 					if ( ( ( new Date() ).getTime() - transport.firstPoll ) > 10 * 60 * 1000 ) {
 						return $.Deferred().reject( 'server-error', { errors: [ {
 							code: 'server-error',
-							html: mw.message( 'apierror-unknownerror' ).parse()
+							html: mw.message( 'api-clientside-error-timeout' ).parse()
 						} ] } );
 					} else {
 						if ( response.upload.stage === undefined ) {
 							mw.log.warn( 'Unable to check file\'s status' );
 							return $.Deferred().reject( 'server-error', { errors: [ {
 								code: 'server-error',
-								html: mw.message( 'apierror-unknownerror' ).parse()
+								html: mw.message( 'api-clientside-error-invalidresponse' ).parse()
 							} ] } );
 						} else {
 							// Statuses that can be returned:

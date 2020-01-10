@@ -124,6 +124,9 @@
 		 * I'll monkeypatch around such cases so that we can always rely on the
 		 * error response the way we want it to be.
 		 *
+		 * TODO: Instead of this monkeypatching, we could call api.getErrorMessage()
+		 * in the error handlers to get nice messages.
+		 *
 		 * @param {Object} options
 		 * @return {mw.Api}
 		 */
@@ -149,7 +152,7 @@
 					function ( code, result ) { // fail handler
 						var response = { errors: [ {
 							code: code,
-							html: result.textStatus || mw.message( 'apierror-unknownerror' ).parse()
+							html: result.textStatus || mw.message( 'api-clientside-error-invalidresponse' ).parse()
 						} ] };
 
 						if ( result.errors && result.errors[ 0 ] ) {
@@ -157,12 +160,12 @@
 							response = result;
 						} else if ( result && result.textStatus === 'timeout' ) {
 							// in case of $.ajax.fail(), there is no response json
-							response.errors[ 0 ].html = mw.message( 'apierror-timeout' ).parse();
+							response.errors[ 0 ].html = mw.message( 'api-clientside-error-timeout' ).parse();
 						} else if ( result && result.textStatus === 'parsererror' ) {
 							response.errors[ 0 ].html = mw.message( 'api-error-parsererror' ).parse();
 						} else if ( code === 'http' && result && result.xhr && result.xhr.status === 0 ) {
 							// failed to even connect to server
-							response.errors[ 0 ].html = mw.message( 'apierror-offline' ).parse();
+							response.errors[ 0 ].html = mw.message( 'api-clientside-error-noconnect' ).parse();
 						}
 
 						return $.Deferred().reject( code, response, response );
