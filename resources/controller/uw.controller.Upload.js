@@ -198,7 +198,6 @@
 			if ( upload.state === 'error' ) {
 				// reset any uploads in error state back to be shiny & new
 				upload.state = 'new';
-				upload.ui.clearIndicator();
 				upload.ui.clearStatus();
 				// and queue them
 				controller.queueUpload( upload );
