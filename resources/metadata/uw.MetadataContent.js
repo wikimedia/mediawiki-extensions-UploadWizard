@@ -111,13 +111,14 @@
 
 			// Create a statement widget for each default property and set its datatype
 			defaultProperties.forEach( function ( propertyId ) {
-				var defaultData = self.getDefaultDataForProperty( propertyId );
+				var defaultData = self.getDefaultDataForProperty( propertyId ),
+					widget = self.createStatementWidget(
+						propertyId,
+						dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType,
+						defaultData
+					);
 
-				self.createStatementWidget(
-					propertyId,
-					dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType,
-					defaultData
-				);
+				self.$statementsDiv.append( widget.$element );
 
 				// pre-populate statements with data if necessary (campaigns only);
 				// default values are still considered "changes" to be published
