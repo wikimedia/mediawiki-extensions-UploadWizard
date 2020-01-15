@@ -108,7 +108,7 @@ class UploadWizardHooks {
 				$licenseKey = wfMessage( 'mwe-upwiz-prefs-license-thirdparty' )
 					->rawParams( $licenseMessage )->escaped();
 				$licenses[$licenseKey] = 'thirdparty-custom';
-			};
+			}
 
 			$preferences['upwiz_deflicense'] = [
 				'type' => 'radio',

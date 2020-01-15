@@ -121,11 +121,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	protected function handleCampaign() {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
-		if ( is_null( $campaignName ) ) {
+		if ( $campaignName === null ) {
 			$campaignName = UploadWizardConfig::getSetting( 'defaultCampaign' );
 		}
 
-		if ( !is_null( $campaignName ) && $campaignName !== '' ) {
+		if ( $campaignName !== null && $campaignName !== '' ) {
 			$campaign = UploadWizardCampaign::newFromName( $campaignName );
 
 			if ( $campaign === false ) {
@@ -250,7 +250,7 @@ class SpecialUploadWizard extends SpecialPage {
 	/**
 	 * Check if anyone can upload (or if other sitewide config prevents this)
 	 * Side effect: will print error page to wgOut if cannot upload.
-	 * @return boolean -- true if can upload
+	 * @return bool -- true if can upload
 	 */
 	private function isUploadAllowed() {
 		// Check uploading enabled
@@ -274,7 +274,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param User $user
 	 * @throws PermissionsError
 	 * @throws UserBlockedError
-	 * @return boolean -- true if can upload
+	 * @return bool -- true if can upload
 	 */
 	private function isUserUploadAllowed( User $user ) {
 		// Check permissions

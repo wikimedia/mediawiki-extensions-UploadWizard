@@ -49,7 +49,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 			'campaign_enabled'
 		] );
 
-		if ( !is_null( $params['continue'] ) ) {
+		if ( $params['continue'] !== null ) {
 			$from_id = (int)$params['continue'];
 			// Not SQL Injection, since we already force this to be an integer
 			$this->addWhere( "campaign_id >= $from_id" );
