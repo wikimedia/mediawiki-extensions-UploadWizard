@@ -230,7 +230,7 @@ class UploadWizardCampaign {
 	 *
 	 * @since 1.3
 	 *
-	 * @return String HTML
+	 * @return string HTML
 	 */
 	private function parseValue( $value, Language $lang ) {
 		$parserOptions = ParserOptions::newFromContext( $this->context );
@@ -255,13 +255,14 @@ class UploadWizardCampaign {
 	 * Parses the values in an assoc array as wikitext
 	 *
 	 * @param array $array
-	 * @param array $forKeys Array of keys whose values should be parsed
+	 * @param Language $lang
+	 * @param array|null $forKeys Array of keys whose values should be parsed
 	 *
 	 * @since 1.3
 	 *
 	 * @return array
 	 */
-	private function parseArrayValues( $array, $lang, $forKeys = null ) {
+	private function parseArrayValues( $array, Language $lang, $forKeys = null ) {
 		$parsed = [];
 		foreach ( $array as $key => $value ) {
 			if ( $forKeys !== null ) {
@@ -289,7 +290,7 @@ class UploadWizardCampaign {
 	 * @param Language|null $lang
 	 * @return array
 	 */
-	public function getParsedConfig( $lang = null ) {
+	public function getParsedConfig( Language $lang = null ) {
 		if ( $lang === null ) {
 			$lang = $this->context->getLanguage();
 		}
@@ -426,7 +427,7 @@ class UploadWizardCampaign {
 	/**
 	 * Returns key used to store the last time the cache for a particular campaign was invalidated
 	 *
-	 * @return String
+	 * @return string
 	 */
 	private function makeInvalidateTimestampKey() {
 		return wfMemcKey(
@@ -437,6 +438,8 @@ class UploadWizardCampaign {
 	/**
 	 * Checks the current date against the configured start and end dates to determine
 	 * whether the campaign is currently active.
+	 *
+	 * @return bool
 	 */
 	private function isActive() {
 		$today = strtotime( date( "Y-m-d" ) );
@@ -453,6 +456,8 @@ class UploadWizardCampaign {
 	/**
 	 * Checks the current date against the configured start and end dates to determine
 	 * whether the campaign is currently active.
+	 *
+	 * @return bool
 	 */
 	private function wasActive() {
 		$today = strtotime( date( "Y-m-d" ) );
