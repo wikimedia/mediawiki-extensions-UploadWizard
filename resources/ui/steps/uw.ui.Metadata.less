@@ -1,4 +1,6 @@
 @menu-width: 270px;
+@backgroundColorError: #fee7e6;
+@borderColorError: #d33;
 
 h3.mwe-upwiz-metadata-title {
 	float: left;
@@ -33,6 +35,11 @@ h3.mwe-upwiz-metadata-title {
 				display: none;
 			}
 		}
+
+		.mwe-upwiz-metadata-page--error {
+			background-color: @backgroundColorError;
+			border: 1px solid @borderColorError;
+		}
 	}
 
 	> .oo-ui-menuLayout-content {
@@ -54,4 +61,8 @@ h3.mwe-upwiz-metadata-title {
 			}
 		}
 	}
+}
+
+.mwe-upwiz-metadata-publish-error {
+	margin-top: 1em;
 }

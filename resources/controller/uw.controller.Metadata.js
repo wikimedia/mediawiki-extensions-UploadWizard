@@ -130,9 +130,17 @@
 
 		this.setPending();
 
+		// Remove publish error message if it exists.
+		this.ui.hidePublishError();
+
 		// Collect each statement from each page into a single array
 		uploads.forEach( function ( upload ) {
-			var statementWidgets = self.booklet.pages[ upload ].getStatements();
+			var page = self.booklet.pages[ upload ],
+				statementWidgets = page.getStatements();
+
+			// Clear out error class.
+			page.outlineItem.$element.removeClass( 'mwe-upwiz-metadata-page--error' );
+
 			Object.keys( statementWidgets ).forEach( function ( propertyId ) {
 				var statementWidget = statementWidgets[ propertyId ];
 				queue = queue.then( statementWidget.submit.bind( statementWidget, undefined ) );
@@ -144,6 +152,7 @@
 		// re-submit if something goes wrong.
 		queue
 			.then( this.moveNext.bind( this ) )
+			.fail( this.highlightErrors.bind( this ) )
 			.always( this.removePending.bind( this ) );
 	};
 
@@ -170,6 +179,32 @@
 	 */
 	uw.controller.Metadata.prototype.removePending = function () {
 		this.$overlay.remove();
+	};
+
+	/**
+	 * Highlight errors thrown by WBMI.
+	 */
+	uw.controller.Metadata.prototype.highlightErrors = function () {
+		var uploads = Object.keys( this.booklet.pages ),
+			self = this;
+
+		// Add a class to the booklet page tab where the error exists.
+		uploads.forEach( function ( upload ) {
+			var page = self.booklet.pages[ upload ],
+				statementWidgets = page.getStatements();
+
+			Object.keys( statementWidgets ).forEach( function ( propertyId ) {
+				var statementWidget = statementWidgets[ propertyId ],
+					errors = statementWidget.getErrors();
+
+				if ( errors.length > 0 ) {
+					page.outlineItem.$element.addClass( 'mwe-upwiz-metadata-page--error' );
+				}
+			} );
+		} );
+
+		// Add a general error above the publish button.
+		this.ui.showPublishError();
 	};
 
 }( mw.uploadWizard ) );

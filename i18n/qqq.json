@@ -232,6 +232,7 @@
 	"mwe-upwiz-next-deeds": "{{Identical|Next}}",
 	"mwe-upwiz-publish-details": "{{Identical|Publish}}",
 	"mwe-upwiz-publish-metadata": "{{Identical|Publish}}",
+	"mwe-upwiz-publish-metadata-error": "General error message on publish metadata step",
 	"mwe-upwiz-skip-metadata": "Button text for skipping the metadata step.",
 	"mwe-upwiz-metadata-title": "Title text for metadata step",
 	"mwe-upwiz-metadata-help-title": "Title text for help popup describing what metadata step is about",
