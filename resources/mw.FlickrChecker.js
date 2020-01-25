@@ -235,34 +235,34 @@
 		buildCollectionLinks: function ( appendId, data ) {
 			var $elem = $( '<ul>' ),
 				that = this,
-				li, ul;
+				$li, $ul;
 			if ( appendId ) {
 				$elem.attr( 'id', 'mwe-upwiz-files-collection-chooser' );
 			}
 			data.collection.forEach( function ( value ) {
-				li = $( '<li>' );
-				li.append( value.title );
+				$li = $( '<li>' );
+				$li.append( value.title );
 				if ( value.collection !== undefined ) {
-					li.append( that.buildCollectionLinks( false, value ) );
+					$li.append( that.buildCollectionLinks( false, value ) );
 				}
 				if ( value.set !== undefined ) {
-					ul = $( '<ul>' );
+					$ul = $( '<ul>' );
 					value.set.forEach( function ( value2 ) {
-						var link = $( '<a>' ).attr( { href: '#', role: 'button', 'data-id': value2.id } );
-						link.append( value2.title );
-						link.click( function () {
+						var $link = $( '<a>' ).attr( { href: '#', role: 'button', 'data-id': value2.id } );
+						$link.append( value2.title );
+						$link.on( 'click', function () {
 							// eslint-disable-next-line no-jquery/no-global-selector
 							$( '#mwe-upwiz-files-collection-chooser' ).remove();
 							that.getPhotos( 'photoset', {
 								method: 'flickr.photosets.getPhotos',
-								photoset_id: link.data( 'id' )
+								photoset_id: $link.data( 'id' )
 							} );
 						} );
-						ul.append( $( '<li>' ).append( link ) );
+						$ul.append( $( '<li>' ).append( $link ) );
 					} );
-					li.append( ul );
+					$li.append( $ul );
 				}
-				$elem.append( li );
+				$elem.append( $li );
 			} );
 			return $elem;
 		},

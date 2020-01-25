@@ -336,14 +336,14 @@
 			// The URL is optional, but if the message includes it as $2, we surface the fact
 			// that it's missing.
 			licenseURL = licenseInfo.props.url === undefined ? '#missing license URL' : licenseInfo.props.url,
-			licenseLink,
+			$licenseLink,
 			$icons = $( '<span>' ),
 			$label;
 
 		if ( licenseInfo.props.languageCodePrefix !== undefined ) {
 			licenseURL += licenseInfo.props.languageCodePrefix + languageCode;
 		}
-		licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
+		$licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
 		if ( licenseInfo.props.icons !== undefined ) {
 			licenseInfo.props.icons.forEach( function ( icon ) {
 				$icons.append( $( '<span>' ).addClass( 'mwe-upwiz-license-icon mwe-upwiz-' + icon + '-icon' ) );
@@ -351,7 +351,7 @@
 		}
 
 		$label = $( '<label>' )
-			.msg( messageKey, this.count || 0, licenseLink )
+			.msg( messageKey, this.count || 0, $licenseLink )
 			.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
 
 		if ( this.config.special === 'custom' ) {

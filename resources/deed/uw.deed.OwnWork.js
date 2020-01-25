@@ -114,8 +114,8 @@
 	uw.deed.OwnWork.prototype.setFormFields = function ( $selector ) {
 		var $customDiv, $formFields, $toggler, crossfaderWidget, defaultLicense,
 			defaultLicenseURL, defaultLicenseMsg, defaultLicenseExplainMsg,
-			defaultLicenseLink, $standardDiv, $crossfader, deed, languageCode,
-			patentMsg, patentLink, $patentDiv, patentWidget;
+			$defaultLicenseLink, $standardDiv, $crossfader, deed, languageCode,
+			patentMsg, $patentLink, $patentDiv, patentWidget;
 
 		this.$selector = $selector;
 		deed = this;
@@ -128,7 +128,7 @@
 			this.config.licenses[ defaultLicense ].url + 'deed.' + languageCode;
 		defaultLicenseMsg = 'mwe-upwiz-source-ownwork-assert-' + defaultLicense;
 		defaultLicenseExplainMsg = 'mwe-upwiz-source-ownwork-' + defaultLicense + '-explain';
-		defaultLicenseLink = $( '<a>' ).attr( { target: '_blank', href: defaultLicenseURL } );
+		$defaultLicenseLink = $( '<a>' ).attr( { target: '_blank', href: defaultLicenseURL } );
 
 		this.$form = $( '<form>' );
 
@@ -137,7 +137,7 @@
 				defaultLicenseMsg,
 				this.uploadCount,
 				this.authorInput.$element,
-				defaultLicenseLink,
+				$defaultLicenseLink,
 				mw.user
 			),
 			$( '<p>' ).addClass( 'mwe-small-print' ).msg(
@@ -190,14 +190,14 @@
 
 		if ( this.threeDCount > 0 ) {
 			patentMsg = 'mwe-upwiz-patent';
-			patentLink = $( '<a>' ).attr( { target: '_blank', href: this.config.patents.url.legalcode } );
+			$patentLink = $( '<a>' ).attr( { target: '_blank', href: this.config.patents.url.legalcode } );
 
 			$patentDiv = $( '<div>' ).addClass( 'mwe-upwiz-patent' ).append(
 				$( '<p>' ).msg(
 					patentMsg,
 					this.threeDCount,
 					this.patentAuthorInput.$element,
-					patentLink,
+					$patentLink,
 					mw.user
 				)
 			);
@@ -382,7 +382,7 @@
 			} );
 
 		// FIXME: Use CSS transition
-		// eslint-disable-next-line no-jquery/no-slide
+		// eslint-disable-next-line no-jquery/no-slide, no-jquery/no-animate
 		this.licenseInputField.$element
 			.slideDown()
 			.css( { opacity: 0 } ).animate( { opacity: 1 }, { queue: false, easing: 'linear' } );

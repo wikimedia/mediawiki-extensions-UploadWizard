@@ -23,7 +23,7 @@
 		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append( $.createSpinner( { size: 'large', type: 'block' } ) );
 		this.lastStatus = null;
 
-		this.visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' ).append(
+		this.$visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' ).append(
 			this.$indicator,
 			$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename' ).append(
 				$( '<div>' ).addClass( 'mwe-upwiz-file-preview' ),
@@ -51,16 +51,16 @@
 				this.upload.index,
 				mw.UploadWizard.config.defaults.updateList === ''
 			);
-			this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+			this.$visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 				.append( this.$imagePicker );
 		}
 
-		this.visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
+		this.$visibleFilenameDiv.find( '.mwe-upwiz-file-status-line' )
 			.append( this.removeCtrl.$element );
 
 		this.$form = $( '<form>' )
 			.addClass( 'mwe-upwiz-form' )
-			.append( this.visibleFilenameDiv );
+			.append( this.$visibleFilenameDiv );
 
 		this.$div.append( this.$form );
 

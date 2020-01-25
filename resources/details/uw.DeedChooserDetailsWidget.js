@@ -25,7 +25,7 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.DeedChooserDetailsWidget.prototype.useCustomDeedChooser = function ( upload ) {
-		var deedDiv;
+		var $deedDiv;
 
 		// Defining own deedChooser for uploads coming from external service
 		if ( upload.file.fromURL ) {
@@ -59,11 +59,11 @@
 				this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
 			}
 		} else {
-			deedDiv = $( '<div>' ).addClass( 'mwe-upwiz-custom-deed' );
-			this.$element.append( deedDiv );
+			$deedDiv = $( '<div>' ).addClass( 'mwe-upwiz-custom-deed' );
+			this.$element.append( $deedDiv );
 			this.deedChooser = upload.deedChooser = new mw.UploadWizardDeedChooser(
 				mw.UploadWizard.config,
-				deedDiv,
+				$deedDiv,
 				mw.UploadWizard.getLicensingDeeds( [ upload ], mw.UploadWizard.config ),
 				[ upload ] );
 			this.deedChooser.onLayoutReady();

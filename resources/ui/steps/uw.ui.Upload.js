@@ -465,19 +465,19 @@
 	 * Shows an error dialog informing the user that an upload has been omitted
 	 * over its filename.
 	 *
-	 * @param {jQuery} $text The error message
+	 * @param {jQuery|string} message The error message
 	 */
-	uw.ui.Upload.prototype.showFilenameError = function ( $text ) {
+	uw.ui.Upload.prototype.showFilenameError = function ( message ) {
 		var msgText;
 
-		if ( $text instanceof $ ) {
-			msgText = $text.text();
+		if ( message instanceof $ ) {
+			msgText = message.text();
 		} else {
-			msgText = $text;
+			msgText = message;
 		}
 
 		uw.eventFlowLogger.logError( 'file', { code: 'filename', message: msgText } );
-		mw.errorDialog( $text );
+		mw.errorDialog( message );
 	};
 
 	/**

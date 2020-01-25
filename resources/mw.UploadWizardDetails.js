@@ -223,7 +223,7 @@
 
 			this.$thumbnailDiv.append( this.removeCtrl.$element );
 
-			this.submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
+			this.$submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
 				.append(
 					$( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append(
 						$.createSpinner( { size: 'large', type: 'block' } )
@@ -236,7 +236,7 @@
 
 			this.$dataDiv.append(
 				this.$form,
-				this.submittingDiv
+				this.$submittingDiv
 			).morphCrossfader();
 
 			this.$div.append(
@@ -1305,7 +1305,7 @@
 		},
 
 		setVisibleTitle: function ( s ) {
-			$( this.submittingDiv )
+			$( this.$submittingDiv )
 				.find( '.mwe-upwiz-visible-file-filename-text' )
 				.text( s );
 		}
