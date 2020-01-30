@@ -215,6 +215,8 @@ class SpecialUploadWizard extends SpecialPage {
 						) ||
 						in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() ) );
 					break;
+				default:
+					throw new LogicException( 'Bad ownWorkDefault config' );
 			}
 
 			if ( $defaultInAllowedLicenses ) {
