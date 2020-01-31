@@ -112,7 +112,7 @@
 				help: new OO.ui.HtmlSnippet(
 					mw.message( 'mwe-upwiz-tooltip-categories', $( '<a>' ).attr( {
 						target: '_blank',
-						href: 'https://commons.wikimedia.org/wiki/Commons:Categories'
+						href: 'https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Categories'
 					} ) ).parse()
 				)
 			} );
