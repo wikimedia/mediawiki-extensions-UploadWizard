@@ -11,7 +11,8 @@
 			"Macofe",
 			"Garas",
 			"Manvydasz",
-			"Envlh"
+			"Envlh",
+			"Tomasdd"
 		]
 	},
 	"uploadwizard": "Įkėlimo vedlys",
@@ -46,7 +47,7 @@
 	"mwe-upwiz-add-file-0-free": "Pasirinkti medijos failus dalinimuisi",
 	"mwe-upwiz-add-file-flickr": "Dalintis paveikslėliais iš Flickr",
 	"mwe-upwiz-add-file-flickr-n": "Pridėti daugiau paveikslėlių iš Flickr",
-	"mwe-upwiz-add-flickr-or": "Arba",
+	"mwe-upwiz-add-flickr-or": "arba",
 	"mwe-upwiz-add-flickr": "Gauti iš Flickr",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr URL",
 	"mwe-upwiz-select-flickr": "Įkelti pasirinktus paveikslėlius",
@@ -179,7 +180,7 @@
 	"mwe-upwiz-next": "Kitas",
 	"mwe-upwiz-next-file": "Tęsti",
 	"mwe-upwiz-next-deeds": "Kitas",
-	"mwe-upwiz-publish-details": "Skelbti",
+	"mwe-upwiz-publish-details": "Skelbti failus",
 	"mwe-upwiz-previous": "Atgal",
 	"mwe-upwiz-home": "Eiti į Wiki Pagrindinį puslapį",
 	"mwe-upwiz-upload-another": "Įkelti daugiau failų",
