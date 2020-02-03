@@ -115,6 +115,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Сада нам реците зашто сте сигурни да имате право да објавите {{PLURAL:$1|ово дело|ова дела}}:",
 	"mwe-upwiz-source-thirdparty-accept": "У реду",
 	"mwe-upwiz-source-custom": "Навешћу податке о ауторским правима за сваку датотеку појединачно на следећој страници.",
+	"mwe-upwiz-license-metadata-title": "Лиценца само за доприносе описа (ово се примењује за текст описа, НЕ датотеку)",
 	"mwe-upwiz-license-metadata-statements-title": "Лиценца за све структурисане метаподатке",
 	"mwe-upwiz-license-metadata-content": "Кликом на „Објави податке”, пристајете на [[wmf:Terms_of_Use|услове коришћења]] и неопозиво се слажете да свој допринос предате под [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 лиценцом].",
 	"mwe-upwiz-more-options": "Додајте место и више информација …",
