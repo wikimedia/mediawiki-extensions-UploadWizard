@@ -128,44 +128,43 @@ class UploadWizardCampaign {
 	}
 
 	public function getTotalContributorsCount() {
-		global $wgMemc;
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$fname = __METHOD__;
 
-		$key = wfMemcKey( 'uploadwizard', 'campaign', $this->getName(), 'contributors-count' );
-		$data = $wgMemc->get( $key );
-		if ( $data === false ) {
-			wfDebug( __METHOD__ . ' cache miss for key ' . $key );
-			$dbr = wfGetDB( DB_REPLICA );
+		return $cache->getWithSetCallback(
+			$cache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
+			UploadWizardConfig::getSetting( 'campaignStatsMaxAge' ),
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname ) {
+				$dbr = wfGetDB( DB_REPLICA );
+				$setOpts += Database::getCacheSetOptions( $dbr );
 
-			if ( class_exists( ActorMigration::class ) ) {
-				$actorQuery = ActorMigration::newMigration()->getJoin( 'img_user' );
-			} else {
-				$actorQuery = [
-					'tables' => [],
-					'fields' => [ 'img_user' => 'img_user' ],
-					'joins' => [],
-				];
+				if ( class_exists( ActorMigration::class ) ) {
+					$actorQuery = ActorMigration::newMigration()->getJoin( 'img_user' );
+				} else {
+					$actorQuery = [
+						'tables' => [],
+						'fields' => [ 'img_user' => 'img_user' ],
+						'joins' => [],
+					];
+				}
+
+				$result = $dbr->select(
+					[ 'categorylinks', 'page', 'image' ] + $actorQuery['tables'],
+					[ 'count' => 'COUNT(DISTINCT ' . $actorQuery['fields']['img_user'] . ')' ],
+					[ 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ],
+					$fname,
+					[
+						'USE INDEX' => [ 'categorylinks' => 'cl_timestamp' ]
+					],
+					[
+						'page' => [ 'INNER JOIN', 'cl_from=page_id' ],
+						'image' => [ 'INNER JOIN', 'page_title=img_name' ]
+					] + $actorQuery['joins']
+				);
+
+				return $result->current()->count;
 			}
-
-			$result = $dbr->select(
-				[ 'categorylinks', 'page', 'image' ] + $actorQuery['tables'],
-				[ 'count' => 'COUNT(DISTINCT ' . $actorQuery['fields']['img_user'] . ')' ],
-				[ 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ],
-				__METHOD__,
-				[
-					'USE INDEX' => [ 'categorylinks' => 'cl_timestamp' ]
-				],
-				[
-					'page' => [ 'INNER JOIN', 'cl_from=page_id' ],
-					'image' => [ 'INNER JOIN', 'page_title=img_name' ]
-				] + $actorQuery['joins']
-			);
-
-			$data = $result->current()->count;
-
-			$wgMemc->set( $key, $data, UploadWizardConfig::getSetting( 'campaignStatsMaxAge' ) );
-		}
-
-		return $data;
+		);
 	}
 
 	/**
