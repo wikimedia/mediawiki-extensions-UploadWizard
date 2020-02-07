@@ -140,4 +140,26 @@
 		} );
 	};
 
+	/**
+	 * Show a general error message above the publish button.
+	 */
+	uw.ui.Metadata.prototype.showPublishError = function () {
+		this.error = new OO.ui.MessageWidget( {
+			type: 'error',
+			label: mw.message( 'mwe-upwiz-publish-metadata-error' ).parse(),
+			classes: [ 'mwe-upwiz-metadata-publish-error' ]
+		} );
+		this.$buttons.before( this.error.$element );
+	};
+
+	/**
+	 * Remove the error message widget.
+	 */
+	uw.ui.Metadata.prototype.hidePublishError = function () {
+		if ( this.error ) {
+			this.error.$element.remove();
+			delete this.error;
+		}
+	};
+
 }( mw.uploadWizard ) );
