@@ -138,6 +138,9 @@
 	"mwe-upwiz-license-metadata-statements-title": "সমস্ত কাঠামোবদ্ধ অধিউপাত্তের জন্য লাইসেন্স",
 	"mwe-upwiz-license-metadata-content": "\"প্রকাশ করুন\" ক্লিক করার দ্বারা, আপনি [[wmf:Terms_of_Use|ব্যবহারের শর্তাবলীর]] সাথে একমত হচ্ছেন, এবং [https://creativecommons.org/publicdomain/zero/1.0/deed.bn ক্রিয়েটিভ কমন্স সিসি০ লাইসেন্সে] আপনার অবদান প্রকাশে সম্মত হচ্ছেন।",
 	"mwe-upwiz-more-options": "অবস্থান এবং অন্যান্য তথ্য যোগ করুন...",
+	"mwe-upwiz-copy-statements-dialog-accept": "হ্যাঁ, অনুলিপি করুন",
+	"mwe-upwiz-copy-statements-button": "সমস্ত ফাইলে বিবৃতি অনুলিপি করুন …",
+	"mwe-upwiz-copy-statements-button-done": "অনুলিপি হয়েছে!",
 	"mwe-upwiz-copy-metadata": "নিম্নলিখিত সমস্ত আপলোডে তথ্য অনুলিপি করুন...",
 	"mwe-upwiz-copy-metadata-button": "অনুলিপি",
 	"mwe-upwiz-copy-metadata-button-undo": "পূর্বাবস্থায় ফেরাও",
@@ -194,8 +197,11 @@
 	"mwe-upwiz-next-deeds": "পরবর্তী",
 	"mwe-upwiz-publish-details": "ফাইলগুলি প্রকাশ করুন",
 	"mwe-upwiz-publish-metadata": "উপাত্ত প্রকাশ করুন",
+	"mwe-upwiz-publish-metadata-error": "দয়া করে সমস্ত ত্রুটিগুলি ঠিক করুন।",
 	"mwe-upwiz-skip-metadata": "এটি এড়িয়ে যান",
 	"mwe-upwiz-metadata-title": "অধিউপাত্ত যোগ করুন",
+	"mwe-upwiz-metadata-help-title": "ঐচ্ছিক অধিউপাত্ত যুক্ত করা",
+	"mwe-upwiz-metadata-help-content": "আপনার ফাইলগুলি আপলোড হয়েছে, এগুলিতে অধিউপাত্ত যুক্ত করলে তা অন্যদের জন্য এটি আরও আবিষ্কারযোগ্য করতে সহায়তা করবে।",
 	"mwe-upwiz-previous": "পিছনে",
 	"mwe-upwiz-home": "উইকি প্রধান পাতায় যাও",
 	"mwe-upwiz-upload-another": "আরও ফাইল আপলোড করুন",
@@ -349,5 +355,8 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "একসাথে আপলোডের সর্বাধিক সংখ্যা",
 	"campaigns": "আপলোড উইজার্ড ক্যাম্পেইন",
 	"mwe-upload-campaigns-pagination-next": "পরবর্তী পাতা",
-	"mwe-upload-campaigns-list-title": "আপলোড ক্যাম্পেইনের তালিকা"
+	"mwe-upload-campaigns-list-title": "আপলোড ক্যাম্পেইনের তালিকা",
+	"mwe-upwiz-mv-cta-heading": "প্রত্যেকের জন্য চিত্রকে আরও সন্ধানযোগ্য করে তুলতে সহায়তা করুন",
+	"mwe-upwiz-mv-cta-checkbox-label": "হ্যাঁ, আমার আপলোডগুলিতে আমার পর্যালোচনার জন্য প্রস্তুত এমন ট্যাগ থাকলে আমি বিজ্ঞপ্তি পেতে চাই",
+	"mwe-upwiz-mv-cta-dismiss": "খারিজ করুন"
 }

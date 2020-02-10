@@ -53,7 +53,8 @@
 			"Envlh",
 			"Thibaut120094",
 			"Pols12",
-			"Tektasc"
+			"Tektasc",
+			"Choodyam"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -254,6 +255,7 @@
 	"mwe-upwiz-next-deeds": "Suivant",
 	"mwe-upwiz-publish-details": "Publier les fichiers",
 	"mwe-upwiz-publish-metadata": "Publier les données",
+	"mwe-upwiz-publish-metadata-error": "Veuillez corriger toutes les erreurs.",
 	"mwe-upwiz-skip-metadata": "Sauter ceci",
 	"mwe-upwiz-metadata-title": "Ajouter les métadonnées",
 	"mwe-upwiz-metadata-help-title": "Addition de métadonnées facultatives",

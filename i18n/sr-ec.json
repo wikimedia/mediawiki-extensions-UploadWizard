@@ -167,6 +167,7 @@
 	"mwe-upwiz-next-deeds": "Следеће",
 	"mwe-upwiz-publish-details": "Објави датотеке",
 	"mwe-upwiz-publish-metadata": "Објави податке",
+	"mwe-upwiz-publish-metadata-error": "Исправите све грешке.",
 	"mwe-upwiz-skip-metadata": "Прескочи ово",
 	"mwe-upwiz-metadata-title": "Додавање метаподатака",
 	"mwe-upwiz-metadata-help-title": "Додавање опционих метаподатака",
@@ -305,5 +306,9 @@
 	"mwe-upwiz-prefs-license-thirdparty": "Туђе дело – $1",
 	"mwe-upwiz-prefs-skiptutorial": "Прескочи уводно упутство о лиценцирању",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максималан број истовремених отпремања",
-	"mwe-upload-campaigns-pagination-next": "Следећа страница"
+	"mwe-upload-campaigns-pagination-next": "Следећа страница",
+	"mwe-upwiz-mv-cta-heading": "Помозите да свако може лакше пронаћи слике",
+	"mwe-upwiz-mv-cta-description": "Остава има [[c:Commons:Structured_data/Computer-aided_tagging|нову алатку]] која сугерише тагове за слике које отпремите ако већ нисте додали тагове. Када потврдите тачне тагове, помажете да свако може лакше пронаћи слике.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Да, желим да добијам обавештења када моја отпремања имају тагове који су спремни за мој преглед",
+	"mwe-upwiz-mv-cta-final-cta": "Спремни да одмах почнете с таговањем? [[c:Special:SuggestedTags|Опробајте алатку]] таговањем популарних слика!"
 }

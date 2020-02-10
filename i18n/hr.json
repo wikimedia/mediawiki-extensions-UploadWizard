@@ -7,7 +7,8 @@
 			"MaGa",
 			"Matma Rex",
 			"Bugoslav",
-			"Astrind"
+			"Astrind",
+			"Neptune, the Mystic"
 		]
 	},
 	"uploadwizard": "Čarobnjak za postavljanje datoteka",
@@ -158,6 +159,7 @@
 	"mwe-upwiz-next-deeds": "Sljedeće",
 	"mwe-upwiz-publish-details": "Objavi datoteke",
 	"mwe-upwiz-publish-metadata": "Objavi podatke",
+	"mwe-upwiz-publish-metadata-error": "Molimo, ispravite sve pogreške.",
 	"mwe-upwiz-skip-metadata": "Preskoči",
 	"mwe-upwiz-metadata-title": "Dodajte metapodatke",
 	"mwe-upwiz-previous": "Natrag",
