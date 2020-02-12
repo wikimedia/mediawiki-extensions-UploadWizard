@@ -28,7 +28,6 @@
 		var $header,
 			beginButtonTarget,
 			thanks = this,
-			machineVisionConfig = mw.config.get( 'MachineVision' ),
 			userGroups = mw.config.get( 'wgUserGroups' );
 
 		this.config = config;
@@ -94,15 +93,18 @@
 		this.$buttons.append( this.buttonGroup.$element );
 
 		// If appropriate, add a dismissable Machine Vision CTA above content.
-		if ( machineVisionConfig && userGroups &&
-			machineVisionConfig.showComputerAidedTaggingCallToAction === true &&
-			userGroups.indexOf( 'autoconfirmed' ) !== -1 &&
-			( machineVisionConfig.testersOnly === false ||
-				userGroups.indexOf( 'machinevision-tester' ) !== -1 ) ) {
-			this.mvCtaCheckbox = new OO.ui.CheckboxInputWidget( { value: 'Notify me' } )
-				.connect( this, { change: this.onMvCtaCheckboxChange } );
-			this.addMachineVisionCta();
-		}
+		mw.loader.using( 'ext.MachineVision.config' ).then( function ( require ) {
+			var machineVisionConfig = require( 'ext.MachineVision.config' );
+			if ( machineVisionConfig && userGroups &&
+				machineVisionConfig.showComputerAidedTaggingCallToAction === true &&
+				userGroups.indexOf( 'autoconfirmed' ) !== -1 &&
+				( machineVisionConfig.testersOnly === false ||
+					userGroups.indexOf( 'machinevision-tester' ) !== -1 ) ) {
+				thanks.mvCtaCheckbox = new OO.ui.CheckboxInputWidget( { value: 'Notify me' } )
+					.connect( thanks, { change: thanks.onMvCtaCheckboxChange } );
+				thanks.addMachineVisionCta();
+			}
+		} );
 	};
 
 	OO.inheritClass( uw.ui.Thanks, uw.ui.Step );
