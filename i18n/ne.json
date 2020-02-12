@@ -128,7 +128,7 @@
 	"mwe-upwiz-license-confirm-remove": "के तपाईं यस {{PLURAL:$1|यो अपलोड|यी अपलोडहरू}}लाई मेट्न चाहनुहुन्छ ?",
 	"mwe-upwiz-license-confirm-remove-title": "हटाउन यकिन गर्नुहोस",
 	"mwe-upwiz-license-external": "यो फाइल निम्न श्रोत साइटको अनुज्ञा भित्र रहेको छ \"$1\": $2",
-	"mwe-upwiz-license-pd-old-70-1923": "पहिलो पटक १९२३ भन्दा पूर्व प्रकासित भएको तथा लेखकको मृत्यु ७० बर्ष भइसकेको",
+	"mwe-upwiz-license-pd-old-70-1923": "पहिलो पटक सन् १९२३ भन्दा पूर्व प्रकाशित भएको तथा लेखकको मृत्यु भएकाे ७० बर्ष भइसकेको",
 	"mwe-upwiz-categories": "श्रेणीहरू",
 	"mwe-upwiz-thumbnail-failed": "तपाईंको अपलोड सफल भयो तर सर्भरमा त्रुटीको कारण दृश्यालोकन गराउन असर्मथ छौ",
 	"mwe-upwiz-unparseable-filename": "\"$1\" फाइलको नाम बुझ्न सकिएन",
