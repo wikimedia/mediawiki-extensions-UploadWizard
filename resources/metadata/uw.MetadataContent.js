@@ -9,6 +9,7 @@
 	var AddPropertyWidget,
 		StatementWidget,
 		dataTypesMap,
+		propertyDataValuesTypes,
 		defaultProperties,
 		propertyTypes,
 		wikibaseDatamodel;
@@ -77,6 +78,19 @@
 			dataTypesMap = mw.config.get( 'wbDataTypes' );
 			defaultProperties = mw.config.get( 'wbmiDefaultProperties' ) || [];
 			propertyTypes = mw.config.get( 'wbmiPropertyTypes' ) || {};
+			propertyDataValuesTypes = [];
+
+			Object.keys( propertyTypes ).forEach( function ( propertyId ) {
+				propertyDataValuesTypes[ propertyId ] = dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType;
+			} );
+
+			( mw.UploadWizard.config.defaults.statements || [] ).forEach( function ( data ) {
+				if ( defaultProperties.indexOf( data.propertyId ) < 0 ) {
+					defaultProperties.push( data.propertyId );
+				}
+				propertyDataValuesTypes[ data.propertyId ] = data.dataType;
+			} );
+
 			Object.freeze( defaultProperties );
 		} ).then( self.setup() ).then( function () {
 			Object.keys( self.statementWidgets ).forEach( function ( propertyId ) {
@@ -114,7 +128,7 @@
 				var defaultData = self.getDefaultDataForProperty( propertyId ),
 					widget = self.createStatementWidget(
 						propertyId,
-						dataTypesMap[ propertyTypes[ propertyId ] ].dataValueType,
+						propertyDataValuesTypes[ propertyId ],
 						defaultData
 					);
 
