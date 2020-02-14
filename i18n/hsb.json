@@ -370,5 +370,7 @@
 	"campaigns": "Kampanje nahrawanskeho asistenta",
 	"mwe-upload-campaigns-pagination-next": "Přichodna strona",
 	"mwe-upload-campaigns-list-title": "Lisćina nahraćowych kampanjow",
-	"mwe-upwiz-mv-cta-heading": "Pomhaj nam, zo bychu wšitcy wobrazy lóšo namakali"
+	"mwe-upwiz-mv-cta-heading": "Pomhaj nam, zo bychu wšitcy wobrazy lóšo namakali",
+	"mwe-upwiz-mv-cta-description": "Commons ma [[c:Commons:Structured_data/Computer-aided_tagging|nowy tool]], kotryž namjetuje tagy za twoje nahrate wobrazy, njejsy-li hišće žane dodał(a). Hdyž so hodźace tagy wobkrućiš, wolóžiš pytanje za wobrazami za wšěch.",
+	"mwe-upwiz-mv-cta-user-preference-set": "Wulkotnje! Móžeš tutón rozsud stajnje w swojich [[c:Special:Preferences#mw-prefsection-echo|wužiwarskich nastajenjach]] změnić."
 }
