@@ -23,7 +23,8 @@
 	},
 	"DefaultUserOptions": {
 		"upwiz_deflicense": "default",
-		"upwiz_maxsimultaneous": "default"
+		"upwiz_maxsimultaneous": "default",
+		"upwiz_mv_cta_dismissed": 0
 	},
 	"GroupPermissions": {
 		"*": {

@@ -165,14 +165,17 @@
 	 * tool, and to visit the tool to tag popular uploads.
 	 */
 	uw.ui.Thanks.prototype.addMachineVisionCta = function () {
-		var $mvCtaDiv,
+		var mvCtaDismissedKey = 'upwiz_mv_cta_dismissed',
+			$mvCtaDiv,
 			$mvCtaDismiss,
 			$mvCtaContent,
 			$mvCtaCheckboxSection,
 			mvCtaCheckboxField;
 
-		// If the user has already opted into notifications, don't show this.
-		if ( Number( mw.user.options.get( 'echo-subscriptions-web-machinevision' ) ) === 1 ) {
+		// If the user has already opted into notifications or dismissed the
+		// CTA previously, don't show this.
+		if ( Number( mw.user.options.get( 'echo-subscriptions-web-machinevision' ) ) === 1 ||
+			Number( mw.user.options.get( mvCtaDismissedKey ) ) === 1 ) {
 			return;
 		}
 
@@ -188,6 +191,10 @@
 			title: mw.message( 'mwe-upwiz-mv-cta-dismiss' ).text()
 		} ).on( 'click', function () {
 			$mvCtaDiv.remove();
+
+			// Set user preference to not show this again.
+			new mw.Api().saveOption( mvCtaDismissedKey, 1 );
+			mw.user.options.set( mvCtaDismissedKey, 1 );
 		} );
 		$mvCtaDismiss.$element.appendTo( $mvCtaDiv );
 

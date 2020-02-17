@@ -141,6 +141,11 @@ class UploadWizardHooks {
 			];
 		}
 
+		// Store user dismissal of machine vision CTA on final step.
+		$preferences['upwiz_mv_cta_dismissed'] = [
+			'type' => 'api'
+		];
+
 		return true;
 	}
 
