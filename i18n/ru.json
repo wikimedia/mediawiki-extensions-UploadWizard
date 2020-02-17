@@ -43,7 +43,8 @@
 			"Vlad5250",
 			"Nk88",
 			"Diralik",
-			"Movses"
+			"Movses",
+			"Pacha Tchernof"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -228,6 +229,7 @@
 	"mwe-upwiz-next-deeds": "Далее",
 	"mwe-upwiz-publish-details": "Опубликовать файлы",
 	"mwe-upwiz-publish-metadata": "Опубликовать данные",
+	"mwe-upwiz-publish-metadata-error": "Пожалуйста, исправьте все ошибки.",
 	"mwe-upwiz-skip-metadata": "Пропустить это",
 	"mwe-upwiz-metadata-title": "Добавить метаданные",
 	"mwe-upwiz-metadata-help-title": "Добавить необязательные метаданные",
