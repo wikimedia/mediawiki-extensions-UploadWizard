@@ -38,6 +38,7 @@
 	"mwe-upwiz-flickr-input-placeholder": "Flickr URL",
 	"mwe-upwiz-select-flickr": "Augšupielādēt izvēlētos attēlus",
 	"mwe-upwiz-error-no-image-retrieved": "Neizdevās iegūt failu no $1.",
+	"mwe-upwiz-multi-file-select2": "Izvēlies augšupielādējamos failus. Lai izvēlētos vairākus failus, pieturi Shift taustiņu un klikšķini uz tiem. Augšupielādei vari izvēlāties līdz $1 {{PLURAL:$1|failiem|failam|failiem}}.",
 	"mwe-upwiz-transport-started": "Uzsāk...",
 	"mwe-upwiz-uploading": "Augšupielādē...",
 	"mwe-upwiz-queued": "Ierindots...",
