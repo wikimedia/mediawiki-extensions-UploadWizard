@@ -962,7 +962,9 @@
 		 */
 		submitWikiText: function ( wikiText ) {
 			var params,
-				tags = [ 'uploadwizard' ];
+				tags = [ 'uploadwizard' ],
+				deed = this.upload.deedChooser.deed,
+				comment = '';
 
 			this.firstPoll = ( new Date() ).getTime();
 
@@ -970,11 +972,17 @@
 				tags.push( 'uploadwizard-' + this.upload.file.source );
 			}
 
+			if ( deed.name === 'ownwork' ) {
+				comment = 'Uploaded own work with ' + mw.UploadWizard.userAgent;
+			} else {
+				comment = 'Uploaded a work by ' + deed.getAuthorWikiText() + ' from ' + deed.getSourceWikiText() + ' with ' + mw.UploadWizard.userAgent;
+			}
+
 			params = {
 				action: 'upload',
 				filekey: this.upload.fileKey,
 				filename: this.getTitle().getMain(),
-				comment: 'User created page with ' + mw.UploadWizard.userAgent,
+				comment: comment,
 				tags: mw.UploadWizard.config.CanAddTags ? tags : [],
 				// we can ignore upload warnings here, we've already checked
 				// when stashing the file
