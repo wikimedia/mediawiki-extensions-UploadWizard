@@ -989,7 +989,6 @@
 				params.async = true;
 			}
 
-			params.text = this.getWikiText();
 			return this.submitWikiTextInternal( params );
 		},
 
