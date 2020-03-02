@@ -335,5 +335,13 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Konkureerivate üleslaadimiste ülemmäär",
 	"campaigns": "Üleslaadimisviisardi kampaaniad",
 	"mwe-upload-campaigns-pagination-next": "Järgmine lehekülg",
-	"mwe-upload-campaigns-list-title": "Üleslaadimiskampaaniate loend"
+	"mwe-upload-campaigns-list-title": "Üleslaadimiskampaaniate loend",
+	"mwe-upwiz-mv-cta-heading": "Aita teha pildid paremini leitavaks",
+	"mwe-upwiz-mv-cta-description": "Commonsis on [[c:Commons:Structured_data/Computer-aided_tagging|uus tööriist]], mis soovitab sinu üles laaditud piltide juurde silte. Kui kinnitad täpsed sildid, siis on kõigil lihtsam sinu pilte otsida.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Jah, soovin saada teavitusi, kui minu üles laaditud failidel on sildid, mis on valmis ülevaatuseks",
+	"mwe-upwiz-mv-cta-final-cta": "Kas oled valmis silte lisama? [[c:Special:SuggestedTags|Proovi tööriista]] kohe ja sildista populaarseid pilte!",
+	"mwe-upwiz-mv-cta-dismiss": "Peida",
+	"mwe-upwiz-mv-cta-user-preference-set": "Suurepärane! Saad seda sätet enda [[c:Special:Preferences#mw-prefsection-echo|eelistustes]] igal ajal muuta.",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Sa ei saa enam teavitusi enda üleslaaditud failide sildistamise kohta.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Meil ei õnnestunud hetkel sinu eelistusi salvestada. Palun mine enda [[c:Special:Preferences#mw-prefsection-echo|eelistuste leheküljele]] ja luba teavitused."
 }

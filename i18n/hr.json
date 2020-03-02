@@ -281,5 +281,13 @@
 	"mwe-upwiz-prefs-skiptutorial": "Preskoči uvodni vodič o licenciranju.",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Najveći broj istovremenih postavljanja",
 	"campaigns": "Pothvati projekta Čarobnjaka za postavljanje datoteka",
-	"mwe-upload-campaigns-pagination-next": "Sljedeća stranica"
+	"mwe-upload-campaigns-pagination-next": "Sljedeća stranica",
+	"mwe-upwiz-mv-cta-heading": "Pomozite da slike budu lakše za pronalaženje.",
+	"mwe-upwiz-mv-cta-description": "Zajednički poslužitelj ima [[c:Commons:Structured_data/Computer-aided_tagging|novi alat]] koji će predložiti oznake slikama koje ste postavili, a niste im dodali oznake. Potvrdom oznaka pomažete lakšem pretraživanju slika.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Da, želio bih primati obavijesti kada postoje oznake datotekama koje sam postavio koje su spremne za pregled",
+	"mwe-upwiz-mv-cta-final-cta": "Jeste li spremni odmah započeti s označavanjem? [[c:Special:SuggestedTags|Isprobajte alat]] sada!",
+	"mwe-upwiz-mv-cta-dismiss": "Odbaci",
+	"mwe-upwiz-mv-cta-user-preference-set": "Odlično! Ovu postavku bilo kada možete promijeniti u[[c:Special:Preferences#mw-prefsection-echo|postavkama]].",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Nećete više dobivati obavijesti o označavanju datoteka koje ste postavili.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Trenuračno nismo bili u mogućnosti spremiti vaše postavke. Molimo posjetite [[c:Special:Preferences#mw-prefsection-echo|postavke]] i uključite obavijest."
 }
