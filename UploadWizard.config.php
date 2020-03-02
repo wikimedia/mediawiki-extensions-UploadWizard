@@ -639,6 +639,11 @@ return [
 	// [deprecated] Wiki page for leaving Upload Wizard feedback,
 	// for example 'Commons:Upload wizard feedback'
 	'feedbackPage' => '',
+
+	// Link to page containing a list of categories that the user can use for uploaded files.
+	// Shown on the Details stage, above the category selection field.
+	'allCategoriesLink' => 'https://commons.wikimedia.org/wiki/Commons:Categories',
+
 	// @codingStandardsIgnoreStart
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
