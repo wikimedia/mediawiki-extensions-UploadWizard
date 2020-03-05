@@ -23,7 +23,6 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 	public function testIsUserUploadAllowedForBlockedUser( $sitewide, $expectException ) {
 		$this->setMwGlobals( [
 			'wgBlockDisablesLogin' => false,
-			'wgEnablePartialBlocks' => true,
 			'wgEnableUploads' => true,
 		] );
 
