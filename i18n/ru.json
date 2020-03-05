@@ -173,6 +173,7 @@
 	"mwe-upwiz-license-metadata-title": "Лицензия для кратких подписей (действует только для текстов подписей, это НЕ лицензия файла)",
 	"mwe-upwiz-license-metadata-statements-title": "Лицензия для всех структурированных метаданных",
 	"mwe-upwiz-more-options": "Добавить местоположение и другую информацию…",
+	"mwe-upwiz-copy-statements-dialog-accept": "Да, скопировать",
 	"mwe-upwiz-copy-metadata": "Копировать информацию для всех следующих загрузок…",
 	"mwe-upwiz-copy-metadata-button": "Копировать",
 	"mwe-upwiz-copy-metadata-button-undo": "Отменить",

@@ -202,7 +202,7 @@
 	"mwe-upwiz-thanks-wikitext": "Bu dosyayı Vikide kullanmak için, bu metni viki sayfasına kopyalayın:",
 	"mwe-upwiz-thanks-update-delay": "Görüntünün liste sayfasına eklenmesi beş dakika kadar sürebilir.",
 	"mwe-upwiz-thanks-url": "HTML bağlantısı vermek için bu URL adresini kopyalayın:",
-	"mwe-upwiz-upload-error-bad-filename-extension": "Bu wiki, \".$1\" uzantısıyla biten dosya isimlerini kabul etmiyor.",
+	"mwe-upwiz-upload-error-bad-filename-extension": "Bu viki \".$1\" uzantısıyla biten dosya isimlerini kabul etmiyor.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Bu wiki, dosyaların bir uzantıya, dosya adının sonunda \".JPG\" olması gibi, sahip olmasını istemektedir.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Zaten \"$1\" dosyasını yüklüyorsunuz.",
 	"mwe-upwiz-allowed-filename-extensions": "İzin verilen uzantılar şunlardır:",
