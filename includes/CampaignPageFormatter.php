@@ -9,6 +9,8 @@
  * @author Yuvi Panda <yuvipanda@gmail.com>
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Helper class to produce formatted HTML output for Campaigns
  */
@@ -28,8 +30,9 @@ class CampaignPageFormatter {
 	}
 
 	private function isCampaignExtensionEnabled() {
-		global $wgResourceModules;
-		return isset( $wgResourceModules['ext.campaigns'] );
+		$rl = MediaWikiServices::getInstance()->getResourceLoader();
+		// FIXME: This string exists nowhere in Wikimedia Gerrit outside this file.
+		return $rl->isModuleRegistered( 'ext.campaigns' );
 	}
 
 	public function generateReadHtml() {
