@@ -227,13 +227,6 @@ form.mwe-upwiz-form {
 	display: block;
 }
 
-#mwe-upwiz-flickr-select-list img {
-	width: 75px;
-	height: 75px;
-	/* @embed */
-	background: url( images/24px-spinner-0645ad.gif ) no-repeat center center;
-}
-
 #mwe-upwiz-flickr-disclaimer {
 	background-color: #eaf3ff;
 	font-size: 92%;
