@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class to encapsulate all the html generation associated with the UploadWizard tutorial.
  * Might be a start for a subclass of UploadWizard, if we ever free it of its WMF-oriented features
@@ -93,7 +95,8 @@ class UploadWizardTutorial {
 	 */
 	public static function getFile( $langCode, $tutorial ) {
 		$tutorialName = str_replace( '$1', $langCode, $tutorial['template'] );
-		return wfFindFile( Title::newFromText( $tutorialName, NS_FILE ) );
+		return MediaWikiServices::getInstance()->getRepoGroup()
+			->findFile( Title::newFromText( $tutorialName, NS_FILE ) );
 	}
 
 	/**
