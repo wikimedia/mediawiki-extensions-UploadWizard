@@ -16,8 +16,8 @@ class UploadWizardTutorial {
 	 * Fetches appropriate HTML for the tutorial portion of the wizard.
 	 * Looks up an image on the current wiki. This will work as is on Commons, and will also work
 	 * on test wikis that enable instantCommons.
-	 * @param String|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
-	 * @return String html that will display the tutorial.
+	 * @param string|null $campaign Upload Wizard campaign for which the tutorial should be displayed.
+	 * @return string html that will display the tutorial.
 	 */
 	public static function getHtml( $campaign = null ) {
 		global $wgLang;
@@ -88,8 +88,8 @@ class UploadWizardTutorial {
 	/**
 	 * Get tutorial file for a particular language, or false if not available.
 	 *
-	 * @param String $langCode language Code
-	 * @param String[] $tutorial Upload Wizard campaign for which the tutorial should be displayed.
+	 * @param string $langCode language Code
+	 * @param string[] $tutorial Upload Wizard campaign for which the tutorial should be displayed.
 	 *
 	 * @return File|false
 	 */
@@ -104,9 +104,9 @@ class UploadWizardTutorial {
 	 * including an imagemap for the clickable "Help desk" button.
 	 *
 	 * @param MediaTransformOutput $thumb
-	 * @param String[] $tutorial Upload Wizard campaign for which the tutorial should be displayed.
+	 * @param string[] $tutorial Upload Wizard campaign for which the tutorial should be displayed.
 	 *
-	 * @return String HTML representing the image, with clickable helpdesk button
+	 * @return string HTML representing the image, with clickable helpdesk button
 	 */
 	public static function getImageHtml( MediaTransformOutput $thumb, $tutorial ) {
 		$helpDeskUrl = wfMessage( 'mwe-upwiz-help-desk-url' )->text();
