@@ -90,7 +90,7 @@
 					$( '<div>' )
 						.text( mw.message(
 							'mwe-upwiz-multi-file-select2',
-							config.maxUploads
+							config.maxFlickrUploads
 						) ),
 					this.$flickrSelectList
 				);

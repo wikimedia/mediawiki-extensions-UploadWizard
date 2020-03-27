@@ -589,6 +589,10 @@ return [
 	// Max number of uploads for a given form
 	'maxUploads' => $wgUser->isAllowed( 'mass-upload' ) ? 500 : 50,
 
+	// Max number of files that can be imported from Flickr at one time (T236341)
+	// Note that these numbers should always be equal to or less than the maxUploads above.
+	'maxFlickrUploads' => $wgUser->isAllowed( 'mass-upload' ) ? 500 : 4,
+
 	// Max file size that is allowed by PHP (may be higher/lower than MediaWiki file size limit).
 	// When using chunked uploading, these limits can be ignored.
 	'maxPhpUploadSize' => UploadBase::getMaxPhpUploadSize(),

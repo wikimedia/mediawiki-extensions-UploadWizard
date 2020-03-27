@@ -450,7 +450,7 @@
 					// Limit the number of selectable images
 					checkboxesWidget.getItems().forEach( function ( checkbox ) {
 						if ( !checkbox.isSelected() ) {
-							checkbox.setDisabled( selectedCount >= mw.UploadWizard.config.maxUploads );
+							checkbox.setDisabled( selectedCount >= mw.UploadWizard.config.maxFlickrUploads );
 						}
 					} );
 				} );
