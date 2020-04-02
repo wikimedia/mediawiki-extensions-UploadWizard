@@ -194,6 +194,7 @@
 	"mwe-upwiz-upload-another": "Nahrať viac súborov",
 	"mwe-upwiz-tooltip-skiptutorial": "Tohto sprievodcu môžete znovu aktivovať v [$1 nastaveniach] pod $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Meno osoby, ktorá vytvorila fotografiu, namaľovala obraz, nakreslila výkres a pod.",
+	"mwe-upwiz-tooltip-source": "Odkiaľ tento súbor pochádza – môže to byť URL alebo kniha či publikácia.",
 	"mwe-upwiz-tooltip-title": "Vytvorte krátky unikátny nadpis tohto súboru použitím bežného jazyka aj s medzerami. Neuvádzajte príponu názvu súboru.",
 	"mwe-upwiz-tooltip-caption": "Pridajte jednoriadkové vysvetlenie, čo tento súbor predstavuje, s uvedením len tých najdôležitejších informácií.",
 	"mwe-upwiz-tooltip-description": "Uveďte všetky informácie, ktoré pomôžu ostatným pochopiť, čo súbor predstavuje.",
