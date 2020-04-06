@@ -171,6 +171,8 @@
 	"mwe-upwiz-source": "Zdroj",
 	"mwe-upwiz-thanks-intro": "Ďakujeme za nahranie súboru!",
 	"mwe-upwiz-thanks-explain": "Teraz môžete {{PLURAL:$1|tento súbor|tieto súbory}} použiť na Wikipédiách alebo {{PLURAL:$1|naň|na ne}} odkazovať na webe.",
+	"mwe-upwiz-thanks-wikitext": "Pre použitie súboru na wiki vložte na stránku tento text:",
+	"mwe-upwiz-thanks-url": "Odkázať na súbor v HTML môžete pomocou tejto adresy:",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Súbor „$1“ už nahrávate.",
 	"mwe-upwiz-allowed-filename-extensions": "Povolené prípony sú:",
 	"mwe-upwiz-upload-error-duplicate-archive": "Tento súbor už bol nahraný na túto wiki, ale neskôr bol zmazaný.",
@@ -290,6 +292,9 @@
 	"mwe-upload-campaigns-pagination-next": "Ďalšia strana",
 	"mwe-upload-campaigns-list-title": "Zoznam nahrávacích kampaní",
 	"mwe-upwiz-mv-cta-heading": "Pomôžte všetkým nájsť obrázky ľahšie",
+	"mwe-upwiz-mv-cta-description": "Commons obsahuje [[c:Commons:Structured_data/Computer-aided_tagging|nový nástroj]], ktorý navrhne značky pre vami nahrané obrázky, pokiaľ ste ešte značky nepridali. Keď potvrdíte výstižné značky, pomáhate, aby sa dali obrázky komukoľvek ľahšie nájsť.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Áno, chcem dostávať upozornenia, keď majú mnou nahrané obrázky značky pripravené na moju kontrolu",
+	"mwe-upwiz-mv-cta-final-cta": "Chcete začať pridávať značky hneď? [[c:Special:SuggestedTags|Vyskúšajte nástroj]] pridávaním značiek k populárnym obrázkom teraz!",
 	"mwe-upwiz-mv-cta-dismiss": "Zrušiť",
 	"mwe-upwiz-mv-cta-user-preference-set": "Výborne! Toto nastavenie môžete kedykoľvek zmeniť vo svojich [[c:Special:Preferences#mw-prefsection-echo|Nastaveniach]]."
 }
