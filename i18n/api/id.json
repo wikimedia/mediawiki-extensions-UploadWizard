@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kenrick95",
-			"Ilham151096"
+			"Ilham151096",
+			"Kenrick95"
 		]
 	},
 	"apihelp-flickrblacklist-description": "Mengesahkan URL Flickr dengan menggunakan ID pengguna (NSID) untuk pemeriksaan di daftar hitam.\n\nKetika dipakai bersamaan dengan pilihan  <var>daftar</var>, kembalikan semua ID yang masuk daftar hitam.",

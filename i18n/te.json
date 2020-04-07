@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chaduvari",
 			"Praveen Illa",
-			"Veeven",
 			"Ravichandra",
-			"Chaduvari"
+			"Veeven"
 		]
 	},
 	"api-error-noimageinfo": "ఎక్కింపు జయప్రదమైంది. కానీ సర్వరు, ఆ ఫైలు గురించిన సమాచారమేమీ ఇవ్వలేదు.",
