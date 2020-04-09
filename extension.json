@@ -143,7 +143,6 @@
 				"mediawiki.confirmCloseWindow",
 				"mediawiki.Title",
 				"mediawiki.user",
-				"mediawiki.notify",
 				"mediawiki.feedback",
 				"mediawiki.language",
 				"mediawiki.editfont.styles",
