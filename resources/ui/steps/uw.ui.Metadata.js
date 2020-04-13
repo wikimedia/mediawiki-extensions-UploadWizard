@@ -61,8 +61,6 @@
 
 		uw.ui.Step.prototype.load.call( this, uploads );
 
-		this.$topButtons = this.$buttons.clone( true );
-
 		this.$content.before(
 			$( '<h3>' ).addClass( 'mwe-upwiz-metadata-title' ).text( mw.msg( 'mwe-upwiz-metadata-title' ) ),
 			new OO.ui.PopupButtonWidget( {
@@ -76,11 +74,7 @@
 						$( '<p>' ).text( mw.msg( 'mwe-upwiz-metadata-help-content' ) )
 					)
 				}
-			} ).$element,
-			// in addition to the progress buttons at the bottom, we'll also want to display
-			// these on top, to "facilitate" skipping this step for people who are not
-			// interested in filling out metadata
-			this.$topButtons
+			} ).$element
 		).show();
 
 		this.$content.after(
@@ -107,15 +101,7 @@
 	 * @param {boolean} disabled
 	 */
 	uw.ui.Metadata.prototype.disableNextButton = function ( disabled ) {
-		var $newButtons;
-
 		this.nextButton.setDisabled( disabled );
-
-		// we're keeping a copy of the buttons at the top of the screen, so
-		// let's make sure the changes are also propagated there...
-		$newButtons = this.$buttons.clone( true );
-		this.$topButtons.after( $newButtons ).remove();
-		this.$topButtons = $newButtons;
 	};
 
 	/**
