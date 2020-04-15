@@ -264,9 +264,7 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		// Check whether we actually want to allow changing stuff
-		if ( wfReadOnly() ) {
-			throw new ReadOnlyError;
-		}
+		$this->checkReadOnly();
 
 		// we got all the way here, so it must be okay to upload
 		return true;
