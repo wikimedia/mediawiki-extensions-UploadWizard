@@ -220,5 +220,18 @@
 	"mwe-upwiz-tooltip-date": "Serni a dæta quande quest'oevia a l'è stæta creâ ò pubricâ pe-a primma votta.",
 	"mwe-upwiz-tooltip-categories": "Azonzi o to file a [$1 categorie] pe rendilo ciù fassile da trovâ.",
 	"mwe-upwiz-tooltip-other": "Ogni atra informassion che ti voeu azonze a propoxito de quest'oeuvia.",
-	"mwe-upwiz-tooltip-location": "[$1 Geo-codiffica o file] pe identificâ dovv'o l'è stæto registrou (no l'è sempre uttile mette 'na poxission pe ogni tipo de meddia)."
+	"mwe-upwiz-tooltip-location": "[$1 Geo-codiffica o file] pe identificâ dovv'o l'è stæto registrou (no l'è sempre uttile mette 'na poxission pe ogni tipo de meddia).",
+	"mwe-upwiz-tooltip-more-info": "Pe saveine de ciu.",
+	"mwe-upwiz-file-need-file": "Pe piaxei primma azonzi quarcosa da caregâ.",
+	"mwe-upwiz-deeds-need-deed": "Pe piaxei spiega onde t'hæ atrovou sto file, e a quæ condssioin questo scito o-o poeu doeuviâ, selessionando un-a de opsioin.",
+	"mwe-upwiz-deeds-need-license": "Selession-a 'na lisensia.",
+	"mwe-upwiz-license-show-all": "Adoeuvia 'na lisensia differente",
+	"mwe-upwiz-license-show-recommended": "Adoeuvia a lisensia racomandâ da-o scito",
+	"mwe-upwiz-label-optional": "Opçionâ",
+	"mwe-upwiz-error-signature-blank": "Ti devi firmâ into campo apropiou co-o to nomme utente ò co-o to nomme veo.",
+	"mwe-upwiz-error-latitude": "A latituddine dev'ese 'n nummero tra -90 e 90.",
+	"mwe-upwiz-error-longitude": "La lonxituddine a dev'ese un nummero tra -180 e 180.",
+	"mwe-upwiz-error-altitude": "L'ertituddine a dev'ese 'n nummero.",
+	"mwe-upwiz-error-heading": "A diression a dev'ese 'n nummero tra 0 e 360.",
+	"mwe-upwiz-error-signature-too-long": "A to firma a l'è troppo longa.\nA no dev'ese ciu longa de $1 {{PLURAL:$1|carattere|caratteri}}."
 }
