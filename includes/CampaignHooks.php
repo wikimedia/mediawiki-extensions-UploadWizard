@@ -65,10 +65,11 @@ class CampaignHooks {
 		];
 		$success = $dbw->upsert(
 			'uw_campaigns',
-			array_merge( [
-				'campaign_name' => $wikiPage->getTitle()->getDBkey()
-			], $insertData ),
-			[ 'campaign_name' ],
+			array_merge(
+				[ 'campaign_name' => $wikiPage->getTitle()->getDBkey() ],
+				$insertData
+			),
+			'campaign_name',
 			$insertData
 		);
 
