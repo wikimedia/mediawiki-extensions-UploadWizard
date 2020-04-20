@@ -4,5 +4,6 @@
 			"Joanmp17"
 		]
 	},
-	"mwe-upwiz-dialog-title": "መጠንቀቕታ"
+	"mwe-upwiz-dialog-title": "መጠንቀቕታ",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|ኣበርካቲ|ኣበርኪቶም}}"
 }

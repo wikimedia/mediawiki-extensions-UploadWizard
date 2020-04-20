@@ -347,7 +347,7 @@
 	"mwe-upwiz-error-campaigndisabled": "کمپین «$1» فعال نشده‌است.",
 	"mwe-upwiz-calendar-date": "انتخاب تاریخ از تقویم",
 	"mwe-upwiz-custom-date": "انتخاب فرمت تاریخ",
-	"prefs-uploads": "درحال بارگذاری",
+	"prefs-uploads": "در حال بارگذاری",
 	"prefs-upwiz-licensing": "اجازه‌نامه",
 	"prefs-upwiz-experimental": "قابلیت‌های آزمایشی",
 	"prefs-upwiz-interface": "رابط کاربری",
@@ -362,5 +362,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "حداکثر تعداد بارگذاری همزمان",
 	"campaigns": "کمپین جادوگر بارگذاری",
 	"mwe-upload-campaigns-pagination-next": "صفحهٔ بعدی",
-	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها"
+	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها",
+	"mwe-upwiz-mv-cta-dismiss": "بگذریم"
 }

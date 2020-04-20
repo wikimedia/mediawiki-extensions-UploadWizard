@@ -3,6 +3,7 @@
 		"authors": [
 			"An13sa",
 			"Envlh",
+			"Joseba",
 			"Joxemai",
 			"Macofe",
 			"Matma Rex",
@@ -93,8 +94,8 @@
 	"mwe-upwiz-copy-location": "Kopiatu kokapena",
 	"mwe-upwiz-copy-other": "Kopiatu bestelako informazioa",
 	"mwe-upwiz-desc": "Deskribapena",
-	"mwe-upwiz-title": "Izenburua",
-	"mwe-upwiz-date-created": "Sorrera data",
+	"mwe-upwiz-title": "Irudiaren izenburua",
+	"mwe-upwiz-date-created": "Data",
 	"mwe-upwiz-location": "Kokapena",
 	"mwe-upwiz-location-button": "Erakutsi mapan",
 	"mwe-upwiz-location-lat": "Latitudea",
