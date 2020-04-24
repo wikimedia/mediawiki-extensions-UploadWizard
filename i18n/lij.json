@@ -77,7 +77,7 @@
 	"mwe-upwiz-progressbar-uploading": "caregaménto in córso",
 	"mwe-upwiz-almost-finished": "Elaboassion di file...",
 	"mwe-upwiz-finished": "Finio!",
-	"mwe-upwiz-deeds-macro-prompt": "Sto scito o voeu che {{GENDER:$2|ti}} ghe dagghi e informassioin in scî driti d'outô pe {quest'{PLURAL:$1|oeuvia|oeuvie}}, pi asseguâ che tutti possan doeuviâ{{PLURAL:$1|la|le}} legalmente.",
+	"mwe-upwiz-deeds-macro-prompt": "Sto scito o voeu che {{GENDER:$2|}} ti ti ghe dagghi e informassioin in scî driti d'outô pe {{PLURAL:$1|quest'oeuvia|queste oeuvie}}, pi asseguâ che tutti possan {{PLURAL:$1|doeuviâla|doeuviâle}} legalmente.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Sto|Sti}} file chì {{PLURAL:$1|o l'è|son}} travaggio mæ.",
 	"mwe-upwiz-source-ownwork-assert-any-license": "Mi, $2, {{GENDER:$4|detentô|detentôa}} do drito d'outô sciu {{PLURAL:$1|quest'oeuvia|queste oeuvie}}, concedo inrevocabilmente a chissessæ o drito a doeuviâ, modificâ e ridistribuî {{PLURAL:$1|quest'oeuvia|queste oeuvie}} pe quassessæ propoxito, e quindi {{PLURAL:$1|a|e}} pubbrico sotta i seguenti termi:",
 	"mwe-upwiz-source-ownwork-assert": "Mi, $2, {{GENDER:$4|detentô|detentôa}} do drito d'outô sciu {{PLURAL:$1|quest'oeuvia|queste oeuvie}}, concedo inrevocabilmente a chissessæ o drito a doeuviâ, modificâ e ridistribuî {{PLURAL:$1|quest'oeuvia|queste oeuvie}} pe quassessæ propoxito, a patto {{PLURAL:$1|ch'a|che}} me {{PLURAL:$1|segge atribuia|seggian atribuie}} e che de eventuale oeuvie derivæ seggian condivize sott'a-i mæximi termi.",
