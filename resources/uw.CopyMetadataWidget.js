@@ -174,7 +174,7 @@
 		if ( copyingTitle ) {
 			titleZero = sourceValue.title.title;
 			// Add number suffix to first title if no numbering present
-			matches = titleZero.match( /(\D+)(\d{1,3})(\D*)$/ );
+			matches = titleZero.match( /(\D+)(\d{1,3})(\.\D*)?$/ );
 			if ( matches === null ) {
 				titleZero = titleZero + ' 01';
 			}
