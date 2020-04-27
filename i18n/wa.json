@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Lucyin",
+			"Reptilien.19831209BE1",
 			"Srtxg"
 		]
 	},
-	"uploadwizard": "Aidant a l' eberwetaedje",
-	"uploadwizard-desc": "Aidant a l' eberwetaedje, diswalpé avou les subzides ''Multimedia Usability''",
+	"uploadwizard": "Aidant a l’&nbsp;eberwetaedje",
+	"uploadwizard-desc": "Aidant a l’&nbsp;eberwetaedje, ene ustêye po-z eberweter des fitchîs limerikes",
 	"api-error-noimageinfo": "L' eberwetaedje a bén stî, mins l' sierveu n' a pont dné d' racsegnes sol fitchî",
 	"mwe-upwiz-extension-disabled": "Cisse pådje la a stî disraloyeye a cåze d' ene aroke d' on moumint. So ç' tins la, sayîz avou l' fôrmulaire d' eberwetaedje estandård",
 	"mwe-upwiz-step-tutorial": "Aprinde",
@@ -142,7 +143,7 @@
 	"mwe-upwiz-subhead-bugs": "[$1 Arokes conoxhowes]",
 	"mwe-upwiz-subhead-alt-upload": "Eraler å vî sistinme",
 	"mwe-upwiz-feedback-prompt": "Dijhoz nos cwè å dfwait do novea sistinme d' eberwetaedje",
-	"mwe-upwiz-feedback-title": "Dijhoz l' vosse so l' aidant a l' eberwetaedje",
+	"mwe-upwiz-feedback-title": "Dijhoz çou k’&nbsp;vos pinsez so l’&nbsp;aidant a l’&nbsp;eberwetaedje",
 	"mwe-upwiz-errordialog-title": "Gn a ene flotche dins çou ki vos vloz eberweter",
 	"mwe-upwiz-errordialog-ok": "i va"
 }
