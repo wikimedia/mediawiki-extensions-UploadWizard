@@ -334,9 +334,6 @@ return [
 				],
 				'nonDefaultStatements' => [
 					"type" => "boolean",
-				],
-				'allowCopy' => [
-					"type" => "boolean",
 				]
 			]
 		],
