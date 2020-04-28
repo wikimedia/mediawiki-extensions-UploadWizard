@@ -70,13 +70,11 @@
 	 * @return {uw.MetadataPage[]} array of MetadataPages for use in BookletLayout widget
 	 */
 	uw.controller.Metadata.prototype.generateBookletPages = function ( uploads ) {
-		var self = this,
-			uri = new mw.Uri( window.location.href, { overrideKeys: true } ),
-			allowCopy = uri.query.allowCopy !== undefined ? uri.query.allowCopy : mw.UploadWizard.config.wikibase.allowCopy;
+		var self = this;
 
 		return uploads.map( function ( upload ) {
 			var content = new uw.MetadataContent( upload, {
-				allowCopy: allowCopy && uploads.length > 1
+				allowCopy: uploads.length > 1
 			} );
 			content.connect( self, { change: 'enableSubmit' } );
 			content.connect( self, { copyToAll: 'applyToAll' } );
