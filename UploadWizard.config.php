@@ -417,7 +417,7 @@ return [
 		],
 		'pd-us' => [
 			'msg' => 'mwe-upwiz-license-pd-us',
-			'templates' => [ 'PD-1923' ]
+			'templates' => [ 'PD-US-expired' ]
 		],
 		'pd-usgov' => [
 			'msg' => 'mwe-upwiz-license-pd-usgov',
