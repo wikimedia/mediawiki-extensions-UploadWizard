@@ -32,8 +32,6 @@ if ( $IP === false ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-use MediaWiki\Revision\SlotRecord;
-
 /**
  * Maintenance script to migrate campaigns from older, database table
  * to newer page based storage
@@ -254,7 +252,7 @@ class MigrateCampaigns extends Maintenance {
 	}
 
 	public function execute() {
-		$username = $this->getOption( 'user', 'Maintenance script' );
+		$user = $this->getOption( 'user', 'Maintenance script' );
 
 		$this->dbr = wfGetDB( DB_MASTER );
 		$campaigns = $this->dbr->select(
@@ -267,24 +265,20 @@ class MigrateCampaigns extends Maintenance {
 			return;
 		}
 
-		$user = User::newFromName( $username );
-		$summary = CommentStoreComment::newUnsavedComment( 'Migrating from old campaign tables' );
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );
 
 			$title = Title::makeTitleSafe( NS_CAMPAIGN, $campaign->campaign_name );
-			$wikiPage = Wikipage::factory( $title );
+			$page = Wikipage::factory( $title );
 
 			$content = new CampaignContent( json_encode( $newConfig ) );
-
-			$updater = $wikiPage->newPageUpdater( $user );
-			$updater->setContent(
-				SlotRecord::MAIN,
-				$content
+			$page->doEditContent(
+				$content,
+				"Migrating from old campaign tables",
+				0, false,
+				User::newFromName( $user )
 			);
-			$updater->saveRevision( $summary );
-
 			$this->output( "Migrated {$campaign->campaign_name}\n" );
 		}
 	}
