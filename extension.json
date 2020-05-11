@@ -618,11 +618,34 @@
 		"localBasePath": "",
 		"remoteExtPath": "UploadWizard"
 	},
+	"QUnitTestModule": {
+		"localBasePath": "tests/qunit",
+		"remoteExtPath": "UploadWizard/tests/qunit",
+		"scripts": [
+			"controller/uw.controller.Deed.test.js",
+			"controller/uw.controller.Details.test.js",
+			"controller/uw.controller.Step.test.js",
+			"controller/uw.controller.Thanks.test.js",
+			"controller/uw.controller.Tutorial.test.js",
+			"controller/uw.controller.Upload.test.js",
+			"transports/mw.FormDataTransport.test.js",
+			"uw.EventFlowLogger.test.js",
+			"uw.ConcurrentQueue.test.js",
+			"mw.UploadWizardUpload.test.js",
+			"mw.UploadWizardLicenseInput.test.js",
+			"mw.FlickrChecker.test.js",
+			"uw.TitleDetailsWidget.test.js",
+			"mw.fileApi.test.js"
+		],
+		"dependencies": [
+			"ext.uploadWizard",
+			"ext.eventLogging"
+		]
+	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "UploadWizardHooks::onSchemaUpdate",
 		"GetPreferences": "UploadWizardHooks::onGetPreferences",
 		"IsUploadAllowedFromUrl": "UploadWizardHooks::onIsUploadAllowedFromUrl",
-		"ResourceLoaderTestModules": "UploadWizardHooks::onResourceLoaderTestModules",
 		"ListDefinedTags": "UploadWizardHooks::onListDefinedTags",
 		"ChangeTagsListActive": "UploadWizardHooks::onListDefinedTags",
 		"ChangeTagsAllowedAdd": "UploadWizardHooks::onListDefinedTags",

@@ -169,38 +169,6 @@ class UploadWizardHooks {
 	}
 
 	/**
-	 * Get JavaScript test modules
-	 * @param array &$testModules
-	 * @param ResourceLoader &$resourceLoader
-	 */
-	public static function onResourceLoaderTestModules(
-		array &$testModules,
-		ResourceLoader &$resourceLoader
-	) {
-		$testModules['qunit']['ext.uploadWizard.unit.tests'] = [
-			'scripts' => [
-				'tests/qunit/controller/uw.controller.Deed.test.js',
-				'tests/qunit/controller/uw.controller.Details.test.js',
-				'tests/qunit/controller/uw.controller.Step.test.js',
-				'tests/qunit/controller/uw.controller.Thanks.test.js',
-				'tests/qunit/controller/uw.controller.Tutorial.test.js',
-				'tests/qunit/controller/uw.controller.Upload.test.js',
-				'tests/qunit/transports/mw.FormDataTransport.test.js',
-				'tests/qunit/uw.EventFlowLogger.test.js',
-				'tests/qunit/uw.ConcurrentQueue.test.js',
-				'tests/qunit/mw.UploadWizardUpload.test.js',
-				'tests/qunit/mw.UploadWizardLicenseInput.test.js',
-				'tests/qunit/mw.FlickrChecker.test.js',
-				'tests/qunit/uw.TitleDetailsWidget.test.js',
-				'tests/qunit/mw.fileApi.test.js',
-			],
-			'dependencies' => [ 'ext.uploadWizard', 'ext.eventLogging' ],
-			'localBasePath' => dirname( __DIR__ ),
-			'remoteExtPath' => 'UploadWizard',
-		];
-	}
-
-	/**
 	 * Helper function to get the message for a license.
 	 *
 	 * @since 1.2
