@@ -142,7 +142,7 @@ form.mwe-upwiz-form {
 }
 
 .mwe-upwiz-file-texts {
-	/* This also create a new block formatting context, resulting in the the whole block
+	/* This also create a new block formatting context, resulting in the whole block
 	   displaying next to image thumbnail, rather than wrapping the lines of text around it */
 	overflow: hidden;
 }

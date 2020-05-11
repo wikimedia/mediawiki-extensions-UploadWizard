@@ -76,7 +76,7 @@
  * (+5px separation).
  * If we want this one to appear centered, we're going to have to push
  * it slightly to the right, so that it closer to the right hand side,
- * which is extended because of the the arrow.
+ * which is extended because of the arrow.
  * Last item: previous arrow is poking into the element (25 + 5 = 30px),
  * so let's also move it slightly to the right to appear centered.
  */
