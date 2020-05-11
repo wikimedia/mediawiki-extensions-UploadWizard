@@ -69,7 +69,7 @@
 	"mwe-upwiz-file-all-ok": "Tuti i cargamenti i xe riusìi!",
 	"mwe-upwiz-file-some-failed": "Serti cargamenti nó i xe riusìi.",
 	"mwe-upwiz-file-retry": "Ripróva i cargamenti nó riusìi",
-	"mwe-upwiz-next-file-despite-failures": "Continua isteso",
+	"mwe-upwiz-next-file-despite-failures": "Sèvita isteso",
 	"mwe-upwiz-skip-tutorial-future": "Salta sto pasajo in futuro",
 	"mwe-upwiz-file-all-failed": "Nisun de i cargamente el xe riusìo.",
 	"mwe-upwiz-upload-count": "$1 de $2 {{PLURAL:$2|file}} cargai",
