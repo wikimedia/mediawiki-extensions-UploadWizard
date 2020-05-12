@@ -103,20 +103,32 @@
 		"ext.uploadWizard.page": {
 			"scripts": "resources/mw.UploadWizardPage.js",
 			"dependencies": "ext.uploadWizard",
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"group": "ext.uploadWizard"
 		},
 		"ext.uploadWizard.page.styles": {
 			"styles": "resources/uploadWizard.noWizard.css",
-			"targets": [ "desktop", "mobile" ]
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		},
 		"ext.uploadWizard.uploadCampaign.display": {
 			"styles": "resources/ext.uploadWizard.uploadCampaign.display.css",
-			"targets": [ "desktop", "mobile" ]
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		},
 		"ext.uploadWizard.uploadCampaign.list": {
 			"styles": "resources/ext.uploadWizard.uploadCampaign.list.css",
-			"targets": [ "desktop", "mobile" ]
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		},
 		"uw.EventFlowLogger": {
 			"scripts": [
@@ -126,7 +138,10 @@
 			"dependencies": [
 				"oojs"
 			],
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"group": "uw.EventFlowLogger"
 		},
 		"ext.uploadWizard": {
@@ -610,7 +625,10 @@
 				"size-kilobytes",
 				"size-bytes"
 			],
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"group": "ext.uploadWizard"
 		}
 	},
@@ -657,14 +675,18 @@
 		"TitleMoveComplete": "CampaignHooks::onTitleMoveComplete",
 		"LinksUpdateComplete": "CampaignHooks::onLinksUpdateComplete"
 	},
-	"EventLoggingSchemas": {
-		"UploadWizardTutorialActions": 5803466,
-		"UploadWizardUploadActions": 5811620,
-		"UploadWizardStep": 18973101,
-		"UploadWizardFlowEvent": 11772723,
-		"UploadWizardErrorFlowEvent": 18973100,
-		"UploadWizardExceptionFlowEvent": 11772722,
-		"UploadWizardUploadFlowEvent": 11772717
+	"attributes": {
+		"EventLogging": {
+			"Schemas": {
+				"UploadWizardTutorialActions": 5803466,
+				"UploadWizardUploadActions": 5811620,
+				"UploadWizardStep": 18973101,
+				"UploadWizardFlowEvent": 11772723,
+				"UploadWizardErrorFlowEvent": 18973100,
+				"UploadWizardExceptionFlowEvent": 11772722,
+				"UploadWizardUploadFlowEvent": 11772717
+			}
+		}
 	},
 	"namespaces": [
 		{
@@ -683,7 +705,9 @@
 		}
 	],
 	"config": {
-		"UploadWizardConfig": []
+		"UploadWizardConfig": {
+			"value": []
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
