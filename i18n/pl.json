@@ -345,6 +345,7 @@
 	"mwe-upwiz-license-custom-preview": "Podgląd",
 	"mwe-upwiz-license-none-head": "Znalazłem to w internecie – nie jestem pewien",
 	"mwe-upwiz-license-none": "Jestem przekonany, że {{PLURAL:$1|ta praca jest swobodnie licencjonowana lub znajduje|te prace są swobodnie licencjonowane lub znajdują}} się w domenie publicznej. Rozumiem, że jeśli nie podam w odpowiednim czasie niezbędnych informacji licencyjnych, {{PLURAL:$1|ten plik może zostać usunięty|te pliki mogą zostać usunięte}}.",
+	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Ta praca jest dopuszczalna|Te prace są dopuszczalne}} do przesłania na tę wiki",
 	"mwe-upwiz-license-confirm-remove": "Czy na pewno chcesz usunąć {{PLURAL:$1|ten przesłany plik|te przesłane pliki}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Potwierdzenie usunięcia",
 	"mwe-upwiz-license-external": "Ten plik jest udostępniony na stronie „$1” na licencji $2.",
@@ -388,5 +389,11 @@
 	"campaigns": "Inicjatywy kreatora przesyłania plików",
 	"mwe-upload-campaigns-pagination-next": "Następna strona",
 	"mwe-upload-campaigns-list-title": "Lista inicjatyw",
-	"mwe-upwiz-mv-cta-dismiss": "Odrzuć"
+	"mwe-upwiz-mv-cta-description": "Na Commons znajduje się [[c:Commons:Structured_data/Computer-aided_tagging|nowe narzędzie]], które zasugeruje tagi do przesyłanych przez ciebie obrazów, jeśli nie zostały dotychczas dodane. Zatwierdzając odpowiednie tagi ułatwiasz wszystkim wyszukiwanie obrazów, których szukają.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Tak, chcę otrzymywać powiadomienia gdy przesłane przeze mnie pliki mają tagi gotowe na mój przegląd",
+	"mwe-upwiz-mv-cta-final-cta": "Gotów rozpocząć tagowanie? [[c:Special:SuggestedTags|Wypróbuj narzędzie]] tagując najpopularniejsze obrazy!",
+	"mwe-upwiz-mv-cta-dismiss": "Odrzuć",
+	"mwe-upwiz-mv-cta-user-preference-set": "Świetnie! Możesz zmienić to ustawienie w dowolnym momencie w swoich [[c:Special:Preferences#mw-prefsection-echo|preferencjach]].",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Nie będziesz więcej otrzymywać powiadomień dotyczących tagowania przesyłanych plików.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nie mogliśmy zapisać twoich preferencji. Odwiedź swoje [[c:Special:Preferences#mw-prefsection-echo|preferencje]] aby włączyć powiadomienia."
 }
