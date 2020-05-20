@@ -249,7 +249,7 @@
 	"mwe-upwiz-upload-another": "上传更多文件",
 	"mwe-upwiz-prevent-close-wait": "离开此页面可能导致您丢失您做出的任何更改。请等待几秒钟。",
 	"mwe-upwiz-prevent-close": "您尚未完成上传操作！",
-	"mwe-upwiz-tooltip-skiptutorial": "您可以在[$1 您的用户首选项]中的$2 → $3重启本教程。",
+	"mwe-upwiz-tooltip-skiptutorial": "您可以在[$1 您的用户首选项]中的$2→$3重启本教程。",
 	"mwe-upwiz-tooltip-author": "摄影人、绘画人等创作人的姓名。",
 	"mwe-upwiz-tooltip-source": "该数字文件的来源 — 可以是一个URL、一本书或一份报刊。",
 	"mwe-upwiz-tooltip-sign": "您可以使用您的维基用户名或您的真实姓名。两种情况下，它都会链接至您的维基用户页面。",
