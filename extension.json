@@ -656,8 +656,7 @@
 			"mw.fileApi.test.js"
 		],
 		"dependencies": [
-			"ext.uploadWizard",
-			"ext.eventLogging"
+			"ext.uploadWizard"
 		]
 	},
 	"Hooks": {
