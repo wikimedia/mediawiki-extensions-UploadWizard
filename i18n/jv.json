@@ -3,6 +3,7 @@
 		"authors": [
 			"Anggoro",
 			"Envlh",
+			"N219",
 			"NoiX180",
 			"පසිඳු කාවින්ද"
 		]
@@ -29,7 +30,7 @@
 	"mwe-upwiz-api-warning-exists": "Ana [$1 berkas liya] sing wis ana nèng wiki kuwi mawa jeneng berkas sing padha",
 	"mwe-upwiz-api-warning-was-deleted": "Ana berkas ajeneng, \"$1\", nanging kuwi wis dibusak lan panjenengan ora bisa mbalèni ngunggah berkasé. Yèn berkas panjenengan beda, jajal ganti jenengé.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Nyuwun pangapura, awak dhéwé ora nemu tutorial ing basané panjenengan. Mula, vèrsi $1 sing dituduhaké.",
-	"mwe-upwiz-tutorial-error-file-missing": "Ngapunten, awak dhéwé ora bisa nemokakéberkas kanggo tutorial sing kuduné ana. Mangga ubungi pangurus sistem.",
+	"mwe-upwiz-tutorial-error-file-missing": "Ngapunten, awak dhéwé ora bisa nemokaké berkas kanggo tutorial sing kuduné ana. Mangga ubungi panata sistem.",
 	"mwe-upwiz-tutorial-error-cannot-transform": "Ngapunten, awak dhéwé ora bisa nemokaké gambar tutorial sing pas karo layar iki. Bisa dadi iki namung kasalahan sawetara Wikimedia Commons; jajal manèh mengko.",
 	"mwe-upwiz-help-desk": "Meja Pitulung",
 	"mwe-upwiz-help-desk-url": "Meja Pitulung",
