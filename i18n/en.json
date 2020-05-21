@@ -22,7 +22,7 @@
 	"api-error-parsererror": "The server responded with an invalid JSON document. This could be a problem with the API, or you could be using a proxy server that prevents you from uploading files.",
 	"api-error-aborted": "Upload aborted.",
 	"api-error-noimageinfo": "The upload succeeded, but the server did not give us any information about the file.",
-	"mwe-upwiz-unavailable": "Your browser is not compatible with UploadWizard or has JavaScript turned off, so we are showing you a simple upload form. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility View compatibility requirements].)",
+	"mwe-upwiz-unavailable": "Your browser is not compatible with UploadWizard or has JavaScript turned off, so we are showing you a simple upload form. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility View compatibility requirements].)",
 	"mwe-upwiz-extension-disabled": "This page has been disabled due to temporary technical problems. In the meantime try the standard upload form.",
 	"mwe-upwiz-step-tutorial": "Learn",
 	"mwe-upwiz-step-file": "Upload",
