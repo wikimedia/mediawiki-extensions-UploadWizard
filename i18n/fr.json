@@ -74,7 +74,7 @@
 	"api-error-parsererror": "Le serveur a répondu avec un document JSON non valide. Cela peut être dû à un problème avec l’API, ou bien vous utilisez un serveur mandataire qui vous empêche de téléverser des fichiers.",
 	"api-error-aborted": "Téléversement annulé.",
 	"api-error-noimageinfo": "Le téléversement a réussi, mais le serveur n’a pas fourni d’information sur le fichier.",
-	"mwe-upwiz-unavailable": "Votre navigateur n’est pas compatible avec UploadWizard ou a JavaScript désactivé ; nous vous affichons donc un formulaire de téléversement simplifié. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Afficher les exigences de compatibilité].)",
+	"mwe-upwiz-unavailable": "Votre navigateur n’est pas compatible avec UploadWizard ou a JavaScript désactivé ; nous vous affichons donc un formulaire de téléversement simplifié. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Afficher les exigences de compatibilité].)",
 	"mwe-upwiz-extension-disabled": "Cette page a été désactivée en raison de problèmes techniques temporaires. En attendant, essayez avec le formulaire d’import standard.",
 	"mwe-upwiz-step-tutorial": "Apprendre",
 	"mwe-upwiz-step-file": "Importer",

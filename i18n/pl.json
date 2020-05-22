@@ -50,7 +50,7 @@
 	"api-error-parsererror": "Serwer odpowiedział nieprawidłowym dokumentem JSON. To może być problem z API, albo korzystasz z serwera proxy, który uniemożliwia przesyłanie plików.",
 	"api-error-aborted": "Przesyłanie przerwane.",
 	"api-error-noimageinfo": "Plik przesłano pomyślnie, ale serwer nie zwrócił informacji na jego temat.",
-	"mwe-upwiz-unavailable": "Twoja przeglądarka jest niezgodna z Kreatorem Przesyłania albo ma wyłączoną obsługę JavaScript-u, wobec czego udostępniamy Ci uproszczony formularz przesyłania. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Zobacz wymagania zgodności].)",
+	"mwe-upwiz-unavailable": "Twoja przeglądarka jest niezgodna z Kreatorem Przesyłania albo ma wyłączoną obsługę JavaScript-u, wobec czego udostępniamy Ci uproszczony formularz przesyłania. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Zobacz wymagania zgodności].)",
 	"mwe-upwiz-extension-disabled": "Ta strona została wyłączona z powodu chwilowych problemów technicznych. W międzyczasie możesz skorzystać ze starego formularza przesyłania plików.",
 	"mwe-upwiz-step-tutorial": "Jak skorzystać",
 	"mwe-upwiz-step-file": "Prześlij",

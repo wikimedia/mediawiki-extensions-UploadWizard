@@ -34,7 +34,7 @@
 	"api-error-parsererror": "השרת השיב עם מסמך JSON בלתי־תקין. ייתכן שזאת בעיה עם API, ואולי השתמשת בשרת מתווך (proxy) שמונע ממך להעלות קבצים.",
 	"api-error-aborted": "ההעלאה בוטלה.",
 	"api-error-noimageinfo": "ההעלאה עבדה, אבל השרת לא נתן לנו שום מידע על הקובץ.",
-	"mwe-upwiz-unavailable": "הדפדפן שלך אינו מתאים לאשף ההעלאה או שהרצת JavaScript כבויה, אז אנחנו מראים לך טופס העלאה פשוט ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility הצגת דרישות תאימות].)",
+	"mwe-upwiz-unavailable": "הדפדפן שלך אינו מתאים לאשף ההעלאה או שהרצת JavaScript כבויה, אז אנחנו מראים לך טופס העלאה פשוט ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility הצגת דרישות תאימות].)",
 	"mwe-upwiz-extension-disabled": "דף זה אינו פעיל זמנית עקב בעיות טכניות. בינתיים נסו את דף ההעלאות הרגיל.",
 	"mwe-upwiz-step-tutorial": "הסברים",
 	"mwe-upwiz-step-file": "העלאה",

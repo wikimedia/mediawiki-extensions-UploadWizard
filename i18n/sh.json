@@ -22,7 +22,7 @@
 	"api-error-parsererror": "Poslužitelj odgovara nevažećim JSON-dokumentom. To može biti problem u priložniku, ili koristite posrednički poslužitelj što vam onemogućuje postavljanje datoteka.",
 	"api-error-aborted": "Postavljanje je prekinuto.",
 	"api-error-noimageinfo": "Postavljanje je uspjelo, ali server nam nije dao nikakvu informaciju o datoteci.",
-	"mwe-upwiz-unavailable": "Vaš preglednik nije podudaran s čarobnjakom za postavljanje ili imate JavaScript isključen, stoga se dajemo vam pojednostavljeni obrazac za postavljanje. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Pogledajte zahtjeve za podudarnost].)",
+	"mwe-upwiz-unavailable": "Vaš preglednik nije podudaran s čarobnjakom za postavljanje ili imate JavaScript isključen, stoga se dajemo vam pojednostavljeni obrazac za postavljanje. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Pogledajte zahtjeve za podudarnost].)",
 	"mwe-upwiz-extension-disabled": "Ova stranica je onemogućena zbog privremenih tehničkih problema. U međuvremenu poslužite uz standardni obrazac za postavljanje.",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Postavljanje",

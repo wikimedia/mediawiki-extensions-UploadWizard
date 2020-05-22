@@ -41,7 +41,7 @@
 	"api-error-parsererror": "Server vrátil neplatný JSON dokument. To může být problémem API nebo tím, že používáte proxy server, který vám nedovoluje nahrávat soubory.",
 	"api-error-aborted": "Načítání zrušeno.",
 	"api-error-noimageinfo": "Načtení bylo úspěšné, ale server neposkytl o souboru žádné informace.",
-	"mwe-upwiz-unavailable": "Váš prohlížeč není kompatibilní s Průvodce načítáním souborů nebo máte vypnutý JavaScript, takže vám zobrazujeme jednoduchý formulář pro načítání.  ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Zobrazit požadavky na kompatibilitu].)",
+	"mwe-upwiz-unavailable": "Váš prohlížeč není kompatibilní s Průvodce načítáním souborů nebo máte vypnutý JavaScript, takže vám zobrazujeme jednoduchý formulář pro načítání.  ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Zobrazit požadavky na kompatibilitu].)",
 	"mwe-upwiz-extension-disabled": "Tato stránka byla vypnuta kvůli dočasným technickým potížím. Prozatím zkuste použít standardní načítací formulář.",
 	"mwe-upwiz-step-tutorial": "Poučení",
 	"mwe-upwiz-step-file": "Načtení",

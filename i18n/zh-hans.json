@@ -62,7 +62,7 @@
 	"api-error-parsererror": "服务器响应了无效的JSON文档。这可能是API中的问题，或者您可能在使用代理服务器，而其阻止您上传文件。",
 	"api-error-aborted": "上传中止。",
 	"api-error-noimageinfo": "上传成功，但服务器没有向我们提供任何有关文件的信息。",
-	"mwe-upwiz-unavailable": "您的浏览器与上传向导不兼容，或已关闭JavaScript，因此我们正在向您显示一个简化的上传表单。（参见[https://www.mediawiki.org/wiki/UploadWizard#Compatibility 兼容性要求]。）",
+	"mwe-upwiz-unavailable": "您的浏览器与上传向导不兼容，或已关闭JavaScript，因此我们正在向您显示一个简化的上传表单。（参见[https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility 兼容性要求]。）",
 	"mwe-upwiz-extension-disabled": "因暂时的技术问题，本页面已停用。在此期间，请使用标准上传表格。",
 	"mwe-upwiz-step-tutorial": "教程",
 	"mwe-upwiz-step-file": "上传",

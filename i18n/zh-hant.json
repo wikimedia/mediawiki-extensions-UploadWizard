@@ -44,7 +44,7 @@
 	"api-error-parsererror": "伺服器回應了無效的 JSON 文件。這可能是 API 所造成的問題，或是您使用了代理伺服器而造成無法上傳檔案。",
 	"api-error-aborted": "上傳中止。",
 	"api-error-noimageinfo": "已成功上傳，但伺服器未回應任何該檔案的資訊。",
-	"mwe-upwiz-unavailable": "您的瀏覽器不支援上傳精靈，或者已經關閉JavaScript，因此我們正顯示一個簡單版的上傳表格。（參見[https://www.mediawiki.org/wiki/UploadWizard#Compatibility 兼容性要求]。）",
+	"mwe-upwiz-unavailable": "您的瀏覽器不支援上傳精靈，或者已經關閉JavaScript，因此我們正顯示一個簡單版的上傳表格。（參見[https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility 兼容性要求]。）",
 	"mwe-upwiz-extension-disabled": "因暫時的技術性問題，此頁面已停用。 在此期間請嘗試使用標準表單上傳。",
 	"mwe-upwiz-step-tutorial": "學習",
 	"mwe-upwiz-step-file": "上傳",

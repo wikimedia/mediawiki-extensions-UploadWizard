@@ -26,7 +26,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:আপলোড উইজার্ড ক্যাম্পেইন সম্পাদক",
 	"api-error-aborted": "আপলোড বাতিল করা হয়েছে।",
 	"api-error-noimageinfo": "আপলোড করা সফল হয়েছে, কিন্তু ফাইলটি সম্পর্কে সার্ভার আমাদেরকে কোন তথ্য প্রদান করে নি।",
-	"mwe-upwiz-unavailable": "আপনার ব্রাউজার UploadWizard-এর সঙ্গে সামঞ্জস্যপূর্ণ নয় বা জাভাস্ক্রিপ্ট বন্ধ করা হয়েছে, তাই আমরা আপনাকে একটি সহজ আপলোড ফরম দেখাচ্ছি। ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility সামঞ্জস্য প্রয়োজনীয়তা দেখুন]।)",
+	"mwe-upwiz-unavailable": "আপনার ব্রাউজার UploadWizard-এর সঙ্গে সামঞ্জস্যপূর্ণ নয় বা জাভাস্ক্রিপ্ট বন্ধ করা হয়েছে, তাই আমরা আপনাকে একটি সহজ আপলোড ফরম দেখাচ্ছি। ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility সামঞ্জস্য প্রয়োজনীয়তা দেখুন]।)",
 	"mwe-upwiz-extension-disabled": "কারিগরী সমস্যার কারণে এই পাতাটি বর্তমানে নিষ্ক্রিয় রয়েছে। এমতাবস্থায় আদর্শ আপলোড ফরম ব্যবহার করুন।",
 	"mwe-upwiz-step-tutorial": "জানুন",
 	"mwe-upwiz-step-file": "আপলোড",

@@ -32,7 +32,7 @@
 	"api-error-parsererror": "Peladen mengirimkan dokumen JSON yang tidak sah. Mungkin ada masalah dengan API, atau Anda mungkin menggunakan peladen proxy yang mencegah Anda mengunggah berkas.",
 	"api-error-aborted": "Pengunggahan dibatalkan.",
 	"api-error-noimageinfo": "Pengunggahan berhasil, tetapi peladen tidak memberikan informasi apa pun tentang berkas.",
-	"mwe-upwiz-unavailable": "Peramban Anda tidak cocok dengan UploadWizard atau JavaScript dinonaktifkan, sehingga hanya menampilkan formulir unggahan sederhana.\n([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Lihat persyaratan kompatibilitas].)",
+	"mwe-upwiz-unavailable": "Peramban Anda tidak cocok dengan UploadWizard atau JavaScript dinonaktifkan, sehingga hanya menampilkan formulir unggahan sederhana.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Lihat persyaratan kompatibilitas].)",
 	"mwe-upwiz-extension-disabled": "Halaman ini dinonaktifkan karena masalah teknis sementara. Untuk sementara, silakan gunakan formulir pengunggahan standar.",
 	"mwe-upwiz-step-tutorial": "Pelajari",
 	"mwe-upwiz-step-file": "Unggah",

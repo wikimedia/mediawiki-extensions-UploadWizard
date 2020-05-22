@@ -44,7 +44,7 @@
 	"api-error-parsererror": "Der Server hat mit einem ungültigen JSON-Dokument geantwortet. Dies könnte ein Problem mit der API sein oder du könntest einen Proxyserver verwenden, der dich daran hindert, Dateien hochzuladen.",
 	"api-error-aborted": "Hochladen abgebrochen.",
 	"api-error-noimageinfo": "Das Hochladen war erfolgreich, aber der Server kann keine Informationen zur Datei anzeigen.",
-	"mwe-upwiz-unavailable": "Dein Browser ist mit dem Hochladeassistenten nicht kompatibel oder JavaScript ist ausgeschaltet, so dass wir dir ein einfaches Hochladeformular zeigen ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Kompatibilitätsanforderungen ansehen]).",
+	"mwe-upwiz-unavailable": "Dein Browser ist mit dem Hochladeassistenten nicht kompatibel oder JavaScript ist ausgeschaltet, so dass wir dir ein einfaches Hochladeformular zeigen ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Kompatibilitätsanforderungen ansehen]).",
 	"mwe-upwiz-extension-disabled": "Diese Seite wurde aufgrund technischer Probleme vorübergehend deaktiviert. In der Zwischenzeit kann das Standardformular zum Hochladen genutzt werden.",
 	"mwe-upwiz-step-tutorial": "Lernen",
 	"mwe-upwiz-step-file": "Hochladen",

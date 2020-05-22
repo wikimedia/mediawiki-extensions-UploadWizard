@@ -26,7 +26,7 @@
 	"group-upwizcampeditors.js": "/* Allt JS sem sett er hér mun einungis hafa áhrif á ritstjóra innsendingaherferða. */",
 	"api-error-aborted": "Hætt við innsendingu.",
 	"api-error-noimageinfo": "Innsending skrárinnar tókst, en vefþjónninn gaf okkur engar upplýsingar um skrána.",
-	"mwe-upwiz-unavailable": "Vafrinn er ekki samhæfður við UploadWizard eða er með slökkt á JavaScript, þannig að við erum að sýna þér einfalt innsendingareyðublað. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Skoða lágmarkskröfur fyrir samhæfni].)",
+	"mwe-upwiz-unavailable": "Vafrinn er ekki samhæfður við UploadWizard eða er með slökkt á JavaScript, þannig að við erum að sýna þér einfalt innsendingareyðublað. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Skoða lágmarkskröfur fyrir samhæfni].)",
 	"mwe-upwiz-extension-disabled": "Slökkt hefur verið á þessari síðu vegna tæknilegra vandamála. Á meðan, reyndu að nota hefðbundna innsendingarviðmótið.",
 	"mwe-upwiz-step-tutorial": "Læra",
 	"mwe-upwiz-step-file": "Hlaða inn",

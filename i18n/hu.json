@@ -36,7 +36,7 @@
 	"api-error-parsererror": "A szerver érvénytelen JSON-dokumentummal válaszolt. Ez lehet API-probléma miatt, vagy lehet, hogy az általad használt proxykiszolgáló nem engedélyezi a fájlfeltöltéseket.",
 	"api-error-aborted": "Feltöltés megszakítva.",
 	"api-error-noimageinfo": "A feltöltés sikerült, de a szerver nem szolgáltatott semmilyen információt a fájlról.",
-	"mwe-upwiz-unavailable": "A böngésződ nem kompatibilis a Feltöltésvarázslóval, vagy a JavaScript ki van kapcsolva, ezért egy egyszerű feltöltési űrlapot mutatunk. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Kompatibilitási követelmények megtekintése])",
+	"mwe-upwiz-unavailable": "A böngésződ nem kompatibilis a Feltöltésvarázslóval, vagy a JavaScript ki van kapcsolva, ezért egy egyszerű feltöltési űrlapot mutatunk. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Kompatibilitási követelmények megtekintése])",
 	"mwe-upwiz-extension-disabled": "Az oldal le van tiltva ideiglenes technikai problémák miatt. Ez idő alatt használd a hagyományos feltöltőűrlapot!",
 	"mwe-upwiz-step-tutorial": "Ismerd meg",
 	"mwe-upwiz-step-file": "Feltöltés",

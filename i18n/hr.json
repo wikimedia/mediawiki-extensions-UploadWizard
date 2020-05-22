@@ -23,7 +23,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Uređivači pothvata Čarobnjaka za postavljanje datoteka",
 	"api-error-aborted": "Postavljanje prekinuto.",
 	"api-error-noimageinfo": "Postavljanje je uspjelo, ali poslužitelj nije vratio nikakvu informaciju o datoteci.",
-	"mwe-upwiz-unavailable": "Vaš preglednik nije podudaran s čarobnjakom za postavljanje ili je JavaScript isključen, stoga se prikazuje pojednostavljeni obrazac za postavljanje. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Vidi zahtjeve za podudarnost].)",
+	"mwe-upwiz-unavailable": "Vaš preglednik nije podudaran s čarobnjakom za postavljanje ili je JavaScript isključen, stoga se prikazuje pojednostavljeni obrazac za postavljanje. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Vidi zahtjeve za podudarnost].)",
 	"mwe-upwiz-extension-disabled": "Ova je stranica zbog tehničkih problema trenutačno onemogućena. Probajte sa standardnim obrascem za postavljanje.",
 	"mwe-upwiz-step-tutorial": "Saznajte",
 	"mwe-upwiz-step-file": "Postavite",

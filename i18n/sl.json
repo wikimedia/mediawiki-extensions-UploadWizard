@@ -24,7 +24,7 @@
 	"api-error-parsererror": "Strežnik se je odzval z neveljavnim dokumentom JSON. Lahko gre za težavo z API ali pa uporabljate posredniški strežnik, ki vam preprečuje nalaganje datotek.",
 	"api-error-aborted": "Nalaganje prekinjeno.",
 	"api-error-noimageinfo": "Nalaganje je uspelo, vendar nam strežnik ni dal nobenih informacij o datoteki.",
-	"mwe-upwiz-unavailable": "Tvoj brskalnik ni zmožen uporabljati Čarovnika za nalaganje ali pa ima izključen JavaScript, zato je prikazan samo preprost obrazec za nalaganje. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Več o zahtevanih karakteristikah].)",
+	"mwe-upwiz-unavailable": "Tvoj brskalnik ni zmožen uporabljati Čarovnika za nalaganje ali pa ima izključen JavaScript, zato je prikazan samo preprost obrazec za nalaganje. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Več o zahtevanih karakteristikah].)",
 	"mwe-upwiz-extension-disabled": "Stran je bila onemogočena zaradi začasnih tehničnih težav. V tem času poskusi uporabiti standardni obrazec za nalaganje.",
 	"mwe-upwiz-step-tutorial": "Preuči",
 	"mwe-upwiz-step-file": "Naloži",

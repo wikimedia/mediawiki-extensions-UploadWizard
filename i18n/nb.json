@@ -31,7 +31,7 @@
 	"api-error-parsererror": "Tjeneren svarte med et ugyldig JSON-dokument. Dette kan være et problem med API-et, eller du bruker kanskje en mellomtjener som hindrer deg fra å laste opp filer.",
 	"api-error-aborted": "Opplasting avbrutt.",
 	"api-error-noimageinfo": "Opplastingen var vellykket, men tjeneren returnerte ikke noe informasjon om filen.",
-	"mwe-upwiz-unavailable": "Nettleseren din er ikke kompatibel med UploadWizard eller har JavaScript avslått, derfor vises et enkelt opplastingsskjema i stedet ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Vis kompatibilitetskrav].)",
+	"mwe-upwiz-unavailable": "Nettleseren din er ikke kompatibel med UploadWizard eller har JavaScript avslått, derfor vises et enkelt opplastingsskjema i stedet ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Vis kompatibilitetskrav].)",
 	"mwe-upwiz-extension-disabled": "Denne siden har blitt deaktivert på grunn av midlertidige tekniske problemer. I mellomtiden kan du prøve det vanlige opplastningsskjemaet.",
 	"mwe-upwiz-step-tutorial": "Lær",
 	"mwe-upwiz-step-file": "Last opp",

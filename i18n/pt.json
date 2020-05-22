@@ -44,7 +44,7 @@
 	"api-error-parsererror": "O servidor respondeu com um documento JSON inválido. Isto pode dever-se a um problema na API, ou pode estar a usar um servidor ''proxy'' que o impede de carregar ficheiros.",
 	"api-error-aborted": "Carregamento interrompido.",
 	"api-error-noimageinfo": "O envio correu bem, mas o servidor não forneceu nenhuma informação sobre o ficheiro.",
-	"mwe-upwiz-unavailable": "O seu navegador não é compatível com o Assistente de Envio de Ficheiros ou tem o JavaScript desligado, por isso estamos a mostrar-lhe um formulário simplificado para envios. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Conheça os requisitos de compatibilidade].)",
+	"mwe-upwiz-unavailable": "O seu navegador não é compatível com o Assistente de Envio de Ficheiros ou tem o JavaScript desligado, por isso estamos a mostrar-lhe um formulário simplificado para envios. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Conheça os requisitos de compatibilidade].)",
 	"mwe-upwiz-extension-disabled": "Esta página foi desativada devido a problemas técnicos temporários. Por agora, tente usar o formulário padrão para envios.",
 	"mwe-upwiz-step-tutorial": "Aprender",
 	"mwe-upwiz-step-file": "Enviar",

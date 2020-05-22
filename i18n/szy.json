@@ -17,7 +17,7 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|patapabaw sakaluk saungay nu binawlan sakawaw-kalumyiti sakaluk}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}: patapabaw sakaluk saungay nu binawlan sakawaw-kalumyiti-kikay",
 	"api-error-noimageinfo": "malahci patapabaw tuway，uyzasa sefu-kikay caay henay patukil amahicahica kya tangan a cesyun.",
-	"mwe-upwiz-unavailable": "saazihay-sakaluk caay midama patapabaw sakaluk, saca maedeb tuway ku JavaScript, sisa imahini kami paazih cacay madayumay patapabaw sapat nu sulit. （aazihan [https://www.mediawiki.org/wiki/UploadWizard#Compatibility tududay-lunguc].）",
+	"mwe-upwiz-unavailable": "saazihay-sakaluk caay midama patapabaw sakaluk, saca maedeb tuway ku JavaScript, sisa imahini kami paazih cacay madayumay patapabaw sapat nu sulit. （aazihan [https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility tududay-lunguc].）",
 	"mwe-upwiz-extension-disabled": "mapasatezep nu sitaneng munday, tina kasabelih mapasatezep tuway. inuyni kapitanam misaungay matatungusay aazihan cudad  patapabaw.",
 	"mwe-upwiz-step-file": "patapabaw",
 	"mwe-upwiz-step-deeds": "patiyak a kinli",

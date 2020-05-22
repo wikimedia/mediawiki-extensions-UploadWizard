@@ -23,7 +23,7 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|Рэдактар кампаній Майстра загрузак|Рэдактарка кампаній Майстра загрузак}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Рэдактары кампаній Майстра загрузак",
 	"api-error-noimageinfo": "Файл загружаны, але сэрвэр ня даў пра яго ніякай інфармацыі.",
-	"mwe-upwiz-unavailable": "Альбо ваш броўзэр несумяшчальны з Майстрам загрузкі, альбо адключаны JavaScript, таму адлюстроўваецца простая форма загрузкі. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Гл. патрабаваньні сумяшчальнасьці].)",
+	"mwe-upwiz-unavailable": "Альбо ваш броўзэр несумяшчальны з Майстрам загрузкі, альбо адключаны JavaScript, таму адлюстроўваецца простая форма загрузкі. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Гл. патрабаваньні сумяшчальнасьці].)",
 	"mwe-upwiz-extension-disabled": "Гэтая старонка была адключана з-за часовых тэхнічных праблемаў. Выкарыстоўвайце пакуль стандартную форму загрузкі.",
 	"mwe-upwiz-step-tutorial": "Даведайцеся",
 	"mwe-upwiz-step-file": "Загрузіце",

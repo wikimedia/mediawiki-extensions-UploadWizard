@@ -23,7 +23,7 @@
 	"api-error-parsererror": "El sirvidor respondió con un documentu JSON inválidu. Esto puede ser por un problema cola API, o podríes tar usando un sirvidor proxy que te torga xubir ficheros.",
 	"api-error-aborted": "Xubida albortada.",
 	"api-error-noimageinfo": "La xubida foi correuta, pero'l sirvidor nun dio información dala del ficheru.",
-	"mwe-upwiz-unavailable": "El restolador nun ye compatible con UploadWizard o tienes JavaScript desactiváu, de mou que t'amosamos un formulariu de carga cenciellu. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Ver requisitos de compatibilidá].)",
+	"mwe-upwiz-unavailable": "El restolador nun ye compatible con UploadWizard o tienes JavaScript desactiváu, de mou que t'amosamos un formulariu de carga cenciellu. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Ver requisitos de compatibilidá].)",
 	"mwe-upwiz-extension-disabled": "Esta páxina se desactivó por problemes téunicos temporales. Mentanto, pues probar el formulariu de xubíes estándar.",
 	"mwe-upwiz-step-tutorial": "Deprender",
 	"mwe-upwiz-step-file": "Xubir",

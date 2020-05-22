@@ -18,7 +18,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:Üleslaadimiskampaania muutjad",
 	"api-error-aborted": "Üleslaadimine katkestatud.",
 	"api-error-noimageinfo": "Üleslaadimine õnnestus, aga server ei andnud faili kohta mingit teavet.",
-	"mwe-upwiz-unavailable": "Sinu brauser ei ühildu üleslaadimisviisardiga või on brauseris JavaScript välja lülitatud. Seetõttu näitame sulle lihtsat üleslaadimisvormi. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Vaata ühilduvusnõudeid].)",
+	"mwe-upwiz-unavailable": "Sinu brauser ei ühildu üleslaadimisviisardiga või on brauseris JavaScript välja lülitatud. Seetõttu näitame sulle lihtsat üleslaadimisvormi. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Vaata ühilduvusnõudeid].)",
 	"mwe-upwiz-extension-disabled": "See lehekülg on ajutiste tehniliste probleemide tõttu keelatud. Seni kasuta harilikku üleslaadimisvormi.",
 	"mwe-upwiz-step-tutorial": "Õppimine",
 	"mwe-upwiz-step-file": "Üleslaadimine",

@@ -40,7 +40,7 @@
 	"api-error-parsererror": "Sunucu geçersiz bir JSON belgesi ile yanıt verdi. Bu, API ile ilgili bir sorun olabilir veya dosyaları yüklemenizi engelleyen bir proxy sunucusu kullanıyor olabilirsiniz.",
 	"api-error-aborted": "Yükleme işlemi iptal edildi.",
 	"api-error-noimageinfo": "Yükleme başarılı oldu ancak sunucu, dosya hakkında herhangi bir bilgi vermedi.",
-	"mwe-upwiz-unavailable": "Tarayıcınız UploadWizard ile uyumlu değil veya JavaScript devre dışı, bu nedenle size basit bir yükleme formu gösteriyoruz. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Uyumluluk gereksinimlerini göster].)",
+	"mwe-upwiz-unavailable": "Tarayıcınız UploadWizard ile uyumlu değil veya JavaScript devre dışı, bu nedenle size basit bir yükleme formu gösteriyoruz. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Uyumluluk gereksinimlerini göster].)",
 	"mwe-upwiz-extension-disabled": "Bu sayfa geçici teknik sorunlar nedeniyle devre dışı bırakıldı. Bu süre içerisinde standart yükleme formunu deneyin.",
 	"mwe-upwiz-step-tutorial": "Öğrenin",
 	"mwe-upwiz-step-file": "Yükle",

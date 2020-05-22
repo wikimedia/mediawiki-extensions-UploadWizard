@@ -27,7 +27,7 @@
 	"api-error-parsererror": "Server vrátil neplatný JSON dokument. To môže byť problémom API alebo tým, že používate proxy sever, ktorý vám nepovoľuje nahrávať súbory.",
 	"api-error-aborted": "Nahrávanie zrušené.",
 	"api-error-noimageinfo": "Nahranie bolo úspešné, ale server o súbore neposkytol žiadne informácie.",
-	"mwe-upwiz-unavailable": "Váš prehliadač nie je kompatibilný so Sprievodcom načítaním alebo máte vypnutý JavaScript, takže vám zobrazujeme jednoduchý formulár pre nahrávanie.  ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Zobraziť požiadavky na kompatibilitu].)",
+	"mwe-upwiz-unavailable": "Váš prehliadač nie je kompatibilný so Sprievodcom načítaním alebo máte vypnutý JavaScript, takže vám zobrazujeme jednoduchý formulár pre nahrávanie.  ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Zobraziť požiadavky na kompatibilitu].)",
 	"mwe-upwiz-extension-disabled": "Táto stránka bola vypnutá kvôli dočasným technickým problémom. Zatiaľ skúste použiť štandardný nahrávací formulár.",
 	"mwe-upwiz-step-tutorial": "Dozvedieť sa",
 	"mwe-upwiz-step-file": "Nahrať",

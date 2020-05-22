@@ -23,7 +23,7 @@
 	"api-error-parsererror": "Serwer je z njepłaćiwym JSON-dokumentom wotmołwił. Móhł być problem z API abo ty wužiwaš proxy-serwer, kotryž nahrawanju datajow zadźěwa.",
 	"api-error-aborted": "Nahraće přetorhnjene.",
 	"api-error-noimageinfo": "Nahraće je so poradźiło, ale serwer njemóže žane informacije wo dataji pokazać.",
-	"mwe-upwiz-unavailable": "Twój browser njeje kompatibelny z nahrawanskim asistentom abo JavaScript je hasnjene, tak zo pokazamy ći jednory formular za nahrawanje ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility hlej wuměnjenja za kompatibilitu]).",
+	"mwe-upwiz-unavailable": "Twój browser njeje kompatibelny z nahrawanskim asistentom abo JavaScript je hasnjene, tak zo pokazamy ći jednory formular za nahrawanje ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility hlej wuměnjenja za kompatibilitu]).",
 	"mwe-upwiz-extension-disabled": "Tuta strona je so nachwilnych techniskich problemow dla znjemóžniła. Wužij mjeztym standardny nahrawanski formular.",
 	"mwe-upwiz-step-tutorial": "Wuknyć",
 	"mwe-upwiz-step-file": "Nahrać",

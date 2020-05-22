@@ -19,7 +19,7 @@
 	"api-error-parsererror": "O serviou o l'ha risposto co-in documento JSON non vallido. Questo o poriæ ese un problema de API, ò foscia ti t'adoeuvi un serviou proxy ch'o t'impedisce de caregâ di file.",
 	"api-error-aborted": "Caregamento anulou.",
 	"api-error-noimageinfo": "O caregamento o l'è ariescio, ma o serviou o no n'ha dæto arcun-a informaçion in sciô file.",
-	"mwe-upwiz-unavailable": "O to navegatô o no l'è compatibbile con l'UploadWizard ò che donc'o g'ha o JavaScript dizativou, raxon pi-a quæ te mostremmo un semprise formulaio de caregamento. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Amia i requixii de compatibilitæ].)",
+	"mwe-upwiz-unavailable": "O to navegatô o no l'è compatibbile con l'UploadWizard ò che donc'o g'ha o JavaScript dizativou, raxon pi-a quæ te mostremmo un semprise formulaio de caregamento. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Amia i requixii de compatibilitæ].)",
 	"mwe-upwiz-extension-disabled": "Questa paggina a l'è stæta dizattivâ pe di problemi tecnichi tempoannei. Into fratempo proeuva o formulaio de caregamento normâ.",
 	"mwe-upwiz-step-tutorial": "Imprendi",
 	"mwe-upwiz-step-file": "Carrega",

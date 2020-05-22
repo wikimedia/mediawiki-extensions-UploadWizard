@@ -40,7 +40,7 @@
 	"group-upwizcampeditors-member": "{{GENDER:$1|tallennusvelhon kampanjoiden muokkaaja}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Tallennusvelhon kampanjoiden muokkaajat",
 	"api-error-noimageinfo": "Tallennus onnistui, mutta palvelin ei antanut meille tietoja tiedostosta.",
-	"mwe-upwiz-unavailable": "Käytät nyt perinteistä tiedostontallentamispalvelua, sillä UploadWizard ei tue käytössä olevaa verkkoselainta tai JavaScript ei ole käytössä. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Näytä järjestelmävaatimukset].)",
+	"mwe-upwiz-unavailable": "Käytät nyt perinteistä tiedostontallentamispalvelua, sillä UploadWizard ei tue käytössä olevaa verkkoselainta tai JavaScript ei ole käytössä. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Näytä järjestelmävaatimukset].)",
 	"mwe-upwiz-extension-disabled": "Tämä sivu on väliaikaisesti poissa käytöstä. Tällä välin kokeile normaalia tallennuslomaketta.",
 	"mwe-upwiz-step-tutorial": "Opi",
 	"mwe-upwiz-step-file": "Tallenna",

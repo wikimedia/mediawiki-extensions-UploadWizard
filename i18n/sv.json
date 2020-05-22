@@ -37,7 +37,7 @@
 	"api-error-parsererror": "Servern svarade med ett ogiltigt JSON-dokument. Detta kan vara ett problem med API:et eller använder du kanske en proxyserver som förhindrar dig från att ladda upp filer.",
 	"api-error-aborted": "Uppladdning avbröts.",
 	"api-error-noimageinfo": "Uppladdningen lyckades, men servern gav oss inte någon information om filen.",
-	"mwe-upwiz-unavailable": "Din webbläsare är inte kompatibel med UploadWizard eller så är JavaScript inaktiverat, så vi ger dig ett enkelt uppladdningsformulär. ([https://www.mediawiki.org/wiki/UploadWizard#Compatibility Visa kompatibilitetskrav].)",
+	"mwe-upwiz-unavailable": "Din webbläsare är inte kompatibel med UploadWizard eller så är JavaScript inaktiverat, så vi ger dig ett enkelt uppladdningsformulär. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility Visa kompatibilitetskrav].)",
 	"mwe-upwiz-extension-disabled": "Den här sidan har inaktiverats på grund av tillfälliga tekniska problem. Försök med standardformuläret för uppladdning under tiden.",
 	"mwe-upwiz-step-tutorial": "Lär dig",
 	"mwe-upwiz-step-file": "Ladda upp",
