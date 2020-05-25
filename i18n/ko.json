@@ -35,6 +35,7 @@
 	"group-upwizcampeditors.js": "/* 이 자바스크립트 설정은 올리기 마법사 캠페인 편집자에만 적용됩니다 */",
 	"api-error-aborted": "업로드가 중단되었습니다.",
 	"api-error-noimageinfo": "업로드는 성공했지만 서버가 파일에 대해 어떠한 정보도 제공하지 않았습니다.",
+	"mwe-upwiz-unavailable": "브라우저가 UploadWizard와 호환되지 않거나 JavaScript가 비활성화되어 있으므로 간단한 업로드 폼을 표시합니다. ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility 호환 요구사항 보기].)",
 	"mwe-upwiz-extension-disabled": "이 문서는 일시적인 기술적 문제로 인해 비활성화되었습니다. 그 동안 표준 양식을 통해 올리기를 시도하세요.",
 	"mwe-upwiz-step-tutorial": "알아보기",
 	"mwe-upwiz-step-file": "올리기",
