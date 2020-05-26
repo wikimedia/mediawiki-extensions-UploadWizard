@@ -274,7 +274,7 @@
 	"mwe-upwiz-license-flickr-head": "Носилац ауторског права је објавио {{PLURAL:$1|1=ову слику или видео-снимак|ове слике или видео-снимке}} на Flickr-у под одговарајућом лиценцом",
 	"mwe-upwiz-license-flickr-subhead": "Проверите заглавље „Лиценца” (License) које се налази с бочне стране странице на Flickr-у. Иконе и назив лиценце морају да се поклапају с једном од понуђених лиценци.",
 	"mwe-upwiz-license-public-domain-usa-head": "Ауторска права су свакако истекла у САД",
-	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} је смештен у САД, па су зато ауторска права дела вероватно истекла у тој земљи.",
+	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} је смештен у САД, те ауторска права над делом морају да истекну у тој земљи.",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|1=Ово дело|Ова дела}} је направила влада САД",
 	"mwe-upwiz-license-misc": "Разни разлози",
 	"mwe-upwiz-license-custom-head": "Други разлог који није поменут изнад",
