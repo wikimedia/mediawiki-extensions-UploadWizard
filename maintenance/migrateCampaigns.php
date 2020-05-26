@@ -270,7 +270,7 @@ class MigrateCampaigns extends Maintenance {
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );
 
 			$title = Title::makeTitleSafe( NS_CAMPAIGN, $campaign->campaign_name );
-			$page = Wikipage::factory( $title );
+			$page = WikiPage::factory( $title );
 
 			$content = new CampaignContent( json_encode( $newConfig ) );
 			$page->doEditContent(

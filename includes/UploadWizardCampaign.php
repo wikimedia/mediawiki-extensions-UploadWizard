@@ -151,7 +151,7 @@ class UploadWizardCampaign {
 				$result = $dbr->select(
 					[ 'categorylinks', 'page', 'image' ] + $actorQuery['tables'],
 					[ 'count' => 'COUNT(DISTINCT ' . $actorQuery['fields']['img_user'] . ')' ],
-					[ 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ],
+					[ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ],
 					$fname,
 					[
 						'USE INDEX' => [ 'categorylinks' => 'cl_timestamp' ]
@@ -177,7 +177,7 @@ class UploadWizardCampaign {
 		$result = $dbr->select(
 			[ 'categorylinks', 'page' ],
 			[ 'cl_from', 'page_namespace', 'page_title' ],
-			[ 'cl_to' => $this->getTrackingCategory()->getDBKey(), 'cl_type' => 'file' ],
+			[ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ],
 			__METHOD__,
 			[
 				'ORDER BY' => 'cl_timestamp DESC',

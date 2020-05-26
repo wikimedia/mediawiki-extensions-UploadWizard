@@ -122,7 +122,7 @@ class CampaignHooks {
 		$dbw->onTransactionPreCommitOrIdle( function () use ( $dbw, $article ) {
 			$dbw->delete(
 				'uw_campaigns',
-				[ 'campaign_name' => $article->getTitle()->getDBKey() ]
+				[ 'campaign_name' => $article->getTitle()->getDBkey() ]
 			);
 		} );
 
@@ -148,8 +148,8 @@ class CampaignHooks {
 		$dbw = wfGetDB( DB_MASTER );
 		$success = $dbw->update(
 			'uw_campaigns',
-			[ 'campaign_name' => $newTitle->getDBKey() ],
-			[ 'campaign_name' => $oldTitle->getDBKey() ]
+			[ 'campaign_name' => $newTitle->getDBkey() ],
+			[ 'campaign_name' => $oldTitle->getDBkey() ]
 		);
 
 		return $success;

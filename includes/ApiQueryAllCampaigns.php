@@ -85,7 +85,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 			$result->addValue(
 				$campaignPath,
 				'trackingCategory',
-				$campaign->getTrackingCategory()->getDBKey()
+				$campaign->getTrackingCategory()->getDBkey()
 			);
 			$result->addValue(
 				$campaignPath,

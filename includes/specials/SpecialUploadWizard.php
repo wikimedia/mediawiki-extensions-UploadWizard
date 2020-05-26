@@ -312,7 +312,7 @@ class SpecialUploadWizard extends SpecialPage {
 		if ( array_key_exists(
 			'display', $config ) && array_key_exists( 'headerLabel', $config['display'] )
 		) {
-			$this->getOutput()->addHtml( $config['display']['headerLabel'] );
+			$this->getOutput()->addHTML( $config['display']['headerLabel'] );
 		}
 
 		if ( array_key_exists( 'fallbackToAltUploadForm', $config )
