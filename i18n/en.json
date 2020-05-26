@@ -140,7 +140,7 @@
 	"mwe-upwiz-patent-weapon-policy": "Users should avoid uploading any 3D models that could be viewed as a weapon or \"defense article\".\nThe Commons community might remove such items upon moderation.",
 	"mwe-upwiz-patent-weapon-policy-link": "Read policy details",
 	"mwe-upwiz-license-metadata-title": "License for captions contributions only (this applies to caption text, NOT the file)",
-	"mwe-upwiz-license-metadata-statements-title": "License for all structured metadata",
+	"mwe-upwiz-license-metadata-statements-title": "License for all structured metadata (NOT the file)",
 	"mwe-upwiz-license-metadata-content": "By clicking \"publish\", you agree to the [[wmf:Terms_of_Use|terms of use]], and you irrevocably agree to release your contribution under the [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 License].",
 	"mwe-upwiz-more-options": "Add location and more information …",
 	"mwe-upwiz-copy-statements-dialog": "Metadata on other files in this batch will be replaced with this file's metadata. Are you sure?",
