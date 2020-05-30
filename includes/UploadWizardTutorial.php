@@ -10,7 +10,7 @@ use MediaWiki\MediaWikiServices;
 class UploadWizardTutorial {
 
 	// Id of imagemap used in tutorial.
-	const IMAGEMAP_ID = 'tutorialMap';
+	private const IMAGEMAP_ID = 'tutorialMap';
 
 	/**
 	 * Fetches appropriate HTML for the tutorial portion of the wizard.

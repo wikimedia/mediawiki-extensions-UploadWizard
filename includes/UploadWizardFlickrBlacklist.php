@@ -7,12 +7,12 @@ class UploadWizardFlickrBlacklist {
 	/**
 	 * Regexp to extract photo id (as match group 1) from a static image URL.
 	 */
-	const IMAGE_URL_REGEXP = '!static\.?flickr\.com/[^/]+/([0-9]+)_!';
+	private const IMAGE_URL_REGEXP = '!static\.?flickr\.com/[^/]+/([0-9]+)_!';
 
 	/**
 	 * Regexp to extract photo id (as match group 1) from a photo page URL.
 	 */
-	const PHOTO_URL_REGEXP = '!flickr\.com/(?:x/t/[^/]+/)?photos/[^/]+/([0-9]+)!';
+	private const PHOTO_URL_REGEXP = '!flickr\.com/(?:x/t/[^/]+/)?photos/[^/]+/([0-9]+)!';
 
 	/**
 	 * An array of the blacklisted Flickr NSIDs and path_aliases.
