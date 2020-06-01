@@ -133,7 +133,7 @@
 	"mwe-upwiz-patent-dialog-link-license": "Lisateave",
 	"mwe-upwiz-patent-dialog-checkbox-label": "Nõustun nende tingimustega",
 	"mwe-upwiz-license-metadata-title": "Pealdiste litsents (käib ainult pealdiste teksti, mitte faili kohta)",
-	"mwe-upwiz-license-metadata-statements-title": "Struktureeritud metaandmete litsents",
+	"mwe-upwiz-license-metadata-statements-title": "Struktureeritud metaandmete (mitte faili) litsents",
 	"mwe-upwiz-license-metadata-content": "Kui klõpsad \"avalda\", nõustud [[wmf:Terms_of_Use|kasutustingimustega]] ja kaastöö pöördumatu avaldamisega Creative Commonsi litsentsi [https://creativecommons.org/publicdomain/zero/1.0/deed.et CC0] all.",
 	"mwe-upwiz-more-options": "Lisa asukoht ja veel andmeid ...",
 	"mwe-upwiz-copy-statements-dialog": "Kõigi teiste failide metaandmed selles üleslaadimises asendatakse selle faili metaandmetega. Kas oled kindel?",

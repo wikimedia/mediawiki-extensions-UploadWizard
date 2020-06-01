@@ -25,6 +25,8 @@
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Diverre kunne me ikkje finna ei rettleiing på språket ditt. Rettleiinga på $1 er vist i staden.",
 	"mwe-upwiz-add-file-n": "Legg til fleire filer",
 	"mwe-upwiz-add-file-0-free": "Vel mediefiler du vil dela",
+	"mwe-upwiz-add-file-flickr": "Del bilete frå Flickr",
+	"mwe-upwiz-add-file-flickr-n": "Legg til fleire bilete frå Flickr",
 	"mwe-upwiz-add-flickr-or": "eller",
 	"mwe-upwiz-add-flickr": "Hent frå Flickr",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr-URL",
@@ -72,6 +74,7 @@
 	"mwe-upwiz-patent-dialog-link-warranty": "Lær meir",
 	"mwe-upwiz-patent-dialog-link-license": "Lær meir",
 	"mwe-upwiz-license-metadata-title": "Lisens for bilettekstar (dette gjeld berre bilettekstar, IKKJE fila)",
+	"mwe-upwiz-license-metadata-content": "Ved å klikka på «publiser» samtykkjer du til [[wmf:Terms_of_Use|bruksvilkåra]], og du gjev endeleg samtykke til at bidraget ditt vert utgjeve under lisensen [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-more-options": "Legg til stad og meir informasjon …",
 	"mwe-upwiz-copy-metadata": "Kopier informasjon til {{PLURAL:$1|den andre opplastinga|alle opplastingane}} som fylgjer …",
 	"mwe-upwiz-copy-metadata-button": "Kopier",
@@ -213,5 +216,9 @@
 	"mwe-upwiz-error-nosuchcampaign": "Det finst ingen kampanje som heiter «$1».",
 	"mwe-upwiz-error-campaigndisabled": "Kampanjen «$1» er ikkje gjord verksam.",
 	"mwe-upwiz-calendar-date": "Vel dato frå kalender",
-	"mwe-upwiz-custom-date": "Bruk eige datoformat"
+	"mwe-upwiz-custom-date": "Bruk eige datoformat",
+	"mwe-upwiz-mv-cta-heading": "Hjelp til med å gjera bilete lettare å finna for alle",
+	"mwe-upwiz-mv-cta-description": "Commons har eit [[c:Commons:Structured_data/Computer-aided_tagging|nytt verktøy]] som gjev framlegg til merkelappar for bilete du lastar opp, om du ikkje allereie har lagt til nokre. Når du stadfester at merkelappane høver til bileta hjelper du til med å gjera bileta lettare å søkja etter for alle.",
+	"mwe-upwiz-mv-cta-checkbox-label": "Ja, eg ynskjer varsel når opplastingane mine har merkelappar som eg kan sjå på",
+	"mwe-upwiz-mv-cta-final-cta": "Er du klar til å setja på merkelappar med det same? [[c:Special:SuggestedTags|Prøv verktøyet no]] gjennom å setja merkelappar på populære bilete!"
 }
