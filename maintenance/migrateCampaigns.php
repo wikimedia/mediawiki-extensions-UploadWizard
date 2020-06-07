@@ -257,7 +257,9 @@ class MigrateCampaigns extends Maintenance {
 		$this->dbr = wfGetDB( DB_MASTER );
 		$campaigns = $this->dbr->select(
 			'uw_campaigns',
-			'*'
+			'*',
+			[],
+			__METHOD__
 		);
 
 		if ( !$campaigns->numRows() ) {

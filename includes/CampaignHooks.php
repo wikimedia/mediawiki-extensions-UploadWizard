@@ -70,13 +70,14 @@ class CampaignHooks {
 				$insertData
 			),
 			'campaign_name',
-			$insertData
+			$insertData,
+			__METHOD__
 		);
 
 		$campaign = new UploadWizardCampaign( $wikiPage->getTitle(), $content->getJsonData() );
 		$dbw->onTransactionPreCommitOrIdle( function () use ( $campaign ) {
 			$campaign->invalidateCache();
-		} );
+		}, __METHOD__ );
 
 		return $success;
 	}
@@ -118,13 +119,15 @@ class CampaignHooks {
 			return true;
 		}
 
+		$fname = __METHOD__;
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->onTransactionPreCommitOrIdle( function () use ( $dbw, $article ) {
+		$dbw->onTransactionPreCommitOrIdle( function () use ( $dbw, $article, $fname ) {
 			$dbw->delete(
 				'uw_campaigns',
-				[ 'campaign_name' => $article->getTitle()->getDBkey() ]
+				[ 'campaign_name' => $article->getTitle()->getDBkey() ],
+				$fname
 			);
-		} );
+		}, $fname );
 
 		return true;
 	}
@@ -149,7 +152,8 @@ class CampaignHooks {
 		$success = $dbw->update(
 			'uw_campaigns',
 			[ 'campaign_name' => $newTitle->getDBkey() ],
-			[ 'campaign_name' => $oldTitle->getDBkey() ]
+			[ 'campaign_name' => $oldTitle->getDBkey() ],
+			__METHOD__
 		);
 
 		return $success;
