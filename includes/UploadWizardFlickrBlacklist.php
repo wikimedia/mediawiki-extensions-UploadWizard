@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Checks Flickr images against a blacklist of users
  */
@@ -133,7 +135,8 @@ class UploadWizardFlickrBlacklist {
 				'nojsoncallback' => 1,
 			],
 		];
-		$response = Http::post( $this->flickrApiUrl, $params );
+		$response = MediaWikiServices::getInstance()->getHttpRequestFactory()
+			->post( $this->flickrApiUrl, $params, __METHOD__ );
 		if ( $response !== false ) {
 			$response = json_decode( $response, true );
 		}
