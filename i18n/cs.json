@@ -69,6 +69,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Tento formulář načte obsah z flickr.com, který podléhá\n[https://www.flickr.com/help/terms/ podmínkám užití] a [https://www.flickr.com/help/privacy-policy/ pravidlům ochrany osobních údajů] Flickru.",
 	"mwe-upwiz-flickr-disclaimer2": "Uvědomte si, že použitím tohoto nástroje zpřístupníte svou IP adresu a údaje o požadavku Flickru.",
 	"mwe-upwiz-error-no-image-retrieved": "Nepodařilo se nám načíst soubor z $1.",
+	"mwe-upwiz-multi-file-select2": "Vyberte soubory, které chcete nahrát. Držte klávesu Shift a klikejte, abyste najednou vybrali více souborů. K nahrání můžete vybrat až $1 {{PLURAL:$1|soubor|soubory|souborů}}.",
 	"mwe-upwiz-transport-started": "Spouští se…",
 	"mwe-upwiz-uploading": "Načítání…",
 	"mwe-upwiz-queued": "Ve frontě...",
