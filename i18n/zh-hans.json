@@ -41,6 +41,7 @@
 			"凡人丶",
 			"列维劳德",
 			"神樂坂秀吉",
+			"铁桶",
 			"阿pp",
 			"飞舞回堂前"
 		]
@@ -241,7 +242,7 @@
 	"mwe-upwiz-next-deeds": "下一步",
 	"mwe-upwiz-publish-details": "发布文件",
 	"mwe-upwiz-publish-metadata": "发布数据",
-	"mwe-upwiz-skip-metadata": "跳过",
+	"mwe-upwiz-skip-metadata": "跳过此步",
 	"mwe-upwiz-metadata-title": "添加元数据",
 	"mwe-upwiz-metadata-help-title": "添加可选元数据",
 	"mwe-upwiz-metadata-help-content": "您的文件已上传，添加元数据可使它们更易被发现。",

@@ -212,6 +212,7 @@
 	"mwe-upwiz-feedback-prompt": "Gje attendemelding",
 	"mwe-upwiz-feedback-title": "Gje attendemelding om opplastingsvegvisaren",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Dette namnet i svartelista som traff:\n$1",
+	"mwe-upwiz-errordialog-title": "Det var ein feil med innsendinga di",
 	"mwe-upwiz-errordialog-ok": "Greitt",
 	"mwe-upwiz-error-nosuchcampaign": "Det finst ingen kampanje som heiter «$1».",
 	"mwe-upwiz-error-campaigndisabled": "Kampanjen «$1» er ikkje gjord verksam.",
