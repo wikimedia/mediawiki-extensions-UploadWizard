@@ -671,7 +671,7 @@
 		"CodeEditorGetPageLanguage": "CampaignHooks::onCodeEditorGetPageLanguage",
 		"PageSaveComplete": "CampaignHooks::onPageSaveComplete",
 		"ArticleDeleteComplete": "CampaignHooks::onArticleDeleteComplete",
-		"TitleMoveComplete": "CampaignHooks::onTitleMoveComplete",
+		"PageMoveComplete": "CampaignHooks::onPageMoveComplete",
 		"LinksUpdateComplete": "CampaignHooks::onLinksUpdateComplete"
 	},
 	"attributes": {

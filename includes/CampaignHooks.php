@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
@@ -139,15 +140,23 @@ class CampaignHooks {
 
 	/**
 	 * Update campaign names when the Campaign page moves
-	 * @param Title $oldTitle
-	 * @param Title $newTitle
-	 * @param User $user
+	 * @param LinkTarget $oldTitle
+	 * @param LinkTarget $newTitle
+	 * @param UserIdentity $user
 	 * @param int $pageid
 	 * @param int $redirid
+	 * @param string $reason
+	 * @param RevisionRecord $revisionRecord
 	 * @return bool
 	 */
-	public static function onTitleMoveComplete(
-		Title $oldTitle, Title $newTitle, $user, $pageid, $redirid
+	public static function onPageMoveComplete(
+		LinkTarget $oldTitle,
+		LinkTarget $newTitle,
+		UserIdentity $user,
+		int $pageid,
+		int $redirid,
+		string $reason,
+		RevisionRecord $revisionRecord
 	) {
 		if ( !$oldTitle->inNamespace( NS_CAMPAIGN ) ) {
 			return true;
