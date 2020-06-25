@@ -1,4 +1,9 @@
 <?php
+
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\EditResult;
+use MediaWiki\User\UserIdentity;
+
 /**
  * Hooks for managing JSON Schema namespace and content model.
  *
@@ -36,23 +41,23 @@ class CampaignHooks {
 	 * Acts everytime a page in the NS_CAMPAIGN namespace is saved
 	 *
 	 * @param WikiPage $wikiPage
-	 * @param User $user
-	 * @param Content $content
+	 * @param UserIdentity $userIdentity
 	 * @param string $summary
-	 * @param bool $isMinor
-	 * @param bool $isWatch
-	 * @param string $section
 	 * @param int $flags
-	 * @param Revision $revision
-	 * @param Status $status
-	 * @param int $baseRevId
+	 * @param RevisionRecord $revisionRecord
+	 * @param EditResult $editResult
 	 *
 	 * @return bool
 	 */
-	public static function onPageContentSaveComplete(
-		WikiPage $wikiPage, $user, $content, $summary, $isMinor, $isWatch,
-		$section, $flags, $revision, $status, $baseRevId
+	public static function onPageSaveComplete(
+		WikiPage $wikiPage,
+		UserIdentity $userIdentity,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
 	) {
+		$content = $wikiPage->getContent();
 		if ( !$content instanceof CampaignContent ) {
 			return true;
 		}

@@ -669,7 +669,7 @@
 		"ContentModelCanBeUsedOn": "CampaignHooks::onContentModelCanBeUsedOn",
 		"EditFilterMergedContent": "CampaignHooks::onEditFilterMergedContent",
 		"CodeEditorGetPageLanguage": "CampaignHooks::onCodeEditorGetPageLanguage",
-		"PageContentSaveComplete": "CampaignHooks::onPageContentSaveComplete",
+		"PageSaveComplete": "CampaignHooks::onPageSaveComplete",
 		"ArticleDeleteComplete": "CampaignHooks::onArticleDeleteComplete",
 		"TitleMoveComplete": "CampaignHooks::onTitleMoveComplete",
 		"LinksUpdateComplete": "CampaignHooks::onLinksUpdateComplete"
