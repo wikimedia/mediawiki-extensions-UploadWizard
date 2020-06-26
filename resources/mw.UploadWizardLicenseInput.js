@@ -167,7 +167,7 @@
 		 * Returns a list of templates used & transcluded in given wikitext
 		 *
 		 * @param {string} wikitext
-		 * @return {$.Promise} Promise that resolves with an array of template names
+		 * @return {jQuery.Promise} Promise that resolves with an array of template names
 		 */
 		getUsedTemplates: function ( wikitext ) {
 			var input = this;

@@ -162,7 +162,7 @@
 	 * @param {string} code
 	 * @param {Object} result
 	 * @param {string[] }duplicates
-	 * @return {$.Promise}
+	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.processDuplicateError = function ( code, result, duplicates ) {
 		var files = this.getFileLinks( duplicates ),
@@ -182,7 +182,7 @@
 
 	/**
 	 * @param {string[]} duplicates Array of duplicate filenames
-	 * @return {$.Promise}
+	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.getDuplicateSource = function ( duplicates ) {
 		return this.getImageInfo( duplicates, 'url' ).then( function ( result ) {
@@ -296,7 +296,7 @@
 	/**
 	 * @param {string|string[]} titles File title or array of titles
 	 * @param {string|string[]} prop Image props
-	 * @return {$.Promise}
+	 * @return {jQuery.Promise}
 	 */
 	mw.ApiUploadHandler.prototype.getImageInfo = function ( titles, prop ) {
 		return this.api.get( {

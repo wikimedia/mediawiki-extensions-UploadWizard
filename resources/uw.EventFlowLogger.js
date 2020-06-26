@@ -19,6 +19,7 @@
 	/**
 	 * Event logging helper for funnel analysis. Should be instantiated at the very beginning; uses internal state
 	 * to link events together.
+	 *
 	 * @class uw.EventFlowLogger
 	 * @constructor
 	 */

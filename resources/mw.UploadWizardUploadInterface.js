@@ -233,12 +233,12 @@
 	};
 
 	/**
-	* Create a checkbox to process the object reference parameter
-	*
-	* @param {number} index Number of the file for which the field is being created
-	* @param {boolean} setDisabled Disable in case there already is an image in the referring list
-	* @return {jQuery} A `div` containing a checkbox, label, and optional notice
-	*/
+	 * Create a checkbox to process the object reference parameter
+	 *
+	 * @param {number} index Number of the file for which the field is being created
+	 * @param {boolean} setDisabled Disable in case there already is an image in the referring list
+	 * @return {jQuery} A `div` containing a checkbox, label, and optional notice
+	 */
 	mw.UploadWizardUploadInterface.prototype.createImagePickerField = function ( index, setDisabled ) {
 		var $fieldContainer = $( '<div>' ).addClass( 'mwe-upwiz-objref-pick-image' ),
 			attributes = {

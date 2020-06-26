@@ -13,6 +13,7 @@
 	 * Used to avoid name conflicts. Filenames are not removed when an upload is cancelled, so this can
 	 * contain fakes. Since we only use the list to choose an ugly but more unique file format on conflict,
 	 * and never refuse an upload based on it, that is not really a problem.
+	 *
 	 * @type {Object}
 	 */
 	mw.FlickrChecker.fileNames = {};
@@ -21,12 +22,14 @@
 	 * Cache for Flickr blacklist lookups.
 	 * Resolves to a hash whose keys are the blacklisted Flickr NSIDs.
 	 * Use `FlickrChecker.getBlacklist()` instead of accessing this directly.
+	 *
 	 * @type {jQuery.Promise}
 	 */
 	mw.FlickrChecker.blacklist = null;
 
 	/**
 	 * Cache for Flickr license lookups.
+	 *
 	 * @type {jQuery.Promise}
 	 */
 	mw.FlickrChecker.licensePromise = null;
