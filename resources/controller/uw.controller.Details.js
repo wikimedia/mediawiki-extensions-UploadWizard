@@ -112,6 +112,7 @@
 				first = upload;
 				return true; // Break Array.some loop
 			}
+			return false;
 		} );
 
 		// could not find a source upload to copy from

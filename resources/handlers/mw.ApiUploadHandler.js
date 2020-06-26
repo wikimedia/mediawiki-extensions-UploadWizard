@@ -222,7 +222,7 @@
 	 * @param {Object} result The API result in parsed JSON form
 	 * @param {Object} localDuplicates Array of [duplicate filenames => local url]
 	 * @param {Object} foreignDuplicates Array of [duplicate filenames => foreign url]
-	 * @param {int} unknownAmount Amount of unknown filenames (e.g. revdeleted)
+	 * @param {number} unknownAmount Amount of unknown filenames (e.g. revdeleted)
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateError = function ( code, result, localDuplicates, foreignDuplicates, unknownAmount ) {
 		var allDuplicates = $.extend( {}, localDuplicates, foreignDuplicates ),

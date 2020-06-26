@@ -1,3 +1,6 @@
+/**
+ * @external StatementWidget
+ */
 ( function ( uw ) {
 
 	'use strict';

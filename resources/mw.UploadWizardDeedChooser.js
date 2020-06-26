@@ -6,7 +6,7 @@
 	 * @param {Object} config The UW config
 	 * @param {string|jQuery} selector Where to put this deed chooser
 	 * @param {Object} deeds Keyed object of UploadWizardDeed items
-	 * @param {UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
+	 * @param {mw.UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
 	 */
 	mw.UploadWizardDeedChooser = function ( config, selector, deeds, uploads ) {
 		var chooser = this;

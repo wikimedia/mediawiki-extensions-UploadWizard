@@ -2,17 +2,22 @@
 	"root": true,
 	"extends": [
 		"wikimedia/client",
-		"wikimedia/jquery"
+		"wikimedia/jquery",
+		"wikimedia/mediawiki"
 	],
 	"globals": {
-		"require": false,
-		"OO": false,
-		"mw": false,
-		"wikibase": false
+		"wikibase": "readonly"
 	},
 	"rules": {
 		"max-len": "off",
+		"mediawiki/class-doc": "warn",
+		"mediawiki/msg-doc": "warn",
 		"jquery/no-each-util": "off",
-		"jquery/no-map-util": "off"
+		"jquery/no-map-util": "off",
+		"jsdoc/no-undefined-types": [ "warn", {
+			"definedTypes": [
+				"uw"
+			]
+		} ]
 	}
 }

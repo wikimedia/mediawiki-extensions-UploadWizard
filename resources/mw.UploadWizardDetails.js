@@ -491,6 +491,7 @@
 							return true; // break from Array.some
 						}
 					}
+					return false;
 				} );
 			}
 

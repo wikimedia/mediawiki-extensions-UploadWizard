@@ -212,7 +212,7 @@
 	 * itself; and immediately fill it with a file and add it to the list of uploads.
 	 *
 	 * @param {File} file
-	 * @return {UploadWizardUpload|false} The new upload, or false if it can't be added
+	 * @return {mw.UploadWizardUpload|boolean} The new upload, or false if it can't be added
 	 */
 	uw.controller.Upload.prototype.addFile = function ( file ) {
 		var upload;

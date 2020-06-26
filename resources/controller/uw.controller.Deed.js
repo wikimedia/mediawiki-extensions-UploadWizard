@@ -187,7 +187,7 @@
 	};
 
 	/**
-	 * @param {UploadWizardUpload} upload
+	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.controller.Deed.prototype.removeUpload = function ( upload ) {
 		uw.controller.Step.prototype.removeUpload.call( this, upload );

@@ -1,3 +1,7 @@
+/**
+ * @external wikibaseDatamodel
+ * @external StatementWidget
+ */
 ( function ( uw ) {
 	'use strict';
 

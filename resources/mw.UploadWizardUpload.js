@@ -19,7 +19,7 @@
 	 * @class mw.UploadWizardUpload
 	 * @mixins OO.EventEmitter
 	 * @constructor
-	 * @param {Step} controller
+	 * @param {uw.controller.Step} controller
 	 * @param {File} file
 	 */
 	mw.UploadWizardUpload = function MWUploadWizardUpload( controller, file ) {
@@ -450,7 +450,7 @@
 	/**
 	 * Get the upload handler per browser capabilities
 	 *
-	 * @return {ApiUploadFormDataHandler|ApiUploadPostHandler} upload handler object
+	 * @return {mw.ApiUploadFormDataHandler|mw.ApiUploadPostHandler} upload handler object
 	 */
 	mw.UploadWizardUpload.prototype.getUploadHandler = function () {
 		var constructor; // must be the name of a function in 'mw' namespace
@@ -547,7 +547,7 @@
 	 * Return the orientation of the image in degrees. Relies on metadata that
 	 * may have been extracted at filereader stage, or after the upload when we fetch metadata. Default returns 0.
 	 *
-	 * @return {Integer} orientation in degrees: 0, 90, 180 or 270
+	 * @return {number} orientation in degrees: 0, 90, 180 or 270
 	 */
 	mw.UploadWizardUpload.prototype.getOrientationDegrees = function () {
 		var orientation = 0;
@@ -713,8 +713,8 @@
 	 *
 	 * @private
 	 * @param {HTMLImageElement} image
-	 * @param {Integer} width
-	 * @param {Integer} height
+	 * @param {number} width
+	 * @param {number} height
 	 * @return {HTMLCanvasElement|HTMLImageElement}
 	 */
 	mw.UploadWizardUpload.prototype.getScaledImageElement = function ( image, width, height ) {
