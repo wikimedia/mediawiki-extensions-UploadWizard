@@ -2,17 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Creepario",
+			"Kghbln",
 			"Metalhead64",
 			"Predatorix"
 		]
 	},
-	"apihelp-flickrblacklist-description": "Bestätige eine Flickr-URL, indem du die Nutzer-ID (NSID) für das Blacklisting benutzt.\n\nWenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle IDs, welche in der Blacklist stehen, wieder.",
+	"apihelp-flickrblacklist-description": "Bestätige eine Flickr-URL, indem du die Nutzerkennung (NSID) für das Eintragen in die Negativliste benutzt.\n\nWenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle Kennungen wider, die in der Negativliste stehen.",
 	"apihelp-flickrblacklist-summary": "Validiert eine Flickr-URL durch die Verwendung der Benutzerkennung (NSID) für die Schwarzlistung.",
-	"apihelp-flickrblacklist-extended-description": "Wenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle IDs, welche in der Blacklist stehen, wieder.",
+	"apihelp-flickrblacklist-extended-description": "Wenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle Kennungen aus, die in der Negativliste stehen.",
 	"apihelp-flickrblacklist-param-url": "Die zu testende Flickr-URL.",
-	"apihelp-flickrblacklist-param-list": "Wenn eingestellt, wird die gesamte Schwarze Liste zurückgegeben. Darf nicht zusammen mit $1url verwendet werden.",
-	"apihelp-flickrblacklist-example-1": "Überprüft eine URL gegen die Blacklist",
-	"apihelp-flickrblacklist-example-2": "Gibt die ganze Blacklist zurück",
+	"apihelp-flickrblacklist-param-list": "Wenn eingestellt, wird die gesamte Negativliste zurückgegeben. Darf nicht zusammen mit $1url verwendet werden.",
+	"apihelp-flickrblacklist-example-1": "Überprüft eine URL gegen die Negativliste",
+	"apihelp-flickrblacklist-example-2": "Gibt die ganze Negativliste zurück",
 	"apihelp-query+allcampaigns-description": "Führt alle Kampagnen des Hochladeassistenten auf.",
 	"apihelp-query+allcampaigns-summary": "Zählt alle Kampagnen des Hochladeassistenten auf.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Listet nur Kampagnen auf, die aktiviert sind.",
