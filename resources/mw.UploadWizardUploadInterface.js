@@ -20,8 +20,14 @@
 
 		this.isFilled = false;
 
-		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append( $.createSpinner( { size: 'large', type: 'block' } ) );
-		this.lastStatus = null;
+		this.statusMessage = new OO.ui.MessageWidget( { inline: true } );
+		this.statusMessage.toggle( false );
+		this.$spinner = $.createSpinner( { size: 'small', type: 'inline' } );
+		this.$spinner.hide();
+		this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append(
+			this.$spinner,
+			this.statusMessage.$element
+		);
 
 		this.$visibleFilenameDiv = $( '<div>' ).addClass( 'mwe-upwiz-visible-file' ).append(
 			this.$indicator,
@@ -77,17 +83,19 @@
 	/**
 	 * Change the graphic indicator at the far end of the row for this file
 	 *
-	 * @param {string} [statusClass] Corresponds to a class mwe-upwiz-status-[statusClass]
-	 *  which changes style of indicator. Omit to unset.
+	 * @param {string} [status] Either a OO.ui.MessageWidget type (error/success/...) or 'progress'.
+	 *  Omit to hide the indicator
 	 */
-	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( statusClass ) {
-		if ( this.lastStatus ) {
-			this.$indicator.removeClass( 'mwe-upwiz-status-' + this.lastStatus );
+	mw.UploadWizardUploadInterface.prototype.showIndicator = function ( status ) {
+		this.$spinner.hide();
+		this.statusMessage.toggle( false );
+
+		if ( status === 'progress' ) {
+			this.$spinner.show();
+		} else if ( status ) {
+			this.statusMessage.toggle( true ).setType( status );
 		}
-		if ( statusClass ) {
-			this.$indicator.addClass( 'mwe-upwiz-status-' + statusClass );
-		}
-		this.lastStatus = statusClass;
+		this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );
 	};
 
 	/**
@@ -150,7 +158,7 @@
 	 * Show that upload is transported
 	 */
 	mw.UploadWizardUploadInterface.prototype.showStashed = function () {
-		this.showIndicator( 'stashed' );
+		this.showIndicator( 'success' );
 		this.setStatus( 'mwe-upwiz-stashed-upload' );
 		this.setAdditionalStatus( null );
 	};

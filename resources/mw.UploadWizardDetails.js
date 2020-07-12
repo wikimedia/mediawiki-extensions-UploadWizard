@@ -223,11 +223,18 @@
 
 			this.$thumbnailDiv.append( this.removeCtrl.$element );
 
+			this.statusMessage = new OO.ui.MessageWidget( { inline: true } );
+			this.statusMessage.toggle( false );
+			this.$spinner = $.createSpinner( { size: 'small', type: 'inline' } );
+			this.$spinner.hide();
+			this.$indicator = $( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append(
+				this.$spinner,
+				this.statusMessage.$element
+			);
+
 			this.$submittingDiv = $( '<div>' ).addClass( 'mwe-upwiz-submitting' )
 				.append(
-					$( '<div>' ).addClass( 'mwe-upwiz-file-indicator' ).append(
-						$.createSpinner( { size: 'large', type: 'block' } )
-					),
+					this.$indicator,
 					$( '<div>' ).addClass( 'mwe-upwiz-details-texts' ).append(
 						$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
 						$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' )
@@ -917,7 +924,7 @@
 					// as it's going to get
 					$( window ).off( 'beforeunload' );
 				} else {
-					details.showIndicator( 'uploaded' );
+					details.showIndicator( 'success' );
 					details.setStatus( mw.message( 'mwe-upwiz-published' ).text() );
 				}
 			} );
@@ -1305,11 +1312,17 @@
 			this.$div.find( '.mwe-upwiz-file-status-line' ).html( s ).show();
 		},
 
-		showIndicator: function ( statusStr ) {
-			this.$div.find( '.mwe-upwiz-file-indicator' )
-				.show()
-				.removeClass( 'mwe-upwiz-status-progress mwe-upwiz-status-error mwe-upwiz-status-uploaded' )
-				.addClass( 'mwe-upwiz-status-' + statusStr );
+		// TODO: De-duplicate with code form mw.UploadWizardUploadInterface.js
+		showIndicator: function ( status ) {
+			this.$spinner.hide();
+			this.statusMessage.toggle( false );
+
+			if ( status === 'progress' ) {
+				this.$spinner.show();
+			} else if ( status ) {
+				this.statusMessage.toggle( true ).setType( status );
+			}
+			this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );
 		},
 
 		setVisibleTitle: function ( s ) {

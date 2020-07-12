@@ -66,10 +66,16 @@ form.mwe-upwiz-form {
 	background: #f8f9fa;
 }
 
-.mwe-upwiz-file-indicator,
-.mwe-upwiz-count {
+.mwe-upwiz-file-indicator {
 	float: right;
-	margin-left: 0.5em;
+	padding: 1.5em 1.5em 0 0;
+}
+
+.mwe-upwiz-file-indicator .oo-ui-messageWidget {
+	width: 20px;
+}
+
+.mwe-upwiz-count {
 	padding: 0.5em;
 }
 
@@ -77,10 +83,7 @@ form.mwe-upwiz-form {
 	visibility: hidden;
 }
 
-.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-stashed,
-.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-uploaded,
-.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-progress,
-.mwe-upwiz-visible-file .mwe-upwiz-file-indicator.mwe-upwiz-status-error {
+.mwe-upwiz-visible-file .mwe-upwiz-file-indicator-visible {
 	visibility: visible;
 }
 
@@ -246,21 +249,6 @@ form.mwe-upwiz-form {
 	display: none;
 }
 
-.mwe-upwiz-file-indicator {
-	height: 40px;
-	width: 40px;
-}
-
-.mwe-upwiz-file-indicator:not( .mwe-upwiz-status-progress ) .mw-spinner {
-	display: none;
-}
-
-.mwe-upwiz-status-stashed,
-.mwe-upwiz-status-uploaded {
-	/* @embed */
-	background: url( images/32px-check.png ) no-repeat center center;
-}
-
 .mwe-upwiz-license-icon {
 	height: 18px;
 	margin-left: 6px;
@@ -281,13 +269,6 @@ form.mwe-upwiz-form {
 .mwe-upwiz-cc-by-icon {
 	/* @embed */
 	background: url( images/18px-Cc-by_new_white.svg.png ) no-repeat center center;
-}
-
-.mwe-upwiz-status-error {
-	/* @embed */
-	background: url( images/32px-alert.png ) no-repeat center center;
-	font-weight: bold;
-	color: #d33;
 }
 
 .mwe-upwiz-progress {
