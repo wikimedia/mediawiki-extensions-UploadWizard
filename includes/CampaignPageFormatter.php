@@ -99,12 +99,12 @@ class CampaignPageFormatter {
 					[ 'id' => 'mw-campaign-view-all', 'href' => $campaignViewMoreLink ],
 					Html::rawElement(
 						'span',
-						[ 'class' => 'mw-campaign-chevron mw-campaign-float-left' ], '&nbsp'
+						[ 'class' => 'mw-campaign-chevron mw-campaign-float-left' ], '&nbsp;'
 					) .
 					wfMessage( 'mwe-upwiz-campaign-view-all-media' )->escaped() .
 					Html::rawElement(
 						'span',
-						[ 'class' => 'mw-campaign-chevron mw-campaign-float-right' ], '&nbsp'
+						[ 'class' => 'mw-campaign-chevron mw-campaign-float-right' ], '&nbsp;'
 					)
 				);
 		}
