@@ -23,6 +23,7 @@
 			"Mywood",
 			"NeverBehave",
 			"PhiLiP",
+			"Rowingbohe",
 			"Shirayuki",
 			"Shizhao",
 			"Tommyang",
@@ -185,6 +186,7 @@
 	"mwe-upwiz-license-metadata-statements-title": "所有结构化数据的授权协议（不是文件）",
 	"mwe-upwiz-license-metadata-content": "点击“发布”按钮后，表示您同意[[wmf:Terms_of_Use|使用条款]]，并不可撤销地同意以[https://creativecommons.org/publicdomain/zero/1.0/deed.zh 知识共享 CC0 授权协议]发布您的贡献。",
 	"mwe-upwiz-more-options": "添加地点和更多的信息…",
+	"mwe-upwiz-copy-statements-dialog-accept": "是的，复制",
 	"mwe-upwiz-copy-statements-button-done": "已复制！",
 	"mwe-upwiz-copy-metadata": "复制信息至下方的所有上传…",
 	"mwe-upwiz-copy-metadata-button": "复制",
@@ -241,7 +243,8 @@
 	"mwe-upwiz-next-file": "继续",
 	"mwe-upwiz-next-deeds": "下一步",
 	"mwe-upwiz-publish-details": "发布文件",
-	"mwe-upwiz-publish-metadata": "发布数据",
+	"mwe-upwiz-publish-metadata": "为所有文件发布数据",
+	"mwe-upwiz-publish-metadata-error": "请修复所有错误。",
 	"mwe-upwiz-skip-metadata": "跳过此步",
 	"mwe-upwiz-metadata-title": "添加元数据",
 	"mwe-upwiz-metadata-help-title": "添加可选元数据",
@@ -411,5 +414,8 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "并行上传的最大数目",
 	"campaigns": "上传向导运动",
 	"mwe-upload-campaigns-pagination-next": "下一页",
-	"mwe-upload-campaigns-list-title": "上传活动列表"
+	"mwe-upload-campaigns-list-title": "上传活动列表",
+	"mwe-upwiz-mv-cta-heading": "帮助每个人更容易找到图像",
+	"mwe-upwiz-mv-cta-dismiss": "关闭",
+	"mwe-upwiz-mv-cta-user-preference-unset": "您将不再收到标记您上传的内容的通知。"
 }
