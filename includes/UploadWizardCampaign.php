@@ -236,7 +236,6 @@ class UploadWizardCampaign {
 		$parserOptions->setInterfaceMessage( true );
 		$parserOptions->setUserLang( $lang );
 		$parserOptions->setTargetLanguage( $lang );
-		$parserOptions->setTidy( true );
 
 		$output = MediaWikiServices::getInstance()->getParser()->parse(
 			$value, $this->getTitle(), $parserOptions
