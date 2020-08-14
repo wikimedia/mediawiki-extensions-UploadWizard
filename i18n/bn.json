@@ -11,6 +11,7 @@
 			"Sayma Jahan",
 			"Sm faysal",
 			"Wikitanvir",
+			"YahyA",
 			"আফতাবুজ্জামান"
 		]
 	},
@@ -146,7 +147,7 @@
 	"mwe-upwiz-copy-metadata-button-undo": "পূর্বাবস্থায় ফেরাও",
 	"mwe-upwiz-copied-metadata": "অনুলিপি হয়েছে",
 	"mwe-upwiz-undid-metadata": "অনুলিপি পূর্বাবস্থায় আনো।",
-	"mwe-upwiz-copy-title": "শিরনাম অনুলিপি (সয়ংক্রিয় নম্বরক্রম সহ)",
+	"mwe-upwiz-copy-title": "শিরোনাম অনুলিপি (স্বয়ংক্রিয় নম্বরক্রম সহ)",
 	"mwe-upwiz-copy-caption": "ক্যাপশন অনুলিপি করুন",
 	"mwe-upwiz-copy-description": "বিবরণ অনুলিপি করুন",
 	"mwe-upwiz-copy-date": "তারিখ অনুলিপি",
@@ -333,7 +334,7 @@
 	"mwe-upwiz-feedback-prompt": "প্রতিক্রিয়া জানান",
 	"mwe-upwiz-feedback-title": "আপলোড উইজার্ড সম্পর্কে আপনার প্রতিক্রিয়া জানান",
 	"mwe-upwiz-feedback-blacklist-line-intro": "এই শিরনামটি কালো তালিকার সাথে মিলে যাচ্ছে:\n$1",
-	"mwe-upwiz-feedback-blacklist-subject": "আমার আপলোডের শিরনাম, \"$1\" বাধা দেয়া হয়েছে।",
+	"mwe-upwiz-feedback-blacklist-subject": "আমার আপলোডের শিরোনাম, \"$1\" বাধা দেয়া হয়েছে।",
 	"mwe-upwiz-errordialog-title": "আপনার জমাদানে ত্রুটি হয়েছে",
 	"mwe-upwiz-errordialog-ok": "ঠিক আছে",
 	"mwe-upwiz-error-nosuchcampaign": "\"$1\" নামে কোনো ক্যাম্পেইন নেই।",

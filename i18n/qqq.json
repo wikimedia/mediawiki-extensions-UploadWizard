@@ -35,7 +35,7 @@
 	"uploadwizard-desc": "{{desc|name=Upload Wizard|url=https://www.mediawiki.org/wiki/Extension:UploadWizard}}",
 	"tag-uploadwizard": "Display name for 'uploadwizard' tag (= files uploaded with Upload Wizard)",
 	"tag-uploadwizard-description": "Description for 'uploadwizard' tag (= files uploaded with Upload Wizard)",
-	"tag-uploadwizard-flickr": "Display name for 'uploadwizard-flickr' tag (= Flickr files uploaded with Upload Wizard)",
+	"tag-uploadwizard-flickr": "{{optional}}\nDisplay name for 'uploadwizard-flickr' tag (= Flickr files uploaded with Upload Wizard)",
 	"tag-uploadwizard-flickr-description": "Description for 'uploadwizard-flickr' tag (= Flickr files uploaded with Upload Wizard)",
 	"right-mass-upload": "{{doc-right|mass-upload}}",
 	"action-mass-upload": "{{doc-action|mass-upload}}",
