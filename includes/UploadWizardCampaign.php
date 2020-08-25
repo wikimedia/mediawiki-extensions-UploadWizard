@@ -453,7 +453,7 @@ class UploadWizardCampaign {
 
 	/**
 	 * Checks the current date against the configured start and end dates to determine
-	 * whether the campaign is currently active.
+	 * whether the campaign was active in the past (and is not anymore)
 	 *
 	 * @return bool
 	 */
@@ -463,7 +463,7 @@ class UploadWizardCampaign {
 			'start', $this->parsedConfig
 		) ? strtotime( $this->parsedConfig['start'] ) : null;
 
-		return $start === null || $start <= $today;
+		return ( $start === null || $start <= $today ) && !$this->isActive();
 	}
 
 	/**
