@@ -3,7 +3,8 @@
 		"authors": [
 			"Envlh",
 			"Gazeb",
-			"Matma Rex"
+			"Matma Rex",
+			"Tkalyn"
 		]
 	},
 	"uploadwizard": "Спроваджаня начітанём файлів",
@@ -224,7 +225,7 @@
 	"mwe-upwiz-feedback-prompt": "Зохабити одозву",
 	"mwe-upwiz-feedback-title": "Зохабити одозву про Спроваданя начітанём файлів",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Тото є одповідаюча положка чорного списку:\n$1",
-	"mwe-upwiz-feedback-blacklist-subject": "Назва мнов начітаного файлу, „$1“, была заворонена.",
+	"mwe-upwiz-feedback-blacklist-subject": "Назва мнов начітаного файлу, „$1“, была заказана.",
 	"mwe-upwiz-errordialog-title": "Стала ся хыба почас посыланя",
 	"mwe-upwiz-errordialog-ok": "ОК",
 	"mwe-upwiz-error-nosuchcampaign": "Не екзістує кампань з назвов \"$1\".",
