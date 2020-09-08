@@ -410,5 +410,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Label for dismiss button\n{{Identical|Dismiss}}",
 	"mwe-upwiz-mv-cta-user-preference-set": "Confirmation message when user opts into notifications for machine vision",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Confirmation message when user opts out of notifications for machine vision",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Message to show if preference save fails"
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Message to show if preference save fails",
+	"mwe-upwiz-upload-comment-own-work": "Own work upload comment shown in upload log. This message will not be parsed.",
+	"mwe-upwiz-upload-comment-third-party": "Third party work upload comment shown in upload log. Only variable substitution will be done on this message.\n* $1 – author of the work\n* $2 – source of the work"
 }

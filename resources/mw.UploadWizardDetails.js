@@ -972,7 +972,8 @@
 			var params,
 				tags = [ 'uploadwizard' ],
 				deed = this.upload.deedChooser.deed,
-				comment = '';
+				comment = '',
+				config = mw.UploadWizard.config;
 
 			this.firstPoll = ( new Date() ).getTime();
 
@@ -981,9 +982,18 @@
 			}
 
 			if ( deed.name === 'ownwork' ) {
-				comment = 'Uploaded own work with ' + mw.UploadWizard.userAgent;
+				// This message does not have any parameters, so there's nothing to substitute
+				comment = config.uploadComment.ownWork;
 			} else {
-				comment = 'Uploaded a work by ' + deed.getAuthorWikiText() + ' from ' + deed.getSourceWikiText() + ' with ' + mw.UploadWizard.userAgent;
+				mw.messages.set(
+					'mwe-upwiz-upload-comment-third-party',
+					config.uploadComment.thirdParty
+				);
+				comment = mw.message(
+					'mwe-upwiz-upload-comment-third-party',
+					deed.getAuthorWikiText(),
+					deed.getSourceWikiText()
+				).plain();
 			}
 
 			params = {
@@ -991,7 +1001,7 @@
 				filekey: this.upload.fileKey,
 				filename: this.getTitle().getMain(),
 				comment: comment,
-				tags: mw.UploadWizard.config.CanAddTags ? tags : [],
+				tags: config.CanAddTags ? tags : [],
 				// we can ignore upload warnings here, we've already checked
 				// when stashing the file
 				// not ignoring warnings would prevent us from uploading a file
