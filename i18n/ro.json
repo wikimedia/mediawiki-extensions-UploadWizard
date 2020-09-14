@@ -7,6 +7,7 @@
 			"Macofe",
 			"Matma Rex",
 			"Minisarm",
+			"NGC 54",
 			"Stelistcristi",
 			"Strainu",
 			"XXN"
@@ -17,7 +18,7 @@
 	"right-upwizcampaigns": "Configurarea campaniilor de încărcare",
 	"action-upwizcampaigns": "configurați campaniile de încărcare",
 	"group-upwizcampeditors": "Editori de campanii de încărcare",
-	"group-upwizcampeditors-member": "{{GENDER:$1|Editor de campanii de încărcare|Editoare de campanii de încărcare|Editor de campanii de încărcare}}",
+	"group-upwizcampeditors-member": "{{GENDER:$1|editor de campanii de încărcare|editoare de campanii de încărcare|editor de campanii de încărcare}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Editori de campanii expert de încărcare",
 	"api-error-noimageinfo": "Încărcarea a reușit, dar serverul nu ne-a dat nicio informație despre fișier.",
 	"mwe-upwiz-extension-disabled": "Această pagină a fost dezactivată datorită unor probleme tehnice temporare. Între timp, folosiți formularul simplificat de încărcare.",
