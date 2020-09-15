@@ -5,7 +5,7 @@
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
-	$wgCheckFileExtensions, $wgUser, $wgWBRepoSettings;
+	$wgCheckFileExtensions, $wgWBRepoSettings;
 
 $userLangCode = $wgLang->getCode();
 // Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
@@ -591,11 +591,13 @@ return [
 	'maxSimultaneousConnections' => 3,
 
 	// Max number of uploads for a given form
-	'maxUploads' => $wgUser->isAllowed( 'mass-upload' ) ? 500 : 50,
+	// TODO replace this configuration array with a class that uses dependency injection
+	'maxUploads' => RequestContext::getMain()->getUser()->isAllowed( 'mass-upload' ) ? 500 : 50,
 
 	// Max number of files that can be imported from Flickr at one time (T236341)
 	// Note that these numbers should always be equal to or less than the maxUploads above.
-	'maxFlickrUploads' => $wgUser->isAllowed( 'mass-upload' ) ? 500 : 4,
+	// TODO replace this configuration array with a class that uses dependency injection
+	'maxFlickrUploads' => RequestContext::getMain()->getUser()->isAllowed( 'mass-upload' ) ? 500 : 4,
 
 	// Max file size that is allowed by PHP (may be higher/lower than MediaWiki file size limit).
 	// When using chunked uploading, these limits can be ignored.
