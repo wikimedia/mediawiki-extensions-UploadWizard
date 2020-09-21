@@ -15,7 +15,7 @@
 	},
 	"uploadwizard": "Expert de încărcare",
 	"uploadwizard-desc": "Expert de încărcare, o unealtă prietenoasă pentru încărcarea fișierelor multimedia",
-	"right-upwizcampaigns": "Configurarea campaniilor de încărcare",
+	"right-upwizcampaigns": "Configurează campanii de încărcare",
 	"action-upwizcampaigns": "configurați campaniile de încărcare",
 	"group-upwizcampeditors": "Editori de campanii de încărcare",
 	"group-upwizcampeditors-member": "{{GENDER:$1|editor de campanii de încărcare|editoare de campanii de încărcare|editor de campanii de încărcare}}",
