@@ -256,7 +256,7 @@
 				"resources/ui/steps/uw.ui.Thanks.less",
 				"resources/ui/steps/uw.ui.Tutorial.css",
 				"resources/ui/steps/uw.ui.Metadata.less",
-				"resources/uploadWizard.css",
+				"resources/uploadWizard.less",
 				"resources/uw.FieldLayout.less",
 				"resources/details/uw.DateDetailsWidget.less",
 				"resources/details/uw.SingleLanguageInputWidget.less",

@@ -36,10 +36,6 @@ form.mwe-upwiz-form {
 	width: auto;
 }
 
-.mwe-upwiz-add-files-0 #mwe-upwiz-upload-ctrl-flickr-container {
-	display: block;
-}
-
 .mwe-upwiz-add-files-0,
 #mwe-upwiz-files {
 	margin-top: 3em;
@@ -48,43 +44,45 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-add-files-0 {
 	text-align: center;
+
+	#mwe-upwiz-upload-ctrl-flickr-container {
+		display: block;
+	}
+
+	.mwe-upwiz-add-file {
+		font-size: large;
+	}
+
+	.oo-ui-buttonElement {
+		margin-right: 0;
+	}
 }
 
-.mwe-upwiz-add-files-0 .mwe-upwiz-add-file {
-	font-size: large;
-}
+.mwe-upwiz-file {
+	&.filled {
+		position: relative;
+	}
 
-.mwe-upwiz-add-files-0 .oo-ui-buttonElement {
-	margin-right: 0;
-}
+	&.odd .mwe-upwiz-visible-file {
+		background: #f8f9fa;
+	}
 
-.mwe-upwiz-file.filled {
-	position: relative;
-}
-
-.mwe-upwiz-file.odd .mwe-upwiz-visible-file {
-	background: #f8f9fa;
+	&:hover .mwe-upwiz-visible-file {
+		background: #e0f0ff !important; /* stylelint-disable-line declaration-no-important */
+	}
 }
 
 .mwe-upwiz-file-indicator {
 	float: right;
 	padding: 1.5em 1.5em 0 0;
-}
 
-.mwe-upwiz-file-indicator .oo-ui-messageWidget {
-	width: 20px;
+	.oo-ui-messageWidget {
+		width: 20px;
+	}
 }
 
 .mwe-upwiz-count {
 	padding: 0.5em;
-}
-
-.mwe-upwiz-visible-file .mwe-upwiz-file-indicator {
-	visibility: hidden;
-}
-
-.mwe-upwiz-visible-file .mwe-upwiz-file-indicator-visible {
-	visibility: visible;
 }
 
 .mwe-upwiz-visible-file {
@@ -93,10 +91,14 @@ form.mwe-upwiz-form {
 	z-index: 2;
 	width: 100%; /* of containing mwe-upwiz-file */
 	overflow: hidden;
-}
 
-.mwe-upwiz-file:hover .mwe-upwiz-visible-file {
-	background: #e0f0ff !important; /* stylelint-disable-line declaration-no-important */
+	.mwe-upwiz-file-indicator {
+		visibility: hidden;
+	}
+
+	.mwe-upwiz-file-indicator-visible {
+		visibility: visible;
+	}
 }
 
 #mwe-upwiz-files {
@@ -220,14 +222,14 @@ form.mwe-upwiz-form {
 	clear: both;
 	overflow: hidden;
 	margin-bottom: 1em;
-}
 
-#mwe-upwiz-flickr-select-list .oo-ui-checkboxMultioptionWidget {
-	margin: 6px;
-	padding: 1px;
-	width: auto;
-	float: left;
-	display: block;
+	.oo-ui-checkboxMultioptionWidget {
+		margin: 6px;
+		padding: 1px;
+		width: auto;
+		float: left;
+		display: block;
+	}
 }
 
 #mwe-upwiz-flickr-disclaimer {
@@ -289,10 +291,12 @@ form.mwe-upwiz-form {
 }
 
 /* thumbs in deed & thanks should not grow too high */
-#mwe-upwiz-stepdiv-deeds .mwe-upwiz-thumbnail,
-#mwe-upwiz-stepdiv-thanks .mwe-upwiz-thumbnail {
-	max-width: 230px;
-	max-height: 230px;
+#mwe-upwiz-stepdiv-deeds,
+#mwe-upwiz-stepdiv-thanks {
+	.mwe-upwiz-thumbnail {
+		max-width: 230px;
+		max-height: 230px;
+	}
 }
 
 /*
@@ -308,6 +312,11 @@ form.mwe-upwiz-form {
 .mwe-upwiz-thumbnail-link {
 	display: block;
 	margin: 0 auto;
+
+	canvas,
+	img {
+		box-shadow: 0 0 5px #999;
+	}
 }
 
 .mwe-upwiz-thumbnail-side {
@@ -334,17 +343,12 @@ form.mwe-upwiz-form {
 	border-radius: 2px;
 	text-align: center;
 	margin: 1em 0;
-}
 
-#mwe-upwiz-deeds-thumbnails .mwe-upwiz-thumbnail {
-	display: inline-block;
-	margin: 1em;
-	vertical-align: middle;
-}
-
-.mwe-upwiz-thumbnail-link canvas,
-.mwe-upwiz-thumbnail-link img {
-	box-shadow: 0 0 5px #999;
+	.mwe-upwiz-thumbnail {
+		display: inline-block;
+		margin: 1em;
+		vertical-align: middle;
+	}
 }
 
 .mwe-upwiz-data {
@@ -479,18 +483,18 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 
 .mwe-upwiz-license-custom {
 	overflow: hidden;
-}
 
-.mwe-upwiz-license-custom .oo-ui-buttonElement {
-	float: right;
-	width: 9em;
-	padding-left: 1em;
-	margin-right: 0;
-}
+	.oo-ui-buttonElement {
+		float: right;
+		width: 9em;
+		padding-left: 1em;
+		margin-right: 0;
+	}
 
-.mwe-upwiz-license-custom .oo-ui-textInputWidget {
-	width: auto;
-	margin-right: 10em;
+	.oo-ui-textInputWidget {
+		width: auto;
+		margin-right: 10em;
+	}
 }
 
 .mwe-upwiz-license-custom .oo-ui-textInputWidget textarea {
@@ -556,11 +560,13 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 	vertical-align: baseline;
 }
 
-.ui-helper-clearfix:before,
-.ui-helper-clearfix:after {
-	content: '';
-	display: table;
-	border-collapse: collapse;
+.ui-helper-clearfix {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		border-collapse: collapse;
+	}
 }
 
 .ui-helper-clearfix:after {
