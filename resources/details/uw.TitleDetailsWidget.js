@@ -51,7 +51,7 @@
 			// Force file namespace
 			mwTitle = mw.Title.makeTitle( NS_FILE, filename );
 		}
-		if ( mwTitle && illegalFileChars.test( mwTitle.getMainText() ) ) {
+		if ( mwTitle && ( illegalFileChars.test( mwTitle.getMainText() ) || mwTitle.fragment !== null ) ) {
 			// Consider the title invalid if it contains characters disallowed in file names
 			mwTitle = null;
 		}

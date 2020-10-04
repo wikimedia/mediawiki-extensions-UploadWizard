@@ -27,6 +27,10 @@
 		filename: 'Foo part 1/2.jpg',
 		prefixedText: null,
 		desc: 'filename with characters disallowed in file names'
+	}, {
+		filename: 'Foo #1.jpg',
+		prefixedText: null,
+		desc: 'filename including a # (disallowed in file names)'
 	} ];
 
 	QUnit.module( 'uw.TitleDetailsWidget', QUnit.newMwEnvironment() );
