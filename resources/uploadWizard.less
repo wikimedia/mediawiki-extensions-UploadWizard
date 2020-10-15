@@ -183,7 +183,7 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-patent-weapon-policy {
 	margin-top: 1em;
-	padding: 0 1em 0 calc( 32px + 2em );
+	padding: 0 1em 0 ~'calc( 32px + 2em )';
 	border: 1px solid #c8ccd1;
 	white-space: pre-wrap;
 	/* @embed */
@@ -193,11 +193,11 @@ form.mwe-upwiz-form {
 
 .mwe-upwiz-license-metadata {
 	margin-top: 3em;
-	padding: 0 1em 0 calc( 64px + 2.5em );
+	padding: 0 1em 0 ~'calc( 64px + 2.5em )';
 	border: 1px solid #c8ccd1;
 	white-space: pre-wrap;
 	/* @embed */
-	background: url( images/cc.svg ) no-repeat 1em 1em, url( images/zero.svg ) no-repeat calc( 1.5em + 32px ) 1em;
+	background: url( images/cc.svg ) no-repeat 1em 1em, url( images/zero.svg ) no-repeat ~'calc( 1.5em + 32px )' 1em;
 	background-size: 32px 32px;
 	background-color: #f2f4f7;
 }
@@ -363,13 +363,13 @@ form.mwe-upwiz-form {
 /* I don't like that this has to have width, to ensure that all the floats work out correctly. */
 #mwe-upwiz-stepdiv-details .mwe-upwiz-data {
 	/* 230px + 2.5em is width of thumbnail on the left */
-	width: calc( 100% - 230px - 2.5em );
+	width: ~'calc( 100% - 230px - 2.5em )';
 }
 
 #mwe-upwiz-stepdiv-thanks .mwe-upwiz-data {
 	/* 120px + 2.5em is width of thumbnail on the left */
 	/* 0.5em is padding inside text input (2 * 0.25), 4px is border (2 x 2px) */
-	width: calc( 100% - 120px - 2.5em - 0.5em - 4px );
+	width: ~'calc( 100% - 120px - 2.5em - 0.5em - 4px )';
 }
 
 .mwe-upwiz-stepdiv {
