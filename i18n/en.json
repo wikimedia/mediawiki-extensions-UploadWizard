@@ -381,5 +381,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Dismiss",
 	"mwe-upwiz-mv-cta-user-preference-set": "Great! You can change this setting any time in your [[c:Special:Preferences#mw-prefsection-echo|Preferences]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "You will no longer receive notifications to tag your uploads.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "We couldn't save your preference at this time. Please visit your [[c:Special:Preferences#mw-prefsection-echo|Preferences]] to opt into notifications."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "We couldn't save your preference at this time. Please visit your [[c:Special:Preferences#mw-prefsection-echo|Preferences]] to opt into notifications.",
+	"mwe-upwiz-upload-comment-own-work": "Uploaded own work with UploadWizard",
+	"mwe-upwiz-upload-comment-third-party": "Uploaded a work by $1 from $2 with UploadWizard"
 }

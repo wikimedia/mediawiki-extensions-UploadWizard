@@ -242,6 +242,14 @@ class SpecialUploadWizard extends SpecialPage {
 		$status = ChangeTags::canAddTagsAccompanyingChange( $tags, $this->getUser() );
 		$config['CanAddTags'] = $status->isOK();
 
+		// Upload comment should be localized with respect to the wiki's language
+		$config['uploadComment'] = [
+			'ownWork' => $this->msg( 'mwe-upwiz-upload-comment-own-work' )
+				->inContentLanguage()->plain(),
+			'thirdParty' => $this->msg( 'mwe-upwiz-upload-comment-third-party' )
+				->inContentLanguage()->plain()
+		];
+
 		$bitmapHandler = new BitmapHandler();
 		$this->getOutput()->addJsConfigVars(
 			[
