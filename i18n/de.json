@@ -403,5 +403,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Ausblenden",
 	"mwe-upwiz-mv-cta-user-preference-set": "Toll! Du kannst diese Einstellung jederzeit in deinen [[c:Special:Preferences#mw-prefsection-echo|Benutzereinstellungen]] ändern.",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Du erhältst keine Benachrichtigungen mehr, um deine Uploads zu markieren.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Wir konnten deine Präferenz zu diesem Zeitpunkt nicht speichern. Bitte rufe deine [[c:Special:Preferences#mw-prefsection-echo|Benutzereinstellungen]] auf, um Benachrichtigungen zu aktivieren."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Wir konnten deine Präferenz zu diesem Zeitpunkt nicht speichern. Bitte rufe deine [[c:Special:Preferences#mw-prefsection-echo|Benutzereinstellungen]] auf, um Benachrichtigungen zu aktivieren.",
+	"mwe-upwiz-upload-comment-own-work": "eigenes Werk mit dem Hochlade-Assistenten hochgeladen",
+	"mwe-upwiz-upload-comment-third-party": "ein Werk von $1 von $2 mit dem Hochlade-Assistenten hochgeladen"
 }

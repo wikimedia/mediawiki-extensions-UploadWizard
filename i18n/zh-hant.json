@@ -403,5 +403,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "解除",
 	"mwe-upwiz-mv-cta-user-preference-set": "幹的漂亮！你可以在[[c:Special:Preferences#mw-prefsection-echo|Preferences]]裡隨時更高設置。",
 	"mwe-upwiz-mv-cta-user-preference-unset": "你不會再收到點擊上傳的通知。",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "我們此刻無法保存您的偏好設定。請參訪您的[[c:Special:Preferences#mw-prefsection-echo|偏好設定]]來選用通知。"
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "我們此刻無法保存您的偏好設定。請參訪您的[[c:Special:Preferences#mw-prefsection-echo|偏好設定]]來選用通知。",
+	"mwe-upwiz-upload-comment-own-work": "透過上傳精靈來上傳自己的作品",
+	"mwe-upwiz-upload-comment-third-party": "透過上傳精靈來上傳出自於$2由$1所做出的作品"
 }

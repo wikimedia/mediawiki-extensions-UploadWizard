@@ -19,6 +19,7 @@
 			"Karduelis",
 			"Koc61",
 			"Matma Rex",
+			"MuratTheTurkish",
 			"Rapsar",
 			"Sayginer",
 			"Sezgin İbiş",
@@ -400,5 +401,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Kapat",
 	"mwe-upwiz-mv-cta-user-preference-set": "Harika! Bu ayarı istediğiniz zaman [[c:Special:Preferences#mw-prefsection-echo|Tercihler]]'de değiştirebilirsiniz.",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Yüklemelerinizi etiketlemek için artık bildirim almayacaksınız.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Şu anda tercihinizi kaydedemedik. Bildirimleri etkinleştirmek için lütfen [[c:Special:Preferences#mw-prefsection-echo|Tercihler]] sayfanızı ziyaret edin."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Şu anda tercihinizi kaydedemedik. Bildirimleri etkinleştirmek için lütfen [[c:Special:Preferences#mw-prefsection-echo|Tercihler]] sayfanızı ziyaret edin.",
+	"mwe-upwiz-upload-comment-own-work": "UploadWizard ile kendi çalışmansını yükledi",
+	"mwe-upwiz-upload-comment-third-party": "UploadWizard ile $2 kaynağından $1 tarafından bir çalışma yükledi"
 }

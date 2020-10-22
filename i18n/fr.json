@@ -433,5 +433,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Ignorer",
 	"mwe-upwiz-mv-cta-user-preference-set": "Super ! Vous pouvez changer ce paramètre à tout moment dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Vous ne recevrez plus de notifications pour marquer vos téléversements.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nous n’avons pas pu sauvegarder vos préférences. Veuillez vous rendre dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]] pour vous inscrire aux notifications."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nous n’avons pas pu sauvegarder vos préférences. Veuillez vous rendre dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]] pour vous inscrire aux notifications.",
+	"mwe-upwiz-upload-comment-own-work": "Téléversement de mon propre travail avec UploadWizard",
+	"mwe-upwiz-upload-comment-third-party": "Téléversement du travail de $1 sur $2 avec UploadWizard"
 }

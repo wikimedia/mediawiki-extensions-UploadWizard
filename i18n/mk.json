@@ -386,5 +386,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Тргни",
 	"mwe-upwiz-mv-cta-user-preference-set": "Одлично! Поставката можете да ја измените во секое време во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Повеќе нема да добивате известувања за означување на подигнатото.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Во мигов не можев да ја зачувам поставката. Појдете во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]] за да се пријавите за известувања."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Во мигов не можев да ја зачувам поставката. Појдете во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]] за да се пријавите за известувања.",
+	"mwe-upwiz-upload-comment-own-work": "Подигнато сопствено дело со Помошникот за подигање",
+	"mwe-upwiz-upload-comment-third-party": "Подигнато дело на $1 од $2 со Помошникот за подигање"
 }
