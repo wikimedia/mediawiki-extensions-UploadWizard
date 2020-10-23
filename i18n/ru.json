@@ -25,6 +25,7 @@
 			"Matma Rex",
 			"MaxSem",
 			"McDutchie",
+			"Megakott",
 			"Movses",
 			"Nk88",
 			"Okras",
@@ -399,5 +400,7 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максимальное количество одновременных закачек",
 	"campaigns": "Кампании мастера загрузок",
 	"mwe-upload-campaigns-pagination-next": "Следующая страница",
-	"mwe-upload-campaigns-list-title": "Список кампаний по загрузке"
+	"mwe-upload-campaigns-list-title": "Список кампаний по загрузке",
+	"mwe-upwiz-upload-comment-own-work": "Загрузил свою работу через UploadWizard",
+	"mwe-upwiz-upload-comment-third-party": "$1 загрузил работу с $2 через UploadWizard"
 }

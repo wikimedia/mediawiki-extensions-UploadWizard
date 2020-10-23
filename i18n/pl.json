@@ -395,5 +395,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Odrzuć",
 	"mwe-upwiz-mv-cta-user-preference-set": "Świetnie! Możesz zmienić to ustawienie w dowolnym momencie w swoich [[c:Special:Preferences#mw-prefsection-echo|preferencjach]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Nie będziesz więcej otrzymywać powiadomień dotyczących tagowania przesyłanych plików.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nie mogliśmy zapisać twoich preferencji. Odwiedź swoje [[c:Special:Preferences#mw-prefsection-echo|preferencje]] aby włączyć powiadomienia."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nie mogliśmy zapisać twoich preferencji. Odwiedź swoje [[c:Special:Preferences#mw-prefsection-echo|preferencje]] aby włączyć powiadomienia.",
+	"mwe-upwiz-upload-comment-own-work": "Przesłano własną pracę przy pomocy kreatora przesyłania",
+	"mwe-upwiz-upload-comment-third-party": "Przesłano pracę autorstwa $1 z $2 przy pomocy kreatora przesyłania"
 }

@@ -403,5 +403,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Ignorar",
 	"mwe-upwiz-mv-cta-user-preference-set": "Ótimo! Você pode alterar essa configuração a qualquer momento nas suas  [[c:Special:Preferences#mw-prefsection-echo|preferências]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Você não receberá mais notificações para marcar seus envios.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Não foi possível salvar sua preferência no momento. Por favor, visite suas [[c:Special:Preferences#mw-prefsection-echo|preferências]] para ativar as notificações."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Não foi possível salvar sua preferência no momento. Por favor, visite suas [[c:Special:Preferences#mw-prefsection-echo|preferências]] para ativar as notificações.",
+	"mwe-upwiz-upload-comment-own-work": "Carregou seu próprio trabalho com UploadWizard",
+	"mwe-upwiz-upload-comment-third-party": "Carregou um trabalho de $1 de $2 com UploadWizard"
 }
