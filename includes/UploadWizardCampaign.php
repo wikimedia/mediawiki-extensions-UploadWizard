@@ -298,10 +298,13 @@ class UploadWizardCampaign {
 		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
 		// issued.
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$memKey = wfMemcKey(
-			'uploadwizard', 'campaign', $this->getName(), 'parsed-config', $lang->getCode()
+		$memKey = $cache->makeKey(
+			'uploadwizard-campaign',
+			$this->getName(),
+			'parsed-config',
+			$lang->getCode()
 		);
-		$depKeys = [ $this->makeInvalidateTimestampKey() ];
+		$depKeys = [ $this->makeInvalidateTimestampKey( $cache ) ];
 
 		$curTTL = null;
 		$memValue = $cache->get( $memKey, $curTTL, $depKeys );
@@ -419,17 +422,21 @@ class UploadWizardCampaign {
 	 */
 	public function invalidateCache() {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$cache->touchCheckKey( $this->makeInvalidateTimestampKey() );
+		$cache->touchCheckKey( $this->makeInvalidateTimestampKey( $cache ) );
 	}
 
 	/**
 	 * Returns key used to store the last time the cache for a particular campaign was invalidated
 	 *
+	 * @param WANObjectCache $cache
 	 * @return string
 	 */
-	private function makeInvalidateTimestampKey() {
-		return wfMemcKey(
-			'uploadwizard', 'campaign', $this->getName(), 'parsed-config', 'invalidate-timestamp'
+	private function makeInvalidateTimestampKey( WANObjectCache $cache ) {
+		return $cache->makeKey(
+			'uploadwizard-campaign',
+			$this->getName(),
+			'parsed-config',
+			'invalidate-timestamp'
 		);
 	}
 
