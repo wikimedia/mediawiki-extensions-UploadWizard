@@ -83,8 +83,8 @@
 	 * @private
 	 */
 	uw.LocationDetailsWidget.prototype.onMapButtonClick = function () {
-		var latitude = this.latitudeInput.getValue(),
-			longitude = this.longitudeInput.getValue();
+		var latitude = this.normalizeCoordinate( this.latitudeInput.getValue() ),
+			longitude = this.normalizeCoordinate( this.longitudeInput.getValue() );
 
 		// Disable clipping because it doesn't play nicely with the map
 		this.mapButton.getPopup().toggleClipping( false );
