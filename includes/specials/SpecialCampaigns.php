@@ -58,6 +58,11 @@ class SpecialCampaigns extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param UploadWizardCampaign $campaign
+	 *
+	 * @return string
+	 */
 	private function getHtmlForCampaign( UploadWizardCampaign $campaign ) {
 		$config = $campaign->getParsedConfig();
 		$campaignURL = $campaign->getTitle()->getLocalURL();
@@ -72,6 +77,11 @@ class SpecialCampaigns extends SpecialPage {
 		return $returnHTML;
 	}
 
+	/**
+	 * @param int $firstId
+	 *
+	 * @return string
+	 */
 	private function getHtmlForPagination( $firstId ) {
 		$nextHref = $this->getPageTitle()->getLocalURL( [ 'start' => $firstId ] );
 		return Html::rawElement( 'div',
@@ -83,6 +93,9 @@ class SpecialCampaigns extends SpecialPage {
 		);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getGroupName() {
 		return 'media';
 	}

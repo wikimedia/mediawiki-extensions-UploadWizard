@@ -53,7 +53,7 @@ class MigrateCampaigns extends Maintenance {
 		$this->addOption( 'user', 'The user to perform the migration as', false, true, 'u' );
 	}
 
-	private $oldKeyDefaults = [
+	private const OLD_KEY_DEFAULTS = [
 		'headerLabelPage' => '',
 		'thanksLabelPage' => '',
 
@@ -89,7 +89,7 @@ class MigrateCampaigns extends Maintenance {
 		'idField2InitialValue' => ''
 	];
 
-	private $oldNumberConfigs = [
+	private const OLD_NUMBER_CONFIGS = [
 		'idFieldMaxLength',
 		'idField2MaxLength',
 		'tutorialWidth',
@@ -113,7 +113,7 @@ class MigrateCampaigns extends Maintenance {
 		);
 
 		foreach ( $confProps as $confProp ) {
-			if ( in_array( $confProp->cc_property, $this->oldNumberConfigs ) ) {
+			if ( in_array( $confProp->cc_property, self::OLD_NUMBER_CONFIGS ) ) {
 				$config[$confProp->cc_property] = intval( $confProp->cc_value );
 			} else {
 				$config[$confProp->cc_property] = $confProp->cc_value;
@@ -122,7 +122,7 @@ class MigrateCampaigns extends Maintenance {
 
 		$mergedConfig = [];
 
-		foreach ( $this->oldKeyDefaults as $key => $default ) {
+		foreach ( self::OLD_KEY_DEFAULTS as $key => $default ) {
 			if ( array_key_exists( $key, $config ) && $config[$key] !== $default ) {
 				$mergedConfig[$key] = $config[$key];
 			} else {
@@ -191,7 +191,7 @@ class MigrateCampaigns extends Maintenance {
 	}
 
 	/**
-	 * @param object $campaign
+	 * @param stdClass $campaign
 	 * @param array $oldConfig
 	 * @return array
 	 */

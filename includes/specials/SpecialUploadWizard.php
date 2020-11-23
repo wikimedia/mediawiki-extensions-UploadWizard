@@ -344,7 +344,7 @@ class SpecialUploadWizard extends SpecialPage {
 				Html::element(
 					'p',
 					[ 'style' => 'text-align: center' ],
-					wfMessage( 'mwe-upwiz-extension-disabled' )->text()
+					$this->msg( 'mwe-upwiz-extension-disabled' )->text()
 				) . $linkHtml
 			);
 		}
@@ -367,6 +367,9 @@ class SpecialUploadWizard extends SpecialPage {
 		// @codingStandardsIgnoreEnd
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getGroupName() {
 		return 'media';
 	}

@@ -20,7 +20,7 @@ class UploadWizardConfig {
 	 *
 	 * @return bool
 	 */
-	private static function is_assoc( $array ) {
+	private static function isAssoc( $array ) {
 		return (bool)count( array_filter( array_keys( $array ), 'is_string' ) );
 	}
 
@@ -34,15 +34,15 @@ class UploadWizardConfig {
 	 *
 	 * @return array Yet another array, sanely replacing contents of $array with $array1
 	 */
-	public static function array_replace_sanely( $array, $array1 ) {
+	public static function arrayReplaceSanely( $array, $array1 ) {
 		$newArray = [];
 
 		foreach ( $array as $key => $value ) {
 			if ( array_key_exists( $key, $array1 ) ) {
 				switch ( gettype( $value ) ) {
 				case "array":
-					if ( self::is_assoc( $array[$key] ) ) {
-						$newArray[$key] = self::array_replace_sanely( $array[$key], $array1[$key] );
+					if ( self::isAssoc( $array[$key] ) ) {
+						$newArray[$key] = self::arrayReplaceSanely( $array[$key], $array1[$key] );
 						break;
 					}
 					# fall through
@@ -82,7 +82,7 @@ class UploadWizardConfig {
 		static $mergedConfig = false;
 
 		if ( !$mergedConfig ) {
-			$wgUploadWizardConfig = self::array_replace_sanely(
+			$wgUploadWizardConfig = self::arrayReplaceSanely(
 				self::getDefaultConfig(),
 				$wgUploadWizardConfig
 			);
@@ -90,7 +90,7 @@ class UploadWizardConfig {
 		}
 
 		if ( $campaignName !== null ) {
-			$wgUploadWizardConfig = self::array_replace_sanely(
+			$wgUploadWizardConfig = self::arrayReplaceSanely(
 				$wgUploadWizardConfig,
 				self::getCampaignConfig( $campaignName )
 			);

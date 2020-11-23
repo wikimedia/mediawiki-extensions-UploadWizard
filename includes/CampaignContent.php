@@ -45,7 +45,7 @@ class CampaignContent extends JsonContent {
 			}
 		}
 
-		$mergedConfig = UploadWizardConfig::array_replace_sanely( $defaultCampaignConfig, $campaign );
+		$mergedConfig = UploadWizardConfig::arrayReplaceSanely( $defaultCampaignConfig, $campaign );
 		return EventLogging::schemaValidate( $mergedConfig, $schema );
 	}
 
