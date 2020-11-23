@@ -138,15 +138,7 @@ class UploadWizardCampaign {
 				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
-				if ( class_exists( ActorMigration::class ) ) {
-					$actorQuery = ActorMigration::newMigration()->getJoin( 'img_user' );
-				} else {
-					$actorQuery = [
-						'tables' => [],
-						'fields' => [ 'img_user' => 'img_user' ],
-						'joins' => [],
-					];
-				}
+				$actorQuery = ActorMigration::newMigration()->getJoin( 'img_user' );
 
 				$result = $dbr->select(
 					[ 'categorylinks', 'page', 'image' ] + $actorQuery['tables'],
