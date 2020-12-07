@@ -35,7 +35,7 @@
 	"api-error-aborted": "ההעלאה בוטלה.",
 	"api-error-noimageinfo": "ההעלאה עבדה, אבל השרת לא נתן לנו שום מידע על הקובץ.",
 	"mwe-upwiz-unavailable": "הדפדפן שלך אינו מתאים לאשף ההעלאה או שהרצת JavaScript כבויה, אז אנחנו מראים לך טופס העלאה פשוט ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility הצגת דרישות תאימות].)",
-	"mwe-upwiz-extension-disabled": "דף זה אינו פעיל זמנית עקב בעיות טכניות. בינתיים נסו את דף ההעלאות הרגיל.",
+	"mwe-upwiz-extension-disabled": "הדף הזה כובה בשל עקב בעיות טכניות זמניות. בינתיים, נא לנסות את דף ההעלאות הרגיל.",
 	"mwe-upwiz-step-tutorial": "הסברים",
 	"mwe-upwiz-step-file": "העלאה",
 	"mwe-upwiz-step-deeds": "שחרור זכויות",

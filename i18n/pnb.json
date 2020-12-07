@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abbas dhothar",
 			"Envlh",
 			"Khalid Mahmood",
 			"Matma Rex"
@@ -86,7 +87,7 @@
 	"mwe-upwiz-upload-error-duplicate": "اے فائل پہلے ایس وکی تے چڑھائی گئی سی۔",
 	"mwe-upwiz-upload-error-stashed-anyway": "ضرور چڑھانا اے ؟",
 	"mwe-upwiz-ok": "اوکے",
-	"mwe-upwiz-fileexists-replace-on-page": "اک فائل ایس ناں نال پہلے ای ہیگی اے۔ اگر تسی اینوں بدلنا چاندے اوہ تے [$2 $1] ۂئی صفہ تے جاؤ تے اوتھے بدلو۔",
+	"mwe-upwiz-fileexists-replace-on-page": "اک فائل ایس ناں نال پہلے ای ہیگی اے۔ اگر تسی ایہنوں بدلنا چاہندے اوہ تے [$2 $1]  صفحہ تے جاؤ تے اوتھے بدلو۔",
 	"mwe-upwiz-fileexists-replace-no-link": "ایس ناں دی فائل پہلے توں ہیگی اے",
 	"mwe-upwiz-next": "اگلا",
 	"mwe-upwiz-next-file": "چل ریا اے",
@@ -114,6 +115,7 @@
 	"mwe-upwiz-error-blank": "ایس فیلڈ دی لوڑ اے۔",
 	"mwe-upwiz-error-too-long": "ایہ فیلڈ چوکھا لمبا اے۔\nمہربانی کرکے ایس انٹری نوں ایس $1 {{PLURAL:$1|اکرا|اکرے}} توں نکا کرو۔",
 	"mwe-upwiz-error-too-short": "اے فیلڈ بعوں نکا اے۔\nمہربانی کرکے ایس انٹری نوں $1 {{PLURAL:$1|اکرا|اکرے}}  لمبا کرو",
+	"mwe-upwiz-error-title-too-long": "ایہ عنوان وڈا اے۔\nPlease make sure this title is at most $1 {{PLURAL:$1|بائیٹ|بائیٹس}}.",
 	"mwe-upwiz-error-title-blacklisted": "ایس سرناویں چ ناں چاہی جان والی لکھت ہیگی اے۔ مہربانی کرکے ایدے چ تبدیلی لیاؤ۔",
 	"mwe-upwiz-error-title-senselessimagename": "مہربانی کرکے ایس سرناویں نوں ٹھیک کرو۔",
 	"mwe-upwiz-error-title-thumbnail": "ایہ اک تھمبنیل سرناواں لگدا اے۔ مہربانی کرکے اکو وکی تے تھمبنیل فیر ناں چرھاؤ۔\nنئیں تے فائل ناں پکا کرو تاں جے ایدی کوئی دس پتہ لک سکے۔ ناں ای تھمبنیل دی پریفکس۔",
