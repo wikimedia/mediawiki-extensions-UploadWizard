@@ -45,8 +45,8 @@
 
 		this.addFile = new OO.ui.SelectFileWidget( {
 			classes: [ 'mwe-upwiz-add-file' ],
-			buttonOnly: true,
 			multiple: true,
+			showDropTarget: true,
 			button: {
 				label: mw.message( 'mwe-upwiz-add-file-0-free' ).text(),
 				flags: [ 'progressive', 'primary' ]
@@ -288,8 +288,9 @@
 				)
 		);
 
-		this.addFile.on( 'change', function () {
-			ui.emit( 'files-added', ui.addFile.getValue() );
+		this.addFile.on( 'change', function ( files ) {
+			ui.emit( 'files-added', files );
+			ui.addFile.setValue( null );
 		} );
 	};
 
