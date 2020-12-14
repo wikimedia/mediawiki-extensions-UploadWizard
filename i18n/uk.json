@@ -409,5 +409,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Приховати",
 	"mwe-upwiz-mv-cta-user-preference-set": "Чудово! Ви можете змінити цей пункт у своїх [[c:Special:Preferences#mw-prefsection-echo|Налаштуваннях]] у будь-який час.",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Ви більше не отримуватимете сповіщення щодо позначення ваших завантажень.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Нам не вдалося зберегти ваше налаштування. Будь ласка, перейдіть у свої [[c:Special:Preferences#mw-prefsection-echo|Налаштування]], щоб увімкнути сповіщення."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Нам не вдалося зберегти ваше налаштування. Будь ласка, перейдіть у свої [[c:Special:Preferences#mw-prefsection-echo|Налаштування]], щоб увімкнути сповіщення.",
+	"mwe-upwiz-upload-comment-own-work": "Завантажив власну роботу через Майстер завантажень",
+	"mwe-upwiz-upload-comment-third-party": "Завантажив роботу $1 з $2 через Майстер завантажень"
 }
