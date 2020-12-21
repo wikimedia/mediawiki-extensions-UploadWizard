@@ -397,5 +397,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Stäng",
 	"mwe-upwiz-mv-cta-user-preference-set": "Toppen! Du kan ändra denna inställning när som helst i dina [[c:Special:Preferences#mw-prefsection-echo|inställningar]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Du kommer inte längre få aviseringar om att tagga dina uppladdningar.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Vi kunde inte spara din inställning just nu. Var god gå till dina [[c:Special:Preferences#mw-prefsection-echo|inställningar]] för att aktivera aviseringar."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Vi kunde inte spara din inställning just nu. Var god gå till dina [[c:Special:Preferences#mw-prefsection-echo|inställningar]] för att aktivera aviseringar.",
+	"mwe-upwiz-upload-comment-own-work": "Laddade upp eget verk med UploadWizard",
+	"mwe-upwiz-upload-comment-third-party": "Laddade upp ett verk av $1 från $2 med UploadWizard"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kambai Akau"
 		]
 	},
@@ -65,7 +66,7 @@
 	"mwe-upwiz-patent-dialog-link-warranty": "Myiam á̠ghyang",
 	"mwe-upwiz-patent-dialog-link-license": "Myiam á̠ghyang",
 	"mwe-upwiz-patent-dialog-checkbox-label": "N shim ma̠ng a̠mgba̠m a̠yaaka̠nda̠n bani",
-	"mwe-upwiz-copy-statements-dialog-accept": "{{GENDER:Ee|Ii}}, maat",
+	"mwe-upwiz-copy-statements-dialog-accept": "{{GENDER:|Ee|Ii}}, maat",
 	"mwe-upwiz-copy-statements-button": "Maat á̠lyiat ma̠ a̠mgba̠m a̠yaafaili ...",
 	"mwe-upwiz-copy-statements-button-done": "Á̠ maat",
 	"mwe-upwiz-copy-metadata-button": "Maat",
