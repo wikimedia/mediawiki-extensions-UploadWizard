@@ -46,7 +46,7 @@
 	"mwe-upwiz-file-retry": "ناں چرھیاں فائلاں فیر چرھاؤ",
 	"mwe-upwiz-next-file-despite-failures": "چل سو چل",
 	"mwe-upwiz-skip-tutorial-future": "اگلی واری ایتھون اگے لنگ جاؤ",
-	"mwe-upwiz-file-all-failed": "کوئی وی شائل نغیں چڑھ سکی۔",
+	"mwe-upwiz-file-all-failed": "کوئی وی فائل نئیں چڑھ سکی۔",
 	"mwe-upwiz-upload-count": "$1  $2 دی {{PLURAL:$2|فائل|فائلاں}} چڑھادتی گئی۔",
 	"mwe-upwiz-progressbar-uploading": "چڑھاریا",
 	"mwe-upwiz-finished": "کم ہوگیا",
@@ -88,6 +88,7 @@
 	"mwe-upwiz-allowed-filename-extensions": "ایکسٹنشن جناں دی اجازت اے:",
 	"mwe-upwiz-upload-error-duplicate": "اے فائل پہلے ایس وکی تے چڑھائی گئی سی۔",
 	"mwe-upwiz-upload-error-stashed-anyway": "ضرور چڑھانا اے ؟",
+	"mwe-upwiz-deleted-duplicate-unknown-filename": "نامعلوم فائل ناں",
 	"mwe-upwiz-ok": "اوکے",
 	"mwe-upwiz-fileexists-replace-on-page": "اک فائل ایس ناں نال پہلے ای ہیگی اے۔ اگر تسی ایہنوں بدلنا چاہندے اوہ تے [$2 $1]  صفحہ تے جاؤ تے اوتھے بدلو۔",
 	"mwe-upwiz-fileexists-replace-no-link": "ایس ناں دی فائل پہلے توں ہیگی اے",
@@ -124,6 +125,8 @@
 	"mwe-upwiz-error-title-extension": "توانوں فاغۂ ایکسٹنشن نوں جوڑن دی لوڑ نئیں۔\nاک پڑھیا جان والا سرناواں چنو تے اے چلے گا۔",
 	"mwe-upwiz-details-error-count": "ایتھے {{PLURAL:$1|اک غلطی اے| $1 غلطیاں نیں}} اتے {{PLURAL:$2|حالت|حالتاں}} نال۔\nغلطی ٹھیک کرو تے فیر کرو۔",
 	"mwe-upwiz-dialog-title": "فائل نوں کسی وی بولی ج تے کسے وی لپی ج جڑھایا جاسکدا اے۔ میڈیا فائلان دیاں سرخیاں دا کوئی مطلب ہونا چائیدا اے تے بولی دے چنن چ مدد دین والا ہونا چائیدا اے۔",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|اپلوڈ|اپلوڈز}}",
+	"mwe-upwiz-campaign-view-all-media": "سارا چڑھایا میڈیا دیکھو",
 	"mwe-upwiz-license-cc-by-sa-3.0": "!!!!Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 آسٹریا ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Attribution ShareAlike 3.0 جرمنی ([$2 legal code])",
@@ -179,5 +182,6 @@
 	"mwe-upwiz-errordialog-title": "تواڈے کم خ کوئی غلطی نئیں سی۔",
 	"mwe-upwiz-errordialog-ok": "اوکے",
 	"mwe-upwiz-error-nosuchcampaign": "\"$1\" دے ناں نال کوئی کم نئیں۔",
-	"mwe-upwiz-error-campaigndisabled": "کم \"$1\" قابل نئیں ہویا۔"
+	"mwe-upwiz-error-campaigndisabled": "کم \"$1\" قابل نئیں ہویا۔",
+	"prefs-uploads": "اپلوڈنگ"
 }
