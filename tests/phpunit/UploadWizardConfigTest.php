@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Interwiki\ClassicInterwikiLookup;
+
 /**
  * Test the Upload Wizard Configuration
  *
@@ -7,7 +9,7 @@
  * @covers UploadWizardCampaign
  * @covers UploadWizardConfig
  */
-class UploadWizardConfigTest extends MediaWikiTestCase {
+class UploadWizardConfigTest extends MediaWikiIntegrationTestCase {
 	public function setUp() : void {
 		parent::setUp();
 
@@ -16,23 +18,19 @@ class UploadWizardConfigTest extends MediaWikiTestCase {
 		UploadWizardConfig::setUrlSetting( 'defaults', [] );
 
 		// insert a interwiki prefixes for testing inter-language links.
-		// This is based on ParserTestRunner::setupInterwikis, which does
+		// This is based on ParserTestRunner::appendInterwikiSetup, which does
 		// exactly the same (but with more prefixes) for parser tests.
-		$this->setTemporaryHook( 'InterwikiLoadPrefix', function ( $prefix, &$iwData ) {
-			static $testInterwikis = [
-				'es' => [
+		$this->setMwGlobals( [
+			'wgInterwikiCache' => ClassicInterwikiLookup::buildCdbHash( [
+				[
+					'iw_prefix' => 'es',
 					'iw_url' => 'http://es.wikipedia.org/wiki/$1',
 					'iw_api' => '',
 					'iw_wikiid' => '',
-					'iw_local' => 1 ],
-			];
-			if ( array_key_exists( $prefix, $testInterwikis ) ) {
-				$iwData = $testInterwikis[$prefix];
-			}
-
-			// We only want to rely on the above fixtures
-			return false;
-		} );
+					'iw_local' => 1,
+				],
+			] ),
+		] );
 	}
 
 	public function objRefProvider() {
