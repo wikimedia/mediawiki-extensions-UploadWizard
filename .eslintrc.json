@@ -14,10 +14,13 @@
 		"mediawiki/msg-doc": "warn",
 		"jquery/no-each-util": "off",
 		"jquery/no-map-util": "off",
-		"jsdoc/no-undefined-types": [ "warn", {
-			"definedTypes": [
-				"uw"
-			]
-		} ]
+		"jsdoc/no-undefined-types": [
+			"warn",
+			{
+				"definedTypes": [
+					"uw"
+				]
+			}
+		]
 	}
 }
