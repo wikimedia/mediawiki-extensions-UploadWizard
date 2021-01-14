@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eleassar",
 			"Janezdrilc"
 		]
 	},
-	"apihelp-flickrblacklist-param-url": "Spletni naslov Flickra za preizkus.",
+	"apihelp-flickrblacklist-param-url": "Flickrov spletni naslov za preizkus.",
 	"apihelp-flickrblacklist-example-1": "Preveri spletni naslov napram črnemu seznamu",
 	"apihelp-query+allcampaigns-description": "Prikaži vse kampanje čarovnika za nalaganje.",
 	"apihelp-query+allcampaigns-summary": "Prikaži vse kampanje čarovnika za nalaganje.",
