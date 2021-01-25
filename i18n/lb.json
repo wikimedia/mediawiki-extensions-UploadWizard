@@ -108,7 +108,7 @@
 	"mwe-upwiz-source-ownwork-assert-note": "Ech, als deen deen d'Copyright-Rechter un {{PLURAL:$2|dësem Wierk|dëse Wierker}} huet, publizéieren {{PLURAL:$2|dëst Wierk|dës Wierker}} ënner der $1-Lizenz.",
 	"mwe-upwiz-source-permission": "Hiren Auteur huet Iech déi ausdrécklech Erlaabnes gi fir se eropzelueden",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Dëse Fichier ass|Dës Fichiere sinn}} net mäin eegent Wierk.",
-	"mwe-upwiz-source-thirdparty-intro": "Gitt wgl. d'Adress un wou Dir all eenzelne Fichier fonnt hutt.",
+	"mwe-upwiz-source-thirdparty-intro": "Gitt wgl. d'Adress u wou Dir all eenzele Fichier fonnt hutt.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Wann all Fichieren déi selwecht Quell, Auteur a Copyright-Status hunn, da kënnt Dir se fir all Fichieren an enger Kéier aginn.",
 	"mwe-upwiz-source-thirdparty-cases": "Sot eis elo wgl. firwat datt Dir mengt datt Dir d'Recht huet fir {{PLURAL:$1|dëst Wierker|dës Wierker}} ze verëffentlechen:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
