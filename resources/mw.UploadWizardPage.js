@@ -16,6 +16,7 @@
 			// requests. https://bugzilla.mozilla.org/show_bug.cgi?id=649150
 			badFormDataBlobs = profile.name === 'firefox' && profile.versionNumber < 7;
 
+		/* eslint-disable compat/compat */
 		return !!(
 			window.FileReader &&
 			window.FormData &&
@@ -23,6 +24,7 @@
 			window.File.prototype.slice &&
 			!badFormDataBlobs
 		);
+		/* eslint-enable compat/compat */
 	}
 
 	mw.UploadWizardPage = function () {

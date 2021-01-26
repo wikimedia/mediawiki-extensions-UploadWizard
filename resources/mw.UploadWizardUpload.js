@@ -909,6 +909,8 @@
 	 * @return {URL}
 	 */
 	mw.UploadWizardUpload.prototype.URL = function () {
+		// This functionality is missing on IE 11
+		// eslint-disable-next-line compat/compat
 		return window.URL || window.webkitURL || window.mozURL;
 	};
 
