@@ -232,7 +232,7 @@
 	"mwe-upwiz-error-bad-captions": "Obstaja nekaj težav s podnapisi.",
 	"mwe-upwiz-error-bad-descriptions": "Obstaja nekaj težav z opisi.",
 	"mwe-upwiz-error-title-blacklisted": "Naslov vsebuje nekaj neželenega besedila. Preveri ga ponovno.",
-	"mwe-upwiz-error-title-senselessimagename": "Naj bo ta naslov bolj pomenljiv.",
+	"mwe-upwiz-error-title-senselessimagename": "Naj bo ta naslov bolj poveden.",
 	"mwe-upwiz-error-title-thumbnail": "To izgleda kot naslov predogledne sličice. Prosimo, ne nalagajte sličic nazaj na isti wiki. V nasprotnem primeru popravite ime datoteke, da bo bolj smiselno in da ne bo imelo predpone predoglednih sličic.",
 	"mwe-upwiz-error-title-extension": "Končnica datoteke ni potrebna. Zadostuje gol naslov, nakar bo program sam poskrbel za preostalo.",
 	"mwe-upwiz-error-title-protected": "Naslov ustreza zaščiteni strani na tem wikiju. Izberite si drug naslov.",

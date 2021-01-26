@@ -42,7 +42,7 @@
 	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Cargas desde Flickr efectuadas mediante el asistente de cargas",
 	"right-mass-upload": "Carga por lotes más archivos de una vez con el asistente de cargas",
-	"action-mass-upload": "cargar por lotes más archivos de una vez con el asistente de subidas",
+	"action-mass-upload": "cargar por lotes más archivos a la vez con el asistente de cargas",
 	"right-upwizcampaigns": "Configurar las campañas del Asistente de subidas",
 	"action-upwizcampaigns": "configurar campañas de subidas",
 	"group-upwizcampeditors": "Editores de la campaña del Asistente de subidas",
