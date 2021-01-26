@@ -1,7 +1,7 @@
 {
 	"--title": "UploadWizard extension documentation",
 	"--footer": "Documentation for UploadWizard, an extension to MediaWiki. Generated on {DATE} by {JSDUCK} {VERSION}.",
-	"--warnings": ["-no_doc"],
+	"--warnings": [ "-no_doc" ],
 	"--builtin-classes": true,
 	"--output": "./js",
 	"--": [

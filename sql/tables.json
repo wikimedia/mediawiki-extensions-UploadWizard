@@ -6,7 +6,7 @@
 			{
 				"name": "campaign_id",
 				"type": "integer",
-				"options": { "autoincrement": true,  "notnull": true, "unsigned": true }
+				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
 			},
 			{
 				"name": "campaign_name",
