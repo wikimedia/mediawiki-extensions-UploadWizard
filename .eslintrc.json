@@ -22,7 +22,6 @@
 				]
 			}
 		],
-		"no-shadow": "warn",
-		"compat/compat": "warn"
+		"no-shadow": "warn"
 	}
 }
