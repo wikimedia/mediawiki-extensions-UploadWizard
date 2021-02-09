@@ -314,7 +314,7 @@
 	"mwe-upwiz-license-none-head": "Az interneten találtam – nem vagyok biztos",
 	"mwe-upwiz-license-none": "Úgy hiszem, hogy {{PLURAL:$1|ez a mű|ezek a művek}} szabad licenc alatt mindenki számára {{PLURAL:$1|elérhető|elérhetők}}. Tudomásul veszem, hogy ha nem adok meg időben licenc információt, akkor a {{PLURAL:$1|fájl|fájlok}} törlésre {{PLURAL:$1|kerülhet|kerülhetnek}}.",
 	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|Ez a mű elfogadható|Ezek a művek elfogadhatók}} az ezen wikire való feltöltéshez.",
-	"mwe-upwiz-license-confirm-remove": "Biztosan el szeretnéd távolítani {{PLURAL:$1|a feltöltést|a feltöltéséeket}}?",
+	"mwe-upwiz-license-confirm-remove": "Biztosan el szeretnéd távolítani {{PLURAL:$1|ezt a feltöltést|ezeket a feltöltéseket}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Eltávolítás megerősítése",
 	"mwe-upwiz-license-external": "A fájl a következő licenc alatt érhető el a forrásoldalon ($1): $2.",
 	"mwe-upwiz-license-external-invalid": "A fájl a következő licenc alatt van a forrásoldalon ($1): $2. Sajnos ez a licenc nem engedélyezett ezen a wikin.",
