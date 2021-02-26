@@ -278,7 +278,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "您選擇的選項需要輸入 WikiText。",
 	"mwe-upwiz-error-license-wikitext-too-short": "填寫的 WikiText 過短，無法做為授權條款",
 	"mwe-upwiz-error-license-wikitext-too-long": "您輸入的 WikiText 過長。",
-	"mwe-upwiz-error-license-wikitext-missing-template": "您所輸入的 wiki 文字不包含有效的授權條款模板。",
+	"mwe-upwiz-error-license-wikitext-missing-template": "您所輸入的wiki文字不包含有效的授權條款模板。",
 	"mwe-upwiz-error-patent-disagree": "您需要同意條款",
 	"mwe-upwiz-error-pageprops-missing-page": "檢索頁面屬性失敗：頁面（尚）不存在。",
 	"mwe-upwiz-error-pageprops-missing-prop": "檢索頁面屬性失敗：屬性（尚）不存在。",
