@@ -61,6 +61,7 @@
 	"uploadwizard-desc": "Assistant de téléversement, un outil ergonomique pour téléverser les fichiers multimédias",
 	"tag-uploadwizard": "Assistant d’import",
 	"tag-uploadwizard-description": "Imports réalisés avec l'assistant d'import",
+	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Imports Flickr fait avec l'assistant d'import",
 	"right-mass-upload": "Téléversez en une fois davantage de fichiers par lots avec Upload Wizard",
 	"action-mass-upload": "téléversez par lot davantage de fichiers à la fois avec l’assistant de téléversement",

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Andrei Stroe",
+			"Andreyyshore",
 			"Envlh",
 			"Firilacroco",
 			"Macofe",
@@ -186,10 +187,10 @@
 	"mwe-upwiz-tooltip-categories": "Adăugați fișierul dumneavoastră în [$1 categorii] pentru a fi mai ușor de găsit.",
 	"mwe-upwiz-tooltip-other": "Orice alte informații pe care doriți să le includeți despre lucrare.",
 	"mwe-upwiz-tooltip-location": "[$1 Adăugați date geografice] pentru a identifica unde s-a înregistrat fișierul (nu întotdeauna și nu pentru orice tip de fișier este utilă introducerea locației).",
-	"mwe-upwiz-tooltip-more-info": "Învaţă mai multe.",
+	"mwe-upwiz-tooltip-more-info": "Află mai multe.",
 	"mwe-upwiz-file-need-file": "Vă rugăm mai întâi să adăugați un fișier pentru încărcare.",
 	"mwe-upwiz-deeds-need-deed": "Vă rugăm să explicați de unde aveți acest fișier și cum îl poate utiliza acest site, selectând una dintre opțiuni.",
-	"mwe-upwiz-deeds-need-license": "Vă rugăm alegeţi o licenţă.",
+	"mwe-upwiz-deeds-need-license": "Vă rugăm alegeți o licență.",
 	"mwe-upwiz-license-show-all": "Utilizați o altă licență",
 	"mwe-upwiz-license-show-recommended": "Utilizați licența recomandată a site-ului",
 	"mwe-upwiz-label-optional": "Opțional",
