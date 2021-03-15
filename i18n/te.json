@@ -81,6 +81,7 @@
 	"mwe-upwiz-error-blank": "ఈ ఖాళీని తప్పనిసరిగా పూరించాలి.",
 	"mwe-upwiz-error-too-long": "ఈ పద్దు చాలా పెద్దగా ఉంది.\nదీన్ని {{PLURAL:$1|ఒక అక్షరానికి|$1 అక్షరాల కంటే తక్కువకు}} కుదించండి.",
 	"mwe-upwiz-error-title-senselessimagename": "ఈ శీర్షికని మరింత అర్థవంతంగా ఉండేట్టు పెట్టండి.",
+	"mwe-upwiz-error-patent-disagree": "మా నియమాలను మీరు ఒప్పుకోవాలి.",
 	"mwe-upwiz-too-many-files": "చాలా దస్త్రాలు.",
 	"mwe-upwiz-file-too-large": "చాలా పెద్ద దస్త్రం.",
 	"mwe-upwiz-dialog-yes": "అవును",
