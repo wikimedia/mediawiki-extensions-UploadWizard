@@ -252,7 +252,7 @@
 	"mwe-upwiz-error-signature-too-short": "חתימתך קצרה מדי.\nהיא חייבת להיות ארוכה מ{{PLURAL:$1|תו אחד|־$1 תווים}}.",
 	"mwe-upwiz-error-date-license-mismatch": "התאריך שנבחר אינו תואם לרישיון ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "התאריך שנבחר כנראה אינו נכון בהתחשב ברישיון ($1).",
-	"mwe-upwiz-error-blank": "חובה למלא שדה זה.",
+	"mwe-upwiz-error-blank": "חובה למלא את השדה הזה.",
 	"mwe-upwiz-error-too-long": "הרשומה הזאת ארוכה מדי.\nנא לוודא שברשומה הזאת יש {{PLURAL:$1|תו אחד|$1 תווים}} לכל היותר.",
 	"mwe-upwiz-error-too-short": "הרשומה הזאת קצרה מדי.\nנא לוודא שברשומה הזאת יש {{PLURAL:$1|תו אחד|$1 תווים}} לפחות.",
 	"mwe-upwiz-error-title-too-long": "כותרת זו ארוכה מדי.\nנא לוודא שבכותרת הזאת יש {{PLURAL:$1|בית אחד|$1 בתים}} לכל היותר.",
