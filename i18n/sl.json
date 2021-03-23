@@ -299,7 +299,7 @@
 	"mwe-upwiz-license-gfdl": "Dovoljenje GNU za rabo proste dokumentacije",
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Copyleft, potreben je pripis avtorstva (GFDL, CC BY-SA 3.0)",
 	"mwe-upwiz-license-cc-head": "Imetnik avtorskih pravic je {{PLURAL:$1|to delo|ti deli|ta dela}} objavil z ustrezno licenco Creative Commons.",
-	"mwe-upwiz-license-cc-subhead": "Za to spletišče niso primerna vsa dovoljenja Creative Commons. Prepričaj se, da je imetnik avtorskih pravic uporabil eno od naslednjih dovoljenj.",
+	"mwe-upwiz-license-cc-subhead": "Za to spletno mesto niso primerne vse licence Creative Commons. Prepričajte se, da je imetnik avtorskih pravic uporabil eno od naslednjih licenc.",
 	"mwe-upwiz-license-flickr-head": "Imetnik avtorskih pravic je {{PLURAL:$1|svojo sliko ali video|svoji sliki ali videa|svoje slike ali videe}} s pravo licenco objavil v Flickru.",
 	"mwe-upwiz-license-flickr-subhead": "Preverite razdelek »License« (Licenca) na robu strani Flickra. Ikona in ime uporabljene licence se morata ujemati z izbirami, ki so na voljo tukaj.",
 	"mwe-upwiz-license-public-domain-usa-head": "Avtorske pravice so v ZDA zagotovo potekle.",
