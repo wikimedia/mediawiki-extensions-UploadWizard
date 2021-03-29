@@ -224,7 +224,7 @@
 	"mwe-upwiz-upload-another": "さらにファイルをアップロード",
 	"mwe-upwiz-prevent-close": "アップロードのプロセスはまだ完了していません!",
 	"mwe-upwiz-tooltip-skiptutorial": "[$1 個人設定]の $2 → $3 で、このチュートリアルを再度有効化できます。",
-	"mwe-upwiz-tooltip-author": "写真を撮ったり、絵や図面を描いたり塗ったりなどした人の名前",
+	"mwe-upwiz-tooltip-author": "この写真を撮影した人の名前や、この絵を描いた人の名前など。",
 	"mwe-upwiz-tooltip-source": "このデジタルファイルの出どころ (URL、書籍、出版物など)",
 	"mwe-upwiz-tooltip-sign": "あなたのウィキでの名前や、本名を使うことができます。\nどちらの場合でも、ウィキの利用者ページへリンクされます。",
 	"mwe-upwiz-tooltip-title": "平易な言葉を使い、ファイル固有の説明的な表題を作成します。空白を入れることができます。拡張子は除去してください。",
