@@ -230,8 +230,6 @@ return [
 		// Initial value for the description field.
 		'description' => '',
 
-		// @codingStandardsIgnoreStart
-
 		// These values are commented out by default, so they can be undefined
 		// Define them here if you want defaults.
 		// This is required, because the JsonSchema for these defines them to be type number
@@ -249,8 +247,6 @@ return [
 
 		//// Initial value for the heading field.
 		//'heading' => 0,
-
-		// @codingStandardsIgnoreEnd
 	],
 
 	// 'uwLanguages' is a list of languages and codes, for use in the description step.
@@ -619,7 +615,6 @@ return [
 	// false to disable this check
 	'customLicenseTemplate' => false,
 
-	// @codingStandardsIgnoreStart
 	// The UploadWizard allows users to provide file descriptions in multiple languages. For each description, the user
 	// can choose the language. The UploadWizard wraps each description in a "language template". A language template is
 	// by default assumed to be a template with a name corresponding to the ISO 646 code of the language. For instance,
@@ -628,10 +623,8 @@ return [
 	// template names to be used. Keys are ISO 646 language codes, values are template names. The default defines the
 	// exceptions used at Wikimedia Commons: the language template for Tagalog (ISO 646 code 'tl') is not named 'tl'
 	// but 'tgl' for historical reasons.
-	// @codingStandardsIgnoreEnd
 	'languageTemplateFixups' => $uwDefaultLanguageFixups,
 
-		// @codingStandardsIgnoreStart
 		// XXX this is horribly confusing -- some file restrictions are client side, others are server side
 		// the filename prefix blacklist is at least server side -- all this should be replaced with PHP regex config
 		// or actually, in an ideal world, we'd have some way to reliably detect gibberish, rather than trying to
@@ -644,15 +637,12 @@ return [
 		//	/^(test|image|img|bild|example?[\s_-]*)$/,  // test stuff
 		//	/^(\d{10}[\s_-][0-9a-f]{10}[\s_-][a-z])$/   // flickr
 		// ]
-		// @codingStandardsIgnoreEnd
 
 	// Link to page where users can leave feedback or bug reports.
 	// Defaults to UploadWizard's bug tracker.
 	// If you want to use a wiki page, set this to a falsy value,
 	// and set feedbackPage to the name of the wiki page.
-	// @codingStandardsIgnoreStart
 	'feedbackLink' => '',
-	// @codingStandardsIgnoreEnd
 
 	// [deprecated] Wiki page for leaving Upload Wizard feedback,
 	// for example 'Commons:Upload wizard feedback'
@@ -662,7 +652,6 @@ return [
 	// Shown on the Details stage, above the category selection field.
 	'allCategoriesLink' => 'https://commons.wikimedia.org/wiki/Commons:Categories',
 
-	// @codingStandardsIgnoreStart
 	// Title of page for alternative uploading form, e.g.:
 	//   'altUploadForm' => 'Special:Upload',
 	//
@@ -673,7 +662,6 @@ return [
 	//		'default'	=> 'Commons:Upload',
 	//		'de'		=> 'Commons:Hochladen'
 	//	 );
-	// @codingStandardsIgnoreEnd
 	'altUploadForm' => '',
 
 	// Wiki page that lists alternative ways to upload

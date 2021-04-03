@@ -355,7 +355,6 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )
-		// @codingStandardsIgnoreStart
 		return '<div id="upload-wizard" class="upload-section">' .
 			'<div id="mwe-upwiz-tutorial-html" style="display:none;">' .
 				$tutorialHtml .
@@ -364,7 +363,6 @@ class SpecialUploadWizard extends SpecialPage {
 				new \MediaWiki\Widget\SpinnerWidget( [ 'size' => 'large' ] ) .
 			'</div>' .
 		'</div>';
-		// @codingStandardsIgnoreEnd
 	}
 
 	/**
