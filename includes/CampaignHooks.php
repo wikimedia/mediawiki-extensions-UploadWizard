@@ -196,7 +196,7 @@ class CampaignHooks {
 	 * @param string $summary
 	 * @param User $user
 	 * @param bool $minoredit
-	 * @return true
+	 * @return bool
 	 */
 	public static function onEditFilterMergedContent( $context, $content, $status, $summary,
 		$user, $minoredit
@@ -211,6 +211,8 @@ class CampaignHooks {
 			$content->validate();
 		} catch ( JsonSchemaException $e ) {
 			$status->fatal( $context->msg( $e->getCode(), $e->args ) );
+			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
+			return false;
 		}
 
 		return true;
