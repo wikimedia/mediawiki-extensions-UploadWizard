@@ -264,7 +264,11 @@ class UploadWizardCampaign {
 					$parsed[$key] = $value;
 				}
 			} else {
-				$parsed[$key] = $this->parseValue( $value, $lang );
+				if ( is_array( $value ) ) {
+					$parsed[$key] = $this->parseArrayValues( $value, $lang );
+				} else {
+					$parsed[$key] = $this->parseValue( $value, $lang );
+				}
 			}
 		}
 		return $parsed;
