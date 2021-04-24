@@ -66,9 +66,8 @@ class SpecialCampaigns extends SpecialPage {
 	private function getHtmlForCampaign( UploadWizardCampaign $campaign ) {
 		$config = $campaign->getParsedConfig();
 		$campaignURL = $campaign->getTitle()->getLocalURL();
-		$campaignTitle = array_key_exists( 'title', $config )
-			? $config['title'] : htmlspecialchars( $campaign->getName() );
-		$campaignDescription = array_key_exists( 'description', $config ) ? $config['description'] : '';
+		$campaignTitle = $config['title'] ?? htmlspecialchars( $campaign->getName() );
+		$campaignDescription = $config['description'] ?? '';
 		$returnHTML =
 			Html::rawElement( 'dt', [],
 				Html::rawElement( 'a', [ 'href' => $campaignURL ], $campaignTitle )

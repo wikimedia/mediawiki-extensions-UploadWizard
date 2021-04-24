@@ -38,10 +38,8 @@ class CampaignPageFormatter {
 	public function generateReadHtml() {
 		$config = $this->campaign->getParsedConfig();
 
-		$campaignTitle = array_key_exists( 'title', $config ) ?
-			$config['title'] :
-			$this->campaign->getName();
-		$campaignDescription = array_key_exists( 'description', $config ) ? $config['description'] : '';
+		$campaignTitle = $config['title'] ?? $this->campaign->getName();
+		$campaignDescription = $config['description'] ?? '';
 		$campaignViewMoreLink = $this->campaign->getTrackingCategory()->getFullURL();
 
 		$gallery = ImageGalleryBase::factory( 'packed-hover' );

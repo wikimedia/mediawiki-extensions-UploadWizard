@@ -92,8 +92,6 @@ class UploadWizardConfigTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$config = $campaign->getParsedConfig();
-		return isset(
-			$config['display']['homeButton']['target']
-		) ? $config['display']['homeButton']['target'] : false;
+		return $config['display']['homeButton']['target'] ?? false;
 	}
 }
