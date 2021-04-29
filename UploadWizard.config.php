@@ -17,7 +17,7 @@ $uwLanguages = $cache->getWithSetCallback(
 	// Increase the 'version' number in the options below if this logic or format changes.
 	$cache->makeKey( 'uploadwizard-language-templates', $userLangCode ),
 	$cache::TTL_DAY,
-	function () use ( $userLangCode, $uwDefaultLanguageFixups ) {
+	static function () use ( $userLangCode, $uwDefaultLanguageFixups ) {
 		global $wgUploadWizardConfig;
 
 		$uwLanguages = [];

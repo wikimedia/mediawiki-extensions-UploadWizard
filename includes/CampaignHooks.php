@@ -81,7 +81,7 @@ class CampaignHooks {
 		);
 
 		$campaign = new UploadWizardCampaign( $wikiPage->getTitle(), $content->getJsonData() );
-		$dbw->onTransactionPreCommitOrIdle( function () use ( $campaign ) {
+		$dbw->onTransactionPreCommitOrIdle( static function () use ( $campaign ) {
 			$campaign->invalidateCache();
 		}, __METHOD__ );
 
@@ -127,7 +127,7 @@ class CampaignHooks {
 
 		$fname = __METHOD__;
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->onTransactionPreCommitOrIdle( function () use ( $dbw, $article, $fname ) {
+		$dbw->onTransactionPreCommitOrIdle( static function () use ( $dbw, $article, $fname ) {
 			$dbw->delete(
 				'uw_campaigns',
 				[ 'campaign_name' => $article->getTitle()->getDBkey() ],
