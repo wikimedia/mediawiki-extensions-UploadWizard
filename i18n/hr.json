@@ -18,6 +18,7 @@
 	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Postavljanja s Flickra napravljena s čarobnjakom za postavljanje",
 	"right-mass-upload": "Postavite više datoteka odjednom s čarobnjakom za postavljanje",
+	"action-mass-upload": "postavite više datoteka odjednom s čarobnjakom za postavljanje",
 	"group-upwizcampeditors": "Uređivači pothvata Čarobnjaka za postavljanje datoteka",
 	"group-upwizcampeditors-member": "{{GENDER:$1|uređivač|uređivačica}} pothvata Čarobnjaka za postavljanje datoteka",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Uređivači pothvata Čarobnjaka za postavljanje datoteka",
