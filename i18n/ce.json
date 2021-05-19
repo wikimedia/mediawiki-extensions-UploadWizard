@@ -142,7 +142,7 @@
 	"mwe-upwiz-source": "Хьост",
 	"mwe-upwiz-thanks-intro": "Баркалла чуяккхарна!",
 	"mwe-upwiz-thanks-explain": "ХӀинца хьа йиш йу Википедехь а, цуна гергара вики-проекташкахь а {{PLURAL:$1|1=хьайн файл|хьайн файлаш}} лело, йа кхечу веб-сайташкара {{PLURAL:$1|1=цунна|царна}} тӀе хьажоргаш хӀитто.",
-	"mwe-upwiz-thanks-wikitext": "Веки чохь файл лело, хӀара йоза агӀона чу дилла.",
+	"mwe-upwiz-thanks-wikitext": "Веки чохь файл лело, хӀара йоза агӀонан чудилла.",
 	"mwe-upwiz-thanks-url": "HTML чу хьажорг тӀетоха, лахара URL адрес копи йе:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "ХӀокху виких тӀецалоцу «.$1» формат йолу файлаш.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Ахьа «$1» хӀинцале чуйаьккхина йу.",
