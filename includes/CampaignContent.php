@@ -88,7 +88,6 @@ class CampaignContent extends JsonContent {
 			}
 		}
 
-		// Add some styles
 		$po->addModuleStyles( 'ext.uploadWizard.uploadCampaign.display' );
 
 		return $po;

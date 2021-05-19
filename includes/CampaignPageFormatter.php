@@ -53,6 +53,7 @@ class CampaignPageFormatter {
 		);
 		$this->context->getOutput()->setHTMLTitle( $this->context->msg( 'pagetitle', $campaignTitle ) );
 		$this->context->getOutput()->enableOOUI();
+		$this->context->getOutput()->addBodyClasses( 'mwe-upwiz-campaign-page' );
 
 		$images = $this->campaign->getUploadedMedia();
 

@@ -117,14 +117,10 @@
 			]
 		},
 		"ext.uploadWizard.uploadCampaign.display": {
-			"styles": "resources/ext.uploadWizard.uploadCampaign.display.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
-		"ext.uploadWizard.uploadCampaign.list": {
-			"styles": "resources/ext.uploadWizard.uploadCampaign.list.css",
+			"styles": [
+				"resources/ext.uploadWizard.uploadCampaign.display/content.css",
+				"resources/ext.uploadWizard.uploadCampaign.display/list.css"
+			],
 			"targets": [
 				"desktop",
 				"mobile"

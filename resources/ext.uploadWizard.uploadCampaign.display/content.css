@@ -1,4 +1,11 @@
-#firstHeading {
+/**
+ * Styles for rendering of pages with the Campaign content model.
+ */
+
+/* This is like .ns-460.action-view, but without the unofficial
+   link between content and namespace. The content model is
+   a page-specific property. */
+.mwe-upwiz-campaign-page #firstHeading {
 	display: none;
 }
 
@@ -63,7 +70,7 @@
 }
 
 .mw-campaign-chevron {
-	background: url( images/down-chevron.png ) no-repeat center;
+	background: url( ../images/down-chevron.png ) no-repeat center;
 	width: 16px;
 }
 
