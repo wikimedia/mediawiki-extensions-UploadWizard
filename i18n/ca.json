@@ -234,7 +234,7 @@
 	"mwe-upwiz-tooltip-title": "Crea un títol descriptiu únic utilitzant llenguatge senzill amb espais. Omet l'extensió del fitxer, si la té.",
 	"mwe-upwiz-tooltip-caption": "Afegiu una explicació d'una línia del que representa aquest arxiu, que inclogui només la informació més rellevant.",
 	"mwe-upwiz-tooltip-description": "Proporcioneu tota la informació que pugui ajudar als altres a entendre què representa aquest fitxer.",
-	"mwe-upwiz-tooltip-date": "Trieu la data de creació o publicació d'aquesta fitxer.",
+	"mwe-upwiz-tooltip-date": "Trieu la data de creació o publicació d'aquesta obra.",
 	"mwe-upwiz-tooltip-categories": "Afegiu el vostre fitxer a [$1 categories] perquè sigui més fàcil de trobar.",
 	"mwe-upwiz-tooltip-other": "Qualsevol altra informació que vulgueu incloure sobre aquest fitxer.",
 	"mwe-upwiz-tooltip-location": "[$1 Geocodifiqueu el fitxer] per identificar on es va gravar el fitxer multimèdia (no sempre és útil introduir una ubicació per a tot tipus de fitxer).",
