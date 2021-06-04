@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Anggoro",
+			"Bennylin",
 			"Diki Ananta",
 			"Envlh",
 			"N219",
@@ -200,7 +201,7 @@
 	"mwe-upwiz-license-confirm-remove-title": "Pesthèkaké singkiraké",
 	"mwe-upwiz-license-external": "Barkasé ana ing pangayomané lisènsi iki ing situs sumber \"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Barkasé ana ing pangayomané lisènsi iki ing situs sumber \"$1\": $2. Émané, wiki iki ora ngidinaké lisènsi iku.",
-	"mwe-upwiz-categories": "Kategori",
+	"mwe-upwiz-categories": "Katégori",
 	"mwe-upwiz-thumbnail-failed": "Unggahan wis kasil, nanging paladènan ora bisa njupuk gambar pratuduh.",
 	"mwe-upwiz-unparseable-filename": "Ora bisa mangertèni jeneng barkas \"$1\".",
 	"mwe-upwiz-subhead-bugs": "[$1 Bab sing dingertèni]",
