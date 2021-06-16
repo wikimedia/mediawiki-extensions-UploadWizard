@@ -187,7 +187,9 @@
 	"mwe-upwiz-license-metadata-statements-title": "所有结构化数据的授权协议（不是文件）",
 	"mwe-upwiz-license-metadata-content": "点击“发布”按钮后，表示您同意[[wmf:Terms_of_Use|使用条款]]，并不可撤销地同意以[https://creativecommons.org/publicdomain/zero/1.0/deed.zh 知识共享 CC0 授权协议]发布您的贡献。",
 	"mwe-upwiz-more-options": "添加地点和更多的信息…",
+	"mwe-upwiz-copy-statements-dialog": "此批次中其他文件的元数据将替换为该文件的元数据。你确定吗？",
 	"mwe-upwiz-copy-statements-dialog-accept": "是的，复制",
+	"mwe-upwiz-copy-statements-button": "将陈述复制到所有文件...",
 	"mwe-upwiz-copy-statements-button-done": "已复制！",
 	"mwe-upwiz-copy-metadata": "复制信息至下方的所有上传…",
 	"mwe-upwiz-copy-metadata-button": "复制",
@@ -417,6 +419,13 @@
 	"mwe-upload-campaigns-pagination-next": "下一页",
 	"mwe-upload-campaigns-list-title": "上传活动列表",
 	"mwe-upwiz-mv-cta-heading": "帮助每个人更容易找到图像",
+	"mwe-upwiz-mv-cta-description": "共享资源有一个[[c:Commons:Structured_data/Computer-aided_tagging|新工具]]，如果你还没有添加标签，它会为你上传的图像建议标签。当您确认准确的标签时，您正在帮助每个人更轻松地搜索图像。",
+	"mwe-upwiz-mv-cta-checkbox-label": "是的，当我上传的内容包含可供我审核的标签时，我希望收到通知",
+	"mwe-upwiz-mv-cta-final-cta": "准备好立即开始标记了吗？[[c:Special:SuggestedTags|试试这个工具]]立即标记热门图像！",
 	"mwe-upwiz-mv-cta-dismiss": "关闭",
-	"mwe-upwiz-mv-cta-user-preference-unset": "您将不再收到标记您上传的内容的通知。"
+	"mwe-upwiz-mv-cta-user-preference-set": "太棒了！您可以随时在[[c:Special:Preferences#mw-prefsection-echo|参数设置]]中更改此设置。",
+	"mwe-upwiz-mv-cta-user-preference-unset": "您将不再收到标记您上传的内容的通知。",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "我们目前无法保存您的参数设施。请访问您的[[c:Special:Preferences#mw-prefsection-echo|参数设置]]以选择接收通知。",
+	"mwe-upwiz-upload-comment-own-work": "使用UploadWizard上传自己的作品",
+	"mwe-upwiz-upload-comment-third-party": "使用UploadWizard从$2上传了$1的作品"
 }
