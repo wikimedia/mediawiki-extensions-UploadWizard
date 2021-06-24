@@ -11,6 +11,7 @@
 			"Sator",
 			"Subi",
 			"Theklan",
+			"Xabier Armendaritz",
 			"පසිඳු කාවින්ද"
 		]
 	},
@@ -55,7 +56,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Hala ere, jarraitu",
 	"mwe-upwiz-skip-tutorial-future": "Etorkizunean urrats hau saltatu",
 	"mwe-upwiz-file-all-failed": "Ez da fitxategirik ondo igo.",
-	"mwe-upwiz-upload-count": "{{PLURAL:$2|Fitxategi $1|$1 fitxategi}}, $2-tik igo {{PLURAL:$2|da|dira}}",
+	"mwe-upwiz-upload-count": "{{PLURAL:$2|Fitxategi batetik|$1 fitxategitatik}} $2 igo {{PLURAL:$2|da|dira}}",
 	"mwe-upwiz-progressbar-uploading": "igotzen",
 	"mwe-upwiz-almost-finished": "Fitxategiak prozesatzen...",
 	"mwe-upwiz-finished": "Amaituta!",
