@@ -63,7 +63,7 @@ class CampaignHooks {
 			return true;
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$campaignData = $content->getJsonData();
 		$insertData = [
@@ -126,7 +126,7 @@ class CampaignHooks {
 		}
 
 		$fname = __METHOD__;
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->onTransactionPreCommitOrIdle( static function () use ( $dbw, $article, $fname ) {
 			$dbw->delete(
 				'uw_campaigns',
@@ -162,7 +162,7 @@ class CampaignHooks {
 			return true;
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$success = $dbw->update(
 			'uw_campaigns',
 			[ 'campaign_name' => $newTitle->getDBkey() ],

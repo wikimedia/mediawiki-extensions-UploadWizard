@@ -252,9 +252,9 @@ class MigrateCampaigns extends Maintenance {
 	}
 
 	public function execute() {
-		$user = $this->getOption( 'user', 'Maintenance script' );
+		$username = $this->getOption( 'user', 'Maintenance script' );
 
-		$this->dbr = wfGetDB( DB_MASTER );
+		$this->dbr = wfGetDB( DB_PRIMARY );
 		$campaigns = $this->dbr->select(
 			'uw_campaigns',
 			'*',
@@ -267,6 +267,7 @@ class MigrateCampaigns extends Maintenance {
 			return;
 		}
 
+		$user = User::newFromName( $username );
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );
@@ -275,11 +276,10 @@ class MigrateCampaigns extends Maintenance {
 			$page = WikiPage::factory( $title );
 
 			$content = new CampaignContent( json_encode( $newConfig ) );
-			$page->doEditContent(
+			$page->doUserEditContent(
 				$content,
-				"Migrating from old campaign tables",
-				0, false,
-				User::newFromName( $user )
+				$user,
+				"Migrating from old campaign tables"
 			);
 			$this->output( "Migrated {$campaign->campaign_name}\n" );
 		}
