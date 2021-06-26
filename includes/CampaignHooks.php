@@ -196,7 +196,7 @@ class CampaignHooks {
 	 * @param string $summary
 	 * @param User $user
 	 * @param bool $minoredit
-	 * @return true
+	 * @return bool
 	 */
 	public static function onEditFilterMergedContent( $context, $content, $status, $summary,
 		$user, $minoredit
@@ -211,6 +211,9 @@ class CampaignHooks {
 			$content->validate();
 		} catch ( JsonSchemaException $e ) {
 			$status->fatal( $context->msg( $e->getCode(), $e->args ) );
+			// @todo Remove this line after this extension do not support mediawiki version 1.36 and before
+			$status->value = EditPage::AS_HOOK_ERROR_EXPECTED;
+			return false;
 		}
 
 		return true;
