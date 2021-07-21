@@ -10,7 +10,7 @@ use MediaWiki\Interwiki\ClassicInterwikiLookup;
  * @covers UploadWizardConfig
  */
 class UploadWizardConfigTest extends MediaWikiIntegrationTestCase {
-	public function setUp() : void {
+	public function setUp(): void {
 		parent::setUp();
 
 		// Test expects empty defaults; otheriwse they will override the

@@ -293,6 +293,8 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// Check blocks
 		if ( $user->isBlockedFromUpload() ) {
+			// If the user is blocked from uploading then there is a block
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 			throw new UserBlockedError( $user->getBlock() );
 		}
 
