@@ -12,6 +12,7 @@
 			"YaronSh",
 			"Yona b",
 			"Ypnypn",
+			"דגש",
 			"ערן",
 			"פוילישער"
 		]
@@ -194,7 +195,7 @@
 	"mwe-upwiz-source": "מקור",
 	"mwe-upwiz-thanks-intro": "תודה על ההעלאה!",
 	"mwe-upwiz-thanks-explain": "כעת באפשרותך להשתמש ב{{PLURAL:$1|קובץ הזה|קבצים האלה}} באתרי ויקי, או לקשר {{PLURAL:$1|אליו|אליהם}} מאתרי אינטרנט.",
-	"mwe-upwiz-thanks-wikitext": "כדי להשתמש בקובץ הזה בוויקי, העתיקן טקסט זה לתוך הדף:",
+	"mwe-upwiz-thanks-wikitext": "כדי להשתמש בקובץ הזה בוויקי, העתיקו טקסט זה לתוך הדף:",
 	"mwe-upwiz-thanks-update-delay": "הוספת התמונה לדף הרשימה יכולה לקחת עד חמש דקות.",
 	"mwe-upwiz-thanks-url": "כדי לקשר אליו ב־HTML, העתיקו את הכתובת הזאת:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "ויקי זה אינו מקבל קבצים עם הסיומת \"‎.$1\".",
