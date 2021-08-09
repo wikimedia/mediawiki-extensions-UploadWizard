@@ -12,10 +12,13 @@
 	"mwe-upwiz-remove": "Leva",
 	"mwe-upwiz-finished": "Allistutu!",
 	"mwe-upwiz-desc": "Discrizzioni",
-	"mwe-upwiz-location-lat": "Latitùtini",
+	"mwe-upwiz-title": "Tìtulu dâ mmàggini",
+	"mwe-upwiz-location-lat": "Latitùdini",
+	"mwe-upwiz-location-lon": "Loncitùdini",
 	"mwe-upwiz-next": "N avanti",
 	"mwe-upwiz-next-file": "Camina",
 	"mwe-upwiz-next-deeds": "N avanti",
+	"mwe-upwiz-license-custom-preview": "Antiprima",
 	"mwe-upwiz-categories": "Catigurìi",
 	"campaigns": "Campagni di carricamentu guidatu"
 }
