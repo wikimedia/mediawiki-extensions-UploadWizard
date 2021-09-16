@@ -67,9 +67,7 @@
 	 */
 	uw.controller.Tutorial.prototype.setSkipPreference = function ( skip ) {
 		var controller = this,
-			allowCloseWindow = mw.confirmCloseWindow( {
-				message: function () { return mw.message( 'mwe-upwiz-prevent-close-wait' ).text(); }
-			} );
+			allowCloseWindow = mw.confirmCloseWindow();
 
 		this.api.postWithToken( 'options', {
 			action: 'options',

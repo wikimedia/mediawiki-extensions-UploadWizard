@@ -211,8 +211,6 @@
 	"mwe-upwiz-previous": "Back",
 	"mwe-upwiz-home": "Go to wiki home page",
 	"mwe-upwiz-upload-another": "Upload more files",
-	"mwe-upwiz-prevent-close-wait": "Leaving this page may cause you to lose any changes you have made. Please wait a few seconds.",
-	"mwe-upwiz-prevent-close": "You have not completed the upload process yet!",
 	"mwe-upwiz-tooltip-skiptutorial": "You can re-enable this tutorial in [$1 your user preferences], under $2 → $3.",
 	"mwe-upwiz-tooltip-author": "The name of the person who took the photo, or painted the picture, drew the drawing, etc.",
 	"mwe-upwiz-tooltip-source": "Where this digital file came from — could be a URL, or a book or publication.",
