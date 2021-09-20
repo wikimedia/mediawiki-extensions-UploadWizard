@@ -92,7 +92,8 @@ class UploadWizardFlickrBlacklist {
 			if ( $this->flickrBlacklistPage ) {
 				$title = Title::newFromText( $this->flickrBlacklistPage );
 				$page = WikiPage::factory( $title );
-				$text = ContentHandler::getContentText( $page->getContent() );
+				$content = $page->getContent();
+				$text = ( $content instanceof TextContent ) ? $content->getText() : '';
 				$text = preg_replace( '/^\s*#.*$/m', '', $text );
 				preg_match_all( '/\S+/', $text, $match );
 				self::$blacklist = $match[0];
