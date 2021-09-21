@@ -224,8 +224,6 @@
 	"mwe-upwiz-previous": "חזרה",
 	"mwe-upwiz-home": "מעבר לדף הבית של הוויקי",
 	"mwe-upwiz-upload-another": "העלאת קבצים נוספים",
-	"mwe-upwiz-prevent-close-wait": "עזיבת הדף הזה יכולה לגרום לאובדן השינויים שעשית. נא להמתין כמה שניות.",
-	"mwe-upwiz-prevent-close": "עוד לא השלמת את תהליך ההעלאה!",
 	"mwe-upwiz-tooltip-skiptutorial": "אפשר להפעיל את המדריך הזה מחדש ב[$1 העדפות שלך], תחת $2 ← $3.",
 	"mwe-upwiz-tooltip-author": "השם של מי שיצר את התצלום, או צייר את התמונה, שרטט את התרשים, וכו'.",
 	"mwe-upwiz-tooltip-source": "מאין הגיע הקובץ הזה – כתובת URL, ספר או פרסום.",

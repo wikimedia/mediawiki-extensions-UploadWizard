@@ -185,7 +185,6 @@
 	"mwe-upwiz-next-deeds": "ถัดไป",
 	"mwe-upwiz-home": "ไปที่หน้าแรกวิกิ",
 	"mwe-upwiz-upload-another": "อัปโหลดไฟล์เพิ่ม",
-	"mwe-upwiz-prevent-close": "คุณยังทำการอัปโหลดไม่เสร็จสิ้น!",
 	"mwe-upwiz-tooltip-skiptutorial": "คุณสามารถเปิดใช้ตัวช่วยนี้อีกใน[$1 การตั้งค่าผู้ใช้ของคุณ] ใต้ $2 → $3",
 	"mwe-upwiz-tooltip-author": "ชื่อของบุคคลผู้ถ่ายภาพ วาดภาพ เขียนลายเส้น ฯลฯ",
 	"mwe-upwiz-tooltip-source": "ที่มาของไฟล์ดิจิทัลนี้ อาจเป็น URL หนังสือหรือสิ่งพิมพ์เผยแพร่",

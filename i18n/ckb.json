@@ -109,7 +109,6 @@
 	"mwe-upwiz-previous": "گەڕانەوە",
 	"mwe-upwiz-home": "چوونە پەڕەی دەستپێک",
 	"mwe-upwiz-upload-another": "پەڕگەی زۆر بارکە",
-	"mwe-upwiz-prevent-close": "تۆ ھێشتا بارکردن و بڵاوکردنەوەی ئەم {{PLURAL:$1||پەڕگەیەت|پەڕگانەت}} تەواو نەکردووە.",
 	"mwe-upwiz-tooltip-skiptutorial": "دەتوانیت دووبارە فێرکاری چالاک بکەیت [$1 هەڵبژاردە] لەژێر $2 ← $3.",
 	"mwe-upwiz-tooltip-author": "ناوی کەسی وێنەگر ، یان وێنەکێشی تابلۆکە هتد...",
 	"mwe-upwiz-tooltip-date": "مێژووی ئەو کارە بۆیەکەمینجار بڵاوکرایەوە لە  (YYYY-MM-DD format).",

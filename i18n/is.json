@@ -196,8 +196,6 @@
 	"mwe-upwiz-previous": "Til baka",
 	"mwe-upwiz-home": "Fara á vefsvæði wiki",
 	"mwe-upwiz-upload-another": "Senda inn fleiri skrár",
-	"mwe-upwiz-prevent-close-wait": "Það að fara frá þessari síðu mun leiða til þess að þú munt tapa þeim breytingum sem þú hefur gert. Vinsamlegast bíddu í nokkrar sekúndur.",
-	"mwe-upwiz-prevent-close": "Þú hefur ekki lokið við innsendingarferlið ennþá!",
 	"mwe-upwiz-tooltip-skiptutorial": "Þú getur endurvirkjað þessar leiðbeiningar í [$1 stillingunum þínum] undir $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Nafn þess sem tók myndina, málaði myndina, o.s.frv.",
 	"mwe-upwiz-tooltip-source": "Uppruni stafrænu skrárinnar - gæti verið vefslóð, bók eða útgefið efni.",

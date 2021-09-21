@@ -203,8 +203,6 @@
 	"mwe-upwiz-previous": "Vissza",
 	"mwe-upwiz-home": "Ugrás a wiki kezdőlapjára",
 	"mwe-upwiz-upload-another": "További fájlok feltöltése",
-	"mwe-upwiz-prevent-close-wait": "A lap elhagyása az összes változtatás elvesztését okozhatja. Kérjük, várj egy pár másodpercet.",
-	"mwe-upwiz-prevent-close": "Még nem fejezted be a feltöltési folyamatot!",
 	"mwe-upwiz-tooltip-skiptutorial": "Újra engedélyezheted ezt az útmutatót a [$1 felhasználói beállításaidban] a $2 → $3 alatt.",
 	"mwe-upwiz-tooltip-author": "Annak a személynek a neve aki a fényképet készítette, a képet festette, a rajzot rajzolta, stb.",
 	"mwe-upwiz-tooltip-source": "Ahonnan ez a digitális fájl  származik – lehet egy URL, egy könyv vagy kiadvány",

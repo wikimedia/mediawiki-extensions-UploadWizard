@@ -220,8 +220,6 @@
 	"mwe-upwiz-previous": "Quay lại",
 	"mwe-upwiz-home": "Vào trang đầu wiki",
 	"mwe-upwiz-upload-another": "Tải lên thêm tập tin",
-	"mwe-upwiz-prevent-close-wait": "Thoát khỏi trang này có thể làm bạn mất những thay đổi vừa thực hiện. Xin vui lòng chờ đợi một vài giây nữa.",
-	"mwe-upwiz-prevent-close": "Bạn chưa hoàn thành việc tải lên!",
 	"mwe-upwiz-tooltip-skiptutorial": "Bạn có thể kích hoạt lại hướng dẫn này trong [$1 tùy chọn], dưới $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Tên của người chụp, sơn, hay vẽ hình.",
 	"mwe-upwiz-tooltip-source": "Nơi mà tập tin số này được tìm thấy, thí dụ địa chỉ URL hay cuốn sách",

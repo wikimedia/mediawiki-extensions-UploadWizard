@@ -200,8 +200,6 @@
 	"mwe-upwiz-previous": "Takaisin",
 	"mwe-upwiz-home": "Siirry wikin etusivulle",
 	"mwe-upwiz-upload-another": "Tallenna lisää tiedostoja",
-	"mwe-upwiz-prevent-close-wait": "Sivulta poistuminen nyt saattaa johtaa kaikkien muutosten menettämiseen. Odota pieni hetki.",
-	"mwe-upwiz-prevent-close": "Tiedostoja ei ole vielä tallennettu palveluun!",
 	"mwe-upwiz-tooltip-skiptutorial": "Voit ottaa tämän ohjeen käyttöön uudelleen [$1 käyttäjäasetuksissasi], $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Kuvan ottajan, kuvan piirtäjän, maalauksen maalaajan tai muun vastaavan nimi.",
 	"mwe-upwiz-tooltip-source": "Tämän digitaalisen tiedoston lähde — se voi olla esimerkiksi verkko-osoite, kirja tai julkaisu.",

@@ -214,8 +214,6 @@
 	"mwe-upwiz-previous": "Zpět",
 	"mwe-upwiz-home": "Jít na hlavní stranu wiki",
 	"mwe-upwiz-upload-another": "Načíst další soubory",
-	"mwe-upwiz-prevent-close-wait": "Opuštěním stránky můžete přijít o provedené změny. Počkejte prosím pár sekund.",
-	"mwe-upwiz-prevent-close": "Dosud jste {{GENDER:|nedokončil|nedokončila|nedokončili}} proces načítání!",
 	"mwe-upwiz-tooltip-skiptutorial": "Tohoto průvodce můžete znovu aktivovat v [$1 uživatelském nastavení] pod $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Jméno osoby, která pořídila fotografii, namalovala obraz, vytvořila kresbu atp.",
 	"mwe-upwiz-tooltip-source": "Odkud tento soubor pochází – může to být URL nebo kniha či publikace",

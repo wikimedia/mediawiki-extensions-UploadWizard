@@ -264,8 +264,6 @@
 	"mwe-upwiz-previous": "Retour",
 	"mwe-upwiz-home": "Aller à la page d’accueil du wiki",
 	"mwe-upwiz-upload-another": "Téléverser plus de fichiers",
-	"mwe-upwiz-prevent-close-wait": "Quitter cette page pourrait vous faire perdre les modifications effectuées? Veuillez attendre quelques secondes.",
-	"mwe-upwiz-prevent-close": "Vous n’avez pas encore terminé le processus de téléversement !",
 	"mwe-upwiz-tooltip-skiptutorial": "Vous pouvez réactiver ce didacticiel dans [$1  vos préférences personnelles], sous $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Le nom de la personne qui a pris la photo, peint le tableau, dessiné le dessin, etc.",
 	"mwe-upwiz-tooltip-source": "L’endroit d’où vient le fichier numérique, peut être une URL, un livre ou une publication",

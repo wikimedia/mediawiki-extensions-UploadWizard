@@ -130,7 +130,6 @@
 	"mwe-upwiz-previous": "Attende",
 	"mwe-upwiz-home": "Gå til heimesida åt wikien",
 	"mwe-upwiz-upload-another": "Last opp fleire flier",
-	"mwe-upwiz-prevent-close": "Du er ikkje ferdig med å lasta opp og gje ut {{PLURAL:$1|fila|filene}} enno.",
 	"mwe-upwiz-tooltip-author": "Namnet på personen som tok eller måla biletet, teikna teikninga osb.",
 	"mwe-upwiz-tooltip-source": "Kvar den digitale fila kjem frå - kan vera ei vevadresse, ei bok eller ein publikasjon.",
 	"mwe-upwiz-tooltip-sign": "Du kan nytta brukarnamnet ditt på wikien eller det røynlege namnet ditt.\nI båe tilfella vil namnet få ei lenkje til brukarsida di på wikien.",

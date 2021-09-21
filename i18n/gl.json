@@ -202,8 +202,6 @@
 	"mwe-upwiz-previous": "Volver",
 	"mwe-upwiz-home": "Ir á páxina de inicio do wiki",
 	"mwe-upwiz-upload-another": "Subir máis ficheiros",
-	"mwe-upwiz-prevent-close-wait": "Se deixa esta páxina perderá calquera cambio que fixese. Por favor, agarde uns segundos.",
-	"mwe-upwiz-prevent-close": "Aínda non completou o proceso de suba!",
 	"mwe-upwiz-tooltip-skiptutorial": "Pode reactivar esta guía nas [$1 súas preferencias de usuario], no apartado $2 → $3.",
 	"mwe-upwiz-tooltip-author": "O nome da persoa que tirou a foto, pintou o cadro, fixo o debuxo etc.",
 	"mwe-upwiz-tooltip-source": "O lugar de procedencia deste ficheiro dixital; pode ser un URL, un libro ou unha publicación",

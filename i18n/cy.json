@@ -151,7 +151,6 @@
 	"mwe-upwiz-next-deeds": "Nesaf",
 	"mwe-upwiz-home": "Ewch i hafan y wici",
 	"mwe-upwiz-upload-another": "Uwchlwytho mwy o ffeiliau",
-	"mwe-upwiz-prevent-close": "Nid ydych wedi gorffen uwchlwytho a chyhoeddi'r {{PLURAL:$1||ffeil hon|ffeiliau hyn}} eto.",
 	"mwe-upwiz-tooltip-skiptutorial": "Gallwch ailalluogi'r tiwtorial hwn yn [$1 eich dewisiadau defnyddiwr], yn $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Enw'r person a dynnodd y llun, â chamera neu â llaw, ac ati.",
 	"mwe-upwiz-tooltip-source": "Y man lle cafwyd y ffeil ddigidol hon -- p'un ai URL, llyfr neu gyhoeddiad",

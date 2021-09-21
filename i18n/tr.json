@@ -232,8 +232,6 @@
 	"mwe-upwiz-previous": "Geri",
 	"mwe-upwiz-home": "Viki ana sayfasına git",
 	"mwe-upwiz-upload-another": "Daha fazla dosya yükle",
-	"mwe-upwiz-prevent-close-wait": "Bu sayfadan çıkmak yaptığınız değişiklikleri kaybetmenize neden olabilir. Lütfen birkaç saniye bekleyin.",
-	"mwe-upwiz-prevent-close": "Henüz yükleme işlemini tamamlamadınız!",
 	"mwe-upwiz-tooltip-skiptutorial": "Bu öğreticiyi [$1 kullanıcı tercihlerinizde], $2 → $3 altında yeniden etkinleştirebilirsiniz.",
 	"mwe-upwiz-tooltip-author": "Fotoğrafı çeken veya resmi yapan, çizimi çizen vb kişinin adı.",
 	"mwe-upwiz-tooltip-source": "Bu dijital dosyanın nereden geldiği - bir URL veya bir kitap veya yayın olabilir.",

@@ -229,8 +229,6 @@
 	"mwe-upwiz-previous": "Tillbaka",
 	"mwe-upwiz-home": "Gå till wikins hemsida",
 	"mwe-upwiz-upload-another": "Ladda upp fler filer",
-	"mwe-upwiz-prevent-close-wait": "Att lämna denna sidan kan resultera i att du förlorar alla ändringar du har gjort. Vänta några sekunder.",
-	"mwe-upwiz-prevent-close": "Du har inte slutfört uppladdningsprocessen ännu!",
 	"mwe-upwiz-tooltip-skiptutorial": "Du kan återaktivera denna guide i [$1 dina användarinställningar], under $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Namnet på den person som tog fotot, målade bilden, ritade ritningen, etc.",
 	"mwe-upwiz-tooltip-source": "Var denna digitala filen kom från – det kan vara en URL, en bok eller en annan publikation.",

@@ -15,7 +15,6 @@
 	"mwe-upwiz-thanks-explain": "Je kunt {{PLURAL:$1|dit bestand|deze bestanden}} nu gebruiken op wiki's of ernaar verwijzen op het web.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Je bent het bestand \"$1\" al aan het uploaden.",
 	"mwe-upwiz-fileexists-replace-on-page": "Er bestaat al een bestand met deze naam. Als je het wilt vervangen, ga dan naar de pagina voor [$2 $1] en vervang het daar.",
-	"mwe-upwiz-prevent-close": "Je hebt het uploadproces nog niet afgerond!",
 	"mwe-upwiz-tooltip-skiptutorial": "Je kunt deze tutorial weer inschakelen in [$1 je voorkeuren], onder $2 → $3.",
 	"mwe-upwiz-tooltip-sign": "Je kunt je wikigebruikersnaam of je echte naam gebruiken.\nIn beide gevallen wordt deze gekoppeld aan je gebruikerspagina in de wiki.",
 	"mwe-upwiz-tooltip-title": "Maak een eenduidige, beschrijvende titel in duidelijke taal. Gebruik spaties. Laat een eventuele bestandsnaamextensie weg.",

@@ -231,8 +231,6 @@
 	"mwe-upwiz-previous": "Wstecz",
 	"mwe-upwiz-home": "Przejdź do strony głównej wiki",
 	"mwe-upwiz-upload-another": "Prześlij więcej plików",
-	"mwe-upwiz-prevent-close-wait": "Opuszczenie tej strony może spowodować utratę wszystkich zmian, jakie zostały dokonane. Proszę poczekać kilka sekund.",
-	"mwe-upwiz-prevent-close": "Jeszcze nie zakończyłeś przesyłania plików!",
 	"mwe-upwiz-tooltip-skiptutorial": "Można ponownie włączyć ten samouczek w [$1 preferencjach użytkownika], wchodząc na $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Imię i nazwisko osoby, która zrobiła zdjęcie, namalowała obraz, narysowała rysunek itp.",
 	"mwe-upwiz-tooltip-source": "Skąd pochodzi ten plik: adres URL, książka lub publikacja",

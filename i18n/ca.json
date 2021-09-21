@@ -225,8 +225,6 @@
 	"mwe-upwiz-previous": "Enrere",
 	"mwe-upwiz-home": "Vés a la pàgina inicial del wiki",
 	"mwe-upwiz-upload-another": "Carrega més fitxers",
-	"mwe-upwiz-prevent-close-wait": "Abandonant aquesta pàgina pot provocar que es perdin tots els canvis que heu fet. Us demanem que espereu uns segons.",
-	"mwe-upwiz-prevent-close": "Encara no heu completat el procés de pujada!",
 	"mwe-upwiz-tooltip-skiptutorial": "Podeu activar aquesta guia a [$1 les vostres preferències], opció $2 → $3.",
 	"mwe-upwiz-tooltip-author": "En nom de la persona que va fer la foto, pintar el quadre, dibuixar el gràfic, etc.",
 	"mwe-upwiz-tooltip-source": "D'on prové aquest fitxer digital — pot ser un URL, un llibre o una publicació.",

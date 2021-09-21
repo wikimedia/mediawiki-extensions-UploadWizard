@@ -151,8 +151,6 @@
 	"mwe-upwiz-next-deeds": "Berikutnya",
 	"mwe-upwiz-home": "Pergi ke laman utama wiki",
 	"mwe-upwiz-upload-another": "Muat naik fail lain",
-	"mwe-upwiz-prevent-close-wait": "Tindakan keluar dari laman ini boleh menyebabkan kehilangan semua suntingan anda. Sila tunggu sebentar.",
-	"mwe-upwiz-prevent-close": "Anda belum selesai memuat naik dan menerbitkan {{PLURAL:$1|fail|fail-fail}} ini lagi.",
 	"mwe-upwiz-tooltip-skiptutorial": "Anda boleh menghidupkan semula tutorial ini di [$1 keutamaan pengguna anda], di bawah $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Nama orang yang mengambil foto, atau melukis gambar ini dsb.",
 	"mwe-upwiz-tooltip-source": "Dari mana datangnya fail digital ini; mungkin URL, buku atau bahan terbitan yang seumpamanya",

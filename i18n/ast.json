@@ -210,8 +210,6 @@
 	"mwe-upwiz-previous": "Anterior",
 	"mwe-upwiz-home": "Dir a la páxina principal del wiki",
 	"mwe-upwiz-upload-another": "Xubir más ficheros",
-	"mwe-upwiz-prevent-close-wait": "Se dexes esta páxina podría perdese cualquier cambio que ficieras. Por favor, espera dellos segundos.",
-	"mwe-upwiz-prevent-close": "Inda nun acabasti'l procesu de carga",
 	"mwe-upwiz-tooltip-skiptutorial": "Podrás reactivar esta guía nes [$1 tos preferencies d'usuariu], nel apartáu $2 → $3.",
 	"mwe-upwiz-tooltip-author": "El nome de la persona que tiró la semeya, pintó'l cuadru, fixo'l dibuxu, etc.",
 	"mwe-upwiz-tooltip-source": "D'aú vien esti ficheru dixital — pue ser una URL, o un llibru o publicación.",

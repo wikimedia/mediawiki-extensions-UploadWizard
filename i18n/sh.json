@@ -148,8 +148,6 @@
 	"mwe-upwiz-previous": "Nazad",
 	"mwe-upwiz-home": "Idi na početnu stranicu wiki",
 	"mwe-upwiz-upload-another": "Poštavi još datoteka",
-	"mwe-upwiz-prevent-close-wait": "Ako napustite ovu stranicu, možete izgubiti izvršene promjene. Pričekajte nekoliko sekundi.",
-	"mwe-upwiz-prevent-close": "Postupak još nije završen.",
 	"mwe-upwiz-tooltip-skiptutorial": "Priručnik možete ponovo pustiti u [$1 vašim podešavanjima], pod rubrikom $2 → $3.",
 	"mwe-upwiz-tooltip-date": "Izaberite datum kojeg je stvoreno ili prvo objavljeno djelo.",
 	"mwe-upwiz-tooltip-categories": "Dodajte joj [$1 kategorije] na datoteku kako bi ih se lakše našlo.",

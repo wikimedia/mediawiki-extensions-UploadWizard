@@ -208,8 +208,6 @@
 	"mwe-upwiz-previous": "Indietro",
 	"mwe-upwiz-home": "Vai alla pagina principale",
 	"mwe-upwiz-upload-another": "Carica altri file",
-	"mwe-upwiz-prevent-close-wait": "Uscendo da questa pagina si può causare la perdita di eventuali modifiche apportate. Attendi alcuni secondi.",
-	"mwe-upwiz-prevent-close": "Non hai completato il processo di caricamento ancora!",
 	"mwe-upwiz-tooltip-skiptutorial": "Puoi riattivare questo tutorial nelle [$1 tue preferenze utente], sotto $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Il nome della persona che ha scattato la foto, dipinto il quadro, realizzato il disegno, ecc.",
 	"mwe-upwiz-tooltip-source": "Da dove proviene questo file digitale: potrebbe essere un URL, un libro, una pubblicazione, ecc.",

@@ -233,8 +233,6 @@
 	"mwe-upwiz-previous": "Voltar",
 	"mwe-upwiz-home": "Ir para a página inicial da wiki",
 	"mwe-upwiz-upload-another": "Carregar mais ficheiros",
-	"mwe-upwiz-prevent-close-wait": "Abandonar esta página poderá causar a perda de quaisquer alterações que tenha feito. Aguarde alguns segundos, por favor.",
-	"mwe-upwiz-prevent-close": "Ainda não completou o processo de carregamento!",
 	"mwe-upwiz-tooltip-skiptutorial": "Pode reativar este guia nas [$1 suas preferências de utilizador], em $2 → $3.",
 	"mwe-upwiz-tooltip-author": "O nome da pessoa que tirou a fotografia, pintou o quadro, fez o desenho, etc.",
 	"mwe-upwiz-tooltip-source": "De onde veio este ficheiro digital; pode ser um URL, ou um livro ou publicação",

@@ -204,8 +204,6 @@
 	"mwe-upwiz-previous": "Tagasi",
 	"mwe-upwiz-home": "Mine viki kodulehele",
 	"mwe-upwiz-upload-another": "Laadi veel faile üles",
-	"mwe-upwiz-prevent-close-wait": "Sellelt leheküljelt lahkumise tõttu võivad senised muudatused kaotsi minna. Palun oota mõned sekundid.",
-	"mwe-upwiz-prevent-close": "Üleslaadimisprotsess pole veel lõpule jõudnud!",
 	"mwe-upwiz-tooltip-skiptutorial": "Saad selle õppelehekülje uuesti sisse lülitada [$1 oma eelistuste] alaosas $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Näiteks foto ülesvõtja nimi, kunstniku nimi või joonise tegija nimi.",
 	"mwe-upwiz-tooltip-source": "Kust on see digifail pärit? – Võib olla näiteks internetiaadress, raamat või väljaanne.",

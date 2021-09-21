@@ -233,8 +233,6 @@
 	"mwe-upwiz-previous": "Zurück",
 	"mwe-upwiz-home": "Zur Hauptseite des Wikis",
 	"mwe-upwiz-upload-another": "Weitere Dateien hochladen",
-	"mwe-upwiz-prevent-close-wait": "Das Verlassen dieser Seite führt zum Verlust aller von dir durchgeführten Änderungen. Bitte warte einige Sekunden.",
-	"mwe-upwiz-prevent-close": "Du hast den Hochladeprozess noch nicht abgeschlossen!",
 	"mwe-upwiz-tooltip-skiptutorial": "Du kannst dieses Tutorial erneut in [$1 deinen Benutzereinstellungen] unter „$2“ → „$3“ aktivieren.",
 	"mwe-upwiz-tooltip-author": "Der Name der Person, die entweder das Foto gemacht, das Bild gemalt, die Zeichnung angefertigt, etc. hat",
 	"mwe-upwiz-tooltip-source": "Woher diese Datei stammt – dies kann eine URL, ein Buch oder eine Publikation, etc. sein.",

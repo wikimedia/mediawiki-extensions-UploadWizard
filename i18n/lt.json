@@ -184,8 +184,6 @@
 	"mwe-upwiz-previous": "Atgal",
 	"mwe-upwiz-home": "Eiti į Wiki Pagrindinį puslapį",
 	"mwe-upwiz-upload-another": "Įkelti daugiau failų",
-	"mwe-upwiz-prevent-close-wait": "Šio puslapio palikimas gali sukelti visų jūsų atliktų pakeitimų praradimą. Prašome palaukti kelias sekundes.",
-	"mwe-upwiz-prevent-close": "Jūs dar nebaigėte įkėlimo proceso!",
 	"mwe-upwiz-tooltip-skiptutorial": "Jūs galite pakartotinai aktyvuoti šį instruktažą [$1 savo naudotojo nustatymuose], parinktyse $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Vardas žmogaus, kuris sukūrė nuotrauką ar nupiešė piešinį, nutapė paveikslą, kt.",
 	"mwe-upwiz-tooltip-source": "Iš kur paimtas skaitmeninis failas – tai gali būti URL ar knyga, ar publikacija.",

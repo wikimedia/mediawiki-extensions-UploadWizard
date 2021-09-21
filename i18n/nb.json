@@ -220,8 +220,6 @@
 	"mwe-upwiz-previous": "Tilbake",
 	"mwe-upwiz-home": "Gå til wikihjemmeside",
 	"mwe-upwiz-upload-another": "Last opp flere filer",
-	"mwe-upwiz-prevent-close-wait": "Ved å forlate denne siden nå kan du miste endringer du har gjort. Vennligst vent et par sekunder.",
-	"mwe-upwiz-prevent-close": "Opplastingsprosessen er ikke ferdig enda!",
 	"mwe-upwiz-tooltip-skiptutorial": "Du kan aktivere opplastingsveiledningen igjen i [$1 dine innstillinger], under $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Navnet på personen som tok bildet, eller malte bildet, eller tegnet tegningen, etc.",
 	"mwe-upwiz-tooltip-source": "Hvor denne digitale filen kom fra – kan være en URL, en bok eller en publikasjon",

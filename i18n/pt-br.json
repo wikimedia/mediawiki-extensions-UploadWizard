@@ -234,8 +234,6 @@
 	"mwe-upwiz-previous": "Voltar",
 	"mwe-upwiz-home": "Ir para a página inicial da Wiki",
 	"mwe-upwiz-upload-another": "Enviar mais arquivos",
-	"mwe-upwiz-prevent-close-wait": "Deixar esta página pode fazer com que você perca as alterações que você fez. Aguarde alguns segundos.",
-	"mwe-upwiz-prevent-close": "Você ainda não completou o processo de upload!",
 	"mwe-upwiz-tooltip-skiptutorial": "Você pode reativar este tutorial em [$1 suas preferências de usuário], em $2 → $3.",
 	"mwe-upwiz-tooltip-author": "O nome da pessoa que tirou a fotografia, pintou o quadro, fez o desenho, etc.",
 	"mwe-upwiz-tooltip-source": "De onde veio este arquivo digital; pode ser uma URL, ou um livro ou publicação.",
