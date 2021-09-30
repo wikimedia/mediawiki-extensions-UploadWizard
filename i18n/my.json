@@ -48,6 +48,7 @@
 	"mwe-upwiz-file-all-failed": "ဖိုင်တင်ခြင်း တစ်ခုမှ မအောင်မြင်ပါ။",
 	"mwe-upwiz-upload-count": "$2 ၏ $1 {{PLURAL:$2|ဖိုင်|ဖိုင်များ}} အက်ပလုဒ်တင်ပြီးပြီ",
 	"mwe-upwiz-progressbar-uploading": "ဖိုင်တင်နေသည်",
+	"mwe-upwiz-almost-finished": "ဖိုင်များကို တွက်ချက်ဆောင်ရွက်နေသည်...",
 	"mwe-upwiz-finished": "ပြီးပါပြီ",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|ဤဖိုင်သည်|ဤဖိုင်များသည်}} မိမိကိုယ်ပိုင်လုပ်ဆောင်ချက် ဖြစ်သည်။",
 	"mwe-upwiz-source-ownwork-assert-note": "ကျွန်ုပ်၊ {{PLURAL:$2|ဤလုပ်ဆောင်ချက်|ဤလုပ်ဆောင်ချက်}}၏ မူပိုင်ခွင့်ပိုင်ရှင်အနေဖြင့် {{PLURAL:$2|ဤလုပ်ဆောင်ချက်|ဤလုပ်ဆောင်ချက်}}ကို $1 လိုင်စင်အောက်တွင် ထုတ်လွှင့်ပါသည်။",
@@ -86,6 +87,9 @@
 	"mwe-upwiz-other": "အခြားသတင်းအချက်အလက်များ",
 	"mwe-upwiz-source": "ရင်းမြစ်",
 	"mwe-upwiz-thanks-intro": "ဖိုင်တင်ခြင်းအတွက် ကျေးဇူးတင်ပါသည်",
+	"mwe-upwiz-thanks-explain": "ယခုအခါ {{PLURAL:$1|ဤဖိုင်|ဤဖိုင်များ}}ကို ဝီကီတွင်သုံးနိုင်ပါသည် သို့မဟုတ် {{PLURAL:$1|ယင်း|ယင်းတို့}}ကို ဝဘ်ပေါ်သို့လင့်ချိတ်နိုင်ပါပြီ။",
+	"mwe-upwiz-thanks-wikitext": "ဤဖိုင်အား ဝီကီတွင်အသုံးပြုရန် ဤစာသားအား စာမျက်နှာတစ်ခုပေါ်တွင် မိတ္တူကူးပါ။",
+	"mwe-upwiz-thanks-url": "HTML ထဲတွင် လင့်ခ်ချိတ်လိုပါက ဤ URL ကိုမိတ္တူကူးပါ-",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "ဖိုင် \"$1\" ကို အပ်လုဒ်တင်နေပြီးဖြစ်ပါသည်။",
 	"mwe-upwiz-allowed-filename-extensions": "ခွင့်ပြုသော extension များမှာ:",
 	"mwe-upwiz-upload-error-duplicate": "ဤဖိုင်ကို မကြာသေးခင်က ဤဝီကီတွင် တင်ခဲ့ပြီးသားဖြစ်ပါသည်။",
@@ -103,10 +107,12 @@
 	"mwe-upwiz-publish-metadata": "ဖိုင်များအားလုံးအတွက် ဒေတာလွှင့်တင်ရန်",
 	"mwe-upwiz-publish-metadata-error": "ကျေးဇူးပြု၍ အမှားအားလုံးကိုပြင်ပေးပါ။",
 	"mwe-upwiz-skip-metadata": "ဤအဆင့်ကို ကျော်သွားရန်",
+	"mwe-upwiz-metadata-title": "မေတာဒေတာ ပေါင်းထည့်ရန်",
 	"mwe-upwiz-previous": "နောက်သို့",
 	"mwe-upwiz-home": "ဝီကီပင်မစာမျက်နှာသို့ သွားရန်",
 	"mwe-upwiz-upload-another": "ဖိုင်များ ပို၍တင်ရန်",
 	"mwe-upwiz-tooltip-skiptutorial": "ဤပို့ချမှုသင်ခန်းစာအား $2 → $3 အောက်ရှိ [$1 သင်၏အသုံးပြုသူရွေးချယ်စရာများ]တွင် ပြန်လည်သုံးခွင့်ပြုနိုင်ပါသည်။",
+	"mwe-upwiz-tooltip-caption": "ဤဖိုင်၏ဆိုလိုရင်းကို အသင့်တော်ဆုံးသတင်းအချက်အလက်ဖြင့် စာတစ်ကြောင်းရှင်းလင်းချက် ထည့်သွင်းရန်",
 	"mwe-upwiz-tooltip-more-info": "ပိုမို လေ့လာရန်။",
 	"mwe-upwiz-file-need-file": "အပ်ပလုဒ်တစ်ခုကို အရင်ဆုံးပေါင်းထည့်ပါ။",
 	"mwe-upwiz-deeds-need-license": "လိုင်စင်တစ်ခု ရွေးချယ်ပါ။",
@@ -143,5 +149,6 @@
 	"mwe-upwiz-prefs-license-own": "ကိုယ်ပိုင်အလုပ် - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "တစ်ယောက်ယောက်၏အလုပ် - $1",
 	"mwe-upwiz-prefs-skiptutorial": "လိုင်စင်သင်ခန်းစာ မိတ်ဆက်ကို ကျော်သွားမည်",
-	"mwe-upload-campaigns-pagination-next": "နောက်စာမျက်နှာ"
+	"mwe-upload-campaigns-pagination-next": "နောက်စာမျက်နှာ",
+	"mwe-upwiz-upload-comment-own-work": "ဖိုင်တင်သည့်အဆောက်အအုံဖြင့် ကိုယ်ပိုင်အပ်ပလုဒ်တင်ခဲ့သည်"
 }
