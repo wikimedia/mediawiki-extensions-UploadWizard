@@ -61,45 +61,6 @@ class CampaignContent extends JsonContent {
 	}
 
 	/**
-	 * Override getParserOutput, since we require $title to generate our output
-	 * @param Title $title
-	 * @param int|null $revId
-	 * @param ParserOptions|null $options
-	 * @param bool $generateHtml
-	 * @return ParserOutput
-	 */
-	public function getParserOutput( Title $title,
-		$revId = null,
-		ParserOptions $options = null, $generateHtml = true
-	) {
-		$po = new ParserOutput();
-		$campaign = new UploadWizardCampaign( $title, $this->getJsonData() );
-
-		if ( $generateHtml ) {
-			$po->setText( $this->generateHtml( $campaign ) );
-		}
-
-		// Register template usage
-		// FIXME: should we be registering other stuff??
-		foreach ( $campaign->getTemplates() as $ns => $templates ) {
-			foreach ( $templates as $dbk => $ids ) {
-				$title = Title::makeTitle( $ns, $dbk );
-				$po->addTemplate( $title, $ids[0], $ids[1] );
-			}
-		}
-
-		$po->addModuleStyles( 'ext.uploadWizard.uploadCampaign.display' );
-
-		return $po;
-	}
-
-	public function generateHtml( $campaign ) {
-		$formatter = new CampaignPageFormatter( $campaign );
-
-		return $formatter->generateReadHtml();
-	}
-
-	/**
 	 * Deprecated in JsonContent but still useful here because we need to merge the schema's data
 	 * with a config array
 	 *
