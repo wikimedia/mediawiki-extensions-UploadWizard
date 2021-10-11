@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Content\Renderer\ContentParseParams;
+
 /**
  * JSON Schema Content Handler
  *
@@ -32,5 +35,49 @@ class CampaignContentHandler extends JsonContentHandler {
 	public function makeEmptyContent() {
 		$class = $this->getContentClass();
 		return new $class( '{"enabled":false}' );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function fillParserOutput(
+		Content $content,
+		ContentParseParams $cpoParams,
+		ParserOutput &$output
+	) {
+		'@phan-var CampaignContent $content';
+		$title = Title::castFromPageReference( $cpoParams->getPage() );
+		if ( $title === null ) {
+			throw new MWException( '$title shouldn\'t be NULL' );
+		}
+
+		$campaign = new UploadWizardCampaign( $title, $content->getJsonData() );
+
+		if ( $cpoParams->getGenerateHtml() ) {
+			$html = $this->generateHtml( $campaign );
+			$output->setText( $html );
+		}
+
+		// Register template usage
+		// FIXME: should we be registering other stuff??
+		foreach ( $campaign->getTemplates() as $ns => $templates ) {
+			foreach ( $templates as $dbk => $ids ) {
+				$title = Title::makeTitle( $ns, $dbk );
+				$output->addTemplate( $title, $ids[0], $ids[1] );
+			}
+		}
+
+		$output->addModuleStyles( 'ext.uploadWizard.uploadCampaign.display' );
+	}
+
+	/**
+	 * @param UploadWizardCampaign $campaign
+	 *
+	 * @return string
+	 */
+	private function generateHtml( $campaign ) {
+		$formatter = new CampaignPageFormatter( $campaign );
+
+		return $formatter->generateReadHtml();
 	}
 }
