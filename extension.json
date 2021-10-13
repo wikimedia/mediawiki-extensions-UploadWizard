@@ -604,6 +604,8 @@
 				"mwe-upwiz-mv-cta-user-preference-set",
 				"mwe-upwiz-mv-cta-user-preference-unset",
 				"mwe-upwiz-mv-cta-user-preference-set-failed",
+				"mwe-upwiz-metadata-notice-header",
+				"mwe-upwiz-metadata-notice-description",
 				"size-gigabytes",
 				"size-megabytes",
 				"size-kilobytes",
