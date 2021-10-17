@@ -23,5 +23,13 @@
 			}
 		],
 		"no-shadow": "warn"
+	},
+	"settings": {
+		"jsdoc": {
+			"preferredTypes": {
+				"StatementWidget": "StatementWidget",
+				"wikibaseDatamodel": "wikibaseDatamodel"
+			}
+		}
 	}
 }
