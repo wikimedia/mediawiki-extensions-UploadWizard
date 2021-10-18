@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"JSantos",
 			"Joao Xavier",
 			"Malafaya"
 		]
@@ -60,6 +61,8 @@
 	"mwe-upwiz-error-title-too-long": "Ca titulo esas tre longa.\nVoluntez certigar su pri skribar titulo kun admaxime {{PLURAL:$1|bicoko*|bicoki*}}.",
 	"mwe-upwiz-error-title-thumbnail": "To semblas esar titulo di miniaturo. Voluntez ne sendar miniaturi de ula imajo a la sama Wiki de ube vu kopiis ol. Se vu ne kopiis ca imajo de ca Wiki, voluntez chanjar lua nomo, por ol ne semblar esar miniaturo.",
 	"mwe-upwiz-too-many-files-text": "Vu povas sendar nur $1 {{PLURAL:$1|arkivo|arkivi}} quik, ma vu probis sendar entote $2 {{PLURAL:$2|arkivo|arkivi}} quik. Probez itere sendar min artikli per foyo!",
+	"mwe-upwiz-dialog-yes": "Yes",
+	"mwe-upwiz-dialog-no": "No",
 	"mwe-upwiz-campaign-upload-button": "Kargar!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Arkivo|Arkivi}} kargita",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nula arkivo sendita ankore!",
