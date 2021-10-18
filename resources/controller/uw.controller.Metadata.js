@@ -15,10 +15,6 @@
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * @external StatementWidget
- */
-
 ( function ( uw ) {
 
 	/**
