@@ -246,7 +246,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "Puedes reactivar esta guía en [$1 tus preferencias de usuario], en el apartado $2 → $3.",
 	"mwe-upwiz-tooltip-author": "El nombre de la persona que tomó la foto, o pintó el cuadro, dibujó el gráfico, etc.",
 	"mwe-upwiz-tooltip-source": "De donde vino este archivo digital -- Podría ser una URL, o un libro o publicación",
-	"mwe-upwiz-tooltip-sign": "Puedes usar tu nombre de usuario de wiki o tu nombre real.\nEn ambos casos, esto vinculará a tu página de usuario del wiki.",
+	"mwe-upwiz-tooltip-sign": "Puedes usar tu nombre de usuario de wiki o tu nombre real.\nEn ambos casos, esto vinculará a tu página de usuario de la wiki.",
 	"mwe-upwiz-tooltip-title": "Crea un título descriptivo único utilizando lenguaje sencillo con espacios. Omite la extensión del archivo, si la tiene.",
 	"mwe-upwiz-tooltip-caption": "Añade una explicación de una línea de lo que representa este archivo, que incluya solo la información más relevante.",
 	"mwe-upwiz-tooltip-description": "Proporciona toda la información para ayudar a otros a entender lo que representa el archivo.",
