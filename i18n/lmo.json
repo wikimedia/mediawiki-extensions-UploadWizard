@@ -242,7 +242,7 @@
 	"mwe-upwiz-error-title-too-short": "Quell titol chì l'è trop curt.\nSicuress che'l sia longh almen $1 {{PLURAL:$1|byte}}.",
 	"mwe-upwiz-error-bad-captions": "A gh'è di problema con quaivuoeuna di insegne.",
 	"mwe-upwiz-error-bad-descriptions": "A gh'è di problema con quaivoeuna di descrizzion.",
-	"mwe-upwiz-error-title-blacklisted": "Quell titol el gh'hà denter di parole minga vorude. Càmbiell.",
+	"mwe-upwiz-error-title-blacklisted": "Quell titol chì el gh'hà denter di parolasce o di parolle minga bei. Càmbiell.",
 	"mwe-upwiz-error-title-senselessimagename": "Rend quell titol chì pussee significativ",
 	"mwe-upwiz-error-title-thumbnail": "Chesschì el par che 'l sia el titol d'una miniadura. Carega minga i miniadure in su l'istessa wiki. Diversament sgiusta el titol del fail de manera che 'l sia pussee significativ e 'l gh'abìa no el prefiss de la miniadura.",
 	"mwe-upwiz-error-title-extension": "A gh'è minga besogn de sgiontagh un'estension al fail. L'è asee a met denter un titol leggibel e l'aplicazzion la farà el rest.",

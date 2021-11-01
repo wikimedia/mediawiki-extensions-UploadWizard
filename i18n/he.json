@@ -32,7 +32,7 @@
 	"grouppage-upwizcampeditors": "{{ns:project}}:עורכי מבצעי קידום העלאות",
 	"group-upwizcampeditors.css": "/* הסגנונות הנכתבים כאן ישפיעו על עורכי מבצעי קידום העלאות בלבד */",
 	"group-upwizcampeditors.js": "/* כל הסקריפטים הנכתבים כאן ייטענו עבור עורכי מבצעי קידום העלאות בלבד */",
-	"api-error-parsererror": "השרת השיב עם מסמך JSON בלתי־תקין. ייתכן שזאת בעיה עם API, ואולי השתמשת בשרת מתווך (proxy) שמונע ממך להעלות קבצים.",
+	"api-error-parsererror": "השרת השיב עם מסמך JSON בלתי־תקין. ייתכן שזאת בעיה עם API, ואולי השתמשת בשרת מתווך (פרוקסי) שמונע ממך להעלות קבצים.",
 	"api-error-aborted": "ההעלאה בוטלה.",
 	"api-error-noimageinfo": "ההעלאה עבדה, אבל השרת לא נתן לנו שום מידע על הקובץ.",
 	"mwe-upwiz-unavailable": "הדפדפן שלך אינו מתאים לאשף ההעלאה או שהרצת JavaScript כבויה, אז אנחנו מראים לך טופס העלאה פשוט ([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility הצגת דרישות תאימות].)",
