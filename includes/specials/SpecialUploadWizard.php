@@ -260,7 +260,7 @@ class SpecialUploadWizard extends SpecialPage {
 	/**
 	 * Check if anyone can upload (or if other sitewide config prevents this)
 	 * Side effect: will print error page to wgOut if cannot upload.
-	 * @return bool -- true if can upload
+	 * @return bool true if can upload
 	 */
 	private function isUploadAllowed() {
 		// Check uploading enabled
@@ -282,7 +282,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param User $user
 	 * @throws PermissionsError
 	 * @throws UserBlockedError
-	 * @return bool -- true if can upload
+	 * @return bool true if can upload
 	 */
 	private function isUserUploadAllowed( User $user ) {
 		// Check permissions
