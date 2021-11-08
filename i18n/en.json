@@ -347,7 +347,7 @@
 	"mwe-upwiz-subhead-alternatives": "Alternative upload methods",
 	"mwe-upwiz-feedback-prompt": "Leave feedback",
 	"mwe-upwiz-feedback-title": "Leave feedback about Upload Wizard",
-	"mwe-upwiz-feedback-blacklist-line-intro": "This is the title blacklist entry that matched it:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "This is the disallowed title list entry that matched it:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "My upload title, \"$1\" was prohibited.",
 	"mwe-upwiz-errordialog-title": "There was an error in your submission",
 	"mwe-upwiz-errordialog-ok": "OK",
