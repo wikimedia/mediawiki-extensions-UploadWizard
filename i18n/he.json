@@ -360,7 +360,7 @@
 	"mwe-upwiz-subhead-alternatives": "שיטות העלאה חלופיות",
 	"mwe-upwiz-feedback-prompt": "תנו לנו משוב",
 	"mwe-upwiz-feedback-title": "לכתוב תגובה על אשף ההעלאות",
-	"mwe-upwiz-feedback-blacklist-line-intro": "זוהי הכותרת מהרשימה השחורה שהתאימה לזה:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "זהו פריט רשימת הכותרות האסורות שהתאים לזה:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "כותרת ההעלאה שלי „$1” נאסרה.",
 	"mwe-upwiz-errordialog-title": "הייתה שגיאה במידע ששלחת.",
 	"mwe-upwiz-errordialog-ok": "אישור",
