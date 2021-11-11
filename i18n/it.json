@@ -339,7 +339,7 @@
 	"mwe-upwiz-subhead-alternatives": "Metodi di caricamento alternativi",
 	"mwe-upwiz-feedback-prompt": "Lascia un commento",
 	"mwe-upwiz-feedback-title": "Lascia un commento sul Caricamento guidato",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Questa è la voce nella lista nera dei titoli di cui è stata trovata una corrispondenza:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Questa è la voce dell'elenco dei titoli non consentiti di cui è stata trovata una corrispondenza:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Il titolo del mio caricamento, \"$1\", è stato rifiutato.",
 	"mwe-upwiz-errordialog-title": "Si è verificato un errore nella tua richiesta",
 	"mwe-upwiz-errordialog-ok": "OK",

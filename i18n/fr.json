@@ -400,7 +400,7 @@
 	"mwe-upwiz-subhead-alternatives": "Méthodes alternatives de téléversement",
 	"mwe-upwiz-feedback-prompt": "Laisser un commentaire",
 	"mwe-upwiz-feedback-title": "Laissez vos commentaires sur l'assistant de téléversement",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Voici l’entrée de la liste noire de titres qui a fourni une correspondance :\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Voici l’entrée de la liste des titres interdits qui a fourni une correspondance :\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Mon titre de versement, « $1 », a été interdit.",
 	"mwe-upwiz-errordialog-title": "Il y a eu une erreur dans ce que vous avez soumis",
 	"mwe-upwiz-errordialog-ok": "Valider",
