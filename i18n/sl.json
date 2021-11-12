@@ -323,7 +323,7 @@
 	"mwe-upwiz-subhead-alternatives": "Drugi načini nalaganja",
 	"mwe-upwiz-feedback-prompt": "Sporočite svoje mnenje",
 	"mwe-upwiz-feedback-title": "Sporočite svoje mnenje o čarovniku za nalaganje",
-	"mwe-upwiz-feedback-blacklist-line-intro": "To je vnos se ujema z vnosom iz črnega seznama naslovov:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "To je vnos se ujema z vnosom s seznama nedovoljenih naslovov:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Moj naslov nalaganja »$1« je prepovedan.",
 	"mwe-upwiz-errordialog-title": "Pri pošiljanju je prišlo do napake",
 	"mwe-upwiz-errordialog-ok": "V redu",
