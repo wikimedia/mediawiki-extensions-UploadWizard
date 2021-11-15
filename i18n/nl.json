@@ -336,7 +336,7 @@
 	"mwe-upwiz-subhead-alternatives": "Alternatieve uploadmethoden",
 	"mwe-upwiz-feedback-prompt": "Terugkoppeling geven",
 	"mwe-upwiz-feedback-title": "Terugkoppeling achterlaten over de Wizard uploaden",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Dit is de regel uit de zwarte lijst voor paginanamen die de blokkade heeft veroorzaakt:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Dit is de betreffende regel uit de lijst met verboden titels:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "\"$1\" is niet toegestaan als bestandsnaam.",
 	"mwe-upwiz-errordialog-title": "Er is een fout opgetreden in uw inzending",
 	"mwe-upwiz-errordialog-ok": "OK",

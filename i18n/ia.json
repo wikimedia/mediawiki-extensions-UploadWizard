@@ -273,7 +273,7 @@
 	"mwe-upwiz-subhead-alt-upload": "Retornar al formulario ancian",
 	"mwe-upwiz-feedback-prompt": "Dar nos tu opinion",
 	"mwe-upwiz-feedback-title": "Da nos tu opinion sur le assistente de incargamento",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Iste es le entrata correspondente del lista nigre de titulos:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Iste es le entrata correspondente del lista de titulos prohibite:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Le titulo de mi file incargate, \"$1\", esseva prohibite.",
 	"mwe-upwiz-errordialog-title": "Il habeva un error in tu submission",
 	"mwe-upwiz-errordialog-ok": "OK",

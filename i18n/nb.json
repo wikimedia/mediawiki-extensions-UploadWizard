@@ -390,5 +390,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Du vil ikke lenger bli varslet for å tagge opplastingene dine.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Vi kunne ikke lagre innstillingen for øyeblikket. Besøk [[c:Special:Preferences#mw-prefsection-echo|innstillingene dine]] for å slå på varsler.",
 	"mwe-upwiz-upload-comment-own-work": "Lastet opp eget verk med UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "Lastet opp et verk av $1 fra $2 med UploadWizard"
+	"mwe-upwiz-upload-comment-third-party": "Lastet opp et verk av $1 fra $2 med UploadWizard",
+	"mwe-upwiz-metadata-notice-header": "Personlige data",
+	"mwe-upwiz-metadata-notice-description": "EXIF-metadata i denne fila kan inneholde sted eller andre personlige data som legges til automatisk av kameraet ditt. [https://commons.wikimedia.org/wiki/Commons:Exif Lær mer] om hvordan man kan redigere eller fjerne EXIF-metadata."
 }

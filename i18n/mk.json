@@ -309,7 +309,7 @@
 	"mwe-upwiz-license-pd-old-100": "Авторот починал пред повеќе од 100 години",
 	"mwe-upwiz-license-pd-old": "Авторот починал пред повеќе од 70 години",
 	"mwe-upwiz-license-pd-art-70": "Верна репродукција на слика во јавна сопственост бидејќи уметникот починал пред повеќе од 70 години ([$2 дознајте повеќе])",
-	"mwe-upwiz-license-pd-us": "Првпат објавена во САД пред 1926",
+	"mwe-upwiz-license-pd-us": "Првпат објавена во САД пред 1926 г.",
 	"mwe-upwiz-license-pd-usgov": "Изворно дело на Федералната влада на САД",
 	"mwe-upwiz-license-pd-usgov-nasa": "Изворно дело на НАСА",
 	"mwe-upwiz-license-pd-usgov-military-navy": "Изворно дело на Воената морнарица на САД",
@@ -352,7 +352,7 @@
 	"mwe-upwiz-subhead-alternatives": "Други начини на подигање",
 	"mwe-upwiz-feedback-prompt": "Дајте свое мислење",
 	"mwe-upwiz-feedback-title": "Дајте ваше мислење за Помошникот за подигање",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Ова е насловниот запис на црниот список што одговара:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Ова е забранетиот наслов:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Насловот „$1“ е забранет.",
 	"mwe-upwiz-errordialog-title": "Се јави грешка во поднесеното:",
 	"mwe-upwiz-errordialog-ok": "ОК",
@@ -386,5 +386,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Повеќе нема да добивате известувања за означување на подигнатото.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Во мигов не можев да ја зачувам поставката. Појдете во [[c:Special:Preferences#mw-prefsection-echo|Нагодувањата]] за да се пријавите за известувања.",
 	"mwe-upwiz-upload-comment-own-work": "Подигнато сопствено дело со Помошникот за подигање",
-	"mwe-upwiz-upload-comment-third-party": "Подигнато дело на $1 од $2 со Помошникот за подигање"
+	"mwe-upwiz-upload-comment-third-party": "Подигнато дело на $1 од $2 со Помошникот за подигање",
+	"mwe-upwiz-metadata-notice-header": "Лични податоци",
+	"mwe-upwiz-metadata-notice-description": "EXIF-метаподатоците во оваа податотека може да содржат местоположба или други лични податоци кои вашата камера автоматски ги става. [https://commons.wikimedia.org/wiki/Commons:Exif Дознајте како] да ги измените или остраните."
 }

@@ -403,5 +403,6 @@
 	"mwe-upload-campaigns-pagination-next": "Следующая страница",
 	"mwe-upload-campaigns-list-title": "Список кампаний по загрузке",
 	"mwe-upwiz-upload-comment-own-work": "Загрузил свою работу через UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "$1 загрузил работу с $2 через UploadWizard"
+	"mwe-upwiz-upload-comment-third-party": "$1 загрузил работу с $2 через UploadWizard",
+	"mwe-upwiz-metadata-notice-header": "Личные данные"
 }

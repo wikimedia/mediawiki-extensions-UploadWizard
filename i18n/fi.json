@@ -10,6 +10,7 @@
 			"Kulmalukko",
 			"Kyykaarme",
 			"Linnea",
+			"MITO",
 			"Macofe",
 			"Matma Rex",
 			"McSalama",
@@ -347,5 +348,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Enimmäismäärä samanaikaisia latauksia",
 	"campaigns": "Tallennuskampanjat",
 	"mwe-upload-campaigns-pagination-next": "Seuraava sivu",
-	"mwe-upload-campaigns-list-title": "Luettelo tallennuskampanjoista"
+	"mwe-upload-campaigns-list-title": "Luettelo tallennuskampanjoista",
+	"mwe-upwiz-metadata-notice-header": "Henkilökohtainen data"
 }

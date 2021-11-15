@@ -377,5 +377,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Te ricevaret pu di notifiche per metegh di etichete ai to caregament",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Adsedess a podom minga salvà i to preferenze. De ativà i notifiche và a [[c:Special:Preferences#mw-prefsection-echo|Preferenze]]",
 	"mwe-upwiz-upload-comment-own-work": "Carega el lavorà che t'hee fad depertì cont el Caregament Assistid",
-	"mwe-upwiz-upload-comment-third-party": "Caregad un lavorà de $1 de $2 col Caregament Assistid"
+	"mwe-upwiz-upload-comment-third-party": "Caregad un lavorà de $1 de $2 col Caregament Assistid",
+	"mwe-upwiz-metadata-notice-header": "Dati personai",
+	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in 'sto fail a podarissen havégh dedenter la posizzion o di alter dati personai sgiontad in automatich de la toa videocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Per savénn pussee] sora la manera de modifegà o scassà i metadati EXIF."
 }
