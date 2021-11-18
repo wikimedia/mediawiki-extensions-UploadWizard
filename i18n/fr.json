@@ -8,6 +8,7 @@
 			"Davidtsm",
 			"Dereckson",
 			"Dodoïste",
+			"DreZhsh",
 			"Drongou",
 			"Ebe123",
 			"Element303",
@@ -434,5 +435,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Vous ne recevrez plus de notifications pour marquer vos téléversements.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nous n’avons pas pu sauvegarder vos préférences. Veuillez vous rendre dans vos [[c:Special:Preferences#mw-prefsection-echo|Préférences]] pour vous inscrire aux notifications.",
 	"mwe-upwiz-upload-comment-own-work": "Téléversement de mon propre travail avec UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "Téléversement du travail de $1 sur $2 avec UploadWizard"
+	"mwe-upwiz-upload-comment-third-party": "Téléversement du travail de $1 sur $2 avec UploadWizard",
+	"mwe-upwiz-metadata-notice-header": "Données personnelles",
+	"mwe-upwiz-metadata-notice-description": "Les métadonnées EXIF de ce fichier peuvent contenir l'emplacement ou d'autres données personnelles ajoutées automatiquement par votre appareil photo. Consultez [https://commons.wikimedia.org/wiki/Commons:Exif Commons:Exif] pour savoir comment modifier ou supprimer les métadonnées EXIF."
 }
