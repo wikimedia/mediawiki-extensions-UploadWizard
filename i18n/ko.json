@@ -364,5 +364,6 @@
 	"mwe-upload-campaigns-pagination-next": "다음 문서",
 	"mwe-upload-campaigns-list-title": "업로드 캠페인 목록",
 	"mwe-upwiz-mv-cta-dismiss": "숨기기",
-	"mwe-upwiz-mv-cta-user-preference-unset": "업로드 태그 알림을 더 이상 받지 않게 됩니다."
+	"mwe-upwiz-mv-cta-user-preference-unset": "업로드 태그 알림을 더 이상 받지 않게 됩니다.",
+	"mwe-upwiz-metadata-notice-header": "개인 데이터"
 }
