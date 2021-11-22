@@ -44,6 +44,7 @@
 			"佛壁灯",
 			"凡人丶",
 			"列维劳德",
+			"沈澄心",
 			"神樂坂秀吉",
 			"铁桶",
 			"阿pp",
@@ -427,5 +428,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "您将不再收到标记您上传的内容的通知。",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "我们目前无法保存您的参数设施。请访问您的[[c:Special:Preferences#mw-prefsection-echo|参数设置]]以选择接收通知。",
 	"mwe-upwiz-upload-comment-own-work": "使用UploadWizard上传自己的作品",
-	"mwe-upwiz-upload-comment-third-party": "使用UploadWizard从$2上传了$1的作品"
+	"mwe-upwiz-upload-comment-third-party": "使用UploadWizard从$2上传了$1的作品",
+	"mwe-upwiz-metadata-notice-header": "个人数据",
+	"mwe-upwiz-metadata-notice-description": "文件中的EXIF元数据可能包含由相机自动添加的位置等个人信息。[https://commons.wikimedia.org/wiki/Commons:Exif 点此]了解如何删改EXIF元数据。"
 }
