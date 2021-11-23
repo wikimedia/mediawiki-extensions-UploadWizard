@@ -365,5 +365,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "খারিজ করুন",
 	"mwe-upwiz-mv-cta-user-preference-unset": "আপনি আপনার আপলোডগুলি ট্যাগ করার জন্য আর বিজ্ঞপ্তি পাবেন না।",
 	"mwe-upwiz-upload-comment-own-work": "আপলোড উইজার্ড দিয়ে নিজস্ব কর্ম আপলোড করা হয়েছে",
-	"mwe-upwiz-upload-comment-third-party": "আপলোড উইজার্ড দিয়ে $2 থেকে $1 কর্তৃক কর্ম আপলোড করা হয়েছে"
+	"mwe-upwiz-upload-comment-third-party": "আপলোড উইজার্ড দিয়ে $2 থেকে $1 কর্তৃক কর্ম আপলোড করা হয়েছে",
+	"mwe-upwiz-metadata-notice-header": "ব্যক্তিগত উপাত্ত",
+	"mwe-upwiz-metadata-notice-description": "এই ফাইলের এক্সিফ অধিউপাত্তে আপনার ক্যামেরা দ্বারা স্বয়ংক্রিয়ভাবে যোগ করা উপাত্ত, যেমন অবস্থান বা অন্যান্য ব্যক্তিগত উপাত্ত থাকতে পারে। কীভাবে সম্পাদনা করবেন বা এক্সিফ অধিউপাত্ত সরাবেন সে সম্পর্কে [https://commons.wikimedia.org/wiki/Commons:Exif আরও জানুন]।"
 }
