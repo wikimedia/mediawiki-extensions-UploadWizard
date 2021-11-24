@@ -158,7 +158,7 @@
 	"mwe-upwiz-thanks-wikitext": "Fir de Fichier an enger Wiki ze benotzen, kopéiert dësen Text an eng Säit:",
 	"mwe-upwiz-thanks-url": "Fir een HTML-Link op dëse Fichier ze maachen, kopéiert dës URL-Adress :",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun \".$1\".",
-	"mwe-upwiz-upload-error-bad-filename-no-extension": "Dës Wiki verlaangt datt d'Fichieren eng Erweiderung  - wéi z. Bsp. \".JPG\" um Enn vum Fichiersnumm hunn.",
+	"mwe-upwiz-upload-error-bad-filename-no-extension": "Dës Wiki verlaangt datt d'Fichieren eng Erweiderung  - wéi z. B. \".JPG\" um Enn vum Fichiersnumm hunn.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Dir hutt de Fichier \"$1\" schonn eropgelueden.",
 	"mwe-upwiz-allowed-filename-extensions": "Déi erlaabten Erweiderunge sinn:",
 	"mwe-upwiz-upload-error-duplicate": "Dëse Fichier gouf scho virdrun op dës Wiki eropgelueden.",

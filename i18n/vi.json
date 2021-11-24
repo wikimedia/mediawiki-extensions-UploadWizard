@@ -10,7 +10,8 @@
 			"Nguyên Lê",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
-			"Yue Ling"
+			"Yue Ling",
+			"Nghiemtrongdai VN"
 		]
 	},
 	"uploadwizard": "Trình thuật sĩ tải lên",
@@ -333,7 +334,7 @@
 	"mwe-upwiz-license-public-domain-usa-head": "Bản quyền đã chắc chắn quá hạn tại Hoa Kỳ",
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} đóng tại Hoa Kỳ, nên tác phẩm phải không có bản quyền hoặc hết bản quyền tại nước đó.",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|Tác phẩm|Các tác phẩm này}} do chính quyền Hoa Kỳ thực hiện",
-	"mwe-upwiz-license-misc": "Lý do linh tinh",
+	"mwe-upwiz-license-misc": "Lý do khác",
 	"mwe-upwiz-license-custom-head": "Lý do khác không có sẵn ở trên",
 	"mwe-upwiz-license-custom-preview": "Xem trước",
 	"mwe-upwiz-license-none-head": "Tôi tìm thấy nó tại trang web nào đó – tôi chẳng biết",
@@ -366,7 +367,7 @@
 	"mwe-upwiz-error-campaigndisabled": "Chiến dịch “$1” hiện đang vô hiệu.",
 	"mwe-upwiz-calendar-date": "Chọn ngày tháng dùng lịch",
 	"mwe-upwiz-custom-date": "Định dạng ngày tháng tùy biến",
-	"prefs-uploads": "Đang tải lên",
+	"prefs-uploads": "Tải lên",
 	"prefs-upwiz-licensing": "Giấy phép",
 	"prefs-upwiz-experimental": "Tính năng thử nghiệm",
 	"prefs-upwiz-interface": "Giao diện",

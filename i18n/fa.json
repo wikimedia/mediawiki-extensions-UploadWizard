@@ -30,7 +30,8 @@
 			"Reza1615",
 			"ZxxZxxZ",
 			"حقجوی",
-			"پسر یاس"
+			"پسر یاس",
+			"Jeeputer"
 		]
 	},
 	"uploadwizard": "جادوگر بارگذاری",
@@ -40,6 +41,7 @@
 	"tag-uploadwizard-flickr": "فلیکر",
 	"tag-uploadwizard-flickr-description": "بارگذاری تصویر فلیکر با جادوگر بارگذاری",
 	"right-mass-upload": "بارگذاری-انبوه برای بارگذاری چندین پرونده به کمک جادوگر بارگذاری در یک زمان",
+	"action-mass-upload": "بارگذاری دسته‌جعمی پرونده‌های بیشتر با جادوگر بارگذاری",
 	"right-upwizcampaigns": "کمپین‌های جادوگر بارگذاری را تنظیم کنید",
 	"action-upwizcampaigns": "پیکربندی کمپین‌های بارگذاری",
 	"group-upwizcampeditors": "ویرایشگران کمپین جادوگر بارگذاری",
@@ -365,5 +367,6 @@
 	"campaigns": "کمپین جادوگر بارگذاری",
 	"mwe-upload-campaigns-pagination-next": "صفحهٔ بعدی",
 	"mwe-upload-campaigns-list-title": "فهرست همهٔ کمپین‌ها",
-	"mwe-upwiz-mv-cta-dismiss": "بگذریم"
+	"mwe-upwiz-mv-cta-dismiss": "بگذریم",
+	"mwe-upwiz-upload-comment-own-work": "بارگذاری اثر شخصی با جادوگر بارگذاری"
 }
