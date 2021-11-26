@@ -357,7 +357,7 @@
 	"mwe-upwiz-subhead-alternatives": "Phương thức tải lên thay thế",
 	"mwe-upwiz-feedback-prompt": "Để lại phản hồi",
 	"mwe-upwiz-feedback-title": "Phản hồi về Trình thuật sĩ tải lên",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Tên tập tin bị chặn do khoản mục này trong danh sách đen:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Tên tập tin bị chặn do khoản mục này trong danh sách tiêu đề bị cấm:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Tên tập tin tải lên của tôi, “$1”, đã bị cấm.",
 	"mwe-upwiz-errordialog-title": "Có lỗi trong thông tin mà bạn gửi vào.",
 	"mwe-upwiz-errordialog-ok": "OK",
@@ -391,5 +391,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Bạn sẽ không còn nhận được thông báo khi có người gắn thẻ tập tin của bạn.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Chúng tôi không thể lưu tùy chọn của bạn vào lúc này. Xin vào [[c:Special:Preferences#mw-prefsection-echo|Tùy chọn]] để chọn nhận thông báo.",
 	"mwe-upwiz-upload-comment-own-work": "Đã tải lên tác phẩm của mình bằng Trình thuật sĩ tải lên",
-	"mwe-upwiz-upload-comment-third-party": "Đã tải một tác phẩm của $1 từ $2 bằng Trình thuật sĩ tải lên"
+	"mwe-upwiz-upload-comment-third-party": "Đã tải một tác phẩm của $1 từ $2 bằng Trình thuật sĩ tải lên",
+	"mwe-upwiz-metadata-notice-header": "Dữ liệu cá nhân",
+	"mwe-upwiz-metadata-notice-description": "Siêu dữ liệu EXIF trong tập tin này có thể định rõ vị trí hoặc dữ liệu cá nhân khác do máy chụp hình của bạn tự động thêm vào. [https://commons.wikimedia.org/wiki/Commons:Exif Tìm hiểu thêm] về cách sửa hoặc xóa siêu dữ liệu EXIF."
 }
