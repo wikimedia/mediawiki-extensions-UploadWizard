@@ -207,6 +207,7 @@
 	"mwe-upwiz-next-deeds": "Další",
 	"mwe-upwiz-publish-details": "Zveřejnit soubory",
 	"mwe-upwiz-publish-metadata": "Zveřejnit data pro všechny soubory",
+	"mwe-upwiz-publish-metadata-error": "Opravte prosím všechny chyby.",
 	"mwe-upwiz-skip-metadata": "Přeskočit tento krok",
 	"mwe-upwiz-metadata-title": "Přidat metadata",
 	"mwe-upwiz-metadata-help-title": "Přidání nepovinných metadat",
@@ -244,6 +245,8 @@
 	"mwe-upwiz-error-blank": "Toto pole je povinné.",
 	"mwe-upwiz-error-too-long": "Toto pole je příliš dlouhé.\nObsah může mít maximálně $1 {{PLURAL:$1|znak|znaky|znaků}}.",
 	"mwe-upwiz-error-too-short": "Toto pole je příliš krátké.\nObsah musí mít nejméně $1 {{PLURAL:$1|znak|znaky|znaků}}.",
+	"mwe-upwiz-error-title-too-long": "Tento název je příliš dlouhý.\nNázev může mít maximálně $1 {{PLURAL:$1|bajt|bajty|bajtů}}.",
+	"mwe-upwiz-error-title-too-short": "Tento název je příliš krátký.\nNázev musí mít nejméně $1 {{PLURAL:$1|bajt|bajty|bajtů}}.",
 	"mwe-upwiz-error-title-blacklisted": "Tento název obsahuje nežádoucí text. Prosím upravte jej.",
 	"mwe-upwiz-error-title-senselessimagename": "Prosím použijte smysluplnější název.",
 	"mwe-upwiz-error-title-thumbnail": "Tohle vypadá jako název souboru s náhledem obrázku. Nenačítejte na stejnou wiki prosím náhledy. Případně opravte název, aby byl smysluplnější a neobsahoval prefix jako náhled.",
@@ -339,7 +342,7 @@
 	"mwe-upwiz-subhead-alternatives": "Jiné způsoby načítání",
 	"mwe-upwiz-feedback-prompt": "Názor na průvodce",
 	"mwe-upwiz-feedback-title": "Poskytnout zpětnou vazbu k Průvodci načítáním souborů",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Toto je odpovídající položka černé listiny:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Toto je odpovídající položka seznamu zakázaných názvů:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Název mnou načítaného souboru, „$1“, byl zakázán.",
 	"mwe-upwiz-errordialog-title": "Ve vašem podání byla chyba",
 	"mwe-upwiz-errordialog-ok": "OK",
@@ -361,5 +364,10 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximální počet souběžných odesílání obrázků",
 	"campaigns": "Kampaně nástroje Upload Wizard",
 	"mwe-upload-campaigns-pagination-next": "Další strana",
-	"mwe-upload-campaigns-list-title": "Seznam kampaní pro upload"
+	"mwe-upload-campaigns-list-title": "Seznam kampaní pro upload",
+	"mwe-upwiz-mv-cta-dismiss": "Zavřít",
+	"mwe-upwiz-upload-comment-own-work": "Načteno vlastní dílo pomocí Průvodce načítáním souborů",
+	"mwe-upwiz-upload-comment-third-party": "Načteno dílo autora $1 z $2 pomocí Průvodce načítáním souborů",
+	"mwe-upwiz-metadata-notice-header": "Osobní údaje",
+	"mwe-upwiz-metadata-notice-description": "EXIF metadata v tomto souboru mohou obsahovat informace o poloze nebo jiné osobní údaje automaticky přidané vaším fotoaparátem. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Přečtěte si více informací] o tom, jak upravit nebo odstranit EXIF metadata."
 }

@@ -365,7 +365,7 @@
 	"mwe-upwiz-subhead-alternatives": "Alternativa uppladdningsmetoder",
 	"mwe-upwiz-feedback-prompt": "Ge feedback",
 	"mwe-upwiz-feedback-title": "Ge feedback om överföringsguiden",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Detta är titeln på posten i svartlistan som matchar det:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Detta är elementet i listan över otillåtna titlar som matchar det:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Min uppladdningstitel, \"$1\" förhindrades.",
 	"mwe-upwiz-errordialog-title": "Det uppstod ett fel i ditt bidrag",
 	"mwe-upwiz-errordialog-ok": "OK",
@@ -399,5 +399,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Du kommer inte längre få aviseringar om att tagga dina uppladdningar.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Vi kunde inte spara din inställning just nu. Var god gå till dina [[c:Special:Preferences#mw-prefsection-echo|inställningar]] för att aktivera aviseringar.",
 	"mwe-upwiz-upload-comment-own-work": "Laddade upp eget verk med UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "Laddade upp ett verk av $1 från $2 med UploadWizard"
+	"mwe-upwiz-upload-comment-third-party": "Laddade upp ett verk av $1 från $2 med UploadWizard",
+	"mwe-upwiz-metadata-notice-header": "Personlig data",
+	"mwe-upwiz-metadata-notice-description": "EXIF-metadata i denna fil kan innehålla plats- eller personlig data som automatiskt läggs till av din kamera. [https://commons.wikimedia.org/wiki/Commons:Exif Läs mer] om man redigerar eller tar bort EXIF-metadata."
 }
