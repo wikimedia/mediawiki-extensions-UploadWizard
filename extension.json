@@ -65,7 +65,12 @@
 		"Campaign": "CampaignContentHandler"
 	},
 	"SpecialPages": {
-		"UploadWizard": "SpecialUploadWizard",
+		"UploadWizard": {
+			"class": "SpecialUploadWizard",
+			"services": [
+				"UserOptionsLookup"
+			]
+		},
 		"Campaigns": "SpecialCampaigns"
 	},
 	"APIModules": {

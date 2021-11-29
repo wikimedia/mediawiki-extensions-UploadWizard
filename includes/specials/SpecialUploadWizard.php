@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\User\UserOptionsLookup;
+
 /**
  * Special:UploadWizard
  *
@@ -18,12 +21,17 @@ class SpecialUploadWizard extends SpecialPage {
 	 */
 	protected $campaign = null;
 
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
+
 	/**
+	 * @param UserOptionsLookup $userOptionsLookup
 	 * @param WebRequest|null $request the request (usually wgRequest)
 	 * @param string|null $par everything in the URL after Special:UploadWizard.
 	 *   Not sure what we can use it for
 	 */
-	public function __construct( $request = null, $par = null ) {
+	public function __construct( UserOptionsLookup $userOptionsLookup, $request = null, $par = null ) {
+		$this->userOptionsLookup = $userOptionsLookup;
 		parent::__construct( 'UploadWizard', 'upload' );
 	}
 
@@ -192,7 +200,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// Get the user's default license. This will usually be 'default', but
 		// can be a specific license like 'ownwork-cc-zero'.
-		$userDefaultLicense = $this->getUser()->getOption( 'upwiz_deflicense' );
+		$userDefaultLicense = $this->userOptionsLookup->getOption( $this->getUser(), 'upwiz_deflicense' );
 
 		if ( $userDefaultLicense !== 'default' ) {
 			list( $userLicenseType, $userDefaultLicense ) = explode( '-', $userDefaultLicense, 2 );
@@ -230,7 +238,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 				if ( $userDefaultLicense === 'custom' ) {
 					$config['licenses']['custom']['defaultText'] =
-						$this->getUser()->getOption( 'upwiz_deflicense_custom' );
+						$this->userOptionsLookup->getOption( $this->getUser(), 'upwiz_deflicense_custom' );
 				}
 			}
 		}
