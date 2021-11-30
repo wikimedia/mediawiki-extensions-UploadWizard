@@ -406,5 +406,5 @@
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "لم نتمكن من حفظ تفضيلاتك في هذا الوقت؛ تُرجَى زيارة [[c:Special:Preferences#mw-prefsection-echo|تفصيلاتي]] للاشتراك في الإشعارات.",
 	"mwe-upwiz-upload-comment-own-work": "ارفع عملك الشَّخصيَّ باستعمال مُعالِج الرَّفع",
 	"mwe-upwiz-metadata-notice-header": "بيانات شخصية",
-	"mwe-upwiz-metadata-notice-description": "صيغة الملف الصوري القابل للتبادل (EXIF) المُستعملة في هذا الملف قد تتضمن معلومات عن الموقع أو بيانات شخصية أخرى تُضيفها آلة التصوير آلياً.\n[https://commons.wikimedia.org/wiki/Commons:Exif تعرف على المزيد] حول كيفية تعديل أو إزالة البيانات الوصفية."
+	"mwe-upwiz-metadata-notice-description": "صيغة الملف الصوري القابل للتبادل (EXIF) المستعملة في هذا الملف قد تتضمن معلومات عن الموقع أو بيانات شخصية أخرى تضيفها آلة التصوير آلياً.\n[https://commons.wikimedia.org/wiki/Commons:Exif تعرف على المزيد] حول كيفية تعديل أو إزالة البيانات الوصفية."
 }
