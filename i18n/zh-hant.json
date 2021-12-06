@@ -369,7 +369,7 @@
 	"mwe-upwiz-subhead-alternatives": "其他上傳方法",
 	"mwe-upwiz-feedback-prompt": "留下意見回饋",
 	"mwe-upwiz-feedback-title": "留下有關上傳精靈的意見回饋",
-	"mwe-upwiz-feedback-blacklist-line-intro": "已符合的標題黑名單項目：\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "此為相符的禁用標題清單項目：\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "我上傳的標題，已禁止使用 \"$1\"。",
 	"mwe-upwiz-errordialog-title": "您在送出時發生錯誤",
 	"mwe-upwiz-errordialog-ok": "確定",
@@ -403,5 +403,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "您不會再收到標記您上傳內容的通知。",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "我們此刻無法保存您的偏好設定。請參訪您的[[c:Special:Preferences#mw-prefsection-echo|偏好設定]]來選用通知。",
 	"mwe-upwiz-upload-comment-own-work": "透過上傳精靈來上傳自己的作品",
-	"mwe-upwiz-upload-comment-third-party": "透過上傳精靈來上傳出自於$2由$1所做出的作品"
+	"mwe-upwiz-upload-comment-third-party": "透過上傳精靈來上傳出自於$2由$1所做出的作品",
+	"mwe-upwiz-metadata-notice-header": "個人資料",
+	"mwe-upwiz-metadata-notice-description": "在這個檔案裡的 EXIF 詮釋資料中，可能包含由您相機自動添加的位置和其他個人資料。[https://commons.wikimedia.org/wiki/Commons:Exif 按此]來了解更多關於如何編輯或移除 EXIF 詮釋資料。"
 }
