@@ -54,7 +54,8 @@
 			"Wladek92",
 			"Wouterhagens",
 			"Wyz",
-			"Y-M D"
+			"Y-M D",
+			"DreZhsh"
 		]
 	},
 	"uploadwizard": "Assistant d’import",
@@ -284,7 +285,7 @@
 	"mwe-upwiz-license-show-all": "Utiliser une licence différente",
 	"mwe-upwiz-license-show-recommended": "Utiliser les licences recommandées par le site",
 	"mwe-upwiz-label-optional": "Facultatif",
-	"mwe-upwiz-error-signature-blank": "Vous devez signer avec votre nom d’utilisateur ou votre nom réel dans le champ approprié.",
+	"mwe-upwiz-error-signature-blank": "Vous devez signer avec votre nom d’utilisateur ou votre vrai nom dans le champ approprié.",
 	"mwe-upwiz-error-latitude": "La latitude doit être un nombre entre -90 et 90.",
 	"mwe-upwiz-error-longitude": "La longitude doit être un nombre entre -180 et 180.",
 	"mwe-upwiz-error-altitude": "L’altitude doit être un nombre.",

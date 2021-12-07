@@ -16,7 +16,8 @@
 			"Macofe",
 			"Matma Rex",
 			"Rachmat.Wahidi",
-			"Rachmat04"
+			"Rachmat04",
+			"Rex"
 		]
 	},
 	"uploadwizard": "Wisaya Pengunggahan",
@@ -213,7 +214,7 @@
 	"mwe-upwiz-error-signature-too-short": "Tanda tangan Anda terlalu pendek.\nBuat lebih panjang dari $1 {{PLURAL:$1|karakter}}.",
 	"mwe-upwiz-error-date-license-mismatch": "Tanggal yang dipilih tidak sesuai dengan lisensi ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "Tanggal yang dipilih sepertinya tidak tepat, bila melihat lisensi ($1).",
-	"mwe-upwiz-error-blank": "Isian ini diperlukan.",
+	"mwe-upwiz-error-blank": "Wajib diisi.",
 	"mwe-upwiz-error-too-long": "Entri ini terlalu panjang.\nTolong pastikan Entri ini lebih sedikit dari $1 {{PLURAL:$1|karakter|karakter}}.",
 	"mwe-upwiz-error-too-short": "Entri ini terlalu panjang.\nTolong pastikan Entri ini lebih sedikit dari $1 {{PLURAL:$1|karakter|karakter}}.",
 	"mwe-upwiz-error-bad-descriptions": "Terdapat masalah dengan beberapa deskripsi.",

@@ -164,7 +164,7 @@
 	"mwe-upwiz-patent-weapon-policy": "ينبغي على المُستخدِمين تجنُّب رفع أَيَّ نماذج ثلاثيَّة الأَبعاد يُمكن استخدامُها كسلاح أو \"كأداة دفاعيَّة\".\nقد يُزيل مجتمع كُومِنز مثل هذه العناصر عند المراجعة.",
 	"mwe-upwiz-patent-weapon-policy-link": "اقرَأ تفاصيل السياسة",
 	"mwe-upwiz-license-metadata-title": "ترخيصٌ لمساهمات الشُّروح فقط (يسري هذا على نصِّ الشرح، وليس على الملف)",
-	"mwe-upwiz-license-metadata-statements-title": "ترخيص للبيانات الوصفيَّة المُهيكَلة جميعُها",
+	"mwe-upwiz-license-metadata-statements-title": "ترخيص للبيانات الوصفيَّة المُهيكَلة كُلِّها (لا يَشمُل الملفَّ)",
 	"mwe-upwiz-license-metadata-content": "بالضغط على \"نشر\"، فإِنَّك تُوافِق على [[wmf:Terms_of_Use|شروط الاستخدام]]، وتُوافِق بشكلٍ لا رجعة في على نشر مُساهمتك بموجب  [https://creativecommons.org/publicdomain/zero/1.0/ رخصةالمشاع الإِبداعيّ CC0].",
 	"mwe-upwiz-more-options": "إِضافة الموقِع الجغرافيّ ومعلومات أُخرى...",
 	"mwe-upwiz-copy-statements-dialog": "ستُستبدَل بالبيانات الوصفيَّة المَوجُودة في الملفات الأُخرى في هذه المجموعة البياناتُ الوصفيَّة لهذا الملف، هل أنت مُتأكِد؟",
@@ -405,5 +405,6 @@
 	"mwe-upwiz-mv-cta-dismiss": "تجاهل",
 	"mwe-upwiz-mv-cta-user-preference-set": "عظيم! يمكنك تغيير هذا الإِعداد في أَيّ وقتٍ في [[c:Special:Preferences#mw-prefsection-echo| تفصيلاتي]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "لن تتلقى إِشعاراتٍ بعد الآن لوسم مرفوعاتي.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "لم نتمكن من حفظ تفضيلاتك في هذا الوقت؛ تُرجَى زيارة [[c:Special:Preferences#mw-prefsection-echo|تفصيلاتي]] للاشتراك في الإشعارات."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "لم نتمكن من حفظ تفضيلاتك في هذا الوقت؛ تُرجَى زيارة [[c:Special:Preferences#mw-prefsection-echo|تفصيلاتي]] للاشتراك في الإشعارات.",
+	"mwe-upwiz-upload-comment-own-work": "ارفع عملك الشَّخصيَّ باستعمال مُعالِج الرَّفع"
 }
