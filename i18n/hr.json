@@ -52,7 +52,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Ovaj će obrazac učitati sadržaj koji se nalazi na adresi flickr.com i podložan je [https://www.flickr.com/help/terms/ uvjetima uporabe] na Flickru i [https://www.flickr.com/help/privacy-policy/ pravilima zaštite privatnosti].",
 	"mwe-upwiz-flickr-disclaimer2": "Imajte u vidu da će uporabom ovog alata Vaša IP adresa i ostali detalji biti dostupni Flickru.",
 	"mwe-upwiz-error-no-image-retrieved": "Nismo u mogućnosti preuzeti datoteku s $1.",
-	"mwe-upwiz-multi-file-select2": "Označite datoteke koje želite postaviti. Da biste označili više datoteka pritisnite tipku Shift i klikajte na datoteke. Možete označiti do $1 {{PLURAL:$1|datoteke|datoteke|datoteka}}.",
+	"mwe-upwiz-multi-file-select2": "Izaberite datoteke koje želite postaviti. Više datoteka u nizu označite držeći pritisnutom tipku Shift. Možete izabrati do $1 {{PLURAL:$1|datoteku|datoteke|datoteka}}.",
 	"mwe-upwiz-transport-started": "Počinjem...",
 	"mwe-upwiz-uploading": "Šaljem...",
 	"mwe-upwiz-queued": "Na čekanju...",
