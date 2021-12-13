@@ -4,7 +4,8 @@
 			"Bikarhêner",
 			"George Animal",
 			"Ghybu",
-			"Gomada"
+			"Gomada",
+			"Guherto"
 		]
 	},
 	"mwe-upwiz-step-tutorial": "Fêr bibe",
@@ -16,7 +17,7 @@
 	"mwe-upwiz-add-file-0-free": "Ji bo barkirinê dosyeyekê hilbijêre",
 	"mwe-upwiz-add-file-flickr": "Wêneyên ji Flickrê parve bike",
 	"mwe-upwiz-add-file-flickr-n": "Bêhtir wêneyan ji Flickrê bar bike",
-	"mwe-upwiz-add-flickr-or": "An jî",
+	"mwe-upwiz-add-flickr-or": "an",
 	"mwe-upwiz-add-flickr": "Ji Flickrê bigre",
 	"mwe-upwiz-select-flickr": "Wêneyên hilbijartî bar bike",
 	"mwe-upwiz-transport-started": "Dest pê dike...",
@@ -44,8 +45,8 @@
 	"mwe-upwiz-copy-location": "Cih kopî bike",
 	"mwe-upwiz-copy-other": "Agahiyên din kopî bike",
 	"mwe-upwiz-desc": "Danasîn",
-	"mwe-upwiz-title": "Sernav",
-	"mwe-upwiz-date-created": "Dîroka çêkirinê",
+	"mwe-upwiz-title": "Sernavê wêneyê",
+	"mwe-upwiz-date-created": "Wextê çêkirinê",
 	"mwe-upwiz-select-date": "Demekê hilbijêre",
 	"mwe-upwiz-location": "Cih",
 	"mwe-upwiz-location-lat": "Hêlîpan",

@@ -20,7 +20,8 @@
 			"Patriccck",
 			"Ragimiri",
 			"Urbanecm",
-			"Utar"
+			"Utar",
+			"Patrik L."
 		]
 	},
 	"uploadwizard": "Průvodce načítáním souborů",
@@ -147,8 +148,13 @@
 	"mwe-upwiz-patent-dialog-link-warranty": "Více informací",
 	"mwe-upwiz-patent-dialog-link-license": "Další informace",
 	"mwe-upwiz-license-metadata-title": "Licence jen pro vkládání popisků (toto se týká pouze textu popisku, NIKOLIV souboru)",
+	"mwe-upwiz-license-metadata-statements-title": "Licence pro všechna strukturovaná metadata (NIKOLI soubor)",
 	"mwe-upwiz-license-metadata-content": "Kliknutím na „Zveřejnit“ souhlasíte s [[wmf:Terms_of_Use|podmínkami užití]] a neodvolatelně svůj příspěvek uvolňujete pod licencí [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-more-options": "Přidat umístění a další informace…",
+	"mwe-upwiz-copy-statements-dialog": "Metadata na ostatních souborech v této dávce budou nahrazena metadaty tohoto souboru. Jste si jisti?",
+	"mwe-upwiz-copy-statements-dialog-accept": "Ano, zkopírovat",
+	"mwe-upwiz-copy-statements-button": "Zkopírovat výroky ke všem souborům…",
+	"mwe-upwiz-copy-statements-button-done": "Zkopírováno!",
 	"mwe-upwiz-copy-metadata": "Kopírovat informace ke všem následujícím souborům…",
 	"mwe-upwiz-copy-metadata-button": "Okopírovat",
 	"mwe-upwiz-copy-metadata-button-undo": "Zpět",
@@ -201,6 +207,7 @@
 	"mwe-upwiz-next-deeds": "Další",
 	"mwe-upwiz-publish-details": "Zveřejnit soubory",
 	"mwe-upwiz-publish-metadata": "Zveřejnit data pro všechny soubory",
+	"mwe-upwiz-publish-metadata-error": "Opravte prosím všechny chyby.",
 	"mwe-upwiz-skip-metadata": "Přeskočit tento krok",
 	"mwe-upwiz-metadata-title": "Přidat metadata",
 	"mwe-upwiz-metadata-help-title": "Přidání nepovinných metadat",
@@ -240,6 +247,8 @@
 	"mwe-upwiz-error-blank": "Toto pole je povinné.",
 	"mwe-upwiz-error-too-long": "Toto pole je příliš dlouhé.\nObsah může mít maximálně $1 {{PLURAL:$1|znak|znaky|znaků}}.",
 	"mwe-upwiz-error-too-short": "Toto pole je příliš krátké.\nObsah musí mít nejméně $1 {{PLURAL:$1|znak|znaky|znaků}}.",
+	"mwe-upwiz-error-title-too-long": "Tento název je příliš dlouhý.\nNázev může mít maximálně $1 {{PLURAL:$1|bajt|bajty|bajtů}}.",
+	"mwe-upwiz-error-title-too-short": "Tento název je příliš krátký.\nNázev musí mít nejméně $1 {{PLURAL:$1|bajt|bajty|bajtů}}.",
 	"mwe-upwiz-error-title-blacklisted": "Tento název obsahuje nežádoucí text. Prosím upravte jej.",
 	"mwe-upwiz-error-title-senselessimagename": "Prosím použijte smysluplnější název.",
 	"mwe-upwiz-error-title-thumbnail": "Tohle vypadá jako název souboru s náhledem obrázku. Nenačítejte na stejnou wiki prosím náhledy. Případně opravte název, aby byl smysluplnější a neobsahoval prefix jako náhled.",
@@ -250,6 +259,7 @@
 	"mwe-upwiz-error-license-wikitext-too-short": "Uvedený wikitext je příliš krátký, než aby mohl popisovat licenci.",
 	"mwe-upwiz-error-license-wikitext-too-long": "Uvedený wikitext je příliš dlouhý.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Zadaný wikitext neobsahuje platnou licenční šablonu.",
+	"mwe-upwiz-warning-categories-missing": "Je doporučeno přidat nějaké kategorie.",
 	"mwe-upwiz-warning-postdate": "Datum, které jste vybrali, je v budoucnosti.",
 	"mwe-upwiz-details-error-count": "Ve výše {{PLURAL:$2|zobrazeném formuláři|zobrazených formulářích}} {{PLURAL:$1|je chyba|jsou $1 chyby|je $1 chyb}}. Opravte {{PLURAL:$1|ji|je}} a zkuste formulář odeslat znovu.",
 	"mwe-upwiz-details-warning-count": "Ve {{PLURAL:$2|formuláři|formulářích}} výše {{PLURAL:$1|je jedno varování|jsou $1 varování|je $1 varování}}. Doporučujeme je před pokračováním napravit.",
@@ -356,5 +366,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Maximální počet souběžných odesílání obrázků",
 	"campaigns": "Kampaně nástroje Upload Wizard",
 	"mwe-upload-campaigns-pagination-next": "Další strana",
-	"mwe-upload-campaigns-list-title": "Seznam kampaní pro upload"
+	"mwe-upload-campaigns-list-title": "Seznam kampaní pro upload",
+	"mwe-upwiz-mv-cta-dismiss": "Zavřít"
 }

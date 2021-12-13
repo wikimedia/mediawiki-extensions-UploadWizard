@@ -11,7 +11,8 @@
 			"Sator",
 			"Subi",
 			"Theklan",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Xabier Armendaritz"
 		]
 	},
 	"uploadwizard": "Igoera Laguntzailea",
@@ -29,7 +30,7 @@
 	"mwe-upwiz-add-file-0-free": "Aukeratu partekatzeko fitxategiak",
 	"mwe-upwiz-add-file-flickr": "Partekatu Flickr-eko irudiak",
 	"mwe-upwiz-add-file-flickr-n": "Gehitu Flickr-eko irudi gehiago",
-	"mwe-upwiz-add-flickr-or": "Edo",
+	"mwe-upwiz-add-flickr-or": "edo",
 	"mwe-upwiz-add-flickr": "Flickr-etik eskuratu",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr URL",
 	"mwe-upwiz-select-flickr": "Aukeratutako irudiak igo",
@@ -55,7 +56,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Hala ere, jarraitu",
 	"mwe-upwiz-skip-tutorial-future": "Etorkizunean urrats hau saltatu",
 	"mwe-upwiz-file-all-failed": "Ez da fitxategirik ondo igo.",
-	"mwe-upwiz-upload-count": "{{PLURAL:$2|Fitxategi $1|$1 fitxategi}}, $2-tik igo {{PLURAL:$2|da|dira}}",
+	"mwe-upwiz-upload-count": "{{PLURAL:$2|Fitxategi batetik|$1 fitxategitatik}} $2 igo {{PLURAL:$2|da|dira}}",
 	"mwe-upwiz-progressbar-uploading": "igotzen",
 	"mwe-upwiz-almost-finished": "Fitxategiak prozesatzen...",
 	"mwe-upwiz-finished": "Amaituta!",

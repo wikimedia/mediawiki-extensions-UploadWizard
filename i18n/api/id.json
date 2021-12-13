@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ilham151096",
-			"Kenrick95"
+			"Kenrick95",
+			"Daud I.F. Argana"
 		]
 	},
 	"apihelp-flickrblacklist-description": "Mengesahkan URL Flickr dengan menggunakan ID pengguna (NSID) untuk pemeriksaan di daftar hitam.\n\nKetika dipakai bersamaan dengan pilihan  <var>daftar</var>, kembalikan semua ID yang masuk daftar hitam.",
@@ -13,6 +14,7 @@
 	"apihelp-flickrblacklist-example-1": "Periksa sebuah URL di daftar hitam",
 	"apihelp-flickrblacklist-example-2": "Kembalikan seluruh isi daftar hitam",
 	"apihelp-query+allcampaigns-description": "Tampilkan semua kampanye Wisaya Pengunggahan.",
+	"apihelp-query+allcampaigns-summary": "Tampilkan semua kampanye Wisaya Pengunggahan.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Hanya tampilkan semua kampanye aktif.",
 	"apihelp-query+allcampaigns-param-limit": "Jumlah kampanye yang dikembalikan.",
 	"apihelp-query+allcampaigns-example-1": "Tampilkan semua kampanye aktif"

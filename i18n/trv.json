@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Iyuqciyang"
+			"Iyuqciyang",
+			"Akamycoco"
 		]
 	},
 	"mwe-upwiz-remove": "Hdlun pkungat",
@@ -10,6 +11,8 @@
 	"mwe-upwiz-date-created": "jiyax",
 	"mwe-upwiz-author": "seejiq pnatas",
 	"mwe-upwiz-source": "pnyahan",
+	"mwe-upwiz-dialog-yes": "kiya",
+	"mwe-upwiz-dialog-no": "aji",
 	"mwe-upwiz-categories": "keelgan",
 	"prefs-upwiz-licensing": "gaya mgay biyax kklawa",
 	"mwe-upwiz-prefs-license-own": "Pntasan su nanak - $1"

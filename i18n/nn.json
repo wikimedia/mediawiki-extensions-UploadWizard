@@ -74,6 +74,7 @@
 	"mwe-upwiz-patent-dialog-link-warranty": "Lær meir",
 	"mwe-upwiz-patent-dialog-link-license": "Lær meir",
 	"mwe-upwiz-license-metadata-title": "Lisens for bilettekstar (dette gjeld berre bilettekstar, IKKJE fila)",
+	"mwe-upwiz-license-metadata-statements-title": "Lisens for alle strukturerte metadata (IKKJE fila)",
 	"mwe-upwiz-license-metadata-content": "Ved å klikka på «publiser» samtykkjer du til [[wmf:Terms_of_Use|bruksvilkåra]], og du gjev endeleg samtykke til at bidraget ditt vert utgjeve under lisensen [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0].",
 	"mwe-upwiz-more-options": "Legg til stad og meir informasjon …",
 	"mwe-upwiz-copy-metadata": "Kopier informasjon til {{PLURAL:$1|den andre opplastinga|alle opplastingane}} som fylgjer …",
