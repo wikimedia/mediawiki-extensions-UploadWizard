@@ -371,7 +371,7 @@
 	"mwe-upwiz-subhead-alternatives": "طرق رفعٍ بديلةٌ",
 	"mwe-upwiz-feedback-prompt": "اترك تغذيةً راجعةً",
 	"mwe-upwiz-feedback-title": "اترك تغذيةً راجعةً عن مُعالِج الرَّفع",
-	"mwe-upwiz-feedback-blacklist-line-intro": "هذا هو بند قائِمة العناوين السُّود المُطابِق:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "هذا هو بند قائِمة العناوين غير المسموحة المُطابِق:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "عنوان الرَّفع خاصَّتي: \"$1\" مَحظورٌ.",
 	"mwe-upwiz-errordialog-title": "وقع خطأ في الإرسال",
 	"mwe-upwiz-errordialog-ok": "موافق",
