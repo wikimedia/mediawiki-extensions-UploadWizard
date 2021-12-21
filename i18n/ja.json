@@ -28,7 +28,8 @@
 			"W.CC",
 			"Whym",
 			"Yusuke1109",
-			"青子守歌"
+			"青子守歌",
+			"Marine-Blue"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -65,7 +66,7 @@
 	"mwe-upwiz-help-desk": "ヘルプデスク",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:ヘルプデスク",
 	"mwe-upwiz-add-file-n": "他のファイルを追加",
-	"mwe-upwiz-add-file-0-free": "共有するメディアファイルを選択してください",
+	"mwe-upwiz-add-file-0-free": "共有するメディアファイルを選択",
 	"mwe-upwiz-add-file-flickr": "Flickr から画像を追加",
 	"mwe-upwiz-add-file-flickr-n": "Flickr からさらに画像を追加",
 	"mwe-upwiz-add-flickr-or": "または",
