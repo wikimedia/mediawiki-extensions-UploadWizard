@@ -40,7 +40,7 @@
 
 		if ( !uw.EventFlowLogger.flowId ) {
 			rnd = '00' + Math.floor( Math.random() * 1000 );
-			uw.EventFlowLogger.flowId = new Date().getTime() + rnd.substr( rnd.length - 3, 3 );
+			uw.EventFlowLogger.flowId = Date.now() + rnd.slice( rnd.length - 3, 3 );
 		}
 		return uw.EventFlowLogger.flowId;
 	};

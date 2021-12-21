@@ -106,7 +106,7 @@
 			return code;
 		}
 		if ( code.lastIndexOf( '-' ) !== -1 ) {
-			return this.getClosestAllowedLanguage( code.substring( 0, code.lastIndexOf( '-' ) ) );
+			return this.getClosestAllowedLanguage( code.slice( 0, code.lastIndexOf( '-' ) ) );
 		}
 		return arguments.length > 1 ? fallback : this.getDefaultLanguage();
 	};

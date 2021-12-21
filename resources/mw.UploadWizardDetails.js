@@ -975,7 +975,7 @@
 				comment = '',
 				config = mw.UploadWizard.config;
 
-			this.firstPoll = ( new Date() ).getTime();
+			this.firstPoll = Date.now();
 
 			if ( this.upload.file.source ) {
 				tags.push( 'uploadwizard-' + this.upload.file.source );
@@ -1137,7 +1137,7 @@
 
 			if ( result && result.upload && result.upload.result === 'Poll' ) {
 				// if async publishing takes longer than 10 minutes give up
-				if ( ( ( new Date() ).getTime() - this.firstPoll ) > 10 * 60 * 1000 ) {
+				if ( ( Date.now() - this.firstPoll ) > 10 * 60 * 1000 ) {
 					return deferred.reject( 'server-error', { errors: [ {
 						code: 'server-error',
 						html: 'Unknown server error'

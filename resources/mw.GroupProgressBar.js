@@ -130,7 +130,7 @@
 		 * @param {number} [time] The time this bar is presumed to have started (epoch milliseconds)
 		 */
 		setBeginTime: function ( time ) {
-			this.beginTime = time || ( new Date() ).getTime();
+			this.beginTime = time || Date.now();
 		},
 
 		/**
@@ -170,7 +170,7 @@
 		getRemainingTime: function ( fraction ) {
 			var elapsedTime, rate;
 			if ( this.beginTime ) {
-				elapsedTime = ( new Date() ).getTime() - this.beginTime;
+				elapsedTime = Date.now() - this.beginTime;
 				if ( fraction > 0.0 && elapsedTime > 0 ) { // or some other minimums for good data
 					rate = fraction / elapsedTime;
 					return ( ( 1.0 - fraction ) / rate );

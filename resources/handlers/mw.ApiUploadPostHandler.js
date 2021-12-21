@@ -27,7 +27,7 @@
 
 		// Limit filename length to 240 bytes (limit hardcoded in UploadBase.php).
 		if ( tempname.length > 240 ) {
-			tempname = tempname.substr( 0, 240 - ext.length - 1 ) + '.' + ext;
+			tempname = tempname.slice( 0, 240 - ext.length - 1 ) + '.' + ext;
 		}
 
 		this.upload.ui.setStatus( 'mwe-upwiz-transport-started' );
