@@ -14,8 +14,8 @@
 			"Yue Ling"
 		]
 	},
-	"uploadwizard": "Trình thuật sĩ tải lên",
-	"uploadwizard-desc": "Trình thuật sĩ tải lên, một công cụ thân thiện để tải lên đa phương tiện",
+	"uploadwizard": "Trình hướng dẫn tải lên",
+	"uploadwizard-desc": "Trình hướng dẫn tải lên, một công cụ thân thiện để tải lên đa phương tiện",
 	"tag-uploadwizard": "Trình hướng dẫn tải lên",
 	"tag-uploadwizard-description": "Các tập tin được tải lên bằng Trình hướng dẫn tải lên",
 	"tag-uploadwizard-flickr": "Flickr",
@@ -258,7 +258,7 @@
 	"mwe-upwiz-error-title-blacklisted": "Tên này chứa những văn bản không hợp lý. Xin vui lòng sửa lại nó.",
 	"mwe-upwiz-error-title-senselessimagename": "Xin vui lòng đặt tên miêu tả rõ ràng hơn.",
 	"mwe-upwiz-error-title-thumbnail": "Hình như đây là tên của một hình thu nhỏ được tự động tạo ra. Xin đừng tải lên những hình nhỏ lại vào wiki ban đầu. Nếu không phải, xin vui lòng sửa tên tập tin để rõ ràng hơn và dời tiền tố cỡ hình khỏi tên.",
-	"mwe-upwiz-error-title-extension": "Bạn không cần phải thêm một phần mở rộng tập tin. Chỉ việc đặt tên miêu tả rõ ràng và trình thuật sĩ này sẽ tự động chọn phần mở rộng.",
+	"mwe-upwiz-error-title-extension": "Bạn không cần phải thêm một phần mở rộng tập tin. Chỉ việc đặt tên miêu tả rõ ràng và trình hướng dẫn này sẽ tự động chọn phần mở rộng.",
 	"mwe-upwiz-error-title-protected": "Tên này ứng với một trang bị khóa trên wiki này. Xin vui lòng chọn tên khác.",
 	"mwe-upwiz-error-title-duplicate": "Bạn đang chuẩn bị tải lên tập tin khác cùng tên. Dấu gạch dưới trở thành dấu cách và phần mở rộng được thêm tự động.",
 	"mwe-upwiz-error-license-wikitext-missing": "Tùy chọn của bạn cần bạn nhập mã wiki.",
@@ -356,7 +356,7 @@
 	"mwe-upwiz-subhead-alt-upload": "Quay lại biểu mẫu cũ",
 	"mwe-upwiz-subhead-alternatives": "Phương thức tải lên thay thế",
 	"mwe-upwiz-feedback-prompt": "Để lại phản hồi",
-	"mwe-upwiz-feedback-title": "Phản hồi về Trình thuật sĩ tải lên",
+	"mwe-upwiz-feedback-title": "Để lại phản hồi về trình hướng dẫn tải lên",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Tên tập tin bị chặn do khoản mục này trong danh sách tiêu đề bị cấm:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Tên tập tin tải lên của tôi, “$1”, đã bị cấm.",
 	"mwe-upwiz-errordialog-title": "Có lỗi trong thông tin mà bạn gửi vào.",
@@ -379,7 +379,7 @@
 	"mwe-upwiz-prefs-license-thirdparty": "Tác phẩm của người khác – $1",
 	"mwe-upwiz-prefs-skiptutorial": "Bỏ qua hướng dẫn cấp phép",
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Số tập tin tối đa có thể tải lên cùng lúc",
-	"campaigns": "Chiến dịch Trình thuật sĩ tải lên",
+	"campaigns": "Cấu hình trình hướng dẫn tải lên",
 	"mwe-upload-campaigns-pagination-next": "Trang sau",
 	"mwe-upload-campaigns-list-title": "Danh sách chiến dịch tải lên",
 	"mwe-upwiz-mv-cta-heading": "Giúp mọi người dễ tìm thấy hình ảnh hơn",
@@ -390,8 +390,8 @@
 	"mwe-upwiz-mv-cta-user-preference-set": "Tuyệt vời! Bạn có thể thay đổi thiết lập bất cứ khi nào trong [[c:Special:Preferences#mw-prefsection-echo|Tùy chọn]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Bạn sẽ không còn nhận được thông báo khi có người gắn thẻ tập tin của bạn.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Chúng tôi không thể lưu tùy chọn của bạn vào lúc này. Xin vào [[c:Special:Preferences#mw-prefsection-echo|Tùy chọn]] để chọn nhận thông báo.",
-	"mwe-upwiz-upload-comment-own-work": "Đã tải lên tác phẩm của mình bằng Trình thuật sĩ tải lên",
-	"mwe-upwiz-upload-comment-third-party": "Đã tải một tác phẩm của $1 từ $2 bằng Trình thuật sĩ tải lên",
+	"mwe-upwiz-upload-comment-own-work": "Đã tải lên tác phẩm của chính mình bằng trình hướng dẫn tải lên",
+	"mwe-upwiz-upload-comment-third-party": "Đã tải lên một tác phẩm của $1 từ $2 bằng trình hướng dẫn tải lên",
 	"mwe-upwiz-metadata-notice-header": "Dữ liệu cá nhân",
 	"mwe-upwiz-metadata-notice-description": "Siêu dữ liệu EXIF trong tập tin này có thể định rõ vị trí hoặc dữ liệu cá nhân khác do máy chụp hình của bạn tự động thêm vào. [https://commons.wikimedia.org/wiki/Commons:Exif Tìm hiểu thêm] về cách sửa hoặc xóa siêu dữ liệu EXIF."
 }
