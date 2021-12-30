@@ -363,5 +363,6 @@
 	"mwe-upwiz-mv-cta-description": "Commons heeft een [[c:Commons:Structured_data/Computer-aided_tagging|nieuwe tool]] die tags suggereert voor door u geüploade afbeeldingen als je nog geen tags hebt toegevoegd. Wanneer u correcte tags bevestigt, helpt u het eenvoudiger te maken om op afbeeldingen te zoeken.",
 	"mwe-upwiz-mv-cta-checkbox-label": "Ja, ik krijg graag meldingen wanneer mijn uploads tags hebben klaar staan ter beoordeling",
 	"mwe-upwiz-mv-cta-final-cta": "Klaar om meteen te beginnen met taggen? [[c:Special:SuggestedTags|Probeer de tool eens]] door populaire afbeeldingen nu te taggen!",
-	"mwe-upwiz-mv-cta-user-preference-set": "Uitstekend! U kunt deze instelling op elk gewenst moment wijzigen in uw [[c:Special:Preferences#mw-prefsection-echo|Voorkeuren]]."
+	"mwe-upwiz-mv-cta-user-preference-set": "Uitstekend! U kunt deze instelling op elk gewenst moment wijzigen in uw [[c:Special:Preferences#mw-prefsection-echo|Voorkeuren]].",
+	"mwe-upwiz-metadata-notice-description": "EXIF-metadata in dit bestand kunnen locatiegegevens of andere persoonlijke gegevens bevatten die automatisch door uw camera zijn toegevoegd. [https://commons.wikimedia.org/wiki/Commons:Exif Meer informatie] over het bewerken of verwijderen van EXIF-metadata."
 }
