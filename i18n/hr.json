@@ -298,5 +298,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Odbaci",
 	"mwe-upwiz-mv-cta-user-preference-set": "Odlično! Ovu postavku bilo kada možete promijeniti u[[c:Special:Preferences#mw-prefsection-echo|postavkama]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Nećete više dobivati obavijesti o označavanju datoteka koje ste postavili.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Trenuračno nismo bili u mogućnosti spremiti vaše postavke. Molimo posjetite [[c:Special:Preferences#mw-prefsection-echo|postavke]] i uključite obavijest."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Trenuračno nismo bili u mogućnosti spremiti vaše postavke. Molimo posjetite [[c:Special:Preferences#mw-prefsection-echo|postavke]] i uključite obavijest.",
+	"mwe-upwiz-metadata-notice-header": "Osobni podatci",
+	"mwe-upwiz-metadata-notice-description": "EXIF metapodatci u ovoj datoteci mogu sadržavati lokaciju ili druge osobne dodatke koje je automatski dodala kamera.\nDa biste saznali kako ukloniti ili uređivati EXIF metapodatke posjetite [https://commons.wikimedia.org/wiki/Commons:Exif ovu stranicu]."
 }
