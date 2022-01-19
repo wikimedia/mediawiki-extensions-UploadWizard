@@ -322,7 +322,7 @@
 	"mwe-upwiz-dialog-yes": "是",
 	"mwe-upwiz-dialog-no": "否",
 	"mwe-upwiz-dialog-title": "警告",
-	"mwe-upwiz-campaign-create-account-button": "创建账户并上传！",
+	"mwe-upwiz-campaign-create-account-button": "创建账号并上传！",
 	"mwe-upwiz-campaign-upload-button": "上传！",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|上传}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|贡献者}}",
