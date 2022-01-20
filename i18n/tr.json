@@ -368,7 +368,7 @@
 	"mwe-upwiz-subhead-alternatives": "Alternatif yükleme yöntemleri",
 	"mwe-upwiz-feedback-prompt": "Geri bildirim bırak",
 	"mwe-upwiz-feedback-title": "Yükleme Sihirbazı hakkında geri bildirimde bulunun",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Eşleşen başlık kara listesi girdisi:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Bu, kendisiyle eşleşen izin verilmeyen başlık listesi girişidir:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Yükleme başlığım \"$1\" yasaklandı.",
 	"mwe-upwiz-errordialog-title": "Gönderiminizde bir hata oluştu",
 	"mwe-upwiz-errordialog-ok": "Tamam",
