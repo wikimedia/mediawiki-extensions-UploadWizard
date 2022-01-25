@@ -386,6 +386,10 @@
 	"mwe-upload-campaigns-pagination-next": "Halaman selanjutnya",
 	"mwe-upload-campaigns-list-title": "Daftar gugus tugas pengunggahan",
 	"mwe-upwiz-mv-cta-heading": "Membantu membuat gambar lebih mudah dicari oleh semua orang",
+	"mwe-upwiz-mv-cta-dismiss": "Tutup",
+	"mwe-upwiz-mv-cta-user-preference-set": "Bagus! Anda bisa mengubah pengaturan ini kapan pun di [[c:Special:Preferences#mw-prefsection-echo|Preferensi]] Anda.",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Anda tidak akan lagi menerima pemberitahuan untuk memberi unggahan Anda tag.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Kami tidak bisa menyimpan preferensi Anda sekarang. Tolong kunjungi [[c:Special:Preferences#mw-prefsection-echo|Preferensi]] Anda untuk berhenti menerima pemberitahuan.",
 	"mwe-upwiz-upload-comment-own-work": "Mengunggah karya sendiri menggunakan Wisaya Pengunggahan",
 	"mwe-upwiz-upload-comment-third-party": "Mengunggah karya $1 dari $2 menggunakan Wisaya Pengunggahan"
 }
