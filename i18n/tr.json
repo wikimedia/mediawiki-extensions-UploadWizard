@@ -6,6 +6,7 @@
 			"Alikaan",
 			"BaRaN6161 TURK",
 			"Bulgu",
+			"Can",
 			"Captantrips",
 			"Cekli829",
 			"Emperyan",
@@ -402,5 +403,6 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Yüklemelerinizi etiketlemek için artık bildirim almayacaksınız.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Şu anda tercihinizi kaydedemedik. Bildirimleri etkinleştirmek için lütfen [[c:Special:Preferences#mw-prefsection-echo|Tercihler]] sayfanızı ziyaret edin.",
 	"mwe-upwiz-upload-comment-own-work": "UploadWizard ile kendi çalışmansını yükledi",
-	"mwe-upwiz-upload-comment-third-party": "UploadWizard ile $2 kaynağından $1 tarafından bir çalışma yükledi"
+	"mwe-upwiz-upload-comment-third-party": "UploadWizard ile $2 kaynağından $1 tarafından bir çalışma yükledi",
+	"mwe-upwiz-metadata-notice-header": "Kişisel veri"
 }
