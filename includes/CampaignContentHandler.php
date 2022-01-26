@@ -67,7 +67,7 @@ class CampaignContentHandler extends JsonContentHandler {
 			}
 		}
 
-		$output->addModuleStyles( 'ext.uploadWizard.uploadCampaign.display' );
+		$output->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );
 	}
 
 	/**
