@@ -147,7 +147,6 @@ class CampaignHooks {
 	 * @param int $redirid
 	 * @param string $reason
 	 * @param RevisionRecord $revisionRecord
-	 * @return bool
 	 */
 	public static function onPageMoveComplete(
 		LinkTarget $oldTitle,
@@ -157,20 +156,18 @@ class CampaignHooks {
 		int $redirid,
 		string $reason,
 		RevisionRecord $revisionRecord
-	) {
+	): void {
 		if ( !$oldTitle->inNamespace( NS_CAMPAIGN ) ) {
-			return true;
+			return;
 		}
 
 		$dbw = wfGetDB( DB_PRIMARY );
-		$success = $dbw->update(
+		$dbw->update(
 			'uw_campaigns',
 			[ 'campaign_name' => $newTitle->getDBkey() ],
 			[ 'campaign_name' => $oldTitle->getDBkey() ],
 			__METHOD__
 		);
-
-		return $success;
 	}
 
 	/**
