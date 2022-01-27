@@ -43,7 +43,7 @@ class CampaignContentHandler extends JsonContentHandler {
 	protected function fillParserOutput(
 		Content $content,
 		ContentParseParams $cpoParams,
-		ParserOutput &$output
+		ParserOutput &$parserOutput
 	) {
 		'@phan-var CampaignContent $content';
 		$title = Title::castFromPageReference( $cpoParams->getPage() );
@@ -55,7 +55,7 @@ class CampaignContentHandler extends JsonContentHandler {
 
 		if ( $cpoParams->getGenerateHtml() ) {
 			$html = $this->generateHtml( $campaign );
-			$output->setText( $html );
+			$parserOutput->setText( $html );
 		}
 
 		// Register template usage
@@ -63,11 +63,11 @@ class CampaignContentHandler extends JsonContentHandler {
 		foreach ( $campaign->getTemplates() as $ns => $templates ) {
 			foreach ( $templates as $dbk => $ids ) {
 				$title = Title::makeTitle( $ns, $dbk );
-				$output->addTemplate( $title, $ids[0], $ids[1] );
+				$parserOutput->addTemplate( $title, $ids[0], $ids[1] );
 			}
 		}
 
-		$output->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );
+		$parserOutput->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );
 	}
 
 	/**
