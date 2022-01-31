@@ -12,7 +12,8 @@
 			"Wizardist",
 			"Zedlik",
 			"Александр Сигачёв",
-			"Глеб Бераставы"
+			"Глеб Бераставы",
+			"Chadyka"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -60,6 +61,7 @@
 	"mwe-upwiz-flickr-disclaimer1": "Гэтая форма загрузіць зьмест, які разьмешчаны сайтам flickr.com і падлягае \n[https://www.flickr.com/help/terms/ ўмовам выкарыстаньня] і [https://www.flickr.com/help/privacy-policy/ палітыцы прыватнасьці] Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Зьвярніце ўвагу, што пры выкарыстаньні гэтай прылады ваш IP-адрас і зьвесткі пра запыт будуць даступныя сайту Flickr.",
 	"mwe-upwiz-error-no-image-retrieved": "Даруйце, не атрымалася вылучыць файл з $1.",
+	"mwe-upwiz-multi-file-select2": "Выберыце файлы, якія вы хочаце загрузіць. Утрымлівайце клавішу Shift і пстрыкніце, каб выбраць некалькі файлаў адначасова. Вы можаце выбраць да $1 {{PLURAL:$1|файла|файлаў}} для загрузкі.",
 	"mwe-upwiz-transport-started": "Пачатак…",
 	"mwe-upwiz-uploading": "загрузка…",
 	"mwe-upwiz-queued": "У чарзе…",

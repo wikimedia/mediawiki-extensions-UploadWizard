@@ -252,6 +252,8 @@
 	"mwe-upwiz-error-license-wikitext-too-long": "De door u ingevoerde wikitekst is te lang.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "De wikitekst u hebt ingevoerd bevat geen geldig licentiesjabloon.",
 	"mwe-upwiz-error-patent-disagree": "U moet akkoord gaan met deze voorwaarden.",
+	"mwe-upwiz-error-submit-captions": "De afbeelding werd succesvol geüpload, maar er ging iets fout bij het invoegen van {{PLURAL:$1|het bijschrift|de bijschriften}}.",
+	"mwe-upwiz-error-submit-captions-remedy": "Om dit te repareren: bezoek [[$1]] om daar de bijschriften bij te werken.",
 	"mwe-upwiz-warning-categories-missing": "Het is aanbevolen dat u een of meerdere categorieën invult voor uw uploads.",
 	"mwe-upwiz-warning-postdate": "De datum die u hebt geselecteerd, is in de toekomst.",
 	"mwe-upwiz-details-error-count": "Er {{PLURAL:$1|is een fout|zijn $1 fouten}} aangetroffen in {{PLURAL:$2|het bovenstaande formulier|de bovenstaande formulieren}}. Corrigeer de {{PLURAL:$1|fout|fouten}} en probeer dan opnieuw op te slaan.",
