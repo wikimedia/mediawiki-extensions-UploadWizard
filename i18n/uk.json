@@ -377,7 +377,7 @@
 	"mwe-upwiz-subhead-alternatives": "Альтернативні методи завантаження",
 	"mwe-upwiz-feedback-prompt": "Залишити відгук",
 	"mwe-upwiz-feedback-title": "Залиште відгук про Майстра Завантажень",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Цей заголовок із чорного списку, що відповідає:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Ось елемент списку заборонених назв, з яким виявлено збіг:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Мій заголовок завантаження \"$1\" було заборонено.",
 	"mwe-upwiz-errordialog-title": "Сталася помилка при надсиланні",
 	"mwe-upwiz-errordialog-ok": "Гаразд",
@@ -411,5 +411,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Ви більше не отримуватимете сповіщення щодо позначення ваших завантажень.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Нам не вдалося зберегти ваше налаштування. Будь ласка, перейдіть у свої [[c:Special:Preferences#mw-prefsection-echo|Налаштування]], щоб увімкнути сповіщення.",
 	"mwe-upwiz-upload-comment-own-work": "Завантажив власну роботу через Майстер завантажень",
-	"mwe-upwiz-upload-comment-third-party": "Завантажив роботу $1 з $2 через Майстер завантажень"
+	"mwe-upwiz-upload-comment-third-party": "Завантажив роботу $1 з $2 через Майстер завантажень",
+	"mwe-upwiz-metadata-notice-header": "Особові дані",
+	"mwe-upwiz-metadata-notice-description": "EXIF-метадані в цьому файлі можуть містити розташування та інші особові дані автоматично додані Вашою камерою. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Дізнайтеся більше] про те як редагувати та вилучати EXIF-метадані."
 }
