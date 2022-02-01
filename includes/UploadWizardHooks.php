@@ -25,6 +25,11 @@ class UploadWizardHooks {
 			'uw_campaigns_enabled',
 			"$path/UW_IndexCampaignsEnabled.sql"
 		);
+		$updater->modifyExtensionField(
+			'uw_campaigns',
+			'uw_campaigns_enabled',
+			"$path/$type/patch-uw_campaigns-cleanup.sql"
+		);
 
 		return true;
 	}

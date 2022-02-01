@@ -6,7 +6,7 @@
 			{
 				"name": "campaign_id",
 				"type": "integer",
-				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
+				"options": { "autoincrement": true, "notnull": true }
 			},
 			{
 				"name": "campaign_name",
@@ -15,7 +15,7 @@
 			},
 			{
 				"name": "campaign_enabled",
-				"type": "integer",
+				"type": "mwtinyint",
 				"options": { "default": 0, "length": 1, "notnull": true }
 			}
 		],
@@ -27,6 +27,7 @@
 			},
 			{
 				"name": "uw_campaigns_enabled",
+				"comment": "Since we sort on campaign_id for pagination",
 				"columns": [ "campaign_enabled", "campaign_id" ],
 				"unique": false
 			}

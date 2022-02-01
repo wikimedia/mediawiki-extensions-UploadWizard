@@ -1,0 +1,72 @@
+{
+	"comment": "Correct unsigned primary key and type of campaign_enabled column after abstract schema migration - T300181",
+	"before": {
+		"name": "uw_campaigns",
+		"comment": "Upload wizard campaigns. This is *not* the primary storage for campaigns. Just stores a copy of information that is already present in the appropriate wikipages, for easier indexing / querying",
+		"columns": [
+			{
+				"name": "campaign_id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "campaign_name",
+				"type": "string",
+				"options": { "length": 255, "notnull": true }
+			},
+			{
+				"name": "campaign_enabled",
+				"type": "integer",
+				"options": { "default": 0, "length": 1, "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "uw_campaigns_name",
+				"columns": [ "campaign_name" ],
+				"unique": true
+			},
+			{
+				"name": "uw_campaigns_enabled",
+				"columns": [ "campaign_enabled", "campaign_id" ],
+				"unique": false
+			}
+		],
+		"pk": [ "campaign_id" ]
+	},
+	"after": {
+		"name": "uw_campaigns",
+		"comment": "Upload wizard campaigns. This is *not* the primary storage for campaigns. Just stores a copy of information that is already present in the appropriate wikipages, for easier indexing / querying",
+		"columns": [
+			{
+				"name": "campaign_id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "campaign_name",
+				"type": "string",
+				"options": { "length": 255, "notnull": true }
+			},
+			{
+				"name": "campaign_enabled",
+				"type": "mwtinyint",
+				"options": { "default": 0, "length": 1, "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "uw_campaigns_name",
+				"columns": [ "campaign_name" ],
+				"unique": true
+			},
+			{
+				"name": "uw_campaigns_enabled",
+				"comment": "Since we sort on campaign_id for pagination",
+				"columns": [ "campaign_enabled", "campaign_id" ],
+				"unique": false
+			}
+		],
+		"pk": [ "campaign_id" ]
+	}
+}
