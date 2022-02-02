@@ -212,10 +212,10 @@
 	 * coordinate in decimal degrees.
 	 *
 	 * Formats understood include:
-	 * * degrees minutes seconds: 40° 26' 46" S
-	 * * degrees decimal minutes: 40° 26.767' S
-	 * * decimal degrees: 40.446° S
-	 * * decimal degrees exact value: -40.446
+	 * - degrees minutes seconds: 40° 26' 46" S
+	 * - degrees decimal minutes: 40° 26.767' S
+	 * - decimal degrees: 40.446° S
+	 * - decimal degrees exact value: -40.446
 	 *
 	 * @param {string} coordinate
 	 * @return {number}

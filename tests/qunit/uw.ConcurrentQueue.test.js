@@ -46,16 +46,16 @@
 			currSpyCall = calls[ i ];
 			nextSpyCall = calls[ i + 1 ];
 			if ( currSpyCall ) {
-				QUnit.assert.ok(
+				QUnit.assert.true(
 					currSpyCall.callId < ( nextSpyCall ? nextSpyCall.callId : -1 ),
 					'Call ' + ( i + 1 ) + ' (callId ' + currSpyCall.callId + ') is in the right order'
 				);
 			} else {
-				QUnit.assert.ok( false, 'Call ' + ( i + 1 ) + ' (never called) is in the right order' );
+				QUnit.assert.fail( 'Call ' + ( i + 1 ) + ' (never called) is in the right order' );
 			}
 		}
-		QUnit.assert.ok(
-			nextSpyCall,
+		QUnit.assert.true(
+			!!nextSpyCall,
 			'Call ' + calls.length + ' is in the right order'
 		);
 	}
@@ -70,7 +70,7 @@
 		} );
 
 		queue.on( 'progress', function () {
-			QUnit.assert.ok( queue.running.length <= 3, 'No more than 3 items are executing' );
+			QUnit.assert.true( queue.running.length <= 3, 'No more than 3 items are executing' );
 		} );
 
 		queue.on( 'complete', function () {

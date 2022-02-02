@@ -23,9 +23,8 @@
 			maxUploads: 10,
 			maxSimultaneousConnections: 3
 		} );
-		assert.ok( step );
-		assert.ok( step instanceof uw.controller.Step );
-		assert.ok( step.ui );
+		assert.true( step instanceof uw.controller.Step );
+		assert.true( !!step.ui );
 	} );
 
 	QUnit.test( 'updateFileCounts', function ( assert ) {
@@ -37,17 +36,17 @@
 
 		step.uploads = [ 1, 2 ];
 		step.updateFileCounts();
-		assert.ok( ufcStub.calledWith( true, true ) );
+		assert.true( ufcStub.calledWith( true, true ) );
 
 		ufcStub.reset();
 		step.uploads = [];
 		step.updateFileCounts();
-		assert.ok( ufcStub.calledWith( false, true ) );
+		assert.true( ufcStub.calledWith( false, true ) );
 
 		ufcStub.reset();
 		step.uploads = [ 1, 2, 3, 4, 5, 6 ];
 		step.updateFileCounts();
-		assert.ok( ufcStub.calledWith( true, false ) );
+		assert.true( ufcStub.calledWith( true, false ) );
 	} );
 
 	QUnit.test( 'canTransition', function ( assert ) {
@@ -74,6 +73,6 @@
 		this.sandbox.stub( step, 'maybeStartProgressBar' );
 		assert.strictEqual( upload.start.called, false );
 		step.transitionOne( upload );
-		assert.ok( upload.start.called );
+		assert.true( upload.start.called );
 	} );
 }( mw.uploadWizard ) );

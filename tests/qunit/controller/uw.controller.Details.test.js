@@ -50,9 +50,8 @@
 		var step = new uw.controller.Details( new mw.Api(), {
 			maxSimultaneousConnections: 1
 		} );
-		assert.ok( step );
-		assert.ok( step instanceof uw.controller.Step );
-		assert.ok( step.ui );
+		assert.true( step instanceof uw.controller.Step );
+		assert.true( !!step.ui );
 	} );
 
 	QUnit.test( 'load', function ( assert ) {
@@ -70,28 +69,28 @@
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.strictEqual( step.createDetails.callCount, 1 );
-		assert.ok( stepUiStub.called );
+		assert.true( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox, true );
 		step.load( [ testUpload ] );
 
-		assert.ok( testUpload.stubs.ucdc.called );
+		assert.true( testUpload.stubs.ucdc.called );
 		assert.strictEqual( step.createDetails.callCount, 2 );
-		assert.ok( stepUiStub.called );
+		assert.true( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
 		step.load( [ testUpload, createTestUpload( this.sandbox ) ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.strictEqual( step.createDetails.callCount, 4 );
-		assert.ok( stepUiStub.called );
+		assert.true( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
 		step.load( [ testUpload, createTestUpload( this.sandbox, false, true ) ] );
 
 		assert.strictEqual( testUpload.stubs.ucdc.called, false );
 		assert.strictEqual( step.createDetails.callCount, 6 );
-		assert.ok( stepUiStub.called );
+		assert.true( stepUiStub.called );
 	} );
 
 	QUnit.test( 'canTransition', function ( assert ) {
@@ -148,7 +147,7 @@
 
 				ds[ 2 ].resolve();
 				setTimeout( function () {
-					assert.ok( donestub.called );
+					assert.true( donestub.called );
 
 					done();
 				} );

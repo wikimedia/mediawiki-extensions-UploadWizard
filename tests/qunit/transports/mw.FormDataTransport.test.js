@@ -36,7 +36,7 @@
 	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var transport = createTransport();
 
-		assert.ok( transport );
+		assert.true( !!transport );
 	} );
 
 	QUnit.test( 'abort', function ( assert ) {
@@ -45,19 +45,19 @@
 
 		transport.request = request;
 
-		assert.ok( request.abort.notCalled );
+		assert.true( request.abort.notCalled );
 
 		transport.abort();
 
-		assert.ok( request.abort.called );
-		assert.ok( transport.aborted );
+		assert.true( request.abort.called );
+		assert.true( transport.aborted );
 	} );
 
 	QUnit.test( 'createParams', function ( assert ) {
 		var transport = createTransport( 10 ),
 			params = transport.createParams( 'foobar.jpg', 0 );
 
-		assert.ok( params );
+		assert.true( !!params );
 
 		assert.strictEqual( params.filename, 'foobar.jpg' );
 		assert.strictEqual( params.offset, 0 );
@@ -75,11 +75,11 @@
 		this.sandbox.useFakeXMLHttpRequest();
 		this.sandbox.useFakeServer();
 
-		assert.ok( stub.notCalled );
+		assert.true( stub.notCalled );
 
 		transport.post( {} );
 
-		assert.ok( stub.called );
+		assert.true( stub.called );
 	} );
 
 	QUnit.test( 'upload', function ( assert ) {
@@ -99,7 +99,7 @@
 		request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
 		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
-		assert.ok( request.async );
+		assert.true( request.async );
 
 		transport.abort();
 	} );
@@ -128,7 +128,7 @@
 		request = this.sandbox.server.requests[ 0 ];
 		assert.strictEqual( request.method, 'POST' );
 		assert.strictEqual( request.url, mw.util.wikiScript( 'api' ) );
-		assert.ok( request.async );
+		assert.true( request.async );
 
 		transport.abort();
 	} );
@@ -147,7 +147,7 @@
 
 		// call tstub upon checkStatus failure, and verify it got called correctly
 		transport.checkStatus().fail( tstub, function () {
-			assert.ok( tstub.calledWith( 'server-error', { errors: [ {
+			assert.true( tstub.calledWith( 'server-error', { errors: [ {
 				code: 'server-error',
 				html: mw.message( 'api-clientside-error-invalidresponse' ).parse()
 			} ] } ) );
@@ -180,8 +180,8 @@
 		// confirm that, once second API call was successful, status resolves,
 		// 2 API calls have gone out & the failed call updates stage accordingly
 		return transport.checkStatus().done( function () {
-			assert.ok( poststub.calledTwice );
-			assert.ok( usstub.firstCall.calledWith( 'queued' ) );
+			assert.true( poststub.calledTwice );
+			assert.true( usstub.firstCall.calledWith( 'queued' ) );
 		} );
 	} );
 
@@ -199,8 +199,8 @@
 		postd.resolve( 'testing' );
 
 		return transport.checkStatus().done( tstub, function () {
-			assert.ok( tstub.calledWith( 'testing' ) );
-			assert.notOk( usstub.called );
+			assert.true( tstub.calledWith( 'testing' ) );
+			assert.false( usstub.called );
 		} );
 	} );
 
@@ -219,8 +219,8 @@
 		postd.reject( 'testing', { error: 'testing' } );
 
 		transport.checkStatus().fail( tstub, function () {
-			assert.ok( tstub.calledWith( 'testing', { error: 'testing' } ) );
-			assert.notOk( usstub.called );
+			assert.true( tstub.calledWith( 'testing', { error: 'testing' } ) );
+			assert.false( usstub.called );
 			done();
 		} );
 	} );

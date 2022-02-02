@@ -28,10 +28,10 @@
 		logger.logStep( 'foo' );
 		logger.logSkippedStep( 'bar' );
 		logger.logEvent( 'baz' );
-		assert.ok( mw.track.calledThrice, 'all steps were logged' );
+		assert.true( mw.track.calledThrice, 'all steps were logged' );
 		assert.strictEqual( mw.track.firstCall.args[ 1 ].flowPosition, 1, 'first event has position 1' );
 		assert.strictEqual( mw.track.thirdCall.args[ 1 ].flowPosition, 3, 'third event has position 3' );
-		assert.ok( mw.track.firstCall.args[ 1 ].flowId, 'events have a flowId' );
+		assert.true( !!mw.track.firstCall.args[ 1 ].flowId, 'events have a flowId' );
 		assert.strictEqual( mw.track.firstCall.args[ 1 ].flowId,
 			mw.track.thirdCall.args[ 1 ].flowId, 'flowId is constant' );
 	} );
