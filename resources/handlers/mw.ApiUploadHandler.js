@@ -203,7 +203,7 @@
 
 			Object.keys( result.query.pages ).forEach( function ( pageId ) {
 				var page = result.query.pages[ pageId ],
-					title = page.title in normalized ? normalized[ page.title ] : page.title;
+					title = normalized[ page.title ] || page.title;
 				if ( page.imagerepository === 'local' ) {
 					local[ title ] = page.imageinfo[ 0 ].descriptionurl;
 				} else if ( page.imagerepository !== '' ) {

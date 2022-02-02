@@ -240,7 +240,7 @@
 						addError( 'mwe-upwiz-error-license-wikitext-too-short' );
 					} else if ( wikitext.length > mw.UploadWizard.config.maxCustomLicenseLength ) {
 						addError( 'mwe-upwiz-error-license-wikitext-too-long' );
-					} else if ( wikitext.match( /\{\{(.+?)\}\}/g ) === null ) {
+					} else if ( !/\{\{(.+?)\}\}/g.test( wikitext ) ) {
 						// if text doesn't contain a template, we don't even
 						// need to validate it any further...
 						addError( 'mwe-upwiz-error-license-wikitext-missing-template' );

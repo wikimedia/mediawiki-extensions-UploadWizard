@@ -53,7 +53,7 @@
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWarnings = function () {
 		var warnings = [];
-		if ( mw.UploadWizard.config.enableCategoryCheck && this.categoriesWidget.getItems().length === 0 ) {
+		if ( mw.UploadWizard.config.enableCategoryCheck && this.categoriesWidget.isEmpty() ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-categories-missing' ) );
 		}
 		if ( this.categoriesWidget.getItems().some( function ( item ) {
