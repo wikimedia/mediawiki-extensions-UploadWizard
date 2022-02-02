@@ -57,7 +57,7 @@ class CampaignPageFormatter {
 
 		$images = $this->campaign->getUploadedMedia();
 
-		if ( $this->context->getUser()->isAnon() ) {
+		if ( !$this->context->getUser()->isRegistered() ) {
 			$urlParams = [ 'returnto' => $this->campaign->getTitle()->getPrefixedText() ];
 
 			if ( $this->isCampaignExtensionEnabled() ) {

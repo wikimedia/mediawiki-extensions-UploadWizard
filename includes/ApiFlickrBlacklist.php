@@ -5,7 +5,7 @@
  *
  * @since 1.2
  *
- * @file ApiFlickrBlacklist.php
+ * @file
  * @ingroup Upload
  * @ingroup API
  *

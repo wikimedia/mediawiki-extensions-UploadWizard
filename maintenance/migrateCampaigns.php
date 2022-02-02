@@ -135,7 +135,7 @@ class MigrateCampaigns extends Maintenance {
 
 	/**
 	 * @param string $string
-	 * @return array
+	 * @return string[]
 	 */
 	private function explodeStringToArray( $string ) {
 		$parts = explode( '|', $string );

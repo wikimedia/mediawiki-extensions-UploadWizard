@@ -1,4 +1,5 @@
 <?php
+
 return [
 	"type" => "object",
 	"id" => "#campaignnode",
