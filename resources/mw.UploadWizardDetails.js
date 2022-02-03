@@ -622,7 +622,7 @@
 				dir = m.gpsimgdirection || m.gpsdestbearing;
 
 				if ( dir ) {
-					if ( dir.match( /^\d+\/\d+$/ ) !== null ) {
+					if ( /^\d+\/\d+$/.test( dir ) ) {
 						// Apparently it can take the form "x/y" instead of
 						// a decimal value. Mighty silly, but let's save it.
 						dir = dir.split( '/' );
