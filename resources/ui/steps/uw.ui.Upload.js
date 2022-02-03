@@ -408,7 +408,7 @@
 	};
 
 	/**
-	 * show or hide notice for image metadata
+	 * @param {boolean} show
 	 */
 	uw.ui.Upload.prototype.showNoticeForImageMetadata = function ( show ) {
 		var $notice = this.$div

@@ -21,7 +21,7 @@
 
 		uwLicenseInput = new mw.UploadWizardLicenseInput( config );
 		$fixture.append( uwLicenseInput.$element );
-		assert.ok( uwLicenseInput, 'LicenseInput object created !' );
+		assert.true( !!uwLicenseInput, 'LicenseInput object created !' );
 	} );
 
 	QUnit.test( 'createInputs()', function ( assert ) {

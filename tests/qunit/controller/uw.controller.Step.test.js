@@ -20,8 +20,8 @@
 
 	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Step( { on: function () {} }, new mw.Api(), {} );
-		assert.ok( step );
-		assert.ok( step.ui );
+		assert.true( !!step );
+		assert.true( !!step.ui );
 	} );
 
 }( mw.uploadWizard ) );

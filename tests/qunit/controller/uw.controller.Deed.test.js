@@ -20,9 +20,8 @@
 
 	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Deed();
-		assert.ok( step );
-		assert.ok( step instanceof uw.controller.Step );
-		assert.ok( step.ui );
+		assert.true( step instanceof uw.controller.Step );
+		assert.true( !!step.ui );
 	} );
 
 	QUnit.test( 'load', function ( assert ) {

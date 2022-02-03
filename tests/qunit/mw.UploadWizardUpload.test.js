@@ -42,7 +42,7 @@
 	QUnit.test( 'constructor sanity test', function ( assert ) {
 		var upload = createUpload();
 
-		assert.ok( upload );
+		assert.true( !!upload );
 	} );
 
 	QUnit.test( 'getBasename', function ( assert ) {
