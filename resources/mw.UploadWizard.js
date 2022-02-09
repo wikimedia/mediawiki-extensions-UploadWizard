@@ -1,5 +1,7 @@
 /**
  * Object that represents the entire multi-step Upload Wizard
+ *
+ * @param uw
  */
 ( function ( uw ) {
 

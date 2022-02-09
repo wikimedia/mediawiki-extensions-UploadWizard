@@ -4,6 +4,8 @@
  * states:
  *   'new' 'transporting' 'transported' 'metadata' 'stashed' 'details' 'submitting-details' 'complete' 'error'
  * should fork this into two -- local and remote, e.g. filename
+ *
+ * @param uw
  */
 ( function ( uw ) {
 	/**
