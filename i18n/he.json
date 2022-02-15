@@ -13,6 +13,7 @@
 			"Yona b",
 			"Ypnypn",
 			"דגש",
+			"לואיקה",
 			"ערן",
 			"פוילישער"
 		]
@@ -390,8 +391,8 @@
 	"mwe-upwiz-mv-cta-checkbox-label": "כן, אני רוצה לקבל התראות כשלהעלאות שלי יש תגים שמוכנים לסקירה שלי",
 	"mwe-upwiz-mv-cta-final-cta": "{{GENDER:|מוכן|מוכנה}} להתחיל לתייג מייד? [[c:Special:SuggestedTags|{{GENDER:|נסה|נסי}} את הכלי]] באמצעות תיוג תמונות מבוקשות עכשיו!",
 	"mwe-upwiz-mv-cta-dismiss": "סגירה",
-	"mwe-upwiz-mv-cta-user-preference-set": "גדול! {{GENDER:|אתה יכול|את יכולה}} לשנות את ההגדרה הזאת בכל זמן ב[[c:Special:Preferences#mw-prefsection-echo|העדפות]] שלך.",
-	"mwe-upwiz-mv-cta-user-preference-unset": "לא {{GENDER:|תקבל|תקבלי}} עוד התראות לתייג את ההעלאות שלך.",
+	"mwe-upwiz-mv-cta-user-preference-set": "נהדר! {{GENDER:|אתה יכול|את יכולה|ביכולתך}} לשנות את ההגדרה הזאת בכל עת דרך [[c:Special:Preferences#mw-prefsection-echo|ההעדפות]] שלך.",
+	"mwe-upwiz-mv-cta-user-preference-unset": "לא {{GENDER:|תקבל|תקבלי|יישלחו לך}} עוד התראות לתייג את ההעלאות שלך.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "לא יכולנו לשמור את ההעדפות שלך הפעם. נא להיכנס ל[[c:Special:Preferences#mw-prefsection-echo|העדפות]] שלך כדי להתחיל התראות.",
 	"mwe-upwiz-upload-comment-own-work": "העלאת יצירה מקורית באמצעות אשף ההעלאה",
 	"mwe-upwiz-upload-comment-third-party": "העלאת יצירה מאת $1 מתוך $2 באמצעות אשף ההעלאה",
