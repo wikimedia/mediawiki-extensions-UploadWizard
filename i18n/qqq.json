@@ -245,7 +245,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "The tooltip shown when clicking the checkbox in the first step which enables the user to skip the introductory licensing tutorial in future.\n\nParameters:\n* $1 - the URL for the user preferences\n* $2 - {{msg-mw|Prefs-uploads}}\n* $3 - {{msg-mw|Prefs-upwiz-interface}}",
 	"mwe-upwiz-tooltip-author": "The tooltip that documents the author field in the deeds step, for attribution purposes.",
 	"mwe-upwiz-tooltip-source": "The tooltip that documents the source field in the deeds step, for attribution purposes.",
-	"mwe-upwiz-tooltip-sign": "The tooltip documenting the field for the permissions signature - often a username or real name of the uploader.",
+	"mwe-upwiz-tooltip-sign": "The tooltip documenting the field for the permissions signature. Often a username or a real name of the uploader.",
 	"mwe-upwiz-tooltip-title": "The tooltip documenting the title field for the file - used as the filename on-wiki.\n\nIdentical to {{msg-mw|upload-form-label-infoform-name-tooltip}}.",
 	"mwe-upwiz-tooltip-caption": "The tooltip documenting the caption fields on the details page.",
 	"mwe-upwiz-tooltip-description": "The tooltip documenting the description fields on the details page.\n\nIdentical to {{msg-mw|upload-form-label-infoform-description-tooltip}}.",
