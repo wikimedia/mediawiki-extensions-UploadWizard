@@ -3,6 +3,7 @@
 		"authors": [
 			"Envlh",
 			"Gazeb",
+			"Kaganer",
 			"Matma Rex",
 			"Tkalyn"
 		]
@@ -166,7 +167,7 @@
 	"mwe-upwiz-too-many-files": "Барже много файлів.",
 	"mwe-upwiz-file-too-large-text": "Можете наладовати файлы великы найвысше $1. Вы сьте пробовали ладовати файл, якый є великый $2.",
 	"mwe-upwiz-file-too-large": "Файл барже великый.",
-	"mwe-upwiz-dialog-title": "Файл ся можуть начітати під назвов в любовольнім языку і писмі. Назвы файлів бы мали быти у зволенім языку змыслуповны і хосновны.",
+	"mwe-upwiz-dialog-title": "Увага",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Зазначте автора-Заховайте ліценцію 3.0 ([$2 повный текст])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Зазначте автора-Сокотьте ліценцію 3.0 Австрія ([$2 цїлый текст])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Зазначте автора-Сокотьте ліценцію 3.0 Нїмецько ([$2 цїлый текст])",

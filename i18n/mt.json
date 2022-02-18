@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chrisportelli",
+			"Kaganer",
 			"Leli Forte",
 			"Matma Rex",
 			"පසිඳු කාවින්ද"
@@ -151,7 +152,7 @@
 	"mwe-upwiz-too-many-files-text": "Tista' ttella' {{PLURAL:$1|fajl wieħed|$1 fajls}} f'daqqa. Inti pruvajt ittella' {{PLURAL:$2|fajl wieħed|$2 fajls}} b'kollox, u għalhekk {{PLURAL:$3|fajl wiħed tneħħa|$3 fajls tneħħew}}.",
 	"mwe-upwiz-too-many-files": "Ħafna fajls.",
 	"mwe-upwiz-file-too-large": "Il-fajl huwa wisq kbir.",
-	"mwe-upwiz-dialog-title": "Fajls jistgħu jittellgħu b'ismijiet fi kwalunkwe lingwa bi kwalunkwe sistema ta' ktiba. Titli ta' fajls multimedjali għandhom ikunu sinifikanti u ta' għajnuna fil-lingwa magħżula.",
+	"mwe-upwiz-dialog-title": "Twissija",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 kodiċi legali])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Awstrija ([$2 kodiċi legali])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Attribution ShareAlike 3.0 Ġermanja ([$2 kodiċi legali])",

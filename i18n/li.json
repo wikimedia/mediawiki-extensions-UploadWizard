@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Envlh",
+			"Kaganer",
 			"Matma Rex",
 			"Ooswesthoesbes"
 		]
@@ -169,7 +170,7 @@
 	"mwe-upwiz-too-many-files": "Te väöl bestenj.",
 	"mwe-upwiz-file-too-large-text": "De kins nör bestenj uploade die neet grótter zeen es $1. De höbs geperbeerd e bestandj up te loade det $2 groeat is.",
 	"mwe-upwiz-file-too-large": "'t Bestandj is te groeat.",
-	"mwe-upwiz-dialog-title": "Bestenj kinne upgeload waere mit 'ne naam in 'n willekäörig spraok en sjrif. Name van mediabestenj mótte beteikenisvól zeen in de gekaoze spraok.",
+	"mwe-upwiz-dialog-title": "Waorsjoewing",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Oeasteriek ([$2 legal code])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Attribution ShareAlike 3.0 Pruses  ([$2 legal code])",
