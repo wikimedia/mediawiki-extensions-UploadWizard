@@ -148,14 +148,17 @@
 
         /* With IOS5 force loading images when navigating with back button. */
         /* Non optimal workaround. */
-        if ((/(?:iphone|ipod|ipad).*os 5/gi).test(navigator.appVersion)) {
-            $window.on("pageshow", function(event) {
-                if (event.originalEvent && event.originalEvent.persisted) {
-                    elements.each(function() {
-                        $(this).trigger("appear");
-                    });
-                }
-            });
+        /* T296840 adding test for deprecated navigator.appVersion */
+        if(navigator.appVersion){
+            if ((/(?:iphone|ipod|ipad).*os 5/gi).test(navigator.appVersion)) {
+                $window.on("pageshow", function(event) {
+                    if (event.originalEvent && event.originalEvent.persisted) {
+                        elements.each(function() {
+                            $(this).trigger("appear");
+                        });
+                    }
+                });
+            }
         }
 
         /* Force initial check if images should appear. */
