@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Arjunaraoc",
 			"Chaduvari",
 			"Praveen Illa",
 			"Ravichandra",
@@ -50,7 +51,7 @@
 	"mwe-upwiz-location-button": "పటంలో చూపించు",
 	"mwe-upwiz-location-lat": "అక్షాంశం",
 	"mwe-upwiz-location-lon": "రేఖాంశం",
-	"mwe-upwiz-location-alt": "సముద్ర మట్టం",
+	"mwe-upwiz-location-alt": "ఎత్తు (సముద్ర మట్టం నుండి)",
 	"mwe-upwiz-copyright-info": "విడుదల హక్కులు",
 	"mwe-upwiz-author": "రచయిత(లు)",
 	"mwe-upwiz-other": "ఇతర సమాచారం",
