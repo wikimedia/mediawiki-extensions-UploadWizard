@@ -3,7 +3,8 @@
 		"authors": [
 			"Envlh",
 			"Juanpabl",
-			"Matma Rex"
+			"Matma Rex",
+			"Kaganer"
 		]
 	},
 	"uploadwizard": "Asistent ta cargar fichers",
@@ -135,7 +136,7 @@
 	"mwe-upwiz-details-error-count": "I hai {{PLURAL:$1|una error|$1 errors}} en {{PLURAL:$2|o formulario|os formularios}} d'alto. Corricha {{PLURAL:$1|a error|as errors}} y mire de fer o ninvío de nuevas.",
 	"mwe-upwiz-too-many-files-text": "Nomás puet cargar $1 {{PLURAL:$1|fichero|fichers}} de vez. Ha prebau de cargar $2 {{PLURAL:$1|fichero|fichers}}, asinas que se'n ha sacau $3 {{PLURAL:$3|fichero|fichers}}.",
 	"mwe-upwiz-too-many-files": "Masiaus fichers.",
-	"mwe-upwiz-dialog-title": "Os fichers se pueden cargar con nombre en qualsiquier idioma y sistema d'escritura. Os titols d'os fichers multimedia han d'estar significativos y utils en l'idioma esleiu.",
+	"mwe-upwiz-dialog-title": "Aviso",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([texto legal $2])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons reconoixencia compartir igual 3.0 Austria ([$2 texto legal])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons reconoixencia compartir igual 3.0 Alemanya ([$2 texto legal])",
