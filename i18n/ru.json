@@ -64,12 +64,12 @@
 	"api-error-aborted": "Загрузка прервана.",
 	"api-error-noimageinfo": "Загрузка завершилась успешно, но сервер не вернул никакой информации о файле.",
 	"mwe-upwiz-extension-disabled": "Эта страница была отключена из-за временных технических проблем. Воспользуйтесь пока стандартной формой загрузки.",
-	"mwe-upwiz-step-tutorial": "Ознакомление",
+	"mwe-upwiz-step-tutorial": "Ознако-<br>мление",
 	"mwe-upwiz-step-file": "Загрузка",
-	"mwe-upwiz-step-deeds": "Авторские права",
+	"mwe-upwiz-step-deeds": "Авторские<br>права",
 	"mwe-upwiz-step-details": "Описание",
-	"mwe-upwiz-step-metadata": "Добавить данные",
-	"mwe-upwiz-step-thanks": "Использование",
+	"mwe-upwiz-step-metadata": "Добавить<br>данные",
+	"mwe-upwiz-step-thanks": "Исполь-<br>зование",
 	"mwe-upwiz-campaign-name-duplicate": "Кампания с этим именем уже существует.",
 	"mwe-upwiz-campaign-unknown-error": "Произошла неизвестная ошибка",
 	"mwe-upwiz-api-warning-exists": "Уже существует [$1 другой файл] с таким же именем",
@@ -377,7 +377,7 @@
 	"mwe-upwiz-subhead-alternatives": "Альтернативные методы загрузки",
 	"mwe-upwiz-feedback-prompt": "Оставить отзыв",
 	"mwe-upwiz-feedback-title": "Оставьте отзыв о Мастере загрузок",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Это запись из чёрного списка названий,  которая соответствует:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Вот соответствующая запись из списка запрещённых названий:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Мой заголовок загрузки «$1» был запрещён.",
 	"mwe-upwiz-errordialog-title": "Произошла ошибка во время отправки",
 	"mwe-upwiz-errordialog-ok": "OK",
@@ -404,5 +404,6 @@
 	"mwe-upload-campaigns-list-title": "Список кампаний по загрузке",
 	"mwe-upwiz-upload-comment-own-work": "Загрузил свою работу через UploadWizard",
 	"mwe-upwiz-upload-comment-third-party": "$1 загрузил работу с $2 через UploadWizard",
-	"mwe-upwiz-metadata-notice-header": "Личные данные"
+	"mwe-upwiz-metadata-notice-header": "Личные данные",
+	"mwe-upwiz-metadata-notice-description": "EXIF-метаданные этого файла могут содержать геолокацию и другие персональные данные, добавленные вашей камерой автоматически. [https://commons.wikimedia.org/wiki/Commons:Exif/ru Узнайте], как отредактировать или удалить EXIF-метаданные."
 }
