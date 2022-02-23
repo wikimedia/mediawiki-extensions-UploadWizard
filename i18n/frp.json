@@ -3,7 +3,8 @@
 		"authors": [
 			"ChrisPtDe",
 			"Envlh",
-			"Matma Rex"
+			"Matma Rex",
+			"Kaganer"
 		]
 	},
 	"uploadwizard": "Assistent d’importacion",
@@ -144,7 +145,7 @@
 	"mwe-upwiz-too-many-files-text": "Vos pouede solament tèlèchargiér $1 fichiér{{PLURAL:$1||s}} d’un côp. Vos éd tâchiê de tèlèchargiér $2 fichiér{{PLURAL:$2||s}}, donc $3 fichiér{{PLURAL:$3||s}} ont étâ enlevâs.",
 	"mwe-upwiz-too-many-files": "Trop de fichiérs.",
 	"mwe-upwiz-file-too-large": "Fichiér trop grôs.",
-	"mwe-upwiz-dialog-title": "Los fichiérs pôvont étre tèlèchargiês avouéc un nom dens una lengoua quinta que seye dens una ècritura quinta que seye. Los titros des fichiérs mèdias devriant étre significatifs et pués utilos dens la lengoua chouèsia.",
+	"mwe-upwiz-dialog-title": "Avèrtissement",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons patèrnitât - partâjo a l’identico de les premiéres condicions 3.0 ([$2 code lègâl])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons patèrnitât - partâjo a l’identico de les premiéres condicions 3.0 Ôtrich·e ([$2 code lègâl])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons patèrnitât - partâjo a l’identico de les premiéres condicions 3.0 Alemagnes ([$2 code lègâl])",

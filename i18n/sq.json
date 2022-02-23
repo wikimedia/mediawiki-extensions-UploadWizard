@@ -6,7 +6,8 @@
 			"Kosovastar",
 			"Liridon",
 			"Matma Rex",
-			"Olsi"
+			"Olsi",
+			"Kaganer"
 		]
 	},
 	"uploadwizard": "Eksperti për ngarkim",
@@ -151,7 +152,7 @@
 	"mwe-upwiz-too-many-files": "Shumë skeda.",
 	"mwe-upwiz-file-too-large-text": "Ju mundeni vetëm të ngarkoni skedarë me një madhësi deri në $1. Ju provuat të ngarkoni një skedar që është $2.",
 	"mwe-upwiz-file-too-large": "Skedari shumë i madh.",
-	"mwe-upwiz-dialog-title": "Skedat mund të ngarkohen me emra në çdo gjuhë në çdo shkrim. Titujt e skedave duhet të kenë kuptim dhe të jenë të ndihmues në gjuhën e zgjedhur.",
+	"mwe-upwiz-dialog-title": "Paralajmërim",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 kodi ligjor])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Austri ([$2 kodi ligjor])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Attribution ShareAlike 3.0 Gjermani ([$2 kodi ligjor])",

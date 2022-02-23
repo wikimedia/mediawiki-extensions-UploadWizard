@@ -10,7 +10,8 @@
 			"Macofe",
 			"Matma Rex",
 			"Sky Harbor",
-			"Zoranzoki21"
+			"Zoranzoki21",
+			"Kaganer"
 		]
 	},
 	"uploadwizard": "Salamangkero ng Pagkarga",
@@ -180,7 +181,7 @@
 	"mwe-upwiz-too-many-files": "Labis na maraming mga file.",
 	"mwe-upwiz-file-too-large-text": "Maaari kang papaitaas na magkarga ng mga talaksang mayroong isang sukat na magpahanggang sa $1. Sinubukan mong magkargang papaitaas ng isang talaksan na $2.",
 	"mwe-upwiz-file-too-large": "Napakalaki ng talaksan.",
-	"mwe-upwiz-dialog-title": "Maikakarga ang mga talaksan na may mga pangalan sa anumang wika sa anumang panitik (naikodigo bilang UTF-8).  Ang mga pamagat ng mga talaksan ng midya ay dapat na makahulugan at makakatulong sa napiling wika.",
+	"mwe-upwiz-dialog-title": "Babala",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 kodigong pambatas])",
 	"mwe-upwiz-license-cc-by-sa-3.0-at": "Creative Commons Attribution ShareAlike 3.0 Austria ([$2 kodigong pambatas])",
 	"mwe-upwiz-license-cc-by-sa-3.0-de": "Creative Commons Attribution ShareAlike 3.0 Alemanya ([$2 kodigong pambatas])",
