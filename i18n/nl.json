@@ -54,7 +54,7 @@
 	"mwe-upwiz-step-metadata": "Data toevoegen",
 	"mwe-upwiz-step-thanks": "Gebruiken",
 	"mwe-upwiz-campaign-name-duplicate": "Er bestaat al een campagne met deze naam.",
-	"mwe-upwiz-campaign-unknown-error": "Er is een onbekende fout opgetreden",
+	"mwe-upwiz-campaign-unknown-error": "Er is een onbekende fout opgetreden.",
 	"mwe-upwiz-api-warning-exists": "Er bestaat al [$1 een ander bestand] met dezelfde bestandsnaam op de wiki.",
 	"mwe-upwiz-api-warning-was-deleted": "Er is een bestand met de naam \"$1\" geweest, maar dit is verwijderd. U kunt het niet opnieuw uploaden. Als u een ander bestand wilt uploaden, geef het dan een andere naam.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Er is geen beschrijving in uw taal beschikbaar. De beschrijving wordt weergegeven in het $1.",
