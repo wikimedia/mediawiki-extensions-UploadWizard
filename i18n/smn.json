@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Seipinne"
 		]
 	},
+	"mwe-upwiz-step-deeds": "Kevttimvuoigâdvuođah",
+	"mwe-upwiz-patent-dialog-title": "Patentvuoigâdvuođah",
 	"mwe-upwiz-patent-dialog-button-next": "Čuávuvâš",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Tubdâmettum tiätuvuárkkánommâ",
 	"mwe-upwiz-next": "Čuávuvâš",
