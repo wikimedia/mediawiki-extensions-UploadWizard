@@ -9,6 +9,8 @@
  * @author Ori Livneh <ori@wikimedia.org>
  */
 
+use MediaWiki\Extension\EventLogging\EventLogging;
+
 /**
  * Represents the configuration of an Upload Campaign
  */
