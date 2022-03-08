@@ -363,8 +363,11 @@
 		}
 		params.checkstatus = true;
 		params.filekey = this.filekey;
-		this.request = this.api.post( params )
-			.then( function ( response ) {
+
+		this.request = this.api.post( params );
+
+		return this.request.then(
+			function ( response ) {
 				if ( response.upload && response.upload.result === 'Poll' ) {
 					// If concatenation takes longer than 10 minutes give up
 					if ( ( Date.now() - transport.firstPoll ) > 10 * 60 * 1000 ) {
@@ -391,10 +394,10 @@
 				}
 
 				return response;
-			}, function ( code, result ) {
+			},
+			function ( code, result ) {
 				return $.Deferred().reject( code, result );
-			} );
-
-		return this.request;
+			}
+		);
 	};
 }() );
