@@ -31,7 +31,8 @@
 			"حقجوی",
 			"پسر یاس",
 			"4nn1l2",
-			"Jeeputer"
+			"Jeeputer",
+			"Beginneruser"
 		]
 	},
 	"uploadwizard": "جادوگر بارگذاری",
@@ -175,7 +176,7 @@
 	"mwe-upwiz-copy-location": "رونویسی مکان",
 	"mwe-upwiz-copy-other": "رونویسی اطلاعات دیگر",
 	"mwe-upwiz-caption": "عنوان",
-	"mwe-upwiz-desc": "توضیح",
+	"mwe-upwiz-desc": "توضیحات",
 	"mwe-upwiz-title": "عنوان تصویر",
 	"mwe-upwiz-date-created": "تاریخ",
 	"mwe-upwiz-select-date": "انتخاب تاریخ",
