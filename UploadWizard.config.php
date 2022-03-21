@@ -68,12 +68,17 @@ $uwLanguages = $cache->getWithSetCallback(
 		}
 
 		// Sort the list by the language name.
+		$sorted = false;
 		if ( class_exists( Collator::class ) ) {
 			// If a specific collation is not available for the user's language,
 			// this falls back to a generic 'root' one.
 			$collator = Collator::create( $userLangCode );
-			$collator->asort( $uwLanguages );
-		} else {
+			if ( $collator ) {
+				$sorted = $collator->asort( $uwLanguages );
+			}
+		}
+
+		if ( !$sorted ) {
 			natcasesort( $uwLanguages );
 		}
 
