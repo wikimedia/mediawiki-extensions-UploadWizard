@@ -4,6 +4,9 @@
  * Do not modify this file, instead use localsettings.php and set:
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
+
+use MediaWiki\MediaWikiServices;
+
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
 	$wgCheckFileExtensions, $wgWBRepoSettings;
 
@@ -11,24 +14,28 @@ $userLangCode = $wgLang->getCode();
 // Commons only: ISO 646 code of Tagalog is 'tl', but language template is 'tgl'
 $uwDefaultLanguageFixups = [ 'tl' => 'tgl' ];
 
-$cache = \MediaWiki\MediaWikiServices::getInstance()->getMainWANObjectCache();
+$services = MediaWikiServices::getInstance();
+$cache = $services->getMainWANObjectCache();
 $uwLanguages = $cache->getWithSetCallback(
 	// We need to get a list of languages for the description dropdown.
 	// Increase the 'version' number in the options below if this logic or format changes.
 	$cache->makeKey( 'uploadwizard-language-templates', $userLangCode ),
 	$cache::TTL_DAY,
-	static function () use ( $userLangCode, $uwDefaultLanguageFixups ) {
+	static function () use ( $userLangCode, $uwDefaultLanguageFixups, $services ) {
 		global $wgUploadWizardConfig;
 
 		$uwLanguages = [];
 
 		// First, get a list of languages we support.
-		$baseLangs = Language::fetchLanguageNames( $userLangCode, 'all' );
+		$baseLangs = $services->getLanguageNameUtils()
+			->getLanguageNames( $userLangCode, 'all' );
+
 		// We need to take into account languageTemplateFixups
 		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'] ?? $uwDefaultLanguageFixups;
 		if ( !is_array( $languageFixups ) ) {
 			$languageFixups = [];
 		}
+
 		// Use LinkBatch to make this a little bit more faster.
 		// It works because $title->exists (below) will use LinkCache.
 		$linkBatch = new LinkBatch();
@@ -61,7 +68,7 @@ $uwLanguages = $cache->getWithSetCallback(
 		}
 
 		// Sort the list by the language name.
-		$collator = class_exists( Collator::class ) ? Collator::create( $userLangCode ) : null;
+		$collator = Collator::create( $userLangCode );
 		if ( !$collator || !$collator->asort( $uwLanguages ) ) {
 			natcasesort( $uwLanguages );
 		}
@@ -205,7 +212,9 @@ return [
 
 			// If the type above is select, provide a dictionary of
 			// value -> label associations to display as options
-			'options' => [ /* 'value' => 'label' */ ]
+			'options' => [
+				/* 'value' => 'label' */
+			]
 		]
 	],
 
