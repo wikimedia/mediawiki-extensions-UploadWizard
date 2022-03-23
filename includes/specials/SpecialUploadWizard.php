@@ -99,7 +99,11 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// fallback for non-JS
 		$out->addHTML( '<div class="mwe-upwiz-unavailable">' );
-		$out->addHTML( '<p class="errorbox">' . $this->msg( 'mwe-upwiz-unavailable' )->parse() . '</p>' );
+		$out->addHTML(
+			Html::errorBox(
+				$this->msg( 'mwe-upwiz-unavailable' )->parse()
+			)
+		);
 		// create a simple form for non-JS fallback, which targets the old Special:Upload page.
 		// at some point, if we completely subsume its functionality, change that to point here again,
 		// but then we'll need to process non-JS uploads in the same way Special:Upload does.
@@ -158,11 +162,11 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param string $message
 	 */
 	protected function displayError( $message ) {
-		$this->getOutput()->addHTML( Html::element(
-			'span',
-			[ 'class' => 'errorbox' ],
-			$message
-		) . '<br /><br /><br />' );
+		$this->getOutput()->addHTML(
+			Html::errorBox(
+				$message
+			)
+		);
 	}
 
 	/**

@@ -77,8 +77,8 @@ class UploadWizardTutorial {
 			if ( $error === 'localized-file-missing' ) {
 				$errorMsg->params( Language::fetchLanguageName( $langCode, $wgLang->getCode() ) );
 			}
-			$errorHtml = Html::element(
-				'p', [ 'class' => 'errorbox', 'style' => 'float: none;' ], $errorMsg->text()
+			$errorHtml = Html::errorBox(
+				$errorMsg->text()
 			);
 		}
 
