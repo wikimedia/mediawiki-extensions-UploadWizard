@@ -25,22 +25,15 @@ $uwLanguages = $cache->getWithSetCallback(
 		// First, get a list of languages we support.
 		$baseLangs = Language::fetchLanguageNames( $userLangCode, 'all' );
 		// We need to take into account languageTemplateFixups
-		if (
-			is_array( $wgUploadWizardConfig ) &&
-			array_key_exists( 'languageTemplateFixups', $wgUploadWizardConfig )
-		) {
-			$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'];
-			if ( !is_array( $languageFixups ) ) {
-				$languageFixups = [];
-			}
-		} else {
-			$languageFixups = $uwDefaultLanguageFixups;
+		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'] ?? $uwDefaultLanguageFixups;
+		if ( !is_array( $languageFixups ) ) {
+			$languageFixups = [];
 		}
 		// Use LinkBatch to make this a little bit more faster.
 		// It works because $title->exists (below) will use LinkCache.
 		$linkBatch = new LinkBatch();
 		foreach ( $baseLangs as $code => $name ) {
-			$fixedCode = array_key_exists( $code, $languageFixups ) ? $languageFixups[$code] : $code;
+			$fixedCode = $languageFixups[$code] ?? $code;
 			if ( is_string( $fixedCode ) && $fixedCode !== '' ) {
 				$title = Title::makeTitle( NS_TEMPLATE, Title::capitalize( $fixedCode, NS_TEMPLATE ) );
 				$linkBatch->addObj( $title );
@@ -50,7 +43,7 @@ $uwLanguages = $cache->getWithSetCallback(
 
 		// Then, check that there's a template for each one.
 		foreach ( $baseLangs as $code => $name ) {
-			$fixedCode = array_key_exists( $code, $languageFixups ) ? $languageFixups[$code] : $code;
+			$fixedCode = $languageFixups[$code] ?? $code;
 			if ( is_string( $fixedCode ) && $fixedCode !== '' ) {
 				$title = Title::makeTitle( NS_TEMPLATE, Title::capitalize( $fixedCode, NS_TEMPLATE ) );
 				if ( $title->exists() ) {
@@ -62,23 +55,14 @@ $uwLanguages = $cache->getWithSetCallback(
 
 		// Skip the duplicate deprecated language codes if the new one is okay to use.
 		foreach ( LanguageCode::getDeprecatedCodeMapping() as $oldKey => $newKey ) {
-			if ( isset( $uwLanguages[$newKey] ) && isset( $uwLanguages[$oldKey] ) ) {
+			if ( isset( $uwLanguages[$newKey] ) ) {
 				unset( $uwLanguages[$oldKey] );
 			}
 		}
 
 		// Sort the list by the language name.
-		$sorted = false;
-		if ( class_exists( Collator::class ) ) {
-			// If a specific collation is not available for the user's language,
-			// this falls back to a generic 'root' one.
-			$collator = Collator::create( $userLangCode );
-			if ( $collator ) {
-				$sorted = $collator->asort( $uwLanguages );
-			}
-		}
-
-		if ( !$sorted ) {
+		$collator = class_exists( Collator::class ) ? Collator::create( $userLangCode ) : null;
+		if ( !$collator || !$collator->asort( $uwLanguages ) ) {
 			natcasesort( $uwLanguages );
 		}
 
