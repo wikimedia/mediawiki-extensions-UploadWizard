@@ -7,7 +7,7 @@
 	/**
 	 * Displays an error message.
 	 *
-	 * @param {string} errorMessage
+	 * @param {jQuery|string} errorMessage
 	 * @param {string} [title]
 	 */
 	mw.errorDialog = function ( errorMessage, title ) {

@@ -131,20 +131,6 @@
 				"mobile"
 			]
 		},
-		"uw.EventFlowLogger": {
-			"scripts": [
-				"resources/uw/uw.base.js",
-				"resources/uw.EventFlowLogger.js"
-			],
-			"dependencies": [
-				"oojs"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"group": "uw.EventFlowLogger"
-		},
 		"ext.uploadWizard": {
 			"dependencies": [
 				"jquery.client",
@@ -164,7 +150,6 @@
 				"mediawiki.editfont.styles",
 				"mediawiki.String",
 				"moment",
-				"uw.EventFlowLogger",
 				"oojs",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
@@ -183,6 +168,7 @@
 			],
 			"scripts": [
 				"resources/jquery.arrowSteps/jquery.arrowSteps.js",
+				"resources/uw/uw.base.js",
 				"resources/uw.units.js",
 				"resources/transports/mw.FormDataTransport.js",
 				"resources/handlers/mw.ApiUploadHandler.js",
@@ -638,7 +624,6 @@
 			"controller/uw.controller.Tutorial.test.js",
 			"controller/uw.controller.Upload.test.js",
 			"transports/mw.FormDataTransport.test.js",
-			"uw.EventFlowLogger.test.js",
 			"uw.ConcurrentQueue.test.js",
 			"mw.UploadWizardUpload.test.js",
 			"mw.UploadWizardLicenseInput.test.js",

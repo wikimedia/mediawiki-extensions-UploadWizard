@@ -192,7 +192,6 @@
 
 	uw.controller.Upload.prototype.retry = function () {
 		var controller = this;
-		uw.eventFlowLogger.logEvent( 'retry-uploads-button-clicked' );
 
 		this.uploads.forEach( function ( upload ) {
 			if ( upload.state === 'error' ) {
@@ -262,8 +261,6 @@
 
 		this.ui.displayUploads( uploadObjs );
 		this.updateFileCounts();
-
-		uw.eventFlowLogger.logUploadEvent( 'uploads-added', { quantity: files.length } );
 	};
 
 	/**

@@ -123,7 +123,6 @@
 		this.state = 'error';
 		this.transportProgress = 0;
 		this.ui.showError( code, html, $additionalStatus );
-		uw.eventFlowLogger.logError( 'file', { code: code, message: html } );
 	};
 
 	/**
@@ -685,7 +684,6 @@
 			// There is nothing we can do about this. It's okay though, there just won't be a thumbnail.
 			ctx.drawImage( image, x, y, width, height );
 		} catch ( err ) {
-			uw.eventFlowLogger.maybeLogFirefoxCanvasException( err, image );
 			return null;
 		}
 
@@ -841,7 +839,6 @@
 								// More ridiculous exceptions, see the comment in #getTransformedCanvasElement
 								context.drawImage( video, 0, 0, canvas.width, canvas.height );
 							} catch ( err ) {
-								uw.eventFlowLogger.maybeLogFirefoxCanvasException( err, video );
 								deferred.reject();
 							}
 							upload.loadImage( canvas.toDataURL(), deferred );

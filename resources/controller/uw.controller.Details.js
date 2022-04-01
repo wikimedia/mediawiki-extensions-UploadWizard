@@ -358,7 +358,6 @@
 		if ( this.uploads.length === 0 ) {
 			// If we have no more uploads, go to the "Upload" step. (This will go to "Thanks" step,
 			// which will skip itself in load() because there are no uploads left.)
-			uw.eventFlowLogger.logSkippedStep( this.stepName );
 			this.moveNext();
 			return;
 		}

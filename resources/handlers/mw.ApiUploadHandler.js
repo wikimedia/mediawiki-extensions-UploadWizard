@@ -1,4 +1,4 @@
-( function ( uw ) {
+( function () {
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
@@ -83,8 +83,6 @@
 	mw.ApiUploadHandler.prototype.setTransportWarning = function ( code, result ) {
 		var param, duplicates, links;
 
-		uw.eventFlowLogger.logApiError( 'file', result );
-
 		switch ( code ) {
 			case 'duplicate':
 				duplicates = result.upload.warnings.duplicate;
@@ -127,8 +125,6 @@
 	 */
 	mw.ApiUploadHandler.prototype.setTransportError = function ( code, result ) {
 		var $extra;
-
-		uw.eventFlowLogger.logApiError( 'file', result );
 
 		if ( code === 'badtoken' ) {
 			this.api.badToken( 'csrf' );
@@ -363,4 +359,4 @@
 	mw.ApiUploadHandler.prototype.isIgnoredWarning = function ( code ) {
 		return this.ignoreWarnings.indexOf( code ) > -1;
 	};
-}( mw.uploadWizard ) );
+}() );

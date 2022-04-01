@@ -113,7 +113,6 @@
 		// If all of the uploads are from URLs, then we know the licenses
 		// already, we don't need this step.
 		if ( !showDeed ) {
-			uw.eventFlowLogger.logSkippedStep( this.stepName );
 			// this is a bit of a hack: when images from flickr are uploaded, we
 			// don't get to choose the license anymore, and this step will be
 			// skipped ... but we could reach this step from either direction
