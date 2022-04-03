@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\ParamValidator\ParamValidator;
+
 /**
  * API module to fetch blacklisting details of a flickr image
  *
@@ -38,11 +40,11 @@ class ApiFlickrBlacklist extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'url' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'list' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			],
 		];
 	}
