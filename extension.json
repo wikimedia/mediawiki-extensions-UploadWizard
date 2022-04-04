@@ -665,19 +665,6 @@
 		"PageMoveComplete": "CampaignHooks::onPageMoveComplete",
 		"LinksUpdateComplete": "CampaignHooks::onLinksUpdateComplete"
 	},
-	"attributes": {
-		"EventLogging": {
-			"Schemas": {
-				"UploadWizardTutorialActions": 5803466,
-				"UploadWizardUploadActions": 5811620,
-				"UploadWizardStep": 18973101,
-				"UploadWizardFlowEvent": 11772723,
-				"UploadWizardErrorFlowEvent": 18973100,
-				"UploadWizardExceptionFlowEvent": 11772722,
-				"UploadWizardUploadFlowEvent": 11772717
-			}
-		}
-	},
 	"namespaces": [
 		{
 			"id": 460,
