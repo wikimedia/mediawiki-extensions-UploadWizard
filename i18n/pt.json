@@ -368,7 +368,7 @@
 	"mwe-upwiz-subhead-alternatives": "Métodos de carregamento alternativos",
 	"mwe-upwiz-feedback-prompt": "Deixar um comentário",
 	"mwe-upwiz-feedback-title": "Deixe um comentário sobre o Assistente de Carregamento de Ficheiros",
-	"mwe-upwiz-feedback-blacklist-line-intro": "A entrada da lista negra de títulos que resultou numa correspondência foi esta:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "A entrada da lista de títulos interditos que resultou numa correspondência foi esta:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "O título do meu carregamento, \"$1\", foi proibido.",
 	"mwe-upwiz-errordialog-title": "Ocorreu um erro no envio",
 	"mwe-upwiz-errordialog-ok": "OK",
@@ -402,5 +402,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Deixará de receber notificações para etiquetar os seus carregamentos.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Não foi possível gravar a sua preferência nesta altura. Visite as suas [[c:Special:Preferences#mw-prefsection-echo|preferências]] para optar por receber notificações, por favor.",
 	"mwe-upwiz-upload-comment-own-work": "Carregou uma obra do próprio com o Assistente de Carregamento de Ficheiros",
-	"mwe-upwiz-upload-comment-third-party": "Carregou uma obra de $1 originária de $2 com o Assistente de Carregamento de Ficheiros"
+	"mwe-upwiz-upload-comment-third-party": "Carregou uma obra de $1 originária de $2 com o Assistente de Carregamento de Ficheiros",
+	"mwe-upwiz-metadata-notice-header": "Dados particulares",
+	"mwe-upwiz-metadata-notice-description": "Os metadados EXIF deste ficheiro podem conter a localização ou outros dados particulares que são adicionados automaticamente pela sua câmara. [https://commons.wikimedia.org/wiki/Commons:Exif Aprenda mais] sobre como editar ou remover metadados EXIF."
 }

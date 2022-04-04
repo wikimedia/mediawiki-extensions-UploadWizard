@@ -39,7 +39,7 @@
 	"mwe-upwiz-step-file": "Загрузіце",
 	"mwe-upwiz-step-deeds": "Пазначце правы",
 	"mwe-upwiz-step-details": "Апішыце",
-	"mwe-upwiz-step-metadata": "Дадаць зьвесткі",
+	"mwe-upwiz-step-metadata": "Дадайце зьвесткі",
 	"mwe-upwiz-step-thanks": "Выкарыстоўвайце",
 	"mwe-upwiz-campaign-name-duplicate": "Кампанія з такой назвай ужо існуе.",
 	"mwe-upwiz-campaign-unknown-error": "Узьнікла невядомая памылка.",
@@ -147,7 +147,7 @@
 	"mwe-upwiz-patent-dialog-checkbox-label": "Я згодны з гэтымі ўмовамі",
 	"mwe-upwiz-license-metadata-statements-title": "Ліцэнзія для ўсіх структураваных мэтазьвестак (НЕ для файлу)",
 	"mwe-upwiz-license-metadata-content": "Націскаючы „апублікаваць“, вы пагаджаецеся з [[wmf:Terms_of_Use|умовамі выкарыстаньня]] і незваротна згаджаецеся разьмясьціць свой унёсак на ўмовах [https://creativecommons.org/publicdomain/zero/1.0/ ліцэнзіі Creative Commons CC0].",
-	"mwe-upwiz-more-options": "Дадаць месцазнаходжаньне і іншыя зьвесткі...",
+	"mwe-upwiz-more-options": "Дадаць месцазнаходжаньне й іншыя зьвесткі…",
 	"mwe-upwiz-copy-statements-dialog": "Мэтазьвесткі ў іншых файлах гэтага пакету будуць замененыя мэтазьвесткамі з гэтага файлу. Вы ўпэўненыя?",
 	"mwe-upwiz-copy-statements-dialog-accept": "Так, капіяваць",
 	"mwe-upwiz-copy-statements-button": "Скапіяваць сьцьверджаньні ва ўсе файлы…",
@@ -334,5 +334,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Максымальная колькасьць аднолькавых загрузак",
 	"mwe-upwiz-mv-cta-dismiss": "Прапусьціць",
 	"mwe-upwiz-mv-cta-user-preference-set": "Выдатна! Гэты пункт можна зьмяніць у любым час ва ўласных [[c:Special:Preferences#mw-prefsection-echo|наладах]].",
-	"mwe-upwiz-mv-cta-user-preference-unset": "Болей вы ня будзеце атрымліваць паведамленьні пра пазначэньні вашых загрузак."
+	"mwe-upwiz-mv-cta-user-preference-unset": "Болей вы ня будзеце атрымліваць паведамленьні пра пазначэньні вашых загрузак.",
+	"mwe-upwiz-metadata-notice-description": "Мэтазьвесткі EXIF у гэтым файле могуць мець інфармацыю пра месцазнаходжаньне або іншыя асабістыя зьвесткі, аўтаматычна дададзеныя вашай камэрай. [https://commons.wikimedia.org/wiki/Commons:Exif Даведайцеся падрабязьней] пра тое, як рэдагаваць ці выдаляць мэтазьвесткі EXIF."
 }
