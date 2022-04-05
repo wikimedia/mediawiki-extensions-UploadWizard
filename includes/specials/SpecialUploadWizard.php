@@ -117,7 +117,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$this->addJsVars( $subPage );
 
 		// dependencies (css, js)
-		$out->addModules( [ 'uw.EventFlowLogger', 'ext.uploadWizard.page' ] );
+		$out->addModules( 'ext.uploadWizard.page' );
 		// load spinner styles early
 		$out->addModuleStyles( [ 'ext.uploadWizard.page.styles', 'jquery.spinner.styles' ] );
 

@@ -414,7 +414,6 @@
 		function error( code, result ) {
 			var message = result.errors[ 0 ].html;
 
-			uw.eventFlowLogger.logError( 'license', { code: code, message: message } );
 			show( $( '<div>' ).append(
 				$( '<h3>' ).append( code ),
 				$( '<p>' ).append( message )

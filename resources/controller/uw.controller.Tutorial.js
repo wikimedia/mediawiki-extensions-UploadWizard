@@ -39,15 +39,6 @@
 					// indicate that the skip preference has changed, so we can
 					// alter the preference when we move to another step
 					controller.newSkipPreference = skipped;
-					if ( skipped ) {
-						uw.eventFlowLogger.logTutorialAction( 'skip-check' );
-					} else {
-						uw.eventFlowLogger.logTutorialAction( 'skip-uncheck' );
-					}
-				} )
-
-				.on( 'helpdesk-click', function () {
-					uw.eventFlowLogger.logTutorialAction( 'helpdesk-click' );
 				} ),
 			api,
 			config
@@ -86,19 +77,15 @@
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
-		uw.eventFlowLogger.logTutorialAction( 'load' );
-
 		// we only want to skip the tutorial once - if we come back to it, we
 		// don't want it to get auto-skipped again
 		if ( !this.skipped && shouldSkipTutorial ) {
 			this.skipped = true;
-			uw.eventFlowLogger.logSkippedStep( this.stepName );
 			this.moveNext();
 		}
 	};
 
 	uw.controller.Tutorial.prototype.moveNext = function () {
-		uw.eventFlowLogger.logTutorialAction( 'continue' );
 		uw.controller.Step.prototype.moveNext.call( this );
 	};
 

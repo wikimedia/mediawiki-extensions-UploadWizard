@@ -44,7 +44,6 @@
 
 		if ( uploads.length === 0 ) {
 			// We got here after the user removed all uploads; just restart from "Upload" step
-			uw.eventFlowLogger.logSkippedStep( this.stepName );
 			this.moveNext();
 			return;
 		}

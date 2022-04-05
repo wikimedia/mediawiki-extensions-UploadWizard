@@ -1111,7 +1111,6 @@
 				} )
 				// uh-oh - something went wrong!
 				.catch( function ( code, result ) {
-					uw.eventFlowLogger.logApiError( 'details', result );
 					details.upload.state = 'error';
 					details.processError( code, result );
 					return $.Deferred().reject( code, result );
@@ -1248,7 +1247,6 @@
 		 * @param {string} html Error message to show.
 		 */
 		recoverFromError: function ( code, html ) {
-			uw.eventFlowLogger.logError( 'details', { code: code, message: html } );
 			this.upload.state = 'recoverable-error';
 			this.$dataDiv.morphCrossfade( '.detailsForm' );
 			this.titleDetailsField.setErrors( [ { code: code, html: html } ] );
@@ -1261,7 +1259,6 @@
 		 * @param {string} html Error message
 		 */
 		showError: function ( code, html ) {
-			uw.eventFlowLogger.logError( 'details', { code: code, message: html } );
 			this.showIndicator( 'error' );
 			this.setStatus( html );
 		},
