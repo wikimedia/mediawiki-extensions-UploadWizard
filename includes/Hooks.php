@@ -1,6 +1,12 @@
 <?php
 
-class UploadWizardHooks {
+namespace MediaWiki\Extension\UploadWizard;
+
+use DatabaseUpdater;
+use RequestContext;
+use User;
+
+class Hooks {
 
 	/**
 	 * Schema update to set up the needed database tables.
@@ -39,10 +45,10 @@ class UploadWizardHooks {
 	 * @return true
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		$config = UploadWizardConfig::getConfig();
+		$config = Config::getConfig();
 
 		// User preference to skip the licensing tutorial, provided it's not globally disabled
-		if ( UploadWizardConfig::getSetting( 'tutorial' ) != [] ) {
+		if ( Config::getSetting( 'tutorial' ) != [] ) {
 			$preferences['upwiz_skiptutorial'] = [
 				'type' => 'check',
 				'label-message' => 'mwe-upwiz-prefs-skiptutorial',
@@ -57,12 +63,12 @@ class UploadWizardHooks {
 			'section' => 'uploads/upwiz-licensing'
 		];
 
-		if ( UploadWizardConfig::getSetting( 'enableLicensePreference' ) ) {
-			$licenseConfig = UploadWizardConfig::getSetting( 'licenses' );
+		if ( Config::getSetting( 'enableLicensePreference' ) ) {
+			$licenseConfig = Config::getSetting( 'licenses' );
 
 			$licenses = [];
 
-			$licensingOptions = UploadWizardConfig::getSetting( 'licensing' );
+			$licensingOptions = Config::getSetting( 'licensing' );
 
 			$ownWork = $licensingOptions['ownWork'];
 			foreach ( $ownWork['licenses'] as $license ) {
@@ -73,7 +79,7 @@ class UploadWizardHooks {
 				$licenses[$licenseKey] = $licenseValue;
 			}
 
-			$thirdParty = UploadWizardConfig::getThirdPartyLicenses();
+			$thirdParty = Config::getThirdPartyLicenses();
 			$hasCustom = false;
 			foreach ( $thirdParty as $license ) {
 				if ( $license !== 'custom' ) {
@@ -150,8 +156,8 @@ class UploadWizardHooks {
 	 */
 	public static function onIsUploadAllowedFromUrl( $url, &$allowed ) {
 		if ( $allowed ) {
-			$flickrBlacklist = new UploadWizardFlickrBlacklist(
-				UploadWizardConfig::getConfig(),
+			$flickrBlacklist = new FlickrBlacklist(
+				Config::getConfig(),
 				RequestContext::getMain()
 			);
 			if ( $flickrBlacklist->isBlacklisted( $url ) ) {
@@ -178,9 +184,9 @@ class UploadWizardHooks {
 				'',
 				$licenseConfig[$licenseName]['url']
 			)->parse();
-		} else {
-			return wfMessage( $licenseConfig[$licenseName]['msg'] )->escaped();
 		}
+
+		return wfMessage( $licenseConfig[$licenseName]['msg'] )->escaped();
 	}
 
 	/**

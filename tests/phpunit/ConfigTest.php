@@ -1,21 +1,27 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard\Tests;
+
+use MediaWiki\Extension\UploadWizard\Campaign;
+use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Interwiki\ClassicInterwikiLookup;
+use MediaWikiIntegrationTestCase;
+use Title;
 
 /**
  * Test the Upload Wizard Configuration
  *
  * @group Upload
- * @covers UploadWizardCampaign
- * @covers UploadWizardConfig
+ * @covers \MediaWiki\Extension\UploadWizard\Campaign
+ * @covers \MediaWiki\Extension\UploadWizard\Config
  */
-class UploadWizardConfigTest extends MediaWikiIntegrationTestCase {
+class ConfigTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
 		// Test expects empty defaults; otheriwse they will override the
 		// parameters passed in by the test.
-		UploadWizardConfig::setUrlSetting( 'defaults', [] );
+		Config::setUrlSetting( 'defaults', [] );
 
 		// insert a interwiki prefixes for testing inter-language links.
 		// This is based on ParserTestRunner::appendInterwikiSetup, which does
@@ -79,7 +85,7 @@ class UploadWizardConfigTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function getHomeButtonHref() {
-		$campaign = new UploadWizardCampaign( Title::newFromText( 'uw-test-campaign', NS_CAMPAIGN ),
+		$campaign = new Campaign( Title::newFromText( 'uw-test-campaign', NS_CAMPAIGN ),
 			[
 				'enabled' => true,
 				'display' => [

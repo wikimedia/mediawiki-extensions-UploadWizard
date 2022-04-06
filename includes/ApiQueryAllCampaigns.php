@@ -20,6 +20,10 @@
  * @file
  */
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use ApiBase;
+use ApiQueryBase;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -69,7 +73,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				break;
 			}
 
-			$campaign = UploadWizardCampaign::newFromName( $row->campaign_name );
+			$campaign = Campaign::newFromName( $row->campaign_name );
 
 			$campaignPath = [ 'query', $this->getModuleName(), $row->campaign_id ];
 
@@ -93,7 +97,7 @@ class ApiQueryAllCampaigns extends ApiQueryBase {
 				'totalUploads',
 				$campaign->getUploadedMediaCount()
 			);
-			if ( UploadWizardConfig::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
+			if ( Config::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
 				$result->addValue(
 					$campaignPath,
 					'totalContributors',

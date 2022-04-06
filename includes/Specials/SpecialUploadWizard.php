@@ -1,6 +1,25 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard\Specials;
+
+use BitmapHandler;
+use ChangeTags;
+use DerivativeContext;
+use Html;
+use LogicException;
+use MediaWiki\Extension\UploadWizard\Campaign;
+use MediaWiki\Extension\UploadWizard\Config;
+use MediaWiki\Extension\UploadWizard\Hooks;
+use MediaWiki\Extension\UploadWizard\Tutorial;
 use MediaWiki\User\UserOptionsLookup;
+use PermissionsError;
+use SpecialPage;
+use Title;
+use UploadBase;
+use UploadFromUrl;
+use User;
+use UserBlockedError;
+use WebRequest;
 
 /**
  * Special:UploadWizard
@@ -70,7 +89,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$urlDefaults['objref'] = $req->getText( 'objref' ) ?: '';
 		$urlDefaults['updateList'] = $req->getText( 'updateList' ) ?: '';
 
-		UploadWizardConfig::setUrlSetting( 'defaults', $urlDefaults );
+		Config::setUrlSetting( 'defaults', $urlDefaults );
 
 		$fields = $req->getArray( 'fields' );
 		$fieldDefaults = [];
@@ -91,7 +110,7 @@ class SpecialUploadWizard extends SpecialPage {
 			}
 		}
 
-		UploadWizardConfig::setUrlSetting( 'fields', $fieldDefaults );
+		Config::setUrlSetting( 'fields', $fieldDefaults );
 
 		$this->handleCampaign();
 
@@ -134,20 +153,18 @@ class SpecialUploadWizard extends SpecialPage {
 	protected function handleCampaign() {
 		$campaignName = $this->getRequest()->getVal( 'campaign' );
 		if ( $campaignName === null ) {
-			$campaignName = UploadWizardConfig::getSetting( 'defaultCampaign' );
+			$campaignName = Config::getSetting( 'defaultCampaign' );
 		}
 
 		if ( $campaignName !== null && $campaignName !== '' ) {
-			$campaign = UploadWizardCampaign::newFromName( $campaignName );
+			$campaign = Campaign::newFromName( $campaignName );
 
 			if ( $campaign === false ) {
 				$this->displayError( $this->msg( 'mwe-upwiz-error-nosuchcampaign', $campaignName )->text() );
+			} elseif ( $campaign->getIsEnabled() ) {
+				$this->campaign = $campaignName;
 			} else {
-				if ( $campaign->getIsEnabled() ) {
-					$this->campaign = $campaignName;
-				} else {
-					$this->displayError( $this->msg( 'mwe-upwiz-error-campaigndisabled', $campaignName )->text() );
-				}
+				$this->displayError( $this->msg( 'mwe-upwiz-error-campaigndisabled', $campaignName )->text() );
 			}
 		}
 	}
@@ -177,7 +194,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 * @param string $subPage subpage, e.g. the "foo" in Special:UploadWizard/foo
 	 */
 	public function addJsVars( $subPage ) {
-		$config = UploadWizardConfig::getConfig( $this->campaign );
+		$config = Config::getConfig( $this->campaign );
 
 		if ( array_key_exists( 'trackingCategory', $config ) ) {
 			if ( array_key_exists( 'campaign', $config['trackingCategory'] ) ) {
@@ -216,14 +233,14 @@ class SpecialUploadWizard extends SpecialPage {
 					break;
 				case "notown":
 					$defaultInAllowedLicenses = in_array(
-						$userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses()
+						$userDefaultLicense, Config::getThirdPartyLicenses()
 					);
 					break;
 				case "choice":
 					$defaultInAllowedLicenses = ( in_array(
 							$userDefaultLicense, $config['licensing']['ownWork']['licenses']
 						) ||
-						in_array( $userDefaultLicense, UploadWizardConfig::getThirdPartyLicenses() ) );
+						in_array( $userDefaultLicense, Config::getThirdPartyLicenses() ) );
 					break;
 				default:
 					throw new LogicException( 'Bad ownWorkDefault config' );
@@ -246,7 +263,7 @@ class SpecialUploadWizard extends SpecialPage {
 		}
 
 		// add an 'uploadwizard' tag, but only if it'll be allowed
-		UploadWizardHooks::onListDefinedTags( $tags );
+		Hooks::onListDefinedTags( $tags );
 		$status = ChangeTags::canAddTagsAccompanyingChange( $tags, $this->getUser() );
 		$config['CanAddTags'] = $status->isOK();
 
@@ -325,7 +342,7 @@ class SpecialUploadWizard extends SpecialPage {
 	 *   it is wikitext, but all *label are used as html
 	 */
 	protected function getWizardHtml() {
-		$config = UploadWizardConfig::getConfig( $this->campaign );
+		$config = Config::getConfig( $this->campaign );
 
 		if ( array_key_exists(
 			'display', $config ) && array_key_exists( 'headerLabel', $config['display'] )
@@ -361,7 +378,7 @@ class SpecialUploadWizard extends SpecialPage {
 
 		// always load the html: even if the tutorial is skipped, users can
 		// still move back to view it
-		$tutorialHtml = UploadWizardTutorial::getHtml( $this->campaign );
+		$tutorialHtml = Tutorial::getHtml( $this->campaign );
 
 		// TODO move this into UploadWizard.js or some other javascript resource so the upload wizard
 		// can be dynamically included ( for example the add media wizard )

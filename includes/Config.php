@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
 /**
  * Static class with methods for interacting with the Upload Wizards configuration.
  *
@@ -11,7 +13,7 @@
  * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class UploadWizardConfig {
+class Config {
 
 	/**
 	 * Returns true if any of the keys of an array is a string
@@ -40,22 +42,21 @@ class UploadWizardConfig {
 		foreach ( $array as $key => $value ) {
 			if ( array_key_exists( $key, $array1 ) ) {
 				switch ( gettype( $value ) ) {
-				case "array":
-					if ( self::isAssoc( $array[$key] ) ) {
-						$newArray[$key] = self::arrayReplaceSanely( $array[$key], $array1[$key] );
+					case "array":
+						if ( self::isAssoc( $array[$key] ) ) {
+							$newArray[$key] = self::arrayReplaceSanely( $array[$key], $array1[$key] );
+							break;
+						}
+						# fall through
+					default:
+						$newArray[$key] = $array1[$key];
 						break;
-					}
-					# fall through
-				default:
-					$newArray[$key] = $array1[$key];
-					break;
 				}
 			} else {
 				$newArray[$key] = $array[$key];
 			}
 		}
-		$newArray = array_merge( $newArray, array_diff_key( $array1, $array ) );
-		return $newArray;
+		return array_merge( $newArray, array_diff_key( $array1, $array ) );
 	}
 
 	/**
@@ -151,7 +152,7 @@ class UploadWizardConfig {
 	 */
 	protected static function getCampaignConfig( $campaignName ) {
 		if ( $campaignName !== null ) {
-			$campaign = UploadWizardCampaign::newFromName( $campaignName );
+			$campaign = Campaign::newFromName( $campaignName );
 
 			if ( $campaign !== false && $campaign->getIsEnabled() ) {
 				return $campaign->getParsedConfig();

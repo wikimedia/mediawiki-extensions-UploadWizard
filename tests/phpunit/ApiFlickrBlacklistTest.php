@@ -1,5 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard\Tests;
+
+use ApiTestCase;
+use Http;
+use MediaWiki\Extension\UploadWizard\Config;
+use MediaWiki\Extension\UploadWizard\FlickrBlacklist;
+use MockHttpTrait;
+use ReflectionClass;
+
 /**
  * Test the Flickr blacklist API.
  * Note that these tests trigger actual API requests to Flickr. The relevant settings need to
@@ -8,7 +17,7 @@
  * @group API
  * @group medium
  * @group Database
- * @covers ApiFlickrBlacklist
+ * @covers \MediaWiki\Extension\UploadWizard\ApiFlickrBlacklist
  */
 class ApiFlickrBlacklistTest extends ApiTestCase {
 
@@ -157,7 +166,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		// Don't actually run HTTP requests in unit test runs
 		$this->installMockHttp( $this->makeFakeHttpRequest( '', 0 ) );
 
-		$config = UploadWizardConfig::getConfig();
+		$config = Config::getConfig();
 
 		if ( !isset( $config['flickrApiKey'] ) ) {
 			$this->markTestSkipped( 'This test needs a Flickr API key to work' );
@@ -186,7 +195,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		] );
 
 		// clear blacklist cache
-		$reflection = new ReflectionClass( UploadWizardFlickrBlacklist::class );
+		$reflection = new ReflectionClass( FlickrBlacklist::class );
 		$property = $reflection->getProperty( 'blacklist' );
 		$property->setAccessible( true );
 		$property->setValue( null, null );

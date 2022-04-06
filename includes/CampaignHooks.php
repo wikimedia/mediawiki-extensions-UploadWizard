@@ -1,9 +1,22 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use Article;
+use Content;
+use EditPage;
+use IContextSource;
+use JsonSchemaException;
+use LinksUpdate;
+use ManualLogEntry;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
+use Status;
+use Title;
+use User;
+use WikiPage;
 
 /**
  * Hooks for managing JSON Schema namespace and content model.
@@ -80,7 +93,7 @@ class CampaignHooks {
 			__METHOD__
 		);
 
-		$campaign = new UploadWizardCampaign( $wikiPage->getTitle(), $content->getJsonData() );
+		$campaign = new Campaign( $wikiPage->getTitle(), $content->getJsonData() );
 		$dbw->onTransactionPreCommitOrIdle( static function () use ( $campaign ) {
 			$campaign->invalidateCache();
 		}, __METHOD__ );
@@ -102,7 +115,7 @@ class CampaignHooks {
 			return true;
 		}
 
-		$campaign = new UploadWizardCampaign( $linksupdate->getTitle() );
+		$campaign = new Campaign( $linksupdate->getTitle() );
 		$campaign->invalidateCache();
 
 		return true;

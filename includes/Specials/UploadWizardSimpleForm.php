@@ -9,6 +9,10 @@
  * @ingroup Upload
  */
 
+namespace MediaWiki\Extension\UploadWizard\Specials;
+
+use UploadForm;
+
 /**
  * This is a hack on UploadForm, to make one that works from UploadWizard when JS is not available.
  *

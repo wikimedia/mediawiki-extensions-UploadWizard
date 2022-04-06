@@ -1,5 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard\Specials;
+
+use Html;
+use MediaWiki\Extension\UploadWizard\Campaign;
+use SpecialPage;
+
 class SpecialCampaigns extends SpecialPage {
 
 	public function __construct() {
@@ -46,7 +52,7 @@ class SpecialCampaigns extends SpecialPage {
 				$lastId = $row->campaign_id;
 				break;
 			} else {
-				$campaign = UploadWizardCampaign::newFromName( $row->campaign_name );
+				$campaign = Campaign::newFromName( $row->campaign_name );
 				$this->getOutput()->addHTML( $this->getHtmlForCampaign( $campaign ) );
 			}
 		}
@@ -59,21 +65,18 @@ class SpecialCampaigns extends SpecialPage {
 	}
 
 	/**
-	 * @param UploadWizardCampaign $campaign
+	 * @param Campaign $campaign
 	 *
 	 * @return string
 	 */
-	private function getHtmlForCampaign( UploadWizardCampaign $campaign ) {
+	private function getHtmlForCampaign( Campaign $campaign ) {
 		$config = $campaign->getParsedConfig();
 		$campaignURL = $campaign->getTitle()->getLocalURL();
 		$campaignTitle = $config['title'] ?? htmlspecialchars( $campaign->getName() );
 		$campaignDescription = $config['description'] ?? '';
-		$returnHTML =
-			Html::rawElement( 'dt', [],
+		return Html::rawElement( 'dt', [],
 				Html::rawElement( 'a', [ 'href' => $campaignURL ], $campaignTitle )
-			) .
-				Html::rawElement( 'dd', [], $campaignDescription );
-		return $returnHTML;
+			) . Html::rawElement( 'dd', [], $campaignDescription );
 	}
 
 	/**
