@@ -11,7 +11,8 @@
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
 			"Yue Ling",
-			"Nghiemtrongdai VN"
+			"Nghiemtrongdai VN",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"uploadwizard": "Trình hướng dẫn tải lên",
@@ -344,7 +345,7 @@
 	"mwe-upwiz-license-confirm-remove": "Bạn có chắc chắn muốn xóa bỏ {{PLURAL:$1|tập tin|các tập tin}} này?",
 	"mwe-upwiz-license-confirm-remove-title": "Xác nhận xóa bỏ",
 	"mwe-upwiz-license-external": "Tập tin này được phát hành theo giấy phép sau đây trên trang gốc “$1”: $2.",
-	"mwe-upwiz-license-external-invalid": "Tập tin này được phát hành theo giấy phép sau đây trên trang gốc “$1”: $2. Đáng tiếc, wiki này không chấp nhận giấy phép đó.",
+	"mwe-upwiz-license-external-invalid": "Tập tin này được phát hành theo giấy phép sau đây trên trang gốc “$1”: $2. Rất tiếc, wiki này không chấp nhận giấy phép đó.",
 	"mwe-upwiz-license-photoset-invalid": "Rất tiếc, không tìm thấy hình nào trong tập hình này có giấy phép phù hợp với trang này.",
 	"mwe-upwiz-license-pd-old-70-1923": "Xuất bản lần đầu tiên trước 1926 và tác giả đã chết cách đây hơn 70 năm",
 	"mwe-upwiz-url-invalid": "Không thể sử dụng URL đã nhập vì nó không được hỗ trợ hoặc nó chỉ đến một hình hay tập hình $1 không hợp lệ hay cấm dùng.",
