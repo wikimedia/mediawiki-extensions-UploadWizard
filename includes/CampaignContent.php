@@ -74,6 +74,6 @@ class CampaignContent extends JsonContent {
 	 * @return array|null
 	 */
 	public function getJsonData() {
-		return FormatJson::decode( $this->getNativeData(), true );
+		return FormatJson::decode( $this->getText(), true );
 	}
 }
