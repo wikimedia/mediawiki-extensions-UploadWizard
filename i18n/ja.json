@@ -48,7 +48,7 @@
 	"group-upwizcampeditors.js": "/* ここに記述したJSはキャンペーン編集者へのみ影響します */",
 	"api-error-aborted": "アップロードを中止しました。",
 	"api-error-noimageinfo": "アップロードには成功しましたが、サーバーはファイルに関する情報を返しませんでした。",
-	"mwe-upwiz-unavailable": "ご利用のブラウザは、アップロードウィザードに対応していないか、JavaScriptがオフになっているため、簡易版アップロードフォームを表示しています。（[https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility 互換性の要件を見る]。）",
+	"mwe-upwiz-unavailable": "ご利用のブラウザーは、アップロードウィザードに対応していないか、JavaScript がオフになっているため、簡易版アップロードフォームを表示しています。([https://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility 互換性の要件を見る]。)",
 	"mwe-upwiz-extension-disabled": "このページは、一時的な技術的な問題のために無効になっています。復旧するまで、通常のアップロードフォームjを使ってみてください。",
 	"mwe-upwiz-step-tutorial": "詳細",
 	"mwe-upwiz-step-file": "アップロード",
