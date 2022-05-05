@@ -10,7 +10,8 @@
 			"Дзяніс Тутэйшы",
 			"Тест",
 			"Хомелка",
-			"Tomato Cream"
+			"Tomato Cream",
+			"No Sleep till Krupki"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -49,7 +50,7 @@
 	"mwe-upwiz-add-file-0-free": "Абярыце медыяфайлы, каб падзяліцца",
 	"mwe-upwiz-add-file-flickr": "Дадаць выявы з Flickr",
 	"mwe-upwiz-add-file-flickr-n": "Дадаць больш выяў з Flickr",
-	"mwe-upwiz-add-flickr-or": "Ці",
+	"mwe-upwiz-add-flickr-or": "ці",
 	"mwe-upwiz-add-flickr": "Атрымаць з Flickr",
 	"mwe-upwiz-flickr-input-placeholder": "URL-адрас Flickr",
 	"mwe-upwiz-select-flickr": "Загрузіць выбраныя выявы",
@@ -169,8 +170,8 @@
 	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Дадаць подпіс|Дадаць подпіс іншай мовай}}",
 	"mwe-upwiz-desc": "Апісанне",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Дадаць апісанне|Дадаць апісанне іншай мовай}}",
-	"mwe-upwiz-title": "Назва",
-	"mwe-upwiz-date-created": "Дата стварэння",
+	"mwe-upwiz-title": "Назва выявы",
+	"mwe-upwiz-date-created": "Дата",
 	"mwe-upwiz-select-date": "Выберыце дату",
 	"mwe-upwiz-location": "Месцазнаходжанне",
 	"mwe-upwiz-location-button": "Паказаць на мапе",

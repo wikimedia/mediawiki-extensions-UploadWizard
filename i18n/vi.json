@@ -224,7 +224,7 @@
 	"mwe-upwiz-upload-another": "Tải lên thêm tập tin",
 	"mwe-upwiz-tooltip-skiptutorial": "Bạn có thể kích hoạt lại hướng dẫn này trong [$1 tùy chọn], dưới $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Tên của người chụp, sơn, hay vẽ hình.",
-	"mwe-upwiz-tooltip-source": "Nơi mà tập tin số này được tìm thấy, thí dụ địa chỉ URL hay cuốn sách",
+	"mwe-upwiz-tooltip-source": "Nơi mà tập tin số này được tìm thấy, ví dụ địa chỉ URL hay cuốn sách.",
 	"mwe-upwiz-tooltip-sign": "Có thể sử dụng tên đăng nhập trên wiki hoặc tên thật của bạn.\nDù sao, tên này sẽ được liên kết đến trang cá nhân của bạn trên wiki.",
 	"mwe-upwiz-tooltip-title": "Ghi tên ngắn và duy nhất cho tập tin dùng thuật ngữ bình thường có dấu cách. Đừng bao gồm phần mở rộng tập tin nếu có.",
 	"mwe-upwiz-tooltip-caption": "Ghi một dòng giải thích tập tin này có những gì, chỉ bao gồm các thông tin quan trọng nhất.",
