@@ -214,7 +214,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "You can re-enable this tutorial in [$1 your user preferences], under $2 → $3.",
 	"mwe-upwiz-tooltip-author": "The name of the person who took the photo, or painted the picture, drew the drawing, etc.",
 	"mwe-upwiz-tooltip-source": "Where this digital file came from — could be a URL, or a book or publication.",
-	"mwe-upwiz-tooltip-sign": "You can use your wiki user name or your real name.\nIn both cases, this will be linked to your wiki user page.",
+	"mwe-upwiz-tooltip-sign": "You can use your wiki username or your real name.\nIn both cases, this will be linked to your wiki user page.",
 	"mwe-upwiz-tooltip-title": "Create a unique descriptive title using plain language with spaces. Omit the file extension, if any.",
 	"mwe-upwiz-tooltip-caption": "Add a one-line explanation of what this file represents, including only the most relevant information.",
 	"mwe-upwiz-tooltip-description": "Provide all information that will help others understand what this file represents.",
