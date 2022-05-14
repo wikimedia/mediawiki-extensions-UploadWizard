@@ -1,16 +1,14 @@
-( function () {
+QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
 	'use strict';
 
-	QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', QUnit.newMwEnvironment( {
-		beforeEach: function () {
-			mw.FlickrChecker.fileNames = {};
-		}
-	} ) );
+	hooks.beforeEach( function () {
+		mw.FlickrChecker.fileNames = {};
+	} );
 
 	function getInstance() {
-		var wizard = new mw.UploadWizard( {} ),
-			// FlickrChecker doesn't actually do much with the upload so we can omit some of its dependencies
-			upload = new mw.UploadWizardUpload( wizard );
+		var wizard = new mw.UploadWizard( {} );
+		// FlickrChecker doesn't actually do much with the upload so we can omit some of its dependencies
+		var upload = new mw.UploadWizardUpload( wizard );
 		return new mw.FlickrChecker( wizard, upload );
 	}
 
@@ -45,12 +43,13 @@
 	} );
 
 	QUnit.test( 'getFilenameFromItem() name conflict between different instances', function ( assert ) {
-		var flickrChecker = getInstance(),
-			fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
+		var flickrChecker = getInstance();
+		var fileName = flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' );
 		assert.strictEqual(
 			flickrChecker.getFilenameFromItem( 'foo', 123, 'johndoe' ),
 			'foo.jpg'
 		);
+
 		flickrChecker.reserveFileName( fileName );
 		flickrChecker = getInstance();
 		assert.strictEqual(
@@ -60,9 +59,9 @@
 	} );
 
 	QUnit.test( 'setUploadDescription', function ( assert ) {
-		var flickrChecker = getInstance(),
-			upload = {},
-			sidstub = this.sandbox.stub( flickrChecker, 'setImageDescription' );
+		var flickrChecker = getInstance();
+		var upload = {};
+		var sidstub = this.sandbox.stub( flickrChecker, 'setImageDescription' );
 
 		flickrChecker.setUploadDescription( upload );
 		assert.true( sidstub.called );
@@ -90,4 +89,4 @@
 		assert.false( sidstub.called );
 		assert.strictEqual( upload.description, '' );
 	} );
-}() );
+} );
