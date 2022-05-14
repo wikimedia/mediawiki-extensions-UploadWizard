@@ -2,7 +2,7 @@
 	'use strict';
 
 	QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			mw.FlickrChecker.fileNames = {};
 		}
 	} ) );
