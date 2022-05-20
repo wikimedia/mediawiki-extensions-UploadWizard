@@ -22,7 +22,7 @@ module.exports = function ( grunt ) {
 		},
 		stylelint: {
 			options: {
-				syntax: 'less'
+				reportNeedlessDisables: true
 			},
 			all: 'resources/{**/,}*.{css,less}'
 		},
