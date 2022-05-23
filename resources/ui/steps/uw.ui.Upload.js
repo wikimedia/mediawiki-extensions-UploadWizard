@@ -308,6 +308,7 @@
 			ui.emit( 'files-added', files );
 			ui.addFile.setValue( null );
 		} );
+		this.displayUploads( uploads );
 	};
 
 	uw.ui.Upload.prototype.displayUploads = function ( uploads ) {
