@@ -153,6 +153,7 @@
 	"mwe-upwiz-error-bad-descriptions": "ߝߙߋߞߋ ߟߎ߬ ߦߴߌ ߟߊ߫ ߞߊ߲߬ߛߓߍߟߌ ߘߏ߫ ߟߎ߫ ߘߐ߫.",
 	"mwe-upwiz-error-title-senselessimagename": "ߞߎ߲߬ߕߐ߮ ߣߌ߲߬ ߞߍ߫ ߞߘߐߡߊ߫ ߖߐ߲ߖߐ߲ ߘߌ߫ ߖߊ߰ߣߌ߲߫.",
 	"mwe-upwiz-error-license-wikitext-missing": "ߌ ߓߘߊ߫ ߞߍߢߊ߫ ߓߊߕߐ߬ߡߐ߲߫ ߡߍ߲ ߦߴߊ߬ ߢߌߣߌ߲߫ ߠߴߌ ߝߍ߬ ߞߴߌ ߦߋ߫ ߥߞߌߞߟߏߘߋ߲ ߠߊߘߏ߲߬.",
+	"mwe-upwiz-error-license-wikitext-too-long": "ߥߞߌߞߟߏߜߍ ߡߍ߲ ߡߊߛߐߣߍ߲߫ ߦߴߌ ߓߟߏ߫ ߣߌ߲߬ ߏ߬ ߛߘߎ߬ߡߊ߲߫ ߞߏߖߎ߰.",
 	"mwe-upwiz-too-many-files": "ߞߐߕߐ߮ ߟߎ߬ ߦߙߌߞߊ ߛߌߦߊߡߊ߲߫ ߞߏߖߎ߰",
 	"mwe-upwiz-file-too-large-text": "ߌ ߘߌ߫ ߛߋ߫ ߞߐߕߐ߮ ߢߊ߲ߞߊ߲ ߠߎ߬ ߟߊߦߟߍ߬ ߟߊ߫ ߞߊ߬ ߥߊ߫ ߘߊ߲߬ $1 ߠߋ߬ ߟߊ߫. ߌߟߋ ߘߏ߲߬ ߣߐ߬ ߦߴߌ ߞߊߘߊ߲߫ ߠߊ߫ ߞߐߕߐ߯ ߟߊߦߟߍ ߡߍ߲ ߘߐ߫ ߏ߬ ߟߋ ߦߋ߫ $2 ߘߌ߫.",
 	"mwe-upwiz-file-too-large": "ߞߐߕߐ߮ ߥߊ߲߬ߥߊ߲ ߓߏ߲߬ߓߊ߫ ߞߏߖߎ߰.",
