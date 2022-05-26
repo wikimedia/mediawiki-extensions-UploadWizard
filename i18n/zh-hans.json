@@ -49,7 +49,8 @@
 			"神樂坂秀吉",
 			"铁桶",
 			"阿pp",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"StarrySky"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -289,8 +290,8 @@
 	"mwe-upwiz-error-blank": "本栏必填。",
 	"mwe-upwiz-error-too-long": "此项过长。请确保该项最多$1个{{PLURAL:$1|字符}}。",
 	"mwe-upwiz-error-too-short": "此项过短。请确保该项最少$1个{{PLURAL:$1|字符}}。",
-	"mwe-upwiz-error-title-too-long": "此标题过长。请确保标题最多为$1字节。",
-	"mwe-upwiz-error-title-too-short": "此标题过短。请确保标题至少为$1字节。",
+	"mwe-upwiz-error-title-too-long": "此标题过长。请确保该项最多$1个{{PLURAL:$1|字符}}。",
+	"mwe-upwiz-error-title-too-short": "此项过短。请确保该项最少$1个{{PLURAL:$1|字符}}。",
 	"mwe-upwiz-error-bad-captions": "说明文字存在一点问题。",
 	"mwe-upwiz-error-bad-descriptions": "描述存在一点问题。",
 	"mwe-upwiz-error-title-blacklisted": "该标题含有一些不良文字。请修改。",
