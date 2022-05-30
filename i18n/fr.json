@@ -197,7 +197,7 @@
 	"mwe-upwiz-license-metadata-statements-title": "Licence pour toutes les métadonnées structurées (pas pour le fichier)",
 	"mwe-upwiz-license-metadata-content": "En cliquant sur « publier », vous acceptez les [[wmf:Terms_of_Use|conditions d’utilisation]], et acceptez de façon irrévocable de livrer votre contribution sous la [https://creativecommons.org/publicdomain/zero/1.0/ licence Creative Commons CC0].",
 	"mwe-upwiz-more-options": "Ajoutez l'emplacement et d'autres informations …",
-	"mwe-upwiz-copy-statements-dialog": "Les métadonnées sur d’autres fichiers dans ce traitement par lot seront remplacées par les métadonnées du fichier. Êtes-cous sûr ?",
+	"mwe-upwiz-copy-statements-dialog": "Les métadonnées sur les autres fichiers dans ce traitement par lot seront remplacées par les métadonnées de ce fichier. En êtes-vous sûr {{GENDER:||e}}?",
 	"mwe-upwiz-copy-statements-dialog-accept": "Oui, copier",
 	"mwe-upwiz-copy-statements-button": "Copier les déclarations vers tous les fichiers…",
 	"mwe-upwiz-copy-statements-button-done": "Copié !",
