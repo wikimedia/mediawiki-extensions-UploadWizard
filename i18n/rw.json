@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Germain92"
+			"Germain92",
+			"Amire80"
 		]
 	},
-	"uploadwizard": "aho bashyiriraho",
+	"uploadwizard": "Aho bashyiriraho",
 	"uploadwizard-desc": "Shyiraho, ibikoresho byo gushyira kubitangazamakuru",
-	"tag-uploadwizard": "aho bashyiriraho",
+	"tag-uploadwizard": "Aho bashyiriraho",
 	"tag-uploadwizard-description": "Gushyiraho bikorwa nabashyiraho"
 }
