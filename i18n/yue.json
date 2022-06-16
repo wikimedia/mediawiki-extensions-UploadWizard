@@ -1,8 +1,47 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hello903hello"
+			"Hello903hello",
+			"Sun8908"
 		]
 	},
-	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=加一段説明|加另一個語言嘅説明}}"
+	"uploadwizard": "上載精靈",
+	"mwe-upwiz-step-tutorial": "學習",
+	"mwe-upwiz-step-file": "上載",
+	"mwe-upwiz-step-deeds": "發佈權",
+	"mwe-upwiz-step-details": "描述",
+	"mwe-upwiz-step-metadata": "加數據",
+	"mwe-upwiz-step-thanks": "用",
+	"mwe-upwiz-add-file-n": "加多啲檔案",
+	"mwe-upwiz-add-file-0-free": "揀要分享嘅媒體檔案",
+	"mwe-upwiz-add-file-flickr": "分享來自Flickr嘅相",
+	"mwe-upwiz-add-file-flickr-n": "加多啲來自Flickr嘅相",
+	"mwe-upwiz-add-flickr-or": "或者",
+	"mwe-upwiz-stashed-upload": "已上載",
+	"mwe-upwiz-remove": "移除",
+	"mwe-upwiz-file-all-ok": "成功上載所有檔案！",
+	"mwe-upwiz-upload-count": "$2個檔案中嘅$1個已經上載咗",
+	"mwe-upwiz-deeds-macro-prompt": "呢個網站要求{{GENDER:$2|您}}提供{{PLURAL:$1|呢個作品|呢啲作品}}嘅版權資訊，確保所有人都可以重用{{PLURAL:$1|呢個作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|呢個檔案|呢啲檔案}}係我自己嘅作品。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-4.0": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 4.0 國際授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 國際授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-at": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 奧地利授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-de": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 德國授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ee": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 愛沙尼亞授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-es": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 西班牙授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-hr": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 克羅地亞授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 盧森堡授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 荷蘭授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 挪威授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-pl": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 波蘭授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-ro": "我，$2，{{PLURAL:$1|呢份作品|呢啲作品}}嘅{{GENDER:$4|版權擁有人}}，冇得反悔噉授權所有人以創用CC 姓名標示-相同方式分享 3.0 羅馬尼亞授權條款（[$3 法律條款]）用{{PLURAL:$1|呢份作品|呢啲作品}}。",
+	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|呢個檔案|呢啲檔案}}唔係我自己嘅作品。",
+	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=加一段説明|加另一個語言嘅説明}}",
+	"mwe-upwiz-author": "作者",
+	"mwe-upwiz-source": "來源",
+	"mwe-upwiz-next-file": "繼續",
+	"mwe-upwiz-previous": "返轉頭",
+	"mwe-upwiz-tooltip-source": "呢個數碼檔案嘅來源──可以係URL、書或者出版物。",
+	"mwe-upwiz-metadata-notice-header": "私人數據",
+	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }
