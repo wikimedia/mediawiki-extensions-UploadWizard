@@ -27,7 +27,9 @@
 			"Waihorace",
 			"Wrightbus",
 			"Wwycheuk",
-			"Xiplus"
+			"Xiplus",
+			"Diskdance",
+			"Winston Sung"
 		]
 	},
 	"uploadwizard": "上傳精靈",
@@ -169,11 +171,11 @@
 	"mwe-upwiz-copy-statements-dialog": "此批量裡其它檔案上的詮釋資料，將會被此檔案的詮釋資料給取代掉，您確定要嗎？",
 	"mwe-upwiz-copy-statements-dialog-accept": "是的，複製",
 	"mwe-upwiz-copy-statements-button": "複製陳述內容到所有檔案…",
-	"mwe-upwiz-copy-statements-button-done": "已複製!",
+	"mwe-upwiz-copy-statements-button-done": "已複製！",
 	"mwe-upwiz-copy-metadata": "複製資訊至下列所有上傳的檔案...",
 	"mwe-upwiz-copy-metadata-button": "複製",
 	"mwe-upwiz-copy-metadata-button-undo": "還原",
-	"mwe-upwiz-copied-metadata": "已複製!",
+	"mwe-upwiz-copied-metadata": "已複製！",
 	"mwe-upwiz-undid-metadata": "複製未完成。",
 	"mwe-upwiz-copy-title": "複製標題 (使用自動編號功能)",
 	"mwe-upwiz-copy-caption": "複製說明文字",
