@@ -32,6 +32,8 @@ if ( $IP === false ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Maintenance script to migrate campaigns from older, database table
  * to newer page based storage
@@ -268,12 +270,13 @@ class MigrateCampaigns extends Maintenance {
 		}
 
 		$user = User::newFromName( $username );
+		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );
 
 			$title = Title::makeTitleSafe( NS_CAMPAIGN, $campaign->campaign_name );
-			$page = WikiPage::factory( $title );
+			$page = $wikiPageFactory->newFromTitle( $title );
 
 			$content = new CampaignContent( json_encode( $newConfig ) );
 			$page->doUserEditContent(

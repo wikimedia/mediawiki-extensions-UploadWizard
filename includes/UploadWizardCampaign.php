@@ -76,7 +76,7 @@ class UploadWizardCampaign {
 	public function __construct( $title, $config = null, $context = null ) {
 		$this->title = $title;
 		if ( $config === null ) {
-			$content = WikiPage::factory( $title )->getContent();
+			$content = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title )->getContent();
 			if ( !$content instanceof CampaignContent ) {
 				throw new MWException( 'Wrong content model' );
 			}
