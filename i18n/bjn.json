@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ezagren",
 			"Riemogerz"
 		]
 	},
-	"api-error-noimageinfo": "Paunggahan tuntung, tagal paladen kada mambarii inpurmasi napa haja masalah barakas."
+	"api-error-noimageinfo": "Paunggahan tuntung, tagal paladen kada mambarii inpurmasi napa haja masalah barakas.",
+	"mwe-upwiz-tooltip-more-info": "Palajari labih lanjut"
 }
