@@ -9,7 +9,7 @@
 	},
 	"apihelp-flickrblacklist-description": "Valide une URL Flickr en utilisant l’identifiant de l’utilisateur (NSID) d’après la liste des interdits.\n\nQuand c’est utilisé avec l’option <var>list</var>, cela renvoie tous les identifiants interdits.",
 	"apihelp-flickrblacklist-summary": "Valide une URL Flickr en utilisant l’identifiant de l’utilisateur (NSID) d’après la liste des interdits.",
-	"apihelp-flickrblacklist-extended-description": "Quand c’est utilisé avec l’option <var>list</var>, cela renvoie tous les identifiants interdits.",
+	"apihelp-flickrblacklist-extended-description": "Quand c’est utilisé avec l’option <var>list</var>, cela renvoie tous les identifiants sur la liste des interdits.",
 	"apihelp-flickrblacklist-param-url": "Le lien Flickr à tester.",
 	"apihelp-flickrblacklist-param-list": "Si positionné, la liste complète des interdits est renvoyée. Impossible à utiliser avec $1url.",
 	"apihelp-flickrblacklist-example-1": "Vérifier une URL d’après la liste des interdits",
