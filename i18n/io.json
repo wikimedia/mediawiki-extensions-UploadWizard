@@ -69,6 +69,8 @@
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Arkivo|Arkivi}} kargita",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nula arkivo sendita ankore!",
 	"mwe-upwiz-license-custom": "La permiso deskriptesas per la sequanta wikitexto (mustas kontenar valida [$2 informo pri autoroyuro]):",
+	"mwe-upwiz-license-pd-old-100": "Autoro mortis plu kam 100 yari ante nun",
+	"mwe-upwiz-license-pd-old": "Autoro mortis plu kam 70 yari ante nun",
 	"mwe-upwiz-license-cc-subhead": "Ne tota Licenci ''Creative Commons'' aceptesas hike. Verifikez ol kun la posedanto dil autoroyuro.",
 	"mwe-upwiz-license-custom-preview": "Previdar",
 	"mwe-upwiz-license-external-invalid": "L'arkivo havas la sequanta licenco en lua fonto-pagino \"$1\": $2. Desfortunoze, ca Wiki ne permisas ta licenco.",
