@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Riemogerz"
+			"Riemogerz",
+			"Ezagren"
 		]
 	},
-	"api-error-noimageinfo": "Paunggahan tuntung, tagal paladen kada mambarii inpurmasi napa haja masalah barakas."
+	"api-error-noimageinfo": "Paunggahan tuntung, tagal paladen kada mambarii inpurmasi napa haja masalah barakas.",
+	"mwe-upwiz-tooltip-more-info": "Palajari labih lanjut",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Pian kada lagi manarima pamadahan gasan mambari unggahan Pian tag."
 }
