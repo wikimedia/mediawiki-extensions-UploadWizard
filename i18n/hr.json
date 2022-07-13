@@ -177,7 +177,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "Ove upute možete ponovno omogućiti u [$1 Vašim suradničkim postavkama], $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Ime osobe koja je snimila fotografiju, ili naslikala sliku ili nacrtala crtež, itd.",
 	"mwe-upwiz-tooltip-source": "Odakle je došla ova digitalna datoteka -- može biti URL, knjiga ili publikacija",
-	"mwe-upwiz-tooltip-sign": "Možete rabiti vaše wiki suradničko ime ili vaše stvarno ime.\nU oba slučaja, ono će biti povezano na vašu wiki suradničku stranicu",
+	"mwe-upwiz-tooltip-sign": "Možete rabiti svoje suradničko ime ili svoje stvarno ime.\nU oba slučaja ono će biti povezano s Vašom suradničkom stranicom.",
 	"mwe-upwiz-tooltip-title": "Napišite jedinstveni naziv datoteke jednostavnim jezikom s razmacima. Ako postoji, izostavite nastavak datoteke.",
 	"mwe-upwiz-tooltip-caption": "Dodajte kratko objašnjenje što predstavlja ova datoteka, uključujući relevantne informacije.",
 	"mwe-upwiz-tooltip-description": "Navedite informacije koje će pomoći drugima u razumijevanju što datoteka predstavlja.",
@@ -188,7 +188,7 @@
 	"mwe-upwiz-tooltip-more-info": "Saznajte više.",
 	"mwe-upwiz-file-need-file": "Molimo prvo dodajte datoteku.",
 	"mwe-upwiz-deeds-need-deed": "Navedite porijeklo datoteke i kako se može rabiti na ovoj stranici, odabirom jedne od mogućnosti.",
-	"mwe-upwiz-deeds-need-license": "Molimo vas da izaberete licenciju.",
+	"mwe-upwiz-deeds-need-license": "Izaberite licenciju.",
 	"mwe-upwiz-license-show-all": "Rabite drugačiju licenciju",
 	"mwe-upwiz-license-show-recommended": "Rabite preporučenu licenciju stranice",
 	"mwe-upwiz-label-optional": "Nije obvezno",
@@ -298,7 +298,7 @@
 	"mwe-upwiz-mv-cta-dismiss": "Odbaci",
 	"mwe-upwiz-mv-cta-user-preference-set": "Odlično! Ovu postavku bilo kada možete promijeniti u[[c:Special:Preferences#mw-prefsection-echo|postavkama]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Nećete više dobivati obavijesti o označavanju datoteka koje ste postavili.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Trenuračno nismo bili u mogućnosti spremiti vaše postavke. Molimo posjetite [[c:Special:Preferences#mw-prefsection-echo|postavke]] i uključite obavijest.",
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nismo bili u mogućnosti spremiti Vaše preferencije. Molimo Vas da u [[c:Special:Preferences#mw-prefsection-echo|postavkama]] uključite primanje obavijesti.",
 	"mwe-upwiz-metadata-notice-header": "Osobni podatci",
 	"mwe-upwiz-metadata-notice-description": "EXIF metapodatci u ovoj datoteci mogu sadržavati lokaciju ili druge osobne dodatke koje je automatski dodala kamera.\nDa biste saznali kako ukloniti ili uređivati EXIF metapodatke posjetite [https://commons.wikimedia.org/wiki/Commons:Exif ovu stranicu]."
 }
