@@ -347,5 +347,6 @@
 	"mwe-upwiz-prefs-maxsimultaneous-upload": "Največje število sočasnih nalaganj",
 	"campaigns": "Kampanje čarovnika za nalaganje",
 	"mwe-upload-campaigns-pagination-next": "Naslednja stran",
-	"mwe-upload-campaigns-list-title": "Seznam nalagalskih kampanj"
+	"mwe-upload-campaigns-list-title": "Seznam nalagalskih kampanj",
+	"mwe-upwiz-upload-comment-own-work": "Naložil lastno delo z UploadWizard"
 }
