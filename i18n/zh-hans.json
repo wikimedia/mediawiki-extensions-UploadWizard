@@ -50,7 +50,9 @@
 			"GuoPC",
 			"SolidBlock",
 			"沈澄心",
-			"StarrySky"
+			"StarrySky",
+			"Diskdance",
+			"Stang"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -96,7 +98,7 @@
 	"mwe-upwiz-add-flickr": "从Flickr获取",
 	"mwe-upwiz-flickr-input-placeholder": "Flickr网址",
 	"mwe-upwiz-select-flickr": "上传选定的图像",
-	"mwe-upwiz-flickr-disclaimer1": "该表格将载入flickr.com保管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私权政策]。",
+	"mwe-upwiz-flickr-disclaimer1": "该表格将加载flickr.com保管的内容，并遵循Flickr的[https://www.flickr.com/help/terms/ 使用条款]和[https://www.flickr.com/help/privacy-policy/ 隐私权政策]。",
 	"mwe-upwiz-flickr-disclaimer2": "请注意，使用此工具您的IP地址和请求详情将提供给Flickr。",
 	"mwe-upwiz-error-no-image-retrieved": "我们无法从$1获取文件。",
 	"mwe-upwiz-multi-file-select2": "选择您想要上传的文件。按住Shift键并点击选择多个文件。您最多可以选择$1个{{PLURAL:$1|文件}}上传。",
