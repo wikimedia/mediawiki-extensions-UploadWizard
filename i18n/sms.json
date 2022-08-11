@@ -7,6 +7,7 @@
 	"mwe-upwiz-step-file": "Ruõkk",
 	"mwe-upwiz-step-metadata": "Lââʹzzet teâđaid",
 	"mwe-upwiz-step-thanks": "Ââʹn",
+	"mwe-upwiz-add-file-n": "Lââʹzzet ođđ teâttõõzzid",
 	"mwe-upwiz-add-flickr-or": "leʹbe",
 	"mwe-upwiz-published": "Õlmstõttum!",
 	"mwe-upwiz-failed": "Ij oʹnnstam.",
@@ -31,9 +32,12 @@
 	"mwe-upwiz-other": "Jeeʹres teâđ",
 	"mwe-upwiz-source": "Käivv",
 	"mwe-upwiz-thanks-intro": "Späʹsseb, ǥu ruõʹǩǩiǩ teâttõõzz(id)!",
+	"mwe-upwiz-thanks-wikitext": "Kopiââʹst tän teeʹkst wikiprojeeʹkt sijddu, koʹst haaʹlääk teâttõõzz ââʹnned:",
+	"mwe-upwiz-thanks-url": "Kopiââʹst tän teeʹkst, jõs haaʹlääk teâttõʹsse liŋkkeed HTML-kooddin:",
 	"mwe-upwiz-ok": "OK",
 	"mwe-upwiz-publish-details": "Õlmstââʹtt teâttõõzz",
 	"mwe-upwiz-metadata-title": "Lââʹzzet metateâđaid",
+	"mwe-upwiz-home": "Mõõn tän projeeʹkt ouddsijddu",
 	"mwe-upwiz-tooltip-more-info": "Lââʹssteâđ",
 	"mwe-upwiz-deeds-need-license": "Vaʹlljed liseeʹns.",
 	"mwe-upwiz-label-optional": "Vaʹlljeemnallšem",
@@ -41,5 +45,6 @@
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|ruõkkmõš|ruõkkmõõžž|ruõkkmõššâd}}",
 	"mwe-upwiz-license-custom-preview": "Ouddǩiõččmõš",
 	"mwe-upwiz-categories": "Kategoria",
-	"mwe-upwiz-feedback-prompt": "Uuʹd maacctõõzz"
+	"mwe-upwiz-feedback-prompt": "Uuʹd maacctõõzz",
+	"mwe-upwiz-metadata-notice-header": "Persoonteâđ"
 }
