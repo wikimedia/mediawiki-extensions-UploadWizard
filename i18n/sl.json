@@ -74,7 +74,7 @@
 	"mwe-upwiz-file-some-failed": "Nalaganje nekaterih datotek je spodletelo.",
 	"mwe-upwiz-file-retry": "Znova naloži spodletele datoteke",
 	"mwe-upwiz-next-file-despite-failures": "Vseeno nadaljuj",
-	"mwe-upwiz-skip-tutorial-future": "V prihodnje ta korak preskoči",
+	"mwe-upwiz-skip-tutorial-future": "V prihodnje preskoči ta korak",
 	"mwe-upwiz-file-all-failed": "Nobena od datotek ni bila uspešno naložena.",
 	"mwe-upwiz-upload-count": "naložena $1 od $2 {{PLURAL:$2|datoteke|datotek}}",
 	"mwe-upwiz-progressbar-uploading": "nalaganje",
