@@ -22,6 +22,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-patent-dialog-link-warranty": "Lââʹssteâđ",
 	"mwe-upwiz-patent-dialog-link-license": "Lââʹssteâđ",
+	"mwe-upwiz-patent-dialog-checkbox-label": "Mon priimam täid määinaid",
 	"mwe-upwiz-copy-metadata-button": "Kopiââʹst",
 	"mwe-upwiz-copy-metadata-button-undo": "Kååʹmet",
 	"mwe-upwiz-copy-caption": "Kopiââʹst kartt- leʹbe snimldõkteeʹkst",
@@ -48,6 +49,7 @@
 	"mwe-upwiz-label-optional": "Vaʹlljeemnallšem",
 	"mwe-upwiz-campaign-upload-button": "Ruõkk!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|ruõkkmõš|ruõkkmõõžž|ruõkkmõššâd}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|vuässõõtti|vuässõõtti|vuässõõttjed}}",
 	"mwe-upwiz-license-custom-preview": "Ouddǩiõččmõš",
 	"mwe-upwiz-categories": "Kategoria",
 	"mwe-upwiz-feedback-prompt": "Uuʹd maacctõõzz"
