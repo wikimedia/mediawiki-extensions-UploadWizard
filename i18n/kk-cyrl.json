@@ -3,7 +3,8 @@
 		"authors": [
 			"Amankel'dy",
 			"Arystanbek",
-			"Macofe"
+			"Macofe",
+			"СеніңШешең"
 		]
 	},
 	"uploadwizard": "Жүктеу шебері",
@@ -132,7 +133,7 @@
 	"mwe-upwiz-campaign-upload-button": "Жүкте!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Жүктеме|Жүктеме}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Үлескер|Үлескерлер}}",
-	"mwe-upwiz-campaign-view-all-media": "Жүктелген барлық медиаларды қарау",
+	"mwe-upwiz-campaign-view-all-media": "Барлық жүктелген медианы көру",
 	"mwe-upwiz-campaign-no-uploads-yet": "Әлі де жүктелген файлдар жоқ!",
 	"mwe-upwiz-license-cc-by-sa-4.0": "Creative Commons Attribution ShareAlike 4.0 ([$2 заңды құжаты])",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 заңды құжаты])",
