@@ -301,7 +301,7 @@
 	"mwe-upwiz-error-bad-descriptions": "Il y a des problèmes avec certaines descriptions.",
 	"mwe-upwiz-error-title-blacklisted": "Ce titre contient des textes indésirables. Veuillez le réviser",
 	"mwe-upwiz-error-title-senselessimagename": "Veuillez rendre ce titre plus significatif.",
-	"mwe-upwiz-error-title-thumbnail": "Cela ressemble à un titre de miniature (thumbnail). Veuillez ne pas importer de vignettes sur le même wiki. Sinon, veuillez corriger le nom du fichier de sorte qu’il soit plus significatif et n’aie pas le préfixe \"thumbnail\".",
+	"mwe-upwiz-error-title-thumbnail": "Cela ressemble à un titre de vignette (« thumbnail »). Veuillez ne réimporter aucune vignette sur le même wiki. Sinon, veuillez corriger le nom du fichier de sorte qu’il soit plus significatif et n’aie pas le préfixe « thumbnail ».",
 	"mwe-upwiz-error-title-extension": "Vous n’avez pas besoin d’ajouter une extension de fichier. Il suffit de faire un titre compréhensible par un humain et l’application se chargera du reste.",
 	"mwe-upwiz-error-title-protected": "Ce titre correspond à une page protégée sur ce wiki. Veuillez choisir un nom différent.",
 	"mwe-upwiz-error-title-duplicate": "Ce titre a été spécifié pour plus d’un fichier que vous allez téléverser. Les espaces soulignés sont traités comme des espaces, une extension de fichier est ajoutée automatiquement.",
