@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Iflaq"
+		]
+	},
+	"uploadwizard": "اَپلوڈ سٲتھی",
+	"tag-uploadwizard": "اَپلوڈ سٲتھی",
+	"mwe-upwiz-step-tutorial": "ہیٚچھِو",
+	"mwe-upwiz-step-file": "اَپلوڈ",
+	"mwe-upwiz-step-deeds": "اِجازَتھ نامہٕ",
+	"mwe-upwiz-step-details": "تَفصیٖل",
+	"mwe-upwiz-step-metadata": "مولوٗماتھ اِضافہٕ",
+	"mwe-upwiz-step-thanks": "اِستِمال",
+	"mwe-upwiz-help-desk": "مَدَتھ جاے",
+	"mwe-upwiz-help-desk-url": "{{ns:project}}:چاے جاے",
+	"mwe-upwiz-add-file-n": "بیٚیہِ فَیِلہٕ کٔرِو شٲمِل",
+	"mwe-upwiz-add-file-0-free": "میٖڈیا فَیِل کٔرِو مُنتَخٕب",
+	"mwe-upwiz-add-file-flickr": "فِلِکر پؠٹھ کٔرِو شیٖر تَصویٖر",
+	"mwe-upwiz-add-flickr-or": "یا",
+	"mwe-upwiz-add-flickr": "فِلِکر پؠٹھ کٔرِو حٲصِل",
+	"mwe-upwiz-flickr-input-placeholder": "فِلِکر یو آر ایل",
+	"mwe-upwiz-select-flickr": "مُنتَخٕب تَصویٖر کٔرِو اَپلوڈ",
+	"mwe-upwiz-patent-dialog-button-next": "برٛونٛہہ",
+	"mwe-upwiz-copy-metadata-button-undo": "رَد کٔرِو",
+	"mwe-upwiz-date-created": "تٲریٖخ",
+	"mwe-upwiz-other": "باقی مولوٗماتھ",
+	"mwe-upwiz-dialog-yes": "آ",
+	"mwe-upwiz-dialog-no": "نہَ",
+	"mwe-upwiz-license-custom-preview": "نُمٲیِش",
+	"mwe-upwiz-errordialog-ok": "ٹھیٖکھ چھُ",
+	"prefs-uploads": "اَپلوڈ کَرَن",
+	"prefs-upwiz-licensing": "اِجازَتھ نامہٕ:",
+	"mwe-upload-campaigns-pagination-next": "برٛونٛہِم صَفہٕ",
+	"mwe-upwiz-metadata-notice-header": "زٲتی مولوٗماتھ"
+}
