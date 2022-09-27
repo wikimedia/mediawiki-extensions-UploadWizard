@@ -356,6 +356,7 @@
 	"mwe-upwiz-calendar-date": "Choose date from calendar",
 	"mwe-upwiz-custom-date": "Use custom date format",
 	"prefs-uploads": "Uploading",
+	"prefs-description-uploads": "Set your author name and the default license.",
 	"prefs-upwiz-licensing": "Licensing",
 	"prefs-upwiz-experimental": "Experimental features",
 	"prefs-upwiz-interface": "User interface",

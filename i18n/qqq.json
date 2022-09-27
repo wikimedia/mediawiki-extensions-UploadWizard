@@ -388,6 +388,7 @@
 	"mwe-upwiz-calendar-date": "Shown as a tooltip of a button next to a date input field, to display a calendar to choose a date from.",
 	"mwe-upwiz-custom-date": "Shown as a tooltip of a button next to a date input field, to enable inputting arbitrary text rather than only choosing dates from a calendar. (For example, if the date you want to input is 'circa 1900'.)",
 	"prefs-uploads": "Preferences tab label for UploadWizard preferences related to uploads.\n\nNote that this is about '''the process of uploading files''', and not files that were uploaded.\n\nSee https://commons.wikimedia.org/w/index.php?uselang=en&title=Special:Preferences#mw-prefsection-uploads.\n{{Identical|Uploading}}",
+	"prefs-description-uploads": "Used in [[Special:Preferences]] for mobile to describe the Upload Wizard features section.",
 	"prefs-upwiz-licensing": "{{Identical|Licensing}}",
 	"prefs-upwiz-experimental": "Used in [[Special:Preferences]].",
 	"prefs-upwiz-interface": "Preferences section heading for preferences related to the Upload Wizard user interface",
