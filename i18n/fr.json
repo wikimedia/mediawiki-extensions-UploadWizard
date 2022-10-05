@@ -410,6 +410,7 @@
 	"mwe-upwiz-calendar-date": "Choisir une date dans le calendrier",
 	"mwe-upwiz-custom-date": "Utiliser un format de date personnalisé",
 	"prefs-uploads": "Téléversement",
+	"prefs-description-uploads": "Définissez votre nom d’auteur et la licence par défaut.",
 	"prefs-upwiz-licensing": "Mettre sous licence",
 	"prefs-upwiz-experimental": "Fonctionnalités expérimentales",
 	"prefs-upwiz-interface": "Interface utilisateur",
