@@ -369,5 +369,6 @@
 	"campaigns": "Tallennuskampanjat",
 	"mwe-upload-campaigns-pagination-next": "Seuraava sivu",
 	"mwe-upload-campaigns-list-title": "Luettelo tallennuskampanjoista",
-	"mwe-upwiz-metadata-notice-header": "Henkilökohtainen data"
+	"mwe-upwiz-metadata-notice-header": "Henkilötietoja havaittu",
+	"mwe-upwiz-metadata-notice-description": "Tiedosto saattaa sisältää kuvailutietoja, kuten sijainnin tai muita kameran automaattisesti lisäämiä yksityisiä tietoja. [https://commons.wikimedia.org/wiki/Commons:Exif Lisätietoja] kuvailutietojen poistamisesta ja muokkaamisesta."
 }
