@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Iflaq"
+			"Iflaq",
+			"Tajamul9"
 		]
 	},
 	"uploadwizard": "اَپلوڈ سٲتھی",
@@ -30,6 +31,7 @@
 	"mwe-upwiz-license-custom-preview": "نُمٲیِش",
 	"mwe-upwiz-errordialog-ok": "ٹھیٖکھ چھُ",
 	"prefs-uploads": "اَپلوڈ کَرَن",
+	"prefs-description-uploads": "پنُن مُصنِف ناو تہٕ طَے سپُدمُت اِجازت نامہٕ کٕریٚو مُقرر.",
 	"prefs-upwiz-licensing": "اِجازَتھ نامہٕ:",
 	"mwe-upload-campaigns-pagination-next": "برٛونٛہِم صَفہٕ",
 	"mwe-upwiz-metadata-notice-header": "زٲتی مولوٗماتھ"
