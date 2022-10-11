@@ -280,6 +280,7 @@
 	"mwe-upwiz-error-nosuchcampaign": "Non existe un campania con le nomine \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "Le campania \"$1\" non ha essite activate.",
 	"prefs-uploads": "Incargar",
+	"prefs-description-uploads": "Elige tu nomine de autor e le licentia predefinite.",
 	"prefs-upwiz-licensing": "Licentia",
 	"prefs-upwiz-experimental": "Functionalitate experimental",
 	"prefs-upwiz-interface": "Interfacie de usator",
