@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vickylin77s"
+			"Vickylin77s",
+			"Amire80"
 		]
 	},
 	"mwe-upwiz-remove": "falah",
-	"mwe-upwiz-copy-metadata-button-undo": " patikor",
-	"mwe-upwiz-desc": " kimad",
+	"mwe-upwiz-copy-metadata-button-undo": "patikor",
+	"mwe-upwiz-desc": "kimad",
 	"mwe-upwiz-date-created": "O romi’ad",
 	"mwe-upwiz-source": "lalengatan",
-	"mwe-upwiz-categories": "　pisakilac",
+	"mwe-upwiz-categories": "pisakilac",
 	"prefs-upwiz-licensing": "o sakipatorod a tilid"
 }
