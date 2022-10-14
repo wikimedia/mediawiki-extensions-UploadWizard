@@ -635,7 +635,8 @@
 		"PageSaveComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onPageSaveComplete",
 		"ArticleDeleteComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onArticleDeleteComplete",
 		"PageMoveComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onPageMoveComplete",
-		"LinksUpdateComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onLinksUpdateComplete"
+		"LinksUpdateComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onLinksUpdateComplete",
+		"PreferencesGetIcon": "MediaWiki\\Extension\\UploadWizard\\Hooks::onPreferencesGetIcon"
 	},
 	"namespaces": [
 		{
