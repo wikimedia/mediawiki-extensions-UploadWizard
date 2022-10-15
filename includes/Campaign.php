@@ -1,6 +1,17 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use Category;
+use Language;
 use MediaWiki\MediaWikiServices;
+use MWException;
+use Parser;
+use ParserOptions;
+use ParserOutput;
+use RequestContext;
+use Title;
+use WANObjectCache;
 use Wikimedia\Rdbms\Database;
 
 /**
@@ -20,7 +31,7 @@ use Wikimedia\Rdbms\Database;
  * @author Yuvi Panda <yuvipanda@gmail.com>
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class UploadWizardCampaign {
+class Campaign {
 
 	/**
 	 * The campaign configuration.
@@ -70,7 +81,7 @@ class UploadWizardCampaign {
 			return false;
 		}
 
-		return new UploadWizardCampaign( $campaignTitle );
+		return new Campaign( $campaignTitle );
 	}
 
 	public function __construct( $title, $config = null, $context = null ) {
@@ -118,7 +129,7 @@ class UploadWizardCampaign {
 	}
 
 	public function getTrackingCategory() {
-		$trackingCats = UploadWizardConfig::getSetting( 'trackingCategory' );
+		$trackingCats = Config::getSetting( 'trackingCategory' );
 		return Title::makeTitleSafe(
 			NS_CATEGORY, str_replace( '$1', $this->getName(), $trackingCats['campaign'] )
 		);
@@ -134,7 +145,7 @@ class UploadWizardCampaign {
 
 		return $cache->getWithSetCallback(
 			$cache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
-			UploadWizardConfig::getSetting( 'campaignStatsMaxAge' ),
+			Config::getSetting( 'campaignStatsMaxAge' ),
 			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname ) {
 				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
@@ -264,12 +275,10 @@ class UploadWizardCampaign {
 				} else {
 					$parsed[$key] = $value;
 				}
+			} elseif ( is_array( $value ) ) {
+				$parsed[$key] = $this->parseArrayValues( $value, $lang );
 			} else {
-				if ( is_array( $value ) ) {
-					$parsed[$key] = $this->parseArrayValues( $value, $lang );
-				} else {
-					$parsed[$key] = $this->parseValue( $value, $lang );
-				}
+				$parsed[$key] = $this->parseValue( $value, $lang );
 			}
 		}
 		return $parsed;
@@ -357,7 +366,7 @@ class UploadWizardCampaign {
 			$cache->set( $memKey, [ 'timestamp' => time(), 'config' => $parsedConfig ] );
 		}
 
-		$uwDefaults = UploadWizardConfig::getSetting( 'defaults' );
+		$uwDefaults = Config::getSetting( 'defaults' );
 		if ( array_key_exists( 'objref', $uwDefaults ) ) {
 			$this->applyObjectReferenceToButtons( $uwDefaults['objref'] );
 		}

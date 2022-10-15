@@ -9,6 +9,11 @@
  * @author Ori Livneh <ori@wikimedia.org>
  */
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use FormatJson;
+use JsonContent;
+use JsonSchemaException;
 use MediaWiki\Extension\EventLogging\EventLogging;
 
 /**
@@ -37,7 +42,7 @@ class CampaignContent extends JsonContent {
 		// Only validate fields we care about
 		$campaignFields = array_keys( $schema['properties'] );
 
-		$fullConfig = UploadWizardConfig::getConfig();
+		$fullConfig = Config::getConfig();
 
 		$defaultCampaignConfig = [];
 
@@ -47,7 +52,7 @@ class CampaignContent extends JsonContent {
 			}
 		}
 
-		$mergedConfig = UploadWizardConfig::arrayReplaceSanely( $defaultCampaignConfig, $campaign );
+		$mergedConfig = Config::arrayReplaceSanely( $defaultCampaignConfig, $campaign );
 		return EventLogging::schemaValidate( $mergedConfig, $schema );
 	}
 

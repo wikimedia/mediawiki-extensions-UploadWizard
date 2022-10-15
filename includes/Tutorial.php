@@ -1,13 +1,20 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use File;
+use Html;
+use Language;
+use MediaTransformOutput;
 use MediaWiki\MediaWikiServices;
+use Title;
 
 /**
  * Class to encapsulate all the html generation associated with the UploadWizard tutorial.
  * Might be a start for a subclass of UploadWizard, if we ever free it of its WMF-oriented features
  * So that non-WMF'ers can use it
  */
-class UploadWizardTutorial {
+class Tutorial {
 
 	// Id of imagemap used in tutorial.
 	private const IMAGEMAP_ID = 'tutorialMap';
@@ -28,7 +35,7 @@ class UploadWizardTutorial {
 
 		$langCode = $wgLang->getCode();
 
-		$tutorial = UploadWizardConfig::getSetting( 'tutorial', $campaign );
+		$tutorial = Config::getSetting( 'tutorial', $campaign );
 		// getFile returns false if it can't find the right file
 		$tutorialFile = self::getFile( $langCode, $tutorial );
 		if ( $tutorialFile === false ) {

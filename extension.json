@@ -62,22 +62,22 @@
 		"mass-upload"
 	],
 	"ContentHandlers": {
-		"Campaign": "CampaignContentHandler"
+		"Campaign": "MediaWiki\\Extension\\UploadWizard\\CampaignContentHandler"
 	},
 	"SpecialPages": {
 		"UploadWizard": {
-			"class": "SpecialUploadWizard",
+			"class": "MediaWiki\\Extension\\UploadWizard\\Specials\\SpecialUploadWizard",
 			"services": [
 				"UserOptionsLookup"
 			]
 		},
-		"Campaigns": "SpecialCampaigns"
+		"Campaigns": "MediaWiki\\Extension\\UploadWizard\\Specials\\SpecialCampaigns"
 	},
 	"APIModules": {
-		"flickrblacklist": "ApiFlickrBlacklist"
+		"flickrblacklist": "MediaWiki\\Extension\\UploadWizard\\ApiFlickrBlacklist"
 	},
 	"APIListModules": {
-		"allcampaigns": "ApiQueryAllCampaigns"
+		"allcampaigns": "MediaWiki\\Extension\\UploadWizard\\ApiQueryAllCampaigns"
 	},
 	"MessagesDirs": {
 		"UploadWizard": [
@@ -88,21 +88,8 @@
 	"ExtensionMessagesFiles": {
 		"UploadWizardAlias": "UploadWizard.alias.php"
 	},
-	"AutoloadClasses": {
-		"UploadWizardHooks": "includes/UploadWizardHooks.php",
-		"UploadWizardConfig": "includes/UploadWizardConfig.php",
-		"UploadWizardTutorial": "includes/UploadWizardTutorial.php",
-		"UploadWizardCampaign": "includes/UploadWizardCampaign.php",
-		"UploadWizardFlickrBlacklist": "includes/UploadWizardFlickrBlacklist.php",
-		"CampaignContentHandler": "includes/CampaignContentHandler.php",
-		"CampaignContent": "includes/CampaignContent.php",
-		"CampaignPageFormatter": "includes/CampaignPageFormatter.php",
-		"CampaignHooks": "includes/CampaignHooks.php",
-		"SpecialUploadWizard": "includes/specials/SpecialUploadWizard.php",
-		"SpecialCampaigns": "includes/specials/SpecialCampaigns.php",
-		"ApiQueryAllCampaigns": "includes/ApiQueryAllCampaigns.php",
-		"ApiFlickrBlacklist": "includes/ApiFlickrBlacklist.php",
-		"UploadWizardSimpleForm": "includes/specials/UploadWizardSimpleForm.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\UploadWizard\\": "includes/"
 	},
 	"ResourceModules": {
 		"ext.uploadWizard.page": {
@@ -636,19 +623,19 @@
 		]
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "UploadWizardHooks::onSchemaUpdate",
-		"GetPreferences": "UploadWizardHooks::onGetPreferences",
-		"IsUploadAllowedFromUrl": "UploadWizardHooks::onIsUploadAllowedFromUrl",
-		"ListDefinedTags": "UploadWizardHooks::onListDefinedTags",
-		"ChangeTagsListActive": "UploadWizardHooks::onListDefinedTags",
-		"ChangeTagsAllowedAdd": "UploadWizardHooks::onListDefinedTags",
-		"ContentModelCanBeUsedOn": "CampaignHooks::onContentModelCanBeUsedOn",
-		"EditFilterMergedContent": "CampaignHooks::onEditFilterMergedContent",
-		"CodeEditorGetPageLanguage": "CampaignHooks::onCodeEditorGetPageLanguage",
-		"PageSaveComplete": "CampaignHooks::onPageSaveComplete",
-		"ArticleDeleteComplete": "CampaignHooks::onArticleDeleteComplete",
-		"PageMoveComplete": "CampaignHooks::onPageMoveComplete",
-		"LinksUpdateComplete": "CampaignHooks::onLinksUpdateComplete"
+		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\UploadWizard\\Hooks::onSchemaUpdate",
+		"GetPreferences": "MediaWiki\\Extension\\UploadWizard\\Hooks::onGetPreferences",
+		"IsUploadAllowedFromUrl": "MediaWiki\\Extension\\UploadWizard\\Hooks::onIsUploadAllowedFromUrl",
+		"ListDefinedTags": "MediaWiki\\Extension\\UploadWizard\\Hooks::onListDefinedTags",
+		"ChangeTagsListActive": "MediaWiki\\Extension\\UploadWizard\\Hooks::onListDefinedTags",
+		"ChangeTagsAllowedAdd": "MediaWiki\\Extension\\UploadWizard\\Hooks::onListDefinedTags",
+		"ContentModelCanBeUsedOn": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onContentModelCanBeUsedOn",
+		"EditFilterMergedContent": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onEditFilterMergedContent",
+		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onCodeEditorGetPageLanguage",
+		"PageSaveComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onPageSaveComplete",
+		"ArticleDeleteComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onArticleDeleteComplete",
+		"PageMoveComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onPageMoveComplete",
+		"LinksUpdateComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onLinksUpdateComplete"
 	},
 	"namespaces": [
 		{

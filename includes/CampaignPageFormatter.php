@@ -9,13 +9,21 @@
  * @author Yuvi Panda <yuvipanda@gmail.com>
  */
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use Html;
+use IContextSource;
+use ImageGalleryBase;
 use MediaWiki\MediaWikiServices;
+use OOUI\ButtonWidget;
+use RequestContext;
+use Skin;
 
 /**
  * Helper class to produce formatted HTML output for Campaigns
  */
 class CampaignPageFormatter {
-	/** @var UploadWizardCampaign|null */
+	/** @var Campaign|null */
 	protected $campaign = null;
 	/** @var IContextSource|null */
 	protected $context = null;
@@ -49,7 +57,7 @@ class CampaignPageFormatter {
 		$gallery->setShowBytes( false );
 
 		$this->context->getOutput()->setCdnMaxage(
-			UploadWizardConfig::getSetting( 'campaignSquidMaxAge' )
+			Config::getSetting( 'campaignSquidMaxAge' )
 		);
 		$this->context->getOutput()->setHTMLTitle( $this->context->msg( 'pagetitle', $campaignTitle ) );
 		$this->context->getOutput()->enableOOUI();
@@ -61,11 +69,11 @@ class CampaignPageFormatter {
 			$urlParams = [ 'returnto' => $this->campaign->getTitle()->getPrefixedText() ];
 
 			if ( $this->isCampaignExtensionEnabled() ) {
-				$campaignTemplate = UploadWizardConfig::getSetting( 'campaignCTACampaignTemplate' );
+				$campaignTemplate = Config::getSetting( 'campaignCTACampaignTemplate' );
 				$urlParams['campaign'] = str_replace( '$1', $this->campaign->getName(), $campaignTemplate );
 			}
 			$createAccountUrl = Skin::makeSpecialUrlSubpage( 'Userlogin', 'signup', $urlParams );
-			$uploadLink = new OOUI\ButtonWidget( [
+			$uploadLink = new ButtonWidget( [
 				'label' => wfMessage( 'mwe-upwiz-campaign-create-account-button' )->text(),
 				'flags' => [ 'progressive', 'primary' ],
 				'href' => $createAccountUrl
@@ -74,7 +82,7 @@ class CampaignPageFormatter {
 			$uploadUrl = Skin::makeSpecialUrl(
 				'UploadWizard', [ 'campaign' => $this->campaign->getName() ]
 			);
-			$uploadLink = new OOUI\ButtonWidget( [
+			$uploadLink = new ButtonWidget( [
 				'label' => wfMessage( 'mwe-upwiz-campaign-upload-button' )->text(),
 				'flags' => [ 'progressive', 'primary' ],
 				'href' => $uploadUrl
@@ -108,7 +116,7 @@ class CampaignPageFormatter {
 				);
 		}
 
-		if ( UploadWizardConfig::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
+		if ( Config::getSetting( 'campaignExpensiveStatsEnabled' ) === true ) {
 			$uploaderCount = $this->campaign->getTotalContributorsCount();
 			$campaignExpensiveStats =
 				Html::rawElement( 'div', [ 'class' => 'mw-campaign-number-container' ],
@@ -126,33 +134,30 @@ class CampaignPageFormatter {
 		}
 
 		$uploadCount = $this->campaign->getUploadedMediaCount();
-		$result =
-			Html::rawElement( 'div', [ 'id' => 'mw-campaign-container' ],
-				Html::rawElement( 'div', [ 'id' => 'mw-campaign-header' ],
-					Html::rawElement( 'div', [ 'id' => 'mw-campaign-primary-info' ],
-						// No need to escape these, since they are just parsed wikitext
-						// Any stripping that needed to be done should've been done by the parser
-						Html::rawElement( 'p', [ 'id' => 'mw-campaign-title' ], $campaignTitle ) .
-						Html::rawElement( 'p', [ 'id' => 'mw-campaign-description' ], $campaignDescription ) .
+		return Html::rawElement( 'div', [ 'id' => 'mw-campaign-container' ],
+			Html::rawElement( 'div', [ 'id' => 'mw-campaign-header' ],
+				Html::rawElement( 'div', [ 'id' => 'mw-campaign-primary-info' ],
+					// No need to escape these, since they are just parsed wikitext
+					// Any stripping that needed to be done should've been done by the parser
+					Html::rawElement( 'p', [ 'id' => 'mw-campaign-title' ], $campaignTitle ) .
+					Html::rawElement( 'p', [ 'id' => 'mw-campaign-description' ], $campaignDescription ) .
 					$uploadLink
-					) .
-					Html::rawElement( 'div', [ 'id' => 'mw-campaign-numbers' ],
-						$campaignExpensiveStats .
-						Html::rawElement( 'div', [ 'class' => 'mw-campaign-number-container' ],
-							Html::element( 'div', [ 'class' => 'mw-campaign-number' ],
-								$this->context->getLanguage()->formatNum( $uploadCount )
-							) .
-							Html::element( 'span',
-								[ 'class' => 'mw-campaign-number-desc' ],
-								wfMessage( 'mwe-upwiz-campaign-media-count-desc' )
-								->numParams( $uploadCount )
-								->text()
-							)
+				) .
+				Html::rawElement( 'div', [ 'id' => 'mw-campaign-numbers' ],
+					$campaignExpensiveStats .
+					Html::rawElement( 'div', [ 'class' => 'mw-campaign-number-container' ],
+						Html::element( 'div', [ 'class' => 'mw-campaign-number' ],
+							$this->context->getLanguage()->formatNum( $uploadCount )
+						) .
+						Html::element( 'span',
+							[ 'class' => 'mw-campaign-number-desc' ],
+							wfMessage( 'mwe-upwiz-campaign-media-count-desc' )
+							->numParams( $uploadCount )
+							->text()
 						)
 					)
-				) .
-				$body
-			);
-		return $result;
+				)
+			) . $body
+		);
 	}
 }

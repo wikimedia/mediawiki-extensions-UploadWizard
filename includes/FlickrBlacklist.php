@@ -1,11 +1,16 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use IContextSource;
 use MediaWiki\MediaWikiServices;
+use TextContent;
+use Title;
 
 /**
  * Checks Flickr images against a blacklist of users
  */
-class UploadWizardFlickrBlacklist {
+class FlickrBlacklist {
 	/**
 	 * Regexp to extract photo id (as match group 1) from a static image URL.
 	 */
@@ -51,7 +56,7 @@ class UploadWizardFlickrBlacklist {
 	protected $context;
 
 	/**
-	 * Sets options based on a config array such as UploadWizardConfig::getConfig().
+	 * Sets options based on a config array such as Config::getConfig().
 	 * @param array $options an array with 'flickrApiKey', 'flickrApiUrl' and
 	 *     'flickrBlacklistPage' keys
 	 * @param IContextSource $context

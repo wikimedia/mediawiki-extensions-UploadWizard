@@ -1,6 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use Content;
+use JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MWException;
+use ParserOutput;
+use Title;
 
 /**
  * JSON Schema Content Handler
@@ -51,7 +58,7 @@ class CampaignContentHandler extends JsonContentHandler {
 			throw new MWException( '$title shouldn\'t be NULL' );
 		}
 
-		$campaign = new UploadWizardCampaign( $title, $content->getJsonData() );
+		$campaign = new Campaign( $title, $content->getJsonData() );
 
 		if ( $cpoParams->getGenerateHtml() ) {
 			$html = $this->generateHtml( $campaign );
@@ -71,7 +78,7 @@ class CampaignContentHandler extends JsonContentHandler {
 	}
 
 	/**
-	 * @param UploadWizardCampaign $campaign
+	 * @param Campaign $campaign
 	 *
 	 * @return string
 	 */

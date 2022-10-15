@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\UploadWizard;
+
+use ApiBase;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -19,7 +22,7 @@ class ApiFlickrBlacklist extends ApiBase {
 		$params = $this->extractRequestParams();
 		$this->requireOnlyOneParameter( $params, 'url', 'list' );
 
-		$flickrBlacklist = new UploadWizardFlickrBlacklist( UploadWizardConfig::getConfig(),
+		$flickrBlacklist = new FlickrBlacklist( Config::getConfig(),
 			$this->getContext() );
 
 		if ( $params['list'] ) {

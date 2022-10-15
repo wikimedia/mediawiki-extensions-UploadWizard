@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\UploadWizard\Config;
+
 return [
 	"type" => "object",
 	"id" => "#campaignnode",
@@ -178,14 +180,14 @@ return [
 					"properties" => [
 						"default" => [
 							"type" => "string",
-							"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+							"enum" => array_keys( Config::getSetting( 'licenses' ) )
 						],
 						"licenses" => [
 							"type" => "array",
 							"items" => [
 								[
 									"type" => "string",
-									"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+									"enum" => array_keys( Config::getSetting( 'licenses' ) )
 								]
 							]
 
@@ -203,7 +205,7 @@ return [
 					"properties" => [
 						"defaults" => [
 							"type" => "string",
-							"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+							"enum" => array_keys( Config::getSetting( 'licenses' ) )
 						],
 						"licenseGroups" => [
 							"type" => "array",
@@ -219,7 +221,7 @@ return [
 											"items" => [
 												[
 													"type" => "string",
-													"enum" => array_keys( UploadWizardConfig::getSetting( 'licenses' ) )
+													"enum" => array_keys( Config::getSetting( 'licenses' ) )
 												]
 											]
 
