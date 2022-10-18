@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Iflaq"
+			"Iflaq",
+			"Tajamul9"
 		]
 	},
 	"uploadwizard": "اَپلوڈ سٲتھی",
@@ -22,9 +23,14 @@
 	"mwe-upwiz-flickr-input-placeholder": "فِلِکر یو آر ایل",
 	"mwe-upwiz-select-flickr": "مُنتَخٕب تَصویٖر کٔرِو اَپلوڈ",
 	"mwe-upwiz-patent-dialog-button-next": "برٛونٛہہ",
+	"mwe-upwiz-patent-dialog-link-warranty": "مٔزیٖد وُچھِو",
+	"mwe-upwiz-patent-dialog-link-license": "مٔزیٖد وُچھِو",
+	"mwe-upwiz-copy-metadata-button": "نَقٕل کٔرِو",
 	"mwe-upwiz-copy-metadata-button-undo": "رَد کٔرِو",
 	"mwe-upwiz-date-created": "تٲریٖخ",
+	"mwe-upwiz-select-date": "تٲریٖخ کٔرِو مُنتَخٕب",
 	"mwe-upwiz-other": "باقی مولوٗماتھ",
+	"mwe-upwiz-next-deeds": "برٛونٛہہ",
 	"mwe-upwiz-dialog-yes": "آ",
 	"mwe-upwiz-dialog-no": "نہَ",
 	"mwe-upwiz-license-custom-preview": "نُمٲیِش",
