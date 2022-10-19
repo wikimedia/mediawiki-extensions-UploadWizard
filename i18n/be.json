@@ -11,11 +11,12 @@
 			"Тест",
 			"Хомелка",
 			"Tomato Cream",
-			"No Sleep till Krupki"
+			"No Sleep till Krupki",
+			"Plaga med"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
-	"uploadwizard-desc": "Майстар загрузак, зручная прылада для загрузкі мульцімедыйных файлаў",
+	"uploadwizard-desc": "Майстар загрузак, зручны інструмент для запампоўвання мультымедыя",
 	"tag-uploadwizard": "Upload Wizard",
 	"tag-uploadwizard-description": "Загрузкі, зробленыя з дапамогай Upload Wizard",
 	"tag-uploadwizard-flickr-description": "Загрузкі з Flickr, зрабленыя з дапамогай Upload Wizard",
@@ -218,7 +219,7 @@
 	"mwe-upwiz-previous": "Назад",
 	"mwe-upwiz-home": "Перайсці на хатнюю старонку вікі",
 	"mwe-upwiz-upload-another": "Загрузіць яшчэ файлы",
-	"mwe-upwiz-tooltip-skiptutorial": "Вы можаце ўключыць гэты даведнік наноў ва [$1 ўласных настройках], у секцыі $2 → $3.",
+	"mwe-upwiz-tooltip-skiptutorial": "Вы можаце ўключыць гэты даведнік наноў ва [$1 ўласных параметрах], у секцыі $2 → $3.",
 	"mwe-upwiz-tooltip-author": "Імя асобы, якая зрабіла фота, ці намалявала малюнак, нарысавала чарцёж і г. д.",
 	"mwe-upwiz-tooltip-source": "Адкуль з’явіўся гэты лічбавы файл — можа быць URL-адрас, кніга, ці публікацыя.",
 	"mwe-upwiz-tooltip-sign": "Вы можаце выкарыстоўваць назву Вашага рахунка ў вікі, альбо Вашае сапраўднае імя. У любым выпадку будзе спасылка на Вашую старонку удзельніка.",
