@@ -95,7 +95,7 @@
 	"mwe-upwiz-next-file-despite-failures": "Continua comunque",
 	"mwe-upwiz-skip-tutorial-future": "Salta questo passaggio in futuro",
 	"mwe-upwiz-file-all-failed": "Nessuno dei caricamenti è riuscito.",
-	"mwe-upwiz-upload-count": "$1 di $2 {{PLURAL:$2|file|file}} caricati",
+	"mwe-upwiz-upload-count": "$1 di $2 file {{PLURAL:$2|caricato|caricati}}",
 	"mwe-upwiz-progressbar-uploading": "caricamento in corso",
 	"mwe-upwiz-almost-finished": "Elaborazione del file...",
 	"mwe-upwiz-finished": "Completato!",
