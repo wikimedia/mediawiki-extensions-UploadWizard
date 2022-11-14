@@ -7,7 +7,8 @@
 			"Vahe Gharakhanyan",
 			"Xelgen",
 			"Աշոտ1997",
-			"Aram1985"
+			"Aram1985",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"uploadwizard": "Վերբեռնման օգնական",
@@ -61,8 +62,9 @@
 	"mwe-upwiz-author": "Հեղինակ(ներ)",
 	"mwe-upwiz-ok": "Լավ",
 	"mwe-upwiz-publish-metadata": "Հրապարակել",
-	"mwe-upwiz-upload-another": "Բեռնել ավելի շատ ֆայլեր",
+	"mwe-upwiz-upload-another": "Վերբեռնել ևս նիշքեր",
 	"mwe-upwiz-dialog-yes": "Այո",
+	"mwe-upwiz-campaign-upload-button": "Վերբեռնել։",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Ներդրող|Ներդրողներ}}",
 	"mwe-upwiz-categories": "Կատեգորիաներ",
 	"mwe-upwiz-errordialog-ok": "Լավ",
