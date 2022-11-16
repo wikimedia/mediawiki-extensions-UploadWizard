@@ -325,11 +325,6 @@ class SpecialUploadWizard extends SpecialPage {
 			throw new UserBlockedError( $user->getBlock() );
 		}
 
-		// Global blocks
-		if ( $user->isBlockedGlobally() ) {
-			throw new UserBlockedError( $user->getGlobalBlock() );
-		}
-
 		// we got all the way here, so it must be okay to upload
 		return true;
 	}
