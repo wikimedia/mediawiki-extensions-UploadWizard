@@ -3,7 +3,8 @@
 		"authors": [
 			"Cedric31",
 			"Envlh",
-			"BrennodAloisi"
+			"BrennodAloisi",
+			"McDutchie"
 		]
 	},
 	"uploadwizard": "Assistent d'impòrt",
@@ -40,7 +41,7 @@
 	"mwe-upwiz-location-lat": "Latitud",
 	"mwe-upwiz-location-lon": "Longitud",
 	"mwe-upwiz-location-alt": "Altitud",
-	"mwe-upwiz-location-heading": "Títol",
+	"mwe-upwiz-location-heading": "Orientation",
 	"mwe-upwiz-copyright-info": "Liberar de dreits",
 	"mwe-upwiz-author": "Autor(s)",
 	"mwe-upwiz-other": "Autras informacions",
