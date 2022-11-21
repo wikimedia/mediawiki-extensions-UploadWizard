@@ -380,5 +380,9 @@
 	"mwe-upwiz-mv-cta-dismiss": "Clauder",
 	"mwe-upwiz-mv-cta-user-preference-set": "Optimo! Tu pote cambiar iste parametro quandocunque in tu [[c:Special:Preferences#mw-prefsection-echo|preferentias]].",
 	"mwe-upwiz-mv-cta-user-preference-unset": "Tu non plus recipera notificationes pro etiquettar tu incargamentos.",
-	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nos non ha potite salveguardar tu preferentia in iste momento. Per favor visita tu [[c:Special:Preferences#mw-prefsection-echo|preferentias]] pro optar pro reciper notificationes."
+	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nos non ha potite salveguardar tu preferentia in iste momento. Per favor visita tu [[c:Special:Preferences#mw-prefsection-echo|preferentias]] pro optar pro reciper notificationes.",
+	"mwe-upwiz-upload-comment-own-work": "Obra proprie incargate con le Assistente de incargamento",
+	"mwe-upwiz-upload-comment-third-party": "Obra de $1 proveniente de $2 incargate con le Assistente de incargamento",
+	"mwe-upwiz-metadata-notice-header": "Datos personal",
+	"mwe-upwiz-metadata-notice-description": "Le metadatos EXIF in iste file pote continer un position geographic o altere datos personal que tu camera ha addite automaticamente. [https://commons.wikimedia.org/wiki/Commons:Exif Lege plus] sur como modificar o remover le metadatos EXIF."
 }
