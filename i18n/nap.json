@@ -6,7 +6,8 @@
 			"Chelin",
 			"Envlh",
 			"Macofe",
-			"Ruthven"
+			"Ruthven",
+			"McDutchie"
 		]
 	},
 	"uploadwizard": "Carrecamiente guidate",
@@ -132,7 +133,7 @@
 	"mwe-upwiz-location-lat": "Latitudine",
 	"mwe-upwiz-location-lon": "Longitudine",
 	"mwe-upwiz-location-alt": "Autezza",
-	"mwe-upwiz-location-heading": "Titulo",
+	"mwe-upwiz-location-heading": "Direzione",
 	"mwe-upwiz-copyright-info": "Deritte de rilasce",
 	"mwe-upwiz-objref-pick-image": "Azzecca 'o riferimento oggetto a st'immaggene",
 	"mwe-upwiz-objref-notice-existing-image": "N'immaggene esiste già pe' l'oggetto riferito",
