@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-flickrblacklist-description": "Validar un URL de Flickr usante le ID de usator (NSID) pro blocar.\n\nQuando usate con le option <var>list</var>, restitue tote le IDs blocate.",
+	"apihelp-flickrblacklist-summary": "Validar un URL de Flickr usante le ID de usator (NSID) pro blocar.",
+	"apihelp-flickrblacklist-extended-description": "Quando es usate con le option <var>list</var>, restitue tote le IDs blocate.",
+	"apihelp-flickrblacklist-param-url": "Le URL de Flickr a testar.",
+	"apihelp-flickrblacklist-param-list": "Si es definite, le lista de blocage complete se restitue. Non pote esser usate insimul con $1url.",
+	"apihelp-flickrblacklist-example-1": "Verificar un URL contra le lista de blocage",
+	"apihelp-flickrblacklist-example-2": "Restitue tote le lista de blocage",
+	"apihelp-query+allcampaigns-description": "Enumerar tote le campanias del Assistente de incargamento.",
+	"apihelp-query+allcampaigns-summary": "Enumerar tote le campanias del Assistente de incargamento.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Solmente listar le campanias que ha essite activate.",
+	"apihelp-query+allcampaigns-param-limit": "Numero de campanias a restituer.",
+	"apihelp-query+allcampaigns-example-1": "Enumerar le campanias activate"
+}
