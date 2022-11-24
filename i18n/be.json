@@ -12,7 +12,8 @@
 			"Дзяніс Тутэйшы",
 			"Тест",
 			"Хомелка",
-			"Plaga med"
+			"Plaga med",
+			"Maksim L."
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
@@ -262,7 +263,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Вы выбралі магчымасць, якая патрабуе ад dас уводу вікі-тэксту.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Уведзены вікі-тэкст занадта малы, каб быць ліцэнзіяй",
 	"mwe-upwiz-error-license-wikitext-too-long": "Уведзены Вамі вікі-тэкст занадта доўгі.",
-	"mwe-upwiz-error-license-wikitext-missing-template": "Вікі-тэкст, які вы ўвялі, не ўтрымлівае слушны шаблон ліцэнзіі.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "Вікітэкст, які вы ўвялі, не змяшчае слушнага шаблону ліцэнзіі.",
 	"mwe-upwiz-error-patent-disagree": "Вы павінны пагадзіцца з умовамі.",
 	"mwe-upwiz-error-pageprops-missing-page": "Не ўдалося атрымаць уласцівасці старонкі: старонка (пакуль) не існуе.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Не ўдалося атрымаць уласцівасці старонкі: уласцівасць (пакуль) не існуе.",

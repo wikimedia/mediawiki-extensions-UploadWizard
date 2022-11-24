@@ -3,7 +3,8 @@
 		"authors": [
 			"Joetaras",
 			"Macofe",
-			"Matma Rex"
+			"Matma Rex",
+			"McDutchie"
 		]
 	},
 	"uploadwizard": "Careche 'u wizard",
@@ -137,7 +138,7 @@
 	"mwe-upwiz-location-lat": "Latitudene",
 	"mwe-upwiz-location-lon": "Longitudene",
 	"mwe-upwiz-location-alt": "Altitudene",
-	"mwe-upwiz-location-heading": "Testate",
+	"mwe-upwiz-location-heading": "Direzione",
 	"mwe-upwiz-copyright-info": "Deritte de rilasce",
 	"mwe-upwiz-objref-pick-image": "Aggiunge 'u referimende a l'oggette sus a st'immaggine.",
 	"mwe-upwiz-author": "Autore",
