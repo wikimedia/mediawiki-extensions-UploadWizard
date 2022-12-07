@@ -24,7 +24,8 @@
 			"Trigonometria87",
 			"Tuliouel",
 			"Uinichi",
-			555
+			555,
+			"Fúlvio"
 		]
 	},
 	"uploadwizard": "Assistente de Envios",
@@ -370,7 +371,7 @@
 	"mwe-upwiz-subhead-alternatives": "Métodos alternativos de upload",
 	"mwe-upwiz-feedback-prompt": "Deixar um comentário",
 	"mwe-upwiz-feedback-title": "Deixe um comentário sobre o Assistente de Envio de Arquivos",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Esta é a entrada da lista negra que corresponde: $1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Esta é a entrada da lista de títulos não permitidos que corresponde a ela: $1",
 	"mwe-upwiz-feedback-blacklist-subject": "Meu título de carregamento, \"$1\" foi proibido.",
 	"mwe-upwiz-errordialog-title": "Ocorreu um erro no envio",
 	"mwe-upwiz-errordialog-ok": "OK",
@@ -404,5 +405,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Você não receberá mais notificações para marcar seus envios.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Não foi possível salvar sua preferência no momento. Por favor, visite suas [[c:Special:Preferences#mw-prefsection-echo|preferências]] para ativar as notificações.",
 	"mwe-upwiz-upload-comment-own-work": "Carregou seu próprio trabalho com UploadWizard",
-	"mwe-upwiz-upload-comment-third-party": "Carregou um trabalho de $1 de $2 com UploadWizard"
+	"mwe-upwiz-upload-comment-third-party": "Carregou um trabalho de $1 de $2 com UploadWizard",
+	"mwe-upwiz-metadata-notice-header": "Dados pessoais",
+	"mwe-upwiz-metadata-notice-description": "Os metadados EXIF neste arquivo podem conter a localização ou outros dados pessoais adicionados automaticamente por sua câmera.\n[https://commons.wikimedia.org/wiki/Commons:Exif Saiba mais] sobre como editar ou remover metadados EXIF."
 }
