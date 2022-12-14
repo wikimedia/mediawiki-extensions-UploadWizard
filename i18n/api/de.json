@@ -5,7 +5,8 @@
 			"Inkowik",
 			"Kghbln",
 			"Metalhead64",
-			"Predatorix"
+			"Predatorix",
+			"Brettchenweber"
 		]
 	},
 	"apihelp-flickrblacklist-description": "Bestätige eine Flickr-URL, indem du die Nutzerkennung (NSID) für das Eintragen in die Negativliste benutzt.\n\nWenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle Kennungen wieder, die in der Negativliste stehen.",
@@ -13,7 +14,7 @@
 	"apihelp-flickrblacklist-extended-description": "Wenn sie mit der <var>list</var>-Option benutzt wird, gibt sie alle Kennungen aus, die in der Negativliste stehen.",
 	"apihelp-flickrblacklist-param-url": "Die zu testende Flickr-URL.",
 	"apihelp-flickrblacklist-param-list": "Wenn eingestellt, wird die gesamte Negativliste zurückgegeben. Darf nicht zusammen mit $1url verwendet werden.",
-	"apihelp-flickrblacklist-example-1": "Überprüft eine URL gegen die Negativliste",
+	"apihelp-flickrblacklist-example-1": "Gleicht eine URL mit der Negativliste ab",
 	"apihelp-flickrblacklist-example-2": "Gibt die ganze Negativliste zurück",
 	"apihelp-query+allcampaigns-description": "Führt alle Kampagnen des Hochladeassistenten auf.",
 	"apihelp-query+allcampaigns-summary": "Zählt alle Kampagnen des Hochladeassistenten auf.",
