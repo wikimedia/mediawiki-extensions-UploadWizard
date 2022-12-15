@@ -6,7 +6,8 @@
 			"Envlh",
 			"Macofe",
 			"Matma Rex",
-			"Pizza1016"
+			"Pizza1016",
+			"Tofeiku"
 		]
 	},
 	"uploadwizard": "Alat muat naik ajaib",
@@ -38,7 +39,7 @@
 	"mwe-upwiz-add-file-flickr-n": "Tambahkan lagi gambar dari Flickr",
 	"mwe-upwiz-add-flickr-or": "Atau",
 	"mwe-upwiz-add-flickr": "Dapatkan dari Flickr",
-	"mwe-upwiz-flickr-input-placeholder": "URL imej/fotoset Flicker",
+	"mwe-upwiz-flickr-input-placeholder": "URL Flickr",
 	"mwe-upwiz-select-flickr": "Muat naik imej terpilih",
 	"mwe-upwiz-flickr-disclaimer1": "Borang ini akan memuatkan kandungan yang dihos oleh flickr.com dan tertakluk pada\n[https://www.flickr.com/help/terms/ syarat-syarat penggunaan] dan [https://www.flickr.com/help/privacy-policy/ dasar privasi] Flickr.",
 	"mwe-upwiz-flickr-disclaimer2": "Sila ingat bahawa dengan menggunakan alat ini, alamat IP dan butiran pemohonan anda akan disediakan kepada Flickr.",
@@ -120,7 +121,7 @@
 	"mwe-upwiz-copy-other": "Salin maklumat lain",
 	"mwe-upwiz-desc": "Keterangan",
 	"mwe-upwiz-title": "Tajuk",
-	"mwe-upwiz-date-created": "Tarikh dicipta",
+	"mwe-upwiz-date-created": "Tarikh",
 	"mwe-upwiz-location": "Lokasi",
 	"mwe-upwiz-location-button": "Tunjukkan di peta",
 	"mwe-upwiz-location-lat": "Garis lintang",
