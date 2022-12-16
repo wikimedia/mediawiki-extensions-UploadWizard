@@ -30,6 +30,7 @@
 			"Wrightbus",
 			"Wwycheuk",
 			"Xiplus",
+			"列维劳德",
 			"捍粵者"
 		]
 	},
@@ -56,7 +57,7 @@
 	"mwe-upwiz-step-details": "描述",
 	"mwe-upwiz-step-metadata": "新增資料",
 	"mwe-upwiz-step-thanks": "使用",
-	"mwe-upwiz-campaign-name-duplicate": "已存在相同名稱的行動。",
+	"mwe-upwiz-campaign-name-duplicate": "已有同名行動。",
 	"mwe-upwiz-campaign-unknown-error": "發生不明錯誤。",
 	"mwe-upwiz-api-warning-exists": "此 Wiki 已有 [$1 另一個] 相同名稱的檔案",
 	"mwe-upwiz-api-warning-was-deleted": "己有一個檔案使用此名稱，\"$1\"。 但該檔案己刪除，您無法重新上傳該檔案。 若您的檔案與該檔案不同，請重新命名後再試一次。",
@@ -220,7 +221,7 @@
 	"mwe-upwiz-upload-error-stashed-anyway": "繼續上傳？",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "未知檔案名稱",
 	"mwe-upwiz-ok": "確定",
-	"mwe-upwiz-fileexists-replace-on-page": "使用此名稱的檔案已經存在。若您想要取代該檔案，請至頁面 [$2 $1] 進行取代。",
+	"mwe-upwiz-fileexists-replace-on-page": "同名檔案已存在，若要取代該檔案，請在頁面[$2$1]取代。",
 	"mwe-upwiz-fileexists-replace-no-link": "此標題已被其他檔案使用，請選擇其他標題。",
 	"mwe-upwiz-blacklisted-details": "挑選一個不同、具描述性的標題（[$2 更多資訊]）。",
 	"mwe-upwiz-blacklisted-details-feedback": "請挑選不同、具描述性的標題（[$2 更多資訊]）•[$3 發送意見回饋]",
