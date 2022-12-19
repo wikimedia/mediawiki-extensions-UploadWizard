@@ -38,7 +38,7 @@ $uwLanguages = $cache->getWithSetCallback(
 
 		// Use LinkBatch to make this a little bit more faster.
 		// It works because $title->exists (below) will use LinkCache.
-		$linkBatch = new LinkBatch();
+		$linkBatch = $services->getLinkBatchFactory()->newLinkBatch();
 		foreach ( $baseLangs as $code => $name ) {
 			$fixedCode = $languageFixups[$code] ?? $code;
 			if ( is_string( $fixedCode ) && $fixedCode !== '' ) {
