@@ -8,7 +8,8 @@
 			"Matma Rex",
 			"Pwyll",
 			"Robin Owain",
-			"Xxglennxx"
+			"Xxglennxx",
+			"Afalau"
 		]
 	},
 	"uploadwizard": "Dewin Uwchlwytho",
@@ -120,7 +121,7 @@
 	"mwe-upwiz-copy-location": "Copïo'r man",
 	"mwe-upwiz-copy-other": "Copïo'r wybodaeth arall",
 	"mwe-upwiz-desc": "Disgrifiad",
-	"mwe-upwiz-title": "Teitl",
+	"mwe-upwiz-title": "Teitl y ddelwedd",
 	"mwe-upwiz-date-created": "Dyddiad creu",
 	"mwe-upwiz-location": "Lleoliad",
 	"mwe-upwiz-location-button": "Dangos ar fap",
@@ -196,8 +197,8 @@
 	"mwe-upwiz-dialog-title": "Rhybudd",
 	"mwe-upwiz-campaign-create-account-button": "Dechrau cyfrif ac uwchlwytho!",
 	"mwe-upwiz-campaign-upload-button": "Uwchlwytho!",
-	"mwe-upwiz-campaign-media-count-desc": "Uwchlwythiadau",
-	"mwe-upwiz-campaign-contributors-count-desc": "Cyfranwyr",
+	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Uwchlwythiad}}",
+	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Cyfrannwr}}",
 	"mwe-upwiz-campaign-view-all-media": "Gweld yr holl gyfryngau a uwchlwythwyd",
 	"mwe-upwiz-campaign-no-uploads-yet": "Dim uwchlwythiadau eto!",
 	"mwe-upwiz-license-cc-by-sa-3.0": "Creative Commons Attribution ShareAlike 3.0 ([$2 testun cyfreithiol y drwydded])",

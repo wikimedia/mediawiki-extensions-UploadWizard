@@ -359,7 +359,7 @@
 	"mwe-upwiz-subhead-alternatives": "Алтернативни методи за качване",
 	"mwe-upwiz-feedback-prompt": "Оставете коментар",
 	"mwe-upwiz-feedback-title": "Оставете мнението си за Помощника за качванията",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Това е съответният запис от списъка със забранени заглавия:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Това е съответният запис от списъка със забранени наименования:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Моето заглавие на качването, „$1“ е забранено.",
 	"mwe-upwiz-errordialog-title": "Възникна грешка при изпращането",
 	"mwe-upwiz-errordialog-ok": "ОК",
