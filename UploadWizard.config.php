@@ -5,6 +5,7 @@
  * $wgUploadWizardConfig[ 'name'] =  'value';
  */
 
+use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 
 global $wgFileExtensions, $wgServer, $wgScriptPath, $wgAPIModules, $wgLang,
@@ -28,7 +29,7 @@ $uwLanguages = $cache->getWithSetCallback(
 
 		// First, get a list of languages we support.
 		$baseLangs = $services->getLanguageNameUtils()
-			->getLanguageNames( $userLangCode, 'all' );
+			->getLanguageNames( $userLangCode, LanguageNameUtils::ALL );
 
 		// We need to take into account languageTemplateFixups
 		$languageFixups = $wgUploadWizardConfig['languageTemplateFixups'] ?? $uwDefaultLanguageFixups;
