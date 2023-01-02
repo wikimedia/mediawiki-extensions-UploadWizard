@@ -22,6 +22,7 @@
 			"Matma Rex",
 			"MuratTheTurkish",
 			"Rapsar",
+			"Sadrettin",
 			"SaldırganSincap",
 			"Sayginer",
 			"Sezgin İbiş",
@@ -326,7 +327,7 @@
 	"mwe-upwiz-license-pd-old-100": "Yazar öleli 100 seneden fazla olmuş.",
 	"mwe-upwiz-license-pd-old": "Yazar öleli 70 seneden fazla olmuş.",
 	"mwe-upwiz-license-pd-art-70": "Sanatçı 70 yıldan uzun bir süre önce öldüğü için bir resmin kamusal alanda sadık bir şekilde yeniden üretilmesi ([$2 daha fazla bilgi edinin])",
-	"mwe-upwiz-license-pd-us": "İlk kez 1927'ten önce ABD'de yayınlandı",
+	"mwe-upwiz-license-pd-us": "İlk kez 1928'ten önce ABD'de yayınlandı",
 	"mwe-upwiz-license-pd-usgov": "ABD Federal Hükümetinin orijinal eseri",
 	"mwe-upwiz-license-pd-usgov-nasa": "NASA'nın orijinal eseri",
 	"mwe-upwiz-license-pd-usgov-military-navy": "ABD Ordu Donanmasının orijinal eseri",
@@ -356,7 +357,7 @@
 	"mwe-upwiz-license-external": "Dosya, \"$1\" kaynak sitesinde şu lisans kapsamındadır: $2.",
 	"mwe-upwiz-license-external-invalid": "Dosya, \"$1\" kaynak sitesinde şu lisans kapsamındadır: $2. Ne yazık ki, bu viki bu lisansa izin vermiyor.",
 	"mwe-upwiz-license-photoset-invalid": "Ne yazık ki, fotoğraf setindeki hiçbir görüntünün bu sitede kullanılmaya uygun bir lisansı yoktur.",
-	"mwe-upwiz-license-pd-old-70-1923": "İlk kez 1927'ten önce yayınlandı ve yazar 70 yıldan daha önce öldü",
+	"mwe-upwiz-license-pd-old-70-1923": "İlk kez 1928'ten önce yayınlandı ve yazar 70 yıldan daha önce öldü",
 	"mwe-upwiz-url-invalid": "Girilen URL desteklenmiyor veya geçersiz veya kısıtlı bir $1 resme veya fotoğraf grubuna işaret ediyor ve kullanılamıyor.",
 	"mwe-upwiz-user-blacklisted": "Maalesef, bu $1 hesaptan hiçbir resim bu siteye yüklenemez.",
 	"mwe-upwiz-categories": "Kategoriler",
@@ -404,5 +405,6 @@
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Şu anda tercihinizi kaydedemedik. Bildirimleri etkinleştirmek için lütfen [[c:Special:Preferences#mw-prefsection-echo|Tercihler]] sayfanızı ziyaret edin.",
 	"mwe-upwiz-upload-comment-own-work": "UploadWizard ile kendi çalışmansını yükledi",
 	"mwe-upwiz-upload-comment-third-party": "UploadWizard ile $2 kaynağından $1 tarafından bir çalışma yükledi",
-	"mwe-upwiz-metadata-notice-header": "Kişisel veri"
+	"mwe-upwiz-metadata-notice-header": "Kişisel veri",
+	"mwe-upwiz-metadata-notice-description": "Bu dosyadaki EXIF meta verileri, kameranız tarafından otomatik olarak eklenen konum veya diğer kişisel verileri içerebilir. EXIF meta verilerinin nasıl düzenleneceği veya kaldırılacağı hakkında [https://commons.wikimedia.org/wiki/Commons:Exif Daha fazla bilgi edinin]."
 }
