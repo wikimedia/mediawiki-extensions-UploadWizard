@@ -26,7 +26,8 @@
 			"Sayginer",
 			"Sezgin İbiş",
 			"Suelnur",
-			"Szoszv"
+			"Szoszv",
+			"Sadrettin"
 		]
 	},
 	"uploadwizard": "Yükleme Sihirbazı",
@@ -404,5 +405,6 @@
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Şu anda tercihinizi kaydedemedik. Bildirimleri etkinleştirmek için lütfen [[c:Special:Preferences#mw-prefsection-echo|Tercihler]] sayfanızı ziyaret edin.",
 	"mwe-upwiz-upload-comment-own-work": "UploadWizard ile kendi çalışmansını yükledi",
 	"mwe-upwiz-upload-comment-third-party": "UploadWizard ile $2 kaynağından $1 tarafından bir çalışma yükledi",
-	"mwe-upwiz-metadata-notice-header": "Kişisel veri"
+	"mwe-upwiz-metadata-notice-header": "Kişisel veri",
+	"mwe-upwiz-metadata-notice-description": "Bu dosyadaki EXIF meta verileri, kameranız tarafından otomatik olarak eklenen konum veya diğer kişisel verileri içerebilir. EXIF meta verilerinin nasıl düzenleneceği veya kaldırılacağı hakkında [https://commons.wikimedia.org/wiki/Commons:Exif Daha fazla bilgi edinin]."
 }
