@@ -134,7 +134,7 @@
 	"mwe-upwiz-progressbar-uploading": "Téléversement en cours",
 	"mwe-upwiz-almost-finished": "Chargement des fichiers...",
 	"mwe-upwiz-finished": "Terminé !",
-	"mwe-upwiz-deeds-macro-prompt": "Ce site vous{{GENDER:$2|}} demande de fournir les informations de droit d’auteur pour ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}}, afin d’assurer que chacun puisse l{{PLURAL:$1|a|es}} réutiliser.",
+	"mwe-upwiz-deeds-macro-prompt": "Ce site {{GENDER:$2|}}vous demande de fournir les informations de droit d’auteur pour ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}}, afin d’assurer que chacun puisse l{{PLURAL:$1|a|es}} réutiliser.",
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Ce fichier est|Ces fichiers sont}} de mon propre travail.",
 	"mwe-upwiz-source-ownwork-assert-any-license": "Moi, $2, {{GENDER:$4|le détenteur|la détentrice}} des droits d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, donne irrévocablement par la présente le droit à toute personne d’utiliser, modifier et redistribuer {{PLURAL:$1|cette œuvre|ces œuvres}} pour quelques fins que ce soit et c’est pourquoi je {{PLURAL:$1|la|les}} publie sous les modalités suivantes :",
 	"mwe-upwiz-source-ownwork-assert": "Moi, $2, titulaire du droit d’auteur de {{PLURAL:$1|cette œuvre|ces œuvres}}, accorde irrévocablement à toute personne le droit d’utiliser {{PLURAL:$1|ce travail|ces travaux}} à n’importe quelle fin, aux conditions qu’ils me créditent et partagent les travaux dérivés selon les mêmes modalités.",
