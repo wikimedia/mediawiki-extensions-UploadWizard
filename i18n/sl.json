@@ -132,7 +132,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Povejte nam, zakaj mislite, da smete {{PLURAL:$1|to delo|ti deli|ta dela}} objaviti:",
 	"mwe-upwiz-source-thirdparty-accept": "V redu",
 	"mwe-upwiz-source-custom": "Na naslednji strani za vsako datoteko posebej navedite podatke o avtorskih pravicah.",
-	"mwe-upwiz-patent": "Tu podpisani avtor, $2, želim podeliti trajno licenco do patenta vsem uporabnikom {{PLURAL:$1|datoteke|datotek}} in povezanih 3D objektov ([$3 pravno besedilo]).",
+	"mwe-upwiz-patent": "Tu navedeni avtor, $2, želim podeliti trajno licenco za patent vsem uporabnikom {{PLURAL:$1|datoteke|datotek}} in povezanih 3D-objektov ([$3 pravno besedilo]).",
 	"mwe-upwiz-patent-dialog-title": "Pravice patenta",
 	"mwe-upwiz-patent-dialog-title-filename": "Pravne pravice za: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Nazaj",
