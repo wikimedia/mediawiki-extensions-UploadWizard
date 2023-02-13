@@ -16,7 +16,7 @@
  */
 
 ( function ( uw ) {
-	QUnit.module( 'uw.controller.Details', QUnit.newMwEnvironment() );
+	QUnit.module( 'mw.uploadWizard.controller.Details', QUnit.newMwEnvironment() );
 
 	function createTestUpload( sandbox, customDeedChooser, aborted ) {
 		var stubs = {

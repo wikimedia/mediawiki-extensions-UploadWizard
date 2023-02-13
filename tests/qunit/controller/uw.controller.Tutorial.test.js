@@ -16,7 +16,7 @@
  */
 
 ( function ( uw ) {
-	QUnit.module( 'uw.controller.Tutorial', QUnit.newMwEnvironment() );
+	QUnit.module( 'mw.uploadWizard.controller.Tutorial', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Constructor sanity test', function ( assert ) {
 		var step = new uw.controller.Tutorial( new mw.Api() );

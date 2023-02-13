@@ -33,7 +33,7 @@
 		desc: 'filename including a # (disallowed in file names)'
 	} ];
 
-	QUnit.module( 'uw.TitleDetailsWidget', QUnit.newMwEnvironment() );
+	QUnit.module( 'mw.uploadWizard.TitleDetailsWidget', QUnit.newMwEnvironment() );
 
 	QUnit.test( '.static.makeTitleInFileNS()', function ( assert ) {
 		var makeTitleInFileNS = uw.TitleDetailsWidget.static.makeTitleInFileNS;

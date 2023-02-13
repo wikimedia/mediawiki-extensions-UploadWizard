@@ -16,7 +16,7 @@
  */
 
 ( function ( uw ) {
-	QUnit.module( 'uw.ConcurrentQueue', QUnit.newMwEnvironment() );
+	QUnit.module( 'mw.uploadWizard.ConcurrentQueue', QUnit.newMwEnvironment() );
 
 	// This is a bogus action that will be executed for every item added to the
 	// queue. We just need to make sure that the action doesn't complete
