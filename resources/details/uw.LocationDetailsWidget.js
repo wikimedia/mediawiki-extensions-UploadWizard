@@ -239,7 +239,10 @@
 		if ( parts ) {
 			value = parts[ 1 ] * 1 + parts[ 2 ] / 60 + ( parts[ 3 ] || 0 ) / 3600;
 		} else {
-			value = value.replace( /[^-\d.]+g/, '' ) * 1;
+			value = value.replace( /[^-\d.]+/g, '' ) * 1;
+			if ( Math.abs( value ) > 360 ) {
+				return NaN;
+			}
 		}
 
 		// Round to 6 decimal places, this approx. corresponds to a precision of 0.1 meter or less

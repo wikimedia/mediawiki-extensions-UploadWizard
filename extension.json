@@ -610,6 +610,7 @@
 			"controller/uw.controller.Thanks.test.js",
 			"controller/uw.controller.Tutorial.test.js",
 			"controller/uw.controller.Upload.test.js",
+			"details/uw.LocationDetailsWidget.test.js",
 			"transports/mw.FormDataTransport.test.js",
 			"uw.ConcurrentQueue.test.js",
 			"mw.UploadWizardUpload.test.js",
