@@ -379,7 +379,7 @@
 	"mwe-upwiz-subhead-alternatives": "Métodos de subida alternativos",
 	"mwe-upwiz-feedback-prompt": "Dejar comentarios",
 	"mwe-upwiz-feedback-title": "Dejar comentarios sobre el Asistente de subidas",
-	"mwe-upwiz-feedback-blacklist-line-intro": "Esta es la entrada permanente a la lista negra de títulos que tuvieron una correspondencia:\n$1",
+	"mwe-upwiz-feedback-blacklist-line-intro": "Esta es la entrada de la lista negra de títulos que coincide:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "El  título de mi archivo, «$1» no está permitido.",
 	"mwe-upwiz-errordialog-title": "Hubo un error en tu envío",
 	"mwe-upwiz-errordialog-ok": "Aceptar",
@@ -413,5 +413,6 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Ya no recibirás más notificaciones para etiquetar tus subidas.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "No podemos guardar tu preferencia en este momento. Por favor visita tus [[c:Special:Preferences#mw-prefsection-echo|Preferences]] para optar por las notificaciones.",
 	"mwe-upwiz-upload-comment-own-work": "Trabajo propio subido con el Asistente de subidas",
-	"mwe-upwiz-upload-comment-third-party": "Se subió un trabajo por $1 de $2 con el Asistente de subidas"
+	"mwe-upwiz-upload-comment-third-party": "Se subió un trabajo por $1 de $2 con el Asistente de subidas",
+	"mwe-upwiz-metadata-notice-header": "Datos personales"
 }
