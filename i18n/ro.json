@@ -294,6 +294,7 @@
 	"mwe-upwiz-error-nosuchcampaign": "Nu există nicio campanie cu numele „$1”.",
 	"mwe-upwiz-error-campaigndisabled": "Campania „$1” nu a fost activată.",
 	"prefs-uploads": "Încărcare",
+	"prefs-description-uploads": "Setați-vă numele de autor și licența implicită.",
 	"prefs-upwiz-licensing": "Licențiere",
 	"prefs-upwiz-experimental": "Funcții experimentale",
 	"prefs-upwiz-interface": "Interfața utilizatorului",
