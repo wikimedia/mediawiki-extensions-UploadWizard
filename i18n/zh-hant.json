@@ -103,7 +103,7 @@
 	"mwe-upwiz-next-file-despite-failures": "仍要繼續",
 	"mwe-upwiz-skip-tutorial-future": "下次跳過此步驟",
 	"mwe-upwiz-file-all-failed": "沒有檔案上傳成功。",
-	"mwe-upwiz-upload-count": "已上傳 $1 個檔案，共 $2 個",
+	"mwe-upwiz-upload-count": "已上傳 $1 個{{PLURAL:$2|檔案}}，共 $2 個",
 	"mwe-upwiz-progressbar-uploading": "上傳中",
 	"mwe-upwiz-almost-finished": "檔案處理中...",
 	"mwe-upwiz-finished": "已完成！",
