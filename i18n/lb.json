@@ -5,7 +5,8 @@
 			"Les Meloures",
 			"Macofe",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"uploadwizard": "Assistent fir eropzelueden",
@@ -66,7 +67,7 @@
 	"mwe-upwiz-upload": "Eroplueden",
 	"mwe-upwiz-file-all-ok": "D'Eropluede vun alle Fichieren huet funktionéiert!",
 	"mwe-upwiz-file-some-failed": "D'Eropluede vun e puer Fichieren huet net funktionéiert!",
-	"mwe-upwiz-file-retry": "Déi Fichieren déi net eropgeluede goufen nach emol probéieren",
+	"mwe-upwiz-file-retry": "Déi Fichieren, déi net eropgeluede goufen, nach emol probéieren",
 	"mwe-upwiz-next-file-despite-failures": "Trotzdeem virufueren",
 	"mwe-upwiz-skip-tutorial-future": "Dës Etapp an Zukunft iwwersprangen",
 	"mwe-upwiz-file-all-failed": "D'Eropluede vun alle Fichieren huet net funktionéiert",
