@@ -5,7 +5,8 @@
 			"Les Meloures",
 			"Macofe",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"uploadwizard": "Assistent fir eropzelueden",
@@ -66,7 +67,7 @@
 	"mwe-upwiz-upload": "Eroplueden",
 	"mwe-upwiz-file-all-ok": "D'Eropluede vun alle Fichieren huet funktionéiert!",
 	"mwe-upwiz-file-some-failed": "D'Eropluede vun e puer Fichieren huet net funktionéiert!",
-	"mwe-upwiz-file-retry": "Déi Fichieren déi net eropgeluede goufen nach emol probéieren",
+	"mwe-upwiz-file-retry": "Déi Fichieren, déi net eropgeluede goufen, nach emol probéieren",
 	"mwe-upwiz-next-file-despite-failures": "Trotzdeem virufueren",
 	"mwe-upwiz-skip-tutorial-future": "Dës Etapp an Zukunft iwwersprangen",
 	"mwe-upwiz-file-all-failed": "D'Eropluede vun alle Fichieren huet net funktionéiert",
@@ -219,7 +220,7 @@
 	"mwe-upwiz-error-title-protected": "Dësen Titel ass eng gespaarte Säit op dëser Wiki. Sicht Iech wgl. een aneren Numm.",
 	"mwe-upwiz-error-license-wikitext-missing": "Dir hutt eng Optioun erausgesicht, déi et verlaangt datt Dir Wikitext agitt.",
 	"mwe-upwiz-error-license-wikitext-too-short": "De Wikitext hei ass ze kuerz fir eng Lizenz ze sinn",
-	"mwe-upwiz-error-license-wikitext-too-long": "De Wikitext deen Dir aginn hutt ass ze laang.",
+	"mwe-upwiz-error-license-wikitext-too-long": "De Wikitext, deen Dir aginn hutt, ass ze laang.",
 	"mwe-upwiz-error-license-wikitext-missing-template": "Am Wikitext deen Dir aginn hutt ass keng valabel \nSchabloun vun enger Lizenz",
 	"mwe-upwiz-error-patent-disagree": "Dir musst mat de Bedingungen averstan sinn.",
 	"mwe-upwiz-warning-postdate": "Den Datum deen Dir erausgesicht hutt ass an der Zukunft.",
@@ -282,7 +283,7 @@
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} steet an den USA, dofir däerf kee Copyright (droits d'auteurs) an deem Land fir dat Wierk bestoen.",
 	"mwe-upwiz-license-usgov-head": "{{PLURAL:$1|Dëst Wierk gouf|Dës Wierker goufe}} vun der US-amerikanescher Regierung gemaach",
 	"mwe-upwiz-license-misc": "Aner Grënn",
-	"mwe-upwiz-license-custom-head": "Anere Grond deen hei net gewise gëtt",
+	"mwe-upwiz-license-custom-head": "Anere Grond, deen uewen net ernimmt gouf",
 	"mwe-upwiz-license-custom-preview": "Kucken ouni ofzespäicheren",
 	"mwe-upwiz-license-none-head": "Ech hunn et um Internet fonnt -- Ech sinn net sécher",
 	"mwe-upwiz-license-none": "Ech mengen datt {{PLURAL:$1|dëst Wierk|dës Wierker}} ënner enger fräier Lizenz {{PLURAL:$1|steet|stinn}} oder legal am Public Domain sinn. Ech verstinn datt wann ech déi néideg Lizenz-Informatiounen net mat Zäit erbäibréngen {{PLURAL:$1|dëse Fichier geläscht ka|dës Fichiere geläscht kënne}} ginn.",
