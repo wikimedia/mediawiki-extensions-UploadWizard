@@ -18,7 +18,8 @@
 			"Matma Rex",
 			"Rachmat.Wahidi",
 			"Rachmat04",
-			"Rex"
+			"Rex",
+			"Veracious"
 		]
 	},
 	"uploadwizard": "Wisaya Pengunggahan",
@@ -369,6 +370,7 @@
 	"mwe-upwiz-calendar-date": "Pilih tanggal dari kalender",
 	"mwe-upwiz-custom-date": "Gunakan format tanggal tersuai",
 	"prefs-uploads": "Mengunggah",
+	"prefs-description-uploads": "Tetapkan nama penulis Anda dan lisensi tetapan.",
 	"prefs-upwiz-licensing": "Lisensi",
 	"prefs-upwiz-experimental": "Fitur uji coba",
 	"prefs-upwiz-interface": "Antarmuka pengguna",
