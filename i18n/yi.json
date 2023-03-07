@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Imre",
+			"Pacha Tchernof",
 			"פוילישער"
 		]
 	},
@@ -54,6 +55,7 @@
 	"mwe-upwiz-source-ownwork": "{{PLURAL:$1| די טעקע איז | די דאזיקע טעקעס זענען}} מיין אייגן אַרבעט.",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1| די דאזיקע טעקע איז| די דאזיקע טעקעס זענען}} נישט מיין אייגן אַרבעט.",
 	"mwe-upwiz-source-thirdparty-accept": "אויספֿירן",
+	"mwe-upwiz-patent-dialog-button-back": "צוריק",
 	"mwe-upwiz-more-options": "צולייגן ארט און נאך אינפארמאציע ...",
 	"mwe-upwiz-copy-metadata-button": "קאפירן",
 	"mwe-upwiz-copy-metadata-button-undo": "אַנולירן",
@@ -88,6 +90,7 @@
 	"mwe-upwiz-next": "נעקסטע",
 	"mwe-upwiz-next-file": "פֿארזעצן",
 	"mwe-upwiz-next-deeds": "נעקסטע",
+	"mwe-upwiz-previous": "צוריק",
 	"mwe-upwiz-home": "צום וויקי היימבלאַט",
 	"mwe-upwiz-upload-another": "אַרויפֿלאָדן נאך טעקעס",
 	"mwe-upwiz-tooltip-author": "דער נאָמען פֿונעם מענטש וואס האָט געמאכט דעם פֿאָטאָ, אָדער געמאָלט דאָס בילד, געצייכנט די צייכענונג, אא\"וו.",
