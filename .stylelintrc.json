@@ -3,7 +3,6 @@
 	"rules": {
 		"selector-max-id": null,
 		"no-descending-specificity": null,
-		"declaration-property-unit-disallowed-list": null,
-		"selector-pseudo-element-colon-notation": null
+		"declaration-property-unit-disallowed-list": null
 	}
 }

@@ -30,8 +30,8 @@
 	font-weight: bold;
 }
 
-.arrowSteps li:after,
-.arrowSteps li:before {
+.arrowSteps li::after,
+.arrowSteps li::before {
 	left: 100%;
 	top: 50%;
 	border: solid transparent;
@@ -42,7 +42,7 @@
 	pointer-events: none;
 }
 
-.arrowSteps li.arrow:after {
+.arrowSteps li.arrow::after {
 	border-left-color: #eaecf0;
 	/* half the height of .arrowSteps li */
 	border-width: 25px;
@@ -50,7 +50,7 @@
 	z-index: 1;
 }
 
-.arrowSteps li.arrow:before {
+.arrowSteps li.arrow::before {
 	border-left-color: #fff;
 	/* half the height of .arrowSteps li + width of the arrow border */
 	border-width: 30px;
@@ -58,7 +58,7 @@
 	z-index: 1;
 }
 
-#mwe-upwiz-steps li.head:after {
+#mwe-upwiz-steps li.head::after {
 	border-left-color: #eaf3ff;
 }
 
