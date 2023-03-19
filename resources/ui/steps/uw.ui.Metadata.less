@@ -1,6 +1,6 @@
+@import 'mediawiki.skin.variables.less';
+
 @menu-width: 270px;
-@backgroundColorError: #fee7e6;
-@borderColorError: #d33;
 
 h3.mwe-upwiz-metadata-title {
 	float: left;
@@ -37,8 +37,8 @@ h3.mwe-upwiz-metadata-title {
 		}
 
 		.mwe-upwiz-metadata-page--error {
-			background-color: @backgroundColorError;
-			border: 1px solid @borderColorError;
+			background-color: @background-color-error-subtle;
+			border: @border-width-base @border-style-base @border-color-error;
 		}
 	}
 
@@ -54,7 +54,7 @@ h3.mwe-upwiz-metadata-title {
 
 		.wbmi-statements-widget {
 			margin-top: 1em;
-			border-bottom: 1px solid #c8ccd1;
+			border-bottom: @border-width-base @border-style-base @border-color-subtle;
 
 			.wbmi-content-items-group {
 				min-height: 1em;
