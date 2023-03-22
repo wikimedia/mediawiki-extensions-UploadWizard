@@ -19,6 +19,7 @@
 	"group-upwizcampeditors": "Redactores de campanias del Assistente de Incargamento",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Redactor|Redactrice}} de campanias del Assistente de Incargamento",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Redactores de campanias del Assistente de Incargamento",
+	"group-upwizcampeditors.css": "/* Le codice CSS placiate hic affectara solmente redactores de campanias del assistente de incargamento */",
 	"api-error-parsererror": "Le servitor ha respondite con un documento JSON invalide. Isto pote esser un problema con le API, o es possibile que tu usa un servitor proxy que te impedi de incargar files.",
 	"api-error-aborted": "Incargamento abortate.",
 	"api-error-noimageinfo": "Le incargamento ha succedite, ma le servitor non ha fornite alcun information sur le file.",
