@@ -156,6 +156,7 @@
 	"mwe-upwiz-copy-other": "Копирај остале информације",
 	"mwe-upwiz-caption": "Поднаслов",
 	"mwe-upwiz-desc": "Опис",
+	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Додај опис|Додај опис на другом језику}}",
 	"mwe-upwiz-title": "Наслов датотеке",
 	"mwe-upwiz-date-created": "Датум",
 	"mwe-upwiz-select-date": "Изаберите датум",
@@ -251,6 +252,7 @@
 	"mwe-upwiz-dialog-yes": "Да",
 	"mwe-upwiz-dialog-no": "Не",
 	"mwe-upwiz-dialog-title": "Упозорење",
+	"mwe-upwiz-campaign-upload-button": "Отпреми!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Отпремање|Отпремања}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Доприносиоци}}",
 	"mwe-upwiz-campaign-view-all-media": "Прикажи све отпремљене медије",
@@ -345,5 +347,7 @@
 	"mwe-upwiz-mv-cta-checkbox-label": "Да, желим да добијам обавештења када моја отпремања имају ознаке које су спремне за мој преглед",
 	"mwe-upwiz-mv-cta-final-cta": "Спремни да одмах почнете са означавањем? [[c:Special:SuggestedTags|Испробајте алатку]] означавањем популарних слика!",
 	"mwe-upwiz-mv-cta-dismiss": "Одбаци",
+	"mwe-upwiz-upload-comment-own-work": "Отпремљен сопствени рад Водичем за отпремање",
+	"mwe-upwiz-upload-comment-third-party": "Отпремљен рад $1 из $2 Водичем за отпремање",
 	"mwe-upwiz-metadata-notice-header": "Лични подаци"
 }
