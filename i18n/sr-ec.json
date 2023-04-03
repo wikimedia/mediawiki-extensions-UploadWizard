@@ -334,6 +334,7 @@
 	"prefs-upwiz-interface": "Кориснички интерфејс",
 	"mwe-upwiz-prefs-def-license": "Подразумевана лиценца",
 	"mwe-upwiz-prefs-def-license-def": "Користи подразумевано",
+	"mwe-upwiz-prefs-def-license-custom": "Друга основна лиценца",
 	"mwe-upwiz-prefs-license-name": "Име аутора",
 	"mwe-upwiz-prefs-license-own": "Сопствено дело — $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Туђе дело – $1",
