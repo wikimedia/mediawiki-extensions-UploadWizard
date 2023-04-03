@@ -15,7 +15,8 @@
 			"Милан Јелисавчић",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Kizule"
+			"Kizule",
+			"Zenfiric"
 		]
 	},
 	"uploadwizard": "Водич за отпремање",
@@ -155,6 +156,7 @@
 	"mwe-upwiz-copy-other": "Копирај остале информације",
 	"mwe-upwiz-caption": "Поднаслов",
 	"mwe-upwiz-desc": "Опис",
+	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Додај опис|Додај опис на другом језику}}",
 	"mwe-upwiz-title": "Наслов датотеке",
 	"mwe-upwiz-date-created": "Датум",
 	"mwe-upwiz-select-date": "Изаберите датум",
@@ -251,6 +253,7 @@
 	"mwe-upwiz-dialog-yes": "Да",
 	"mwe-upwiz-dialog-no": "Не",
 	"mwe-upwiz-dialog-title": "Упозорење",
+	"mwe-upwiz-campaign-upload-button": "Отпреми!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Отпремање|Отпремања}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Доприносиоци}}",
 	"mwe-upwiz-campaign-view-all-media": "Прикажи све отпремљене медије",
