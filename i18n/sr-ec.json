@@ -15,7 +15,8 @@
 			"Жељко Тодоровић",
 			"Милан Јелисавчић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Zenfiric"
 		]
 	},
 	"uploadwizard": "Водич за отпремање",
@@ -129,6 +130,7 @@
 	"mwe-upwiz-source-thirdparty-accept": "У реду",
 	"mwe-upwiz-source-custom": "Навешћу податке о ауторским правима за сваку датотеку појединачно на следећој страници.",
 	"mwe-upwiz-patent-dialog-title": "Права патента",
+	"mwe-upwiz-patent-dialog-title-filename": "Законска права: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",
 	"mwe-upwiz-patent-dialog-button-next": "Следеће",
 	"mwe-upwiz-patent-dialog-link-warranty": "Детаљније",
@@ -140,6 +142,7 @@
 	"mwe-upwiz-license-metadata-content": "Кликом на „Објави податке”, пристајете на [[wmf:Terms_of_Use|услове коришћења]] и неопозиво се слажете да свој допринос предате под [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 лиценцом].",
 	"mwe-upwiz-more-options": "Додајте место и више информација …",
 	"mwe-upwiz-copy-statements-dialog-accept": "Да, копирај",
+	"mwe-upwiz-copy-statements-button": "Копирај изјаве на све датотеке …",
 	"mwe-upwiz-copy-statements-button-done": "Копирано",
 	"mwe-upwiz-copy-metadata": "Копирај информације и стави их у сва отпремања испод ...",
 	"mwe-upwiz-copy-metadata-button": "Копирај",
@@ -154,7 +157,9 @@
 	"mwe-upwiz-copy-location": "Копирај место",
 	"mwe-upwiz-copy-other": "Копирај остале информације",
 	"mwe-upwiz-caption": "Поднаслов",
+	"mwe-upwiz-caption-add": "{{PLURAL:$1|0=Додај поднаслов|Додај поднаслов на другом језику}}",
 	"mwe-upwiz-desc": "Опис",
+	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Додај опис|Додај опис на другом језику}}",
 	"mwe-upwiz-title": "Наслов датотеке",
 	"mwe-upwiz-date-created": "Датум",
 	"mwe-upwiz-select-date": "Изаберите датум",
@@ -173,7 +178,7 @@
 	"mwe-upwiz-thanks-explain": "Сада можете да користите {{PLURAL:$1|ову датотеку|ове датотеке}} на страницама попут Википедије или {{PLURAL:$1|је|их}} повезати.",
 	"mwe-upwiz-thanks-wikitext": "Да бисте користили датотеку на викију, копирајте следећи текст на страницу:",
 	"mwe-upwiz-thanks-url": "Да бисте поставили везу до ње у HTML-у, копирајте следећу адресу:",
-	"mwe-upwiz-upload-error-bad-filename-extension": "Овај вики не прихвата имена датотека која се завршавају ознаком типа датотеке „.$1”.",
+	"mwe-upwiz-upload-error-bad-filename-extension": "Овај вики не прихвата називе датотека с екстензијом „.$1”.",
 	"mwe-upwiz-upload-error-bad-filename-no-extension": "Овај вики захтева да датотеке имају наставак (нпр. „.jpg“) на крају назива.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Већ отпремате датотеку „$1“.",
 	"mwe-upwiz-allowed-filename-extensions": "Дозвољени наставци:",
@@ -250,6 +255,7 @@
 	"mwe-upwiz-dialog-yes": "Да",
 	"mwe-upwiz-dialog-no": "Не",
 	"mwe-upwiz-dialog-title": "Упозорење",
+	"mwe-upwiz-campaign-upload-button": "Отпреми!",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|Отпремање|Отпремања}}",
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Доприносиоци}}",
 	"mwe-upwiz-campaign-view-all-media": "Прикажи све отпремљене медије",
@@ -331,6 +337,7 @@
 	"prefs-upwiz-interface": "Кориснички интерфејс",
 	"mwe-upwiz-prefs-def-license": "Подразумевана лиценца",
 	"mwe-upwiz-prefs-def-license-def": "Користи подразумевано",
+	"mwe-upwiz-prefs-def-license-custom": "Друга основна лиценца",
 	"mwe-upwiz-prefs-license-name": "Име аутора",
 	"mwe-upwiz-prefs-license-own": "Сопствено дело — $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Туђе дело – $1",
@@ -344,5 +351,8 @@
 	"mwe-upwiz-mv-cta-checkbox-label": "Да, желим да добијам обавештења када моја отпремања имају ознаке које су спремне за мој преглед",
 	"mwe-upwiz-mv-cta-final-cta": "Спремни да одмах почнете са означавањем? [[c:Special:SuggestedTags|Испробајте алатку]] означавањем популарних слика!",
 	"mwe-upwiz-mv-cta-dismiss": "Одбаци",
-	"mwe-upwiz-metadata-notice-header": "Лични подаци"
+	"mwe-upwiz-upload-comment-own-work": "Отпремљен сопствени рад Водичем за отпремање",
+	"mwe-upwiz-upload-comment-third-party": "Отпремљен рад $1 из $2 Водичем за отпремање",
+	"mwe-upwiz-metadata-notice-header": "Лични подаци",
+	"mwe-upwiz-metadata-notice-description": "EXIF метаподаци у овој датотеци можда садрже локацију или друге личне податке које камера аутоматски додаје. [https://commons.wikimedia.org/wiki/Commons:Exif Сазнајте више] како да уредите или уклоните EXIF метаподатке."
 }
