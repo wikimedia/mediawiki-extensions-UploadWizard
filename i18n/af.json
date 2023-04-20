@@ -3,7 +3,8 @@
 		"authors": [
 			"Matma Rex",
 			"Naudefj",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Rooiratel"
 		]
 	},
 	"uploadwizard": "foto wizard",
@@ -47,6 +48,7 @@
 	"mwe-upwiz-source-permission": "Hulle skrywer het jou uitdruklike toestemming om dit te laai",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Verskaf inligting oor kopiereg vir elke lêer afsonderlik op die volgende bladsy.",
+	"mwe-upwiz-license-metadata-content": "Deur \"publiseer\" te klik, stem jy in tot die [[wmf:Terms_of_Use|gebruiksbepalings]], en stem jy onherroeplik in om jou bydrae vry te stel onder die [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 Lisensie].",
 	"mwe-upwiz-more-options": "Voeg kategorieë en meer inligting by...",
 	"mwe-upwiz-desc": "Beskrywing",
 	"mwe-upwiz-title": "Naam",
