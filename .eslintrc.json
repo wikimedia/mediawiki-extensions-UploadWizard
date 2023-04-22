@@ -21,8 +21,6 @@
 			}
 		],
 		"no-shadow": "warn",
-		"es-x/no-array-prototype-keys": "warn",
-		"es-x/no-array-prototype-values": "warn",
 		"es-x/no-symbol-prototype-description": "warn",
 		"es-x/no-typed-arrays": "warn"
 	},
