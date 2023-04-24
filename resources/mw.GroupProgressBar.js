@@ -190,7 +190,7 @@
 				.find( '.mwe-upwiz-count' )
 				// Hide if there are no uploads, show otherwise
 				.toggle( total !== 0 )
-				.html( mw.message( 'mwe-upwiz-upload-count', completed, total ).escaped() );
+				.text( mw.msg( 'mwe-upwiz-upload-count', completed, total ) );
 		},
 
 		countRemoved: function () {
