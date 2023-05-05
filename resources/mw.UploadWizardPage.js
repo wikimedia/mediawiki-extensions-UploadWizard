@@ -10,18 +10,11 @@
 ( function () {
 
 	function isCompatible() {
-		var
-			profile = $.client.profile(),
-			// Firefox < 7.0 sends an empty string as filename for Blobs in FormData.
-			// requests. https://bugzilla.mozilla.org/show_bug.cgi?id=649150
-			badFormDataBlobs = profile.name === 'firefox' && profile.versionNumber < 7;
-
 		return !!(
 			window.FileReader &&
 			window.FormData &&
 			window.File &&
-			window.File.prototype.slice &&
-			!badFormDataBlobs
+			window.File.prototype.slice
 		);
 	}
 
