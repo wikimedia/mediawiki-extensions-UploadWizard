@@ -4,11 +4,11 @@ namespace MediaWiki\Extension\UploadWizard;
 
 use Article;
 use Content;
-use EditPage;
 use IContextSource;
 use JsonSchemaException;
 use LinksUpdate;
 use ManualLogEntry;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
