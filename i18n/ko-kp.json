@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Delim"
+		]
+	},
+	"uploadwizard": "올리적재 조수",
+	"uploadwizard-desc": "올리적재 조수, 다매체를 올리적재하기 위한 사용자에게 친한 도구",
+	"tag-uploadwizard": "올리적재 조수",
+	"tag-uploadwizard-description": "올리적재 조수로 올리적재된 서류들",
+	"tag-uploadwizard-flickr-description": "올리적재 조수로 올리적재된 깜박거리 서류들",
+	"right-upwizcampaigns": "올리적재 조수 운동을 설정하기",
+	"action-upwizcampaigns": "올리적재 운동을 설정할",
+	"group-upwizcampeditors": "올리적재 조수 운동의 편집자",
+	"group-upwizcampeditors-member": "{{GENDER:$1|올리적재 조수 운동의 편집자}}",
+	"grouppage-upwizcampeditors": "{{ns:project}}:올리적재 조수 운동 편집자"
+}
