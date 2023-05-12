@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use Category;
 use Language;
+use MediaWiki\Category\Category;
 use MediaWiki\MediaWikiServices;
 use MWException;
 use Parser;
