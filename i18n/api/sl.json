@@ -12,9 +12,9 @@
 	"apihelp-flickrblacklist-param-list": "Ko je nastavljeno, se vrne celotni črni seznam. Tega ni mogoče uporabljati skupaj z $1url.",
 	"apihelp-flickrblacklist-example-1": "Preveri spletni naslov napram črnemu seznamu",
 	"apihelp-flickrblacklist-example-2": "Vrni celotni črni seznam",
-	"apihelp-query+allcampaigns-description": "Prikaži vse kampanje čarovnika za nalaganje.",
-	"apihelp-query+allcampaigns-summary": "Prikaži vse kampanje čarovnika za nalaganje.",
-	"apihelp-query+allcampaigns-param-enabledonly": "Prikaži samo omogočene kampanje.",
+	"apihelp-query+allcampaigns-description": "Naštetje vseh kampanj čarovnika za nalaganje.",
+	"apihelp-query+allcampaigns-summary": "Naštetje vseh kampanj čarovnika za nalaganje.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Naštetje samo omogočenih kampanj.",
 	"apihelp-query+allcampaigns-param-limit": "Število prikazanih kampanj.",
-	"apihelp-query+allcampaigns-example-1": "Prikaži omogočene kampanje"
+	"apihelp-query+allcampaigns-example-1": "Naštetje omogočenih kampanj"
 }
