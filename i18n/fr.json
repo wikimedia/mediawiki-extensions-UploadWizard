@@ -69,7 +69,7 @@
 	"right-upwizcampaigns": "Configurer les campagnes de l’Assistant d’import",
 	"action-upwizcampaigns": "configurer les campagnes d’import",
 	"group-upwizcampeditors": "Éditeurs de campagne de l’Assistant d’import",
-	"group-upwizcampeditors-member": "{{GENDER:$1|Éditeur|Éditrice}} de campagne de l’Assistant d’import",
+	"group-upwizcampeditors-member": "Édit{{GENDER:$1|eur|rice}} de campagne de l’Assistant d’import",
 	"grouppage-upwizcampeditors": "{{ns:project}}: éditeurs de campagne de l’Assistant d’import",
 	"group-upwizcampeditors.css": "/* Le CSS placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
 	"group-upwizcampeditors.js": "/* Le Javascript placé ici n’affectera que les éditeurs de campagne de l’Assistant d’import  */",
