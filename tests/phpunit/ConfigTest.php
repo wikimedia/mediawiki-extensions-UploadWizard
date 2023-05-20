@@ -39,7 +39,7 @@ class ConfigTest extends MediaWikiIntegrationTestCase {
 		] );
 	}
 
-	public function objRefProvider() {
+	public static function objRefProvider() {
 		return [
 			[
 				'',

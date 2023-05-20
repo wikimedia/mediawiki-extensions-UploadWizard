@@ -53,7 +53,7 @@ class SpecialUploadWizardTest extends SpecialPageTestBase {
 		$this->assertSame( $expectException, $caughtException );
 	}
 
-	public function provideIsUserUploadAllowedForBlockedUser() {
+	public static function provideIsUserUploadAllowedForBlockedUser() {
 		return [
 			'User with sitewide block is blocked from uploading' => [ true, true ],
 			'User with partial block is allowed to upload' => [ false, false ],
