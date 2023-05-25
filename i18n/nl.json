@@ -24,7 +24,8 @@
 			"TheDJ",
 			"Tvdm",
 			"Wiki13",
-			"Wouterhagens"
+			"Wouterhagens",
+			"HanV"
 		]
 	},
 	"uploadwizard": "UploadWizard",
@@ -379,6 +380,7 @@
 	"mwe-upwiz-calendar-date": "Datum via kalender kiezen",
 	"mwe-upwiz-custom-date": "Aangepaste datumopmaak gebruiken",
 	"prefs-uploads": "Uploaden",
+	"prefs-description-uploads": "Stel uw auteursnaam en de standaardlicentie in.",
 	"prefs-upwiz-licensing": "Licentie",
 	"prefs-upwiz-experimental": "Experimentele functies",
 	"prefs-upwiz-interface": "Gebruikersinterface",
