@@ -82,7 +82,7 @@ class CampaignHooks {
 		$insertData = [
 			'campaign_enabled' => $campaignData !== null && $campaignData['enabled'] ? 1 : 0
 		];
-		$success = $dbw->upsert(
+		$dbw->upsert(
 			'uw_campaigns',
 			array_merge(
 				[ 'campaign_name' => $wikiPage->getTitle()->getDBkey() ],
@@ -98,7 +98,7 @@ class CampaignHooks {
 			$campaign->invalidateCache();
 		}, __METHOD__ );
 
-		return $success;
+		return true;
 	}
 
 	/**
