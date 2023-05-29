@@ -60,6 +60,7 @@
 	"mwe-upwiz-publish-details": "فائلاں شائع کرو",
 	"mwe-upwiz-publish-metadata": "ساریاں فائلاں دا ڈیٹا شائع کرو",
 	"mwe-upwiz-skip-metadata": "ایہ مرحلہ چھوڑو",
+	"mwe-upwiz-metadata-title": "میٹا ڈیٹا شامل کرو",
 	"mwe-upwiz-previous": "پچھوں",
 	"mwe-upwiz-home": "وکی دے گھر ورقے تے ونڄو",
 	"mwe-upwiz-upload-another": "ٻیاں فائلاں اپلوڈ کرو",
@@ -77,6 +78,7 @@
 	"prefs-upwiz-experimental": "تجرباتی خصوصیات",
 	"prefs-upwiz-interface": "ورتݨ آلا انٹرفیس",
 	"mwe-upwiz-prefs-def-license": "پہلے طے تھیا لائسنس",
+	"mwe-upwiz-prefs-license-name": "مصنف ناں",
 	"mwe-upload-campaigns-pagination-next": "اڳلا ورقہ",
 	"mwe-upwiz-mv-cta-dismiss": "مکاؤ"
 }
