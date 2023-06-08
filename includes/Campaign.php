@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
+use InvalidArgumentException;
 use Language;
 use MediaWiki\Category\Category;
 use MediaWiki\MediaWikiServices;
-use MWException;
 use Parser;
 use ParserOptions;
 use ParserOutput;
@@ -89,7 +89,7 @@ class Campaign {
 		if ( $config === null ) {
 			$content = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title )->getContent();
 			if ( !$content instanceof CampaignContent ) {
-				throw new MWException( 'Wrong content model' );
+				throw new InvalidArgumentException( 'Wrong content model' );
 			}
 			$this->config = $content->getJsonData();
 		} else {

@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\UploadWizard;
 use Content;
 use JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
-use MWException;
 use ParserOutput;
 use Title;
+use UnexpectedValueException;
 
 /**
  * JSON Schema Content Handler
@@ -55,7 +55,7 @@ class CampaignContentHandler extends JsonContentHandler {
 		'@phan-var CampaignContent $content';
 		$title = Title::castFromPageReference( $cpoParams->getPage() );
 		if ( $title === null ) {
-			throw new MWException( '$title shouldn\'t be NULL' );
+			throw new UnexpectedValueException( '$title shouldn\'t be NULL' );
 		}
 
 		$campaign = new Campaign( $title, $content->getJsonData() );
