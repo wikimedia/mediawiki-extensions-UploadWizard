@@ -336,7 +336,7 @@
 	"mwe-upwiz-license-custom-preview": "Predogled",
 	"mwe-upwiz-license-none-head": "{{GENDER:|Našel|Našla|Našel_la}} sem jo na internetu – nisem {{GENDER:|prepričan|prepričana|prepričan_a}}.",
 	"mwe-upwiz-license-none": "{{GENDER:|Prepričan|Prepričana|Prepričan_a}} sem, da {{PLURAL:$1|je to delo|sta ti deli|so ta dela}} pod prosto licenco ali zakonito v javni domeni. Zavedam se, da {{PLURAL:$1|bo|bosta|bodo}}, če pravočasno ne dodam potrebnih podatkov o licenci, {{PLURAL:$1|ta datoteka morda izbrisana|ti datoteki morda izbrisani|te datoteke morda izbrisane}}.",
-	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|To delo|To deli|Ta dela}} so ustrezna za naložitev na ta wiki.",
+	"mwe-upwiz-license-generic-head": "{{PLURAL:$1|To delo|To deli|Ta dela}} so ustrezna za naložitev v ta viki.",
 	"mwe-upwiz-license-generic": "{{GENDER:|Pregledal|Pregledala|Pregledal_a}} sem [[{{int:disclaimerpage}}|zavrnitev odgovornosti tega vikija]] in po mojem najboljšem vedenju ravni varstva podatkov pri {{PLURAL:$1|tem delu|teh delih}} ne presegajo ravni tega vikija.",
 	"mwe-upwiz-license-confirm-remove": "Ali res želite odstraniti {{PLURAL:$1|to datoteko|ti datoteki|te datoteke}}?",
 	"mwe-upwiz-license-confirm-remove-title": "Potrdi odstranitev",
