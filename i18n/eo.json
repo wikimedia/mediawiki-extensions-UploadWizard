@@ -19,7 +19,8 @@
 			"ThomasPusch",
 			"Tlustulimu",
 			"Yekrats",
-			"YvesNevelsteen"
+			"YvesNevelsteen",
+			"Agloforto"
 		]
 	},
 	"uploadwizard": "Asistilo de alŝutado",
@@ -296,7 +297,7 @@
 	"mwe-upwiz-license-cc-subhead": "Ne ĉiu permesilo de Cretive Commons taŭgas por ĉi tiu retejo. Certiĝu ke la posedanto de aŭtorrajto uzis unu el ĉi tiuj permesiloj.",
 	"mwe-upwiz-license-flickr-head": "La kopirajtposedanto eldonis sian {{PLURAL:$1|foton aŭ videon|fotojn aŭ vedeojn}} en Flickr kun la ĝusta permesilo",
 	"mwe-upwiz-license-flickr-subhead": "Kontrolu la \"Permesilo\" kaptekston de la flanko de la paĝo de Flickr. Ambaŭ la ikonoj kaj permesilo nepre kongruas unu el la jenaj elektoj.",
-	"mwe-upwiz-license-public-domain-usa-head": "La aŭtorrra sendube eksvalidiĝis en Usono",
+	"mwe-upwiz-license-public-domain-usa-head": "La aŭtorrajto sendube eksvalidiĝis en Usono",
 	"mwe-upwiz-license-public-domain-usa-subhead": "{{SITENAME}} estas lokita en Usono, do la verko devas esti preter aŭtorrajto en tiu lando.",
 	"mwe-upwiz-license-usgov-head": "Ĉi {{PLURAL:$1|tiu verko|tiuj verkoj}} estis {{PLURAL:$1|farita|faritaj}} de la usona registaro",
 	"mwe-upwiz-license-misc": "Multaj kialoj",
