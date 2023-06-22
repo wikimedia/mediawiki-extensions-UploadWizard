@@ -156,7 +156,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Określ na jakiej podstawie masz pewność, że masz prawo do publikowania {{PLURAL:$1|pliku|plików:}}",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Podaj na następnej stronie informacje o prawach autorskich dla każdego pliku z osobna.",
-	"mwe-upwiz-patent": "Ja, $2, {{GENDER:$4|chciałbym|chciałabym|chciał(a)bym}} udzielić stałej licencji patentowej wszystkim użytkownikom {{PLURAL:$1|pliku|plików}} i powiązanych obiektów 3D ([$3 tekst prawny]).",
+	"mwe-upwiz-patent": "Ja, $2, {{GENDER:$4|chciałbym|chciałabym|chciał(a)bym}} udzielić nieodwołalnej licencji patentowej wszystkim użytkownikom {{PLURAL:$1|pliku|plików}} i powiązanych obiektów 3D ([$3 tekst prawny]).",
 	"mwe-upwiz-patent-dialog-title": "Prawa patentowe",
 	"mwe-upwiz-patent-dialog-title-filename": "Prawa do: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Wstecz",
