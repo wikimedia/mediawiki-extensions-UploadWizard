@@ -7,7 +7,6 @@
 	"apihelp-flickrblacklist-param-url": "Талла дезаш долу Flickr тӀехь долу URL-адрес.",
 	"apihelp-flickrblacklist-example-1": "URL-адрес Ӏаьржачу могӀаман таллар",
 	"apihelp-flickrblacklist-example-2": "Ӏаьржачу могӀаман дӀайаздар йухадерзор",
-	"apihelp-query+allcampaigns-description": "Чуйахаран говзанчан массо кампанеш йагарйан.",
 	"apihelp-query+allcampaigns-param-enabledonly": "Жигара йолу кампанийн могӀам бен.",
 	"apihelp-query+allcampaigns-param-limit": "Йухайерзош йолу кампанийн дукхалла.",
 	"apihelp-query+allcampaigns-example-1": "Йукъахь йолу кампанеш йагарйан"

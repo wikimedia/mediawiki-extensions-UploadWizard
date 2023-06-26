@@ -5,7 +5,6 @@
 		]
 	},
 	"apihelp-flickrblacklist-param-url": "Flickr-slóðin sem á að prófa.",
-	"apihelp-query+allcampaigns-description": "Telja upp allar innsendingaherferðir",
 	"apihelp-query+allcampaigns-summary": "Telja upp allar innsendingaherferðir",
 	"apihelp-query+allcampaigns-param-enabledonly": "Einungis telja upp þær innsendingaherferðir sem eru virkar.",
 	"apihelp-query+allcampaigns-param-limit": "Fjöldi herferða sem á að birta.",
