@@ -120,7 +120,7 @@
 	"mwe-upwiz-source-thirdparty-intro": "Padol dah, masupin aderès di mana lu nemuin saban berekas.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Kalo semua berekas ada punya sumber, mualip, èn status hak keja nyang sama, lu bisa masupin tu berekas semuanya sekali doang.",
 	"mwe-upwiz-source-thirdparty-cases": "Nah sekarang, kasi tau kita dah apa lu ada punya hak nerebitin {{PLURAL:$1|ni gawéan|ni gawéan pada}}:",
-	"mwe-upwiz-source-thirdparty-accept": "Baè’",
+	"mwe-upwiz-source-thirdparty-accept": "Baè'",
 	"mwe-upwiz-source-custom": "Sediain inpormasi hak keja bakal saban berekas sendiri-sendiri di halaman abisnya.",
 	"mwe-upwiz-patent": "Gua, $2, pèngèn ngangsrongin lisènsi patèn permanèn ke sapa-sapa nyang maké {{PLURAL:$1|ni berekas|ni berekas pada}} èn obyèk 3D nyang bekaètan ([$3 aturan hukum]).",
 	"mwe-upwiz-patent-dialog-title": "Hak patèn",
@@ -190,7 +190,7 @@
 	"mwe-upwiz-upload-error-duplicate-archive": "Ni berekas sebelonnya udah pernah diangkat ke ni wiki, cuman terus diapus.",
 	"mwe-upwiz-upload-error-stashed-anyway": "Angkat aja?",
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Nama berekas kaga' ditauin",
-	"mwe-upwiz-ok": "Baè’",
+	"mwe-upwiz-ok": "Baè'",
 	"mwe-upwiz-fileexists-replace-on-page": "Nama berekas dengen ni nama udah ada. Kalo lu pèngèn ngeganti, pegi dah ke halaman bakal [$2 $1] èn gantinya di sono.",
 	"mwe-upwiz-fileexists-replace-no-link": "Padol dah, pilih judul nyang bèda, sebab ni judul udah dipaké ama berekas laèn.",
 	"mwe-upwiz-blacklisted-details": "Padol dah, pilih judul nyang bèda èn ngejabarin ([$2 inpormasi lengkep]).",
@@ -346,7 +346,7 @@
 	"mwe-upwiz-feedback-blacklist-line-intro": "Ni ièlah judul nyang dirarang nyang cocok:\n$1",
 	"mwe-upwiz-feedback-blacklist-subject": "Judul gua punya angkatan, \"$1\" – perboden.",
 	"mwe-upwiz-errordialog-title": "Ada kengabluan di lu punya seserahan",
-	"mwe-upwiz-errordialog-ok": "Baè’",
+	"mwe-upwiz-errordialog-ok": "Baè'",
 	"mwe-upwiz-error-nosuchcampaign": "Kaga' ada kampanye nyang namanya \"$1\".",
 	"mwe-upwiz-error-campaigndisabled": "Kampanye \"$1\" belon dinyalain.",
 	"mwe-upwiz-calendar-date": "Pilih data deri almenak",
@@ -380,5 +380,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Ngangkat gawéan sendèwèk paké Dukun Pengangkatan",
 	"mwe-upwiz-upload-comment-third-party": "Ngangkat $1 punya gawéan deri $2 paké Dukun Pengangkatan",
 	"mwe-upwiz-metadata-notice-header": "Data pribadi",
-	"mwe-upwiz-metadata-notice-description": "Métadata EXIF di ni berekas barangkali isinya tempat atawa data pribadi laènnya nyang otomatis ketambahan deri lu punya alat jeprètan. [https://commons.wikimedia.org/wiki/Commons:Exif Belajarin lebi lanjut] pasal cara mermak atawa ngebuang métadata EXIF."
+	"mwe-upwiz-metadata-notice-description": "Métadata EXIF di ni berekas barangkali isinya tempat atawa data pribadi laènnya nyang otomatis ketambahan deri lu punya tustèl. [https://commons.wikimedia.org/wiki/Commons:Exif Belajarin lebi lanjut] pasal cara mermak atawa ngebuang métadata EXIF."
 }
