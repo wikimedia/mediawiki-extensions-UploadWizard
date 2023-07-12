@@ -9,7 +9,11 @@
 	"right-upwizcampaigns": "Жүктөөчү компания устатын тууралоо",
 	"group-upwizcampeditors": "Жүктөөчү компания устатынын редакторлору",
 	"grouppage-upwizcampeditors": "{{ns:долбоор}}:Жүктөөчү компания устатынын редакторлору",
+	"mwe-upwiz-uploading": "Жүктөлүүдө...",
+	"mwe-upwiz-stashed-upload": "Жүктөлдү",
+	"mwe-upwiz-progressbar-uploading": "жүктөлүүдө",
 	"mwe-upwiz-dialog-yes": "Ооба",
 	"mwe-upwiz-dialog-no": "Жок",
-	"mwe-upwiz-feedback-title": "Жүктөө устаты жөнүндө сын-пикир калтыру"
+	"mwe-upwiz-feedback-title": "Жүктөө устаты жөнүндө сын-пикир калтыру",
+	"prefs-uploads": "Жүктөлүүдө"
 }
