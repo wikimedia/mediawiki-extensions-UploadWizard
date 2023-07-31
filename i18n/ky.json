@@ -16,11 +16,13 @@
 	"mwe-upwiz-upload": "Жүктөө",
 	"mwe-upwiz-progressbar-uploading": "жүктөлүүдө",
 	"mwe-upwiz-copy-metadata-button-undo": "Жокко чыгаруу",
+	"mwe-upwiz-title": "Сүрөттүн аталышы",
 	"mwe-upwiz-dialog-yes": "Ооба",
 	"mwe-upwiz-dialog-no": "Жок",
 	"mwe-upwiz-campaign-upload-button": "Жүктөө !",
 	"mwe-upwiz-campaign-media-count-desc": "{{PLURAL:$1|жүктөө}}",
 	"mwe-upwiz-license-custom-preview": "Алдын ала көрүү",
+	"mwe-upwiz-categories": "Категориялар",
 	"mwe-upwiz-feedback-title": "Жүктөө устаты жөнүндө сын-пикир калтыру",
 	"prefs-uploads": "Жүктөлүүдө"
 }
