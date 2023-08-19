@@ -30,7 +30,7 @@ class CampaignContentHandler extends JsonContentHandler {
 	}
 
 	/**
-	 * @inheritDoc
+	 * @return class-string<CampaignContent>
 	 */
 	protected function getContentClass() {
 		return CampaignContent::class;
