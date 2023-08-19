@@ -6,11 +6,11 @@ use InvalidArgumentException;
 use Language;
 use MediaWiki\Category\Category;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use Parser;
 use ParserOptions;
 use ParserOutput;
 use RequestContext;
-use Title;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
 

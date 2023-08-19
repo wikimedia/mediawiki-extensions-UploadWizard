@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\UploadWizard;
 
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use TextContent;
-use Title;
 
 /**
  * Checks Flickr images against a blacklist of users

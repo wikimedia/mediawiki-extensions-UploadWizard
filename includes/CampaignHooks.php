@@ -12,9 +12,9 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Status;
-use Title;
 use User;
 use WikiPage;
 

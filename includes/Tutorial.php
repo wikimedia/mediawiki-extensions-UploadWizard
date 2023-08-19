@@ -6,7 +6,7 @@ use File;
 use Html;
 use MediaTransformOutput;
 use MediaWiki\MediaWikiServices;
-use Title;
+use MediaWiki\Title\Title;
 
 /**
  * Class to encapsulate all the html generation associated with the UploadWizard tutorial.

@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\UploadWizard;
 use Content;
 use JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Title\Title;
 use ParserOutput;
-use Title;
 use UnexpectedValueException;
 
 /**

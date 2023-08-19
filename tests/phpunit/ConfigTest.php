@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\UploadWizard\Tests;
 use MediaWiki\Extension\UploadWizard\Campaign;
 use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Interwiki\ClassicInterwikiLookup;
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
-use Title;
 
 /**
  * Test the Upload Wizard Configuration

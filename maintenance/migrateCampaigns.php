@@ -34,6 +34,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\UploadWizard\CampaignContent;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /**
  * Maintenance script to migrate campaigns from older, database table
