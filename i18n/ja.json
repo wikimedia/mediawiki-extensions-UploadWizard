@@ -29,7 +29,8 @@
 			"Yusuke1109",
 			"青子守歌",
 			"Marine-Blue",
-			"Tmv"
+			"Tmv",
+			"Peka"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -186,7 +187,7 @@
 	"mwe-upwiz-location-lat": "緯度",
 	"mwe-upwiz-location-lon": "経度",
 	"mwe-upwiz-location-alt": "高度",
-	"mwe-upwiz-location-heading": "見出し",
+	"mwe-upwiz-location-heading": "''方向''",
 	"mwe-upwiz-copyright-info": "許可する権利",
 	"mwe-upwiz-objref-pick-image": "この画像へのオブジェクトの注釈を追加する。",
 	"mwe-upwiz-objref-notice-existing-image": "画像は、参照先のオブジェクトに既に存在します。",
