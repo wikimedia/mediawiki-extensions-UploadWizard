@@ -7,7 +7,8 @@
 			"Kushared",
 			"Pirehelokan",
 			"Sarchia",
-			"ئارام بکر"
+			"ئارام بکر",
+			"Aram"
 		]
 	},
 	"uploadwizard": "بارکەری جادوویی",
@@ -28,7 +29,7 @@
 	"mwe-upwiz-campaign-unknown-error": "ھەڵەیەکی نەزانراو ڕوویداوە.",
 	"mwe-upwiz-api-warning-exists": "لێرە هەیە [$1 پەڕگەی تر] لەهەمان ویکی و بەهەمان ناو",
 	"mwe-upwiz-api-warning-was-deleted": "ئەم پەڕگەیە بوونی هەیە بەو ناوە , \"$1\" , بۆیە سڕائەوە وەهەروەها ناتوانیت باری بکەیت. ئەگەر پەڕگەکە جیاوازە ئەوە تێبکۆشەوە بە ناوێکی دیکەوە.",
-	"mwe-upwiz-tutorial-error-localized-file-missing": "ببورە ، ئێمە لەتواناماندا بۆ دۆزینەوەی فێرکارییەکان بە زمانی تۆ ، دەتوانی چاو لەم وەشانە بکەی $1.",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "ببوورە، نەمانتوانی فێرکاری بە زمانەکەت بدۆزینەوە. ئەوەی $1 بەجێگەی پیشان دەدرێت.",
 	"mwe-upwiz-help-desk": "پرسگە",
 	"mwe-upwiz-help-desk-url": "{{ns:project}}:پرسگا",
 	"mwe-upwiz-add-file-n": "پەڕگەی نوێ زۆرکە",
