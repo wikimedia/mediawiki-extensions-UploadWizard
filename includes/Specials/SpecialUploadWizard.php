@@ -333,8 +333,6 @@ class SpecialUploadWizard extends SpecialPage {
 	 * Return the basic HTML structure for the entire page
 	 * Will be enhanced by the javascript to actually do stuff
 	 * @return string html
-	 * @suppress SecurityCheck-XSS The documentation of $config['display']['headerLabel'] says,
-	 *   it is wikitext, but all *label are used as html
 	 */
 	protected function getWizardHtml() {
 		$config = Config::getConfig( $this->campaign );

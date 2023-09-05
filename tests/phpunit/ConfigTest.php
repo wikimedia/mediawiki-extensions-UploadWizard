@@ -12,6 +12,7 @@ use MediaWikiIntegrationTestCase;
  * Test the Upload Wizard Configuration
  *
  * @group Upload
+ * @group Database
  * @covers \MediaWiki\Extension\UploadWizard\Campaign
  * @covers \MediaWiki\Extension\UploadWizard\Config
  */
