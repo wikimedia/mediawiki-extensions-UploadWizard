@@ -8,7 +8,8 @@
 			"Matma Rex",
 			"NehalDaveND",
 			"Rangilo Gujarati",
-			"Sushant savla"
+			"Sushant savla",
+			"Amire80"
 		]
 	},
 	"uploadwizard": "અપલોડ વિઝાર્ડ",
@@ -18,7 +19,7 @@
 	"group-upwizcampeditors": "અપલોડ વિઝાર્ડ અભિયાન સંપાદકો",
 	"group-upwizcampeditors-member": "{{GENDER:$1| વિઝાર્ડ અભિયાન સંપાદકો}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:અપલોડ વિઝાર્ડ અભિયાન સંપાદકો",
-	"api-error-noimageinfo": "ફાઈલ સફળતા પૂર્વક ચઢાવાઈ, પણ  ફાઈલ વિષે સર્વરે પૂરી માહિતી ન આપી",
+	"api-error-noimageinfo": "ફાઈલ સફળતા પૂર્વક ચઢાવાઈ, પણ ફાઈલ વિષે સર્વરે પૂરી માહિતી ન આપી",
 	"mwe-upwiz-extension-disabled": "તંત્રજ્ઞાન ત્રુટીને કારણે આ પાનું હંગામી રીતે નિષ્ક્રીય કરાયું. તે સમય સુધી મૂળભૂત ચડાવ પાનું વાપરો.",
 	"mwe-upwiz-step-tutorial": "શીખો",
 	"mwe-upwiz-step-file": "ફાઇલ ચઢાવો",
