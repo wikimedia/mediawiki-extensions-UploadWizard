@@ -3,12 +3,13 @@
 		"authors": [
 			"Ilham151096",
 			"Kenrick95",
-			"Daud I.F. Argana"
+			"Daud I.F. Argana",
+			"Amire80"
 		]
 	},
 	"apihelp-flickrblacklist-description": "Mengesahkan URL Flickr dengan menggunakan ID pengguna (NSID) untuk pemeriksaan di daftar hitam.\n\nKetika dipakai bersamaan dengan pilihan  <var>daftar</var>, kembalikan semua ID yang masuk daftar hitam.",
 	"apihelp-flickrblacklist-summary": "Mengesahkan URL Flickr dengan menggunakan ID pengguna (NSID) untuk pemeriksaan di daftar hitam.",
-	"apihelp-flickrblacklist-extended-description": "Ketika dipakai bersamaan dengan pilihan  <var>daftar</var>, kembalikan semua ID yang masuk daftar hitam.",
+	"apihelp-flickrblacklist-extended-description": "Ketika dipakai bersamaan dengan pilihan <var>daftar</var>, kembalikan semua ID yang masuk daftar hitam.",
 	"apihelp-flickrblacklist-param-url": "URL Flickr yang akan dicoba.",
 	"apihelp-flickrblacklist-param-list": "Ketika disetel, seluruh isi daftar hitam akan dikembalikan. Tidak dapat digunakan bersamaan dengan $1url.",
 	"apihelp-flickrblacklist-example-1": "Periksa sebuah URL di daftar hitam",
