@@ -623,20 +623,31 @@
 		]
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\UploadWizard\\Hooks::onSchemaUpdate",
-		"GetPreferences": "MediaWiki\\Extension\\UploadWizard\\Hooks::onGetPreferences",
-		"IsUploadAllowedFromUrl": "MediaWiki\\Extension\\UploadWizard\\Hooks::onIsUploadAllowedFromUrl",
-		"ListDefinedTags": "MediaWiki\\Extension\\UploadWizard\\Hooks::onListDefinedTags",
-		"ChangeTagsListActive": "MediaWiki\\Extension\\UploadWizard\\Hooks::onListDefinedTags",
-		"ChangeTagsAllowedAdd": "MediaWiki\\Extension\\UploadWizard\\Hooks::onListDefinedTags",
-		"ContentModelCanBeUsedOn": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onContentModelCanBeUsedOn",
-		"EditFilterMergedContent": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onEditFilterMergedContent",
+		"LoadExtensionSchemaUpdates": "schema",
+		"GetPreferences": "main",
+		"IsUploadAllowedFromUrl": "main",
+		"ListDefinedTags": "main",
+		"ChangeTagsListActive": "main",
+		"ChangeTagsAllowedAdd": "main",
+		"ContentModelCanBeUsedOn": "campaign",
+		"EditFilterMergedContent": "campaign",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onCodeEditorGetPageLanguage",
-		"PageSaveComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onPageSaveComplete",
-		"ArticleDeleteComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onArticleDeleteComplete",
-		"PageMoveComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onPageMoveComplete",
-		"LinksUpdateComplete": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onLinksUpdateComplete",
-		"PreferencesGetIcon": "MediaWiki\\Extension\\UploadWizard\\Hooks::onPreferencesGetIcon"
+		"PageSaveComplete": "campaign",
+		"ArticleDeleteComplete": "campaign",
+		"PageMoveComplete": "campaign",
+		"LinksUpdateComplete": "campaign",
+		"PreferencesGetIcon": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\Hooks"
+		},
+		"campaign": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks"
+		},
+		"schema": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\SchemaHooks"
+		}
 	},
 	"namespaces": [
 		{
