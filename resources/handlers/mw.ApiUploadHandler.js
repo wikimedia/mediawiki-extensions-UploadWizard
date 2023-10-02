@@ -117,6 +117,15 @@
 		}
 	};
 
+	mw.ApiUploadHandler.prototype.makeOverrideButton = function () {
+		return new OO.ui.ButtonWidget( {
+			label: mw.message( 'mwe-upwiz-override' ).text(),
+			title: mw.message( 'mwe-upwiz-override-upload' ).text(),
+			flags: 'progressive',
+			framed: false
+		} );
+	};
+
 	/**
 	 * Process an erroneous upload.
 	 *
@@ -137,12 +146,7 @@
 		}
 
 		if ( code === 'abusefilter-warning' ) {
-			$extra = new OO.ui.ButtonWidget( {
-				label: mw.message( 'mwe-upwiz-override' ).text(),
-				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-				flags: 'progressive',
-				framed: false
-			} ).on( 'click', function () {
+			$extra = this.makeOverrideButton().on( 'click', function () {
 				// No need to ignore the error, AbuseFilter will only return it once
 				this.start();
 			}.bind( this ) ).$element;
@@ -249,12 +253,7 @@
 		// allow upload to continue if it's only a duplicate of files in a
 		// foreign repo, not when it's a local dupe
 		if ( Object.keys( localDuplicates ).length === 0 ) {
-			override = new OO.ui.ButtonWidget( {
-				label: mw.message( 'mwe-upwiz-override' ).text(),
-				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-				flags: 'progressive',
-				framed: false
-			} ).on( 'click', function () {
+			override = this.makeOverrideButton().on( 'click', function () {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicate' );
 				this.setTransported( result );
@@ -275,12 +274,7 @@
 	 */
 	mw.ApiUploadHandler.prototype.setDuplicateArchiveError = function ( code, result, duplicate ) {
 		var filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
-			uploadDuplicate = new OO.ui.ButtonWidget( {
-				label: mw.message( 'mwe-upwiz-override' ).text(),
-				title: mw.message( 'mwe-upwiz-override-upload' ).text(),
-				flags: 'progressive',
-				framed: false
-			} ).on( 'click', function () {
+			uploadDuplicate = this.makeOverrideButton().on( 'click', function () {
 				// mark this warning as ignored & process the API result again
 				this.ignoreWarning( 'duplicate-archive' );
 				this.setTransported( result );
