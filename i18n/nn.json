@@ -213,6 +213,7 @@
 	"mwe-upwiz-unparseable-filename": "Kunne ikkje skjøna filnamnet «$1»",
 	"mwe-upwiz-subhead-bugs": "[$1 Kjende vanskar]",
 	"mwe-upwiz-subhead-alt-upload": "Attende til det gamle skjemaet",
+	"mwe-upwiz-subhead-alternatives": "Andre opplastingsmetodar",
 	"mwe-upwiz-feedback-prompt": "Gje attendemelding",
 	"mwe-upwiz-feedback-title": "Gje attendemelding om opplastingsvegvisaren",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Dette namnet i svartelista som traff:\n$1",
