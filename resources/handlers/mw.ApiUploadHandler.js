@@ -101,6 +101,9 @@
 					this.setDuplicateError( code, result, links, {}, 1 - Object.keys( links ).length );
 				}
 				return;
+			case 'duplicateversions':
+				this.setDuplicateOldError( code, result, result.upload.warnings.exists, result.upload.warnings.duplicateversions.length );
+				return;
 			case 'duplicate-archive':
 				this.setDuplicateArchiveError( code, result, result.upload.warnings[ 'duplicate-archive' ] );
 				return;
@@ -266,8 +269,23 @@
 	};
 
 	/**
-	 * Helper function to generate deleted duplicate errors in a possibly collapsible list.
-	 *
+	 * @param {string} code Warning code, should have matching strings in .i18n.php
+	 * @param {Object} result The API result in parsed JSON form
+	 * @param {string} duplicate Duplicate filename
+	 * @param {number} count Number of duplicate versions
+	 */
+	mw.ApiUploadHandler.prototype.setDuplicateOldError = function ( code, result, duplicate, count ) {
+		var filename = mw.Title.makeTitle( NS_FILE, duplicate ).getPrefixedText(),
+			uploadDuplicate = this.makeOverrideButton().on( 'click', function () {
+				// mark this warning as ignored & process the API result again
+				this.ignoreWarning( 'duplicateversions' );
+				this.setTransported( result );
+			}.bind( this ) );
+
+		this.setError( code, mw.message( 'fileexists-duplicate-version', filename, count ).parse(), uploadDuplicate.$element );
+	};
+
+	/**
 	 * @param {string} code Warning code, should have matching strings in .i18n.php
 	 * @param {Object} result The API result in parsed JSON form
 	 * @param {string} duplicate Duplicate filename

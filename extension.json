@@ -258,6 +258,7 @@
 				"apierror-stashfailed-complete",
 				"file-exists-duplicate",
 				"file-deleted-duplicate",
+				"fileexists-duplicate-version",
 				"mwe-upwiz-api-warning-was-deleted",
 				"mwe-upwiz-api-warning-exists",
 				"mwe-upwiz-tutorial-error-localized-file-missing",
