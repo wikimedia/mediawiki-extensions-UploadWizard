@@ -98,7 +98,7 @@
 				// This is like 'duplicate', but also the filename is the same, which doesn't matter
 				if ( result.upload.warnings.exists ) {
 					links = this.getFileLinks( [ result.upload.warnings.exists ] );
-					this.setDuplicateError( code, result, links, {}, 1 - links.length );
+					this.setDuplicateError( code, result, links, {}, 1 - Object.keys( links ).length );
 				}
 				return;
 			case 'duplicate-archive':
@@ -304,7 +304,7 @@
 	 * @return {Object} Map of [prefixed filename => url]
 	 */
 	mw.ApiUploadHandler.prototype.getFileLinks = function ( filenames ) {
-		var files = [];
+		var files = {};
 
 		filenames.forEach( function ( filename ) {
 			var title;
