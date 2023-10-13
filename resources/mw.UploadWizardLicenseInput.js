@@ -30,8 +30,6 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 	this.defaults = [];
 	if ( config.defaults ) {
 		this.defaults = config.defaults instanceof Array ? config.defaults : [ config.defaults ];
-	} else if ( config.licenses && config.licenses[ 0 ] ) {
-		this.defaults = [ config.licenses[ 0 ] ];
 	}
 
 	// create inputs and licenses from config

@@ -41,12 +41,14 @@
 						chooser.uploads.length
 					).text(),
 					// label description
-					$( '<span>' ).text(
-						mw.message(
-							'mwe-upwiz-source-' + deed.name + '-description',
-							chooser.uploads.length
-						).text()
-					)
+					$( '<span>' )
+						.addClass( 'mwe-upwiz-label-extra' )
+						.text(
+							mw.message(
+								'mwe-upwiz-source-' + deed.name + '-description',
+								chooser.uploads.length
+							).text()
+						)
 				).contents(),
 				// Separate the radio option from its form
 				$deedRadio = $( '<div>' ).addClass( 'mwe-upwiz-deed-option-title' ).append(

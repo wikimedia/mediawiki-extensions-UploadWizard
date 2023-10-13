@@ -351,8 +351,15 @@
 		}
 
 		$label = $( '<label>' )
-			.msg( messageKey, this.count || 0, $licenseLink )
-			.append( $icons ).addClass( 'mwe-upwiz-copyright-info' );
+			.msg( messageKey, this.count || 0, $licenseLink, $icons )
+			.addClass( 'mwe-upwiz-copyright-info' );
+		if ( licenseInfo.props.msgExplain !== undefined ) {
+			$label.append(
+				$( '<span>' )
+					.addClass( 'mwe-upwiz-label-extra' )
+					.msg( licenseInfo.props.msgExplain, this.count || 0 )
+			);
+		}
 
 		if ( this.config.special === 'custom' ) {
 			$label.append( this.createCustom( name, licenseInfo.props.defaultText ) );
