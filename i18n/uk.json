@@ -414,5 +414,5 @@
 	"mwe-upwiz-upload-comment-own-work": "Завантажив власну роботу через Майстер завантажень",
 	"mwe-upwiz-upload-comment-third-party": "Завантажив роботу $1 з $2 через Майстер завантажень",
 	"mwe-upwiz-metadata-notice-header": "Особові дані",
-	"mwe-upwiz-metadata-notice-description": "EXIF-метадані в цьому файлі можуть містити розташування та інші особові дані автоматично додані Вашою камерою. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Дізнайтеся більше] про те як редагувати та вилучати EXIF-метадані."
+	"mwe-upwiz-metadata-notice-description": "EXIF-метадані в цьому файлі можуть містити розташування та інші особові дані, автоматично додані Вашою камерою. [https://commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Exif Дізнайтеся більше] про те, як редагувати та вилучати EXIF-метадані."
 }

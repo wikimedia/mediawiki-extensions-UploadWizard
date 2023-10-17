@@ -138,7 +138,7 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "אם כל הקבצים מגיעים מאותו המקור ומאותו היוצר, ויש להם אותו מצב זכויות יוצרים, באפשרותך להזין אותם פעם אחת עבור כולם.",
 	"mwe-upwiz-source-thirdparty-cases": "עכשיו {{GENDER:|ספר|ספרי}} לנו למה {{GENDER:|אתה בטוח|את בטוחה}} שיש לכ זכות לפרסם את {{PLURAL:$1|היצירה הזאת|היצירות האלו}}:",
 	"mwe-upwiz-source-thirdparty-accept": "אישור",
-	"mwe-upwiz-source-custom": "נא להזין מידע על זכויות יוצרים עבור כל קובץ בנפרד בדף הבא.",
+	"mwe-upwiz-source-custom": "להזין מידע על זכויות יוצרים עבור כל קובץ בנפרד בדף הבא.",
 	"mwe-upwiz-patent": "אני, $2, רוצה לתת רישיון פטנט תמידי לכל המשתמשים של {{PLURAL:$1|הקובץ|הקבצים}} ופריטים קשורים בשלושה ממדים ([$3 ניסוח משפטי]).",
 	"mwe-upwiz-patent-dialog-title": "זכויות פטנט",
 	"mwe-upwiz-patent-dialog-title-filename": "זכויות משפטיות עבור: $1",
