@@ -174,7 +174,6 @@
 	 */
 	uw.controller.Deed.prototype.shouldShowIndividualDeed = function ( config ) {
 		var ownWork;
-
 		if ( config.licensing.ownWorkDefault === 'choice' ) {
 			return true;
 		} else if ( config.licensing.ownWorkDefault === 'own' ) {

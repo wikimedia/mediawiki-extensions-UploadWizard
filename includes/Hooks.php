@@ -172,7 +172,8 @@ class Hooks implements
 			return wfMessage(
 				$licenseConfig[$licenseName]['msg'],
 				'',
-				$licenseConfig[$licenseName]['url']
+				$licenseConfig[$licenseName]['url'],
+				''
 			)->parse();
 		}
 
