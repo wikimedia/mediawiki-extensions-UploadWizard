@@ -5,7 +5,8 @@
 			"Fitoschido",
 			"Macofe",
 			"Matma Rex",
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"uploadwizard": "Asistente de xubíes",
@@ -101,7 +102,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain": "(Cualesquiera pue usar, compartir o adautar {{PLURAL:$1|esta obra|estes obres}}, mentanto me citen como autor y compartan cualesquier obra derivada baxo esta llicencia.)",
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-lu": "Yo, $2, propietariu de los drechos d'autor d'{{PLURAL:$1|esta obra|estes obres}}, cedo de mou irrevocable a cualesquiera el drechu d'utilizar {{PLURAL:$1|esta obra|estes obres}} baxo la llicencia Creative Commons Reconocimientu CompartirIgual 3.0 de Luxemburgu  ([$3 testu llegal]).",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain": "(Cualesquiera pue usar, compartir o adautar {{PLURAL:$1|esta obra|estes obres}}, mentanto me citen como autor y compartan cualesquier obra derivada baxo esta llicencia.)",
-	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl": "Yo, $2, propietariu de los drechos d'autor d'{{PLURAL:$1|esta obra|estes obres}}, cedo de mou irrevocable a cualesquiera el drechu d'utilizar {{PLURAL:$1|esta obra|estes obres}} baxo la llicencia Creative Commons Reconocimientu CompartirIgual 3.0 de los Paises Baxos  ([$3 testu llegal]).",
+	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-nl": "Yo, $2, {{GENDER:$4|propietariu|propietaria}} de los drechos d'autor d'{{PLURAL:$1|esta obra|estes obres}}, cedo de mou irrevocable a cualesquiera el drechu d'utilizar {{PLURAL:$1|esta obra|estes obres}} baxo la llicencia Creative Commons Reconocimientu CompartirIgual 3.0 de los Países Baxos ([$3 testu llegal]).",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain": "(Cualesquiera pue usar, compartir o adautar {{PLURAL:$1|esta obra|estes obres}}, mentanto me citen como autor y compartan cualesquier obra derivada baxo esta llicencia.)",
 	"mwe-upwiz-source-ownwork-assert-cc-by-sa-3.0-no": "Yo, $2, propietariu de los drechos d'autor d'{{PLURAL:$1|esta obra|estes obres}}, cedo de mou irrevocable a cualesquiera el drechu d'utilizar {{PLURAL:$1|esta obra|estes obres}} baxo la llicencia Creative Commons Reconocimientu CompartirIgual 3.0 de Noruega  ([$3 testu llegal]).",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-no-explain": "(Cualesquiera pue usar, compartir o adautar {{PLURAL:$1|esta obra|estes obres}}, mentanto me citen como autor y compartan cualesquier obra derivada baxo esta llicencia.)",
@@ -282,7 +283,7 @@
 	"mwe-upwiz-license-cc-by-sa-3.0-es": "Creative Commons Reconocimientu - Compartir Igual 3.0 España ([$2 códigu llegal])",
 	"mwe-upwiz-license-cc-by-sa-3.0-hr": "Creative Commons Reconocimientu - Compartir Igual 3.0 Croacia ([$2 códigu llegal])",
 	"mwe-upwiz-license-cc-by-sa-3.0-lu": "Creative Commons Reconocimientu - Compartir Igual 3.0 Luxemburgu ([$2 códigu llegal])",
-	"mwe-upwiz-license-cc-by-sa-3.0-nl": "Creative Commons Reconocimientu - Compartir Igual 3.0 Paises Baxos ([$2 códigu llegal])",
+	"mwe-upwiz-license-cc-by-sa-3.0-nl": "Creative Commons Reconocimientu - Compartir Igual 3.0 Países Baxos ([$2 códigu llegal])",
 	"mwe-upwiz-license-cc-by-sa-3.0-no": "Creative Commons Reconocimientu - Compartir Igual 3.0 Noruega ([$2 códigu llegal])",
 	"mwe-upwiz-license-cc-by-sa-3.0-pl": "Creative Commons Reconocimientu - Compartir Igual 3.0 Polonia ([$2 códigu llegal])",
 	"mwe-upwiz-license-cc-by-sa-3.0-ro": "Creative Commons Reconocimientu - Compartir Igual 3.0 Rumanía ([$2 códigu llegal])",
