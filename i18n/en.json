@@ -99,7 +99,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(requires the person using {{PLURAL:$1|this media|these media}} to give appropriate credit)",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(release all rights, anyone is free to use {{PLURAL:$1|this work|these works}} in any way)",
 	"mwe-upwiz-source-ownwork-generic-explain": "({{PLURAL:$1|this work is|these works are}} acceptable for upload to this wiki)",
-	"mwe-upwiz-source-ownwork-question": "What license do {{GENDER:$2|you}} want to publish {{PLURAL:$1|this work|these works}} under? All media on commons should be published under free license.",
+	"mwe-upwiz-source-ownwork-question": "What license do {{GENDER:$2|you}} want to publish {{PLURAL:$1|this work|these works}} under? All media on Commons should be published under free license.",
 	"mwe-upwiz-source-permission": "Their author gave you explicit permission to upload them",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|This is|These are}} someone else's work and {{PLURAL:$1|is|are}} free to share.",
 	"mwe-upwiz-source-thirdparty-description": "Examples: {{PLURAL:$1|photo/screenshot|photos/screenshots}} you have found online or somewhere else, {{PLURAL:$1|a piece|pieces}} of work created by someone else, etc.",
