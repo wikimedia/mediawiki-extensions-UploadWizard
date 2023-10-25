@@ -146,8 +146,8 @@
 		);
 
 		$( '<div>' )
-			.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deed-ownwork' ) )
-			.msg( 'mwe-upwiz-deeds-macro-prompt', this.uploads.length, mw.user );
+			.insertBefore( this.deedChooser.$selector.find( '.mwe-upwiz-deeds-container' ) )
+			.msg( 'mwe-upwiz-deeds-macro-prompt-text', this.uploads.length, mw.user );
 
 		uploads.forEach( function ( upload ) {
 			// Add previews and details to the DOM
