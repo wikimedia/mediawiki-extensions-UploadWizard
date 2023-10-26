@@ -7,7 +7,6 @@
 	},
 	"mwe-upwiz-api-warning-was-deleted": "Er is een bestand met de naam \"$1\" geweest, maar dit is verwijderd. Je kunt het niet opnieuw uploaden. Als je een ander bestand wilt uploaden, geef het dan een andere naam.",
 	"mwe-upwiz-tutorial-error-localized-file-missing": "Er is geen beschrijving in je taal beschikbaar.\nDe beschrijving wordt weergegeven in het $1.",
-	"mwe-upwiz-deeds-macro-prompt": "Op deze site moet {{GENDER:$2|je}} auteursrechteninformatie opgeven voor {{PLURAL:$1|het bovenstaande bestand|de bovenstaande bestanden}} zodat zeker is dat {{PLURAL:$1|het hergebruikt kan|ze hergebruikt kunnen}} worden.",
 	"mwe-upwiz-source-permission": "De auteur van het werk heeft je expliciete toestemming gegeven het werk te uploaden",
 	"mwe-upwiz-source-thirdparty-intro": "Voer de plaats in waar je elk bestand gevonden hebt.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Als alle bestanden dezelfde bron, auteur en auteursrechtenstatus hebben, kan je ze één keer voor allemaal invoeren.",

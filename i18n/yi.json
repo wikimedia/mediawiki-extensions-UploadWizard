@@ -52,8 +52,6 @@
 	"mwe-upwiz-upload-count": "$1 פֿון $2 {{PLURAL:$2| טעקע| טעקעס}} אַרויפֿגעלאָדן",
 	"mwe-upwiz-progressbar-uploading": "אַרויפֿלאָדן",
 	"mwe-upwiz-finished": "פֿאַרטיק!",
-	"mwe-upwiz-source-ownwork": "{{PLURAL:$1| די טעקע איז | די דאזיקע טעקעס זענען}} מיין אייגן אַרבעט.",
-	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1| די דאזיקע טעקע איז| די דאזיקע טעקעס זענען}} נישט מיין אייגן אַרבעט.",
 	"mwe-upwiz-source-thirdparty-accept": "יאָ",
 	"mwe-upwiz-patent-dialog-button-back": "צוריק",
 	"mwe-upwiz-more-options": "צולייגן ארט און נאך אינפארמאציע ...",

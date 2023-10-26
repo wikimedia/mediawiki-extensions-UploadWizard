@@ -9,13 +9,10 @@
 			"Zachyoung6969"
 		]
 	},
-	"mwe-upwiz-source-ownwork-assert-custom": "I, $2, {{GENDER:$4|the copyright holder}} of {{PLURAL:$1|this work|these works}}, irrevocably grant anyone the right to use {{PLURAL:$1|this work|these works}} under the following licence:",
-	"mwe-upwiz-source-ownwork-assert-note": "I, copyright holder of {{PLURAL:$2|this work|these works}}, publish {{PLURAL:$2|this work|these works}} under the $1 licence.",
 	"mwe-upwiz-deeds-need-license": "Please select a licence.",
 	"mwe-upwiz-license-show-all": "Use a different licence",
 	"mwe-upwiz-license-show-recommended": "Use the site's recommended licence",
 	"mwe-upwiz-license-fal": "Free Art Licence",
-	"mwe-upwiz-license-own-pd": "All rights waived with Creative Commons Zero licence (like public domain)",
 	"mwe-upwiz-license-gfdl": "GNU Free Documentation Licence",
 	"mwe-upwiz-license-cc-head": "The copyright holder published {{PLURAL:$1|this work|these works}} with the right Creative Commons licence",
 	"mwe-upwiz-license-cc-subhead": "Not all Creative Commons licences are good for this site. Make sure the copyright holder used one of these licences.",

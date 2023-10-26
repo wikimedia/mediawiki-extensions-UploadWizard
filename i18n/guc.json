@@ -76,9 +76,5 @@
 	"mwe-upwiz-upload-count": "$1 {{PLURAL:$1|anaajaala|anaajalairua}} $2 {{PLURAL:$2|aliikajuushi|aliikajuushikalüirua}}",
 	"mwe-upwiz-progressbar-uploading": "aliikaje'etsü",
 	"mwe-upwiz-almost-finished": "Anaatünüsü tü anaajalakalüirua...",
-	"mwe-upwiz-finished": "¡Keraasü!",
-	"mwe-upwiz-deeds-macro-prompt": "Ee'iyalayaaka tüü achuntusu {{GENDER:$2|paapüinjatüin}} süchikimaajatü nanüiki na sülaamain süpüla aa'injaa {{PLURAL:$1|a'yatawaaka tüü|a'yatawaakalüirua tüü}}, otta sükajee tia eesü süpüla {{PLURAL:$1|aapaanüin|aapaanüinjatüin}} natuma eekai cho'jaain amüin sünain pansaain sukua'ipa.",
-	"mwe-upwiz-source-ownwork": "{{PLURAL:$1|Anaalajaka tüü|Anaajalakalüirua tüü}} ta'yataain temüiwa.",
-	"mwe-upwiz-source-ownwork-assert-any-license": "I, $2, chi kajapülu'ukai sukua'ipaka copyright sümüinka {{PLURAL:$1|a'yatawaaka tüü|a'yatawaakalüirua tüü}}, süka pütchi ashajuushika ya'aya tajutajaain sukua'ipa ta'yataain süpüla aapaanüin, anaatünüin otta eitajünüin {{PLURAL:$1|a'yatawaaka tüü|a'yatawaakalüirua tüü}} süpüla aainjünüin süka eekei eein, otta sükajee tia {{PLURAL:$1|tajutajaain|tajutajaainrua}} süka pütchikalüirua tüü:",
-	"mwe-upwiz-source-ownwork-assert": "Taya , $2, kanüliamaakai tü copyright sümüinka {{PLURAL:$1|a'yatawaaka tüü|a'yatawaakalüria tüü}}, tajutajaain sukua'ipa ta'yataain namüin eekai aapaweein {{PLURAL:$1|a'yatawaaka tüü|a'yatawaakalüirua tüü}} süpüla kasa aa'inneeka süka, akatsa'a nuchuntüinjatü tanülia waneepia sünain otta niitajüinjatüin tü ni'yataainka oju'itaka sünainjee taashinjatüin sukua'ipa."
+	"mwe-upwiz-finished": "¡Keraasü!"
 }
