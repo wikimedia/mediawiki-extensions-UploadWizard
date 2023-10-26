@@ -25,10 +25,34 @@
 	 * @param {Object} config The UW config
 	 */
 	uw.deed.Abstract = function UWDeedInterface( name, config ) {
+		var tcName, details, field, input;
 		this.name = name;
 		this.config = config;
 		uw.deed.Abstract.prototype.instanceCount++;
 		this.instanceCount = uw.deed.Abstract.prototype.instanceCount;
+
+		this.templateCheckboxes = {};
+		if ( config.templateCheckboxes && config.templateCheckboxes[ name ] ) {
+			for ( tcName in this.config.templateCheckboxes[ name ] ) {
+				details = this.config.templateCheckboxes[ name ][ tcName ];
+				input = new OO.ui.CheckboxInputWidget( {
+					name: tcName,
+					value: details.template
+				} );
+				field = new uw.FieldLayout(
+					input,
+					{
+						label: mw.message( details.label ).text(),
+						align: 'inline',
+						required: true // not really required, set true so "optional" won't display
+					}
+				);
+				this.templateCheckboxes[ tcName ] = {
+					field: field,
+					input: input
+				};
+			}
+		}
 	};
 
 	/**
@@ -87,8 +111,15 @@
 	 * @return {Object}
 	 */
 	uw.deed.Abstract.prototype.getSerialized = function () {
+		var name, selectedTemplateCheckboxes = [];
+		for ( name in this.templateCheckboxes ) {
+			if ( this.templateCheckboxes[ name ].input.isSelected() ) {
+				selectedTemplateCheckboxes.push( name );
+			}
+		}
 		return {
-			name: this.name
+			name: this.name,
+			selectedTemplateCheckboxes: selectedTemplateCheckboxes
 		};
 	};
 
@@ -96,9 +127,13 @@
 	 * @param {Object} serialized
 	 */
 	uw.deed.Abstract.prototype.setSerialized = function ( serialized ) {
+		var self = this;
 		if ( serialized.name ) {
 			this.name = serialized.name;
 		}
+		serialized.selectedTemplateCheckboxes.forEach( function ( name ) {
+			self.templateCheckboxes[ name ].input.setSelected( true );
+		} );
 	};
 
 	/**
@@ -175,4 +210,19 @@
 			return $.Deferred().resolve( [] ).promise();
 		}
 	};
+
+	/**
+	 * @return string
+	 */
+	uw.deed.Abstract.prototype.getTemplateCheckboxesWikiText = function () {
+		var name, checkbox, wikitext = '';
+		for ( name in this.templateCheckboxes ) {
+			checkbox = this.templateCheckboxes[ name ].input;
+			if ( checkbox.isSelected() ) {
+				wikitext += checkbox.getValue();
+			}
+		}
+		return wikitext;
+	};
+
 }( mw.uploadWizard ) );
