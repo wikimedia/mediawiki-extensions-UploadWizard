@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BlueCamille",
 			"Choodyam",
 			"Cquoi",
 			"Crochet.david",
@@ -139,7 +140,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain": "(N'importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, du moment qu'il m'en accorde le crédit et partage toute œuvre dérivée sous cette même licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-ee-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
-	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
+	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-es-explain": "(exige que la personne utilisant {{PLURAL:$1|ce média|ces médias}} crédite de manière appropriée et le distribue sous la même licence)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-hr-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-lu-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-nl-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
@@ -147,7 +148,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-pl-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-ro-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit et partage toute œuvre dérivée sous cette licence.)",
 	"mwe-upwiz-source-ownwork-cc-by-4.0-explain": "(N’importe qui peut utiliser, partager ou reprendre {{PLURAL:$1|cette œuvre|ces œuvres}}, du moment qu’il m’en accorde le crédit.)",
-	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, tant qu’il m’en accorde le crédit.)",
+	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(exige que la personne utilisant {{PLURAL:$1|ce média|ces médias}} crédite l'auteur de manière appropriée)",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(N’importe qui peut utiliser, partager ou remixer {{PLURAL:$1|cette œuvre|ces œuvres}}, sans aucune restriction.)",
 	"mwe-upwiz-source-ownwork-generic-explain": "(Ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}} peu{{PLURAL:$1||ven}}t être téléversée{{PLURAL:$1||s}} sur ce wiki)",
 	"mwe-upwiz-source-permission": "Leur auteur vous a donné la permission explicite de les téléverser",
@@ -309,6 +310,7 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Contributeur|Contributeurs}}",
 	"mwe-upwiz-campaign-view-all-media": "Voir tous les fichiers importés.",
 	"mwe-upwiz-campaign-no-uploads-yet": "Pas encore de fichier !",
+	"mwe-upwiz-license-cc-by-sa-3.0-text": "Creative Commons Attribution – Partage dans les Mêmes Conditions 3.0 $3 [$2 (en savoir plus)]",
 	"mwe-upwiz-license-custom": "La licence est décrite par le wikicode suivant (doit contenir une [$2 balise de droit d’auteur] valide) :",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Copyright_tags/fr",
 	"mwe-upwiz-license-fal": "Licence Art Libre",

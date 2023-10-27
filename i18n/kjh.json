@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Матыр"
 		]
 	},
+	"mwe-upwiz-source-ownwork-question": "Хайдағ лицензияҷа {{GENDER:$2|you}} {{PLURAL:$1|this work|these works\n}} сығар турарға сағынчазар? Викискладта прай материаллар пос лицензияҷа сығарыларға киректер.",
 	"mwe-upwiz-dialog-yes": "Я"
 }
