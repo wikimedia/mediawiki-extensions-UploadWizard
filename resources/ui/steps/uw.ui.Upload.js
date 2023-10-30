@@ -52,6 +52,10 @@
 				flags: [ 'progressive', 'primary' ]
 			}
 		} );
+		this.addFile.on( 'change', function ( files ) {
+			upload.emit( 'files-added', files );
+			upload.addFile.setValue( null );
+		} );
 
 		this.$addFileContainer.append( this.addFile.$element );
 
@@ -271,8 +275,6 @@
 	};
 
 	uw.ui.Upload.prototype.load = function ( uploads ) {
-		var ui = this;
-
 		uw.ui.Step.prototype.load.call( this, uploads );
 
 		if ( uploads.length === 0 ) {
@@ -304,10 +306,6 @@
 				)
 		);
 
-		this.addFile.on( 'change', function ( files ) {
-			ui.emit( 'files-added', files );
-			ui.addFile.setValue( null );
-		} );
 		this.displayUploads( uploads );
 	};
 
