@@ -222,8 +222,7 @@
 	 * @return {boolean} Whether all of the uploads are in a successful state.
 	 */
 	uw.controller.Step.prototype.showNext = function () {
-		var okCount = this.getUploadStatesCount( this.finishState ),
-			$buttons;
+		var okCount = this.getUploadStatesCount( this.finishState );
 
 		// abort if all uploads have been removed
 		if ( this.uploads.length === 0 ) {
@@ -232,12 +231,9 @@
 
 		this.updateProgressBarCount( okCount );
 
-		$buttons = this.ui.$div.find( '.mwe-upwiz-buttons' );
-		$buttons.show();
-
-		$buttons.find( '.mwe-upwiz-file-next-all-ok' ).hide();
-		$buttons.find( '.mwe-upwiz-file-next-some-failed' ).hide();
-		$buttons.find( '.mwe-upwiz-file-next-all-failed' ).hide();
+		var $buttons = this.ui.$div.find( '.mwe-upwiz-buttons' ).show();
+		$buttons.find( '.mwe-upwiz-file-next-all-ok, .mwe-upwiz-file-next-some-failed, .mwe-upwiz-file-next-all-failed' )
+			.hide();
 
 		if ( okCount === this.uploads.length ) {
 			$buttons.find( '.mwe-upwiz-file-next-all-ok' ).show();

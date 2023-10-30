@@ -409,15 +409,7 @@
 	 * @param {boolean} show
 	 */
 	uw.ui.Upload.prototype.showNoticeForImageMetadata = function ( show ) {
-		var $notice = this.$div
-			.find( '.mwe-upwiz-metadata-notice' )
-			.hide();
-
-		if ( show ) {
-			$notice.show();
-		} else {
-			$notice.hide();
-		}
+		this.$div.find( '.mwe-upwiz-metadata-notice' ).toggle( show );
 	};
 
 	/**
@@ -560,8 +552,7 @@
 	uw.ui.Upload.prototype.flickrInterfaceDestroy = function () {
 		this.flickrInput.setValue( '' );
 		this.$flickrSelectList.empty();
-		this.$flickrSelectListContainer.off();
-		this.$flickrSelectListContainer.hide();
+		this.$flickrSelectListContainer.off().hide();
 		this.$flickrContainer.hide();
 		this.flickrButton.setDisabled( true );
 		this.flickrSelectButton.$element.hide();

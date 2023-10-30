@@ -211,16 +211,12 @@
 			} );
 
 		return $.when.apply( $, errorPromises ).then( function () {
-			var i, errors;
-			errors = [];
+			var errors = [];
 			// Fold all errors into a single one (they are displayed in the UI for each item, but we still
 			// need to return an error here to prevent form submission).
-			for ( i = 0; i < arguments.length; i++ ) {
-				if ( arguments[ i ].length ) {
-					// One of the items has errors
-					errors.push( self.config.error );
-					break;
-				}
+			if ( [ ...arguments ].some( ( arg ) => arg.length ) ) {
+				// One of the items has errors
+				errors.push( self.config.error );
 			}
 			// And add some more:
 			if ( this.required && this.getWikiText() === '' ) {

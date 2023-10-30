@@ -108,8 +108,7 @@
 		);
 
 		// set default buttons visibility (can be altered in controller later)
-		this.$div.find( '.mwe-upwiz-file-next-some-failed' ).hide();
-		this.$div.find( '.mwe-upwiz-file-next-all-failed' ).hide();
+		this.$div.find( '.mwe-upwiz-file-next-some-failed, .mwe-upwiz-file-next-all-failed' ).hide();
 		this.$div.find( '.mwe-upwiz-file-next-all-ok' ).show();
 	};
 

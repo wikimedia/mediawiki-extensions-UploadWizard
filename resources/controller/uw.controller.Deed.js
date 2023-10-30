@@ -76,12 +76,9 @@
 
 				// TODO Handle warnings with a confirmation dialog
 
-				var i;
-				for ( i = 0; i < arguments.length; i++ ) {
-					if ( arguments[ i ][ 1 ].length ) {
-						// One of the fields has errors; refuse to proceed!
-						return;
-					}
+				if ( [ ...arguments ].some( ( arg ) => arg[ 1 ].length ) ) {
+					// One of the fields has errors; refuse to proceed!
+					return;
 				}
 
 				uw.controller.Step.prototype.moveNext.call( self );
