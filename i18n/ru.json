@@ -46,7 +46,8 @@
 			"Александр Сигачёв",
 			"Дмитрий",
 			"Краснорядцева Елена",
-			"Ядерный Трамвай"
+			"Ядерный Трамвай",
+			"Tucvbif"
 		]
 	},
 	"uploadwizard": "Мастер загрузки",
@@ -390,12 +391,12 @@
 	"mwe-upwiz-error-campaigndisabled": "Кампания «$1» не была включена.",
 	"mwe-upwiz-calendar-date": "Выбрать дату из календаря",
 	"mwe-upwiz-custom-date": "Использовать пользовательский формат даты",
-	"prefs-uploads": "Загружается",
+	"prefs-uploads": "Загрузки",
 	"prefs-upwiz-licensing": "Лицензирование",
 	"prefs-upwiz-experimental": "Экспериментальные возможности",
 	"prefs-upwiz-interface": "Пользовательский интерфейс",
 	"mwe-upwiz-prefs-def-license": "Лицензионное соглашение по умолчанию",
-	"mwe-upwiz-prefs-def-license-def": "Использовать то, что задано по умолчанию",
+	"mwe-upwiz-prefs-def-license-def": "Использовать лицензионное соглашение, заданное по умолчанию",
 	"mwe-upwiz-prefs-def-license-custom": "Пользовательская лицензия по умолчанию",
 	"mwe-upwiz-prefs-def-license-custom-help": "Это поле используется только в том случае, если выбран последний из вышеперечисленных вариантов.",
 	"mwe-upwiz-prefs-license-name": "Имя автора",
