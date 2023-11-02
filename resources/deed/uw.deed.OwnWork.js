@@ -82,7 +82,9 @@
 		this.$form = $( '<form>' );
 
 		$formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ).append(
-			$( '<h3>' ).msg( 'mwe-upwiz-source-ownwork-question', this.uploadCount, mw.user )
+			$( '<p>' )
+				.addClass( 'mwe-upwiz-label-title' )
+				.msg( 'mwe-upwiz-source-ownwork-question', this.uploadCount, mw.user )
 		);
 		$formFields.append( this.authorInput.$element );
 		$formFields.append( this.licenseInputField.$element );

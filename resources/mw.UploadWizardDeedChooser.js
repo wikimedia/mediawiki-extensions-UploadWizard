@@ -42,7 +42,7 @@
 					).text(),
 					// label description
 					$( '<span>' )
-						.addClass( 'mwe-upwiz-label-extra' )
+						.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-explainer' )
 						.text(
 							mw.message(
 								'mwe-upwiz-source-' + deed.name + '-description',

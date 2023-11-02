@@ -272,19 +272,24 @@ form.mwe-upwiz-form {
 	width: 18px;
 }
 
+.mwe-upwiz-cc-public-domain-icon {
+	/* @embed */
+	background: url( images/36px-Cc-public_domain_mark_white.svg.png ) no-repeat center center / contain;
+}
+
 .mwe-upwiz-cc-zero-icon {
 	/* @embed */
-	background: url( images/18px-Cc-zero.svg.png ) no-repeat center center;
+	background: url( images/36px-Cc-zero.svg.png ) no-repeat center center / contain;
 }
 
 .mwe-upwiz-cc-sa-icon {
 	/* @embed */
-	background: url( images/18px-Share_Alike.svg.png ) no-repeat center center;
+	background: url( images/36px-Share_Alike.svg.png ) no-repeat center center / contain;
 }
 
 .mwe-upwiz-cc-by-icon {
 	/* @embed */
-	background: url( images/18px-Cc-by_new_white.svg.png ) no-repeat center center;
+	background: url( images/36px-Cc-by_new_white.svg.png ) no-repeat center center / contain;
 }
 
 .mwe-upwiz-progress {
@@ -440,18 +445,6 @@ form.mwe-upwiz-form {
 	margin-top: 8px;
 }
 
-.mwe-upwiz-thirdparty-license .mwe-upwiz-deed-license-group-body label {
-	padding-left: 1.5em;
-}
-
-label.mwe-upwiz-copyright-info {
-	display: inline-block;
-	padding-left: 3px;
-	text-indent: 0;
-	padding-top: 2px;
-	width: 93%;
-}
-
 .mwe-upwiz-custom-deed {
 	margin-top: 5px;
 }
@@ -474,8 +467,7 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 }
 
 .mwe-upwiz-details-more-options,
-.mwe-upwiz-details-copy-metadata,
-.mwe-upwiz-deed-license-group-head {
+.mwe-upwiz-details-copy-metadata {
 	padding-left: 1.5em;
 	cursor: pointer;
 	outline: 0;
@@ -490,40 +482,6 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 	float: none;
 	/* Override mediawiki.icon styles */
 	background-position: left center;
-}
-
-.mwe-upwiz-deed-license-group-head {
-	margin-top: 10px;
-}
-
-.mwe-upwiz-deed-license-group-body {
-	label {
-		margin-bottom: 16px;
-	}
-
-	a {
-		font-size: 12px;
-	}
-}
-
-.mwe-upwiz-license-custom {
-	overflow: hidden;
-
-	.oo-ui-buttonElement {
-		float: right;
-		width: 9em;
-		padding-left: 1em;
-		margin-right: 0;
-	}
-
-	.oo-ui-textInputWidget {
-		width: auto;
-		margin-right: 10em;
-	}
-}
-
-.mwe-upwiz-license-custom .oo-ui-textInputWidget textarea {
-	font-family: monospace, monospace;
 }
 
 .mwe-upwiz-thanks {
@@ -552,13 +510,6 @@ input[ type='radio' ].mwe-upwiz-copyright-info-radio {
 
 .ui-corner-all {
 	border-radius: 2px;
-}
-
-.mwe-upwiz-deed-license-group-subhead {
-	color: #72777d;
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-left: 1.5em;
 }
 
 .mwe-upwiz-details-texts {

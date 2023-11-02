@@ -9,10 +9,15 @@
 	padding-top: 1.5em;
 }
 
-// additional help text for radio button labels
-label .mwe-upwiz-label-extra {
+// additional help text for radio button labels & titles
+.mwe-upwiz-label-extra {
 	display: block;
 	color: #73777d;
+}
+
+// don't show additional license explainer text for third party license selection
+.mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty .mwe-upwiz-deed-license-group .mwe-upwiz-label-explainer {
+	display: none;
 }
 
 .mwe-upwiz-deed-form-internal {
@@ -24,15 +29,24 @@ label .mwe-upwiz-label-extra {
 		max-width: none;
 	}
 
-	h3,
+	.mwe-upwiz-label-title {
+		font-size: 16px;
+		margin-top: 1em;
+
+		a {
+			color: #000;
+			text-decoration: underline;
+		}
+	}
+
+	.mwe-upwiz-label-title,
 	label {
 		font-weight: normal;
 		padding-top: 0;
-		margin-top: 0.3em;
 	}
 
-	.mwe-upwiz-details-fieldname {
-		font-size: 18px;
+	label {
+		margin-top: 0.3em;
 	}
 
 	.mwe-upwiz-details-fieldname-input {
@@ -43,19 +57,15 @@ label .mwe-upwiz-label-extra {
 		margin-bottom: 0;
 	}
 
+	ol {
+		margin-left: 1.5em;
+	}
+
 	.mwe-upwiz-thirdparty-checkbox {
 		margin-top: 0.5em;
 
 		.mwe-upwiz-details-fieldname {
 			font-size: 14px;
-		}
-	}
-
-	ol {
-		margin-left: 14px;
-
-		li {
-			margin-top: 18px;
 		}
 	}
 
@@ -67,12 +77,102 @@ label .mwe-upwiz-label-extra {
 		}
 	}
 
-	ul.oo-ui-fieldLayout-messages {
-		margin-left: -32px;
-	}
-
 	.mwe-upwiz-details-help {
 		color: #72777d;
 		font-size: 16px;
+	}
+
+	// override default OOUI warning message style
+	.oo-ui-fieldLayout-messages,
+	.oo-ui-fieldLayout-messages > .oo-ui-messageWidget:first-child {
+		margin: 0;
+	}
+}
+
+.mwe-upwiz-deed-license-group-body {
+	label:not( :first-of-type ) {
+		margin-top: 1em;
+	}
+
+	.mwe-upwiz-copyright-info > a {
+		font-size: 12px;
+	}
+}
+
+.mwe-upwiz-deed-license-group-container {
+	margin-top: 1em;
+
+	.mwe-upwiz-deed-license-group-head {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+
+	.mwe-upwiz-deed-license-group {
+		margin: 1em 0;
+		padding: 1em 2em;
+		background-color: #f1f2f3;
+		border-radius: 3px;
+
+		.mwe-upwiz-deed-license-group-subhead {
+			margin-bottom: 1em;
+			font-weight: bold;
+			color: #55595d;
+		}
+	}
+
+	// customizations for "no license known" license group
+	.mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+		// show warning style instead of default grey background
+		background: ~'#fef6e7 url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 1em 1em / 2em';
+		padding-left: 4em;
+		border: 1px solid #ac6600;
+
+		// get rid of default bold text
+		.mwe-upwiz-deed-license-group-subhead {
+			font-weight: inherit;
+			color: #202122;
+		}
+
+		// change default link style
+		a {
+			color: #202122;
+			text-decoration: underline;
+		}
+
+		// hide the license radio, which is a default-always-on selection
+		.mwe-upwiz-deed-license-group-body {
+			display: none;
+		}
+	}
+
+	// customizations for default "custom input" license groups
+	.mwe-upwiz-deed-license-group-mwe-upwiz-license-other-head + .mwe-upwiz-deed-license-group {
+		// get rid of default grey background
+		background-color: inherit;
+		margin-top: 0;
+		padding-top: 0;
+
+		// hide the radio button or checkbox
+		.oo-ui-radioInputWidget,
+		.oo-ui-checkboxInputWidget {
+			display: none;
+		}
+
+		// get rid of unnecessary padding between (now hidden) radio button and rest of the contents
+		.oo-ui-labelElement-label,
+		.mwe-upwiz-copyright-info {
+			padding-left: 0;
+		}
+	}
+
+	.mwe-upwiz-license-custom {
+		// side by side input field & button
+		display: flex;
+		width: 40em;
+		margin-bottom: 0.5em;
+
+		.oo-ui-textInputWidget textarea {
+			font-family: monospace, monospace;
+		}
 	}
 }

@@ -40,6 +40,7 @@ QUnit.test( 'createInputs()', function ( assert ) {
 QUnit.test( 'createGroupedInputs()', function ( assert ) {
 	var config = {
 		type: 'or',
+		defaults: [ 'cc-by-sa-3.0' ],
 		licenseGroups: [
 			{
 				head: 'mwe-upwiz-license-cc-head',
@@ -51,6 +52,7 @@ QUnit.test( 'createGroupedInputs()', function ( assert ) {
 	var $fixture = $( '<div>' );
 
 	var uwLicenseInput = new mw.UploadWizardLicenseInput( config );
+	uwLicenseInput.setDefaultValues();
 	$fixture.append( uwLicenseInput.$element );
 
 	// Check license group is there

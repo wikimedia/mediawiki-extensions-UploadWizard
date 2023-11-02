@@ -36,8 +36,7 @@
 		this.type = type;
 		this.api = api;
 		this.count = count;
-		this.collapsible = !!config.head;
-		this.textareas = {};
+		this.customInputs = {};
 		this.previewDialog = new uw.LicensePreviewDialog();
 		this.windowManager = new OO.ui.WindowManager();
 		this.windowManager.addWindows( [ this.previewDialog ] );
@@ -51,15 +50,15 @@
 			this.group.connect( this, { select: [ 'emit', 'change', this ] } );
 		}
 
-		// when selecting an item that has a custom textarea, we'll immediately focus it
+		// when selecting an item that has a custom input, we'll immediately focus it
 		this.on( 'change', function ( group, item ) {
 			if ( item && item.isSelected && item.isSelected() ) {
 				// wrapped inside setTimeout to ensure it goes at the end of the call stack,
 				// just in case something steals focus in the meantime...
 				setTimeout( function () {
 					var name = item.getData();
-					if ( self.textareas[ name ] ) {
-						self.textareas[ name ].focus();
+					if ( self.customInputs[ name ] ) {
+						self.customInputs[ name ].focus();
 					}
 				} );
 			}
@@ -79,24 +78,27 @@
 	 * @return {OO.ui.FieldsetLayout}
 	 */
 	uw.LicenseGroup.prototype.createFieldset = function ( group ) {
-		var $head = this.config.head && $( '<a>' )
-				.addClass( 'mwe-upwiz-deed-license-group-head mw-collapsible-arrow' )
-				.msg( this.config.head, this.count ),
-			$subhead = this.config.subhead && $( '<div>' )
-				.addClass( 'mwe-upwiz-deed-license-group-subhead' )
-				.msg( this.config.subhead, this.count ),
-			fieldset = new OO.ui.FieldsetLayout( {
-				label: $head,
+		var fieldset = new OO.ui.FieldsetLayout( {
 				items: [ group ],
 				classes: [ 'mwe-upwiz-deed-license-group' ]
-			} );
+			} ),
+			labelParams, $subhead;
 
-		if ( this.collapsible ) {
-			fieldset.$group.makeCollapsible( { collapsed: true, $customTogglers: $head, toggleClasses: true } );
-		}
 		if ( this.config.subhead ) {
+			// 'url' can be either a single (string) url, or an array of (string) urls;
+			// hence this convoluted variable-length parameters assembly...
+			labelParams = [ this.config.subhead, this.count ].concat( this.config.url );
+			$subhead = $( '<div>' )
+				.addClass( 'mwe-upwiz-deed-license-group-subhead' )
+				.append( mw.message.apply( mw.message, labelParams ).parseDom() );
+
 			fieldset.addItems(
-				[ new OO.ui.FieldLayout( new OO.ui.Widget( { content: [] } ), { label: $subhead, align: 'top' } ) ],
+				[
+					new OO.ui.FieldLayout(
+						new OO.ui.Widget( { content: [] } ),
+						{ label: $subhead, align: 'top' }
+					)
+				],
 				0 // = index; add to top
 			);
 		}
@@ -126,8 +128,8 @@
 			} );
 
 			// when custom text area receives focus, we should make sure this element is selected
-			if ( self.textareas[ licenseName ] ) {
-				self.textareas[ licenseName ].on( 'focus', function () {
+			if ( self.customInputs[ licenseName ] ) {
+				self.customInputs[ licenseName ].on( 'focus', function () {
 					option.setSelected( true );
 				} );
 			}
@@ -159,9 +161,10 @@
 				data: licenseName
 			} );
 
-			// when custom text area receives focus, we should make sure this element is selected
-			if ( self.textareas[ licenseName ] ) {
-				self.textareas[ licenseName ].on( 'focus', function () {
+			// when custom input fields changes, we should make sure this element is selected when
+			// there is content, or deselected when empty
+			if ( self.customInputs[ licenseName ] ) {
+				self.customInputs[ licenseName ].on( 'focus', function () {
 					option.setSelected( true );
 				} );
 			}
@@ -203,6 +206,13 @@
 	};
 
 	/**
+	 * @return {string}
+	 */
+	uw.LicenseGroup.prototype.getData = function () {
+		return this.getGroup();
+	};
+
+	/**
 	 * @return {Object} Map of { licenseName: true }, or { licenseName: "custom input" }
 	 */
 	uw.LicenseGroup.prototype.getValue = function () {
@@ -215,13 +225,13 @@
 			selected = this.group.findSelectedItem();
 			if ( selected ) {
 				name = selected.getData();
-				result[ name ] = !this.textareas[ name ] || this.textareas[ name ].getValue();
+				result[ name ] = !this.customInputs[ name ] || this.customInputs[ name ].getValue();
 			}
 		} else if ( this.type === 'checkbox' ) {
 			selected = this.group.findSelectedItems();
 			selected.forEach( function ( item ) {
 				name = item.getData();
-				result[ name ] = !self.textareas[ name ] || self.textareas[ name ].getValue();
+				result[ name ] = !self.customInputs[ name ] || self.customInputs[ name ].getValue();
 			} );
 		}
 
@@ -233,13 +243,12 @@
 	 */
 	uw.LicenseGroup.prototype.setValue = function ( values ) {
 		var self = this,
-			selectArray = [],
-			selected;
+			selectArray = [];
 
 		Object.keys( values ).forEach( function ( name ) {
 			var value = values[ name ];
-			if ( typeof value === 'string' && self.textareas[ name ] ) {
-				self.textareas[ name ].setValue( value );
+			if ( typeof value === 'string' && self.customInputs[ name ] ) {
+				self.customInputs[ name ].setValue( value );
 				// add to list of items to select
 				selectArray.push( name );
 			}
@@ -254,15 +263,8 @@
 
 		if ( this.type === 'radio' ) {
 			this.group.selectItemByData( selectArray[ 0 ] );
-			selected = this.group.findSelectedItem() !== null;
 		} else if ( this.type === 'checkbox' ) {
 			this.group.selectItemsByData( selectArray );
-			selected = this.group.findSelectedItems().length > 0;
-		}
-
-		// pop open the 'toggle' group if is now on. Do nothing if it is now off.
-		if ( selected && this.collapsible ) {
-			this.fieldset.$group.data( 'mw-collapsible' ).expand();
 		}
 	};
 
@@ -353,16 +355,17 @@
 		$label = $( '<label>' )
 			.msg( messageKey, this.count || 0, $licenseLink, $icons )
 			.addClass( 'mwe-upwiz-copyright-info' );
-		if ( licenseInfo.props.msgExplain !== undefined ) {
-			$label.append(
-				$( '<span>' )
-					.addClass( 'mwe-upwiz-label-extra' )
-					.msg( licenseInfo.props.msgExplain, this.count || 0 )
-			);
-		}
 
 		if ( this.config.special === 'custom' ) {
 			$label.append( this.createCustom( name, licenseInfo.props.defaultText ) );
+		}
+
+		if ( licenseInfo.props.msgExplain !== undefined ) {
+			$label.append(
+				$( '<span>' )
+					.msg( licenseInfo.props.msgExplain, this.count || 0, $licenseLink )
+					.addClass( 'mwe-upwiz-label-extra' )
+			);
 		}
 
 		return $label.contents();
@@ -378,24 +381,23 @@
 		var self = this,
 			button;
 
-		this.textareas[ name ] = new OO.ui.MultilineTextInputWidget( {
-			value: defaultText,
-			autosize: true
+		this.customInputs[ name ] = new OO.ui.TextInputWidget( {
+			value: defaultText
 		} );
 
 		// Update displayed errors as the user is typing
-		this.textareas[ name ].on( 'change', OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 ) );
+		this.customInputs[ name ].on( 'change', OO.ui.debounce( this.emit.bind( this, 'change', this ), 500 ) );
 
 		button = new OO.ui.ButtonWidget( {
 			label: mw.message( 'mwe-upwiz-license-custom-preview' ).text(),
 			flags: [ 'progressive' ]
 		} ).on( 'click', function () {
-			self.showPreview( self.textareas[ name ].getValue() );
+			self.showPreview( self.customInputs[ name ].getValue() );
 		} );
 
 		return $( '<div>' ).addClass( 'mwe-upwiz-license-custom' ).append(
-			button.$element,
-			this.textareas[ name ].$element
+			this.customInputs[ name ].$element,
+			button.$element
 		);
 	};
 
