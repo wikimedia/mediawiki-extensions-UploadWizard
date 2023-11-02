@@ -3,10 +3,11 @@
 		"authors": [
 			"Envlh",
 			"John Reid",
-			"MJL"
+			"MJL",
+			"CiphriusKane"
 		]
 	},
-	"api-error-noimageinfo": "The uplaid succeeded, bit the server didna gie us onie information aneat the file.",
+	"api-error-noimageinfo": "The uplaid wis successfu, but the server didnae gie us ony information anent the file.",
 	"mwe-upwiz-desc": "Descreeption",
 	"mwe-upwiz-dialog-yes": "Aye",
 	"mwe-upwiz-license-cc-by-sa-3.0-gfdl": "Capiecair, attreebution needit (GFDL, CC BY-SA 3.0)"

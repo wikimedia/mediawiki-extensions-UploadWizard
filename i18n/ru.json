@@ -396,7 +396,7 @@
 	"prefs-upwiz-experimental": "Экспериментальные возможности",
 	"prefs-upwiz-interface": "Пользовательский интерфейс",
 	"mwe-upwiz-prefs-def-license": "Лицензионное соглашение по умолчанию",
-	"mwe-upwiz-prefs-def-license-def": "Использовать то, что задано по умолчанию",
+	"mwe-upwiz-prefs-def-license-def": "Использовать лицензионное соглашение, заданное по умолчанию",
 	"mwe-upwiz-prefs-def-license-custom": "Пользовательская лицензия по умолчанию",
 	"mwe-upwiz-prefs-def-license-custom-help": "Это поле используется только в том случае, если выбран последний из вышеперечисленных вариантов.",
 	"mwe-upwiz-prefs-license-name": "Имя автора",
