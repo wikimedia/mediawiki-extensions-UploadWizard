@@ -188,20 +188,6 @@ class CampaignHooks implements
 	}
 
 	/**
-	 * Declares JSON as the code editor language for Campaign: pages.
-	 * This hook only runs if the CodeEditor extension is enabled.
-	 * @param Title $title
-	 * @param string &$lang Page language.
-	 * @return bool
-	 */
-	public static function onCodeEditorGetPageLanguage( $title, &$lang ) {
-		if ( $title->inNamespace( NS_CAMPAIGN ) ) {
-			$lang = 'json';
-		}
-		return true;
-	}
-
-	/**
 	 * Validates that the revised contents are valid JSON.
 	 * If not valid, rejects edit with error message.
 	 * @param IContextSource $context

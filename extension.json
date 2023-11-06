@@ -617,7 +617,7 @@
 		"ChangeTagsAllowedAdd": "main",
 		"ContentModelCanBeUsedOn": "campaign",
 		"EditFilterMergedContent": "campaign",
-		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks::onCodeEditorGetPageLanguage",
+		"CodeEditorGetPageLanguage": "codeeditor",
 		"PageSaveComplete": "campaign",
 		"ArticleDeleteComplete": "campaign",
 		"PageMoveComplete": "campaign",
@@ -630,6 +630,9 @@
 		},
 		"campaign": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks"
+		},
+		"codeeditor": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\CodeEditorHooks"
 		},
 		"schema": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\SchemaHooks"
