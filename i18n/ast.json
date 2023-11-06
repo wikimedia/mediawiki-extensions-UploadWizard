@@ -5,7 +5,8 @@
 			"Fitoschido",
 			"Macofe",
 			"Matma Rex",
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"uploadwizard": "Asistente de xubíes",
@@ -244,7 +245,7 @@
 	"mwe-upwiz-error-too-short": "Esta entrada ye demasiao curtia.\nAsegúrate de que tien polo menos $1 {{PLURAL:$1|caráuter|caráuteres}}.",
 	"mwe-upwiz-error-bad-captions": "Hai problemes con dalguna de les lleendes.",
 	"mwe-upwiz-error-bad-descriptions": "Hai problemes con delles descripciones.",
-	"mwe-upwiz-error-title-blacklisted": "Esti títulu contien testu que nun ta permitíu. Por favor revísalu.",
+	"mwe-upwiz-error-title-blacklisted": "Esti títulu contién testu que nun ta permitíu. Por favor revísalu.",
 	"mwe-upwiz-error-title-senselessimagename": "Por favor, da un títulu con más significáu.",
 	"mwe-upwiz-error-title-thumbnail": "Esti paez el títulu d'una miniatura. Por favor, nun xubas miniatures a la mesma wiki de la que les sacasti. D'otra manera, camuda'l nome del ficheru pa facelu más significativu, y quita-y el prefixu de les miniatures.",
 	"mwe-upwiz-error-title-extension": "Nun fai falta qu'amiestes la estensión del ficheru. Val con que-y des un títulu comprensible y l'aplicación s'encargará del resto.",
@@ -253,7 +254,7 @@
 	"mwe-upwiz-error-license-wikitext-missing": "Escoyisti una opción que necesita qu'escribas testu wiki.",
 	"mwe-upwiz-error-license-wikitext-too-short": "Esti testu wiki ye demasiao curtiu pa ser una llicencia",
 	"mwe-upwiz-error-license-wikitext-too-long": "El testu wiki qu'escribisti ye demasiao llargu.",
-	"mwe-upwiz-error-license-wikitext-missing-template": "El testu wiki qu'escribisti nun contien una plantía de llicencia válida.",
+	"mwe-upwiz-error-license-wikitext-missing-template": "El testu wiki qu'escribisti nun contién una plantía de llicencia válida.",
 	"mwe-upwiz-error-patent-disagree": "Tienes d'aceptar los términos.",
 	"mwe-upwiz-error-pageprops-missing-page": "Nun pudieron recuperase les propiedaes de la páxina: la páxina (entá) nun esiste.",
 	"mwe-upwiz-error-pageprops-missing-prop": "Nun pudieron recuperase les propiedaes de la páxina: la propiedá (entá) nun esiste.",
