@@ -46,11 +46,6 @@
 				maxLength = deed.config.maxSourceLength,
 				text = this.getValue().trim();
 
-			// input not required when "this is AI generated media" is selected
-			if ( deed.templateCheckboxes.aiGenerated && deed.templateCheckboxes.aiGenerated.input.isSelected() ) {
-				return [];
-			}
-
 			if ( text === '' ) {
 				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
 			} else if ( text.length < minLength ) {
