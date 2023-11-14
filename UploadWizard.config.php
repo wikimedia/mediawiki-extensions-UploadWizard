@@ -702,4 +702,18 @@ return [
 		// url to wikibase repo API
 		'api' => $wgScriptPath . '/api.php',
 	],
+
+	// extra templates that get written into the wikitext by checking a checkbox
+	'templateCheckboxes' => [
+		'thirdparty' => [
+			'aiGenerated' => [
+				'template' => '{{PD-algorithm}}',
+				'label' => 'mwe-upwiz-source-ai'
+			],
+			'authorUnknown' => [
+				'template' => '{{Author|Unknown}}',
+				'label' => 'mwe-upwiz-author-unknown'
+			]
+		]
+	]
 ];

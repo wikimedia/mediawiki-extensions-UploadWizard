@@ -829,6 +829,9 @@
 					' -->\n';
 			}
 
+			// templates from textboxes
+			wikiText += deed.getTemplateCheckboxesWikiText() + '\n\n';
+
 			// categories
 			wikiText += '\n' + this.categoriesDetails.getWikiText();
 
