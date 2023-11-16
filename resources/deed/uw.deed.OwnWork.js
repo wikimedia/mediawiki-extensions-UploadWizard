@@ -26,8 +26,7 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
-		var deed = this,
-			prefAuthName = mw.user.options.get( 'upwiz_licensename' );
+		var prefAuthName = mw.user.options.get( 'upwiz_licensename' );
 
 		uw.deed.Abstract.call( this, 'ownwork', config );
 
@@ -54,17 +53,6 @@
 
 		// grant patent license
 		if ( this.threeDCount > 0 ) {
-			this.patentAuthorInput = new OO.ui.TextInputWidget( {
-				name: 'patent-author',
-				title: mw.message( 'mwe-upwiz-tooltip-sign' ).text(),
-				value: prefAuthName,
-				classes: [ 'mwe-upwiz-sign' ]
-			} );
-			// keep authors in sync!
-			this.patentAuthorInput.on( 'change', function () {
-				deed.setAuthorInputValue( deed.patentAuthorInput.getValue() );
-			} );
-
 			this.patentAgreementField = this.getPatentAgreementField( uploads );
 		}
 	};
@@ -81,17 +69,15 @@
 	uw.deed.OwnWork.prototype.getFields = function () {
 		var fields = [ this.licenseInputField ];
 		if ( this.threeDCount > 0 ) {
-			fields.push( this.patentAuthorInputField );
 			fields.push( this.patentAgreementField );
 		}
 		return fields;
 	};
 
 	uw.deed.OwnWork.prototype.setFormFields = function ( $selector ) {
-		var $formFields, deed, patentMsg, $patentLink, $patentDiv, patentWidget;
+		var $formFields;
 
 		this.$selector = $selector;
-		deed = this;
 
 		this.$form = $( '<form>' );
 
@@ -102,32 +88,6 @@
 		$formFields.append( this.licenseInputField.$element );
 
 		if ( this.threeDCount > 0 ) {
-			patentMsg = 'mwe-upwiz-patent';
-			$patentLink = $( '<a>' ).attr( { target: '_blank', href: this.config.patents.url.legalcode } );
-
-			$patentDiv = $( '<div>' ).addClass( 'mwe-upwiz-patent' ).append(
-				$( '<p>' ).msg(
-					patentMsg,
-					this.threeDCount,
-					this.patentAuthorInput.$element,
-					$patentLink,
-					mw.user
-				)
-			);
-
-			patentWidget = new OO.ui.Widget();
-			patentWidget.$element.append( $patentDiv );
-
-			// See uw.DetailsWidget
-			patentWidget.getErrors = this.getAuthorErrors.bind( this, this.patentAuthorInput );
-			patentWidget.getWarnings = this.getAuthorWarnings.bind( this, this.patentAuthorInput );
-
-			this.patentAuthorInputField = new uw.FieldLayout( patentWidget );
-			deed.patentAuthorInput.on( 'change', OO.ui.debounce( function () {
-				patentWidget.emit( 'change' );
-			}, 500 ) );
-
-			$formFields.append( this.patentAuthorInputField.$element );
 			$formFields.append( this.patentAgreementField.$element );
 		}
 
@@ -207,10 +167,6 @@
 
 		serialized.license = this.licenseInput.getSerialized();
 
-		if ( this.threeDCount > 0 ) {
-			serialized.patentAuthor = this.patentAuthorInput.getValue();
-		}
-
 		return serialized;
 	};
 
@@ -225,10 +181,6 @@
 		}
 
 		this.licenseInput.setSerialized( serialized.license );
-
-		if ( this.threeDCount > 0 && serialized.patentAuthor ) {
-			this.patentAuthorInput.setValue( serialized.patentAuthor );
-		}
 	};
 
 	uw.deed.OwnWork.prototype.getDefaultLicense = function () {
@@ -276,7 +228,7 @@
 	 * @return {uw.PatentDialog}
 	 */
 	uw.deed.OwnWork.prototype.getPatentDialog = function ( uploads ) {
-		var config = { panels: [ 'warranty', 'license' ] };
+		var config = { panels: [ 'warranty', 'license-ownership', 'license-grant' ] };
 
 		// Only show filename list when in "details" step & we're showing the dialog for individual files
 		if ( uploads[ 0 ] && uploads[ 0 ].state === 'details' ) {
