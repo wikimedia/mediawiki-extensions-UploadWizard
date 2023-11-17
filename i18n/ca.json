@@ -94,6 +94,7 @@
 	"mwe-upwiz-progressbar-uploading": "s’està pujant",
 	"mwe-upwiz-almost-finished": "Processant els fitxers...",
 	"mwe-upwiz-finished": "Ha finalitzat!",
+	"mwe-upwiz-deeds-macro-prompt-text": "Demanem aquesta informació per assegurar-nos que tothom pot utilitzar lliurement els fitxers penjats a Commons.",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(Tothom pot utilitzar, compartir o remesclar {{PLURAL:$1|aquesta obra|aquestes obres}}, sempre que se m'atribueixi i es publiqui tota obra derivada sota aquesta llicència.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sempre que se m'atribueixi i es publiqui tota obra derivada sota aquesta mateixa llicència.)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sempre que se m'atribueixi i es publiqui tota obra derivada sota aquesta mateixa llicència.)",
@@ -110,6 +111,7 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sempre que se m'atribueixi.)",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(Tothom pot utilitzar, compartir o combinar {{PLURAL:$1|d'aquesta obra|d'aquestes obres}} sense cap restricció.)",
 	"mwe-upwiz-source-ownwork-generic-explain": "({{PLURAL:$1|Aquesta obra és acceptable per carregar-la|Aquestes obres són acceptables per carregar-les}} a aquest wiki)",
+	"mwe-upwiz-source-ownwork-question": "Amb quina llicència voleu publicar aquestes obres? Tots els fitxers multimèdia de Commons s'han de publicar sota una llicència lliure.",
 	"mwe-upwiz-source-permission": "El seu autor ha donat el permís explícit per carregar-ho",
 	"mwe-upwiz-source-thirdparty-intro": "Introduïu l'adreça on heu trobat cada fitxer.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si tots els fitxers tenen el mateixos orígens, autors i situació de copyright, podeu escriure-ho una sola vegada per a tots.",
@@ -349,5 +351,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Ja no rebreu notificacions per etiquetar les vostres càrregues.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "En aquest moment no hem pogut desar la vostra preferència. Visiteu les vostres [[c:Special:Preferences#mw-prefsection-echo|Preferències]] per activar les notificacions.",
 	"mwe-upwiz-upload-comment-own-work": "Obra pròpia carregada amb l'Auxiliar de càrregues",
-	"mwe-upwiz-upload-comment-third-party": "S'ha carregat una obra per $1 a partir de $2 amb l'Assistent de càrregues"
+	"mwe-upwiz-upload-comment-third-party": "S'ha carregat una obra per $1 a partir de $2 amb l'Assistent de càrregues",
+	"mwe-upwiz-metadata-notice-header": "Dades personals",
+	"mwe-upwiz-metadata-notice-description": "Les metadades EXIF d'aquest fitxer poden contenir la ubicació o altres dades personals que la càmera afegeix automàticament. [https://commons.wikimedia.org/wiki/Commons:Exif Més informació] sobre com editar o eliminar metadades EXIF."
 }

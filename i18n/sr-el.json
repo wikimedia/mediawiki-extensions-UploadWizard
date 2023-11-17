@@ -226,6 +226,7 @@
 	"mwe-upwiz-campaign-view-all-media": "Prikaži sve otpremljene medije",
 	"mwe-upwiz-campaign-no-uploads-yet": "Još niste ništa otpremili.",
 	"mwe-upwiz-license-custom": "Licenca je opisana sledećim vikitekstom (mora sadržati ispravnu [$2 oznaku autorskih prava]):",
+	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Copyright_tags",
 	"mwe-upwiz-license-fal": "Slobodna umetnička licenca",
 	"mwe-upwiz-license-pd-old-100": "Autor je umro pre više od 100 godina",
 	"mwe-upwiz-license-pd-old": "Autor je umro pre više od 70 godina",

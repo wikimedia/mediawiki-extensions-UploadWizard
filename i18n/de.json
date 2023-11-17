@@ -130,7 +130,7 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Sofern alle Dateien aus derselben Quelle und vom selben Autor stammen sowie denselben urheberrechtlichen Status haben, kannst du die Eingaben für alle auf einmal vornehmen.",
 	"mwe-upwiz-source-thirdparty-explain": "Du kannst das Werk einer anderen Person hochladen, solange es unter einer freien Lizenz veröffentlicht wird oder sein Urheberrecht abgelaufen ist.",
 	"mwe-upwiz-source-thirdparty-cases": "Bitte teile uns mit, warum du dir sicher bist, dass du das Recht zur Veröffentlichung {{PLURAL:$1|dieses Werks|dieser Werke}} hast:",
-	"mwe-upwiz-source-thirdparty-cases-text": "Weißt du, unter welcher [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons-Lizenz] {{PLURAL:$1|dieses Medium veröffentlicht wurde|diese Medien veröffentlicht wurden}}?",
+	"mwe-upwiz-source-thirdparty-cases-text": "Weißt du, unter welcher [https://creativecommons.org/share-your-work/cclicenses/ Creative-Commons-Lizenz] {{PLURAL:$1|dieses Medium veröffentlicht wurde|diese Medien veröffentlicht wurden}}?",
 	"mwe-upwiz-source-thirdparty-accept": "Okay",
 	"mwe-upwiz-source-custom-label": "Gib auf der nächsten Seite die Urheberrechtsinformation für jede einzelne Datei an.",
 	"mwe-upwiz-patent": "Ich, $2, würde allen Benutzern der {{PLURAL:$1|Datei|Dateien}} und damit verbundener 3D-Objekte eine dauerhafte Patentlizenz gewähren ([$3 Rechtskodex]).",
