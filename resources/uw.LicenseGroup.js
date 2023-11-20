@@ -89,7 +89,7 @@
 			// hence this convoluted variable-length parameters assembly...
 			labelParams = [ this.config.subhead, this.count ].concat( this.config.url );
 			$subhead = $( '<div>' )
-				.addClass( 'mwe-upwiz-deed-license-group-subhead' )
+				.addClass( 'mwe-upwiz-deed-license-group-subhead mwe-upwiz-deed-title' )
 				.append( mw.message.apply( mw.message, labelParams ).parseDom() );
 
 			fieldset.addItems(

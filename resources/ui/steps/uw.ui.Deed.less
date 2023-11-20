@@ -5,6 +5,7 @@
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty {
 	margin-top: 1.5em;
+	margin-left: 1.5em;
 	border-top: 1px solid #a3a8b1;
 	padding-top: 1.5em;
 }
@@ -99,33 +100,16 @@
 	}
 }
 
-.mwe-upwiz-deed-warning,
-/*
- * license selection is rather generic to allow customization for campaigns, which makes
- * it rather hard to add a specific "warning" class to the "no license known" license group,
- * so we will target that one directly and apply the same styles
- */
-.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
-	// show warning style instead of default grey background
-	background: ~'#fef6e7 url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 1em 1em / 2em';
-	padding-left: 4em;
-	border: 1px solid #ac6600;
+.mwe-upwiz-deed-subgroup {
+	margin: 1em 0;
+	padding: 1em 2em;
+	background-color: #f1f2f3;
+	border-radius: 3px;
 
-	// change default link style
-	a {
-		color: #202122;
-		text-decoration: underline;
-	}
-
-	// get rid of bold text from the default license selection styles
-	.mwe-upwiz-deed-license-group-subhead {
-		font-weight: inherit;
-		color: #202122;
-	}
-
-	// hide the default-always-on radio for license selection
-	.mwe-upwiz-deed-license-group-body {
-		display: none;
+	.mwe-upwiz-deed-title {
+		margin-bottom: 1em;
+		font-weight: bold;
+		color: #55595d;
 	}
 }
 
@@ -135,19 +119,6 @@
 	.mwe-upwiz-deed-license-group-head {
 		display: block;
 		margin-bottom: 0.5em;
-	}
-
-	.mwe-upwiz-deed-license-group {
-		margin: 1em 0;
-		padding: 1em 2em;
-		background-color: #f1f2f3;
-		border-radius: 3px;
-
-		.mwe-upwiz-deed-license-group-subhead {
-			margin-bottom: 1em;
-			font-weight: bold;
-			color: #55595d;
-		}
 	}
 
 	// customizations for default "custom input" license groups
@@ -182,9 +153,64 @@
 	}
 }
 
+.mwe-upwiz-deed-origin,
 .mwe-upwiz-deed-purpose {
 	label:not( :first-of-type ),
 	.mwe-upwiz-deed-warning {
 		margin-top: 1em;
+	}
+}
+
+.mwe-upwiz-deed-origin .oo-ui-textInputWidget {
+	max-width: 100%;
+}
+
+/*
+ * license selection is rather generic to allow customization for campaigns, which makes
+ * it rather hard to add a specific "warning" class to the "no license known" license group,
+ * so we will target that one directly and mimic OO.ui.MessageWidget( { type: 'warning' } )
+ */
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+	// show warning style instead of default grey background
+	background: ~'#fef6e7 url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 24px 16px / 20px';
+	padding: 16px 24px 16px 56px;
+	border: 1px solid #ac6600;
+
+	// get rid of bold text & margin from the default license selection styles
+	.mwe-upwiz-deed-license-group-subhead {
+		font-weight: inherit;
+		color: #202122;
+		margin-bottom: 0;
+	}
+
+	// hide the default-always-on radio for license selection
+	.mwe-upwiz-deed-license-group-body {
+		display: none;
+	}
+}
+
+.mwe-upwiz-deed-warning,
+/*
+ * also apply custom warning message styles to warning in license selection
+ */
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+	// change default link style
+	a {
+		color: #202122;
+		text-decoration: underline;
+	}
+
+	p {
+		/*
+		 * multi-paragraph messages will be wrapped in <p>, which add an unwanted
+		 * margin above & below; let's get rid of those in here
+		 */
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }

@@ -28,7 +28,7 @@
 	uw.deed.ThirdParty = function UWDeedThirdParty( config, uploads, api ) {
 		var deed = this;
 
-		uw.deed.Abstract.call( this, 'thirdparty', config );
+		uw.deed.Abstract.call( this, 'thirdparty', config, uploads );
 
 		this.uploadCount = uploads.length;
 		this.threeDCount = uploads.filter( this.needsPatentAgreement.bind( this ) ).length;
@@ -137,7 +137,7 @@
 				return result && item.isSelected();
 			}, true );
 			if ( !allSelected ) {
-				return [ mw.message( 'mwe-upwiz-deeds-need-license' ) ];
+				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
 			}
 			return [];
 		};
@@ -213,14 +213,14 @@
 			)
 		);
 
-		if ( this.templateCheckboxes.aiGenerated ) {
+		if ( this.templateOptions.aiGenerated ) {
 			// add the element inside sourceInputField so any error msgs will be displayed for
 			// the field (containing the text input and checkbox) rather than just the text input
 			this.sourceInput.$element.after(
 				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-checkbox' )
-					.append( this.templateCheckboxes.aiGenerated.field.$element )
+					.append( this.templateOptions.aiGenerated.field.$element )
 			);
-			this.templateCheckboxes.aiGenerated.input.$element.on( 'change', function () {
+			this.templateOptions.aiGenerated.input.$element.on( 'change', function () {
 				self.updateAuthorFieldForAI();
 			} );
 
@@ -234,23 +234,23 @@
 			);
 			this.authorInputField.help.$element.hide();
 		}
-		if ( this.templateCheckboxes.authorUnknown ) {
+		if ( this.templateOptions.authorUnknown ) {
 			// add the element inside authorInputField so any error msgs will be displayed for
 			// the field (containing the text input and checkbox) rather than just the text input
-			if ( this.templateCheckboxes.aiGenerated ) {
+			if ( this.templateOptions.aiGenerated ) {
 				this.authorInputField.help.$element.after(
 					$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-checkbox' )
-						.append( this.templateCheckboxes.authorUnknown.field.$element )
+						.append( this.templateOptions.authorUnknown.field.$element )
 				);
 			} else {
 				this.authorInput.$element.after(
 					$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-checkbox' )
-						.append( this.templateCheckboxes.authorUnknown.field.$element )
+						.append( this.templateOptions.authorUnknown.field.$element )
 				);
 			}
 
-			this.templateCheckboxes.authorUnknown.input.$element.on( 'change', function () {
-				if ( self.templateCheckboxes.authorUnknown.input.isSelected() ) {
+			this.templateOptions.authorUnknown.input.$element.on( 'change', function () {
+				if ( self.templateOptions.authorUnknown.input.isSelected() ) {
 					self.authorInput.setDisabled( true );
 					self.authorInput.setValue( '' );
 					self.authorInputField.checkValidity( false );
@@ -273,15 +273,15 @@
 	 * @inheritdoc
 	 */
 	uw.deed.ThirdParty.prototype.updateAuthorFieldForAI = function () {
-		if ( this.templateCheckboxes.aiGenerated.input.isSelected() ) {
+		if ( this.templateOptions.aiGenerated.input.isSelected() ) {
 			this.authorInputField.setLabel(
 				$( '<li>' )
 					.addClass( 'mwe-upwiz-label-title' )
 					.msg( 'mwe-upwiz-author-text-ai' )
 			);
 			this.authorInputField.help.$element.show();
-			if ( this.templateCheckboxes.authorUnknown ) {
-				this.templateCheckboxes.authorUnknown.field.setLabel(
+			if ( this.templateOptions.authorUnknown ) {
+				this.templateOptions.authorUnknown.field.setLabel(
 					mw.message(
 						'mwe-upwiz-author-not-known'
 					).text()
@@ -294,10 +294,10 @@
 					.msg( 'mwe-upwiz-author-text' )
 			);
 			this.authorInputField.help.$element.hide();
-			if ( this.templateCheckboxes.authorUnknown ) {
-				this.templateCheckboxes.authorUnknown.field.setLabel(
+			if ( this.templateOptions.authorUnknown ) {
+				this.templateOptions.authorUnknown.field.setLabel(
 					mw.message(
-						this.config.templateCheckboxes.thirdparty.authorUnknown.label
+						this.config.templateOptions.thirdparty.authorUnknown.label
 					).text()
 				);
 			}
@@ -364,12 +364,12 @@
 			this.complianceCheck.selectItemsByData( serialized.compliance );
 		}
 
-		if ( this.templateCheckboxes.authorUnknown ) {
+		if ( this.templateOptions.authorUnknown ) {
 			this.authorInput.setDisabled(
-				!!this.templateCheckboxes.authorUnknown.input.isSelected()
+				!!this.templateOptions.authorUnknown.input.isSelected()
 			);
 
-			if ( this.templateCheckboxes.aiGenerated ) {
+			if ( this.templateOptions.aiGenerated ) {
 				this.updateAuthorFieldForAI();
 			}
 		}

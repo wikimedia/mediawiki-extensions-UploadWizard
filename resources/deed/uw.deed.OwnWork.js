@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with UploadWizard.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 ( function ( uw ) {
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
@@ -27,21 +26,258 @@
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
 		var self = this,
-			prefAuthName = mw.user.options.get( 'upwiz_licensename' );
+			prefAuthName = mw.user.options.get( 'upwiz_licensename' ),
+			revealOptionContent = function ( $parent, $child ) {
+				// hide sub-content for all options
+				$parent
+					.find( '.mwe-upwiz-deed-radio-reveal' )
+					.filter( function () {
+						// .mwe-upwiz-deed-radio-reveal reveals content when an option is
+						// selected, but we need it to ignore nested instances in order not
+						// to reveal content from sub-options until they've been selected
+						return $( this ).parentsUntil( $parent, '.mwe-upwiz-deed-radio-reveal' ).length === 0;
+					} )
+					.hide();
+				// and reveal only in the selected option
+				$child
+					.find( '.mwe-upwiz-deed-radio-reveal' )
+					.filter( function () {
+						return $( this ).parentsUntil( $child, '.mwe-upwiz-deed-radio-reveal' ).length === 0;
+					} )
+					.show();
+			};
 
-		uw.deed.Abstract.call( this, 'ownwork', config );
+		uw.deed.Abstract.call( this, 'ownwork', config, uploads );
 
 		this.uploadCount = uploads.length;
-		this.threeDCount = uploads.filter( this.needsPatentAgreement.bind( this ) ).length;
 
 		if ( !prefAuthName ) {
 			prefAuthName = mw.config.get( 'wgUserName' );
 		}
 
-		// copyright holder
+		// Author, hidden
 		this.authorInput = new OO.ui.HiddenInputWidget( {
 			name: 'author',
 			value: prefAuthName
+		} );
+
+		// Main origin radio
+		this.originRadio = new OO.ui.RadioSelectWidget( {
+			items: [
+				new OO.ui.RadioOptionWidget( {
+					label: mw.message(
+						'mwe-upwiz-source-ownwork-origin-option-own',
+						this.uploadCount,
+						mw.user
+					).parse(),
+					data: 'own'
+				} ),
+				new OO.ui.RadioOptionWidget( {
+					label: $( '<div>' )
+						.msg(
+							'mwe-upwiz-source-ownwork-origin-option-others',
+							this.uploadCount,
+							mw.user
+						)
+						.append(
+							$( '<span>' )
+								.addClass( 'mwe-upwiz-label-extra' )
+								.msg(
+									'mwe-upwiz-source-ownwork-origin-option-others-explain',
+									this.uploadCount,
+									mw.user
+								),
+							$( '<div>' )
+								.addClass( 'mwe-upwiz-deed-origin-others-container' )
+								.addClass( 'mwe-upwiz-deed-radio-reveal' )
+								.addClass( 'mwe-upwiz-deed-subgroup' )
+								.append(
+									$( '<div>' )
+										.addClass( 'mwe-upwiz-deed-title' )
+										.msg(
+											'mwe-upwiz-source-ownwork-origin-option-others-subquestion',
+											this.uploadCount,
+											mw.user
+										)
+									// this.originOthersRadio.$element will be appended in here
+									// once it has been created (see below)
+								)
+								.hide()
+						)
+						.contents(),
+					data: 'others'
+				} ),
+				new OO.ui.RadioOptionWidget( {
+					label: $( '<div>' )
+						.append( self.templateOptions.aiGenerated.field.getLabel() )
+						.append(
+							$( '<div>' )
+								.addClass( 'mwe-upwiz-deed-radio-reveal' )
+								.addClass( 'mwe-upwiz-deed-subgroup' )
+								.append(
+									$( '<div>' )
+										.addClass( 'mwe-upwiz-deed-title' )
+										.msg(
+											'mwe-upwiz-source-ownwork-origin-option-ai-instruction',
+											this.uploadCount,
+											mw.user
+										),
+									$( '<div>' )
+										// this.aiTextInput.$element will be appended in here
+										// once it has been created (see below)
+										.addClass( 'mwe-upwiz-deed-origin-ai-container' ),
+									$( '<p>' )
+										.addClass( 'mwe-upwiz-label-extra' )
+										.msg(
+											'mwe-upwiz-source-ownwork-origin-option-ai-description',
+											this.uploadCount,
+											mw.user
+										)
+								).hide()
+						)
+						.contents(),
+					data: 'ai'
+				} )
+			],
+			classes: [ 'mwe-upwiz-deed-origin' ]
+		} );
+		this.originRadio.on( 'select', function ( selectedOption ) {
+			revealOptionContent( self.originRadio.$element, selectedOption.$element );
+
+			// this radio option implementation doesn't match the existing generic
+			// templateOptions implementation (as used for thirdparty works);
+			// instead of using it directly, we'll simply forward the selected state
+			// of this radio button to the templateOptions input
+			self.templateOptions.aiGenerated.input.setSelected( selectedOption.getData() === 'ai' );
+
+			// let's also emit a 'change' event to satisfy the listener that checks
+			// and shows/hides an error message
+			self.originRadio.emit( 'change' );
+		} );
+
+		// Origin sub-radio for "work of others" option
+		this.originOthersRadio = new OO.ui.RadioSelectWidget( {
+			items: [
+				new OO.ui.RadioOptionWidget( {
+					label: new OO.ui.HtmlSnippet(
+						mw.message(
+							'mwe-upwiz-source-ownwork-origin-option-others-freelicense',
+							this.uploadCount,
+							mw.user
+						).parse()
+					),
+					data: 'freelicense'
+				} ),
+				new OO.ui.RadioOptionWidget( {
+					label: mw.message(
+						'mwe-upwiz-source-ownwork-origin-option-others-nocopyright',
+						this.uploadCount,
+						mw.user
+					).parse(),
+					data: 'nocopyright'
+				} ),
+				new OO.ui.RadioOptionWidget( {
+					label: $( '<div>' )
+						.msg(
+							'mwe-upwiz-source-ownwork-origin-option-others-copyrighted',
+							this.uploadCount,
+							mw.user
+						)
+						.append(
+							new OO.ui.MessageWidget( {
+								type: 'warning',
+								label: new OO.ui.HtmlSnippet(
+									mw.message(
+										'mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning',
+										this.uploadCount,
+										mw.user
+									).parse()
+								),
+								classes: [ 'mwe-upwiz-deed-warning', 'mwe-upwiz-deed-radio-reveal' ]
+							} ).$element.hide()
+						)
+						.contents(),
+					data: 'copyrighted'
+				} ),
+				new OO.ui.RadioOptionWidget( {
+					label: $( '<div>' )
+						.msg(
+							'mwe-upwiz-source-ownwork-origin-option-others-unknown',
+							this.uploadCount,
+							mw.user
+						)
+						.append(
+							new OO.ui.MessageWidget( {
+								type: 'warning',
+								label: new OO.ui.HtmlSnippet(
+									mw.message(
+										'mwe-upwiz-source-ownwork-origin-option-others-unknown-warning',
+										this.uploadCount,
+										mw.user
+									).parse()
+								),
+								classes: [ 'mwe-upwiz-deed-warning', 'mwe-upwiz-deed-radio-reveal' ]
+							} ).$element.hide()
+						)
+						.contents(),
+					data: 'unknown'
+				} )
+			]
+		} );
+		this.originRadio.$element.find( '.mwe-upwiz-deed-origin-others-container' ).append( this.originOthersRadio.$element );
+		this.originOthersRadio.on( 'select', function ( selectedOption ) {
+			revealOptionContent( self.originOthersRadio.$element, selectedOption.$element );
+
+			// let's also emit a 'change' event on the parent radio to satisfy the listener
+			// that checks and shows/hides an error message
+			self.originRadio.emit( 'change' );
+		} );
+
+		// Origin text input for "work generated by an AI" option
+		this.aiTextInput = new OO.ui.TextInputWidget( {
+			minLength: this.config.minAiInputLength,
+			maxLength: this.config.maxAiInputLength
+		} );
+		this.aiTextInput.$element.find( 'input' ).on( 'click', function () {
+			// Note: I have not fully figured out exactly why or what is the culprit,
+			// but it appears that some node is preventing clicks from propagating,
+			// and it's making it impossible to access this input by mouse;
+			// this is just a workaround to resolve that
+			$( this ).focus();
+		} );
+		this.originRadio.$element.find( '.mwe-upwiz-deed-origin-ai-container' ).append( this.aiTextInput.$element );
+		this.aiTextInput.on( 'change', function ( value ) {
+			self.setAuthorInputValue( value );
+			// let's also emit a 'change' event on the parent radio to satisfy the listener
+			// that checks and shows/hides an error message
+			self.originRadio.emit( 'change' );
+		} );
+
+		this.originRadio.getErrors = this.getOwnWorkErrors.bind(
+			this,
+			this.originRadio,
+			this.originOthersRadio,
+			this.aiTextInput
+		);
+		this.originRadio.getWarnings = this.getOwnWorkWarnings.bind(
+			this,
+			this.originRadio,
+			this.originOthersRadio,
+			this.aiTextInput
+		);
+		this.originRadioField = new uw.FieldLayout( this.originRadio, {
+			label: $( '<div>' ).append(
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.append(
+						mw.message(
+							'mwe-upwiz-source-ownwork-origin-label',
+							this.uploadCount,
+							mw.user
+						).parseDom()
+					)
+			),
+			required: true
 		} );
 
 		this.licenseInput = new mw.UploadWizardLicenseInput(
@@ -49,6 +285,7 @@
 			this.uploadCount,
 			api
 		);
+		this.licenseInput.$element.addClass( 'mwe-upwiz-deed-forms' );
 		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {
 			label: $( '<div>' ).append(
 				$( '<li>' )
@@ -67,16 +304,16 @@
 				new OO.ui.RadioOptionWidget( {
 					label: $( '<div>' ).msg( 'mwe-upwiz-source-ownwork-purpose-option-personal', this.uploadCount, mw.user )
 						.append(
-							$( '<div>' )
-								.addClass( 'mwe-upwiz-deed-warning' )
-								.append( mw.message(
-									'mwe-upwiz-source-ownwork-purpose-warning-personal',
-									this.uploadCount,
-									'//commons.wikimedia.org/wiki/Commons:What_Commons_is_not',
-									'//commons.wikimedia.org/wiki/Commons:Licensing',
-									'//commons.wikimedia.org/wiki/Commons:Village_pump/Copyright'
-								).parseDom() )
-								.hide()
+							new OO.ui.MessageWidget( {
+								type: 'warning',
+								label: new OO.ui.HtmlSnippet(
+									mw.message(
+										'mwe-upwiz-source-ownwork-purpose-option-personal-warning',
+										this.uploadCount
+									).parse()
+								),
+								classes: [ 'mwe-upwiz-deed-warning', 'mwe-upwiz-deed-radio-reveal' ]
+							} ).$element.hide()
 						)
 						.contents(),
 					data: 'personal'
@@ -85,27 +322,15 @@
 			classes: [ 'mwe-upwiz-deed-purpose' ]
 		} );
 		this.purposeRadio.on( 'select', function ( selectedOption ) {
-			var $warning = self.purposeRadio.$element.find( '.mwe-upwiz-deed-warning' );
-			if ( selectedOption.getData() === 'personal' ) {
-				$warning.show();
-			} else {
-				$warning.hide();
-			}
+			revealOptionContent( self.purposeRadio.$element, selectedOption.$element );
+
 			// let's also emit a 'change' event to satisfy the listener that checks
 			// and shows/hides an error message
 			self.purposeRadio.emit( 'change' );
 		} );
-		this.purposeField = new uw.FieldLayout( this.purposeRadio, {
-			label: $( '<div>' ).append(
-				$( '<li>' )
-					.addClass( 'mwe-upwiz-label-title' )
-					.append( mw.message( 'mwe-upwiz-source-ownwork-purpose-label', this.uploadCount, mw.user ).parseDom() )
-			),
-			required: true
-		} );
 		this.purposeRadio.getErrors = function () {
 			if ( !self.purposeRadio.findSelectedItems() ) {
-				return [ mw.message( 'mwe-upwiz-deeds-need-license' ) ];
+				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
 			}
 			return [];
 		};
@@ -114,8 +339,17 @@
 			// on the screen when the "wrong" option is selected
 			return [];
 		};
+		this.purposeField = new uw.FieldLayout( this.purposeRadio, {
+			label: $( '<div>' ).append(
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.append( mw.message( 'mwe-upwiz-source-ownwork-purpose-label', this.uploadCount, mw.user ).parseDom() )
+			),
+			required: true
+		} );
 
 		// grant patent license
+		this.threeDCount = uploads.filter( this.needsPatentAgreement.bind( this ) ).length;
 		if ( this.threeDCount > 0 ) {
 			this.patentAgreementField = this.getPatentAgreementField( uploads );
 		}
@@ -131,7 +365,7 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.OwnWork.prototype.getFields = function () {
-		var fields = [ this.licenseInputField, this.purposeField ];
+		var fields = [ this.originRadioField, this.licenseInputField, this.purposeField ];
 		if ( this.threeDCount > 0 ) {
 			fields.push( this.patentAgreementField );
 		}
@@ -147,6 +381,8 @@
 
 		$formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ).append(
 			$( '<ol>' ).append(
+				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-origin' )
+					.append( this.originRadioField.$element ),
 				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-license' )
 					.append( this.licenseInputField.$element ),
 				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-purpose' )
@@ -191,7 +427,7 @@
 	uw.deed.OwnWork.prototype.getAuthorWikiText = function () {
 		var author = this.getAuthorInputValue();
 
-		if ( author.indexOf( '[' ) >= 0 || author.indexOf( '{' ) >= 0 ) {
+		if ( author ) {
 			return author;
 		}
 
@@ -214,12 +450,13 @@
 	};
 
 	/**
-	 * There's no getValue() on a hidden input in OOUI
+	 * There's no getValue() on a hidden input in OOUI.
+	 * Also handle an AI-generated work.
 	 *
 	 * @return string
 	 */
 	uw.deed.OwnWork.prototype.getAuthorInputValue = function () {
-		return this.authorInput.$element.val();
+		return this.authorInput.$element.val().trim();
 	};
 
 	uw.deed.OwnWork.prototype.setAuthorInputValue = function ( value ) {
@@ -230,12 +467,16 @@
 	 * @return {Object}
 	 */
 	uw.deed.OwnWork.prototype.getSerialized = function () {
-		var serialized = $.extend( uw.deed.Abstract.prototype.getSerialized.call( this ), {
-			author: this.getAuthorInputValue()
-		} );
+		var serialized = $.extend(
+			uw.deed.Abstract.prototype.getSerialized.call( this ),
+			{ author: this.getAuthorInputValue() }
+		);
 
-		serialized.purpose = this.purposeRadio.findSelectedItem().getData();
+		serialized.origin = this.originRadio.findSelectedItem() && this.originRadio.findSelectedItem().getData();
+		serialized.originOthers = this.originOthersRadio.findSelectedItem() && this.originOthersRadio.findSelectedItem().getData();
+		serialized.ai = this.aiTextInput.getValue();
 		serialized.license = this.licenseInput.getSerialized();
+		serialized.purpose = this.purposeRadio.findSelectedItem() && this.purposeRadio.findSelectedItem().getData();
 
 		return serialized;
 	};
@@ -249,9 +490,19 @@
 		if ( serialized.author ) {
 			this.setAuthorInputValue( serialized.author );
 		}
-
-		this.purposeRadio.selectItemByData( serialized.purpose );
+		if ( serialized.origin ) {
+			this.originRadio.selectItemByData( serialized.origin );
+		}
+		if ( serialized.originOthers ) {
+			this.originOthersRadio.selectItemByData( serialized.originOthers );
+		}
+		if ( serialized.ai ) {
+			this.aiTextInput.setValue( serialized.ai );
+		}
 		this.licenseInput.setSerialized( serialized.license );
+		if ( serialized.purpose ) {
+			this.purposeRadio.selectItemByData( serialized.purpose );
+		}
 	};
 
 	uw.deed.OwnWork.prototype.getDefaultLicense = function () {
@@ -263,6 +514,47 @@
 			license = this.config.licensing.ownWork.defaults;
 			return license instanceof Array ? license[ 0 ] : license;
 		}
+	};
+
+	/**
+	 * @param {OO.ui.RadioSelectWidget} originRadio
+	 * @param {OO.ui.RadioSelectWidget} originOthersRadio
+	 * @param {OO.ui.TextInputWidget} aiTextInput
+	 * @return {jQuery.Promise}
+	 */
+	uw.deed.OwnWork.prototype.getOwnWorkErrors = function (
+		originRadio, originOthersRadio, aiTextInput
+	) {
+		var aiInputValue,
+			errors = [];
+
+		if ( originRadio.findSelectedItem() === null ) {
+			errors.push( mw.message( 'mwe-upwiz-deeds-require-selection' ) );
+		} else if (
+			originRadio.findSelectedItem().getData() === 'others' &&
+			originOthersRadio.findSelectedItem() === null
+		) {
+			errors.push( mw.message( 'mwe-upwiz-deeds-require-selection' ) );
+		} else if ( originRadio.findSelectedItem().getData() === 'ai' ) {
+			aiInputValue = aiTextInput.getValue().trim();
+
+			if ( aiInputValue === '' ) {
+				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
+			} else if ( aiInputValue.length < this.config.minAiInputLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-short', this.config.minAiInputLength ) );
+			} else if ( aiInputValue.length > this.config.maxAiInputLength ) {
+				errors.push( mw.message( 'mwe-upwiz-error-too-long', this.config.maxAiInputLength ) );
+			}
+		}
+
+		return $.Deferred().resolve( errors ).promise();
+	};
+
+	/**
+	 * @return {jQuery.Promise}
+	 */
+	uw.deed.OwnWork.prototype.getOwnWorkWarnings = function () {
+		return $.Deferred().resolve( [] ).promise();
 	};
 
 	/**
