@@ -17,15 +17,18 @@
 			"SeoJeongHo",
 			"Ykhwong",
 			"관인생략",
-			"아라"
+			"아라",
+			"밥풀떼기"
 		]
 	},
 	"uploadwizard": "파일 올리기 마법사",
 	"uploadwizard-desc": "파일 올리기 마법사, 멀티미디어를 올리기 위한 사용자에게 친한 도구",
 	"tag-uploadwizard": "파일 올리기 마법사",
 	"tag-uploadwizard-description": "파일 올리기 마법사로 올린 업로드 파일",
+	"tag-uploadwizard-flickr": "플리커",
 	"tag-uploadwizard-flickr-description": "파일 올리기 마법사로 올린 플리커 업로드 파일",
 	"right-mass-upload": "올리기 마법사를 통해 한 번에 더 많은 파일을 일괄적으로 올립니다",
+	"action-mass-upload": "올리기 마법사를 통해 한 번에 더 많은 파일을 일괄적으로 올립니다",
 	"right-upwizcampaigns": "파일 올리기 캠페인 설정하기",
 	"action-upwizcampaigns": "파일 올리기 캠페인을 설정할",
 	"group-upwizcampeditors": "올리기 마법사 캠페인 편집자",
