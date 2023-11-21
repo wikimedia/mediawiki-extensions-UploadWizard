@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Theklan"
+		]
+	},
+	"apihelp-flickrblacklist-summary": "Balidatu Flickr URL bat zerrenda beltzeko erabiltzailearen IDa (NSID) erabiliz.",
+	"apihelp-flickrblacklist-extended-description": "<var>Zerrenda</var> aukerarekin erabiltzen denean, zerrenda beltzeko ID guztiak itzultzen ditu.",
+	"apihelp-flickrblacklist-param-url": "Probatu behar den Flickr URLa.",
+	"apihelp-flickrblacklist-param-list": "Ezarritakoan, zerrenda beltz osoa itzultzen da. Ezin da $1url-rekin batera erabili.",
+	"apihelp-flickrblacklist-example-1": "Egiaztatu URL bat zerrenda beltzean",
+	"apihelp-flickrblacklist-example-2": "Itzuli zerrenda beltz osoa",
+	"apihelp-query+allcampaigns-summary": "Zerrendatu IgoeraMorroiaren kanpaina guztiak.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Gaituta dauden kanpainak soilik zerrendatu.",
+	"apihelp-query+allcampaigns-param-limit": "Itzuli beharreko kanpaina kopurua.",
+	"apihelp-query+allcampaigns-example-1": "Zerrendatu gaitutako kanpainak"
+}
