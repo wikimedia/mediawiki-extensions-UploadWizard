@@ -3,10 +3,29 @@
 		"authors": [
 			"Babanwalia",
 			"Bgo eiu",
-			"Speedytwo"
+			"Speedytwo",
+			"Kuldeepburjbhalaike"
 		]
 	},
-	"uploadwizard": "ਅੱਪਲੋਡ ਵਿਜ਼ਰਦ",
+	"uploadwizard": "ਅੱਪਲੋਡ ਸਹਾਇਕ",
+	"tag-uploadwizard-flickr": "ਫਲਿੱਕਰ",
 	"api-error-noimageinfo": "ਅੱਪਲੋਡ ਸਫਲ਼ ਹੋਇਆ ਪਰ ਸਰਵਰ ਨੇ ਇਸ ਫ਼ਾਈਲ ਬਾਰੇ ਸਾਨੂੰ ਕੋਈ ਜਾਣਕਾਰੀ ਨਹੀਂ ਦਿੱਤੀ।",
+	"mwe-upwiz-step-tutorial": "ਸਿੱਖੋ",
+	"mwe-upwiz-step-file": "ਚੜ੍ਹਾਉ",
+	"mwe-upwiz-step-deeds": "ਜਾਰੀ ਕਰਨ ਦੇ ਅਧਿਕਾਰ",
+	"mwe-upwiz-step-details": "ਵਰਣਨ",
+	"mwe-upwiz-step-metadata": "ਡਾਟਾ ਸ਼ਾਮਲ ਕਰੋ",
+	"mwe-upwiz-step-thanks": "ਵਰਤੋਂ",
+	"mwe-upwiz-add-file-n": "ਹੋਰ ਫ਼ਾਈਲਾਂ ਸ਼ਾਮਲ ਕਰੋ",
+	"mwe-upwiz-add-file-0-free": "ਸ਼ੇਅਰ ਕਰਨ ਲਈ ਮੀਡੀਆ ਫਾਈਲਾਂ ਦੀ ਚੋਣ ਕਰੋ",
+	"mwe-upwiz-add-file-flickr": "ਫਲਿੱਕਰ ਤੋਂ ਤਸਵੀਰਾਂ ਸਾਂਝੀਆਂ ਕਰੋ",
+	"mwe-upwiz-add-file-flickr-n": "ਫਲਿੱਕਰ ਤੋਂ ਹੋਰ ਤਸਵੀਰਾਂ ਸ਼ਾਮਲ ਕਰੋ",
+	"mwe-upwiz-add-flickr-or": "ਜਾਂ",
+	"mwe-upwiz-add-flickr": "ਫਲਿੱਕਰ ਤੋਂ ਪ੍ਰਾਪਤ ਕਰੋ",
+	"mwe-upwiz-flickr-input-placeholder": "ਫਲਿੱਕਰ ਯੂਆਰਐੱਲ",
+	"mwe-upwiz-select-flickr": "ਚੁਣੀਆਂ ਗਈਆਂ ਤਸਵੀਰਾਂ ਅੱਪਲੋਡ ਕਰੋ",
+	"mwe-upwiz-transport-started": "ਸ਼ੁਰੂ ਹੋ ਰਿਹਾ ਹੈ…",
+	"mwe-upwiz-uploading": "ਚੜ੍ਹਾਉਣਾ ਜਾਰੀ ਹੈ",
+	"mwe-upwiz-publish": "ਸਾਂਭਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
 	"mwe-upwiz-categories": "ਸ਼੍ਰੇਣੀਆਂ"
 }

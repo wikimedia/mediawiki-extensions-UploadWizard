@@ -395,5 +395,7 @@
 	"mwe-upwiz-mv-cta-user-preference-unset": "Ja no rebreu notificacions per etiquetar les vostres càrregues.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "En aquest moment no hem pogut desar la vostra preferència. Visiteu les vostres [[c:Special:Preferences#mw-prefsection-echo|Preferències]] per activar les notificacions.",
 	"mwe-upwiz-upload-comment-own-work": "Obra pròpia carregada amb l'Auxiliar de càrregues",
-	"mwe-upwiz-upload-comment-third-party": "S'ha carregat una obra per $1 a partir de $2 amb l'Assistent de càrregues"
+	"mwe-upwiz-upload-comment-third-party": "S'ha carregat una obra per $1 a partir de $2 amb l'Assistent de càrregues",
+	"mwe-upwiz-metadata-notice-header": "Dades personals",
+	"mwe-upwiz-metadata-notice-description": "Les metadades EXIF d'aquest fitxer poden contenir la ubicació o altres dades personals que la càmera afegeix automàticament. [https://commons.wikimedia.org/wiki/Commons:Exif Més informació] sobre com editar o eliminar metadades EXIF."
 }
