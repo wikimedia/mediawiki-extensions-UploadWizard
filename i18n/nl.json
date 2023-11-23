@@ -134,7 +134,6 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "Weet je wat de [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons-licentie] is waaronder {{PLURAL:$1|deze media}} werd gepubliceerd?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom-label": "Lever op de volgende pagina voor ieder bestand apart auteursrechteninformatie.",
-	"mwe-upwiz-patent": "Ik, $2, wil graag een permanente octrooilicentie verlenen aan alle gebruikers van {{PLURAL:$1|het bestand|de bestanden}} en gerelateerde 3D-objecten ([$3 wettelijke code]).",
 	"mwe-upwiz-patent-dialog-title": "Patentrechten",
 	"mwe-upwiz-patent-dialog-title-filename": "Wettelijke rechten voor: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Terug",

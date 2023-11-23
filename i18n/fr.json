@@ -157,7 +157,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Dites-nous maintenant pourquoi vous êtes certain{{GENDER:||e}} d’avoir le droit de publier ce{{PLURAL:$1|tte|s}} œuvre{{PLURAL:$1||s}} :",
 	"mwe-upwiz-source-thirdparty-accept": "Valider",
 	"mwe-upwiz-source-custom-label": "Fournissez les informations relatives au droit d’auteur pour chaque fichier individuellement sur la page suivante.",
-	"mwe-upwiz-patent": "Moi, $2, aimerait accorder un droit de licence permanent à tout utilisateur {{PLURAL:$1|du fichier|des fichiers}} et des objets 3D associés ([$3 mention légale]).",
 	"mwe-upwiz-patent-dialog-title": "Droits de brevet",
 	"mwe-upwiz-patent-dialog-title-filename": "Droits légaux pour: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Arrière",

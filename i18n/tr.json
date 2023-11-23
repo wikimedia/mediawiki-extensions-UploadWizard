@@ -135,7 +135,6 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "Bu {{PLURAL:$1|ortamın|ortamların}} yayımlandığı [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons lisansını] biliyor musunuz?",
 	"mwe-upwiz-source-thirdparty-accept": "Tamam",
 	"mwe-upwiz-source-custom-label": "Bir sonraki sayfada her dosya için ayrı ayrı telif hakkı bilgileri sağlayın.",
-	"mwe-upwiz-patent": "$2, {{PLURAL:$1|dosyanın}} herhangi bir kullanıcısına ve ilgili 3D nesnelere ([$3 yasal kod]) kalıcı bir patent lisansı vermek istiyorum.",
 	"mwe-upwiz-patent-dialog-title": "Patent hakları",
 	"mwe-upwiz-patent-dialog-title-filename": "$1 için yasal haklar",
 	"mwe-upwiz-patent-dialog-button-back": "Geri",

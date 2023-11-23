@@ -129,7 +129,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "الآن أَثبت لنا سبب تَأكُّدِك من أَن لكَ الحق في نشر {{PLURAL:$1||هذا العمل|هذين العملين|هذه الأَعمال}}:",
 	"mwe-upwiz-source-thirdparty-accept": "موافق",
 	"mwe-upwiz-source-custom-label": "معلومات حقوق التَّأليف والنَّشر لكُلِّ ملفٍ على حدته في الصفحة التَّالية.",
-	"mwe-upwiz-patent": "أنا، $2، أود منح رخصةٍ دائِمةٍ لأَيِّ مُستخدِمين ل{{PLURAL:$1|لملف|لملفات}} والكائِنات ثُلاثيَّة الأَبعاد المُرتبِطة ([$3 نصٌّ قانونيٌّ]).",
 	"mwe-upwiz-patent-dialog-title": "حقوق براءَة الاختراع",
 	"mwe-upwiz-patent-dialog-title-filename": "الحقوق القانونيَّة ل: $1",
 	"mwe-upwiz-patent-dialog-button-back": "رُجوع",

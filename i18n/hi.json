@@ -113,7 +113,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "अब हमें बताएँ कि आप निश्चित कैसे हैं कि आपके पास {{PLURAL:$1|इस कार्य|इन कार्यों}} को प्रकाशित करने का अधिकार है:",
 	"mwe-upwiz-source-thirdparty-accept": "ठीक है",
 	"mwe-upwiz-source-custom-label": "अगले पृष्ठ पर हर फ़ाइल के लिए अलग-अलग कॉपीराइट की जानकारी दें।",
-	"mwe-upwiz-patent": "मैं, $2, {{PLURAL:$1|फ़ाइल|फ़ाइलों}} और संबंधित 3D वस्तुओं के प्रयोक्ताओं को एक स्थायी पेटेंट लाइसेंस प्रदान करना चाहूँगा/चाहूँगी ([$3 संहिता])।",
 	"mwe-upwiz-patent-dialog-title": "पेटेंट अधिकार",
 	"mwe-upwiz-patent-dialog-title-filename": "$1 के लिए कानूनी अधिकार",
 	"mwe-upwiz-patent-dialog-button-back": "पिछला",

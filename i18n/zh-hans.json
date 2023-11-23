@@ -154,7 +154,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "现在请告诉我们，您为什么确信您有权利发表{{PLURAL:$1|该|这些}}作品：",
 	"mwe-upwiz-source-thirdparty-accept": "确定",
 	"mwe-upwiz-source-custom-label": "在下一步单独提供每个文件的著作权信息。",
-	"mwe-upwiz-patent": "我（$2）愿意授予永久专利授权至{{PLURAL:$1|此文件}}及相关3D对象的任何用户（[$3 法律条款]）。",
 	"mwe-upwiz-patent-dialog-title": "专利权",
 	"mwe-upwiz-patent-dialog-title-filename": "$1的法律权利",
 	"mwe-upwiz-patent-dialog-button-back": "返回",

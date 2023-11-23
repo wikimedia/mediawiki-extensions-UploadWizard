@@ -111,7 +111,6 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "Sape tu sub qual [https://creativecommons.org/share-your-work/cclicenses/ licentia Creative Commons] iste obra{{PLURAL:$1||s}} ha essite publicate?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom-label": "Forni informationes de copyright pro cata file individualmente in le pagina sequente.",
-	"mwe-upwiz-patent": "Io, $2, vole accordar un licentia de patente permanente a omne usator del file{{PLURAL:$1||s}} e del objectos 3D associate ([$3 codice legal]).",
 	"mwe-upwiz-patent-dialog-title": "Derectos de patentes",
 	"mwe-upwiz-patent-dialog-title-filename": "Derectos juridic pro: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Retornar",

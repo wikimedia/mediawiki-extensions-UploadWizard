@@ -129,7 +129,6 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "Vill du veta vilken [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons license] {{PLURAL:$1|denna mediefil|dessa mediefiler}} publicerades under?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom-label": "Ge copyrightinformation för varje fil på nästa sida.",
-	"mwe-upwiz-patent": "Jag, $2, vill bevilja en permanent patentlicens till alla användare som använder {{PLURAL:$1|filen|filerna}} och relaterade 3D-objekt ([$3 juridisk text]).",
 	"mwe-upwiz-patent-dialog-title": "Patenträttigheter",
 	"mwe-upwiz-patent-dialog-title-filename": "Juridiska rättigheter för: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Tillbaka",

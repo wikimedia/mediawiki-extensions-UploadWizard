@@ -103,7 +103,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Järgmiseks ütle meile, miks oled kindel, et tohid avaldada {{PLURAL:$1|selle teose|need teosed}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Sobib",
 	"mwe-upwiz-source-custom-label": "Varusta järgmisel leheküljel iga fail ükshaaval autoriõigusteabega.",
-	"mwe-upwiz-patent": "Mina, $2, annan tagasivõtmatu patendilitsentsi {{PLURAL:$1|faili ja sellega|failide ja nendega}} seotud 3D-objektide kasutajatele ([$3 litsentsitekst]).",
 	"mwe-upwiz-patent-dialog-title": "Patendiõigused",
 	"mwe-upwiz-patent-dialog-title-filename": "Õigused failile: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Tagasi",

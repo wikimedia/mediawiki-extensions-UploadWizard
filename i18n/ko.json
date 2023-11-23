@@ -114,7 +114,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "{{PLURAL:$1|이 저작물}}을 배포할 권리가 있다고 확신하는 이유를 설명하세요:",
 	"mwe-upwiz-source-thirdparty-accept": "확인",
 	"mwe-upwiz-source-custom-label": "다음 페이지에서 개별 파일에 대한 정보를 입력하겠습니다.",
-	"mwe-upwiz-patent": "$2 본인은 {{PLURAL:$1|이 파일|이 파일들}} 및 관련 3차원 객체 사용자들에게 영구적인 특허\n 라이선스를 제공하고 싶습니다. ([$3 법률])",
 	"mwe-upwiz-patent-dialog-title": "특허권",
 	"mwe-upwiz-patent-dialog-button-back": "뒤로",
 	"mwe-upwiz-patent-dialog-button-next": "다음",

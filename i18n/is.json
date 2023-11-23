@@ -105,7 +105,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Segðu okkur nú afhverju þú hefur rétt til þess að gefa út {{PLURAL:$1|þetta verk|þessi verk}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Í lagi",
 	"mwe-upwiz-source-custom-label": "Útvegaðu höfundaréttar upplýsingar fyrir hverja einustu skrá fyrir næstu síðu.",
-	"mwe-upwiz-patent": "Ég, $2, vil gefa viðvarandi notkunarleyfi á einkaleyfi til allra notenda á {{PLURAL:$1|skránni|skránum}} og tengdum 3D-hlutum ([$3 lagatexti]).",
 	"mwe-upwiz-patent-dialog-title": "Einkaleyfisréttindi",
 	"mwe-upwiz-patent-dialog-title-filename": "Lagaleg réttindi fyrir: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Til baka",

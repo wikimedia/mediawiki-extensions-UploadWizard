@@ -120,7 +120,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Skriv hvorfor du er sikker på at du har rett til å utgi {{PLURAL:$1|dette verket|disse verkene}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom-label": "Angi opphavsrettsinformasjon individuelt for hver fil på neste side.",
-	"mwe-upwiz-patent": "Jeg, $2, ønsker å gi en permanent patentlisens til alle som bruker {{PLURAL:$1|fila|filene}} og relaterte 3D-objekter ([$3 juridisk tekst]).",
 	"mwe-upwiz-patent-dialog-title": "Patentrettigheter",
 	"mwe-upwiz-patent-dialog-title-filename": "Juridiske rettigheter for: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Tilbake",

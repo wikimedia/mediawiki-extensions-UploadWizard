@@ -111,7 +111,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Цяпер раскажыце нам, чаму вы перакананыя, што маеце права на публікацыю {{PLURAL:$1|1=гэтага твора|гэтых твораў}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Добра",
 	"mwe-upwiz-source-custom-label": "Падайце інфармацыю пра аўтарскія правы асобна для кожнага файла на наступнай старонцы.",
-	"mwe-upwiz-patent": "Я, $2, {{GENDER:|хацеў бы|хацела б}} даць пастаянную патэнтную ліцэнзію любым карыстальнікам {{PLURAL:$1|файла|файлаў}} і звязаных з {{PLURAL:$1|ім|імі}} трохвымерных аб’ектаў ([$3 юрыдычны тэкст]).",
 	"mwe-upwiz-patent-dialog-title": "Патэнтныя правы",
 	"mwe-upwiz-patent-dialog-title-filename": "Юрыдычныя правы на: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",

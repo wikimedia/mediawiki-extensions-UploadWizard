@@ -118,7 +118,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Ara digueu-nos perquè esteu segur que teniu els drets per publicar {{PLURAL:$1|aquesta obra|aquestes obres}}:",
 	"mwe-upwiz-source-thirdparty-accept": "D'acord",
 	"mwe-upwiz-source-custom-label": "Proporcioneu les llicències concedides per a cada fitxer individualment en la pàgina següent.",
-	"mwe-upwiz-patent": "Jo, $2, voldria concedir una llicència de patent permanent a qualsevol usuari {{PLURAL:$1|del fitxer|dels fitxers}} i objectes 3D relacionats ([codi legal de $3]).",
 	"mwe-upwiz-patent-dialog-title": "Drets de patents",
 	"mwe-upwiz-patent-dialog-title-filename": "Drets legals per: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Enrere",

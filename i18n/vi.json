@@ -114,7 +114,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Xin hỏi tại sao bạn chắc chắn rằng bạn có quyền xuất bản {{PLURAL:$1|tác phẩm|các tác phẩm}} này:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom-label": "Để tôi cung cấp thông tin bản quyền về mỗi tập tin riêng tại trang tiếp theo.",
-	"mwe-upwiz-patent": "Tôi, $2, quyết định cấp phép bằng sáng chế một cách vĩnh viễn cho người nào sử dụng {{PLURAL:$1|tập tin|các tập tin}} và đối tượng 3D có liên quan ([$3 văn bản luật pháp]).",
 	"mwe-upwiz-patent-dialog-title": "Độc quyền sáng chế",
 	"mwe-upwiz-patent-dialog-title-filename": "Quyền lợi luật pháp cho: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Quay lại",

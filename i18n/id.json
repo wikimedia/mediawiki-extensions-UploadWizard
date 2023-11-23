@@ -117,7 +117,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "Sekarang, beritahu kami mengapa Anda yakin memiliki hak untuk melepas {{PLURAL:$1|karya ini}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom-label": "Berikan informasi hak cipta untuk setiap berkas secara individu pada halaman berikutnya.",
-	"mwe-upwiz-patent": "Saya, $2, ingin memberikan lisensi paten permanen kepada siapa pun yang menggunakan {{PLURAL:$1|berkas|berkas-berkas}} ini dan objek 3D terkait ([$3 aturan hukum]).",
 	"mwe-upwiz-patent-dialog-title": "Hak paten",
 	"mwe-upwiz-patent-dialog-title-filename": "Hak legal untuk: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Kembali",

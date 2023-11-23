@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"ANTHONY DERY",
 			"Alhassan Mohammed Awal",
-			"Caparzodesky"
+			"Caparzodesky",
+			"Linus Konkor"
 		]
 	},
 	"uploadwizard": "Eŋe sõͻbo",
@@ -108,7 +110,6 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "\nFo baŋ ka boŋ [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons license] {{PLURAL:$1|a duoro zie ŋa da e la|a duoro ziirenama da waa la}} pͻbelese a puliŋ?",
 	"mwe-upwiz-source-thirdparty-accept": "Aseŋԑԑ",
 	"mwe-upwiz-source-custom-label": "Tere duoro yelsoore a ko daga kaŋa zaa yoŋ yoŋ a gampԑle gaŋene naŋ.",
-	"mwe-upwiz-patent": "I, $2, na nͻnͻ ka ba ko tontonneԑ kaŋa zaa baaraa laaseŋ {{PLURAL:$1|a daga|a dagere}} a kyԑ lere 3D boma ([$3 yeltorri koodi]).",
 	"mwe-upwiz-patent-dialog-title": "patenԑnte soe",
 	"mwe-upwiz-patent-dialog-title-filename": "Yeltorri soe ko:$1",
 	"mwe-upwiz-patent-dialog-button-back": "Puori",
@@ -119,6 +120,8 @@
 	"mwe-upwiz-patent-dialog-title-license": "Patenԑnte Laaseŋ",
 	"mwe-upwiz-patent-dialog-text-license": "Kaŋa zaa 3D boma naŋ nyԑ a beŋ {{PLURAL:$1|a daga|a dagere}} wa la n meŋԑ toma.",
 	"mwe-upwiz-patent-dialog-link-license": "Zanne yaga",
+	"mwe-upwiz-patent-dialog-text-license-grant": "N tere la pamenante paatesen laasense ko tontonneba kaŋa zaa {{PLURAL\n:$1|boma|boma mine}}",
+	"mwe-upwiz-patent-dialog-link-license-grant": "Sagebo koodi",
 	"mwe-upwiz-patent-dialog-checkbox-label": "N sage la a begԑ ama",
 	"mwe-upwiz-patent-weapon-policy": "\nTontonemͻ kaŋazaa seŋ ka o vԑŋe 3D model de embo o na waa ŋa zͻͻzͻͻ bone bee \"meŋԑ guubu ganlee\". A yeltarre kpaaroŋ na baŋ iri o la bare ba kaabo poͻŋ.",
 	"mwe-upwiz-patent-weapon-policy-link": "Kanne yelnygere yelsoore",
