@@ -99,6 +99,36 @@
 	}
 }
 
+.mwe-upwiz-deed-warning,
+/*
+ * license selection is rather generic to allow customization for campaigns, which makes
+ * it rather hard to add a specific "warning" class to the "no license known" license group,
+ * so we will target that one directly and apply the same styles
+ */
+.mwe-upwiz-deed-license-group-container .mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
+	// show warning style instead of default grey background
+	background: ~'#fef6e7 url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 1em 1em / 2em';
+	padding-left: 4em;
+	border: 1px solid #ac6600;
+
+	// change default link style
+	a {
+		color: #202122;
+		text-decoration: underline;
+	}
+
+	// get rid of bold text from the default license selection styles
+	.mwe-upwiz-deed-license-group-subhead {
+		font-weight: inherit;
+		color: #202122;
+	}
+
+	// hide the default-always-on radio for license selection
+	.mwe-upwiz-deed-license-group-body {
+		display: none;
+	}
+}
+
 .mwe-upwiz-deed-license-group-container {
 	margin-top: 1em;
 
@@ -117,31 +147,6 @@
 			margin-bottom: 1em;
 			font-weight: bold;
 			color: #55595d;
-		}
-	}
-
-	// customizations for "no license known" license group
-	.mwe-upwiz-deed-license-group-mwe-upwiz-license-no-head + .mwe-upwiz-deed-license-group {
-		// show warning style instead of default grey background
-		background: ~'#fef6e7 url( ../../images/64px-OOjs_UI_icon_alert_image_warning.svg.png ) no-repeat 1em 1em / 2em';
-		padding-left: 4em;
-		border: 1px solid #ac6600;
-
-		// get rid of default bold text
-		.mwe-upwiz-deed-license-group-subhead {
-			font-weight: inherit;
-			color: #202122;
-		}
-
-		// change default link style
-		a {
-			color: #202122;
-			text-decoration: underline;
-		}
-
-		// hide the license radio, which is a default-always-on selection
-		.mwe-upwiz-deed-license-group-body {
-			display: none;
 		}
 	}
 
@@ -174,5 +179,12 @@
 		.oo-ui-textInputWidget textarea {
 			font-family: monospace, monospace;
 		}
+	}
+}
+
+.mwe-upwiz-deed-purpose {
+	label:not( :first-of-type ),
+	.mwe-upwiz-deed-warning {
+		margin-top: 1em;
 	}
 }
