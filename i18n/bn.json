@@ -128,6 +128,7 @@
 	"mwe-upwiz-patent-dialog-title-license": "পেটেন্ট লাইসেন্স",
 	"mwe-upwiz-patent-dialog-text-license": "এই {{PLURAL:$1|ফাইলে|ফাইলগুলিতে}} চিত্রিত ত্রিমাত্রিক বস্তুগুলি আমার নিজস্ব কাজ।",
 	"mwe-upwiz-patent-dialog-link-license": "আরও জানুন",
+	"mwe-upwiz-patent-dialog-link-license-grant": "আইনি কোড",
 	"mwe-upwiz-patent-dialog-checkbox-label": "আমি এই শর্তাবলীর সাথে সম্মত",
 	"mwe-upwiz-patent-weapon-policy-link": "বিস্তারিত নীতিমালা পড়ুন",
 	"mwe-upwiz-license-metadata-title": "শুধুমাত্র ক্যাপশন অবদানের জন্য লাইসেন্স (এটি ক্যাপশনের লেখায় প্রযোজ্য, ফাইলে নয়)",

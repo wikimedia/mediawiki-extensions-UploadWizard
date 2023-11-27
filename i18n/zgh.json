@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hakim1bal"
+			"Hakim1bal",
+			"Mohamed Belarhzali"
 		]
 	},
+	"mwe-upwiz-patent-dialog-link-license-grant": "ⵜⴰⵏⴳⴰⵍⵜ ⵜⴰⵍⵓⴳⵏⴰⵏⵜ",
 	"mwe-upwiz-copy-statements-dialog-accept": "ⵢⴰⵀ, ⵙⵏⵖⵍ",
 	"mwe-upwiz-dialog-yes": "ⵢⴰⵀ",
 	"mwe-upwiz-dialog-no": "ⵓⵀⵓ"

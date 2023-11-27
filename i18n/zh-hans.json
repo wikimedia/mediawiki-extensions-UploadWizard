@@ -159,7 +159,7 @@
 	"mwe-upwiz-patent-dialog-button-back": "返回",
 	"mwe-upwiz-patent-dialog-button-next": "下一项",
 	"mwe-upwiz-patent-dialog-title-warranty": "有关专利的保证",
-	"mwe-upwiz-patent-dialog-text-warranty": "使用{{PLURAL:$1|此文件|这些文件}}及文件中描述的任何对象将不会故意或轻率地侵犯任何专利。",
+	"mwe-upwiz-patent-dialog-text-warranty": "我保证对{{PLURAL:$1|此文件|这些文件}}的任何使用及{{PLURAL:$1|文件}}中描述的任何对象将不会故意或轻率地侵犯任何专利。",
 	"mwe-upwiz-patent-dialog-link-warranty": "了解更多",
 	"mwe-upwiz-patent-dialog-title-license": "专利许可协议",
 	"mwe-upwiz-patent-dialog-text-license": "{{PLURAL:$1|文件}}中描述的任何3D对象都是我的作品。",

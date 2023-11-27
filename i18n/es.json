@@ -24,6 +24,7 @@
 			"MartaEgea",
 			"McDutchie",
 			"Mor",
+			"No se",
 			"Pertile",
 			"Platonides",
 			"Rodney Araujo",
@@ -112,7 +113,7 @@
 	"mwe-upwiz-progressbar-uploading": "subiendo",
 	"mwe-upwiz-almost-finished": "Procesando archivos…",
 	"mwe-upwiz-finished": "¡Terminado!",
-	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, siempre que me citen como el autor y publiquen cualquier obra derivada bajo esta misma licencia)",
+	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(requiere que la persona que utiliza {{PLURAL:$1|este medio|estos medios}} dé el crédito apropiado y los distribuya bajo la misma licencia)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, siempre que me citen como el autor y publiquen cualquier obra derivada bajo esta misma licencia)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-at-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, siempre que me citen como el autor y publiquen cualquier obra derivada bajo esta misma licencia)",
 	"mwe-upwiz-source-ownwork-cc-by-sa-3.0-de-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, siempre que me citen como el autor y publiquen cualquier obra derivada bajo esta misma licencia)",
@@ -367,5 +368,6 @@
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "No podemos guardar tu preferencia en este momento. Por favor visita tus [[c:Special:Preferences#mw-prefsection-echo|Preferences]] para optar por las notificaciones.",
 	"mwe-upwiz-upload-comment-own-work": "Trabajo propio subido con el Asistente de subidas",
 	"mwe-upwiz-upload-comment-third-party": "Se subió un trabajo por $1 de $2 con el Asistente de subidas",
-	"mwe-upwiz-metadata-notice-header": "Datos personales"
+	"mwe-upwiz-metadata-notice-header": "Datos personales",
+	"mwe-upwiz-metadata-notice-description": "Los metadatos EXIF de este archivo pueden contener ubicación u otros datos personales agregados automáticamente por su cámara. [https://commons.wikimedia.org/wiki/Commons:Exif Obtenga más información] sobre cómo editar o eliminar metadatos EXIF."
 }
