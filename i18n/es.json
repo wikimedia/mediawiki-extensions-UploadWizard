@@ -33,7 +33,8 @@
 			"Tiberius1701",
 			"Vivaelcelta",
 			"Yllelder",
-			"YoViajo"
+			"YoViajo",
+			"No se"
 		]
 	},
 	"uploadwizard": "Asistente de subidas",
@@ -414,5 +415,6 @@
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "No podemos guardar tu preferencia en este momento. Por favor visita tus [[c:Special:Preferences#mw-prefsection-echo|Preferences]] para optar por las notificaciones.",
 	"mwe-upwiz-upload-comment-own-work": "Trabajo propio subido con el Asistente de subidas",
 	"mwe-upwiz-upload-comment-third-party": "Se subió un trabajo por $1 de $2 con el Asistente de subidas",
-	"mwe-upwiz-metadata-notice-header": "Datos personales"
+	"mwe-upwiz-metadata-notice-header": "Datos personales",
+	"mwe-upwiz-metadata-notice-description": "Los metadatos EXIF de este archivo pueden contener ubicación u otros datos personales agregados automáticamente por su cámara. [https://commons.wikimedia.org/wiki/Commons:Exif Obtenga más información] sobre cómo editar o eliminar metadatos EXIF."
 }
