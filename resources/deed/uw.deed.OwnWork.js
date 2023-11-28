@@ -26,7 +26,8 @@
 	 * @param {mw.Api} api API object - useful for doing previews
 	 */
 	uw.deed.OwnWork = function UWDeedOwnWork( config, uploads, api ) {
-		var prefAuthName = mw.user.options.get( 'upwiz_licensename' );
+		var self = this,
+			prefAuthName = mw.user.options.get( 'upwiz_licensename' );
 
 		uw.deed.Abstract.call( this, 'ownwork', config );
 
@@ -48,8 +49,71 @@
 			this.uploadCount,
 			api
 		);
-		this.licenseInput.$element.addClass( 'mwe-upwiz-deed-license' );
-		this.licenseInputField = new uw.FieldLayout( this.licenseInput );
+		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {
+			label: $( '<div>' ).append(
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.append( mw.message( 'mwe-upwiz-source-ownwork-question', this.uploadCount, mw.user ).parseDom() )
+			),
+			required: true
+		} );
+
+		this.purposeRadio = new OO.ui.RadioSelectWidget( {
+			items: [
+				new OO.ui.RadioOptionWidget( {
+					label: mw.message( 'mwe-upwiz-source-ownwork-purpose-option-knowledge', this.uploadCount, mw.user ).text(),
+					data: 'knowledge'
+				} ),
+				new OO.ui.RadioOptionWidget( {
+					label: $( '<div>' ).msg( 'mwe-upwiz-source-ownwork-purpose-option-personal', this.uploadCount, mw.user )
+						.append(
+							$( '<div>' )
+								.addClass( 'mwe-upwiz-deed-warning' )
+								.append( mw.message(
+									'mwe-upwiz-source-ownwork-purpose-warning-personal',
+									this.uploadCount,
+									'//commons.wikimedia.org/wiki/Commons:What_Commons_is_not',
+									'//commons.wikimedia.org/wiki/Commons:Licensing',
+									'//commons.wikimedia.org/wiki/Commons:Village_pump/Copyright'
+								).parseDom() )
+								.hide()
+						)
+						.contents(),
+					data: 'personal'
+				} )
+			],
+			classes: [ 'mwe-upwiz-deed-purpose' ]
+		} );
+		this.purposeRadio.on( 'select', function ( selectedOption ) {
+			var $warning = self.purposeRadio.$element.find( '.mwe-upwiz-deed-warning' );
+			if ( selectedOption.getData() === 'personal' ) {
+				$warning.show();
+			} else {
+				$warning.hide();
+			}
+			// let's also emit a 'change' event to satisfy the listener that checks
+			// and shows/hides an error message
+			self.purposeRadio.emit( 'change' );
+		} );
+		this.purposeField = new uw.FieldLayout( this.purposeRadio, {
+			label: $( '<div>' ).append(
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.append( mw.message( 'mwe-upwiz-source-ownwork-purpose-label', this.uploadCount, mw.user ).parseDom() )
+			),
+			required: true
+		} );
+		this.purposeRadio.getErrors = function () {
+			if ( !self.purposeRadio.findSelectedItems() ) {
+				return [ mw.message( 'mwe-upwiz-deeds-need-license' ) ];
+			}
+			return [];
+		};
+		this.purposeRadio.getWarnings = function () {
+			// not actually adding a warning here; there already is one shown immediately
+			// on the screen when the "wrong" option is selected
+			return [];
+		};
 
 		// grant patent license
 		if ( this.threeDCount > 0 ) {
@@ -67,7 +131,7 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.OwnWork.prototype.getFields = function () {
-		var fields = [ this.licenseInputField ];
+		var fields = [ this.licenseInputField, this.purposeField ];
 		if ( this.threeDCount > 0 ) {
 			fields.push( this.patentAgreementField );
 		}
@@ -82,13 +146,16 @@
 		this.$form = $( '<form>' );
 
 		$formFields = $( '<div>' ).addClass( 'mwe-upwiz-deed-form-internal' ).append(
-			$( '<p>' )
-				.addClass( 'mwe-upwiz-label-title' )
-				.msg( 'mwe-upwiz-source-ownwork-question', this.uploadCount, mw.user )
+			$( '<ol>' ).append(
+				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-license' )
+					.append( this.licenseInputField.$element ),
+				$( '<div>' ).addClass( 'mwe-upwiz-ownwork-purpose' )
+					.append( this.purposeField.$element )
+			)
 		);
-		$formFields.append( this.authorInput.$element );
-		$formFields.append( this.licenseInputField.$element );
 
+		// hidden inputs
+		$formFields.append( this.authorInput.$element );
 		if ( this.threeDCount > 0 ) {
 			$formFields.append( this.patentAgreementField.$element );
 		}
@@ -167,6 +234,7 @@
 			author: this.getAuthorInputValue()
 		} );
 
+		serialized.purpose = this.purposeRadio.findSelectedItem().getData();
 		serialized.license = this.licenseInput.getSerialized();
 
 		return serialized;
@@ -182,6 +250,7 @@
 			this.setAuthorInputValue( serialized.author );
 		}
 
+		this.purposeRadio.selectItemByData( serialized.purpose );
 		this.licenseInput.setSerialized( serialized.license );
 	};
 
