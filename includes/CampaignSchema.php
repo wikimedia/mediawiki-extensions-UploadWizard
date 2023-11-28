@@ -178,9 +178,14 @@ return [
 				"ownWork" => [
 					"type" => "object",
 					"properties" => [
-						"default" => [
-							"type" => "string",
-							"enum" => array_keys( Config::getSetting( 'licenses' ) )
+						"defaults" => [
+							"type" => "array",
+							"items" => [
+								[
+									"type" => "string",
+									"enum" => array_keys( Config::getSetting( 'licenses' ) )
+								]
+							]
 						],
 						"licenses" => [
 							"type" => "array",
@@ -204,8 +209,13 @@ return [
 					"type" => "object",
 					"properties" => [
 						"defaults" => [
-							"type" => "string",
-							"enum" => array_keys( Config::getSetting( 'licenses' ) )
+							"type" => "array",
+							"items" => [
+								[
+									"type" => "string",
+									"enum" => array_keys( Config::getSetting( 'licenses' ) )
+								]
+							]
 						],
 						"licenseGroups" => [
 							"type" => "array",
@@ -213,8 +223,31 @@ return [
 								[
 									"type" => "object",
 									"properties" => [
+										"defaults" => [
+											"type" => "array",
+											"items" => [
+												[
+													"type" => "string",
+													"enum" => array_keys( Config::getSetting( 'licenses' ) )
+												]
+											]
+										],
 										"head" => [
 											"type" => "string"
+										],
+										"icons" => [
+											"type" => "array",
+											"items" => [
+												[
+													"type" => "string",
+													"enum" => [
+														"cc-by",
+														"cc-public-domain",
+														"cc-sa",
+														"cc-zero"
+													]
+												],
+											],
 										],
 										"licenses" => [
 											"type" => "array",
@@ -224,15 +257,41 @@ return [
 													"enum" => array_keys( Config::getSetting( 'licenses' ) )
 												]
 											]
-
 										],
 										"subhead" => [
 											"type" => "string"
+										],
+										"type" => [
+											"type" => "array",
+											"items" => [
+												[
+													"type" => "string",
+													"enum" => [
+														"and",
+														"or"
+													]
+												],
+											],
+										],
+										"url" => [
+											"oneOf" => [
+												[
+													"type" => "string",
+												],
+												[
+													"type" => "array",
+													"items" => [
+														[
+															"type" => "string"
+														],
+													],
+												],
+											]
 										]
-									]
+									],
+									"required" => [ "head" ]
 								]
 							]
-
 						],
 						"type" => [
 							"type" => "string"

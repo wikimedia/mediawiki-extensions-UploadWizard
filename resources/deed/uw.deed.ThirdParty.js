@@ -61,7 +61,9 @@
 			return $.Deferred().resolve( [] ).promise();
 		};
 		this.sourceInputField = new uw.FieldLayout( this.sourceInput, {
-			label: $( '<li>' ).msg( 'mwe-upwiz-source-text' ),
+			label: $( '<li>' )
+				.addClass( 'mwe-upwiz-label-title' )
+				.msg( 'mwe-upwiz-source-text' ),
 			required: true
 		} );
 
@@ -96,7 +98,9 @@
 			return $.Deferred().resolve( [] ).promise();
 		};
 		this.authorInputField = new uw.FieldLayout( this.authorInput, {
-			label: $( '<li>' ).msg( 'mwe-upwiz-author-text' ),
+			label: $( '<li>' )
+				.addClass( 'mwe-upwiz-label-title' )
+				.msg( 'mwe-upwiz-author-text' ),
 			required: true
 		} );
 
@@ -108,8 +112,14 @@
 		this.licenseInput.$element.addClass( 'mwe-upwiz-deed-license-groups' );
 		this.licenseInput.setDefaultValues();
 		this.licenseInputField = new uw.FieldLayout( this.licenseInput, {
-			label: $( '<li>' ).msg( 'mwe-upwiz-source-thirdparty-cases-text', this.uploadCount ),
-			help: mw.message( 'mwe-upwiz-tooltip-thirdparty-license' ).text(),
+			label: $( '<div>' ).append(
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.append( mw.message( 'mwe-upwiz-source-thirdparty-cases-text', this.uploadCount ).parseDom() ),
+				$( '<span>' )
+					.addClass( 'mwe-upwiz-label-extra' )
+					.text( mw.message( 'mwe-upwiz-tooltip-thirdparty-license' ).text() )
+			),
 			required: true
 		} );
 
@@ -227,7 +237,9 @@
 	uw.deed.ThirdParty.prototype.updateAuthorFieldForAI = function () {
 		if ( this.templateCheckboxes.aiGenerated.input.isSelected() ) {
 			this.authorInputField.setLabel(
-				$( '<li>' ).msg( 'mwe-upwiz-author-text-ai' )
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.msg( 'mwe-upwiz-author-text-ai' )
 			);
 			this.authorInputField.help.$element.show();
 			if ( this.templateCheckboxes.authorUnknown ) {
@@ -239,7 +251,9 @@
 			}
 		} else {
 			this.authorInputField.setLabel(
-				$( '<li>' ).msg( 'mwe-upwiz-author-text' )
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.msg( 'mwe-upwiz-author-text' )
 			);
 			this.authorInputField.help.$element.hide();
 			if ( this.templateCheckboxes.authorUnknown ) {

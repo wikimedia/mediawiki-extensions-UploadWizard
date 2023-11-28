@@ -426,6 +426,10 @@ return [
 			'templates' => [ 'PD-Art|PD-old-70' ],
 			'url' => '//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
 		],
+		'pd-us-generic' => [
+			'msg' => 'mwe-upwiz-license-pd-us-generic',
+			'templates' => [ 'PD-US' ]
+		],
 		'pd-us' => [
 			'msg' => 'mwe-upwiz-license-pd-us',
 			'templates' => [ 'PD-US-expired' ]
@@ -433,6 +437,10 @@ return [
 		'pd-old-70-expired' => [
 			'msg' => 'mwe-upwiz-license-pd-old-70-1923',
 			'templates' => [ 'PD-old-70-expired' ],
+		],
+		'pd-old-70' => [
+			'msg' => 'mwe-upwiz-license-pd-old-70',
+			'templates' => [ 'PD-old-70' ],
 		],
 		'pd-usgov' => [
 			'msg' => 'mwe-upwiz-license-pd-usgov',
@@ -461,7 +469,8 @@ return [
 			'templates' => [ 'subst:uwl' ]
 		],
 		'custom' => [
-			'msg' => 'mwe-upwiz-license-custom',
+			'msg' => 'mwe-upwiz-license-custom-text',
+			'msgExplain' => 'mwe-upwiz-license-custom-explain',
 			'templates' => [ 'subst:Custom license marker added by UW' ],
 			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse()
 		],
@@ -495,58 +504,51 @@ return [
 		// checkbox selection of all licenses
 		'thirdParty' => [
 			'type' => 'or',
-			'defaults' => 'cc-by-sa-4.0',
 			'licenseGroups' => [
 				[
-					// This should be a list of all CC licenses we can reasonably expect to find around the web
-					'head' => 'mwe-upwiz-license-cc-head',
-					'subhead' => 'mwe-upwiz-license-cc-subhead',
+					'head' => 'mwe-upwiz-license-yes-head',
+					'subhead' => 'mwe-upwiz-license-yes-subhead',
 					'licenses' => [
-						'cc-by-sa-4.0',
-						'cc-by-sa-3.0',
-						'cc-by-sa-2.5',
+						'cc-zero',
 						'cc-by-4.0',
 						'cc-by-3.0',
 						'cc-by-2.5',
-						'cc-zero'
+						'cc-by-sa-4.0',
+						'cc-by-sa-3.0',
+						'cc-by-sa-2.5',
 					]
 				],
 				[
-					// n.b. as of April 2011, Flickr still uses CC 2.0 licenses.
-					// The White House also has an account there, hence the Public Domain US Government license
-					'head' => 'mwe-upwiz-license-flickr-head',
-					'subhead' => 'mwe-upwiz-license-flickr-subhead',
-					'prependTemplates' => [ 'flickrreview' ],
-					'licenses' => [
-						'cc-by-sa-2.0',
-						'cc-by-2.0',
-						'pd-usgov',
-					]
+					'head' => 'mwe-upwiz-license-no-head',
+					'subhead' => 'mwe-upwiz-license-no-subhead',
+					'url' => [
+						'//commons.wikimedia.org/wiki/Commons:Licensing#Acceptable_licenses',
+						'//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
+						'//commons.wikimedia.org/wiki/Commons:Licensing',
+						'//commons.wikimedia.org/wiki/Commons:Village_pump/Copyright',
+					],
+					'defaults' => [ 'none' ],
+					'licenses' => [ 'none' ],
 				],
 				[
-					'head' => 'mwe-upwiz-license-public-domain-usa-head',
-					'subhead' => 'mwe-upwiz-license-public-domain-usa-subhead',
+					'head' => 'mwe-upwiz-license-cc0-head',
+					'subhead' => 'mwe-upwiz-license-cc0-subhead',
+					'icons' => [ 'cc-public-domain' ],
+					'url' => '//commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain',
+					'type' => 'and',
 					'licenses' => [
 						'pd-us',
-						'pd-art',
-					]
-				],
-				[
-					// omitted navy because it is believed only MultiChil uses it heavily. Could add it back
-					'head' => 'mwe-upwiz-license-usgov-head',
-					'licenses' => [
+						'pd-old-70',
 						'pd-usgov',
-						'pd-usgov-nasa'
+						'pd-usgov-nasa',
+						'pd-us-generic',
 					]
 				],
 				[
-					'head' => 'mwe-upwiz-license-custom-head',
+					'head' => 'mwe-upwiz-license-other-head',
 					'special' => 'custom',
+					'defaults' => [ 'custom' ],
 					'licenses' => [ 'custom' ],
-				],
-				[
-					'head' => 'mwe-upwiz-license-none-head',
-					'licenses' => [ 'none' ]
 				],
 			]
 		]
