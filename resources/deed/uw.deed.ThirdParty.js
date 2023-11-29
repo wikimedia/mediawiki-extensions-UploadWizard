@@ -123,6 +123,37 @@
 			required: true
 		} );
 
+		this.complianceCheck = new OO.ui.CheckboxMultiselectWidget( {
+			items: [
+				new OO.ui.CheckboxMultioptionWidget( {
+					label: mw.message( 'mwe-upwiz-source-thirdparty-compliance-option-copyright', this.uploadCount, mw.user ).text(),
+					data: 'copyright'
+				} )
+			],
+			classes: [ 'mwe-upwiz-deed-compliance' ]
+		} );
+		this.complianceCheck.getErrors = function () {
+			var allSelected = deed.complianceCheck.getItems().reduce( function ( result, item ) {
+				return result && item.isSelected();
+			}, true );
+			if ( !allSelected ) {
+				return [ mw.message( 'mwe-upwiz-deeds-need-license' ) ];
+			}
+			return [];
+		};
+		this.complianceCheck.getWarnings = function () {
+			// just here for completeness; there is no warning ATM
+			return [];
+		};
+		this.complianceField = new uw.FieldLayout( this.complianceCheck, {
+			label: $( '<div>' ).append(
+				$( '<li>' )
+					.addClass( 'mwe-upwiz-label-title' )
+					.append( mw.message( 'mwe-upwiz-source-thirdparty-compliance-label', this.uploadCount, mw.user ).parseDom() )
+			),
+			required: true
+		} );
+
 		if ( this.threeDCount > 0 ) {
 			this.patentAgreementField = this.getPatentAgreementField( uploads );
 		}
@@ -138,7 +169,12 @@
 	 * @return {uw.FieldLayout[]} Fields that need validation
 	 */
 	uw.deed.ThirdParty.prototype.getFields = function () {
-		var fields = [ this.authorInputField, this.sourceInputField, this.licenseInputField ];
+		var fields = [
+			this.authorInputField,
+			this.sourceInputField,
+			this.licenseInputField,
+			this.complianceField
+		];
 		if ( this.threeDCount > 0 ) {
 			fields.push( this.patentAgreementField );
 		}
@@ -171,7 +207,9 @@
 				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
 					.append( this.sourceInputField.$element ),
 				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
-					.append( this.authorInputField.$element )
+					.append( this.authorInputField.$element ),
+				$( '<div>' ).addClass( 'mwe-upwiz-thirdparty-fields' )
+					.append( this.complianceField.$element )
 			)
 		);
 
@@ -300,7 +338,10 @@
 		return $.extend( uw.deed.Abstract.prototype.getSerialized.call( this ), {
 			source: this.sourceInput.getValue(),
 			author: this.authorInput.getValue(),
-			license: this.licenseInput.getSerialized()
+			license: this.licenseInput.getSerialized(),
+			compliance: this.complianceCheck.findSelectedItems().map( function ( item ) {
+				return item.getData();
+			} )
 		} );
 	};
 
@@ -318,6 +359,9 @@
 		}
 		if ( serialized.license ) {
 			this.licenseInput.setSerialized( serialized.license );
+		}
+		if ( serialized.compliance ) {
+			this.complianceCheck.selectItemsByData( serialized.compliance );
 		}
 
 		if ( this.templateCheckboxes.authorUnknown ) {
