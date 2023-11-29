@@ -12,7 +12,7 @@ use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
 use MediaWiki\Extension\UploadWizard\Tutorial;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserOptionsLookup;
+use MediaWiki\User\Options\UserOptionsLookup;
 use PermissionsError;
 use SpecialPage;
 use UploadBase;
