@@ -36,6 +36,7 @@
 	"group-upwizcampeditors": "Kampanjredigerare för uppladdningsguiden",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampanjredaktör för uppladdningsguiden}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampanjredigerare för uppladdningsguiden",
+	"group-upwizcampeditors.css": "/* CSS som skrivs här kommer endast påverka kampanjredigerare för uppladdningsguiden */",
 	"group-upwizcampeditors.js": "/* JS som skrivs här påverkar bara kampanjredigerare för uppladdningsguiden */",
 	"api-error-parsererror": "Servern svarade med ett ogiltigt JSON-dokument. Detta kan vara ett problem med API:et eller använder du kanske en proxyserver som förhindrar dig från att ladda upp filer.",
 	"api-error-aborted": "Uppladdning avbröts.",
