@@ -301,7 +301,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "Автор{{PLURAL:$1||ы}}",
 	"mwe-upwiz-campaign-view-all-media": "Посмотреть все загруженные материалы",
 	"mwe-upwiz-campaign-no-uploads-yet": "Ещё нет загруженных файлов!",
-	"mwe-upwiz-license-custom": "Лицензия описывается следующим вики-текстом (должен включать корректное [$2 указание на авторские права]):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Шаблоны лицензий",
 	"mwe-upwiz-license-fal": "Free Art License",
 	"mwe-upwiz-license-pd-old-100": "Автор умер более 100 лет назад",

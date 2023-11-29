@@ -264,7 +264,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Сътрудник|Сътрудници}}",
 	"mwe-upwiz-campaign-view-all-media": "Преглед на всички качени файлове",
 	"mwe-upwiz-campaign-no-uploads-yet": "Все още няма качени файлове!",
-	"mwe-upwiz-license-custom": "Лицензът е описан чрез следния уикитекст (трябва да съдържа валиден [$2 етикет за авторско право]):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Copyright_tags/bg",
 	"mwe-upwiz-license-fal": "Свободен артистичен лиценз (Free Art License)",
 	"mwe-upwiz-license-pd-old-100": "Авторът е починал преди повече от 100 години",

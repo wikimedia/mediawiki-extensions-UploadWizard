@@ -239,7 +239,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Közreműködő}}",
 	"mwe-upwiz-campaign-view-all-media": "Az összes feltöltött fájl megtekintése",
 	"mwe-upwiz-campaign-no-uploads-yet": "Nincs még feltöltve semmi!",
-	"mwe-upwiz-license-custom": "A licencet a következő wikiszöveg írja le (tartalmaznia kell egy érvényes [$2 szerzői jogi címkét]):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Licencsablonok",
 	"mwe-upwiz-license-fal": "Free Art License",
 	"mwe-upwiz-license-pd-old-100": "A szerző több mint 100 évvel ezelőtt halt meg",

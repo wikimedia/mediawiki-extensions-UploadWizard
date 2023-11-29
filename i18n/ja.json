@@ -265,7 +265,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Contributor|貢献者}}",
 	"mwe-upwiz-campaign-view-all-media": "アップロードされたメディアをすべて閲覧",
 	"mwe-upwiz-campaign-no-uploads-yet": "まだ何もアップロードされていません。",
-	"mwe-upwiz-license-custom": "ライセンスは、以下に記述したウィキテキストの通りです (有効な[$2 著作権タグ]を含めてください):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:コピーライト・タグ",
 	"mwe-upwiz-license-fal": "フリーの作品ライセンス",
 	"mwe-upwiz-license-pd-old-100": "著者が100年以上前に死亡した",

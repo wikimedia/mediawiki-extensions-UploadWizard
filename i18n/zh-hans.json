@@ -304,7 +304,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|贡献者}}",
 	"mwe-upwiz-campaign-view-all-media": "查看所有上传的媒体文件",
 	"mwe-upwiz-campaign-no-uploads-yet": "尚未上传！",
-	"mwe-upwiz-license-custom": "授权协议使用以下wikitext描述（必须含有有效的[$2 著作权标签]）：",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:著作权标签",
 	"mwe-upwiz-license-fal": "自由艺术授权协议",
 	"mwe-upwiz-license-pd-old-100": "作者在超过100年前去世",

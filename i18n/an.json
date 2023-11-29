@@ -124,7 +124,6 @@
 	"mwe-upwiz-too-many-files-text": "Nomás puet cargar $1 {{PLURAL:$1|fichero|fichers}} de vez. Ha prebau de cargar $2 {{PLURAL:$1|fichero|fichers}}, asinas que se'n ha sacau $3 {{PLURAL:$3|fichero|fichers}}.",
 	"mwe-upwiz-too-many-files": "Masiaus fichers.",
 	"mwe-upwiz-dialog-title": "Aviso",
-	"mwe-upwiz-license-custom": "A licencia ye descrita por o siguient texto wiki (ha de contener una [$2 plantilla de copyright] valida):",
 	"mwe-upwiz-license-fal": "Licencia artistica libre",
 	"mwe-upwiz-license-pd-old-100": "L'autor falleció fa mas de 100 anyos",
 	"mwe-upwiz-license-pd-old": "L'autor falleció fa mas de 70 anyos",

@@ -254,7 +254,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Osallistuja|Osallistujat}}",
 	"mwe-upwiz-campaign-view-all-media": "Näytä kaikki ladattu media",
 	"mwe-upwiz-campaign-no-uploads-yet": "Ei latauksia vielä!",
-	"mwe-upwiz-license-custom": "Seuraava wikiteksti kuvaa lisenssiä (sen täytyy sisältää kelpaava [$2 tekijänoikeusmerkintä]):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Tekijänoikeusmallineet",
 	"mwe-upwiz-license-fal": "Free Art License",
 	"mwe-upwiz-license-pd-old-100": "Tekijä kuoli yli 100 vuotta sitten",

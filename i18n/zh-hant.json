@@ -280,7 +280,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|貢獻者}}",
 	"mwe-upwiz-campaign-view-all-media": "檢視所有已上傳的媒體",
 	"mwe-upwiz-campaign-no-uploads-yet": "尚無任何上傳！",
-	"mwe-upwiz-license-custom": "使用 WikiText 於下方描述授權條款 (需含有效的 [$2 版權標籤])：",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:著作权标签",
 	"mwe-upwiz-license-fal": "自由藝術品授權條款",
 	"mwe-upwiz-license-pd-old-100": "作者已逝世超過 100 年",

@@ -285,7 +285,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|Colaborador|Colaboradores}}",
 	"mwe-upwiz-campaign-view-all-media": "Ver todos los archivos multimedia subidos",
 	"mwe-upwiz-campaign-no-uploads-yet": "Todavía no se han cargado archivos.",
-	"mwe-upwiz-license-custom": "La licencia está descrita por el siguiente texto wiki (debe contener una [$2 plantilla de copyright] válida):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Marcas de derechos de autor",
 	"mwe-upwiz-license-fal": "Licencia de Arte Libre",
 	"mwe-upwiz-license-pd-old-100": "El autor falleció hace más de 100 años",

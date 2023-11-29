@@ -251,7 +251,6 @@
 	"mwe-upwiz-campaign-contributors-count-desc": "{{PLURAL:$1|přispěvatel|přispěvatelé|přispěvatelů}}",
 	"mwe-upwiz-campaign-view-all-media": "Zobrazit všechna načtená média",
 	"mwe-upwiz-campaign-no-uploads-yet": "Dosud žádné obrázky!",
-	"mwe-upwiz-license-custom": "Licenci popisuje následující wikitext (musí obsahovat platnou [$2 licenční šablonu]):",
 	"mwe-upwiz-license-custom-url": "//commons.wikimedia.org/wiki/Commons:Popisky licence souborů",
 	"mwe-upwiz-license-fal": "Svobodná umělecká licence",
 	"mwe-upwiz-license-pd-old-100": "Autor zemřel před více než 100 lety",
