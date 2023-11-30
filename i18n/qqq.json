@@ -331,7 +331,7 @@
 	"mwe-upwiz-license-cc-zero-text": "Parameters:\n* $1 - (Unused) empty string\n* $2 - URL \"//creativecommons.org/publicdomain/zero/1.0/deed.en\" or one of its localized versions\n* $3 - html for license icons\n{{Related|Mwe-upwiz-license-cc}}",
 	"mwe-upwiz-license-custom-text": "Parameters:\n* $1 - (Unused) empty string\n* $2 - full URL, {{msg-mw|mwe-upwiz-license-custom-url}}\n* $3 - html for license icons",
 	"mwe-upwiz-license-custom-url": "{{optional}}\nUsed as <code>$2</code> in {{msg-mw|Mwe-upwiz-license-custom}}.",
-	"mwe-upwiz-license-custom-explain": "Parameters:\n* $1 - (Unused) empty string\n* $2 - full URL, {{msg-mw|mwe-upwiz-license-custom-url}}\n* $3 - html for license icons",
+	"mwe-upwiz-license-custom-explain": "Parameters:\n* $2 - full URL, {{msg-mw|mwe-upwiz-license-custom-url}}",
 	"mwe-upwiz-license-fal": "Used as license name.",
 	"mwe-upwiz-license-own-pd-text": "Parameters:\n* $1 - (Unused) empty string\n* $2 - (Unused) empty string)\n* $3 - html for license icons\nUsed for the summary text of a license choice that releases the upload under the Creative Commons Zero license.",
 	"mwe-upwiz-license-pd-old-100": "Option for a file being in the public domain because the author died more than 100 years before now.",

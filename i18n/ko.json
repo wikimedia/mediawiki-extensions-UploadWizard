@@ -264,6 +264,7 @@
 	"mwe-upwiz-license-copyrighted-free-use": "저작권이 있으나, 영리 목적을 포함하여 어떤 목적으로도 사용이 가능",
 	"mwe-upwiz-license-attribution": "저작권이 있으나, 저작자표시가 적절히 되어 있을 경우에, 영리 목적을 포함하여 어떤 목적으로도 사용이 가능",
 	"mwe-upwiz-license-gfdl": "GNU 자유 문서 사용 허가서",
+	"mwe-upwiz-license-no-head": "아니요, 이 정보는 없습니다",
 	"mwe-upwiz-license-cc-head": "저작권자가 {{PLURAL:$1|이 저작물}}을 적당한 크리에이티브 커먼즈 라이선스로 배포했습니다",
 	"mwe-upwiz-license-cc-subhead": "크리에이티브 커먼즈 라이선스가 모두 이 사이트에 적합한 것은 아닙니다. 저작권자가 이 라이선스 중 하나를 쓰고 있는지 확인해주세요.",
 	"mwe-upwiz-license-flickr-head": "저작권자가 {{PLURAL:$1|사진이나 비디오}}를 Flickr에 적당한 라이선스에 따라 배포했습니다.",
