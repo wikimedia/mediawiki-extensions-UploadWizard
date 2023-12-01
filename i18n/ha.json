@@ -71,7 +71,7 @@
 	"mwe-upwiz-source-ownwork-purpose-option-personal": "{{PLURAL:$1|Wannan aikin shine|Wadannan ayyuka}} don amfanin kaina ne misali. hotuna na kaina, dangi ko abokaina, ko ni ne in sanya shi don aikina.",
 	"mwe-upwiz-source-ownwork-purpose-warning-personal": "<p><b>Kar a loda {{PLURAL:$1| wannan fayil|waɗannan fayilolin}}!</b> Wikimedia Commons ba ta daukar nauyin kafofin watsa labarai a ƙarƙashin haƙƙin mallaka. Fayiloli kawai masu [lasisi na kyauta $2 ] ko [ $3 na jama'a] hotuna an halatta su akan Commons.</p><p> Idan kuna cikin kokwanto, don Allah [ $4 ƙarin koyo game da lasisi], ko da fatan za a tambayi wasu gogaggun masu ba da gudummawa don shawara kafin lodawa. Mutane za su yi farin cikin taimaka muku a [ $5 Wikimedia Commons's Pump Pump]. Na gode.</p>",
 	"mwe-upwiz-source-thirdparty-accept": "ko",
-	"mwe-upwiz-source-thirdparty-compliance-label": "Da fatan za a tabbatar da wannan sanarwa kafin a ci gaba:",
+	"mwe-upwiz-source-thirdparty-compliance-label": "Da fatan za a tabbatar da wannan sanarwa kafin a ci gaba",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Na tabbatar da cewa {{PLURAL:$1| wannan aikin yana aikata. kar a haɗa kayan da aka ƙuntata ta haƙƙin mallaka, kamar tambura, fosta, murfin kundi, da sauransu..",
 	"mwe-upwiz-source-custom-label": "Bayar da bayanan hakkin mallaka ga kowane fayil daban-daban a shafi na gaba.",
 	"mwe-upwiz-patent-dialog-title": "Hakkin mallaka",
