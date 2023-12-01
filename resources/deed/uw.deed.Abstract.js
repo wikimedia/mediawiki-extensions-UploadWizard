@@ -23,18 +23,19 @@
 	 * @constructor
 	 * @param {string} name The name of this step
 	 * @param {Object} config The UW config
+	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads that this deed refers to
 	 */
-	uw.deed.Abstract = function UWDeedInterface( name, config ) {
+	uw.deed.Abstract = function UWDeedInterface( name, config, uploads ) {
 		var tcName, details, field, input;
 		this.name = name;
 		this.config = config;
 		uw.deed.Abstract.prototype.instanceCount++;
 		this.instanceCount = uw.deed.Abstract.prototype.instanceCount;
 
-		this.templateCheckboxes = {};
-		if ( config.templateCheckboxes && config.templateCheckboxes[ name ] ) {
-			for ( tcName in this.config.templateCheckboxes[ name ] ) {
-				details = this.config.templateCheckboxes[ name ][ tcName ];
+		this.templateOptions = {};
+		if ( config.templateOptions && config.templateOptions[ name ] ) {
+			for ( tcName in this.config.templateOptions[ name ] ) {
+				details = this.config.templateOptions[ name ][ tcName ];
 				input = new OO.ui.CheckboxInputWidget( {
 					name: tcName,
 					value: details.template
@@ -42,12 +43,16 @@
 				field = new uw.FieldLayout(
 					input,
 					{
-						label: mw.message( details.label ).text(),
+						label: mw.message(
+							details.label,
+							uploads.length,
+							mw.user
+						).text(),
 						align: 'inline',
 						required: true // not really required, set true so "optional" won't display
 					}
 				);
-				this.templateCheckboxes[ tcName ] = {
+				this.templateOptions[ tcName ] = {
 					field: field,
 					input: input
 				};
@@ -111,15 +116,15 @@
 	 * @return {Object}
 	 */
 	uw.deed.Abstract.prototype.getSerialized = function () {
-		var name, selectedTemplateCheckboxes = [];
-		for ( name in this.templateCheckboxes ) {
-			if ( this.templateCheckboxes[ name ].input.isSelected() ) {
-				selectedTemplateCheckboxes.push( name );
+		var name, selectedTemplateOptions = [];
+		for ( name in this.templateOptions ) {
+			if ( this.templateOptions[ name ].input.isSelected() ) {
+				selectedTemplateOptions.push( name );
 			}
 		}
 		return {
 			name: this.name,
-			selectedTemplateCheckboxes: selectedTemplateCheckboxes
+			selectedTemplateOptions: selectedTemplateOptions
 		};
 	};
 
@@ -131,8 +136,8 @@
 		if ( serialized.name ) {
 			this.name = serialized.name;
 		}
-		serialized.selectedTemplateCheckboxes.forEach( function ( name ) {
-			self.templateCheckboxes[ name ].input.setSelected( true );
+		serialized.selectedTemplateOptions.forEach( function ( name ) {
+			self.templateOptions[ name ].input.setSelected( true );
 		} );
 	};
 
@@ -214,12 +219,12 @@
 	/**
 	 * @return string
 	 */
-	uw.deed.Abstract.prototype.getTemplateCheckboxesWikiText = function () {
-		var name, checkbox, wikitext = '';
-		for ( name in this.templateCheckboxes ) {
-			checkbox = this.templateCheckboxes[ name ].input;
-			if ( checkbox.isSelected() ) {
-				wikitext += checkbox.getValue();
+	uw.deed.Abstract.prototype.getTemplateOptionsWikiText = function () {
+		var name, option, wikitext = '';
+		for ( name in this.templateOptions ) {
+			option = this.templateOptions[ name ].input;
+			if ( option.isSelected() ) {
+				wikitext += option.getValue();
 			}
 		}
 		return wikitext;

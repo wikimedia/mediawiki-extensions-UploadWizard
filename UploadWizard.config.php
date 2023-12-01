@@ -571,6 +571,12 @@ return [
 	// Min author string length
 	'minAuthorLength' => 1,
 
+	// Max AI tool string length
+	'maxAiInputLength' => 10000,
+
+	// Min AI tool string length
+	'minAiInputLength' => 5,
+
 	// Max source string length
 	'maxSourceLength' => 10000,
 
@@ -706,7 +712,13 @@ return [
 	],
 
 	// extra templates that get written into the wikitext by checking a checkbox
-	'templateCheckboxes' => [
+	'templateOptions' => [
+		'ownwork' => [
+			'aiGenerated' => [
+				'template' => '{{PD-algorithm}}',
+				'label' => 'mwe-upwiz-source-ownwork-origin-option-ai'
+			],
+		],
 		'thirdparty' => [
 			'aiGenerated' => [
 				'template' => '{{PD-algorithm}}',

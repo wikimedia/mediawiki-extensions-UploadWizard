@@ -81,6 +81,7 @@ mw.UploadWizardLicenseInput = function ( config, count, api ) {
 				input.api,
 				input.count
 			);
+			group.$element.addClass( 'mwe-upwiz-deed-subgroup' );
 			groups.push( group );
 		} );
 		$container.append( input.widget.$element );
@@ -297,7 +298,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 		var selectedInputs = this.getSerialized();
 
 		if ( Object.keys( selectedInputs ).length === 0 ) {
-			addError( 'mwe-upwiz-deeds-need-license' );
+			addError( 'mwe-upwiz-deeds-require-selection' );
 		} else {
 			var input = this;
 			// It's pretty hard to screw up a radio button, so if even one of them is selected it's okay.
