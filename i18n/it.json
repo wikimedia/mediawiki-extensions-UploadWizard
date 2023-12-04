@@ -200,7 +200,7 @@
 	"mwe-upwiz-tooltip-more-info": "Per saperne di più.",
 	"mwe-upwiz-file-need-file": "Prima carica qualcosa.",
 	"mwe-upwiz-deeds-need-deed": "Spiega dove hai trovato questo file, e a quali condizioni questo sito può utilizzarlo, selezionando una delle opzioni.",
-	"mwe-upwiz-deeds-need-license": "La selezione è obbligatoria",
+	"mwe-upwiz-deeds-require-selection": "La selezione è obbligatoria",
 	"mwe-upwiz-license-show-all": "Usa una licenza diversa",
 	"mwe-upwiz-license-show-recommended": "Usa la licenza raccomandata dal sito",
 	"mwe-upwiz-label-optional": "Opzionale",

@@ -92,7 +92,7 @@
 	"mwe-upwiz-tooltip-more-info": "ویشتر بدونین.",
 	"mwe-upwiz-file-need-file": "اول اتا باربی‌یشتن اضافه هاکنین.",
 	"mwe-upwiz-deeds-need-deed": "با انتخاب اتا از گزینه‌ها، توضیح هادین که کاجه این {{PLURAL:$1|پرونده|پرونده‌ئون}} ره بییتنی و چتی این وب‌گاه بتونده {{PLURAL:$1|ون جه|وشونجه}} استفاده هاکنه.",
-	"mwe-upwiz-deeds-need-license": "اتا مجوز ره بییرین.",
+	"mwe-upwiz-deeds-require-selection": "اتا مجوز ره بییرین.",
 	"mwe-upwiz-license-show-all": "استفاده از مجوزون دیگه",
 	"mwe-upwiz-license-show-recommended": "استفاده از مجوز توصیه بیی",
 	"mwe-upwiz-error-signature-blank": "شما ونه گزینه زیر ره با کاروری نوم و یا شه واقعی نوم امضا هاکنین.",

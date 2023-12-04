@@ -220,7 +220,7 @@
 	"mwe-upwiz-tooltip-more-info": "詳細。",
 	"mwe-upwiz-file-need-file": "最初にアップロードを追加してください。",
 	"mwe-upwiz-deeds-need-deed": "どこでこのファイルを手に入れたのか、その場所がどのようにそれを利用できるか、選択肢から選んで説明してください。",
-	"mwe-upwiz-deeds-need-license": "ライセンスを選択してください。",
+	"mwe-upwiz-deeds-require-selection": "ライセンスを選択してください。",
 	"mwe-upwiz-license-show-all": "その他のライセンスを使用",
 	"mwe-upwiz-license-show-recommended": "サイトで推奨されるライセンスを使用",
 	"mwe-upwiz-label-optional": "省略可能",

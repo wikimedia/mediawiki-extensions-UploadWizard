@@ -198,7 +198,7 @@
 	"mwe-upwiz-tooltip-more-info": "Dalše informacije.",
 	"mwe-upwiz-file-need-file": "Prošu přidaj najprjedy nahraće.",
 	"mwe-upwiz-deeds-need-deed": "Prošu wujasń, hdźež sy {{PLURAL:$1|tutu dataju|tutej dataji|tute dataje|tute dataje}} dóstał a kak tute sydło móže {{PLURAL:$1|ju|jej|je|je}} wužiwać, wuběrajo jednu z opcijow.",
-	"mwe-upwiz-deeds-need-license": "Prošu wubjer licencu.",
+	"mwe-upwiz-deeds-require-selection": "Prošu wubjer licencu.",
 	"mwe-upwiz-license-show-all": "Druhu licencu wužiwać",
 	"mwe-upwiz-license-show-recommended": "Doporučenu licencu webstrony wužiwać",
 	"mwe-upwiz-label-optional": "Opcionalne",

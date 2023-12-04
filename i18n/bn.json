@@ -221,7 +221,7 @@
 	"mwe-upwiz-tooltip-more-info": "আরও জানুন।",
 	"mwe-upwiz-file-need-file": "অনুগ্রহ করে প্রথমে কোন আপলোড যোগ করুন।",
 	"mwe-upwiz-deeds-need-deed": "নিচের বিকল্পের একটি নির্বাচন করার দ্বারা, দয়া করে ব্যাখ্যা করুন আপনি কোথায় এই ফাইলটি পেয়েছিলেন এবং কিভাবে এই সাইটটি এটি ব্যবহার করতে পারেন।",
-	"mwe-upwiz-deeds-need-license": "নির্বাচন বাধ্যতামূলক",
+	"mwe-upwiz-deeds-require-selection": "নির্বাচন বাধ্যতামূলক",
 	"mwe-upwiz-license-show-all": "ভিন্ন লাইসেন্স ব্যবহার করুন",
 	"mwe-upwiz-license-show-recommended": "সাইটের সুপারিশকৃত লাইসেন্স ব্যবহার করুন",
 	"mwe-upwiz-label-optional": "ঐচ্ছিক",

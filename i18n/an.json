@@ -101,7 +101,7 @@
 	"mwe-upwiz-tooltip-more-info": "Mas información.",
 	"mwe-upwiz-file-need-file": "Cargue bell fichero en primeras.",
 	"mwe-upwiz-deeds-need-deed": "Explica a ón aconsiguié {{PLURAL:$1|iste fichero|istes fichers}} y cómo iste puesto puede {{PLURAL:$1|fer-lo servir|fer-los servir}}, trigando una d'as opcions.",
-	"mwe-upwiz-deeds-need-license": "Por favor trigue una licencia.",
+	"mwe-upwiz-deeds-require-selection": "Por favor trigue una licencia.",
 	"mwe-upwiz-license-show-all": "Usar una licencia diferent",
 	"mwe-upwiz-license-show-recommended": "Usar a licencia recomendada",
 	"mwe-upwiz-error-signature-blank": "Has de sinyar o campo d'abaixo con o tuyo nombre d'usuario u nombre real.",

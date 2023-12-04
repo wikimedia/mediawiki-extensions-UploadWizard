@@ -128,7 +128,7 @@
 	"mwe-upwiz-tooltip-more-info": "अधिकं ज्ञायताम् ।",
 	"mwe-upwiz-file-need-file": "आदौ कृपया निवेशनं योज्यताम्",
 	"mwe-upwiz-deeds-need-deed": "{{PLURAL:$1|एषा सञ्चिका|एताः सञ्चिकाः}}कुतः प्राप्ताः, {{PLURAL:$1|इयं|एताः}} अस्मिन् क्षेत्रे कथम् उपयोक्तुं शक्यते इति कञ्चित् विकल्पचयनपूर्वकं सूच्यताम् ।",
-	"mwe-upwiz-deeds-need-license": "कृपया अनुमतेः चयनं क्रियताम् ।",
+	"mwe-upwiz-deeds-require-selection": "कृपया अनुमतेः चयनं क्रियताम् ।",
 	"mwe-upwiz-license-show-all": "अन्यस्याः अनुमतेः उपयोगः क्रियताम्",
 	"mwe-upwiz-license-show-recommended": "सूचिता अनुमतिः उपयुज्यताम्",
 	"mwe-upwiz-error-signature-blank": "अधः क्षेत्रे भवतः योजकनाम्ना वास्तविकनाम्ना वा हस्ताक्षरं करणीयम् ।",

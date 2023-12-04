@@ -251,7 +251,7 @@
 	"mwe-upwiz-tooltip-more-info": "了解更多。",
 	"mwe-upwiz-file-need-file": "请先添加上传。",
 	"mwe-upwiz-deeds-need-deed": "请选择选项之一来说明此文件的来源和本网站使用它的方式。",
-	"mwe-upwiz-deeds-need-license": "必须做出选择",
+	"mwe-upwiz-deeds-require-selection": "必须做出选择。",
 	"mwe-upwiz-license-show-all": "使用其他授权协议",
 	"mwe-upwiz-license-show-recommended": "使用网站推荐的授权协议",
 	"mwe-upwiz-label-optional": "可选",

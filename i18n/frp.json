@@ -109,7 +109,7 @@
 	"mwe-upwiz-tooltip-more-info": "Nen savêr més.",
 	"mwe-upwiz-file-need-file": "Volyéd apondre d’abôrd un fichiér a tèlèchargiér.",
 	"mwe-upwiz-deeds-need-deed": "Volyéd èxplicar de yô que {{PLURAL:$1|vint cél fichiér|vegnont celos fichiérs}} et pués coment ceti seto {{PLURAL:$1|lo|los}} pôt utilisar, en chouèséssent yon des chouèx.",
-	"mwe-upwiz-deeds-need-license": "Volyéd chouèsir una licence.",
+	"mwe-upwiz-deeds-require-selection": "Volyéd chouèsir una licence.",
 	"mwe-upwiz-license-show-all": "Utilisar una licence difèrenta",
 	"mwe-upwiz-license-show-recommended": "Utilisar les licences recomandâs",
 	"mwe-upwiz-error-signature-blank": "Vos dête signér dens ceti champ avouéc voutron nom d’usanciér ou ben voutron veré nom.",

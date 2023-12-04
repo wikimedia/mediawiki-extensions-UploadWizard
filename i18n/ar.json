@@ -228,7 +228,7 @@
 	"mwe-upwiz-tooltip-more-info": "معرفة المزيد",
 	"mwe-upwiz-file-need-file": "رجاءً، أَضِف أَوَّلاً ملفاً لرفعه.",
 	"mwe-upwiz-deeds-need-deed": "الرجاء شرح كيفيَّة الحصول على هذا الملف، وكيف يُمكن لهذا الموقع أَن يَستخدِمه؟ وذلك من خلال تحديد أَحد الخيارات.",
-	"mwe-upwiz-deeds-need-license": "الرجاء تحديد التَّرخيص.",
+	"mwe-upwiz-deeds-require-selection": "الرجاء تحديد التَّرخيص.",
 	"mwe-upwiz-license-show-all": "استخدم رخصةً مُختلِفةً",
 	"mwe-upwiz-license-show-recommended": "استخدم الرُّخصة المُوصَى بها من المُوقِع",
 	"mwe-upwiz-label-optional": "اختياريٌّ",

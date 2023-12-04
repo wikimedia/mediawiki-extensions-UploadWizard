@@ -192,7 +192,7 @@
 	"mwe-upwiz-tooltip-more-info": "Máis información.",
 	"mwe-upwiz-file-need-file": "Engada unha carga primeiro.",
 	"mwe-upwiz-deeds-need-deed": "Explique de onde sacou este ficheiro e como se pode usar neste sitio. Para isto, seleccione unha das opcións.",
-	"mwe-upwiz-deeds-need-license": "Seleccione unha licenza.",
+	"mwe-upwiz-deeds-require-selection": "Seleccione unha licenza.",
 	"mwe-upwiz-license-show-all": "Empregar unha licenza diferente",
 	"mwe-upwiz-license-show-recommended": "Empregar a licenza recomendada do sitio",
 	"mwe-upwiz-label-optional": "Opcional",

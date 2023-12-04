@@ -171,7 +171,7 @@
 	"mwe-upwiz-tooltip-location": "[$1 ระบุพิกัดไฟล์ของคุณ]เพื่อระบุว่าสื่อนี้ถูกบันทึกที่ไหน (การป้อนตำแหน่งที่ตั้งในสื่อทุก ๆ ชนิดอาจไม่จำเป็นเสมอไป)",
 	"mwe-upwiz-tooltip-more-info": "เรียนรู้เพิ่มเติม",
 	"mwe-upwiz-file-need-file": "โปรดเพิ่มการอัปโหลดก่อน",
-	"mwe-upwiz-deeds-need-license": "โปรดเลือกสัญญาอนุญาต",
+	"mwe-upwiz-deeds-require-selection": "โปรดเลือกสัญญาอนุญาต",
 	"mwe-upwiz-license-show-all": "ใช้สัญญาอนุญาตอื่น",
 	"mwe-upwiz-license-show-recommended": "ใช้สัญญาอนุญาตที่แนะนำของไซต์",
 	"mwe-upwiz-error-signature-blank": "คุณต้องลงชื่อด้วยชื่อผู้ใช้หรือชื่อจริงในเขตข้อมูลด้านล่าง",

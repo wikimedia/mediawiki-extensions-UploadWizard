@@ -149,7 +149,7 @@
 	"mwe-upwiz-tooltip-more-info": "Tayêna bımuse.",
 	"mwe-upwiz-file-need-file": "Reca kemê veror yew barkerdış dekerê de.",
 	"mwe-upwiz-deeds-need-deed": "Reca keme şıma de {{PLURAL:$1|ena dosya|enê dosyaya}} berê koti u kanci sita de {{PLURAL:$1|in|nina}} karfiyê se, şırê ey weçinê.",
-	"mwe-upwiz-deeds-need-license": "Şımara reca jew lisans weçinê.",
+	"mwe-upwiz-deeds-require-selection": "Şımara reca jew lisans weçinê.",
 	"mwe-upwiz-license-show-all": "Zewbi lisans karfiyê",
 	"mwe-upwiz-license-show-recommended": "Lisansa ke weseyneyaya ay karfiyê",
 	"mwe-upwiz-error-signature-blank": "Kışta bıniya ya name de raştaya yana name de karberiya imza kerdış icab kena.",

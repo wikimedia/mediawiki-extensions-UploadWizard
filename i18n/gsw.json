@@ -129,7 +129,7 @@
 	"mwe-upwiz-tooltip-more-info": "Meh läse.",
 	"mwe-upwiz-file-need-file": "Fieg bitte zerscht e Datei zum Uffelade zue.",
 	"mwe-upwiz-deeds-need-deed": "Erklär bitte, wu d {{PLURAL:$1|Datei här isch|Dateie här sin}} un wie si uf däre Websyte {{PLURAL:$1|cha brucht wäre|chenne brucht wäre}}, indäm Du eini vu dr Optione uuswehlsch.",
-	"mwe-upwiz-deeds-need-license": "Bitte wehl e Lizänz uus.",
+	"mwe-upwiz-deeds-require-selection": "Bitte wehl e Lizänz uus.",
 	"mwe-upwiz-license-show-all": "Nimm e anderi Lizänz",
 	"mwe-upwiz-license-show-recommended": "Nimm d Lizänz, wu empfohlen isch",
 	"mwe-upwiz-error-signature-blank": "Du muesch s Fäld unte mit Dyym Benutzername oder Dyym burgerlige Name unterzeichne.",

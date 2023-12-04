@@ -143,7 +143,7 @@
 	"mwe-upwiz-tooltip-more-info": "Ketahui lebih lanjut.",
 	"mwe-upwiz-file-need-file": "Tolong tambahkan bahan yang ingin dimuat naik terlebih dahulu.",
 	"mwe-upwiz-deeds-need-deed": "Tolong jelaskan dari mana anda perolehi {{PLURAL:$1|fail|fail-fail}} ini dan bagaimana tapak ini boleh menggunakannya, dengan memilih antara pilihan-pilihan berikut.",
-	"mwe-upwiz-deeds-need-license": "Sila pilih satu lesen.",
+	"mwe-upwiz-deeds-require-selection": "Sila pilih satu lesen.",
 	"mwe-upwiz-license-show-all": "Gunakan lesen yang lain",
 	"mwe-upwiz-license-show-recommended": "Gunakan lesen yang disyorkan",
 	"mwe-upwiz-error-signature-blank": "Anda mesti menandatangani ruangan di bawah dengan nama pengguna atau nama sebenar anda.",

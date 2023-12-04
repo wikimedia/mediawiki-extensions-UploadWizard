@@ -232,7 +232,7 @@
 	"mwe-upwiz-tooltip-more-info": "Apreneu-ne més.",
 	"mwe-upwiz-file-need-file": "Primer, afegiu un fitxer a carregar.",
 	"mwe-upwiz-deeds-need-deed": "Si us plau, expliqueu on vau aconseguir aquest fitxer i com aquest repositori pot treure'n profit a través de la selecció d'una de les opcions.",
-	"mwe-upwiz-deeds-need-license": "Seleccioneu una llicència.",
+	"mwe-upwiz-deeds-require-selection": "Seleccioneu una llicència.",
 	"mwe-upwiz-license-show-all": "Utilitza una llicència diferent",
 	"mwe-upwiz-license-show-recommended": "Utilitza la llicència recomanada de Commons",
 	"mwe-upwiz-label-optional": "Opcional",

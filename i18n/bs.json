@@ -97,7 +97,7 @@
 	"mwe-upwiz-tooltip-more-info": "Pročitajte više.",
 	"mwe-upwiz-file-need-file": "Molimo prvo dodajte datoteku.",
 	"mwe-upwiz-deeds-need-deed": "Objasnite odakle Vam ova datoteka i kako je ovaj sajt može koristiti tako što ćete izabrati jednu od opcija.",
-	"mwe-upwiz-deeds-need-license": "Molimo odaberite licencu.",
+	"mwe-upwiz-deeds-require-selection": "Molimo odaberite licencu.",
 	"mwe-upwiz-license-show-all": "Koristite drugačiju licencu",
 	"mwe-upwiz-license-show-recommended": "Koristi preporučenu licencu sajta",
 	"mwe-upwiz-error-signature-blank": "Morate upisati svoje korisničko ime ili vaše pravo ime u odgovarajuće polje.",

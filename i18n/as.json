@@ -183,7 +183,7 @@
 	"mwe-upwiz-tooltip-more-info": "আৰু পঢ়ক।",
 	"mwe-upwiz-file-need-file": "অনুগ্ৰহ কৰি প্ৰথমে কোনো আপল’ড যোগ কৰক।",
 	"mwe-upwiz-deeds-need-deed": "অনুগ্ৰহ কৰি তলৰ এটা বিকল্প বাছনি কৰি আপুনি {{PLURAL:$1|এই ফাইলটো|এই ফাইলবোৰ}} ক'ত পালে বহলাই কওক আৰু এই ছাইটটোৱে {{PLURAL:$1|ইয়াক|এইবোৰক}} কেনেকৈ ব্যৱহাৰ কৰিব পাৰে।",
-	"mwe-upwiz-deeds-need-license": "অনুগ্ৰহ কৰি এখন অনুজ্ঞাপত্ৰ বাছনি কৰক।",
+	"mwe-upwiz-deeds-require-selection": "অনুগ্ৰহ কৰি এখন অনুজ্ঞাপত্ৰ বাছনি কৰক।",
 	"mwe-upwiz-license-show-all": "অন্য এখন অনুজ্ঞাপত্ৰ ব্যৱহাৰ কৰক",
 	"mwe-upwiz-license-show-recommended": "যথাযোগ্য অনুজ্ঞাপত্ৰ ব্যৱহাৰ কৰক",
 	"mwe-upwiz-label-optional": "ঐচ্ছিক",

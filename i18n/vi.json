@@ -211,7 +211,7 @@
 	"mwe-upwiz-tooltip-more-info": "Tìm hiểu thêm.",
 	"mwe-upwiz-file-need-file": "Trước tiên, xin hãy thêm một tập tin để tải lên.",
 	"mwe-upwiz-deeds-need-deed": "Xin hãy cho biết bạn lấy tập tin này từ đâu và cách chúng tôi có thể sử dụng nó như thế nào, bằng cách chọn một trong các mục.",
-	"mwe-upwiz-deeds-need-license": "Xin hãy chọn một giấy phép.",
+	"mwe-upwiz-deeds-require-selection": "Xin hãy chọn một giấy phép.",
 	"mwe-upwiz-license-show-all": "Sử dụng một giấy phép khác",
 	"mwe-upwiz-license-show-recommended": "Sử dụng giấy phép khuyến khích của website",
 	"mwe-upwiz-label-optional": "Tùy chọn",

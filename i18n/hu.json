@@ -193,7 +193,7 @@
 	"mwe-upwiz-tooltip-more-info": "Tudj meg többet.",
 	"mwe-upwiz-file-need-file": "Kérlek, először add meg a feltöltendő fájlt.",
 	"mwe-upwiz-deeds-need-deed": "Kérlek, az egyik opció kiválasztásával magyarázd el, honnan származik a fájl és ez a weboldal hogyan használhatja.",
-	"mwe-upwiz-deeds-need-license": "Kérlek válassz licencet.",
+	"mwe-upwiz-deeds-require-selection": "Kérlek válassz licencet.",
 	"mwe-upwiz-license-show-all": "Más licenc használata",
 	"mwe-upwiz-license-show-recommended": "A wiki ajánlott licencének használata",
 	"mwe-upwiz-label-optional": "Opcionális",

@@ -95,7 +95,7 @@
 	"mwe-upwiz-tooltip-categories": "I taksa hi [$1 pawlho]vah dah rawh, hmuh a lo awlsam zâwk nan.",
 	"mwe-upwiz-tooltip-more-info": "Hriat belh chi.",
 	"mwe-upwiz-file-need-file": "Hlànkài tùr khawngaihin belh phawt rawh.",
-	"mwe-upwiz-deeds-need-license": "Khawngaihin phalphung thlang rawh.",
+	"mwe-upwiz-deeds-require-selection": "Khawngaihin phalphung thlang rawh.",
 	"mwe-upwiz-license-show-all": "Phalphung dang hmanna",
 	"mwe-upwiz-license-show-recommended": "Phalphung rawt khi hmang rawh",
 	"mwe-upwiz-error-signature-too-long": "I hmingtàr a sei leh lutuk.\n{{PLURAL:$1||}} Hawrawp $1 aia tàwiin khawngaihin siam rawh.",

@@ -149,7 +149,7 @@
 	"mwe-upwiz-tooltip-more-info": "Par saverghine de pì.",
 	"mwe-upwiz-file-need-file": "Prima carga calcosa.",
 	"mwe-upwiz-deeds-need-deed": "Spiega 'ndove te te si procurà {{PLURAL:$1|sto|sti}} file, e a cuali condision sto sito pol {{PLURAL:$1|dopararlo|dopararli}}, sełesionando oportunamente una de łe opsion proposte.",
-	"mwe-upwiz-deeds-need-license": "Sełesiona na licensa.",
+	"mwe-upwiz-deeds-require-selection": "Sełesiona na licensa.",
 	"mwe-upwiz-license-show-all": "Dopara na licensa difarente",
 	"mwe-upwiz-license-show-recommended": "Dopara ła licensa racomandà",
 	"mwe-upwiz-error-signature-blank": "Xe nesesario firmar el canpo soto có 'l to nome utente o 'l to nome vero.",

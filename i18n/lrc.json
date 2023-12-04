@@ -75,7 +75,7 @@
 	"mwe-upwiz-upload-another": "سوار کردن جانیایا هنی",
 	"mwe-upwiz-tooltip-more-info": "بيشتر يا بيئريت",
 	"mwe-upwiz-file-need-file": "لطفا اول یه گل سوارکرد اضاف کو.",
-	"mwe-upwiz-deeds-need-license": "لطف بکید یه گل لیسانس انتخاو بکید.",
+	"mwe-upwiz-deeds-require-selection": "لطف بکید یه گل لیسانس انتخاو بکید.",
 	"mwe-upwiz-license-show-all": "یه گل لیسانس هنی وه کار بیئریت",
 	"mwe-upwiz-error-signature-too-long": "نشون دیارتو فره گپه.\nوه نه د $1 کؤچکتر بکید{{PLURAL:$1|نیسه|نیسه یا}}.",
 	"mwe-upwiz-error-blank": "ای جا حالی واس بوئه.",

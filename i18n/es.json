@@ -232,7 +232,7 @@
 	"mwe-upwiz-tooltip-more-info": "Más información.",
 	"mwe-upwiz-file-need-file": "Por favor, añade una subida primero.",
 	"mwe-upwiz-deeds-need-deed": "Por favor, explica dónde conseguiste este archivo y cómo este sitio puede usarlo, seleccionando una de las opciones.",
-	"mwe-upwiz-deeds-need-license": "Selecciona una licencia.",
+	"mwe-upwiz-deeds-require-selection": "Selecciona una licencia.",
 	"mwe-upwiz-license-show-all": "Usar una licencia diferente",
 	"mwe-upwiz-license-show-recommended": "Usar la licencia recomendada del sitio",
 	"mwe-upwiz-label-optional": "Opcional",

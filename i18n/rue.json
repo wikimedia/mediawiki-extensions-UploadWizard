@@ -121,7 +121,7 @@
 	"mwe-upwiz-tooltip-more-info": "Науч ся веце.",
 	"mwe-upwiz-file-need-file": "Просиме, придайте наперед награваня.",
 	"mwe-upwiz-deeds-need-deed": "Выбером єдной з можностей уведьте, де сьте {{PLURAL:$1|тот файл|тоты файлы}} {{gender:|здобыв|здобыла|здобыли}} і як {{PLURAL:$1|го|їх}} тота вікі може хосновати.",
-	"mwe-upwiz-deeds-need-license": "Просиме, выберьте ліценцію.",
+	"mwe-upwiz-deeds-require-selection": "Просиме, выберьте ліценцію.",
 	"mwe-upwiz-license-show-all": "Хосновати іншу ліценцію",
 	"mwe-upwiz-license-show-recommended": "Хосновати рекомендовану ліценцію",
 	"mwe-upwiz-error-signature-blank": "До поличка ся мусите підписати своїм хосновательскым або реалным іменом.",

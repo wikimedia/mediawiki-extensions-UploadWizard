@@ -116,7 +116,7 @@
 	"mwe-upwiz-tooltip-skiptutorial": "می‌توانید این آموزش را در [$1 صفحهٔ ترجیحات کاربری‌تان] فعال کنید، در $2 → $3.",
 	"mwe-upwiz-tooltip-more-info": "اطلاعات فرةتر/ویشتر",
 	"mwe-upwiz-file-need-file": "لطفاً ابتدا یک بارگذاری اضافه کنید.",
-	"mwe-upwiz-deeds-need-license": "لطفاً یک مجوز را انتخاب کنید.",
+	"mwe-upwiz-deeds-require-selection": "لطفاً یک مجوز را انتخاب کنید.",
 	"mwe-upwiz-license-show-all": "استفاده از مجوز متفاوت",
 	"mwe-upwiz-error-latitude": "پێنی جؤقرافیایی باید بین ۹۰-  و ۹۰ بوو.",
 	"mwe-upwiz-error-longitude": "درێژی جؤقرافیایی باید بین ۱۸۰-  و ۱۸۰ بوو.",

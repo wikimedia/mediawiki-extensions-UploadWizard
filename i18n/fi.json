@@ -207,7 +207,7 @@
 	"mwe-upwiz-tooltip-more-info": "Lisätietoja.",
 	"mwe-upwiz-file-need-file": "Lisää tiedosto ensin.",
 	"mwe-upwiz-deeds-need-deed": "Selitä, mistä sait tämän tiedoston ja miten sitä voidaan käyttää tällä sivustolla valitsemalla jokin seuraavista vaihtoehdoista.",
-	"mwe-upwiz-deeds-need-license": "Valitse lisenssi.",
+	"mwe-upwiz-deeds-require-selection": "Valitse lisenssi.",
 	"mwe-upwiz-license-show-all": "Käytä eri lisenssiä",
 	"mwe-upwiz-license-show-recommended": "Käytä sivuston suosittelemaa lisenssiä",
 	"mwe-upwiz-label-optional": "Valinnainen",

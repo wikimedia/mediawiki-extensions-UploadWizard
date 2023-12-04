@@ -149,7 +149,7 @@
 	"mwe-upwiz-tooltip-more-info": "შეიტყვე მეტი.",
 	"mwe-upwiz-file-need-file": "გთხოვთ, ჯერ ფაილი დაამატეთ ასატვირთად.",
 	"mwe-upwiz-deeds-need-deed": "გთხოვთ, განმარტეთ, საიდან არის {{PLURAL:$1|ეს ფაილი|ეს ფაილები}}  და როგორ შეუძლია ჩვენ საიტს {{PLURAL:$1|მისი|მათი}} გამოყენება. აირჩიეთ ერთ-ერთი მოცემული ვარიანტი.",
-	"mwe-upwiz-deeds-need-license": "აირჩიეთ, გეთაყვა, ლიცენზია.",
+	"mwe-upwiz-deeds-require-selection": "აირჩიეთ, გეთაყვა, ლიცენზია.",
 	"mwe-upwiz-license-show-all": "გამოიყენეთ განსხვავებული ლიცენზია",
 	"mwe-upwiz-license-show-recommended": "გამოიყენეთ საიტის რეკომენდირებული ლიცენზია",
 	"mwe-upwiz-error-signature-blank": "ქვემოთ მოცემულ ველში უნდა მიუთითოთ, თქვენი მოხმარებლის ან ნამდვილი სახელი.",

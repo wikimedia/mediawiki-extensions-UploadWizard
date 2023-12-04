@@ -139,7 +139,7 @@
 	"mwe-upwiz-tooltip-more-info": "Ampara ëd pi.",
 	"mwe-upwiz-file-need-file": "Për piasì, ch'a gionta prima cheicòs da carié.",
 	"mwe-upwiz-deeds-need-deed": "Për piasì, ch'a spiega andoa ch'a l'ha pijà {{PLURAL:$1|st'archivi|costi archivi}} e coma sto sit a peul dovre{{PLURAL:$1|lo|je}}, an selessionand un-a dj'opsion.",
-	"mwe-upwiz-deeds-need-license": "Për piasì selession-a na licensa.",
+	"mwe-upwiz-deeds-require-selection": "Na selession a l'é necessaria.",
 	"mwe-upwiz-license-show-all": "Dovré na licensa diferenta",
 	"mwe-upwiz-license-show-recommended": "Dovré la licensa racomandà",
 	"mwe-upwiz-error-signature-blank": "A dev firmé ël camp sì-sota con sò stranòm o sò nòm ver.",

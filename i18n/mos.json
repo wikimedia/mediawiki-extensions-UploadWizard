@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hasslaebetch"
+		]
+	},
+	"uploadwizard": "Ningi sõngre",
+	"uploadwizard-desc": "Ningi sõngre, tʋʋm-noor sẽn yaa sõma sẽn na n sõng tɩ b rʋ multimedya wã",
+	"tag-uploadwizard": "Ningi sõngre",
+	"tag-uploadwizard-description": "ningi sẽn maan ne Ningi Sõngre",
+	"tag-uploadwizard-flickr-description": "Flickr ningi sẽn maan ne Ningi Sõngre",
+	"mwe-upwiz-step-tutorial": "Zãmsgo",
+	"mwe-upwiz-step-file": "Ningi",
+	"mwe-upwiz-step-metadata": "Paas kibayã",
+	"mwe-upwiz-step-thanks": "Rɩk-n-tʋm",
+	"mwe-upwiz-campaign-name-duplicate": "B zoe n maana kampani sẽn tar yʋ-kãngã",
+	"mwe-upwiz-campaign-unknown-error": "Bõn-wẽng sẽn pa mi n zĩndi.",
+	"mwe-upwiz-api-warning-exists": "[$1 fisiye a to] n zoe n be wiki wã pʋgẽ ne fisiye yʋʋr kãng bala",
+	"mwe-upwiz-api-warning-was-deleted": "Yẽ ra bee fisiye yʋʋr sẽn boond tɩ \"$1\", la b menesa-a lame, la y ka tõe n leb n tall-a ye. Y sã n pa woto, bɩ y mak n lebs n pʋd-a yʋʋr.",
+	"mwe-upwiz-tutorial-error-localized-file-missing": "D kotame tɩ y kõ-d sugr tɩ d pa yã zãmsg y buud-gomdã pʋgẽ ye. Yaa $ 1 wã la b wilg a zĩigẽ.",
+	"mwe-upwiz-tutorial-error-file-missing": "D kotame tɩ y kõ-d sugr tɩ d pa yã bũmb sẽn na n sõng-d tɩ d bãng d sẽn tõe n maan to-to tɩ d paam d sẽn datã ye. Bao-y n bãng-y y sullã taoor soaba.",
+	"mwe-upwiz-help-desk": "Sõngre taable",
+	"mwe-upwiz-help-desk-url": "{{ns:project}}:Sõngre taable",
+	"mwe-upwiz-add-file-n": "Paas fisiye",
+	"mwe-upwiz-add-file-0-free": "Yãk-y Deem fisiye nins y sẽn na n pʋɩ",
+	"mwe-upwiz-add-file-flickr": "Tʋʋmd pʋɩɩre Flickr fot-rãmb",
+	"mwe-upwiz-add-file-flickr-n": "Paas Flickr fot-rãmb",
+	"mwe-upwiz-add-flickr-or": "bɩ",
+	"mwe-upwiz-add-flickr": "Bas-y Flicker wã",
+	"mwe-upwiz-flickr-input-placeholder": "Flickr URL wã",
+	"mwe-upwiz-select-flickr": "Rɩk-y fot-rãmb nins y sẽn yãkã",
+	"mwe-upwiz-flickr-disclaimer2": "Y sã n tũnugd ne tʋʋm-kãngã, y IP wã la y kosgã yɛl na n zĩnda Flickr nugẽ.",
+	"mwe-upwiz-error-no-image-retrieved": "D pa tõog n paam n lebs n dɩk $1-ã ye.",
+	"mwe-upwiz-multi-file-select2": "Yiis-y fisiye y sẽn dat n tall n wa. Y sã n gãd Shift la y klik n na n yãk sɛb wʋsg wakat a ye. Y tõe n yãka sẽn ta $1 {{PLURAL:$1|file|files}} n na n yiisi.",
+	"mwe-upwiz-transport-started": "Sɩngre...",
+	"mwe-upwiz-uploading": "A na n loogame...",
+	"mwe-upwiz-queued": "B pugda...",
+	"mwe-upwiz-assembling": "B tigma...",
+	"mwe-upwiz-publish": "D wilg nebã...",
+	"mwe-upwiz-progressbar-uploading": "a na n loogame...",
+	"prefs-uploads": "A na n loogame..."
+}

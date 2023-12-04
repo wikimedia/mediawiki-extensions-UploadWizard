@@ -114,7 +114,7 @@
 	"mwe-upwiz-tooltip-more-info": "Mëso më shumë.",
 	"mwe-upwiz-file-need-file": "Ju lutemi shtoni një ngarkim fillimisht.",
 	"mwe-upwiz-deeds-need-deed": "Ju lutemi shpjegoni se ku {{PLURAL:$1|e morët këtë skedë|i morët këto skeda}} dhe si ky sajt mund {{PLURAL:$1|ta përdorë atë|t'i përdorë ato}}, duke zgjedhur një nga mundësitë.",
-	"mwe-upwiz-deeds-need-license": "Ju zgjidhni një licencë.",
+	"mwe-upwiz-deeds-require-selection": "Ju zgjidhni një licencë.",
 	"mwe-upwiz-license-show-all": "Përdor një licencë të ndryshme",
 	"mwe-upwiz-license-show-recommended": "Përdor licencën e rekomanduar",
 	"mwe-upwiz-error-signature-blank": "Ju duhet të plotësoni fushën më poshtë me emrin tuaj të përdoruesit ose me emrin tuaj të vërtetë,",

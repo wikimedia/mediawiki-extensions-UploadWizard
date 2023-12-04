@@ -179,7 +179,7 @@
 	"mwe-upwiz-tooltip-date": "Zvoľte dátum, kedy bolo toto dielo vytvorené alebo prvý krát zverejnené.",
 	"mwe-upwiz-tooltip-categories": "Pridajte súbor do [$1 kategórií], aby sa dal ľahšie nájsť.",
 	"mwe-upwiz-tooltip-more-info": "Dalšie informácie.",
-	"mwe-upwiz-deeds-need-license": "Vyberte licenciu.",
+	"mwe-upwiz-deeds-require-selection": "Vyberte licenciu.",
 	"mwe-upwiz-license-show-all": "Použiť inú licenciu",
 	"mwe-upwiz-license-show-recommended": "Použiť licenciu odporúčanú webovou stránkou",
 	"mwe-upwiz-label-optional": "Voliteľné",

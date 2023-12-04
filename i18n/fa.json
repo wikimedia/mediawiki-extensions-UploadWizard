@@ -214,7 +214,7 @@
 	"mwe-upwiz-tooltip-more-info": "بیشتر بدانید.",
 	"mwe-upwiz-file-need-file": "لطفاً ابتدا یک بارگذاری اضافه کنید.",
 	"mwe-upwiz-deeds-need-deed": "لطفاً با انتخاب یکی از گزینه‌ها، توضیح دهید که کجا این پرونده را گرفته‌اید و چگونه این تارنما می‌تواند از آن استفاده کند.",
-	"mwe-upwiz-deeds-need-license": "لطفاً یک مجوز را انتخاب کنید.",
+	"mwe-upwiz-deeds-require-selection": "لطفاً یک مجوز را انتخاب کنید.",
 	"mwe-upwiz-license-show-all": "استفاده از مجوز متفاوت",
 	"mwe-upwiz-license-show-recommended": "استفاده از مجوز توصیه‌شدهٔ سایت",
 	"mwe-upwiz-label-optional": "اختیاری",

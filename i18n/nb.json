@@ -219,7 +219,7 @@
 	"mwe-upwiz-tooltip-more-info": "Lær mer.",
 	"mwe-upwiz-file-need-file": "Legg til en opplasting først.",
 	"mwe-upwiz-deeds-need-deed": "Beskriv hvor filen kommer fra og hvordan dette nettstedet kan bruke den ved å velge ett av alternativene.",
-	"mwe-upwiz-deeds-need-license": "Velg en lisens.",
+	"mwe-upwiz-deeds-require-selection": "Velg en lisens.",
 	"mwe-upwiz-license-show-all": "Bruk en annen lisens",
 	"mwe-upwiz-license-show-recommended": "Bruk nettstedets anbefalte lisens",
 	"mwe-upwiz-label-optional": "Valgfri",

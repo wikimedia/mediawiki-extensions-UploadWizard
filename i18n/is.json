@@ -192,7 +192,7 @@
 	"mwe-upwiz-tooltip-more-info": "Læra meira.",
 	"mwe-upwiz-file-need-file": "Vinsamlegast veldu fyrst eitthvað til að senda inn.",
 	"mwe-upwiz-deeds-need-deed": "Vinsamlegast útskýrðu hvaðan skráin eru og hvernig þessi vefsíða getur notað hana, með því að velja einn af eftirfarandi möguleikum.",
-	"mwe-upwiz-deeds-need-license": "Vinsamlegast veldu leyfi.",
+	"mwe-upwiz-deeds-require-selection": "Vinsamlegast veldu leyfi.",
 	"mwe-upwiz-license-show-all": "Nota annað leyfi",
 	"mwe-upwiz-license-show-recommended": "Nota leyfi sem vefsíðan mælir með.",
 	"mwe-upwiz-error-signature-blank": "Þú verður að skrifa undir með notendanafni eða þínu raunverulega nafni í viðeigandi reit.",

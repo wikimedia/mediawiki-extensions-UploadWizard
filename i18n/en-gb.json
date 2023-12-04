@@ -34,7 +34,7 @@
 	"mwe-upwiz-license-metadata-title": "Licence for captions contributions only (this applies to caption text, NOT the file)",
 	"mwe-upwiz-license-metadata-statements-title": "Licence for all structured metadata (NOT the file)",
 	"mwe-upwiz-license-metadata-content": "By clicking \"publish\", you agree to the [[wmf:Terms_of_Use|terms of use]], and you irrevocably agree to release your contribution under the [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 Licence].",
-	"mwe-upwiz-deeds-need-license": "Please select a licence.",
+	"mwe-upwiz-deeds-require-selection": "Please select a licence.",
 	"mwe-upwiz-license-show-all": "Use a different licence",
 	"mwe-upwiz-license-show-recommended": "Use the site's recommended licence",
 	"mwe-upwiz-error-date-license-mismatch": "The selected date doesn't match the licence ($1).",

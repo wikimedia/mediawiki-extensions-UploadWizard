@@ -184,7 +184,7 @@
 	"mwe-upwiz-tooltip-more-info": "Saznajte više.",
 	"mwe-upwiz-file-need-file": "Prvo naznačite datoteku za otpremanje.",
 	"mwe-upwiz-deeds-need-deed": "Navedite odakle Vam ova datoteka i kako sajt može da je koristi, izborom jedne od opcija.",
-	"mwe-upwiz-deeds-need-license": "Izaberite licencu.",
+	"mwe-upwiz-deeds-require-selection": "Izaberite licencu.",
 	"mwe-upwiz-license-show-all": "Koristi drugačiju licencu",
 	"mwe-upwiz-license-show-recommended": "Koristi preporučenu licencu sajta",
 	"mwe-upwiz-label-optional": "nije obavezno",

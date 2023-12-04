@@ -131,7 +131,7 @@
 	"mwe-upwiz-tooltip-more-info": "Dagdagan pa ang kaalaman.",
 	"mwe-upwiz-file-need-file": "Magdagdag muna ng isang pagkakarga.",
 	"mwe-upwiz-deeds-need-deed": "Mangyaring ipaliwanag kung saan mo nakuha ang {{PLURAL:$1|talaksang ito|ang mga talaksan}} at kung paano magagamit {{PLURAL:$1|ito|ang mga ito}} ng sityong ito, sa pamamagitan ng pagpili ng isa sa mga mapagpipilian.",
-	"mwe-upwiz-deeds-need-license": "Pumili po ng isang lisensiya.",
+	"mwe-upwiz-deeds-require-selection": "Pumili po ng isang lisensiya.",
 	"mwe-upwiz-license-show-all": "Gumamit ng ibang lisensiya",
 	"mwe-upwiz-license-show-recommended": "Gamitin ang iminumungkahing lisensiya",
 	"mwe-upwiz-error-signature-blank": "Dapat mong lagdaan ang hanay sa ibaba ng iyong pangalan ng tagagamit o tunay na pangalan.",

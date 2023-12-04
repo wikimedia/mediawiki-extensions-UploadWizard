@@ -211,7 +211,7 @@
 	"mwe-upwiz-tooltip-more-info": "Научете повече.",
 	"mwe-upwiz-file-need-file": "Първо добавете файл да качване.",
 	"mwe-upwiz-deeds-need-deed": "Посочете откъде сте взели този файл и как може той да се използва в рамките на сайта, като изберете една от опциите по-долу.",
-	"mwe-upwiz-deeds-need-license": "Изберете лиценз.",
+	"mwe-upwiz-deeds-require-selection": "Изберете лиценз.",
 	"mwe-upwiz-license-show-all": "Използване на различен лиценз",
 	"mwe-upwiz-license-show-recommended": "Използване на препоръчания лиценз на сайта",
 	"mwe-upwiz-label-optional": "Незадължително",

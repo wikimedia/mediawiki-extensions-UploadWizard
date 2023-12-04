@@ -1,9 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
+			"Mozanky",
 			"Musahfm"
 		]
 	},
 	"uploadwizard": "Upload Wizard",
-	"tag-uploadwizard": "Upload Wizard"
+	"tag-uploadwizard": "Upload Wizard",
+	"tag-uploadwizard-description": "Bʋnbanɛ vɛ'ɛg kpɛn'ɛs la maal nɛ kpɛn'ɛsʋg sɔɔnlʋg",
+	"right-upwizcampaigns": "La'asim gum sɔɔnlʋg tʋʋma linɛ vɛ'ɛg kpɛn'ɛs la.",
+	"action-upwizcampaigns": "La'asim gum pʋtɛn'ɛr bɔɔdim linɛ kpɛn'ɛs la",
+	"group-upwizcampeditors": "Kpɛn'ɛsim sɔɔnlʋg pʋtɛn'ɛr bɔɔdim dɛmisidib",
+	"group-upwizcampeditors-member": "{{GENDER:$1Kpɛn'ɛsim sɔɔnlʋg pʋtɛn'ɛr bɔɔdim dɛmisidib}}",
+	"grouppage-upwizcampeditors": "{{ns:project}}:Kpɛn'ɛsim sɔɔnlʋg pʋtɛn'ɛr bɔɔdim dɛmisidib",
+	"api-error-aborted": "A-vɛ'ɛg kpɛn'ɛs san'am ya",
+	"api-error-noimageinfo": "Vɛ'ɛg kpɛn'ɛs la maal ya,amaa linɛ vɛ'ɛg tis la pʋ tisi ti labaar kat wa'ae nɛ failaa.",
+	"mwe-upwiz-extension-disabled": "Lakir kaŋa pʋ nyaŋi tʋm yɛldaʋŋ bibis yɛla. Li ya'a ti niŋ bi'ela fʋn mɔɔm a-vɛ'ɛg kpɛn'ɛs zi'esim gbaʋŋ la gɔs",
+	"mwe-upwiz-step-tutorial": "Zamisim",
+	"mwe-upwiz-step-file": "Vɛ'ɛg kpɛn'ɛs",
+	"mwe-upwiz-step-details": "Pa'alim",
+	"mwe-upwiz-step-metadata": "Paasim deeta",
+	"mwe-upwiz-step-thanks": "Zaŋim tʋm",
+	"mwe-upwiz-campaign-unknown-error": "Gbɛlʋŋ kanɛ ka ti zi' naam ya",
+	"mwe-upwiz-api-warning-exists": "[$1 failsi'a] pʋn dɛŋim bɛ wiki la ni nɛ faail  yʋ'ʋkan nɔɔ"
 }

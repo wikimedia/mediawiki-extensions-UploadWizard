@@ -199,7 +199,7 @@
 	"mwe-upwiz-tooltip-more-info": "Más información.",
 	"mwe-upwiz-file-need-file": "Amiesta primero un ficheru pa xubir.",
 	"mwe-upwiz-deeds-need-deed": "Esplica ónde consiguisti esti ficheru y cómo puede usalu esti sitiu, seleicionando una de les opciones.",
-	"mwe-upwiz-deeds-need-license": "Por favor seleiciona una llicencia.",
+	"mwe-upwiz-deeds-require-selection": "Por favor seleiciona una llicencia.",
 	"mwe-upwiz-license-show-all": "Usar una llicencia distinta",
 	"mwe-upwiz-license-show-recommended": "Usar la llicencia encamentada del sitiu",
 	"mwe-upwiz-label-optional": "Opcional",

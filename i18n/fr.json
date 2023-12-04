@@ -254,7 +254,7 @@
 	"mwe-upwiz-tooltip-more-info": "En savoir plus.",
 	"mwe-upwiz-file-need-file": "Veuillez ajouter d’abord un fichier à importer.",
 	"mwe-upwiz-deeds-need-deed": "Veuillez expliquer d’où provient ce fichier et comment ce site peut l’utiliser, en choisissant une des options.",
-	"mwe-upwiz-deeds-need-license": "Veuillez choisir une licence.",
+	"mwe-upwiz-deeds-require-selection": "Veuillez choisir une licence.",
 	"mwe-upwiz-license-show-all": "Utiliser une licence différente",
 	"mwe-upwiz-license-show-recommended": "Utiliser les licences recommandées par le site",
 	"mwe-upwiz-label-optional": "Facultatif",

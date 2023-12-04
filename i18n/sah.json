@@ -83,6 +83,6 @@
 	"mwe-upwiz-tooltip-more-info": "Эбии.",
 	"mwe-upwiz-file-need-file": "Бука диэн бастаан киллэр.",
 	"mwe-upwiz-deeds-need-deed": "Бу {{PLURAL:$1|билэ хантан кэлбитин|билэлэр хантан кэлбиттэрин}} уонна биһиги ситим-сирбит {{PLURAL:$1|ону|олору}} хайдах туһаныан сөбүн бука диэн быһаар эрэ.",
-	"mwe-upwiz-deeds-need-license": "Бука диэн, лиссиэнсийэни тал.",
+	"mwe-upwiz-deeds-require-selection": "Бука диэн, лиссиэнсийэни тал.",
 	"mwe-upwiz-license-show-all": "Атын лиссиэнсиэйэни туруор"
 }

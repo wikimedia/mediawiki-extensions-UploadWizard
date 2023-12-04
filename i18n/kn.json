@@ -105,7 +105,7 @@
 	"mwe-upwiz-upload-another": "ಹೆಚ್ಚಿನ ಕಡತಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
 	"mwe-upwiz-tooltip-sign": "ನೀವು ನಿಮ್ಮ ವಿಕಿ ಯೂಸರ್ ನೇಮ್ ಅಥವಾ ನಿಮ್ಮ ನಿಜವಾದ ಹೆಸರನ್ನು ಬಳಸಬಹುದು.\nಯಾವುದು ಬಳಸಿದರೂ ಕೂಡ ಇದು ನಿಮ್ಮ ವಿಕಿ ಬಳಕೆದಾರಪುಟಕ್ಕೆ ಸಂಪರ್ಕಿಸಲ್ಪಡುತ್ತದೆ.",
 	"mwe-upwiz-tooltip-more-info": "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ",
-	"mwe-upwiz-deeds-need-license": "ದಯವಿಟ್ಟು ಒಂದು ಲೈಸೆನ್ಸ್ ಆಯ್ಕೆಮಾಡಿ.",
+	"mwe-upwiz-deeds-require-selection": "ದಯವಿಟ್ಟು ಒಂದು ಲೈಸೆನ್ಸ್ ಆಯ್ಕೆಮಾಡಿ.",
 	"mwe-upwiz-license-show-all": "ಬೇರೆ ಲೈಸನ್ಸ್ ಬಳಸಿ",
 	"mwe-upwiz-error-heading": "ಶೀರ್ಷಿಕೆಯು  0 ಮತ್ತು 360 ನಡುವಿನ ಒಂದು ಸಂಖ್ಯೆ ಆಗಿರಬೇಕು.",
 	"mwe-upwiz-error-signature-too-long": "ನಿಮ್ಮ ಸಹಿ ಬಹಳ ಉದ್ದವಾಯಿತು.\nಅದನ್ನು $1 {{PLURAL:$1|character|characters}}ಕ್ಕಿಂತ ಕಡಿಮೆ ಮಾಡಿ.",

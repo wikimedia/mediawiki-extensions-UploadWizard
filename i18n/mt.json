@@ -108,7 +108,7 @@
 	"mwe-upwiz-tooltip-more-info": "Kun af aktar.",
 	"mwe-upwiz-file-need-file": "L-ewwel tella' xi ħaġa.",
 	"mwe-upwiz-deeds-need-deed": "Spjega minn fejn ġibt {{PLURAL:$1|dan il-fajl|dawn il-fajls}} u kif dan is-sit jista' {{PLURAL:$1|jużah|jużahom}}, billi tagħżel waħda mill-opzjonijiet mogħtija.",
-	"mwe-upwiz-deeds-need-license": "Għażel liċenzja.",
+	"mwe-upwiz-deeds-require-selection": "Għażel liċenzja.",
 	"mwe-upwiz-license-show-all": "Agħżel liċenzja differenti",
 	"mwe-upwiz-license-show-recommended": "Agħżel il-liċenzja rakkomandata",
 	"mwe-upwiz-error-signature-blank": "Huwa neċessarju li l-ewwel tiffirma l-kaxxa t'hawn taħt bl-isem tal-utent tiegħek jew ismek propju.",

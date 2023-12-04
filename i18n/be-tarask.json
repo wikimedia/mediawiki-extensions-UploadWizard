@@ -202,7 +202,7 @@
 	"mwe-upwiz-tooltip-more-info": "Даведацца болей.",
 	"mwe-upwiz-file-need-file": "Калі ласка, спачатку дадайце файлы.",
 	"mwe-upwiz-deeds-need-deed": "Калі ласка, растлумачце, адкуль паходзіць гэты файл і як гэты сайт можа выкарыстоўваць яго, выбраўшы адзін з наступных пунктаў.",
-	"mwe-upwiz-deeds-need-license": "Калі ласка, выберыце ліцэнзію.",
+	"mwe-upwiz-deeds-require-selection": "Калі ласка, выберыце ліцэнзію.",
 	"mwe-upwiz-license-show-all": "Выбраць іншую ліцэнзію",
 	"mwe-upwiz-license-show-recommended": "Ужыць прапанаваную сайтам ліцэнзію",
 	"mwe-upwiz-error-signature-blank": "Вы павінны падпісацца Вашым іменем удзельніка ці сапраўдным іменем у адпаведным полі.",

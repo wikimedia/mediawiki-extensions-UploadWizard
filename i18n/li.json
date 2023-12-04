@@ -124,7 +124,7 @@
 	"mwe-upwiz-tooltip-more-info": "Lier mier.",
 	"mwe-upwiz-file-need-file": "Veug ieës 'ne upload tou.",
 	"mwe-upwiz-deeds-need-deed": "Gaef e.t.b. aan wie se {{PLURAL:$1|dit bestandj|dees bestenj}} höbs gevónjen en wie dees site {{PLURAL:$1|'t|ze}} kin gebroeke door ein vanne opties te keze.",
-	"mwe-upwiz-deeds-need-license": "Selecteer 'n licentie.",
+	"mwe-upwiz-deeds-require-selection": "Selecteer 'n licentie.",
 	"mwe-upwiz-license-show-all": "Gebroek 'n anger licensie.",
 	"mwe-upwiz-license-show-recommended": "Gebroek de aanbevaole licensie",
 	"mwe-upwiz-error-signature-blank": "Doe mós in 't óngerstaondj veldj diene gebroekers- of echte naam inveure.",

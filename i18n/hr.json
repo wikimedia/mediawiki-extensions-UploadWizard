@@ -177,7 +177,7 @@
 	"mwe-upwiz-tooltip-more-info": "Saznajte više.",
 	"mwe-upwiz-file-need-file": "Molimo prvo dodajte datoteku.",
 	"mwe-upwiz-deeds-need-deed": "Navedite porijeklo datoteke i kako se može rabiti na ovoj stranici, odabirom jedne od mogućnosti.",
-	"mwe-upwiz-deeds-need-license": "Izaberite licenciju.",
+	"mwe-upwiz-deeds-require-selection": "Izaberite licenciju.",
 	"mwe-upwiz-license-show-all": "Rabite drugačiju licenciju",
 	"mwe-upwiz-license-show-recommended": "Rabite preporučenu licenciju stranice",
 	"mwe-upwiz-label-optional": "Nije obvezno",

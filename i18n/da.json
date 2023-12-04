@@ -188,7 +188,7 @@
 	"mwe-upwiz-tooltip-more-info": "Lær mere.",
 	"mwe-upwiz-file-need-file": "Vær venlig først at tilføje en fil at lægge op.",
 	"mwe-upwiz-deeds-need-deed": "Forklar venligst hvorfra du har {{PLURAL:$1|denne fil|disse filer}} og hvordan dette websted kan bruge {{PLURAL:$1|den|dem}} ved at vælge en af følgende valgmuligheder.",
-	"mwe-upwiz-deeds-need-license": "Vælg venligst en licens.",
+	"mwe-upwiz-deeds-require-selection": "Vælg venligst en licens.",
 	"mwe-upwiz-license-show-all": "Brug en anden licens",
 	"mwe-upwiz-license-show-recommended": "Brug hjemmesidens anbefalede licens",
 	"mwe-upwiz-label-optional": "Valgfri",

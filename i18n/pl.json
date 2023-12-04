@@ -236,7 +236,7 @@
 	"mwe-upwiz-tooltip-more-info": "Więcej informacji.",
 	"mwe-upwiz-file-need-file": "Najpierw dodaj plik do przesłania.",
 	"mwe-upwiz-deeds-need-deed": "Wskaż, skąd pochodzi ten plik i w jaki sposób ta witryna może go wykorzystać poprzez wybranie odpowiedniej opcji.",
-	"mwe-upwiz-deeds-need-license": "Wybierz licencję.",
+	"mwe-upwiz-deeds-require-selection": "Wybierz licencję.",
 	"mwe-upwiz-license-show-all": "Użyj innej licencji",
 	"mwe-upwiz-license-show-recommended": "Użyj zalecanej licencji",
 	"mwe-upwiz-label-optional": "Opcjonalny",
