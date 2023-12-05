@@ -358,13 +358,18 @@
 
 		if ( this.config.special === 'custom' ) {
 			$label.append( this.createCustom( name, licenseInfo.props.defaultText ) );
+			$label.append(
+				$( '<span>' )
+					.msg( 'mwe-upwiz-license-custom-explain', this.count || 0, $licenseLink )
+					.addClass( 'mwe-upwiz-label-extra' )
+			);
 		}
 
 		if ( licenseInfo.props.msgExplain !== undefined ) {
 			$label.append(
 				$( '<span>' )
 					.msg( licenseInfo.props.msgExplain, this.count || 0, $licenseLink )
-					.addClass( 'mwe-upwiz-label-extra' )
+					.addClass( 'mwe-upwiz-label-extra mwe-upwiz-label-explainer' )
 			);
 		}
 

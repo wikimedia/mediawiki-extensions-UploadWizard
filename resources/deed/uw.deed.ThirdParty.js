@@ -63,7 +63,7 @@
 		this.sourceInputField = new uw.FieldLayout( this.sourceInput, {
 			label: $( '<li>' )
 				.addClass( 'mwe-upwiz-label-title' )
-				.msg( 'mwe-upwiz-source-text' ),
+				.msg( 'mwe-upwiz-source-text', this.uploadCount, mw.user ),
 			required: true
 		} );
 
@@ -100,7 +100,7 @@
 		this.authorInputField = new uw.FieldLayout( this.authorInput, {
 			label: $( '<li>' )
 				.addClass( 'mwe-upwiz-label-title' )
-				.msg( 'mwe-upwiz-author-text' ),
+				.msg( 'mwe-upwiz-author-text', this.uploadCount, mw.user ),
 			required: true
 		} );
 
@@ -115,10 +115,10 @@
 			label: $( '<div>' ).append(
 				$( '<li>' )
 					.addClass( 'mwe-upwiz-label-title' )
-					.append( mw.message( 'mwe-upwiz-source-thirdparty-cases-text', this.uploadCount ).parseDom() ),
+					.append( mw.message( 'mwe-upwiz-source-thirdparty-cases-text', this.uploadCount, mw.user ).parseDom() ),
 				$( '<span>' )
 					.addClass( 'mwe-upwiz-label-extra' )
-					.text( mw.message( 'mwe-upwiz-tooltip-thirdparty-license' ).text() )
+					.text( mw.message( 'mwe-upwiz-tooltip-thirdparty-license', this.uploadCount, mw.user ).text() )
 			),
 			required: true
 		} );

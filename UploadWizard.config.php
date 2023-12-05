@@ -470,7 +470,6 @@ return [
 		],
 		'custom' => [
 			'msg' => 'mwe-upwiz-license-custom-text',
-			'msgExplain' => 'mwe-upwiz-license-custom-explain',
 			'templates' => [ 'subst:Custom license marker added by UW' ],
 			'url' => wfMessage( 'mwe-upwiz-license-custom-url' )->parse()
 		],
