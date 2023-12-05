@@ -14,6 +14,7 @@
 			"Ypnypn",
 			"דגש",
 			"לואיקה",
+			"נדב ס",
 			"ערן",
 			"פוילישער"
 		]
@@ -125,7 +126,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "{{PLURAL:$1|האם היצירה שכבר הייתה קיימת חופשית|היצירות שכבר היו קיימות חופשיות}} לשימוש ולשיתוף",
 	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "כן, {{PLURAL:$1|היצירה שכבר הייתה קיימת פורסמה|היצירות שבר היו קיימות פורסמו}} לפי התנאים של אחד מה[[COM:L#Well-known_licenses||רישיונות החופשיים]] הבאים",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "כן, {{PLURAL:$1|היצירה שכבר הייתה קיימת אינה מוגבלת|היצירות שכבר היו קיימות אינן מוגבלות}} בשום חוק זכויות יוצרים",
-	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "לא, {{PLURAL:$1|היא מוגבלת|הן מוגבלות}} בחוק זכויות יוצרים",
+	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "לא, {{PLURAL:$1|היא מוגבלת|הן מוגבלות}} לפי חוק זכויות יוצרים",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning": "<b>אין להעלות את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}}!</b> ויקישיתוף אינו מארח מדיה שמוגבלת בזכויות יוצרים. רק מדיה עם [[COM:L#Acceptable_licenses|רישיונות חופשיים]] או ב[[COM:PD|נחלת הכלל]] מותרת בוויקישיתוף.",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "לא {{GENDER:|בטוח|בטוחה}}",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown-warning": "<b>אין להעלות את {{PLURAL:$1|הקובץ הזה|הקבצים האלה}}!</b> אם יש לך ספק כלשהו, נא [[COM:L|לקורא עוד על רישוי]], או לשאול כמה תורמים מנוסים לשם ייעוץ לפני ההעלאה. אנשים ישמחו לסייע לך ב[[COM:VPC|מזנון של ויקישיתוף]]. תודה.",
@@ -142,7 +143,7 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "האם ידוע לך לפי איזה [https://creativecommons.org/share-your-work/cclicenses/ רישיון קריאייטוב קומונז] {{PLURAL:$1|המדיה הזאת פורסמה|פריטי המדיה האלה}} פורסמו?",
 	"mwe-upwiz-source-thirdparty-accept": "אישור",
 	"mwe-upwiz-source-thirdparty-compliance-label": "נא לאשר את ההצהרה הבאה לפני המשך:",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "זהו אישור על כך {{PLURAL:$1|שהיצירה הזאת|היתירות האלו}} אינן כוללות חומר שמוגבל על־ידי זכויות יוצרים, כגון סמלים, כרזות, עטיפות אלבומים וכו'.",
+	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "זהו אישור על כך {{PLURAL:$1|שהיצירה הזאת|היצירות האלו}} אינן כוללות חומר שמוגבל על־ידי זכויות יוצרים, כגון סמלים, כרזות, עטיפות אלבומים וכו'.",
 	"mwe-upwiz-source-custom-label": "אזין מידע על זכויות יוצרים עבור כל קובץ בנפרד בדף הבא.",
 	"mwe-upwiz-patent-dialog-title": "זכויות פטנט",
 	"mwe-upwiz-patent-dialog-title-filename": "זכויות משפטיות עבור: $1",

@@ -24,7 +24,6 @@
 	"mwe-upwiz-error-signature-too-long": "Je handtekening is te lang.\nMaak deze korter dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-signature-too-short": "Je handtekening is te kort.\nMaak deze langer dan $1 {{PLURAL:$1|teken|tekens}}.",
 	"mwe-upwiz-error-title-extension": "Je hoeft geen bestandsextensie toe te voegen. Maak gewoon een voor mensen leesbare naam en de software zorgt voor de rest.",
-	"mwe-upwiz-error-license-wikitext-missing": "Je hebt een optie geselecteerd waarvoor je wikitekst moet invoeren.",
 	"mwe-upwiz-error-license-wikitext-too-long": "De door jou ingevoerde wikitekst is te lang.",
 	"mwe-upwiz-too-many-files-text": "Je kunt maar {{PLURAL:$1|één bestand|$1 bestanden}} per keer uploaden. Je probeerde {{PLURAL:$2|één bestand|$2 bestanden}} toe te voegen. Probeer het opnieuw met minder bestanden.",
 	"mwe-upwiz-file-too-large-text": "Je kunt alleen bestanden uploaden die niet groter zijn dan $1. Je hebt geprobeerd een bestand te uploaden dat $2 groot is.",

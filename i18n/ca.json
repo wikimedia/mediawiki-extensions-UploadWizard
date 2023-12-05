@@ -119,7 +119,7 @@
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Aquesta obra és|Aquestes obres són}} d'algú altre i {{PLURAL:$1|és lliure de ser compartida|són lliures de ser compartides}}.",
 	"mwe-upwiz-source-thirdparty-description": "Per exemple, {{PLURAL:$1|una fotografia, vídeo, àudio o captura de pantalla|fotografies, vídeos, àudios o captures de pantalla}} que heu trobat a Internet o en altres espais, treballs d'algú altre, etc.",
 	"mwe-upwiz-source-thirdparty-intro": "Introduïu l'adreça on heu trobat cada fitxer.",
-	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si tots els fitxers tenen el mateix origen, autoria i situació de drets d'autor, podeu escriviu aquestes dades un sol cop per a tots alhora.",
+	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si tots els fitxers tenen el mateix origen, autoria i situació de drets d'autor, escriviu aquestes dades un sol cop per a tots.",
 	"mwe-upwiz-source-thirdparty-explain": "Podeu carregar obres d'algú altre sempre que s'hagin publicat prèviament sota una llicència lliure o que els seus drets d'autor hagin prescrit.",
 	"mwe-upwiz-source-thirdparty-cases": "Ara, digueu-nos per què esteu segur que teniu els drets per publicar {{PLURAL:$1|aquesta obra|aquestes obres}}:",
 	"mwe-upwiz-source-thirdparty-cases-text": "Sabeu sota quina [https://ca.wikipedia.org/wiki/Llic%C3%A8ncies_de_Creative_Commons#Tipus_de_llicències] {{PLURAL:$1|s'ha publicat aquest fitxer|s'han publicat aquests fitxers}}?",
