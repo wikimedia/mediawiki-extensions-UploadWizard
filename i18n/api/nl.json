@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"McDutchie"
 		]
 	},
-	"apihelp-flickrblacklist-example-2": "Volledige zwarte lijst ophalen"
+	"apihelp-flickrblacklist-summary": "Een Flickr-URL valideren met behulp van de gebruikers-ID (NSID) voor plaatsing op de zwarte lijst.",
+	"apihelp-flickrblacklist-extended-description": "Bij gebruik met de optie <var>list</var> worden alle ID’s op de zwarte lijst geretourneerd.",
+	"apihelp-flickrblacklist-param-url": "De te testen Flickr-URL.",
+	"apihelp-flickrblacklist-param-list": "Indien ingesteld wordt de volledige zwarte lijst geretourneerd. Kan niet samen met $1url worden gebruikt.",
+	"apihelp-flickrblacklist-example-1": "Controleren of een URL op de zwarte lijst staat",
+	"apihelp-flickrblacklist-example-2": "Volledige zwarte lijst ophalen",
+	"apihelp-query+allcampaigns-summary": "Alle UploadWizard-campagnes inventariseren.",
+	"apihelp-query+allcampaigns-param-enabledonly": "Alleen campagnes weergeven die zijn ingeschakeld.",
+	"apihelp-query+allcampaigns-param-limit": "Aantal te retourneren campagnes.",
+	"apihelp-query+allcampaigns-example-1": "Ingeschakelde campagnes inventariseren"
 }
