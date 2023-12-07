@@ -101,6 +101,8 @@
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(libera tote le derectos; omnes es libere a usar iste obra{{PLURAL:$1||s}} de qualcunque maniera)",
 	"mwe-upwiz-source-ownwork-generic-explain": "(iste obra{{PLURAL:$1||s}} es acceptabile pro incargamento a iste wiki)",
 	"mwe-upwiz-source-ownwork-question": "Sub qual licentia vole {{GENDER:$2|tu}} publicar iste obra{{PLURAL:$1||s}}? Tote le materiales sur Commons debe esser publicate sub un licentia libere.",
+	"mwe-upwiz-source-ownwork-purpose-label": "Per favor selige le option que melio describe le scopo de iste obra{{PLURAL:$1||s}}.",
+	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "Iste obra{{PLURAL:$1||s}} forni cognoscentia, instructiones o information a altere personas.",
 	"mwe-upwiz-source-permission": "Lor autor te dava permission explicite de incargar los",
 	"mwe-upwiz-source-thirdparty-label": "Iste{{PLURAL:$1||s}} es le obra{{PLURAL:$1||s}} de un altere persona e illo{{PLURAL:$1||s}} es libere de condivider.",
 	"mwe-upwiz-source-thirdparty-description": "Exemplos: {{PLURAL:$1|un photo o un captura|photos o capturas}} de schermo que tu ha trovate in linea o alterubi, {{PLURAL:$1|un obra|obras}} create per un altere personas, etc.",

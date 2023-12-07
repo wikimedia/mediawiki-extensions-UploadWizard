@@ -155,7 +155,7 @@
 	"mwe-upwiz-location-alt": "Altitudine",
 	"mwe-upwiz-location-heading": "Direzione",
 	"mwe-upwiz-copyright-info": "Diritti di pubblicazione",
-	"mwe-upwiz-author-text": "Inserisci il nome dell'autore originale di quest'opera:",
+	"mwe-upwiz-author-text": "Inserisci il nome dell'autore originale di {{PLURAL:$1|quest'opera|queste opere}}:",
 	"mwe-upwiz-author-not-known": "Non ho questa informazione",
 	"mwe-upwiz-autoconverted": "Questo file è stato automaticamente convertito nel formato $1",
 	"mwe-upwiz-other": "Altre informazioni",
