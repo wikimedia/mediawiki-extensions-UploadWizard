@@ -328,10 +328,17 @@
 			// and shows/hides an error message
 			self.purposeRadio.emit( 'change' );
 		} );
-		this.purposeRadio.getErrors = function () {
+		this.purposeRadio.getErrors = function ( thorough ) {
+			if ( thorough !== true ) {
+				// `thorough` is the strict checks executed on submit, but we don't want errors
+				// to change/display every change event
+				return [];
+			}
+
 			if ( !self.purposeRadio.findSelectedItems() ) {
 				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
 			}
+
 			return [];
 		};
 		this.purposeRadio.getWarnings = function () {
@@ -520,13 +527,20 @@
 	 * @param {OO.ui.RadioSelectWidget} originRadio
 	 * @param {OO.ui.RadioSelectWidget} originOthersRadio
 	 * @param {OO.ui.TextInputWidget} aiTextInput
-	 * @return {jQuery.Promise}
+	 * @param {boolean} thorough
+	 * @return {Array<string>}
 	 */
 	uw.deed.OwnWork.prototype.getOwnWorkErrors = function (
-		originRadio, originOthersRadio, aiTextInput
+		originRadio, originOthersRadio, aiTextInput, thorough
 	) {
 		var aiInputValue,
 			errors = [];
+
+		if ( thorough !== true ) {
+			// `thorough` is the strict checks executed on submit, but we don't want errors
+			// to change/display every change event
+			return [];
+		}
 
 		if ( originRadio.findSelectedItem() === null ) {
 			errors.push( mw.message( 'mwe-upwiz-deeds-require-selection' ) );
@@ -547,7 +561,7 @@
 			}
 		}
 
-		return $.Deferred().resolve( errors ).promise();
+		return errors;
 	};
 
 	/**

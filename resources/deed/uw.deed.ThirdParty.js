@@ -39,12 +39,18 @@
 		} );
 		this.sourceInput.$input.attr( 'id', 'mwe-source-' + this.getInstanceCount() );
 		// See uw.DetailsWidget
-		this.sourceInput.getErrors = function () {
+		this.sourceInput.getErrors = function ( thorough ) {
 			var
 				errors = [],
 				minLength = deed.config.minSourceLength,
 				maxLength = deed.config.maxSourceLength,
 				text = this.getValue().trim();
+
+			if ( thorough !== true ) {
+				// `thorough` is the strict checks executed on submit, but we don't want errors
+				// to change/display every change event
+				return [];
+			}
 
 			if ( text === '' ) {
 				errors.push( mw.message( 'mwe-upwiz-error-question-blank' ) );
@@ -54,7 +60,7 @@
 				errors.push( mw.message( 'mwe-upwiz-error-too-long', maxLength ) );
 			}
 
-			return $.Deferred().resolve( errors ).promise();
+			return errors;
 		};
 		// See uw.DetailsWidget
 		this.sourceInput.getWarnings = function () {
@@ -72,12 +78,18 @@
 			name: 'author'
 		} );
 		this.authorInput.$input.attr( 'id', 'mwe-author-' + this.getInstanceCount() );
-		this.authorInput.getErrors = function () {
+		this.authorInput.getErrors = function ( thorough ) {
 			var
 				errors = [],
 				minLength = deed.config.minAuthorLength,
 				maxLength = deed.config.maxAuthorLength,
 				text = this.getValue().trim();
+
+			if ( thorough !== true ) {
+				// `thorough` is the strict checks executed on submit, but we don't want errors
+				// to change/display every change event
+				return [];
+			}
 
 			if ( this.isDisabled() ) {
 				return [];
@@ -132,13 +144,21 @@
 			],
 			classes: [ 'mwe-upwiz-deed-compliance' ]
 		} );
-		this.complianceCheck.getErrors = function () {
+		this.complianceCheck.getErrors = function ( thorough ) {
 			var allSelected = deed.complianceCheck.getItems().reduce( function ( result, item ) {
 				return result && item.isSelected();
 			}, true );
+
+			if ( thorough !== true ) {
+				// `thorough` is the strict checks executed on submit, but we don't want errors
+				// to change/display every change event
+				return [];
+			}
+
 			if ( !allSelected ) {
 				return [ mw.message( 'mwe-upwiz-deeds-require-selection' ) ];
 			}
+
 			return [];
 		};
 		this.complianceCheck.getWarnings = function () {
