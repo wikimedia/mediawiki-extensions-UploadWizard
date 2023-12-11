@@ -18,7 +18,8 @@
 			"Ssola",
 			"Toniher",
 			"Vriullop",
-			"Xavier Dengra"
+			"Xavier Dengra",
+			"Robertgarrigos"
 		]
 	},
 	"uploadwizard": "Auxiliar de càrregues",
@@ -136,7 +137,7 @@
 	"mwe-upwiz-source-permission": "L'autor ha donat permís explícit per a carregar aquest contingut",
 	"mwe-upwiz-source-thirdparty": "{{PLURAL:$1|Aquest fitxer no és|Aquests fitxers no són}} fruit del meu propi treball.",
 	"mwe-upwiz-source-thirdparty-intro": "Introduïu l'adreça on heu trobat cada fitxer.",
-	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si tots els fitxers tenen el mateix origen, autoria i situació de drets d'autor, podeu escriviu aquestes dades un sol cop per a tots alhora.",
+	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si tots els fitxers tenen el mateix origen, autoria i situació de drets d'autor, escriviu aquestes dades un sol cop per a tots.",
 	"mwe-upwiz-source-thirdparty-cases": "Ara, digueu-nos per què esteu segur que teniu els drets per publicar {{PLURAL:$1|aquesta obra|aquestes obres}}:",
 	"mwe-upwiz-source-thirdparty-accept": "D'acord",
 	"mwe-upwiz-source-custom": "Proporcioneu les llicències concedides per a cada fitxer individualment en la pàgina següent.",
