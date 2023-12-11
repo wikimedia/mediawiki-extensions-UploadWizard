@@ -32,7 +32,8 @@
 			"Toliño",
 			"Umherirrender",
 			"Verdy p",
-			"Yekrats"
+			"Yekrats",
+			"Ата"
 		]
 	},
 	"uploadwizard": "{{doc-special|UploadWizard}}\nUploadWizard is a wizard to upload multimedia files to a MediaWiki website.\nFor more information, see [[mw:UploadWizard]].",
@@ -142,7 +143,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others": "Label for the radio button to indicate that uploaded files hold someone else's work. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-origin-option-others-explain": "Description below the label for the radio button to give examples of uploaded files that hold someone else's work. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "Asks the user whether pre-existing work is free to use. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
-	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Label for the radio button to indicate that uploaded files hold some freely licensed pre-existing work. Note that the wikilink [[COM:L#Well-known_licenses]] is used to point the user to a list of known free licenses. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Label for the radio button to indicate that uploaded files hold some freely licensed pre-existing work. Note that the wikilink [[:c:COM:L#Well-known_licenses]] is used to point the user to a list of known free licenses. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Label for the radio button to indicate that uploaded files are all free from copyright. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Label for the radio button to indicate that uploaded files are copyrighted. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning": "Warns the user to interrupt the upload process, since uploaded files are copyrighted. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
