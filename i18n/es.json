@@ -185,6 +185,7 @@
 	"mwe-upwiz-objref-pick-image": "Añadir la referencia de objeto a esta imagen.",
 	"mwe-upwiz-objref-notice-existing-image": "Ya existe una imagen para el objeto referido.",
 	"mwe-upwiz-objref-notice-update-delay": "La actualización de la página referida puede tomar un tiempo.",
+	"mwe-upwiz-author-text": "Ingrese el nombre del autor original de est{{PLURAL:$1|a obra|as obras}}.",
 	"mwe-upwiz-autoconverted": "Este archivo fue convertido automáticamente al formato $1",
 	"mwe-upwiz-other": "Otra información",
 	"mwe-upwiz-thanks-intro": "¡Gracias por tu subida!",
