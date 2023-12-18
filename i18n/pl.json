@@ -382,7 +382,7 @@
 	"mwe-upwiz-prefs-def-license-def": "Użyj domyślnej licencji",
 	"mwe-upwiz-prefs-def-license-custom": "Własna domyślna licencja",
 	"mwe-upwiz-prefs-def-license-custom-help": "To pole jest używane tylko wtedy, gdy wybierzesz ostatnią opcję powyżej.",
-	"mwe-upwiz-prefs-license-name": "Imię autora",
+	"mwe-upwiz-prefs-license-name": "Nazwa lub nazwisko autora",
 	"mwe-upwiz-prefs-license-name-help": "Jeżeli pole będzie pozostawione puste, będzie to nazwa użytkownika",
 	"mwe-upwiz-prefs-license-own": "Praca własna - $1",
 	"mwe-upwiz-prefs-license-thirdparty": "Praca kogoś innego - $1",
