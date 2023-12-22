@@ -374,6 +374,7 @@
 	"mwe-upwiz-license-yes-head": "Oui, j'ai cette information",
 	"mwe-upwiz-license-yes-subhead": "Sélectionnez le type de licence sous lequel {{PLURAL:$1|cet ouvrage est|ces ouvrages sont}} publiés",
 	"mwe-upwiz-license-no-head": "Non, je n'ai pas cette information",
+	"mwe-upwiz-license-no-subhead": "<p><b>Ne téléchargez pas {{PLURAL:$1|ce fichier|ces fichiers}} !</b> Wikimedia Commons n'héberge pas de médias sous copyright. Seuls les fichiers contenant des images de [licences libres $2] ou de [domaine public $3] sont autorisés sur Commons.</p><p> En cas de doute, consultez [$4 cette page pour en savoir plus sur les licences], ou demandez conseil à des contributeurs expérimentés avant de télécharger. Les gens se feront un plaisir de vous aider sur le [$5 Bistro de Wikimedia Commons]. Merci.</p>",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Cette œuvre n'est pas protégée|Ces œuvres ne sont protégées}} par le droit d'auteur et donc aucune licence n'est nécessaire [$2 (en savoir plus)].",
 	"mwe-upwiz-license-cc0-subhead": "Wikimedia Commons est située aux États-Unis, de sorte que {{PLURAL:$1|l'œuvre|les œuvres}} doivent également être libre de droits dans ce pays. Laquelle des options ci-dessous est vraie ? Cochez toutes les réponses qui s'appliquent.",
 	"mwe-upwiz-license-other-head": "Indiquez une licence différente au format wikicode",

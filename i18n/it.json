@@ -137,6 +137,9 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "No, {{PLURAL:$1|è protetta|sono protette}} dal diritto d'autore",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning": "<b>Non caricare {{PLURAL:$1|questo|questi}} file!</b> Wikimedia Commons non ospita media protetti da copyright. Su Commons sono ammessi solo i media con [[COM:L#Acceptable_licenses|licenze libere]] oppure nel [[COM:PD|dominio pubblico]].",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Non sono sicuro",
+	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Io}} ho generato {{PLURAL:$1|questa opera|queste opere}} usando uno strumento di AI",
+	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Inserisci del motore AI che hai usato. Se il lavoro originale di qualcun altro è stato usato per generare {{PLURAL:$1|questa opera|queste opere}}, aggiungi anch'esso all'elenco.",
+	"mwe-upwiz-source-ownwork-origin-option-ai-description": "<b>Esempio:</b> Autore: Midjourney AI; Fotografia di Ansel Adams; colorata con Colorme AI, etc.",
 	"mwe-upwiz-source-permission": "Il loro autore ti ha dato il permesso esplicito di caricarle",
 	"mwe-upwiz-source-thirdparty-intro": "Inserisci l'indirizzo a cui hai trovato ciascun file.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Se tutti i file hanno stessa fonte, autore e stato di copyright, puoi inserire tali informazioni una volta sola per tutti quanti.",
@@ -182,8 +185,11 @@
 	"mwe-upwiz-copyright-info": "Diritti di pubblicazione",
 	"mwe-upwiz-author-text": "Inserisci il nome dell'autore originale di {{PLURAL:$1|quest'opera|queste opere}}:",
 	"mwe-upwiz-author-not-known": "Non ho questa informazione",
+	"mwe-upwiz-author-text-ai": "Inserisci il nome del motore AI utilizzato, seguito da quello della persona che ha creato il prompt:",
+	"mwe-upwiz-author-text-ai-help": "<b>Esempio:</b> Autore: Midjourney AI; prompt creato da Mario Rossi",
 	"mwe-upwiz-autoconverted": "Questo file è stato automaticamente convertito nel formato $1",
 	"mwe-upwiz-other": "Altre informazioni",
+	"mwe-upwiz-source-ai": "{{PLURAL:$1|Questa opera è generata|Queste opere sono generate}} attraverso una AI",
 	"mwe-upwiz-thanks-intro": "Grazie per il caricamento!",
 	"mwe-upwiz-thanks-explain": "È ora possibile usare {{PLURAL:$1|questo|questi}} file su wiki, o {{PLURAL:$1|collegarlo|collegarli}} da altrove sul web.",
 	"mwe-upwiz-thanks-wikitext": "Per usare il file in un wiki, copia questo testo in una pagina:",
@@ -377,6 +383,9 @@
 	"campaigns": "Campagne di caricamento guidato",
 	"mwe-upload-campaigns-pagination-next": "Pagina successiva",
 	"mwe-upload-campaigns-list-title": "Elenco delle iniziative per il caricamento guidato",
+	"mwe-upwiz-mv-cta-description": "Commons dispone di un [[c:Commons:Structured_data/Computer-aided_tagging|nuovo strumento]] che ti suggerirà i tag per le immagini che carichi qualora non ne avessi già aggiunto uno. Quando confermi i tag precisi, stai rendendo più facile il ritrovamento delle immagini alle persone che le stanno cercando.",
 	"mwe-upwiz-mv-cta-dismiss": "Nascondi",
-	"mwe-upwiz-upload-comment-own-work": "Caricato la propria opera con UploadWizard"
+	"mwe-upwiz-upload-comment-own-work": "Caricato la propria opera con UploadWizard",
+	"mwe-upwiz-metadata-notice-header": "Dati personali",
+	"mwe-upwiz-metadata-notice-description": "I metadati EXIF in questo file potrebbero contenere la posizione e altri dati personali aggiunti automaticamente dalla tua fotocamera. [https://commons.wikimedia.org/wiki/Commons:Exif Scropri di più] su come modificare o rimuovere i metadati EXIF."
 }
