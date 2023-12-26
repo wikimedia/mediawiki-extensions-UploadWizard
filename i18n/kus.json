@@ -16,6 +16,7 @@
 	"api-error-parsererror": "Sɛva la lɛbisna nɛ JSON sɔb linɛ pʋ vʋe ya. Nɛ'ɛŋa tʋn'e an gbɛlʋŋ kanɛ bɛ API la ni, bɛɛ fʋ tʋn'e mɔr sɛva linɛ maan tisid nidib tʋm ka ala ka gu'udif ka fʋ kʋ nyaŋi vɛ'ɛg la'as faal nama.",
 	"api-error-aborted": "A-vɛ'ɛg kpɛn'ɛs san'am ya",
 	"api-error-noimageinfo": "Vɛ'ɛg kpɛn'ɛs la maal ya,amaa linɛ vɛ'ɛg tis la pʋ tisi ti labaar kat wa'ae nɛ failaa.",
+	"mwe-upwiz-unavailable": "Fʋ \"browser\" la pʋ tʋm nɛ uploadwizardɛ bɛɛ mɔr JavaScript ka li kpiis, alazug ti pa'annɛf nɛ gbaʋŋ linɛ ka na vɛ'ɛg kpɛn'ɛs. ([https\n://www.mediawiki.org/wiki/Special:MyLanguage/UploadWizard#Compatibility View compatibility requirements].)",
 	"mwe-upwiz-extension-disabled": "Lakir kaŋa pʋ nyaŋi tʋm yɛldaʋŋ bibis yɛla. Li ya'a ti niŋ bi'ela fʋn mɔɔm a-vɛ'ɛg kpɛn'ɛs zi'esim gbaʋŋ la gɔs",
 	"mwe-upwiz-step-tutorial": "Zamisim",
 	"mwe-upwiz-step-file": "Vɛ'ɛg kpɛn'ɛs",
