@@ -129,6 +129,8 @@
 	"mwe-upwiz-source-ownwork-cc-by-3.0-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, siempre que me citen como el autor)",
 	"mwe-upwiz-source-ownwork-cc-zero-explain": "(Cualquiera puede usar, compartir o mezclar {{PLURAL:$1|esta obra|estas obras}}, sin ninguna clase de restricción)",
 	"mwe-upwiz-source-ownwork-generic-explain": "({{PLURAL:$1|Este trabajo es aceptable|Estas obras son aceptables}} para ser subidas a esta wiki)",
+	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "¿{{plural:$1|Es el trabajo preexistente gratuito|Son los trabajos preexistentes gratuitos}} para usar y compartir?",
+	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Sí, {{PLURAL:$1|la obra preexistente fue publicada|las obras preexistentes fueron publicadas}} bajo una de estas [[COM:L/es#Licencias comunes|licencias libres]]",
 	"mwe-upwiz-source-permission": "Su autor te dio permiso explícito para subirlos",
 	"mwe-upwiz-source-thirdparty-intro": "Escribe la dirección donde has encontrado cada archivo.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Si todos los archivos tienen la misma fuente, autor y estado de derechos de autor, puedes ingresarlos de una sola vez por todos.",
