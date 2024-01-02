@@ -334,7 +334,6 @@
 			messageKey = licenseInfo.props.msg === undefined ?
 				'[missing msg for ' + licenseInfo.name + ']' :
 				licenseInfo.props.msg,
-			languageCode = mw.config.get( 'wgUserLanguage' ),
 			// The URL is optional, but if the message includes it as $2, we surface the fact
 			// that it's missing.
 			licenseURL = licenseInfo.props.url === undefined ? '#missing license URL' : licenseInfo.props.url,
@@ -342,8 +341,20 @@
 			$icons = $( '<span>' ),
 			$label;
 
-		if ( licenseInfo.props.languageCodePrefix !== undefined ) {
-			licenseURL += licenseInfo.props.languageCodePrefix + languageCode;
+		if (
+			licenseInfo.props.languageCodePrefix !== undefined &&
+			licenseInfo.props.availableLanguages !== undefined
+		) {
+			var i,
+				targetLanguageCode = 'en', // final fallback
+				fallbackChain = mw.language.getFallbackLanguageChain();
+			for ( i = 0; i < fallbackChain.length; i++ ) {
+				if ( licenseInfo.props.availableLanguages.indexOf( fallbackChain[ i ] ) !== -1 ) {
+					targetLanguageCode = fallbackChain[ i ];
+					break;
+				}
+			}
+			licenseURL += licenseInfo.props.languageCodePrefix + targetLanguageCode;
 		}
 		$licenseLink = $( '<a>' ).attr( { target: '_blank', href: licenseURL } );
 		if ( licenseInfo.props.icons !== undefined ) {

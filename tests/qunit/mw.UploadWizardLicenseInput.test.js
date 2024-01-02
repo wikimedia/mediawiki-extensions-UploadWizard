@@ -6,7 +6,8 @@ QUnit.module( 'ext.uploadWizardLicenseInput', QUnit.newMwEnvironment( {
 					msg: 'mwe-upwiz-license-cc-by-sa-3.0',
 					icons: [ 'cc-by', 'cc-sa' ],
 					url: '//creativecommons.org/licenses/by-sa/3.0/',
-					languageCodePrefix: 'deed.'
+					languageCodePrefix: 'deed.',
+					availableLanguages: [ 'ar', 'en', 'fr' ]
 				}
 			}
 		};
