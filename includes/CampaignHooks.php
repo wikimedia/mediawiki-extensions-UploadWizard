@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\UploadWizard;
 use Content;
 use IContextSource;
 use JsonSchemaException;
-use LinksUpdate;
 use ManualLogEntry;
 use MediaWiki\Content\Hook\ContentModelCanBeUsedOnHook;
+use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\LinksUpdateCompleteHook;
@@ -15,12 +15,12 @@ use MediaWiki\Hook\PageMoveCompleteHook;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Status\Status;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use Status;
-use User;
 use WikiPage;
 
 /**

@@ -11,9 +11,9 @@
 
 namespace MediaWiki\Extension\UploadWizard;
 
-use Html;
 use IContextSource;
 use ImageGalleryBase;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use OOUI\ButtonWidget;
 use RequestContext;

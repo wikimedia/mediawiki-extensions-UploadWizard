@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\UploadWizard;
 
 use File;
-use Html;
 use MediaTransformOutput;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 

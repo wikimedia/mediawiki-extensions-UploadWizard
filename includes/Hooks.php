@@ -8,8 +8,8 @@ use MediaWiki\ChangeTags\Hook\ListDefinedTagsHook;
 use MediaWiki\Hook\IsUploadAllowedFromUrlHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\User\User;
 use RequestContext;
-use User;
 
 class Hooks implements
 	GetPreferencesHook,

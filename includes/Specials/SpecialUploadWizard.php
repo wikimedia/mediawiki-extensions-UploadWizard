@@ -5,21 +5,21 @@ namespace MediaWiki\Extension\UploadWizard\Specials;
 use BitmapHandler;
 use ChangeTags;
 use DerivativeContext;
-use Html;
 use LogicException;
 use MediaWiki\Extension\UploadWizard\Campaign;
 use MediaWiki\Extension\UploadWizard\Config;
 use MediaWiki\Extension\UploadWizard\Hooks;
 use MediaWiki\Extension\UploadWizard\Tutorial;
+use MediaWiki\Html\Html;
+use MediaWiki\Request\WebRequest;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
+use MediaWiki\User\User;
 use PermissionsError;
-use SpecialPage;
 use UploadBase;
 use UploadFromUrl;
-use User;
 use UserBlockedError;
-use WebRequest;
 
 /**
  * Special:UploadWizard

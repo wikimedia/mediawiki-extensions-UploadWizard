@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\UploadWizard\Specials;
 
-use Html;
 use MediaWiki\Extension\UploadWizard\Campaign;
-use SpecialPage;
+use MediaWiki\Html\Html;
+use MediaWiki\SpecialPage\SpecialPage;
 
 class SpecialCampaigns extends SpecialPage {
 
