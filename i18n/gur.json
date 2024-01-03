@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Akolpoka"
+			"Akolpoka",
+			"Baba Ayɛ'ɛra"
 		]
 	},
 	"uploadwizard": "\"Upload wizard\"",
@@ -314,7 +315,7 @@
 	"mwe-upwiz-license-pd-old": "Gulesera la ki gaŋɛ 70 yuuma n tole la.",
 	"mwe-upwiz-license-pd-art-70": "Sɛla n sɔi ti nɛreba dikɛ pentiŋa sɛka n boi gɔmena la puan se'em la n sɔi la yuum pisiyi n tole la ([$2 learn more])",
 	"mwe-upwiz-license-pd-us-generic": "Mam kaalɛ 'internet' la zi'an kayima ti {{PLURAL:$1|this is|these are}} 'U.S.' n boi nɛreba zo'e zo'e  puan",
-	"mwe-upwiz-license-pd-us": "Yia n pi'ilum United States tiŋa puan 1929 tole.",
+	"mwe-upwiz-license-pd-us": "A yuum pɔsɛ biŋe gɔŋɔ la peelum la United States tiŋa puan dee ti 1929 yuunɛ tole.",
 	"mwe-upwiz-license-pd-usgov": "Paalega {{PLURAL:$1|work|works}} U.S federal gɔmena la puan",
 	"mwe-upwiz-license-pd-usgov-nasa": "Paalega {{PLURAL:$1|work|works}} NASA la puan",
 	"mwe-upwiz-license-pd-usgov-military-navy": "Paalega {{PLURAL:$1|work|works}} U.S soogɛpa la na'arɛ la puan",
@@ -351,7 +352,7 @@
 	"mwe-upwiz-license-external": "Faali la boi la \"license\" la leŋum n boi zi'a la puan\n\"$1\": $2.",
 	"mwe-upwiz-license-external-invalid": "Faali la boi la license la puan n boi zi'an la puan \"$1\": $2. Zube'o la, wiki wa ka basɛ license la.",
 	"mwe-upwiz-license-photoset-invalid": "Zube'o la, footoset' la puan ka tari license ti tu nara ti tu dikɛ tu dikɛ tu tum site wa zuo.",
-	"mwe-upwiz-license-pd-old-70-1923": "Yia niɛ peelemi gee ti gɔngulesera la kabɔna gaŋɛ yuuma 70 n tole la",
+	"mwe-upwiz-license-pd-old-70-1923": "A niɛ peelum wia daana dee 1929 yuunɛ la paɛ dee ti gɔngulesera la ka bɔna gaŋɛ yuuma 70 n tole la",
 	"mwe-upwiz-license-pd-old-70": "Gulesera la ki mɛ gaŋɛ yuuma 70.",
 	"mwe-upwiz-url-invalid": "'URL' n dikɛ na'arɛ la ka suŋɛ bii yelesi'a n sɔi pumpɔremɔ bii gu'a $1 Foote boo \"photoset\" gee kan ta'am tum.",
 	"mwe-upwiz-user-blacklisted": "Zu be'o, fɔɔra ka boi ze'ele dina $1 \"account\" wan ta'am \"uploaded\" n boi zɛkuna puan.",
