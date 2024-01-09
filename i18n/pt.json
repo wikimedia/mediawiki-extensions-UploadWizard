@@ -24,7 +24,8 @@
 			"SandroHc",
 			"Vitorvicentevalente",
 			"Waldir",
-			"Waldyrious"
+			"Waldyrious",
+			"Caiofernandes"
 		]
 	},
 	"uploadwizard": "Assistente de carregamento de ficheiros",
@@ -187,7 +188,7 @@
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=Adicionar uma descrição|Adicionar uma descrição noutra língua}}",
 	"mwe-upwiz-title": "Título da imagem",
 	"mwe-upwiz-date-created": "Data",
-	"mwe-upwiz-select-date": "Selecione uma data",
+	"mwe-upwiz-select-date": "Selecionar uma data",
 	"mwe-upwiz-location": "Localidade",
 	"mwe-upwiz-location-button": "Mostrar no mapa",
 	"mwe-upwiz-location-lat": "Latitude",
