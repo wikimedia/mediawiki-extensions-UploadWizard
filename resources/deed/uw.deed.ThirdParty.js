@@ -33,7 +33,8 @@
 		this.uploadCount = uploads.length;
 		this.threeDCount = uploads.filter( this.needsPatentAgreement.bind( this ) ).length;
 
-		this.sourceInput = new OO.ui.TextInputWidget( {
+		this.sourceInput = new OO.ui.MultilineTextInputWidget( {
+			autosize: true,
 			classes: [ 'mwe-source' ],
 			name: 'source'
 		} );
@@ -73,7 +74,8 @@
 			required: true
 		} );
 
-		this.authorInput = new OO.ui.TextInputWidget( {
+		this.authorInput = new OO.ui.MultilineTextInputWidget( {
+			autosize: true,
 			classes: [ 'mwe-author' ],
 			name: 'author'
 		} );
