@@ -95,27 +95,15 @@
 		"ext.uploadWizard.page": {
 			"scripts": "resources/mw.UploadWizardPage.js",
 			"dependencies": "ext.uploadWizard",
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"group": "ext.uploadWizard"
 		},
 		"ext.uploadWizard.page.styles": {
-			"styles": "resources/uploadWizard.noWizard.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"styles": "resources/uploadWizard.noWizard.css"
 		},
 		"ext.uploadWizard.uploadCampaign.display": {
 			"styles": [
 				"resources/ext.uploadWizard.uploadCampaign.display/content.css",
 				"resources/ext.uploadWizard.uploadCampaign.display/list.css"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.uploadWizard": {
@@ -612,10 +600,6 @@
 				"size-megabytes",
 				"size-kilobytes",
 				"size-bytes"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			],
 			"group": "ext.uploadWizard"
 		}
