@@ -134,7 +134,7 @@
 	"mwe-upwiz-source-thirdparty-cases-text": "Да ли знате под којом [https://creativecommons.org/share-your-work/cclicenses/ Creative Commons лиценцом] {{PLURAL:$1|је објављен овај рад|су објављени ови радови}}?",
 	"mwe-upwiz-source-thirdparty-accept": "У реду",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Молимо потврдите следеће изјаве пре настављања.",
-	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Потврђујем да {{PLURAL:$1|следећи рад не садржи|следећи радови не садрже}} материјал заштићен ауторским правом, као што су логотипи, постери, омоти албума и сл.",
+	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Потврђујем да {{PLURAL:$1|следећи рад не садржи|следећи радови не садрже}} материјал заштићен ауторским правом, \nкао што су логотипи, постери, омоти албума и сл.",
 	"mwe-upwiz-source-custom-label": "Навешћу податке о ауторским правима за сваку датотеку појединачно на следећој страници.",
 	"mwe-upwiz-patent-dialog-title": "Права патента",
 	"mwe-upwiz-patent-dialog-title-filename": "Законска права: $1",
