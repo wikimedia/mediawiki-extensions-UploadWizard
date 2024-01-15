@@ -753,7 +753,7 @@ return [
 				'label' => 'mwe-upwiz-source-ai'
 			],
 			'authorUnknown' => [
-				'template' => '{{Author|Unknown}}',
+				'template' => '',
 				'label' => 'mwe-upwiz-author-unknown'
 			]
 		]
