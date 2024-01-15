@@ -434,7 +434,7 @@
 	uw.deed.OwnWork.prototype.getAuthorWikiText = function () {
 		var author = this.getAuthorInputValue();
 
-		if ( author ) {
+		if ( author.indexOf( '[' ) >= 0 || author.indexOf( '{' ) >= 0 ) {
 			return author;
 		}
 
