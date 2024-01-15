@@ -1,3 +1,5 @@
+@import 'mediawiki.skin.variables.less';
+
 .mwe-upwiz-deed-option-title {
 	margin-top: 1.5em;
 }
@@ -8,6 +10,13 @@
 	margin-left: 1.5em;
 	border-top: 1px solid #a3a8b1;
 	padding-top: 1.5em;
+}
+
+@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+	.mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
+	.mwe-upwiz-deed-forms .mwe-upwiz-deed-thirdparty {
+		margin-left: 0;
+	}
 }
 
 // additional help text for radio button labels & titles
@@ -110,6 +119,12 @@
 		margin-bottom: 1em;
 		font-weight: bold;
 		color: #55595d;
+	}
+}
+
+@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+	.mwe-upwiz-deed-subgroup {
+		padding: 1em 1em;
 	}
 }
 
