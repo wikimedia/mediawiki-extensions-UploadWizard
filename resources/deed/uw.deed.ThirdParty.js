@@ -337,7 +337,7 @@
 	 * @inheritdoc
 	 */
 	uw.deed.Abstract.prototype.getAuthorWikiText = function () {
-		return this.authorInput.getValue();
+		return this.authorInput.getValue() || '{{Unknown|author}}';
 	};
 
 	/**
