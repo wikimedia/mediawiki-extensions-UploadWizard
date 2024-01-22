@@ -189,43 +189,6 @@
 	};
 
 	/**
-	 * Get the own work and third party licensing deeds if they are needed.
-	 *
-	 * @static
-	 * @since 1.2
-	 * @param {mw.UploadWizardUpload[]} uploads
-	 * @param {Object} config The UW config object.
-	 * @return {mw.deed.Abstract[]}
-	 */
-	mw.UploadWizard.getLicensingDeeds = function ( uploads, config ) {
-		var deed, api,
-			deeds = {},
-			doOwnWork = false,
-			doThirdParty = false;
-
-		api = this.prototype.getApi( { ajax: { timeout: 0 } } );
-
-		if ( config.licensing.ownWorkDefault === 'choice' ) {
-			doOwnWork = doThirdParty = true;
-		} else if ( config.licensing.ownWorkDefault === 'own' ) {
-			doOwnWork = true;
-		} else {
-			doThirdParty = true;
-		}
-
-		if ( doOwnWork ) {
-			deed = new uw.deed.OwnWork( config, uploads, api );
-			deeds[ deed.name ] = deed;
-		}
-		if ( doThirdParty ) {
-			deed = new uw.deed.ThirdParty( config, uploads, api );
-			deeds[ deed.name ] = deed;
-		}
-
-		return deeds;
-	};
-
-	/**
 	 * Helper method to put a thumbnail somewhere.
 	 *
 	 * @param {string|jQuery} selector String representing a jQuery selector, or a jQuery object

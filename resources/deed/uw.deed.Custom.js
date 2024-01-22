@@ -33,24 +33,6 @@
 	/**
 	 * @inheritdoc
 	 */
-	uw.deed.Custom.prototype.getSourceWikiText = function () {
-		if ( typeof this.upload.file.sourceURL !== 'undefined' ) {
-			return this.upload.file.sourceURL;
-		} else {
-			return this.upload.file.url;
-		}
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	uw.deed.Custom.prototype.getAuthorWikiText = function () {
-		return this.upload.file.author;
-	};
-
-	/**
-	 * @inheritdoc
-	 */
 	uw.deed.Custom.prototype.getLicenseWikiText = function () {
 		return this.upload.file.licenseValue;
 	};

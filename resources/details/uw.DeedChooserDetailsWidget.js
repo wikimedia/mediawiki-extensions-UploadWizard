@@ -25,48 +25,34 @@
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	uw.DeedChooserDetailsWidget.prototype.useCustomDeedChooser = function ( upload ) {
-		var $deedDiv;
-
-		// Defining own deedChooser for uploads coming from external service
-		if ( upload.file.fromURL ) {
-			// XXX can be made a separate class as mw.UploadFromUrlDeedChooser
-			this.deedChooser = upload.deedChooser = {
-				deed: {},
-				valid: function () {
-					return true;
-				},
-				getSerialized: function () {
-					return this.deed ? this.deed.getSerialized() : {};
-				},
-				setSerialized: function ( serialized ) {
-					if ( this.deed.setSerialized ) {
-						this.deed.setSerialized( serialized );
-					}
+		// XXX can be made a separate class as mw.UploadFromUrlDeedChooser
+		this.deedChooser = upload.deedChooser = {
+			deed: {},
+			valid: function () {
+				return true;
+			},
+			getSerialized: function () {
+				return this.deed ? this.deed.getSerialized() : {};
+			},
+			setSerialized: function ( serialized ) {
+				if ( this.deed.setSerialized ) {
+					this.deed.setSerialized( serialized );
 				}
-			};
-
-			if ( upload.file.license ) {
-				// XXX need to add code in the remaining functions
-				this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
-				this.deedChooser.deed = new uw.deed.Custom( mw.UploadWizard.config, upload );
-			} else {
-				this.deedChooser.deed = new uw.deed.External(
-					mw.UploadWizard.config,
-					upload,
-					{ type: 'or', licenses: [ 'custom' ], special: 'custom' }
-				);
-				this.$element.append( this.deedChooser.deed.licenseInputField.$element );
-				this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
 			}
+		};
+
+		if ( upload.file.license ) {
+			// XXX need to add code in the remaining functions
+			this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
+			this.deedChooser.deed = new uw.deed.Custom( mw.UploadWizard.config, upload );
 		} else {
-			$deedDiv = $( '<div>' ).addClass( 'mwe-upwiz-custom-deed' );
-			this.$element.append( $deedDiv );
-			this.deedChooser = upload.deedChooser = new mw.UploadWizardDeedChooser(
+			this.deedChooser.deed = new uw.deed.External(
 				mw.UploadWizard.config,
-				$deedDiv,
-				mw.UploadWizard.getLicensingDeeds( [ upload ], mw.UploadWizard.config ),
-				[ upload ] );
-			this.deedChooser.onLayoutReady();
+				upload,
+				{ type: 'or', licenses: [ 'custom' ], special: 'custom' }
+			);
+			this.$element.append( this.deedChooser.deed.licenseInputField.$element );
+			this.$element.append( document.createTextNode( upload.file.licenseMessage ) );
 		}
 	};
 

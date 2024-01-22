@@ -1,7 +1,21 @@
 @import 'mediawiki.skin.variables.less';
 
+#mwe-upwiz-stepdiv-deeds {
+	padding: 2em 0;
+}
+
+#mwe-upwiz-deeds-intro {
+	margin-bottom: 1.5em;
+}
+
 .mwe-upwiz-deed-option-title {
-	margin-top: 1.5em;
+	&:first-child {
+		margin-top: 0.5em;
+	}
+
+	&:not( :first-child ) {
+		margin-top: 1.5em;
+	}
 }
 
 .mwe-upwiz-deed-forms .mwe-upwiz-deed-ownwork,
@@ -230,5 +244,46 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+}
+
+.mwe-upwiz-source-multiple {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #a3a8b1;
+	margin-bottom: 1em;
+
+	label.oo-ui-radioOptionWidget {
+		margin-right: 3em;
+
+		// override OOUI style
+		padding: 0;
+	}
+}
+
+#mwe-upwiz-deeds-thumbnails {
+	background-color: #f8f9fa;
+	border-radius: 2px;
+	margin: 1em 0;
+
+	.mwe-upwiz-thumbnail {
+		display: inline-block;
+		margin: 1em;
+		vertical-align: middle;
+	}
+}
+
+.mwe-upwiz-deeds-individual {
+	display: flex;
+	padding: 2em 0;
+
+	&:not( :last-child ) {
+		border-bottom: 1px solid #a3a8b1;
+	}
+
+	.mwe-upwiz-deeds-individual-thumbnail {
+		width: 150px;
+		margin-right: 2em;
 	}
 }

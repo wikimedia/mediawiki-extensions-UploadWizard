@@ -65,7 +65,7 @@
 			serialized = upload.details ? upload.details.getSerialized() : null;
 
 			controller.createDetails( upload );
-			if ( upload.file.fromURL || ( upload.deedChooser && upload.deedChooser.deed.name === 'custom' ) ) {
+			if ( upload.file.fromURL ) {
 				upload.details.useCustomDeedChooser();
 			}
 			upload.details.attach();

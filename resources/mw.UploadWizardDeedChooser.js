@@ -3,18 +3,19 @@
 	/**
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
 	 *
+	 * @class
+	 * @mixins OO.EventEmitter
 	 * @param {Object} config The UW config
-	 * @param {string|jQuery} selector Where to put this deed chooser
 	 * @param {Object} deeds Keyed object of UploadWizardDeed items
 	 * @param {mw.UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
 	 */
-	mw.UploadWizardDeedChooser = function ( config, selector, deeds, uploads ) {
+	mw.UploadWizardDeedChooser = function ( config, deeds, uploads ) {
 		var chooser = this,
 			$radioContainer,
-			$formContainer,
-			$mainContainer;
+			$formContainer;
 
-		this.$selector = $( selector );
+		OO.EventEmitter.call( this );
+
 		this.uploads = uploads;
 		this.deeds = deeds;
 
@@ -26,7 +27,7 @@
 
 		$radioContainer = $( '<div>' ).addClass( 'mwe-upwiz-deed-radios' );
 		$formContainer = $( '<div>' ).addClass( 'mwe-upwiz-deed-forms' );
-		$mainContainer = $( '<div>' ).addClass( 'mwe-upwiz-deeds-container' ).append(
+		this.$element = $( '<div>' ).addClass( 'mwe-upwiz-deeds-container' ).append(
 			$radioContainer, $formContainer
 		);
 
@@ -87,124 +88,117 @@
 			}
 		} );
 
-		// Append main container
-		this.$selector.append( $mainContainer );
-
 		// Deselect all deeds
 		Object.keys( this.deeds ).forEach( function ( name ) {
 			chooser.deselectDeedInterface( name );
 		} );
 	};
+	OO.mixinClass( mw.UploadWizardDeedChooser, OO.EventEmitter );
 
-	mw.UploadWizardDeedChooser.prototype = {
-		/**
-		 * How many deed choosers there are (important for creating unique ids, element names)
-		 */
-		widgetCount: 0,
+	/**
+	 * How many deed choosers there are (important for creating unique ids, element names)
+	 */
+	mw.UploadWizardDeedChooser.prototype.widgetCount = 0;
 
-		/**
-		 * Check if this form is filled out correctly.
-		 *
-		 * @return {boolean} true if valid, false if not
-		 */
-		valid: function () {
-			return !!this.deed;
-		},
+	/**
+	 * Check if this form is filled out correctly.
+	 *
+	 * @return {boolean} true if valid, false if not
+	 */
+	mw.UploadWizardDeedChooser.prototype.valid = function () {
+		return !!this.deed;
+	};
 
-		/**
-		 * Uploads this deed controls
-		 */
-		uploads: [],
+	/**
+	 * Uploads this deed controls
+	 */
+	mw.UploadWizardDeedChooser.prototype.uploads = [];
 
-		selectDeed: function ( deed ) {
-			this.choose( deed );
-			this.selectDeedInterface( deed.name );
-		},
+	mw.UploadWizardDeedChooser.prototype.selectDeed = function ( deed ) {
+		this.choose( deed );
+		this.selectDeedInterface( deed.name );
+	};
 
-		choose: function ( deed ) {
-			var chooser = this;
+	mw.UploadWizardDeedChooser.prototype.choose = function ( deed ) {
+		this.deed = deed;
+		this.emit( 'choose' );
+	};
 
-			this.deed = deed;
+	/**
+	 * From the deed choices, make a choice fade to the background a bit, hide the extended form
+	 *
+	 * @param {string} deedName
+	 */
+	mw.UploadWizardDeedChooser.prototype.deselectDeedInterface = function ( deedName ) {
+		var $deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
+			$deedForm = this.$element.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
 
-			this.uploads.forEach( function ( upload ) {
-				upload.deedChooser = chooser;
-			} );
+		$deedRadio.prop( 'checked', false );
+		$deedForm.removeClass( 'selected' );
+		// Prevent validation of deselected deeds by disabling all form inputs
+		// TODO: Use a tag selector
+		// eslint-disable-next-line no-jquery/no-sizzle
+		$deedForm.find( ':input' ).prop( 'disabled', true );
+		// eslint-disable-next-line no-jquery/no-sizzle
+		$deedForm.hide();
+	};
 
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#mwe-upwiz-stepdiv-deeds .mwe-upwiz-button-next' ).show();
-		},
+	/**
+	 * From the deed choice page, show a particular deed
+	 *
+	 * @param {string} deedName
+	 */
+	mw.UploadWizardDeedChooser.prototype.selectDeedInterface = function ( deedName ) {
+		var self = this,
+			$deedRadio = this.$element.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
+			$deedForm = this.$element.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
 
-		/**
-		 * From the deed choices, make a choice fade to the background a bit, hide the extended form
-		 *
-		 * @param {string} deedName
-		 */
-		deselectDeedInterface: function ( deedName ) {
-			var $deedRadio = this.$selector.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
-				$deedForm = this.$selector.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
-
-			$deedRadio.prop( 'checked', false );
-			$deedForm.removeClass( 'selected' );
-			// Prevent validation of deselected deeds by disabling all form inputs
-			// TODO: Use a tag selector
-			// eslint-disable-next-line no-jquery/no-sizzle
-			$deedForm.find( ':input' ).prop( 'disabled', true );
-			// eslint-disable-next-line no-jquery/no-sizzle
-			$deedForm.hide();
-		},
-
-		/**
-		 * From the deed choice page, show a particular deed
-		 *
-		 * @param {string} deedName
-		 */
-		selectDeedInterface: function ( deedName ) {
-			var self = this,
-				$deedRadio = this.$selector.find( '.mwe-upwiz-deed-radio-' + deedName + ' input' ),
-				$deedForm = this.$selector.find( '.mwe-upwiz-deed.mwe-upwiz-deed-' + deedName );
-
-			// deselect all other deeds
-			Object.keys( this.deeds ).forEach( function ( name ) {
-				if ( name === deedName ) {
-					return;
-				}
-				self.deselectDeedInterface( name );
-			} );
-
-			$deedRadio.prop( 'checked', true );
-			$deedForm.addClass( 'selected' );
-			// (Re-)enable all form inputs
-			// TODO: Use a tag selector
-			// eslint-disable-next-line no-jquery/no-sizzle
-			$deedForm.find( ':input' ).prop( 'disabled', false );
-			// eslint-disable-next-line no-jquery/no-sizzle
-			$deedForm.show();
-		},
-
-		remove: function () {
-			this.$selector.empty();
-		},
-
-		/**
-		 * @return {Object}
-		 */
-		getSerialized: function () {
-			return this.valid() ? this.deed.getSerialized() : {};
-		},
-
-		/**
-		 * @param {Object} serialized
-		 */
-		setSerialized: function ( serialized ) {
-			var deed;
-
-			if ( serialized.name && serialized.name in this.deeds ) {
-				deed = this.deeds[ serialized.name ];
-				deed.setSerialized( serialized );
-				this.selectDeed( deed );
+		// deselect all other deeds
+		Object.keys( this.deeds ).forEach( function ( name ) {
+			if ( name === deedName ) {
+				return;
 			}
-		}
+			self.deselectDeedInterface( name );
+		} );
 
+		$deedRadio.prop( 'checked', true );
+		$deedForm.addClass( 'selected' );
+		// (Re-)enable all form inputs
+		// TODO: Use a tag selector
+		// eslint-disable-next-line no-jquery/no-sizzle
+		$deedForm.find( ':input' ).prop( 'disabled', false );
+		// eslint-disable-next-line no-jquery/no-sizzle
+		$deedForm.show();
+	};
+
+	mw.UploadWizardDeedChooser.prototype.remove = function () {
+		var self = this;
+
+		Object.keys( this.deeds ).forEach( function ( name ) {
+			self.deeds[ name ].unload();
+		} );
+
+		this.$element.remove();
+	};
+
+	/**
+	 * @return {Object}
+	 */
+	mw.UploadWizardDeedChooser.prototype.getSerialized = function () {
+		return this.valid() ? this.deed.getSerialized() : {};
+	};
+
+	/**
+	 * @param {Object} serialized
+	 */
+	mw.UploadWizardDeedChooser.prototype.setSerialized = function ( serialized ) {
+		var deed;
+
+		if ( serialized.name && serialized.name in this.deeds ) {
+			deed = this.deeds[ serialized.name ];
+			deed.setSerialized( serialized );
+			this.selectDeed( deed );
+		}
 	};
 
 }() );
