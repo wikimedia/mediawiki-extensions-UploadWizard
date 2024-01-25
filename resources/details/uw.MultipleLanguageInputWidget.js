@@ -23,7 +23,7 @@
 			label: mw.message( '' ),
 			languages: this.getLanguageOptions()
 		}, config );
-		uw.MultipleLanguageInputWidget.parent.call( this );
+		uw.MultipleLanguageInputWidget.super.call( this );
 		OO.ui.mixin.GroupElement.call( this );
 
 		this.required = !!this.config.required;

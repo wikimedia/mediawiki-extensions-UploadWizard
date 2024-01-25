@@ -9,7 +9,7 @@
 	 * @cfg {mw.UploadWizardUpload} upload
 	 */
 	uw.DateDetailsWidget = function UWDateDetailsWidget( config ) {
-		uw.DateDetailsWidget.parent.call( this );
+		uw.DateDetailsWidget.super.call( this );
 
 		this.upload = config.upload;
 		this.dateInputWidgetMode = null; // or: 'calendar', 'arbitrary'

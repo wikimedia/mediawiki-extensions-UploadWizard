@@ -15,7 +15,7 @@
 			$copyMetadataWrapperDiv = $( '<div>' ),
 			$copyMetadataDiv = $( '<div>' );
 
-		uw.CopyMetadataWidget.parent.call( this );
+		uw.CopyMetadataWidget.super.call( this );
 
 		this.copyFrom = config.copyFrom;
 		this.copyTo = config.copyTo;

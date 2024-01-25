@@ -9,7 +9,7 @@
 	 * @cfg {Array} [classes] Classes to apply to the ULS container div
 	 */
 	uw.UlsWidget = function UWUlsWidget( config ) {
-		uw.UlsWidget.parent.call( this );
+		uw.UlsWidget.super.call( this );
 
 		this.$element = $( '<div>' )
 			.append(

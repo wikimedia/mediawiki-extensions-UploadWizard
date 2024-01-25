@@ -19,7 +19,7 @@
 		var help = config && config.help ? config.help : '';
 		config = $.extend( { align: 'top', required: false }, config, { help: '' } );
 
-		uw.FieldLayout.parent.call( this, fieldWidget, config );
+		uw.FieldLayout.super.call( this, fieldWidget, config );
 		uw.ValidationMessageElement.call( this, { validatedWidget: fieldWidget } );
 
 		this.required = null;

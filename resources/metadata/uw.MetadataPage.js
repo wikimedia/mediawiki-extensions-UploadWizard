@@ -10,7 +10,7 @@
 	uw.MetadataPage = function UWMetadataPage( upload, config ) {
 		var self = this;
 
-		uw.MetadataPage.parent.call( this, upload.getFilename(), config );
+		uw.MetadataPage.super.call( this, upload.getFilename(), config );
 
 		this.upload = upload;
 		this.metadataContent = config.content.filter( function ( content ) {
@@ -33,7 +33,7 @@
 			this.upload.details.getTitle().getMain() :
 			this.upload.getFilename();
 
-		uw.MetadataPage.parent.prototype.setupOutlineItem.call( this, outlineItem );
+		uw.MetadataPage.super.prototype.setupOutlineItem.call( this, outlineItem );
 
 		this.outlineItem.$element.addClass( 'mwe-upwiz-metadata-page' );
 		this.outlineItem.setLabel(

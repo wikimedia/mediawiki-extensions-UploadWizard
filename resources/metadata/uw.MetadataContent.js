@@ -25,7 +25,7 @@
 			$thumbnailDiv,
 			self = this;
 
-		uw.MetadataContent.parent.call(
+		uw.MetadataContent.super.call(
 			this,
 			$.extend( { classes: [ 'mwe-upwiz-metadata-content' ] }, config )
 		);

@@ -1,6 +1,6 @@
 ( function ( uw ) {
 	uw.LicensePreviewDialog = function UWLicensePreviewDialog( config ) {
-		uw.LicensePreviewDialog.parent.call( this, config );
+		uw.LicensePreviewDialog.super.call( this, config );
 	};
 	OO.inheritClass( uw.LicensePreviewDialog, OO.ui.Dialog );
 
@@ -9,7 +9,7 @@
 	uw.LicensePreviewDialog.prototype.initialize = function () {
 		var dialog = this;
 
-		uw.LicensePreviewDialog.parent.prototype.initialize.call( this );
+		uw.LicensePreviewDialog.super.prototype.initialize.call( this );
 
 		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
 		this.$body.append( this.content.$element );

@@ -22,7 +22,7 @@
 	uw.LicenseGroup = function UWLicenseGroup( config, type, api, count ) {
 		var self = this;
 
-		uw.LicenseGroup.parent.call( this, {} );
+		uw.LicenseGroup.super.call( this, {} );
 
 		if ( typeof config.licenses !== 'object' ) {
 			throw new Error( 'improper license config' );

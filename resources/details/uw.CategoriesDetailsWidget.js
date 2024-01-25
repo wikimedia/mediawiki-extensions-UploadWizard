@@ -10,7 +10,7 @@
 	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget() {
 		var categories, catDetails = this;
 
-		uw.CategoriesDetailsWidget.parent.call( this );
+		uw.CategoriesDetailsWidget.super.call( this );
 
 		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget();
 

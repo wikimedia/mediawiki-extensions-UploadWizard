@@ -9,7 +9,7 @@
 	uw.LanguageDropdownWidget = function UWLanguageDropdownWidget( config ) {
 		config = config || {};
 
-		uw.LanguageDropdownWidget.parent.call( this );
+		uw.LanguageDropdownWidget.super.call( this );
 
 		this.languageDropdown = new OO.ui.DropdownWidget( {
 			menu: { items: this.getLanguageMenuOptionWidgets( config.languages ) },
