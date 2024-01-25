@@ -107,7 +107,9 @@
 
 								return steps;
 							},
-							function () { return steps; /* just move on without metadata... */ }
+							function () {
+								return steps; /* just move on without metadata... */
+							}
 						);
 					}
 					return steps;

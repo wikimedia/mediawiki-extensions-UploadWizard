@@ -219,7 +219,6 @@
 					binStr = binReader.result;
 				} else {
 					// Array buffer; convert to binary string for the library.
-					/* global Uint8Array */
 					arr = new Uint8Array( binReader.result );
 					binStr = '';
 					for ( i = 0; i < arr.byteLength; i++ ) {

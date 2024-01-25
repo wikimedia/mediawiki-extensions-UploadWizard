@@ -1,3 +1,9 @@
 # TODO: Move to a /lib folder
-resources/jquery/jquery.lazyload.js
-vendor/
+/resources/jquery/jquery.lazyload.js
+/vendor/
+/docs/
+
+# Language files written automatically by TranslateWiki
+/**/i18n/**/*.json
+!/**/i18n/**/en.json
+!/**/i18n/**/qqq.json
