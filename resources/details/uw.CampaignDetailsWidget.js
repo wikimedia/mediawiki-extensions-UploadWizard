@@ -14,7 +14,7 @@
 	 */
 	uw.CampaignDetailsWidget = function UWCampaignDetailsWidget( config ) {
 		config = $.extend( { type: 'text' }, config );
-		uw.CampaignDetailsWidget.parent.call( this );
+		uw.CampaignDetailsWidget.super.call( this );
 
 		this.required = !!config.required;
 		this.wikitext = config.wikitext;

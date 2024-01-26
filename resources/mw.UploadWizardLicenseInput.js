@@ -12,7 +12,7 @@
  * @param {mw.Api} api API object, used for wikitext previews
  */
 mw.UploadWizardLicenseInput = function ( config, count, api ) {
-	mw.UploadWizardLicenseInput.parent.call( this );
+	mw.UploadWizardLicenseInput.super.call( this );
 	OO.ui.mixin.GroupElement.call( this );
 
 	this.count = count;

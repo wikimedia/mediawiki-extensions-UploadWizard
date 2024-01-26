@@ -13,7 +13,7 @@
 	 */
 	uw.TitleDetailsWidget = function UWTitleDetailsWidget( config ) {
 		config = config || {};
-		uw.TitleDetailsWidget.parent.call( this );
+		uw.TitleDetailsWidget.super.call( this );
 
 		this.config = config;
 		this.extension = config.extension;

@@ -23,7 +23,7 @@
 	 */
 	function PopupCheckboxInputWidget( config ) {
 		// Parent constructor
-		PopupCheckboxInputWidget.parent.call( this, config );
+		PopupCheckboxInputWidget.super.call( this, config );
 
 		// Mixin constructors
 		OO.ui.mixin.PopupElement.call( this, config );

@@ -25,7 +25,7 @@
 			maxLength: 99999
 		}, config );
 
-		uw.SingleLanguageInputWidget.parent.call( this );
+		uw.SingleLanguageInputWidget.super.call( this );
 		uw.ValidationMessageElement.call( this );
 
 		if ( mw.loader.getState( 'ext.uls.mediawiki' ) === 'ready' ) {

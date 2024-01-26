@@ -10,7 +10,7 @@
 	 * @abstract
 	 */
 	uw.DetailsWidget = function UWDetailsWidget() {
-		uw.DetailsWidget.parent.call( this );
+		uw.DetailsWidget.super.call( this );
 	};
 	OO.inheritClass( uw.DetailsWidget, OO.ui.Widget );
 

@@ -6,7 +6,7 @@
 	 * @extends uw.DetailsWidget
 	 */
 	uw.OtherDetailsWidget = function UWOtherDetailsWidget() {
-		uw.OtherDetailsWidget.parent.call( this );
+		uw.OtherDetailsWidget.super.call( this );
 
 		this.textInput = new OO.ui.MultilineTextInputWidget( {
 			classes: [ 'mwe-upwiz-other-textarea', 'mwe-upwiz-otherDetailsWidget-other' ],

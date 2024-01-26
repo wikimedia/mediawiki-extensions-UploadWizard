@@ -11,7 +11,7 @@
 	uw.LocationDetailsWidget = function UWLocationDetailsWidget( config ) {
 		this.config = config || {};
 
-		uw.LocationDetailsWidget.parent.call( this );
+		uw.LocationDetailsWidget.super.call( this );
 
 		this.$element.addClass( 'mwe-upwiz-locationDetailsWidget' );
 

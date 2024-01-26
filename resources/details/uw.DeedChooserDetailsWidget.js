@@ -6,7 +6,7 @@
 	 * @extends uw.DetailsWidget
 	 */
 	uw.DeedChooserDetailsWidget = function UWDeedChooserDetailsWidget() {
-		uw.DeedChooserDetailsWidget.parent.call( this );
+		uw.DeedChooserDetailsWidget.super.call( this );
 
 		this.deedChooser = false;
 		this.$element.addClass( 'mwe-upwiz-deedChooserDetailsWidget' );
