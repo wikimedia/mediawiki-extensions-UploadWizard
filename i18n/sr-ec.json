@@ -116,7 +116,7 @@
 	"mwe-upwiz-source-ownwork-origin-label": "Да ли {{PLURAL:$1|је|су}} {{GENDER:$2|ово}} употпуности {{PLURAL:$1|Ваш рад|Ваши радови}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|Ово је мој рад|Ово су моји радови}} {{GENDER:$2|у}} целости",
 	"mwe-upwiz-source-ownwork-origin-option-others": "{{PLURAL:$1|Овај рад садржи|Ови радови садрже}} радове других",
-	"mwe-upwiz-source-ownwork-origin-option-others-explain": "На пример: ако је туђи рад видљив у {{PLURAL:$1|раду|радовима}} {{GENDER:$2|које}} отпремате или сте користили туђи рад у свом",
+	"mwe-upwiz-source-ownwork-origin-option-others-explain": "На пример: ако је туђи рад видљив у {{PLURAL:$1|раду који|радовима које}} {{GENDER:$2|отпремате}} или сте користили туђи рад у свом",
 	"mwe-upwiz-source-ownwork-origin-option-others-subquestion": "Да ли {{PLURAL:$1|је пређашњи рад слободан|су пређашњи радови слободни}} за употребу и дељење?",
 	"mwe-upwiz-source-ownwork-origin-option-others-freelicense": "Да, пређашњи {{PLURAL:$1|рад је објављен|радови су објављени}} под једном од ових [[COM:L#Well-known_licenses|слободних лиценци]]",
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Да, пређашњи {{PLURAL:$1|рад|радови}} нису заштићени ауторским правима",
