@@ -159,12 +159,21 @@
 	.mwe-upwiz-license-custom {
 		// side by side input field & button
 		display: flex;
-		width: 40em;
+		max-width: 48em;
 		margin-bottom: 0.5em;
 
-		.oo-ui-textInputWidget textarea {
-			font-family: monospace, monospace;
+		.oo-ui-inputWidget-input {
+			font-family: monospace;
 		}
+	}
+
+	label:has( .mwe-upwiz-license-custom ),
+	.oo-ui-radioOptionWidget.oo-ui-labelElement > .oo-ui-labelElement-label:has( .mwe-upwiz-license-custom ) {
+		display: block;
+	}
+
+	fieldset.mwe-upwiz-deed-subgroup:has( .mwe-upwiz-license-custom ) {
+		padding-right: 0;
 	}
 }
 
