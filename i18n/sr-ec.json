@@ -111,7 +111,7 @@
 	"mwe-upwiz-source-ownwork-generic-explain": "({{PLURAL:$1|Овај рад је прихватљив|Ови радови су прихватљиви}} за отпремање на овом викију)",
 	"mwe-upwiz-source-ownwork-question": "Под којом лиценцом желите {{GENDER:$2|да}} објавите {{PLURAL:$1|овај рад|ове радове}}? Све датотеке на Остави морају бити под слободном лиценцом.",
 	"mwe-upwiz-source-ownwork-purpose-label": "Молимо изаберите опцију која најбоље описује сврху {{PLURAL:$1|овог рада|ових радова}}.",
-	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Овај рад пружа|Ови радови пружају}} знање, упутства или информације другима.",
+	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Овај рад пружа|Ови радови пружају}} знања, упутства или информације другима.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal": "{{PLURAL:$1|Овај рад је|Ови радови су}} за мене лично нпр. самопортрет, моја породица и пријатељи или морам да их отпремим због посла.",
 	"mwe-upwiz-source-ownwork-origin-label": "Да ли {{PLURAL:$1|је|су}} {{GENDER:$2|ово}} употпуности {{PLURAL:$1|Ваш рад|Ваши радови}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|Ово је мој рад|Ово су моји радови}} {{GENDER:$2|у}} целости",
