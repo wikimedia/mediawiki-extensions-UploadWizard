@@ -37,7 +37,7 @@ class SpecialCampaigns extends SpecialPage {
 			[ 'LIMIT' => $limit + 1 ]
 		);
 
-		$this->getOutput()->setPageTitle( $this->msg( 'mwe-upload-campaigns-list-title' ) );
+		$this->getOutput()->setPageTitleMsg( $this->msg( 'mwe-upload-campaigns-list-title' ) );
 		$this->getOutput()->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );
 		$this->getOutput()->addHTML( '<dl>' );
 
