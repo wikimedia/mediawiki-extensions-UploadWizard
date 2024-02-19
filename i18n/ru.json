@@ -174,7 +174,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Прежде чем продолжить, подтвердите следующее утверждение.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Я подтверждаю, что {{PLURAL:$1|это произведение|эти произведения}} не включают материалы, защищённые авторским правом, такие как логотипы, плакаты, обложки альбомов и т.д.",
-	"mwe-upwiz-source-custom-label": "Укажите сведения по авторским правам в отдельности для каждого файла на следующей странице.",
 	"mwe-upwiz-patent-dialog-title": "Патентные права",
 	"mwe-upwiz-patent-dialog-title-filename": "Юридические права на: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",

@@ -106,7 +106,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "หากแฟ้มทั้งหมดมีแหล่งที่มา ผู้สร้างสรรค์และสถานะลิขสิทธิ์เดียวกัน คุณอาจกรอกเพียงครั้งเดียว",
 	"mwe-upwiz-source-thirdparty-cases": "โปรดบอกเราว่าเหตุใดคุณจึงมั่นใจว่ามีสิทธิเผยแพร่{{PLURAL:$1|งานนี้|งานเหล่านี้}}:",
 	"mwe-upwiz-source-thirdparty-accept": "ตกลง",
-	"mwe-upwiz-source-custom-label": "ให้ข้อมูลลิขสิทธิ์สำหรับแต่ละไฟล์ในหน้าถัดไป",
 	"mwe-upwiz-patent-dialog-title": "การอนุญาตสิทธิบัตร",
 	"mwe-upwiz-patent-dialog-title-filename": "สิทธิ์ในข้อกฎหมายสำหรับ: $1",
 	"mwe-upwiz-patent-dialog-button-back": "ย้อนกลับ",

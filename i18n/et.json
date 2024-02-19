@@ -124,7 +124,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "Sobib",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Enne kui jätkad, kinnita järgmine avaldus.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Kinnitan, et {{PLURAL:$1|see teos|need teosed}} ei sisalda materjale, mille kasutamine on autoriõigusega piiratud, näiteks logosid, postreid, albumikaasi jne.",
-	"mwe-upwiz-source-custom-label": "Lisan järgmisel leheküljel igale failile ükshaaval autoriõigusteabe.",
 	"mwe-upwiz-patent-dialog-title": "Patendiõigused",
 	"mwe-upwiz-patent-dialog-title-filename": "Õigused failile: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Tagasi",

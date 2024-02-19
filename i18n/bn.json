@@ -142,7 +142,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "ঠিক আছে",
 	"mwe-upwiz-source-thirdparty-compliance-label": "অগ্রসর হওয়ার আগে দয়া করে নিম্নলিখিত বিবৃতি নিশ্চিত করুন:",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "আমি নিশ্চিত করছি যে এই {{PLURAL:$1|কর্মটিতে|কর্মগুলিতে}} কপিরাইট দ্বারা সীমাবদ্ধ উপাদান যেমন লোগো, পোস্টার, অ্যালবামের প্রচ্ছদ ইত্যাদি অন্তর্ভুক্ত নেই।",
-	"mwe-upwiz-source-custom-label": "পরবর্তী পাতাতে প্রত্যেকটি ফাইলের জন্য আলাদাভাবে কপিরাইট তথ্য প্রদান করুন।",
 	"mwe-upwiz-patent-dialog-title": "পেটেন্ট অধিকার",
 	"mwe-upwiz-patent-dialog-title-filename": "$1-এর জন্য আইনি অধিকার",
 	"mwe-upwiz-patent-dialog-button-back": "পিছনে",

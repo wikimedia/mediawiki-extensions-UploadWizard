@@ -129,7 +129,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "若所有檔案的來源、作者與版權狀態均相同，您可只輸入一次。",
 	"mwe-upwiz-source-thirdparty-cases": "現在請告訴我們，您為什麼確定您有權發佈{{PLURAL:$1|此|這些}}作品：",
 	"mwe-upwiz-source-thirdparty-accept": "確定",
-	"mwe-upwiz-source-custom-label": "於下一頁分別提供每個檔案的版權資訊。",
 	"mwe-upwiz-patent-dialog-title": "專利權",
 	"mwe-upwiz-patent-dialog-title-filename": "$1 的法定權利",
 	"mwe-upwiz-patent-dialog-button-back": "返回",

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Harald Khan",
+			"Jon Harald Søby",
 			"Matma Rex",
 			"Njardarlogar",
 			"Ranveig"
@@ -68,12 +69,11 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Nei, {{PLURAL:$1|det|dei}} er verna av opphavsrett",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "Eg er ikkje sikker",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Dette verket|Desse verka}} er laga av nokon annan og kan delast fritt.",
-	"mwe-upwiz-source-thirdparty-description": "Døme:{{PLURAL:$1|bilete/skjermbilete}} du har funne på nettet eller ein annan stad, verk laga av nokon annan, osb.",
+	"mwe-upwiz-source-thirdparty-description": "Døme: {{PLURAL:$1|bilete/skjermbilete}} du har funne på nettet eller ein annan stad, verk laga av nokon annan, osb.",
 	"mwe-upwiz-source-thirdparty-intro": "Skriv inn adressa der du fann kvar av filene.",
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Om alle filene har den same kjelda, opphavspersonen og opphavsrettsstoda kan du oppgje dei éin gong for alle saman.",
 	"mwe-upwiz-source-thirdparty-cases": "Sei oss kvifor du er viss på at du har løyve til å gje ut {{PLURAL:$1|arbeidet|arbeida}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Greitt",
-	"mwe-upwiz-source-custom-label": "Gjev informasjon om opphavsretten for kvar fil kvar for seg på neste side.",
 	"mwe-upwiz-patent-dialog-button-back": "Attende",
 	"mwe-upwiz-patent-dialog-button-next": "Neste",
 	"mwe-upwiz-patent-dialog-link-warranty": "Lær meir",

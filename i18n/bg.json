@@ -114,7 +114,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Ако всички файлове имат един и същ източник, автор и авторскоправен статут, можете да въведете тези данни накуп за всички файлове.",
 	"mwe-upwiz-source-thirdparty-cases": "Обосновете защо смятате, че имате право да публикувате {{PLURAL:$1|тази творба|тези творби}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Добре",
-	"mwe-upwiz-source-custom-label": "Добавяне на информация за авторските права за всеки файл поотделно.",
 	"mwe-upwiz-patent-dialog-title": "Патентни права",
 	"mwe-upwiz-patent-dialog-title-filename": "Законови права за: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",

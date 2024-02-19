@@ -110,7 +110,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Калі ўсе файлы маюць адну крыніцу, аўтара і прававы статус, вы можаце пазначыць гэтыя звесткі адзін раз для ўсіх файлаў.",
 	"mwe-upwiz-source-thirdparty-cases": "Цяпер раскажыце нам, чаму вы перакананыя, што маеце права на публікацыю {{PLURAL:$1|1=гэтага твора|гэтых твораў}}:",
 	"mwe-upwiz-source-thirdparty-accept": "Добра",
-	"mwe-upwiz-source-custom-label": "Падайце інфармацыю пра аўтарскія правы асобна для кожнага файла на наступнай старонцы.",
 	"mwe-upwiz-patent-dialog-title": "Патэнтныя правы",
 	"mwe-upwiz-patent-dialog-title-filename": "Юрыдычныя правы на: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",

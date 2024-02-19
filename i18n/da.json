@@ -104,7 +104,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Dersom alle filer har samme kilde, ophavsmand og ophavsretsstatus, behøver du kun at angive dem en gang for alle filerne.",
 	"mwe-upwiz-source-thirdparty-cases": "Fortæl os nu, hvorfor du er sikker på, at du har tilladelse til at offentliggøre {{PLURAL:$1|dette værk|disse værker}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-custom-label": "Angiv ophavsretlig information for hver enkelt fil på den næste side.",
 	"mwe-upwiz-patent-dialog-title": "Patentrettigheder",
 	"mwe-upwiz-patent-dialog-title-filename": "Juridiske rettigheder for: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Tilbage",

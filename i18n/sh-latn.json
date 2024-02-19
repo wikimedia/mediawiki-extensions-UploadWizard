@@ -81,7 +81,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Ako sve datoteke imaju isti izvor, autor i pravno stanje, onda unesite te podatke samo jednom.",
 	"mwe-upwiz-source-thirdparty-cases": "Sada nam recite zašto ste sigurni imate pravo da objavite {{PLURAL:$1|ovo djelo|ova djela}}:",
 	"mwe-upwiz-source-thirdparty-accept": "U redu",
-	"mwe-upwiz-source-custom-label": "Na sljedećoj stranici navešću podatke o autorskima pravima na svaku datoteku zasebno.",
 	"mwe-upwiz-patent-dialog-title": "Patentna prava",
 	"mwe-upwiz-patent-dialog-title-filename": "Zakonska prava: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Nazad",

@@ -160,7 +160,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "Гаразд",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Перш ніж продовжити, підтвердьте наступне твердження.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Я підтверджую, що {{PLURAL:$1|ця робота не містить|ці роботи не містять}} матеріалів, обмежених авторським правом, таких як логотипи, постери, обкладинки альбомів тощо.",
-	"mwe-upwiz-source-custom-label": "Надайте інформацію про авторські права для кожного файлу окремо на наступній сторінці.",
 	"mwe-upwiz-patent-dialog-title": "Патентні права",
 	"mwe-upwiz-patent-dialog-title-filename": "Юридичні права на: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Назад",

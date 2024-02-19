@@ -148,7 +148,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Bekräfta följande uttalande innan du fortsätter.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Jag bekräftar att {{PLURAL:$1|detta verk|dessa verk}} inte innehåller material som begränsas av upphovsrätt, såsom logotyper, affischer, albumomslag, osv.",
-	"mwe-upwiz-source-custom-label": "Ge copyrightinformation för varje fil på nästa sida.",
 	"mwe-upwiz-patent-dialog-title": "Patenträttigheter",
 	"mwe-upwiz-patent-dialog-title-filename": "Juridiska rättigheter för: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Tillbaka",

@@ -147,7 +147,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "موافق",
 	"mwe-upwiz-source-thirdparty-compliance-label": "الرجاء تأكيد البيان التالي قبل المتابعة.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "أؤكد أن {{PLURAL:$1|هذا العمل|هذان العملان|هذه الأعمال}} لا تتضمن مواد مقيَّدة بحقوق التأليف والنشر، مثل الشعارات والملصقات وأغلفة التسجيلات الموسيقى وما إلى ذلك.",
-	"mwe-upwiz-source-custom-label": "معلومات حقوق التَّأليف والنَّشر لكُلِّ ملفٍ على حدته في الصفحة التَّالية.",
 	"mwe-upwiz-patent-dialog-title": "حقوق براءَة الاختراع",
 	"mwe-upwiz-patent-dialog-title-filename": "الحقوق القانونيَّة ل: $1",
 	"mwe-upwiz-patent-dialog-button-back": "رُجوع",

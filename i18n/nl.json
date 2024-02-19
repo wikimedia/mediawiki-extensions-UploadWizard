@@ -153,7 +153,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Bevestig de volgende verklaring voordat u doorgaat.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Ik bevestig dat {{PLURAL:$1|dit werk geen materiaal bevat|deze werken geen materiaal bevatten}} waarop auteursrecht rust, zoals logo’s, posters, albumhoezen, enz.",
-	"mwe-upwiz-source-custom-label": "Geef op de volgende pagina voor elk bestand afzonderlijk de auteursrechteninformatie op.",
 	"mwe-upwiz-patent-dialog-title": "Octrooirechten",
 	"mwe-upwiz-patent-dialog-title-filename": "Wettelijke rechten voor: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Terug",

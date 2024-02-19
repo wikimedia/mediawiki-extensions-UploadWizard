@@ -181,7 +181,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "确定",
 	"mwe-upwiz-source-thirdparty-compliance-label": "请先确认以下声明然后再继续。",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "我确认{{PLURAL:$1|此作品|这些作品}}不含受版权限制的材料，例如徽标、海报、专辑封面等。",
-	"mwe-upwiz-source-custom-label": "在下一步单独提供每个文件的著作权信息。",
 	"mwe-upwiz-patent-dialog-title": "专利权",
 	"mwe-upwiz-patent-dialog-title-filename": "$1的法律权利",
 	"mwe-upwiz-patent-dialog-button-back": "返回",

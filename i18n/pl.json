@@ -160,7 +160,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Zanim przejdziesz dalej, potwierdź poniższe stwierdzenie.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Potwierdzam, że {{PLURAL:$1|ten utwór nie zawiera|te utwory nie zawierają}} materiałów ograniczonych prawami autorskimi, takich jak logo, plakaty, okładki albumów itp.",
-	"mwe-upwiz-source-custom-label": "Podaj na następnej stronie informacje o prawach autorskich dla każdego pliku z osobna.",
 	"mwe-upwiz-patent-dialog-title": "Prawa patentowe",
 	"mwe-upwiz-patent-dialog-title-filename": "Prawa do: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Wstecz",

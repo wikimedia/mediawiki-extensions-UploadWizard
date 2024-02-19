@@ -130,7 +130,6 @@
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Per favor confirma le sequente declaration ante de continuar.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Io confirma que iste obra{{PLURAL:$1||s}} non include alcun material restringite per derecto de autor, como logotypos, posters, coperturas de album, etc.",
-	"mwe-upwiz-source-custom-label": "Forni informationes de copyright pro cata file individualmente in le pagina sequente.",
 	"mwe-upwiz-patent-dialog-title": "Derectos de patentes",
 	"mwe-upwiz-patent-dialog-title-filename": "Derectos juridic pro: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Retornar",

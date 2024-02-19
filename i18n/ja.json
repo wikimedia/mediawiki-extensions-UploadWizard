@@ -134,7 +134,6 @@
 	"mwe-upwiz-source-thirdparty-cases": "では、なぜあなたに{{PLURAL:$1|この作品|これらの作品}}を公開する権利があると言えるのかをお教えください。",
 	"mwe-upwiz-source-thirdparty-cases-text": "{{PLURAL:$1|このメディアは|これらのメディアは}}[https://creativecommons.org/share-your-work/cclicenses/ クリエイティブ・コモンズ・ライセンス]の下で公開されたものですか?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-custom-label": "次のページで、各ファイルに対する著作権情報を、個別に提供してください。",
 	"mwe-upwiz-patent-dialog-title": "特許権",
 	"mwe-upwiz-patent-dialog-title-filename": "法的権利の対象：$1",
 	"mwe-upwiz-patent-dialog-button-back": "戻る",

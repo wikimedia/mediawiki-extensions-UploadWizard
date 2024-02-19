@@ -114,7 +114,6 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Nếu tất cả các tập tin có cùng một nguồn, tác giả, và tình trạng bản quyền, chỉ cần nhập thông tin đó một lần cho tất cả chúng.",
 	"mwe-upwiz-source-thirdparty-cases": "Xin hỏi tại sao bạn chắc chắn rằng bạn có quyền xuất bản {{PLURAL:$1|tác phẩm|các tác phẩm}} này:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
-	"mwe-upwiz-source-custom-label": "Để tôi cung cấp thông tin bản quyền về mỗi tập tin riêng tại trang tiếp theo.",
 	"mwe-upwiz-patent-dialog-title": "Độc quyền sáng chế",
 	"mwe-upwiz-patent-dialog-title-filename": "Quyền lợi luật pháp cho: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Quay lại",
