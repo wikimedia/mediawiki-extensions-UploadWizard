@@ -21,11 +21,7 @@
 		maxSimPref = mw.user.options.get( 'upwiz_maxsimultaneous' );
 
 		if ( maxSimPref !== 'default' ) {
-			if ( maxSimPref > 0 ) {
-				config.maxSimultaneousConnections = maxSimPref;
-			} else {
-				config.maxSimultaneousConnections = 1;
-			}
+			config.maxSimultaneousConnections = Math.max( 1, maxSimPref );
 		}
 
 		this.maxSimultaneousConnections = config.maxSimultaneousConnections;

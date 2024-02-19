@@ -163,15 +163,13 @@ class MigrateCampaigns extends Maintenance {
 	private function trimArray( $array ) {
 		$newArray = [];
 		foreach ( $array as $key => $value ) {
-			if ( gettype( $value ) === 'array' ) {
+			if ( is_array( $value ) ) {
 				$trimmedValue = $this->trimArray( $value );
 				if ( $trimmedValue !== [] ) {
 					$newArray[$key] = $trimmedValue;
 				}
-			} else {
-				if ( $value !== null ) {
-					$newArray[$key] = $value;
-				}
+			} elseif ( $value !== null ) {
+				$newArray[$key] = $value;
 			}
 		}
 		return $newArray;

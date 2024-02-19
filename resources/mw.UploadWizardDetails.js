@@ -1324,14 +1324,9 @@
 
 		// TODO: De-duplicate with code form mw.UploadWizardUploadInterface.js
 		showIndicator: function ( status ) {
-			this.$spinner.hide();
-			this.statusMessage.toggle( false );
-
-			if ( status === 'progress' ) {
-				this.$spinner.show();
-			} else if ( status ) {
-				this.statusMessage.toggle( true ).setType( status );
-			}
+			var progress = status === 'progress';
+			this.$spinner.toggle( progress );
+			this.statusMessage.toggle( status && !progress ).setType( status );
 			this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );
 		},
 

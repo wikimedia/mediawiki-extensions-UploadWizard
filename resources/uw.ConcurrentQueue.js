@@ -134,7 +134,7 @@
 	 */
 	uw.ConcurrentQueue.prototype.executeNext = function () {
 		var item, promise;
-		if ( this.running.length === this.count || !this.executing ) {
+		if ( this.running.length >= this.count || !this.executing ) {
 			return;
 		}
 		item = this.queued.shift();
