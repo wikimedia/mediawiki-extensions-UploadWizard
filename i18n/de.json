@@ -153,7 +153,7 @@
 	"mwe-upwiz-source-thirdparty-compliance-label": "Bitte bestätige die folgende Aussage, bevor du fortfährst.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Ich bestätige, dass {{PLURAL:$1|dieses Werk keine urheberrechtlich geschützten Materialien wie Logos, Poster, Albumcover usw. enthält|diese Werke keine urheberrechtlich geschützten Materialien wie Logos, Poster, Albumcover usw. enthalten}}.",
 	"mwe-upwiz-source-multiple-label-common": "Für alle Dateien die gleichen Informationen angeben",
-	"mwe-upwiz-source-multiple-label-individual": "Für jede Dateie individuellen Informationen angeben",
+	"mwe-upwiz-source-multiple-label-individual": "Für jede Datei individuelle Informationen angeben",
 	"mwe-upwiz-patent-dialog-title": "Patentrechte",
 	"mwe-upwiz-patent-dialog-title-filename": "Rechtsansprüche für: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Zurück",
