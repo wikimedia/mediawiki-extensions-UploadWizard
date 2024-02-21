@@ -149,7 +149,7 @@
 	"mwe-upwiz-source-ownwork-origin-option-others-nocopyright": "Sí, {{PLURAL:$1|el trabajo pre-existente no está protegido|los trabajos pre-existentes no están protegidos}} por ninguna ley de derechos de autor",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "No, {{PLURAL:$1|la obra está protegida|las obras están protegidas}} por derechos de autor",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted-warning": "<b>No subir {{PLURAL:$1|este archivo|estos archivos}}!</b> Wikimedia Commons no aloja archivos protegidos por derechos de autor. Sólo se permiten archivos con [[COM:L#Acceptable_licenses|licencias aceptables]] o en el [[COM:PD|dominio público]] en Commons.",
-	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "No estoy {{GENDER:$2|seguro|segura}}",
+	"mwe-upwiz-source-ownwork-origin-option-others-unknown": "No estoy seguro(a)",
 	"mwe-upwiz-source-ownwork-origin-option-others-unknown-warning": "<b>No subir {{PLURAL:$1|este archivo|estos archivos}}!</b> Si tiene alguna duda, [[COM:L|obtenga más información sobre las licencias]] o pida consejo a personas experimentadas antes de subir el archivo. Encontrará personas encantadas de ayudarle en [[COM:VPC|el Café de Wikimedia Commons]]. Gracias.",
 	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|Yo}} generé {{PLURAL:$1|este trabajo|estos trabajos}} usando una herramienta de IA",
 	"mwe-upwiz-source-ownwork-origin-option-ai-instruction": "Ingrese el nombre del motor de IA utilizado. Si el trabajo original de otra persona se utilizó para generar {{PLURAL:$1|este trabajo|estos trabajos}}, enumérelos también.",
