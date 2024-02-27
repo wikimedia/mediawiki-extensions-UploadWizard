@@ -31,6 +31,8 @@
 	"group-upwizcampeditors": "Kampanjeredaktør for opplastningsveiviseren",
 	"group-upwizcampeditors-member": "{{GENDER:$1|Kampanjeredaktør for opplastningsveiviseren}}",
 	"grouppage-upwizcampeditors": "{{ns:project}}:Kampanjeredaktør for opplastningsveiviseren",
+	"group-upwizcampeditors.css": "/* CSS plassert her vil kun påvirke kampanjeredaktører for opplastingsveiviseren */",
+	"group-upwizcampeditors.js": "/* JS plassert her vil kun påvirke kampanjeredaktører for opplastingsveiviseren */",
 	"api-error-parsererror": "Tjeneren svarte med et ugyldig JSON-dokument. Dette kan være et problem med API-et, eller du bruker kanskje en mellomtjener som hindrer deg fra å laste opp filer.",
 	"api-error-aborted": "Opplasting avbrutt.",
 	"api-error-noimageinfo": "Opplastingen var vellykket, men tjeneren returnerte ikke noe informasjon om filen.",
