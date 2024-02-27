@@ -20,7 +20,7 @@
 		this.customDeedChooser = false;
 		this.captionSubmissionErrors = {};
 
-		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-info-file ui-helper-clearfix filled' );
+		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-info-file filled' );
 	};
 
 	mw.UploadWizardDetails.prototype = {
@@ -37,7 +37,7 @@
 				details = this,
 				config = mw.UploadWizard.config;
 
-			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail mwe-upwiz-thumbnail-side' );
+			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
 			this.$dataDiv = $( '<div>' ).addClass( 'mwe-upwiz-data' );
 

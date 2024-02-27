@@ -1,6 +1,6 @@
 @import 'mediawiki.skin.variables.less';
 
-#mwe-upwiz-stepdiv-deeds {
+#mwe-upwiz-stepdiv-deeds:not( :empty ) {
 	padding: 2em 0;
 }
 
@@ -82,6 +82,7 @@
 	}
 
 	ol {
+		padding: 0;
 		margin-left: 1.5em;
 	}
 
@@ -178,6 +179,15 @@
 
 		.oo-ui-inputWidget-input {
 			font-family: monospace;
+		}
+
+		.oo-ui-inputWidget-input,
+		.oo-ui-buttonElement-button .oo-ui-labelElement-label {
+			// input field & button are side by side and need to have the same height, but they're
+			// prone to influence from ooui or skins in different window widths, so let's just
+			// force them to be of the same size
+			line-height: 20px;
+			height: auto;
 		}
 	}
 
@@ -276,6 +286,8 @@
 
 .mwe-upwiz-deeds-individual {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	padding: 2em 0;
 
 	&:not( :last-child ) {
@@ -286,4 +298,77 @@
 		width: 150px;
 		margin-right: 2em;
 	}
+
+	.mwe-upwiz-deeds-container {
+		flex: 1;
+		min-width: 300px;
+	}
+}
+
+.mwe-upwiz-patent-rights {
+	line-height: 1.5em;
+}
+
+.mwe-upwiz-patent-rights a + p {
+	margin-top: 2em;
+}
+
+.mwe-upwiz-patent-rights .oo-ui-panelLayout .oo-ui-panelLayout:not( :last-child ) {
+	box-shadow: 0 1em 1px -1em #bbb;
+}
+
+.mwe-upwiz-patent-rights-filelist {
+	display: block;
+	text-align: center;
+	box-shadow: 0 0 1px 0 #bbb;
+}
+
+.mwe-upwiz-patent-weapon-policy {
+	margin-top: 1em;
+	padding: 0 1em 0 ~'calc( 32px + 2em )';
+	border: 1px solid #c8ccd1;
+	white-space: pre-wrap;
+	/* @embed */
+	background: #f2f4f7 url( ../../images/no-weapons.svg ) no-repeat 1em 1em;
+	background-size: 32px 32px;
+}
+
+.mwe-upwiz-license-icon {
+	height: 18px;
+	margin-right: 5px;
+	padding: 9px;
+	width: 18px;
+}
+
+.mwe-upwiz-cc-public-domain-icon {
+	/* @embed */
+	background: url( ../../images/36px-Cc-public_domain_mark_white.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-cc-zero-icon {
+	/* @embed */
+	background: url( ../../images/36px-Cc-zero.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-cc-sa-icon {
+	/* @embed */
+	background: url( ../../images/36px-Share_Alike.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-cc-by-icon {
+	/* @embed */
+	background: url( ../../images/36px-Cc-by_new_white.svg.png ) no-repeat center center / contain;
+}
+
+.mwe-upwiz-deed.selected .mwe-upwiz-deed-name {
+	font-weight: bold;
+}
+
+.mwe-upwiz-source-thirdparty-explain {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.mwe-upwiz-thirdparty-license {
+	margin-top: 8px;
 }

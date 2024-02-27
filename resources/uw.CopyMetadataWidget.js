@@ -73,11 +73,15 @@
 					.addClass( 'mwe-upwiz-details-copy-metadata mw-collapsible-toggle mw-collapsible-arrow' ),
 				$copyMetadataDiv.addClass( 'mw-collapsible-content' )
 			)
+			.addClass( 'mwe-upwiz-data' )
 			.makeCollapsible( { collapsed: true } );
 
 		this.$element
-			.addClass( 'mwe-upwiz-copyMetadataWidget' )
-			.append( $copyMetadataWrapperDiv );
+			.addClass( 'mwe-upwiz-info-file filled mwe-upwiz-copyMetadataWidget' )
+			.append(
+				$( '<div>' ).addClass( 'mwe-upwiz-thumbnail' ),
+				$copyMetadataWrapperDiv
+			);
 	};
 	OO.inheritClass( uw.CopyMetadataWidget, OO.ui.Widget );
 

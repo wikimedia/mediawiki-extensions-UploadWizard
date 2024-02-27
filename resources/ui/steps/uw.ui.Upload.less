@@ -1,0 +1,209 @@
+@import 'mediawiki.skin.variables.less';
+
+#mwe-upwiz-upload-ctrl-flickr-container {
+	display: inline-block;
+}
+
+.mwe-upwiz-add-files-0,
+#mwe-upwiz-files {
+	margin-top: 3em;
+	margin-bottom: 1em;
+
+	@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+		.mwe-upwiz-add-files-0,
+		#mwe-upwiz-files {
+			margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+		}
+	}
+}
+
+.mwe-upwiz-add-files-0 {
+	text-align: center;
+
+	#mwe-upwiz-upload-ctrl-flickr-container {
+		display: block;
+	}
+
+	.mwe-upwiz-add-file {
+		font-size: large;
+		margin-right: 0;
+
+		.oo-ui-buttonElement-framed.oo-ui-labelElement > .oo-ui-buttonElement-button {
+			// Fix vertical alignment of large text button
+			padding-top: 7px;
+		}
+	}
+}
+
+#mwe-upwiz-add-file-container:not( .mwe-upwiz-add-files-0 ) {
+	.mwe-upwiz-add-file {
+		display: inline-block;
+		width: auto;
+		height: auto;
+
+		&.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-selectButton,
+		&.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-enabled .oo-ui-selectFileWidget-dropLabel {
+			display: inline-block;
+			margin: 0.5em;
+		}
+	}
+}
+
+.mwe-upwiz-file {
+	&.filled {
+		position: relative;
+	}
+
+	&.odd .mwe-upwiz-visible-file {
+		background: #f8f9fa;
+	}
+
+	&:hover .mwe-upwiz-visible-file {
+		background: #e0f0ff !important; /* stylelint-disable-line declaration-no-important */
+	}
+}
+
+.mwe-upwiz-file-indicator {
+	float: right;
+	padding: 1.5em 1.5em 0 0;
+
+	.oo-ui-messageWidget {
+		width: 20px;
+	}
+}
+
+.mwe-upwiz-count {
+	padding: 0.5em;
+}
+
+.mwe-upwiz-visible-file {
+	display: none;
+	position: relative;
+	z-index: 2;
+	width: 100%; /* of containing mwe-upwiz-file */
+	overflow: hidden;
+
+	.mwe-upwiz-file-indicator {
+		visibility: hidden;
+	}
+
+	.mwe-upwiz-file-indicator-visible {
+		visibility: visible;
+	}
+}
+
+#mwe-upwiz-files {
+	max-width: 650px;
+	margin: auto;
+}
+
+.mwe-upwiz-file.filled .mwe-upwiz-visible-file {
+	display: block;
+}
+
+.mwe-upwiz-visible-file-filename {
+	padding: 1.5em;
+	margin-right: 40px;
+	overflow: hidden;
+}
+
+#mwe-upwiz-filelist {
+	/* We rely on the margin collapsing with that on #mwe-upwiz-files */
+	margin-top: 3em;
+}
+
+.mwe-upwiz-file-status {
+	display: none;
+	color: #72777d;
+}
+
+.mwe-upwiz-file-status-line ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.mwe-upwiz-file-preview {
+	float: left;
+	width: 120px;
+	/*
+	 * min-height ensures the reserved space for a thumbnail gets preserved
+	 * while the thumb gets generated (when there is no content in this div yet)
+	 */
+	min-height: 1px;
+	max-height: 120px;
+	margin-right: 1.5em;
+	text-align: center;
+	/* @embed */
+	background: url( ../../images/32px-Blank-document.svg.png ) no-repeat center center;
+}
+
+.mwe-upwiz-file-texts {
+	/* This also create a new block formatting context, resulting in the whole block
+	   displaying next to image thumbnail, rather than wrapping the lines of text around it */
+	overflow: hidden;
+	overflow-wrap: break-word;
+}
+
+.mwe-upwiz-file-preview-broken {
+	/* @embed */
+	background: url( ../../images/32px-Blank-document-broken.svg.png ) no-repeat center center !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.mwe-upwiz-add-files-n {
+	float: left;
+}
+
+#mwe-upwiz-add-file-container.mwe-upwiz-add-files-n,
+.mwe-upwiz-progress-bar-etr {
+	width: 300px;
+}
+
+/* Flickr Interface CSS */
+
+#mwe-upwiz-upload-ctr-divide {
+	display: block;
+	font-size: 1.3em;
+}
+
+.mwe-upwiz-flickr-field {
+	margin: 0 6em;
+}
+
+#mwe-upwiz-upload-add-flickr-container {
+	text-align: center;
+}
+
+#mwe-upwiz-flickr-select-list-container {
+	margin: 0 auto;
+	display: none;
+	text-align: center;
+}
+
+#mwe-upwiz-flickr-select-list {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 1em;
+
+	.oo-ui-checkboxMultioptionWidget {
+		margin: 6px;
+		padding: 1px;
+		width: auto;
+		float: left;
+		display: block;
+	}
+}
+
+#mwe-upwiz-flickr-disclaimer {
+	background-color: #eaf3ff;
+	font-size: 92%;
+	margin: 1em 0;
+	padding: 0.5em;
+}
+
+.filled + .filled {
+	border-top: 1px solid #c8ccd1;
+}
+
+#mwe-upwiz-upload-ctrls {
+	margin-top: 1em;
+}

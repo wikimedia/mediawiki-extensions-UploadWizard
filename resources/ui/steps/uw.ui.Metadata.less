@@ -5,7 +5,7 @@
 h3.mwe-upwiz-metadata-title {
 	float: left;
 	font-size: 1.4em;
-	margin: 0 0 2em 0;
+	margin: 0 0 1em 0;
 	padding-top: 0;
 }
 
@@ -43,7 +43,7 @@ h3.mwe-upwiz-metadata-title {
 	}
 
 	> .oo-ui-menuLayout-content {
-		width: ~'calc( 100% - @{menu-width} )'; // ~ is required to disable LESS auto-calculation...
+		min-width: ~'calc( 100% - @{menu-width} )'; // ~ is required to disable LESS auto-calculation...
 
 		// the booklet's content panels become .oo-ui-panelLayout-scrollable,
 		// which set an `overflow: auto;` - we want to make sure overflow remains
@@ -65,4 +65,32 @@ h3.mwe-upwiz-metadata-title {
 
 .mwe-upwiz-metadata-publish-error {
 	margin-top: 1em;
+}
+
+/*
+ * Below is a hack to break up the 2-column (left/right) bookletLayout in small
+ * screens. The left menu ends up on top, full-width, with the other panel below.
+ */
+@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+	.mwe-upwiz-metadata-page .mwe-upwiz-metadata-page-thumbnail .mwe-upwiz-thumbnail-filename {
+		width: inherit;
+	}
+
+	.mwe-upwiz-metadata-booklet.oo-ui-bookletLayout > .oo-ui-menuLayout-menu .mwe-upwiz-metadata-page {
+		width: inherit;
+		padding: 0;
+		margin-right: 0;
+	}
+
+	.mwe-upwiz-metadata-booklet.oo-ui-bookletLayout,
+	.mwe-upwiz-metadata-booklet.oo-ui-bookletLayout > .oo-ui-menuLayout-content,
+	.oo-ui-menuLayout-static.oo-ui-menuLayout-after,
+	.oo-ui-menuLayout-static.oo-ui-menuLayout-before {
+		max-width: @min-width-breakpoint-tablet;
+		display: block;
+	}
+
+	#mwe-upwiz-stepdiv-metadata > .ui-helper-clearfix {
+		clear: both;
+	}
 }

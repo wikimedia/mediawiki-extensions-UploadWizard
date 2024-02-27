@@ -1,4 +1,7 @@
 .arrowSteps {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px 0;
 	list-style-type: none;
 	list-style-image: none;
 	border: 1px solid #666;
@@ -14,17 +17,24 @@
 	color: #54595d;
 	background-color: #eaecf0;
 	position: relative;
+	/* JS will calculate an even width for all steps, but we'd rather use flex */
+	width: auto !important; /* stylelint-disable-line declaration-no-important */
+	flex: 1;
+	list-style-type: none;
 }
 
 .arrowSteps li div {
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
+	position: relative;
+	top: 50%;
+	transform: translateY( -50% );
+	width: 100%;
+	box-sizing: border-box;
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
 }
 
-#mwe-upwiz-steps li.head {
+.arrowSteps li.head {
 	color: #36c;
 	background-color: #eaf3ff;
 	font-weight: bold;
@@ -58,7 +68,7 @@
 	z-index: 1;
 }
 
-#mwe-upwiz-steps li.head::after {
+.arrowSteps li.head::after {
 	border-left-color: #eaf3ff;
 }
 
@@ -66,21 +76,31 @@
  * Arrow is added *after* the div with the content, so we need to push
  * the content slightly to the right (the previous one's arrow is
  * overlapped on this element) to make sure it remains balanced.
+ * The width of the arrow is 25px + 5px separation = 30 in total.
+ * Then adding a little more padding to ensure there's just a little
+ * room in between the arrow and the text.
  */
 .arrowSteps li:not( :first-child ):not( :last-child ) div {
-	padding-left: 30px;
+	padding-left: 35px;
+	padding-right: 0;
 }
 
 /*
- * First item: nothing on the left, arrow on the right, and 25px wide
- * (+5px separation).
- * If we want this one to appear centered, we're going to have to push
- * it slightly to the right, so that it closer to the right hand side,
- * which is extended because of the arrow.
- * Last item: previous arrow is poking into the element (25 + 5 = 30px),
- * so let's also move it slightly to the right to appear centered.
+ * First item has nothing on the left, so we don't need to pad it as
+ * aggressively as the others in order not to overlap with the arrow;
+ * we just need to move it a little bit so the text doesn't touch
+ * the left edge.
  */
-.arrowSteps li:first-child div,
+.arrowSteps li:first-child div {
+	padding-left: 10px;
+}
+
+/* Last item: there is also an arrow poking into this one, so we do
+ * want to apply that padding as well.
+ * And just like the first one, we'll want to make sure it
+ * doesn't reach the edge, albeit the one on the other side.
+ */
 .arrowSteps li:last-child div {
-	padding-left: 15px;
+	padding-left: 35px;
+	padding-right: 10px;
 }

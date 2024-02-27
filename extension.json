@@ -98,7 +98,7 @@
 			"group": "ext.uploadWizard"
 		},
 		"ext.uploadWizard.page.styles": {
-			"styles": "resources/uploadWizard.noWizard.css"
+			"styles": "resources/uploadWizard.noJs.css"
 		},
 		"ext.uploadWizard.uploadCampaign.display": {
 			"styles": [
@@ -212,11 +212,12 @@
 			],
 			"styles": [
 				"resources/jquery.arrowSteps/jquery.arrowSteps.css",
-				"resources/uw.CopyMetadataWidget.less",
 				"resources/ui/steps/uw.ui.Deed.less",
+				"resources/ui/steps/uw.ui.Details.less",
 				"resources/ui/steps/uw.ui.Thanks.less",
-				"resources/ui/steps/uw.ui.Tutorial.css",
+				"resources/ui/steps/uw.ui.Tutorial.less",
 				"resources/ui/steps/uw.ui.Metadata.less",
+				"resources/ui/steps/uw.ui.Upload.less",
 				"resources/uploadWizard.less",
 				"resources/uw.FieldLayout.less",
 				"resources/details/uw.DateDetailsWidget.less",
