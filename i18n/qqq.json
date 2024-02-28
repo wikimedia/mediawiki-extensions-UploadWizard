@@ -136,7 +136,7 @@
 	"mwe-upwiz-source-ownwork-question": "Asks the user to select a license. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-purpose-label": "Asks the user the purpose of their file upload. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "Option to indicate that an upload provides knowledge. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
-	"mwe-upwiz-source-ownwork-purpose-option-personal": "Option to indicate that an upload is for personal use. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "Option to indicate that an upload is for personal use. Parameters:\n* $1 - the number of files\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "Meant as a warning not to proceed uploading files for personal use. Parameters:\n* $1 - number of works (photos or videos)",
 	"mwe-upwiz-source-ownwork-origin-label": "Asks the user whether the uploaded files are entirely their own works. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",
 	"mwe-upwiz-source-ownwork-origin-option-own": "Label for the radio button to indicate that all uploaded files are the user's own works. Parameters:\n* $1 - the number of files, for PLURAL support\n* $2 - username, for GENDER support",

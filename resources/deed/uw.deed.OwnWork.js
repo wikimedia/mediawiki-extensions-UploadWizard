@@ -303,7 +303,7 @@
 					data: 'knowledge'
 				} ),
 				new OO.ui.RadioOptionWidget( {
-					label: $( '<div>' ).msg( 'mwe-upwiz-source-ownwork-purpose-option-personal', this.uploadCount, mw.user )
+					label: $( '<div>' ).msg( 'mwe-upwiz-source-ownwork-purpose-option-personal-use', this.uploadCount, mw.user )
 						.append(
 							new OO.ui.MessageWidget( {
 								type: 'warning',
