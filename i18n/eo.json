@@ -119,7 +119,7 @@
 	"mwe-upwiz-source-ownwork-question": "Kiun permesilon {{GENDER:$2| vi}} volas por publikigi {{PLURAL:$1| ĉi tiu verkon|ĉi tiuj verkojn}}? Ĉiuj plurmediaĵo en Komunejo estu publikigitaj sub libera permesilo:",
 	"mwe-upwiz-source-ownwork-purpose-label": "Bonvolu elekti la elekteblecon kiu plej bone priskribas la celon de {{PLURAL:$1|ĉi tiu verko|ĉi tiuj verkoj}}:",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|Ĉi tiu verko provizas|Ĉi tiuj verkoj provizas}} scion, instrukciojn aŭ informojn al aliaj.",
-	"mwe-upwiz-source-ownwork-purpose-option-personal": "{{PLURAL:$1|Ĉi tiu verko estas|Ĉi tiuj verkoj estas}} por mia persona uzo ekz. fotoj pri mi mem, mia familio aŭ amikoj, aŭ mi estas devigita alŝuti ĝin por mia laboro.",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|Ĉi tiu verko estas|Ĉi tiuj verkoj estas}} por mia persona uzo ekz. fotoj pri mi mem, mia familio aŭ amikoj, aŭ mi estas devigita alŝuti ĝin por mia laboro.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Ne alŝutu {{PLURAL:$1|ĉi tiun dosieron|ĉi tiujn dosierojn}}!</b> Vikimedia Komunejo ne permesas gastigadon de personaj aŭ privataj plurmediaĵoj. Bonvolu revizii [$2 ĉi tiun simplan gvidilon].</p><p> Se vi havas ajnan dubon, bonvolu [$3 lerni pli pri permesiloj], aŭ bonvolu peti konsilon de iuj spertaj kontribuantoj antaŭ alŝuto. Homoj volonte helpos al vi ĉe [$4 Wikimedia Commons's Village Pump]. Dankon.</p>",
 	"mwe-upwiz-source-permission": "La kreinto de la dosieroj donis al via eksplicitan permeson alŝuti ilin",
 	"mwe-upwiz-source-thirdparty-label": "{{PLURAL:$1|Ĉi tio estas|Ĉi tiuj estas}} verko de aliulo kaj {{PLURAL:$1|estas}} libera por disdoni.",

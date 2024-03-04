@@ -103,7 +103,7 @@
 	"mwe-upwiz-source-ownwork-question": "Boŋ ka laaseŋ maŋ e {{GENDER:$2|fo}} boͻrͻ ka fo pͻbelese {{PLURAL:$1|toma ŋa|toma ama}} naŋ be kyԑ? A duoro zaa embo zie yeltarre seŋ ka a pͻbelese a kyԑ laaseŋ naŋ e weԑlԑ.",
 	"mwe-upwiz-source-ownwork-purpose-label": "sɔroo la iri a iruuŋ naŋ maale manne wuli a boɔbɔ yineŋ {{PLURAL:$1|a toma ŋa|toma ama}}.",
 	"mwe-upwiz-source-ownwork-purpose-option-knowledge": "{{PLURAL:$1|This work provides|A toma ŋa maŋ tere la}} yɛŋ, sobi-wuli, bee duoro ko mine.",
-	"mwe-upwiz-source-ownwork-purpose-option-personal": "{{PLURAL:$1|a toma ŋa e la |a toma ama eɛ la \n}} n meŋɛ toma poɔŋ aseŋ; meŋɛ enfuomo, meŋɛ dɔgeroŋ bee bare, bee N boɔrɔ ka n eŋ o a n toma.",
+	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|a toma ŋa e la |a toma ama eɛ la \n}} n meŋɛ toma poɔŋ aseŋ; meŋɛ enfuomo, meŋɛ dɔgeroŋ bee bare, bee N boɔrɔ ka n eŋ o a n toma.",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-warning": "<p><b>Ta aploodi {{PLURAL:$1|a pɛll ŋa|a pɛllɛ ŋa}}!</b> Wikimidia Kɔmmons ba sage sɛge kyaare meŋɛ bee meŋɛ midia. Sɔroo la leɛkaa [[Commons:What_Commons_is_not|this simple guide]].</p><p>ka fõõ wa be buriburi zaa, sɔroo [[COM:L|learn more about licensing]], bee sɔroo soore  kontiribiutare naŋ toŋ a toma kɔɔre ka ba teɛbo hakelɛ sɛre ka fo aploodi. Noba poore na pɛle la ka ba soŋ fo kyɛ [[Commons:Village_pump/Copyright|Wikimedia Commons's Village Pump]]. Fo bareka.</p>",
 	"mwe-upwiz-source-ownwork-origin-label": "{{PLURAL:$1|Is this|Ama}} zaa e la {{GENDER:$2|fo}} meŋɛ {{PLURAL:$1|work|toma}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|This is|Ama zaa}} e la {{GENDER:$2|n}} meŋɛ {{PLURAL:$1|work|toma}}",
