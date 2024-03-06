@@ -320,7 +320,7 @@
 	"mwe-upwiz-feedback-prompt": "Skilja eftir ábendingu",
 	"mwe-upwiz-feedback-title": "Skilja eftir ábendingu um Upload Wizard",
 	"mwe-upwiz-feedback-blacklist-line-intro": "Titill úr svarta listanum sem passar við skrána:\n$1",
-	"mwe-upwiz-feedback-blacklist-subject": "Skráarnafnið $1 var bannað.",
+	"mwe-upwiz-feedback-blacklist-subject": "Upphleðslutitillinn minn, „$1“ var bannaðr.",
 	"mwe-upwiz-errordialog-title": "Það var villa í sendingunni þinni.",
 	"mwe-upwiz-errordialog-ok": "Í lagi",
 	"mwe-upwiz-error-nosuchcampaign": "Það er engin innsendingarherferð með nafninu \"$1\".",
