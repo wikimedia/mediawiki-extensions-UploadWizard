@@ -19,6 +19,27 @@
 		font-weight: bold;
 	}
 
+	.mwe-upwiz-thanks {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2.5em;
+		justify-content: center;
+		margin-bottom: 1em;
+
+		.mwe-upwiz-thumbnail {
+			width: 120px;
+		}
+
+		.mwe-upwiz-data {
+			flex: 1;
+			min-width: 300px;
+		}
+	}
+
+	.mwe-upwiz-thanks + .mwe-upwiz-thanks {
+		margin-top: 2em;
+	}
+
 	.mwe-upwiz-mv-cta {
 		box-shadow: 0 1px 4px rgba( 0, 0, 0, 0.25 );
 		.flex-display();

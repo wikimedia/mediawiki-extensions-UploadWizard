@@ -1,0 +1,63 @@
+.mwe-upwiz-info-file {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 2.5em;
+	justify-content: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+
+	.mwe-upwiz-thumbnail {
+		width: 230px;
+	}
+
+	.mwe-upwiz-data {
+		flex: 1;
+		min-width: 300px;
+	}
+
+	.oo-ui-fieldLayout-body {
+		margin-bottom: 1em;
+	}
+}
+
+.mwe-title {
+	font-family: sans-serif;
+	font-size: small;
+	width: 100%;
+}
+
+.mwe-upwiz-details-fieldname {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.mwe-upwiz-details-fieldname-input {
+	margin-bottom: 1em;
+}
+
+.mwe-upwiz-details-more-options,
+.mwe-upwiz-details-copy-metadata {
+	padding-left: 1.5em;
+	cursor: pointer;
+	outline: 0;
+	display: block;
+}
+
+.mwe-upwiz-copyMetadataWidget {
+	padding: 1em 0;
+
+	.mw-collapsible-content,
+	.mw-collapsible-content .oo-ui-buttonElement {
+		margin-top: 1em;
+	}
+}
+
+.mwe-upwiz-deed-license-group-head.mw-collapsible-arrow,
+.mwe-upwiz-details-more-options.mw-collapsible-toggle,
+.mwe-upwiz-details-copy-metadata.mw-collapsible-toggle,
+.mwe-upwiz-deed-license-group-head.mw-collapsible-toggle {
+	/* Override jquery.makeCollapsible styles */
+	float: none;
+	/* Override mediawiki.icon styles */
+	background-position: left center;
+}
