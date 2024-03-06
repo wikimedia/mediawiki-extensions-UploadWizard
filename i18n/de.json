@@ -356,7 +356,7 @@
 	"mwe-upwiz-license-yes-head": "Ja, ich habe diese Informationen",
 	"mwe-upwiz-license-yes-subhead": "Wähle den Lizenztyp aus, unter dem {{PLURAL:$1dieses Werk veröffentlicht wird|diese Werke veröffentlicht werden}}",
 	"mwe-upwiz-license-no-head": "Nein, ich habe diese Informationen nicht",
-	"mwe-upwiz-license-no-subhead": "<p><b>{{PLURAL:$1|Diese Datei|Diese Dateien}} nicht hochladen!</b> Wikimedia Commons hostet nur Dateien mit [$2 freien Lizenzen] oder die [$3 gemeinfrei] sind.</p><p>Wenn du Zweifel hast, erfährst du [$4 hier mehr über Lizenzen], oder frage einige erfahrene Mitwirkende um Rat, bevor du etwas hochlädst. Auf der [$5 Seite zu Lizenzfragen von Wikimedia Commons] hilft man dir gerne weiter. Vielen Dank.</p>",
+	"mwe-upwiz-license-no-subhead": "<p><b>{{PLURAL:$1|Diese Datei|Diese Dateien}} nicht hochladen!</b> Wikimedia Commons hostet keine urheberrechtlich geschützten Medien. Nur Dateien mit [$2 freien Lizenzen] oder die [$3 gemeinfrei] sind.</p><p>Wenn du Zweifel hast, erfährst du [$4 hier mehr über Lizenzen], oder frage einige erfahrene Mitwirkende um Rat, bevor du etwas hochlädst. Auf der [$5 Seite zu Lizenzfragen von Wikimedia Commons] hilft man dir gerne weiter. Vielen Dank.</p>",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|Dieses Werk ist|Diese Werke sind}} nicht urheberrechtlich geschützt und {{PLURAL:$1|hat|haben}} keine zugehörige Lizenz $3 [$2 (weitere Informationen)]",
 	"mwe-upwiz-license-cc0-subhead": "Wikimedia Commons befindet sich in den USA, also {{PLURAL:$1|darf das Werk|dürfen die Werke}} in diesem Land ebenfalls nicht urheberrechtlich geschützt sein. Welche der folgenden Optionen ist zutreffend? Zutreffendes bitte ankreuzen.",
 	"mwe-upwiz-license-other-head": "Gib eine andere Lizenz im Wikitext-Format ein",
