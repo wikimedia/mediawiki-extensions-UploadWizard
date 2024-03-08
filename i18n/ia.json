@@ -331,7 +331,7 @@
 	"mwe-upwiz-license-yes-head": "Si, io ha iste information",
 	"mwe-upwiz-license-yes-subhead": "Selige le typo del licentia sub le qual iste obra{{PLURAL:$1||s}} ha essite publicate",
 	"mwe-upwiz-license-no-head": "No, io non ha iste information",
-	"mwe-upwiz-license-no-subhead": "<p><b>Non incarga iste file{{PLURAL:$1||s}}!</b> Wikimedia Commons non permitte le publication de material sub derecto de autor. Solmente files con [$2 licentias libere] o imagines in le [$3 dominio public] es permittite sur Commons.</p><p>Si tu ha alcun dubita, per favor [$4 lege plus sur le licentias] o demanda le consilio de alcun contributores experte ante de incargar. Le gente essera felice de assister te sur le [$5 Taverna de Wikimedia Commons]. Gratias.</p>",
+	"mwe-upwiz-license-no-subhead": "<p><b>Non incarga iste file{{PLURAL:$1||s}}!</b> Wikimedia Commons non permitte le publication de material protegite per derectos de autor. Solmente files con [$2 licentias libere] o imagines in le [$3 dominio public] es permittite sur Commons.</p><p>Si tu ha alcun dubita, per favor [$4 lege plus sur le licentias] o demanda le consilio de alcun contributores experte ante de incargar. Le gente essera felice de assister te sur le [$5 Taverna de Wikimedia Commons]. Gratias.</p>",
 	"mwe-upwiz-license-cc0-head": "Iste obra{{PLURAL:$1||s}} non es protegite per le derecto de autor e per consequente non ha alcun licentia associate $3 ([$2 leger plus])",
 	"mwe-upwiz-license-cc0-subhead": "Wikimedia Commons es situate in le SUA, dunque, le obra{{PLURAL:$1||s}} debe esser foras del derecto de autor in ille pais tamben. Qual del sequente optiones es correcte? Marca tote le optiones applicabile.",
 	"mwe-upwiz-license-other-head": "Insere un altere licentia in formato de wikitexto",
