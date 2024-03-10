@@ -222,7 +222,7 @@ class SpecialUploadWizard extends SpecialPage {
 		$userDefaultLicense = $this->userOptionsLookup->getOption( $this->getUser(), 'upwiz_deflicense' );
 
 		if ( $userDefaultLicense !== 'default' ) {
-			list( $userLicenseType, $userDefaultLicense ) = explode( '-', $userDefaultLicense, 2 );
+			[ $userLicenseType, $userDefaultLicense ] = explode( '-', $userDefaultLicense, 2 );
 
 			// Determine if the user's default license is valid for this campaign
 			switch ( $config['licensing']['ownWorkDefault'] ) {

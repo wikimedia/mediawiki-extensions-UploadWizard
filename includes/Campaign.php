@@ -320,44 +320,44 @@ class Campaign {
 			$parsedConfig = [];
 			foreach ( $this->config as $key => $value ) {
 				switch ( $key ) {
-				case "title":
-				case "description":
-					$parsedConfig[$key] = $this->parseValue( $value, $lang );
-					break;
-				case "display":
-					foreach ( $value as $option => $optionValue ) {
-						if ( is_array( $optionValue ) ) {
-							$parsedConfig['display'][$option] = $this->parseArrayValues(
-								$optionValue,
-								$lang,
-								[ 'label' ]
-							);
-						} else {
-							$parsedConfig['display'][$option] = $this->parseValue( $optionValue, $lang );
+					case "title":
+					case "description":
+						$parsedConfig[$key] = $this->parseValue( $value, $lang );
+						break;
+					case "display":
+						foreach ( $value as $option => $optionValue ) {
+							if ( is_array( $optionValue ) ) {
+								$parsedConfig['display'][$option] = $this->parseArrayValues(
+									$optionValue,
+									$lang,
+									[ 'label' ]
+								);
+							} else {
+								$parsedConfig['display'][$option] = $this->parseValue( $optionValue, $lang );
+							}
 						}
-					}
-					break;
-				case "fields":
-					$parsedConfig['fields'] = [];
-					foreach ( $value as $field ) {
-						$parsedConfig['fields'][] = $this->parseArrayValues(
-							$field,
-							$lang,
-							[ 'label', 'options' ]
-						);
-					}
-					break;
-				case "whileActive":
-				case "afterActive":
-				case "beforeActive":
-					if ( array_key_exists( 'display', $value ) ) {
-						$value['display'] = $this->parseArrayValues( $value['display'], $lang );
-					}
-					$parsedConfig[$key] = $value;
-					break;
-				default:
-					$parsedConfig[$key] = $value;
-					break;
+						break;
+					case "fields":
+						$parsedConfig['fields'] = [];
+						foreach ( $value as $field ) {
+							$parsedConfig['fields'][] = $this->parseArrayValues(
+								$field,
+								$lang,
+								[ 'label', 'options' ]
+							);
+						}
+						break;
+					case "whileActive":
+					case "afterActive":
+					case "beforeActive":
+						if ( array_key_exists( 'display', $value ) ) {
+							$value['display'] = $this->parseArrayValues( $value['display'], $lang );
+						}
+						$parsedConfig[$key] = $value;
+						break;
+					default:
+						$parsedConfig[$key] = $value;
+						break;
 				}
 			}
 
@@ -486,7 +486,7 @@ class Campaign {
 	private function getButtonHrefByObjectReference( $objRef ) {
 		$arrObjRef = explode( '|', $objRef );
 		if ( count( $arrObjRef ) > 1 ) {
-			list( $wiki, $title ) = $arrObjRef;
+			[ $wiki, $title ] = $arrObjRef;
 			$lookup = MediaWikiServices::getInstance()->getInterwikiLookup();
 			if ( $lookup->isValidInterwiki( $wiki ) ) {
 				return str_replace( '$1', $title, $lookup->fetch( $wiki )->getURL() );

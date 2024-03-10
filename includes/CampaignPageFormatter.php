@@ -37,6 +37,9 @@ class CampaignPageFormatter {
 		}
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function isCampaignExtensionEnabled() {
 		$rl = MediaWikiServices::getInstance()->getResourceLoader();
 		// FIXME: This string exists nowhere in Wikimedia Gerrit outside this file.

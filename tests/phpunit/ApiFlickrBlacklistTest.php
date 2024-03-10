@@ -58,13 +58,13 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
 		$this->editPage( self::BLACKLIST_PAGE, self::PASFAM_NSID );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_STATIC,
 		] );
 		$this->assertBlacklistMatch( $response );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_PHOTO,
 		] );
@@ -76,7 +76,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
 		$this->editPage( self::BLACKLIST_PAGE, self::PASFAM_USERNAME );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_STATIC,
 		] );
@@ -88,7 +88,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
 		$this->editPage( self::BLACKLIST_PAGE, 'foo bar ' . self::PASFAM_NSID . ' baz' );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_STATIC,
 		] );
@@ -100,13 +100,13 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
 		$this->editPage( self::BLACKLIST_PAGE, self::FAKE_NSID );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_STATIC,
 		] );
 		$this->assertNotBlacklistMatch( $response );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_PHOTO,
 		] );
@@ -121,7 +121,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
 		$this->editPage( self::BLACKLIST_PAGE, '# ' . self::PASFAM_NSID );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_STATIC,
 		] );
@@ -133,7 +133,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->setFlickrBlacklistPage( self::BLACKLIST_PAGE );
 		$this->editPage( self::BLACKLIST_PAGE, '26011645@N00' );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'list' => 1,
 		] );
@@ -152,7 +152,7 @@ class ApiFlickrBlacklistTest extends ApiTestCase {
 		$this->checkApiSetup();
 		$this->setFlickrBlacklistPage( 'TestFlickrBlacklistPageDoesNotExist' );
 
-		list( $response, , ) = $this->doApiRequest( [
+		[ $response, , ] = $this->doApiRequest( [
 			'action' => 'flickrblacklist',
 			'url' => self::PASFAM_IMAGE_STATIC,
 		] );
