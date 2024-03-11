@@ -53,7 +53,7 @@ mw.FlickrChecker.licenseMaps = {
 	'No known copyright restrictions': '{{Flickr-no known copyright restrictions}}{{flickrreview}}',
 	'United States Government Work': '{{PD-USGov}}{{flickrreview}}',
 	'Public Domain Dedication (CC0)': '{{cc-zero}}{{flickrreview}}',
-	'Public Domain Mark': '{{flickrreview}}' // T105629, user needs to add a valid PD license
+	'Public Domain Mark': '{{cc-zero}}{{flickrreview}}'
 };
 
 mw.FlickrChecker.prototype = {
@@ -413,7 +413,7 @@ mw.FlickrChecker.prototype = {
 					source: 'flickr',
 					licenseValue: licenseValue,
 					licenseMessage: license.licenseMessage,
-					license: license.licenseName !== 'Public Domain Mark',
+					licenseName: license.licenseName,
 					photoId: item.id,
 					location: {
 						latitude: item.latitude,
@@ -497,7 +497,7 @@ mw.FlickrChecker.prototype = {
 				} );
 			}
 		} ).fail( function ( message ) {
-			mw.errorDialog( message );
+			mw.errorDialog( message, mw.msg( 'mwe-upwiz-license-photoset-invalid-title' ) );
 			checker.$spinner.remove();
 			checker.ui.flickrInterfaceReset();
 		} );
@@ -564,7 +564,7 @@ mw.FlickrChecker.prototype = {
 				source: 'flickr',
 				licenseValue: license.licenseValue,
 				licenseMessage: license.licenseMessage,
-				license: license.licenseName !== 'Public Domain Mark',
+				licenseName: license.licenseName,
 				author: photoAuthor,
 				originalFormat: photo.originalformat,
 				date: photo.dates.taken,
@@ -586,7 +586,7 @@ mw.FlickrChecker.prototype = {
 				checker.ui.flickrInterfaceDestroy();
 			} );
 		} ).fail( function ( message ) {
-			mw.errorDialog( message );
+			mw.errorDialog( message, mw.msg( 'mwe-upwiz-license-external-invalid-title' ) );
 			checker.$spinner.remove();
 			checker.ui.flickrInterfaceReset();
 		} );

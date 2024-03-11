@@ -35,6 +35,7 @@
 				$( '<div>' ).addClass( 'mwe-upwiz-file-preview' ),
 				$( '<div>' ).addClass( 'mwe-upwiz-file-texts' ).append(
 					$( '<div>' ).addClass( 'mwe-upwiz-visible-file-filename-text' ),
+					$( '<div>' ).addClass( 'mwe-upwiz-file-license' ),
 					$( '<div>' ).addClass( 'mwe-upwiz-file-status-line' ).append(
 						$( '<div>' ).addClass( 'mwe-upwiz-file-status' )
 					)
@@ -91,6 +92,13 @@
 		this.$spinner.toggle( progress );
 		this.statusMessage.toggle( status && !progress ).setType( status );
 		this.$indicator.toggleClass( 'mwe-upwiz-file-indicator-visible', !!status );
+	};
+
+	/**
+	 * @param {string} license License text
+	 */
+	mw.UploadWizardUploadInterface.prototype.setLicenseText = function ( license ) {
+		this.$div.find( '.mwe-upwiz-file-license' ).text( license );
 	};
 
 	/**

@@ -103,22 +103,35 @@
 		var self = this,
 			// select "provide same information for all files" by default
 			defaultDeedInterface = 'common',
+			localUploads = uploads.filter( function ( upload ) {
+				var deed;
+				if ( upload.file.fromURL ) {
+					// external uploads should get a custom deed...
+					deed = new uw.deed.Custom( self.config, upload );
+					upload.deedChooser = new mw.UploadWizardDeedChooser(
+						self.config,
+						{ [ deed.name ]: deed },
+						[ upload ]
+					);
+					upload.deedChooser.selectDeed( deed );
+					// ... and be filtered out of the list for which to select a license
+					return false;
+				}
+				return true;
+			} ),
 			// figure out how many unique deed choosers there were, so
 			// we can restore the same (common/individual) interface
-			uniqueExistingDeedChoosers = this.getUniqueDeedChoosers( uploads ),
+			uniqueExistingDeedChoosers = this.getUniqueDeedChoosers( localUploads ),
 			// grab a serialized copy of previous deeds' details (if any)
-			serializedDeeds = uploads.reduce( function ( map, upload ) {
+			serializedDeeds = localUploads.reduce( function ( map, upload ) {
 				if ( upload.deedChooser ) {
 					map[ upload.getFilename() ] = upload.deedChooser.getSerialized();
 				}
 				return map;
 			}, {} ),
-			multiDeedRadio, fromStepName, showDeed;
-
-		showDeed = uploads.some( function ( upload ) {
-			fromStepName = upload.state;
-			return !upload.file.fromURL;
-		} );
+			showDeed = localUploads.length > 0,
+			fromStepName = uploads[ 0 ].state,
+			multiDeedRadio;
 
 		uw.controller.Step.prototype.load.call( this, uploads );
 
@@ -142,7 +155,7 @@
 				new OO.ui.RadioOptionWidget( {
 					label: mw.message(
 						'mwe-upwiz-source-multiple-label-common',
-						uploads.length,
+						localUploads.length,
 						mw.user
 					).parse(),
 					data: 'common'
@@ -150,7 +163,7 @@
 				new OO.ui.RadioOptionWidget( {
 					label: mw.message(
 						'mwe-upwiz-source-multiple-label-individual',
-						uploads.length,
+						localUploads.length,
 						mw.user
 					).parse(),
 					data: 'individual'
@@ -160,7 +173,7 @@
 
 		// if we have multiple uploads, also give them the option to set
 		// licenses individually
-		if ( uploads.length > 1 && this.shouldShowIndividualDeed( this.config ) ) {
+		if ( localUploads.length > 1 && this.shouldShowIndividualDeed( this.config ) ) {
 			this.ui.showMultiDeedRadio( multiDeedRadio );
 
 			if ( uniqueExistingDeedChoosers.length > 1 ) {
@@ -173,9 +186,9 @@
 		// wire up handler to toggle common/individual deed selection forms
 		multiDeedRadio.on( 'select', function ( selectedOption ) {
 			if ( selectedOption.getData() === 'common' ) {
-				self.loadCommon( uploads );
+				self.loadCommon( localUploads );
 			} else if ( selectedOption.getData() === 'individual' ) {
-				self.loadIndividual( uploads );
+				self.loadIndividual( localUploads );
 			}
 		} );
 

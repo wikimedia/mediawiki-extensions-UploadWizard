@@ -18,23 +18,19 @@
 ( function ( uw ) {
 	QUnit.module( 'mw.uploadWizard.controller.Details', QUnit.newMwEnvironment() );
 
-	function createTestUpload( sandbox, customDeedChooser, aborted ) {
+	function createTestUpload( sandbox, aborted ) {
 		var stubs = {
-			useCustomDeedChooser: sandbox.stub(),
 			getSerialized: sandbox.stub(),
 			setSerialized: sandbox.stub(),
 			attach: sandbox.stub()
 		};
 
 		return {
-			file: { fromURL: customDeedChooser },
-
 			deedChooser: { deed: { name: 'cc-by-sa-4.0' } },
 
 			on: function () {},
 
 			details: {
-				useCustomDeedChooser: stubs.useCustomDeedChooser,
 				getSerialized: stubs.getSerialized,
 				setSerialized: stubs.setSerialized,
 				attach: stubs.attach
@@ -67,28 +63,24 @@
 
 		step.load( [ testUpload ] );
 
-		assert.strictEqual( testUpload.stubs.useCustomDeedChooser.called, false );
 		assert.strictEqual( step.createDetails.callCount, 1 );
 		assert.true( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox, true );
 		step.load( [ testUpload ] );
 
-		assert.true( testUpload.stubs.useCustomDeedChooser.called );
 		assert.strictEqual( step.createDetails.callCount, 2 );
 		assert.true( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
 		step.load( [ testUpload, createTestUpload( this.sandbox ) ] );
 
-		assert.strictEqual( testUpload.stubs.useCustomDeedChooser.called, false );
 		assert.strictEqual( step.createDetails.callCount, 4 );
 		assert.true( stepUiStub.called );
 
 		testUpload = createTestUpload( this.sandbox );
 		step.load( [ testUpload, createTestUpload( this.sandbox, false, true ) ] );
 
-		assert.strictEqual( testUpload.stubs.useCustomDeedChooser.called, false );
 		assert.strictEqual( step.createDetails.callCount, 6 );
 		assert.true( stepUiStub.called );
 	} );

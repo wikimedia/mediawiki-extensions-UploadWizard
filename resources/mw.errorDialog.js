@@ -12,7 +12,7 @@
 	 */
 	mw.errorDialog = function ( errorMessage, title ) {
 		OO.ui.getWindowManager().openWindow( 'upwizErrorDialog', {
-			message: errorMessage,
+			message: new OO.ui.HtmlSnippet( errorMessage ),
 			title: title || mw.message( 'mwe-upwiz-errordialog-title' ).text(),
 			verbose: true,
 			actions: [
