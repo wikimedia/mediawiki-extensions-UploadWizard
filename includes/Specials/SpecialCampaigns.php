@@ -5,11 +5,16 @@ namespace MediaWiki\Extension\UploadWizard\Specials;
 use MediaWiki\Extension\UploadWizard\Campaign;
 use MediaWiki\Html\Html;
 use MediaWiki\SpecialPage\SpecialPage;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class SpecialCampaigns extends SpecialPage {
 
-	public function __construct() {
+	/** @var \Wikimedia\Rdbms\IDatabase|\Wikimedia\Rdbms\IReadableDatabase */
+	private $dbr;
+
+	public function __construct( IConnectionProvider $dbProvider ) {
 		parent::__construct( "Campaigns" );
+		$this->dbr = $dbProvider->getReplicaDatabase();
 	}
 
 	/**
@@ -17,7 +22,6 @@ class SpecialCampaigns extends SpecialPage {
 	 */
 	public function execute( $subPage ) {
 		$request = $this->getRequest();
-		$dbr = wfGetDB( DB_REPLICA );
 
 		$start = $request->getIntOrNull( 'start' );
 
@@ -29,7 +33,7 @@ class SpecialCampaigns extends SpecialPage {
 			$cond[] = 'campaign_id > ' . $start;
 		}
 
-		$res = $dbr->select(
+		$res = $this->dbr->select(
 			'uw_campaigns',
 			[ 'campaign_id', 'campaign_name' ],
 			$cond,

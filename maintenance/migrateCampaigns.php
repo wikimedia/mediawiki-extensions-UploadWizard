@@ -255,9 +255,11 @@ class MigrateCampaigns extends Maintenance {
 	}
 
 	public function execute() {
+		$services = MediaWikiServices::getInstance();
+
 		$username = $this->getOption( 'user', 'Maintenance script' );
 
-		$this->dbr = wfGetDB( DB_PRIMARY );
+		$this->dbr = $services->getDBLoadBalancerFactory()->getPrimaryDatabase();
 		$campaigns = $this->dbr->select(
 			'uw_campaigns',
 			'*',
@@ -271,7 +273,7 @@ class MigrateCampaigns extends Maintenance {
 		}
 
 		$user = User::newFromName( $username );
-		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
+		$wikiPageFactory = $services->getWikiPageFactory();
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
 			$newConfig = $this->getConfigForJSON( $campaign, $oldConfig );

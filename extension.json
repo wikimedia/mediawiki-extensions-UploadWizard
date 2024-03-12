@@ -71,7 +71,12 @@
 				"UserOptionsLookup"
 			]
 		},
-		"Campaigns": "MediaWiki\\Extension\\UploadWizard\\Specials\\SpecialCampaigns"
+		"Campaigns": {
+			"class": "MediaWiki\\Extension\\UploadWizard\\Specials\\SpecialCampaigns",
+			"services": [
+				"DBLoadBalancerFactory"
+			]
+		}
 	},
 	"APIModules": {
 		"flickrblacklist": "MediaWiki\\Extension\\UploadWizard\\ApiFlickrBlacklist"
@@ -652,7 +657,10 @@
 			"class": "MediaWiki\\Extension\\UploadWizard\\Hooks"
 		},
 		"campaign": {
-			"class": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks"
+			"class": "MediaWiki\\Extension\\UploadWizard\\CampaignHooks",
+			"services": [
+				"DBLoadBalancerFactory"
+			]
 		},
 		"codeeditor": {
 			"class": "MediaWiki\\Extension\\UploadWizard\\CodeEditorHooks"

@@ -21,6 +21,7 @@ use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IConnectionProvider;
 use WikiPage;
 
 /**
@@ -41,6 +42,16 @@ class CampaignHooks implements
 	PageMoveCompleteHook,
 	LinksUpdateCompleteHook
 {
+
+	/** @var IConnectionProvider */
+	private $dbLoadBalancerFactory;
+
+	/**
+	 * @param IConnectionProvider $dbLoadBalancerFactory
+	 */
+	public function __construct( IConnectionProvider $dbLoadBalancerFactory ) {
+		$this->dbLoadBalancerFactory = $dbLoadBalancerFactory;
+	}
 
 	/**
 	 * 'Campaign' content model must be used in, and only in, the 'Campaign' namespace.
@@ -86,7 +97,7 @@ class CampaignHooks implements
 			return;
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = $this->dbLoadBalancerFactory->getPrimaryDatabase();
 
 		$campaignData = $content->getJsonData();
 		$insertData = [
@@ -145,7 +156,7 @@ class CampaignHooks implements
 		}
 
 		$fname = __METHOD__;
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = $this->dbLoadBalancerFactory->getPrimaryDatabase();
 		$dbw->onTransactionPreCommitOrIdle( static function () use ( $dbw, $article, $fname ) {
 			$dbw->delete(
 				'uw_campaigns',
@@ -178,7 +189,7 @@ class CampaignHooks implements
 			return;
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = $this->dbLoadBalancerFactory->getPrimaryDatabase();
 		$dbw->update(
 			'uw_campaigns',
 			[ 'campaign_name' => $newTitle->getDBkey() ],

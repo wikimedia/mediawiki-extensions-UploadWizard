@@ -75,6 +75,18 @@ class Campaign {
 	 */
 	protected $context = null;
 
+	/** @var WANObjectCache */
+	private $wanObjectCache;
+
+	/** @var \Wikimedia\Rdbms\IReadableDatabase */
+	private $dbr;
+
+	/** @var Parser */
+	private $parser;
+
+	/** @var \MediaWiki\Interwiki\InterwikiLookup */
+	private $interwikiLookup;
+
 	public static function newFromName( $name ) {
 		$campaignTitle = Title::makeTitleSafe( NS_CAMPAIGN, $name );
 		if ( $campaignTitle === null || !$campaignTitle->exists() ) {
@@ -85,9 +97,16 @@ class Campaign {
 	}
 
 	public function __construct( $title, $config = null, $context = null ) {
+		$services = MediaWikiServices::getInstance();
+		$this->wanObjectCache = $services->getMainWANObjectCache();
+		$this->dbr = $services->getDBLoadBalancerFactory()->getReplicaDatabase();
+		$this->parser = $services->getParser();
+		$this->interwikiLookup = $services->getInterwikiLookup();
+		$wikiPageFactory = $services->getWikiPageFactory();
+
 		$this->title = $title;
 		if ( $config === null ) {
-			$content = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title )->getContent();
+			$content = $wikiPageFactory->newFromTitle( $title )->getContent();
 			if ( !$content instanceof CampaignContent ) {
 				throw new InvalidArgumentException( 'Wrong content model' );
 			}
@@ -140,14 +159,13 @@ class Campaign {
 	}
 
 	public function getTotalContributorsCount() {
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$dbr = $this->dbr;
 		$fname = __METHOD__;
 
-		return $cache->getWithSetCallback(
-			$cache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
+		return $this->wanObjectCache->getWithSetCallback(
+			$this->wanObjectCache->makeKey( 'uploadwizard-campaign-contributors-count', $this->getName() ),
 			Config::getSetting( 'campaignStatsMaxAge' ),
-			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname ) {
-				$dbr = wfGetDB( DB_REPLICA );
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr ) {
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
 				$result = $dbr->select(
@@ -175,8 +193,7 @@ class Campaign {
 	 * @return Title[]
 	 */
 	public function getUploadedMedia( $limit = 24 ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$result = $dbr->select(
+		$result = $this->dbr->select(
 			[ 'categorylinks', 'page' ],
 			[ 'cl_from', 'page_namespace', 'page_title' ],
 			[ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ],
@@ -239,7 +256,7 @@ class Campaign {
 		$parserOptions->setUserLang( $lang );
 		$parserOptions->setTargetLanguage( $lang );
 
-		$output = MediaWikiServices::getInstance()->getParser()->parse(
+		$output = $this->parser->parse(
 			$value, $this->getTitle(), $parserOptions
 		);
 		$parsed = $output->getText( [
@@ -301,17 +318,16 @@ class Campaign {
 		// we then check to make sure that it is the latest version - by verifying that its
 		// timestamp is greater than or equal to the timestamp of the last time an invalidate was
 		// issued.
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$memKey = $cache->makeKey(
+		$memKey = $this->wanObjectCache->makeKey(
 			'uploadwizard-campaign',
 			$this->getName(),
 			'parsed-config',
 			$lang->getCode()
 		);
-		$depKeys = [ $this->makeInvalidateTimestampKey( $cache ) ];
+		$depKeys = [ $this->makeInvalidateTimestampKey( $this->wanObjectCache ) ];
 
 		$curTTL = null;
-		$memValue = $cache->get( $memKey, $curTTL, $depKeys );
+		$memValue = $this->wanObjectCache->get( $memKey, $curTTL, $depKeys );
 		if ( is_array( $memValue ) && $curTTL > 0 ) {
 			$this->parsedConfig = $memValue['config'];
 		}
@@ -363,7 +379,7 @@ class Campaign {
 
 			$this->parsedConfig = $parsedConfig;
 
-			$cache->set( $memKey, [ 'timestamp' => time(), 'config' => $parsedConfig ] );
+			$this->wanObjectCache->set( $memKey, [ 'timestamp' => time(), 'config' => $parsedConfig ] );
 		}
 
 		$uwDefaults = Config::getSetting( 'defaults' );
@@ -425,8 +441,7 @@ class Campaign {
 	 * for the campaign will be regenerated the next time there is a read.
 	 */
 	public function invalidateCache() {
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$cache->touchCheckKey( $this->makeInvalidateTimestampKey( $cache ) );
+		$this->wanObjectCache->touchCheckKey( $this->makeInvalidateTimestampKey( $this->wanObjectCache ) );
 	}
 
 	/**
@@ -487,9 +502,8 @@ class Campaign {
 		$arrObjRef = explode( '|', $objRef );
 		if ( count( $arrObjRef ) > 1 ) {
 			[ $wiki, $title ] = $arrObjRef;
-			$lookup = MediaWikiServices::getInstance()->getInterwikiLookup();
-			if ( $lookup->isValidInterwiki( $wiki ) ) {
-				return str_replace( '$1', $title, $lookup->fetch( $wiki )->getURL() );
+			if ( $this->interwikiLookup->isValidInterwiki( $wiki ) ) {
+				return str_replace( '$1', $title, $this->interwikiLookup->fetch( $wiki )->getURL() );
 			}
 		}
 		return false;
