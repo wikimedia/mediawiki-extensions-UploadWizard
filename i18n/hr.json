@@ -131,6 +131,8 @@
 	"mwe-upwiz-source-thirdparty-accept": "U redu",
 	"mwe-upwiz-source-thirdparty-compliance-label": "Prije nastavka molimo potvrdite izjavu ispod.",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Potvrđujem da {{PLURAL:$1|ovo djelo ne uključuje|ova djela ne uključuju}} materijale zaštićene autorskim pravima poput logotipa, plakata, omota albuma, i slično.",
+	"mwe-upwiz-source-multiple-label-common": "Želim navesti iste podatke za sve datoteke",
+	"mwe-upwiz-source-multiple-label-individual": "Želim navesti podatke za svaku datoteku zasebno",
 	"mwe-upwiz-patent-dialog-title": "Patentna prava",
 	"mwe-upwiz-patent-dialog-title-filename": "Zakonska prava za: $1",
 	"mwe-upwiz-patent-dialog-button-back": "Natrag",

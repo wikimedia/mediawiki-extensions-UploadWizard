@@ -22,11 +22,13 @@
 	"mwe-upwiz-file-all-ok": "成功上載所有檔案！",
 	"mwe-upwiz-upload-count": "$2個檔案中嘅$1個已經上載咗",
 	"mwe-upwiz-source-ownwork-purpose-option-personal-use": "{{PLURAL:$1|呢份作品|呢啲作品}}係for我個人用途，例如係我自己、屋企人或朋友嘅相，或自我宣傳內容。",
+	"mwe-upwiz-source-ownwork-origin-option-ai": "{{GENDER:$2|我}}用咗人工智能工具生成{{PLURAL:$1|呢份作品|呢啲作品}}[[COM:AI-generated_media|（睇指引）]]",
 	"mwe-upwiz-desc-add": "{{PLURAL:$1|0=加一段説明|加另一個語言嘅説明}}",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|呢份作品|呢啲作品}}用咗人工智能工具生成",
 	"mwe-upwiz-next-file": "繼續",
 	"mwe-upwiz-previous": "返轉頭",
 	"mwe-upwiz-tooltip-source": "呢個數碼檔案嘅來源──可以係URL、書或者出版物。",
+	"mwe-upwiz-license-no-subhead": "<p><b>唔好上載{{PLURAL:$1|呢個檔案|呢啲檔案}}！</b> 維基同享唔 host 受版權保護嘅媒體。維基同享淨係接受[$2 自由授權]或[$3 公有領域]嘅圖。</p><p>如果你有任何疑惑，請[$4 睇下關於授權嘅資訊]，或喺上載之前問下資深貢獻者嘅意見。[$5 維基同享 Village Pump]度會有人樂意幫你。多謝。</p>",
 	"mwe-upwiz-metadata-notice-header": "私人數據",
 	"mwe-upwiz-metadata-notice-description": "檔案裏面嘅EXIF中繼資料可能包含由相機自動加入嘅位置或其他私人數據。[https://commons.wikimedia.org/wiki/Commons:Exif 睇呢道]了解點樣修改或移除EXIF中繼資料。"
 }
