@@ -334,7 +334,7 @@
 	"mwe-upwiz-license-yes-head": "Yes, I have this information",
 	"mwe-upwiz-license-yes-subhead": "Select the type of license {{PLURAL:$1|this work is|these works are}} published under",
 	"mwe-upwiz-license-no-head": "No, I don't have this information",
-	"mwe-upwiz-license-no-subhead": "<p><b>Do not upload {{PLURAL:$1|this file|these files}}!</b> Wikimedia Commons does not host media protected by Copyright. Only files with [$2 free licenses] or [$3 public domain] images are permitted on Commons.</p><p>If you are in any doubt, please [$4 learn more about licensing], or please ask some experienced contributors for advice before uploading. People will be happy to assist you at [$5 Wikimedia Commons's Village Pump]. Thank you.</p>",
+	"mwe-upwiz-license-no-subhead": "<p><b>Do not upload {{PLURAL:$1|this file|these files}}!</b> Wikimedia Commons does not host media protected by copyright. Only files with [$2 free licenses] or [$3 public domain] images are permitted on Commons.</p><p>If you are in any doubt, please [$4 learn more about licensing], or please ask some experienced contributors for advice before uploading. People will be happy to assist you at [$5 Wikimedia Commons's Village Pump]. Thank you.</p>",
 	"mwe-upwiz-license-cc0-head": "{{PLURAL:$1|This work is|These works are}} not protected by copyright law and hence {{PLURAL:$1|has|have}} no associated license $3 [$2 (learn more)]",
 	"mwe-upwiz-license-cc0-subhead": "Wikimedia Commons is located in the USA, so the {{PLURAL:$1|work|works}} must be out of copyright in that country as well. Which of the options below is true? Check all that apply.",
 	"mwe-upwiz-license-other-head": "Enter a different license in wikitext format",
