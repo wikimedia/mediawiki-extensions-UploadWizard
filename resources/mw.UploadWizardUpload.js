@@ -60,6 +60,10 @@
 				 */
 				'upload-removed': [ 'emit', 'remove-upload' ]
 			} );
+
+		if ( file.licenseName ) {
+			this.ui.setLicenseText( file.licenseName );
+		}
 	};
 
 	OO.mixinClass( mw.UploadWizardUpload, OO.EventEmitter );

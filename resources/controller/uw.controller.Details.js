@@ -65,9 +65,6 @@
 			serialized = upload.details ? upload.details.getSerialized() : null;
 
 			controller.createDetails( upload );
-			if ( upload.file.fromURL ) {
-				upload.details.useCustomDeedChooser();
-			}
 			upload.details.attach();
 
 			// restore earlier details (user may have started inputting details,

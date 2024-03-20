@@ -40,6 +40,7 @@
 			return this.upload.file.url;
 		}
 	};
+
 	/**
 	 * @inheritdoc
 	 */

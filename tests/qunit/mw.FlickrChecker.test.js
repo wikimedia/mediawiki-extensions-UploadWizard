@@ -8,7 +8,7 @@ QUnit.module( 'ext.uploadWizard/mw.FlickrChecker.test.js', function ( hooks ) {
 	function getInstance() {
 		var wizard = new mw.UploadWizard( {} );
 		// FlickrChecker doesn't actually do much with the upload so we can omit some of its dependencies
-		var upload = new mw.UploadWizardUpload( wizard );
+		var upload = new mw.UploadWizardUpload( wizard, {} );
 		return new mw.FlickrChecker( wizard, upload );
 	}
 

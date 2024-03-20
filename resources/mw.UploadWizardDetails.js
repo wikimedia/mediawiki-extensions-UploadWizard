@@ -16,8 +16,6 @@
 
 		this.mainFields = [];
 
-		this.deedChooserDetails = new uw.DeedChooserDetailsWidget();
-		this.customDeedChooser = false;
 		this.captionSubmissionErrors = {};
 
 		this.$div = $( '<div>' ).addClass( 'mwe-upwiz-info-file filled' );
@@ -99,13 +97,6 @@
 			} );
 			this.mainFields.push( this.descriptionsDetailsField );
 
-			this.deedChooserDetailsField = new uw.FieldLayout( this.deedChooserDetails, {
-				label: mw.message( 'mwe-upwiz-copyright-info' ).text(),
-				required: true
-			} );
-			this.deedChooserDetailsField.toggle( this.customDeedChooser ); // See useCustomDeedChooser()
-			this.mainFields.push( this.deedChooserDetailsField );
-
 			this.categoriesDetails = new uw.CategoriesDetailsWidget();
 			this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
 				label: mw.message( 'mwe-upwiz-categories' ).text(),
@@ -145,7 +136,6 @@
 				this.titleDetailsField.$element,
 				config.wikibase.enabled && config.wikibase.captions ? this.captionsDetailsField.$element : null,
 				this.descriptionsDetailsField.$element,
-				this.deedChooserDetailsField.$element,
 				this.dateDetailsField.$element,
 				this.categoriesDetailsField.$element
 			);
@@ -425,14 +415,6 @@
 		},
 
 		/**
-		 * toggles whether we use the 'macro' deed or our own
-		 */
-		useCustomDeedChooser: function () {
-			this.customDeedChooser = true;
-			this.deedChooserDetails.useCustomDeedChooser( this.upload );
-		},
-
-		/**
 		 * Pull some info into the form ( for instance, extracted from EXIF, desired filename )
 		 */
 		populate: function () {
@@ -685,8 +667,7 @@
 				other: this.otherDetails.getSerialized(),
 				campaigns: this.campaignDetailsFields.map( function ( field ) {
 					return field.fieldWidget.getSerialized();
-				} ),
-				deed: this.deedChooserDetails.getSerialized()
+				} )
 			};
 		},
 
@@ -747,9 +728,6 @@
 				for ( i = 0; i < this.campaignDetailsFields.length; i++ ) {
 					this.campaignDetailsFields[ i ].fieldWidget.setSerialized( serialized.campaigns[ i ] );
 				}
-			}
-			if ( serialized.deed ) {
-				this.deedChooserDetails.setSerialized( serialized.deed );
 			}
 		},
 
