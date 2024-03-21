@@ -176,7 +176,6 @@
 	"mwe-upwiz-location-lon": "Dužina",
 	"mwe-upwiz-location-alt": "Nadmorska visina",
 	"mwe-upwiz-location-heading": "Pravac snimanja",
-	"mwe-upwiz-copyright-info": "Prava objave",
 	"mwe-upwiz-author-text": "Unesite ime izvornog autora {{PLURAL:$1|ovog djela|ovih djela}}.",
 	"mwe-upwiz-author-unknown": "Ne znam tko je autor",
 	"mwe-upwiz-author-text-ai": "Unesite naziv mehanizma za umjetnu inteligenciju koji ste rabili, te ime osobe koja je stvorila upit:",

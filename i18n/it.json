@@ -186,7 +186,6 @@
 	"mwe-upwiz-location-lon": "Longitudine",
 	"mwe-upwiz-location-alt": "Altitudine",
 	"mwe-upwiz-location-heading": "Direzione",
-	"mwe-upwiz-copyright-info": "Diritti di pubblicazione",
 	"mwe-upwiz-author-text": "Inserisci il nome dell'autore originale di {{PLURAL:$1|quest'opera|queste opere}}:",
 	"mwe-upwiz-author-not-known": "Non ho questa informazione",
 	"mwe-upwiz-author-text-ai": "Inserisci il nome del motore di intelligenza artificiale utilizzato, seguito da quello della persona che ha creato il prompt:",
