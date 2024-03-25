@@ -26,7 +26,7 @@ class FlickrBlacklist {
 	 * Used as an in-memory cache to speed successive lookups; null means not yet initialized.
 	 * @var array|null
 	 */
-	protected static $blacklist;
+	protected static $blacklist = null;
 
 	/**
 	 * @var string
@@ -92,7 +92,7 @@ class FlickrBlacklist {
 	 * @return array
 	 */
 	public function getBlacklist() {
-		if ( !isset( self::$blacklist ) ) {
+		if ( self::$blacklist === null ) {
 			self::$blacklist = [];
 			if ( $this->flickrBlacklistPage ) {
 				$title = Title::newFromText( $this->flickrBlacklistPage );
