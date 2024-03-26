@@ -248,7 +248,7 @@
 	"mwe-upwiz-error-longitude": "Lengdegraden må være et tall mellom −180 og 180.",
 	"mwe-upwiz-error-altitude": "Høyden må være et tall.",
 	"mwe-upwiz-error-heading": "Retningen må være et tall mellom 0 og 360.",
-	"mwe-upwiz-error-signature-too-long": "Signaturen din er for lang.\nGjør den kortere enn $1 {{PLURAL:$1|tegn|tegn}}.",
+	"mwe-upwiz-error-signature-too-long": "Signaturen din er for lang.\nGjør den kortere enn $1 {{PLURAL:$1|tegn}}.",
 	"mwe-upwiz-error-signature-too-short": "Signaturen din er for kort.\nGjør den lengre enn $1 {{PLURAL:$1|tegn|tegn}}.",
 	"mwe-upwiz-error-date-license-mismatch": "Den valgte datoen passer ikke med lisensen ($1).",
 	"mwe-upwiz-error-date-license-unlikely": "Det valgte datoen er trolig feil, gitt at lisensen er rett ($1).",
