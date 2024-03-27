@@ -5,6 +5,11 @@
 			"Chuvash2014"
 		]
 	},
+	"uploadwizard": "Тиев пулӑшуҫи",
+	"uploadwizard-desc": "Тиев пулӑшуҫи — медиафайлсене тиеме ҫӑмӑллатакан меллӗ хатӗр",
+	"tag-uploadwizard": "Тиев пулӑшуҫи",
+	"tag-uploadwizard-description": "Тиев пулӑшуҫипе усӑ курса тунӑ тиевсем",
+	"tag-uploadwizard-flickr-description": "ТИев пулӑшуҫипе усӑ курса Flickr ҫинчен тиенисем",
 	"mwe-upwiz-categories": "Категорисем",
 	"mwe-upload-campaigns-pagination-next": "Тепĕр страница"
 }
