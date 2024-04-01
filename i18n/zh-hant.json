@@ -256,7 +256,7 @@
 	"mwe-upwiz-deeds-need-license": "請選擇授權條款。",
 	"mwe-upwiz-license-show-all": "使用其它授權條款",
 	"mwe-upwiz-license-show-recommended": "使用網站推薦的授權條款",
-	"mwe-upwiz-label-optional": "選填",
+	"mwe-upwiz-label-optional": "非必填",
 	"mwe-upwiz-error-signature-blank": "你必須在適合的輸入框輸入您的使用者名稱或真實姓名。",
 	"mwe-upwiz-error-latitude": "緯度需介乎於 -90 與 90 之間。",
 	"mwe-upwiz-error-longitude": "經度需介乎於 -180 與 180 之間。",

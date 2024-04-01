@@ -143,6 +143,7 @@
 	"mwe-upwiz-source-thirdparty-cases": "Vysvětlete, proč jste si jisti, že máte právo zveřejnit {{PLURAL:$1|toto dílo|tato díla}}:",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-custom": "Na další stránce poskytnout informace o autorských právech pro každý soubor zvlášť.",
+	"mwe-upwiz-patent-dialog-title": "Patentová práva",
 	"mwe-upwiz-patent-dialog-button-back": "Zpět",
 	"mwe-upwiz-patent-dialog-button-next": "Další",
 	"mwe-upwiz-patent-dialog-link-warranty": "Více informací",
