@@ -103,16 +103,17 @@ class CampaignHooks implements
 		$insertData = [
 			'campaign_enabled' => $campaignData !== null && $campaignData['enabled'] ? 1 : 0
 		];
-		$dbw->upsert(
-			'uw_campaigns',
-			array_merge(
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'uw_campaigns' )
+			->row( array_merge(
 				[ 'campaign_name' => $wikiPage->getTitle()->getDBkey() ],
 				$insertData
-			),
-			'campaign_name',
-			$insertData,
-			__METHOD__
-		);
+			) )
+			->onDuplicateKeyUpdate()
+			->uniqueIndexFields( 'campaign_name' )
+			->set( $insertData )
+			->caller( __METHOD__ )
+			->execute();
 
 		$campaign = new Campaign( $wikiPage->getTitle(), $content->getJsonData() );
 		$dbw->onTransactionPreCommitOrIdle( static function () use ( $campaign ) {
