@@ -159,11 +159,11 @@ class CampaignHooks implements
 		$fname = __METHOD__;
 		$dbw = $this->dbLoadBalancerFactory->getPrimaryDatabase();
 		$dbw->onTransactionPreCommitOrIdle( static function () use ( $dbw, $article, $fname ) {
-			$dbw->delete(
-				'uw_campaigns',
-				[ 'campaign_name' => $article->getTitle()->getDBkey() ],
-				$fname
-			);
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'uw_campaigns' )
+				->where( [ 'campaign_name' => $article->getTitle()->getDBkey() ] )
+				->caller( $fname )
+				->execute();
 		}, $fname );
 	}
 
@@ -191,12 +191,12 @@ class CampaignHooks implements
 		}
 
 		$dbw = $this->dbLoadBalancerFactory->getPrimaryDatabase();
-		$dbw->update(
-			'uw_campaigns',
-			[ 'campaign_name' => $newTitle->getDBkey() ],
-			[ 'campaign_name' => $oldTitle->getDBkey() ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( 'uw_campaigns' )
+			->set( [ 'campaign_name' => $newTitle->getDBkey() ] )
+			->where( [ 'campaign_name' => $oldTitle->getDBkey() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
