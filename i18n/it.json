@@ -148,7 +148,7 @@
 	"mwe-upwiz-source-thirdparty-custom-multiple-intro": "Se tutti i file hanno stessa fonte, autore e stato di copyright, puoi inserire tali informazioni una volta sola per tutti quanti.",
 	"mwe-upwiz-source-thirdparty-explain": "Puoi caricare il lavoro di qualcun altro purché esso sia pubblicato con una licenza libera o il suo copyright sia scaduto.",
 	"mwe-upwiz-source-thirdparty-cases": "Adesso indicaci perché sei sicuro di avere il diritto di pubblicare {{PLURAL:$1|quest'opera|queste opere}}:",
-	"mwe-upwiz-source-thirdparty-cases-text": "Conosci la [https://creativecommons.org/share-your-work/cclicenses/ licenza Creative Commons]  con la quale {{PLURAL:$1|questo lavoro è stato pubblicato|questi lavori sono stati pubblicati}}?",
+	"mwe-upwiz-source-thirdparty-cases-text": "Conosci la [https://creativecommons.org/share-your-work/cclicenses/ licenza Creative Commons] con la quale {{PLURAL:$1|questo lavoro è stato pubblicato|questi lavori sono stati pubblicati}}?",
 	"mwe-upwiz-source-thirdparty-accept": "OK",
 	"mwe-upwiz-source-thirdparty-compliance-option-copyright": "Confermo che {{PLURAL:$1|quest'opera|queste opere}} non includono materiale protetto da copyright, come loghi, poster, copertine, ecc.",
 	"mwe-upwiz-source-multiple-label-common": "Fornisci le stesse informazioni per tutti i file",
