@@ -31,7 +31,8 @@
 			"Whym",
 			"Yusuke1109",
 			"青子守歌",
-			"Ant176"
+			"Ant176",
+			"Salvare"
 		]
 	},
 	"uploadwizard": "アップロードウィザード",
@@ -359,6 +360,7 @@
 	"mwe-upwiz-error-campaigndisabled": "キャンペーン「$1」は有効になっていません。",
 	"mwe-upwiz-calendar-date": "カレンダーから日付を選択してください",
 	"prefs-uploads": "アップロード",
+	"prefs-description-uploads": "著者名とデフォルトのライセンスを設定します。",
 	"prefs-upwiz-licensing": "ライセンス",
 	"prefs-upwiz-experimental": "開発中の機能",
 	"prefs-upwiz-interface": "ユーザーインターフェイス",
