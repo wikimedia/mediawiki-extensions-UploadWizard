@@ -7,6 +7,7 @@
  *
  * @param uw
  */
+// eslint-disable-next-line no-unused-vars
 ( function ( uw ) {
 	/**
 	 * Constructor for objects representing uploads. The workhorse of this entire extension.
