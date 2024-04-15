@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahiise2"
+		]
+	},
+	"uploadwizard": "Omurogo Owayetuura",
+	"tag-uploadwizard": "Omurogo Owayetuura",
+	"api-error-aborted": "Ekituurwa kitangwa.",
+	"mwe-upwiz-step-tutorial": "Yega",
+	"mwe-upwiz-step-file": "Yetuura",
+	"mwe-upwiz-step-metadata": "Taho ebikwataho",
+	"mwe-upwiz-step-thanks": "Koseza",
+	"mwe-upwiz-add-file-n": "Taho fayiro zindi",
+	"mwe-upwiz-add-flickr-or": "rundi",
+	"mwe-upwiz-uploading": "Nikyetuurwa...",
+	"mwe-upwiz-publish": "Nikirangwa...",
+	"mwe-upwiz-stashed-upload": "Kyetwirwe",
+	"mwe-upwiz-published": "Kirangwa!",
+	"mwe-upwiz-failed": "Kiremerwe.",
+	"mwe-upwiz-upload": "Yetuura",
+	"mwe-upwiz-file-some-failed": "Ebituurwa ebimu biremerwe.",
+	"mwe-upwiz-progressbar-uploading": "nikyetuurwa",
+	"mwe-upwiz-finished": "Kimazirwe!",
+	"mwe-upwiz-source-thirdparty-accept": "Kale",
+	"mwe-upwiz-patent-dialog-link-warranty": "Yega muno",
+	"mwe-upwiz-patent-dialog-link-license": "Yega muno",
+	"mwe-upwiz-desc": "Ensoborra",
+	"mwe-upwiz-location-button": "Yoleka ha maapu",
+	"mwe-upwiz-ok": "Kale",
+	"mwe-upwiz-tooltip-more-info": "Yega muno.",
+	"mwe-upwiz-dialog-yes": "Ego",
+	"mwe-upwiz-dialog-no": "Nangwa",
+	"mwe-upwiz-campaign-create-account-button": "Hanga akaunti na yetuura!",
+	"mwe-upwiz-campaign-upload-button": "Yetuura!",
+	"mwe-upwiz-categories": "Emiganda",
+	"mwe-upwiz-errordialog-ok": "Kale",
+	"prefs-uploads": "Okwetuura",
+	"mwe-upwiz-prefs-license-name": "Ibara ly'omuhandiiki"
+}
