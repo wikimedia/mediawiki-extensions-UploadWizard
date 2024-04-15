@@ -189,7 +189,7 @@
 	"mwe-upwiz-author-text-ai-help": "<b>Example:</b> Author: Midjourney AI; prompted by Jane Doe",
 	"mwe-upwiz-autoconverted": "This file was automatically converted to the $1 format",
 	"mwe-upwiz-other": "Other information",
-	"mwe-upwiz-source-text": "Where did you find {{PLURAL:$1|this work|these works}}? Enter the website, the book, or another source.",
+	"mwe-upwiz-source-text": "Where did {{GENDER:$2|you}} find {{PLURAL:$1|this work|these works}}? Enter the website, the book, or another source.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|This work is|These works are}} generated in an artificial intelligence tool",
 	"mwe-upwiz-thanks-intro": "Thanks for uploading!",
 	"mwe-upwiz-thanks-explain": "You can now use {{PLURAL:$1|this file|these files}} on wikis, or link to {{PLURAL:$1|it|them}} on the web.",
