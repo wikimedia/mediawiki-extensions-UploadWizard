@@ -190,7 +190,7 @@
 	"mwe-upwiz-author-text-ai-help": "<b>Exemplo:</b> Autor: Midjourney AI; generate a base de un description per Jane Doe",
 	"mwe-upwiz-autoconverted": "Iste file ha essite automaticamente convertite in le formato $1",
 	"mwe-upwiz-other": "Altere informationes",
-	"mwe-upwiz-source-text": "Ubi ha tu trovate iste obra{{PLURAL:$1||s}}? Insere le sito web, le libro, o un altere fonte.",
+	"mwe-upwiz-source-text": "Ubi ha {{GENDER:$2|tu}} trovate iste obra{{PLURAL:$1||s}}? Insere le sito web, le libro, o un altere fonte.",
 	"mwe-upwiz-source-ai": "Iste obra{{PLURAL:$1||s}} ha essite generate per un instrumento de intelligentia artificial",
 	"mwe-upwiz-thanks-intro": "Gratias pro le incargamento!",
 	"mwe-upwiz-thanks-explain": "Tu pote ora usar iste {{PLURAL:$1|file|files}} in wikis, o ligar a {{PLURAL:$1|illo|illos}} in le web.",

@@ -212,7 +212,7 @@
 	"mwe-upwiz-author-text-ai-help": "<b>Beispiel:</b> Autor: Midjourney AI; Eingabeaufforderung von Jane Doe",
 	"mwe-upwiz-autoconverted": "Diese Datei wurde automatisch in das $1-Format konvertiert",
 	"mwe-upwiz-other": "Weitere Informationen",
-	"mwe-upwiz-source-text": "Wo hast du {{PLURAL:$1|dieses Werk|diese Werke}} gefunden? Gib die Website, das Buch oder eine andere Quelle ein.",
+	"mwe-upwiz-source-text": "Wo hast {{GENDER:$2|du}} {{PLURAL:$1|dieses Werk|diese Werke}} gefunden? Gib die Website, das Buch oder eine andere Quelle ein.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Dieses Werke ist|Diese Werke sind}} mithilfe einer künstlichen Intelligenz erzeugt worden",
 	"mwe-upwiz-thanks-intro": "Vielen Dank für das Hochladen!",
 	"mwe-upwiz-thanks-explain": "Du kannst jetzt diese {{PLURAL:$1|Datei|Dateien}} auf Wikis nutzen oder im Internet auf sie verlinken.",
