@@ -373,7 +373,7 @@
 	"mwe-upload-campaigns-pagination-next": "Další strana",
 	"mwe-upload-campaigns-list-title": "Seznam kampaní pro upload",
 	"mwe-upwiz-mv-cta-dismiss": "Zavřít",
-	"mwe-upwiz-mv-cta-user-preference-unset": "Již nebudete dostávat upozornění, abyste označil nahrané díla.",
+	"mwe-upwiz-mv-cta-user-preference-unset": "Již nebudete dostávat upozornění, abyste označil(a) nahraná díla.",
 	"mwe-upwiz-mv-cta-user-preference-set-failed": "Nepodařilo se nám změnit vaše nastavení. Prosím, navštivte své [[c:Special:Preferences#mw-prefsection-echo|nastavení]], abyste si upozornění zapnuli.",
 	"mwe-upwiz-upload-comment-own-work": "Načteno vlastní dílo pomocí Průvodce načítáním souborů",
 	"mwe-upwiz-upload-comment-third-party": "Načteno dílo autora $1 z $2 pomocí Průvodce načítáním souborů",
