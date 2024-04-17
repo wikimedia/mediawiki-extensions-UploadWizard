@@ -17,9 +17,9 @@
 		this.config = $.extend( {
 			inputWidgetConstructor: OO.ui.MultilineTextInputWidget.bind( null, {
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ],
-				autosize: true,
-				rows: 2
+				autosize: true
 			} ),
+			canBeRemoved: true,
 			remove: mw.message( '' ),
 			minLength: 0,
 			maxLength: 99999
@@ -47,7 +47,6 @@
 			classes: [ 'mwe-upwiz-singleLanguageInputWidget-removeItem' ],
 			icon: 'trash',
 			framed: false,
-			flags: [ 'destructive' ],
 			title: this.config.remove.exists() ? this.config.remove.text() : ''
 		} );
 
@@ -69,7 +68,6 @@
 			this.$body = this.removeButton.$element; // HACK
 		}
 		this.$element.append( this.textInput.$element );
-
 	};
 	OO.inheritClass( uw.SingleLanguageInputWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.SingleLanguageInputWidget, uw.ValidationMessageElement );

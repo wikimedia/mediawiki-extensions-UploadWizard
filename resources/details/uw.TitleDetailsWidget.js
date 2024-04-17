@@ -73,13 +73,23 @@
 	};
 
 	/**
-	 * Get a mw.Title object for current value.
+	 * Get a mw.Title object for current input.
 	 *
 	 * @return {mw.Title|null}
 	 */
 	uw.TitleDetailsWidget.prototype.getTitle = function () {
-		var value, extRegex, cleaned, title;
-		value = this.titleInput.getValue().trim();
+		return this.buildTitleFromInput( this.titleInput.getValue() );
+	};
+
+	/**
+	 * Get a mw.Title object for a given value.
+	 *
+	 * @param {string} value
+	 * @return {mw.Title}
+	 */
+	uw.TitleDetailsWidget.prototype.buildTitleFromInput = function ( value ) {
+		var extRegex, cleaned, title;
+		value = value.trim();
 		if ( !value ) {
 			return null;
 		}
@@ -92,17 +102,16 @@
 	/**
 	 * @return {jQuery.Promise}
 	 */
-	uw.TitleDetailsWidget.prototype.getErrors = function () {
+	uw.TitleDetailsWidget.prototype.validateTitleInput = function ( value ) {
 		var
 			errors = [],
-			value = this.titleInput.getValue().trim(),
 			processDestinationCheck = this.processDestinationCheck,
-			title = this.getTitle(),
+			title = this.buildTitleFromInput( value ),
 			// title length is dependent on DB column size and is bytes rather than characters
 			length = byteLength( value );
 
 		if ( value === '' ) {
-			errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
+			errors.push( mw.message( 'mwe-upwiz-error-title-blank' ) );
 			return $.Deferred().resolve( errors ).promise();
 		}
 
@@ -145,6 +154,15 @@
 	};
 
 	/**
+	 * @return {jQuery.Promise}
+	 */
+	uw.TitleDetailsWidget.prototype.getErrors = function () {
+		var value = this.titleInput.getValue().trim();
+
+		return this.validateTitleInput( value );
+	};
+
+	/**
 	 * Process the result of a destination filename check, return array of mw.Messages objects
 	 * representing errors.
 	 *
@@ -174,11 +192,7 @@
 		if ( !result.unique.isUnique ) {
 			// result is NOT unique
 			if ( result.unique.href ) {
-				errors.push( mw.message(
-					'mwe-upwiz-fileexists-replace-on-page',
-					titleString,
-					$( '<a>' ).attr( { href: result.unique.href, target: '_blank' } )
-				) );
+				errors.push( mw.message( 'mwe-upwiz-fileexists-replace-on-page-v2' ) );
 			} else {
 				errors.push( mw.message( 'mwe-upwiz-fileexists-replace-no-link', titleString ) );
 			}
@@ -190,7 +204,10 @@
 				'mwe-upwiz-blacklisted-details',
 				titleString,
 				function () {
-					mw.errorDialog( $( '<div>' ).msg( result.blacklist.blacklistMessage ) );
+					mw.errorDialog(
+						$( '<div>' ).msg( result.blacklist.blacklistMessage ),
+						mw.message( 'mwe-upwiz-blacklisted-errordialog-title' ).text()
+					);
 				}
 			];
 
@@ -239,7 +256,16 @@
 	 * @param {string} serialized.title Title text
 	 */
 	uw.TitleDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		this.titleInput.setValue( serialized.title );
+		var titleInput = this.titleInput;
+
+		// only prefill the title if the input is valid;
+		// it makes little sense to confuse users by automatically
+		// adding input that we already know we'll reject...
+		this.validateTitleInput( serialized.title ).then( function ( errors ) {
+			if ( errors.length === 0 ) {
+				titleInput.setValue( serialized.title );
+			}
+		} );
 	};
 
 }( mw.uploadWizard ) );

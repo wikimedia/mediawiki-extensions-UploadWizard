@@ -3,13 +3,16 @@
 	padding: 10px;
 	border: 1px solid #eaecf0;
 	border-radius: 2px;
+	margin-bottom: 0.8em;
 
 	&:not( :first-of-type ) {
 		border-top: 0;
 	}
 
-	.mwe-upwiz-singleLanguageInputWidget-language {
-		width: 11.5em;
+	.mwe-upwiz-singleLanguageInputWidget-language:has( + .mwe-upwiz-singleLanguageInputWidget-removeItem ) {
+		// Lower the width to accommodate for the delete icon (if there is one)
+		// 32px is icon width, 8px is this element's margin-right
+		width: calc( 100% - 8px - 32px );
 	}
 
 	.mwe-upwiz-singleLanguageInputWidget-text {
