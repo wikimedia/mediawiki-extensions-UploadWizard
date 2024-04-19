@@ -85,7 +85,7 @@ $uwLanguages = $cache->getWithSetCallback(
 // List of languages CC licenses are available in, that can
 // form functional URLs ending in deed.<language code>. See T354225
 $uwCcAvailableLanguages = [
-	'an', 'ar', 'be', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el',
+	'an', 'ar', 'az', 'be', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el',
 	'en', 'eo', 'es', 'et', 'eu', 'fa', 'fi', 'fr', 'fy', 'ga',
 	'gl', 'hi', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt',
 	'lv', 'ms', 'nl', 'no', 'pl', 'pt', 'pt-br', 'ro', 'ru', 'sk',
