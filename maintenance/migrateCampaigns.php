@@ -34,7 +34,6 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\UploadWizard\CampaignContent;
 use MediaWiki\Title\Title;
-use MediaWiki\User\User;
 
 /**
  * Maintenance script to migrate campaigns from older, database table
@@ -271,7 +270,10 @@ class MigrateCampaigns extends Maintenance {
 			return;
 		}
 
-		$user = User::newFromName( $username );
+		$user = $services->getUserFactory()->newFromName( $username );
+		if ( !$user ) {
+			$this->fatalError( 'invalid username.' );
+		}
 		$wikiPageFactory = $services->getWikiPageFactory();
 		foreach ( $campaigns as $campaign ) {
 			$oldConfig = $this->getConfigFromDB( $campaign->campaign_id );
