@@ -224,6 +224,7 @@
 	"mwe-upwiz-fileexists-replace-on-page": "この名前のファイルは既に存在します。置き換えたい場合は、[$2 $1]で置き換えてください。",
 	"mwe-upwiz-fileexists-replace-no-link": "このファイル名は別のファイルで既に使用されているため、別のファイル名を指定してください。",
 	"mwe-upwiz-blacklisted-details": "他の説明的なタイトルに変更してください ([$2 詳細情報])。",
+	"mwe-upwiz-blacklisted-details-feedback": "別のわかりやすいタイトルを選択してください。([$2 詳細情報]) • [$3 フィードバックを送信]",
 	"mwe-upwiz-next": "次へ",
 	"mwe-upwiz-next-file": "続行",
 	"mwe-upwiz-next-deeds": "次へ",
