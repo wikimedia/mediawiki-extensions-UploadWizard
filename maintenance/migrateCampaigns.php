@@ -108,12 +108,12 @@ class MigrateCampaigns extends Maintenance {
 	private function getConfigFromDB( $id ) {
 		$config = [];
 
-		$confProps = $this->dbr->select(
-			'uw_campaign_conf',
-			[ 'cc_property', 'cc_value' ],
-			[ 'cc_campaign_id' => $id ],
-			__METHOD__
-		);
+		$confProps = $this->dbr->newSelectQueryBuilder()
+			->select( [ 'cc_property', 'cc_value' ] )
+			->from( 'uw_campaign_conf' )
+			->where( [ 'cc_campaign_id' => $id ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $confProps as $confProp ) {
 			if ( in_array( $confProp->cc_property, self::OLD_NUMBER_CONFIGS ) ) {
@@ -258,12 +258,11 @@ class MigrateCampaigns extends Maintenance {
 		$username = $this->getOption( 'user', 'Maintenance script' );
 
 		$this->dbr = $services->getDBLoadBalancerFactory()->getPrimaryDatabase();
-		$campaigns = $this->dbr->select(
-			'uw_campaigns',
-			'*',
-			[],
-			__METHOD__
-		);
+		$campaigns = $this->dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'uw_campaigns' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		if ( !$campaigns->numRows() ) {
 			$this->output( "Nothing to migrate.\n" );

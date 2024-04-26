@@ -27,19 +27,19 @@ class SpecialCampaigns extends SpecialPage {
 
 		$limit = 50;
 
-		$cond = [ 'campaign_enabled = 1' ];
+		$cond = [ 'campaign_enabled' => 1 ];
 
 		if ( $start !== null ) {
-			$cond[] = 'campaign_id > ' . $start;
+			$cond[] = $this->dbr->expr( 'campaign_id', '>', $start );
 		}
 
-		$res = $this->dbr->select(
-			'uw_campaigns',
-			[ 'campaign_id', 'campaign_name' ],
-			$cond,
-			__METHOD__,
-			[ 'LIMIT' => $limit + 1 ]
-		);
+		$res = $this->dbr->newSelectQueryBuilder()
+			->select( [ 'campaign_id', 'campaign_name' ] )
+			->from( 'uw_campaigns' )
+			->where( $cond )
+			->limit( $limit + 1 )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$this->getOutput()->setPageTitleMsg( $this->msg( 'mwe-upload-campaigns-list-title' ) );
 		$this->getOutput()->addModuleStyles( [ 'ext.uploadWizard.uploadCampaign.display' ] );

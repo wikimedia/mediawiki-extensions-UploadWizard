@@ -13,6 +13,7 @@ use ParserOptions;
 use RequestContext;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Class that represents a single upload campaign.
@@ -168,21 +169,15 @@ class Campaign {
 			function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr ) {
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
-				$result = $dbr->select(
-					[ 'categorylinks', 'page', 'image' ],
-					[ 'count' => 'COUNT(DISTINCT img_actor)' ],
-					[ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ],
-					$fname,
-					[
-						'USE INDEX' => [ 'categorylinks' => 'cl_timestamp' ]
-					],
-					[
-						'page' => [ 'INNER JOIN', 'cl_from=page_id' ],
-						'image' => [ 'INNER JOIN', 'page_title=img_name' ]
-					]
-				);
-
-				return $result->current()->count;
+				return $dbr->newSelectQueryBuilder()
+					->select( [ 'count' => 'COUNT(DISTINCT img_actor)' ] )
+					->from( 'categorylinks' )
+					->join( 'page', null, 'cl_from=page_id' )
+					->join( 'image', null, 'page_title=img_name' )
+					->where( [ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ] )
+					->caller( $fname )
+					->useIndex( [ 'categorylinks' => 'cl_timestamp' ] )
+					->fetchField();
 			}
 		);
 	}
@@ -193,18 +188,16 @@ class Campaign {
 	 * @return Title[]
 	 */
 	public function getUploadedMedia( $limit = 24 ) {
-		$result = $this->dbr->select(
-			[ 'categorylinks', 'page' ],
-			[ 'cl_from', 'page_namespace', 'page_title' ],
-			[ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ],
-			__METHOD__,
-			[
-				'ORDER BY' => 'cl_timestamp DESC',
-				'LIMIT' => $limit,
-				'USE INDEX' => [ 'categorylinks' => 'cl_timestamp' ]
-			],
-			[ 'page' => [ 'INNER JOIN', 'cl_from=page_id' ] ]
-		);
+		$result = $this->dbr->newSelectQueryBuilder()
+			->select( [ 'cl_from', 'page_namespace', 'page_title' ] )
+			->from( 'categorylinks' )
+			->join( 'page', null, 'cl_from=page_id' )
+			->where( [ 'cl_to' => $this->getTrackingCategory()->getDBkey(), 'cl_type' => 'file' ] )
+			->orderBy( 'cl_timestamp', SelectQueryBuilder::SORT_DESC )
+			->limit( $limit )
+			->useIndex( [ 'categorylinks' => 'cl_timestamp' ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$images = [];
 		foreach ( $result as $row ) {
