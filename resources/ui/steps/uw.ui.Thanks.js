@@ -26,6 +26,9 @@
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {
 		var $header,
+			homeButtonTarget,
+			homeButtonHref,
+			homeButtonUrl,
 			beginButtonTarget,
 			thanks = this;
 
@@ -59,9 +62,36 @@
 			$header.html( this.config.display.thanksLabel );
 		}
 
+		homeButtonTarget = this.getButtonConfig( 'homeButton', 'target' );
+		if ( !homeButtonTarget ) {
+			homeButtonHref = mw.config.get( 'wgArticlePath' ).replace( '$1', '' );
+		} else if ( homeButtonTarget === 'useObjref' ) {
+			homeButtonHref = homeButtonTarget;
+		} else {
+			try {
+				homeButtonUrl = new URL( homeButtonTarget );
+				// URL parsing went fine: check the protocol.
+				// If `homeButtonTarget` is a wiki page in a non-main namespace,
+				// it will still be parsed into a URL with protocol == namespace.
+				if ( homeButtonUrl.protocol.startsWith( 'http' ) ) {
+					// HTTP URL: as is
+					homeButtonHref = homeButtonUrl.href;
+				} else {
+					// Page title in a non-main namespace
+					homeButtonHref = mw.config
+						.get( 'wgArticlePath' )
+						.replace( '$1', homeButtonTarget );
+				}
+			} catch ( error ) {
+				// Not a URL: assume a page title
+				homeButtonHref = mw.config
+					.get( 'wgArticlePath' )
+					.replace( '$1', homeButtonTarget );
+			}
+		}
 		this.homeButton = new OO.ui.ButtonWidget( {
 			label: this.getButtonConfig( 'homeButton', 'label' ) || mw.message( 'mwe-upwiz-home' ).text(),
-			href: this.getButtonConfig( 'homeButton', 'target' ) || mw.config.get( 'wgArticlePath' ).replace( '$1', '' )
+			href: homeButtonHref
 		} );
 
 		this.beginButton = new OO.ui.ButtonWidget( {
