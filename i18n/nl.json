@@ -213,7 +213,7 @@
 	"mwe-upwiz-author-text-ai-help": "<b>Voorbeeld:</b> Auteur: Midjourney AI; ingegeven door Jan Doedel",
 	"mwe-upwiz-autoconverted": "Dit bestand is automatisch omgezet naar het formaat $1",
 	"mwe-upwiz-other": "Overige informatie",
-	"mwe-upwiz-source-text": "Waar heeft u {{PLURAL:$1|dit werk|deze werken}} gevonden? Voer de website, het boek of een andere bron in.",
+	"mwe-upwiz-source-text": "Waar heeft {{GENDER:$2|u}} {{PLURAL:$1|dit werk|deze werken}} gevonden? Voer de website, het boek of een andere bron in.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Dit werk is|Deze werken zijn}} via kunstmatige intelligentie gegenereerd",
 	"mwe-upwiz-thanks-intro": "Bedankt voor het uploaden!",
 	"mwe-upwiz-thanks-explain": "U kunt {{PLURAL:$1|dit bestand|deze bestanden}} nu gebruiken op wiki's of ernaar verwijzen op het web.",
