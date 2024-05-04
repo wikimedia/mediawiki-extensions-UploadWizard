@@ -459,7 +459,7 @@ class Campaign {
 	 * @return bool
 	 */
 	private function isActive() {
-		$today = strtotime( date( "Y-m-d" ) );
+		$now = time();
 		$start = array_key_exists(
 			'start', $this->parsedConfig
 		) ? strtotime( $this->parsedConfig['start'] ) : null;
@@ -467,7 +467,7 @@ class Campaign {
 			'end', $this->parsedConfig
 		) ? strtotime( $this->parsedConfig['end'] ) : null;
 
-		return ( $start === null || $start <= $today ) && ( $end === null || $end > $today );
+		return ( $start === null || $start <= $now ) && ( $end === null || $end > $now );
 	}
 
 	/**
@@ -477,12 +477,12 @@ class Campaign {
 	 * @return bool
 	 */
 	private function wasActive() {
-		$today = strtotime( date( "Y-m-d" ) );
+		$now = time();
 		$start = array_key_exists(
 			'start', $this->parsedConfig
 		) ? strtotime( $this->parsedConfig['start'] ) : null;
 
-		return ( $start === null || $start <= $today ) && !$this->isActive();
+		return ( $start === null || $start <= $now ) && !$this->isActive();
 	}
 
 	/**
