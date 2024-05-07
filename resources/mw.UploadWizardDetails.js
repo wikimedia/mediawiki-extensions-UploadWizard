@@ -26,9 +26,7 @@
 		// Has this details object been attached to the DOM already?
 		isAttached: false,
 
-		/**
-		 * Build the interface and attach all elements - do this on demand.
-		 */
+		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
 			var descriptionRequired, uri,
 				$moreDetailsWrapperDiv, $moreDetailsDiv,
@@ -39,6 +37,9 @@
 
 			this.$dataDiv = $( '<div>' ).addClass( 'mwe-upwiz-data' );
 
+			//
+			// Title
+			//
 			this.titleDetails = new uw.TitleDetailsWidget( {
 				// Normalize file extension, e.g. 'JPEG' to 'jpg'
 				extension: mw.Title.normalizeExtension( this.upload.title.getExtension() ),
@@ -47,25 +48,28 @@
 			} );
 			this.titleDetailsField = new uw.FieldLayout( this.titleDetails, {
 				label: mw.message( 'mwe-upwiz-title' ).text(),
-				help: mw.message( 'mwe-upwiz-tooltip-title' ).text(),
 				required: true
 			} );
 			this.mainFields.push( this.titleDetailsField );
 
+			//
+			// Captions
+			//
 			this.captionsDetails = new uw.MultipleLanguageInputWidget( {
 				inputWidgetConstructor: OO.ui.TextInputWidget.bind( null, {
 					classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ]
 				} ),
-				required: false,
-				// Messages: mwe-upwiz-caption-add-0, mwe-upwiz-caption-add-n
+				required: true,
 				label: mw.message( 'mwe-upwiz-caption-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-captions' ),
+				errorBlank: mw.message( 'mwe-upwiz-error-caption-blank' ),
 				remove: mw.message( 'mwe-upwiz-remove-caption' ),
 				minLength: config.minCaptionLength,
 				maxLength: config.maxCaptionLength
 			} );
 			this.captionsDetailsField = new uw.FieldLayout( this.captionsDetails, {
-				required: false,
+				required: true,
+				classes: [ 'mwe-upwiz-caption' ],
 				label: mw.message( 'mwe-upwiz-caption' ).text(),
 				help: mw.message( 'mwe-upwiz-tooltip-caption' ).text()
 			} );
@@ -73,7 +77,9 @@
 				this.mainFields.push( this.captionsDetailsField );
 			}
 
-			// descriptions
+			//
+			// Descriptions
+			//
 			// Description is not required if a campaign provides alternative wikitext fields,
 			// which are assumed to function like a description
 			descriptionRequired = !(
@@ -81,16 +87,82 @@
 				config.fields.length &&
 				config.fields[ 0 ].wikitext
 			);
+			// Main widget
 			this.descriptionsDetails = new uw.MultipleLanguageInputWidget( {
 				required: descriptionRequired,
-				// Messages: mwe-upwiz-desc-add-0, mwe-upwiz-desc-add-n
+				classes: [ 'mwe-upwiz-caption' ],
 				label: mw.message( 'mwe-upwiz-desc-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-descriptions' ),
+				errorBlank: mw.message( 'mwe-upwiz-error-description-blank' ),
 				remove: mw.message( 'mwe-upwiz-remove-description' ),
 				minLength: config.minDescriptionLength,
 				maxLength: config.maxDescriptionLength
 			} );
-			this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsDetails, {
+
+			// Checkbox telling whether descriptions must be identical to captions.
+			// If selected, copy captions to descriptions. This is the default behavior.
+			this.descriptionSameAsCaptionCheckbox = new OO.ui.CheckboxMultioptionWidget( {
+				label: mw.message( 'mwe-upwiz-description-same-as-caption' ).text(),
+				selected: true
+			} );
+			this.descriptionSameAsCaption = new OO.ui.CheckboxMultiselectWidget( {
+				classes: [ 'mwe-upwiz-description-same-as-caption-checkbox' ],
+				items: [ this.descriptionSameAsCaptionCheckbox ]
+			} );
+			// automatically copy captions over to descriptions, but only
+			// if the "copy" checkbox is selected
+			this.captionsDetails.on( 'change', function () {
+				if ( details.descriptionSameAsCaptionCheckbox.isSelected() ) {
+					details.descriptionsDetails.populate(
+						details.captionsDetails.getValues()
+					);
+				}
+			} );
+			this.descriptionSameAsCaptionCheckbox.on( 'change', function () {
+				if ( details.descriptionSameAsCaptionCheckbox.isSelected() ) {
+					details.descriptionsDetails.$element.hide();
+					details.descriptionsDetails.populate(
+						details.captionsDetails.getValues()
+					);
+				} else {
+					details.descriptionsDetails.init();
+					details.descriptionsDetails.$element.show();
+				}
+			} );
+
+			// Description are fickle; they are required (unless, as described earlier,
+			// a campaign provides alternatives), but are not necessarily visible:
+			// they default to being hidden and automatically being copied over from
+			// captions. Unless captions aren't even available, in which case they
+			// need to be on display after all...
+			// uw.FieldLayout doesn't currently lend itself to having additional content
+			// between the title and the validated element (descriptionsDetails in this
+			// case), and I'd rather avoid reaching into descriptionsDetails to
+			// conditionally insert the "copy" nodes in the right place.
+			// We also can't stick the title to the "copy" field, because that's not
+			// even guaranteed to be something that is supported.
+			// Best I can think of would be to combine both of these in another,
+			// separate widget; there's a little complication in forwarding the error
+			// handling between uw.FieldLayout (or rather, uw.ValidationMessageElement)
+			// and the actual widget (descriptionsDetails), but I guess that's what
+			// this comment is for!
+			this.descriptionsWidget = new OO.ui.Widget();
+			this.descriptionsWidget.$element.append(
+				// only show checkbox to copy from captions if captions are enabled)
+				config.wikibase.enabled && config.wikibase.captions ? this.descriptionSameAsCaption.$element : null,
+				// toggle visibility of descriptions based on availability of captions
+				this.descriptionsDetails.$element.toggle( !( config.wikibase.enabled && config.wikibase.captions ) )
+			);
+			// if something changes within this widget, then let this widget
+			// itself propagate the change event, to trigger input validation
+			// that is managed by uw.FieldLayout (or rather, uw.ValidationMessageElement)
+			this.descriptionSameAsCaption.connect( this.descriptionsWidget, { change: [ 'emit', 'change' ] } );
+			this.descriptionsDetails.connect( this.descriptionsWidget, { change: [ 'emit', 'change' ] } );
+			// forward warnings & errors checks between the combined widget & descriptionsDetails
+			this.descriptionsWidget.getWarnings = this.descriptionsDetails.getWarnings.bind( this.descriptionsDetails );
+			this.descriptionsWidget.getErrors = this.descriptionsDetails.getErrors.bind( this.descriptionsDetails );
+
+			this.descriptionsDetailsField = new uw.FieldLayout( this.descriptionsWidget, {
 				required: descriptionRequired,
 				label: mw.message( 'mwe-upwiz-desc' ).text(),
 				help: mw.message( 'mwe-upwiz-tooltip-description' ).text()

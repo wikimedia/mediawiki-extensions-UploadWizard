@@ -13,6 +13,7 @@
 	 * @cfg {mw.Message} [placeholder] Placeholder text for input field
 	 * @cfg {mw.Message} [remove] Title text for remove icon
 	 * @cfg {mw.Message} [error] Error message
+	 * @cfg {mw.Message} [errorBlank] Error message for blank input
 	 * @cfg {number} [minLength=0] Minimum input length
 	 * @cfg {number} [maxLength=99999] Maximum input length
 	 * @cfg {Object} [languages] { langcode: text } map of languages
@@ -21,6 +22,7 @@
 		this.config = $.extend( {
 			required: true,
 			label: mw.message( '' ),
+			errorBlank: mw.message( 'mwe-upwiz-error-blank' ),
 			languages: this.getLanguageOptions()
 		}, config );
 		uw.MultipleLanguageInputWidget.super.call( this );
@@ -220,7 +222,7 @@
 			}
 			// And add some more:
 			if ( this.required && this.getWikiText() === '' ) {
-				errors.push( mw.message( 'mwe-upwiz-error-blank' ) );
+				errors.push( self.config.errorBlank );
 			}
 			// TODO Check for duplicate languages
 			return errors;
@@ -228,7 +230,7 @@
 	};
 
 	/**
-	 * @return {Object} Object where the properties are language codes & values are input
+	 * @return {Object} an object of `{ language code: text }` pairs
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getValues = function () {
 		var values = {},
@@ -247,6 +249,39 @@
 		}
 
 		return values;
+	};
+
+	/**
+	 * Initialize the widget with one blank input field.
+	 */
+	uw.MultipleLanguageInputWidget.prototype.init = function () {
+		var config = $.extend(
+			{}, this.config, { canBeRemoved: !this.config.required }
+		);
+
+		this.clearItems();
+		this.addItems( [ new uw.SingleLanguageInputWidget( config ) ] );
+	};
+
+	/**
+	 * Populate the widget with a given set of values.
+	 *
+	 * @param {Object} values An object of `{ language code: text }` pairs
+	 */
+	uw.MultipleLanguageInputWidget.prototype.populate = function ( values ) {
+		var language,
+			currentSubWidget,
+			subWidgets = [];
+
+		for ( language in values ) {
+			currentSubWidget = new uw.SingleLanguageInputWidget( this.config ); // @todo config not necessarily valid; i.e. missing "canBeRemoved" (either first should not be removable, or it should be and immediately add a new irremovable blank one)
+			currentSubWidget.setLanguage( language );
+			currentSubWidget.setText( values[ language ] );
+			subWidgets.push( currentSubWidget );
+		}
+
+		this.clearItems();
+		this.addItems( subWidgets );
 	};
 
 	/**
@@ -289,7 +324,11 @@
 		this.removeItems( this.getItems() );
 
 		for ( i = 0; i < serialized.inputs.length; i++ ) {
-			config = $.extend( {}, config, { defaultLanguage: serialized.inputs[ i ].language } );
+			config = $.extend( {}, config, {
+				defaultLanguage: serialized.inputs[ i ].language,
+				canBeRemoved: i > 0 || !this.required
+			} );
+
 			this.addLanguageInput( config, serialized.inputs[ i ].text );
 		}
 	};

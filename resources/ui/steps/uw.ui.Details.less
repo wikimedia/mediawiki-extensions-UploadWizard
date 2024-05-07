@@ -19,6 +19,12 @@
 	.oo-ui-fieldLayout-body {
 		margin-bottom: 1em;
 	}
+
+	// override default OOUI warning message style
+	.oo-ui-fieldLayout-messages,
+	.oo-ui-fieldLayout-messages > .oo-ui-messageWidget:first-child {
+		margin: 0;
+	}
 }
 
 .mwe-title {
@@ -61,4 +67,8 @@
 	float: none;
 	/* Override mediawiki.icon styles */
 	background-position: left center;
+}
+
+.mwe-upwiz-description-same-as-caption-checkbox {
+	padding-bottom: 0.5em;
 }
