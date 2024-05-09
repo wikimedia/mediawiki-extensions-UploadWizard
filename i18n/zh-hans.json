@@ -374,6 +374,7 @@
 	"mwe-upwiz-license-gfdl": "GNU自由文件授权协议",
 	"mwe-upwiz-license-yes-head": "是的，我有此信息",
 	"mwe-upwiz-license-no-head": "不，我没有这些信息",
+	"mwe-upwiz-license-other-head": "以wikitext格式输入不同的许可协议",
 	"mwe-upwiz-license-cc-head": "著作权持有人以适当的知识共享许可协议发表了{{PLURAL:$1|该|这些}}作品",
 	"mwe-upwiz-license-cc-subhead": "并非所有知识共享许可协议适合本网站。请确认著作权持有人使用了这些授权协议之一。",
 	"mwe-upwiz-license-flickr-head": "著作权持有人以适当的授权协议在Flickr发表了他们的{{PLURAL:$1|照片或视频}}",
