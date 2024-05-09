@@ -211,6 +211,7 @@
 	"mwe-upwiz-deleted-duplicate-unknown-filename": "Непознато податотечно име",
 	"mwe-upwiz-ok": "ОК",
 	"mwe-upwiz-fileexists-replace-on-page": "Веќе постои податотека со ова име. Ако сакате да ја замените, одете на страницата за [$2 $1]  и заменете ја таму.",
+	"mwe-upwiz-fileexists-replace-on-page-v2": "Насловот е зафатен. Изберете слободен наслов. Совет: додајте го датумот, месецот или годината на делото за насловот да биде единствен.",
 	"mwe-upwiz-fileexists-replace-no-link": "Изберете друг наслов. Овој е веќе зафатен.",
 	"mwe-upwiz-blacklisted-details": "Внесете поинформативен наслов ([$2 погл. примери]).",
 	"mwe-upwiz-blacklisted-details-feedback": "Внесете поинформативен наслов ([$2 погл. примери]). • [$3 Дајте мислење]",
