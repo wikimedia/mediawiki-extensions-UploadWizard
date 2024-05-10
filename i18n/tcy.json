@@ -2,11 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"BHARATHESHA ALASANDEMAJALU",
+			"ChiK",
 			"Ravi Mundkur"
 		]
 	},
+	"uploadwizard": "ಅಪ್ಲೋಡ್ ವಿಜಾರ್ಡ್",
+	"uploadwizard-desc": "ಅಪ್ಲೋಡ್ ವಿಜಾರ್ಡ್, ಮಲ್ಟಿಮೀಡಿಯಾ ಅಪ್ಲೋಡ್ ಮಲ್ಪರೆ \nಒಂಜಿ ಸುಲಬೋದ ಸದಾನೋ",
+	"tag-uploadwizard": "ಅಪ್ಲೋಡ್ ವಿಜಾರ್ಡ್",
+	"tag-uploadwizard-description": "ಅಪ್ಲೋಡ್ ವಿಜಾರ್ಡ್ ಮೂಲಕೊ ಮಲ್ತಿ ಅಪ್ಲೋಡ್‌ಲ್",
+	"tag-uploadwizard-flickr-description": "ಅಪ್ಲೋಡ್ ವಿಜಾರ್ಡ್ ಮೂಲಕೊ ಮಲ್ತಿ ಫ್ಲಿಕರ್ ಅಪ್ಲೋಡುಲು",
+	"mwe-upwiz-step-file": "ಅಪ್ಲೊಡ್",
+	"mwe-upwiz-add-flickr-or": "ಅತ್ತಂಡ",
 	"mwe-upwiz-transport-started": "ಸುರು ಅವೊಂತುಂಡು...",
 	"mwe-upwiz-uploading": "ದಿಂಜೊಂತುಂಡು...",
+	"mwe-upwiz-remove": "ದೆಪ್ಪುಲೆ",
+	"mwe-upwiz-upload": "ಅಪ್ಲೊಡ್",
+	"mwe-upwiz-patent-dialog-button-back": "ಪಿರ",
+	"mwe-upwiz-patent-dialog-button-next": "ನನತಾ",
 	"mwe-upwiz-license-metadata-title": "ಲೈಸನ್ಸ್ ಶೀರ್ಷಿಕೆ ಕಾಣಿಕೆಲೆಗ್ ಮಾತ್ರಾ",
-	"mwe-upwiz-license-metadata-content": "'ಪ್ರಕಟಿಸಾಲೆ' ಒತ್ತುನಗ ಈರ್ \nBy clicking \"publish\", you agree to the [[wmf:Terms_of_Use|ಬಳಕೆದ ಶರ್ತೊಲು]], ಒಪ್ಪುವರ್ ಬೊಕ ಪಿರತಿರ್ಗಾವಂದೆ ಇರೆನ ಕಾಣಿಕೆನ್ ಸೃಜಾನಾತ್ಮಿ ಸಾಮಾನ್ಯ ಲೈಸನ್ಸ್ ದಡಿ  [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 License].ಬುಡಿಯರೆ ಒಪ್ಪುವರ್."
+	"mwe-upwiz-license-metadata-content": "'ಪ್ರಕಟಿಸಾಲೆ' ಒತ್ತುನಗ ಈರ್ \nBy clicking \"publish\", you agree to the [[wmf:Terms_of_Use|ಬಳಕೆದ ಶರ್ತೊಲು]], ಒಪ್ಪುವರ್ ಬೊಕ ಪಿರತಿರ್ಗಾವಂದೆ ಇರೆನ ಕಾಣಿಕೆನ್ ಸೃಜಾನಾತ್ಮಿ ಸಾಮಾನ್ಯ ಲೈಸನ್ಸ್ ದಡಿ  [https://creativecommons.org/publicdomain/zero/1.0/ Creative Commons CC0 License].ಬುಡಿಯರೆ ಒಪ್ಪುವರ್.",
+	"mwe-upwiz-campaign-no-uploads-yet": "ನನಲ ಒವ್ವೆ ಅಪ್‌ಲೋಡ್‌‌ಲು ಅತ್‌ಜಿ!"
 }
