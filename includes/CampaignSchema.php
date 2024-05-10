@@ -109,14 +109,6 @@ return [
 										// ATM only properties with dataType 'wikibase-entityid'
 										// are supported
 										"type" => "string"
-									],
-									"values" => [
-										"type" => "array",
-										"items" => [
-											[
-												"value" => "string"
-											]
-										]
 									]
 								]
 						]
@@ -392,9 +384,6 @@ return [
 					"type" => "boolean",
 				],
 				'statements' => [
-					"type" => "boolean",
-				],
-				'nonDefaultStatements' => [
 					"type" => "boolean",
 				]
 			]
