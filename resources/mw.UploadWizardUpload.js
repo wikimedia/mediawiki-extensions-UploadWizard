@@ -607,6 +607,7 @@
 	 * Given an image (already loaded), dimension constraints
 	 * return canvas object scaled & transformed ( & rotated if metadata indicates it's needed )
 	 *
+	 * @deprecated 1.41 browsers apply orientation themselves since 2020. Remove this in 2026'ish
 	 * @private
 	 * @param {HTMLImageElement} image
 	 * @param {Object} constraints Width & height constraints
@@ -619,7 +620,7 @@
 			rotation = 0;
 
 		// if this wiki can rotate images to match their EXIF metadata,
-		// we should do the same in our preview
+		// we should do the same in our preview if the browser does not apply it already
 		if ( mw.config.get( 'wgFileCanRotate' ) ) {
 			angle = this.getOrientationDegrees();
 			rotation = angle ? 360 - angle : 0;
@@ -732,7 +733,7 @@
 			constraints.height = height;
 		}
 
-		if ( mw.canvas.isAvailable() ) {
+		if ( mw.canvas.isAvailable() && !CSS.supports( 'image-orientation', 'from-image' ) ) {
 			transform = this.getTransformedCanvasElement( image, constraints );
 			if ( transform ) {
 				return transform;
