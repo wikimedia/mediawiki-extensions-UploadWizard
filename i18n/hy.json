@@ -53,7 +53,12 @@
 	"mwe-upwiz-add-file-flickr-n": "Ավելացրեք ավելի շատ պատկերներ Flickr-ից",
 	"mwe-upwiz-add-flickr-or": "կամ",
 	"mwe-upwiz-add-flickr": "Գտիր Flickr-ից",
+	"mwe-upwiz-flickr-input-placeholder": "Flickr URL",
 	"mwe-upwiz-select-flickr": "Վերբեռնել նշված նիշքերը",
+	"mwe-upwiz-flickr-disclaimer1": "Այս ձևը կբեռնի flickr.com-ի կողմից տեղակայված բովանդակությունը և ենթակա է\nFlickr-ի [https://www.flickr.com/help/terms/ օգտագործման պայմաններին] և [https://www.flickr.com/help-ին: /privacy-policy/ գաղտնիության քաղաքականությանը]:",
+	"mwe-upwiz-flickr-disclaimer2": "Խնդրում ենք նկատի ունենալ, որ օգտագործելով այս գործիքը, ձեր IP հասցեն և հարցման մանրամասները հասանելի կլինեն Flickr-ին:",
+	"mwe-upwiz-error-no-image-retrieved": "Մենք չենք կարողացել վերականգնել ֆայլը $1-ից:",
+	"mwe-upwiz-multi-file-select2": "Ընտրեք այն նիշքերը, որոնք ցանկանում եք վերբեռնել: Սեղմած պահեք Shift ստեղնը և սեղմեք՝ միանգամից մի քանի նիշք ընտրելու համար: Դուք կարող եք ընտրել մինչև $1 {{PLURAL:$1| նիշք|նիշքեր}} վերբեռնելու համար:",
 	"mwe-upwiz-transport-started": "Մեկնարկում…",
 	"mwe-upwiz-uploading": "Վերբեռնվում է…",
 	"mwe-upwiz-queued": "Ընթացքում...",
@@ -131,5 +136,7 @@
 	"mwe-upwiz-license-custom-preview": "Նախադիտում",
 	"mwe-upwiz-categories": "Կատեգորիաներ",
 	"mwe-upwiz-errordialog-ok": "Լավ",
-	"prefs-uploads": "Բեռնումներ"
+	"prefs-uploads": "Բեռնումներ",
+	"mwe-upwiz-upload-comment-own-work": "Սեփական աշխատանքը վերբեռնվել է Վերբեռնման վարպետի օգնությամբ",
+	"mwe-upwiz-metadata-notice-header": "Անձնական տվյալներ"
 }
