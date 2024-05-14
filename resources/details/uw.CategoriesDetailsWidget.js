@@ -56,12 +56,20 @@
 		if ( mw.UploadWizard.config.enableCategoryCheck && this.categoriesWidget.isEmpty() ) {
 			warnings.push( mw.message( 'mwe-upwiz-warning-categories-missing' ) );
 		}
+		return $.Deferred().resolve( warnings ).promise();
+	};
+
+	/**
+	 * @inheritdoc
+	 */
+	uw.CategoriesDetailsWidget.prototype.getNotices = function () {
+		var notices = [];
 		if ( this.categoriesWidget.getItems().some( function ( item ) {
 			return item.missing;
 		} ) ) {
-			warnings.push( mw.message( 'mwe-upwiz-categories-missing' ) );
+			notices.push( mw.message( 'mwe-upwiz-categories-missing' ) );
 		}
-		return $.Deferred().resolve( warnings ).promise();
+		return $.Deferred().resolve( notices ).promise();
 	};
 
 	/**
