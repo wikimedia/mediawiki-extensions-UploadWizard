@@ -7,12 +7,12 @@
 	 *
 	 * @extends uw.DetailsWidget
 	 */
-	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget() {
+	uw.CategoriesDetailsWidget = function UWCategoriesDetailsWidget( config ) {
 		var categories, catDetails = this;
 
 		uw.CategoriesDetailsWidget.super.call( this );
 
-		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget();
+		this.categoriesWidget = new mw.widgets.CategoryMultiselectWidget( config );
 
 		this.categoriesWidget.createTagItemWidget = function ( data ) {
 			var widget = this.constructor.prototype.createTagItemWidget.call( this, data );
@@ -52,23 +52,22 @@
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWarnings = function () {
-		var warnings = [];
-		if ( mw.UploadWizard.config.enableCategoryCheck && this.categoriesWidget.isEmpty() ) {
-			warnings.push( mw.message( 'mwe-upwiz-warning-categories-missing' ) );
-		}
-		return $.Deferred().resolve( warnings ).promise();
+		return $.Deferred().resolve( [] ).promise();
 	};
 
 	/**
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getNotices = function () {
-		var notices = [];
-		if ( this.categoriesWidget.getItems().some( function ( item ) {
-			return item.missing;
-		} ) ) {
-			notices.push( mw.message( 'mwe-upwiz-categories-missing' ) );
+		var notices = [],
+			missing = this.categoriesWidget.getItems().filter( function ( item ) {
+				return item.missing;
+			} );
+
+		if ( missing.length > 0 ) {
+			notices.push( mw.message( 'mwe-upwiz-categories-missing', missing.length ) );
 		}
+
 		return $.Deferred().resolve( notices ).promise();
 	};
 
