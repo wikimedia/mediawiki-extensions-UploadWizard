@@ -1,0 +1,48 @@
+{
+	"opts": {
+		"destination": "docs",
+		"pedantic": true,
+		"readme": "README",
+		"recurse": true,
+		"template": "node_modules/jsdoc-wmf-theme"
+	},
+	"plugins": [
+		"plugins/markdown"
+	],
+	"source": {
+		"include": [ "resources" ]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"default": {
+			"useLongnameInNav": true
+		},
+		"wmf": {
+			"linkMap": {
+				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+				"File": "https://developer.mozilla.org/en-US/docs/Web/API/File",
+				"FileList": "https://developer.mozilla.org/docs/Web/API/FileList",
+				"HTMLCanvasElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement",
+				"HTMLImageElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement",
+				"jQuery.Deferred": "https://api.jquery.com/jQuery.Deferred/",
+				"jQuery.Promise": "https://api.jquery.com/Types/#Promise",
+				"jQuery": "https://api.jquery.com/Types/#jQuery",
+				"mw.Api": "https://doc.wikimedia.org/mediawiki-core/master/js/mw.Api.html",
+				"mw.Message": "https://doc.wikimedia.org/mediawiki-core/master/js/mw.Message.html",
+				"mw.Title": "https://doc.wikimedia.org/mediawiki-core/master/js/mw.Title.html",
+				"OO.ui.CheckboxMultiselectInputWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.CheckboxMultiselectInputWidget.html",
+				"OO.ui.DropdownWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.DropdownWidget.html",
+				"OO.ui.FieldLayout": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.FieldLayout.html",
+				"OO.ui.FieldsetLayout": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.FieldsetLayout.html",
+				"OO.ui.InputWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.InputWidget.html",
+				"OO.ui.MenuOptionWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.MenuOptionWidget.html",
+				"OO.ui.PanelLayout": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.PanelLayout.html",
+				"OO.ui.Process": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.Process.html",
+				"OO.ui.RadioSelectWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.RadioSelectWidget.html",
+				"OO.ui.TextInputWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.TextInputWidget.html",
+				"OO.ui.Widget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.Widget.html",
+				"URL": "https://developer.mozilla.org/docs/Web/API/URL"
+			}
+		}
+	}
+}
