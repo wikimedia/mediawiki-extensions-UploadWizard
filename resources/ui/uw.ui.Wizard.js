@@ -20,7 +20,7 @@
 	 * Represents the UI for the wizard.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 * @param {string} selector Where to put all of the wizard interface.
 	 */
 	uw.ui.Wizard = function UWUIWizard( selector ) {

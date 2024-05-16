@@ -20,7 +20,7 @@
 	 * this fileInput gets a file, this upload becomes 'filled'.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 * @param {uw.controller.Step} controller
 	 * @param {File} file
 	 */

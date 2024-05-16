@@ -5,7 +5,7 @@
 	 *
 	 * @class
 	 * @extends uw.DetailsWidget
-	 * @mixins OO.ui.mixin.GroupElement
+	 * @mixes OO.ui.mixin.GroupElement
 	 * @param {Object} [config]
 	 * @cfg {boolean} [required=true]
 	 * @cfg {mw.Message} [label] Text for label

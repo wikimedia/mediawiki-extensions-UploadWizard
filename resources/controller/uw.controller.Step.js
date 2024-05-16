@@ -20,7 +20,7 @@
 	 * Represents a step in the wizard.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 * @abstract
 	 * @param {uw.ui.Step} ui The UI object that controls this step.
 	 * @param {mw.Api} api

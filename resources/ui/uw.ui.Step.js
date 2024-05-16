@@ -20,7 +20,7 @@
 	 * Represents a generic UI for a step.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 * @param {string} name The name of this step
 	 */
 	uw.ui.Step = function UWUIStep( name ) {
