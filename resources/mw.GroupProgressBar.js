@@ -4,7 +4,6 @@
 	 * This is a progress bar for monitoring multiple objects, giving summary view
 	 *
 	 * @class mw.GroupProgressbar
-	 * @constructor
 	 * @param {string} selector
 	 * @param {mw.UploadWizardUpload[]} uploads
 	 * @param {string[]} successStates

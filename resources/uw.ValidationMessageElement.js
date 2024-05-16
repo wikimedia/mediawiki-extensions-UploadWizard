@@ -6,7 +6,6 @@
 	 * @abstract
 	 * @class
 	 *
-	 * @constructor
 	 * @param {Object} [config]
 	 * @param {OO.ui.Widget} [config.validatedWidget] Widget to validate
 	 */

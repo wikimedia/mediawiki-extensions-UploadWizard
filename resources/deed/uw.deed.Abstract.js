@@ -20,7 +20,6 @@
 	 * Represents a generic deed.
 	 *
 	 * @class uw.deed.Abstract
-	 * @constructor
 	 * @param {string} name The name of this step
 	 * @param {Object} config The UW config
 	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads that this deed refers to

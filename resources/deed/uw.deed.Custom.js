@@ -20,7 +20,6 @@
 	 * @param {Object} config The UW config
 	 * @param {mw.UploadWizardUpload} upload Upload that this deed refers to
 	 * @class uw.deed.Custom
-	 * @constructor
 	 */
 	uw.deed.Custom = function UWDeedCustom( config, upload ) {
 		uw.deed.Abstract.call( this, 'custom', config, [ upload ] );

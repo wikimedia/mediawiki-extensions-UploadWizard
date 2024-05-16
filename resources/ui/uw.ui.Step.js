@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Step
 	 * @mixins OO.EventEmitter
-	 * @constructor
 	 * @param {string} name The name of this step
 	 */
 	uw.ui.Step = function UWUIStep( name ) {

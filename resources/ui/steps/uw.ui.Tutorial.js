@@ -48,7 +48,6 @@
 	 *
 	 * @class uw.ui.Tutorial
 	 * @extends uw.ui.Step
-	 * @constructor
 	 */
 	uw.ui.Tutorial = function UWUITutorial() {
 		var ui = this;

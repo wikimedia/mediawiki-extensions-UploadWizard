@@ -4,7 +4,7 @@
 	 * A set of location fields in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
-	 * @constructor
+	 * @class
 	 * @param {Object} [config] Configuration options
 	 * @cfg {boolean} [showHeading=true] Whether to show the 'heading' field
 	 */

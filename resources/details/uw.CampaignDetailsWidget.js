@@ -4,7 +4,7 @@
 	 * A custom campaign-defined field in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
-	 * @constructor
+	 * @class
 	 * @param {Object} [config] Configuration options
 	 * @cfg {string} wikitext Wikitext template to use for this field
 	 * @cfg {boolean} [required=false] Whether to mark this field as required

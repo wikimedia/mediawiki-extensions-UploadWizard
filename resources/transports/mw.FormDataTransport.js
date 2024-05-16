@@ -2,7 +2,6 @@
 	/**
 	 * Represents a "transport" for files to upload; using HTML5 FormData.
 	 *
-	 * @constructor
 	 * @class mw.FormDataTransport
 	 * @mixins OO.EventEmitter
 	 * @param {mw.Api} api

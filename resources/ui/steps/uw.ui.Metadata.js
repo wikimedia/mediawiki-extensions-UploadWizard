@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Metadata
 	 * @extends uw.ui.Step
-	 * @constructor
 	 */
 	uw.ui.Metadata = function UWUIMetadata() {
 		var self = this;

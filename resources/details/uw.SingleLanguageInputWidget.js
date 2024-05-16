@@ -4,7 +4,7 @@
 	 * A single language input field in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
-	 * @constructor
+	 * @class
 	 * @param {Object} config
 	 * @param {Object} config.languages { langcode: text } map of languages
 	 * @param {Object} [config.defaultLanguage]

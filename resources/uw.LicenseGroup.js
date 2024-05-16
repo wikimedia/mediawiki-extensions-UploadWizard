@@ -3,7 +3,7 @@
 	/**
 	 * @extends OO.ui.LicenseGroup
 	 *
-	 * @constructor
+	 * @class
 	 * @inheritdoc
 	 * @param {Object} config License configuration
 	 * @param {Array} config.licenses Array of license names

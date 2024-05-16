@@ -5,7 +5,7 @@
 	 *
 	 * @extends OO.ui.FieldLayout
 	 *
-	 * @constructor
+	 * @class
 	 * @inheritdoc
 	 * @param {OO.ui.Widget} fieldWidget
 	 * @param {Object} [config]

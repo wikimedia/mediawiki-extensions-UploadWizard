@@ -4,7 +4,6 @@
 	 *
 	 * @class mw.UploadWizardUploadInterface
 	 * @mixins OO.EventEmitter
-	 * @constructor
 	 * @param {mw.UploadWizardUpload} upload
 	 */
 	mw.UploadWizardUploadInterface = function MWUploadWizardUploadInterface( upload ) {

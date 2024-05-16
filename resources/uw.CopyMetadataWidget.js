@@ -4,7 +4,7 @@
 	 * Metadata copier in UploadWizard's "Details" step form.
 	 *
 	 * @extends OO.ui.Widget
-	 * @constructor
+	 * @class
 	 * @param {Object} [config] Configuration options
 	 * @cfg {mw.UploadWizardUpload} copyFrom Upload to copy the details from
 	 * @cfg {mw.UploadWizardUpload[]} copyTo Uploads to copy the details to

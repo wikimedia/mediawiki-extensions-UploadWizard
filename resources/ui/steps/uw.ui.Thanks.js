@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Thanks
 	 * @extends uw.ui.Step
-	 * @constructor
 	 * @param {Object} config
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {
