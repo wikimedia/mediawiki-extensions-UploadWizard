@@ -85,6 +85,6 @@
 
 	/**
 	 * @class jQuery
-	 * @mixins jQuery.plugin.arrowSteps
+	 * @mixes jQuery.plugin.arrowSteps
 	 */
 }() );
