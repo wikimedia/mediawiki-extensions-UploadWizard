@@ -32,19 +32,19 @@
 	/**
 	 * A 'progress' event is emitted when one of the functions' promises is resolved or rejected.
 	 *
-	 * @event progress
+	 * @event uw.ConcurrentQueue.progress
 	 */
 
 	/**
 	 * A 'complete' event is emitted when all of the functions' promises have been resolved or rejected.
 	 *
-	 * @event complete
+	 * @event uw.ConcurrentQueue.complete
 	 */
 
 	/**
 	 * A 'change' event is emitted when an item is added to or removed from the queue.
 	 *
-	 * @event change
+	 * @event uw.ConcurrentQueue.change
 	 */
 
 	/**

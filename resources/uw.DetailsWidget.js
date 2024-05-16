@@ -17,7 +17,7 @@
 	/**
 	 * A 'change' event is emitted when the state of this widget (and the serialized value) changes.
 	 *
-	 * @event change
+	 * @event uw.DetailsWidget.change
 	 */
 
 	/**

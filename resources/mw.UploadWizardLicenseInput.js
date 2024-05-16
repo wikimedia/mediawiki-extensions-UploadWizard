@@ -145,6 +145,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	 * Sets the value(s) of a license input. This is a little bit klugey because it relies on an inverted dict, and in some
 	 * cases we are now letting license inputs create multiple templates.
 	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @param {Object} values License-key to boolean values, e.g. { 'cc_by_sa_30': true, gfdl: true, 'flickrreview|cc_by_sa_30': false }
 	 * @param {string} [groupName] Name of group, when values are only relevant to this group
 	 */
@@ -207,6 +208,8 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 
 	/**
 	 * Set the default configured licenses
+	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 */
 	setDefaultValues: function () {
 		var values = {};
@@ -220,6 +223,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	 * Gets the selected license(s). The returned value will be a license
 	 * key => license props map, as defined in UploadWizard.config.php.
 	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @return {Object}
 	 */
 	getLicenses: function () {
@@ -238,6 +242,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	/**
 	 * Gets the wikitext associated with all selected inputs. Some inputs also have associated textareas so we append their contents too.
 	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @return {string} of wikitext (empty string if no inputs set)
 	 */
 	getWikiText: function () {
@@ -249,6 +254,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	/**
 	 * Returns a list of templates used & transcluded in given wikitext
 	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @param {string} wikitext
 	 * @return {jQuery.Promise} Promise that resolves with an array of template names
 	 */
@@ -285,6 +291,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	/**
 	 * See mw.uploadWizard.DetailsWidget
 	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @return {jQuery.Promise}
 	 */
 	getErrors: function () {
@@ -350,6 +357,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	/**
 	 * See mw.uploadWizard.DetailsWidget
 	 *
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @return {jQuery.Promise}
 	 */
 	getWarnings: function () {
@@ -357,6 +365,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	},
 
 	/**
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @return {Object}
 	 */
 	getSerialized: function () {
@@ -376,6 +385,7 @@ $.extend( mw.UploadWizardLicenseInput.prototype, {
 	},
 
 	/**
+	 * @memberof mw.UploadWizardLicenseInput
 	 * @param {Object} serialized
 	 */
 	setSerialized: function ( serialized ) {
