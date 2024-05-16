@@ -19,7 +19,7 @@
 	/**
 	 * Represents the UI for the wizard's Deed step.
 	 *
-	 * @class uw.ui.Deed
+	 * @class
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Deed = function UWUIDeed() {

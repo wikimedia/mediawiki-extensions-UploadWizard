@@ -2,7 +2,7 @@
 	/**
 	 * Create an interface fragment corresponding to a file input, suitable for Upload Wizard.
 	 *
-	 * @class mw.UploadWizardUploadInterface
+	 * @class
 	 * @mixins OO.EventEmitter
 	 * @param {mw.UploadWizardUpload} upload
 	 */

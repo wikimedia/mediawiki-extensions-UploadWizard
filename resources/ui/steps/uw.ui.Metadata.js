@@ -19,7 +19,7 @@
 	/**
 	 * Represents the UI for the wizard's Metadata step.
 	 *
-	 * @class uw.ui.Metadata
+	 * @class
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Metadata = function UWUIMetadata() {

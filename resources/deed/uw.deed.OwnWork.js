@@ -18,7 +18,7 @@
 	/**
 	 * Set up the form and deed object for the deed option that says these uploads are all the user's own work.
 	 *
-	 * @class uw.deed.OwnWork
+	 * @class
 	 * @param {Object} config The UW config
 	 * @param {mw.UploadWizardUpload[]} uploads Array of uploads that this deed refers to
 	 * @param {mw.Api} api API object - useful for doing previews

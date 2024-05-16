@@ -19,7 +19,7 @@
 	/**
 	 * Represents the UI for the wizard's Thanks step.
 	 *
-	 * @class uw.ui.Thanks
+	 * @class
 	 * @extends uw.ui.Step
 	 * @param {Object} config
 	 */

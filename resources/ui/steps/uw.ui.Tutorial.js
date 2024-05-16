@@ -46,7 +46,7 @@
 	/**
 	 * Represents the UI for the wizard's Tutorial step.
 	 *
-	 * @class uw.ui.Tutorial
+	 * @class
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Tutorial = function UWUITutorial() {

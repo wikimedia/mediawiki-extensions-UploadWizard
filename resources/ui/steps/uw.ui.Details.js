@@ -19,7 +19,7 @@
 	/**
 	 * Represents the UI for the wizard's Details step.
 	 *
-	 * @class uw.ui.Details
+	 * @class
 	 * @extends uw.ui.Step
 	 */
 	uw.ui.Details = function UWUIDetails() {
