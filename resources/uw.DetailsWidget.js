@@ -55,6 +55,16 @@
 	};
 
 	/**
+	 * Get the list of notices about the current state of the widget.
+	 *
+	 * @return {jQuery.Promise} Promise resolved with an array of mw.Message objects
+	 *   representing warnings. (Checking for warnings might require API queries, etc.)
+	 */
+	uw.DetailsWidget.prototype.getNotices = function () {
+		return $.Deferred().resolve( [] ).promise();
+	};
+
+	/**
 	 * Get a wikitext snippet generated from current state of the widget.
 	 *
 	 * @method

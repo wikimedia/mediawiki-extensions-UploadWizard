@@ -21,9 +21,22 @@
 	}
 
 	// override default OOUI warning message style
-	.oo-ui-fieldLayout-messages,
-	.oo-ui-fieldLayout-messages > .oo-ui-messageWidget:first-child {
+	.oo-ui-fieldLayout-messages {
 		margin: 0;
+
+		> .oo-ui-messageWidget {
+			margin-left: 0;
+			margin-right: 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			// notices should not be bold
+			&.oo-ui-flaggedElement-notice {
+				font-weight: normal;
+			}
+		}
 	}
 }
 
