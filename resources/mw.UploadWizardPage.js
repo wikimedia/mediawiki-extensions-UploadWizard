@@ -18,6 +18,9 @@
 		);
 	}
 
+	/**
+	 * @class
+	 */
 	mw.UploadWizardPage = function () {
 
 		var uploadWizard,

@@ -2,6 +2,7 @@
  * Create a group of radio buttons for licenses. N.B. the licenses are named after the templates they invoke.
  * Note that this is very anti-MVC. The values are held only in the actual form elements themselves.
  *
+ * @class
  * @extends OO.ui.Widget
  * @param {Object} config Configuration. Must have following properties:
  * @param {string} config.type Whether inclusive or exclusive license allowed ("and"|"or")

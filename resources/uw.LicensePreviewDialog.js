@@ -1,4 +1,7 @@
 ( function ( uw ) {
+	/**
+	 * @class
+	 */
 	uw.LicensePreviewDialog = function UWLicensePreviewDialog( config ) {
 		uw.LicensePreviewDialog.super.call( this, config );
 	};

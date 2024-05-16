@@ -6,6 +6,7 @@
 	 * This can be composed of multiple smaller widgets, but represents a single unit (e.g. a
 	 * "location" field could be composed of "latitude" and "longitude" inputs).
 	 *
+	 * @class
 	 * @extends OO.ui.Widget
 	 * @abstract
 	 */

@@ -1,5 +1,8 @@
 /* eslint-disable camelcase, no-underscore-dangle */
 
+/**
+ * @class
+ */
 mw.FlickrChecker = function ( ui, selectButton ) {
 	this.ui = ui;
 	this.imageUploads = [];

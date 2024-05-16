@@ -3,6 +3,7 @@
 	/**
 	 * An other informations field in UploadWizard's "Details" step form.
 	 *
+	 * @class
 	 * @extends uw.DetailsWidget
 	 */
 	uw.OtherDetailsWidget = function UWOtherDetailsWidget() {

@@ -16,6 +16,9 @@
  */
 ( function () {
 
+	/**
+	 * @class
+	 */
 	mw.QuickTitleChecker = {};
 
 	mw.QuickTitleChecker.regexSets = {

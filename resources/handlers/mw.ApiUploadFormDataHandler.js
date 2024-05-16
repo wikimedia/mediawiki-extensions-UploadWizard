@@ -3,6 +3,7 @@
 	 * Represents an object which configures an html5 FormData object to upload.
 	 * Large files are uploaded in chunks.
 	 *
+	 * @class
 	 * @param {mw.UploadWizardUpload} upload
 	 * @param {mw.Api} api
 	 */

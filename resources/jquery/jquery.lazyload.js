@@ -13,6 +13,9 @@
  *
  */
 
+/**
+ * @class jQuery.plugin.lazyload
+ */
 (function($, window, document, undefined) {
     var $window = $(window);
 
