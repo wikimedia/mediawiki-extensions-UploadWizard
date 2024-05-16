@@ -3,7 +3,7 @@
 	/**
 	 * A ULS within a description field in UploadWizard's "Details" step form.
 	 *
-	 * @constructor
+	 * @class
 	 * @param {Object} [config]
 	 * @cfg {Object} [languages] Keys are 2-letter language codes, values are language autonyms
 	 * @cfg {Array} [classes] Classes to apply to the ULS container div

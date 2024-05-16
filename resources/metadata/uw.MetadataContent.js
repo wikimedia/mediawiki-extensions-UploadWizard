@@ -15,7 +15,7 @@
 		wikibaseDatamodel;
 
 	/**
-	 * @constructor
+	 * @class
 	 * @param {mw.UploadWizardUpload} upload
 	 * @param {Object} [config] Configuration options
 	 */

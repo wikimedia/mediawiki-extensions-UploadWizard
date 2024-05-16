@@ -6,7 +6,6 @@
 	 * @class uw.MultipleLanguageInputWidget
 	 * @extends uw.DetailsWidget
 	 * @mixins OO.ui.mixin.GroupElement
-	 * @constructor
 	 * @param {Object} [config]
 	 * @cfg {boolean} [required=true]
 	 * @cfg {mw.Message} [label] Text for label

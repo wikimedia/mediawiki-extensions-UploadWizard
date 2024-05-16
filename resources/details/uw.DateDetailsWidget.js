@@ -4,7 +4,7 @@
 	 * A date field in UploadWizard's "Details" step form.
 	 *
 	 * @extends uw.DetailsWidget
-	 * @constructor
+	 * @class
 	 * @param {Object} config Configuration options
 	 * @cfg {mw.UploadWizardUpload} upload
 	 */

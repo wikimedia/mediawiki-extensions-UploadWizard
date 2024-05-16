@@ -8,7 +8,6 @@
 	 *
 	 * @class uw.TitleDetailsWidget
 	 * @extends uw.DetailsWidget
-	 * @constructor
 	 * @param {Object} [config]
 	 */
 	uw.TitleDetailsWidget = function UWTitleDetailsWidget( config ) {

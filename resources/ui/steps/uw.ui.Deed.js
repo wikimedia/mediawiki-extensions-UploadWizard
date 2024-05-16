@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Deed
 	 * @extends uw.ui.Step
-	 * @constructor
 	 */
 	uw.ui.Deed = function UWUIDeed() {
 		uw.ui.Step.call(

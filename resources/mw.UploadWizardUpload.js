@@ -21,7 +21,6 @@
 	 *
 	 * @class mw.UploadWizardUpload
 	 * @mixins OO.EventEmitter
-	 * @constructor
 	 * @param {uw.controller.Step} controller
 	 * @param {File} file
 	 */

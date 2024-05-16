@@ -20,7 +20,7 @@
 	 * @param {Object} config Dialog config
 	 * @param {Object} uwConfig UploadWizard config
 	 * @param {mw.UploadWizardUpload[]} uploads
-	 * @constructor
+	 * @class
 	 */
 	uw.PatentDialog = function PatentDialog( config, uwConfig, uploads ) {
 		uw.PatentDialog.super.call( this, config );

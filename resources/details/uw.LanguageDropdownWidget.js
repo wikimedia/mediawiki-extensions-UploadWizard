@@ -3,7 +3,7 @@
 	/**
 	 * A language dropdown within a description field in UploadWizard's "Details" step form.
 	 *
-	 * @constructor
+	 * @class
 	 * @param {Object} [config]
 	 */
 	uw.LanguageDropdownWidget = function UWLanguageDropdownWidget( config ) {

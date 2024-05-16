@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Details
 	 * @extends uw.ui.Step
-	 * @constructor
 	 */
 	uw.ui.Details = function UWUIDetails() {
 		var details = this;

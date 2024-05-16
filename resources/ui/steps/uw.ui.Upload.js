@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Upload
 	 * @extends uw.ui.Step
-	 * @constructor
 	 * @param {Object} config UploadWizard config object.
 	 */
 	uw.ui.Upload = function UWUIUpload( config ) {

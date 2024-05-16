@@ -21,7 +21,6 @@
 	 *
 	 * @class uw.ui.Wizard
 	 * @mixins OO.EventEmitter
-	 * @constructor
 	 * @param {string} selector Where to put all of the wizard interface.
 	 */
 	uw.ui.Wizard = function UWUIWizard( selector ) {
