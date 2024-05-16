@@ -6,7 +6,7 @@
 	/**
 	 * A title field in UploadWizard's "Details" step form.
 	 *
-	 * @class uw.TitleDetailsWidget
+	 * @class
 	 * @extends uw.DetailsWidget
 	 * @param {Object} [config]
 	 */

@@ -19,7 +19,7 @@
 	/**
 	 * Represents the UI for the wizard's Upload step.
 	 *
-	 * @class uw.ui.Upload
+	 * @class
 	 * @extends uw.ui.Step
 	 * @param {Object} config UploadWizard config object.
 	 */

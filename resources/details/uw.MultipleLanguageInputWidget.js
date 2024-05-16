@@ -3,7 +3,7 @@
 	/**
 	 * A multi-language input field in UploadWizard's "Details" step form.
 	 *
-	 * @class uw.MultipleLanguageInputWidget
+	 * @class
 	 * @extends uw.DetailsWidget
 	 * @mixins OO.ui.mixin.GroupElement
 	 * @param {Object} [config]

@@ -19,7 +19,7 @@
 	 * There is an "empty" fileInput which is invisibly floating above certain buttons in the interface, like "Add a file". When
 	 * this fileInput gets a file, this upload becomes 'filled'.
 	 *
-	 * @class mw.UploadWizardUpload
+	 * @class
 	 * @mixins OO.EventEmitter
 	 * @param {uw.controller.Step} controller
 	 * @param {File} file
