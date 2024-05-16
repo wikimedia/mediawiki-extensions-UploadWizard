@@ -139,7 +139,6 @@
 		// TODO: Use a tag selector
 		// eslint-disable-next-line no-jquery/no-sizzle
 		$deedForm.find( ':input' ).prop( 'disabled', true );
-		// eslint-disable-next-line no-jquery/no-sizzle
 		$deedForm.hide();
 	};
 
@@ -167,7 +166,6 @@
 		// TODO: Use a tag selector
 		// eslint-disable-next-line no-jquery/no-sizzle
 		$deedForm.find( ':input' ).prop( 'disabled', false );
-		// eslint-disable-next-line no-jquery/no-sizzle
 		$deedForm.show();
 	};
 
