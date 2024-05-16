@@ -64,6 +64,7 @@
 	"mwe-upwiz-source-ownwork-label": "{{PLURAL:$1|Dette verket er mitt eige|Desse verka er mine eigne}}, og kven som helst kan nytta {{PLURAL:$1|det|dei}}.",
 	"mwe-upwiz-source-ownwork-description": "Døme: {{PLURAL:$1|fotografi}} av natur, offentlege tilskipingar, verk som er oppretta av deg sjølv, osb.",
 	"mwe-upwiz-source-ownwork-cc-by-sa-4.0-explain": "(Kven som helst kan bruka, dela eller endra på {{PLURAL:$1|dette verket|desse verka}} så lenge dei godskriv meg og deler avleidde verk under denne lisensen)",
+	"mwe-upwiz-source-ownwork-question": "Kva lisens ynskjer {{GENDER:$2|du}} å gje ut {{PLURAL:$1|dette verket|desse verka}} med? Alle mediefiler på Commons skal vera utgjevne med ein fri lisens.",
 	"mwe-upwiz-source-ownwork-origin-label": "Er {{PLURAL:$1|dette verket|desse verka}} fullt og heilt {{GENDER:$2|{{PLURAL:$1|ditt eige|dine eigne}}}}?",
 	"mwe-upwiz-source-ownwork-origin-option-own": "{{PLURAL:$1|Dette verket|Desse verka}} er fullt og heilt {{GENDER:$2|{{PLURAL:$1|mitt eige|mine eigne}}}}",
 	"mwe-upwiz-source-ownwork-origin-option-others-copyrighted": "Nei, {{PLURAL:$1|det|dei}} er verna av opphavsrett",
