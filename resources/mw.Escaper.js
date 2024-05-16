@@ -1,4 +1,7 @@
 ( function () {
+	/**
+	 * @class
+	 */
 	mw.Escaper = {
 		/**
 		 * Escapes wikitext for use inside {{templates}}.

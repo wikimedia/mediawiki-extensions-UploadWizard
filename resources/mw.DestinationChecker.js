@@ -1,5 +1,8 @@
 ( function () {
 
+	/**
+	 * @class
+	 */
 	mw.DestinationChecker = {
 
 		api: new mw.Api(),

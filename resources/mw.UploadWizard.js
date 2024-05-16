@@ -5,6 +5,9 @@
  */
 ( function ( uw ) {
 
+	/**
+	 * @class
+	 */
 	mw.UploadWizard = function ( config ) {
 		var maxSimPref;
 

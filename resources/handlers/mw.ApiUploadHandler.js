@@ -2,6 +2,7 @@
 	var NS_FILE = mw.config.get( 'wgNamespaceIds' ).file;
 
 	/**
+	 * @class
 	 * @param {mw.UploadWizardUpload} upload
 	 * @param {mw.Api} api
 	 */

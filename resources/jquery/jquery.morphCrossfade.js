@@ -39,6 +39,9 @@
  *
  */
 
+/**
+ * @class jQuery.plugin.morphCrossfader
+ */
 ( function () {
 	/**
 	 * Initialize crossfading of the children of an element
