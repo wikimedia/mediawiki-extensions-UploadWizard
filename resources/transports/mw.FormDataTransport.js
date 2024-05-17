@@ -3,7 +3,7 @@
 	 * Represents a "transport" for files to upload; using HTML5 FormData.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 * @param {mw.Api} api
 	 * @param {Object} formData Additional form fields required for upload api call
 	 * @param {Object} [config]

@@ -4,7 +4,7 @@
 	 * Interface widget to choose among various deeds -- for instance, if own work, or not own work, or other such cases.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 * @param {Object} config The UW config
 	 * @param {Object} deeds Keyed object of UploadWizardDeed items
 	 * @param {mw.UploadWizardUpload[]} uploads Uploads that this applies to (this is just to make deleting and plurals work)
