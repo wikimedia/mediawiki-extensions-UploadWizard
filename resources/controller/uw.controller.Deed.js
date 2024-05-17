@@ -66,17 +66,17 @@
 				// results (if there's just 1, it would otherwise have just
 				// that one's arguments, instead of a multi-dimensional array
 				// of upload warnings & failures)
-				allValidityPromises.push( $.Deferred().resolve( [], [], [] ).promise() );
+				allValidityPromises.push( $.Deferred().resolve( [], [] ).promise() );
 			}
 
 			$.when.apply( $, allValidityPromises ).then( function () {
-				// `arguments` will be an array of all fields, with their errors, warnings & notices
-				// e.g. `[[something], [], []], [[], [something], []]` for 2 fields,
-				// where the first one has an error and the last one a warning
+				// `arguments` will be an array of all fields, with their warnings & errors
+				// e.g. `[[something], []], [[], [something]]` for 2 fields, where the first one has
+				// a warning and the last one an error
 
 				// TODO Handle warnings with a confirmation dialog
 
-				if ( [ ...arguments ].some( ( arg ) => arg[ 0 ].length ) ) {
+				if ( [ ...arguments ].some( ( arg ) => arg[ 1 ].length ) ) {
 					// One of the fields has errors; refuse to proceed!
 					return;
 				}
