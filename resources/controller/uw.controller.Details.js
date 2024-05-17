@@ -176,13 +176,13 @@
 		this.uploads.forEach( function ( upload ) {
 			// Update any error/warning messages about all DetailsWidgets
 			var promise = upload.details.checkValidity( true ).then( function () {
-				var errors = [],
-					warnings = [],
+				var warnings = [],
+					errors = [],
 					title;
 
 				Array.prototype.forEach.call( arguments, function ( result ) {
-					errors = errors.concat( result[ 0 ] );
-					warnings = warnings.concat( result[ 1 ] );
+					warnings = warnings.concat( result[ 0 ] );
+					errors = errors.concat( result[ 1 ] );
 				} );
 
 				// Seen this title before?
@@ -198,7 +198,7 @@
 					}
 				}
 
-				return $.Deferred().resolve( errors, warnings ).promise();
+				return $.Deferred().resolve( warnings, errors ).promise();
 			} );
 
 			// Will hold an array of validation promises, one for each upload
@@ -208,12 +208,12 @@
 		// validityPromises is an array of promises that each resolve with [warnings, errors]
 		// for each upload - now iterate them all to figure out if we can proceed
 		return $.when.apply( $, validityPromises ).then( function () {
-			var errors = [],
-				warnings = [];
+			var warnings = [],
+				errors = [];
 
 			Array.prototype.forEach.call( arguments, function ( result ) {
-				errors = errors.concat( result[ 0 ] );
-				warnings = warnings.concat( result[ 1 ] );
+				warnings = warnings.concat( result[ 0 ] );
+				errors = errors.concat( result[ 1 ] );
 			} );
 
 			if ( errors.length > 0 ) {
