@@ -251,39 +251,6 @@
 	};
 
 	/**
-	 * Initialize the widget with one blank input field.
-	 */
-	uw.MultipleLanguageInputWidget.prototype.init = function () {
-		var config = $.extend(
-			{}, this.config, { canBeRemoved: !this.config.required }
-		);
-
-		this.clearItems();
-		this.addItems( [ new uw.SingleLanguageInputWidget( config ) ] );
-	};
-
-	/**
-	 * Populate the widget with a given set of values.
-	 *
-	 * @param {Object} values An object of `{ language code: text }` pairs
-	 */
-	uw.MultipleLanguageInputWidget.prototype.populate = function ( values ) {
-		var language,
-			currentSubWidget,
-			subWidgets = [];
-
-		for ( language in values ) {
-			currentSubWidget = new uw.SingleLanguageInputWidget( this.config ); // @todo config not necessarily valid; i.e. missing "canBeRemoved" (either first should not be removable, or it should be and immediately add a new irremovable blank one)
-			currentSubWidget.setLanguage( language );
-			currentSubWidget.setText( values[ language ] );
-			subWidgets.push( currentSubWidget );
-		}
-
-		this.clearItems();
-		this.addItems( subWidgets );
-	};
-
-	/**
 	 * @inheritdoc
 	 */
 	uw.MultipleLanguageInputWidget.prototype.getWikiText = function () {
