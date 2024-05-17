@@ -170,9 +170,18 @@
 			} );
 			this.mainFields.push( this.descriptionsDetailsField );
 
-			//
-			// TODO improve date: https://phabricator.wikimedia.org/T362328
-			//
+			this.categoriesDetails = new uw.CategoriesDetailsWidget();
+			this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
+				label: mw.message( 'mwe-upwiz-categories' ).text(),
+				help: new OO.ui.HtmlSnippet(
+					mw.message( 'mwe-upwiz-tooltip-categories', $( '<a>' ).attr( {
+						target: '_blank',
+						href: config.allCategoriesLink
+					} ) ).parse()
+				)
+			} );
+			this.mainFields.push( this.categoriesDetailsField );
+
 			this.dateDetails = new uw.DateDetailsWidget( { upload: this.upload } );
 			this.dateDetailsField = new uw.FieldLayout( this.dateDetails, {
 				label: mw.message( 'mwe-upwiz-date-created' ).text(),
@@ -181,61 +190,27 @@
 			} );
 			this.mainFields.push( this.dateDetailsField );
 
-			//
-			// Additional information
-			//
-			// This is a field set: fields will be added later
-			this.additionalInfoFieldset = new OO.ui.FieldsetLayout( {
-				label: mw.message( 'mwe-upwiz-additional-info' ).text(),
-				help: mw.message( 'mwe-upwiz-tooltip-additional-info' ).text(),
-				helpInline: true,
-				classes: [ 'mwe-upwiz-fieldsetLayout' ]
+			this.otherDetails = new uw.OtherDetailsWidget();
+			this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
+				label: mw.message( 'mwe-upwiz-other' ).text(),
+				help: mw.message( 'mwe-upwiz-tooltip-other' ).text()
 			} );
+			this.mainFields.push( this.otherDetailsField );
 
-			//
-			// TODO add main subjects: https://phabricator.wikimedia.org/T361053.
-			//      Use `classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]`
-			//
-
-			//
-			// TODO improve location: https://phabricator.wikimedia.org/T361052
-			//
 			this.locationInput = new uw.LocationDetailsWidget( { showHeading: true } );
 			this.locationInputField = new uw.FieldLayout( this.locationInput, {
-				label: mw.message( 'mwe-upwiz-location' ).text(),
-				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
+				label: mw.message( 'mwe-upwiz-location' ).text()
 			} );
-
-			//
-			// Categories
-			//
-			this.categoriesDetails = new uw.CategoriesDetailsWidget( {
-				placeholder: mw.message( 'mwe-upwiz-categories-placeholder' )
-			} );
-			this.categoriesDetailsField = new uw.FieldLayout( this.categoriesDetails, {
-				label: mw.message( 'mwe-upwiz-categories' ).text(),
-				help: mw.message( 'mwe-upwiz-tooltip-categories-v2' ).text(),
-				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
-			} );
-
-			// Add fields to the field set
-			this.additionalInfoFieldset.addItems(
-				// TODO add main subjects field here
-				[ this.categoriesDetailsField, this.locationInputField ]
-			);
-			this.mainFields.push( this.categoriesDetailsField );
 			this.mainFields.push( this.locationInputField );
 
-			//
-			// Final form
-			//
+			/* Build the form for the file upload */
 			this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 			this.$form.append(
 				this.titleDetailsField.$element,
 				config.wikibase.enabled && config.wikibase.captions ? this.captionsDetailsField.$element : null,
 				this.descriptionsDetailsField.$element,
 				this.dateDetailsField.$element,
-				this.additionalInfoFieldset.$element
+				this.categoriesDetailsField.$element
 			);
 
 			this.$form.on( 'submit', function ( e ) {
@@ -243,9 +218,6 @@
 				e.preventDefault();
 			} );
 
-			//
-			// Campaigns
-			//
 			this.campaignDetailsFields = [];
 			config.fields.forEach( function ( field ) {
 				var customDetails, customDetailsField;
@@ -266,30 +238,26 @@
 				}
 			} );
 
-			//
-			// Any other information
-			//
-			this.otherDetails = new uw.OtherDetailsWidget();
-			this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
-				label: mw.message( 'mwe-upwiz-other' ).text(),
-				help: mw.message( 'mwe-upwiz-tooltip-other' ).text()
-			} );
-			this.mainFields.push( this.otherDetailsField );
-
 			$moreDetailsWrapperDiv = $( '<div>' ).addClass( 'mwe-more-details' );
 			$moreDetailsDiv = $( '<div>' );
 
-			$moreDetailsDiv.append( this.otherDetailsField.$element );
+			$moreDetailsDiv.append(
+				this.locationInputField.$element,
+				this.otherDetailsField.$element
+			);
 
 			$moreDetailsWrapperDiv
 				.append(
-					$( '<a>' ).text( mw.msg( 'mwe-upwiz-more-information-toggle' ) )
+					$( '<a>' ).text( mw.msg( 'mwe-upwiz-more-options' ) )
 						.addClass( 'mwe-upwiz-details-more-options mw-collapsible-toggle mw-collapsible-arrow' ),
 					$moreDetailsDiv.addClass( 'mw-collapsible-content' )
 				)
 				.makeCollapsible( { collapsed: true } );
 
 			// Expand collapsed sections if the fields within were changed (e.g. by metadata copier)
+			this.locationInput.on( 'change', function () {
+				$moreDetailsWrapperDiv.data( 'mw-collapsible' ).expand();
+			} );
 			this.otherDetails.on( 'change', function () {
 				$moreDetailsWrapperDiv.data( 'mw-collapsible' ).expand();
 			} );
@@ -298,9 +266,7 @@
 				$moreDetailsWrapperDiv
 			);
 
-			//
-			// Remove upload button
-			//
+			// Add in remove control to form
 			this.removeCtrl = new OO.ui.ButtonWidget( {
 				label: mw.message( 'mwe-upwiz-remove' ).text(),
 				title: mw.message( 'mwe-upwiz-remove-upload' ).text(),
