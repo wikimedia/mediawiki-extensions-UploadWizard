@@ -254,7 +254,7 @@
 	"mwe-upwiz-deeds-need-license": "ライセンスを選択してください。",
 	"mwe-upwiz-license-show-all": "その他のライセンスを使用",
 	"mwe-upwiz-license-show-recommended": "サイトで推奨されるライセンスを使用",
-	"mwe-upwiz-label-optional": "省略可能",
+	"mwe-upwiz-label-optional": "（省略可能）",
 	"mwe-upwiz-error-signature-blank": "適切な欄に、あなたの利用者名や本名で署名をしてください。",
 	"mwe-upwiz-error-latitude": "緯度は-90から90の数字で指定する必要があります。",
 	"mwe-upwiz-error-longitude": "経度は-180から180の数字で指定する必要があります。",

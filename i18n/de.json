@@ -27,7 +27,8 @@
 			"Tobi 406",
 			"Umherirrender",
 			"✓",
-			"Brettchenweber"
+			"Brettchenweber",
+			"TomatoCake"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -251,7 +252,7 @@
 	"mwe-upwiz-deeds-need-license": "Bitte wähle eine Lizenz aus.",
 	"mwe-upwiz-license-show-all": "Eine andere Lizenz verwenden.",
 	"mwe-upwiz-license-show-recommended": "Die empfohlene Lizenz der Website verwenden",
-	"mwe-upwiz-label-optional": "Optional",
+	"mwe-upwiz-label-optional": "(optional)",
 	"mwe-upwiz-error-signature-blank": "Du musst im passenden Feld mit deinem Benutzernamen oder deinem bürgerlichen Namen unterzeichnen.",
 	"mwe-upwiz-error-latitude": "Die Breite muss eine Zahl zwischen –90 und 90 sein.",
 	"mwe-upwiz-error-longitude": "Die Länge muss eine Zahl zwischen –180 und 180 sein.",
@@ -360,8 +361,8 @@
 	"mwe-upwiz-license-pd-old-70-1923": "Erstveröffentlicht vor 1927 und der Autor ist vor mehr als 70 Jahren verstorben",
 	"mwe-upwiz-url-invalid": "Die eingegebene URL wird nicht unterstützt oder verweist auf ein ungültiges oder nicht erlaubtes $1-Bild beziehungsweise einen ungültigen oder nicht erlaubten $1-Fotosatz und kann nicht verwendet werden.",
 	"mwe-upwiz-user-blacklisted": "Leider können keine Bilder von diesem $1-Benutzerkonto auf diese Website hochgeladen werden.",
-	"mwe-upwiz-categories": "Kategorien",
-	"mwe-upwiz-categories-missing": "Einer dieser Kategorien fehlt eine Beschreibungsseite. Bist du sicher, dass du den Namen richtig eingegeben hast?",
+	"mwe-upwiz-categories": "Kategorie",
+	"mwe-upwiz-categories-missing": "Die rot {{PLURAL:$1|dargestellte Kategorie existiert|dargestellten Kategorien existieren}} nicht und es fehlt eine Beschreibungsseite. Falls {{PLURAL:$1|eine ähnliche Kategorie existiert|ähnliche Kategorien existieren}}, empfehlen wir dir {{PLURAL:$1|diese|jene}} zu verwenden. Falls nicht, gehe bitte {{PLURAL:$1|zur neuen Kategorie seite|zu den neuen Kategorieseiten}} und füge eine Beschreibung hinzu.",
 	"mwe-upwiz-thumbnail-failed": "Das Hochladen war erfolgreich, aber der Server kann keine Miniaturvorschau der Datei erstellen.",
 	"mwe-upwiz-unparseable-filename": "Der Dateiname „$1“ wurde nicht verstanden.",
 	"mwe-upwiz-error-title-invalid": "Dieser Titel ist ungültig. Achte darauf, Zeichen wie eckige Klammern, Doppelpunkte, Schrägstriche, Vergleichsoperatoren, senkrechte Striche und geschweifte Klammern zu entfernen.",

@@ -16,7 +16,8 @@
 			"SuperPotato",
 			"Wilander",
 			"EdoAug",
-			"Gabriel Kielland"
+			"Gabriel Kielland",
+			"Kjetil r"
 		]
 	},
 	"uploadwizard": "Opplastingsveiviser",
@@ -242,7 +243,7 @@
 	"mwe-upwiz-deeds-need-license": "Velg en lisens.",
 	"mwe-upwiz-license-show-all": "Bruk en annen lisens",
 	"mwe-upwiz-license-show-recommended": "Bruk nettstedets anbefalte lisens",
-	"mwe-upwiz-label-optional": "Valgfri",
+	"mwe-upwiz-label-optional": "(valgfritt)",
 	"mwe-upwiz-error-signature-blank": "Du må signere med brukernavnet ditt eller ditt virkelige navn i det passende feltet.",
 	"mwe-upwiz-error-latitude": "Breddegraden må være et tall mellom −90 og 90.",
 	"mwe-upwiz-error-longitude": "Lengdegraden må være et tall mellom −180 og 180.",
@@ -351,8 +352,8 @@
 	"mwe-upwiz-license-pd-old-70-1923": "Først publisert før 1927, og forfatteren døde for mer enn 70 år siden",
 	"mwe-upwiz-url-invalid": "Den oppgitte URLen er ugyldig eller peker til et ugyldig eller bruksbegrenset $1-bilde eller -fotosett, og kan ikke brukes.",
 	"mwe-upwiz-user-blacklisted": "Beklager, ingen bilder fra denne $1-kontoen kan lastes opp til denne siden.",
-	"mwe-upwiz-categories": "Kategorier",
-	"mwe-upwiz-categories-missing": "En av kategoriene mangler en beskrivelsesside. Er du sikker på at du har skrevet inn navnet riktig?",
+	"mwe-upwiz-categories": "Kategori",
+	"mwe-upwiz-categories-missing": "{{PLURAL:$1|Kategorien|Kategoriene}} som vises i rødt finnes ikke og mangler en beskrivelsesside. Hvis {{PLURAL:$1|en lignende kategori|lignende kategorier}} finnes anbefaler vi at du bruker {{PLURAL:$1|den|dem}} i stedet. Hvis ikke kan du gå til {{PLURAL:$1|den|de}} nye {{PLURAL:$1|kategorisiden|kategorisidene}} og legge til en beskrivelse.",
 	"mwe-upwiz-thumbnail-failed": "Opplastingen var vellykket, men serveren klarte ikke å få opp et minibilde for forhåndsvisning.",
 	"mwe-upwiz-unparseable-filename": "Filnavnet \"$1\" var uforståelig",
 	"mwe-upwiz-error-title-invalid": "Tittelen er ugyldig. Sørg for å fjerne tegn som klammeparenteser, kolon, sammenligningsoperatorer, loddrette streker og krøllparenteser.",
