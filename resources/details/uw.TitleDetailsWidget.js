@@ -255,14 +255,15 @@
 	 * @param {string} serialized.title Title text
 	 */
 	uw.TitleDetailsWidget.prototype.setSerialized = function ( serialized ) {
-		var titleInput = this.titleInput;
+		var titleInput = this.titleInput,
+			title = serialized.title;
 
 		// only prefill the title if the input is valid;
 		// it makes little sense to confuse users by automatically
 		// adding input that we already know we'll reject...
-		this.validateTitleInput( serialized.title ).then( function ( errors ) {
+		this.validateTitleInput( title ).then( function ( errors ) {
 			if ( errors.length === 0 ) {
-				titleInput.setValue( serialized.title );
+				titleInput.setValue( title );
 			}
 		} );
 	};
