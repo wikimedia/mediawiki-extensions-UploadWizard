@@ -46,7 +46,8 @@
 	width: 100%;
 }
 
-.mwe-upwiz-details-fieldname {
+.mwe-upwiz-details-fieldname,
+.oo-ui-fieldsetLayout-header .oo-ui-labelElement-label {
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -84,4 +85,31 @@
 
 .mwe-upwiz-description-same-as-caption-checkbox {
 	padding-bottom: 0.5em;
+}
+
+.mwe-upwiz-details-help {
+	color: #54595d;
+}
+
+.mwe-upwiz-fieldsetLayout {
+	.oo-ui-fieldsetLayout-header {
+		margin-bottom: 0;
+		padding-bottom: 4px;
+	}
+
+	.oo-ui-inline-help {
+		font-size: inherit;
+		margin-bottom: 1em;
+		color: #54595d;
+	}
+}
+
+.mwe-upwiz-fieldLayout-additional-info {
+	margin-bottom: 3px;
+
+	.oo-ui-fieldLayout-header {
+		.mwe-upwiz-details-fieldname {
+			font-weight: normal;
+		}
+	}
 }

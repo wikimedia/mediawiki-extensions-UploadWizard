@@ -52,7 +52,7 @@
 		// only add 'optional' marker after the label if that label
 		// has content...
 		if ( !this.required && this.$label.text() !== '' ) {
-			this.$header.after( this.optionalMarker.$element );
+			this.$header.append( ' ', this.optionalMarker.$element );
 		} else {
 			this.optionalMarker.$element.remove();
 		}
