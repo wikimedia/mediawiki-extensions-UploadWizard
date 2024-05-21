@@ -258,14 +258,7 @@
 		var titleInput = this.titleInput,
 			title = serialized.title;
 
-		// only prefill the title if the input is valid;
-		// it makes little sense to confuse users by automatically
-		// adding input that we already know we'll reject...
-		this.validateTitleInput( title ).then( function ( errors ) {
-			if ( errors.length === 0 ) {
-				titleInput.setValue( title );
-			}
-		} );
+		titleInput.setValue( title );
 	};
 
 }( mw.uploadWizard ) );
