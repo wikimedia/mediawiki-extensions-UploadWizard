@@ -447,6 +447,21 @@
 		},
 
 		/**
+		 * Check all the fields for warnings.
+		 *
+		 * @return {jQuery.Promise} Same as #getErrors
+		 */
+		getNotices: function () {
+			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
+				// return notices if field has them, empty array (no notices) otherwise
+				if ( fieldLayout.fieldWidget.getNotices ) {
+					return fieldLayout.fieldWidget.getNotices();
+				}
+				return [];
+			} ) );
+		},
+
+		/**
 		 * Check all the fields for errors and warnings and display them in the UI.
 		 *
 		 * @param {boolean} thorough True to perform a thorough validity check. Defaults to false for a fast on-change check.
@@ -456,7 +471,7 @@
 			var fields = this.getAllFields();
 
 			return $.when.apply( $, fields.map( function ( fieldLayout ) {
-				// Update any error/warning messages
+				// Update any error/warning/notice messages
 				return fieldLayout.checkValidity( thorough );
 			} ) );
 		},
