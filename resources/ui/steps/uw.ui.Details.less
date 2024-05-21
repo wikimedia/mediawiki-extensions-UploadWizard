@@ -8,7 +8,14 @@
 	.mwe-upwiz-thumbnail {
 		text-align: left;
 		width: 230px;
-		max-height: 230px;
+
+		a.mwe-upwiz-thumbnail-link img {
+			width: auto;
+			max-height: 230px;
+			// override !important from `.content a > img` on mobile
+			// stylelint-disable-next-line declaration-no-important
+			max-width: 230px !important;
+		}
 	}
 
 	.mwe-upwiz-data {
