@@ -352,7 +352,7 @@
 	"mwe-upwiz-url-invalid": "URL yang dimasukkan tidak didukung atau beralih ke berkas atau kumpulan berkas $1 yang tidak sah atau terbatasi dan tidak dapat digunakan.",
 	"mwe-upwiz-user-blacklisted": "Sayangnya, tidak ada berkas dari akun $1 ini yang dapat diunggah di situs ini.",
 	"mwe-upwiz-categories": "Kategori",
-	"mwe-upwiz-categories-missing": "Salah satu kategori tidak mempunyai halaman deksripsi. Anda yakin sudah mengetik nama dengan benar?",
+	"mwe-upwiz-categories-missing": "Salah satu kategori itu tidak memiliki halaman deskripsi. Apakah Anda yakin telah mengetik nama yang tepat?",
 	"mwe-upwiz-thumbnail-failed": "Pengunggahan berhasil, tetapi server tidak bisa mendapatkan pratayang gambar mini",
 	"mwe-upwiz-unparseable-filename": "Tidak mengerti nama berkas \"$1\"",
 	"mwe-upwiz-error-title-invalid": "Judul ini tidak sah. Pastikan Anda menghapus karakter seperti kurung siku, kurung kurawal, titik dua, operator perbandingan, dan simbol pipa (|).",

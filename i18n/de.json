@@ -27,7 +27,8 @@
 			"The Evil IP address",
 			"Tobi 406",
 			"Umherirrender",
-			"✓"
+			"✓",
+			"TomatoCake"
 		]
 	},
 	"uploadwizard": "Assistent zum Hochladen von Dateien",
@@ -361,7 +362,7 @@
 	"mwe-upwiz-url-invalid": "Die eingegebene URL wird nicht unterstützt oder verweist auf ein ungültiges oder nicht erlaubtes $1-Bild beziehungsweise einen ungültigen oder nicht erlaubten $1-Fotosatz und kann nicht verwendet werden.",
 	"mwe-upwiz-user-blacklisted": "Leider können keine Bilder von diesem $1-Benutzerkonto auf diese Website hochgeladen werden.",
 	"mwe-upwiz-categories": "Kategorien",
-	"mwe-upwiz-categories-missing": "Einer dieser Kategorien fehlt eine Beschreibungsseite. Bist du sicher, dass du den Namen richtig eingegeben hast?",
+	"mwe-upwiz-categories-missing": "Für eine der Kategorien fehlt eine Beschreibungsseite. Bist du sicher, dass du den Namen richtig eingegeben hast?",
 	"mwe-upwiz-thumbnail-failed": "Das Hochladen war erfolgreich, aber der Server kann keine Miniaturvorschau der Datei erstellen.",
 	"mwe-upwiz-unparseable-filename": "Der Dateiname „$1“ wurde nicht verstanden.",
 	"mwe-upwiz-error-title-invalid": "Dieser Titel ist ungültig. Achte darauf, Zeichen wie eckige Klammern, Doppelpunkte, Schrägstriche, Vergleichsoperatoren, senkrechte Striche und geschweifte Klammern zu entfernen.",

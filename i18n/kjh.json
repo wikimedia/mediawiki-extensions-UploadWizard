@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Sibday",
+			"Матыр"
 		]
 	},
-	"mwe-upwiz-dialog-yes": "Я"
+	"mwe-upwiz-dialog-yes": "Я",
+	"mwe-upwiz-categories-missing": "Категориялар аразында тексті пар чарыдығлығ страницазы чоғыл осхас. Страница ады орта адал парған ма? Алҷаас чоғыл?"
 }

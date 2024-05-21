@@ -290,7 +290,7 @@
 	"mwe-upwiz-url-invalid": "Daxil edilmiş URL dəstəklənmir və ya etibarsız və ya məhdudlaşdırılmış $1 şəkil və ya fotosetə keçid edir və istifadə edilə bilməz.",
 	"mwe-upwiz-user-blacklisted": "Təəssüf ki, bu $1 hesabından heç bir şəkil bu sayta yüklənə bilməz.",
 	"mwe-upwiz-categories": "Kateqoriyalar",
-	"mwe-upwiz-categories-missing": "Kateqoriyalardan birində açıqlama səhifəsi yoxdur. Adı düzgün yazdığınıza əminsiniz?",
+	"mwe-upwiz-categories-missing": "Kateqoriyalardan birində təsvir səhifəsi yoxdur. Adı düzgün yazdığınıza əminsiniz?",
 	"mwe-upwiz-thumbnail-failed": "Yükləmə uğurlu oldu, lakin server önizləmə miniatürünü əldə edə bilmədi.",
 	"mwe-upwiz-unparseable-filename": "\"$1\" fayl adını başa düşmək mümkün olmadı.",
 	"mwe-upwiz-error-title-invalid": "Bu başlıq etibarsızdır. Kvadrat mötərizələr, iki nöqtə, drop, müqayisə operatorları, xətt və əyri mötərizələr kimi simvolları sildiyinizə əmin olun.",

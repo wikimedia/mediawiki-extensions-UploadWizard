@@ -295,7 +295,7 @@
 	"mwe-upwiz-url-invalid": "Déi URL déi Dir aginn hutt gëtt net ënnerstëtzt oder weist op een net valabelt oder net erlaabte $1-Bild oder Fotoset a kann net benotzt ginn.",
 	"mwe-upwiz-user-blacklisted": "Leider kënne keng Biller vun dësem $1-Benotzerkont op dësen Internetsite eropgeluede ginn.",
 	"mwe-upwiz-categories": "Kategorien",
-	"mwe-upwiz-categories-missing": "Eng vun de Kategoriën huet keng Beschreiwungs-Säit. Sidd Dir sécher datt Dir den Numm richteg getippt hutt?",
+	"mwe-upwiz-categories-missing": "Eng vun de Kategorien huet keng Beschreiwungssäit. Sidd Dir sécher, datt Dir den Numm richteg getippt hutt?",
 	"mwe-upwiz-thumbnail-failed": "D'Eroplueden huet geklappt, mä de Server ka kee Miniaturbild vum Fichier weisen.",
 	"mwe-upwiz-unparseable-filename": "Den Numm vum Fichier \"$1\" gouf net verstan",
 	"mwe-upwiz-error-title-invalid": "Den Titel ass net valabel. Vergewëssert Iech datt Dir Zeechen wéi véiereckeg Klameren, Doppelpunkten, schif Strécher, Zeeche fir Vergläicher, vertikal Strécker a geschwiefte Klameren ewechhuelt.",
