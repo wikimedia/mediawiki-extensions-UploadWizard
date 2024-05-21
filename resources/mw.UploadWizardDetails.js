@@ -28,7 +28,7 @@
 
 		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
-			var descriptionRequired, uri,
+			var descriptionRequired, uri, captionsAvailable,
 				$moreDetailsWrapperDiv, $moreDetailsDiv,
 				details = this,
 				config = mw.UploadWizard.config;
@@ -55,6 +55,7 @@
 			//
 			// Captions
 			//
+			captionsAvailable = config.wikibase.enabled && config.wikibase.captions;
 			this.captionsDetails = new uw.MultipleLanguageInputWidget( {
 				inputWidgetConstructor: OO.ui.TextInputWidget.bind( null, {
 					classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ]
@@ -73,7 +74,7 @@
 				label: mw.message( 'mwe-upwiz-caption' ).text(),
 				help: mw.message( 'mwe-upwiz-tooltip-caption' ).text()
 			} );
-			if ( config.wikibase.enabled && config.wikibase.captions ) {
+			if ( captionsAvailable ) {
 				this.mainFields.push( this.captionsDetailsField );
 			}
 
@@ -89,7 +90,9 @@
 			);
 			// Main widget
 			this.descriptionsDetails = new uw.MultipleLanguageInputWidget( {
-				required: descriptionRequired,
+				// if captions are available then the default is to copy them to descriptions,
+				// so the descriptions field itself is not required
+				required: descriptionRequired && !captionsAvailable,
 				classes: [ 'mwe-upwiz-caption' ],
 				label: mw.message( 'mwe-upwiz-desc-add' ),
 				error: mw.message( 'mwe-upwiz-error-bad-descriptions' ),
@@ -100,34 +103,25 @@
 			} );
 
 			// Checkbox telling whether descriptions must be identical to captions.
-			// If selected, copy captions to descriptions. This is the default behavior.
+			// If selected, hide descriptions. This is the default behavior.
 			this.descriptionSameAsCaptionCheckbox = new OO.ui.CheckboxMultioptionWidget( {
 				label: mw.message( 'mwe-upwiz-description-same-as-caption' ).text(),
-				selected: true
+				// set it as selected only when we have captions in the first place,
+				// otherwise there will be nothing to copy from
+				// note that in such case, this checkbox should not be displayed,
+				// but we may still check its value when extracting data
+				selected: captionsAvailable
 			} );
 			this.descriptionSameAsCaption = new OO.ui.CheckboxMultiselectWidget( {
 				classes: [ 'mwe-upwiz-description-same-as-caption-checkbox' ],
 				items: [ this.descriptionSameAsCaptionCheckbox ]
 			} );
-			// automatically copy captions over to descriptions, but only
-			// if the "copy" checkbox is selected
-			this.captionsDetails.on( 'change', function () {
-				if ( details.descriptionSameAsCaptionCheckbox.isSelected() ) {
-					details.descriptionsDetails.populate(
-						details.captionsDetails.getValues()
-					);
-				}
-			} );
 			this.descriptionSameAsCaptionCheckbox.on( 'change', function () {
-				if ( details.descriptionSameAsCaptionCheckbox.isSelected() ) {
-					details.descriptionsDetails.$element.hide();
-					details.descriptionsDetails.populate(
-						details.captionsDetails.getValues()
-					);
-				} else {
-					details.descriptionsDetails.init();
-					details.descriptionsDetails.$element.show();
-				}
+				details.descriptionsDetails.$element.toggle(
+					!details.descriptionSameAsCaptionCheckbox.isSelected()
+				);
+				details.descriptionsDetails.required =
+					descriptionRequired && !details.descriptionSameAsCaptionCheckbox.isSelected();
 			} );
 
 			// Description are fickle; they are required (unless, as described earlier,
@@ -149,9 +143,9 @@
 			this.descriptionsWidget = new OO.ui.Widget();
 			this.descriptionsWidget.$element.append(
 				// only show checkbox to copy from captions if captions are enabled)
-				config.wikibase.enabled && config.wikibase.captions ? this.descriptionSameAsCaption.$element : null,
+				captionsAvailable ? this.descriptionSameAsCaption.$element : null,
 				// toggle visibility of descriptions based on availability of captions
-				this.descriptionsDetails.$element.toggle( !( config.wikibase.enabled && config.wikibase.captions ) )
+				this.descriptionsDetails.$element.toggle( !( captionsAvailable ) )
 			);
 			// if something changes within this widget, then let this widget
 			// itself propagate the change event, to trigger input validation
@@ -206,7 +200,7 @@
 			this.$form = $( '<form id="mwe-upwiz-detailsform' + this.upload.index + '"></form>' ).addClass( 'detailsForm' );
 			this.$form.append(
 				this.titleDetailsField.$element,
-				config.wikibase.enabled && config.wikibase.captions ? this.captionsDetailsField.$element : null,
+				captionsAvailable ? this.captionsDetailsField.$element : null,
 				this.descriptionsDetailsField.$element,
 				this.dateDetailsField.$element,
 				this.categoriesDetailsField.$element
@@ -632,6 +626,7 @@
 					// & and " are escaped by Flickr, so we need to unescape
 					descText = descText.replace( /&amp;/g, '&' ).replace( /&quot;/g, '"' );
 
+					this.descriptionSameAsCaptionCheckbox.setSelected( false );
 					this.descriptionsDetails.setSerialized( {
 						inputs: [
 							{
@@ -732,7 +727,7 @@
 			return {
 				title: this.titleDetails.getSerialized(),
 				caption: this.captionsDetails.getSerialized(),
-				description: this.descriptionsDetails.getSerialized(),
+				description: this.descriptionSameAsCaptionCheckbox.isSelected() ? undefined : this.descriptionsDetails.getSerialized(),
 				date: this.dateDetails.getSerialized(),
 				categories: this.categoriesDetails.getSerialized(),
 				location: this.locationInput.getSerialized(),
@@ -781,6 +776,7 @@
 			if ( serialized.caption ) {
 				this.captionsDetails.setSerialized( serialized.caption );
 			}
+			this.descriptionSameAsCaptionCheckbox.setSelected( serialized.description === undefined );
 			if ( serialized.description ) {
 				this.descriptionsDetails.setSerialized( serialized.description );
 			}
@@ -832,7 +828,11 @@
 				'other versions': ''
 			};
 
-			information.description = this.descriptionsDetails.getWikiText();
+			if ( this.descriptionSameAsCaptionCheckbox.isSelected() ) {
+				information.description = this.captionsDetails.getWikiText();
+			} else {
+				information.description = this.descriptionsDetails.getWikiText();
+			}
 
 			this.campaignDetailsFields.forEach( function ( layout ) {
 				information.description += layout.fieldWidget.getWikiText();
