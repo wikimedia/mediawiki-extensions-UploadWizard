@@ -34,7 +34,12 @@
 		/**
 		 * @property {Object} config
 		 */
-		this.config = config;
+		this.config = $.extend(
+			{
+				showInBreadcrumb: true
+			},
+			config
+		);
 		/**
 		 * @property {mw.Api} api
 		 */
@@ -80,6 +85,8 @@
 		 * The previous step in the process.
 		 */
 		this.previousStep = null;
+
+		this.showInBreadcrumb = this.config.showInBreadcrumb;
 	};
 
 	OO.mixinClass( uw.controller.Step, OO.EventEmitter );
