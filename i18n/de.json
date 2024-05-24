@@ -393,7 +393,7 @@
 	"mwe-upwiz-url-invalid": "Die eingegebene URL wird nicht unterstützt oder verweist auf ein ungültiges oder nicht erlaubtes $1-Bild beziehungsweise einen ungültigen oder nicht erlaubten $1-Fotosatz und kann nicht verwendet werden.",
 	"mwe-upwiz-user-blacklisted": "Leider können keine Bilder von diesem $1-Benutzerkonto auf diese Website hochgeladen werden.",
 	"mwe-upwiz-categories": "Kategorie",
-	"mwe-upwiz-categories-missing": "Die rot {{PLURAL:$1|dargestellte Kategorie existiert|dargestellten Kategorien existieren}} nicht und es fehlt eine Beschreibungsseite. Falls {{PLURAL:$1|eine ähnliche Kategorie existiert|ähnliche Kategorien existieren}}, empfehlen wir dir {{PLURAL:$1|diese|jene}} zu verwenden. Falls nicht, gehe bitte {{PLURAL:$1|zur neuen Kategorie seite|zu den neuen Kategorieseiten}} und füge eine Beschreibung hinzu.",
+	"mwe-upwiz-categories-missing": "Die rot {{PLURAL:$1|dargestellte Kategorie existiert|dargestellten Kategorien existieren}} nicht und es fehlt eine Beschreibungsseite. Falls {{PLURAL:$1|eine ähnliche Kategorie existiert|ähnliche Kategorien existieren}}, empfehlen wir dir {{PLURAL:$1|diese|jene}} zu verwenden. Falls nicht, gehe bitte {{PLURAL:$1|zur neuen Kategorieseite|zu den neuen Kategorieseiten}} und füge eine Beschreibung hinzu.",
 	"mwe-upwiz-categories-placeholder": "z.B. Säugetiere des Etosha Nationalparks",
 	"mwe-upwiz-thumbnail-failed": "Das Hochladen war erfolgreich, aber der Server kann keine Miniaturvorschau der Datei erstellen.",
 	"mwe-upwiz-unparseable-filename": "Der Dateiname „$1“ wurde nicht verstanden.",
