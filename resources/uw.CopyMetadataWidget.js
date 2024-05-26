@@ -6,8 +6,8 @@
 	 * @extends OO.ui.Widget
 	 * @class
 	 * @param {Object} [config] Configuration options
-	 * @cfg {mw.UploadWizardUpload} copyFrom Upload to copy the details from
-	 * @cfg {mw.UploadWizardUpload[]} copyTo Uploads to copy the details to
+	 * @param {mw.UploadWizardUpload} config.copyFrom Upload to copy the details from
+	 * @param {mw.UploadWizardUpload[]} config.copyTo Uploads to copy the details to
 	 */
 	uw.CopyMetadataWidget = function UWCopyMetadataWidget( config ) {
 		var metadataType, defaultStatus, copyMetadataMsg,

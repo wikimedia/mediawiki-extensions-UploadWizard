@@ -6,7 +6,7 @@
 	 * @extends uw.DetailsWidget
 	 * @class
 	 * @param {Object} [config] Configuration options
-	 * @cfg {boolean} [showHeading=true] Whether to show the 'heading' field
+	 * @param {boolean} [config.showHeading=true] Whether to show the 'heading' field
 	 */
 	uw.LocationDetailsWidget = function UWLocationDetailsWidget( config ) {
 		this.config = config || {};

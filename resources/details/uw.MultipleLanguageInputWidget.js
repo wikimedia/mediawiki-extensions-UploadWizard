@@ -7,15 +7,15 @@
 	 * @extends uw.DetailsWidget
 	 * @mixes OO.ui.mixin.GroupElement
 	 * @param {Object} [config]
-	 * @cfg {boolean} [required=true]
-	 * @cfg {mw.Message} [label] Text for label
-	 * @cfg {mw.Message} [placeholder] Placeholder text for input field
-	 * @cfg {mw.Message} [remove] Title text for remove icon
-	 * @cfg {mw.Message} [error] Error message
-	 * @cfg {mw.Message} [errorBlank] Error message for blank input
-	 * @cfg {number} [minLength=0] Minimum input length
-	 * @cfg {number} [maxLength=99999] Maximum input length
-	 * @cfg {Object} [languages] { langcode: text } map of languages
+	 * @param {boolean} [config.required=true]
+	 * @param {mw.Message} [config.label] Text for label
+	 * @param {mw.Message} [config.placeholder] Placeholder text for input field
+	 * @param {mw.Message} [config.remove] Title text for remove icon
+	 * @param {mw.Message} [config.error] Error message
+	 * @param {mw.Message} [config.errorBlank] Error message for blank input
+	 * @param {number} [config.minLength=0] Minimum input length
+	 * @param {number} [config.maxLength=99999] Maximum input length
+	 * @param {Object} [config.languages] { langcode: text } map of languages
 	 */
 	uw.MultipleLanguageInputWidget = function UWMultipleLanguageInputWidget( config ) {
 		this.config = $.extend( {
