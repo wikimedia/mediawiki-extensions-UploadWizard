@@ -99,6 +99,7 @@
 	};
 
 	/**
+	 * @param {string} value
 	 * @return {jQuery.Promise}
 	 */
 	uw.TitleDetailsWidget.prototype.validateTitleInput = function ( value ) {

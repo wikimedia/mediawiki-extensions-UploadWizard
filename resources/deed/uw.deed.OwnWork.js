@@ -460,7 +460,7 @@
 	 * There's no getValue() on a hidden input in OOUI.
 	 * Also handle an AI-generated work.
 	 *
-	 * @return string
+	 * @return {string}
 	 */
 	uw.deed.OwnWork.prototype.getAuthorInputValue = function () {
 		return this.authorInput.$element.val().trim();

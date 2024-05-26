@@ -56,7 +56,6 @@
 		 * `upload.on( <key>, <value>.bind( this, upload ) );`
 		 *
 		 * @property {Object}
-		 *
 		 */
 		this.uploadHandlers = {
 			'remove-upload': this.removeUpload

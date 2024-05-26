@@ -216,7 +216,7 @@
 	};
 
 	/**
-	 * @return string
+	 * @return {string}
 	 */
 	uw.deed.Abstract.prototype.getTemplateOptionsWikiText = function () {
 		var name, option, wikitext = '';

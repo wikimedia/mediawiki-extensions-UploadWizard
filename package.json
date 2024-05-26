@@ -3,6 +3,7 @@
 	"private": true,
 	"scripts": {
 		"doc": "jsdoc -c jsdoc.json -p",
+		"lint:js": "eslint --cache .",
 		"test": "grunt test"
 	},
 	"devDependencies": {
