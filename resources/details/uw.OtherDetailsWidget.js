@@ -11,8 +11,7 @@
 
 		this.textInput = new OO.ui.MultilineTextInputWidget( {
 			classes: [ 'mwe-upwiz-other-textarea', 'mwe-upwiz-otherDetailsWidget-other' ],
-			autosize: true,
-			rows: 2
+			autosize: true
 		} );
 
 		// Aggregate 'change' event

@@ -90,6 +90,16 @@
 	background-position: left center;
 }
 
+.mwe-upwiz-fieldLayout-additional-info:has( .mw-collapsible ) {
+	&:not( :has( .mw-collapsed ) ) .oo-ui-icon-expand {
+		display: none;
+	}
+
+	&:has( .mw-collapsed ) .oo-ui-icon-collapse {
+		display: none;
+	}
+}
+
 .mwe-upwiz-description-same-as-caption-checkbox {
 	padding-bottom: 0.5em;
 }
