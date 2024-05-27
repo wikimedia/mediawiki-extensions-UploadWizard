@@ -83,9 +83,15 @@
 	};
 
 	uw.controller.Deed.prototype.unload = function () {
+		var deedChoosers = this.getUniqueDeedChoosers( this.uploads );
 		uw.controller.Step.prototype.unload.call( this );
 
-		this.getUniqueDeedChoosers( this.uploads ).forEach( ( deedChooser ) => {
+		// serialize the first deed so we can use it to pre-populate the choices if someone is
+		// uploading files in batches
+		this.uploadedDeedSerialization =
+			deedChoosers[ Object.keys( deedChoosers )[ 0 ] ].getSerialized();
+
+		deedChoosers.forEach( ( deedChooser ) => {
 			deedChooser.remove();
 		} );
 	};
@@ -194,6 +200,8 @@
 		uploads.forEach( ( upload ) => {
 			if ( serializedDeeds[ upload.getFilename() ] ) {
 				upload.deedChooser.setSerialized( serializedDeeds[ upload.getFilename() ] );
+			} else if ( self.uploadedDeedSerialization ) {
+				upload.deedChooser.setSerialized( self.uploadedDeedSerialization );
 			}
 		} );
 	};
