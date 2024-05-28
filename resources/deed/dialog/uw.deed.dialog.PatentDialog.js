@@ -113,6 +113,8 @@
 	};
 
 	/**
+	 * @param {boolean} ownership
+	 * @param {boolean} grant
 	 * @return {OO.ui.PanelLayout}
 	 */
 	uw.PatentDialog.prototype.getLicenseLayout = function ( ownership, grant ) {

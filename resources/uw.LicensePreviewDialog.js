@@ -1,6 +1,7 @@
 ( function ( uw ) {
 	/**
 	 * @class
+	 * @param {Object} [config]
 	 */
 	uw.LicensePreviewDialog = function UWLicensePreviewDialog( config ) {
 		uw.LicensePreviewDialog.super.call( this, config );
