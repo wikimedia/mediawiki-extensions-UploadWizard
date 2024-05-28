@@ -6,7 +6,7 @@
 	 * @extends uw.DetailsWidget
 	 * @class
 	 * @param {Object} config Configuration options
-	 * @cfg {mw.UploadWizardUpload} upload
+	 * @param {mw.UploadWizardUpload} config.upload
 	 */
 	uw.DateDetailsWidget = function UWDateDetailsWidget( config ) {
 		uw.DateDetailsWidget.super.call( this );
