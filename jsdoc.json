@@ -7,6 +7,9 @@
 		"template": "node_modules/jsdoc-wmf-theme"
 	},
 	"plugins": [
+		"node_modules/jsdoc-wmf-theme/plugins/allow-dots-in-modules",
+		"node_modules/jsdoc-wmf-theme/plugins/betterlinks",
+		"node_modules/jsdoc-wmf-theme/plugins/summarize",
 		"plugins/markdown"
 	],
 	"source": {
