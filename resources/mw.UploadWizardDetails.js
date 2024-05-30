@@ -701,20 +701,16 @@
 		prefillLocation: function () {
 			var dir,
 				m = this.upload.imageinfo.metadata,
-				modified = false,
 				values = {};
 
 			if ( mw.UploadWizard.config.defaults.lat ) {
 				values.latitude = mw.UploadWizard.config.defaults.lat;
-				modified = true;
 			}
 			if ( mw.UploadWizard.config.defaults.lon ) {
 				values.longitude = mw.UploadWizard.config.defaults.lon;
-				modified = true;
 			}
 			if ( mw.UploadWizard.config.defaults.heading ) {
 				values.heading = mw.UploadWizard.config.defaults.heading;
-				modified = true;
 			}
 
 			if ( m ) {
@@ -729,15 +725,12 @@
 					}
 
 					values.heading = dir;
-
-					modified = true;
 				}
 
 				// Prefill useful stuff only
 				if ( Number( m.gpslatitude ) && Number( m.gpslongitude ) ) {
 					values.latitude = m.gpslatitude;
 					values.longitude = m.gpslongitude;
-					modified = true;
 				} else if (
 					this.upload.file &&
 					this.upload.file.location &&
@@ -746,16 +739,10 @@
 				) {
 					values.latitude = this.upload.file.location.latitude;
 					values.longitude = this.upload.file.location.longitude;
-					modified = true;
 				}
 			}
 
 			this.locationInput.setSerialized( values );
-
-			if ( modified ) {
-				this.$form.find( '.mwe-more-details' )
-					.data( 'mw-collapsible' ).expand();
-			}
 		},
 
 		/**
