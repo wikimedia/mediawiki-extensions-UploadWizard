@@ -1,39 +1,45 @@
 .mwe-upwiz-singleLanguageInputWidget {
-	background-color: #f8f9fa;
-	padding: 10px;
-	border: 1px solid #eaecf0;
-	border-radius: 2px;
-	margin-bottom: 0.8em;
-
 	&:not( :first-of-type ) {
 		border-top: 0;
 	}
 
-	.mwe-upwiz-singleLanguageInputWidget-language:has( + .mwe-upwiz-singleLanguageInputWidget-removeItem ) {
-		// Lower the width to accommodate for the delete icon (if there is one)
+	.mwe-upwiz-singleLanguageInputWidget-body {
+		background-color: #f8f9fa;
+		padding: 10px;
+		border: 1px solid #eaecf0;
+		border-radius: 2px;
+		margin-bottom: 0.8em;
+
+		.mwe-upwiz-singleLanguageInputWidget-text {
+			padding-top: 0.5em;
+			width: 100%;
+		}
+
+		.mwe-upwiz-singleLanguageInputWidget-removeItem {
+			float: right;
+			margin-right: 0;
+
+			&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+				float: right;
+			}
+		}
+
+		.mwe-upwiz-singleLanguageInputWidget-language,
+		.mwe-upwiz-singleLanguageInputWidget-text,
+		.mwe-upwiz-singleLanguageInputWidget-removeItem {
+			display: inline-block;
+			// 'top' because the description text input is autosized
+			vertical-align: top;
+		}
+	}
+
+	&.mwe-upwiz-singleLanguageInputWidget-removable .mwe-upwiz-singleLanguageInputWidget-language {
+		// Lower the width to accommodate for the delete icon
 		// 32px is icon width, 8px is this element's margin-right
 		width: calc( 100% - 8px - 32px );
 	}
 
-	.mwe-upwiz-singleLanguageInputWidget-text {
-		padding-top: 0.5em;
-		width: 100%;
-	}
-
-	.mwe-upwiz-singleLanguageInputWidget-removeItem {
-		float: right;
-		margin-right: 0;
-
-		&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-			float: right;
-		}
-	}
-
-	.mwe-upwiz-singleLanguageInputWidget-language,
-	.mwe-upwiz-singleLanguageInputWidget-text,
-	.mwe-upwiz-singleLanguageInputWidget-removeItem {
-		display: inline-block;
-		// 'top' because the description text input is autosized
-		vertical-align: top;
+	&:not( .mwe-upwiz-singleLanguageInputWidget-removable ) .mwe-upwiz-singleLanguageInputWidget-removeItem {
+		display: none;
 	}
 }

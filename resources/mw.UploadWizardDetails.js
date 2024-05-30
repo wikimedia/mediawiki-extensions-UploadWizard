@@ -29,9 +29,10 @@
 
 		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
-			var descriptionRequired, uri, captionsAvailable,
+			var descriptionRequired, uri,
 				details = this,
-				config = mw.UploadWizard.config;
+				config = mw.UploadWizard.config,
+				captionsAvailable = config.wikibase.enabled && config.wikibase.captions;
 
 			this.$thumbnailDiv = $( '<div>' ).addClass( 'mwe-upwiz-thumbnail' );
 
@@ -55,7 +56,6 @@
 			//
 			// Captions
 			//
-			captionsAvailable = config.wikibase.enabled && config.wikibase.captions;
 			this.captionsDetails = new uw.MultipleLanguageInputWidget( {
 				inputWidgetConstructor: OO.ui.TextInputWidget.bind( null, {
 					classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ]
@@ -120,11 +120,14 @@
 				details.descriptionsDetails.$element.toggle(
 					!details.descriptionSameAsCaptionCheckbox.isSelected()
 				);
-				details.descriptionsDetails.required =
-					descriptionRequired && !details.descriptionSameAsCaptionCheckbox.isSelected();
+				// if descriptions are entered separately rather than being copied
+				// from captions, they become required (unless they are not, e.g.
+				// when a campaign provides alternatives) & captions turn optional
+				details.descriptionsDetails.setRequired( descriptionRequired && !details.descriptionSameAsCaptionCheckbox.isSelected() );
+				details.captionsDetails.setRequired( details.descriptionSameAsCaptionCheckbox.isSelected() );
 			} );
 
-			// Description are fickle; they are required (unless, as described earlier,
+			// Descriptions are fickle; they are required (unless, as described earlier,
 			// a campaign provides alternatives), but are not necessarily visible:
 			// they default to being hidden and automatically being copied over from
 			// captions. Unless captions aren't even available, in which case they
