@@ -30,7 +30,6 @@
 		// Build the interface and attach all elements - do this on demand
 		buildInterface: function () {
 			var descriptionRequired, uri, captionsAvailable,
-				$moreDetailsWrapperDiv, $moreDetailsDiv,
 				details = this,
 				config = mw.UploadWizard.config;
 
@@ -212,13 +211,41 @@
 				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
 			} );
 
+			//
+			// Any other information
+			//
+			this.otherDetails = new uw.OtherDetailsWidget();
+			this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
+				label: $( '<label>' ).append(
+					new OO.ui.IconWidget( { icon: 'expand' } ).$element,
+					new OO.ui.IconWidget( { icon: 'collapse' } ).$element,
+					' ',
+					mw.message( 'mwe-upwiz-other-v2', mw.user ).text()
+				),
+				classes: [ 'mwe-upwiz-fieldLayout-additional-info' ]
+			} );
+			this.otherDetails.$element.makeCollapsible( {
+				collapsed: true,
+				$customTogglers: this.otherDetailsField.$element.find( '.oo-ui-fieldLayout-header' )
+			} );
+			// Expand collapsed sections if the fields within were changed (e.g. by metadata copier)
+			this.otherDetails.on( 'change', function () {
+				details.otherDetails.$element.data( 'mw-collapsible' ).expand();
+			} );
+
 			// Add fields to the field set
 			this.additionalInfoFieldset.addItems(
 				// TODO add main subjects field here
-				[ this.categoriesDetailsField, this.locationInputField ]
+				[
+					this.categoriesDetailsField,
+					this.locationInputField,
+					this.otherDetailsField
+				]
 			);
+
 			this.mainFields.push( this.categoriesDetailsField );
 			this.mainFields.push( this.locationInputField );
+			this.mainFields.push( this.otherDetailsField );
 
 			//
 			// Final form
@@ -259,38 +286,6 @@
 					details.campaignDetailsFields.push( customDetailsField );
 				}
 			} );
-
-			//
-			// Any other information
-			//
-			this.otherDetails = new uw.OtherDetailsWidget();
-			this.otherDetailsField = new uw.FieldLayout( this.otherDetails, {
-				label: mw.message( 'mwe-upwiz-other' ).text(),
-				help: mw.message( 'mwe-upwiz-tooltip-other' ).text()
-			} );
-			this.mainFields.push( this.otherDetailsField );
-
-			$moreDetailsWrapperDiv = $( '<div>' ).addClass( 'mwe-more-details' );
-			$moreDetailsDiv = $( '<div>' );
-
-			$moreDetailsDiv.append( this.otherDetailsField.$element );
-
-			$moreDetailsWrapperDiv
-				.append(
-					$( '<a>' ).text( mw.msg( 'mwe-upwiz-more-information-toggle' ) )
-						.addClass( 'mwe-upwiz-details-more-options mw-collapsible-toggle mw-collapsible-arrow' ),
-					$moreDetailsDiv.addClass( 'mw-collapsible-content' )
-				)
-				.makeCollapsible( { collapsed: true } );
-
-			// Expand collapsed sections if the fields within were changed (e.g. by metadata copier)
-			this.otherDetails.on( 'change', function () {
-				$moreDetailsWrapperDiv.data( 'mw-collapsible' ).expand();
-			} );
-
-			this.$form.append(
-				$moreDetailsWrapperDiv
-			);
 
 			//
 			// Remove upload button
