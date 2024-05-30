@@ -460,7 +460,11 @@
 		 */
 		getErrors: function () {
 			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
-				return fieldLayout.fieldWidget.getErrors();
+				// return errors if field has them, empty array (no errors) otherwise
+				if ( fieldLayout.fieldWidget.getErrors ) {
+					return fieldLayout.fieldWidget.getErrors();
+				}
+				return [];
 			} ) );
 		},
 
@@ -471,20 +475,9 @@
 		 */
 		getWarnings: function () {
 			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
-				return fieldLayout.fieldWidget.getWarnings();
-			} ) );
-		},
-
-		/**
-		 * Check all the fields for warnings.
-		 *
-		 * @return {jQuery.Promise} Same as #getErrors
-		 */
-		getNotices: function () {
-			return $.when.apply( $, this.getAllFields().map( function ( fieldLayout ) {
-				// return notices if field has them, empty array (no notices) otherwise
-				if ( fieldLayout.fieldWidget.getNotices ) {
-					return fieldLayout.fieldWidget.getNotices();
+				// return warnings if field has them, empty array (no warnings) otherwise
+				if ( fieldLayout.fieldWidget.getWarnings ) {
+					return fieldLayout.fieldWidget.getWarnings();
 				}
 				return [];
 			} ) );

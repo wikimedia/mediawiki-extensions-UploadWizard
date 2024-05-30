@@ -52,23 +52,16 @@
 	 * @inheritdoc
 	 */
 	uw.CategoriesDetailsWidget.prototype.getWarnings = function () {
-		return $.Deferred().resolve( [] ).promise();
-	};
-
-	/**
-	 * @inheritdoc
-	 */
-	uw.CategoriesDetailsWidget.prototype.getNotices = function () {
-		var notices = [],
+		var warnings = [],
 			missing = this.categoriesWidget.getItems().filter( function ( item ) {
 				return item.missing;
 			} );
 
 		if ( missing.length > 0 ) {
-			notices.push( mw.message( 'mwe-upwiz-categories-missing', missing.length ) );
+			warnings.push( mw.message( 'mwe-upwiz-categories-missing', missing.length ) );
 		}
 
-		return $.Deferred().resolve( notices ).promise();
+		return $.Deferred().resolve( warnings ).promise();
 	};
 
 	/**

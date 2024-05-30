@@ -163,14 +163,13 @@
 	 * @return {jQuery.Promise}
 	 */
 	uw.controller.Details.prototype.valid = function () {
-		var detailsController = this,
-			// validityPromises will hold all promises for all uploads;
-			// prefilling with a bogus promise (no warnings & errors) to
-			// ensure $.when always resolves with an array of multiple
-			// results (if there's just 1, it would otherwise have just
-			// that one's arguments, instead of a multi-dimensional array
-			// of upload warnings & failures)
-			validityPromises = [ $.Deferred().resolve( [], [] ).promise() ],
+		// validityPromises will hold all promises for all uploads;
+		// prefilling with a bogus promise (no warnings & errors) to
+		// ensure $.when always resolves with an array of multiple
+		// results (if there's just 1, it would otherwise have just
+		// that one's arguments, instead of a multi-dimensional array
+		// of upload warnings & failures)
+		var validityPromises = [ $.Deferred().resolve( [], [] ).promise() ],
 			titles = [];
 
 		this.uploads.forEach( function ( upload ) {
@@ -220,37 +219,7 @@
 				return $.Deferred().resolve( false );
 			}
 
-			if ( warnings.length > 0 ) {
-				// Update warning count before dialog
-				detailsController.showErrors();
-				return detailsController.confirmationDialog( warnings );
-			}
-
 			return $.Deferred().resolve( true );
-		} );
-	};
-
-	uw.controller.Details.prototype.confirmationDialog = function ( warnings ) {
-		var i,
-			$message = $( '<p>' ).text( mw.message( 'mwe-upwiz-dialog-warning' ).text() ),
-			$ul = $( '<ul>' );
-
-		// parse warning messages
-		warnings = warnings.map( function ( warning ) {
-			return warning.text();
-		} );
-
-		// omit duplicates
-		warnings = warnings.filter( function ( warning, i, warnings ) {
-			return warnings.indexOf( warning ) === i;
-		} );
-
-		for ( i = 0; i < warnings.length; i++ ) {
-			$ul.append( $( '<li>' ).text( warnings[ i ] ) );
-		}
-
-		return OO.ui.confirm( $message.append( $ul ), {
-			title: mw.message( 'mwe-upwiz-dialog-title' ).text()
 		} );
 	};
 

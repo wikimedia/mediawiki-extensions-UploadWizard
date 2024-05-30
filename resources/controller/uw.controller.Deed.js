@@ -70,11 +70,9 @@
 			}
 
 			$.when.apply( $, allValidityPromises ).then( function () {
-				// `arguments` will be an array of all fields, with their errors, warnings & notices
-				// e.g. `[[something], [], []], [[], [something], []]` for 2 fields,
+				// `arguments` will be an array of all fields, with their errors & warnings
+				// e.g. `[[something], []], [[], [something]]` for 2 fields,
 				// where the first one has an error and the last one a warning
-
-				// TODO Handle warnings with a confirmation dialog
 
 				if ( [ ...arguments ].some( ( arg ) => arg[ 0 ].length ) ) {
 					// One of the fields has errors; refuse to proceed!

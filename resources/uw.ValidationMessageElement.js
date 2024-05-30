@@ -18,7 +18,6 @@
 		this.errors = [];
 		this.warnings = [];
 		this.successMessages = [];
-		this.notices = [];
 
 		this.validatedWidget.connect( this, {
 			change: 'checkValidity'
@@ -31,7 +30,6 @@
 	// Hack: Steal methods from OO.ui.FieldLayout.
 	// TODO: Upstream ValidationMessageElement to OOUI, make FieldLayout use it.
 	uw.ValidationMessageElement.prototype.setErrors = OO.ui.FieldLayout.prototype.setErrors;
-	uw.ValidationMessageElement.prototype.setNotices = OO.ui.FieldLayout.prototype.setNotices;
 	uw.ValidationMessageElement.prototype.setWarnings = OO.ui.FieldLayout.prototype.setWarnings;
 	uw.ValidationMessageElement.prototype.updateMessages = OO.ui.FieldLayout.prototype.updateMessages;
 
@@ -51,15 +49,13 @@
 
 		return $.when(
 			( this.validatedWidget.getErrors ? this.validatedWidget.getErrors( thorough ) : [] ),
-			( this.validatedWidget.getWarnings ? this.validatedWidget.getWarnings( thorough ) : [] ),
-			( this.validatedWidget.getNotices ? this.validatedWidget.getNotices( thorough ) : [] )
-		).then( function ( errors, warnings, notices ) {
-			// this.errors, this.warnings and this.notices are arrays of mw.Messages and not strings in this subclass
+			( this.validatedWidget.getWarnings ? this.validatedWidget.getWarnings( thorough ) : [] )
+		).then( function ( errors, warnings ) {
+			// this.errors & this.warnings are arrays of mw.Messages and not strings in this subclass
 			element.setErrors( errors );
 			element.setWarnings( warnings );
-			element.setNotices( notices );
 
-			return $.Deferred().resolve( errors, warnings, notices ).promise();
+			return $.Deferred().resolve( errors, warnings ).promise();
 		} ).always( function () {
 			if ( element.validatedWidget.popPending ) {
 				element.validatedWidget.popPending();
@@ -74,12 +70,7 @@
 	 * @return {jQuery}
 	 */
 	uw.ValidationMessageElement.prototype.makeMessage = function ( kind, error ) {
-		var icons = {
-				error: 'error',
-				warning: 'notice',
-				notice: 'bellOutline'
-			},
-			code, $content;
+		var code, $content;
 
 		if ( error.parseDom ) {
 			// mw.Message object
@@ -91,12 +82,8 @@
 			$content = $( $.parseHTML( error.html ) );
 		}
 
-		return new OO.ui.MessageWidget( {
-			type: kind,
-			inline: true,
-			label: $content,
-			icon: icons[ kind ] || kind
-		} ).$element.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
+		return OO.ui.FieldLayout.prototype.makeMessage.call( this, kind, $content )
+			.addClass( 'mwe-upwiz-fieldLayout-' + kind + '-' + code );
 	};
 
 }( mw.uploadWizard ) );
