@@ -226,8 +226,6 @@
 	"mwe-upwiz-other": "Otra información",
 	"mwe-upwiz-source-text": "¿Dónde encontraste {{GENDER:$2| tu}} {{PLURAL:$1| este trabajo|estos trabajos}}? Ingrese el sitio web, el libro u otra fuente.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Este trabajo fue generado|Estos trabajos fueron generados}} por IA",
-	"mwe-upwiz-thanks-intro": "¡Gracias por tu subida!",
-	"mwe-upwiz-thanks-explain": "Puedes ahora usar {{PLURAL:$1|este archivo|estos archivos}} en wikis, o {{PLURAL:$1|enlazarlo|enlazarlos}} en la web.",
 	"mwe-upwiz-thanks-wikitext": "Para usar el archivo en una wiki, copia este texto dentro de una página:",
 	"mwe-upwiz-thanks-update-delay": "La inserción de la imagen en la página de la lista puede tardar hasta cinco minutos.",
 	"mwe-upwiz-thanks-url": "Para vincular a él en HTML, copiar esta dirección URL:",

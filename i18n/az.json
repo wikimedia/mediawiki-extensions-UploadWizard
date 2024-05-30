@@ -199,8 +199,6 @@
 	"mwe-upwiz-other": "Digər məlumatlar",
 	"mwe-upwiz-source-text": "Bu {{PLURAL:$1|əsəri|əsərləri}} harda {{GENDER:$2|tapmısınız}}? Vebsaytı, kitabı və ya digər mənbəni daxil edin.",
 	"mwe-upwiz-source-ai": "Bu {{PLURAL:$1|əsər|əsərlər}} süni intellekt aləti ilə yaradılıb",
-	"mwe-upwiz-thanks-intro": "Yüklədiyiniz üçün təşəkkürlər!",
-	"mwe-upwiz-thanks-explain": "Artıq bu {{PLURAL:$1|faylı|faylları}} vikilərdə istifadə edə və ya internetdə keçid verə bilərsiniz.",
 	"mwe-upwiz-thanks-wikitext": "Faylı vikidə istifadə etmək üçün bu mətni səhifəyə əlavə edin:",
 	"mwe-upwiz-thanks-update-delay": "Şəklin siyahı səhifəsinə daxil edilməsi beş dəqiqəyə qədər çəkə bilər.",
 	"mwe-upwiz-thanks-url": "HTML-də ona keçid etmək üçün bu URL-i kopyalayın:",

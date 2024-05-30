@@ -153,8 +153,6 @@
 	"mwe-upwiz-objref-notice-update-delay": "Anovar la páxina referida puede tardar un tiempu.",
 	"mwe-upwiz-autoconverted": "Esti ficheru se convertió automáticamente al formatu $1",
 	"mwe-upwiz-other": "Otra información",
-	"mwe-upwiz-thanks-intro": "¡Gracies pola xubida!",
-	"mwe-upwiz-thanks-explain": "Yá pue usar {{PLURAL:$1|esti ficheru|estos ficheros}} en wikis, o {{PLURAL:$1|enllazalu|enllazalos}} na web.",
 	"mwe-upwiz-thanks-wikitext": "Pa usar el ficheru nuna wiki, copia esti testu na páxina:",
 	"mwe-upwiz-thanks-update-delay": "Insertar la imaxe na páxina de la llista puede tardar hasta cinco minutos.",
 	"mwe-upwiz-thanks-url": "Pa enllazalu en HTML, copia esta direición URL:",

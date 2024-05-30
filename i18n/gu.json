@@ -81,8 +81,6 @@
 	"mwe-upwiz-location-alt": "ઊંચાઈ",
 	"mwe-upwiz-autoconverted": "આ ફાઇલને આપોઆપ $1 ફોર્મેટ માં પરિવર્તિત કરાઈ",
 	"mwe-upwiz-other": "બીજી માહિતી",
-	"mwe-upwiz-thanks-intro": "અપલોડ માટે આભાર!",
-	"mwe-upwiz-thanks-explain": "તમે હવે {{PLURAL:$1|આ ફાઇલ|આ ફાઇલો}}ને વિકિઓ પર વાપરી શકશો, અથવા {{PLURAL:$1|તેની|તેમની}} અન્ય વેબસાઇટ પર કડી કરી શકશો.",
 	"mwe-upwiz-thanks-wikitext": "આ ફાઈલને વિકિમાં વાપરવા માટે, આ લખાણને પાનાં પર નકલ કરો:",
 	"mwe-upwiz-thanks-url": "તેને HTMLમાં કડી કરવા માટે, આ URL સરનામું નકલ કરો:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "\".$1\" વિસ્તારકો ધરાવતી ફાઈલોને આ વિકિ સ્વીકારતું નથી.",

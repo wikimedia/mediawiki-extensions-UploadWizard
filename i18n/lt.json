@@ -133,8 +133,6 @@
 	"mwe-upwiz-objref-notice-update-delay": "Nurodytojo puslapio atnaujinimas gali užtrukti.",
 	"mwe-upwiz-autoconverted": "Šis failas buvo automatiškai konvertuotas į į $1 formatą",
 	"mwe-upwiz-other": "Kita informacija",
-	"mwe-upwiz-thanks-intro": "Ačiū už įkėlimą!",
-	"mwe-upwiz-thanks-explain": "Dabar galite naudoti {{PLURAL:$1|šį failą|šiuos failus}} šiame vikiprojekte, arba susieti {{PLURAL:$1|jį|juos}} internete.",
 	"mwe-upwiz-thanks-wikitext": "Norėdami naudoti failus Vikipedijoje, nukopijuokite šį tekstą į puslapį:",
 	"mwe-upwiz-thanks-update-delay": "Paveikslėlio įterpimas į sąrašo puslapį gali užtrukti iki penkių minučių.",
 	"mwe-upwiz-thanks-url": "Susieti jį HTML kode, nukopijuokite šį URL:",

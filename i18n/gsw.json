@@ -94,8 +94,6 @@
 	"mwe-upwiz-location-alt": "Hechi",
 	"mwe-upwiz-autoconverted": "Die Datei isch automatisch in s $1-Format konvertiert wore",
 	"mwe-upwiz-other": "Meh Informatione",
-	"mwe-upwiz-thanks-intro": "Dankschen fir s Uffelade!",
-	"mwe-upwiz-thanks-explain": "Du chasch jetz die {{PLURAL:$1|Datei|Dateie}} uf Websyte wie Wikipedia bruche oder im Internet uf si verlinke.",
 	"mwe-upwiz-thanks-wikitext": "Go die Datei in eme Wiki nutze chenne, kopier dää Text in e Syte:",
 	"mwe-upwiz-thanks-url": "Go in HTML uf d Datei verlinke, kopier die URL in dr Code:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Des Wiki erlaubt kei Dateie mit dr Ändig „.$1“.",

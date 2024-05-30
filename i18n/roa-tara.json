@@ -122,8 +122,6 @@
 	"mwe-upwiz-objref-pick-image": "Aggiunge 'u referimende a l'oggette sus a st'immaggine.",
 	"mwe-upwiz-autoconverted": "Stu file ha state convertite automaticamende jndr'à 'u formate $1",
 	"mwe-upwiz-other": "Otre 'mbormaziune",
-	"mwe-upwiz-thanks-intro": "Grazie pu carecamende!",
-	"mwe-upwiz-thanks-explain": "Tu puè ausà {{PLURAL:$1|stu file|ste file}} sus a le uicchi, o {{PLURAL:$1|collegarle}} sus a 'u web.",
 	"mwe-upwiz-thanks-wikitext": "Pe ausà 'u file jndr'à 'na uicchi, copie stu teste jndr'à 'na pàgene:",
 	"mwe-upwiz-thanks-url": "Pe collegarle cu l'HTML, copie stu 'ndirizze URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Sta uicchi non ge vole nome de file ca spicciane cu l'estenzione \".$1\".",

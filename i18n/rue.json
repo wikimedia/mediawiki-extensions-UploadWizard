@@ -87,8 +87,6 @@
 	"mwe-upwiz-location-alt": "Вышка",
 	"mwe-upwiz-autoconverted": "Файл быв автоматічно переведеный до формату $1.",
 	"mwe-upwiz-other": "Іншы інформації",
-	"mwe-upwiz-thanks-intro": "Дякуєме за начітаня файлу!",
-	"mwe-upwiz-thanks-explain": "Теперь можете {{PLURAL:$1|тот файл|тоты файлы}} хосновати на проєктах, як є Вікіпедія, або на {{PLURAL:$1|ній|них}} одказати з вебовых сторінок.",
 	"mwe-upwiz-thanks-wikitext": "Про хоснованя файлу на вікі вложте до сторінкы тот текст:",
 	"mwe-upwiz-thanks-url": "Окдазовати на файл в HTML можете за помочі той адресы:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Тота вікі не приїмать імена файлів з росшырїнём „.$1“.",

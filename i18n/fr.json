@@ -244,8 +244,6 @@
 	"mwe-upwiz-other": "Autres informations",
 	"mwe-upwiz-source-text": "Où avez-vous trouvé {{PLURAL:$1|cette œuvre|ces œuvres}} ? Indiquez un site internet, un livre ou une autre source.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Ce fichier est généré|Ces fichiers sont générés}} dans un outil d'intelligence artificielle",
-	"mwe-upwiz-thanks-intro": "Merci d’avoir téléversé vos œuvres !",
-	"mwe-upwiz-thanks-explain": "Vous pouvez maintenant utiliser et intégrer ce{{PLURAL:$1||s}} fichier{{PLURAL:$1||s}} sur les wikis, ou bien établir des liens vers {{PLURAL:$1|lui|eux}} sur le web.",
 	"mwe-upwiz-thanks-wikitext": "Afin d’utiliser le fichier sur un wiki, vous pouvez copier le texte suivant dans une page :",
 	"mwe-upwiz-thanks-update-delay": "L’insertion de l’image dans la page de liste peut prendre jusqu’à cinq minutes.",
 	"mwe-upwiz-thanks-url": "Pour établir un lien vers lui en HTML, copiez cette URL :",

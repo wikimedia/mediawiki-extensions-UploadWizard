@@ -91,8 +91,6 @@
 	"mwe-upwiz-location-alt": "Dhuwur",
 	"mwe-upwiz-autoconverted": "Berkas iki otomatis diganti nèng pormat $1",
 	"mwe-upwiz-other": "Inpormasi liya",
-	"mwe-upwiz-thanks-intro": "Matur nuwun wis ngunggah!",
-	"mwe-upwiz-thanks-explain": "Panjenengan bisa nganggo {{PLURAL:$1|barkas iki}} ing wiki, utawa nggawé pranala nyang {{PLURAL:$1|barkas iku}} ing jaringan.",
 	"mwe-upwiz-thanks-wikitext": " Kanggo nganggo berkas iki nèng wiki, salin tèks iki nèng kaca:",
 	"mwe-upwiz-thanks-url": " Kanggo ngubungaké kuwi nèng HTML, salin alamat URL iki:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Wiki iki ora nampa jeneng berkas sing pungkasané èkstènsi \".$1\".",

@@ -171,8 +171,6 @@
 	"mwe-upwiz-objref-notice-update-delay": "بروزرسانی صفحه پیوند شده ممکن است زمان‌بر باشد.",
 	"mwe-upwiz-autoconverted": "این پرونده به طور خودکار به قالب $1 تبدیل شد",
 	"mwe-upwiz-other": "اطلاعات دیگر",
-	"mwe-upwiz-thanks-intro": "سپاس از بارگذاری!",
-	"mwe-upwiz-thanks-explain": "شما می‌توانید از این {{PLURAL:$1|پرونده|پرونده‌ها}} در وب‌گاه‌ها استفاده کنید، یا در وب به {{PLURAL:$1|آن|آن‌ها}} پیوند دهید.",
 	"mwe-upwiz-thanks-wikitext": "برای استفاده پرونده در ویکی، این متن را به یک صفحه بیفزایید:",
 	"mwe-upwiz-thanks-url": "برای پیوند دادن به آن در اچ‌تی‌ام‌ال، از این نشانی نسخه برداری کنید:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "این ویکی نام پرونده با پسوند \".$1\" قبول نمی‌کند.",

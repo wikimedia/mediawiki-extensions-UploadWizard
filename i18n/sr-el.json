@@ -137,8 +137,6 @@
 	"mwe-upwiz-location-heading": "Smer snimanja",
 	"mwe-upwiz-autoconverted": "Ova datoteka je samostalno pretvorena u format $1",
 	"mwe-upwiz-other": "Ostali podaci",
-	"mwe-upwiz-thanks-intro": "Hvala na otpremanju!",
-	"mwe-upwiz-thanks-explain": "Sada možete da koristite {{PLURAL:$1|ovu datoteku|ove datoteke}} na stranicama poput Vikipedije ili {{PLURAL:$1|je|ih}} povezati.",
 	"mwe-upwiz-thanks-wikitext": "Da biste koristili datoteku na vikiju, kopirajte sledeći tekst na stranicu:",
 	"mwe-upwiz-thanks-url": "Da biste postavili vezu do nje u HTML-u, kopirajte sledeću adresu:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ovaj viki ne prihvata imena datoteka koja se završavaju oznakom tipa datoteke „.$1”.",

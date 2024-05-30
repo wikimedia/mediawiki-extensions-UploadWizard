@@ -75,8 +75,6 @@
 	"mwe-upwiz-location-alt": "Altitudni",
 	"mwe-upwiz-autoconverted": "Dan il-fajl ġie awtomatikament konvertit għall-format $1",
 	"mwe-upwiz-other": "Aktar informazzjoni",
-	"mwe-upwiz-thanks-intro": "Grazzi tal-kontribuzzjoni tiegħek!",
-	"mwe-upwiz-thanks-explain": "Issa tista' tuża {{PLURAL:$1|dan il-fajl|dawn il-fajls}} fuq siti bħall-Wikipedija, jew torbot {{PLURAL:$1|lejh|lejhom}} minn kullimkien fuq il-web.",
 	"mwe-upwiz-thanks-wikitext": "Biex tuża dan il-fajl fuq wiki, ikkopja dan it-test f'paġna:",
 	"mwe-upwiz-thanks-url": "Biex toħloq ħolqa f'HTML, ikkopja dan l-indirizz URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Din il-wiki ma taċċettax ismijiet ta' fajls bl-estensjoni \".$1\".",

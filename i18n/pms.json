@@ -104,8 +104,6 @@
 	"mwe-upwiz-location-alt": "Autëssa",
 	"mwe-upwiz-autoconverted": "Cost archivi a l'é stàit convertì an automàtich al formà $1",
 	"mwe-upwiz-other": "Àutre anformassion",
-	"mwe-upwiz-thanks-intro": "Mersì për avèj carià!",
-	"mwe-upwiz-thanks-explain": "Adess a peul dovré {{PLURAL:$1|cost archivi|costi archivi}} su dle wiki, o buté dj'anliure a {{PLURAL:$1|chiel|lor}} an sla ragnà.",
 	"mwe-upwiz-thanks-wikitext": "Për dovré l'archivi ant na wiki, ch'a còpia cost test ant na pàgina:",
 	"mwe-upwiz-thanks-url": "Për coleghelo an HTML, còpia l'adrëssa dë st'anliura:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Costa wiki a aceta pa ij nòm d'archivi con l'estension \".$1\".",

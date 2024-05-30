@@ -150,8 +150,6 @@
 	"mwe-upwiz-objref-notice-update-delay": "A actualización da páxina referida pode tardar un anaco.",
 	"mwe-upwiz-autoconverted": "A conversión do ficheiro a formato $1 realizouse automaticamente",
 	"mwe-upwiz-other": "Outra información",
-	"mwe-upwiz-thanks-intro": "Grazas pola súa subida!",
-	"mwe-upwiz-thanks-explain": "Agora xa pode empregar {{PLURAL:$1|este ficheiro|estes ficheiros}} nos wikis ou incluír ligazóns cara a {{PLURAL:$1|el|eles}} na web.",
 	"mwe-upwiz-thanks-wikitext": "Para empregar o ficheiro nun wiki, copie este texto na páxina:",
 	"mwe-upwiz-thanks-update-delay": "A inserción da imaxe na páxina de lista pode tardar ata cinco minutos.",
 	"mwe-upwiz-thanks-url": "Para ligar cara á imaxe en HTML, copie este URL:",

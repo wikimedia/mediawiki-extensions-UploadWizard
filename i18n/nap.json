@@ -115,8 +115,6 @@
 	"mwe-upwiz-objref-notice-update-delay": "'E se ffà agghiurnamente d' 'a paggena riferita se pigliasse nu poch' 'e tiempo.",
 	"mwe-upwiz-autoconverted": "Stu file fuje automatecamente scagnato a furmato $1",
 	"mwe-upwiz-other": "Cchiù nfurmaziune",
-	"mwe-upwiz-thanks-intro": "Grazie pe' carrecà!",
-	"mwe-upwiz-thanks-explain": "Vuje putite ausà mò {{PLURAL:$1|stu file|sti file}} dint' 'e wiki, o nu link a {{PLURAL:$1|chesto|chiste}} p' 'a web.",
 	"mwe-upwiz-thanks-wikitext": "Pe' puté ausà stu file dint'a na wiki, copiate stu testo dint'a na paggena:",
 	"mwe-upwiz-thanks-update-delay": "A nzertà ll'immaggene int' 'a paggena 'elenco ce vulessero nfin'a cinche minute",
 	"mwe-upwiz-thanks-url": "Pe' puté cullegà cu l'HTML cupiate stu nnerizzo URL:",

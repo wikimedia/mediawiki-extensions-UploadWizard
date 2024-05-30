@@ -106,8 +106,6 @@
 	"mwe-upwiz-location-alt": "Altitud",
 	"mwe-upwiz-autoconverted": "Daytoy a papeles ket automatiko a naipabalin iti $1 a kita",
 	"mwe-upwiz-other": "Sabali a pakaammo",
-	"mwe-upwiz-thanks-intro": "Agyamanak ti panagipan!",
-	"mwe-upwiz-thanks-explain": "Mabalinmon nga usaren {{PLURAL:$1|daytoy a papeles|dagitoy a papeles}} kadagitoy a wiki, wenno isilpo {{PLURAL:$1|iti daytoy|dagitoy}} iti web.",
 	"mwe-upwiz-thanks-wikitext": "Ti panagusar ti papeles iti wiki, kopiaen daytoy a teksto iti maysa a panid:",
 	"mwe-upwiz-thanks-url": "Ti agsilpo kaniana iti HTML, kopiaen daytoy nga adres ti URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Daytoy a wiki ket saan nga agala kadagiti nagan ti papeles nga agpatingga iti pagpaatiddog iti \".$1\".",

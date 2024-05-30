@@ -184,8 +184,6 @@
 	"mwe-upwiz-other": "Més informació",
 	"mwe-upwiz-source-text": "On heu trobat aquest fitxer? Introduïu-ne la font: web, llibre, revista, etc.",
 	"mwe-upwiz-source-ai": "Aquest és un fitxer generat per intel·ligència artificial.",
-	"mwe-upwiz-thanks-intro": "Gràcies per la càrrega!",
-	"mwe-upwiz-thanks-explain": "Ara ja podeu utilitzar {{PLURAL:$1|aquest fitxer|aquests fitxers}} al vostre wiki de preferència o enllaçar-{{PLURAL:$1|lo|los}} arreu d'Internet!",
 	"mwe-upwiz-thanks-wikitext": "Per fer servir el fitxer en un wiki, copieu aquest text en una pàgina:",
 	"mwe-upwiz-thanks-update-delay": "La inserció de la imatge en la pàgina de la llista pot trigar fins a cinc minuts.",
 	"mwe-upwiz-thanks-url": "Per enllaçar-lo en HTML, copieu aquesta adreça URL:",

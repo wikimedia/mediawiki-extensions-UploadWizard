@@ -193,8 +193,6 @@
 	"mwe-upwiz-other": "Altere informationes",
 	"mwe-upwiz-source-text": "Ubi ha {{GENDER:$2|tu}} trovate iste obra{{PLURAL:$1||s}}? Insere le sito web, le libro, o un altere fonte.",
 	"mwe-upwiz-source-ai": "Iste obra{{PLURAL:$1||s}} ha essite generate per un instrumento de intelligentia artificial",
-	"mwe-upwiz-thanks-intro": "Gratias pro le incargamento!",
-	"mwe-upwiz-thanks-explain": "Tu pote ora usar iste {{PLURAL:$1|file|files}} in wikis, o ligar a {{PLURAL:$1|illo|illos}} in le web.",
 	"mwe-upwiz-thanks-wikitext": "Pro usar le file in un wiki, copia iste texto in un pagina:",
 	"mwe-upwiz-thanks-update-delay": "Inserer le imagine in le lista pote prender usque a cinque minutas.",
 	"mwe-upwiz-thanks-url": "Pro ligar a illo in HTML, copia iste adresse URL:",

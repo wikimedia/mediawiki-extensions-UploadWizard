@@ -238,8 +238,6 @@
 	"mwe-upwiz-author-not-known": "我没有这些信息",
 	"mwe-upwiz-autoconverted": "该文件已被自动转换为$1格式",
 	"mwe-upwiz-other": "其他信息",
-	"mwe-upwiz-thanks-intro": "感谢上传！",
-	"mwe-upwiz-thanks-explain": "您现在可以在wiki上使用{{PLURAL:$1|此文件|这些文件}}，或于网络连接至{{PLURAL:$1|该文件|这些文件}}。",
 	"mwe-upwiz-thanks-wikitext": "如要在wiki中使用该文件，请将这些文字复制到页面中：",
 	"mwe-upwiz-thanks-update-delay": "插入图片至列表页面会花费最多5分钟。",
 	"mwe-upwiz-thanks-url": "如要在HTML中链接至该文件，请复制该URL地址：",

@@ -134,8 +134,6 @@
 	"mwe-upwiz-author-unknown": "Ech weess net, wien den Auteur ass",
 	"mwe-upwiz-autoconverted": "Dëse Fichier gouf automatesch an de(n) $1-Format ëmgewandelt",
 	"mwe-upwiz-other": "Aner Informatioun",
-	"mwe-upwiz-thanks-intro": "Merci fir d'Eroplueden!",
-	"mwe-upwiz-thanks-explain": "Dir kënnt {{PLURAL:$1|dëse Fichier|dës Fichieren}} elo op Sitte wéi Wikipedia benotzen, oder {{PLURAL:$1|en|s'}} um Internet verlinken.",
 	"mwe-upwiz-thanks-wikitext": "Fir de Fichier an enger Wiki ze benotzen, kopéiert dësen Text an eng Säit:",
 	"mwe-upwiz-thanks-url": "Fir een HTML-Link op dëse Fichier ze maachen, kopéiert dës URL-Adress :",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Dës Wiki akzeptéiert keng Fichieresnimm mat der Extensioun \".$1\".",

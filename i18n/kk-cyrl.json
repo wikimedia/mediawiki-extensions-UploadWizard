@@ -81,8 +81,6 @@
 	"mwe-upwiz-location-heading": "Бөлім",
 	"mwe-upwiz-autoconverted": "Бұл файл $1 форматында автоматты түрде түрлендіріледі",
 	"mwe-upwiz-other": "Басқа ақпарат",
-	"mwe-upwiz-thanks-intro": "Жүктегеніңізге рахмет!",
-	"mwe-upwiz-thanks-explain": "Сіз {{PLURAL:$1|бұл файлды|бұл файлдарды}} Уикипедия сияқты сайттарда қолдана аласыз немесе {{PLURAL:$1|оны|оларды}} уеб сайттарда сілтей аласыз.",
 	"mwe-upwiz-thanks-wikitext": "Файлды уикиде қолдану үшін бұл мәтінді беттің ішіне көшіріңіз:",
 	"mwe-upwiz-thanks-url": "Оны HTML-ға сілтеу үшін мына URL мекен-жайды көшіріп алыңыз:",
 	"mwe-upwiz-upload-error-duplicate-filename-error": " \"$1\" файлын әлдеқашан жүктегенсіз.",

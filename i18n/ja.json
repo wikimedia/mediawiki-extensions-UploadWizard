@@ -221,8 +221,6 @@
 	"mwe-upwiz-other": "その他の情報",
 	"mwe-upwiz-source-text": "{{GENDER:$2|あなた}}は{{PLURAL:$1|この作品|これらの作品}}をどこで見つけましたか? ウェブサイト、書籍、または別のソースを入力してください。",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|この作品は|これらの作品は}}人工知能ツールで生成されています",
-	"mwe-upwiz-thanks-intro": "アップロードしていただきありがとうございます!",
-	"mwe-upwiz-thanks-explain": "これで、{{PLURAL:$1|このファイル|これらのファイル}}を、ウィキで利用したり、ウェブ上で{{PLURAL:$1|このファイル|これらのファイル}}にリンクできるようになりました。",
 	"mwe-upwiz-thanks-wikitext": "このファイルをウィキで使用するには、このテキストをページにコピーしてください:",
 	"mwe-upwiz-thanks-update-delay": "一覧ページに画像を挿入すると、5分程度かかる場合があります。",
 	"mwe-upwiz-thanks-url": "HTML でリンクするには、この URL をコピーしてださい:",
