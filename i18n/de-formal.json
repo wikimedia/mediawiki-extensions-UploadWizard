@@ -25,7 +25,6 @@
 	"mwe-upwiz-tooltip-skiptutorial": "Sie können dieses Tutorial erneut in [$1 Ihren Benutzereinstellungen] unter „$2“ → „$3“ aktivieren.",
 	"mwe-upwiz-tooltip-sign": "Sie können Ihren Benutzernamen auf diesem Wiki oder Ihren bürgerlichen Namen verwenden. In beiden Fällen wird er mit Ihrer Benutzerseite verknüpft.",
 	"mwe-upwiz-tooltip-description": "Beschreiben Sie kurz alles Wichtige zu diesem Werk. Bei einem Foto beispielsweise die wichtigsten abgebildeten Bestandteile, den Anlass der Aufnahme und/oder den Standort.",
-	"mwe-upwiz-tooltip-other": "Alle weiteren Informationen, die Sie im Zusammenhang mit diesem Werk angeben möchten, bspw. geographische Koordinaten, Links zu anderen Versionen, usw.",
 	"mwe-upwiz-tooltip-more-info": "Erfahren Sie mehr.",
 	"mwe-upwiz-file-need-file": "Fügen Sie zuerst eine Datei zum Hochladen hinzu.",
 	"mwe-upwiz-deeds-need-deed": "Erläutern Sie bitten, woher die {{PLURAL:$1|Datei|Dateien}} stammen und wie sie auf dieser Website genutzt werden können, indem Sie eine der Optionen auswählen.",
