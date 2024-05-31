@@ -149,8 +149,8 @@ return [
 		// wikitext to display above the UploadWizard UI.
 		'headerLabel' => '',
 
-		// wikitext to display on top of the final page
-		// When not provided, the message mwe-upwiz-thanks-message will be used.
+		// wikitext to display on top of the "use" page.
+		// When not provided, the message mwe-upwiz-thanks-intro will be used.
 		'thanksLabel' => '',
 
 		// checkbox label to display with each entry on the upload page to choose one image that
