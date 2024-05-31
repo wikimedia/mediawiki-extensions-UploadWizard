@@ -4,32 +4,28 @@
 @base-unit: 16px;
 
 #mwe-upwiz-stepdiv-thanks {
-	.mwe-upwiz-thanks-explain,
-	.mwe-upwiz-thanks-header,
 	.mwe-upwiz-thanks-update-delay {
 		width: 100%;
 		text-align: center;
+		font-weight: bold;
 	}
 
-	.mwe-upwiz-thanks-explain {
-		margin-bottom: 2em;
-	}
-
-	.mwe-upwiz-thanks-update-delay {
+	.mwe-upwiz-thanks-message {
+		margin-bottom: 3em;
 		font-weight: bold;
 	}
 
 	.mwe-upwiz-thanks {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 2.5em;
-		margin-bottom: 1em;
+		margin-bottom: 4em;
 
 		.mwe-upwiz-thumbnail-side {
-			width: 120px;
+			width: 200px;
+			margin-right: 35px;
 
 			.mwe-upwiz-thumbnail {
-				max-height: 120px;
+				max-height: 200px;
 				margin-bottom: 0.5em;
 			}
 		}
@@ -37,6 +33,15 @@
 		.mwe-upwiz-data {
 			flex: 1;
 			min-width: 300px;
+		}
+	}
+
+	.mwe-upwiz-buttons {
+		padding-left: 235px;
+		text-align: start;
+
+		@media screen and ( max-width: @min-width-breakpoint-tablet ) {
+			padding-left: 0;
 		}
 	}
 
@@ -126,5 +131,9 @@
 		@media screen and ( min-width: @min-width-breakpoint-desktop-wide ) {
 			position: absolute;
 		}
+	}
+
+	.oo-ui-actionFieldLayout.oo-ui-fieldLayout-align-top {
+		max-width: 40em;
 	}
 }

@@ -24,10 +24,10 @@
 	 * @param {Object} config
 	 */
 	uw.ui.Thanks = function UWUIThanks( config ) {
-		var $header,
-			homeButtonTarget,
+		var homeButtonTarget,
 			homeButtonHref,
 			homeButtonUrl,
+			thanksMessage,
 			beginButtonTarget,
 			thanks = this;
 
@@ -46,20 +46,14 @@
 			this.getDelayNotice().prependTo( this.$div );
 		}
 
-		$( '<p>' )
-			.addClass( 'mwe-upwiz-thanks-explain' )
-			.msg( 'mwe-upwiz-thanks-explain' )
-			.prependTo( this.$div );
-
-		$header = $( '<h3>' )
-			.addClass( 'mwe-upwiz-thanks-header' )
-			.prependTo( this.$div );
-
-		if ( !this.config.display || !this.config.display.thanksLabel ) {
-			$header.text( mw.message( 'mwe-upwiz-thanks-intro' ).text() );
-		} else {
-			$header.html( this.config.display.thanksLabel );
-		}
+		thanksMessage = new OO.ui.MessageWidget( {
+			type: 'success',
+			label: ( this.config.display && this.config.display.thanksLabel ) ?
+				new OO.ui.HtmlSnippet( this.config.display.thanksLabel ) :
+				mw.msg( 'mwe-upwiz-thanks-message' ),
+			classes: [ 'mwe-upwiz-thanks-message' ]
+		} );
+		thanksMessage.$element.prependTo( this.$div );
 
 		homeButtonTarget = this.getButtonConfig( 'homeButton', 'target' );
 		if ( !homeButtonTarget ) {
@@ -146,7 +140,7 @@
 			.addClass( 'mwe-upwiz-thumbnail' )
 			.appendTo( $thumbnailWrapDiv );
 		$thumbnailCaption = $( '<div>' )
-			.css( { 'text-align': 'center', 'font-size': 'small' } )
+			.css( { 'text-align': 'left', 'font-size': 'small' } )
 			.appendTo( $thumbnailWrapDiv );
 		$thumbnailLink = $( '<a>' )
 			.text( upload.details.getTitle().getMainText() )
@@ -161,7 +155,7 @@
 			);
 
 		// This must match the CSS dimensions of .mwe-upwiz-thumbnail
-		upload.getThumbnail( 120, 120 ).done( function ( thumb ) {
+		upload.getThumbnail( 200, 200 ).done( function ( thumb ) {
 			mw.UploadWizard.placeThumbnail( $thumbnailDiv, thumb );
 		} );
 
