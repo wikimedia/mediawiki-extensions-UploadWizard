@@ -8,7 +8,7 @@
 	 * @param {Object} config
 	 * @param {Object} config.languages { langcode: text } map of languages
 	 * @param {Object} [config.defaultLanguage]
-	 * @param {boolean} [config.canBeRemoved=true]
+	 * @param {boolean} [config.removable=true]
 	 * @param {mw.Message} [config.remove] Title text for remove icon
 	 * @param {number} [config.minLength=0] Minimum input length
 	 * @param {number} [config.maxLength=99999] Maximum input length
@@ -19,7 +19,7 @@
 				classes: [ 'mwe-upwiz-singleLanguageInputWidget-text' ],
 				autosize: true
 			} ),
-			canBeRemoved: true,
+			removable: true,
 			remove: mw.message( '' ),
 			minLength: 0,
 			maxLength: 99999
@@ -59,15 +59,15 @@
 		// (but do not flash warnings in the user's face while they're typing)
 		this.textInput.on( 'change', OO.ui.debounce( this.emit.bind( this, 'change' ), 500 ) );
 
-		this.$element.addClass( 'mwe-upwiz-singleLanguageInputWidget' );
-		this.$element.append( this.languageSelector.getElement() );
-		// HACK: ValidationMessageElement will append messages after this.$body
-		this.$body = this.textInput.$element;
-		if ( this.config.canBeRemoved !== false ) {
-			this.$element.append( this.removeButton.$element );
-			this.$body = this.removeButton.$element; // HACK
-		}
-		this.$element.append( this.textInput.$element );
+		// Note: ValidationMessageElement will append messages after this.$body
+		this.$body = $( '<div>' ).addClass( 'mwe-upwiz-singleLanguageInputWidget-body' ).append(
+			this.languageSelector.getElement(),
+			// remove button will be hidden with CSS if it's not meant to be removable
+			this.removeButton.$element,
+			this.textInput.$element
+		);
+		this.$element.addClass( 'mwe-upwiz-singleLanguageInputWidget' ).append( this.$body );
+		this.setRemovable( this.config.removable );
 	};
 	OO.inheritClass( uw.SingleLanguageInputWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.SingleLanguageInputWidget, uw.ValidationMessageElement );
@@ -226,7 +226,8 @@
 	uw.SingleLanguageInputWidget.prototype.getSerialized = function () {
 		return {
 			language: this.languageSelector.getValue(),
-			text: this.textInput.getValue()
+			text: this.textInput.getValue(),
+			removable: this.config.removable
 		};
 	};
 
@@ -235,10 +236,20 @@
 	 * @param {Object} serialized
 	 * @param {string} serialized.language Language code
 	 * @param {string} serialized.text Text
+	 * @param {boolean} serialized.removable
 	 */
 	uw.SingleLanguageInputWidget.prototype.setSerialized = function ( serialized ) {
 		this.setLanguage( serialized.language );
 		this.setText( serialized.text );
+		this.setRemovable( serialized.removable );
+	};
+
+	/**
+	 * @param {boolean} removable
+	 */
+	uw.SingleLanguageInputWidget.prototype.setRemovable = function ( removable ) {
+		this.config.removable = !!removable;
+		this.$element.toggleClass( 'mwe-upwiz-singleLanguageInputWidget-removable', this.config.removable );
 	};
 
 }( mw.uploadWizard ) );

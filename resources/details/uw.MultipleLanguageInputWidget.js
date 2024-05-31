@@ -35,7 +35,6 @@
 			flags: [ 'progressive' ],
 			label: this.getLabelText()
 		} );
-		this.addButton.connect( this, { click: [ 'addLanguageInput', this.config ] } );
 
 		// if a language becomes available because the input gets removed,
 		// or unavailable because it gets added, we'll need to update other
@@ -57,7 +56,9 @@
 		);
 
 		// Add empty input (non-removable if this field is required)
-		this.addLanguageInput( $.extend( {}, this.config, { canBeRemoved: !this.required } ) );
+		this.addLanguageInput( $.extend( {}, this.config, { removable: !this.required } ) );
+		// Clicking the button will add new, removable, language inputs
+		this.addButton.connect( this, { click: [ 'addLanguageInput', $.extend( {}, this.config, { removable: true } ) ] } );
 	};
 	OO.inheritClass( uw.MultipleLanguageInputWidget, uw.DetailsWidget );
 	OO.mixinClass( uw.MultipleLanguageInputWidget, OO.ui.mixin.GroupElement );
@@ -292,11 +293,23 @@
 		for ( i = 0; i < serialized.inputs.length; i++ ) {
 			config = $.extend( {}, config, {
 				defaultLanguage: serialized.inputs[ i ].language,
-				canBeRemoved: i > 0 || !this.required
+				removable: serialized.inputs[ i ].removable
 			} );
 
 			this.addLanguageInput( config, serialized.inputs[ i ].text );
 		}
+	};
+
+	/**
+	 * @param {boolean} required
+	 */
+	uw.MultipleLanguageInputWidget.prototype.setRequired = function ( required ) {
+		this.required = !!required;
+		this.getItems()[ 0 ].setRemovable( !this.required );
+
+		// emit change event - while no content has changed, the state has, and
+		// whatever (lack of) content there was may now have become (in)valid
+		this.emit( 'change' );
 	};
 
 }( mw.uploadWizard ) );

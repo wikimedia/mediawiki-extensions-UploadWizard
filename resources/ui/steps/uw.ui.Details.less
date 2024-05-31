@@ -130,3 +130,18 @@
 		}
 	}
 }
+
+// never show the remove button for the first caption input (even if it
+// does become removable after having unchecked "same as caption")
+// in order to reduce visual distraction, and to continue enticing
+// users (who are unaware that it is now in fact optional) to input
+// a caption, despite it no longer being actively enforced
+.mwe-upwiz-caption .mwe-upwiz-singleLanguageInputWidget:first-of-type&.mwe-upwiz-singleLanguageInputWidget-removable {
+	.mwe-upwiz-singleLanguageInputWidget-language {
+		width: 100%;
+	}
+
+	.mwe-upwiz-singleLanguageInputWidget-removeItem {
+		display: none;
+	}
+}
