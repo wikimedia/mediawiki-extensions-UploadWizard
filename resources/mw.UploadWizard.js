@@ -66,10 +66,7 @@
 			steps.file = new uw.controller.Upload( this.api, this.config );
 			steps.deeds = new uw.controller.Deed( this.api, this.config );
 			steps.details = new uw.controller.Details( this.api, this.config );
-			steps.thanks = new uw.controller.Thanks( this.api, $.extend(
-				{ showInBreadcrumb: false },
-				this.config
-			) );
+			steps.thanks = new uw.controller.Thanks( this.api, this.config );
 
 			steps.tutorial.setNextStep( steps.file );
 

@@ -142,21 +142,12 @@
 				.append(
 					$( '<div>' ).text( mw.message( 'mwe-upwiz-step-' + step.stepName ).text() )
 				);
-			if ( step.showInBreadcrumb ) {
-				$steps.append( $arrow );
-			}
+			$steps.append( $arrow );
 
 			// once a (new) step loads, highlight it
 			step.on( 'load', function ( $arrow ) {
-				if ( step.showInBreadcrumb ) {
-					$steps.arrowStepsHighlight( $arrow );
-				}
-				$steps.show();
+				$steps.arrowStepsHighlight( $arrow );
 			}.bind( step, $arrow ) );
-
-			step.on( 'finished', function () {
-				$steps.hide();
-			} );
 		} );
 
 		$steps.arrowSteps();
