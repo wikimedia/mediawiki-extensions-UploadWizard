@@ -53,7 +53,9 @@
 			"铁桶",
 			"阿pp",
 			"飞舞回堂前",
-			"MangoFanFanw"
+			"MangoFanFanw",
+			"Googology",
+			"LittlePaw365"
 		]
 	},
 	"uploadwizard": "上传向导",
@@ -301,7 +303,7 @@
 	"mwe-upwiz-error-title-senselessimagename": "请使该标题更有意义。",
 	"mwe-upwiz-error-title-thumbnail": "这似乎是缩略图标题。请不要将缩略图上传回相同的维基。否则，请修改文件名，使其更有意义并且没有缩略图前缀。",
 	"mwe-upwiz-error-title-extension": "您不需要添加文件扩展名，只需要使用能够让人理解的标题。应用程序会处理其他事项。",
-	"mwe-upwiz-error-title-protected": "此标题在本wiki对应的页面已被保护。请选择另一个标题。",
+	"mwe-upwiz-error-title-protected": "此标题对应于此wiki上受保护的页面，请选择其他标题。",
 	"mwe-upwiz-error-title-duplicate": "此标题已指定为您将上传的多于一个文件。下划线会视为空格，并会自动添加文件拓展名。",
 	"mwe-upwiz-error-license-wikitext-missing": "您选择了需要您输入wikitext的选项。",
 	"mwe-upwiz-error-license-wikitext-too-short": "此处的wikitext过短，不能作为许可证",
