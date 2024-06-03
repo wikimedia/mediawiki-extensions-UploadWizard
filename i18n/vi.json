@@ -163,6 +163,8 @@
 	"mwe-upwiz-objref-notice-existing-image": "Một hình đã tồn tại cho đối tượng được tham chiếu.",
 	"mwe-upwiz-objref-notice-update-delay": "Chờ một chốc để trang được tham chiếu đến được cập nhật.",
 	"mwe-upwiz-autoconverted": "Tập tin này được tự điện chuyển đổi sang định dạng $1",
+	"mwe-upwiz-thanks-intro": "Cảm ơn bạn đã tải lên!",
+	"mwe-upwiz-thanks-explain": "Bạn mới có thể sử dụng {{PLURAL:$1|tập tin|các tập tin}} này tại các wiki hoặc đặt liên kết đến {{PLURAL:$1|nó|chúng}} từ bất kỳ trang Web nào.",
 	"mwe-upwiz-thanks-wikitext": "Để sử dụng tập tin này trên một wiki, hãy chép văn bản này vào trang wiki:",
 	"mwe-upwiz-thanks-update-delay": "Có thể mất cho đến năm phút để chèn hình vào trang danh sách.",
 	"mwe-upwiz-thanks-url": "Để tạo liên kết đến nó trong HTML, hãy chép địa chỉ URL này:",

@@ -107,6 +107,8 @@
 	"mwe-upwiz-location-lon": "Hydred",
 	"mwe-upwiz-location-alt": "Uchder",
 	"mwe-upwiz-autoconverted": "Trawsnewidiwyd y ffeil hon yn awtomatig i'r fformat $1",
+	"mwe-upwiz-thanks-intro": "Diolch am uwchlwytho!",
+	"mwe-upwiz-thanks-explain": "Gallwch bellach ddefnyddio'r {{PLURAL:$1||ffeil hon|ffeiliau hyn}} ar wicis, neu gysylltu {{PLURAL:$1||iddi|iddynt}} ar y we.",
 	"mwe-upwiz-thanks-wikitext": "Er mwyn defnyddio'r ffeil mewn wici, copïwch y testun hwn a'i osod ar dudalen:",
 	"mwe-upwiz-thanks-url": "I osod cyswllt ato mewn HTML, copïwch y cyfeiriad URL hwn:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Nid yw'r wici hwn yn derbyn enwau ffeil gyda'r estyniad \".$1\".",

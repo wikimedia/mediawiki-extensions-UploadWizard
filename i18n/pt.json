@@ -210,6 +210,8 @@
 	"mwe-upwiz-autoconverted": "Este ficheiro foi convertido automaticamente para o formato $1",
 	"mwe-upwiz-source-text": "Onde encontrou {{PLURAL:$1|esta obra|estas obras}}? Introduzir o ''site'', o livro ou outra fonte.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Esta obra foi gerada|Estas obras foram geradas}} por IA",
+	"mwe-upwiz-thanks-intro": "Obrigado pelo carregamento!",
+	"mwe-upwiz-thanks-explain": "Agora pode usar {{PLURAL:$1|este ficheiro|estes ficheiros}} em wikis, ou criar hiperligações para {{PLURAL:$1|ele|eles}} na Internet.",
 	"mwe-upwiz-thanks-wikitext": "Para usar o ficheiro numa wiki, copie este texto para uma página:",
 	"mwe-upwiz-thanks-update-delay": "A inserção da imagem na página da lista pode demorar até cinco minutos.",
 	"mwe-upwiz-thanks-url": "Para criar uma hiperligação para o ficheiro em HTML, copie este URL:",

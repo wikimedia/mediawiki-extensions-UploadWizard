@@ -59,6 +59,8 @@
 	"mwe-upwiz-date-created": "بساتن ِزمون",
 	"mwe-upwiz-location": "جاء",
 	"mwe-upwiz-autoconverted": "این پرونده به طور خودکار به قالب $1 تبدیل بیّه",
+	"mwe-upwiz-thanks-intro": "تشکر از باربی‌یشتن!",
+	"mwe-upwiz-thanks-explain": "شما بتونی این {{PLURAL:$1|پرونده|پرونده‌ئون}} جه وب‌گاه‌ئونی مثل ویکی‌پدیا دله استفاده هاکنین، یا وب دله به {{PLURAL:$1|آن|وشون}} پیوند هادین.",
 	"mwe-upwiz-thanks-wikitext": "استفاده پرونده ویکی سر وسّه، این متن ره به اتا صفحه ایضافه هاکنین:",
 	"mwe-upwiz-thanks-url": "ونه پیوند هدائن وسّه اچ‌تی‌ام‌ال دله، این نشونی جه نسخه برداری هاکنین:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "این ویکی ایسم پرونده با پسوند \".$1\" ره قبول نکانده.",

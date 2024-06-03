@@ -184,6 +184,8 @@
 	"mwe-upwiz-autoconverted": "Kol' bila ŋɔ di nyɛla din lɛbigi di toli zaŋ ti $1 nachiinsi",
 	"mwe-upwiz-source-text": "Ya ka a nya {{PLURAL:$1|this work|these works}}?? Kpɛhimi di website, di buku, bee di ni yi shɛli na.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Tuni ŋɔ nyɛla|Tuma ŋɔ nyɛla}}Baʒini ni nam shɛli.",
+	"mwe-upwiz-thanks-intro": "Mbo a ni zaŋdi kpɛhiri maa!",
+	"mwe-upwiz-thanks-explain": "A yi pa n-tooi zaŋ {{PLURAL:$1|kol' bila ŋɔ|kol' bihi ŋɔ}} tum tuma wikis, bee linkinima {{PLURAL:$1|it|them}}pɔhim zuɣu.",
 	"mwe-upwiz-thanks-wikitext": " A yi bɔri ni a zaŋ kol' bila ŋɔ tum tuma, nyin yaami bachinima ŋɔ n-niŋ yaɣili ŋɔ:",
 	"mwe-upwiz-thanks-update-delay": "A zaŋdi anfooni maa kpɛhira kalinl gbabiɛlinli maa ni di saha paai minti anu.",
 	"mwe-upwiz-thanks-url": "A yi bɔri ni a linki li ti HTML, nyin yaami URL ŋɔ:",

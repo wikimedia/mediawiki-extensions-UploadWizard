@@ -112,6 +112,8 @@
 	"mwe-upwiz-location-lon": "Longitudine",
 	"mwe-upwiz-location-alt": "Altitudine",
 	"mwe-upwiz-autoconverted": "Sto file el xe sta automategamente convertio inte'l formato $1",
+	"mwe-upwiz-thanks-intro": "Grasie pa' 'ver cargà!",
+	"mwe-upwiz-thanks-explain": "Xe deso posibiłe doparar {{PLURAL:$1|sto|sti}} file so i siti Wiki, o {{PLURAL:$1|linkarlo|linkarli}} dal web.",
 	"mwe-upwiz-thanks-wikitext": "Par doparar el file inte na wiki, copia sto testo inte na pàjina:",
 	"mwe-upwiz-thanks-url": "Par crear un ligamento in HTML, copia sto indiriso URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Sta wiki nó ła aceta nomi de file có estension \".$1\".",

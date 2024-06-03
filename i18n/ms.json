@@ -109,6 +109,8 @@
 	"mwe-upwiz-location-alt": "Altitud",
 	"mwe-upwiz-location-heading": "Arah",
 	"mwe-upwiz-autoconverted": "Fail ini ditukarkan secara automatik kepada format $1",
+	"mwe-upwiz-thanks-intro": "Terima kasih kerana memuat naik!",
+	"mwe-upwiz-thanks-explain": "Kini anda boleh menggunakan {{PLURAL:$1|fail|fail-fail}} ini pada wiki atau membuat pautan kepadanya di seluruh web.",
 	"mwe-upwiz-thanks-wikitext": "Untuk menggunakan fail ini dalam wiki, salin teks ini ke dalam laman yang ingin anda letakkannya:",
 	"mwe-upwiz-thanks-url": "Untuk membuat pautan ke fail ini dalam HTML, salin alamat URL ini:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Wiki ini tidak menerima nama fail yang berakhir dengan sambungan \".$1\".",

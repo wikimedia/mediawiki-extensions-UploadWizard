@@ -48,6 +48,8 @@
 	"mwe-upwiz-location-lat": "అక్షాంశం",
 	"mwe-upwiz-location-lon": "రేఖాంశం",
 	"mwe-upwiz-location-alt": "ఎత్తు (సముద్ర మట్టం నుండి)",
+	"mwe-upwiz-thanks-intro": "ఎక్కించినందుకు ధన్యవాదాలు!",
+	"mwe-upwiz-thanks-explain": "ఈ {{PLURAL:$1|దస్త్రాన్ని|దస్త్రాలను}} మీరు ఇప్పుడు వికీపీడియా వంటి సైట్లలో ఉపయోగించవచ్చు, లేదా {{PLURAL:$1|దీనికి|వీటికి}} జాలంలో లంకె వెయ్యవచ్చు.",
 	"mwe-upwiz-thanks-wikitext": "ఈ దస్త్రాన్ని వికీలలో ఉపయోగించడానికి, ఈ పాఠ్యాన్ని పేజీ లోనికి కాపీచెయ్యండి:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "ఈ వికీలో \".$1\" పొడగింపు ఉన్న దస్త్రనామాలని అంగీకరించరు.",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "\"$1\" అనే దస్త్రాన్ని మీరు ఇప్పటికే ఎక్కిస్తున్నారు.",

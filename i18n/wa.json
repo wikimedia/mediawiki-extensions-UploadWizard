@@ -58,6 +58,8 @@
 	"mwe-upwiz-location-lon": "Londjitude",
 	"mwe-upwiz-location-alt": "Hôteur",
 	"mwe-upwiz-autoconverted": "Li fitchî a stî cviersî otomaticmint al cogne $1",
+	"mwe-upwiz-thanks-intro": "Gråces d' aveur eberweté vos ouves !",
+	"mwe-upwiz-thanks-explain": "Vos ploz asteure eployî {{PLURAL:$1|ci fitchî ci|ces fitchîs ci}} so des waibes come Wikipedia, ou fé des loyéns avou a pårti d' ene ôte waibe.",
 	"mwe-upwiz-thanks-wikitext": "Po-z eployî ci fitchî cial so on wiki, ricopyîz ci tecse vola so tolminme kéne pådje  :",
 	"mwe-upwiz-thanks-url": "Po fé ene hårdêye HTML, ricopyî cist URL ci :",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ci wiki cial n' acceptêye nén les fitchîs avou l' cawete \".$1\".",

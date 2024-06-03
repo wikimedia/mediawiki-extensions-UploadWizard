@@ -65,6 +65,8 @@
 	"mwe-upwiz-date-created": "Datum pravljenja",
 	"mwe-upwiz-location": "Lokacija",
 	"mwe-upwiz-autoconverted": "Ova datoteka je automatski pretvorena u $1 format",
+	"mwe-upwiz-thanks-intro": "Hvala na postavljanju!",
+	"mwe-upwiz-thanks-explain": "Sada možete koristiti {{PLURAL:$1|ovu datoteku|ove datoteke}} na Wikipedijama ili {{PLURAL:$1|je|ih}} postaviti na web.",
 	"mwe-upwiz-thanks-wikitext": "Da biste koristili datoteku u wikiju, kopirajte ovaj tekst na stranicu:",
 	"mwe-upwiz-thanks-url": "Da biste je povezali u HTML, kopirajte ovu URL adresu:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ova wiki ne prihvata imena datoteka sa nastavkom \".$1\".",

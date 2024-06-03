@@ -129,6 +129,8 @@
 	"mwe-upwiz-location-alt": "Altitudine",
 	"mwe-upwiz-location-heading": "Direcție",
 	"mwe-upwiz-autoconverted": "Acest fișier a fost convertit automat în formatul $1",
+	"mwe-upwiz-thanks-intro": "Mulțumim pentru încărcare!",
+	"mwe-upwiz-thanks-explain": "Acum puteți utiliza {{PLURAL:$1|acest fișier|aceste fișiere}} pe site-uri wiki sau puteți adăuga legături către {{PLURAL:$1|el|ele}}.",
 	"mwe-upwiz-thanks-wikitext": "Pentru a folosi acest fișier pe un wiki, copiați acest text într-o pagină:",
 	"mwe-upwiz-thanks-url": "Pentru a crea o legătură în HTML, copiați această adresă URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Acest wiki nu acceptă nume de fișiere care se termină în extensia „.$1”.",

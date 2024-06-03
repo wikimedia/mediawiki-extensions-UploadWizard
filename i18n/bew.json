@@ -147,6 +147,8 @@
 	"mwe-upwiz-objref-notice-existing-image": "Gambar udah ada bakal obyèk nyang diruju'.",
 	"mwe-upwiz-objref-notice-update-delay": "Merbaruin halaman nyang diruju' bisa makan waktu beberapa lama.",
 	"mwe-upwiz-autoconverted": "Ni berekas dituker sendèwèknya ke pèpèlan $1",
+	"mwe-upwiz-thanks-intro": "Makasi udah ngangkat!",
+	"mwe-upwiz-thanks-explain": "Lu sekarang bisa maké {{PLURAL:$1|ni gepokan|ni gepokan pada}} di wiki, atawa nyènggètin ke {{PLURAL:$1|tu gepokan|tu gepokan pada}} di pelampang.",
 	"mwe-upwiz-thanks-wikitext": "Bakal maké ni berekas di wiki, jiplak ni tèks ke halaman:",
 	"mwe-upwiz-thanks-update-delay": "Nyelesepin gambar ke halaman daptar bisa makan waktu lima menit.",
 	"mwe-upwiz-thanks-url": "Bakal nyènggèt ni berekas di HTML, jiplak ni URL:",

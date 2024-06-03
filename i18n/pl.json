@@ -220,6 +220,8 @@
 	"mwe-upwiz-autoconverted": "Plik został automatycznie skonwertowany do formatu $1",
 	"mwe-upwiz-source-text": "Gdzie {{GENDER:$2|znalazłeś|znalazłaś|znalazłeś(-aś)}} {{PLURAL:$1|ten utwór|te utwory}}? Podaj adres strony internetowej, dane książki lub innego źródła.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|To dzieło jest|Te dzieła są}} wygenerowane przez narzędzie oparte o sztuczną inteligencję",
+	"mwe-upwiz-thanks-intro": "Dziękujemy za przesłanie plików!",
+	"mwe-upwiz-thanks-explain": "Teraz możesz korzystać z {{PLURAL:$1|tego pliku|tych plików}} na wiki lub linkować do {{PLURAL:$1|niego|nich}} w sieci.",
 	"mwe-upwiz-thanks-wikitext": "Aby skorzystać z pliku w wiki, skopiuj ten tekst na stronę",
 	"mwe-upwiz-thanks-update-delay": "Zdjęcie zostanie umieszczone na stronie z listą w ciągu pięciu minut.",
 	"mwe-upwiz-thanks-url": "Aby dodać link do niego w HTML, skopiuj ten adres URL",

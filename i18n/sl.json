@@ -198,6 +198,8 @@
 	"mwe-upwiz-autoconverted": "Datoteka je bila samodejno pretvorjena v obliko $1.",
 	"mwe-upwiz-source-text": "Kje {{GENDER:$2|ste našli}} {{PLURAL:$1|to delo|ti deli|ta dela}}? Vnesite spletno mesto, knjigo ali drug vir.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|To delo je generirano|Ti deli sta generirani|Ta dela so generirana}} z orodjem z umetno inteligenco",
+	"mwe-upwiz-thanks-intro": "Hvala za naložitev!",
+	"mwe-upwiz-thanks-explain": "Zdaj lahko {{PLURAL:$1|to datoteko|ti datoteki|te datoteke}} uporabljate v vikijih ali {{PLURAL:$1|nanjo|nanju|nanje}} povezujete na spletu.",
 	"mwe-upwiz-thanks-wikitext": "Za uporabo datoteke v vikiju skopirajte na stran naslednje besedilo:",
 	"mwe-upwiz-thanks-update-delay": "Vstavljanje slike na stran s seznamom lahko traja do pet minut.",
 	"mwe-upwiz-thanks-url": "Za povezavo v HTML skopirajte naslednji spletni naslov:",

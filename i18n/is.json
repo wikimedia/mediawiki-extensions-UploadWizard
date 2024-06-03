@@ -152,6 +152,8 @@
 	"mwe-upwiz-location-heading": "Stefna",
 	"mwe-upwiz-objref-notice-update-delay": "Uppfærsla á tilvísaðri síðu getur tekið smá stund.",
 	"mwe-upwiz-autoconverted": "Þessari skrá var sjálfvirkt umbreytt í $1-snið",
+	"mwe-upwiz-thanks-intro": "Takk fyrir innsendinguna!",
+	"mwe-upwiz-thanks-explain": "Þú getur nú notað {{PLURAL:$1|þessa skrá|þessar skrár}} á wiki vefsvæðum, eða tengt í {{PLURAL:$1|hana|þær}} á veraldarvefnum.",
 	"mwe-upwiz-thanks-wikitext": "Til þess að nota skránna á wiki, afritaðu þennan texta á síðuna:",
 	"mwe-upwiz-thanks-url": "Til þess að tengja í skránna með HTML, afritaðu þessa vefslóð:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Þessi wiki styður ekki skráarnöfn sem enda með skráartegundinni \".$1\".",

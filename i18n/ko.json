@@ -189,6 +189,8 @@
 	"mwe-upwiz-autoconverted": "이 파일은 자동으로 $1 포맷으로 변환되었습니다.",
 	"mwe-upwiz-source-text": "{{PLURAL:$1|이 저작물|이 저작물들}}을 어디서 찾으셨나요? 웹사이트 이름, 서적 이름, 기타 출처 등을 입력해 주세요.",
 	"mwe-upwiz-source-ai": "이 파일은 인공지능 툴로 생성되었습니다",
+	"mwe-upwiz-thanks-intro": "파일을 업로드해주셔서 감사합니다!",
+	"mwe-upwiz-thanks-explain": "이제 {{PLURAL:$1|이 파일}}을 위키에서 이용할 수 있으며, 또 웹에서 {{PLURAL:$1|이 파일}}을 링크할 수도 있습니다.",
 	"mwe-upwiz-thanks-wikitext": "이 파일을 위키에서 이용하려면, 이 텍스트를 복사해 문서에 붙여넣으세요:",
 	"mwe-upwiz-thanks-update-delay": "그림을 문서 목록에 추가하는데 최대 5분이 소요될 수 있습니다.",
 	"mwe-upwiz-thanks-url": "HTML로 이 파일을 링크하려면, 이 URL 주소를 복사하세요:",

@@ -196,6 +196,8 @@
 	"mwe-upwiz-author-text-ai-help": "<b>Esempio:</b> Autore: Midjourney AI; prompt creato da Mario Rossi",
 	"mwe-upwiz-autoconverted": "Questo file è stato automaticamente convertito nel formato $1",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Questa opera è generata|Queste opere sono generate}} attraverso uno strumento di intelligenza artificiale",
+	"mwe-upwiz-thanks-intro": "Grazie per il caricamento!",
+	"mwe-upwiz-thanks-explain": "È ora possibile usare {{PLURAL:$1|questo|questi}} file su wiki, o {{PLURAL:$1|collegarlo|collegarli}} da altrove sul web.",
 	"mwe-upwiz-thanks-wikitext": "Per usare il file in un wiki, copia questo testo in una pagina:",
 	"mwe-upwiz-thanks-url": "Per creare un collegamento in HTML, copia questo URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Questo wiki non accetta nomi di file con estensione \".$1\".",

@@ -147,6 +147,8 @@
 	"mwe-upwiz-objref-notice-existing-image": "'N'inmaggine pe l'ogetto a-o quæ t'hæ fæto rifeimento a gh'è za.",
 	"mwe-upwiz-objref-notice-update-delay": "Pe l'agiornamento da paggina a-a quæ t'hæ fæto rifeimento ghe voriâ 'n po.",
 	"mwe-upwiz-autoconverted": "Questo file o l'è stæto aotomaticamente convertio into formato $1",
+	"mwe-upwiz-thanks-intro": "Grassie pe-o caregamento!",
+	"mwe-upwiz-thanks-explain": "Oua ti poeu doeuviâ {{PLURAL:$1|questo|questi}} file in scê wiki, ò {{PLURAL:$1|inganciâlo|inganciâli}} da-a re'.",
 	"mwe-upwiz-thanks-wikitext": "Pe doeuviâ o file inte'n wiki, coppia sto scrito chie inte 'na paggina:",
 	"mwe-upwiz-thanks-update-delay": "Pe l'inseimento de l'inmaggine inta paggina da lista poriæ voeighe scin a çinque menuti.",
 	"mwe-upwiz-thanks-url": "Pe inganciâlo in HTML, coppia questo URL:",

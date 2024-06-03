@@ -67,6 +67,8 @@
 	"mwe-upwiz-location-lon": "Lonchitut",
 	"mwe-upwiz-location-alt": "Altitut",
 	"mwe-upwiz-autoconverted": "Iste fichero s'ha convertiu automaticament ta o formato $1",
+	"mwe-upwiz-thanks-intro": "Gracias por cargar fichers!",
+	"mwe-upwiz-thanks-explain": "Agora puet fer servir {{PLURAL:$1|iste fichero|istes fichers}} en puestos como Wikipedia, u enlazar a {{PLURAL:$1|ell|ells}} en a web.",
 	"mwe-upwiz-thanks-wikitext": "Ta fer servir o fichero en un wiki, copiar iste texto dentro d'una pachina:",
 	"mwe-upwiz-thanks-url": "Ta fer un vinclo ta ell en HTML, copiar ista adreza URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Iste wiki no accepta nombres de fichero con a extensión \".$1\".",

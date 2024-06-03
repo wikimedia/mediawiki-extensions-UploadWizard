@@ -143,6 +143,8 @@
 	"mwe-upwiz-location-alt": "Højde",
 	"mwe-upwiz-location-heading": "Retning",
 	"mwe-upwiz-autoconverted": "Filen blev automatisk konverteret til formatet $1",
+	"mwe-upwiz-thanks-intro": "Tak fordi du lægger filer op!",
+	"mwe-upwiz-thanks-explain": "Du kan nu bruge {{PLURAL:$1|denne fil|disse filer}} på wikier eller linke til {{PLURAL:$1|den|dem}} på internettet.",
 	"mwe-upwiz-thanks-wikitext": "For at bruge filen i en wiki, skal du kopiere denne tekst til en side:",
 	"mwe-upwiz-thanks-url": "For at linke til den i HTML, skal du kopiere denne URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Denne wiki accepterer ikke filnavne med endelsen \".$1\".",

@@ -107,6 +107,8 @@
 	"mwe-upwiz-location-lon": "Hedred",
 	"mwe-upwiz-location-alt": "Uhelder",
 	"mwe-upwiz-autoconverted": "Ez emgefre eo bet amdroet ar restr-mañ d'ar furmad $1",
+	"mwe-upwiz-thanks-intro": "Trugarez deoc'h da vezañ pellgaset !",
+	"mwe-upwiz-thanks-explain": "Bremañ e c'hellit implijout ar restr{{PLURAL:$1||où}}-mañ e wikioù, pe liammañ war {{PLURAL:$1|e du|o zu}} war ar web.",
 	"mwe-upwiz-thanks-wikitext": "Evit implijout ar restr war ur wiki, kopiañ an destenn-mañ en ur bajenn :",
 	"mwe-upwiz-thanks-url": "Evit krouiñ ul liamm HTML, kopiañ ar chomlec'h URL-mañ:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ne aotre ket ar wiki-mañ an anv restroù gant an astenn \".$1\".",

@@ -159,6 +159,8 @@
 	"mwe-upwiz-location-alt": "Korkeus",
 	"mwe-upwiz-location-heading": "Suunta",
 	"mwe-upwiz-autoconverted": "Tiedosto muutettiin automaattisesti muotoon $1.",
+	"mwe-upwiz-thanks-intro": "Kiitos tallennuksesta.",
+	"mwe-upwiz-thanks-explain": "{{PLURAL:$1|Tiedostoa|Tiedostoja}} voi nyt käyttää wikeissä, ja {{PLURAL:$1|siihen|niihin}} voi julkaista linkin verkossa.",
 	"mwe-upwiz-thanks-wikitext": "Käytä tiedostoa wikissä kopioimalla seuraava koodi sivulle:",
 	"mwe-upwiz-thanks-url": "Tiedostoon linkittäminen tapahtuu osoitteella:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Tämä wiki ei ota vastaan tiedostoja, jotka päättyvät tiedostopäätteeseen .$1.",
