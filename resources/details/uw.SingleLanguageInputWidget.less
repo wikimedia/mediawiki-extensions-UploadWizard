@@ -1,13 +1,15 @@
+@import 'mediawiki.skin.variables.less';
+
 .mwe-upwiz-singleLanguageInputWidget {
 	&:not( :first-of-type ) {
 		border-top: 0;
 	}
 
 	.mwe-upwiz-singleLanguageInputWidget-body {
-		background-color: #f8f9fa;
+		background-color: @background-color-neutral-subtle;
 		padding: 10px;
-		border: 1px solid #eaecf0;
-		border-radius: 2px;
+		border: @border-width-base @border-style-base @border-color-muted;
+		border-radius: @border-radius-base;
 		margin-bottom: 0.8em;
 
 		.mwe-upwiz-singleLanguageInputWidget-text {

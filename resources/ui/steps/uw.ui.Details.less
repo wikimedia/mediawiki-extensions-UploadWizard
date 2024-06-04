@@ -1,3 +1,5 @@
+@import 'mediawiki.skin.variables.less';
+
 .mwe-upwiz-info-file {
 	display: flex;
 	flex-wrap: wrap;
@@ -50,7 +52,7 @@
 
 .mwe-upwiz-details-fieldname,
 .oo-ui-fieldsetLayout-header .oo-ui-labelElement-label {
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 }
 
 .mwe-upwiz-details-fieldname-input {
@@ -117,7 +119,7 @@
 }
 
 .mwe-upwiz-details-help {
-	color: #54595d;
+	color: @color-subtle;
 }
 
 .mwe-upwiz-fieldsetLayout {
@@ -129,7 +131,7 @@
 	.oo-ui-inline-help {
 		font-size: inherit;
 		margin-bottom: 1em;
-		color: #54595d;
+		color: @color-subtle;
 	}
 }
 
@@ -138,7 +140,7 @@
 
 	.oo-ui-fieldLayout-header {
 		.mwe-upwiz-details-fieldname {
-			font-weight: normal;
+			font-weight: @font-weight-normal;
 		}
 	}
 

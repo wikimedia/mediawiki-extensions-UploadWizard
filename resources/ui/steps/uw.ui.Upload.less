@@ -35,6 +35,10 @@
 	}
 }
 
+.mwe-upwiz-add-file.oo-ui-selectFileInputWidget.oo-ui-widget-enabled.oo-ui-selectFileInputWidget-dropTarget {
+	background-color: @background-color-neutral-subtle;
+}
+
 #mwe-upwiz-add-file-container:not( .mwe-upwiz-add-files-0 ) {
 	.mwe-upwiz-add-file {
 		display: inline-block;
@@ -54,12 +58,8 @@
 		position: relative;
 	}
 
-	&.odd .mwe-upwiz-visible-file {
-		background: #f8f9fa;
-	}
-
 	&:hover .mwe-upwiz-visible-file {
-		background: #e0f0ff !important; /* stylelint-disable-line declaration-no-important */
+		background-color: @background-color-neutral !important; /* stylelint-disable-line declaration-no-important */
 	}
 }
 
@@ -119,7 +119,7 @@
 
 .mwe-upwiz-file-status {
 	display: none;
-	color: #54595d;
+	color: @color-subtle;
 }
 
 .mwe-upwiz-file-status-line ul {
@@ -199,14 +199,14 @@
 }
 
 #mwe-upwiz-flickr-disclaimer {
-	background-color: #eaf3ff;
+	background-color: @background-color-progressive-subtle;
 	font-size: 92%;
 	margin: 1em 0;
 	padding: 0.5em;
 }
 
 .filled + .filled {
-	border-top: 1px solid #c8ccd1;
+	border-top: @border-width-base @border-style-base @border-color-subtle;
 }
 
 #mwe-upwiz-upload-ctrls {

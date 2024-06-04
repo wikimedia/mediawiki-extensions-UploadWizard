@@ -1,10 +1,12 @@
+@import 'mediawiki.skin.variables.less';
+
 .arrowSteps {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 5px 0;
 	list-style-type: none;
 	list-style-image: none;
-	border: 1px solid #666;
+	border: @border-width-base @border-style-base #666;
 	position: relative;
 }
 
@@ -14,8 +16,8 @@
 	margin: 0;
 	border: 0 none;
 	height: 50px;
-	color: #54595d;
-	background-color: #eaecf0;
+	color: @color-subtle;
+	background-color: @background-color-neutral;
 	position: relative;
 	/* JS will calculate an even width for all steps, but we'd rather use flex */
 	width: auto !important; /* stylelint-disable-line declaration-no-important */
@@ -35,9 +37,9 @@
 }
 
 .arrowSteps li.head {
-	color: #36c;
-	background-color: #eaf3ff;
-	font-weight: bold;
+	color: @color-progressive;
+	background-color: @background-color-progressive-subtle;
+	font-weight: @font-weight-bold;
 }
 
 .arrowSteps li::after,
@@ -53,7 +55,7 @@
 }
 
 .arrowSteps li.arrow::after {
-	border-left-color: #eaecf0;
+	border-left-color: @background-color-neutral; // equals background-color of .arrowSteps li
 	/* half the height of .arrowSteps li */
 	border-width: 25px;
 	margin-top: -25px;
@@ -61,7 +63,7 @@
 }
 
 .arrowSteps li.arrow::before {
-	border-left-color: #fff;
+	border-left-color: @border-color-inverted;
 	/* half the height of .arrowSteps li + width of the arrow border */
 	border-width: 30px;
 	margin-top: -30px;
@@ -69,7 +71,7 @@
 }
 
 .arrowSteps li.head::after {
-	border-left-color: #eaf3ff;
+	border-left-color: @background-color-progressive-subtle;
 }
 
 /*

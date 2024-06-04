@@ -107,8 +107,8 @@
 		},
 		"ext.uploadWizard.uploadCampaign.display": {
 			"styles": [
-				"resources/ext.uploadWizard.uploadCampaign.display/content.css",
-				"resources/ext.uploadWizard.uploadCampaign.display/list.css"
+				"resources/ext.uploadWizard.uploadCampaign.display/content.less",
+				"resources/ext.uploadWizard.uploadCampaign.display/list.less"
 			]
 		},
 		"ext.uploadWizard": {
@@ -211,7 +211,7 @@
 				"resources/mw.UploadWizardUploadInterface.js"
 			],
 			"styles": [
-				"resources/jquery.arrowSteps/jquery.arrowSteps.css",
+				"resources/jquery.arrowSteps/jquery.arrowSteps.less",
 				"resources/ui/steps/uw.ui.Deed.less",
 				"resources/ui/steps/uw.ui.Details.less",
 				"resources/ui/steps/uw.ui.Thanks.less",
