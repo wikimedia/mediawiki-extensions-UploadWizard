@@ -13,13 +13,15 @@
 			"ZlyiLev",
 			"Дзяніс Тутэйшы",
 			"Тест",
-			"Хомелка"
+			"Хомелка",
+			"Чаховіч Уладзіслаў"
 		]
 	},
 	"uploadwizard": "Майстар загрузкі",
 	"uploadwizard-desc": "Майстар загрузак, зручны інструмент для запампоўвання мультымедыя",
 	"tag-uploadwizard": "Upload Wizard",
 	"tag-uploadwizard-description": "Загрузкі, зробленыя з дапамогай Upload Wizard",
+	"tag-uploadwizard-flickr": "Flickr",
 	"tag-uploadwizard-flickr-description": "Загрузкі з Flickr, зрабленыя з дапамогай Upload Wizard",
 	"right-mass-upload": "Пакетная загрузка мноства файлаў за раз з дапамогай Майстра загрузкі",
 	"action-mass-upload": "рабіць пакетную загрузку мноства файлаў за раз з дапамогай Майстра загрузкі",
