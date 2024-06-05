@@ -608,8 +608,8 @@ mw.FlickrChecker.prototype = {
 		path_alias = String( path_alias );
 		return this.getBlacklist().then( ( blacklist ) =>
 			// the blacklist should never contain the empty string, but better safe then sorry
-			 ( nsid in blacklist || path_alias && path_alias in blacklist )
-		 );
+			( nsid in blacklist || path_alias && path_alias in blacklist )
+		);
 	},
 
 	/**

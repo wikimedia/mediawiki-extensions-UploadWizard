@@ -140,8 +140,8 @@
 							// Messages:
 							// mwe-upwiz-error-title-invalid, mwe-upwiz-error-title-senselessimagename,
 							// mwe-upwiz-error-title-thumbnail, mwe-upwiz-error-title-extension,
-							 mw.message( 'mwe-upwiz-error-title-' + errorCode )
-						 )
+							mw.message( 'mwe-upwiz-error-title-' + errorCode )
+						)
 					);
 				}
 				return moreErrors;

@@ -497,8 +497,8 @@
 
 			return $.when.apply( $, fields.map( ( fieldLayout ) =>
 				// Update any error/warning/notice messages
-				 fieldLayout.checkValidity( thorough )
-			 ) );
+				fieldLayout.checkValidity( thorough )
+			) );
 		},
 
 		/**
