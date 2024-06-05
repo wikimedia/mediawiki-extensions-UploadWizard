@@ -180,7 +180,7 @@
 			// Add number suffix to first title if no numbering present
 			matches = titleZero.match( /(\D+)(\d{1,3})(\.\D*)?$/ );
 			if ( matches === null ) {
-				titleZero = titleZero + ' 01';
+				titleZero = titleZero.trim() + ' 01';
 			}
 		}
 
