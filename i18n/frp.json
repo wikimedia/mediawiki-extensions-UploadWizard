@@ -75,8 +75,6 @@
 	"mwe-upwiz-location-lon": "Longituda",
 	"mwe-upwiz-location-alt": "Hôtior",
 	"mwe-upwiz-autoconverted": "Ceti fichiér at étâ convèrti ôtomaticament u format de $1",
-	"mwe-upwiz-thanks-intro": "Grant-marci d’avêr tèlèchargiê voutres ôvres !",
-	"mwe-upwiz-thanks-explain": "Ora, vos pouede utilisar {{PLURAL:$1|cél fichiér|celos fichiérs}} sur des setos coment Vouiquipèdia, ou ben {{PLURAL:$1|lo|los}} liyér sur lo vouèbe.",
 	"mwe-upwiz-thanks-wikitext": "Por utilisar lo fichiér sur un vouiqui, copiyér ceti tèxto dens una pâge :",
 	"mwe-upwiz-thanks-url": "Por fâre un lim en HTML, copiyér ceta URL :",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Cél vouiqui accèpte pas los noms de fichiérs avouéc l’èxtension « .$1 ».",

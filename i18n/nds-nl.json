@@ -105,8 +105,6 @@
 	"mwe-upwiz-location-heading": "Upskrivt",
 	"mwe-upwiz-objref-pick-image": "De objektreferenty an disse afbealding tovogen.",
 	"mwe-upwiz-autoconverted": "Dit bestaand is automaties ummezet naor t formaot $1",
-	"mwe-upwiz-thanks-intro": "Bedanked vöär et insenden!",
-	"mwe-upwiz-thanks-explain": "Je kunnen {{PLURAL:$1|dit bestaand|disse bestaanden}} noen gebruken op wiki's of dernaor verwiezen op t web.",
 	"mwe-upwiz-thanks-wikitext": "Kopieer disse tekste in n zied um t bestaand te gebruken:",
 	"mwe-upwiz-thanks-url": "Kopieer dit webadres um dernaor te verwiezen in HTML:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Disse wiki aksepteert gien bestaandsnamen mit de extensie \".$1\".",

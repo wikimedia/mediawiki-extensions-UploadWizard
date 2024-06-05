@@ -149,8 +149,6 @@
 	"mwe-upwiz-location-alt": "Tengerszint feletti magasság",
 	"mwe-upwiz-location-heading": "Irányszög",
 	"mwe-upwiz-autoconverted": "Ezt a fájlt automatikusan $1 formátumra konvertáltuk.",
-	"mwe-upwiz-thanks-intro": "Köszönjük a feltöltést!",
-	"mwe-upwiz-thanks-explain": "Mostantól használhatod {{PLURAL:$1|ezt a fájlt|ezeket a fájlokat}} wikiken vagy linkelhetsz {{PLURAL:$1|rá|rájuk}} az interneten.",
 	"mwe-upwiz-thanks-wikitext": "Ahhoz, hogy egy wikin használhasd ezt a fájlt, másold az alábbi szöveget a lapba:",
 	"mwe-upwiz-thanks-url": "HTML-link létrehozásához, használd ezt az URL-címet:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ez a wiki nem fogad el „.$1” kiterjesztésű fájlokat.",

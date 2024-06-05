@@ -109,8 +109,6 @@
 	"mwe-upwiz-location-alt": "Høgd",
 	"mwe-upwiz-location-heading": "Retning",
 	"mwe-upwiz-autoconverted": "Fila vart av seg sjølv gjord om til $1-formatet.",
-	"mwe-upwiz-thanks-intro": "Takk for at du lastar opp filer!",
-	"mwe-upwiz-thanks-explain": "No kan du nytta {{PLURAL:$1|fila|filene}} på wikiar eller lenkja til {{PLURAL:$1|henne|dei}} på veven.",
 	"mwe-upwiz-thanks-wikitext": "For å nytta fila på ein wiki, lim inn denne teksten på ei side:",
 	"mwe-upwiz-thanks-url": "For å lenkja til henne i HTML, kopier denne vevadressa:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Wikien godtek ikkje filnamn som endar på «.$1».",

@@ -79,8 +79,6 @@
 	"mwe-upwiz-location-lon": "Gjatësia gjeografike",
 	"mwe-upwiz-location-alt": "Lartësia",
 	"mwe-upwiz-autoconverted": "Kjo skedë u konvertua automatikisht në formatin $1",
-	"mwe-upwiz-thanks-intro": "Faleminderit për ngarkimin!",
-	"mwe-upwiz-thanks-explain": "Ju tani mund të përdorni {{PLURAL:$1|këtë skedë|këto skeda}} në sajte si Wikipedia, ose mund {{PLURAL:$1|ta|t'i}} lidhni në internet.",
 	"mwe-upwiz-thanks-wikitext": "Për të përdorur skedën në një wiki, kopjoni këtë tekst në një faqe:",
 	"mwe-upwiz-thanks-url": "Për ta lidhur në HTML, kopjoni këtë adresë URL:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ky wiki nuk pranon emra skedash që mbarojnë me prapashtesën \".$1\".",

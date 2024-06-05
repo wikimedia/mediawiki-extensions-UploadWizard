@@ -204,8 +204,6 @@
 	"mwe-upwiz-autoconverted": "Berkas ini secara otomatis dikonversi ke format $1",
 	"mwe-upwiz-source-text": "Dari mana {{GENDER:$2|Anda}} menemukan {{PLURAL:$1|karya ini|karya-karya ini}}? Masukkan situs web, buku, atau sumber lainnya.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Karya ini|Karya-karya ini}} dihasilkan dengan menggunakan alat kecerdasan buatan",
-	"mwe-upwiz-thanks-intro": "Terima kasih telah mengunggah!",
-	"mwe-upwiz-thanks-explain": "Anda sekarang dapat menggunakan {{PLURAL:$1|berkas ini|berkas-berkas ini}} di situs wiki, atau membuat pranala ke {{PLURAL:$1|berkas itu|berkas-berkas itu}} di web.",
 	"mwe-upwiz-thanks-wikitext": "Untuk menggunakan berkas ini di sebuah wiki, salin teks ini ke halaman:",
 	"mwe-upwiz-thanks-update-delay": "Menyisipkan gambar ke dalam daftar halaman dapat berlangsung hingga lima menit.",
 	"mwe-upwiz-thanks-url": "Untuk membuat pranala ke berkas ini menggunakan HTML, salin alamat URL ini:",

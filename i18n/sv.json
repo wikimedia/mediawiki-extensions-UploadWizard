@@ -211,8 +211,6 @@
 	"mwe-upwiz-other-v2": "All annan information {{GENDER:$1|du}} vill inkludera",
 	"mwe-upwiz-source-text": "Var hittade {{GENDER:$2|du}} {{PLURAL:$1|detta verk|dessa verk}}? Ange en webbplats, bok eller annan källa.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Detta verk|Dessa verk}} {{PLURAL:$1|genererades}} med hjälp av artificiell intelligens",
-	"mwe-upwiz-thanks-intro": "Tack för uppladdningen!",
-	"mwe-upwiz-thanks-explain": "Du kan nu använda {{PLURAL:$1|denna fil|dessa filer}} på olika wikier, eller länka till {{PLURAL:$1|den|dem}} på webben.",
 	"mwe-upwiz-thanks-wikitext": "För att använda filen i en wiki, kopiera denna text till en sida:",
 	"mwe-upwiz-thanks-update-delay": "Kan ta upp till fem minuter att lägga in bilden i listsidan.",
 	"mwe-upwiz-thanks-url": "För att länka till den i HTML, kopiera denna URL-adress:",

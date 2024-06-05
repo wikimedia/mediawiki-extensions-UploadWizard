@@ -206,8 +206,6 @@
 	"mwe-upwiz-autoconverted": "Filen ble automatisk konvertert til formatet $1",
 	"mwe-upwiz-source-text": "Hvor fant {{GENDER:$2|du}} {{PLURAL:$1|dette verket|disse verkene}}? Skriv inn hvilken nettside, bok eller annen kilde du fant {{PLURAL:$1|det|dem}}.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Dette verket|Disse verkene}} er KI-{{PLURAL:$1|generert|genererte}}",
-	"mwe-upwiz-thanks-intro": "Takk for opplastingen!",
-	"mwe-upwiz-thanks-explain": "Du kan nå bruke {{PLURAL:$1|denne filen|disse filene}} på wikier, eller lenke til {{PLURAL:$1|den|dem}} på nettet.",
 	"mwe-upwiz-thanks-wikitext": "For å bruke filen i en wiki, kopier denne teksten inn i en side:",
 	"mwe-upwiz-thanks-update-delay": "Å sette inn bildet på listesiden kan ta opptil fem minutter.",
 	"mwe-upwiz-thanks-url": "For å lenke til den i HTML, kopier denne URL-adressen:",

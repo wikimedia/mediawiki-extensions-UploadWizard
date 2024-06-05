@@ -141,8 +141,6 @@
 	"mwe-upwiz-location-alt": "Nadmorská výška",
 	"mwe-upwiz-location-heading": "Smer",
 	"mwe-upwiz-autoconverted": "Tento súbor bol automaticky konvertovaný do formátu $1",
-	"mwe-upwiz-thanks-intro": "Ďakujeme za nahranie súboru!",
-	"mwe-upwiz-thanks-explain": "Teraz môžete {{PLURAL:$1|tento súbor|tieto súbory}} použiť na Wikipédiách alebo {{PLURAL:$1|naň|na ne}} odkazovať na webe.",
 	"mwe-upwiz-thanks-wikitext": "Pre použitie súboru na wiki vložte na stránku tento text:",
 	"mwe-upwiz-thanks-url": "Odkázať na súbor v HTML môžete pomocou tejto adresy:",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "Súbor „$1“ už nahrávate.",

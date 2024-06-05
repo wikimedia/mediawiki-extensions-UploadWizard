@@ -111,8 +111,6 @@
 	"mwe-upwiz-location-alt": "Berziye",
 	"mwe-upwiz-location-heading": "Sername",
 	"mwe-upwiz-autoconverted": "Ena dosya otomotikmen formatê $1 rê çarneyaya.",
-	"mwe-upwiz-thanks-intro": "Qandê barkerdışi şıma rê teşekur kem!",
-	"mwe-upwiz-thanks-explain": "Nıka şıma linkê {{PLURAL:$1|na dosya|nê dosyaya}} sitey zey Wikipediya de  şena ıstifade, ya zi web de  {{PLURAL:$1|na|nê}} linki bınuse.",
 	"mwe-upwiz-thanks-wikitext": "Na dosyayer wiki de karfinayışi re, ena metiner perda wiki re kopya kerê:",
 	"mwe-upwiz-thanks-url": "Qande greye HTML dayışi re, enê adresê URL kopya kerê:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Ena wiki derganeya nameyê dosya da \".$1\" qebul nêkeno.",

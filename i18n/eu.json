@@ -141,8 +141,6 @@
 	"mwe-upwiz-autoconverted": "Fitxategi hau automatikoki $1 formatura bihurtu da",
 	"mwe-upwiz-source-text": "Non aurkitu duzu lan hau? Sartu hemen webgunea, liburua edo iturria.",
 	"mwe-upwiz-source-ai": "Hau AA batek sortutako irudia da.",
-	"mwe-upwiz-thanks-intro": "Milesker igotzeagatik!",
-	"mwe-upwiz-thanks-explain": "Orain {{PLURAL:$1|fitxategi hau erabil dezakezu|fitxategi hauek erabil ditzakezu}} wikietan sarean estekatu.",
 	"mwe-upwiz-thanks-wikitext": "Fitxategia wiki batean erabiltzeko, testu hau kopiatu orrialde batean:",
 	"mwe-upwiz-thanks-update-delay": "Irudia zerrenda-orrian txertatzeak bost minutu behar izan ditzake.",
 	"mwe-upwiz-thanks-url": "HTML moduan estekatzeko, kopiatu URL hau:",

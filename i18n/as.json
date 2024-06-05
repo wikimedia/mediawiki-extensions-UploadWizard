@@ -136,8 +136,6 @@
 	"mwe-upwiz-location-alt": "উচ্চতা",
 	"mwe-upwiz-location-heading": "শিৰোনাম",
 	"mwe-upwiz-autoconverted": "এই ফাইলটো স্বয়ংক্ৰিয় ভাবে $1 ফৰমেটলৈ ৰূপান্তৰিত হ’ব",
-	"mwe-upwiz-thanks-intro": "আপলোডৰ বাবে ধন্যবাদ!",
-	"mwe-upwiz-thanks-explain": "আপুনি এতিয়া {{PLURAL:$1|এই ফাইলটো|এই ফাইলসমূহ}} ৱিকিত ব্যৱহাৰ কৰিব পাৰিব, বা ৱেবত {{PLURAL:$1|তালৈ|সেইবোৰলৈ}} লিংক দিব পাৰিব।",
 	"mwe-upwiz-thanks-wikitext": "এই ফাইলটো এটা ৱিকিত ব্যৱহাৰ কৰিবলৈ, এটা পৃষ্ঠাত এই পাঠখিনি প্ৰতিলিপি কৰক:",
 	"mwe-upwiz-thanks-url": "HTMLত ইয়াক সংযোগ কৰিবলৈ, এই URL ঠিকনা প্ৰতিলিপি কৰক:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "\".$1\" এক্সটেনছনেৰে শেষ হোৱা ফাইলৰ নাম এই ৱিকিয়ে গ্ৰহণ নকৰে।",

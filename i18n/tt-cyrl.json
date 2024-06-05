@@ -92,8 +92,6 @@
 	"mwe-upwiz-objref-notice-existing-image": "Бирелгән объектның бәйләнгән рәсеме бар инде.",
 	"mwe-upwiz-objref-notice-update-delay": "Бирелгән битне билгеләү кайбер вакыт таләп итәчәк.",
 	"mwe-upwiz-autoconverted": "Әлеге файл автоматик рәвештә $1 форматына күчерелде",
-	"mwe-upwiz-thanks-intro": "Төявегез өчен рәхмәт!",
-	"mwe-upwiz-thanks-explain": "Хәзер сез бу {{PLURAL:$1|1=файлны|файлларны}} википроектларда яисә {{PLURAL:$1|1=аңа|аларга}} сылтап бүтән вебсәхифәләрдә куллана аласыз.",
 	"mwe-upwiz-thanks-wikitext": "Файлны викида куллану өчен әлеге текстны биткә күчермәләгез:",
 	"mwe-upwiz-thanks-url": "Сылтаманы HTML форматына кую өчен әлеге URL адресны күчереп алыгыз:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Әлеге вики «.$1» форматындагы файллар белән эш итми.",

@@ -182,8 +182,6 @@
 	"mwe-upwiz-autoconverted": "See fail konverditi automaatselt $1-vormingusse.",
 	"mwe-upwiz-source-text": "Kust {{PLURAL:$1|selle teose|need teosed}} {{GENDER:$2|leidsid}}? Sisesta veebisait, raamat või muu allikas.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|See teos|Need teosed}} on loodud tehisaruvahendis",
-	"mwe-upwiz-thanks-intro": "Suur tänu üleslaadimast!",
-	"mwe-upwiz-thanks-explain": "Nüüd saad {{PLURAL:$1|seda faili|neid faile}} kasutada vikides või linkida {{PLURAL:$1|sellele|neile}} mujalt.",
 	"mwe-upwiz-thanks-wikitext": "Faili vikis kasutamiseks kopeeri leheküljele see tekst:",
 	"mwe-upwiz-thanks-update-delay": "Pildi lisamiseks loendilehele võib kuluda kuni viis minutit.",
 	"mwe-upwiz-thanks-url": "Teose linkimiseks HTML-is kopeeri see internetiaadress:",

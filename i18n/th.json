@@ -147,8 +147,6 @@
 	"mwe-upwiz-author-unknown": "ฉันไม่รู้ว่าใครเป็นผู้สร้าง",
 	"mwe-upwiz-author-not-known": "ฉันไม่มีข้อมูลนี้",
 	"mwe-upwiz-autoconverted": "ไฟล์นี้ถูกแปลงเป็นรูปแบบ $1 อัตโนมัติ",
-	"mwe-upwiz-thanks-intro": "ขอบคุณที่อัปโหลด!",
-	"mwe-upwiz-thanks-explain": "ขณะนี้คุณสามารถใช้{{PLURAL:$1|ไฟล์นี้|ไฟล์เหล่านี้}}บนวิกิต่าง ๆ หรือเชื่อมโยงมายังแฟ้มดังกล่าวจากเว็บนั้น",
 	"mwe-upwiz-thanks-wikitext": "ในการใช้แฟ้มในวิกิ ให้คัดลอกข้อความนี้ไปยังหน้า:",
 	"mwe-upwiz-thanks-url": "ในการเชื่อมโยงถึงใน HTML ให้คัดลอก URL นี้:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "วิกินี้ไม่ยอมรับชื่อไฟล์ที่มีนามสกุล \"$1\"",

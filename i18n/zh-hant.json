@@ -220,8 +220,6 @@
 	"mwe-upwiz-other-v2": "{{GENDER:$1|您}}想要提供的其他資訊",
 	"mwe-upwiz-source-text": "{{GENDER:$2|您}}是在哪裡找到{{PLURAL:$1|此|這些}}作品？請輸入網站、書籍，或是其他來源。",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|這|這些}}作品是用人工智慧工具做出的",
-	"mwe-upwiz-thanks-intro": "感謝您上傳！",
-	"mwe-upwiz-thanks-explain": "您現在可於 Wiki 上使用{{PLURAL:$1|該檔案|這些檔案}}，或透過網路連結{{PLURAL:$1|該檔案|這些檔案}}。",
 	"mwe-upwiz-thanks-wikitext": "要在 Wiki 中使用此檔案，請複製以下文字至頁面：",
 	"mwe-upwiz-thanks-update-delay": "插入圖片至清單頁面最多需花費 5 分鐘。",
 	"mwe-upwiz-thanks-url": "要在 HTML 中連結該檔案，請複製此 URL：",

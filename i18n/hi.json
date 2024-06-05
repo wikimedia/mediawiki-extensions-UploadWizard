@@ -163,7 +163,6 @@
 	"mwe-upwiz-objref-notice-existing-image": "सन्दर्भित वस्तु के लिए पहले से ही एक चित्र मौजूद है।",
 	"mwe-upwiz-objref-notice-update-delay": "सन्दर्भित पृष्ठ को अपलोड करने में थोड़ा समय लग सकता है।",
 	"mwe-upwiz-autoconverted": "इस चित्र को अपने आप $1 प्रारूप में बदल दिया गया है",
-	"mwe-upwiz-thanks-intro": "अपलोड करने के लिए धन्यवाद!",
 	"mwe-upwiz-upload-error-duplicate-filename-error": "आप पहले से ही \"$1\" फ़ाइल अपलोड कर रहे हैं",
 	"mwe-upwiz-allowed-filename-extensions": "अनुमति एक्सटेंशन हैं:",
 	"mwe-upwiz-upload-error-duplicate": "यह फ़ाइल पहले इस विकि पर अपलोड किया गया था.",

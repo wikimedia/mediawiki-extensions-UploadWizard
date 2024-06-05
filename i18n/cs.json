@@ -184,8 +184,6 @@
 	"mwe-upwiz-autoconverted": "Soubor byl automaticky převeden do formátu $1.",
 	"mwe-upwiz-source-text": "Kde jste {{GENDER:$2|získal|získala|získali}} {{PLURAL:$1|toto dílo|tato díla}}? Zadejte jméno webové stránky, knihy či jiného zdroje.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Toto dílo bylo vytvořeno|Tato díla byla vytvořena}} umělou inteligencí",
-	"mwe-upwiz-thanks-intro": "Děkujeme za načtení!",
-	"mwe-upwiz-thanks-explain": "Nyní můžete {{PLURAL:$1|tento soubor|tyto soubory}} použít na wiki nebo na {{PLURAL:$1|něj|ně}} odkázat z webových stránek.",
 	"mwe-upwiz-thanks-wikitext": "Pro použití souboru na wiki vložte do stránky tento text:",
 	"mwe-upwiz-thanks-url": "Odkázat na soubor v HTML můžete pomocí této adresy:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "Tato wiki nepřijímá soubory s příponou „.$1“.",

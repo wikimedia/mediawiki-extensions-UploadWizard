@@ -103,8 +103,6 @@
 	"mwe-upwiz-location-lon": "ଦ୍ରାଘିମା",
 	"mwe-upwiz-location-alt": "ଉଚ୍ଚତା",
 	"mwe-upwiz-autoconverted": "ଏହି ଫାଇଲଟି ଆପେଆପେ $1 ଫର୍ମାଟକୁ ରୂପାନ୍ତରିତ ହୋଇଗଲା",
-	"mwe-upwiz-thanks-intro": "ଅପଲୋଡ଼ କରିବା ନିମନ୍ତେ ସାଧୁବାଦ!",
-	"mwe-upwiz-thanks-explain": "ଆପଣ ଏବେ {{PLURAL:$1|ଏହି ଫାଇଲଟି|ଏହି ଫାଇଲସବୁ}} ଉଇକିପିଡ଼ିଆ ଭଳି ସାଇଟରେ ବ୍ୟବହାର କରିପାରିବେ, କିମ୍ବା ୱେବରେ {{PLURAL:$1|ଏହାକୁ|ଏସବୁକୁ}} ଲିଙ୍କଦେଇ ପାରିବେ ।",
 	"mwe-upwiz-thanks-wikitext": "ଏକ ଉଇକିରେ ବ୍ୟବହାର ହେବାପାଇଁ, ଏହି ଲେଖାକୁ ଏକ ପୃଷ୍ଠାକୁ ନକଲ କରିନିଅନ୍ତୁ:",
 	"mwe-upwiz-thanks-url": "HTMLରେ ଏହାକୁ ଯୋଡ଼ିବା ନିମନ୍ତେ, ଏହି URL ଠିକଣାଟି ନକଲ କରିବେ:",
 	"mwe-upwiz-upload-error-bad-filename-extension": "ଏହି ଉଇକି \".$1\" ରେ ସରୁଥିବା ଫଳ ନାମ ସବୁକୁ ଗ୍ରହଣ କରିନଥାଏ ।",

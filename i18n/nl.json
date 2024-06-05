@@ -215,8 +215,6 @@
 	"mwe-upwiz-autoconverted": "Dit bestand is automatisch omgezet naar het formaat $1",
 	"mwe-upwiz-source-text": "Waar heeft {{GENDER:$2|u}} {{PLURAL:$1|dit werk|deze werken}} gevonden? Voer de website, het boek of een andere bron in.",
 	"mwe-upwiz-source-ai": "{{PLURAL:$1|Dit werk is|Deze werken zijn}} via kunstmatige intelligentie gegenereerd",
-	"mwe-upwiz-thanks-intro": "Bedankt voor het uploaden!",
-	"mwe-upwiz-thanks-explain": "U kunt {{PLURAL:$1|dit bestand|deze bestanden}} nu gebruiken op wiki's of ernaar verwijzen op het web.",
 	"mwe-upwiz-thanks-wikitext": "Kopieer deze tekst in een pagina om het bestand te gebruiken:",
 	"mwe-upwiz-thanks-update-delay": "Het invoegen van de afbeelding in de lijstpagina kan tot vijf minuten duren.",
 	"mwe-upwiz-thanks-url": "Kopieer deze URL om ernaar te verwijzen in HTML:",
